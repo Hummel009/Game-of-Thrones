@@ -1,21 +1,23 @@
 package got.common.world.genlayer;
 
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.util.Enumeration;
-import java.util.zip.*;
-
-import javax.imageio.ImageIO;
-
-import org.apache.logging.log4j.Level;
-
 import com.google.common.math.IntMath;
-
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.ModContainer;
 import got.GOT;
 import got.common.GOTDimension;
 import got.common.world.biome.GOTBiome;
-import net.minecraft.world.*;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldType;
+import org.apache.logging.log4j.Level;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 public class GOTGenLayerWorld extends GOTGenLayer {
 	public static int scalePower = 7;
@@ -133,7 +135,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		mapRivers = new GOTGenLayerNarrowRivers(3000L, mapRivers, 6);
 		mapRivers = GOTGenLayerZoom.magnify(4000L, mapRivers, 1);
 		rivers = new GOTGenLayerIncludeMapRivers(5000L, rivers, mapRivers);
-		return new GOTGenLayer[] { biomes, variants, variantsSmall, lakes, rivers };
+		return new GOTGenLayer[]{biomes, variants, variantsSmall, lakes, rivers};
 	}
 
 	public static int getBiomeImageID(int x, int z) {

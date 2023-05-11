@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.EntityRenderer;
 
 public class GOTEntityMammoth3DViewer {
 
-	public static String[] ENTITYRENDERER_THIRDPERSONDISTANCE = { "thirdPersonDistance", "field_78490_B" };
+	public static String[] ENTITYRENDERER_THIRDPERSONDISTANCE = {"thirdPersonDistance", "field_78490_B"};
 	public Minecraft mc = Minecraft.getMinecraft();
 	public float defaultThirdPersonDistance;
 	public int noticeTicks;

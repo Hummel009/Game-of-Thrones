@@ -1,15 +1,20 @@
 package got.client.gui;
 
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
-
-import got.common.network.*;
-import got.common.tileentity.*;
-import net.minecraft.client.gui.*;
+import got.common.network.GOTPacketEditSign;
+import got.common.network.GOTPacketHandler;
+import got.common.tileentity.GOTTileEntitySign;
+import got.common.tileentity.GOTTileEntitySignCarved;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatAllowedCharacters;
+import net.minecraft.util.Direction;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiEditSign extends GuiScreen {
 	public static RenderItem itemRenderer = new RenderItem();

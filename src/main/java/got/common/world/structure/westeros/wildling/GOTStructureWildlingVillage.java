@@ -1,16 +1,21 @@
 package got.common.world.structure.westeros.wildling;
 
-import java.util.Random;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.westeros.wildling.*;
+import got.common.entity.westeros.wildling.GOTEntityWildling;
+import got.common.entity.westeros.wildling.GOTEntityWildlingArcher;
+import got.common.entity.westeros.wildling.GOTEntityWildlingAxeThrower;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureHayBales;
+import got.common.world.structure.other.GOTStructureNPCRespawner;
+import got.common.world.structure.other.GOTVillageGen;
+import got.common.world.structure.other.LocationInfo;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWildlingVillage extends GOTVillageGen {
 	public boolean isHardhome;
@@ -51,16 +56,16 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case HARDHOME:
-				setupHardhome(random);
-				break;
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case CRASTER:
-				this.addStructure(new GOTStructureWildlingKeep(false), -7, 0, 2, true);
-				this.addStructure(new GOTStructureWildlingBarn(false), 7, 6, 2, true);
-				break;
+				case HARDHOME:
+					setupHardhome(random);
+					break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case CRASTER:
+					this.addStructure(new GOTStructureWildlingKeep(false), -7, 0, 2, true);
+					this.addStructure(new GOTStructureWildlingBarn(false), 7, 6, 2, true);
+					break;
 			}
 		}
 
@@ -94,8 +99,8 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 				}
 			}, 0, 0, 0);
 			int spawnerX = 60;
-			for (int i1 : new int[] { -spawnerX, spawnerX }) {
-				for (int k1 : new int[] { -spawnerX, spawnerX }) {
+			for (int i1 : new int[]{-spawnerX, spawnerX}) {
+				for (int k1 : new int[]{-spawnerX, spawnerX}) {
 					this.addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override

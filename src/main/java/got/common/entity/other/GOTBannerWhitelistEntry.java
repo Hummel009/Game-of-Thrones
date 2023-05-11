@@ -1,11 +1,10 @@
 package got.common.entity.other;
 
-import java.util.*;
-
 import com.mojang.authlib.GameProfile;
-
 import got.common.GOTBannerProtection;
 import got.common.GOTBannerProtection.Permission;
+
+import java.util.*;
 
 public class GOTBannerWhitelistEntry {
 	public GameProfile profile;

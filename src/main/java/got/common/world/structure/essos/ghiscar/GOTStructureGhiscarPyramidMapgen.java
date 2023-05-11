@@ -1,14 +1,19 @@
 package got.common.world.structure.essos.ghiscar;
 
-import java.util.*;
-
 import got.common.GOTDimension;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeGhiscar;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTVillagePositionCache;
+import got.common.world.structure.other.LocationInfo;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.gen.structure.*;
+import net.minecraft.world.gen.structure.MapGenStructure;
+import net.minecraft.world.gen.structure.MapGenStructureIO;
+import net.minecraft.world.gen.structure.StructureStart;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GOTStructureGhiscarPyramidMapgen extends MapGenStructure {
 	public static List spawnBiomes;

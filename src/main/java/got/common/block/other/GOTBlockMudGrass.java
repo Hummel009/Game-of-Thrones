@@ -1,18 +1,23 @@
 package got.common.block.other;
 
-import java.util.Random;
-
-import cpw.mods.fml.relauncher.*;
-import got.common.database.*;
-import net.minecraft.block.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockStem;
+import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.*;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public class GOTBlockMudGrass extends Block implements IGrowable {
 	@SideOnly(value = Side.CLIENT)

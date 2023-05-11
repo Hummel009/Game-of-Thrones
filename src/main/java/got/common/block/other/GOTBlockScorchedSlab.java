@@ -1,6 +1,7 @@
 package got.common.block.other;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.slab.GOTBlockSlabBase;
 import got.common.database.GOTRegistry;
 import net.minecraft.block.material.Material;

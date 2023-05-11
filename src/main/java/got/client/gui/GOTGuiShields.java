@@ -1,26 +1,30 @@
 package got.client.gui;
 
-import java.util.List;
-
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
 import got.client.render.other.GOTRenderShield;
 import got.common.GOTLevelData;
 import got.common.database.GOTShields;
-import got.common.network.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketSelectShield;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.*;
-import net.minecraft.util.*;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.util.List;
 
 public class GOTGuiShields extends GOTGuiMenuWBBase {
 	public static ModelBiped playerModel = new ModelBiped();
 	public static int currentShieldTypeID;
 	public static int currentShieldID;
+
 	static {
 		GOTGuiShields.playerModel.isChild = false;
 	}
+
 	public int modelX;
 	public int modelY;
 	public float modelRotation = -140.0f;

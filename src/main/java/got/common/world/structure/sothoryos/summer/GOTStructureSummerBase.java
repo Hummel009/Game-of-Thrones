@@ -1,12 +1,13 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+
+import java.util.Random;
 
 public abstract class GOTStructureSummerBase extends GOTStructureBase {
 	public Block woodBlock;
@@ -37,12 +38,12 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 	}
 
 	public ItemStack getFramedItem(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.summerHelmet), new ItemStack(GOTRegistry.summerChestplate), new ItemStack(GOTRegistry.summerLeggings), new ItemStack(GOTRegistry.summerBoots), new ItemStack(GOTRegistry.summerDagger), new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerSpear), new ItemStack(GOTRegistry.summerPike), new ItemStack(GOTRegistry.essosBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTRegistry.gobletSilver), new ItemStack(GOTRegistry.mug), new ItemStack(GOTRegistry.ceramicMug), new ItemStack(GOTRegistry.goldRing), new ItemStack(GOTRegistry.silverRing), new ItemStack(GOTRegistry.copperRing), new ItemStack(GOTRegistry.bronzeRing), new ItemStack(GOTRegistry.doubleFlower, 1, 2), new ItemStack(GOTRegistry.doubleFlower, 1, 3) };
+		ItemStack[] items = {new ItemStack(GOTRegistry.summerHelmet), new ItemStack(GOTRegistry.summerChestplate), new ItemStack(GOTRegistry.summerLeggings), new ItemStack(GOTRegistry.summerBoots), new ItemStack(GOTRegistry.summerDagger), new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerSpear), new ItemStack(GOTRegistry.summerPike), new ItemStack(GOTRegistry.essosBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTRegistry.gobletSilver), new ItemStack(GOTRegistry.mug), new ItemStack(GOTRegistry.ceramicMug), new ItemStack(GOTRegistry.goldRing), new ItemStack(GOTRegistry.silverRing), new ItemStack(GOTRegistry.copperRing), new ItemStack(GOTRegistry.bronzeRing), new ItemStack(GOTRegistry.doubleFlower, 1, 2), new ItemStack(GOTRegistry.doubleFlower, 1, 3)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
 	public ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerDagger), new ItemStack(GOTRegistry.summerSpear), new ItemStack(GOTRegistry.summerPike) };
+		ItemStack[] items = {new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerDagger), new ItemStack(GOTRegistry.summerSpear), new ItemStack(GOTRegistry.summerPike)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -67,20 +68,20 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 		trapdoorBlock = GOTRegistry.trapdoorCedar;
 		int randomWool = random.nextInt(3);
 		switch (randomWool) {
-		case 0:
-			roofBlock = Blocks.wool;
-			roofMeta = 13;
-			break;
-		case 1:
-			roofBlock = Blocks.wool;
-			roofMeta = 11;
-			break;
-		case 2:
-			roofBlock = Blocks.wool;
-			roofMeta = 8;
-			break;
-		default:
-			break;
+			case 0:
+				roofBlock = Blocks.wool;
+				roofMeta = 13;
+				break;
+			case 1:
+				roofBlock = Blocks.wool;
+				roofMeta = 11;
+				break;
+			case 2:
+				roofBlock = Blocks.wool;
+				roofMeta = 8;
+				break;
+			default:
+				break;
 		}
 		int randomFloorWood = random.nextInt(2);
 		if (randomFloorWood == 0) {

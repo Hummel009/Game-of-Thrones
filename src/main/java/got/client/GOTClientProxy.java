@@ -1,13 +1,8 @@
 package got.client;
 
-import java.util.*;
-import java.util.Map.Entry;
-
-import org.lwjgl.opengl.GL11;
-
 import com.mojang.authlib.GameProfile;
-
-import cpw.mods.fml.client.registry.*;
+import cpw.mods.fml.client.registry.ClientRegistry;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import got.client.effect.*;
@@ -15,23 +10,34 @@ import got.client.gui.*;
 import got.client.render.GOTRender;
 import got.client.render.other.*;
 import got.client.sound.GOTMusic;
-import got.common.*;
-import got.common.database.*;
-import got.common.entity.animal.*;
+import got.common.GOTCommonProxy;
+import got.common.GOTDimension;
+import got.common.GOTGuiMessageTypes;
+import got.common.GOTTickHandlerServer;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTArmorModels;
+import got.common.entity.animal.GOTEntityElephant3DViewer;
+import got.common.entity.animal.GOTEntityMammoth3DViewer;
 import got.common.entity.dragon.GOTEntityDragon3DViewer;
 import got.common.entity.other.*;
-import got.common.faction.*;
-import got.common.network.*;
+import got.common.faction.GOTAlignmentBonusMap;
+import got.common.faction.GOTFaction;
+import got.common.network.GOTPacketClientInfo;
+import got.common.network.GOTPacketFellowshipAcceptInviteResult;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketMenuPrompt;
 import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.*;
 import got.common.util.GOTFunctions;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.*;
+import got.common.world.map.GOTAbstractWaypoint;
+import got.common.world.map.GOTConquestZone;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.Entity;
@@ -39,10 +45,21 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.client.C08PacketPlayerBlockPlacement;
-import net.minecraft.potion.*;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
+import org.lwjgl.opengl.GL11;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Random;
+import java.util.UUID;
 
 public class GOTClientProxy extends GOTCommonProxy {
 	public static ResourceLocation enchantmentTexture = new ResourceLocation("textures/misc/enchanted_item_glint.png");

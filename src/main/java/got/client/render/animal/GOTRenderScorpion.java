@@ -1,12 +1,13 @@
 package got.client.render.animal;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelScorpion;
-import got.common.entity.animal.*;
+import got.common.entity.animal.GOTEntityDesertScorpion;
+import got.common.entity.animal.GOTEntityScorpionBig;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderScorpion extends RenderLiving {
 	public static ResourceLocation jungleTexture = new ResourceLocation("got:textures/entity/animal/scorpion/jungle.png");

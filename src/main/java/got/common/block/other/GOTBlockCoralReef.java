@@ -1,21 +1,26 @@
 package got.common.block.other;
 
-import java.util.Random;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.item.Item;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class GOTBlockCoralReef extends Block {
-	public static String[] plantNames = { "purple", "yellow", "blue", "red", "green" };
+	public static String[] plantNames = {"purple", "yellow", "blue", "red", "green"};
 	public static Random iconRand = new Random();
 	public IIcon[] plantIcons;
 

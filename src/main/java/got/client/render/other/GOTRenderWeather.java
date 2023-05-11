@@ -1,20 +1,22 @@
 package got.client.render.other;
 
-import java.util.Random;
-
-import org.lwjgl.opengl.GL11;
-
 import got.GOT;
 import got.client.GOTTickHandlerClient;
 import got.common.world.biome.essos.GOTBiomeValyria;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.EntityRenderer;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.IRenderHandler;
+import org.lwjgl.opengl.GL11;
+
+import java.util.Random;
 
 public class GOTRenderWeather extends IRenderHandler {
 	public static ResourceLocation rainTexture = new ResourceLocation("got:textures/weather/rain.png");

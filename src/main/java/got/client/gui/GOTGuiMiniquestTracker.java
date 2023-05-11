@@ -1,17 +1,20 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTTickHandlerClient;
-import got.common.*;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
 import got.common.quest.GOTMiniQuest;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.*;
+import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiMiniquestTracker extends Gui {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/tracker.png");

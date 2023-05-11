@@ -1,11 +1,12 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
-import got.common.*;
-import got.common.network.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketSetOption;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiOptions extends GOTGuiMenuWBBase {
 	public GOTGuiButtonOptions buttonFriendlyFire;

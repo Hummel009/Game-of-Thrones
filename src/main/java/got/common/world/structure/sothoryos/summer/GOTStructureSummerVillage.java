@@ -1,14 +1,16 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.Random;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.sothoryos.summer.*;
+import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
+import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
+import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSummerVillage extends GOTVillageGen {
 	public boolean isRuinedVillage;
@@ -42,12 +44,12 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case FORT:
-				setupFortress(random);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case FORT:
+					setupFortress(random);
+					break;
 			}
 		}
 

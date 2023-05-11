@@ -1,21 +1,32 @@
 package got.common.world;
 
-import java.util.*;
-
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.GOTDimension;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.sothoryos.*;
-import got.common.world.biome.variant.*;
+import got.common.world.biome.sothoryos.GOTBiomeSothoryosJungle;
+import got.common.world.biome.sothoryos.GOTBiomeSothoryosMangrove;
+import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.biome.variant.GOTBiomeVariantList;
+import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import got.common.world.genlayer.*;
 import got.common.world.map.GOTFixedStructures;
-import got.common.world.structure.other.*;
-import net.minecraft.world.*;
-import net.minecraft.world.biome.*;
+import got.common.world.structure.other.GOTVillageGen;
+import got.common.world.structure.other.GOTVillagePositionCache;
+import net.minecraft.world.ChunkPosition;
+import net.minecraft.world.World;
+import net.minecraft.world.biome.BiomeCache;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.structure.MapGenStructure;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
 
 public class GOTWorldChunkManager extends WorldChunkManager {
 	public static int LAYER_BIOME;

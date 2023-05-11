@@ -1,8 +1,9 @@
 package got.common.world.structure.other;
 
-import java.util.*;
-
 import net.minecraft.world.ChunkCoordIntPair;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTVillagePositionCache {
 	public static int MAX_SIZE = 20000;

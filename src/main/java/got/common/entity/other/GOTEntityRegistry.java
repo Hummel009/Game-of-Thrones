@@ -1,15 +1,17 @@
 package got.common.entity.other;
 
-import java.util.*;
-
 import cpw.mods.fml.common.registry.EntityRegistry;
 import got.GOT;
 import got.common.entity.GOTEntity;
 import got.common.faction.GOTFaction;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.*;
 
 public class GOTEntityRegistry {
 	public static Map<Integer, SpawnEggInfo> spawnEggs = new LinkedHashMap<>();

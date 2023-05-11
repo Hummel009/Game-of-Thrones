@@ -1,7 +1,9 @@
 package got.client.model;
 
-import cpw.mods.fml.relauncher.*;
-import net.minecraft.client.model.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 

@@ -1,17 +1,19 @@
 package got.client.render.other;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.FMLLog;
-import got.common.block.other.*;
+import got.common.block.other.GOTBlockChest;
+import got.common.block.other.GOTBlockSpawnerChest;
 import got.common.tileentity.GOTTileEntityChest;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockChest;
 import net.minecraft.client.model.ModelChest;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderChest extends TileEntitySpecialRenderer {
 	public static Map<String, ResourceLocation> chestTextures = new HashMap<>();

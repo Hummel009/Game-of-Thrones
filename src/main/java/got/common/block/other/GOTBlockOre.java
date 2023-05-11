@@ -1,9 +1,9 @@
 package got.common.block.other;
 
-import java.util.Random;
-
 import got.common.GOTLevelData;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,6 +11,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTBlockOre extends Block {
 	public GOTBlockOre() {

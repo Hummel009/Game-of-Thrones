@@ -1,12 +1,15 @@
 package got.common.command;
 
-import java.util.*;
-
 import got.common.GOTLevelData;
-import net.minecraft.command.*;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentTranslation;
+
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandAdminHideMap extends CommandBase {
 	@Override

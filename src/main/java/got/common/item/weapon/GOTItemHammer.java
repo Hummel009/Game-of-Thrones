@@ -1,6 +1,8 @@
 package got.common.item.weapon;
 
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class GOTItemHammer extends GOTItemSword {
 	public GOTItemHammer(Item.ToolMaterial material) {

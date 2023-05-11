@@ -1,18 +1,24 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.database.GOTTradeEntries;
-import got.common.entity.other.*;
-import got.common.inventory.*;
-import got.common.network.*;
-import net.minecraft.client.gui.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTTradeEntry;
+import got.common.entity.other.GOTTradeSellResult;
+import got.common.entity.other.GOTTradeable;
+import got.common.inventory.GOTContainerTrade;
+import got.common.inventory.GOTSlotTrade;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketSell;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiTrade extends GuiContainer {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/trade.png");

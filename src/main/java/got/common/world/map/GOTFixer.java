@@ -1,22 +1,28 @@
 package got.common.world.map;
 
-import java.util.*;
-
 import got.common.entity.essos.legendary.GOTEntityMissandei;
 import got.common.entity.essos.legendary.captain.*;
-import got.common.entity.essos.legendary.quest.*;
-import got.common.entity.essos.legendary.trader.*;
+import got.common.entity.essos.legendary.quest.GOTEntityBuGai;
+import got.common.entity.essos.legendary.quest.GOTEntityDaenerysTargaryen;
+import got.common.entity.essos.legendary.quest.GOTEntityMellario;
+import got.common.entity.essos.legendary.trader.GOTEntityIllyrioMopatis;
+import got.common.entity.essos.legendary.trader.GOTEntityMoqorro;
+import got.common.entity.essos.legendary.trader.GOTEntityTychoNestoris;
+import got.common.entity.essos.legendary.trader.GOTEntityXaroXhoanDaxos;
 import got.common.entity.essos.legendary.warrior.*;
 import got.common.entity.other.GOTEntityHummel009;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldier;
 import got.common.entity.westeros.legendary.captain.*;
 import got.common.entity.westeros.legendary.deco.*;
 import got.common.entity.westeros.legendary.quest.*;
-import got.common.entity.westeros.legendary.reborn.*;
+import got.common.entity.westeros.legendary.reborn.GOTEntityBericDondarrion;
+import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane;
+import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy;
 import got.common.entity.westeros.legendary.trader.*;
 import got.common.entity.westeros.legendary.warrior.*;
 import got.common.world.biome.GOTBiome;
-import got.common.world.feature.*;
+import got.common.world.feature.GOTTreeType;
+import got.common.world.feature.GOTWorldGenPartyTrees;
 import got.common.world.structure.essos.asshai.GOTStructureAsshaiCity;
 import got.common.world.structure.essos.braavos.GOTStructureBraavosCity;
 import got.common.world.structure.essos.dothraki.GOTStructureDothrakiVillage;
@@ -53,12 +59,16 @@ import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsCi
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
 import net.minecraft.world.World;
 
+import java.util.EnumMap;
+import java.util.Map;
+import java.util.Random;
+
 public class GOTFixer {
 	public static Map<GOTWaypoint, GOTStructureBase> structures = new EnumMap<>(GOTWaypoint.class);
 	public static GOTVillageGen[] f = new GOTVillageGen[69];
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
-		GOTWaypoint[] forts = { GOTWaypoint.FiveForts1, GOTWaypoint.FiveForts2, GOTWaypoint.FiveForts3, GOTWaypoint.FiveForts4, GOTWaypoint.FiveForts5 };
+		GOTWaypoint[] forts = {GOTWaypoint.FiveForts1, GOTWaypoint.FiveForts2, GOTWaypoint.FiveForts3, GOTWaypoint.FiveForts4, GOTWaypoint.FiveForts5};
 		for (GOTWaypoint wp : forts) {
 			new GOTFiveFortsWall(false, wp).generate(world, random, i, 0, k, 0);
 		}

@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiStatue extends GOTStructureYiTiBase {
 	public GOTStructureYiTiStatue(boolean flag) {

@@ -1,13 +1,17 @@
 package got.common.database;
 
-import java.util.*;
-
 import got.GOT;
-import got.common.*;
-import got.common.faction.*;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
+import got.common.faction.GOTFactionRank;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
+
+import java.util.*;
 
 public class GOTTitle {
 	public static List<GOTTitle> allTitles = new ArrayList<>();
@@ -56,92 +60,92 @@ public class GOTTitle {
 
 	public boolean canPlayerUse(EntityPlayer entityplayer) {
 		switch (titleType) {
-		case STARTER: {
-			return true;
-		}
-		case ACHIEVEMENT: {
-			return GOTLevelData.getData(entityplayer).hasAchievement(titleAchievement);
-		}
-		case PLAYER_EXCLUSIVE: {
-			for (UUID player : uuids) {
-				if (!entityplayer.getUniqueID().equals(player)) {
-					continue;
-				}
+			case STARTER: {
 				return true;
 			}
-			return false;
-		}
-		case ALIGNMENT: {
-			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			boolean requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
-			for (GOTFaction f : alignmentFactions) {
-				if (pd.getAlignment(f) < alignmentRequired || requirePledge && !pd.isPledgedTo(f)) {
-					continue;
+			case ACHIEVEMENT: {
+				return GOTLevelData.getData(entityplayer).hasAchievement(titleAchievement);
+			}
+			case PLAYER_EXCLUSIVE: {
+				for (UUID player : uuids) {
+					if (!entityplayer.getUniqueID().equals(player)) {
+						continue;
+					}
+					return true;
 				}
-				return true;
+				return false;
 			}
-			return false;
-		}
-		case RANK: {
-			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			GOTFaction fac = titleRank.fac;
-			float align = pd.getAlignment(fac);
-			if (align >= titleRank.alignment) {
-				boolean requirePledge;
-				requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
-				return !requirePledge || pd.isPledgedTo(fac);
+			case ALIGNMENT: {
+				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
+				boolean requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
+				for (GOTFaction f : alignmentFactions) {
+					if (pd.getAlignment(f) < alignmentRequired || requirePledge && !pd.isPledgedTo(f)) {
+						continue;
+					}
+					return true;
+				}
+				return false;
 			}
-			return false;
-		}
+			case RANK: {
+				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
+				GOTFaction fac = titleRank.fac;
+				float align = pd.getAlignment(fac);
+				if (align >= titleRank.alignment) {
+					boolean requirePledge;
+					requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
+					return !requirePledge || pd.isPledgedTo(fac);
+				}
+				return false;
+			}
 		}
 		return true;
 	}
 
 	public String getDescription(EntityPlayer entityplayer) {
 		switch (titleType) {
-		case STARTER: {
-			return StatCollector.translateToLocal("got.titles.unlock.starter");
-		}
-		case PLAYER_EXCLUSIVE: {
-			return StatCollector.translateToLocal("got.titles.unlock.exclusive");
-		}
-		case ACHIEVEMENT: {
-			return titleAchievement.getDescription(entityplayer);
-		}
-		case ALIGNMENT: {
-			boolean requirePledge;
-			String alignLevel = GOTAlignmentValues.formatAlignForDisplay(alignmentRequired);
-			if (anyAlignment) {
-				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.any", alignLevel);
+			case STARTER: {
+				return StatCollector.translateToLocal("got.titles.unlock.starter");
 			}
-			String s = "";
-			if (alignmentFactions.size() > 1) {
-				for (int i = 0; i < alignmentFactions.size(); ++i) {
-					GOTFaction f = alignmentFactions.get(i);
-					if (i > 0) {
-						s = s + " / ";
-					}
-					s = s + f.factionName();
+			case PLAYER_EXCLUSIVE: {
+				return StatCollector.translateToLocal("got.titles.unlock.exclusive");
+			}
+			case ACHIEVEMENT: {
+				return titleAchievement.getDescription(entityplayer);
+			}
+			case ALIGNMENT: {
+				boolean requirePledge;
+				String alignLevel = GOTAlignmentValues.formatAlignForDisplay(alignmentRequired);
+				if (anyAlignment) {
+					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.any", alignLevel);
 				}
-			} else {
-				GOTFaction f = alignmentFactions.get(0);
-				s = f.factionName();
+				String s = "";
+				if (alignmentFactions.size() > 1) {
+					for (int i = 0; i < alignmentFactions.size(); ++i) {
+						GOTFaction f = alignmentFactions.get(i);
+						if (i > 0) {
+							s = s + " / ";
+						}
+						s = s + f.factionName();
+					}
+				} else {
+					GOTFaction f = alignmentFactions.get(0);
+					s = f.factionName();
+				}
+				requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
+				if (requirePledge) {
+					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", s, alignLevel);
+				}
+				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", s, alignLevel);
 			}
-			requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
-			if (requirePledge) {
-				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", s, alignLevel);
+			case RANK: {
+				boolean requirePledge;
+				String alignS = GOTAlignmentValues.formatAlignForDisplay(titleRank.alignment);
+				requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
+				if (requirePledge) {
+					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", titleRank.fac.factionName(), alignS);
+				}
+				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", titleRank.fac.factionName(), alignS);
 			}
-			return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", s, alignLevel);
-		}
-		case RANK: {
-			boolean requirePledge;
-			String alignS = GOTAlignmentValues.formatAlignForDisplay(titleRank.alignment);
-			requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
-			if (requirePledge) {
-				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", titleRank.fac.factionName(), alignS);
-			}
-			return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", titleRank.fac.factionName(), alignS);
-		}
 		}
 		return "If you can read this, something has gone hideously wrong";
 	}

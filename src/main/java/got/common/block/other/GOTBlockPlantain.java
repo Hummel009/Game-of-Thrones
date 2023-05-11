@@ -1,10 +1,14 @@
 package got.common.block.other;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 
 public class GOTBlockPlantain extends GOTBlockFlower {
 	@SideOnly(value = Side.CLIENT)

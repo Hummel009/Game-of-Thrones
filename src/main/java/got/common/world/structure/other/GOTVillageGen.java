@@ -1,7 +1,5 @@
 package got.common.world.structure.other;
 
-import java.util.*;
-
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.util.CentredSquareArray;
@@ -9,11 +7,16 @@ import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.*;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public abstract class GOTVillageGen {
 	public static Random villageRand = new Random();
@@ -328,27 +331,27 @@ public abstract class GOTVillageGen {
 			int xRel = 0;
 			int zRel = 0;
 			switch (this.rotationMode) {
-			case 0: {
-				xRel = this.centreX - xWorld;
-				zRel = this.centreZ - zWorld;
-				break;
+				case 0: {
+					xRel = this.centreX - xWorld;
+					zRel = this.centreZ - zWorld;
+					break;
+				}
+				case 1: {
+					xRel = this.centreZ - zWorld;
+					zRel = xWorld - this.centreX;
+					break;
+				}
+				case 2: {
+					xRel = xWorld - this.centreX;
+					zRel = zWorld - this.centreZ;
+					break;
+				}
+				case 3: {
+					xRel = zWorld - this.centreZ;
+					zRel = this.centreX - xWorld;
+				}
 			}
-			case 1: {
-				xRel = this.centreZ - zWorld;
-				zRel = xWorld - this.centreX;
-				break;
-			}
-			case 2: {
-				xRel = xWorld - this.centreX;
-				zRel = zWorld - this.centreZ;
-				break;
-			}
-			case 3: {
-				xRel = zWorld - this.centreZ;
-				zRel = this.centreX - xWorld;
-			}
-			}
-			return new int[] { xRel, zRel };
+			return new int[]{xRel, zRel};
 		}
 
 		public int getStructureRotation(int r) {
@@ -359,27 +362,27 @@ public abstract class GOTVillageGen {
 			int xWorld = this.centreX;
 			int zWorld = this.centreZ;
 			switch (this.rotationMode) {
-			case 0: {
-				xWorld = this.centreX - xRel;
-				zWorld = this.centreZ - zRel;
-				break;
+				case 0: {
+					xWorld = this.centreX - xRel;
+					zWorld = this.centreZ - zRel;
+					break;
+				}
+				case 1: {
+					xWorld = this.centreX + zRel;
+					zWorld = this.centreZ - xRel;
+					break;
+				}
+				case 2: {
+					xWorld = this.centreX + xRel;
+					zWorld = this.centreZ + zRel;
+					break;
+				}
+				case 3: {
+					xWorld = this.centreX - zRel;
+					zWorld = this.centreZ + xRel;
+				}
 			}
-			case 1: {
-				xWorld = this.centreX + zRel;
-				zWorld = this.centreZ - xRel;
-				break;
-			}
-			case 2: {
-				xWorld = this.centreX + xRel;
-				zWorld = this.centreZ + zRel;
-				break;
-			}
-			case 3: {
-				xWorld = this.centreX - zRel;
-				zWorld = this.centreZ + xRel;
-			}
-			}
-			return new int[] { xWorld, zWorld };
+			return new int[]{xWorld, zWorld};
 		}
 
 		public abstract boolean isVillageSpecificSurface(World var1, int var2, int var3, int var4);

@@ -1,14 +1,13 @@
 package got.common.world.map;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.Random;
 
 public class GOTBezierGenerator {
 	public static boolean generateBezier(World world, Random rand, int i, int k, GOTBiome biome, Block[] blocks, byte[] metadata, double[] heightNoise) {
@@ -165,7 +164,8 @@ public class GOTBezierGenerator {
 				break;
 			}
 			boolean adjRoad = false;
-			block5: for (i1 = -2; i1 <= 2; ++i1) {
+			block5:
+			for (i1 = -2; i1 <= 2; ++i1) {
 				for (int k1 = -2; k1 <= 2; ++k1) {
 					if (i1 == 0 && k1 == 0 || !GOTBeziers.isRoadAt(i + i1, k + k1)) {
 						continue;
@@ -181,7 +181,8 @@ public class GOTBezierGenerator {
 				metadata[index] = (byte) flower.metadata;
 			} else {
 				adjRoad = false;
-				block7: for (i1 = -3; i1 <= 3; ++i1) {
+				block7:
+				for (i1 = -3; i1 <= 3; ++i1) {
 					for (int k1 = -3; k1 <= 3; ++k1) {
 						if (Math.abs(i1) <= 2 && Math.abs(k1) <= 2 || !GOTBeziers.isRoadAt(i + i1, k + k1)) {
 							continue;

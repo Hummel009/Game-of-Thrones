@@ -1,11 +1,14 @@
 package got.common.network;
 
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.network.simpleimpl.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.world.*;
+import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.world.World;
 
 public class GOTPacketBiomeVariantsUnwatch implements IMessage {
 	public int chunkX;

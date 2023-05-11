@@ -1,11 +1,13 @@
 package got.common.network;
 
-import java.util.Random;
-
-import cpw.mods.fml.common.network.simpleimpl.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTPacketBlockFX implements IMessage {
 	public Type type;

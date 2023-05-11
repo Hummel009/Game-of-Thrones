@@ -1,7 +1,8 @@
 package got.common.entity.ai;
 
 import got.common.entity.dragon.GOTEntityDragon;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.util.Vec3;
 
 public class GOTEntityAIDragonLand extends EntityAIBase {

@@ -1,12 +1,15 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 	public GOTStructureAsshaiHouse(boolean flag) {
@@ -214,7 +217,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		for (int j15 = 1; j15 <= 3; ++j15) {
 			setBlockAndMetadata(world, 0, j15, 5, pillarBlock, pillarMeta);
 		}
-		for (int i13 : new int[] { -3, 1 }) {
+		for (int i13 : new int[]{-3, 1}) {
 			setBlockAndMetadata(world, i13, 2, 5, brickStairBlock, 0);
 			setBlockAndMetadata(world, i13, 3, 5, brickStairBlock, 4);
 			setBlockAndMetadata(world, i13 + 1, 2, 5, brickWallBlock, brickWallMeta);
@@ -222,8 +225,8 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 			setBlockAndMetadata(world, i13 + 2, 2, 5, brickStairBlock, 1);
 			setBlockAndMetadata(world, i13 + 2, 3, 5, brickStairBlock, 5);
 		}
-		for (int k13 : new int[] { -4, 5 }) {
-			for (int i14 : new int[] { -3, 1 }) {
+		for (int k13 : new int[]{-4, 5}) {
+			for (int i14 : new int[]{-3, 1}) {
 				setBlockAndMetadata(world, i14, 6, k13, brickStairBlock, 0);
 				setBlockAndMetadata(world, i14, 7, k13, brickStairBlock, 4);
 				setBlockAndMetadata(world, i14 + 1, 6, k13, brickWallBlock, brickWallMeta);
@@ -238,7 +241,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, -2, 6, 0, GOTRegistry.plateBlock, 0);
 		setBlockAndMetadata(world, -2, 5, 1, plankBlock, plankMeta);
 		this.placeMug(world, random, -2, 6, 1, 3, GOTFoods.WESTEROS_DRINK);
-		int[] j15 = { -1, 2 };
+		int[] j15 = {-1, 2};
 		j1 = j15.length;
 		for (j12 = 0; j12 < j1; ++j12) {
 			int k13 = j15[j12];

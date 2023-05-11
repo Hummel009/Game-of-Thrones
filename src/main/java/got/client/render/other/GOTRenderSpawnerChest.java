@@ -2,8 +2,10 @@ package got.client.render.other;
 
 import got.common.block.other.GOTBlockSpawnerChest;
 import got.common.tileentity.GOTTileEntitySpawnerChest;
-import net.minecraft.block.*;
-import net.minecraft.client.renderer.tileentity.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
+import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
+import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 
 public class GOTRenderSpawnerChest extends TileEntitySpecialRenderer {

@@ -1,6 +1,9 @@
 package got.common.entity.westeros.crownlands;
 
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTCapes;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

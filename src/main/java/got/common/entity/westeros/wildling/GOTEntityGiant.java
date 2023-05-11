@@ -1,13 +1,19 @@
 package got.common.entity.westeros.wildling;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTAchievement;
-import got.common.entity.ai.*;
-import got.common.entity.other.*;
-import net.minecraft.entity.*;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAIRangedAttack;
+import got.common.entity.other.GOTEntityGiantBase;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityThrownRock;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.world.World;
 

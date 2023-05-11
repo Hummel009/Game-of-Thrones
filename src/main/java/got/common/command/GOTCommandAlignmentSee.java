@@ -1,14 +1,19 @@
 package got.common.command;
 
-import java.util.*;
-
 import com.mojang.authlib.GameProfile;
-
-import got.common.*;
-import got.common.network.*;
-import net.minecraft.command.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.network.GOTPacketAlignmentSee;
+import got.common.network.GOTPacketHandler;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.PlayerNotFoundException;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandAlignmentSee extends CommandBase {
 	@Override

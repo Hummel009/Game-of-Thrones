@@ -1,6 +1,7 @@
 package got.common.item.other;
 
-import got.common.entity.animal.*;
+import got.common.entity.animal.GOTEntityBear;
+import got.common.entity.animal.GOTEntityBearRug;
 import got.common.entity.other.GOTEntityRugBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

@@ -1,12 +1,17 @@
 package got.common.command;
 
-import java.util.*;
-
 import got.common.GOTSpawnDamping;
-import net.minecraft.command.*;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandSpawnDamping extends CommandBase {
 	@Override

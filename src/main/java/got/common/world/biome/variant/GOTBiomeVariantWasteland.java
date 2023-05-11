@@ -1,11 +1,11 @@
 package got.common.world.biome.variant;
 
-import java.util.Random;
-
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTBiomeVariantWasteland extends GOTBiomeVariant {
 	public Block stoneBlock;

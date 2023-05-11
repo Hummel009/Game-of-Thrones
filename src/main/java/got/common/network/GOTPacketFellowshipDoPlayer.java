@@ -1,12 +1,16 @@
 package got.common.network;
 
-import java.util.UUID;
-
-import cpw.mods.fml.common.network.simpleimpl.*;
-import got.common.*;
-import got.common.fellowship.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
+
+import java.util.UUID;
 
 public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 	public UUID subjectUuid;
@@ -46,18 +50,18 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 			if (fellowship != null && subjectPlayer != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 				switch (packet.function) {
-				case DEOP:
-					playerData.setFellowshipAdmin(fellowship, subjectPlayer, false, playerName);
-					break;
-				case OP:
-					playerData.setFellowshipAdmin(fellowship, subjectPlayer, true, playerName);
-					break;
-				case REMOVE:
-					playerData.removePlayerFromFellowship(fellowship, subjectPlayer, playerName);
-					break;
-				case TRANSFER:
-					playerData.transferFellowship(fellowship, subjectPlayer, playerName);
-					break;
+					case DEOP:
+						playerData.setFellowshipAdmin(fellowship, subjectPlayer, false, playerName);
+						break;
+					case OP:
+						playerData.setFellowshipAdmin(fellowship, subjectPlayer, true, playerName);
+						break;
+					case REMOVE:
+						playerData.removePlayerFromFellowship(fellowship, subjectPlayer, playerName);
+						break;
+					case TRANSFER:
+						playerData.transferFellowship(fellowship, subjectPlayer, playerName);
+						break;
 				}
 			}
 			return null;

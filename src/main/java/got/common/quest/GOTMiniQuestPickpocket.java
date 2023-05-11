@@ -1,21 +1,34 @@
 package got.common.quest;
 
-import java.util.*;
-
 import got.GOT;
-import got.common.*;
-import got.common.database.*;
+import got.common.GOTDate;
+import got.common.GOTLevelData;
+import got.common.GOTLore;
+import got.common.GOTPlayerData;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.GOTUnitTradeEntry;
 import got.common.faction.GOTAlignmentValues;
-import got.common.item.other.*;
+import got.common.item.other.GOTItemCoin;
+import got.common.item.other.GOTItemLeatherHat;
+import got.common.item.other.GOTItemModifierTemplate;
 import net.minecraft.command.IEntitySelector;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.*;
+
+import java.util.*;
 
 public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	public Set<UUID> pickpocketedEntityIDs = new HashSet<>();

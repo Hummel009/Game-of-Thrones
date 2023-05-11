@@ -1,18 +1,23 @@
 package got.common.command;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
 import com.mojang.authlib.GameProfile;
-
-import got.common.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.fellowship.GOTFellowship;
-import net.minecraft.command.*;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.PlayerNotFoundException;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.JsonToNBT;
+import net.minecraft.nbt.NBTBase;
+import net.minecraft.nbt.NBTException;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.*;
 
 public class GOTCommandFellowship extends CommandBase {
 	@Override

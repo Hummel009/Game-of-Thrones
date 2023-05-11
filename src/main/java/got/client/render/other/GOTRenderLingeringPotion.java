@@ -1,8 +1,7 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.*;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityLingeringPotion;
 import net.minecraft.client.renderer.Tessellator;
@@ -10,6 +9,8 @@ import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GL12;
 
 @SideOnly(Side.CLIENT)
 public class GOTRenderLingeringPotion extends RenderSnowball {

@@ -1,14 +1,16 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.*;
-
 import got.common.database.GOTRegistry;
-import got.common.entity.essos.yiti.*;
+import got.common.entity.essos.yiti.GOTEntityYiTiFarmer;
+import got.common.entity.essos.yiti.GOTEntityYiTiFarmhand;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 	public GOTStructureYiTiVillageFarm(boolean flag) {
@@ -141,16 +143,16 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 		public static EntityAnimal getRandomAnimal(World world, Random random) {
 			int animal = random.nextInt(4);
 			switch (animal) {
-			case 0:
-				return new EntityCow(world);
-			case 1:
-				return new EntityPig(world);
-			case 2:
-				return new EntitySheep(world);
-			case 3:
-				return new EntityChicken(world);
-			default:
-				break;
+				case 0:
+					return new EntityCow(world);
+				case 1:
+					return new EntityPig(world);
+				case 2:
+					return new EntitySheep(world);
+				case 3:
+					return new EntityChicken(world);
+				default:
+					break;
 			}
 			return null;
 		}

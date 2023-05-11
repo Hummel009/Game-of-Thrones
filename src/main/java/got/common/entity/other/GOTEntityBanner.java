@@ -1,27 +1,36 @@
 package got.common.entity.other;
 
-import java.util.*;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import got.common.*;
+import got.common.GOTBannerProtection;
 import got.common.GOTBannerProtection.Permission;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
 import got.common.database.GOTRegistry;
-import got.common.fellowship.*;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
+import got.common.fellowship.GOTFellowshipProfile;
 import got.common.item.other.GOTItemBanner;
-import got.common.network.*;
+import got.common.network.GOTPacketBannerData;
+import got.common.network.GOTPacketHandler;
 import got.common.util.GOTLog;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
+import net.minecraft.nbt.NBTUtil;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PlayerManager;
 import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+
+import java.util.*;
 
 public class GOTEntityBanner extends Entity {
 	public static float ALIGNMENT_PROTECTION_MIN = 1.0f;

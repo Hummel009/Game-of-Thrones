@@ -1,9 +1,8 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.GOTLevelData;
-import got.common.database.*;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTShields;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemArmor;
 import net.minecraft.client.Minecraft;
@@ -11,8 +10,12 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderShield {
 	public static int SHIELD_WIDTH = 32;

@@ -1,9 +1,15 @@
 package got.common.inventory;
 
 import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
-import got.common.entity.other.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.GOTInventoryHiredReplacedItems;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryBasic;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerHiredWarriorInventory extends Container {

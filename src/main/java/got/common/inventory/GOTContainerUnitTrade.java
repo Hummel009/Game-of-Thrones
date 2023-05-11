@@ -2,10 +2,15 @@ package got.common.inventory;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTInvasions;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTHireableBase;
+import got.common.entity.other.GOTUnitTradeable;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryBasic;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 

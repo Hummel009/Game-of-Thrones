@@ -1,19 +1,29 @@
 package got.common.item.other;
 
-import java.util.List;
-
-import cpw.mods.fml.relauncher.*;
-import got.common.*;
-import got.common.database.*;
-import got.common.entity.other.*;
-import got.common.faction.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import got.common.GOTBannerProtection;
+import got.common.GOTLevelData;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTInvasions;
+import got.common.database.GOTRegistry;
+import got.common.entity.other.GOTEntityInvasionSpawner;
+import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTItemConquestHorn extends Item {
 	@SideOnly(value = Side.CLIENT)

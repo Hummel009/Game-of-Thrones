@@ -1,41 +1,61 @@
 package got.common.world.biome;
 
-import java.awt.Color;
-import java.util.*;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.GOTDimension;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
 import got.common.entity.animal.*;
 import got.common.entity.essos.GOTEntityEssosBandit;
 import got.common.entity.westeros.GOTEntityWesterosBandit;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.essos.*;
-import got.common.world.biome.other.*;
+import got.common.world.biome.other.GOTBiomeBeach;
+import got.common.world.biome.other.GOTBiomeLake;
+import got.common.world.biome.other.GOTBiomeOcean;
+import got.common.world.biome.other.GOTBiomeRiver;
 import got.common.world.biome.sothoryos.*;
 import got.common.world.biome.ulthos.*;
-import got.common.world.biome.variant.*;
+import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.biome.variant.GOTBiomeVariantList;
+import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import got.common.world.biome.westeros.*;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.*;
+import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTFixer;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTBiomeInvasionSpawns;
+import got.common.world.spawning.GOTBiomeSpawnList;
+import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
+import net.minecraft.util.Vec3;
+import net.minecraft.util.WeightedRandom;
+import net.minecraft.world.ColorizerFoliage;
+import net.minecraft.world.ColorizerGrass;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraft.world.gen.feature.WorldGenDoublePlant;
+import net.minecraft.world.gen.feature.WorldGenTallGrass;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.EnumHelper;
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public abstract class GOTBiome extends BiomeGenBase {
-	public static Class[][] correctCreatureTypeParams = { { EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE } };
+	public static Class[][] correctCreatureTypeParams = {{EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE}};
 	public static EnumCreatureType creatureType_GOTAmbient = EnumHelper.addEnum(correctCreatureTypeParams, EnumCreatureType.class, "GOTAmbient", GOTAmbientCreature.class, 45, Material.air, true, false);
 	public static NoiseGeneratorPerlin biomeTerrainNoise = new NoiseGeneratorPerlin(new Random(1955L), 1);
 	public static Random terrainRand = new Random();
@@ -633,20 +653,20 @@ public abstract class GOTBiome extends BiomeGenBase {
 		WorldGenDoublePlant doubleFlowerGen = new WorldGenDoublePlant();
 		int i = random.nextInt(3);
 		switch (i) {
-		case 0: {
-			doubleFlowerGen.func_150548_a(1);
-			break;
-		}
-		case 1: {
-			doubleFlowerGen.func_150548_a(4);
-			break;
-		}
-		case 2: {
-			doubleFlowerGen.func_150548_a(5);
-			break;
-		}
-		default:
-			break;
+			case 0: {
+				doubleFlowerGen.func_150548_a(1);
+				break;
+			}
+			case 1: {
+				doubleFlowerGen.func_150548_a(4);
+				break;
+			}
+			case 2: {
+				doubleFlowerGen.func_150548_a(5);
+				break;
+			}
+			default:
+				break;
 		}
 		return doubleFlowerGen;
 	}
@@ -1204,7 +1224,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiMarshes = new GOTBiomeYiTiMarshes(12, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9AAA61).setMinMaxHeight(0.0f, 0.1f).setBiomeName("yiTiMarshes");
 		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaae56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiWasteland");
 		yunkai = new GOTBiomeYunkai(164, true).setClimateType(GOTClimateType.SUMMER).setColor(0xb9ba7a).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yunkai");
-		for (int i : new int[] { 149, 153 }) {
+		for (int i : new int[]{149, 153}) {
 			GOTDimension.GAME_OF_THRONES.biomeList[i] = GOTBiome.ocean;
 		}
 	}

@@ -1,21 +1,27 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
-import got.common.database.*;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.GOTEntityRedPriest;
-import got.common.entity.other.*;
-import got.common.entity.westeros.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.westeros.GOTEntityMaester;
+import got.common.entity.westeros.GOTEntitySepton;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornPriest;
-import got.common.entity.westeros.legendary.captain.*;
-import got.common.entity.westeros.legendary.deco.*;
-import got.common.entity.westeros.legendary.quest.*;
-import got.common.entity.westeros.legendary.trader.*;
+import got.common.entity.westeros.legendary.captain.GOTEntityBarristanSelmy;
+import got.common.entity.westeros.legendary.captain.GOTEntityJanosSlynt;
+import got.common.entity.westeros.legendary.deco.GOTEntityMyrcellaBaratheon;
+import got.common.entity.westeros.legendary.deco.GOTEntityTommenBaratheon;
+import got.common.entity.westeros.legendary.quest.GOTEntityCerseiLannister;
+import got.common.entity.westeros.legendary.quest.GOTEntityVarys;
+import got.common.entity.westeros.legendary.trader.GOTEntityHighSepton;
+import got.common.entity.westeros.legendary.trader.GOTEntityPycelle;
 import got.common.entity.westeros.legendary.warrior.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 	public GOTStructureWesterosFortress(boolean flag) {
@@ -89,8 +95,8 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		for (int i11 : new int[] { -10, 10 }) {
-			for (int i12 : new int[] { -10, 10 }) {
+		for (int i11 : new int[]{-10, 10}) {
+			for (int i12 : new int[]{-10, 10}) {
 				for (int i14 = i11 - 4; i14 <= i11 + 4; i14++) {
 					for (int k2 = i12 - 4; k2 <= i12 + 4; k2++) {
 						int i15 = Math.abs(i14 - i11);
@@ -183,9 +189,9 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		for (int i11 : new int[] { -11, 11 }) {
+		for (int i11 : new int[]{-11, 11}) {
 			int i12 = i11 + Integer.signum(i11) * -1;
-			for (int i13 : new int[] { -4, 3 }) {
+			for (int i13 : new int[]{-4, 3}) {
 				setBlockAndMetadata(world, i11, 2, i13, brickStairBlock, 3);
 				setBlockAndMetadata(world, i11, 2, i13 + 1, brickStairBlock, 2);
 				setBlockAndMetadata(world, i11, 4, i13, brickStairBlock, 7);
@@ -206,9 +212,9 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i12, 3, k2, brickCarved, brickCarvedMeta);
 			}
 		}
-		for (int i11 : new int[] { -11, 11 }) {
+		for (int i11 : new int[]{-11, 11}) {
 			int k2 = i11 + Integer.signum(i11) * -1;
-			for (int i12 : new int[] { -4, 3 }) {
+			for (int i12 : new int[]{-4, 3}) {
 				setBlockAndMetadata(world, i12, 2, i11, brickStairBlock, 0);
 				setBlockAndMetadata(world, i12 + 1, 2, i11, brickStairBlock, 1);
 				setBlockAndMetadata(world, i12, 4, i11, brickStairBlock, 4);
@@ -231,9 +237,9 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		for (int i11 : new int[] { -14, 14 }) {
+		for (int i11 : new int[]{-14, 14}) {
 			int k2 = i11 + Integer.signum(i11) * -1;
-			for (int i12 : new int[] { -10, 10 }) {
+			for (int i12 : new int[]{-10, 10}) {
 				setBlockAndMetadata(world, i12 - 1, 3, i11, brickStairBlock, 0);
 				setBlockAndMetadata(world, i12, 3, i11, brick2WallBlock, brick2WallMeta);
 				setBlockAndMetadata(world, i12 + 1, 3, i11, brickStairBlock, 1);
@@ -246,9 +252,9 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i12, 2, k2, brickSlabBlock, brickSlabMeta);
 			}
 		}
-		for (int i11 : new int[] { -14, 14 }) {
+		for (int i11 : new int[]{-14, 14}) {
 			int i12 = i11 + Integer.signum(i11) * -1;
-			for (int i13 : new int[] { -10, 10 }) {
+			for (int i13 : new int[]{-10, 10}) {
 				setBlockAndMetadata(world, i11, 3, i13 - 1, brickStairBlock, 3);
 				setBlockAndMetadata(world, i11, 3, i13, brick2WallBlock, brick2WallMeta);
 				setBlockAndMetadata(world, i11, 3, i13 + 1, brickStairBlock, 2);
@@ -261,8 +267,8 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i12, 2, i13, brickSlabBlock, brickSlabMeta);
 			}
 		}
-		for (int i11 : new int[] { -10, 10 }) {
-			for (int i12 : new int[] { i11 - 2, i11 + 2 }) {
+		for (int i11 : new int[]{-10, 10}) {
+			for (int i12 : new int[]{i11 - 2, i11 + 2}) {
 				placeArmorStand(world, i12, 1, -7, 0, null);
 				placeArmorStand(world, i12, 1, 7, 2, null);
 			}
@@ -273,8 +279,8 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 			setAir(world, i11, 2, 6);
 			spawnItemFrame(world, i11, 3, 6, 0, getFramedItem(random));
 		}
-		for (int i11 : new int[] { -10, 10 }) {
-			for (int k2 : new int[] { i11 - 2, i11 + 2 }) {
+		for (int i11 : new int[]{-10, 10}) {
+			for (int k2 : new int[]{i11 - 2, i11 + 2}) {
 				placeArmorStand(world, -7, 1, k2, 1, null);
 				placeArmorStand(world, 7, 1, k2, 3, null);
 			}
@@ -362,18 +368,18 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 					if (d <= 2) {
 						setBlockAndMetadata(world, i5, 0, i12, Blocks.grass, 0);
 						switch (d) {
-						case 0:
-							setBlockAndMetadata(world, i5, 1, i12, Blocks.double_plant, 4);
-							setBlockAndMetadata(world, i5, 2, i12, Blocks.double_plant, 8);
-							break;
-						case 1:
-							setBlockAndMetadata(world, i5, 1, i12, Blocks.red_flower, 6);
-							break;
-						case 2:
-							setBlockAndMetadata(world, i5, 1, i12, Blocks.red_flower, 4);
-							break;
-						default:
-							break;
+							case 0:
+								setBlockAndMetadata(world, i5, 1, i12, Blocks.double_plant, 4);
+								setBlockAndMetadata(world, i5, 2, i12, Blocks.double_plant, 8);
+								break;
+							case 1:
+								setBlockAndMetadata(world, i5, 1, i12, Blocks.red_flower, 6);
+								break;
+							case 2:
+								setBlockAndMetadata(world, i5, 1, i12, Blocks.red_flower, 4);
+								break;
+							default:
+								break;
 						}
 					}
 				}

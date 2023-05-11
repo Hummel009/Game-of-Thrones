@@ -1,11 +1,17 @@
 package got.common.entity.westeros.legendary.quest;
 
 import got.common.database.GOTFoods;
-import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.entity.ai.GOTEntityAIDrink;
+import got.common.entity.ai.GOTEntityAIEat;
+import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
+import got.common.entity.ai.GOTEntityAIHiredRemainStill;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
-import got.common.quest.*;
-import net.minecraft.entity.*;
+import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMiniQuestFactory;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;

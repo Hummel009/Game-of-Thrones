@@ -1,21 +1,29 @@
 package got.common.entity.animal;
 
-import java.util.UUID;
-
 import got.common.database.GOTRegistry;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.essos.*;
+import got.common.world.biome.essos.GOTBiomeQohorForest;
+import got.common.world.biome.essos.GOTBiomeVolantisForest;
 import got.common.world.biome.sothoryos.GOTBiomeSummerIslands;
 import got.common.world.biome.ulthos.GOTBiomeUlthosForest;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.UUID;
 
 public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
 	public ChunkCoordinates currentFlightTarget;

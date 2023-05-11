@@ -1,19 +1,32 @@
 package got.common.entity.animal;
 
-import java.util.*;
-
 import got.common.database.GOTRegistry;
-import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.entity.ai.GOTEntityAIAvoidWithChance;
+import got.common.entity.ai.GOTEntityAIFlee;
+import got.common.entity.ai.GOTEntityAIRabbitEatCrops;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.other.GOTFarmhand;
+import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.UUID;
 
 public class GOTEntityRabbit extends EntityCreature implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
 	public static String fleeSound = "got:rabbit.flee";

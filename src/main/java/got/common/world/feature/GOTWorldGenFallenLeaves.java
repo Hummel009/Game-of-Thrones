@@ -1,11 +1,12 @@
 package got.common.world.feature;
 
-import java.util.Random;
-
 import got.common.block.other.GOTBlockFallenLeaves;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockLeavesBase;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class GOTWorldGenFallenLeaves extends WorldGenerator {
 	@Override

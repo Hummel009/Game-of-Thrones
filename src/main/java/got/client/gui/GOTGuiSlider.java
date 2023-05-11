@@ -1,10 +1,9 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.MathHelper;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiSlider extends GuiButton {
 	public String baseDisplayString;

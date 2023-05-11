@@ -2,9 +2,13 @@ package got.common.enchant;
 
 import got.common.database.GOTMaterial;
 import got.common.item.GOTWeaponStats;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSpecial {
 	public GOTEnchantmentProtectionValyrian(String s) {

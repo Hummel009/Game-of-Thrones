@@ -1,12 +1,13 @@
 package got.common.item.other;
 
-import java.util.*;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.client.render.other.GOTDrinkIcons;
 import got.common.GOTLevelData;
 import got.common.block.other.GOTBlockMug;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.util.GOTReflection;
 import net.minecraft.block.Block;
@@ -15,16 +16,23 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
-import net.minecraft.nbt.*;
-import net.minecraft.potion.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GOTItemMug extends Item {
-	public static String[] strengthNames = { "weak", "light", "moderate", "strong", "potent" };
-	public static float[] strengths = { 0.25f, 0.5f, 1.0f, 2.0f, 3.0f };
-	public static float[] foodStrengths = { 0.5f, 0.75f, 1.0f, 1.25f, 1.5f };
+	public static String[] strengthNames = {"weak", "light", "moderate", "strong", "potent"};
+	public static float[] strengths = {0.25f, 0.5f, 1.0f, 2.0f, 3.0f};
+	public static float[] foodStrengths = {0.5f, 0.75f, 1.0f, 1.25f, 1.5f};
 	public static int vesselMeta = 100;
 	@SideOnly(value = Side.CLIENT)
 	public static IIcon barrelGui_emptyBucketSlotIcon;
@@ -161,7 +169,7 @@ public class GOTItemMug extends Item {
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		if (isFullMug) {
-			Vessel[] vesselTypes = { Vessel.MUG };
+			Vessel[] vesselTypes = {Vessel.MUG};
 			if (tab == null || tab.hasSearchBar()) {
 				vesselTypes = Vessel.values();
 			}

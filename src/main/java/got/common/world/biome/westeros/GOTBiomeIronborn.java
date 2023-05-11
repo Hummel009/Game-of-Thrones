@@ -1,15 +1,17 @@
 package got.common.world.biome.westeros;
 
-import java.util.ArrayList;
-
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.ironborn.*;
+import got.common.world.structure.westeros.ironborn.GOTStructureIronbornCity;
+import got.common.world.structure.westeros.ironborn.GOTStructureIronbornWatchfort;
+
+import java.util.ArrayList;
 
 public class GOTBiomeIronborn extends GOTBiomeWesteros {
 	public GOTBiomeIronborn(int i, boolean major) {

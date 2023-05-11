@@ -1,11 +1,9 @@
 package got.common.quest;
 
-import java.util.*;
-import java.util.Map.Entry;
-
 import cpw.mods.fml.common.FMLLog;
 import got.common.GOTLore;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityCrocodile;
 import got.common.entity.essos.legendary.quest.GOTEntityDaenerysTargaryen;
 import got.common.entity.essos.legendary.warrior.GOTEntityTugarKhan;
@@ -14,7 +12,10 @@ import got.common.entity.westeros.legendary.captain.GOTEntityRickardKarstark;
 import got.common.entity.westeros.legendary.deco.GOTEntityTommenBaratheon;
 import got.common.entity.westeros.legendary.quest.*;
 import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy;
-import got.common.entity.westeros.legendary.warrior.*;
+import got.common.entity.westeros.legendary.warrior.GOTEntityEuronGreyjoy;
+import got.common.entity.westeros.legendary.warrior.GOTEntityGeroldDayne;
+import got.common.entity.westeros.legendary.warrior.GOTEntityJoffreyBaratheon;
+import got.common.entity.westeros.legendary.warrior.GOTEntityTywinLannister;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemBanner;
 import got.common.quest.GOTMiniQuest.QuestFactoryBase;
@@ -22,8 +23,12 @@ import got.common.quest.GOTMiniQuestBounty.QFBounty;
 import got.common.quest.GOTMiniQuestCollect.QFCollect;
 import got.common.quest.GOTMiniQuestKillEntity.QFKillEntity;
 import got.common.quest.GOTMiniQuestKillFaction.QFKillFaction;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+
+import java.util.*;
+import java.util.Map.Entry;
 
 public enum GOTMiniQuestFactory {
 	CRIMINAL(true), IBBEN(true), SUMMER(true), SOTHORYOS(true), ASSHAI(true), WILDLING(true), MOSSOVY(true), HOWLAND, BALON, DAENERYS, VARYS, OBERYN, STANNIS, JONSNOW, RENLY, KITRA, BUGAI, TYRION, CERSEI, RAMSAY, SANDOR, MELISANDRA, DORAN, MARGAERY, ELLARYA, ARYA, OLENNA, SAMWELL, LYSA, CATELYN, DAVEN, ARIANNE, MELLARIO, NORTH(true), RIVERLANDS(true), DORNE(true), REACH(true), STORMLANDS(true), IRONBORN(true), WESTERLANDS(true), ARRYN(true), CROWNLANDS(true), DRAGONSTONE(true), GIFT(true), HILLMEN(true), BRAAVOS(true), LORATH(true), NORVOS(true), QOHOR(true), PENTOS(true), LYS(true), MYR(true), TYROSH(true), VOLANTIS(true), GHISCAR(true), QARTH(true), LHAZAR(true), YI_TI(true), DOTHRAKI(true), JOGOS(true);

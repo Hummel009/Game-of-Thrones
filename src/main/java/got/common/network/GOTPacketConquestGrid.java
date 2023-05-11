@@ -1,13 +1,17 @@
 package got.common.network;
 
-import java.util.*;
-
-import cpw.mods.fml.common.network.simpleimpl.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import got.common.faction.GOTFaction;
 import got.common.world.map.GOTConquestZone;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class GOTPacketConquestGrid implements IMessage {
 	public GOTFaction conqFac;

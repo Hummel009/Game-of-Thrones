@@ -1,13 +1,16 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.*;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 	public GOTStructureIbbenHouse(boolean flag) {
@@ -136,7 +139,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, 3 - step, j13, k15, stairBlock, 5);
 			}
 		}
-		for (int k161 : new int[] { -6, -5, 5 }) {
+		for (int k161 : new int[]{-6, -5, 5}) {
 			setBlockAndMetadata(world, -2, 5, k161, plankBlock, plankMeta);
 			setBlockAndMetadata(world, -1, 5, k161, plankStairBlock, 4);
 			setBlockAndMetadata(world, 0, 5, k161, plankStairBlock, 5);
@@ -144,7 +147,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, -1, 6, k161, plankBlock, plankMeta);
 			setBlockAndMetadata(world, 0, 6, k161, plankBlock, plankMeta);
 		}
-		int[] k15 = { -7, 6 };
+		int[] k15 = {-7, 6};
 		roofEdge = k15.length;
 		for (step = 0; step < roofEdge; ++step) {
 			k16 = k15[step];
@@ -178,14 +181,14 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		}
 		setBlockAndMetadata(world, -1, 3, -5, plankStairBlock, 4);
 		setBlockAndMetadata(world, 0, 3, -5, plankStairBlock, 5);
-		for (int i15 : new int[] { -5, 4 }) {
-			for (int k17 : new int[] { -7, 6 }) {
+		for (int i15 : new int[]{-5, 4}) {
+			for (int k17 : new int[]{-7, 6}) {
 				for (j12 = 2; (j12 >= 1 || !isOpaque(world, i15, j12, k17)) && getY(j12) >= 0; --j12) {
 					setBlockAndMetadata(world, i15, j12, k17, fenceBlock, fenceMeta);
 				}
 			}
 		}
-		for (int i15 : new int[] { -4, 3 }) {
+		for (int i15 : new int[]{-4, 3}) {
 			setAir(world, i15, 2, -2);
 			setBlockAndMetadata(world, i15, 3, -2, plankSlabBlock, plankSlabMeta | 8);
 			setBlockAndMetadata(world, i15, 4, -2, roofBlock, roofMeta);
@@ -194,7 +197,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, i15, 3, -3, plankStairBlock, 7);
 			setBlockAndMetadata(world, i15, 3, -1, plankStairBlock, 6);
 		}
-		for (int i15 : new int[] { -5, 4 }) {
+		for (int i15 : new int[]{-5, 4}) {
 			setBlockAndMetadata(world, i15, 1, -3, plankStairBlock, 7);
 			setBlockAndMetadata(world, i15, 1, -2, plankSlabBlock, plankSlabMeta | 8);
 			setBlockAndMetadata(world, i15, 1, -1, plankStairBlock, 6);
@@ -212,7 +215,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, i15, 3, -1, roofSlabBlock, roofSlabMeta | 8);
 			setBlockAndMetadata(world, i15, 4, -1, roofSlabBlock, roofSlabMeta);
 			setBlockAndMetadata(world, i15, 3, 0, roofBlock, roofMeta);
-			for (int k17 : new int[] { -4, 0 }) {
+			for (int k17 : new int[]{-4, 0}) {
 				for (j12 = 2; (j12 >= 1 || !isOpaque(world, i15, j12, k17)) && getY(j12) >= 0; --j12) {
 					setBlockAndMetadata(world, i15, j12, k17, fenceBlock, fenceMeta);
 				}
@@ -244,7 +247,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, 1 - step2, 5 + step2, k13, brickStairBlock, 5);
 			}
 		}
-		for (int k161 : new int[] { 0, 4 }) {
+		for (int k161 : new int[]{0, 4}) {
 			for (int j18 = 1; j18 <= 3; ++j18) {
 				setBlockAndMetadata(world, 2, j18, k161, rockWallBlock, rockWallMeta);
 			}
@@ -288,7 +291,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, -3, 1, k14, bedBlock, 11);
 			setBlockAndMetadata(world, -3, 3, k14, plank2SlabBlock, plank2SlabMeta | 8);
 		}
-		for (int k161 : new int[] { 1, 4 }) {
+		for (int k161 : new int[]{1, 4}) {
 			for (int j19 = 1; j19 <= 2; ++j19) {
 				setBlockAndMetadata(world, -3, j19, k161, fenceBlock, fenceMeta);
 			}

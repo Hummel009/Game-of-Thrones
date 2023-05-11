@@ -1,11 +1,12 @@
 package got.common.world.structure.essos.common;
 
-import java.util.*;
-
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTStructureEssosTownTree extends GOTStructureEssosBase {
 	public GOTStructureEssosTownTree(boolean flag) {

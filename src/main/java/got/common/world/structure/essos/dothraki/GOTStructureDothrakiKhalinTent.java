@@ -1,17 +1,21 @@
 package got.common.world.structure.essos.dothraki;
 
-import java.util.*;
-
-import got.common.database.*;
-import got.common.entity.animal.*;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
+import got.common.entity.animal.GOTEntityBird;
+import got.common.entity.animal.GOTEntityButterfly;
 import got.common.entity.essos.dothraki.GOTEntityDothrakiKhalin;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+
 public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
-	public static Class[] stalls = { Mason.class, Brewer.class, Miner.class, Armourer.class };
+	public static Class[] stalls = {Mason.class, Brewer.class, Miner.class, Armourer.class};
 
 	public GOTStructureDothrakiKhalinTent(boolean flag) {
 		super(flag);

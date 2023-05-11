@@ -1,7 +1,11 @@
 package got.common.entity.essos.ghiscar;
 
-import got.common.database.*;
-import net.minecraft.entity.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTCapes;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTShields;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 

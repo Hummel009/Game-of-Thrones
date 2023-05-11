@@ -1,12 +1,12 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 	public Block brickBlock;
@@ -65,7 +65,7 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 	}
 
 	public ItemStack getFramedItem(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.asshaiBattleaxe), new ItemStack(GOTRegistry.asshaiBow), new ItemStack(GOTRegistry.asshaiDagger), new ItemStack(GOTRegistry.asshaiHammer), new ItemStack(GOTRegistry.asshaiSpear), new ItemStack(GOTRegistry.asshaiSword) };
+		ItemStack[] items = {new ItemStack(GOTRegistry.asshaiBattleaxe), new ItemStack(GOTRegistry.asshaiBow), new ItemStack(GOTRegistry.asshaiDagger), new ItemStack(GOTRegistry.asshaiHammer), new ItemStack(GOTRegistry.asshaiSpear), new ItemStack(GOTRegistry.asshaiSword)};
 		return items[random.nextInt(items.length)].copy();
 	}
 

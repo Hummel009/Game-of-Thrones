@@ -1,14 +1,19 @@
 package got.common.world.structure.westeros.north.hillmen;
 
-import java.util.Random;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.westeros.north.hillmen.*;
+import got.common.entity.westeros.north.hillmen.GOTEntityNorthHillman;
+import got.common.entity.westeros.north.hillmen.GOTEntityNorthHillmanArcher;
+import got.common.entity.westeros.north.hillmen.GOTEntityNorthHillmanAxeThrower;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureHayBales;
+import got.common.world.structure.other.GOTStructureNPCRespawner;
+import got.common.world.structure.other.GOTVillageGen;
+import got.common.world.structure.other.LocationInfo;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureNorthHillmanVillage extends GOTVillageGen {
 	public GOTStructureNorthHillmanVillage(GOTBiome biome, float f) {

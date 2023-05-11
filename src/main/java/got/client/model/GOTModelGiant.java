@@ -2,8 +2,10 @@ package got.client.model;
 
 import got.common.entity.other.GOTEntityGiantBase;
 import got.common.entity.westeros.wildling.GOTEntityGiant;
-import net.minecraft.client.model.*;
-import net.minecraft.entity.*;
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelGiant extends ModelBase {
@@ -91,40 +93,40 @@ public class GOTModelGiant extends ModelBase {
 		this(f);
 		isOutiftModel = true;
 		switch (i) {
-		case 0:
-			head.showModel = true;
-			body.showModel = true;
-			rightArm.showModel = true;
-			leftArm.showModel = true;
-			rightLeg.showModel = false;
-			leftLeg.showModel = false;
-			break;
-		case 1:
-			head.showModel = false;
-			body.showModel = false;
-			rightArm.showModel = false;
-			leftArm.showModel = false;
-			rightLeg.showModel = true;
-			leftLeg.showModel = true;
-			break;
-		case 2:
-			head.showModel = true;
-			body.showModel = false;
-			rightArm.showModel = false;
-			leftArm.showModel = false;
-			rightLeg.showModel = false;
-			leftLeg.showModel = false;
-			break;
-		case 3:
-			head.showModel = false;
-			body.showModel = true;
-			rightArm.showModel = true;
-			leftArm.showModel = true;
-			rightLeg.showModel = false;
-			leftLeg.showModel = false;
-			break;
-		default:
-			break;
+			case 0:
+				head.showModel = true;
+				body.showModel = true;
+				rightArm.showModel = true;
+				leftArm.showModel = true;
+				rightLeg.showModel = false;
+				leftLeg.showModel = false;
+				break;
+			case 1:
+				head.showModel = false;
+				body.showModel = false;
+				rightArm.showModel = false;
+				leftArm.showModel = false;
+				rightLeg.showModel = true;
+				leftLeg.showModel = true;
+				break;
+			case 2:
+				head.showModel = true;
+				body.showModel = false;
+				rightArm.showModel = false;
+				leftArm.showModel = false;
+				rightLeg.showModel = false;
+				leftLeg.showModel = false;
+				break;
+			case 3:
+				head.showModel = false;
+				body.showModel = true;
+				rightArm.showModel = true;
+				leftArm.showModel = true;
+				rightLeg.showModel = false;
+				leftLeg.showModel = false;
+				break;
+			default:
+				break;
 		}
 	}
 

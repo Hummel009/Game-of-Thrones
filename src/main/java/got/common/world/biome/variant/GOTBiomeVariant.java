@@ -1,16 +1,19 @@
 package got.common.world.biome.variant;
 
-import java.util.*;
-
 import got.common.database.GOTRegistry;
 import got.common.world.biome.GOTBiome;
-import got.common.world.feature.*;
+import got.common.world.feature.GOTTreeType;
+import got.common.world.feature.GOTWorldGenBoulder;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GOTBiomeVariant {
 	public static GOTBiomeVariant[] allVariants = new GOTBiomeVariant[256];
@@ -62,7 +65,7 @@ public class GOTBiomeVariant {
 	public static GOTBiomeVariant FOREST_WEIRWOOD = new GOTBiomeVariantForest(57, "forest_weirwood").addTreeTypes(0.8f, GOTTreeType.WEIRWOOD);
 	public static GOTBiomeVariant FOREST_CEDAR = new GOTBiomeVariantForest(60, "forest_cedar").addTreeTypes(0.8f, GOTTreeType.CEDAR, 1000, GOTTreeType.CEDAR_LARGE, 50);
 	public static GOTBiomeVariant FOREST_CYPRESS = new GOTBiomeVariantForest(61, "forest_cypress").addTreeTypes(0.8f, GOTTreeType.CYPRESS, 1000, GOTTreeType.CYPRESS_LARGE, 50);
-	public static GOTBiomeVariant[] SET_MOUNTAINS = { FOREST, FOREST_LIGHT };
+	public static GOTBiomeVariant[] SET_MOUNTAINS = {FOREST, FOREST_LIGHT};
 	public static NoiseGeneratorPerlin marshNoise = new NoiseGeneratorPerlin(new Random(444L), 1);
 	public static NoiseGeneratorPerlin podzolNoise = new NoiseGeneratorPerlin(new Random(58052L), 1);
 	public int variantID;

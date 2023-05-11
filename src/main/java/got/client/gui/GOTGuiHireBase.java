@@ -1,19 +1,24 @@
 package got.client.gui;
 
-import java.util.List;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTClientProxy;
-import got.common.*;
-import got.common.database.*;
-import got.common.entity.other.*;
-import got.common.faction.*;
-import got.common.inventory.*;
-import got.common.network.*;
-import net.minecraft.client.gui.*;
+import got.common.GOTLevelData;
+import got.common.GOTSquadrons;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTUnitTradeEntries;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTHireableBase;
+import got.common.entity.other.GOTUnitTradeEntry;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
+import got.common.inventory.GOTContainerUnitTrade;
+import got.common.inventory.GOTSlotAlignmentReward;
+import got.common.network.GOTPacketBuyUnit;
+import got.common.network.GOTPacketHandler;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -21,6 +26,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
+
+import java.util.List;
 
 public abstract class GOTGuiHireBase extends GuiContainer {
 	public static ResourceLocation guiTexture;

@@ -1,22 +1,31 @@
 package got.common.world.spawning;
 
-import java.util.*;
-
 import cpw.mods.fml.common.eventhandler.Event;
-import got.common.*;
+import got.common.GOTConfig;
+import got.common.GOTSpawnDamping;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.world.*;
+import got.common.world.GOTWorldChunkManager;
+import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.world.ChunkPosition;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.event.ForgeEventFactory;
+
+import java.util.*;
 
 public class GOTSpawnerNPCs {
 	public static int expectedChunks = 196;
@@ -147,7 +156,8 @@ public class GOTSpawnerNPCs {
 		int maxSpawnCount = GOTSpawnDamping.getNPCSpawnCap(world) * eligibleSpawnChunks.size() / 196;
 		if (totalSpawnCount <= maxSpawnCount) {
 			int cycles = Math.max(1, interval);
-			block2: for (int c = 0; c < cycles; ++c) {
+			block2:
+			for (int c = 0; c < cycles; ++c) {
 				List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(eligibleSpawnChunks);
 				for (ChunkCoordIntPair chunkCoords : shuffled) {
 					int i;
@@ -158,7 +168,8 @@ public class GOTSpawnerNPCs {
 						continue;
 					}
 					int groups = 3;
-					block4: for (int l = 0; l < groups; ++l) {
+					block4:
+					for (int l = 0; l < groups; ++l) {
 						int i1 = i;
 						int j1 = j;
 						int k1 = k;

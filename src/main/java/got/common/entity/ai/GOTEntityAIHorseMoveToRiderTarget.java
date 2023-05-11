@@ -1,7 +1,10 @@
 package got.common.entity.ai;
 
-import got.common.entity.other.*;
-import net.minecraft.entity.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTNPCMount;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.pathfinding.PathEntity;
 import net.minecraft.util.Vec3;

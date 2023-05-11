@@ -1,10 +1,16 @@
 package got.common.entity.essos.mossovy;
 
 import got.common.GOTLevelData;
-import got.common.database.*;
-import got.common.entity.ai.*;
-import got.common.entity.other.*;
-import net.minecraft.entity.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTUnitTradeEntries;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAIRangedAttack;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTMercenary;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

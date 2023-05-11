@@ -1,13 +1,13 @@
 package got.common.world.map;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTFiveFortsWall extends GOTStructureBase {
 	public int centreX;
@@ -29,7 +29,8 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		if (isPosInWall(i + 8, k + 8) < wallThick * 3.0) {
 			for (int i1 = i; i1 <= i + 15; ++i1) {
-				block1: for (int k1 = k; k1 <= k + 15; ++k1) {
+				block1:
+				for (int k1 = k; k1 <= k + 15; ++k1) {
 					double circleDist = isPosInWall(i1, k1);
 					if (circleDist >= 0.08) {
 						continue;

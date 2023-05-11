@@ -1,19 +1,27 @@
 package got.common.world.biome;
 
-import java.util.*;
-import java.util.Map.Entry;
-
 import got.common.GOTConfig;
 import got.common.database.GOTRegistry;
-import got.common.world.*;
+import got.common.world.GOTChunkProvider;
+import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
-import got.common.world.map.*;
-import got.common.world.structure.other.*;
+import got.common.world.map.GOTBeziers;
+import got.common.world.map.GOTFixedStructures;
+import got.common.world.map.GOTFixer;
+import got.common.world.map.GOTWaypoint;
+import got.common.world.structure.other.GOTStructureBase;
+import got.common.world.structure.other.GOTVillageGen;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Random;
 
 public class GOTBiomeDecorator {
 	public World worldObj;

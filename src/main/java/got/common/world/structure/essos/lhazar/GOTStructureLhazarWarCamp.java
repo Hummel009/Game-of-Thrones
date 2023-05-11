@@ -1,15 +1,19 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
-import got.common.entity.essos.lhazar.*;
+import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
+import got.common.entity.essos.lhazar.GOTEntityLhazarWarlord;
+import got.common.entity.essos.lhazar.GOTEntityLhazarWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 	public GOTStructureLhazarWarCamp(boolean flag) {
@@ -56,17 +60,17 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 							} else {
 								int randomGround = random.nextInt(3);
 								switch (randomGround) {
-								case 0:
-									setBlockAndMetadata(world, i1, j1, k1, Blocks.grass, 0);
-									break;
-								case 1:
-									setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 1);
-									break;
-								case 2:
-									setBlockAndMetadata(world, i1, j1, k1, Blocks.sand, 1);
-									break;
-								default:
-									break;
+									case 0:
+										setBlockAndMetadata(world, i1, j1, k1, Blocks.grass, 0);
+										break;
+									case 1:
+										setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 1);
+										break;
+									case 2:
+										setBlockAndMetadata(world, i1, j1, k1, Blocks.sand, 1);
+										break;
+									default:
+										break;
 								}
 							}
 						} else {
@@ -149,7 +153,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 		placeWallBanner(world, -5, 13, 5, GOTItemBanner.BannerType.LHAZAR, 3);
 		placeWallBanner(world, 5, 13, -5, GOTItemBanner.BannerType.LHAZAR, 1);
 		placeWallBanner(world, 5, 13, 5, GOTItemBanner.BannerType.LHAZAR, 1);
-		for (int i13 : new int[] { -2, 2 }) {
+		for (int i13 : new int[]{-2, 2}) {
 			j1 = 1;
 			int k1 = 12;
 			GOTEntityHorse horse = new GOTEntityHorse(world);
@@ -178,7 +182,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 	}
 
 	public void placelhazarArmor(World world, Random random, int i, int j, int k, int meta) {
-		ItemStack[] armor = random.nextInt(3) != 0 ? new ItemStack[] { null, null, null, null } : new ItemStack[] { new ItemStack(GOTRegistry.lhazarHelmet), new ItemStack(GOTRegistry.lhazarChestplate), new ItemStack(GOTRegistry.lhazarLeggings), new ItemStack(GOTRegistry.lhazarBoots) };
+		ItemStack[] armor = random.nextInt(3) != 0 ? new ItemStack[]{null, null, null, null} : new ItemStack[]{new ItemStack(GOTRegistry.lhazarHelmet), new ItemStack(GOTRegistry.lhazarChestplate), new ItemStack(GOTRegistry.lhazarLeggings), new ItemStack(GOTRegistry.lhazarBoots)};
 		placeArmorStand(world, i, j, k, meta, armor);
 	}
 }

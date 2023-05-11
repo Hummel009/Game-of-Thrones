@@ -3,18 +3,21 @@ package got.common.enchant;
 import got.common.GOTDamage;
 import got.common.item.GOTWeaponStats;
 import got.common.item.weapon.GOTItemLegendaryWhip;
-import got.common.network.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketWeaponFX;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.item.*;
-import net.minecraft.potion.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 	public boolean compatibleOtherSpecial = false;
 
 	public GOTEnchantmentWeaponSpecial(String s) {
-		super(s, new GOTEnchantmentType[] { GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE, GOTEnchantmentType.RANGED_LAUNCHER });
+		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE, GOTEnchantmentType.RANGED_LAUNCHER});
 		setValueModifier(3.0F);
 		setBypassAnvilLimit();
 	}

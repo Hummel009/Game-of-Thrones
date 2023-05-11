@@ -1,7 +1,8 @@
 package got.client.gui;
 
 import got.common.entity.other.GOTEntityNPC;
-import got.common.network.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketMercenaryInteract;
 import net.minecraft.client.gui.GuiButton;
 
 public class GOTGuiMercenaryInteract extends GOTGuiUnitTradeInteract {

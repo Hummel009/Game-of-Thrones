@@ -1,22 +1,30 @@
 package got.common.block.other;
 
-import java.util.Random;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.item.other.*;
+import got.common.item.other.GOTItemBarrel;
+import got.common.item.other.GOTItemBottlePoison;
+import got.common.item.other.GOTItemMug;
 import got.common.recipe.GOTRecipeBrewing;
 import got.common.tileentity.GOTTileEntityBarrel;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTBlockBarrel extends BlockContainer {
 	@SideOnly(value = Side.CLIENT)
@@ -183,20 +191,20 @@ public class GOTBlockBarrel extends BlockContainer {
 		int rotation = MathHelper.floor_double(entity.rotationYaw * 4.0f / 360.0f + 0.5) & 3;
 		int meta = 0;
 		switch (rotation) {
-		case 0:
-			meta = 2;
-			break;
-		case 1:
-			meta = 5;
-			break;
-		case 2:
-			meta = 3;
-			break;
-		case 3:
-			meta = 4;
-			break;
-		default:
-			break;
+			case 0:
+				meta = 2;
+				break;
+			case 1:
+				meta = 5;
+				break;
+			case 2:
+				meta = 3;
+				break;
+			case 3:
+				meta = 4;
+				break;
+			default:
+				break;
 		}
 		world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		if (itemstack.hasDisplayName()) {

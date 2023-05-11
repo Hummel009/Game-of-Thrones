@@ -1,14 +1,18 @@
 package got.common.database;
 
-import java.util.*;
-
 import got.common.GOTConfig;
 import got.common.enchant.GOTEnchantmentHelper;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTTradeEntry;
+import got.common.entity.other.GOTTradeEntryBarrel;
+import got.common.entity.other.GOTTradeSellResult;
 import got.common.item.other.GOTItemMug;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
+
+import java.util.*;
 
 public class GOTTradeEntries {
 	public static List<GOTTradeEntry> BAELISH_B_L = new ArrayList<>();

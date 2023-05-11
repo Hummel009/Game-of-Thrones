@@ -1,14 +1,16 @@
 package got.common.block.other;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityFallingConcrete;
 import got.common.util.GOTEnumDyeColor;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTBlockConcretePowder extends BlockFalling {
 	public GOTEnumDyeColor color;

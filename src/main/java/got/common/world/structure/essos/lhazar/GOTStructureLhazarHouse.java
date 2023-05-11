@@ -1,11 +1,13 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 	public GOTStructureLhazarHouse(boolean flag) {
@@ -71,7 +73,7 @@ public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 		setBlockAndMetadata(world, 0, 1, 5, bedBlock, 0);
 		setBlockAndMetadata(world, 0, 1, 6, bedBlock, 8);
 		this.placeChest(world, random, 6, 1, 0, GOTRegistry.chestBasket, 5, GOTChestContents.LHAZAR);
-		for (int k1 : new int[] { -2, 0, 2 }) {
+		for (int k1 : new int[]{-2, 0, 2}) {
 			int i1 = -6;
 			int j12 = 2;
 			if (random.nextBoolean()) {

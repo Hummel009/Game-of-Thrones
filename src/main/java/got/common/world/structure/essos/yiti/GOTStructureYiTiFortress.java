@@ -1,8 +1,7 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.essos.yiti.*;
@@ -10,6 +9,8 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 	public GOTStructureYiTiFortress(boolean flag) {
@@ -74,17 +75,17 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 					}
 					int randomGround = random.nextInt(3);
 					switch (randomGround) {
-					case 0:
-						setBlockAndMetadata(world, i14, 0, k12, Blocks.grass, 0);
-						break;
-					case 1:
-						setBlockAndMetadata(world, i14, 0, k12, Blocks.dirt, 1);
-						break;
-					case 2:
-						setBlockAndMetadata(world, i14, 0, k12, GOTRegistry.dirtPath, 0);
-						break;
-					default:
-						break;
+						case 0:
+							setBlockAndMetadata(world, i14, 0, k12, Blocks.grass, 0);
+							break;
+						case 1:
+							setBlockAndMetadata(world, i14, 0, k12, Blocks.dirt, 1);
+							break;
+						case 2:
+							setBlockAndMetadata(world, i14, 0, k12, GOTRegistry.dirtPath, 0);
+							break;
+						default:
+							break;
 					}
 					if (random.nextInt(3) == 0) {
 						setBlockAndMetadata(world, i14, 1, k12, GOTRegistry.thatchFloor, 0);
@@ -144,7 +145,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 				setGrassToDirt(world, i14, j12 - 1, k12);
 			}
 		}
-		for (int i17 : new int[] { -6, 0, 6 }) {
+		for (int i17 : new int[]{-6, 0, 6}) {
 			int i23;
 			if (i17 != 0) {
 				setBlockAndMetadata(world, i17 - 1, 0, -12, pillarBlock, pillarMeta);
@@ -174,7 +175,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, i17 + 1, 3, 12, brickStairBlock, 5);
 			setBlockAndMetadata(world, i17, 4, 12, brickStairBlock, 7);
 		}
-		int[] i18 = { -6, 0, 6 };
+		int[] i18 = {-6, 0, 6};
 		k12 = i18.length;
 		for (j12 = 0; j12 < k12; ++j12) {
 			int k22;
@@ -226,21 +227,21 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -1, 4, -10, brickStairBlock, 4);
 		setBlockAndMetadata(world, 0, 4, -10, brickStairBlock, 7);
 		setBlockAndMetadata(world, 1, 4, -10, brickStairBlock, 5);
-		for (int i17 : new int[] { -3, 3 }) {
+		for (int i17 : new int[]{-3, 3}) {
 			placeWallBanner(world, i17, 4, -12, bannerType, 2);
 			placeWallBanner(world, i17, 4, 12, bannerType, 0);
 		}
-		for (int k1321 : new int[] { -3, 3 }) {
+		for (int k1321 : new int[]{-3, 3}) {
 			placeWallBanner(world, -12, 4, k1321, bannerType, 3);
 			placeWallBanner(world, 12, 4, k1321, bannerType, 1);
 		}
 		placeWallBanner(world, 0, 6, -12, bannerType, 2);
-		int[] i19 = { -12, 9 };
+		int[] i19 = {-12, 9};
 		j1 = i19.length;
 		for (j12 = 0; j12 < j1; ++j12) {
 			int i17;
 			i17 = i19[j12];
-			for (int k15 : new int[] { -12, 9 }) {
+			for (int k15 : new int[]{-12, 9}) {
 				setBlockAndMetadata(world, i17 + 1, 8, k15, brickStairBlock, 0);
 				setBlockAndMetadata(world, i17 + 2, 8, k15, brickStairBlock, 1);
 				setBlockAndMetadata(world, i17 + 1, 8, k15 + 3, brickStairBlock, 0);
@@ -493,7 +494,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -1, 2, 2, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, 1, 2, 2, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, 2, 2, 2, plankSlabBlock, plankSlabMeta | 8);
-		int[] j17 = { 1, 3 };
+		int[] j17 = {1, 3};
 		k12 = j17.length;
 		for (i22 = 0; i22 < k12; ++i22) {
 			j16 = j17[i22];
@@ -621,7 +622,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		setAir(world, 0, 5, 9);
 		setAir(world, 0, 6, 9);
 		setBlockAndMetadata(world, 0, 5, 10, brickStairBlock, 2);
-		int[] j3 = { -6, 6 };
+		int[] j3 = {-6, 6};
 		k1 = j3.length;
 		for (j16 = 0; j16 < k1; ++j16) {
 			int i110 = j3[j16];
@@ -662,7 +663,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 			}
 		}
 		setBlockAndMetadata(world, 4, 1, 7, Blocks.cauldron, 3);
-		for (int i110 : new int[] { -2, 2 }) {
+		for (int i110 : new int[]{-2, 2}) {
 			setBlockAndMetadata(world, i110, 1, 6, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i110, 2, 6, fenceBlock, fenceMeta);
 			GOTEntityHorse horse = new GOTEntityHorse(world);

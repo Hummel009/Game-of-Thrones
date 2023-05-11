@@ -1,6 +1,8 @@
 package got.common.entity.essos.lhazar;
 
-import got.common.database.*;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTTradeEntries;
 import got.common.item.other.GOTItemMug;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;

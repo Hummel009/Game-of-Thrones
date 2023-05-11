@@ -1,14 +1,18 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.sothoryos.summer.*;
+import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
+import got.common.entity.sothoryos.summer.GOTEntitySummerWarlord;
+import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSummerFort extends GOTStructureSummerBase {
 	public GOTStructureSummerFort(boolean flag) {
@@ -131,7 +135,7 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 			warrior.spawnRidingHorse = false;
 			spawnNPCAndSetHome(warrior, world, 0, 1, 0, 16);
 		}
-		for (int i13 : new int[] { -4, 4 }) {
+		for (int i13 : new int[]{-4, 4}) {
 			j1 = 1;
 			int k1 = -6;
 			GOTEntityHorse horse = new GOTEntityHorse(world);

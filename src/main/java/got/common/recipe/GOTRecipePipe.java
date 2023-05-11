@@ -1,7 +1,8 @@
 package got.common.recipe;
 
 import got.common.database.GOTRegistry;
-import got.common.item.other.*;
+import got.common.item.other.GOTItemDye;
+import got.common.item.other.GOTItemPipe;
 import net.minecraft.block.BlockColored;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;

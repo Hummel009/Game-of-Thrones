@@ -1,13 +1,20 @@
 package got.common.entity.westeros.legendary.reborn;
 
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTCapes;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.legendary.quest.GOTEntityRamsayBolton;
 import got.common.entity.westeros.legendary.warrior.GOTEntityRooseBolton;
 import got.common.faction.GOTFaction;
-import got.common.quest.*;
-import net.minecraft.entity.*;
+import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMiniQuestFactory;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

@@ -1,18 +1,23 @@
 package got.common.entity.animal;
 
-import java.util.UUID;
-
 import got.common.database.GOTRegistry;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.world.biome.GOTBiome.ImmuneToFrost;
 import net.minecraft.block.material.Material;
-import net.minecraft.entity.*;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityWaterMob;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemFishFood;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity, ImmuneToFrost {
 	public static int swimTargetTimeMax = 200;

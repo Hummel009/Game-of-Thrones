@@ -1,14 +1,18 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.Random;
-
-import got.common.database.*;
-import got.common.entity.sothoryos.summer.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTNames;
+import got.common.database.GOTRegistry;
+import got.common.entity.sothoryos.summer.GOTEntitySummerBartender;
+import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 	public GOTStructureSummerTavern(boolean flag) {
@@ -134,10 +138,10 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			placeFlowerPot(world, 11, 2, 1, getRandomFlower(world, random));
 			placeFoodOrDrink(world, random, 12, 2, 1);
 			String[] tavernName = GOTNames.getTavernName(random);
-			placeSign(world, -1, 2, -6, Blocks.wall_sign, 5, new String[] { "", tavernName[0], tavernName[1], "" });
-			placeSign(world, 1, 2, -6, Blocks.wall_sign, 4, new String[] { "", tavernName[0], tavernName[1], "" });
-			placeSign(world, -1, 2, 6, Blocks.wall_sign, 5, new String[] { "", tavernName[0], tavernName[1], "" });
-			placeSign(world, 1, 2, 6, Blocks.wall_sign, 4, new String[] { "", tavernName[0], tavernName[1], "" });
+			placeSign(world, -1, 2, -6, Blocks.wall_sign, 5, new String[]{"", tavernName[0], tavernName[1], ""});
+			placeSign(world, 1, 2, -6, Blocks.wall_sign, 4, new String[]{"", tavernName[0], tavernName[1], ""});
+			placeSign(world, -1, 2, 6, Blocks.wall_sign, 5, new String[]{"", tavernName[0], tavernName[1], ""});
+			placeSign(world, 1, 2, 6, Blocks.wall_sign, 4, new String[]{"", tavernName[0], tavernName[1], ""});
 			placeWallBanner(world, -6, 4, -8, GOTItemBanner.BannerType.SUMMER, 2);
 			placeWallBanner(world, 6, 4, -8, GOTItemBanner.BannerType.SUMMER, 2);
 			placeWallBanner(world, -6, 4, 8, GOTItemBanner.BannerType.SUMMER, 0);

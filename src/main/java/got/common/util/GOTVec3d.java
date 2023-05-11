@@ -1,8 +1,8 @@
 package got.common.util;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.util.MathHelper;
+
+import javax.annotation.Nullable;
 
 public class GOTVec3d {
 	public static GOTVec3d ZERO = new GOTVec3d(0.0, 0.0, 0.0);

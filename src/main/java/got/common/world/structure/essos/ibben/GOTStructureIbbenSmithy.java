@@ -1,12 +1,12 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.essos.ibben.GOTEntityIbbenBlacksmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 	public GOTStructureIbbenSmithy(boolean flag) {
@@ -86,7 +86,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 				}
 			}
 			if (i2 == 4) {
-				int[] j15 = { -2, 3 };
+				int[] j15 = {-2, 3};
 				j1 = j15.length;
 				for (j14 = 0; j14 < j1; ++j14) {
 					int k14 = j15[j14];

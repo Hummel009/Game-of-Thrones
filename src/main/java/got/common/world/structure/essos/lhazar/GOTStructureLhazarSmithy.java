@@ -1,12 +1,14 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.lhazar.GOTEntityLhazarBlacksmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 	public GOTStructureLhazarSmithy(boolean flag) {
@@ -88,9 +90,9 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		placePlate(world, random, 4, 2, 0, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
 		placePlate(world, random, 4, 2, 1, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
 		if (random.nextBoolean()) {
-			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[] { new ItemStack(GOTRegistry.lhazarHelmet), new ItemStack(GOTRegistry.lhazarChestplate), new ItemStack(GOTRegistry.lhazarLeggings), new ItemStack(GOTRegistry.lhazarBoots) });
+			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{new ItemStack(GOTRegistry.lhazarHelmet), new ItemStack(GOTRegistry.lhazarChestplate), new ItemStack(GOTRegistry.lhazarLeggings), new ItemStack(GOTRegistry.lhazarBoots)});
 		} else {
-			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[] { null, new ItemStack(GOTRegistry.lhazarChestplate), null, null });
+			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{null, new ItemStack(GOTRegistry.lhazarChestplate), null, null});
 		}
 		placeWeaponRack(world, -13, 3, 0, 5, getRandomlhazarWeapon(random));
 		GOTEntityLhazarBlacksmith smith = new GOTEntityLhazarBlacksmith(world);

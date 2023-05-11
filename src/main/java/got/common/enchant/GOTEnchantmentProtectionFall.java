@@ -1,7 +1,9 @@
 package got.common.enchant;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtectionFall extends GOTEnchantmentProtectionSpecial {
 	public GOTEnchantmentProtectionFall(String s, int level) {

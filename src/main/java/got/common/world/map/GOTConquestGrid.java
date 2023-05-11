@@ -1,24 +1,30 @@
 package got.common.world.map;
 
-import java.io.File;
-import java.util.*;
-
 import com.google.common.math.IntMath;
-
 import cpw.mods.fml.common.FMLLog;
 import got.GOT;
-import got.common.*;
+import got.common.GOTConfig;
+import got.common.GOTDimension;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.database.GOTAchievement;
-import got.common.faction.*;
-import got.common.network.*;
+import got.common.faction.GOTFaction;
+import got.common.faction.GOTFactionRank;
+import got.common.network.GOTPacketConquestGrid;
+import got.common.network.GOTPacketConquestNotification;
+import got.common.network.GOTPacketHandler;
 import got.common.world.biome.GOTBiome;
 import got.common.world.genlayer.GOTGenLayerWorld;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.io.File;
+import java.util.*;
 
 public class GOTConquestGrid {
 	public static int MAP_GRID_SCALE = IntMath.pow(2, 3);
@@ -166,7 +172,8 @@ public class GOTConquestGrid {
 					includedBiomes.add(biome);
 				}
 			}
-			block2: for (GOTFaction fac : GOTFaction.getPlayableAlignmentFactions()) {
+			block2:
+			for (GOTFaction fac : GOTFaction.getPlayableAlignmentFactions()) {
 				for (GOTBiome biome2 : includedBiomes) {
 					if (!biome2.getNPCSpawnList().isFactionPresent(world, fac)) {
 						continue;
@@ -190,11 +197,11 @@ public class GOTConquestGrid {
 	}
 
 	public static int[] getMaxCoordsOnMap(GOTConquestZone zone) {
-		return new int[] { GOTConquestGrid.gridToMapCoord(zone.gridX + 1), GOTConquestGrid.gridToMapCoord(zone.gridZ + 1) };
+		return new int[]{GOTConquestGrid.gridToMapCoord(zone.gridX + 1), GOTConquestGrid.gridToMapCoord(zone.gridZ + 1)};
 	}
 
 	public static int[] getMinCoordsOnMap(GOTConquestZone zone) {
-		return new int[] { GOTConquestGrid.gridToMapCoord(zone.gridX), GOTConquestGrid.gridToMapCoord(zone.gridZ) };
+		return new int[]{GOTConquestGrid.gridToMapCoord(zone.gridX), GOTConquestGrid.gridToMapCoord(zone.gridZ)};
 	}
 
 	public static GOTConquestZone getZoneByEntityCoords(Entity entity) {

@@ -1,9 +1,11 @@
 package got.common.block.other;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
 import got.common.tileentity.GOTTileEntityWeaponRack;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,7 +14,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockWeaponRack extends BlockContainer {
@@ -178,28 +181,28 @@ public class GOTBlockWeaponRack extends BlockContainer {
 		float h = 0.9f;
 		int meta = world.getBlockMetadata(i, j, k);
 		switch (meta) {
-		case 0:
-		case 2:
-			setBlockBounds(0.0f, 0.0f, f, 1.0f, h, 1.0f - f);
-			break;
-		case 1:
-		case 3:
-			setBlockBounds(f, 0.0f, 0.0f, 1.0f - f, h, 1.0f);
-			break;
-		case 4:
-			setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, h, 1.0f - f * 2.0f);
-			break;
-		case 6:
-			setBlockBounds(0.0f, 0.0f, f * 2.0f, 1.0f, h, 1.0f);
-			break;
-		case 5:
-			setBlockBounds(f * 2.0f, 0.0f, 0.0f, 1.0f, h, 1.0f);
-			break;
-		case 7:
-			setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f - f * 2.0f, h, 1.0f);
-			break;
-		default:
-			break;
+			case 0:
+			case 2:
+				setBlockBounds(0.0f, 0.0f, f, 1.0f, h, 1.0f - f);
+				break;
+			case 1:
+			case 3:
+				setBlockBounds(f, 0.0f, 0.0f, 1.0f - f, h, 1.0f);
+				break;
+			case 4:
+				setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, h, 1.0f - f * 2.0f);
+				break;
+			case 6:
+				setBlockBounds(0.0f, 0.0f, f * 2.0f, 1.0f, h, 1.0f);
+				break;
+			case 5:
+				setBlockBounds(f * 2.0f, 0.0f, 0.0f, 1.0f, h, 1.0f);
+				break;
+			case 7:
+				setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f - f * 2.0f, h, 1.0f);
+				break;
+			default:
+				break;
 		}
 	}
 }

@@ -1,14 +1,14 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.ibben.GOTEntityIbbenFarmer;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 	public GOTStructureIbbenBarn(boolean flag) {
@@ -134,7 +134,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 				}
 				continue;
 			}
-			for (int k15 : new int[] { 0, 15 }) {
+			for (int k15 : new int[]{0, 15}) {
 				setBlockAndMetadata(world, i13, 3, k15, plank2SlabBlock, plank2SlabMeta);
 				if (i13 == -4 || i13 == 3) {
 					setBlockAndMetadata(world, i13, 4, k15, plankStairBlock, 4);
@@ -142,21 +142,21 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 					setBlockAndMetadata(world, i13, 4, k15, plankStairBlock, 5);
 				}
 				switch (i13) {
-				case -1:
-					setBlockAndMetadata(world, i13, 4, k15, plankStairBlock, 4);
-					break;
-				case 1:
-					setBlockAndMetadata(world, i13, 4, k15, plankStairBlock, 5);
-					break;
-				case 0:
-					setBlockAndMetadata(world, i13, 4, k15, plankSlabBlock, plankSlabMeta | 8);
-					break;
-				default:
-					break;
+					case -1:
+						setBlockAndMetadata(world, i13, 4, k15, plankStairBlock, 4);
+						break;
+					case 1:
+						setBlockAndMetadata(world, i13, 4, k15, plankStairBlock, 5);
+						break;
+					case 0:
+						setBlockAndMetadata(world, i13, 4, k15, plankSlabBlock, plankSlabMeta | 8);
+						break;
+					default:
+						break;
 				}
 				setBlockAndMetadata(world, i13, 7, k15, fenceBlock, fenceMeta);
 			}
-			int[] k14 = { -1, 16 };
+			int[] k14 = {-1, 16};
 			j13 = k14.length;
 			for (beam = 0; beam < j13; ++beam) {
 				int k15;
@@ -187,7 +187,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 				}
 				continue;
 			}
-			for (int i16 : new int[] { -6, 6 }) {
+			for (int i16 : new int[]{-6, 6}) {
 				setBlockAndMetadata(world, i16, 1, k16, plank2SlabBlock, plank2SlabMeta | 8);
 			}
 			setBlockAndMetadata(world, -7, 5, k16, plank2StairBlock, 1);
@@ -197,7 +197,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 			if (k16 < 3) {
 				continue;
 			}
-			for (int i16 : new int[] { -5, 5 }) {
+			for (int i16 : new int[]{-5, 5}) {
 				setBlockAndMetadata(world, i16, 3, k16, plank2SlabBlock, plank2SlabMeta);
 				if (k2 == 1) {
 					setBlockAndMetadata(world, i16, 4, k16, plankStairBlock, 7);
@@ -209,7 +209,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i16, 4, k16, plankStairBlock, 6);
 			}
 		}
-		int[] k16 = { -1, 16 };
+		int[] k16 = {-1, 16};
 		k2 = k16.length;
 		for (i1 = 0; i1 < k2; ++i1) {
 			k18 = k16[i1];
@@ -259,7 +259,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, 6, 6, k17, roofBlock, roofMeta);
 			setBlockAndMetadata(world, 6, 7, k17, roofBlock, roofMeta);
 		}
-		for (int k181 : new int[] { 0, 15 }) {
+		for (int k181 : new int[]{0, 15}) {
 			setBlockAndMetadata(world, -6, 6, k181, plank2Block, plank2Meta);
 			setBlockAndMetadata(world, -6, 7, k181, plank2Block, plank2Meta);
 			setBlockAndMetadata(world, -6, 8, k181, plank2StairBlock, 1);
@@ -282,7 +282,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, 6, 6, k181, plank2Block, plank2Meta);
 			setBlockAndMetadata(world, 6, 7, k181, plank2Block, plank2Meta);
 		}
-		int[] k17 = { -1, 16 };
+		int[] k17 = {-1, 16};
 		i15 = k17.length;
 		for (i1 = 0; i1 < i15; ++i1) {
 			k18 = k17[i1];
@@ -389,7 +389,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, 2, 7, 1, Blocks.torch, 3);
 		setBlockAndMetadata(world, -2, 7, 14, Blocks.torch, 4);
 		setBlockAndMetadata(world, 2, 7, 14, Blocks.torch, 4);
-		for (int k181 : new int[] { 1, 14 }) {
+		for (int k181 : new int[]{1, 14}) {
 			for (i142 = -4; i142 <= 4; ++i142) {
 				int i24 = Math.abs(i142);
 				if (i24 > 1 && i24 < 3) {
@@ -400,7 +400,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 		}
 		for (int k19 = 1; k19 <= 14; ++k19) {
 			if (k19 == 1 || IntMath.mod(k19, 3) == 0) {
-				for (int i1421 : new int[] { -5, 5 }) {
+				for (int i1421 : new int[]{-5, 5}) {
 					setBlockAndMetadata(world, i1421, 6, k19, fenceBlock, fenceMeta);
 					setBlockAndMetadata(world, i1421, 7, k19, fenceBlock, fenceMeta);
 				}
@@ -409,7 +409,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 			if (k19 == 2) {
 				continue;
 			}
-			for (int i1421 : new int[] { -5, 5 }) {
+			for (int i1421 : new int[]{-5, 5}) {
 				j12 = 6;
 				if (!random.nextBoolean()) {
 					continue;
@@ -449,16 +449,16 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 	public static EntityAnimal getRandomAnimal(World world, Random random) {
 		int animal = random.nextInt(4);
 		switch (animal) {
-		case 0:
-			return new EntityCow(world);
-		case 1:
-			return new EntityPig(world);
-		case 2:
-			return new EntitySheep(world);
-		case 3:
-			return new EntityChicken(world);
-		default:
-			break;
+			case 0:
+				return new EntityCow(world);
+			case 1:
+				return new EntityPig(world);
+			case 2:
+				return new EntitySheep(world);
+			case 3:
+				return new EntityChicken(world);
+			default:
+				break;
 		}
 		return null;
 	}

@@ -4,7 +4,8 @@ import got.client.model.GOTModelDeer;
 import got.client.render.other.GOTRandomSkins;
 import got.common.entity.animal.GOTEntityDeer;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderDeer extends RenderLiving {

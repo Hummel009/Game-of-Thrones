@@ -1,17 +1,20 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.inventory.GOTContainerBarrel;
-import got.common.network.*;
+import got.common.network.GOTPacketBrewingButton;
+import got.common.network.GOTPacketHandler;
 import got.common.tileentity.GOTTileEntityBarrel;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiBarrel extends GuiContainer {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/barrel/barrel.png");

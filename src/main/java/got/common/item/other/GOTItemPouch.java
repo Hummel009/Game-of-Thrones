@@ -1,26 +1,40 @@
 package got.common.item.other;
 
-import java.util.*;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.block.other.*;
+import got.common.block.other.GOTBlockChest;
+import got.common.block.other.GOTBlockSpawnerChest;
 import got.common.database.GOTCreativeTabs;
-import got.common.inventory.*;
-import net.minecraft.block.*;
+import got.common.inventory.GOTContainerChestWithPouch;
+import got.common.inventory.GOTContainerPouch;
+import got.common.inventory.GOTInventoryPouch;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockChest;
+import net.minecraft.block.BlockEnderChest;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryEnderChest;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.*;
-import net.minecraft.util.*;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityEnderChest;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GOTItemPouch extends Item {
 	public static int POUCH_COLOR = 10841676;
-	public static String[] pouchTypes = { "small", "medium", "large" };
+	public static String[] pouchTypes = {"small", "medium", "large"};
 	@SideOnly(value = Side.CLIENT)
 	public IIcon[] pouchIcons;
 	@SideOnly(value = Side.CLIENT)

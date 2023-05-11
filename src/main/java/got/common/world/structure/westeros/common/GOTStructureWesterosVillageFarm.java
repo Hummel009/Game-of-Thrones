@@ -1,7 +1,5 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.*;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.world.feature.GOTTreeType;
@@ -9,6 +7,9 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWesterosBase {
 	public GOTStructureWesterosVillageFarm(boolean flag) {

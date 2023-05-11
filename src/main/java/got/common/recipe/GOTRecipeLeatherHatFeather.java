@@ -2,7 +2,8 @@ package got.common.recipe;
 
 import got.GOT;
 import got.common.database.GOTRegistry;
-import got.common.item.other.*;
+import got.common.item.other.GOTItemFeatherDyed;
+import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;

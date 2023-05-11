@@ -12,7 +12,7 @@ import net.minecraft.client.settings.GameSettings;
 
 public class GOTEntityDragon3DViewer {
 
-	public static String[] ENTITYRENDERER_THIRDPERSONDISTANCE = { "thirdPersonDistance", "field_78490_B" };
+	public static String[] ENTITYRENDERER_THIRDPERSONDISTANCE = {"thirdPersonDistance", "field_78490_B"};
 	public Minecraft mc = Minecraft.getMinecraft();
 	public float defaultThirdPersonDistance;
 	public int noticeTicks;

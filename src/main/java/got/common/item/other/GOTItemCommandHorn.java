@@ -1,16 +1,19 @@
 package got.common.item.other;
 
-import java.util.List;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.GOTSquadrons;
 import got.common.database.GOTCreativeTabs;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronItem {
 	public GOTItemCommandHorn() {
@@ -41,14 +44,14 @@ public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronIte
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
 		switch (itemstack.getItemDamage()) {
-		case 1:
-			return "item.got.commandHorn.halt";
-		case 2:
-			return "item.got.commandHorn.ready";
-		case 3:
-			return "item.got.commandHorn.summon";
-		default:
-			return super.getUnlocalizedName(itemstack);
+			case 1:
+				return "item.got.commandHorn.halt";
+			case 2:
+				return "item.got.commandHorn.ready";
+			case 3:
+				return "item.got.commandHorn.summon";
+			default:
+				return super.getUnlocalizedName(itemstack);
 		}
 	}
 

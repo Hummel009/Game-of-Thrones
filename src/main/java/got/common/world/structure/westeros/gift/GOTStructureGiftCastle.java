@@ -1,20 +1,27 @@
 package got.common.world.structure.westeros.gift;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.westeros.gift.*;
-import got.common.entity.westeros.legendary.captain.*;
+import got.common.entity.westeros.gift.GOTEntityGiftBlacksmith;
+import got.common.entity.westeros.gift.GOTEntityGiftGuard;
+import got.common.entity.westeros.legendary.captain.GOTEntityCotterPyke;
+import got.common.entity.westeros.legendary.captain.GOTEntityDenysMallister;
+import got.common.entity.westeros.legendary.captain.GOTEntityJeorMormont;
 import got.common.entity.westeros.legendary.quest.GOTEntitySamwellTarly;
 import got.common.entity.westeros.legendary.reborn.GOTEntityJonSnow;
-import got.common.entity.westeros.legendary.trader.*;
-import got.common.entity.westeros.legendary.warrior.*;
+import got.common.entity.westeros.legendary.trader.GOTEntityAemonTargaryen;
+import got.common.entity.westeros.legendary.trader.GOTEntityHarmune;
+import got.common.entity.westeros.legendary.trader.GOTEntityMullin;
+import got.common.entity.westeros.legendary.warrior.GOTEntityAlliserThorne;
+import got.common.entity.westeros.legendary.warrior.GOTEntityEdd;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 	public GOTStructureGiftCastle(boolean flag) {
@@ -65,17 +72,17 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 					} else if (j14 == 0) {
 						int randomGround = random.nextInt(3);
 						switch (randomGround) {
-						case 0:
-							setBlockAndMetadata(world, i15, j14, k12, Blocks.grass, 0);
-							break;
-						case 1:
-							setBlockAndMetadata(world, i15, j14, k12, Blocks.dirt, 1);
-							break;
-						case 2:
-							setBlockAndMetadata(world, i15, j14, k12, GOTRegistry.dirtPath, 0);
-							break;
-						default:
-							break;
+							case 0:
+								setBlockAndMetadata(world, i15, j14, k12, Blocks.grass, 0);
+								break;
+							case 1:
+								setBlockAndMetadata(world, i15, j14, k12, Blocks.dirt, 1);
+								break;
+							case 2:
+								setBlockAndMetadata(world, i15, j14, k12, GOTRegistry.dirtPath, 0);
+								break;
+							default:
+								break;
 						}
 						if (random.nextInt(3) == 0) {
 							setBlockAndMetadata(world, i15, j14 + 1, k12, GOTRegistry.thatchFloor, 0);
@@ -154,11 +161,11 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, i15, 4 + yBoost, k12, plankStairBlock, 5);
 			}
 		}
-		int[] i16 = { -12, 9 };
+		int[] i16 = {-12, 9};
 		k12 = i16.length;
 		for (i2 = 0; i2 < k12; ++i2) {
 			i13 = i16[i2];
-			for (int k14 : new int[] { -12, 9 }) {
+			for (int k14 : new int[]{-12, 9}) {
 				int i22;
 				setBlockAndMetadata(world, i13 + 1, 8, k14, plankStairBlock, 4);
 				setBlockAndMetadata(world, i13 + 2, 8, k14, plankStairBlock, 5);
@@ -340,7 +347,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, -2, 3, 9, Blocks.torch, 4);
 			setBlockAndMetadata(world, 2, 3, 9, Blocks.torch, 4);
 		}
-		int[] j16 = { -7, 7 };
+		int[] j16 = {-7, 7};
 		i1 = j16.length;
 		for (j12 = 0; j12 < i1; ++j12) {
 			i13 = j16[j12];
@@ -464,7 +471,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, i1, 1, k13, GOTRegistry.thatchFloor, 0);
 			}
 		}
-		for (int k16 : new int[] { 6, 10 }) {
+		for (int k16 : new int[]{6, 10}) {
 			setBlockAndMetadata(world, 7, 1, k16, bedBlock, 3);
 			setBlockAndMetadata(world, 6, 1, k16, bedBlock, 11);
 			setBlockAndMetadata(world, 9, 1, k16, bedBlock, 1);

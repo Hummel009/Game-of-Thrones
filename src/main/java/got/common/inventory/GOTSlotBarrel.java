@@ -1,6 +1,7 @@
 package got.common.inventory;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.item.other.GOTItemMug;
 import got.common.recipe.GOTRecipeBrewing;
 import got.common.tileentity.GOTTileEntityBarrel;

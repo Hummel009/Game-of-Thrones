@@ -1,13 +1,14 @@
 package got.common.quest;
 
-import java.util.*;
-
 import got.common.GOTPlayerData;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 	public int collectTarget;

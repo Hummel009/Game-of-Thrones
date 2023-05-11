@@ -1,12 +1,14 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 	public GOTStructureWesterosStables(boolean flag) {
@@ -102,7 +104,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i13, 1, k1, GOTRegistry.thatchFloor, 0);
 			}
 		}
-		int[] i15 = { -4, 4 };
+		int[] i15 = {-4, 4};
 		i2 = i15.length;
 		for (k1 = 0; k1 < i2; ++k1) {
 			int j15;
@@ -142,7 +144,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i16, j1, 5, brickBlock, brickMeta);
 			}
 		}
-		int[] i16 = { -2, 2 };
+		int[] i16 = {-2, 2};
 		j1 = i16.length;
 		for (k1 = 0; k1 < j1; ++k1) {
 			i122 = i16[k1];
@@ -173,7 +175,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i1, 6, 4, brick2StairBlock, 6);
 			setBlockAndMetadata(world, i1, 5, 5, brick2StairBlock, 6);
 		}
-		for (int i1221 : new int[] { -3, 1 }) {
+		for (int i1221 : new int[]{-3, 1}) {
 			setBlockAndMetadata(world, i1221, 2, 5, brickStairBlock, 0);
 			setBlockAndMetadata(world, i1221, 3, 5, brickStairBlock, 4);
 			setBlockAndMetadata(world, i1221 + 1, 2, 5, brickWallBlock, brickWallMeta);

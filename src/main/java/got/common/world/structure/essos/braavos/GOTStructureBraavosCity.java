@@ -1,16 +1,19 @@
 package got.common.world.structure.essos.braavos;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
-import got.common.entity.essos.braavos.*;
+import got.common.entity.essos.braavos.GOTEntityBraavosMan;
+import got.common.entity.essos.braavos.GOTEntityBraavosSoldier;
+import got.common.entity.essos.braavos.GOTEntityBraavosSoldierArcher;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
-import got.common.world.structure.essos.common.*;
+import got.common.world.structure.essos.common.GOTStructureEssosVillageFence;
+import got.common.world.structure.essos.common.GOTStructureEssosVillagePost;
+import got.common.world.structure.essos.common.GOTStructureEssosVillageSign;
 import got.common.world.structure.other.*;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureBraavosCity extends GOTVillageGen {
 	public boolean isTown;
@@ -44,15 +47,15 @@ public class GOTStructureBraavosCity extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case TOWN:
-				setupTown(random);
-				break;
-			case FORT:
-				setupFort(random);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case TOWN:
+					setupTown(random);
+					break;
+				case FORT:
+					setupFort(random);
+					break;
 			}
 		}
 
@@ -269,8 +272,8 @@ public class GOTStructureBraavosCity extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -25, 25 }) {
-				for (int k1 : new int[] { -25, 25 }) {
+			for (int i1 : new int[]{-25, 25}) {
+				for (int k1 : new int[]{-25, 25}) {
 					this.addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -350,8 +353,8 @@ public class GOTStructureBraavosCity extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -30, 30 }) {
-				for (int k1 : new int[] { -30, 30 }) {
+			for (int i1 : new int[]{-30, 30}) {
+				for (int k1 : new int[]{-30, 30}) {
 					this.addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override

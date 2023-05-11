@@ -1,23 +1,39 @@
 package got.common.entity.westeros.ice;
 
 import got.common.GOTDamage;
-import got.common.database.*;
-import got.common.entity.ai.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTMaterial;
+import got.common.database.GOTRegistry;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
-import got.common.entity.other.*;
-import got.common.entity.westeros.legendary.reborn.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntitySpear;
+import got.common.entity.other.GOTEntitySpiderBase;
+import got.common.entity.westeros.legendary.reborn.GOTEntityBericDondarrion;
+import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane;
+import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
+import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy;
 import got.common.entity.westeros.wildling.GOTEntityGiant;
 import got.common.faction.GOTFaction;
 import got.common.item.GOTMaterialFinder;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIOpenDoor;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest2;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityWhiteWalker extends GOTEntityNPC {
-	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.iceSword), new ItemStack(GOTRegistry.iceHeavySword), new ItemStack(GOTRegistry.iceSpear) };
+	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.iceSword), new ItemStack(GOTRegistry.iceHeavySword), new ItemStack(GOTRegistry.iceSpear)};
 
 	public GOTEntityWhiteWalker(World world) {
 		super(world);

@@ -1,6 +1,7 @@
 package got.common.world.biome.variant;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GOTBiomeVariantList {
 	public float totalWeight;

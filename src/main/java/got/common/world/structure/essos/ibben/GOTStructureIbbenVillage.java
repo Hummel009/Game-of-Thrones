@@ -1,14 +1,17 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
-import got.common.entity.essos.ibben.*;
+import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
+import got.common.entity.essos.ibben.GOTEntityIbbenMan;
+import got.common.entity.essos.ibben.GOTEntityIbbenWarlord;
+import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIbbenVillage extends GOTVillageGen {
 	public GOTStructureIbbenVillage(GOTBiome biome, float f) {
@@ -36,12 +39,12 @@ public class GOTStructureIbbenVillage extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case FORT:
-				setupFort(random);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case FORT:
+					setupFort(random);
+					break;
 			}
 		}
 
@@ -92,14 +95,14 @@ public class GOTStructureIbbenVillage extends GOTVillageGen {
 			if (random.nextInt(4) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
-				case 0:
-					return new GOTStructureIbbenSmithy(false);
-				case 1:
-					return new GOTStructureIbbenStables(false);
-				case 2:
-					return new GOTStructureIbbenBarn(false);
-				default:
-					break;
+					case 0:
+						return new GOTStructureIbbenSmithy(false);
+					case 1:
+						return new GOTStructureIbbenStables(false);
+					case 2:
+						return new GOTStructureIbbenBarn(false);
+					default:
+						break;
 				}
 			}
 			return new GOTStructureIbbenHouse(false);
@@ -129,11 +132,11 @@ public class GOTStructureIbbenVillage extends GOTVillageGen {
 			}, 0, 0, 0);
 			this.addStructure(new GOTStructureIbbenGatehouse(false), 0, -53, 0, true);
 			int towerX = 46;
-			for (int i1 : new int[] { -towerX, towerX }) {
+			for (int i1 : new int[]{-towerX, towerX}) {
 				this.addStructure(new GOTStructureIbbenWatchtower(false), i1, -towerX, 0, true);
 				this.addStructure(new GOTStructureIbbenWatchtower(false), i1, towerX, 2, true);
 			}
-			for (int i1 : new int[] { -35, 35 }) {
+			for (int i1 : new int[]{-35, 35}) {
 				this.addStructure(new GOTStructureIbbenStables(false), i1, -14, 0, true);
 			}
 			int farmZ = -20;
@@ -148,8 +151,8 @@ public class GOTStructureIbbenVillage extends GOTVillageGen {
 				this.addStructure(new GOTStructureIbbenVillageFarm(false), -farmX, farmZ, 0);
 				this.addStructure(new GOTStructureIbbenVillageFarm(false), farmX, farmZ, 0);
 			}
-			for (int i1 : new int[] { -51, 51 }) {
-				for (int k1 : new int[] { -51, 51 }) {
+			for (int i1 : new int[]{-51, 51}) {
+				for (int k1 : new int[]{-51, 51}) {
 					this.addStructure(new GOTStructureIbbenFortCorner(false), i1, k1, 0, true);
 				}
 			}

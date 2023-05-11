@@ -1,24 +1,38 @@
 package got.common.quest;
 
-import java.awt.Color;
-import java.util.*;
-
-import org.apache.commons.lang3.tuple.Pair;
-
 import cpw.mods.fml.common.FMLLog;
-import got.common.*;
-import got.common.database.*;
+import got.common.GOTDate;
+import got.common.GOTDimension;
+import got.common.GOTLore;
+import got.common.GOTPlayerData;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTSpeech;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
-import got.common.entity.other.*;
-import got.common.faction.*;
-import got.common.item.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.entity.other.GOTUnitTradeEntry;
+import got.common.faction.GOTAlignmentBonusMap;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
+import got.common.item.other.GOTItemCoin;
+import got.common.item.other.GOTItemModifierTemplate;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.*;
-import net.minecraft.util.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.biome.BiomeGenBase;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.awt.*;
+import java.util.List;
+import java.util.*;
 
 public abstract class GOTMiniQuest {
 	public static Map<String, Class<? extends GOTMiniQuest>> nameToQuestMapping = new HashMap<>();
@@ -26,6 +40,7 @@ public abstract class GOTMiniQuest {
 	public static int MAX_MINIQUESTS_PER_FACTION = 5;
 	public static double RENDER_HEAD_DISTANCE = 12.0;
 	public static float defaultRewardFactor = 1.0f;
+
 	static {
 		GOTMiniQuest.registerQuestType("Collect", GOTMiniQuestCollect.class);
 		GOTMiniQuest.registerQuestType("KillFaction", GOTMiniQuestKillFaction.class);
@@ -34,6 +49,7 @@ public abstract class GOTMiniQuest {
 		GOTMiniQuest.registerQuestType("Welcome", GOTMiniQuestWelcome.class);
 		GOTMiniQuest.registerQuestType("Pickpocket", GOTMiniQuestPickpocket.class);
 	}
+
 	public GOTMiniQuestFactory questGroup;
 	public GOTPlayerData playerData;
 	public UUID questUUID;

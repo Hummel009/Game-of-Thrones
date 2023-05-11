@@ -1,12 +1,17 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
-import got.common.database.*;
-import got.common.entity.essos.asshai.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
+import got.common.entity.essos.asshai.GOTEntityAsshaiCaptain;
+import got.common.entity.essos.asshai.GOTEntityAsshaiShadowbinder;
+import got.common.entity.essos.asshai.GOTEntityAsshaiSpherebinder;
+import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 	public GOTStructureAsshaiFort(boolean flag) {
@@ -133,17 +138,17 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		this.placeChest(world, random, 12, 4, 17, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
 		this.placeChest(world, random, -5, 4, 17, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
 		for (int j1 = 4; j1 <= 5; ++j1) {
-			for (int i1 : new int[] { -3, -1, 1 }) {
+			for (int i1 : new int[]{-3, -1, 1}) {
 				setBlockAndMetadata(world, i1, j1, 17, bedBlock, 0);
 				setBlockAndMetadata(world, i1, j1, 18, bedBlock, 8);
 			}
-			for (int i1 : new int[] { 6, 8, 10 }) {
+			for (int i1 : new int[]{6, 8, 10}) {
 				setBlockAndMetadata(world, i1, j1, 17, bedBlock, 0);
 				setBlockAndMetadata(world, i1, j1, 18, bedBlock, 8);
 			}
 		}
 		for (int k1 = -7; k1 <= -4; ++k1) {
-			for (int i1 : new int[] { -13, -11 }) {
+			for (int i1 : new int[]{-13, -11}) {
 				if (random.nextBoolean()) {
 					placePlate(world, random, i1, 5, k1, GOTRegistry.woodPlateBlock, GOTFoods.WESTEROS);
 					continue;
@@ -173,7 +178,7 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 	}
 
 	public ItemStack getRandomAsshaiWeapon(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.asshaiSword), new ItemStack(GOTRegistry.asshaiDagger), new ItemStack(GOTRegistry.asshaiDaggerPoisoned), new ItemStack(GOTRegistry.asshaiSpear), new ItemStack(GOTRegistry.asshaiBattleaxe), new ItemStack(GOTRegistry.asshaiHammer) };
+		ItemStack[] items = {new ItemStack(GOTRegistry.asshaiSword), new ItemStack(GOTRegistry.asshaiDagger), new ItemStack(GOTRegistry.asshaiDaggerPoisoned), new ItemStack(GOTRegistry.asshaiSpear), new ItemStack(GOTRegistry.asshaiBattleaxe), new ItemStack(GOTRegistry.asshaiHammer)};
 		return items[random.nextInt(items.length)].copy();
 	}
 

@@ -1,10 +1,10 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 

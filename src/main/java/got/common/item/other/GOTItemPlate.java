@@ -4,10 +4,12 @@ import got.common.block.other.GOTBlockPlate;
 import got.common.database.GOTCreativeTabs;
 import got.common.dispense.GOTDispensePlate;
 import got.common.entity.other.GOTEntityPlate;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemReed;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTItemPlate extends ItemReed {

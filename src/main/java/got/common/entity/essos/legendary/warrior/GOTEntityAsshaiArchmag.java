@@ -1,10 +1,18 @@
 package got.common.entity.essos.legendary.warrior;
 
-import got.common.database.*;
-import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTCapes;
+import got.common.database.GOTRegistry;
+import got.common.entity.ai.GOTEntityAIAsshaiArchmagUseStaff;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
+import got.common.entity.ai.GOTEntityAIHiredRemainStill;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

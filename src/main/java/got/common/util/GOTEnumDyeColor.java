@@ -5,12 +5,14 @@ public enum GOTEnumDyeColor {
 
 	public static GOTEnumDyeColor[] META_LOOKUP = new GOTEnumDyeColor[values().length];
 	public static GOTEnumDyeColor[] DYE_DMG_LOOKUP = new GOTEnumDyeColor[values().length];
+
 	static {
 		for (GOTEnumDyeColor enumdyecolor : values()) {
 			META_LOOKUP[enumdyecolor.getMetadata()] = enumdyecolor;
 			DYE_DMG_LOOKUP[enumdyecolor.getDyeDamage()] = enumdyecolor;
 		}
 	}
+
 	public int meta;
 	public int dyeDamage;
 	public String name;

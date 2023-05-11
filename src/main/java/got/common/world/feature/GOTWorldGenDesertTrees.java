@@ -1,13 +1,13 @@
 package got.common.world.feature;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public class GOTWorldGenDesertTrees extends WorldGenAbstractTree {
 	public boolean isNatural;
@@ -73,21 +73,21 @@ public class GOTWorldGenDesertTrees extends WorldGenAbstractTree {
 				}
 				if (random.nextInt(3) != 0) {
 					switch (branch) {
-					case 0: {
-						--i1;
-						break;
-					}
-					case 1: {
-						++k1;
-						break;
-					}
-					case 2: {
-						++i1;
-						break;
-					}
-					case 3: {
-						--k1;
-					}
+						case 0: {
+							--i1;
+							break;
+						}
+						case 1: {
+							++k1;
+							break;
+						}
+						case 2: {
+							++i1;
+							break;
+						}
+						case 3: {
+							--k1;
+						}
 					}
 				}
 				if (!isReplaceable(world, i1, j1, k1)) {

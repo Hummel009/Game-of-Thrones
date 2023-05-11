@@ -1,40 +1,56 @@
 package got.common.database;
 
-import java.util.*;
-
 import com.google.common.base.CaseFormat;
-
 import cpw.mods.fml.common.registry.GameRegistry;
-import got.common.block.*;
+import got.common.block.GOTItemBlockWeaponRack;
+import got.common.block.GOTItemPlantableBlock;
 import got.common.block.brick.*;
 import got.common.block.leaves.*;
 import got.common.block.other.*;
-import got.common.block.pillar.*;
-import got.common.block.planks.*;
+import got.common.block.pillar.GOTBlockPillar1;
+import got.common.block.pillar.GOTBlockPillar2;
+import got.common.block.planks.GOTBlockPlanks1;
+import got.common.block.planks.GOTBlockPlanks2;
+import got.common.block.planks.GOTBlockPlanks3;
+import got.common.block.planks.GOTBlockPlanksRotten;
 import got.common.block.sapling.*;
 import got.common.block.slab.*;
 import got.common.block.table.*;
-import got.common.block.torch.*;
+import got.common.block.torch.GOTBlockAsshaiTorch;
+import got.common.block.torch.GOTBlockDoubleTorch;
+import got.common.block.torch.GOTBlockUlthosTorch;
 import got.common.block.wall.*;
 import got.common.block.wbeam.*;
 import got.common.block.wood.*;
 import got.common.block.wslab.*;
 import got.common.enchant.GOTEnchantment;
 import got.common.item.other.*;
-import got.common.item.tool.*;
+import got.common.item.tool.GOTItemAxe;
+import got.common.item.tool.GOTItemHoe;
+import got.common.item.tool.GOTItemPickaxe;
+import got.common.item.tool.GOTItemShovel;
 import got.common.item.weapon.*;
-import got.common.tileentity.*;
+import got.common.tileentity.GOTTileEntitySignCarved;
+import got.common.tileentity.GOTTileEntitySignCarvedValyrian;
 import got.common.util.GOTEnumDyeColor;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.*;
-import net.minecraft.item.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemSeedFood;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
+
+import java.util.EnumMap;
+import java.util.Map;
 
 public class GOTRegistry {
 	public static Map<GOTEnumDyeColor, GOTBlockConcretePowder> concretePowder = new EnumMap<>(GOTEnumDyeColor.class);

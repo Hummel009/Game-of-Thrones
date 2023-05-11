@@ -1,17 +1,21 @@
 package got.common.item.other;
 
-import java.util.List;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.database.GOTCreativeTabs;
 import got.common.quest.GOTMiniQuestEvent;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTItemQuestBook extends Item {
 	@SideOnly(value = Side.CLIENT)

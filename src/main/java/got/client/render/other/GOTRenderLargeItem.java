@@ -1,28 +1,40 @@
 package got.client.render.other;
 
-import java.io.IOException;
-import java.util.*;
-
+import got.client.GOTClientProxy;
+import got.common.item.weapon.GOTItemLance;
+import got.common.item.weapon.GOTItemPike;
+import got.common.item.weapon.GOTItemSpear;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.client.resources.IResource;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StringUtils;
+import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
-import got.client.GOTClientProxy;
-import got.common.item.weapon.*;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.texture.*;
-import net.minecraft.client.resources.IResource;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraftforge.client.IItemRenderer;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTRenderLargeItem implements IItemRenderer {
 	public static Map<String, Float> sizeFolders = new HashMap<>();
+
 	static {
 		sizeFolders.put("large-2x", 2.0f);
 		sizeFolders.put("large-3x", 3.0f);
 	}
+
 	public Item theItem;
 	public String folderName;
 	public float largeIconScale;

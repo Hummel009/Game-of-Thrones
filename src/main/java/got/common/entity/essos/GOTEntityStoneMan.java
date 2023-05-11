@@ -1,12 +1,21 @@
 package got.common.entity.essos;
 
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.*;
-import got.common.entity.westeros.legendary.reborn.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.westeros.legendary.reborn.GOTEntityBericDondarrion;
+import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane;
+import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
+import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy;
 import got.common.faction.GOTFaction;
 import got.common.item.weapon.GOTItemSword;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
+import net.minecraft.entity.ai.EntityAIWatchClosest2;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 

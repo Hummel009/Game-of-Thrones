@@ -1,15 +1,21 @@
 package got.common.enchant;
 
-import java.util.*;
-
 import com.google.common.collect.Lists;
-
 import got.common.GOTConfig;
-import net.minecraft.entity.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.nbt.*;
-import net.minecraft.util.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemTool;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.StatCollector;
+import net.minecraft.util.WeightedRandom;
+
+import java.util.*;
 
 public class GOTEnchantmentHelper {
 	public static Map<UUID, ItemStack[]> lastKnownPlayerInventories = (Map) new HashMap<UUID, ItemStack>();

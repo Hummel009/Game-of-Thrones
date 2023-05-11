@@ -1,8 +1,13 @@
 package got.common.entity.westeros.legendary.reborn;
 
-import got.common.database.*;
-import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
+import got.common.entity.ai.GOTEntityAIHiredRemainStill;
+import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.legendary.warrior.GOTEntitySandorClegane;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.*;

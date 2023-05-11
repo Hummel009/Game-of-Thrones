@@ -1,18 +1,21 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.essos.GOTEntityRedPriest;
-import got.common.entity.essos.asshai.*;
+import got.common.entity.essos.asshai.GOTEntityAsshaiAlchemist;
+import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
+import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureNPCRespawner;
+import got.common.world.structure.other.GOTVillageGen;
+import got.common.world.structure.other.LocationInfo;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiCity extends GOTVillageGen {
 	public GOTStructureAsshaiCity(GOTBiome biome, float f) {
@@ -61,8 +64,8 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 					spawner.setSpawnInterval(1);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -40, 40 }) {
-				for (int k12 : new int[] { -40, 40 }) {
+			for (int i1 : new int[]{-40, 40}) {
+				for (int k12 : new int[]{-40, 40}) {
 					this.addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -142,7 +145,7 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureAsshaiHouse(false), gardenX, gardenZ, 3, true);
 			int wallX;
 			int l;
-			for (int k11 : new int[] { 67, 75 }) {
+			for (int k11 : new int[]{67, 75}) {
 				this.addStructure(new GOTStructureAsshaiTownBench(false), -10, k11, 1, true);
 				this.addStructure(new GOTStructureAsshaiTownBench(false), 10, k11, 3, true);
 			}
@@ -151,7 +154,7 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureAsshaiLampPost(false), 4, 73, 0, true);
 			int towerX = 78;
 			int towerZ = 74;
-			for (int i1 : new int[] { -towerX, towerX }) {
+			for (int i1 : new int[]{-towerX, towerX}) {
 				this.addStructure(new GOTStructureAsshaiWatchtower(false), i1, -towerZ, 2, true);
 				this.addStructure(new GOTStructureAsshaiWatchtower(false), i1, towerZ, 0, true);
 			}

@@ -1,13 +1,18 @@
 package got.common.network;
 
-import java.util.UUID;
-
-import cpw.mods.fml.common.network.simpleimpl.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
-import got.common.*;
-import got.common.world.map.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.world.map.GOTAbstractWaypoint;
+import got.common.world.map.GOTCustomWaypoint;
+import got.common.world.map.GOTWaypoint;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
+
+import java.util.UUID;
 
 public class GOTPacketWaypointUseCount implements IMessage {
 	public boolean isCustom;

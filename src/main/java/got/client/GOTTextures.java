@@ -1,31 +1,37 @@
 package got.client;
 
-import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.*;
-
-import javax.imageio.ImageIO;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.gui.GOTGuiMap;
 import got.client.render.other.GOTBufferedImageIcon;
-import got.common.*;
-import got.common.util.*;
+import got.common.GOTConfig;
+import got.common.GOTDimension;
+import got.common.util.GOTColorUtil;
+import got.common.util.GOTCommonIcons;
+import got.common.util.GOTLog;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.sothoryos.GOTBiomeSothoryosHell;
 import got.common.world.genlayer.GOTGenLayerWorld;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.*;
-import net.minecraft.client.resources.*;
+import net.minecraft.client.resources.IReloadableResourceManager;
+import net.minecraft.client.resources.IResourceManager;
+import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.*;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
+import org.lwjgl.opengl.GL11;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTTextures implements IResourceManagerReloadListener {
 	public static Minecraft mc = Minecraft.getMinecraft();

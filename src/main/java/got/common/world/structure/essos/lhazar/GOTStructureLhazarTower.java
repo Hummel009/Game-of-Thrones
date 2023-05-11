@@ -1,12 +1,15 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
-import got.common.database.*;
-import got.common.entity.essos.lhazar.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
+import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
+import got.common.entity.essos.lhazar.GOTEntityLhazarWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarTower extends GOTStructureLhazarBase {
 	public GOTStructureLhazarTower(boolean flag) {

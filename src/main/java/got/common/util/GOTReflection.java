@@ -1,16 +1,16 @@
 package got.common.util;
 
-import java.lang.reflect.*;
-import java.util.*;
-
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import cpw.mods.fml.relauncher.ReflectionHelper.*;
-import net.minecraft.block.*;
-import net.minecraft.command.*;
+import cpw.mods.fml.relauncher.ReflectionHelper.UnableToAccessFieldException;
+import cpw.mods.fml.relauncher.ReflectionHelper.UnableToFindFieldException;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
+import net.minecraft.block.BlockPistonBase;
+import net.minecraft.block.BlockStem;
+import net.minecraft.command.CommandHandler;
+import net.minecraft.command.ICommand;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.passive.EntityHorse;
@@ -19,18 +19,26 @@ import net.minecraft.event.HoverEvent;
 import net.minecraft.event.HoverEvent.Action;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.AnimalChest;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.storage.WorldInfo;
+import org.apache.logging.log4j.Level;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
 
 public class GOTReflection {
 	public static boolean canPistonPushBlock(Block block, World world, int i, int j, int k, boolean flag) {
 		try {
-			Method method = GOTReflection.getPrivateMethod(BlockPistonBase.class, null, new Class[] { Block.class, World.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Boolean.TYPE }, "canPushBlock", "func_150080_a");
+			Method method = GOTReflection.getPrivateMethod(BlockPistonBase.class, null, new Class[]{Block.class, World.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Boolean.TYPE}, "canPushBlock", "func_150080_a");
 			return (Boolean) method.invoke(null, block, world, i, j, k, flag);
 		} catch (Exception e) {
 			GOTReflection.logFailure(e);
@@ -211,7 +219,8 @@ public class GOTReflection {
 			Class[] param = new Class[1];
 			param[0] = World.class;
 			return entityClass.getDeclaredConstructor(param).newInstance(world);
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
+		         InvocationTargetException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -222,7 +231,8 @@ public class GOTReflection {
 			Class[] param = new Class[1];
 			param[0] = boolean.class;
 			return structureClass.getDeclaredConstructor(param).newInstance(bool);
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
+		         InvocationTargetException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
 		return null;

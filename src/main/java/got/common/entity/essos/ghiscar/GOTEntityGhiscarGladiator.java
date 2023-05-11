@@ -1,6 +1,8 @@
 package got.common.entity.essos.ghiscar;
 
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemRobes;
@@ -10,8 +12,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
-	public static ItemStack[] weaponsIron = { new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosDaggerPoisoned), new ItemStack(GOTRegistry.essosHammer) };
-	public static int[] turbanColors = { 1643539, 6309443, 7014914, 7809314, 5978155 };
+	public static ItemStack[] weaponsIron = {new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosDaggerPoisoned), new ItemStack(GOTRegistry.essosHammer)};
+	public static int[] turbanColors = {1643539, 6309443, 7014914, 7809314, 5978155};
 
 	public GOTEntityGhiscarGladiator(World world) {
 		super(world);

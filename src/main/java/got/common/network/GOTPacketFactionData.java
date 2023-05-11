@@ -1,16 +1,20 @@
 package got.common.network;
 
-import java.io.IOException;
-
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.network.simpleimpl.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
-import got.common.*;
-import got.common.faction.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.faction.GOTFaction;
+import got.common.faction.GOTFactionData;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
+
+import java.io.IOException;
 
 public class GOTPacketFactionData implements IMessage {
 	public GOTFaction faction;

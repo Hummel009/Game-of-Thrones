@@ -1,22 +1,27 @@
 package got.common.recipe;
 
-import java.lang.reflect.Field;
-
 import cpw.mods.fml.common.FMLLog;
 import got.GOT;
 import got.common.item.GOTPoisonedDrinks;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryCrafting;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+
+import java.lang.reflect.Field;
 
 public class GOTRecipePoisonDrinks implements IRecipe {
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
 		EntityPlayer craftingPlayer;
 		ItemStack result;
-		block12: {
+		block12:
+		{
 			ItemStack drink = null;
 			ItemStack poison = null;
 			for (int i = 0; i < inv.getSizeInventory(); ++i) {

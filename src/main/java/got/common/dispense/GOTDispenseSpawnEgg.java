@@ -3,8 +3,10 @@ package got.common.dispense;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemSpawnEgg;
 import net.minecraft.block.BlockDispenser;
-import net.minecraft.dispenser.*;
-import net.minecraft.entity.*;
+import net.minecraft.dispenser.BehaviorDefaultDispenseItem;
+import net.minecraft.dispenser.IBlockSource;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 

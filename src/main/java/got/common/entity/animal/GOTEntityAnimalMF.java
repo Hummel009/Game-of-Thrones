@@ -5,7 +5,8 @@ import got.common.entity.other.GOTEntityRegistry;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public abstract class GOTEntityAnimalMF extends EntityAnimal implements GOTBiome.ImmuneToFrost {

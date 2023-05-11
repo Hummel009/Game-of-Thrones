@@ -1,14 +1,20 @@
 package got.client.gui;
 
-import got.common.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.database.GOTRegistry;
 import got.common.item.other.GOTItemCoin;
-import got.common.network.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketMoney;
+import got.common.network.GOTPacketMoneyGet;
+import got.common.network.GOTPacketMoneyGive;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.*;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 
 public class GOTGuiIronBank extends GuiScreen {
 	public GuiButton[] button = new GuiButton[16];

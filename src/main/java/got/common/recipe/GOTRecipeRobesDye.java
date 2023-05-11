@@ -1,16 +1,18 @@
 package got.common.recipe;
 
-import java.util.ArrayList;
-
 import got.common.database.GOTMaterial;
-import got.common.item.other.*;
+import got.common.item.other.GOTItemDye;
+import got.common.item.other.GOTItemRobes;
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 public class GOTRecipeRobesDye implements IRecipe {
 	public ItemArmor.ArmorMaterial robeMaterial;

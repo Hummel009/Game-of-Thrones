@@ -1,19 +1,17 @@
 package got.common.network;
 
-import java.io.IOException;
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
 import com.google.common.base.Charsets;
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.network.simpleimpl.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
-import got.common.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.database.GOTTitle;
-import got.common.fellowship.*;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -21,6 +19,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.UsernameCache;
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.IOException;
+import java.util.*;
 
 public class GOTPacketFellowship implements IMessage {
 	public UUID fellowshipID;

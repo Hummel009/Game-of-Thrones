@@ -1,7 +1,8 @@
 package got.common.entity.ai;
 
 import got.common.entity.dragon.GOTEntityDragon;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.AxisAlignedBB;
 

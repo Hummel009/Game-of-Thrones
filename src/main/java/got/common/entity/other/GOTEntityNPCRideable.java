@@ -1,7 +1,5 @@
 package got.common.entity.other;
 
-import java.util.UUID;
-
 import got.GOT;
 import got.common.item.other.GOTItemMountArmor;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,6 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNPCMount {
 	public UUID tamingPlayer;

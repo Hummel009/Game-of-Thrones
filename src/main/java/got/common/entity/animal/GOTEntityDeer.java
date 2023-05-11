@@ -1,7 +1,5 @@
 package got.common.entity.animal;
 
-import java.util.UUID;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTRandomSkinEntity;
@@ -12,6 +10,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public class GOTEntityDeer extends GOTEntityHorse implements GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
 	public GOTEntityDeer(World world) {

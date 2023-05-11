@@ -1,21 +1,26 @@
 package got.common.world.biome.essos;
 
-import java.util.Random;
-
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTRegistry;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.*;
+import got.common.world.feature.GOTTreeType;
+import got.common.world.feature.GOTWorldGenDoubleFlower;
+import got.common.world.feature.GOTWorldGenSand;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureBurntHouse;
+import got.common.world.structure.other.GOTStructureRottenHouse;
+import got.common.world.structure.other.GOTStructureRuinedHouse;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class GOTBiomeEssos extends GOTBiome {
 	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(8359286029006L), 1);

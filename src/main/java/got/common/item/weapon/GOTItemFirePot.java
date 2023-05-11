@@ -5,7 +5,8 @@ import got.common.dispense.GOTDispenseFirePot;
 import got.common.entity.other.GOTEntityFirePot;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTItemFirePot extends Item {

@@ -1,6 +1,7 @@
 package got.client.model;
 
-import net.minecraft.client.model.*;
+import net.minecraft.client.model.ModelBox;
+import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelTargaryenChestplate extends GOTModelBiped {
 	public ModelRenderer Wings;

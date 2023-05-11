@@ -1,6 +1,7 @@
 package got.common.entity.essos.ibben;
 
-import got.common.database.*;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTTradeEntries;
 import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.Items;

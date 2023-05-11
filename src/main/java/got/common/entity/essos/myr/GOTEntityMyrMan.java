@@ -1,13 +1,22 @@
 package got.common.entity.essos.myr;
 
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTNames;
+import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityHorse;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTNPCMount;
 import got.common.faction.GOTFaction;
-import got.common.quest.*;
+import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMiniQuestFactory;
+import got.common.quest.IPickpocketable;
 import got.common.world.biome.essos.GOTBiomeMyr;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;

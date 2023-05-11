@@ -1,11 +1,13 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.sothoryos.summer.GOTEntitySummerBlacksmith;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSummerSmithy extends GOTStructureSummerBase {
 	public GOTStructureSummerSmithy(boolean flag) {
@@ -73,9 +75,9 @@ public class GOTStructureSummerSmithy extends GOTStructureSummerBase {
 		placeWeaponRack(world, -1, 2, 1, 5, getRandomWeapon(random));
 		placeArmorStand(world, 3, 1, 3, 2, null);
 		if (random.nextBoolean()) {
-			placeArmorStand(world, 0, 1, 3, 0, new ItemStack[] { new ItemStack(GOTRegistry.summerHelmet), new ItemStack(GOTRegistry.summerChestplate), new ItemStack(GOTRegistry.summerLeggings), new ItemStack(GOTRegistry.summerBoots) });
+			placeArmorStand(world, 0, 1, 3, 0, new ItemStack[]{new ItemStack(GOTRegistry.summerHelmet), new ItemStack(GOTRegistry.summerChestplate), new ItemStack(GOTRegistry.summerLeggings), new ItemStack(GOTRegistry.summerBoots)});
 		} else {
-			placeArmorStand(world, 0, 1, 3, 0, new ItemStack[] { null, new ItemStack(GOTRegistry.summerChestplate), null, null });
+			placeArmorStand(world, 0, 1, 3, 0, new ItemStack[]{null, new ItemStack(GOTRegistry.summerChestplate), null, null});
 		}
 		this.placeChest(world, random, 5, 1, -2, GOTRegistry.chestBasket, 5, GOTChestContents.SUMMER);
 		this.placeChest(world, random, -7, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);

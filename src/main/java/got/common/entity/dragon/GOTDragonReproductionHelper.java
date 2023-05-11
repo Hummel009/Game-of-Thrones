@@ -1,11 +1,11 @@
 package got.common.entity.dragon;
 
-import org.apache.logging.log4j.*;
-
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class GOTDragonReproductionHelper extends GOTDragonHelper {
 

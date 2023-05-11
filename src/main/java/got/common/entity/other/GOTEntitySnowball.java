@@ -3,7 +3,8 @@ package got.common.entity.other;
 import got.common.GOTDamage;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTEntitySnowball extends GOTEntityFireball {

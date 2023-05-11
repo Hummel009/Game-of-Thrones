@@ -1,12 +1,12 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.inventory.GOTContainerAlloyForge;
 import got.common.tileentity.GOTTileEntityAlloyForge;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiAlloyForge extends GuiContainer {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/forge.png");

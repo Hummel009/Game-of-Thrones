@@ -1,16 +1,17 @@
 package got.common.command;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
-import got.common.entity.dragon.*;
+import got.common.entity.dragon.GOTDragonLifeStage;
+import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.command.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.WorldServer;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandDragon extends CommandBase {
 	@Override

@@ -1,9 +1,13 @@
 package got.common.command;
 
-import java.util.*;
-
 import got.common.GOTLevelData;
-import net.minecraft.command.*;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommand;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
+
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandWaypointCooldown extends CommandBase {
 	public static int MAX_COOLDOWN = 86400;

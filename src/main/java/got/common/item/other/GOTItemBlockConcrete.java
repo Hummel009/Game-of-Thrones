@@ -2,10 +2,12 @@ package got.common.item.other;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
-import got.common.block.other.*;
+import got.common.block.other.GOTBlockConcrete;
+import got.common.block.other.GOTBlockConcretePowder;
 import net.minecraft.block.Block;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 
 public class GOTItemBlockConcrete extends ItemBlock {
 	public GOTItemBlockConcrete(Block p_i45328_1_) {

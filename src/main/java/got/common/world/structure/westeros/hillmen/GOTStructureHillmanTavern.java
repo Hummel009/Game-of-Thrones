@@ -1,15 +1,20 @@
 package got.common.world.structure.westeros.hillmen;
 
-import java.util.Random;
-
-import got.common.database.*;
-import got.common.entity.westeros.*;
-import got.common.entity.westeros.hillmen.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTNames;
+import got.common.database.GOTRegistry;
+import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
+import got.common.entity.westeros.GOTEntityWesterosThief;
+import got.common.entity.westeros.hillmen.GOTEntityHillman;
+import got.common.entity.westeros.hillmen.GOTEntityHillmanBartender;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 	public GOTStructureHillmanTavern(boolean flag) {
@@ -109,10 +114,10 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 		placeFoodOrDrink(world, random, 4, 2, -6);
 		placeFoodOrDrink(world, random, 7, 2, -6);
 		String[] tavernName = GOTNames.getTavernName(random);
-		placeSign(world, 0, 3, -8, Blocks.wall_sign, 2, new String[] { "", tavernName[0], tavernName[1], "" });
+		placeSign(world, 0, 3, -8, Blocks.wall_sign, 2, new String[]{"", tavernName[0], tavernName[1], ""});
 		placeWallBanner(world, -8, 6, 0, GOTItemBanner.BannerType.HILLMEN, 1);
 		placeWallBanner(world, 8, 6, 0, GOTItemBanner.BannerType.HILLMEN, 3);
-		for (int k1 : new int[] { -3, 3 }) {
+		for (int k1 : new int[]{-3, 3}) {
 			placeHillmanItemFrame(world, random, -3, 2, k1, 1);
 			placeHillmanItemFrame(world, random, 3, 2, k1, 3);
 		}

@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTClientProxy;
 import got.client.model.GOTModelPortal;
 import got.common.entity.other.GOTEntityPortal;
@@ -10,6 +8,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderCompass extends Render {
 	public static ResourceLocation ringTexture = new ResourceLocation("got:textures/misc/portal.png");

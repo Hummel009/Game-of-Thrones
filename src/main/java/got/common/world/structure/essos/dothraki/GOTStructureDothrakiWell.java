@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.dothraki;
 
-import java.util.Random;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureDothrakiWell extends GOTStructureDothrakiBase {
 	public GOTStructureDothrakiWell(boolean flag) {

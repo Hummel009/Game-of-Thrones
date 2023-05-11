@@ -1,24 +1,29 @@
 package got.client.gui;
 
-import java.util.*;
-
-import org.apache.commons.lang3.tuple.Pair;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.collect.Lists;
-
 import got.client.GOTTextBody;
-import got.common.*;
+import got.common.GOTDate;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.database.GOTSpeech;
 import got.common.faction.GOTAlignmentValues;
-import got.common.network.*;
+import got.common.network.GOTPacketDeleteMiniquest;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketMiniquestTrack;
 import got.common.quest.GOTMiniQuest;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.item.ItemEditableBook;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.apache.commons.lang3.tuple.Pair;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.util.*;
 
 public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/questBook.png");

@@ -1,24 +1,35 @@
 package got.common.entity.other;
 
-import java.util.*;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
-import got.common.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTInventoryNPC;
-import got.common.network.*;
-import net.minecraft.entity.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketHiredGui;
+import got.common.network.GOTPacketHiredInfo;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.item.EntityFireworkRocket;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.*;
-import net.minecraft.server.management.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.server.management.PlayerManager;
+import net.minecraft.server.management.PreYggdrasilConverter;
 import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.List;
+import java.util.UUID;
 
 public class GOTHiredNPCInfo {
 	public static int GUARD_RANGE_DEFAULT = 8;
@@ -280,7 +291,7 @@ public class GOTHiredNPCInfo {
 			NBTTagCompound explosionData = new NBTTagCompound();
 			explosionData.setBoolean("Flicker", true);
 			explosionData.setBoolean("Trail", bigLvlUp);
-			int[] colors = { 16733440, theEntity.getFaction().getFactionColor() };
+			int[] colors = {16733440, theEntity.getFaction().getFactionColor()};
 			explosionData.setIntArray("Colors", colors);
 			boolean effectType = bigLvlUp;
 			explosionData.setByte("Type", (byte) (effectType ? 1 : 0));

@@ -1,12 +1,14 @@
 package got.common.world.structure.other;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.*;
+import net.minecraft.util.Direction;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 	public Block brickBlock;
@@ -116,7 +118,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 				setBlockAndMetadata(world, 2, j1, 0, barsBlock, 0);
 			}
 			setBlockAndMetadata(world, 0, 3, -2, Blocks.stone_slab, 8);
-			for (int m : new int[] { -1, 1 }) {
+			for (int m : new int[]{-1, 1}) {
 				int k1 = 1;
 				int n = getTopBlock(world, m, k1);
 				if (random.nextInt(10) == 0) {
@@ -170,23 +172,23 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 					int k2 = Math.abs(k1);
 					int randomFloor = random.nextInt(5);
 					switch (randomFloor) {
-					case 0:
-						placeRandomStoneBrick(world, random, m, pitBottom, k1);
-						break;
-					case 1:
-						setBlockAndMetadata(world, m, pitBottom, k1, Blocks.cobblestone, 0);
-						break;
-					case 2:
-						setBlockAndMetadata(world, m, pitBottom, k1, Blocks.stone, 0);
-						break;
-					case 3:
-						setBlockAndMetadata(world, m, pitBottom, k1, Blocks.gravel, 0);
-						break;
-					case 4:
-						setBlockAndMetadata(world, m, pitBottom, k1, Blocks.dirt, 0);
-						break;
-					default:
-						break;
+						case 0:
+							placeRandomStoneBrick(world, random, m, pitBottom, k1);
+							break;
+						case 1:
+							setBlockAndMetadata(world, m, pitBottom, k1, Blocks.cobblestone, 0);
+							break;
+						case 2:
+							setBlockAndMetadata(world, m, pitBottom, k1, Blocks.stone, 0);
+							break;
+						case 3:
+							setBlockAndMetadata(world, m, pitBottom, k1, Blocks.gravel, 0);
+							break;
+						case 4:
+							setBlockAndMetadata(world, m, pitBottom, k1, Blocks.dirt, 0);
+							break;
+						default:
+							break;
 					}
 					int j1;
 					for (j1 = pitBottom + 1; j1 <= pitBottom + pitHeight; j1++) {
@@ -220,13 +222,13 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 					placeRandomStoneBrick(world, random, i1, 1, k1);
 				}
 			}
-			for (int m : new int[] { -3, 2 }) {
+			for (int m : new int[]{-3, 2}) {
 				setBlockAndMetadata(world, m, 1, -2, Blocks.stone_brick_stairs, 2);
 				setBlockAndMetadata(world, m, 1, -1, Blocks.stone_slab, 8);
 				setBlockAndMetadata(world, m, 1, 0, Blocks.stone_slab, 8);
 				setBlockAndMetadata(world, m, 1, 1, Blocks.stone_brick_stairs, 3);
 			}
-			for (int k1 : new int[] { -3, 2 }) {
+			for (int k1 : new int[]{-3, 2}) {
 				setBlockAndMetadata(world, -2, 1, k1, Blocks.stone_brick_stairs, 1);
 				setBlockAndMetadata(world, -1, 1, k1, Blocks.stone_slab, 8);
 				setBlockAndMetadata(world, 0, 1, k1, Blocks.stone_slab, 8);
@@ -396,17 +398,17 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 							if (random.nextInt(3) == 0) {
 								int rb = random.nextInt(3);
 								switch (rb) {
-								case 0:
-									placeRandomStoneBrick(world, random, i1, m + 2, k1);
-									break;
-								case 1:
-									setBlockAndMetadata(world, i1, m + 2, k1, Blocks.stone_brick_stairs, random.nextInt(4));
-									break;
-								case 2:
-									setBlockAndMetadata(world, i1, m + 2, k1, GOTRegistry.wallStoneV, 1);
-									break;
-								default:
-									break;
+									case 0:
+										placeRandomStoneBrick(world, random, i1, m + 2, k1);
+										break;
+									case 1:
+										setBlockAndMetadata(world, i1, m + 2, k1, Blocks.stone_brick_stairs, random.nextInt(4));
+										break;
+									case 2:
+										setBlockAndMetadata(world, i1, m + 2, k1, GOTRegistry.wallStoneV, 1);
+										break;
+									default:
+										break;
 								}
 							}
 						}
@@ -485,32 +487,32 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 		} else if (ruinType == RuinType.TURRET) {
 			int randomWood = random.nextInt(3);
 			switch (randomWood) {
-			case 0:
-				plankBlock = Blocks.planks;
-				plankMeta = 0;
-				plankSlabBlock = Blocks.wooden_slab;
-				plankSlabMeta = 0;
-				woodBeamBlock = GOTRegistry.woodBeamV1;
-				woodBeamMeta = 0;
-				break;
-			case 1:
-				plankBlock = Blocks.planks;
-				plankMeta = 1;
-				plankSlabBlock = Blocks.wooden_slab;
-				plankSlabMeta = 1;
-				woodBeamBlock = GOTRegistry.woodBeamV1;
-				woodBeamMeta = 1;
-				break;
-			case 2:
-				plankBlock = GOTRegistry.planksRotten;
-				plankMeta = 0;
-				plankSlabBlock = GOTRegistry.rottenSlabSingle;
-				plankSlabMeta = 0;
-				woodBeamBlock = GOTRegistry.woodBeamRotten;
-				woodBeamMeta = 0;
-				break;
-			default:
-				break;
+				case 0:
+					plankBlock = Blocks.planks;
+					plankMeta = 0;
+					plankSlabBlock = Blocks.wooden_slab;
+					plankSlabMeta = 0;
+					woodBeamBlock = GOTRegistry.woodBeamV1;
+					woodBeamMeta = 0;
+					break;
+				case 1:
+					plankBlock = Blocks.planks;
+					plankMeta = 1;
+					plankSlabBlock = Blocks.wooden_slab;
+					plankSlabMeta = 1;
+					woodBeamBlock = GOTRegistry.woodBeamV1;
+					woodBeamMeta = 1;
+					break;
+				case 2:
+					plankBlock = GOTRegistry.planksRotten;
+					plankMeta = 0;
+					plankSlabBlock = GOTRegistry.rottenSlabSingle;
+					plankSlabMeta = 0;
+					woodBeamBlock = GOTRegistry.woodBeamRotten;
+					woodBeamMeta = 0;
+					break;
+				default:
+					break;
 			}
 			int randomBar = random.nextInt(2);
 			if (randomBar == 0) {
@@ -741,23 +743,23 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 					layFoundation(world, i1, 0, k1, Blocks.cobblestone, 0);
 					int randomFloor = random.nextInt(5);
 					switch (randomFloor) {
-					case 0:
-						setBlockAndMetadata(world, i1, 0, k1, Blocks.cobblestone, 0);
-						break;
-					case 1:
-						setBlockAndMetadata(world, i1, 0, k1, Blocks.mossy_cobblestone, 0);
-						break;
-					case 2:
-						setBlockAndMetadata(world, i1, 0, k1, Blocks.gravel, 0);
-						break;
-					case 3:
-						setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
-						break;
-					case 4:
-						setBlockAndMetadata(world, i1, 0, k1, Blocks.brick_block, 0);
-						break;
-					default:
-						break;
+						case 0:
+							setBlockAndMetadata(world, i1, 0, k1, Blocks.cobblestone, 0);
+							break;
+						case 1:
+							setBlockAndMetadata(world, i1, 0, k1, Blocks.mossy_cobblestone, 0);
+							break;
+						case 2:
+							setBlockAndMetadata(world, i1, 0, k1, Blocks.gravel, 0);
+							break;
+						case 3:
+							setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
+							break;
+						case 4:
+							setBlockAndMetadata(world, i1, 0, k1, Blocks.brick_block, 0);
+							break;
+						default:
+							break;
 					}
 					if (i2 == width || k2 == width) {
 						if (random.nextInt(10) != 0) {
@@ -775,35 +777,35 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 								} else {
 									int randomWall = random.nextInt(7);
 									switch (randomWall) {
-									case 0:
-										setBlockAndMetadata(world, i1, j1, k1, Blocks.double_stone_slab, 0);
-										break;
-									case 1:
-										setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.pillar2, 3);
-										break;
-									case 2:
-										setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.clayTile, 0);
-										break;
-									case 3:
-										int stairDir = random.nextInt(8);
-										setBlockAndMetadata(world, i1, j1, k1, Blocks.brick_stairs, stairDir);
-										break;
-									default:
-										switch (randomWall) {
-										case 4:
-											int stairDir1 = random.nextInt(8);
-											setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.stairsClayTile, stairDir1);
+										case 0:
+											setBlockAndMetadata(world, i1, j1, k1, Blocks.double_stone_slab, 0);
 											break;
-										case 5:
-											setBlockAndMetadata(world, i1, j1, k1, Blocks.cobblestone, 0);
+										case 1:
+											setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.pillar2, 3);
 											break;
-										case 6:
-											setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.wallStoneV, 6);
+										case 2:
+											setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.clayTile, 0);
+											break;
+										case 3:
+											int stairDir = random.nextInt(8);
+											setBlockAndMetadata(world, i1, j1, k1, Blocks.brick_stairs, stairDir);
 											break;
 										default:
+											switch (randomWall) {
+												case 4:
+													int stairDir1 = random.nextInt(8);
+													setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.stairsClayTile, stairDir1);
+													break;
+												case 5:
+													setBlockAndMetadata(world, i1, j1, k1, Blocks.cobblestone, 0);
+													break;
+												case 6:
+													setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.wallStoneV, 6);
+													break;
+												default:
+													break;
+											}
 											break;
-										}
-										break;
 									}
 								}
 								if (random.nextInt(6) == 0) {
@@ -815,21 +817,21 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 						if (random.nextInt(3) == 0) {
 							int randomWall = random.nextInt(4);
 							switch (randomWall) {
-							case 0:
-								setBlockAndMetadata(world, i1, 1, k1, Blocks.brick_block, 0);
-								break;
-							case 1:
-								int stairDir = random.nextInt(8);
-								setBlockAndMetadata(world, i1, 1, k1, Blocks.brick_stairs, stairDir);
-								break;
-							case 2:
-								setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.planksRotten, 0);
-								break;
-							case 3:
-								setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.fenceRotten, 0);
-								break;
-							default:
-								break;
+								case 0:
+									setBlockAndMetadata(world, i1, 1, k1, Blocks.brick_block, 0);
+									break;
+								case 1:
+									int stairDir = random.nextInt(8);
+									setBlockAndMetadata(world, i1, 1, k1, Blocks.brick_stairs, stairDir);
+									break;
+								case 2:
+									setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.planksRotten, 0);
+									break;
+								case 3:
+									setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.fenceRotten, 0);
+									break;
+								default:
+									break;
 							}
 						}
 					} else if (random.nextInt(8) == 0) {

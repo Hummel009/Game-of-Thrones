@@ -1,7 +1,5 @@
 package got.common.world.feature;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -11,11 +9,13 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import java.util.Random;
+
 public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
-	public static byte[] otherCoordPairs = { 2, 0, 0, 1, 2, 1 };
+	public static byte[] otherCoordPairs = {2, 0, 0, 1, 2, 1};
 	public Random rand = new Random();
 	public World worldObj;
-	public int[] basePos = { 0, 0, 0 };
+	public int[] basePos = {0, 0, 0};
 	public int heightLimit;
 	public int height;
 	public double heightAttenuation = 0.618;
@@ -41,7 +41,7 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 
 	public int checkBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger) {
 		int i;
-		int[] aint2 = { 0, 0, 0 };
+		int[] aint2 = {0, 0, 0};
 		int b1 = 0;
 		for (int b0 = 0; b0 < 3; b0 = (byte) (b0 + 1)) {
 			aint2[b0] = par2ArrayOfInteger[b0] - par1ArrayOfInteger[b0];
@@ -58,7 +58,7 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		int b4 = aint2[b1] > 0 ? 1 : -1;
 		double d0 = (double) aint2[b2] / (double) aint2[b1];
 		double d1 = (double) aint2[b3] / (double) aint2[b1];
-		int[] aint3 = { 0, 0, 0 };
+		int[] aint3 = {0, 0, 0};
 		int j = aint2[b1] + b4;
 		for (i = 0; i != j; i += b4) {
 			aint3[b1] = par1ArrayOfInteger[b1] + i;
@@ -103,10 +103,10 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 
 	public void generateLeafNodeBases() {
 		int j = leafNodes.length;
-		int[] aint = { basePos[0], basePos[1], basePos[2] };
+		int[] aint = {basePos[0], basePos[1], basePos[2]};
 		for (int i = 0; i < j; ++i) {
 			int[] aint1 = leafNodes[i];
-			int[] aint2 = { aint1[0], aint1[1], aint1[2] };
+			int[] aint2 = {aint1[0], aint1[1], aint1[2]};
 			aint[1] = aint1[3];
 			int k = aint[1] - basePos[1];
 			if (!leafNodeNeedsBase(k)) {
@@ -149,12 +149,12 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 				double d2 = rand.nextFloat() * 2.0 * 3.141592653589793;
 				int k1 = MathHelper.floor_double(d1 * Math.sin(d2) + basePos[0] + d0);
 				int l1 = MathHelper.floor_double(d1 * Math.cos(d2) + basePos[2] + d0);
-				int[] aint1 = { k1, j, l1 };
-				int[] aint2 = { k1, j + leafDistanceLimit, l1 };
+				int[] aint1 = {k1, j, l1};
+				int[] aint2 = {k1, j + leafDistanceLimit, l1};
 				if (checkBlockLine(aint1, aint2) != -1) {
 					continue;
 				}
-				int[] aint3 = { basePos[0], basePos[1], basePos[2] };
+				int[] aint3 = {basePos[0], basePos[1], basePos[2]};
 				double d3 = Math.sqrt(Math.pow(Math.abs(basePos[0] - aint1[0]), 2.0) + Math.pow(Math.abs(basePos[2] - aint1[2]), 2.0));
 				double d4 = d3 * branchSlope;
 				aint3[1] = aint1[1] - d4 > l ? l : (int) (aint1[1] - d4);
@@ -189,8 +189,8 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		int j = basePos[1];
 		int j1 = basePos[1] + height;
 		int k = basePos[2];
-		int[] aint = { i, j, k };
-		int[] aint1 = { i, j1, k };
+		int[] aint = {i, j, k};
+		int[] aint1 = {i, j1, k};
 		placeBlockLine(aint, aint1, woodBlock, woodMeta);
 		worldObj.getBlock(i, j - 1, k).onPlantGrow(worldObj, i, j - 1, k, i, j, k);
 	}
@@ -199,8 +199,8 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		int i1 = (int) (par4 + 0.618);
 		byte b1 = otherCoordPairs[par5];
 		byte b2 = otherCoordPairs[par5 + 3];
-		int[] aint = { par1, par2, par3 };
-		int[] aint1 = { 0, 0, 0 };
+		int[] aint = {par1, par2, par3};
+		int[] aint1 = {0, 0, 0};
 		int k1 = -i1;
 		aint1[par5] = aint[par5];
 		for (int j1 = -i1; j1 <= i1; ++j1) {
@@ -243,7 +243,7 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 	}
 
 	public void placeBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger, Block block, int meta) {
-		int[] aint2 = { 0, 0, 0 };
+		int[] aint2 = {0, 0, 0};
 		int b1 = 0;
 		for (int b0 = 0; b0 < 3; b0 = (byte) (b0 + 1)) {
 			aint2[b0] = par2ArrayOfInteger[b0] - par1ArrayOfInteger[b0];
@@ -258,7 +258,7 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 			int b4 = aint2[b1] > 0 ? 1 : -1;
 			double d0 = (double) aint2[b2] / (double) aint2[b1];
 			double d1 = (double) aint2[b3] / (double) aint2[b1];
-			int[] aint3 = { 0, 0, 0 };
+			int[] aint3 = {0, 0, 0};
 			int k = aint2[b1] + b4;
 			for (int j = 0; j != k; j += b4) {
 				int i1;
@@ -281,8 +281,8 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 	}
 
 	public boolean validTreeLocation() {
-		int[] aint = { basePos[0], basePos[1], basePos[2] };
-		int[] aint1 = { basePos[0], basePos[1] + heightLimit - 1, basePos[2] };
+		int[] aint = {basePos[0], basePos[1], basePos[2]};
+		int[] aint1 = {basePos[0], basePos[1] + heightLimit - 1, basePos[2]};
 		Block block = worldObj.getBlock(basePos[0], basePos[1] - 1, basePos[2]);
 		if (!block.canSustainPlant(worldObj, basePos[0], basePos[1] - 1, basePos[2], ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
 			return false;

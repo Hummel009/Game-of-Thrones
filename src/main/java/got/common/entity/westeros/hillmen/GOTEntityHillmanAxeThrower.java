@@ -2,8 +2,10 @@ package got.common.entity.westeros.hillmen;
 
 import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.other.*;
-import net.minecraft.entity.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityThrowingAxe;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

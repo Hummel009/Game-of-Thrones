@@ -1,6 +1,8 @@
 package got.common.entity.westeros.arryn;
 
-import got.common.database.*;
+import got.common.database.GOTCapes;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTShields;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -46,21 +48,21 @@ public class GOTEntityArrynSoldier extends GOTEntityArrynLevyman {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
-		case 0:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosHammer));
-			break;
-		case 1:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosPike));
-			break;
-		case 2:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosLongsword));
-			break;
-		case 3:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosGreatsword));
-			break;
-		default:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
-			break;
+			case 0:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosHammer));
+				break;
+			case 1:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosPike));
+				break;
+			case 2:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosLongsword));
+				break;
+			case 3:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosGreatsword));
+				break;
+			default:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+				break;
 		}
 		if (rand.nextInt(3) == 0) {
 			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTRegistry.westerosLance));

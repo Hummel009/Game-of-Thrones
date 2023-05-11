@@ -1,21 +1,26 @@
 package got.common.block.other;
 
-import java.util.*;
-
-import cpw.mods.fml.relauncher.*;
-import got.common.database.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.Random;
 
 public class GOTBlockOreGem extends Block {
 	@SideOnly(value = Side.CLIENT)
 	public IIcon[] oreIcons;
-	public String[] oreNames = { "topaz", "amethyst", "sapphire", "ruby", "amber", "diamond", "opal", "emerald" };
+	public String[] oreNames = {"topaz", "amethyst", "sapphire", "ruby", "amber", "diamond", "opal", "emerald"};
 
 	public GOTBlockOreGem() {
 		super(Material.rock);
@@ -51,24 +56,24 @@ public class GOTBlockOreGem extends Block {
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
 		switch (i) {
-		case 0:
-			return GOTRegistry.topaz;
-		case 1:
-			return GOTRegistry.amethyst;
-		case 2:
-			return GOTRegistry.sapphire;
-		case 3:
-			return GOTRegistry.ruby;
-		case 4:
-			return GOTRegistry.amber;
-		case 5:
-			return GOTRegistry.diamond;
-		case 6:
-			return GOTRegistry.opal;
-		case 7:
-			return GOTRegistry.emerald;
-		default:
-			break;
+			case 0:
+				return GOTRegistry.topaz;
+			case 1:
+				return GOTRegistry.amethyst;
+			case 2:
+				return GOTRegistry.sapphire;
+			case 3:
+				return GOTRegistry.ruby;
+			case 4:
+				return GOTRegistry.amber;
+			case 5:
+				return GOTRegistry.diamond;
+			case 6:
+				return GOTRegistry.opal;
+			case 7:
+				return GOTRegistry.emerald;
+			default:
+				break;
 		}
 		return Item.getItemFromBlock(this);
 	}

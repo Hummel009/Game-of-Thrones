@@ -1,13 +1,16 @@
 package got.common.network;
 
-import java.util.UUID;
-
-import cpw.mods.fml.common.network.simpleimpl.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
-import got.common.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.fellowship.GOTFellowshipClient;
 import got.common.world.map.GOTCustomWaypoint;
 import io.netty.buffer.ByteBuf;
+
+import java.util.UUID;
 
 public class GOTPacketShareCWPClient implements IMessage {
 	public int cwpID;

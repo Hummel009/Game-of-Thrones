@@ -1,6 +1,7 @@
 package got.common.block.other;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.client.render.other.GOTConnectedTextures;
 import got.common.block.GOTConnectedBlock;
 import got.common.database.GOTCreativeTabs;

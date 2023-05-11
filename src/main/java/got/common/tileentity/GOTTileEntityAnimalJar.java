@@ -1,20 +1,26 @@
 package got.common.tileentity;
 
-import java.util.*;
-
 import got.common.block.other.GOTBlockAnimalJar;
 import got.common.entity.animal.GOTEntityButterfly;
-import got.common.entity.other.*;
+import got.common.entity.other.AnimalJarUpdater;
+import got.common.entity.other.GOTEntityRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.*;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.server.management.PlayerManager;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.*;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+
+import java.util.List;
+import java.util.Random;
 
 public class GOTTileEntityAnimalJar extends TileEntity {
 	public NBTTagCompound jarEntityData;
@@ -50,7 +56,7 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 	}
 
 	public float[] getInitialEntityCoords(Entity entity) {
-		return new float[] { xCoord + 0.5f, yCoord + getEntityHeight() - entity.height / 2.0f, zCoord + 0.5f };
+		return new float[]{xCoord + 0.5f, yCoord + getEntityHeight() - entity.height / 2.0f, zCoord + 0.5f};
 	}
 
 	public Packet getJarPacket(int type) {

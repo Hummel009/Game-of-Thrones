@@ -2,12 +2,14 @@ package got.common.entity.essos.braavos;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTTradeable;
+import got.common.entity.other.GOTUnitTradeable;
 import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityBraavosFarmer extends GOTEntityBraavosMan implements GOTTradeable, GOTUnitTradeable {

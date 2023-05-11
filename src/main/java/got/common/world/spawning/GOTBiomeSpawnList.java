@@ -1,15 +1,20 @@
 package got.common.world.spawning;
 
-import java.util.*;
-
 import cpw.mods.fml.common.FMLLog;
 import got.common.database.GOTSpawnList;
 import got.common.faction.GOTFaction;
 import got.common.util.GOTLog;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.*;
-import net.minecraft.entity.*;
+import got.common.world.map.GOTConquestGrid;
+import got.common.world.map.GOTConquestZone;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Random;
 
 public class GOTBiomeSpawnList {
 	public String biomeIdentifier;

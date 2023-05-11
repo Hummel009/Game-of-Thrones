@@ -7,7 +7,8 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureSmallStoneRuin;
+import got.common.world.structure.other.GOTStructureStoneRuin;
 
 public class GOTBiomeLongSummer extends GOTBiomeEssos {
 	public GOTBiomeLongSummer(int i, boolean major) {

@@ -1,6 +1,7 @@
 package got.common.block.other;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.entity.animal.GOTEntityButterfly;
 import net.minecraft.block.Block;

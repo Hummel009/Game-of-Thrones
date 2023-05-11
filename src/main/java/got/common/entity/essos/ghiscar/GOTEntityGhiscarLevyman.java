@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarLevyman extends GOTEntityGhiscarMan {
-	public static ItemStack[] weaponsIron = { new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosHammer) };
+	public static ItemStack[] weaponsIron = {new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosHammer)};
 
 	public GOTEntityGhiscarLevyman(World world) {
 		super(world);

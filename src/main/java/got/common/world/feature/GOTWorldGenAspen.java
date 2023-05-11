@@ -1,7 +1,5 @@
 package got.common.world.feature;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -10,6 +8,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public class GOTWorldGenAspen extends WorldGenAbstractTree {
 	public Block woodBlock = GOTRegistry.wood7;
@@ -102,17 +102,17 @@ public class GOTWorldGenAspen extends WorldGenAbstractTree {
 					setBlockAndNotifyAdequately(world, i2, j1, k2, leafBlock, leafMeta);
 					int dir = random.nextInt(4);
 					switch (dir) {
-					case 0:
-						--i2;
-						continue;
-					case 1:
-						++i2;
-						continue;
-					case 2:
-						--k2;
-						continue;
-					default:
-						break;
+						case 0:
+							--i2;
+							continue;
+						case 1:
+							++i2;
+							continue;
+						case 2:
+							--k2;
+							continue;
+						default:
+							break;
 					}
 					if (dir != 3) {
 						continue;

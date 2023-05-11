@@ -1,18 +1,24 @@
 package got.common.tileentity;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
-import got.common.fellowship.*;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.*;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.chunk.Chunk;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.UUID;
 
 public class GOTTileEntityBeacon extends TileEntity {
 	public int ticksExisted;

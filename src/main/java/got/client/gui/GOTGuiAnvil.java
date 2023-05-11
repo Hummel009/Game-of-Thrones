@@ -1,24 +1,32 @@
 package got.client.gui;
 
-import java.util.List;
-
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
-
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.inventory.GOTContainerAnvil;
-import got.common.network.*;
-import net.minecraft.client.gui.*;
+import got.common.network.GOTPacketAnvilEngraveOwner;
+import got.common.network.GOTPacketAnvilReforge;
+import got.common.network.GOTPacketAnvilRename;
+import got.common.network.GOTPacketHandler;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+
+import java.util.List;
 
 public class GOTGuiAnvil extends GuiContainer {
 	public static ResourceLocation anvilTexture = new ResourceLocation("got:textures/gui/anvil.png");
 	public static int[] colorCodes = new int[16];
+
 	static {
 		for (int i = 0; i < 16; ++i) {
 			int baseBrightness = (i >> 3 & 1) * 85;
@@ -31,6 +39,7 @@ public class GOTGuiAnvil extends GuiContainer {
 			GOTGuiAnvil.colorCodes[i] = (r & 0xFF) << 16 | (g & 0xFF) << 8 | b & 0xFF;
 		}
 	}
+
 	public GOTContainerAnvil theAnvil;
 	public ItemStack prevItemStack;
 	public GuiButton buttonReforge;

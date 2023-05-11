@@ -1,14 +1,20 @@
 package got.common.entity.other;
 
-import java.util.Random;
-
-import got.common.network.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketMountControl;
+import got.common.network.GOTPacketMountControlServerEnforce;
 import got.coremod.GOTReplacedMethods;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTMountFunctions {
 	public static boolean canRiderControl(Entity entity) {

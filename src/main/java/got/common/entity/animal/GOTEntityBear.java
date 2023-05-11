@@ -1,7 +1,5 @@
 package got.common.entity.animal;
 
-import java.util.List;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityRegistry;
@@ -15,9 +13,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.WorldChunkManager;
+
+import java.util.List;
 
 public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditions, GOTBiome.ImmuneToFrost {
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.7, false);

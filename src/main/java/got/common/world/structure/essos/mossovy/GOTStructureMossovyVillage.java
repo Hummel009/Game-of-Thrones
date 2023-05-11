@@ -1,14 +1,18 @@
 package got.common.world.structure.essos.mossovy;
 
-import java.util.Random;
-
-import got.common.entity.essos.mossovy.*;
+import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
+import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureHayBales;
+import got.common.world.structure.other.GOTStructureNPCRespawner;
+import got.common.world.structure.other.GOTVillageGen;
+import got.common.world.structure.other.LocationInfo;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureMossovyVillage extends GOTVillageGen {
 	public boolean isFort;
@@ -43,12 +47,12 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case FORT:
-				setupFort(random);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case FORT:
+					setupFort(random);
+					break;
 			}
 		}
 

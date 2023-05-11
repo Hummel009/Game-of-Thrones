@@ -1,6 +1,7 @@
 package got.client.gui;
 
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTHiredNPCInfo;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 

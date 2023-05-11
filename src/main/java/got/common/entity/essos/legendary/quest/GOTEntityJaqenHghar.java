@@ -1,18 +1,28 @@
 package got.common.entity.essos.legendary.quest;
 
-import java.util.*;
-
-import got.common.*;
-import got.common.database.*;
+import got.common.GOTJaqenHgharTracker;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTSpeech;
 import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
-import got.common.quest.*;
-import net.minecraft.entity.*;
+import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMiniQuestWelcome;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	public GOTEntityJaqenHghar(World world) {

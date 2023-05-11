@@ -1,7 +1,8 @@
 package got.client.render.other;
 
 import got.client.GOTClientProxy;
-import got.common.tileentity.*;
+import got.common.tileentity.GOTTileEntitySignCarved;
+import got.common.tileentity.GOTTileEntitySignCarvedValyrian;
 import net.minecraft.tileentity.TileEntity;
 
 public class GOTRenderSignCarvedValyrian extends GOTRenderSignCarved {

@@ -1,6 +1,7 @@
 package got.common.tileentity;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.other.GOTBlockSignCarved;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

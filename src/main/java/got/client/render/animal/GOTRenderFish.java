@@ -1,15 +1,16 @@
 package got.client.render.animal;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelFish;
 import got.client.render.other.GOTRandomSkins;
 import got.common.entity.animal.GOTEntityFish;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderFish extends RenderLiving {
 	public static Map<String, GOTRandomSkins> fishTypeSkins = new HashMap<>();

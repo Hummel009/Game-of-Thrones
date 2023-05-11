@@ -1,13 +1,14 @@
 package got.client.render.animal;
 
-import org.lwjgl.opengl.GL11;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.client.model.GOTModelBear;
 import got.common.entity.animal.GOTEntitySnowBear;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 @SideOnly(value = Side.CLIENT)
 public class GOTRenderSnowBear extends RenderLiving {

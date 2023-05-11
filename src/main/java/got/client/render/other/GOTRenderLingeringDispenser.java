@@ -1,7 +1,10 @@
 package got.client.render.other;
 
 import got.common.entity.other.GOTEntityLingeringPotion;
-import net.minecraft.dispenser.*;
+import net.minecraft.dispenser.BehaviorProjectileDispense;
+import net.minecraft.dispenser.IBehaviorDispenseItem;
+import net.minecraft.dispenser.IBlockSource;
+import net.minecraft.dispenser.IPosition;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

@@ -1,13 +1,16 @@
 package got.client.gui;
 
-import java.util.ArrayList;
-
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTUnitTradeEntry;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketHiredUnitCommand;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
-import got.common.entity.other.*;
-import got.common.faction.*;
-import got.common.network.*;
-import net.minecraft.util.*;
+import java.util.ArrayList;
 
 public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/hired.png");

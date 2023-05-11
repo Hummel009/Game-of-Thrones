@@ -1,11 +1,11 @@
 package got.common.world.feature;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class GOTWorldGenDoubleFlower extends WorldGenerator {
 	public int flowerType;

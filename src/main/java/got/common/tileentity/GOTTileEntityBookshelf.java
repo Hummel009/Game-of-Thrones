@@ -1,18 +1,20 @@
 package got.common.tileentity;
 
-import java.util.List;
-
 import got.common.block.other.GOTBlockBookshelfStorage;
 import got.common.database.GOTRegistry;
 import got.common.inventory.GOTContainerBookshelf;
-import got.common.item.other.*;
+import got.common.item.other.GOTItemModifierTemplate;
+import got.common.item.other.GOTItemQuestBook;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+
+import java.util.List;
 
 public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 	public ItemStack[] chestContents = new ItemStack[getSizeInventory()];

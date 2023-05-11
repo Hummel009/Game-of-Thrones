@@ -1,13 +1,16 @@
 package got.common.tileentity;
 
-import java.util.Arrays;
-
-import got.common.network.*;
-import net.minecraft.entity.player.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketOpenSignEditor;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.*;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
+
+import java.util.Arrays;
 
 public abstract class GOTTileEntitySign extends TileEntity {
 	public static int MAX_LINE_LENGTH = 15;

@@ -1,14 +1,15 @@
 package got.client.render.other;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelKebabStand;
 import got.common.tileentity.GOTTileEntityKebabStand;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StringUtils;
+import org.lwjgl.opengl.GL11;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 	public static GOTModelKebabStand standModel = new GOTModelKebabStand();
@@ -26,21 +27,21 @@ public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 		GL11.glTranslatef((float) d + 0.5f, (float) d1 + 1.5f, (float) d2 + 0.5f);
 		int meta = kebabStand.getBlockMetadata();
 		switch (meta) {
-		case 2: {
-			GL11.glRotatef(0.0f, 0.0f, 1.0f, 0.0f);
-			break;
-		}
-		case 5: {
-			GL11.glRotatef(270.0f, 0.0f, 1.0f, 0.0f);
-			break;
-		}
-		case 3: {
-			GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
-			break;
-		}
-		case 4: {
-			GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-		}
+			case 2: {
+				GL11.glRotatef(0.0f, 0.0f, 1.0f, 0.0f);
+				break;
+			}
+			case 5: {
+				GL11.glRotatef(270.0f, 0.0f, 1.0f, 0.0f);
+				break;
+			}
+			case 3: {
+				GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+				break;
+			}
+			case 4: {
+				GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+			}
 		}
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
 		float scale = 0.0625f;

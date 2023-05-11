@@ -1,13 +1,13 @@
 package got.client.gui;
 
-import java.util.ArrayList;
-import java.util.regex.Pattern;
-
-import org.lwjgl.opengl.GL11;
-
 import got.common.GOTGuiMessageTypes;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class GOTGuiMessage extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/message.png");

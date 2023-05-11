@@ -1,10 +1,10 @@
 package got.common.world.structure.essos.common;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureEssosTraining extends GOTStructureEssosBase {
 	public GOTStructureEssosTraining(boolean flag) {

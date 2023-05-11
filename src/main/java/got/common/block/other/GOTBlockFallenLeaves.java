@@ -1,8 +1,7 @@
 package got.common.block.other;
 
-import java.util.*;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
 import net.minecraft.block.Block;
@@ -10,11 +9,18 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GOTBlockFallenLeaves extends Block implements IShearable {
 	public static List<GOTBlockFallenLeaves> allFallenLeaves = new ArrayList<>();
@@ -122,7 +128,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 	public Object[] leafBlockMetaFromFallenMeta(int meta) {
 		Block leaf = leafBlocks[meta / 4];
 		int leafMeta = meta & 3;
-		return new Object[] { leaf, leafMeta };
+		return new Object[]{leaf, leafMeta};
 	}
 
 	@Override
@@ -162,7 +168,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 				if (leafBlock != block) {
 					continue;
 				}
-				return new Object[] { fallenLeaves, i * 4 + meta };
+				return new Object[]{fallenLeaves, i * 4 + meta};
 			}
 		}
 		return null;

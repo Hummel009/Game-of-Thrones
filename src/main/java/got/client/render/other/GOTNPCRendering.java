@@ -1,12 +1,9 @@
 package got.client.render.other;
 
-import java.awt.Color;
-import java.util.List;
-
-import org.lwjgl.opengl.GL11;
-
-import got.client.*;
-import got.common.*;
+import got.client.GOTSpeechClient;
+import got.client.GOTTickHandlerClient;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemQuestBook;
@@ -15,13 +12,26 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.renderer.*;
-import net.minecraft.client.renderer.entity.*;
-import net.minecraft.client.renderer.texture.*;
-import net.minecraft.entity.*;
+import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.entity.RenderItem;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RendererLivingEntity;
+import net.minecraft.client.renderer.texture.TextureManager;
+import net.minecraft.client.renderer.texture.TextureMap;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
+
+import java.awt.*;
+import java.util.List;
 
 public class GOTNPCRendering {
 	public static RenderItem itemRenderer = new RenderItem();
@@ -229,7 +239,7 @@ public class GOTNPCRendering {
 		if (!GOTConfig.hiredUnitHealthBars || entity.riddenByEntity instanceof GOTEntityNPC || entity instanceof GOTEntityNPC && GOTSpeechClient.hasSpeech((GOTEntityNPC) entity)) {
 			return;
 		}
-		GOTNPCRendering.renderHealthBar(entity, d, d1, d2, new int[] { 5888860, 12006707 }, new int[] { 6079225, 12006707 });
+		GOTNPCRendering.renderHealthBar(entity, d, d1, d2, new int[]{5888860, 12006707}, new int[]{6079225, 12006707});
 	}
 
 	public static void renderQuestBook(GOTEntityNPC npc, double d, double d1, double d2) {

@@ -4,8 +4,10 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.world.biome.GOTBiome;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest2;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.util.MathHelper;
@@ -56,20 +58,21 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		int count = rand.nextInt(3) + rand.nextInt(i + 1);
-		block7: for (int j = 0; j < count; ++j) {
+		block7:
+		for (int j = 0; j < count; ++j) {
 			int drop = rand.nextInt(3);
 			switch (drop) {
-			case 0: {
-				dropItem(Items.bone, 1);
-				continue block7;
-			}
-			case 1: {
-				dropItem(Items.fish, 1);
-				continue block7;
-			}
-			case 2: {
-				dropItem(Items.leather, 1);
-			}
+				case 0: {
+					dropItem(Items.bone, 1);
+					continue block7;
+				}
+				case 1: {
+					dropItem(Items.fish, 1);
+					continue block7;
+				}
+				case 2: {
+					dropItem(Items.leather, 1);
+				}
 			}
 		}
 	}

@@ -1,23 +1,33 @@
 package got.common.item.other;
 
-import java.util.*;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.*;
-import got.common.database.*;
-import got.common.entity.other.*;
-import got.common.faction.*;
+import got.common.GOTBannerProtection;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTCreativeTabs;
+import got.common.entity.other.GOTEntityBanner;
+import got.common.entity.other.GOTEntityBannerWall;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTItemBanner extends Item {
 	@SideOnly(value = Side.CLIENT)
@@ -225,12 +235,14 @@ public class GOTItemBanner extends Item {
 
 		public static List<BannerType> bannerTypes = new ArrayList<>();
 		public static Map<Integer, BannerType> bannerForID = new HashMap<>();
+
 		static {
 			for (BannerType t : BannerType.values()) {
 				bannerTypes.add(t);
 				bannerForID.put(t.bannerID, t);
 			}
 		}
+
 		public int bannerID;
 		public String bannerName;
 

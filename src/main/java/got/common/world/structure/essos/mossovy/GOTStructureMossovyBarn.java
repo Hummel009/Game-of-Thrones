@@ -1,12 +1,13 @@
 package got.common.world.structure.essos.mossovy;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.mossovy.GOTEntityMossovyFarmer;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 	public GOTStructureMossovyBarn(boolean flag) {
@@ -51,7 +52,7 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 			}
 		}
 		for (i1 = -1; i1 <= 1; ++i1) {
-			for (int k131 : new int[] { -8, 8 }) {
+			for (int k131 : new int[]{-8, 8}) {
 				for (int j13 = 1; j13 <= 3; ++j13) {
 					setAir(world, i1, j13, k131);
 				}
@@ -132,16 +133,16 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 	public static EntityAnimal getRandomAnimal(World world, Random random) {
 		int animal = random.nextInt(4);
 		switch (animal) {
-		case 0:
-			return new EntityCow(world);
-		case 1:
-			return new EntityPig(world);
-		case 2:
-			return new EntitySheep(world);
-		case 3:
-			return new EntityChicken(world);
-		default:
-			break;
+			case 0:
+				return new EntityCow(world);
+			case 1:
+				return new EntityPig(world);
+			case 2:
+				return new EntitySheep(world);
+			case 3:
+				return new EntityChicken(world);
+			default:
+				break;
 		}
 		return null;
 	}

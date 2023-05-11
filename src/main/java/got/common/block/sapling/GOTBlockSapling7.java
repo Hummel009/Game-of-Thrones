@@ -1,11 +1,11 @@
 package got.common.block.sapling;
 
-import java.util.Random;
-
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class GOTBlockSapling7 extends GOTBlockSaplingBase {
 	public GOTBlockSapling7() {
@@ -23,7 +23,8 @@ public class GOTBlockSapling7 extends GOTBlockSaplingBase {
 		int xOffset = 0;
 		int zOffset = 0;
 		if (meta == 0) {
-			block0: for (i1 = 0; i1 >= -1; --i1) {
+			block0:
+			for (i1 = 0; i1 >= -1; --i1) {
 				for (k1 = 0; k1 >= -1; --k1) {
 					if (!this.isSameSapling(world, i + i1, j, k + k1, meta) || !this.isSameSapling(world, i + i1 + 1, j, k + k1, meta) || !this.isSameSapling(world, i + i1, j, k + k1 + 1, meta) || !this.isSameSapling(world, i + i1 + 1, j, k + k1 + 1, meta)) {
 						continue;

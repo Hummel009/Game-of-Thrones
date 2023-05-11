@@ -2,11 +2,16 @@ package got.common.entity.essos.ibben;
 
 import got.common.database.*;
 import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
-import got.common.quest.*;
+import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMiniQuestFactory;
+import got.common.quest.IPickpocketable;
 import got.common.world.biome.essos.GOTBiomeIbben;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -16,7 +21,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityIbbenMan extends GOTEntityHumanBase implements IPickpocketable {
-	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.flintDagger), new ItemStack(Items.iron_axe), new ItemStack(Items.stone_axe), new ItemStack(GOTRegistry.ironBattleaxe) };
+	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.flintDagger), new ItemStack(Items.iron_axe), new ItemStack(Items.stone_axe), new ItemStack(GOTRegistry.ironBattleaxe)};
 
 	public GOTEntityIbbenMan(World world) {
 		super(world);

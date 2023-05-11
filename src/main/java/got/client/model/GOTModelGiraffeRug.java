@@ -1,9 +1,8 @@
 package got.client.model;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
+import org.lwjgl.opengl.GL11;
 
 public class GOTModelGiraffeRug extends ModelBase {
 	public GOTModelGiraffe giraffeModel = new GOTModelGiraffe(0.0f);

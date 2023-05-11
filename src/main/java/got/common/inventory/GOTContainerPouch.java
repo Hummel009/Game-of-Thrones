@@ -1,10 +1,10 @@
 package got.common.inventory;
 
-import org.apache.commons.lang3.StringUtils;
-
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import org.apache.commons.lang3.StringUtils;
 
 public class GOTContainerPouch extends Container {
 	public int thePouchSlot;

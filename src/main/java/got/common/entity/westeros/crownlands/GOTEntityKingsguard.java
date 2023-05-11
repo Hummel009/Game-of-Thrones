@@ -1,6 +1,7 @@
 package got.common.entity.westeros.crownlands;
 
-import got.common.database.*;
+import got.common.database.GOTCapes;
+import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;

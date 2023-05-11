@@ -43,21 +43,21 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 		} else {
 			int i = rand.nextInt(5);
 			switch (i) {
-			case 0:
-			case 1:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarSword));
-				break;
-			case 2:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarDagger));
-				break;
-			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarDaggerPoisoned));
-				break;
-			case 4:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarClub));
-				break;
-			default:
-				break;
+				case 0:
+				case 1:
+					npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarSword));
+					break;
+				case 2:
+					npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarDagger));
+					break;
+				case 3:
+					npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarDaggerPoisoned));
+					break;
+				case 4:
+					npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarClub));
+					break;
+				default:
+					break;
 			}
 		}
 		if (rand.nextInt(5) == 0) {

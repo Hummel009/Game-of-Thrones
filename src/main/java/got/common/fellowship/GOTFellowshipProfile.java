@@ -1,13 +1,12 @@
 package got.common.fellowship;
 
-import java.util.UUID;
-
 import com.mojang.authlib.GameProfile;
-
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityBanner;
 import net.minecraft.util.StatCollector;
+
+import java.util.UUID;
 
 public class GOTFellowshipProfile extends GameProfile {
 	public static String fellowshipPrefix = "f/";

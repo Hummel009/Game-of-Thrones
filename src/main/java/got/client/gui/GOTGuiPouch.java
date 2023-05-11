@@ -1,13 +1,14 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.inventory.GOTContainerPouch;
-import got.common.network.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketRenamePouch;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiPouch extends GuiContainer {
 	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/pouch.png");

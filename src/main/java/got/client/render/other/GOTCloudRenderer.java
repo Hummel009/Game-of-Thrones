@@ -1,19 +1,22 @@
 package got.client.render.other;
 
-import java.util.Random;
-
-import org.lwjgl.opengl.*;
-import org.lwjgl.util.glu.Project;
-
 import com.google.common.math.IntMath;
-
 import got.client.GOTReflectionClient;
-import got.common.*;
+import got.common.GOTConfig;
+import got.common.GOTDate;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.renderer.*;
-import net.minecraft.util.*;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.Vec3;
 import net.minecraftforge.client.IRenderHandler;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GLContext;
+import org.lwjgl.util.glu.Project;
+
+import java.util.Random;
 
 public class GOTCloudRenderer extends IRenderHandler {
 	public static ResourceLocation cloudTexture = new ResourceLocation("got:textures/sky/clouds.png");

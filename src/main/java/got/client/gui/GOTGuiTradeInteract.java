@@ -1,7 +1,9 @@
 package got.client.gui;
 
-import got.common.entity.other.*;
-import got.common.network.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTTradeable;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketTraderInteract;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 

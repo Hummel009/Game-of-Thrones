@@ -1,15 +1,26 @@
 package got.common.entity.ai;
 
-import java.util.*;
-
 import got.common.GOTLevelData;
-import got.common.entity.other.*;
-import got.common.item.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.IBandit;
+import got.common.item.other.GOTItemCoin;
+import got.common.item.other.GOTItemGem;
+import got.common.item.other.GOTItemPouch;
+import got.common.item.other.GOTItemRing;
 import got.common.recipe.GOTRecipe;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemTool;
 import net.minecraft.util.MathHelper;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class GOTEntityAIBanditSteal extends EntityAIBase {
 	public IBandit theBandit;

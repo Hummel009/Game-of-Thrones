@@ -1,8 +1,8 @@
 package got.common.util;
 
-import java.util.Map;
-
 import net.minecraft.item.ItemStack;
+
+import java.util.Map;
 
 public interface GOTItemStackMap<V> extends Map<ItemStack, V> {
 	static <T> GOTItemStackMap<T> create() {

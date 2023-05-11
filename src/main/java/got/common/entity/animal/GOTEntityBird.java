@@ -1,30 +1,46 @@
 package got.common.entity.animal;
 
-import java.util.*;
-
 import got.GOT;
 import got.common.block.other.GOTBlockBerryBush;
 import got.common.database.GOTRegistry;
-import got.common.entity.other.*;
+import got.common.entity.other.AnimalJarUpdater;
+import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.other.GOTRandomSkinEntity;
+import got.common.entity.other.GOTScarecrows;
 import got.common.inventory.GOTEntityInventory;
 import got.common.item.GOTValuableItems;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.sothoryos.GOTBiomeSothoryosJungle;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockCrops;
 import net.minecraft.block.material.Material;
 import net.minecraft.command.IEntitySelector;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.*;
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, AnimalJarUpdater, GOTBiome.ImmuneToFrost {
 	public ChunkCoordinates currentFlightTarget;

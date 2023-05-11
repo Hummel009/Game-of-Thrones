@@ -1,14 +1,17 @@
 package got.common.item.other;
 
-import java.util.List;
-
-import cpw.mods.fml.relauncher.*;
-import got.common.database.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTMaterial;
+import got.common.database.GOTRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
+
+import java.util.List;
 
 public class GOTItemPartyHat extends GOTItemArmor {
 	public static int HAT_WHITE = 16777215;

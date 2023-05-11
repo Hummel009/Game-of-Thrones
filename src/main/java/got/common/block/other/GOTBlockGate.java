@@ -1,8 +1,7 @@
 package got.common.block.other;
 
-import java.util.*;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.client.render.other.GOTConnectedTextures;
 import got.common.block.GOTConnectedBlock;
 import got.common.database.GOTCreativeTabs;
@@ -11,9 +10,19 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.Facing;
+import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	public static int MAX_GATE_RANGE = 16;
@@ -67,17 +76,17 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 
 	public boolean directionsMatch(int dir1, int dir2) {
 		switch (dir1) {
-		case 0:
-		case 1:
-			return dir1 == dir2;
-		case 2:
-		case 3:
-			return dir2 == 2 || dir2 == 3;
-		case 4:
-		case 5:
-			return dir2 == 4 || dir2 == 5;
-		default:
-			break;
+			case 0:
+			case 1:
+				return dir1 == dir2;
+			case 2:
+			case 3:
+				return dir2 == 2 || dir2 == 3;
+			case 4:
+			case 5:
+				return dir2 == 4 || dir2 == 5;
+			default:
+				break;
 		}
 		return false;
 	}
@@ -247,22 +256,22 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 			float width = 0.25f;
 			float halfWidth = width / 2.0f;
 			switch (dir) {
-			case 0:
-				setBlockBounds(0.0f, 1.0f - width, 0.0f, 1.0f, 1.0f, 1.0f);
-				break;
-			case 1:
-				setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, width, 1.0f);
-				break;
-			case 2:
-			case 3:
-				setBlockBounds(0.0f, 0.0f, 0.5f - halfWidth, 1.0f, 1.0f, 0.5f + halfWidth);
-				break;
-			case 4:
-			case 5:
-				setBlockBounds(0.5f - halfWidth, 0.0f, 0.0f, 0.5f + halfWidth, 1.0f, 1.0f);
-				break;
-			default:
-				break;
+				case 0:
+					setBlockBounds(0.0f, 1.0f - width, 0.0f, 1.0f, 1.0f, 1.0f);
+					break;
+				case 1:
+					setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, width, 1.0f);
+					break;
+				case 2:
+				case 3:
+					setBlockBounds(0.0f, 0.0f, 0.5f - halfWidth, 1.0f, 1.0f, 0.5f + halfWidth);
+					break;
+				case 4:
+				case 5:
+					setBlockBounds(0.5f - halfWidth, 0.0f, 0.0f, 0.5f + halfWidth, 1.0f, 1.0f);
+					break;
+				default:
+					break;
 			}
 		}
 	}

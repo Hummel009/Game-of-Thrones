@@ -1,20 +1,26 @@
 package got.client;
 
-import java.util.*;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.render.other.*;
 import got.common.database.GOTRegistry;
 import got.common.item.other.GOTItemAnimalJar;
-import got.common.item.weapon.*;
+import got.common.item.weapon.GOTItemBow;
+import got.common.item.weapon.GOTItemCrossbow;
+import got.common.item.weapon.GOTItemSword;
 import got.common.util.GOTAPI;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureMap;
-import net.minecraft.client.resources.*;
+import net.minecraft.client.resources.IReloadableResourceManager;
+import net.minecraft.client.resources.IResourceManager;
+import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public static GOTItemRendererManager INSTANCE;

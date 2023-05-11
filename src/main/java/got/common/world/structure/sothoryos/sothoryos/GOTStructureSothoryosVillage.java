@@ -1,11 +1,12 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import java.util.Random;
-
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTVillageGen;
+import got.common.world.structure.other.LocationInfo;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSothoryosVillage extends GOTVillageGen {
 	public boolean isPyramid;
@@ -40,12 +41,12 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case PYRAMID:
-				this.addStructure(new GOTStructureSothoryosPyramid(false), 20, 0, 0, true);
-				break;
-			case VILLAGE:
-				setupVillage(random);
-				break;
+				case PYRAMID:
+					this.addStructure(new GOTStructureSothoryosPyramid(false), 20, 0, 0, true);
+					break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
 			}
 		}
 

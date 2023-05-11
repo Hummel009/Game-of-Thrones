@@ -1,14 +1,17 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
-import got.common.database.*;
-import got.common.entity.essos.lhazar.*;
+import got.common.database.GOTFoods;
+import got.common.database.GOTNames;
+import got.common.database.GOTRegistry;
+import got.common.entity.essos.lhazar.GOTEntityLhazarBartender;
+import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 	public GOTStructureLhazarTavern(boolean flag) {
@@ -78,8 +81,8 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		generateStrScan(world, random, 0, 0, 0);
 		String[] tavernName = GOTNames.getTavernName(random);
-		placeSign(world, 0, 3, -10, Blocks.wall_sign, 2, new String[] { "", tavernName[0], tavernName[1], "" });
-		placeSign(world, 0, 3, 10, Blocks.wall_sign, 3, new String[] { "", tavernName[0], tavernName[1], "" });
+		placeSign(world, 0, 3, -10, Blocks.wall_sign, 2, new String[]{"", tavernName[0], tavernName[1], ""});
+		placeSign(world, 0, 3, 10, Blocks.wall_sign, 3, new String[]{"", tavernName[0], tavernName[1], ""});
 		this.placeBarrel(world, random, -3, 2, -2, 4, GOTFoods.NOMAD_DRINK);
 		this.placeBarrel(world, random, 3, 2, 1, 5, GOTFoods.NOMAD_DRINK);
 		placeFlowerPot(world, 3, 2, -2, getRandomFlower(world, random));

@@ -1,23 +1,33 @@
 package got.common.world.spawning;
 
-import java.util.*;
-
 import cpw.mods.fml.common.eventhandler.Event;
 import got.GOT;
-import got.common.*;
+import got.common.GOTConfig;
+import got.common.GOTJaqenHgharTracker;
+import got.common.GOTLevelData;
 import got.common.database.GOTInvasions;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityInvasionSpawner;
+import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.westeros.GOTEntityWesterosBandit;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.command.IEntitySelector;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.world.ChunkPosition;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.ForgeEventFactory;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
 
 public class GOTEventSpawner {
 	public static Set<ChunkCoordIntPair> eligibleSpawnChunks = new HashSet<>();
@@ -36,7 +46,8 @@ public class GOTEventSpawner {
 
 	public static void spawnBandits(World world, List<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
-		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
+		block0:
+		for (ChunkCoordIntPair chunkCoords : spawnChunks) {
 			int i;
 			BiomeGenBase biome;
 			int k;
@@ -80,7 +91,8 @@ public class GOTEventSpawner {
 
 	public static void spawnInvasions(World world, List<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
-		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
+		block0:
+		for (ChunkCoordIntPair chunkCoords : spawnChunks) {
 			int i;
 			BiomeGenBase biome;
 			int k;

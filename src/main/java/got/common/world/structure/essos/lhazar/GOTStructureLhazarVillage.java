@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
-import got.common.entity.essos.lhazar.*;
+import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
+import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
+import got.common.entity.essos.lhazar.GOTEntityLhazarWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
@@ -12,6 +12,8 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarVillage extends GOTVillageGen {
 	public boolean isTown;
@@ -49,15 +51,15 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case FORT:
-				setupFort(random);
-				break;
-			case TOWN:
-				setupTown(random);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case FORT:
+					setupFort(random);
+					break;
+				case TOWN:
+					setupTown(random);
+					break;
 			}
 		}
 
@@ -147,8 +149,8 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -40, 40 }) {
-				for (int k1 : new int[] { -40, 40 }) {
+			for (int i1 : new int[]{-40, 40}) {
+				for (int k1 : new int[]{-40, 40}) {
 					this.addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override

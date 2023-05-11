@@ -1,12 +1,17 @@
 package got.common.entity.other;
 
-import java.util.*;
-
 import got.common.database.GOTRegistry;
-import net.minecraft.init.*;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemFishFood;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.WeightedRandom;
 import net.minecraftforge.common.FishingHooks;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GOTFishing {
 	public static List<FishingItem> fish = new ArrayList<>();

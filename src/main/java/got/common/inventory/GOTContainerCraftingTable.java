@@ -1,16 +1,22 @@
 package got.common.inventory;
 
-import java.util.*;
-
-import got.common.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.block.table.GOTBlockCraftingTable;
 import got.common.database.GOTRegistry;
-import got.common.recipe.*;
+import got.common.recipe.GOTRecipe;
+import got.common.recipe.GOTRecipePouch;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.crafting.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.ContainerWorkbench;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 	public World theWorld;

@@ -1,14 +1,15 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarSlave;
 import got.common.entity.essos.lhazar.GOTEntityLhazarFarmer;
 import net.minecraft.block.Block;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 	public Block crop1Block;
@@ -91,24 +92,24 @@ public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 		} else {
 			randomCrop = random.nextInt(4);
 			switch (randomCrop) {
-			case 0:
-				crop1Block = Blocks.carrots;
-				seed1 = Items.carrot;
-				break;
-			case 1:
-				crop1Block = Blocks.potatoes;
-				seed1 = Items.potato;
-				break;
-			case 2:
-				crop1Block = GOTRegistry.lettuceCrop;
-				seed1 = GOTRegistry.lettuce;
-				break;
-			case 3:
-				crop1Block = GOTRegistry.turnipCrop;
-				seed1 = GOTRegistry.turnip;
-				break;
-			default:
-				break;
+				case 0:
+					crop1Block = Blocks.carrots;
+					seed1 = Items.carrot;
+					break;
+				case 1:
+					crop1Block = Blocks.potatoes;
+					seed1 = Items.potato;
+					break;
+				case 2:
+					crop1Block = GOTRegistry.lettuceCrop;
+					seed1 = GOTRegistry.lettuce;
+					break;
+				case 3:
+					crop1Block = GOTRegistry.turnipCrop;
+					seed1 = GOTRegistry.turnip;
+					break;
+				default:
+					break;
 			}
 		}
 		if (random.nextBoolean()) {
@@ -117,24 +118,24 @@ public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 		} else {
 			randomCrop = random.nextInt(4);
 			switch (randomCrop) {
-			case 0:
-				crop2Block = Blocks.carrots;
-				seed2 = Items.carrot;
-				break;
-			case 1:
-				crop2Block = Blocks.potatoes;
-				seed2 = Items.potato;
-				break;
-			case 2:
-				crop2Block = GOTRegistry.lettuceCrop;
-				seed2 = GOTRegistry.lettuce;
-				break;
-			case 3:
-				crop2Block = GOTRegistry.turnipCrop;
-				seed2 = GOTRegistry.turnip;
-				break;
-			default:
-				break;
+				case 0:
+					crop2Block = Blocks.carrots;
+					seed2 = Items.carrot;
+					break;
+				case 1:
+					crop2Block = Blocks.potatoes;
+					seed2 = Items.potato;
+					break;
+				case 2:
+					crop2Block = GOTRegistry.lettuceCrop;
+					seed2 = GOTRegistry.lettuce;
+					break;
+				case 3:
+					crop2Block = GOTRegistry.turnipCrop;
+					seed2 = GOTRegistry.turnip;
+					break;
+				default:
+					break;
 			}
 		}
 	}

@@ -1,9 +1,8 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.Tessellator;
+import org.lwjgl.opengl.GL11;
 
 public abstract class GOTGuiScreenBase extends GuiScreen {
 	@Override

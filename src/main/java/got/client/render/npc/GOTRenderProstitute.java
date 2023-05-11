@@ -1,12 +1,13 @@
 package got.client.render.npc;
 
-import java.util.*;
-
 import got.client.model.GOTModelHuman;
 import got.client.render.other.GOTRenderBiped;
 import got.common.entity.other.GOTEntityProstitute;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderProstitute extends GOTRenderBiped {
 	public GOTRenderProstitute() {

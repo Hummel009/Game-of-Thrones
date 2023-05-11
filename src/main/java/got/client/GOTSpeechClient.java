@@ -1,9 +1,11 @@
 package got.client;
 
-import java.util.*;
-
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.Entity;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.UUID;
 
 public class GOTSpeechClient {
 	public static Map<UUID, TimedSpeech> npcSpeeches = new HashMap<>();

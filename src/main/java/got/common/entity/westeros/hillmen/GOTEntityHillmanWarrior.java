@@ -1,6 +1,7 @@
 package got.common.entity.westeros.hillmen;
 
-import got.common.database.*;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -42,29 +43,29 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(7);
 		switch (i) {
-		case 0:
-			npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_sword));
-			break;
-		case 1:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeSword));
-			break;
-		case 2:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironDagger));
-			break;
-		case 3:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeDagger));
-			break;
-		case 4:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironBattleaxe));
-			break;
-		case 5:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeBattleaxe));
-			break;
-		case 6:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironPike));
-			break;
-		default:
-			break;
+			case 0:
+				npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_sword));
+				break;
+			case 1:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeSword));
+				break;
+			case 2:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironDagger));
+				break;
+			case 3:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeDagger));
+				break;
+			case 4:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironBattleaxe));
+				break;
+			case 5:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeBattleaxe));
+				break;
+			case 6:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironPike));
+				break;
+			default:
+				break;
 		}
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());

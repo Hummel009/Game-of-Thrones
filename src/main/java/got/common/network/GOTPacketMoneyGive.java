@@ -1,17 +1,22 @@
 package got.common.network;
 
-import java.io.IOException;
-import java.util.UUID;
-
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.network.simpleimpl.*;
-import got.common.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.block.other.GOTBlockIronBank;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
+
+import java.io.IOException;
+import java.util.UUID;
 
 public class GOTPacketMoneyGive extends GOTPacketMoney implements IMessage {
 	public UUID hummel = UUID.fromString("9aee5b32-8e19-4d4b-a2d6-1318af62733d");

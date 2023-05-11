@@ -1,13 +1,15 @@
 package got.common.fellowship;
 
-import java.util.*;
-
 import com.google.common.collect.ImmutableList;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTPlayerData;
 import got.common.database.GOTTitle;
-import got.common.network.*;
+import got.common.network.GOTPacketFellowship;
+import got.common.network.GOTPacketFellowshipPartialUpdate;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
 
 public interface FellowshipUpdateType {
 	IMessage createUpdatePacket(GOTPlayerData var1, GOTFellowship var2);

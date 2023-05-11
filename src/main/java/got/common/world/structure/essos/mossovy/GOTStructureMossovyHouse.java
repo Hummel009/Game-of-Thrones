@@ -1,12 +1,15 @@
 package got.common.world.structure.essos.mossovy;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 	public GOTStructureMossovyHouse(boolean flag) {
@@ -96,20 +99,20 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 			for (int step = 0; step < 12 && !isOpaque(world, i13, j12 = -1 - step, k1 = 6 + step); ++step) {
 				randPath = random.nextInt(4);
 				switch (randPath) {
-				case 0:
-					setBlockAndMetadata(world, i13, j12, k1, Blocks.grass, 0);
-					break;
-				case 1:
-					setBlockAndMetadata(world, i13, j12, k1, Blocks.dirt, 1);
-					break;
-				case 2:
-					setBlockAndMetadata(world, i13, j12, k1, GOTRegistry.dirtPath, 0);
-					break;
-				case 3:
-					setBlockAndMetadata(world, i13, j12, k1, Blocks.cobblestone, 0);
-					break;
-				default:
-					break;
+					case 0:
+						setBlockAndMetadata(world, i13, j12, k1, Blocks.grass, 0);
+						break;
+					case 1:
+						setBlockAndMetadata(world, i13, j12, k1, Blocks.dirt, 1);
+						break;
+					case 2:
+						setBlockAndMetadata(world, i13, j12, k1, GOTRegistry.dirtPath, 0);
+						break;
+					case 3:
+						setBlockAndMetadata(world, i13, j12, k1, Blocks.cobblestone, 0);
+						break;
+					default:
+						break;
 				}
 				setGrassToDirt(world, i13, j12 - 1, k1);
 				j2 = j12 - 1;
@@ -123,20 +126,20 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		for (int step = 0; step < 12 && !isOpaque(world, i12 = -5, j12 = 0 - step, k1 = -5 - step); ++step) {
 			randPath = random.nextInt(4);
 			switch (randPath) {
-			case 0:
-				setBlockAndMetadata(world, i12, j12, k1, Blocks.grass, 0);
-				break;
-			case 1:
-				setBlockAndMetadata(world, i12, j12, k1, Blocks.dirt, 1);
-				break;
-			case 2:
-				setBlockAndMetadata(world, i12, j12, k1, GOTRegistry.dirtPath, 0);
-				break;
-			case 3:
-				setBlockAndMetadata(world, i12, j12, k1, Blocks.cobblestone, 0);
-				break;
-			default:
-				break;
+				case 0:
+					setBlockAndMetadata(world, i12, j12, k1, Blocks.grass, 0);
+					break;
+				case 1:
+					setBlockAndMetadata(world, i12, j12, k1, Blocks.dirt, 1);
+					break;
+				case 2:
+					setBlockAndMetadata(world, i12, j12, k1, GOTRegistry.dirtPath, 0);
+					break;
+				case 3:
+					setBlockAndMetadata(world, i12, j12, k1, Blocks.cobblestone, 0);
+					break;
+				default:
+					break;
 			}
 			setGrassToDirt(world, i12, j12 - 1, k1);
 			j2 = j12 - 1;

@@ -1,12 +1,12 @@
 package got.common.network;
 
-import java.io.IOException;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketBuffer;
+
+import java.io.IOException;
 
 public class GOTPacketMoney implements IMessage {
 	public ItemStack item;

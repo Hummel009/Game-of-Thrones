@@ -1,6 +1,8 @@
 package got.common.faction;
 
-import java.util.*;
+import java.util.EnumSet;
+import java.util.HashMap;
+import java.util.Set;
 
 public class GOTAlignmentBonusMap extends HashMap<GOTFaction, Float> {
 	public Set<GOTFaction> getChangedFactions() {

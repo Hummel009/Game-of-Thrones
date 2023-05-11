@@ -1,10 +1,10 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIbbenGatehouse extends GOTStructureIbbenBase {
 	public GOTStructureIbbenGatehouse(boolean flag) {
@@ -115,24 +115,24 @@ public class GOTStructureIbbenGatehouse extends GOTStructureIbbenBase {
 			}
 		}
 		setBlockAndMetadata(world, 0, 6, 0, fenceBlock, fenceMeta);
-		for (int i12 : new int[] { -1, 1 }) {
+		for (int i12 : new int[]{-1, 1}) {
 			setBlockAndMetadata(world, i12, 6, 0, woodBeamBlock, woodBeamMeta);
 			setBlockAndMetadata(world, i12, 7, 0, Blocks.lever, 13);
 		}
-		for (int i12 : new int[] { -3, 3 }) {
+		for (int i12 : new int[]{-3, 3}) {
 			placeWallBanner(world, i12, 5, -2, bannerType, 2);
 		}
-		for (int i12 : new int[] { -2, 2 }) {
+		for (int i12 : new int[]{-2, 2}) {
 			setBlockAndMetadata(world, i12, 4, -2, Blocks.torch, 4);
 			setBlockAndMetadata(world, i12, 4, 2, Blocks.torch, 3);
 		}
-		for (int k12 : new int[] { -2, 2 }) {
+		for (int k12 : new int[]{-2, 2}) {
 			setBlockAndMetadata(world, -9, 8, k12, Blocks.torch, 1);
 			setBlockAndMetadata(world, -3, 8, k12, Blocks.torch, 2);
 			setBlockAndMetadata(world, 3, 8, k12, Blocks.torch, 1);
 			setBlockAndMetadata(world, 9, 8, k12, Blocks.torch, 2);
 		}
-		for (int i12 : new int[] { -6, 6 }) {
+		for (int i12 : new int[]{-6, 6}) {
 			for (int k13 = -3; k13 <= 3; ++k13) {
 				int k2 = Math.abs(k13);
 				if (k2 == 3) {
@@ -162,7 +162,7 @@ public class GOTStructureIbbenGatehouse extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i12 + 3, 10, k13, roofSlabBlock, roofSlabMeta);
 			}
 		}
-		for (int i12 : new int[] { -3, 3 }) {
+		for (int i12 : new int[]{-3, 3}) {
 			j1 = 6;
 			int k14 = 0;
 			GOTEntityIbbenWarrior guard = new GOTEntityIbbenWarrior(world);

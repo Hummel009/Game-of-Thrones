@@ -1,17 +1,16 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.essos.yiti.*;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
-	public static Class[] allStallTypes = { Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class };
+	public static Class[] allStallTypes = {Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class};
 
 	public GOTStructureYiTiMarketStall(boolean flag) {
 		super(flag);

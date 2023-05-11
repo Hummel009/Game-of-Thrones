@@ -1,9 +1,9 @@
 package got.common.world.structure.other;
 
-import java.util.Random;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public abstract class GOTStructureNPCRespawner extends GOTStructureBase {
 	public GOTStructureNPCRespawner(boolean flag) {

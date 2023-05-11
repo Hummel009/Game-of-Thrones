@@ -1,17 +1,19 @@
 package got.client.render.animal;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTNPCMount;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelHorse;
 import net.minecraft.client.renderer.entity.RenderHorse;
-import net.minecraft.client.renderer.texture.*;
+import net.minecraft.client.renderer.texture.ITextureObject;
+import net.minecraft.client.renderer.texture.LayeredTexture;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderHorse extends RenderHorse {
 	public static Map<String, ResourceLocation> layeredMountTextures = new HashMap<>();

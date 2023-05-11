@@ -1,15 +1,20 @@
 package got.common.entity.ai;
 
-import java.util.*;
-
 import got.GOT;
 import got.common.GOTLevelData;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityNPCRideable;
 import got.common.entity.westeros.GOTEntityWesterosBandit;
 import net.minecraft.command.IEntitySelector;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAITarget;
 import net.minecraft.entity.player.EntityPlayer;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 	public Class targetClass;

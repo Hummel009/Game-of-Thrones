@@ -2,8 +2,10 @@ package got.common.world.biome.westeros;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.*;
-import got.common.entity.animal.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
+import got.common.entity.animal.GOTEntityLion;
+import got.common.entity.animal.GOTEntityLioness;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 

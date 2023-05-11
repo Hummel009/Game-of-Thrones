@@ -2,8 +2,10 @@ package got.common.entity.other;
 
 import got.common.item.other.GOTItemDart;
 import got.common.item.weapon.GOTItemSword;
-import net.minecraft.entity.*;
-import net.minecraft.item.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;

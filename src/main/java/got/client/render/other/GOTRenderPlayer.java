@@ -1,25 +1,31 @@
 package got.client.render.other;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import got.client.*;
-import got.common.*;
-import got.common.database.*;
+import got.client.GOTClientProxy;
+import got.client.GOTTickHandlerClient;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.database.GOTCapes;
+import got.common.database.GOTShields;
 import got.common.faction.GOTAlignmentValues;
 import got.common.fellowship.GOTFellowshipClient;
 import got.common.world.GOTWorldProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.client.renderer.entity.RendererLivingEntity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
+import org.lwjgl.opengl.GL11;
+
+import java.util.List;
+import java.util.UUID;
 
 public class GOTRenderPlayer {
 	public Minecraft mc = Minecraft.getMinecraft();
@@ -84,7 +90,7 @@ public class GOTRenderPlayer {
 			}
 		}
 		if (shouldRenderFellowPlayerHealth(entityplayer)) {
-			GOTNPCRendering.renderHealthBar(entityplayer, fr0, fr1, fr2, new int[] { 16375808, 12006707 }, null);
+			GOTNPCRendering.renderHealthBar(entityplayer, fr0, fr1, fr2, new int[]{16375808, 12006707}, null);
 		}
 	}
 

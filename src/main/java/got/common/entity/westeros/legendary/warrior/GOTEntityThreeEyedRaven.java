@@ -1,6 +1,7 @@
 package got.common.entity.westeros.legendary.warrior;
 
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.SharedMonsterAttributes;

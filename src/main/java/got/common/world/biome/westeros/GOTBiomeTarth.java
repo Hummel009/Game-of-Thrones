@@ -2,7 +2,8 @@ package got.common.world.biome.westeros;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 public class GOTBiomeTarth extends GOTBiomeStormlands {

@@ -1,24 +1,33 @@
 package got.common.item.weapon;
 
-import java.util.Arrays;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.client.render.other.GOTRenderBow;
-import got.common.database.*;
-import got.common.enchant.*;
-import got.common.entity.other.*;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
+import got.common.enchant.GOTEnchantment;
+import got.common.enchant.GOTEnchantmentHelper;
+import got.common.entity.other.GOTEntityArrowFire;
+import got.common.entity.other.GOTEntityArrowPoisoned;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.enchantment.*;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBow;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
-import net.minecraftforge.client.*;
+import net.minecraftforge.client.IItemRenderer;
+import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.*;
+import net.minecraftforge.event.entity.player.ArrowLooseEvent;
+import net.minecraftforge.event.entity.player.ArrowNockEvent;
+
+import java.util.Arrays;
 
 public class GOTItemBow extends ItemBow {
 	public static float MIN_BOW_DRAW_AMOUNT = 0.65f;

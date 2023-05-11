@@ -1,7 +1,10 @@
 package got.common.enchant;
 
 import got.common.item.GOTWeaponStats;
-import got.common.item.weapon.*;
+import got.common.item.weapon.GOTItemCommandSword;
+import got.common.item.weapon.GOTItemCrossbow;
+import got.common.item.weapon.GOTItemSarbacane;
+import got.common.item.weapon.GOTItemThrowingAxe;
 import net.minecraft.item.*;
 
 public enum GOTEnchantmentType {
@@ -22,16 +25,16 @@ public enum GOTEnchantmentType {
 			ItemArmor itemarmor = (ItemArmor) item;
 			int armorType = itemarmor.armorType;
 			switch (armorType) {
-			case 0:
-				return this == ARMOR_HEAD;
-			case 1:
-				return this == ARMOR_BODY;
-			case 2:
-				return this == ARMOR_LEGS;
-			case 3:
-				return this == ARMOR_FEET;
-			default:
-				break;
+				case 0:
+					return this == ARMOR_HEAD;
+				case 1:
+					return this == ARMOR_BODY;
+				case 2:
+					return this == ARMOR_LEGS;
+				case 3:
+					return this == ARMOR_FEET;
+				default:
+					break;
 			}
 		}
 

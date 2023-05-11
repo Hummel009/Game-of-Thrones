@@ -1,10 +1,15 @@
 package got.common.entity.other;
 
-import got.common.database.*;
-import got.common.entity.ai.*;
+import got.common.database.GOTNames;
+import got.common.database.GOTRegistry;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
+import got.common.entity.ai.GOTEntityAIHiredRemainStill;
 import got.common.faction.GOTFaction;
 import net.minecraft.block.Block;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;

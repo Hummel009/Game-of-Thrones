@@ -1,8 +1,8 @@
 package got.common.block.other;
 
-import java.util.Random;
-
 import net.minecraft.item.Item;
+
+import java.util.Random;
 
 public class GOTBlockObsidianGravel extends GOTBlockGravel {
 	@Override

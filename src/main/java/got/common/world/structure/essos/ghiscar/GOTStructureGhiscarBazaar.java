@@ -1,17 +1,19 @@
 package got.common.world.structure.essos.ghiscar;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.ghiscar.*;
 import got.common.world.structure.essos.common.GOTStructureEssosBazaar;
 import got.common.world.structure.other.GOTStructureBase;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class GOTStructureGhiscarBazaar extends GOTStructureEssosBazaar {
-	public static Class[] stalls = { Lumber.class, Mason.class, Fish.class, Baker.class, Goldsmith.class, Farmer.class, Blacksmith.class, Brewer.class, Miner.class, Florist.class, Butcher.class };
+	public static Class[] stalls = {Lumber.class, Mason.class, Fish.class, Baker.class, Goldsmith.class, Farmer.class, Blacksmith.class, Brewer.class, Miner.class, Florist.class, Butcher.class};
 
 	public GOTStructureGhiscarBazaar(boolean flag) {
 		super(flag);

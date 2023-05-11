@@ -1,15 +1,19 @@
 package got.common.world.structure.essos.common;
 
-import java.util.Random;
-
-import got.common.database.*;
-import got.common.entity.essos.*;
+import got.common.database.GOTFoods;
+import got.common.database.GOTNames;
+import got.common.database.GOTRegistry;
+import got.common.entity.essos.GOTEntityEssosScrapTrader;
+import got.common.entity.essos.GOTEntityEssosThief;
 import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
 import got.common.entity.other.GOTEntityProstitute;
-import got.common.entity.westeros.*;
+import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
+import got.common.entity.westeros.GOTEntityWesterosThief;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 	public GOTStructureEssosTavern(boolean flag) {
@@ -149,7 +153,8 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		for (int l = 0; l < 5; ++l) {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 0, 1, 0, 16);
 		}
-		block11: for (int i13 = -1; i13 <= 1; ++i13) {
+		block11:
+		for (int i13 = -1; i13 <= 1; ++i13) {
 			int j12 = 0;
 			for (int step = 0; step < 12; ++step) {
 				int j2;
@@ -189,9 +194,9 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		setBlockAndMetadata(world, 0, 5, -16, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 0, 5, -17, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 0, 4, -17, plankBlock, plankMeta);
-		placeSign(world, -1, 4, -17, Blocks.wall_sign, 5, new String[] { "", tavernName[0], tavernName[1], "" });
-		placeSign(world, 0, 4, -18, Blocks.wall_sign, 2, new String[] { "", tavernName[0], tavernName[1], "" });
-		placeSign(world, 1, 4, -17, Blocks.wall_sign, 4, new String[] { "", tavernName[0], tavernName[1], "" });
+		placeSign(world, -1, 4, -17, Blocks.wall_sign, 5, new String[]{"", tavernName[0], tavernName[1], ""});
+		placeSign(world, 0, 4, -18, Blocks.wall_sign, 2, new String[]{"", tavernName[0], tavernName[1], ""});
+		placeSign(world, 1, 4, -17, Blocks.wall_sign, 4, new String[]{"", tavernName[0], tavernName[1], ""});
 		return true;
 	}
 

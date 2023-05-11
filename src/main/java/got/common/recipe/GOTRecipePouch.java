@@ -1,17 +1,18 @@
 package got.common.recipe;
 
-import java.util.ArrayList;
-
 import got.common.database.GOTRegistry;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTInventoryPouch;
-import got.common.item.other.*;
+import got.common.item.other.GOTItemDye;
+import got.common.item.other.GOTItemPouch;
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 public class GOTRecipePouch implements IRecipe {
 	public int overrideColor;

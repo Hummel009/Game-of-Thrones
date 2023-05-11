@@ -1,8 +1,12 @@
 package got.common.entity.westeros.legendary.warrior;
 
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTCapes;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;

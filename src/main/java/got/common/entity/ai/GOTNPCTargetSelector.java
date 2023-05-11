@@ -6,7 +6,8 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTHiredNPCInfo.Task;
 import got.common.faction.GOTFaction;
 import net.minecraft.command.IEntitySelector;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTNPCTargetSelector implements IEntitySelector {

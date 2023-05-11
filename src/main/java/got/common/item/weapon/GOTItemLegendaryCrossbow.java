@@ -1,6 +1,7 @@
 package got.common.item.weapon;
 
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTMaterial;
 
 public class GOTItemLegendaryCrossbow extends GOTItemCrossbow {
 	public GOTItemLegendaryCrossbow() {

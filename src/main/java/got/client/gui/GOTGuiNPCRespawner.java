@@ -1,9 +1,14 @@
 package got.client.gui;
 
-import got.common.entity.other.*;
-import got.common.network.*;
-import net.minecraft.client.gui.*;
-import net.minecraft.util.*;
+import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.other.GOTEntityRegistry;
+import got.common.network.GOTPacketEditNPCRespawner;
+import got.common.network.GOTPacketHandler;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.util.StatCollector;
+import net.minecraft.util.StringUtils;
 
 public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 	public int xSize = 256;

@@ -1,7 +1,6 @@
 package got.common.world.genlayer;
 
 import com.google.common.math.IntMath;
-
 import net.minecraft.world.World;
 
 public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {

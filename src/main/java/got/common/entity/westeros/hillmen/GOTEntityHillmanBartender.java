@@ -1,12 +1,16 @@
 package got.common.entity.westeros.hillmen;
 
 import got.common.GOTLevelData;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTradeable {
@@ -24,29 +28,30 @@ public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTr
 	@Override
 	public void dropHillmanItems(boolean flag, int i) {
 		int j = rand.nextInt(3) + rand.nextInt(i + 1);
-		block6: for (int k = 0; k < j; ++k) {
+		block6:
+		for (int k = 0; k < j; ++k) {
 			int l = rand.nextInt(7);
 			switch (l) {
-			case 0:
-			case 1:
-			case 2: {
-				Item food = GOTFoods.WILD.getRandomFood(rand).getItem();
-				entityDropItem(new ItemStack(food), 0.0f);
-				continue block6;
-			}
-			case 3: {
-				entityDropItem(new ItemStack(Items.gold_nugget, 2 + rand.nextInt(3)), 0.0f);
-				continue block6;
-			}
-			case 4:
-			case 5: {
-				entityDropItem(new ItemStack(GOTRegistry.mug), 0.0f);
-				continue block6;
-			}
-			case 6: {
-				Item drink = GOTFoods.WILD_DRINK.getRandomFood(rand).getItem();
-				entityDropItem(new ItemStack(drink, 1, 1 + rand.nextInt(3)), 0.0f);
-			}
+				case 0:
+				case 1:
+				case 2: {
+					Item food = GOTFoods.WILD.getRandomFood(rand).getItem();
+					entityDropItem(new ItemStack(food), 0.0f);
+					continue block6;
+				}
+				case 3: {
+					entityDropItem(new ItemStack(Items.gold_nugget, 2 + rand.nextInt(3)), 0.0f);
+					continue block6;
+				}
+				case 4:
+				case 5: {
+					entityDropItem(new ItemStack(GOTRegistry.mug), 0.0f);
+					continue block6;
+				}
+				case 6: {
+					Item drink = GOTFoods.WILD_DRINK.getRandomFood(rand).getItem();
+					entityDropItem(new ItemStack(drink, 1, 1 + rand.nextInt(3)), 0.0f);
+				}
 			}
 		}
 	}

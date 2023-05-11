@@ -1,12 +1,13 @@
 package got.common.entity.animal;
 
-import java.util.UUID;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.Items;
 import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public class GOTEntityWhiteOryx extends GOTEntityGemsbok implements GOTRandomSkinEntity {
 	public static float ORYX_SCALE = 0.9f;

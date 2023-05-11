@@ -1,10 +1,8 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import java.util.*;
-
 import com.google.common.math.IntMath;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityBarrowWight;
 import got.common.item.other.GOTItemBanner;
 import got.common.tileentity.GOTTileEntitySarbacaneTrap;
@@ -17,6 +15,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 	public static int RADIUS = 60;
@@ -130,8 +131,8 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 				setBlockAndMetadata(world, i16, topHeight + 7, k16, GOTRegistry.brick4, 3);
 			}
 		}
-		for (int i15 : new int[] { -10, 10 }) {
-			for (int k17 : new int[] { -10, 10 }) {
+		for (int i15 : new int[]{-10, 10}) {
+			for (int k17 : new int[]{-10, 10}) {
 				setBlockAndMetadata(world, i15, topHeight, k17, GOTRegistry.brick4, 3);
 				for (int j14 = topHeight + 1; j14 <= topHeight + 3; ++j14) {
 					setBlockAndMetadata(world, i15, j14, k17, GOTRegistry.pillar2, 12);

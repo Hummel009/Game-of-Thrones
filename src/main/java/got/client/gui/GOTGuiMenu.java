@@ -1,17 +1,20 @@
 package got.client.gui;
 
-import java.util.ArrayList;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTTickHandlerClient;
 import got.common.GOTDimension;
-import got.common.network.*;
+import got.common.network.GOTPacketCheckMenuPrompt;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketMenuPrompt;
 import got.common.quest.GOTMiniQuestWelcome;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.*;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
 
 public class GOTGuiMenu extends GOTGuiScreenBase {
 	public static ResourceLocation menuIconsTexture = new ResourceLocation("got:textures/gui/menu_icons.png");

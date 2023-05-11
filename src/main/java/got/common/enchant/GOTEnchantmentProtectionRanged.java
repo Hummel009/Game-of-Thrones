@@ -1,8 +1,11 @@
 package got.common.enchant;
 
 import got.common.database.GOTMaterial;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtectionRanged extends GOTEnchantmentProtectionSpecial {
 	public GOTEnchantmentProtectionRanged(String s, int level) {

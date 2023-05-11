@@ -1,21 +1,26 @@
 package got.client.gui;
 
-import java.util.Arrays;
-
+import com.google.common.base.Function;
+import com.mojang.authlib.GameProfile;
+import got.common.GOTBannerProtection;
+import got.common.entity.other.GOTBannerWhitelistEntry;
+import got.common.entity.other.GOTEntityBanner;
+import got.common.faction.GOTAlignmentValues;
+import got.common.fellowship.GOTFellowshipProfile;
+import got.common.network.GOTPacketBannerRequestInvalidName;
+import got.common.network.GOTPacketEditBanner;
+import got.common.network.GOTPacketHandler;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 import org.apache.commons.lang3.StringUtils;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import com.google.common.base.Function;
-import com.mojang.authlib.GameProfile;
-
-import got.common.GOTBannerProtection;
-import got.common.entity.other.*;
-import got.common.faction.GOTAlignmentValues;
-import got.common.fellowship.GOTFellowshipProfile;
-import got.common.network.*;
-import net.minecraft.client.gui.*;
-import net.minecraft.util.*;
+import java.util.Arrays;
 
 public class GOTGuiBanner extends GOTGuiScreenBase {
 	public static ResourceLocation bannerTexture = new ResourceLocation("got:textures/gui/banner_edit.png");

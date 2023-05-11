@@ -2,8 +2,10 @@ package got.common.entity.essos.yiti;
 
 import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.other.*;
-import net.minecraft.entity.*;
+import got.common.entity.other.GOTEntityFirePot;
+import got.common.entity.other.GOTEntityNPC;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;

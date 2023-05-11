@@ -1,14 +1,15 @@
 package got.common.recipe;
 
-import java.util.ArrayList;
-
 import got.common.item.other.GOTItemDye;
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.RecipesArmorDyes;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 public class GOTRecipeArmorDyes extends RecipesArmorDyes {
 	@Override

@@ -1,20 +1,27 @@
 package got.common.database;
 
-import java.awt.Color;
-import java.util.*;
-
-import got.common.*;
+import got.common.GOTChatEvents;
+import got.common.GOTDimension;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuestPickpocket;
 import got.common.util.GOTEnumDyeColor;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.event.HoverEvent;
-import net.minecraft.init.*;
-import net.minecraft.item.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
+
+import java.awt.*;
+import java.util.List;
+import java.util.*;
 
 public class GOTAchievement {
 	public static int id = 1;

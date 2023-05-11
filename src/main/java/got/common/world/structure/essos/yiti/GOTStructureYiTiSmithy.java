@@ -1,14 +1,14 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.yiti.GOTEntityYiTiBlacksmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 	public GOTStructureYiTiSmithy(boolean flag) {
@@ -100,7 +100,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		}
 		setBlockAndMetadata(world, -4, 2, -6, GOTRegistry.reedBars, 0);
 		setBlockAndMetadata(world, 4, 2, -6, GOTRegistry.reedBars, 0);
-		for (int k12 : new int[] { -4, 0 }) {
+		for (int k12 : new int[]{-4, 0}) {
 			setBlockAndMetadata(world, -6, 2, k12 - 1, brickStairBlock, 7);
 			setAir(world, -6, 2, k12);
 			setBlockAndMetadata(world, -6, 2, k12 + 1, brickStairBlock, 6);
@@ -110,11 +110,11 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, 6, 2, k12 + 1, brickStairBlock, 6);
 			setBlockAndMetadata(world, 6, 3, k12, brickStairBlock, 4);
 		}
-		for (int k12 : new int[] { -7, 7 }) {
+		for (int k12 : new int[]{-7, 7}) {
 			setBlockAndMetadata(world, -6, 3, k12, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 6, 3, k12, fenceBlock, fenceMeta);
 		}
-		int[] k13 = { -7, 7 };
+		int[] k13 = {-7, 7};
 		k1 = k13.length;
 		for (i22 = 0; i22 < k1; ++i22) {
 			int i15 = k13[i22];
@@ -233,7 +233,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 0, 9, 4, roofStairBlock, 2);
 		setBlockAndMetadata(world, -4, 9, 0, roofStairBlock, 0);
 		setBlockAndMetadata(world, 4, 9, 0, roofStairBlock, 1);
-		for (int k12 : new int[] { -3, 3 }) {
+		for (int k12 : new int[]{-3, 3}) {
 			setBlockAndMetadata(world, -1, 7, k12, plankBlock, plankMeta);
 			setBlockAndMetadata(world, 0, 7, k12, GOTRegistry.reedBars, 0);
 			setBlockAndMetadata(world, 1, 7, k12, plankBlock, plankMeta);
@@ -241,7 +241,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, 0, 8, k12, plankBlock, plankMeta);
 			setBlockAndMetadata(world, 1, 8, k12, roofBlock, roofMeta);
 		}
-		for (int i15 : new int[] { -3, 3 }) {
+		for (int i15 : new int[]{-3, 3}) {
 			setBlockAndMetadata(world, i15, 7, -1, plankBlock, plankMeta);
 			setBlockAndMetadata(world, i15, 7, 0, GOTRegistry.reedBars, 0);
 			setBlockAndMetadata(world, i15, 7, 1, plankBlock, plankMeta);

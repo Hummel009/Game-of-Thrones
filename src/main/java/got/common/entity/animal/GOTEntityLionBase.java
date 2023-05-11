@@ -1,12 +1,15 @@
 package got.common.entity.animal;
 
-import java.util.List;
-
 import got.common.database.GOTRegistry;
-import got.common.entity.ai.*;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAILionChase;
+import got.common.entity.ai.GOTEntityAIMFMate;
 import got.common.item.other.GOTItemLionRug;
 import got.common.world.biome.GOTBiome;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -14,6 +17,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public abstract class GOTEntityLionBase extends GOTEntityAnimalMF implements GOTBiome.ImmuneToFrost {
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.5, false);

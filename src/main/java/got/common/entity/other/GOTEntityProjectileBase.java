@@ -1,22 +1,30 @@
 package got.common.entity.other;
 
-import java.util.List;
-
 import cpw.mods.fml.common.registry.IThrowableEntity;
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.item.GOTWeaponStats;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.EntityTracker;
+import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.play.server.*;
+import net.minecraft.network.play.server.S0DPacketCollectItem;
+import net.minecraft.network.play.server.S2BPacketChangeGameState;
 import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
+
+import java.util.List;
 
 public abstract class GOTEntityProjectileBase extends Entity implements IThrowableEntity, IProjectile {
 	public int xTile = -1;
@@ -288,10 +296,10 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 					if (getIsCritical()) {
 						damageInt += rand.nextInt(damageInt / 2 + 2);
 					}
-					double[] prevMotion = { hitEntity.motionX, hitEntity.motionY, hitEntity.motionZ };
+					double[] prevMotion = {hitEntity.motionX, hitEntity.motionY, hitEntity.motionZ};
 					DamageSource damagesource = getDamageSource();
 					if (hitEntity.attackEntityFrom(damagesource, damageInt)) {
-						double[] newMotion = { hitEntity.motionX, hitEntity.motionY, hitEntity.motionZ };
+						double[] newMotion = {hitEntity.motionX, hitEntity.motionY, hitEntity.motionZ};
 						float kbf = getKnockbackFactor();
 						hitEntity.motionX = prevMotion[0] + (newMotion[0] - prevMotion[0]) * kbf;
 						hitEntity.motionY = prevMotion[1] + (newMotion[1] - prevMotion[1]) * kbf;

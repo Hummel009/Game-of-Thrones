@@ -1,21 +1,27 @@
 package got.common.entity.westeros;
 
-import java.awt.Color;
-
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAIDrink;
+import got.common.entity.ai.GOTEntityAIEat;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTTradeable;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemLeatherHat;
 import got.common.world.biome.GOTBiome;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.awt.*;
 
 public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith, GOTBiome.ImmuneToHeat {
 	public GOTEntityWesterosScrapTrader(World world) {
@@ -140,20 +146,20 @@ public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements 
 	public void setupNPCName() {
 		int i = rand.nextInt(4);
 		switch (i) {
-		case 0:
-			familyInfo.setName(GOTNames.getWesterosName(rand, true));
-			break;
-		case 1:
-			familyInfo.setName(GOTNames.getWildName(rand, true));
-			break;
-		case 2:
-			familyInfo.setName(GOTNames.getEssosName(rand, true));
-			break;
-		case 3:
-			familyInfo.setName(GOTNames.getQarthName(rand, true));
-			break;
-		default:
-			familyInfo.setName(GOTNames.getWildName(rand, true));
+			case 0:
+				familyInfo.setName(GOTNames.getWesterosName(rand, true));
+				break;
+			case 1:
+				familyInfo.setName(GOTNames.getWildName(rand, true));
+				break;
+			case 2:
+				familyInfo.setName(GOTNames.getEssosName(rand, true));
+				break;
+			case 3:
+				familyInfo.setName(GOTNames.getQarthName(rand, true));
+				break;
+			default:
+				familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
 	}
 }

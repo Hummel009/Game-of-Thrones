@@ -1,34 +1,51 @@
 package got.client;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.client.FMLClientHandler;
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.GOT;
 import got.client.effect.GOTEntityDeadMarshFace;
-import got.client.gui.*;
+import got.client.gui.GOTGuiMap;
+import got.client.gui.GOTGuiMenu;
+import got.client.gui.GOTGuiMiniquestTracker;
+import got.client.gui.GOTGuiNotificationDisplay;
 import got.client.model.GOTModelCompass;
-import got.client.render.other.*;
-import got.client.sound.*;
+import got.client.render.other.GOTCloudRenderer;
+import got.client.render.other.GOTNPCRendering;
+import got.client.render.other.GOTRenderNorthernLights;
+import got.client.sound.GOTAmbience;
+import got.client.sound.GOTMusicTicker;
+import got.client.sound.GOTMusicTrack;
 import got.common.*;
 import got.common.block.leaves.GOTBlockLeavesBase;
-import got.common.database.*;
-import got.common.enchant.*;
+import got.common.database.GOTMaterial;
+import got.common.database.GOTRegistry;
+import got.common.enchant.GOTEnchantment;
+import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.*;
 import got.common.faction.*;
 import got.common.fellowship.GOTFellowshipData;
-import got.common.item.*;
-import got.common.item.other.*;
-import got.common.item.weapon.*;
+import got.common.item.GOTMaterialFinder;
+import got.common.item.GOTPoisonedDrinks;
+import got.common.item.GOTWeaponStats;
+import got.common.item.other.GOTItemBanner;
+import got.common.item.other.GOTItemOwnership;
+import got.common.item.weapon.GOTItemBow;
+import got.common.item.weapon.GOTItemCrossbow;
+import got.common.item.weapon.GOTItemSarbacane;
+import got.common.item.weapon.GOTItemSpear;
 import got.common.quest.IPickpocketable;
-import got.common.util.*;
-import got.common.world.*;
+import got.common.util.GOTFunctions;
+import got.common.util.GOTLog;
+import got.common.util.GOTModChecker;
+import got.common.util.GOTVersionChecker;
+import got.common.world.GOTWorldChunkManager;
+import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.essos.*;
+import got.common.world.biome.essos.GOTBiomeMossovyMarshes;
+import got.common.world.biome.essos.GOTBiomeShadowLand;
 import got.common.world.biome.sothoryos.GOTBiomeYeen;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.westeros.GOTBiomeFrostfangs;
@@ -37,26 +54,42 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.client.entity.*;
+import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.*;
 import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.*;
-import net.minecraft.potion.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.world.EnumSkyBlock;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.GuiIngameForge;
-import net.minecraftforge.client.event.*;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.client.event.FOVUpdateEvent;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.WorldEvent;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTTickHandlerClient {
 	public static ResourceLocation portalOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
@@ -64,8 +97,8 @@ public class GOTTickHandlerClient {
 	public static ResourceLocation frostOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
 	public static ResourceLocation burnOverlay = new ResourceLocation("got:textures/misc/burn_overlay.png");
 	public static ResourceLocation wightOverlay = new ResourceLocation("got:textures/misc/wight.png");
-	public static float[] frostRGBMiddle = { 0.4F, 0.46F, 0.74F };
-	public static float[] frostRGBEdge = { 1.0F, 1.0F, 1.0F };
+	public static float[] frostRGBMiddle = {0.4F, 0.46F, 0.74F};
+	public static float[] frostRGBEdge = {1.0F, 1.0F, 1.0F};
 	public static Map<EntityPlayer, Integer> playersInPortals = new HashMap<>();
 	public static int clientTick;
 	public static float renderTick;
@@ -342,17 +375,17 @@ public class GOTTickHandlerClient {
 				}
 				boolean fancyGraphics = false;
 				switch (optifineSetting) {
-				case 0:
-					fancyGraphics = minecraft.gameSettings.fancyGraphics;
-					break;
-				case 1:
-					fancyGraphics = false;
-					break;
-				case 2:
-					fancyGraphics = true;
-					break;
-				default:
-					break;
+					case 0:
+						fancyGraphics = minecraft.gameSettings.fancyGraphics;
+						break;
+					case 1:
+						fancyGraphics = false;
+						break;
+					case 2:
+						fancyGraphics = true;
+						break;
+					default:
+						break;
 				}
 				GOTBlockLeavesBase.setAllGraphicsLevels(fancyGraphics);
 			} else {
@@ -560,7 +593,7 @@ public class GOTTickHandlerClient {
 		WorldClient worldClient = mc.theWorld;
 		WorldProvider provider = ((World) worldClient).provider;
 		if (provider instanceof GOTWorldProvider) {
-			float[] rgb = { event.red, event.green, event.blue };
+			float[] rgb = {event.red, event.green, event.blue};
 			rgb = ((GOTWorldProvider) provider).handleFinalFogColors(event.entity, event.renderPartialTicks, rgb);
 			event.red = rgb[0];
 			event.green = rgb[1];

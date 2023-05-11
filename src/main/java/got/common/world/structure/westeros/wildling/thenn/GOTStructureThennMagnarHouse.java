@@ -1,14 +1,15 @@
 package got.common.world.structure.westeros.wildling.thenn;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTRegistry;
 import got.common.entity.westeros.wildling.thenn.GOTEntityThennMagnar;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 	public Block woodBlock;
@@ -99,7 +100,7 @@ public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 				setBlockAndMetadata(world, i1, 1, k14, GOTRegistry.thatchFloor, 0);
 			}
 		}
-		for (int i14 : new int[] { -4, 4 }) {
+		for (int i14 : new int[]{-4, 4}) {
 			for (k13 = -4; k13 <= 4; ++k13) {
 				setBlockAndMetadata(world, i14, 1, k13, woodBlock, woodMeta | 8);
 				setBlockAndMetadata(world, i14, 4, k13, woodBlock, woodMeta | 8);
@@ -110,7 +111,7 @@ public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 				setBlockAndMetadata(world, i14, j15, 5, woodBlock, woodMeta);
 			}
 		}
-		for (int i14 : new int[] { -3, 3 }) {
+		for (int i14 : new int[]{-3, 3}) {
 			for (k13 = -4; k13 <= 4; ++k13) {
 				setBlockAndMetadata(world, i14, 1, k13, plankBlock, plankMeta);
 			}
@@ -132,7 +133,7 @@ public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, i14, 3, -5, stairBlock, 6);
 			setBlockAndMetadata(world, i14, 4, -5, slabBlock, slabMeta);
 		}
-		int[] i15 = { -2, 2 };
+		int[] i15 = {-2, 2};
 		k14 = i15.length;
 		for (j14 = 0; j14 < k14; ++j14) {
 			int i14;
@@ -198,7 +199,7 @@ public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 				setBlockAndMetadata(world, i12, j12, 5, plankBlock, plankMeta);
 			}
 		}
-		for (int i14 : new int[] { -2, 2 }) {
+		for (int i14 : new int[]{-2, 2}) {
 			for (j15 = 1; j15 <= 4; ++j15) {
 				setBlockAndMetadata(world, i14, j15, 4, plankBlock, plankMeta);
 			}
@@ -256,7 +257,7 @@ public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, 4, 5, k12, stairBlock, 0);
 			setBlockAndMetadata(world, 5, 4, k12, slabBlock, slabMeta | 8);
 		}
-		for (int k15 : new int[] { -6, 6 }) {
+		for (int k15 : new int[]{-6, 6}) {
 			setBlockAndMetadata(world, -4, 4, k15, slabBlock, slabMeta | 8);
 			setBlockAndMetadata(world, -3, 5, k15, stairBlock, 4);
 			setBlockAndMetadata(world, -2, 6, k15, stairBlock, 4);
@@ -300,7 +301,7 @@ public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, -1, 8, k1, stairBlock, 4);
 			setBlockAndMetadata(world, 1, 8, k1, stairBlock, 5);
 		}
-		for (int i14 : new int[] { -1, 1 }) {
+		for (int i14 : new int[]{-1, 1}) {
 			setBlockAndMetadata(world, i14, 8, -5, plankBlock, plankMeta);
 			setBlockAndMetadata(world, i14, 8, -4, plankBlock, plankMeta);
 			setBlockAndMetadata(world, i14, 8, 4, plankBlock, plankMeta);

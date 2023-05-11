@@ -1,6 +1,7 @@
 package got.client.sound;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GOTTrackRegionInfo {
 	public static double defaultWeight = 1.0;

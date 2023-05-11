@@ -1,21 +1,30 @@
 package got.common.entity.other;
 
-import java.util.*;
-
 import com.google.common.base.Predicate;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import got.common.*;
-import got.common.network.*;
-import got.common.quest.*;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketMiniquestOffer;
+import got.common.network.GOTPacketNPCIsOfferingQuest;
+import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMiniQuestBounty;
+import got.common.quest.GOTMiniQuestFactory;
+import got.common.quest.MiniQuestSelector;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTWaypoint;
-import net.minecraft.entity.player.*;
-import net.minecraft.nbt.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.server.management.PlayerManager;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.WorldServer;
+
+import java.util.*;
 
 public class GOTEntityQuestInfo {
 	public static int maxOfferTime = 24000;

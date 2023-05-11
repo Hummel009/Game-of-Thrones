@@ -1,7 +1,8 @@
 package got.common.entity.ai;
 
 import got.common.database.GOTRegistry;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntitySmokeRing;
 import got.common.item.other.GOTItemPipe;
 import net.minecraft.item.ItemStack;
 

@@ -1,13 +1,13 @@
 package got.common.world.map;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.MapGenRavine;
+
+import java.util.Random;
 
 public class GOTMapGenRavine extends MapGenRavine {
 	public float[] ravineNoise = new float[1024];
@@ -101,7 +101,8 @@ public class GOTMapGenRavine extends MapGenRavine {
 					zMin = Math.max(zMin, 0);
 					zMax = Math.min(zMax, 16);
 					boolean isWater = false;
-					block2: for (i1 = xMin; i1 < xMax; ++i1) {
+					block2:
+					for (i1 = xMin; i1 < xMax; ++i1) {
 						for (int k1 = zMin; k1 < zMax; ++k1) {
 							for (int j1 = yMax + 1; j1 >= yMin - 1; --j1) {
 								int blockIndex = (i1 * 16 + k1) * 256 + j1;

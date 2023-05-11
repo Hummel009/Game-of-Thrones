@@ -1,13 +1,16 @@
 package got.common.world;
 
 import com.google.common.math.IntMath;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.client.render.other.*;
+import got.client.render.other.GOTCloudRenderer;
+import got.client.render.other.GOTRenderSky;
+import got.client.render.other.GOTRenderWeather;
 import got.common.*;
 import got.common.util.GOTModChecker;
-import got.common.world.biome.*;
+import got.common.world.biome.GOTBiome;
+import got.common.world.biome.GOTClimateType;
 import got.common.world.biome.other.GOTBiomeOcean;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -15,10 +18,14 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.StatCollector;
+import net.minecraft.util.Vec3;
+import net.minecraft.world.EnumSkyBlock;
+import net.minecraft.world.WorldProvider;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.*;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.client.IRenderHandler;
 import net.minecraftforge.common.ForgeModContainer;
 
@@ -334,7 +341,7 @@ public class GOTWorldProvider extends WorldProvider {
 				++l;
 			}
 		}
-		return new float[] { fogStart /= l, fogEnd /= l };
+		return new float[]{fogStart /= l, fogEnd /= l};
 	}
 
 	@Override

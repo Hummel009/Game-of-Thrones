@@ -1,16 +1,19 @@
 package got.common.world.structure.other;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.tileentity.GOTTileEntityAlloyForge;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import net.minecraft.block.Block;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureTower extends GOTVillageGen {
 	public GOTStructureTower(GOTBiome biome, float f) {
@@ -117,7 +120,7 @@ public class GOTStructureTower extends GOTVillageGen {
 				for (j1 = sectionBase + 1; j1 <= sectionBase + 5; ++j1) {
 					boolean flag;
 					for (int i14 = -5; i14 <= 5; ++i14) {
-						for (int k15 : new int[] { -5, 5 }) {
+						for (int k15 : new int[]{-5, 5}) {
 							flag = true;
 							if (ruined) {
 								flag = random.nextInt(20) != 0;
@@ -129,7 +132,7 @@ public class GOTStructureTower extends GOTVillageGen {
 						}
 					}
 					for (k14 = -4; k14 <= 4; ++k14) {
-						for (int i15 : new int[] { -5, 5 }) {
+						for (int i15 : new int[]{-5, 5}) {
 							flag = true;
 							if (ruined) {
 								flag = random.nextInt(20) != 0;
@@ -248,7 +251,7 @@ public class GOTStructureTower extends GOTVillageGen {
 					setBlockAndMetadata(world, i1, j12, -5, gateBlock, 2);
 				}
 			}
-			for (int i14 : new int[] { -2, 2 }) {
+			for (int i14 : new int[]{-2, 2}) {
 				int j15 = 4;
 				while (!isOpaque(world, i14, j15, -6) && getY(j15) >= 0) {
 					if (j15 == 3) {
@@ -308,34 +311,34 @@ public class GOTStructureTower extends GOTVillageGen {
 
 		public void placeRandomFeature(World world, Random random, int i, int j, int k, int randomFeature, boolean flip) {
 			switch (randomFeature) {
-			case 0:
-				setBlockAndMetadata(world, i, j, k, tableBlock, 0);
-				break;
-			case 1:
-				setBlockAndMetadata(world, i, j, k, forgeBlock, flip ? 3 : 2);
-				TileEntity tileentity = getTileEntity(world, i, j, k);
-				if (tileentity instanceof GOTTileEntityAlloyForge) {
-					((GOTTileEntityAlloyForge) tileentity).setInventorySlotContents(12, new ItemStack(Items.coal, 1 + random.nextInt(4)));
-				}
-				break;
-			case 2:
-				setBlockAndMetadata(world, i, j, k, plankSlabBlock, plankSlabMeta | 8);
-				this.placeChest(world, random, i, j + 1, k, flip ? 3 : 2, chestContents);
-				break;
-			case 3:
-				setBlockAndMetadata(world, i, j, k, plankSlabBlock, plankSlabMeta | 8);
-				if (!ruined) {
-					placePlateWithCertainty(world, random, i, j + 1, k, plateBlock, GOTFoods.WESTEROS);
-				}
-				break;
-			case 4:
-				setBlockAndMetadata(world, i, j, k, plankSlabBlock, plankSlabMeta | 8);
-				if (!ruined) {
-					this.placeBarrel(world, random, i, j + 1, k, flip ? 3 : 2, GOTFoods.WESTEROS_DRINK);
-				}
-				break;
-			default:
-				break;
+				case 0:
+					setBlockAndMetadata(world, i, j, k, tableBlock, 0);
+					break;
+				case 1:
+					setBlockAndMetadata(world, i, j, k, forgeBlock, flip ? 3 : 2);
+					TileEntity tileentity = getTileEntity(world, i, j, k);
+					if (tileentity instanceof GOTTileEntityAlloyForge) {
+						((GOTTileEntityAlloyForge) tileentity).setInventorySlotContents(12, new ItemStack(Items.coal, 1 + random.nextInt(4)));
+					}
+					break;
+				case 2:
+					setBlockAndMetadata(world, i, j, k, plankSlabBlock, plankSlabMeta | 8);
+					this.placeChest(world, random, i, j + 1, k, flip ? 3 : 2, chestContents);
+					break;
+				case 3:
+					setBlockAndMetadata(world, i, j, k, plankSlabBlock, plankSlabMeta | 8);
+					if (!ruined) {
+						placePlateWithCertainty(world, random, i, j + 1, k, plateBlock, GOTFoods.WESTEROS);
+					}
+					break;
+				case 4:
+					setBlockAndMetadata(world, i, j, k, plankSlabBlock, plankSlabMeta | 8);
+					if (!ruined) {
+						this.placeBarrel(world, random, i, j + 1, k, flip ? 3 : 2, GOTFoods.WESTEROS_DRINK);
+					}
+					break;
+				default:
+					break;
 			}
 		}
 
@@ -343,32 +346,32 @@ public class GOTStructureTower extends GOTVillageGen {
 		public void setupRandomBlocks(Random random) {
 			int randomWood = random.nextInt(4);
 			switch (randomWood) {
-			case 0:
-				plankBlock = Blocks.planks;
-				plankMeta = 1;
-				plankSlabBlock = Blocks.wooden_slab;
-				plankSlabMeta = 1;
-				break;
-			case 1:
-				plankBlock = GOTRegistry.planks1;
-				plankMeta = 13;
-				plankSlabBlock = GOTRegistry.woodSlabSingle2;
-				plankSlabMeta = 5;
-				break;
-			case 2:
-				plankBlock = GOTRegistry.planks2;
-				plankMeta = 4;
-				plankSlabBlock = GOTRegistry.woodSlabSingle3;
-				plankSlabMeta = 4;
-				break;
-			case 3:
-				plankBlock = GOTRegistry.planks2;
-				plankMeta = 3;
-				plankSlabBlock = GOTRegistry.woodSlabSingle3;
-				plankSlabMeta = 3;
-				break;
-			default:
-				break;
+				case 0:
+					plankBlock = Blocks.planks;
+					plankMeta = 1;
+					plankSlabBlock = Blocks.wooden_slab;
+					plankSlabMeta = 1;
+					break;
+				case 1:
+					plankBlock = GOTRegistry.planks1;
+					plankMeta = 13;
+					plankSlabBlock = GOTRegistry.woodSlabSingle2;
+					plankSlabMeta = 5;
+					break;
+				case 2:
+					plankBlock = GOTRegistry.planks2;
+					plankMeta = 4;
+					plankSlabBlock = GOTRegistry.woodSlabSingle3;
+					plankSlabMeta = 4;
+					break;
+				case 3:
+					plankBlock = GOTRegistry.planks2;
+					plankMeta = 3;
+					plankSlabBlock = GOTRegistry.woodSlabSingle3;
+					plankSlabMeta = 3;
+					break;
+				default:
+					break;
 			}
 			plateBlock = random.nextBoolean() ? GOTRegistry.ceramicPlateBlock : GOTRegistry.woodPlateBlock;
 		}

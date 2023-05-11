@@ -1,16 +1,18 @@
 package got.common.network;
 
-import java.util.UUID;
-
 import com.google.common.base.Charsets;
-
-import cpw.mods.fml.common.network.simpleimpl.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTHiredNPCInfo;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public class GOTPacketHiredInfo implements IMessage {
 	public int entityID;

@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelBanner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.client.Minecraft;
@@ -9,6 +7,7 @@ import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBannerItem implements IItemRenderer {
 	public static GOTModelBanner model = new GOTModelBanner();

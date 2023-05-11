@@ -1,22 +1,28 @@
 package got.client.render.other;
 
-import java.util.Random;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import got.GOT;
 import got.common.block.other.*;
 import got.common.database.GOTRegistry;
-import got.common.tileentity.*;
+import got.common.tileentity.GOTTileEntityBeacon;
+import got.common.tileentity.GOTTileEntityChest;
+import got.common.tileentity.GOTTileEntityCommandTable;
+import got.common.tileentity.GOTTileEntityUnsmeltery;
 import net.minecraft.block.*;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.EntityRenderer;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.IBlockAccess;
+import org.lwjgl.opengl.GL11;
+
+import java.util.Random;
 
 public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	public static Random blockRand = new Random();
@@ -37,11 +43,11 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = true;
 		renderblocks.setRenderBounds(0.15625, 0.0625, 0.15625, 0.84375, 0.75, 0.84375);
 		renderblocks.renderStandardBlock(block, i, j, k);
-		for (float f : new float[] { 0.25f, 0.5f }) {
+		for (float f : new float[]{0.25f, 0.5f}) {
 			renderblocks.setRenderBounds(0.125, f, 0.125, 0.875, f + 0.0625f, 0.875);
 			renderblocks.renderStandardBlock(block, i, j, k);
 		}
-		for (float f : new float[] { 0.0f, 0.6875f }) {
+		for (float f : new float[]{0.0f, 0.6875f}) {
 			renderblocks.setRenderBounds(0.125, f, 0.125, 0.25, f + 0.125f, 0.875);
 			renderblocks.renderStandardBlock(block, i, j, k);
 			renderblocks.setRenderBounds(0.75, f, 0.125, 0.875, f + 0.125f, 0.875);
@@ -54,32 +60,32 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.setOverrideBlockTexture(block.getBlockTextureFromSide(-1));
 		int meta = world.getBlockMetadata(i, j, k);
 		switch (meta) {
-		case 2:
-			renderblocks.setRenderBounds(0.4375, 0.25, 0.0, 0.5625, 0.375, 0.125);
-			renderblocks.renderStandardBlock(block, i, j, k);
-			renderblocks.setRenderBounds(0.46875, 0.125, 0.0, 0.53125, 0.25, 0.0625);
-			renderblocks.renderStandardBlock(block, i, j, k);
-			break;
-		case 3:
-			renderblocks.setRenderBounds(0.4375, 0.25, 0.875, 0.5625, 0.375, 1.0);
-			renderblocks.renderStandardBlock(block, i, j, k);
-			renderblocks.setRenderBounds(0.46875, 0.125, 0.9375, 0.53125, 0.25, 1.0);
-			renderblocks.renderStandardBlock(block, i, j, k);
-			break;
-		case 4:
-			renderblocks.setRenderBounds(0.0, 0.25, 0.4375, 0.125, 0.375, 0.5625);
-			renderblocks.renderStandardBlock(block, i, j, k);
-			renderblocks.setRenderBounds(0.0, 0.125, 0.46875, 0.0625, 0.25, 0.53125);
-			renderblocks.renderStandardBlock(block, i, j, k);
-			break;
-		case 5:
-			renderblocks.setRenderBounds(0.875, 0.25, 0.4375, 1.0, 0.375, 0.5625);
-			renderblocks.renderStandardBlock(block, i, j, k);
-			renderblocks.setRenderBounds(0.9375, 0.125, 0.46875, 1.0, 0.25, 0.53125);
-			renderblocks.renderStandardBlock(block, i, j, k);
-			break;
-		default:
-			break;
+			case 2:
+				renderblocks.setRenderBounds(0.4375, 0.25, 0.0, 0.5625, 0.375, 0.125);
+				renderblocks.renderStandardBlock(block, i, j, k);
+				renderblocks.setRenderBounds(0.46875, 0.125, 0.0, 0.53125, 0.25, 0.0625);
+				renderblocks.renderStandardBlock(block, i, j, k);
+				break;
+			case 3:
+				renderblocks.setRenderBounds(0.4375, 0.25, 0.875, 0.5625, 0.375, 1.0);
+				renderblocks.renderStandardBlock(block, i, j, k);
+				renderblocks.setRenderBounds(0.46875, 0.125, 0.9375, 0.53125, 0.25, 1.0);
+				renderblocks.renderStandardBlock(block, i, j, k);
+				break;
+			case 4:
+				renderblocks.setRenderBounds(0.0, 0.25, 0.4375, 0.125, 0.375, 0.5625);
+				renderblocks.renderStandardBlock(block, i, j, k);
+				renderblocks.setRenderBounds(0.0, 0.125, 0.46875, 0.0625, 0.25, 0.53125);
+				renderblocks.renderStandardBlock(block, i, j, k);
+				break;
+			case 5:
+				renderblocks.setRenderBounds(0.875, 0.25, 0.4375, 1.0, 0.375, 0.5625);
+				renderblocks.renderStandardBlock(block, i, j, k);
+				renderblocks.setRenderBounds(0.9375, 0.125, 0.46875, 1.0, 0.25, 0.53125);
+				renderblocks.renderStandardBlock(block, i, j, k);
+				break;
+			default:
+				break;
 		}
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
@@ -96,22 +102,22 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		int meta = world.getBlockMetadata(i, j, k);
 		int dir = meta & 0xC;
 		switch (dir) {
-		case 0:
-			renderblocks.uvRotateEast = 3;
-			renderblocks.uvRotateNorth = 3;
-			break;
-		case 4:
-			renderblocks.uvRotateEast = 1;
-			renderblocks.uvRotateWest = 2;
-			renderblocks.uvRotateTop = 2;
-			renderblocks.uvRotateBottom = 1;
-			break;
-		case 8:
-			renderblocks.uvRotateSouth = 1;
-			renderblocks.uvRotateNorth = 2;
-			break;
-		default:
-			break;
+			case 0:
+				renderblocks.uvRotateEast = 3;
+				renderblocks.uvRotateNorth = 3;
+				break;
+			case 4:
+				renderblocks.uvRotateEast = 1;
+				renderblocks.uvRotateWest = 2;
+				renderblocks.uvRotateTop = 2;
+				renderblocks.uvRotateBottom = 1;
+				break;
+			case 8:
+				renderblocks.uvRotateSouth = 1;
+				renderblocks.uvRotateNorth = 2;
+				break;
+			default:
+				break;
 		}
 		renderblocks.renderStandardBlock(block, i, j, k);
 		renderblocks.uvRotateSouth = 0;
@@ -434,7 +440,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double maxV = icon.getInterpolatedV(intMinV + zSize);
 			double x2 = xSizeD / 2.0;
 			double z2 = zSizeD / 2.0;
-			Vec3[] vecs = { Vec3.createVectorHelper(-x2, 0.0, -z2), Vec3.createVectorHelper(-x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, -z2) };
+			Vec3[] vecs = {Vec3.createVectorHelper(-x2, 0.0, -z2), Vec3.createVectorHelper(-x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, z2), Vec3.createVectorHelper(x2, 0.0, -z2)};
 			for (Vec3 vec2 : vecs) {
 				Vec3 vec = vec2;
 				vec.rotateAroundY(rotation);
@@ -545,10 +551,10 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	public void renderInvBarrel(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.15625, 0.0625, 0.15625, 0.84375, 0.75, 0.84375);
-		for (float f : new float[] { 0.25f, 0.5f }) {
+		for (float f : new float[]{0.25f, 0.5f}) {
 			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, f, 0.125, 0.875, f + 0.0625f, 0.875);
 		}
-		for (float f : new float[] { 0.0f, 0.6875f }) {
+		for (float f : new float[]{0.0f, 0.6875f}) {
 			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, f, 0.125, 0.25, f + 0.125f, 0.875);
 			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.75, f, 0.125, 0.875, f + 0.125f, 0.875);
 			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25, f, 0.125, 0.75, f + 0.125f, 0.25);
@@ -909,24 +915,24 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		if (!BlockTrapDoor.func_150118_d(meta)) {
 			int dir = meta & 3;
 			switch (dir) {
-			case 0:
-				renderblocks.uvRotateTop = 3;
-				renderblocks.uvRotateBottom = 3;
-				break;
-			case 1:
-				renderblocks.uvRotateTop = 0;
-				renderblocks.uvRotateBottom = 0;
-				break;
-			case 2:
-				renderblocks.uvRotateTop = 1;
-				renderblocks.uvRotateBottom = 2;
-				break;
-			case 3:
-				renderblocks.uvRotateTop = 2;
-				renderblocks.uvRotateBottom = 1;
-				break;
-			default:
-				break;
+				case 0:
+					renderblocks.uvRotateTop = 3;
+					renderblocks.uvRotateBottom = 3;
+					break;
+				case 1:
+					renderblocks.uvRotateTop = 0;
+					renderblocks.uvRotateBottom = 0;
+					break;
+				case 2:
+					renderblocks.uvRotateTop = 1;
+					renderblocks.uvRotateBottom = 2;
+					break;
+				case 3:
+					renderblocks.uvRotateTop = 2;
+					renderblocks.uvRotateBottom = 1;
+					break;
+				default:
+					break;
 			}
 		}
 		renderblocks.renderStandardBlock(block, i, j, k);
@@ -1055,7 +1061,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		if (id == GOT.proxy.getFallenLeavesRenderID()) {
 			if (fancyGraphics) {
-				renderFallenLeaves(world, i, j, k, block, renderblocks, new int[] { 6, 10 }, new int[] { 2, 6 }, new int[] { 2, 6 }, 0.7f);
+				renderFallenLeaves(world, i, j, k, block, renderblocks, new int[]{6, 10}, new int[]{2, 6}, new int[]{2, 6}, 0.7f);
 				return true;
 			}
 			return renderblocks.renderStandardBlock(block, i, j, k);
@@ -1093,7 +1099,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		if (id == GOT.proxy.getThatchFloorRenderID()) {
 			if (fancyGraphics) {
-				renderFallenLeaves(world, i, j, k, block, renderblocks, new int[] { 10, 16 }, new int[] { 6, 12 }, new int[] { 1, 1 }, 1.0f);
+				renderFallenLeaves(world, i, j, k, block, renderblocks, new int[]{10, 16}, new int[]{6, 12}, new int[]{1, 1}, 1.0f);
 				return true;
 			}
 			return renderblocks.renderStandardBlock(block, i, j, k);
@@ -1192,7 +1198,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = posX + 0.5;
 			double d5 = posY + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
-			Vec3[] vecs = { Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale) };
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (int l1 = 0; l1 < vecs.length; ++l1) {
 				vecs[l1].rotateAroundY(rotation);
 				vecs[l1].xCoord += d4;
@@ -1287,7 +1293,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = 0.0;
 			double d5 = petal * 0.0025;
 			double d6 = 0.0;
-			Vec3[] vecs = { Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale) };
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (int l1 = 0; l1 < vecs.length; ++l1) {
 				vecs[l1].rotateAroundY(rotation);
 				vecs[l1].xCoord += d4;
@@ -1341,7 +1347,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = 0.0;
 			double d5 = petal * 0.0025;
 			double d6 = 0.0;
-			Vec3[] vecs = { Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale) };
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (int l1 = 0; l1 < vecs.length; ++l1) {
 				vecs[l1].rotateAroundY(rotation);
 				vecs[l1].xCoord += d4;
@@ -1402,7 +1408,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d4 = posX + 0.5;
 			double d5 = posY + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
-			Vec3[] vecs = { Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale) };
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
 			for (int l1 = 0; l1 < vecs.length; ++l1) {
 				vecs[l1].rotateAroundY(rotation);
 				vecs[l1].xCoord += d4;

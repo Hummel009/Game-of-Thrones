@@ -1,12 +1,14 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiHouse extends GOTStructureYiTiBase {
 	public GOTStructureYiTiHouse(boolean flag) {
@@ -96,28 +98,28 @@ public class GOTStructureYiTiHouse extends GOTStructureYiTiBase {
 		}
 		setBlockAndMetadata(world, -7, 3, 0, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 7, 3, 0, fenceBlock, fenceMeta);
-		for (int i14 : new int[] { -2, 2 }) {
+		for (int i14 : new int[]{-2, 2}) {
 			for (k13 = -5; k13 <= 5; ++k13) {
 				setBlockAndMetadata(world, i14, 4, k13, woodBeamBlock, woodBeamMeta | 8);
 			}
 			setBlockAndMetadata(world, i14, 3, -5, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i14, 3, 5, fenceBlock, fenceMeta);
 		}
-		for (int i14 : new int[] { -6, 6 }) {
+		for (int i14 : new int[]{-6, 6}) {
 			setBlockAndMetadata(world, i14, 4, -5, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i14, 4, 5, fenceBlock, fenceMeta);
 		}
-		for (int k151 : new int[] { -4, 4 }) {
+		for (int k151 : new int[]{-4, 4}) {
 			setBlockAndMetadata(world, -7, 4, k151, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 7, 4, k151, fenceBlock, fenceMeta);
 		}
-		for (int i14 : new int[] { -4, 4 }) {
+		for (int i14 : new int[]{-4, 4}) {
 			setBlockAndMetadata(world, i14, 2, -4, GOTRegistry.reedBars, 0);
 			setBlockAndMetadata(world, i14, 3, -4, plankStairBlock, 6);
 			setBlockAndMetadata(world, i14, 2, 4, GOTRegistry.reedBars, 0);
 			setBlockAndMetadata(world, i14, 3, 4, plankStairBlock, 7);
 		}
-		int[] i15 = { -2, 2 };
+		int[] i15 = {-2, 2};
 		k12 = i15.length;
 		for (i2 = 0; i2 < k12; ++i2) {
 			k15 = i15[i2];
@@ -215,7 +217,7 @@ public class GOTStructureYiTiHouse extends GOTStructureYiTiBase {
 		for (i1 = -5; i1 <= 5; ++i1) {
 			setBlockAndMetadata(world, i1, 0, 0, woodBeamBlock, woodBeamMeta | 4);
 		}
-		for (int i14 : new int[] { -2, 2 }) {
+		for (int i14 : new int[]{-2, 2}) {
 			for (k13 = -3; k13 <= -1; ++k13) {
 				setBlockAndMetadata(world, i14, 0, k13, woodBeamBlock, woodBeamMeta | 8);
 			}

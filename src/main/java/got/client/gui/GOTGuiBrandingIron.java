@@ -1,14 +1,16 @@
 package got.client.gui;
 
-import org.apache.commons.lang3.StringUtils;
-import org.lwjgl.opengl.GL11;
-
 import got.common.item.other.GOTItemBrandingIron;
-import got.common.network.*;
-import net.minecraft.client.gui.*;
+import got.common.network.GOTPacketBrandingIron;
+import got.common.network.GOTPacketHandler;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.apache.commons.lang3.StringUtils;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiBrandingIron extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/brandingIron.png");

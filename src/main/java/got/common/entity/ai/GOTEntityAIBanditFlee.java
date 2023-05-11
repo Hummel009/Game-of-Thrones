@@ -1,12 +1,14 @@
 package got.common.entity.ai;
 
-import java.util.List;
-
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.IBandit;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Vec3;
+
+import java.util.List;
 
 public class GOTEntityAIBanditFlee extends EntityAIBase {
 	public IBandit theBandit;

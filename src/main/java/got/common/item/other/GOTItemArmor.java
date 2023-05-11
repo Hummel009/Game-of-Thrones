@@ -2,7 +2,8 @@ package got.common.item.other;
 
 import got.common.database.GOTCreativeTabs;
 import net.minecraft.entity.Entity;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.StringUtils;
 
 public class GOTItemArmor extends ItemArmor {

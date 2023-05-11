@@ -1,20 +1,23 @@
 package got.common.network;
 
-import java.util.List;
-
 import com.google.common.base.Charsets;
 import com.mojang.authlib.GameProfile;
-
-import cpw.mods.fml.common.network.simpleimpl.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTBannerProtection;
-import got.common.entity.other.*;
-import got.common.fellowship.*;
+import got.common.entity.other.GOTBannerWhitelistEntry;
+import got.common.entity.other.GOTEntityBanner;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipProfile;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTPacketEditBanner implements IMessage {
 	public int bannerID;

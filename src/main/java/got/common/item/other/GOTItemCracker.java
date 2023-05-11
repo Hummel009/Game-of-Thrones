@@ -1,25 +1,32 @@
 package got.common.item.other;
 
-import java.util.List;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTCreativeTabs;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
-import net.minecraft.nbt.*;
-import net.minecraft.util.*;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryBasic;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTItemCracker extends Item {
 	public static int emptyMeta = 4096;
 	public static int CUSTOM_CAPACITY = 3;
 	@SideOnly(value = Side.CLIENT)
 	public IIcon[] crackerIcons;
-	public String[] crackerNames = { "red", "blue", "green", "silver", "gold" };
+	public String[] crackerNames = {"red", "blue", "green", "silver", "gold"};
 
 	public GOTItemCracker() {
 		setMaxStackSize(1);

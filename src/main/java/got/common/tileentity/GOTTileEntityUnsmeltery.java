@@ -1,31 +1,38 @@
 package got.common.tileentity;
 
-import java.util.*;
-
-import org.apache.commons.lang3.tuple.Pair;
-
 import com.mojang.authlib.GameProfile;
-
 import got.GOT;
 import got.common.block.table.GOTBlockCraftingTable;
-import got.common.database.*;
+import got.common.database.GOTMaterial;
+import got.common.database.GOTRegistry;
 import got.common.inventory.GOTContainerCraftingTable;
 import got.common.item.other.GOTItemMountArmor;
-import got.common.item.weapon.*;
+import got.common.item.weapon.GOTItemCrossbow;
+import got.common.item.weapon.GOTItemThrowingAxe;
 import got.common.recipe.GOTRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.*;
-import net.minecraft.item.crafting.*;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapedRecipes;
+import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.network.*;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.util.FakePlayerFactory;
-import net.minecraftforge.oredict.*;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.*;
 
 public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	public static Random unsmeltingRand = new Random();
@@ -144,7 +151,8 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (recursiveCheckedRecipes == null) {
 			recursiveCheckedRecipes = new ArrayList<>();
 		}
-		label63: for (List recipes : allRecipeLists) {
+		label63:
+		for (List recipes : allRecipeLists) {
 			for (Object recipesObj : recipes) {
 				IRecipe irecipe = (IRecipe) recipesObj;
 				if (recursiveCheckedRecipes.contains(irecipe)) {
@@ -293,9 +301,9 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 
 	@Override
 	public void setupForgeSlots() {
-		inputSlots = new int[] { 0 };
+		inputSlots = new int[]{0};
 		fuelSlot = 1;
-		outputSlots = new int[] { 2 };
+		outputSlots = new int[]{2};
 	}
 
 	@Override

@@ -3,7 +3,8 @@ package got.common.item.weapon;
 import got.common.item.tool.GOTItemPickaxe;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 
 public class GOTItemMattock extends GOTItemPickaxe {
 	public float efficiencyOnProperMaterial;

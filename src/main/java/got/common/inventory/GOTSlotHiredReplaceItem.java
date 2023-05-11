@@ -1,7 +1,9 @@
 package got.common.inventory;
 
-import cpw.mods.fml.relauncher.*;
-import got.common.entity.other.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTInventoryHiredReplacedItems;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;

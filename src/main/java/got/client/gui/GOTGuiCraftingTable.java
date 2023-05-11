@@ -1,16 +1,18 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
-import got.common.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.inventory.GOTContainerCraftingTable;
-import got.common.network.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketSetOption;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
 
 public abstract class GOTGuiCraftingTable extends GuiContainer {
 	public static ResourceLocation craftingTexture = new ResourceLocation("textures/gui/container/crafting_table.png");

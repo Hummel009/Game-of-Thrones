@@ -1,13 +1,15 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
-import got.common.entity.sothoryos.sothoryos.*;
+import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosFarmer;
+import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosFarmhand;
 import net.minecraft.block.Block;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse {
 	public Block cropBlock;
@@ -28,41 +30,41 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 		}
 		int randomCrop = random.nextInt(8);
 		switch (randomCrop) {
-		case 0:
-		case 1:
-			cropBlock = Blocks.potatoes;
-			cropMeta = 7;
-			seedItem = Items.potato;
-			melon = false;
-			break;
-		case 2:
-		case 3:
-			cropBlock = GOTRegistry.cornStalk;
-			cropMeta = 0;
-			seedItem = Item.getItemFromBlock(GOTRegistry.cornStalk);
-			melon = false;
-			break;
-		case 4:
-			cropBlock = Blocks.wheat;
-			cropMeta = 7;
-			seedItem = Items.wheat_seeds;
-			melon = false;
-			break;
-		case 5:
-			cropBlock = Blocks.carrots;
-			cropMeta = 7;
-			seedItem = Items.carrot;
-			melon = false;
-			break;
-		case 6:
-		case 7:
-			cropBlock = Blocks.melon_stem;
-			cropMeta = 7;
-			seedItem = Items.melon_seeds;
-			melon = true;
-			break;
-		default:
-			break;
+			case 0:
+			case 1:
+				cropBlock = Blocks.potatoes;
+				cropMeta = 7;
+				seedItem = Items.potato;
+				melon = false;
+				break;
+			case 2:
+			case 3:
+				cropBlock = GOTRegistry.cornStalk;
+				cropMeta = 0;
+				seedItem = Item.getItemFromBlock(GOTRegistry.cornStalk);
+				melon = false;
+				break;
+			case 4:
+				cropBlock = Blocks.wheat;
+				cropMeta = 7;
+				seedItem = Items.wheat_seeds;
+				melon = false;
+				break;
+			case 5:
+				cropBlock = Blocks.carrots;
+				cropMeta = 7;
+				seedItem = Items.carrot;
+				melon = false;
+				break;
+			case 6:
+			case 7:
+				cropBlock = Blocks.melon_stem;
+				cropMeta = 7;
+				seedItem = Items.melon_seeds;
+				melon = true;
+				break;
+			default:
+				break;
 		}
 		for (i1 = -4; i1 <= 4; ++i1) {
 			for (k1 = -3; k1 <= 3; ++k1) {
@@ -87,7 +89,7 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 				setBlockAndMetadata(world, i1, 1, 0, Blocks.water, 0);
 				setAir(world, i1, 2, 0);
 			}
-			for (int k12 : new int[] { -1, 1 }) {
+			for (int k12 : new int[]{-1, 1}) {
 				for (int i12 = -3; i12 <= 3; ++i12) {
 					if (i12 == 0) {
 						continue;

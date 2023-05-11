@@ -1,12 +1,13 @@
 package got.common.block.torch;
 
-import java.util.Random;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public abstract class GOTBlockTorch extends BlockTorch {
 	public GOTBlockTorch() {
@@ -27,21 +28,21 @@ public abstract class GOTBlockTorch extends BlockTorch {
 		TorchParticle particle = createTorchParticle(random);
 		if (particle != null) {
 			switch (meta) {
-			case 1:
-				particle.spawn(d - particleX, d1 + particleY, d2);
-				break;
-			case 2:
-				particle.spawn(d + particleX, d1 + particleY, d2);
-				break;
-			case 3:
-				particle.spawn(d, d1 + particleY, d2 - particleX);
-				break;
-			case 4:
-				particle.spawn(d, d1 + particleY, d2 + particleX);
-				break;
-			default:
-				particle.spawn(d, d1, d2);
-				break;
+				case 1:
+					particle.spawn(d - particleX, d1 + particleY, d2);
+					break;
+				case 2:
+					particle.spawn(d + particleX, d1 + particleY, d2);
+					break;
+				case 3:
+					particle.spawn(d, d1 + particleY, d2 - particleX);
+					break;
+				case 4:
+					particle.spawn(d, d1 + particleY, d2 + particleX);
+					break;
+				default:
+					particle.spawn(d, d1, d2);
+					break;
 			}
 		}
 	}

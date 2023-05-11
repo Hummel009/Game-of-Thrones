@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.common;
 
-import java.util.Random;
-
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureEssosStatue extends GOTStructureEssosBase {
 	public GOTStructureEssosStatue(boolean flag) {
@@ -71,7 +71,7 @@ public class GOTStructureEssosStatue extends GOTStructureEssosBase {
 	}
 
 	public String getRandomStatueStrscan(Random random) {
-		String[] statues = { "mumak", "bird", "snake" };
+		String[] statues = {"mumak", "bird", "snake"};
 		return "essos_statue_" + statues[random.nextInt(statues.length)];
 	}
 

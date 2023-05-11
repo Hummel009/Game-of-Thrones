@@ -1,14 +1,17 @@
 package got.common.entity.ai;
 
-import java.util.*;
-
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.pathfinding.*;
+import net.minecraft.pathfinding.PathEntity;
+import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.util.Vec3;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GOTEntityAINPCAvoidEvilPlayer extends EntityAIBase {
 	public GOTEntityNPC theNPC;

@@ -1,7 +1,5 @@
 package got.client.sound;
 
-import java.util.*;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.GOT;
@@ -9,21 +7,32 @@ import got.client.GOTTickHandlerClient;
 import got.client.render.other.GOTRenderWeather;
 import got.common.GOTConfig;
 import got.common.world.GOTWorldProvider;
-import got.common.world.biome.essos.*;
-import got.common.world.biome.other.*;
+import got.common.world.biome.essos.GOTBiomeMossovyMarshes;
+import got.common.world.biome.essos.GOTBiomeShadowLand;
+import got.common.world.biome.essos.GOTBiomeValyria;
+import got.common.world.biome.other.GOTBiomeBeach;
+import got.common.world.biome.other.GOTBiomeOcean;
 import got.common.world.biome.sothoryos.GOTBiomeYeen;
 import got.common.world.biome.westeros.GOTBiomeHauntedForest;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.audio.*;
+import net.minecraft.client.audio.ISound;
+import net.minecraft.client.audio.PositionedSound;
+import net.minecraft.client.audio.PositionedSoundRecord;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.event.sound.PlaySoundEvent17;
 import net.minecraftforge.common.MinecraftForge;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
 
 public class GOTAmbience {
 	public int ticksSinceWight;
@@ -54,7 +63,8 @@ public class GOTAmbience {
 
 	public void updateAmbience(World world, EntityPlayer entityplayer) {
 		Minecraft mc;
-		block42: {
+		block42:
+		{
 			int xzRange;
 			world.theProfiler.startSection("gotAmbience");
 			mc = Minecraft.getMinecraft();
@@ -152,7 +162,7 @@ public class GOTAmbience {
 				if (playingSeaSounds.size() < 3) {
 					if (biome instanceof GOTBiomeOcean || biome instanceof GOTBiomeBeach) {
 						xzRange = 64;
-						for (float fr : new float[] { 0.25f, 0.5f, 0.75f, 1.0f }) {
+						for (float fr : new float[]{0.25f, 0.5f, 0.75f, 1.0f}) {
 							int range = (int) (xzRange * fr);
 							for (int l = 0; l < 8; ++l) {
 								int i1 = i + MathHelper.getRandomIntegerInRange(rand, -range, range);

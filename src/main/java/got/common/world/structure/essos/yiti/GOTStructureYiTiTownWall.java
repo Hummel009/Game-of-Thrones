@@ -1,10 +1,9 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiTownWall extends GOTStructureYiTiBase {
 	public int xMin;

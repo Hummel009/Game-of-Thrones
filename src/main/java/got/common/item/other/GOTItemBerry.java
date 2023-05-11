@@ -1,12 +1,15 @@
 package got.common.item.other;
 
-import java.util.*;
-
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
-import net.minecraft.potion.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GOTItemBerry extends GOTItemFood {
 	public static List<Item> allBerries = new ArrayList<>();

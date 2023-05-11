@@ -1,15 +1,17 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
-import got.common.entity.essos.yiti.*;
+import got.common.entity.essos.yiti.GOTEntityYiTiMan;
+import got.common.entity.essos.yiti.GOTEntityYiTiSoldier;
+import got.common.entity.essos.yiti.GOTEntityYiTiSoldierCrossbower;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiCity extends GOTVillageGen {
 	public boolean isTown;
@@ -60,21 +62,21 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case TOWN:
-				setupTown(random);
-				break;
-			case FORT:
-				setupFort(random);
-				break;
-			case WALL:
-				setupGate(random);
-				break;
-			case TOWER:
-				this.addStructure(new GOTStructureYiTiLighthouse(), 0, 0, 0, true);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case TOWN:
+					setupTown(random);
+					break;
+				case FORT:
+					setupFort(random);
+					break;
+				case WALL:
+					setupGate(random);
+					break;
+				case TOWER:
+					this.addStructure(new GOTStructureYiTiLighthouse(), 0, 0, 0, true);
+					break;
 			}
 		}
 
@@ -159,8 +161,8 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -48, 48 }) {
-				for (int k1 : new int[] { -48, 48 }) {
+			for (int i1 : new int[]{-48, 48}) {
+				for (int k1 : new int[]{-48, 48}) {
 					this.addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -254,8 +256,8 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 				}
 			}, 0, 0, 0);
 			int spawnerX = 60;
-			for (int i1 : new int[] { -spawnerX, spawnerX }) {
-				for (int k1 : new int[] { -spawnerX, spawnerX }) {
+			for (int i1 : new int[]{-spawnerX, spawnerX}) {
+				for (int k1 : new int[]{-spawnerX, spawnerX}) {
 					this.addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override

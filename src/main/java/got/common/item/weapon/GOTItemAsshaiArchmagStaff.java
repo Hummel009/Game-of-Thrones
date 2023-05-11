@@ -1,18 +1,21 @@
 package got.common.item.weapon;
 
-import java.util.List;
-
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
 import got.common.entity.dragon.GOTEntityFlyingTameable;
 import got.common.entity.other.GOTEntityNPCRideable;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.effect.EntityLightningBolt;
-import net.minecraft.entity.passive.*;
+import net.minecraft.entity.passive.EntityHorse;
+import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.EntityDamageSourceIndirect;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 	public GOTItemAsshaiArchmagStaff() {

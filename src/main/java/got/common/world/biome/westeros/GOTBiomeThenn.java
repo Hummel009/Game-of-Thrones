@@ -1,17 +1,21 @@
 package got.common.world.biome.westeros;
 
-import java.util.*;
-
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
-import got.common.world.feature.*;
+import got.common.world.feature.GOTTreeType;
+import got.common.world.feature.GOTWorldGenStreams;
+import got.common.world.feature.GOTWorldGenVolcanoCrater;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennVillage;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTBiomeThenn extends GOTBiomeHauntedForest {
 	public GOTBiomeThenn(int i, boolean major) {

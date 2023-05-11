@@ -1,12 +1,12 @@
 package got.client.render.animal;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelGemsbok;
 import got.common.entity.animal.GOTEntityGemsbok;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderGemsbok extends RenderLiving {
 	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/gemsbok.png");

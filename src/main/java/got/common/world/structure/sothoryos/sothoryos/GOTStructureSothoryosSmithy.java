@@ -1,12 +1,14 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosSmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 	public GOTStructureSothoryosSmithy(boolean flag) {
@@ -98,7 +100,7 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 		placeSothoryosTorch(world, -4, 2, -4);
 		placeSothoryosTorch(world, 4, 2, -4);
 		placeWeaponRack(world, -3, -2, 2, 5, getRandomSothoryosWeapon(random));
-		placeArmorStand(world, 3, -3, 2, 1, new ItemStack[] { null, new ItemStack(GOTRegistry.sothoryosChestplate), null, null });
+		placeArmorStand(world, 3, -3, 2, 1, new ItemStack[]{null, new ItemStack(GOTRegistry.sothoryosChestplate), null, null});
 		GOTEntitySothoryosSmith smith = new GOTEntitySothoryosSmith(world);
 		spawnNPCAndSetHome(smith, world, 0, -3, 3, 12);
 		return true;
@@ -110,7 +112,7 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 	}
 
 	public ItemStack getRandomSothoryosWeapon(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.sothoryosSword), new ItemStack(GOTRegistry.sothoryosDagger), new ItemStack(GOTRegistry.sothoryosSpear), new ItemStack(GOTRegistry.sothoryosPike), new ItemStack(GOTRegistry.sothoryosHammer), new ItemStack(GOTRegistry.sothoryosBattleaxe) };
+		ItemStack[] items = {new ItemStack(GOTRegistry.sothoryosSword), new ItemStack(GOTRegistry.sothoryosDagger), new ItemStack(GOTRegistry.sothoryosSpear), new ItemStack(GOTRegistry.sothoryosPike), new ItemStack(GOTRegistry.sothoryosHammer), new ItemStack(GOTRegistry.sothoryosBattleaxe)};
 		return items[random.nextInt(items.length)].copy();
 	}
 }

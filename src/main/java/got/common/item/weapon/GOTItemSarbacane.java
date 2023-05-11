@@ -1,12 +1,17 @@
 package got.common.item.weapon;
 
-import got.common.database.*;
-import got.common.enchant.*;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
+import got.common.enchant.GOTEnchantment;
+import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.GOTEntityDart;
 import got.common.item.other.GOTItemDart;
-import net.minecraft.enchantment.*;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTItemSarbacane extends Item {

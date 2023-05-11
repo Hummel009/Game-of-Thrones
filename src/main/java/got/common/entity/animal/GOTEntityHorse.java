@@ -1,26 +1,35 @@
 package got.common.entity.animal;
 
-import java.util.List;
-
 import got.GOT;
 import got.common.database.GOTRegistry;
-import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.entity.ai.GOTEntityAIHiredHorseRemainStill;
+import got.common.entity.ai.GOTEntityAIHorseFollowHiringPlayer;
+import got.common.entity.ai.GOTEntityAIHorseMoveToRiderTarget;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.other.GOTEntityUtils;
+import got.common.entity.other.GOTNPCMount;
 import got.common.item.other.GOTItemMountArmor;
 import got.common.util.GOTReflection;
 import got.common.world.biome.essos.GOTBiomeDothrakiSea;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.AnimalChest;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.List;
 
 public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	public boolean isMoving;

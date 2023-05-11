@@ -1,19 +1,27 @@
 package got.common.entity.animal;
 
-import java.util.*;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityRegistry;
+import got.common.entity.other.GOTEntityUtils;
+import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
+import net.minecraft.entity.ai.EntityAIBase;
+import net.minecraft.entity.ai.EntityAIHurtByTarget;
+import net.minecraft.entity.ai.EntityAIPanic;
+import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.UUID;
 
 public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
 	public EntityAIBase attackAI;

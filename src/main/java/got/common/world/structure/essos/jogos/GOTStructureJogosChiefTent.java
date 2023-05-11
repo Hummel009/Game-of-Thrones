@@ -1,13 +1,16 @@
 package got.common.world.structure.essos.jogos;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityCamel;
-import got.common.entity.essos.jogos.*;
+import got.common.entity.essos.jogos.GOTEntityJogos;
+import got.common.entity.essos.jogos.GOTEntityJogosChief;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureJogosChiefTent extends GOTStructureJogosBase {
 	public GOTStructureJogosChiefTent(boolean flag) {
@@ -96,7 +99,7 @@ public class GOTStructureJogosChiefTent extends GOTStructureJogosBase {
 			warrior.spawnRidingHorse = false;
 			spawnNPCAndSetHome(warrior, world, random.nextBoolean() ? -6 : 6, 1, 0, 8);
 		}
-		for (int i1 : new int[] { -5, 5 }) {
+		for (int i1 : new int[]{-5, 5}) {
 			int j12 = 1;
 			int k1 = -8;
 			if (!isOpaque(world, i1, j12 - 1, k1) || !isAir(world, i1, j12, k1)) {

@@ -1,7 +1,8 @@
 package got.common.item.weapon;
 
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.ItemStack;
 
 public class GOTItemSkullStaff extends GOTItemSword {
 	public GOTItemSkullStaff() {

@@ -1,8 +1,8 @@
 package got.common.util;
 
-import java.awt.Color;
-
 import net.minecraft.util.MathHelper;
+
+import java.awt.*;
 
 public class GOTColorUtil {
 	public static float[] lerpColors(float[] rgb0, int color1, float f) {
@@ -19,7 +19,7 @@ public class GOTColorUtil {
 		r = MathHelper.clamp_float(r, 0.0f, 1.0f);
 		g = MathHelper.clamp_float(g, 0.0f, 1.0f);
 		b = MathHelper.clamp_float(b, 0.0f, 1.0f);
-		return new float[] { r, g, b };
+		return new float[]{r, g, b};
 	}
 
 	public static float[] lerpColors(int color0, int color1, float f) {

@@ -1,6 +1,7 @@
 package got.common.world;
 
-import net.minecraft.world.storage.*;
+import net.minecraft.world.storage.DerivedWorldInfo;
+import net.minecraft.world.storage.WorldInfo;
 
 public class GOTWorldInfo extends DerivedWorldInfo {
 	public long gotTotalTime;

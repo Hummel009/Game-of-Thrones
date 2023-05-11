@@ -1,19 +1,27 @@
 package got.common.block.other;
 
-import java.util.Random;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityFallingFireJar;
-import net.minecraft.block.*;
-import net.minecraft.block.material.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFalling;
+import net.minecraft.block.material.MapColor;
+import net.minecraft.block.material.Material;
+import net.minecraft.block.material.MaterialLogic;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.item.ItemFlintAndSteel;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.Explosion;
+import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTBlockWildFireJar extends BlockFalling {
 	public static int renderingStage = 0;
@@ -86,20 +94,20 @@ public class GOTBlockWildFireJar extends BlockFalling {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		switch (renderingStage) {
-		case 1:
-			return i == 0 ? iconBaseBottom : i == 1 ? iconBaseTop : iconBaseSide;
-		case 2:
-			return iconNeckSide;
-		case 3:
-			return i == 0 ? iconLidBottom : i == 1 ? iconLidTop : iconLidSide;
-		case 4:
-			return i == 0 ? iconCapBottom : i == 1 ? iconCapTop : iconCapSide;
-		case 5:
-			return iconCrownSide;
-		case 6:
-			return iconHandleSide;
-		default:
-			break;
+			case 1:
+				return i == 0 ? iconBaseBottom : i == 1 ? iconBaseTop : iconBaseSide;
+			case 2:
+				return iconNeckSide;
+			case 3:
+				return i == 0 ? iconLidBottom : i == 1 ? iconLidTop : iconLidSide;
+			case 4:
+				return i == 0 ? iconCapBottom : i == 1 ? iconCapTop : iconCapSide;
+			case 5:
+				return iconCrownSide;
+			case 6:
+				return iconHandleSide;
+			default:
+				break;
 		}
 		return GOTRegistry.brick5.getIcon(i, 11);
 	}

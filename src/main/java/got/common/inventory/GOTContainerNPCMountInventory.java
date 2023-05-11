@@ -3,7 +3,9 @@ package got.common.inventory;
 import got.common.entity.other.GOTEntityNPCRideable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerNPCMountInventory extends Container {

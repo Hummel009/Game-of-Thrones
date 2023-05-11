@@ -1,6 +1,7 @@
 package got.common.faction;
 
-import got.common.*;
+import got.common.GOTAchievementRank;
+import got.common.GOTPlayerData;
 import got.common.database.GOTTitle;
 import net.minecraft.util.StatCollector;
 

@@ -1,14 +1,18 @@
 package got.common.block.other;
 
-import java.util.ArrayList;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import net.minecraft.block.Block;
-import net.minecraft.entity.player.*;
-import net.minecraft.item.*;
-import net.minecraft.world.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
 
 public class GOTBlockRope extends GOTBlockLadder {
 	public boolean canRetract;
@@ -29,16 +33,16 @@ public class GOTBlockRope extends GOTBlockLadder {
 			return true;
 		}
 		switch (meta) {
-		case 2:
-			return world.isSideSolid(i, j, k + 1, ForgeDirection.NORTH);
-		case 3:
-			return world.isSideSolid(i, j, k - 1, ForgeDirection.SOUTH);
-		case 4:
-			return world.isSideSolid(i + 1, j, k, ForgeDirection.WEST);
-		case 5:
-			return world.isSideSolid(i - 1, j, k, ForgeDirection.EAST);
-		default:
-			break;
+			case 2:
+				return world.isSideSolid(i, j, k + 1, ForgeDirection.NORTH);
+			case 3:
+				return world.isSideSolid(i, j, k - 1, ForgeDirection.SOUTH);
+			case 4:
+				return world.isSideSolid(i + 1, j, k, ForgeDirection.WEST);
+			case 5:
+				return world.isSideSolid(i - 1, j, k, ForgeDirection.EAST);
+			default:
+				break;
 		}
 		return false;
 	}

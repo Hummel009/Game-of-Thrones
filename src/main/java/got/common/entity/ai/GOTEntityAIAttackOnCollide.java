@@ -1,9 +1,12 @@
 package got.common.entity.ai;
 
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntitySpear;
 import got.common.item.GOTWeaponStats;
 import got.common.item.weapon.GOTItemSpear;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathEntity;

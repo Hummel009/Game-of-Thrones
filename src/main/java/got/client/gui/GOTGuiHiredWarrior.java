@@ -1,15 +1,20 @@
 package got.client.gui;
 
+import got.common.GOTSquadrons;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTHiredNPCInfo;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketNPCSquadron;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiTextField;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
+import net.minecraft.util.StringUtils;
 import org.lwjgl.opengl.GL11;
 
-import got.common.GOTSquadrons;
-import got.common.entity.other.*;
-import got.common.network.*;
-import net.minecraft.client.gui.*;
-import net.minecraft.util.*;
-
 public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
-	public static String[] pageTitles = { "overview", "options" };
+	public static String[] pageTitles = {"overview", "options"};
 	public static int XP_COLOR = 16733440;
 	public GuiButton buttonLeft;
 	public GuiButton buttonRight;

@@ -1,21 +1,27 @@
 package got.common.tileentity;
 
-import java.util.*;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.other.GOTBlockOven;
 import got.common.database.GOTRegistry;
 import got.common.inventory.GOTSlotStackSize;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
-import net.minecraft.tileentity.*;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.StatCollector;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 	public ItemStack[] inventory = new ItemStack[19];
@@ -23,8 +29,8 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 	public int currentItemFuelValue;
 	public int currentCookTime;
 	public String specialOvenName;
-	public int[] inputSlots = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
-	public int[] outputSlots = { 9, 10, 11, 12, 13, 14, 15, 16, 17 };
+	public int[] inputSlots = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+	public int[] outputSlots = {9, 10, 11, 12, 13, 14, 15, 16, 17};
 	public int fuelSlot = 18;
 
 	public boolean canCook(int i) {
@@ -132,7 +138,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 			}
 			return temp;
 		}
-		return new int[] { fuelSlot };
+		return new int[]{fuelSlot};
 	}
 
 	@SideOnly(value = Side.CLIENT)

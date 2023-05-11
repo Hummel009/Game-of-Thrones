@@ -1,8 +1,7 @@
 package got.common.item.other;
 
-import java.util.List;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
 import net.minecraft.block.BlockColored;
@@ -12,14 +11,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.List;
 
 public class GOTItemDye extends Item {
 	@SideOnly(value = Side.CLIENT)
 	public IIcon[] dyeIcons;
-	public String[] dyeNames = { "elanor", "niphredil", "bluebell", "green", "charcoal", "brown" };
+	public String[] dyeNames = {"elanor", "niphredil", "bluebell", "green", "charcoal", "brown"};
 
 	public GOTItemDye() {
 		setHasSubtypes(true);

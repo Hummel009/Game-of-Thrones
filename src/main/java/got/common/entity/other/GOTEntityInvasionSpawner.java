@@ -1,25 +1,35 @@
 package got.common.entity.other;
 
-import java.util.*;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.Event;
 import got.GOT;
-import got.common.*;
-import got.common.database.*;
+import got.common.GOTBannerProtection;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTInvasions;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemConquestHorn;
-import got.common.network.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketInvasionWatch;
 import net.minecraft.command.IEntitySelector;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.ForgeEventFactory;
+
+import java.util.*;
 
 public class GOTEntityInvasionSpawner extends Entity {
 	public static int MAX_INVASION_SIZE = 10000;

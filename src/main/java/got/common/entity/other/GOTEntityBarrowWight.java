@@ -1,7 +1,9 @@
 package got.common.entity.other;
 
 import got.GOT;
-import got.common.entity.ai.*;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
+import got.common.entity.ai.GOTEntityAIHiredRemainStill;
 import got.common.faction.GOTFaction;
 import net.minecraft.block.Block;
 import net.minecraft.entity.*;
@@ -9,12 +11,13 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.*;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityBarrowWight extends GOTEntityNPC {
-	public static Potion[] attackEffects = { Potion.moveSlowdown, Potion.digSlowdown, Potion.wither };
+	public static Potion[] attackEffects = {Potion.moveSlowdown, Potion.digSlowdown, Potion.wither};
 
 	public GOTEntityBarrowWight(World world) {
 		super(world);

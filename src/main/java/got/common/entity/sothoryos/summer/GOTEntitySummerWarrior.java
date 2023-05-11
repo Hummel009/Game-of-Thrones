@@ -1,6 +1,7 @@
 package got.common.entity.sothoryos.summer;
 
-import got.common.database.*;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTShields;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,8 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
-	public static ItemStack[] weaponsBronze = { new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerDagger), new ItemStack(GOTRegistry.summerDaggerPoisoned), new ItemStack(GOTRegistry.summerPike) };
-	public static int[] turbanColors = { 1643539, 6309443, 7014914, 7809314, 5978155 };
+	public static ItemStack[] weaponsBronze = {new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerSword), new ItemStack(GOTRegistry.summerDagger), new ItemStack(GOTRegistry.summerDaggerPoisoned), new ItemStack(GOTRegistry.summerPike)};
+	public static int[] turbanColors = {1643539, 6309443, 7014914, 7809314, 5978155};
 
 	public GOTEntitySummerWarrior(World world) {
 		super(world);

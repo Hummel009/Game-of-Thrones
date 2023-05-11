@@ -1,18 +1,21 @@
 package got.client.render.other;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTClientProxy;
 import got.common.item.weapon.GOTItemBow;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.ItemRenderer;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderBow implements IItemRenderer {
 	public static boolean renderingWeaponRack = false;

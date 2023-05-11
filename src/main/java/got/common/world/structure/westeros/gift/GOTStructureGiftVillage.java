@@ -1,15 +1,19 @@
 package got.common.world.structure.westeros.gift;
 
-import java.util.Random;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.westeros.gift.*;
+import got.common.entity.westeros.gift.GOTEntityGiftGuard;
+import got.common.entity.westeros.gift.GOTEntityGiftMan;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.*;
+import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.Abandoned;
+import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.CastleBlack;
+import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.EastWatch;
+import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.ShadowTower;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureGiftVillage extends GOTVillageGen {
 	public boolean isCastleBlack;
@@ -65,24 +69,24 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case CASTLE_BLACK:
-				this.addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
-				this.addStructure(new CastleBlack(false), -4, 25, 1, true);
-				break;
-			case SHADOW_TOWER:
-				this.addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
-				this.addStructure(new ShadowTower(false), 0, 20, 0, true);
-				break;
-			case EAST_WATCH:
-				this.addStructure(new EastWatch(false), 0, 50, 0, true);
-				break;
-			case ABANDONED:
-				this.addStructure(new GOTStructureGiftGate(false).setIsAbandoned(), 0, 7, 0, true);
-				this.addStructure(new Abandoned(false), 0, 20, 0, true);
-				break;
-			case VILLAGE:
-				setupVillage(random);
-				break;
+				case CASTLE_BLACK:
+					this.addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
+					this.addStructure(new CastleBlack(false), -4, 25, 1, true);
+					break;
+				case SHADOW_TOWER:
+					this.addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
+					this.addStructure(new ShadowTower(false), 0, 20, 0, true);
+					break;
+				case EAST_WATCH:
+					this.addStructure(new EastWatch(false), 0, 50, 0, true);
+					break;
+				case ABANDONED:
+					this.addStructure(new GOTStructureGiftGate(false).setIsAbandoned(), 0, 7, 0, true);
+					this.addStructure(new Abandoned(false), 0, 20, 0, true);
+					break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
 			}
 		}
 
@@ -107,14 +111,14 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 			if (random.nextInt(3) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
-				case 0:
-					return new GOTStructureGiftSmithy(false);
-				case 1:
-					return new GOTStructureGiftStables(false);
-				case 2:
-					return new GOTStructureGiftLodge(false);
-				default:
-					break;
+					case 0:
+						return new GOTStructureGiftSmithy(false);
+					case 1:
+						return new GOTStructureGiftStables(false);
+					case 2:
+						return new GOTStructureGiftLodge(false);
+					default:
+						break;
 				}
 			}
 			return new GOTStructureGiftHouse(false);
@@ -146,8 +150,8 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 			}, 0, 0, 0);
 			this.addStructure(new GOTStructureGiftWell(false), 0, -2, 0, true);
 			int lampX = 8;
-			for (int i : new int[] { -lampX, lampX }) {
-				for (int k : new int[] { -lampX, lampX }) {
+			for (int i : new int[]{-lampX, lampX}) {
+				for (int k : new int[]{-lampX, lampX}) {
 					this.addStructure(new GOTStructureGiftVillageLight(false), i, k, 0);
 				}
 			}

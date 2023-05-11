@@ -1,13 +1,13 @@
 package got.common.block;
 
-import java.util.Random;
-
 import got.common.block.sapling.GOTBlockSaplingBase;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class GOTVanillaSaplings {
 	public static void growTree(World world, int i, int j, int k, Random random) {

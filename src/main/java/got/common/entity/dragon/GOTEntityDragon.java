@@ -1,22 +1,36 @@
 package got.common.entity.dragon;
 
-import java.util.*;
-
-import org.apache.logging.log4j.*;
-
-import cpw.mods.fml.relauncher.*;
-import got.client.model.*;
+import cpw.mods.fml.relauncher.ReflectionHelper;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import got.client.model.GOTModelDragonAnimaton;
+import got.client.model.GOTModelDragonBodyHelper;
 import got.common.entity.ai.*;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.passive.*;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.entity.passive.EntityChicken;
+import net.minecraft.entity.passive.EntityPig;
+import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.StatCollector;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.BitSet;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
@@ -34,10 +48,10 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	public static int INDEX_BREED = 22;
 	public static int INDEX_REPRO_COUNT = 23;
 	public static String NBT_SADDLED = "Saddle";
-	public static String[] DATAWATCHER_WATCHEDOBJECTS = { "watchedObjects", "field_75695_b" };
-	public static String[] ENTITYAITASKS_EXECUTINGTASKENTRIES = { "executingTaskEntries", "field_75780_b" };
-	public static String[] ENTITYLIVING_BODYHELPER = { "bodyHelper", "field_70762_j" };
-	public static String[] GUIMAINMENU_SPLASHTEXT = { "splashText", "field_73975_c" };
+	public static String[] DATAWATCHER_WATCHEDOBJECTS = {"watchedObjects", "field_75695_b"};
+	public static String[] ENTITYAITASKS_EXECUTINGTASKENTRIES = {"executingTaskEntries", "field_75780_b"};
+	public static String[] ENTITYLIVING_BODYHELPER = {"bodyHelper", "field_70762_j"};
+	public static String[] GUIMAINMENU_SPLASHTEXT = {"splashText", "field_73975_c"};
 	public Map<Class, GOTDragonHelper> helpers;
 	public GOTModelDragonAnimaton animator;
 	public BitSet controlFlags;

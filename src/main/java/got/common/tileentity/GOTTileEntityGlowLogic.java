@@ -1,15 +1,18 @@
 package got.common.tileentity;
 
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.*;
+import net.minecraft.world.EnumSkyBlock;
+import net.minecraft.world.World;
 
 public class GOTTileEntityGlowLogic {
 	public static float[] lightValueSqrts = new float[16];
+
 	static {
 		for (int i = 0; i <= 15; ++i) {
 			GOTTileEntityGlowLogic.lightValueSqrts[i] = MathHelper.sqrt_float(i / 15.0f);
 		}
 	}
+
 	public boolean playersNearby;
 	public int glowTick;
 	public int prevGlowTick;

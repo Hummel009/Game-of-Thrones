@@ -1,17 +1,21 @@
 package got.common.entity.essos.volantis;
 
-import java.awt.Color;
-import java.util.Random;
-
 import got.common.GOTLevelData;
-import got.common.database.*;
-import got.common.entity.other.*;
-import got.common.item.other.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTTradeEntries;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTTradeable;
+import got.common.item.other.GOTItemRobes;
+import got.common.item.other.GOTItemTurban;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.awt.*;
+import java.util.Random;
 
 public abstract class GOTEntityVolantisTrader extends GOTEntityVolantisMan implements GOTTradeable {
 	public GOTEntityVolantisTrader(World world) {

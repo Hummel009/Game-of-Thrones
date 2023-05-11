@@ -1,21 +1,21 @@
 package got.common.world.structure.other;
 
-import java.io.*;
-import java.util.*;
-import java.util.Map.Entry;
-import java.util.zip.*;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.input.BOMInputStream;
-
 import com.google.common.base.Charsets;
-
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.ModContainer;
 import got.GOT;
 import got.common.util.GOTLog;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.DimensionManager;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.input.BOMInputStream;
+
+import java.io.*;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 public class GOTStructureScan {
 	public static String strscanFormat = ".strscan";

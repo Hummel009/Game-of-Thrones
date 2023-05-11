@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import java.util.ArrayList;
-
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTSpawnList;
@@ -9,6 +7,8 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFightingPit;
+
+import java.util.ArrayList;
 
 public class GOTBiomeMeereen extends GOTBiomeGhiscar {
 	public GOTBiomeMeereen(int i, boolean major) {

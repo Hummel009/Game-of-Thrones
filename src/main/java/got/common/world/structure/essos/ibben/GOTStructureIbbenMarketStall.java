@@ -1,17 +1,16 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.essos.ibben.*;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase {
-	public static Class[] allStallTypes = { Goldsmith.class, Miner.class, Blacksmith.class, Farmer.class, Lumber.class, Mason.class, Brewer.class, Butcher.class, Fish.class, Baker.class, Florist.class };
+	public static Class[] allStallTypes = {Goldsmith.class, Miner.class, Blacksmith.class, Farmer.class, Lumber.class, Mason.class, Brewer.class, Butcher.class, Fish.class, Baker.class, Florist.class};
 
 	public GOTStructureIbbenMarketStall(boolean flag) {
 		super(flag);

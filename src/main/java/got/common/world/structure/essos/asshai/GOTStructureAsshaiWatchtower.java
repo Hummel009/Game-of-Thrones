@@ -1,15 +1,17 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
-import got.common.database.*;
-import got.common.entity.essos.asshai.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
+import got.common.entity.essos.asshai.GOTEntityAsshaiShadowbinder;
+import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 	public GOTStructureAsshaiWatchtower(boolean flag) {

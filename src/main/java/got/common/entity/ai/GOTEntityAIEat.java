@@ -2,7 +2,9 @@ package got.common.entity.ai;
 
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTEntityNPC;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 
 public class GOTEntityAIEat extends GOTEntityAIConsumeBase {
 	public GOTEntityAIEat(GOTEntityNPC entity, GOTFoods foods, int chance) {

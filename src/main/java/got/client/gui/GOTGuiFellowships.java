@@ -1,24 +1,30 @@
 package got.client.gui;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.math.IntMath;
 import com.mojang.authlib.GameProfile;
-
-import got.common.*;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.database.GOTTitle;
 import got.common.fellowship.GOTFellowshipClient;
 import got.common.network.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
-import net.minecraft.client.gui.*;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiPlayerInfo;
+import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
+import org.apache.commons.lang3.StringUtils;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
 
 public class GOTGuiFellowships extends GOTGuiMenuBase {
 	public static ResourceLocation iconsTextures = new ResourceLocation("got:textures/gui/fellowships.png");

@@ -1,13 +1,20 @@
 package got.common.entity.westeros;
 
-import got.common.database.*;
+import got.common.database.GOTFoods;
+import got.common.database.GOTNames;
+import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
-import got.common.item.other.*;
-import got.common.quest.*;
+import got.common.item.other.GOTItemLeatherHat;
+import got.common.item.other.GOTItemMug;
+import got.common.quest.GOTMiniQuest;
+import got.common.quest.GOTMiniQuestFactory;
 import got.common.world.biome.GOTBiome;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -16,7 +23,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
-	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.bronzeAxe), new ItemStack(Items.stone_axe) };
+	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.bronzeAxe), new ItemStack(Items.stone_axe)};
 
 	public GOTEntityWesterosThief(World world) {
 		super(world);
@@ -139,20 +146,20 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 	public void setupNPCName() {
 		int i = rand.nextInt(4);
 		switch (i) {
-		case 0:
-			familyInfo.setName(GOTNames.getWesterosName(rand, true));
-			break;
-		case 1:
-			familyInfo.setName(GOTNames.getWildName(rand, true));
-			break;
-		case 2:
-			familyInfo.setName(GOTNames.getEssosName(rand, true));
-			break;
-		case 3:
-			familyInfo.setName(GOTNames.getQarthName(rand, true));
-			break;
-		default:
-			familyInfo.setName(GOTNames.getWildName(rand, true));
+			case 0:
+				familyInfo.setName(GOTNames.getWesterosName(rand, true));
+				break;
+			case 1:
+				familyInfo.setName(GOTNames.getWildName(rand, true));
+				break;
+			case 2:
+				familyInfo.setName(GOTNames.getEssosName(rand, true));
+				break;
+			case 3:
+				familyInfo.setName(GOTNames.getQarthName(rand, true));
+				break;
+			default:
+				familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
 	}
 }

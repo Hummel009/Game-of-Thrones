@@ -1,11 +1,11 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIbbenVillagePasture extends GOTStructureIbbenBase {
 	public GOTStructureIbbenVillagePasture(boolean flag) {
@@ -49,17 +49,17 @@ public class GOTStructureIbbenVillagePasture extends GOTStructureIbbenBase {
 					if (j1 == 0) {
 						int randomFloor = random.nextInt(3);
 						switch (randomFloor) {
-						case 0:
-							setBlockAndMetadata(world, i1, j1, k1, Blocks.grass, 0);
-							break;
-						case 1:
-							setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 1);
-							break;
-						case 2:
-							setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.dirtPath, 0);
-							break;
-						default:
-							break;
+							case 0:
+								setBlockAndMetadata(world, i1, j1, k1, Blocks.grass, 0);
+								break;
+							case 1:
+								setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 1);
+								break;
+							case 2:
+								setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.dirtPath, 0);
+								break;
+							default:
+								break;
 						}
 					} else {
 						setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 0);

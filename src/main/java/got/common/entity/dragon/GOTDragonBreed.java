@@ -1,11 +1,12 @@
 package got.common.entity.dragon;
 
-import java.util.*;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class GOTDragonBreed {
 

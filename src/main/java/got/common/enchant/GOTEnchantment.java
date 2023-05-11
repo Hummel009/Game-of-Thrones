@@ -1,11 +1,14 @@
 package got.common.enchant;
 
-import java.text.DecimalFormat;
-import java.util.*;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.util.StatCollector;
+
+import java.text.DecimalFormat;
+import java.util.*;
 
 public abstract class GOTEnchantment {
 	public static List<GOTEnchantment> allEnchantments = new ArrayList<>();
@@ -90,7 +93,7 @@ public abstract class GOTEnchantment {
 	public boolean applyToProjectile = false;
 
 	public GOTEnchantment(String s, GOTEnchantmentType type) {
-		this(s, new GOTEnchantmentType[] { type });
+		this(s, new GOTEnchantmentType[]{type});
 	}
 
 	public GOTEnchantment(String s, GOTEnchantmentType[] types) {

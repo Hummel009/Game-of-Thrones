@@ -1,13 +1,14 @@
 package got.common.world.feature;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public class GOTWorldGenCharredTrees extends WorldGenAbstractTree {
 	public GOTWorldGenCharredTrees() {
@@ -31,7 +32,8 @@ public class GOTWorldGenCharredTrees extends WorldGenAbstractTree {
 				int branchLength = 2 + random.nextInt(4);
 				int branchHorizontalPos = 0;
 				int branchVerticalPos = j + height - random.nextInt(2);
-				block8: for (int l = 0; l < branchLength; ++l) {
+				block8:
+				for (int l = 0; l < branchLength; ++l) {
 					if (random.nextInt(4) == 0) {
 						++branchHorizontalPos;
 					}
@@ -39,21 +41,21 @@ public class GOTWorldGenCharredTrees extends WorldGenAbstractTree {
 						++branchVerticalPos;
 					}
 					switch (branch) {
-					case 0: {
-						world.setBlock(i - branchHorizontalPos, branchVerticalPos, k, GOTRegistry.wood1, 15, 2);
-						continue block8;
-					}
-					case 1: {
-						world.setBlock(i, branchVerticalPos, k + branchHorizontalPos, GOTRegistry.wood1, 15, 2);
-						continue block8;
-					}
-					case 2: {
-						world.setBlock(i + branchHorizontalPos, branchVerticalPos, k, GOTRegistry.wood1, 15, 2);
-						continue block8;
-					}
-					case 3: {
-						world.setBlock(i, branchVerticalPos, k - branchHorizontalPos, GOTRegistry.wood1, 15, 2);
-					}
+						case 0: {
+							world.setBlock(i - branchHorizontalPos, branchVerticalPos, k, GOTRegistry.wood1, 15, 2);
+							continue block8;
+						}
+						case 1: {
+							world.setBlock(i, branchVerticalPos, k + branchHorizontalPos, GOTRegistry.wood1, 15, 2);
+							continue block8;
+						}
+						case 2: {
+							world.setBlock(i + branchHorizontalPos, branchVerticalPos, k, GOTRegistry.wood1, 15, 2);
+							continue block8;
+						}
+						case 3: {
+							world.setBlock(i, branchVerticalPos, k - branchHorizontalPos, GOTRegistry.wood1, 15, 2);
+						}
 					}
 				}
 			}

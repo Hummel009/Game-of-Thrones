@@ -1,18 +1,23 @@
 package got.common.world.spawning;
 
-import java.util.*;
-
 import cpw.mods.fml.common.eventhandler.Event;
-import got.common.*;
+import got.common.GOTConfig;
+import got.common.GOTSpawnDamping;
 import got.common.entity.animal.GOTAnimalSpawnConditions;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import net.minecraft.entity.*;
-import net.minecraft.util.*;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EnumCreatureType;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.event.ForgeEventFactory;
+
+import java.util.*;
 
 public class GOTSpawnerAnimals {
 	public static Set<ChunkCoordIntPair> eligibleSpawnChunks = new HashSet<>();
@@ -46,7 +51,8 @@ public class GOTSpawnerAnimals {
 		int totalSpawned = 0;
 		GOTSpawnerNPCs.getSpawnableChunks(world, eligibleSpawnChunks);
 		ChunkCoordinates spawnPoint = world.getSpawnPoint();
-		block2: for (EnumCreatureType creatureType : EnumCreatureType.values()) {
+		block2:
+		for (EnumCreatureType creatureType : EnumCreatureType.values()) {
 			int count;
 			int maxCount;
 			TypeInfo typeInfo = GOTSpawnerAnimals.forDimAndType(world, creatureType);
@@ -66,7 +72,8 @@ public class GOTSpawnerAnimals {
 				}
 				int newlySpawned = 0;
 				List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(eligibleSpawnChunks);
-				block4: for (ChunkCoordIntPair chunkCoords : shuffled) {
+				block4:
+				for (ChunkCoordIntPair chunkCoords : shuffled) {
 					int i;
 					int k;
 					int j;

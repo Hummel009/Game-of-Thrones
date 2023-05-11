@@ -1,11 +1,12 @@
 package got.common.world.structure.essos.common;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 	public GOTStructureEssosHouse(boolean flag) {
@@ -109,7 +110,7 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 			}
 		}
 		placeWallBanner(world, -2, 3, 0, bannerType, 1);
-		for (int k12 : new int[] { -2, 0, 2 }) {
+		for (int k12 : new int[]{-2, 0, 2}) {
 			int i13 = -1;
 			int j13 = 2;
 			if (random.nextBoolean()) {

@@ -1,13 +1,14 @@
 package got.common.world.structure.westeros.ironborn;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldier;
 import got.common.entity.westeros.legendary.warrior.GOTEntityVictarionGreyjoy;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureBase;
+import got.common.world.structure.other.GOTStructureCampBase;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIronbornCamp extends GOTStructureCampBase {
 	public GOTStructureIronbornCamp(boolean flag) {

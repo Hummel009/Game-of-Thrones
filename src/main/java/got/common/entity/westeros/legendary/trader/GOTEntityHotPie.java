@@ -1,11 +1,20 @@
 package got.common.entity.westeros.legendary.trader;
 
 import got.common.GOTLevelData;
-import got.common.database.*;
-import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTFoods;
+import got.common.database.GOTTradeEntries;
+import got.common.entity.ai.GOTEntityAIDrink;
+import got.common.entity.ai.GOTEntityAIEat;
+import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
+import got.common.entity.ai.GOTEntityAIHiredRemainStill;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTTradeable;
 import got.common.faction.GOTFaction;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

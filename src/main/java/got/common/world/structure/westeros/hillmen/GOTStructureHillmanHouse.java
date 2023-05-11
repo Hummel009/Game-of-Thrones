@@ -1,12 +1,14 @@
 package got.common.world.structure.westeros.hillmen;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.westeros.hillmen.GOTEntityHillman;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 	public GOTStructureHillmanHouse(boolean flag) {

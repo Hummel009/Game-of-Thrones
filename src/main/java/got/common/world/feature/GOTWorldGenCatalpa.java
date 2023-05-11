@@ -1,7 +1,5 @@
 package got.common.world.feature;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -10,6 +8,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 	public int minHeight = 10;
@@ -126,7 +126,7 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 		int leafStart = j - 1;
 		int leafTop = j + 2;
 		int maxRange = 3 + random.nextInt(2);
-		int[] ranges = { -2, 0, -1, -2 };
+		int[] ranges = {-2, 0, -1, -2};
 		for (int j1 = leafStart; j1 <= leafTop; ++j1) {
 			int leafRange = maxRange + ranges[j1 - leafStart];
 			int leafRangeSq = leafRange * leafRange;

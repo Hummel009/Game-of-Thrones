@@ -1,11 +1,9 @@
 package got.common.world.structure.westeros.crownlands;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.westeros.crownlands.*;
+import got.common.entity.westeros.crownlands.GOTEntityCrownlandsAlchemist;
+import got.common.entity.westeros.crownlands.GOTEntityCrownlandsMan;
 import got.common.entity.westeros.westerlands.GOTEntityWesterlandsSoldier;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
@@ -13,6 +11,8 @@ import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureCrownlandsCity extends GOTVillageGen {
 	public boolean isTown;
@@ -67,18 +67,18 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		@Override
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
-			case TOWN:
-				setupTown(random);
-				break;
-			case FORT:
-				setupCastle(random);
-				break;
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case RED_KEEP:
-				setupRedCastle(random);
-				break;
+				case TOWN:
+					setupTown(random);
+					break;
+				case FORT:
+					setupCastle(random);
+					break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case RED_KEEP:
+					setupRedCastle(random);
+					break;
 			}
 		}
 
@@ -87,33 +87,33 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
 			switch (villageType) {
-			case FORT:
-				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				break;
-			case RED_KEEP:
-				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.PATH_PAVING;
-				}
-				break;
-			case TOWN:
-				if (i1 <= 80 && k1 <= 80) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				break;
-			case VILLAGE:
-				int dSq = i * i + k * k;
-				int imn = 20 + random.nextInt(4);
-				if (dSq < imn * imn) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				int omn = 53 - random.nextInt(4);
-				int omx = 60 + random.nextInt(4);
-				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				break;
+				case FORT:
+					if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+						return GOTBezierType.PATH_DIRTY;
+					}
+					break;
+				case RED_KEEP:
+					if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+						return GOTBezierType.PATH_PAVING;
+					}
+					break;
+				case TOWN:
+					if (i1 <= 80 && k1 <= 80) {
+						return GOTBezierType.PATH_DIRTY;
+					}
+					break;
+				case VILLAGE:
+					int dSq = i * i + k * k;
+					int imn = 20 + random.nextInt(4);
+					if (dSq < imn * imn) {
+						return GOTBezierType.PATH_DIRTY;
+					}
+					int omn = 53 - random.nextInt(4);
+					int omx = 60 + random.nextInt(4);
+					if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
+						return GOTBezierType.PATH_DIRTY;
+					}
+					break;
 			}
 			return null;
 		}
@@ -132,14 +132,14 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
-				case 0:
-					return new GOTStructureCrownlandsStables(false);
-				case 1:
-					return new GOTStructureCrownlandsSmithy(false);
-				case 2:
-					return new GOTStructureCrownlandsBarn(false);
-				default:
-					break;
+					case 0:
+						return new GOTStructureCrownlandsStables(false);
+					case 1:
+						return new GOTStructureCrownlandsSmithy(false);
+					case 2:
+						return new GOTStructureCrownlandsBarn(false);
+					default:
+						break;
 				}
 			}
 			return new GOTStructureCrownlandsHouse(false);
@@ -161,8 +161,8 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -20, 20 }) {
-				for (int k1 : new int[] { -20, 20 }) {
+			for (int i1 : new int[]{-20, 20}) {
+				for (int k1 : new int[]{-20, 20}) {
 					this.addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -275,8 +275,8 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -40, 40 }) {
-				int[] arrn = { -40, 40 };
+			for (int i1 : new int[]{-40, 40}) {
+				int[] arrn = {-40, 40};
 				int n = arrn.length;
 				for (int i = 0; i < n; ++i) {
 					int k1 = arrn[i];
@@ -312,14 +312,14 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			}
 			int flowerX = 12;
 			int flowerZ = 18;
-			for (int i1 : new int[] { -flowerX, flowerX }) {
+			for (int i1 : new int[]{-flowerX, flowerX}) {
 				this.addStructure(new GOTStructureWesterosTownGarden(false), i1, flowerZ, 0, true);
 				this.addStructure(new GOTStructureWesterosTownGarden(false), i1, -flowerZ, 2, true);
 				this.addStructure(new GOTStructureWesterosTownGarden(false), -flowerZ, i1, 1, true);
 				this.addStructure(new GOTStructureWesterosTownGarden(false), flowerZ, i1, 3, true);
 			}
 			int lampZ = 21;
-			for (int i1 : new int[] { -1, 1 }) {
+			for (int i1 : new int[]{-1, 1}) {
 				int lampX = i1 * 6;
 				this.addStructure(new GOTStructureWesterosLampPost(false), lampX, lampZ, 0, true);
 				this.addStructure(new GOTStructureWesterosLampPost(false), lampX, -lampZ, 2, true);
@@ -351,7 +351,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureWesterosObelisk(false), 0, 27, 0, true);
 			this.addStructure(new GOTStructureWesterosTownTrees(false), -47, -13, 2, true);
 			this.addStructure(new GOTStructureWesterosTownTrees(false), -47, 1, 0, true);
-			for (int i1 : new int[] { -43, -51 }) {
+			for (int i1 : new int[]{-43, -51}) {
 				this.addStructure(new GOTStructureWesterosTownBench(false), i1, -9, 2, true);
 				this.addStructure(new GOTStructureWesterosTownBench(false), i1, -3, 0, true);
 			}
@@ -361,7 +361,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureWesterosTownGarden(false), 52, -6, 3, true);
 			int wellX = 22;
 			int wellZ = 31;
-			for (int i1 : new int[] { -wellX, wellX }) {
+			for (int i1 : new int[]{-wellX, wellX}) {
 				this.addStructure(new GOTStructureWesterosWell(false), i1, -wellZ, 2, true);
 				this.addStructure(new GOTStructureWesterosWell(false), i1, wellZ, 0, true);
 				this.addStructure(new GOTStructureWesterosWell(false), -wellZ, i1, 1, true);
@@ -379,7 +379,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			}
 			int treeX = 47;
 			int treeZ = 35;
-			for (int i1 : new int[] { -treeX, treeX }) {
+			for (int i1 : new int[]{-treeX, treeX}) {
 				this.addStructure(new GOTStructureWesterosTownTrees(false), i1, -treeZ, 0, true);
 				this.addStructure(new GOTStructureWesterosTownTrees(false), i1, treeZ, 2, true);
 				this.addStructure(new GOTStructureWesterosTownTrees(false), -treeZ, i1, 3, true);
@@ -450,7 +450,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureWesterosTownTrees(false), treeZ, treeX, 0, true);
 			this.addStructure(new GOTStructureWesterosTownTrees(false), -14, 71, 1, true);
 			this.addStructure(new GOTStructureWesterosTownTrees(false), 14, 71, 3, true);
-			for (int k1 : new int[] { 67, 75 }) {
+			for (int k1 : new int[]{67, 75}) {
 				this.addStructure(new GOTStructureWesterosTownBench(false), -10, k1, 1, true);
 				this.addStructure(new GOTStructureWesterosTownBench(false), 10, k1, 3, true);
 			}
@@ -459,7 +459,7 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 			this.addStructure(new GOTStructureWesterosLampPost(false), 4, 73, 0, true);
 			int towerX = 78;
 			int towerZ = 74;
-			for (int i1 : new int[] { -towerX, towerX }) {
+			for (int i1 : new int[]{-towerX, towerX}) {
 				this.addStructure(new GOTStructureCrownlandsWatchtower(false), i1, -towerZ, 2, true);
 				this.addStructure(new GOTStructureCrownlandsWatchtower(false), i1, towerZ, 0, true);
 			}

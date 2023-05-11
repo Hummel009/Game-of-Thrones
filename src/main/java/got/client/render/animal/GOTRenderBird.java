@@ -1,16 +1,19 @@
 package got.client.render.animal;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelBird;
 import got.client.render.other.GOTRandomSkins;
-import got.common.entity.animal.*;
+import got.common.entity.animal.GOTEntityBird;
+import got.common.entity.animal.GOTEntityGorcrow;
+import got.common.entity.animal.GOTEntitySeagull;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderBird extends RenderLiving {
 	public static Map<String, GOTRandomSkins> birdTypeSkins = new HashMap<>();

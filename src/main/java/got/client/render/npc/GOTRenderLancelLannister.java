@@ -5,7 +5,8 @@ import got.client.model.GOTModelHuman;
 import got.client.render.other.GOTRenderBiped;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.client.Minecraft;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderLancelLannister extends GOTRenderBiped {

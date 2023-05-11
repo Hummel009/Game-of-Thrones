@@ -1,12 +1,12 @@
 package got.client.render.npc;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelMarshWraith;
 import got.common.entity.essos.mossovy.GOTEntityMarshWraith;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderMarshWraith extends RenderLiving {
 	public static ResourceLocation skin = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith.png");

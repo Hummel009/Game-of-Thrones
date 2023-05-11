@@ -1,7 +1,9 @@
 package got.common.enchant;
 
 import got.common.database.GOTMaterial;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtection extends GOTEnchantment {

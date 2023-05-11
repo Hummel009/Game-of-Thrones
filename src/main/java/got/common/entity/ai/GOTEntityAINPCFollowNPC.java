@@ -1,9 +1,9 @@
 package got.common.entity.ai;
 
-import java.util.List;
-
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.ai.EntityAIBase;
+
+import java.util.List;
 
 public class GOTEntityAINPCFollowNPC extends EntityAIBase {
 	public GOTEntityNPC entityFollowing;

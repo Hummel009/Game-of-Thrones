@@ -1,18 +1,22 @@
 package got.common.world.biome.essos;
 
-import java.util.*;
-
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.essos.asshai.*;
+import got.common.world.structure.essos.asshai.GOTStructureAsshaiAltar;
+import got.common.world.structure.essos.asshai.GOTStructureAsshaiSpiderPit;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 	public NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(42956029606L), 1);

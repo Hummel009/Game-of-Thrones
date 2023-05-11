@@ -1,14 +1,20 @@
 package got.common.world.biome.variant;
 
-import java.util.*;
-
 import cpw.mods.fml.common.FMLLog;
 import got.common.GOTDimension;
-import got.common.network.*;
+import got.common.network.GOTPacketBiomeVariantsUnwatch;
+import got.common.network.GOTPacketBiomeVariantsWatch;
+import got.common.network.GOTPacketHandler;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.*;
+import net.minecraft.world.ChunkCoordIntPair;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTBiomeVariantStorage {
 	public static Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> chunkVariantMap = new HashMap<>();

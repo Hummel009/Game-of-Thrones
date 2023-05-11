@@ -1,9 +1,9 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosObelisk extends GOTStructureWesterosBase {
 	public GOTStructureWesterosObelisk(boolean flag) {

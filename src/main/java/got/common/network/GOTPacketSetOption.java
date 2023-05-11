@@ -1,7 +1,10 @@
 package got.common.network;
 
-import cpw.mods.fml.common.network.simpleimpl.*;
-import got.common.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
@@ -33,36 +36,36 @@ public class GOTPacketSetOption implements IMessage {
 			int option = packet.option;
 			boolean flag;
 			switch (option) {
-			case 0:
-				flag = pd.getFriendlyFire();
-				pd.setFriendlyFire(!flag);
-				break;
-			case 1:
-				flag = pd.getEnableHiredDeathMessages();
-				pd.setEnableHiredDeathMessages(!flag);
-				break;
-			case 2:
-				flag = pd.getHideAlignment();
-				pd.setHideAlignment(!flag);
-				break;
-			case 3:
-				flag = pd.getHideMapLocation();
-				pd.setHideMapLocation(!flag);
-				break;
-			case 4:
-				flag = pd.getFemRankOverride();
-				pd.setFemRankOverride(!flag);
-				break;
-			case 5:
-				flag = pd.getEnableConquestKills();
-				pd.setEnableConquestKills(!flag);
-				break;
-			case 9:
-				flag = pd.getTableSwitched();
-				pd.setTableSwitched(!flag);
-				break;
-			default:
-				break;
+				case 0:
+					flag = pd.getFriendlyFire();
+					pd.setFriendlyFire(!flag);
+					break;
+				case 1:
+					flag = pd.getEnableHiredDeathMessages();
+					pd.setEnableHiredDeathMessages(!flag);
+					break;
+				case 2:
+					flag = pd.getHideAlignment();
+					pd.setHideAlignment(!flag);
+					break;
+				case 3:
+					flag = pd.getHideMapLocation();
+					pd.setHideMapLocation(!flag);
+					break;
+				case 4:
+					flag = pd.getFemRankOverride();
+					pd.setFemRankOverride(!flag);
+					break;
+				case 5:
+					flag = pd.getEnableConquestKills();
+					pd.setEnableConquestKills(!flag);
+					break;
+				case 9:
+					flag = pd.getTableSwitched();
+					pd.setTableSwitched(!flag);
+					break;
+				default:
+					break;
 			}
 			return null;
 		}

@@ -1,23 +1,30 @@
 package got.common.world;
 
-import java.util.*;
-
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.variant.*;
+import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import got.common.world.map.*;
 import got.common.world.spawning.GOTSpawnerAnimals;
 import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarPyramidMapgen;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.*;
-import net.minecraft.world.*;
+import net.minecraft.util.IProgressUpdate;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.ChunkPosition;
+import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.chunk.*;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.chunk.storage.ExtendedBlockStorage;
-import net.minecraft.world.gen.*;
+import net.minecraft.world.gen.MapGenBase;
+import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenStructure;
+
+import java.util.List;
+import java.util.Random;
 
 public class GOTChunkProvider implements IChunkProvider {
 	public World worldObj;

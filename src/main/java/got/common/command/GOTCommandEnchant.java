@@ -1,47 +1,52 @@
 package got.common.command;
 
-import java.util.*;
-
-import got.common.enchant.*;
-import net.minecraft.command.*;
+import got.common.enchant.GOTEnchantment;
+import got.common.enchant.GOTEnchantmentHelper;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandEnchant extends CommandBase {
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
-		case 1:
-			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
-		case 2:
-			return CommandBase.getListOfStringsMatchingLastWord(args, "add", "remove", "clear");
-		case 3:
-			ItemStack itemstack;
-			if ("add".equals(args[1])) {
-				EntityPlayerMP entityplayer2 = CommandBase.getPlayer(sender, args[0]);
-				ItemStack itemstack2 = entityplayer2.getHeldItem();
-				if (itemstack2 != null) {
+			case 1:
+				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+			case 2:
+				return CommandBase.getListOfStringsMatchingLastWord(args, "add", "remove", "clear");
+			case 3:
+				ItemStack itemstack;
+				if ("add".equals(args[1])) {
+					EntityPlayerMP entityplayer2 = CommandBase.getPlayer(sender, args[0]);
+					ItemStack itemstack2 = entityplayer2.getHeldItem();
+					if (itemstack2 != null) {
+						ArrayList<String> enchNames = new ArrayList<>();
+						for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
+							if (GOTEnchantmentHelper.hasEnchant(itemstack2, ench) || !ench.canApply(itemstack2, false) || !GOTEnchantmentHelper.checkEnchantCompatible(itemstack2, ench)) {
+								continue;
+							}
+							enchNames.add(ench.enchantName);
+						}
+						return CommandBase.getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
+					}
+				} else if ("remove".equals(args[1]) && (itemstack = CommandBase.getPlayer(sender, args[0]).getHeldItem()) != null) {
 					ArrayList<String> enchNames = new ArrayList<>();
 					for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
-						if (GOTEnchantmentHelper.hasEnchant(itemstack2, ench) || !ench.canApply(itemstack2, false) || !GOTEnchantmentHelper.checkEnchantCompatible(itemstack2, ench)) {
+						if (!GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
 							continue;
 						}
 						enchNames.add(ench.enchantName);
 					}
 					return CommandBase.getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
 				}
-			} else if ("remove".equals(args[1]) && (itemstack = CommandBase.getPlayer(sender, args[0]).getHeldItem()) != null) {
-				ArrayList<String> enchNames = new ArrayList<>();
-				for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
-					if (!GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
-						continue;
-					}
-					enchNames.add(ench.enchantName);
-				}
-				return CommandBase.getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
-			}
-			break;
+				break;
 		}
 		return Collections.emptyList();
 	}

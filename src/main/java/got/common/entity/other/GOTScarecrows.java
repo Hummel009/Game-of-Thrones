@@ -1,6 +1,9 @@
 package got.common.entity.other;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockFence;
+import net.minecraft.block.BlockPumpkin;
+import net.minecraft.block.BlockSkull;
 import net.minecraft.world.World;
 
 public class GOTScarecrows {

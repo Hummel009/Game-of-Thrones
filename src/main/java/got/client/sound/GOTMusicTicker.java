@@ -1,7 +1,5 @@
 package got.client.sound;
 
-import java.util.Random;
-
 import got.client.GOTClientProxy;
 import got.common.GOTConfig;
 import got.common.world.biome.GOTBiome;
@@ -11,6 +9,8 @@ import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.Random;
 
 public class GOTMusicTicker {
 	public static GOTMusicTrack currentTrack;

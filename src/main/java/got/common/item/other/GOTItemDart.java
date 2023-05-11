@@ -5,7 +5,8 @@ import got.common.dispense.GOTDispenseDart;
 import got.common.entity.other.GOTEntityDart;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTItemDart extends Item {

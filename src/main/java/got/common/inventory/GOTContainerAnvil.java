@@ -1,27 +1,42 @@
 package got.common.inventory;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.*;
-import got.common.database.*;
-import got.common.enchant.*;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTMaterial;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTTradeEntries;
+import got.common.enchant.GOTEnchantment;
+import got.common.enchant.GOTEnchantmentCombining;
+import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTTradeEntry;
+import got.common.entity.other.GOTTradeable;
 import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
 import got.common.item.AnvilNameColorProvider;
 import got.common.item.other.*;
-import got.common.item.weapon.*;
-import net.minecraft.enchantment.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.init.*;
+import got.common.item.weapon.GOTItemCrossbow;
+import got.common.item.weapon.GOTItemSarbacane;
+import got.common.item.weapon.GOTItemThrowingAxe;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
 import net.minecraft.item.*;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatAllowedCharacters;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.*;
 
 public class GOTContainerAnvil extends Container {
 	public static int maxReforgeTime = 40;
@@ -559,20 +574,20 @@ public class GOTContainerAnvil extends Container {
 						int costPerLevel = 0;
 						int enchWeight = combinerEnch.getWeight();
 						switch (enchWeight) {
-						case 1:
-							costPerLevel = 8;
-							break;
-						case 2:
-							costPerLevel = 4;
-							break;
-						case 5:
-							costPerLevel = 2;
-							break;
-						case 10:
-							costPerLevel = 1;
-							break;
-						default:
-							break;
+							case 1:
+								costPerLevel = 8;
+								break;
+							case 2:
+								costPerLevel = 4;
+								break;
+							case 5:
+								costPerLevel = 2;
+								break;
+							case 10:
+								costPerLevel = 1;
+								break;
+							default:
+								break;
 						}
 						combineCost += costPerLevel * levelsAdded;
 					}
@@ -629,20 +644,20 @@ public class GOTContainerAnvil extends Container {
 				int costPerLevel = 0;
 				int enchWeight = ench.getWeight();
 				switch (enchWeight) {
-				case 1:
-					costPerLevel = 8;
-					break;
-				case 2:
-					costPerLevel = 4;
-					break;
-				case 5:
-					costPerLevel = 2;
-					break;
-				case 10:
-					costPerLevel = 1;
-					break;
-				default:
-					break;
+					case 1:
+						costPerLevel = 8;
+						break;
+					case 2:
+						costPerLevel = 4;
+						break;
+					case 5:
+						costPerLevel = 2;
+						break;
+					case 10:
+						costPerLevel = 1;
+						break;
+					default:
+						break;
 				}
 				baseAnvilCost += numEnchants + enchLevel * costPerLevel;
 			}

@@ -1,7 +1,8 @@
 package got.common.entity.ai;
 
 import got.client.model.GOTModelDragonAnimaton;
-import got.common.entity.dragon.*;
+import got.common.entity.dragon.GOTDragonFlightWaypoint;
+import got.common.entity.dragon.GOTEntityDragon;
 
 public class GOTEntityAIDragonCatchOwnerAir extends GOTEntityAIDragonCatchOwner {
 

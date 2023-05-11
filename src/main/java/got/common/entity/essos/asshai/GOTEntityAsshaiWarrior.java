@@ -1,6 +1,8 @@
 package got.common.entity.essos.asshai;
 
-import got.common.database.*;
+import got.common.database.GOTCapes;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -43,19 +45,19 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(5);
 		switch (i) {
-		case 0:
-		case 1:
-		case 2:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiSword));
-			break;
-		case 3:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiBattleaxe));
-			break;
-		case 4:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiHammer));
-			break;
-		default:
-			break;
+			case 0:
+			case 1:
+			case 2:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiSword));
+				break;
+			case 3:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiBattleaxe));
+				break;
+			case 4:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiHammer));
+				break;
+			default:
+				break;
 		}
 		if (rand.nextInt(6) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());

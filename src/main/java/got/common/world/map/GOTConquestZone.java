@@ -1,10 +1,11 @@
 package got.common.world.map;
 
-import java.util.*;
-
 import got.common.faction.GOTFaction;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GOTConquestZone {
 	public static List<GOTFaction> allPlayableFacs;
@@ -176,7 +177,8 @@ public class GOTConquestZone {
 		GOTConquestZone zone = new GOTConquestZone(x, z);
 		zone.isLoaded = false;
 		zone.lastChangeTime = time;
-		block0: for (GOTFaction fac : allPlayableFacs) {
+		block0:
+		for (GOTFaction fac : allPlayableFacs) {
 			ArrayList<String> nameAndAliases = new ArrayList<>();
 			nameAndAliases.add(fac.codeName());
 			nameAndAliases.addAll(fac.listAliases());

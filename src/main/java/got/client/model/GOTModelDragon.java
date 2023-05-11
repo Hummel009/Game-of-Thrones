@@ -1,11 +1,13 @@
 package got.client.model;
 
-import static org.lwjgl.opengl.GL11.*;
-
-import got.common.entity.dragon.*;
+import got.common.entity.dragon.GOTDragonBreed;
+import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+
+import static org.lwjgl.opengl.GL11.*;
 
 public class GOTModelDragon extends ModelBase {
 	public static int NECK_SIZE = 10;

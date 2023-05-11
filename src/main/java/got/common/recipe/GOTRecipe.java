@@ -1,28 +1,44 @@
 package got.common.recipe;
 
-import java.lang.reflect.Field;
-import java.util.*;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.GOTConfig;
 import got.common.block.leaves.GOTBlockLeavesBase;
-import got.common.block.other.*;
+import got.common.block.other.GOTBlockConcretePowder;
+import got.common.block.other.GOTBlockFallenLeaves;
+import got.common.block.other.GOTBlockStairs;
+import got.common.block.other.GOTBlockTreasurePile;
 import got.common.block.planks.GOTBlockPlanksBase;
 import got.common.block.sapling.GOTBlockSaplingBase;
 import got.common.block.slab.GOTBlockSlabBase;
 import got.common.block.wood.GOTBlockWoodBase;
-import got.common.database.*;
-import got.common.item.other.*;
+import got.common.database.GOTMaterial;
+import got.common.database.GOTRegistry;
+import got.common.item.other.GOTItemBanner;
+import got.common.item.other.GOTItemBerry;
+import got.common.item.other.GOTItemBone;
+import got.common.item.other.GOTItemRobes;
 import got.common.util.GOTEnumDyeColor;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockColored;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.passive.EntitySheep;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
-import net.minecraft.item.*;
-import net.minecraft.item.crafting.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.FurnaceRecipes;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.RecipesArmorDyes;
 import net.minecraft.world.World;
-import net.minecraftforge.oredict.*;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.RecipeSorter;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import java.lang.reflect.Field;
+import java.util.*;
 
 public class GOTRecipe {
 	public static List<IRecipe> slab = new ArrayList<>();
@@ -62,7 +78,7 @@ public class GOTRecipe {
 	public static List<IRecipe> dothraki = new ArrayList<>();
 	public static List<IRecipe> commonWesteros = new ArrayList<>();
 	public static List<IRecipe> commonEssos = new ArrayList<>();
-	public static String[] dyeOreNames = { "dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite" };
+	public static String[] dyeOreNames = {"dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite"};
 	public static List<IRecipe> mossovy = new ArrayList<>();
 
 	public static void addDyeableWoolRobeRecipes(List[] recipeLists, ItemStack result, Object... params) {
@@ -1351,19 +1367,19 @@ public class GOTRecipe {
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.gunpowder, 2), GOTRegistry.sulfur, GOTRegistry.saltpeter, new ItemStack(Items.coal, 1, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.string), GOTRegistry.flax);
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTRegistry.trapdoorAcacia, 2), "XXX", "XXX", Character.valueOf('X'), new ItemStack(Blocks.planks, 1, 4)));
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugAppleJuice), new Object[] { "apple", "apple" });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugBlackberryJuice), new Object[] { GOTRegistry.blackberry, GOTRegistry.blackberry, GOTRegistry.blackberry });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugBlueberryJuice), new Object[] { GOTRegistry.blueberry, GOTRegistry.blueberry, GOTRegistry.blueberry });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugChocolate), GOTRegistry.mugMilk, new Object[] { Items.sugar, new ItemStack(Items.dye, 1, 3) });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugCranberryJuice), new Object[] { GOTRegistry.cranberry, GOTRegistry.cranberry, GOTRegistry.cranberry });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugElderberryJuice), new Object[] { GOTRegistry.elderberry, GOTRegistry.elderberry, GOTRegistry.elderberry });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugLemonade), GOTRegistry.mugWater, new Object[] { GOTRegistry.lemon, Items.sugar });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugMangoJuice), new Object[] { GOTRegistry.mango, GOTRegistry.mango });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugOrangeJuice), new Object[] { GOTRegistry.orange, GOTRegistry.orange });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugPomegranateJuice), new Object[] { GOTRegistry.pomegranate, GOTRegistry.pomegranate });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugRaspberryJuice), new Object[] { GOTRegistry.raspberry, GOTRegistry.raspberry, GOTRegistry.raspberry });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugRedGrapeJuice), new Object[] { GOTRegistry.grapeRed, GOTRegistry.grapeRed, GOTRegistry.grapeRed });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugWhiteGrapeJuice), new Object[] { GOTRegistry.grapeWhite, GOTRegistry.grapeWhite, GOTRegistry.grapeWhite });
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugAppleJuice), new Object[]{"apple", "apple"});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugBlackberryJuice), new Object[]{GOTRegistry.blackberry, GOTRegistry.blackberry, GOTRegistry.blackberry});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugBlueberryJuice), new Object[]{GOTRegistry.blueberry, GOTRegistry.blueberry, GOTRegistry.blueberry});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugChocolate), GOTRegistry.mugMilk, new Object[]{Items.sugar, new ItemStack(Items.dye, 1, 3)});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugCranberryJuice), new Object[]{GOTRegistry.cranberry, GOTRegistry.cranberry, GOTRegistry.cranberry});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugElderberryJuice), new Object[]{GOTRegistry.elderberry, GOTRegistry.elderberry, GOTRegistry.elderberry});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugLemonade), GOTRegistry.mugWater, new Object[]{GOTRegistry.lemon, Items.sugar});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugMangoJuice), new Object[]{GOTRegistry.mango, GOTRegistry.mango});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugOrangeJuice), new Object[]{GOTRegistry.orange, GOTRegistry.orange});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugPomegranateJuice), new Object[]{GOTRegistry.pomegranate, GOTRegistry.pomegranate});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugRaspberryJuice), new Object[]{GOTRegistry.raspberry, GOTRegistry.raspberry, GOTRegistry.raspberry});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugRedGrapeJuice), new Object[]{GOTRegistry.grapeRed, GOTRegistry.grapeRed, GOTRegistry.grapeRed});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugWhiteGrapeJuice), new Object[]{GOTRegistry.grapeWhite, GOTRegistry.grapeWhite, GOTRegistry.grapeWhite});
 		GOTRecipe.addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesBoots), "X X", "X X", Character.valueOf('X'), Blocks.wool);
 		GOTRecipe.addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), Blocks.wool);
 		GOTRecipe.addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesHelmet), "XXX", "X X", Character.valueOf('X'), Blocks.wool);

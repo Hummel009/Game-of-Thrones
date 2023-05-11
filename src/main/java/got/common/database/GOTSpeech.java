@@ -1,24 +1,30 @@
 package got.common.database;
 
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import got.GOT;
+import got.common.GOTConfig;
+import got.common.GOTDrunkenSpeech;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketNPCSpeech;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.world.World;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.input.BOMInputStream;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.Map.Entry;
-import java.util.zip.*;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.input.BOMInputStream;
-
-import cpw.mods.fml.common.*;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import got.GOT;
-import got.common.*;
-import got.common.entity.other.GOTEntityNPC;
-import got.common.network.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.*;
-import net.minecraft.world.World;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 public class GOTSpeech {
 	public static Map<String, SpeechBank> allSpeechBanks = new HashMap<>();

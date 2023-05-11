@@ -1,16 +1,22 @@
 package got.common.world.structure.westeros.wildling.thenn;
 
-import java.util.Random;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.westeros.wildling.thenn.*;
+import got.common.entity.westeros.wildling.thenn.GOTEntityThenn;
+import got.common.entity.westeros.wildling.thenn.GOTEntityThennArcher;
+import got.common.entity.westeros.wildling.thenn.GOTEntityThennAxeThrower;
+import got.common.entity.westeros.wildling.thenn.GOTEntityThennBerserker;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureHayBales;
+import got.common.world.structure.other.GOTStructureNPCRespawner;
+import got.common.world.structure.other.GOTVillageGen;
+import got.common.world.structure.other.LocationInfo;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureThennVillage extends GOTVillageGen {
 	public GOTStructureThennVillage(GOTBiome biome, float f) {

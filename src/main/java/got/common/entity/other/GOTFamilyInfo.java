@@ -1,18 +1,23 @@
 package got.common.entity.other;
 
-import java.util.*;
-
-import got.common.*;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
 import got.common.database.GOTRegistry;
-import got.common.network.*;
+import got.common.network.GOTPacketFamilyInfo;
+import got.common.network.GOTPacketHandler;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.potion.*;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.management.PlayerManager;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.WorldServer;
+
+import java.util.List;
+import java.util.UUID;
 
 public class GOTFamilyInfo {
 	public GOTEntityNPC theEntity;

@@ -5,7 +5,8 @@ import got.common.dispense.GOTDispenseConker;
 import got.common.entity.other.GOTEntityConker;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTItemConker extends Item {

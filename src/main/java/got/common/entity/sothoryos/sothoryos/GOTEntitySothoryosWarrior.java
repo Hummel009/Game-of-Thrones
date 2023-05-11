@@ -1,6 +1,7 @@
 package got.common.entity.sothoryos.sothoryos;
 
-import got.common.database.*;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -30,28 +31,28 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(8);
 		switch (i) {
-		case 0:
-		case 1:
-		case 2:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosSword));
-			break;
-		case 3:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosDagger));
-			break;
-		case 4:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosDaggerPoisoned));
-			break;
-		case 5:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosHammer));
-			break;
-		case 6:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosBattleaxe));
-			break;
-		case 7:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosPike));
-			break;
-		default:
-			break;
+			case 0:
+			case 1:
+			case 2:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosSword));
+				break;
+			case 3:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosDagger));
+				break;
+			case 4:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosDaggerPoisoned));
+				break;
+			case 5:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosHammer));
+				break;
+			case 6:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosBattleaxe));
+				break;
+			case 7:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosPike));
+				break;
+			default:
+				break;
 		}
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());

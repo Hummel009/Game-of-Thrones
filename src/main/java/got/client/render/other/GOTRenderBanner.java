@@ -1,9 +1,5 @@
 package got.client.render.other;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import got.GOT;
 import got.client.GOTClientProxy;
 import got.client.model.GOTModelBanner;
@@ -11,11 +7,18 @@ import got.common.GOTBannerProtection;
 import got.common.entity.other.GOTEntityBanner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.culling.Frustrum;
-import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.renderer.entity.Render;
+import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderBanner extends Render {
 	public static Map<GOTItemBanner.BannerType, ResourceLocation> bannerTextures = new HashMap<>();

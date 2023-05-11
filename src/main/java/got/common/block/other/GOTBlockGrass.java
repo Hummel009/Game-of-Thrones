@@ -1,16 +1,19 @@
 package got.common.block.other;
 
-import java.util.*;
-
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.*;
+import net.minecraft.world.IBlockAccess;
+import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTBlockGrass extends BlockBush implements IShearable {
 	public boolean isSandy;

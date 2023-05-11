@@ -1,26 +1,29 @@
 package got.common.util;
 
-import java.awt.image.BufferedImage;
-import java.io.*;
-import java.lang.reflect.*;
-import java.util.*;
-
-import javax.imageio.ImageIO;
-
-import cpw.mods.fml.common.*;
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.Loader;
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.relauncher.ReflectionHelper;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.client.GOTTextures;
-import got.common.*;
+import got.common.GOTDimension;
 import got.common.GOTDimension.DimensionRegion;
+import got.common.GOTLore;
 import got.common.database.*;
-import got.common.faction.*;
+import got.common.faction.GOTFaction;
+import got.common.faction.GOTFactionRelations;
+import got.common.faction.GOTMapRegion;
 import got.common.item.other.GOTItemBanner;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.genlayer.GOTGenLayerWorld;
-import got.common.world.map.*;
+import got.common.world.map.GOTBeziers;
 import got.common.world.map.GOTBeziers.BezierPointDatabase;
+import got.common.world.map.GOTMapLabels;
+import got.common.world.map.GOTMountains;
+import got.common.world.map.GOTWaypoint;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -29,62 +32,75 @@ import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.util.EnumHelper;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 public class GOTAPI {
 	/**
-	 * @apiNote Creates new achievement category.
 	 * @param enumName - name of the new achievement category in enum.
 	 * @param biome    - biome name turns into the category name.
+	 * @apiNote Creates new achievement category.
 	 */
 	public static GOTAchievement.Category addAchievementCategory(String enumName, GOTBiome biome) {
-		Class[] classArr = { GOTBiome.class };
-		Object[] args = { biome };
+		Class[] classArr = {GOTBiome.class};
+		Object[] args = {biome};
 		return EnumHelper.addEnum(GOTAchievement.Category.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new achievement category.
 	 * @param enumName - name of the new achievement category in enum.
 	 * @param faction  - faction name turns into the category name.
+	 * @apiNote Creates new achievement category.
 	 */
 	public static GOTAchievement.Category addAchievementCategory(String enumName, GOTFaction faction) {
-		Class[] classArr = { GOTFaction.class };
-		Object[] args = { faction };
+		Class[] classArr = {GOTFaction.class};
+		Object[] args = {faction};
 		return EnumHelper.addEnum(GOTAchievement.Category.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new faction cape.
 	 * @param enumName - name of the new cape in enum.
 	 * @param faction  - cape belongs to this faction.
+	 * @apiNote Creates new faction cape.
 	 */
 	public static GOTCapes addAlignmentCape(String enumName, GOTFaction faction) {
-		Class[] classArr = { GOTFaction.class };
-		Object[] args = { faction };
+		Class[] classArr = {GOTFaction.class};
+		Object[] args = {faction};
 		return EnumHelper.addEnum(GOTCapes.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new faction shield.
 	 * @param enumName - name of the new shield in enum.
 	 * @param faction  - shield belongs to this faction.
+	 * @apiNote Creates new faction shield.
 	 */
 	public static GOTShields addAlignmentShield(String enumName, GOTFaction faction) {
-		Class[] classArr = { GOTFaction.class };
-		Object[] args = { faction };
+		Class[] classArr = {GOTFaction.class};
+		Object[] args = {faction};
 		return EnumHelper.addEnum(GOTShields.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new faction banner.
 	 * @param enumName   - name of the new banner in enum.
 	 * @param id         - should be unique, so use ids from 700.
 	 * @param bannerName - texture name of the banner.
 	 * @param faction    - banner's faction. Affects on private, conquest, icon
 	 *                   color.
+	 * @apiNote Creates new faction banner.
 	 */
 	public static GOTItemBanner.BannerType addBanner(String enumName, int id, String bannerName, GOTFaction faction) {
-		Class[] classArr = { Integer.TYPE, String.class, GOTFaction.class };
-		Object[] args = { id, bannerName, faction };
+		Class[] classArr = {Integer.TYPE, String.class, GOTFaction.class};
+		Object[] args = {id, bannerName, faction};
 		GOTItemBanner.BannerType banner = EnumHelper.addEnum(GOTItemBanner.BannerType.class, enumName, classArr, args);
 		GOTItemBanner.BannerType.bannerForID.put(banner.bannerID, banner);
 		GOTItemBanner.BannerType.bannerTypes.add(banner);
@@ -92,55 +108,53 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Creates new exclusive cape.
 	 * @param enumName - name of the new cape in enum.
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
+	 * @apiNote Creates new exclusive cape.
 	 */
 	public static GOTCapes addCape(String enumName, boolean hidden, List<String> players) {
 		return addCape(enumName, GOTCapes.CapeType.EXCLUSIVE, hidden, players);
 	}
 
 	/**
-	 * @apiNote Creates new exclusive cape.
 	 * @param enumName - name of the new cape in enum.
 	 * @param type     - exclusive/achievement/faction.
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
+	 * @apiNote Creates new exclusive cape.
 	 */
 	public static GOTCapes addCape(String enumName, GOTCapes.CapeType type, boolean hidden, List<String> players) {
-		Class[] classArr = { GOTCapes.CapeType.class, Boolean.TYPE, ArrayList.class };
-		Object[] args = { type, hidden, players };
+		Class[] classArr = {GOTCapes.CapeType.class, Boolean.TYPE, ArrayList.class};
+		Object[] args = {type, hidden, players};
 		return EnumHelper.addEnum(GOTCapes.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new dimension region.
 	 * @param enumName   - name of the new dimension region in enum.
 	 * @param regionName - name of the region, should be translated.
+	 * @apiNote Creates new dimension region.
 	 */
 	public static DimensionRegion addDimensionRegion(String enumName, String regionName) {
-		Class[] classArr = { String.class };
-		Object[] args = { regionName };
+		Class[] classArr = {String.class};
+		Object[] args = {regionName};
 		return EnumHelper.addEnum(DimensionRegion.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new faction
 	 * @param enumName - name of the new faction in enum.
 	 * @param color    - 0xHHEEXX. For the bar, banners, eggs, etc.
 	 * @param region   - dimension region.
 	 * @param mapInfo  - square of the map displayed on the faction page.
+	 * @apiNote Creates new faction
 	 */
 	public static GOTFaction addFaction(String enumName, int color, DimensionRegion region, GOTMapRegion mapInfo) {
-		Class[] classArr = { Integer.TYPE, GOTDimension.class, DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class };
-		Object[] args = { color, GOTDimension.GAME_OF_THRONES, region, true, true, Integer.MIN_VALUE, mapInfo };
+		Class[] classArr = {Integer.TYPE, GOTDimension.class, DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
+		Object[] args = {color, GOTDimension.GAME_OF_THRONES, region, true, true, Integer.MIN_VALUE, mapInfo};
 		return EnumHelper.addEnum(GOTFaction.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new faction with lots of technical settings.
-	 * @deprecated Complex way, only for advanced developers.
 	 * @param enumName  - name of the new faction in enum.
 	 * @param color     - 0xHHEEXX. For the bar, banners, eggs, etc.
 	 * @param dim       - dimension.
@@ -149,57 +163,58 @@ public class GOTAPI {
 	 * @param registry  - allows entity registry (attack settings).
 	 * @param alignment - fixed alignment.
 	 * @param mapInfo   - square of the map displayed on the faction page.
+	 * @apiNote Creates new faction with lots of technical settings.
+	 * @deprecated Complex way, only for advanced developers.
 	 */
 	@Deprecated
 	public static GOTFaction addFaction(String enumName, int color, GOTDimension dim, DimensionRegion region, boolean player, boolean registry, int alignment, GOTMapRegion mapInfo) {
-		Class[] classArr = { Integer.TYPE, GOTDimension.class, DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class };
-		Object[] args = { color, dim, region, player, registry, alignment, mapInfo };
+		Class[] classArr = {Integer.TYPE, GOTDimension.class, DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
+		Object[] args = {color, dim, region, player, registry, alignment, mapInfo};
 		return EnumHelper.addEnum(GOTFaction.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new faction invasion.
 	 * @param enumName - name of the new invasion in enum.
 	 * @param faction  - invasion belongs to this faction.
+	 * @apiNote Creates new faction invasion.
 	 */
 	public static GOTInvasions addInvasion(String enumName, GOTFaction faction) {
 		return addInvasion(enumName, faction, null);
 	}
 
 	/**
-	 * @apiNote Creates new secondary faction invasion
 	 * @param enumName   - name of the new invasion in enum.
 	 * @param faction    - invasion belongs to this faction.
 	 * @param subfaction - invasion's name in lang file.
+	 * @apiNote Creates new secondary faction invasion
 	 */
 	public static GOTInvasions addInvasion(String enumName, GOTFaction faction, String subfaction) {
-		Class[] classArr = { GOTFaction.class, String.class };
-		Object[] args = { faction, subfaction };
+		Class[] classArr = {GOTFaction.class, String.class};
+		Object[] args = {faction, subfaction};
 		return EnumHelper.addEnum(GOTInvasions.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new lore category with its books.
 	 * @param enumName - name of the new lore category in enum.
 	 * @param name     - codename that is to be written in books.
+	 * @apiNote Creates new lore category with its books.
 	 */
 	public static GOTLore.LoreCategory addLoreCategory(String enumName, String name) {
-		Class[] classArr = { String.class };
-		Object[] args = { name };
+		Class[] classArr = {String.class};
+		Object[] args = {name};
 		return EnumHelper.addEnum(GOTLore.LoreCategory.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Adds lore to existing lore category.
 	 * @param category - lore category.
 	 * @param lore     - lore.
+	 * @apiNote Adds lore to existing lore category.
 	 */
 	public static void addLoreToLoreCategory(GOTLore.LoreCategory category, GOTLore lore) {
 		category.loreList.add(lore);
 	}
 
 	/**
-	 * @apiNote Creates new map label on the gui screen.
 	 * @param enumName   - name of the new map label in enum.
 	 * @param biomeLabel - name of this biome will be used in label.
 	 * @param x          - coord of the pixel on map.png.
@@ -208,19 +223,19 @@ public class GOTAPI {
 	 * @param angle      - rotation angle (hour hand).
 	 * @param zoomMin    - label will be seen after this scale.
 	 * @param zoomMax    - label will be seen before this scale.
+	 * @apiNote Creates new map label on the gui screen.
 	 */
 	public static GOTMapLabels addMapLabel(String enumName, GOTBiome biomeLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
 		return addMapLabel(enumName, (Object) biomeLabel, x, y, scale, angle, zoomMin, zoomMan);
 	}
 
 	private static GOTMapLabels addMapLabel(String enumName, Object label, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
-		Class[] classArr = { Object.class, Integer.TYPE, Integer.TYPE, Float.TYPE, Integer.TYPE, Float.TYPE, Float.TYPE };
-		Object[] args = { label, x, y, Float.valueOf(scale), angle, Float.valueOf(zoomMin), Float.valueOf(zoomMan) };
+		Class[] classArr = {Object.class, Integer.TYPE, Integer.TYPE, Float.TYPE, Integer.TYPE, Float.TYPE, Float.TYPE};
+		Object[] args = {label, x, y, Float.valueOf(scale), angle, Float.valueOf(zoomMin), Float.valueOf(zoomMan)};
 		return EnumHelper.addEnum(GOTMapLabels.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new map label on the gui screen.
 	 * @param enumName    - name of the new map label in enum.
 	 * @param stringLabel - name of the label for translation.
 	 * @param x           - coord of the pixel on map.png.
@@ -229,115 +244,116 @@ public class GOTAPI {
 	 * @param angle       - angle of the label on the map. 0 is horisontal.
 	 * @param zoomMin     - label will be seen after this scale.
 	 * @param zoomMax     - label will be seen before this scale.
+	 * @apiNote Creates new map label on the gui screen.
 	 */
 	public static GOTMapLabels addMapLabel(String enumName, String stringLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
 		return addMapLabel(enumName, (Object) stringLabel, x, y, scale, angle, zoomMin, zoomMan);
 	}
 
 	/**
-	 * @apiNote Creates new miniquest category.
 	 * @param enumName - name of the new miniquest category in enum.
 	 * @param name     - name of the subfolder.
+	 * @apiNote Creates new miniquest category.
 	 */
 	public static GOTMiniQuestFactory addMiniQuestFactory(String enumName, String name) {
-		Class[] classArr = { String.class };
-		Object[] args = { name };
+		Class[] classArr = {String.class};
+		Object[] args = {name};
 		return EnumHelper.addEnum(GOTMiniQuestFactory.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new mountain.
 	 * @param name - name of the new mountain in enum.
 	 * @param x    - coord of the pixel on map.png.
 	 * @param z    - coord of the pixel on map.png.
 	 * @param h    - height.
 	 * @param r    - radius.
+	 * @apiNote Creates new mountain.
 	 */
 	public static GOTMountains addMountain(String name, double x, double z, float h, int r) {
 		return addMountain(name, x, z, h, r, 0);
 	}
 
 	/**
-	 * @apiNote Creates new mountain.
 	 * @param name - name of the new mountain in enum.
 	 * @param x    - coord of the pixel on map.png.
 	 * @param z    - coord of the pixel on map.png.
 	 * @param h    - height.
 	 * @param r    - radius.
 	 * @param lava - lava crater radius. Usual mountain = 0.
+	 * @apiNote Creates new mountain.
 	 */
 	public static GOTMountains addMountain(String name, double x, double z, float h, int r, int lava) {
-		Class[] classArr = { Double.TYPE, Double.TYPE, Float.TYPE, Integer.TYPE, Integer.TYPE };
-		Object[] args = { x, z, Float.valueOf(h), r, lava };
+		Class[] classArr = {Double.TYPE, Double.TYPE, Float.TYPE, Integer.TYPE, Integer.TYPE};
+		Object[] args = {x, z, Float.valueOf(h), r, lava};
 		return EnumHelper.addEnum(GOTMountains.class, name, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new exclusive shield.
 	 * @param enumName - name of the new shield in enum.
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
+	 * @apiNote Creates new exclusive shield.
 	 */
 	public static GOTShields addShield(String enumName, boolean hidden, List<String> players) {
 		return addShield(enumName, GOTShields.ShieldType.EXCLUSIVE, hidden, players);
 	}
 
 	/**
-	 * @apiNote Creates new exclusive shield.
 	 * @param enumName - name of the new shield in enum.
 	 * @param type     - exclusive/achievement/faction.
 	 * @param hidden   - will be displayed in the GUI or not.
 	 * @param players  - UUIDs of the owners.
+	 * @apiNote Creates new exclusive shield.
 	 */
 	public static GOTShields addShield(String enumName, GOTShields.ShieldType type, boolean hidden, List<String> players) {
-		Class[] classArr = { GOTShields.ShieldType.class, Boolean.TYPE, ArrayList.class };
-		Object[] args = { type, hidden, players };
+		Class[] classArr = {GOTShields.ShieldType.class, Boolean.TYPE, ArrayList.class};
+		Object[] args = {type, hidden, players};
 		return EnumHelper.addEnum(GOTShields.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new tree, that can be added in the biome.
 	 * @param enumName    - name of the new tree type in enum.
 	 * @param treeFactory - lambda constructions, see in GOTTreeType.java.
+	 * @apiNote Creates new tree, that can be added in the biome.
 	 */
 	public static GOTTreeType addTreeType(String enumName, Object treeFactory) {
-		Class[] classArr = { GOTTreeType.ITreeFactory.class };
-		Object[] args = { treeFactory };
+		Class[] classArr = {GOTTreeType.ITreeFactory.class};
+		Object[] args = {treeFactory};
 		return EnumHelper.addEnum(GOTTreeType.class, enumName, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new waypoint.
 	 * @param name    - name of the new waypoint in enum.
 	 * @param region  - region of unlocking.
 	 * @param faction - you should have 0+ rep with this faction to travel here.
 	 * @param x       - coord of the pixel on map.png.
 	 * @param z       - coord of the pixel on map.png.
 	 * @param hidden  - hidden point is invisible before unlocking.
+	 * @apiNote Creates new waypoint.
 	 */
 	public static GOTWaypoint addWaypoint(String name, GOTWaypoint.Region region, GOTFaction faction, double x, double z, boolean hidden) {
-		Class[] classArr = { GOTWaypoint.Region.class, GOTFaction.class, Double.TYPE, Double.TYPE, Boolean.TYPE };
-		Object[] args = { region, faction, x, z, hidden };
+		Class[] classArr = {GOTWaypoint.Region.class, GOTFaction.class, Double.TYPE, Double.TYPE, Boolean.TYPE};
+		Object[] args = {region, faction, x, z, hidden};
 		return EnumHelper.addEnum(GOTWaypoint.class, name, classArr, args);
 	}
 
 	/**
-	 * @apiNote Creates new waypoint.
 	 * @param name    - name of the new waypoint in enum.
 	 * @param region  - region of unlocking.
 	 * @param faction - you should have 0+ rep with this faction to travel here.
 	 * @param x       - coord of the pixel on map.png.
 	 * @param z       - coord of the pixel on map.png.
+	 * @apiNote Creates new waypoint.
 	 */
 	public static GOTWaypoint addWaypoint(String name, GOTWaypoint.Region region, GOTFaction faction, int x, int z) {
 		return addWaypoint(name, region, faction, x, z, false);
 	}
 
 	/**
+	 * @param name - name of the new waypoint region in enum.
 	 * @apiNote Creates new waypoint region for unlocking.
 	 * @apiNote Don't forget to point out this region in needed biome.
 	 * @apiNote Init regions BEGORE adding waypoints.
-	 * @param name - name of the new waypoint region in enum.
 	 */
 	public static GOTWaypoint.Region addWaypointRegion(String name) {
 		Class[] classArr = {};
@@ -346,9 +362,9 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Moves faction from one region category to the another.
 	 * @param faction   - faction that will be moved.
 	 * @param newRegion - new dimension region.
+	 * @apiNote Moves faction from one region category to the another.
 	 */
 	public static void changeDimensionRegion(GOTFaction faction, DimensionRegion newRegion) {
 		faction.factionRegion.factionList.remove(faction);
@@ -364,8 +380,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Clears miniquest factory.
 	 * @param factory - miniquest factory that will be cleared.
+	 * @apiNote Clears miniquest factory.
 	 */
 	public static void clearMiniQuestFactory(GOTMiniQuestFactory factory) {
 		factory.baseSpeechGroup = null;
@@ -446,9 +462,9 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Returns the list of fields of needed type from class file.
 	 * @param clazz - class file with fields.
 	 * @param type  - needed type.
+	 * @apiNote Returns the list of fields of needed type from class file.
 	 */
 	public static <E, T> Set<T> getObjectFieldsOfType(Class<? extends E> clazz, Class<? extends T> type) {
 		return getObjectFieldsOfType(clazz, null, type);
@@ -492,8 +508,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes blocks or items from the inventory.
 	 * @param content - multiple blocks or items.
+	 * @apiNote Removes blocks or items from the inventory.
 	 */
 	public static void hideFromInventory(Object... content) {
 		for (Object obj : content) {
@@ -506,8 +522,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes selected capes from the GUI.
 	 * @param content - multiple capes.
+	 * @apiNote Removes selected capes from the GUI.
 	 */
 	public static void removeCapes(GOTCapes... content) {
 		for (GOTCapes removal : content) {
@@ -516,8 +532,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes capes selected selected from the GUI.
 	 * @param content - multiple capes.
+	 * @apiNote Removes capes selected selected from the GUI.
 	 */
 	public static void removeCapesExcept(GOTCapes... content) {
 		for (GOTCapes removal : GOTCapes.values()) {
@@ -546,8 +562,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes selected factions from the GUI.
 	 * @param content - multiple factions.
+	 * @apiNote Removes selected factions from the GUI.
 	 */
 	public static void removeFactions(GOTFaction... content) {
 		for (GOTFaction removal : content) {
@@ -556,8 +572,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes factions except selected from the GUI.
 	 * @param content - multiple factions.
+	 * @apiNote Removes factions except selected from the GUI.
 	 */
 	public static void removeFactionsExcept(GOTFaction... content) {
 		for (GOTFaction removal : GOTFaction.values()) {
@@ -575,8 +591,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes selected map labels from the GUI.
 	 * @param content - multiple map labels.
+	 * @apiNote Removes selected map labels from the GUI.
 	 */
 	public static void removeMapLabels(GOTMapLabels... content) {
 		for (GOTMapLabels removal : content) {
@@ -585,8 +601,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes map labels except selected from the GUI.
 	 * @param content - multiple map labels.
+	 * @apiNote Removes map labels except selected from the GUI.
 	 */
 	public static void removeMapLabelsExcept(GOTMapLabels... content) {
 		for (GOTMapLabels removal : GOTMapLabels.values()) {
@@ -599,8 +615,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes selected shields from the GUI.
 	 * @param content - multiple shields.
+	 * @apiNote Removes selected shields from the GUI.
 	 */
 	public static void removeShields(GOTShields... content) {
 		for (GOTShields removal : content) {
@@ -609,8 +625,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes shields except selected from the GUI.
 	 * @param content - multiple shields.
+	 * @apiNote Removes shields except selected from the GUI.
 	 */
 	public static void removeShieldsExcept(GOTShields... content) {
 		for (GOTShields removal : GOTShields.values()) {
@@ -633,8 +649,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes selected titles from the GUI.
 	 * @param content - multiple titles.
+	 * @apiNote Removes selected titles from the GUI.
 	 */
 	public static void removeTitles(GOTTitle... content) {
 		for (GOTTitle removal : content) {
@@ -643,8 +659,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes titles except selected from the GUI.
 	 * @param content - multiple titles.
+	 * @apiNote Removes titles except selected from the GUI.
 	 */
 	public static void removeTitlesExcept(GOTTitle... content) {
 		for (GOTTitle removal : getObjectFieldsOfType(GOTTitle.class, GOTTitle.class)) {
@@ -662,8 +678,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes selected waypoints from the GUI.
 	 * @param content - multiple waypoints.
+	 * @apiNote Removes selected waypoints from the GUI.
 	 */
 	public static void removeWaypoints(GOTWaypoint... content) {
 		for (GOTWaypoint removal : content) {
@@ -672,8 +688,8 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Removes waypoints except selected from the GUI.
 	 * @param content - multiple waypoints.
+	 * @apiNote Removes waypoints except selected from the GUI.
 	 */
 	public static void removeWaypointsExcept(GOTWaypoint... content) {
 		for (GOTWaypoint removal : GOTWaypoint.values()) {
@@ -686,16 +702,16 @@ public class GOTAPI {
 	}
 
 	/**
+	 * @param mapTexture - path to map file.
 	 * @apiNote Changes map and sepia map in the GUI.
 	 * @apiNote YourClientProxy should implement IResourceManagerReloadListener.
 	 * @apiNote Add onInit() void to the YourClientProxy file, if doesn't exist.
 	 * @apiNote Add next line into the onInit():
-	 * @apiNote ((IReloadableResourceManager)Minecraft.getMinecraft().getResourceManager()).registerReloadListener(new
-	 *          YourClientProxy());
+	 * @apiNote (( IReloadableResourceManager)Minecraft.getMinecraft().getResourceManager()).registerReloadListener(new
+	 * YourClientProxy());
 	 * @apiNote Add unimplemented onResourceManagerReload to the
-	 *          YourClientProxy.
+	 * YourClientProxy.
 	 * @apiNote Use setClientMapImage void in the onResourceManagerReload.
-	 * @param mapTexture - path to map file.
 	 */
 	@SideOnly(value = Side.CLIENT)
 	public static void setClientMapImage(ResourceLocation mapTexture) {
@@ -713,10 +729,10 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Changes region's dimension.
-	 * @deprecated No sense: only GAME_OF_THRONES dimension is available.
 	 * @param region    - dimension region.
 	 * @param dimension - new region's dimension.
+	 * @apiNote Changes region's dimension.
+	 * @deprecated No sense: only GAME_OF_THRONES dimension is available.
 	 */
 	@Deprecated
 	public static void setDimensionForRegion(DimensionRegion region, GOTDimension dimension) {
@@ -725,19 +741,19 @@ public class GOTAPI {
 	}
 
 	/**
-	 * @apiNote Changes entity scale.
 	 * @param entity - mob, that will be rescaled.
 	 * @param width  - new width of the mob.
 	 * @param height - new height of the mob.
+	 * @apiNote Changes entity scale.
 	 */
 	public static void setEntitySize(Entity entity, float width, float height) {
-		findAndInvokeMethod(new Object[] { Float.valueOf(width), Float.valueOf(height) }, Entity.class, entity, new String[] { "setSize", "func_70105_a", "a" }, Float.TYPE, Float.TYPE);
+		findAndInvokeMethod(new Object[]{Float.valueOf(width), Float.valueOf(height)}, Entity.class, entity, new String[]{"setSize", "func_70105_a", "a"}, Float.TYPE, Float.TYPE);
 	}
 
 	/**
+	 * @param res - ResourceLocation with path to map file.
 	 * @apiNote Changes map for the world generation.
 	 * @apiNote Should be used at the FMLInitializationEvent or later.
-	 * @param res - ResourceLocation with path to map file.
 	 */
 	public static void setServerMapImage(ResourceLocation res) {
 		BufferedImage img = getImage(getInputStream(res));

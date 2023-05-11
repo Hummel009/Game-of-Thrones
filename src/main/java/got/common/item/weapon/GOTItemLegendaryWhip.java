@@ -1,15 +1,19 @@
 package got.common.item.weapon;
 
-import java.util.*;
-
 import got.common.GOTBannerProtection;
 import got.common.database.GOTCreativeTabs;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.EnumAction;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GOTItemLegendaryWhip extends GOTItemSword {
 	public GOTItemLegendaryWhip() {
@@ -83,7 +87,8 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 			}
 		}
 		Vec3 eyeHeight = position.addVector(0.0, user.getEyeHeight(), 0.0);
-		block2: for (int l = 4; l < (int) range; ++l) {
+		block2:
+		for (int l = 4; l < (int) range; ++l) {
 			double d = l / range;
 			double dx = sight.xCoord - eyeHeight.xCoord;
 			double dy = sight.yCoord - eyeHeight.yCoord;

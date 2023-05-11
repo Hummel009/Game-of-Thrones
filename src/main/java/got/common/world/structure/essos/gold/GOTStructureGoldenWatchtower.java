@@ -1,15 +1,18 @@
 package got.common.world.structure.essos.gold;
 
-import java.util.Random;
-
-import got.common.database.*;
-import got.common.entity.essos.gold.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTRegistry;
+import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
+import got.common.entity.essos.gold.GOTEntityGoldenSpearman;
+import got.common.entity.essos.gold.GOTEntityGoldenWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 	public Block woodBlock;
@@ -57,38 +60,38 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 			trapdoorBlock = Blocks.trapdoor;
 		} else {
 			switch (randomWood) {
-			case 1:
-				woodBlock = Blocks.log;
-				woodMeta = 1;
-				plankBlock = Blocks.planks;
-				plankMeta = 1;
-				fenceBlock = Blocks.fence;
-				fenceMeta = 0;
-				stairBlock = Blocks.spruce_stairs;
-				trapdoorBlock = GOTRegistry.trapdoorSpruce;
-				break;
-			case 2:
-				woodBlock = GOTRegistry.wood2;
-				woodMeta = 1;
-				plankBlock = GOTRegistry.planks1;
-				plankMeta = 9;
-				fenceBlock = GOTRegistry.fence;
-				fenceMeta = 9;
-				stairBlock = GOTRegistry.stairsBeech;
-				trapdoorBlock = GOTRegistry.trapdoorBeech;
-				break;
-			case 3:
-				woodBlock = GOTRegistry.wood3;
-				woodMeta = 0;
-				plankBlock = GOTRegistry.planks1;
-				plankMeta = 12;
-				fenceBlock = GOTRegistry.fence;
-				fenceMeta = 12;
-				stairBlock = GOTRegistry.stairsMaple;
-				trapdoorBlock = GOTRegistry.trapdoorMaple;
-				break;
-			default:
-				break;
+				case 1:
+					woodBlock = Blocks.log;
+					woodMeta = 1;
+					plankBlock = Blocks.planks;
+					plankMeta = 1;
+					fenceBlock = Blocks.fence;
+					fenceMeta = 0;
+					stairBlock = Blocks.spruce_stairs;
+					trapdoorBlock = GOTRegistry.trapdoorSpruce;
+					break;
+				case 2:
+					woodBlock = GOTRegistry.wood2;
+					woodMeta = 1;
+					plankBlock = GOTRegistry.planks1;
+					plankMeta = 9;
+					fenceBlock = GOTRegistry.fence;
+					fenceMeta = 9;
+					stairBlock = GOTRegistry.stairsBeech;
+					trapdoorBlock = GOTRegistry.trapdoorBeech;
+					break;
+				case 3:
+					woodBlock = GOTRegistry.wood3;
+					woodMeta = 0;
+					plankBlock = GOTRegistry.planks1;
+					plankMeta = 12;
+					fenceBlock = GOTRegistry.fence;
+					fenceMeta = 12;
+					stairBlock = GOTRegistry.stairsMaple;
+					trapdoorBlock = GOTRegistry.trapdoorMaple;
+					break;
+				default:
+					break;
 			}
 		}
 		generateSupportPillar(world, -3, 4, -3);

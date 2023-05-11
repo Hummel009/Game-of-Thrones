@@ -3,7 +3,8 @@ package got.common.entity.essos.ibben;
 import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
-import net.minecraft.entity.*;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -66,20 +67,20 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(6);
 		switch (i) {
-		case 0:
-		case 1:
-		case 2:
-		case 3:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ibbenSword));
-			break;
-		case 4:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironBattleaxe));
-			break;
-		case 5:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironPike));
-			break;
-		default:
-			break;
+			case 0:
+			case 1:
+			case 2:
+			case 3:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ibbenSword));
+				break;
+			case 4:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironBattleaxe));
+				break;
+			case 5:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironPike));
+				break;
+			default:
+				break;
 		}
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());

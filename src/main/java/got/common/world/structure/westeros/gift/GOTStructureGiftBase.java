@@ -1,13 +1,15 @@
 package got.common.world.structure.westeros.gift;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
-import net.minecraft.init.*;
-import net.minecraft.item.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
+import java.util.Random;
 
 public abstract class GOTStructureGiftBase extends GOTStructureBase {
 	public Block brickBlock;
@@ -60,7 +62,7 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 	}
 
 	public ItemStack getRangerFramedItem(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.giftHelmet), new ItemStack(GOTRegistry.giftChestplate), new ItemStack(GOTRegistry.giftLeggings), new ItemStack(GOTRegistry.giftBoots), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(Items.bow), new ItemStack(Items.arrow) };
+		ItemStack[] items = {new ItemStack(GOTRegistry.giftHelmet), new ItemStack(GOTRegistry.giftChestplate), new ItemStack(GOTRegistry.giftLeggings), new ItemStack(GOTRegistry.giftBoots), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(Items.bow), new ItemStack(Items.arrow)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -117,33 +119,33 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 		} else {
 			int randomCrop = random.nextInt(5);
 			switch (randomCrop) {
-			case 0:
-				cropBlock = Blocks.carrots;
-				cropMeta = 7;
-				seedItem = Items.carrot;
-				break;
-			case 1:
-				cropBlock = Blocks.potatoes;
-				cropMeta = 7;
-				seedItem = Items.potato;
-				break;
-			case 2:
-				cropBlock = GOTRegistry.lettuceCrop;
-				cropMeta = 7;
-				seedItem = GOTRegistry.lettuce;
-				break;
-			case 3:
-				cropBlock = GOTRegistry.leekCrop;
-				cropMeta = 7;
-				seedItem = GOTRegistry.leek;
-				break;
-			case 4:
-				cropBlock = GOTRegistry.turnipCrop;
-				cropMeta = 7;
-				seedItem = GOTRegistry.turnip;
-				break;
-			default:
-				break;
+				case 0:
+					cropBlock = Blocks.carrots;
+					cropMeta = 7;
+					seedItem = Items.carrot;
+					break;
+				case 1:
+					cropBlock = Blocks.potatoes;
+					cropMeta = 7;
+					seedItem = Items.potato;
+					break;
+				case 2:
+					cropBlock = GOTRegistry.lettuceCrop;
+					cropMeta = 7;
+					seedItem = GOTRegistry.lettuce;
+					break;
+				case 3:
+					cropBlock = GOTRegistry.leekCrop;
+					cropMeta = 7;
+					seedItem = GOTRegistry.leek;
+					break;
+				case 4:
+					cropBlock = GOTRegistry.turnipCrop;
+					cropMeta = 7;
+					seedItem = GOTRegistry.turnip;
+					break;
+				default:
+					break;
 			}
 		}
 		bannerType = GOTItemBanner.BannerType.NIGHT;

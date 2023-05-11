@@ -1,11 +1,12 @@
 package got.common.block.other;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
+
+import java.util.Random;
 
 public class GOTBlockRedClay extends Block {
 	public GOTBlockRedClay() {

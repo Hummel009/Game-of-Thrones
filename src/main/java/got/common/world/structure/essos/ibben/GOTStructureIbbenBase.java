@@ -1,13 +1,15 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
-import net.minecraft.init.*;
-import net.minecraft.item.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
+import java.util.Random;
 
 public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 	public Block rockBlock;
@@ -87,20 +89,20 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 	public Block getRandomCakeBlock(Random random) {
 		int i = random.nextInt(3);
 		switch (i) {
-		case 0:
-			return GOTRegistry.appleCrumble;
-		case 1:
-			return GOTRegistry.cherryPie;
-		case 2:
-			return GOTRegistry.berryPie;
-		default:
-			break;
+			case 0:
+				return GOTRegistry.appleCrumble;
+			case 1:
+				return GOTRegistry.cherryPie;
+			case 2:
+				return GOTRegistry.berryPie;
+			default:
+				break;
 		}
 		return null;
 	}
 
 	public ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = { new ItemStack(GOTRegistry.stoneSpear), new ItemStack(GOTRegistry.ironSpear), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.ironDaggerPoisoned) };
+		ItemStack[] items = {new ItemStack(GOTRegistry.stoneSpear), new ItemStack(GOTRegistry.ironSpear), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.ironDaggerPoisoned)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -137,70 +139,70 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		cobbleStairBlock = Blocks.stone_stairs;
 		int randomWood = random.nextInt(6);
 		switch (randomWood) {
-		case 0:
-		case 1:
-		case 2:
-			logBlock = Blocks.log;
-			logMeta = 0;
-			plankBlock = Blocks.planks;
-			plankMeta = 0;
-			plankSlabBlock = Blocks.wooden_slab;
-			plankSlabMeta = 0;
-			plankStairBlock = Blocks.oak_stairs;
-			fenceBlock = Blocks.fence;
-			fenceMeta = 0;
-			fenceGateBlock = Blocks.fence_gate;
-			woodBeamBlock = GOTRegistry.woodBeamV1;
-			woodBeamMeta = 0;
-			doorBlock = Blocks.wooden_door;
-			break;
-		case 3:
-			logBlock = GOTRegistry.wood2;
-			logMeta = 1;
-			plankBlock = GOTRegistry.planks1;
-			plankMeta = 9;
-			plankSlabBlock = GOTRegistry.woodSlabSingle2;
-			plankSlabMeta = 1;
-			plankStairBlock = GOTRegistry.stairsBeech;
-			fenceBlock = GOTRegistry.fence;
-			fenceMeta = 9;
-			fenceGateBlock = GOTRegistry.fenceGateBeech;
-			woodBeamBlock = GOTRegistry.woodBeam2;
-			woodBeamMeta = 1;
-			doorBlock = GOTRegistry.doorBeech;
-			break;
-		case 4:
-			logBlock = GOTRegistry.fruitWood;
-			logMeta = 0;
-			plankBlock = GOTRegistry.planks1;
-			plankMeta = 4;
-			plankSlabBlock = GOTRegistry.woodSlabSingle1;
-			plankSlabMeta = 4;
-			plankStairBlock = GOTRegistry.stairsApple;
-			fenceBlock = GOTRegistry.fence;
-			fenceMeta = 4;
-			fenceGateBlock = GOTRegistry.fenceGateApple;
-			woodBeamBlock = GOTRegistry.woodBeamFruit;
-			woodBeamMeta = 0;
-			doorBlock = GOTRegistry.doorApple;
-			break;
-		case 5:
-			logBlock = GOTRegistry.wood5;
-			logMeta = 0;
-			plankBlock = GOTRegistry.planks2;
-			plankMeta = 4;
-			plankSlabBlock = GOTRegistry.woodSlabSingle3;
-			plankSlabMeta = 4;
-			plankStairBlock = GOTRegistry.stairsPine;
-			fenceBlock = GOTRegistry.fence2;
-			fenceMeta = 4;
-			fenceGateBlock = GOTRegistry.fenceGatePine;
-			woodBeamBlock = GOTRegistry.woodBeam5;
-			woodBeamMeta = 0;
-			doorBlock = GOTRegistry.doorPine;
-			break;
-		default:
-			break;
+			case 0:
+			case 1:
+			case 2:
+				logBlock = Blocks.log;
+				logMeta = 0;
+				plankBlock = Blocks.planks;
+				plankMeta = 0;
+				plankSlabBlock = Blocks.wooden_slab;
+				plankSlabMeta = 0;
+				plankStairBlock = Blocks.oak_stairs;
+				fenceBlock = Blocks.fence;
+				fenceMeta = 0;
+				fenceGateBlock = Blocks.fence_gate;
+				woodBeamBlock = GOTRegistry.woodBeamV1;
+				woodBeamMeta = 0;
+				doorBlock = Blocks.wooden_door;
+				break;
+			case 3:
+				logBlock = GOTRegistry.wood2;
+				logMeta = 1;
+				plankBlock = GOTRegistry.planks1;
+				plankMeta = 9;
+				plankSlabBlock = GOTRegistry.woodSlabSingle2;
+				plankSlabMeta = 1;
+				plankStairBlock = GOTRegistry.stairsBeech;
+				fenceBlock = GOTRegistry.fence;
+				fenceMeta = 9;
+				fenceGateBlock = GOTRegistry.fenceGateBeech;
+				woodBeamBlock = GOTRegistry.woodBeam2;
+				woodBeamMeta = 1;
+				doorBlock = GOTRegistry.doorBeech;
+				break;
+			case 4:
+				logBlock = GOTRegistry.fruitWood;
+				logMeta = 0;
+				plankBlock = GOTRegistry.planks1;
+				plankMeta = 4;
+				plankSlabBlock = GOTRegistry.woodSlabSingle1;
+				plankSlabMeta = 4;
+				plankStairBlock = GOTRegistry.stairsApple;
+				fenceBlock = GOTRegistry.fence;
+				fenceMeta = 4;
+				fenceGateBlock = GOTRegistry.fenceGateApple;
+				woodBeamBlock = GOTRegistry.woodBeamFruit;
+				woodBeamMeta = 0;
+				doorBlock = GOTRegistry.doorApple;
+				break;
+			case 5:
+				logBlock = GOTRegistry.wood5;
+				logMeta = 0;
+				plankBlock = GOTRegistry.planks2;
+				plankMeta = 4;
+				plankSlabBlock = GOTRegistry.woodSlabSingle3;
+				plankSlabMeta = 4;
+				plankStairBlock = GOTRegistry.stairsPine;
+				fenceBlock = GOTRegistry.fence2;
+				fenceMeta = 4;
+				fenceGateBlock = GOTRegistry.fenceGatePine;
+				woodBeamBlock = GOTRegistry.woodBeam5;
+				woodBeamMeta = 0;
+				doorBlock = GOTRegistry.doorPine;
+				break;
+			default:
+				break;
 		}
 		int randomWood2 = random.nextInt(4);
 		if (randomWood2 == 0 || randomWood2 == 1 || randomWood2 == 2) {
@@ -266,33 +268,33 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		} else {
 			int randomCrop = random.nextInt(5);
 			switch (randomCrop) {
-			case 0:
-				cropBlock = Blocks.carrots;
-				cropMeta = 7;
-				seedItem = Items.carrot;
-				break;
-			case 1:
-				cropBlock = Blocks.potatoes;
-				cropMeta = 7;
-				seedItem = Items.potato;
-				break;
-			case 2:
-				cropBlock = GOTRegistry.lettuceCrop;
-				cropMeta = 7;
-				seedItem = GOTRegistry.lettuce;
-				break;
-			case 3:
-				cropBlock = GOTRegistry.leekCrop;
-				cropMeta = 7;
-				seedItem = GOTRegistry.leek;
-				break;
-			case 4:
-				cropBlock = GOTRegistry.turnipCrop;
-				cropMeta = 7;
-				seedItem = GOTRegistry.turnip;
-				break;
-			default:
-				break;
+				case 0:
+					cropBlock = Blocks.carrots;
+					cropMeta = 7;
+					seedItem = Items.carrot;
+					break;
+				case 1:
+					cropBlock = Blocks.potatoes;
+					cropMeta = 7;
+					seedItem = Items.potato;
+					break;
+				case 2:
+					cropBlock = GOTRegistry.lettuceCrop;
+					cropMeta = 7;
+					seedItem = GOTRegistry.lettuce;
+					break;
+				case 3:
+					cropBlock = GOTRegistry.leekCrop;
+					cropMeta = 7;
+					seedItem = GOTRegistry.leek;
+					break;
+				case 4:
+					cropBlock = GOTRegistry.turnipCrop;
+					cropMeta = 7;
+					seedItem = GOTRegistry.turnip;
+					break;
+				default:
+					break;
 			}
 		}
 		bannerType = GOTItemBanner.BannerType.IBBEN;

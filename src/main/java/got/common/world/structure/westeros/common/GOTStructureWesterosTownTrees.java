@@ -1,11 +1,11 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+
+import java.util.Random;
 
 public class GOTStructureWesterosTownTrees extends GOTStructureWesterosBase {
 	public GOTStructureWesterosTownTrees(boolean flag) {
@@ -51,7 +51,7 @@ public class GOTStructureWesterosTownTrees extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i1, 2, k1, Blocks.torch, 5);
 			}
 		}
-		for (int i12 : new int[] { -4, 0, 4 }) {
+		for (int i12 : new int[]{-4, 0, 4}) {
 			WorldGenAbstractTree treeGen;
 			j1 = 1;
 			int k12 = 0;

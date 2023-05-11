@@ -1,20 +1,28 @@
 package got.common.world.map;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
 import got.GOT;
-import got.common.*;
-import got.common.fellowship.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipClient;
+import got.common.fellowship.GOTFellowshipData;
 import got.common.network.*;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.UUID;
 
 public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	public String customName;

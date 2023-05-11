@@ -1,18 +1,29 @@
 package got.common.database;
 
-import java.util.*;
-
 import cpw.mods.fml.common.FMLLog;
-import got.common.*;
+import got.common.GOTConfig;
+import got.common.GOTLore;
 import got.common.enchant.GOTEnchantmentHelper;
-import got.common.item.other.*;
-import net.minecraft.init.*;
-import net.minecraft.inventory.*;
-import net.minecraft.item.*;
+import got.common.item.other.GOTItemModifierTemplate;
+import got.common.item.other.GOTItemMug;
+import got.common.item.other.GOTItemPouch;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryBasic;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.WeightedRandom;
+import net.minecraft.util.WeightedRandomChestContent;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ChestGenHooks;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class GOTChestContents {
 	public static List<WeightedRandomChestContent> NORD_L = new ArrayList<>();

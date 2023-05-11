@@ -1,22 +1,28 @@
 package got.common.database;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.model.*;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.item.other.*;
-import got.common.item.weapon.*;
+import got.common.item.other.GOTItemBanner;
+import got.common.item.other.GOTItemSling;
+import got.common.item.weapon.GOTItemCrossbow;
+import got.common.item.weapon.GOTItemSpear;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.*;
-import net.minecraft.client.renderer.entity.*;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.entity.RenderBiped;
+import net.minecraft.client.renderer.entity.RenderPlayer;
+import net.minecraft.client.renderer.entity.RendererLivingEntity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
-import net.minecraftforge.client.event.*;
+import net.minecraftforge.client.event.RenderLivingEvent;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
+import org.lwjgl.opengl.GL11;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTArmorModels {
 	public static GOTArmorModels INSTANCE;

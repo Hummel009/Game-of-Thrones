@@ -1,20 +1,30 @@
 package got.common.quest;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
-import got.common.*;
-import got.common.database.*;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.faction.*;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
+import got.common.faction.GOTFactionBounties;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 public class GOTMiniQuestBounty extends GOTMiniQuest {
 	public UUID targetID;

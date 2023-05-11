@@ -1,16 +1,20 @@
 package got.common.world.structure.westeros.wildling;
 
-import java.util.Random;
-
-import got.common.database.*;
-import got.common.entity.westeros.*;
-import got.common.entity.westeros.wildling.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTRegistry;
+import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
+import got.common.entity.westeros.GOTEntityWesterosThief;
+import got.common.entity.westeros.wildling.GOTEntityWildling;
+import got.common.entity.westeros.wildling.GOTEntityWildlingArcher;
+import got.common.entity.westeros.wildling.GOTEntityWildlingAxeThrower;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWildlingHouse extends GOTStructureBase {
 	public Block woodBlock;
@@ -101,7 +105,7 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, -3, j14, 5, woodBlock, woodMeta);
 			setBlockAndMetadata(world, 3, j14, 5, woodBlock, woodMeta);
 		}
-		for (int j15 : new int[] { 1, 4 }) {
+		for (int j15 : new int[]{1, 4}) {
 			for (i12 = -2; i12 <= 2; ++i12) {
 				setBlockAndMetadata(world, i12, j15, -5, woodBlock, woodMeta | 4);
 				setBlockAndMetadata(world, i12, j15, 5, woodBlock, woodMeta | 4);
@@ -117,7 +121,7 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, -3, 3, k14, stairBlock, 5);
 			setBlockAndMetadata(world, 3, 3, k14, stairBlock, 4);
 		}
-		int[] k14 = { -3, 3 };
+		int[] k14 = {-3, 3};
 		k1 = k14.length;
 		for (j1 = 0; j1 < k1; ++j1) {
 			int i14 = k14[j1];
@@ -131,7 +135,7 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 			}
 			setBlockAndMetadata(world, 0, 7, k15, plankBlock, plankMeta);
 		}
-		for (int k12 : new int[] { -5, 5 }) {
+		for (int k12 : new int[]{-5, 5}) {
 			for (i12 = -2; i12 <= 2; ++i12) {
 				setBlockAndMetadata(world, i12, 4, k12, woodBlock, woodMeta | 4);
 				setBlockAndMetadata(world, i12, 5, k12, woodBlock, woodMeta | 4);

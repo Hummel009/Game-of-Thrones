@@ -1,9 +1,11 @@
 package got.common.entity.essos.yiti;
 
-import got.common.database.*;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTTradeEntries;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 

@@ -1,12 +1,12 @@
 package got.common.world.structure.westeros.gift;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureGiftGate extends GOTStructureGiftBase {
 	public GOTStructureGiftGate(boolean flag) {

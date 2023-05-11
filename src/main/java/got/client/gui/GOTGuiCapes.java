@@ -1,25 +1,29 @@
 package got.client.gui;
 
-import java.util.List;
-
+import got.common.GOTLevelData;
+import got.common.database.GOTCapes;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketSelectCape;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.RenderHelper;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTCapes;
-import got.common.network.*;
-import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.renderer.*;
-import net.minecraft.util.*;
+import java.util.List;
 
 public class GOTGuiCapes extends GOTGuiMenuWBBase {
 	public static ModelBiped playerModel = new ModelBiped();
 	public static int currentCapeTypeID;
 	public static int currentCapeID;
+
 	static {
 		GOTGuiCapes.playerModel.isChild = false;
 	}
+
 	public int modelX;
 	public int modelY;
 	public float modelRotation;

@@ -1,14 +1,15 @@
 package got.common.quest;
 
-import java.util.Random;
-
 import got.common.GOTPlayerData;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
+
+import java.util.Random;
 
 public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 	public int killTarget;

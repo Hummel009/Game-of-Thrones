@@ -1,31 +1,37 @@
 package got.common.command;
 
-import java.util.*;
-
-import got.common.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.database.GOTAchievement;
-import net.minecraft.command.*;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandAchievement extends CommandBase {
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
-		case 1:
-			return CommandBase.getListOfStringsMatchingLastWord(args, "give", "remove");
-		case 2:
-			List<GOTAchievement> achievements = GOTAchievement.getAllAchievements();
-			ArrayList<String> names = new ArrayList<>();
-			for (GOTAchievement a : achievements) {
-				names.add(a.getCodeName());
-			}
-			if ("remove".equals(args[0])) {
-				names.add("all");
-			}
-			return CommandBase.getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
-		case 3:
-			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+			case 1:
+				return CommandBase.getListOfStringsMatchingLastWord(args, "give", "remove");
+			case 2:
+				List<GOTAchievement> achievements = GOTAchievement.getAllAchievements();
+				ArrayList<String> names = new ArrayList<>();
+				for (GOTAchievement a : achievements) {
+					names.add(a.getCodeName());
+				}
+				if ("remove".equals(args[0])) {
+					names.add("all");
+				}
+				return CommandBase.getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
+			case 3:
+				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
 		return Collections.emptyList();
 	}

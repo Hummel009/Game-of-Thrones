@@ -1,14 +1,18 @@
 package got.common.command;
 
-import java.util.*;
-
 import got.common.GOTLevelData;
 import got.common.faction.GOTFaction;
-import got.common.world.map.*;
-import net.minecraft.command.*;
+import got.common.world.map.GOTConquestGrid;
+import got.common.world.map.GOTConquestZone;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
+
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandConquest extends CommandBase {
 	@Override
@@ -54,7 +58,7 @@ public class GOTCommandConquest extends CommandBase {
 		if (zone.isDummyZone) {
 			throw new WrongUsageException("got.command.conquest.outOfBounds", posX, posZ);
 		}
-		return new Object[] { posX, posZ, zone };
+		return new Object[]{posX, posZ, zone};
 	}
 
 	@Override

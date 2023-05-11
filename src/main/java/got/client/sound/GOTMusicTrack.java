@@ -1,10 +1,10 @@
 package got.client.sound;
 
-import java.io.InputStream;
-import java.util.*;
-
 import net.minecraft.client.audio.*;
 import net.minecraft.util.ResourceLocation;
+
+import java.io.InputStream;
+import java.util.*;
 
 public class GOTMusicTrack extends PositionedSound {
 	public String filename;

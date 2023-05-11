@@ -1,45 +1,63 @@
 package got.client;
 
-import java.util.*;
-
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.collect.Lists;
-
 import cpw.mods.fml.client.GuiModList;
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import got.*;
-import got.client.gui.*;
-import got.common.*;
-import got.common.database.*;
+import got.GOT;
+import got.GOTInfo;
+import got.client.gui.GOTGuiAchievementHoverEvent;
+import got.client.gui.GOTGuiButtonLock;
+import got.client.gui.GOTGuiDownloadTerrain;
+import got.client.gui.GOTGuiMainMenu;
+import got.common.GOTChatEvents;
+import got.common.GOTConfig;
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPCRideable;
 import got.common.inventory.GOTContainerCoinExchange;
 import got.common.item.other.GOTItemCoin;
-import got.common.network.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketMountOpenInv;
 import got.common.world.GOTWorldProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.*;
-import net.minecraft.client.gui.inventory.*;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.gui.inventory.GuiContainerCreative;
+import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.event.HoverEvent;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.inventory.InventoryCraftResult;
+import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.WorldProvider;
-import net.minecraftforge.client.event.*;
+import net.minecraftforge.client.event.GuiOpenEvent;
+import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.common.MinecraftForge;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.util.*;
 
 public class GOTGuiHandler {
 	public static RenderItem itemRenderer = new RenderItem();
 	public static Set<Class<? extends Container>> coinCount_excludedContainers = new HashSet<>();
 	public static Set<Class<? extends GuiContainer>> coinCount_excludedGUIs = new HashSet<>();
 	public static Set<Class<? extends IInventory>> coinCount_excludedInvTypes = new HashSet<>();
+
 	static {
 		coinCount_excludedGUIs.add(GuiContainerCreative.class);
 		coinCount_excludedInvTypes.add(GOTContainerCoinExchange.InventoryCoinExchangeSlot.class);

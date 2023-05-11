@@ -1,7 +1,5 @@
 package got.common.entity.ai;
 
-import java.util.*;
-
 import got.GOT;
 import got.common.entity.animal.GOTEntityAnimalMF;
 import net.minecraft.entity.EntityAgeable;
@@ -9,6 +7,10 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
 
 public class GOTEntityAIMFMate extends EntityAIBase {
 	public GOTEntityAnimalMF theAnimal;

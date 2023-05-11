@@ -1,11 +1,10 @@
 package got.common.fellowship;
 
-import java.util.*;
-
 import com.mojang.authlib.GameProfile;
-
 import got.common.database.GOTTitle;
 import net.minecraft.item.ItemStack;
+
+import java.util.*;
 
 public class GOTFellowshipClient {
 	public UUID fellowshipID;

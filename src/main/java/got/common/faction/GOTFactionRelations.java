@@ -1,16 +1,21 @@
 package got.common.faction;
 
-import java.io.File;
-import java.util.*;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
-import got.common.network.*;
+import got.common.network.GOTPacketFactionRelations;
+import got.common.network.GOTPacketHandler;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StatCollector;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTFactionRelations {
 	public static Map<FactionPair, Relation> defaultMap = new HashMap<>();

@@ -1,7 +1,5 @@
 package got.client.model;
 
-import org.lwjgl.opengl.GL11;
-
 import got.GOT;
 import got.client.GOTTickHandlerClient;
 import got.client.render.other.GOTRenderBlocks;
@@ -14,9 +12,11 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
 
 public class GOTModelPlateHead extends GOTModelHuman {
 	public RenderBlocks blockRenderer = new RenderBlocks();

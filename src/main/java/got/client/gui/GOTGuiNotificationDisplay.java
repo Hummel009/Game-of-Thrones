@@ -1,17 +1,24 @@
 package got.client.gui;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
-import got.client.*;
+import got.client.GOTClientProxy;
+import got.client.GOTTickHandlerClient;
 import got.common.database.GOTAchievement;
-import got.common.faction.*;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.*;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderItem;
-import net.minecraft.util.*;
+import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
+import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class GOTGuiNotificationDisplay extends Gui {
 	public static int guiXSize = 190;

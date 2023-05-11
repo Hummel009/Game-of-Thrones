@@ -1,7 +1,8 @@
 package got.common.item.other;
 
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemGlassBottle;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTItemGlassBottle extends ItemGlassBottle {

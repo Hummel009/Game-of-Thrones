@@ -1,8 +1,8 @@
 package got.common.util;
 
-import java.util.Arrays;
-
 import got.client.model.GOTModelDragonAnimaton;
+
+import java.util.Arrays;
 
 public class GOTCircularBuffer {
 	public double[] buffer;

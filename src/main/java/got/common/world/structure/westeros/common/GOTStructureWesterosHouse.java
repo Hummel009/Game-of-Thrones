@@ -1,12 +1,13 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
-import got.common.database.*;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 	public GOTStructureWesterosHouse(boolean flag) {
@@ -80,7 +81,7 @@ public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		int[] i13 = { -4, 4 };
+		int[] i13 = {-4, 4};
 		k1 = i13.length;
 		for (i2 = 0; i2 < k1; ++i2) {
 			int i14 = i13[i2];

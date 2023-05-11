@@ -1,24 +1,41 @@
 package got.common.entity.westeros.ice;
 
 import got.common.GOTDamage;
-import got.common.database.*;
-import got.common.entity.ai.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTMaterial;
+import got.common.database.GOTRegistry;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
+import got.common.entity.ai.GOTEntityAIHiredRemainStill;
+import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
-import got.common.entity.other.*;
-import got.common.entity.westeros.legendary.reborn.*;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntitySpear;
+import got.common.entity.other.GOTEntitySpiderBase;
+import got.common.entity.westeros.legendary.reborn.GOTEntityBericDondarrion;
+import got.common.entity.westeros.legendary.reborn.GOTEntityGregorClegane;
+import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
+import got.common.entity.westeros.legendary.reborn.GOTEntityTheonGreyjoy;
 import got.common.entity.westeros.wildling.GOTEntityGiant;
 import got.common.faction.GOTFaction;
 import got.common.item.GOTMaterialFinder;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAIOpenDoor;
+import net.minecraft.entity.ai.EntityAIWander;
+import net.minecraft.entity.ai.EntityAIWatchClosest2;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityWight extends GOTEntityHumanBase {
-	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.wildlingAxe), new ItemStack(GOTRegistry.wildlingBattleaxe), new ItemStack(GOTRegistry.wildlingDagger), new ItemStack(GOTRegistry.wildlingDaggerPoisoned), new ItemStack(GOTRegistry.wildlingHammer), new ItemStack(GOTRegistry.wildlingPolearm), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword) };
-	public static ItemStack[] spears = { new ItemStack(GOTRegistry.wildlingSpear) };
+	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.wildlingAxe), new ItemStack(GOTRegistry.wildlingBattleaxe), new ItemStack(GOTRegistry.wildlingDagger), new ItemStack(GOTRegistry.wildlingDaggerPoisoned), new ItemStack(GOTRegistry.wildlingHammer), new ItemStack(GOTRegistry.wildlingPolearm), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword)};
+	public static ItemStack[] spears = {new ItemStack(GOTRegistry.wildlingSpear)};
 
 	public GOTEntityWight(World world) {
 		super(world);

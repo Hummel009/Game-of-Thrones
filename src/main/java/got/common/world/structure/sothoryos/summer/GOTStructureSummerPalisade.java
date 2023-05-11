@@ -1,11 +1,11 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSummerPalisade extends GOTStructureSummerBase {
 	public boolean isTall = false;
@@ -56,20 +56,20 @@ public class GOTStructureSummerPalisade extends GOTStructureSummerBase {
 		super.setupRandomBlocks(random);
 		int randomWood = random.nextInt(3);
 		switch (randomWood) {
-		case 0:
-			woodBlock = GOTRegistry.wood4;
-			woodMeta = 2;
-			break;
-		case 1:
-			woodBlock = Blocks.log;
-			woodMeta = 0;
-			break;
-		case 2:
-			woodBlock = GOTRegistry.wood6;
-			woodMeta = 3;
-			break;
-		default:
-			break;
+			case 0:
+				woodBlock = GOTRegistry.wood4;
+				woodMeta = 2;
+				break;
+			case 1:
+				woodBlock = Blocks.log;
+				woodMeta = 0;
+				break;
+			case 2:
+				woodBlock = GOTRegistry.wood6;
+				woodMeta = 3;
+				break;
+			default:
+				break;
 		}
 	}
 }

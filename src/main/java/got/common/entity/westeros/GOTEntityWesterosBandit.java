@@ -1,25 +1,37 @@
 package got.common.entity.westeros;
 
 import got.common.GOTLevelData;
-import got.common.database.*;
-import got.common.entity.ai.*;
-import got.common.entity.other.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTNames;
+import got.common.database.GOTRegistry;
+import got.common.entity.ai.GOTEntityAIAttackOnCollide;
+import got.common.entity.ai.GOTEntityAIBanditFlee;
+import got.common.entity.ai.GOTEntityAIBanditSteal;
+import got.common.entity.ai.GOTEntityAINearestAttackableTargetBandit;
+import got.common.entity.other.GOTEntityHumanBase;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.IBandit;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTInventoryNPC;
-import got.common.item.other.*;
+import got.common.item.other.GOTItemLeatherHat;
+import got.common.item.other.GOTItemMug;
 import got.common.world.biome.GOTBiome;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat {
 	public static int MAX_THEFTS = 3;
-	public static ItemStack[] weapons = { new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(GOTRegistry.ironDagger) };
+	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(GOTRegistry.ironDagger)};
 	public GOTInventoryNPC banditInventory = new GOTInventoryNPC("BanditInventory", this, MAX_THEFTS);
 
 	public GOTEntityWesterosBandit(World world) {
@@ -171,20 +183,20 @@ public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBand
 	public void setupNPCName() {
 		int i = rand.nextInt(4);
 		switch (i) {
-		case 0:
-			familyInfo.setName(GOTNames.getWesterosName(rand, true));
-			break;
-		case 1:
-			familyInfo.setName(GOTNames.getWildName(rand, true));
-			break;
-		case 2:
-			familyInfo.setName(GOTNames.getEssosName(rand, true));
-			break;
-		case 3:
-			familyInfo.setName(GOTNames.getQarthName(rand, true));
-			break;
-		default:
-			familyInfo.setName(GOTNames.getWildName(rand, true));
+			case 0:
+				familyInfo.setName(GOTNames.getWesterosName(rand, true));
+				break;
+			case 1:
+				familyInfo.setName(GOTNames.getWildName(rand, true));
+				break;
+			case 2:
+				familyInfo.setName(GOTNames.getEssosName(rand, true));
+				break;
+			case 3:
+				familyInfo.setName(GOTNames.getQarthName(rand, true));
+				break;
+			default:
+				familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
 	}
 

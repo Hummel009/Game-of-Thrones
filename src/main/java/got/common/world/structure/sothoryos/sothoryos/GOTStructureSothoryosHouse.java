@@ -1,13 +1,13 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import java.util.Random;
-
 import got.common.database.GOTRegistry;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 	public Block brickBlock;
@@ -88,26 +88,26 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 		} else {
 			int l = random.nextInt(6);
 			switch (l) {
-			case 0:
-				plant = new ItemStack(Blocks.sapling, 1, 3);
-				break;
-			case 1:
-				plant = new ItemStack(GOTRegistry.sapling6, 1, 0);
-				break;
-			case 2:
-				plant = new ItemStack(GOTRegistry.fruitSapling, 1, 3);
-				break;
-			case 3:
-				plant = new ItemStack(Blocks.tallgrass, 1, 2);
-				break;
-			case 4:
-				plant = new ItemStack(Blocks.tallgrass, 1, 1);
-				break;
-			case 5:
-				plant = new ItemStack(GOTRegistry.tallGrass, 1, 5);
-				break;
-			default:
-				break;
+				case 0:
+					plant = new ItemStack(Blocks.sapling, 1, 3);
+					break;
+				case 1:
+					plant = new ItemStack(GOTRegistry.sapling6, 1, 0);
+					break;
+				case 2:
+					plant = new ItemStack(GOTRegistry.fruitSapling, 1, 3);
+					break;
+				case 3:
+					plant = new ItemStack(Blocks.tallgrass, 1, 2);
+					break;
+				case 4:
+					plant = new ItemStack(Blocks.tallgrass, 1, 1);
+					break;
+				case 5:
+					plant = new ItemStack(GOTRegistry.tallGrass, 1, 5);
+					break;
+				default:
+					break;
 			}
 		}
 		placeFlowerPot(world, i, j, k, plant);

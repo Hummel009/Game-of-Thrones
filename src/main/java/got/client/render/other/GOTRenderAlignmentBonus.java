@@ -1,17 +1,21 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
-import got.client.*;
+import got.client.GOTClientProxy;
+import got.client.GOTTickHandlerClient;
 import got.client.effect.GOTEntityAlignmentBonus;
-import got.common.*;
-import got.common.faction.*;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
+import got.common.faction.GOTAlignmentBonusMap;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderAlignmentBonus extends Render {
 	public GOTRenderAlignmentBonus() {

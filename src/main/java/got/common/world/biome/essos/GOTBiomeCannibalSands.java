@@ -1,10 +1,9 @@
 package got.common.world.biome.essos;
 
-import java.util.Random;
-
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -12,7 +11,11 @@ import got.common.world.structure.other.GOTStructureStoneRuin;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenCactus;
+import net.minecraft.world.gen.feature.WorldGenDeadBush;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import java.util.Random;
 
 public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBiome.Desert {
 	public GOTBiomeCannibalSands(int i, boolean major) {

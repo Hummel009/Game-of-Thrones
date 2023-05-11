@@ -1,23 +1,26 @@
 package got.client;
 
-import java.util.*;
-
-import org.lwjgl.input.Keyboard;
-
 import com.google.common.math.IntMath;
-
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import got.GOT;
-import got.common.*;
+import got.common.GOTDimension;
 import got.common.GOTDimension.DimensionRegion;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.faction.GOTFaction;
 import got.common.network.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
+import org.lwjgl.input.Keyboard;
+
+import java.util.BitSet;
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTKeyHandler {
 	public static KeyBinding keyBindingMenu = new KeyBinding("Menu", 38, "Game of Thrones");

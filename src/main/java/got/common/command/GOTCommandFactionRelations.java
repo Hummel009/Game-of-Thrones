@@ -1,25 +1,29 @@
 package got.common.command;
 
-import java.util.*;
+import got.common.faction.GOTFaction;
+import got.common.faction.GOTFactionRelations;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.command.WrongUsageException;
 
-import got.common.faction.*;
-import net.minecraft.command.*;
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandFactionRelations extends CommandBase {
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
-		case 1:
-			return CommandBase.getListOfStringsMatchingLastWord(args, "set", "reset");
-		case 2:
-		case 3: {
-			List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
-			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
-		}
-		case 4: {
-			List<String> list = GOTFactionRelations.Relation.listRelationNames();
-			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
-		}
+			case 1:
+				return CommandBase.getListOfStringsMatchingLastWord(args, "set", "reset");
+			case 2:
+			case 3: {
+				List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
+				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+			}
+			case 4: {
+				List<String> list = GOTFactionRelations.Relation.listRelationNames();
+				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+			}
 		}
 		return Collections.emptyList();
 	}

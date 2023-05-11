@@ -1,26 +1,27 @@
 package got.common.entity.dragon;
 
-import java.util.List;
-
-import org.apache.logging.log4j.*;
-
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import got.client.model.GOTModelDragonAnimaton;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAITasks;
-import net.minecraft.entity.ai.attributes.*;
+import net.minecraft.entity.ai.attributes.IAttribute;
+import net.minecraft.entity.ai.attributes.RangedAttribute;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.util.List;
 
 public abstract class GOTEntityFlyingTameable extends EntityTameable implements GOTBiome.ImmuneToFrost {
 	public static Logger L = LogManager.getLogger();
 	public static int IN_AIR_THRESH = 10;
 	public static IAttribute MOVE_SPEED_AIR = new RangedAttribute("generic.movementSpeedAir", 1.5, 0.0, Double.MAX_VALUE).setDescription("Movement Speed Air").setShouldWatch(true);
 	public static int INDEX_FLYING = 18;
-	public static String[] ENTITYAITASKS_TICKRATE = { "tickRate", "field_75779_e" };
+	public static String[] ENTITYAITASKS_TICKRATE = {"tickRate", "field_75779_e"};
 	public static int INDEX_CAN_FLY = 19;
 	public static String NBT_FLYING = "Flying";
 	public static String NBT_CAN_FLY = "CanFly";

@@ -2,10 +2,13 @@ package got.common.entity.sothoryos.sothoryos;
 
 import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityDart;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemDart;
 import got.common.item.weapon.GOTItemSarbacane;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.IEntityLivingData;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;

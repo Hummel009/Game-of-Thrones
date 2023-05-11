@@ -1,6 +1,7 @@
 package got.client.effect;
 
-import got.common.faction.*;
+import got.common.faction.GOTAlignmentBonusMap;
+import got.common.faction.GOTFaction;
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;

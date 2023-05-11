@@ -1,13 +1,16 @@
 package got.common.entity.westeros.reach;
 
-import java.util.List;
-
 import got.common.GOTLevelData;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTCapes;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.faction.*;
-import got.common.world.*;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
+import got.common.world.GOTWorldChunkManager;
+import got.common.world.GOTWorldProvider;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.westeros.GOTBiomeReachArbor;
 import net.minecraft.block.Block;
@@ -15,10 +18,13 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.List;
 
 public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 	public static int MAX_GRAPE_ALERT = 3;
@@ -79,21 +85,21 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
-		case 0:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosHammer));
-			break;
-		case 1:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosPike));
-			break;
-		case 2:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosLongsword));
-			break;
-		case 3:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosGreatsword));
-			break;
-		default:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
-			break;
+			case 0:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosHammer));
+				break;
+			case 1:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosPike));
+				break;
+			case 2:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosLongsword));
+				break;
+			case 3:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosGreatsword));
+				break;
+			default:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+				break;
 		}
 		if (rand.nextInt(3) == 0) {
 			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTRegistry.westerosLance));
@@ -140,7 +146,8 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 					}
 					if (nearbyGuards < 8) {
 						int guardSpawns = 1 + world.rand.nextInt(6);
-						block1: for (int l = 0; l < guardSpawns; ++l) {
+						block1:
+						for (int l = 0; l < guardSpawns; ++l) {
 							guard = new GOTEntityReachSoldier(world);
 							if (world.rand.nextBoolean()) {
 								guard = new GOTEntityReachSoldierArcher(world);

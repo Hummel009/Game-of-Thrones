@@ -1,14 +1,15 @@
 package got.common.world.structure.westeros.gift;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
-import got.common.database.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
 import got.common.entity.westeros.gift.GOTEntityGiftMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 	public GOTStructureGiftHouse(boolean flag) {
@@ -24,7 +25,8 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 		int gateX;
 		int k12;
 		int i122;
-		block54: {
+		block54:
+		{
 			int k13;
 			int i13;
 			int k2;
@@ -121,7 +123,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, 0, 2, -3, doorBlock, 8);
 			setBlockAndMetadata(world, -2, 2, -1, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, -2, 2, 1, fenceBlock, fenceMeta);
-			int[] i15 = { -3, 3 };
+			int[] i15 = {-3, 3};
 			k13 = i15.length;
 			for (k2 = 0; k2 < k13; ++k2) {
 				k15 = i15[k2];
@@ -168,12 +170,12 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 					setBlockAndMetadata(world, i13, 6, k13, roofSlabBlock, roofSlabMeta);
 				}
 			}
-			for (int k151 : new int[] { -2, 2 }) {
+			for (int k151 : new int[]{-2, 2}) {
 				for (i1 = -1; i1 <= 4; ++i1) {
 					setBlockAndMetadata(world, i1, 5, k151, roofBlock, roofMeta);
 				}
 			}
-			for (int i1221 : new int[] { -1, 4 }) {
+			for (int i1221 : new int[]{-1, 4}) {
 				for (k12 = -1; k12 <= 1; ++k12) {
 					setBlockAndMetadata(world, i1221, 5, k12, fenceBlock, fenceMeta);
 				}
@@ -199,7 +201,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 			this.placeChest(world, random, 0, 1, 2, 2, GOTChestContents.GIFT);
 			setBlockAndMetadata(world, 1, 1, 2, plankBlock, plankMeta);
 			this.placeBarrel(world, random, 1, 2, 2, 2, GOTFoods.WESTEROS_DRINK);
-			for (int k151 : new int[] { -2, 2 }) {
+			for (int k151 : new int[]{-2, 2}) {
 				setBlockAndMetadata(world, 3, 1, k151, bedBlock, 1);
 				setBlockAndMetadata(world, 4, 1, k151, bedBlock, 9);
 				setBlockAndMetadata(world, 5, 1, k151, plankBlock, plankMeta);

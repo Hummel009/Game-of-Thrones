@@ -3,7 +3,8 @@ package got.client.render.animal;
 import got.client.model.GOTModelCrocodile;
 import got.common.entity.animal.GOTEntityCrocodile;
 import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderCrocodile extends RenderLiving {

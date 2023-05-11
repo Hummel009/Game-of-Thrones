@@ -1,17 +1,24 @@
 package got.common.network;
 
-import java.util.*;
-
-import cpw.mods.fml.common.network.simpleimpl.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
-import got.common.database.*;
-import got.common.entity.other.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTTradeEntries;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTTradeEntry;
+import got.common.entity.other.GOTTradeSellResult;
 import got.common.inventory.GOTContainerTrade;
 import got.common.item.other.GOTItemCoin;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.inventory.*;
+import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTPacketSell implements IMessage {
 	@Override

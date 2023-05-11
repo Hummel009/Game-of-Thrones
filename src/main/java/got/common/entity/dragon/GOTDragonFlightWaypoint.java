@@ -2,7 +2,8 @@ package got.common.entity.dragon;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.*;
+import net.minecraft.util.ChunkCoordinates;
+import net.minecraft.util.Vec3;
 
 public class GOTDragonFlightWaypoint {
 

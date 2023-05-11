@@ -1,18 +1,20 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.*;
 import got.common.database.GOTRegistry;
 import got.common.item.other.GOTItemMug;
 import got.common.tileentity.GOTTileEntityMug;
 import net.minecraft.client.model.ModelBase;
-import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.RenderBlocks;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.*;
+import net.minecraft.util.IIcon;
+import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderMug extends TileEntitySpecialRenderer {
 	public static ResourceLocation mugTexture = new ResourceLocation("got:textures/model/mug.png");
@@ -83,21 +85,21 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		GL11.glScalef(mugScale, mugScale, mugScale);
 		float scale = 0.0625f;
 		switch (mug.getBlockMetadata()) {
-		case 0: {
-			GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-			break;
-		}
-		case 1: {
-			GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
-			break;
-		}
-		case 2: {
-			GL11.glRotatef(270.0f, 0.0f, 1.0f, 0.0f);
-			break;
-		}
-		case 3: {
-			GL11.glRotatef(0.0f, 0.0f, 1.0f, 0.0f);
-		}
+			case 0: {
+				GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+				break;
+			}
+			case 1: {
+				GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+				break;
+			}
+			case 2: {
+				GL11.glRotatef(270.0f, 0.0f, 1.0f, 0.0f);
+				break;
+			}
+			case 3: {
+				GL11.glRotatef(0.0f, 0.0f, 1.0f, 0.0f);
+			}
 		}
 		if (vessel == GOTItemMug.Vessel.SKULL || vessel == GOTItemMug.Vessel.HORN || vessel == GOTItemMug.Vessel.HORN_GOLD) {
 			GL11.glRotatef(-90.0f, 0.0f, 1.0f, 0.0f);

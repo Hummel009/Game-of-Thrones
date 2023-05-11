@@ -1,12 +1,15 @@
 package got.common.world.structure.essos.mossovy;
 
-import java.util.Random;
-
-import got.common.database.*;
-import got.common.entity.essos.mossovy.*;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTRegistry;
+import got.common.entity.essos.mossovy.GOTEntityMossovyBlacksmith;
+import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 	public GOTStructureMossovySmithy(boolean flag) {
@@ -95,7 +98,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		if (random.nextBoolean()) {
 			GOTEntityMossovyWitcher armorGuard = new GOTEntityMossovyWitcher(world);
 			armorGuard.onSpawnWithEgg(null);
-			return new ItemStack[] { armorGuard.getEquipmentInSlot(4), armorGuard.getEquipmentInSlot(3), null, null };
+			return new ItemStack[]{armorGuard.getEquipmentInSlot(4), armorGuard.getEquipmentInSlot(3), null, null};
 		}
 		return null;
 	}

@@ -1,10 +1,12 @@
 package got.client;
 
-import java.util.*;
-
-import got.common.*;
+import got.common.GOTDimension;
+import got.common.GOTLevelData;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.player.EntityPlayer;
+
+import java.util.EnumMap;
+import java.util.Map;
 
 public class GOTAlignmentTicker {
 	public static Map<GOTFaction, GOTAlignmentTicker> allFactionTickers = new EnumMap<>(GOTFaction.class);

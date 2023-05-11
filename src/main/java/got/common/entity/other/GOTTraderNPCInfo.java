@@ -1,16 +1,20 @@
 package got.common.entity.other;
 
-import java.util.*;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.database.GOTTradeEntries;
 import got.common.inventory.GOTContainerTrade;
-import got.common.network.*;
-import net.minecraft.entity.player.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketTraderInfo;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
-import net.minecraft.nbt.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.MathHelper;
+
+import java.util.List;
+import java.util.Random;
 
 public class GOTTraderNPCInfo {
 	public GOTEntityNPC theEntity;

@@ -1,6 +1,7 @@
 package got.common.entity.essos.norvos;
 
-import got.common.database.*;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

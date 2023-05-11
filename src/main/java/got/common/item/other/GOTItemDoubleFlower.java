@@ -1,6 +1,7 @@
 package got.common.item.other;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.other.GOTBlockDoubleFlower;
 import net.minecraft.block.Block;
 import net.minecraft.util.IIcon;

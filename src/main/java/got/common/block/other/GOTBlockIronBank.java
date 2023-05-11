@@ -1,14 +1,15 @@
 package got.common.block.other;
 
-import java.util.Map;
-
 import got.common.GOTCommonProxy;
 import got.common.database.GOTRegistry;
 import got.common.util.GOTItemStackMapImpl;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+
+import java.util.Map;
 
 public class GOTBlockIronBank extends GOTBlockForgeBase {
 	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();

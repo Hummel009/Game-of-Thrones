@@ -1,16 +1,20 @@
 package got.common.entity.animal;
 
-import java.util.List;
-
 import got.common.GOTLevelData;
-import got.common.database.*;
-import got.common.entity.other.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityRegistry;
 import got.common.world.biome.westeros.GOTBiomeNeck;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature {
 	public ChunkCoordinates currentFlightTarget;

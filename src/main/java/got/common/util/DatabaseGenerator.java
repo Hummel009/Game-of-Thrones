@@ -1,49 +1,71 @@
 package got.common.util;
 
-import java.io.*;
-import java.nio.file.*;
-import java.text.DecimalFormat;
-import java.util.*;
-import java.util.Map.Entry;
-import java.util.stream.*;
-
 import got.common.GOTDate;
-import got.common.GOTDate.*;
-import got.common.block.other.*;
+import got.common.GOTDate.AegonCalendar;
+import got.common.GOTDate.Season;
+import got.common.block.other.GOTBlockOreGem;
+import got.common.block.other.GOTBlockRock;
 import got.common.database.*;
 import got.common.database.GOTInvasions.InvasionSpawnEntry;
 import got.common.entity.other.*;
 import got.common.entity.other.GOTUnitTradeEntry.PledgeType;
 import got.common.entity.westeros.legendary.captain.*;
-import got.common.entity.westeros.legendary.deco.*;
-import got.common.entity.westeros.legendary.quest.*;
+import got.common.entity.westeros.legendary.deco.GOTEntityMyrcellaBaratheon;
+import got.common.entity.westeros.legendary.deco.GOTEntityTommenBaratheon;
+import got.common.entity.westeros.legendary.quest.GOTEntityCerseiLannister;
+import got.common.entity.westeros.legendary.quest.GOTEntitySamwellTarly;
+import got.common.entity.westeros.legendary.quest.GOTEntityTyrionLannister;
+import got.common.entity.westeros.legendary.quest.GOTEntityVarys;
 import got.common.entity.westeros.legendary.reborn.GOTEntityJonSnow.JonSnowLife1;
 import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister.LancelLannisterNormal;
 import got.common.entity.westeros.legendary.trader.*;
 import got.common.entity.westeros.legendary.warrior.*;
-import got.common.faction.*;
+import got.common.faction.GOTFaction;
+import got.common.faction.GOTFactionRank;
 import got.common.item.other.GOTItemBanner.BannerType;
-import got.common.world.biome.*;
-import got.common.world.biome.GOTBiomeDecorator.*;
+import got.common.world.biome.GOTBiome;
+import got.common.world.biome.GOTBiomeDecorator.OreGenerant;
+import got.common.world.biome.GOTBiomeDecorator.RandomStructure;
+import got.common.world.biome.GOTClimateType;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.variant.GOTBiomeVariantList.VariantBucket;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTTreeType.WeightedTreeType;
-import got.common.world.map.*;
+import got.common.world.map.GOTFixer;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.spawning.GOTBiomeSpawnList.*;
+import got.common.world.spawning.GOTBiomeSpawnList.FactionContainer;
+import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTSpawnEntry;
-import got.common.world.structure.other.*;
-import net.minecraft.block.*;
+import got.common.world.structure.other.GOTStructureBase;
+import got.common.world.structure.other.GOTStructureRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.entity.*;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.util.*;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemSword;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DatabaseGenerator {
 	public static String display = "null";
@@ -67,6 +89,7 @@ public class DatabaseGenerator {
 	public static final String BEGIN = "\n</title><ns>10</ns><revision><text>&lt;includeonly&gt;{{#switch: {{{1}}}";
 	public static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;</text></revision></page>";
 	public static final String TITLE = "<page><title>";
+
 	static {
 		BIOMES.removeAll(Collections.singleton(null));
 		ACHIEVEMENTS.removeAll(Collections.singleton(null));
@@ -327,7 +350,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (Class<? extends WorldGenerator> strClass : STRUCTURES) {
 					sb.append("\n| ").append(getStructureName(strClass)).append(" = ").append(Lang.STRUCTURE_BIOMES);
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						for (RandomStructure structure : biome.decorator.randomStructures) {
 							if (structure.structureGen.getClass() == strClass) {
 								sb.append("\n* ").append(getBiomeLink(biome)).append(";");
@@ -344,7 +368,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (String mineral : MINERALS) {
 					sb.append("\n| ").append(mineral).append(" = ").append(Lang.MINERAL_BIOMES);
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
 						oreGenerants.addAll(biome.decorator.biomeOres);
 						oreGenerants.addAll(biome.decorator.biomeGems);
@@ -367,7 +392,8 @@ public class DatabaseGenerator {
 				for (GOTTreeType tree : TREES) {
 					HashSet<GOTBiome> biomesTree = new HashSet<>();
 					HashSet<GOTBiome> biomesVariantTree = new HashSet<>();
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
 							if (weightedTreeType.treeType == tree) {
 								biomesTree.add(biome);
@@ -450,7 +476,8 @@ public class DatabaseGenerator {
 							sb.append(Lang.BIOME_HAS_CONQUEST);
 							EnumSet<GOTFaction> conquestFactions = EnumSet.noneOf(GOTFaction.class);
 							for (FactionContainer facContainer : conqestContainers) {
-								next: for (SpawnListContainer container : facContainer.spawnLists) {
+								next:
+								for (SpawnListContainer container : facContainer.spawnLists) {
 									for (GOTSpawnEntry entry : container.spawnList.spawnList) {
 										Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
 										if (entity instanceof GOTEntityNPC) {
@@ -515,27 +542,27 @@ public class DatabaseGenerator {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 					if (biome.getClimateType() != null) {
 						switch (biome.getClimateType()) {
-						case COLD:
-							sb.append(Lang.CLIMATE_COLD);
-							break;
-						case COLD_AZ:
-							sb.append(Lang.CLIMATE_COLD_AZ);
-							break;
-						case NORMAL:
-							sb.append(Lang.CLIMATE_NORMAL);
-							break;
-						case NORMAL_AZ:
-							sb.append(Lang.CLIMATE_NORMAL_AZ);
-							break;
-						case SUMMER:
-							sb.append(Lang.CLIMATE_SUMMER);
-							break;
-						case SUMMER_AZ:
-							sb.append(Lang.CLIMATE_SUMMER_AZ);
-							break;
-						case WINTER:
-							sb.append(Lang.CLIMATE_WINTER);
-							break;
+							case COLD:
+								sb.append(Lang.CLIMATE_COLD);
+								break;
+							case COLD_AZ:
+								sb.append(Lang.CLIMATE_COLD_AZ);
+								break;
+							case NORMAL:
+								sb.append(Lang.CLIMATE_NORMAL);
+								break;
+							case NORMAL_AZ:
+								sb.append(Lang.CLIMATE_NORMAL_AZ);
+								break;
+							case SUMMER:
+								sb.append(Lang.CLIMATE_SUMMER);
+								break;
+							case SUMMER_AZ:
+								sb.append(Lang.CLIMATE_SUMMER_AZ);
+								break;
+							case WINTER:
+								sb.append(Lang.CLIMATE_WINTER);
+								break;
 						}
 					} else {
 						sb.append(Lang.CLIMATE_NULL);
@@ -566,7 +593,8 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.BIOME_HAS_INVASIONS);
 						EnumSet<GOTFaction> invasionFactions = EnumSet.noneOf(GOTFaction.class);
-						next: for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
+						next:
+						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 							for (InvasionSpawnEntry entry : invasion.invasionMobs) {
 								Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
 								if (entity instanceof GOTEntityNPC) {
@@ -737,7 +765,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					HashSet<GOTBiome> invasionBiomes = new HashSet<>();
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 							for (InvasionSpawnEntry entry : invasion.invasionMobs) {
 								Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
@@ -764,7 +793,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					HashSet<GOTBiome> spawnBiomes = new HashSet<>();
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						List<FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
 						if (!facContainers.isEmpty()) {
 							ArrayList<FactionContainer> spawnContainers = new ArrayList<>();
@@ -805,7 +835,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					HashSet<GOTBiome> conquestBiomes = new HashSet<>();
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						List<FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
 						if (!facContainers.isEmpty()) {
 							ArrayList<FactionContainer> conquestContainers = new ArrayList<>();
@@ -1073,7 +1104,8 @@ public class DatabaseGenerator {
 					HashSet<GOTBiome> conquestBiomes = new HashSet<>();
 					HashSet<GOTBiome> invasionBiomes = new HashSet<>();
 					HashSet<GOTBiome> unnaturalBiomes = new HashSet<>();
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						List<SpawnListEntry> spawnEntries = new ArrayList<>();
 						List<SpawnListEntry> conquestEntries = new ArrayList<>();
 						List<InvasionSpawnEntry> invasionEntries = new ArrayList<>();
@@ -1148,7 +1180,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (Class<? extends Entity> entityClass : HIREABLE) {
 					HashMap<Class<? extends Entity>, Class<? extends Entity>> owners = new HashMap<>();
-					loop: for (Entry<Class<? extends Entity>, Entity> ownerEntry : CLASS_TO_OBJ.entrySet()) {
+					loop:
+					for (Entry<Class<? extends Entity>, Entity> ownerEntry : CLASS_TO_OBJ.entrySet()) {
 						if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
 							GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
 							if (!((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
@@ -1162,7 +1195,8 @@ public class DatabaseGenerator {
 						}
 					}
 					if (owners.isEmpty()) {
-						loop: for (Entry<Class<? extends Entity>, Entity> ownerEntry : CLASS_TO_OBJ.entrySet()) {
+						loop:
+						for (Entry<Class<? extends Entity>, Entity> ownerEntry : CLASS_TO_OBJ.entrySet()) {
 							if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
 								GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
 								if (((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
@@ -1335,7 +1369,8 @@ public class DatabaseGenerator {
 
 				sb.append(TITLE).append("Template:DB Mob-Alignment");
 				sb.append(BEGIN);
-				next: for (Class<? extends Entity> entityClass : HIREABLE) {
+				next:
+				for (Class<? extends Entity> entityClass : HIREABLE) {
 					for (GOTUnitTradeEntries entries : UNITS) {
 						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 							if (entry.entityClass == entityClass) {
@@ -1607,7 +1642,8 @@ public class DatabaseGenerator {
 	}
 
 	public static void searchForPagenamesBiome(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
-		next: for (GOTBiome biome : biomes) {
+		next:
+		for (GOTBiome biome : biomes) {
 			String preName = getBiomeName(biome);
 			for (GOTFaction fac : factions) {
 				if (preName.equals(getFactionName(fac))) {
@@ -1626,7 +1662,8 @@ public class DatabaseGenerator {
 	}
 
 	public static void searchForPagenamesEntity(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
-		next: for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+		next:
+		for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
 			String preName = getEntityName(entityClass);
 			for (GOTBiome biome : biomes) {
 				if (preName.equals(getBiomeName(biome))) {
@@ -1645,7 +1682,8 @@ public class DatabaseGenerator {
 	}
 
 	public static void searchForPagenamesFaction(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
-		next: for (GOTFaction fac : factions) {
+		next:
+		for (GOTFaction fac : factions) {
 			String preName = getFactionName(fac);
 			for (GOTBiome biome : biomes) {
 				if (preName.equals(getBiomeName(biome))) {

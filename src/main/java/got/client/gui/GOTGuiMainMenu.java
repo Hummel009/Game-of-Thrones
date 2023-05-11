@@ -1,19 +1,25 @@
 package got.client.gui;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
-
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.*;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.client.gui.GuiButton;
+import net.minecraft.client.gui.GuiLabel;
+import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.renderer.OpenGlHelper;
-import net.minecraft.util.*;
+import net.minecraft.util.MathHelper;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.StatCollector;
 import net.minecraftforge.client.ForgeHooksClient;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GOTGuiMainMenu extends GuiMainMenu {
 	public static ResourceLocation titleTexture = new ResourceLocation("textures/gui/title/minecraft.png");

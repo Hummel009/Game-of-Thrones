@@ -1,14 +1,17 @@
 package got.common.world.structure.essos.jogos;
 
-import java.util.Random;
-
-import got.common.entity.essos.jogos.*;
+import got.common.entity.essos.jogos.GOTEntityJogos;
+import got.common.entity.essos.jogos.GOTEntityJogosArcher;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
-import got.common.world.structure.other.*;
+import got.common.world.structure.other.GOTStructureNPCRespawner;
+import got.common.world.structure.other.GOTVillageGen;
+import got.common.world.structure.other.LocationInfo;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureJogosVillage extends GOTVillageGen {
 	public boolean isBig;
