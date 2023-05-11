@@ -135,7 +135,7 @@ public class GOTLore {
 						if (metadata.startsWith(codeCategory)) {
 							categoryString = metadata.substring(codeCategory.length());
 							while (categoryString.length() > 0) {
-								Object categoryName = null;
+								String categoryName = null;
 								int indexOf = categoryString.indexOf(codeCategorySeparator);
 								if (indexOf >= 0) {
 									categoryName = categoryString.substring(0, indexOf);
@@ -155,7 +155,7 @@ public class GOTLore {
 									}
 									continue;
 								}
-								LoreCategory category = LoreCategory.forName((String) categoryName);
+								LoreCategory category = LoreCategory.forName(categoryName);
 								if (category != null) {
 									if (categories.contains(category)) {
 										continue;

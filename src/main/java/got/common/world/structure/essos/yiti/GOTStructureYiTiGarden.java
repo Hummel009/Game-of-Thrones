@@ -57,7 +57,7 @@ public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 				for (j1 = 1; j1 <= 9; ++j1) {
 					setAir(world, i1, j1, k1);
 				}
-				if (i2 <= 9 && k2 <= 9 && (i2 == 9 && k2 >= 2 && k2 <= 8 || k2 == 9 && i2 >= 2 && i2 <= 8)) {
+				if ((i2 == 9 && k2 >= 2 && k2 <= 8 || k2 == 9 && i2 >= 2 && i2 <= 8)) {
 					setBlockAndMetadata(world, i1, 0, k1, brickBlock, brickMeta);
 					if (i2 == 9 && k2 == 2 || k2 == 9 && i2 == 2) {
 						for (j1 = 1; j1 <= 6; ++j1) {
