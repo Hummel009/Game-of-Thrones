@@ -8,18 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/GOT.iws" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/arryn/GOTStructureArrynVillageFarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/arryn/GOTStructureArrynVillageFarm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/crownlands/GOTStructureCrownlandsVillageFarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/crownlands/GOTStructureCrownlandsVillageFarm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/dragonstone/GOTStructureDragonstoneVillageFarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/dragonstone/GOTStructureDragonstoneVillageFarm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/ironborn/GOTStructureIronbornVillageFarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/ironborn/GOTStructureIronbornVillageFarm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/north/GOTStructureNorthVillageFarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/north/GOTStructureNorthVillageFarm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/reach/GOTStructureReachVillageFarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/reach/GOTStructureReachVillageFarm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/riverlands/GOTStructureRiverlandsVillageFarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/riverlands/GOTStructureRiverlandsVillageFarm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/stormlands/GOTStructureStormlandsVillageFarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/stormlands/GOTStructureStormlandsVillageFarm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/westerlands/GOTStructureWesterlandsVillageFarm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/westeros/westerlands/GOTStructureWesterlandsVillageFarm.java" afterDir="false" />
-    </list>
+    <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

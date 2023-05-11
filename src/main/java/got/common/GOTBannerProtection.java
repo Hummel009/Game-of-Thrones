@@ -25,7 +25,6 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.*;
 
 public class GOTBannerProtection {
-	public static int MAX_RANGE = 64;
 	public static Map<Pair<Block, Integer>, Integer> protectionBlocks = new HashMap<>();
 	public static Map<UUID, Integer> lastWarningTimes = new HashMap<>();
 
