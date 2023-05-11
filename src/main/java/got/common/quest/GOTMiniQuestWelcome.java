@@ -338,23 +338,20 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	}
 
 	public static boolean[] forceMenuMapFactions(EntityPlayer entityplayer) {
-		boolean[] flags = { false, false };
+		boolean[] flags = {false, false};
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		List<GOTMiniQuest> activeQuests = pd.getActiveMiniQuests();
 		for (GOTMiniQuest quest : activeQuests) {
 			if (quest instanceof GOTMiniQuestWelcome) {
 				GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
-				switch (qw.stage) {
-				case 5:
+				if (qw.stage == 5) {
 					flags[0] = true;
 					break;
-				case 11:
-					continue;
-				default:
+				}
+				if (qw.stage == 11) {
+					flags[1] = true;
 					break;
 				}
-				flags[1] = true;
-				break;
 			}
 		}
 		return flags;
