@@ -19,7 +19,6 @@ import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {

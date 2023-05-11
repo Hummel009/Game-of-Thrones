@@ -12,7 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 import java.util.List;
-import java.util.Random;
 
 public abstract class GOTBlockWoodBase extends BlockLog {
 	@SideOnly(Side.CLIENT)

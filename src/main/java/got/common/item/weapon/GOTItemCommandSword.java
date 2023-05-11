@@ -1,6 +1,5 @@
 package got.common.item.weapon;
 
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.GOTSquadrons;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;

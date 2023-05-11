@@ -1,6 +1,5 @@
 package got.common.fellowship;
 
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.network.GOTPacketFellowshipNotification;
 import got.common.network.GOTPacketHandler;

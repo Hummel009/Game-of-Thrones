@@ -4,7 +4,6 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
-import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;

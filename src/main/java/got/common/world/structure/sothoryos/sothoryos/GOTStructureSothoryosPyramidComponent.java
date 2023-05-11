@@ -6,7 +6,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.StructureComponent;
 
-import java.util.List;
 import java.util.Random;
 
 public class GOTStructureSothoryosPyramidComponent extends StructureComponent {

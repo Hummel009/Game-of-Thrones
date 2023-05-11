@@ -2,7 +2,6 @@ package got.common.database;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ModContainer;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.GOTDrunkenSpeech;

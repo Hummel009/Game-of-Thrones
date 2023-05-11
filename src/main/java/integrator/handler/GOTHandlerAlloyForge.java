@@ -12,7 +12,6 @@ import got.common.database.GOTRegistry;
 import got.common.tileentity.GOTTileEntityAlloyForge;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

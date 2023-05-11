@@ -2,7 +2,6 @@ package got.common.entity.other;
 
 import com.google.common.base.Predicate;
 import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;

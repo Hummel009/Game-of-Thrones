@@ -4,7 +4,6 @@ import got.common.world.structure.other.GOTScanAlias;
 import got.common.world.structure.other.GOTStructureScan;
 import net.minecraft.block.Block;
 import net.minecraft.command.CommandBase;
-import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.init.Blocks;

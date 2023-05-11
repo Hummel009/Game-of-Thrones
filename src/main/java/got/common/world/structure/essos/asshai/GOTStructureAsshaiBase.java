@@ -4,7 +4,6 @@ import got.common.database.GOTRegistry;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 
 import java.util.Random;
 

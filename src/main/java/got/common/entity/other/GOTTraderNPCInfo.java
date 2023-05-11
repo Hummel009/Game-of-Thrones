@@ -1,6 +1,5 @@
 package got.common.entity.other;
 
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.database.GOTTradeEntries;
 import got.common.inventory.GOTContainerTrade;

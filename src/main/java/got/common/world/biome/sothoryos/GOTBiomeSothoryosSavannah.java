@@ -4,7 +4,6 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.map.GOTWaypoint.Region;
 
 public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBushland {
 	public GOTBiomeSothoryosSavannah(int i, boolean major) {

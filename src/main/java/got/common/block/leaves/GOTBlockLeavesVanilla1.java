@@ -3,12 +3,8 @@ package got.common.block.leaves;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockOldLeaf;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
-
-import java.util.Random;
 
 public class GOTBlockLeavesVanilla1 extends GOTBlockLeavesBase {
 	public GOTBlockLeavesVanilla1() {

@@ -1,7 +1,6 @@
 package got.common.entity.other;
 
 import com.mojang.authlib.GameProfile;
-import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTBannerProtection;
 import got.common.GOTBannerProtection.Permission;
 import got.common.GOTConfig;

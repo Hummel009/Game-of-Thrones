@@ -6,7 +6,6 @@ import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTNPCMount;
-import got.common.faction.GOTFaction;
 import got.common.quest.IPickpocketable;
 import got.common.world.biome.essos.GOTBiomeMercenary;
 import net.minecraft.entity.EntityLiving;

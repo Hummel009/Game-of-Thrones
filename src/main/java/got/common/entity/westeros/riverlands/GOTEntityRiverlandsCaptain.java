@@ -2,11 +2,9 @@ package got.common.entity.westeros.riverlands;
 
 import got.common.GOTLevelData;
 import got.common.database.*;
-import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;

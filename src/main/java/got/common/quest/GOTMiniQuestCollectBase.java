@@ -8,7 +8,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 	public int collectTarget;

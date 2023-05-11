@@ -10,7 +10,6 @@ import net.minecraft.world.World;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;

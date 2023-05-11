@@ -6,8 +6,6 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import got.common.world.feature.GOTWorldGenStreams;
 import got.common.world.feature.GOTWorldGenVolcanoCrater;
-import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTWaypoint.Region;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;

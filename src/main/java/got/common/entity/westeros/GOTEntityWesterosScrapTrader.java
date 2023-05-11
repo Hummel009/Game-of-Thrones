@@ -8,7 +8,6 @@ import got.common.entity.ai.GOTEntityAIEat;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTTradeable;
-import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemLeatherHat;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityLiving;

@@ -6,7 +6,6 @@ import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIDrink;
 import got.common.entity.ai.GOTEntityAIEat;
-import got.common.faction.GOTFaction;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;

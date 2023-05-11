@@ -5,11 +5,8 @@ import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTBlockKelp extends Block {
 	public GOTBlockKelp() {

@@ -1,10 +1,8 @@
 package got.common.entity.westeros.hillmen;
 
 import got.common.database.GOTRegistry;
-import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 

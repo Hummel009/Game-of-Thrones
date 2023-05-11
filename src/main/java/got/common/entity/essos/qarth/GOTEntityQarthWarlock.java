@@ -1,7 +1,5 @@
 package got.common.entity.essos.qarth;
 
-import got.common.GOTLevelData;
-import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;

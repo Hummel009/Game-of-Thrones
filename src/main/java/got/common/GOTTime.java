@@ -10,7 +10,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldServer;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.nio.file.Files;
 
 public class GOTTime {

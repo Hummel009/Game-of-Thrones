@@ -2,9 +2,7 @@ package got.common.entity.sothoryos.sothoryos;
 
 import got.common.database.GOTRegistry;
 import got.common.database.GOTShields;
-import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import net.minecraft.entity.IEntityLivingData;
-import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 

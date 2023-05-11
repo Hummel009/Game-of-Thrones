@@ -14,8 +14,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
-import java.util.Iterator;
-
 public class GOTHandlerKebab extends TemplateRecipeHandler {
 	public GOTTileEntityKebabStand kebabStand = new GOTTileEntityKebabStand();
 
