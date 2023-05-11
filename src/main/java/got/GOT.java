@@ -246,10 +246,21 @@ public class GOT {
 			int b = (int) (baseB * rgb[2]);
 			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
 		}
-		int[] nums = {GOTAchievement.id, GOTPacketHandler.id, BannerType.values().length, GOTEntity.id, GOTStructure.id, GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size(), GOTBeziers.id, GOTWaypoint.values().length, GOTFaction.values().length, GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class).size(), GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class).size()};
-		String[] strings = {" achievements", " packets", " banners", " mobs", " structures", " biomes", " beziers", " waypoints", " factions", " items", " blocks"};
-		for (int i = 0; i < nums.length; i++) {
-			GOTLog.logger.info("Hummel009: Registered " + nums[i] + strings[i]);
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("achievements", GOTAchievement.id);
+		map.put("packets", GOTPacketHandler.id);
+		map.put("banners", BannerType.values().length);
+		map.put("mobs", GOTEntity.id);
+		map.put("structures", GOTStructure.id);
+		map.put("biomes", GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size());
+		map.put("beziers", GOTBeziers.id);
+		map.put("waypoints", GOTWaypoint.values().length);
+		map.put("factions", GOTFaction.values().length);
+		map.put("items", GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class).size());
+		map.put("blocks", GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class).size());
+
+		for (Map.Entry<String, Integer> entry : map.entrySet()) {
+			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
 		}
 	}
 
