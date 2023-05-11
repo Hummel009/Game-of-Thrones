@@ -77,7 +77,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 								break;
 						}
 						if (random.nextInt(3) == 0) {
-							setBlockAndMetadata(world, i12, 0 + 1, k12, GOTRegistry.thatchFloor, 0);
+							setBlockAndMetadata(world, i12, 1, k12, GOTRegistry.thatchFloor, 0);
 						}
 					} else {
 						setBlockAndMetadata(world, i12, j14, k12, Blocks.dirt, 0);

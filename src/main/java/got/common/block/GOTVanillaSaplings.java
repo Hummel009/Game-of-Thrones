@@ -120,7 +120,7 @@ public class GOTVanillaSaplings {
 			if (treeGen == null) {
 				for (int i14 = 0; i14 >= -1; --i14) {
 					for (int k12 = 0; k12 >= -1; --k12) {
-						if (!isSameSapling(world, i + i14, j, k + k12, 5) || !isSameSapling(world, i + i14 + 1, j, k + k12, 5) || !isSameSapling(world, i + i14, j, k + k12 + 1, 5) || !isSameSapling(world, i + i14 + 1, j, k + k12 + 1, meta)) {
+						if (!isSameSapling(world, i + i14, j, k + k12, 5) || !isSameSapling(world, i + i14 + 1, j, k + k12, 5) || !isSameSapling(world, i + i14, j, k + k12 + 1, 5) || !isSameSapling(world, i + i14 + 1, j, k + k12 + 1, 5)) {
 							continue;
 						}
 						treeGen = GOTTreeType.DARK_OAK.create(true, random);
