@@ -29,7 +29,7 @@ import java.util.Random;
 
 public class GOTBlockTreasurePile extends Block {
 	public static Block.SoundType soundTypeTreasure = new Block.SoundType("got:treasure", 1.0f, 1.0f) {
-		public Random rand = new Random();
+		public final Random rand = new Random();
 
 		@Override
 		public String func_150496_b() {

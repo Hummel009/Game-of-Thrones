@@ -1,6 +1,5 @@
 package got.common.entity.animal;
 
-import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.world.World;

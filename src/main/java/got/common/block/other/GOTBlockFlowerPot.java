@@ -7,7 +7,6 @@ import got.common.database.GOTRegistry;
 import got.common.tileentity.GOTTileEntityFlowerPot;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlowerPot;
-import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;

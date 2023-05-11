@@ -726,15 +726,6 @@ public class GOTModelDragonAnimaton {
 
 	public void splineArrays(float x, boolean shift, float[] result, float[]... nodes) {
 
-//        if (true) {
-//            if (shift) {
-//                System.arraycopy(nodes[(int) (x + 1) % nodes.length], 0, result, 0, nodes.length);
-//            } else {
-//                System.arraycopy(nodes[(int) x % nodes.length], 0, result, 0, nodes.length);
-//            }
-//            return;
-//        }
-
 		int i1 = (int) x % nodes.length;
 		int i2 = (i1 + 1) % nodes.length;
 		int i3 = (i1 + 2) % nodes.length;

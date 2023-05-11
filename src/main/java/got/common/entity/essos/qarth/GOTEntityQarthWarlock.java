@@ -4,7 +4,6 @@ import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import got.common.database.GOTTradeEntries;
-import got.common.entity.other.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

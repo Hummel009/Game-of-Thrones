@@ -5,7 +5,6 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAILionChase;
 import got.common.entity.ai.GOTEntityAIMFMate;
 import got.common.item.other.GOTItemLionRug;
-import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;

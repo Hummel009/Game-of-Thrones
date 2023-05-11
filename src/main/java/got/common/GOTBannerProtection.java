@@ -111,7 +111,7 @@ public class GOTBannerProtection {
 
 	public static IFilter forPlayer_returnMessage(EntityPlayer entityplayer, Permission perm, IChatComponent[] protectionMessage) {
 		return new IFilter() {
-			public IFilter internalPlayerFilter = forPlayer(entityplayer, perm);
+			public final IFilter internalPlayerFilter = forPlayer(entityplayer, perm);
 
 			@Override
 			public ProtectType protects(GOTEntityBanner banner) {

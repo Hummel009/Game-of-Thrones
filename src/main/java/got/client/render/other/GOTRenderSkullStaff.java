@@ -11,7 +11,7 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTRenderSkullStaff implements IItemRenderer {
 	public static ModelBase staffModel = new ModelBase() {
-		public ModelRenderer staff = new ModelRenderer(this, 0, 0);
+		public final ModelRenderer staff = new ModelRenderer(this, 0, 0);
 
 		{
 			staff.addBox(-0.5f, 8.0f, -6.0f, 1, 1, 28, 0.0f);

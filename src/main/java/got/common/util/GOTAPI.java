@@ -225,13 +225,13 @@ public class GOTAPI {
 	 * @param zoomMax    - label will be seen before this scale.
 	 * @apiNote Creates new map label on the gui screen.
 	 */
-	public static GOTMapLabels addMapLabel(String enumName, GOTBiome biomeLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
-		return addMapLabel(enumName, (Object) biomeLabel, x, y, scale, angle, zoomMin, zoomMan);
+	public static GOTMapLabels addMapLabel(String enumName, GOTBiome biomeLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMax) {
+		return addMapLabel(enumName, (Object) biomeLabel, x, y, scale, angle, zoomMin, zoomMax);
 	}
 
-	private static GOTMapLabels addMapLabel(String enumName, Object label, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
+	private static GOTMapLabels addMapLabel(String enumName, Object label, int x, int y, float scale, int angle, float zoomMin, float zoomMax) {
 		Class[] classArr = {Object.class, Integer.TYPE, Integer.TYPE, Float.TYPE, Integer.TYPE, Float.TYPE, Float.TYPE};
-		Object[] args = {label, x, y, Float.valueOf(scale), angle, Float.valueOf(zoomMin), Float.valueOf(zoomMan)};
+		Object[] args = {label, x, y, Float.valueOf(scale), angle, Float.valueOf(zoomMin), Float.valueOf(zoomMax)};
 		return EnumHelper.addEnum(GOTMapLabels.class, enumName, classArr, args);
 	}
 
@@ -246,8 +246,8 @@ public class GOTAPI {
 	 * @param zoomMax     - label will be seen before this scale.
 	 * @apiNote Creates new map label on the gui screen.
 	 */
-	public static GOTMapLabels addMapLabel(String enumName, String stringLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMan) {
-		return addMapLabel(enumName, (Object) stringLabel, x, y, scale, angle, zoomMin, zoomMan);
+	public static GOTMapLabels addMapLabel(String enumName, String stringLabel, int x, int y, float scale, int angle, float zoomMin, float zoomMax) {
+		return addMapLabel(enumName, (Object) stringLabel, x, y, scale, angle, zoomMin, zoomMax);
 	}
 
 	/**
