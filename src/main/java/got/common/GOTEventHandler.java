@@ -1550,7 +1550,6 @@ public class GOTEventHandler implements IFuelHandler {
 				float chance = duration / 4800.0F;
 				chance = Math.min(chance, 1.0F);
 				chance *= 0.4F;
-				entityplayer.getRNG();
 				String key = chatComponent.getKey();
 				Object[] formatArgs = chatComponent.getFormatArgs();
 				for (int a = 0; a < formatArgs.length; a++) {

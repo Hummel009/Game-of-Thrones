@@ -18,7 +18,6 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.SquadronItem {

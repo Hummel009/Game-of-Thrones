@@ -42,8 +42,6 @@ public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 		}
 		for (int i1 = -4; i1 <= 4; ++i1) {
 			for (int k1 = -6; k1 <= 5; ++k1) {
-				Math.abs(i1);
-				Math.abs(k1);
 				if (k1 >= -5) {
 					j1 = -1;
 					while (!isOpaque(world, i1, j1, k1) && getY(j1) >= 0) {

@@ -51,7 +51,6 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 		for (i1 = -5; i1 <= 4; ++i1) {
 			for (int k14 = -7; k14 <= 5; ++k14) {
 				int i2 = Math.abs(i1);
-				Math.abs(k14);
 				if (i1 == -5) {
 					for (int j132 = 1; j132 <= 8; ++j132) {
 						setAir(world, -5, j132, k14);

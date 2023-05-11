@@ -57,7 +57,6 @@ public class GOTStructureAsshaiTownWall extends GOTStructureAsshaiBase {
 		setupRandomBlocks(random);
 		for (int i1 = xMin; i1 <= xMax; ++i1) {
 			int j1;
-			Math.abs(i1);
 			int k1 = 0;
 			findSurface(world, i1, k1);
 			for (j1 = 1; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {

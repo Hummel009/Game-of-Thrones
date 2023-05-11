@@ -24,7 +24,6 @@ public class GOTStructureIbbenFortWall extends GOTStructureIbbenBase {
 		setupRandomBlocks(random);
 		for (int i1 = xMin; i1 <= xMax; ++i1) {
 			int j1;
-			Math.abs(i1);
 			int k1 = 0;
 			findSurface(world, i1, k1);
 			setupRandomBlocks(random);

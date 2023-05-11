@@ -35,7 +35,6 @@ public class GOTStructureIbbenVillageGarden extends GOTStructureIbbenBase {
 			for (k1 = -1; k1 <= 1; ++k1) {
 				int j1;
 				int i2 = Math.abs(i1);
-				Math.abs(k1);
 				boolean foundSurface = false;
 				for (j1 = 5; j1 >= -5; --j1) {
 					if (!isSurface(world, i1, j1 - 1, k1)) {

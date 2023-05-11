@@ -66,7 +66,6 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 						float cos = MathHelper.cos(angle);
 						float sin = MathHelper.sin(angle);
 						float angleY = random.nextFloat() * (float) 0.8726646259971648;
-						MathHelper.cos(angleY);
 						float sinY = MathHelper.sin(angleY);
 						int length = 4 + random.nextInt(6);
 						int i1 = i;

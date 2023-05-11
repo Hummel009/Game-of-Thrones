@@ -32,7 +32,6 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 			int pillarOffset;
 			int k3;
 			int j1;
-			Math.abs(i1);
 			int k1 = 0;
 			findSurface(world, i1, k1);
 			for (int k32 = k1; k32 <= k1 + 1; ++k32) {

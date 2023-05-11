@@ -68,7 +68,6 @@ public class GOTWorldGenGnarledOak extends WorldGenAbstractTree {
 			float cos = MathHelper.cos(angle);
 			float sin = MathHelper.sin(angle);
 			float angleY = random.nextFloat() * (float) 0.6981317007977318;
-			MathHelper.cos(angleY);
 			float sinY = MathHelper.sin(angleY);
 			int length = 2 + random.nextInt(3);
 			int i1 = i;

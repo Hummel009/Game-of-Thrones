@@ -270,7 +270,6 @@ public class GOTMusic implements IResourceManagerReloadListener {
 
 	@SubscribeEvent
 	public void onPlaySound(PlaySoundEvent17 event) {
-		Minecraft.getMinecraft();
 		if (!allTracks.isEmpty() && event.category == SoundCategory.MUSIC && !(event.sound instanceof GOTMusicTrack)) {
 			if (isGOTDimension()) {
 				event.result = null;

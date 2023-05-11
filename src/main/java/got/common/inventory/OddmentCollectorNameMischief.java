@@ -13,7 +13,6 @@ public class OddmentCollectorNameMischief {
 			if (name.length() <= 3 || isFormattingCharacter(name, x = rand.nextInt(name.length()))) {
 				continue;
 			}
-			name.charAt(x);
 			name = name.substring(0, x) + name.substring(x + 1);
 		}
 		int replaces = rand.nextInt(3);

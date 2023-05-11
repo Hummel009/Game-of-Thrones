@@ -998,7 +998,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				detachHome();
 				boolean goDirectlyHome = false;
 				if (worldObj.blockExists(homeX, homeY, homeZ) && hiredNPCInfo.isGuardMode()) {
-					hiredNPCInfo.getGuardRange();
 					goDirectlyHome = distToHome < 16.0;
 				}
 				double homeSpeed = 1.3;

@@ -27,7 +27,6 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 		decorator.flowersPerChunk = 0;
 		decorator.grassPerChunk = 1;
 		decorator.dryReedChance = 1.0f;
-		decorator.flowersPerChunk = 0;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 	}

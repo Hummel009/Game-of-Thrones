@@ -1769,7 +1769,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			int playerY;
 			float[] pos;
 			int playerX;
-			entry.getKey();
 			PlayerLocationInfo info = (PlayerLocationInfo) entry.getValue();
 			GameProfile profile = info.profile;
 			String playerName = profile.getName();

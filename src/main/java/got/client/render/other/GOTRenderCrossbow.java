@@ -83,7 +83,6 @@ public class GOTRenderCrossbow implements IItemRenderer {
 			GL11.glPopMatrix();
 			return;
 		}
-		Minecraft.getMinecraft().getTextureManager();
 		Tessellator tessellator = Tessellator.instance;
 		float f = icon.getMinU();
 		float f1 = icon.getMaxU();

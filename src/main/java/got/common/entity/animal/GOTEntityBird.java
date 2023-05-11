@@ -364,7 +364,6 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		int i = MathHelper.floor_double(posX);
-		MathHelper.floor_double(posY);
 		int k = MathHelper.floor_double(posZ);
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiomeSothoryosJungle) {

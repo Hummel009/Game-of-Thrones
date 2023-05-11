@@ -177,7 +177,6 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 				setSprinting(momentum > 0.2f);
 				if (momentum >= 0.32f) {
 					float strength = momentum * 15.0f;
-					Vec3.createVectorHelper(posX, posY, posZ);
 					Vec3 look = getLookVec();
 					float sightWidth = 1.0f;
 					double range = 0.5;

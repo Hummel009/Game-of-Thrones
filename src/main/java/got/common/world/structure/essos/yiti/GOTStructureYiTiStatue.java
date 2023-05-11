@@ -32,8 +32,6 @@ public class GOTStructureYiTiStatue extends GOTStructureYiTiBase {
 		for (i1 = -6; i1 <= 6; ++i1) {
 			for (k12 = -5; k12 <= 5; ++k12) {
 				int j13;
-				Math.abs(i1);
-				Math.abs(k12);
 				for (j13 = 1; (j13 >= 0 || !isOpaque(world, i1, j13, k12)) && getY(j13) >= 0; --j13) {
 					setBlockAndMetadata(world, i1, j13, k12, GOTRegistry.rock, 4);
 					setGrassToDirt(world, i1, j13 - 1, k12);

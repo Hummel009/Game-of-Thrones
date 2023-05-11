@@ -2379,7 +2379,6 @@ public class GOTPlayerData {
 
 	public void runAchievementChecks(EntityPlayer entityplayer, World world) {
 		int i = MathHelper.floor_double(entityplayer.posX);
-		MathHelper.floor_double(entityplayer.boundingBox.minY);
 		int k = MathHelper.floor_double(entityplayer.posZ);
 		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiome) {

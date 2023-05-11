@@ -87,10 +87,6 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		bombFuse = worldObj.rand.nextInt(bombFuse / 4) + bombFuse / 8;
 	}
 
-	public void setFuseFromHiredUnit() {
-		GOTBlockBomb.getBombStrengthLevel(getBombStrengthLevel());
-	}
-
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);

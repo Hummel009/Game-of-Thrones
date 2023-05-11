@@ -211,7 +211,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 
 	public List<TileEntityChest> gatherNearbyChests() {
 		int x = MathHelper.floor_double(theEntity.posX);
-		MathHelper.floor_double(theEntity.boundingBox.minY);
 		int z = MathHelper.floor_double(theEntity.posZ);
 		int searchRange = (int) theEntity.func_110174_bM();
 		int chunkX = x >> 4;

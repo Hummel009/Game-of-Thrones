@@ -120,7 +120,6 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		int i = MathHelper.floor_double(posX);
-		MathHelper.floor_double(posY);
 		int k = MathHelper.floor_double(posZ);
 		worldObj.getBiomeGenForCoords(i, k);
 		if (rand.nextInt(30) == 0) {

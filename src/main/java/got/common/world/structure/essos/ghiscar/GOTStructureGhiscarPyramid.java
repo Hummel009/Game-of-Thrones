@@ -441,7 +441,6 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 					if (validDirs.isEmpty()) {
 						continue;
 					}
-					validDirs.get(random.nextInt(validDirs.size()));
 					setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSandstoneBrick, 0);
 				}
 			}

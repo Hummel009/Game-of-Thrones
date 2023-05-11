@@ -34,7 +34,6 @@ public class GOTStructureYiTiTownWall extends GOTStructureYiTiBase {
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		for (int i1 = xMin; i1 <= xMax; ++i1) {
-			Math.abs(i1);
 			findSurface(world, i1, 0);
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				int j1;

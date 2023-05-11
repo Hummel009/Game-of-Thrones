@@ -70,7 +70,6 @@ public class GOTBiomeVariantStorage {
 
 	public static void performCleanup(WorldServer world) {
 		Map<ChunkCoordIntPair, byte[]> dimensionMap = getDimensionChunkMap(world);
-		dimensionMap.size();
 		System.nanoTime();
 		ArrayList<ChunkCoordIntPair> removalChunks = new ArrayList<>();
 		for (ChunkCoordIntPair chunk : dimensionMap.keySet()) {

@@ -52,8 +52,6 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 		}
 		for (i13 = -4; i13 <= 4; ++i13) {
 			for (k12 = -5; k12 <= 5; ++k12) {
-				Math.abs(i13);
-				Math.abs(k12);
 				for (j12 = 0; (j12 == 0 || !isOpaque(world, i13, j12, k12)) && getY(j12) >= 0; --j12) {
 					setBlockAndMetadata(world, i13, j12, k12, brickBlock, brickMeta);
 					setGrassToDirt(world, i13, j12 - 1, k12);

@@ -82,7 +82,6 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 			float sin = MathHelper.sin(angleR);
 			float cos = MathHelper.cos(angleR);
 			float angleY = random.nextFloat() * (float) 0.5235987755982988;
-			MathHelper.cos(angleY);
 			float sinY = MathHelper.sin(angleY);
 			int i1 = trunkX;
 			int j1 = j + height - 1;

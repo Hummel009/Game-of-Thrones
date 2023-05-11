@@ -366,7 +366,6 @@ public class GOTNPCRendering {
 		Minecraft mc = Minecraft.getMinecraft();
 		WorldClient world = mc.theWorld;
 		world.theProfiler.startSection("renderNPCSpeech");
-		mc.getTextureManager();
 		RenderManager renderManager = RenderManager.instance;
 		FontRenderer fr = mc.fontRenderer;
 		double distance = RendererLivingEntity.NAME_TAG_RANGE;

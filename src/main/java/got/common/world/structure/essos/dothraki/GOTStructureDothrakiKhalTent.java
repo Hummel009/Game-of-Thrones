@@ -45,8 +45,6 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 		}
 		for (int i1 = -12; i1 <= 12; ++i1) {
 			for (int k1 = -8; k1 <= 8; ++k1) {
-				Math.abs(i1);
-				Math.abs(k1);
 				if (!isSurface(world, i1, 0, k1)) {
 					laySandBase(world, i1, 0, k1);
 				}

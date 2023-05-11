@@ -60,7 +60,6 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
-			Math.abs(k);
 			if (villageType == VillageType.VILLAGE) {
 				if (isRuinedVillage && random.nextInt(4) == 0) {
 					return null;

@@ -1065,7 +1065,6 @@ public class GOTTickHandlerClient {
 			mc.theWorld.theProfiler.startSection("gotBiomeDisplay");
 			GOTWorldChunkManager chunkManager = (GOTWorldChunkManager) mc.theWorld.getWorldChunkManager();
 			int i = MathHelper.floor_double(mc.thePlayer.posX);
-			MathHelper.floor_double(mc.thePlayer.boundingBox.minY);
 			int k = MathHelper.floor_double(mc.thePlayer.posZ);
 			GOTBiome biome = (GOTBiome) mc.theWorld.getBiomeGenForCoords(i, k);
 			GOTBiomeVariant variant = chunkManager.getBiomeVariantAt(i, k);
@@ -1082,7 +1081,6 @@ public class GOTTickHandlerClient {
 		WorldClient worldClient = mc.theWorld;
 		WorldProvider provider = worldClient.provider;
 		int i = MathHelper.floor_double(viewer.posX);
-		MathHelper.floor_double(viewer.boundingBox.minY);
 		int k = MathHelper.floor_double(viewer.posZ);
 		BiomeGenBase biome = worldClient.getBiomeGenForCoords(i, k);
 		float farPlane = event.farPlaneDistance;
@@ -1154,7 +1152,6 @@ public class GOTTickHandlerClient {
 						GL11.glPushMatrix();
 						ScaledResolution resolution = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);
 						int i = resolution.getScaledWidth();
-						resolution.getScaledHeight();
 						int compassX = i - 60;
 						int compassY = 40;
 						GL11.glTranslatef(compassX, compassY, 0.0F);
@@ -1308,7 +1305,6 @@ public class GOTTickHandlerClient {
 		GOTFaction viewingFac = pd.getViewingFaction();
 		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 		int width = resolution.getScaledWidth();
-		resolution.getScaledHeight();
 		alignmentXBase = width / 2 + GOTConfig.alignmentXOffset;
 		alignmentYBase = 4 + GOTConfig.alignmentYOffset;
 		if (isBossActive()) {
