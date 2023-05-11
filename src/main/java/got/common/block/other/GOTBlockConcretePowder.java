@@ -27,22 +27,22 @@ public class GOTBlockConcretePowder extends BlockFalling {
 		return GOTRegistry.concrete.get(dye);
 	}
 
-	public void func_149830_m(World p_149830_1_, int p_149830_2_, int p_149830_3_, int p_149830_4_) {
-		if (BlockFalling.func_149831_e(p_149830_1_, p_149830_2_, p_149830_3_ - 1, p_149830_4_) && p_149830_3_ >= 0) {
+	public void func_149830_m(World world, int i, int j, int k) {
+		if (BlockFalling.func_149831_e(world, i, j - 1, k) && j >= 0) {
 			int b0 = 32;
-			if (!fallInstantly && p_149830_1_.checkChunksExist(p_149830_2_ - b0, p_149830_3_ - b0, p_149830_4_ - b0, p_149830_2_ + b0, p_149830_3_ + b0, p_149830_4_ + b0)) {
-				if (!p_149830_1_.isRemote) {
-					GOTEntityFallingConcrete entityfallingblock = new GOTEntityFallingConcrete(p_149830_1_, p_149830_2_ + 0.5f, p_149830_3_ + 0.5f, p_149830_4_ + 0.5f, this, p_149830_1_.getBlockMetadata(p_149830_2_, p_149830_3_, p_149830_4_));
+			if (!fallInstantly && world.checkChunksExist(i - b0, j - b0, k - b0, i + b0, j + b0, k + b0)) {
+				if (!world.isRemote) {
+					GOTEntityFallingConcrete entityfallingblock = new GOTEntityFallingConcrete(world, i + 0.5f, j + 0.5f, k + 0.5f, this, world.getBlockMetadata(i, j, k));
 					func_149829_a(entityfallingblock);
-					p_149830_1_.spawnEntityInWorld(entityfallingblock);
+					world.spawnEntityInWorld(entityfallingblock);
 				}
 			} else {
-				p_149830_1_.setBlockToAir(p_149830_2_, p_149830_3_, p_149830_4_);
-				while (BlockFalling.func_149831_e(p_149830_1_, p_149830_2_, p_149830_3_ - 1, p_149830_4_) && p_149830_3_ > 0) {
-					--p_149830_3_;
+				world.setBlockToAir(i, j, k);
+				while (BlockFalling.func_149831_e(world, i, j - 1, k) && j > 0) {
+					--j;
 				}
-				if (p_149830_3_ > 0) {
-					p_149830_1_.setBlock(p_149830_2_, p_149830_3_, p_149830_4_, this);
+				if (j > 0) {
+					world.setBlock(i, j, k, this);
 				}
 			}
 		}
@@ -53,27 +53,27 @@ public class GOTBlockConcretePowder extends BlockFalling {
 	}
 
 	@Override
-	public void onBlockAdded(World world, int x, int y, int z) {
-		if (world.getBlock(x + 1, y, z).getMaterial() == Material.water || world.getBlock(x - 1, y, z).getMaterial() == Material.water || world.getBlock(x, y + 1, z).getMaterial() == Material.water || world.getBlock(x, y - 1, z).getMaterial() == Material.water || world.getBlock(x, y, z + 1).getMaterial() == Material.water || world.getBlock(x, y, z - 1).getMaterial() == Material.water) {
-			world.setBlock(x, y, z, getConcreteFromColor(color));
+	public void onBlockAdded(World world, int i, int j, int k) {
+		if (world.getBlock(i + 1, j, k).getMaterial() == Material.water || world.getBlock(i - 1, j, k).getMaterial() == Material.water || world.getBlock(i, j + 1, k).getMaterial() == Material.water || world.getBlock(i, j - 1, k).getMaterial() == Material.water || world.getBlock(i, j, k + 1).getMaterial() == Material.water || world.getBlock(i, j, k - 1).getMaterial() == Material.water) {
+			world.setBlock(i, j, k, getConcreteFromColor(color));
 		} else {
-			world.scheduleBlockUpdate(x, y, z, this, tickRate(world));
+			world.scheduleBlockUpdate(i, j, k, this, tickRate(world));
 		}
 	}
 
 	@Override
-	public void onNeighborBlockChange(World world, int x, int y, int z, Block block) {
-		if (world.getBlock(x + 1, y, z).getMaterial() == Material.water || world.getBlock(x - 1, y, z).getMaterial() == Material.water || world.getBlock(x, y + 1, z).getMaterial() == Material.water || world.getBlock(x, y - 1, z).getMaterial() == Material.water || world.getBlock(x, y, z + 1).getMaterial() == Material.water || world.getBlock(x, y, z - 1).getMaterial() == Material.water) {
-			world.setBlock(x, y, z, getConcreteFromColor(color));
+	public void onNeighborBlockChange(World world, int i, int j, int k, Block block) {
+		if (world.getBlock(i + 1, j, k).getMaterial() == Material.water || world.getBlock(i - 1, j, k).getMaterial() == Material.water || world.getBlock(i, j + 1, k).getMaterial() == Material.water || world.getBlock(i, j - 1, k).getMaterial() == Material.water || world.getBlock(i, j, k + 1).getMaterial() == Material.water || world.getBlock(i, j, k - 1).getMaterial() == Material.water) {
+			world.setBlock(i, j, k, getConcreteFromColor(color));
 		} else {
-			world.scheduleBlockUpdate(x, y, z, this, tickRate(world));
+			world.scheduleBlockUpdate(i, j, k, this, tickRate(world));
 		}
 	}
 
 	@Override
-	public void updateTick(World worldIn, int x, int y, int z, Random rand) {
-		if (!worldIn.isRemote) {
-			func_149830_m(worldIn, x, y, z);
+	public void updateTick(World world, int i, int j, int k, Random rand) {
+		if (!world.isRemote) {
+			func_149830_m(world, i, j, k);
 		}
 	}
 }
