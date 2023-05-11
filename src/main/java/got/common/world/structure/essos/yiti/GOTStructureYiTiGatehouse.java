@@ -96,7 +96,7 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 		for (int i15 = -2; i15 <= 2; ++i15) {
 			for (k12 = -2; k12 <= 2; ++k12) {
 				if (k12 == 0) {
-					setBlockAndMetadata(world, i15, 7, k12, brickRedBlock, brickRedMeta);
+					setBlockAndMetadata(world, i15, 7, 0, brickRedBlock, brickRedMeta);
 					continue;
 				}
 				setBlockAndMetadata(world, i15, 7, k12, pillarBlock, pillarMeta);
@@ -235,7 +235,7 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 				for (int k17 : new int[]{-2, 2}) {
 					for (int j17 = 1; j17 <= 8; ++j17) {
 						if (j17 == 1) {
-							setBlockAndMetadata(world, i1, j17, k17, brickRedBlock, brickRedMeta);
+							setBlockAndMetadata(world, i1, 1, k17, brickRedBlock, brickRedMeta);
 						} else {
 							setBlockAndMetadata(world, i1, j17, k17, brickBlock, brickMeta);
 						}

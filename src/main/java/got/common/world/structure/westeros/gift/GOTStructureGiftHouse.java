@@ -258,7 +258,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 					}
 					for (j1 = 0; (j1 >= 0 || !isOpaque(world, i122, j1, k12)) && getY(j1) >= 0; --j1) {
 						if (j1 == 0) {
-							setBlockAndMetadata(world, i122, j1, k12, Blocks.grass, 0);
+							setBlockAndMetadata(world, i122, 0, k12, Blocks.grass, 0);
 						} else {
 							setBlockAndMetadata(world, i122, j1, k12, Blocks.dirt, 0);
 						}

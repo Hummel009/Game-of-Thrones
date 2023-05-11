@@ -150,7 +150,7 @@ public class GOTItemBanner extends Item {
 			return false;
 		}
 		if (side == 1) {
-			if (!entityplayer.canPlayerEdit(i, j, k, side, itemstack)) {
+			if (!entityplayer.canPlayerEdit(i, j, k, 1, itemstack)) {
 				return false;
 			}
 			Block block = world.getBlock(i, j - 1, k);

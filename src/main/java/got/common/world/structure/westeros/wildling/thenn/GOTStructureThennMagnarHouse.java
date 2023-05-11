@@ -315,7 +315,7 @@ public class GOTStructureThennMagnarHouse extends GOTStructureBase {
 			for (int i16 = -1; i16 <= 1; ++i16) {
 				for (int k16 = -1; k16 <= 1; ++k16) {
 					if (i16 == 0 && k16 == 0) {
-						setAir(world, i16, j16, k16);
+						setAir(world, 0, j16, k16);
 						continue;
 					}
 					setBlockAndMetadata(world, i16, j16, k16, Blocks.cobblestone, 0);

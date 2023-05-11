@@ -54,7 +54,7 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 				boolean bedRegion = i2 <= 3 && k1 >= 5 && k1 <= 9 || i2 <= 2 && k1 == 4 || i2 <= 1 && k1 == 3;
 				for (j1 = 0; (j1 >= -1 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					if (bedRegion && j1 == 0) {
-						setAir(world, i1, j1, k1);
+						setAir(world, i1, 0, k1);
 						continue;
 					}
 					setGrassToDirt(world, i1, j1 - 1, k1);

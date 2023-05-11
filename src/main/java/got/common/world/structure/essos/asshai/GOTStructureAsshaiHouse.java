@@ -55,7 +55,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 				Math.abs(k14);
 				if (i1 == -5) {
 					for (int j132 = 1; j132 <= 8; ++j132) {
-						setAir(world, i1, j132, k14);
+						setAir(world, -5, j132, k14);
 					}
 					setBlockAndMetadata(world, i1, 0, k14, rockBlock, rockMeta);
 					j13 = -1;
@@ -95,7 +95,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 				if (k14 == -7) {
 					if (i2 == 4 || i2 == 2) {
 						for (j13 = 1; j13 <= 3; ++j13) {
-							setBlockAndMetadata(world, i1, j13, k14, pillarBlock, pillarMeta);
+							setBlockAndMetadata(world, i1, j13, -7, pillarBlock, pillarMeta);
 						}
 						continue;
 					}

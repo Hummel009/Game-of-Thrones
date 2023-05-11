@@ -42,7 +42,7 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 				if (i2 >= 8 || k2 >= 8) {
 					setBlockAndMetadata(world, i12, 0, k1, brickBlock, brickMeta);
 					if (k1 < 0 && i12 == 0) {
-						setBlockAndMetadata(world, i12, 0, k1, GOTRegistry.brick4, 4);
+						setBlockAndMetadata(world, 0, 0, k1, GOTRegistry.brick4, 4);
 					}
 					if (i2 > 9 || k2 > 9 || i2 != 9 && k2 != 9) {
 						continue;
@@ -62,7 +62,7 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 						setAir(world, i12, j12, k1);
 					}
 					if (step == 0) {
-						setBlockAndMetadata(world, -1, step, k1, brickBlock, brickMeta);
+						setBlockAndMetadata(world, -1, 0, k1, brickBlock, brickMeta);
 						setBlockAndMetadata(world, 0, step, k1, GOTRegistry.brick4, 4);
 						setBlockAndMetadata(world, 1, step, k1, brickBlock, brickMeta);
 						continue;
@@ -230,19 +230,19 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 				}
 				setBlockAndMetadata(world, i1, 13, k1, GOTRegistry.brick4, 3);
 				if (k1 == -1) {
-					setBlockAndMetadata(world, i1, 14, k1, GOTRegistry.stairsSothoryosBrickGold, 2);
+					setBlockAndMetadata(world, i1, 14, -1, GOTRegistry.stairsSothoryosBrickGold, 2);
 					continue;
 				}
 				if (k1 == 1) {
-					setBlockAndMetadata(world, i1, 14, k1, GOTRegistry.stairsSothoryosBrickGold, 3);
+					setBlockAndMetadata(world, i1, 14, 1, GOTRegistry.stairsSothoryosBrickGold, 3);
 					continue;
 				}
 				if (i1 == -1) {
-					setBlockAndMetadata(world, i1, 14, k1, GOTRegistry.stairsSothoryosBrickGold, 1);
+					setBlockAndMetadata(world, -1, 14, k1, GOTRegistry.stairsSothoryosBrickGold, 1);
 					continue;
 				}
 				if (i1 == 1) {
-					setBlockAndMetadata(world, i1, 14, k1, GOTRegistry.stairsSothoryosBrickGold, 0);
+					setBlockAndMetadata(world, 1, 14, k1, GOTRegistry.stairsSothoryosBrickGold, 0);
 					continue;
 				}
 				setBlockAndMetadata(world, i1, 14, k1, GOTRegistry.brick4, 3);

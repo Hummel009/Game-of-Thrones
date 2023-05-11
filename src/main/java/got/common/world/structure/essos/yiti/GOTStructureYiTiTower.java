@@ -86,7 +86,7 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 						}
 						for (int j12 = 3; j12 <= 8; ++j12) {
 							if (j12 == 4) {
-								setBlockAndMetadata(world, i12, j12, k1, brickRedStairBlock, stairMeta);
+								setBlockAndMetadata(world, i12, 4, k1, brickRedStairBlock, stairMeta);
 								continue;
 							}
 							setBlockAndMetadata(world, i12, j12, k1, brickStairBlock, stairMeta);

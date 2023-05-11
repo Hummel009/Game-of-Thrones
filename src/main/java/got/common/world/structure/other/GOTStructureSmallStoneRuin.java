@@ -696,13 +696,13 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 					}
 					if (random.nextInt(5) != 0) {
 						if (i1 == -4) {
-							setBlockAndMetadata(world, i1, 1, k1, Blocks.stone_brick_stairs, 1);
+							setBlockAndMetadata(world, -4, 1, k1, Blocks.stone_brick_stairs, 1);
 						} else if (i1 == 4) {
-							setBlockAndMetadata(world, i1, 1, k1, Blocks.stone_brick_stairs, 0);
+							setBlockAndMetadata(world, 4, 1, k1, Blocks.stone_brick_stairs, 0);
 						} else if (k1 == -4) {
-							setBlockAndMetadata(world, i1, 1, k1, Blocks.stone_brick_stairs, 2);
+							setBlockAndMetadata(world, i1, 1, -4, Blocks.stone_brick_stairs, 2);
 						} else if (k1 == 4) {
-							setBlockAndMetadata(world, i1, 1, k1, Blocks.stone_brick_stairs, 3);
+							setBlockAndMetadata(world, i1, 1, 4, Blocks.stone_brick_stairs, 3);
 						}
 					}
 					if (i2 == 3 && k2 == 3) {

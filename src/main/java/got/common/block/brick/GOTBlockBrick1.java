@@ -47,7 +47,7 @@ public class GOTBlockBrick1 extends GOTBlockBrickBase {
 		for (int i = 0; i < brickNames.length; ++i) {
 			brickIcons[i] = iconregister.registerIcon(getTextureName() + "_" + brickNames[i]);
 			if (i == 4) {
-				iconIbbenSide = iconregister.registerIcon(getTextureName() + "_" + brickNames[i] + "_side");
+				iconIbbenSide = iconregister.registerIcon(getTextureName() + "_" + brickNames[4] + "_side");
 			}
 		}
 	}

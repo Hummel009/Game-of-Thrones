@@ -28,7 +28,7 @@ public class GOTBlockSapling8 extends GOTBlockSaplingBase {
 			int[] tree2x2;
 			int[] tree4x4;
 			int[] tree3x3;
-			int[] tree5x5 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, meta, -2, 2, -4, 4);
+			int[] tree5x5 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, 1, -2, 2, -4, 4);
 			if (tree5x5 != null) {
 				treeGen = GOTTreeType.REDWOOD_5.create(true, random);
 				trunkNeg = 2;

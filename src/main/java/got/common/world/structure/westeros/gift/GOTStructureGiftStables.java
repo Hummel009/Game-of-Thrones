@@ -72,7 +72,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 				}
 				if (k1 == 4) {
 					for (j12 = 1; j12 <= 3; ++j12) {
-						setBlockAndMetadata(world, i15, j12, k1, plankBlock, plankMeta);
+						setBlockAndMetadata(world, i15, j12, 4, plankBlock, plankMeta);
 					}
 					continue;
 				}

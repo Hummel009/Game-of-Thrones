@@ -137,31 +137,31 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 			int newY = stepY;
 			int newZ = stepZ;
 			if (stepX == -3 && stepZ == -3) {
-				placeRandomBrick(world, random, stepX, stepY, stepZ);
+				placeRandomBrick(world, random, -3, stepY, stepZ);
 				++newZ;
 			} else if (stepX == -3 && stepZ == 3) {
-				placeRandomBrick(world, random, stepX, stepY, stepZ);
+				placeRandomBrick(world, random, -3, stepY, stepZ);
 				++newX;
 			} else if (stepX == 3 && stepZ == 3) {
-				placeRandomBrick(world, random, stepX, stepY, stepZ);
+				placeRandomBrick(world, random, 3, stepY, stepZ);
 				--newZ;
 			} else if (stepX == 3 && stepZ == -3) {
-				placeRandomBrick(world, random, stepX, stepY, stepZ);
+				placeRandomBrick(world, random, 3, stepY, stepZ);
 				--newX;
 			} else if (stepZ == -3) {
-				placeRandomStairs(world, random, stepX, stepY, stepZ, 1);
+				placeRandomStairs(world, random, stepX, stepY, -3, 1);
 				--newX;
 				--newY;
 			} else if (stepZ == 3) {
-				placeRandomStairs(world, random, stepX, stepY, stepZ, 0);
+				placeRandomStairs(world, random, stepX, stepY, 3, 0);
 				++newX;
 				--newY;
 			} else if (stepX == -3) {
-				placeRandomStairs(world, random, stepX, stepY, stepZ, 3);
+				placeRandomStairs(world, random, -3, stepY, stepZ, 3);
 				++newZ;
 				--newY;
 			} else if (stepX == 3) {
-				placeRandomStairs(world, random, stepX, stepY, stepZ, 2);
+				placeRandomStairs(world, random, 3, stepY, stepZ, 2);
 				--newZ;
 				--newY;
 			}

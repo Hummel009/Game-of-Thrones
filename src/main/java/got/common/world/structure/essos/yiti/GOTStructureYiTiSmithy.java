@@ -263,7 +263,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 				continue;
 			}
 			if (i12 == 4) {
-				setBlockAndMetadata(world, i12, 1, -2, fenceGateBlock, 0);
+				setBlockAndMetadata(world, 4, 1, -2, fenceGateBlock, 0);
 				continue;
 			}
 			setBlockAndMetadata(world, i12, 1, -2, fenceBlock, fenceMeta);

@@ -255,7 +255,7 @@ public class GOTStructureTower extends GOTVillageGen {
 				int j15 = 4;
 				while (!isOpaque(world, i14, j15, -6) && getY(j15) >= 0) {
 					if (j15 == 3) {
-						setBlockAndMetadata(world, i14, j15, -6, glowBrickBlock, glowBrickMeta);
+						setBlockAndMetadata(world, i14, 3, -6, glowBrickBlock, glowBrickMeta);
 					} else {
 						placePillar(world, random, i14, j15, -6);
 					}

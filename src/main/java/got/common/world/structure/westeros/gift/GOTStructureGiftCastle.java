@@ -73,7 +73,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 						int randomGround = random.nextInt(3);
 						switch (randomGround) {
 							case 0:
-								setBlockAndMetadata(world, i15, j14, k12, Blocks.grass, 0);
+								setBlockAndMetadata(world, i15, 0, k12, Blocks.grass, 0);
 								break;
 							case 1:
 								setBlockAndMetadata(world, i15, j14, k12, Blocks.dirt, 1);
@@ -144,15 +144,15 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 					setBlockAndMetadata(world, i15, 6 + yBoost, k12, Blocks.torch, 5);
 				}
 				if (k12 == -9) {
-					setBlockAndMetadata(world, i15, 4 + yBoost, k12, plankStairBlock, 7);
+					setBlockAndMetadata(world, i15, 4 + yBoost, -9, plankStairBlock, 7);
 					continue;
 				}
 				if (k12 == 9) {
-					setBlockAndMetadata(world, i15, 4 + yBoost, k12, plankStairBlock, 6);
+					setBlockAndMetadata(world, i15, 4 + yBoost, 9, plankStairBlock, 6);
 					continue;
 				}
 				if (i15 == -9) {
-					setBlockAndMetadata(world, i15, 4 + yBoost, k12, plankStairBlock, 4);
+					setBlockAndMetadata(world, -9, 4 + yBoost, k12, plankStairBlock, 4);
 					continue;
 				}
 				if (i15 != 9) {
@@ -374,7 +374,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -6, 3, -9, plankBlock, plankMeta);
 		for (int j17 = 1; j17 <= 2; ++j17) {
 			if (j17 == 1) {
-				setBlockAndMetadata(world, -7, j17, -9, Blocks.furnace, 3);
+				setBlockAndMetadata(world, -7, 1, -9, Blocks.furnace, 3);
 				setBlockAndMetadata(world, -9, j17, -7, Blocks.furnace, 4);
 			} else {
 				setBlockAndMetadata(world, -7, j17, -9, GOTRegistry.alloyForge, 3);

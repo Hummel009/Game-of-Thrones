@@ -56,7 +56,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 					if (j1 == 0) {
 						if (i2 <= 14 && k2 <= 14) {
 							if (random.nextBoolean()) {
-								setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.dirtPath, 0);
+								setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
 							} else {
 								int randomGround = random.nextInt(3);
 								switch (randomGround) {

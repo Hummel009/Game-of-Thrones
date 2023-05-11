@@ -44,7 +44,7 @@ public class GOTBlockMetal extends GOTBlockOreStorageBase implements GOTConnecte
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (j == 4) {
-			return GOTConnectedTextures.getConnectedIconItem(this, j);
+			return GOTConnectedTextures.getConnectedIconItem(this, 4);
 		}
 		return super.getIcon(i, j);
 	}
@@ -72,7 +72,7 @@ public class GOTBlockMetal extends GOTBlockOreStorageBase implements GOTConnecte
 		oreStorageIcons = new IIcon[oreStorageNames.length];
 		for (int i = 0; i < oreStorageNames.length; ++i) {
 			if (i == 4) {
-				GOTConnectedTextures.registerConnectedIcons(iconregister, this, i, false);
+				GOTConnectedTextures.registerConnectedIcons(iconregister, this, 4, false);
 				continue;
 			}
 			oreStorageIcons[i] = iconregister.registerIcon(getTextureName() + "_" + oreStorageNames[i]);

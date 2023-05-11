@@ -22,7 +22,7 @@ public class GOTVanillaSaplings {
 		int xOffset = 0;
 		int zOffset = 0;
 		if (meta == 0) {
-			partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, block, meta);
+			partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, block, 0);
 			if (partyTree != null) {
 				treeGen = GOTTreeType.OAK_PARTY.create(true, random);
 				trunkPos = 1;
@@ -41,7 +41,7 @@ public class GOTVanillaSaplings {
 		if (meta == 1) {
 			for (int i12 = 0; i12 >= -1; --i12) {
 				for (k1 = 0; k1 >= -1; --k1) {
-					if (!isSameSapling(world, i + i12, j, k + k1, meta) || !isSameSapling(world, i + i12 + 1, j, k + k1, meta) || !isSameSapling(world, i + i12, j, k + k1 + 1, meta) || !isSameSapling(world, i + i12 + 1, j, k + k1 + 1, meta)) {
+					if (!isSameSapling(world, i + i12, j, k + k1, 1) || !isSameSapling(world, i + i12 + 1, j, k + k1, meta) || !isSameSapling(world, i + i12, j, k + k1 + 1, meta) || !isSameSapling(world, i + i12 + 1, j, k + k1 + 1, meta)) {
 						continue;
 					}
 					treeGen = random.nextBoolean() ? GOTTreeType.SPRUCE_MEGA.create(true, random) : GOTTreeType.SPRUCE_MEGA_THIN.create(true, random);
@@ -64,7 +64,7 @@ public class GOTVanillaSaplings {
 			}
 		}
 		if (meta == 2) {
-			partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, block, meta);
+			partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, block, 2);
 			if (partyTree != null) {
 				treeGen = GOTTreeType.BIRCH_PARTY.create(true, random);
 				trunkPos = 1;
@@ -83,7 +83,7 @@ public class GOTVanillaSaplings {
 		if (meta == 3) {
 			for (int i13 = 0; i13 >= -1; --i13) {
 				for (k1 = 0; k1 >= -1; --k1) {
-					if (!isSameSapling(world, i + i13, j, k + k1, meta) || !isSameSapling(world, i + i13 + 1, j, k + k1, meta) || !isSameSapling(world, i + i13, j, k + k1 + 1, meta) || !isSameSapling(world, i + i13 + 1, j, k + k1 + 1, meta)) {
+					if (!isSameSapling(world, i + i13, j, k + k1, 3) || !isSameSapling(world, i + i13 + 1, j, k + k1, meta) || !isSameSapling(world, i + i13, j, k + k1 + 1, meta) || !isSameSapling(world, i + i13 + 1, j, k + k1 + 1, meta)) {
 						continue;
 					}
 					treeGen = GOTTreeType.JUNGLE_LARGE.create(true, random);
@@ -109,7 +109,7 @@ public class GOTVanillaSaplings {
 			treeGen = GOTTreeType.ACACIA.create(true, random);
 		}
 		if (meta == 5) {
-			partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, block, meta);
+			partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, block, 5);
 			if (partyTree != null) {
 				treeGen = GOTTreeType.DARK_OAK_PARTY.create(true, random);
 				trunkPos = 1;

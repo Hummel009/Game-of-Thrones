@@ -124,13 +124,13 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 					setBlockAndMetadata(world, i14, 6, k12, brickRedWallBlock, brickRedWallMeta);
 				}
 				if (i14 == -9 && k2 <= 8) {
-					setBlockAndMetadata(world, i14, 5, k12, brickStairBlock, 4);
+					setBlockAndMetadata(world, -9, 5, k12, brickStairBlock, 4);
 				}
 				if (i14 == 9 && k2 <= 8) {
-					setBlockAndMetadata(world, i14, 5, k12, brickStairBlock, 5);
+					setBlockAndMetadata(world, 9, 5, k12, brickStairBlock, 5);
 				}
 				if (k12 == -9 && i22 <= 8) {
-					setBlockAndMetadata(world, i14, 5, k12, brickStairBlock, 7);
+					setBlockAndMetadata(world, i14, 5, -9, brickStairBlock, 7);
 				}
 				if (k12 != 9 || i22 > 8) {
 					continue;
@@ -268,15 +268,15 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 					setBlockAndMetadata(world, i17 + 3, 10, k24, roofStairBlock, 0);
 				}
 				if (k15 == -12) {
-					setBlockAndMetadata(world, i17 + 1, 6, k15, brickStairBlock, 0);
+					setBlockAndMetadata(world, i17 + 1, 6, -12, brickStairBlock, 0);
 					setBlockAndMetadata(world, i17 + 2, 6, k15, brickStairBlock, 1);
 				}
 				if (k15 == 9) {
-					setBlockAndMetadata(world, i17 + 1, 6, k15 + 3, brickStairBlock, 0);
+					setBlockAndMetadata(world, i17 + 1, 6, 9 + 3, brickStairBlock, 0);
 					setBlockAndMetadata(world, i17 + 2, 6, k15 + 3, brickStairBlock, 1);
 				}
 				if (i17 == -12) {
-					setBlockAndMetadata(world, i17, 6, k15 + 1, brickStairBlock, 3);
+					setBlockAndMetadata(world, -12, 6, k15 + 1, brickStairBlock, 3);
 					setBlockAndMetadata(world, i17, 6, k15 + 2, brickStairBlock, 2);
 				}
 				if (i17 != 9) {
@@ -297,7 +297,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		for (i13 = -1; i13 <= 1; ++i13) {
 			for (k12 = -12; k12 <= -4; ++k12) {
 				if (i13 == 0) {
-					setBlockAndMetadata(world, i13, 0, k12, pillarRedBlock, pillarRedMeta);
+					setBlockAndMetadata(world, 0, 0, k12, pillarRedBlock, pillarRedMeta);
 					continue;
 				}
 				setBlockAndMetadata(world, i13, 0, k12, pillarBlock, pillarMeta);
@@ -309,7 +309,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 					continue;
 				}
 				if (k14 == 0) {
-					setBlockAndMetadata(world, i15, 0, k14, pillarRedBlock, pillarRedMeta);
+					setBlockAndMetadata(world, i15, 0, 0, pillarRedBlock, pillarRedMeta);
 					continue;
 				}
 				setBlockAndMetadata(world, i15, 0, k14, pillarBlock, pillarMeta);
@@ -342,7 +342,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 				if (i22 == 2 || k2 == 2) {
 					for (j13 = 6; j13 <= 11; ++j13) {
 						if (j13 == 11) {
-							setBlockAndMetadata(world, i13, j13, k12, brickGoldBlock, brickGoldMeta);
+							setBlockAndMetadata(world, i13, 11, k12, brickGoldBlock, brickGoldMeta);
 							continue;
 						}
 						setBlockAndMetadata(world, i13, j13, k12, brickBlock, brickMeta);

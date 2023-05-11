@@ -67,7 +67,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 						switch (randomGround) {
 							case 0:
 								if (j1 == 0) {
-									setBiomeTop(world, i1, j1, k1);
+									setBiomeTop(world, i1, 0, k1);
 								} else {
 									setBiomeFiller(world, i1, j1, k1);
 								}

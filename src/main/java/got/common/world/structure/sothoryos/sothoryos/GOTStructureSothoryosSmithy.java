@@ -53,7 +53,7 @@ public class GOTStructureSothoryosSmithy extends GOTStructureSothoryosHouse {
 				}
 				if (i2 <= 2 && k1 == 6) {
 					for (j1 = -4; j1 <= -1; ++j1) {
-						setAir(world, i1, j1, k1);
+						setAir(world, i1, j1, 6);
 					}
 				}
 				if (i2 <= 5 && k2 <= 5) {

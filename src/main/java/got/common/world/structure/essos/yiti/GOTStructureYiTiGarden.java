@@ -48,7 +48,7 @@ public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 				int k2 = Math.abs(k1);
 				for (j1 = 0; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					if (j1 == 0) {
-						setBlockAndMetadata(world, i1, j1, k1, Blocks.grass, 0);
+						setBlockAndMetadata(world, i1, 0, k1, Blocks.grass, 0);
 					} else {
 						setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 0);
 					}

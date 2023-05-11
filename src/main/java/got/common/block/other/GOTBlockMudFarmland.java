@@ -31,7 +31,7 @@ public class GOTBlockMudFarmland extends BlockFarmland {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		if (i == 1) {
-			return super.getIcon(i, j);
+			return super.getIcon(1, j);
 		}
 		return GOTRegistry.mud.getBlockTextureFromSide(i);
 	}

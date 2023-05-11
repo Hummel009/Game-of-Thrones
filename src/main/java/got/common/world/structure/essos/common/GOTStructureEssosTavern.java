@@ -105,7 +105,7 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		for (i1 = -1; i1 <= 1; ++i1) {
 			for (k1 = 1; k1 <= 3; ++k1) {
 				if (i1 == 0 && k1 == 2) {
-					setBlockAndMetadata(world, i1, 2, k1, GOTRegistry.lemonCake, 0);
+					setBlockAndMetadata(world, 0, 2, k1, GOTRegistry.lemonCake, 0);
 					continue;
 				}
 				placeFoodOrDrink(world, random, i1, 2, k1);

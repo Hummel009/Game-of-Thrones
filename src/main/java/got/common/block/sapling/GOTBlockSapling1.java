@@ -28,7 +28,7 @@ public class GOTBlockSapling1 extends GOTBlockSaplingBase {
 		}
 		if (meta == 1) {
 			int[] partyTree;
-			if (treeGen == null && (partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, meta)) != null) {
+			if (treeGen == null && (partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 1)) != null) {
 				treeGen = GOTTreeType.CATALPA_PARTY.create(true, random);
 				trunkPos = 1;
 				trunkNeg = 1;
@@ -44,7 +44,7 @@ public class GOTBlockSapling1 extends GOTBlockSaplingBase {
 			}
 		}
 		if (meta == 2) {
-			int[] partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, meta);
+			int[] partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 2);
 			if (partyTree != null) {
 				treeGen = GOTTreeType.ULTHOS_OAK_LARGE.create(true, random);
 				trunkPos = 1;
@@ -61,7 +61,7 @@ public class GOTBlockSapling1 extends GOTBlockSaplingBase {
 			}
 		}
 		if (meta == 3) {
-			int[] partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, meta);
+			int[] partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 3);
 			if (partyTree != null) {
 				treeGen = GOTTreeType.ULTHOS_RED_OAK_LARGE.create(true, random);
 				trunkPos = 1;

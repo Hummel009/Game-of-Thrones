@@ -328,7 +328,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 			for (k1 = 6; k1 <= 8; ++k1) {
 				for (j1 = 0; j1 <= 13; ++j1) {
 					if (i19 == 4 && k1 == 7) {
-						setAir(world, i19, j1, k1);
+						setAir(world, 4, j1, k1);
 						continue;
 					}
 					setBlockAndMetadata(world, i19, j1, k1, brickBlock, brickMeta);

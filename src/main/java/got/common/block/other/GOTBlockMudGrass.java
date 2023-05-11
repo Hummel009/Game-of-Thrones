@@ -70,7 +70,7 @@ public class GOTBlockMudGrass extends Block implements IGrowable {
 			return iconTop;
 		}
 		if (i == 0) {
-			return GOTRegistry.mud.getBlockTextureFromSide(i);
+			return GOTRegistry.mud.getBlockTextureFromSide(0);
 		}
 		return blockIcon;
 	}

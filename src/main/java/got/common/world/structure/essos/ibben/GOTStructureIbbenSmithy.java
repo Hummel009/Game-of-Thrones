@@ -118,7 +118,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, i1, 5, 3, roofSlabBlock, roofSlabMeta);
 			for (k1 = -2; k1 <= 2; ++k1) {
 				if (i2 == 3 && k1 == -2) {
-					setBlockAndMetadata(world, i1, 5, k1, roofSlabBlock, roofSlabMeta);
+					setBlockAndMetadata(world, i1, 5, -2, roofSlabBlock, roofSlabMeta);
 					continue;
 				}
 				setBlockAndMetadata(world, i1, 5, k1, roofBlock, roofMeta);

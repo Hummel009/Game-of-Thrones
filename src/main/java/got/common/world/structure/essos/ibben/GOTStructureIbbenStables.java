@@ -159,7 +159,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 					}
 					if (k1 == 0 && i2 >= 1 && i2 <= 2) {
 						for (j1 = 1; j1 <= 3; ++j1) {
-							setBlockAndMetadata(world, i13, j1, k1, gateBlock, 2);
+							setBlockAndMetadata(world, i13, j1, 0, gateBlock, 2);
 						}
 						setBlockAndMetadata(world, i13, 4, k1, plank2SlabBlock, plank2SlabMeta);
 					}

@@ -823,7 +823,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 		if (block == Blocks.wall_sign || block instanceof BlockLadder || block instanceof BlockFurnace || block instanceof BlockChest || block instanceof GOTBlockChest || block instanceof GOTBlockBarrel || block instanceof GOTBlockOven || block instanceof GOTBlockForgeBase || block instanceof GOTBlockKebabStand) {
 			if (meta == 0 && (block instanceof BlockFurnace || block instanceof BlockChest || block instanceof GOTBlockChest || block instanceof GOTBlockOven || block instanceof GOTBlockForgeBase)) {
-				return meta;
+				return 0;
 			}
 			int i = meta;
 			for (int l = 0; l < rotationMode; ++l) {

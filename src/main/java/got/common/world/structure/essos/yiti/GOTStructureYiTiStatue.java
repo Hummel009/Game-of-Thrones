@@ -42,15 +42,15 @@ public class GOTStructureYiTiStatue extends GOTStructureYiTiBase {
 					setAir(world, i1, j13, k12);
 				}
 				if (i1 == -6) {
-					setBlockAndMetadata(world, i1, 1, k12, GOTRegistry.stairsGranite, 1);
+					setBlockAndMetadata(world, -6, 1, k12, GOTRegistry.stairsGranite, 1);
 					continue;
 				}
 				if (i1 == 6) {
-					setBlockAndMetadata(world, i1, 1, k12, GOTRegistry.stairsGranite, 0);
+					setBlockAndMetadata(world, 6, 1, k12, GOTRegistry.stairsGranite, 0);
 					continue;
 				}
 				if (k12 == -5) {
-					setBlockAndMetadata(world, i1, 1, k12, GOTRegistry.stairsGranite, 2);
+					setBlockAndMetadata(world, i1, 1, -5, GOTRegistry.stairsGranite, 2);
 					continue;
 				}
 				if (k12 != 5) {

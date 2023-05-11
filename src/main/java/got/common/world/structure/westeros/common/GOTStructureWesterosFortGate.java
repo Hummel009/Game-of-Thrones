@@ -34,13 +34,13 @@ public class GOTStructureWesterosFortGate extends GOTStructureWesterosBase {
 					setBlockAndMetadata(world, i1, j1, k1, gateBlock, 2);
 				}
 				if (i1 == -1) {
-					setBlockAndMetadata(world, i1, 5, k1, brickStairBlock, 4);
+					setBlockAndMetadata(world, -1, 5, k1, brickStairBlock, 4);
 				}
 				if (i1 == 0) {
-					setBlockAndMetadata(world, i1, 5, k1, brickStairBlock, 6);
+					setBlockAndMetadata(world, 0, 5, k1, brickStairBlock, 6);
 				}
 				if (i1 == 1) {
-					setBlockAndMetadata(world, i1, 5, k1, brickStairBlock, 5);
+					setBlockAndMetadata(world, 1, 5, k1, brickStairBlock, 5);
 				}
 				setBlockAndMetadata(world, i1, 6, k1, brick2Block, brick2Meta);
 				if (i2 == 0) {
