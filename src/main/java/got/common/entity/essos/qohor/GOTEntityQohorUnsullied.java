@@ -43,8 +43,4 @@ public class GOTEntityQohorUnsullied extends GOTEntityQohorLevyman {
 		return data;
 	}
 
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

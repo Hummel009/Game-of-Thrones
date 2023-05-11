@@ -38,11 +38,6 @@ public class GOTEntityNorvosGuardCaptain extends GOTEntityNorvosGuard implements
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

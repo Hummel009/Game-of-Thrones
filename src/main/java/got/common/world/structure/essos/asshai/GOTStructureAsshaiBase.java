@@ -70,12 +70,6 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 	}
 
 	@Override
-	public void placeBigTorch(World world, int i, int j, int k) {
-		setBlockAndMetadata(world, i, j, k, GOTRegistry.fuse, 0);
-		setBlockAndMetadata(world, i, j + 1, k, GOTRegistry.fuse, 1);
-	}
-
-	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
 		cobbleBlock = GOTRegistry.rock;

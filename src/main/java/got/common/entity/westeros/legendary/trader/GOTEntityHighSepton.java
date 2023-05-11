@@ -67,11 +67,6 @@ public class GOTEntityHighSepton extends GOTEntityHumanBase implements GOTTradea
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killer;
-	}
-
-	@Override
 	public GOTTradeEntries getSellPool() {
 		return GOTTradeEntries.C_MAESTER_SELL;
 	}

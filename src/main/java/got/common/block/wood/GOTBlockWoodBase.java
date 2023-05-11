@@ -39,11 +39,6 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 		return woodIcons[j][1];
 	}
 
-	@Override
-	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(this);
-	}
-
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {

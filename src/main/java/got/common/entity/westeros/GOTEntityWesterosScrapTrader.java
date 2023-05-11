@@ -71,11 +71,6 @@ public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements 
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
 	public String getNPCName() {
 		return familyInfo.getName();
 	}

@@ -159,11 +159,6 @@ public class GOTEntityIronbornMan extends GOTEntityHumanBase implements IPickpoc
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getWesterosName(rand, familyInfo.isMale()));
 	}

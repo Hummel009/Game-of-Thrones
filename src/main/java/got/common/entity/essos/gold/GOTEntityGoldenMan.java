@@ -77,11 +77,6 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 0.0f;
-	}
-
-	@Override
 	public float getBlockPathWeight(int i, int j, int k) {
 		float f = 0.0f;
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
@@ -103,11 +98,6 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock;
 		}
 		return false;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
 	}
 
 	@Override

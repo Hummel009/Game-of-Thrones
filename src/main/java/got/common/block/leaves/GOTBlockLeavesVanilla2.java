@@ -43,11 +43,6 @@ public class GOTBlockLeavesVanilla2 extends GOTBlockLeavesBase {
 		return super.damageDropped(world.getBlockMetadata(i, j, k));
 	}
 
-	@Override
-	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(Blocks.sapling);
-	}
-
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderColor(int i) {

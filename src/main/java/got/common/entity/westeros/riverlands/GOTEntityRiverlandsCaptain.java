@@ -32,11 +32,6 @@ public class GOTEntityRiverlandsCaptain extends GOTEntityRiverlandsSoldier imple
 	}
 
 	@Override
-	public EntityAIBase createRiverlandsAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 5.0f;
 	}

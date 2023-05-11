@@ -150,11 +150,6 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements IPickpocke
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getLhazarName(rand, familyInfo.isMale()));
 	}

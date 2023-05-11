@@ -57,8 +57,4 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
 		return 150;
 	}
 
-	@Override
-	public int spawnCountMultiplier() {
-		return 3;
-	}
 }

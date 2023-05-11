@@ -74,11 +74,6 @@ public class GOTEntityWightGiant extends GOTEntityGiant {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
-	}
-
-	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.WHITE_WALKER;
 	}

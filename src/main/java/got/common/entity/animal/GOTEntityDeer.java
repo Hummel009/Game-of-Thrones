@@ -31,11 +31,6 @@ public class GOTEntityDeer extends GOTEntityHorse implements GOTRandomSkinEntity
 	}
 
 	@Override
-	public double clampChildJump(double jump) {
-		return MathHelper.clamp_double(jump, 0.3, 1.0);
-	}
-
-	@Override
 	public double clampChildSpeed(double speed) {
 		return MathHelper.clamp_double(speed, 0.08, 0.34);
 	}

@@ -67,11 +67,6 @@ public class GOTEntityOlennaTyrell extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killer;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			return "legendary/olenna_friendly";

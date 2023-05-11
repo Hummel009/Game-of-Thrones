@@ -41,8 +41,4 @@ public class GOTEntityGhiscarUnsullied extends GOTEntityGhiscarLevyman {
 		return data;
 	}
 
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(true);
-	}
 }

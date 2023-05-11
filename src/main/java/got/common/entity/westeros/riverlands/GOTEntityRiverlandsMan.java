@@ -159,11 +159,6 @@ public class GOTEntityRiverlandsMan extends GOTEntityHumanBase implements IPickp
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getWesterosName(rand, familyInfo.isMale()));
 	}

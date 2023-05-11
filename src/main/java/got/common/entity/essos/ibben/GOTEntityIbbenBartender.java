@@ -33,11 +33,6 @@ public class GOTEntityIbbenBartender extends GOTEntityIbbenMan implements GOTTra
 	}
 
 	@Override
-	public EntityAIBase createIbbenAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
 		int drinks = 1 + rand.nextInt(4) + i;

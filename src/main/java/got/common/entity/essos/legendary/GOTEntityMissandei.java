@@ -41,11 +41,6 @@ public class GOTEntityMissandei extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 0.0f;
-	}
-
-	@Override
 	public GOTFaction getFaction() {
 		return GOTFaction.GHISCAR;
 	}

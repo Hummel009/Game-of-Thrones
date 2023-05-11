@@ -71,11 +71,6 @@ public class GOTEntityZebra extends GOTEntityHorse {
 	}
 
 	@Override
-	public ItemStack getPickedResult(MovingObjectPosition target) {
-		return new ItemStack(GOTRegistry.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
-	}
-
-	@Override
 	public boolean interact(EntityPlayer entityplayer) {
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
 		if (itemstack != null && itemstack.getItem() == Items.bucket && !entityplayer.capabilities.isCreativeMode) {

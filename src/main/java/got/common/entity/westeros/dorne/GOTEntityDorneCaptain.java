@@ -32,11 +32,6 @@ public class GOTEntityDorneCaptain extends GOTEntityDorneSoldier implements GOTU
 	}
 
 	@Override
-	public EntityAIBase createDorneAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 5.0f;
 	}

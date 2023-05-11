@@ -165,11 +165,6 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getWildName(rand, familyInfo.isMale()));
 	}

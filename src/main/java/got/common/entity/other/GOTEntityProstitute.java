@@ -59,11 +59,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killProstitute;
 	}

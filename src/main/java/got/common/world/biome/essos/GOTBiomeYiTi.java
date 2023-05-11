@@ -85,8 +85,4 @@ public class GOTBiomeYiTi extends GOTBiomeEssos {
 		return GOTBezierType.WALL_YITI;
 	}
 
-	@Override
-	public int getWallTop() {
-		return 90;
-	}
 }

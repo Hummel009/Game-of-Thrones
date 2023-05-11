@@ -30,11 +30,6 @@ public class GOTEntityThennBerserker extends GOTEntityThenn {
 	}
 
 	@Override
-	public EntityAIBase getThennAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public int getTotalArmorValue() {
 		return 15;
 	}

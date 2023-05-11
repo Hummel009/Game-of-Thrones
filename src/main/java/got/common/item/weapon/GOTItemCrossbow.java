@@ -177,11 +177,6 @@ public class GOTItemCrossbow extends ItemBow {
 	}
 
 	@Override
-	public int getMaxItemUseDuration(ItemStack itemstack) {
-		return 72000;
-	}
-
-	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (isLoaded(itemstack)) {
 			ItemStack boltItem = getLoaded(itemstack);

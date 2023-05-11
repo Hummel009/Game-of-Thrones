@@ -59,11 +59,6 @@ public class GOTEntityIlynPayne extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killer;
-	}
-
-	@Override
 	public int getTotalArmorValue() {
 		return 15;
 	}

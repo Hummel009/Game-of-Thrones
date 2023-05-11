@@ -31,16 +31,6 @@ public class GOTEntityCrownlandsCaptain extends GOTEntityCrownlandsGuard impleme
 	}
 
 	@Override
-	public EntityAIBase createCrownlandsAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 5.0f;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

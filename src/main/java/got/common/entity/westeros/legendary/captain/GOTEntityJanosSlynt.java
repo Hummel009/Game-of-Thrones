@@ -60,11 +60,6 @@ public class GOTEntityJanosSlynt extends GOTEntityHumanBase implements GOTUnitTr
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killer;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

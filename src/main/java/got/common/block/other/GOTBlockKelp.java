@@ -55,11 +55,6 @@ public class GOTBlockKelp extends Block {
 	}
 
 	@Override
-	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(this);
-	}
-
-	@Override
 	public int getRenderType() {
 		return 1;
 	}

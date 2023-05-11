@@ -156,11 +156,6 @@ public class GOTEntityQarthMan extends GOTEntityHumanBase implements IPickpocket
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getQarthName(rand, familyInfo.isMale()));
 	}

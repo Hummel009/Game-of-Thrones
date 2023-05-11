@@ -32,11 +32,6 @@ public class GOTEntityReachCaptain extends GOTEntityReachSoldier implements GOTU
 	}
 
 	@Override
-	public EntityAIBase createReachAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 5.0f;
 	}

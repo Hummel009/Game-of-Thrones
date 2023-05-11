@@ -87,11 +87,6 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 0.0f;
-	}
-
-	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
 			if (liftSpawnRestrictions) {

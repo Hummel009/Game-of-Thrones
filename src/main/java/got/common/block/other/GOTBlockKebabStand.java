@@ -39,11 +39,6 @@ public class GOTBlockKebabStand extends BlockContainer {
 	}
 
 	@Override
-	public boolean canBlockStay(World world, int i, int j, int k) {
-		return true;
-	}
-
-	@Override
 	public TileEntity createNewTileEntity(World world, int i) {
 		return new GOTTileEntityKebabStand();
 	}

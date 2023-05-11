@@ -35,13 +35,4 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 		return Region.IBBEN;
 	}
 
-	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_IBBEN;
-	}
-
-	@Override
-	public int getWallTop() {
-		return 90;
-	}
 }

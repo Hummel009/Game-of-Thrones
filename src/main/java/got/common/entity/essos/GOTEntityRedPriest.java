@@ -59,11 +59,6 @@ public class GOTEntityRedPriest extends GOTEntityHumanBase implements GOTTradeab
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killPriest;
 	}

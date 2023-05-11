@@ -57,17 +57,8 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.VALYRIA;
-	}
-
-	@Override
 	public boolean getEnableRiver() {
 		return false;
 	}
 
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_COBBLE;
-	}
 }

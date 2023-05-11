@@ -23,11 +23,6 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 	}
 
 	@Override
-	public EntityAIBase getHillmanAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {

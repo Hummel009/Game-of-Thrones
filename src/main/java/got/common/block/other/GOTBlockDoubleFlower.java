@@ -84,11 +84,6 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	}
 
 	@Override
-	public boolean func_149852_a(World world, Random random, int i, int j, int k) {
-		return true;
-	}
-
-	@Override
 	public void func_149853_b(World world, Random random, int i, int j, int k) {
 		int meta = func_149885_e(world, i, j, k);
 		dropBlockAsItem(world, i, j, k, new ItemStack(this, 1, meta));
@@ -188,8 +183,4 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 		}
 	}
 
-	@Override
-	public void setBlockBoundsBasedOnState(IBlockAccess world, int i, int j, int k) {
-		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
-	}
 }

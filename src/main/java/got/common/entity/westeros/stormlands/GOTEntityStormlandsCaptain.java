@@ -32,11 +32,6 @@ public class GOTEntityStormlandsCaptain extends GOTEntityStormlandsSoldier imple
 	}
 
 	@Override
-	public EntityAIBase createStormlandsAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 5.0f;
 	}

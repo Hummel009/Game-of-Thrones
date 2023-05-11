@@ -32,11 +32,6 @@ public class GOTBlockLeavesVanilla1 extends GOTBlockLeavesBase {
 		return BlockOldLeaf.field_150131_O;
 	}
 
-	@Override
-	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(Blocks.sapling);
-	}
-
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderColor(int i) {

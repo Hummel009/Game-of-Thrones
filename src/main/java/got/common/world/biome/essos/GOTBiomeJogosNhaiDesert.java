@@ -136,8 +136,4 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiomeEssosPlains implements GOTB
 		return new GOTBiome.GrassBlockAndMeta(GOTRegistry.aridGrass, 0);
 	}
 
-	@Override
-	public int getWallTop() {
-		return 90;
-	}
 }

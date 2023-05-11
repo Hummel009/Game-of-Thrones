@@ -64,11 +64,6 @@ public class GOTBiomeLorathMaze extends GOTBiomeLorath {
 	}
 
 	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterLorath;
-	}
-
-	@Override
 	public MusicRegion getBiomeMusic() {
 		return GOTBiomeMusic.ESSOS.getSubregion("lorathMaze");
 	}

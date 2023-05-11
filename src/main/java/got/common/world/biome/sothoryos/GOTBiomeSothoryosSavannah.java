@@ -32,11 +32,6 @@ public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBushland {
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.SOTHORYOS;
-	}
-
-	@Override
 	public int spawnCountMultiplier() {
 		return 3;
 	}

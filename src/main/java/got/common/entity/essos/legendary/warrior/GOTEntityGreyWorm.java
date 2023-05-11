@@ -62,16 +62,6 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 0.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killUnsullied;
 	}

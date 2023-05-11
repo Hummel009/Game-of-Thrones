@@ -167,11 +167,6 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements IPickpo
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getWildName(rand, familyInfo.isMale()));
 	}

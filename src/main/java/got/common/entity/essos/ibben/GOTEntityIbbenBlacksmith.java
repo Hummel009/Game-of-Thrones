@@ -33,11 +33,6 @@ public class GOTEntityIbbenBlacksmith extends GOTEntityIbbenMan implements GOTTr
 	}
 
 	@Override
-	public EntityAIBase createIbbenAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
 		dropItem(Items.iron_ingot, 1 + rand.nextInt(3) + rand.nextInt(i + 1));
@@ -56,14 +51,6 @@ public class GOTEntityIbbenBlacksmith extends GOTEntityIbbenMan implements GOTTr
 	@Override
 	public GOTTradeEntries getSellPool() {
 		return GOTTradeEntries.C_BLACKSMITH_SELL;
-	}
-
-	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "standart/civilized/usual_friendly";
-		}
-		return "standart/civilized/usual_hostile";
 	}
 
 	@Override

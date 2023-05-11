@@ -49,16 +49,6 @@ public class GOTEntityHarryStrickland extends GOTEntityHumanBase implements GOTU
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 0.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {

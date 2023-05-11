@@ -76,16 +76,6 @@ public class GOTRecipeArmorDyes extends RecipesArmorDyes {
 	}
 
 	@Override
-	public ItemStack getRecipeOutput() {
-		return null;
-	}
-
-	@Override
-	public int getRecipeSize() {
-		return 10;
-	}
-
-	@Override
 	public boolean matches(InventoryCrafting inv, World world) {
 		ItemStack armor = null;
 		ArrayList<ItemStack> dyes = new ArrayList<>();

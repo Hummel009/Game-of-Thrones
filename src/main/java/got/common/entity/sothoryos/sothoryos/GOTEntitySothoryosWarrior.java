@@ -17,11 +17,6 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 	}
 
 	@Override
-	public EntityAIBase createSothoryosAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, true);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
 	}

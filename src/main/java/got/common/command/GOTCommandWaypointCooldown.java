@@ -36,11 +36,6 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 	}
 
 	@Override
-	public boolean isUsernameIndex(String[] args, int i) {
-		return false;
-	}
-
-	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		String function = null;
 		int cooldown = -1;

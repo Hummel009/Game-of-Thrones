@@ -170,11 +170,6 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 	}
 
 	@Override
-	public int quantityDropped(Random p_149745_1_) {
-		return 1;
-	}
-
-	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister p_149651_1_) {
 		field_149867_a = new IIcon[8];

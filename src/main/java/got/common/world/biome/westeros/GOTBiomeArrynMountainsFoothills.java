@@ -58,8 +58,4 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 		return 0.75f;
 	}
 
-	@Override
-	public int spawnCountMultiplier() {
-		return 3;
-	}
 }

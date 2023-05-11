@@ -31,11 +31,6 @@ public class GOTEntityIronbornCaptain extends GOTEntityIronbornSoldier implement
 	}
 
 	@Override
-	public EntityAIBase createIronbornAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 5.0f;
 	}

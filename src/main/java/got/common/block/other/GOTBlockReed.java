@@ -65,11 +65,6 @@ public class GOTBlockReed extends Block implements IPlantable {
 	}
 
 	@Override
-	public int damageDropped(int i) {
-		return 0;
-	}
-
-	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k) {
 		return null;
 	}
@@ -98,11 +93,6 @@ public class GOTBlockReed extends Block implements IPlantable {
 			return iconLower;
 		}
 		return blockIcon;
-	}
-
-	@Override
-	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(this);
 	}
 
 	@SideOnly(Side.CLIENT)

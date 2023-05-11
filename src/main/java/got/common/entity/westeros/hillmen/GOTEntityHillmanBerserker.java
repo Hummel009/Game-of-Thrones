@@ -24,11 +24,6 @@ public class GOTEntityHillmanBerserker extends GOTEntityHillmanWarrior {
 	}
 
 	@Override
-	public EntityAIBase getHillmanAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(2);

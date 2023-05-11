@@ -73,23 +73,4 @@ public class GOTBiomeFrostfangs extends GOTBiomeWesterosFrost {
 		return GOTBiomeMusic.WESTEROS.getSubregion("frostfangs");
 	}
 
-	@Override
-	public float getChanceToSpawnAnimals() {
-		return 0.1f;
-	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SNOWY;
-	}
-
-	@Override
-	public int getWallTop() {
-		return 150;
-	}
-
-	@Override
-	public int spawnCountMultiplier() {
-		return 3;
-	}
 }

@@ -96,11 +96,6 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
 	public String getNPCName() {
 		return familyInfo.getName();
 	}

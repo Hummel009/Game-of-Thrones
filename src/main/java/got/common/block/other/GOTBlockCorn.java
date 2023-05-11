@@ -100,11 +100,6 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 	}
 
 	@Override
-	public int damageDropped(int i) {
-		return 0;
-	}
-
-	@Override
 	public boolean func_149851_a(World world, int i, int j, int k, boolean isRemote) {
 		return world.getBlock(i, j - 1, k) != this && world.isAirBlock(i, j + 1, k) || !hasCorn(world, i, j, k) && canGrowCorn(world, i, j, k);
 	}
@@ -171,11 +166,6 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 			return cornIcon;
 		}
 		return super.getIcon(i, j);
-	}
-
-	@Override
-	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(this);
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -42,11 +42,6 @@ public class GOTCommandConquest extends CommandBase {
 		return 2;
 	}
 
-	@Override
-	public boolean isUsernameIndex(String[] args, int i) {
-		return false;
-	}
-
 	public Object[] parseCoordsAndZone(ICommandSender sender, String[] args, int specifyIndex) {
 		int posX = sender.getPlayerCoordinates().posX;
 		int posZ = sender.getPlayerCoordinates().posZ;

@@ -89,8 +89,4 @@ public class GOTBiomeBoneMountains extends GOTBiomeDothrakiSea {
 		return GOTBezierType.WALL_YITI;
 	}
 
-	@Override
-	public int getWallTop() {
-		return 90;
-	}
 }

@@ -96,8 +96,4 @@ public class GOTEntityGemsbok extends EntityAnimal {
 		return true;
 	}
 
-	@Override
-	public boolean isBreedingItem(ItemStack itemstack) {
-		return itemstack.getItem() == Items.wheat;
-	}
 }

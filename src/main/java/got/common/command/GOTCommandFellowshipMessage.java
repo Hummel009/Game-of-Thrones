@@ -67,11 +67,6 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 	}
 
 	@Override
-	public boolean isUsernameIndex(String[] args, int i) {
-		return false;
-	}
-
-	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		EntityPlayerMP entityplayer = CommandBase.getCommandSenderAsPlayer(sender);
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);

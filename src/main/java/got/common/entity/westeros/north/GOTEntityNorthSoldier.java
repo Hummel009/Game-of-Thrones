@@ -29,11 +29,6 @@ public class GOTEntityNorthSoldier extends GOTEntityNorthLevyman {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 2.0f;
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			if (mounted) {

@@ -72,11 +72,6 @@ public class GOTEntityAryaStark extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killer;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			return "standart/civilized/usual_friendly";

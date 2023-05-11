@@ -11,13 +11,4 @@ public class GOTBiomeSothoryosDesertCold extends GOTBiomeSothoryosDesert {
 		spawnableCreatureList.clear();
 	}
 
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterSothoryosDesert;
-	}
-
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.SOTHORYOS.getSubregion("sothoryosDesert");
-	}
 }

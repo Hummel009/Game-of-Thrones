@@ -45,14 +45,6 @@ public class GOTEntityMossovyBlacksmith extends GOTEntityMossovyMan implements G
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			return "standart/civilized/usual_friendly";
-		}
-		return "standart/civilized/usual_hostile";
-	}
-
-	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}

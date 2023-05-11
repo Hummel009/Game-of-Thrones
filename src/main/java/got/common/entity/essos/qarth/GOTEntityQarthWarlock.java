@@ -31,11 +31,6 @@ public class GOTEntityQarthWarlock extends GOTEntityQarthTrader {
 	}
 
 	@Override
-	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
-	}
-
-	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(4, null);

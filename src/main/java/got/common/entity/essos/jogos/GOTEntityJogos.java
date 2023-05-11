@@ -189,11 +189,6 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getJogosName(rand, familyInfo.isMale()));
 	}

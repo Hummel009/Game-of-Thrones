@@ -59,11 +59,6 @@ public class GOTEntitySepton extends GOTEntityHumanBase implements GOTTradeable 
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killPriest;
 	}

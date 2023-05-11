@@ -156,11 +156,6 @@ public class GOTEntityMyrMan extends GOTEntityHumanBase implements IPickpocketab
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getEssosName(rand, familyInfo.isMale()));
 	}

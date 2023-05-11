@@ -101,11 +101,6 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		return null;
-	}
-
-	@Override
 	public int getTotalArmorValue() {
 		return 15;
 	}

@@ -169,11 +169,6 @@ public class GOTEntityBanner extends Entity {
 		dataWatcher.updateObject(18, (short) i);
 	}
 
-	@Override
-	public AxisAlignedBB getBoundingBox() {
-		return null;
-	}
-
 	public int getDefaultPermBitFlags() {
 		return GOTBannerWhitelistEntry.static_encodePermBitFlags(defaultPermissions);
 	}

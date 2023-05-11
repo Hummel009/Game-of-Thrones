@@ -32,11 +32,6 @@ public class GOTEntityNorthCaptain extends GOTEntityNorthSoldier implements GOTU
 	}
 
 	@Override
-	public EntityAIBase createNorthAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 5.0f;
 	}

@@ -58,11 +58,6 @@ public class GOTEntityHummel009 extends GOTEntityNPC {
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		return "legendary/hummel";
 	}

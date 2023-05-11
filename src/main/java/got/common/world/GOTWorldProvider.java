@@ -108,11 +108,6 @@ public class GOTWorldProvider extends WorldProvider {
 	}
 
 	@Override
-	public boolean canRespawnHere() {
-		return true;
-	}
-
-	@Override
 	public boolean canSnowAt(int i, int j, int k, boolean checkLight) {
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiomeOcean) {

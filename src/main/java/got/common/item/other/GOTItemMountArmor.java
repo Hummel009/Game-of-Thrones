@@ -87,11 +87,6 @@ public class GOTItemMountArmor extends Item {
 	}
 
 	@Override
-	public int getItemEnchantability() {
-		return 0;
-	}
-
-	@Override
 	public String getItemStackDisplayName(ItemStack itemstack) {
 		if (templateItem != null) {
 			return templateItem.getItemStackDisplayName(createTemplateItemStack(itemstack));

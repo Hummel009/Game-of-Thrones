@@ -40,11 +40,6 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 	}
 
 	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.GHISCAR;
-	}
-
-	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killGladiator;
 	}

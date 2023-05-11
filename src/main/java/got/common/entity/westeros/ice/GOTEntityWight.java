@@ -128,13 +128,6 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void onArtificalSpawn() {
-		if (canBeMarried && getClass() == familyInfo.marriageEntityClass && rand.nextInt(7) == 0) {
-			familyInfo.setChild();
-		}
-	}
-
-	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
 			setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
@@ -196,8 +189,4 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 		return data;
 	}
 
-	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
 }

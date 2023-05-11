@@ -46,10 +46,6 @@ public class GOTStructureSothoryosPyramidComponent extends StructureComponent {
 	}
 
 	@Override
-	public void buildComponent(StructureComponent component, List list, Random random) {
-	}
-
-	@Override
 	public void func_143011_b(NBTTagCompound nbt) {
 		posX = nbt.getInteger("PyrX");
 		posY = nbt.getInteger("PyrY");

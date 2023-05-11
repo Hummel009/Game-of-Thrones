@@ -32,21 +32,6 @@ public class GOTEntityThreeEyedRaven extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 0.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
-	public GOTAchievement getKillAchievement() {
-		return GOTAchievement.killer;
-	}
-
-	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		return "legendary/ter";
 	}

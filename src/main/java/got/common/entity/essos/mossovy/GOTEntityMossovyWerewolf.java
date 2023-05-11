@@ -97,8 +97,4 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 		return "got:direwolf.say";
 	}
 
-	@Override
-	public int getTalkInterval() {
-		return 200;
-	}
 }

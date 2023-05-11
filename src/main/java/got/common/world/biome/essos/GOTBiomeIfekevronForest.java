@@ -32,13 +32,4 @@ public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 		return GOTBiomeMusic.ESSOS.getSubregion("ifekevronForest");
 	}
 
-	@Override
-	public GOTBezierType getWallBlock() {
-		return GOTBezierType.WALL_IBBEN;
-	}
-
-	@Override
-	public int getWallTop() {
-		return 90;
-	}
 }

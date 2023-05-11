@@ -44,11 +44,6 @@ public class GOTCommandFactionRelations extends CommandBase {
 	}
 
 	@Override
-	public boolean isUsernameIndex(String[] args, int i) {
-		return false;
-	}
-
-	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		if (args.length >= 1) {
 			String function = args[0];

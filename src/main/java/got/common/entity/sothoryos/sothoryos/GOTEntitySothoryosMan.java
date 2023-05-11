@@ -153,11 +153,6 @@ public class GOTEntitySothoryosMan extends GOTEntityHumanBase implements IPickpo
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getSothoryosName(rand, familyInfo.isMale()));
 	}

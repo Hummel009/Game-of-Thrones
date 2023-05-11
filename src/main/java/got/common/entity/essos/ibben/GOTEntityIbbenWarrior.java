@@ -27,11 +27,6 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 	}
 
 	@Override
-	public EntityAIBase createIbbenAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
 	}

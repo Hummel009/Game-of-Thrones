@@ -33,11 +33,6 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 	}
 
 	@Override
-	public EntityAIBase createGiftAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 2.0f;
 	}

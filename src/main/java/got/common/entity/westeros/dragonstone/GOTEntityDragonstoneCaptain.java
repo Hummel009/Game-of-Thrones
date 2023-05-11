@@ -32,11 +32,6 @@ public class GOTEntityDragonstoneCaptain extends GOTEntityDragonstoneSoldier imp
 	}
 
 	@Override
-	public EntityAIBase createDragonstoneAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
 	public float getAlignmentBonus() {
 		return 5.0f;
 	}

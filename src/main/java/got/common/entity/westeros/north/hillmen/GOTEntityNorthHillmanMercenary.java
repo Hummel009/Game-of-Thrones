@@ -29,17 +29,6 @@ public class GOTEntityNorthHillmanMercenary extends GOTEntityNorthHillmanWarrior
 	}
 
 	@Override
-	public String getSpeechBank(EntityPlayer entityplayer) {
-		if (isFriendly(entityplayer)) {
-			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "standart/wild/hired_soldier";
-			}
-			return "standart/wild/usual_friendly";
-		}
-		return "standart/wild/usual_hostile";
-	}
-
-	@Override
 	public void onUnitTrade(EntityPlayer entityplayer) {
 		GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 	}

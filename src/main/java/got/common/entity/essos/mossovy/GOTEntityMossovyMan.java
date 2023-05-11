@@ -135,11 +135,6 @@ public class GOTEntityMossovyMan extends GOTEntityHumanBase implements IPickpock
 	}
 
 	@Override
-	public void setupNPCGender() {
-		familyInfo.setMale(rand.nextBoolean());
-	}
-
-	@Override
 	public void setupNPCName() {
 		familyInfo.setName(GOTNames.getMossovyName(rand, familyInfo.isMale()));
 	}

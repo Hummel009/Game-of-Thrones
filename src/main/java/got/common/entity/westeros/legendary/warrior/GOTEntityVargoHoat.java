@@ -51,16 +51,6 @@ public class GOTEntityVargoHoat extends GOTEntityHumanBase implements GOTMercena
 	}
 
 	@Override
-	public float getAlignmentBonus() {
-		return 0.0f;
-	}
-
-	@Override
-	public GOTFaction getFaction() {
-		return GOTFaction.UNALIGNED;
-	}
-
-	@Override
 	public float getMercAlignmentRequired() {
 		return 0.0f;
 	}
