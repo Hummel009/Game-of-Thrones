@@ -202,6 +202,20 @@ public class GOTContainerCoinExchange extends Container {
 		}
 	}
 
+	class SlotCoinResult extends Slot {
+		public SlotCoinResult(IInventory inv, int i, int j, int k) {
+			super(inv, i, j, k);
+		}
+
+		public boolean isItemValid(ItemStack itemstack) {
+			return false;
+		}
+
+		public boolean canTakeStack(EntityPlayer entityplayer) {
+			return exchanged;
+		}
+	}
+
 	public class InventoryCoinExchangeSlot extends InventoryBasic {
 		public InventoryCoinExchangeSlot(int i) {
 			super("coinExchange", true, i);
