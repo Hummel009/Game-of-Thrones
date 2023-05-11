@@ -20,7 +20,7 @@ public class GOTMusicResourceManager implements IResourceManager {
 	}
 
 	@Override
-	public IResource getResource(ResourceLocation resource) throws IOException {
+	public IResource getResource(ResourceLocation resource) {
 		return resourceMap.get(resource);
 	}
 

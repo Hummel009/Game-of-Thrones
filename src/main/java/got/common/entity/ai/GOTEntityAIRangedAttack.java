@@ -84,7 +84,6 @@ public class GOTEntityAIRangedAttack extends EntityAIBase {
 		boolean canSee = theOwner.getEntitySenses().canSee(attackTarget);
 		if (canSee) {
 			++repathDelay;
-			repathDelay = repathDelay;
 		} else {
 			repathDelay = 0;
 		}

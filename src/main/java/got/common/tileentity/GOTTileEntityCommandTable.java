@@ -58,7 +58,6 @@ public class GOTTileEntityCommandTable extends TileEntity {
 			z = 2;
 		} else {
 			--z;
-			z = z;
 		}
 		setZoomExp(z);
 	}

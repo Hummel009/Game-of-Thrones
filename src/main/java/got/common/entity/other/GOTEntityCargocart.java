@@ -34,7 +34,6 @@ public class GOTEntityCargocart extends GOTEntityCart {
 				lasthit = ticksExisted;
 				if (lasthit >= ticksExisted - 20) {
 					++hitcount;
-					hitcount = hitcount;
 				} else {
 					hitcount = 0;
 				}

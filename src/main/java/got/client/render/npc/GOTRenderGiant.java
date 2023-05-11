@@ -100,7 +100,6 @@ public class GOTRenderGiant extends RenderLiving {
 			return 1;
 		}
 		if (pass == 1) {
-			trousersModel.onGround = trousersModel.onGround;
 			setRenderPassModel(trousersModel);
 			return 1;
 		}
