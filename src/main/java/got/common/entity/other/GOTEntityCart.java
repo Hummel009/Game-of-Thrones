@@ -46,23 +46,6 @@ public class GOTEntityCart extends Entity {
 		return true;
 	}
 
-	public void collideWithEntity(Entity entity) {
-		entity.applyEntityCollision(this);
-	}
-
-	public void collideWithNearbyEntities() {
-		List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(0.20000000298023224, 0.0, 0.20000000298023224));
-		if (list != null && !list.isEmpty()) {
-			for (Object element : list) {
-				Entity entity = (Entity) element;
-				if (!entity.canBePushed()) {
-					continue;
-				}
-				collideWithEntity(entity);
-			}
-		}
-	}
-
 	@Override
 	public void entityInit() {
 	}

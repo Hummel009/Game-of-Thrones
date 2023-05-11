@@ -2,7 +2,6 @@ package got.common.entity.other;
 
 import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -11,8 +10,6 @@ import net.minecraft.world.World;
 
 public class GOTEntityPlowcart extends GOTEntityCart {
 	public boolean plowing;
-	public int lasthit;
-	public int hitcount;
 	public double bladeOffset = 1.2;
 
 	public GOTEntityPlowcart(World worldIn) {
@@ -24,29 +21,21 @@ public class GOTEntityPlowcart extends GOTEntityCart {
 	}
 
 	@Override
-	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if (!isDead) {
-			if (source.getEntity() instanceof EntityPlayer && ((EntityPlayer) source.getEntity()).capabilities.isCreativeMode) {
-				setDead();
-			}
-			if (source.isFireDamage()) {
-				setDead();
-			} else {
-				lasthit = ticksExisted;
-				if (lasthit >= ticksExisted - 20) {
-					++hitcount;
-				} else {
-					hitcount = 0;
-				}
-				if (hitcount == 10) {
-					setDead();
-					if (!worldObj.isRemote) {
-						worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX, posY + 1.0, posZ, new ItemStack(GOTRegistry.plowcart)));
-					}
-				}
-			}
+	public boolean attackEntityFrom(DamageSource damagesource, float f) {
+		if (!isDead && !worldObj.isRemote) {
+			setBeenAttacked();
+			worldObj.playSoundAtEntity(this, Blocks.planks.stepSound.getBreakSound(), (Blocks.planks.stepSound.getVolume() + 1.0f) / 2.0f, Blocks.planks.stepSound.getPitch() * 0.8f);
+			boolean drop = !(damagesource.getEntity() instanceof EntityPlayer) || !((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode;
+			dropAsItem(drop);
 		}
 		return true;
+	}
+
+	public void dropAsItem(boolean drop) {
+		setDead();
+		if (drop) {
+			entityDropItem(new ItemStack(GOTRegistry.plowcart), 0.0f);
+		}
 	}
 
 	public boolean getPlowing() {

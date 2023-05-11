@@ -8,6 +8,7 @@ CHANGELOG
 * Improved translations
 
 * Fixed potential bug caused by duplicated lines in translation files
+* Fixed bug with concrete and concrete powder mechanics
 * Fixed bug with gui shift when using NEI + drinking potion
 * Fixeg bug with prostitute skins
 * Fixed bug with sword of command rendering

@@ -1,18 +1,15 @@
 package got.common.entity.other;
 
-import got.GOT;
 import got.common.database.GOTRegistry;
 import got.common.util.GOTVec3d;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityCargocart extends GOTEntityCart {
 	public int load;
-	public int lasthit;
-	public int hitcount;
 
 	public GOTEntityCargocart(World worldIn) {
 		super(worldIn);
@@ -22,30 +19,23 @@ public class GOTEntityCargocart extends GOTEntityCart {
 		super(worldIn, x, y, z);
 	}
 
+
 	@Override
-	public boolean attackEntityFrom(DamageSource source, float amount) {
-		if (!isDead) {
-			if (source.getEntity() instanceof EntityPlayer && ((EntityPlayer) source.getEntity()).capabilities.isCreativeMode) {
-				setDead();
-			}
-			if (source.isFireDamage()) {
-				setDead();
-			} else {
-				lasthit = ticksExisted;
-				if (lasthit >= ticksExisted - 20) {
-					++hitcount;
-				} else {
-					hitcount = 0;
-				}
-				if (hitcount == 10) {
-					setDead();
-					if (!worldObj.isRemote) {
-						worldObj.spawnEntityInWorld(new EntityItem(worldObj, posX, posY + 1.0, posZ, new ItemStack(GOTRegistry.cargocart)));
-					}
-				}
-			}
+	public boolean attackEntityFrom(DamageSource damagesource, float f) {
+		if (!isDead && !worldObj.isRemote) {
+			setBeenAttacked();
+			worldObj.playSoundAtEntity(this, Blocks.planks.stepSound.getBreakSound(), (Blocks.planks.stepSound.getVolume() + 1.0f) / 2.0f, Blocks.planks.stepSound.getPitch() * 0.8f);
+			boolean drop = !(damagesource.getEntity() instanceof EntityPlayer) || !((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode;
+			dropAsItem(drop);
 		}
 		return true;
+	}
+
+	public void dropAsItem(boolean drop) {
+		setDead();
+		if (drop) {
+			entityDropItem(new ItemStack(GOTRegistry.cargocart), 0.0f);
+		}
 	}
 
 	public int getLoad() {
@@ -63,9 +53,7 @@ public class GOTEntityCargocart extends GOTEntityCart {
 
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
-		if (player.isSneaking()) {
-			player.openGui(GOT.instance, 83, worldObj, getEntityId(), 0, 0);
-		} else if (!worldObj.isRemote) {
+		if (!worldObj.isRemote) {
 			player.mountEntity(this);
 		}
 		return true;
