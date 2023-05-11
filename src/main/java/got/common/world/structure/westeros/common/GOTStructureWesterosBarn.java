@@ -24,12 +24,9 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 				return new EntityPig(world);
 			case 2:
 				return new EntitySheep(world);
-			case 3:
-				return new EntityChicken(world);
 			default:
-				break;
+				return new EntityChicken(world);
 		}
-		return null;
 	}
 
 	@Override
