@@ -25,7 +25,7 @@ public class GOTStructureRuins extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public class GOTStructureRuinsPart extends GOTStructureBase {
+	public static class GOTStructureRuinsPart extends GOTStructureBase {
 		public GOTStructureRuinsPart(boolean flag) {
 			super(flag);
 		}
@@ -143,7 +143,7 @@ public class GOTStructureRuins extends GOTVillageGen {
 		}
 	}
 
-	public class GOTStructureRuinsTower extends GOTStructureBase {
+	public static class GOTStructureRuinsTower extends GOTStructureBase {
 		public GOTStructureRuinsTower(boolean flag) {
 			super(flag);
 		}

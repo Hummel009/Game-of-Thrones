@@ -33,7 +33,7 @@ public class GOTStructureIbbenVillage extends GOTVillageGen {
 
 	}
 
-	public class Instance extends GOTVillageGen.AbstractInstance {
+	public static class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 		public boolean palisade;
 

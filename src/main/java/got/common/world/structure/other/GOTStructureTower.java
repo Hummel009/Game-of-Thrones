@@ -30,7 +30,7 @@ public class GOTStructureTower extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public class GOTStructureTowerBase extends GOTStructureBase {
+	public static class GOTStructureTowerBase extends GOTStructureBase {
 		public Block brickBlock = GOTRegistry.brick1;
 		public int brickMeta = 1;
 		public Block brickSlabBlock = GOTRegistry.slabSingle1;

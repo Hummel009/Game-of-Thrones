@@ -30,7 +30,7 @@ public class GOTStructureNorthHillmanVillage extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public class Instance extends GOTVillageGen.AbstractInstance {
+	public static class Instance extends GOTVillageGen.AbstractInstance {
 
 		public Instance(GOTStructureNorthHillmanVillage village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);

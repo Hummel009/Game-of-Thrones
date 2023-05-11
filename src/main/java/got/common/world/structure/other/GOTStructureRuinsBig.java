@@ -22,7 +22,7 @@ public class GOTStructureRuinsBig extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public class GOTStructureHarrenhal extends GOTStructureBase {
+	public static class GOTStructureHarrenhal extends GOTStructureBase {
 		public GOTStructureHarrenhal() {
 			super(false);
 		}

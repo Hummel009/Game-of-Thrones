@@ -36,7 +36,7 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 		TOWN
 	}
 
-	public class Instance extends GOTVillageGen.AbstractInstance {
+	public static class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
 		public Instance(GOTStructureAsshaiCity village, World world, int i, int k, Random random, LocationInfo loc) {
