@@ -208,28 +208,28 @@ public class GOTModelElephant extends ModelBase {
 	}
 
 	public void AdjustY(float f) {
-		Head.rotationPointY = f + -10.0f;
-		Neck.rotationPointY = f + -8.0f;
-		HeadBump.rotationPointY = f + -10.0f;
-		Chin.rotationPointY = f + -10.0f;
-		LowerLip.rotationPointY = f + -10.0f;
-		Back.rotationPointY = f + -4.0f;
-		LeftSmallEar.rotationPointY = f + -10.0f;
-		LeftBigEar.rotationPointY = f + -10.0f;
-		RightSmallEar.rotationPointY = f + -10.0f;
-		RightBigEar.rotationPointY = f + -10.0f;
-		Hump.rotationPointY = f + -13.0f;
-		Body.rotationPointY = f + -2.0f;
+		Head.rotationPointY = f - 10.0f;
+		Neck.rotationPointY = f - 8.0f;
+		HeadBump.rotationPointY = f - 10.0f;
+		Chin.rotationPointY = f - 10.0f;
+		LowerLip.rotationPointY = f - 10.0f;
+		Back.rotationPointY = f - 4.0f;
+		LeftSmallEar.rotationPointY = f - 10.0f;
+		LeftBigEar.rotationPointY = f - 10.0f;
+		RightSmallEar.rotationPointY = f - 10.0f;
+		RightBigEar.rotationPointY = f - 10.0f;
+		Hump.rotationPointY = f - 13.0f;
+		Body.rotationPointY = f - 2.0f;
 		Skirt.rotationPointY = f + 8.0f;
-		RightTuskA.rotationPointY = f + -10.0f;
-		RightTuskB.rotationPointY = f + -10.0f;
-		RightTuskC.rotationPointY = f + -10.0f;
-		RightTuskD.rotationPointY = f + -10.0f;
-		LeftTuskA.rotationPointY = f + -10.0f;
-		LeftTuskB.rotationPointY = f + -10.0f;
-		LeftTuskC.rotationPointY = f + -10.0f;
-		LeftTuskD.rotationPointY = f + -10.0f;
-		TrunkA.rotationPointY = f + -3.0f;
+		RightTuskA.rotationPointY = f - 10.0f;
+		RightTuskB.rotationPointY = f - 10.0f;
+		RightTuskC.rotationPointY = f - 10.0f;
+		RightTuskD.rotationPointY = f - 10.0f;
+		LeftTuskA.rotationPointY = f - 10.0f;
+		LeftTuskB.rotationPointY = f - 10.0f;
+		LeftTuskC.rotationPointY = f - 10.0f;
+		LeftTuskD.rotationPointY = f - 10.0f;
+		TrunkA.rotationPointY = f - 3.0f;
 		TrunkB.rotationPointY = f + 5.5f;
 		TrunkC.rotationPointY = f + 13.0f;
 		TrunkD.rotationPointY = f + 16.0f;
@@ -242,9 +242,9 @@ public class GOTModelElephant extends ModelBase {
 		BackRightLowerLeg.rotationPointY = f + 14.0f;
 		BackLeftUpperLeg.rotationPointY = f + 4.0f;
 		BackLeftLowerLeg.rotationPointY = f + 14.0f;
-		TailRoot.rotationPointY = f + -8.0f;
-		Tail.rotationPointY = f + -8.0f;
-		TailPlush.rotationPointY = f + -8.0f;
+		TailRoot.rotationPointY = f - 8.0f;
+		Tail.rotationPointY = f - 8.0f;
+		TailPlush.rotationPointY = f - 8.0f;
 	}
 
 	public void adjustYRotationPoints(ModelRenderer target, ModelRenderer origin) {

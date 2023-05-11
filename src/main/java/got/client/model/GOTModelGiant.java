@@ -262,7 +262,7 @@ public class GOTModelGiant extends ModelBase {
 			float armRotationOffsetX = MathHelper.sin(f62) * 23.0f + MathHelper.cos(f62) * 12.0f - 12.0f;
 			float armRotationOffsetY = MathHelper.cos(f62) * -23.0f + MathHelper.sin(f62) * 12.0f + 23.0f;
 			rightArm.rotationPointX += armRotationOffsetX;
-			rightArm.rotationPointY += -armRotationOffsetY;
+			rightArm.rotationPointY -= armRotationOffsetY;
 			rightArm.rotateAngleZ += f62;
 			leftArm.rotationPointX += armRotationOffsetX;
 			leftArm.rotationPointY += armRotationOffsetY;

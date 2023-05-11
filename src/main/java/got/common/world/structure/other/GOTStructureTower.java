@@ -188,7 +188,7 @@ public class GOTStructureTower extends GOTVillageGen {
 					for (k14 = -1; k14 <= 4; ++k14) {
 						for (i12 = 1; i12 <= 2; ++i12) {
 							setAir(world, i12, sectionBase + 5, k14);
-							k2 = k14 - -1;
+							k2 = k14 + 1;
 							for (j13 = sectionBase + 1; j13 <= sectionBase + k2; ++j13) {
 								placeBrick(world, random, i12, j13, k14);
 							}
@@ -208,7 +208,7 @@ public class GOTStructureTower extends GOTVillageGen {
 					for (k14 = -4; k14 <= 1; ++k14) {
 						for (i12 = -2; i12 <= -1; ++i12) {
 							setAir(world, i12, sectionBase + 5, k14);
-							k2 = 5 - (k14 - -4);
+							k2 = 5 - (k14 + 4);
 							for (j13 = sectionBase + 1; j13 <= sectionBase + k2; ++j13) {
 								placeBrick(world, random, i12, j13, k14);
 							}

@@ -290,7 +290,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 			for (i1 = -r; i1 <= r; i1++) {
 				for (int k1 = -r; k1 <= r; k1++) {
 					for (int i2 = r; i2 >= 1; i2--) {
-						int j2 = i2 - -5;
+						int j2 = i2 + 5;
 						int d = i1 * i1 + j2 * j2 + k1 * k1;
 						if (d < r * r) {
 							boolean grass = !isOpaque(world, i1, i2 + 1, k1);
@@ -619,7 +619,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 							if (random.nextInt(8) == 0) {
 								h = random.nextInt(3);
 							}
-							float factor = k2 / length;
+							float factor = (float) k2 / length;
 							factor = 1.0F / (factor + 0.01F);
 							factor *= 0.5F + random.nextFloat() * 0.5F;
 							factor = Math.min(factor, 1.0F);

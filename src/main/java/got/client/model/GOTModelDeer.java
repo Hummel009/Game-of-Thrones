@@ -167,7 +167,7 @@ public class GOTModelDeer extends ModelBase {
 		leg3.rotationPointZ = leg4.rotationPointZ;
 		leg1.rotateAngleX = f18 + legRotation * antiRearAmount;
 		leg2.rotateAngleX = f18 + -legRotation * antiRearAmount;
-		leg3.rotateAngleX = (f17 + -f19) * rearAmount + -legRotation * 0.8f * antiRearAmount;
+		leg3.rotateAngleX = (f17 - f19) * rearAmount + -legRotation * 0.8f * antiRearAmount;
 		leg4.rotateAngleX = (f17 + f19) * rearAmount + legRotation * 0.8f * antiRearAmount;
 	}
 }

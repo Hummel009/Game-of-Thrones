@@ -360,7 +360,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 			int i11 = Math.abs(i5);
 			if (i11 >= 2) {
 				for (int i12 = -7; i12 <= -2; i12++) {
-					int k2 = i12 - -9;
+					int k2 = i12 + 9;
 					int d = Math.abs(i11 - k2);
 					if (d == 0 && (i11 == 2 || i11 == 7)) {
 						d = 2;

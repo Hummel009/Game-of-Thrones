@@ -295,7 +295,7 @@ public class GOTRenderSky extends IRenderHandler {
 
 	public void renderSkyboxSide(Tessellator tessellator, int side) {
 		double u = side % 3 / 3.0;
-		double v = side / 3 / 2.0;
+		double v = (double) side / 3 / 2.0;
 		tessellator.startDrawingQuads();
 		tessellator.addVertexWithUV(-100.0, -100.0, -100.0, u, v);
 		tessellator.addVertexWithUV(-100.0, -100.0, 100.0, u, v + 0.5);

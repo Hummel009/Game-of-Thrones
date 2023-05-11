@@ -53,8 +53,8 @@ public class GOTModelBiped extends ModelBiped {
 			bipedLeftLeg.rotateAngleY = (float) -0.08726646259971647;
 		}
 		if (isRiding) {
-			bipedRightArm.rotateAngleX += -0.62831855f;
-			bipedLeftArm.rotateAngleX += -0.62831855f;
+			bipedRightArm.rotateAngleX -= 0.62831855f;
+			bipedLeftArm.rotateAngleX -= 0.62831855f;
 			bipedRightLeg.rotateAngleX = -1.2566371f;
 			bipedLeftLeg.rotateAngleX = -1.2566371f;
 			bipedRightLeg.rotateAngleY = 0.31415927f;

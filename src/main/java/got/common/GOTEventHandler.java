@@ -1124,7 +1124,7 @@ public class GOTEventHandler implements IFuelHandler {
 			if (wearingAllAsshai && !world.isRemote && weapon != null && weapon.isItemStackDamageable()) {
 				int damage = weapon.getItemDamage();
 				int maxDamage = weapon.getMaxDamage();
-				float durability = 1.0F - damage / maxDamage;
+				float durability = 1.0F - (float) damage / maxDamage;
 				durability *= 0.9F;
 				int newDamage = Math.round((1.0F - durability) * maxDamage);
 				newDamage = Math.min(newDamage, maxDamage);

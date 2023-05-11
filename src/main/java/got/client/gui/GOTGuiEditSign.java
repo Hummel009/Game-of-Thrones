@@ -44,7 +44,7 @@ public class GOTGuiEditSign extends GuiScreen {
 		drawDefaultBackground();
 		drawCenteredString(fontRendererObj, StatCollector.translateToLocal("sign.edit"), width / 2, 40, 16777215);
 		GL11.glPushMatrix();
-		GL11.glTranslatef(width / 2, 0.0f, 50.0f);
+		GL11.glTranslatef((float) width / 2, 0.0f, 50.0f);
 		float f1 = 93.75f;
 		GL11.glScalef(-f1, -f1, -f1);
 		GL11.glTranslatef(0.0f, -1.0625f, 0.0f);

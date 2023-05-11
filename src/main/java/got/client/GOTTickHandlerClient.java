@@ -259,18 +259,18 @@ public class GOTTickHandlerClient {
 		int activeBarWidth = 220;
 		float[] factionColors = faction.getFactionRGB();
 		GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], 1.0F);
-		drawTexturedModalRect(x - barWidth / 2, y, 0, 14, barWidth, barHeight);
+		drawTexturedModalRect(x - (double) barWidth / 2, y, 0, 14, barWidth, barHeight);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		drawTexturedModalRect(x - barWidth / 2, y, 0, 0, barWidth, barHeight);
+		drawTexturedModalRect(x - (double) barWidth / 2, y, 0, 0, barWidth, barHeight);
 		float ringProgressAdj = (ringProgress - 0.5F) * 2.0F;
 		int ringSize = 16;
-		float ringX = x - ringSize / 2 + ringProgressAdj * activeBarWidth / 2.0F;
-		float ringY = y + barHeight / 2 - ringSize / 2;
+		float ringX = x - (float) ringSize / 2 + ringProgressAdj * activeBarWidth / 2.0F;
+		float ringY = y + (float) barHeight / 2 - (float) ringSize / 2;
 		int flashTick = ticker.flashTick;
 		if (pledged) {
-			drawTexturedModalRect(ringX, ringY, 16 * Math.round(flashTick / 3), 212, ringSize, ringSize);
+			drawTexturedModalRect(ringX, ringY, 16 * Math.round((float) flashTick / 3), 212, ringSize, ringSize);
 		} else {
-			drawTexturedModalRect(ringX, ringY, 16 * Math.round(flashTick / 3), 36, ringSize, ringSize);
+			drawTexturedModalRect(ringX, ringY, 16 * Math.round((float) flashTick / 3), 36, ringSize, ringSize);
 		}
 		if (faction.isPlayableAlignmentFaction()) {
 			float alpha = 0.0F;
@@ -296,11 +296,11 @@ public class GOTTickHandlerClient {
 				GL11.glEnable(3042);
 				OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 				GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], alpha);
-				drawTexturedModalRect(x - barWidth / 2 - arrowSize, y, 0, y1, arrowSize, arrowSize);
-				drawTexturedModalRect(x + barWidth / 2, y, arrowSize, y1, arrowSize, arrowSize);
+				drawTexturedModalRect(x - (double) barWidth / 2 - arrowSize, y, 0, y1, arrowSize, arrowSize);
+				drawTexturedModalRect(x + (double) barWidth / 2, y, arrowSize, y1, arrowSize, arrowSize);
 				GL11.glColor4f(1.0F, 1.0F, 1.0F, alpha);
-				drawTexturedModalRect(x - barWidth / 2 - arrowSize, y, 0, y0, arrowSize, arrowSize);
-				drawTexturedModalRect(x + barWidth / 2, y, arrowSize, y0, arrowSize, arrowSize);
+				drawTexturedModalRect(x - (double) barWidth / 2 - arrowSize, y, 0, y0, arrowSize, arrowSize);
+				drawTexturedModalRect(x + (double) barWidth / 2, y, arrowSize, y0, arrowSize, arrowSize);
 				GL11.glDisable(3042);
 			}
 		}
@@ -336,7 +336,7 @@ public class GOTTickHandlerClient {
 				alignAlpha = GOTFunctions.triangleWave(numericalTick, 0.7F, 1.0F, 30.0F);
 				int fadeTick = 15;
 				if (numericalTick < fadeTick) {
-					alignAlpha *= numericalTick / fadeTick;
+					alignAlpha *= (float) numericalTick / fadeTick;
 				}
 			} else {
 				alignS = rank.getShortNameWithGender(clientPD);
@@ -1142,7 +1142,7 @@ public class GOTTickHandlerClient {
 					alignmentXPrev = alignmentXCurrent;
 					alignmentYPrev = alignmentYCurrent;
 					alignmentXCurrent = alignmentXBase;
-					int yMove = (int) ((alignmentYBase - -20) / 10.0F);
+					int yMove = (int) ((alignmentYBase + 20) / 10.0F);
 					boolean alignmentOnscreen = (minecraft.currentScreen == null || minecraft.currentScreen instanceof got.client.gui.GOTGuiMessage) && !minecraft.gameSettings.keyBindPlayerList.getIsKeyPressed() && !minecraft.gameSettings.showDebugInfo;
 					if (alignmentOnscreen) {
 						alignmentYCurrent = Math.min(alignmentYCurrent + yMove, alignmentYBase);
@@ -1212,9 +1212,9 @@ public class GOTTickHandlerClient {
 					int halfMaxDate = 100;
 					float alpha = 0.0F;
 					if (newDate > halfMaxDate) {
-						alpha = (200 - newDate) / halfMaxDate;
+						alpha = (float) (200 - newDate) / halfMaxDate;
 					} else {
-						alpha = newDate / halfMaxDate;
+						alpha = (float) newDate / halfMaxDate;
 					}
 					String date = GOTDate.AegonCalendar.getDate().getDateName(true);
 					ScaledResolution resolution = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);

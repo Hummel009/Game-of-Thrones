@@ -91,16 +91,16 @@ public class GOTModelTermite extends ModelBase {
 		float f14 = Math.abs(MathHelper.sin(f * 0.6662f + 3.1415927f) * 0.4f) * f1;
 		float f15 = Math.abs(MathHelper.sin(f * 0.6662f + 1.5707964f) * 0.4f) * f1;
 		leg1.rotateAngleY += f9;
-		leg2.rotateAngleY += -f9;
+		leg2.rotateAngleY -= f9;
 		leg3.rotateAngleY += f10;
-		leg4.rotateAngleY += -f10;
+		leg4.rotateAngleY -= f10;
 		leg5.rotateAngleY += f11;
-		leg6.rotateAngleY += -f11;
+		leg6.rotateAngleY -= f11;
 		leg1.rotateAngleZ += f13;
-		leg2.rotateAngleZ += -f13;
+		leg2.rotateAngleZ -= f13;
 		leg3.rotateAngleZ += f14;
-		leg4.rotateAngleZ += -f14;
+		leg4.rotateAngleZ -= f14;
 		leg5.rotateAngleZ += f15;
-		leg6.rotateAngleZ += -f15;
+		leg6.rotateAngleZ -= f15;
 	}
 }

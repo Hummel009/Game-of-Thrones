@@ -673,8 +673,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				zLevel -= 500.0f;
 			} else if (isMouseWithinMap) {
 				zLevel += 500.0f;
-				float biomePosX = posX + (i - mapXMin - mapWidth / 2) / zoomScale;
-				float biomePosZ = posY + (j - mapYMin - mapHeight / 2) / zoomScale;
+				float biomePosX = posX + (i - mapXMin - (float) mapWidth / 2) / zoomScale;
+				float biomePosZ = posY + (j - mapYMin - (float) mapHeight / 2) / zoomScale;
 				int biomePosX_int = MathHelper.floor_double(biomePosX);
 				GOTBiome biome = GOTGenLayerWorld.getBiomeOrOcean(biomePosX_int, MathHelper.floor_double(biomePosZ));
 				mouseXCoord = Math.round((biomePosX - 810.0f) * GOTGenLayerWorld.scale);
@@ -688,9 +688,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					if (canTeleport()) {
 						GL11.glPushMatrix();
 						if (isConquestGrid) {
-							GL11.glTranslatef((mapXMax - mapXMin) / 2 - 8 - fontRendererObj.getStringWidth(teleport) / 2, 0.0f, 0.0f);
+							GL11.glTranslatef((float) (mapXMax - mapXMin) / 2 - 8 - (float) fontRendererObj.getStringWidth(teleport) / 2, 0.0f, 0.0f);
 						} else {
-							GL11.glTranslatef(width / 2 - 30 - fontRendererObj.getStringWidth(teleport) / 2, 0.0f, 0.0f);
+							GL11.glTranslatef((float) width / 2 - 30 - (float) fontRendererObj.getStringWidth(teleport) / 2, 0.0f, 0.0f);
 						}
 						renderFullscreenSubtitles(teleport);
 						GL11.glPopMatrix();
@@ -1317,7 +1317,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public void renderBeziers(boolean labels) {
-		float bezierZoomlerp = (zoomExp - -3.3f) / 2.2f;
+		float bezierZoomlerp = (zoomExp + 3.3f) / 2.2f;
 		bezierZoomlerp = Math.min(bezierZoomlerp, 1.0f);
 		if (!enableZoomOutWPFading) {
 			bezierZoomlerp = 1.0f;
@@ -1357,7 +1357,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						GL11.glEnable(3553);
 					}
 					if (labels && x >= mapXMin - (clip = 200) && x <= mapXMax + clip && y >= mapYMin - clip && y <= mapYMax + clip) {
-						float zoomlerp = (zoomExp - -1.0f) / 4.0f;
+						float zoomlerp = (zoomExp + 1.0f) / 4.0f;
 						float scale = zoomlerp = Math.min(zoomlerp, 1.0f);
 						String name = null;
 						int nameWidth = fontRendererObj.getStringWidth(name);
@@ -1488,7 +1488,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			float r = rgb1[0] + (rgb2[0] - rgb1[0]) * f;
 			float g = rgb1[1] + (rgb2[1] - rgb1[1]) * f;
 			float b = rgb1[2] + (rgb2[2] - rgb1[2]) * f;
-			int color = new Color(r, g, b).getRGB() + -16777216;
+			int color = new Color(r, g, b).getRGB() - 16777216;
 			Gui.drawRect(x1 - l, y1 - l, x2 + l, y2 + l, color);
 		}
 	}
@@ -1814,7 +1814,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		setupMapClipping();
 		GOTAbstractWaypoint mouseOverWP = null;
 		double distanceMouseOverWP = Double.MAX_VALUE;
-		float wpZoomlerp = (zoomExp - -3.3F) / 2.2F;
+		float wpZoomlerp = (zoomExp + 3.3F) / 2.2F;
 		wpZoomlerp = Math.min(wpZoomlerp, 1.0F);
 		if (!enableZoomOutWPFading) {
 			wpZoomlerp = 1.0F;
@@ -1849,7 +1849,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							}
 							GL11.glDisable(3042);
 							if (labels) {
-								float zoomlerp = (zoomExp - -1.0F) / 4.0F;
+								float zoomlerp = (zoomExp + 1.0F) / 4.0F;
 								zoomlerp = Math.min(zoomlerp, 1.0F);
 								if (zoomlerp > 0.0F) {
 									GL11.glPushMatrix();
@@ -2155,7 +2155,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		z -= posY;
 		x *= zoomScale;
 		z *= zoomScale;
-		return new float[]{x += mapXMin + mapWidth / 2, z += mapYMin + mapHeight / 2};
+		return new float[]{x += mapXMin + (float) mapWidth / 2, z += mapYMin + (float) mapHeight / 2};
 	}
 
 	public void updateCurrentDimensionAndFaction() {

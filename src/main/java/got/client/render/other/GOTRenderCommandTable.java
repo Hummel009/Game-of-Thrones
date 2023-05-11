@@ -31,21 +31,21 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		int viewportWidth = 400;
 		viewportWidth = (int) Math.round(viewportWidth * Math.pow(2.0, zoomExp));
 		double radius = 0.9;
-		float minX = posX - viewportWidth / 2;
-		float maxX = posX + viewportWidth / 2;
+		float minX = posX - (float) viewportWidth / 2;
+		float maxX = posX + (float) viewportWidth / 2;
 		if (minX < 0.0f) {
-			posX = viewportWidth / 2;
+			posX = (float) viewportWidth / 2;
 		}
 		if (maxX >= GOTGenLayerWorld.imageWidth) {
-			posX = GOTGenLayerWorld.imageWidth - viewportWidth / 2;
+			posX = GOTGenLayerWorld.imageWidth - (float) viewportWidth / 2;
 		}
-		float minY = posY - viewportWidth / 2;
-		float maxY = posY + viewportWidth / 2;
+		float minY = posY - (float) viewportWidth / 2;
+		float maxY = posY + (float) viewportWidth / 2;
 		if (minY < 0.0f) {
-			posY = viewportWidth / 2;
+			posY = (float) viewportWidth / 2;
 		}
 		if (maxY >= GOTGenLayerWorld.imageHeight) {
-			posY = GOTGenLayerWorld.imageHeight - viewportWidth / 2;
+			posY = GOTGenLayerWorld.imageHeight - (float) viewportWidth / 2;
 		}
 		double minU = (double) (posX - viewportWidth / 2) / GOTGenLayerWorld.imageWidth;
 		double maxU = (double) (posX + viewportWidth / 2) / GOTGenLayerWorld.imageWidth;
