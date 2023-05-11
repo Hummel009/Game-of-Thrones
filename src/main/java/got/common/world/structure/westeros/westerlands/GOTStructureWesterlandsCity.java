@@ -207,8 +207,7 @@ public class GOTStructureWesterlandsCity extends GOTVillageGen {
 			for (int i1 : new int[]{-40, 40}) {
 				int[] arrn = {-40, 40};
 				int n = arrn.length;
-				for (int i = 0; i < n; ++i) {
-					int k1 = arrn[i];
+				for (int k1 : arrn) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override

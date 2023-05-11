@@ -81,11 +81,11 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d5 = posY + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
 			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
-			for (int l1 = 0; l1 < vecs.length; ++l1) {
-				vecs[l1].rotateAroundY(rotation);
-				vecs[l1].xCoord += d4;
-				vecs[l1].yCoord += d5;
-				vecs[l1].zCoord += d6;
+			for (Vec3 vec : vecs) {
+				vec.rotateAroundY(rotation);
+				vec.xCoord += d4;
+				vec.yCoord += d5;
+				vec.zCoord += d6;
 			}
 			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
 			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
@@ -176,11 +176,11 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d5 = petal * 0.0025;
 			double d6 = 0.0;
 			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
-			for (int l1 = 0; l1 < vecs.length; ++l1) {
-				vecs[l1].rotateAroundY(rotation);
-				vecs[l1].xCoord += d4;
-				vecs[l1].yCoord += d5;
-				vecs[l1].zCoord += d6;
+			for (Vec3 vec : vecs) {
+				vec.rotateAroundY(rotation);
+				vec.xCoord += d4;
+				vec.yCoord += d5;
+				vec.zCoord += d6;
 			}
 			tessellator.startDrawingQuads();
 			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
@@ -230,11 +230,11 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d5 = petal * 0.0025;
 			double d6 = 0.0;
 			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
-			for (int l1 = 0; l1 < vecs.length; ++l1) {
-				vecs[l1].rotateAroundY(rotation);
-				vecs[l1].xCoord += d4;
-				vecs[l1].yCoord += d5;
-				vecs[l1].zCoord += d6;
+			for (Vec3 vec : vecs) {
+				vec.rotateAroundY(rotation);
+				vec.xCoord += d4;
+				vec.yCoord += d5;
+				vec.zCoord += d6;
 			}
 			tessellator.startDrawingQuads();
 			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
@@ -291,11 +291,11 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			double d5 = posY + 0.5 * scale + petal * 0.0025;
 			double d6 = posZ + 0.5;
 			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
-			for (int l1 = 0; l1 < vecs.length; ++l1) {
-				vecs[l1].rotateAroundY(rotation);
-				vecs[l1].xCoord += d4;
-				vecs[l1].yCoord += d5;
-				vecs[l1].zCoord += d6;
+			for (Vec3 vec : vecs) {
+				vec.rotateAroundY(rotation);
+				vec.xCoord += d4;
+				vec.yCoord += d5;
+				vec.zCoord += d6;
 			}
 			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
 			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
