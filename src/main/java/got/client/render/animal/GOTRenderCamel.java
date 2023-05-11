@@ -104,7 +104,7 @@ public class GOTRenderCamel extends RenderLiving {
 		if (pass == 1 && camel.isCamelWearingCarpet()) {
 			setRenderPassModel(modelCarpet);
 			int color = camel.getCamelCarpetColor();
-			ResourceLocation carpet = GOTRenderCamel.getColoredCarpetTexture(color);
+			ResourceLocation carpet = getColoredCarpetTexture(color);
 			bindTexture(carpet);
 			return 1;
 		}

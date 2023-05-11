@@ -252,7 +252,7 @@ public class GOTBlockTreasurePile extends Block {
 
 	public boolean tryFall(World world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
-		if (GOTBlockTreasurePile.canFallUpon(world, i, j - 1, k, this, meta) && j >= 0) {
+		if (canFallUpon(world, i, j - 1, k, this, meta) && j >= 0) {
 			int range = 32;
 			if (!BlockFalling.fallInstantly && world.checkChunksExist(i - range, j - range, k - range, i + range, j + range, k + range)) {
 				if (!world.isRemote) {
@@ -262,7 +262,7 @@ public class GOTBlockTreasurePile extends Block {
 				}
 			} else {
 				world.setBlockToAir(i, j, k);
-				while (GOTBlockTreasurePile.canFallUpon(world, i, j - 1, k, this, meta) && j > 0) {
+				while (canFallUpon(world, i, j - 1, k, this, meta) && j > 0) {
 					--j;
 				}
 				if (j > 0) {

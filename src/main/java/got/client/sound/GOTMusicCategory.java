@@ -12,7 +12,7 @@ public enum GOTMusicCategory {
 	}
 
 	public static GOTMusicCategory forName(String s) {
-		for (GOTMusicCategory cat : GOTMusicCategory.values()) {
+		for (GOTMusicCategory cat : values()) {
 			if (s.equalsIgnoreCase(cat.categoryName)) {
 				return cat;
 			}

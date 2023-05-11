@@ -49,7 +49,7 @@ public class GOTBlockBomb extends Block {
 	@Override
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
-		int strength = GOTBlockBomb.getBombStrengthLevel(meta);
+		int strength = getBombStrengthLevel(meta);
 		if (strength == 1) {
 			return 11974326;
 		}
@@ -67,7 +67,7 @@ public class GOTBlockBomb extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		boolean isFire = GOTBlockBomb.isFireBomb(j);
+		boolean isFire = isFireBomb(j);
 		if (i == -1) {
 			return bombIcons[2];
 		}
@@ -80,7 +80,7 @@ public class GOTBlockBomb extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getRenderColor(int i) {
-		int strength = GOTBlockBomb.getBombStrengthLevel(i);
+		int strength = getBombStrengthLevel(i);
 		if (strength == 1) {
 			return 11974326;
 		}

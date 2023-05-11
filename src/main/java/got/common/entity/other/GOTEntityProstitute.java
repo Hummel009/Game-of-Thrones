@@ -188,7 +188,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		}
 
 		public static ProstituteType forID(int ID) {
-			for (ProstituteType t : ProstituteType.values()) {
+			for (ProstituteType t : values()) {
 				if (t.prostituteID == ID) {
 					return t;
 				}
@@ -197,9 +197,9 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		}
 
 		public static String[] typeNames() {
-			String[] names = new String[ProstituteType.values().length];
+			String[] names = new String[values().length];
 			for (int i = 0; i < names.length; ++i) {
-				names[i] = ProstituteType.values()[i].textureName();
+				names[i] = values()[i].textureName();
 			}
 			return names;
 		}

@@ -44,7 +44,7 @@ public enum GOTCapes {
 	}
 
 	public static GOTCapes capeForName(String capeName) {
-		for (GOTCapes cape : GOTCapes.values()) {
+		for (GOTCapes cape : values()) {
 			if (!cape.name().equals(capeName)) {
 				continue;
 			}

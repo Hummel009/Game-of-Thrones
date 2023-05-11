@@ -148,7 +148,7 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 			}
 			int animals = 4 + random.nextInt(5);
 			for (int l = 0; l < animals; ++l) {
-				EntityAnimal animal = Animals.getRandomAnimal(world, random);
+				EntityAnimal animal = getRandomAnimal(world, random);
 				int i12 = 3 * (random.nextBoolean() ? 1 : -1);
 				int k1 = 3 * (random.nextBoolean() ? 1 : -1);
 				spawnNPCAndSetHome(animal, world, i12, 1, k1, 0);
@@ -244,7 +244,7 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 				}
 			}
 			for (int l = 0; l < 16; ++l) {
-				GOTTreeType tree = Tree.getRandomTree(random);
+				GOTTreeType tree = getRandomTree(random);
 				WorldGenAbstractTree treeGen = tree.create(notifyChanges, random);
 				if (treeGen == null) {
 					continue;

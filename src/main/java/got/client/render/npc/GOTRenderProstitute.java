@@ -28,6 +28,6 @@ public class GOTRenderProstitute extends GOTRenderBiped {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityProstitute prostitute = (GOTEntityProstitute) entity;
-		return GOTRenderProstitute.getProstituteSkin(prostitute.getProstituteType());
+		return getProstituteSkin(prostitute.getProstituteType());
 	}
 }

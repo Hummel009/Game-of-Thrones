@@ -63,7 +63,7 @@ public abstract class GOTGuiScreenBase extends GuiScreen {
 	}
 
 	public void drawTexturedModalRect(int x, int y, int u, int v, int width, int height, int imageWidth) {
-		GOTGuiScreenBase.drawTexturedModalRectFloat(x, y, u, v, width, height, imageWidth, zLevel);
+		drawTexturedModalRectFloat(x, y, u, v, width, height, imageWidth, zLevel);
 	}
 
 	public void drawTexturedModalRectFloat(float x, float y, int u, int v, float width, float height) {
@@ -71,7 +71,7 @@ public abstract class GOTGuiScreenBase extends GuiScreen {
 	}
 
 	public void drawTexturedModalRectFloat(float x, float y, int u, int v, float width, float height, int imageWidth) {
-		GOTGuiScreenBase.drawTexturedModalRectFloat(x, y, u, v, width, height, imageWidth, zLevel);
+		drawTexturedModalRectFloat(x, y, u, v, width, height, imageWidth, zLevel);
 	}
 
 	@Override

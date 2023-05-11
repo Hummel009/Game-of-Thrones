@@ -20,7 +20,7 @@ public class GOTJaqenHgharTracker {
 
 	public static void addNewJaqenHghar(UUID id) {
 		activeJaqenHghars.put(id, 3600);
-		GOTJaqenHgharTracker.markDirty();
+		markDirty();
 	}
 
 	public static boolean isJaqenHgharActive(UUID id) {
@@ -83,7 +83,7 @@ public class GOTJaqenHgharTracker {
 									jaqenHghar.liftBannerRestrictions = false;
 									world.spawnEntityInWorld(jaqenHghar);
 									jaqenHghar.onSpawnWithEgg(null);
-									GOTJaqenHgharTracker.addNewJaqenHghar(jaqenHghar.getUniqueID());
+									addNewJaqenHghar(jaqenHghar.getUniqueID());
 									jaqenHghar.arriveAt(entityplayer);
 									break block0;
 								}
@@ -112,7 +112,7 @@ public class GOTJaqenHgharTracker {
 
 	public static void setJaqenHgharActive(UUID id) {
 		activeJaqenHghars.computeIfPresent(id, (key, value) -> {
-			GOTJaqenHgharTracker.markDirty();
+			markDirty();
 			return 3600;
 		});
 	}
@@ -131,7 +131,7 @@ public class GOTJaqenHgharTracker {
 			for (UUID id : removes) {
 				activeJaqenHghars.remove(id);
 			}
-			GOTJaqenHgharTracker.markDirty();
+			markDirty();
 		}
 	}
 }

@@ -22,7 +22,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 	public static int currentShieldID;
 
 	static {
-		GOTGuiShields.playerModel.isChild = false;
+		playerModel.isChild = false;
 	}
 
 	public int modelX;

@@ -40,7 +40,7 @@ public enum GOTDimension {
 	}
 
 	public static GOTDimension forName(String s) {
-		for (GOTDimension dim : GOTDimension.values()) {
+		for (GOTDimension dim : values()) {
 			if (dim.dimensionName.equals(s)) {
 				return dim;
 			}
@@ -57,7 +57,7 @@ public enum GOTDimension {
 	}
 
 	public static GOTDimension getCurrentDimensionWithFallback(World world) {
-		GOTDimension dim = GOTDimension.getCurrentDimension(world);
+		GOTDimension dim = getCurrentDimension(world);
 		if (dim == null) {
 			return GAME_OF_THRONES;
 		}
@@ -65,7 +65,7 @@ public enum GOTDimension {
 	}
 
 	public static void onInit() {
-		for (GOTDimension dim : GOTDimension.values()) {
+		for (GOTDimension dim : values()) {
 			DimensionManager.registerProviderType(dim.dimensionID, dim.providerClass, dim.loadSpawn);
 			DimensionManager.registerDimension(dim.dimensionID, dim.dimensionID);
 		}
@@ -91,7 +91,7 @@ public enum GOTDimension {
 		}
 
 		public static DimensionRegion forID(int ID) {
-			for (DimensionRegion r : DimensionRegion.values()) {
+			for (DimensionRegion r : values()) {
 				if (r.ordinal() == ID) {
 					return r;
 				}
@@ -100,7 +100,7 @@ public enum GOTDimension {
 		}
 
 		public static DimensionRegion forName(String regionName) {
-			for (DimensionRegion r : DimensionRegion.values()) {
+			for (DimensionRegion r : values()) {
 				if (r.codeName().equals(regionName)) {
 					return r;
 				}

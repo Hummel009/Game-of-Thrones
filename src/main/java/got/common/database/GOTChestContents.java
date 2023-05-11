@@ -1151,7 +1151,7 @@ public class GOTChestContents {
 
 	public ItemStack getOneItem(Random random, boolean isNPCDrop) {
 		InventoryBasic drops = new InventoryBasic("oneItem", false, 1);
-		GOTChestContents.fillInventory(drops, random, this, 1, isNPCDrop);
+		fillInventory(drops, random, this, 1, isNPCDrop);
 		ItemStack item = drops.getStackInSlot(0);
 		item.stackSize = 1;
 		return item;
@@ -1173,7 +1173,7 @@ public class GOTChestContents {
 	}
 
 	public static void fillChest(World world, Random random, int i, int j, int k, GOTChestContents itemPool) {
-		GOTChestContents.fillChest(world, random, i, j, k, itemPool, -1);
+		fillChest(world, random, i, j, k, itemPool, -1);
 	}
 
 	public static void fillChest(World world, Random random, int i, int j, int k, GOTChestContents itemPool, int amount) {
@@ -1184,16 +1184,16 @@ public class GOTChestContents {
 			}
 			return;
 		}
-		GOTChestContents.fillInventory((IInventory) tileentity, random, itemPool, amount);
+		fillInventory((IInventory) tileentity, random, itemPool, amount);
 	}
 
 	public static void fillInventory(IInventory inventory, Random random, GOTChestContents itemPool, int amount) {
-		GOTChestContents.fillInventory(inventory, random, itemPool, amount, false);
+		fillInventory(inventory, random, itemPool, amount, false);
 	}
 
 	public static void fillInventory(IInventory inventory, Random random, GOTChestContents itemPool, int amount, boolean isNPCDrop) {
 		if (amount == -1) {
-			amount = GOTChestContents.getRandomItemAmount(itemPool, random);
+			amount = getRandomItemAmount(itemPool, random);
 		} else if (amount <= 0) {
 			throw new IllegalArgumentException("GOTChestContents tried to fill a chest with " + amount + " items");
 		}

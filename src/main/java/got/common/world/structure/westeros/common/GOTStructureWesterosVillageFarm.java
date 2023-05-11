@@ -223,7 +223,7 @@ public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWester
 				}
 			}
 			for (int l = 0; l < 16; ++l) {
-				GOTTreeType tree = Tree.getRandomTree(random);
+				GOTTreeType tree = getRandomTree(random);
 				WorldGenAbstractTree treeGen = tree.create(notifyChanges, random);
 				if (treeGen == null) {
 					continue;

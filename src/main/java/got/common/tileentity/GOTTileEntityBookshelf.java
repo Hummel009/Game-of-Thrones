@@ -106,7 +106,7 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 
 	@Override
 	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return GOTTileEntityBookshelf.isBookItem(itemstack);
+		return isBookItem(itemstack);
 	}
 
 	@Override

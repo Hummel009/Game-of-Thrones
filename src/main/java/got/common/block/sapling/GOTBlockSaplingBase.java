@@ -37,7 +37,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 				block2:
 				for (int i2 = -1; i2 <= 1; ++i2) {
 					for (int k2 = -1; k2 <= 1; ++k2) {
-						if (Math.abs(i2) != 0 && Math.abs(k2) != 0 || GOTBlockSaplingBase.isSameSapling(world, i + i1 + i2, j, k + k1 + k2, block, meta)) {
+						if (Math.abs(i2) != 0 && Math.abs(k2) != 0 || isSameSapling(world, i + i1 + i2, j, k + k1 + k2, block, meta)) {
 							continue;
 						}
 						canGenerate = false;
@@ -54,7 +54,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 	}
 
 	public static int[] findPartyTree(World world, int i, int j, int k, Block block, int meta) {
-		return GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, block, meta, -1, 1, -2, 2);
+		return findSaplingSquare(world, i, j, k, block, meta, -1, 1, -2, 2);
 	}
 
 	public static int[] findSaplingSquare(World world, int i, int j, int k, Block block, int meta, int squareMin, int squareMax, int searchMin, int searchMax) {
@@ -66,7 +66,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 					for (int k2 = squareMin; k2 <= squareMax; ++k2) {
 						int i3 = i + i1 + i2;
 						int k3 = k + k1 + k2;
-						if (GOTBlockSaplingBase.isSameSapling(world, i3, j, k3, block, meta)) {
+						if (isSameSapling(world, i3, j, k3, block, meta)) {
 							continue;
 						}
 						canGenerate = false;
@@ -133,7 +133,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 	}
 
 	public boolean isSameSapling(World world, int i, int j, int k, int meta) {
-		return GOTBlockSaplingBase.isSameSapling(world, i, j, k, this, meta);
+		return isSameSapling(world, i, j, k, this, meta);
 	}
 
 	@SideOnly(Side.CLIENT)

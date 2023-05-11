@@ -305,7 +305,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (itemstack == null || !canBeUnsmelted(itemstack)) {
 			return null;
 		}
-		ItemStack material = GOTTileEntityUnsmeltery.getEquipmentMaterial(itemstack);
+		ItemStack material = getEquipmentMaterial(itemstack);
 		int items = this.determineResourcesUsed(itemstack, material);
 		int meta = material.getItemDamage();
 		if (meta == 32767) {

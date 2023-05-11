@@ -52,8 +52,8 @@ public class GOTMusicTicker {
 	}
 
 	public static GOTMusicTrack getNewTrack(Minecraft mc, Random rand) {
-		GOTBiomeMusic.MusicRegion regionSub = GOTMusicTicker.getCurrentRegion(mc, rand);
-		GOTMusicCategory category = GOTMusicTicker.getCurrentCategory(mc, rand);
+		GOTBiomeMusic.MusicRegion regionSub = getCurrentRegion(mc, rand);
+		GOTMusicCategory category = getCurrentCategory(mc, rand);
 		if (regionSub != null) {
 			GOTBiomeMusic region = regionSub.region;
 			String sub = regionSub.subregion;
@@ -86,7 +86,7 @@ public class GOTMusicTicker {
 			}
 			if (!mc.getSoundHandler().isSoundPlaying(currentTrack)) {
 				currentTrack = null;
-				GOTMusicTicker.resetTiming(rand);
+				resetTiming(rand);
 			}
 		}
 		if (!noMusic) {
@@ -99,7 +99,7 @@ public class GOTMusicTicker {
 			if (update && currentTrack == null) {
 				--timing;
 				if (timing <= 0) {
-					currentTrack = GOTMusicTicker.getNewTrack(mc, rand);
+					currentTrack = getNewTrack(mc, rand);
 					if (currentTrack != null) {
 						wasPlayingMenu = menu;
 						mc.getSoundHandler().playSound(currentTrack);

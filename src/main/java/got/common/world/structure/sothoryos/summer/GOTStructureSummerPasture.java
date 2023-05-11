@@ -116,7 +116,7 @@ public class GOTStructureSummerPasture extends GOTStructureSummerBase {
 		}
 		int animals = 2 + random.nextInt(4);
 		for (int l = 0; l < animals; ++l) {
-			EntityAnimal animal = GOTStructureSummerPasture.getRandomAnimal(world, random);
+			EntityAnimal animal = getRandomAnimal(world, random);
 			spawnNPCAndSetHome(animal, world, 0, 1, 0, 0);
 			animal.detachHome();
 		}

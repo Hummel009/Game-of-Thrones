@@ -68,7 +68,7 @@ public class GOTConquestGrid {
 				GOTFaction pledgeFac;
 				EntityPlayerMP player = (EntityPlayerMP) obj;
 				GOTPlayerData pd = GOTLevelData.getData(player);
-				if (player.getDistanceSqToEntity(originPlayer) > 40000.0 || GOTConquestGrid.getZoneByEntityCoords(player) != zone) {
+				if (player.getDistanceSqToEntity(originPlayer) > 40000.0 || getZoneByEntityCoords(player) != zone) {
 					continue;
 				}
 				boolean playerApplicable;
@@ -102,7 +102,7 @@ public class GOTConquestGrid {
 					float frac = 1.0f - dist / 3.5f;
 					float conqGainHere = frac * conqGain;
 					float conqCleanseHere = frac * conqCleanse;
-					GOTConquestZone zone = GOTConquestGrid.getZoneByGridCoords(zoneX, zoneZ);
+					GOTConquestZone zone = getZoneByGridCoords(zoneX, zoneZ);
 					if (zone.isDummyZone) {
 						continue;
 					}
@@ -114,7 +114,7 @@ public class GOTConquestGrid {
 							centralConqBonus = newEnemyConq - enemyConq;
 						}
 						if (killingPlayer != null) {
-							GOTConquestGrid.checkNotifyConquest(zone, killingPlayer, enemyFaction, newEnemyConq, enemyConq, true);
+							checkNotifyConquest(zone, killingPlayer, enemyFaction, newEnemyConq, enemyConq, true);
 						}
 						doneEnemyCleansing = true;
 					}
@@ -130,7 +130,7 @@ public class GOTConquestGrid {
 					if (killingPlayer == null) {
 						continue;
 					}
-					GOTConquestGrid.checkNotifyConquest(zone, killingPlayer, pledgeFaction, newZoneConq, prevZoneConq, false);
+					checkNotifyConquest(zone, killingPlayer, pledgeFaction, newZoneConq, prevZoneConq, false);
 				}
 			}
 			return centralConqBonus;
@@ -157,8 +157,8 @@ public class GOTConquestGrid {
 			GOTBiome biome;
 			cachedFacs = new ArrayList<>();
 			ArrayList<GOTBiome> includedBiomes = new ArrayList<>();
-			int[] mapMin = GOTConquestGrid.getMinCoordsOnMap(zone);
-			int[] mapMax = GOTConquestGrid.getMaxCoordsOnMap(zone);
+			int[] mapMin = getMinCoordsOnMap(zone);
+			int[] mapMax = getMaxCoordsOnMap(zone);
 			int mapXMin = mapMin[0];
 			int mapXMax = mapMax[0];
 			int mapZMin = mapMin[1];
@@ -197,17 +197,17 @@ public class GOTConquestGrid {
 	}
 
 	public static int[] getMaxCoordsOnMap(GOTConquestZone zone) {
-		return new int[]{GOTConquestGrid.gridToMapCoord(zone.gridX + 1), GOTConquestGrid.gridToMapCoord(zone.gridZ + 1)};
+		return new int[]{gridToMapCoord(zone.gridX + 1), gridToMapCoord(zone.gridZ + 1)};
 	}
 
 	public static int[] getMinCoordsOnMap(GOTConquestZone zone) {
-		return new int[]{GOTConquestGrid.gridToMapCoord(zone.gridX), GOTConquestGrid.gridToMapCoord(zone.gridZ)};
+		return new int[]{gridToMapCoord(zone.gridX), gridToMapCoord(zone.gridZ)};
 	}
 
 	public static GOTConquestZone getZoneByEntityCoords(Entity entity) {
 		int i = MathHelper.floor_double(entity.posX);
 		int k = MathHelper.floor_double(entity.posZ);
-		return GOTConquestGrid.getZoneByWorldCoords(i, k);
+		return getZoneByWorldCoords(i, k);
 	}
 
 	public static GOTConquestZone getZoneByGridCoords(int i, int k) {
@@ -217,8 +217,8 @@ public class GOTConquestGrid {
 		GridCoordPair key = new GridCoordPair(i, k);
 		GOTConquestZone zone = zoneMap.get(key);
 		if (zone == null) {
-			File zoneDat = GOTConquestGrid.getZoneDat(key);
-			zone = GOTConquestGrid.loadZoneFromFile(zoneDat);
+			File zoneDat = getZoneDat(key);
+			zone = loadZoneFromFile(zoneDat);
 			if (zone == null) {
 				zone = new GOTConquestZone(i, k);
 			}
@@ -228,18 +228,18 @@ public class GOTConquestGrid {
 	}
 
 	public static GOTConquestZone getZoneByWorldCoords(int i, int k) {
-		int x = GOTConquestGrid.worldToGridX(i);
-		int z = GOTConquestGrid.worldToGridZ(k);
-		return GOTConquestGrid.getZoneByGridCoords(x, z);
+		int x = worldToGridX(i);
+		int z = worldToGridZ(k);
+		return getZoneByGridCoords(x, z);
 	}
 
 	public static File getZoneDat(GOTConquestZone zone) {
 		GridCoordPair key = GridCoordPair.forZone(zone);
-		return GOTConquestGrid.getZoneDat(key);
+		return getZoneDat(key);
 	}
 
 	public static File getZoneDat(GridCoordPair key) {
-		return new File(GOTConquestGrid.getConquestDir(), key.gridX + "." + key.gridZ + ".dat");
+		return new File(getConquestDir(), key.gridX + "." + key.gridZ + ".dat");
 	}
 
 	public static int gridToMapCoord(int i) {
@@ -250,11 +250,11 @@ public class GOTConquestGrid {
 		try {
 			zoneMap.clear();
 			dirtyZones.clear();
-			File dir = GOTConquestGrid.getConquestDir();
+			File dir = getConquestDir();
 			if (dir.exists()) {
 				for (File zoneDat : dir.listFiles()) {
 					GOTConquestZone zone;
-					if (zoneDat.isDirectory() || !zoneDat.getName().endsWith(".dat") || (zone = GOTConquestGrid.loadZoneFromFile(zoneDat)) == null) {
+					if (zoneDat.isDirectory() || !zoneDat.getName().endsWith(".dat") || (zone = loadZoneFromFile(zoneDat)) == null) {
 						continue;
 					}
 					GridCoordPair key = GridCoordPair.forZone(zone);
@@ -296,12 +296,12 @@ public class GOTConquestGrid {
 
 	public static float onConquestKill(EntityPlayer entityplayer, GOTFaction pledgeFaction, GOTFaction enemyFaction, float alignBonus) {
 		World world = entityplayer.worldObj;
-		if (!world.isRemote && GOTConquestGrid.conquestEnabled(world) && GOTLevelData.getData(entityplayer).getEnableConquestKills() && entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
-			GOTConquestZone centralZone = GOTConquestGrid.getZoneByEntityCoords(entityplayer);
+		if (!world.isRemote && conquestEnabled(world) && GOTLevelData.getData(entityplayer).getEnableConquestKills() && entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
+			GOTConquestZone centralZone = getZoneByEntityCoords(entityplayer);
 			float conqAmount = alignBonus * GOTLevelData.getConquestRate();
 			float conqGain = conqAmount;
 			float conqCleanse = conqAmount;
-			return GOTConquestGrid.doRadialConquest(world, centralZone, entityplayer, pledgeFaction, enemyFaction, conqGain, conqCleanse);
+			return doRadialConquest(world, centralZone, entityplayer, pledgeFaction, enemyFaction, conqGain, conqCleanse);
 		}
 		return 0.0f;
 	}
@@ -314,7 +314,7 @@ public class GOTConquestGrid {
 				if (zone == null) {
 					continue;
 				}
-				GOTConquestGrid.saveZoneToFile(zone);
+				saveZoneToFile(zone);
 				if (!zone.isEmpty()) {
 					continue;
 				}
@@ -331,7 +331,7 @@ public class GOTConquestGrid {
 	}
 
 	public static void saveZoneToFile(GOTConquestZone zone) {
-		File zoneDat = GOTConquestGrid.getZoneDat(zone);
+		File zoneDat = getZoneDat(zone);
 		try {
 			if (zone.isEmpty()) {
 				zoneDat.delete();
@@ -357,7 +357,7 @@ public class GOTConquestGrid {
 
 	public static void updateZones(World world) {
 		MinecraftServer srv;
-		if (GOTConquestGrid.conquestEnabled(world) && (srv = MinecraftServer.getServer()) != null) {
+		if (conquestEnabled(world) && (srv = MinecraftServer.getServer()) != null) {
 			int tick = srv.getTickCounter();
 			int interval = 6000;
 			for (GOTConquestZone zone : zoneMap.values()) {

@@ -31,7 +31,7 @@ public class GOTSpawnDamping {
 	}
 
 	public static int getCreatureSpawnCap(EnumCreatureType type, World world) {
-		return GOTSpawnDamping.getSpawnCap(type.name(), type.getMaxNumberOfCreature(), world);
+		return getSpawnCap(type.name(), type.getMaxNumberOfCreature(), world);
 	}
 
 	public static File getDataFile() {
@@ -39,12 +39,12 @@ public class GOTSpawnDamping {
 	}
 
 	public static int getNPCSpawnCap(World world) {
-		return GOTSpawnDamping.getSpawnCap(TYPE_NPC, GOTDimension.getCurrentDimension(world).spawnCap, world);
+		return getSpawnCap(TYPE_NPC, GOTDimension.getCurrentDimension(world).spawnCap, world);
 	}
 
 	public static int getSpawnCap(String type, int baseCap, int players) {
 		float stationaryPointValue;
-		float damp = GOTSpawnDamping.getSpawnDamping(type);
+		float damp = getSpawnDamping(type);
 		float dampFraction = (players - 1) * damp;
 		dampFraction = MathHelper.clamp_float(dampFraction, 0.0f, 1.0f);
 		stationaryPointValue = 0.5f + damp / 2.0f;
@@ -57,7 +57,7 @@ public class GOTSpawnDamping {
 
 	public static int getSpawnCap(String type, int baseCap, World world) {
 		int players = world.playerEntities.size();
-		return GOTSpawnDamping.getSpawnCap(type, baseCap, players);
+		return getSpawnCap(type, baseCap, players);
 	}
 
 	public static float getSpawnDamping(String type) {
@@ -70,7 +70,7 @@ public class GOTSpawnDamping {
 
 	public static void loadAll() {
 		try {
-			File datFile = GOTSpawnDamping.getDataFile();
+			File datFile = getDataFile();
 			NBTTagCompound spawnData = GOTLevelData.loadNBTFromFile(datFile);
 			spawnDamping.clear();
 			if (spawnData.hasKey("Damping")) {
@@ -85,7 +85,7 @@ public class GOTSpawnDamping {
 				}
 			}
 			needsSave = true;
-			GOTSpawnDamping.saveAll();
+			saveAll();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT spawn damping");
 			e.printStackTrace();
@@ -98,12 +98,12 @@ public class GOTSpawnDamping {
 
 	public static void resetAll() {
 		spawnDamping.clear();
-		GOTSpawnDamping.markDirty();
+		markDirty();
 	}
 
 	public static void saveAll() {
 		try {
-			File datFile = GOTSpawnDamping.getDataFile();
+			File datFile = getDataFile();
 			if (!datFile.exists()) {
 				CompressedStreamTools.writeCompressed(new NBTTagCompound(), new FileOutputStream(datFile));
 			}
@@ -127,15 +127,15 @@ public class GOTSpawnDamping {
 	}
 
 	public static void setNPCSpawnDamping(float damping) {
-		GOTSpawnDamping.setSpawnDamping(TYPE_NPC, damping);
+		setSpawnDamping(TYPE_NPC, damping);
 	}
 
 	public static void setSpawnDamping(EnumCreatureType type, float damping) {
-		GOTSpawnDamping.setSpawnDamping(type.name(), damping);
+		setSpawnDamping(type.name(), damping);
 	}
 
 	public static void setSpawnDamping(String type, float damping) {
 		spawnDamping.put(type, damping);
-		GOTSpawnDamping.markDirty();
+		markDirty();
 	}
 }

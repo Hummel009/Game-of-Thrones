@@ -21,11 +21,11 @@ public enum GOTFixedStructures {
 		long l = System.nanoTime();
 		boolean mountainNear = false;
 		boolean structureNear = false;
-		if (GOTFixedStructures.hasMapFeatures(world)) {
+		if (hasMapFeatures(world)) {
 			if (GOTMountains.mountainAt(x, z)) {
 				mountainNear = true;
 			}
-			structureNear = GOTFixedStructures.structureNear(world, x, z, 256);
+			structureNear = structureNear(world, x, z, 256);
 			if (!structureNear) {
 				for (GOTWaypoint wp : GOTWaypoint.values()) {
 					double dz;
@@ -54,7 +54,7 @@ public enum GOTFixedStructures {
 	public static boolean fixedAt(int i, int k, GOTWaypoint waypoint) {
 		int x = GOTWaypoint.mapToWorldX(waypoint.pseudoX);
 		int z = GOTWaypoint.mapToWorldZ(waypoint.pseudoY);
-		return GOTFixedStructures.fixedAtfixedAtMapImageCoords(i, k, x, z);
+		return fixedAtfixedAtMapImageCoords(i, k, x, z);
 	}
 
 	public static boolean fixedAtfixedAtMapImageCoords(int i, int k, int x, int z) {
@@ -69,7 +69,7 @@ public enum GOTFixedStructures {
 	}
 
 	public static boolean structureNear(World world, int x, int z, int range) {
-		for (GOTFixedStructures str : GOTFixedStructures.values()) {
+		for (GOTFixedStructures str : values()) {
 			double dx = x - str.xCoord;
 			double dz = z - str.zCoord;
 			double distSq = dx * dx + dz * dz;
@@ -89,7 +89,7 @@ public enum GOTFixedStructures {
 	}
 
 	public boolean isAt(World world, int x, int z) {
-		if (!GOTFixedStructures.hasMapFeatures(world)) {
+		if (!hasMapFeatures(world)) {
 			return false;
 		}
 		return xCoord == x && zCoord == z;

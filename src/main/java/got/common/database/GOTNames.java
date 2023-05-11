@@ -17,40 +17,40 @@ public class GOTNames {
 	public static Map<String, String[]> allNameBanks = new HashMap<>();
 
 	public static String getAsshaiName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "asshai_male" : "asshai_female", rand);
+		return getRandomName(male ? "asshai_male" : "asshai_female", rand);
 	}
 
 	public static String getDothrakiName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "dothraki_male" : "dothraki_female", rand);
+		return getRandomName(male ? "dothraki_male" : "dothraki_female", rand);
 	}
 
 	public static String getEssosName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "essos_male" : "essos_female", rand);
+		return getRandomName(male ? "essos_male" : "essos_female", rand);
 	}
 
 	public static String getGhiscarName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "ghiscar_male" : "ghiscar_female", rand);
+		return getRandomName(male ? "ghiscar_male" : "ghiscar_female", rand);
 	}
 
 	public static String getGiantName(Random rand) {
-		String giant1 = GOTNames.getRandomName("giant_1", rand);
-		String giant2 = GOTNames.getRandomName("giant_2", rand);
-		String giant3 = GOTNames.getRandomName("giant_2", rand);
-		String giant4 = GOTNames.getRandomName("giant_2", rand);
-		String giant5 = GOTNames.getRandomName("giant_3", rand);
+		String giant1 = getRandomName("giant_1", rand);
+		String giant2 = getRandomName("giant_2", rand);
+		String giant3 = getRandomName("giant_2", rand);
+		String giant4 = getRandomName("giant_2", rand);
+		String giant5 = getRandomName("giant_3", rand);
 		return giant1 + giant2 + giant3 + giant4 + giant5;
 	}
 
 	public static String getJogosName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "jogos_male" : "jogos_female", rand);
+		return getRandomName(male ? "jogos_male" : "jogos_female", rand);
 	}
 
 	public static String getLhazarName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "lhazar_male" : "lhazar_female", rand);
+		return getRandomName(male ? "lhazar_male" : "lhazar_female", rand);
 	}
 
 	public static String getMossovyName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "mossovy_male" : "mossovy_female", rand);
+		return getRandomName(male ? "mossovy_male" : "mossovy_female", rand);
 	}
 
 	public static String[] getNameBank(String nameBankName) {
@@ -58,41 +58,41 @@ public class GOTNames {
 	}
 
 	public static String getQarthName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "qarth_male" : "qarth_female", rand);
+		return getRandomName(male ? "qarth_male" : "qarth_female", rand);
 	}
 
 	public static String getRandomName(String nameBankName, Random rand) {
 		if (allNameBanks.containsKey(nameBankName)) {
-			String[] nameBank = GOTNames.getNameBank(nameBankName);
+			String[] nameBank = getNameBank(nameBankName);
 			return nameBank[rand.nextInt(nameBank.length)];
 		}
 		return "Impostor";
 	}
 
 	public static String getSothoryosName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "sothoryos_male" : "sothoryos_female", rand);
+		return getRandomName(male ? "sothoryos_male" : "sothoryos_female", rand);
 	}
 
 	public static String[] getTavernName(Random rand) {
-		String prefix = GOTNames.getRandomName("tavern_prefix", rand);
-		String suffix = GOTNames.getRandomName("tavern_suffix", rand);
+		String prefix = getRandomName("tavern_prefix", rand);
+		String suffix = getRandomName("tavern_suffix", rand);
 		return new String[]{prefix, suffix};
 	}
 
 	public static String getWesterosName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "westeros_male" : "westeros_female", rand);
+		return getRandomName(male ? "westeros_male" : "westeros_female", rand);
 	}
 
 	public static String getWildName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "wild_male" : "wild_female", rand);
+		return getRandomName(male ? "wild_male" : "wild_female", rand);
 	}
 
 	public static String getYiTiName(Random rand, boolean male) {
-		return GOTNames.getRandomName(male ? "yiti_male" : "yiti_female", rand);
+		return getRandomName(male ? "yiti_male" : "yiti_female", rand);
 	}
 
 	public static boolean nameBankExists(String nameBankName) {
-		return GOTNames.getNameBank(nameBankName) != null;
+		return getNameBank(nameBankName) != null;
 	}
 
 	public static void onInit() {

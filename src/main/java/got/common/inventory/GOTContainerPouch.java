@@ -65,7 +65,7 @@ public class GOTContainerPouch extends Container {
 
 	@Override
 	public ItemStack slotClick(int slotNo, int subActionNo, int actionNo, EntityPlayer entityplayer) {
-		if (GOTContainerPouch.isPouchSlot(this, slotNo, entityplayer, thePouchSlot) || actionNo == 2 && subActionNo == thePouchSlot) {
+		if (isPouchSlot(this, slotNo, entityplayer, thePouchSlot) || actionNo == 2 && subActionNo == thePouchSlot) {
 			return null;
 		}
 		return super.slotClick(slotNo, subActionNo, actionNo, entityplayer);

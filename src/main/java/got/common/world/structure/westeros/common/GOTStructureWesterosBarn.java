@@ -280,7 +280,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		}
 		int animals = 3 + random.nextInt(6);
 		for (int l = 0; l < animals; ++l) {
-			EntityAnimal animal = GOTStructureWesterosBarn.getRandomAnimal(world, random);
+			EntityAnimal animal = getRandomAnimal(world, random);
 			spawnNPCAndSetHome(animal, world, 0, 1, 6, 0);
 			animal.detachHome();
 		}

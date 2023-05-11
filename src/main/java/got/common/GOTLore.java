@@ -293,7 +293,7 @@ public class GOTLore {
 		String title = formatRandom(loreTitle, random);
 		String author = formatRandom(loreAuthor, random);
 		String text = formatRandom(loreText, random);
-		List<String> textPages = GOTLore.organisePages(text);
+		List<String> textPages = organisePages(text);
 		data.setString("title", title);
 		data.setString("author", author);
 		NBTTagList pages = new NBTTagList();
@@ -386,7 +386,7 @@ public class GOTLore {
 		}
 
 		public static LoreCategory forName(String s) {
-			for (LoreCategory r : LoreCategory.values()) {
+			for (LoreCategory r : values()) {
 				if (s.equalsIgnoreCase(r.categoryName)) {
 					return r;
 				}

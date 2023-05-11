@@ -124,7 +124,7 @@ public class GOTRenderNorthernLights {
 			return;
 		}
 		nlBrightness *= tonight;
-		float northernness = GOTRenderNorthernLights.getNorthernness(mc.renderViewEntity);
+		float northernness = getNorthernness(mc.renderViewEntity);
 		if (northernness <= 0.0f) {
 			return;
 		}
@@ -157,9 +157,9 @@ public class GOTRenderNorthernLights {
 		GL11.glShadeModel(7425);
 		GL11.glDisable(2884);
 		world.theProfiler.startSection("sheet");
-		GOTRenderNorthernLights.renderSheet(mc, world, nlScale * -0.5f, (nlBrightness *= 0.3f + (1.0f - world.getRainStrength(tick)) * 0.7f) * 0.8f, nlScale * 1.0f, nlScale * 0.25f, 0.25502f, tick);
-		GOTRenderNorthernLights.renderSheet(mc, world, 0.0f, nlBrightness * 1.0f, nlScale * 1.5f, nlScale * 0.3f, 0.15696f, tick);
-		GOTRenderNorthernLights.renderSheet(mc, world, nlScale * 0.5f, nlBrightness * 0.8f, nlScale * 1.0f, nlScale * 0.25f, 0.67596f, tick);
+		renderSheet(mc, world, nlScale * -0.5f, (nlBrightness *= 0.3f + (1.0f - world.getRainStrength(tick)) * 0.7f) * 0.8f, nlScale * 1.0f, nlScale * 0.25f, 0.25502f, tick);
+		renderSheet(mc, world, 0.0f, nlBrightness * 1.0f, nlScale * 1.5f, nlScale * 0.3f, 0.15696f, tick);
+		renderSheet(mc, world, nlScale * 0.5f, nlBrightness * 0.8f, nlScale * 1.0f, nlScale * 0.25f, 0.67596f, tick);
 		world.theProfiler.endSection();
 		GL11.glEnable(2884);
 		GL11.glShadeModel(7424);
@@ -227,7 +227,7 @@ public class GOTRenderNorthernLights {
 				a2_here *= fade;
 				a3_here *= fade;
 			}
-			float randomFade = 0.5f + GOTRenderNorthernLights.glowEquation(mc, t, fullTick, tick) * 0.5f;
+			float randomFade = 0.5f + glowEquation(mc, t, fullTick, tick) * 0.5f;
 			double x0 = -halfWidth + halfWidth * 2.0 * t;
 			double x1 = x0 + halfWidth * 2.0 / strips;
 			double yMin = -halfHeight;
@@ -237,8 +237,8 @@ public class GOTRenderNorthernLights {
 			double z1 = nlDistance;
 			double extra = halfHeight * 0.15;
 			tess.setColorRGBA_F(r3, g3, b3, 0.0f);
-			tess.addVertex(x0, yMin - extra, z0 += GOTRenderNorthernLights.waveEquation(mc, t, fullTick, tick) * (halfWidth * 0.15));
-			tess.addVertex(x1, yMin - extra, z1 += GOTRenderNorthernLights.waveEquation(mc, t1, fullTick, tick) * (halfWidth * 0.15));
+			tess.addVertex(x0, yMin - extra, z0 += waveEquation(mc, t, fullTick, tick) * (halfWidth * 0.15));
+			tess.addVertex(x1, yMin - extra, z1 += waveEquation(mc, t1, fullTick, tick) * (halfWidth * 0.15));
 			tess.setColorRGBA_F(r3, g3, b3, a3_here *= randomFade);
 			tess.addVertex(x1, yMin, z1);
 			tess.addVertex(x0, yMin, z0);
@@ -292,7 +292,7 @@ public class GOTRenderNorthernLights {
 			brightnessTonight = GOT.isNewYear() || dateRand.nextFloat() < appearChance ? MathHelper.randomFloatClamp(dateRand, 0.4f, 1.0f) : 0.0f;
 		}
 		rainingTickPrev = rainingTick;
-		boolean raining = GOTRenderNorthernLights.isRainLayerAt(viewer);
+		boolean raining = isRainLayerAt(viewer);
 		if (raining) {
 			if (rainingTick < 80) {
 				++rainingTick;
@@ -301,7 +301,7 @@ public class GOTRenderNorthernLights {
 			--rainingTick;
 		}
 		if (colorTopCurrent == null) {
-			Color[] cs = GOTRenderNorthernLights.generateColorSet();
+			Color[] cs = generateColorSet();
 			colorTopCurrent = cs[0].getColorComponents(null);
 			colorMidCurrent = cs[1].getColorComponents(null);
 			colorBottomCurrent = cs[2].getColorComponents(null);
@@ -309,7 +309,7 @@ public class GOTRenderNorthernLights {
 		if (timeUntilColorChange > 0) {
 			--timeUntilColorChange;
 		} else if (rand.nextInt(1200) == 0) {
-			Color[] cs = GOTRenderNorthernLights.generateColorSet();
+			Color[] cs = generateColorSet();
 			colorTopNext = cs[0].getColorComponents(null);
 			colorMidNext = cs[1].getColorComponents(null);
 			colorBottomNext = cs[2].getColorComponents(null);

@@ -64,7 +64,7 @@ public abstract class GOTEntityPentosTrader extends GOTEntityPentosMan implement
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(4, GOTEntityPentosTrader.createTraderTurban(rand));
+		setCurrentItemOrArmor(4, createTraderTurban(rand));
 		return data;
 	}
 }

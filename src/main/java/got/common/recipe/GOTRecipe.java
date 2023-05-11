@@ -83,7 +83,7 @@ public class GOTRecipe {
 
 	public static void addDyeableWoolRobeRecipes(List[] recipeLists, ItemStack result, Object... params) {
 		for (List<IRecipe> list : recipeLists) {
-			GOTRecipe.addDyeableWoolRobeRecipes(list, result, params);
+			addDyeableWoolRobeRecipes(list, result, params);
 		}
 	}
 
@@ -554,10 +554,10 @@ public class GOTRecipe {
 		GameRegistry.addSmelting(GOTRegistry.yam, new ItemStack(GOTRegistry.yamRoast), 0.3f);
 		GameRegistry.addSmelting(GOTRegistry.grapeRed, new ItemStack(GOTRegistry.raisins), 0.3f);
 		GameRegistry.addSmelting(GOTRegistry.grapeWhite, new ItemStack(GOTRegistry.raisins), 0.3f);
-		GOTRecipe.addSmeltingXPForItem(GOTRegistry.bronzeIngot, 0.7f);
-		GOTRecipe.addSmeltingXPForItem(GOTRegistry.valyrianIngot, 1.0f);
-		GOTRecipe.addSmeltingXPForItem(GOTRegistry.valyrianPowder, 0.8f);
-		GOTRecipe.addSmeltingXPForItem(GOTRegistry.yitiSteelIngot, 0.7f);
+		addSmeltingXPForItem(GOTRegistry.bronzeIngot, 0.7f);
+		addSmeltingXPForItem(GOTRegistry.valyrianIngot, 1.0f);
+		addSmeltingXPForItem(GOTRegistry.valyrianPowder, 0.8f);
+		addSmeltingXPForItem(GOTRegistry.yitiSteelIngot, 0.7f);
 	}
 
 	public static void createSothoryosRecipes() {
@@ -1380,12 +1380,12 @@ public class GOTRecipe {
 		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugRaspberryJuice), new Object[]{GOTRegistry.raspberry, GOTRegistry.raspberry, GOTRegistry.raspberry});
 		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugRedGrapeJuice), new Object[]{GOTRegistry.grapeRed, GOTRegistry.grapeRed, GOTRegistry.grapeRed});
 		GOTRecipeVessels.addRecipes(new ItemStack(GOTRegistry.mugWhiteGrapeJuice), new Object[]{GOTRegistry.grapeWhite, GOTRegistry.grapeWhite, GOTRegistry.grapeWhite});
-		GOTRecipe.addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesBoots), "X X", "X X", Character.valueOf('X'), Blocks.wool);
-		GOTRecipe.addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), Blocks.wool);
-		GOTRecipe.addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesHelmet), "XXX", "X X", Character.valueOf('X'), Blocks.wool);
-		GOTRecipe.addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesLeggings), "XXX", "X X", "X X", Character.valueOf('X'), Blocks.wool);
-		GOTRecipe.addDyeableWoolRobeRecipes(yiti, new ItemStack(GOTRegistry.kaftanChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), Blocks.wool);
-		GOTRecipe.addDyeableWoolRobeRecipes(yiti, new ItemStack(GOTRegistry.kaftanLeggings), "XXX", "X X", "X X", Character.valueOf('X'), Blocks.wool);
+		addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesBoots), "X X", "X X", Character.valueOf('X'), Blocks.wool);
+		addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), Blocks.wool);
+		addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesHelmet), "XXX", "X X", Character.valueOf('X'), Blocks.wool);
+		addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTRegistry.robesLeggings), "XXX", "X X", "X X", Character.valueOf('X'), Blocks.wool);
+		addDyeableWoolRobeRecipes(yiti, new ItemStack(GOTRegistry.kaftanChestplate), "X X", "XXX", "XXX", Character.valueOf('X'), Blocks.wool);
+		addDyeableWoolRobeRecipes(yiti, new ItemStack(GOTRegistry.kaftanLeggings), "XXX", "X X", "X X", Character.valueOf('X'), Blocks.wool);
 		GOTBlockTreasurePile.generateTreasureRecipes(GOTRegistry.treasureCopper, GOTRegistry.copperIngot);
 		GOTBlockTreasurePile.generateTreasureRecipes(GOTRegistry.treasureGold, Items.gold_ingot);
 		GOTBlockTreasurePile.generateTreasureRecipes(GOTRegistry.treasureSilver, GOTRegistry.silverIngot);
@@ -1749,42 +1749,42 @@ public class GOTRecipe {
 
 	public static void modifyStandardRecipes() {
 		List<IRecipe> recipeList = CraftingManager.getInstance().getRecipeList();
-		GOTRecipe.removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.fence));
-		GOTRecipe.removeRecipesItemStack(recipeList, new ItemStack(Blocks.sandstone, 1, 2));
+		removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.fence));
+		removeRecipesItemStack(recipeList, new ItemStack(Blocks.sandstone, 1, 2));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.sandstone, 2, 2), "X", "X", Character.valueOf('X'), new ItemStack(Blocks.sandstone, 1, 0)));
 
 		for (int i = 0; i <= 5; ++i) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.fence, 3, i), "XYX", "XYX", Character.valueOf('X'), new ItemStack(Blocks.planks, 1, i), Character.valueOf('Y'), "stickWood"));
 		}
-		GOTRecipe.removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.fence_gate));
+		removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.fence_gate));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.fence_gate, 1), "XYX", "XYX", Character.valueOf('X'), "stickWood", Character.valueOf('Y'), new ItemStack(Blocks.planks, 1, 0)));
-		GOTRecipe.removeRecipesItem(recipeList, Items.wooden_door);
+		removeRecipesItem(recipeList, Items.wooden_door);
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Items.wooden_door), "XX", "XX", "XX", Character.valueOf('X'), new ItemStack(Blocks.planks, 1, 0)));
-		GOTRecipe.removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.trapdoor));
+		removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.trapdoor));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.trapdoor, 2), "XXX", "XXX", Character.valueOf('X'), new ItemStack(Blocks.planks, 1, 0)));
 		if (GOTConfig.removeGoldenAppleRecipes) {
-			GOTRecipe.removeRecipesItem(recipeList, Items.golden_apple);
+			removeRecipesItem(recipeList, Items.golden_apple);
 		}
 		if (GOTConfig.removeDiamondArmorRecipes) {
-			GOTRecipe.removeRecipesItem(recipeList, Items.diamond_helmet);
-			GOTRecipe.removeRecipesItem(recipeList, Items.diamond_chestplate);
-			GOTRecipe.removeRecipesItem(recipeList, Items.diamond_leggings);
-			GOTRecipe.removeRecipesItem(recipeList, Items.diamond_boots);
+			removeRecipesItem(recipeList, Items.diamond_helmet);
+			removeRecipesItem(recipeList, Items.diamond_chestplate);
+			removeRecipesItem(recipeList, Items.diamond_leggings);
+			removeRecipesItem(recipeList, Items.diamond_boots);
 		}
-		GOTRecipe.removeRecipesItemStack(recipeList, new ItemStack(Blocks.stone_slab, 1, 0));
+		removeRecipesItemStack(recipeList, new ItemStack(Blocks.stone_slab, 1, 0));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.stone_slab, 6, 0), "XXX", Character.valueOf('X'), new ItemStack(GOTRegistry.smoothStoneV, 1, 0)));
-		GOTRecipe.removeRecipesItemStack(recipeList, new ItemStack(Blocks.stone_slab, 1, 5));
+		removeRecipesItemStack(recipeList, new ItemStack(Blocks.stone_slab, 1, 5));
 		GameRegistry.addRecipe(new ItemStack(Blocks.stone_slab, 6, 5), "XXX", Character.valueOf('X'), new ItemStack(Blocks.stonebrick, 1, 0));
-		GOTRecipe.removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.stone_brick_stairs));
+		removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.stone_brick_stairs));
 		GameRegistry.addRecipe(new ItemStack(Blocks.stone_brick_stairs, 4), "X  ", "XX ", "XXX", Character.valueOf('X'), new ItemStack(Blocks.stonebrick, 1, 0));
-		GOTRecipe.removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.anvil));
+		removeRecipesItem(recipeList, Item.getItemFromBlock(Blocks.anvil));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.anvil), "XXX", " Y ", "XXX", Character.valueOf('X'), "ingotIron", Character.valueOf('Y'), "blockIron"));
-		GOTRecipe.removeRecipesClass(recipeList, RecipesArmorDyes.class);
+		removeRecipesClass(recipeList, RecipesArmorDyes.class);
 		GameRegistry.addRecipe(new GOTRecipeArmorDyes());
 	}
 
 	public static void onInit() {
-		GOTRecipe.registerOres();
+		registerOres();
 		RecipeSorter.register("got:armorDyes", GOTRecipeArmorDyes.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
 		RecipeSorter.register("got:pipe", GOTRecipePipe.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
 		RecipeSorter.register("got:pouch", GOTRecipePouch.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
@@ -1796,48 +1796,48 @@ public class GOTRecipe {
 		RecipeSorter.register("got:poisonDrink", GOTRecipePoisonDrinks.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
 		RecipeSorter.register("got:treasurePile", GOTRecipeTreasurePile.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
 		RecipeSorter.register("got:partyHatDye", GOTRecipePartyHatDye.class, RecipeSorter.Category.SHAPELESS, "after:minecraft:shapeless");
-		GOTRecipe.modifyStandardRecipes();
-		GOTRecipe.createStandardRecipes();
-		GOTRecipe.createCommonWesterosRecipes();
-		GOTRecipe.createCommonEssosRecipes();
-		GOTRecipe.createTinyBasaltRecipes();
-		GOTRecipe.createWoodenSlabRecipes();
+		modifyStandardRecipes();
+		createStandardRecipes();
+		createCommonWesterosRecipes();
+		createCommonEssosRecipes();
+		createTinyBasaltRecipes();
+		createWoodenSlabRecipes();
 		CraftingManager.getInstance().getRecipeList().addAll(0, slab);
-		GOTRecipe.createSmeltingRecipes();
-		GOTRecipe.createNorthRecipes();
-		GOTRecipe.createHillmanRecipes();
-		GOTRecipe.createWildlingRecipes();
-		GOTRecipe.createSummerRecipes();
-		GOTRecipe.createGiftRecipes();
-		GOTRecipe.createLhazarRecipes();
-		GOTRecipe.createSothoryosRecipes();
-		GOTRecipe.createYiTiRecipes();
-		GOTRecipe.createIbbenRecipes();
-		GOTRecipe.createUnsmeltingRecipes();
-		GOTRecipe.createArrynRecipes();
-		GOTRecipe.createDorneRecipes();
-		GOTRecipe.createReachRecipes();
-		GOTRecipe.createWesterlandsRecipes();
-		GOTRecipe.createCrownlandsRecipes();
-		GOTRecipe.createStormlandsRecipes();
-		GOTRecipe.createDragonstoneRecipes();
-		GOTRecipe.createRiverlandsRecipes();
-		GOTRecipe.createIronbornRecipes();
-		GOTRecipe.createVolantisRecipes();
-		GOTRecipe.createBraavosRecipes();
-		GOTRecipe.createLysRecipes();
-		GOTRecipe.createMyrRecipes();
-		GOTRecipe.createTyroshRecipes();
-		GOTRecipe.createPentosRecipes();
-		GOTRecipe.createNorvosRecipes();
-		GOTRecipe.createLorathRecipes();
-		GOTRecipe.createQohorRecipes();
-		GOTRecipe.createQarthRecipes();
-		GOTRecipe.createGhiscarRecipes();
-		GOTRecipe.createAsshaiRecipes();
-		GOTRecipe.createJogosRecipes();
-		GOTRecipe.createDothrakiRecipes();
-		GOTRecipe.createMossovyRecipes();
+		createSmeltingRecipes();
+		createNorthRecipes();
+		createHillmanRecipes();
+		createWildlingRecipes();
+		createSummerRecipes();
+		createGiftRecipes();
+		createLhazarRecipes();
+		createSothoryosRecipes();
+		createYiTiRecipes();
+		createIbbenRecipes();
+		createUnsmeltingRecipes();
+		createArrynRecipes();
+		createDorneRecipes();
+		createReachRecipes();
+		createWesterlandsRecipes();
+		createCrownlandsRecipes();
+		createStormlandsRecipes();
+		createDragonstoneRecipes();
+		createRiverlandsRecipes();
+		createIronbornRecipes();
+		createVolantisRecipes();
+		createBraavosRecipes();
+		createLysRecipes();
+		createMyrRecipes();
+		createTyroshRecipes();
+		createPentosRecipes();
+		createNorvosRecipes();
+		createLorathRecipes();
+		createQohorRecipes();
+		createQarthRecipes();
+		createGhiscarRecipes();
+		createAsshaiRecipes();
+		createJogosRecipes();
+		createDothrakiRecipes();
+		createMossovyRecipes();
 	}
 
 	public static void registerOres() {

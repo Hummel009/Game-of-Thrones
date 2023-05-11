@@ -46,7 +46,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 			return false;
 		}
 		ItemStack result = FurnaceRecipes.smelting().getSmeltingResult(inventory[i]);
-		if (!GOTTileEntityOven.isCookResultAcceptable(result)) {
+		if (!isCookResultAcceptable(result)) {
 			return false;
 		}
 		if (inventory[i + 9] == null) {
@@ -204,7 +204,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack itemstack) {
 		if (slot < 9) {
-			return itemstack != null && GOTTileEntityOven.isCookResultAcceptable(FurnaceRecipes.smelting().getSmeltingResult(itemstack));
+			return itemstack != null && isCookResultAcceptable(FurnaceRecipes.smelting().getSmeltingResult(itemstack));
 		}
 		if (slot < 18) {
 			return false;

@@ -89,7 +89,7 @@ public class GOTRenderWeather extends IRenderHandler {
 					boolean rainy = biomegenbase.canSpawnLightningBolt();
 					boolean snowy = biomegenbase.getEnableSnow();
 					boolean ashy = biomegenbase instanceof GOTBiomeValyria;
-					boolean sandy = GOTRenderWeather.isSandstormBiome(biomegenbase);
+					boolean sandy = isSandstormBiome(biomegenbase);
 					if (isChristmas) {
 						ashy = false;
 						sandy = false;

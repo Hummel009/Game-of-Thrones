@@ -38,7 +38,7 @@ public class GOTFellowshipData {
 	}
 
 	public static GOTFellowship getActiveFellowship(UUID fsID) {
-		GOTFellowship fs = GOTFellowshipData.getFellowship(fsID);
+		GOTFellowship fs = getFellowship(fsID);
 		if (fs != null && fs.isDisbanded()) {
 			return null;
 		}
@@ -47,14 +47,14 @@ public class GOTFellowshipData {
 
 	public static GOTFellowship getFellowship(UUID fsID) {
 		GOTFellowship fs = fellowshipMap.get(fsID);
-		if (fs == null && (fs = GOTFellowshipData.loadFellowship(fsID)) != null) {
+		if (fs == null && (fs = loadFellowship(fsID)) != null) {
 			fellowshipMap.put(fsID, fs);
 		}
 		return fs;
 	}
 
 	public static File getFellowshipDat(UUID fsID) {
-		return new File(GOTFellowshipData.getFellowshipDir(), fsID.toString() + ".dat");
+		return new File(getFellowshipDir(), fsID.toString() + ".dat");
 	}
 
 	public static File getFellowshipDir() {
@@ -67,9 +67,9 @@ public class GOTFellowshipData {
 
 	public static void loadAll() {
 		try {
-			GOTFellowshipData.destroyAllFellowshipData();
+			destroyAllFellowshipData();
 			needsLoad = false;
-			GOTFellowshipData.saveAll();
+			saveAll();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT fellowship data");
 			e.printStackTrace();
@@ -77,7 +77,7 @@ public class GOTFellowshipData {
 	}
 
 	public static GOTFellowship loadFellowship(UUID fsID) {
-		File fsDat = GOTFellowshipData.getFellowshipDat(fsID);
+		File fsDat = getFellowshipDat(fsID);
 		try {
 			NBTTagCompound nbt = GOTLevelData.loadNBTFromFile(fsDat);
 			if (nbt.hasNoTags()) {
@@ -99,7 +99,7 @@ public class GOTFellowshipData {
 				if (!fs.needsSave()) {
 					continue;
 				}
-				GOTFellowshipData.saveFellowship(fs);
+				saveFellowship(fs);
 			}
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT fellowship data");
@@ -109,7 +109,7 @@ public class GOTFellowshipData {
 
 	public static void saveAndClearFellowship(GOTFellowship fs) {
 		if (fellowshipMap.containsValue(fs)) {
-			GOTFellowshipData.saveFellowship(fs);
+			saveFellowship(fs);
 			fellowshipMap.remove(fs.getFellowshipID());
 		} else {
 			FMLLog.severe("Attempted to clear GOT fellowship data for %s; no data found", fs.getFellowshipID());
@@ -134,7 +134,7 @@ public class GOTFellowshipData {
 				clearing.add(fs);
 			}
 			for (GOTFellowship fs : clearing) {
-				GOTFellowshipData.saveAndClearFellowship(fs);
+				saveAndClearFellowship(fs);
 			}
 		}
 	}
@@ -143,7 +143,7 @@ public class GOTFellowshipData {
 		try {
 			NBTTagCompound nbt = new NBTTagCompound();
 			fs.save(nbt);
-			GOTLevelData.saveNBTToFile(GOTFellowshipData.getFellowshipDat(fs.getFellowshipID()), nbt);
+			GOTLevelData.saveNBTToFile(getFellowshipDat(fs.getFellowshipID()), nbt);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT fellowship data for %s", fs.getFellowshipID());
 			e.printStackTrace();

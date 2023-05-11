@@ -78,7 +78,7 @@ public class GOTBannerProtection {
 	}
 
 	public static IFilter forInvasionSpawner(GOTEntityInvasionSpawner spawner) {
-		return GOTBannerProtection.forFaction(spawner.getInvasionType().invasionFaction);
+		return forFaction(spawner.getInvasionType().invasionFaction);
 	}
 
 	public static IFilter forNPC(EntityLiving entity) {
@@ -102,7 +102,7 @@ public class GOTBannerProtection {
 	}
 
 	public static IFilter forPlayer(EntityPlayer entityplayer) {
-		return GOTBannerProtection.forPlayer(entityplayer, Permission.FULL);
+		return forPlayer(entityplayer, Permission.FULL);
 	}
 
 	public static IFilter forPlayer(EntityPlayer entityplayer, Permission perm) {
@@ -111,7 +111,7 @@ public class GOTBannerProtection {
 
 	public static IFilter forPlayer_returnMessage(EntityPlayer entityplayer, Permission perm, IChatComponent[] protectionMessage) {
 		return new IFilter() {
-			public IFilter internalPlayerFilter = GOTBannerProtection.forPlayer(entityplayer, perm);
+			public IFilter internalPlayerFilter = forPlayer(entityplayer, perm);
 
 			@Override
 			public ProtectType protects(GOTEntityBanner banner) {
@@ -139,10 +139,10 @@ public class GOTBannerProtection {
 					return ProtectType.FACTION;
 				}
 				if (thrower instanceof EntityPlayer) {
-					return GOTBannerProtection.forPlayer((EntityPlayer) thrower, Permission.FULL).protects(banner);
+					return forPlayer((EntityPlayer) thrower, Permission.FULL).protects(banner);
 				}
 				if (thrower instanceof EntityLiving) {
-					return GOTBannerProtection.forNPC((EntityLiving) thrower).protects(banner);
+					return forNPC((EntityLiving) thrower).protects(banner);
 				}
 				return ProtectType.NONE;
 			}
@@ -166,10 +166,10 @@ public class GOTBannerProtection {
 					return ProtectType.FACTION;
 				}
 				if (bomber instanceof EntityPlayer) {
-					return GOTBannerProtection.forPlayer((EntityPlayer) bomber, Permission.FULL).protects(banner);
+					return forPlayer((EntityPlayer) bomber, Permission.FULL).protects(banner);
 				}
 				if (bomber instanceof EntityLiving) {
-					return GOTBannerProtection.forNPC((EntityLiving) bomber).protects(banner);
+					return forNPC((EntityLiving) bomber).protects(banner);
 				}
 				return ProtectType.NONE;
 			}
@@ -213,11 +213,11 @@ public class GOTBannerProtection {
 		int i = MathHelper.floor_double(entity.posX);
 		int j = MathHelper.floor_double(entity.boundingBox.minY);
 		int k = MathHelper.floor_double(entity.posZ);
-		return GOTBannerProtection.isProtected(world, i, j, k, protectFilter, sendMessage);
+		return isProtected(world, i, j, k, protectFilter, sendMessage);
 	}
 
 	public static boolean isProtected(World world, int i, int j, int k, IFilter protectFilter, boolean sendMessage) {
-		return GOTBannerProtection.isProtected(world, i, j, k, protectFilter, sendMessage, 0.0);
+		return isProtected(world, i, j, k, protectFilter, sendMessage, 0.0);
 	}
 
 	public static boolean isProtected(World world, int i, int j, int k, IFilter protectFilter, boolean sendMessage, double searchExtra) {
@@ -293,7 +293,7 @@ public class GOTBannerProtection {
 		public String codeName = name();
 
 		public static Permission forName(String s) {
-			for (Permission p : Permission.values()) {
+			for (Permission p : values()) {
 				if (p.codeName.equals(s)) {
 					return p;
 				}
@@ -355,9 +355,9 @@ public class GOTBannerProtection {
 			if (thePlayer instanceof EntityPlayerMP && !thePlayer.worldObj.isRemote) {
 				EntityPlayerMP entityplayermp = (EntityPlayerMP) thePlayer;
 				entityplayermp.sendContainerToPlayer(thePlayer.inventoryContainer);
-				if (!GOTBannerProtection.hasWarningCooldown(entityplayermp)) {
+				if (!hasWarningCooldown(entityplayermp)) {
 					entityplayermp.addChatMessage(message);
-					GOTBannerProtection.setWarningCooldown(entityplayermp);
+					setWarningCooldown(entityplayermp);
 				}
 			}
 		}

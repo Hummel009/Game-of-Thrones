@@ -30,7 +30,7 @@ public enum GOTMapLabels {
 	}
 
 	public static GOTMapLabels[] allMapLabels() {
-		return GOTMapLabels.values();
+		return values();
 	}
 
 	public String getDisplayName() {

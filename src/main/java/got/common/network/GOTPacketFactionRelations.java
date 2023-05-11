@@ -88,7 +88,7 @@ public class GOTPacketFactionRelations implements IMessage {
 		FULL_MAP, RESET, ONE_ENTRY;
 
 		public static Type forID(int id) {
-			for (Type t : Type.values()) {
+			for (Type t : values()) {
 				if (t.ordinal() != id) {
 					continue;
 				}

@@ -50,10 +50,10 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		allTracks.add(track);
 		for (GOTBiomeMusic region : track.getAllRegions()) {
 			if (region.hasNoSubregions()) {
-				GOTMusic.getTracksForRegion(region, null).addTrack(track);
+				getTracksForRegion(region, null).addTrack(track);
 			} else {
 				for (String sub : track.getRegionInfo(region).getSubregions()) {
-					GOTMusic.getTracksForRegion(region, sub).addTrack(track);
+					getTracksForRegion(region, sub).addTrack(track);
 				}
 			}
 		}
@@ -253,7 +253,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 					FileResourcePack resourcePack = new FileResourcePack(file);
 					resourceMgr.reloadResourcePack(resourcePack);
 					ZipFile zipFile = new ZipFile(file);
-					GOTMusic.loadMusicPack(zipFile, resourceMgr);
+					loadMusicPack(zipFile, resourceMgr);
 				} catch (Exception e) {
 					GOTLog.logger.warn("Hummel009: Failed to load music pack " + file.getName() + "!");
 					e.printStackTrace();
@@ -261,7 +261,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			}
 		}
 		try {
-			GOTMusic.generateReadme();
+			generateReadme();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -271,11 +271,11 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	public void onPlaySound(PlaySoundEvent17 event) {
 		Minecraft.getMinecraft();
 		if (!allTracks.isEmpty() && event.category == SoundCategory.MUSIC && !(event.sound instanceof GOTMusicTrack)) {
-			if (GOTMusic.isGOTDimension()) {
+			if (isGOTDimension()) {
 				event.result = null;
 				return;
 			}
-			if (GOTMusic.isMenuMusic() && !GOTMusic.getTracksForRegion(GOTBiomeMusic.MENU, null).isEmpty()) {
+			if (isMenuMusic() && !getTracksForRegion(GOTBiomeMusic.MENU, null).isEmpty()) {
 				event.result = null;
 			}
 		}
@@ -283,7 +283,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourcemanager) {
-		GOTMusic.loadMusicPacks(Minecraft.getMinecraft().mcDataDir, (SimpleReloadableResourceManager) resourcemanager);
+		loadMusicPacks(Minecraft.getMinecraft().mcDataDir, (SimpleReloadableResourceManager) resourcemanager);
 	}
 
 	public void update() {

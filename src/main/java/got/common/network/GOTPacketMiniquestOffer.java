@@ -74,7 +74,7 @@ public class GOTPacketMiniquestOffer implements IMessage {
 				if (quest != null) {
 					GOT.proxy.displayMiniquestOffer(quest, npc);
 				} else {
-					GOTPacketMiniquestOffer.sendClosePacket(entityplayer, npc, false);
+					sendClosePacket(entityplayer, npc, false);
 				}
 			}
 			return null;

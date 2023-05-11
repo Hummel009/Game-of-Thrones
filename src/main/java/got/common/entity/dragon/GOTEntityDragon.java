@@ -59,7 +59,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	public GOTEntityDragon(World world) {
 		super(world);
 		try {
-			ReflectionHelper.setPrivateValue(EntityLiving.class, this, new GOTModelDragonBodyHelper(this), GOTEntityDragon.ENTITYLIVING_BODYHELPER);
+			ReflectionHelper.setPrivateValue(EntityLiving.class, this, new GOTModelDragonBodyHelper(this), ENTITYLIVING_BODYHELPER);
 		} catch (Exception ex) {
 			L.warn("Can't override EntityBodyHelper", ex);
 		}
@@ -424,7 +424,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		}
 
 		if (!isTamed() && !isChild()) {
-			if (isServer() && GOTEntityDragon.consumeEquipped(player, FAVORITE_FOOD) != null) {
+			if (isServer() && consumeEquipped(player, FAVORITE_FOOD) != null) {
 				tamedFor(player, rand.nextInt(3) == 0);
 			}
 
@@ -432,7 +432,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		}
 		ItemFood food = null;
 		if (getHealthRelative() < 1) {
-			food = (ItemFood) GOTEntityDragon.consumeEquipped(player, FAVORITE_FOOD, Items.porkchop, Items.beef, Items.chicken);
+			food = (ItemFood) consumeEquipped(player, FAVORITE_FOOD, Items.porkchop, Items.beef, Items.chicken);
 		}
 		if (food != null) {
 			heal(food.func_150905_g(playerItem));
@@ -446,22 +446,22 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 				player.addChatMessage(new ChatComponentTranslation("dragon.owned"));
 			}
 		} else if (!isChild() && riddenByEntity == null) {
-			if (!isSaddled() && GOTEntityDragon.consumeEquipped(player, Items.saddle) != null) {
+			if (!isSaddled() && consumeEquipped(player, Items.saddle) != null) {
 				if (isServer()) {
 					setSaddled(true);
 				}
-			} else if (GOTEntityDragon.hasEquipped(player, Items.bone)) {
+			} else if (hasEquipped(player, Items.bone)) {
 				if (isServer()) {
 					aiSit.setSitting(!isSitting());
 					isJumping = false;
 					setPathToEntity(null);
 				}
-			} else if (getReproductionHelper().canReproduce() && GOTEntityDragon.consumeEquipped(player, FAVORITE_FOOD) != null) {
+			} else if (getReproductionHelper().canReproduce() && consumeEquipped(player, FAVORITE_FOOD) != null) {
 				if (isClient()) {
 					getParticleHelper().spawnBodyParticles("heart");
 				}
 				func_146082_f(player);
-			} else if (isSaddled() && !GOTEntityDragon.hasEquippedUsable(player) && isServer()) {
+			} else if (isSaddled() && !hasEquippedUsable(player) && isServer()) {
 				setRidingPlayer(player);
 			}
 		}

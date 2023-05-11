@@ -81,7 +81,7 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
-		if (!GOTBlockBookshelfStorage.canOpenBookshelf(world, i, j, k, entityplayer)) {
+		if (!canOpenBookshelf(world, i, j, k, entityplayer)) {
 			return false;
 		}
 		if (!world.isRemote) {

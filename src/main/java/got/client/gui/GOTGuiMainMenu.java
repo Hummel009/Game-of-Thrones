@@ -45,12 +45,12 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		mapRenderer = new GOTGuiRendererMap();
 		mapRenderer.setSepia(false);
 		if (waypointRoute.isEmpty()) {
-			GOTGuiMainMenu.setupWaypoints();
+			setupWaypoints();
 			currentWPIndex = randomWPStart ? rand.nextInt(waypointRoute.size()) : 0;
 		}
 		GOTWaypoint wp = waypointRoute.get(currentWPIndex);
-		GOTGuiMainMenu.mapRenderer.prevMapX = GOTGuiMainMenu.mapRenderer.mapX = wp.getX();
-		GOTGuiMainMenu.mapRenderer.prevMapY = GOTGuiMainMenu.mapRenderer.mapY = wp.getY();
+		mapRenderer.prevMapX = mapRenderer.mapX = wp.getX();
+		mapRenderer.prevMapY = mapRenderer.mapY = wp.getY();
 	}
 
 	public static void setupWaypoints() {
@@ -86,13 +86,13 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		}
 		float fade = fadeIn ? (System.currentTimeMillis() - firstRenderTime) / 1000.0f : 1.0f;
 		float fadeAlpha = fadeIn ? MathHelper.clamp_float(fade - 1.0f, 0.0f, 1.0f) : 1.0f;
-		GOTGuiMainMenu.mapRenderer.zoomExp = -0.3f;
+		mapRenderer.zoomExp = -0.3f;
 		if (fadeIn) {
 			float slowerFade = fade * 0.5f;
 			float fadeInZoom = MathHelper.clamp_float(1.0f - slowerFade, 0.0f, 1.0f) * -1.5f;
-			GOTGuiMainMenu.mapRenderer.zoomExp += fadeInZoom;
+			mapRenderer.zoomExp += fadeInZoom;
 		}
-		GOTGuiMainMenu.mapRenderer.zoomStable = (float) Math.pow(2.0, -0.10000000149011612);
+		mapRenderer.zoomStable = (float) Math.pow(2.0, -0.10000000149011612);
 		mapRenderer.renderMap(this, mapGui, f);
 		mapRenderer.renderVignettes(this, zLevel, 2);
 		GL11.glEnable(3042);
@@ -179,8 +179,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		++tickCounter;
 		mapRenderer.updateTick();
 		GOTWaypoint wp = waypointRoute.get(currentWPIndex);
-		float dx = wp.getX() - GOTGuiMainMenu.mapRenderer.mapX;
-		float dy = wp.getY() - GOTGuiMainMenu.mapRenderer.mapY;
+		float dx = wp.getX() - mapRenderer.mapX;
+		float dy = wp.getY() - mapRenderer.mapY;
 		float distSq = dx * dx + dy * dy;
 		float dist = (float) Math.sqrt(distSq);
 		if (dist <= 12.0f) {
@@ -197,7 +197,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			mapVelX += (vXNew - mapVelX) * a;
 			mapVelY += (vYNew - mapVelY) * a;
 		}
-		GOTGuiMainMenu.mapRenderer.mapX += mapVelX;
-		GOTGuiMainMenu.mapRenderer.mapY += mapVelY;
+		mapRenderer.mapX += mapVelX;
+		mapRenderer.mapY += mapVelY;
 	}
 }

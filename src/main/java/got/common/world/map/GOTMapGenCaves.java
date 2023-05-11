@@ -65,7 +65,7 @@ public class GOTMapGenCaves extends MapGenBase {
 				break;
 			}
 		}
-		dig = GOTMapGenCaves.isTerrainBlock(block, biome) || block.getMaterial().isLiquid();
+		dig = isTerrainBlock(block, biome) || block.getMaterial().isLiquid();
 		if (belowVillageOrRoad) {
 			dig = false;
 		}

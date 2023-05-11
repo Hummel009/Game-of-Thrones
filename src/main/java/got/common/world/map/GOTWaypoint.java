@@ -43,14 +43,14 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		imgY = y;
 		pseudoX = x;
 		pseudoY = y;
-		xCoord = GOTWaypoint.mapToWorldX(x);
-		zCoord = GOTWaypoint.mapToWorldZ(y);
+		xCoord = mapToWorldX(x);
+		zCoord = mapToWorldZ(y);
 		isHidden = hide;
 	}
 
 	public static List<GOTAbstractWaypoint> listAllWaypoints() {
 		ArrayList<GOTAbstractWaypoint> list = new ArrayList<>();
-		list.addAll(Arrays.asList(GOTWaypoint.values()));
+		list.addAll(Arrays.asList(values()));
 		return list;
 	}
 
@@ -87,7 +87,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public static GOTWaypoint waypointForName(String name) {
-		for (GOTWaypoint wp : GOTWaypoint.values()) {
+		for (GOTWaypoint wp : values()) {
 			if (!wp.getCodeName().equals(name)) {
 				continue;
 			}

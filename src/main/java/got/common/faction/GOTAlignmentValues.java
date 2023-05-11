@@ -26,11 +26,11 @@ public class GOTAlignmentValues {
 	}
 
 	public static String formatAlignForDisplay(float alignment) {
-		return GOTAlignmentValues.formatAlignForDisplay(alignment, alignFormat, true);
+		return formatAlignForDisplay(alignment, alignFormat, true);
 	}
 
 	public static String formatAlignForDisplay(float alignment, DecimalFormat dFormat, boolean prefixPlus) {
-		GOTAlignmentValues.setupDecimalFormat(dFormat);
+		setupDecimalFormat(dFormat);
 		String s = dFormat.format(alignment);
 		if (prefixPlus && !s.startsWith("-")) {
 			s = "+" + s;
@@ -39,23 +39,23 @@ public class GOTAlignmentValues {
 	}
 
 	public static String formatConqForDisplay(float conq, boolean prefixPlus) {
-		return GOTAlignmentValues.formatAlignForDisplay(conq, conqFormat, prefixPlus);
+		return formatAlignForDisplay(conq, conqFormat, prefixPlus);
 	}
 
 	public static void notifyAlignmentNotHighEnough(EntityPlayer entityplayer, float alignmentRequired, GOTFaction faction) {
-		ChatComponentText componentAlignReq = new ChatComponentText(GOTAlignmentValues.formatAlignForDisplay(alignmentRequired));
+		ChatComponentText componentAlignReq = new ChatComponentText(formatAlignForDisplay(alignmentRequired));
 		componentAlignReq.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientAlignment", componentAlignReq, faction.factionName()));
 	}
 
 	public static void notifyAlignmentNotHighEnough(EntityPlayer entityplayer, float alignmentRequired, GOTFaction faction1, GOTFaction faction2) {
-		ChatComponentText componentAlignReq = new ChatComponentText(GOTAlignmentValues.formatAlignForDisplay(alignmentRequired));
+		ChatComponentText componentAlignReq = new ChatComponentText(formatAlignForDisplay(alignmentRequired));
 		componentAlignReq.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientAlignment2", componentAlignReq, faction1.factionName(), faction2.factionName()));
 	}
 
 	public static void notifyAlignmentNotHighEnough(EntityPlayer entityplayer, float alignmentRequired, GOTFaction faction1, GOTFaction faction2, GOTFaction faction3) {
-		ChatComponentText componentAlignReq = new ChatComponentText(GOTAlignmentValues.formatAlignForDisplay(alignmentRequired));
+		ChatComponentText componentAlignReq = new ChatComponentText(formatAlignForDisplay(alignmentRequired));
 		componentAlignReq.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientAlignment3", componentAlignReq, faction1.factionName(), faction2.factionName(), faction3.factionName()));
 	}
@@ -66,7 +66,7 @@ public class GOTAlignmentValues {
 
 	public static float parseDisplayedAlign(String alignmentText) {
 		DecimalFormat dFormat = alignFormat;
-		GOTAlignmentValues.setupDecimalFormat(dFormat);
+		setupDecimalFormat(dFormat);
 		if (alignmentText.startsWith("+")) {
 			alignmentText = alignmentText.substring("+".length());
 		}

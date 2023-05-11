@@ -30,24 +30,24 @@ public class GOTWeaponStats {
 	public static int MAX_MODIFIABLE_KNOCKBACK = 2;
 
 	static {
-		GOTWeaponStats.registerMeleeSpeed(GOTItemGreatsword.class, 0.667f);
-		GOTWeaponStats.registerMeleeSpeed(GOTItemLongsword.class, 0.8f);
-		GOTWeaponStats.registerMeleeReach(GOTItemGreatsword.class, 1.5f);
-		GOTWeaponStats.registerMeleeReach(GOTItemLongsword.class, 1.25f);
-		GOTWeaponStats.registerMeleeSpeed(GOTItemDagger.class, 1.5f);
-		GOTWeaponStats.registerMeleeSpeed(GOTItemSpear.class, 0.833f);
-		GOTWeaponStats.registerMeleeSpeed(GOTItemPolearm.class, 0.667f);
-		GOTWeaponStats.registerMeleeSpeed(GOTItemPolearmLong.class, 0.5f);
-		GOTWeaponStats.registerMeleeSpeed(GOTItemLance.class, 0.5f);
-		GOTWeaponStats.registerMeleeSpeed(GOTItemBattleaxe.class, 0.75f);
-		GOTWeaponStats.registerMeleeSpeed(GOTItemHammer.class, 0.667f);
-		GOTWeaponStats.registerMeleeReach(GOTItemDagger.class, 0.75f);
-		GOTWeaponStats.registerMeleeReach(GOTItemSpear.class, 1.5f);
-		GOTWeaponStats.registerMeleeReach(GOTItemPolearm.class, 1.5f);
-		GOTWeaponStats.registerMeleeReach(GOTItemPolearmLong.class, 2.0f);
-		GOTWeaponStats.registerMeleeReach(GOTItemLance.class, 2.0f);
-		GOTWeaponStats.registerMeleeExtraKnockback(GOTItemHammer.class, 1);
-		GOTWeaponStats.registerMeleeExtraKnockback(GOTItemLance.class, 1);
+		registerMeleeSpeed(GOTItemGreatsword.class, 0.667f);
+		registerMeleeSpeed(GOTItemLongsword.class, 0.8f);
+		registerMeleeReach(GOTItemGreatsword.class, 1.5f);
+		registerMeleeReach(GOTItemLongsword.class, 1.25f);
+		registerMeleeSpeed(GOTItemDagger.class, 1.5f);
+		registerMeleeSpeed(GOTItemSpear.class, 0.833f);
+		registerMeleeSpeed(GOTItemPolearm.class, 0.667f);
+		registerMeleeSpeed(GOTItemPolearmLong.class, 0.5f);
+		registerMeleeSpeed(GOTItemLance.class, 0.5f);
+		registerMeleeSpeed(GOTItemBattleaxe.class, 0.75f);
+		registerMeleeSpeed(GOTItemHammer.class, 0.667f);
+		registerMeleeReach(GOTItemDagger.class, 0.75f);
+		registerMeleeReach(GOTItemSpear.class, 1.5f);
+		registerMeleeReach(GOTItemPolearm.class, 1.5f);
+		registerMeleeReach(GOTItemPolearmLong.class, 2.0f);
+		registerMeleeReach(GOTItemLance.class, 2.0f);
+		registerMeleeExtraKnockback(GOTItemHammer.class, 1);
+		registerMeleeExtraKnockback(GOTItemLance.class, 1);
 	}
 
 	public static int getArmorProtection(ItemStack itemstack) {
@@ -61,16 +61,16 @@ public class GOTWeaponStats {
 	}
 
 	public static int getAttackTimeMob(ItemStack itemstack) {
-		return GOTWeaponStats.getAttackTimeWithBase(itemstack, baseMobMeleeTime);
+		return getAttackTimeWithBase(itemstack, baseMobMeleeTime);
 	}
 
 	public static int getAttackTimePlayer(ItemStack itemstack) {
-		return GOTWeaponStats.getAttackTimeWithBase(itemstack, basePlayerMeleeTime);
+		return getAttackTimeWithBase(itemstack, basePlayerMeleeTime);
 	}
 
 	public static int getAttackTimeWithBase(ItemStack itemstack, int baseTime) {
 		float time = baseTime;
-		Float factor = (Float) GOTWeaponStats.getClassOrItemProperty(itemstack, meleeSpeed);
+		Float factor = (Float) getClassOrItemProperty(itemstack, meleeSpeed);
 		if (factor != null) {
 			time /= factor;
 		}
@@ -81,7 +81,7 @@ public class GOTWeaponStats {
 
 	public static int getBaseExtraKnockback(ItemStack itemstack) {
 		int kb = 0;
-		Integer extra = (Integer) GOTWeaponStats.getClassOrItemProperty(itemstack, meleeExtraKnockback);
+		Integer extra = (Integer) getClassOrItemProperty(itemstack, meleeExtraKnockback);
 		if (extra != null) {
 			kb = extra;
 		}
@@ -131,7 +131,7 @@ public class GOTWeaponStats {
 
 	public static float getMeleeReachDistance(EntityPlayer entityplayer) {
 		float reach = 3.0f;
-		reach *= GOTWeaponStats.getMeleeReachFactor(entityplayer.getHeldItem());
+		reach *= getMeleeReachFactor(entityplayer.getHeldItem());
 		if (entityplayer.capabilities.isCreativeMode) {
 			reach = (float) (reach + 3.0);
 		}
@@ -140,7 +140,7 @@ public class GOTWeaponStats {
 
 	public static float getMeleeReachFactor(ItemStack itemstack) {
 		float reach = 1.0f;
-		Float factor = (Float) GOTWeaponStats.getClassOrItemProperty(itemstack, meleeReach);
+		Float factor = (Float) getClassOrItemProperty(itemstack, meleeReach);
 		if (factor != null) {
 			reach *= factor;
 		}
@@ -149,7 +149,7 @@ public class GOTWeaponStats {
 
 	public static float getMeleeSpeed(ItemStack itemstack) {
 		int base = basePlayerMeleeTime;
-		return 1.0f / ((float) GOTWeaponStats.getAttackTimeWithBase(itemstack, base) / (float) base);
+		return 1.0f / ((float) getAttackTimeWithBase(itemstack, base) / (float) base);
 	}
 
 	public static float getRangedDamageFactor(ItemStack itemstack, boolean launchSpeedOnly) {
@@ -196,8 +196,8 @@ public class GOTWeaponStats {
 	}
 
 	public static int getRangedKnockback(ItemStack itemstack) {
-		if (GOTWeaponStats.isMeleeWeapon(itemstack) || itemstack != null && itemstack.getItem() instanceof GOTItemThrowingAxe) {
-			return GOTWeaponStats.getTotalKnockback(itemstack);
+		if (isMeleeWeapon(itemstack) || itemstack != null && itemstack.getItem() instanceof GOTItemThrowingAxe) {
+			return getTotalKnockback(itemstack);
 		}
 		return EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, itemstack) + GOTEnchantmentHelper.calcRangedKnockback(itemstack);
 	}
@@ -238,13 +238,13 @@ public class GOTWeaponStats {
 			if (stack == null || !(stack.getItem() instanceof ItemArmor)) {
 				continue;
 			}
-			protection += GOTWeaponStats.getArmorProtection(stack);
+			protection += getArmorProtection(stack);
 		}
 		return protection;
 	}
 
 	public static int getTotalKnockback(ItemStack itemstack) {
-		return EnchantmentHelper.getEnchantmentLevel(Enchantment.knockback.effectId, itemstack) + GOTWeaponStats.getBaseExtraKnockback(itemstack) + GOTEnchantmentHelper.calcExtraKnockback(itemstack);
+		return EnchantmentHelper.getEnchantmentLevel(Enchantment.knockback.effectId, itemstack) + getBaseExtraKnockback(itemstack) + GOTEnchantmentHelper.calcExtraKnockback(itemstack);
 	}
 
 	public static boolean isMeleeWeapon(ItemStack itemstack) {

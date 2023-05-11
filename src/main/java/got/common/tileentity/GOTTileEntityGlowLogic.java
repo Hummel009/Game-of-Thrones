@@ -9,7 +9,7 @@ public class GOTTileEntityGlowLogic {
 
 	static {
 		for (int i = 0; i <= 15; ++i) {
-			GOTTileEntityGlowLogic.lightValueSqrts[i] = MathHelper.sqrt_float(i / 15.0f);
+			lightValueSqrts[i] = MathHelper.sqrt_float(i / 15.0f);
 		}
 	}
 

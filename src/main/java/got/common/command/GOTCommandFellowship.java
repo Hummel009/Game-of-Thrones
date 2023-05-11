@@ -98,14 +98,14 @@ public class GOTCommandFellowship extends CommandBase {
 			}
 			if ("option".equals(function)) {
 				String[] argsOriginal = Arrays.copyOf(args, args.length);
-				String ownerName = (args = GOTCommandFellowship.fixArgsForFellowship(args, 2, true))[1];
+				String ownerName = (args = fixArgsForFellowship(args, 2, true))[1];
 				UUID ownerID = getPlayerIDByName(sender, ownerName);
 				if (ownerID != null) {
 					GOTFellowship fellowship;
 					GOTPlayerData playerData = GOTLevelData.getData(ownerID);
 					String fsName = args[2];
 					if (args.length == 3) {
-						return GOTCommandFellowship.listFellowshipsMatchingLastWord(args, argsOriginal, 2, playerData, true);
+						return listFellowshipsMatchingLastWord(args, argsOriginal, 2, playerData, true);
 					}
 					if (fsName != null && (fellowship = playerData.getFellowshipByName(fsName)) != null) {
 						if (args.length == 4) {
@@ -211,7 +211,7 @@ public class GOTCommandFellowship extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		if (args.length >= 3 && "create".equals(args[0])) {
-			args = GOTCommandFellowship.fixArgsForFellowship(args, 2, false);
+			args = fixArgsForFellowship(args, 2, false);
 			String playerName = args[1];
 			String fsName = args[2];
 			if (fsName == null) {
@@ -233,7 +233,7 @@ public class GOTCommandFellowship extends CommandBase {
 		if (!"option".equals(args[0])) {
 			throw new WrongUsageException(getCommandUsage(sender));
 		}
-		if ((args = GOTCommandFellowship.fixArgsForFellowship(args, 2, false)).length < 4) {
+		if ((args = fixArgsForFellowship(args, 2, false)).length < 4) {
 			throw new PlayerNotFoundException();
 		}
 		String ownerName = args[1];

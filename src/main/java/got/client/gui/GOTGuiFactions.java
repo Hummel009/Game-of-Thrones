@@ -100,7 +100,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button == buttonRegions) {
-				List<GOTDimension.DimensionRegion> regionList = GOTGuiFactions.currentDimension.dimensionRegions;
+				List<GOTDimension.DimensionRegion> regionList = currentDimension.dimensionRegions;
 				if (!regionList.isEmpty()) {
 					int i = regionList.indexOf(currentRegion);
 					++i;
@@ -231,7 +231,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		this.drawTexturedModalRect(guiLeft, guiTop + pageY, 0, 0, pageWidth, pageHeight);
-		if (currentRegion != null && GOTGuiFactions.currentDimension.dimensionRegions.size() > 1) {
+		if (currentRegion != null && currentDimension.dimensionRegions.size() > 1) {
 			buttonRegions.displayString = currentRegion.getRegionName();
 			buttonRegions.enabled = true;
 			buttonRegions.visible = true;
@@ -539,7 +539,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		prevDimension = currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		currentFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 		prevRegion = currentRegion = currentFaction.factionRegion;
-		currentFactionList = GOTGuiFactions.currentRegion.factionList;
+		currentFactionList = currentRegion.factionList;
 		prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(currentFaction);
 		setCurrentScrollFromFaction();
 		if (mc.currentScreen == this) {
@@ -684,12 +684,12 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		prevFactionIndex = currentFactionIndex;
 		currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		if (currentDimension != prevDimension) {
-			currentRegion = GOTGuiFactions.currentDimension.dimensionRegions.get(0);
+			currentRegion = currentDimension.dimensionRegions.get(0);
 		}
 		if (currentRegion != prevRegion) {
 			pd.setRegionLastViewedFaction(prevRegion, currentFaction);
 			lastViewedRegions.put(prevRegion, currentFaction);
-			currentFactionList = GOTGuiFactions.currentRegion.factionList;
+			currentFactionList = currentRegion.factionList;
 			currentFaction = pd.getRegionLastViewedFaction(currentRegion);
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(currentFaction);
 		}
@@ -727,11 +727,11 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 
 		public Page next() {
 			int i = ordinal();
-			if (i == Page.values().length - 1) {
+			if (i == values().length - 1) {
 				return null;
 			}
 			i++;
-			return Page.values()[i];
+			return values()[i];
 		}
 
 		public Page prev() {
@@ -740,7 +740,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				return null;
 			}
 			i--;
-			return Page.values()[i];
+			return values()[i];
 		}
 	}
 

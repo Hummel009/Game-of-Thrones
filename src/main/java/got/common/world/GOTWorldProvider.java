@@ -53,7 +53,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	public static boolean isLunarEclipse() {
 		int day = GOTDate.AegonCalendar.currentDay;
-		return GOTWorldProvider.getGOTMoonPhase() == 0 && IntMath.mod(day / MOON_PHASES, 4) == 3;
+		return getGOTMoonPhase() == 0 && IntMath.mod(day / MOON_PHASES, 4) == 3;
 	}
 
 	@Override
@@ -274,7 +274,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public int getMoonPhase(long time) {
-		return GOTWorldProvider.getGOTMoonPhase();
+		return getGOTMoonPhase();
 	}
 
 	@Override

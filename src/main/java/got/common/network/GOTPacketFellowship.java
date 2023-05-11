@@ -52,7 +52,7 @@ public class GOTPacketFellowship implements IMessage {
 		isAdminned = fs.isAdmin(thisPlayer);
 		List<UUID> playerIDs = fs.getAllPlayerUUIDs();
 		for (UUID player : playerIDs) {
-			GameProfile profile = GOTPacketFellowship.getPlayerProfileWithUsername(player);
+			GameProfile profile = getPlayerProfileWithUsername(player);
 			if (fs.isOwner(player)) {
 				owner = profile;
 			} else {
@@ -124,11 +124,11 @@ public class GOTPacketFellowship implements IMessage {
 		fellowshipIcon = ItemStack.loadItemStackFromNBT(iconData);
 		isOwned = data.readBoolean();
 		isAdminned = data.readBoolean();
-		owner = GOTPacketFellowship.readPlayerUuidAndUsername(data);
+		owner = readPlayerUuidAndUsername(data);
 		readTitleForPlayer(data, owner.getId());
 		int numMembers = data.readInt();
 		for (int i = 0; i < numMembers; ++i) {
-			GameProfile member = GOTPacketFellowship.readPlayerUuidAndUsername(data);
+			GameProfile member = readPlayerUuidAndUsername(data);
 			if (member == null) {
 				continue;
 			}
@@ -173,14 +173,14 @@ public class GOTPacketFellowship implements IMessage {
 		}
 		data.writeBoolean(isOwned);
 		data.writeBoolean(isAdminned);
-		GOTPacketFellowship.writePlayerUuidAndUsername(data, owner);
+		writePlayerUuidAndUsername(data, owner);
 		GOTTitle.PlayerTitle.writeNullableTitle(data, titleMap.get(owner.getId()));
 		data.writeInt(members.size());
 		for (GameProfile member : members) {
 			UUID memberUuid = member.getId();
 			GOTTitle.PlayerTitle title = titleMap.get(memberUuid);
 			boolean admin = adminUuids.contains(memberUuid);
-			GOTPacketFellowship.writePlayerUuidAndUsername(data, member);
+			writePlayerUuidAndUsername(data, member);
 			GOTTitle.PlayerTitle.writeNullableTitle(data, title);
 			data.writeBoolean(admin);
 		}

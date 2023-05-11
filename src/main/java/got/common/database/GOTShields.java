@@ -52,7 +52,7 @@ public enum GOTShields {
 	}
 
 	public static GOTShields shieldForName(String shieldName) {
-		for (GOTShields shield : GOTShields.values()) {
+		for (GOTShields shield : values()) {
 			if (!shield.name().equals(shieldName)) {
 				continue;
 			}

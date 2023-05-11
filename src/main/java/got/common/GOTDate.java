@@ -40,7 +40,7 @@ public class GOTDate {
 
 	public static void sendUpdatePacket(EntityPlayerMP entityplayer, boolean update) {
 		NBTTagCompound nbt = new NBTTagCompound();
-		GOTDate.saveDates(nbt);
+		saveDates(nbt);
 		GOTPacketDate packet = new GOTPacketDate(nbt, update);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
@@ -50,7 +50,7 @@ public class GOTDate {
 		GOTLevelData.markDirty();
 		FMLLog.info("Updating GOT day: " + AegonCalendar.getDate().getDateName(false));
 		for (EntityPlayerMP entityplayer : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
-			GOTDate.sendUpdatePacket(entityplayer, true);
+			sendUpdatePacket(entityplayer, true);
 		}
 	}
 
@@ -63,7 +63,7 @@ public class GOTDate {
 			prevWorldTime = worldTime;
 		}
 		if (worldTime / ticksInDay != prevWorldTime / ticksInDay) {
-			GOTDate.setDate(AegonCalendar.currentDay + 1);
+			setDate(AegonCalendar.currentDay + 1);
 		}
 		prevWorldTime = worldTime;
 	}
@@ -104,7 +104,7 @@ public class GOTDate {
 		public static Map<Integer, Date> cachedDates = new HashMap<>();
 
 		public static Date getDate() {
-			return AegonCalendar.getDate(currentDay);
+			return getDate(currentDay);
 		}
 
 		public static Date getDate(int day) {
@@ -126,7 +126,7 @@ public class GOTDate {
 		}
 
 		public static Season getSeason() {
-			return AegonCalendar.getDate().month.season;
+			return getDate().month.season;
 		}
 
 		public static boolean isLeapYear(int year) {
@@ -206,7 +206,7 @@ public class GOTDate {
 						--newYear;
 					}
 					newMonth = Month.values()[monthID];
-					if (newMonth.isLeapYear && !AegonCalendar.isLeapYear(newYear)) {
+					if (newMonth.isLeapYear && !isLeapYear(newYear)) {
 						--monthID;
 						newMonth = Month.values()[monthID];
 					}
@@ -278,7 +278,7 @@ public class GOTDate {
 						++newYear;
 					}
 					newMonth = Month.values()[monthID];
-					if (newMonth.isLeapYear && !AegonCalendar.isLeapYear(newYear)) {
+					if (newMonth.isLeapYear && !isLeapYear(newYear)) {
 						++monthID;
 						newMonth = Month.values()[monthID];
 					}

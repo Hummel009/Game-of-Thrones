@@ -85,26 +85,26 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 			passes = 1;
 		}
 
-		GOTRenderLingeringPotion.pushMatrix();
-		GOTRenderLingeringPotion.translate(x, y, z);
-		GOTRenderLingeringPotion.enableRescaleNormal();
-		GOTRenderLingeringPotion.scale(0.5F, 0.5F, 0.5F);
+		pushMatrix();
+		translate(x, y, z);
+		enableRescaleNormal();
+		scale(0.5F, 0.5F, 0.5F);
 		bindEntityTexture(entity);
 
 		for (int pass = 0; pass < passes; pass++) {
 			IIcon icon = stack.getItem().getIcon(stack, pass);
 
 			if (icon != null) {
-				GOTRenderLingeringPotion.pushMatrix();
-				GOTRenderLingeringPotion.colour(stack.getItem().getColorFromItemStack(stack, pass));
+				pushMatrix();
+				colour(stack.getItem().getColorFromItemStack(stack, pass));
 				renderIcon(icon);
-				GOTRenderLingeringPotion.popMatrix();
+				popMatrix();
 			}
 		}
 
-		GOTRenderLingeringPotion.colour(1, 1, 1);
-		GOTRenderLingeringPotion.disableRescaleNormal();
-		GOTRenderLingeringPotion.popMatrix();
+		colour(1, 1, 1);
+		disableRescaleNormal();
+		popMatrix();
 	}
 
 	public void renderIcon(IIcon icon) {
@@ -115,8 +115,8 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 		float minV = icon.getMinV();
 		float maxV = icon.getMaxV();
 
-		GOTRenderLingeringPotion.rotate(180.0F - renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
-		GOTRenderLingeringPotion.rotate(-renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
+		rotate(180.0F - renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
+		rotate(-renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, 1.0F, 0.0F);
 		tessellator.addVertexWithUV(-0.5F, -0.25F, 0.0D, minU, maxV);

@@ -50,7 +50,7 @@ public class GOTStructureSothoryosPyramidMapgen extends MapGenStructure {
 		if (cacheLocation != null) {
 			return cacheLocation.isPresent();
 		}
-		GOTStructureSothoryosPyramidMapgen.setupSpawnBiomes();
+		setupSpawnBiomes();
 		int i2 = MathHelper.floor_double((double) i / (double) separation);
 		int k2 = MathHelper.floor_double((double) k / (double) separation);
 		Random dRand = worldObj.setRandomSeed(i2, k2, 190169976);

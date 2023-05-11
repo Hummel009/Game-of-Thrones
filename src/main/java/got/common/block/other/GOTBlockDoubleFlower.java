@@ -45,7 +45,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 			return super.canBlockStay(world, i, j, k);
 		}
 		int l = world.getBlockMetadata(i, j, k);
-		return GOTBlockDoubleFlower.isTop(l) ? world.getBlock(i, j - 1, k) == this : world.getBlock(i, j + 1, k) == this && super.canBlockStay(world, i, j, k);
+		return isTop(l) ? world.getBlock(i, j - 1, k) == this : world.getBlock(i, j + 1, k) == this && super.canBlockStay(world, i, j, k);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	public void checkAndDropBlock(World world, int i, int j, int k) {
 		if (!canBlockStay(world, i, j, k)) {
 			int l = world.getBlockMetadata(i, j, k);
-			if (!GOTBlockDoubleFlower.isTop(l)) {
+			if (!isTop(l)) {
 				this.dropBlockAsItem(world, i, j, k, l, 0);
 				if (world.getBlock(i, j + 1, k) == this) {
 					world.setBlock(i, j + 1, k, Blocks.air, 0, 2);
@@ -75,7 +75,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 
 	@Override
 	public int damageDropped(int i) {
-		return GOTBlockDoubleFlower.isTop(i) ? 0 : i & 7;
+		return isTop(i) ? 0 : i & 7;
 	}
 
 	@Override
@@ -97,7 +97,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	@Override
 	public int func_149885_e(IBlockAccess world, int i, int j, int k) {
 		int l = world.getBlockMetadata(i, j, k);
-		return !GOTBlockDoubleFlower.isTop(l) ? l & 7 : world.getBlockMetadata(i, j - 1, k) & 7;
+		return !isTop(l) ? l & 7 : world.getBlockMetadata(i, j - 1, k) & 7;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -118,13 +118,13 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	@Override
 	public int getDamageValue(World world, int i, int j, int k) {
 		int l = world.getBlockMetadata(i, j, k);
-		return GOTBlockDoubleFlower.isTop(l) ? GOTBlockDoubleFlower.getFlowerMeta(world.getBlockMetadata(i, j - 1, k)) : GOTBlockDoubleFlower.getFlowerMeta(l);
+		return isTop(l) ? getFlowerMeta(world.getBlockMetadata(i, j - 1, k)) : getFlowerMeta(l);
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (GOTBlockDoubleFlower.isTop(j)) {
+		if (isTop(j)) {
 			return doublePlantBottomIcons[1];
 		}
 		int k = j & 7;
@@ -136,7 +136,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		if (GOTBlockDoubleFlower.isTop(i)) {
+		if (isTop(i)) {
 			return null;
 		}
 		return Item.getItemFromBlock(this);
@@ -157,7 +157,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 
 	@Override
 	public void onBlockHarvested(World world, int i, int j, int k, int meta, EntityPlayer entityplayer) {
-		if (GOTBlockDoubleFlower.isTop(meta)) {
+		if (isTop(meta)) {
 			if (world.getBlock(i, j - 1, k) == this) {
 				if (!entityplayer.capabilities.isCreativeMode) {
 					world.func_147480_a(i, j - 1, k, true);

@@ -285,15 +285,15 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		}
 
 		public static String[] bearTypeNames() {
-			String[] names = new String[BearType.values().length];
+			String[] names = new String[values().length];
 			for (int i = 0; i < names.length; ++i) {
-				names[i] = BearType.values()[i].textureName();
+				names[i] = values()[i].textureName();
 			}
 			return names;
 		}
 
 		public static BearType forID(int ID) {
-			for (BearType t : BearType.values()) {
+			for (BearType t : values()) {
 				if (t.bearID != ID) {
 					continue;
 				}

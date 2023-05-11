@@ -44,7 +44,7 @@ public class GOTFactionRelations {
 		if (overrideMap.containsKey(key)) {
 			return overrideMap.get(key);
 		}
-		return GOTFactionRelations.getFromDefaultMap(key);
+		return getFromDefaultMap(key);
 	}
 
 	public static File getRelationsFile() {
@@ -53,7 +53,7 @@ public class GOTFactionRelations {
 
 	public static void load() {
 		try {
-			NBTTagCompound facData = GOTLevelData.loadNBTFromFile(GOTFactionRelations.getRelationsFile());
+			NBTTagCompound facData = GOTLevelData.loadNBTFromFile(getRelationsFile());
 			overrideMap.clear();
 			NBTTagList relationTags = facData.getTagList("Overrides", 10);
 			for (int i = 0; i < relationTags.tagCount(); ++i) {
@@ -66,7 +66,7 @@ public class GOTFactionRelations {
 				overrideMap.put(pair, rel);
 			}
 			needsLoad = false;
-			GOTFactionRelations.save();
+			save();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT faction relations");
 			e.printStackTrace();
@@ -82,22 +82,22 @@ public class GOTFactionRelations {
 	}
 
 	public static void overrideRelations(GOTFaction f1, GOTFaction f2, Relation relation) {
-		GOTFactionRelations.setRelations(f1, f2, relation, false);
+		setRelations(f1, f2, relation, false);
 	}
 
 	public static void resetAllRelations() {
 		boolean wasEmpty = overrideMap.isEmpty();
 		overrideMap.clear();
 		if (!wasEmpty) {
-			GOTFactionRelations.markDirty();
+			markDirty();
 			GOTPacketFactionRelations pkt = GOTPacketFactionRelations.reset();
-			GOTFactionRelations.sendPacketToAll(pkt);
+			sendPacketToAll(pkt);
 		}
 	}
 
 	public static void save() {
 		try {
-			File datFile = GOTFactionRelations.getRelationsFile();
+			File datFile = getRelationsFile();
 			if (!datFile.exists()) {
 				GOTLevelData.saveNBTToFile(datFile, new NBTTagCompound());
 			}
@@ -135,7 +135,7 @@ public class GOTFactionRelations {
 	}
 
 	public static void setRelations(GOTFaction f1, GOTFaction f2, Relation relation) {
-		GOTFactionRelations.setRelations(f1, f2, relation, true);
+		setRelations(f1, f2, relation, true);
 	}
 
 	public static void setRelations(GOTFaction f1, GOTFaction f2, Relation relation, boolean isDefault) {
@@ -156,15 +156,15 @@ public class GOTFactionRelations {
 				defaultMap.put(key, relation);
 			}
 		} else {
-			Relation defaultRelation = GOTFactionRelations.getFromDefaultMap(key);
+			Relation defaultRelation = getFromDefaultMap(key);
 			if (relation == defaultRelation) {
 				overrideMap.remove(key);
 			} else {
 				overrideMap.put(key, relation);
 			}
-			GOTFactionRelations.markDirty();
+			markDirty();
 			GOTPacketFactionRelations pkt = GOTPacketFactionRelations.oneEntry(key, relation);
-			GOTFactionRelations.sendPacketToAll(pkt);
+			sendPacketToAll(pkt);
 		}
 	}
 
@@ -172,7 +172,7 @@ public class GOTFactionRelations {
 		ALLY, FRIEND, NEUTRAL, ENEMY, MORTAL_ENEMY;
 
 		public static Relation forID(int id) {
-			for (Relation rel : Relation.values()) {
+			for (Relation rel : values()) {
 				if (rel.ordinal() != id) {
 					continue;
 				}
@@ -182,7 +182,7 @@ public class GOTFactionRelations {
 		}
 
 		public static Relation forName(String name) {
-			for (Relation rel : Relation.values()) {
+			for (Relation rel : values()) {
 				if (!rel.codeName().equals(name)) {
 					continue;
 				}
@@ -193,7 +193,7 @@ public class GOTFactionRelations {
 
 		public static List<String> listRelationNames() {
 			ArrayList<String> names = new ArrayList<>();
-			for (Relation rel : Relation.values()) {
+			for (Relation rel : values()) {
 				names.add(rel.codeName());
 			}
 			return names;

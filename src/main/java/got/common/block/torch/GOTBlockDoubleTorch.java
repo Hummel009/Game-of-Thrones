@@ -37,7 +37,7 @@ public class GOTBlockDoubleTorch extends Block {
 			return super.canBlockStay(world, i, j, k);
 		}
 		int l = world.getBlockMetadata(i, j, k);
-		return l == 1 ? world.getBlock(i, j - 1, k) == this : world.getBlock(i, j + 1, k) == this && GOTBlockDoubleTorch.canPlaceTorchOn(world, i, j - 1, k);
+		return l == 1 ? world.getBlock(i, j - 1, k) == this : world.getBlock(i, j + 1, k) == this && canPlaceTorchOn(world, i, j - 1, k);
 	}
 
 	@Override

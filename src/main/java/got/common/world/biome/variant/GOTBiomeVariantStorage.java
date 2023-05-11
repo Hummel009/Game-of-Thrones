@@ -21,24 +21,24 @@ public class GOTBiomeVariantStorage {
 	public static Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> chunkVariantMapClient = new HashMap<>();
 
 	public static void clearAllVariants(World world) {
-		GOTBiomeVariantStorage.getDimensionChunkMap(world).clear();
+		getDimensionChunkMap(world).clear();
 		FMLLog.info("Unloading GOT biome variants in %s", GOTDimension.getCurrentDimension(world).dimensionName);
 	}
 
 	public static void clearChunkBiomeVariants(World world, Chunk chunk) {
-		GOTBiomeVariantStorage.clearChunkBiomeVariants(world, GOTBiomeVariantStorage.getChunkKey(chunk));
+		clearChunkBiomeVariants(world, getChunkKey(chunk));
 	}
 
 	public static void clearChunkBiomeVariants(World world, ChunkCoordIntPair chunk) {
-		GOTBiomeVariantStorage.getDimensionChunkMap(world).remove(chunk);
+		getDimensionChunkMap(world).remove(chunk);
 	}
 
 	public static byte[] getChunkBiomeVariants(World world, Chunk chunk) {
-		return GOTBiomeVariantStorage.getChunkBiomeVariants(world, GOTBiomeVariantStorage.getChunkKey(chunk));
+		return getChunkBiomeVariants(world, getChunkKey(chunk));
 	}
 
 	public static byte[] getChunkBiomeVariants(World world, ChunkCoordIntPair chunk) {
-		return GOTBiomeVariantStorage.getDimensionChunkMap(world).get(chunk);
+		return getDimensionChunkMap(world).get(chunk);
 	}
 
 	public static ChunkCoordIntPair getChunkKey(Chunk chunk) {
@@ -57,19 +57,19 @@ public class GOTBiomeVariantStorage {
 	}
 
 	public static int getSize(World world) {
-		Map<ChunkCoordIntPair, byte[]> map = GOTBiomeVariantStorage.getDimensionChunkMap(world);
+		Map<ChunkCoordIntPair, byte[]> map = getDimensionChunkMap(world);
 		return map.size();
 	}
 
 	public static void loadChunkVariants(World world, Chunk chunk, NBTTagCompound data) {
-		if (GOTBiomeVariantStorage.getChunkBiomeVariants(world, chunk) == null) {
+		if (getChunkBiomeVariants(world, chunk) == null) {
 			byte[] variants = data.hasKey("GOTBiomeVariants") ? data.getByteArray("GOTBiomeVariants") : new byte[256];
-			GOTBiomeVariantStorage.setChunkBiomeVariants(world, chunk, variants);
+			setChunkBiomeVariants(world, chunk, variants);
 		}
 	}
 
 	public static void performCleanup(WorldServer world) {
-		Map<ChunkCoordIntPair, byte[]> dimensionMap = GOTBiomeVariantStorage.getDimensionChunkMap(world);
+		Map<ChunkCoordIntPair, byte[]> dimensionMap = getDimensionChunkMap(world);
 		dimensionMap.size();
 		System.nanoTime();
 		ArrayList<ChunkCoordIntPair> removalChunks = new ArrayList<>();
@@ -85,14 +85,14 @@ public class GOTBiomeVariantStorage {
 	}
 
 	public static void saveChunkVariants(World world, Chunk chunk, NBTTagCompound data) {
-		byte[] variants = GOTBiomeVariantStorage.getChunkBiomeVariants(world, chunk);
+		byte[] variants = getChunkBiomeVariants(world, chunk);
 		if (variants != null) {
 			data.setByteArray("GOTBiomeVariants", variants);
 		}
 	}
 
 	public static void sendChunkVariantsToPlayer(World world, Chunk chunk, EntityPlayerMP entityplayer) {
-		byte[] variants = GOTBiomeVariantStorage.getChunkBiomeVariants(world, chunk);
+		byte[] variants = getChunkBiomeVariants(world, chunk);
 		if (variants != null) {
 			GOTPacketBiomeVariantsWatch packet = new GOTPacketBiomeVariantsWatch(chunk.xPosition, chunk.zPosition, variants);
 			GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
@@ -111,10 +111,10 @@ public class GOTBiomeVariantStorage {
 	}
 
 	public static void setChunkBiomeVariants(World world, Chunk chunk, byte[] variants) {
-		GOTBiomeVariantStorage.setChunkBiomeVariants(world, GOTBiomeVariantStorage.getChunkKey(chunk), variants);
+		setChunkBiomeVariants(world, getChunkKey(chunk), variants);
 	}
 
 	public static void setChunkBiomeVariants(World world, ChunkCoordIntPair chunk, byte[] variants) {
-		GOTBiomeVariantStorage.getDimensionChunkMap(world).put(chunk, variants);
+		getDimensionChunkMap(world).put(chunk, variants);
 	}
 }

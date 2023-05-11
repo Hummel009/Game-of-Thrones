@@ -61,7 +61,7 @@ public class GOTItemBrandingIron extends Item {
 	}
 
 	public static boolean hasBrandName(ItemStack itemstack) {
-		return GOTItemBrandingIron.getBrandName(itemstack) != null;
+		return getBrandName(itemstack) != null;
 	}
 
 	public static boolean isHeated(ItemStack itemstack) {
@@ -101,7 +101,7 @@ public class GOTItemBrandingIron extends Item {
 
 	@Override
 	public IIcon getIcon(ItemStack itemstack, int pass) {
-		if (GOTItemBrandingIron.isHeated(itemstack)) {
+		if (isHeated(itemstack)) {
 			return iconHot;
 		}
 		return iconCool;
@@ -121,8 +121,8 @@ public class GOTItemBrandingIron extends Item {
 	@Override
 	public String getItemStackDisplayName(ItemStack itemstack) {
 		String name = super.getItemStackDisplayName(itemstack);
-		if (GOTItemBrandingIron.hasBrandName(itemstack)) {
-			String brandName = GOTItemBrandingIron.getBrandName(itemstack);
+		if (hasBrandName(itemstack)) {
+			String brandName = getBrandName(itemstack);
 			name = StatCollector.translateToLocalFormatted("item.got.brandingIron.named", name, brandName);
 		} else {
 			name = StatCollector.translateToLocalFormatted("item.got.brandingIron.unnamed", name);
@@ -132,8 +132,8 @@ public class GOTItemBrandingIron extends Item {
 
 	@Override
 	public boolean itemInteractionForEntity(ItemStack itemstack, EntityPlayer entityplayer, EntityLivingBase entity) {
-		if (GOTItemBrandingIron.isHeated(itemstack) && GOTItemBrandingIron.hasBrandName(itemstack)) {
-			String brandName = GOTItemBrandingIron.getBrandName(itemstack);
+		if (isHeated(itemstack) && hasBrandName(itemstack)) {
+			String brandName = getBrandName(itemstack);
 			if (entity instanceof EntityLiving) {
 				EntityLiving entityliving = (EntityLiving) entity;
 				boolean acceptableEntity = false;
@@ -152,10 +152,10 @@ public class GOTItemBrandingIron extends Item {
 					itemstack.damageItem(1, entityplayer);
 					int newDamage = itemstack.getItemDamage();
 					if (preDamage / 5 != newDamage / 5) {
-						GOTItemBrandingIron.setHeated(itemstack, false);
+						setHeated(itemstack, false);
 					}
 					if (!world.isRemote) {
-						GOTItemBrandingIron.setBrandingPlayer(entityliving, entityplayer.getUniqueID());
+						setBrandingPlayer(entityliving, entityplayer.getUniqueID());
 					}
 					return true;
 				}
@@ -166,7 +166,7 @@ public class GOTItemBrandingIron extends Item {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (!GOTItemBrandingIron.hasBrandName(itemstack)) {
+		if (!hasBrandName(itemstack)) {
 			entityplayer.openGui(GOT.instance, 61, world, 0, 0, 0);
 		}
 		return itemstack;
@@ -174,7 +174,7 @@ public class GOTItemBrandingIron extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
-		if (GOTItemBrandingIron.hasBrandName(itemstack) && !GOTItemBrandingIron.isHeated(itemstack)) {
+		if (hasBrandName(itemstack) && !isHeated(itemstack)) {
 			boolean isHotBlock = false;
 			TileEntity te = world.getTileEntity(i, j, k);
 			if (te instanceof TileEntityFurnace && ((TileEntityFurnace) te).isBurning() || te instanceof GOTTileEntityAlloyForge && ((GOTTileEntityAlloyForge) te).isSmelting()) {
@@ -190,7 +190,7 @@ public class GOTItemBrandingIron extends Item {
 				}
 			}
 			if (isHotBlock) {
-				GOTItemBrandingIron.setHeated(itemstack, true);
+				setHeated(itemstack, true);
 				return true;
 			}
 		}

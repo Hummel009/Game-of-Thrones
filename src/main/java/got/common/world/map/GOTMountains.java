@@ -22,7 +22,7 @@ public enum GOTMountains {
 	}
 
 	public static int getLavaHeight(int x, int z) {
-		for (GOTMountains m : GOTMountains.values()) {
+		for (GOTMountains m : values()) {
 			double dx;
 			double dz;
 			if (m.lavaRange <= 0 || (dx = x - m.xCoord) * dx + (dz = z - m.zCoord) * dz >= (m.lavaRange + 6) * (m.lavaRange + 6)) {
@@ -35,18 +35,18 @@ public enum GOTMountains {
 
 	public static float getTotalHeightBoost(int x, int z) {
 		float f = 0.0f;
-		for (GOTMountains m : GOTMountains.values()) {
+		for (GOTMountains m : values()) {
 			f += m.getHeightBoost(x, z);
 		}
 		return f;
 	}
 
 	public static boolean mountainAt(int x, int z) {
-		return GOTMountains.getTotalHeightBoost(x, z) > 0.005f;
+		return getTotalHeightBoost(x, z) > 0.005f;
 	}
 
 	public static boolean mountainNear(int x, int z, int range) {
-		for (GOTMountains m : GOTMountains.values()) {
+		for (GOTMountains m : values()) {
 			double dx = x - m.xCoord;
 			double dz = z - m.zCoord;
 			double distSq = dx * dx + dz * dz;

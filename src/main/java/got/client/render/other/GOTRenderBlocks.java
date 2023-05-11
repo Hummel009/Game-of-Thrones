@@ -100,8 +100,8 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 
 	public static void renderEntityPlate(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.0625, 0.8125);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, 0.0625, 0.125, 0.875, 0.125, 0.875);
+		renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.0625, 0.8125);
+		renderStandardInvBlock(renderblocks, block, 0.125, 0.0625, 0.125, 0.875, 0.125, 0.875);
 		renderblocks.renderAllFaces = false;
 	}
 
@@ -309,7 +309,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, double d, double d1, double d2, double d3, double d4, double d5) {
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, d, d1, d2, d3, d4, d5, 0);
+		renderStandardInvBlock(renderblocks, block, d, d1, d2, d3, d4, d5, 0);
 	}
 
 	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, double d, double d1, double d2, double d3, double d4, double d5, int metadata) {
@@ -352,7 +352,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		double d3 = renderblocks.renderMaxX;
 		double d4 = renderblocks.renderMaxY;
 		double d5 = renderblocks.renderMaxZ;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, d, d1, d2, d3, d4, d5, meta);
+		renderStandardInvBlock(renderblocks, block, d, d1, d2, d3, d4, d5, meta);
 	}
 
 	@Override
@@ -361,8 +361,8 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public void renderBarrel(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		int ao = GOTRenderBlocks.getAO();
-		GOTRenderBlocks.setAO(0);
+		int ao = getAO();
+		setAO(0);
 		renderblocks.renderAllFaces = true;
 		renderblocks.setRenderBounds(0.15625, 0.0625, 0.15625, 0.84375, 0.75, 0.84375);
 		renderblocks.renderStandardBlock(block, i, j, k);
@@ -412,7 +412,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
-		GOTRenderBlocks.setAO(ao);
+		setAO(ao);
 	}
 
 	public void renderBeacon(IBlockAccess world, int i, int j, int k, RenderBlocks renderblocks) {
@@ -452,8 +452,8 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public void renderBirdCage(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		int ao = GOTRenderBlocks.getAO();
-		GOTRenderBlocks.setAO(0);
+		int ao = getAO();
+		setAO(0);
 		renderblocks.renderAllFaces = true;
 		int meta = world.getBlockMetadata(i, j, k);
 		float d = 0.001f;
@@ -488,7 +488,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
-		GOTRenderBlocks.setAO(ao);
+		setAO(ao);
 	}
 
 	public void renderBlockRandomRotated(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, boolean rotateSides) {
@@ -519,8 +519,8 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public void renderBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		int ao = GOTRenderBlocks.getAO();
-		GOTRenderBlocks.setAO(0);
+		int ao = getAO();
+		setAO(0);
 		renderblocks.renderAllFaces = true;
 		renderblocks.setRenderBounds(0.125, 0.1875, 0.125, 0.875, 0.9375, 0.875);
 		renderblocks.renderStandardBlock(block, i, j, k);
@@ -577,12 +577,12 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderStandardBlock(block, i, j, k);
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
-		GOTRenderBlocks.setAO(ao);
+		setAO(ao);
 	}
 
 	public void renderButterflyJar(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		int ao = GOTRenderBlocks.getAO();
-		GOTRenderBlocks.setAO(0);
+		int ao = getAO();
+		setAO(0);
 		renderblocks.renderAllFaces = true;
 		renderblocks.setRenderBounds(0.1875, 0.0, 0.1875, 0.8125, 0.5625, 0.8125);
 		renderblocks.renderStandardBlock(block, i, j, k);
@@ -595,12 +595,12 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderStandardBlock(block, i, j, k);
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
-		GOTRenderBlocks.setAO(ao);
+		setAO(ao);
 	}
 
 	public void renderCommandTable(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		int ao = GOTRenderBlocks.getAO();
-		GOTRenderBlocks.setAO(0);
+		int ao = getAO();
+		setAO(0);
 		renderblocks.renderAllFaces = true;
 		renderblocks.setRenderBoundsFromBlock(block);
 		renderblocks.renderStandardBlock(block, i, j, k);
@@ -615,7 +615,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderStandardBlock(block, i, j, k);
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
-		GOTRenderBlocks.setAO(ao);
+		setAO(ao);
 	}
 
 	public void renderCoral(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
@@ -842,11 +842,11 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			}
 			tessellator.addTranslation(0.0f, 0.25f, 0.0f);
 			if (plantBlock == GOTRegistry.clover) {
-				GOTRenderBlocks.renderClover(world, i, j, k, plantBlock, renderblocks, plantMeta == 1 ? 4 : 3, false);
+				renderClover(world, i, j, k, plantBlock, renderblocks, plantMeta == 1 ? 4 : 3, false);
 			} else if (plantBlock == GOTRegistry.plantain) {
-				GOTRenderBlocks.renderPlantain(world, i, j, k, plantBlock, renderblocks, plantMeta == 1 ? 4 : 3, false);
+				renderPlantain(world, i, j, k, plantBlock, renderblocks, plantMeta == 1 ? 4 : 3, false);
 			} else if (plantBlock instanceof GOTBlockGrass) {
-				GOTRenderBlocks.renderGrass(world, i, j, k, plantBlock, renderblocks, false);
+				renderGrass(world, i, j, k, plantBlock, renderblocks, false);
 			} else if (plantBlock instanceof GOTBlockFlower || plantBlock.getRenderType() == 1) {
 				renderblocks.drawCrossedSquares(plantBlock.getIcon(2, plantMeta), i, j, k, 0.75f);
 			} else {
@@ -873,19 +873,19 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 
 	public void renderInvBarrel(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.15625, 0.0625, 0.15625, 0.84375, 0.75, 0.84375);
+		renderStandardInvBlock(renderblocks, block, 0.15625, 0.0625, 0.15625, 0.84375, 0.75, 0.84375);
 		for (float f : new float[]{0.25f, 0.5f}) {
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, f, 0.125, 0.875, f + 0.0625f, 0.875);
+			renderStandardInvBlock(renderblocks, block, 0.125, f, 0.125, 0.875, f + 0.0625f, 0.875);
 		}
 		for (float f : new float[]{0.0f, 0.6875f}) {
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, f, 0.125, 0.25, f + 0.125f, 0.875);
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.75, f, 0.125, 0.875, f + 0.125f, 0.875);
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25, f, 0.125, 0.75, f + 0.125f, 0.25);
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25, f, 0.75, 0.75, f + 0.125f, 0.875);
+			renderStandardInvBlock(renderblocks, block, 0.125, f, 0.125, 0.25, f + 0.125f, 0.875);
+			renderStandardInvBlock(renderblocks, block, 0.75, f, 0.125, 0.875, f + 0.125f, 0.875);
+			renderStandardInvBlock(renderblocks, block, 0.25, f, 0.125, 0.75, f + 0.125f, 0.25);
+			renderStandardInvBlock(renderblocks, block, 0.25, f, 0.75, 0.75, f + 0.125f, 0.875);
 		}
 		renderblocks.setOverrideBlockTexture(block.getBlockTextureFromSide(-1));
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.875, 0.25, 0.4375, 1.0, 0.375, 0.5625);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.9375, 0.125, 0.46875, 1.0, 0.25, 0.53125);
+		renderStandardInvBlock(renderblocks, block, 0.875, 0.25, 0.4375, 1.0, 0.375, 0.5625);
+		renderStandardInvBlock(renderblocks, block, 0.9375, 0.125, 0.46875, 1.0, 0.25, 0.53125);
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
 	}
@@ -893,68 +893,68 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	public void renderInvBirdCage(Block block, RenderBlocks renderblocks, int meta) {
 		renderblocks.renderAllFaces = true;
 		float d = 0.001f;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0, 0.0625, 0.0, 0.0f + d, 1.0, 1.0, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 1.0f - d, 0.0625, 0.0, 1.0, 1.0, 1.0, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0, 0.0625, 0.0, 1.0, 1.0, 0.0f + d, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0, 0.0625, 1.0f - d, 1.0, 1.0, 1.0, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0, 1.0f - d, 0.0, 1.0, 1.0, 1.0, meta);
+		renderStandardInvBlock(renderblocks, block, 0.0, 0.0625, 0.0, 0.0f + d, 1.0, 1.0, meta);
+		renderStandardInvBlock(renderblocks, block, 1.0f - d, 0.0625, 0.0, 1.0, 1.0, 1.0, meta);
+		renderStandardInvBlock(renderblocks, block, 0.0, 0.0625, 0.0, 1.0, 1.0, 0.0f + d, meta);
+		renderStandardInvBlock(renderblocks, block, 0.0, 0.0625, 1.0f - d, 1.0, 1.0, 1.0, meta);
+		renderStandardInvBlock(renderblocks, block, 0.0, 1.0f - d, 0.0, 1.0, 1.0, 1.0, meta);
 		renderblocks.setOverrideBlockTexture(block.getIcon(-1, meta));
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0, 0.0, 0.0, 1.0, 0.0625, 1.0, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.375, 1.0, 0.375, 0.625, 1.0625, 0.625, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.46875, 1.0625, 0.46875, 0.53125, 1.1875, 0.53125, meta);
+		renderStandardInvBlock(renderblocks, block, 0.0, 0.0, 0.0, 1.0, 0.0625, 1.0, meta);
+		renderStandardInvBlock(renderblocks, block, 0.375, 1.0, 0.375, 0.625, 1.0625, 0.625, meta);
+		renderStandardInvBlock(renderblocks, block, 0.46875, 1.0625, 0.46875, 0.53125, 1.1875, 0.53125, meta);
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
 	}
 
 	public void renderInvBomb(Block block, int meta, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, 0.1875, 0.125, 0.875, 0.9375, 0.875, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.375, 0.9375, 0.375, 0.625, 1.0, 0.625, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25, 0.9375, 0.375, 0.3125, 1.0, 0.4375, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25, 0.9375, 0.5625, 0.3125, 1.0, 0.625, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.6875, 0.9375, 0.375, 0.75, 1.0, 0.4375, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.6875, 0.9375, 0.5625, 0.75, 1.0, 0.625, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.375, 0.9375, 0.25, 0.4375, 1.0, 0.3125, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.5625, 0.9375, 0.25, 0.625, 1.0, 0.3125, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.375, 0.9375, 0.6875, 0.4375, 1.0, 0.75, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.5625, 0.9375, 0.6875, 0.625, 1.0, 0.75, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, 0.0, 0.25, 0.1875, 0.1875, 0.75, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.8125, 0.0, 0.25, 0.875, 0.1875, 0.75, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25, 0.0, 0.125, 0.75, 0.1875, 0.1875, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25, 0.0, 0.8125, 0.75, 0.1875, 0.875, meta);
+		renderStandardInvBlock(renderblocks, block, 0.125, 0.1875, 0.125, 0.875, 0.9375, 0.875, meta);
+		renderStandardInvBlock(renderblocks, block, 0.375, 0.9375, 0.375, 0.625, 1.0, 0.625, meta);
+		renderStandardInvBlock(renderblocks, block, 0.25, 0.9375, 0.375, 0.3125, 1.0, 0.4375, meta);
+		renderStandardInvBlock(renderblocks, block, 0.25, 0.9375, 0.5625, 0.3125, 1.0, 0.625, meta);
+		renderStandardInvBlock(renderblocks, block, 0.6875, 0.9375, 0.375, 0.75, 1.0, 0.4375, meta);
+		renderStandardInvBlock(renderblocks, block, 0.6875, 0.9375, 0.5625, 0.75, 1.0, 0.625, meta);
+		renderStandardInvBlock(renderblocks, block, 0.375, 0.9375, 0.25, 0.4375, 1.0, 0.3125, meta);
+		renderStandardInvBlock(renderblocks, block, 0.5625, 0.9375, 0.25, 0.625, 1.0, 0.3125, meta);
+		renderStandardInvBlock(renderblocks, block, 0.375, 0.9375, 0.6875, 0.4375, 1.0, 0.75, meta);
+		renderStandardInvBlock(renderblocks, block, 0.5625, 0.9375, 0.6875, 0.625, 1.0, 0.75, meta);
+		renderStandardInvBlock(renderblocks, block, 0.125, 0.0, 0.25, 0.1875, 0.1875, 0.75, meta);
+		renderStandardInvBlock(renderblocks, block, 0.8125, 0.0, 0.25, 0.875, 0.1875, 0.75, meta);
+		renderStandardInvBlock(renderblocks, block, 0.25, 0.0, 0.125, 0.75, 0.1875, 0.1875, meta);
+		renderStandardInvBlock(renderblocks, block, 0.25, 0.0, 0.8125, 0.75, 0.1875, 0.875, meta);
 		renderblocks.setOverrideBlockTexture(block.getIcon(-1, meta));
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0, 0.625, 0.3125, 0.0625, 0.6875, 0.6875, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0625, 0.625, 0.3125, 0.125, 0.6875, 0.375, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0625, 0.625, 0.625, 0.125, 0.6875, 0.6875, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.9375, 0.625, 0.3125, 1.0, 0.6875, 0.6875, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.875, 0.625, 0.3125, 0.9375, 0.6875, 0.375, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.875, 0.625, 0.625, 0.9375, 0.6875, 0.6875, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.3125, 0.625, 0.0, 0.6875, 0.6875, 0.0625, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.3125, 0.625, 0.0625, 0.375, 0.6875, 0.125, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.625, 0.625, 0.0625, 0.6875, 0.6875, 0.125, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.3125, 0.625, 0.9375, 0.6875, 0.6875, 1.0, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.3125, 0.625, 0.875, 0.375, 0.6875, 0.9375, meta);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.625, 0.625, 0.875, 0.6875, 0.6875, 0.9375, meta);
+		renderStandardInvBlock(renderblocks, block, 0.0, 0.625, 0.3125, 0.0625, 0.6875, 0.6875, meta);
+		renderStandardInvBlock(renderblocks, block, 0.0625, 0.625, 0.3125, 0.125, 0.6875, 0.375, meta);
+		renderStandardInvBlock(renderblocks, block, 0.0625, 0.625, 0.625, 0.125, 0.6875, 0.6875, meta);
+		renderStandardInvBlock(renderblocks, block, 0.9375, 0.625, 0.3125, 1.0, 0.6875, 0.6875, meta);
+		renderStandardInvBlock(renderblocks, block, 0.875, 0.625, 0.3125, 0.9375, 0.6875, 0.375, meta);
+		renderStandardInvBlock(renderblocks, block, 0.875, 0.625, 0.625, 0.9375, 0.6875, 0.6875, meta);
+		renderStandardInvBlock(renderblocks, block, 0.3125, 0.625, 0.0, 0.6875, 0.6875, 0.0625, meta);
+		renderStandardInvBlock(renderblocks, block, 0.3125, 0.625, 0.0625, 0.375, 0.6875, 0.125, meta);
+		renderStandardInvBlock(renderblocks, block, 0.625, 0.625, 0.0625, 0.6875, 0.6875, 0.125, meta);
+		renderStandardInvBlock(renderblocks, block, 0.3125, 0.625, 0.9375, 0.6875, 0.6875, 1.0, meta);
+		renderStandardInvBlock(renderblocks, block, 0.3125, 0.625, 0.875, 0.375, 0.6875, 0.9375, meta);
+		renderStandardInvBlock(renderblocks, block, 0.625, 0.625, 0.875, 0.6875, 0.6875, 0.9375, meta);
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
 	}
 
 	public void renderInvButterflyJar(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.5625, 0.8125);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.0625, 0.8125);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25, 0.5625, 0.25, 0.75, 0.6875, 0.75);
+		renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.5625, 0.8125);
+		renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.0625, 0.8125);
+		renderStandardInvBlock(renderblocks, block, 0.25, 0.5625, 0.25, 0.75, 0.6875, 0.75);
 		renderblocks.setOverrideBlockTexture(block.getIcon(-1, 0));
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.1875, 0.6875, 0.1875, 0.8125, 0.75, 0.8125);
+		renderStandardInvBlock(renderblocks, block, 0.1875, 0.6875, 0.1875, 0.8125, 0.75, 0.8125);
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
 	}
 
 	public void renderInvCommandTable(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
+		renderStandardInvBlock(renderblocks, block, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
 		renderblocks.setOverrideBlockTexture(Blocks.planks.getIcon(0, 0));
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, -0.5, 1.0, -0.5, 1.5, 1.0625, 1.5);
+		renderStandardInvBlock(renderblocks, block, -0.5, 1.0, -0.5, 1.5, 1.0625, 1.5);
 		renderblocks.clearOverrideBlockTexture();
 		renderblocks.renderAllFaces = false;
 	}
@@ -974,16 +974,16 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			renderInvStalactite(block, meta, renderblocks);
 		}
 		if (id == GOT.proxy.getPlantainRenderID()) {
-			GOTRenderBlocks.renderInvPlantain(block, renderblocks, meta == 1 ? 4 : 3);
+			renderInvPlantain(block, renderblocks, meta == 1 ? 4 : 3);
 		}
 		if (id == GOT.proxy.getCloverRenderID()) {
-			GOTRenderBlocks.renderInvClover(block, renderblocks, meta == 1 ? 4 : 3);
+			renderInvClover(block, renderblocks, meta == 1 ? 4 : 3);
 		}
 		if (id == GOT.proxy.getFenceRenderID()) {
 			renderInvFence(block, meta, renderblocks);
 		}
 		if (id == GOT.proxy.getLeavesRenderID()) {
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
+			renderStandardInvBlock(renderblocks, block, meta);
 		}
 		if (id == GOT.proxy.getCommandTableRenderID()) {
 			renderInvCommandTable(block, renderblocks);
@@ -999,16 +999,16 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			((GOTRenderChest) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityChest.class)).renderInvChest(block, meta);
 		}
 		if (id == GOT.proxy.getWasteRenderID()) {
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
+			renderStandardInvBlock(renderblocks, block, meta);
 		}
 		if (id == GOT.proxy.getBeamRenderID()) {
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
+			renderStandardInvBlock(renderblocks, block, meta);
 		}
 		if (id == GOT.proxy.getTreasureRenderID()) {
 			GOTBlockTreasurePile.setTreasureBlockBounds(block, meta);
 			renderblocks.setRenderBoundsFromBlock(block);
 			renderblocks.lockBlockBounds = true;
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
+			renderStandardInvBlock(renderblocks, block, meta);
 			renderblocks.unlockBlockBounds();
 		}
 		if (id == GOT.proxy.getBirdCageRenderID()) {
@@ -1018,10 +1018,10 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			renderInvWildFireJar(block, renderblocks, meta);
 		}
 		if (id == GOT.proxy.getCoralRenderID()) {
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
+			renderStandardInvBlock(renderblocks, block, meta);
 		}
 		if (id == GOT.proxy.getTrapdoorRenderID()) {
-			GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, meta);
+			renderStandardInvBlock(renderblocks, block, meta);
 		}
 	}
 
@@ -1076,9 +1076,9 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = true;
 		for (int l = 0; l < 16; ++l) {
 			if (metadata == 0) {
-				GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.5f - l / 16.0f * 0.25f, l / 16.0f, 0.5f - l / 16.0f * 0.25f, 0.5f + l / 16.0f * 0.25f, (l + 1) / 16.0f, 0.5f + l / 16.0f * 0.25f);
+				renderStandardInvBlock(renderblocks, block, 0.5f - l / 16.0f * 0.25f, l / 16.0f, 0.5f - l / 16.0f * 0.25f, 0.5f + l / 16.0f * 0.25f, (l + 1) / 16.0f, 0.5f + l / 16.0f * 0.25f);
 			} else if (metadata == 1) {
-				GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25f + l / 16.0f * 0.25f, l / 16.0f, 0.25f + l / 16.0f * 0.25f, 0.75f - l / 16.0f * 0.25f, (l + 1) / 16.0f, 0.75f - l / 16.0f * 0.25f);
+				renderStandardInvBlock(renderblocks, block, 0.25f + l / 16.0f * 0.25f, l / 16.0f, 0.25f + l / 16.0f * 0.25f, 0.75f - l / 16.0f * 0.25f, (l + 1) / 16.0f, 0.75f - l / 16.0f * 0.25f);
 			}
 		}
 		renderblocks.renderAllFaces = false;
@@ -1087,33 +1087,33 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	public void renderInvWildFireJar(Block block, RenderBlocks renderblocks, int meta) {
 		renderblocks.renderAllFaces = true;
 		GOTBlockWildFireJar.renderingStage = 1;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, 0.0, 0.125, 0.875, 0.5, 0.875);
+		renderStandardInvBlock(renderblocks, block, 0.125, 0.0, 0.125, 0.875, 0.5, 0.875);
 		GOTBlockWildFireJar.renderingStage = 2;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.3125, 0.5, 0.3125, 0.6875, 0.6875, 0.6875);
+		renderStandardInvBlock(renderblocks, block, 0.3125, 0.5, 0.3125, 0.6875, 0.6875, 0.6875);
 		GOTBlockWildFireJar.renderingStage = 3;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.25, 0.6875, 0.25, 0.75, 0.8125, 0.75);
+		renderStandardInvBlock(renderblocks, block, 0.25, 0.6875, 0.25, 0.75, 0.8125, 0.75);
 		GOTBlockWildFireJar.renderingStage = 4;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.3125, 0.8125, 0.3125, 0.6875, 0.875, 0.6875);
+		renderStandardInvBlock(renderblocks, block, 0.3125, 0.8125, 0.3125, 0.6875, 0.875, 0.6875);
 		GOTBlockWildFireJar.renderingStage = 5;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.375, 0.875, 0.5, 0.625, 1.0, 0.5);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.5, 0.875, 0.375, 0.5, 1.0, 0.625);
+		renderStandardInvBlock(renderblocks, block, 0.375, 0.875, 0.5, 0.625, 1.0, 0.5);
+		renderStandardInvBlock(renderblocks, block, 0.5, 0.875, 0.375, 0.5, 1.0, 0.625);
 		GOTBlockWildFireJar.renderingStage = 6;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.0, 0.0, 0.5, 1.0, 1.0, 0.5);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.5, 0.0, 0.0, 0.5, 1.0, 1.0);
+		renderStandardInvBlock(renderblocks, block, 0.0, 0.0, 0.5, 1.0, 1.0, 0.5);
+		renderStandardInvBlock(renderblocks, block, 0.5, 0.0, 0.0, 0.5, 1.0, 1.0);
 		GOTBlockWildFireJar.renderingStage = 0;
 		renderblocks.renderAllFaces = false;
 	}
 
 	public void renderPlate(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		int ao = GOTRenderBlocks.getAO();
-		GOTRenderBlocks.setAO(0);
+		int ao = getAO();
+		setAO(0);
 		renderblocks.renderAllFaces = true;
 		renderblocks.setRenderBounds(0.1875, 0.0, 0.1875, 0.8125, 0.0625, 0.8125);
 		renderblocks.renderStandardBlock(block, i, j, k);
 		renderblocks.setRenderBounds(0.125, 0.0625, 0.125, 0.875, 0.125, 0.875);
 		renderblocks.renderStandardBlock(block, i, j, k);
 		renderblocks.renderAllFaces = false;
-		GOTRenderBlocks.setAO(ao);
+		setAO(ao);
 	}
 
 	public void renderReeds(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
@@ -1216,8 +1216,8 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public void renderStalactite(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		int ao = GOTRenderBlocks.getAO();
-		GOTRenderBlocks.setAO(0);
+		int ao = getAO();
+		setAO(0);
 		renderblocks.renderAllFaces = true;
 		int metadata = world.getBlockMetadata(i, j, k);
 		for (int l = 0; l < 16; ++l) {
@@ -1230,7 +1230,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			}
 		}
 		renderblocks.renderAllFaces = false;
-		GOTRenderBlocks.setAO(ao);
+		setAO(ao);
 	}
 
 	public void renderTrapdoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
@@ -1302,8 +1302,8 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public void renderWildFireJar(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		int ao = GOTRenderBlocks.getAO();
-		GOTRenderBlocks.setAO(0);
+		int ao = getAO();
+		setAO(0);
 		renderblocks.renderAllFaces = true;
 		GOTBlockWildFireJar.renderingStage = 1;
 		renderblocks.setRenderBounds(0.125, 0.0, 0.125, 0.875, 0.5, 0.875);
@@ -1329,7 +1329,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderStandardBlock(block, i, j, k);
 		GOTBlockWildFireJar.renderingStage = 0;
 		renderblocks.renderAllFaces = false;
-		GOTRenderBlocks.setAO(ao);
+		setAO(ao);
 	}
 
 	@Override
@@ -1365,18 +1365,18 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			return true;
 		}
 		if (id == GOT.proxy.getPlantainRenderID()) {
-			GOTRenderBlocks.renderPlantain(world, i, j, k, block, renderblocks, world.getBlockMetadata(i, j, k) == 1 ? 4 : 3, true);
+			renderPlantain(world, i, j, k, block, renderblocks, world.getBlockMetadata(i, j, k) == 1 ? 4 : 3, true);
 			return true;
 		}
 		if (id == GOT.proxy.getCloverRenderID()) {
-			GOTRenderBlocks.renderClover(world, i, j, k, block, renderblocks, world.getBlockMetadata(i, j, k) == 1 ? 4 : 3, true);
+			renderClover(world, i, j, k, block, renderblocks, world.getBlockMetadata(i, j, k) == 1 ? 4 : 3, true);
 			return true;
 		}
 		if (id == GOT.proxy.getFenceRenderID()) {
 			return renderblocks.renderBlockFence((BlockFence) block, i, j, k);
 		}
 		if (id == GOT.proxy.getGrassRenderID()) {
-			GOTRenderBlocks.renderGrass(world, i, j, k, block, renderblocks, true);
+			renderGrass(world, i, j, k, block, renderblocks, true);
 			return true;
 		}
 		if (id == GOT.proxy.getLeavesRenderID()) {

@@ -204,11 +204,11 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 	}
 
 	public GOTAchievement.Category getCategoryAtRelativeIndex(int i) {
-		List<GOTAchievement.Category> categories = GOTGuiAchievements.currentDimension.achievementCategories;
+		List<GOTAchievement.Category> categories = currentDimension.achievementCategories;
 		int index = categories.indexOf(currentCategory);
 		index += i;
-		index = IntMath.mod(index, GOTGuiAchievements.currentDimension.achievementCategories.size());
-		return GOTGuiAchievements.currentDimension.achievementCategories.get(index);
+		index = IntMath.mod(index, currentDimension.achievementCategories.size());
+		return currentDimension.achievementCategories.get(index);
 	}
 
 	@Override
@@ -265,12 +265,12 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 	public void updateAchievementLists() {
 		currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		if (currentDimension != prevDimension) {
-			currentCategory = GOTGuiAchievements.currentDimension.achievementCategories.get(0);
+			currentCategory = currentDimension.achievementCategories.get(0);
 		}
 		prevDimension = currentDimension;
 		currentCategoryTakenAchievements.clear();
 		currentCategoryUntakenAchievements.clear();
-		for (GOTAchievement achievement : GOTGuiAchievements.currentCategory.list) {
+		for (GOTAchievement achievement : currentCategory.list) {
 			if (achievement.canPlayerEarn(mc.thePlayer)) {
 				if (GOTLevelData.getData(mc.thePlayer).hasAchievement(achievement)) {
 					currentCategoryTakenAchievements.add(achievement);
@@ -283,7 +283,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		currentCategoryUntakenCount = currentCategoryUntakenAchievements.size();
 		totalTakenCount = GOTLevelData.getData(mc.thePlayer).getEarnedAchievements(currentDimension).size();
 		totalAvailableCount = 0;
-		for (GOTAchievement achievement : GOTGuiAchievements.currentDimension.allAchievements) {
+		for (GOTAchievement achievement : currentDimension.allAchievements) {
 			if (achievement.canPlayerEarn(mc.thePlayer)) {
 				++totalAvailableCount;
 			}

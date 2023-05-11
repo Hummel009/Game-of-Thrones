@@ -90,7 +90,7 @@ public class GOTEntityAIRangedAttack extends EntityAIBase {
 		}
 		if (distanceSq <= attackRangeSq) {
 			if (theOwner.getDistanceSqToEntity(attackTarget) < 25.0) {
-				Vec3 vec = GOTEntityAIRangedAttack.findPositionAwayFrom(theOwner, attackTarget, 8, 16);
+				Vec3 vec = findPositionAwayFrom(theOwner, attackTarget, 8, 16);
 				if (vec != null) {
 					theOwner.getNavigator().tryMoveToXYZ(vec.xCoord, vec.yCoord, vec.zCoord, moveSpeedFlee);
 				}

@@ -368,7 +368,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 						setBlockAndMetadata(world, i1, 2, k12, fenceBlock, fenceMeta);
 					}
 					if (i2 == 3) {
-						EntityAnimal animal = GOTStructureIbbenBarn.getRandomAnimal(world, random);
+						EntityAnimal animal = getRandomAnimal(world, random);
 						spawnNPCAndSetHome(animal, world, i1, 1, k12, 0);
 						animal.detachHome();
 					}

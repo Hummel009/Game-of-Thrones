@@ -21,7 +21,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 	public static int currentCapeID;
 
 	static {
-		GOTGuiCapes.playerModel.isChild = false;
+		playerModel.isChild = false;
 	}
 
 	public int modelX;

@@ -413,7 +413,7 @@ public class GOTReplacedMethods {
 					if (world.blockExists(i += random.nextInt(3) - 1, ++j, k += random.nextInt(3) - 1)) {
 						Block block = world.getBlock(i, j, k);
 						if (block.getMaterial() == Material.air) {
-							if (!StaticLiquid.isFlammable(world, i - 1, j, k) && !StaticLiquid.isFlammable(world, i + 1, j, k) && !StaticLiquid.isFlammable(world, i, j, k - 1) && !StaticLiquid.isFlammable(world, i, j, k + 1) && !StaticLiquid.isFlammable(world, i, j - 1, k) && !StaticLiquid.isFlammable(world, i, j + 1, k)) {
+							if (!isFlammable(world, i - 1, j, k) && !isFlammable(world, i + 1, j, k) && !isFlammable(world, i, j, k - 1) && !isFlammable(world, i, j, k + 1) && !isFlammable(world, i, j - 1, k) && !isFlammable(world, i, j + 1, k)) {
 								continue;
 							}
 							world.setBlock(i, j, k, Blocks.fire);
@@ -430,7 +430,7 @@ public class GOTReplacedMethods {
 					int k1 = k;
 					for (int l = 0; l < 3; ++l) {
 						i = i1 + random.nextInt(3) - 1;
-						if (world.blockExists(i, j, k = k1 + random.nextInt(3) - 1) && world.isAirBlock(i, j + 1, k) && StaticLiquid.isFlammable(world, i, j, k)) {
+						if (world.blockExists(i, j, k = k1 + random.nextInt(3) - 1) && world.isAirBlock(i, j + 1, k) && isFlammable(world, i, j, k)) {
 							world.setBlock(i, j + 1, k, Blocks.fire);
 						}
 					}

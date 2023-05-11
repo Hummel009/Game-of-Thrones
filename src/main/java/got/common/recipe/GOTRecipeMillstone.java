@@ -15,28 +15,28 @@ public class GOTRecipeMillstone {
 	public static Map<ItemStack, MillstoneResult> recipeList = new HashMap<>();
 
 	public static void addCrackedBricks(ItemStack itemstack, ItemStack result) {
-		GOTRecipeMillstone.addRecipe(itemstack, result, 1.0f);
+		addRecipe(itemstack, result, 1.0f);
 		GameRegistry.addSmelting(itemstack, result, 0.1f);
 	}
 
 	public static void addRecipe(Block block, ItemStack result) {
-		GOTRecipeMillstone.addRecipe(block, result, 1.0f);
+		addRecipe(block, result, 1.0f);
 	}
 
 	public static void addRecipe(Block block, ItemStack result, float chance) {
-		GOTRecipeMillstone.addRecipe(Item.getItemFromBlock(block), result, chance);
+		addRecipe(Item.getItemFromBlock(block), result, chance);
 	}
 
 	public static void addRecipe(Item item, ItemStack result) {
-		GOTRecipeMillstone.addRecipe(new ItemStack(item, 1, 32767), result, 1.0f);
+		addRecipe(new ItemStack(item, 1, 32767), result, 1.0f);
 	}
 
 	public static void addRecipe(Item item, ItemStack result, float chance) {
-		GOTRecipeMillstone.addRecipe(new ItemStack(item, 1, 32767), result, chance);
+		addRecipe(new ItemStack(item, 1, 32767), result, chance);
 	}
 
 	public static void addRecipe(ItemStack itemstack, ItemStack result) {
-		GOTRecipeMillstone.addRecipe(itemstack, result, 1.0f);
+		addRecipe(itemstack, result, 1.0f);
 	}
 
 	public static void addRecipe(ItemStack itemstack, ItemStack result, float chance) {
@@ -47,7 +47,7 @@ public class GOTRecipeMillstone {
 		for (Map.Entry<ItemStack, MillstoneResult> e : recipeList.entrySet()) {
 			ItemStack target = e.getKey();
 			MillstoneResult result = e.getValue();
-			if (!GOTRecipeMillstone.matches(itemstack, target)) {
+			if (!matches(itemstack, target)) {
 				continue;
 			}
 			return result;
@@ -60,26 +60,26 @@ public class GOTRecipeMillstone {
 	}
 
 	public static void onInit() {
-		GOTRecipeMillstone.addRecipe(Blocks.stone, new ItemStack(Blocks.cobblestone));
-		GOTRecipeMillstone.addRecipe(Blocks.cobblestone, new ItemStack(Blocks.gravel), 0.75f);
-		GOTRecipeMillstone.addRecipe(new ItemStack(GOTRegistry.rock, 1, 0), new ItemStack(GOTRegistry.basaltGravel), 0.75f);
-		GOTRecipeMillstone.addRecipe(Blocks.gravel, new ItemStack(Items.flint), 0.25f);
-		GOTRecipeMillstone.addRecipe(GOTRegistry.basaltGravel, new ItemStack(Items.flint), 0.25f);
-		GOTRecipeMillstone.addRecipe(GOTRegistry.obsidianGravel, new ItemStack(GOTRegistry.obsidianShard), 1.0f);
-		GOTRecipeMillstone.addRecipe(GOTRegistry.oreSalt, new ItemStack(GOTRegistry.salt));
-		GOTRecipeMillstone.addRecipe(new ItemStack(Blocks.sandstone, 1, 0), new ItemStack(Blocks.sand, 2, 0));
-		GOTRecipeMillstone.addRecipe(new ItemStack(GOTRegistry.redSandstone, 1, 0), new ItemStack(Blocks.sand, 2, 1));
-		GOTRecipeMillstone.addRecipe(new ItemStack(GOTRegistry.whiteSandstone, 1, 0), new ItemStack(GOTRegistry.whiteSand, 2, 0));
-		GOTRecipeMillstone.addCrackedBricks(new ItemStack(Blocks.brick_block, 1, 0), new ItemStack(GOTRegistry.redBrick, 1, 1));
-		GOTRecipeMillstone.addCrackedBricks(new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 2));
-		GOTRecipeMillstone.addCrackedBricks(new ItemStack(GOTRegistry.brick1, 1, 0), new ItemStack(GOTRegistry.brick1, 1, 7));
-		GOTRecipeMillstone.addCrackedBricks(new ItemStack(GOTRegistry.brick1, 1, 1), new ItemStack(GOTRegistry.brick1, 1, 3));
-		GOTRecipeMillstone.addCrackedBricks(new ItemStack(GOTRegistry.brick1, 1, 15), new ItemStack(GOTRegistry.brick3, 1, 11));
-		GOTRecipeMillstone.addCrackedBricks(new ItemStack(GOTRegistry.brick3, 1, 13), new ItemStack(GOTRegistry.brick3, 1, 14));
-		GOTRecipeMillstone.addCrackedBricks(new ItemStack(GOTRegistry.brick4, 1, 0), new ItemStack(GOTRegistry.brick4, 1, 2));
-		GOTRecipeMillstone.addCrackedBricks(new ItemStack(GOTRegistry.brick5, 1, 8), new ItemStack(GOTRegistry.brick5, 1, 10));
-		GOTRecipeMillstone.addCrackedBricks(new ItemStack(GOTRegistry.brick5, 1, 11), new ItemStack(GOTRegistry.brick5, 1, 14));
-		GOTRecipeMillstone.addCrackedBricks(new ItemStack(GOTRegistry.brick6, 1, 6), new ItemStack(GOTRegistry.brick6, 1, 4));
+		addRecipe(Blocks.stone, new ItemStack(Blocks.cobblestone));
+		addRecipe(Blocks.cobblestone, new ItemStack(Blocks.gravel), 0.75f);
+		addRecipe(new ItemStack(GOTRegistry.rock, 1, 0), new ItemStack(GOTRegistry.basaltGravel), 0.75f);
+		addRecipe(Blocks.gravel, new ItemStack(Items.flint), 0.25f);
+		addRecipe(GOTRegistry.basaltGravel, new ItemStack(Items.flint), 0.25f);
+		addRecipe(GOTRegistry.obsidianGravel, new ItemStack(GOTRegistry.obsidianShard), 1.0f);
+		addRecipe(GOTRegistry.oreSalt, new ItemStack(GOTRegistry.salt));
+		addRecipe(new ItemStack(Blocks.sandstone, 1, 0), new ItemStack(Blocks.sand, 2, 0));
+		addRecipe(new ItemStack(GOTRegistry.redSandstone, 1, 0), new ItemStack(Blocks.sand, 2, 1));
+		addRecipe(new ItemStack(GOTRegistry.whiteSandstone, 1, 0), new ItemStack(GOTRegistry.whiteSand, 2, 0));
+		addCrackedBricks(new ItemStack(Blocks.brick_block, 1, 0), new ItemStack(GOTRegistry.redBrick, 1, 1));
+		addCrackedBricks(new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 2));
+		addCrackedBricks(new ItemStack(GOTRegistry.brick1, 1, 0), new ItemStack(GOTRegistry.brick1, 1, 7));
+		addCrackedBricks(new ItemStack(GOTRegistry.brick1, 1, 1), new ItemStack(GOTRegistry.brick1, 1, 3));
+		addCrackedBricks(new ItemStack(GOTRegistry.brick1, 1, 15), new ItemStack(GOTRegistry.brick3, 1, 11));
+		addCrackedBricks(new ItemStack(GOTRegistry.brick3, 1, 13), new ItemStack(GOTRegistry.brick3, 1, 14));
+		addCrackedBricks(new ItemStack(GOTRegistry.brick4, 1, 0), new ItemStack(GOTRegistry.brick4, 1, 2));
+		addCrackedBricks(new ItemStack(GOTRegistry.brick5, 1, 8), new ItemStack(GOTRegistry.brick5, 1, 10));
+		addCrackedBricks(new ItemStack(GOTRegistry.brick5, 1, 11), new ItemStack(GOTRegistry.brick5, 1, 14));
+		addCrackedBricks(new ItemStack(GOTRegistry.brick6, 1, 6), new ItemStack(GOTRegistry.brick6, 1, 4));
 	}
 
 	public static class MillstoneResult {

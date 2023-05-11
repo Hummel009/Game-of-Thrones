@@ -43,6 +43,6 @@ public class GOTFellowshipProfile extends GameProfile {
 
 	@Override
 	public String getName() {
-		return GOTFellowshipProfile.addFellowshipCode(super.getName());
+		return addFellowshipCode(super.getName());
 	}
 }

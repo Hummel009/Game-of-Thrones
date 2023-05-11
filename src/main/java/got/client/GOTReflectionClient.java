@@ -50,7 +50,7 @@ public class GOTReflectionClient {
 	public static int getFormattingColor(EnumChatFormatting ecf) {
 		FontRenderer fr = Minecraft.getMinecraft().fontRenderer;
 		int colorIndex = ecf.ordinal();
-		int[] arr = GOTReflectionClient.getColorCodes(fr);
+		int[] arr = getColorCodes(fr);
 		if (arr != null) {
 			return arr[colorIndex];
 		}
@@ -155,10 +155,10 @@ public class GOTReflectionClient {
 	}
 
 	public static void testAll(World world, Minecraft mc) {
-		GOTReflectionClient.setCameraRoll(mc.entityRenderer, GOTReflectionClient.getCameraRoll(mc.entityRenderer));
-		GOTReflectionClient.setHandFOV(mc.entityRenderer, GOTReflectionClient.getHandFOV(mc.entityRenderer));
-		GOTReflectionClient.getColorCodes(mc.fontRenderer);
-		GOTReflectionClient.setHighlightedItemTicks(mc.ingameGUI, GOTReflectionClient.getHighlightedItemTicks(mc.ingameGUI));
-		GOTReflectionClient.getHighlightedItemStack(mc.ingameGUI);
+		setCameraRoll(mc.entityRenderer, getCameraRoll(mc.entityRenderer));
+		setHandFOV(mc.entityRenderer, getHandFOV(mc.entityRenderer));
+		getColorCodes(mc.fontRenderer);
+		setHighlightedItemTicks(mc.ingameGUI, getHighlightedItemTicks(mc.ingameGUI));
+		getHighlightedItemStack(mc.ingameGUI);
 	}
 }

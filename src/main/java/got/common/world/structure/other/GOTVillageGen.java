@@ -58,7 +58,7 @@ public abstract class GOTVillageGen {
 	}
 
 	public boolean anyFixedVillagesAt(World world, int i, int k) {
-		if (!GOTVillageGen.hasFixedSettlements(world)) {
+		if (!hasFixedSettlements(world)) {
 			return false;
 		}
 		int checkRange = fixedVillageChunkRadius + 1;
@@ -204,7 +204,7 @@ public abstract class GOTVillageGen {
 					centreX = (i << 4) + 8;
 					centreZ = (k << 4) + 8;
 				}
-				GOTVillageGen.seedVillageRand(world, centreX, centreZ);
+				seedVillageRand(world, centreX, centreZ);
 				AbstractInstance<?> instance = createAndSetupVillageInstance(world, centreX, centreZ, villageRand, loc);
 				villages.add(instance);
 			}
@@ -242,7 +242,7 @@ public abstract class GOTVillageGen {
 		if (cacheLocation != null) {
 			return cacheLocation;
 		}
-		if (GOTVillageGen.hasFixedSettlements(world)) {
+		if (hasFixedSettlements(world)) {
 			for (LocationInfo loc : fixedLocations) {
 				int locChunkX = loc.posX >> 4;
 				int locChunkZ = loc.posZ >> 4;
@@ -258,7 +258,7 @@ public abstract class GOTVillageGen {
 		}
 		int i2 = MathHelper.floor_double((double) chunkX / (double) gridScale);
 		int k2 = MathHelper.floor_double((double) chunkZ / (double) gridScale);
-		GOTVillageGen.seedVillageRand(world, i2, k2);
+		seedVillageRand(world, i2, k2);
 		i2 *= gridScale;
 		k2 *= gridScale;
 		i2 += MathHelper.getRandomIntegerInRange(villageRand, -gridRandomDisplace, gridRandomDisplace);
@@ -277,7 +277,7 @@ public abstract class GOTVillageGen {
 					anythingNear = GOTFixedStructures.structureNear(world, i1, k1, diagRange);
 				}
 				if (!anythingNear) {
-					GOTVillageGen.seedVillageRand(world, i1, k1);
+					seedVillageRand(world, i1, k1);
 					LocationInfo loc = LocationInfo.RANDOM_GEN_HERE;
 					createAndSetupVillageInstance(world, i1, k1, villageRand, loc);
 					if (worldChunkMgr.areBiomesViable(i1, k1, villageRange, spawnBiomes) && worldChunkMgr.areVariantsSuitableVillage(i1, k1, villageRange)) {

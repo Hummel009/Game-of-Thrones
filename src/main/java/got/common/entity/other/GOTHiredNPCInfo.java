@@ -634,7 +634,7 @@ public class GOTHiredNPCInfo {
 		}
 
 		public static Task forID(int id) {
-			for (Task task : Task.values()) {
+			for (Task task : values()) {
 				if (task.ordinal() != id) {
 					continue;
 				}

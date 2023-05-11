@@ -69,7 +69,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		Block block = world.getBlock(i, j, k);
 		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
 		if (block instanceof BlockSlab && !block.isOpaqueCube()) {
-			return GOTStructureBase.isSurfaceStatic(world, i, j - 1, k);
+			return isSurfaceStatic(world, i, j - 1, k);
 		}
 		Block above = world.getBlock(i, j + 1, k);
 		if (above.getMaterial().isLiquid()) {
@@ -385,7 +385,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		i = getX(i1, k1);
 		k = getZ(i1, k1);
 		j = getY(j);
-		if (GOTStructureBase.isSurfaceStatic(world, i, j, k)) {
+		if (isSurfaceStatic(world, i, j, k)) {
 			return true;
 		}
 		return villageInstance != null && villageInstance.isVillageSpecificSurface(world, i, j, k);

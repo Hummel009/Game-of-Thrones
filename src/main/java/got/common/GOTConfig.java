@@ -15,11 +15,11 @@ import java.util.List;
 public class GOTConfig {
 	public static Configuration config;
 	public static List<String> allCategories = new ArrayList<>();
-	public static String CATEGORY_LANGUAGE = GOTConfig.getCategory("1_language");
-	public static String CATEGORY_GAMEPLAY = GOTConfig.getCategory("2_gameplay");
-	public static String CATEGORY_GUI = GOTConfig.getCategory("3_gui");
-	public static String CATEGORY_ENVIRONMENT = GOTConfig.getCategory("4_environment");
-	public static String CATEGORY_MISC = GOTConfig.getCategory("5_misc");
+	public static String CATEGORY_LANGUAGE = getCategory("1_language");
+	public static String CATEGORY_GAMEPLAY = getCategory("2_gameplay");
+	public static String CATEGORY_GUI = getCategory("3_gui");
+	public static String CATEGORY_ENVIRONMENT = getCategory("4_environment");
+	public static String CATEGORY_MISC = getCategory("5_misc");
 	public static boolean lgbt;
 	public static boolean strictFactionTitleRequirements;
 	public static int customWaypointMinY;
@@ -251,7 +251,7 @@ public class GOTConfig {
 
 	public static void setupAndLoad() {
 		config = new Configuration(new File("config", "GOT.cfg"));
-		GOTConfig.load();
+		load();
 	}
 
 	public static void toggleMapLabels() {

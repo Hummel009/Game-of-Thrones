@@ -412,15 +412,15 @@ public class GOTCommonProxy implements IGuiHandler {
 			default:
 				break;
 		}
-		if (GOTCommonProxy.testForSlotPackedGuiID(ID, 63)) {
-			int slot = GOTCommonProxy.unpackSlot(ID);
+		if (testForSlotPackedGuiID(ID, 63)) {
+			int slot = unpackSlot(ID);
 			IInventory chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k);
 			if (chest2 != null) {
 				return new GOTGuiChestWithPouch(entityplayer, slot, chest2);
 			}
 		}
-		if (GOTCommonProxy.testForSlotPackedGuiID(ID, 64)) {
-			int slot = GOTCommonProxy.unpackSlot(ID);
+		if (testForSlotPackedGuiID(ID, 64)) {
+			int slot = unpackSlot(ID);
 			Entity minecart = world.getEntityByID(i);
 			if (minecart instanceof EntityMinecartContainer) {
 				return new GOTGuiChestWithPouch(entityplayer, slot, (EntityMinecartContainer) minecart);
@@ -716,12 +716,12 @@ public class GOTCommonProxy implements IGuiHandler {
 				break;
 		}
 		IInventory chest2;
-		int slot = GOTCommonProxy.unpackSlot(ID);
-		if (GOTCommonProxy.testForSlotPackedGuiID(ID, 63) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && (chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k)) != null) {
+		int slot = unpackSlot(ID);
+		if (testForSlotPackedGuiID(ID, 63) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && (chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k)) != null) {
 			return new GOTContainerChestWithPouch(entityplayer, slot, chest2);
 		}
 		Entity minecart = world.getEntityByID(i);
-		if (GOTCommonProxy.testForSlotPackedGuiID(ID, 64) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && minecart instanceof EntityMinecartContainer) {
+		if (testForSlotPackedGuiID(ID, 64) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && minecart instanceof EntityMinecartContainer) {
 			return new GOTContainerChestWithPouch(entityplayer, slot, (EntityMinecartContainer) minecart);
 		}
 		return null;

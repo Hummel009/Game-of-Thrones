@@ -13,7 +13,7 @@ public class GOTMusicTrack extends PositionedSound {
 	public List<String> authors = new ArrayList<>();
 
 	public GOTMusicTrack(String s) {
-		super(GOTMusicTrack.getMusicResource(s));
+		super(getMusicResource(s));
 		volume = 1.0f;
 		field_147663_c = 1.0f;
 		xPosF = 0.0f;

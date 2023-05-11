@@ -56,7 +56,7 @@ public class GOTNPCRendering {
 						double d3 = npc.lastTickPosX + (npc.posX - npc.lastTickPosX) * f;
 						double d4 = npc.lastTickPosY + (npc.posY - npc.lastTickPosY) * f;
 						double d5 = npc.lastTickPosZ + (npc.posZ - npc.lastTickPosZ) * f;
-						GOTNPCRendering.renderSpeech(npc, timedSpeech.getSpeech(), timedSpeech.getAge(), d3 - d0, d4 - d1, d5 - d2);
+						renderSpeech(npc, timedSpeech.getSpeech(), timedSpeech.getAge(), d3 - d0, d4 - d1, d5 - d2);
 					}
 				}
 			}
@@ -239,7 +239,7 @@ public class GOTNPCRendering {
 		if (!GOTConfig.hiredUnitHealthBars || entity.riddenByEntity instanceof GOTEntityNPC || entity instanceof GOTEntityNPC && GOTSpeechClient.hasSpeech((GOTEntityNPC) entity)) {
 			return;
 		}
-		GOTNPCRendering.renderHealthBar(entity, d, d1, d2, new int[]{5888860, 12006707}, new int[]{6079225, 12006707});
+		renderHealthBar(entity, d, d1, d2, new int[]{5888860, 12006707}, new int[]{6079225, 12006707});
 	}
 
 	public static void renderQuestBook(GOTEntityNPC npc, double d, double d1, double d2) {

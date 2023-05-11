@@ -1723,7 +1723,7 @@ public class DatabaseGenerator {
 		}
 
 		public static Database forName(String name) {
-			for (Database db : Database.values()) {
+			for (Database db : values()) {
 				if (db.codeName.equals(name)) {
 					return db;
 				}
@@ -1733,7 +1733,7 @@ public class DatabaseGenerator {
 
 		public static List<String> getNames() {
 			ArrayList<String> names = new ArrayList<>();
-			for (Database db : Database.values()) {
+			for (Database db : values()) {
 				names.add(db.codeName);
 			}
 			return names;

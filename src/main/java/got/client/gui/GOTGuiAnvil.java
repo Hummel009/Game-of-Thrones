@@ -36,7 +36,7 @@ public class GOTGuiAnvil extends GuiContainer {
 			if (i == 6) {
 				r += 85;
 			}
-			GOTGuiAnvil.colorCodes[i] = (r & 0xFF) << 16 | (g & 0xFF) << 8 | b & 0xFF;
+			colorCodes[i] = (r & 0xFF) << 16 | (g & 0xFF) << 8 | b & 0xFF;
 		}
 	}
 

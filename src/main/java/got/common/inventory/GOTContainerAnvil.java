@@ -204,10 +204,10 @@ public class GOTContainerAnvil extends Container {
 		ItemStack inputItem = invInput.getStackInSlot(0);
 		ItemStack resultItem = invOutput.getStackInSlot(0);
 		if (resultItem != null) {
-			return GOTContainerAnvil.getAppliedFormattingCodes(resultItem.getDisplayName());
+			return getAppliedFormattingCodes(resultItem.getDisplayName());
 		}
 		if (inputItem != null) {
-			return GOTContainerAnvil.getAppliedFormattingCodes(inputItem.getDisplayName());
+			return getAppliedFormattingCodes(inputItem.getDisplayName());
 		}
 		return new ArrayList<>();
 	}
@@ -419,8 +419,8 @@ public class GOTContainerAnvil extends Container {
 	}
 
 	public void updateItemName(String name) {
-		List<EnumChatFormatting> colors = GOTContainerAnvil.getAppliedFormattingCodes(name);
-		name = GOTContainerAnvil.stripFormattingCodes(name);
+		List<EnumChatFormatting> colors = getAppliedFormattingCodes(name);
+		name = stripFormattingCodes(name);
 		repairedItemName = name = ChatAllowedCharacters.filerAllowedCharacters(name);
 		ItemStack itemstack = invOutput.getStackInSlot(0);
 		if (itemstack != null) {
@@ -430,7 +430,7 @@ public class GOTContainerAnvil extends Container {
 				itemstack.setStackDisplayName(repairedItemName);
 			}
 			if (!colors.isEmpty()) {
-				itemstack.setStackDisplayName(GOTContainerAnvil.applyFormattingCodes(itemstack.getDisplayName(), colors));
+				itemstack.setStackDisplayName(applyFormattingCodes(itemstack.getDisplayName(), colors));
 			}
 		}
 		updateRepairOutput();
@@ -481,9 +481,9 @@ public class GOTContainerAnvil extends Container {
 			String previousDisplayName = inputCopy.getDisplayName();
 			String defaultItemName = inputCopy.getItem().getItemStackDisplayName(inputCopy);
 			String formattedNameToApply = repairedItemName;
-			ArrayList<EnumChatFormatting> colorsToApply = new ArrayList<>(GOTContainerAnvil.getAppliedFormattingCodes(inputCopy.getDisplayName()));
+			ArrayList<EnumChatFormatting> colorsToApply = new ArrayList<>(getAppliedFormattingCodes(inputCopy.getDisplayName()));
 			boolean alteringNameColor = false;
-			if (GOTContainerAnvil.costsToRename(inputItem) && combinerItem != null) {
+			if (costsToRename(inputItem) && combinerItem != null) {
 				if (combinerItem.getItem() instanceof AnvilNameColorProvider) {
 					boolean isDifferentColor;
 					AnvilNameColorProvider nameColorProvider = (AnvilNameColorProvider) combinerItem.getItem();
@@ -513,25 +513,25 @@ public class GOTContainerAnvil extends Container {
 				if (StringUtils.isBlank(formattedNameToApply)) {
 					formattedNameToApply = defaultItemName;
 				}
-				formattedNameToApply = GOTContainerAnvil.applyFormattingCodes(formattedNameToApply, colorsToApply);
+				formattedNameToApply = applyFormattingCodes(formattedNameToApply, colorsToApply);
 			}
 			boolean nameChange = false;
 			if (formattedNameToApply != null && !formattedNameToApply.equals(previousDisplayName)) {
 				if (StringUtils.isBlank(formattedNameToApply) || formattedNameToApply.equals(defaultItemName)) {
 					if (inputCopy.hasDisplayName()) {
 						inputCopy.func_135074_t();
-						if (!GOTContainerAnvil.stripFormattingCodes(previousDisplayName).equals(GOTContainerAnvil.stripFormattingCodes(formattedNameToApply))) {
+						if (!stripFormattingCodes(previousDisplayName).equals(stripFormattingCodes(formattedNameToApply))) {
 							nameChange = true;
 						}
 					}
 				} else {
 					inputCopy.setStackDisplayName(formattedNameToApply);
-					if (!GOTContainerAnvil.stripFormattingCodes(previousDisplayName).equals(GOTContainerAnvil.stripFormattingCodes(formattedNameToApply))) {
+					if (!stripFormattingCodes(previousDisplayName).equals(stripFormattingCodes(formattedNameToApply))) {
 						nameChange = true;
 					}
 				}
 			}
-			if (nameChange && GOTContainerAnvil.costsToRename(inputItem)) {
+			if (nameChange && costsToRename(inputItem)) {
 				++renameCost;
 			}
 			if (isTrader && (scrollCombine = GOTEnchantmentCombining.getCombinationResult(inputItem, combinerItem)) != null) {

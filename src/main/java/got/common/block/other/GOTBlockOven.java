@@ -72,7 +72,7 @@ public class GOTBlockOven extends BlockContainer {
 			return ovenIcons[1];
 		}
 		int meta = world.getBlockMetadata(i, j, k) & 7;
-		return side != meta ? ovenIcons[0] : GOTBlockOven.isOvenActive(world, i, j, k) ? ovenIcons[3] : ovenIcons[2];
+		return side != meta ? ovenIcons[0] : isOvenActive(world, i, j, k) ? ovenIcons[3] : ovenIcons[2];
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -83,7 +83,7 @@ public class GOTBlockOven extends BlockContainer {
 
 	@Override
 	public int getLightValue(IBlockAccess world, int i, int j, int k) {
-		return GOTBlockOven.isOvenActive(world, i, j, k) ? 13 : 0;
+		return isOvenActive(world, i, j, k) ? 13 : 0;
 	}
 
 	@Override
@@ -128,7 +128,7 @@ public class GOTBlockOven extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
-		if (GOTBlockOven.isOvenActive(world, i, j, k)) {
+		if (isOvenActive(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k) & 7;
 			float f = i + 0.5f;
 			float f1 = j + 0.0f + random.nextFloat() * 6.0f / 16.0f;

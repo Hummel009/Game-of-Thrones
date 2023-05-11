@@ -75,7 +75,7 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 	@Override
 	public void initGui() {
 		super.initGui();
-		GOTGuiMenu.resetLastMenuScreen();
+		resetLastMenuScreen();
 		int midX = width / 2;
 		int midY = height / 2;
 		buttonList.add(new GOTGuiButtonMenu(this, 2, 0, 0, GOTGuiAchievements.class, StatCollector.translateToLocal("got.gui.achievements"), 30));

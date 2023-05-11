@@ -445,7 +445,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaae56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiWasteland");
 		yunkai = new GOTBiomeYunkai(164, true).setClimateType(GOTClimateType.SUMMER).setColor(0xb9ba7a).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yunkai");
 		for (int i : new int[]{149, 153}) {
-			GOTDimension.GAME_OF_THRONES.biomeList[i] = GOTBiome.ocean;
+			GOTDimension.GAME_OF_THRONES.biomeList[i] = ocean;
 		}
 	}
 

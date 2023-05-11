@@ -315,8 +315,8 @@ public class GOTTitle {
 			short titleID = data.readShort();
 			if (titleID >= 0) {
 				byte colorID = data.readByte();
-				GOTTitle title = GOTTitle.forID(titleID);
-				EnumChatFormatting color = PlayerTitle.colorForID(colorID);
+				GOTTitle title = forID(titleID);
+				EnumChatFormatting color = colorForID(colorID);
 				if (title != null && color != null) {
 					return new PlayerTitle(title, color);
 				}

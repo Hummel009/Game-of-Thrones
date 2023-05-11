@@ -84,7 +84,7 @@ public class GOTLevelData {
 		HashSet<String> players = new HashSet<>();
 		for (UUID uuid : playerDataMap.keySet()) {
 			String username;
-			if (GOTLevelData.getData(uuid).getStructuresBanned()) {
+			if (getData(uuid).getStructuresBanned()) {
 				GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(uuid);
 				if (StringUtils.isBlank(profile.getName())) {
 					MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
@@ -103,17 +103,17 @@ public class GOTLevelData {
 
 	public static void setConquestRate(float f) {
 		conquestRate = f;
-		GOTLevelData.markDirty();
+		markDirty();
 	}
 
 	public static GOTPlayerData getData(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer.getUniqueID());
+		return getData(entityplayer.getUniqueID());
 	}
 
 	public static GOTPlayerData getData(UUID player) {
 		GOTPlayerData pd = playerDataMap.get(player);
 		if (pd == null) {
-			pd = GOTLevelData.loadData(player);
+			pd = loadData(player);
 			playerTitleOfflineCacheMap.remove(player);
 			if (pd == null) {
 				pd = new GOTPlayerData(player);
@@ -124,11 +124,11 @@ public class GOTLevelData {
 	}
 
 	public static File getGOTDat() {
-		return new File(GOTLevelData.getOrCreateGOTDir(), "GOT.dat");
+		return new File(getOrCreateGOTDir(), "GOT.dat");
 	}
 
 	public static File getGOTPlayerDat(UUID player) {
-		File playerDir = new File(GOTLevelData.getOrCreateGOTDir(), "players");
+		File playerDir = new File(getOrCreateGOTDir(), "players");
 		if (!playerDir.exists()) {
 			playerDir.mkdirs();
 		}
@@ -136,7 +136,7 @@ public class GOTLevelData {
 	}
 
 	public static String getHMSTime_Seconds(int secs) {
-		return GOTLevelData.getHMSTime_Ticks(secs * 20);
+		return getHMSTime_Ticks(secs * 20);
 	}
 
 	public static String getHMSTime_Ticks(int ticks) {
@@ -170,7 +170,7 @@ public class GOTLevelData {
 		if (playerTitleOfflineCacheMap.containsKey(player)) {
 			return playerTitleOfflineCacheMap.get(player).orElse(null);
 		}
-		GOTPlayerData pd = GOTLevelData.loadData(player);
+		GOTPlayerData pd = loadData(player);
 		if (pd != null) {
 			GOTTitle.PlayerTitle playerTitle = pd.getPlayerTitle();
 			playerTitleOfflineCacheMap.put(player, Optional.ofNullable(playerTitle));
@@ -185,7 +185,7 @@ public class GOTLevelData {
 
 	public static void setSavedDifficulty(EnumDifficulty d) {
 		difficulty = d;
-		GOTLevelData.markDirty();
+		markDirty();
 	}
 
 	public static int getWaypointCooldownMax() {
@@ -202,26 +202,26 @@ public class GOTLevelData {
 
 	public static void setDifficultyLocked(boolean flag) {
 		difficultyLock = flag;
-		GOTLevelData.markDirty();
+		markDirty();
 	}
 
 	public static boolean isPlayerBannedForStructures(EntityPlayer entityplayer) {
-		return GOTLevelData.getData(entityplayer).getStructuresBanned();
+		return getData(entityplayer).getStructuresBanned();
 	}
 
 	public static void load() {
 		try {
-			NBTTagCompound levelData = GOTLevelData.loadNBTFromFile(GOTLevelData.getGOTDat());
+			NBTTagCompound levelData = loadNBTFromFile(getGOTDat());
 			File oldGOTDat = new File(DimensionManager.getCurrentSaveRootDirectory(), "GOT.dat");
 			if (oldGOTDat.exists()) {
-				levelData = GOTLevelData.loadNBTFromFile(oldGOTDat);
+				levelData = loadNBTFromFile(oldGOTDat);
 				oldGOTDat.delete();
 				if (levelData.hasKey("PlayerData")) {
 					NBTTagList playerDataTags = levelData.getTagList("PlayerData", 10);
 					for (int i = 0; i < playerDataTags.tagCount(); ++i) {
 						NBTTagCompound nbt = playerDataTags.getCompoundTagAt(i);
 						UUID player = UUID.fromString(nbt.getString("PlayerUUID"));
-						GOTLevelData.saveNBTToFile(GOTLevelData.getGOTPlayerDat(player), nbt);
+						saveNBTToFile(getGOTPlayerDat(player), nbt);
 					}
 				}
 			}
@@ -259,12 +259,12 @@ public class GOTLevelData {
 			}
 			difficultyLock = levelData.getBoolean("DifficultyLock");
 			GOTJaqenHgharTracker.load(levelData);
-			GOTLevelData.destroyAllPlayerData();
+			destroyAllPlayerData();
 			GOTDate.loadDates(levelData);
 			GOTSpawnDamping.loadAll();
 			needsLoad = false;
 			needsSave = true;
-			GOTLevelData.save();
+			save();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT data");
 			e.printStackTrace();
@@ -273,7 +273,7 @@ public class GOTLevelData {
 
 	public static GOTPlayerData loadData(UUID player) {
 		try {
-			NBTTagCompound nbt = GOTLevelData.loadNBTFromFile(GOTLevelData.getGOTPlayerDat(player));
+			NBTTagCompound nbt = loadNBTFromFile(getGOTPlayerDat(player));
 			GOTPlayerData pd = new GOTPlayerData(player);
 			pd.load(nbt);
 			return pd;
@@ -301,22 +301,22 @@ public class GOTLevelData {
 	public static void markGameOfThronesPortalLocation(int i, int j, int k) {
 		GOTPacketPortalPos packet = new GOTPacketPortalPos(i, j, k);
 		GOTPacketHandler.networkWrapper.sendToAll(packet);
-		GOTLevelData.markDirty();
+		markDirty();
 	}
 
 	public static void markOverworldPortalLocation(int i, int j, int k) {
 		overworldPortalX = i;
 		overworldPortalY = j;
 		overworldPortalZ = k;
-		GOTLevelData.markDirty();
+		markDirty();
 	}
 
 	public static void save() {
 		try {
 			if (needsSave) {
-				File GOT_dat = GOTLevelData.getGOTDat();
+				File GOT_dat = getGOTDat();
 				if (!GOT_dat.exists()) {
-					GOTLevelData.saveNBTToFile(GOT_dat, new NBTTagCompound());
+					saveNBTToFile(GOT_dat, new NBTTagCompound());
 				}
 				NBTTagCompound levelData = new NBTTagCompound();
 				levelData.setInteger("MadePortal", madePortal);
@@ -338,14 +338,14 @@ public class GOTLevelData {
 				levelData.setBoolean("DifficultyLock", difficultyLock);
 				GOTJaqenHgharTracker.save(levelData);
 				GOTDate.saveDates(levelData);
-				GOTLevelData.saveNBTToFile(GOT_dat, levelData);
+				saveNBTToFile(GOT_dat, levelData);
 				needsSave = false;
 			}
 			for (Map.Entry<UUID, GOTPlayerData> e : playerDataMap.entrySet()) {
 				UUID player = e.getKey();
 				GOTPlayerData pd = e.getValue();
 				if (pd.needsSave()) {
-					GOTLevelData.saveData(player);
+					saveData(player);
 				}
 			}
 			if (GOTSpawnDamping.needsSave) {
@@ -362,7 +362,7 @@ public class GOTLevelData {
 		if (pd != null) {
 			boolean saved = false;
 			if (pd.needsSave()) {
-				GOTLevelData.saveData(player);
+				saveData(player);
 				saved = true;
 			}
 			playerTitleOfflineCacheMap.put(player, Optional.ofNullable(pd.getPlayerTitle()));
@@ -388,7 +388,7 @@ public class GOTLevelData {
 			}
 		}
 		for (UUID player : clearing) {
-			GOTLevelData.saveAndClearData(player);
+			saveAndClearData(player);
 		}
 	}
 
@@ -397,7 +397,7 @@ public class GOTLevelData {
 			NBTTagCompound nbt = new NBTTagCompound();
 			GOTPlayerData pd = playerDataMap.get(player);
 			pd.save(nbt);
-			GOTLevelData.saveNBTToFile(GOTLevelData.getGOTPlayerDat(player), nbt);
+			saveNBTToFile(getGOTPlayerDat(player), nbt);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT player data for %s", player);
 			e.printStackTrace();
@@ -409,10 +409,10 @@ public class GOTLevelData {
 	}
 
 	public static void selectDefaultCapeForPlayer(EntityPlayer entityplayer) {
-		if (GOTLevelData.getData(entityplayer).getCape() == null) {
+		if (getData(entityplayer).getCape() == null) {
 			for (GOTCapes cape : GOTCapes.values()) {
 				if (cape.canPlayerWear(entityplayer)) {
-					GOTLevelData.getData(entityplayer).setCape(cape);
+					getData(entityplayer).setCape(cape);
 					return;
 				}
 			}
@@ -420,10 +420,10 @@ public class GOTLevelData {
 	}
 
 	public static void selectDefaultShieldForPlayer(EntityPlayer entityplayer) {
-		if (GOTLevelData.getData(entityplayer).getShield() == null) {
+		if (getData(entityplayer).getShield() == null) {
 			for (GOTShields shield : GOTShields.values()) {
 				if (shield.canPlayerWear(entityplayer)) {
-					GOTLevelData.getData(entityplayer).setShield(shield);
+					getData(entityplayer).setShield(shield);
 					return;
 				}
 			}
@@ -494,7 +494,7 @@ public class GOTLevelData {
 
 	public static void sendPlayerData(EntityPlayerMP entityplayer) {
 		try {
-			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
+			GOTPlayerData pd = getData(entityplayer);
 			pd.sendPlayerData(entityplayer);
 		} catch (Exception e) {
 			FMLLog.severe("Failed to send player data to player " + entityplayer.getCommandSenderName());
@@ -506,7 +506,7 @@ public class GOTLevelData {
 		GOTPacketUpdatePlayerLocations packetLocations = new GOTPacketUpdatePlayerLocations();
 		boolean isOp = MinecraftServer.getServer().getConfigurationManager().func_152596_g(sendPlayer.getGameProfile());
 		boolean creative = sendPlayer.capabilities.isCreativeMode;
-		GOTPlayerData playerData = GOTLevelData.getData(sendPlayer);
+		GOTPlayerData playerData = getData(sendPlayer);
 		ArrayList<GOTFellowship> fellowshipsMapShow = new ArrayList<>();
 		for (UUID fsID : playerData.getFellowshipIDs()) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
@@ -518,8 +518,8 @@ public class GOTLevelData {
 			boolean show;
 			EntityPlayer otherPlayer = (EntityPlayer) element;
 			if (otherPlayer != sendPlayer) {
-				show = !GOTLevelData.getData(otherPlayer).getHideMapLocation();
-				if (!isOp && GOTLevelData.getData(otherPlayer).getAdminHideMap() || GOTConfig.forceMapLocations == 1) {
+				show = !getData(otherPlayer).getHideMapLocation();
+				if (!isOp && getData(otherPlayer).getAdminHideMap() || GOTConfig.forceMapLocations == 1) {
 					show = false;
 				} else if (GOTConfig.forceMapLocations == 2) {
 					show = true;
@@ -553,7 +553,7 @@ public class GOTLevelData {
 
 	public static void setEnableAlignmentZones(boolean flag) {
 		enableAlignmentZones = flag;
-		GOTLevelData.markDirty();
+		markDirty();
 		if (!GOT.proxy.isClient()) {
 			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 			for (EntityPlayerMP entityplayer : players) {
@@ -565,18 +565,18 @@ public class GOTLevelData {
 
 	public static void setMadeGameOfThronesPortal(int i) {
 		madeGameOfThronesPortal = i;
-		GOTLevelData.markDirty();
+		markDirty();
 	}
 
 	public static void setMadePortal(int i) {
 		madePortal = i;
-		GOTLevelData.markDirty();
+		markDirty();
 	}
 
 	public static void setPlayerBannedForStructures(String username, boolean flag) {
 		UUID uuid = UUID.fromString(PreYggdrasilConverter.func_152719_a(username));
 		if (uuid != null) {
-			GOTLevelData.getData(uuid).setStructuresBanned(flag);
+			getData(uuid).setStructuresBanned(flag);
 		}
 	}
 
@@ -586,7 +586,7 @@ public class GOTLevelData {
 		} else {
 			structuresBanned = 0;
 		}
-		GOTLevelData.markDirty();
+		markDirty();
 	}
 
 	public static void setWaypointCooldown(int max, int min) {
@@ -597,7 +597,7 @@ public class GOTLevelData {
 		}
 		waypointCooldownMax = max;
 		waypointCooldownMin = min;
-		GOTLevelData.markDirty();
+		markDirty();
 		if (!GOT.proxy.isClient()) {
 			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 			for (EntityPlayerMP entityplayer : players) {

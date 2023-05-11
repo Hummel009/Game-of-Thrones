@@ -314,14 +314,14 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		public static NPCAction getRandomAction(Random rand) {
 			if (totalWeight <= 0.0f) {
 				totalWeight = 0.0f;
-				for (NPCAction action : NPCAction.values()) {
+				for (NPCAction action : values()) {
 					totalWeight += action.weight;
 				}
 			}
 			float f = rand.nextFloat();
 			f *= totalWeight;
 			NPCAction chosen = null;
-			for (NPCAction action : NPCAction.values()) {
+			for (NPCAction action : values()) {
 				f -= action.weight;
 				if (f <= 0.0f) {
 					chosen = action;

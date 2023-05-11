@@ -98,10 +98,10 @@ public enum GOTMiniQuestFactory {
 	}
 
 	public static void onInit() {
-		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestCollect.class, 5);
-		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestKill.class, 2);
-		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestBounty.class, 2);
-		GOTMiniQuestFactory.registerQuestClass(GOTMiniQuestPickpocket.class, 1);
+		registerQuestClass(GOTMiniQuestCollect.class, 5);
+		registerQuestClass(GOTMiniQuestKill.class, 2);
+		registerQuestClass(GOTMiniQuestBounty.class, 2);
+		registerQuestClass(GOTMiniQuestPickpocket.class, 1);
 		BALON.addQuest(new QFKillEntity("balon").setKillEntity(GOTEntityEuronGreyjoy.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		VARYS.addQuest(new QFKillEntity("varys").setKillEntity(GOTEntityDaenerysTargaryen.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());
 		OBERYN.addQuest(new QFKillEntity("oberyn").setKillEntity(GOTEntityGeroldDayne.class, 1, 1).setRewardFactor(100.0f).setIsLegendary());

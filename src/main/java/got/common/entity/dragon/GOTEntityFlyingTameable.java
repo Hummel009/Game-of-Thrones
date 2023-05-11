@@ -247,7 +247,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	}
 
 	public void setTasksEnabled(EntityAITasks tasks, boolean flag) {
-		ReflectionHelper.setPrivateValue(EntityAITasks.class, tasks, flag ? 3 : Integer.MAX_VALUE, GOTEntityFlyingTameable.ENTITYAITASKS_TICKRATE);
+		ReflectionHelper.setPrivateValue(EntityAITasks.class, tasks, flag ? 3 : Integer.MAX_VALUE, ENTITYAITASKS_TICKRATE);
 	}
 
 	@Override

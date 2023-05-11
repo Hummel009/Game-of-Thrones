@@ -13,14 +13,14 @@ import java.util.List;
 
 public class GOTRecipeVessels {
 	public static void addRecipes(ItemStack result, Item drinkBase, Object[] ingredients) {
-		List<IRecipe> recipes = GOTRecipeVessels.generateRecipes(result, drinkBase, ingredients);
+		List<IRecipe> recipes = generateRecipes(result, drinkBase, ingredients);
 		for (IRecipe r : recipes) {
 			GameRegistry.addRecipe(r);
 		}
 	}
 
 	public static void addRecipes(ItemStack result, Object[] ingredients) {
-		GOTRecipeVessels.addRecipes(result, null, ingredients);
+		addRecipes(result, null, ingredients);
 	}
 
 	public static List<IRecipe> generateRecipes(ItemStack result, Item drinkBase, Object[] ingredients) {
@@ -43,6 +43,6 @@ public class GOTRecipeVessels {
 	}
 
 	public static List<IRecipe> generateRecipes(ItemStack result, Object[] ingredients) {
-		return GOTRecipeVessels.generateRecipes(result, null, ingredients);
+		return generateRecipes(result, null, ingredients);
 	}
 }

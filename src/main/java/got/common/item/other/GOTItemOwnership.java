@@ -13,7 +13,7 @@ public class GOTItemOwnership {
 		if (!itemstack.hasTagCompound()) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
-		List<String> previousOwners = GOTItemOwnership.getPreviousOwners(itemstack);
+		List<String> previousOwners = getPreviousOwners(itemstack);
 		NBTTagCompound nbt = itemstack.getTagCompound();
 		if (nbt.hasKey("GOTOwner", 8)) {
 			nbt.removeTag("GOTOwner");
@@ -64,9 +64,9 @@ public class GOTItemOwnership {
 		if (!itemstack.hasTagCompound()) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
-		previousCurrentOwner = GOTItemOwnership.getCurrentOwner(itemstack);
+		previousCurrentOwner = getCurrentOwner(itemstack);
 		if (previousCurrentOwner != null) {
-			GOTItemOwnership.addPreviousOwner(itemstack, previousCurrentOwner);
+			addPreviousOwner(itemstack, previousCurrentOwner);
 		}
 		NBTTagCompound nbt = itemstack.getTagCompound();
 		nbt.setString("GOTCurrentOwner", name);

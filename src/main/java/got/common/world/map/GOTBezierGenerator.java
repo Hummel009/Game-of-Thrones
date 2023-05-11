@@ -77,10 +77,10 @@ public class GOTBezierGenerator {
 				GOTBezierType.BezierBlock bridgeBlockSlab = bridgeType.getBlock(rand, true);
 				GOTBezierType.BezierBlock bridgeEdge = bridgeType.getEdge(rand);
 				GOTBezierType.BezierBlock bridgeFence = bridgeType.getFence(rand);
-				boolean fence = GOTBezierGenerator.isFenceAt(i, k);
+				boolean fence = isFenceAt(i, k);
 				int index2 = xzIndex * ySize + roadTop;
 				if (fence) {
-					boolean pillar = GOTBezierGenerator.isPillarAt(i, k);
+					boolean pillar = isPillarAt(i, k);
 					if (pillar) {
 						int pillarIndex;
 						for (int j2 = roadTop + 4; j2 > 0 && !blocks[pillarIndex = xzIndex * ySize + j2].isOpaqueCube(); --j2) {
@@ -203,7 +203,7 @@ public class GOTBezierGenerator {
 	}
 
 	public static boolean isBridgeEdgePillar(int i, int k) {
-		return GOTBeziers.isRoadAt(i, k) && GOTBezierGenerator.isFenceAt(i, k) && GOTBezierGenerator.isPillarAt(i, k);
+		return GOTBeziers.isRoadAt(i, k) && isFenceAt(i, k) && isPillarAt(i, k);
 	}
 
 	public static boolean isFenceAt(int i, int k) {
@@ -222,7 +222,7 @@ public class GOTBezierGenerator {
 		int pRange = 8;
 		int xmod = IntMath.mod(i, pRange);
 		if (IntMath.mod(xmod + IntMath.mod(k, pRange), pRange) == 0) {
-			return !GOTBezierGenerator.isBridgeEdgePillar(i + 1, k - 1) && !GOTBezierGenerator.isBridgeEdgePillar(i + 1, k + 1);
+			return !isBridgeEdgePillar(i + 1, k - 1) && !isBridgeEdgePillar(i + 1, k + 1);
 		}
 		return false;
 	}

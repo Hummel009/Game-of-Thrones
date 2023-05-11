@@ -18,8 +18,8 @@ public class GOTBlockIronBank extends GOTBlockForgeBase {
 	public static void preInit() {
 		int k = 1;
 		for (int i = 0; i < 8; ++i) {
-			GOTBlockIronBank.buy.put(new ItemStack(GOTRegistry.coin, 1, i), k);
-			GOTBlockIronBank.sell.put(new ItemStack(GOTRegistry.coin, 1, i), k);
+			buy.put(new ItemStack(GOTRegistry.coin, 1, i), k);
+			sell.put(new ItemStack(GOTRegistry.coin, 1, i), k);
 			k *= 4;
 		}
 	}

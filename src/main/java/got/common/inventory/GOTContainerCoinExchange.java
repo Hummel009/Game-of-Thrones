@@ -20,7 +20,7 @@ public class GOTContainerCoinExchange extends Container {
 		theTraderNPC = npc;
 		addSlotToContainer(new Slot(coinInputInv, 0, 80, 46) {
 			public boolean isItemValid(ItemStack itemstack) {
-				return (super.isItemValid(itemstack) && itemstack != null && GOTContainerCoinExchange.isValidCoin(itemstack));
+				return (super.isItemValid(itemstack) && itemstack != null && isValidCoin(itemstack));
 			}
 		});
 		addSlotToContainer(new SlotCoinResult(exchangeInv, 0, 26, 46));
@@ -111,7 +111,7 @@ public class GOTContainerCoinExchange extends Container {
 		if (inv == coinInputInv) {
 			if (!exchanged) {
 				ItemStack coin = coinInputInv.getStackInSlot(0);
-				if (coin != null && coin.stackSize > 0 && GOTContainerCoinExchange.isValidCoin(coin)) {
+				if (coin != null && coin.stackSize > 0 && isValidCoin(coin)) {
 					int coins = coin.stackSize;
 					int coinType = coin.getItemDamage();
 					if (coinType > 0) {

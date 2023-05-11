@@ -17,7 +17,7 @@ public enum GOTBiomeMusic {
 	}
 
 	public static GOTBiomeMusic forName(String s) {
-		for (GOTBiomeMusic r : GOTBiomeMusic.values()) {
+		for (GOTBiomeMusic r : values()) {
 			if (s.equalsIgnoreCase(r.regionName)) {
 				return r;
 			}

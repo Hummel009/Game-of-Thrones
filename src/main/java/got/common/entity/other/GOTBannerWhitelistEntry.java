@@ -49,11 +49,11 @@ public class GOTBannerWhitelistEntry {
 	}
 
 	public void decodePermBitFlags(int i) {
-		setPermissions(GOTBannerWhitelistEntry.static_decodePermBitFlags(i));
+		setPermissions(static_decodePermBitFlags(i));
 	}
 
 	public int encodePermBitFlags() {
-		return GOTBannerWhitelistEntry.static_encodePermBitFlags(perms);
+		return static_encodePermBitFlags(perms);
 	}
 
 	public boolean isPermissionEnabled(GOTBannerProtection.Permission p) {

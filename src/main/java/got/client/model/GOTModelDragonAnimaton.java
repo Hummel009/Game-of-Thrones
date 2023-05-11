@@ -140,7 +140,7 @@ public class GOTModelDragonAnimaton {
 			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
 			return 0;
 		}
-		x = GOTModelDragonAnimaton.clamp(x, 0, 0.9999f) * nspans;
+		x = clamp(x, 0, 0.9999f) * nspans;
 		int span = (int) x;
 		if (span >= nknots - 3) {
 			span = nknots - 3;
@@ -167,7 +167,7 @@ public class GOTModelDragonAnimaton {
 			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
 			return;
 		}
-		x = GOTModelDragonAnimaton.clamp(x, 0, 0.9999f) * nspans;
+		x = clamp(x, 0, 0.9999f) * nspans;
 		int span = (int) x;
 		if (span >= nknots - 3) {
 			span = nknots - 3;
@@ -354,8 +354,8 @@ public class GOTModelDragonAnimaton {
 		jaw = jawTimer.get(partialTicks);
 		speed = speedTimer.get(partialTicks);
 
-		animBase = anim * GOTModelDragonAnimaton.PI_F * 2;
-		cycleOfs = GOTModelDragonAnimaton.sin(animBase - 1) + 1;
+		animBase = anim * PI_F * 2;
+		cycleOfs = sin(animBase - 1) + 1;
 
 		boolean newWingsDown = cycleOfs > 1;
 		if (newWingsDown && !wingsDown && flutter != 0) {
@@ -367,8 +367,8 @@ public class GOTModelDragonAnimaton {
 
 		cycleOfs = (cycleOfs * cycleOfs + cycleOfs * 2) * 0.05f;
 
-		cycleOfs *= GOTModelDragonAnimaton.lerp(0.5f, 1, flutter);
-		cycleOfs *= GOTModelDragonAnimaton.lerp(1, 0.5f, ground);
+		cycleOfs *= lerp(0.5f, 1, flutter);
+		cycleOfs *= lerp(1, 0.5f, ground);
 
 		model.offsetX = getModelOffsetX();
 		model.offsetY = getModelOffsetY();
@@ -397,22 +397,22 @@ public class GOTModelDragonAnimaton {
 		for (int i = 0; i < model.neckProxy.length; i++) {
 			float vertMulti = (i + 1) / (float) model.neckProxy.length;
 
-			float baseRotX = GOTModelDragonAnimaton.cos(i * 0.45f + animBase) * 0.15f;
-			baseRotX *= GOTModelDragonAnimaton.lerp(0.2f, 1, flutter);
-			baseRotX *= GOTModelDragonAnimaton.lerp(1, 0.2f, sit);
-			float ofsRotX = GOTModelDragonAnimaton.sin(vertMulti * GOTModelDragonAnimaton.PI_F * 0.9f) * 0.75f;
+			float baseRotX = cos(i * 0.45f + animBase) * 0.15f;
+			baseRotX *= lerp(0.2f, 1, flutter);
+			baseRotX *= lerp(1, 0.2f, sit);
+			float ofsRotX = sin(vertMulti * PI_F * 0.9f) * 0.75f;
 
 			model.neck.rotateAngleX = baseRotX;
 
-			model.neck.rotateAngleX *= GOTModelDragonAnimaton.slerp(1, 0.5f, walk);
+			model.neck.rotateAngleX *= slerp(1, 0.5f, walk);
 
 			model.neck.rotateAngleX += (1 - speed) * vertMulti;
 
-			model.neck.rotateAngleX -= GOTModelDragonAnimaton.lerp(0, ofsRotX, ground * health);
+			model.neck.rotateAngleX -= lerp(0, ofsRotX, ground * health);
 
-			model.neck.rotateAngleY = GOTModelDragonAnimaton.toRadians(lookYaw) * vertMulti * speed;
+			model.neck.rotateAngleY = toRadians(lookYaw) * vertMulti * speed;
 
-			model.neck.renderScaleX = model.neck.renderScaleY = GOTModelDragonAnimaton.lerp(1.6f, 1, vertMulti);
+			model.neck.renderScaleX = model.neck.renderScaleY = lerp(1.6f, 1, vertMulti);
 			model.neck.renderScaleZ = 0.6f;
 
 			model.neckScale.isHidden = i % 2 != 0 || i == 0;
@@ -420,12 +420,12 @@ public class GOTModelDragonAnimaton {
 			model.neckProxy[i].update();
 
 			neckSize = GOTModelDragon.NECK_SIZE * model.neck.renderScaleZ - 1.4f;
-			model.neck.rotationPointX -= GOTModelDragonAnimaton.sin(model.neck.rotateAngleY) * GOTModelDragonAnimaton.cos(model.neck.rotateAngleX) * neckSize;
-			model.neck.rotationPointY += GOTModelDragonAnimaton.sin(model.neck.rotateAngleX) * neckSize;
-			model.neck.rotationPointZ -= GOTModelDragonAnimaton.cos(model.neck.rotateAngleY) * GOTModelDragonAnimaton.cos(model.neck.rotateAngleX) * neckSize;
+			model.neck.rotationPointX -= sin(model.neck.rotateAngleY) * cos(model.neck.rotateAngleX) * neckSize;
+			model.neck.rotationPointY += sin(model.neck.rotateAngleX) * neckSize;
+			model.neck.rotationPointZ -= cos(model.neck.rotateAngleY) * cos(model.neck.rotateAngleX) * neckSize;
 		}
 
-		model.head.rotateAngleX = GOTModelDragonAnimaton.toRadians(lookPitch) + (1 - speed);
+		model.head.rotateAngleX = toRadians(lookPitch) + (1 - speed);
 		model.head.rotateAngleY = model.neck.rotateAngleY;
 		model.head.rotateAngleZ = model.neck.rotateAngleZ * 0.2f;
 
@@ -434,7 +434,7 @@ public class GOTModelDragonAnimaton {
 		model.head.rotationPointZ = model.neck.rotationPointZ;
 
 		model.jaw.rotateAngleX = jaw * 0.75f;
-		model.jaw.rotateAngleX += (1 - GOTModelDragonAnimaton.sin(animBase)) * 0.1f * flutter;
+		model.jaw.rotateAngleX += (1 - sin(animBase)) * 0.1f * flutter;
 	}
 
 	public void animLegs(GOTModelDragon model) {
@@ -491,15 +491,15 @@ public class GOTModelDragonAnimaton {
 			float yAir = yAirAll[i % 2];
 			float yGround;
 
-			yGround = GOTModelDragonAnimaton.slerp(yGroundStand[i % 2], yGroundSit[i % 2], sit);
+			yGround = slerp(yGroundStand[i % 2], yGroundSit[i % 2], sit);
 
-			yGround = GOTModelDragonAnimaton.slerp(yGround, yGroundWalk[i % 2], walk);
+			yGround = slerp(yGround, yGroundWalk[i % 2], walk);
 
-			thigh.rotateAngleY = GOTModelDragonAnimaton.slerp(yAir, yGround, ground);
-			thigh.rotateAngleX = GOTModelDragonAnimaton.slerp(xAir[0], xGround[0], ground);
-			crus.rotateAngleX = GOTModelDragonAnimaton.slerp(xAir[1], xGround[1], ground);
-			foot.rotateAngleX = GOTModelDragonAnimaton.slerp(xAir[2], xGround[2], ground);
-			toe.rotateAngleX = GOTModelDragonAnimaton.slerp(xAir[3], xGround[3], ground);
+			thigh.rotateAngleY = slerp(yAir, yGround, ground);
+			thigh.rotateAngleX = slerp(xAir[0], xGround[0], ground);
+			crus.rotateAngleX = slerp(xAir[1], xGround[1], ground);
+			foot.rotateAngleX = slerp(xAir[2], xGround[2], ground);
+			toe.rotateAngleX = slerp(xAir[3], xGround[3], ground);
 
 			model.thighProxy[i].update();
 		}
@@ -527,40 +527,40 @@ public class GOTModelDragonAnimaton {
 			float amp = 0.1f + i / (model.tailProxy.length * 2f);
 
 			rotXStand = (i - model.tailProxy.length * 0.6f) * -amp * 0.4f;
-			rotXStand += (GOTModelDragonAnimaton.sin(animBase * 0.2f) * GOTModelDragonAnimaton.sin(animBase * 0.37f) * 0.4f * amp - 0.1f) * (1 - sit);
+			rotXStand += (sin(animBase * 0.2f) * sin(animBase * 0.37f) * 0.4f * amp - 0.1f) * (1 - sit);
 			rotXSit = rotXStand * 0.8f;
 
-			rotYStand = (rotYStand + GOTModelDragonAnimaton.sin(i * 0.45f + animBase * 0.5f)) * amp * 0.4f;
-			rotYSit = GOTModelDragonAnimaton.sin(vertMulti * GOTModelDragonAnimaton.PI_F) * GOTModelDragonAnimaton.PI_F * 1.2f - 0.5f;
+			rotYStand = (rotYStand + sin(i * 0.45f + animBase * 0.5f)) * amp * 0.4f;
+			rotYSit = sin(vertMulti * PI_F) * PI_F * 1.2f - 0.5f;
 
-			rotXAir -= GOTModelDragonAnimaton.sin(i * 0.45f + animBase) * 0.04f * GOTModelDragonAnimaton.lerp(0.3f, 1, flutter);
+			rotXAir -= sin(i * 0.45f + animBase) * 0.04f * lerp(0.3f, 1, flutter);
 
-			model.tail.rotateAngleX = GOTModelDragonAnimaton.lerp(rotXStand, rotXSit, sit);
-			model.tail.rotateAngleY = GOTModelDragonAnimaton.lerp(rotYStand, rotYSit, sit);
+			model.tail.rotateAngleX = lerp(rotXStand, rotXSit, sit);
+			model.tail.rotateAngleY = lerp(rotYStand, rotYSit, sit);
 
-			model.tail.rotateAngleX = GOTModelDragonAnimaton.lerp(rotXAir, model.tail.rotateAngleX, ground);
-			model.tail.rotateAngleY = GOTModelDragonAnimaton.lerp(rotYAir, model.tail.rotateAngleY, ground);
+			model.tail.rotateAngleX = lerp(rotXAir, model.tail.rotateAngleX, ground);
+			model.tail.rotateAngleY = lerp(rotYAir, model.tail.rotateAngleY, ground);
 
 			float angleLimit = 160 * vertMulti;
-			float yawOfs = GOTModelDragonAnimaton.clamp((float) yawTrail.get(partialTicks, 0, i + 1) * 2, -angleLimit, angleLimit);
-			float pitchOfs = GOTModelDragonAnimaton.clamp((float) pitchTrail.get(partialTicks, 0, i + 1) * 2, -angleLimit, angleLimit);
+			float yawOfs = clamp((float) yawTrail.get(partialTicks, 0, i + 1) * 2, -angleLimit, angleLimit);
+			float pitchOfs = clamp((float) pitchTrail.get(partialTicks, 0, i + 1) * 2, -angleLimit, angleLimit);
 
-			model.tail.rotateAngleX += GOTModelDragonAnimaton.toRadians(pitchOfs);
+			model.tail.rotateAngleX += toRadians(pitchOfs);
 			model.tail.rotateAngleX -= (1 - speed) * vertMulti * 2;
-			model.tail.rotateAngleY += GOTModelDragonAnimaton.toRadians(180 - yawOfs);
+			model.tail.rotateAngleY += toRadians(180 - yawOfs);
 
 			boolean horn = i > model.tailProxy.length - 7 && i < model.tailProxy.length - 3;
 			model.tailHornLeft.isHidden = model.tailHornRight.isHidden = !horn;
 
-			float neckScale = GOTModelDragonAnimaton.lerp(1.5f, 0.3f, vertMulti);
+			float neckScale = lerp(1.5f, 0.3f, vertMulti);
 			model.tail.setRenderScale(neckScale);
 
 			model.tailProxy[i].update();
 
 			float tailSize = GOTModelDragon.TAIL_SIZE * model.tail.renderScaleZ - 0.7f;
-			model.tail.rotationPointY += GOTModelDragonAnimaton.sin(model.tail.rotateAngleX) * tailSize;
-			model.tail.rotationPointZ -= GOTModelDragonAnimaton.cos(model.tail.rotateAngleY) * GOTModelDragonAnimaton.cos(model.tail.rotateAngleX) * tailSize;
-			model.tail.rotationPointX -= GOTModelDragonAnimaton.sin(model.tail.rotateAngleY) * GOTModelDragonAnimaton.cos(model.tail.rotateAngleX) * tailSize;
+			model.tail.rotationPointY += sin(model.tail.rotateAngleX) * tailSize;
+			model.tail.rotationPointZ -= cos(model.tail.rotateAngleY) * cos(model.tail.rotateAngleX) * tailSize;
+			model.tail.rotationPointX -= sin(model.tail.rotateAngleY) * cos(model.tail.rotateAngleX) * tailSize;
 		}
 	}
 
@@ -574,31 +574,31 @@ public class GOTModelDragonAnimaton {
 
 		if (ground < 1) {
 
-			wingArmFlutter[0] = 0.125f - GOTModelDragonAnimaton.cos(animBase) * 0.2f;
+			wingArmFlutter[0] = 0.125f - cos(animBase) * 0.2f;
 			wingArmFlutter[1] = 0.25f;
-			wingArmFlutter[2] = (GOTModelDragonAnimaton.sin(animBase) + 0.125f) * 0.8f;
+			wingArmFlutter[2] = (sin(animBase) + 0.125f) * 0.8f;
 
 			wingForearmFlutter[0] = 0;
 			wingForearmFlutter[1] = -wingArmFlutter[1] * 2;
-			wingForearmFlutter[2] = -(GOTModelDragonAnimaton.sin(animBase + 2) + 0.5f) * 0.75f;
+			wingForearmFlutter[2] = -(sin(animBase + 2) + 0.5f) * 0.75f;
 
-			wingArmGlide[0] = -0.25f - GOTModelDragonAnimaton.cos(animBase * 2) * GOTModelDragonAnimaton.cos(animBase * 1.5f) * 0.04f;
+			wingArmGlide[0] = -0.25f - cos(animBase * 2) * cos(animBase * 1.5f) * 0.04f;
 			wingArmGlide[1] = 0.25f;
-			wingArmGlide[2] = 0.35f + GOTModelDragonAnimaton.sin(animBase) * 0.05f;
+			wingArmGlide[2] = 0.35f + sin(animBase) * 0.05f;
 
 			wingForearmGlide[0] = 0;
 			wingForearmGlide[1] = -wingArmGlide[1] * 2;
-			wingForearmGlide[2] = -0.25f + (GOTModelDragonAnimaton.sin(animBase + 2) + 0.5f) * 0.05f;
+			wingForearmGlide[2] = -0.25f + (sin(animBase + 2) + 0.5f) * 0.05f;
 		}
 
 		if (ground > 0) {
 
 			wingArmGround[0] = 0;
-			wingArmGround[1] = 1.4f - GOTModelDragonAnimaton.sin(a1) * GOTModelDragonAnimaton.sin(a2) * 0.02f;
-			wingArmGround[2] = 0.8f + GOTModelDragonAnimaton.sin(a2) * GOTModelDragonAnimaton.sin(a3) * 0.05f;
+			wingArmGround[1] = 1.4f - sin(a1) * sin(a2) * 0.02f;
+			wingArmGround[2] = 0.8f + sin(a2) * sin(a3) * 0.05f;
 
-			wingArmGround[1] += GOTModelDragonAnimaton.sin(moveTime * 0.5f) * 0.02f * walk;
-			wingArmGround[2] += GOTModelDragonAnimaton.cos(moveTime * 0.5f) * 0.05f * walk;
+			wingArmGround[1] += sin(moveTime * 0.5f) * 0.02f * walk;
+			wingArmGround[2] += cos(moveTime * 0.5f) * 0.05f * walk;
 
 			wingForearmGround[0] = 0;
 			wingForearmGround[1] = -wingArmGround[1] * 2;
@@ -623,12 +623,12 @@ public class GOTModelDragonAnimaton {
 		float[] yUnfold = {0.1f, 0.9f, 1.7f, 2.5f};
 
 		float rotX = 0;
-		float rotYOfs = GOTModelDragonAnimaton.sin(a1) * GOTModelDragonAnimaton.sin(a2) * 0.03f;
+		float rotYOfs = sin(a1) * sin(a2) * 0.03f;
 		float rotYMulti = 1;
 
 		for (int i = 0; i < model.wingFinger.length; i++) {
 			model.wingFinger[i].rotateAngleX = rotX += 0.005f;
-			model.wingFinger[i].rotateAngleY = GOTModelDragonAnimaton.slerp(yUnfold[i], yFold[i] + rotYOfs * rotYMulti, ground);
+			model.wingFinger[i].rotateAngleY = slerp(yUnfold[i], yFold[i] + rotYOfs * rotYMulti, ground);
 			rotYMulti -= 0.2f;
 		}
 	}
@@ -663,9 +663,9 @@ public class GOTModelDragonAnimaton {
 
 	public float getModelPitch(float pt) {
 		float pitchMovingMax = 90;
-		float pitchMoving = (float) GOTModelDragonAnimaton.clamp(yTrail.get(pt, 5, 0) * 10, -pitchMovingMax, pitchMovingMax);
+		float pitchMoving = (float) clamp(yTrail.get(pt, 5, 0) * 10, -pitchMovingMax, pitchMovingMax);
 		float pitchHover = 60;
-		return GOTModelDragonAnimaton.slerp(pitchHover, pitchMoving, speed);
+		return slerp(pitchHover, pitchMoving, speed);
 	}
 
 	public float getWalkTime() {
@@ -690,8 +690,8 @@ public class GOTModelDragonAnimaton {
 
 	public void setLook(float lookYaw, float lookPitch) {
 
-		this.lookYaw = GOTModelDragonAnimaton.clamp(lookYaw, -120, 120);
-		this.lookPitch = GOTModelDragonAnimaton.clamp(lookPitch, -90, 90);
+		this.lookYaw = clamp(lookYaw, -120, 120);
+		this.lookPitch = clamp(lookPitch, -90, 90);
 	}
 
 	public void setMovement(float moveTime, float moveSpeed) {
@@ -722,7 +722,7 @@ public class GOTModelDragonAnimaton {
 		}
 
 		for (int i = 0; i < c.length; i++) {
-			c[i] = GOTModelDragonAnimaton.slerp(a[i], b[i], x);
+			c[i] = slerp(a[i], b[i], x);
 		}
 	}
 
@@ -748,9 +748,9 @@ public class GOTModelDragonAnimaton {
 		float xn = x % nodes.length - i1;
 
 		if (shift) {
-			GOTModelDragonAnimaton.interp(xn, result, a2, a3, a1, a2);
+			interp(xn, result, a2, a3, a1, a2);
 		} else {
-			GOTModelDragonAnimaton.interp(xn, result, a1, a2, a3, a1);
+			interp(xn, result, a1, a2, a3, a1);
 		}
 	}
 
@@ -775,7 +775,7 @@ public class GOTModelDragonAnimaton {
 
 		float speedMax = 0.05f;
 		float speedEnt = (float) (entity.motionX * entity.motionX + entity.motionZ * entity.motionZ);
-		float speedMulti = GOTModelDragonAnimaton.clamp(speedEnt / speedMax, 0, 1);
+		float speedMulti = clamp(speedEnt / speedMax, 0, 1);
 
 		float animAdd = 0.035f;
 

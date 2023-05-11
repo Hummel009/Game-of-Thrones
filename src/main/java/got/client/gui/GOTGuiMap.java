@@ -1002,7 +1002,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				conquestViewingFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 			}
 			prevRegion = currentRegion = conquestViewingFaction.factionRegion;
-			currentFactionList = GOTGuiMap.currentRegion.factionList;
+			currentFactionList = currentRegion.factionList;
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(conquestViewingFaction);
 			lastViewedRegions.put(currentRegion, conquestViewingFaction);
 			facScrollX = mapXMin;
@@ -1336,7 +1336,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						double bezierWidth = 1.0;
 						int bezierColor = 0;
 						float bezierAlpha = bezierZoomlerp;
-						if (GOTGuiMap.isOSRS()) {
+						if (isOSRS()) {
 							bezierWidth = 3.0 * zoomScale;
 							bezierColor = 6575407;
 							bezierAlpha = 1.0f;
@@ -1506,7 +1506,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			if (zoomlerp > 0.0f && zoomlerp < 1.0f) {
 				float alpha = (0.5f - Math.abs(zoomlerp - 0.5f)) / 0.5f;
 				alpha *= 0.7f;
-				if (GOTGuiMap.isOSRS()) {
+				if (isOSRS()) {
 					if (alpha < 0.3f) {
 						continue;
 					}
@@ -1516,7 +1516,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				GL11.glTranslatef(x, y, 0.0f);
 				float scale = zoomScale * label.scale;
 				GL11.glScalef(scale, scale, scale);
-				if (!GOTGuiMap.isOSRS()) {
+				if (!isOSRS()) {
 					GL11.glRotatef(label.angle, 0.0f, 0.0f, 1.0f);
 				}
 				int alphaI = (int) (alpha * 255.0f);
@@ -1528,7 +1528,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				String s = label.getDisplayName();
 				int strX = -fontRendererObj.getStringWidth(s) / 2;
 				int strY = -fontRendererObj.FONT_HEIGHT / 2;
-				if (GOTGuiMap.isOSRS()) {
+				if (isOSRS()) {
 					if (label.scale > 2.5f) {
 						fontRendererObj.drawString(s, strX + 1, strY + 1, 0 + (alphaI << 24));
 						fontRendererObj.drawString(s, strX, strY, 16755200 + (alphaI << 24));
@@ -1591,7 +1591,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			}
 		}
 		GOTTextures.drawMap(mc.thePlayer, sepia, mapXMin_W, mapXMax_W, mapYMin_W, mapYMax_W, zLevel, minU, maxU, minV, maxV, alpha);
-		if (overlay && !GOTGuiMap.isOSRS()) {
+		if (overlay && !isOSRS()) {
 			GOTTextures.drawMapOverlay(mc.thePlayer, mapXMin, mapXMax, mapYMin, mapYMax, zLevel, minU, maxU, minV, maxV);
 		}
 	}
@@ -2168,8 +2168,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		prevFactionIndex = currentFactionIndex;
 		if (currentRegion != prevRegion) {
 			lastViewedRegions.put(prevRegion, conquestViewingFaction);
-			currentFactionList = GOTGuiMap.currentRegion.factionList;
-			conquestViewingFaction = lastViewedRegions.containsKey(currentRegion) ? lastViewedRegions.get(currentRegion) : GOTGuiMap.currentRegion.factionList.get(0);
+			currentFactionList = currentRegion.factionList;
+			conquestViewingFaction = lastViewedRegions.containsKey(currentRegion) ? lastViewedRegions.get(currentRegion) : currentRegion.factionList.get(0);
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(conquestViewingFaction);
 			ticksUntilRequestFac = 40;
 		}

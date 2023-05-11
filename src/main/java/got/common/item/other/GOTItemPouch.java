@@ -52,7 +52,7 @@ public class GOTItemPouch extends Item {
 	}
 
 	public static int getCapacity(ItemStack itemstack) {
-		return GOTItemPouch.getCapacityForMeta(itemstack.getItemDamage());
+		return getCapacityForMeta(itemstack.getItemDamage());
 	}
 
 	public static int getCapacityForMeta(int i) {
@@ -83,11 +83,11 @@ public class GOTItemPouch extends Item {
 	}
 
 	public static int getMaxPouchCapacity() {
-		return GOTItemPouch.getCapacityForMeta(pouchTypes.length - 1);
+		return getCapacityForMeta(pouchTypes.length - 1);
 	}
 
 	public static int getPouchColor(ItemStack itemstack) {
-		int dye = GOTItemPouch.getSavedDyeColor(itemstack);
+		int dye = getSavedDyeColor(itemstack);
 		if (dye != -1) {
 			return dye;
 		}
@@ -117,7 +117,7 @@ public class GOTItemPouch extends Item {
 	}
 
 	public static boolean isPouchDyed(ItemStack itemstack) {
-		return GOTItemPouch.getSavedDyeColor(itemstack) != -1;
+		return getSavedDyeColor(itemstack) != -1;
 	}
 
 	public static void removePouchDye(ItemStack itemstack) {
@@ -203,7 +203,7 @@ public class GOTItemPouch extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		int slots = GOTItemPouch.getCapacity(itemstack);
+		int slots = getCapacity(itemstack);
 		int slotsFull = 0;
 		GOTInventoryPouch pouchInv = new GOTInventoryPouch(itemstack);
 		for (int i = 0; i < pouchInv.getSizeInventory(); ++i) {
@@ -214,7 +214,7 @@ public class GOTItemPouch extends Item {
 			++slotsFull;
 		}
 		list.add(StatCollector.translateToLocalFormatted("item.got.pouch.slots", slotsFull, slots));
-		if (GOTItemPouch.isPouchDyed(itemstack)) {
+		if (isPouchDyed(itemstack)) {
 			list.add(StatCollector.translateToLocal("item.got.pouch.dyed"));
 		}
 	}
@@ -223,7 +223,7 @@ public class GOTItemPouch extends Item {
 	@SideOnly(Side.CLIENT)
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
 		if (pass == 0) {
-			return GOTItemPouch.getPouchColor(itemstack);
+			return getPouchColor(itemstack);
 		}
 		return 16777215;
 	}
@@ -275,7 +275,7 @@ public class GOTItemPouch extends Item {
 
 	@Override
 	public boolean onItemUseFirst(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float hitX, float hitY, float hitZ) {
-		IInventory chest = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k);
+		IInventory chest = getChestInvAt(entityplayer, world, i, j, k);
 		if (chest != null) {
 			GOT.proxy.usePouchOnChest(entityplayer, world, i, j, k, side, itemstack, entityplayer.inventory.currentItem);
 			return true;

@@ -1016,8 +1016,8 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		Collections.sort(members, (player1, player2) -> {
 			boolean admin1 = fs.isAdmin(player1.getId());
 			boolean admin2 = fs.isAdmin(player2.getId());
-			boolean online1 = GOTGuiFellowships.isPlayerOnline(player1);
-			boolean online2 = GOTGuiFellowships.isPlayerOnline(player2);
+			boolean online1 = isPlayerOnline(player1);
+			boolean online2 = isPlayerOnline(player2);
 			if (online1 == online2) {
 				if (admin1 == admin2) {
 					return player1.getName().toLowerCase().compareTo(player2.getName().toLowerCase());

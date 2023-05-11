@@ -42,12 +42,12 @@ public abstract class GOTMiniQuest {
 	public static float defaultRewardFactor = 1.0f;
 
 	static {
-		GOTMiniQuest.registerQuestType("Collect", GOTMiniQuestCollect.class);
-		GOTMiniQuest.registerQuestType("KillFaction", GOTMiniQuestKillFaction.class);
-		GOTMiniQuest.registerQuestType("KillEntity", GOTMiniQuestKillEntity.class);
-		GOTMiniQuest.registerQuestType("Bounty", GOTMiniQuestBounty.class);
-		GOTMiniQuest.registerQuestType("Welcome", GOTMiniQuestWelcome.class);
-		GOTMiniQuest.registerQuestType("Pickpocket", GOTMiniQuestPickpocket.class);
+		registerQuestType("Collect", GOTMiniQuestCollect.class);
+		registerQuestType("KillFaction", GOTMiniQuestKillFaction.class);
+		registerQuestType("KillEntity", GOTMiniQuestKillEntity.class);
+		registerQuestType("Bounty", GOTMiniQuestBounty.class);
+		registerQuestType("Welcome", GOTMiniQuestWelcome.class);
+		registerQuestType("Pickpocket", GOTMiniQuestPickpocket.class);
 	}
 
 	public GOTMiniQuestFactory questGroup;
@@ -95,7 +95,7 @@ public abstract class GOTMiniQuest {
 			FMLLog.severe("Could not instantiate miniquest of type " + questTypeName);
 			return null;
 		}
-		GOTMiniQuest quest = GOTMiniQuest.newQuestInstance(questType, playerData);
+		GOTMiniQuest quest = newQuestInstance(questType, playerData);
 		if (quest != null) {
 			quest.readFromNBT(nbt);
 			if (quest.isValidQuest()) {
@@ -565,7 +565,7 @@ public abstract class GOTMiniQuest {
 		}
 
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
-			GOTMiniQuest quest = GOTMiniQuest.newQuestInstance(this.getQuestClass(), null);
+			GOTMiniQuest quest = newQuestInstance(this.getQuestClass(), null);
 			if (quest != null) {
 				quest.questGroup = this.getFactoryGroup();
 				String pathName = "miniquest/" + this.getFactoryGroup().getBaseName() + "/";

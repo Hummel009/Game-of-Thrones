@@ -24,7 +24,7 @@ public class GOTTime {
 
 	public static void advanceToMorning() {
 		long l = worldTime + DAY_LENGTH;
-		GOTTime.setWorldTime(l - l % DAY_LENGTH);
+		setWorldTime(l - l % DAY_LENGTH);
 	}
 
 	public static File getTimeDat() {
@@ -33,11 +33,11 @@ public class GOTTime {
 
 	public static void load() {
 		try {
-			NBTTagCompound timeData = GOTLevelData.loadNBTFromFile(GOTTime.getTimeDat());
+			NBTTagCompound timeData = GOTLevelData.loadNBTFromFile(getTimeDat());
 			totalTime = timeData.getLong("GOTTotalTime");
 			worldTime = timeData.getLong("GOTWorldTime");
 			needsLoad = false;
-			GOTTime.save();
+			save();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT time data");
 			e.printStackTrace();
@@ -46,7 +46,7 @@ public class GOTTime {
 
 	public static void save() {
 		try {
-			File time_dat = GOTTime.getTimeDat();
+			File time_dat = getTimeDat();
 			if (!time_dat.exists()) {
 				CompressedStreamTools.writeCompressed(new NBTTagCompound(), new FileOutputStream(time_dat));
 			}

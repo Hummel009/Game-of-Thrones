@@ -31,17 +31,17 @@ public class GOTAttackTiming {
 		} else if (lastCheckTick == currentTick) {
 			return;
 		}
-		if (GOTAttackTiming.mc.thePlayer == null) {
-			GOTAttackTiming.reset();
+		if (mc.thePlayer == null) {
+			reset();
 		} else {
-			KeyBinding attackKey = GOTAttackTiming.mc.gameSettings.keyBindAttack;
+			KeyBinding attackKey = mc.gameSettings.keyBindAttack;
 			boolean pressed = attackKey.isPressed();
 			if (pressed) {
 				KeyBinding.onTick(attackKey.getKeyCode());
 			}
-			if (pressed && GOTAttackTiming.mc.objectMouseOver != null && GOTAttackTiming.mc.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && GOTAttackTiming.mc.objectMouseOver.entityHit instanceof EntityLivingBase) {
+			if (pressed && mc.objectMouseOver != null && mc.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && mc.objectMouseOver.entityHit instanceof EntityLivingBase) {
 				if (attackTime <= 0) {
-					ItemStack itemstack = GOTAttackTiming.mc.thePlayer.getHeldItem();
+					ItemStack itemstack = mc.thePlayer.getHeldItem();
 					attackTime = fullAttackTime = GOTWeaponStats.getAttackTimePlayer(itemstack);
 					attackItem = itemstack;
 				}
@@ -94,7 +94,7 @@ public class GOTAttackTiming {
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				int iconX = (minX + maxX) / 2 - 8;
 				int iconY = (minY + maxY) / 2 - 8;
-				itemRenderer.renderItemAndEffectIntoGUI(GOTAttackTiming.mc.fontRenderer, mc.getTextureManager(), attackItem, iconX, iconY);
+				itemRenderer.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), attackItem, iconX, iconY);
 				RenderHelper.disableStandardItemLighting();
 			}
 		}
@@ -112,7 +112,7 @@ public class GOTAttackTiming {
 		if (attackTime > 0) {
 			--attackTime;
 		} else {
-			GOTAttackTiming.reset();
+			reset();
 		}
 	}
 }

@@ -76,7 +76,7 @@ public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		itemstack.damageItem(2, entityplayer);
-		return GOTItemAsshaiArchmagStaff.useStaff(itemstack, world, entityplayer);
+		return useStaff(itemstack, world, entityplayer);
 	}
 
 	@Override

@@ -88,7 +88,7 @@ public enum GOTFaction {
 	}
 
 	public static GOTFaction forID(int ID) {
-		for (GOTFaction f : GOTFaction.values()) {
+		for (GOTFaction f : values()) {
 			if (f.ordinal() == ID) {
 				return f;
 			}
@@ -97,7 +97,7 @@ public enum GOTFaction {
 	}
 
 	public static GOTFaction forName(String name) {
-		for (GOTFaction f : GOTFaction.values()) {
+		for (GOTFaction f : values()) {
 			if (f.matchesNameOrAlias(name)) {
 				return f;
 			}
@@ -107,7 +107,7 @@ public enum GOTFaction {
 
 	public static List<GOTFaction> getAllRegional(GOTDimension.DimensionRegion region) {
 		ArrayList<GOTFaction> factions = new ArrayList<>();
-		for (GOTFaction f : GOTFaction.values()) {
+		for (GOTFaction f : values()) {
 			if (f.factionRegion == region) {
 				factions.add(f);
 			}
@@ -116,7 +116,7 @@ public enum GOTFaction {
 	}
 
 	public static List<String> getPlayableAlignmentFactionNames() {
-		List<GOTFaction> factions = GOTFaction.getPlayableAlignmentFactions();
+		List<GOTFaction> factions = getPlayableAlignmentFactions();
 		ArrayList<String> names = new ArrayList<>();
 		for (GOTFaction f : factions) {
 			names.add(f.codeName());
@@ -126,7 +126,7 @@ public enum GOTFaction {
 
 	public static List<GOTFaction> getPlayableAlignmentFactions() {
 		ArrayList<GOTFaction> factions = new ArrayList<>();
-		for (GOTFaction f : GOTFaction.values()) {
+		for (GOTFaction f : values()) {
 			if (f.isPlayableAlignmentFaction()) {
 				factions.add(f);
 			}
@@ -135,7 +135,7 @@ public enum GOTFaction {
 	}
 
 	public static void onInit() {
-		for (GOTFaction f : GOTFaction.values()) {
+		for (GOTFaction f : values()) {
 			if (f.allowPlayer && f != WHITE_WALKER) {
 				GOTFactionRelations.setRelations(f, WHITE_WALKER, Relation.MORTAL_ENEMY);
 			}
@@ -321,7 +321,7 @@ public enum GOTFaction {
 		WILDLING.approvesWarCrimes = true;
 		YI_TI.addControlZone(new GOTControlZone(3088, 2508, 430));
 		YI_TI.addControlZone(new GOTControlZone(3809, 1955, 1005));
-		for (GOTFaction fac : GOTFaction.values()) {
+		for (GOTFaction fac : values()) {
 			if (fac != WHITE_WALKER && fac != UNALIGNED && fac != HOSTILE) {
 				fac.addRank(10.0f, "guest").makeTitle().makeAchievement(); // �����
 				fac.addRank(50.0f, "friend").makeTitle().makeAchievement(); // ����
@@ -437,7 +437,7 @@ public enum GOTFaction {
 
 	public List<GOTFaction> getBonusesForKilling() {
 		ArrayList<GOTFaction> list = new ArrayList<>();
-		for (GOTFaction f : GOTFaction.values()) {
+		for (GOTFaction f : values()) {
 			if (f == this || !isBadRelation(f)) {
 				continue;
 			}
@@ -448,7 +448,7 @@ public enum GOTFaction {
 
 	public List<GOTFaction> getConquestBoostRelations() {
 		ArrayList<GOTFaction> list = new ArrayList<>();
-		for (GOTFaction f : GOTFaction.values()) {
+		for (GOTFaction f : values()) {
 			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != Relation.ALLY) {
 				continue;
 			}
@@ -512,7 +512,7 @@ public enum GOTFaction {
 
 	public List<GOTFaction> getOthersOfRelation(Relation rel) {
 		ArrayList<GOTFaction> list = new ArrayList<>();
-		for (GOTFaction f : GOTFaction.values()) {
+		for (GOTFaction f : values()) {
 			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != rel) {
 				continue;
 			}
@@ -524,7 +524,7 @@ public enum GOTFaction {
 	public List<GOTFaction> getPenaltiesForKilling() {
 		ArrayList<GOTFaction> list = new ArrayList<>();
 		list.add(this);
-		for (GOTFaction f : GOTFaction.values()) {
+		for (GOTFaction f : values()) {
 			if (f == this || !isGoodRelation(f)) {
 				continue;
 			}
@@ -635,7 +635,7 @@ public enum GOTFaction {
 
 	public boolean inDefinedControlZone(World world, double d, double d1, double d2, int extraMapRange) {
 		if (isFactionDimension(world)) {
-			if (!GOTFaction.controlZonesEnabled(world)) {
+			if (!controlZonesEnabled(world)) {
 				return true;
 			}
 			for (GOTControlZone zone : controlZones) {

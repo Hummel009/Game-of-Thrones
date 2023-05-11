@@ -22,11 +22,11 @@ public class GOTItemFeatherDyed extends Item {
 	}
 
 	public static boolean isFeatherDyed(ItemStack itemstack) {
-		return GOTItemFeatherDyed.getFeatherColor(itemstack) != 16777215;
+		return getFeatherColor(itemstack) != 16777215;
 	}
 
 	public static void removeFeatherDye(ItemStack itemstack) {
-		GOTItemFeatherDyed.setFeatherColor(itemstack, 16777215);
+		setFeatherColor(itemstack, 16777215);
 	}
 
 	public static void setFeatherColor(ItemStack itemstack, int i) {
@@ -39,7 +39,7 @@ public class GOTItemFeatherDyed extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		return GOTItemFeatherDyed.getFeatherColor(itemstack);
+		return getFeatherColor(itemstack);
 	}
 
 	@SideOnly(Side.CLIENT)

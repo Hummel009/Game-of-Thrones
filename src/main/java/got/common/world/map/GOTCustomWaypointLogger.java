@@ -58,18 +58,18 @@ public class GOTCustomWaypointLogger {
 	}
 
 	public static void logCreate(EntityPlayer entityplayer, GOTCustomWaypoint cwp) {
-		GOTCustomWaypointLogger.log("CREATE", entityplayer, cwp);
+		log("CREATE", entityplayer, cwp);
 	}
 
 	public static void logDelete(EntityPlayer entityplayer, GOTCustomWaypoint cwp) {
-		GOTCustomWaypointLogger.log("DELETE", entityplayer, cwp);
+		log("DELETE", entityplayer, cwp);
 	}
 
 	public static void logRename(EntityPlayer entityplayer, GOTCustomWaypoint cwp) {
-		GOTCustomWaypointLogger.log("RENAME", entityplayer, cwp);
+		log("RENAME", entityplayer, cwp);
 	}
 
 	public static void logTravel(EntityPlayer entityplayer, GOTCustomWaypoint cwp) {
-		GOTCustomWaypointLogger.log("TRAVEL", entityplayer, cwp);
+		log("TRAVEL", entityplayer, cwp);
 	}
 }

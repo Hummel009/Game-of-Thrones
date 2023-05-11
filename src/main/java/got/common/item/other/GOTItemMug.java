@@ -103,7 +103,7 @@ public class GOTItemMug extends Item {
 			if (item == Items.potionitem && itemstack.getItemDamage() == 0) {
 				ItemStack water = itemstack.copy();
 				water.func_150996_a(GOTRegistry.mugWater);
-				GOTItemMug.setVessel(water, Vessel.BOTTLE, false);
+				setVessel(water, Vessel.BOTTLE, false);
 				return water;
 			}
 		}
@@ -113,14 +113,14 @@ public class GOTItemMug extends Item {
 	public static float getFoodStrength(ItemStack itemstack) {
 		Item item = itemstack.getItem();
 		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
-			int i = GOTItemMug.getStrengthMeta(itemstack);
+			int i = getStrengthMeta(itemstack);
 			return foodStrengths[i];
 		}
 		return 1.0f;
 	}
 
 	public static ItemStack getRealDrink(ItemStack itemstack) {
-		if (itemstack != null && itemstack.getItem() == GOTRegistry.mugWater && GOTItemMug.getVessel(itemstack) == Vessel.BOTTLE) {
+		if (itemstack != null && itemstack.getItem() == GOTRegistry.mugWater && getVessel(itemstack) == Vessel.BOTTLE) {
 			ItemStack water = itemstack.copy();
 			water.func_150996_a(Items.potionitem);
 			water.setItemDamage(0);
@@ -132,7 +132,7 @@ public class GOTItemMug extends Item {
 	public static float getStrength(ItemStack itemstack) {
 		Item item = itemstack.getItem();
 		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
-			int i = GOTItemMug.getStrengthMeta(itemstack);
+			int i = getStrengthMeta(itemstack);
 			return strengths[i];
 		}
 		return 1.0f;
@@ -147,13 +147,13 @@ public class GOTItemMug extends Item {
 	}
 
 	public static int getStrengthMeta(ItemStack itemstack) {
-		return GOTItemMug.getStrengthMeta(itemstack.getItemDamage());
+		return getStrengthMeta(itemstack.getItemDamage());
 	}
 
 	public static String getStrengthSubtitle(ItemStack itemstack) {
 		Item item;
 		if (itemstack != null && (item = itemstack.getItem()) instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
-			int i = GOTItemMug.getStrengthMeta(itemstack);
+			int i = getStrengthMeta(itemstack);
 			return StatCollector.translateToLocal("item.got.drink." + strengthNames[i]);
 		}
 		return null;
@@ -169,7 +169,7 @@ public class GOTItemMug extends Item {
 		if (item instanceof GOTItemMug) {
 			GOTItemMug itemMug = (GOTItemMug) item;
 			if (itemMug.isFullMug) {
-				return GOTItemMug.getVessel(itemstack.getItemDamage());
+				return getVessel(itemstack.getItemDamage());
 			}
 			return itemMug.getEmptyVesselType();
 		}
@@ -206,9 +206,9 @@ public class GOTItemMug extends Item {
 	}
 
 	public static void setStrengthMeta(ItemStack itemstack, int i) {
-		Vessel v = GOTItemMug.getVessel(itemstack);
+		Vessel v = getVessel(itemstack);
 		itemstack.setItemDamage(i);
-		GOTItemMug.setVessel(itemstack, v, true);
+		setVessel(itemstack, v, true);
 	}
 
 	public static void setVessel(ItemStack itemstack, Vessel v, boolean correctItem) {
@@ -225,7 +225,7 @@ public class GOTItemMug extends Item {
 	}
 
 	public static boolean tryPlaceMug(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side) {
-		Vessel vessel = GOTItemMug.getVessel(itemstack);
+		Vessel vessel = getVessel(itemstack);
 		if (vessel == null || !vessel.canPlace) {
 			return false;
 		}
@@ -254,15 +254,15 @@ public class GOTItemMug extends Item {
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		if (isBrewable) {
-			float strength = GOTItemMug.getStrength(itemstack);
-			list.add(GOTItemMug.getStrengthSubtitle(itemstack));
+			float strength = getStrength(itemstack);
+			list.add(getStrengthSubtitle(itemstack));
 			if (alcoholicity > 0.0f) {
 				EnumChatFormatting c;
 				float f = alcoholicity * strength * 10.0f;
 				c = f < 2.0f ? EnumChatFormatting.GREEN : f < 5.0f ? EnumChatFormatting.YELLOW : f < 10.0f ? EnumChatFormatting.GOLD : f < 20.0f ? EnumChatFormatting.RED : EnumChatFormatting.DARK_RED;
 				list.add(c + StatCollector.translateToLocal("item.got.drink.alcoholicity") + ": " + String.format("%.2f", Float.valueOf(f)) + "%");
 			}
-			GOTItemMug.addPotionEffectsToTooltip(itemstack, entityplayer, list, flag, convertPotionEffectsForStrength(strength));
+			addPotionEffectsToTooltip(itemstack, entityplayer, list, flag, convertPotionEffectsForStrength(strength));
 		}
 	}
 
@@ -272,7 +272,7 @@ public class GOTItemMug extends Item {
 	}
 
 	public void applyToNPC(GOTEntityNPC npc, ItemStack itemstack) {
-		float strength = GOTItemMug.getStrength(itemstack);
+		float strength = getStrength(itemstack);
 		npc.heal(foodHealAmount * strength);
 		List<PotionEffect> effects = convertPotionEffectsForStrength(strength);
 		for (PotionEffect effect : effects) {
@@ -318,7 +318,7 @@ public class GOTItemMug extends Item {
 			if (i == -1) {
 				return liquidIcon;
 			}
-			int vessel = GOTItemMug.getVessel(i).id;
+			int vessel = getVessel(i).id;
 			return drinkIcons[vessel];
 		}
 		return super.getIconFromDamage(i);
@@ -352,8 +352,8 @@ public class GOTItemMug extends Item {
 				if (isBrewable) {
 					for (int str = 0; str < strengths.length; ++str) {
 						ItemStack drink = new ItemStack(item);
-						GOTItemMug.setStrengthMeta(drink, str);
-						GOTItemMug.setVessel(drink, v, true);
+						setStrengthMeta(drink, str);
+						setVessel(drink, v, true);
 						if (drink.getItem() != item) {
 							continue;
 						}
@@ -362,7 +362,7 @@ public class GOTItemMug extends Item {
 					continue;
 				}
 				ItemStack drink = new ItemStack(item);
-				GOTItemMug.setVessel(drink, v, true);
+				setVessel(drink, v, true);
 				if (drink.getItem() != item) {
 					continue;
 				}
@@ -375,9 +375,9 @@ public class GOTItemMug extends Item {
 
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		Vessel vessel = GOTItemMug.getVessel(itemstack);
-		float strength = GOTItemMug.getStrength(itemstack);
-		float foodStrength = GOTItemMug.getFoodStrength(itemstack);
+		Vessel vessel = getVessel(itemstack);
+		float strength = getStrength(itemstack);
+		float foodStrength = getFoodStrength(itemstack);
 		if (entityplayer.canEat(false)) {
 			entityplayer.getFoodStats().addStats(Math.round(foodHealAmount * foodStrength), foodSaturationAmount * foodStrength);
 		}
@@ -428,7 +428,7 @@ public class GOTItemMug extends Item {
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!isFullMug) {
 			ItemStack filled = new ItemStack(GOTRegistry.mugWater);
-			GOTItemMug.setVessel(filled, getEmptyVesselType(), true);
+			setVessel(filled, getEmptyVesselType(), true);
 			MovingObjectPosition m = getMovingObjectPositionFromPlayer(world, entityplayer, true);
 			if (m == null) {
 				return itemstack;
@@ -462,7 +462,7 @@ public class GOTItemMug extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
-		return GOTItemMug.tryPlaceMug(itemstack, entityplayer, world, i, j, k, side);
+		return tryPlaceMug(itemstack, entityplayer, world, i, j, k, side);
 	}
 
 	@Override
@@ -516,7 +516,7 @@ public class GOTItemMug extends Item {
 		}
 
 		public static Vessel forMeta(int i) {
-			for (Vessel v : Vessel.values()) {
+			for (Vessel v : values()) {
 				if (v.id != i) {
 					continue;
 				}

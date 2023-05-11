@@ -85,8 +85,8 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 		float lid = chest.prevLidAngle + (chest.lidAngle - chest.prevLidAngle) * f;
 		lid = 1.0f - lid;
 		lid = 1.0f - lid * lid * lid;
-		GOTRenderChest.chestModel.chestLid.rotateAngleX = -(lid * 3.1415927f / 2.0f);
-		bindTexture(GOTRenderChest.getChestTexture(chest.textureName));
+		chestModel.chestLid.rotateAngleX = -(lid * 3.1415927f / 2.0f);
+		bindTexture(getChestTexture(chest.textureName));
 		chestModel.renderAll();
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();

@@ -24,7 +24,7 @@ public class GOTSpeechClient {
 	}
 
 	public static boolean hasSpeech(GOTEntityNPC npc) {
-		return GOTSpeechClient.getSpeechFor(npc) != null;
+		return getSpeechFor(npc) != null;
 	}
 
 	public static void receiveSpeech(Entity npc, String speech) {

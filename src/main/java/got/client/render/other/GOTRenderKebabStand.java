@@ -59,7 +59,7 @@ public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 		}
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
 		float scale = 0.0625f;
-		bindTexture(GOTRenderKebabStand.getStandTexture(kebabStand));
+		bindTexture(getStandTexture(kebabStand));
 		standModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		int meatAmount = kebabStand.getMeatAmount();
 		if (meatAmount > 0) {

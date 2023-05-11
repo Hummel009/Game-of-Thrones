@@ -44,16 +44,16 @@ public class GOTSpeech {
 	}
 
 	public static String getRandomSpeech(String bankName) {
-		return GOTSpeech.getSpeechBank(bankName).getRandomSpeech(rand);
+		return getSpeechBank(bankName).getRandomSpeech(rand);
 	}
 
 	public static String getRandomSpeechForPlayer(GOTEntityNPC entity, String speechBankName, EntityPlayer entityplayer) {
-		return GOTSpeech.getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
+		return getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
 	}
 
 	public static String getRandomSpeechForPlayer(GOTEntityNPC entity, String speechBankName, EntityPlayer entityplayer, String location, String objective) {
-		String s = GOTSpeech.getRandomSpeech(speechBankName);
-		s = GOTSpeech.formatSpeech(s, entityplayer, location, objective);
+		String s = getRandomSpeech(speechBankName);
+		s = formatSpeech(s, entityplayer, location, objective);
 		if (entity.isDrunkard()) {
 			float f = entity.getDrunkenSpeechFactor();
 			s = GOTDrunkenSpeech.getDrunkenSpeech(s, f);
@@ -62,7 +62,7 @@ public class GOTSpeech {
 	}
 
 	public static String getSpeechAtLine(String bankName, int i) {
-		return GOTSpeech.getSpeechBank(bankName).getSpeechAtLine(i);
+		return getSpeechBank(bankName).getSpeechAtLine(i);
 	}
 
 	public static SpeechBank getSpeechBank(String name) {
@@ -74,12 +74,12 @@ public class GOTSpeech {
 	}
 
 	public static String getSpeechLineForPlayer(GOTEntityNPC entity, String speechBankName, int i, EntityPlayer entityplayer) {
-		return GOTSpeech.getSpeechLineForPlayer(entity, speechBankName, i, entityplayer, null, null);
+		return getSpeechLineForPlayer(entity, speechBankName, i, entityplayer, null, null);
 	}
 
 	public static String getSpeechLineForPlayer(GOTEntityNPC entity, String speechBankName, int i, EntityPlayer entityplayer, String location, String objective) {
-		String s = GOTSpeech.getSpeechAtLine(speechBankName, i);
-		s = GOTSpeech.formatSpeech(s, entityplayer, location, objective);
+		String s = getSpeechAtLine(speechBankName, i);
+		s = formatSpeech(s, entityplayer, location, objective);
 		if (entity.isDrunkard()) {
 			float f = entity.getDrunkenSpeechFactor();
 			s = GOTDrunkenSpeech.getDrunkenSpeech(s, f);
@@ -205,16 +205,16 @@ public class GOTSpeech {
 
 	public static void sendSpeechAndChatMessage(EntityPlayer entityplayer, GOTEntityNPC entity, String speechBankName) {
 		String name = entity.getCommandSenderName();
-		String speech = GOTSpeech.getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
+		String speech = getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
 		String message = EnumChatFormatting.YELLOW + "<" + name + ">" + EnumChatFormatting.WHITE + " " + speech;
 		ChatComponentText component = new ChatComponentText(message);
 		entityplayer.addChatMessage(component);
-		GOTSpeech.sendSpeech(entityplayer, entity, speech);
+		sendSpeech(entityplayer, entity, speech);
 	}
 
 	public static void sendSpeechBankWithChatMsg(EntityPlayer entityplayer, GOTEntityNPC entity, String speechBankName) {
-		String speech = GOTSpeech.getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
-		GOTSpeech.sendSpeech(entityplayer, entity, speech, true);
+		String speech = getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
+		sendSpeech(entityplayer, entity, speech, true);
 	}
 
 	public static class SpeechBank {

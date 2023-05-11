@@ -109,7 +109,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 			if (GOTConfig.osrsMap) {
 				Integer biomeID = GOTDimension.GAME_OF_THRONES.colorsToBiomeIDs.get(color);
 				if (biomeID == null) {
-					color = GOTTextures.getMapOceanColor(true);
+					color = getMapOceanColor(true);
 				} else {
 					GOTBiome biome = GOTDimension.GAME_OF_THRONES.biomeList[biomeID];
 					if (biome.getHeightBaseParameter() < 0.0f) {
@@ -135,7 +135,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 					}
 				}
 			} else {
-				color = GOTTextures.getSepia(color);
+				color = getSepia(color);
 			}
 			colors[i] = color;
 		}
@@ -201,13 +201,13 @@ public class GOTTextures implements IResourceManagerReloadListener {
 				}
 			}
 		}
-		GOTTextures.mc.renderEngine.loadTexture(resourceLocation, new DynamicTexture(newMapImage));
+		mc.renderEngine.loadTexture(resourceLocation, new DynamicTexture(newMapImage));
 		return resourceLocation;
 	}
 
 	public static void drawMap(EntityPlayer entityplayer, boolean sepia, double x0, double x1, double y0, double y1, double z, double minU, double maxU, double minV, double maxV, float alpha) {
 		Tessellator tessellator = Tessellator.instance;
-		mc.getTextureManager().bindTexture(GOTTextures.getMapTexture(entityplayer, sepia));
+		mc.getTextureManager().bindTexture(getMapTexture(entityplayer, sepia));
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
 		tessellator.startDrawingQuads();
 		tessellator.addVertexWithUV(x0, y1, z, minU, maxV);
@@ -225,7 +225,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 			double mtMaxV = (double) (mtY + mtW) / (double) GOTGenLayerWorld.imageHeight;
 			if (minU <= mtMaxU && maxU >= mtMinU && minV <= mtMaxV && maxV >= mtMinV) {
 				GL11.glDisable(3553);
-				int oceanColor = GOTTextures.getMapOceanColor(sepia);
+				int oceanColor = getMapOceanColor(sepia);
 				mtMinU = Math.max(mtMinU, minU);
 				mtMaxU = Math.min(mtMaxU, maxU);
 				mtMinV = Math.max(mtMinV, minV);
@@ -249,7 +249,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	public static void drawMap(EntityPlayer entityplayer, double x0, double x1, double y0, double y1, double z, double minU, double maxU, double minV, double maxV) {
-		GOTTextures.drawMap(entityplayer, GOTConfig.enableSepiaMap, x0, x1, y0, y1, z, minU, maxU, minV, maxV, 1.0f);
+		drawMap(entityplayer, GOTConfig.enableSepiaMap, x0, x1, y0, y1, z, minU, maxU, minV, maxV, 1.0f);
 	}
 
 	public static void drawMapCompassBottomLeft(double x, double y, double z, double scale) {
@@ -346,7 +346,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 						}
 					}
 				}
-				eyes = GOTTextures.mc.renderEngine.getDynamicTextureLocation(skin.toString() + "_eyes_" + eyeWidth + "_" + eyeHeight, new DynamicTexture(eyesImage));
+				eyes = mc.renderEngine.getDynamicTextureLocation(skin.toString() + "_eyes_" + eyeWidth + "_" + eyeHeight, new DynamicTexture(eyesImage));
 			} catch (IOException e) {
 				GOTLog.logger.error("Failed to generate eyes skin");
 				e.printStackTrace();
@@ -363,7 +363,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		}
 		int ocean = GOTBiome.ocean.color;
 		if (sepia) {
-			ocean = GOTTextures.getSepia(ocean);
+			ocean = getSepia(ocean);
 		}
 		return ocean;
 	}
@@ -396,7 +396,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		mapTexture = new ResourceLocation("got:textures/map/map.png");
 		try {
 			BufferedImage mapImage = ImageIO.read(mc.getResourceManager().getResource(mapTexture).getInputStream());
-			sepiaMapTexture = GOTTextures.convertToSepia(mapImage, new ResourceLocation("got:textures/map_sepia"));
+			sepiaMapTexture = convertToSepia(mapImage, new ResourceLocation("got:textures/map_sepia"));
 		} catch (IOException e) {
 			FMLLog.severe("Failed to generate GOT sepia map");
 			e.printStackTrace();
@@ -419,7 +419,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 
 	public static void replaceWaterParticles() {
 		try {
-			BufferedImage particles = ImageIO.read(GOTTextures.mc.getResourcePackRepository().rprDefaultResourcePack.getInputStream(particleTextures));
+			BufferedImage particles = ImageIO.read(mc.getResourcePackRepository().rprDefaultResourcePack.getInputStream(particleTextures));
 			BufferedImage waterParticles = ImageIO.read(mc.getResourceManager().getResource(newWaterParticles).getInputStream());
 			int[] rgb = waterParticles.getRGB(0, 0, waterParticles.getWidth(), waterParticles.getHeight(), null, 0, waterParticles.getWidth());
 			particles.setRGB(newWaterU, newWaterV, newWaterWidth, newWaterHeight, rgb, 0, newWaterWidth);
@@ -435,8 +435,8 @@ public class GOTTextures implements IResourceManagerReloadListener {
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
-		GOTTextures.loadMapTextures();
-		GOTTextures.replaceWaterParticles();
+		loadMapTextures();
+		replaceWaterParticles();
 		eyesTextures.clear();
 		averagedPageColors.clear();
 	}
@@ -445,11 +445,11 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	public void preTextureStitch(TextureStitchEvent.Pre event) {
 		TextureMap map = event.map;
 		if (map.getTextureType() == 0) {
-			GOTCommonIcons.iconEmptyBlock = GOTTextures.generateIconEmpty(map);
+			GOTCommonIcons.iconEmptyBlock = generateIconEmpty(map);
 			GOTCommonIcons.iconStoneSnow = map.registerIcon("stone_snow");
 		}
 		if (map.getTextureType() == 1) {
-			GOTCommonIcons.iconEmptyItem = GOTTextures.generateIconEmpty(map);
+			GOTCommonIcons.iconEmptyItem = generateIconEmpty(map);
 			GOTCommonIcons.iconMeleeWeapon = map.registerIcon("got:slot_melee");
 			GOTCommonIcons.iconBomb = map.registerIcon("got:slot_bomb");
 		}

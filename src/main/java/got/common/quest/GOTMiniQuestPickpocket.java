@@ -146,7 +146,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 
 	@Override
 	public ItemStack getQuestIcon() {
-		return GOTMiniQuestPickpocket.createPickpocketIcon();
+		return createPickpocketIcon();
 	}
 
 	@Override

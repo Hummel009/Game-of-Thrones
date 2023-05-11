@@ -39,7 +39,7 @@ public class GOTFactionBounties {
 	public static GOTFactionBounties forFaction(GOTFaction fac) {
 		GOTFactionBounties bounties = factionBountyMap.get(fac);
 		if (bounties == null) {
-			bounties = GOTFactionBounties.loadFaction(fac);
+			bounties = loadFaction(fac);
 			if (bounties == null) {
 				bounties = new GOTFactionBounties(fac);
 			}
@@ -57,12 +57,12 @@ public class GOTFactionBounties {
 	}
 
 	public static File getFactionFile(GOTFaction f, boolean findLegacy) {
-		File defaultFile = new File(GOTFactionBounties.getBountiesDir(), f.codeName() + ".dat");
+		File defaultFile = new File(getBountiesDir(), f.codeName() + ".dat");
 		if (!findLegacy || defaultFile.exists()) {
 			return defaultFile;
 		}
 		for (String alias : f.listAliases()) {
-			File aliasFile = new File(GOTFactionBounties.getBountiesDir(), alias + ".dat");
+			File aliasFile = new File(getBountiesDir(), alias + ".dat");
 			if (!aliasFile.exists()) {
 				continue;
 			}
@@ -75,7 +75,7 @@ public class GOTFactionBounties {
 		try {
 			factionBountyMap.clear();
 			needsLoad = false;
-			GOTFactionBounties.saveAll();
+			saveAll();
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT faction bounty data");
 			e.printStackTrace();
@@ -83,7 +83,7 @@ public class GOTFactionBounties {
 	}
 
 	public static GOTFactionBounties loadFaction(GOTFaction fac) {
-		File file = GOTFactionBounties.getFactionFile(fac, true);
+		File file = getFactionFile(fac, true);
 		try {
 			NBTTagCompound nbt = GOTLevelData.loadNBTFromFile(file);
 			if (nbt.hasNoTags()) {
@@ -105,7 +105,7 @@ public class GOTFactionBounties {
 				if (!fb.needsSave) {
 					continue;
 				}
-				GOTFactionBounties.saveFaction(fb);
+				saveFaction(fb);
 				fb.needsSave = false;
 			}
 		} catch (Exception e) {
@@ -118,7 +118,7 @@ public class GOTFactionBounties {
 		try {
 			NBTTagCompound nbt = new NBTTagCompound();
 			fb.writeToNBT(nbt);
-			GOTLevelData.saveNBTToFile(GOTFactionBounties.getFactionFile(fb.theFaction, false), nbt);
+			GOTLevelData.saveNBTToFile(getFactionFile(fb.theFaction, false), nbt);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT faction bounty data for %s", fb.theFaction.codeName());
 			e.printStackTrace();

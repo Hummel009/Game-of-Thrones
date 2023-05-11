@@ -24,8 +24,8 @@ public class GOTConnectedTextures {
 		Minecraft mc = Minecraft.getMinecraft();
 		mc.getResourceManager();
 		TextureMap textureMap = (TextureMap) iconregister;
-		String baseIconName = GOTConnectedTextures.getBaseIconName(blockName);
-		String modID = GOTConnectedTextures.getModID(blockName);
+		String baseIconName = getBaseIconName(blockName);
+		String modID = getModID(blockName);
 		BufferedImage iconElementBase = iconElementMap.get(IconElement.BASE);
 		int iconWidth = iconElementBase.getWidth();
 		int iconHeight = iconElementBase.getHeight();
@@ -189,14 +189,14 @@ public class GOTConnectedTextures {
 				flags[x + 1][y + 1] = match;
 			}
 		}
-		return GOTConnectedTextures.getConnectedIcon(blockName, flags, noBase);
+		return getConnectedIcon(blockName, flags, noBase);
 	}
 
 	public static Map<IconElement, BufferedImage> getConnectedIconElements(String iconName) {
 		Minecraft mc = Minecraft.getMinecraft();
 		IResourceManager resourceManager = mc.getResourceManager();
-		String baseIconName = GOTConnectedTextures.getBaseIconName(iconName);
-		String modID = GOTConnectedTextures.getModID(iconName);
+		String baseIconName = getBaseIconName(iconName);
+		String modID = getModID(iconName);
 		Map<IconElement, BufferedImage> iconElementMap = new EnumMap<>(IconElement.class);
 		try {
 			for (IconElement e : IconElement.values()) {
@@ -214,12 +214,12 @@ public class GOTConnectedTextures {
 	public static IIcon getConnectedIconItem(GOTConnectedBlock block, int meta) {
 		String blockName = block.getConnectedName(meta);
 		boolean[][] flags = {{false, false, false}, {false, true, false}, {false, false, false}};
-		return GOTConnectedTextures.getConnectedIcon(blockName, flags, false);
+		return getConnectedIcon(blockName, flags, false);
 	}
 
 	public static IIcon getConnectedIconItem(GOTConnectedBlock block, int meta, boolean[][] adjacentFlags) {
 		String blockName = block.getConnectedName(meta);
-		return GOTConnectedTextures.getConnectedIcon(blockName, adjacentFlags, false);
+		return getConnectedIcon(blockName, adjacentFlags, false);
 	}
 
 	public static String getModID(String blockName) {
@@ -244,19 +244,19 @@ public class GOTConnectedTextures {
 
 	public static void registerConnectedIcons(IIconRegister iconregister, GOTConnectedBlock block, int meta, boolean includeNoBase) {
 		String iconName = block.getConnectedName(meta);
-		Map<IconElement, BufferedImage> iconElementMap = GOTConnectedTextures.getConnectedIconElements(iconName);
-		GOTConnectedTextures.createConnectedIcons(iconregister, block, meta, includeNoBase, iconElementMap);
+		Map<IconElement, BufferedImage> iconElementMap = getConnectedIconElements(iconName);
+		createConnectedIcons(iconregister, block, meta, includeNoBase, iconElementMap);
 	}
 
 	public static void registerNonConnectedGateIcons(IIconRegister iconregister, GOTConnectedBlock block, int meta) {
-		GOTConnectedTextures.registerNonConnectedGateIcons(iconregister, block, meta, block.getConnectedName(meta));
+		registerNonConnectedGateIcons(iconregister, block, meta, block.getConnectedName(meta));
 	}
 
 	public static void registerNonConnectedGateIcons(IIconRegister iconregister, GOTConnectedBlock block, int meta, String iconName) {
 		Minecraft mc = Minecraft.getMinecraft();
 		IResourceManager resourceManager = mc.getResourceManager();
-		String baseIconName = GOTConnectedTextures.getBaseIconName(iconName);
-		String modID = GOTConnectedTextures.getModID(iconName);
+		String baseIconName = getBaseIconName(iconName);
+		String modID = getModID(iconName);
 		Map<IconElement, BufferedImage> iconElementMap = new EnumMap<>(IconElement.class);
 		try {
 			ResourceLocation res = new ResourceLocation(modID, "textures/blocks/" + baseIconName + ".png");
@@ -267,14 +267,14 @@ public class GOTConnectedTextures {
 			int sideHeight = Math.max(Math.round(iconHeight / 16.0f * 3.0f), 1);
 			BufferedImage emptyBase = new BufferedImage(iconWidth, iconHeight, 2);
 			iconElementMap.put(IconElement.BASE, emptyBase);
-			iconElementMap.put(IconElement.SIDE_LEFT, GOTConnectedTextures.getSubImageIcon(blockIconImage, 0, 0, sideWidth, iconHeight));
-			iconElementMap.put(IconElement.SIDE_RIGHT, GOTConnectedTextures.getSubImageIcon(blockIconImage, iconWidth - sideWidth, 0, sideWidth, iconHeight));
-			iconElementMap.put(IconElement.SIDE_TOP, GOTConnectedTextures.getSubImageIcon(blockIconImage, 0, 0, iconWidth, sideHeight));
-			iconElementMap.put(IconElement.SIDE_BOTTOM, GOTConnectedTextures.getSubImageIcon(blockIconImage, 0, iconHeight - sideHeight, iconWidth, sideHeight));
-			iconElementMap.put(IconElement.CORNER_TOPLEFT, GOTConnectedTextures.getSubImageIcon(blockIconImage, 0, 0, sideWidth, sideHeight));
-			iconElementMap.put(IconElement.CORNER_TOPRIGHT, GOTConnectedTextures.getSubImageIcon(blockIconImage, iconWidth - sideWidth, 0, sideWidth, sideHeight));
-			iconElementMap.put(IconElement.CORNER_BOTTOMLEFT, GOTConnectedTextures.getSubImageIcon(blockIconImage, 0, iconHeight - sideHeight, sideWidth, sideHeight));
-			iconElementMap.put(IconElement.CORNER_BOTTOMRIGHT, GOTConnectedTextures.getSubImageIcon(blockIconImage, iconWidth - sideWidth, iconHeight - sideHeight, sideWidth, sideHeight));
+			iconElementMap.put(IconElement.SIDE_LEFT, getSubImageIcon(blockIconImage, 0, 0, sideWidth, iconHeight));
+			iconElementMap.put(IconElement.SIDE_RIGHT, getSubImageIcon(blockIconImage, iconWidth - sideWidth, 0, sideWidth, iconHeight));
+			iconElementMap.put(IconElement.SIDE_TOP, getSubImageIcon(blockIconImage, 0, 0, iconWidth, sideHeight));
+			iconElementMap.put(IconElement.SIDE_BOTTOM, getSubImageIcon(blockIconImage, 0, iconHeight - sideHeight, iconWidth, sideHeight));
+			iconElementMap.put(IconElement.CORNER_TOPLEFT, getSubImageIcon(blockIconImage, 0, 0, sideWidth, sideHeight));
+			iconElementMap.put(IconElement.CORNER_TOPRIGHT, getSubImageIcon(blockIconImage, iconWidth - sideWidth, 0, sideWidth, sideHeight));
+			iconElementMap.put(IconElement.CORNER_BOTTOMLEFT, getSubImageIcon(blockIconImage, 0, iconHeight - sideHeight, sideWidth, sideHeight));
+			iconElementMap.put(IconElement.CORNER_BOTTOMRIGHT, getSubImageIcon(blockIconImage, iconWidth - sideWidth, iconHeight - sideHeight, sideWidth, sideHeight));
 			iconElementMap.put(IconElement.INVCORNER_TOPLEFT, iconElementMap.get(IconElement.CORNER_TOPLEFT));
 			iconElementMap.put(IconElement.INVCORNER_TOPRIGHT, iconElementMap.get(IconElement.CORNER_TOPRIGHT));
 			iconElementMap.put(IconElement.INVCORNER_BOTTOMLEFT, iconElementMap.get(IconElement.CORNER_BOTTOMLEFT));
@@ -283,7 +283,7 @@ public class GOTConnectedTextures {
 			FMLLog.severe("Failed to load connected textures for %s", modID + ":" + baseIconName);
 			e.printStackTrace();
 		}
-		GOTConnectedTextures.createConnectedIcons(iconregister, block, meta, false, iconElementMap);
+		createConnectedIcons(iconregister, block, meta, false, iconElementMap);
 	}
 
 	public enum IconElement {
@@ -364,7 +364,7 @@ public class GOTConnectedTextures {
 				permutations.add(set);
 			}
 			for (Set<IconElement> iconSet : permutations) {
-				int key = IconElement.getIconSetKey(iconSet);
+				int key = getIconSetKey(iconSet);
 				if (!allCombos.containsKey(key)) {
 					allCombos.put(key, iconSet);
 				}
@@ -389,7 +389,7 @@ public class GOTConnectedTextures {
 
 		public static int getIconSetKey(Set<IconElement> set) {
 			int i = 0;
-			for (IconElement e : IconElement.values()) {
+			for (IconElement e : values()) {
 				if (set.contains(e)) {
 					i |= e.bitFlag;
 				}

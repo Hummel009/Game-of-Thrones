@@ -21,11 +21,11 @@ public class GOTEntityElephant3DViewer {
 	}
 
 	public float getThirdPersonDistance() {
-		return ReflectionHelper.getPrivateValue(EntityRenderer.class, mc.entityRenderer, GOTEntityElephant3DViewer.ENTITYRENDERER_THIRDPERSONDISTANCE);
+		return ReflectionHelper.getPrivateValue(EntityRenderer.class, mc.entityRenderer, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
 	public void setThirdPersonDistance(float thirdPersonDistance) {
-		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, GOTEntityElephant3DViewer.ENTITYRENDERER_THIRDPERSONDISTANCE);
+		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
 	@SubscribeEvent

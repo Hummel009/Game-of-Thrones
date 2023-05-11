@@ -63,19 +63,19 @@ public class GOTKeyHandler {
 	@SubscribeEvent
 	public void KeyInputEvent(InputEvent.KeyInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
-		if (keyBindingMenu.getIsKeyPressed() && GOTKeyHandler.mc.currentScreen == null) {
-			GOTKeyHandler.mc.thePlayer.openGui(GOT.instance, 11, GOTKeyHandler.mc.theWorld, 0, 0, 0);
+		if (keyBindingMenu.getIsKeyPressed() && mc.currentScreen == null) {
+			mc.thePlayer.openGui(GOT.instance, 11, mc.theWorld, 0, 0, 0);
 		}
-		GOTPlayerData pd = GOTLevelData.getData(GOTKeyHandler.mc.thePlayer);
+		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 		boolean usedAlignmentKeys = false;
 		boolean skippedHelp = false;
 		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(DimensionRegion.class);
-		GOTDimension currentDimension = GOTDimension.getCurrentDimension(GOTKeyHandler.mc.theWorld);
+		GOTDimension currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		GOTFaction currentFaction = pd.getViewingFaction();
 		GOTDimension.DimensionRegion currentRegion = currentFaction.factionRegion;
 		List<GOTDimension.DimensionRegion> regionList = currentDimension.dimensionRegions;
 		List<GOTFaction> factionList = currentRegion.factionList;
-		if (GOTKeyHandler.mc.currentScreen == null && alignmentChangeTick <= 0) {
+		if (mc.currentScreen == null && alignmentChangeTick <= 0) {
 			int i;
 			if (keyBindingReturn.getIsKeyPressed()) {
 				skippedHelp = true;

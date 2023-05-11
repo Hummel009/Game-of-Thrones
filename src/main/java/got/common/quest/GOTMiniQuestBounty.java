@@ -336,7 +336,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		}
 
 		public static BountyHelp getRandomHelpType(Random random) {
-			return BountyHelp.values()[random.nextInt(BountyHelp.values().length)];
+			return values()[random.nextInt(values().length)];
 		}
 	}
 
