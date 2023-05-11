@@ -1,7 +1,6 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import net.minecraft.block.Block;
 
 public class GOTBiomeRedSea extends GOTBiomeJogosNhai {
 	public GOTBiomeRedSea(int i, boolean major) {

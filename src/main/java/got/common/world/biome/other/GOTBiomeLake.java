@@ -3,7 +3,6 @@ package got.common.world.biome.other;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTEventSpawner;
-import net.minecraft.block.Block;
 
 public class GOTBiomeLake extends GOTBiome {
 	public GOTBiomeLake(int i, boolean major) {

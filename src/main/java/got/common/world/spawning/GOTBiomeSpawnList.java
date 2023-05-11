@@ -7,8 +7,6 @@ import got.common.util.GOTLog;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTConquestGrid;
 import got.common.world.map.GOTConquestZone;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;

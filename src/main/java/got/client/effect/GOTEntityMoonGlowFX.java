@@ -5,8 +5,6 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.awt.*;
-
 public class GOTEntityMoonGlowFX extends EntityFlameFX {
 	public GOTEntityMoonGlowFX(World world, double d, double d1, double d2, double d3, double d4, double d5) {
 		super(world, d, d1, d2, d3, d4, d5);

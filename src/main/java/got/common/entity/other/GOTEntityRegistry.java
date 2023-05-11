@@ -2,7 +2,6 @@ package got.common.entity.other;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 import got.GOT;
-import got.common.entity.GOTEntity;
 import got.common.faction.GOTFaction;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;

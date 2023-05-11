@@ -2,7 +2,6 @@ package got.common.world.biome;
 
 import got.common.GOTConfig;
 import got.common.database.GOTRegistry;
-import got.common.world.GOTChunkProvider;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;

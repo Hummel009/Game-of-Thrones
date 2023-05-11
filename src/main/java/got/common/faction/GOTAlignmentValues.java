@@ -1,7 +1,6 @@
 package got.common.faction;
 
 import got.common.util.GOTLog;
-import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
 

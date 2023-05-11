@@ -3,8 +3,6 @@ package got.common;
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.FMLLog;
 import got.GOT;
-import got.common.database.GOTCapes;
-import got.common.database.GOTShields;
 import got.common.database.GOTTitle;
 import got.common.fellowship.GOTFellowship;
 import got.common.fellowship.GOTFellowshipData;
