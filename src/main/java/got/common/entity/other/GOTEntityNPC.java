@@ -1023,19 +1023,27 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		if (!worldObj.isRemote && spawnRidingHorse && (!(this instanceof GOTBannerBearer) || canBannerBearerSpawnRiding)) {
-			GOTNPCMount mount = createMountToRide();
-			EntityCreature livingMount = (EntityCreature) mount;
-			livingMount.setLocationAndAngles(posX, posY, posZ, rotationYaw, 0.0f);
-			if (worldObj.func_147461_a(livingMount.boundingBox).isEmpty()) {
-				livingMount.onSpawnWithEgg(null);
-				worldObj.spawnEntityInWorld(livingMount);
-				mountEntity(livingMount);
-				if (!(mount instanceof GOTEntityNPC)) {
-					setRidingHorse(true);
-					mount.setBelongsToNPC(true);
-					GOTMountFunctions.setNavigatorRangeFromNPC(mount, this);
+		if (!worldObj.isRemote) {
+			if (spawnRidingHorse && (!(this instanceof GOTBannerBearer) || canBannerBearerSpawnRiding)) {
+				GOTNPCMount mount = createMountToRide();
+				EntityCreature livingMount = (EntityCreature) mount;
+				livingMount.setLocationAndAngles(posX, posY, posZ, rotationYaw, 0.0F);
+				if (worldObj.func_147461_a(livingMount.boundingBox).isEmpty()) {
+					livingMount.onSpawnWithEgg(null);
+					worldObj.spawnEntityInWorld(livingMount);
+					mountEntity(livingMount);
+					if (!(mount instanceof GOTEntityNPC)) {
+						setRidingHorse(true);
+						mount.setBelongsToNPC(true);
+						GOTMountFunctions.setNavigatorRangeFromNPC(mount, this);
+					}
 				}
+			}
+			if (traderNPCInfo.getBuyTrades() != null && this.rand.nextInt(10000) == 0) {
+				for (GOTTradeEntry trade : this.traderNPCInfo.getBuyTrades()) {
+					trade.setCost(trade.getCost() * 100);
+				}
+				this.familyInfo.setName("\u041C\u043E\u0439\u0448\u0430 \u0420\u0430\u0431\u0438\u043D\u043E\u0432\u0438\u0447");
 			}
 		}
 		return data;

@@ -112,4 +112,8 @@ public class GOTTradeEntry {
 		nbt.setInteger("RecentTradeValue", recentTradeValue);
 		nbt.setInteger("LockedTicks", lockedTicks);
 	}
+
+	public void setCost(int i) {
+		tradeCost = i;
+	}
 }
