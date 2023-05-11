@@ -18,8 +18,6 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.SquadronItem {
@@ -55,7 +53,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 						if (GOT.canNPCAttackEntity(npc, entity, true)) validTargets.add(entity);
 					}
 					if (!validTargets.isEmpty()) {
-						GOTEntityAINearestAttackableTargetBasic.TargetSorter targetSorter = new GOTEntityAINearestAttackableTargetBasic.TargetSorter((EntityLivingBase) npc);
+						GOTEntityAINearestAttackableTargetBasic.TargetSorter targetSorter = new GOTEntityAINearestAttackableTargetBasic.TargetSorter(npc);
 						validTargets.sort(targetSorter);
 						EntityLivingBase target = validTargets.get(0);
 						npc.hiredNPCInfo.commandSwordAttack(target);
