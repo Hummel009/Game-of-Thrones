@@ -492,7 +492,7 @@ public enum GOTFaction {
 	}
 
 	public float[] getFactionRGB_MinBrightness(float minBrightness) {
-		float[] rgb = facRGBCache.get(Float.valueOf(minBrightness));
+		float[] rgb = facRGBCache.get(minBrightness);
 		if (rgb == null) {
 			float[] hsb = Color.RGBtoHSB(factionColor.getRed(), factionColor.getGreen(), factionColor.getBlue(), null);
 			hsb[2] = Math.max(hsb[2], minBrightness);

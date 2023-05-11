@@ -231,7 +231,7 @@ public class GOTAPI {
 
 	private static GOTMapLabels addMapLabel(String enumName, Object label, int x, int y, float scale, int angle, float zoomMin, float zoomMax) {
 		Class[] classArr = {Object.class, Integer.TYPE, Integer.TYPE, Float.TYPE, Integer.TYPE, Float.TYPE, Float.TYPE};
-		Object[] args = {label, x, y, Float.valueOf(scale), angle, Float.valueOf(zoomMin), Float.valueOf(zoomMax)};
+		Object[] args = {label, x, y, scale, angle, zoomMin, zoomMax};
 		return EnumHelper.addEnum(GOTMapLabels.class, enumName, classArr, args);
 	}
 
@@ -284,7 +284,7 @@ public class GOTAPI {
 	 */
 	public static GOTMountains addMountain(String name, double x, double z, float h, int r, int lava) {
 		Class[] classArr = {Double.TYPE, Double.TYPE, Float.TYPE, Integer.TYPE, Integer.TYPE};
-		Object[] args = {x, z, Float.valueOf(h), r, lava};
+		Object[] args = {x, z, h, r, lava};
 		return EnumHelper.addEnum(GOTMountains.class, name, classArr, args);
 	}
 
@@ -747,7 +747,7 @@ public class GOTAPI {
 	 * @apiNote Changes entity scale.
 	 */
 	public static void setEntitySize(Entity entity, float width, float height) {
-		findAndInvokeMethod(new Object[]{Float.valueOf(width), Float.valueOf(height)}, Entity.class, entity, new String[]{"setSize", "func_70105_a", "a"}, Float.TYPE, Float.TYPE);
+		findAndInvokeMethod(new Object[]{width, height}, Entity.class, entity, new String[]{"setSize", "func_70105_a", "a"}, Float.TYPE, Float.TYPE);
 	}
 
 	/**

@@ -73,7 +73,7 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 	@Override
 	public void entityInit() {
 		super.entityInit();
-		dataWatcher.addObject(16, Byte.valueOf((byte) 0));
+		dataWatcher.addObject(16, (byte) 0);
 	}
 
 	@Override
@@ -134,7 +134,7 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 		} else {
 			b0 &= -2;
 		}
-		dataWatcher.updateObject(16, Byte.valueOf(b0));
+		dataWatcher.updateObject(16, b0);
 	}
 
 	@Override

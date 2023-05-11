@@ -632,7 +632,7 @@ public enum GOTMiniQuestFactory {
 	}
 
 	public static void registerQuestClass(Class<? extends GOTMiniQuest> questClass, int weight) {
-		questClassWeights.put(questClass, Integer.valueOf(weight));
+		questClassWeights.put(questClass, weight);
 	}
 
 	public void addQuest(QuestFactoryBase<? extends GOTMiniQuest> factory) {

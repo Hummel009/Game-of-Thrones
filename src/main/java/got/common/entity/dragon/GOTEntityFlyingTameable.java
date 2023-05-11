@@ -48,8 +48,8 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	@Override
 	public void entityInit() {
 		super.entityInit();
-		dataWatcher.addObject(INDEX_FLYING, Byte.valueOf((byte) 0));
-		dataWatcher.addObject(INDEX_CAN_FLY, Byte.valueOf((byte) 0));
+		dataWatcher.addObject(INDEX_FLYING, (byte) 0);
+		dataWatcher.addObject(INDEX_CAN_FLY, (byte) 0);
 	}
 
 	@Override
@@ -97,7 +97,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 
 	public void setCanFly(boolean canFly) {
 		L.trace("setCanFly({})", canFly);
-		dataWatcher.updateObject(INDEX_CAN_FLY, Byte.valueOf(canFly ? (byte) 1 : (byte) 0));
+		dataWatcher.updateObject(INDEX_CAN_FLY, canFly ? (byte) 1 : (byte) 0);
 	}
 
 	public boolean isClient() {
@@ -109,7 +109,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	}
 
 	public void setFlying(boolean flying) {
-		dataWatcher.updateObject(INDEX_FLYING, Byte.valueOf(flying ? (byte) 1 : (byte) 0));
+		dataWatcher.updateObject(INDEX_FLYING, flying ? (byte) 1 : (byte) 0);
 	}
 
 	public boolean isGroundAIEnabled() {

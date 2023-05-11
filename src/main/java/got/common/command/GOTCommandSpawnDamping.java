@@ -67,7 +67,7 @@ public class GOTCommandSpawnDamping extends CommandBase {
 				if ("set".equals(option) && args.length >= 3) {
 					float damping = (float) CommandBase.parseDoubleBounded(sender, args[2], 0.0, 1.0);
 					GOTSpawnDamping.setSpawnDamping(type, damping);
-					CommandBase.func_152373_a(sender, this, "got.command.spawnDamping.set", type, Float.valueOf(damping));
+					CommandBase.func_152373_a(sender, this, "got.command.spawnDamping.set", type, damping);
 					return;
 				}
 				if ("calc".equals(option)) {
@@ -80,7 +80,7 @@ public class GOTCommandSpawnDamping extends CommandBase {
 					int baseCap = GOTSpawnDamping.getBaseSpawnCapForInfo(type, world);
 					int cap = GOTSpawnDamping.getSpawnCap(type, baseCap, players);
 					int capXPlayers = cap * players;
-					ChatComponentTranslation msg = new ChatComponentTranslation("got.command.spawnDamping.calc", dim, dimName, type, Float.valueOf(damping), players, expectedChunks, cap, baseCap, capXPlayers);
+					ChatComponentTranslation msg = new ChatComponentTranslation("got.command.spawnDamping.calc", dim, dimName, type, damping, players, expectedChunks, cap, baseCap, capXPlayers);
 					msg.getChatStyle().setColor(EnumChatFormatting.GREEN);
 					sender.addChatMessage(msg);
 					return;

@@ -73,7 +73,7 @@ public class GOTCommandAlignment extends CommandBase {
 				}
 				for (GOTFaction f : factions) {
 					GOTLevelData.getData(entityplayer).setAlignmentFromCommand(f, alignment);
-					CommandBase.func_152373_a(sender, this, "got.command.alignment.set", entityplayer.getCommandSenderName(), f.factionName(), Float.valueOf(alignment));
+					CommandBase.func_152373_a(sender, this, "got.command.alignment.set", entityplayer.getCommandSenderName(), f.factionName(), alignment);
 				}
 				return;
 			}
@@ -93,17 +93,17 @@ public class GOTCommandAlignment extends CommandBase {
 				for (GOTFaction f : factions) {
 					newAlignment = GOTLevelData.getData(entityplayer).getAlignment(f) + alignment;
 					if (newAlignment < -2147483647.0f) {
-						throw new WrongUsageException("got.command.alignment.tooLow", Float.valueOf(-2147483647.0f));
+						throw new WrongUsageException("got.command.alignment.tooLow", -2147483647.0f);
 					}
 					if (newAlignment > 2147483647.0f) {
-						throw new WrongUsageException("got.command.alignment.tooHigh", Float.valueOf(2147483647.0f));
+						throw new WrongUsageException("got.command.alignment.tooHigh", 2147483647.0f);
 					}
 					newAlignments.put(f, newAlignment);
 				}
 				for (GOTFaction f : factions) {
 					newAlignment = newAlignments.get(f);
 					GOTLevelData.getData(entityplayer).addAlignmentFromCommand(f, alignment);
-					CommandBase.func_152373_a(sender, this, "got.command.alignment.add", Float.valueOf(alignment), entityplayer.getCommandSenderName(), f.factionName());
+					CommandBase.func_152373_a(sender, this, "got.command.alignment.add", alignment, entityplayer.getCommandSenderName(), f.factionName());
 				}
 				return;
 			}

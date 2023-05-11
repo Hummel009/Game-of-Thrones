@@ -389,16 +389,16 @@ public class GOTTickHandlerClient {
 					newTooltip.add(tooltip.get(j));
 				}
 				float meleeDamage = GOTWeaponStats.getMeleeDamageBonus(itemstack);
-				newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.meleeDamage", Float.valueOf(meleeDamage)));
+				newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.meleeDamage", meleeDamage));
 				float meleeSpeed = GOTWeaponStats.getMeleeSpeed(itemstack);
 				int pcSpeed = Math.round(meleeSpeed * 100.0F);
-				newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.meleeSpeed", Integer.valueOf(pcSpeed)));
+				newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.meleeSpeed", pcSpeed));
 				float reach = GOTWeaponStats.getMeleeReachFactor(itemstack);
 				int pcReach = Math.round(reach * 100.0F);
-				newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.reach", Integer.valueOf(pcReach)));
+				newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.reach", pcReach));
 				int kb = GOTWeaponStats.getTotalKnockback(itemstack);
 				if (kb > 0) {
-					newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.kb", Integer.valueOf(kb)));
+					newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.kb", kb));
 				}
 				for (int k = dmgIndex + 1; k < tooltip.size(); k++) {
 					newTooltip.add(tooltip.get(k));
@@ -412,21 +412,21 @@ public class GOTTickHandlerClient {
 			float drawSpeed = GOTWeaponStats.getRangedSpeed(itemstack);
 			if (drawSpeed > 0.0F) {
 				int pcSpeed = Math.round(drawSpeed * 100.0F);
-				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedSpeed", Integer.valueOf(pcSpeed)));
+				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedSpeed", pcSpeed));
 			}
 			float damage = GOTWeaponStats.getRangedDamageFactor(itemstack, false);
 			if (damage > 0.0F) {
 				int pcDamage = Math.round(damage * 100.0F);
-				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedDamage", Integer.valueOf(pcDamage)));
+				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedDamage", pcDamage));
 				if (itemstack.getItem() instanceof net.minecraft.item.ItemBow || itemstack.getItem() instanceof GOTItemCrossbow) {
 					float range = GOTWeaponStats.getRangedDamageFactor(itemstack, true);
 					int pcRange = Math.round(range * 100.0F);
-					tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.range", Integer.valueOf(pcRange)));
+					tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.range", pcRange));
 				}
 			}
 			int kb = GOTWeaponStats.getRangedKnockback(itemstack);
 			if (kb > 0) {
-				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.kb", Integer.valueOf(kb)));
+				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.kb", kb));
 			}
 		}
 		if (GOTWeaponStats.isPoisoned(itemstack)) {
@@ -436,7 +436,7 @@ public class GOTTickHandlerClient {
 		if (armorProtect > 0) {
 			tooltip.add("");
 			int pcProtection = Math.round(armorProtect / 25.0F * 100.0F);
-			tooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.protection", Integer.valueOf(armorProtect), Integer.valueOf(pcProtection)));
+			tooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.protection", armorProtect, pcProtection));
 		}
 		if (!enchantments.isEmpty()) {
 			tooltip.add("");

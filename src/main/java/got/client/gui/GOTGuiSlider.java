@@ -34,7 +34,7 @@ public class GOTGuiSlider extends GuiButton {
 			int minutes = value / 60;
 			displayString = String.format("%d:%02d", minutes, seconds);
 		} else if (isFloat) {
-			displayString = String.format("%.2f", Float.valueOf(getSliderValue_F()));
+			displayString = String.format("%.2f", getSliderValue_F());
 		} else {
 			int value = getSliderValue();
 			displayString = String.valueOf(value);

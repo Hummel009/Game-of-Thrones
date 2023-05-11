@@ -298,7 +298,7 @@ public class GOTPlayerData {
 							factionBonus = checkBonusForPledgeEnemyLimit(bonusFaction, factionBonus);
 							alignment += factionBonus;
 							setAlignment(bonusFaction, alignment);
-							factionBonusMap.put(bonusFaction, Float.valueOf(factionBonus));
+							factionBonusMap.put(bonusFaction, factionBonus);
 						}
 					}
 					if (bonusFaction == pledgeFaction) {
@@ -327,7 +327,7 @@ public class GOTPlayerData {
 						factionPenalty = GOTAlignmentValues.AlignmentBonus.scalePenalty(factionPenalty, alignment);
 						alignment += factionPenalty;
 						setAlignment(penaltyFaction, alignment);
-						factionBonusMap.put(penaltyFaction, Float.valueOf(factionPenalty));
+						factionBonusMap.put(penaltyFaction, factionPenalty);
 					}
 				}
 			}
@@ -340,7 +340,7 @@ public class GOTPlayerData {
 			factionBonus = checkBonusForPledgeEnemyLimit(faction, factionBonus);
 			alignment += factionBonus;
 			setAlignment(faction, alignment);
-			factionBonusMap.put(faction, Float.valueOf(factionBonus));
+			factionBonusMap.put(faction, factionBonus);
 		}
 		if (!factionBonusMap.isEmpty() || conquestBonus != 0.0F) {
 			sendAlignmentBonusPacket(source, faction, prevMainAlignment, factionBonusMap, conquestBonus, posX, posY, posZ);
@@ -1508,8 +1508,8 @@ public class GOTPlayerData {
 				if (cwpSharedUseCounts.containsKey(key)) {
 					return cwpSharedUseCounts.get(key);
 				}
-			} else if (cwpUseCounts.containsKey(Integer.valueOf(ID))) {
-				return cwpUseCounts.get(Integer.valueOf(ID));
+			} else if (cwpUseCounts.containsKey(ID)) {
+				return cwpUseCounts.get(ID);
 			}
 		} else if (wpUseCounts.containsKey(wp)) {
 			return wpUseCounts.get(wp);
@@ -2065,9 +2065,9 @@ public class GOTPlayerData {
 			} else if (ticksUntilFT > 0) {
 				int seconds = ticksUntilFT / 20;
 				if (ticksUntilFT == ticksUntilFT_max) {
-					entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.travelTicksStart", Integer.valueOf(seconds)));
+					entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.travelTicksStart", seconds));
 				} else if (ticksUntilFT % 20 == 0 && seconds <= 5) {
-					entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.travelTicks", Integer.valueOf(seconds)));
+					entityplayer.addChatMessage(new ChatComponentTranslation("got.fastTravel.travelTicks", seconds));
 				}
 				ticksUntilFT--;
 				setTicksUntilFT(ticksUntilFT);

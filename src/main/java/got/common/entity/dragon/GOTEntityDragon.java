@@ -607,7 +607,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	public void setBooleanData(int index, boolean value) {
-		dataWatcher.updateObject(index, Byte.valueOf(value ? (byte) 1 : (byte) 0));
+		dataWatcher.updateObject(index, value ? (byte) 1 : (byte) 0);
 	}
 
 	@Override

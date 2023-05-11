@@ -72,7 +72,7 @@ public class GOTBlockTreasurePile extends Block {
 	}
 
 	public static void generateTreasureRecipes(Block block, Item ingot) {
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block, 8, 0), "XX", "XX", Character.valueOf('X'), ingot));
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block, 8, 0), "XX", "XX", 'X', ingot));
 		GameRegistry.addRecipe(new GOTRecipeTreasurePile(block, ingot));
 	}
 

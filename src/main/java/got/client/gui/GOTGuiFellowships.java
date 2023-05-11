@@ -549,7 +549,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		} else if (page == Page.FELLOWSHIP) {
 			int x = guiLeft;
 			int y = guiTop + 10;
-			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.nameAndPlayers", viewingFellowship.getName(), Integer.valueOf(viewingFellowship.getPlayerCount()));
+			s = StatCollector.translateToLocalFormatted("got.gui.fellowships.nameAndPlayers", viewingFellowship.getName(), viewingFellowship.getPlayerCount());
 			drawCenteredString(s, guiLeft + xSize / 2, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
 			y += 5;
@@ -612,7 +612,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			if (isFellowshipMaxSize(viewingFellowship)) {
 				int x = guiLeft + xSize / 2;
 				int y = guiTop + 30;
-				s = StatCollector.translateToLocalFormatted("got.gui.fellowships.invite.maxSize", viewingFellowship.getName(), Integer.valueOf(GOTConfig.getFellowshipMaxSize(mc.theWorld)));
+				s = StatCollector.translateToLocalFormatted("got.gui.fellowships.invite.maxSize", viewingFellowship.getName(), GOTConfig.getFellowshipMaxSize(mc.theWorld));
 				List<String> lines = fontRendererObj.listFormattedStringToWidth(s, xSize);
 				for (String line : lines) {
 					drawCenteredString(line, x, y, 16777215);
@@ -739,7 +739,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				if (acceptInviteResult == GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.DISBANDED) {
 					s = StatCollector.translateToLocalFormatted("got.gui.fellowships.invited.disbanded", acceptInviteResultFellowshipName);
 				} else if (acceptInviteResult == GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.TOO_LARGE) {
-					s = StatCollector.translateToLocalFormatted("got.gui.fellowships.invited.maxSize", acceptInviteResultFellowshipName, Integer.valueOf(GOTConfig.getFellowshipMaxSize(mc.theWorld)));
+					s = StatCollector.translateToLocalFormatted("got.gui.fellowships.invited.maxSize", acceptInviteResultFellowshipName, GOTConfig.getFellowshipMaxSize(mc.theWorld));
 				} else if (acceptInviteResult == GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.NONEXISTENT) {
 					s = StatCollector.translateToLocalFormatted("got.gui.fellowships.invited.notFound");
 				} else {

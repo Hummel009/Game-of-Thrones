@@ -25,7 +25,7 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 	@Override
 	public void entityInit() {
 		super.entityInit();
-		dataWatcher.addObject(17, Byte.valueOf((byte) 0));
+		dataWatcher.addObject(17, (byte) 0);
 	}
 
 	@Override

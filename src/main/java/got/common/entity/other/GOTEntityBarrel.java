@@ -99,7 +99,7 @@ public class GOTEntityBarrel extends Entity {
 	public void entityInit() {
 		dataWatcher.addObject(17, 0);
 		dataWatcher.addObject(18, 1);
-		dataWatcher.addObject(19, Float.valueOf(0.0f));
+		dataWatcher.addObject(19, 0.0f);
 		dataWatcher.addObject(20, new ItemStack(GOTRegistry.barrel));
 	}
 
@@ -134,7 +134,7 @@ public class GOTEntityBarrel extends Entity {
 	}
 
 	public void setDamageTaken(float f) {
-		dataWatcher.updateObject(19, Float.valueOf(f));
+		dataWatcher.updateObject(19, f);
 	}
 
 	public int getForwardDirection() {

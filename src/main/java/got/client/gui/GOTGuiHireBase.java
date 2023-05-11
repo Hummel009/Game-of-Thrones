@@ -156,7 +156,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 				cost = GOTSlotAlignmentReward.REWARD_COST;
 				fontRendererObj.drawString(String.valueOf(cost), 179, 104, 4210752);
 			} else if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < 1500.0f && func_146978_c(slot.xDisplayPosition, slot.yDisplayPosition, 16, 16, i, j)) {
-				drawCreativeTabHoveringText(StatCollector.translateToLocalFormatted("got.container.unitTrade.requiresAlignment", Float.valueOf(1500.0f)), i - guiLeft, j - guiTop);
+				drawCreativeTabHoveringText(StatCollector.translateToLocalFormatted("got.container.unitTrade.requiresAlignment", 1500.0f), i - guiLeft, j - guiTop);
 				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			}

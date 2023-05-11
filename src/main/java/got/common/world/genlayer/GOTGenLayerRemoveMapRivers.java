@@ -45,8 +45,8 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 								boolean wateryAdjacent = subBiome.isWateryBiome() && range == 1;
 								HashMap<Integer, Integer> srcMap = wateryAdjacent ? viableBiomesWateryAdjacent : viableBiomes;
 								int count2 = 0;
-								if (srcMap.containsKey(Integer.valueOf(subBiomeID))) {
-									count2 = srcMap.get(Integer.valueOf(subBiomeID));
+								if (srcMap.containsKey(subBiomeID)) {
+									count2 = srcMap.get(subBiomeID);
 								}
 								count2++;
 								srcMap.put(subBiomeID, count2);
