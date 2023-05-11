@@ -117,9 +117,9 @@ public class GOTFixer {
 		f[18] = new GOTStructureGhiscarCity(biome, 0.0f).setIsColony();
 		f[18].affix(GOTWaypoint.IsleOfWhips, GOTWaypoint.BarterBeach, GOTWaypoint.Gogossos, GOTWaypoint.Gorosh, GOTWaypoint.Zamettar.info(0, -1, 2));
 		f[19] = new GOTStructureGhiscarCity(biome, 0.0f).setIsTown();
-		f[19].affix(GOTWaypoint.Astapor.info(-1, 0, 1), GOTWaypoint.Meereen.info(-1, 0, 1), GOTWaypoint.NewGhis.info(0, 0, 0), GOTWaypoint.Yunkai.info(-1, 0, 1));
+		f[19].affix(GOTWaypoint.Meereen.info(-1, 0, 1), GOTWaypoint.Astapor.info(-1, 0, 1), GOTWaypoint.NewGhis.info(0, 0, 1), GOTWaypoint.Yunkai.info(-1, 0, 1));
 		f[20] = new GOTStructureGhiscarCity(biome, 0.0f).setIsPyramidShiftX();
-		f[20].affix(GOTWaypoint.Meereen.info(-2, 0, 0), GOTWaypoint.Astapor.info(-2, 0, 0), GOTWaypoint.NewGhis.info(-2, 0, 0), GOTWaypoint.Yunkai.info(-2, 0, 0));
+		f[20].affix(GOTWaypoint.Meereen.info(-2, 0, 0), GOTWaypoint.Astapor.info(-2, 0, 0), GOTWaypoint.NewGhis.info(-1, 0, 0), GOTWaypoint.Yunkai.info(-2, 0, 0));
 		f[21] = new GOTStructureSothoryosVillage(biome, 0.0f).setIsPyramid();
 		f[21].affix(GOTWaypoint.Raumati);
 		f[22] = new GOTStructureGiftVillage(biome, 0.0f);
@@ -596,7 +596,7 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.Meereen.shift(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHizdahrZoLoraq(world), world, 0, 1, 1);
+				spawnLegendaryNPC(new GOTEntityHizdahrZoLoraq(world), world, -1, 1, -1);
 			}
 		});
 
