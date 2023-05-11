@@ -67,9 +67,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 		MinecraftForgeClient.registerItemRenderer(GOTRegistry.conquestHorn, new GOTRenderBlownItem());
 		MinecraftForgeClient.registerItemRenderer(GOTRegistry.banner, new GOTRenderBannerItem());
 		MinecraftForgeClient.registerItemRenderer(GOTRegistry.skullStaff, new GOTRenderSkullStaff());
-		Iterator<Item> itItems = Item.itemRegistry.iterator();
-		while (itItems.hasNext()) {
-			Item item = itItems.next();
+		for (Item item : (Iterable<Item>) Item.itemRegistry) {
 			if (item instanceof GOTItemAnimalJar) {
 				MinecraftForgeClient.registerItemRenderer(item, new GOTRenderAnimalJar());
 			}

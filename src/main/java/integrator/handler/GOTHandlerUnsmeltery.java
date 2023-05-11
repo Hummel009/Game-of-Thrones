@@ -37,9 +37,8 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 	@Override
 	public void loadCraftingRecipes(ItemStack result) {
 		FMLControlledNamespacedRegistry<Item> items = GameData.getItemRegistry();
-		Iterator<Item> it = items.iterator();
-		while (it.hasNext()) {
-			ItemStack stack = new ItemStack(it.next(), 1);
+		for (Item item : (Iterable<Item>) items) {
+			ItemStack stack = new ItemStack(item, 1);
 			ItemStack equipmentMaterial = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
 			if (equipmentMaterial != null && NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result)) {
 				ItemStack randomResult = unsmelteryTileEntity.getRandomUnsmeltingResult(null);
@@ -53,9 +52,8 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 			}
 		}
 		FMLControlledNamespacedRegistry<Block> blocks = GameData.getBlockRegistry();
-		Iterator<Block> it2 = blocks.iterator();
-		while (it2.hasNext()) {
-			ItemStack stack = new ItemStack(it2.next(), 1);
+		for (Block block : (Iterable<Block>) blocks) {
+			ItemStack stack = new ItemStack(block, 1);
 			ItemStack equipmentMaterial = GOTTileEntityUnsmeltery.getEquipmentMaterial(stack);
 			if (equipmentMaterial != null && NEIServerUtils.areStacksSameTypeCrafting(equipmentMaterial, result)) {
 				ItemStack randomResult = unsmelteryTileEntity.getRandomUnsmeltingResult(null);

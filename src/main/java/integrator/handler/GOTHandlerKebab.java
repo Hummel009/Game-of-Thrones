@@ -48,9 +48,8 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 		result.stackSize = 1;
 		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.kebab, 1))) {
 			FMLControlledNamespacedRegistry<Item> items = GameData.getItemRegistry();
-			Iterator<Item> it = items.iterator();
-			while (it.hasNext()) {
-				ItemStack stack = new ItemStack(it.next(), 1);
+			for (Item item : (Iterable<Item>) items) {
+				ItemStack stack = new ItemStack(item, 1);
 				if (kebabStand.isMeat(stack)) {
 					arecipes.add(new CachedKebabRecipe(stack));
 				}

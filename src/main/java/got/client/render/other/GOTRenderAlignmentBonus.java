@@ -44,12 +44,12 @@ public class GOTRenderAlignmentBonus extends Render {
 				renderFaction = viewingFaction;
 			} else if (factionBonusMap.size() == 1 && mainFaction.isPlayableAlignmentFaction()) {
 				renderFaction = mainFaction;
-			} else if (mainFaction.isPlayableAlignmentFaction() && alignmentBonus.prevMainAlignment >= 0.0f && factionBonusMap.get(mainFaction).floatValue() < 0.0f) {
+			} else if (mainFaction.isPlayableAlignmentFaction() && alignmentBonus.prevMainAlignment >= 0.0f && factionBonusMap.get(mainFaction) < 0.0f) {
 				renderFaction = mainFaction;
 			} else {
 				float alignment;
 				for (GOTFaction faction : factionBonusMap.keySet()) {
-					if (faction.isPlayableAlignmentFaction() && factionBonusMap.get(faction).floatValue() > 0.0f) {
+					if (faction.isPlayableAlignmentFaction() && factionBonusMap.get(faction) > 0.0f) {
 						alignment = playerData.getAlignment(faction);
 						if (renderFaction == null || alignment > playerData.getAlignment(renderFaction)) {
 							renderFaction = faction;
@@ -57,11 +57,11 @@ public class GOTRenderAlignmentBonus extends Render {
 					}
 				}
 				if (renderFaction == null) {
-					if (mainFaction.isPlayableAlignmentFaction() && factionBonusMap.get(mainFaction).floatValue() < 0.0f) {
+					if (mainFaction.isPlayableAlignmentFaction() && factionBonusMap.get(mainFaction) < 0.0f) {
 						renderFaction = mainFaction;
 					} else {
 						for (GOTFaction faction : factionBonusMap.keySet()) {
-							if (faction.isPlayableAlignmentFaction() && factionBonusMap.get(faction).floatValue() < 0.0f) {
+							if (faction.isPlayableAlignmentFaction() && factionBonusMap.get(faction) < 0.0f) {
 								alignment = playerData.getAlignment(faction);
 								if (renderFaction == null || alignment > playerData.getAlignment(renderFaction)) {
 									renderFaction = faction;
