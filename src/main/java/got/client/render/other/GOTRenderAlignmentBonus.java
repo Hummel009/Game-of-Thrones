@@ -72,7 +72,7 @@ public class GOTRenderAlignmentBonus extends Render {
 				}
 			}
 		}
-		renderBonus = factionBonusMap.containsKey(renderFaction) ? factionBonusMap.get(renderFaction) : 0.0f;
+		renderBonus = factionBonusMap.getOrDefault(renderFaction, 0.0f);
 		if (renderFaction != null && (renderBonus != 0.0f || showConquest)) {
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) d, (float) d1, (float) d2);

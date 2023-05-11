@@ -5,7 +5,6 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.SimpleResource;
 import net.minecraft.util.ResourceLocation;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 

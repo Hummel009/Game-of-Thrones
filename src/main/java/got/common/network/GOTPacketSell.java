@@ -56,12 +56,7 @@ public class GOTPacketSell implements IMessage {
 					}
 					totalCoins += value;
 					if (trade != null) {
-						Integer prevValue = tradesUsed.get(trade);
-						if (prevValue == null) {
-							tradesUsed.put(trade, value);
-						} else {
-							tradesUsed.put(trade, prevValue + value);
-						}
+						tradesUsed.merge(trade, value, Integer::sum);
 					}
 					itemstack.stackSize -= itemsSold;
 					if (itemstack.stackSize > 0) {

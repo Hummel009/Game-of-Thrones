@@ -248,8 +248,8 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 			}
 		}
 		Comparator<GOTTitle> sorter = GOTTitle.createTitleSorter(mc.thePlayer);
-		Collections.sort(availableTitles, sorter);
-		Collections.sort(unavailableTitles, sorter);
+		availableTitles.sort(sorter);
+		unavailableTitles.sort(sorter);
 		displayedTitles.addAll(availableTitles);
 		displayedTitles.add(null);
 		displayedTitles.addAll(unavailableTitles);

@@ -998,7 +998,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 
 	public List<GOTFellowshipClient> sortFellowshipsForDisplay(List<GOTFellowshipClient> list) {
 		List<GOTFellowshipClient> sorted = new ArrayList<>(list);
-		Collections.sort(sorted, (fs1, fs2) -> {
+		sorted.sort((fs1, fs2) -> {
 			int count1 = fs1.getPlayerCount();
 			int count2 = fs2.getPlayerCount();
 			if (count1 == count2) {
@@ -1011,7 +1011,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 
 	public List<GameProfile> sortMembersForDisplay(GOTFellowshipClient fs) {
 		List<GameProfile> members = new ArrayList<>(fs.getMemberProfiles());
-		Collections.sort(members, (player1, player2) -> {
+		members.sort((player1, player2) -> {
 			boolean admin1 = fs.isAdmin(player1.getId());
 			boolean admin2 = fs.isAdmin(player2.getId());
 			boolean online1 = isPlayerOnline(player1);

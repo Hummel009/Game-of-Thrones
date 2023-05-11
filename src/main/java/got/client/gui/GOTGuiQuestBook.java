@@ -245,7 +245,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 					if (viewCompleted) {
 						miniquests = Lists.reverse(miniquests);
 					} else {
-						Collections.sort(miniquests, new GOTMiniQuest.SorterAlphabetical());
+						miniquests.sort(new GOTMiniQuest.SorterAlphabetical());
 					}
 					int size = miniquests.size();
 					int min = Math.round(currentScroll * (size - maxDisplayedMiniQuests));

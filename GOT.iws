@@ -11,10 +11,6 @@
     <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/GOT.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GOT.iws" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/model/GOTModelDragonPart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/model/GOTModelDragonPart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/sound/GOTMusicResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/sound/GOTMusicResourceManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTMountFunctions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/other/GOTMountFunctions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/other/GOTStructureBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/other/GOTStructureBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -398,7 +398,7 @@ public class GOTConnectedTextures {
 
 		public static List<IconElement> sortIconSet(Set<IconElement> set) {
 			ArrayList<IconElement> list = new ArrayList<>(set);
-			Collections.sort(list, comparator);
+			list.sort(comparator);
 			return list;
 		}
 

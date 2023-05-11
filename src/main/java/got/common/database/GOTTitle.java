@@ -56,7 +56,7 @@ public class GOTTitle {
 	}
 
 	public static Comparator<GOTTitle> createTitleSorter(EntityPlayer entityplayer) {
-		return (title1, title2) -> title1.getDisplayName(entityplayer).compareTo(title2.getDisplayName(entityplayer));
+		return Comparator.comparing(title -> title.getDisplayName(entityplayer));
 	}
 
 	public static GOTTitle forID(int ID) {

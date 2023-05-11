@@ -97,7 +97,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		double range = getTargetDistance();
 		double rangeY = Math.min(range, 8.0);
 		List entities = taskOwner.worldObj.selectEntitiesWithinAABB(targetClass, taskOwner.boundingBox.expand(range, rangeY, range), targetSelector);
-		Collections.sort(entities, targetSorter);
+		entities.sort(targetSorter);
 		if (entities.isEmpty()) {
 			return false;
 		}

@@ -20,7 +20,7 @@ import java.util.UUID;
 
 public class GOTCustomWaypointLogger {
 	public static Charset CHARSET = StandardCharsets.UTF_8;
-	public static DateFormat DATE_FORMAT = new SimpleDateFormat("YYYY-MM");
+	public static DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM");
 	public static DateFormat MONTH_DATE_FORMAT = new SimpleDateFormat("MM-dd");
 	public static DateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
 

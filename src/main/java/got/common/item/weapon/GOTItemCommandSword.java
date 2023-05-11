@@ -62,7 +62,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 			}
 			if (!validTargets.isEmpty()) {
 				GOTEntityAINearestAttackableTargetBasic.TargetSorter sorter = new GOTEntityAINearestAttackableTargetBasic.TargetSorter(npc);
-				Collections.sort(validTargets, sorter);
+				validTargets.sort(sorter);
 				EntityLivingBase target = validTargets.get(0);
 				npc.hiredNPCInfo.commandSwordAttack(target);
 				npc.hiredNPCInfo.wasAttackCommanded = true;

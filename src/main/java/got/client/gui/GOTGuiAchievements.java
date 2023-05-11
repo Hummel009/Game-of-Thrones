@@ -289,8 +289,8 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			}
 		}
 		Comparator<GOTAchievement> sorter = GOTAchievement.sortForDisplay(mc.thePlayer);
-		Collections.sort(currentCategoryTakenAchievements, sorter);
-		Collections.sort(currentCategoryUntakenAchievements, sorter);
+		currentCategoryTakenAchievements.sort(sorter);
+		currentCategoryUntakenAchievements.sort(sorter);
 	}
 
 	@Override
