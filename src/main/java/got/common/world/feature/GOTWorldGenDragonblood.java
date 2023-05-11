@@ -17,9 +17,9 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 	public int trunkWidth;
 	public boolean hasRoots = true;
 	public Block woodBlock = GOTRegistry.wood9;
-	public int woodMeta = 0;
+	public int woodMeta;
 	public Block leafBlock = GOTRegistry.leaves9;
-	public int leafMeta = 0;
+	public int leafMeta;
 
 	public GOTWorldGenDragonblood(boolean flag, int i, int j, int k) {
 		super(flag);

@@ -14,7 +14,7 @@ public class GOTContainerCoinExchange extends Container {
 	public IInventory coinInputInv = new InventoryCoinExchangeSlot(1);
 	public IInventory exchangeInv = new InventoryCoinExchangeSlot(2);
 	public GOTEntityNPC theTraderNPC;
-	public boolean exchanged = false;
+	public boolean exchanged;
 
 	public GOTContainerCoinExchange(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		theTraderNPC = npc;

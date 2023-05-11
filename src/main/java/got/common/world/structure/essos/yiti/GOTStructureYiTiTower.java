@@ -12,10 +12,10 @@ import java.util.Random;
 
 public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 	public boolean enableDoor = true;
-	public boolean frontLadder = false;
-	public boolean backLadder = false;
-	public boolean leftLadder = false;
-	public boolean rightLadder = false;
+	public boolean frontLadder;
+	public boolean backLadder;
+	public boolean leftLadder;
+	public boolean rightLadder;
 
 	public GOTStructureYiTiTower(boolean flag) {
 		super(flag);

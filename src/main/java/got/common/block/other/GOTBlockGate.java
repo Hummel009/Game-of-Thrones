@@ -27,7 +27,7 @@ import java.util.Set;
 public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	public static int MAX_GATE_RANGE = 16;
 	public boolean hasConnectedTextures;
-	public boolean fullBlockGate = false;
+	public boolean fullBlockGate;
 
 	public GOTBlockGate(Material material, boolean ct) {
 		super(material);

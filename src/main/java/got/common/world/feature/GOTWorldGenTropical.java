@@ -11,8 +11,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenTropical extends WorldGenAbstractTree {
-	public int trunkWidth = 0;
-	public int extraTrunkWidth = 0;
+	public int trunkWidth;
+	public int extraTrunkWidth;
 	public Block woodBlock = Blocks.log;
 	public int woodMeta = 3;
 	public Block leafBlock = Blocks.leaves;

@@ -32,7 +32,7 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 	public GOTGuiSlider sliderSpawnIntervalS;
 	public GOTGuiSlider sliderNoPlayerRange;
 	public GuiButton buttonDestroy;
-	public boolean destroySpawner = false;
+	public boolean destroySpawner;
 
 	public GOTGuiNPCRespawner(GOTEntityNPCRespawner entity) {
 		theSpawner = entity;

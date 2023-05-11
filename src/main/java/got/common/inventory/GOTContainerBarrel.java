@@ -14,8 +14,8 @@ import net.minecraft.item.ItemStack;
 
 public class GOTContainerBarrel extends Container {
 	public GOTTileEntityBarrel theBarrel;
-	public int barrelMode = 0;
-	public int brewingTime = 0;
+	public int barrelMode;
+	public int brewingTime;
 
 	public GOTContainerBarrel(InventoryPlayer inv, GOTTileEntityBarrel barrel) {
 		int i;

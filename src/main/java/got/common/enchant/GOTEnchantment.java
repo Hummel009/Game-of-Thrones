@@ -82,15 +82,15 @@ public abstract class GOTEnchantment {
 	public String enchantName;
 
 	public List<GOTEnchantmentType> itemTypes;
-	public int enchantWeight = 0;
+	public int enchantWeight;
 	public float valueModifier = 1.0F;
 
-	public boolean skilful = false;
+	public boolean skilful;
 
-	public boolean persistsReforge = false;
+	public boolean persistsReforge;
 
-	public boolean bypassAnvilLimit = false;
-	public boolean applyToProjectile = false;
+	public boolean bypassAnvilLimit;
+	public boolean applyToProjectile;
 
 	public GOTEnchantment(String s, GOTEnchantmentType type) {
 		this(s, new GOTEnchantmentType[]{type});

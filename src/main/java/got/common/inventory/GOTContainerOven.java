@@ -15,9 +15,9 @@ import net.minecraft.tileentity.TileEntityFurnace;
 
 public class GOTContainerOven extends Container {
 	public GOTTileEntityOven theOven;
-	public int currentCookTime = 0;
-	public int ovenCookTime = 0;
-	public int currentItemFuelValue = 0;
+	public int currentCookTime;
+	public int ovenCookTime;
+	public int currentItemFuelValue;
 
 	public GOTContainerOven(InventoryPlayer inv, GOTTileEntityOven oven) {
 		int i;

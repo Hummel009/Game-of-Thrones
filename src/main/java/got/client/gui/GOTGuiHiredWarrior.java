@@ -24,7 +24,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 	public GOTGuiSlider sliderGuardRange;
 	public GuiTextField squadronNameField;
 	public boolean updatePage;
-	public boolean sendSquadronUpdate = false;
+	public boolean sendSquadronUpdate;
 
 	public GOTGuiHiredWarrior(GOTEntityNPC npc) {
 		super(npc);

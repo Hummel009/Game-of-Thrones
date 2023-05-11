@@ -20,7 +20,7 @@ public class GOTEntityFlamingo extends EntityAnimal {
 	public static int NECK_TIME = 20;
 	public static int FISHING_TIME = 160;
 	public static int FISHING_TIME_TOTAL = 200;
-	public boolean field_753_a = false;
+	public boolean field_753_a;
 	public float field_752_b;
 	public float destPos;
 	public float field_757_d;

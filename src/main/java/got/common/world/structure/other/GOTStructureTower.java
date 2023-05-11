@@ -52,7 +52,7 @@ public class GOTStructureTower extends GOTVillageGen {
 		public int glowBrickMeta = 6;
 		public Block plateBlock;
 		public GOTChestContents chestContents = GOTChestContents.TREASURE;
-		public boolean ruined = false;
+		public boolean ruined;
 
 		public GOTStructureTowerBase(boolean flag) {
 			super(flag);

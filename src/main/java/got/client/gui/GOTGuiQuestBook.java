@@ -29,7 +29,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/questBook.png");
 	public static ResourceLocation guiTexture_miniquests = new ResourceLocation("got:textures/gui/quest/questBook_miniquests.png");
 	public static RenderItem renderItem = new RenderItem();
-	public static boolean viewCompleted = false;
+	public static boolean viewCompleted;
 	public static int trackTicksMax = 40;
 	public static int textColor = 8019267;
 	public static int textColorDark = 5521198;
@@ -53,9 +53,9 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	public int scrollBarBorder = 1;
 	public int scrollWidgetWidth = 10;
 	public int scrollWidgetHeight = 17;
-	public boolean mouseInScrollBar = false;
-	public boolean isScrolling = false;
-	public float currentScroll = 0.0f;
+	public boolean mouseInScrollBar;
+	public boolean isScrolling;
+	public float currentScroll;
 	public Map<GOTMiniQuest, Pair<Integer, Integer>> displayedMiniQuests = new HashMap<>();
 	public int maxDisplayedMiniQuests = 4;
 	public int qPanelWidth = 170;
@@ -71,8 +71,8 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	public int diaryX = xSize / 2 - pageBorder - pageWidth / 2 - diaryWidth / 2;
 	public int diaryY = ySize / 2 - diaryHeight / 2 - 1;
 	public int diaryBorder = 6;
-	public boolean mouseInDiary = false;
-	public boolean isDiaryScrolling = false;
+	public boolean mouseInDiary;
+	public boolean isDiaryScrolling;
 	public float diaryScroll;
 	public GOTMiniQuest selectedMiniquest;
 	public GOTMiniQuest deletingMiniquest;

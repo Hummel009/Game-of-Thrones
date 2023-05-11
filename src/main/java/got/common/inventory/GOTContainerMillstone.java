@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 
 public class GOTContainerMillstone extends Container {
 	public GOTTileEntityMillstone theMillstone;
-	public int currentMillTime = 0;
+	public int currentMillTime;
 	public boolean isMilling;
 
 	public GOTContainerMillstone(InventoryPlayer inv, GOTTileEntityMillstone millstone) {

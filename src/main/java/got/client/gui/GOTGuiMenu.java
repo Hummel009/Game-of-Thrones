@@ -18,8 +18,8 @@ import java.util.ArrayList;
 
 public class GOTGuiMenu extends GOTGuiScreenBase {
 	public static ResourceLocation menuIconsTexture = new ResourceLocation("got:textures/gui/menu_icons.png");
-	public static Class<? extends GOTGuiMenuWBBase> lastMenuScreen = null;
-	public boolean sentCheckPacket = false;
+	public static Class<? extends GOTGuiMenuWBBase> lastMenuScreen;
+	public boolean sentCheckPacket;
 
 	public static GuiScreen openMenu(EntityPlayer entityplayer) {
 		boolean[] map_factions = GOTMiniQuestWelcome.forceMenuMapFactions(entityplayer);

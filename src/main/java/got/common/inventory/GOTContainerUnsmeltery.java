@@ -13,9 +13,9 @@ import net.minecraft.tileentity.TileEntityFurnace;
 
 public class GOTContainerUnsmeltery extends Container {
 	public GOTTileEntityUnsmeltery theUnsmeltery;
-	public int currentSmeltTime = 0;
-	public int forgeSmeltTime = 0;
-	public int currentItemFuelValue = 0;
+	public int currentSmeltTime;
+	public int forgeSmeltTime;
+	public int currentItemFuelValue;
 
 	public GOTContainerUnsmeltery(InventoryPlayer inv, GOTTileEntityUnsmeltery unsmeltery) {
 		int i;

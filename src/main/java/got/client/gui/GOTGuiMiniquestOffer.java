@@ -40,9 +40,9 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 	public int npcY = 90;
 	public GuiButton buttonAccept;
 	public GuiButton buttonDecline;
-	public boolean sentClosePacket = false;
+	public boolean sentClosePacket;
 	public NPCAction npcAction;
-	public int actionTick = 0;
+	public int actionTick;
 	public int actionTime;
 	public float actionSlow;
 	public float headYaw;

@@ -38,8 +38,8 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	public static int maxAlignmentsDisplayed = 1;
 	public static Page currentPage = Page.FRONT;
 	public static int maxDisplayedAlliesEnemies = 10;
-	public int currentFactionIndex = 0;
-	public int prevFactionIndex = 0;
+	public int currentFactionIndex;
+	public int prevFactionIndex;
 	public GOTFaction currentFaction;
 	public int pageY = 46;
 	public int pageWidth = 256;

@@ -44,13 +44,13 @@ import java.util.UUID;
 
 public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, AnimalJarUpdater, GOTBiome.ImmuneToFrost {
 	public ChunkCoordinates currentFlightTarget;
-	public int flightTargetTime = 0;
-	public int flapTime = 0;
+	public int flightTargetTime;
+	public int flapTime;
 	public GOTEntityInventory birdInv = new GOTEntityInventory("BirdItems", this, 9);
 	public EntityItem stealTargetItem;
 	public EntityPlayer stealTargetPlayer;
-	public int stolenTime = 0;
-	public boolean stealingCrops = false;
+	public int stolenTime;
+	public boolean stealingCrops;
 
 	public GOTEntityBird(World world) {
 		super(world);

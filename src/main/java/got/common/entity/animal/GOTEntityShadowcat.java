@@ -23,7 +23,7 @@ public class GOTEntityShadowcat extends EntityAnimal implements GOTBiome.ImmuneT
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	public EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
 	public EntityAIBase targetNearAI = new EntityAINearestAttackableTarget(this, EntityPlayer.class, 0, true);
-	public int hostileTick = 0;
+	public int hostileTick;
 	public boolean prevIsChild = true;
 
 	public GOTEntityShadowcat(World world) {

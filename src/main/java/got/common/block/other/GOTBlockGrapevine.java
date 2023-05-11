@@ -30,7 +30,7 @@ import java.util.Random;
 public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	public static int MAX_GROWTH = 7;
 	public static int MAX_HEIGHT = 3;
-	public static boolean hoeing = false;
+	public static boolean hoeing;
 	public boolean hasGrapes;
 	@SideOnly(value = Side.CLIENT)
 	public IIcon postIcon;

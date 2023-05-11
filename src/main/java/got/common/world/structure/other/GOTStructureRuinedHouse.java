@@ -9,16 +9,16 @@ import java.util.Random;
 
 public class GOTStructureRuinedHouse extends GOTStructureBase {
 	public Block woodBlock = Blocks.log;
-	public int woodMeta = 0;
+	public int woodMeta;
 	public Block plankBlock = Blocks.planks;
-	public int plankMeta = 0;
+	public int plankMeta;
 	public Block fenceBlock = Blocks.fence;
-	public int fenceMeta = 0;
+	public int fenceMeta;
 	public Block stairBlock = Blocks.oak_stairs;
 	public Block stoneBlock = Blocks.cobblestone;
-	public int stoneMeta = 0;
+	public int stoneMeta;
 	public Block stoneVariantBlock = Blocks.mossy_cobblestone;
-	public int stoneVariantMeta = 0;
+	public int stoneVariantMeta;
 
 	public GOTStructureRuinedHouse(boolean flag) {
 		super(flag);

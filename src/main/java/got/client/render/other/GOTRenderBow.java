@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderBow implements IItemRenderer {
-	public static boolean renderingWeaponRack = false;
+	public static boolean renderingWeaponRack;
 	public GOTRenderLargeItem largeItemRenderer;
 	public Map<GOTItemBow.BowState, GOTRenderLargeItem.ExtraLargeIconToken> tokensPullStates;
 

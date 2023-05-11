@@ -14,9 +14,9 @@ import net.minecraft.tileentity.TileEntityFurnace;
 
 public class GOTContainerAlloyForge extends Container {
 	public GOTTileEntityAlloyForge theForge;
-	public int currentSmeltTime = 0;
-	public int forgeSmeltTime = 0;
-	public int currentItemFuelValue = 0;
+	public int currentSmeltTime;
+	public int forgeSmeltTime;
+	public int currentItemFuelValue;
 
 	public GOTContainerAlloyForge(InventoryPlayer inv, GOTTileEntityAlloyForge forge) {
 		int i;

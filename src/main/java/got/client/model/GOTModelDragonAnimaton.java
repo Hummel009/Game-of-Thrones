@@ -16,13 +16,13 @@ public class GOTModelDragonAnimaton {
 	public static float CR12 = 2.0f;
 	public static float CR13 = -0.5f;
 	public static float CR20 = -0.5f;
-	public static float CR21 = 0.0f;
+	public static float CR21;
 	public static float CR22 = 0.5f;
-	public static float CR23 = 0.0f;
-	public static float CR30 = 0.0f;
+	public static float CR23;
+	public static float CR30;
 	public static float CR31 = 1.0f;
-	public static float CR32 = 0.0f;
-	public static float CR33 = 0.0f;
+	public static float CR32;
+	public static float CR33;
 
 	public static double PI_D = Math.PI;
 

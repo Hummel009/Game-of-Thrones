@@ -18,7 +18,7 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 	public int woodMeta = 3;
 	public Block leafBlock = GOTRegistry.leaves6;
 	public int leafMeta = 3;
-	public int extraTrunk = 0;
+	public int extraTrunk;
 
 	public GOTWorldGenOlive(boolean flag) {
 		super(flag);

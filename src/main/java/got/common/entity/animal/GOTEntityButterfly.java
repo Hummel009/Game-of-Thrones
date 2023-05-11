@@ -27,7 +27,7 @@ import java.util.UUID;
 
 public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
 	public ChunkCoordinates currentFlightTarget;
-	public int flapTime = 0;
+	public int flapTime;
 
 	public GOTEntityButterfly(World world) {
 		super(world);

@@ -22,8 +22,8 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 	public int farmBaseMeta;
 	public Block farmCropBlock;
 	public int farmCropMeta;
-	public boolean hasDoubleTorches = false;
-	public boolean hasSkulls = false;
+	public boolean hasDoubleTorches;
+	public boolean hasSkulls;
 
 	public GOTStructureCampBase(boolean flag) {
 		super(flag);

@@ -8,7 +8,7 @@ import net.minecraft.entity.Entity;
 
 public class GOTPacketHandler {
 	public static SimpleNetworkWrapper networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel("got_");
-	public static int id = 0;
+	public static int id;
 	public static boolean dedicatedServer;
 
 	public GOTPacketHandler() {

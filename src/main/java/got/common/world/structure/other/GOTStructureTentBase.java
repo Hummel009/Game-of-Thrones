@@ -17,7 +17,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 	public int fenceMeta;
 	public Block tableBlock;
 	public GOTChestContents chestContents;
-	public boolean isCaptain = false;
+	public boolean isCaptain;
 
 	public GOTStructureTentBase(boolean flag) {
 		super(flag);

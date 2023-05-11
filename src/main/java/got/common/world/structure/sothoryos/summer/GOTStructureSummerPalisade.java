@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureSummerPalisade extends GOTStructureSummerBase {
-	public boolean isTall = false;
+	public boolean isTall;
 
 	public GOTStructureSummerPalisade(boolean flag) {
 		super(flag);

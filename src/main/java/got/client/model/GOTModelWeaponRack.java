@@ -9,7 +9,7 @@ public class GOTModelWeaponRack extends ModelBase {
 	public ModelRenderer stand;
 	public ModelRenderer holder;
 	public ModelRenderer holderUpperParts;
-	public boolean onWall = false;
+	public boolean onWall;
 
 	public GOTModelWeaponRack() {
 		base.setRotationPoint(0.0f, 24.0f, 0.0f);

@@ -29,8 +29,8 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 	public Map<EnumChatFormatting, Pair<Integer, Integer>> displayedColorBoxes = new HashMap<>();
 	public GuiButton selectButton;
 	public GuiButton removeButton;
-	public float currentScroll = 0.0f;
-	public boolean isScrolling = false;
+	public float currentScroll;
+	public boolean isScrolling;
 	public boolean wasMouseDown;
 	public int scrollBarWidth = 11;
 	public int scrollBarHeight = 144;

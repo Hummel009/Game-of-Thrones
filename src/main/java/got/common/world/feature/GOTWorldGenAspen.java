@@ -13,12 +13,12 @@ import java.util.Random;
 
 public class GOTWorldGenAspen extends WorldGenAbstractTree {
 	public Block woodBlock = GOTRegistry.wood7;
-	public int woodMeta = 0;
+	public int woodMeta;
 	public Block leafBlock = GOTRegistry.leaves7;
-	public int leafMeta = 0;
+	public int leafMeta;
 	public int minHeight = 8;
 	public int maxHeight = 15;
-	public int extraTrunk = 0;
+	public int extraTrunk;
 
 	public GOTWorldGenAspen(boolean flag) {
 		super(flag);

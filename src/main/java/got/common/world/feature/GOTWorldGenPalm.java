@@ -16,7 +16,7 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 	public int woodMeta;
 	public Block leafBlock;
 	public int leafMeta;
-	public boolean hasDates = false;
+	public boolean hasDates;
 	public int minHeight = 5;
 	public int maxHeight = 8;
 

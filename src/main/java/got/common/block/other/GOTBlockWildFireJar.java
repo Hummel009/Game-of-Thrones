@@ -24,7 +24,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockWildFireJar extends BlockFalling {
-	public static int renderingStage = 0;
+	public static int renderingStage;
 	public static int renderBase = 1;
 	public static int renderNeck = 2;
 	public static int renderLid = 3;

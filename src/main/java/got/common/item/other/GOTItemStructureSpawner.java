@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTItemStructureSpawner extends Item {
-	public static int lastStructureSpawnTick = 0;
+	public static int lastStructureSpawnTick;
 	@SideOnly(value = Side.CLIENT)
 	public IIcon iconBase;
 	@SideOnly(value = Side.CLIENT)

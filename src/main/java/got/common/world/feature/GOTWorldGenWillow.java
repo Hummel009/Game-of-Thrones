@@ -21,7 +21,7 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 	public int leafMeta = 1;
 	public int minHeight = 8;
 	public int maxHeight = 13;
-	public boolean needsWater = false;
+	public boolean needsWater;
 
 	public GOTWorldGenWillow(boolean flag) {
 		super(flag);

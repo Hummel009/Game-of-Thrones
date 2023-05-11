@@ -8,16 +8,16 @@ import org.lwjgl.opengl.GL11;
 public class GOTGuiSlider extends GuiButton {
 	public String baseDisplayString;
 	public String overrideStateString;
-	public boolean isTime = false;
-	public boolean isFloat = false;
-	public boolean valueOnly = false;
-	public int numberDigits = 0;
+	public boolean isTime;
+	public boolean isFloat;
+	public boolean valueOnly;
+	public int numberDigits;
 	public int minValue;
 	public int maxValue;
 	public float minValueF;
 	public float maxValueF;
 	public float sliderValue = 1.0f;
-	public boolean dragging = false;
+	public boolean dragging;
 
 	public GOTGuiSlider(int id, int x, int y, int width, int height, String s) {
 		super(id, x, y, width, height, s);

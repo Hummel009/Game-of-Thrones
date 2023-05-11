@@ -71,22 +71,22 @@ public class GOTBiomeVariant {
 	public int variantID;
 	public String variantName;
 	public VariantScale variantScale;
-	public float tempBoost = 0.0f;
-	public float rainBoost = 0.0f;
-	public boolean absoluteHeight = false;
-	public float absoluteHeightLevel = 0.0f;
-	public float heightBoost = 0.0f;
+	public float tempBoost;
+	public float rainBoost;
+	public boolean absoluteHeight;
+	public float absoluteHeightLevel;
+	public float heightBoost;
 	public float hillFactor = 1.0f;
 	public float treeFactor = 1.0f;
 	public float grassFactor = 1.0f;
 	public float flowerFactor = 1.0f;
-	public boolean hasMarsh = false;
-	public boolean disableStructures = false;
-	public boolean disableVillages = false;
+	public boolean hasMarsh;
+	public boolean disableStructures;
+	public boolean disableVillages;
 	public List<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
-	public float variantTreeChance = 0.0f;
+	public float variantTreeChance;
 	public WorldGenerator boulderGen;
-	public int boulderChance = 0;
+	public int boulderChance;
 	public int boulderMax = 1;
 
 	public GOTBiomeVariant(int i, String s, VariantScale scale) {

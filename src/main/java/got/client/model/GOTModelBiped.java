@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelBiped extends ModelBiped {
-	public boolean setup = false;
+	public boolean setup;
 	public float base_bodyRotateX;
 	public float base_armX;
 	public float base_armY;

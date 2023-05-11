@@ -31,17 +31,17 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 	public int startX;
 	public int startZ;
 	public String message;
-	public boolean chunkLoaded = false;
-	public boolean playedSound = false;
+	public boolean chunkLoaded;
+	public boolean playedSound;
 	public float zoomBase;
 	public float mapScaleFactor;
 	public float currentZoom;
 	public float prevZoom;
-	public boolean finishedZoomIn = false;
+	public boolean finishedZoomIn;
 	public float mapSpeed;
 	public float mapVelX;
 	public float mapVelY;
-	public boolean reachedWP = false;
+	public boolean reachedWP;
 
 	public GOTGuiFastTravel(GOTAbstractWaypoint waypoint, int x, int z) {
 		theWaypoint = waypoint;

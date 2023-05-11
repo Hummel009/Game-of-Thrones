@@ -13,7 +13,7 @@ import java.util.List;
 
 public class GOTItemBerry extends GOTItemFood {
 	public static List<Item> allBerries = new ArrayList<>();
-	public boolean isPoisonous = false;
+	public boolean isPoisonous;
 
 	public GOTItemBerry() {
 		super(2, 0.2f, false);

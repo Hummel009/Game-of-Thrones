@@ -12,8 +12,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenRedwood extends WorldGenAbstractTree {
-	public int trunkWidth = 0;
-	public int extraTrunkWidth = 0;
+	public int trunkWidth;
+	public int extraTrunkWidth;
 	public Block woodBlock = GOTRegistry.wood8;
 	public int woodMeta = 1;
 	public Block leafBlock = GOTRegistry.leaves8;

@@ -18,7 +18,7 @@ public class GOTWorldGenCedar extends WorldGenAbstractTree {
 	public int leafMeta = 2;
 	public int minHeight = 10;
 	public int maxHeight = 16;
-	public boolean hangingLeaves = false;
+	public boolean hangingLeaves;
 
 	public GOTWorldGenCedar(boolean flag) {
 		super(flag);

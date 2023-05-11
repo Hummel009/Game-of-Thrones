@@ -14,7 +14,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
-	public boolean compatibleOtherSpecial = false;
+	public boolean compatibleOtherSpecial;
 
 	public GOTEnchantmentWeaponSpecial(String s) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE, GOTEnchantmentType.RANGED_LAUNCHER});

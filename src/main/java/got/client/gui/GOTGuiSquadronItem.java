@@ -23,7 +23,7 @@ public class GOTGuiSquadronItem extends GOTGuiScreenBase {
 	public GuiButton buttonDone;
 	public GuiTextField squadronNameField;
 	public ItemStack theItem;
-	public boolean sendSquadronUpdate = false;
+	public boolean sendSquadronUpdate;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

@@ -22,7 +22,7 @@ import java.util.UUID;
 public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity, ImmuneToFrost {
 	public static int swimTargetTimeMax = 200;
 	public ChunkCoordinates currentSwimTarget;
-	public int swimTargetTime = 0;
+	public int swimTargetTime;
 
 	public GOTEntityFish(World world) {
 		super(world);

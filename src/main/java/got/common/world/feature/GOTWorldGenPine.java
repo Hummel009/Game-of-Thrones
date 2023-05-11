@@ -14,9 +14,9 @@ import java.util.Random;
 
 public class GOTWorldGenPine extends WorldGenAbstractTree {
 	public Block woodBlock = GOTRegistry.wood5;
-	public int woodMeta = 0;
+	public int woodMeta;
 	public Block leafBlock = GOTRegistry.leaves5;
-	public int leafMeta = 0;
+	public int leafMeta;
 	public int minHeight = 12;
 	public int maxHeight = 24;
 

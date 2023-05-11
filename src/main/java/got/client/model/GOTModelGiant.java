@@ -20,7 +20,7 @@ public class GOTModelGiant extends ModelBase {
 	public ModelRenderer woodenClubSpikes;
 	public ModelRenderer warhammer;
 	public ModelRenderer battleaxe;
-	public boolean isOutiftModel = false;
+	public boolean isOutiftModel;
 
 	public GOTModelGiant() {
 		this(0.0f);

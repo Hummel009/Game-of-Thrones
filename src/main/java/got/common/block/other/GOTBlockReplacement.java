@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTBlockReplacement {
-	public static boolean initForgeHooks = false;
+	public static boolean initForgeHooks;
 
 	public static void injectReplacementItem(ItemStack itemstack, Item newItem) {
 		NBTTagCompound nbt = new NBTTagCompound();

@@ -31,8 +31,8 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 	public GOTGuiButtonAchievements buttonCategoryNext;
 	public int totalTakenCount;
 	public int totalAvailableCount;
-	public float currentScroll = 0.0f;
-	public boolean isScrolling = false;
+	public float currentScroll;
+	public boolean isScrolling;
 	public boolean wasMouseDown;
 	public int catScrollAreaX0;
 	public int catScrollAreaX1;

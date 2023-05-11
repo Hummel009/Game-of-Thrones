@@ -10,7 +10,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenHolly extends WorldGenAbstractTree {
-	public int extraTrunkWidth = 0;
+	public int extraTrunkWidth;
 	public Block woodBlock = GOTRegistry.wood2;
 	public int woodMeta = 2;
 	public Block leafBlock = GOTRegistry.leaves2;

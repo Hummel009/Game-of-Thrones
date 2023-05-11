@@ -39,8 +39,8 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	public boolean[] invalidUsernames = {};
 	public boolean[] validatedUsernames = {};
 	public boolean[] checkUsernames = {};
-	public float currentScroll = 0.0f;
-	public boolean isScrolling = false;
+	public float currentScroll;
+	public boolean isScrolling;
 	public boolean wasMouseDown;
 	public int scrollBarWidth = 12;
 	public int scrollBarHeight = 132;
@@ -50,7 +50,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	public int scrollWidgetWidth = 10;
 	public int scrollWidgetHeight = 17;
 	public int permIconX = 3;
-	public int permIconY = 0;
+	public int permIconY;
 	public int permIconWidth = 10;
 	public int permissionsMouseoverIndex = -1;
 	public int permissionsMouseoverY = -1;
@@ -59,8 +59,8 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	public int permWindowHeight = 70;
 	public int permissionsOpenIndex = -1;
 	public int permissionsOpenY = -1;
-	public GOTBannerProtection.Permission mouseOverPermission = null;
-	public boolean defaultPermissionsOpen = false;
+	public GOTBannerProtection.Permission mouseOverPermission;
+	public boolean defaultPermissionsOpen;
 
 	public GOTGuiBanner(GOTEntityBanner banner) {
 		theBanner = banner;

@@ -25,7 +25,7 @@ import java.util.Random;
 
 public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature, ImmuneToFrost {
 	public static Random violenceRand = new Random();
-	public static boolean wreckBalrogs = false;
+	public static boolean wreckBalrogs;
 	public float flapPhase;
 	public float flapPower;
 	public float prevFlapPower;
@@ -34,7 +34,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 	public int peckTime;
 	public int peckLength;
 	public int timeUntilHiss;
-	public boolean assignedAttackOrFlee = false;
+	public boolean assignedAttackOrFlee;
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	public EntityAIBase fleeAI = new EntityAIPanic(this, 1.8);
 	public IEntitySelector swanAttackRange = new IEntitySelector() {

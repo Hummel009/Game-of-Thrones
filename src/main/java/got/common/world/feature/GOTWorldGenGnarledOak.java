@@ -13,9 +13,9 @@ import java.util.Random;
 
 public class GOTWorldGenGnarledOak extends WorldGenAbstractTree {
 	public Block woodBlock = Blocks.log;
-	public int woodMeta = 0;
+	public int woodMeta;
 	public Block leafBlock = Blocks.leaves;
-	public int leafMeta = 0;
+	public int leafMeta;
 	public int minHeight = 4;
 	public int maxHeight = 9;
 
