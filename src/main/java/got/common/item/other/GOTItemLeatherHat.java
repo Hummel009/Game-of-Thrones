@@ -72,20 +72,18 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 		}
 	}
 
-	public static ItemStack setFeatherColor(ItemStack itemstack, int i) {
+	public static void setFeatherColor(ItemStack itemstack, int i) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
 		itemstack.getTagCompound().setInteger("FeatherColor", i);
-		return itemstack;
 	}
 
-	public static ItemStack setHatColor(ItemStack itemstack, int i) {
+	public static void setHatColor(ItemStack itemstack, int i) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
 		itemstack.getTagCompound().setInteger("HatColor", i);
-		return itemstack;
 	}
 
 	@SideOnly(Side.CLIENT)

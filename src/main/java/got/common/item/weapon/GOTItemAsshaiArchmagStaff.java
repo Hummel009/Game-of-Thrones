@@ -44,7 +44,7 @@ public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 		return itemstack;
 	}
 
-	public static ItemStack wizardUseStaff(ItemStack itemstack, World world, EntityLivingBase user) {
+	public static void wizardUseStaff(ItemStack itemstack, World world, EntityLivingBase user) {
 		user.swingItem();
 		if (!world.isRemote) {
 			List entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(64, 64, 64));
@@ -60,7 +60,6 @@ public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 				}
 			}
 		}
-		return itemstack;
 	}
 
 	@Override

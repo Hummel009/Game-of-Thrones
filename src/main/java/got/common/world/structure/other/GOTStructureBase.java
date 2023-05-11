@@ -211,8 +211,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		scanAliases.clear();
 	}
 
-	public boolean generateSubstructure(GOTStructureBase str, World world, Random random, int i, int j, int k, int r) {
-		return generateSubstructureWithRestrictionFlag(str, world, random, i, j, k, r, restrictions);
+	public void generateSubstructure(GOTStructureBase str, World world, Random random, int i, int j, int k, int r) {
+		generateSubstructureWithRestrictionFlag(str, world, random, i, j, k, r, restrictions);
 	}
 
 	public boolean generateSubstructureWithRestrictionFlag(GOTStructureBase str, World world, Random random, int i, int j, int k, int r, boolean isRestrict) {

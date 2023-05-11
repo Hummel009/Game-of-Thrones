@@ -41,8 +41,7 @@ public class GOTSlotBarrel extends Slot {
 		return false;
 	}
 
-	public GOTSlotBarrel setWaterSource() {
+	public void setWaterSource() {
 		isWater = true;
-		return this;
 	}
 }
