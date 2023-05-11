@@ -221,7 +221,7 @@ public class GOTContainerAnvil extends Container {
 				if (!isRepairMaterial(inputItem, tradeItem)) {
 					continue;
 				}
-				materialPrice = (float) trade.getCost() / (float) trade.createTradeItem().stackSize;
+				materialPrice = (float) trade.getCost() / trade.createTradeItem().stackSize;
 				break;
 			}
 		}
@@ -232,7 +232,7 @@ public class GOTContainerAnvil extends Container {
 				if (!isRepairMaterial(inputItem, tradeItem)) {
 					continue;
 				}
-				materialPrice = (float) trade.getCost() / (float) trade.createTradeItem().stackSize;
+				materialPrice = (float) trade.getCost() / trade.createTradeItem().stackSize;
 				break;
 			}
 		}

@@ -58,7 +58,7 @@ public class GOTSpeechClient {
 		}
 
 		public float getAge() {
-			return (float) time / (float) DISPLAY_TIME;
+			return (float) time / DISPLAY_TIME;
 		}
 
 		public String getSpeech() {

@@ -31,7 +31,7 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 
 	@Override
 	public float getCompletionFactor() {
-		return (float) killCount / (float) killTarget;
+		return (float) killCount / killTarget;
 	}
 
 	public abstract String getKillTargetName();

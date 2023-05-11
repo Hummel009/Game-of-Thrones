@@ -55,7 +55,7 @@ public class GOTEntityHotPie extends GOTEntityHumanBase implements GOTTradeable 
 
 	@Override
 	public float getAlignmentBonus() {
-		return 1f;
+		return 1.0f;
 	}
 
 	@Override

@@ -142,7 +142,7 @@ public class GOTRenderNorthernLights {
 		GL11.glPushMatrix();
 		GL11.glLoadIdentity();
 		float fov = GOTReflectionClient.getFOVModifier(mc.entityRenderer, tick, true);
-		Project.gluPerspective(fov, (float) mc.displayWidth / (float) mc.displayHeight, 0.05f, nlScale * 5.0f);
+		Project.gluPerspective(fov, (float) mc.displayWidth / mc.displayHeight, 0.05f, nlScale * 5.0f);
 		GL11.glMatrixMode(5888);
 		GL11.glPushMatrix();
 		GL11.glTranslatef(0.0f, nlHeight, -nlDistance);
@@ -157,9 +157,9 @@ public class GOTRenderNorthernLights {
 		GL11.glShadeModel(7425);
 		GL11.glDisable(2884);
 		world.theProfiler.startSection("sheet");
-		renderSheet(mc, world, nlScale * -0.5f, (nlBrightness *= 0.3f + (1.0f - world.getRainStrength(tick)) * 0.7f) * 0.8f, nlScale * 1.0f, nlScale * 0.25f, 0.25502f, tick);
-		renderSheet(mc, world, 0.0f, nlBrightness * 1.0f, nlScale * 1.5f, nlScale * 0.3f, 0.15696f, tick);
-		renderSheet(mc, world, nlScale * 0.5f, nlBrightness * 0.8f, nlScale * 1.0f, nlScale * 0.25f, 0.67596f, tick);
+		renderSheet(mc, world, nlScale * -0.5f, (nlBrightness *= 0.3f + (1.0f - world.getRainStrength(tick)) * 0.7f) * 0.8f, nlScale, nlScale * 0.25f, 0.25502f, tick);
+		renderSheet(mc, world, 0.0f, nlBrightness, nlScale * 1.5f, nlScale * 0.3f, 0.15696f, tick);
+		renderSheet(mc, world, nlScale * 0.5f, nlBrightness * 0.8f, nlScale, nlScale * 0.25f, 0.67596f, tick);
 		world.theProfiler.endSection();
 		GL11.glEnable(2884);
 		GL11.glShadeModel(7424);
@@ -186,7 +186,7 @@ public class GOTRenderNorthernLights {
 		float g3 = colorBottomCurrent[1];
 		float b3 = colorBottomCurrent[2];
 		if (colorChangeTime > 0) {
-			float t = (float) colorChangeTick / (float) colorChangeTime;
+			float t = (float) colorChangeTick / colorChangeTime;
 			t = 1.0f - t;
 			r1 = colorTopCurrent[0] + (colorTopNext[0] - colorTopCurrent[0]) * t;
 			g1 = colorTopCurrent[1] + (colorTopNext[1] - colorTopCurrent[1]) * t;
@@ -214,8 +214,8 @@ public class GOTRenderNorthernLights {
 			strips = 80;
 		}
 		for (int l = 0; l < strips; ++l) {
-			float t = (float) l / (float) strips;
-			float t1 = (float) (l + 1) / (float) strips;
+			float t = (float) l / strips;
+			float t1 = (float) (l + 1) / strips;
 			float a1_here = a1;
 			float a2_here = a2;
 			float a3_here = a3;
@@ -428,7 +428,7 @@ public class GOTRenderNorthernLights {
 		public void update() {
 			if (age >= 0) {
 				--age;
-				float a = (float) (maxAge - age) / (float) maxAge;
+				float a = (float) (maxAge - age) / maxAge;
 				ampModifier = Math.min(a, 1.0f - a);
 			}
 		}

@@ -184,7 +184,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public float getInvasionHealthStatus() {
-		return (float) invasionRemaining / (float) invasionSize;
+		return (float) invasionRemaining / invasionSize;
 	}
 
 	public UUID getInvasionID() {

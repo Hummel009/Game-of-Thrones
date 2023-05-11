@@ -601,7 +601,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		int l = potion.getStatusIconIndex();
 		GuiScreen screen = mc.currentScreen;
 		if (screen != null) {
-			screen.drawTexturedModalRect(x + 6, y + 7, 0 + l % 8 * 18, 0 + l / 8 * 18, 18, 18);
+			screen.drawTexturedModalRect(x + 6, y + 7, l % 8 * 18, l / 8 * 18, 18, 18);
 		}
 	}
 

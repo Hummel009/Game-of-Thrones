@@ -21,12 +21,12 @@ public class GOTModelRabbit extends ModelBase {
 		ModelRenderer rightEar = new ModelRenderer(this, 16, 0);
 		rightEar.addBox(-1.2f, -4.5f, -0.5f, 2, 5, 1);
 		rightEar.setRotationPoint(-1.0f, -1.5f, 0.0f);
-		rightEar.rotateAngleX = (float) Math.toRadians(-20.0);
+		rightEar.rotateAngleX = (float) -0.3490658503988659;
 		ModelRenderer leftEar = new ModelRenderer(this, 16, 0);
 		leftEar.mirror = true;
 		leftEar.addBox(-0.8f, -4.5f, -0.5f, 2, 5, 1);
 		leftEar.setRotationPoint(1.0f, -1.5f, 0.0f);
-		leftEar.rotateAngleX = (float) Math.toRadians(-20.0);
+		leftEar.rotateAngleX = (float) -0.3490658503988659;
 		head.addChild(rightEar);
 		head.addChild(leftEar);
 		body = new ModelRenderer(this, 0, 19);
@@ -36,7 +36,7 @@ public class GOTModelRabbit extends ModelBase {
 		ModelRenderer tail = new ModelRenderer(this, 32, 30);
 		tail.addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1);
 		tail.setRotationPoint(0.0f, 4.5f, 2.5f);
-		tail.rotateAngleX = (float) Math.toRadians(-45.0);
+		tail.rotateAngleX = (float) -0.7853981633974483;
 		body.addChild(head);
 		body.addChild(tail);
 		rightArm = new ModelRenderer(this, 32, 0);
@@ -54,7 +54,7 @@ public class GOTModelRabbit extends ModelBase {
 		ModelRenderer rightFoot = new ModelRenderer(this, 32, 16);
 		rightFoot.addBox(-1.0f, -0.5f, -2.5f, 2, 1, 3);
 		rightFoot.setRotationPoint(0.0f, 2.0f, -1.0f);
-		rightFoot.rotateAngleX = (float) Math.toRadians(-15.0);
+		rightFoot.rotateAngleX = (float) -0.2617993877991494;
 		rightLeg.addChild(rightFoot);
 		leftLeg = new ModelRenderer(this, 32, 8);
 		leftLeg.mirror = true;
@@ -64,7 +64,7 @@ public class GOTModelRabbit extends ModelBase {
 		leftFoot.mirror = true;
 		leftFoot.addBox(-1.0f, -0.5f, -2.5f, 2, 1, 3);
 		leftFoot.setRotationPoint(0.0f, 2.0f, -1.0f);
-		leftFoot.rotateAngleX = (float) Math.toRadians(-15.0);
+		leftFoot.rotateAngleX = (float) -0.2617993877991494;
 		leftLeg.addChild(leftFoot);
 	}
 
@@ -78,18 +78,18 @@ public class GOTModelRabbit extends ModelBase {
 
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-		body.rotateAngleX = (float) Math.toRadians(45.0);
-		head.rotateAngleX = (float) Math.toRadians(-45.0);
-		rightArm.rotateAngleX = (float) Math.toRadians(-55.0);
-		leftArm.rotateAngleX = (float) Math.toRadians(-55.0);
-		float f6 = (float) Math.toRadians(45.0);
+		body.rotateAngleX = (float) 0.7853981633974483;
+		head.rotateAngleX = (float) -0.7853981633974483;
+		rightArm.rotateAngleX = (float) -0.9599310885968813;
+		leftArm.rotateAngleX = (float) -0.9599310885968813;
+		float f6 = (float) 0.7853981633974483;
 		f6 = f6 *= f1;
 		body.rotateAngleX += f6;
 		head.rotateAngleX -= f6;
 		rightArm.rotateAngleX -= f6;
 		leftArm.rotateAngleX -= f6;
 		if (((GOTEntityRabbit) entity).isRabbitEating()) {
-			float f7 = (float) Math.toRadians(30.0);
+			float f7 = (float) 0.5235987755982988;
 			body.rotateAngleX += f7;
 			rightArm.rotateAngleX += f7;
 			leftArm.rotateAngleX += f7;
@@ -102,8 +102,8 @@ public class GOTModelRabbit extends ModelBase {
 		rightArm.rotateAngleX += MathHelper.cos(f * 0.6662f + 3.1415927f) * f1;
 		leftArm.rotateAngleX += MathHelper.cos(f * 0.6662f) * f1;
 		body.rotateAngleZ = MathHelper.cos(f * 0.6662f) * f1 * 0.3f;
-		rightLeg.rotateAngleX = (float) Math.toRadians(15.0);
-		leftLeg.rotateAngleX = (float) Math.toRadians(15.0);
+		rightLeg.rotateAngleX = (float) 0.2617993877991494;
+		leftLeg.rotateAngleX = (float) 0.2617993877991494;
 		rightLeg.rotateAngleX += MathHelper.cos(f * 0.6662f) * 1.4f * f1;
 		leftLeg.rotateAngleX += MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
 	}

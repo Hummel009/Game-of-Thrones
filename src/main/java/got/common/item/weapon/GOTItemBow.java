@@ -84,7 +84,7 @@ public class GOTItemBow extends ItemBow {
 	public BowState getBowState(EntityLivingBase entity, ItemStack usingItem, int useRemaining) {
 		if (entity instanceof EntityPlayer && usingItem != null && usingItem.getItem() == this) {
 			int ticksInUse = usingItem.getMaxItemUseDuration() - useRemaining;
-			double useAmount = (double) ticksInUse / (double) bowPullTime;
+			double useAmount = (double) ticksInUse / bowPullTime;
 			if (useAmount >= 0.9) {
 				return BowState.PULL_2;
 			}
@@ -171,7 +171,7 @@ public class GOTItemBow extends ItemBow {
 			arrowItem = new ItemStack(Items.arrow);
 		}
 		if (arrowItem != null) {
-			float charge = (float) useTick / (float) getMaxDrawTime();
+			float charge = (float) useTick / getMaxDrawTime();
 			if (charge < 0.65f) {
 				return;
 			}

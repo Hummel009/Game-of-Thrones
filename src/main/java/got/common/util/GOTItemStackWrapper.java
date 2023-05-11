@@ -56,7 +56,7 @@ public class GOTItemStackWrapper {
 	public int hashCode() {
 		int result = 1;
 		if (item == null) {
-			result = 31 * result + 0;
+			result = 31 * result;
 		} else {
 			result = 31 * result + item.hashCode();
 		}
@@ -64,7 +64,7 @@ public class GOTItemStackWrapper {
 		if (isNBTSensitive) {
 			result = 31 * result + 1231;
 			if (compound == null) {
-				result = 31 * result + 0;
+				result = 31 * result;
 			} else {
 				result = 31 * result + compound.hashCode();
 			}

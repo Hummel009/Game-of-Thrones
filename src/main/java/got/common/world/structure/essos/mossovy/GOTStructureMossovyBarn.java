@@ -98,7 +98,7 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
 		for (i12 = -1; i12 <= 1; ++i12) {
-			for (step = 0; step < 12 && !isOpaque(world, i12, j1 = 0 - step, k13 = -8 - step); ++step) {
+			for (step = 0; step < 12 && !isOpaque(world, i12, j1 = -step, k13 = -8 - step); ++step) {
 				setBlockAndMetadata(world, i12, j1, k13, Blocks.grass, 0);
 				setGrassToDirt(world, i12, j1 - 1, k13);
 				j2 = j1 - 1;
@@ -110,7 +110,7 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 			}
 		}
 		for (i12 = -1; i12 <= 1; ++i12) {
-			for (step = 0; step < 12 && !isOpaque(world, i12, j1 = 0 - step, k13 = 8 + step); ++step) {
+			for (step = 0; step < 12 && !isOpaque(world, i12, j1 = -step, k13 = 8 + step); ++step) {
 				setBlockAndMetadata(world, i12, j1, k13, Blocks.grass, 0);
 				setGrassToDirt(world, i12, j1 - 1, k13);
 				j2 = j1 - 1;

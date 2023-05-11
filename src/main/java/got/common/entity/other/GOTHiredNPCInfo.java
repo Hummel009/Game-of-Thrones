@@ -164,7 +164,7 @@ public class GOTHiredNPCInfo {
 	public float getProgressToNextLevel() {
 		int cap = totalXPForLevel(xpLevel + 1);
 		int start = totalXPForLevel(xpLevel);
-		return (float) (xp - start) / (float) (cap - start);
+		return (float) (xp - start) / (cap - start);
 	}
 
 	public String getSquadron() {
@@ -405,7 +405,7 @@ public class GOTHiredNPCInfo {
 				hiringPlayerUUID = UUID.fromString(savedUUID);
 			}
 			isActive = data.getBoolean("IsActive");
-			alignmentRequiredToCommand = data.hasKey("AlignmentRequired") ? (float) data.getInteger("AlignmentRequired") : data.getFloat("AlignReqF");
+			alignmentRequiredToCommand = data.hasKey("AlignmentRequired") ? data.getInteger("AlignmentRequired") : data.getFloat("AlignReqF");
 			if (data.hasKey("PledgeType")) {
 				byte pledgeID = data.getByte("PledgeType");
 				pledgeType = GOTUnitTradeEntry.PledgeType.forID(pledgeID);

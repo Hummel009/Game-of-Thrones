@@ -168,7 +168,7 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 				}
 			}
 		}
-		for (int step = 0; step < 12 && !isOpaque(world, i12 = -5, j12 = 0 - step, k1 = -5 - step); ++step) {
+		for (int step = 0; step < 12 && !isOpaque(world, i12 = -5, j12 = -step, k1 = -5 - step); ++step) {
 			randPath = random.nextInt(4);
 			switch (randPath) {
 				case 0:

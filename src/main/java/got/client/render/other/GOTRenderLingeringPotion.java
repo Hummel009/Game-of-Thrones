@@ -24,9 +24,9 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 	}
 
 	public static void colour(int colour) {
-		float r = (colour >> 16 & 255) / 255F;
-		float g = (colour >> 8 & 255) / 255F;
-		float b = (colour & 255) / 255F;
+		float r = (colour >> 16 & 255) / 255.0F;
+		float g = (colour >> 8 & 255) / 255.0F;
+		float b = (colour & 255) / 255.0F;
 
 		colour(r, g, b);
 	}

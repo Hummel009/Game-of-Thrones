@@ -127,8 +127,8 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	}
 
 	public float getBrewAnimationProgressScaledF(int i, float f) {
-		float f1 = (float) brewingAnimPrev * (float) i / 32.0f;
-		float f2 = (float) brewingAnim * (float) i / 32.0f;
+		float f1 = (float) brewingAnimPrev * i / 32.0f;
+		float f2 = (float) brewingAnim * i / 32.0f;
 		return f1 + (f2 - f1) * f;
 	}
 

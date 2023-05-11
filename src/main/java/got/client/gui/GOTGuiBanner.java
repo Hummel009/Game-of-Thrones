@@ -162,7 +162,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46 + fontRendererObj.FONT_HEIGHT, 4210752);
 			s = GOTFellowshipProfile.getFellowshipCodeHint();
 			fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 206, 4210752);
-			int start = 0 + Math.round(currentScroll * (allowedPlayers.length - 6));
+			int start = Math.round(currentScroll * (allowedPlayers.length - 6));
 			int end = start + 6 - 1;
 			start = Math.max(start, 0);
 			end = Math.min(end, allowedPlayers.length - 1);
@@ -276,7 +276,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			if (i < 0) {
 				i = -1;
 			}
-			currentScroll = (float) (currentScroll - (double) i / (double) j);
+			currentScroll = (float) (currentScroll - (double) i / j);
 			if (currentScroll < 0.0f) {
 				currentScroll = 0.0f;
 			}
@@ -512,7 +512,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		}
 		wasMouseDown = isMouseDown;
 		if (isScrolling) {
-			currentScroll = (j - j1 - scrollWidgetHeight / 2.0f) / ((float) (j2 - j1) - (float) scrollWidgetHeight);
+			currentScroll = (j - j1 - scrollWidgetHeight / 2.0f) / ((float) (j2 - j1) - scrollWidgetHeight);
 			if (currentScroll < 0.0f) {
 				currentScroll = 0.0f;
 			}

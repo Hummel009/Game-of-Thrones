@@ -40,7 +40,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	public static double BASE_DAMAGE = 8;
 	public static double BASE_HEALTH = 1000;
 	public static float BASE_WIDTH = 4;
-	public static float BASE_HEIGHT = 3f;
+	public static float BASE_HEIGHT = 3.0f;
 	public static int HOME_RADIUS = 256;
 	public static Item FAVORITE_FOOD = Items.fish;
 	public static int INDEX_SADDLED = 20;

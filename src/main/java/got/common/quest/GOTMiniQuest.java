@@ -353,7 +353,7 @@ public abstract class GOTMiniQuest {
 		}
 		rewardFactor = nbt.hasKey("RewardFactor") ? nbt.getFloat("RewardFactor") : 1.0f;
 		willHire = nbt.getBoolean("WillHire");
-		hiringAlignment = nbt.hasKey("HiringAlignment") ? (float) nbt.getInteger("HiringAlignment") : nbt.getFloat("HiringAlignF");
+		hiringAlignment = nbt.hasKey("HiringAlignment") ? nbt.getInteger("HiringAlignment") : nbt.getFloat("HiringAlignF");
 		rewardItemTable.clear();
 		if (nbt.hasKey("RewardItemTable")) {
 			itemTags = nbt.getTagList("RewardItemTable", 10);
@@ -369,7 +369,7 @@ public abstract class GOTMiniQuest {
 		completed = nbt.getBoolean("Completed");
 		dateCompleted = nbt.getInteger("DateCompleted");
 		coinsRewarded = nbt.getShort("CoinReward");
-		alignmentRewarded = nbt.hasKey("AlignmentReward") ? (float) nbt.getShort("AlignmentReward") : nbt.getFloat("AlignRewardF");
+		alignmentRewarded = nbt.hasKey("AlignmentReward") ? nbt.getShort("AlignmentReward") : nbt.getFloat("AlignRewardF");
 		wasHired = nbt.getBoolean("WasHired");
 		itemsRewarded.clear();
 		if (nbt.hasKey("ItemRewards")) {

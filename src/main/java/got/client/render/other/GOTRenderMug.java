@@ -38,8 +38,8 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 
 	public void renderLiquid(IIcon icon, int uvMin, int uvMax, double yMin, double yMax, float scale) {
 		double edge = 0.001;
-		double xzMin = (double) uvMin * (double) scale;
-		double xzMax = (double) uvMax * (double) scale;
+		double xzMin = (double) uvMin * scale;
+		double xzMax = (double) uvMax * scale;
 		float dxz = 0.5f - (uvMin + uvMax) / 2.0f * scale;
 		yMin = 16.0 - yMin;
 		yMax = 16.0 - yMax;

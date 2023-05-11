@@ -64,7 +64,7 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 			if (i13 == 0) {
 				continue;
 			}
-			for (int step = 0; step < 12 && !isOpaque(world, i13, j12 = 0 - step, k1 = -5 - step); ++step) {
+			for (int step = 0; step < 12 && !isOpaque(world, i13, j12 = -step, k1 = -5 - step); ++step) {
 				setBlockAndMetadata(world, i13, j12, k1, Blocks.grass, 0);
 				setGrassToDirt(world, i13, j12 - 1, k1);
 				j2 = j12 - 1;
@@ -78,7 +78,7 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 		for (int j13 = 1; j13 <= 2; ++j13) {
 			setAir(world, 5, j13, 6);
 		}
-		for (int step = 0; step < 12 && !isOpaque(world, i12 = 5 + step, j12 = 0 - step, k1 = 6); ++step) {
+		for (int step = 0; step < 12 && !isOpaque(world, i12 = 5 + step, j12 = -step, k1 = 6); ++step) {
 			setBlockAndMetadata(world, i12, j12, k1, Blocks.stone_stairs, 0);
 			setGrassToDirt(world, i12, j12 - 1, k1);
 			j2 = j12 - 1;

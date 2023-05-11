@@ -62,7 +62,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		GL11.glEnable(32826);
 		GL11.glEnable(2903);
 		int size = currentCategoryTakenCount + currentCategoryUntakenCount;
-		int min = 0 + Math.round(currentScroll * (size - 4));
+		int min = Math.round(currentScroll * (size - 4));
 		int max = 3 + Math.round(currentScroll * (size - 4));
 		if (max > size - 1) {
 			max = size - 1;
@@ -188,7 +188,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			float[] catColors = thisCategory.getCategoryRGB();
 			mc.getTextureManager().bindTexture(iconsTexture);
 			GL11.glColor4f(catColors[0], catColors[1], catColors[2], 1.0f);
-			drawTexturedModalRect(catX0, catY0, catX0 - catScrollAreaX0 + 0, 100, catX1 - catX0, catY1 - catY0);
+			drawTexturedModalRect(catX0, catY0, catX0 - catScrollAreaX0, 100, catX1 - catX0, catY1 - catY0);
 		}
 		mc.getTextureManager().bindTexture(iconsTexture);
 		drawTexturedModalRect(catScrollX, catScrollY, 0, 110, 152, 10);
@@ -223,7 +223,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			if (i < 0) {
 				i = -1;
 			}
-			currentScroll = (float) (currentScroll - (double) i / (double) j);
+			currentScroll = (float) (currentScroll - (double) i / j);
 			if (currentScroll < 0.0f) {
 				currentScroll = 0.0f;
 			}

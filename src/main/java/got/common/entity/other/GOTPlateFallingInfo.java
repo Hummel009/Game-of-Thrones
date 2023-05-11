@@ -67,7 +67,7 @@ public class GOTPlateFallingInfo implements IExtendedEntityProperties {
 				posXTicksAgo[l] = Math.max(posXTicksAgo[l], curPos);
 			}
 		}
-		if (updateTick % 1 == 0) {
+		if (0 == 0) {
 			for (l = posXTicksAgo.length - 1; l > 0; --l) {
 				posXTicksAgo[l] = posXTicksAgo[l - 1];
 			}

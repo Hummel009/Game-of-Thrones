@@ -133,13 +133,13 @@ public class GOTAmbience {
 						int k1 = k + MathHelper.getRandomIntegerInRange(rand, -xzRange, xzRange);
 						int j1 = j + MathHelper.getRandomIntegerInRange(rand, -16, 16);
 						if (j1 >= minWindHeight && world.canBlockSeeTheSky(i1, j1, k1)) {
-							float windiness = (float) (j1 - minWindHeight) / (float) (fullWindHeight - minWindHeight);
+							float windiness = (float) (j1 - minWindHeight) / (fullWindHeight - minWindHeight);
 							windiness = MathHelper.clamp_float(windiness, 0.0f, 1.0f);
 							if (windiness >= rand.nextFloat()) {
 								float x1 = i1 + 0.5f;
 								float y1 = j1 + 0.5f;
 								float z1 = k1 + 0.5f;
-								float vol = 1.0f * Math.max(0.25f, windiness);
+								float vol = Math.max(0.25f, windiness);
 								float pitch = 0.8f + rand.nextFloat() * 0.4f;
 								AmbientSoundNoAttentuation wind = new AmbientSoundNoAttentuation(new ResourceLocation("got:ambient.weather.wind"), vol, pitch, x1, y1, z1).calcAmbientVolume(entityplayer, xzRange);
 								mc.getSoundHandler().playSound(wind);
@@ -185,7 +185,7 @@ public class GOTAmbience {
 										float angle = (float) Math.atan2(dz, dx);
 										float cos = MathHelper.cos(angle);
 										float sin = MathHelper.sin(angle);
-										float angle90 = angle + (float) Math.toRadians(-90.0);
+										float angle90 = angle + (float) -1.5707963267948966;
 										float cos90 = MathHelper.cos(angle90);
 										float sin90 = MathHelper.sin(angle90);
 										float waveSpeed = MathHelper.randomFloatClamp(rand, 0.3f, 0.5f);

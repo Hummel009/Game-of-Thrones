@@ -149,7 +149,7 @@ public class GOTWeaponStats {
 
 	public static float getMeleeSpeed(ItemStack itemstack) {
 		int base = basePlayerMeleeTime;
-		return 1.0f / ((float) getAttackTimeWithBase(itemstack, base) / (float) base);
+		return 1.0f / ((float) getAttackTimeWithBase(itemstack, base) / base);
 	}
 
 	public static float getRangedDamageFactor(ItemStack itemstack, boolean launchSpeedOnly) {
@@ -222,7 +222,7 @@ public class GOTWeaponStats {
 			}
 		}
 		if (time > 0) {
-			return 1.0f / ((float) time / (float) base);
+			return 1.0f / ((float) time / base);
 		}
 		return 0.0f;
 	}

@@ -51,7 +51,7 @@ public class GOTEntityMellario extends GOTEntityHumanBase {
 
 	@Override
 	public float getAlignmentBonus() {
-		return 300f;
+		return 300.0f;
 	}
 
 	@Override

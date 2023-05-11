@@ -63,7 +63,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		double posY = j;
 		double posZ = k;
 		if (randomTranslation) {
-			long seed = i * 3129871 ^ k * 116129781L ^ j;
+			long seed = i * 3129871L ^ k * 116129781L ^ j;
 			seed = seed * seed * 42317861L + seed * 11L;
 			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
 			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
@@ -71,7 +71,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, posY, posZ, (float) scale);
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
-			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
+			float rotation = (float) petal / petalCount * 3.1415927f * 2.0f;
 			IIcon icon = GOTBlockClover.petalIcon;
 			double d = icon.getMinU();
 			double d1 = icon.getMinV();
@@ -127,7 +127,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		double posY = j;
 		double posZ = k;
 		if (randomTranslation) {
-			long seed = i * 3129871 ^ k * 116129781L ^ j;
+			long seed = i * 3129871L ^ k * 116129781L ^ j;
 			seed = seed * seed * 42317861L + seed * 11L;
 			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
 			posY += ((seed >> 20 & 0xFL) / 15.0f - 1.0) * 0.2;
@@ -166,7 +166,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		tessellator.draw();
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
-			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
+			float rotation = (float) petal / petalCount * 3.1415927f * 2.0f;
 			IIcon icon = GOTBlockClover.petalIcon;
 			double d = icon.getMinU();
 			double d1 = icon.getMinV();
@@ -220,7 +220,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		tessellator.draw();
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
-			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
+			float rotation = (float) petal / petalCount * 3.1415927f * 2.0f;
 			IIcon icon = GOTBlockPlantain.petalIcon;
 			double d = icon.getMinU();
 			double d1 = icon.getMinV();
@@ -273,7 +273,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		double posY = j;
 		double posZ = k;
 		if (randomTranslation) {
-			long seed = i * 3129871 ^ k * 116129781L ^ j;
+			long seed = i * 3129871L ^ k * 116129781L ^ j;
 			seed = seed * seed * 42317861L + seed * 11L;
 			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
 			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
@@ -281,7 +281,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, posY, posZ, (float) scale);
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
-			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
+			float rotation = (float) petal / petalCount * 3.1415927f * 2.0f;
 			IIcon icon = GOTBlockPlantain.petalIcon;
 			double d = icon.getMinU();
 			double d1 = icon.getMinV();
@@ -700,7 +700,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		double d = i;
 		double d1 = j;
 		double d2 = k;
-		long seed = i * 3129871 ^ k * 116129781L;
+		long seed = i * 3129871L ^ k * 116129781L;
 		seed = seed * seed * 42317861L + seed * 11L;
 		d += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3;
 		d2 += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3;
@@ -749,7 +749,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		for (int l = 0; l < leaves; ++l) {
 			double posX = i + blockRand.nextFloat();
 			double posZ = k + blockRand.nextFloat();
-			double posY = j + 0.01f + (float) l / (float) leaves * 0.1f;
+			double posY = j + 0.01f + (float) l / leaves * 0.1f;
 			float rotation = blockRand.nextFloat() * 3.1415927f * 2.0f;
 			int xSize = MathHelper.getRandomIntegerInRange(blockRand, minMaxXSize[0], minMaxXSize[1]);
 			int zSize = MathHelper.getRandomIntegerInRange(blockRand, minMaxZSize[0], minMaxZSize[1]);
@@ -797,7 +797,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		double d = i;
 		double d1 = j;
 		double d2 = k;
-		long seed = i * 3129871 ^ k * 116129781L ^ j;
+		long seed = i * 3129871L ^ k * 116129781L ^ j;
 		seed = seed * seed * 42317861L + seed * 11L;
 		IIcon iicon = renderblocks.getBlockIconFromSideAndMetadata(block, 0, world.getBlockMetadata(i, j, k));
 		renderblocks.drawCrossedSquares(iicon, d += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, d1, d2 += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);

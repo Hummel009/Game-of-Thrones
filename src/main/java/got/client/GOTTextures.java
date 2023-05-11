@@ -172,7 +172,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 							}
 						}
 						if (water > 0) {
-							float ratio = (float) water / (float) total;
+							float ratio = (float) water / total;
 							rgb = GOTColorUtil.lerpColors_I(5468426, 9279778, ratio * 2.0f);
 						}
 					} else if (rgb == 14736861) {
@@ -193,7 +193,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 							}
 						}
 						if (edge > 0) {
-							float ratio = (float) edge / (float) total;
+							float ratio = (float) edge / total;
 							rgb = GOTColorUtil.lerpColors_I(14736861, 9005125, ratio * 1.5f);
 						}
 					}
@@ -219,10 +219,10 @@ public class GOTTextures implements IResourceManagerReloadListener {
 			int mtX = 0;
 			int mtY = 0;
 			int mtW = 20;
-			double mtMinU = (double) (mtX - mtW) / (double) GOTGenLayerWorld.imageWidth;
-			double mtMaxU = (double) (mtX + mtW) / (double) GOTGenLayerWorld.imageWidth;
-			double mtMinV = (double) (mtY - mtW) / (double) GOTGenLayerWorld.imageHeight;
-			double mtMaxV = (double) (mtY + mtW) / (double) GOTGenLayerWorld.imageHeight;
+			double mtMinU = (double) (mtX - mtW) / GOTGenLayerWorld.imageWidth;
+			double mtMaxU = (double) (mtX + mtW) / GOTGenLayerWorld.imageWidth;
+			double mtMinV = (double) (mtY - mtW) / GOTGenLayerWorld.imageHeight;
+			double mtMaxV = (double) (mtY + mtW) / GOTGenLayerWorld.imageHeight;
 			if (minU <= mtMaxU && maxU >= mtMinU && minV <= mtMaxV && maxV >= mtMinV) {
 				GL11.glDisable(3553);
 				int oceanColor = getMapOceanColor(sepia);

@@ -49,7 +49,7 @@ public class GOTItemSpear extends GOTItemSword {
 			return;
 		}
 		int useTick = getMaxItemUseDuration(itemstack) - i;
-		float charge = (float) useTick / (float) getMaxDrawTime();
+		float charge = (float) useTick / getMaxDrawTime();
 		if (charge < 0.1f) {
 			return;
 		}

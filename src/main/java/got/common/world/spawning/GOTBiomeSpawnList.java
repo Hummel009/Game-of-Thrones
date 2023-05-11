@@ -121,7 +121,7 @@ public class GOTBiomeSpawnList {
 				if (facWeight <= cont.baseWeight) {
 					break;
 				}
-				isConquestSpawn = rand.nextFloat() < (float) (facWeight - cont.baseWeight) / (float) facWeight;
+				isConquestSpawn = rand.nextFloat() < (float) (facWeight - cont.baseWeight) / facWeight;
 				break;
 			}
 			if (chosenFacContainer != null) {

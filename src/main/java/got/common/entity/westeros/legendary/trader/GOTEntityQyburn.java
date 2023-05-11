@@ -53,7 +53,7 @@ public class GOTEntityQyburn extends GOTEntityHumanBase implements GOTTradeable 
 
 	@Override
 	public float getAlignmentBonus() {
-		return 100f;
+		return 100.0f;
 	}
 
 	@Override

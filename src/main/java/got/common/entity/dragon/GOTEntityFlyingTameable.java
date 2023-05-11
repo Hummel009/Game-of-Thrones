@@ -208,7 +208,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 			float acc = 0.06f * (tmp1 * tmp2 + (1 - tmp2));
 			motionY = deltaY + speedVert;
 			moveFlying(0, (float) speedHoriz, acc);
-			friction = (float) (motionVec.dotProduct(rotVec) + 1) / 2f;
+			friction = (float) (motionVec.dotProduct(rotVec) + 1) / 2.0f;
 		}
 		friction = 0.8f + 0.15f * friction;
 		if (inWater) {

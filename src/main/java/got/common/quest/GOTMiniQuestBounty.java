@@ -293,7 +293,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			targetName = nbt.getString("TargetName");
 		}
 		killed = nbt.getBoolean("Killed");
-		alignmentBonus = nbt.hasKey("Alignment") ? (float) nbt.getInteger("Alignment") : nbt.getFloat("AlignF");
+		alignmentBonus = nbt.hasKey("Alignment") ? nbt.getInteger("Alignment") : nbt.getFloat("AlignF");
 		coinBonus = nbt.getInteger("Coins");
 		bountyClaimedByOther = nbt.getBoolean("BountyClaimed");
 		killedByBounty = nbt.getBoolean("KilledBy");

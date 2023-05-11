@@ -116,7 +116,7 @@ public class GOTItemCrossbow extends ItemBow {
 		}
 		if (usingItem != null && usingItem.getItem() == this) {
 			int ticksInUse = usingItem.getMaxItemUseDuration() - useRemaining;
-			double useAmount = (double) ticksInUse / (double) getMaxDrawTime();
+			double useAmount = (double) ticksInUse / getMaxDrawTime();
 			if (useAmount >= 1.0) {
 				return crossbowPullIcons[2];
 			}

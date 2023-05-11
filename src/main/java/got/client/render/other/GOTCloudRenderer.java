@@ -57,7 +57,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 			GL11.glPushMatrix();
 			GL11.glLoadIdentity();
 			float fov = GOTReflectionClient.getFOVModifier(mc.entityRenderer, partialTicks, true);
-			Project.gluPerspective(fov, (float) mc.displayWidth / (float) mc.displayHeight, 0.05f, cloudRange);
+			Project.gluPerspective(fov, (float) mc.displayWidth / mc.displayHeight, 0.05f, cloudRange);
 			GL11.glMatrixMode(5888);
 			GL11.glPushMatrix();
 			GL11.glDisable(2884);
@@ -106,9 +106,9 @@ public class GOTCloudRenderer extends IRenderHandler {
 				int interval = cloudRange;
 				for (int i = -cloudRange; i < cloudRange; i += interval) {
 					for (int k = -cloudRange; k < cloudRange; k += interval) {
-						int xMin = i + 0;
+						int xMin = i;
 						int xMax = i + interval;
-						int zMin = k + 0;
+						int zMin = k;
 						int zMax = k + interval;
 						double uMin = (xMin + cloudX) * invScaleD;
 						double uMax = (xMax + cloudX) * invScaleD;

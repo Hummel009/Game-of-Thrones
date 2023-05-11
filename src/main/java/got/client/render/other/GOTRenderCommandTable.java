@@ -34,7 +34,7 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		float minX = posX - viewportWidth / 2;
 		float maxX = posX + viewportWidth / 2;
 		if (minX < 0.0f) {
-			posX = 0 + viewportWidth / 2;
+			posX = viewportWidth / 2;
 		}
 		if (maxX >= GOTGenLayerWorld.imageWidth) {
 			posX = GOTGenLayerWorld.imageWidth - viewportWidth / 2;
@@ -42,15 +42,15 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		float minY = posY - viewportWidth / 2;
 		float maxY = posY + viewportWidth / 2;
 		if (minY < 0.0f) {
-			posY = 0 + viewportWidth / 2;
+			posY = viewportWidth / 2;
 		}
 		if (maxY >= GOTGenLayerWorld.imageHeight) {
 			posY = GOTGenLayerWorld.imageHeight - viewportWidth / 2;
 		}
-		double minU = (double) (posX - viewportWidth / 2) / (double) GOTGenLayerWorld.imageWidth;
-		double maxU = (double) (posX + viewportWidth / 2) / (double) GOTGenLayerWorld.imageWidth;
-		double minV = (double) (posY - viewportWidth / 2) / (double) GOTGenLayerWorld.imageHeight;
-		double maxV = (double) (posY + viewportWidth / 2) / (double) GOTGenLayerWorld.imageHeight;
+		double minU = (double) (posX - viewportWidth / 2) / GOTGenLayerWorld.imageWidth;
+		double maxU = (double) (posX + viewportWidth / 2) / GOTGenLayerWorld.imageWidth;
+		double minV = (double) (posY - viewportWidth / 2) / GOTGenLayerWorld.imageHeight;
+		double maxV = (double) (posY + viewportWidth / 2) / GOTGenLayerWorld.imageHeight;
 		GL11.glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		GOTTextures.drawMap(Minecraft.getMinecraft().thePlayer, true, -radius, radius, -radius, radius, 0.0, minU, maxU, minV, maxV, 1.0f);

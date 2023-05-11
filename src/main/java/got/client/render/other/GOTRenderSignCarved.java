@@ -34,10 +34,10 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		}
 		int width = cachedBlockAtlasImage.getWidth();
 		int height = cachedBlockAtlasImage.getHeight();
-		int u0 = (int) Math.round((double) icon.getMinU() * (double) width);
-		int u1 = (int) Math.round((double) icon.getMaxU() * (double) width);
-		int v0 = (int) Math.round((double) icon.getMinV() * (double) height);
-		int v1 = (int) Math.round((double) icon.getMaxV() * (double) height);
+		int u0 = (int) Math.round((double) icon.getMinU() * width);
+		int u1 = (int) Math.round((double) icon.getMaxU() * width);
+		int v0 = (int) Math.round((double) icon.getMinV() * height);
+		int v1 = (int) Math.round((double) icon.getMaxV() * height);
 		int totalR = 0;
 		int totalG = 0;
 		int totalB = 0;

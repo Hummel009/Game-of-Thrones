@@ -50,7 +50,7 @@ public class GOTTradeEntry {
 
 	public float getLockedProgress() {
 		if (theTrader != null && theTrader.shouldLockTrades()) {
-			return (float) recentTradeValue / (float) theTrader.getLockTradeAtValue();
+			return (float) recentTradeValue / theTrader.getLockTradeAtValue();
 		}
 		return 0.0f;
 	}

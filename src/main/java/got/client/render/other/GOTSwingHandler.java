@@ -105,8 +105,8 @@ public class GOTSwingHandler {
 		} else {
 			SwingTime swt = entitySwings.get(entity);
 			if (swt != null) {
-				entity.swingProgress = (float) swt.swing / (float) swt.swingMax;
-				entity.prevSwingProgress = (float) swt.swingPrev / (float) swt.swingMax;
+				entity.swingProgress = (float) swt.swing / swt.swingMax;
+				entity.prevSwingProgress = (float) swt.swingPrev / swt.swingMax;
 			}
 		}
 	}

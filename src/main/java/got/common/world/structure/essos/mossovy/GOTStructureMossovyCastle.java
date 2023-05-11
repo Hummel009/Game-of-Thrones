@@ -208,7 +208,7 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 				setBlockAndMetadata(world, i12, 4, k1, plankBlock, plankMeta);
 				setBlockAndMetadata(world, i12, 5, k1, woodBeamBlock, woodBeamMeta | 4);
 				setBlockAndMetadata(world, i12, 6, k1, fenceBlock, fenceMeta);
-				setBlockAndMetadata(world, i12, 5, k1 - 1 * Integer.signum(k1), plankSlabBlock, plankSlabMeta);
+				setBlockAndMetadata(world, i12, 5, k1 - Integer.signum(k1), plankSlabBlock, plankSlabMeta);
 			}
 			setBlockAndMetadata(world, -2, 7, k1, plankSlabBlock, plankSlabMeta);
 			setBlockAndMetadata(world, 2, 7, k1, plankSlabBlock, plankSlabMeta);
@@ -241,7 +241,7 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 				setBlockAndMetadata(world, i14, 4, k13, plankBlock, plankMeta);
 				setBlockAndMetadata(world, i14, 5, k13, woodBeamBlock, woodBeamMeta | 8);
 				setBlockAndMetadata(world, i14, 6, k13, fenceBlock, fenceMeta);
-				setBlockAndMetadata(world, i14 - 1 * Integer.signum(i14), 5, k13, plankSlabBlock, plankSlabMeta);
+				setBlockAndMetadata(world, i14 - Integer.signum(i14), 5, k13, plankSlabBlock, plankSlabMeta);
 			}
 			setBlockAndMetadata(world, i14, 7, -2, plankSlabBlock, plankSlabMeta);
 			setBlockAndMetadata(world, i14, 7, 2, plankSlabBlock, plankSlabMeta);

@@ -38,10 +38,10 @@ public class GOTRenderSky extends IRenderHandler {
 		for (j = -b2 * i; j <= b2 * i; j += b2) {
 			for (k = -b2 * i; k <= b2 * i; k += b2) {
 				tessellator.startDrawingQuads();
-				tessellator.addVertex(j + 0, f, k + 0);
-				tessellator.addVertex(j + b2, f, k + 0);
+				tessellator.addVertex(j, f, k);
+				tessellator.addVertex(j + b2, f, k);
 				tessellator.addVertex(j + b2, f, k + b2);
-				tessellator.addVertex(j + 0, f, k + b2);
+				tessellator.addVertex(j, f, k + b2);
 				tessellator.draw();
 			}
 		}
@@ -52,9 +52,9 @@ public class GOTRenderSky extends IRenderHandler {
 		tessellator.startDrawingQuads();
 		for (j = -b2 * i; j <= b2 * i; j += b2) {
 			for (k = -b2 * i; k <= b2 * i; k += b2) {
-				tessellator.addVertex(j + b2, f, k + 0);
-				tessellator.addVertex(j + 0, f, k + 0);
-				tessellator.addVertex(j + 0, f, k + b2);
+				tessellator.addVertex(j + b2, f, k);
+				tessellator.addVertex(j, f, k);
+				tessellator.addVertex(j, f, k + b2);
 				tessellator.addVertex(j + b2, f, k + b2);
 			}
 		}
@@ -201,9 +201,9 @@ public class GOTRenderSky extends IRenderHandler {
 			}
 			mc.renderEngine.bindTexture(moonTexture);
 			float rMoon = 10.0f;
-			float f14 = (float) moonPhase / (float) phases;
+			float f14 = (float) moonPhase / phases;
 			float f15 = 0.0f;
-			float f16 = (float) (moonPhase + 1) / (float) phases;
+			float f16 = (float) (moonPhase + 1) / phases;
 			float f17 = 1.0f;
 			tessellator.startDrawingQuads();
 			tessellator.addVertexWithUV(-rMoon, -100.0, rMoon, f16, f17);

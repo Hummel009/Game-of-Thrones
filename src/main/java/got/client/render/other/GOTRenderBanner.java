@@ -71,7 +71,7 @@ public class GOTRenderBanner extends Render {
 				light = GOTClientProxy.TESSELLATOR_MAX_BRIGHTNESS;
 				lx = light % 65536;
 				ly = light / 65536;
-				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx / 1.0f, ly / 1.0f);
+				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx, ly);
 				GL11.glColor4f((protectColor >> 16 & 0xFF) / 255.0f, (protectColor >> 8 & 0xFF) / 255.0f, (protectColor >> 0 & 0xFF) / 255.0f, 1.0f);
 			}
 			bindTexture(getStandTexture(entity));
@@ -96,7 +96,7 @@ public class GOTRenderBanner extends Render {
 			light = GOTClientProxy.TESSELLATOR_MAX_BRIGHTNESS;
 			lx = light % 65536;
 			ly = light / 65536;
-			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx / 1.0f, ly / 1.0f);
+			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx, ly);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			GL11.glDisable(2896);
 			AxisAlignedBB aabb = banner.createProtectionCube().offset(-RenderManager.renderPosX, -RenderManager.renderPosY, -RenderManager.renderPosZ);

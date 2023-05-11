@@ -75,7 +75,7 @@ public class GOTBlockPlaceableFood extends Block {
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World world, int i, int j, int k) {
 		float f = 0.5f - foodHalfWidth;
 		float f1 = 0.5f + foodHalfWidth;
-		float f2 = f + (f1 - f) * ((float) world.getBlockMetadata(i, j, k) / (float) MAX_EATS);
+		float f2 = f + (f1 - f) * ((float) world.getBlockMetadata(i, j, k) / MAX_EATS);
 		return AxisAlignedBB.getBoundingBox(i + f2, j, k + f, i + f1, j + foodHeight, k + f1);
 	}
 
@@ -171,7 +171,7 @@ public class GOTBlockPlaceableFood extends Block {
 		world.getBlockMetadata(i, j, k);
 		float f = 0.5f - foodHalfWidth;
 		float f1 = 0.5f + foodHalfWidth;
-		float f2 = f + (f1 - f) * ((float) world.getBlockMetadata(i, j, k) / (float) MAX_EATS);
+		float f2 = f + (f1 - f) * ((float) world.getBlockMetadata(i, j, k) / MAX_EATS);
 		setBlockBounds(f2, 0.0f, f, f1, foodHeight, f1);
 	}
 

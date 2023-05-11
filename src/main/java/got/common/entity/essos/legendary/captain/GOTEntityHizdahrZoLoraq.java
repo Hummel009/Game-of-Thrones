@@ -52,7 +52,7 @@ public class GOTEntityHizdahrZoLoraq extends GOTEntityHumanBase implements GOTTr
 
 	@Override
 	public float getAlignmentBonus() {
-		return 100f;
+		return 100.0f;
 	}
 
 	@Override

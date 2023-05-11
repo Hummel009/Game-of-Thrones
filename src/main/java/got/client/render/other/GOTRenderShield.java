@@ -55,7 +55,7 @@ public class GOTRenderShield {
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(-1.0f, 0.0f, 0.0f);
 		for (k = 0; k < width; ++k) {
-			f7 = (float) k / (float) width;
+			f7 = (float) k / width;
 			f8 = maxU + (minU - maxU) * f7 - f5;
 			tessellator.addVertexWithUV(f7, 0.0, depth2, f8, maxV);
 			tessellator.addVertexWithUV(f7, 0.0, depth1, f8, maxV);
@@ -66,7 +66,7 @@ public class GOTRenderShield {
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(1.0f, 0.0f, 0.0f);
 		for (k = 0; k < width; ++k) {
-			f7 = (float) k / (float) width;
+			f7 = (float) k / width;
 			f8 = maxU + (minU - maxU) * f7 - f5;
 			f9 = f7 + 1.0f / width;
 			tessellator.addVertexWithUV(f9, 1.0, depth2, f8, minV);
@@ -78,7 +78,7 @@ public class GOTRenderShield {
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0f, 1.0f, 0.0f);
 		for (k = 0; k < height; ++k) {
-			f7 = (float) k / (float) height;
+			f7 = (float) k / height;
 			f8 = maxV + (minV - maxV) * f7 - f6;
 			f9 = f7 + 1.0f / height;
 			tessellator.addVertexWithUV(0.0, f9, depth1, maxU, f8);
@@ -90,7 +90,7 @@ public class GOTRenderShield {
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0f, -1.0f, 0.0f);
 		for (k = 0; k < height; ++k) {
-			f7 = (float) k / (float) height;
+			f7 = (float) k / height;
 			f8 = maxV + (minV - maxV) * f7 - f6;
 			tessellator.addVertexWithUV(1.0, f7, depth1, minU, f8);
 			tessellator.addVertexWithUV(0.0, f7, depth1, maxU, f8);
