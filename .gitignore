@@ -1,15 +1,6 @@
 
-.classpath
 .gradle
-.project
-.settings
-bin
-out
-build/classes
-build/resources
-build/sources
-build/taskLogs
-build/tmp
+.idea/workspace.xml
+build
 eclipse
-lotr
-unreleased
+out
