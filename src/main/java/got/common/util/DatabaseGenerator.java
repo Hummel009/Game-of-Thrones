@@ -112,7 +112,6 @@ public class DatabaseGenerator {
 		CLASS_TO_WP.put(GOTEntityPetyrBaelish.class, GOTWaypoint.KingsLanding);
 		CLASS_TO_WP.put(GOTEntityBronn.class, GOTWaypoint.KingsLanding);
 		CLASS_TO_WP.put(GOTEntityPodrickPayne.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityPetyrBaelish.class, GOTWaypoint.KingsLanding);
 		CLASS_TO_WP.put(GOTEntityHotPie.class, GOTWaypoint.CrossroadsInn);
 		CLASS_TO_WP.put(GOTEntityVargoHoat.class, GOTWaypoint.CrossroadsInn);
 		CLASS_TO_WP.put(GOTEntitySandorClegane.class, GOTWaypoint.KingsLanding);

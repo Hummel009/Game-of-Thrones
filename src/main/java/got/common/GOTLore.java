@@ -370,7 +370,7 @@ public class GOTLore {
 					}
 				}
 			}
-			text = Pattern.compile(unformatted, 16).matcher(text).replaceFirst(Matcher.quoteReplacement(formatted));
+			text = Pattern.compile(unformatted, Pattern.LITERAL).matcher(text).replaceFirst(Matcher.quoteReplacement(formatted));
 		} while (true);
 		return text;
 	}
