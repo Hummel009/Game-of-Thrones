@@ -99,7 +99,7 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		int j1 = j + Facing.offsetsYForSide[Facing.oppositeSide[l]];
 		int k1 = k + Facing.offsetsZForSide[Facing.oppositeSide[l]];
 		flag = (world.getBlockMetadata(i1, j1, k1) & 8) != 0;
-		return flag ? l == 0 ? true : l == 1 && super.shouldSideBeRendered(world, i, j, k, l) ? true : world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) == 0 : l == 1 ? true : l == 0 && super.shouldSideBeRendered(world, i, j, k, l) ? true : world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) != 0;
+		return flag ? l == 0 || l == 1 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) == 0 : l == 1 || l == 0 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) != 0;
 	}
 
 	public static class SlabItems {

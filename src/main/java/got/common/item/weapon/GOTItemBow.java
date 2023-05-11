@@ -127,7 +127,7 @@ public class GOTItemBow extends ItemBow {
 
 	@Override
 	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
-		return repairItem.getItem() == Items.string ? true : super.getIsRepairable(itemstack, repairItem);
+		return repairItem.getItem() == Items.string || super.getIsRepairable(itemstack, repairItem);
 	}
 
 	@Override

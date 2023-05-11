@@ -83,7 +83,7 @@ public class GOTItemMountArmor extends Item {
 
 	@Override
 	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
-		return armorMaterial.func_151685_b() == repairItem.getItem() ? true : super.getIsRepairable(itemstack, repairItem);
+		return armorMaterial.func_151685_b() == repairItem.getItem() || super.getIsRepairable(itemstack, repairItem);
 	}
 
 	@Override

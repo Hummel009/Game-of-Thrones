@@ -27,7 +27,8 @@ public class GOTGenLayerBiomeSubtypes extends GOTGenLayer {
 				if (biome == GOTBiome.ocean.biomeID && variant < 2) {
 					newBiome = GOTBiome.island.biomeID;
 				}
-				ints[i1 + k1 * xSize] = newBiome != biome ? newBiome : biome;
+				boolean areNotEqual = newBiome != biome;
+				ints[i1 + k1 * xSize] = areNotEqual ? newBiome : biome;
 			}
 		}
 		return ints;

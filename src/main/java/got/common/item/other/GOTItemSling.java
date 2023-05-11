@@ -18,7 +18,7 @@ public class GOTItemSling extends Item {
 
 	@Override
 	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
-		return repairItem.getItem() == Items.leather ? true : super.getIsRepairable(itemstack, repairItem);
+		return repairItem.getItem() == Items.leather || super.getIsRepairable(itemstack, repairItem);
 	}
 
 	@Override

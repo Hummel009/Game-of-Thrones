@@ -155,7 +155,7 @@ public abstract class GOTBlockPortal extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess world, int i, int j, int k, int side) {
-		return side != 0 ? false : super.shouldSideBeRendered(world, i, j, k, side);
+		return side == 0 && super.shouldSideBeRendered(world, i, j, k, side);
 	}
 
 	public void transferEntity(Entity entity, World world) {

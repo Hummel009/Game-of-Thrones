@@ -527,7 +527,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		boolean isMouseDown = Mouse.isButtonDown(0);
 		int i1 = i - guiLeft;
 		int j1 = j - guiTop;
-		mouseInDiary = selectedMiniquest != null ? i1 >= diaryX && i1 < diaryX + diaryWidth && j1 >= diaryY && j1 < diaryY + diaryHeight : false;
+		mouseInDiary = selectedMiniquest != null && i1 >= diaryX && i1 < diaryX + diaryWidth && j1 >= diaryY && j1 < diaryY + diaryHeight;
 		mouseInScrollBar = i1 >= scrollBarX && i1 < scrollBarX + scrollBarWidth && j1 >= scrollBarY && j1 < scrollBarY + scrollBarHeight;
 		if (!wasMouseDown && isMouseDown) {
 			if (mouseInScrollBar) {
