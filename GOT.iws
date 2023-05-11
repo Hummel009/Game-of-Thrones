@@ -9,22 +9,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/GOT.iws" beforeDir="false" afterPath="$PROJECT_DIR$/GOT.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/GOTAlignmentTicker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/GOTAlignmentTicker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/GOTGuiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/GOTGuiHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/gui/GOTGuiAchievements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/gui/GOTGuiAchievements.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/render/other/GOTRenderArmorStand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/render/other/GOTRenderArmorStand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/GOTBannerProtection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/GOTBannerProtection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/database/GOTAchievement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/database/GOTAchievement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/database/GOTArmorModels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/database/GOTArmorModels.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/database/GOTTitle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/database/GOTTitle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/animal/GOTAnimalSpawnConditions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/animal/GOTAnimalSpawnConditions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/GOTChunkProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/GOTChunkProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/biome/GOTBiome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/biome/GOTBiome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTBezierGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTBezierGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTBezierType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTBezierType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTBeziers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTBeziers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/spawning/GOTSpawnerAnimals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/spawning/GOTSpawnerAnimals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/biome/variant/GOTBiomeVariant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/biome/variant/GOTBiomeVariant.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,25 +82,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "Prev",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Eclipse/Minecraft 1.7.10/GOT/libs/NotEnoughItems-1.7.10-1.0.5.120-universal.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.14941406",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "project.propCompiler",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Prev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Eclipse/Minecraft 1.7.10/GOT/libs/NotEnoughItems-1.7.10-1.0.5.120-universal.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Minecraft Client">
     <configuration default="true" factoryName="Applet" type="Applet">
       <module name="" />
