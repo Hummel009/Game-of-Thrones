@@ -135,7 +135,7 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 
 	@Override
 	public void onArtificalSpawn() {
-		GOTJaqenHgharTracker.addNewWanderer(getUniqueID());
+		GOTJaqenHgharTracker.addNewJaqenHghar(getUniqueID());
 		arriveAt(null);
 	}
 
@@ -151,7 +151,7 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		if (!worldObj.isRemote && !GOTJaqenHgharTracker.isWandererActive(getUniqueID()) && getAttackTarget() == null) {
+		if (!worldObj.isRemote && !GOTJaqenHgharTracker.isJaqenHgharActive(getUniqueID()) && getAttackTarget() == null) {
 			depart();
 		}
 	}
@@ -171,12 +171,12 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 
 	@Override
 	public boolean speakTo(EntityPlayer entityplayer) {
-		if (GOTJaqenHgharTracker.isWandererActive(getUniqueID())) {
+		if (GOTJaqenHgharTracker.isJaqenHgharActive(getUniqueID())) {
 			if (questInfo.getOfferFor(entityplayer) != null) {
 				return super.speakTo(entityplayer);
 			}
 			if (addMQOfferFor(entityplayer)) {
-				GOTJaqenHgharTracker.setWandererActive(getUniqueID());
+				GOTJaqenHgharTracker.setJaqenHgharActive(getUniqueID());
 				String speechBank = "legendary/jaqen_welcome";
 				this.sendSpeechBank(entityplayer, speechBank);
 				return true;

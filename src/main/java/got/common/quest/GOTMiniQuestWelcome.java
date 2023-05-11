@@ -302,7 +302,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 
 	@Override
 	public void onPlayerTick(EntityPlayer entityplayer) {
-		if (!GOTJaqenHgharTracker.isWandererActive(entityUUID)) {
+		if (!GOTJaqenHgharTracker.isJaqenHgharActive(entityUUID)) {
 			movedOn = true;
 			updateQuest();
 		}
@@ -327,7 +327,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	}
 
 	public void updateJaqenHghar() {
-		GOTJaqenHgharTracker.setWandererActive(entityUUID);
+		GOTJaqenHgharTracker.setJaqenHgharActive(entityUUID);
 	}
 
 	@Override
