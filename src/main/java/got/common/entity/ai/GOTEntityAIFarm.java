@@ -572,7 +572,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		if (theEntity.hiredNPCInfo.isActive) {
 			int hRange = theEntity.hiredNPCInfo.getGuardRange();
 			ChunkCoordinates home = theEntity.getHomePosition();
-			if (targetAction != null && (targetAction == Action.DEPOSITING || targetAction == Action.COLLECTING) && hRange < 24) {
+			if ((targetAction == Action.DEPOSITING || targetAction == Action.COLLECTING) && hRange < 24) {
 				hRange = 24;
 			}
 			theEntity.setHomeArea(home.posX, home.posY, home.posZ, hRange);

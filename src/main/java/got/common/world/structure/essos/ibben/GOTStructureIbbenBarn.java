@@ -409,7 +409,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 		for (int k181 : new int[]{1, 14}) {
 			for (i142 = -4; i142 <= 4; ++i142) {
 				int i24 = Math.abs(i142);
-				if (i24 > 1 && i24 < 3) {
+				if (i24 == 2) {
 					continue;
 				}
 				setBlockAndMetadata(world, i142, 8, k181, plank2SlabBlock, plank2SlabMeta | 8);

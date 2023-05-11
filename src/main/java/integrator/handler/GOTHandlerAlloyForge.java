@@ -163,7 +163,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 			}
 
 			list.add(stack);
-			arecipes.add(new CachedForgeRecipe((ItemStack[]) null, list.<ItemStack>toArray(new ItemStack[list.size()]), result));
+			arecipes.add(new CachedForgeRecipe((ItemStack[]) null, list.toArray(new ItemStack[list.size()]), result));
 		}
 	}
 

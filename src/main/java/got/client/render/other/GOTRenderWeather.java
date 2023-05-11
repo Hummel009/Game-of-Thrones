@@ -105,10 +105,7 @@ public class GOTRenderWeather extends IRenderHandler {
 							i2 = k1;
 						}
 						float f8 = 1.0f;
-						int j2 = k1;
-						if (k1 < k) {
-							j2 = k;
-						}
+						int j2 = Math.max(k1, k);
 						if (l1 == i2) {
 							continue;
 						}

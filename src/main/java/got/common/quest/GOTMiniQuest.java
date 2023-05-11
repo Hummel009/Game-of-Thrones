@@ -405,7 +405,7 @@ public abstract class GOTMiniQuest {
 		}
 		if (questGroup == null && (recovery = speechBankStart) != null) {
 			GOTMiniQuestFactory factory2;
-			int i1 = recovery.indexOf('/', 0);
+			int i1 = recovery.indexOf('/');
 			int i2 = recovery.indexOf('/', i1 + 1);
 			if (i1 >= 0 && i2 >= 0 && (factory2 = GOTMiniQuestFactory.forName(recovery = recovery.substring(i1 + 1, i2))) != null) {
 				questGroup = factory2;

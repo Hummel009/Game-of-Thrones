@@ -411,7 +411,7 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 		for (int k1221 : new int[]{1, 14}) {
 			for (i18 = -4; i18 <= 4; ++i18) {
 				int i24 = Math.abs(i18);
-				if (i24 > 1 && i24 < 3) {
+				if (i24 == 2) {
 					continue;
 				}
 				setBlockAndMetadata(world, i18, 8, k1221, plankSlabBlock, plankSlabMeta | 8);

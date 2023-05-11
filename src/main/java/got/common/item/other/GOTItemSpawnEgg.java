@@ -65,7 +65,7 @@ public class GOTItemSpawnEgg extends Item {
 
 	@Override
 	public String getItemStackDisplayName(ItemStack itemstack) {
-		StringBuilder itemName = new StringBuilder(("" + StatCollector.translateToLocal(getUnlocalizedName() + ".name")).trim());
+		StringBuilder itemName = new StringBuilder((StatCollector.translateToLocal(getUnlocalizedName() + ".name")).trim());
 		String entityName = GOTEntityRegistry.getStringFromID(itemstack.getItemDamage());
 		if (entityName != null) {
 			itemName.append(" ").append(StatCollector.translateToLocal("entity." + entityName + ".name"));

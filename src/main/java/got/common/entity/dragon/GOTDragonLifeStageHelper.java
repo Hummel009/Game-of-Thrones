@@ -100,7 +100,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		L.trace("onNewLifeStage({},{})", prevLifeStage, lifeStage);
 
 		if (dragon.isClient()) {
-			if (prevLifeStage != null && prevLifeStage == GOTDragonLifeStage.EGG && lifeStage == GOTDragonLifeStage.HATCHLING) {
+			if (prevLifeStage == GOTDragonLifeStage.EGG && lifeStage == GOTDragonLifeStage.HATCHLING) {
 				playEggCrackEffect();
 			}
 		} else {
