@@ -34,7 +34,6 @@ public class GOTWorldGenDeadTrees extends WorldGenAbstractTree {
 			int branchLength = 3 + random.nextInt(5);
 			int branchHorizontalPos = 0;
 			int branchVerticalPos = j + height - 1 - random.nextInt(2);
-			block8:
 			for (int l = 0; l < branchLength; ++l) {
 				if (random.nextInt(4) == 0) {
 					++branchHorizontalPos;

@@ -13,7 +13,7 @@ public class GOTMusicResourceManager implements IResourceManager {
 	public Map<ResourceLocation, IResource> resourceMap = new HashMap<>();
 
 	@Override
-	public List getAllResources(ResourceLocation resource) throws IOException {
+	public List getAllResources(ResourceLocation resource) {
 		ArrayList<IResource> list = new ArrayList<>();
 		list.add(getResource(resource));
 		return list;

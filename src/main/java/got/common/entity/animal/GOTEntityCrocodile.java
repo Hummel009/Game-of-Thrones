@@ -58,7 +58,6 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		int count = rand.nextInt(3) + rand.nextInt(i + 1);
-		block7:
 		for (int j = 0; j < count; ++j) {
 			int drop = rand.nextInt(3);
 			switch (drop) {

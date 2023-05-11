@@ -138,11 +138,10 @@ public class GOTModelDragonPart extends ModelRenderer {
 		setRenderScale(scale, scale, scale);
 	}
 
-	public GOTModelDragonPart setRenderScale(float scaleX, float scaleY, float scaleZ) {
+	public void setRenderScale(float scaleX, float scaleY, float scaleZ) {
 		renderScaleX = scaleX;
 		renderScaleY = scaleY;
 		renderScaleZ = scaleZ;
 
-		return this;
 	}
 }

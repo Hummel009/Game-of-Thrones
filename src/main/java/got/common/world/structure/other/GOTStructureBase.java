@@ -215,7 +215,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		generateSubstructureWithRestrictionFlag(str, world, random, i, j, k, r, restrictions);
 	}
 
-	public boolean generateSubstructureWithRestrictionFlag(GOTStructureBase str, World world, Random random, int i, int j, int k, int r, boolean isRestrict) {
+	public void generateSubstructureWithRestrictionFlag(GOTStructureBase str, World world, Random random, int i, int j, int k, int r, boolean isRestrict) {
 		int i1 = i;
 		int k1 = k;
 		i = getX(i1, k1);
@@ -227,7 +227,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		str.villageInstance = villageInstance;
 		str.sbb = sbb;
 		r %= 4;
-		return str.generate(world, random, i, j, k, r);
+		str.generate(world, random, i, j, k, r);
 	}
 
 	public BiomeGenBase getBiome(World world, int i, int k) {

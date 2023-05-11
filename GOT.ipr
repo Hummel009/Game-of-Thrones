@@ -471,6 +471,11 @@
       <inspection_tool class="BvConstraintMappingsInspection" enabled="false" level="ERROR" enabled_by_default="false" />
       <inspection_tool class="CallerJS" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="CallingSubscribeInNonBlockingScope" enabled="false" level="WARNING" enabled_by_default="false" />
+      <inspection_tool class="CanBeFinal" enabled="false" level="WARNING" enabled_by_default="false">
+        <option name="REPORT_CLASSES" value="false" />
+        <option name="REPORT_METHODS" value="false" />
+        <option name="REPORT_FIELDS" value="true" />
+      </inspection_tool>
       <inspection_tool class="CanBeParameter" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="CanBePrimaryConstructorProperty" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="CanBeVal" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -1425,6 +1430,18 @@
       <inspection_tool class="YAMLSchemaValidation" enabled="false" level="WARNING" enabled_by_default="false" />
       <inspection_tool class="YAMLUnresolvedAlias" enabled="false" level="ERROR" enabled_by_default="false" />
       <inspection_tool class="YAMLUnusedAnchor" enabled="false" level="WARNING" enabled_by_default="false" />
+      <inspection_tool class="unused" enabled="false" level="WARNING" enabled_by_default="false" checkParameterExcludingHierarchy="false">
+        <option name="LOCAL_VARIABLE" value="true" />
+        <option name="FIELD" value="true" />
+        <option name="METHOD" value="true" />
+        <option name="CLASS" value="true" />
+        <option name="PARAMETER" value="true" />
+        <option name="REPORT_PARAMETER_FOR_PUBLIC_METHODS" value="true" />
+        <option name="ADD_MAINS_TO_ENTRIES" value="true" />
+        <option name="ADD_APPLET_TO_ENTRIES" value="true" />
+        <option name="ADD_SERVLET_TO_ENTRIES" value="true" />
+        <option name="ADD_NONJAVA_TO_ENTRIES" value="true" />
+      </inspection_tool>
     </profile>
     <version value="1.0" />
   </component>

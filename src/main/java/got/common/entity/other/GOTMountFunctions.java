@@ -90,7 +90,7 @@ public class GOTMountFunctions {
 		sendControlToServer(clientPlayer, null);
 	}
 
-	public static boolean sendControlToServer(EntityPlayer clientPlayer, GOTPacketMountControlServerEnforce pktSet) {
+	public static void sendControlToServer(EntityPlayer clientPlayer, GOTPacketMountControlServerEnforce pktSet) {
 		Entity mount = clientPlayer.ridingEntity;
 		if (isPlayerControlledMount(mount)) {
 			if (pktSet != null) {
@@ -99,9 +99,7 @@ public class GOTMountFunctions {
 			}
 			GOTPacketMountControl pkt = new GOTPacketMountControl(mount);
 			GOTPacketHandler.networkWrapper.sendToServer(pkt);
-			return true;
 		}
-		return false;
 	}
 
 	public static void setNavigatorRangeFromNPC(GOTNPCMount mount, GOTEntityNPC npc) {

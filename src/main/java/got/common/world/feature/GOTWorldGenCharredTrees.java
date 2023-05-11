@@ -32,7 +32,6 @@ public class GOTWorldGenCharredTrees extends WorldGenAbstractTree {
 				int branchLength = 2 + random.nextInt(4);
 				int branchHorizontalPos = 0;
 				int branchVerticalPos = j + height - random.nextInt(2);
-				block8:
 				for (int l = 0; l < branchLength; ++l) {
 					if (random.nextInt(4) == 0) {
 						++branchHorizontalPos;
