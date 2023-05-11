@@ -14,4 +14,18 @@ public abstract class GOTStructureReachVillageFarm extends GOTStructureWesterosV
 			kingdom = Kingdom.REACH;
 		}
 	}
+
+	public static class Animals extends GOTStructureWesterosVillageFarm.Animals {
+		public Animals(boolean flag) {
+			super(flag);
+			kingdom = Kingdom.REACH;
+		}
+	}
+
+	public static class Tree extends GOTStructureWesterosVillageFarm.Tree {
+		public Tree(boolean flag) {
+			super(flag);
+			kingdom = Kingdom.REACH;
+		}
+	}
 }
