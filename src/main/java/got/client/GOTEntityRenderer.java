@@ -49,7 +49,7 @@ public class GOTEntityRenderer extends EntityRenderer {
 					AxisAlignedBB entityBB = entity.boundingBox.expand(f, f, f);
 					MovingObjectPosition movingobjectposition = entityBB.calculateIntercept(posVec, sightVec);
 					if (entityBB.isVecInside(posVec)) {
-						if (0.0 >= leastDist && leastDist != 0.0) {
+						if (leastDist <= 0.0 && leastDist != 0.0) {
 							continue;
 						}
 						thePointedEntity = entity;

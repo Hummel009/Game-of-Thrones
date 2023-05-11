@@ -27,7 +27,7 @@ public class GOTVersionChecker {
 						BufferedReader updateReader = new BufferedReader(new InputStreamReader(url.openStream()));
 						String updateVersion = "";
 						while ((line = updateReader.readLine()) != null) {
-							updateVersion = updateVersion.concat(line);
+							updateVersion = updateVersion + line;
 						}
 						updateReader.close();
 						updateVersion = updateVersion.trim();
