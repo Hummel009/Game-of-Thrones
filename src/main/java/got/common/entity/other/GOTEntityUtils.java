@@ -70,10 +70,8 @@ public class GOTEntityUtils {
 		int body = rand.nextInt(10);
 		if ((body == 0 || body == 1) && !alreadyHasChain) {
 			npc.setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.bronzeChainmailChestplate));
-			alreadyHasChain = true;
 		} else if ((body == 2 || body == 3 || body == 4) && !alreadyHasChain) {
 			npc.setCurrentItemOrArmor(3, new ItemStack(Items.chainmail_chestplate));
-			alreadyHasChain = true;
 		} else {
 			npc.setCurrentItemOrArmor(3, dyeLeather(new ItemStack(Items.leather_chestplate), rand));
 		}

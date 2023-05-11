@@ -113,9 +113,9 @@ public class GOTEntityWoolyRhino extends GOTEntityHorse implements GOTBiome.Immu
 		maxHealth = Math.max(maxHealth, 40.0);
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(maxHealth);
 		double speed = getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue();
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(speed *= 1.2);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(speed * 1.2);
 		double jumpStrength = getEntityAttribute(GOTReflection.getHorseJumpStrength()).getAttributeValue();
-		getEntityAttribute(GOTReflection.getHorseJumpStrength()).setBaseValue(jumpStrength *= 0.5);
+		getEntityAttribute(GOTReflection.getHorseJumpStrength()).setBaseValue(jumpStrength * 0.5);
 	}
 
 	@Override

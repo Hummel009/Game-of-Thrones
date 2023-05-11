@@ -400,7 +400,7 @@ public abstract class GOTVillageGen {
 
 		public void setupVillageSeed() {
 			long seed = centreX * 580682095692076767L + centreZ * 12789948968296726L + theWorld.getWorldInfo().getSeed() + 49920968939865L;
-			instanceRand.setSeed(seed += instanceRandSeed);
+			instanceRand.setSeed(seed + instanceRandSeed);
 		}
 
 		public void setupVillageStructures() {

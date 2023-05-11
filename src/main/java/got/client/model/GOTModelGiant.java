@@ -201,10 +201,8 @@ public class GOTModelGiant extends ModelBase {
 		body.rotateAngleZ = 0.0f;
 		rightArm.rotationPointX = -12.0f;
 		rightArm.rotationPointY = -23.0f;
-		rightArm.rotateAngleZ = 0.0f;
 		leftArm.rotationPointX = 12.0f;
 		leftArm.rotationPointY = -23.0f;
-		leftArm.rotateAngleZ = 0.0f;
 		head.rotateAngleY = f3 / 57.295776f;
 		head.rotateAngleX = f4 / 57.295776f;
 
@@ -223,7 +221,6 @@ public class GOTModelGiant extends ModelBase {
 			leftArm.rotationPointZ = -MathHelper.sin(body.rotateAngleY) * 5.0f;
 			leftArm.rotationPointX = MathHelper.cos(body.rotateAngleY) * 12.0f;
 			rightArm.rotateAngleY += body.rotateAngleY;
-			leftArm.rotateAngleY += body.rotateAngleY;
 			leftArm.rotateAngleX += body.rotateAngleY;
 			f6 = 1.0f - onGround;
 			f6 *= f6;
@@ -232,7 +229,6 @@ public class GOTModelGiant extends ModelBase {
 			float f7 = MathHelper.sin(f6 * 3.1415927f);
 			float f8 = MathHelper.sin(onGround * 3.1415927f) * -(head.rotateAngleX - 0.7f) * 0.75f;
 			rightArm.rotateAngleX = (float) (rightArm.rotateAngleX - (f7 * 1.2 + f8));
-			rightArm.rotateAngleY += body.rotateAngleY * 2.0f;
 			rightArm.rotateAngleZ = MathHelper.sin(onGround * 3.1415927f) * -0.4f;
 		}
 		rightLeg.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;

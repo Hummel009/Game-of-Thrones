@@ -35,7 +35,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		int k1;
 		int k12;
 		int depth = 20;
-		setOriginAndRotation(world, i, j -= depth - 1, k, rotation, usingPlayer != null ? RADIUS - depth : 0);
+		setOriginAndRotation(world, i, j - (depth - 1), k, rotation, usingPlayer != null ? RADIUS - depth : 0);
 		isGolden = random.nextInt(20) == 0;
 		int maze1R = 19;
 		int maze1W = maze1R * 2 + 1;

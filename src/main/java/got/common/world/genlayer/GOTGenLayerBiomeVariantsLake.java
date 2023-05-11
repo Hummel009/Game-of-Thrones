@@ -21,7 +21,7 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 	}
 
 	public static int setFlag(int param, int flag) {
-		return param |= flag;
+		return param | flag;
 	}
 
 	@Override

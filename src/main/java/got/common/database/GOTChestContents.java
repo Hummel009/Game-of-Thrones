@@ -1216,7 +1216,7 @@ public class GOTChestContents {
 						loreChance = (int) (loreChance * 0.75f);
 						loreChance = Math.max(loreChance, minDropLoreChance);
 					}
-					if (random.nextInt(loreChance = Math.max(loreChance, 1)) == 0 && (lore = GOTLore.getMultiRandomLore(itemPool.loreCategories, random, false)) != null) {
+					if (random.nextInt(Math.max(loreChance, 1)) == 0 && (lore = GOTLore.getMultiRandomLore(itemPool.loreCategories, random, false)) != null) {
 						itemstack = lore.createLoreBook(random);
 					}
 				}

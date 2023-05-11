@@ -55,7 +55,7 @@ public class GOTConquestZone {
 
 	public void addConquestStrength(GOTFaction fac, float add, World world) {
 		float str = getConquestStrength(fac, world);
-		setConquestStrength(fac, str += add, world);
+		setConquestStrength(fac, str + add, world);
 	}
 
 	public float calcTimeStrReduction(long worldTime) {
@@ -64,7 +64,7 @@ public class GOTConquestZone {
 		float graceCap = 3600.0f;
 		if (s > graceCap) {
 			float decayRate = 3600.0f;
-			return (s -= graceCap) / decayRate;
+			return (s - graceCap) / decayRate;
 		}
 		return 0.0f;
 	}

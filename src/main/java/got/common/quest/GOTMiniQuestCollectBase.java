@@ -20,7 +20,7 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 	@Override
 	public float getAlignmentBonus() {
 		float f = collectTarget;
-		return Math.max(f *= rewardFactor, 1.0f);
+		return Math.max(f * rewardFactor, 1.0f);
 	}
 
 	@Override

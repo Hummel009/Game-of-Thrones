@@ -321,7 +321,6 @@ public class GOTModelMammoth extends ModelBase {
 		float RLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float LLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;
 		if (f4 < 0.0f) {
-			f4 = 0.0f;
 		}
 		float HeadXRot;
 		if (f3 > 20.0f) {

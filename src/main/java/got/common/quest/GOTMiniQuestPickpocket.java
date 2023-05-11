@@ -294,7 +294,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			double vx = MathHelper.cos(ang) * hSpeed;
 			double vz = MathHelper.sin(ang) * hSpeed;
 			double vy = MathHelper.getRandomDoubleInRange(rand, 0.1, 0.25) * upSpeed;
-			GOT.proxy.spawnParticle(particle, x += MathHelper.cos(ang) * w, y, z += MathHelper.sin(ang) * w, vx, vy, vz);
+			GOT.proxy.spawnParticle(particle, x + MathHelper.cos(ang) * w, y, z + MathHelper.sin(ang) * w, vx, vy, vz);
 		}
 	}
 

@@ -334,19 +334,19 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		dropNPCEquipment(flag, i);
 		if (flag && canDropRares()) {
 			int coinChance = 8 - i * 2;
-			if (rand.nextInt(coinChance = Math.max(coinChance, 1)) == 0) {
+			if (rand.nextInt(Math.max(coinChance, 1)) == 0) {
 				int coins = getRandomCoinDropAmount();
 				dropItem(GOTRegistry.coin, coins *= MathHelper.getRandomIntegerInRange(rand, 1, i + 1));
 			}
 			int rareChance = 50 - i * 5;
-			if (rand.nextInt(rareChance = Math.max(rareChance, 1)) == 0) {
+			if (rand.nextInt(Math.max(rareChance, 1)) == 0) {
 				dropChestContents(GOTChestContents.TREASURE, 1, 1);
 			}
 		}
 		if (flag && canDropRares()) {
 			int modChance = 60;
 			modChance -= i * 5;
-			if (rand.nextInt(modChance = Math.max(modChance, 1)) == 0) {
+			if (rand.nextInt(Math.max(modChance, 1)) == 0) {
 				ItemStack modItem = GOTItemModifierTemplate.getRandomCommonTemplate(rand);
 				entityDropItem(modItem, 0.0f);
 			}
@@ -400,7 +400,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 					dropGuaranteed = equipmentDropChances[j] >= 1.0f;
 					if (!dropGuaranteed) {
 						int chance = 20 * equipmentCount - i * 4 * equipmentCount;
-						if (rand.nextInt(chance = Math.max(chance, 1)) != 0) {
+						if (rand.nextInt(Math.max(chance, 1)) != 0) {
 							continue;
 						}
 					}
@@ -1239,7 +1239,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public void setRidingHorse(boolean flag) {
 		ridingMount = flag;
 		double d = getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
-		d = flag ? (d *= 1.5) : (d /= 1.5);
+		d = flag ? d * 1.5 : d / 1.5;
 		getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(d);
 	}
 

@@ -68,9 +68,9 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		float h = hsb[0];
 		float s = hsb[1];
 		float b = hsb[2];
-		b = b > 0.6f ? (b -= 0.6f) : (b += 0.4f);
+		b = b > 0.6f ? b - 0.6f : b + 0.4f;
 		b = MathHelper.clamp_float(b, 0.0f, 1.0f);
-		return Color.HSBtoRGB(h, s *= 0.5f, b);
+		return Color.HSBtoRGB(h, s * 0.5f, b);
 	}
 
 	public int getContrastingColor(IIcon icon) {

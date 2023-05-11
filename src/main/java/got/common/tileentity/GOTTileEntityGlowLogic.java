@@ -30,7 +30,7 @@ public class GOTTileEntityGlowLogic {
 			night = 0.0f;
 		}
 		float skylight = lightValueSqrts[world.getSkyBlockTypeBrightness(EnumSkyBlock.Sky, i, j, k)];
-		return glow * (night *= 2.0f) * skylight;
+		return glow * night * 2.0f * skylight;
 	}
 
 	public int getGlowTick() {

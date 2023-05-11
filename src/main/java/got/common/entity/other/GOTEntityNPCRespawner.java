@@ -297,7 +297,7 @@ public class GOTEntityNPCRespawner extends Entity {
 	}
 
 	public void setBlockEnemySpawnRange(int i) {
-		blockEnemySpawns = i = Math.min(i, 64);
+		blockEnemySpawns = Math.min(i, 64);
 	}
 
 	public void setCheckRanges(int xz, int y, int y1, int l) {

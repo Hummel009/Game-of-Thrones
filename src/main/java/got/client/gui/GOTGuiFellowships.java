@@ -634,7 +634,6 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			y += fontRendererObj.FONT_HEIGHT * 2;
 			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.disbandCheck3"));
 			drawCenteredString(s.toString(), x, y, 16777215);
-			y += fontRendererObj.FONT_HEIGHT;
 		} else if (page == Page.LEAVE) {
 			int x = guiLeft + xSize / 2;
 			int y = guiTop + 30;
@@ -643,7 +642,6 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			y += fontRendererObj.FONT_HEIGHT;
 			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.leaveCheck2"));
 			drawCenteredString(s.toString(), x, y, 16777215);
-			y += fontRendererObj.FONT_HEIGHT * 2;
 		} else if (page == Page.REMOVE) {
 			int x = guiLeft + xSize / 2;
 			int y = guiTop + 30;
@@ -690,7 +688,6 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			y += fontRendererObj.FONT_HEIGHT;
 			s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.transferCheck2"));
 			drawCenteredString(s.toString(), x, y, 16777215);
-			y += fontRendererObj.FONT_HEIGHT;
 		} else if (page == Page.RENAME) {
 			s = new StringBuilder(StatCollector.translateToLocalFormatted("got.gui.fellowships.renameName", viewingFellowship.getName()));
 			drawCenteredString(s.toString(), guiLeft + xSize / 2, textFieldRename.yPosition - 4 - fontRendererObj.FONT_HEIGHT, 16777215);

@@ -74,7 +74,6 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 					beam = IntMath.mod(k1, 4) == 1 ? 1 : 0;
 				} else if (k1 == 0 || k1 == 14) {
 					beam = IntMath.mod(i15, 4) == 2 ? 1 : 0;
-					maxHeight = beam;
 				}
 				if (beam != 0) {
 					for (j12 = 4; (j12 >= 0 || !isOpaque(world, i15, j12, k1)) && getY(j12) >= 0; --j12) {
@@ -187,7 +186,6 @@ public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 					beam = IntMath.mod(k1, 4) == 1 ? 1 : 0;
 				} else if (k1 == -1 || k1 == 15) {
 					beam = IntMath.mod(i16, 4) == 2 ? 1 : 0;
-					doorHeight = beam;
 				}
 				if (beam != 0) {
 					if (i16 == -8 || i16 == 12) {

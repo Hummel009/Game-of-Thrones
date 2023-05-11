@@ -96,8 +96,8 @@ public class GOTCloudRenderer extends IRenderHandler {
 				double posY = pos.yCoord;
 				double cloudPosXAdd = cloudPosXPre + (cloudPosX - cloudPosXPre) * partialTicks;
 				double cloudPosZAdd = cloudPosZPre + (cloudPosZ - cloudPosZPre) * partialTicks;
-				int x = MathHelper.floor_double((posX += cloudPosXAdd /= pass + 1) / scale);
-				int z = MathHelper.floor_double((posZ += cloudPosZAdd /= pass + 1) / scale);
+				int x = MathHelper.floor_double((posX += cloudPosXAdd / (pass + 1)) / scale);
+				int z = MathHelper.floor_double((posZ += cloudPosZAdd / (pass + 1)) / scale);
 				double cloudX = posX - x * scale;
 				double cloudZ = posZ - z * scale;
 				double cloudY = world.provider.getCloudHeight() - posY + 0.33000001311302185 + pass * 50.0f;

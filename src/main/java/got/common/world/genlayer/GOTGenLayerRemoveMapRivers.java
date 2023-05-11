@@ -62,7 +62,6 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 						ArrayList<Integer> maxCountBiomes = new ArrayList<>();
 						int maxCount = 0;
 						for (Entry<Integer, Integer> e : priorityMap.entrySet()) {
-							id = e.getKey();
 							count = e.getValue();
 							if (count <= maxCount) {
 								continue;

@@ -89,7 +89,7 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 			double z = entityplayer.posZ;
 			Vec3 look = entityplayer.getLookVec();
 			float length = 2.0f;
-			jarEntity.setLocationAndAngles(x += look.xCoord * length, y += look.yCoord * length, z += look.zCoord * length, world.rand.nextFloat(), 0.0f);
+			jarEntity.setLocationAndAngles(x + look.xCoord * length, y + look.yCoord * length, z + look.zCoord * length, world.rand.nextFloat(), 0.0f);
 			world.spawnEntityInWorld(jarEntity);
 			jarEntity.playSound("random.pop", 0.5f, 0.5f + world.rand.nextFloat() * 0.5f);
 			setEntityData(itemstack, null);

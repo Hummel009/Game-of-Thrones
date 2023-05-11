@@ -213,7 +213,7 @@ public class GOTItemMug extends Item {
 			itemstack.setItemDamage(0);
 		}
 		int i = itemstack.getItemDamage();
-		itemstack.setItemDamage(v.id * vesselMeta + (i %= vesselMeta));
+		itemstack.setItemDamage(v.id * vesselMeta + i % vesselMeta);
 		if (correctItem && itemstack.getItem() == GOTRegistry.mugWater && v == Vessel.BOTTLE) {
 			itemstack.func_150996_a(Items.potionitem);
 			itemstack.setItemDamage(0);
@@ -390,7 +390,7 @@ public class GOTItemMug extends Item {
 				entityplayer.addPotionEffect(new PotionEffect(Potion.confusion.id, durationTicks));
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getDrunk);
 				int toleranceAdd = Math.round(duration / 20.0f);
-				GOTLevelData.getData(entityplayer).setAlcoholTolerance(tolerance += toleranceAdd);
+				GOTLevelData.getData(entityplayer).setAlcoholTolerance(tolerance + toleranceAdd);
 			}
 		}
 		if (!world.isRemote && shouldApplyPotionEffects(itemstack, entityplayer)) {

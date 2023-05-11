@@ -270,7 +270,7 @@ public class GOTNPCRendering {
 				GL11.glDisable(2896);
 				GL11.glTranslatef((float) d, (float) d1 + npc.height + 1.3f, (float) d2);
 				float scale = 1.0f;
-				GL11.glRotatef(rotation *= 6.0f, 0.0f, 1.0f, 0.0f);
+				GL11.glRotatef(rotation * 6.0f, 0.0f, 1.0f, 0.0f);
 				GL11.glTranslatef(-0.5f * scale, -0.5f * scale, 0.03125f * scale);
 				GL11.glScalef(scale, scale, scale);
 				textureManager.bindTexture(TextureMap.locationItemsTexture);

@@ -36,7 +36,7 @@ public class GOTEntityGiraffe extends GOTEntityHorse {
 		super.dropFewItems(flag, i);
 		if (flag) {
 			int rugChance = 30 - i * 5;
-			if (rand.nextInt(rugChance = Math.max(rugChance, 1)) == 0) {
+			if (rand.nextInt(Math.max(rugChance, 1)) == 0) {
 				entityDropItem(new ItemStack(GOTRegistry.giraffeRug), 0.0f);
 			}
 		}
@@ -60,6 +60,6 @@ public class GOTEntityGiraffe extends GOTEntityHorse {
 	@Override
 	public void onGOTHorseSpawn() {
 		double jumpStrength = getEntityAttribute(GOTReflection.getHorseJumpStrength()).getAttributeValue();
-		getEntityAttribute(GOTReflection.getHorseJumpStrength()).setBaseValue(jumpStrength *= 0.8);
+		getEntityAttribute(GOTReflection.getHorseJumpStrength()).setBaseValue(jumpStrength * 0.8);
 	}
 }

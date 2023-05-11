@@ -369,12 +369,12 @@ public class GOTConquestGrid {
 
 	public static int worldToGridX(int i) {
 		int mapX = i >> 7;
-		return (mapX += 810) >> 3;
+		return mapX + 810 >> 3;
 	}
 
 	public static int worldToGridZ(int k) {
 		int mapZ = k >> 7;
-		return (mapZ += 730) >> 3;
+		return mapZ + 730 >> 3;
 	}
 
 	public enum ConquestEffective {

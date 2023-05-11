@@ -121,8 +121,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				fenceBlock = Blocks.fence;
 				fenceMeta = 0;
 				fenceGateBlock = Blocks.fence_gate;
-				doorBlock = Blocks.wooden_door;
-				trapdoorBlock = Blocks.trapdoor;
 				beamBlock = GOTRegistry.woodBeamV1;
 				beamMeta = 0;
 				break;
@@ -135,8 +133,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				fenceBlock = GOTRegistry.fence;
 				fenceMeta = 9;
 				fenceGateBlock = GOTRegistry.fenceGateBeech;
-				doorBlock = GOTRegistry.doorBeech;
-				trapdoorBlock = GOTRegistry.trapdoorBeech;
 				beamBlock = GOTRegistry.woodBeam2;
 				beamMeta = 1;
 				break;
@@ -149,8 +145,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				fenceBlock = Blocks.fence;
 				fenceMeta = 2;
 				fenceGateBlock = GOTRegistry.fenceGateBirch;
-				doorBlock = GOTRegistry.doorBirch;
-				trapdoorBlock = GOTRegistry.trapdoorBirch;
 				beamBlock = GOTRegistry.woodBeamV1;
 				beamMeta = 2;
 				break;
@@ -163,8 +157,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				fenceBlock = Blocks.fence;
 				fenceMeta = 1;
 				fenceGateBlock = GOTRegistry.fenceGateSpruce;
-				doorBlock = GOTRegistry.doorSpruce;
-				trapdoorBlock = GOTRegistry.trapdoorSpruce;
 				beamBlock = GOTRegistry.woodBeamV1;
 				beamMeta = 1;
 				break;
@@ -179,8 +171,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				fenceBlock = GOTRegistry.fence2;
 				fenceMeta = 0;
 				fenceGateBlock = GOTRegistry.fenceGateChestnut;
-				doorBlock = GOTRegistry.doorChestnut;
-				trapdoorBlock = GOTRegistry.trapdoorChestnut;
 				beamBlock = GOTRegistry.woodBeam4;
 				beamMeta = 0;
 				break;
@@ -195,8 +185,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				fenceBlock = GOTRegistry.fence;
 				fenceMeta = 12;
 				fenceGateBlock = GOTRegistry.fenceGateMaple;
-				doorBlock = GOTRegistry.doorMaple;
-				trapdoorBlock = GOTRegistry.trapdoorMaple;
 				beamBlock = GOTRegistry.woodBeam3;
 				beamMeta = 0;
 				break;
@@ -211,8 +199,6 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 				fenceBlock = GOTRegistry.fence2;
 				fenceMeta = 12;
 				fenceGateBlock = GOTRegistry.fenceGateAspen;
-				doorBlock = GOTRegistry.doorAspen;
-				trapdoorBlock = GOTRegistry.trapdoorAspen;
 				beamBlock = GOTRegistry.woodBeam7;
 				beamMeta = 0;
 				break;

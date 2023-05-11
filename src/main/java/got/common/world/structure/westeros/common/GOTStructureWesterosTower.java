@@ -29,7 +29,7 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 		int j12;
 		int k1;
 		int doorBase = j - 1;
-		setOriginAndRotation(world, i, j += height, k, rotation, 3);
+		setOriginAndRotation(world, i, j + height, k, rotation, 3);
 		doorBase -= getY(0);
 		setupRandomBlocks(random);
 		if (restrictions) {

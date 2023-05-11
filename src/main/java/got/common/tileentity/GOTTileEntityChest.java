@@ -182,7 +182,7 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 		if (numPlayersUsing == 0 && lidAngle > 0.0f || numPlayersUsing > 0 && lidAngle < 1.0f) {
 			float pre = lidAngle;
 			float incr = 0.1f;
-			lidAngle = numPlayersUsing > 0 ? (lidAngle += incr) : (lidAngle -= incr);
+			lidAngle = numPlayersUsing > 0 ? lidAngle + incr : lidAngle - incr;
 			lidAngle = Math.min(lidAngle, 1.0f);
 			lidAngle = Math.max(lidAngle, 0.0f);
 			float thr = 0.5f;

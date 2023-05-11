@@ -102,7 +102,6 @@ public class GOTKeyHandler {
 					--i;
 					i = IntMath.mod(i, regionList.size());
 					currentRegion = regionList.get(i);
-					factionList = currentRegion.factionList;
 					currentFaction = pd.getRegionLastViewedFaction(currentRegion);
 					usedAlignmentKeys = true;
 				}
@@ -113,7 +112,6 @@ public class GOTKeyHandler {
 					++i;
 					i = IntMath.mod(i, regionList.size());
 					currentRegion = regionList.get(i);
-					factionList = currentRegion.factionList;
 					currentFaction = pd.getRegionLastViewedFaction(currentRegion);
 					usedAlignmentKeys = true;
 				}

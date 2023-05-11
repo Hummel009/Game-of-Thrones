@@ -112,7 +112,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		}
 		if (flag) {
 			int rugChance = 30 - i * 5;
-			if (rand.nextInt(rugChance = Math.max(rugChance, 1)) == 0) {
+			if (rand.nextInt(Math.max(rugChance, 1)) == 0) {
 				entityDropItem(new ItemStack(GOTRegistry.bearRug, 1, getBearType().bearID), 0.0f);
 			}
 		}

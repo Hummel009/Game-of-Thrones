@@ -95,7 +95,7 @@ public class GOTEntityCamel extends GOTEntityHorse implements GOTBiome.ImmuneToH
 	@Override
 	public void onGOTHorseSpawn() {
 		double jumpStrength = getEntityAttribute(GOTReflection.getHorseJumpStrength()).getAttributeValue();
-		getEntityAttribute(GOTReflection.getHorseJumpStrength()).setBaseValue(jumpStrength *= 0.5);
+		getEntityAttribute(GOTReflection.getHorseJumpStrength()).setBaseValue(jumpStrength * 0.5);
 	}
 
 	@Override

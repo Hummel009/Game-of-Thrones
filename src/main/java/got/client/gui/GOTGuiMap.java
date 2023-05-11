@@ -436,7 +436,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 									}
 									if (pass == 1 && strength > 0.0f) {
 										float strFrac = strength / highestViewedConqStr;
-										float strAlpha = strFrac = MathHelper.clamp_float(strFrac, 0.0f, 1.0f);
+										float strAlpha = MathHelper.clamp_float(strFrac, 0.0f, 1.0f);
 										if (strength > 0.0f) {
 											strAlpha = Math.max(strAlpha, 0.1f);
 										}
@@ -1391,7 +1391,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								}
 								GL11.glRotatef(angle, 0.0f, 0.0f, 1.0f);
 								float alpha = zoomlerp;
-								int alphaI = GOTClientProxy.getAlphaInt(alpha *= 0.8f);
+								int alphaI = GOTClientProxy.getAlphaInt(alpha * 0.8f);
 								GL11.glEnable(3042);
 								GL11.glBlendFunc(770, 771);
 								int strX = -nameWidth / 2;
@@ -1446,7 +1446,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						float angle = (float) l / sides * 2.0f * 3.1415927f;
 						double x = zone.xCoord;
 						double z = zone.zCoord;
-						float[] trans2 = transformCoords(x += MathHelper.cos(angle) * radiusWorld, z += MathHelper.sin(angle) * radiusWorld);
+						float[] trans2 = transformCoords(x + MathHelper.cos(angle) * radiusWorld, z + MathHelper.sin(angle) * radiusWorld);
 						tessellator.addVertex(trans2[0], trans2[1], zLevel);
 					}
 					tessellator.draw();
@@ -1670,7 +1670,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				GL11.glEnable(2896);
 				GL11.glEnable(2884);
-				renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), questBookIcon, iconX -= iconWidthHalf, iconY -= iconWidthHalf);
+				renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), questBookIcon, iconX - iconWidthHalf, iconY - iconWidthHalf);
 				GL11.glDisable(2896);
 				GL11.glEnable(3008);
 				GL11.glScalef(invScale, invScale, invScale);
@@ -2154,7 +2154,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		z -= posY;
 		x *= zoomScale;
 		z *= zoomScale;
-		return new float[]{x += mapXMin + (float) mapWidth / 2, z += mapYMin + (float) mapHeight / 2};
+		return new float[]{x + (mapXMin + (float) mapWidth / 2), z + (mapYMin + (float) mapHeight / 2)};
 	}
 
 	public void updateCurrentDimensionAndFaction() {

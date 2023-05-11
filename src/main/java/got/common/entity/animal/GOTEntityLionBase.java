@@ -105,7 +105,7 @@ public abstract class GOTEntityLionBase extends GOTEntityAnimalMF {
 		}
 		if (flag) {
 			int rugChance = 30 - i * 5;
-			if (rand.nextInt(rugChance = Math.max(rugChance, 1)) == 0) {
+			if (rand.nextInt(Math.max(rugChance, 1)) == 0) {
 				entityDropItem(new ItemStack(GOTRegistry.lionRug, 1, getLionRugType().lionID), 0.0f);
 			}
 		}

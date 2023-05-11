@@ -88,7 +88,7 @@ public class GOTEntityTraderRespawn extends Entity {
 
 	public float getBobbingOffset(float tick) {
 		float f = bobbingTime - prevBobbingTime;
-		return MathHelper.sin((prevBobbingTime + (f *= tick)) / 5.0f) * 0.25f;
+		return MathHelper.sin((prevBobbingTime + f * tick) / 5.0f) * 0.25f;
 	}
 
 	public String getClientTraderString() {
@@ -159,7 +159,7 @@ public class GOTEntityTraderRespawn extends Entity {
 		prevPosY = posY;
 		prevPosZ = posZ;
 		prevSpawnerSpin = spawnerSpin;
-		spawnerSpin = isSpawnImminent() ? (spawnerSpin += 24.0f) : (spawnerSpin += 6.0f);
+		spawnerSpin = isSpawnImminent() ? spawnerSpin + 24.0f : spawnerSpin + 6.0f;
 		prevSpawnerSpin = MathHelper.wrapAngleTo180_float(prevSpawnerSpin);
 		spawnerSpin = MathHelper.wrapAngleTo180_float(spawnerSpin);
 		if (getScale() < MAX_SCALE) {

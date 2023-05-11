@@ -130,8 +130,8 @@ public class GOTModelBiped extends ModelBiped {
 		if (entity instanceof GOTEntityNPC && (npc = (GOTEntityNPC) entity).isDrunkard()) {
 			float f62 = f2 / 80.0f;
 			float f72 = (f2 + 40.0f) / 80.0f;
-			float f8 = MathHelper.sin(f62 *= 6.2831855f) * 0.5f;
-			float f9 = MathHelper.sin(f72 *= 6.2831855f) * 0.5f;
+			float f8 = MathHelper.sin(f62 * 6.2831855f) * 0.5f;
+			float f9 = MathHelper.sin(f72 * 6.2831855f) * 0.5f;
 			bipedHead.rotateAngleX += f8;
 			bipedHead.rotateAngleY += f9;
 			bipedHeadwear.rotateAngleX += f8;
@@ -144,7 +144,7 @@ public class GOTModelBiped extends ModelBiped {
 		float bowAmount = 0.0f;
 
 		if (bowing) {
-			float bowAmountRad = (float) Math.toRadians(bowAmount *= 30.0f);
+			float bowAmountRad = (float) Math.toRadians(bowAmount * 30.0f);
 			float bowCos = MathHelper.cos(bowAmountRad);
 			float bowSin = MathHelper.sin(bowAmountRad);
 			bipedHead.rotationPointY = base_headY + 12.0f * (1.0f - bowCos);

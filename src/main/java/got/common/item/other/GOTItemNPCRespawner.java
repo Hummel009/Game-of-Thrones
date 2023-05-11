@@ -41,7 +41,7 @@ public class GOTItemNPCRespawner extends Item {
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
 		if (entityplayer.capabilities.isCreativeMode) {
 			if (!world.isRemote) {
-				placeSpawnerAt(world, i += Facing.offsetsXForSide[side], j += Facing.offsetsYForSide[side], k += Facing.offsetsZForSide[side]);
+				placeSpawnerAt(world, i + Facing.offsetsXForSide[side], j + Facing.offsetsYForSide[side], k + Facing.offsetsZForSide[side]);
 			}
 			return true;
 		}

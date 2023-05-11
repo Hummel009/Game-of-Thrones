@@ -101,7 +101,7 @@ public class GOTItemCracker extends Item {
 
 	public static ItemStack setEmpty(ItemStack itemstack, boolean flag) {
 		int i = itemstack.getItemDamage();
-		i = flag ? (i |= emptyMeta) : (i &= ~emptyMeta);
+		i = flag ? i | emptyMeta : i & ~emptyMeta;
 		itemstack.setItemDamage(i);
 		return itemstack;
 	}

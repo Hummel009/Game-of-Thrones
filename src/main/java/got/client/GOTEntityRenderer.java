@@ -30,7 +30,7 @@ public class GOTEntityRenderer extends EntityRenderer {
 			thePointedEntity = null;
 			double blockReach = theMC.playerController.getBlockReachDistance();
 			float meleeReachFactor = GOTWeaponStats.getMeleeReachFactor(theMC.thePlayer.getHeldItem());
-			theMC.objectMouseOver = theMC.renderViewEntity.rayTrace(blockReach *= meleeReachFactor, partialTick);
+			theMC.objectMouseOver = theMC.renderViewEntity.rayTrace(blockReach * meleeReachFactor, partialTick);
 			double maxDist = reach = GOTWeaponStats.getMeleeReachDistance(theMC.thePlayer);
 			Vec3 posVec = theMC.renderViewEntity.getPosition(partialTick);
 			if (theMC.objectMouseOver != null) {

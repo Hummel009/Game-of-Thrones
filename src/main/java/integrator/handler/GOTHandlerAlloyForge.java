@@ -214,7 +214,6 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		public int fuelY;
 
 		public CachedForgeRecipe(ItemStack[] alloyItems, ItemStack[] forgeItems, ItemStack resultItem) {
-			this.resultItem = null;
 			fuelX = 75;
 			fuelY = 117;
 			if (alloyItems != null) {

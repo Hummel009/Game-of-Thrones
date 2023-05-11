@@ -104,7 +104,7 @@ public class GOTItemStructureSpawner extends Item {
 			entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.spawnStructure.wait", lastStructureSpawnTick / 20.0));
 			return false;
 		}
-		if (spawnStructure(entityplayer, world, itemstack.getItemDamage(), i += Facing.offsetsXForSide[side], j += Facing.offsetsYForSide[side], k += Facing.offsetsZForSide[side]) && !entityplayer.capabilities.isCreativeMode) {
+		if (spawnStructure(entityplayer, world, itemstack.getItemDamage(), i + Facing.offsetsXForSide[side], j + Facing.offsetsYForSide[side], k + Facing.offsetsZForSide[side]) && !entityplayer.capabilities.isCreativeMode) {
 			--itemstack.stackSize;
 		}
 		return true;

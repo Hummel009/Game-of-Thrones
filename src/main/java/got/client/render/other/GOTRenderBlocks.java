@@ -493,7 +493,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		int[] sides = new int[6];
 		for (int l = 0; l < sides.length; ++l) {
 			int hash = i * 234890405 ^ k * 37383934 ^ j;
-			blockRand.setSeed(hash += l * 285502);
+			blockRand.setSeed(hash + l * 285502);
 			blockRand.setSeed(blockRand.nextLong());
 			sides[l] = blockRand.nextInt(4);
 		}
@@ -643,31 +643,26 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			tessellator.setBrightness(renderblocks.renderMinY > 0.0 ? light : block.getMixedBrightnessForBlock(world, i, j - 1, k));
 			tessellator.setColorOpaque_F(f, f, f);
 			renderblocks.renderFaceYNeg(block, i, j, k, renderblocks.getBlockIcon(block, world, i, j, k, 0));
-			flag = true;
 		}
 		if (topDoor || world.getBlock(i, j + 1, k) != block) {
 			tessellator.setBrightness(renderblocks.renderMaxY < 1.0 ? light : block.getMixedBrightnessForBlock(world, i, j + 1, k));
 			tessellator.setColorOpaque_F(f1, f1, f1);
 			renderblocks.renderFaceYPos(block, i, j, k, renderblocks.getBlockIcon(block, world, i, j, k, 1));
-			flag = true;
 		}
 		tessellator.setBrightness(renderblocks.renderMinZ > 0.0 ? light : block.getMixedBrightnessForBlock(world, i, j, k - 1));
 		tessellator.setColorOpaque_F(f2, f2, f2);
 		IIcon iicon = renderblocks.getBlockIcon(block, world, i, j, k, 2);
 		renderblocks.renderFaceZNeg(block, i, j, k, iicon);
-		flag = true;
 		renderblocks.flipTexture = false;
 		tessellator.setBrightness(renderblocks.renderMaxZ < 1.0 ? light : block.getMixedBrightnessForBlock(world, i, j, k + 1));
 		tessellator.setColorOpaque_F(f2, f2, f2);
 		iicon = renderblocks.getBlockIcon(block, world, i, j, k, 3);
 		renderblocks.renderFaceZPos(block, i, j, k, iicon);
-		flag = true;
 		renderblocks.flipTexture = false;
 		tessellator.setBrightness(renderblocks.renderMinX > 0.0 ? light : block.getMixedBrightnessForBlock(world, i - 1, j, k));
 		tessellator.setColorOpaque_F(f3, f3, f3);
 		iicon = renderblocks.getBlockIcon(block, world, i, j, k, 4);
 		renderblocks.renderFaceXNeg(block, i, j, k, iicon);
-		flag = true;
 		renderblocks.flipTexture = false;
 		tessellator.setBrightness(renderblocks.renderMaxX < 1.0 ? light : block.getMixedBrightnessForBlock(world, i + 1, j, k));
 		tessellator.setColorOpaque_F(f3, f3, f3);
@@ -795,7 +790,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		long seed = i * 3129871L ^ k * 116129781L ^ j;
 		seed = seed * seed * 42317861L + seed * 11L;
 		IIcon iicon = renderblocks.getBlockIconFromSideAndMetadata(block, 0, world.getBlockMetadata(i, j, k));
-		renderblocks.drawCrossedSquares(iicon, d += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, j, d2 += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);
+		renderblocks.drawCrossedSquares(iicon, d + ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, j, d2 + ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);
 	}
 
 	public void renderFlowerPot(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {

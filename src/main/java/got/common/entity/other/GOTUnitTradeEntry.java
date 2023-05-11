@@ -74,7 +74,7 @@ public class GOTUnitTradeEntry {
 			f = alignSurplus / 2000.0f;
 		}
 		f = MathHelper.clamp_float(f, 0.0f, 1.0f);
-		cost *= 1.0f - (f *= 0.5f);
+		cost *= 1.0f - f * 0.5f;
 		int costI = Math.round(cost);
 		return Math.max(costI, 1);
 	}

@@ -423,7 +423,7 @@ public class GOTContainerAnvil extends Container {
 	public void updateItemName(String name) {
 		List<EnumChatFormatting> colors = getAppliedFormattingCodes(name);
 		name = stripFormattingCodes(name);
-		repairedItemName = name = ChatAllowedCharacters.filerAllowedCharacters(name);
+		repairedItemName = ChatAllowedCharacters.filerAllowedCharacters(name);
 		ItemStack itemstack = invOutput.getStackInSlot(0);
 		if (itemstack != null) {
 			if (StringUtils.isBlank(repairedItemName)) {

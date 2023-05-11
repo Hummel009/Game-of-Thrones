@@ -344,7 +344,7 @@ public class GOTWorldProvider extends WorldProvider {
 				++l;
 			}
 		}
-		return new float[]{fogStart /= l, fogEnd /= l};
+		return new float[]{fogStart / l, fogEnd / l};
 	}
 
 	@Override

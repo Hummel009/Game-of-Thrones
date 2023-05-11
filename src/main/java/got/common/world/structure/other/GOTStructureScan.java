@@ -144,7 +144,7 @@ public class GOTStructureScan {
 					if (c == '\"') {
 						j = line.indexOf('"', i + 1);
 						s12 = line.substring(i, j + 1);
-						String blockID = s12 = s12.substring(1, s12.length() - 1);
+						String blockID = s12.substring(1, s12.length() - 1);
 						Block block = Block.getBlockFromName(blockID);
 						if (block == null) {
 							FMLLog.severe("GOTStrScan: Block " + blockID + " does not exist!");
@@ -158,7 +158,7 @@ public class GOTStructureScan {
 					} else if (c == GOTScanAlias.Type.BLOCK.typeCode) {
 						j = line.indexOf(GOTScanAlias.Type.BLOCK.typeCode, i + 1);
 						s12 = line.substring(i, j + 1);
-						alias = s12 = s12.substring(1, s12.length() - 1);
+						alias = s12.substring(1, s12.length() - 1);
 						i = j + 2;
 						j = line.length();
 						s12 = line.substring(i, j);
@@ -167,12 +167,12 @@ public class GOTStructureScan {
 					} else if (c == GOTScanAlias.Type.BLOCK_META.typeCode) {
 						j = line.indexOf(GOTScanAlias.Type.BLOCK_META.typeCode, i + 1);
 						s12 = line.substring(i, j + 1);
-						alias = s12 = s12.substring(1, s12.length() - 1);
+						alias = s12.substring(1, s12.length() - 1);
 						step = new ScanStepBlockMetaAlias(x, y, z, alias);
 					} else if (c == '/') {
 						j = line.indexOf('/', i + 1);
 						s12 = line.substring(i, j + 1);
-						String code = s12 = s12.substring(1, s12.length() - 1);
+						String code = s12.substring(1, s12.length() - 1);
 						if ("SKULL".equals(code)) {
 							step = new ScanStepSkull(x, y, z);
 						}

@@ -230,7 +230,7 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		float f = heightLimit / 2.0f;
 		float f1 = heightLimit / 2.0f - par1;
 		float f2 = f1 == 0.0f ? f : Math.abs(f1) >= f ? 0.0f : (float) Math.sqrt(Math.pow(Math.abs(f), 2.0) - Math.pow(Math.abs(f1), 2.0));
-		return f2 *= 0.5f;
+		return f2 * 0.5f;
 	}
 
 	public boolean leafNodeNeedsBase(int par1) {

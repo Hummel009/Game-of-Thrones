@@ -246,7 +246,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			int y = guiTop;
 			GOTTickHandlerClient.renderAlignmentBar(alignment, isOtherPlayer, currentFaction, x, y, true, false, true, true);
 			String s = currentFaction.factionSubtitle();
-			drawCenteredString(s, x, y += fontRendererObj.FONT_HEIGHT + 22, 16777215);
+			drawCenteredString(s, x, y + (fontRendererObj.FONT_HEIGHT + 22), 16777215);
 			if (!useFullPageTexture()) {
 				if (currentFaction.factionMapInfo != null) {
 					GOTMapRegion mapInfo = currentFaction.factionMapInfo;
@@ -344,7 +344,6 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 							if (alignment <= 0.0f) {
 								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.npcsKilled", factionData.getNPCsKilled());
 								fontRendererObj.drawString(s, x, y, 8019267);
-								y += fontRendererObj.FONT_HEIGHT;
 							}
 							if (buttonPledge.visible && clientPD.isPledgedTo(currentFaction)) {
 								s = StatCollector.translateToLocal("got.gui.factions.pledged");

@@ -219,7 +219,6 @@ public class GOTLore {
 				remainingText = remainingText.substring(part.length());
 				continue;
 			}
-			part = "";
 			int indexOf = remainingText.indexOf(newline);
 			if (indexOf >= 0) {
 				part = remainingText.substring(0, indexOf);
@@ -337,7 +336,7 @@ public class GOTLore {
 					}
 				} else if (formatted.startsWith("name:")) {
 					try {
-						String namebank = s1 = formatted.substring("name:".length());
+						String namebank = formatted.substring("name:".length());
 						if (!GOTNames.nameBankExists(namebank)) {
 							GOTLog.logger.error("Hummel009: No namebank exists for {}!", namebank);
 							break block16;

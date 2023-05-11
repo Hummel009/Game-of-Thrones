@@ -94,7 +94,7 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 					boolean cosOrSin;
 					double dCos = Math.floor(Math.abs(cos * l)) - Math.floor(Math.abs(cos * (l - 1)));
 					double dSin = Math.floor(Math.abs(sin * l)) - Math.floor(Math.abs(sin * (l - 1)));
-					cosOrSin = (dCos = Math.abs(dCos)) == (dSin = Math.abs(dSin)) ? random.nextBoolean() : (cosOrSin = dCos > dSin);
+					cosOrSin = (dCos = Math.abs(dCos)) == (dSin = Math.abs(dSin)) ? random.nextBoolean() : dCos > dSin;
 					if (cosOrSin) {
 						i1 = (int) (i1 + Math.signum(cos));
 					} else {

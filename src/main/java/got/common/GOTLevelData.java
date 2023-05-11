@@ -362,7 +362,6 @@ public class GOTLevelData {
 			boolean saved = false;
 			if (pd.needsSave()) {
 				saveData(player);
-				saved = true;
 			}
 			playerTitleOfflineCacheMap.put(player, Optional.ofNullable(pd.getPlayerTitle()));
 			playerDataMap.remove(player);

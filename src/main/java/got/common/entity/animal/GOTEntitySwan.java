@@ -221,7 +221,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 				EntityPlayer entityplayer = (EntityPlayer) nearbyPlayers.get(rand.nextInt(nearbyPlayers.size()));
 				getNavigator().clearPathEntity();
 				float hissLook = (float) Math.toDegrees(Math.atan2(entityplayer.posZ - posZ, entityplayer.posX - posX));
-				rotationYaw = rotationYawHead = hissLook -= 90.0f;
+				rotationYaw = rotationYawHead = hissLook - 90.0f;
 				worldObj.setEntityState(this, (byte) 21);
 				playSound("got:swan.hiss", getSoundVolume(), getSoundPitch());
 				timeUntilHiss = 80 + rand.nextInt(80);

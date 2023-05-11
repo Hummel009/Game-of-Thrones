@@ -46,7 +46,6 @@ public class GOTGuiHiredDismiss extends GOTGuiNPCInteract {
 		if (hasRider) {
 			s = StatCollector.translateToLocal("got.gui.dismiss.rider");
 			fontRendererObj.drawString(s, (width - fontRendererObj.getStringWidth(s)) / 2, y, 11184810);
-			y += fontRendererObj.FONT_HEIGHT;
 		}
 	}
 

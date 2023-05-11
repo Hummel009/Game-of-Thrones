@@ -316,7 +316,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 			for (int j = 0; j < iconImage.getHeight(); ++j) {
 				int rgb = 0;
 				int alpha = 0;
-				iconImage.setRGB(i, j, rgb |= alpha);
+				iconImage.setRGB(i, j, rgb | alpha);
 			}
 		}
 		GOTBufferedImageIcon icon = new GOTBufferedImageIcon(iconName, iconImage);
@@ -387,7 +387,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		newG = Math.min(Math.max(0.0f, newG), 1.0f);
 		newB = Math.min(Math.max(0.0f, newB), 1.0f);
 		int sepia = new Color(newR, newG, newB).getRGB();
-		return sepia |= alpha << 24;
+		return sepia | alpha << 24;
 	}
 
 	public static void loadMapTextures() {

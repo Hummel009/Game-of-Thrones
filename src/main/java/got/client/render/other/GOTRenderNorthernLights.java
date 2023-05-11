@@ -250,7 +250,7 @@ public class GOTRenderNorthernLights {
 			tess.setColorRGBA_F(r2, g2, b2, a2_here);
 			tess.addVertex(x0, yMid, z0);
 			tess.addVertex(x1, yMid, z1);
-			tess.setColorRGBA_F(r1, g1, b1, a1_here *= randomFade);
+			tess.setColorRGBA_F(r1, g1, b1, a1_here * randomFade);
 			tess.addVertex(x1, halfHeight, z1);
 			tess.addVertex(x0, halfHeight, z0);
 		}

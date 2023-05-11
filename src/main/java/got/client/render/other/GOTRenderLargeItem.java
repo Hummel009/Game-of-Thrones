@@ -130,7 +130,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 				GL11.glRotatef(40.0f, 0.0f, 0.0f, 1.0f);
 			}
 		}
-		if (item instanceof GOTItemLance && holder instanceof EntityLivingBase && (entityliving = (EntityLivingBase) holder).getHeldItem() == itemstack) {
+		if (item instanceof GOTItemLance && holder instanceof EntityLivingBase && ((EntityLivingBase) holder).getHeldItem() == itemstack) {
 			if (isFirstPerson) {
 				GL11.glRotatef(260.0f, 0.0f, 0.0f, 1.0f);
 			} else {

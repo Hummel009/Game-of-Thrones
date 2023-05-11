@@ -266,7 +266,7 @@ public class GOTEntityBarrel extends Entity {
 				}
 				motionY += 0.007;
 			}
-			if (riddenByEntity instanceof EntityLivingBase && (d4 = ((EntityLivingBase) riddenByEntity).moveForward) > 0.0) {
+			if (riddenByEntity instanceof EntityLivingBase && ((EntityLivingBase) riddenByEntity).moveForward > 0.0) {
 				d5 = -Math.sin(riddenByEntity.rotationYaw * 3.1415927f / 180.0f);
 				d11 = Math.cos(riddenByEntity.rotationYaw * 3.1415927f / 180.0f);
 				motionX += d5 * speedMultiplier * 0.05;
