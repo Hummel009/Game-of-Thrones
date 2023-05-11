@@ -55,7 +55,7 @@ public class GOTBezierGenerator {
 				bridgeBase = roadTop = j + 1;
 				int maxBridgeTop = j + 6;
 				float bridgeHeight = 0.0f;
-				for (int j1 = j - 1; j1 > 0 && blocks[indexLower = xzIndex * ySize + j1].getMaterial().isLiquid(); --j1) {
+				for (int j1 = j - 1; j1 > 0 && blocks[xzIndex * ySize + j1].getMaterial().isLiquid(); --j1) {
 					bridgeHeight += 0.5f;
 				}
 				int bridgeHeightInt = (int) Math.floor(bridgeHeight);

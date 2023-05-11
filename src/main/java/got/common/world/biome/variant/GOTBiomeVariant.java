@@ -151,7 +151,7 @@ public class GOTBiomeVariant {
 		absoluteHeightLevel = height;
 		float f = height;
 		f -= 2.0f;
-		heightBoost = f += 0.2f;
+		heightBoost = f + 0.2f;
 		hillFactor = hills;
 		return this;
 	}

@@ -197,10 +197,10 @@ public class GOTTickHandlerClient {
 		GOTFactionRank rank = faction.getRank(alignment);
 		boolean pledged = clientPD.isPledgedTo(faction);
 		GOTAlignmentTicker ticker = GOTAlignmentTicker.forFaction(faction);
-		float alignMin = 0.0F;
-		float alignMax = 0.0F;
-		GOTFactionRank rankMin = null;
-		GOTFactionRank rankMax = null;
+		float alignMin;
+		float alignMax;
+		GOTFactionRank rankMin;
+		GOTFactionRank rankMax;
 		if (!rank.isDummyRank()) {
 			alignMin = rank.alignment;
 			rankMin = rank;
@@ -273,8 +273,8 @@ public class GOTTickHandlerClient {
 			drawTexturedModalRect(ringX, ringY, 16 * Math.round((float) flashTick / 3), 36, ringSize, ringSize);
 		}
 		if (faction.isPlayableAlignmentFaction()) {
-			float alpha = 0.0F;
-			boolean definedZone = false;
+			float alpha;
+			boolean definedZone;
 			if (faction.inControlZone(entityClientPlayerMP)) {
 				alpha = 1.0F;
 				definedZone = faction.inDefinedControlZone(entityClientPlayerMP);
@@ -1194,7 +1194,7 @@ public class GOTTickHandlerClient {
 					ScaledResolution resolution2 = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);
 					int width = resolution2.getScaledWidth();
 					int height = resolution2.getScaledHeight();
-					int x = 0;
+					int x;
 					int y = height * 2 / 3 - message.size() * minecraft.fontRenderer.FONT_HEIGHT / 2;
 					GL11.glEnable(3042);
 					OpenGlHelper.glBlendFunc(770, 771, 1, 0);
@@ -1207,7 +1207,7 @@ public class GOTTickHandlerClient {
 				}
 				if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID && minecraft.currentScreen == null && newDate > 0) {
 					int halfMaxDate = 100;
-					float alpha = 0.0F;
+					float alpha;
 					if (newDate > halfMaxDate) {
 						alpha = (float) (200 - newDate) / halfMaxDate;
 					} else {
@@ -1252,7 +1252,7 @@ public class GOTTickHandlerClient {
 					int w = resolution.getScaledWidth();
 					int h = resolution.getScaledHeight();
 					int border = 20;
-					int x = w - border;
+					int x;
 					int y = h - border - lines.size() * minecraft.fontRenderer.FONT_HEIGHT;
 					float alpha = 1.0F;
 					if (musicTrackTick >= 140) {

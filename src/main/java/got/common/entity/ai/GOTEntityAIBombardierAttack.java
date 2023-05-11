@@ -72,7 +72,6 @@ public class GOTEntityAIBombardierAttack extends EntityAIBase {
 				meta = bombItem.getItemDamage();
 			}
 			bomb.setBombStrengthLevel(meta);
-			bomb.setFuseFromHiredUnit();
 			bomb.droppedByHiredUnit = attacker.hiredNPCInfo.isActive;
 			bomb.droppedTargetingPlayer = entityTarget instanceof EntityPlayer;
 			worldObj.spawnEntityInWorld(bomb);

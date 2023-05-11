@@ -44,7 +44,7 @@ public class GOTPacketFactionRelations implements IMessage {
 		packetType = Type.forID(typeID);
 		if (packetType == Type.FULL_MAP) {
 			fullMap = new HashMap<>();
-			byte fac1ID = 0;
+			byte fac1ID;
 			while ((fac1ID = data.readByte()) >= 0) {
 				byte fac2ID = data.readByte();
 				byte relID = data.readByte();

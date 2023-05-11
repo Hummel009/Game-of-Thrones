@@ -2264,7 +2264,7 @@ public class GOTPlayerData {
 			FMLLog.warning("Hummel009: Warning! Tried to remove a shared custom waypoint with no owner!");
 			return;
 		}
-		GOTCustomWaypoint existing = null;
+		GOTCustomWaypoint existing;
 		if (customWaypointsShared.contains(waypoint)) {
 			existing = waypoint;
 		} else {

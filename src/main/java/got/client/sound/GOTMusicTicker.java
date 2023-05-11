@@ -90,7 +90,7 @@ public class GOTMusicTicker {
 			}
 		}
 		if (!noMusic) {
-			boolean update = false;
+			boolean update;
 			if (menu) {
 				update = true;
 			} else {

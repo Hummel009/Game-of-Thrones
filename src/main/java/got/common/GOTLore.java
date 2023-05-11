@@ -135,7 +135,7 @@ public class GOTLore {
 						if (metadata.startsWith(codeCategory)) {
 							categoryString = metadata.substring(codeCategory.length());
 							while (categoryString.length() > 0) {
-								String categoryName = null;
+								String categoryName;
 								int indexOf = categoryString.indexOf(codeCategorySeparator);
 								if (indexOf >= 0) {
 									categoryName = categoryString.substring(0, indexOf);

@@ -49,7 +49,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 
 	public static void setHasCorn(World world, int i, int j, int k, boolean flag) {
 		int meta = world.getBlockMetadata(i, j, k);
-		meta = flag ? (meta |= 8) : (meta &= 7);
+		meta = flag ? meta | 8 : meta & 7;
 		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
 	}
 

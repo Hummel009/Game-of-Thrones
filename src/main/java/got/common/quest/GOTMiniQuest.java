@@ -467,7 +467,7 @@ public abstract class GOTMiniQuest {
 			prevCoords = lastLocation.getLeft();
 		}
 		lastLocation = Pair.of(coords, dim);
-		boolean sendUpdate = false;
+		boolean sendUpdate;
 		if (prevCoords == null) {
 			sendUpdate = true;
 		} else {

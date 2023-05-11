@@ -200,7 +200,7 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		byte b2 = otherCoordPairs[par5 + 3];
 		int[] aint = {par1, par2, par3};
 		int[] aint1 = {0, 0, 0};
-		int k1 = -i1;
+		int k1;
 		aint1[par5] = aint[par5];
 		for (int j1 = -i1; j1 <= i1; ++j1) {
 			aint1[b1] = aint[b1] + j1;

@@ -40,7 +40,7 @@ public class GOTItemMountArmor extends Item {
 	}
 
 	public String getArmorTexture() {
-		String path = null;
+		String path;
 		if (templateItem != null) {
 			int index = 0;
 			if (templateItem == Items.iron_horse_armor) {

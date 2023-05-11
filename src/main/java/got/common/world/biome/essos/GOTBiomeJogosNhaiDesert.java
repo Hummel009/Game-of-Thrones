@@ -30,7 +30,6 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiomeEssosPlains implements GOTB
 		topBlock = GOTRegistry.whiteSand;
 		fillerBlock = GOTRegistry.whiteSand;
 		variantChance = 0.3f;
-		decorator.grassPerChunk = 5;
 		decorator.cactiPerChunk = 2;
 		decorator.deadBushPerChunk = 2;
 		decorator.treesPerChunk = 0;

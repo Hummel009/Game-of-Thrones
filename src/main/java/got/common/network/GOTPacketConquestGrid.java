@@ -32,9 +32,9 @@ public class GOTPacketConquestGrid implements IMessage {
 		byte facID = data.readByte();
 		conqFac = GOTFaction.forID(facID);
 		allZones = new ArrayList<>();
-		short gridX = 0;
-		short gridZ = 0;
-		float str = 0.0f;
+		short gridX;
+		short gridZ;
+		float str;
 		while ((gridX = data.readShort()) != -15000) {
 			gridZ = data.readShort();
 			long time = data.readLong();

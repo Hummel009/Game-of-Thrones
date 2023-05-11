@@ -512,10 +512,10 @@ public class GOTModelDragonAnimaton {
 		model.tail.rotateAngleY = 0;
 		model.tail.rotateAngleZ = 0;
 
-		float rotXStand = 0;
+		float rotXStand;
 		float rotYStand = 0;
-		float rotXSit = 0;
-		float rotYSit = 0;
+		float rotXSit;
+		float rotYSit;
 		float rotXAir = 0;
 		float rotYAir = 0;
 

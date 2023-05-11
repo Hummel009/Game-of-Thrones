@@ -110,7 +110,7 @@ public class GOTBlockChain extends Block {
 		if (itemstack != null && itemstack.getItem() == Item.getItemFromBlock(this)) {
 			int j1;
 			Block block;
-			for (j1 = j; j1 >= 0 && j1 < world.getHeight() && (block = world.getBlock(i, j1, k)) == this; --j1) {
+			for (j1 = j; j1 >= 0 && j1 < world.getHeight() && world.getBlock(i, j1, k) == this; --j1) {
 			}
 			if (j1 >= 0 && j1 < world.getHeight()) {
 				block = world.getBlock(i, j1, k);

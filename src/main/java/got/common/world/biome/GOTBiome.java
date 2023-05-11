@@ -1067,7 +1067,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public GOTBiome setMinMaxHeight(float f, float f1) {
 		heightBaseParameter = f;
 		f -= 2.0f;
-		rootHeight = f += 0.2f;
+		rootHeight = f + 0.2f;
 		heightVariation = f1 / 2.0f;
 		return this;
 	}

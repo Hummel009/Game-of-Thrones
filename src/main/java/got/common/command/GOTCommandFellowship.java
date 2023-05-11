@@ -290,7 +290,7 @@ public class GOTCommandFellowship extends CommandBase {
 				CommandBase.func_152373_a(sender, this, "got.command.fellowship.icon", ownerName, fsName, "[none]");
 				return;
 			}
-			ItemStack itemstack = null;
+			ItemStack itemstack;
 			try {
 				NBTBase nbt = JsonToNBT.func_150315_a(iconData);
 				if (!(nbt instanceof NBTTagCompound)) {

@@ -172,7 +172,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 				}
 				Block block = step.getBlock(aliasBlock);
 				int meta = step.getMeta(aliasMeta);
-				boolean inThisPass = false;
+				boolean inThisPass;
 				if (block.getMaterial().isOpaque() || block == Blocks.air) {
 					inThisPass = pass == 0;
 				} else {

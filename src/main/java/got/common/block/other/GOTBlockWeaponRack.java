@@ -152,7 +152,7 @@ public class GOTBlockWeaponRack extends BlockContainer {
 		int meta = world.getBlockMetadata(i, j, k);
 		if ((meta & 4) == 0) {
 			int rotation = MathHelper.floor_double(entity.rotationYaw * 4.0f / 360.0f + 2.5) & 3;
-			world.setBlockMetadataWithNotify(i, j, k, meta |= rotation, 2);
+			world.setBlockMetadataWithNotify(i, j, k, meta | rotation, 2);
 		}
 	}
 

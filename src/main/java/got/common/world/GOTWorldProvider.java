@@ -325,8 +325,8 @@ public class GOTWorldProvider extends WorldProvider {
 		int l = 0;
 		for (int i1 = -distance; i1 <= distance; ++i1) {
 			for (int k1 = -distance; k1 <= distance; ++k1) {
-				float thisFogStart = 0.0f;
-				float thisFogEnd = 0.0f;
+				float thisFogStart;
+				float thisFogEnd;
 				boolean foggy = doesXZShowFog(i + i1, k + k1);
 				if (foggy) {
 					thisFogStart = farPlane * 0.05f;

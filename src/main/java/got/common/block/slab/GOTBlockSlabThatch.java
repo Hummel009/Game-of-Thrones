@@ -18,7 +18,7 @@ public class GOTBlockSlabThatch extends GOTBlockSlabBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return GOTRegistry.thatch.getIcon(i, j &= 7);
+		return GOTRegistry.thatch.getIcon(i, j & 7);
 	}
 
 	@SideOnly(Side.CLIENT)

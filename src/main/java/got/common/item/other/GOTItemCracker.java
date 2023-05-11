@@ -178,7 +178,7 @@ public class GOTItemCracker extends Item {
 			}
 			world.playSoundAtEntity(entityplayer, "fireworks.blast", 1.0f, 0.9f + world.rand.nextFloat() * 0.1f);
 			if (!world.isRemote) {
-				IInventory crackerItems = null;
+				IInventory crackerItems;
 				IInventory customItems = loadCustomCrackerContents(itemstack);
 				if (customItems != null) {
 					crackerItems = customItems;

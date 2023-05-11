@@ -166,7 +166,7 @@ public class GOTCommandStrScan extends CommandBase {
 							} else if (world.getBlock(i, j - 1, k) == findLowestKey) {
 								findLowest = true;
 							}
-							GOTStructureScan.ScanStepBase step = null;
+							GOTStructureScan.ScanStepBase step;
 							if (blockMetaAliases.containsKey(Pair.of((Object) block, (Object) meta))) {
 								alias = blockMetaAliases.get(Pair.of((Object) block, (Object) meta));
 								step = new GOTStructureScan.ScanStepBlockMetaAlias(i1, j1, k1, alias);

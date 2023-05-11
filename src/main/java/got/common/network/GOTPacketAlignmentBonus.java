@@ -47,7 +47,7 @@ public class GOTPacketAlignmentBonus implements IMessage {
 	public void fromBytes(ByteBuf data) {
 		mainFaction = GOTFaction.forID(data.readByte());
 		prevMainAlignment = data.readFloat();
-		byte factionID = 0;
+		byte factionID;
 		while ((factionID = data.readByte()) >= 0) {
 			GOTFaction faction = GOTFaction.forID(factionID);
 			float bonus = data.readFloat();

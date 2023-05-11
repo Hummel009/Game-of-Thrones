@@ -49,7 +49,7 @@ public abstract class GOTVillageGen {
 	}
 
 	public void affix(GOTWaypoint... wps) {
-		LocationInfo loc = null;
+		LocationInfo loc;
 		for (GOTWaypoint wp : wps) {
 			loc = new LocationInfo(wp.getXCoord() + wp.getAddX(), wp.getZCoord() + wp.getAddZ(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp);
 			fixedLocations.add(loc);

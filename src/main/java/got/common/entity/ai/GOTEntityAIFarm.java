@@ -620,7 +620,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	@Override
 	public void updateTask() {
 		boolean canCollect;
-		boolean canDoAction = false;
+		boolean canDoAction;
 		double distSq = theEntity.getDistanceSq(pathTarget.posX + 0.5, pathTarget.posY, pathTarget.posZ + 0.5);
 		if (action == Action.HOEING || action == Action.PLANTING) {
 			int i = MathHelper.floor_double(theEntity.posX);

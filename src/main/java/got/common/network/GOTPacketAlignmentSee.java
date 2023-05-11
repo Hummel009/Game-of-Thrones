@@ -32,7 +32,7 @@ public class GOTPacketAlignmentSee implements IMessage {
 		byte length = data.readByte();
 		ByteBuf nameBytes = data.readBytes(length);
 		username = nameBytes.toString(Charsets.UTF_8);
-		byte factionID = 0;
+		byte factionID;
 		while ((factionID = data.readByte()) >= 0) {
 			GOTFaction f = GOTFaction.forID(factionID);
 			float alignment = data.readFloat();

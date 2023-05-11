@@ -70,7 +70,7 @@ public class GOTBlockRope extends GOTBlockLadder {
 		if (itemstack != null && itemstack.getItem() == Item.getItemFromBlock(this)) {
 			int j1;
 			Block block;
-			for (j1 = j; j1 >= 0 && j1 < world.getHeight() && (block = world.getBlock(i, j1, k)) == this; j1 += lookDir) {
+			for (j1 = j; j1 >= 0 && j1 < world.getHeight() && world.getBlock(i, j1, k) == this; j1 += lookDir) {
 			}
 			if (j1 >= 0 && j1 < world.getHeight()) {
 				int thisMeta;

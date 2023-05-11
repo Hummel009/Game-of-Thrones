@@ -76,7 +76,7 @@ public class GOTRenderBow implements IItemRenderer {
 				throw new RuntimeException("Attempting to render a large bow which is not a bow");
 			}
 			GOTItemBow bow = (GOTItemBow) item;
-			GOTItemBow.BowState bowState = GOTItemBow.BowState.HELD;
+			GOTItemBow.BowState bowState;
 			if (entity instanceof EntityPlayer) {
 				EntityPlayer entityplayer = (EntityPlayer) entity;
 				ItemStack usingItem = entityplayer.getItemInUse();

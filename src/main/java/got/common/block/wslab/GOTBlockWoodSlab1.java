@@ -16,7 +16,7 @@ public class GOTBlockWoodSlab1 extends GOTBlockSlabBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return GOTRegistry.planks1.getIcon(i, j &= 7);
+		return GOTRegistry.planks1.getIcon(i, j & 7);
 	}
 
 	@SideOnly(Side.CLIENT)

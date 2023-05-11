@@ -95,7 +95,7 @@ public class GOTBlockOreGem extends Block {
 	public int quantityDroppedWithBonus(int i, Random random) {
 		if (i > 0 && Item.getItemFromBlock(this) != getItemDropped(0, random, i)) {
 			int drops = quantityDropped(random);
-			return drops += random.nextInt(i + 1);
+			return drops + random.nextInt(i + 1);
 		}
 		return quantityDropped(random);
 	}

@@ -82,7 +82,7 @@ public class GOTModelRabbit extends ModelBase {
 		head.rotateAngleX = (float) -0.7853981633974483;
 		rightArm.rotateAngleX = (float) -0.9599310885968813;
 		leftArm.rotateAngleX = (float) -0.9599310885968813;
-		float f6 = (float) 0.7853981633974483;
+		float f6;
 		f6 = f1;
 		body.rotateAngleX += f6;
 		head.rotateAngleX -= f6;

@@ -22,7 +22,7 @@ public class GOTRenderCrossbow implements IItemRenderer {
 
 	@Override
 	public void renderItem(IItemRenderer.ItemRenderType type, ItemStack itemstack, Object... data) {
-		RotationMode rotationMode = null;
+		RotationMode rotationMode;
 		EntityLivingBase holder = (EntityLivingBase) data[1];
 		boolean loaded = GOTItemCrossbow.isLoaded(itemstack);
 		boolean using = false;

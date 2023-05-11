@@ -22,7 +22,7 @@ public class GOTBlockSlabClayTileDyed2 extends GOTBlockSlabBase {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
-		return GOTRegistry.clayTileDyed.getIcon(i, j += 8);
+		return GOTRegistry.clayTileDyed.getIcon(i, j + 8);
 	}
 
 	@SideOnly(Side.CLIENT)

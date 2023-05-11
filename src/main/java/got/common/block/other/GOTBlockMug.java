@@ -34,7 +34,7 @@ public class GOTBlockMug extends BlockContainer {
 		super(Material.circuits);
 		f /= 16.0f;
 		f1 /= 16.0f;
-		setBlockBounds(0.5f - (f *= 0.75f), 0.0f, 0.5f - f, 0.5f + f, f1 *= 0.75f, 0.5f + f);
+		setBlockBounds(0.5f - (f *= 0.75f), 0.0f, 0.5f - f, 0.5f + f, f1 * 0.75f, 0.5f + f);
 		setHardness(0.0f);
 		setStepSound(Block.soundTypeWood);
 	}
@@ -162,7 +162,7 @@ public class GOTBlockMug extends BlockContainer {
 				}
 				if (canDrink) {
 					ItemStack mugItemResult = mugItem.onFoodEaten(world, entityplayer);
-					mugItemResult = ForgeEventFactory.onItemUseFinish(entityplayer, mugItem, mugItem.getMaxItemUseDuration(), mugItemResult);
+					ForgeEventFactory.onItemUseFinish(entityplayer, mugItem, mugItem.getMaxItemUseDuration(), mugItemResult);
 					mug.setEmpty();
 					world.markBlockForUpdate(i, j, k);
 					world.playSoundAtEntity(entityplayer, "random.drink", 0.5f, world.rand.nextFloat() * 0.1f + 0.9f);

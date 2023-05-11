@@ -305,7 +305,7 @@ public class GOTModelElephant extends ModelBase {
 		if (f4 < 0.0f) {
 			f4 = 0.0f;
 		}
-		float HeadXRot = f4 / 57.29578f;
+		float HeadXRot;
 		if (f3 > 20.0f) {
 			f3 = 20.0f;
 		}

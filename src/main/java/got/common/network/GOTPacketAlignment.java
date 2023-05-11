@@ -34,7 +34,7 @@ public class GOTPacketAlignment implements IMessage {
 	@Override
 	public void fromBytes(ByteBuf data) {
 		player = new UUID(data.readLong(), data.readLong());
-		byte factionID = 0;
+		byte factionID;
 		while ((factionID = data.readByte()) >= 0) {
 			GOTFaction f = GOTFaction.forID(factionID);
 			float alignment = data.readFloat();

@@ -10,7 +10,6 @@ import got.common.world.GOTWorldProvider;
 import got.common.world.biome.essos.GOTBiomeMossovyMarshes;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
 import got.common.world.biome.essos.GOTBiomeValyria;
-import got.common.world.biome.other.GOTBiomeBeach;
 import got.common.world.biome.other.GOTBiomeOcean;
 import got.common.world.biome.sothoryos.GOTBiomeYeen;
 import got.common.world.biome.westeros.GOTBiomeHauntedForest;

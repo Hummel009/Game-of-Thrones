@@ -65,7 +65,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 
 	public static int computeAverageFactionPageColor(ResourceLocation texture, int u0, int v0, int u1, int v1) {
 		if (!averagedPageColors.containsKey(texture)) {
-			int avgColor = 0;
+			int avgColor;
 			try {
 				BufferedImage pageImage = ImageIO.read(mc.getResourceManager().getResource(texture).getInputStream());
 				long totalR = 0L;

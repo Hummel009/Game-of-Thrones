@@ -47,7 +47,7 @@ public class GOTPacketEditBanner implements IMessage {
 		if (sendWhitelist) {
 			whitelistSlots = new String[data.readShort()];
 			whitelistPerms = new int[whitelistSlots.length];
-			short index = 0;
+			short index;
 			while ((index = data.readShort()) >= 0) {
 				byte length = data.readByte();
 				if (length == -1) {

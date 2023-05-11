@@ -152,7 +152,7 @@ public class GOTConnectedTextures {
 		boolean[][] flags = new boolean[3][3];
 		for (int x = -1; x <= 1; ++x) {
 			for (int y = -1; y <= 1; ++y) {
-				boolean match = false;
+				boolean match;
 				if (x == 0 && y == 0) {
 					match = true;
 				} else {

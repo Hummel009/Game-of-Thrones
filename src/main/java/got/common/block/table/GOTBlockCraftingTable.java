@@ -4,7 +4,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;

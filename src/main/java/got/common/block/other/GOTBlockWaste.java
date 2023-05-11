@@ -38,7 +38,7 @@ public class GOTBlockWaste extends Block {
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		int hash = i * 25799626 ^ k * 6879038 ^ j;
-		wasteRand.setSeed(hash += side);
+		wasteRand.setSeed(hash + side);
 		wasteRand.setSeed(wasteRand.nextLong());
 		return randomIcons[wasteRand.nextInt(randomIcons.length)];
 	}

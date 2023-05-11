@@ -143,7 +143,7 @@ public class GOTBlockTreasurePile extends Block {
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		ItemStack itemstack = entityplayer.getHeldItem();
 		if (itemstack != null && itemstack.getItem() == Item.getItemFromBlock(this) && side == 1) {
-			boolean placedTreasure = false;
+			boolean placedTreasure;
 			int meta = world.getBlockMetadata(i, j, k);
 			if (meta < 7) {
 				int itemMeta;

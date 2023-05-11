@@ -21,7 +21,7 @@ public class GOTBiomeVariantDunes extends GOTBiomeVariant {
 		double d3 = d1 * 0.9 + d2 * 0.1;
 		d3 = MathHelper.clamp_double(d3, -1.0, 1.0);
 		int maxDuneHeight = 12;
-		return Math.round(GOTFunctions.normalisedSin((i + (float) (d3 *= 15.0)) * 0.09f) * maxDuneHeight);
+		return Math.round(GOTFunctions.normalisedSin((i + (float) (d3 * 15.0)) * 0.09f) * maxDuneHeight);
 	}
 
 	@Override

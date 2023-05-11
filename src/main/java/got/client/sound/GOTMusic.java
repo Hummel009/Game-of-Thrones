@@ -67,7 +67,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		ResourceLocation template = new ResourceLocation("got:music/readme.txt");
 		InputStream templateIn = Minecraft.getMinecraft().getResourceManager().getResource(template).getInputStream();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(templateIn), Charsets.UTF_8));
-		String line = "";
+		String line;
 		while ((line = reader.readLine()) != null) {
 			if ("#REGIONS#".equals(line)) {
 				writer.println("all");

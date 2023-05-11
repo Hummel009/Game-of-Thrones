@@ -21,7 +21,7 @@ public class GOTBlockSlabBone extends GOTBlockSlabBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return GOTRegistry.boneBlock.getIcon(i, j &= 7);
+		return GOTRegistry.boneBlock.getIcon(i, j & 7);
 	}
 
 	@SideOnly(Side.CLIENT)

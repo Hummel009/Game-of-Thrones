@@ -461,7 +461,7 @@ public class GOTContainerAnvil extends Container {
 		reforgeCost = 0;
 		engraveOwnerCost = 0;
 		isSmithScrollCombine = false;
-		int baseAnvilCost = 0;
+		int baseAnvilCost;
 		int repairCost = 0;
 		int combineCost = 0;
 		int renameCost = 0;
@@ -717,7 +717,7 @@ public class GOTContainerAnvil extends Container {
 				baseAnvilCost += Math.max(1, (int) mod.getValueModifier());
 			}
 			if (inputCopy.isItemStackDamageable()) {
-				boolean canRepair = false;
+				boolean canRepair;
 				int availableMaterials = 0;
 				if (isTrader) {
 					canRepair = getTraderMaterialPrice(inputItem) > 0.0f;

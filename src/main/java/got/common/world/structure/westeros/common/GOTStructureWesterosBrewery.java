@@ -100,7 +100,6 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 			if (Math.abs(i12) == 4 || Math.abs(i12) == 2) {
 				setBlockAndMetadata(world, i12, 1, 0, brickStairBlock, 2);
 				setGrassToDirt(world, i12, 0, 0);
-				continue;
 			}
 		}
 		for (i12 = -5; i12 <= 5; ++i12) {
