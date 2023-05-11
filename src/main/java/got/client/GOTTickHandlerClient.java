@@ -156,14 +156,14 @@ public class GOTTickHandlerClient {
 		int alpha = (int) (alphaF * 255.0F);
 		alpha = MathHelper.clamp_int(alpha, 4, 255);
 		alpha <<= 24;
-		f.drawString(s, x - 1, y - 1, 0x0 | alpha);
-		f.drawString(s, x, y - 1, 0x0 | alpha);
-		f.drawString(s, x + 1, y - 1, 0x0 | alpha);
-		f.drawString(s, x + 1, y, 0x0 | alpha);
-		f.drawString(s, x + 1, y + 1, 0x0 | alpha);
-		f.drawString(s, x, y + 1, 0x0 | alpha);
-		f.drawString(s, x - 1, y + 1, 0x0 | alpha);
-		f.drawString(s, x - 1, y, 0x0 | alpha);
+		f.drawString(s, x - 1, y - 1, alpha);
+		f.drawString(s, x, y - 1, alpha);
+		f.drawString(s, x + 1, y - 1, alpha);
+		f.drawString(s, x + 1, y, alpha);
+		f.drawString(s, x + 1, y + 1, alpha);
+		f.drawString(s, x, y + 1, alpha);
+		f.drawString(s, x - 1, y + 1, alpha);
+		f.drawString(s, x - 1, y, alpha);
 		f.drawString(s, x, y, color | alpha);
 	}
 

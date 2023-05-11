@@ -108,7 +108,7 @@ public class GOTEntityLingeringEffect extends Entity implements IEntityAdditiona
 				int colour = stack.getItem().getColorFromItemStack(stack, 0);
 				float red = (colour >> 16 & 255) / 255.0F;
 				float green = (colour >> 8 & 255) / 255.0F;
-				float blue = (colour >> 0 & 255) / 255.0F;
+				float blue = (colour & 255) / 255.0F;
 				for (int i = 0; i < 30; i++) {
 					float variation = 0.75F + rand.nextFloat() * 0.25F;
 					worldObj.spawnParticle("mobSpell", posX - radius + rand.nextFloat() * radius * 2, posY, posZ - radius + rand.nextFloat() * radius * 2, red * variation, green * variation, blue * variation);

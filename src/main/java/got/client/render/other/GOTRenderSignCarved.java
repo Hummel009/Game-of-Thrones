@@ -47,7 +47,7 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 				int rgb = cachedBlockAtlasImage.getRGB(x, y);
 				int r = rgb >> 16 & 0xFF;
 				int g = rgb >> 8 & 0xFF;
-				int b = rgb >> 0 & 0xFF;
+				int b = rgb & 0xFF;
 				totalR += r;
 				totalG += g;
 				totalB += b;
@@ -57,7 +57,7 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		int avgR = totalR / count & 0xFF;
 		int avgG = totalG / count & 0xFF;
 		int avgB = totalB / count & 0xFF;
-		int avgColor = 0xFF000000 | avgR << 16 | avgG << 8 | avgB << 0;
+		int avgColor = 0xFF000000 | avgR << 16 | avgG << 8 | avgB;
 		iconAverageColors.put(icon, avgColor);
 		return avgColor;
 	}

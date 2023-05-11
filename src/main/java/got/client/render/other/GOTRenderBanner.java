@@ -72,7 +72,7 @@ public class GOTRenderBanner extends Render {
 				lx = light % 65536;
 				ly = light / 65536;
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx, ly);
-				GL11.glColor4f((protectColor >> 16 & 0xFF) / 255.0f, (protectColor >> 8 & 0xFF) / 255.0f, (protectColor >> 0 & 0xFF) / 255.0f, 1.0f);
+				GL11.glColor4f((protectColor >> 16 & 0xFF) / 255.0f, (protectColor >> 8 & 0xFF) / 255.0f, (protectColor & 0xFF) / 255.0f, 1.0f);
 			}
 			bindTexture(getStandTexture(entity));
 			model.renderStand(0.0625f);

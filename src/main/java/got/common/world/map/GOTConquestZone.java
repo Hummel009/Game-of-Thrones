@@ -152,7 +152,7 @@ public class GOTConquestZone {
 		int index = allPlayableFacs.indexOf(fac);
 		conquestStrengths[index] = str;
 		if (str == 0.0f) {
-			isEmptyKey &= 1L << index ^ 0xFFFFFFFFFFFFFFFFL;
+			isEmptyKey &= ~(1L << index);
 		} else {
 			isEmptyKey |= 1L << index;
 		}

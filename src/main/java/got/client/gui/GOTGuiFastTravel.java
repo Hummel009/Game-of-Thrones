@@ -77,7 +77,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		List messageLines = fontRendererObj.listFormattedStringToWidth(message, width - 100);
 		String skipText = StatCollector.translateToLocalFormatted("got.fastTravel.skip", GameSettings.getKeyDisplayString(mc.gameSettings.keyBindInventory.getKeyCode()));
 		float boxAlpha = 0.5f;
-		int boxColor = (int) (boxAlpha * 255.0f) << 24 | 0;
+		int boxColor = (int) (boxAlpha * 255.0f) << 24;
 		int fh = fontRendererObj.FONT_HEIGHT;
 		int border = fh * 2;
 		if (chunkLoaded) {

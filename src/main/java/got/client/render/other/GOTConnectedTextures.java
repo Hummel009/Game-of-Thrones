@@ -302,7 +302,7 @@ public class GOTConnectedTextures {
 			ArrayList<Set<IconElement>> permutations = new ArrayList<>();
 			boolean[] trueOrFalse = {false, true};
 			for (int i = 0; i < 8192; i++) {
-				boolean base = trueOrFalse[i >> 0 & 1];
+				boolean base = trueOrFalse[i & 1];
 				boolean left = trueOrFalse[i >> 1 & 1];
 				boolean right = trueOrFalse[i >> 2 & 1];
 				boolean top = trueOrFalse[i >> 3 & 1];
