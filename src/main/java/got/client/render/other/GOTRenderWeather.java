@@ -27,6 +27,10 @@ public class GOTRenderWeather extends IRenderHandler {
 	public float[] rainXCoords;
 	public float[] rainYCoords;
 
+	public static boolean isSandstormBiome(BiomeGenBase biome) {
+		return !biome.canSpawnLightningBolt() && biome.topBlock.getMaterial() == Material.sand;
+	}
+
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
 		EntityRenderer er = mc.entityRenderer;
@@ -220,9 +224,5 @@ public class GOTRenderWeather extends IRenderHandler {
 			GL11.glAlphaFunc(516, 0.1f);
 			er.disableLightmap(partialTicks);
 		}
-	}
-
-	public static boolean isSandstormBiome(BiomeGenBase biome) {
-		return !biome.canSpawnLightningBolt() && biome.topBlock.getMaterial() == Material.sand;
 	}
 }

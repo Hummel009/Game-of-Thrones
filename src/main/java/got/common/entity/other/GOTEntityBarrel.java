@@ -115,6 +115,10 @@ public class GOTEntityBarrel extends Entity {
 		return dataWatcher.getWatchableObjectItemStack(20);
 	}
 
+	public void setBarrelItem(ItemStack itemstack) {
+		dataWatcher.updateObject(20, itemstack);
+	}
+
 	@Override
 	public AxisAlignedBB getBoundingBox() {
 		return boundingBox;
@@ -129,8 +133,16 @@ public class GOTEntityBarrel extends Entity {
 		return dataWatcher.getWatchableObjectFloat(19);
 	}
 
+	public void setDamageTaken(float f) {
+		dataWatcher.updateObject(19, Float.valueOf(f));
+	}
+
 	public int getForwardDirection() {
 		return dataWatcher.getWatchableObjectInt(18);
+	}
+
+	public void setForwardDirection(int i) {
+		dataWatcher.updateObject(18, i);
 	}
 
 	@Override
@@ -151,6 +163,10 @@ public class GOTEntityBarrel extends Entity {
 
 	public int getTimeSinceHit() {
 		return dataWatcher.getWatchableObjectInt(17);
+	}
+
+	public void setTimeSinceHit(int i) {
+		dataWatcher.updateObject(17, i);
 	}
 
 	@Override
@@ -332,18 +348,6 @@ public class GOTEntityBarrel extends Entity {
 		}
 	}
 
-	public void setBarrelItem(ItemStack itemstack) {
-		dataWatcher.updateObject(20, itemstack);
-	}
-
-	public void setDamageTaken(float f) {
-		dataWatcher.updateObject(19, Float.valueOf(f));
-	}
-
-	public void setForwardDirection(int i) {
-		dataWatcher.updateObject(18, i);
-	}
-
 	@Override
 	@SideOnly(value = Side.CLIENT)
 	public void setPositionAndRotation2(double d, double d1, double d2, float f, float f1, int i) {
@@ -367,10 +371,6 @@ public class GOTEntityBarrel extends Entity {
 		motionX = velocityX;
 		motionY = velocityY;
 		motionZ = velocityZ;
-	}
-
-	public void setTimeSinceHit(int i) {
-		dataWatcher.updateObject(17, i);
 	}
 
 	@Override

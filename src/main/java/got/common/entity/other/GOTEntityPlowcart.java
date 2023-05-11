@@ -49,6 +49,10 @@ public class GOTEntityPlowcart extends GOTEntityCart {
 		return plowing;
 	}
 
+	public void setPlowing(boolean plowingIn) {
+		plowing = plowingIn;
+	}
+
 	@Override
 	public boolean interactFirst(EntityPlayer player) {
 		plowing = !plowing;
@@ -62,9 +66,5 @@ public class GOTEntityPlowcart extends GOTEntityCart {
 		if (getPulling() != null && (targetblock = worldObj.getBlock((int) (posX - getLookVec().xCoord * bladeOffset), (int) (posY - 1.0), (int) (posZ - getLookVec().zCoord * bladeOffset))) != null && worldObj.isAirBlock((int) (posX - getLookVec().xCoord * bladeOffset), (int) posY, (int) (posZ - getLookVec().zCoord * bladeOffset)) && (targetblock == Blocks.dirt || targetblock == Blocks.grass) && getPlowing()) {
 			worldObj.setBlock((int) (posX - getLookVec().xCoord * bladeOffset), (int) (posY - 1.0), (int) (posZ - getLookVec().zCoord * bladeOffset), Blocks.farmland, 7, 2);
 		}
-	}
-
-	public void setPlowing(boolean plowingIn) {
-		plowing = plowingIn;
 	}
 }

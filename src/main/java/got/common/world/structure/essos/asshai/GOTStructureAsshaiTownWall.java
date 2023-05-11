@@ -23,6 +23,34 @@ public class GOTStructureAsshaiTownWall extends GOTStructureAsshaiBase {
 		xMaxInner = xi1;
 	}
 
+	public static GOTStructureAsshaiTownWall Centre(boolean flag) {
+		return new GOTStructureAsshaiTownWall(flag, -5, 5);
+	}
+
+	public static GOTStructureAsshaiTownWall Left(boolean flag) {
+		return new GOTStructureAsshaiTownWall(flag, -9, 6);
+	}
+
+	public static GOTStructureAsshaiTownWall LeftEnd(boolean flag) {
+		return new GOTStructureAsshaiTownWall(flag, -6, 6, -5, 6);
+	}
+
+	public static GOTStructureAsshaiTownWall LeftEndShort(boolean flag) {
+		return new GOTStructureAsshaiTownWall(flag, -5, 6);
+	}
+
+	public static GOTStructureAsshaiTownWall Right(boolean flag) {
+		return new GOTStructureAsshaiTownWall(flag, -6, 9);
+	}
+
+	public static GOTStructureAsshaiTownWall RightEnd(boolean flag) {
+		return new GOTStructureAsshaiTownWall(flag, -6, 6, -6, 5);
+	}
+
+	public static GOTStructureAsshaiTownWall RightEndShort(boolean flag) {
+		return new GOTStructureAsshaiTownWall(flag, -6, 5);
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		this.setOriginAndRotation(world, i, j, k, rotation, 0);
@@ -70,33 +98,5 @@ public class GOTStructureAsshaiTownWall extends GOTStructureAsshaiBase {
 			}
 		}
 		return true;
-	}
-
-	public static GOTStructureAsshaiTownWall Centre(boolean flag) {
-		return new GOTStructureAsshaiTownWall(flag, -5, 5);
-	}
-
-	public static GOTStructureAsshaiTownWall Left(boolean flag) {
-		return new GOTStructureAsshaiTownWall(flag, -9, 6);
-	}
-
-	public static GOTStructureAsshaiTownWall LeftEnd(boolean flag) {
-		return new GOTStructureAsshaiTownWall(flag, -6, 6, -5, 6);
-	}
-
-	public static GOTStructureAsshaiTownWall LeftEndShort(boolean flag) {
-		return new GOTStructureAsshaiTownWall(flag, -5, 6);
-	}
-
-	public static GOTStructureAsshaiTownWall Right(boolean flag) {
-		return new GOTStructureAsshaiTownWall(flag, -6, 9);
-	}
-
-	public static GOTStructureAsshaiTownWall RightEnd(boolean flag) {
-		return new GOTStructureAsshaiTownWall(flag, -6, 6, -6, 5);
-	}
-
-	public static GOTStructureAsshaiTownWall RightEndShort(boolean flag) {
-		return new GOTStructureAsshaiTownWall(flag, -6, 5);
 	}
 }

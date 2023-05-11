@@ -16,6 +16,14 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 		zoomScale = IntMath.pow(2, i);
 	}
 
+	public static boolean getFlag(int param, int flag) {
+		return (param & flag) == flag;
+	}
+
+	public static int setFlag(int param, int flag) {
+		return param |= flag;
+	}
+
 	@Override
 	public int[] getInts(World world, int i, int k, int xSize, int zSize) {
 		int[] baseInts = gotParent == null ? null : gotParent.getInts(world, i, k, xSize, zSize);
@@ -45,13 +53,5 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 			lakeFlags = GOTGenLayerBiomeVariantsLake.setFlag(lakeFlags, f);
 		}
 		return this;
-	}
-
-	public static boolean getFlag(int param, int flag) {
-		return (param & flag) == flag;
-	}
-
-	public static int setFlag(int param, int flag) {
-		return param |= flag;
 	}
 }

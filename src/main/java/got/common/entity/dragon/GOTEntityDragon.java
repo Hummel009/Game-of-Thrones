@@ -90,6 +90,61 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		isImmuneToFire = true;
 	}
 
+	public static Item consumeEquipped(EntityPlayer player, Item... items) {
+		ItemStack itemStack = player.getCurrentEquippedItem();
+
+		if (itemStack == null) {
+			return null;
+		}
+
+		Item equippedItem = itemStack.getItem();
+
+		for (Item item : items) {
+			if (item == equippedItem) {
+				if (!player.capabilities.isCreativeMode) {
+					itemStack.stackSize--;
+				}
+				if (itemStack.stackSize <= 0) {
+					player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+				}
+
+				return item;
+			}
+		}
+
+		return null;
+	}
+
+	public static boolean hasEquipped(EntityPlayer player, Item item) {
+		ItemStack itemStack = player.getCurrentEquippedItem();
+
+		if (itemStack == null) {
+			return false;
+		}
+
+		return itemStack.getItem() == item;
+	}
+
+	public static boolean hasEquippedFood(EntityPlayer player) {
+		ItemStack itemStack = player.getCurrentEquippedItem();
+
+		if (itemStack == null) {
+			return false;
+		}
+
+		return itemStack.getItem() instanceof ItemFood;
+	}
+
+	public static boolean hasEquippedUsable(EntityPlayer player) {
+		ItemStack itemStack = player.getCurrentEquippedItem();
+
+		if (itemStack == null) {
+			return false;
+		}
+
+		return itemStack.getItemUseAction() != EnumAction.none;
+	}
+
 	public void addHelper(GOTDragonHelper helper) {
 		L.trace("addHelper({})", helper.getClass().getName());
 		if (helpers == null) {
@@ -211,12 +266,21 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		return getEntityAttribute(SharedMonsterAttributes.attackDamage).getAttributeValue();
 	}
 
+	public void setAttackDamage(double damage) {
+		L.trace("setAttackDamage({})", damage);
+		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(damage);
+	}
+
 	public boolean getBooleanData(int index) {
 		return (dataWatcher.getWatchableObjectByte(index) & 1) != 0;
 	}
 
 	public GOTDragonBreed getBreed() {
 		return getBreedHelper().getBreed();
+	}
+
+	public void setBreed(GOTDragonBreed breed) {
+		getBreedHelper().setBreed(breed);
 	}
 
 	public GOTDragonBreedHelper getBreedHelper() {
@@ -234,6 +298,10 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
 	public BitSet getControlFlags() {
 		return controlFlags;
+	}
+
+	public void setControlFlags(BitSet flags) {
+		controlFlags = flags;
 	}
 
 	@Override
@@ -316,6 +384,13 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 			return (EntityPlayer) riddenByEntity;
 		}
 		return null;
+	}
+
+	public void setRidingPlayer(EntityPlayer player) {
+		L.trace("setRidingPlayer({})", player.getCommandSenderName());
+		player.rotationYaw = rotationYaw;
+		player.rotationPitch = rotationPitch;
+		player.mountEntity(this);
 	}
 
 	public float getScale() {
@@ -445,6 +520,11 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		return getBooleanData(INDEX_SADDLED);
 	}
 
+	public void setSaddled(boolean saddled) {
+		L.trace("setSaddled({})", saddled);
+		setBooleanData(INDEX_SADDLED, saddled);
+	}
+
 	@Override
 	public void onDeathUpdate() {
 		for (GOTDragonHelper helper : helpers.values()) {
@@ -519,11 +599,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		setAttributes();
 	}
 
-	public void setAttackDamage(double damage) {
-		L.trace("setAttackDamage({})", damage);
-		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(damage);
-	}
-
 	public void setAttributes() {
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(BASE_SPEED_GROUND);
 		getEntityAttribute(MOVE_SPEED_AIR).setBaseValue(BASE_SPEED_AIR);
@@ -535,32 +610,12 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		dataWatcher.updateObject(index, Byte.valueOf(value ? (byte) 1 : (byte) 0));
 	}
 
-	public void setBreed(GOTDragonBreed breed) {
-		getBreedHelper().setBreed(breed);
-	}
-
-	public void setControlFlags(BitSet flags) {
-		controlFlags = flags;
-	}
-
 	@Override
 	public void setDead() {
 		for (GOTDragonHelper helper : helpers.values()) {
 			helper.onDeath();
 		}
 		super.setDead();
-	}
-
-	public void setRidingPlayer(EntityPlayer player) {
-		L.trace("setRidingPlayer({})", player.getCommandSenderName());
-		player.rotationYaw = rotationYaw;
-		player.rotationPitch = rotationPitch;
-		player.mountEntity(this);
-	}
-
-	public void setSaddled(boolean saddled) {
-		L.trace("setSaddled({})", saddled);
-		setBooleanData(INDEX_SADDLED, saddled);
 	}
 
 	@Override
@@ -625,60 +680,5 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		for (GOTDragonHelper helper : helpers.values()) {
 			helper.writeToNBT(nbt);
 		}
-	}
-
-	public static Item consumeEquipped(EntityPlayer player, Item... items) {
-		ItemStack itemStack = player.getCurrentEquippedItem();
-
-		if (itemStack == null) {
-			return null;
-		}
-
-		Item equippedItem = itemStack.getItem();
-
-		for (Item item : items) {
-			if (item == equippedItem) {
-				if (!player.capabilities.isCreativeMode) {
-					itemStack.stackSize--;
-				}
-				if (itemStack.stackSize <= 0) {
-					player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
-				}
-
-				return item;
-			}
-		}
-
-		return null;
-	}
-
-	public static boolean hasEquipped(EntityPlayer player, Item item) {
-		ItemStack itemStack = player.getCurrentEquippedItem();
-
-		if (itemStack == null) {
-			return false;
-		}
-
-		return itemStack.getItem() == item;
-	}
-
-	public static boolean hasEquippedFood(EntityPlayer player) {
-		ItemStack itemStack = player.getCurrentEquippedItem();
-
-		if (itemStack == null) {
-			return false;
-		}
-
-		return itemStack.getItem() instanceof ItemFood;
-	}
-
-	public static boolean hasEquippedUsable(EntityPlayer player) {
-		ItemStack itemStack = player.getCurrentEquippedItem();
-
-		if (itemStack == null) {
-			return false;
-		}
-
-		return itemStack.getItemUseAction() != EnumAction.none;
 	}
 }

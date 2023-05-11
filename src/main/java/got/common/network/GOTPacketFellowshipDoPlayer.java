@@ -40,6 +40,10 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 		data.writeByte(function.ordinal());
 	}
 
+	public enum PlayerFunction {
+		REMOVE, TRANSFER, OP, DEOP;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipDoPlayer, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFellowshipDoPlayer packet, MessageContext context) {
@@ -66,9 +70,5 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 			}
 			return null;
 		}
-	}
-
-	public enum PlayerFunction {
-		REMOVE, TRANSFER, OP, DEOP;
 	}
 }

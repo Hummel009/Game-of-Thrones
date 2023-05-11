@@ -1,15 +1,17 @@
 package integrator.handler;
 
-import java.awt.Rectangle;
-import java.util.List;
-
 import codechicken.nei.NEIServerUtils;
-import codechicken.nei.recipe.*;
+import codechicken.nei.recipe.ShapelessRecipeHandler;
+import codechicken.nei.recipe.TemplateRecipeHandler;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.*;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import java.awt.*;
+import java.util.List;
 
 public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
 	public List<IRecipe> recipeList;

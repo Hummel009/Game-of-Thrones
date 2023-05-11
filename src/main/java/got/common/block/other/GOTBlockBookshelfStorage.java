@@ -28,6 +28,11 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 		setCreativeTab(null);
 	}
 
+	public static boolean canOpenBookshelf(World world, int i, int j, int k, EntityPlayer entityplayer) {
+		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
+		return itemstack == null || itemstack.getItem() != Item.getItemFromBlock(Blocks.bookshelf);
+	}
+
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
 		GOTTileEntityBookshelf bookshelf = (GOTTileEntityBookshelf) world.getTileEntity(i, j, k);
@@ -88,10 +93,5 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-	}
-
-	public static boolean canOpenBookshelf(World world, int i, int j, int k, EntityPlayer entityplayer) {
-		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-		return itemstack == null || itemstack.getItem() != Item.getItemFromBlock(Blocks.bookshelf);
 	}
 }

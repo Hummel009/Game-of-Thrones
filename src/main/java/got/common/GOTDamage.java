@@ -1,6 +1,7 @@
 package got.common;
 
-import got.common.network.*;
+import got.common.network.GOTPacketEnvironmentOverlay;
+import got.common.network.GOTPacketHandler;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.DamageSource;
 

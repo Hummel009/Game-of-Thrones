@@ -36,6 +36,10 @@ public class GOTPacketWeaponFX implements IMessage {
 		data.writeInt(entityID);
 	}
 
+	public enum Type {
+		ASSHAI, INFERNAL, CHILLING;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketWeaponFX, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketWeaponFX packet, MessageContext context) {
@@ -96,10 +100,6 @@ public class GOTPacketWeaponFX implements IMessage {
 			}
 			return null;
 		}
-	}
-
-	public enum Type {
-		ASSHAI, INFERNAL, CHILLING;
 	}
 
 }

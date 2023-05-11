@@ -46,29 +46,6 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	@SubscribeEvent
-	public void onPlaySound(PlaySoundEvent17 event) {
-		Minecraft.getMinecraft();
-		if (!allTracks.isEmpty() && event.category == SoundCategory.MUSIC && !(event.sound instanceof GOTMusicTrack)) {
-			if (GOTMusic.isGOTDimension()) {
-				event.result = null;
-				return;
-			}
-			if (GOTMusic.isMenuMusic() && !GOTMusic.getTracksForRegion(GOTBiomeMusic.MENU, null).isEmpty()) {
-				event.result = null;
-			}
-		}
-	}
-
-	@Override
-	public void onResourceManagerReload(IResourceManager resourcemanager) {
-		GOTMusic.loadMusicPacks(Minecraft.getMinecraft().mcDataDir, (SimpleReloadableResourceManager) resourcemanager);
-	}
-
-	public void update() {
-		GOTMusicTicker.update(musicRand);
-	}
-
 	public static void addTrackToRegions(GOTMusicTrack track) {
 		allTracks.add(track);
 		for (GOTBiomeMusic region : track.getAllRegions()) {
@@ -288,6 +265,29 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@SubscribeEvent
+	public void onPlaySound(PlaySoundEvent17 event) {
+		Minecraft.getMinecraft();
+		if (!allTracks.isEmpty() && event.category == SoundCategory.MUSIC && !(event.sound instanceof GOTMusicTrack)) {
+			if (GOTMusic.isGOTDimension()) {
+				event.result = null;
+				return;
+			}
+			if (GOTMusic.isMenuMusic() && !GOTMusic.getTracksForRegion(GOTBiomeMusic.MENU, null).isEmpty()) {
+				event.result = null;
+			}
+		}
+	}
+
+	@Override
+	public void onResourceManagerReload(IResourceManager resourcemanager) {
+		GOTMusic.loadMusicPacks(Minecraft.getMinecraft().mcDataDir, (SimpleReloadableResourceManager) resourcemanager);
+	}
+
+	public void update() {
+		GOTMusicTicker.update(musicRand);
 	}
 
 	public static class Reflect {

@@ -74,19 +74,6 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		}
 	}
 
-	@Override
-	public int[] getInts(World world, int i, int k, int xSize, int zSize) {
-		int[] intArray = GOTIntCache.get(world).getIntArray(xSize * zSize);
-		for (int k1 = 0; k1 < zSize; ++k1) {
-			for (int i1 = 0; i1 < xSize; ++i1) {
-				int i2 = i + i1 + 810;
-				int k2 = k + k1 + 730;
-				intArray[i1 + k1 * xSize] = i2 < 0 || i2 >= imageWidth || k2 < 0 || k2 >= imageHeight ? GOTBiome.ocean.biomeID : GOTGenLayerWorld.getBiomeImageID(i2, k2);
-			}
-		}
-		return intArray;
-	}
-
 	public static GOTGenLayer[] createWorld(GOTDimension dim, WorldType worldType) {
 		int i;
 
@@ -180,5 +167,18 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public int[] getInts(World world, int i, int k, int xSize, int zSize) {
+		int[] intArray = GOTIntCache.get(world).getIntArray(xSize * zSize);
+		for (int k1 = 0; k1 < zSize; ++k1) {
+			for (int i1 = 0; i1 < xSize; ++i1) {
+				int i2 = i + i1 + 810;
+				int k2 = k + k1 + 730;
+				intArray[i1 + k1 * xSize] = i2 < 0 || i2 >= imageWidth || k2 < 0 || k2 >= imageHeight ? GOTBiome.ocean.biomeID : GOTGenLayerWorld.getBiomeImageID(i2, k2);
+			}
+		}
+		return intArray;
 	}
 }

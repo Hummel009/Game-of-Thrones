@@ -30,52 +30,6 @@ public class GOTItemCoin extends Item {
 		setCreativeTab(GOTCreativeTabs.tabMaterials);
 	}
 
-	@SideOnly(value = Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		super.addInformation(itemstack, entityplayer, list, flag);
-		int i = itemstack.getItemDamage();
-		if (i >= values.length) {
-			i = 0;
-		}
-		list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("item.got:coin.nominal.name") + ": " + String.valueOf(values[i]));
-	}
-
-	@Override
-	@SideOnly(value = Side.CLIENT)
-	public IIcon getIconFromDamage(int i) {
-		if (i >= coinIcons.length) {
-			i = 0;
-		}
-		return coinIcons[i];
-	}
-
-	@Override
-	@SideOnly(value = Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (int j = 0; j < values.length; ++j) {
-			list.add(new ItemStack(item, 1, j));
-		}
-	}
-
-	@Override
-	public String getUnlocalizedName(ItemStack itemstack) {
-		int i = itemstack.getItemDamage();
-		if (i >= values.length) {
-			i = 0;
-		}
-		return super.getUnlocalizedName() + "." + values[i];
-	}
-
-	@Override
-	@SideOnly(value = Side.CLIENT)
-	public void registerIcons(IIconRegister iconregister) {
-		coinIcons = new IIcon[values.length];
-		for (int i = 0; i < values.length; ++i) {
-			coinIcons[i] = iconregister.registerIcon(getIconString() + "_" + values[i]);
-		}
-	}
-
 	public static int getContainerValue(IInventory inv, boolean allowStolen) {
 		if (inv instanceof InventoryPlayer) {
 			return GOTItemCoin.getInventoryValue(((InventoryPlayer) inv).player, allowStolen);
@@ -220,6 +174,52 @@ public class GOTItemCoin extends Item {
 		}
 		if (coins < 0) {
 			GOTItemCoin.giveCoins(-coins, entityplayer);
+		}
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		super.addInformation(itemstack, entityplayer, list, flag);
+		int i = itemstack.getItemDamage();
+		if (i >= values.length) {
+			i = 0;
+		}
+		list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("item.got:coin.nominal.name") + ": " + String.valueOf(values[i]));
+	}
+
+	@Override
+	@SideOnly(value = Side.CLIENT)
+	public IIcon getIconFromDamage(int i) {
+		if (i >= coinIcons.length) {
+			i = 0;
+		}
+		return coinIcons[i];
+	}
+
+	@Override
+	@SideOnly(value = Side.CLIENT)
+	public void getSubItems(Item item, CreativeTabs tab, List list) {
+		for (int j = 0; j < values.length; ++j) {
+			list.add(new ItemStack(item, 1, j));
+		}
+	}
+
+	@Override
+	public String getUnlocalizedName(ItemStack itemstack) {
+		int i = itemstack.getItemDamage();
+		if (i >= values.length) {
+			i = 0;
+		}
+		return super.getUnlocalizedName() + "." + values[i];
+	}
+
+	@Override
+	@SideOnly(value = Side.CLIENT)
+	public void registerIcons(IIconRegister iconregister) {
+		coinIcons = new IIcon[values.length];
+		for (int i = 0; i < values.length; ++i) {
+			coinIcons[i] = iconregister.registerIcon(getIconString() + "_" + values[i]);
 		}
 	}
 }

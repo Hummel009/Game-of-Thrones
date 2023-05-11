@@ -5,47 +5,6 @@ import net.minecraft.client.renderer.Tessellator;
 import org.lwjgl.opengl.GL11;
 
 public abstract class GOTGuiScreenBase extends GuiScreen {
-	@Override
-	public boolean doesGuiPauseGame() {
-		return false;
-	}
-
-	public void drawCenteredString(String s, int x, int y, int c) {
-		fontRendererObj.drawString(s, x - fontRendererObj.getStringWidth(s) / 2, y, c);
-	}
-
-	@Override
-	public void drawTexturedModalRect(int x, int y, int u, int v, int width, int height) {
-		this.drawTexturedModalRect(x, y, u, v, width, height, 256);
-	}
-
-	public void drawTexturedModalRect(int x, int y, int u, int v, int width, int height, int imageWidth) {
-		GOTGuiScreenBase.drawTexturedModalRectFloat(x, y, u, v, width, height, imageWidth, zLevel);
-	}
-
-	public void drawTexturedModalRectFloat(float x, float y, int u, int v, float width, float height) {
-		this.drawTexturedModalRectFloat(x, y, u, v, width, height, 256);
-	}
-
-	public void drawTexturedModalRectFloat(float x, float y, int u, int v, float width, float height, int imageWidth) {
-		GOTGuiScreenBase.drawTexturedModalRectFloat(x, y, u, v, width, height, imageWidth, zLevel);
-	}
-
-	@Override
-	public void keyTyped(char c, int i) {
-		if (i == 1 || i == mc.gameSettings.keyBindInventory.getKeyCode()) {
-			mc.thePlayer.closeScreen();
-		}
-	}
-
-	@Override
-	public void updateScreen() {
-		super.updateScreen();
-		if (!mc.thePlayer.isEntityAlive() || mc.thePlayer.isDead) {
-			mc.thePlayer.closeScreen();
-		}
-	}
-
 	public static void drawFloatRect(float x0, float y0, float x1, float y1, int color) {
 		float temp;
 		if (x0 < x1) {
@@ -87,5 +46,46 @@ public abstract class GOTGuiScreenBase extends GuiScreen {
 		tessellator.addVertexWithUV(x + width, y + 0.0, z, (u + width) * f, (v + 0.0) * f1);
 		tessellator.addVertexWithUV(x + 0.0, y + 0.0, z, (u + 0.0) * f, (v + 0.0) * f1);
 		tessellator.draw();
+	}
+
+	@Override
+	public boolean doesGuiPauseGame() {
+		return false;
+	}
+
+	public void drawCenteredString(String s, int x, int y, int c) {
+		fontRendererObj.drawString(s, x - fontRendererObj.getStringWidth(s) / 2, y, c);
+	}
+
+	@Override
+	public void drawTexturedModalRect(int x, int y, int u, int v, int width, int height) {
+		this.drawTexturedModalRect(x, y, u, v, width, height, 256);
+	}
+
+	public void drawTexturedModalRect(int x, int y, int u, int v, int width, int height, int imageWidth) {
+		GOTGuiScreenBase.drawTexturedModalRectFloat(x, y, u, v, width, height, imageWidth, zLevel);
+	}
+
+	public void drawTexturedModalRectFloat(float x, float y, int u, int v, float width, float height) {
+		this.drawTexturedModalRectFloat(x, y, u, v, width, height, 256);
+	}
+
+	public void drawTexturedModalRectFloat(float x, float y, int u, int v, float width, float height, int imageWidth) {
+		GOTGuiScreenBase.drawTexturedModalRectFloat(x, y, u, v, width, height, imageWidth, zLevel);
+	}
+
+	@Override
+	public void keyTyped(char c, int i) {
+		if (i == 1 || i == mc.gameSettings.keyBindInventory.getKeyCode()) {
+			mc.thePlayer.closeScreen();
+		}
+	}
+
+	@Override
+	public void updateScreen() {
+		super.updateScreen();
+		if (!mc.thePlayer.isEntityAlive() || mc.thePlayer.isDead) {
+			mc.thePlayer.closeScreen();
+		}
 	}
 }

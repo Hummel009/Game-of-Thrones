@@ -18,6 +18,17 @@ public class GOTTileEntityPlate extends TileEntity {
 	public ItemStack foodItem;
 	public GOTPlateFallingInfo plateFallInfo;
 
+	public static boolean isValidFoodItem(ItemStack itemstack) {
+		Item item;
+		if (itemstack != null && (item = itemstack.getItem()) instanceof ItemFood) {
+			if (item instanceof ItemSoup) {
+				return false;
+			}
+			return !item.hasContainerItem(itemstack);
+		}
+		return false;
+	}
+
 	@Override
 	public Packet getDescriptionPacket() {
 		NBTTagCompound data = new NBTTagCompound();
@@ -27,6 +38,17 @@ public class GOTTileEntityPlate extends TileEntity {
 
 	public ItemStack getFoodItem() {
 		return foodItem;
+	}
+
+	public void setFoodItem(ItemStack item) {
+		if (item != null && item.stackSize <= 0) {
+			item = null;
+		}
+		foodItem = item;
+		if (worldObj != null) {
+			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		}
+		markDirty();
 	}
 
 	@SideOnly(value = Side.CLIENT)
@@ -60,17 +82,6 @@ public class GOTTileEntityPlate extends TileEntity {
 		}
 	}
 
-	public void setFoodItem(ItemStack item) {
-		if (item != null && item.stackSize <= 0) {
-			item = null;
-		}
-		foodItem = item;
-		if (worldObj != null) {
-			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		}
-		markDirty();
-	}
-
 	@Override
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
@@ -78,16 +89,5 @@ public class GOTTileEntityPlate extends TileEntity {
 		if (foodItem != null) {
 			nbt.setTag("FoodItem", foodItem.writeToNBT(new NBTTagCompound()));
 		}
-	}
-
-	public static boolean isValidFoodItem(ItemStack itemstack) {
-		Item item;
-		if (itemstack != null && (item = itemstack.getItem()) instanceof ItemFood) {
-			if (item instanceof ItemSoup) {
-				return false;
-			}
-			return !item.hasContainerItem(itemstack);
-		}
-		return false;
 	}
 }

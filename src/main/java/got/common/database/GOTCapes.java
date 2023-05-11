@@ -43,6 +43,19 @@ public enum GOTCapes {
 		alignmentFaction = faction;
 	}
 
+	public static GOTCapes capeForName(String capeName) {
+		for (GOTCapes cape : GOTCapes.values()) {
+			if (!cape.name().equals(capeName)) {
+				continue;
+			}
+			return cape;
+		}
+		return null;
+	}
+
+	public static void preInit() {
+	}
+
 	public boolean canDisplay(EntityPlayer entityplayer) {
 		return !isHidden || canPlayerWear(entityplayer);
 	}
@@ -71,19 +84,6 @@ public enum GOTCapes {
 
 	public String getCapeName() {
 		return StatCollector.translateToLocal("got.capes." + name() + ".name");
-	}
-
-	public static GOTCapes capeForName(String capeName) {
-		for (GOTCapes cape : GOTCapes.values()) {
-			if (!cape.name().equals(capeName)) {
-				continue;
-			}
-			return cape;
-		}
-		return null;
-	}
-
-	public static void preInit() {
 	}
 
 	public enum CapeType {

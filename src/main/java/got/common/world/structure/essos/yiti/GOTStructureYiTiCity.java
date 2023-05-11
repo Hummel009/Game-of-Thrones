@@ -52,6 +52,10 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, TOWN, FORT, TOWER, WALL;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -457,9 +461,5 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			}
 		}
 
-	}
-
-	public enum VillageType {
-		VILLAGE, TOWN, FORT, TOWER, WALL;
 	}
 }

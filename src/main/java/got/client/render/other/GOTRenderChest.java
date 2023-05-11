@@ -20,6 +20,15 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 	public static ModelChest chestModel = new ModelChest();
 	public GOTTileEntityChest itemEntity = new GOTTileEntityChest();
 
+	public static ResourceLocation getChestTexture(String s) {
+		ResourceLocation r = chestTextures.get(s);
+		if (r == null) {
+			r = new ResourceLocation("got:textures/model/chest/" + s + ".png");
+			chestTextures.put(s, r);
+		}
+		return r;
+	}
+
 	public void renderInvChest(Block block, int meta) {
 		Block c;
 		GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
@@ -82,14 +91,5 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	}
-
-	public static ResourceLocation getChestTexture(String s) {
-		ResourceLocation r = chestTextures.get(s);
-		if (r == null) {
-			r = new ResourceLocation("got:textures/model/chest/" + s + ".png");
-			chestTextures.put(s, r);
-		}
-		return r;
 	}
 }

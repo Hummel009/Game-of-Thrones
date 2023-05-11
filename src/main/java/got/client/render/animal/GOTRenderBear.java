@@ -18,6 +18,16 @@ public class GOTRenderBear extends RenderLiving {
 		super(new GOTModelBear(), 0.5f);
 	}
 
+	public static ResourceLocation getBearSkin(GOTEntityBear.BearType type) {
+		String s = type.textureName();
+		ResourceLocation skin = (ResourceLocation) bearSkins.get(s);
+		if (skin == null) {
+			skin = new ResourceLocation("got:textures/entity/animal/bear/" + s + ".png");
+			bearSkins.put(s, skin);
+		}
+		return skin;
+	}
+
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityBear bear = (GOTEntityBear) entity;
@@ -33,15 +43,5 @@ public class GOTRenderBear extends RenderLiving {
 		} else {
 			GL11.glScalef(1.2f, 1.2f, 1.2f);
 		}
-	}
-
-	public static ResourceLocation getBearSkin(GOTEntityBear.BearType type) {
-		String s = type.textureName();
-		ResourceLocation skin = (ResourceLocation) bearSkins.get(s);
-		if (skin == null) {
-			skin = new ResourceLocation("got:textures/entity/animal/bear/" + s + ".png");
-			bearSkins.put(s, skin);
-		}
-		return skin;
 	}
 }

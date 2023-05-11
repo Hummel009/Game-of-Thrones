@@ -32,6 +32,10 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
+	public enum VillageType {
+		TOWN;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -214,10 +218,6 @@ public class GOTStructureAsshaiCity extends GOTVillageGen {
 			villageType = VillageType.TOWN;
 		}
 
-	}
-
-	public enum VillageType {
-		TOWN;
 	}
 
 }

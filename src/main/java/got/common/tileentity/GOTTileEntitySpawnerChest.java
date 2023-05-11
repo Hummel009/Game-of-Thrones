@@ -1,7 +1,8 @@
 package got.common.tileentity;
 
 import got.common.entity.other.GOTEntityRegistry;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityChest;
 

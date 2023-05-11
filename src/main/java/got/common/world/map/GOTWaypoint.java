@@ -48,6 +48,66 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		isHidden = hide;
 	}
 
+	public static List<GOTAbstractWaypoint> listAllWaypoints() {
+		ArrayList<GOTAbstractWaypoint> list = new ArrayList<>();
+		list.addAll(Arrays.asList(GOTWaypoint.values()));
+		return list;
+	}
+
+	public static int mapToWorldR(double r) {
+		return (int) Math.round(r * GOTGenLayerWorld.scale);
+	}
+
+	public static int mapToWorldX(double x) {
+		return (int) Math.round((x - 810.0 + 0.5) * GOTGenLayerWorld.scale);
+	}
+
+	public static int mapToWorldZ(double z) {
+		return (int) Math.round((z - 730.0 + 0.5) * GOTGenLayerWorld.scale);
+	}
+
+	public static Region regionForID(int id) {
+		for (Region waypointRegion : Region.values()) {
+			if (waypointRegion.ordinal() != id) {
+				continue;
+			}
+			return waypointRegion;
+		}
+		return null;
+	}
+
+	public static Region regionForName(String name) {
+		for (Region waypointRegion : Region.values()) {
+			if (!waypointRegion.name().equals(name)) {
+				continue;
+			}
+			return waypointRegion;
+		}
+		return null;
+	}
+
+	public static GOTWaypoint waypointForName(String name) {
+		for (GOTWaypoint wp : GOTWaypoint.values()) {
+			if (!wp.getCodeName().equals(name)) {
+				continue;
+			}
+			return wp;
+		}
+		return null;
+	}
+
+	public static int worldToMapR(double r) {
+		return (int) Math.round(r / GOTGenLayerWorld.scale);
+	}
+
+	public static int worldToMapX(double x) {
+		return (int) Math.round(x / GOTGenLayerWorld.scale - 0.5 + 810.0);
+	}
+
+	public static int worldToMapZ(double z) {
+		return (int) Math.round(z / GOTGenLayerWorld.scale - 0.5 + 730.0);
+	}
+
 	public int getAddX() {
 		return addX;
 	}
@@ -180,66 +240,6 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		pseudoX += i;
 		pseudoY += j;
 		return this;
-	}
-
-	public static List<GOTAbstractWaypoint> listAllWaypoints() {
-		ArrayList<GOTAbstractWaypoint> list = new ArrayList<>();
-		list.addAll(Arrays.asList(GOTWaypoint.values()));
-		return list;
-	}
-
-	public static int mapToWorldR(double r) {
-		return (int) Math.round(r * GOTGenLayerWorld.scale);
-	}
-
-	public static int mapToWorldX(double x) {
-		return (int) Math.round((x - 810.0 + 0.5) * GOTGenLayerWorld.scale);
-	}
-
-	public static int mapToWorldZ(double z) {
-		return (int) Math.round((z - 730.0 + 0.5) * GOTGenLayerWorld.scale);
-	}
-
-	public static Region regionForID(int id) {
-		for (Region waypointRegion : Region.values()) {
-			if (waypointRegion.ordinal() != id) {
-				continue;
-			}
-			return waypointRegion;
-		}
-		return null;
-	}
-
-	public static Region regionForName(String name) {
-		for (Region waypointRegion : Region.values()) {
-			if (!waypointRegion.name().equals(name)) {
-				continue;
-			}
-			return waypointRegion;
-		}
-		return null;
-	}
-
-	public static GOTWaypoint waypointForName(String name) {
-		for (GOTWaypoint wp : GOTWaypoint.values()) {
-			if (!wp.getCodeName().equals(name)) {
-				continue;
-			}
-			return wp;
-		}
-		return null;
-	}
-
-	public static int worldToMapR(double r) {
-		return (int) Math.round(r / GOTGenLayerWorld.scale);
-	}
-
-	public static int worldToMapX(double x) {
-		return (int) Math.round(x / GOTGenLayerWorld.scale - 0.5 + 810.0);
-	}
-
-	public static int worldToMapZ(double z) {
-		return (int) Math.round(z / GOTGenLayerWorld.scale - 0.5 + 730.0);
 	}
 
 	public enum Region {

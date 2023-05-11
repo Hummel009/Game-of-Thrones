@@ -35,6 +35,11 @@ public class GOTStructureDothrakiVillage extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		SMALL, BIG;
+
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 		public int numOuterHouses;
@@ -151,11 +156,6 @@ public class GOTStructureDothrakiVillage extends GOTVillageGen {
 				numOuterHouses = MathHelper.getRandomIntegerInRange(random, 4, 7);
 			}
 		}
-
-	}
-
-	public enum VillageType {
-		SMALL, BIG;
 
 	}
 

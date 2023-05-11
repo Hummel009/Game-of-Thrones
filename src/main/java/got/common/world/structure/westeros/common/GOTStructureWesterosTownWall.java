@@ -23,6 +23,34 @@ public class GOTStructureWesterosTownWall extends GOTStructureWesterosBase {
 		xMaxInner = xi1;
 	}
 
+	public static GOTStructureWesterosTownWall Centre(boolean flag) {
+		return new GOTStructureWesterosTownWall(flag, -5, 5);
+	}
+
+	public static GOTStructureWesterosTownWall Left(boolean flag) {
+		return new GOTStructureWesterosTownWall(flag, -9, 6);
+	}
+
+	public static GOTStructureWesterosTownWall LeftEnd(boolean flag) {
+		return new GOTStructureWesterosTownWall(flag, -6, 6, -5, 6);
+	}
+
+	public static GOTStructureWesterosTownWall LeftEndShort(boolean flag) {
+		return new GOTStructureWesterosTownWall(flag, -5, 6);
+	}
+
+	public static GOTStructureWesterosTownWall Right(boolean flag) {
+		return new GOTStructureWesterosTownWall(flag, -6, 9);
+	}
+
+	public static GOTStructureWesterosTownWall RightEnd(boolean flag) {
+		return new GOTStructureWesterosTownWall(flag, -6, 6, -6, 5);
+	}
+
+	public static GOTStructureWesterosTownWall RightEndShort(boolean flag) {
+		return new GOTStructureWesterosTownWall(flag, -6, 5);
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		this.setOriginAndRotation(world, i, j, k, rotation, 0);
@@ -70,33 +98,5 @@ public class GOTStructureWesterosTownWall extends GOTStructureWesterosBase {
 			}
 		}
 		return true;
-	}
-
-	public static GOTStructureWesterosTownWall Centre(boolean flag) {
-		return new GOTStructureWesterosTownWall(flag, -5, 5);
-	}
-
-	public static GOTStructureWesterosTownWall Left(boolean flag) {
-		return new GOTStructureWesterosTownWall(flag, -9, 6);
-	}
-
-	public static GOTStructureWesterosTownWall LeftEnd(boolean flag) {
-		return new GOTStructureWesterosTownWall(flag, -6, 6, -5, 6);
-	}
-
-	public static GOTStructureWesterosTownWall LeftEndShort(boolean flag) {
-		return new GOTStructureWesterosTownWall(flag, -5, 6);
-	}
-
-	public static GOTStructureWesterosTownWall Right(boolean flag) {
-		return new GOTStructureWesterosTownWall(flag, -6, 9);
-	}
-
-	public static GOTStructureWesterosTownWall RightEnd(boolean flag) {
-		return new GOTStructureWesterosTownWall(flag, -6, 6, -6, 5);
-	}
-
-	public static GOTStructureWesterosTownWall RightEndShort(boolean flag) {
-		return new GOTStructureWesterosTownWall(flag, -6, 5);
 	}
 }

@@ -1,26 +1,35 @@
 package got.common;
 
-import java.io.*;
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
-import got.common.database.*;
-import got.common.fellowship.*;
+import got.common.database.GOTCapes;
+import got.common.database.GOTShields;
+import got.common.database.GOTTitle;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipData;
 import got.common.network.*;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.*;
-import net.minecraft.nbt.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.nbt.CompressedStreamTools;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.management.PreYggdrasilConverter;
 import net.minecraft.util.StatCollector;
-import net.minecraft.world.*;
+import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.*;
 
 public class GOTLevelData {
 	public static int madePortal;
@@ -90,6 +99,11 @@ public class GOTLevelData {
 
 	public static float getConquestRate() {
 		return conquestRate;
+	}
+
+	public static void setConquestRate(float f) {
+		conquestRate = f;
+		GOTLevelData.markDirty();
 	}
 
 	public static GOTPlayerData getData(EntityPlayer entityplayer) {
@@ -169,6 +183,11 @@ public class GOTLevelData {
 		return difficulty;
 	}
 
+	public static void setSavedDifficulty(EnumDifficulty d) {
+		difficulty = d;
+		GOTLevelData.markDirty();
+	}
+
 	public static int getWaypointCooldownMax() {
 		return waypointCooldownMax;
 	}
@@ -179,6 +198,11 @@ public class GOTLevelData {
 
 	public static boolean isDifficultyLocked() {
 		return difficultyLock;
+	}
+
+	public static void setDifficultyLocked(boolean flag) {
+		difficultyLock = flag;
+		GOTLevelData.markDirty();
 	}
 
 	public static boolean isPlayerBannedForStructures(EntityPlayer entityplayer) {
@@ -527,16 +551,6 @@ public class GOTLevelData {
 		}
 	}
 
-	public static void setConquestRate(float f) {
-		conquestRate = f;
-		GOTLevelData.markDirty();
-	}
-
-	public static void setDifficultyLocked(boolean flag) {
-		difficultyLock = flag;
-		GOTLevelData.markDirty();
-	}
-
 	public static void setEnableAlignmentZones(boolean flag) {
 		enableAlignmentZones = flag;
 		GOTLevelData.markDirty();
@@ -564,11 +578,6 @@ public class GOTLevelData {
 		if (uuid != null) {
 			GOTLevelData.getData(uuid).setStructuresBanned(flag);
 		}
-	}
-
-	public static void setSavedDifficulty(EnumDifficulty d) {
-		difficulty = d;
-		GOTLevelData.markDirty();
 	}
 
 	public static void setStructuresBanned(boolean banned) {

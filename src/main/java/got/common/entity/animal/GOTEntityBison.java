@@ -175,6 +175,10 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
+	public void setBisonEnraged(boolean flag) {
+		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
+	}
+
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
@@ -203,10 +207,6 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 			setBisonEnraged(getAttackTarget() != null);
 		}
 		prevIsChild = isChild();
-	}
-
-	public void setBisonEnraged(boolean flag) {
-		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
 	}
 
 	@Override

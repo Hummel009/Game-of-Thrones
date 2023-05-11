@@ -40,6 +40,30 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		allLeafBlocks.add(this);
 	}
 
+	public static int getBiomeLeafColor(IBlockAccess world, int i, int j, int k) {
+		int r = 0;
+		int g = 0;
+		int b = 0;
+		int count = 0;
+		int range = 1;
+		for (int i1 = -range; i1 <= range; ++i1) {
+			for (int k1 = -range; k1 <= range; ++k1) {
+				int biomeColor = world.getBiomeGenForCoords(i + i1, k + k1).getBiomeFoliageColor(i + i1, j, k + k1);
+				r += (biomeColor & 0xFF0000) >> 16;
+				g += (biomeColor & 0xFF00) >> 8;
+				b += biomeColor & 0xFF;
+				++count;
+			}
+		}
+		return (r / count & 0xFF) << 16 | (g / count & 0xFF) << 8 | b / count & 0xFF;
+	}
+
+	public static void setAllGraphicsLevels(boolean flag) {
+		for (Object allLeafBlock : allLeafBlocks) {
+			((GOTBlockLeavesBase) allLeafBlock).setGraphicsLevel(flag);
+		}
+	}
+
 	public void addSpecialLeafDrops(ArrayList drops, World world, int i, int j, int k, int meta, int fortune) {
 	}
 
@@ -148,29 +172,5 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 	public boolean shouldOakUseBiomeColor() {
 		GOTDate.Season season = GOTDate.AegonCalendar.getSeason();
 		return season == GOTDate.Season.SPRING || season == GOTDate.Season.SUMMER || !(GOT.proxy.getClientWorld().provider instanceof GOTWorldProvider);
-	}
-
-	public static int getBiomeLeafColor(IBlockAccess world, int i, int j, int k) {
-		int r = 0;
-		int g = 0;
-		int b = 0;
-		int count = 0;
-		int range = 1;
-		for (int i1 = -range; i1 <= range; ++i1) {
-			for (int k1 = -range; k1 <= range; ++k1) {
-				int biomeColor = world.getBiomeGenForCoords(i + i1, k + k1).getBiomeFoliageColor(i + i1, j, k + k1);
-				r += (biomeColor & 0xFF0000) >> 16;
-				g += (biomeColor & 0xFF00) >> 8;
-				b += biomeColor & 0xFF;
-				++count;
-			}
-		}
-		return (r / count & 0xFF) << 16 | (g / count & 0xFF) << 8 | b / count & 0xFF;
-	}
-
-	public static void setAllGraphicsLevels(boolean flag) {
-		for (Object allLeafBlock : allLeafBlocks) {
-			((GOTBlockLeavesBase) allLeafBlock).setGraphicsLevel(flag);
-		}
 	}
 }

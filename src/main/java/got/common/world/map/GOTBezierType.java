@@ -153,6 +153,27 @@ public abstract class GOTBezierType {
 		return 1.0f;
 	}
 
+	public GOTBezierType setRepair(float f) {
+		GOTBezierType baseRoad = this;
+		return new GOTBezierType() {
+
+			@Override
+			public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
+				return baseRoad.getBlock(rand, biome, top, slab);
+			}
+
+			@Override
+			public float getRepair() {
+				return f;
+			}
+
+			@Override
+			public boolean hasFlowers() {
+				return baseRoad.hasFlowers();
+			}
+		};
+	}
+
 	public boolean hasFlowers() {
 		return false;
 	}
@@ -174,27 +195,6 @@ public abstract class GOTBezierType {
 			@Override
 			public boolean hasFlowers() {
 				return flag;
-			}
-		};
-	}
-
-	public GOTBezierType setRepair(float f) {
-		GOTBezierType baseRoad = this;
-		return new GOTBezierType() {
-
-			@Override
-			public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
-				return baseRoad.getBlock(rand, biome, top, slab);
-			}
-
-			@Override
-			public float getRepair() {
-				return f;
-			}
-
-			@Override
-			public boolean hasFlowers() {
-				return baseRoad.hasFlowers();
 			}
 		};
 	}

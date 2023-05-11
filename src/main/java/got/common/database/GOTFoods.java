@@ -34,6 +34,23 @@ public class GOTFoods {
 		return drinkVessels;
 	}
 
+	public GOTFoods setDrinkVessels(GOTItemMug.Vessel... vessels) {
+		drinkVessels = vessels;
+		ArrayList<GOTItemMug.Vessel> placeable = new ArrayList<>();
+		for (GOTItemMug.Vessel v : drinkVessels) {
+			if (!v.canPlace) {
+				continue;
+			}
+			placeable.add(v);
+		}
+		if (!placeable.isEmpty()) {
+			drinkVesselsPlaceable = placeable.toArray(new GOTItemMug.Vessel[0]);
+		} else {
+			drinkVesselsPlaceable = new GOTItemMug.Vessel[]{GOTItemMug.Vessel.MUG};
+		}
+		return this;
+	}
+
 	public GOTItemMug.Vessel[] getPlaceableDrinkVessels() {
 		return drinkVesselsPlaceable;
 	}
@@ -95,22 +112,5 @@ public class GOTFoods {
 			}
 			GOTItemMug.setVessel(itemstack, v, true);
 		}
-	}
-
-	public GOTFoods setDrinkVessels(GOTItemMug.Vessel... vessels) {
-		drinkVessels = vessels;
-		ArrayList<GOTItemMug.Vessel> placeable = new ArrayList<>();
-		for (GOTItemMug.Vessel v : drinkVessels) {
-			if (!v.canPlace) {
-				continue;
-			}
-			placeable.add(v);
-		}
-		if (!placeable.isEmpty()) {
-			drinkVesselsPlaceable = placeable.toArray(new GOTItemMug.Vessel[0]);
-		} else {
-			drinkVesselsPlaceable = new GOTItemMug.Vessel[]{GOTItemMug.Vessel.MUG};
-		}
-		return this;
 	}
 }

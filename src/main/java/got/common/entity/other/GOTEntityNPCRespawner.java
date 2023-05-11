@@ -53,6 +53,32 @@ public class GOTEntityNPCRespawner extends Entity {
 		spawnerSpin = rand.nextFloat() * 360.0f;
 	}
 
+	public static boolean isSpawnBlocked(Entity entity, GOTFaction spawnFaction) {
+		int k;
+		int j;
+		int range;
+		World world = entity.worldObj;
+		int i = MathHelper.floor_double(entity.posX);
+		AxisAlignedBB originBB = AxisAlignedBB.getBoundingBox(i, j = MathHelper.floor_double(entity.boundingBox.minY), k = MathHelper.floor_double(entity.posZ), i + 1, j + 1, k + 1);
+		AxisAlignedBB searchBB = originBB.expand(range = 64, range, range);
+		List spawners = world.getEntitiesWithinAABB(GOTEntityNPCRespawner.class, searchBB);
+		if (!spawners.isEmpty()) {
+			for (Object obj : spawners) {
+				AxisAlignedBB spawnBlockBB;
+				GOTEntityNPCRespawner spawner = (GOTEntityNPCRespawner) obj;
+				if (!spawner.blockEnemySpawns() || !(spawnBlockBB = spawner.createSpawnBlockRegion()).intersectsWith(searchBB) || !spawnBlockBB.intersectsWith(originBB) || !spawner.isEnemySpawnBlocked(spawnFaction)) {
+					continue;
+				}
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean isSpawnBlocked(GOTEntityNPC npc) {
+		return GOTEntityNPCRespawner.isSpawnBlocked(npc, npc.getFaction());
+	}
+
 	@Override
 	public void applyEntityCollision(Entity entity) {
 	}
@@ -352,32 +378,6 @@ public class GOTEntityNPCRespawner extends Entity {
 		nbt.setBoolean("HomeSpawn", setHomePosFromSpawn);
 		nbt.setByte("MountSetting", (byte) mountSetting);
 		nbt.setByte("BlockEnemy", (byte) blockEnemySpawns);
-	}
-
-	public static boolean isSpawnBlocked(Entity entity, GOTFaction spawnFaction) {
-		int k;
-		int j;
-		int range;
-		World world = entity.worldObj;
-		int i = MathHelper.floor_double(entity.posX);
-		AxisAlignedBB originBB = AxisAlignedBB.getBoundingBox(i, j = MathHelper.floor_double(entity.boundingBox.minY), k = MathHelper.floor_double(entity.posZ), i + 1, j + 1, k + 1);
-		AxisAlignedBB searchBB = originBB.expand(range = 64, range, range);
-		List spawners = world.getEntitiesWithinAABB(GOTEntityNPCRespawner.class, searchBB);
-		if (!spawners.isEmpty()) {
-			for (Object obj : spawners) {
-				AxisAlignedBB spawnBlockBB;
-				GOTEntityNPCRespawner spawner = (GOTEntityNPCRespawner) obj;
-				if (!spawner.blockEnemySpawns() || !(spawnBlockBB = spawner.createSpawnBlockRegion()).intersectsWith(searchBB) || !spawnBlockBB.intersectsWith(originBB) || !spawner.isEnemySpawnBlocked(spawnFaction)) {
-					continue;
-				}
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static boolean isSpawnBlocked(GOTEntityNPC npc) {
-		return GOTEntityNPCRespawner.isSpawnBlocked(npc, npc.getFaction());
 	}
 
 }

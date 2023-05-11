@@ -36,6 +36,13 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		}
 	}
 
+	public static void registerSlabs(Block block, Block block1) {
+		((GOTBlockSlabBase) block).singleSlab = block;
+		((GOTBlockSlabBase) block).doubleSlab = block1;
+		((GOTBlockSlabBase) block1).singleSlab = block;
+		((GOTBlockSlabBase) block1).doubleSlab = block1;
+	}
+
 	@Override
 	public boolean canCreatureSpawn(EnumCreatureType type, IBlockAccess world, int x, int y, int z) {
 		int meta = world.getBlockMetadata(x, y, z);
@@ -93,13 +100,6 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		int k1 = k + Facing.offsetsZForSide[Facing.oppositeSide[l]];
 		flag = (world.getBlockMetadata(i1, j1, k1) & 8) != 0;
 		return flag ? l == 0 ? true : l == 1 && super.shouldSideBeRendered(world, i, j, k, l) ? true : world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) == 0 : l == 1 ? true : l == 0 && super.shouldSideBeRendered(world, i, j, k, l) ? true : world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) != 0;
-	}
-
-	public static void registerSlabs(Block block, Block block1) {
-		((GOTBlockSlabBase) block).singleSlab = block;
-		((GOTBlockSlabBase) block).doubleSlab = block1;
-		((GOTBlockSlabBase) block1).singleSlab = block;
-		((GOTBlockSlabBase) block1).doubleSlab = block1;
 	}
 
 	public static class SlabItems {

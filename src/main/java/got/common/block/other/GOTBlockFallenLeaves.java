@@ -37,6 +37,24 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.125f, 1.0f);
 	}
 
+	public static void assignLeaves(Block fallenLeaves, Block... leaves) {
+		((GOTBlockFallenLeaves) fallenLeaves).leafBlocks = leaves;
+	}
+
+	public static Object[] fallenBlockMetaFromLeafBlockMeta(Block block, int meta) {
+		meta &= 3;
+		for (GOTBlockFallenLeaves fallenLeaves : allFallenLeaves) {
+			for (int i = 0; i < fallenLeaves.leafBlocks.length; ++i) {
+				Block leafBlock = fallenLeaves.leafBlocks[i];
+				if (leafBlock != block) {
+					continue;
+				}
+				return new Object[]{fallenLeaves, i * 4 + meta};
+			}
+		}
+		return null;
+	}
+
 	@Override
 	public void addCollisionBoxesToList(World world, int i, int j, int k, AxisAlignedBB bb, List boxes, Entity entity) {
 	}
@@ -154,23 +172,5 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
-	}
-
-	public static void assignLeaves(Block fallenLeaves, Block... leaves) {
-		((GOTBlockFallenLeaves) fallenLeaves).leafBlocks = leaves;
-	}
-
-	public static Object[] fallenBlockMetaFromLeafBlockMeta(Block block, int meta) {
-		meta &= 3;
-		for (GOTBlockFallenLeaves fallenLeaves : allFallenLeaves) {
-			for (int i = 0; i < fallenLeaves.leafBlocks.length; ++i) {
-				Block leafBlock = fallenLeaves.leafBlocks[i];
-				if (leafBlock != block) {
-					continue;
-				}
-				return new Object[]{fallenLeaves, i * 4 + meta};
-			}
-		}
-		return null;
 	}
 }

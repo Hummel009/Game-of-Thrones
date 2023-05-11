@@ -28,24 +28,6 @@ public class GOTStructureScan {
 		scanName = name;
 	}
 
-	public void addScanStep(ScanStepBase e) {
-		scanSteps.add(e);
-	}
-
-	public void includeAlias(GOTScanAlias alias) {
-		for (GOTScanAlias existingAlias : aliases) {
-			if (!existingAlias.name.equals(alias.name)) {
-				continue;
-			}
-			return;
-		}
-		aliases.add(alias);
-	}
-
-	public void includeAlias(String alias, GOTScanAlias.Type type) {
-		this.includeAlias(new GOTScanAlias(alias, type));
-	}
-
 	public static GOTStructureScan getScanByName(String name) {
 		return allLoadedScans.get(name);
 	}
@@ -285,6 +267,24 @@ public class GOTStructureScan {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	public void addScanStep(ScanStepBase e) {
+		scanSteps.add(e);
+	}
+
+	public void includeAlias(GOTScanAlias alias) {
+		for (GOTScanAlias existingAlias : aliases) {
+			if (!existingAlias.name.equals(alias.name)) {
+				continue;
+			}
+			return;
+		}
+		aliases.add(alias);
+	}
+
+	public void includeAlias(String alias, GOTScanAlias.Type type) {
+		this.includeAlias(new GOTScanAlias(alias, type));
 	}
 
 	public static class ScanStep extends ScanStepBase {

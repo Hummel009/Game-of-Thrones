@@ -105,6 +105,12 @@ public class GOTFellowship {
 		return fellowshipIcon;
 	}
 
+	public void setIcon(ItemStack itemstack) {
+		fellowshipIcon = itemstack;
+		updateForAllMembers(new FellowshipUpdateType.ChangeIcon());
+		markDirty();
+	}
+
 	public List<UUID> getMemberUUIDs() {
 		return memberUUIDs;
 	}
@@ -113,8 +119,31 @@ public class GOTFellowship {
 		return fellowshipName;
 	}
 
+	public void setName(String name) {
+		fellowshipName = name;
+		updateForAllMembers(new FellowshipUpdateType.Rename());
+		markDirty();
+	}
+
 	public UUID getOwner() {
 		return ownerUUID;
+	}
+
+	public void setOwner(UUID owner) {
+		UUID prevOwner = ownerUUID;
+		if (prevOwner != null && !memberUUIDs.contains(prevOwner)) {
+			memberUUIDs.add(0, prevOwner);
+		}
+		ownerUUID = owner;
+		if (memberUUIDs.contains(owner)) {
+			memberUUIDs.remove(owner);
+		}
+		if (adminUUIDs.contains(owner)) {
+			adminUUIDs.remove(owner);
+		}
+		GOTLevelData.getData(ownerUUID).addFellowship(this);
+		updateForAllMembers(new FellowshipUpdateType.SetOwner(ownerUUID));
+		markDirty();
 	}
 
 	public int getPlayerCount() {
@@ -125,12 +154,30 @@ public class GOTFellowship {
 		return preventHiredFF;
 	}
 
+	public void setPreventHiredFriendlyFire(boolean flag) {
+		preventHiredFF = flag;
+		updateForAllMembers(new FellowshipUpdateType.ToggleHiredFriendlyFire());
+		markDirty();
+	}
+
 	public boolean getPreventPVP() {
 		return preventPVP;
 	}
 
+	public void setPreventPVP(boolean flag) {
+		preventPVP = flag;
+		updateForAllMembers(new FellowshipUpdateType.TogglePvp());
+		markDirty();
+	}
+
 	public boolean getShowMapLocations() {
 		return showMapLocations;
+	}
+
+	public void setShowMapLocations(boolean flag) {
+		showMapLocations = flag;
+		updateForAllMembers(new FellowshipUpdateType.ToggleShowMapLocations());
+		markDirty();
 	}
 
 	public Set<UUID> getWaypointSharerUUIDs() {
@@ -350,53 +397,6 @@ public class GOTFellowship {
 		for (UUID player : copyMemberIDs) {
 			removeMember(player);
 		}
-	}
-
-	public void setIcon(ItemStack itemstack) {
-		fellowshipIcon = itemstack;
-		updateForAllMembers(new FellowshipUpdateType.ChangeIcon());
-		markDirty();
-	}
-
-	public void setName(String name) {
-		fellowshipName = name;
-		updateForAllMembers(new FellowshipUpdateType.Rename());
-		markDirty();
-	}
-
-	public void setOwner(UUID owner) {
-		UUID prevOwner = ownerUUID;
-		if (prevOwner != null && !memberUUIDs.contains(prevOwner)) {
-			memberUUIDs.add(0, prevOwner);
-		}
-		ownerUUID = owner;
-		if (memberUUIDs.contains(owner)) {
-			memberUUIDs.remove(owner);
-		}
-		if (adminUUIDs.contains(owner)) {
-			adminUUIDs.remove(owner);
-		}
-		GOTLevelData.getData(ownerUUID).addFellowship(this);
-		updateForAllMembers(new FellowshipUpdateType.SetOwner(ownerUUID));
-		markDirty();
-	}
-
-	public void setPreventHiredFriendlyFire(boolean flag) {
-		preventHiredFF = flag;
-		updateForAllMembers(new FellowshipUpdateType.ToggleHiredFriendlyFire());
-		markDirty();
-	}
-
-	public void setPreventPVP(boolean flag) {
-		preventPVP = flag;
-		updateForAllMembers(new FellowshipUpdateType.TogglePvp());
-		markDirty();
-	}
-
-	public void setShowMapLocations(boolean flag) {
-		showMapLocations = flag;
-		updateForAllMembers(new FellowshipUpdateType.ToggleShowMapLocations());
-		markDirty();
 	}
 
 	public void updateForAllMembers(FellowshipUpdateType updateType) {

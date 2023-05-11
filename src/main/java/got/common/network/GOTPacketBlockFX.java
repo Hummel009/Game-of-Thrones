@@ -42,6 +42,11 @@ public class GOTPacketBlockFX implements IMessage {
 		data.writeInt(blockZ);
 	}
 
+	public enum Type {
+		UTUMNO_EVAPORATE;
+
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketBlockFX, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketBlockFX packet, MessageContext context) {
@@ -57,11 +62,6 @@ public class GOTPacketBlockFX implements IMessage {
 			}
 			return null;
 		}
-	}
-
-	public enum Type {
-		UTUMNO_EVAPORATE;
-
 	}
 
 }

@@ -54,6 +54,21 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 		super(flag);
 	}
 
+	public static Block getRandomPieBlock(Random random) {
+		int i = random.nextInt(3);
+		switch (i) {
+			case 0:
+				return GOTRegistry.appleCrumble;
+			case 1:
+				return GOTRegistry.cherryPie;
+			case 2:
+				return GOTRegistry.berryPie;
+			default:
+				break;
+		}
+		return GOTRegistry.appleCrumble;
+	}
+
 	public ItemStack getRandomBreeWeapon(Random random) {
 		ItemStack[] items = {new ItemStack(Items.iron_sword), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.ironPike), new ItemStack(GOTRegistry.rollingPin)};
 		return items[random.nextInt(items.length)].copy();
@@ -215,20 +230,5 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 		carpetMeta = 12;
 		bedBlock = GOTRegistry.strawBed;
 		tableBlock = GOTRegistry.tableMossovy;
-	}
-
-	public static Block getRandomPieBlock(Random random) {
-		int i = random.nextInt(3);
-		switch (i) {
-			case 0:
-				return GOTRegistry.appleCrumble;
-			case 1:
-				return GOTRegistry.cherryPie;
-			case 2:
-				return GOTRegistry.berryPie;
-			default:
-				break;
-		}
-		return GOTRegistry.appleCrumble;
 	}
 }

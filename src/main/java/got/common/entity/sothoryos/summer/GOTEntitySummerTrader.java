@@ -24,6 +24,19 @@ public abstract class GOTEntitySummerTrader extends GOTEntitySummerMan implement
 		addTargetTasks(false);
 	}
 
+	public static ItemStack createTraderTurban(Random random) {
+		ItemStack turban = new ItemStack(GOTRegistry.robesHelmet);
+		if (random.nextInt(3) == 0) {
+			GOTItemTurban.setHasOrnament(turban, true);
+		}
+		float h = random.nextFloat() * 360.0f;
+		float s = MathHelper.randomFloatClamp(random, 0.6f, 0.8f);
+		float b = MathHelper.randomFloatClamp(random, 0.5f, 0.75f);
+		int turbanColor = Color.HSBtoRGB(h, s, b) & 0xFFFFFF;
+		GOTItemRobes.setRobesColor(turban, turbanColor);
+		return turban;
+	}
+
 	@Override
 	public boolean canTradeWith(EntityPlayer entityplayer) {
 		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
@@ -53,18 +66,5 @@ public abstract class GOTEntitySummerTrader extends GOTEntitySummerMan implement
 		data = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(4, GOTEntitySummerTrader.createTraderTurban(rand));
 		return data;
-	}
-
-	public static ItemStack createTraderTurban(Random random) {
-		ItemStack turban = new ItemStack(GOTRegistry.robesHelmet);
-		if (random.nextInt(3) == 0) {
-			GOTItemTurban.setHasOrnament(turban, true);
-		}
-		float h = random.nextFloat() * 360.0f;
-		float s = MathHelper.randomFloatClamp(random, 0.6f, 0.8f);
-		float b = MathHelper.randomFloatClamp(random, 0.5f, 0.75f);
-		int turbanColor = Color.HSBtoRGB(h, s, b) & 0xFFFFFF;
-		GOTItemRobes.setRobesColor(turban, turbanColor);
-		return turban;
 	}
 }

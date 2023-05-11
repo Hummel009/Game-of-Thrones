@@ -38,6 +38,10 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, TOWN, FORT;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance<GOTStructureLhazarVillage> {
 		public VillageType villageType;
 		public int numOuterHouses;
@@ -333,9 +337,5 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 			numOuterHouses = MathHelper.getRandomIntegerInRange(random, 5, 8);
 		}
 
-	}
-
-	public enum VillageType {
-		VILLAGE, TOWN, FORT;
 	}
 }

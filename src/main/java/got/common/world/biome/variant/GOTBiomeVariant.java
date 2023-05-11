@@ -99,6 +99,14 @@ public class GOTBiomeVariant {
 		variantScale = scale;
 	}
 
+	public static GOTBiomeVariant getVariantForID(int i) {
+		GOTBiomeVariant variant = allVariants[i];
+		if (variant == null) {
+			return STANDARD;
+		}
+		return variant;
+	}
+
 	public GOTBiomeVariant addTreeTypes(float f, Object... trees) {
 		variantTreeChance = f;
 		for (int i = 0; i < trees.length / 2; ++i) {
@@ -189,14 +197,6 @@ public class GOTBiomeVariant {
 	public GOTBiomeVariant setTrees(float f) {
 		treeFactor = f;
 		return this;
-	}
-
-	public static GOTBiomeVariant getVariantForID(int i) {
-		GOTBiomeVariant variant = allVariants[i];
-		if (variant == null) {
-			return STANDARD;
-		}
-		return variant;
 	}
 
 	public enum VariantScale {

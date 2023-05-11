@@ -22,6 +22,30 @@ public class GOTItemSarbacane extends Item {
 		setFull3D();
 	}
 
+	public static void applySarbacaneModifiers(GOTEntityDart dart, ItemStack itemstack) {
+		int punch = GOTEnchantmentHelper.calcRangedKnockback(itemstack);
+		if (punch > 0) {
+			dart.knockbackStrength = punch;
+		}
+		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {
+			dart.setFire(100);
+		}
+		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
+			if (!ench.applyToProjectile() || !GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
+				continue;
+			}
+			GOTEnchantmentHelper.setProjectileEnchantment(dart, ench);
+		}
+	}
+
+	public static float getSarbacaneLaunchSpeedFactor(ItemStack itemstack) {
+		float f = 1.0f;
+		if (itemstack != null) {
+			f *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
+		}
+		return f;
+	}
+
 	@Override
 	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
 		return repairItem.getItem() == Item.getItemFromBlock(GOTRegistry.reeds);
@@ -106,29 +130,5 @@ public class GOTItemSarbacane extends Item {
 				world.spawnEntityInWorld(dart);
 			}
 		}
-	}
-
-	public static void applySarbacaneModifiers(GOTEntityDart dart, ItemStack itemstack) {
-		int punch = GOTEnchantmentHelper.calcRangedKnockback(itemstack);
-		if (punch > 0) {
-			dart.knockbackStrength = punch;
-		}
-		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {
-			dart.setFire(100);
-		}
-		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
-			if (!ench.applyToProjectile() || !GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
-				continue;
-			}
-			GOTEnchantmentHelper.setProjectileEnchantment(dart, ench);
-		}
-	}
-
-	public static float getSarbacaneLaunchSpeedFactor(ItemStack itemstack) {
-		float f = 1.0f;
-		if (itemstack != null) {
-			f *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
-		}
-		return f;
 	}
 }

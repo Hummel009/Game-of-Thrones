@@ -28,6 +28,11 @@ public class GOTStructureIbbenVillage extends GOTVillageGen {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
+	public enum VillageType {
+		VILLAGE, FORT;
+
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 		public boolean palisade;
@@ -299,11 +304,6 @@ public class GOTStructureIbbenVillage extends GOTVillageGen {
 			villageType = random.nextInt(3) == 0 ? VillageType.FORT : VillageType.VILLAGE;
 			palisade = random.nextBoolean();
 		}
-
-	}
-
-	public enum VillageType {
-		VILLAGE, FORT;
 
 	}
 

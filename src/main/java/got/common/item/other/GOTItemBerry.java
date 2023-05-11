@@ -20,6 +20,12 @@ public class GOTItemBerry extends GOTItemFood {
 		allBerries.add(this);
 	}
 
+	public static void registerAllBerries(String name) {
+		for (Item berry : allBerries) {
+			OreDictionary.registerOre(name, berry);
+		}
+	}
+
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		ItemStack ret = super.onEaten(itemstack, world, entityplayer);
@@ -34,11 +40,5 @@ public class GOTItemBerry extends GOTItemFood {
 	public GOTItemBerry setPoisonous() {
 		isPoisonous = true;
 		return this;
-	}
-
-	public static void registerAllBerries(String name) {
-		for (Item berry : allBerries) {
-			OreDictionary.registerOre(name, berry);
-		}
 	}
 }

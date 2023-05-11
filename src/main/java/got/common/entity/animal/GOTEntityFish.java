@@ -82,6 +82,14 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 		return FishType.values()[i];
 	}
 
+	public void setFishType(FishType type) {
+		this.setFishType(type.ordinal());
+	}
+
+	public void setFishType(int i) {
+		dataWatcher.updateObject(16, (byte) i);
+	}
+
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		return new ItemStack(GOTRegistry.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
@@ -129,14 +137,6 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		this.setFishType(nbt.getInteger("FishType"));
-	}
-
-	public void setFishType(FishType type) {
-		this.setFishType(type.ordinal());
-	}
-
-	public void setFishType(int i) {
-		dataWatcher.updateObject(16, (byte) i);
 	}
 
 	@Override

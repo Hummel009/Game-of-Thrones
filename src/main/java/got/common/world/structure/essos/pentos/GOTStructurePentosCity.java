@@ -39,6 +39,10 @@ public class GOTStructurePentosCity extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, TOWN, FORT;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -615,10 +619,6 @@ public class GOTStructurePentosCity extends GOTVillageGen {
 			spawner.setSpawnClass(GOTEntityPentosGuard.class);
 		}
 
-	}
-
-	public enum VillageType {
-		VILLAGE, TOWN, FORT;
 	}
 
 }

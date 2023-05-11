@@ -134,6 +134,10 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 		return dataWatcher.getWatchableObjectInt(16);
 	}
 
+	public void setTargetEntityID(Entity entity) {
+		dataWatcher.updateObject(16, entity == null ? -1 : entity.getEntityId());
+	}
+
 	public EntityAIBase getWightAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
@@ -164,9 +168,5 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 		if (!worldObj.isRemote) {
 			setTargetEntityID(target);
 		}
-	}
-
-	public void setTargetEntityID(Entity entity) {
-		dataWatcher.updateObject(16, entity == null ? -1 : entity.getEntityId());
 	}
 }

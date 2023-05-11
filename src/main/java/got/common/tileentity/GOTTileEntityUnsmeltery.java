@@ -45,6 +45,63 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	public boolean serverActive;
 	public boolean clientActive;
 
+	public static ItemStack getEquipmentMaterial(ItemStack itemstack) {
+		if (itemstack == null) {
+			return null;
+		}
+		Item item = itemstack.getItem();
+		ItemStack material = null;
+		if (item instanceof ItemTool) {
+			material = ((ItemTool) item).func_150913_i().getRepairItemStack();
+		} else if (item instanceof ItemSword) {
+			material = GOTMaterial.getToolMaterialByName(((ItemSword) item).getToolMaterialName()).getRepairItemStack();
+		} else if (item instanceof ItemHoe) {
+			material = GOTMaterial.getToolMaterialByName(((ItemHoe) item).getToolMaterialName()).getRepairItemStack();
+		} else if (item instanceof GOTItemCrossbow) {
+			material = ((GOTItemCrossbow) item).getCrossbowMaterial().getRepairItemStack();
+		} else if (item instanceof GOTItemThrowingAxe) {
+			material = ((GOTItemThrowingAxe) item).getAxeMaterial().getRepairItemStack();
+		} else if (item instanceof ItemArmor) {
+			material = new ItemStack(((ItemArmor) item).getArmorMaterial().func_151685_b());
+		} else if (item instanceof GOTItemMountArmor) {
+			material = new ItemStack(((GOTItemMountArmor) item).getMountArmorMaterial().func_151685_b());
+		}
+		if (material != null) {
+			if (item.getIsRepairable(itemstack, material)) {
+				return material;
+			}
+		} else {
+			if (item == Items.bucket) {
+				return new ItemStack(Items.iron_ingot);
+			}
+			if (item == GOTRegistry.silverRing) {
+				return new ItemStack(GOTRegistry.silverNugget);
+			}
+			if (item == GOTRegistry.copperRing) {
+				return new ItemStack(GOTRegistry.copperNugget);
+			}
+			if (item == GOTRegistry.bronzeRing) {
+				return new ItemStack(GOTRegistry.bronzeNugget);
+			}
+			if (item == GOTRegistry.goldRing) {
+				return new ItemStack(Items.gold_nugget);
+			}
+			if (item == GOTRegistry.valyrianRing) {
+				return new ItemStack(GOTRegistry.valyrianNugget);
+			}
+			if (item == GOTRegistry.gobletGold) {
+				return new ItemStack(Items.gold_ingot);
+			}
+			if (item == GOTRegistry.gobletSilver) {
+				return new ItemStack(GOTRegistry.silverIngot);
+			}
+			if (item == GOTRegistry.gobletCopper) {
+				return new ItemStack(GOTRegistry.copperIngot);
+			}
+		}
+		return null;
+	}
+
 	public boolean canBeUnsmelted(ItemStack itemstack) {
 		if (itemstack == null) {
 			return false;
@@ -326,62 +383,5 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 			}
 			rocking = MathHelper.clamp_float(rocking, 0.0F, 1.0F);
 		}
-	}
-
-	public static ItemStack getEquipmentMaterial(ItemStack itemstack) {
-		if (itemstack == null) {
-			return null;
-		}
-		Item item = itemstack.getItem();
-		ItemStack material = null;
-		if (item instanceof ItemTool) {
-			material = ((ItemTool) item).func_150913_i().getRepairItemStack();
-		} else if (item instanceof ItemSword) {
-			material = GOTMaterial.getToolMaterialByName(((ItemSword) item).getToolMaterialName()).getRepairItemStack();
-		} else if (item instanceof ItemHoe) {
-			material = GOTMaterial.getToolMaterialByName(((ItemHoe) item).getToolMaterialName()).getRepairItemStack();
-		} else if (item instanceof GOTItemCrossbow) {
-			material = ((GOTItemCrossbow) item).getCrossbowMaterial().getRepairItemStack();
-		} else if (item instanceof GOTItemThrowingAxe) {
-			material = ((GOTItemThrowingAxe) item).getAxeMaterial().getRepairItemStack();
-		} else if (item instanceof ItemArmor) {
-			material = new ItemStack(((ItemArmor) item).getArmorMaterial().func_151685_b());
-		} else if (item instanceof GOTItemMountArmor) {
-			material = new ItemStack(((GOTItemMountArmor) item).getMountArmorMaterial().func_151685_b());
-		}
-		if (material != null) {
-			if (item.getIsRepairable(itemstack, material)) {
-				return material;
-			}
-		} else {
-			if (item == Items.bucket) {
-				return new ItemStack(Items.iron_ingot);
-			}
-			if (item == GOTRegistry.silverRing) {
-				return new ItemStack(GOTRegistry.silverNugget);
-			}
-			if (item == GOTRegistry.copperRing) {
-				return new ItemStack(GOTRegistry.copperNugget);
-			}
-			if (item == GOTRegistry.bronzeRing) {
-				return new ItemStack(GOTRegistry.bronzeNugget);
-			}
-			if (item == GOTRegistry.goldRing) {
-				return new ItemStack(Items.gold_nugget);
-			}
-			if (item == GOTRegistry.valyrianRing) {
-				return new ItemStack(GOTRegistry.valyrianNugget);
-			}
-			if (item == GOTRegistry.gobletGold) {
-				return new ItemStack(Items.gold_ingot);
-			}
-			if (item == GOTRegistry.gobletSilver) {
-				return new ItemStack(GOTRegistry.silverIngot);
-			}
-			if (item == GOTRegistry.gobletCopper) {
-				return new ItemStack(GOTRegistry.copperIngot);
-			}
-		}
-		return null;
 	}
 }

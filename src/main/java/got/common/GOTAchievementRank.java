@@ -1,7 +1,10 @@
 package got.common;
 
-import got.common.database.*;
-import got.common.faction.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTRegistry;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
+import got.common.faction.GOTFactionRank;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.event.HoverEvent;
 import net.minecraft.util.*;

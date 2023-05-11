@@ -51,110 +51,6 @@ public class GOTItemPouch extends Item {
 		setCreativeTab(GOTCreativeTabs.tabMisc);
 	}
 
-	@Override
-	@SideOnly(value = Side.CLIENT)
-	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		int slots = GOTItemPouch.getCapacity(itemstack);
-		int slotsFull = 0;
-		GOTInventoryPouch pouchInv = new GOTInventoryPouch(itemstack);
-		for (int i = 0; i < pouchInv.getSizeInventory(); ++i) {
-			ItemStack slotItem = pouchInv.getStackInSlot(i);
-			if (slotItem == null) {
-				continue;
-			}
-			++slotsFull;
-		}
-		list.add(StatCollector.translateToLocalFormatted("item.got.pouch.slots", slotsFull, slots));
-		if (GOTItemPouch.isPouchDyed(itemstack)) {
-			list.add(StatCollector.translateToLocal("item.got.pouch.dyed"));
-		}
-	}
-
-	@Override
-	@SideOnly(value = Side.CLIENT)
-	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		if (pass == 0) {
-			return GOTItemPouch.getPouchColor(itemstack);
-		}
-		return 16777215;
-	}
-
-	@Override
-	public IIcon getIcon(ItemStack itemstack, int pass) {
-		Container container;
-		int meta;
-		boolean open = false;
-		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
-		if (entityplayer != null && ((container = entityplayer.openContainer) instanceof GOTContainerPouch || container instanceof GOTContainerChestWithPouch) && itemstack == entityplayer.getHeldItem()) {
-			open = true;
-		}
-		meta = itemstack.getItemDamage();
-		if (meta >= pouchIcons.length) {
-			meta = 0;
-		}
-		if (open) {
-			return pass > 0 ? overlayIconsOpen[meta] : pouchIconsOpen[meta];
-		}
-		return pass > 0 ? overlayIcons[meta] : pouchIcons[meta];
-	}
-
-	@Override
-	public int getRenderPasses(int meta) {
-		return 2;
-	}
-
-	@Override
-	@SideOnly(value = Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (int i = 0; i < pouchTypes.length; ++i) {
-			list.add(new ItemStack(item, 1, i));
-		}
-	}
-
-	@Override
-	public String getUnlocalizedName(ItemStack itemstack) {
-		return super.getUnlocalizedName() + "." + itemstack.getItemDamage();
-	}
-
-	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, 15, world, entityplayer.inventory.currentItem, 0, 0);
-		}
-		return itemstack;
-	}
-
-	@Override
-	public boolean onItemUseFirst(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float hitX, float hitY, float hitZ) {
-		IInventory chest = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k);
-		if (chest != null) {
-			GOT.proxy.usePouchOnChest(entityplayer, world, i, j, k, side, itemstack, entityplayer.inventory.currentItem);
-			return true;
-		}
-		return false;
-	}
-
-	@Override
-	@SideOnly(value = Side.CLIENT)
-	public void registerIcons(IIconRegister iconregister) {
-		pouchIcons = new IIcon[pouchTypes.length];
-		pouchIconsOpen = new IIcon[pouchTypes.length];
-		overlayIcons = new IIcon[pouchTypes.length];
-		overlayIconsOpen = new IIcon[pouchTypes.length];
-		for (int i = 0; i < pouchTypes.length; ++i) {
-			pouchIcons[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i]);
-			pouchIconsOpen[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i] + "_open");
-			overlayIcons[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i] + "_overlay");
-			overlayIconsOpen[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i] + "_open_overlay");
-		}
-	}
-
-	@Override
-	@SideOnly(value = Side.CLIENT)
-	public boolean requiresMultipleRenderPasses() {
-		return true;
-	}
-
 	public static int getCapacity(ItemStack itemstack) {
 		return GOTItemPouch.getCapacityForMeta(itemstack.getItemDamage());
 	}
@@ -302,5 +198,109 @@ public class GOTItemPouch extends Item {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	@SideOnly(value = Side.CLIENT)
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		int slots = GOTItemPouch.getCapacity(itemstack);
+		int slotsFull = 0;
+		GOTInventoryPouch pouchInv = new GOTInventoryPouch(itemstack);
+		for (int i = 0; i < pouchInv.getSizeInventory(); ++i) {
+			ItemStack slotItem = pouchInv.getStackInSlot(i);
+			if (slotItem == null) {
+				continue;
+			}
+			++slotsFull;
+		}
+		list.add(StatCollector.translateToLocalFormatted("item.got.pouch.slots", slotsFull, slots));
+		if (GOTItemPouch.isPouchDyed(itemstack)) {
+			list.add(StatCollector.translateToLocal("item.got.pouch.dyed"));
+		}
+	}
+
+	@Override
+	@SideOnly(value = Side.CLIENT)
+	public int getColorFromItemStack(ItemStack itemstack, int pass) {
+		if (pass == 0) {
+			return GOTItemPouch.getPouchColor(itemstack);
+		}
+		return 16777215;
+	}
+
+	@Override
+	public IIcon getIcon(ItemStack itemstack, int pass) {
+		Container container;
+		int meta;
+		boolean open = false;
+		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
+		if (entityplayer != null && ((container = entityplayer.openContainer) instanceof GOTContainerPouch || container instanceof GOTContainerChestWithPouch) && itemstack == entityplayer.getHeldItem()) {
+			open = true;
+		}
+		meta = itemstack.getItemDamage();
+		if (meta >= pouchIcons.length) {
+			meta = 0;
+		}
+		if (open) {
+			return pass > 0 ? overlayIconsOpen[meta] : pouchIconsOpen[meta];
+		}
+		return pass > 0 ? overlayIcons[meta] : pouchIcons[meta];
+	}
+
+	@Override
+	public int getRenderPasses(int meta) {
+		return 2;
+	}
+
+	@Override
+	@SideOnly(value = Side.CLIENT)
+	public void getSubItems(Item item, CreativeTabs tab, List list) {
+		for (int i = 0; i < pouchTypes.length; ++i) {
+			list.add(new ItemStack(item, 1, i));
+		}
+	}
+
+	@Override
+	public String getUnlocalizedName(ItemStack itemstack) {
+		return super.getUnlocalizedName() + "." + itemstack.getItemDamage();
+	}
+
+	@Override
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+		if (!world.isRemote) {
+			entityplayer.openGui(GOT.instance, 15, world, entityplayer.inventory.currentItem, 0, 0);
+		}
+		return itemstack;
+	}
+
+	@Override
+	public boolean onItemUseFirst(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float hitX, float hitY, float hitZ) {
+		IInventory chest = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k);
+		if (chest != null) {
+			GOT.proxy.usePouchOnChest(entityplayer, world, i, j, k, side, itemstack, entityplayer.inventory.currentItem);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	@SideOnly(value = Side.CLIENT)
+	public void registerIcons(IIconRegister iconregister) {
+		pouchIcons = new IIcon[pouchTypes.length];
+		pouchIconsOpen = new IIcon[pouchTypes.length];
+		overlayIcons = new IIcon[pouchTypes.length];
+		overlayIconsOpen = new IIcon[pouchTypes.length];
+		for (int i = 0; i < pouchTypes.length; ++i) {
+			pouchIcons[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i]);
+			pouchIconsOpen[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i] + "_open");
+			overlayIcons[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i] + "_overlay");
+			overlayIconsOpen[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i] + "_open_overlay");
+		}
+	}
+
+	@Override
+	@SideOnly(value = Side.CLIENT)
+	public boolean requiresMultipleRenderPasses() {
+		return true;
 	}
 }

@@ -22,20 +22,6 @@ public class GOTRenderHorse extends RenderHorse {
 		super(new ModelHorse(), 0.75f);
 	}
 
-	@Override
-	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
-		GOTEntityHorse horse = (GOTEntityHorse) entity;
-		horse.getHorseType();
-		super.doRender(entity, d, d1, d2, f, f1);
-	}
-
-	@Override
-	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityHorse horse = (GOTEntityHorse) entity;
-		ResourceLocation horseSkin = super.getEntityTexture(entity);
-		return GOTRenderHorse.getLayeredMountTexture(horse, horseSkin);
-	}
-
 	public static ResourceLocation getLayeredMountTexture(GOTNPCMount mount, ResourceLocation mountSkin) {
 		String skinPath = mountSkin.toString();
 		String armorPath = mount.getMountArmorTexture();
@@ -60,5 +46,19 @@ public class GOTRenderHorse extends RenderHorse {
 			layeredMountTextures.put(path, texture);
 		}
 		return texture;
+	}
+
+	@Override
+	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
+		GOTEntityHorse horse = (GOTEntityHorse) entity;
+		horse.getHorseType();
+		super.doRender(entity, d, d1, d2, f, f1);
+	}
+
+	@Override
+	public ResourceLocation getEntityTexture(Entity entity) {
+		GOTEntityHorse horse = (GOTEntityHorse) entity;
+		ResourceLocation horseSkin = super.getEntityTexture(entity);
+		return GOTRenderHorse.getLayeredMountTexture(horse, horseSkin);
 	}
 }

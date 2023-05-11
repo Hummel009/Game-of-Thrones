@@ -48,6 +48,30 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		largeIconScale = f;
 	}
 
+	public static ResourceLocation getLargeTexturePath(Item item, String folder) {
+		String prefix = "got:";
+		String itemName = item.getUnlocalizedName();
+		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
+		StringBuilder s = new StringBuilder(prefix).append("textures/items/").append(folder).append("/").append(itemName);
+		s.append(".png");
+		return new ResourceLocation(s.toString());
+	}
+
+	public static GOTRenderLargeItem getRendererIfLarge(Item item) {
+		for (String folder : sizeFolders.keySet()) {
+			float iconScale = sizeFolders.get(folder);
+			try {
+				ResourceLocation resLoc = GOTRenderLargeItem.getLargeTexturePath(item, folder);
+				IResource res = Minecraft.getMinecraft().getResourceManager().getResource(resLoc);
+				if (res != null) {
+					return new GOTRenderLargeItem(item, folder, iconScale);
+				}
+			} catch (IOException resLoc) {
+			}
+		}
+		return null;
+	}
+
 	public void doTransformations() {
 		GL11.glTranslatef(-(largeIconScale - 1.0f) / 2.0f, -(largeIconScale - 1.0f) / 2.0f, 0.0f);
 		GL11.glScalef(largeIconScale, largeIconScale, 1.0f);
@@ -142,30 +166,6 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	@Override
 	public boolean shouldUseRenderHelper(IItemRenderer.ItemRenderType type, ItemStack itemstack, IItemRenderer.ItemRendererHelper helper) {
 		return false;
-	}
-
-	public static ResourceLocation getLargeTexturePath(Item item, String folder) {
-		String prefix = "got:";
-		String itemName = item.getUnlocalizedName();
-		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
-		StringBuilder s = new StringBuilder(prefix).append("textures/items/").append(folder).append("/").append(itemName);
-		s.append(".png");
-		return new ResourceLocation(s.toString());
-	}
-
-	public static GOTRenderLargeItem getRendererIfLarge(Item item) {
-		for (String folder : sizeFolders.keySet()) {
-			float iconScale = sizeFolders.get(folder);
-			try {
-				ResourceLocation resLoc = GOTRenderLargeItem.getLargeTexturePath(item, folder);
-				IResource res = Minecraft.getMinecraft().getResourceManager().getResource(resLoc);
-				if (res != null) {
-					return new GOTRenderLargeItem(item, folder, iconScale);
-				}
-			} catch (IOException resLoc) {
-			}
-		}
-		return null;
 	}
 
 	public static class ExtraLargeIconToken {

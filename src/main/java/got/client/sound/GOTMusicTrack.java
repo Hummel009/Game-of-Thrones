@@ -25,6 +25,10 @@ public class GOTMusicTrack extends PositionedSound {
 		filename = s;
 	}
 
+	public static ResourceLocation getMusicResource(String s) {
+		return new ResourceLocation("gotmusic", s);
+	}
+
 	public void addAuthor(String s) {
 		authors.add(s);
 	}
@@ -57,6 +61,10 @@ public class GOTMusicTrack extends PositionedSound {
 			return title;
 		}
 		return filename;
+	}
+
+	public void setTitle(String s) {
+		title = s;
 	}
 
 	public String[] getTrackInfo() {
@@ -119,14 +127,6 @@ public class GOTMusicTrack extends PositionedSound {
 	public void loadTrack(InputStream in) {
 		loadSoundResource();
 		GOTMusic.addTrackToRegions(this);
-	}
-
-	public void setTitle(String s) {
-		title = s;
-	}
-
-	public static ResourceLocation getMusicResource(String s) {
-		return new ResourceLocation("gotmusic", s);
 	}
 
 	public static class TrackSoundAccessor implements ISoundEventAccessor {

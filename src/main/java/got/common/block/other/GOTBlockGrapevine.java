@@ -58,6 +58,25 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		}
 	}
 
+	public static boolean canPlantGrapesAt(World world, int i, int j, int k, IPlantable plantable) {
+		for (int l = 1; l <= 3; ++l) {
+			int j1 = j - l;
+			Block block = world.getBlock(i, j1, k);
+			if (block.canSustainPlant(world, i, j1, k, ForgeDirection.UP, plantable)) {
+				return true;
+			}
+			if (block instanceof GOTBlockGrapevine) {
+				continue;
+			}
+			return false;
+		}
+		return false;
+	}
+
+	public static boolean isFullGrownGrapes(Block block, int meta) {
+		return block instanceof GOTBlockGrapevine && ((GOTBlockGrapevine) block).hasGrapes && meta >= 7;
+	}
+
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		return canPlaceBlockAt(world, i, j, k);
@@ -349,24 +368,5 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 			meta++;
 			world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		}
-	}
-
-	public static boolean canPlantGrapesAt(World world, int i, int j, int k, IPlantable plantable) {
-		for (int l = 1; l <= 3; ++l) {
-			int j1 = j - l;
-			Block block = world.getBlock(i, j1, k);
-			if (block.canSustainPlant(world, i, j1, k, ForgeDirection.UP, plantable)) {
-				return true;
-			}
-			if (block instanceof GOTBlockGrapevine) {
-				continue;
-			}
-			return false;
-		}
-		return false;
-	}
-
-	public static boolean isFullGrownGrapes(Block block, int meta) {
-		return block instanceof GOTBlockGrapevine && ((GOTBlockGrapevine) block).hasGrapes && meta >= 7;
 	}
 }

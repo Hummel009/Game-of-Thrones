@@ -12,6 +12,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class GOTCommandAdminHideMap extends CommandBase {
+	public static void notifyUnhidden(EntityPlayer entityplayer) {
+		entityplayer.addChatMessage(new ChatComponentTranslation("got.command.opHideMap.unhide"));
+	}
+
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
 		return Collections.emptyList();
@@ -51,9 +55,5 @@ public class GOTCommandAdminHideMap extends CommandBase {
 			}
 		}
 		throw new WrongUsageException("got.command.opHideMap.notOp");
-	}
-
-	public static void notifyUnhidden(EntityPlayer entityplayer) {
-		entityplayer.addChatMessage(new ChatComponentTranslation("got.command.opHideMap.unhide"));
 	}
 }

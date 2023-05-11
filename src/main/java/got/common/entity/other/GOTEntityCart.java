@@ -84,6 +84,13 @@ public class GOTEntityCart extends Entity {
 		return pulling;
 	}
 
+	public void setPulling(Entity pullingIn) {
+		pulling = pullingIn;
+		if (pulling == null) {
+			factor = 0.0;
+		}
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	public float getWheelRotation() {
 		if (worldObj.isRemote && Minecraft.getMinecraft().isGamePaused()) {
@@ -144,13 +151,6 @@ public class GOTEntityCart extends Entity {
 		lerpYaw = yaw;
 		lerpPitch = pitch;
 		lerpSteps = 10;
-	}
-
-	public void setPulling(Entity pullingIn) {
-		pulling = pullingIn;
-		if (pulling == null) {
-			factor = 0.0;
-		}
 	}
 
 	public void tickLerp() {

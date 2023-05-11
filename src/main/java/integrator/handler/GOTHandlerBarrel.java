@@ -1,9 +1,9 @@
 package integrator.handler;
 
-import java.util.*;
-
-import codechicken.nei.*;
-import codechicken.nei.recipe.*;
+import codechicken.nei.NEIServerUtils;
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.ShapelessRecipeHandler;
+import codechicken.nei.recipe.TemplateRecipeHandler;
 import got.client.gui.GOTGuiBarrel;
 import got.common.recipe.GOTRecipeBrewing;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -11,6 +11,10 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	public List<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();
@@ -121,7 +125,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			recipeIngreds.add(new PositionedStack(new ItemStack(Items.water_bucket), getX(7), getY(7)));
 			recipeIngreds.add(new PositionedStack(new ItemStack(Items.water_bucket), getX(8), getY(8)));
 			recipeIngreds.add(new PositionedStack(new ItemStack(Items.water_bucket), getX(9), getY(9)));
-			recipeResult = new PositionedStack(new ItemStack[] { new ItemStack(recipe.getResult().item.getItem(), 1, 0), new ItemStack(recipe.getResult().item.getItem(), 1, 1), new ItemStack(recipe.getResult().item.getItem(), 1, 2), new ItemStack(recipe.getResult().item.getItem(), 1, 3), new ItemStack(recipe.getResult().item.getItem(), 1, 4) }, 119, 24, true);
+			recipeResult = new PositionedStack(new ItemStack[]{new ItemStack(recipe.getResult().item.getItem(), 1, 0), new ItemStack(recipe.getResult().item.getItem(), 1, 1), new ItemStack(recipe.getResult().item.getItem(), 1, 2), new ItemStack(recipe.getResult().item.getItem(), 1, 3), new ItemStack(recipe.getResult().item.getItem(), 1, 4)}, 119, 24, true);
 		}
 
 		public PositionedStack getCycledResult(int cycle, PositionedStack result) {
@@ -146,23 +150,23 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 
 		public int getX(int i) {
 			switch (i) {
-			case 0:
-			case 3:
-			case 6:
-				return 25;
+				case 0:
+				case 3:
+				case 6:
+					return 25;
 
-			case 1:
-			case 4:
-			case 7:
-				return 43;
+				case 1:
+				case 4:
+				case 7:
+					return 43;
 
-			case 2:
-			case 5:
-			case 8:
-				return 61;
+				case 2:
+				case 5:
+				case 8:
+					return 61;
 
-			case 9:
-				return 25;
+				case 9:
+					return 25;
 			}
 
 			return 0;
@@ -170,23 +174,23 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 
 		public int getY(int i) {
 			switch (i) {
-			case 0:
-			case 1:
-			case 2:
-				return 6;
+				case 0:
+				case 1:
+				case 2:
+					return 6;
 
-			case 3:
-			case 4:
-			case 5:
-				return 24;
+				case 3:
+				case 4:
+				case 5:
+					return 24;
 
-			case 6:
-			case 7:
-			case 8:
-				return 42;
+				case 6:
+				case 7:
+				case 8:
+					return 42;
 
-			case 9:
-				return 42;
+				case 9:
+					return 42;
 			}
 
 			return 0;

@@ -17,6 +17,25 @@ public class GOTBannerWhitelistEntry {
 		}
 	}
 
+	public static List<GOTBannerProtection.Permission> static_decodePermBitFlags(int i) {
+		ArrayList<GOTBannerProtection.Permission> decoded = new ArrayList<>();
+		for (GOTBannerProtection.Permission p : GOTBannerProtection.Permission.values()) {
+			if ((i & p.bitFlag) == 0) {
+				continue;
+			}
+			decoded.add(p);
+		}
+		return decoded;
+	}
+
+	public static int static_encodePermBitFlags(Collection<GOTBannerProtection.Permission> permList) {
+		int i = 0;
+		for (GOTBannerProtection.Permission p : permList) {
+			i |= p.bitFlag;
+		}
+		return i;
+	}
+
 	public void addPermission(GOTBannerProtection.Permission p) {
 		perms.add(p);
 	}
@@ -60,24 +79,5 @@ public class GOTBannerWhitelistEntry {
 		for (GOTBannerProtection.Permission p : perms) {
 			addPermission(p);
 		}
-	}
-
-	public static List<GOTBannerProtection.Permission> static_decodePermBitFlags(int i) {
-		ArrayList<GOTBannerProtection.Permission> decoded = new ArrayList<>();
-		for (GOTBannerProtection.Permission p : GOTBannerProtection.Permission.values()) {
-			if ((i & p.bitFlag) == 0) {
-				continue;
-			}
-			decoded.add(p);
-		}
-		return decoded;
-	}
-
-	public static int static_encodePermBitFlags(Collection<GOTBannerProtection.Permission> permList) {
-		int i = 0;
-		for (GOTBannerProtection.Permission p : permList) {
-			i |= p.bitFlag;
-		}
-		return i;
 	}
 }

@@ -39,6 +39,24 @@ public class GOTBlockMug extends BlockContainer {
 		setStepSound(Block.soundTypeWood);
 	}
 
+	public static ItemStack getMugItem(World world, int i, int j, int k) {
+		TileEntity tileentity = world.getTileEntity(i, j, k);
+		if (tileentity instanceof GOTTileEntityMug) {
+			GOTTileEntityMug mug = (GOTTileEntityMug) tileentity;
+			return mug.getMugItem();
+		}
+		return new ItemStack(GOTRegistry.mug);
+	}
+
+	public static void setMugItem(World world, int i, int j, int k, ItemStack itemstack, GOTItemMug.Vessel vessel) {
+		TileEntity te = world.getTileEntity(i, j, k);
+		if (te instanceof GOTTileEntityMug) {
+			GOTTileEntityMug mug = (GOTTileEntityMug) te;
+			mug.setMugItem(itemstack);
+			mug.setVessel(vessel);
+		}
+	}
+
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		Block block = world.getBlock(i, j - 1, k);
@@ -181,23 +199,5 @@ public class GOTBlockMug extends BlockContainer {
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
-	}
-
-	public static ItemStack getMugItem(World world, int i, int j, int k) {
-		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (tileentity instanceof GOTTileEntityMug) {
-			GOTTileEntityMug mug = (GOTTileEntityMug) tileentity;
-			return mug.getMugItem();
-		}
-		return new ItemStack(GOTRegistry.mug);
-	}
-
-	public static void setMugItem(World world, int i, int j, int k, ItemStack itemstack, GOTItemMug.Vessel vessel) {
-		TileEntity te = world.getTileEntity(i, j, k);
-		if (te instanceof GOTTileEntityMug) {
-			GOTTileEntityMug mug = (GOTTileEntityMug) te;
-			mug.setMugItem(itemstack);
-			mug.setVessel(vessel);
-		}
 	}
 }

@@ -1,17 +1,22 @@
 package got.common;
 
-import com.google.common.primitives.*;
-
+import com.google.common.primitives.Doubles;
+import com.google.common.primitives.Floats;
 import cpw.mods.fml.common.FMLLog;
 import got.common.entity.other.GOTMountFunctions;
 import got.common.item.GOTWeaponStats;
-import got.common.network.*;
-import net.minecraft.entity.*;
-import net.minecraft.entity.item.*;
+import got.common.network.GOTPacketHandler;
+import got.common.network.GOTPacketMountControl;
+import got.common.network.GOTPacketMountControlServerEnforce;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.*;
+import net.minecraft.network.NetHandlerPlayServer;
+import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.client.*;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.AxisAlignedBB;

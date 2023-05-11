@@ -32,6 +32,14 @@ public class GOTBlockBomb extends Block {
 		setStepSound(Block.soundTypeMetal);
 	}
 
+	public static int getBombStrengthLevel(int meta) {
+		return meta & 7;
+	}
+
+	public static boolean isFireBomb(int meta) {
+		return (meta & 8) != 0;
+	}
+
 	@Override
 	public boolean canDropFromExplosion(Explosion explosion) {
 		return false;
@@ -168,13 +176,5 @@ public class GOTBlockBomb extends Block {
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
-	}
-
-	public static int getBombStrengthLevel(int meta) {
-		return meta & 7;
-	}
-
-	public static boolean isFireBomb(int meta) {
-		return (meta & 8) != 0;
 	}
 }

@@ -68,7 +68,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class DatabaseGenerator {
-	public static String display = "null";
 	public static final Map<Class<? extends Entity>, Entity> CLASS_TO_OBJ = new HashMap<>();
 	public static final Map<Class<? extends Entity>, GOTWaypoint> CLASS_TO_WP = new HashMap<>();
 	public static final Map<String, String> FAC_TO_PAGE = new HashMap<>();
@@ -89,6 +88,7 @@ public class DatabaseGenerator {
 	public static final String BEGIN = "\n</title><ns>10</ns><revision><text>&lt;includeonly&gt;{{#switch: {{{1}}}";
 	public static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;</text></revision></page>";
 	public static final String TITLE = "<page><title>";
+	public static String display = "null";
 
 	static {
 		BIOMES.removeAll(Collections.singleton(null));
@@ -138,6 +138,213 @@ public class DatabaseGenerator {
 		CLASS_TO_WP.put(GOTEntityHarmune.class, GOTWaypoint.EastWatch);
 		CLASS_TO_WP.put(GOTEntityDenysMallister.class, GOTWaypoint.ShadowTower);
 		CLASS_TO_WP.put(GOTEntityMullin.class, GOTWaypoint.ShadowTower);
+	}
+
+	public static String getAchievementDesc(GOTAchievement ach) {
+		return StatCollector.translateToLocal("got.achievement." + ach.getCodeName() + ".desc");
+	}
+
+	public static String getAchievementTitle(GOTAchievement ach) {
+		return StatCollector.translateToLocal("got.achievement." + ach.getCodeName() + ".title");
+	}
+
+	public static String getBannerName(BannerType banner) {
+		return StatCollector.translateToLocal("item.got:banner." + banner.bannerName + ".name");
+	}
+
+	public static String getBiomeLink(GOTBiome biome) {
+		String biomeName = getBiomeName(biome);
+		String biomePagename = getBiomePagename(biome);
+		if (biomeName.equals(biomePagename)) {
+			return "[[" + biomeName + "]]";
+		}
+		return "[[" + biomePagename + "|" + biomeName + "]]";
+	}
+
+	public static String getBiomeName(GOTBiome biome) {
+		return StatCollector.translateToLocal("got.biome." + biome.biomeName + ".name");
+	}
+
+	public static String getBiomePagename(GOTBiome biome) {
+		return BIOME_TO_PAGE.get(getBiomeName(biome));
+	}
+
+	public static String getBiomeVariantName(GOTBiomeVariant variant) {
+		return StatCollector.translateToLocal("got.variant." + variant.variantName + ".name");
+	}
+
+	public static String getBlockMetaName(Block block, int meta) {
+		return StatCollector.translateToLocal(block.getUnlocalizedName() + "." + meta + ".name");
+	}
+
+	public static String getBlockName(Block block) {
+		return StatCollector.translateToLocal(block.getUnlocalizedName() + ".name");
+	}
+
+	public static String getCapeFilename(GOTCapes cape) {
+		return "[[File:Cape " + cape.name().toLowerCase() + ".png]]";
+	}
+
+	public static String getEntityLink(Class<? extends Entity> entityClass) {
+		String entityName = getEntityName(entityClass);
+		String entityPagename = getEntityPagename(entityClass);
+		if (entityName.equals(entityPagename)) {
+			return "[[" + entityPagename + "]]";
+		}
+		return "[[" + entityPagename + "|" + entityName + "]]";
+	}
+
+	public static String getEntityName(Class<? extends Entity> entityClass) {
+		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.classToNameMapping.get(entityClass) + ".name");
+	}
+
+	public static String getEntityPagename(Class<? extends Entity> entityClass) {
+		return ENTITY_TO_PAGE.get(getEntityName(entityClass));
+	}
+
+	public static String getEntityVanillaName(Class<? extends Entity> entityClass) {
+		return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
+	}
+
+	public static String getFactionLink(GOTFaction fac) {
+		String facName = getFactionName(fac);
+		String facPagename = getFactionPagename(fac);
+		if (facName.equals(facPagename)) {
+			return "[[" + facPagename + "]]";
+		}
+		return "[[" + facPagename + "|" + facName + "]]";
+	}
+
+	public static String getFactionName(GOTFaction fac) {
+		return StatCollector.translateToLocal("got.faction." + fac.codeName() + ".name");
+	}
+
+	public static String getFactionPagename(GOTFaction fac) {
+		return FAC_TO_PAGE.get(getFactionName(fac));
+	}
+
+	public static String getItemFilename(Item item) {
+		return "[[File:" + item.getUnlocalizedName().substring("item.got:".length()) + ".png|32px|link=]]";
+	}
+
+	public static String getItemName(Item item) {
+		return StatCollector.translateToLocal(item.getUnlocalizedName() + ".name");
+	}
+
+	public static String getShieldFilename(GOTShields shield) {
+		return "[[File:Shield " + shield.name().toLowerCase() + ".png]]";
+	}
+
+	public static String getStructureName(Class<? extends WorldGenerator> structureClass) {
+		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.classToNameMapping.get(structureClass) + ".name");
+	}
+
+	public static String getTreeName(GOTTreeType tree) {
+		return StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase() + ".name");
+	}
+
+	public static void searchForEntities(World world) {
+		for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+			CLASS_TO_OBJ.put(entityClass, GOTReflection.newEntity(entityClass, world));
+		}
+	}
+
+	public static void searchForHireable(Collection<Class<? extends Entity>> hireable, Iterable<GOTUnitTradeEntries> units) {
+		for (GOTUnitTradeEntries entries : units) {
+			for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+				hireable.add(entry.entityClass);
+			}
+		}
+	}
+
+	public static void searchForMinerals(Iterable<GOTBiome> biomes, Collection<String> minerals) {
+		for (GOTBiome biome : biomes) {
+			List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+			oreGenerants.addAll(biome.decorator.biomeOres);
+			oreGenerants.addAll(biome.decorator.biomeGems);
+			for (OreGenerant oreGenerant : oreGenerants) {
+				WorldGenMinable gen = oreGenerant.oreGen;
+				Block block = GOTReflection.getOreBlock(gen);
+				int meta = GOTReflection.getOreMeta(gen);
+				if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
+					minerals.add(getBlockMetaName(block, meta));
+				} else {
+					minerals.add(getBlockName(block));
+				}
+			}
+		}
+	}
+
+	public static void searchForPagenamesBiome(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
+		next:
+		for (GOTBiome biome : biomes) {
+			String preName = getBiomeName(biome);
+			for (GOTFaction fac : factions) {
+				if (preName.equals(getFactionName(fac))) {
+					BIOME_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_BIOME + ")");
+					continue next;
+				}
+			}
+			for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+				if (preName.equals(getEntityName(entityClass))) {
+					BIOME_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_BIOME + ")");
+					continue next;
+				}
+			}
+			BIOME_TO_PAGE.put(preName, preName);
+		}
+	}
+
+	public static void searchForPagenamesEntity(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
+		next:
+		for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+			String preName = getEntityName(entityClass);
+			for (GOTBiome biome : biomes) {
+				if (preName.equals(getBiomeName(biome))) {
+					ENTITY_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_ENTITY + ")");
+					continue next;
+				}
+			}
+			for (GOTFaction fac : factions) {
+				if (preName.equals(getFactionName(fac))) {
+					ENTITY_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_ENTITY + ")");
+					continue next;
+				}
+			}
+			ENTITY_TO_PAGE.put(preName, preName);
+		}
+	}
+
+	public static void searchForPagenamesFaction(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
+		next:
+		for (GOTFaction fac : factions) {
+			String preName = getFactionName(fac);
+			for (GOTBiome biome : biomes) {
+				if (preName.equals(getBiomeName(biome))) {
+					FAC_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_FACTION + ")");
+					continue next;
+				}
+			}
+			for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+				if (preName.equals(getEntityName(entityClass))) {
+					FAC_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_FACTION + ")");
+					continue next;
+				}
+			}
+			FAC_TO_PAGE.put(preName, preName);
+		}
+	}
+
+	public static void searchForStructures(Iterable<GOTBiome> biomes, Collection<Class<? extends WorldGenerator>> structures) {
+		for (GOTBiome biome : biomes) {
+			for (RandomStructure structure : biome.decorator.randomStructures) {
+				structures.add(structure.structureGen.getClass());
+			}
+		}
+	}
+
+	public static void setDisplay(String display) {
+		DatabaseGenerator.display = display;
 	}
 
 	public boolean generate(World world, EntityPlayer player, Random random) {
@@ -1504,213 +1711,6 @@ public class DatabaseGenerator {
 		ChatComponentText chatComponentTranslation = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + "s");
 		player.addChatMessage(chatComponentTranslation);
 		return true;
-	}
-
-	public static String getAchievementDesc(GOTAchievement ach) {
-		return StatCollector.translateToLocal("got.achievement." + ach.getCodeName() + ".desc");
-	}
-
-	public static String getAchievementTitle(GOTAchievement ach) {
-		return StatCollector.translateToLocal("got.achievement." + ach.getCodeName() + ".title");
-	}
-
-	public static String getBannerName(BannerType banner) {
-		return StatCollector.translateToLocal("item.got:banner." + banner.bannerName + ".name");
-	}
-
-	public static String getBiomeLink(GOTBiome biome) {
-		String biomeName = getBiomeName(biome);
-		String biomePagename = getBiomePagename(biome);
-		if (biomeName.equals(biomePagename)) {
-			return "[[" + biomeName + "]]";
-		}
-		return "[[" + biomePagename + "|" + biomeName + "]]";
-	}
-
-	public static String getBiomeName(GOTBiome biome) {
-		return StatCollector.translateToLocal("got.biome." + biome.biomeName + ".name");
-	}
-
-	public static String getBiomePagename(GOTBiome biome) {
-		return BIOME_TO_PAGE.get(getBiomeName(biome));
-	}
-
-	public static String getBiomeVariantName(GOTBiomeVariant variant) {
-		return StatCollector.translateToLocal("got.variant." + variant.variantName + ".name");
-	}
-
-	public static String getBlockMetaName(Block block, int meta) {
-		return StatCollector.translateToLocal(block.getUnlocalizedName() + "." + meta + ".name");
-	}
-
-	public static String getBlockName(Block block) {
-		return StatCollector.translateToLocal(block.getUnlocalizedName() + ".name");
-	}
-
-	public static String getCapeFilename(GOTCapes cape) {
-		return "[[File:Cape " + cape.name().toLowerCase() + ".png]]";
-	}
-
-	public static String getEntityLink(Class<? extends Entity> entityClass) {
-		String entityName = getEntityName(entityClass);
-		String entityPagename = getEntityPagename(entityClass);
-		if (entityName.equals(entityPagename)) {
-			return "[[" + entityPagename + "]]";
-		}
-		return "[[" + entityPagename + "|" + entityName + "]]";
-	}
-
-	public static String getEntityName(Class<? extends Entity> entityClass) {
-		return StatCollector.translateToLocal("entity.got." + GOTEntityRegistry.classToNameMapping.get(entityClass) + ".name");
-	}
-
-	public static String getEntityPagename(Class<? extends Entity> entityClass) {
-		return ENTITY_TO_PAGE.get(getEntityName(entityClass));
-	}
-
-	public static String getEntityVanillaName(Class<? extends Entity> entityClass) {
-		return StatCollector.translateToLocal("entity." + EntityList.classToStringMapping.get(entityClass) + ".name");
-	}
-
-	public static String getFactionLink(GOTFaction fac) {
-		String facName = getFactionName(fac);
-		String facPagename = getFactionPagename(fac);
-		if (facName.equals(facPagename)) {
-			return "[[" + facPagename + "]]";
-		}
-		return "[[" + facPagename + "|" + facName + "]]";
-	}
-
-	public static String getFactionName(GOTFaction fac) {
-		return StatCollector.translateToLocal("got.faction." + fac.codeName() + ".name");
-	}
-
-	public static String getFactionPagename(GOTFaction fac) {
-		return FAC_TO_PAGE.get(getFactionName(fac));
-	}
-
-	public static String getItemFilename(Item item) {
-		return "[[File:" + item.getUnlocalizedName().substring("item.got:".length()) + ".png|32px|link=]]";
-	}
-
-	public static String getItemName(Item item) {
-		return StatCollector.translateToLocal(item.getUnlocalizedName() + ".name");
-	}
-
-	public static String getShieldFilename(GOTShields shield) {
-		return "[[File:Shield " + shield.name().toLowerCase() + ".png]]";
-	}
-
-	public static String getStructureName(Class<? extends WorldGenerator> structureClass) {
-		return StatCollector.translateToLocal("got.structure." + GOTStructureRegistry.classToNameMapping.get(structureClass) + ".name");
-	}
-
-	public static String getTreeName(GOTTreeType tree) {
-		return StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase() + ".name");
-	}
-
-	public static void searchForEntities(World world) {
-		for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
-			CLASS_TO_OBJ.put(entityClass, GOTReflection.newEntity(entityClass, world));
-		}
-	}
-
-	public static void searchForHireable(Collection<Class<? extends Entity>> hireable, Iterable<GOTUnitTradeEntries> units) {
-		for (GOTUnitTradeEntries entries : units) {
-			for (GOTUnitTradeEntry entry : entries.tradeEntries) {
-				hireable.add(entry.entityClass);
-			}
-		}
-	}
-
-	public static void searchForMinerals(Iterable<GOTBiome> biomes, Collection<String> minerals) {
-		for (GOTBiome biome : biomes) {
-			List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
-			oreGenerants.addAll(biome.decorator.biomeOres);
-			oreGenerants.addAll(biome.decorator.biomeGems);
-			for (OreGenerant oreGenerant : oreGenerants) {
-				WorldGenMinable gen = oreGenerant.oreGen;
-				Block block = GOTReflection.getOreBlock(gen);
-				int meta = GOTReflection.getOreMeta(gen);
-				if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-					minerals.add(getBlockMetaName(block, meta));
-				} else {
-					minerals.add(getBlockName(block));
-				}
-			}
-		}
-	}
-
-	public static void searchForPagenamesBiome(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
-		next:
-		for (GOTBiome biome : biomes) {
-			String preName = getBiomeName(biome);
-			for (GOTFaction fac : factions) {
-				if (preName.equals(getFactionName(fac))) {
-					BIOME_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_BIOME + ")");
-					continue next;
-				}
-			}
-			for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
-				if (preName.equals(getEntityName(entityClass))) {
-					BIOME_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_BIOME + ")");
-					continue next;
-				}
-			}
-			BIOME_TO_PAGE.put(preName, preName);
-		}
-	}
-
-	public static void searchForPagenamesEntity(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
-		next:
-		for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
-			String preName = getEntityName(entityClass);
-			for (GOTBiome biome : biomes) {
-				if (preName.equals(getBiomeName(biome))) {
-					ENTITY_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_ENTITY + ")");
-					continue next;
-				}
-			}
-			for (GOTFaction fac : factions) {
-				if (preName.equals(getFactionName(fac))) {
-					ENTITY_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_ENTITY + ")");
-					continue next;
-				}
-			}
-			ENTITY_TO_PAGE.put(preName, preName);
-		}
-	}
-
-	public static void searchForPagenamesFaction(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
-		next:
-		for (GOTFaction fac : factions) {
-			String preName = getFactionName(fac);
-			for (GOTBiome biome : biomes) {
-				if (preName.equals(getBiomeName(biome))) {
-					FAC_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_FACTION + ")");
-					continue next;
-				}
-			}
-			for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
-				if (preName.equals(getEntityName(entityClass))) {
-					FAC_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_FACTION + ")");
-					continue next;
-				}
-			}
-			FAC_TO_PAGE.put(preName, preName);
-		}
-	}
-
-	public static void searchForStructures(Iterable<GOTBiome> biomes, Collection<Class<? extends WorldGenerator>> structures) {
-		for (GOTBiome biome : biomes) {
-			for (RandomStructure structure : biome.decorator.randomStructures) {
-				structures.add(structure.structureGen.getClass());
-			}
-		}
-	}
-
-	public static void setDisplay(String display) {
-		DatabaseGenerator.display = display;
 	}
 
 	public enum Database {

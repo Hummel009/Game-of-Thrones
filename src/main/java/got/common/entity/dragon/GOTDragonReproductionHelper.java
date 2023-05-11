@@ -123,8 +123,18 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		return dataWatcher.getWatchableObjectString(dataIndexBreeder);
 	}
 
+	public void setBreederName(String breederName) {
+		L.trace("setBreederName({})", breederName);
+		dataWatcher.updateObject(dataIndexBreeder, breederName);
+	}
+
 	public int getReproCount() {
 		return dataWatcher.getWatchableObjectInt(dataIndexReproduced);
+	}
+
+	public void setReproCount(int reproCount) {
+		L.trace("setReproCount({})", reproCount);
+		dataWatcher.updateObject(dataIndexReproduced, reproCount);
 	}
 
 	@Override
@@ -141,16 +151,6 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		}
 
 		setReproCount(reproCount);
-	}
-
-	public void setBreederName(String breederName) {
-		L.trace("setBreederName({})", breederName);
-		dataWatcher.updateObject(dataIndexBreeder, breederName);
-	}
-
-	public void setReproCount(int reproCount) {
-		L.trace("setReproCount({})", reproCount);
-		dataWatcher.updateObject(dataIndexReproduced, reproCount);
 	}
 
 	@Override

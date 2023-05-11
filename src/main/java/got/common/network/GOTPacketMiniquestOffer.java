@@ -30,6 +30,15 @@ public class GOTPacketMiniquestOffer implements IMessage {
 		miniquestData = nbt;
 	}
 
+	public static void sendClosePacket(EntityPlayer entityplayer, GOTEntityNPC npc, boolean accept) {
+		if (entityplayer == null) {
+			FMLLog.warning("GOT Warning: Tried to send miniquest offer close packet, but player == null");
+			return;
+		}
+		GOTPacketMiniquestOfferClose packet = new GOTPacketMiniquestOfferClose(npc.getEntityId(), accept);
+		GOTPacketHandler.networkWrapper.sendToServer(packet);
+	}
+
 	@Override
 	public void fromBytes(ByteBuf data) {
 		entityID = data.readInt();
@@ -50,15 +59,6 @@ public class GOTPacketMiniquestOffer implements IMessage {
 			FMLLog.severe("Error writing miniquest data");
 			e.printStackTrace();
 		}
-	}
-
-	public static void sendClosePacket(EntityPlayer entityplayer, GOTEntityNPC npc, boolean accept) {
-		if (entityplayer == null) {
-			FMLLog.warning("GOT Warning: Tried to send miniquest offer close packet, but player == null");
-			return;
-		}
-		GOTPacketMiniquestOfferClose packet = new GOTPacketMiniquestOfferClose(npc.getEntityId(), accept);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketMiniquestOffer, IMessage> {

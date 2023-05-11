@@ -19,14 +19,7 @@ public class GOTContainerCoinExchange extends Container {
 	public GOTContainerCoinExchange(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		int i;
 		theTraderNPC = npc;
-		addSlotToContainer(new Slot(coinInputInv, 0, 80, 46) {
-
-			@Override
-			public boolean isItemValid(ItemStack itemstack) {
-				return super.isItemValid(itemstack) && itemstack != null && GOTContainerCoinExchange.isValidCoin(itemstack);
-			}
-		});
-		class SlotCoinResult extends Slot {
+		addSlotToContainer(new 		class SlotCoinResult extends Slot {
 			public SlotCoinResult(IInventory inv, int i, int j, int k) {
 				super(inv, i, j, k);
 			}
@@ -40,6 +33,13 @@ public class GOTContainerCoinExchange extends Container {
 			public boolean isItemValid(ItemStack itemstack) {
 				return false;
 			}
+		});
+Slot(coinInputInv, 0, 80, 46) {
+
+			@Override
+			public boolean isItemValid(ItemStack itemstack) {
+				return super.isItemValid(itemstack) && itemstack != null && GOTContainerCoinExchange.isValidCoin(itemstack);
+			}
 		}
 		addSlotToContainer(new SlotCoinResult(exchangeInv, 0, 26, 46));
 		addSlotToContainer(new SlotCoinResult(exchangeInv, 1, 134, 46));
@@ -52,6 +52,10 @@ public class GOTContainerCoinExchange extends Container {
 			addSlotToContainer(new Slot(entityplayer.inventory, i, 8 + i * 18, 164));
 		}
 		onCraftMatrixChanged(coinInputInv);
+	}
+
+	public static boolean isValidCoin(ItemStack item) {
+		return item.getItem() == GOTRegistry.coin && !IPickpocketable.Helper.isPickpocketed(item);
 	}
 
 	@Override
@@ -215,10 +219,6 @@ public class GOTContainerCoinExchange extends Container {
 		if (i == 0) {
 			exchanged = j == 1;
 		}
-	}
-
-	public static boolean isValidCoin(ItemStack item) {
-		return item.getItem() == GOTRegistry.coin && !IPickpocketable.Helper.isPickpocketed(item);
 	}
 
 	public class InventoryCoinExchangeSlot extends InventoryBasic {

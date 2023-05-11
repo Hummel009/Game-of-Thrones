@@ -23,28 +23,6 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 		gotWeaponDamage = 8.0f;
 	}
 
-	@Override
-	public EnumAction getItemUseAction(ItemStack itemstack) {
-		return EnumAction.bow;
-	}
-
-	@Override
-	public int getMaxItemUseDuration(ItemStack itemstack) {
-		return 40;
-	}
-
-	@Override
-	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		itemstack.damageItem(2, entityplayer);
-		return GOTItemAsshaiShadowbinderStaff.useStaff(itemstack, world, entityplayer);
-	}
-
-	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
-		return itemstack;
-	}
-
 	public static ItemStack useStaff(ItemStack itemstack, World world, EntityLivingBase user) {
 		user.swingItem();
 		world.playSoundAtEntity(user, "mob.ghast.fireball", 2.0f, (itemRand.nextFloat() - itemRand.nextFloat()) * 0.2f + 1.0f);
@@ -108,6 +86,28 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 				}
 			}
 		}
+		return itemstack;
+	}
+
+	@Override
+	public EnumAction getItemUseAction(ItemStack itemstack) {
+		return EnumAction.bow;
+	}
+
+	@Override
+	public int getMaxItemUseDuration(ItemStack itemstack) {
+		return 40;
+	}
+
+	@Override
+	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+		itemstack.damageItem(2, entityplayer);
+		return GOTItemAsshaiShadowbinderStaff.useStaff(itemstack, world, entityplayer);
+	}
+
+	@Override
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+		entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
 		return itemstack;
 	}
 }

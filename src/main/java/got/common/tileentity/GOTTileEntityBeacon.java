@@ -40,6 +40,12 @@ public class GOTTileEntityBeacon extends TileEntity {
 		return beaconName;
 	}
 
+	public void setBeaconName(String name) {
+		beaconName = name;
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
+	}
+
 	@Override
 	public Packet getDescriptionPacket() {
 		NBTTagCompound data = new NBTTagCompound();
@@ -57,6 +63,21 @@ public class GOTTileEntityBeacon extends TileEntity {
 
 	public boolean isLit() {
 		return isLit;
+	}
+
+	public void setLit(boolean flag) {
+		boolean wasLit = isLit;
+		isLit = flag;
+		if (!isLit) {
+			litCounter = 0;
+		} else {
+			unlitCounter = 0;
+		}
+		updateLight();
+		stateChangeTime = worldObj.getTotalWorldTime();
+		if (wasLit && !isLit) {
+			sendFellowshipMessage(false);
+		}
 	}
 
 	public boolean isPlayerEditing(EntityPlayer entityplayer) {
@@ -104,32 +125,11 @@ public class GOTTileEntityBeacon extends TileEntity {
 		}
 	}
 
-	public void setBeaconName(String name) {
-		beaconName = name;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
-	}
-
 	public void setFellowship(GOTFellowship fs) {
 		beaconFellowshipID = fs != null ? fs.getFellowshipID() : null;
 		beaconFellowshipID = fs == null ? null : fs.getFellowshipID();
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
-	}
-
-	public void setLit(boolean flag) {
-		boolean wasLit = isLit;
-		isLit = flag;
-		if (!isLit) {
-			litCounter = 0;
-		} else {
-			unlitCounter = 0;
-		}
-		updateLight();
-		stateChangeTime = worldObj.getTotalWorldTime();
-		if (wasLit && !isLit) {
-			sendFellowshipMessage(false);
-		}
 	}
 
 	@Override

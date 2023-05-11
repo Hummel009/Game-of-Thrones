@@ -26,6 +26,15 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public static GOTItemRendererManager INSTANCE;
 	public static List<GOTRenderLargeItem> largeItemRenderers = new ArrayList<>();
 
+	public static void preInit() {
+		Minecraft mc = Minecraft.getMinecraft();
+		IResourceManager resMgr = mc.getResourceManager();
+		INSTANCE = new GOTItemRendererManager();
+		INSTANCE.onResourceManagerReload(resMgr);
+		((IReloadableResourceManager) resMgr).registerReloadListener(INSTANCE);
+		MinecraftForge.EVENT_BUS.register(INSTANCE);
+	}
+
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
 		largeItemRenderers.clear();
@@ -75,14 +84,5 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 				largeRenderer.registerIcons(map);
 			}
 		}
-	}
-
-	public static void preInit() {
-		Minecraft mc = Minecraft.getMinecraft();
-		IResourceManager resMgr = mc.getResourceManager();
-		INSTANCE = new GOTItemRendererManager();
-		INSTANCE.onResourceManagerReload(resMgr);
-		((IReloadableResourceManager) resMgr).registerReloadListener(INSTANCE);
-		MinecraftForge.EVENT_BUS.register(INSTANCE);
 	}
 }

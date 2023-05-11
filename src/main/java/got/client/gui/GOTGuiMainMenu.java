@@ -53,6 +53,29 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		GOTGuiMainMenu.mapRenderer.prevMapY = GOTGuiMainMenu.mapRenderer.mapY = wp.getY();
 	}
 
+	public static void setupWaypoints() {
+		waypointRoute.clear();
+		waypointRoute.add(GOTWaypoint.CastleBlack);
+		waypointRoute.add(GOTWaypoint.Winterfell);
+		waypointRoute.add(GOTWaypoint.Riverrun);
+		waypointRoute.add(GOTWaypoint.CasterlyRock);
+		waypointRoute.add(GOTWaypoint.KingsLanding);
+		waypointRoute.add(GOTWaypoint.StormsEnd);
+		waypointRoute.add(GOTWaypoint.Highgarden);
+		waypointRoute.add(GOTWaypoint.Sunspear);
+		waypointRoute.add(GOTWaypoint.Pentos);
+		waypointRoute.add(GOTWaypoint.OldGhis);
+		waypointRoute.add(GOTWaypoint.Tiqui);
+		waypointRoute.add(GOTWaypoint.Asshai);
+		waypointRoute.add(GOTWaypoint.EastCoast);
+		waypointRoute.add(GOTWaypoint.EastBay);
+		waypointRoute.add(GOTWaypoint.SouthUlthos);
+		waypointRoute.add(GOTWaypoint.RedForests);
+		waypointRoute.add(GOTWaypoint.Zamettar);
+		waypointRoute.add(GOTWaypoint.FourteenFlames);
+		waypointRoute.add(GOTWaypoint.KingsLanding);
+	}
+
 	@Override
 	public void drawScreen(int i, int j, float f) {
 		GL11.glEnable(3008);
@@ -175,28 +198,5 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		}
 		GOTGuiMainMenu.mapRenderer.mapX += mapVelX;
 		GOTGuiMainMenu.mapRenderer.mapY += mapVelY;
-	}
-
-	public static void setupWaypoints() {
-		waypointRoute.clear();
-		waypointRoute.add(GOTWaypoint.CastleBlack);
-		waypointRoute.add(GOTWaypoint.Winterfell);
-		waypointRoute.add(GOTWaypoint.Riverrun);
-		waypointRoute.add(GOTWaypoint.CasterlyRock);
-		waypointRoute.add(GOTWaypoint.KingsLanding);
-		waypointRoute.add(GOTWaypoint.StormsEnd);
-		waypointRoute.add(GOTWaypoint.Highgarden);
-		waypointRoute.add(GOTWaypoint.Sunspear);
-		waypointRoute.add(GOTWaypoint.Pentos);
-		waypointRoute.add(GOTWaypoint.OldGhis);
-		waypointRoute.add(GOTWaypoint.Tiqui);
-		waypointRoute.add(GOTWaypoint.Asshai);
-		waypointRoute.add(GOTWaypoint.EastCoast);
-		waypointRoute.add(GOTWaypoint.EastBay);
-		waypointRoute.add(GOTWaypoint.SouthUlthos);
-		waypointRoute.add(GOTWaypoint.RedForests);
-		waypointRoute.add(GOTWaypoint.Zamettar);
-		waypointRoute.add(GOTWaypoint.FourteenFlames);
-		waypointRoute.add(GOTWaypoint.KingsLanding);
 	}
 }

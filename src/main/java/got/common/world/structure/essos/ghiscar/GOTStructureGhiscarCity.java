@@ -62,6 +62,10 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, TOWN, FORT, PYRAMID_X, PYRAMID_Z;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -648,10 +652,6 @@ public class GOTStructureGhiscarCity extends GOTVillageGen {
 			spawner.setSpawnClasses(GOTEntityGhiscarCorsair.class, GOTEntityGhiscarCorsairArcher.class);
 		}
 
-	}
-
-	public enum VillageType {
-		VILLAGE, TOWN, FORT, PYRAMID_X, PYRAMID_Z;
 	}
 
 }

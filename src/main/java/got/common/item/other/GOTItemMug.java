@@ -75,6 +75,181 @@ public class GOTItemMug extends Item {
 		this(true, false, true, alc);
 	}
 
+	public static void addPotionEffectsToTooltip(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag, List itemEffects) {
+		if (!itemEffects.isEmpty()) {
+			ItemStack potionEquivalent = new ItemStack(Items.potionitem);
+			potionEquivalent.setItemDamage(69);
+			NBTTagList effectsData = new NBTTagList();
+			for (Object itemEffect : itemEffects) {
+				PotionEffect effect = (PotionEffect) itemEffect;
+				NBTTagCompound nbt = new NBTTagCompound();
+				effect.writeCustomPotionEffectToNBT(nbt);
+				effectsData.appendTag(nbt);
+			}
+			potionEquivalent.setTagCompound(new NBTTagCompound());
+			potionEquivalent.getTagCompound().setTag("CustomPotionEffects", effectsData);
+			ArrayList effectTooltips = new ArrayList<>();
+			potionEquivalent.getItem().addInformation(potionEquivalent, entityplayer, effectTooltips, flag);
+			list.addAll(effectTooltips);
+		}
+	}
+
+	public static ItemStack getEquivalentDrink(ItemStack itemstack) {
+		if (itemstack != null) {
+			Item item = itemstack.getItem();
+			if (item instanceof GOTItemMug) {
+				return itemstack;
+			}
+			if (item == Items.potionitem && itemstack.getItemDamage() == 0) {
+				ItemStack water = itemstack.copy();
+				water.func_150996_a(GOTRegistry.mugWater);
+				GOTItemMug.setVessel(water, Vessel.BOTTLE, false);
+				return water;
+			}
+		}
+		return itemstack;
+	}
+
+	public static float getFoodStrength(ItemStack itemstack) {
+		Item item = itemstack.getItem();
+		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
+			int i = GOTItemMug.getStrengthMeta(itemstack);
+			return foodStrengths[i];
+		}
+		return 1.0f;
+	}
+
+	public static ItemStack getRealDrink(ItemStack itemstack) {
+		if (itemstack != null && itemstack.getItem() == GOTRegistry.mugWater && GOTItemMug.getVessel(itemstack) == Vessel.BOTTLE) {
+			ItemStack water = itemstack.copy();
+			water.func_150996_a(Items.potionitem);
+			water.setItemDamage(0);
+			return water;
+		}
+		return itemstack;
+	}
+
+	public static float getStrength(ItemStack itemstack) {
+		Item item = itemstack.getItem();
+		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
+			int i = GOTItemMug.getStrengthMeta(itemstack);
+			return strengths[i];
+		}
+		return 1.0f;
+	}
+
+	public static int getStrengthMeta(int damage) {
+		int i = damage % vesselMeta;
+		if (i < 0 || i >= strengths.length) {
+			i = 0;
+		}
+		return i;
+	}
+
+	public static int getStrengthMeta(ItemStack itemstack) {
+		return GOTItemMug.getStrengthMeta(itemstack.getItemDamage());
+	}
+
+	public static String getStrengthSubtitle(ItemStack itemstack) {
+		Item item;
+		if (itemstack != null && (item = itemstack.getItem()) instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
+			int i = GOTItemMug.getStrengthMeta(itemstack);
+			return StatCollector.translateToLocal("item.got.drink." + strengthNames[i]);
+		}
+		return null;
+	}
+
+	public static Vessel getVessel(int damage) {
+		int i = damage / vesselMeta;
+		return Vessel.forMeta(i);
+	}
+
+	public static Vessel getVessel(ItemStack itemstack) {
+		Item item = itemstack.getItem();
+		if (item instanceof GOTItemMug) {
+			GOTItemMug itemMug = (GOTItemMug) item;
+			if (itemMug.isFullMug) {
+				return GOTItemMug.getVessel(itemstack.getItemDamage());
+			}
+			return itemMug.getEmptyVesselType();
+		}
+		if (item == Items.glass_bottle || item == Items.potionitem && itemstack.getItemDamage() == 0) {
+			return Vessel.BOTTLE;
+		}
+		return null;
+	}
+
+	public static boolean isItemEmptyDrink(ItemStack itemstack) {
+		if (itemstack != null) {
+			Item item = itemstack.getItem();
+			if (item instanceof GOTItemMug) {
+				return !((GOTItemMug) item).isFullMug;
+			}
+			if (item == Items.glass_bottle) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean isItemFullDrink(ItemStack itemstack) {
+		if (itemstack != null) {
+			Item item = itemstack.getItem();
+			if (item instanceof GOTItemMug) {
+				return ((GOTItemMug) item).isFullMug;
+			}
+			if (item == Items.potionitem && itemstack.getItemDamage() == 0) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static void setStrengthMeta(ItemStack itemstack, int i) {
+		Vessel v = GOTItemMug.getVessel(itemstack);
+		itemstack.setItemDamage(i);
+		GOTItemMug.setVessel(itemstack, v, true);
+	}
+
+	public static void setVessel(ItemStack itemstack, Vessel v, boolean correctItem) {
+		if (correctItem && itemstack.getItem() == Items.potionitem && itemstack.getItemDamage() == 0) {
+			itemstack.func_150996_a(GOTRegistry.mugWater);
+			itemstack.setItemDamage(0);
+		}
+		int i = itemstack.getItemDamage();
+		itemstack.setItemDamage(v.id * vesselMeta + (i %= vesselMeta));
+		if (correctItem && itemstack.getItem() == GOTRegistry.mugWater && v == Vessel.BOTTLE) {
+			itemstack.func_150996_a(Items.potionitem);
+			itemstack.setItemDamage(0);
+		}
+	}
+
+	public static boolean tryPlaceMug(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side) {
+		Vessel vessel = GOTItemMug.getVessel(itemstack);
+		if (vessel == null || !vessel.canPlace) {
+			return false;
+		}
+		Block mugBlock = vessel.getBlock();
+		Block block = world.getBlock(i += Facing.offsetsXForSide[side], j += Facing.offsetsYForSide[side], k += Facing.offsetsZForSide[side]);
+		if (block != null && !block.isReplaceable(world, i, j, k) || block.getMaterial() == Material.water) {
+			return false;
+		}
+		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack)) {
+			if (!mugBlock.canPlaceBlockAt(world, i, j, k)) {
+				return false;
+			}
+			int l = MathHelper.floor_double(entityplayer.rotationYaw * 4.0f / 360.0f + 0.5) & 3;
+			world.setBlock(i, j, k, mugBlock, l, 3);
+			ItemStack mugFill = itemstack.copy();
+			mugFill.stackSize = 1;
+			GOTBlockMug.setMugItem(world, i, j, k, mugFill, vessel);
+			world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, mugBlock.stepSound.func_150496_b(), (mugBlock.stepSound.getVolume() + 1.0f) / 2.0f, mugBlock.stepSound.getPitch() * 0.8f);
+			--itemstack.stackSize;
+			return true;
+		}
+		return false;
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
@@ -325,181 +500,6 @@ public class GOTItemMug extends Item {
 		return true;
 	}
 
-	public static void addPotionEffectsToTooltip(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag, List itemEffects) {
-		if (!itemEffects.isEmpty()) {
-			ItemStack potionEquivalent = new ItemStack(Items.potionitem);
-			potionEquivalent.setItemDamage(69);
-			NBTTagList effectsData = new NBTTagList();
-			for (Object itemEffect : itemEffects) {
-				PotionEffect effect = (PotionEffect) itemEffect;
-				NBTTagCompound nbt = new NBTTagCompound();
-				effect.writeCustomPotionEffectToNBT(nbt);
-				effectsData.appendTag(nbt);
-			}
-			potionEquivalent.setTagCompound(new NBTTagCompound());
-			potionEquivalent.getTagCompound().setTag("CustomPotionEffects", effectsData);
-			ArrayList effectTooltips = new ArrayList<>();
-			potionEquivalent.getItem().addInformation(potionEquivalent, entityplayer, effectTooltips, flag);
-			list.addAll(effectTooltips);
-		}
-	}
-
-	public static ItemStack getEquivalentDrink(ItemStack itemstack) {
-		if (itemstack != null) {
-			Item item = itemstack.getItem();
-			if (item instanceof GOTItemMug) {
-				return itemstack;
-			}
-			if (item == Items.potionitem && itemstack.getItemDamage() == 0) {
-				ItemStack water = itemstack.copy();
-				water.func_150996_a(GOTRegistry.mugWater);
-				GOTItemMug.setVessel(water, Vessel.BOTTLE, false);
-				return water;
-			}
-		}
-		return itemstack;
-	}
-
-	public static float getFoodStrength(ItemStack itemstack) {
-		Item item = itemstack.getItem();
-		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
-			int i = GOTItemMug.getStrengthMeta(itemstack);
-			return foodStrengths[i];
-		}
-		return 1.0f;
-	}
-
-	public static ItemStack getRealDrink(ItemStack itemstack) {
-		if (itemstack != null && itemstack.getItem() == GOTRegistry.mugWater && GOTItemMug.getVessel(itemstack) == Vessel.BOTTLE) {
-			ItemStack water = itemstack.copy();
-			water.func_150996_a(Items.potionitem);
-			water.setItemDamage(0);
-			return water;
-		}
-		return itemstack;
-	}
-
-	public static float getStrength(ItemStack itemstack) {
-		Item item = itemstack.getItem();
-		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
-			int i = GOTItemMug.getStrengthMeta(itemstack);
-			return strengths[i];
-		}
-		return 1.0f;
-	}
-
-	public static int getStrengthMeta(int damage) {
-		int i = damage % vesselMeta;
-		if (i < 0 || i >= strengths.length) {
-			i = 0;
-		}
-		return i;
-	}
-
-	public static int getStrengthMeta(ItemStack itemstack) {
-		return GOTItemMug.getStrengthMeta(itemstack.getItemDamage());
-	}
-
-	public static String getStrengthSubtitle(ItemStack itemstack) {
-		Item item;
-		if (itemstack != null && (item = itemstack.getItem()) instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
-			int i = GOTItemMug.getStrengthMeta(itemstack);
-			return StatCollector.translateToLocal("item.got.drink." + strengthNames[i]);
-		}
-		return null;
-	}
-
-	public static Vessel getVessel(int damage) {
-		int i = damage / vesselMeta;
-		return Vessel.forMeta(i);
-	}
-
-	public static Vessel getVessel(ItemStack itemstack) {
-		Item item = itemstack.getItem();
-		if (item instanceof GOTItemMug) {
-			GOTItemMug itemMug = (GOTItemMug) item;
-			if (itemMug.isFullMug) {
-				return GOTItemMug.getVessel(itemstack.getItemDamage());
-			}
-			return itemMug.getEmptyVesselType();
-		}
-		if (item == Items.glass_bottle || item == Items.potionitem && itemstack.getItemDamage() == 0) {
-			return Vessel.BOTTLE;
-		}
-		return null;
-	}
-
-	public static boolean isItemEmptyDrink(ItemStack itemstack) {
-		if (itemstack != null) {
-			Item item = itemstack.getItem();
-			if (item instanceof GOTItemMug) {
-				return !((GOTItemMug) item).isFullMug;
-			}
-			if (item == Items.glass_bottle) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static boolean isItemFullDrink(ItemStack itemstack) {
-		if (itemstack != null) {
-			Item item = itemstack.getItem();
-			if (item instanceof GOTItemMug) {
-				return ((GOTItemMug) item).isFullMug;
-			}
-			if (item == Items.potionitem && itemstack.getItemDamage() == 0) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static void setStrengthMeta(ItemStack itemstack, int i) {
-		Vessel v = GOTItemMug.getVessel(itemstack);
-		itemstack.setItemDamage(i);
-		GOTItemMug.setVessel(itemstack, v, true);
-	}
-
-	public static void setVessel(ItemStack itemstack, Vessel v, boolean correctItem) {
-		if (correctItem && itemstack.getItem() == Items.potionitem && itemstack.getItemDamage() == 0) {
-			itemstack.func_150996_a(GOTRegistry.mugWater);
-			itemstack.setItemDamage(0);
-		}
-		int i = itemstack.getItemDamage();
-		itemstack.setItemDamage(v.id * vesselMeta + (i %= vesselMeta));
-		if (correctItem && itemstack.getItem() == GOTRegistry.mugWater && v == Vessel.BOTTLE) {
-			itemstack.func_150996_a(Items.potionitem);
-			itemstack.setItemDamage(0);
-		}
-	}
-
-	public static boolean tryPlaceMug(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side) {
-		Vessel vessel = GOTItemMug.getVessel(itemstack);
-		if (vessel == null || !vessel.canPlace) {
-			return false;
-		}
-		Block mugBlock = vessel.getBlock();
-		Block block = world.getBlock(i += Facing.offsetsXForSide[side], j += Facing.offsetsYForSide[side], k += Facing.offsetsZForSide[side]);
-		if (block != null && !block.isReplaceable(world, i, j, k) || block.getMaterial() == Material.water) {
-			return false;
-		}
-		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack)) {
-			if (!mugBlock.canPlaceBlockAt(world, i, j, k)) {
-				return false;
-			}
-			int l = MathHelper.floor_double(entityplayer.rotationYaw * 4.0f / 360.0f + 0.5) & 3;
-			world.setBlock(i, j, k, mugBlock, l, 3);
-			ItemStack mugFill = itemstack.copy();
-			mugFill.stackSize = 1;
-			GOTBlockMug.setMugItem(world, i, j, k, mugFill, vessel);
-			world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, mugBlock.stepSound.func_150496_b(), (mugBlock.stepSound.getVolume() + 1.0f) / 2.0f, mugBlock.stepSound.getPitch() * 0.8f);
-			--itemstack.stackSize;
-			return true;
-		}
-		return false;
-	}
-
 	public enum Vessel {
 		MUG(0, "mug", true, 0), MUG_CLAY(1, "clay", true, 1), GOBLET_GOLD(2, "goblet_gold", true, 10), GOBLET_SILVER(3, "goblet_silver", true, 8), GOBLET_COPPER(4, "goblet_copper", true, 5), GOBLET_WOOD(5, "goblet_wood", true, 0), SKULL(6, "skull", true, 3), GLASS(7, "glass", true, 3), BOTTLE(8, "bottle", true, 2), SKIN(9, "skin", false, 0), HORN(10, "horn", true, 5), HORN_GOLD(11, "horn_gold", true, 8);
 
@@ -513,6 +513,16 @@ public class GOTItemMug extends Item {
 			name = s;
 			canPlace = flag;
 			extraPrice = p;
+		}
+
+		public static Vessel forMeta(int i) {
+			for (Vessel v : Vessel.values()) {
+				if (v.id != i) {
+					continue;
+				}
+				return v;
+			}
+			return MUG;
 		}
 
 		public Block getBlock() {
@@ -597,16 +607,6 @@ public class GOTItemMug extends Item {
 				return GOTRegistry.aleHornGold;
 			}
 			return GOTRegistry.mug;
-		}
-
-		public static Vessel forMeta(int i) {
-			for (Vessel v : Vessel.values()) {
-				if (v.id != i) {
-					continue;
-				}
-				return v;
-			}
-			return MUG;
 		}
 	}
 

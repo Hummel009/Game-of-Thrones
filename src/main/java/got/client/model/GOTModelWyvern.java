@@ -10,6 +10,7 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(value = Side.CLIENT)
 public class GOTModelWyvern extends ModelBase {
+	public float radianF = 57.29578f;
 	ModelRenderer back4;
 	ModelRenderer back3;
 	ModelRenderer back2;
@@ -101,7 +102,6 @@ public class GOTModelWyvern extends ModelBase {
 	ModelRenderer rightwingflap1;
 	ModelRenderer rightwingflap2;
 	ModelRenderer rightwingflap3;
-	public float radianF = 57.29578f;
 
 	public GOTModelWyvern() {
 		textureWidth = 128;
@@ -497,6 +497,10 @@ public class GOTModelWyvern extends ModelBase {
 		stomachbelt.setRotationPoint(0.0f, 0.0f, 0.0f);
 	}
 
+	public static float realAngle(float origAngle) {
+		return origAngle % 360.0f;
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		this.setRotationAngles(f, f1, f2, f3, f4, f5);
@@ -602,9 +606,5 @@ public class GOTModelWyvern extends ModelBase {
 		Jaw.rotateAngleX = -10.0f / radianF;
 		leftearskin.rotateAngleY = 0.0f;
 		rightearskin.rotateAngleY = 0.0f;
-	}
-
-	public static float realAngle(float origAngle) {
-		return origAngle % 360.0f;
 	}
 }

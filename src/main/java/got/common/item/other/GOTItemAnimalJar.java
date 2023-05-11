@@ -23,6 +23,43 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 		setMaxStackSize(1);
 	}
 
+	public static NBTTagCompound getEntityData(ItemStack itemstack) {
+		if (itemstack.hasTagCompound()) {
+			NBTTagCompound nbt;
+			if (itemstack.getTagCompound().hasKey("GOTButterfly")) {
+				nbt = itemstack.getTagCompound().getCompoundTag("GOTButterfly");
+				if (!nbt.hasNoTags()) {
+					nbt.setString("id", GOTEntityRegistry.getStringFromClass(GOTEntityButterfly.class));
+					GOTItemAnimalJar.setEntityData(itemstack, (NBTTagCompound) nbt.copy());
+				}
+				itemstack.getTagCompound().removeTag("GOTButterfly");
+			}
+			if (itemstack.getTagCompound().hasKey("JarEntity") && !(nbt = itemstack.getTagCompound().getCompoundTag("JarEntity")).hasNoTags()) {
+				return nbt;
+			}
+		}
+		return null;
+	}
+
+	public static Entity getItemJarEntity(ItemStack itemstack, World world) {
+		NBTTagCompound nbt = GOTItemAnimalJar.getEntityData(itemstack);
+		if (nbt != null) {
+			return EntityList.createEntityFromNBT(nbt, world);
+		}
+		return null;
+	}
+
+	public static void setEntityData(ItemStack itemstack, NBTTagCompound nbt) {
+		if (itemstack.getTagCompound() == null) {
+			itemstack.setTagCompound(new NBTTagCompound());
+		}
+		if (nbt == null) {
+			itemstack.getTagCompound().removeTag("JarEntity");
+		} else {
+			itemstack.getTagCompound().setTag("JarEntity", nbt);
+		}
+	}
+
 	@Override
 	public boolean itemInteractionForEntity(ItemStack itemstack, EntityPlayer entityplayer, EntityLivingBase entity) {
 		itemstack = entityplayer.getCurrentEquippedItem();
@@ -71,42 +108,5 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 			return true;
 		}
 		return false;
-	}
-
-	public static NBTTagCompound getEntityData(ItemStack itemstack) {
-		if (itemstack.hasTagCompound()) {
-			NBTTagCompound nbt;
-			if (itemstack.getTagCompound().hasKey("GOTButterfly")) {
-				nbt = itemstack.getTagCompound().getCompoundTag("GOTButterfly");
-				if (!nbt.hasNoTags()) {
-					nbt.setString("id", GOTEntityRegistry.getStringFromClass(GOTEntityButterfly.class));
-					GOTItemAnimalJar.setEntityData(itemstack, (NBTTagCompound) nbt.copy());
-				}
-				itemstack.getTagCompound().removeTag("GOTButterfly");
-			}
-			if (itemstack.getTagCompound().hasKey("JarEntity") && !(nbt = itemstack.getTagCompound().getCompoundTag("JarEntity")).hasNoTags()) {
-				return nbt;
-			}
-		}
-		return null;
-	}
-
-	public static Entity getItemJarEntity(ItemStack itemstack, World world) {
-		NBTTagCompound nbt = GOTItemAnimalJar.getEntityData(itemstack);
-		if (nbt != null) {
-			return EntityList.createEntityFromNBT(nbt, world);
-		}
-		return null;
-	}
-
-	public static void setEntityData(ItemStack itemstack, NBTTagCompound nbt) {
-		if (itemstack.getTagCompound() == null) {
-			itemstack.setTagCompound(new NBTTagCompound());
-		}
-		if (nbt == null) {
-			itemstack.getTagCompound().removeTag("JarEntity");
-		} else {
-			itemstack.getTagCompound().setTag("JarEntity", nbt);
-		}
 	}
 }

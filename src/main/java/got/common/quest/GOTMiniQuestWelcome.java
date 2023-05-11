@@ -54,6 +54,26 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		quoteComplete = GOTSpeech.getSpeechAtLine(SPEECHBANK, 12);
 	}
 
+	public static boolean[] forceMenuMapFactions(EntityPlayer entityplayer) {
+		boolean[] flags = {false, false};
+		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
+		List<GOTMiniQuest> activeQuests = pd.getActiveMiniQuests();
+		for (GOTMiniQuest quest : activeQuests) {
+			if (quest instanceof GOTMiniQuestWelcome) {
+				GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
+				if (qw.stage == 5) {
+					flags[0] = true;
+					break;
+				}
+				if (qw.stage == 11) {
+					flags[1] = true;
+					break;
+				}
+			}
+		}
+		return flags;
+	}
+
 	@Override
 	public boolean canPlayerAccept(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
@@ -340,25 +360,5 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		super.writeToNBT(nbt);
 		nbt.setByte("WStage", (byte) stage);
 		nbt.setBoolean("WMovedOn", movedOn);
-	}
-
-	public static boolean[] forceMenuMapFactions(EntityPlayer entityplayer) {
-		boolean[] flags = {false, false};
-		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		List<GOTMiniQuest> activeQuests = pd.getActiveMiniQuests();
-		for (GOTMiniQuest quest : activeQuests) {
-			if (quest instanceof GOTMiniQuestWelcome) {
-				GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
-				if (qw.stage == 5) {
-					flags[0] = true;
-					break;
-				}
-				if (qw.stage == 11) {
-					flags[1] = true;
-					break;
-				}
-			}
-		}
-		return flags;
 	}
 }

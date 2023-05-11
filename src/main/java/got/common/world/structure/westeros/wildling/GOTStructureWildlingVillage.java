@@ -46,6 +46,10 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, HARDHOME, CRASTER;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -220,9 +224,5 @@ public class GOTStructureWildlingVillage extends GOTVillageGen {
 			}
 		}
 
-	}
-
-	public enum VillageType {
-		VILLAGE, HARDHOME, CRASTER;
 	}
 }

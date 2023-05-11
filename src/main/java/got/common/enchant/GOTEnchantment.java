@@ -103,6 +103,10 @@ public abstract class GOTEnchantment {
 		enchantsByName.put(enchantName, this);
 	}
 
+	public static GOTEnchantment getEnchantmentByName(String s) {
+		return enchantsByName.get(s);
+	}
+
 	public boolean applyToProjectile() {
 		return applyToProjectile;
 	}
@@ -169,6 +173,11 @@ public abstract class GOTEnchantment {
 		return enchantWeight;
 	}
 
+	public GOTEnchantment setEnchantWeight(int i) {
+		enchantWeight = i;
+		return this;
+	}
+
 	public String getNamedFormattedDescription(ItemStack itemstack) {
 		String s = StatCollector.translateToLocalFormatted("got.enchant.descFormat", getDisplayName(), getDescription(itemstack));
 		if (isBeneficial()) {
@@ -181,6 +190,11 @@ public abstract class GOTEnchantment {
 
 	public float getValueModifier() {
 		return valueModifier;
+	}
+
+	public GOTEnchantment setValueModifier(float f) {
+		valueModifier = f;
+		return this;
 	}
 
 	public boolean hasTemplateItem() {
@@ -211,11 +225,6 @@ public abstract class GOTEnchantment {
 		return this;
 	}
 
-	public GOTEnchantment setEnchantWeight(int i) {
-		enchantWeight = i;
-		return this;
-	}
-
 	public GOTEnchantment setPersistsReforge() {
 		persistsReforge = true;
 		return this;
@@ -224,14 +233,5 @@ public abstract class GOTEnchantment {
 	public GOTEnchantment setSkilful() {
 		skilful = true;
 		return this;
-	}
-
-	public GOTEnchantment setValueModifier(float f) {
-		valueModifier = f;
-		return this;
-	}
-
-	public static GOTEnchantment getEnchantmentByName(String s) {
-		return enchantsByName.get(s);
 	}
 }

@@ -29,6 +29,23 @@ public class GOTItemDye extends Item {
 		setCreativeTab(GOTCreativeTabs.tabMaterials);
 	}
 
+	public static int isItemDye(ItemStack itemstack) {
+		if (itemstack.getItem() == Items.dye) {
+			return itemstack.getItemDamage();
+		}
+		for (int id : OreDictionary.getOreIDs(itemstack)) {
+			String oreName = OreDictionary.getOreName(id);
+			for (int j = 0; j <= 15; ++j) {
+				ItemStack dye = new ItemStack(Items.dye, 1, j);
+				if (!GOT.isOreNameEqual(dye, oreName)) {
+					continue;
+				}
+				return j;
+			}
+		}
+		return -1;
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
@@ -76,22 +93,5 @@ public class GOTItemDye extends Item {
 		for (int i = 0; i < dyeNames.length; ++i) {
 			dyeIcons[i] = iconregister.registerIcon(getIconString() + "_" + dyeNames[i]);
 		}
-	}
-
-	public static int isItemDye(ItemStack itemstack) {
-		if (itemstack.getItem() == Items.dye) {
-			return itemstack.getItemDamage();
-		}
-		for (int id : OreDictionary.getOreIDs(itemstack)) {
-			String oreName = OreDictionary.getOreName(id);
-			for (int j = 0; j <= 15; ++j) {
-				ItemStack dye = new ItemStack(Items.dye, 1, j);
-				if (!GOT.isOreNameEqual(dye, oreName)) {
-					continue;
-				}
-				return j;
-			}
-		}
-		return -1;
 	}
 }

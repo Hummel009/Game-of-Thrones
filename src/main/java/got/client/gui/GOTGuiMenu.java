@@ -21,6 +21,28 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 	public static Class<? extends GOTGuiMenuWBBase> lastMenuScreen = null;
 	public boolean sentCheckPacket = false;
 
+	public static GuiScreen openMenu(EntityPlayer entityplayer) {
+		boolean[] map_factions = GOTMiniQuestWelcome.forceMenuMapFactions(entityplayer);
+		if (map_factions[0]) {
+			return new GOTGuiMap();
+		}
+		if (map_factions[1]) {
+			return new GOTGuiFactions();
+		}
+		if (lastMenuScreen != null) {
+			try {
+				return lastMenuScreen.newInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return new GOTGuiMenu();
+	}
+
+	public static void resetLastMenuScreen() {
+		lastMenuScreen = null;
+	}
+
 	@Override
 	public void actionPerformed(GuiButton button) {
 		GOTGuiMenuWBBase screen;
@@ -116,27 +138,5 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 				sentCheckPacket = true;
 			}
 		}
-	}
-
-	public static GuiScreen openMenu(EntityPlayer entityplayer) {
-		boolean[] map_factions = GOTMiniQuestWelcome.forceMenuMapFactions(entityplayer);
-		if (map_factions[0]) {
-			return new GOTGuiMap();
-		}
-		if (map_factions[1]) {
-			return new GOTGuiFactions();
-		}
-		if (lastMenuScreen != null) {
-			try {
-				return lastMenuScreen.newInstance();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return new GOTGuiMenu();
-	}
-
-	public static void resetLastMenuScreen() {
-		lastMenuScreen = null;
 	}
 }

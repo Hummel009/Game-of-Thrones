@@ -39,6 +39,21 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 
+	public static boolean hasCorn(World world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return GOTBlockCorn.metaHasCorn(meta);
+	}
+
+	public static boolean metaHasCorn(int l) {
+		return (l & 8) != 0;
+	}
+
+	public static void setHasCorn(World world, int i, int j, int k, boolean flag) {
+		int meta = world.getBlockMetadata(i, j, k);
+		meta = flag ? (meta |= 8) : (meta &= 7);
+		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
+	}
+
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		return canPlaceBlockAt(world, i, j, k);
@@ -254,21 +269,6 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 				GOTBlockCorn.setHasCorn(world, i, j, k, true);
 			}
 		}
-	}
-
-	public static boolean hasCorn(World world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return GOTBlockCorn.metaHasCorn(meta);
-	}
-
-	public static boolean metaHasCorn(int l) {
-		return (l & 8) != 0;
-	}
-
-	public static void setHasCorn(World world, int i, int j, int k, boolean flag) {
-		int meta = world.getBlockMetadata(i, j, k);
-		meta = flag ? (meta |= 8) : (meta &= 7);
-		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
 	}
 
 }

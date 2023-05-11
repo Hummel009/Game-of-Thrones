@@ -49,6 +49,28 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 		return breed;
 	}
 
+	public void setBreed(GOTDragonBreed newBreed) {
+		L.trace("setBreed({})", newBreed);
+
+		if (newBreed == null) {
+			throw new NullPointerException();
+		}
+
+		if (dragon.isClient()) {
+			return;
+		}
+
+		GOTDragonBreed oldBreed = getBreed();
+		if (oldBreed == newBreed) {
+			return;
+		}
+
+		oldBreed.onDisable(dragon);
+		newBreed.onEnable(dragon);
+
+		dataWatcher.updateObject(dataIndex, newBreed.getName());
+	}
+
 	public Map<GOTDragonBreed, AtomicInteger> getBreedPoints() {
 		return Collections.unmodifiableMap(breedPoints);
 	}
@@ -137,28 +159,6 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 		for (Map.Entry<GOTDragonBreed, AtomicInteger> breedPoint : breedPoints.entrySet()) {
 			breedPoint.getValue().set(breedPointTag.getInteger(breedPoint.getKey().getName()));
 		}
-	}
-
-	public void setBreed(GOTDragonBreed newBreed) {
-		L.trace("setBreed({})", newBreed);
-
-		if (newBreed == null) {
-			throw new NullPointerException();
-		}
-
-		if (dragon.isClient()) {
-			return;
-		}
-
-		GOTDragonBreed oldBreed = getBreed();
-		if (oldBreed == newBreed) {
-			return;
-		}
-
-		oldBreed.onDisable(dragon);
-		newBreed.onEnable(dragon);
-
-		dataWatcher.updateObject(dataIndex, newBreed.getName());
 	}
 
 	@Override

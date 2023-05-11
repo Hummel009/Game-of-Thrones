@@ -1,6 +1,7 @@
 package got.common.tileentity;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class GOTTileEntitySignCarvedValyrian extends GOTTileEntitySignCarved {
 	public GOTTileEntityGlowLogic glowLogic = new GOTTileEntityGlowLogic().setPlayerRange(8);

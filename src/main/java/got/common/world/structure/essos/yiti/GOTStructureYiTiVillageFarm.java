@@ -100,6 +100,23 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 			super(flag);
 		}
 
+		public static EntityAnimal getRandomAnimal(World world, Random random) {
+			int animal = random.nextInt(4);
+			switch (animal) {
+				case 0:
+					return new EntityCow(world);
+				case 1:
+					return new EntityPig(world);
+				case 2:
+					return new EntitySheep(world);
+				case 3:
+					return new EntityChicken(world);
+				default:
+					break;
+			}
+			return null;
+		}
+
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			int i1;
@@ -138,23 +155,6 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 				animal.detachHome();
 			}
 			return true;
-		}
-
-		public static EntityAnimal getRandomAnimal(World world, Random random) {
-			int animal = random.nextInt(4);
-			switch (animal) {
-				case 0:
-					return new EntityCow(world);
-				case 1:
-					return new EntityPig(world);
-				case 2:
-					return new EntitySheep(world);
-				case 3:
-					return new EntityChicken(world);
-				default:
-					break;
-			}
-			return null;
 		}
 	}
 
@@ -212,6 +212,20 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 			super(flag);
 		}
 
+		public static GOTTreeType getRandomTree(Random random) {
+			ArrayList<GOTTreeType> treeList = new ArrayList<>();
+			treeList.add(GOTTreeType.BEECH);
+			treeList.add(GOTTreeType.BEECH_LARGE);
+			treeList.add(GOTTreeType.MAPLE);
+			treeList.add(GOTTreeType.MAPLE_LARGE);
+			treeList.add(GOTTreeType.CYPRESS);
+			treeList.add(GOTTreeType.ALMOND);
+			treeList.add(GOTTreeType.OLIVE);
+			treeList.add(GOTTreeType.DATE_PALM);
+			treeList.add(GOTTreeType.POMEGRANATE);
+			return treeList.get(random.nextInt(treeList.size()));
+		}
+
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			int i1;
@@ -252,20 +266,6 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 				}
 			}
 			return true;
-		}
-
-		public static GOTTreeType getRandomTree(Random random) {
-			ArrayList<GOTTreeType> treeList = new ArrayList<>();
-			treeList.add(GOTTreeType.BEECH);
-			treeList.add(GOTTreeType.BEECH_LARGE);
-			treeList.add(GOTTreeType.MAPLE);
-			treeList.add(GOTTreeType.MAPLE_LARGE);
-			treeList.add(GOTTreeType.CYPRESS);
-			treeList.add(GOTTreeType.ALMOND);
-			treeList.add(GOTTreeType.OLIVE);
-			treeList.add(GOTTreeType.DATE_PALM);
-			treeList.add(GOTTreeType.POMEGRANATE);
-			return treeList.get(random.nextInt(treeList.size()));
 		}
 	}
 

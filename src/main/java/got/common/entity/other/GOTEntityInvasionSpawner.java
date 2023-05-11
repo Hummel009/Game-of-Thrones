@@ -52,6 +52,22 @@ public class GOTEntityInvasionSpawner extends Entity {
 		spawnerSpin = rand.nextFloat() * 360.0f;
 	}
 
+	public static GOTEntityInvasionSpawner locateInvasionNearby(Entity seeker, UUID id) {
+		World world = seeker.worldObj;
+		double search = 256.0;
+		List invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), new IEntitySelector() {
+
+			@Override
+			public boolean isEntityApplicable(Entity e) {
+				return e.getUniqueID().equals(id);
+			}
+		});
+		if (!invasions.isEmpty()) {
+			return (GOTEntityInvasionSpawner) invasions.get(0);
+		}
+		return null;
+	}
+
 	public void addPlayerKill(EntityPlayer entityplayer) {
 		--invasionRemaining;
 		timeSincePlayerProgress = 0;
@@ -193,6 +209,10 @@ public class GOTEntityInvasionSpawner extends Entity {
 			return type;
 		}
 		return GOTInvasions.NORTH;
+	}
+
+	public void setInvasionType(GOTInvasions type) {
+		dataWatcher.updateObject(20, (byte) type.ordinal());
 	}
 
 	@Override
@@ -412,10 +432,6 @@ public class GOTEntityInvasionSpawner extends Entity {
 		};
 	}
 
-	public void setInvasionType(GOTInvasions type) {
-		dataWatcher.updateObject(20, (byte) type.ordinal());
-	}
-
 	public void setWatchingInvasion(EntityPlayerMP entityplayer, boolean overrideAlreadyWatched) {
 		GOTPacketInvasionWatch pkt = new GOTPacketInvasionWatch(this, overrideAlreadyWatched);
 		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
@@ -493,22 +509,6 @@ public class GOTEntityInvasionSpawner extends Entity {
 			}
 			nbt.setTag("BonusFactions", bonusTags);
 		}
-	}
-
-	public static GOTEntityInvasionSpawner locateInvasionNearby(Entity seeker, UUID id) {
-		World world = seeker.worldObj;
-		double search = 256.0;
-		List invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity e) {
-				return e.getUniqueID().equals(id);
-			}
-		});
-		if (!invasions.isEmpty()) {
-			return (GOTEntityInvasionSpawner) invasions.get(0);
-		}
-		return null;
 	}
 
 }

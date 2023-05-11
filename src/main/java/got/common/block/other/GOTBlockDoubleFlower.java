@@ -31,6 +31,14 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 
+	public static int getFlowerMeta(int i) {
+		return i & 7;
+	}
+
+	public static boolean isTop(int i) {
+		return (i & 8) != 0;
+	}
+
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		if (world.getBlock(i, j, k) != this) {
@@ -183,13 +191,5 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess world, int i, int j, int k) {
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
-	}
-
-	public static int getFlowerMeta(int i) {
-		return i & 7;
-	}
-
-	public static boolean isTop(int i) {
-		return (i & 8) != 0;
 	}
 }

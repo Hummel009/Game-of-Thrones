@@ -37,6 +37,13 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		super(pd);
 	}
 
+	public static ItemStack createPickpocketIcon() {
+		ItemStack hat = new ItemStack(GOTRegistry.leatherHat);
+		GOTItemLeatherHat.setHatColor(hat, 0);
+		GOTItemLeatherHat.setFeatherColor(hat, 16777215);
+		return hat;
+	}
+
 	@Override
 	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		int coins;
@@ -299,13 +306,6 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			ids.appendTag(new NBTTagString(id.toString()));
 		}
 		nbt.setTag("PickpocketedIDs", ids);
-	}
-
-	public static ItemStack createPickpocketIcon() {
-		ItemStack hat = new ItemStack(GOTRegistry.leatherHat);
-		GOTItemLeatherHat.setHatColor(hat, 0);
-		GOTItemLeatherHat.setFeatherColor(hat, 16777215);
-		return hat;
 	}
 
 	public static class QFPickpocket<Q extends GOTMiniQuestPickpocket> extends GOTMiniQuest.QuestFactoryBase<Q> {

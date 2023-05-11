@@ -36,6 +36,18 @@ public abstract class GOTVillageGen {
 		spawnBiomes.add(villageBiome);
 	}
 
+	public static boolean hasFixedSettlements(World world) {
+		if (GOTConfig.clearMap) {
+			return false;
+		}
+		return world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+	}
+
+	public static void seedVillageRand(World world, int i, int k) {
+		long seed = i * 6890360793007L + k * 456879569029062L + world.getWorldInfo().getSeed() + 274893855L;
+		villageRand.setSeed(seed);
+	}
+
 	public LocationInfo affix(GOTWaypoint... wps) {
 		LocationInfo loc = null;
 		for (GOTWaypoint wp : wps) {
@@ -277,19 +289,8 @@ public abstract class GOTVillageGen {
 		return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
 	}
 
-	public static boolean hasFixedSettlements(World world) {
-		if (GOTConfig.clearMap) {
-			return false;
-		}
-		return world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
-	}
-
-	public static void seedVillageRand(World world, int i, int k) {
-		long seed = i * 6890360793007L + k * 456879569029062L + world.getWorldInfo().getSeed() + 274893855L;
-		villageRand.setSeed(seed);
-	}
-
 	public abstract static class AbstractInstance<V extends GOTVillageGen> {
+		public final LocationInfo locationInfo;
 		public GOTBiome instanceVillageBiome;
 		public World theWorld;
 		public Random instanceRand;
@@ -298,7 +299,6 @@ public abstract class GOTVillageGen {
 		public int centreZ;
 		public int rotationMode;
 		public List<StructureInfo> structures = new ArrayList<>();
-		public final LocationInfo locationInfo;
 
 		public AbstractInstance(V village, World world, int i, int k, Random random, LocationInfo loc) {
 			this.instanceVillageBiome = ((GOTVillageGen) village).villageBiome;

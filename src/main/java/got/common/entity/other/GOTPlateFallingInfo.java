@@ -23,6 +23,15 @@ public class GOTPlateFallingInfo implements IExtendedEntityProperties {
 		theEntity = entity;
 	}
 
+	public static GOTPlateFallingInfo getOrCreateFor(Entity entity, boolean create) {
+		GOTPlateFallingInfo props = (GOTPlateFallingInfo) entity.getExtendedProperties(propID);
+		if (props == null && create) {
+			props = new GOTPlateFallingInfo(entity);
+			entity.registerExtendedProperties(propID, props);
+		}
+		return props;
+	}
+
 	public float getFoodOffsetY(int food, float f) {
 		return getOffsetY(food - 1, f);
 	}
@@ -89,14 +98,5 @@ public class GOTPlateFallingInfo implements IExtendedEntityProperties {
 			fallerPos[l] = pos;
 			fallerSpeed[l] = speed;
 		}
-	}
-
-	public static GOTPlateFallingInfo getOrCreateFor(Entity entity, boolean create) {
-		GOTPlateFallingInfo props = (GOTPlateFallingInfo) entity.getExtendedProperties(propID);
-		if (props == null && create) {
-			props = new GOTPlateFallingInfo(entity);
-			entity.registerExtendedProperties(propID, props);
-		}
-		return props;
 	}
 }

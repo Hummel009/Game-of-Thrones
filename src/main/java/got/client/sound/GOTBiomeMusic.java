@@ -16,6 +16,15 @@ public enum GOTBiomeMusic {
 		regionName = s;
 	}
 
+	public static GOTBiomeMusic forName(String s) {
+		for (GOTBiomeMusic r : GOTBiomeMusic.values()) {
+			if (s.equalsIgnoreCase(r.regionName)) {
+				return r;
+			}
+		}
+		return null;
+	}
+
 	public List<String> getAllSubregions() {
 		return subregions;
 	}
@@ -37,15 +46,6 @@ public enum GOTBiomeMusic {
 
 	public boolean hasSubregion(String s) {
 		return subregions.contains(s);
-	}
-
-	public static GOTBiomeMusic forName(String s) {
-		for (GOTBiomeMusic r : GOTBiomeMusic.values()) {
-			if (s.equalsIgnoreCase(r.regionName)) {
-				return r;
-			}
-		}
-		return null;
 	}
 
 	public static class MusicRegion extends Pair<GOTBiomeMusic, String> {

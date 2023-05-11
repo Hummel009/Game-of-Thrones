@@ -36,6 +36,10 @@ public class GOTBiomeOcean extends GOTBiome {
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
+	public static boolean isFrozen(int i, int k) {
+		return k <= -23000 || k >= 490000;
+	}
+
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
 		int j1;
@@ -81,9 +85,5 @@ public class GOTBiomeOcean extends GOTBiome {
 	@Override
 	public boolean getEnableRiver() {
 		return false;
-	}
-
-	public static boolean isFrozen(int i, int k) {
-		return k <= -23000 || k >= 490000;
 	}
 }

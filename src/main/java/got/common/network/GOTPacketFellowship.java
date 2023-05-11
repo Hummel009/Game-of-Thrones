@@ -72,6 +72,41 @@ public class GOTPacketFellowship implements IMessage {
 		showMapLocations = fs.getShowMapLocations();
 	}
 
+	public static GameProfile getPlayerProfileWithUsername(UUID player) {
+		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(player);
+		if (profile == null || StringUtils.isBlank(profile.getName())) {
+			String name = UsernameCache.getLastKnownUsername(player);
+			if (name != null) {
+				profile = new GameProfile(player, name);
+			} else {
+				profile = new GameProfile(player, "");
+				MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
+			}
+		}
+		return profile;
+	}
+
+	public static GameProfile readPlayerUuidAndUsername(ByteBuf data) {
+		UUID uuid = new UUID(data.readLong(), data.readLong());
+		byte nameLength = data.readByte();
+		if (nameLength >= 0) {
+			ByteBuf nameBytes = data.readBytes(nameLength);
+			String username = nameBytes.toString(Charsets.UTF_8);
+			return new GameProfile(uuid, username);
+		}
+		return null;
+	}
+
+	public static void writePlayerUuidAndUsername(ByteBuf data, GameProfile profile) {
+		UUID uuid = profile.getId();
+		String username = profile.getName();
+		data.writeLong(uuid.getMostSignificantBits());
+		data.writeLong(uuid.getLeastSignificantBits());
+		byte[] usernameBytes = username.getBytes(Charsets.UTF_8);
+		data.writeByte(usernameBytes.length);
+		data.writeBytes(usernameBytes);
+	}
+
 	@Override
 	public void fromBytes(ByteBuf data) {
 		fellowshipID = new UUID(data.readLong(), data.readLong());
@@ -152,41 +187,6 @@ public class GOTPacketFellowship implements IMessage {
 		data.writeBoolean(preventPVP);
 		data.writeBoolean(preventHiredFF);
 		data.writeBoolean(showMapLocations);
-	}
-
-	public static GameProfile getPlayerProfileWithUsername(UUID player) {
-		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(player);
-		if (profile == null || StringUtils.isBlank(profile.getName())) {
-			String name = UsernameCache.getLastKnownUsername(player);
-			if (name != null) {
-				profile = new GameProfile(player, name);
-			} else {
-				profile = new GameProfile(player, "");
-				MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
-			}
-		}
-		return profile;
-	}
-
-	public static GameProfile readPlayerUuidAndUsername(ByteBuf data) {
-		UUID uuid = new UUID(data.readLong(), data.readLong());
-		byte nameLength = data.readByte();
-		if (nameLength >= 0) {
-			ByteBuf nameBytes = data.readBytes(nameLength);
-			String username = nameBytes.toString(Charsets.UTF_8);
-			return new GameProfile(uuid, username);
-		}
-		return null;
-	}
-
-	public static void writePlayerUuidAndUsername(ByteBuf data, GameProfile profile) {
-		UUID uuid = profile.getId();
-		String username = profile.getName();
-		data.writeLong(uuid.getMostSignificantBits());
-		data.writeLong(uuid.getLeastSignificantBits());
-		byte[] usernameBytes = username.getBytes(Charsets.UTF_8);
-		data.writeByte(usernameBytes.length);
-		data.writeBytes(usernameBytes);
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFellowship, IMessage> {

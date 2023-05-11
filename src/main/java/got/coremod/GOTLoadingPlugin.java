@@ -1,8 +1,8 @@
 package got.coremod;
 
-import java.util.Map;
-
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
+
+import java.util.Map;
 
 @IFMLLoadingPlugin.TransformerExclusions(value = "got")
 @IFMLLoadingPlugin.SortingIndex(value = 1001)
@@ -15,7 +15,7 @@ public class GOTLoadingPlugin implements IFMLLoadingPlugin {
 
 	@Override
 	public String[] getASMTransformerClass() {
-		return new String[] { GOTClassTransformer.class.getName() };
+		return new String[]{GOTClassTransformer.class.getName()};
 	}
 
 	@Override

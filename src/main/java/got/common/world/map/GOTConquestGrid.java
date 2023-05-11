@@ -412,6 +412,10 @@ public class GOTConquestGrid {
 			gridZ = k;
 		}
 
+		public static GridCoordPair forZone(GOTConquestZone zone) {
+			return new GridCoordPair(zone.gridX, zone.gridZ);
+		}
+
 		@Override
 		public boolean equals(Object other) {
 			if (this == other) {
@@ -429,10 +433,6 @@ public class GOTConquestGrid {
 			int i = 1664525 * gridX + 1013904223;
 			int j = 1664525 * (gridZ ^ 0xDEADBEEF) + 1013904223;
 			return i ^ j;
-		}
-
-		public static GridCoordPair forZone(GOTConquestZone zone) {
-			return new GridCoordPair(zone.gridX, zone.gridZ);
 		}
 	}
 

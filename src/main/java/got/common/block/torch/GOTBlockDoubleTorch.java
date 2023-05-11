@@ -27,6 +27,10 @@ public class GOTBlockDoubleTorch extends Block {
 		setStepSound(Block.soundTypeWood);
 	}
 
+	public static boolean canPlaceTorchOn(World world, int i, int j, int k) {
+		return world.getBlock(i, j, k).canPlaceTorchOnTop(world, i, j, k);
+	}
+
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		if (world.getBlock(i, j, k) != this) {
@@ -151,9 +155,5 @@ public class GOTBlockDoubleTorch extends Block {
 		} else if (meta == 1) {
 			setBlockBounds(0.4375f, 0.0f, 0.4375f, 0.5625f, 0.5f, 0.5625f);
 		}
-	}
-
-	public static boolean canPlaceTorchOn(World world, int i, int j, int k) {
-		return world.getBlock(i, j, k).canPlaceTorchOnTop(world, i, j, k);
 	}
 }

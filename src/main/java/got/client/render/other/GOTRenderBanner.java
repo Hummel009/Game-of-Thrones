@@ -26,6 +26,23 @@ public class GOTRenderBanner extends Render {
 	public static GOTModelBanner model = new GOTModelBanner();
 	public static Frustrum bannerFrustum = new Frustrum();
 
+	public static ResourceLocation getBannerTexture(GOTItemBanner.BannerType type) {
+		ResourceLocation r = bannerTextures.get(type);
+		if (r == null) {
+			if (GOT.isAprilFools()) {
+				r = new ResourceLocation("got:textures/banner/null.png");
+			} else {
+				r = new ResourceLocation("got:textures/banner/" + type.bannerName + ".png");
+			}
+			bannerTextures.put(type, r);
+		}
+		return r;
+	}
+
+	public static ResourceLocation getStandTexture(GOTItemBanner.BannerType type) {
+		return standTexture;
+	}
+
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		int light;
@@ -108,22 +125,5 @@ public class GOTRenderBanner extends Render {
 	public ResourceLocation getStandTexture(Entity entity) {
 		GOTEntityBanner banner = (GOTEntityBanner) entity;
 		return GOTRenderBanner.getStandTexture(banner.getBannerType());
-	}
-
-	public static ResourceLocation getBannerTexture(GOTItemBanner.BannerType type) {
-		ResourceLocation r = bannerTextures.get(type);
-		if (r == null) {
-			if (GOT.isAprilFools()) {
-				r = new ResourceLocation("got:textures/banner/null.png");
-			} else {
-				r = new ResourceLocation("got:textures/banner/" + type.bannerName + ".png");
-			}
-			bannerTextures.put(type, r);
-		}
-		return r;
-	}
-
-	public static ResourceLocation getStandTexture(GOTItemBanner.BannerType type) {
-		return standTexture;
 	}
 }

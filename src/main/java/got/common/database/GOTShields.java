@@ -48,6 +48,19 @@ public enum GOTShields {
 		isHidden = hidden;
 	}
 
+	public static void preInit() {
+	}
+
+	public static GOTShields shieldForName(String shieldName) {
+		for (GOTShields shield : GOTShields.values()) {
+			if (!shield.name().equals(shieldName)) {
+				continue;
+			}
+			return shield;
+		}
+		return null;
+	}
+
 	public boolean canDisplay(EntityPlayer entityplayer) {
 		return !isHidden || canPlayerWear(entityplayer);
 	}
@@ -94,19 +107,6 @@ public enum GOTShields {
 
 	public String getShieldName() {
 		return StatCollector.translateToLocal("got.shields." + name() + ".name");
-	}
-
-	public static void preInit() {
-	}
-
-	public static GOTShields shieldForName(String shieldName) {
-		for (GOTShields shield : GOTShields.values()) {
-			if (!shield.name().equals(shieldName)) {
-				continue;
-			}
-			return shield;
-		}
-		return null;
 	}
 
 	public enum ShieldType {

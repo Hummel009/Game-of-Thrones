@@ -110,6 +110,16 @@ public class GOTHiredNPCInfo {
 		return guardRange;
 	}
 
+	public void setGuardRange(int range) {
+		guardRange = MathHelper.clamp_int(range, GUARD_RANGE_MIN, GUARD_RANGE_MAX);
+		if (guardMode) {
+			int i = MathHelper.floor_double(theEntity.posX);
+			int j = MathHelper.floor_double(theEntity.posY);
+			int k = MathHelper.floor_double(theEntity.posZ);
+			theEntity.setHomeArea(i, j, k, guardRange);
+		}
+	}
+
 	public GOTInventoryNPC getHiredInventory() {
 		return hiredInventory;
 	}
@@ -119,6 +129,11 @@ public class GOTHiredNPCInfo {
 			return null;
 		}
 		return theEntity.worldObj.func_152378_a(hiringPlayerUUID);
+	}
+
+	public void setHiringPlayer(EntityPlayer entityplayer) {
+		hiringPlayerUUID = entityplayer == null ? null : entityplayer.getUniqueID();
+		markDirty();
 	}
 
 	public UUID getHiringPlayerUUID() {
@@ -156,6 +171,11 @@ public class GOTHiredNPCInfo {
 		return hiredSquadron;
 	}
 
+	public void setSquadron(String s) {
+		hiredSquadron = s;
+		markDirty();
+	}
+
 	public String getStatusString() {
 		String status = "";
 		if (hiredTask == Task.WARRIOR) {
@@ -168,6 +188,16 @@ public class GOTHiredNPCInfo {
 
 	public Task getTask() {
 		return hiredTask;
+	}
+
+	public void setTask(Task t) {
+		if (t != hiredTask) {
+			hiredTask = t;
+			markDirty();
+		}
+		if (hiredTask == Task.FARMER) {
+			hiredInventory = new GOTInventoryNPC("HiredInventory", theEntity, 4);
+		}
 	}
 
 	public void halt() {
@@ -214,6 +244,18 @@ public class GOTHiredNPCInfo {
 
 	public boolean isGuardMode() {
 		return guardMode;
+	}
+
+	public void setGuardMode(boolean flag) {
+		guardMode = flag;
+		if (flag) {
+			int i = MathHelper.floor_double(theEntity.posX);
+			int j = MathHelper.floor_double(theEntity.posY);
+			int k = MathHelper.floor_double(theEntity.posZ);
+			theEntity.setHomeArea(i, j, k, guardRange);
+		} else {
+			theEntity.detachHome();
+		}
 	}
 
 	public boolean isHalted() {
@@ -456,48 +498,6 @@ public class GOTHiredNPCInfo {
 		GOTPacketHandler.networkWrapper.sendTo((IMessage) packet, (EntityPlayerMP) getHiringPlayer());
 		if (shouldOpenGui) {
 			isGuiOpen = true;
-		}
-	}
-
-	public void setGuardMode(boolean flag) {
-		guardMode = flag;
-		if (flag) {
-			int i = MathHelper.floor_double(theEntity.posX);
-			int j = MathHelper.floor_double(theEntity.posY);
-			int k = MathHelper.floor_double(theEntity.posZ);
-			theEntity.setHomeArea(i, j, k, guardRange);
-		} else {
-			theEntity.detachHome();
-		}
-	}
-
-	public void setGuardRange(int range) {
-		guardRange = MathHelper.clamp_int(range, GUARD_RANGE_MIN, GUARD_RANGE_MAX);
-		if (guardMode) {
-			int i = MathHelper.floor_double(theEntity.posX);
-			int j = MathHelper.floor_double(theEntity.posY);
-			int k = MathHelper.floor_double(theEntity.posZ);
-			theEntity.setHomeArea(i, j, k, guardRange);
-		}
-	}
-
-	public void setHiringPlayer(EntityPlayer entityplayer) {
-		hiringPlayerUUID = entityplayer == null ? null : entityplayer.getUniqueID();
-		markDirty();
-	}
-
-	public void setSquadron(String s) {
-		hiredSquadron = s;
-		markDirty();
-	}
-
-	public void setTask(Task t) {
-		if (t != hiredTask) {
-			hiredTask = t;
-			markDirty();
-		}
-		if (hiredTask == Task.FARMER) {
-			hiredInventory = new GOTInventoryNPC("HiredInventory", theEntity, 4);
 		}
 	}
 

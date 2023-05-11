@@ -48,6 +48,10 @@ public class GOTEntityCargocart extends GOTEntityCart {
 		return load;
 	}
 
+	public void setLoad(int loadIn) {
+		load = loadIn;
+	}
+
 	@Override
 	public double getMountedYOffset() {
 		return 0.7;
@@ -61,10 +65,6 @@ public class GOTEntityCargocart extends GOTEntityCart {
 			player.mountEntity(this);
 		}
 		return true;
-	}
-
-	public void setLoad(int loadIn) {
-		load = loadIn;
 	}
 
 	@Override

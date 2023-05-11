@@ -77,6 +77,10 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 		return npcTemper;
 	}
 
+	public void setNPCTemper(int i) {
+		npcTemper = i;
+	}
+
 	@Override
 	public float getStepHeightWhileRiddenByPlayer() {
 		return 1.0f;
@@ -105,6 +109,10 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
 
+	public void setNPCTamed(boolean flag) {
+		dataWatcher.updateObject(17, (byte) (flag ? 1 : 0));
+	}
+
 	@Override
 	public void moveEntityWithHeading(float strafe, float forward) {
 		GOTMountFunctions.move(this, strafe, forward);
@@ -131,14 +139,6 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 			tamingPlayer = UUID.fromString(nbt.getString("NPCTamer"));
 		}
 		npcTemper = nbt.getInteger("NPCTemper");
-	}
-
-	public void setNPCTamed(boolean flag) {
-		dataWatcher.updateObject(17, (byte) (flag ? 1 : 0));
-	}
-
-	public void setNPCTemper(int i) {
-		npcTemper = i;
 	}
 
 	@Override

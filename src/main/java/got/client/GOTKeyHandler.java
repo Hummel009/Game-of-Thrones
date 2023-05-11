@@ -54,6 +54,12 @@ public class GOTKeyHandler {
 		ClientRegistry.registerKeyBinding(keyBindingCargoCart);
 	}
 
+	public static void update() {
+		if (alignmentChangeTick > 0) {
+			--alignmentChangeTick;
+		}
+	}
+
 	@SubscribeEvent
 	public void KeyInputEvent(InputEvent.KeyInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
@@ -139,12 +145,6 @@ public class GOTKeyHandler {
 		flags.set(1, keyBindingDragonDown.getIsKeyPressed());
 		if (dcm.hasChanged()) {
 			network.sendToServer(dcm);
-		}
-	}
-
-	public static void update() {
-		if (alignmentChangeTick > 0) {
-			--alignmentChangeTick;
 		}
 	}
 }

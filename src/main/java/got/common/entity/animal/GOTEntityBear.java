@@ -131,6 +131,10 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		return BearType.forID(i);
 	}
 
+	public void setBearType(BearType t) {
+		dataWatcher.updateObject(18, (byte) t.bearID);
+	}
+
 	@Override
 	public boolean getCanSpawnHere() {
 		WorldChunkManager worldChunkMgr = worldObj.getWorldChunkManager();
@@ -197,6 +201,10 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
+	public void setHostile(boolean flag) {
+		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
+	}
+
 	@Override
 	public void onLivingUpdate() {
 		boolean isChild;
@@ -260,26 +268,11 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		hostileTick = nbt.getInteger("Angry");
 	}
 
-	public void setBearType(BearType t) {
-		dataWatcher.updateObject(18, (byte) t.bearID);
-	}
-
-	public void setHostile(boolean flag) {
-		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
-	}
-
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
 		nbt.setByte("BearType", (byte) getBearType().bearID);
 		nbt.setInteger("Angry", hostileTick);
-	}
-
-	public static class BearGroupSpawnData implements IEntityLivingData {
-		public int numSpawned = 0;
-
-		public BearGroupSpawnData() {
-		}
 	}
 
 	public enum BearType {
@@ -289,10 +282,6 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 
 		BearType(int i) {
 			bearID = i;
-		}
-
-		public String textureName() {
-			return name().toLowerCase();
 		}
 
 		public static String[] bearTypeNames() {
@@ -311,6 +300,17 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 				return t;
 			}
 			return LIGHT;
+		}
+
+		public String textureName() {
+			return name().toLowerCase();
+		}
+	}
+
+	public static class BearGroupSpawnData implements IEntityLivingData {
+		public int numSpawned = 0;
+
+		public BearGroupSpawnData() {
 		}
 	}
 

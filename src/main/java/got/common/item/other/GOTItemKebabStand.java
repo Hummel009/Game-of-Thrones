@@ -17,21 +17,6 @@ public class GOTItemKebabStand extends ItemBlock {
 		super(block);
 	}
 
-	@SideOnly(value = Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		NBTTagCompound kebabData = GOTItemKebabStand.getKebabData(itemstack);
-		if (kebabData != null) {
-			GOTTileEntityKebabStand kebabStand = new GOTTileEntityKebabStand();
-			kebabStand.readKebabStandFromNBT(kebabData);
-			int meats = kebabStand.getMeatAmount();
-			list.add(StatCollector.translateToLocalFormatted("tile.got.kebabStand.meats", meats));
-			if (kebabStand.isCooked()) {
-				list.add(StatCollector.translateToLocal("tile.got.kebabStand.cooked"));
-			}
-		}
-	}
-
 	public static NBTTagCompound getKebabData(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("GOTKebabData")) {
 			return itemstack.getTagCompound().getCompoundTag("GOTKebabData");
@@ -59,5 +44,20 @@ public class GOTItemKebabStand extends ItemBlock {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
 		itemstack.getTagCompound().setTag("GOTKebabData", kebabData);
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		NBTTagCompound kebabData = GOTItemKebabStand.getKebabData(itemstack);
+		if (kebabData != null) {
+			GOTTileEntityKebabStand kebabStand = new GOTTileEntityKebabStand();
+			kebabStand.readKebabStandFromNBT(kebabData);
+			int meats = kebabStand.getMeatAmount();
+			list.add(StatCollector.translateToLocalFormatted("tile.got.kebabStand.meats", meats));
+			if (kebabStand.isCooked()) {
+				list.add(StatCollector.translateToLocal("tile.got.kebabStand.cooked"));
+			}
+		}
 	}
 }

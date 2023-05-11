@@ -1,14 +1,16 @@
 package got.common;
 
-import java.io.File;
-import java.util.*;
-
 import cpw.mods.fml.client.config.IConfigElement;
 import cpw.mods.fml.common.FMLLog;
 import got.GOT;
 import got.common.util.GOTModChecker;
 import net.minecraft.world.World;
-import net.minecraftforge.common.config.*;
+import net.minecraftforge.common.config.ConfigElement;
+import net.minecraftforge.common.config.Configuration;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GOTConfig {
 	public static Configuration config;

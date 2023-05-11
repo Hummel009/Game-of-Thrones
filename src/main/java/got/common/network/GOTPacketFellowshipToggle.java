@@ -33,6 +33,11 @@ public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
 		data.writeByte(function.ordinal());
 	}
 
+	public enum ToggleFunction {
+		PVP, HIRED_FF, MAP_SHOW;
+
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipToggle, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFellowshipToggle packet, MessageContext context) {
@@ -53,11 +58,6 @@ public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
 			}
 			return null;
 		}
-	}
-
-	public enum ToggleFunction {
-		PVP, HIRED_FF, MAP_SHOW;
-
 	}
 
 }

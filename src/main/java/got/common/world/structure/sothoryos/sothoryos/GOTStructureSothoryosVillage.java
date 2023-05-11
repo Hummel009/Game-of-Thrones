@@ -31,6 +31,10 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, PYRAMID;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -114,9 +118,5 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 				villageType = VillageType.VILLAGE;
 			}
 		}
-	}
-
-	public enum VillageType {
-		VILLAGE, PYRAMID;
 	}
 }

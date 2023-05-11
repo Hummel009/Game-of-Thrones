@@ -21,6 +21,27 @@ public class GOTStructureSothoryosPyramidMapgen extends MapGenStructure {
 	public static int separation = 24;
 	public int spawnChance = 10;
 
+	public static void register() {
+		MapGenStructureIO.registerStructure(GOTStructureSothoryosPyramidStart.class, "GOT.TPyr");
+		MapGenStructureIO.func_143031_a(GOTStructureSothoryosPyramidComponent.class, "GOT.TPyr.Pyramid");
+	}
+
+	public static void setupSpawnBiomes() {
+		if (spawnBiomes == null) {
+			spawnBiomes = new ArrayList<>();
+			for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
+				boolean flag = false;
+				if (biome instanceof GOTBiomeSothoryosJungle) {
+					flag = true;
+				}
+				if (!flag) {
+					continue;
+				}
+				spawnBiomes.add(biome);
+			}
+		}
+	}
+
 	@Override
 	public boolean canSpawnStructureAtCoords(int i, int k) {
 		GOTWorldChunkManager worldChunkMgr = (GOTWorldChunkManager) worldObj.getWorldChunkManager();
@@ -54,26 +75,5 @@ public class GOTStructureSothoryosPyramidMapgen extends MapGenStructure {
 	@Override
 	public StructureStart getStructureStart(int i, int j) {
 		return new GOTStructureSothoryosPyramidStart(worldObj, rand, i, j);
-	}
-
-	public static void register() {
-		MapGenStructureIO.registerStructure(GOTStructureSothoryosPyramidStart.class, "GOT.TPyr");
-		MapGenStructureIO.func_143031_a(GOTStructureSothoryosPyramidComponent.class, "GOT.TPyr.Pyramid");
-	}
-
-	public static void setupSpawnBiomes() {
-		if (spawnBiomes == null) {
-			spawnBiomes = new ArrayList<>();
-			for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
-				boolean flag = false;
-				if (biome instanceof GOTBiomeSothoryosJungle) {
-					flag = true;
-				}
-				if (!flag) {
-					continue;
-				}
-				spawnBiomes.add(biome);
-			}
-		}
 	}
 }

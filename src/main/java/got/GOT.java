@@ -1,48 +1,63 @@
 package got;
 
-import java.awt.Color;
-import java.time.LocalDate;
-import java.util.*;
-
 import com.google.common.base.CaseFormat;
-
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.*;
-import got.common.block.leaves.*;
+import got.common.block.leaves.GOTBlockLeavesBase;
+import got.common.block.leaves.GOTBlockLeavesVanilla1;
+import got.common.block.leaves.GOTBlockLeavesVanilla2;
 import got.common.block.other.*;
 import got.common.block.planks.GOTBlockPlanksBase;
 import got.common.block.slab.GOTBlockSlabBase;
 import got.common.block.wbeam.GOTBlockWoodBeam;
 import got.common.block.wood.GOTBlockWoodBase;
 import got.common.command.*;
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTRegistry;
 import got.common.entity.GOTEntity;
 import got.common.entity.essos.gold.GOTEntityGoldenMan;
-import got.common.entity.other.*;
+import got.common.entity.other.GOTEntityNPC;
+import got.common.entity.other.GOTEntityPortal;
+import got.common.entity.other.GOTHiredNPCInfo;
 import got.common.faction.GOTFaction;
 import got.common.fellowship.GOTFellowship;
-import got.common.item.other.*;
 import got.common.item.other.GOTItemBanner.BannerType;
+import got.common.item.other.GOTItemFenceVanilla;
+import got.common.item.other.GOTItemGlassBottle;
+import got.common.item.other.GOTItemPlaceableFood;
+import got.common.item.other.GOTItemPotion;
 import got.common.network.GOTPacketHandler;
-import got.common.util.*;
+import got.common.util.GOTAPI;
+import got.common.util.GOTLog;
+import got.common.util.GOTReflection;
 import got.common.world.GOTWorldType;
 import got.common.world.biome.GOTBiome;
-import got.common.world.map.*;
+import got.common.world.map.GOTBeziers;
+import got.common.world.map.GOTWaypoint;
 import got.common.world.structure.GOTStructure;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.command.*;
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandTime;
+import net.minecraft.command.IEntitySelector;
 import net.minecraft.command.server.CommandMessage;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.*;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.*;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemLeaves;
+import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
@@ -51,6 +66,11 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.oredict.OreDictionary;
+
+import java.awt.*;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.*;
 
 @Mod(modid = "got")
 public class GOT {
@@ -82,208 +102,6 @@ public class GOT {
 		devs.add("56c71aab-8a68-465d-b386-5f721dd68df6");
 		devs.add("188e4e9c-8c67-443d-9b6c-a351076a43e3");
 		devs.add("f8cc9b45-509a-4034-8740-0b84ce7e4492");
-	}
-
-	@Mod.EventHandler
-	public void load(FMLInitializationEvent event) {
-		proxy.onLoad();
-		Set<Block> set = GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class);
-		for (Block block : set) {
-			if (block instanceof GOTBlockWoodBase) {
-				Blocks.fire.setFireInfo(block, 5, 5);
-			}
-			if (block instanceof GOTBlockPlanksBase || block instanceof GOTBlockFence || block instanceof GOTBlockWoodBars || block instanceof GOTBlockWoodBeam || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.wood) {
-				Blocks.fire.setFireInfo(block, 5, 20);
-			}
-			if (block instanceof GOTBlockVine) {
-				Blocks.fire.setFireInfo(block, 15, 100);
-			}
-			if (block instanceof GOTBlockLeavesBase || block instanceof GOTBlockFallenLeaves || block instanceof GOTBlockBerryBush) {
-				Blocks.fire.setFireInfo(block, 30, 60);
-			}
-			if (block instanceof GOTBlockDaub) {
-				Blocks.fire.setFireInfo(block, 40, 40);
-			}
-			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.grass) {
-				Blocks.fire.setFireInfo(block, 60, 20);
-			}
-			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars || block instanceof GOTBlockGrass || block instanceof GOTBlockAsshaiGrass || block instanceof GOTBlockAsshaiMoss || block instanceof GOTBlockFlower || block instanceof GOTBlockDoubleFlower) {
-				Blocks.fire.setFireInfo(block, 60, 100);
-			}
-		}
-		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
-		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);
-		String pickaxe = "pickaxe";
-		String shovel = "shovel";
-		GOTRegistry.oreCopper.setHarvestLevel(pickaxe, 1);
-		GOTRegistry.oreTin.setHarvestLevel(pickaxe, 1);
-		GOTRegistry.oreSilver.setHarvestLevel(pickaxe, 2);
-		GOTRegistry.oreCobalt.setHarvestLevel(pickaxe, 2);
-		GOTRegistry.oreValyrian.setHarvestLevel(pickaxe, 2);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 0);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 1);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 2);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 3);
-		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 4);
-		GOTRegistry.oreGlowstone.setHarvestLevel(pickaxe, 1);
-		GOTRegistry.quagmire.setHarvestLevel(shovel, 0);
-		GOTRegistry.quicksand.setHarvestLevel(shovel, 0);
-		GOTRegistry.blockMetal2.setHarvestLevel(pickaxe, 1, 4);
-		GOTRegistry.asshaiDirt.setHarvestLevel(shovel, 0);
-		GOTRegistry.basaltGravel.setHarvestLevel(shovel, 0);
-		GOTRegistry.obsidianGravel.setHarvestLevel(shovel, 0);
-		GOTRegistry.mud.setHarvestLevel(shovel, 0);
-		GOTRegistry.mudGrass.setHarvestLevel(shovel, 0);
-		GOTRegistry.mudFarmland.setHarvestLevel(shovel, 0);
-		GOTRegistry.dirtPath.setHarvestLevel(shovel, 0);
-		GOTRegistry.slabSingleDirt.setHarvestLevel(shovel, 0);
-		GOTRegistry.slabDoubleDirt.setHarvestLevel(shovel, 0);
-		GOTRegistry.slabSingleSand.setHarvestLevel(shovel, 0);
-		GOTRegistry.slabDoubleSand.setHarvestLevel(shovel, 0);
-		GOTRegistry.slabSingleGravel.setHarvestLevel(shovel, 0);
-		GOTRegistry.slabDoubleGravel.setHarvestLevel(shovel, 0);
-		GOTRegistry.whiteSand.setHarvestLevel(shovel, 0);
-		GOTRegistry.stalactiteObsidian.setHarvestLevel(pickaxe, 3);
-		GOTRegistry.oreGem.setHarvestLevel(pickaxe, 2);
-		GOTRegistry.blockGem.setHarvestLevel(pickaxe, 2);
-		GOTRegistry.blockGem.setHarvestLevel(pickaxe, 0, 8);
-		GOTRegistry.redClay.setHarvestLevel(shovel, 0);
-		GOTLoader.onInit();
-	}
-
-	@Mod.EventHandler
-	public void onMissingMappings(FMLMissingMappingsEvent event) {
-		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
-			Item item;
-			Block block;
-			String newName;
-			if (mapping.type == GameRegistry.Type.BLOCK) {
-				if (mapping.name.contains("Carnotite")) {
-					newName = mapping.name.replace("Carnotite", "Labradorite");
-				} else if (mapping.name.contains("carnotite")) {
-					newName = mapping.name.replace("carnotite", "labradorite");
-				} else {
-					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
-				}
-				block = (Block) Block.blockRegistry.getObject(newName);
-				if (block != null) {
-					mapping.remap(block);
-				}
-			}
-			if (mapping.type == GameRegistry.Type.ITEM) {
-				if (mapping.name.contains("Carnotite")) {
-					newName = mapping.name.replace("Carnotite", "Labradorite");
-				} else if (mapping.name.contains("ignot")) {
-					newName = mapping.name.replace("ignot", "ingot");
-				} else if (mapping.name.contains("carnotite")) {
-					newName = mapping.name.replace("carnotite", "labradorite");
-				} else {
-					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
-				}
-				item = (Item) Item.itemRegistry.getObject(newName);
-				if (item != null) {
-					mapping.remap(item);
-				}
-			}
-		}
-	}
-
-	@Mod.EventHandler
-	public void onServerStarting(FMLServerStartingEvent event) {
-		WorldServer world = DimensionManager.getWorld(0);
-		proxy.testReflection(world);
-		GOTReflection.removeCommand(CommandTime.class);
-		GOTReflection.removeCommand(CommandMessage.class);
-		List<CommandBase> command = new ArrayList<>();
-		command.add(new GOTCommandTimeVanilla());
-		command.add(new GOTCommandMessageFixed());
-		command.add(new GOTCommandTime());
-		command.add(new GOTCommandAlignment());
-		command.add(new GOTCommandSummon());
-		command.add(new GOTCommandFastTravelClock());
-		command.add(new GOTCommandWaypointCooldown());
-		command.add(new GOTCommandDate());
-		command.add(new GOTCommandWaypoints());
-		command.add(new GOTCommandAlignmentSee());
-		command.add(new GOTCommandFellowship());
-		command.add(new GOTCommandFellowshipMessage());
-		command.add(new GOTCommandEnableAlignmentZones());
-		command.add(new GOTCommandEnchant());
-		command.add(new GOTCommandSpawnDamping());
-		command.add(new GOTCommandFactionRelations());
-		command.add(new GOTCommandPledgeCooldown());
-		command.add(new GOTCommandConquest());
-		command.add(new GOTCommandStrScan());
-		command.add(new GOTCommandDragon());
-		command.add(new GOTCommandInvasion());
-		command.add(new GOTCommandAchievement());
-		command.add(new GOTCommandDatabase());
-		if (event.getServer().isDedicatedServer()) {
-			command.add(new GOTCommandBanStructures());
-			command.add(new GOTCommandAllowStructures());
-			command.add(new GOTCommandAdminHideMap());
-		}
-		for (CommandBase element : command) {
-			event.registerServerCommand(element);
-		}
-	}
-
-	@Mod.EventHandler
-	public void postload(FMLPostInitializationEvent event) {
-		proxy.onPostload();
-		Color baseWater = new Color(4876527);
-		int baseR = baseWater.getRed();
-		int baseG = baseWater.getGreen();
-		int baseB = baseWater.getBlue();
-		for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
-			if (biome == null) {
-				continue;
-			}
-			Color water = new Color(biome.waterColorMultiplier);
-			float[] rgb = water.getColorComponents(null);
-			int r = (int) (baseR * rgb[0]);
-			int g = (int) (baseG * rgb[1]);
-			int b = (int) (baseB * rgb[2]);
-			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
-		}
-		HashMap<String, Integer> map = new HashMap<>();
-		map.put("achievements", GOTAchievement.id);
-		map.put("packets", GOTPacketHandler.id);
-		map.put("banners", BannerType.values().length);
-		map.put("mobs", GOTEntity.id);
-		map.put("structures", GOTStructure.id);
-		map.put("biomes", GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size());
-		map.put("beziers", GOTBeziers.id);
-		map.put("waypoints", GOTWaypoint.values().length);
-		map.put("factions", GOTFaction.values().length);
-		map.put("items", GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class).size());
-		map.put("blocks", GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class).size());
-
-		for (Map.Entry<String, Integer> entry : map.entrySet()) {
-			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
-		}
-	}
-
-	@Mod.EventHandler
-	public void preload(FMLPreInitializationEvent event) {
-		GOTLog.findLogger();
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
-		tickHandler = new GOTTickHandlerServer();
-		eventHandler = new GOTEventHandler();
-		packetHandler = new GOTPacketHandler();
-		worldTypeGOT = new GOTWorldType("got");
-		worldTypeGOTClassic = new GOTWorldType("gotClassic");
-		GOTBlockReplacement.replaceVanillaBlock(Blocks.leaves, new GOTBlockLeavesVanilla1(), ItemLeaves.class);
-		GOTBlockReplacement.replaceVanillaBlock(Blocks.leaves2, new GOTBlockLeavesVanilla2(), ItemLeaves.class);
-		GOTBlockReplacement.replaceVanillaBlock(Blocks.fence, new GOTBlockFenceVanilla(), GOTItemFenceVanilla.class);
-		GOTBlockReplacement.replaceVanillaBlock(Blocks.cake, new GOTBlockPlaceableFood().setBlockTextureName("cake"), null);
-		GOTBlockReplacement.replaceVanillaItem(Items.cake, new GOTItemPlaceableFood(Blocks.cake).setTextureName("cake").setCreativeTab(CreativeTabs.tabFood));
-		GOTBlockReplacement.replaceVanillaItem(Items.potionitem, new GOTItemPotion().setTextureName("potion"));
-		GOTBlockReplacement.replaceVanillaItem(Items.glass_bottle, new GOTItemGlassBottle().setTextureName("potion_bottle_empty"));
-		GOTLoader.preInit();
-		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
-		proxy.onPreload();
-		GOTBlockIronBank.preInit();
 	}
 
 	public static boolean canDropLoot(World world) {
@@ -563,5 +381,207 @@ public class GOT {
 				newEntity.timeUntilPortal = newEntity.getPortalCooldown();
 			}
 		}
+	}
+
+	@Mod.EventHandler
+	public void load(FMLInitializationEvent event) {
+		proxy.onLoad();
+		Set<Block> set = GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class);
+		for (Block block : set) {
+			if (block instanceof GOTBlockWoodBase) {
+				Blocks.fire.setFireInfo(block, 5, 5);
+			}
+			if (block instanceof GOTBlockPlanksBase || block instanceof GOTBlockFence || block instanceof GOTBlockWoodBars || block instanceof GOTBlockWoodBeam || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.wood) {
+				Blocks.fire.setFireInfo(block, 5, 20);
+			}
+			if (block instanceof GOTBlockVine) {
+				Blocks.fire.setFireInfo(block, 15, 100);
+			}
+			if (block instanceof GOTBlockLeavesBase || block instanceof GOTBlockFallenLeaves || block instanceof GOTBlockBerryBush) {
+				Blocks.fire.setFireInfo(block, 30, 60);
+			}
+			if (block instanceof GOTBlockDaub) {
+				Blocks.fire.setFireInfo(block, 40, 40);
+			}
+			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.grass) {
+				Blocks.fire.setFireInfo(block, 60, 20);
+			}
+			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars || block instanceof GOTBlockGrass || block instanceof GOTBlockAsshaiGrass || block instanceof GOTBlockAsshaiMoss || block instanceof GOTBlockFlower || block instanceof GOTBlockDoubleFlower) {
+				Blocks.fire.setFireInfo(block, 60, 100);
+			}
+		}
+		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
+		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);
+		String pickaxe = "pickaxe";
+		String shovel = "shovel";
+		GOTRegistry.oreCopper.setHarvestLevel(pickaxe, 1);
+		GOTRegistry.oreTin.setHarvestLevel(pickaxe, 1);
+		GOTRegistry.oreSilver.setHarvestLevel(pickaxe, 2);
+		GOTRegistry.oreCobalt.setHarvestLevel(pickaxe, 2);
+		GOTRegistry.oreValyrian.setHarvestLevel(pickaxe, 2);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 0);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 1);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 1, 2);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 3);
+		GOTRegistry.blockMetal1.setHarvestLevel(pickaxe, 2, 4);
+		GOTRegistry.oreGlowstone.setHarvestLevel(pickaxe, 1);
+		GOTRegistry.quagmire.setHarvestLevel(shovel, 0);
+		GOTRegistry.quicksand.setHarvestLevel(shovel, 0);
+		GOTRegistry.blockMetal2.setHarvestLevel(pickaxe, 1, 4);
+		GOTRegistry.asshaiDirt.setHarvestLevel(shovel, 0);
+		GOTRegistry.basaltGravel.setHarvestLevel(shovel, 0);
+		GOTRegistry.obsidianGravel.setHarvestLevel(shovel, 0);
+		GOTRegistry.mud.setHarvestLevel(shovel, 0);
+		GOTRegistry.mudGrass.setHarvestLevel(shovel, 0);
+		GOTRegistry.mudFarmland.setHarvestLevel(shovel, 0);
+		GOTRegistry.dirtPath.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabSingleDirt.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabDoubleDirt.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabSingleSand.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabDoubleSand.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabSingleGravel.setHarvestLevel(shovel, 0);
+		GOTRegistry.slabDoubleGravel.setHarvestLevel(shovel, 0);
+		GOTRegistry.whiteSand.setHarvestLevel(shovel, 0);
+		GOTRegistry.stalactiteObsidian.setHarvestLevel(pickaxe, 3);
+		GOTRegistry.oreGem.setHarvestLevel(pickaxe, 2);
+		GOTRegistry.blockGem.setHarvestLevel(pickaxe, 2);
+		GOTRegistry.blockGem.setHarvestLevel(pickaxe, 0, 8);
+		GOTRegistry.redClay.setHarvestLevel(shovel, 0);
+		GOTLoader.onInit();
+	}
+
+	@Mod.EventHandler
+	public void onMissingMappings(FMLMissingMappingsEvent event) {
+		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
+			Item item;
+			Block block;
+			String newName;
+			if (mapping.type == GameRegistry.Type.BLOCK) {
+				if (mapping.name.contains("Carnotite")) {
+					newName = mapping.name.replace("Carnotite", "Labradorite");
+				} else if (mapping.name.contains("carnotite")) {
+					newName = mapping.name.replace("carnotite", "labradorite");
+				} else {
+					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
+				}
+				block = (Block) Block.blockRegistry.getObject(newName);
+				if (block != null) {
+					mapping.remap(block);
+				}
+			}
+			if (mapping.type == GameRegistry.Type.ITEM) {
+				if (mapping.name.contains("Carnotite")) {
+					newName = mapping.name.replace("Carnotite", "Labradorite");
+				} else if (mapping.name.contains("ignot")) {
+					newName = mapping.name.replace("ignot", "ingot");
+				} else if (mapping.name.contains("carnotite")) {
+					newName = mapping.name.replace("carnotite", "labradorite");
+				} else {
+					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
+				}
+				item = (Item) Item.itemRegistry.getObject(newName);
+				if (item != null) {
+					mapping.remap(item);
+				}
+			}
+		}
+	}
+
+	@Mod.EventHandler
+	public void onServerStarting(FMLServerStartingEvent event) {
+		WorldServer world = DimensionManager.getWorld(0);
+		proxy.testReflection(world);
+		GOTReflection.removeCommand(CommandTime.class);
+		GOTReflection.removeCommand(CommandMessage.class);
+		List<CommandBase> command = new ArrayList<>();
+		command.add(new GOTCommandTimeVanilla());
+		command.add(new GOTCommandMessageFixed());
+		command.add(new GOTCommandTime());
+		command.add(new GOTCommandAlignment());
+		command.add(new GOTCommandSummon());
+		command.add(new GOTCommandFastTravelClock());
+		command.add(new GOTCommandWaypointCooldown());
+		command.add(new GOTCommandDate());
+		command.add(new GOTCommandWaypoints());
+		command.add(new GOTCommandAlignmentSee());
+		command.add(new GOTCommandFellowship());
+		command.add(new GOTCommandFellowshipMessage());
+		command.add(new GOTCommandEnableAlignmentZones());
+		command.add(new GOTCommandEnchant());
+		command.add(new GOTCommandSpawnDamping());
+		command.add(new GOTCommandFactionRelations());
+		command.add(new GOTCommandPledgeCooldown());
+		command.add(new GOTCommandConquest());
+		command.add(new GOTCommandStrScan());
+		command.add(new GOTCommandDragon());
+		command.add(new GOTCommandInvasion());
+		command.add(new GOTCommandAchievement());
+		command.add(new GOTCommandDatabase());
+		if (event.getServer().isDedicatedServer()) {
+			command.add(new GOTCommandBanStructures());
+			command.add(new GOTCommandAllowStructures());
+			command.add(new GOTCommandAdminHideMap());
+		}
+		for (CommandBase element : command) {
+			event.registerServerCommand(element);
+		}
+	}
+
+	@Mod.EventHandler
+	public void postload(FMLPostInitializationEvent event) {
+		proxy.onPostload();
+		Color baseWater = new Color(4876527);
+		int baseR = baseWater.getRed();
+		int baseG = baseWater.getGreen();
+		int baseB = baseWater.getBlue();
+		for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
+			if (biome == null) {
+				continue;
+			}
+			Color water = new Color(biome.waterColorMultiplier);
+			float[] rgb = water.getColorComponents(null);
+			int r = (int) (baseR * rgb[0]);
+			int g = (int) (baseG * rgb[1]);
+			int b = (int) (baseB * rgb[2]);
+			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
+		}
+		HashMap<String, Integer> map = new HashMap<>();
+		map.put("achievements", GOTAchievement.id);
+		map.put("packets", GOTPacketHandler.id);
+		map.put("banners", BannerType.values().length);
+		map.put("mobs", GOTEntity.id);
+		map.put("structures", GOTStructure.id);
+		map.put("biomes", GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size());
+		map.put("beziers", GOTBeziers.id);
+		map.put("waypoints", GOTWaypoint.values().length);
+		map.put("factions", GOTFaction.values().length);
+		map.put("items", GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class).size());
+		map.put("blocks", GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Block.class).size());
+
+		for (Map.Entry<String, Integer> entry : map.entrySet()) {
+			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
+		}
+	}
+
+	@Mod.EventHandler
+	public void preload(FMLPreInitializationEvent event) {
+		GOTLog.findLogger();
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
+		tickHandler = new GOTTickHandlerServer();
+		eventHandler = new GOTEventHandler();
+		packetHandler = new GOTPacketHandler();
+		worldTypeGOT = new GOTWorldType("got");
+		worldTypeGOTClassic = new GOTWorldType("gotClassic");
+		GOTBlockReplacement.replaceVanillaBlock(Blocks.leaves, new GOTBlockLeavesVanilla1(), ItemLeaves.class);
+		GOTBlockReplacement.replaceVanillaBlock(Blocks.leaves2, new GOTBlockLeavesVanilla2(), ItemLeaves.class);
+		GOTBlockReplacement.replaceVanillaBlock(Blocks.fence, new GOTBlockFenceVanilla(), GOTItemFenceVanilla.class);
+		GOTBlockReplacement.replaceVanillaBlock(Blocks.cake, new GOTBlockPlaceableFood().setBlockTextureName("cake"), null);
+		GOTBlockReplacement.replaceVanillaItem(Items.cake, new GOTItemPlaceableFood(Blocks.cake).setTextureName("cake").setCreativeTab(CreativeTabs.tabFood));
+		GOTBlockReplacement.replaceVanillaItem(Items.potionitem, new GOTItemPotion().setTextureName("potion"));
+		GOTBlockReplacement.replaceVanillaItem(Items.glass_bottle, new GOTItemGlassBottle().setTextureName("potion_bottle_empty"));
+		GOTLoader.preInit();
+		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
+		proxy.onPreload();
+		GOTBlockIronBank.preInit();
 	}
 }

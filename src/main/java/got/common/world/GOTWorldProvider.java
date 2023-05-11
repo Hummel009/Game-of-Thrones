@@ -46,6 +46,16 @@ public class GOTWorldProvider extends WorldProvider {
 	public double fogG;
 	public double fogB;
 
+	public static int getGOTMoonPhase() {
+		int day = GOTDate.AegonCalendar.currentDay;
+		return IntMath.mod(day, MOON_PHASES);
+	}
+
+	public static boolean isLunarEclipse() {
+		int day = GOTDate.AegonCalendar.currentDay;
+		return GOTWorldProvider.getGOTMoonPhase() == 0 && IntMath.mod(day / MOON_PHASES, 4) == 3;
+	}
+
 	@Override
 	public float calculateCelestialAngle(long time, float partialTick) {
 		float daytime = ((int) (time % GOTTime.DAY_LENGTH) + partialTick) / GOTTime.DAY_LENGTH - 0.25f;
@@ -369,15 +379,5 @@ public class GOTWorldProvider extends WorldProvider {
 	@Override
 	public boolean shouldMapSpin(String entity, double x, double y, double z) {
 		return false;
-	}
-
-	public static int getGOTMoonPhase() {
-		int day = GOTDate.AegonCalendar.currentDay;
-		return IntMath.mod(day, MOON_PHASES);
-	}
-
-	public static boolean isLunarEclipse() {
-		int day = GOTDate.AegonCalendar.currentDay;
-		return GOTWorldProvider.getGOTMoonPhase() == 0 && IntMath.mod(day / MOON_PHASES, 4) == 3;
 	}
 }

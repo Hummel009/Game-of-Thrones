@@ -27,6 +27,32 @@ public class GOTConquestZone {
 		conquestStrengths = new float[allPlayableFacs.size()];
 	}
 
+	public static GOTConquestZone readFromNBT(NBTTagCompound nbt) {
+		short x = nbt.getShort("X");
+		short z = nbt.getShort("Z");
+		long time = nbt.getLong("Time");
+		GOTConquestZone zone = new GOTConquestZone(x, z);
+		zone.isLoaded = false;
+		zone.lastChangeTime = time;
+		block0:
+		for (GOTFaction fac : allPlayableFacs) {
+			ArrayList<String> nameAndAliases = new ArrayList<>();
+			nameAndAliases.add(fac.codeName());
+			nameAndAliases.addAll(fac.listAliases());
+			for (String alias : nameAndAliases) {
+				String facKey = alias + "_str";
+				if (!nbt.hasKey(facKey)) {
+					continue;
+				}
+				float str = nbt.getFloat(facKey);
+				zone.setConquestStrengthRaw(fac, str);
+				continue block0;
+			}
+		}
+		zone.isLoaded = true;
+		return zone;
+	}
+
 	public void addConquestStrength(GOTFaction fac, float add, World world) {
 		float str = this.getConquestStrength(fac, world);
 		setConquestStrength(fac, str += add, world);
@@ -90,6 +116,11 @@ public class GOTConquestZone {
 		return lastChangeTime;
 	}
 
+	public void setLastChangeTime(long l) {
+		lastChangeTime = l;
+		markDirty();
+	}
+
 	public boolean isEmpty() {
 		return isEmptyKey == 0L;
 	}
@@ -134,11 +165,6 @@ public class GOTConquestZone {
 		return this;
 	}
 
-	public void setLastChangeTime(long l) {
-		lastChangeTime = l;
-		markDirty();
-	}
-
 	@Override
 	public String toString() {
 		return "GOTConquestZone: " + gridX + ", " + gridZ;
@@ -168,31 +194,5 @@ public class GOTConquestZone {
 			}
 			nbt.setFloat(facKey, str);
 		}
-	}
-
-	public static GOTConquestZone readFromNBT(NBTTagCompound nbt) {
-		short x = nbt.getShort("X");
-		short z = nbt.getShort("Z");
-		long time = nbt.getLong("Time");
-		GOTConquestZone zone = new GOTConquestZone(x, z);
-		zone.isLoaded = false;
-		zone.lastChangeTime = time;
-		block0:
-		for (GOTFaction fac : allPlayableFacs) {
-			ArrayList<String> nameAndAliases = new ArrayList<>();
-			nameAndAliases.add(fac.codeName());
-			nameAndAliases.addAll(fac.listAliases());
-			for (String alias : nameAndAliases) {
-				String facKey = alias + "_str";
-				if (!nbt.hasKey(facKey)) {
-					continue;
-				}
-				float str = nbt.getFloat(facKey);
-				zone.setConquestStrengthRaw(fac, str);
-				continue block0;
-			}
-		}
-		zone.isLoaded = true;
-		return zone;
 	}
 }

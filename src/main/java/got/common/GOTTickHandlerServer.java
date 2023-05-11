@@ -1,31 +1,42 @@
 package got.common;
 
-import java.util.*;
-
-import cpw.mods.fml.common.*;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.GOT;
 import got.common.entity.other.GOTEntityPortal;
-import got.common.faction.*;
+import got.common.faction.GOTFactionBounties;
+import got.common.faction.GOTFactionRelations;
 import got.common.fellowship.GOTFellowshipData;
 import got.common.item.other.GOTItemStructureSpawner;
 import got.common.util.GOTReflection;
-import got.common.world.*;
+import got.common.world.GOTTeleporter;
+import got.common.world.GOTWorldInfo;
+import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTClimateType;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import got.common.world.map.GOTConquestGrid;
-import got.common.world.spawning.*;
+import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.spawning.GOTSpawnerNPCs;
 import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
-import net.minecraft.item.*;
+import net.minecraft.item.ItemEditableBook;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemWritableBook;
 import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
-import net.minecraft.world.*;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.DimensionManager;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTTickHandlerServer {
 	public static Map<EntityPlayer, Integer> playersInPortals = new HashMap<>();

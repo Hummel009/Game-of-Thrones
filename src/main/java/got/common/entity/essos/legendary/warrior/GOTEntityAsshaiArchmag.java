@@ -74,6 +74,10 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
 
+	public void setIsUsingStaff(boolean flag) {
+		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
+	}
+
 	@Override
 	public GOTAchievement getKillAchievement() {
 		return GOTAchievement.killAsshaiArchmag;
@@ -128,10 +132,6 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.asshaiChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.asshaiMask));
 		return data;
-	}
-
-	public void setIsUsingStaff(boolean flag) {
-		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
 	}
 
 	@Override

@@ -25,6 +25,14 @@ public class GOTVec3d {
 		zCoord = z;
 	}
 
+	public static GOTVec3d fromPitchYaw(float p_189986_0_, float p_189986_1_) {
+		float f = MathHelper.cos(-p_189986_1_ * 0.017453292f - 3.1415927f);
+		float f1 = MathHelper.sin(-p_189986_1_ * 0.017453292f - 3.1415927f);
+		float f2 = -MathHelper.cos(-p_189986_0_ * 0.017453292f);
+		float f3 = MathHelper.sin(-p_189986_0_ * 0.017453292f);
+		return new GOTVec3d(f1 * f2, f3, f * f2);
+	}
+
 	public GOTVec3d add(GOTVec3d vec) {
 		return addVector(vec.xCoord, vec.yCoord, vec.zCoord);
 	}
@@ -185,13 +193,5 @@ public class GOTVec3d {
 	@Override
 	public String toString() {
 		return "(" + xCoord + ", " + yCoord + ", " + zCoord + ")";
-	}
-
-	public static GOTVec3d fromPitchYaw(float p_189986_0_, float p_189986_1_) {
-		float f = MathHelper.cos(-p_189986_1_ * 0.017453292f - 3.1415927f);
-		float f1 = MathHelper.sin(-p_189986_1_ * 0.017453292f - 3.1415927f);
-		float f2 = -MathHelper.cos(-p_189986_0_ * 0.017453292f);
-		float f3 = MathHelper.sin(-p_189986_0_ * 0.017453292f);
-		return new GOTVec3d(f1 * f2, f3, f * f2);
 	}
 }

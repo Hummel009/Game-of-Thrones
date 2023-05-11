@@ -32,6 +32,17 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		setStepSound(Block.soundTypeStone);
 	}
 
+	public static boolean isForgeActive(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return (meta & 8) != 0;
+	}
+
+	public static void toggleForgeActive(World world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
+		world.updateLightByType(EnumSkyBlock.Block, i, j, k);
+	}
+
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
 		GOTTileEntityAlloyForge forge = (GOTTileEntityAlloyForge) world.getTileEntity(i, j, k);
@@ -180,15 +191,4 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 	}
 
 	public abstract boolean useLargeSmoke();
-
-	public static boolean isForgeActive(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return (meta & 8) != 0;
-	}
-
-	public static void toggleForgeActive(World world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
-		world.updateLightByType(EnumSkyBlock.Block, i, j, k);
-	}
 }

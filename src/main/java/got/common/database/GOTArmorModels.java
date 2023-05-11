@@ -32,6 +32,10 @@ public class GOTArmorModels {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
+	public static void preInit() {
+		INSTANCE = new GOTArmorModels();
+	}
+
 	public void copyBoxRotations(ModelRenderer target, ModelRenderer src) {
 		target.rotationPointX = src.rotationPointX;
 		target.rotationPointY = src.rotationPointY;
@@ -285,9 +289,5 @@ public class GOTArmorModels {
 			setupHeldItem(model, entity, heldRight, true);
 			setupHeldItem(model, entity, heldLeft, false);
 		}
-	}
-
-	public static void preInit() {
-		INSTANCE = new GOTArmorModels();
 	}
 }

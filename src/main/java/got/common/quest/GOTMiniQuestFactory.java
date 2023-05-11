@@ -57,91 +57,6 @@ public enum GOTMiniQuestFactory {
 		}
 	}
 
-	public void addQuest(QuestFactoryBase<? extends GOTMiniQuest> factory) {
-		Class<?> questClass = factory.getQuestClass();
-		Class<? extends GOTMiniQuest> registryClass = null;
-		for (Class<? extends GOTMiniQuest> c : questClassWeights.keySet()) {
-			if (questClass.equals(c)) {
-				registryClass = c;
-				break;
-			}
-		}
-		if (registryClass == null) {
-			for (Class<? extends GOTMiniQuest> c : questClassWeights.keySet()) {
-				if (c.isAssignableFrom(questClass)) {
-					registryClass = c;
-					break;
-				}
-			}
-		}
-		if (registryClass == null) {
-			throw new IllegalArgumentException("Could not find registered quest class for " + questClass.toString());
-		}
-		factory.setFactoryGroup(this);
-		questFactories.computeIfAbsent(registryClass, k -> new ArrayList<>()).add(factory);
-	}
-
-	public GOTFaction checkAlignmentRewardFaction(GOTFaction fac) {
-		if (alignmentRewardOverride != null) {
-			return alignmentRewardOverride;
-		}
-		return fac;
-	}
-
-	public GOTMiniQuest createQuest(GOTEntityNPC npc) {
-		int totalWeight = getTotalQuestClassWeight(this);
-		if (totalWeight <= 0) {
-			FMLLog.warning("Hummel009: No quests registered for %s!", baseName);
-			return null;
-		}
-		int randomWeight = rand.nextInt(totalWeight);
-		int i = randomWeight;
-		List<QuestFactoryBase<? extends GOTMiniQuest>> chosenFactoryList = null;
-		for (Entry<Class<? extends GOTMiniQuest>, List<QuestFactoryBase<? extends GOTMiniQuest>>> next : questFactories.entrySet()) {
-			chosenFactoryList = next.getValue();
-			i -= getQuestClassWeight(next.getKey());
-			if (i < 0) {
-				break;
-			}
-		}
-		QuestFactoryBase<? extends GOTMiniQuest> factory = chosenFactoryList.get(rand.nextInt(chosenFactoryList.size()));
-		GOTMiniQuest quest = factory.createQuest(npc, rand);
-		if (quest != null) {
-			quest.questGroup = this;
-		}
-		return quest;
-	}
-
-	public GOTAchievement getAchievement() {
-		return questAchievement;
-	}
-
-	public String getBaseName() {
-		return baseName;
-	}
-
-	public GOTMiniQuestFactory getBaseSpeechGroup() {
-		if (baseSpeechGroup != null) {
-			return baseSpeechGroup;
-		}
-		return this;
-	}
-
-	public List<GOTLore.LoreCategory> getLoreCategories() {
-		return loreCategories;
-	}
-
-	public boolean isNoAlignRewardForEnemy() {
-		return noAlignRewardForEnemy;
-	}
-
-	public void setAchievement(GOTAchievement a) {
-		if (questAchievement != null) {
-			throw new IllegalArgumentException("Miniquest achievement is already registered");
-		}
-		questAchievement = a;
-	}
-
 	public static GOTMiniQuestFactory forName(String name) {
 		for (GOTMiniQuestFactory group : values()) {
 			if (group.getBaseName().equals(name)) {
@@ -718,5 +633,90 @@ public enum GOTMiniQuestFactory {
 
 	public static void registerQuestClass(Class<? extends GOTMiniQuest> questClass, int weight) {
 		questClassWeights.put(questClass, Integer.valueOf(weight));
+	}
+
+	public void addQuest(QuestFactoryBase<? extends GOTMiniQuest> factory) {
+		Class<?> questClass = factory.getQuestClass();
+		Class<? extends GOTMiniQuest> registryClass = null;
+		for (Class<? extends GOTMiniQuest> c : questClassWeights.keySet()) {
+			if (questClass.equals(c)) {
+				registryClass = c;
+				break;
+			}
+		}
+		if (registryClass == null) {
+			for (Class<? extends GOTMiniQuest> c : questClassWeights.keySet()) {
+				if (c.isAssignableFrom(questClass)) {
+					registryClass = c;
+					break;
+				}
+			}
+		}
+		if (registryClass == null) {
+			throw new IllegalArgumentException("Could not find registered quest class for " + questClass.toString());
+		}
+		factory.setFactoryGroup(this);
+		questFactories.computeIfAbsent(registryClass, k -> new ArrayList<>()).add(factory);
+	}
+
+	public GOTFaction checkAlignmentRewardFaction(GOTFaction fac) {
+		if (alignmentRewardOverride != null) {
+			return alignmentRewardOverride;
+		}
+		return fac;
+	}
+
+	public GOTMiniQuest createQuest(GOTEntityNPC npc) {
+		int totalWeight = getTotalQuestClassWeight(this);
+		if (totalWeight <= 0) {
+			FMLLog.warning("Hummel009: No quests registered for %s!", baseName);
+			return null;
+		}
+		int randomWeight = rand.nextInt(totalWeight);
+		int i = randomWeight;
+		List<QuestFactoryBase<? extends GOTMiniQuest>> chosenFactoryList = null;
+		for (Entry<Class<? extends GOTMiniQuest>, List<QuestFactoryBase<? extends GOTMiniQuest>>> next : questFactories.entrySet()) {
+			chosenFactoryList = next.getValue();
+			i -= getQuestClassWeight(next.getKey());
+			if (i < 0) {
+				break;
+			}
+		}
+		QuestFactoryBase<? extends GOTMiniQuest> factory = chosenFactoryList.get(rand.nextInt(chosenFactoryList.size()));
+		GOTMiniQuest quest = factory.createQuest(npc, rand);
+		if (quest != null) {
+			quest.questGroup = this;
+		}
+		return quest;
+	}
+
+	public GOTAchievement getAchievement() {
+		return questAchievement;
+	}
+
+	public void setAchievement(GOTAchievement a) {
+		if (questAchievement != null) {
+			throw new IllegalArgumentException("Miniquest achievement is already registered");
+		}
+		questAchievement = a;
+	}
+
+	public String getBaseName() {
+		return baseName;
+	}
+
+	public GOTMiniQuestFactory getBaseSpeechGroup() {
+		if (baseSpeechGroup != null) {
+			return baseSpeechGroup;
+		}
+		return this;
+	}
+
+	public List<GOTLore.LoreCategory> getLoreCategories() {
+		return loreCategories;
+	}
+
+	public boolean isNoAlignRewardForEnemy() {
+		return noAlignRewardForEnemy;
 	}
 }

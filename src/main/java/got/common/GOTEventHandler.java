@@ -1,16 +1,14 @@
 package got.common;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
-import com.mojang.authlib.GameProfile;
-
 import codechicken.nei.NEIModContainer;
-import codechicken.nei.api.*;
+import codechicken.nei.api.IConfigureNEI;
+import codechicken.nei.api.ItemInfo;
+import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
-import cpw.mods.fml.common.*;
-import cpw.mods.fml.common.eventhandler.*;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.IFuelHandler;
+import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.*;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -20,10 +18,18 @@ import got.common.block.GOTVanillaSaplings;
 import got.common.block.other.*;
 import got.common.block.sapling.GOTBlockSaplingBase;
 import got.common.block.table.GOTBlockCraftingTable;
-import got.common.database.*;
-import got.common.enchant.*;
-import got.common.entity.animal.*;
-import got.common.entity.dragon.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTMaterial;
+import got.common.database.GOTRegistry;
+import got.common.database.GOTTitle;
+import got.common.enchant.GOTEnchantment;
+import got.common.enchant.GOTEnchantmentHelper;
+import got.common.enchant.GOTEnchantmentWeaponSpecial;
+import got.common.entity.animal.GOTEntityButterfly;
+import got.common.entity.animal.GOTEntityJungleScorpion;
+import got.common.entity.animal.GOTEntityZebra;
+import got.common.entity.dragon.GOTDragonLifeStage;
+import got.common.entity.dragon.GOTEntityDragon;
 import got.common.entity.essos.GOTEntityStoneMan;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarHarpy;
@@ -31,18 +37,32 @@ import got.common.entity.essos.mossovy.GOTEntityMarshWraith;
 import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
 import got.common.entity.other.*;
 import got.common.entity.westeros.reach.GOTEntityReachSoldier;
-import got.common.faction.*;
-import got.common.item.*;
+import got.common.faction.GOTAlignmentValues;
+import got.common.faction.GOTFaction;
+import got.common.faction.GOTFactionBounties;
+import got.common.faction.GOTFactionRelations;
+import got.common.item.GOTPoisonedDrinks;
+import got.common.item.GOTWeaponStats;
 import got.common.item.other.*;
-import got.common.item.weapon.*;
+import got.common.item.weapon.GOTItemBow;
+import got.common.item.weapon.GOTItemCrossbow;
+import got.common.item.weapon.GOTItemLance;
+import got.common.item.weapon.GOTItemSword;
 import got.common.network.*;
 import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.GOTTileEntityPlate;
-import got.common.util.*;
-import got.common.world.*;
+import got.common.util.GOTEnumDyeColor;
+import got.common.util.GOTModChecker;
+import got.common.world.GOTTeleporter;
+import got.common.world.GOTWorldProvider;
+import got.common.world.GOTWorldType;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.essos.*;
-import got.common.world.biome.sothoryos.*;
+import got.common.world.biome.essos.GOTBiomeMeereen;
+import got.common.world.biome.essos.GOTBiomeMossovyMarshes;
+import got.common.world.biome.essos.GOTBiomeShadowLand;
+import got.common.world.biome.essos.GOTBiomeValyria;
+import got.common.world.biome.sothoryos.GOTBiomeSothoryosHell;
+import got.common.world.biome.sothoryos.GOTBiomeYeen;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import integrator.NEIGOTIntegratorConfig;
 import net.minecraft.block.*;
@@ -53,29 +73,46 @@ import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.item.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.*;
-import net.minecraft.entity.player.*;
-import net.minecraft.entity.projectile.*;
-import net.minecraft.init.*;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.entity.projectile.EntityFishHook;
+import net.minecraft.entity.projectile.EntityThrowable;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
-import net.minecraft.nbt.*;
-import net.minecraft.potion.*;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTUtil;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.*;
 import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraftforge.common.*;
+import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.UsernameCache;
 import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.event.*;
+import net.minecraftforge.event.AnvilUpdateEvent;
+import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.minecart.MinecartInteractEvent;
 import net.minecraftforge.event.entity.player.*;
-import net.minecraftforge.event.entity.player.PlayerEvent.*;
+import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
+import net.minecraftforge.event.entity.player.PlayerEvent.HarvestCheck;
+import net.minecraftforge.event.entity.player.PlayerEvent.StartTracking;
 import net.minecraftforge.event.terraingen.SaplingGrowTreeEvent;
 import net.minecraftforge.event.world.*;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 public class GOTEventHandler implements IFuelHandler {
 	public GOTItemBow proxyBowItemServer;
@@ -86,6 +123,29 @@ public class GOTEventHandler implements IFuelHandler {
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.TERRAIN_GEN_BUS.register(this);
 		GameRegistry.registerFuelHandler(this);
+	}
+
+	public static boolean dechant(ItemStack itemstack, EntityPlayer entityplayer) {
+		if (!entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.isItemEnchanted()) {
+			Item item = itemstack.getItem();
+			if (!(item instanceof ItemFishingRod)) {
+				itemstack.getTagCompound().removeTag("ench");
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static String getUsernameWithoutWebservice(UUID player) {
+		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(player);
+		if (profile != null && !StringUtils.isBlank(profile.getName())) {
+			return profile.getName();
+		}
+		String cachedName = UsernameCache.getLastKnownUsername(player);
+		if (cachedName != null && !StringUtils.isBlank(cachedName)) {
+			return cachedName;
+		}
+		return player.toString();
 	}
 
 	public void cancelAttackEvent(LivingAttackEvent event) {
@@ -320,17 +380,17 @@ public class GOTEventHandler implements IFuelHandler {
 					if (logFacing != 12) {
 						boolean onInnerFace = false;
 						switch (logFacing) {
-						case 0:
-							onInnerFace = side == 0 || side == 1;
-							break;
-						case 4:
-							onInnerFace = side == 4 || side == 5;
-							break;
-						case 8:
-							onInnerFace = side == 2 || side == 3;
-							break;
-						default:
-							break;
+							case 0:
+								onInnerFace = side == 0 || side == 1;
+								break;
+							case 4:
+								onInnerFace = side == 4 || side == 5;
+								break;
+							case 8:
+								onInnerFace = side == 2 || side == 3;
+								break;
+							default:
+								break;
 						}
 						if (onInnerFace) {
 							meta |= 0xC;
@@ -1638,7 +1698,8 @@ public class GOTEventHandler implements IFuelHandler {
 				if (biomegenbase instanceof GOTBiome) {
 					GOTBiome biome = (GOTBiome) biomegenbase;
 					int attempts = 0;
-					label46: while (attempts < 128) {
+					label46:
+					while (attempts < 128) {
 						int i1 = i;
 						int j1 = j + 1;
 						int k1 = k;
@@ -1708,28 +1769,5 @@ public class GOTEventHandler implements IFuelHandler {
 		if (world.provider instanceof GOTWorldProvider) {
 			GOTBiomeVariantStorage.clearAllVariants(world);
 		}
-	}
-
-	public static boolean dechant(ItemStack itemstack, EntityPlayer entityplayer) {
-		if (!entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.isItemEnchanted()) {
-			Item item = itemstack.getItem();
-			if (!(item instanceof ItemFishingRod)) {
-				itemstack.getTagCompound().removeTag("ench");
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static String getUsernameWithoutWebservice(UUID player) {
-		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(player);
-		if (profile != null && !StringUtils.isBlank(profile.getName())) {
-			return profile.getName();
-		}
-		String cachedName = UsernameCache.getLastKnownUsername(player);
-		if (cachedName != null && !StringUtils.isBlank(cachedName)) {
-			return cachedName;
-		}
-		return player.toString();
 	}
 }

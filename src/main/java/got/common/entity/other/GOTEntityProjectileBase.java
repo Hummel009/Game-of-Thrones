@@ -146,12 +146,20 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
 
+	public void setIsCritical(boolean flag) {
+		dataWatcher.updateObject(17, (byte) (flag ? 1 : 0));
+	}
+
 	public float getKnockbackFactor() {
 		return 1.0f;
 	}
 
 	public ItemStack getProjectileItem() {
 		return dataWatcher.getWatchableObjectItemStack(18);
+	}
+
+	public void setProjectileItem(ItemStack item) {
+		dataWatcher.updateObject(18, item);
 	}
 
 	@Override
@@ -166,6 +174,11 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 	@Override
 	public Entity getThrower() {
 		return shootingEntity;
+	}
+
+	@Override
+	public void setThrower(Entity entity) {
+		shootingEntity = entity;
 	}
 
 	@SideOnly(value = Side.CLIENT)
@@ -420,14 +433,6 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		}
 	}
 
-	public void setIsCritical(boolean flag) {
-		dataWatcher.updateObject(17, (byte) (flag ? 1 : 0));
-	}
-
-	public void setProjectileItem(ItemStack item) {
-		dataWatcher.updateObject(18, item);
-	}
-
 	@Override
 	public void setThrowableHeading(double d, double d1, double d2, float f, float f1) {
 		float f2 = MathHelper.sqrt_double(d * d + d1 * d1 + d2 * d2);
@@ -444,11 +449,6 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		prevRotationYaw = rotationYaw = (float) (Math.atan2(d, d2) * 180.0 / 3.141592653589793);
 		prevRotationPitch = rotationPitch = (float) (Math.atan2(d1, f3) * 180.0 / 3.141592653589793);
 		ticksInGround = 0;
-	}
-
-	@Override
-	public void setThrower(Entity entity) {
-		shootingEntity = entity;
 	}
 
 	@Override

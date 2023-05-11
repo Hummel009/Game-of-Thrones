@@ -12,10 +12,6 @@ public enum GOTClimateType {
 		altitudeZone = zone;
 	}
 
-	public boolean isAltitudeZone() {
-		return altitudeZone;
-	}
-
 	public static void performSeasonalChanges() {
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
 			if (biome != null && biome.climateType != null) {
@@ -186,5 +182,9 @@ public enum GOTClimateType {
 				}
 			}
 		}
+	}
+
+	public boolean isAltitudeZone() {
+		return altitudeZone;
 	}
 }

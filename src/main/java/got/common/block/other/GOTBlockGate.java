@@ -35,6 +35,54 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 	}
 
+	public static GOTBlockGate createMetal(boolean ct) {
+		GOTBlockGate block = new GOTBlockGate(Material.iron, ct);
+		block.setHardness(4.0f);
+		block.setResistance(10.0f);
+		block.setStepSound(Block.soundTypeMetal);
+		return block;
+	}
+
+	public static GOTBlockGate createStone(boolean ct) {
+		GOTBlockGate block = new GOTBlockGate(Material.rock, ct);
+		block.setHardness(4.0f);
+		block.setResistance(10.0f);
+		block.setStepSound(Block.soundTypeStone);
+		return block;
+	}
+
+	public static GOTBlockGate createWooden(boolean ct) {
+		GOTBlockGate block = new GOTBlockGate(Material.wood, ct);
+		block.setHardness(4.0f);
+		block.setResistance(5.0f);
+		block.setStepSound(Block.soundTypeWood);
+		return block;
+	}
+
+	public static int getGateDirection(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return GOTBlockGate.getGateDirection(meta);
+	}
+
+	public static int getGateDirection(int meta) {
+		return meta & 7;
+	}
+
+	public static boolean isGateOpen(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return GOTBlockGate.isGateOpen(meta);
+	}
+
+	public static boolean isGateOpen(int meta) {
+		return (meta & 8) != 0;
+	}
+
+	public static void setGateOpen(World world, int i, int j, int k, boolean flag) {
+		int meta = world.getBlockMetadata(i, j, k);
+		meta = flag ? (meta |= 8) : (meta &= 7);
+		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
+	}
+
 	public void activateGate(World world, int i, int j, int k) {
 		boolean stone;
 		boolean wasOpen = GOTBlockGate.isGateOpen(world, i, j, k);
@@ -311,53 +359,5 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 			}
 		}
 		return super.shouldSideBeRendered(world, i, j, k, side);
-	}
-
-	public static GOTBlockGate createMetal(boolean ct) {
-		GOTBlockGate block = new GOTBlockGate(Material.iron, ct);
-		block.setHardness(4.0f);
-		block.setResistance(10.0f);
-		block.setStepSound(Block.soundTypeMetal);
-		return block;
-	}
-
-	public static GOTBlockGate createStone(boolean ct) {
-		GOTBlockGate block = new GOTBlockGate(Material.rock, ct);
-		block.setHardness(4.0f);
-		block.setResistance(10.0f);
-		block.setStepSound(Block.soundTypeStone);
-		return block;
-	}
-
-	public static GOTBlockGate createWooden(boolean ct) {
-		GOTBlockGate block = new GOTBlockGate(Material.wood, ct);
-		block.setHardness(4.0f);
-		block.setResistance(5.0f);
-		block.setStepSound(Block.soundTypeWood);
-		return block;
-	}
-
-	public static int getGateDirection(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return GOTBlockGate.getGateDirection(meta);
-	}
-
-	public static int getGateDirection(int meta) {
-		return meta & 7;
-	}
-
-	public static boolean isGateOpen(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return GOTBlockGate.isGateOpen(meta);
-	}
-
-	public static boolean isGateOpen(int meta) {
-		return (meta & 8) != 0;
-	}
-
-	public static void setGateOpen(World world, int i, int j, int k, boolean flag) {
-		int meta = world.getBlockMetadata(i, j, k);
-		meta = flag ? (meta |= 8) : (meta &= 7);
-		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
 	}
 }

@@ -20,6 +20,69 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 
 public class GOTCommandFellowship extends CommandBase {
+	public static String[] fixArgsForFellowship(String[] args, int startIndex, boolean autocompleting) {
+		if (args[startIndex].startsWith("\"")) {
+			int endIndex = startIndex;
+			boolean foundEnd = false;
+			while (!foundEnd) {
+				if (args[endIndex].endsWith("\"")) {
+					foundEnd = true;
+					continue;
+				}
+				if (endIndex >= args.length - 1) {
+					if (autocompleting) {
+						break;
+					}
+					throw new WrongUsageException("got.command.fellowship.edit.nameError");
+				}
+				++endIndex;
+			}
+			String fsName = "";
+			for (int i = startIndex; i <= endIndex; ++i) {
+				if (i > startIndex) {
+					fsName = fsName + " ";
+				}
+				fsName = fsName + args[i];
+			}
+			if (!autocompleting || foundEnd) {
+				fsName = fsName.replace("\"", "");
+			}
+			int diff = endIndex - startIndex;
+			String[] argsNew = new String[args.length - diff];
+			for (int i = 0; i < argsNew.length; ++i) {
+				argsNew[i] = i < startIndex ? args[i] : i == startIndex ? fsName : args[i + diff];
+			}
+			return argsNew;
+		}
+		if (!autocompleting) {
+			throw new WrongUsageException("got.command.fellowship.edit.nameError");
+		}
+		return args;
+	}
+
+	public static List<String> listFellowshipsMatchingLastWord(String[] argsFixed, String[] argsOriginal, int fsNameIndex, GOTPlayerData playerData, boolean leadingOnly) {
+		String fsName = argsFixed[fsNameIndex];
+		List<String> allFellowshipNames = leadingOnly ? playerData.listAllLeadingFellowshipNames() : playerData.listAllFellowshipNames();
+		ArrayList<String> autocompletes = new ArrayList<>();
+		for (String nextFsName : allFellowshipNames) {
+			String autocompFsName = "\"" + nextFsName + "\"";
+			if (!autocompFsName.toLowerCase().startsWith(fsName.toLowerCase())) {
+				continue;
+			}
+			if (argsOriginal.length > argsFixed.length) {
+				int diff = argsOriginal.length - argsFixed.length;
+				for (int j = 0; j < diff; ++j) {
+					autocompFsName = autocompFsName.substring(autocompFsName.indexOf(" ") + 1);
+				}
+			}
+			if (autocompFsName.indexOf(" ") >= 0) {
+				autocompFsName = autocompFsName.substring(0, autocompFsName.indexOf(" "));
+			}
+			autocompletes.add(autocompFsName);
+		}
+		return CommandBase.getListOfStringsMatchingLastWord(argsOriginal, autocompletes.toArray(new String[0]));
+	}
+
 	@Override
 	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
@@ -362,68 +425,5 @@ public class GOTCommandFellowship extends CommandBase {
 		}
 		ownerData.setFellowshipAdmin(fellowship, playerID, false, ownerName);
 		CommandBase.func_152373_a(sender, this, "got.command.fellowship.deop", ownerName, fsName, playerName);
-	}
-
-	public static String[] fixArgsForFellowship(String[] args, int startIndex, boolean autocompleting) {
-		if (args[startIndex].startsWith("\"")) {
-			int endIndex = startIndex;
-			boolean foundEnd = false;
-			while (!foundEnd) {
-				if (args[endIndex].endsWith("\"")) {
-					foundEnd = true;
-					continue;
-				}
-				if (endIndex >= args.length - 1) {
-					if (autocompleting) {
-						break;
-					}
-					throw new WrongUsageException("got.command.fellowship.edit.nameError");
-				}
-				++endIndex;
-			}
-			String fsName = "";
-			for (int i = startIndex; i <= endIndex; ++i) {
-				if (i > startIndex) {
-					fsName = fsName + " ";
-				}
-				fsName = fsName + args[i];
-			}
-			if (!autocompleting || foundEnd) {
-				fsName = fsName.replace("\"", "");
-			}
-			int diff = endIndex - startIndex;
-			String[] argsNew = new String[args.length - diff];
-			for (int i = 0; i < argsNew.length; ++i) {
-				argsNew[i] = i < startIndex ? args[i] : i == startIndex ? fsName : args[i + diff];
-			}
-			return argsNew;
-		}
-		if (!autocompleting) {
-			throw new WrongUsageException("got.command.fellowship.edit.nameError");
-		}
-		return args;
-	}
-
-	public static List<String> listFellowshipsMatchingLastWord(String[] argsFixed, String[] argsOriginal, int fsNameIndex, GOTPlayerData playerData, boolean leadingOnly) {
-		String fsName = argsFixed[fsNameIndex];
-		List<String> allFellowshipNames = leadingOnly ? playerData.listAllLeadingFellowshipNames() : playerData.listAllFellowshipNames();
-		ArrayList<String> autocompletes = new ArrayList<>();
-		for (String nextFsName : allFellowshipNames) {
-			String autocompFsName = "\"" + nextFsName + "\"";
-			if (!autocompFsName.toLowerCase().startsWith(fsName.toLowerCase())) {
-				continue;
-			}
-			if (argsOriginal.length > argsFixed.length) {
-				int diff = argsOriginal.length - argsFixed.length;
-				for (int j = 0; j < diff; ++j) {
-					autocompFsName = autocompFsName.substring(autocompFsName.indexOf(" ") + 1);
-				}
-			}
-			if (autocompFsName.indexOf(" ") >= 0) {
-				autocompFsName = autocompFsName.substring(0, autocompFsName.indexOf(" "));
-			}
-			autocompletes.add(autocompFsName);
-		}
-		return CommandBase.getListOfStringsMatchingLastWord(argsOriginal, autocompletes.toArray(new String[0]));
 	}
 }

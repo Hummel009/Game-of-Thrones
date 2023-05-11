@@ -45,6 +45,54 @@ public class GOTItemBanner extends Item {
 		setFull3D();
 	}
 
+	public static BannerType getBannerType(int i) {
+		return BannerType.forID(i);
+	}
+
+	public static BannerType getBannerType(ItemStack itemstack) {
+		if (itemstack.getItem() instanceof GOTItemBanner) {
+			return GOTItemBanner.getBannerType(itemstack.getItemDamage());
+		}
+		return null;
+	}
+
+	public static NBTTagCompound getProtectionData(ItemStack itemstack) {
+		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("GOTBannerData")) {
+			return itemstack.getTagCompound().getCompoundTag("GOTBannerData");
+		}
+		return null;
+	}
+
+	public static boolean hasChoiceToKeepOriginalOwner(EntityPlayer entityplayer) {
+		return entityplayer.capabilities.isCreativeMode;
+	}
+
+	public static boolean isHoldingBannerWithExistingProtection(EntityPlayer entityplayer) {
+		ItemStack itemstack = entityplayer.getHeldItem();
+		if (itemstack != null && itemstack.getItem() instanceof GOTItemBanner) {
+			NBTTagCompound protectData = GOTItemBanner.getProtectionData(itemstack);
+			return protectData != null && !protectData.hasNoTags();
+		}
+		return false;
+	}
+
+	public static void setProtectionData(ItemStack itemstack, NBTTagCompound data) {
+		if (data == null) {
+			if (itemstack.getTagCompound() != null) {
+				itemstack.getTagCompound().removeTag("GOTBannerData");
+			}
+		} else {
+			if (itemstack.getTagCompound() == null) {
+				itemstack.setTagCompound(new NBTTagCompound());
+			}
+			itemstack.getTagCompound().setTag("GOTBannerData", data);
+		}
+	}
+
+	public static boolean shouldKeepOriginalOwnerOnPlacement(EntityPlayer entityplayer, ItemStack bannerItem) {
+		return GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer) && entityplayer.isSneaking();
+	}
+
 	@Override
 	@SideOnly(value = Side.CLIENT)
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
@@ -178,54 +226,6 @@ public class GOTItemBanner extends Item {
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;
-	}
-
-	public static BannerType getBannerType(int i) {
-		return BannerType.forID(i);
-	}
-
-	public static BannerType getBannerType(ItemStack itemstack) {
-		if (itemstack.getItem() instanceof GOTItemBanner) {
-			return GOTItemBanner.getBannerType(itemstack.getItemDamage());
-		}
-		return null;
-	}
-
-	public static NBTTagCompound getProtectionData(ItemStack itemstack) {
-		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("GOTBannerData")) {
-			return itemstack.getTagCompound().getCompoundTag("GOTBannerData");
-		}
-		return null;
-	}
-
-	public static boolean hasChoiceToKeepOriginalOwner(EntityPlayer entityplayer) {
-		return entityplayer.capabilities.isCreativeMode;
-	}
-
-	public static boolean isHoldingBannerWithExistingProtection(EntityPlayer entityplayer) {
-		ItemStack itemstack = entityplayer.getHeldItem();
-		if (itemstack != null && itemstack.getItem() instanceof GOTItemBanner) {
-			NBTTagCompound protectData = GOTItemBanner.getProtectionData(itemstack);
-			return protectData != null && !protectData.hasNoTags();
-		}
-		return false;
-	}
-
-	public static void setProtectionData(ItemStack itemstack, NBTTagCompound data) {
-		if (data == null) {
-			if (itemstack.getTagCompound() != null) {
-				itemstack.getTagCompound().removeTag("GOTBannerData");
-			}
-		} else {
-			if (itemstack.getTagCompound() == null) {
-				itemstack.setTagCompound(new NBTTagCompound());
-			}
-			itemstack.getTagCompound().setTag("GOTBannerData", data);
-		}
-	}
-
-	public static boolean shouldKeepOriginalOwnerOnPlacement(EntityPlayer entityplayer, ItemStack bannerItem) {
-		return GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer) && entityplayer.isSneaking();
 	}
 
 	public enum BannerType {

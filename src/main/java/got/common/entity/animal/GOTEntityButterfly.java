@@ -102,6 +102,14 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		return ButterflyType.values()[i];
 	}
 
+	public void setButterflyType(ButterflyType type) {
+		this.setButterflyType(type.ordinal());
+	}
+
+	public void setButterflyType(int i) {
+		dataWatcher.updateObject(16, (byte) i);
+	}
+
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
@@ -122,6 +130,10 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 
 	public boolean isButterflyStill() {
 		return dataWatcher.getWatchableObjectByte(17) == 1;
+	}
+
+	public void setButterflyStill(boolean flag) {
+		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
 	}
 
 	@Override
@@ -172,18 +184,6 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		super.readEntityFromNBT(nbt);
 		this.setButterflyType(nbt.getInteger("ButterflyType"));
 		setButterflyStill(nbt.getBoolean("ButterflyStill"));
-	}
-
-	public void setButterflyStill(boolean flag) {
-		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
-	}
-
-	public void setButterflyType(ButterflyType type) {
-		this.setButterflyType(type.ordinal());
-	}
-
-	public void setButterflyType(int i) {
-		dataWatcher.updateObject(16, (byte) i);
 	}
 
 	@Override

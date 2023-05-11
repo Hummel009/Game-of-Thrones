@@ -32,6 +32,24 @@ public class GOTItemSpawnEgg extends Item {
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseSpawnEgg());
 	}
 
+	public static Entity spawnCreature(World world, int id, double d, double d1, double d2) {
+		if (!GOTEntityRegistry.spawnEggs.containsKey(id)) {
+			return null;
+		}
+		String entityName = GOTEntityRegistry.getStringFromID(id);
+		Entity entity = EntityList.createEntityByName(entityName, world);
+		if (entity instanceof EntityLiving) {
+			EntityLiving entityliving = (EntityLiving) entity;
+			entityliving.setLocationAndAngles(d, d1, d2, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0f), 0.0f);
+			entityliving.rotationYawHead = entityliving.rotationYaw;
+			entityliving.renderYawOffset = entityliving.rotationYaw;
+			entityliving.onSpawnWithEgg(null);
+			world.spawnEntityInWorld(entityliving);
+			entityliving.playLivingSound();
+		}
+		return entity;
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public int getColorFromItemStack(ItemStack itemstack, int i) {
@@ -102,23 +120,5 @@ public class GOTItemSpawnEgg extends Item {
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;
-	}
-
-	public static Entity spawnCreature(World world, int id, double d, double d1, double d2) {
-		if (!GOTEntityRegistry.spawnEggs.containsKey(id)) {
-			return null;
-		}
-		String entityName = GOTEntityRegistry.getStringFromID(id);
-		Entity entity = EntityList.createEntityByName(entityName, world);
-		if (entity instanceof EntityLiving) {
-			EntityLiving entityliving = (EntityLiving) entity;
-			entityliving.setLocationAndAngles(d, d1, d2, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0f), 0.0f);
-			entityliving.rotationYawHead = entityliving.rotationYaw;
-			entityliving.renderYawOffset = entityliving.rotationYaw;
-			entityliving.onSpawnWithEgg(null);
-			world.spawnEntityInWorld(entityliving);
-			entityliving.playLivingSound();
-		}
-		return entity;
 	}
 }

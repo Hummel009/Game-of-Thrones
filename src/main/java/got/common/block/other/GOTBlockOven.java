@@ -34,6 +34,17 @@ public class GOTBlockOven extends BlockContainer {
 		setStepSound(Block.soundTypeStone);
 	}
 
+	public static boolean isOvenActive(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return meta > 7;
+	}
+
+	public static void setOvenActive(World world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
+		world.updateLightByType(EnumSkyBlock.Block, i, j, k);
+	}
+
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
 		GOTTileEntityOven oven = (GOTTileEntityOven) world.getTileEntity(i, j, k);
@@ -178,16 +189,5 @@ public class GOTBlockOven extends BlockContainer {
 			}
 			world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		}
-	}
-
-	public static boolean isOvenActive(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return meta > 7;
-	}
-
-	public static void setOvenActive(World world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
-		world.updateLightByType(EnumSkyBlock.Block, i, j, k);
 	}
 }

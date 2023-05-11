@@ -32,6 +32,12 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 	}
 
+	public static boolean isBasalt(World world, int i, int j, int k) {
+		Block block = world.getBlock(i, j, k);
+		int meta = world.getBlockMetadata(i, j, k);
+		return block == GOTRegistry.rock && meta == 0 || block == GOTRegistry.asshaiDirt || block == GOTRegistry.basaltGravel;
+	}
+
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
 		int j1;
@@ -119,11 +125,5 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 	@Override
 	public GrassBlockAndMeta getRandomGrass(Random random) {
 		return new GrassBlockAndMeta(GOTRegistry.asshaiGrass, 0);
-	}
-
-	public static boolean isBasalt(World world, int i, int j, int k) {
-		Block block = world.getBlock(i, j, k);
-		int meta = world.getBlockMetadata(i, j, k);
-		return block == GOTRegistry.rock && meta == 0 || block == GOTRegistry.asshaiDirt || block == GOTRegistry.basaltGravel;
 	}
 }

@@ -57,8 +57,18 @@ public class GOTGuiSlider extends GuiButton {
 		return minValue + Math.round(sliderValue * (maxValue - minValue));
 	}
 
+	public void setSliderValue(int value) {
+		value = MathHelper.clamp_int(value, minValue, maxValue);
+		sliderValue = (float) (value - minValue) / (float) (maxValue - minValue);
+	}
+
 	public float getSliderValue_F() {
 		return minValueF + sliderValue * (maxValueF - minValueF);
+	}
+
+	public void setSliderValue_F(float value) {
+		value = MathHelper.clamp_float(value, minValueF, maxValueF);
+		sliderValue = (value - minValueF) / (maxValueF - minValueF);
 	}
 
 	@Override
@@ -124,16 +134,6 @@ public class GOTGuiSlider extends GuiButton {
 
 	public void setOverrideStateString(String s) {
 		overrideStateString = s;
-	}
-
-	public void setSliderValue(int value) {
-		value = MathHelper.clamp_int(value, minValue, maxValue);
-		sliderValue = (float) (value - minValue) / (float) (maxValue - minValue);
-	}
-
-	public void setSliderValue_F(float value) {
-		value = MathHelper.clamp_float(value, minValueF, maxValueF);
-		sliderValue = (value - minValueF) / (maxValueF - minValueF);
 	}
 
 	public void setValueOnly() {

@@ -50,6 +50,10 @@ public class GOTStructureRiverlandsCity extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, TOWN, FORT, CROSSROADS;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -544,10 +548,6 @@ public class GOTStructureRiverlandsCity extends GOTVillageGen {
 			}
 		}
 
-	}
-
-	public enum VillageType {
-		VILLAGE, TOWN, FORT, CROSSROADS;
 	}
 
 }

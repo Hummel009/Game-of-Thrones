@@ -29,14 +29,14 @@ public enum GOTMapLabels {
 		}
 	}
 
+	public static GOTMapLabels[] allMapLabels() {
+		return GOTMapLabels.values();
+	}
+
 	public String getDisplayName() {
 		if (labelName != null) {
 			return StatCollector.translateToLocal("got.map." + labelName);
 		}
 		return biome.getBiomeDisplayName();
-	}
-
-	public static GOTMapLabels[] allMapLabels() {
-		return GOTMapLabels.values();
 	}
 }

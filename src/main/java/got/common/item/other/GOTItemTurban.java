@@ -20,6 +20,20 @@ public class GOTItemTurban extends GOTItemRobes {
 		super(0);
 	}
 
+	public static boolean hasOrnament(ItemStack itemstack) {
+		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("TurbanOrnament")) {
+			return itemstack.getTagCompound().getBoolean("TurbanOrnament");
+		}
+		return false;
+	}
+
+	public static void setHasOrnament(ItemStack itemstack, boolean flag) {
+		if (itemstack.getTagCompound() == null) {
+			itemstack.setTagCompound(new NBTTagCompound());
+		}
+		itemstack.getTagCompound().setBoolean("TurbanOrnament", flag);
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
@@ -63,19 +77,5 @@ public class GOTItemTurban extends GOTItemRobes {
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;
-	}
-
-	public static boolean hasOrnament(ItemStack itemstack) {
-		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("TurbanOrnament")) {
-			return itemstack.getTagCompound().getBoolean("TurbanOrnament");
-		}
-		return false;
-	}
-
-	public static void setHasOrnament(ItemStack itemstack, boolean flag) {
-		if (itemstack.getTagCompound() == null) {
-			itemstack.setTagCompound(new NBTTagCompound());
-		}
-		itemstack.getTagCompound().setBoolean("TurbanOrnament", flag);
 	}
 }

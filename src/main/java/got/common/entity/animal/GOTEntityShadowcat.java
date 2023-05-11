@@ -155,6 +155,10 @@ public class GOTEntityShadowcat extends EntityAnimal implements GOTBiome.ImmuneT
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
+	public void setHostile(boolean flag) {
+		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
+	}
+
 	@Override
 	public void onLivingUpdate() {
 		boolean isChild;
@@ -194,10 +198,6 @@ public class GOTEntityShadowcat extends EntityAnimal implements GOTBiome.ImmuneT
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		hostileTick = nbt.getInteger("Angry");
-	}
-
-	public void setHostile(boolean flag) {
-		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
 	}
 
 	@Override

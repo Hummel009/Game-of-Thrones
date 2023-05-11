@@ -1,14 +1,19 @@
 package got.common.tileentity;
 
-import cpw.mods.fml.relauncher.*;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.item.other.GOTItemDart;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockDispenser;
+import net.minecraft.block.BlockSourceImpl;
 import net.minecraft.dispenser.IBehaviorDispenseItem;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityDispenser;
-import net.minecraft.util.*;
+import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.util.Vec3;
 
 public class GOTTileEntitySarbacaneTrap extends TileEntityDispenser {
 	public int fireCooldown;

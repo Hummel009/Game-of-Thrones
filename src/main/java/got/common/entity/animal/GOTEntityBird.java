@@ -204,6 +204,14 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return BirdType.values()[i];
 	}
 
+	public void setBirdType(BirdType type) {
+		this.setBirdType(type.ordinal());
+	}
+
+	public void setBirdType(int i) {
+		dataWatcher.updateObject(16, (byte) i);
+	}
+
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
@@ -286,6 +294,10 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return getEquipmentInSlot(4);
 	}
 
+	public void setStolenItem(ItemStack itemstack) {
+		setCurrentItemOrArmor(4, itemstack);
+	}
+
 	@Override
 	public int getTalkInterval() {
 		return 60;
@@ -303,6 +315,10 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 
 	public boolean isBirdStill() {
 		return dataWatcher.getWatchableObjectByte(17) == 1;
+	}
+
+	public void setBirdStill(boolean flag) {
+		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
 	}
 
 	public boolean isStealable(ItemStack itemstack) {
@@ -409,22 +425,6 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		setBirdStill(nbt.getBoolean("BirdStill"));
 		birdInv.writeToNBT(nbt);
 		nbt.setShort("StealTime", (short) stolenTime);
-	}
-
-	public void setBirdStill(boolean flag) {
-		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
-	}
-
-	public void setBirdType(BirdType type) {
-		this.setBirdType(type.ordinal());
-	}
-
-	public void setBirdType(int i) {
-		dataWatcher.updateObject(16, (byte) i);
-	}
-
-	public void setStolenItem(ItemStack itemstack) {
-		setCurrentItemOrArmor(4, itemstack);
 	}
 
 	@Override

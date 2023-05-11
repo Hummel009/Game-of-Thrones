@@ -23,10 +23,6 @@ public class GOTBeziers {
 		Collections.addAll(endpoints, ends);
 	}
 
-	public String getDisplayName() {
-		return null;
-	}
-
 	public static boolean isRoadAt(int x, int z) {
 		return GOTBeziers.isRoadNear(x, z, 4) >= 0.0f;
 	}
@@ -319,6 +315,10 @@ public class GOTBeziers {
 		GOTBeziers[] beziers = BezierCurves.getSplines(array, true);
 		allWalls.addAll(Arrays.asList(beziers));
 		allBeziers.addAll(Arrays.asList(beziers));
+	}
+
+	public String getDisplayName() {
+		return null;
 	}
 
 	public static class BezierCurves {

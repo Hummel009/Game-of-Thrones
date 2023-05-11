@@ -87,6 +87,18 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 	public int displayedInvites;
 	public int tickCounter;
 
+	public static boolean isPlayerOnline(GameProfile player) {
+		EntityClientPlayerMP mcPlayer = Minecraft.getMinecraft().thePlayer;
+		List list = mcPlayer.sendQueue.playerInfoList;
+		for (Object obj : list) {
+			GuiPlayerInfo info = (GuiPlayerInfo) obj;
+			if (info.name.equalsIgnoreCase(player.getName())) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	public void acceptInvitation(GOTFellowshipClient invite) {
 		GOTPacketFellowshipRespondInvite packet = new GOTPacketFellowshipRespondInvite(invite, true);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
@@ -1046,18 +1058,6 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		if (page != Page.RENAME) {
 			textFieldRename.setText("");
 		}
-	}
-
-	public static boolean isPlayerOnline(GameProfile player) {
-		EntityClientPlayerMP mcPlayer = Minecraft.getMinecraft().thePlayer;
-		List list = mcPlayer.sendQueue.playerInfoList;
-		for (Object obj : list) {
-			GuiPlayerInfo info = (GuiPlayerInfo) obj;
-			if (info.name.equalsIgnoreCase(player.getName())) {
-				return true;
-			}
-		}
-		return false;
 	}
 
 	public enum Page {

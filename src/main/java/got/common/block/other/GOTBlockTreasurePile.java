@@ -62,6 +62,26 @@ public class GOTBlockTreasurePile extends Block {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 
+	public static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock, int thisMeta) {
+		Block block = world.getBlock(i, j, k);
+		int meta = world.getBlockMetadata(i, j, k);
+		if (block == thisBlock && meta < 7) {
+			return true;
+		}
+		return BlockFalling.func_149831_e(world, i, j, k);
+	}
+
+	public static void generateTreasureRecipes(Block block, Item ingot) {
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block, 8, 0), "XX", "XX", Character.valueOf('X'), ingot));
+		GameRegistry.addRecipe(new GOTRecipeTreasurePile(block, ingot));
+	}
+
+	public static void setTreasureBlockBounds(Block block, int meta) {
+		if (block instanceof GOTBlockTreasurePile) {
+			((GOTBlockTreasurePile) block).setBlockBoundsMeta(meta);
+		}
+	}
+
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		return world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
@@ -259,26 +279,6 @@ public class GOTBlockTreasurePile extends Block {
 		if (!world.isRemote && !tryFall(world, i, j, k) && !canBlockStay(world, i, j, k)) {
 			this.dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
 			world.setBlockToAir(i, j, k);
-		}
-	}
-
-	public static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock, int thisMeta) {
-		Block block = world.getBlock(i, j, k);
-		int meta = world.getBlockMetadata(i, j, k);
-		if (block == thisBlock && meta < 7) {
-			return true;
-		}
-		return BlockFalling.func_149831_e(world, i, j, k);
-	}
-
-	public static void generateTreasureRecipes(Block block, Item ingot) {
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block, 8, 0), "XX", "XX", Character.valueOf('X'), ingot));
-		GameRegistry.addRecipe(new GOTRecipeTreasurePile(block, ingot));
-	}
-
-	public static void setTreasureBlockBounds(Block block, int meta) {
-		if (block instanceof GOTBlockTreasurePile) {
-			((GOTBlockTreasurePile) block).setBlockBoundsMeta(meta);
 		}
 	}
 

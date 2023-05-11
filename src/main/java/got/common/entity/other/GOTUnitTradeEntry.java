@@ -94,6 +94,11 @@ public class GOTUnitTradeEntry {
 		return pledgeType;
 	}
 
+	public GOTUnitTradeEntry setPledgeType(PledgeType t) {
+		pledgeType = t;
+		return this;
+	}
+
 	public String getUnitTradeName() {
 		if (mountClass == null) {
 			String entityName = GOTEntityRegistry.getStringFromClass(entityClass);
@@ -163,11 +168,6 @@ public class GOTUnitTradeEntry {
 		return setPledgeType(PledgeType.FACTION);
 	}
 
-	public GOTUnitTradeEntry setPledgeType(PledgeType t) {
-		pledgeType = t;
-		return this;
-	}
-
 	public GOTUnitTradeEntry setTask(GOTHiredNPCInfo.Task t) {
 		task = t;
 		return this;
@@ -180,6 +180,16 @@ public class GOTUnitTradeEntry {
 
 		PledgeType(int i) {
 			typeID = i;
+		}
+
+		public static PledgeType forID(int i) {
+			for (PledgeType t : PledgeType.values()) {
+				if (t.typeID != i) {
+					continue;
+				}
+				return t;
+			}
+			return NONE;
 		}
 
 		public boolean canAcceptPlayer(EntityPlayer entityplayer, GOTFaction fac) {
@@ -198,16 +208,6 @@ public class GOTUnitTradeEntry {
 				return null;
 			}
 			return StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.pledge." + name(), fac.factionName());
-		}
-
-		public static PledgeType forID(int i) {
-			for (PledgeType t : PledgeType.values()) {
-				if (t.typeID != i) {
-					continue;
-				}
-				return t;
-			}
-			return NONE;
 		}
 	}
 

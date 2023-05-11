@@ -37,6 +37,10 @@ public class GOTStructureVolantisCity extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, TOWN, FORT;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -608,10 +612,6 @@ public class GOTStructureVolantisCity extends GOTVillageGen {
 			spawner.setSpawnClasses(GOTEntityVolantisSoldier.class, GOTEntityVolantisSoldierArcher.class);
 		}
 
-	}
-
-	public enum VillageType {
-		VILLAGE, TOWN, FORT;
 	}
 
 }

@@ -1,18 +1,19 @@
 package got.common;
 
-import java.awt.Color;
-import java.util.*;
-
 import com.google.common.math.IntMath;
-
 import cpw.mods.fml.common.FMLLog;
-import got.common.network.*;
+import got.common.network.GOTPacketDate;
+import got.common.network.GOTPacketHandler;
 import got.common.world.GOTWorldInfo;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.awt.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTDate {
 	public static int ticksInDay = GOTTime.DAY_LENGTH;
@@ -67,6 +68,36 @@ public class GOTDate {
 		prevWorldTime = worldTime;
 	}
 
+	public enum Season {
+		SPRING("spring", 0), SUMMER("summer", 1), AUTUMN("autumn", 2), WINTER("winter", 3);
+
+		public static Season[] allSeasons = {SPRING, SUMMER, AUTUMN, WINTER};
+		public String name;
+		public int seasonID;
+
+		public float[] grassRGB;
+
+		Season(String s, int i) {
+			name = s;
+			seasonID = i;
+		}
+
+		public String codeName() {
+			return name;
+		}
+
+		public int transformColor(int color) {
+			float[] rgb = new Color(color).getRGBColorComponents(null);
+			float r = rgb[0];
+			float g = rgb[1];
+			float b = rgb[2];
+			r = Math.min(r * grassRGB[0], 1.0f);
+			g = Math.min(g * grassRGB[1], 1.0f);
+			b = Math.min(b * grassRGB[2], 1.0f);
+			return new Color(r, g, b).getRGB();
+		}
+	}
+
 	public static class AegonCalendar {
 		public static Date startDate = new Date(298, Month.JULY, 10);
 		public static int currentDay;
@@ -100,6 +131,50 @@ public class GOTDate {
 
 		public static boolean isLeapYear(int year) {
 			return year % 4 == 0 && year % 100 != 0;
+		}
+
+		public enum Day {
+			SUNDAY("sunday"), MONDAY("monday"), TUESDAY("tuesday"), WEDNESDAY("wednesday"), THIRSDAY("thirsday"), FRIDAY("friday"), SATURDAY("saturday");
+
+			public String name;
+
+			Day(String s) {
+				name = s;
+			}
+
+			public String getDayName() {
+				return StatCollector.translateToLocal("got.date.day." + name);
+			}
+		}
+
+		public enum Month {
+			JANUARY("january", 31, Season.WINTER), FEBRUARY("february", 28, Season.WINTER), MARCH("march", 31, Season.SPRING), APRIL("april", 30, Season.SPRING), MAY("may", 31, Season.SPRING), JUNE("june", 30, Season.SUMMER), JULY("july", 31, Season.SUMMER), AUGUST("august", 31, Season.SUMMER), SEPTEMBER("september", 30, Season.AUTUMN), OCTOBER("october", 31, Season.AUTUMN), NOVEMBER("november", 30, Season.AUTUMN), DECEMBER("december", 31, Season.WINTER);
+
+			public String name;
+			public int days;
+			public boolean hasWeekdayName;
+			public boolean isLeapYear;
+			public Season season;
+
+			Month(String s, int i, Season se) {
+				this(s, i, se, true, false);
+			}
+
+			Month(String s, int i, Season se, boolean flag, boolean flag1) {
+				name = s;
+				days = i;
+				hasWeekdayName = flag;
+				isLeapYear = flag1;
+				season = se;
+			}
+
+			public String getMonthName() {
+				return StatCollector.translateToLocal("got.date.month." + name);
+			}
+
+			public boolean isSingleDay() {
+				return days == 1;
+			}
 		}
 
 		public static class Date {
@@ -186,7 +261,7 @@ public class GOTDate {
 					builder.append(StatCollector.translateToLocal("got.date"));
 				}
 				String yearName = builder.toString();
-				return new String[] { dateName, yearName };
+				return new String[]{dateName, yearName};
 			}
 
 			public Date increment() {
@@ -212,80 +287,6 @@ public class GOTDate {
 			}
 		}
 
-		public enum Day {
-			SUNDAY("sunday"), MONDAY("monday"), TUESDAY("tuesday"), WEDNESDAY("wednesday"), THIRSDAY("thirsday"), FRIDAY("friday"), SATURDAY("saturday");
-
-			public String name;
-
-			Day(String s) {
-				name = s;
-			}
-
-			public String getDayName() {
-				return StatCollector.translateToLocal("got.date.day." + name);
-			}
-		}
-
-		public enum Month {
-			JANUARY("january", 31, Season.WINTER), FEBRUARY("february", 28, Season.WINTER), MARCH("march", 31, Season.SPRING), APRIL("april", 30, Season.SPRING), MAY("may", 31, Season.SPRING), JUNE("june", 30, Season.SUMMER), JULY("july", 31, Season.SUMMER), AUGUST("august", 31, Season.SUMMER), SEPTEMBER("september", 30, Season.AUTUMN), OCTOBER("october", 31, Season.AUTUMN), NOVEMBER("november", 30, Season.AUTUMN), DECEMBER("december", 31, Season.WINTER);
-
-			public String name;
-			public int days;
-			public boolean hasWeekdayName;
-			public boolean isLeapYear;
-			public Season season;
-
-			Month(String s, int i, Season se) {
-				this(s, i, se, true, false);
-			}
-
-			Month(String s, int i, Season se, boolean flag, boolean flag1) {
-				name = s;
-				days = i;
-				hasWeekdayName = flag;
-				isLeapYear = flag1;
-				season = se;
-			}
-
-			public String getMonthName() {
-				return StatCollector.translateToLocal("got.date.month." + name);
-			}
-
-			public boolean isSingleDay() {
-				return days == 1;
-			}
-		}
-
-	}
-
-	public enum Season {
-		SPRING("spring", 0), SUMMER("summer", 1), AUTUMN("autumn", 2), WINTER("winter", 3);
-
-		public static Season[] allSeasons = { SPRING, SUMMER, AUTUMN, WINTER };
-		public String name;
-		public int seasonID;
-
-		public float[] grassRGB;
-
-		Season(String s, int i) {
-			name = s;
-			seasonID = i;
-		}
-
-		public String codeName() {
-			return name;
-		}
-
-		public int transformColor(int color) {
-			float[] rgb = new Color(color).getRGBColorComponents(null);
-			float r = rgb[0];
-			float g = rgb[1];
-			float b = rgb[2];
-			r = Math.min(r * grassRGB[0], 1.0f);
-			g = Math.min(g * grassRGB[1], 1.0f);
-			b = Math.min(b * grassRGB[2], 1.0f);
-			return new Color(r, g, b).getRGB();
-		}
 	}
 
 }

@@ -21,25 +21,6 @@ public class GOTItemPartyHat extends GOTItemArmor {
 		setCreativeTab(GOTCreativeTabs.tabMisc);
 	}
 
-	@SideOnly(value = Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		if (GOTItemPartyHat.isHatDyed(itemstack) && GOTItemPartyHat.getHatColor(itemstack) != 16777215) {
-			list.add(StatCollector.translateToLocal("item.got.hat.dyed"));
-		}
-	}
-
-	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-		return "got:textures/armor/partyhat.png";
-	}
-
-	@SideOnly(value = Side.CLIENT)
-	@Override
-	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		return GOTItemPartyHat.getHatColor(itemstack);
-	}
-
 	public static ItemStack createDyedHat(int i) {
 		return GOTItemPartyHat.setHatColor(new ItemStack(GOTRegistry.partyHat), i);
 	}
@@ -75,5 +56,24 @@ public class GOTItemPartyHat extends GOTItemArmor {
 		}
 		itemstack.getTagCompound().setInteger("HatColor", i);
 		return itemstack;
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		if (GOTItemPartyHat.isHatDyed(itemstack) && GOTItemPartyHat.getHatColor(itemstack) != 16777215) {
+			list.add(StatCollector.translateToLocal("item.got.hat.dyed"));
+		}
+	}
+
+	@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+		return "got:textures/armor/partyhat.png";
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public int getColorFromItemStack(ItemStack itemstack, int pass) {
+		return GOTItemPartyHat.getHatColor(itemstack);
 	}
 }

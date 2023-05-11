@@ -65,6 +65,28 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		notifyChanges = flag;
 	}
 
+	public static boolean isSurfaceStatic(World world, int i, int j, int k) {
+		Block block = world.getBlock(i, j, k);
+		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		if (block instanceof BlockSlab && !block.isOpaqueCube()) {
+			return GOTStructureBase.isSurfaceStatic(world, i, j - 1, k);
+		}
+		Block above = world.getBlock(i, j + 1, k);
+		if (above.getMaterial().isLiquid()) {
+			return false;
+		}
+		if (block == biome.topBlock || block == biome.fillerBlock) {
+			return true;
+		}
+		if (block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTRegistry.dirtPath) {
+			return true;
+		}
+		if (block == GOTRegistry.mudGrass || block == GOTRegistry.mud || block == Blocks.sand || block == GOTRegistry.whiteSand) {
+			return true;
+		}
+		return block == GOTRegistry.asshaiDirt || block == GOTRegistry.basaltGravel;
+	}
+
 	public void addBlockAliasOption(String alias, int weight, Block block) {
 		addBlockMetaAliasOption(alias, weight, block, -1);
 	}
@@ -1172,28 +1194,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public int usingPlayerRotation() {
 		return GOTStructureRegistry.getRotationFromPlayer(usingPlayer);
-	}
-
-	public static boolean isSurfaceStatic(World world, int i, int j, int k) {
-		Block block = world.getBlock(i, j, k);
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-		if (block instanceof BlockSlab && !block.isOpaqueCube()) {
-			return GOTStructureBase.isSurfaceStatic(world, i, j - 1, k);
-		}
-		Block above = world.getBlock(i, j + 1, k);
-		if (above.getMaterial().isLiquid()) {
-			return false;
-		}
-		if (block == biome.topBlock || block == biome.fillerBlock) {
-			return true;
-		}
-		if (block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTRegistry.dirtPath) {
-			return true;
-		}
-		if (block == GOTRegistry.mudGrass || block == GOTRegistry.mud || block == Blocks.sand || block == GOTRegistry.whiteSand) {
-			return true;
-		}
-		return block == GOTRegistry.asshaiDirt || block == GOTRegistry.basaltGravel;
 	}
 
 	public static class BlockAliasPool {

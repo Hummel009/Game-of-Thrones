@@ -56,8 +56,18 @@ public class GOTFamilyInfo {
 		return age;
 	}
 
+	public void setAge(int i) {
+		age = i;
+		markDirty();
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String s) {
+		name = s;
+		markDirty();
 	}
 
 	public GOTEntityNPC getParentToFollow() {
@@ -141,6 +151,11 @@ public class GOTFamilyInfo {
 
 	public boolean isMale() {
 		return male;
+	}
+
+	public void setMale(boolean flag) {
+		male = flag;
+		markDirty();
 	}
 
 	public void markDirty() {
@@ -247,11 +262,6 @@ public class GOTFamilyInfo {
 		}
 	}
 
-	public void setAge(int i) {
-		age = i;
-		markDirty();
-	}
-
 	public void setChild() {
 		setAge(-72000);
 	}
@@ -264,19 +274,9 @@ public class GOTFamilyInfo {
 		}
 	}
 
-	public void setMale(boolean flag) {
-		male = flag;
-		markDirty();
-	}
-
 	public void setMaxBreedingDelay() {
 		float f = 48000;
 		setAge((int) (f *= 0.5f + theEntity.getRNG().nextFloat() * 0.5f));
-	}
-
-	public void setName(String s) {
-		name = s;
-		markDirty();
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {

@@ -33,6 +33,14 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 	public int[] outputSlots = {9, 10, 11, 12, 13, 14, 15, 16, 17};
 	public int fuelSlot = 18;
 
+	public static boolean isCookResultAcceptable(ItemStack result) {
+		if (result == null) {
+			return false;
+		}
+		Item item = result.getItem();
+		return item instanceof ItemFood || item == GOTRegistry.pipeweed || item == Item.getItemFromBlock(GOTRegistry.driedReeds);
+	}
+
 	public boolean canCook(int i) {
 		if (inventory[i] == null) {
 			return false;
@@ -314,13 +322,5 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 		if (hasCustomInventoryName()) {
 			nbt.setString("CustomName", specialOvenName);
 		}
-	}
-
-	public static boolean isCookResultAcceptable(ItemStack result) {
-		if (result == null) {
-			return false;
-		}
-		Item item = result.getItem();
-		return item instanceof ItemFood || item == GOTRegistry.pipeweed || item == Item.getItemFromBlock(GOTRegistry.driedReeds);
 	}
 }

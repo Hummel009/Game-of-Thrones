@@ -14,6 +14,13 @@ public class GOTIntCache {
 	public List<int[]> freeLargeArrays = new ArrayList<>();
 	public List<int[]> inUseLargeArrays = new ArrayList<>();
 
+	public static GOTIntCache get(World world) {
+		if (!world.isRemote) {
+			return SERVER;
+		}
+		return CLIENT;
+	}
+
 	public String getCacheSizes() {
 		return "cache: " + freeLargeArrays.size() + ", tcache: " + freeSmallArrays.size() + ", allocated: " + inUseLargeArrays.size() + ", tallocated: " + inUseSmallArrays.size();
 	}
@@ -58,12 +65,5 @@ public class GOTIntCache {
 		freeSmallArrays.addAll(inUseSmallArrays);
 		inUseLargeArrays.clear();
 		inUseSmallArrays.clear();
-	}
-
-	public static GOTIntCache get(World world) {
-		if (!world.isRemote) {
-			return SERVER;
-		}
-		return CLIENT;
 	}
 }

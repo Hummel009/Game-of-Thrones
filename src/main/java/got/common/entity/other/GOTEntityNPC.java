@@ -127,6 +127,18 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		canBeMarried = false;
 	}
 
+	public static int addTargetTasks(EntityCreature entity, int index, Class<? extends GOTEntityAINearestAttackableTargetBasic> c) {
+		try {
+			Constructor<? extends GOTEntityAINearestAttackableTargetBasic> constructor = c.getConstructor(EntityCreature.class, Class.class, Integer.TYPE, Boolean.TYPE, IEntitySelector.class);
+			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityPlayer.class, 0, true, null));
+			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityLiving.class, 0, true, new GOTNPCTargetSelector(entity)));
+		} catch (Exception e) {
+			FMLLog.severe("Error adding GOT target tasks to entity " + entity.toString());
+			e.printStackTrace();
+		}
+		return index;
+	}
+
 	public int addTargetTasks(boolean seekTargets) {
 		return this.addTargetTasks(seekTargets, GOTEntityAINearestAttackableTargetBasic.class);
 	}
@@ -588,6 +600,10 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public UUID getInvasionID() {
 		return invasionID;
+	}
+
+	public void setInvasionID(UUID id) {
+		invasionID = id;
 	}
 
 	public GOTAchievement getKillAchievement() {
@@ -1218,10 +1234,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 	}
 
-	public void setInvasionID(UUID id) {
-		invasionID = id;
-	}
-
 	public void setIsLegendaryNPC() {
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -1460,18 +1472,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		nbt.setInteger("InitHomeY", initHomeY);
 		nbt.setInteger("InitHomeZ", initHomeZ);
 		nbt.setInteger("InitHomeR", initHomeRange);
-	}
-
-	public static int addTargetTasks(EntityCreature entity, int index, Class<? extends GOTEntityAINearestAttackableTargetBasic> c) {
-		try {
-			Constructor<? extends GOTEntityAINearestAttackableTargetBasic> constructor = c.getConstructor(EntityCreature.class, Class.class, Integer.TYPE, Boolean.TYPE, IEntitySelector.class);
-			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityPlayer.class, 0, true, null));
-			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityLiving.class, 0, true, new GOTNPCTargetSelector(entity)));
-		} catch (Exception e) {
-			FMLLog.severe("Error adding GOT target tasks to entity " + entity.toString());
-			e.printStackTrace();
-		}
-		return index;
 	}
 
 	public enum AttackMode {

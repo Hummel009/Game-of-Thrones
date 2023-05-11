@@ -83,395 +83,6 @@ public enum GOTFaction {
 		this(color, GOTDimension.GAME_OF_THRONES, region, mapInfo);
 	}
 
-	public void addControlZone(GOTControlZone zone) {
-		controlZones.add(zone);
-	}
-
-	public void addLegacyAlias(String s) {
-		legacyAliases.add(s);
-	}
-
-	public GOTFactionRank addRank(float alignment, String name) {
-		GOTFactionRank rank = new GOTFactionRank(this, alignment, name);
-		ranksSortedDescending.add(rank);
-		Collections.sort(ranksSortedDescending);
-		return rank;
-	}
-
-	public GOTFactionRank addSpecialRank(float alignment, String name) {
-		GOTFactionRank rank = new GOTFactionRank(this, alignment, name, false);
-		ranksSortedDescending.add(rank);
-		Collections.sort(ranksSortedDescending);
-		return rank;
-	}
-
-	public int[] calculateFullControlZoneWorldBorders() {
-		int xMin = 0;
-		int xMax = 0;
-		int zMin = 0;
-		int zMax = 0;
-		boolean first = true;
-		for (GOTControlZone zone : controlZones) {
-			int cxMin = zone.xCoord - zone.radiusCoord;
-			int cxMax = zone.xCoord + zone.radiusCoord;
-			int czMin = zone.zCoord - zone.radiusCoord;
-			int czMax = zone.zCoord + zone.radiusCoord;
-			if (first) {
-				xMin = cxMin;
-				xMax = cxMax;
-				zMin = czMin;
-				zMax = czMax;
-				first = false;
-				continue;
-			}
-			xMin = Math.min(xMin, cxMin);
-			xMax = Math.max(xMax, cxMax);
-			zMin = Math.min(zMin, czMin);
-			zMax = Math.max(zMax, czMax);
-		}
-		return new int[]{xMin, xMax, zMin, zMax};
-	}
-
-	public void checkAlignmentAchievements(EntityPlayer entityplayer, float alignment) {
-		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-		for (GOTFactionRank rank : ranksSortedDescending) {
-			GOTAchievementRank rankAch = rank.getRankAchievement();
-			if (rankAch == null || !rankAch.isPlayerRequiredRank(entityplayer)) {
-				continue;
-			}
-			playerData.addAchievement(rankAch);
-		}
-	}
-
-	public String codeName() {
-		return name();
-	}
-
-	public double distanceToNearestControlZoneInRange(World world, double d, double d1, double d2, int mapRange) {
-		double closestDist = -1.0;
-		if (isFactionDimension(world)) {
-			int coordRange = GOTWaypoint.mapToWorldR(mapRange);
-			for (GOTControlZone zone : controlZones) {
-				double dx = d - zone.xCoord;
-				double dz = d2 - zone.zCoord;
-				double dSq = dx * dx + dz * dz;
-				double dToEdge = Math.sqrt(dSq) - zone.radiusCoord;
-				if (dToEdge > coordRange || closestDist >= 0.0 && dToEdge >= closestDist) {
-					continue;
-				}
-				closestDist = dToEdge;
-			}
-		}
-		return closestDist;
-	}
-
-	public String factionEntityName() {
-		return StatCollector.translateToLocal("got.faction." + codeName() + ".entity");
-	}
-
-	public String factionName() {
-		return StatCollector.translateToLocal(untranslatedFactionName());
-	}
-
-	public String factionSubtitle() {
-		return StatCollector.translateToLocal("got.faction." + codeName() + ".subtitle");
-	}
-
-	public GOTAchievement.Category getAchieveCategory() {
-		return achieveCategory;
-	}
-
-	public List<GOTFaction> getBonusesForKilling() {
-		ArrayList<GOTFaction> list = new ArrayList<>();
-		for (GOTFaction f : GOTFaction.values()) {
-			if (f == this || !isBadRelation(f)) {
-				continue;
-			}
-			list.add(f);
-		}
-		return list;
-	}
-
-	public List<GOTFaction> getConquestBoostRelations() {
-		ArrayList<GOTFaction> list = new ArrayList<>();
-		for (GOTFaction f : GOTFaction.values()) {
-			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != Relation.ALLY) {
-				continue;
-			}
-			list.add(f);
-		}
-		return list;
-	}
-
-	public float getControlZoneAlignmentMultiplier(EntityPlayer entityplayer) {
-		int reducedRange;
-		double dist;
-		if (this.inControlZone(entityplayer)) {
-			return 1.0f;
-		}
-		if (isFactionDimension(entityplayer.worldObj) && (dist = distanceToNearestControlZoneInRange(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, reducedRange = getControlZoneReducedRange())) >= 0.0) {
-			double mapDist = GOTWaypoint.worldToMapR(dist);
-			float frac = (float) mapDist / reducedRange;
-			float mplier = 1.0f - frac;
-			return MathHelper.clamp_float(mplier, 0.0f, 1.0f);
-		}
-		return 0.0f;
-	}
-
-	public int getControlZoneReducedRange() {
-		if (isolationist) {
-			return 0;
-		}
-		return 50;
-	}
-
-	public List<GOTControlZone> getControlZones() {
-		return controlZones;
-	}
-
-	public int getFactionColor() {
-		return factionColor.getRGB();
-	}
-
-	public float[] getFactionRGB() {
-		return getFactionRGB_MinBrightness(0.0f);
-	}
-
-	public float[] getFactionRGB_MinBrightness(float minBrightness) {
-		float[] rgb = facRGBCache.get(Float.valueOf(minBrightness));
-		if (rgb == null) {
-			float[] hsb = Color.RGBtoHSB(factionColor.getRed(), factionColor.getGreen(), factionColor.getBlue(), null);
-			hsb[2] = Math.max(hsb[2], minBrightness);
-			int alteredColor = Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]);
-			rgb = new Color(alteredColor).getColorComponents(null);
-			facRGBCache.put(minBrightness, rgb);
-		}
-		return rgb;
-	}
-
-	public GOTFactionRank getFirstRank() {
-		if (ranksSortedDescending.isEmpty()) {
-			return GOTFactionRank.RANK_NEUTRAL;
-		}
-		return ranksSortedDescending.get(ranksSortedDescending.size() - 1);
-	}
-
-	public List<GOTFaction> getOthersOfRelation(Relation rel) {
-		ArrayList<GOTFaction> list = new ArrayList<>();
-		for (GOTFaction f : GOTFaction.values()) {
-			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != rel) {
-				continue;
-			}
-			list.add(f);
-		}
-		return list;
-	}
-
-	public List<GOTFaction> getPenaltiesForKilling() {
-		ArrayList<GOTFaction> list = new ArrayList<>();
-		list.add(this);
-		for (GOTFaction f : GOTFaction.values()) {
-			if (f == this || !isGoodRelation(f)) {
-				continue;
-			}
-			list.add(f);
-		}
-		return list;
-	}
-
-	public float getPledgeAlignment() {
-		if (pledgeRank != null) {
-			return pledgeRank.alignment;
-		}
-		return 0.0f;
-	}
-
-	public GOTFactionRank getPledgeRank() {
-		return pledgeRank;
-	}
-
-	public GOTFactionRank getRank(EntityPlayer entityplayer) {
-		return this.getRank(GOTLevelData.getData(entityplayer));
-	}
-
-	public GOTFactionRank getRank(float alignment) {
-		for (GOTFactionRank rank : ranksSortedDescending) {
-			if (rank.isDummyRank() || alignment < rank.alignment) {
-				continue;
-			}
-			return rank;
-		}
-		if (alignment >= 0.0f) {
-			return GOTFactionRank.RANK_NEUTRAL;
-		}
-		return GOTFactionRank.RANK_ENEMY;
-	}
-
-	public GOTFactionRank getRank(GOTPlayerData pd) {
-		float alignment = pd.getAlignment(this);
-		return this.getRank(alignment);
-	}
-
-	public GOTFactionRank getRankAbove(GOTFactionRank curRank) {
-		return getRankNAbove(curRank, 1);
-	}
-
-	public GOTFactionRank getRankBelow(GOTFactionRank curRank) {
-		return getRankNAbove(curRank, -1);
-	}
-
-	public GOTFactionRank getRankNAbove(GOTFactionRank curRank, int n) {
-		if (ranksSortedDescending.isEmpty() || curRank == null) {
-			return GOTFactionRank.RANK_NEUTRAL;
-		}
-		int index = -1;
-		if (curRank.isDummyRank()) {
-			index = ranksSortedDescending.size();
-		} else if (ranksSortedDescending.contains(curRank)) {
-			index = ranksSortedDescending.indexOf(curRank);
-		}
-		if (index >= 0) {
-			index -= n;
-			if (index < 0) {
-				return ranksSortedDescending.get(0);
-			}
-			if (index > ranksSortedDescending.size() - 1) {
-				return GOTFactionRank.RANK_NEUTRAL;
-			}
-			return ranksSortedDescending.get(index);
-		}
-		return GOTFactionRank.RANK_NEUTRAL;
-	}
-
-	public boolean inControlZone(EntityPlayer entityplayer) {
-		return this.inControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ);
-	}
-
-	public boolean inControlZone(World world, double d, double d1, double d2) {
-		if (this.inDefinedControlZone(world, d, d1, d2)) {
-			return true;
-		}
-		double nearbyRange = 24.0;
-		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(d, d1, d2, d, d1, d2).expand(nearbyRange, nearbyRange, nearbyRange);
-		List<EntityLivingBase> nearbyNPCs = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new GOTNPCSelectForInfluence(this));
-		return !nearbyNPCs.isEmpty();
-	}
-
-	public boolean inDefinedControlZone(EntityPlayer entityplayer) {
-		return this.inDefinedControlZone(entityplayer, 0);
-	}
-
-	public boolean inDefinedControlZone(EntityPlayer entityplayer, int extraMapRange) {
-		return this.inDefinedControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, extraMapRange);
-	}
-
-	public boolean inDefinedControlZone(World world, double d, double d1, double d2) {
-		return this.inDefinedControlZone(world, d, d1, d2, 0);
-	}
-
-	public boolean inDefinedControlZone(World world, double d, double d1, double d2, int extraMapRange) {
-		if (isFactionDimension(world)) {
-			if (!GOTFaction.controlZonesEnabled(world)) {
-				return true;
-			}
-			for (GOTControlZone zone : controlZones) {
-				if (!zone.inZone(d, d1, d2, extraMapRange)) {
-					continue;
-				}
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public boolean isAlly(GOTFaction other) {
-		Relation rel = GOTFactionRelations.getRelations(this, other);
-		return rel == Relation.ALLY;
-	}
-
-	public boolean isBadRelation(GOTFaction other) {
-		Relation rel = GOTFactionRelations.getRelations(this, other);
-		return rel == Relation.ENEMY || rel == Relation.MORTAL_ENEMY;
-	}
-
-	public boolean isFactionDimension(World world) {
-		return world.provider instanceof GOTWorldProvider && ((GOTWorldProvider) world.provider).getGOTDimension() == factionDimension;
-	}
-
-	public boolean isGoodRelation(GOTFaction other) {
-		Relation rel = GOTFactionRelations.getRelations(this, other);
-		return rel == Relation.ALLY || rel == Relation.FRIEND;
-	}
-
-	public boolean isMortalEnemy(GOTFaction other) {
-		Relation rel = GOTFactionRelations.getRelations(this, other);
-		return rel == Relation.MORTAL_ENEMY;
-	}
-
-	public boolean isNeutral(GOTFaction other) {
-		return GOTFactionRelations.getRelations(this, other) == Relation.NEUTRAL;
-	}
-
-	public boolean isPlayableAlignmentFaction() {
-		return allowPlayer && !hasFixedAlignment;
-	}
-
-	public List<String> listAliases() {
-		return new ArrayList<>(legacyAliases);
-	}
-
-	public boolean matchesNameOrAlias(String name) {
-		if (codeName().equals(name)) {
-			return true;
-		}
-		for (String alias : legacyAliases) {
-			if (alias.equals(name)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public void setAchieveCategory(GOTAchievement.Category cat) {
-		achieveCategory = cat;
-	}
-
-	public void setFixedAlignment(int alignment) {
-		hasFixedAlignment = true;
-		fixedAlignment = alignment;
-	}
-
-	public void setPledgeRank(GOTFactionRank rank) {
-		if (rank.fac != this) {
-			throw new IllegalArgumentException("Incompatible faction!");
-		}
-		if (pledgeRank != null) {
-			throw new IllegalArgumentException("Faction already has a pledge rank!");
-		}
-		pledgeRank = rank;
-	}
-
-	public boolean sharesControlZoneWith(GOTFaction other) {
-		return this.sharesControlZoneWith(other, 0);
-	}
-
-	public boolean sharesControlZoneWith(GOTFaction other, int extraMapRadius) {
-		if (other.factionDimension == factionDimension) {
-			for (GOTControlZone zone : controlZones) {
-				for (GOTControlZone otherZone : other.controlZones) {
-					if (zone.intersectsWith(otherZone, extraMapRadius)) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-
-	public String untranslatedFactionName() {
-		return "got.faction." + codeName() + ".name";
-	}
-
 	public static boolean controlZonesEnabled(World world) {
 		return GOTLevelData.enableAlignmentZones() && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
 	}
@@ -720,5 +331,394 @@ public enum GOTFaction {
 			}
 		}
 		WHITE_WALKER.addSpecialRank(1000.0f, "king").setPledgeRank().makeTitle().makeAchievement();
+	}
+
+	public void addControlZone(GOTControlZone zone) {
+		controlZones.add(zone);
+	}
+
+	public void addLegacyAlias(String s) {
+		legacyAliases.add(s);
+	}
+
+	public GOTFactionRank addRank(float alignment, String name) {
+		GOTFactionRank rank = new GOTFactionRank(this, alignment, name);
+		ranksSortedDescending.add(rank);
+		Collections.sort(ranksSortedDescending);
+		return rank;
+	}
+
+	public GOTFactionRank addSpecialRank(float alignment, String name) {
+		GOTFactionRank rank = new GOTFactionRank(this, alignment, name, false);
+		ranksSortedDescending.add(rank);
+		Collections.sort(ranksSortedDescending);
+		return rank;
+	}
+
+	public int[] calculateFullControlZoneWorldBorders() {
+		int xMin = 0;
+		int xMax = 0;
+		int zMin = 0;
+		int zMax = 0;
+		boolean first = true;
+		for (GOTControlZone zone : controlZones) {
+			int cxMin = zone.xCoord - zone.radiusCoord;
+			int cxMax = zone.xCoord + zone.radiusCoord;
+			int czMin = zone.zCoord - zone.radiusCoord;
+			int czMax = zone.zCoord + zone.radiusCoord;
+			if (first) {
+				xMin = cxMin;
+				xMax = cxMax;
+				zMin = czMin;
+				zMax = czMax;
+				first = false;
+				continue;
+			}
+			xMin = Math.min(xMin, cxMin);
+			xMax = Math.max(xMax, cxMax);
+			zMin = Math.min(zMin, czMin);
+			zMax = Math.max(zMax, czMax);
+		}
+		return new int[]{xMin, xMax, zMin, zMax};
+	}
+
+	public void checkAlignmentAchievements(EntityPlayer entityplayer, float alignment) {
+		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
+		for (GOTFactionRank rank : ranksSortedDescending) {
+			GOTAchievementRank rankAch = rank.getRankAchievement();
+			if (rankAch == null || !rankAch.isPlayerRequiredRank(entityplayer)) {
+				continue;
+			}
+			playerData.addAchievement(rankAch);
+		}
+	}
+
+	public String codeName() {
+		return name();
+	}
+
+	public double distanceToNearestControlZoneInRange(World world, double d, double d1, double d2, int mapRange) {
+		double closestDist = -1.0;
+		if (isFactionDimension(world)) {
+			int coordRange = GOTWaypoint.mapToWorldR(mapRange);
+			for (GOTControlZone zone : controlZones) {
+				double dx = d - zone.xCoord;
+				double dz = d2 - zone.zCoord;
+				double dSq = dx * dx + dz * dz;
+				double dToEdge = Math.sqrt(dSq) - zone.radiusCoord;
+				if (dToEdge > coordRange || closestDist >= 0.0 && dToEdge >= closestDist) {
+					continue;
+				}
+				closestDist = dToEdge;
+			}
+		}
+		return closestDist;
+	}
+
+	public String factionEntityName() {
+		return StatCollector.translateToLocal("got.faction." + codeName() + ".entity");
+	}
+
+	public String factionName() {
+		return StatCollector.translateToLocal(untranslatedFactionName());
+	}
+
+	public String factionSubtitle() {
+		return StatCollector.translateToLocal("got.faction." + codeName() + ".subtitle");
+	}
+
+	public GOTAchievement.Category getAchieveCategory() {
+		return achieveCategory;
+	}
+
+	public void setAchieveCategory(GOTAchievement.Category cat) {
+		achieveCategory = cat;
+	}
+
+	public List<GOTFaction> getBonusesForKilling() {
+		ArrayList<GOTFaction> list = new ArrayList<>();
+		for (GOTFaction f : GOTFaction.values()) {
+			if (f == this || !isBadRelation(f)) {
+				continue;
+			}
+			list.add(f);
+		}
+		return list;
+	}
+
+	public List<GOTFaction> getConquestBoostRelations() {
+		ArrayList<GOTFaction> list = new ArrayList<>();
+		for (GOTFaction f : GOTFaction.values()) {
+			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != Relation.ALLY) {
+				continue;
+			}
+			list.add(f);
+		}
+		return list;
+	}
+
+	public float getControlZoneAlignmentMultiplier(EntityPlayer entityplayer) {
+		int reducedRange;
+		double dist;
+		if (this.inControlZone(entityplayer)) {
+			return 1.0f;
+		}
+		if (isFactionDimension(entityplayer.worldObj) && (dist = distanceToNearestControlZoneInRange(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, reducedRange = getControlZoneReducedRange())) >= 0.0) {
+			double mapDist = GOTWaypoint.worldToMapR(dist);
+			float frac = (float) mapDist / reducedRange;
+			float mplier = 1.0f - frac;
+			return MathHelper.clamp_float(mplier, 0.0f, 1.0f);
+		}
+		return 0.0f;
+	}
+
+	public int getControlZoneReducedRange() {
+		if (isolationist) {
+			return 0;
+		}
+		return 50;
+	}
+
+	public List<GOTControlZone> getControlZones() {
+		return controlZones;
+	}
+
+	public int getFactionColor() {
+		return factionColor.getRGB();
+	}
+
+	public float[] getFactionRGB() {
+		return getFactionRGB_MinBrightness(0.0f);
+	}
+
+	public float[] getFactionRGB_MinBrightness(float minBrightness) {
+		float[] rgb = facRGBCache.get(Float.valueOf(minBrightness));
+		if (rgb == null) {
+			float[] hsb = Color.RGBtoHSB(factionColor.getRed(), factionColor.getGreen(), factionColor.getBlue(), null);
+			hsb[2] = Math.max(hsb[2], minBrightness);
+			int alteredColor = Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]);
+			rgb = new Color(alteredColor).getColorComponents(null);
+			facRGBCache.put(minBrightness, rgb);
+		}
+		return rgb;
+	}
+
+	public GOTFactionRank getFirstRank() {
+		if (ranksSortedDescending.isEmpty()) {
+			return GOTFactionRank.RANK_NEUTRAL;
+		}
+		return ranksSortedDescending.get(ranksSortedDescending.size() - 1);
+	}
+
+	public List<GOTFaction> getOthersOfRelation(Relation rel) {
+		ArrayList<GOTFaction> list = new ArrayList<>();
+		for (GOTFaction f : GOTFaction.values()) {
+			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != rel) {
+				continue;
+			}
+			list.add(f);
+		}
+		return list;
+	}
+
+	public List<GOTFaction> getPenaltiesForKilling() {
+		ArrayList<GOTFaction> list = new ArrayList<>();
+		list.add(this);
+		for (GOTFaction f : GOTFaction.values()) {
+			if (f == this || !isGoodRelation(f)) {
+				continue;
+			}
+			list.add(f);
+		}
+		return list;
+	}
+
+	public float getPledgeAlignment() {
+		if (pledgeRank != null) {
+			return pledgeRank.alignment;
+		}
+		return 0.0f;
+	}
+
+	public GOTFactionRank getPledgeRank() {
+		return pledgeRank;
+	}
+
+	public void setPledgeRank(GOTFactionRank rank) {
+		if (rank.fac != this) {
+			throw new IllegalArgumentException("Incompatible faction!");
+		}
+		if (pledgeRank != null) {
+			throw new IllegalArgumentException("Faction already has a pledge rank!");
+		}
+		pledgeRank = rank;
+	}
+
+	public GOTFactionRank getRank(EntityPlayer entityplayer) {
+		return this.getRank(GOTLevelData.getData(entityplayer));
+	}
+
+	public GOTFactionRank getRank(float alignment) {
+		for (GOTFactionRank rank : ranksSortedDescending) {
+			if (rank.isDummyRank() || alignment < rank.alignment) {
+				continue;
+			}
+			return rank;
+		}
+		if (alignment >= 0.0f) {
+			return GOTFactionRank.RANK_NEUTRAL;
+		}
+		return GOTFactionRank.RANK_ENEMY;
+	}
+
+	public GOTFactionRank getRank(GOTPlayerData pd) {
+		float alignment = pd.getAlignment(this);
+		return this.getRank(alignment);
+	}
+
+	public GOTFactionRank getRankAbove(GOTFactionRank curRank) {
+		return getRankNAbove(curRank, 1);
+	}
+
+	public GOTFactionRank getRankBelow(GOTFactionRank curRank) {
+		return getRankNAbove(curRank, -1);
+	}
+
+	public GOTFactionRank getRankNAbove(GOTFactionRank curRank, int n) {
+		if (ranksSortedDescending.isEmpty() || curRank == null) {
+			return GOTFactionRank.RANK_NEUTRAL;
+		}
+		int index = -1;
+		if (curRank.isDummyRank()) {
+			index = ranksSortedDescending.size();
+		} else if (ranksSortedDescending.contains(curRank)) {
+			index = ranksSortedDescending.indexOf(curRank);
+		}
+		if (index >= 0) {
+			index -= n;
+			if (index < 0) {
+				return ranksSortedDescending.get(0);
+			}
+			if (index > ranksSortedDescending.size() - 1) {
+				return GOTFactionRank.RANK_NEUTRAL;
+			}
+			return ranksSortedDescending.get(index);
+		}
+		return GOTFactionRank.RANK_NEUTRAL;
+	}
+
+	public boolean inControlZone(EntityPlayer entityplayer) {
+		return this.inControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ);
+	}
+
+	public boolean inControlZone(World world, double d, double d1, double d2) {
+		if (this.inDefinedControlZone(world, d, d1, d2)) {
+			return true;
+		}
+		double nearbyRange = 24.0;
+		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(d, d1, d2, d, d1, d2).expand(nearbyRange, nearbyRange, nearbyRange);
+		List<EntityLivingBase> nearbyNPCs = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new GOTNPCSelectForInfluence(this));
+		return !nearbyNPCs.isEmpty();
+	}
+
+	public boolean inDefinedControlZone(EntityPlayer entityplayer) {
+		return this.inDefinedControlZone(entityplayer, 0);
+	}
+
+	public boolean inDefinedControlZone(EntityPlayer entityplayer, int extraMapRange) {
+		return this.inDefinedControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, extraMapRange);
+	}
+
+	public boolean inDefinedControlZone(World world, double d, double d1, double d2) {
+		return this.inDefinedControlZone(world, d, d1, d2, 0);
+	}
+
+	public boolean inDefinedControlZone(World world, double d, double d1, double d2, int extraMapRange) {
+		if (isFactionDimension(world)) {
+			if (!GOTFaction.controlZonesEnabled(world)) {
+				return true;
+			}
+			for (GOTControlZone zone : controlZones) {
+				if (!zone.inZone(d, d1, d2, extraMapRange)) {
+					continue;
+				}
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public boolean isAlly(GOTFaction other) {
+		Relation rel = GOTFactionRelations.getRelations(this, other);
+		return rel == Relation.ALLY;
+	}
+
+	public boolean isBadRelation(GOTFaction other) {
+		Relation rel = GOTFactionRelations.getRelations(this, other);
+		return rel == Relation.ENEMY || rel == Relation.MORTAL_ENEMY;
+	}
+
+	public boolean isFactionDimension(World world) {
+		return world.provider instanceof GOTWorldProvider && ((GOTWorldProvider) world.provider).getGOTDimension() == factionDimension;
+	}
+
+	public boolean isGoodRelation(GOTFaction other) {
+		Relation rel = GOTFactionRelations.getRelations(this, other);
+		return rel == Relation.ALLY || rel == Relation.FRIEND;
+	}
+
+	public boolean isMortalEnemy(GOTFaction other) {
+		Relation rel = GOTFactionRelations.getRelations(this, other);
+		return rel == Relation.MORTAL_ENEMY;
+	}
+
+	public boolean isNeutral(GOTFaction other) {
+		return GOTFactionRelations.getRelations(this, other) == Relation.NEUTRAL;
+	}
+
+	public boolean isPlayableAlignmentFaction() {
+		return allowPlayer && !hasFixedAlignment;
+	}
+
+	public List<String> listAliases() {
+		return new ArrayList<>(legacyAliases);
+	}
+
+	public boolean matchesNameOrAlias(String name) {
+		if (codeName().equals(name)) {
+			return true;
+		}
+		for (String alias : legacyAliases) {
+			if (alias.equals(name)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void setFixedAlignment(int alignment) {
+		hasFixedAlignment = true;
+		fixedAlignment = alignment;
+	}
+
+	public boolean sharesControlZoneWith(GOTFaction other) {
+		return this.sharesControlZoneWith(other, 0);
+	}
+
+	public boolean sharesControlZoneWith(GOTFaction other, int extraMapRadius) {
+		if (other.factionDimension == factionDimension) {
+			for (GOTControlZone zone : controlZones) {
+				for (GOTControlZone otherZone : other.controlZones) {
+					if (zone.intersectsWith(otherZone, extraMapRadius)) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	public String untranslatedFactionName() {
+		return "got.faction." + codeName() + ".name";
 	}
 }

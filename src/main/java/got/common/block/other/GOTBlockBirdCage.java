@@ -34,6 +34,14 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		setCageTypes("bronze", "iron", "silver", "gold");
 	}
 
+	public static boolean isSameBirdCage(IBlockAccess world, int i, int j, int k, int i1, int j1, int k1) {
+		Block block = world.getBlock(i, j, k);
+		int meta = world.getBlockMetadata(i, j, k);
+		Block block1 = world.getBlock(i1, j1, k1);
+		int meta1 = world.getBlockMetadata(i1, j1, k1);
+		return block instanceof GOTBlockBirdCage && block == block1 && meta == meta1;
+	}
+
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		return true;
@@ -92,13 +100,5 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 
 	public void setCageTypes(String... s) {
 		cageTypes = s;
-	}
-
-	public static boolean isSameBirdCage(IBlockAccess world, int i, int j, int k, int i1, int j1, int k1) {
-		Block block = world.getBlock(i, j, k);
-		int meta = world.getBlockMetadata(i, j, k);
-		Block block1 = world.getBlock(i1, j1, k1);
-		int meta1 = world.getBlockMetadata(i1, j1, k1);
-		return block instanceof GOTBlockBirdCage && block == block1 && meta == meta1;
 	}
 }

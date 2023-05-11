@@ -40,6 +40,10 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, TOWN, FORT;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -615,10 +619,6 @@ public class GOTStructureLorathCity extends GOTVillageGen {
 			spawner.setSpawnClasses(GOTEntityLorathSoldier.class, GOTEntityLorathSoldierArcher.class);
 		}
 
-	}
-
-	public enum VillageType {
-		VILLAGE, TOWN, FORT;
 	}
 
 }

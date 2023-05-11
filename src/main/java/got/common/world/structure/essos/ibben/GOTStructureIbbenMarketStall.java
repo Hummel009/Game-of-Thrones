@@ -16,6 +16,16 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		super(flag);
 	}
 
+	public static GOTStructureBase getRandomStall(Random random, boolean flag) {
+		try {
+			Class cls = allStallTypes[random.nextInt(allStallTypes.length)];
+			return (GOTStructureBase) cls.getConstructor(Boolean.TYPE).newInstance(flag);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 	public abstract GOTEntityIbbenMan createTrader(World var1);
 
 	@Override
@@ -96,16 +106,6 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 	}
 
 	public abstract void generateRoof(World var1, Random var2, int var3, int var4, int var5);
-
-	public static GOTStructureBase getRandomStall(Random random, boolean flag) {
-		try {
-			Class cls = allStallTypes[random.nextInt(allStallTypes.length)];
-			return (GOTStructureBase) cls.getConstructor(Boolean.TYPE).newInstance(flag);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
 
 	public static class Baker extends GOTStructureIbbenMarketStall {
 		public Baker(boolean flag) {

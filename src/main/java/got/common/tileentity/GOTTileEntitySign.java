@@ -35,10 +35,21 @@ public abstract class GOTTileEntitySign extends TileEntity {
 		return editingPlayer;
 	}
 
+	public void setEditingPlayer(EntityPlayer entityplayer) {
+		editingPlayer = entityplayer;
+	}
+
 	public abstract int getNumLines();
 
 	public boolean isEditable() {
 		return editable;
+	}
+
+	public void setEditable(boolean flag) {
+		editable = flag;
+		if (!flag) {
+			editingPlayer = null;
+		}
 	}
 
 	@Override
@@ -68,17 +79,6 @@ public abstract class GOTTileEntitySign extends TileEntity {
 			}
 			signText[i] = signText[i].substring(0, 15);
 		}
-	}
-
-	public void setEditable(boolean flag) {
-		editable = flag;
-		if (!flag) {
-			editingPlayer = null;
-		}
-	}
-
-	public void setEditingPlayer(EntityPlayer entityplayer) {
-		editingPlayer = entityplayer;
 	}
 
 	public void writeSignText(NBTTagCompound nbt) {

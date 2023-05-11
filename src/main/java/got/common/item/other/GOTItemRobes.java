@@ -23,20 +23,6 @@ public class GOTItemRobes extends GOTItemArmor {
 		this(GOTMaterial.ROBES, slot);
 	}
 
-	@SideOnly(value = Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		if (GOTItemRobes.areRobesDyed(itemstack)) {
-			list.add(StatCollector.translateToLocal("item.got.robes.dyed"));
-		}
-	}
-
-	@SideOnly(value = Side.CLIENT)
-	@Override
-	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		return GOTItemRobes.getRobesColor(itemstack);
-	}
-
 	public static boolean areRobesDyed(ItemStack itemstack) {
 		return GOTItemRobes.getSavedDyeColor(itemstack) != -1;
 	}
@@ -67,5 +53,19 @@ public class GOTItemRobes extends GOTItemArmor {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
 		itemstack.getTagCompound().setInteger("RobesColor", i);
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		if (GOTItemRobes.areRobesDyed(itemstack)) {
+			list.add(StatCollector.translateToLocal("item.got.robes.dyed"));
+		}
+	}
+
+	@SideOnly(value = Side.CLIENT)
+	@Override
+	public int getColorFromItemStack(ItemStack itemstack, int pass) {
+		return GOTItemRobes.getRobesColor(itemstack);
 	}
 }

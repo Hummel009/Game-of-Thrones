@@ -25,6 +25,29 @@ public class GOTItemPipe extends Item {
 		setCreativeTab(GOTCreativeTabs.tabMisc);
 	}
 
+	public static int getSmokeColor(ItemStack itemstack) {
+		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("SmokeColour")) {
+			return itemstack.getTagCompound().getInteger("SmokeColour");
+		}
+		return 0;
+	}
+
+	public static boolean isPipeDyed(ItemStack itemstack) {
+		int color = GOTItemPipe.getSmokeColor(itemstack);
+		return color != 0 && color != 16;
+	}
+
+	public static void removePipeDye(ItemStack itemstack) {
+		GOTItemPipe.setSmokeColor(itemstack, 0);
+	}
+
+	public static void setSmokeColor(ItemStack itemstack, int i) {
+		if (itemstack.getTagCompound() == null) {
+			itemstack.setTagCompound(new NBTTagCompound());
+		}
+		itemstack.getTagCompound().setInteger("SmokeColour", i);
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
@@ -79,28 +102,5 @@ public class GOTItemPipe extends Item {
 			entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
 		}
 		return itemstack;
-	}
-
-	public static int getSmokeColor(ItemStack itemstack) {
-		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("SmokeColour")) {
-			return itemstack.getTagCompound().getInteger("SmokeColour");
-		}
-		return 0;
-	}
-
-	public static boolean isPipeDyed(ItemStack itemstack) {
-		int color = GOTItemPipe.getSmokeColor(itemstack);
-		return color != 0 && color != 16;
-	}
-
-	public static void removePipeDye(ItemStack itemstack) {
-		GOTItemPipe.setSmokeColor(itemstack, 0);
-	}
-
-	public static void setSmokeColor(ItemStack itemstack, int i) {
-		if (itemstack.getTagCompound() == null) {
-			itemstack.setTagCompound(new NBTTagCompound());
-		}
-		itemstack.getTagCompound().setInteger("SmokeColour", i);
 	}
 }

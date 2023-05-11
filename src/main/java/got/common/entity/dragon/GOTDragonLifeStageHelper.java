@@ -51,6 +51,12 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		return GOTDragonLifeStage.EGG;
 	}
 
+	public void setLifeStage(GOTDragonLifeStage lifeStage) {
+		L.trace("setLifeStage({})", lifeStage);
+		dragon.setGrowingAge(lifeStage.ageLimit);
+		updateLifeStage();
+	}
+
 	public float getScale() {
 
 		if (isEgg()) {
@@ -128,12 +134,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		int by = (int) Math.round(dragon.posY);
 		int bz = (int) Math.round(dragon.posZ - 0.5);
 		dragon.worldObj.playAuxSFX(2001, bx, by, bz, Block.getIdFromBlock(Blocks.dragon_egg));
-	}
-
-	public void setLifeStage(GOTDragonLifeStage lifeStage) {
-		L.trace("setLifeStage({})", lifeStage);
-		dragon.setGrowingAge(lifeStage.ageLimit);
-		updateLifeStage();
 	}
 
 	public void transformToEgg() {

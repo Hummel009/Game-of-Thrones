@@ -37,6 +37,21 @@ public class GOTEntityAIRangedAttack extends EntityAIBase {
 		setMutexBits(3);
 	}
 
+	public static Vec3 findPositionAwayFrom(EntityLivingBase entity, EntityLivingBase target, int min, int max) {
+		Random random = entity.getRNG();
+		for (int l = 0; l < 24; ++l) {
+			int k;
+			int j;
+			int i = MathHelper.floor_double(entity.posX) - max + random.nextInt(max * 2 + 1);
+			double d = target.getDistanceSq(i, j = MathHelper.floor_double(entity.boundingBox.minY) - 4 + random.nextInt(9), k = MathHelper.floor_double(entity.posZ) - max + random.nextInt(max * 2 + 1));
+			if (d <= min * min || d >= max * max) {
+				continue;
+			}
+			return Vec3.createVectorHelper(i, j, k);
+		}
+		return null;
+	}
+
 	@Override
 	public boolean continueExecuting() {
 		if (!theOwner.isEntityAlive()) {
@@ -96,20 +111,5 @@ public class GOTEntityAIRangedAttack extends EntityAIBase {
 			float distanceRatio = MathHelper.sqrt_double(distanceSq) / attackRange;
 			rangedAttackTime = MathHelper.floor_float(distanceRatio * (attackTimeMax - attackTimeMin) + attackTimeMin);
 		}
-	}
-
-	public static Vec3 findPositionAwayFrom(EntityLivingBase entity, EntityLivingBase target, int min, int max) {
-		Random random = entity.getRNG();
-		for (int l = 0; l < 24; ++l) {
-			int k;
-			int j;
-			int i = MathHelper.floor_double(entity.posX) - max + random.nextInt(max * 2 + 1);
-			double d = target.getDistanceSq(i, j = MathHelper.floor_double(entity.boundingBox.minY) - 4 + random.nextInt(9), k = MathHelper.floor_double(entity.posZ) - max + random.nextInt(max * 2 + 1));
-			if (d <= min * min || d >= max * max) {
-				continue;
-			}
-			return Vec3.createVectorHelper(i, j, k);
-		}
-		return null;
 	}
 }

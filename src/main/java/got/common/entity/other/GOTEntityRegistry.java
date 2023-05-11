@@ -22,12 +22,6 @@ public class GOTEntityRegistry {
 	public static Map<Class, GOTFaction> classToFactionMapping = new HashMap<>();
 	public static Set<Class> entitySet = new HashSet<>();
 
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (GOTEntityRegistry.SpawnEggInfo info : GOTEntityRegistry.spawnEggs.values()) {
-			list.add(new ItemStack(item, 1, info.spawnedID));
-		}
-	}
-
 	public static Entity createEntityByClass(Class entityClass, World world) {
 		Entity entity = null;
 		try {
@@ -106,6 +100,12 @@ public class GOTEntityRegistry {
 		entitySet.add(entityClass);
 		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
 		classToFactionMapping.put(entityClass, faction);
+	}
+
+	public void getSubItems(Item item, CreativeTabs tab, List list) {
+		for (GOTEntityRegistry.SpawnEggInfo info : GOTEntityRegistry.spawnEggs.values()) {
+			list.add(new ItemStack(item, 1, info.spawnedID));
+		}
 	}
 
 	public static class SpawnEggInfo {

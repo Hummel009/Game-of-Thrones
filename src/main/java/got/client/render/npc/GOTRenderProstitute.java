@@ -14,12 +14,6 @@ public class GOTRenderProstitute extends GOTRenderBiped {
 		super(new GOTModelHuman(), 0.5f);
 	}
 
-	@Override
-	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityProstitute prostitute = (GOTEntityProstitute) entity;
-		return GOTRenderProstitute.getProstituteSkin(prostitute.getProstituteType());
-	}
-
 	public static ResourceLocation getProstituteSkin(GOTEntityProstitute.ProstituteType type) {
 		String s = type.textureName();
 		Map prostituteSkins = new HashMap<>();
@@ -29,5 +23,11 @@ public class GOTRenderProstitute extends GOTRenderBiped {
 			prostituteSkins.put(s, skin);
 		}
 		return skin;
+	}
+
+	@Override
+	public ResourceLocation getEntityTexture(Entity entity) {
+		GOTEntityProstitute prostitute = (GOTEntityProstitute) entity;
+		return GOTRenderProstitute.getProstituteSkin(prostitute.getProstituteType());
 	}
 }

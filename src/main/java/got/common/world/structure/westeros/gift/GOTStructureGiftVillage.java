@@ -59,6 +59,10 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		ABANDONED, CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -231,9 +235,5 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 				villageType = VillageType.VILLAGE;
 			}
 		}
-	}
-
-	public enum VillageType {
-		ABANDONED, CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE;
 	}
 }

@@ -106,6 +106,10 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		return dataWatcher.getWatchableObjectInt(17);
 	}
 
+	public void setDeathFadeTime(int i) {
+		dataWatcher.updateObject(17, i);
+	}
+
 	@Override
 	public String getDeathSound() {
 		return "got:wight.death";
@@ -123,6 +127,10 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 
 	public int getSpawnFadeTime() {
 		return dataWatcher.getWatchableObjectInt(16);
+	}
+
+	public void setSpawnFadeTime(int i) {
+		dataWatcher.updateObject(16, i);
 	}
 
 	@Override
@@ -215,16 +223,8 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		}
 	}
 
-	public void setDeathFadeTime(int i) {
-		dataWatcher.updateObject(17, i);
-	}
-
 	@Override
 	public void setInWeb() {
-	}
-
-	public void setSpawnFadeTime(int i) {
-		dataWatcher.updateObject(16, i);
 	}
 
 	@Override

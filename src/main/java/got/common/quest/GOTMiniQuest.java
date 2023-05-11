@@ -88,6 +88,39 @@ public abstract class GOTMiniQuest {
 		questUUID = UUID.randomUUID();
 	}
 
+	public static GOTMiniQuest loadQuestFromNBT(NBTTagCompound nbt, GOTPlayerData playerData) {
+		String questTypeName = nbt.getString("QuestType");
+		Class<? extends GOTMiniQuest> questType = nameToQuestMapping.get(questTypeName);
+		if (questType == null) {
+			FMLLog.severe("Could not instantiate miniquest of type " + questTypeName);
+			return null;
+		}
+		GOTMiniQuest quest = GOTMiniQuest.newQuestInstance(questType, playerData);
+		if (quest != null) {
+			quest.readFromNBT(nbt);
+			if (quest.isValidQuest()) {
+				return quest;
+			}
+			FMLLog.severe("Loaded an invalid GOT miniquest " + quest.speechBankStart);
+		}
+		return null;
+	}
+
+	public static <Q extends GOTMiniQuest> Q newQuestInstance(Class<Q> questType, GOTPlayerData playerData) {
+		try {
+			GOTMiniQuest quest = questType.getConstructor(GOTPlayerData.class).newInstance(playerData);
+			return (Q) quest;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public static void registerQuestType(String name, Class<? extends GOTMiniQuest> questType) {
+		nameToQuestMapping.put(name, questType);
+		questToNameMapping.put(questType, name);
+	}
+
 	public boolean anyRewardsGiven() {
 		return alignmentRewarded > 0.0f || coinsRewarded > 0 || !itemsRewarded.isEmpty();
 	}
@@ -223,6 +256,10 @@ public abstract class GOTMiniQuest {
 
 	public GOTPlayerData getPlayerData() {
 		return playerData;
+	}
+
+	public void setPlayerData(GOTPlayerData pd) {
+		playerData = pd;
 	}
 
 	public abstract String getProgressedObjectiveInSpeech();
@@ -402,10 +439,6 @@ public abstract class GOTMiniQuest {
 		questColor = npc.getMiniquestColor();
 	}
 
-	public void setPlayerData(GOTPlayerData pd) {
-		playerData = pd;
-	}
-
 	public boolean shouldRandomiseCoinReward() {
 		return true;
 	}
@@ -518,39 +551,6 @@ public abstract class GOTMiniQuest {
 		}
 	}
 
-	public static GOTMiniQuest loadQuestFromNBT(NBTTagCompound nbt, GOTPlayerData playerData) {
-		String questTypeName = nbt.getString("QuestType");
-		Class<? extends GOTMiniQuest> questType = nameToQuestMapping.get(questTypeName);
-		if (questType == null) {
-			FMLLog.severe("Could not instantiate miniquest of type " + questTypeName);
-			return null;
-		}
-		GOTMiniQuest quest = GOTMiniQuest.newQuestInstance(questType, playerData);
-		if (quest != null) {
-			quest.readFromNBT(nbt);
-			if (quest.isValidQuest()) {
-				return quest;
-			}
-			FMLLog.severe("Loaded an invalid GOT miniquest " + quest.speechBankStart);
-		}
-		return null;
-	}
-
-	public static <Q extends GOTMiniQuest> Q newQuestInstance(Class<Q> questType, GOTPlayerData playerData) {
-		try {
-			GOTMiniQuest quest = questType.getConstructor(GOTPlayerData.class).newInstance(playerData);
-			return (Q) quest;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	public static void registerQuestType(String name, Class<? extends GOTMiniQuest> questType) {
-		nameToQuestMapping.put(name, questType);
-		questToNameMapping.put(questType, name);
-	}
-
 	public abstract static class QuestFactoryBase<Q extends GOTMiniQuest> {
 		public GOTMiniQuestFactory questFactoryGroup;
 		public String questName;
@@ -594,11 +594,11 @@ public abstract class GOTMiniQuest {
 			return this.questFactoryGroup;
 		}
 
-		public abstract Class<Q> getQuestClass();
-
 		public void setFactoryGroup(GOTMiniQuestFactory factory) {
 			this.questFactoryGroup = factory;
 		}
+
+		public abstract Class<Q> getQuestClass();
 
 		public QuestFactoryBase<Q> setHiring() {
 			this.willHire = true;

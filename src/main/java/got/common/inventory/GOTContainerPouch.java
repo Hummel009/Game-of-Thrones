@@ -35,6 +35,16 @@ public class GOTContainerPouch extends Container {
 		}
 	}
 
+	public static boolean isPouchSlot(Container container, int slotNo, EntityPlayer entityplayer, int pouchSlotNo) {
+		if (slotNo >= 0 && slotNo < container.inventorySlots.size()) {
+			Slot slot = (Slot) container.inventorySlots.get(slotNo);
+			if (slot.inventory == entityplayer.inventory && slot.getSlotIndex() == pouchSlotNo) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 	@Override
 	public boolean canInteractWith(EntityPlayer entityplayer) {
 		return ItemStack.areItemStacksEqual(thePouchItem, pouchInventory.getPouchItem());
@@ -87,15 +97,5 @@ public class GOTContainerPouch extends Container {
 			slot.onPickupFromSlot(entityplayer, itemstack1);
 		}
 		return itemstack;
-	}
-
-	public static boolean isPouchSlot(Container container, int slotNo, EntityPlayer entityplayer, int pouchSlotNo) {
-		if (slotNo >= 0 && slotNo < container.inventorySlots.size()) {
-			Slot slot = (Slot) container.inventorySlots.get(slotNo);
-			if (slot.inventory == entityplayer.inventory && slot.getSlotIndex() == pouchSlotNo) {
-				return true;
-			}
-		}
-		return false;
 	}
 }

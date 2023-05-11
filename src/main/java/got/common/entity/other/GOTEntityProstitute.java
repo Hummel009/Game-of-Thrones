@@ -78,6 +78,10 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		return ProstituteType.forID(i);
 	}
 
+	public void setProstituteType(ProstituteType t) {
+		dataWatcher.updateObject(18, (byte) t.prostituteID);
+	}
+
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
@@ -92,10 +96,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		if (nbt.hasKey("ProstituteType")) {
 			setProstituteType(ProstituteType.forID(nbt.getByte("ProstituteType")));
 		}
-	}
-
-	public void setProstituteType(ProstituteType t) {
-		dataWatcher.updateObject(18, (byte) t.prostituteID);
 	}
 
 	@Override
@@ -187,10 +187,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 			prostituteID = i;
 		}
 
-		public String textureName() {
-			return name().toLowerCase();
-		}
-
 		public static ProstituteType forID(int ID) {
 			for (ProstituteType t : ProstituteType.values()) {
 				if (t.prostituteID == ID) {
@@ -206,6 +202,10 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 				names[i] = ProstituteType.values()[i].textureName();
 			}
 			return names;
+		}
+
+		public String textureName() {
+			return name().toLowerCase();
 		}
 	}
 }

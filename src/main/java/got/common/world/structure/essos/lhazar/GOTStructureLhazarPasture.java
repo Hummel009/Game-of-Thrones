@@ -11,6 +11,25 @@ public class GOTStructureLhazarPasture extends GOTStructureLhazarBase {
 		super(flag);
 	}
 
+	public static EntityAnimal getRandomAnimal(World world, Random random) {
+		int animal = random.nextInt(5);
+		switch (animal) {
+			case 0:
+				return new EntityCow(world);
+			case 1:
+				return new EntityPig(world);
+			case 2:
+				return new EntitySheep(world);
+			case 3:
+				return new EntityChicken(world);
+			case 4:
+				return new GOTEntityCamel(world);
+			default:
+				break;
+		}
+		return null;
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
@@ -64,24 +83,5 @@ public class GOTStructureLhazarPasture extends GOTStructureLhazarBase {
 			animal.detachHome();
 		}
 		return true;
-	}
-
-	public static EntityAnimal getRandomAnimal(World world, Random random) {
-		int animal = random.nextInt(5);
-		switch (animal) {
-			case 0:
-				return new EntityCow(world);
-			case 1:
-				return new EntityPig(world);
-			case 2:
-				return new EntitySheep(world);
-			case 3:
-				return new EntityChicken(world);
-			case 4:
-				return new GOTEntityCamel(world);
-			default:
-				break;
-		}
-		return null;
 	}
 }

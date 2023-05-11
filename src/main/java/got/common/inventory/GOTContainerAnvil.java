@@ -101,6 +101,44 @@ public class GOTContainerAnvil extends Container {
 		zCoord = k;
 	}
 
+	public static String applyFormattingCodes(String name, List<EnumChatFormatting> colors) {
+		for (EnumChatFormatting color : colors) {
+			name = color + name;
+		}
+		return name;
+	}
+
+	public static boolean costsToRename(ItemStack itemstack) {
+		Item item = itemstack.getItem();
+		if (item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
+			return true;
+		}
+		return item instanceof ItemBow || item instanceof GOTItemCrossbow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
+	}
+
+	public static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
+		ArrayList<EnumChatFormatting> colors = new ArrayList<>();
+		for (EnumChatFormatting color : EnumChatFormatting.values()) {
+			String formatCode = color.toString();
+			if (!name.startsWith(formatCode)) {
+				continue;
+			}
+			colors.add(color);
+		}
+		return colors;
+	}
+
+	public static String stripFormattingCodes(String name) {
+		for (EnumChatFormatting color : EnumChatFormatting.values()) {
+			String formatCode = color.toString();
+			if (!name.startsWith(formatCode)) {
+				continue;
+			}
+			name = name.substring(formatCode.length());
+		}
+		return name;
+	}
+
 	public boolean applyMischief(ItemStack itemstack) {
 		boolean changed = false;
 		Random rand = theWorld.rand;
@@ -785,44 +823,6 @@ public class GOTContainerAnvil extends Container {
 			}
 			detectAndSendChanges();
 		}
-	}
-
-	public static String applyFormattingCodes(String name, List<EnumChatFormatting> colors) {
-		for (EnumChatFormatting color : colors) {
-			name = color + name;
-		}
-		return name;
-	}
-
-	public static boolean costsToRename(ItemStack itemstack) {
-		Item item = itemstack.getItem();
-		if (item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
-			return true;
-		}
-		return item instanceof ItemBow || item instanceof GOTItemCrossbow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
-	}
-
-	public static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
-		ArrayList<EnumChatFormatting> colors = new ArrayList<>();
-		for (EnumChatFormatting color : EnumChatFormatting.values()) {
-			String formatCode = color.toString();
-			if (!name.startsWith(formatCode)) {
-				continue;
-			}
-			colors.add(color);
-		}
-		return colors;
-	}
-
-	public static String stripFormattingCodes(String name) {
-		for (EnumChatFormatting color : EnumChatFormatting.values()) {
-			String formatCode = color.toString();
-			if (!name.startsWith(formatCode)) {
-				continue;
-			}
-			name = name.substring(formatCode.length());
-		}
-		return name;
 	}
 
 }

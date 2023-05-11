@@ -15,6 +15,15 @@ public class GOTBlockIronBank extends GOTBlockForgeBase {
 	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
 	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
 
+	public static void preInit() {
+		int k = 1;
+		for (int i = 0; i < 8; ++i) {
+			GOTBlockIronBank.buy.put(new ItemStack(GOTRegistry.coin, 1, i), k);
+			GOTBlockIronBank.sell.put(new ItemStack(GOTRegistry.coin, 1, i), k);
+			k *= 4;
+		}
+	}
+
 	@Override
 	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
 		return null;
@@ -31,14 +40,5 @@ public class GOTBlockIronBank extends GOTBlockForgeBase {
 	@Override
 	public boolean useLargeSmoke() {
 		return false;
-	}
-
-	public static void preInit() {
-		int k = 1;
-		for (int i = 0; i < 8; ++i) {
-			GOTBlockIronBank.buy.put(new ItemStack(GOTRegistry.coin, 1, i), k);
-			GOTBlockIronBank.sell.put(new ItemStack(GOTRegistry.coin, 1, i), k);
-			k *= 4;
-		}
 	}
 }

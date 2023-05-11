@@ -17,6 +17,10 @@ public class GOTWorldInfo extends DerivedWorldInfo {
 	}
 
 	@Override
+	public void setWorldTime(long time) {
+	}
+
+	@Override
 	public long getWorldTotalTime() {
 		return gotTotalTime;
 	}
@@ -31,9 +35,5 @@ public class GOTWorldInfo extends DerivedWorldInfo {
 
 	@Override
 	public void incrementTotalWorldTime(long time) {
-	}
-
-	@Override
-	public void setWorldTime(long time) {
 	}
 }

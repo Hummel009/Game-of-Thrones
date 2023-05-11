@@ -19,6 +19,10 @@ public class GOTRenderBoar extends RenderLiving {
 		setRenderPassModel(new GOTModelBoar(0.5f));
 	}
 
+	public static boolean isRobert(GOTEntityBoar boar) {
+		return boar.hasCustomNameTag() && "robert".equalsIgnoreCase(boar.getCustomNameTag());
+	}
+
 	@Override
 	public void doRender(EntityLiving entity, double d, double d1, double d2, float f, float f1) {
 		GOTEntityBoar boar = (GOTEntityBoar) entity;
@@ -54,9 +58,5 @@ public class GOTRenderBoar extends RenderLiving {
 			return 1;
 		}
 		return super.shouldRenderPass(entity, pass, f);
-	}
-
-	public static boolean isRobert(GOTEntityBoar boar) {
-		return boar.hasCustomNameTag() && "robert".equalsIgnoreCase(boar.getCustomNameTag());
 	}
 }

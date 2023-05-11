@@ -34,6 +34,10 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, FORT;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -263,9 +267,5 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 			}
 		}
 
-	}
-
-	public enum VillageType {
-		VILLAGE, FORT;
 	}
 }

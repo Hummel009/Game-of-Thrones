@@ -63,28 +63,6 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	public static Map<ResourceLocation, ResourceLocation> eyesTextures = new HashMap<>();
 	public static Map<ResourceLocation, Integer> averagedPageColors = new HashMap<>();
 
-	@Override
-	public void onResourceManagerReload(IResourceManager resourceManager) {
-		GOTTextures.loadMapTextures();
-		GOTTextures.replaceWaterParticles();
-		eyesTextures.clear();
-		averagedPageColors.clear();
-	}
-
-	@SubscribeEvent
-	public void preTextureStitch(TextureStitchEvent.Pre event) {
-		TextureMap map = event.map;
-		if (map.getTextureType() == 0) {
-			GOTCommonIcons.iconEmptyBlock = GOTTextures.generateIconEmpty(map);
-			GOTCommonIcons.iconStoneSnow = map.registerIcon("stone_snow");
-		}
-		if (map.getTextureType() == 1) {
-			GOTCommonIcons.iconEmptyItem = GOTTextures.generateIconEmpty(map);
-			GOTCommonIcons.iconMeleeWeapon = map.registerIcon("got:slot_melee");
-			GOTCommonIcons.iconBomb = map.registerIcon("got:slot_bomb");
-		}
-	}
-
 	public static int computeAverageFactionPageColor(ResourceLocation texture, int u0, int v0, int u1, int v1) {
 		if (!averagedPageColors.containsKey(texture)) {
 			int avgColor = 0;
@@ -452,6 +430,28 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		} catch (IOException e) {
 			FMLLog.severe("Failed to replace rain particles");
 			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void onResourceManagerReload(IResourceManager resourceManager) {
+		GOTTextures.loadMapTextures();
+		GOTTextures.replaceWaterParticles();
+		eyesTextures.clear();
+		averagedPageColors.clear();
+	}
+
+	@SubscribeEvent
+	public void preTextureStitch(TextureStitchEvent.Pre event) {
+		TextureMap map = event.map;
+		if (map.getTextureType() == 0) {
+			GOTCommonIcons.iconEmptyBlock = GOTTextures.generateIconEmpty(map);
+			GOTCommonIcons.iconStoneSnow = map.registerIcon("stone_snow");
+		}
+		if (map.getTextureType() == 1) {
+			GOTCommonIcons.iconEmptyItem = GOTTextures.generateIconEmpty(map);
+			GOTCommonIcons.iconMeleeWeapon = map.registerIcon("got:slot_melee");
+			GOTCommonIcons.iconBomb = map.registerIcon("got:slot_bomb");
 		}
 	}
 }

@@ -25,6 +25,20 @@ public class GOTCreativeTabs extends CreativeTabs {
 		super(label);
 	}
 
+	public static void onInit() {
+		GOTCreativeTabs.tabBlock.theIcon = new ItemStack(GOTRegistry.brick1, 1, 1);
+		GOTCreativeTabs.tabUtil.theIcon = new ItemStack(GOTRegistry.unsmeltery);
+		GOTCreativeTabs.tabDeco.theIcon = new ItemStack(GOTRegistry.chandelier, 1, 3);
+		GOTCreativeTabs.tabFood.theIcon = new ItemStack(GOTRegistry.mugVodka);
+		GOTCreativeTabs.tabMaterials.theIcon = new ItemStack(GOTRegistry.valyrianIngot);
+		GOTCreativeTabs.tabMisc.theIcon = new ItemStack(GOTRegistry.coin, 1, 6);
+		GOTCreativeTabs.tabTools.theIcon = new ItemStack(GOTRegistry.wildlingAxe);
+		GOTCreativeTabs.tabCombat.theIcon = new ItemStack(GOTRegistry.ironbornHelmet);
+		GOTCreativeTabs.tabStory.theIcon = new ItemStack(GOTRegistry.bane);
+		GOTCreativeTabs.tabSpawn.theIcon = new ItemStack(GOTRegistry.spawnEgg, 1, 248);
+		GOTCreativeTabs.tabBanner.theIcon = new ItemStack(GOTRegistry.bannerTab);
+	}
+
 	@Override
 	public ItemStack getIconItemStack() {
 		return theIcon;
@@ -40,19 +54,5 @@ public class GOTCreativeTabs extends CreativeTabs {
 	@SideOnly(value = Side.CLIENT)
 	public String getTranslatedTabLabel() {
 		return StatCollector.translateToLocal("got.tab." + getTabLabel());
-	}
-
-	public static void onInit() {
-		GOTCreativeTabs.tabBlock.theIcon = new ItemStack(GOTRegistry.brick1, 1, 1);
-		GOTCreativeTabs.tabUtil.theIcon = new ItemStack(GOTRegistry.unsmeltery);
-		GOTCreativeTabs.tabDeco.theIcon = new ItemStack(GOTRegistry.chandelier, 1, 3);
-		GOTCreativeTabs.tabFood.theIcon = new ItemStack(GOTRegistry.mugVodka);
-		GOTCreativeTabs.tabMaterials.theIcon = new ItemStack(GOTRegistry.valyrianIngot);
-		GOTCreativeTabs.tabMisc.theIcon = new ItemStack(GOTRegistry.coin, 1, 6);
-		GOTCreativeTabs.tabTools.theIcon = new ItemStack(GOTRegistry.wildlingAxe);
-		GOTCreativeTabs.tabCombat.theIcon = new ItemStack(GOTRegistry.ironbornHelmet);
-		GOTCreativeTabs.tabStory.theIcon = new ItemStack(GOTRegistry.bane);
-		GOTCreativeTabs.tabSpawn.theIcon = new ItemStack(GOTRegistry.spawnEgg, 1, 248);
-		GOTCreativeTabs.tabBanner.theIcon = new ItemStack(GOTRegistry.bannerTab);
 	}
 }

@@ -64,8 +64,16 @@ public class GOTEntityBannerWall extends EntityHanging {
 		return GOTItemBanner.BannerType.forID(getBannerTypeID());
 	}
 
+	public void setBannerType(GOTItemBanner.BannerType type) {
+		setBannerTypeID(type.bannerID);
+	}
+
 	public int getBannerTypeID() {
 		return dataWatcher.getWatchableObjectShort(18);
+	}
+
+	public void setBannerTypeID(int i) {
+		dataWatcher.updateObject(18, (short) i);
 	}
 
 	@SideOnly(value = Side.CLIENT)
@@ -158,14 +166,6 @@ public class GOTEntityBannerWall extends EntityHanging {
 		if (nbt.hasKey("ProtectData")) {
 			protectData = nbt.getCompoundTag("ProtectData");
 		}
-	}
-
-	public void setBannerType(GOTItemBanner.BannerType type) {
-		setBannerTypeID(type.bannerID);
-	}
-
-	public void setBannerTypeID(int i) {
-		dataWatcher.updateObject(18, (short) i);
 	}
 
 	@Override

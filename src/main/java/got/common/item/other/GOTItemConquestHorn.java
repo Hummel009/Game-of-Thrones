@@ -36,6 +36,36 @@ public class GOTItemConquestHorn extends Item {
 		setCreativeTab(GOTCreativeTabs.tabCombat);
 	}
 
+	public static ItemStack createHorn(GOTInvasions type) {
+		ItemStack itemstack = new ItemStack(GOTRegistry.conquestHorn);
+		GOTItemConquestHorn.setInvasionType(itemstack, type);
+		return itemstack;
+	}
+
+	public static GOTInvasions getInvasionType(ItemStack itemstack) {
+		String s;
+		GOTInvasions invasionType = null;
+		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("InvasionType")) {
+			s = itemstack.getTagCompound().getString("InvasionType");
+			invasionType = GOTInvasions.forName(s);
+		}
+		if (invasionType == null && itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("HornFaction")) {
+			s = itemstack.getTagCompound().getString("HornFaction");
+			invasionType = GOTInvasions.forName(s);
+		}
+		if (invasionType == null) {
+			invasionType = GOTInvasions.NORTH;
+		}
+		return invasionType;
+	}
+
+	public static void setInvasionType(ItemStack itemstack, GOTInvasions type) {
+		if (itemstack.getTagCompound() == null) {
+			itemstack.setTagCompound(new NBTTagCompound());
+		}
+		itemstack.getTagCompound().setString("InvasionType", type.codeName());
+	}
+
 	public boolean canUseHorn(ItemStack itemstack, World world, EntityPlayer entityplayer, boolean sendMessage) {
 		GOTInvasions invasionType = GOTItemConquestHorn.getInvasionType(itemstack);
 		GOTFaction invasionFaction = invasionType.invasionFaction;
@@ -145,35 +175,5 @@ public class GOTItemConquestHorn extends Item {
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;
-	}
-
-	public static ItemStack createHorn(GOTInvasions type) {
-		ItemStack itemstack = new ItemStack(GOTRegistry.conquestHorn);
-		GOTItemConquestHorn.setInvasionType(itemstack, type);
-		return itemstack;
-	}
-
-	public static GOTInvasions getInvasionType(ItemStack itemstack) {
-		String s;
-		GOTInvasions invasionType = null;
-		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("InvasionType")) {
-			s = itemstack.getTagCompound().getString("InvasionType");
-			invasionType = GOTInvasions.forName(s);
-		}
-		if (invasionType == null && itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("HornFaction")) {
-			s = itemstack.getTagCompound().getString("HornFaction");
-			invasionType = GOTInvasions.forName(s);
-		}
-		if (invasionType == null) {
-			invasionType = GOTInvasions.NORTH;
-		}
-		return invasionType;
-	}
-
-	public static void setInvasionType(ItemStack itemstack, GOTInvasions type) {
-		if (itemstack.getTagCompound() == null) {
-			itemstack.setTagCompound(new NBTTagCompound());
-		}
-		itemstack.getTagCompound().setString("InvasionType", type.codeName());
 	}
 }

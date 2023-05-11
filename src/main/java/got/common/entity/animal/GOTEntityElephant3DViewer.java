@@ -24,6 +24,10 @@ public class GOTEntityElephant3DViewer {
 		return ReflectionHelper.getPrivateValue(EntityRenderer.class, mc.entityRenderer, GOTEntityElephant3DViewer.ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
+	public void setThirdPersonDistance(float thirdPersonDistance) {
+		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, GOTEntityElephant3DViewer.ENTITYRENDERER_THIRDPERSONDISTANCE);
+	}
+
 	@SubscribeEvent
 	public void onTick(ClientTickEvent evt) {
 		if (evt.phase != TickEvent.Phase.START || mc.thePlayer == null) {
@@ -42,9 +46,5 @@ public class GOTEntityElephant3DViewer {
 		}
 
 		ridingDragonPrev = ridingDragon;
-	}
-
-	public void setThirdPersonDistance(float thirdPersonDistance) {
-		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, GOTEntityElephant3DViewer.ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 }

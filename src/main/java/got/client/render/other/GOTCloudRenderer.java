@@ -30,6 +30,24 @@ public class GOTCloudRenderer extends IRenderHandler {
 	public static double cloudPosZPre;
 	public static double cloudPosZ;
 
+	public static void resetClouds() {
+		cloudOpacity.reset();
+		cloudSpeed.reset();
+		cloudAngle.reset();
+	}
+
+	public static void updateClouds(WorldClient world) {
+		cloudOpacity.update(world);
+		cloudSpeed.update(world);
+		cloudAngle.update(world);
+		float angle = cloudAngle.getValue(1.0f);
+		float speed = cloudSpeed.getValue(1.0f);
+		cloudPosXPre = cloudPosX;
+		cloudPosX += MathHelper.cos(angle) * speed;
+		cloudPosZPre = cloudPosZ;
+		cloudPosZ += MathHelper.sin(angle) * speed;
+	}
+
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
 		if (world.provider.isSurfaceWorld()) {
@@ -115,24 +133,6 @@ public class GOTCloudRenderer extends IRenderHandler {
 			GL11.glPopMatrix();
 			world.theProfiler.endSection();
 		}
-	}
-
-	public static void resetClouds() {
-		cloudOpacity.reset();
-		cloudSpeed.reset();
-		cloudAngle.reset();
-	}
-
-	public static void updateClouds(WorldClient world) {
-		cloudOpacity.update(world);
-		cloudSpeed.update(world);
-		cloudAngle.update(world);
-		float angle = cloudAngle.getValue(1.0f);
-		float speed = cloudSpeed.getValue(1.0f);
-		cloudPosXPre = cloudPosX;
-		cloudPosX += MathHelper.cos(angle) * speed;
-		cloudPosZPre = cloudPosZ;
-		cloudPosZ += MathHelper.sin(angle) * speed;
 	}
 
 	public static class CloudProperty {

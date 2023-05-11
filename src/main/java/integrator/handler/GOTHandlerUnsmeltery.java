@@ -1,16 +1,20 @@
 package integrator.handler;
 
-import java.util.Iterator;
-
-import codechicken.nei.*;
-import codechicken.nei.recipe.*;
-import cpw.mods.fml.common.registry.*;
+import codechicken.nei.NEIServerUtils;
+import codechicken.nei.PositionedStack;
+import codechicken.nei.recipe.FurnaceRecipeHandler;
+import codechicken.nei.recipe.TemplateRecipeHandler;
+import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
+import cpw.mods.fml.common.registry.GameData;
 import got.client.gui.GOTGuiUnsmeltery;
 import got.common.tileentity.GOTTileEntityUnsmeltery;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
+
+import java.util.Iterator;
 
 public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 	public static GOTTileEntityUnsmeltery unsmelteryTileEntity = new GOTTileEntityUnsmeltery();

@@ -37,6 +37,10 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, FORT;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -171,9 +175,5 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 				villageType = VillageType.VILLAGE;
 			}
 		}
-	}
-
-	public enum VillageType {
-		VILLAGE, FORT;
 	}
 }

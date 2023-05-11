@@ -41,12 +41,26 @@ public class GOTTraderNPCInfo {
 		return buyTrades;
 	}
 
+	public void setBuyTrades(GOTTradeEntry[] trades) {
+		for (GOTTradeEntry trade : trades) {
+			trade.setOwningTrader(this);
+		}
+		buyTrades = trades;
+	}
+
 	public int getLockTradeAtValue() {
 		return lockTradeAtValue;
 	}
 
 	public GOTTradeEntry[] getSellTrades() {
 		return sellTrades;
+	}
+
+	public void setSellTrades(GOTTradeEntry[] trades) {
+		for (GOTTradeEntry trade : trades) {
+			trade.setOwningTrader(this);
+		}
+		sellTrades = trades;
 	}
 
 	public int getValueDecayTicks() {
@@ -203,20 +217,6 @@ public class GOTTraderNPCInfo {
 			}
 			trade.setLockedForTicks(delay);
 		}
-	}
-
-	public void setBuyTrades(GOTTradeEntry[] trades) {
-		for (GOTTradeEntry trade : trades) {
-			trade.setOwningTrader(this);
-		}
-		buyTrades = trades;
-	}
-
-	public void setSellTrades(GOTTradeEntry[] trades) {
-		for (GOTTradeEntry trade : trades) {
-			trade.setOwningTrader(this);
-		}
-		sellTrades = trades;
 	}
 
 	public boolean shouldLockTrades() {

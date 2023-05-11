@@ -47,6 +47,12 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 		return jarEntityData;
 	}
 
+	public void setEntityData(NBTTagCompound nbt) {
+		jarEntityData = nbt;
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
+	}
+
 	public float getEntityHeight() {
 		Block block = getBlockType();
 		if (block instanceof GOTBlockAnimalJar) {
@@ -140,12 +146,6 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 			}
 			entityplayer.playerNetServerHandler.sendPacket(packet);
 		}
-	}
-
-	public void setEntityData(NBTTagCompound nbt) {
-		jarEntityData = nbt;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
 	}
 
 	@Override

@@ -33,6 +33,37 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 		}
 	}
 
+	public static GOTRandomSkins getCombinatorialSkins(String path, String... layers) {
+		String combinedPath = path;
+		for (String s : layers) {
+			combinedPath = combinedPath + "_" + s;
+		}
+		GOTRandomSkins skins = allRandomSkins.get(combinedPath);
+		if (skins == null) {
+			skins = new GOTRandomSkinsCombinatorial(path, layers);
+			allRandomSkins.put(combinedPath, skins);
+		}
+		return skins;
+	}
+
+	public static GOTRandomSkins loadSkinsList(String path) {
+		GOTRandomSkins skins = allRandomSkins.get(path);
+		if (skins == null) {
+			skins = new GOTRandomSkins(path, true);
+			allRandomSkins.put(path, skins);
+		}
+		return skins;
+	}
+
+	public static int nextInt(GOTRandomSkinEntity rsEntity, int n) {
+		Entity entity = (Entity) rsEntity;
+		long l = entity.getUniqueID().getLeastSignificantBits();
+		l = l * 29506206L * (l ^ 0x6429C58L) + 25859L;
+		l = l * l * 426430295004L + 25925025L * l;
+		rand.setSeed(l);
+		return rand.nextInt(n);
+	}
+
 	public List<ResourceLocation> getAllSkins() {
 		return skins;
 	}
@@ -100,37 +131,6 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 	@Override
 	public void onResourceManagerReload(IResourceManager resourcemanager) {
 		loadAllRandomSkins();
-	}
-
-	public static GOTRandomSkins getCombinatorialSkins(String path, String... layers) {
-		String combinedPath = path;
-		for (String s : layers) {
-			combinedPath = combinedPath + "_" + s;
-		}
-		GOTRandomSkins skins = allRandomSkins.get(combinedPath);
-		if (skins == null) {
-			skins = new GOTRandomSkinsCombinatorial(path, layers);
-			allRandomSkins.put(combinedPath, skins);
-		}
-		return skins;
-	}
-
-	public static GOTRandomSkins loadSkinsList(String path) {
-		GOTRandomSkins skins = allRandomSkins.get(path);
-		if (skins == null) {
-			skins = new GOTRandomSkins(path, true);
-			allRandomSkins.put(path, skins);
-		}
-		return skins;
-	}
-
-	public static int nextInt(GOTRandomSkinEntity rsEntity, int n) {
-		Entity entity = (Entity) rsEntity;
-		long l = entity.getUniqueID().getLeastSignificantBits();
-		l = l * 29506206L * (l ^ 0x6429C58L) + 25859L;
-		l = l * l * 426430295004L + 25925025L * l;
-		rand.setSeed(l);
-		return rand.nextInt(n);
 	}
 
 	public static class GOTRandomSkinsCombinatorial extends GOTRandomSkins {

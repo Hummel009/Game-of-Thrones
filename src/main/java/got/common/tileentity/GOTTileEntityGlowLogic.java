@@ -37,6 +37,10 @@ public class GOTTileEntityGlowLogic {
 		return glowTick;
 	}
 
+	public void setGlowTick(int i) {
+		glowTick = prevGlowTick = i;
+	}
+
 	public void resetGlowTick() {
 		prevGlowTick = 0;
 		glowTick = 0;
@@ -45,10 +49,6 @@ public class GOTTileEntityGlowLogic {
 	public GOTTileEntityGlowLogic setFullGlow(float f) {
 		fullGlow = f;
 		return this;
-	}
-
-	public void setGlowTick(int i) {
-		glowTick = prevGlowTick = i;
 	}
 
 	public GOTTileEntityGlowLogic setGlowTime(int i) {

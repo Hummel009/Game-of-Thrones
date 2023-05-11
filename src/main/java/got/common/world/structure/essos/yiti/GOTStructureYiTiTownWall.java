@@ -17,6 +17,18 @@ public class GOTStructureYiTiTownWall extends GOTStructureYiTiBase {
 		isCentre = c;
 	}
 
+	public static GOTStructureYiTiTownWall Centre(boolean flag) {
+		return new GOTStructureYiTiTownWall(flag, -7, 7, true);
+	}
+
+	public static GOTStructureYiTiTownWall Left(boolean flag) {
+		return new GOTStructureYiTiTownWall(flag, -4, 3, false);
+	}
+
+	public static GOTStructureYiTiTownWall Right(boolean flag) {
+		return new GOTStructureYiTiTownWall(flag, -3, 4, false);
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		this.setOriginAndRotation(world, i, j, k, rotation, 0);
@@ -48,17 +60,5 @@ public class GOTStructureYiTiTownWall extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, i1, 6, -2, brickWallBlock, brickWallMeta);
 		}
 		return true;
-	}
-
-	public static GOTStructureYiTiTownWall Centre(boolean flag) {
-		return new GOTStructureYiTiTownWall(flag, -7, 7, true);
-	}
-
-	public static GOTStructureYiTiTownWall Left(boolean flag) {
-		return new GOTStructureYiTiTownWall(flag, -4, 3, false);
-	}
-
-	public static GOTStructureYiTiTownWall Right(boolean flag) {
-		return new GOTStructureYiTiTownWall(flag, -3, 4, false);
 	}
 }

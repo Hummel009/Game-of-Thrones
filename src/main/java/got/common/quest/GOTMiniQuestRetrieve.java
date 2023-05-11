@@ -19,6 +19,21 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 		super(pd);
 	}
 
+	public static UUID getRetrieveQuestID(ItemStack itemstack) {
+		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("GOTRetrieveID")) {
+			String id = itemstack.getTagCompound().getString("GOTRetrieveID");
+			return UUID.fromString(id);
+		}
+		return null;
+	}
+
+	public static void setRetrieveQuest(ItemStack itemstack, GOTMiniQuest quest) {
+		if (itemstack.getTagCompound() == null) {
+			itemstack.setTagCompound(new NBTTagCompound());
+		}
+		itemstack.getTagCompound().setString("GOTRetrieveID", quest.questUUID.toString());
+	}
+
 	@Override
 	public String getProgressedObjectiveInSpeech() {
 		if (collectTarget == 1) {
@@ -71,21 +86,6 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 		super.writeToNBT(nbt);
 		nbt.setString("KillClass", GOTEntityRegistry.getStringFromClass(killEntityType));
 		nbt.setBoolean("HasDropped", hasDropped);
-	}
-
-	public static UUID getRetrieveQuestID(ItemStack itemstack) {
-		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("GOTRetrieveID")) {
-			String id = itemstack.getTagCompound().getString("GOTRetrieveID");
-			return UUID.fromString(id);
-		}
-		return null;
-	}
-
-	public static void setRetrieveQuest(ItemStack itemstack, GOTMiniQuest quest) {
-		if (itemstack.getTagCompound() == null) {
-			itemstack.setTagCompound(new NBTTagCompound());
-		}
-		itemstack.getTagCompound().setString("GOTRetrieveID", quest.questUUID.toString());
 	}
 
 }

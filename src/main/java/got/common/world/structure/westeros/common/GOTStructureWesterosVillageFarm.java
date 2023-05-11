@@ -187,6 +187,24 @@ public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWester
 			super(flag);
 		}
 
+		public static GOTTreeType getRandomTree(Random random) {
+			ArrayList<GOTTreeType> treeList = new ArrayList<>();
+			treeList.add(GOTTreeType.OAK);
+			treeList.add(GOTTreeType.OAK_LARGE);
+			treeList.add(GOTTreeType.BIRCH);
+			treeList.add(GOTTreeType.BIRCH_TALL);
+			treeList.add(GOTTreeType.BIRCH_LARGE);
+			treeList.add(GOTTreeType.BEECH);
+			treeList.add(GOTTreeType.BEECH_LARGE);
+			treeList.add(GOTTreeType.CEDAR);
+			treeList.add(GOTTreeType.APPLE);
+			treeList.add(GOTTreeType.PEAR);
+			treeList.add(GOTTreeType.PLUM);
+			treeList.add(GOTTreeType.ALMOND);
+			treeList.add(GOTTreeType.OLIVE);
+			return treeList.get(random.nextInt(treeList.size()));
+		}
+
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			int i1;
@@ -227,24 +245,6 @@ public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWester
 				}
 			}
 			return true;
-		}
-
-		public static GOTTreeType getRandomTree(Random random) {
-			ArrayList<GOTTreeType> treeList = new ArrayList<>();
-			treeList.add(GOTTreeType.OAK);
-			treeList.add(GOTTreeType.OAK_LARGE);
-			treeList.add(GOTTreeType.BIRCH);
-			treeList.add(GOTTreeType.BIRCH_TALL);
-			treeList.add(GOTTreeType.BIRCH_LARGE);
-			treeList.add(GOTTreeType.BEECH);
-			treeList.add(GOTTreeType.BEECH_LARGE);
-			treeList.add(GOTTreeType.CEDAR);
-			treeList.add(GOTTreeType.APPLE);
-			treeList.add(GOTTreeType.PEAR);
-			treeList.add(GOTTreeType.PLUM);
-			treeList.add(GOTTreeType.ALMOND);
-			treeList.add(GOTTreeType.OLIVE);
-			return treeList.get(random.nextInt(treeList.size()));
 		}
 	}
 

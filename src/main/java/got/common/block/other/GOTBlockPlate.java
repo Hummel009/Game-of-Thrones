@@ -51,6 +51,14 @@ public class GOTBlockPlate extends BlockContainer {
 		setBlockBounds(0.125f, 0.0f, 0.125f, 0.875f, 0.125f, 0.875f);
 	}
 
+	public static ItemStack getFoodItem(World world, int i, int j, int k) {
+		TileEntity tileentity = world.getTileEntity(i, j, k);
+		if (tileentity instanceof GOTTileEntityPlate) {
+			return ((GOTTileEntityPlate) tileentity).getFoodItem();
+		}
+		return null;
+	}
+
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
 		ItemStack foodItem;
@@ -188,14 +196,6 @@ public class GOTBlockPlate extends BlockContainer {
 
 	public void setPlateItem(Item item) {
 		plateItem = item;
-	}
-
-	public static ItemStack getFoodItem(World world, int i, int j, int k) {
-		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (tileentity instanceof GOTTileEntityPlate) {
-			return ((GOTTileEntityPlate) tileentity).getFoodItem();
-		}
-		return null;
 	}
 
 }

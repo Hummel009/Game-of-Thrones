@@ -57,6 +57,10 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, TOWN, FORT, RED_KEEP;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -611,9 +615,5 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 				villageType = VillageType.VILLAGE;
 			}
 		}
-	}
-
-	public enum VillageType {
-		VILLAGE, TOWN, FORT, RED_KEEP;
 	}
 }

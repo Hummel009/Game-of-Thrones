@@ -36,6 +36,10 @@ public class GOTStructureQohorCity extends GOTVillageGen {
 		return this;
 	}
 
+	public enum VillageType {
+		VILLAGE, TOWN, FORT;
+	}
+
 	public class Instance extends GOTVillageGen.AbstractInstance {
 		public VillageType villageType;
 
@@ -607,10 +611,6 @@ public class GOTStructureQohorCity extends GOTVillageGen {
 			spawner.setSpawnClass(GOTEntityQohorGuard.class);
 		}
 
-	}
-
-	public enum VillageType {
-		VILLAGE, TOWN, FORT;
 	}
 
 }

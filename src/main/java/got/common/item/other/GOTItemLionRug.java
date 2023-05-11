@@ -26,10 +26,6 @@ public class GOTItemLionRug extends GOTItemRugBase {
 			lionID = i;
 		}
 
-		public String textureName() {
-			return name().toLowerCase();
-		}
-
 		public static LionRugType forID(int ID) {
 			for (LionRugType t : LionRugType.values()) {
 				if (t.lionID != ID) {
@@ -46,6 +42,10 @@ public class GOTItemLionRug extends GOTItemRugBase {
 				names[i] = LionRugType.values()[i].textureName();
 			}
 			return names;
+		}
+
+		public String textureName() {
+			return name().toLowerCase();
 		}
 	}
 

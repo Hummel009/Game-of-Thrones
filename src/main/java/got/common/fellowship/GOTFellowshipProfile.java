@@ -17,19 +17,6 @@ public class GOTFellowshipProfile extends GameProfile {
 		fellowshipName = fsName;
 	}
 
-	public GOTFellowship getFellowship() {
-		return GOTFellowshipData.getActiveFellowship(getId());
-	}
-
-	public GOTFellowshipClient getFellowshipClient() {
-		return GOTLevelData.getData(GOT.proxy.getClientPlayer()).getClientFellowshipByName(fellowshipName);
-	}
-
-	@Override
-	public String getName() {
-		return GOTFellowshipProfile.addFellowshipCode(super.getName());
-	}
-
 	public static String addFellowshipCode(String s) {
 		return fellowshipPrefix + s;
 	}
@@ -44,5 +31,18 @@ public class GOTFellowshipProfile extends GameProfile {
 
 	public static String stripFellowshipCode(String s) {
 		return s.substring(fellowshipPrefix.length());
+	}
+
+	public GOTFellowship getFellowship() {
+		return GOTFellowshipData.getActiveFellowship(getId());
+	}
+
+	public GOTFellowshipClient getFellowshipClient() {
+		return GOTLevelData.getData(GOT.proxy.getClientPlayer()).getClientFellowshipByName(fellowshipName);
+	}
+
+	@Override
+	public String getName() {
+		return GOTFellowshipProfile.addFellowshipCode(super.getName());
 	}
 }

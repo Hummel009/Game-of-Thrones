@@ -32,6 +32,329 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderInvIn3D = flag;
 	}
 
+	public static int getAO() {
+		return Minecraft.getMinecraft().gameSettings.ambientOcclusion;
+	}
+
+	public static void setAO(int i) {
+		Minecraft.getMinecraft().gameSettings.ambientOcclusion = i;
+	}
+
+	public static void renderClover(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
+		double scale = 0.5;
+		Tessellator tessellator = Tessellator.instance;
+		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
+		int l = block.colorMultiplier(world, i, j, k);
+		float f = 1.0f;
+		float f1 = (l >> 16 & 0xFF) / 255.0f;
+		float f2 = (l >> 8 & 0xFF) / 255.0f;
+		float f3 = (l & 0xFF) / 255.0f;
+		if (EntityRenderer.anaglyphEnable) {
+			float f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
+			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
+			float f6 = (f1 * 30.0f + f3 * 70.0f) / 100.0f;
+			f1 = f4;
+			f2 = f5;
+			f3 = f6;
+		}
+		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
+		renderblocks.setOverrideBlockTexture(GOTBlockClover.stemIcon);
+		double posX = i;
+		double posY = j;
+		double posZ = k;
+		if (randomTranslation) {
+			long seed = i * 3129871 ^ k * 116129781L ^ j;
+			seed = seed * seed * 42317861L + seed * 11L;
+			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
+			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
+		}
+		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, posY, posZ, (float) scale);
+		renderblocks.clearOverrideBlockTexture();
+		for (int petal = 0; petal < petalCount; ++petal) {
+			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
+			IIcon icon = GOTBlockClover.petalIcon;
+			double d = icon.getMinU();
+			double d1 = icon.getMinV();
+			double d2 = icon.getMaxU();
+			double d3 = icon.getMaxV();
+			double d4 = posX + 0.5;
+			double d5 = posY + 0.5 * scale + petal * 0.0025;
+			double d6 = posZ + 0.5;
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			for (int l1 = 0; l1 < vecs.length; ++l1) {
+				vecs[l1].rotateAroundY(rotation);
+				vecs[l1].xCoord += d4;
+				vecs[l1].yCoord += d5;
+				vecs[l1].zCoord += d6;
+			}
+			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
+			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
+			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
+			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
+			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
+			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
+			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
+			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
+		}
+	}
+
+	public static void renderEntityPlate(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+		renderblocks.renderAllFaces = true;
+		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.0625, 0.8125);
+		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, 0.0625, 0.125, 0.875, 0.125, 0.875);
+		renderblocks.renderAllFaces = false;
+	}
+
+	public static void renderGrass(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, boolean randomTranslation) {
+		Tessellator tessellator = Tessellator.instance;
+		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
+		int meta = world.getBlockMetadata(i, j, k);
+		int l = block.colorMultiplier(world, i, j, k);
+		float f = 1.0f;
+		float f1 = (l >> 16 & 0xFF) / 255.0f;
+		float f2 = (l >> 8 & 0xFF) / 255.0f;
+		float f3 = (l & 0xFF) / 255.0f;
+		if (EntityRenderer.anaglyphEnable) {
+			float f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
+			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
+			float f6 = (f1 * 30.0f + f3 * 70.0f) / 100.0f;
+			f1 = f4;
+			f2 = f5;
+			f3 = f6;
+		}
+		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
+		double posX = i;
+		double posY = j;
+		double posZ = k;
+		if (randomTranslation) {
+			long seed = i * 3129871 ^ k * 116129781L ^ j;
+			seed = seed * seed * 42317861L + seed * 11L;
+			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
+			posY += ((seed >> 20 & 0xFL) / 15.0f - 1.0) * 0.2;
+			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
+		}
+		renderblocks.drawCrossedSquares(block.getIcon(2, meta), posX, posY, posZ, 1.0f);
+		renderblocks.clearOverrideBlockTexture();
+		if (block == GOTRegistry.tallGrass && meta >= 0 && meta < GOTBlockTallGrass.grassOverlay.length && GOTBlockTallGrass.grassOverlay[meta]) {
+			tessellator.setColorOpaque_F(1.0f, 1.0f, 1.0f);
+			renderblocks.drawCrossedSquares(block.getIcon(-1, meta), posX, posY, posZ, 1.0f);
+			renderblocks.clearOverrideBlockTexture();
+		}
+	}
+
+	public static void renderInvClover(Block block, RenderBlocks renderblocks, int petalCount) {
+		GL11.glDisable(2896);
+		double scale = 1.0;
+		Tessellator tessellator = Tessellator.instance;
+		int l = block.getRenderColor(0);
+		float f = 1.0f;
+		float f1 = (l >> 16 & 0xFF) / 255.0f;
+		float f2 = (l >> 8 & 0xFF) / 255.0f;
+		float f3 = (l & 0xFF) / 255.0f;
+		if (EntityRenderer.anaglyphEnable) {
+			float f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
+			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
+			float f6 = (f1 * 30.0f + f3 * 70.0f) / 100.0f;
+			f1 = f4;
+			f2 = f5;
+			f3 = f6;
+		}
+		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
+		renderblocks.setOverrideBlockTexture(GOTBlockClover.stemIcon);
+		tessellator.startDrawingQuads();
+		renderblocks.drawCrossedSquares(block.getIcon(2, 0), -scale * 0.5, -scale * 0.5, -scale * 0.5, (float) scale);
+		tessellator.draw();
+		renderblocks.clearOverrideBlockTexture();
+		for (int petal = 0; petal < petalCount; ++petal) {
+			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
+			IIcon icon = GOTBlockClover.petalIcon;
+			double d = icon.getMinU();
+			double d1 = icon.getMinV();
+			double d2 = icon.getMaxU();
+			double d3 = icon.getMaxV();
+			double d4 = 0.0;
+			double d5 = petal * 0.0025;
+			double d6 = 0.0;
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			for (int l1 = 0; l1 < vecs.length; ++l1) {
+				vecs[l1].rotateAroundY(rotation);
+				vecs[l1].xCoord += d4;
+				vecs[l1].yCoord += d5;
+				vecs[l1].zCoord += d6;
+			}
+			tessellator.startDrawingQuads();
+			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
+			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
+			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
+			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
+			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
+			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
+			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
+			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
+			tessellator.draw();
+		}
+		GL11.glEnable(2896);
+	}
+
+	public static void renderInvPlantain(Block block, RenderBlocks renderblocks, int petalCount) {
+		GL11.glDisable(2896);
+		double scale = 1.0;
+		Tessellator tessellator = Tessellator.instance;
+		int l = block.getRenderColor(0);
+		float f = 1.0f;
+		float f1 = (l >> 16 & 0xFF) / 255.0f;
+		float f2 = (l >> 8 & 0xFF) / 255.0f;
+		float f3 = (l & 0xFF) / 255.0f;
+		if (EntityRenderer.anaglyphEnable) {
+			float f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
+			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
+			float f6 = (f1 * 30.0f + f3 * 70.0f) / 100.0f;
+			f1 = f4;
+			f2 = f5;
+			f3 = f6;
+		}
+		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
+		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.stemIcon);
+		tessellator.startDrawingQuads();
+		renderblocks.drawCrossedSquares(block.getIcon(2, 0), -scale * 0.5, -scale * 0.5, -scale * 0.5, (float) scale);
+		tessellator.draw();
+		renderblocks.clearOverrideBlockTexture();
+		for (int petal = 0; petal < petalCount; ++petal) {
+			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
+			IIcon icon = GOTBlockPlantain.petalIcon;
+			double d = icon.getMinU();
+			double d1 = icon.getMinV();
+			double d2 = icon.getMaxU();
+			double d3 = icon.getMaxV();
+			double d4 = 0.0;
+			double d5 = petal * 0.0025;
+			double d6 = 0.0;
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			for (int l1 = 0; l1 < vecs.length; ++l1) {
+				vecs[l1].rotateAroundY(rotation);
+				vecs[l1].xCoord += d4;
+				vecs[l1].yCoord += d5;
+				vecs[l1].zCoord += d6;
+			}
+			tessellator.startDrawingQuads();
+			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
+			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
+			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
+			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
+			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
+			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
+			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
+			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
+			tessellator.draw();
+		}
+		GL11.glEnable(2896);
+	}
+
+	public static void renderPlantain(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
+		double scale = 0.5;
+		Tessellator tessellator = Tessellator.instance;
+		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
+		int l = block.colorMultiplier(world, i, j, k);
+		float f = 1.0f;
+		float f1 = (l >> 16 & 0xFF) / 255.0f;
+		float f2 = (l >> 8 & 0xFF) / 255.0f;
+		float f3 = (l & 0xFF) / 255.0f;
+		if (EntityRenderer.anaglyphEnable) {
+			float f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
+			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
+			float f6 = (f1 * 30.0f + f3 * 70.0f) / 100.0f;
+			f1 = f4;
+			f2 = f5;
+			f3 = f6;
+		}
+		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
+		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.stemIcon);
+		double posX = i;
+		double posY = j;
+		double posZ = k;
+		if (randomTranslation) {
+			long seed = i * 3129871 ^ k * 116129781L ^ j;
+			seed = seed * seed * 42317861L + seed * 11L;
+			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
+			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
+		}
+		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, posY, posZ, (float) scale);
+		renderblocks.clearOverrideBlockTexture();
+		for (int petal = 0; petal < petalCount; ++petal) {
+			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
+			IIcon icon = GOTBlockPlantain.petalIcon;
+			double d = icon.getMinU();
+			double d1 = icon.getMinV();
+			double d2 = icon.getMaxU();
+			double d3 = icon.getMaxV();
+			double d4 = posX + 0.5;
+			double d5 = posY + 0.5 * scale + petal * 0.0025;
+			double d6 = posZ + 0.5;
+			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
+			for (int l1 = 0; l1 < vecs.length; ++l1) {
+				vecs[l1].rotateAroundY(rotation);
+				vecs[l1].xCoord += d4;
+				vecs[l1].yCoord += d5;
+				vecs[l1].zCoord += d6;
+			}
+			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
+			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
+			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
+			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
+			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
+			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
+			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
+			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
+		}
+	}
+
+	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, double d, double d1, double d2, double d3, double d4, double d5) {
+		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, d, d1, d2, d3, d4, d5, 0);
+	}
+
+	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, double d, double d1, double d2, double d3, double d4, double d5, int metadata) {
+		Tessellator tessellator = Tessellator.instance;
+		renderblocks.setRenderBounds(d, d1, d2, d3, d4, d5);
+		GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
+		tessellator.startDrawingQuads();
+		tessellator.setNormal(0.0f, -1.0f, 0.0f);
+		renderblocks.renderFaceYNeg(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 0, metadata));
+		tessellator.draw();
+		tessellator.startDrawingQuads();
+		tessellator.setNormal(0.0f, 1.0f, 0.0f);
+		renderblocks.renderFaceYPos(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 1, metadata));
+		tessellator.draw();
+		tessellator.startDrawingQuads();
+		tessellator.setNormal(0.0f, 0.0f, -1.0f);
+		renderblocks.renderFaceZNeg(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 2, metadata));
+		tessellator.draw();
+		tessellator.startDrawingQuads();
+		tessellator.setNormal(0.0f, 0.0f, 1.0f);
+		renderblocks.renderFaceZPos(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 3, metadata));
+		tessellator.draw();
+		tessellator.startDrawingQuads();
+		tessellator.setNormal(-1.0f, 0.0f, 0.0f);
+		renderblocks.renderFaceXNeg(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 4, metadata));
+		tessellator.draw();
+		tessellator.startDrawingQuads();
+		tessellator.setNormal(1.0f, 0.0f, 0.0f);
+		renderblocks.renderFaceXPos(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 5, metadata));
+		tessellator.draw();
+		GL11.glTranslatef(0.5f, 0.5f, 0.5f);
+	}
+
+	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta) {
+		block.setBlockBoundsForItemRender();
+		renderblocks.setRenderBoundsFromBlock(block);
+		double d = renderblocks.renderMinX;
+		double d1 = renderblocks.renderMinY;
+		double d2 = renderblocks.renderMinZ;
+		double d3 = renderblocks.renderMaxX;
+		double d4 = renderblocks.renderMaxY;
+		double d5 = renderblocks.renderMaxZ;
+		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, d, d1, d2, d3, d4, d5, meta);
+	}
+
 	@Override
 	public int getRenderId() {
 		return 0;
@@ -1152,328 +1475,5 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	@Override
 	public boolean shouldRender3DInInventory(int modelID) {
 		return renderInvIn3D;
-	}
-
-	public static int getAO() {
-		return Minecraft.getMinecraft().gameSettings.ambientOcclusion;
-	}
-
-	public static void renderClover(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
-		double scale = 0.5;
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
-		int l = block.colorMultiplier(world, i, j, k);
-		float f = 1.0f;
-		float f1 = (l >> 16 & 0xFF) / 255.0f;
-		float f2 = (l >> 8 & 0xFF) / 255.0f;
-		float f3 = (l & 0xFF) / 255.0f;
-		if (EntityRenderer.anaglyphEnable) {
-			float f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
-			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
-			float f6 = (f1 * 30.0f + f3 * 70.0f) / 100.0f;
-			f1 = f4;
-			f2 = f5;
-			f3 = f6;
-		}
-		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-		renderblocks.setOverrideBlockTexture(GOTBlockClover.stemIcon);
-		double posX = i;
-		double posY = j;
-		double posZ = k;
-		if (randomTranslation) {
-			long seed = i * 3129871 ^ k * 116129781L ^ j;
-			seed = seed * seed * 42317861L + seed * 11L;
-			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
-			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
-		}
-		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, posY, posZ, (float) scale);
-		renderblocks.clearOverrideBlockTexture();
-		for (int petal = 0; petal < petalCount; ++petal) {
-			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
-			IIcon icon = GOTBlockClover.petalIcon;
-			double d = icon.getMinU();
-			double d1 = icon.getMinV();
-			double d2 = icon.getMaxU();
-			double d3 = icon.getMaxV();
-			double d4 = posX + 0.5;
-			double d5 = posY + 0.5 * scale + petal * 0.0025;
-			double d6 = posZ + 0.5;
-			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
-			for (int l1 = 0; l1 < vecs.length; ++l1) {
-				vecs[l1].rotateAroundY(rotation);
-				vecs[l1].xCoord += d4;
-				vecs[l1].yCoord += d5;
-				vecs[l1].zCoord += d6;
-			}
-			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
-			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
-			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
-			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
-			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
-			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
-			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
-			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
-		}
-	}
-
-	public static void renderEntityPlate(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		renderblocks.renderAllFaces = true;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.0625, 0.8125);
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, 0.125, 0.0625, 0.125, 0.875, 0.125, 0.875);
-		renderblocks.renderAllFaces = false;
-	}
-
-	public static void renderGrass(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, boolean randomTranslation) {
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
-		int meta = world.getBlockMetadata(i, j, k);
-		int l = block.colorMultiplier(world, i, j, k);
-		float f = 1.0f;
-		float f1 = (l >> 16 & 0xFF) / 255.0f;
-		float f2 = (l >> 8 & 0xFF) / 255.0f;
-		float f3 = (l & 0xFF) / 255.0f;
-		if (EntityRenderer.anaglyphEnable) {
-			float f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
-			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
-			float f6 = (f1 * 30.0f + f3 * 70.0f) / 100.0f;
-			f1 = f4;
-			f2 = f5;
-			f3 = f6;
-		}
-		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-		double posX = i;
-		double posY = j;
-		double posZ = k;
-		if (randomTranslation) {
-			long seed = i * 3129871 ^ k * 116129781L ^ j;
-			seed = seed * seed * 42317861L + seed * 11L;
-			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
-			posY += ((seed >> 20 & 0xFL) / 15.0f - 1.0) * 0.2;
-			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
-		}
-		renderblocks.drawCrossedSquares(block.getIcon(2, meta), posX, posY, posZ, 1.0f);
-		renderblocks.clearOverrideBlockTexture();
-		if (block == GOTRegistry.tallGrass && meta >= 0 && meta < GOTBlockTallGrass.grassOverlay.length && GOTBlockTallGrass.grassOverlay[meta]) {
-			tessellator.setColorOpaque_F(1.0f, 1.0f, 1.0f);
-			renderblocks.drawCrossedSquares(block.getIcon(-1, meta), posX, posY, posZ, 1.0f);
-			renderblocks.clearOverrideBlockTexture();
-		}
-	}
-
-	public static void renderInvClover(Block block, RenderBlocks renderblocks, int petalCount) {
-		GL11.glDisable(2896);
-		double scale = 1.0;
-		Tessellator tessellator = Tessellator.instance;
-		int l = block.getRenderColor(0);
-		float f = 1.0f;
-		float f1 = (l >> 16 & 0xFF) / 255.0f;
-		float f2 = (l >> 8 & 0xFF) / 255.0f;
-		float f3 = (l & 0xFF) / 255.0f;
-		if (EntityRenderer.anaglyphEnable) {
-			float f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
-			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
-			float f6 = (f1 * 30.0f + f3 * 70.0f) / 100.0f;
-			f1 = f4;
-			f2 = f5;
-			f3 = f6;
-		}
-		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-		renderblocks.setOverrideBlockTexture(GOTBlockClover.stemIcon);
-		tessellator.startDrawingQuads();
-		renderblocks.drawCrossedSquares(block.getIcon(2, 0), -scale * 0.5, -scale * 0.5, -scale * 0.5, (float) scale);
-		tessellator.draw();
-		renderblocks.clearOverrideBlockTexture();
-		for (int petal = 0; petal < petalCount; ++petal) {
-			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
-			IIcon icon = GOTBlockClover.petalIcon;
-			double d = icon.getMinU();
-			double d1 = icon.getMinV();
-			double d2 = icon.getMaxU();
-			double d3 = icon.getMaxV();
-			double d4 = 0.0;
-			double d5 = petal * 0.0025;
-			double d6 = 0.0;
-			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
-			for (int l1 = 0; l1 < vecs.length; ++l1) {
-				vecs[l1].rotateAroundY(rotation);
-				vecs[l1].xCoord += d4;
-				vecs[l1].yCoord += d5;
-				vecs[l1].zCoord += d6;
-			}
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
-			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
-			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
-			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
-			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
-			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
-			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
-			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
-			tessellator.draw();
-		}
-		GL11.glEnable(2896);
-	}
-
-	public static void renderInvPlantain(Block block, RenderBlocks renderblocks, int petalCount) {
-		GL11.glDisable(2896);
-		double scale = 1.0;
-		Tessellator tessellator = Tessellator.instance;
-		int l = block.getRenderColor(0);
-		float f = 1.0f;
-		float f1 = (l >> 16 & 0xFF) / 255.0f;
-		float f2 = (l >> 8 & 0xFF) / 255.0f;
-		float f3 = (l & 0xFF) / 255.0f;
-		if (EntityRenderer.anaglyphEnable) {
-			float f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
-			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
-			float f6 = (f1 * 30.0f + f3 * 70.0f) / 100.0f;
-			f1 = f4;
-			f2 = f5;
-			f3 = f6;
-		}
-		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.stemIcon);
-		tessellator.startDrawingQuads();
-		renderblocks.drawCrossedSquares(block.getIcon(2, 0), -scale * 0.5, -scale * 0.5, -scale * 0.5, (float) scale);
-		tessellator.draw();
-		renderblocks.clearOverrideBlockTexture();
-		for (int petal = 0; petal < petalCount; ++petal) {
-			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
-			IIcon icon = GOTBlockPlantain.petalIcon;
-			double d = icon.getMinU();
-			double d1 = icon.getMinV();
-			double d2 = icon.getMaxU();
-			double d3 = icon.getMaxV();
-			double d4 = 0.0;
-			double d5 = petal * 0.0025;
-			double d6 = 0.0;
-			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
-			for (int l1 = 0; l1 < vecs.length; ++l1) {
-				vecs[l1].rotateAroundY(rotation);
-				vecs[l1].xCoord += d4;
-				vecs[l1].yCoord += d5;
-				vecs[l1].zCoord += d6;
-			}
-			tessellator.startDrawingQuads();
-			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
-			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
-			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
-			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
-			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
-			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
-			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
-			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
-			tessellator.draw();
-		}
-		GL11.glEnable(2896);
-	}
-
-	public static void renderPlantain(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
-		double scale = 0.5;
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
-		int l = block.colorMultiplier(world, i, j, k);
-		float f = 1.0f;
-		float f1 = (l >> 16 & 0xFF) / 255.0f;
-		float f2 = (l >> 8 & 0xFF) / 255.0f;
-		float f3 = (l & 0xFF) / 255.0f;
-		if (EntityRenderer.anaglyphEnable) {
-			float f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
-			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
-			float f6 = (f1 * 30.0f + f3 * 70.0f) / 100.0f;
-			f1 = f4;
-			f2 = f5;
-			f3 = f6;
-		}
-		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
-		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.stemIcon);
-		double posX = i;
-		double posY = j;
-		double posZ = k;
-		if (randomTranslation) {
-			long seed = i * 3129871 ^ k * 116129781L ^ j;
-			seed = seed * seed * 42317861L + seed * 11L;
-			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
-			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
-		}
-		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, posY, posZ, (float) scale);
-		renderblocks.clearOverrideBlockTexture();
-		for (int petal = 0; petal < petalCount; ++petal) {
-			float rotation = (float) petal / (float) petalCount * 3.1415927f * 2.0f;
-			IIcon icon = GOTBlockPlantain.petalIcon;
-			double d = icon.getMinU();
-			double d1 = icon.getMinV();
-			double d2 = icon.getMaxU();
-			double d3 = icon.getMaxV();
-			double d4 = posX + 0.5;
-			double d5 = posY + 0.5 * scale + petal * 0.0025;
-			double d6 = posZ + 0.5;
-			Vec3[] vecs = {Vec3.createVectorHelper(0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, -0.5 * scale), Vec3.createVectorHelper(-0.5 * scale, 0.0, 0.5 * scale), Vec3.createVectorHelper(0.5 * scale, 0.0, 0.5 * scale)};
-			for (int l1 = 0; l1 < vecs.length; ++l1) {
-				vecs[l1].rotateAroundY(rotation);
-				vecs[l1].xCoord += d4;
-				vecs[l1].yCoord += d5;
-				vecs[l1].zCoord += d6;
-			}
-			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
-			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
-			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
-			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
-			tessellator.addVertexWithUV(vecs[3].xCoord, vecs[3].yCoord, vecs[3].zCoord, d2, d1);
-			tessellator.addVertexWithUV(vecs[2].xCoord, vecs[2].yCoord, vecs[2].zCoord, d2, d3);
-			tessellator.addVertexWithUV(vecs[1].xCoord, vecs[1].yCoord, vecs[1].zCoord, d, d3);
-			tessellator.addVertexWithUV(vecs[0].xCoord, vecs[0].yCoord, vecs[0].zCoord, d, d1);
-		}
-	}
-
-	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, double d, double d1, double d2, double d3, double d4, double d5) {
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, d, d1, d2, d3, d4, d5, 0);
-	}
-
-	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, double d, double d1, double d2, double d3, double d4, double d5, int metadata) {
-		Tessellator tessellator = Tessellator.instance;
-		renderblocks.setRenderBounds(d, d1, d2, d3, d4, d5);
-		GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0f, -1.0f, 0.0f);
-		renderblocks.renderFaceYNeg(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 0, metadata));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0f, 1.0f, 0.0f);
-		renderblocks.renderFaceYPos(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 1, metadata));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0f, 0.0f, -1.0f);
-		renderblocks.renderFaceZNeg(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 2, metadata));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0f, 0.0f, 1.0f);
-		renderblocks.renderFaceZPos(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 3, metadata));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(-1.0f, 0.0f, 0.0f);
-		renderblocks.renderFaceXNeg(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 4, metadata));
-		tessellator.draw();
-		tessellator.startDrawingQuads();
-		tessellator.setNormal(1.0f, 0.0f, 0.0f);
-		renderblocks.renderFaceXPos(block, 0.0, 0.0, 0.0, renderblocks.getBlockIconFromSideAndMetadata(block, 5, metadata));
-		tessellator.draw();
-		GL11.glTranslatef(0.5f, 0.5f, 0.5f);
-	}
-
-	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta) {
-		block.setBlockBoundsForItemRender();
-		renderblocks.setRenderBoundsFromBlock(block);
-		double d = renderblocks.renderMinX;
-		double d1 = renderblocks.renderMinY;
-		double d2 = renderblocks.renderMinZ;
-		double d3 = renderblocks.renderMaxX;
-		double d4 = renderblocks.renderMaxY;
-		double d5 = renderblocks.renderMaxZ;
-		GOTRenderBlocks.renderStandardInvBlock(renderblocks, block, d, d1, d2, d3, d4, d5, meta);
-	}
-
-	public static void setAO(int i) {
-		Minecraft.getMinecraft().gameSettings.ambientOcclusion = i;
 	}
 }

@@ -17,6 +17,27 @@ public class GOTPacketFactionRelations implements IMessage {
 	public GOTFactionRelations.FactionPair singleKey;
 	public GOTFactionRelations.Relation singleRelation;
 
+	public static GOTPacketFactionRelations fullMap(Map<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> map) {
+		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
+		pkt.packetType = Type.FULL_MAP;
+		pkt.fullMap = map;
+		return pkt;
+	}
+
+	public static GOTPacketFactionRelations oneEntry(GOTFactionRelations.FactionPair pair, GOTFactionRelations.Relation rel) {
+		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
+		pkt.packetType = Type.ONE_ENTRY;
+		pkt.singleKey = pair;
+		pkt.singleRelation = rel;
+		return pkt;
+	}
+
+	public static GOTPacketFactionRelations reset() {
+		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
+		pkt.packetType = Type.RESET;
+		return pkt;
+	}
+
 	@Override
 	public void fromBytes(ByteBuf data) {
 		byte typeID = data.readByte();
@@ -63,25 +84,18 @@ public class GOTPacketFactionRelations implements IMessage {
 		}
 	}
 
-	public static GOTPacketFactionRelations fullMap(Map<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> map) {
-		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
-		pkt.packetType = Type.FULL_MAP;
-		pkt.fullMap = map;
-		return pkt;
-	}
+	public enum Type {
+		FULL_MAP, RESET, ONE_ENTRY;
 
-	public static GOTPacketFactionRelations oneEntry(GOTFactionRelations.FactionPair pair, GOTFactionRelations.Relation rel) {
-		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
-		pkt.packetType = Type.ONE_ENTRY;
-		pkt.singleKey = pair;
-		pkt.singleRelation = rel;
-		return pkt;
-	}
-
-	public static GOTPacketFactionRelations reset() {
-		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
-		pkt.packetType = Type.RESET;
-		return pkt;
+		public static Type forID(int id) {
+			for (Type t : Type.values()) {
+				if (t.ordinal() != id) {
+					continue;
+				}
+				return t;
+			}
+			return null;
+		}
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFactionRelations, IMessage> {
@@ -103,20 +117,6 @@ public class GOTPacketFactionRelations implements IMessage {
 					GOTFactionRelations.Relation rel = packet.singleRelation;
 					GOTFactionRelations.overrideRelations(key.getLeft(), key.getRight(), rel);
 				}
-			}
-			return null;
-		}
-	}
-
-	public enum Type {
-		FULL_MAP, RESET, ONE_ENTRY;
-
-		public static Type forID(int id) {
-			for (Type t : Type.values()) {
-				if (t.ordinal() != id) {
-					continue;
-				}
-				return t;
 			}
 			return null;
 		}

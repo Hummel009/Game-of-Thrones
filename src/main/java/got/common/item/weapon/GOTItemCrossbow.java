@@ -36,6 +36,59 @@ public class GOTItemCrossbow extends ItemBow {
 		boltDamageFactor = 1.0f + Math.max(0.0f, (crossbowMaterial.getDamageVsEntity() - 2.0f) * 0.1f);
 	}
 
+	public static void applyCrossbowModifiers(GOTEntityCrossbowBolt bolt, ItemStack itemstack) {
+		int power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack);
+		if (power > 0) {
+			bolt.boltDamageFactor += power * 0.5 + 0.5;
+		}
+		int punch = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, itemstack);
+		punch += GOTEnchantmentHelper.calcRangedKnockback(itemstack);
+		if (punch > 0) {
+			bolt.knockbackStrength = punch;
+		}
+		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {
+			bolt.setFire(100);
+		}
+		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
+			if (!ench.applyToProjectile() || !GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
+				continue;
+			}
+			GOTEnchantmentHelper.setProjectileEnchantment(bolt, ench);
+		}
+	}
+
+	public static float getCrossbowLaunchSpeedFactor(ItemStack itemstack) {
+		float f = 1.0f;
+		if (itemstack != null) {
+			if (itemstack.getItem() instanceof GOTItemCrossbow) {
+				f = (float) (f * ((GOTItemCrossbow) itemstack.getItem()).boltDamageFactor);
+			}
+			f *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
+		}
+		return f;
+	}
+
+	public static ItemStack getLoaded(ItemStack itemstack) {
+		if (itemstack != null && itemstack.getItem() instanceof GOTItemCrossbow) {
+			NBTTagCompound nbt = itemstack.getTagCompound();
+			if (nbt == null) {
+				return null;
+			}
+			if (nbt.hasKey("GOTCrossbowAmmo")) {
+				NBTTagCompound ammoData = nbt.getCompoundTag("GOTCrossbowAmmo");
+				return ItemStack.loadItemStackFromNBT(ammoData);
+			}
+			if (nbt.hasKey("GOTCrossbowLoaded")) {
+				return new ItemStack(GOTRegistry.crossbowBolt);
+			}
+		}
+		return null;
+	}
+
+	public static boolean isLoaded(ItemStack itemstack) {
+		return GOTItemCrossbow.getLoaded(itemstack) != null;
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
@@ -230,58 +283,5 @@ public class GOTItemCrossbow extends ItemBow {
 
 	public boolean shouldConsumeBolt(ItemStack itemstack, EntityPlayer entityplayer) {
 		return !entityplayer.capabilities.isCreativeMode && EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, itemstack) == 0;
-	}
-
-	public static void applyCrossbowModifiers(GOTEntityCrossbowBolt bolt, ItemStack itemstack) {
-		int power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack);
-		if (power > 0) {
-			bolt.boltDamageFactor += power * 0.5 + 0.5;
-		}
-		int punch = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, itemstack);
-		punch += GOTEnchantmentHelper.calcRangedKnockback(itemstack);
-		if (punch > 0) {
-			bolt.knockbackStrength = punch;
-		}
-		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {
-			bolt.setFire(100);
-		}
-		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
-			if (!ench.applyToProjectile() || !GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
-				continue;
-			}
-			GOTEnchantmentHelper.setProjectileEnchantment(bolt, ench);
-		}
-	}
-
-	public static float getCrossbowLaunchSpeedFactor(ItemStack itemstack) {
-		float f = 1.0f;
-		if (itemstack != null) {
-			if (itemstack.getItem() instanceof GOTItemCrossbow) {
-				f = (float) (f * ((GOTItemCrossbow) itemstack.getItem()).boltDamageFactor);
-			}
-			f *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
-		}
-		return f;
-	}
-
-	public static ItemStack getLoaded(ItemStack itemstack) {
-		if (itemstack != null && itemstack.getItem() instanceof GOTItemCrossbow) {
-			NBTTagCompound nbt = itemstack.getTagCompound();
-			if (nbt == null) {
-				return null;
-			}
-			if (nbt.hasKey("GOTCrossbowAmmo")) {
-				NBTTagCompound ammoData = nbt.getCompoundTag("GOTCrossbowAmmo");
-				return ItemStack.loadItemStackFromNBT(ammoData);
-			}
-			if (nbt.hasKey("GOTCrossbowLoaded")) {
-				return new ItemStack(GOTRegistry.crossbowBolt);
-			}
-		}
-		return null;
-	}
-
-	public static boolean isLoaded(ItemStack itemstack) {
-		return GOTItemCrossbow.getLoaded(itemstack) != null;
 	}
 }

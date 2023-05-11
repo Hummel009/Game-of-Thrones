@@ -173,6 +173,10 @@ public abstract class GOTEntityLionBase extends GOTEntityAnimalMF implements GOT
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
+	public void setHostile(boolean flag) {
+		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
+	}
+
 	@Override
 	public void onLivingUpdate() {
 		boolean isChild;
@@ -212,10 +216,6 @@ public abstract class GOTEntityLionBase extends GOTEntityAnimalMF implements GOT
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		hostileTick = nbt.getInteger("Angry");
-	}
-
-	public void setHostile(boolean flag) {
-		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
 	}
 
 	@Override

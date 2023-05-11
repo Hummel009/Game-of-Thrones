@@ -39,6 +39,16 @@ public class GOTBlockMillstone extends BlockContainer {
 		setStepSound(Block.soundTypeStone);
 	}
 
+	public static boolean isMillstoneActive(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return (meta & 8) != 0;
+	}
+
+	public static void toggleMillstoneActive(World world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
+	}
+
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
 		GOTTileEntityMillstone millstone = (GOTTileEntityMillstone) world.getTileEntity(i, j, k);
@@ -115,15 +125,5 @@ public class GOTBlockMillstone extends BlockContainer {
 		iconTop = iconregister.registerIcon(getTextureName() + "_top");
 		iconSideActive = iconregister.registerIcon(getTextureName() + "_side_active");
 		iconTopActive = iconregister.registerIcon(getTextureName() + "_top_active");
-	}
-
-	public static boolean isMillstoneActive(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return (meta & 8) != 0;
-	}
-
-	public static void toggleMillstoneActive(World world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
 	}
 }

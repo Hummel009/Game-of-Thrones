@@ -11,14 +11,6 @@ public enum GOTGuiMessageTypes {
 		messageName = s;
 	}
 
-	public String getMessage() {
-		return StatCollector.translateToLocal("got.gui.message." + messageName);
-	}
-
-	public String getSaveName() {
-		return messageName;
-	}
-
 	public static GOTGuiMessageTypes forSaveName(String name) {
 		for (GOTGuiMessageTypes message : GOTGuiMessageTypes.values()) {
 			if (message.getSaveName().equals(name)) {
@@ -26,5 +18,13 @@ public enum GOTGuiMessageTypes {
 			}
 		}
 		return null;
+	}
+
+	public String getMessage() {
+		return StatCollector.translateToLocal("got.gui.message." + messageName);
+	}
+
+	public String getSaveName() {
+		return messageName;
 	}
 }

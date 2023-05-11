@@ -99,39 +99,6 @@ public enum GOTInvasions {
 		subfaction = s;
 	}
 
-	public String codeName() {
-		StringBuilder s = new StringBuilder(invasionFaction.codeName());
-		if (subfaction != null) {
-			s.append("_").append(subfaction);
-		}
-		return s.toString();
-	}
-
-	public String codeNameHorn() {
-		return "got.invasion." + codeName() + ".horn";
-	}
-
-	public ItemStack createConquestHorn() {
-		ItemStack horn = new ItemStack(GOTRegistry.conquestHorn);
-		GOTItemConquestHorn.setInvasionType(horn, this);
-		return horn;
-	}
-
-	public ItemStack getInvasionIcon() {
-		Item sword = invasionIcon;
-		if (sword == null) {
-			sword = Items.iron_sword;
-		}
-		return new ItemStack(sword);
-	}
-
-	public String invasionName() {
-		if (subfaction == null) {
-			return invasionFaction.factionName();
-		}
-		return StatCollector.translateToLocal("got.invasion." + codeName());
-	}
-
 	public static GOTInvasions forID(int ID) {
 		for (GOTInvasions i : GOTInvasions.values()) {
 			if (i.ordinal() != ID) {
@@ -283,6 +250,39 @@ public enum GOTInvasions {
 		GOTInvasions.NORTH.invasionMobs.add(new InvasionSpawnEntry(GOTEntityNorthSoldier.class, 10));
 		GOTInvasions.NORTH.invasionMobs.add(new InvasionSpawnEntry(GOTEntityNorthSoldierArcher.class, 5));
 		GOTInvasions.NORTH.invasionMobs.add(new InvasionSpawnEntry(GOTEntityNorthBannerBearer.class, 2));
+	}
+
+	public String codeName() {
+		StringBuilder s = new StringBuilder(invasionFaction.codeName());
+		if (subfaction != null) {
+			s.append("_").append(subfaction);
+		}
+		return s.toString();
+	}
+
+	public String codeNameHorn() {
+		return "got.invasion." + codeName() + ".horn";
+	}
+
+	public ItemStack createConquestHorn() {
+		ItemStack horn = new ItemStack(GOTRegistry.conquestHorn);
+		GOTItemConquestHorn.setInvasionType(horn, this);
+		return horn;
+	}
+
+	public ItemStack getInvasionIcon() {
+		Item sword = invasionIcon;
+		if (sword == null) {
+			sword = Items.iron_sword;
+		}
+		return new ItemStack(sword);
+	}
+
+	public String invasionName() {
+		if (subfaction == null) {
+			return invasionFaction.factionName();
+		}
+		return StatCollector.translateToLocal("got.invasion." + codeName());
 	}
 
 	public static class InvasionSpawnEntry extends WeightedRandom.Item {

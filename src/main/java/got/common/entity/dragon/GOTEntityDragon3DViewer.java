@@ -27,6 +27,10 @@ public class GOTEntityDragon3DViewer {
 		return ReflectionHelper.getPrivateValue(EntityRenderer.class, mc.entityRenderer, GOTEntityDragon3DViewer.ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
+	public void setThirdPersonDistance(float thirdPersonDistance) {
+		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, GOTEntityDragon3DViewer.ENTITYRENDERER_THIRDPERSONDISTANCE);
+	}
+
 	@SubscribeEvent
 	public void onTick(ClientTickEvent evt) {
 		if (evt.phase != TickEvent.Phase.START || mc.thePlayer == null) {
@@ -53,9 +57,5 @@ public class GOTEntityDragon3DViewer {
 		}
 
 		ridingDragonPrev = ridingDragon;
-	}
-
-	public void setThirdPersonDistance(float thirdPersonDistance) {
-		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, GOTEntityDragon3DViewer.ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 }

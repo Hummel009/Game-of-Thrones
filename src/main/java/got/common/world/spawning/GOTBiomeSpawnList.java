@@ -30,6 +30,14 @@ public class GOTBiomeSpawnList {
 		biomeIdentifier = s;
 	}
 
+	public static SpawnListContainer entry(GOTSpawnList list) {
+		return GOTBiomeSpawnList.entry(list, 1);
+	}
+
+	public static SpawnListContainer entry(GOTSpawnList list, int weight) {
+		return new SpawnListContainer(list, weight);
+	}
+
 	public void clear() {
 		factionContainers.clear();
 		presentFactions.clear();
@@ -148,14 +156,6 @@ public class GOTBiomeSpawnList {
 		cont.conquestSensitivity = conq;
 		factionContainers.add(cont);
 		return cont;
-	}
-
-	public static SpawnListContainer entry(GOTSpawnList list) {
-		return GOTBiomeSpawnList.entry(list, 1);
-	}
-
-	public static SpawnListContainer entry(GOTSpawnList list, int weight) {
-		return new SpawnListContainer(list, weight);
 	}
 
 	public static class FactionContainer {

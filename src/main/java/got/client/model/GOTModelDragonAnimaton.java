@@ -97,6 +97,254 @@ public class GOTModelDragonAnimaton {
 		entity = dragon;
 	}
 
+	public static float atg2(float y, float x) {
+		return (float) Math.atan2(y, x);
+	}
+
+	public static double clamp(double value, double min, double max) {
+		return value < min ? min : value > max ? max : value;
+	}
+
+	public static float clamp(float value, float min, float max) {
+		return value < min ? min : value > max ? max : value;
+	}
+
+	public static int clamp(int value, int min, int max) {
+		return value < min ? min : value > max ? max : value;
+	}
+
+	public static float cos(float a) {
+		if (useLUT) {
+			return MathHelper.cos(a);
+		}
+		return (float) Math.cos(a);
+	}
+
+	public static float[] getLinearEndKnots(float... internalKnots) {
+		float[] result = new float[internalKnots.length + 2];
+		float diff1 = internalKnots[1] - internalKnots[0];
+		float diff2 = internalKnots[internalKnots.length - 1] - internalKnots[internalKnots.length - 2];
+		result[0] = internalKnots[0] - diff1;
+		result[result.length - 1] = internalKnots[internalKnots.length - 1] + diff2;
+		for (int i = 1; i < result.length - 1; i++) {
+			result[i] = internalKnots[i - 1];
+		}
+		return result;
+	}
+
+	public static float interp(float x, float... knots) {
+		int nknots = knots.length;
+		int nspans = nknots - 3;
+		int knot = 0;
+		if (nspans < 1) {
+			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
+			return 0;
+		}
+		x = GOTModelDragonAnimaton.clamp(x, 0, 0.9999f) * nspans;
+		int span = (int) x;
+		if (span >= nknots - 3) {
+			span = nknots - 3;
+		}
+		x -= span;
+		knot += span;
+		float knot0 = knots[knot];
+		float knot1 = knots[knot + 1];
+		float knot2 = knots[knot + 2];
+		float knot3 = knots[knot + 3];
+
+		float c3 = CR00 * knot0 + CR01 * knot1 + CR02 * knot2 + CR03 * knot3;
+		float c2 = CR10 * knot0 + CR11 * knot1 + CR12 * knot2 + CR13 * knot3;
+		float c1 = CR20 * knot0 + CR21 * knot1 + CR22 * knot2 + CR23 * knot3;
+		float c0 = CR30 * knot0 + CR31 * knot1 + CR32 * knot2 + CR33 * knot3;
+		return ((c3 * x + c2) * x + c1) * x + c0;
+	}
+
+	public static void interp(float x, float[] result, float[]... knots) {
+		int nknots = knots.length;
+		int nspans = nknots - 3;
+		int knot = 0;
+		if (nspans < 1) {
+			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
+			return;
+		}
+		x = GOTModelDragonAnimaton.clamp(x, 0, 0.9999f) * nspans;
+		int span = (int) x;
+		if (span >= nknots - 3) {
+			span = nknots - 3;
+		}
+		x -= span;
+		knot += span;
+		int dimension = result.length;
+		for (int i = 0; i < dimension; i++) {
+			float knot0 = knots[knot][i];
+			float knot1 = knots[knot + 1][i];
+			float knot2 = knots[knot + 2][i];
+			float knot3 = knots[knot + 3][i];
+
+			float c3 = CR00 * knot0 + CR01 * knot1 + CR02 * knot2 + CR03 * knot3;
+			float c2 = CR10 * knot0 + CR11 * knot1 + CR12 * knot2 + CR13 * knot3;
+			float c1 = CR20 * knot0 + CR21 * knot1 + CR22 * knot2 + CR23 * knot3;
+			float c0 = CR30 * knot0 + CR31 * knot1 + CR32 * knot2 + CR33 * knot3;
+
+			result[i] = ((c3 * x + c2) * x + c1) * x + c0;
+		}
+	}
+
+	public static float[] interpArray(float[] inputs, float... knots) {
+		float[] result = new float[inputs.length];
+		for (int i = 0; i < inputs.length; i++) {
+			result[i] = interp(inputs[i], knots);
+		}
+		return result;
+	}
+
+	public static float[] interpEndsArray(float[] inputs, float... internalKnots) {
+		float[] knots = getLinearEndKnots(internalKnots);
+		float[] result = new float[inputs.length];
+		for (int i = 0; i < inputs.length; i++) {
+			result[i] = interp(inputs[i], knots);
+		}
+		return result;
+	}
+
+	public static float[] interpLinearEndsArray(float minInputValue, float maxInputValue, int n, float... internalKnots) {
+		float[] inputs = new float[n];
+		float stepLength = (maxInputValue - minInputValue) / (n - 1);
+		for (int i = 0; i < n; i++) {
+			inputs[i] = minInputValue + i * stepLength;
+		}
+		return interpEndsArray(inputs, internalKnots);
+	}
+
+	public static float[] interpLinearEndsArray(int n, float... internalKnots) {
+		return interpLinearEndsArray(0.0f, 1.0f, n, internalKnots);
+	}
+
+	public static double lerp(double a, double b, double x) {
+		return a * (1 - x) + b * x;
+	}
+
+	public static float lerp(float a, float b, float x) {
+		return a * (1 - x) + b * x;
+	}
+
+	public static double normDeg(double a) {
+		a %= 360;
+		if (a >= 180) {
+			a -= 360;
+		}
+		if (a < -180) {
+			a += 360;
+		}
+		return a;
+	}
+
+	public static float normDeg(float a) {
+		a %= 360;
+		if (a >= 180) {
+			a -= 360;
+		}
+		if (a < -180) {
+			a += 360;
+		}
+		return a;
+	}
+
+	public static double normRad(double a) {
+		a %= PI_D * 2;
+		if (a >= PI_D) {
+			a -= PI_D * 2;
+		}
+		if (a < -PI_D) {
+			a += PI_D * 2;
+		}
+		return a;
+	}
+
+	public static float normRad(float a) {
+		a %= PI_F * 2;
+		if (a >= PI_F) {
+			a -= PI_F * 2;
+		}
+		if (a < -PI_F) {
+			a += PI_F * 2;
+		}
+		return a;
+	}
+
+	public static float sin(float a) {
+		if (useLUT) {
+			return MathHelper.sin(a);
+		}
+		return (float) Math.sin(a);
+	}
+
+	public static double slerp(double a, double b, double x) {
+		if (x <= 0) {
+			return a;
+		}
+		if (x >= 1) {
+			return b;
+		}
+
+		return lerp(a, b, x * x * (3 - 2 * x));
+	}
+
+	public static float slerp(float a, float b, float x) {
+		if (x <= 0) {
+			return a;
+		}
+		if (x >= 1) {
+			return b;
+		}
+
+		return lerp(a, b, x * x * (3 - 2 * x));
+	}
+
+	public static float sqrtf(float f) {
+		return (float) Math.sqrt(f);
+	}
+
+	public static double terp(double a, double b, double x) {
+		if (x <= 0) {
+			return a;
+		}
+		if (x >= 1) {
+			return b;
+		}
+
+		double mu2 = (1 - Math.cos(x * PI_D)) / 2.0;
+		return a * (1 - mu2) + b * mu2;
+	}
+
+	public static float terp(float a, float b, float x) {
+		if (x <= 0) {
+			return a;
+		}
+		if (x >= 1) {
+			return b;
+		}
+
+		float mu2 = (1 - cos(x * PI_F)) / 2.0f;
+		return a * (1 - mu2) + b * mu2;
+	}
+
+	public static float tg(float a) {
+		return (float) Math.tan(a);
+	}
+
+	public static float toDegrees(float angrad) {
+		return (float) Math.toDegrees(angrad);
+	}
+
+	public static float toRadians(float angdeg) {
+		return (float) Math.toRadians(angdeg);
+	}
+
+	public static float updateRotation(float r1, float r2, float step) {
+		return r1 + clamp(normDeg(r2 - r1), -step, step);
+	}
+
 	public void animate(GOTModelDragon model) {
 		anim = animTimer.get(partialTicks);
 		ground = groundTimer.get(partialTicks);
@@ -428,8 +676,16 @@ public class GOTModelDragonAnimaton {
 		return onGround;
 	}
 
+	public void setOnGround(boolean onGround) {
+		this.onGround = onGround;
+	}
+
 	public boolean isOpenJaw() {
 		return openJaw;
+	}
+
+	public void setOpenJaw(boolean openJaw) {
+		this.openJaw = openJaw;
 	}
 
 	public void setLook(float lookYaw, float lookPitch) {
@@ -441,14 +697,6 @@ public class GOTModelDragonAnimaton {
 	public void setMovement(float moveTime, float moveSpeed) {
 		this.moveTime = moveTime;
 		this.moveSpeed = moveSpeed;
-	}
-
-	public void setOnGround(boolean onGround) {
-		this.onGround = onGround;
-	}
-
-	public void setOpenJaw(boolean openJaw) {
-		this.openJaw = openJaw;
 	}
 
 	public void setPartialTicks(float partialTicks) {
@@ -576,254 +824,6 @@ public class GOTModelDragonAnimaton {
 		yTrail.update(entity.posY - entity.yOffset);
 		yawTrail.update(yawAbs);
 		pitchTrail.update(getModelPitch());
-	}
-
-	public static float atg2(float y, float x) {
-		return (float) Math.atan2(y, x);
-	}
-
-	public static double clamp(double value, double min, double max) {
-		return value < min ? min : value > max ? max : value;
-	}
-
-	public static float clamp(float value, float min, float max) {
-		return value < min ? min : value > max ? max : value;
-	}
-
-	public static int clamp(int value, int min, int max) {
-		return value < min ? min : value > max ? max : value;
-	}
-
-	public static float cos(float a) {
-		if (useLUT) {
-			return MathHelper.cos(a);
-		}
-		return (float) Math.cos(a);
-	}
-
-	public static float[] getLinearEndKnots(float... internalKnots) {
-		float[] result = new float[internalKnots.length + 2];
-		float diff1 = internalKnots[1] - internalKnots[0];
-		float diff2 = internalKnots[internalKnots.length - 1] - internalKnots[internalKnots.length - 2];
-		result[0] = internalKnots[0] - diff1;
-		result[result.length - 1] = internalKnots[internalKnots.length - 1] + diff2;
-		for (int i = 1; i < result.length - 1; i++) {
-			result[i] = internalKnots[i - 1];
-		}
-		return result;
-	}
-
-	public static float interp(float x, float... knots) {
-		int nknots = knots.length;
-		int nspans = nknots - 3;
-		int knot = 0;
-		if (nspans < 1) {
-			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
-			return 0;
-		}
-		x = GOTModelDragonAnimaton.clamp(x, 0, 0.9999f) * nspans;
-		int span = (int) x;
-		if (span >= nknots - 3) {
-			span = nknots - 3;
-		}
-		x -= span;
-		knot += span;
-		float knot0 = knots[knot];
-		float knot1 = knots[knot + 1];
-		float knot2 = knots[knot + 2];
-		float knot3 = knots[knot + 3];
-
-		float c3 = CR00 * knot0 + CR01 * knot1 + CR02 * knot2 + CR03 * knot3;
-		float c2 = CR10 * knot0 + CR11 * knot1 + CR12 * knot2 + CR13 * knot3;
-		float c1 = CR20 * knot0 + CR21 * knot1 + CR22 * knot2 + CR23 * knot3;
-		float c0 = CR30 * knot0 + CR31 * knot1 + CR32 * knot2 + CR33 * knot3;
-		return ((c3 * x + c2) * x + c1) * x + c0;
-	}
-
-	public static void interp(float x, float[] result, float[]... knots) {
-		int nknots = knots.length;
-		int nspans = nknots - 3;
-		int knot = 0;
-		if (nspans < 1) {
-			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
-			return;
-		}
-		x = GOTModelDragonAnimaton.clamp(x, 0, 0.9999f) * nspans;
-		int span = (int) x;
-		if (span >= nknots - 3) {
-			span = nknots - 3;
-		}
-		x -= span;
-		knot += span;
-		int dimension = result.length;
-		for (int i = 0; i < dimension; i++) {
-			float knot0 = knots[knot][i];
-			float knot1 = knots[knot + 1][i];
-			float knot2 = knots[knot + 2][i];
-			float knot3 = knots[knot + 3][i];
-
-			float c3 = CR00 * knot0 + CR01 * knot1 + CR02 * knot2 + CR03 * knot3;
-			float c2 = CR10 * knot0 + CR11 * knot1 + CR12 * knot2 + CR13 * knot3;
-			float c1 = CR20 * knot0 + CR21 * knot1 + CR22 * knot2 + CR23 * knot3;
-			float c0 = CR30 * knot0 + CR31 * knot1 + CR32 * knot2 + CR33 * knot3;
-
-			result[i] = ((c3 * x + c2) * x + c1) * x + c0;
-		}
-	}
-
-	public static float[] interpArray(float[] inputs, float... knots) {
-		float[] result = new float[inputs.length];
-		for (int i = 0; i < inputs.length; i++) {
-			result[i] = interp(inputs[i], knots);
-		}
-		return result;
-	}
-
-	public static float[] interpEndsArray(float[] inputs, float... internalKnots) {
-		float[] knots = getLinearEndKnots(internalKnots);
-		float[] result = new float[inputs.length];
-		for (int i = 0; i < inputs.length; i++) {
-			result[i] = interp(inputs[i], knots);
-		}
-		return result;
-	}
-
-	public static float[] interpLinearEndsArray(float minInputValue, float maxInputValue, int n, float... internalKnots) {
-		float[] inputs = new float[n];
-		float stepLength = (maxInputValue - minInputValue) / (n - 1);
-		for (int i = 0; i < n; i++) {
-			inputs[i] = minInputValue + i * stepLength;
-		}
-		return interpEndsArray(inputs, internalKnots);
-	}
-
-	public static float[] interpLinearEndsArray(int n, float... internalKnots) {
-		return interpLinearEndsArray(0.0f, 1.0f, n, internalKnots);
-	}
-
-	public static double lerp(double a, double b, double x) {
-		return a * (1 - x) + b * x;
-	}
-
-	public static float lerp(float a, float b, float x) {
-		return a * (1 - x) + b * x;
-	}
-
-	public static double normDeg(double a) {
-		a %= 360;
-		if (a >= 180) {
-			a -= 360;
-		}
-		if (a < -180) {
-			a += 360;
-		}
-		return a;
-	}
-
-	public static float normDeg(float a) {
-		a %= 360;
-		if (a >= 180) {
-			a -= 360;
-		}
-		if (a < -180) {
-			a += 360;
-		}
-		return a;
-	}
-
-	public static double normRad(double a) {
-		a %= PI_D * 2;
-		if (a >= PI_D) {
-			a -= PI_D * 2;
-		}
-		if (a < -PI_D) {
-			a += PI_D * 2;
-		}
-		return a;
-	}
-
-	public static float normRad(float a) {
-		a %= PI_F * 2;
-		if (a >= PI_F) {
-			a -= PI_F * 2;
-		}
-		if (a < -PI_F) {
-			a += PI_F * 2;
-		}
-		return a;
-	}
-
-	public static float sin(float a) {
-		if (useLUT) {
-			return MathHelper.sin(a);
-		}
-		return (float) Math.sin(a);
-	}
-
-	public static double slerp(double a, double b, double x) {
-		if (x <= 0) {
-			return a;
-		}
-		if (x >= 1) {
-			return b;
-		}
-
-		return lerp(a, b, x * x * (3 - 2 * x));
-	}
-
-	public static float slerp(float a, float b, float x) {
-		if (x <= 0) {
-			return a;
-		}
-		if (x >= 1) {
-			return b;
-		}
-
-		return lerp(a, b, x * x * (3 - 2 * x));
-	}
-
-	public static float sqrtf(float f) {
-		return (float) Math.sqrt(f);
-	}
-
-	public static double terp(double a, double b, double x) {
-		if (x <= 0) {
-			return a;
-		}
-		if (x >= 1) {
-			return b;
-		}
-
-		double mu2 = (1 - Math.cos(x * PI_D)) / 2.0;
-		return a * (1 - mu2) + b * mu2;
-	}
-
-	public static float terp(float a, float b, float x) {
-		if (x <= 0) {
-			return a;
-		}
-		if (x >= 1) {
-			return b;
-		}
-
-		float mu2 = (1 - cos(x * PI_F)) / 2.0f;
-		return a * (1 - mu2) + b * mu2;
-	}
-
-	public static float tg(float a) {
-		return (float) Math.tan(a);
-	}
-
-	public static float toDegrees(float angrad) {
-		return (float) Math.toDegrees(angrad);
-	}
-
-	public static float toRadians(float angdeg) {
-		return (float) Math.toRadians(angdeg);
-	}
-
-	public static float updateRotation(float r1, float r2, float step) {
-		return r1 + clamp(normDeg(r2 - r1), -step, step);
 	}
 
 }

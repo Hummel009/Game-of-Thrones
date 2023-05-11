@@ -87,6 +87,10 @@ public class GOTEntityPortal extends Entity {
 		return dataWatcher.getWatchableObjectShort(10);
 	}
 
+	public void setScale(int i) {
+		dataWatcher.updateObject(10, (short) i);
+	}
+
 	@SideOnly(value = Side.CLIENT)
 	@Override
 	public void handleHealthUpdate(byte b) {
@@ -175,10 +179,6 @@ public class GOTEntityPortal extends Entity {
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		setScale(nbt.getInteger("Scale"));
-	}
-
-	public void setScale(int i) {
-		dataWatcher.updateObject(10, (short) i);
 	}
 
 	public void transferEntity(Entity entity) {

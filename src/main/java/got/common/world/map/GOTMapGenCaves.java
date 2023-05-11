@@ -15,6 +15,22 @@ import java.util.Random;
 public class GOTMapGenCaves extends MapGenBase {
 	public GOTChunkProvider.ChunkFlags chunkFlags;
 
+	public static boolean isTerrainBlock(Block block, BiomeGenBase biome) {
+		if (block == biome.topBlock || block == biome.fillerBlock) {
+			return true;
+		}
+		if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == GOTRegistry.whiteSand || block == Blocks.gravel || block == GOTRegistry.mudGrass || block == GOTRegistry.mud) {
+			return true;
+		}
+		if (block == GOTRegistry.dirtPath) {
+			return true;
+		}
+		if (block == Blocks.stone || block == GOTRegistry.rock || block == Blocks.sandstone || block == GOTRegistry.redSandstone || block == GOTRegistry.whiteSandstone) {
+			return true;
+		}
+		return block == GOTRegistry.asshaiDirt || block == GOTRegistry.basaltGravel;
+	}
+
 	public int caveRarity() {
 		return 10;
 	}
@@ -218,21 +234,5 @@ public class GOTMapGenCaves extends MapGenBase {
 
 	public int getCaveGenerationHeight() {
 		return rand.nextInt(rand.nextInt(120) + 8);
-	}
-
-	public static boolean isTerrainBlock(Block block, BiomeGenBase biome) {
-		if (block == biome.topBlock || block == biome.fillerBlock) {
-			return true;
-		}
-		if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == GOTRegistry.whiteSand || block == Blocks.gravel || block == GOTRegistry.mudGrass || block == GOTRegistry.mud) {
-			return true;
-		}
-		if (block == GOTRegistry.dirtPath) {
-			return true;
-		}
-		if (block == Blocks.stone || block == GOTRegistry.rock || block == Blocks.sandstone || block == GOTRegistry.redSandstone || block == GOTRegistry.whiteSandstone) {
-			return true;
-		}
-		return block == GOTRegistry.asshaiDirt || block == GOTRegistry.basaltGravel;
 	}
 }

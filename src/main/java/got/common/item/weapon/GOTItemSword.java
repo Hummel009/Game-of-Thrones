@@ -42,6 +42,30 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 		effect = e;
 	}
 
+	public static UUID accessWeaponDamageModifier() {
+		return field_111210_e;
+	}
+
+	public static void applyStandardFire(EntityLivingBase entity) {
+		EnumDifficulty difficulty = entity.worldObj.difficultySetting;
+		int duration = 1 + difficulty.getDifficultyId() * 10;
+		entity.setFire(duration);
+	}
+
+	public static void applyStandardPoison(EntityLivingBase entity) {
+		EnumDifficulty difficulty = entity.worldObj.difficultySetting;
+		int duration = 1 + difficulty.getDifficultyId() * 2;
+		PotionEffect poison = new PotionEffect(Potion.poison.id, (duration + itemRand.nextInt(duration)) * 20);
+		entity.addPotionEffect(poison);
+	}
+
+	public static void applyStandardWither(EntityLivingBase entity) {
+		EnumDifficulty difficulty = entity.worldObj.difficultySetting;
+		int duration = 1 + difficulty.getDifficultyId() * 2;
+		PotionEffect poison = new PotionEffect(Potion.wither.id, (duration + itemRand.nextInt(duration)) * 20);
+		entity.addPotionEffect(poison);
+	}
+
 	public GOTItemSword addWeaponDamage(float f) {
 		gotWeaponDamage += f;
 		return this;
@@ -112,30 +136,6 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 	public GOTItemSword setWeaponDamage(float f) {
 		gotWeaponDamage = f;
 		return this;
-	}
-
-	public static UUID accessWeaponDamageModifier() {
-		return field_111210_e;
-	}
-
-	public static void applyStandardFire(EntityLivingBase entity) {
-		EnumDifficulty difficulty = entity.worldObj.difficultySetting;
-		int duration = 1 + difficulty.getDifficultyId() * 10;
-		entity.setFire(duration);
-	}
-
-	public static void applyStandardPoison(EntityLivingBase entity) {
-		EnumDifficulty difficulty = entity.worldObj.difficultySetting;
-		int duration = 1 + difficulty.getDifficultyId() * 2;
-		PotionEffect poison = new PotionEffect(Potion.poison.id, (duration + itemRand.nextInt(duration)) * 20);
-		entity.addPotionEffect(poison);
-	}
-
-	public static void applyStandardWither(EntityLivingBase entity) {
-		EnumDifficulty difficulty = entity.worldObj.difficultySetting;
-		int duration = 1 + difficulty.getDifficultyId() * 2;
-		PotionEffect poison = new PotionEffect(Potion.wither.id, (duration + itemRand.nextInt(duration)) * 20);
-		entity.addPotionEffect(poison);
 	}
 
 	public enum HitEffect {

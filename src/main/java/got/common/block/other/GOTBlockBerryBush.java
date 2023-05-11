@@ -33,6 +33,21 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		setStepSound(Block.soundTypeGrass);
 	}
 
+	public static int getBerryType(int meta) {
+		return meta & 7;
+	}
+
+	public static boolean hasBerries(int meta) {
+		return (meta & 8) != 0;
+	}
+
+	public static int setHasBerries(int meta, boolean flag) {
+		if (flag) {
+			return GOTBlockBerryBush.getBerryType(meta) | 8;
+		}
+		return GOTBlockBerryBush.getBerryType(meta);
+	}
+
 	@Override
 	public int damageDropped(int i) {
 		return i;
@@ -236,21 +251,6 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 				growBerries(world, i, j, k);
 			}
 		}
-	}
-
-	public static int getBerryType(int meta) {
-		return meta & 7;
-	}
-
-	public static boolean hasBerries(int meta) {
-		return (meta & 8) != 0;
-	}
-
-	public static int setHasBerries(int meta, boolean flag) {
-		if (flag) {
-			return GOTBlockBerryBush.getBerryType(meta) | 8;
-		}
-		return GOTBlockBerryBush.getBerryType(meta);
 	}
 
 	public enum BushType {

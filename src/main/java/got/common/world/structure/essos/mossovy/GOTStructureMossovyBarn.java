@@ -14,6 +14,23 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 		super(flag);
 	}
 
+	public static EntityAnimal getRandomAnimal(World world, Random random) {
+		int animal = random.nextInt(4);
+		switch (animal) {
+			case 0:
+				return new EntityCow(world);
+			case 1:
+				return new EntityPig(world);
+			case 2:
+				return new EntitySheep(world);
+			case 3:
+				return new EntityChicken(world);
+			default:
+				break;
+		}
+		return null;
+	}
+
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j2;
@@ -128,22 +145,5 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 			spawnNPCAndSetHome(animal, world, i, j, k, 0);
 			animal.detachHome();
 		}
-	}
-
-	public static EntityAnimal getRandomAnimal(World world, Random random) {
-		int animal = random.nextInt(4);
-		switch (animal) {
-			case 0:
-				return new EntityCow(world);
-			case 1:
-				return new EntityPig(world);
-			case 2:
-				return new EntitySheep(world);
-			case 3:
-				return new EntityChicken(world);
-			default:
-				break;
-		}
-		return null;
 	}
 }

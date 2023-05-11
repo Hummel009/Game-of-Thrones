@@ -9,6 +9,7 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(value = Side.CLIENT)
 public class GOTModelMossovyWerewolf extends ModelBase {
+	public boolean hunched;
 	ModelRenderer Head;
 	ModelRenderer Nose;
 	ModelRenderer Snout;
@@ -53,7 +54,6 @@ public class GOTModelMossovyWerewolf extends ModelBase {
 	ModelRenderer LFinger3;
 	ModelRenderer LFinger4;
 	ModelRenderer LFinger5;
-	public boolean hunched;
 
 	public GOTModelMossovyWerewolf() {
 		textureWidth = 64;
