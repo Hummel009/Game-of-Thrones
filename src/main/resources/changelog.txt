@@ -3,11 +3,13 @@ CHANGELOG
 >>BUILD ??
 + Now conquested enemy waypoints are red on the map
 
-* Fixed bug with sword of command rendering
+* Improved crossbowers' AI
 * Impoved wetwood biome
+
+* Fixeg bug with prostitute skins
+* Fixed bug with sword of command rendering
 * Fixed bug with point rendering
 * Fixed bug with archer and crossbower drops
-* Improved crossbowers' AI
 * Fixed bug with Jaqen Quest
 * Fixed bug with ibben smith's entries
 * Fixed bug with berserker weapons
