@@ -4,7 +4,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTMaterial;
-import got.common.database.GOTRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -46,12 +45,11 @@ public class GOTItemPartyHat extends GOTItemArmor {
 		}
 	}
 
-	public static ItemStack setHatColor(ItemStack itemstack, int i) {
+	public static void setHatColor(ItemStack itemstack, int i) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
 		itemstack.getTagCompound().setInteger("HatColor", i);
-		return itemstack;
 	}
 
 	@SideOnly(Side.CLIENT)

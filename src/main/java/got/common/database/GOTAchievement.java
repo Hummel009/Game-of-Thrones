@@ -840,9 +840,8 @@ public class GOTAchievement {
 		return "got.achievement." + name + ".title";
 	}
 
-	public GOTAchievement setRequiresAlly(GOTFaction... f) {
+	public void setRequiresAlly(GOTFaction... f) {
 		allyFactions.addAll(Arrays.asList(f));
-		return this;
 	}
 
 	public GOTAchievement setRequiresAnyEnemy(List<GOTFaction> f) {
