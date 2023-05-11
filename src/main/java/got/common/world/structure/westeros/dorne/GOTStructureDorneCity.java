@@ -164,10 +164,7 @@ public class GOTStructureDorneCity extends GOTVillageGen {
 		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
 			int meta = world.getBlockMetadata(i, j, k);
-			if (block == Blocks.dirt && meta == 1 || block == GOTRegistry.dirtPath && meta == 0 || block == GOTRegistry.brick1 && meta == 15 || block == GOTRegistry.brick3 && meta == 11 || block == GOTRegistry.pillar1 && meta == 5 || block == Blocks.sand && meta == 0 || block == Blocks.sandstone && meta == 0 || block == GOTRegistry.slabSingleDirt && meta == 0 || block == GOTRegistry.slabSingleDirt && meta == 1 || block == GOTRegistry.slabSingleSand && meta == 0 || block == GOTRegistry.slabSingle4 && meta == 0 || block == GOTRegistry.slabSingle7 && meta == 1 || block == GOTRegistry.slabSingle4 && meta == 7) {
-				return true;
-			}
-			return false;
+			return block == Blocks.dirt && meta == 1 || block == GOTRegistry.dirtPath && meta == 0 || block == GOTRegistry.brick1 && meta == 15 || block == GOTRegistry.brick3 && meta == 11 || block == GOTRegistry.pillar1 && meta == 5 || block == Blocks.sand && meta == 0 || block == Blocks.sandstone && meta == 0 || block == GOTRegistry.slabSingleDirt && meta == 0 || block == GOTRegistry.slabSingleDirt && meta == 1 || block == GOTRegistry.slabSingleSand && meta == 0 || block == GOTRegistry.slabSingle4 && meta == 0 || block == GOTRegistry.slabSingle7 && meta == 1 || block == GOTRegistry.slabSingle4 && meta == 7;
 		}
 
 		public void setupCastle(Random random) {

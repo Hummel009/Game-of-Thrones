@@ -46,9 +46,7 @@ public class GOTNPCTargetSelector implements IEntitySelector {
 						hiringPlayer = npc.hiredNPCInfo.getHiringPlayer();
 					}
 				}
-				if (hiringPlayer != null && GOTLevelData.getData(hiringPlayer).getAlignment(targetFaction) < 0.0f) {
-					return true;
-				}
+				return hiringPlayer != null && GOTLevelData.getData(hiringPlayer).getAlignment(targetFaction) < 0.0f;
 			}
 		}
 		return false;
