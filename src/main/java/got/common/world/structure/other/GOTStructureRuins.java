@@ -336,7 +336,7 @@ public class GOTStructureRuins extends GOTVillageGen {
 		}
 	}
 
-	public class Instance extends GOTVillageGen.AbstractInstance {
+	public static class Instance extends GOTVillageGen.AbstractInstance {
 		public Instance(GOTStructureRuins village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);
 		}
