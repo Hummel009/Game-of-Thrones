@@ -212,7 +212,8 @@ public class GOTEntityTraderRespawn extends Entity {
 				}
 			}
 		} else if (isSpawnImminent()) {
-			prevBobbingTime = bobbingTime++;
+			prevBobbingTime = bobbingTime;
+			bobbingTime++;
 		}
 	}
 

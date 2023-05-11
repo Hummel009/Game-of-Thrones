@@ -48,9 +48,10 @@ public class GOTEntityAINPCFollowParent extends EntityAIBase {
 
 	@Override
 	public void updateTask() {
-		if (followTick-- <= 0) {
+		if (followTick <= 0) {
 			followTick = 10;
 			theNPC.getNavigator().tryMoveToEntityLiving(parentNPC, moveSpeed);
 		}
+		followTick--;
 	}
 }

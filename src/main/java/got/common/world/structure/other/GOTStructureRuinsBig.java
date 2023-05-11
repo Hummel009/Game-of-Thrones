@@ -101,8 +101,11 @@ public class GOTStructureRuinsBig extends GOTVillageGen {
 				if (stairY <= baseHeight) {
 					break;
 				}
-				if (stairDirection == 0 && getBlock(world, stairX, --stairY, stairZ + 1).isOpaqueCube()) {
-					stairDirection = 1;
+				if (stairDirection == 0) {
+					--stairY;
+					if (getBlock(world, stairX, stairY, stairZ + 1).isOpaqueCube()) {
+						stairDirection = 1;
+					}
 				}
 				if (stairDirection == 1 && getBlock(world, stairX - 1, stairY, stairZ).isOpaqueCube()) {
 					stairDirection = 2;

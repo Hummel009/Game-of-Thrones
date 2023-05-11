@@ -54,7 +54,12 @@ public class GOTTileEntityCommandTable extends TileEntity {
 
 	public void toggleZoomExp() {
 		int z = zoomExp;
-		z = z <= -2 ? 2 : --z;
+		if (z <= -2) {
+			z = 2;
+		} else {
+			--z;
+			z = z;
+		}
 		setZoomExp(z);
 	}
 

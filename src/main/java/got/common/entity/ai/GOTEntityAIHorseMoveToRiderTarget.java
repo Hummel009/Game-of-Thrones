@@ -72,7 +72,8 @@ public class GOTEntityAIHorseMoveToRiderTarget extends EntityAIBase {
 			rider.rotationYaw = livingHorse.rotationYaw;
 			rider.rotationYawHead = livingHorse.rotationYawHead;
 		}
-		if (--pathCheckTimer <= 0) {
+		--pathCheckTimer;
+		if (pathCheckTimer <= 0) {
 			pathCheckTimer = 4 + livingHorse.getRNG().nextInt(7);
 			livingHorse.getNavigator().tryMoveToEntityLiving(riderTarget, speed);
 		}

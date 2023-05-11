@@ -119,8 +119,11 @@ public class GOTSpawnerAnimals {
 								entityData = entity.onSpawnWithEgg(entityData);
 							}
 							++newlySpawned;
-							if (c > 0 && ++count > maxCount) {
-								continue block2;
+							if (c > 0) {
+								++count;
+								if (count > maxCount) {
+									continue block2;
+								}
 							}
 							if (groupsSpawned >= ForgeEventFactory.getMaxSpawnPackSize(entity)) {
 								continue block4;

@@ -140,9 +140,11 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 	public void growVines(World world, Random random, int i, int j, int k, int meta) {
 		setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.willowVines, meta);
 		int vines = 0;
-		while (world.getBlock(i, --j, k).isAir(world, i, j, k) && vines < 2 + random.nextInt(4)) {
+		--j;
+		while (world.getBlock(i, j, k).isAir(world, i, j, k) && vines < 2 + random.nextInt(4)) {
 			setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.willowVines, meta);
 			++vines;
+			--j;
 		}
 	}
 

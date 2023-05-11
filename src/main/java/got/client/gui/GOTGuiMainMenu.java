@@ -184,7 +184,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		float distSq = dx * dx + dy * dy;
 		float dist = (float) Math.sqrt(distSq);
 		if (dist <= 12.0f) {
-			if (++currentWPIndex >= waypointRoute.size()) {
+			++currentWPIndex;
+			if (currentWPIndex >= waypointRoute.size()) {
 				currentWPIndex = 0;
 			}
 		} else {

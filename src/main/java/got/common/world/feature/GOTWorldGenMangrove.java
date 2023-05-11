@@ -126,9 +126,11 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 	public void growVines(World world, Random random, int i, int j, int k, int meta) {
 		setBlockAndNotifyAdequately(world, i, j, k, Blocks.vine, meta);
 		int vines = 0;
-		while (world.getBlock(i, --j, k).isAir(world, i, j, k) && vines < 2 + random.nextInt(3)) {
+		--j;
+		while (world.getBlock(i, j, k).isAir(world, i, j, k) && vines < 2 + random.nextInt(3)) {
 			setBlockAndNotifyAdequately(world, i, j, k, Blocks.vine, meta);
 			++vines;
+			--j;
 		}
 	}
 }

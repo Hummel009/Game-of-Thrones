@@ -95,8 +95,11 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 						if (leafRange >= 3) {
 							increasing = false;
 						}
-					} else if (--leafRange <= 1) {
-						increasing = true;
+					} else {
+						--leafRange;
+						if (leafRange <= 1) {
+							increasing = true;
+						}
 					}
 					leafRange = Math.min(leafRange, 4);
 					trunkWidthHere = trunkWidth;

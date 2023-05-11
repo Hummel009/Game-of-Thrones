@@ -588,7 +588,13 @@ public class GOTContainerAnvil extends Container {
 						if (outputEnchants.containsKey(combinerEnchID)) {
 							inputEnchLevel = (Integer) outputEnchants.get(combinerEnchID);
 						}
-						int combinedEnchLevel = inputEnchLevel == (combinerEnchLevel = (Integer) combinerEnchants.get(combinerEnchID)) ? ++combinerEnchLevel : Math.max(combinerEnchLevel, inputEnchLevel);
+						int combinedEnchLevel;
+						if (inputEnchLevel == (combinerEnchLevel = (Integer) combinerEnchants.get(combinerEnchID))) {
+							++combinerEnchLevel;
+							combinedEnchLevel = combinerEnchLevel;
+						} else {
+							combinedEnchLevel = Math.max(combinerEnchLevel, inputEnchLevel);
+						}
 						combinerEnchLevel = combinedEnchLevel;
 						int levelsAdded = combinerEnchLevel - inputEnchLevel;
 						boolean canApply = combinerEnch.canApply(inputItem);

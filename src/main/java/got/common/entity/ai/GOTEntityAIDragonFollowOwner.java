@@ -68,7 +68,8 @@ public class GOTEntityAIDragonFollowOwner extends EntityAIBase {
 			return;
 		}
 		dragon.getLookHelper().setLookPositionWithEntity(owner, 10, dragon.getVerticalFaceSpeed());
-		if (--updateTicks > 0) {
+		--updateTicks;
+		if (updateTicks > 0) {
 			return;
 		}
 		updateTicks = 10;

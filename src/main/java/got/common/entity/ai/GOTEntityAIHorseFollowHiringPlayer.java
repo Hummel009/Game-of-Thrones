@@ -82,13 +82,16 @@ public class GOTEntityAIHorseFollowHiringPlayer extends EntityAIBase {
 		livingHorse.getLookHelper().setLookPositionWithEntity(theHiringPlayer, 10.0f, livingHorse.getVerticalFaceSpeed());
 		ridingNPC.rotationYaw = livingHorse.rotationYaw;
 		ridingNPC.rotationYawHead = livingHorse.rotationYawHead;
-		if (ridingNPC.hiredNPCInfo.shouldFollowPlayer() && --followTick <= 0) {
-			followTick = 10;
-			if (!livingHorse.getNavigator().tryMoveToEntityLiving(theHiringPlayer, moveSpeed) && ridingNPC.hiredNPCInfo.teleportAutomatically) {
-				double d = ridingNPC.getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
-				d = Math.max(d, 24.0);
-				if (ridingNPC.getDistanceSqToEntity(theHiringPlayer) > d * d) {
-					ridingNPC.hiredNPCInfo.tryTeleportToHiringPlayer(false);
+		if (ridingNPC.hiredNPCInfo.shouldFollowPlayer()) {
+			--followTick;
+			if (followTick <= 0) {
+				followTick = 10;
+				if (!livingHorse.getNavigator().tryMoveToEntityLiving(theHiringPlayer, moveSpeed) && ridingNPC.hiredNPCInfo.teleportAutomatically) {
+					double d = ridingNPC.getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
+					d = Math.max(d, 24.0);
+					if (ridingNPC.getDistanceSqToEntity(theHiringPlayer) > d * d) {
+						ridingNPC.hiredNPCInfo.tryTeleportToHiringPlayer(false);
+					}
 				}
 			}
 		}

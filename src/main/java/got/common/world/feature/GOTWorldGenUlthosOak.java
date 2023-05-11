@@ -274,9 +274,11 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 	public void growVines(World world, Random random, int i, int j, int k, int meta) {
 		setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.mirkVines, meta);
 		int length = 4 + random.nextInt(8);
-		while (world.isAirBlock(i, --j, k) && length > 0) {
+		--j;
+		while (world.isAirBlock(i, j, k) && length > 0) {
 			setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.mirkVines, meta);
 			--length;
+			--j;
 		}
 	}
 

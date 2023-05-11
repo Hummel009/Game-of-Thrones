@@ -82,7 +82,12 @@ public class GOTEntityAIRangedAttack extends EntityAIBase {
 	public void updateTask() {
 		double distanceSq = theOwner.getDistanceSq(attackTarget.posX, attackTarget.boundingBox.minY, attackTarget.posZ);
 		boolean canSee = theOwner.getEntitySenses().canSee(attackTarget);
-		repathDelay = canSee ? ++repathDelay : 0;
+		if (canSee) {
+			++repathDelay;
+			repathDelay = repathDelay;
+		} else {
+			repathDelay = 0;
+		}
 		if (distanceSq <= attackRangeSq) {
 			if (theOwner.getDistanceSqToEntity(attackTarget) < 25.0) {
 				Vec3 vec = GOTEntityAIRangedAttack.findPositionAwayFrom(theOwner, attackTarget, 8, 16);

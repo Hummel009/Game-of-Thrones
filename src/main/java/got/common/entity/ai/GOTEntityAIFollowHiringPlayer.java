@@ -70,13 +70,16 @@ public class GOTEntityAIFollowHiringPlayer extends EntityAIBase {
 	public void updateTask() {
 		EntityLivingBase target = bannerBearerTarget != null ? bannerBearerTarget : theHiringPlayer;
 		theNPC.getLookHelper().setLookPositionWithEntity(target, 10.0f, theNPC.getVerticalFaceSpeed());
-		if (theNPC.hiredNPCInfo.shouldFollowPlayer() && --followTick <= 0) {
-			followTick = 10;
-			if (!theNPC.getNavigator().tryMoveToEntityLiving(target, moveSpeed) && theNPC.hiredNPCInfo.teleportAutomatically) {
-				double d = theNPC.getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
-				d = Math.max(d, 24.0);
-				if (theNPC.getDistanceSqToEntity(theHiringPlayer) > d * d) {
-					theNPC.hiredNPCInfo.tryTeleportToHiringPlayer(false);
+		if (theNPC.hiredNPCInfo.shouldFollowPlayer()) {
+			--followTick;
+			if (followTick <= 0) {
+				followTick = 10;
+				if (!theNPC.getNavigator().tryMoveToEntityLiving(target, moveSpeed) && theNPC.hiredNPCInfo.teleportAutomatically) {
+					double d = theNPC.getEntityAttribute(SharedMonsterAttributes.followRange).getAttributeValue();
+					d = Math.max(d, 24.0);
+					if (theNPC.getDistanceSqToEntity(theHiringPlayer) > d * d) {
+						theNPC.hiredNPCInfo.tryTeleportToHiringPlayer(false);
+					}
 				}
 			}
 		}

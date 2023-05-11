@@ -22,7 +22,8 @@ public class GOTItemDoor extends ItemBlock {
 			return false;
 		}
 		Block doorBlock = field_150939_a;
-		if (entityplayer.canPlayerEdit(i, ++j, k, side, itemstack) && entityplayer.canPlayerEdit(i, j + 1, k, side, itemstack)) {
+		++j;
+		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack) && entityplayer.canPlayerEdit(i, j + 1, k, side, itemstack)) {
 			if (!doorBlock.canPlaceBlockAt(world, i, j, k)) {
 				return false;
 			}

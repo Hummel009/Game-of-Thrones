@@ -33,7 +33,12 @@ public class GOTEntityPlowcart extends GOTEntityCart {
 				setDead();
 			} else {
 				lasthit = ticksExisted;
-				hitcount = lasthit >= ticksExisted - 20 ? ++hitcount : 0;
+				if (lasthit >= ticksExisted - 20) {
+					++hitcount;
+					hitcount = hitcount;
+				} else {
+					hitcount = 0;
+				}
 				if (hitcount == 10) {
 					setDead();
 					if (!worldObj.isRemote) {

@@ -340,7 +340,8 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 				barrelMode = 0;
 			}
 		} else {
-			brewingAnimPrev = brewingAnim++;
+			brewingAnimPrev = brewingAnim;
+			brewingAnim++;
 			if (barrelMode == 1) {
 				if (brewingAnim >= 32) {
 					brewingAnimPrev = brewingAnim = 0;

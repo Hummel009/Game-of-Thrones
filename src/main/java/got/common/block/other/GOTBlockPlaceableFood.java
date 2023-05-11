@@ -62,7 +62,8 @@ public class GOTBlockPlaceableFood extends Block {
 			entityplayer.getFoodStats().addStats(healAmount, saturationAmount);
 			entityplayer.playSound("random.burp", 0.5f, world.rand.nextFloat() * 0.1f + 0.9f);
 			int meta = world.getBlockMetadata(i, j, k);
-			if (++meta >= MAX_EATS) {
+			++meta;
+			if (meta >= MAX_EATS) {
 				world.setBlockToAir(i, j, k);
 			} else {
 				world.setBlockMetadataWithNotify(i, j, k, meta, 3);

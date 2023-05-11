@@ -40,7 +40,8 @@ public class GOTTitle {
 	}
 
 	public GOTTitle(String s) {
-		titleID = nextTitleID++;
+		titleID = nextTitleID;
+		nextTitleID++;
 		name = s;
 		allTitles.add(this);
 	}

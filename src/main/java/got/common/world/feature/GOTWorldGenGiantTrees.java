@@ -201,9 +201,11 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 	public void growVines(World world, Random random, int i, int j, int k, int meta) {
 		setBlockAndNotifyAdequately(world, i, j, k, Blocks.vine, meta);
 		int length = 4 + random.nextInt(12);
-		while (world.isAirBlock(i, --j, k) && length > 0) {
+		--j;
+		while (world.isAirBlock(i, j, k) && length > 0) {
 			setBlockAndNotifyAdequately(world, i, j, k, Blocks.vine, meta);
 			--length;
+			--j;
 		}
 	}
 

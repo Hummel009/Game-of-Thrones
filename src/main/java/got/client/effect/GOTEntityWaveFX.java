@@ -26,9 +26,10 @@ public class GOTEntityWaveFX extends EntityExplodeFX {
 		prevPosX = posX;
 		prevPosY = posY;
 		prevPosZ = posZ;
-		if (particleAge++ >= particleMaxAge) {
+		if (particleAge >= particleMaxAge) {
 			setDead();
 		}
+		particleAge++;
 		if (particleAlpha < 1.0f) {
 			particleAlpha += 0.02f;
 			particleAlpha = Math.min(particleAlpha, 1.0f);

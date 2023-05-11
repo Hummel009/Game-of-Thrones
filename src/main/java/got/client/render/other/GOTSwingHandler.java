@@ -40,7 +40,8 @@ public class GOTSwingHandler {
 				for (Map.Entry<EntityLivingBase, SwingTime> e : entitySwings.entrySet()) {
 					EntityLivingBase entity = e.getKey();
 					SwingTime swt = e.getValue();
-					swt.swingPrev = swt.swing++;
+					swt.swingPrev = swt.swing;
+					swt.swing++;
 					if (swt.swing > swt.swingMax) {
 						removes.add(entity);
 					}

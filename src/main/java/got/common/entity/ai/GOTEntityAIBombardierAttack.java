@@ -57,9 +57,12 @@ public class GOTEntityAIBombardierAttack extends EntityAIBase {
 	@Override
 	public void updateTask() {
 		attacker.getLookHelper().setLookPositionWithEntity(entityTarget, 30.0f, 30.0f);
-		if (attacker.getEntitySenses().canSee(entityTarget) && --rePathDelay <= 0) {
-			rePathDelay = 4 + attacker.getRNG().nextInt(7);
-			attacker.getNavigator().tryMoveToEntityLiving(entityTarget, moveSpeed);
+		if (attacker.getEntitySenses().canSee(entityTarget)) {
+			--rePathDelay;
+			if (rePathDelay <= 0) {
+				rePathDelay = 4 + attacker.getRNG().nextInt(7);
+				attacker.getNavigator().tryMoveToEntityLiving(entityTarget, moveSpeed);
+			}
 		}
 		if (attacker.getDistanceToEntity(entityTarget) < 3.0) {
 			GOTEntityBomb bomb = new GOTEntityBomb(worldObj, attacker.posX, attacker.posY + 1.0, attacker.posZ, attacker);

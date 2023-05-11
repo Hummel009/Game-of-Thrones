@@ -61,7 +61,8 @@ public class GOTEntityAINPCFollowPlayer extends EntityAIBase {
 
 	@Override
 	public void updateTask() {
-		if (--followDelay <= 0) {
+		--followDelay;
+		if (followDelay <= 0) {
 			followDelay = 10;
 			entityFollowing.getNavigator().tryMoveToEntityLiving(playerToFollow, speed);
 		}

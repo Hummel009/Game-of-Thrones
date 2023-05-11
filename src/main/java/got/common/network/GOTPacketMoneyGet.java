@@ -64,7 +64,8 @@ public class GOTPacketMoneyGet extends GOTPacketMoney implements IMessage {
 					break;
 				}
 				if (index >= 0) {
-					if (--player.inventory.mainInventory[index].stackSize <= 0) {
+					--player.inventory.mainInventory[index].stackSize;
+					if (player.inventory.mainInventory[index].stackSize <= 0) {
 						player.inventory.mainInventory[index] = null;
 					}
 					int money = pd.getBalance();

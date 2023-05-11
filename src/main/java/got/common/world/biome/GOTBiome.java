@@ -632,7 +632,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 					} else if (fillerDepth > 0) {
 						blocks[index] = filler;
 						meta[index] = fillerMeta;
-						if (--fillerDepth == 0) {
+						--fillerDepth;
+						if (fillerDepth == 0) {
 							boolean sand = false;
 							if (filler == Blocks.sand) {
 								if (fillerMeta == 1) {

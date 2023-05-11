@@ -316,15 +316,18 @@ public class GOTRenderNorthernLights {
 			colorChangeTick = colorChangeTime = MathHelper.getRandomIntegerInRange(rand, 100, 200);
 			nightKingCheckTime = 0;
 		}
-		if (colorChangeTick > 0 && --colorChangeTick <= 0) {
-			colorChangeTime = 0;
-			colorTopCurrent = colorTopNext;
-			colorMidCurrent = colorMidNext;
-			colorBottomCurrent = colorBottomNext;
-			colorTopNext = null;
-			colorMidNext = null;
-			colorBottomNext = null;
-			timeUntilColorChange = MathHelper.getRandomIntegerInRange(rand, 1200, 2400);
+		if (colorChangeTick > 0) {
+			--colorChangeTick;
+			if (colorChangeTick <= 0) {
+				colorChangeTime = 0;
+				colorTopCurrent = colorTopNext;
+				colorMidCurrent = colorMidNext;
+				colorBottomCurrent = colorBottomNext;
+				colorTopNext = null;
+				colorMidNext = null;
+				colorBottomNext = null;
+				timeUntilColorChange = MathHelper.getRandomIntegerInRange(rand, 1200, 2400);
+			}
 		}
 		if (nightKingCheckTime > 0) {
 			--nightKingCheckTime;

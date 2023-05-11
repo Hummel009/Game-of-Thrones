@@ -56,34 +56,37 @@ public class GOTJaqenHgharTracker {
 		if (!activeJaqenHghars.isEmpty()) {
 			return;
 		}
-		if (!world.playerEntities.isEmpty() && --spawnCooldown <= 0) {
-			spawnCooldown = 2400;
-			ArrayList<EntityPlayer> players = new ArrayList<>(world.playerEntities);
-			Collections.shuffle(players);
-			Random rand = world.rand;
-			block0:
-			for (EntityPlayer entityplayer : players) {
-				if (!GOTLevelData.getData(entityplayer).hasAnyJHQuest()) {
-					for (int attempts = 0; attempts < 32; ++attempts) {
-						int k;
-						float angle = rand.nextFloat() * 3.1415927f * 2.0f;
-						int r = MathHelper.getRandomIntegerInRange(rand, 4, 16);
-						int i = MathHelper.floor_double(entityplayer.posX + r * MathHelper.cos(angle));
-						int j = world.getHeightValue(i, k = MathHelper.floor_double(entityplayer.posZ + r * MathHelper.sin(angle)));
-						if (j > 62 && world.getBlock(i, j - 1, k).isOpaqueCube() && !world.getBlock(i, j, k).isNormalCube() && !world.getBlock(i, j + 1, k).isNormalCube()) {
-							GOTEntityJaqenHghar jaqenHghar = new GOTEntityJaqenHghar(world);
-							jaqenHghar.setLocationAndAngles(i + 0.5, j, k + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
-							jaqenHghar.liftSpawnRestrictions = true;
-							jaqenHghar.liftBannerRestrictions = true;
-							Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(jaqenHghar, world, (float) jaqenHghar.posX, (float) jaqenHghar.posY, (float) jaqenHghar.posZ);
-							if (canSpawn == Event.Result.ALLOW || canSpawn == Event.Result.DEFAULT && jaqenHghar.getCanSpawnHere()) {
-								jaqenHghar.liftSpawnRestrictions = false;
-								jaqenHghar.liftBannerRestrictions = false;
-								world.spawnEntityInWorld(jaqenHghar);
-								jaqenHghar.onSpawnWithEgg(null);
-								GOTJaqenHgharTracker.addNewJaqenHghar(jaqenHghar.getUniqueID());
-								jaqenHghar.arriveAt(entityplayer);
-								break block0;
+		if (!world.playerEntities.isEmpty()) {
+			--spawnCooldown;
+			if (spawnCooldown <= 0) {
+				spawnCooldown = 2400;
+				ArrayList<EntityPlayer> players = new ArrayList<>(world.playerEntities);
+				Collections.shuffle(players);
+				Random rand = world.rand;
+				block0:
+				for (EntityPlayer entityplayer : players) {
+					if (!GOTLevelData.getData(entityplayer).hasAnyJHQuest()) {
+						for (int attempts = 0; attempts < 32; ++attempts) {
+							int k;
+							float angle = rand.nextFloat() * 3.1415927f * 2.0f;
+							int r = MathHelper.getRandomIntegerInRange(rand, 4, 16);
+							int i = MathHelper.floor_double(entityplayer.posX + r * MathHelper.cos(angle));
+							int j = world.getHeightValue(i, k = MathHelper.floor_double(entityplayer.posZ + r * MathHelper.sin(angle)));
+							if (j > 62 && world.getBlock(i, j - 1, k).isOpaqueCube() && !world.getBlock(i, j, k).isNormalCube() && !world.getBlock(i, j + 1, k).isNormalCube()) {
+								GOTEntityJaqenHghar jaqenHghar = new GOTEntityJaqenHghar(world);
+								jaqenHghar.setLocationAndAngles(i + 0.5, j, k + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
+								jaqenHghar.liftSpawnRestrictions = true;
+								jaqenHghar.liftBannerRestrictions = true;
+								Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(jaqenHghar, world, (float) jaqenHghar.posX, (float) jaqenHghar.posY, (float) jaqenHghar.posZ);
+								if (canSpawn == Event.Result.ALLOW || canSpawn == Event.Result.DEFAULT && jaqenHghar.getCanSpawnHere()) {
+									jaqenHghar.liftSpawnRestrictions = false;
+									jaqenHghar.liftBannerRestrictions = false;
+									world.spawnEntityInWorld(jaqenHghar);
+									jaqenHghar.onSpawnWithEgg(null);
+									GOTJaqenHgharTracker.addNewJaqenHghar(jaqenHghar.getUniqueID());
+									jaqenHghar.arriveAt(entityplayer);
+									break block0;
+								}
 							}
 						}
 					}
