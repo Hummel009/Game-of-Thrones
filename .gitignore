@@ -1,6 +1,14 @@
 .gradle/
 build/
-eclipse/
+eclipse/asm
+eclipse/config
+eclipse/GOT
+eclipse/logs
+eclipse/mods
+eclipse/musicpacks
+eclipse/resourcepacks
+eclipse/saves
+eclipse/usernamecache.json
 out/
 server/world
 server/logs
