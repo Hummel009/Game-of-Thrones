@@ -60,14 +60,14 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 
 	public String getDisplayFullName() {
 		if (addFacName) {
-			return StatCollector.translateToLocal(getCodeName()) + " " + getFacName();
+			return StatCollector.translateToLocal(getCodeName()) + " " + StatCollector.translateToLocal(getAffiliationCodeName());
 		}
 		return StatCollector.translateToLocal(getCodeName());
 	}
 
 	public String getDisplayFullNameFem() {
 		if (addFacName) {
-			return StatCollector.translateToLocal(getCodeNameFem()) + " " + getFacName();
+			return StatCollector.translateToLocal(getCodeNameFem()) + " " + StatCollector.translateToLocal(getAffiliationCodeName());
 		}
 		return StatCollector.translateToLocal(getCodeNameFem());
 	}
@@ -80,9 +80,9 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		return StatCollector.translateToLocal(getCodeNameFem());
 	}
 
-	public String getFacName() {
+	public String getAffiliationCodeName() {
 		if (fac != null) {
-			return StatCollector.translateToLocal("got.rank." + fac.codeName());
+			return "got.rank." + fac.codeName();
 		}
 		return "";
 	}

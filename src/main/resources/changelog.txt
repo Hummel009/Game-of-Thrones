@@ -1,4 +1,8 @@
 CHANGELOG
+>>BUILD NEXT
+
+* Fixed bug with always english rank achievements in the chat
+* Fixed bug with rare intersection of random and fixed villages (bigger check radius)
 
 >>BUILD 23.05.11
 + Now conquested enemy waypoints are red on the map
