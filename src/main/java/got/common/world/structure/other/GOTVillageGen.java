@@ -60,7 +60,7 @@ public abstract class GOTVillageGen {
 		if (!hasFixedSettlements(world)) {
 			return false;
 		}
-		int checkRange = fixedVillageChunkRadius + 1;
+		int checkRange = fixedVillageChunkRadius + 2;
 		checkRange <<= 4;
 		for (LocationInfo loc : fixedLocations) {
 			int dx = Math.abs(loc.posX - i);
