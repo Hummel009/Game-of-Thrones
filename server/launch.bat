@@ -1,0 +1,1 @@
+java -jar launch.jar nogui
