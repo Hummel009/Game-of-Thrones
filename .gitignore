@@ -1,5 +1,5 @@
-
-.gradle
-build
-eclipse
-out
+**/.gradle/
+**/build/
+**/eclipse/
+**/out/
+**/server/
