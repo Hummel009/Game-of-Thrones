@@ -12,8 +12,6 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
-import java.util.List;
-
 public class GOTEntityCart extends Entity {
 	public Entity pulling;
 	public float wheelrot;
