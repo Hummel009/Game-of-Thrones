@@ -9,11 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eclipse/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eclipse/options.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/got/client/GOTTickHandlerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/GOTTickHandlerClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/GOTTickHandlerServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/GOTTickHandlerServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/util/DatabaseGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/util/DatabaseGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/biome/GOTClimateType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/biome/GOTClimateType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/changelog.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +251,7 @@
       <workItem from="1683882174649" duration="433000" />
       <workItem from="1683914271910" duration="814000" />
       <workItem from="1683915143118" duration="763000" />
-      <workItem from="1683916068689" duration="4219000" />
+      <workItem from="1683916068689" duration="5314000" />
     </task>
     <servers />
   </component>

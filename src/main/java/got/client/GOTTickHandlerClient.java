@@ -1049,7 +1049,7 @@ public class GOTTickHandlerClient {
 							guiIngame.drawTexturedModalRect(left, top, 34, 9, 9, 9);
 						} else if (i == level) {
 							guiIngame.drawTexturedModalRect(left, top, 25, 9, 9, 9);
-						} else if (i > level) {
+						} else {
 							guiIngame.drawTexturedModalRect(left, top, 16, 9, 9, 9);
 						}
 						left += 8;
