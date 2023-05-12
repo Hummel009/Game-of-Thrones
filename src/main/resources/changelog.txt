@@ -1,5 +1,6 @@
 CHANGELOG
 >>BUILD NEXT
++ Seasons mechanics divided into server-side (temperature) and client-side (rendering) part.
 
 * Fixed bug with always english rank achievements in the chat
 * Fixed bug with rare intersection of random and fixed villages (bigger check radius)

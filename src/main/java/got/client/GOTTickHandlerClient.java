@@ -44,6 +44,7 @@ import got.common.util.GOTVersionChecker;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
+import got.common.world.biome.GOTClimateType;
 import got.common.world.biome.essos.GOTBiomeMossovyMarshes;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
 import got.common.world.biome.sothoryos.GOTBiomeYeen;
@@ -726,6 +727,9 @@ public class GOTTickHandlerClient {
 						newDate--;
 					}
 					ambienceTicker.updateAmbience(world, entityplayer);
+					if (world.getTotalWorldTime() % 20L == 0L) {
+						GOTClimateType.performSeasonalChangesClientSide();
+					}
 				}
 				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && playersInPortals.containsKey(entityplayer)) {
 					List<GOTEntityPortal> portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0D, 8.0D, 8.0D));

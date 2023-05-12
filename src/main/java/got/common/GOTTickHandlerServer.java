@@ -209,7 +209,7 @@ public class GOTTickHandlerServer {
 				GOTBiomeVariantStorage.performCleanup((WorldServer) world);
 			}
 			if (world.getTotalWorldTime() % 20L == 0L) {
-				GOTClimateType.performSeasonalChanges();
+				GOTClimateType.performSeasonalChangesServerSide();
 			}
 		}
 	}
