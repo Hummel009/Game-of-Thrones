@@ -3,7 +3,7 @@ mouseSensitivity:0.5
 fov:0.0
 gamma:0.0
 saturation:0.0
-renderDistance:12
+renderDistance:4
 guiScale:0
 particles:0
 bobView:true
@@ -95,7 +95,7 @@ key_Alignment Group Next:208
 key_Dragon: Fly Up:34
 key_Dragon: Fly Down:35
 key_Enable cargocart:19
-soundCategory_master:0.0
+soundCategory_master:1.0
 soundCategory_music:1.0
 soundCategory_record:1.0
 soundCategory_weather:1.0
