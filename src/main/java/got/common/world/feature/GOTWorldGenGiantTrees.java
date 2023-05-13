@@ -95,21 +95,17 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 			if (j1 % xSlope == 0) {
 				if (xSlope > 0) {
 					++i;
-				} else if (xSlope < 0) {
+				} else {
 					--i;
 				}
 			}
-			if (j1 % zSlope != 0) {
-				continue;
+			if (j1 % zSlope == 0) {
+				if (zSlope > 0) {
+					++k;
+				} else {
+					--k;
+				}
 			}
-			if (zSlope > 0) {
-				++k;
-				continue;
-			}
-			if (zSlope >= 0) {
-				continue;
-			}
-			--k;
 		}
 		int angle = 0;
 		while (angle < 360) {

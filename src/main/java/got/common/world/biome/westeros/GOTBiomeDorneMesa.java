@@ -58,9 +58,6 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 		int k1 = blocks.length / 256;
 		for (int l1 = 255; l1 >= 0; --l1) {
 			int i2 = (l * 16 + g) * k1 + l1;
-			if ((blocks[i2] == null || blocks[i2].getMaterial() == Material.air) && l1 < (int) d5) {
-				blocks[i2] = Blocks.stone;
-			}
 			if (l1 <= random.nextInt(5)) {
 				blocks[i2] = Blocks.bedrock;
 			} else {

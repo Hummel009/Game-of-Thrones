@@ -42,6 +42,6 @@ public class GOTBlockGlass extends BlockGlass {
 		if (block == this) {
 			return false;
 		}
-		return (thirdParam || block != this) && super.shouldSideBeRendered(world, i, j, k, side);
+		return super.shouldSideBeRendered(world, i, j, k, side);
 	}
 }

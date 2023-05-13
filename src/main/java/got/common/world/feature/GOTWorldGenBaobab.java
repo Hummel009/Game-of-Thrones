@@ -89,21 +89,17 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 			if (j12 % xSlope == 0) {
 				if (xSlope > 0) {
 					++i;
-				} else if (xSlope < 0) {
+				} else {
 					--i;
 				}
 			}
-			if (j12 % zSlope != 0) {
-				continue;
+			if (j12 % zSlope == 0) {
+				if (zSlope > 0) {
+					++k;
+				} else {
+					--k;
+				}
 			}
-			if (zSlope > 0) {
-				++k;
-				continue;
-			}
-			if (zSlope >= 0) {
-				continue;
-			}
-			--k;
 		}
 		for (j12 = j + height - 1; j12 > j + (int) (height * 0.75f); --j12) {
 			int branches = 2 + random.nextInt(3);

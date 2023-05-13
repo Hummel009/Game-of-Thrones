@@ -67,9 +67,6 @@ public class GOTCommandAlignment extends CommandBase {
 					entityplayer = CommandBase.getPlayer(sender, args[3]);
 				} else {
 					entityplayer = CommandBase.getCommandSenderAsPlayer(sender);
-					if (entityplayer == null) {
-						throw new PlayerNotFoundException();
-					}
 				}
 				for (GOTFaction f : factions) {
 					GOTLevelData.getData(entityplayer).setAlignmentFromCommand(f, alignment);
@@ -85,9 +82,6 @@ public class GOTCommandAlignment extends CommandBase {
 					entityplayer = CommandBase.getPlayer(sender, args[3]);
 				} else {
 					entityplayer = CommandBase.getCommandSenderAsPlayer(sender);
-					if (entityplayer == null) {
-						throw new PlayerNotFoundException();
-					}
 				}
 				for (GOTFaction f : factions) {
 					newAlignment = GOTLevelData.getData(entityplayer).getAlignment(f) + alignment;

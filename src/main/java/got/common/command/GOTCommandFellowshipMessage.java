@@ -112,11 +112,9 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 					throw new WrongUsageException("got.command.fmsg.boundNotMember", fellowship.getName());
 				}
 			}
-			if (fellowship != null) {
-				IChatComponent message = CommandBase.func_147176_a(sender, args, msgStartIndex, false);
-				fellowship.sendFellowshipMessage(entityplayer, message.getUnformattedText());
-				return;
-			}
+			IChatComponent message = CommandBase.func_147176_a(sender, args, msgStartIndex, false);
+			fellowship.sendFellowshipMessage(entityplayer, message.getUnformattedText());
+			return;
 		}
 		throw new WrongUsageException(getCommandUsage(sender));
 	}

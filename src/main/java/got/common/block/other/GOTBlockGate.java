@@ -107,7 +107,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		if ((dir == 4 || dir == 5) && i1 != i) {
 			return false;
 		}
-		if (open && j1 == j - 1 && dir != 0 && dir != 1 && !(otherBlock instanceof GOTBlockGate)) {
+		if (open && j1 == j - 1 && !(otherBlock instanceof GOTBlockGate)) {
 			return true;
 		}
 		boolean connected = open ? otherBlock instanceof GOTBlockGate : otherBlock == this;

@@ -40,26 +40,17 @@ public class GOTEntityAIDragonWatchLiving extends EntityAIBase {
 		if (dragon.getRNG().nextFloat() >= watchChance) {
 			return false;
 		}
-
-		watchedEntity = null;
-
-		if (watchedEntity == null) {
-			AxisAlignedBB aabb = dragon.boundingBox.expand(maxDist, dragon.height, maxDist);
-			Class clazz = EntityLiving.class;
-			watchedEntity = dragon.worldObj.findNearestEntityWithinAABB(clazz, aabb, dragon);
-		}
-
+		AxisAlignedBB aabb = dragon.boundingBox.expand(maxDist, dragon.height, maxDist);
+		Class clazz = EntityLiving.class;
+		watchedEntity = dragon.worldObj.findNearestEntityWithinAABB(clazz, aabb, dragon);
 		if (watchedEntity != null) {
-
 			if (watchedEntity == dragon.getRidingPlayer()) {
 				watchedEntity = null;
 			}
-
 			if (watchedEntity == dragon.getOwner()) {
 				watchTicks *= 3;
 			}
 		}
-
 		return watchedEntity != null;
 	}
 

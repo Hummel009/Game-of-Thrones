@@ -310,9 +310,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		BufferedImage iconImage = new BufferedImage(size, size, 2);
 		for (int i = 0; i < iconImage.getWidth(); ++i) {
 			for (int j = 0; j < iconImage.getHeight(); ++j) {
-				int rgb = 0;
-				int alpha = 0;
-				iconImage.setRGB(i, j, rgb | alpha);
+				iconImage.setRGB(i, j, 0);
 			}
 		}
 		GOTBufferedImageIcon icon = new GOTBufferedImageIcon(iconName, iconImage);

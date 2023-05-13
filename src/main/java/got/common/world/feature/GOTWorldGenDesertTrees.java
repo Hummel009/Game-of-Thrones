@@ -32,7 +32,7 @@ public class GOTWorldGenDesertTrees extends WorldGenAbstractTree {
 		int height = 3 + random.nextInt(3);
 		boolean flag = true;
 		if (!isNatural) {
-			if (j >= 1 && height + 1 <= 256) {
+			if (j >= 1 && j + height + 1 <= 256) {
 				for (int j1 = j; j1 <= j + height + 1; ++j1) {
 					int range = 1;
 					if (j1 == j) {

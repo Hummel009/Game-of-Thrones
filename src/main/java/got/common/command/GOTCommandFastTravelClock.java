@@ -53,9 +53,6 @@ public class GOTCommandFastTravelClock extends CommandBase {
 				entityplayer = CommandBase.getPlayer(sender, args[1]);
 			} else {
 				entityplayer = CommandBase.getCommandSenderAsPlayer(sender);
-				if (entityplayer == null) {
-					throw new PlayerNotFoundException();
-				}
 			}
 			int ticks = seconds * 20;
 			GOTLevelData.getData(entityplayer).setTimeSinceFTWithUpdate(ticks);

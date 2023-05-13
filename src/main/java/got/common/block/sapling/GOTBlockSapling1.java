@@ -22,13 +22,12 @@ public class GOTBlockSapling1 extends GOTBlockSaplingBase {
 		int trunkPos = 0;
 		int xOffset = 0;
 		int zOffset = 0;
-		boolean cross = false;
 		if (meta == 0) {
 			treeGen = GOTTreeType.IBBEN_PINE.create(true, random);
 		}
 		if (meta == 1) {
 			int[] partyTree;
-			if (treeGen == null && (partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 1)) != null) {
+			if ((partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 1)) != null) {
 				treeGen = GOTTreeType.CATALPA_PARTY.create(true, random);
 				trunkPos = 1;
 				trunkNeg = 1;
@@ -79,18 +78,12 @@ public class GOTBlockSapling1 extends GOTBlockSaplingBase {
 		}
 		for (i1 = -trunkNeg; i1 <= trunkPos; ++i1) {
 			for (k1 = -trunkNeg; k1 <= trunkPos; ++k1) {
-				if (cross && Math.abs(i1) != 0 && Math.abs(k1) != 0) {
-					continue;
-				}
 				world.setBlock(i + xOffset + i1, j, k + zOffset + k1, Blocks.air, 0, 4);
 			}
 		}
 		if (treeGen != null && !treeGen.generate(world, random, i + xOffset, j, k + zOffset)) {
 			for (i1 = -trunkNeg; i1 <= trunkPos; ++i1) {
 				for (k1 = -trunkNeg; k1 <= trunkPos; ++k1) {
-					if (cross && Math.abs(i1) != 0 && Math.abs(k1) != 0) {
-						continue;
-					}
 					world.setBlock(i + xOffset + i1, j, k + zOffset + k1, this, meta, 4);
 				}
 			}

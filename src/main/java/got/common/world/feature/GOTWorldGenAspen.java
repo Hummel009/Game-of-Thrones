@@ -112,12 +112,8 @@ public class GOTWorldGenAspen extends WorldGenAbstractTree {
 							--k2;
 							continue;
 						default:
-							break;
+							++k2;
 					}
-					if (dir != 3) {
-						continue;
-					}
-					++k2;
 				}
 			}
 		}

@@ -163,25 +163,17 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 							--j2;
 						}
 						--j14;
-						if (!random.nextBoolean()) {
-							continue;
+						if (random.nextBoolean()) {
+							if (xDirection == -1) {
+								i12--;
+							} else if (xDirection == 1) {
+								i12++;
+							} else if (zDirection == -1) {
+								k15--;
+							} else if (zDirection == 1) {
+								k15++;
+							}
 						}
-						if (xDirection == -1) {
-							--i12;
-							continue;
-						}
-						if (xDirection == 1) {
-							++i12;
-							continue;
-						}
-						if (zDirection == -1) {
-							--k15;
-							continue;
-						}
-						if (zDirection != 1) {
-							continue;
-						}
-						++k15;
 					}
 				}
 			}

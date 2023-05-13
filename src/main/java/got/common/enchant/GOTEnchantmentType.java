@@ -2,7 +2,6 @@ package got.common.enchant;
 
 import got.common.item.GOTWeaponStats;
 import got.common.item.weapon.GOTItemCommandSword;
-import got.common.item.weapon.GOTItemCrossbow;
 import got.common.item.weapon.GOTItemSarbacane;
 import got.common.item.weapon.GOTItemThrowingAxe;
 import net.minecraft.item.*;
@@ -50,7 +49,7 @@ public enum GOTEnchantmentType {
 			return true;
 		}
 
-		if (this == RANGED_LAUNCHER && (item instanceof ItemBow || item instanceof GOTItemCrossbow || item instanceof GOTItemSarbacane)) {
+		if (this == RANGED_LAUNCHER && (item instanceof ItemBow || item instanceof GOTItemSarbacane)) {
 			return true;
 		}
 

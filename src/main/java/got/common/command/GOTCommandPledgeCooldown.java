@@ -49,9 +49,6 @@ public class GOTCommandPledgeCooldown extends CommandBase {
 				entityplayer = CommandBase.getPlayer(sender, args[1]);
 			} else {
 				entityplayer = CommandBase.getCommandSenderAsPlayer(sender);
-				if (entityplayer == null) {
-					throw new PlayerNotFoundException();
-				}
 			}
 			GOTLevelData.getData(entityplayer).setPledgeBreakCooldown(cd);
 			CommandBase.func_152373_a(sender, this, "got.command.pledgeCooldown.set", entityplayer.getCommandSenderName(), cd, GOTLevelData.getHMSTime_Ticks(cd));

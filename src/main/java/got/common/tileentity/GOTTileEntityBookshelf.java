@@ -128,10 +128,9 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 		for (int i = 0; i < itemTags.tagCount(); ++i) {
 			NBTTagCompound slotData = itemTags.getCompoundTagAt(i);
 			int slot = slotData.getByte("Slot") & 0xFF;
-			if (slot < 0 || slot >= chestContents.length) {
-				continue;
+			if (slot < chestContents.length) {
+				chestContents[slot] = ItemStack.loadItemStackFromNBT(slotData);
 			}
-			chestContents[slot] = ItemStack.loadItemStackFromNBT(slotData);
 		}
 	}
 

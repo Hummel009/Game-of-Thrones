@@ -215,7 +215,7 @@ public class GOTCommandFellowship extends CommandBase {
 			String playerName = args[1];
 			String fsName = args[2];
 			if (fsName == null) {
-				throw new WrongUsageException("got.command.fellowship.edit.notFound", playerName, fsName);
+				throw new WrongUsageException("got.command.fellowship.edit.notFound", playerName, null);
 			}
 			UUID playerID = getPlayerIDByName(sender, playerName);
 			if (playerID == null) {
@@ -239,7 +239,7 @@ public class GOTCommandFellowship extends CommandBase {
 		String ownerName = args[1];
 		String fsName = args[2];
 		if (fsName == null) {
-			throw new WrongUsageException("got.command.fellowship.edit.notFound", ownerName, fsName);
+			throw new WrongUsageException("got.command.fellowship.edit.notFound", ownerName, null);
 		}
 		String option = args[3];
 		UUID ownerID = getPlayerIDByName(sender, ownerName);

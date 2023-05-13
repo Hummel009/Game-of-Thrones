@@ -63,27 +63,25 @@ public class GOTWorldGenFotinia extends WorldGenAbstractTree {
 		int minLeafHeight = j + (int) (height * 0.5f);
 		while (leafHeight > minLeafHeight) {
 			int r = random.nextInt(3);
-			if (r == 0) {
-				generateLeafLayer(world, random, i, leafHeight, k, 1);
-				leafHeight -= 2;
-				continue;
+			switch(r) {
+				case 0:
+					generateLeafLayer(world, random, i, leafHeight, k, 1);
+					leafHeight -= 2;
+					continue;
+				case 1:
+					leafHeight--;
+					generateLeafLayer(world, random, i, leafHeight + 1, k, 1);
+					generateLeafLayer(world, random, i, leafHeight, k, 2);
+					generateLeafLayer(world, random, i, leafHeight - 1, k, 1);
+					leafHeight -= 3;
+					continue;
+				default:
+					leafHeight--;
+					generateLeafLayer(world, random, i, leafHeight + 1, k, 2);
+					generateLeafLayer(world, random, i, leafHeight, k, 3);
+					generateLeafLayer(world, random, i, leafHeight - 1, k, 2);
+					leafHeight -= 3;
 			}
-			if (r == 1) {
-				leafHeight--;
-				generateLeafLayer(world, random, i, leafHeight + 1, k, 1);
-				generateLeafLayer(world, random, i, leafHeight, k, 2);
-				generateLeafLayer(world, random, i, leafHeight - 1, k, 1);
-				leafHeight -= 3;
-				continue;
-			}
-			if (r != 2) {
-				continue;
-			}
-			leafHeight--;
-			generateLeafLayer(world, random, i, leafHeight + 1, k, 2);
-			generateLeafLayer(world, random, i, leafHeight, k, 3);
-			generateLeafLayer(world, random, i, leafHeight - 1, k, 2);
-			leafHeight -= 3;
 		}
 		generateLeafLayer(world, random, i, leafHeight, k, 1);
 		int lastDir = -1;
