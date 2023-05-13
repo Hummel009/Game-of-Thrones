@@ -3,6 +3,7 @@ package got.common.faction;
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.FMLLog;
 import got.common.GOTLevelData;
+import got.common.util.GOTLog;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -51,7 +52,10 @@ public class GOTFactionBounties {
 	public static File getBountiesDir() {
 		File dir = new File(GOTLevelData.getOrCreateGOTDir(), "factionbounties");
 		if (!dir.exists()) {
-			dir.mkdirs();
+			boolean created = dir.mkdirs();
+			if (!created) {
+				GOTLog.logger.info("GOTFactionBounties: directory wasn't created");
+			}
 		}
 		return dir;
 	}

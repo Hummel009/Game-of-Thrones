@@ -5,6 +5,7 @@ import cpw.mods.fml.common.FMLLog;
 import got.common.GOTConfig;
 import got.common.fellowship.GOTFellowship;
 import got.common.fellowship.GOTFellowshipData;
+import got.common.util.GOTLog;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.common.DimensionManager;
 
@@ -45,7 +46,10 @@ public class GOTCustomWaypointLogger {
 				}
 			}
 			if (!(dupeLogDir = new File(DimensionManager.getCurrentSaveRootDirectory(), "got_cwp_logs")).exists()) {
-				dupeLogDir.mkdirs();
+				boolean created = dupeLogDir.mkdirs();
+				if (!created) {
+					GOTLog.logger.info("GOTCustomWaypointLogger: directory wasn't created");
+				}
 			}
 			if (!(logFile = new File(dupeLogDir, DATE_FORMAT.format(date) + ".csv")).exists()) {
 				Files.append("date,time,function,username,UUID,wp_name,x,y,z,shared,sharer_name,sharer_UUID,common_fellowships" + System.lineSeparator(), logFile, CHARSET);

@@ -89,7 +89,6 @@ public class GOTCommandAlignment extends CommandBase {
 						throw new PlayerNotFoundException();
 					}
 				}
-				Map<GOTFaction, Float> newAlignments = new EnumMap<>(GOTFaction.class);
 				for (GOTFaction f : factions) {
 					newAlignment = GOTLevelData.getData(entityplayer).getAlignment(f) + alignment;
 					if (newAlignment < -2147483647.0f) {
@@ -98,7 +97,6 @@ public class GOTCommandAlignment extends CommandBase {
 					if (newAlignment > 2147483647.0f) {
 						throw new WrongUsageException("got.command.alignment.tooHigh", 2147483647.0f);
 					}
-					newAlignments.put(f, newAlignment);
 				}
 				for (GOTFaction f : factions) {
 					GOTLevelData.getData(entityplayer).addAlignmentFromCommand(f, alignment);

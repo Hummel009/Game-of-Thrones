@@ -479,7 +479,10 @@ public class DatabaseGenerator {
 
 				File file = new File("hummel/sitemap.txt");
 				if (!file.exists()) {
-					file.createNewFile();
+					boolean created = file.createNewFile();
+					if (!created) {
+						GOTLog.logger.info("DatabaseGenerator: file wasn't created");
+					}
 				}
 				Set<String> sitemap;
 				Set<String> neededPages = new HashSet<>();

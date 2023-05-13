@@ -13,6 +13,7 @@ import got.common.faction.GOTFactionRank;
 import got.common.network.GOTPacketConquestGrid;
 import got.common.network.GOTPacketConquestNotification;
 import got.common.network.GOTPacketHandler;
+import got.common.util.GOTLog;
 import got.common.world.biome.GOTBiome;
 import got.common.world.genlayer.GOTGenLayerWorld;
 import net.minecraft.entity.Entity;
@@ -141,7 +142,10 @@ public class GOTConquestGrid {
 	public static File getConquestDir() {
 		File dir = new File(GOTLevelData.getOrCreateGOTDir(), "conquest_zones");
 		if (!dir.exists()) {
-			dir.mkdirs();
+			boolean created = dir.mkdirs();
+			if (!created) {
+				GOTLog.logger.info("GOTConquestGrid: file wasn't created");
+			}
 		}
 		return dir;
 	}
@@ -332,7 +336,10 @@ public class GOTConquestGrid {
 		File zoneDat = getZoneDat(zone);
 		try {
 			if (zone.isEmpty()) {
-				zoneDat.delete();
+				boolean deleted = zoneDat.delete();
+				if (!deleted) {
+					GOTLog.logger.info("GOTConquestGrid: file wasn't deleted");
+				}
 			} else {
 				NBTTagCompound nbt = new NBTTagCompound();
 				zone.writeToNBT(nbt);

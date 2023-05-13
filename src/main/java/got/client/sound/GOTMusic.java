@@ -62,7 +62,10 @@ public class GOTMusic implements IResourceManagerReloadListener {
 
 	public static void generateReadme() throws IOException {
 		File readme = new File(musicDir, "readme.txt");
-		readme.createNewFile();
+		boolean created = readme.createNewFile();
+		if (!created) {
+			GOTLog.logger.info("GOTMusic: file wasn't created");
+		}
 		PrintStream writer = new PrintStream(Files.newOutputStream(readme.toPath()));
 		ResourceLocation template = new ResourceLocation("got:music/readme.txt");
 		InputStream templateIn = Minecraft.getMinecraft().getResourceManager().getResource(template).getInputStream();
@@ -234,7 +237,10 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	public static void loadMusicPacks(File mcDir, SimpleReloadableResourceManager resourceMgr) {
 		musicDir = new File(mcDir, musicResourcePath);
 		if (!musicDir.exists()) {
-			musicDir.mkdirs();
+			boolean created = musicDir.mkdirs();
+			if (!created) {
+				GOTLog.logger.info("GOTMusic: directory wasn't created");
+			}
 		}
 		allTracks.clear();
 		regionTracks.clear();

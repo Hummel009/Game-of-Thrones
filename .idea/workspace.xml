@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AnalysisUIOptions">
+    <option name="SPLITTER_PROPORTION" value="0.39381152" />
     <option name="ANALYZE_INJECTED_CODE" value="false" />
     <option name="SCOPE_TYPE" value="3" />
   </component>
@@ -10,8 +11,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eclipse/options.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eclipse/options.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/GOTTickHandlerClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/GOTTickHandlerClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/sound/GOTMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/sound/GOTMusic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/GOTLevelData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/GOTLevelData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/GOTLore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/GOTLore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/command/GOTCommandAlignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/command/GOTCommandAlignment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/faction/GOTFactionBounties.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/faction/GOTFactionBounties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/fellowship/GOTFellowshipData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/fellowship/GOTFellowshipData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/util/DatabaseGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/util/DatabaseGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTConquestGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTConquestGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTCustomWaypointLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/map/GOTCustomWaypointLogger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/structure/other/GOTStructureScan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/structure/other/GOTStructureScan.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +260,8 @@
       <workItem from="1683882174649" duration="433000" />
       <workItem from="1683914271910" duration="814000" />
       <workItem from="1683915143118" duration="763000" />
-      <workItem from="1683916068689" duration="5314000" />
+      <workItem from="1683916068689" duration="6770000" />
+      <workItem from="1683967880309" duration="1546000" />
     </task>
     <servers />
   </component>

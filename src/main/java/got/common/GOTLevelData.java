@@ -7,6 +7,7 @@ import got.common.database.GOTTitle;
 import got.common.fellowship.GOTFellowship;
 import got.common.fellowship.GOTFellowshipData;
 import got.common.network.*;
+import got.common.util.GOTLog;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -127,7 +128,10 @@ public class GOTLevelData {
 	public static File getGOTPlayerDat(UUID player) {
 		File playerDir = new File(getOrCreateGOTDir(), "players");
 		if (!playerDir.exists()) {
-			playerDir.mkdirs();
+			boolean created = playerDir.mkdirs();
+			if (!created) {
+				GOTLog.logger.info("GOTLevelData: directory wasn't created");
+			}
 		}
 		return new File(playerDir, player.toString() + ".dat");
 	}
@@ -155,7 +159,10 @@ public class GOTLevelData {
 	public static File getOrCreateGOTDir() {
 		File file = new File(DimensionManager.getCurrentSaveRootDirectory(), "GOT");
 		if (!file.exists()) {
-			file.mkdirs();
+			boolean created = file.mkdirs();
+			if (!created) {
+				GOTLog.logger.info("GOTLevelData: directory wasn't created");
+			}
 		}
 		return file;
 	}
@@ -208,7 +215,10 @@ public class GOTLevelData {
 			File oldGOTDat = new File(DimensionManager.getCurrentSaveRootDirectory(), "GOT.dat");
 			if (oldGOTDat.exists()) {
 				levelData = loadNBTFromFile(oldGOTDat);
-				oldGOTDat.delete();
+				boolean created = oldGOTDat.delete();
+				if (!created) {
+					GOTLog.logger.info("GOTLevelData: file wasn't deleted");
+				}
 				if (levelData.hasKey("PlayerData")) {
 					NBTTagList playerDataTags = levelData.getTagList("PlayerData", 10);
 					for (int i = 0; i < playerDataTags.tagCount(); ++i) {

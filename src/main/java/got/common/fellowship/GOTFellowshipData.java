@@ -2,6 +2,7 @@ package got.common.fellowship;
 
 import cpw.mods.fml.common.FMLLog;
 import got.common.GOTLevelData;
+import got.common.util.GOTLog;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
@@ -60,7 +61,10 @@ public class GOTFellowshipData {
 	public static File getFellowshipDir() {
 		File fsDir = new File(GOTLevelData.getOrCreateGOTDir(), "fellowships");
 		if (!fsDir.exists()) {
-			fsDir.mkdirs();
+			boolean created = fsDir.mkdirs();
+			if (!created) {
+				GOTLog.logger.info("GOTFellowshipData: directory wasn't created");
+			}
 		}
 		return fsDir;
 	}

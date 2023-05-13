@@ -275,7 +275,7 @@ public class GOTLore {
 			}
 			if (currentLine.length() > 0) {
 				pageText.append(currentLine);
-				currentLine = new StringBuilder();
+				currentLine.setLength(0);
 				++numLines;
 			}
 			for (i = 0; i < usedWords; ++i) {

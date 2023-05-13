@@ -204,12 +204,18 @@ public class GOTStructureScan {
 	public static boolean writeScanToFile(GOTStructureScan scan) {
 		File dir = new File(DimensionManager.getCurrentSaveRootDirectory(), "got_str_scans");
 		if (!dir.exists()) {
-			dir.mkdirs();
+			boolean created = dir.mkdirs();
+			if (!created) {
+				GOTLog.logger.info("GOTStructureScan: directory wasn't created");
+			}
 		}
 		File scanFile = new File(dir, scan.scanName + strscanFormat);
 		try {
 			if (!scanFile.exists()) {
-				scanFile.createNewFile();
+				boolean created = scanFile.createNewFile();
+				if (!created) {
+					GOTLog.logger.info("GOTStructureScan: file wasn't created");
+				}
 			}
 			PrintStream writer = new PrintStream(Files.newOutputStream(scanFile.toPath()));
 			if (!scan.aliases.isEmpty()) {
