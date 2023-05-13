@@ -163,8 +163,6 @@ public abstract class GOTBlockPortal extends BlockContainer {
 			int dimension = 0;
 			if (entity.dimension == 0) {
 				dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
-			} else if (entity.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
-				dimension = 0;
 			}
 			GOT.transferEntityToDimension(entity, dimension, getPortalTeleporter(DimensionManager.getWorld(dimension)));
 		}

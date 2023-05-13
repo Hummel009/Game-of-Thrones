@@ -282,7 +282,6 @@ public class GOTFactionBounties {
 			}
 			if (!toRemove.isEmpty()) {
 				killRecords.removeAll(toRemove);
-				minorChanges = true;
 			}
 			if (minorChanges && MinecraftServer.getServer().getTickCounter() % 600 == 0) {
 				markDirty();

@@ -11,6 +11,7 @@ import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class GOTStructureYiTiCity extends GOTVillageGen {
@@ -329,13 +330,13 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			int marketX = 4;
 			for (int l = 0; l <= 2; ++l) {
 				marketZ = 56 - l * 7;
-				addStructure(GOTStructureYiTiMarketStall.getRandomStall(random, false), -marketX, marketZ, 1, true);
-				addStructure(GOTStructureYiTiMarketStall.getRandomStall(random, false), marketX, marketZ, 3, true);
+				addStructure(Objects.requireNonNull(GOTStructureYiTiMarketStall.getRandomStall(random, false)), -marketX, marketZ, 1, true);
+				addStructure(Objects.requireNonNull(GOTStructureYiTiMarketStall.getRandomStall(random, false)), marketX, marketZ, 3, true);
 			}
 			marketX = 14;
 			marketZ = 59;
-			addStructure(GOTStructureYiTiMarketStall.getRandomStall(random, false), -marketX, marketZ, 2, true);
-			addStructure(GOTStructureYiTiMarketStall.getRandomStall(random, false), marketX, marketZ, 2, true);
+			addStructure(Objects.requireNonNull(GOTStructureYiTiMarketStall.getRandomStall(random, false)), -marketX, marketZ, 2, true);
+			addStructure(Objects.requireNonNull(GOTStructureYiTiMarketStall.getRandomStall(random, false)), marketX, marketZ, 2, true);
 			int gardenX = 58;
 			addStructure(new GOTStructureYiTiVillageFarm.Tree(false), -gardenX + 5, -gardenX, 0, true);
 			addStructure(new GOTStructureYiTiVillageFarm.Tree(false), gardenX - 5, -gardenX, 0, true);

@@ -143,6 +143,7 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 		for (int l = 0; l < animals; ++l) {
 			EntityAnimal animal = getRandomAnimal(world, random);
 			spawnNPCAndSetHome(animal, world, i, j, k, 0);
+			assert animal != null;
 			animal.detachHome();
 		}
 	}

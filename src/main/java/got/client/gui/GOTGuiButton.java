@@ -33,8 +33,6 @@ public class GOTGuiButton extends GuiButton {
 			int color = 8019267;
 			if (!enabled) {
 				color = 5521198;
-			} else if (field_146123_n) {
-				color = 8019267;
 			}
 			fontrenderer.drawString(displayString, xPosition + width / 2 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, color);
 		}

@@ -24,10 +24,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GOTItemBanner extends Item {
 	@SideOnly(Side.CLIENT)
@@ -132,7 +129,7 @@ public class GOTItemBanner extends Item {
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
-		return getUnlocalizedName() + "." + getBannerType(itemstack).bannerName;
+		return getUnlocalizedName() + "." + Objects.requireNonNull(getBannerType(itemstack)).bannerName;
 	}
 
 	@Override
@@ -156,6 +153,7 @@ public class GOTItemBanner extends Item {
 			if (block.isSideSolid(world, i, j - 1, k, ForgeDirection.UP)) {
 				int protectRange;
 				if (GOTConfig.allowBannerProtection && !entityplayer.capabilities.isCreativeMode && (protectRange = GOTBannerProtection.getProtectionRange(block, meta)) > 0) {
+					assert bannerType != null;
 					GOTFaction faction = bannerType.faction;
 					if (GOTLevelData.getData(entityplayer).getAlignment(faction) < 1.0f) {
 						if (!world.isRemote) {
@@ -172,6 +170,7 @@ public class GOTItemBanner extends Item {
 					GOTEntityBanner banner = new GOTEntityBanner(world);
 					banner.setLocationAndAngles(i + 0.5, j, k + 0.5, 90.0f * (MathHelper.floor_double(entityplayer.rotationYaw * 4.0f / 360.0f + 0.5) & 3), 0.0f);
 					if (world.checkNoEntityCollision(banner.boundingBox) && world.getCollidingBoundingBoxes(banner, banner.boundingBox).isEmpty() && !world.isAnyLiquid(banner.boundingBox) && world.getEntitiesWithinAABB(GOTEntityBanner.class, banner.boundingBox).isEmpty()) {
+						assert bannerType != null;
 						banner.setBannerType(bannerType);
 						if (protectData != null) {
 							banner.readProtectionFromNBT(protectData);
@@ -198,6 +197,7 @@ public class GOTItemBanner extends Item {
 				int l = Direction.facingToDirection[side];
 				GOTEntityBannerWall banner = new GOTEntityBannerWall(world, i, j, k, l);
 				if (banner.onValidSurface()) {
+					assert bannerType != null;
 					banner.setBannerType(bannerType);
 					if (protectData != null) {
 						banner.setProtectData((NBTTagCompound) protectData.copy());

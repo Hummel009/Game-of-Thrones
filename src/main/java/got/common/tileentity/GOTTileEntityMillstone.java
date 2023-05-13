@@ -141,6 +141,7 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 		if (canMill()) {
 			ItemStack itemstack = inventory[0];
 			GOTRecipeMillstone.MillstoneResult result = GOTRecipeMillstone.getMillingResult(itemstack);
+			assert result != null;
 			ItemStack resultItem = result.resultItem;
 			float chance = result.chance;
 			if (worldObj.rand.nextFloat() < chance) {

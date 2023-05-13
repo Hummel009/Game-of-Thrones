@@ -168,11 +168,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						case DEPOSITING:
 							suitable = isSuitableForDepositing(i, j, k);
 							break;
-						default:
-							break;
 					}
-				} else {
-					suitable = false;
 				}
 			} else {
 				i = MathHelper.floor_double(theEntity.posX) + MathHelper.getRandomIntegerInRange(rand, -8, 8);
@@ -268,7 +264,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			return new ItemStack(GOTReflection.getCropItem((BlockCrops) block));
 		}
 		if (block instanceof BlockStem) {
-			return new ItemStack(GOTReflection.getStemFruitBlock((BlockStem) block).getItemDropped(0, theWorld.rand, 0), 1, 0);
+			return new ItemStack(Objects.requireNonNull(GOTReflection.getStemFruitBlock((BlockStem) block)).getItemDropped(0, theWorld.rand, 0), 1, 0);
 		}
 		if (block instanceof GOTBlockCorn) {
 			return new ItemStack(GOTRegistry.corn);
@@ -683,6 +679,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 											}
 											theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack);
 											chest.setInventorySlotContents(slot, chestItem);
+											assert itemstack != null;
 											if (itemstack.stackSize >= itemstack.getMaxStackSize()) {
 												break;
 											}

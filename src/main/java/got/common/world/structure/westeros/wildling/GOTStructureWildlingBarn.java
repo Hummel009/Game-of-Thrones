@@ -372,6 +372,7 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 					if (i2 == 3) {
 						EntityAnimal animal = getRandomAnimal(world, random);
 						spawnNPCAndSetHome(animal, world, i12, 1, k1, 0);
+						assert animal != null;
 						animal.detachHome();
 					}
 				}

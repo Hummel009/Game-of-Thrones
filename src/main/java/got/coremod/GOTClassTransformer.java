@@ -146,6 +146,7 @@ public class GOTClassTransformer implements IClassTransformer {
 						}
 					}
 				}
+				assert nodeFound != null;
 				if (!((nodePrev = nodeFound.getPrevious()) instanceof VarInsnNode) || nodePrev.getOpcode() != 25 || ((VarInsnNode) nodePrev).var != 9) {
 					System.out.println("WARNING! Expected ALOAD 9! Instead got " + nodePrev);
 					System.out.println("WARNING! Things may break!");
@@ -783,6 +784,7 @@ public class GOTClassTransformer implements IClassTransformer {
 						}
 					}
 				}
+				assert nodeIsRemote != null;
 				VarInsnNode nodeLoadThisEntity = (VarInsnNode) nodeIsRemote.getPrevious().getPrevious();
 				for (int l = 0; l < 2; ++l) {
 					method.instructions.remove(nodeLoadThisEntity.getNext());
@@ -838,6 +840,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				int newIns22 = newPrev.length;
 				for (int i = 0; i < newIns22 && (nodeIsInstance = findNodeInMethod(method, new TypeInsnNode(193, newPrev[i] ? cls_EntityPlayer_obf : cls_EntityPlayer))) == null; ++i) {
 				}
+				assert nodeIsInstance != null;
 				VarInsnNode nodeLoadEntity = (VarInsnNode) nodeIsInstance.getPrevious();
 				method.instructions.remove(nodeIsInstance);
 				InsnList newIns221 = new InsnList();

@@ -26,6 +26,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class GOTBlockReplacement {
 	public static boolean initForgeHooks;
@@ -91,7 +92,7 @@ public class GOTBlockReplacement {
 				StatList.objectMineStats.remove(otherOldStat);
 				StatList.itemStats.remove(otherOldStat);
 				StatList.generalStats.remove(otherOldStat);
-				Reflect.getOneShotStats().remove(otherOldStat.statId);
+				Objects.requireNonNull(Reflect.getOneShotStats()).remove(otherOldStat.statId);
 				stats[i] = newStat;
 			}
 			newStat.registerStat();
@@ -110,8 +111,8 @@ public class GOTBlockReplacement {
 			}
 			newBlock.setBlockName(blockName);
 			Reflect.overwriteBlockList(oldBlock, newBlock);
-			Reflect.getUnderlyingIntMap(Block.blockRegistry).func_148746_a(newBlock, id);
-			Reflect.getUnderlyingObjMap(Block.blockRegistry).put(registryName, newBlock);
+			Objects.requireNonNull(Reflect.getUnderlyingIntMap(Block.blockRegistry)).func_148746_a(newBlock, id);
+			Objects.requireNonNull(Reflect.getUnderlyingObjMap(Block.blockRegistry)).put(registryName, newBlock);
 			if (!initForgeHooks) {
 				ForgeHooks.isToolEffective(new ItemStack(Items.iron_shovel), Blocks.dirt, 0);
 				initForgeHooks = true;
@@ -129,9 +130,10 @@ public class GOTBlockReplacement {
 					itemCtor = ct;
 					break;
 				}
+				assert itemCtor != null;
 				ItemBlock itemblock = ((ItemBlock) itemCtor.newInstance(newBlock)).setUnlocalizedName(itemblockName);
-				Reflect.getUnderlyingIntMap(Item.itemRegistry).func_148746_a(itemblock, id);
-				Reflect.getUnderlyingObjMap(Item.itemRegistry).put(registryName, itemblock);
+				Objects.requireNonNull(Reflect.getUnderlyingIntMap(Item.itemRegistry)).func_148746_a(itemblock, id);
+				Objects.requireNonNull(Reflect.getUnderlyingObjMap(Item.itemRegistry)).put(registryName, itemblock);
 				replaceBlockStats(id, newBlock, itemblock);
 				replaceRecipesEtc(itemblock);
 			}
@@ -148,8 +150,8 @@ public class GOTBlockReplacement {
 			String registryName = Item.itemRegistry.getNameForObject(oldItem);
 			newItem.setUnlocalizedName(itemName);
 			Reflect.overwriteItemList(oldItem, newItem);
-			Reflect.getUnderlyingIntMap(Item.itemRegistry).func_148746_a(newItem, id);
-			Reflect.getUnderlyingObjMap(Item.itemRegistry).put(registryName, newItem);
+			Objects.requireNonNull(Reflect.getUnderlyingIntMap(Item.itemRegistry)).func_148746_a(newItem, id);
+			Objects.requireNonNull(Reflect.getUnderlyingObjMap(Item.itemRegistry)).put(registryName, newItem);
 			replaceItemStats(id, newItem);
 			replaceRecipesEtc(newItem);
 		} catch (Exception e) {

@@ -78,6 +78,7 @@ public class GOTMusicTrack extends PositionedSound {
 		soundEntry.setStreaming(true);
 		soundList.getSoundList().add(soundEntry);
 		SoundRegistry sndRegistry = GOTMusic.Reflect.getSoundRegistry();
+		assert sndRegistry != null;
 		if (sndRegistry.containsKey(resource) && !soundList.canReplaceExisting()) {
 			soundAccessorComp = (SoundEventAccessorComposite) sndRegistry.getObject(resource);
 		} else {

@@ -109,6 +109,7 @@ public class GOTStructureIbbenVillagePasture extends GOTStructureIbbenBase {
 			} else {
 				spawnNPCAndSetHome(animal, world, 0, 1, k13, 0);
 			}
+			assert animal != null;
 			animal.detachHome();
 		}
 		return true;

@@ -46,7 +46,6 @@ public class GOTBezierGenerator {
 				Block block = blocks[index];
 				if (block.isOpaqueCube()) {
 					roadTop = j;
-					bridge = false;
 					break;
 				}
 				if (!block.getMaterial().isLiquid()) {
@@ -180,7 +179,6 @@ public class GOTBezierGenerator {
 				blocks[index] = flower.block;
 				metadata[index] = (byte) flower.metadata;
 			} else {
-				adjRoad = false;
 				block7:
 				for (i1 = -3; i1 <= 3; ++i1) {
 					for (int k1 = -3; k1 <= 3; ++k1) {

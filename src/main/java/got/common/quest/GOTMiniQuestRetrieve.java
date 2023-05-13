@@ -54,6 +54,7 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 	public boolean isQuestItem(ItemStack itemstack) {
 		if (super.isQuestItem(itemstack)) {
 			UUID retrieveQuestID = getRetrieveQuestID(itemstack);
+			assert retrieveQuestID != null;
 			return retrieveQuestID.equals(questUUID);
 		}
 		return false;

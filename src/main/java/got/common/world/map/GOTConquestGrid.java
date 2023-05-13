@@ -256,7 +256,7 @@ public class GOTConquestGrid {
 			dirtyZones.clear();
 			File dir = getConquestDir();
 			if (dir.exists()) {
-				for (File zoneDat : dir.listFiles()) {
+				for (File zoneDat : Objects.requireNonNull(dir.listFiles())) {
 					GOTConquestZone zone;
 					if (zoneDat.isDirectory() || !zoneDat.getName().endsWith(".dat") || (zone = loadZoneFromFile(zoneDat)) == null) {
 						continue;

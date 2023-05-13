@@ -90,8 +90,7 @@ public class GOTStructureGiftGate extends GOTStructureGiftBase {
 				float f = random.nextFloat();
 				if (f < 0.5f) {
 					block = GOTRegistry.dirtPath;
-					meta = 0;
-				} else if (f >= 0.5f && f < 0.8f) {
+				} else if (f < 0.8f) {
 					block = Blocks.dirt;
 					meta = 1;
 				}

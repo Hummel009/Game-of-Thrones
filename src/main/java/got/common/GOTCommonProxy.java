@@ -246,15 +246,16 @@ public class GOTCommonProxy implements IGuiHandler {
 			case 28:
 				return new GOTGuiCraftingTable.Gift(entityplayer.inventory, world, i, j, k);
 			case 29:
-				GOTEntityNPCRideable npc2;
 				entity = world.getEntityByID(i);
 				if (entity instanceof GOTEntityHorse) {
 					GOTEntityHorse horse = (GOTEntityHorse) entity;
 					return new GOTGuiMountInventory(entityplayer.inventory, new AnimalChest(horse.getCommandSenderName(), j), horse);
 				}
-				npc2 = (GOTEntityNPCRideable) entity;
-				if (entity instanceof GOTEntityNPCRideable && npc2.getMountInventory() != null) {
-					return new GOTGuiNPCMountInventory(entityplayer.inventory, new AnimalChest(npc2.getCommandSenderName(), j), npc2);
+				if (entity instanceof GOTEntityNPCRideable) {
+					GOTEntityNPCRideable npc2 = (GOTEntityNPCRideable) entity;
+					if (npc2.getMountInventory() != null) {
+						return new GOTGuiNPCMountInventory(entityplayer.inventory, new AnimalChest(npc2.getCommandSenderName(), j), npc2);
+					}
 				}
 				break;
 			case 32:

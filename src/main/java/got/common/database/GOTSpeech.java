@@ -111,7 +111,7 @@ public class GOTSpeech {
 					}
 				}
 			} else {
-				File speechBankDir = new File(GOT.class.getResource("/assets/got/texts/" + GOTConfig.languageCode + "/speech/").toURI());
+				File speechBankDir = new File(Objects.requireNonNull(GOT.class.getResource("/assets/got/texts/" + GOTConfig.languageCode + "/speech/")).toURI());
 				Collection<File> subfiles = FileUtils.listFiles(speechBankDir, null, true);
 				for (File subfile : subfiles) {
 					String s = subfile.getPath();

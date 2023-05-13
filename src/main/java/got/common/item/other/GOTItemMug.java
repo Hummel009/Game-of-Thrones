@@ -28,6 +28,7 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GOTItemMug extends Item {
 	public static String[] strengthNames = {"weak", "light", "moderate", "strong", "potent"};
@@ -217,10 +218,11 @@ public class GOTItemMug extends Item {
 		}
 		Block mugBlock = vessel.getBlock();
 		Block block = world.getBlock(i += Facing.offsetsXForSide[side], j += Facing.offsetsYForSide[side], k += Facing.offsetsZForSide[side]);
-		if (block != null && !block.isReplaceable(world, i, j, k) || block.getMaterial() == Material.water) {
+		if (block != null && !block.isReplaceable(world, i, j, k) || Objects.requireNonNull(block).getMaterial() == Material.water) {
 			return false;
 		}
 		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack)) {
+			assert mugBlock != null;
 			if (!mugBlock.canPlaceBlockAt(world, i, j, k)) {
 				return false;
 			}
@@ -407,7 +409,12 @@ public class GOTItemMug extends Item {
 				entityplayer.removePotionEffect(potion.id);
 			}
 		}
-		return !entityplayer.capabilities.isCreativeMode ? new ItemStack(vessel.getEmptyVesselItem()) : itemstack;
+		if (!entityplayer.capabilities.isCreativeMode) {
+			assert vessel != null;
+			return new ItemStack(vessel.getEmptyVesselItem());
+		} else {
+			return itemstack;
+		}
 	}
 
 	@Override

@@ -1741,8 +1741,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		tessellator.draw();
 		iconMinU = 0.625;
 		iconMaxU = 0.75;
-		iconMinV = 0.25;
-		iconMaxV = 0.5;
 		tessellator.startDrawingQuads();
 		tessellator.addVertexWithUV(playerX_d - iconWidthHalf - 0.5, playerY_d + iconWidthHalf + 0.5, zLevel, iconMinU, iconMaxV);
 		tessellator.addVertexWithUV(playerX_d + iconWidthHalf + 0.5, playerY_d + iconWidthHalf + 0.5, zLevel, iconMaxU, iconMaxV);

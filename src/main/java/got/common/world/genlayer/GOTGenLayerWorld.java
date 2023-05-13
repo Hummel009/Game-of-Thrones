@@ -15,6 +15,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.nio.file.Files;
 import java.util.Enumeration;
+import java.util.Objects;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -47,7 +48,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 					}
 					zip.close();
 				} else {
-					File file = new File(GOT.class.getResource("/" + imageName).toURI());
+					File file = new File(Objects.requireNonNull(GOT.class.getResource("/" + imageName)).toURI());
 					biomeImage = ImageIO.read(Files.newInputStream(file.toPath()));
 				}
 				if (biomeImage == null) {

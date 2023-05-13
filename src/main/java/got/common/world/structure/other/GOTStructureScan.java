@@ -61,7 +61,7 @@ public class GOTStructureScan {
 					}
 				}
 			} else {
-				File scanDir = new File(GOT.class.getResource("/assets/got/strscan").toURI());
+				File scanDir = new File(Objects.requireNonNull(GOT.class.getResource("/assets/got/strscan")).toURI());
 				Collection<File> subfiles = FileUtils.listFiles(scanDir, null, true);
 				for (File subfile : subfiles) {
 					String s = subfile.getPath();

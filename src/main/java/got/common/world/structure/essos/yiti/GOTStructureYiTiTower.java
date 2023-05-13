@@ -77,8 +77,6 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 						int stairMeta = 0;
 						if (i12 == -2) {
 							stairMeta = 1;
-						} else if (i12 == 2) {
-							stairMeta = 0;
 						} else if (k1 == -2) {
 							stairMeta = 2;
 						} else if (k1 == 2) {

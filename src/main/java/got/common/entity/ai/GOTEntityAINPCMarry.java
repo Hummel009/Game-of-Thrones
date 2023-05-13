@@ -55,6 +55,7 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 		ringPlayerSpouse = theSpouse.familyInfo.getRingGivingPlayer();
 		if (ringPlayerSpouse != null) {
 			GOTLevelData.getData(ringPlayerSpouse).addAlignment(ringPlayerSpouse, GOTAlignmentValues.MARRIAGE_BONUS, theSpouse.getFaction(), theSpouse);
+			assert ringPlayer != null;
 			GOTLevelData.getData(ringPlayer).addAchievement(GOTAchievement.marry);
 		}
 		theWorld.spawnEntityInWorld(new EntityXPOrb(theWorld, theNPC.posX, theNPC.posY, theNPC.posZ, theNPC.getRNG().nextInt(8) + 2));

@@ -22,6 +22,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class GOTBlockMug extends BlockContainer {
 	public static float MUG_SCALE = 0.75f;
@@ -133,7 +134,7 @@ public class GOTBlockMug extends BlockContainer {
 				return true;
 			}
 			if (mug.isEmpty() && GOTItemMug.isItemFullDrink(itemstack)) {
-				ItemStack emptyMug = GOTItemMug.getVessel(itemstack).getEmptyVessel();
+				ItemStack emptyMug = Objects.requireNonNull(GOTItemMug.getVessel(itemstack)).getEmptyVessel();
 				entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, emptyMug);
 				ItemStack mugFill = itemstack.copy();
 				mugFill.stackSize = 1;

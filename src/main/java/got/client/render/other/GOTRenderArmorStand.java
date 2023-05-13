@@ -91,7 +91,6 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 				armorModel.render(null, BIPED_ARM_ROTATION, 0.0f, BIPED_TICKS_EXISTED, 0.0f, 0.0f, scale);
 				if (isColoredArmor) {
 					bindTexture(RenderBiped.getArmorResource(null, itemstack, slot, "overlay"));
-					f1 = 1.0f;
 					GL11.glColor3f(f1, f1, f1);
 					armorModel.render(null, BIPED_ARM_ROTATION, 0.0f, BIPED_TICKS_EXISTED, 0.0f, 0.0f, scale);
 				}

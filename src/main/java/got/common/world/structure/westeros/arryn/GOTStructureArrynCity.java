@@ -14,6 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class GOTStructureArrynCity extends GOTVillageGen {
@@ -233,18 +234,18 @@ public class GOTStructureArrynCity extends GOTVillageGen {
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				int k2 = k1 * stallPos;
 				if (random.nextInt(3) != 0) {
-					addStructure(GOTStructureArrynMarketStall.getRandomStall(random, false), -stallPos + 3, k2, 1, true);
+					addStructure(Objects.requireNonNull(GOTStructureArrynMarketStall.getRandomStall(random, false)), -stallPos + 3, k2, 1, true);
 				}
 				if (random.nextInt(3) == 0) {
 					continue;
 				}
-				addStructure(GOTStructureArrynMarketStall.getRandomStall(random, false), stallPos - 3, k2, 3, true);
+				addStructure(Objects.requireNonNull(GOTStructureArrynMarketStall.getRandomStall(random, false)), stallPos - 3, k2, 3, true);
 			}
 			if (random.nextInt(3) != 0) {
-				addStructure(GOTStructureArrynMarketStall.getRandomStall(random, false), 0, stallPos - 3, 0, true);
+				addStructure(Objects.requireNonNull(GOTStructureArrynMarketStall.getRandomStall(random, false)), 0, stallPos - 3, 0, true);
 			}
 			if (random.nextInt(3) != 0) {
-				addStructure(GOTStructureArrynMarketStall.getRandomStall(random, false), 0, -stallPos + 3, 2, true);
+				addStructure(Objects.requireNonNull(GOTStructureArrynMarketStall.getRandomStall(random, false)), 0, -stallPos + 3, 2, true);
 			}
 			int flowerX = 12;
 			int flowerZ = 18;
@@ -477,9 +478,7 @@ public class GOTStructureArrynCity extends GOTVillageGen {
 				float cos = MathHelper.cos(turnR);
 				int r = 0;
 				float turn8 = turn * 8.0f;
-				if (turn8 >= 1.0f && turn8 < 3.0f) {
-					r = 0;
-				} else if (turn8 >= 3.0f && turn8 < 5.0f) {
+				if (turn8 >= 3.0f && turn8 < 5.0f) {
 					r = 1;
 				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
 					r = 2;

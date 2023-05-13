@@ -620,10 +620,13 @@ public class GOTEventHandler implements IFuelHandler {
 			event.setCanceled(true);
 			return;
 		}
-		if (entity instanceof GOTMercenary && ((GOTMercenary) entity).canTradeWith(entityplayer) && ((GOTEntityNPC) entity).hiredNPCInfo.getHiringPlayerUUID() == null) {
-			entityplayer.openGui(GOT.instance, 58, world, entity.getEntityId(), 0, 0);
-			event.setCanceled(true);
-			return;
+		if (entity instanceof GOTMercenary && ((GOTMercenary) entity).canTradeWith(entityplayer)) {
+			assert entity instanceof GOTEntityNPC;
+			if (((GOTEntityNPC) entity).hiredNPCInfo.getHiringPlayerUUID() == null) {
+				entityplayer.openGui(GOT.instance, 58, world, entity.getEntityId(), 0, 0);
+				event.setCanceled(true);
+				return;
+			}
 		}
 		if (entity instanceof GOTEntityNPC) {
 			GOTEntityNPC npc = (GOTEntityNPC) entity;
@@ -922,7 +925,7 @@ public class GOTEventHandler implements IFuelHandler {
 					alignmentBonus.isCivilianKill = npc.isCivilianNPC();
 				}
 				if (alignmentBonus != null && alignmentBonus.bonus != 0.0F) {
-					if (!creditHiredUnit || creditHiredUnit && byNearbyUnit) {
+					if (!creditHiredUnit || byNearbyUnit) {
 						alignmentBonus.isKill = true;
 						if (creditHiredUnit) {
 							alignmentBonus.killByHiredUnit = true;
@@ -1501,7 +1504,7 @@ public class GOTEventHandler implements IFuelHandler {
 				ChunkCoordinates spawnLocation;
 				double respawnThreshold;
 				if (hasBed) {
-					hasBed = EntityPlayer.verifyRespawnCoordinates(worldserver, bedLocation, entityplayermp.isSpawnForced(entityplayermp.dimension)) != null;
+					EntityPlayer.verifyRespawnCoordinates(worldserver, bedLocation, entityplayermp.isSpawnForced(entityplayermp.dimension));
 					spawnLocation = bedLocation;
 					respawnThreshold = GOTConfig.KWRBedRespawnThreshold;
 				} else {
@@ -1618,13 +1621,15 @@ public class GOTEventHandler implements IFuelHandler {
 
 	@SubscribeEvent
 	public void onStartTracking(PlayerEvent.StartTracking event) {
-		GOTEntityCart target;
-		if (event.target instanceof GOTEntityCart && (target = (GOTEntityCart) event.target).getPulling() != null) {
-			GOTPacketHandler.networkWrapper.sendTo(new GOTPacketCargocartUpdate(target.getPulling().getEntityId(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
+		if (event.target instanceof GOTEntityCart) {
+			GOTEntityCart target = (GOTEntityCargocart) event.target;
+			if (target.getPulling() != null) {
+				GOTPacketHandler.networkWrapper.sendTo(new GOTPacketCargocartUpdate(target.getPulling().getEntityId(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
+			}
 		}
 		if (event.target instanceof GOTEntityCargocart) {
-			target = (GOTEntityCargocart) event.target;
-			GOTPacketHandler.networkWrapper.sendTo(new GOTPacketCargocart(((GOTEntityCargocart) target).getLoad(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
+			GOTEntityCargocart target = (GOTEntityCargocart) event.target;
+			GOTPacketHandler.networkWrapper.sendTo(new GOTPacketCargocart(target.getLoad(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
 		}
 	}
 

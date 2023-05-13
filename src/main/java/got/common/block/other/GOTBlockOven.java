@@ -175,9 +175,6 @@ public class GOTBlockOven extends BlockContainer {
 			Block k1 = world.getBlock(i - 1, j, k);
 			Block l1 = world.getBlock(i + 1, j, k);
 			int meta = 3;
-			if (i1.isOpaqueCube() && !j1.isOpaqueCube()) {
-				meta = 3;
-			}
 			if (j1.isOpaqueCube() && !i1.isOpaqueCube()) {
 				meta = 2;
 			}

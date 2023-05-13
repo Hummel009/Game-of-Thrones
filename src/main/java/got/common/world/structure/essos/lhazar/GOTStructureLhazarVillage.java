@@ -206,9 +206,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 				float cos = MathHelper.cos(turnR);
 				int r = 0;
 				float turn8 = turnF * 8.0f;
-				if (turn8 >= 1.0f && turn8 < 3.0f) {
-					r = 0;
-				} else if (turn8 >= 3.0f && turn8 < 5.0f) {
+				if (turn8 >= 3.0f && turn8 < 5.0f) {
 					r = 1;
 				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
 					r = 2;
@@ -279,9 +277,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 				float cos = MathHelper.cos(turnR);
 				int r = 0;
 				float turn8 = turnCorrected * 8.0f;
-				if (turn8 >= 1.0f && turn8 < 3.0f) {
-					r = 0;
-				} else if (turn8 >= 3.0f && turn8 < 5.0f) {
+				if (turn8 >= 3.0f && turn8 < 5.0f) {
 					r = 1;
 				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
 					r = 2;
@@ -302,9 +298,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 				float cos = MathHelper.cos(turnR);
 				int r = 0;
 				float turn8 = turn * 8.0f;
-				if (turn8 >= 1.0f && turn8 < 3.0f) {
-					r = 0;
-				} else if (turn8 >= 3.0f && turn8 < 5.0f) {
+				if (turn8 >= 3.0f && turn8 < 5.0f) {
 					r = 1;
 				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
 					r = 2;

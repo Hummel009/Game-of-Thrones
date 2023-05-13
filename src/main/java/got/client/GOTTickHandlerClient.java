@@ -580,13 +580,8 @@ public class GOTTickHandlerClient {
 					case 0:
 						fancyGraphics = minecraft.gameSettings.fancyGraphics;
 						break;
-					case 1:
-						fancyGraphics = false;
-						break;
 					case 2:
 						fancyGraphics = true;
-						break;
-					default:
 						break;
 				}
 				GOTBlockLeavesBase.setAllGraphicsLevels(fancyGraphics);

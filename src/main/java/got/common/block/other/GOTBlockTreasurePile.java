@@ -143,41 +143,36 @@ public class GOTBlockTreasurePile extends Block {
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		ItemStack itemstack = entityplayer.getHeldItem();
 		if (itemstack != null && itemstack.getItem() == Item.getItemFromBlock(this) && side == 1) {
-			boolean placedTreasure;
 			int meta = world.getBlockMetadata(i, j, k);
 			if (meta < 7) {
 				int itemMeta;
 				for (itemMeta = itemstack.getItemDamage(); meta < 7 && itemMeta >= 0; ++meta, --itemMeta) {
 				}
 				world.setBlockMetadataWithNotify(i, j, k, meta, 3);
-				placedTreasure = true;
 				if (itemMeta >= 0 && world.getBlock(i, j + 1, k).isReplaceable(world, i, j + 1, k)) {
 					world.setBlock(i, j + 1, k, this, itemMeta, 3);
 					itemMeta = -1;
-					placedTreasure = true;
 				}
-				if (placedTreasure) {
-					world.playSoundEffect(i + 0.5f, j + 0.5f, k + 0.5f, stepSound.func_150496_b(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);
-					if (!entityplayer.capabilities.isCreativeMode) {
-						if (itemMeta < 0) {
-							--itemstack.stackSize;
-						} else {
-							--itemstack.stackSize;
-							ItemStack remainder = itemstack.copy();
-							remainder.stackSize = 1;
-							remainder.setItemDamage(itemMeta);
-							if (itemstack.stackSize <= 0) {
-								entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, remainder);
-							} else if (!entityplayer.inventory.addItemStackToInventory(remainder)) {
-								entityplayer.dropPlayerItemWithRandomChoice(remainder, false);
-							}
-						}
-						if (!world.isRemote) {
-							entityplayer.openContainer.detectAndSendChanges();
+				world.playSoundEffect(i + 0.5f, j + 0.5f, k + 0.5f, stepSound.func_150496_b(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);
+				if (!entityplayer.capabilities.isCreativeMode) {
+					if (itemMeta < 0) {
+						--itemstack.stackSize;
+					} else {
+						--itemstack.stackSize;
+						ItemStack remainder = itemstack.copy();
+						remainder.stackSize = 1;
+						remainder.setItemDamage(itemMeta);
+						if (itemstack.stackSize <= 0) {
+							entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, remainder);
+						} else if (!entityplayer.inventory.addItemStackToInventory(remainder)) {
+							entityplayer.dropPlayerItemWithRandomChoice(remainder, false);
 						}
 					}
-					return true;
+					if (!world.isRemote) {
+						entityplayer.openContainer.detectAndSendChanges();
+					}
 				}
+				return true;
 			}
 		}
 		return false;
