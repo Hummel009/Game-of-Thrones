@@ -51,18 +51,18 @@ public class GOTCommandSpawnDamping extends CommandBase {
 			String option = args[0];
 			if ("reset".equals(option)) {
 				GOTSpawnDamping.resetAll();
-				CommandBase.func_152373_a(sender, this, "got.command.spawnDamping.reset");
+				func_152373_a(sender, this, "got.command.spawnDamping.reset");
 				return;
 			}
 			if (args.length >= 2) {
 				String type = args[1];
-				if (!type.equals(GOTSpawnDamping.TYPE_NPC) && EnumCreatureType.valueOf(type) == null) {
+				if (!type.equals(GOTSpawnDamping.TYPE_NPC)) {
 					throw new WrongUsageException("got.command.spawnDamping.noType", type);
 				}
 				if ("set".equals(option) && args.length >= 3) {
-					float damping = (float) CommandBase.parseDoubleBounded(sender, args[2], 0.0, 1.0);
+					float damping = (float) parseDoubleBounded(sender, args[2], 0.0D, 1.0D);
 					GOTSpawnDamping.setSpawnDamping(type, damping);
-					CommandBase.func_152373_a(sender, this, "got.command.spawnDamping.set", type, damping);
+					func_152373_a(sender, this, "got.command.spawnDamping.set", damping);
 					return;
 				}
 				if ("calc".equals(option)) {
@@ -75,9 +75,9 @@ public class GOTCommandSpawnDamping extends CommandBase {
 					int baseCap = GOTSpawnDamping.getBaseSpawnCapForInfo(type, world);
 					int cap = GOTSpawnDamping.getSpawnCap(type, baseCap, players);
 					int capXPlayers = cap * players;
-					ChatComponentTranslation msg = new ChatComponentTranslation("got.command.spawnDamping.calc", dim, dimName, type, damping, players, expectedChunks, cap, baseCap, capXPlayers);
-					msg.getChatStyle().setColor(EnumChatFormatting.GREEN);
-					sender.addChatMessage(msg);
+					ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.command.spawnDamping.calc", dim, dimName, type, damping, players, expectedChunks, cap, baseCap, capXPlayers);
+					chatComponentTranslation.getChatStyle().setColor(EnumChatFormatting.GREEN);
+					sender.addChatMessage(chatComponentTranslation);
 					return;
 				}
 			}

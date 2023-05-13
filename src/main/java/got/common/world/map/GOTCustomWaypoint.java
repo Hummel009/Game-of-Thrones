@@ -75,9 +75,6 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 			NBTTagList sharedFellowshipTags = nbt.getTagList("SharedFellowships", 8);
 			for (int i = 0; i < sharedFellowshipTags.tagCount(); ++i) {
 				UUID fsID = UUID.fromString(sharedFellowshipTags.getStringTagAt(i));
-				if (fsID == null) {
-					continue;
-				}
 				cwp.sharedFellowshipIDs.add(fsID);
 			}
 		}

@@ -202,19 +202,17 @@ public class GOTStructureGiftVillage extends GOTVillageGen {
 				k = Math.round(l * sin);
 				addStructure(new GOTStructureHayBales(false), i, k, r);
 			}
-			if (true) {
-				int rPalisade = 19 + 12 + 16;
-				int rSq = rPalisade * rPalisade;
-				int rMax = rPalisade + 1;
-				int rSqMax = rMax * rMax;
-				for (int i = -rPalisade; i <= rPalisade; ++i) {
-					for (int k = -rPalisade; k <= rPalisade; ++k) {
-						int dSq;
-						if (Math.abs(i) <= 5 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
-							continue;
-						}
-						addStructure(new GOTStructureGiftVillagePalisade(false), i, k, 0);
+			int rPalisade = 19 + 12 + 16;
+			int rSq = rPalisade * rPalisade;
+			int rMax = rPalisade + 1;
+			int rSqMax = rMax * rMax;
+			for (int i = -rPalisade; i <= rPalisade; ++i) {
+				for (int k = -rPalisade; k <= rPalisade; ++k) {
+					int dSq;
+					if (Math.abs(i) <= 5 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
+						continue;
 					}
+					addStructure(new GOTStructureGiftVillagePalisade(false), i, k, 0);
 				}
 			}
 		}

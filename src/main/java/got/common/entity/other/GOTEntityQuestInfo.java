@@ -273,9 +273,6 @@ public class GOTEntityQuestInfo {
 		for (i = 0; i < activeQuestTags.tagCount(); ++i) {
 			String s = activeQuestTags.getStringTagAt(i);
 			UUID player2 = UUID.fromString(s);
-			if (player2 == null) {
-				continue;
-			}
 			activeQuestPlayers.add(player2);
 		}
 		if (nbt.hasKey("NPCMiniQuestPlayer") && (player = UUID.fromString(nbt.getString("NPCMiniQuestPlayer"))) != null) {

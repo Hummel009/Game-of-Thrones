@@ -22,6 +22,7 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
@@ -1007,31 +1008,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 
 	public List<GameProfile> sortMembersForDisplay(GOTFellowshipClient fs) {
 		List<GameProfile> members = new ArrayList<>(fs.getMemberProfiles());
-		members.sort((player1, player2) -> {
-			boolean admin1 = fs.isAdmin(player1.getId());
-			boolean admin2 = fs.isAdmin(player2.getId());
-			boolean online1 = isPlayerOnline(player1);
-			boolean online2 = isPlayerOnline(player2);
-			if (online1 == online2) {
-				if (admin1 == admin2) {
-					return player1.getName().toLowerCase().compareTo(player2.getName().toLowerCase());
-				}
-				if (admin1 && !admin2) {
-					return -1;
-				}
-				if (!admin1 && admin2) {
-					return 1;
-				}
-			} else {
-				if (online1 && !online2) {
-					return -1;
-				}
-				if (!online1 && online2) {
-					return 1;
-				}
-			}
-			return 0;
-		});
+		members.sort(Comparator.comparing(GOTGuiFellowships::isPlayerOnline).reversed().thenComparing(player -> fs.isAdmin(player.getId())).reversed().thenComparing(player -> player.getName().toLowerCase()));
 		return members;
 	}
 

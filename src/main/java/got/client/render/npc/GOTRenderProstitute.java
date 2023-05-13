@@ -11,6 +11,7 @@ import java.util.Map;
 
 public class GOTRenderProstitute extends GOTRenderBiped {
 	public static Map<String, ResourceLocation> prostituteSkins = new HashMap<>();
+
 	public GOTRenderProstitute() {
 		super(new GOTModelHuman(), 0.5f);
 	}

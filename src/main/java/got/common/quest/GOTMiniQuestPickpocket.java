@@ -270,9 +270,6 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		NBTTagList ids = nbt.getTagList("PickpocketedIDs", 8);
 		for (int i = 0; i < ids.tagCount(); ++i) {
 			UUID id = UUID.fromString(ids.getStringTagAt(i));
-			if (id == null) {
-				continue;
-			}
 			pickpocketedEntityIDs.add(id);
 		}
 	}

@@ -63,7 +63,7 @@ public class GOTWorldGenPine extends WorldGenAbstractTree {
 		int minLeafHeight = j + (int) (height * 0.5f);
 		while (leafHeight > minLeafHeight) {
 			int r = random.nextInt(3);
-			switch(r) {
+			switch (r) {
 				case 0:
 					generateLeafLayer(world, random, i, leafHeight, k, 1);
 					leafHeight -= 2;

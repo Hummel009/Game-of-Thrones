@@ -302,7 +302,6 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 				if (hitEntity != null) {
 					ItemStack itemstack = getProjectileItem();
 					int damageInt = MathHelper.ceiling_double_int(getBaseImpactDamage(hitEntity, itemstack));
-					int fireAspect = 0;
 					if (itemstack != null) {
 						knockbackStrength = shootingEntity instanceof EntityLivingBase && hitEntity instanceof EntityLivingBase ? knockbackStrength + EnchantmentHelper.getKnockbackModifier((EntityLivingBase) shootingEntity, (EntityLivingBase) hitEntity) : knockbackStrength + GOTWeaponStats.getTotalKnockback(itemstack);
 					}
@@ -325,9 +324,6 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 							EntityLivingBase hitEntityLiving = (EntityLivingBase) hitEntity;
 							if (knockbackStrength > 0 && (knockback = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ)) > 0.0f) {
 								hitEntityLiving.addVelocity(motionX * knockbackStrength * 0.6 / knockback, 0.1, motionZ * knockbackStrength * 0.6 / knockback);
-							}
-							if (fireAspect > 0) {
-								hitEntityLiving.setFire(fireAspect * 4);
 							}
 							if (shootingEntity instanceof EntityLivingBase) {
 								EnchantmentHelper.func_151384_a(hitEntityLiving, shootingEntity);

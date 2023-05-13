@@ -147,7 +147,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 					continue;
 				}
 				setBlockAndMetadata(world, i12, 15, k1, plankBlock, plankMeta);
-				if ((i2 >= 2 || k2 != 2) && (i2 != 2 || k2 >= 2)) {
+				if ((i2 >= 2 || k2 != 2) && i2 != 2) {
 					continue;
 				}
 				setBlockAndMetadata(world, i12, 16, k1, fenceBlock, fenceMeta);

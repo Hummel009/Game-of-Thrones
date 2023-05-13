@@ -290,7 +290,7 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 				int houseZ1 = 58;
 				int houseZ2 = 68;
 				if (l <= 2) {
-					if (l >= 1 && l <= 2) {
+					if (l >= 1) {
 						if (l == 1) {
 							addStructure(new GOTStructureYiTiTavernTown(false), -houseX - 7, -houseZ1, 0, true);
 						}

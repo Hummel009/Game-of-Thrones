@@ -165,9 +165,6 @@ public class GOTFactionBounties {
 			for (int i = 0; i < playerTags.tagCount(); ++i) {
 				NBTTagCompound playerData = playerTags.getCompoundTagAt(i);
 				UUID id = UUID.fromString(playerData.getString("UUID"));
-				if (id == null) {
-					continue;
-				}
 				PlayerData pd = new PlayerData(this, id);
 				pd.readFromNBT(playerData);
 				playerList.put(id, pd);

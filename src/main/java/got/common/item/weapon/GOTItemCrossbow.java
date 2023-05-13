@@ -181,16 +181,13 @@ public class GOTItemCrossbow extends ItemBow {
 		if (isLoaded(itemstack)) {
 			ItemStack boltItem = getLoaded(itemstack);
 			if (boltItem != null) {
-				float charge = 1.0f;
 				ItemStack shotBolt = boltItem.copy();
 				shotBolt.stackSize = 1;
-				GOTEntityCrossbowBolt bolt = new GOTEntityCrossbowBolt(world, entityplayer, shotBolt, charge * 2.0f * getCrossbowLaunchSpeedFactor(itemstack));
+				GOTEntityCrossbowBolt bolt = new GOTEntityCrossbowBolt(world, entityplayer, shotBolt, 2.0f * getCrossbowLaunchSpeedFactor(itemstack));
 				if (bolt.boltDamageFactor < 1.0) {
 					bolt.boltDamageFactor = 1.0;
 				}
-				if (charge >= 1.0f) {
-					bolt.setIsCritical(true);
-				}
+				bolt.setIsCritical(true);
 				applyCrossbowModifiers(bolt, itemstack);
 				if (!shouldConsumeBolt(itemstack, entityplayer)) {
 					bolt.canBePickedUp = 2;
@@ -198,7 +195,7 @@ public class GOTItemCrossbow extends ItemBow {
 				if (!world.isRemote) {
 					world.spawnEntityInWorld(bolt);
 				}
-				world.playSoundAtEntity(entityplayer, "got:item.crossbow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + charge * 0.5f);
+				world.playSoundAtEntity(entityplayer, "got:item.crossbow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + 0.5f);
 				itemstack.damageItem(1, entityplayer);
 				if (!world.isRemote) {
 					setLoaded(itemstack, null);

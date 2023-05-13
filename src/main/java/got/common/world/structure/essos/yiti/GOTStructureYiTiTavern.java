@@ -89,9 +89,6 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 						setBlockAndMetadata(world, i14, 4, k12, woodBeamBlock, woodBeamMeta | 4);
 						continue;
 					}
-					if (i22 != 8) {
-						continue;
-					}
 					setBlockAndMetadata(world, i14, 4, k12, woodBeamBlock, woodBeamMeta | 8);
 					continue;
 				}
@@ -214,9 +211,6 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 				}
 				if (k22 == 9) {
 					setBlockAndMetadata(world, i14, 8, k12, woodBeamBlock, woodBeamMeta | 4);
-					continue;
-				}
-				if (i22 != 4) {
 					continue;
 				}
 				setBlockAndMetadata(world, i14, 8, k12, woodBeamBlock, woodBeamMeta | 8);

@@ -386,10 +386,9 @@ public class GOTAchievement {
 
 	public static Category categoryForName(String name) {
 		for (Category category : Category.values()) {
-			if (!category.name().equals(name)) {
-				continue;
+			if (category.name().equals(name)) {
+				return category;
 			}
-			return category;
 		}
 		return null;
 	}

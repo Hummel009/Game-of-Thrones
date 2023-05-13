@@ -140,42 +140,18 @@ public class GOTModelBiped extends ModelBiped {
 				bipedRightArm.rotateAngleX = -1.0471976f;
 			}
 		}
-		boolean bowing = false;
-		float bowAmount = 0.0f;
-
-		if (bowing) {
-			float bowAmountRad = (float) Math.toRadians(bowAmount * 30.0f);
-			float bowCos = MathHelper.cos(bowAmountRad);
-			float bowSin = MathHelper.sin(bowAmountRad);
-			bipedHead.rotationPointY = base_headY + 12.0f * (1.0f - bowCos);
-			bipedHead.rotationPointZ = base_headY - 12.0f * bowSin;
-			bipedHeadwear.rotationPointY = bipedHead.rotationPointY;
-			bipedHeadwear.rotationPointZ = bipedHead.rotationPointZ;
-			bipedBody.rotationPointY = base_bodyY + 12.0f * (1.0f - bowCos);
-			bipedBody.rotationPointZ = base_bodyZ - 12.0f * bowSin;
-			bipedRightArm.rotationPointY = base_armY + 10.0f * (1.0f - bowCos);
-			bipedRightArm.rotationPointZ = base_armY - 12.0f * bowSin;
-			bipedLeftArm.rotationPointY = bipedRightArm.rotationPointY;
-			bipedLeftArm.rotationPointZ = bipedRightArm.rotationPointZ;
-			bipedHead.rotateAngleX = bowAmountRad;
-			bipedHeadwear.rotateAngleX = bowAmountRad;
-			bipedBody.rotateAngleX = bowAmountRad;
-			bipedRightArm.rotateAngleX = bowAmountRad;
-			bipedLeftArm.rotateAngleX = bowAmountRad;
-		} else {
-			if (!isSneak) {
-				bipedHead.rotationPointY = base_headY;
-				bipedHead.rotationPointZ = base_headZ;
-				bipedHeadwear.rotationPointY = base_headY;
-				bipedHeadwear.rotationPointZ = base_headZ;
-			}
-			bipedBody.rotationPointY = base_bodyY;
-			bipedBody.rotationPointZ = base_bodyZ;
-			bipedRightArm.rotationPointY = base_armY;
-			bipedRightArm.rotationPointZ = base_armZ;
-			bipedLeftArm.rotationPointY = base_armY;
-			bipedLeftArm.rotationPointZ = base_armZ;
+		if (!isSneak) {
+			bipedHead.rotationPointY = base_headY;
+			bipedHead.rotationPointZ = base_headZ;
+			bipedHeadwear.rotationPointY = base_headY;
+			bipedHeadwear.rotationPointZ = base_headZ;
 		}
+		bipedBody.rotationPointY = base_bodyY;
+		bipedBody.rotationPointZ = base_bodyZ;
+		bipedRightArm.rotationPointY = base_armY;
+		bipedRightArm.rotationPointZ = base_armZ;
+		bipedLeftArm.rotationPointY = base_armY;
+		bipedLeftArm.rotationPointZ = base_armZ;
 	}
 
 	public void setupModelBiped() {

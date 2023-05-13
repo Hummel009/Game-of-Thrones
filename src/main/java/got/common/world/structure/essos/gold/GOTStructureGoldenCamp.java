@@ -94,17 +94,15 @@ public class GOTStructureGoldenCamp extends GOTVillageGen {
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
-			if (true) {
-				int dSq = i * i + k * k;
-				int imn = 20 + random.nextInt(4);
-				if (dSq < imn * imn) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				int omn = 53 - random.nextInt(4);
-				int omx = 60 + random.nextInt(4);
-				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
-					return GOTBezierType.PATH_DIRTY;
-				}
+			int dSq = i * i + k * k;
+			int imn = 20 + random.nextInt(4);
+			if (dSq < imn * imn) {
+				return GOTBezierType.PATH_DIRTY;
+			}
+			int omn = 53 - random.nextInt(4);
+			int omx = 60 + random.nextInt(4);
+			if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
+				return GOTBezierType.PATH_DIRTY;
 			}
 			return null;
 		}

@@ -23,7 +23,10 @@ import org.apache.commons.lang3.tuple.Pair;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/questBook.png");

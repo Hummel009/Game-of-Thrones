@@ -36,22 +36,11 @@ public class GOTRenderBlade implements IItemRenderer {
 		EntityLivingBase entity = (EntityLivingBase) data[1];
 		Item item = itemstack.getItem();
 		entity.worldObj.theProfiler.startSection("blade");
-		boolean glows;
-		glows = true;
-		if (glows) {
-			GL11.glDisable(2896);
-		}
+		GL11.glDisable(2896);
 		if (largeItemRenderer != null) {
-			if (glows) {
-				largeItemRenderer.renderLargeItem(tokenGlowing);
-			} else {
-				largeItemRenderer.renderLargeItem();
-			}
+			largeItemRenderer.renderLargeItem(tokenGlowing);
 		} else {
-			IIcon icon = ((EntityLivingBase) data[1]).getItemIcon(itemstack, 0);
-			if (glows) {
-				icon = ((GOTItemSword) item).glowingIcon;
-			}
+			IIcon icon = ((GOTItemSword) item).glowingIcon;
 			icon = RenderBlocks.getInstance().getIconSafe(icon);
 			float minU = icon.getMinU();
 			float maxU = icon.getMaxU();
@@ -65,12 +54,10 @@ public class GOTRenderBlade implements IItemRenderer {
 		if (itemstack != null && itemstack.hasEffect(0)) {
 			GOTClientProxy.renderEnchantmentEffect();
 		}
-		if (glows) {
-			GL11.glEnable(2896);
-			if (GOTConfig.bladeGlow) {
-				for (int i = 0; i < 4; ++i) {
-					GOTClientProxy.renderEnchantmentEffect();
-				}
+		GL11.glEnable(2896);
+		if (GOTConfig.bladeGlow) {
+			for (int i = 0; i < 4; ++i) {
+				GOTClientProxy.renderEnchantmentEffect();
 			}
 		}
 		GL11.glDisable(32826);

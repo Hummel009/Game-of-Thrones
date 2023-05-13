@@ -83,14 +83,13 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 			default:
 				break;
 		}
-		int randomFloorWood = random.nextInt(2);
-		if (randomFloorWood == 0) {
+		if (random.nextBoolean()) {
 			plank2Block = GOTRegistry.planks2;
 			plank2Meta = 11;
 			plank2SlabBlock = GOTRegistry.woodSlabSingle4;
 			plank2SlabMeta = 3;
 			plank2StairBlock = GOTRegistry.stairsOlive;
-		} else if (randomFloorWood == 1) {
+		} else {
 			plank2Block = GOTRegistry.planks3;
 			plank2Meta = 0;
 			plank2SlabBlock = GOTRegistry.woodSlabSingle5;

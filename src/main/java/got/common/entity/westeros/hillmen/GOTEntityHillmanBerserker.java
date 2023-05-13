@@ -24,10 +24,10 @@ public class GOTEntityHillmanBerserker extends GOTEntityHillmanWarrior {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(2);
-		if (i == 0) {
+		int i = rand.nextInt(4);
+		if (i == 0 || i == 1 || i == 2) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironBattleaxe));
-		} else if (i == 1) {
+		} else {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeBattleaxe));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());

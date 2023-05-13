@@ -52,10 +52,10 @@ public class GOTEntityUtils {
 		npc.setCurrentItemOrArmor(1, dyeLeather(new ItemStack(Items.leather_boots), rand));
 
 		int legs = rand.nextInt(10);
-		if ((legs == 0 || legs == 1) && !alreadyHasChain) {
+		if (legs == 0 || legs == 1) {
 			npc.setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.bronzeChainmailLeggings));
 			alreadyHasChain = true;
-		} else if ((legs == 2 || legs == 3 || legs == 4) && !alreadyHasChain) {
+		} else if (legs == 2 || legs == 3 || legs == 4) {
 			npc.setCurrentItemOrArmor(2, new ItemStack(Items.chainmail_leggings));
 			alreadyHasChain = true;
 		} else {

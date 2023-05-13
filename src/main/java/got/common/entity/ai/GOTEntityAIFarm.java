@@ -81,7 +81,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				return true;
 			}
 			ItemStack bonemeal = getInventoryBonemeal();
-			return bonemeal == null || bonemeal != null && bonemeal.stackSize <= 16;
+			return bonemeal == null || bonemeal.stackSize <= 16;
 		}
 		return false;
 	}
@@ -554,7 +554,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	@Override
 	public void resetTask() {
 		action = null;
-		setAppropriateHomeRange(action);
+		setAppropriateHomeRange(null);
 		actionTarget = null;
 		pathTarget = null;
 		pathingTick = 0;

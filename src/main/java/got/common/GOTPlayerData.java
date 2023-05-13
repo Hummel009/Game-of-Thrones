@@ -1853,22 +1853,18 @@ public class GOTPlayerData {
 		for (int i7 = 0; i7 < cwpSharedUnlockedTags.tagCount(); i7++) {
 			NBTTagCompound nbt = cwpSharedUnlockedTags.getCompoundTagAt(i7);
 			UUID sharingPlayer = UUID.fromString(nbt.getString("SharingPlayer"));
-			if (sharingPlayer != null) {
-				int ID = nbt.getInteger("CustomID");
-				CWPSharedKey key = CWPSharedKey.keyFor(sharingPlayer, ID);
-				cwpSharedUnlocked.add(key);
-			}
+			int ID = nbt.getInteger("CustomID");
+			CWPSharedKey key = CWPSharedKey.keyFor(sharingPlayer, ID);
+			cwpSharedUnlocked.add(key);
 		}
 		cwpSharedHidden.clear();
 		NBTTagList cwpSharedHiddenTags = playerData.getTagList("CWPSharedHidden", 10);
 		for (int i8 = 0; i8 < cwpSharedHiddenTags.tagCount(); i8++) {
 			NBTTagCompound nbt = cwpSharedHiddenTags.getCompoundTagAt(i8);
 			UUID sharingPlayer = UUID.fromString(nbt.getString("SharingPlayer"));
-			if (sharingPlayer != null) {
-				int ID = nbt.getInteger("CustomID");
-				CWPSharedKey key = CWPSharedKey.keyFor(sharingPlayer, ID);
-				cwpSharedHidden.add(key);
-			}
+			int ID = nbt.getInteger("CustomID");
+			CWPSharedKey key = CWPSharedKey.keyFor(sharingPlayer, ID);
+			cwpSharedHidden.add(key);
 		}
 		wpUseCounts.clear();
 		NBTTagList wpCooldownTags = playerData.getTagList("WPUses", 10);
@@ -1894,12 +1890,10 @@ public class GOTPlayerData {
 		for (int i11 = 0; i11 < cwpSharedCooldownTags.tagCount(); i11++) {
 			NBTTagCompound nbt = cwpSharedCooldownTags.getCompoundTagAt(i11);
 			UUID sharingPlayer = UUID.fromString(nbt.getString("SharingPlayer"));
-			if (sharingPlayer != null) {
-				int ID = nbt.getInteger("CustomID");
-				CWPSharedKey key = CWPSharedKey.keyFor(sharingPlayer, ID);
-				int count = nbt.getInteger("Count");
-				cwpSharedUseCounts.put(key, count);
-			}
+			int ID = nbt.getInteger("CustomID");
+			CWPSharedKey key = CWPSharedKey.keyFor(sharingPlayer, ID);
+			int count = nbt.getInteger("Count");
+			cwpSharedUseCounts.put(key, count);
 		}
 		nextCwpID = 20000;
 		if (playerData.hasKey("NextCWPID")) {
@@ -1910,29 +1904,22 @@ public class GOTPlayerData {
 		for (int i12 = 0; i12 < fellowshipTags.tagCount(); i12++) {
 			NBTTagCompound nbt = fellowshipTags.getCompoundTagAt(i12);
 			UUID fsID = UUID.fromString(nbt.getString("ID"));
-			if (fsID != null) {
-				fellowshipIDs.add(fsID);
-			}
+			fellowshipIDs.add(fsID);
 		}
 		fellowshipInvites.clear();
 		NBTTagList fellowshipInviteTags = playerData.getTagList("FellowshipInvites", 10);
 		for (int i13 = 0; i13 < fellowshipInviteTags.tagCount(); i13++) {
 			NBTTagCompound nbt = fellowshipInviteTags.getCompoundTagAt(i13);
 			UUID fsID = UUID.fromString(nbt.getString("ID"));
-			if (fsID != null) {
-				UUID inviterID = null;
-				if (nbt.hasKey("InviterID")) {
-					inviterID = UUID.fromString(nbt.getString("InviterID"));
-				}
-				fellowshipInvites.add(new GOTFellowshipInvite(fsID, inviterID));
+			UUID inviterID = null;
+			if (nbt.hasKey("InviterID")) {
+				inviterID = UUID.fromString(nbt.getString("InviterID"));
 			}
+			fellowshipInvites.add(new GOTFellowshipInvite(fsID, inviterID));
 		}
 		chatBoundFellowshipID = null;
 		if (playerData.hasKey("ChatBoundFellowship")) {
-			UUID fsID = UUID.fromString(playerData.getString("ChatBoundFellowship"));
-			if (fsID != null) {
-				chatBoundFellowshipID = fsID;
-			}
+			chatBoundFellowshipID = UUID.fromString(playerData.getString("ChatBoundFellowship"));
 		}
 		structuresBanned = playerData.getBoolean("StructuresBanned");
 		teleportedKW = playerData.getBoolean("TeleportedKW");
@@ -2341,13 +2328,13 @@ public class GOTPlayerData {
 				addAlignment(entityplayer, penalty, wasPledge, alignX, alignY, alignZ);
 			}
 			world.playSoundAtEntity(entityplayer, "got:event.unpledge", 1.0F, 1.0F);
+			ChatComponentTranslation chatComponentTranslation;
 			if (intentional) {
-				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.unpledge", wasPledge.factionName());
-				entityplayer.addChatMessage(chatComponentTranslation);
+				chatComponentTranslation = new ChatComponentTranslation("got.chat.unpledge", wasPledge.factionName());
 			} else {
-				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.autoUnpledge", wasPledge.factionName());
-				entityplayer.addChatMessage(chatComponentTranslation);
+				chatComponentTranslation = new ChatComponentTranslation("got.chat.autoUnpledge", wasPledge.factionName());
 			}
+			entityplayer.addChatMessage(chatComponentTranslation);
 			checkAlignmentAchievements(wasPledge, prevAlign);
 		}
 	}
@@ -2902,7 +2889,7 @@ public class GOTPlayerData {
 		int preTick = ftSinceTick;
 		i = Math.max(0, i);
 		ftSinceTick = i;
-		boolean bigChange = (ftSinceTick == 0 || preTick == 0) && ftSinceTick != preTick || preTick < 0 && ftSinceTick >= 0;
+		boolean bigChange = (ftSinceTick == 0 || preTick == 0) && ftSinceTick != preTick || preTick < 0;
 		if (bigChange || isTimerAutosaveTick() || forceUpdate) {
 			markDirty();
 		}

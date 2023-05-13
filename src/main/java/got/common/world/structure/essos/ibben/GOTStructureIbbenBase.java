@@ -218,7 +218,7 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 			fenceGate2Block = GOTRegistry.fenceGateSpruce;
 			woodBeam2Block = GOTRegistry.woodBeamV1;
 			woodBeam2Meta = 1;
-		} else if (randomWood2 == 3) {
+		} else {
 			log2Block = GOTRegistry.wood3;
 			log2Meta = 1;
 			plank2Block = GOTRegistry.planks1;

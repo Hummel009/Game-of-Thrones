@@ -67,9 +67,6 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 						setBlockAndMetadata(world, 1, 0, k1, brickBlock, brickMeta);
 						continue;
 					}
-					if (step > 4) {
-						continue;
-					}
 					setBlockAndMetadata(world, -1, step, k1, brickStairBlock, 2);
 					setBlockAndMetadata(world, 0, step, k1, GOTRegistry.stairsSothoryosBrickObsidian, 2);
 					setBlockAndMetadata(world, 1, step, k1, brickStairBlock, 2);

@@ -44,6 +44,10 @@ public class GOTTradeEntry {
 		return tradeCost;
 	}
 
+	public void setCost(int i) {
+		tradeCost = i;
+	}
+
 	public float getLockedProgress() {
 		if (theTrader != null && theTrader.shouldLockTrades()) {
 			return (float) recentTradeValue / theTrader.getLockTradeAtValue();
@@ -111,9 +115,5 @@ public class GOTTradeEntry {
 		nbt.setInteger("Cost", tradeCost);
 		nbt.setInteger("RecentTradeValue", recentTradeValue);
 		nbt.setInteger("LockedTicks", lockedTicks);
-	}
-
-	public void setCost(int i) {
-		tradeCost = i;
 	}
 }

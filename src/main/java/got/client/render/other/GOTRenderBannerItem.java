@@ -22,7 +22,6 @@ public class GOTRenderBannerItem implements IItemRenderer {
 		GL11.glDisable(2884);
 		Entity holder = (Entity) data[1];
 		boolean isFirstPerson = holder == Minecraft.getMinecraft().thePlayer && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0;
-		boolean renderStand = false;
 		TextureManager textureManager = Minecraft.getMinecraft().getTextureManager();
 		if (isFirstPerson) {
 			GL11.glTranslatef(1.0f, 1.0f, 0.0f);
@@ -34,9 +33,6 @@ public class GOTRenderBannerItem implements IItemRenderer {
 		GL11.glScalef(1.0f, -1.0f, 1.0f);
 		GOTItemBanner.BannerType bannerType = GOTItemBanner.getBannerType(itemstack);
 		textureManager.bindTexture(GOTRenderBanner.getStandTexture(bannerType));
-		if (renderStand) {
-			model.renderStand(0.0625f);
-		}
 		model.renderPost(0.0625f);
 		model.renderLowerPost(0.0625f);
 		textureManager.bindTexture(GOTRenderBanner.getBannerTexture(bannerType));

@@ -51,9 +51,9 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		if (button.enabled) {
 			if (button == capeLeft) {
 				updateCurrentCape(-1, 0);
-			} else if (button.enabled && button == goBack) {
+			} else if (button == goBack) {
 				mc.displayGuiScreen(new GOTGuiMenu());
-			} else if (button.enabled && button == goToShield) {
+			} else if (button == goToShield) {
 				mc.displayGuiScreen(new GOTGuiShields());
 			} else if (button == capeSelect) {
 				updateCurrentCape(0, 0);

@@ -76,9 +76,6 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 						setBlockAndMetadata(world, i1, 4, k1, woodBeamBlock, woodBeamMeta | 4);
 						continue;
 					}
-					if (i2 != 6) {
-						continue;
-					}
 					setBlockAndMetadata(world, i1, 4, k1, woodBeamBlock, woodBeamMeta | 8);
 					continue;
 				}
@@ -222,9 +219,6 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 				}
 				if (k2 == 7) {
 					setBlockAndMetadata(world, i19, 8, k1, woodBeamBlock, woodBeamMeta | 4);
-					continue;
-				}
-				if (i2 != 5) {
 					continue;
 				}
 				setBlockAndMetadata(world, i19, 8, k1, woodBeamBlock, woodBeamMeta | 8);

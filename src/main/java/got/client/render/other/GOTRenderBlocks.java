@@ -633,7 +633,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		if (topDoor ? world.getBlock(i, j - 1, k) != block : world.getBlock(i, j + 1, k) != block) {
 			return false;
 		}
-		boolean flag;
 		float f = 0.5f;
 		float f1 = 1.0f;
 		float f2 = 0.8f;
@@ -668,9 +667,8 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		tessellator.setColorOpaque_F(f3, f3, f3);
 		iicon = renderblocks.getBlockIcon(block, world, i, j, k, 5);
 		renderblocks.renderFaceXPos(block, i, j, k, iicon);
-		flag = true;
 		renderblocks.flipTexture = false;
-		return flag;
+		return true;
 	}
 
 	public void renderDoublePlant(IBlockAccess world, int i, int j, int k, BlockDoublePlant block, RenderBlocks renderblocks) {

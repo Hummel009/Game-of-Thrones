@@ -108,10 +108,10 @@ public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		int weapon = rand.nextInt(2);
-		if (weapon == 0) {
+		int weapon = rand.nextInt(4);
+		if (weapon == 0 || weapon == 1 || weapon == 2) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironDagger));
-		} else if (weapon == 1) {
+		} else {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeDagger));
 		}
 		npcItemsInv.setIdleItem(null);

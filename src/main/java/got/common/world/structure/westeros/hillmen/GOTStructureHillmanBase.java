@@ -88,8 +88,7 @@ public abstract class GOTStructureHillmanBase extends GOTStructureBase {
 			fenceGateBlock = GOTRegistry.fenceGateSpruce;
 			doorBlock = GOTRegistry.doorSpruce;
 		} else {
-			int randomWood = random.nextInt(2);
-			if (randomWood == 0) {
+			if (random.nextBoolean()) {
 				woodBlock = Blocks.log;
 				woodMeta = 0;
 				plankBlock = Blocks.planks;
@@ -101,7 +100,7 @@ public abstract class GOTStructureHillmanBase extends GOTStructureBase {
 				fenceMeta = 0;
 				fenceGateBlock = Blocks.fence_gate;
 				doorBlock = Blocks.wooden_door;
-			} else if (randomWood == 1) {
+			} else {
 				woodBlock = GOTRegistry.wood5;
 				woodMeta = 0;
 				plankBlock = GOTRegistry.planks2;

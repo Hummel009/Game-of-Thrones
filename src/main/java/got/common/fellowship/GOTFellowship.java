@@ -206,9 +206,6 @@ public class GOTFellowship {
 		for (int i = 0; i < memberTags.tagCount(); ++i) {
 			NBTTagCompound nbt = memberTags.getCompoundTagAt(i);
 			UUID member = UUID.fromString(nbt.getString("Member"));
-			if (member == null) {
-				continue;
-			}
 			memberUUIDs.add(member);
 			if (!nbt.hasKey("Admin") || !nbt.getBoolean("Admin")) {
 				continue;
@@ -219,10 +216,9 @@ public class GOTFellowship {
 		NBTTagList waypointSharerTags = fsData.getTagList("WaypointSharers", 8);
 		for (int i = 0; i < waypointSharerTags.tagCount(); ++i) {
 			UUID waypointSharer = UUID.fromString(waypointSharerTags.getStringTagAt(i));
-			if (waypointSharer == null || !containsPlayer(waypointSharer)) {
-				continue;
+			if (containsPlayer(waypointSharer)) {
+				waypointSharerUUIDs.add(waypointSharer);
 			}
-			waypointSharerUUIDs.add(waypointSharer);
 		}
 		if (fsData.hasKey("Name")) {
 			fellowshipName = fsData.getString("Name");

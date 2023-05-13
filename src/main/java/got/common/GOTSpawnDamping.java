@@ -24,10 +24,7 @@ public class GOTSpawnDamping {
 			return GOTDimension.getCurrentDimension(world).spawnCap;
 		}
 		EnumCreatureType creatureType = EnumCreatureType.valueOf(type);
-		if (creatureType != null) {
-			return creatureType.getMaxNumberOfCreature();
-		}
-		return -1;
+		return creatureType.getMaxNumberOfCreature();
 	}
 
 	public static int getCreatureSpawnCap(EnumCreatureType type, World world) {

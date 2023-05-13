@@ -137,7 +137,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 				if (slab) {
 					setBlockAndMetadata(world, i1, 6, k1, roofSlabBlock, roofSlabMeta);
 				}
-				boolean full = i2 == 0 && k1 >= -1 && k1 <= 2;
+				boolean full = i2 == 0 && k1 >= -1;
 				if (i2 == 1 && k1 >= 0 && k1 <= 1) {
 					full = true;
 				}

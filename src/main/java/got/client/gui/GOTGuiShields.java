@@ -48,9 +48,9 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		if (button.enabled) {
 			if (button == shieldLeft) {
 				updateCurrentShield(-1, 0);
-			} else if (button.enabled && button == goBack) {
+			} else if (button == goBack) {
 				mc.displayGuiScreen(new GOTGuiMenu());
-			} else if (button.enabled && button == goToCape) {
+			} else if (button == goToCape) {
 				mc.displayGuiScreen(new GOTGuiCapes());
 			} else if (button == shieldSelect) {
 				updateCurrentShield(0, 0);

@@ -434,12 +434,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 										zonesInView.add(zone);
 										continue;
 									}
-									if (pass == 1 && strength > 0.0f) {
+									if (strength > 0.0f) {
 										float strFrac = strength / highestViewedConqStr;
 										float strAlpha = MathHelper.clamp_float(strFrac, 0.0f, 1.0f);
-										if (strength > 0.0f) {
-											strAlpha = Math.max(strAlpha, 0.1f);
-										}
+										strAlpha = Math.max(strAlpha, 0.1f);
 										GOTConquestGrid.ConquestEffective effect = GOTConquestGrid.getConquestEffectIn(mc.theWorld, zone, conquestViewingFaction);
 										int zoneColor = 0xBB0000 | Math.round(strAlpha * 255.0f) << 24;
 										if (effect == GOTConquestGrid.ConquestEffective.EFFECTIVE) {
@@ -744,7 +742,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						if (pass == 0) {
 							int color = 0xBB0000 | Math.round(frac * 255.0f) << 24;
 							Gui.drawRect(x0, y0, x1, y1, color);
-						} else if (pass == 1 && l % 2 == 0) {
+						} else if (l % 2 == 0) {
 							String keyLabel = GOTAlignmentValues.formatConqForDisplay(strFrac, false);
 							int strX = (int) ((x0 + keyWidth / 2) / labelScaleRel);
 							int strY = (int) ((y0 + keyHeight / 2) / labelScaleRel) - fontRendererObj.FONT_HEIGHT / 2;
@@ -1359,8 +1357,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					if (labels && x >= mapXMin - (clip = 200) && x <= mapXMax + clip && y >= mapYMin - clip && y <= mapYMax + clip) {
 						float zoomlerp = (zoomExp + 1.0f) / 4.0f;
 						float scale = zoomlerp = Math.min(zoomlerp, 1.0f);
-						String name = null;
-						int nameWidth = fontRendererObj.getStringWidth(name);
+						int nameWidth = fontRendererObj.getStringWidth(null);
 						int nameInterval = (int) ((nameWidth * 2 + 100) * 200.0f / zoomScaleStable);
 						if (i % nameInterval < interval) {
 							boolean endNear = false;
@@ -1395,8 +1392,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								GL11.glBlendFunc(770, 771);
 								int strX = -nameWidth / 2;
 								int strY = -15;
-								fontRendererObj.drawString(name, strX + 1, strY + 1, (alphaI << 24));
-								fontRendererObj.drawString(name, strX, strY, 16777215 + (alphaI << 24));
+								fontRendererObj.drawString(null, strX + 1, strY + 1, (alphaI << 24));
+								fontRendererObj.drawString(null, strX, strY, 16777215 + (alphaI << 24));
 								GL11.glDisable(3042);
 								GL11.glPopMatrix();
 								endMapClipping();
@@ -1452,7 +1449,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					if ((!mouseControlZone || !mouseControlZoneReduced) && (dx = mouseX - (trans = transformCoords(zone.xCoord, zone.zCoord))[0]) * dx + (dy = mouseY - trans[1]) * dy <= (rScaled = radius * zoomScale) * rScaled) {
 						if (pass >= 1) {
 							mouseControlZone = true;
-						} else if (pass == 0) {
+						} else {
 							mouseControlZoneReduced = true;
 						}
 					}

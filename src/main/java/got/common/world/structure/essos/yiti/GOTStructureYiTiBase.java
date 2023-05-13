@@ -217,8 +217,7 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 				roofWallBlock = GOTRegistry.wallClayTileDyed;
 				roofWallMeta = 14;
 			} else {
-				int randomClay = random.nextInt(2);
-				if (randomClay == 0) {
+				if (random.nextBoolean()) {
 					roofBlock = GOTRegistry.clayTileDyed;
 					roofMeta = 12;
 					roofSlabBlock = GOTRegistry.slabClayTileDyedSingle2;
@@ -226,7 +225,7 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 					roofStairBlock = GOTRegistry.stairsClayTileDyedBrown;
 					roofWallBlock = GOTRegistry.wallClayTileDyed;
 					roofWallMeta = 12;
-				} else if (randomClay == 1) {
+				} else {
 					roofBlock = GOTRegistry.clayTileDyed;
 					roofMeta = 1;
 					roofSlabBlock = GOTRegistry.slabClayTileDyedSingle1;

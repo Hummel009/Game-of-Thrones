@@ -136,7 +136,7 @@ public class GOTGuiAnvil extends GuiContainer {
 			}
 		}
 		if (costText != null) {
-			int colorF = 0xFF000000 | (color & 0xFCFCFC) >> 2 | color & 0xFF000000;
+			int colorF = 0xFF000000 | (color & 0xFCFCFC) >> 2;
 			int x = xSize - 8 - fontRendererObj.getStringWidth(costText);
 			int y = 94;
 			if (fontRendererObj.getUnicodeFlag()) {

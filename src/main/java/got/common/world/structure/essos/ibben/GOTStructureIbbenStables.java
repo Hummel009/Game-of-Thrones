@@ -172,7 +172,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 					continue;
 				}
 				if (i2 == 7 || k1 == 26) {
-					boolean beam = k1 == 19 && i2 == 7;
+					boolean beam = k1 == 19;
 					if (k1 == 26 && i2 % 7 == 0) {
 						beam = true;
 					}

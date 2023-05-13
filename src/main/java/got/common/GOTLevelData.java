@@ -554,9 +554,6 @@ public class GOTLevelData {
 
 	public static void setPlayerBannedForStructures(String username, boolean flag) {
 		UUID uuid = UUID.fromString(PreYggdrasilConverter.func_152719_a(username));
-		if (uuid != null) {
-			getData(uuid).setStructuresBanned(flag);
-		}
 	}
 
 	public static void setStructuresBanned(boolean banned) {

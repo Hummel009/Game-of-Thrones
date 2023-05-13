@@ -240,7 +240,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		if (canRideSpider() && getAttackTarget() != entityplayer) {
 			boolean hasRequiredAlignment = GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 50.0f;
 			boolean notifyNotEnoughAlignment = false;
-			if (!notifyNotEnoughAlignment && itemstack != null && GOT.isOreNameEqual(itemstack, "bone") && isNPCTamed() && getHealth() < getMaxHealth()) {
+			if (itemstack != null && GOT.isOreNameEqual(itemstack, "bone") && isNPCTamed() && getHealth() < getMaxHealth()) {
 				if (hasRequiredAlignment) {
 					if (!entityplayer.capabilities.isCreativeMode) {
 						--itemstack.stackSize;

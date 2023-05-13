@@ -15,7 +15,10 @@ import net.minecraft.util.EnumChatFormatting;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.input.BOMInputStream;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
@@ -157,9 +160,9 @@ public class GOTSpeech {
 				}
 				SpeechBank bank;
 				if (random) {
-					bank = new SpeechBank(speechBankName.getKey(), random, speeches);
+					bank = new SpeechBank(speechBankName.getKey(), true, speeches);
 				} else {
-					bank = new SpeechBank(speechBankName.getKey(), random, allLines);
+					bank = new SpeechBank(speechBankName.getKey(), false, allLines);
 				}
 				allSpeechBanks.put(speechBankName.getKey(), bank);
 			} catch (Exception e) {

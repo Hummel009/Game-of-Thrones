@@ -356,9 +356,6 @@ public class GOTEntityInvasionSpawner extends Entity {
 					String playerS = playerData.getString("Player");
 					try {
 						UUID player = UUID.fromString(playerS);
-						if (player == null) {
-							continue;
-						}
 						short time = playerData.getShort("Time");
 						recentPlayerContributors.put(player, (int) time);
 					} catch (IllegalArgumentException e) {

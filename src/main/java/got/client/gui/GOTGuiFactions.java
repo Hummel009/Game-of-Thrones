@@ -112,7 +112,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 					isPledging = false;
 					isUnpledging = false;
 				}
-			} else if (button.enabled && button == goBack) {
+			} else if (button == goBack) {
 				mc.displayGuiScreen(new GOTGuiMenu());
 			} else if (button == buttonPagePrev) {
 				Page newPage = currentPage.prev();
@@ -213,7 +213,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				buttonPledgeConfirm.setDisplayLines(StatCollector.translateToLocal("got.gui.factions.pledge"));
 				buttonPledgeRevoke.enabled = false;
 				buttonPledgeRevoke.visible = false;
-			} else if (isUnpledging) {
+			} else {
 				buttonPledgeConfirm.enabled = false;
 				buttonPledgeConfirm.visible = false;
 				buttonPledgeRevoke.enabled = true;
@@ -410,7 +410,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 						float cdFrac = (float) clientPD.getPledgeBreakCooldown() / clientPD.getPledgeBreakCooldownStart();
 						drawTexturedModalRect(guiLeft + pageWidth / 2 - 75, guiTop + pageY + 60, 22, 232, MathHelper.ceiling_float_int(cdFrac * 150.0f), 8);
 					}
-				} else if (isUnpledging) {
+				} else {
 					String desc5 = StatCollector.translateToLocalFormatted("got.gui.factions.unpledgeDesc1", currentFaction.factionName());
 					displayLines.addAll(fontRendererObj.listFormattedStringToWidth(desc5, stringWidth2));
 					displayLines.add("");

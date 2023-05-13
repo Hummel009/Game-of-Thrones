@@ -215,36 +215,34 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		tessellator.addVertexWithUV(x1, y0, z, maxU, minV);
 		tessellator.addVertexWithUV(x0, y0, z, minU, minV);
 		tessellator.draw();
-		if (true) {
-			int mtX = 0;
-			int mtY = 0;
-			int mtW = 20;
-			double mtMinU = (double) (mtX - mtW) / GOTGenLayerWorld.imageWidth;
-			double mtMaxU = (double) (mtX + mtW) / GOTGenLayerWorld.imageWidth;
-			double mtMinV = (double) (mtY - mtW) / GOTGenLayerWorld.imageHeight;
-			double mtMaxV = (double) (mtY + mtW) / GOTGenLayerWorld.imageHeight;
-			if (minU <= mtMaxU && maxU >= mtMinU && minV <= mtMaxV && maxV >= mtMinV) {
-				GL11.glDisable(3553);
-				int oceanColor = getMapOceanColor(sepia);
-				mtMinU = Math.max(mtMinU, minU);
-				mtMaxU = Math.min(mtMaxU, maxU);
-				mtMinV = Math.max(mtMinV, minV);
-				mtMaxV = Math.min(mtMaxV, maxV);
-				double ratioX = (x1 - x0) / (maxU - minU);
-				double ratioY = (y1 - y0) / (maxV - minV);
-				double mtX0 = x0 + (mtMinU - minU) * ratioX;
-				double mtX1 = x0 + (mtMaxU - minU) * ratioX;
-				double mtY0 = y0 + (mtMinV - minV) * ratioY;
-				double mtY1 = y0 + (mtMaxV - minV) * ratioY;
-				tessellator.startDrawingQuads();
-				tessellator.setColorOpaque_I(oceanColor);
-				tessellator.addVertexWithUV(mtX0, mtY1, z, mtMinU, mtMaxV);
-				tessellator.addVertexWithUV(mtX1, mtY1, z, mtMaxU, mtMaxV);
-				tessellator.addVertexWithUV(mtX1, mtY0, z, mtMaxU, mtMinV);
-				tessellator.addVertexWithUV(mtX0, mtY0, z, mtMinU, mtMinV);
-				tessellator.draw();
-				GL11.glEnable(3553);
-			}
+		int mtX = 0;
+		int mtY = 0;
+		int mtW = 20;
+		double mtMinU = (double) (mtX - mtW) / GOTGenLayerWorld.imageWidth;
+		double mtMaxU = (double) (mtX + mtW) / GOTGenLayerWorld.imageWidth;
+		double mtMinV = (double) (mtY - mtW) / GOTGenLayerWorld.imageHeight;
+		double mtMaxV = (double) (mtY + mtW) / GOTGenLayerWorld.imageHeight;
+		if (minU <= mtMaxU && maxU >= mtMinU && minV <= mtMaxV && maxV >= mtMinV) {
+			GL11.glDisable(3553);
+			int oceanColor = getMapOceanColor(sepia);
+			mtMinU = Math.max(mtMinU, minU);
+			mtMaxU = Math.min(mtMaxU, maxU);
+			mtMinV = Math.max(mtMinV, minV);
+			mtMaxV = Math.min(mtMaxV, maxV);
+			double ratioX = (x1 - x0) / (maxU - minU);
+			double ratioY = (y1 - y0) / (maxV - minV);
+			double mtX0 = x0 + (mtMinU - minU) * ratioX;
+			double mtX1 = x0 + (mtMaxU - minU) * ratioX;
+			double mtY0 = y0 + (mtMinV - minV) * ratioY;
+			double mtY1 = y0 + (mtMaxV - minV) * ratioY;
+			tessellator.startDrawingQuads();
+			tessellator.setColorOpaque_I(oceanColor);
+			tessellator.addVertexWithUV(mtX0, mtY1, z, mtMinU, mtMaxV);
+			tessellator.addVertexWithUV(mtX1, mtY1, z, mtMaxU, mtMaxV);
+			tessellator.addVertexWithUV(mtX1, mtY0, z, mtMaxU, mtMinV);
+			tessellator.addVertexWithUV(mtX0, mtY0, z, mtMinU, mtMinV);
+			tessellator.draw();
+			GL11.glEnable(3553);
 		}
 	}
 

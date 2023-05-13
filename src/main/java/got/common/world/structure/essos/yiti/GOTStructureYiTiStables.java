@@ -109,10 +109,9 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 						setBlockAndMetadata(world, i12, 1, k1, plankBlock, plankMeta);
 						setBlockAndMetadata(world, i12, 2, k1, plankBlock, plankMeta);
 					} else {
-						int randomGround = random.nextInt(2);
-						if (randomGround == 0) {
+						if (random.nextBoolean()) {
 							setBlockAndMetadata(world, i12, 0, k1, Blocks.dirt, 1);
-						} else if (randomGround == 1) {
+						} else {
 							setBlockAndMetadata(world, i12, 0, k1, GOTRegistry.dirtPath, 1);
 						}
 					}

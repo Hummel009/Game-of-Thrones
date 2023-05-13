@@ -95,7 +95,7 @@ public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 							if (random.nextBoolean()) {
 								plantFlower(world, random, i1, 1, k1);
 							}
-						} else if (sum >= 8 && sum <= 9) {
+						} else if (sum <= 9) {
 							setBlockAndMetadata(world, i1, 1, k1, Blocks.grass, 0);
 							setGrassToDirt(world, i1, 0, k1);
 							if (random.nextBoolean()) {

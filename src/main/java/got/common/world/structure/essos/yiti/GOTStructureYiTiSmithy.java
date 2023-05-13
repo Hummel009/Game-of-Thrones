@@ -71,9 +71,6 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 						setBlockAndMetadata(world, i14, 4, k1, woodBeamBlock, woodBeamMeta | 4);
 						continue;
 					}
-					if (i22 != 6) {
-						continue;
-					}
 					setBlockAndMetadata(world, i14, 4, k1, woodBeamBlock, woodBeamMeta | 8);
 					continue;
 				}
@@ -223,9 +220,6 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 			if (k22 >= 1) {
 				setBlockAndMetadata(world, -1, 8, k15, roofStairBlock, 4);
 				setBlockAndMetadata(world, 1, 8, k15, roofStairBlock, 5);
-			}
-			if (k22 < 0) {
-				continue;
 			}
 			setBlockAndMetadata(world, 0, 9, k15, roofSlabBlock, roofSlabMeta);
 		}

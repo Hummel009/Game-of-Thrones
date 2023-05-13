@@ -68,9 +68,6 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 						setBlockAndMetadata(world, i13, 4, k122, woodBeamBlock, woodBeamMeta | 4);
 						continue;
 					}
-					if (i2 != 4) {
-						continue;
-					}
 					setBlockAndMetadata(world, i13, 4, k122, woodBeamBlock, woodBeamMeta | 8);
 					continue;
 				}

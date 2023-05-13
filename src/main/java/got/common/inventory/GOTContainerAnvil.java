@@ -19,7 +19,6 @@ import got.common.entity.other.GOTTradeable;
 import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
 import got.common.item.AnvilNameColorProvider;
 import got.common.item.other.*;
-import got.common.item.weapon.GOTItemCrossbow;
 import got.common.item.weapon.GOTItemSarbacane;
 import got.common.item.weapon.GOTItemThrowingAxe;
 import net.minecraft.enchantment.Enchantment;
@@ -115,7 +114,7 @@ public class GOTContainerAnvil extends Container {
 		if (item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
 			return true;
 		}
-		return item instanceof ItemBow || item instanceof GOTItemCrossbow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
+		return item instanceof ItemBow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
 	}
 
 	public static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
@@ -755,21 +754,19 @@ public class GOTContainerAnvil extends Container {
 				materialCost = 0;
 			}
 			materialCost += renameCost;
-			if (inputCopy != null) {
-				int nextAnvilCost = GOTEnchantmentHelper.getAnvilCost(inputItem);
-				if (combinerItem != null) {
-					int combinerAnvilCost = GOTEnchantmentHelper.getAnvilCost(combinerItem);
-					nextAnvilCost = Math.max(nextAnvilCost, combinerAnvilCost);
-				}
-				if (combining) {
-					nextAnvilCost += 2;
-				} else if (repairing) {
-					++nextAnvilCost;
-				}
-				nextAnvilCost = Math.max(nextAnvilCost, 0);
-				if (nextAnvilCost > 0) {
-					GOTEnchantmentHelper.setAnvilCost(inputCopy, nextAnvilCost);
-				}
+			int nextAnvilCost = GOTEnchantmentHelper.getAnvilCost(inputItem);
+			if (combinerItem != null) {
+				int combinerAnvilCost = GOTEnchantmentHelper.getAnvilCost(combinerItem);
+				nextAnvilCost = Math.max(nextAnvilCost, combinerAnvilCost);
+			}
+			if (combining) {
+				nextAnvilCost += 2;
+			} else if (repairing) {
+				++nextAnvilCost;
+			}
+			nextAnvilCost = Math.max(nextAnvilCost, 0);
+			if (nextAnvilCost > 0) {
+				GOTEnchantmentHelper.setAnvilCost(inputCopy, nextAnvilCost);
 			}
 			if (GOTEnchantmentHelper.isReforgeable(inputItem)) {
 				ItemStack reforgeCopy;

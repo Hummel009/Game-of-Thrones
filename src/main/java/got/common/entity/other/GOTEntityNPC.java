@@ -908,7 +908,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				setInitialHome = true;
 			}
 			preventKidnap = GOTConfig.preventTraderKidnap;
-			if (preventKidnap > 0 && setInitialHome && initHomeRange > 0 && getDistanceSq(initHomeX + 0.5, initHomeY + 0.5, initHomeZ + 0.5) > preventKidnap * preventKidnap) {
+			if (preventKidnap > 0 && initHomeRange > 0 && getDistanceSq(initHomeX + 0.5, initHomeY + 0.5, initHomeZ + 0.5) > preventKidnap * preventKidnap) {
 				if (ridingEntity != null) {
 					mountEntity(null);
 				}
@@ -1147,7 +1147,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (miniquest != null) {
 			objective = miniquest.getProgressedObjectiveInSpeech();
 		}
-		sendSpeechBank(entityplayer, speechBank, location, objective);
+		sendSpeechBank(entityplayer, speechBank, null, objective);
 	}
 
 	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, String location, String objective) {

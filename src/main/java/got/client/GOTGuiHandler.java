@@ -64,13 +64,14 @@ public class GOTGuiHandler {
 	public static Set<String> coinCount_excludedGUIs_clsNames = new HashSet<>();
 	public static Set<String> coinCount_excludedInvTypes_clsNames = new HashSet<>();
 	public static boolean coinCountLeftSide;
-	private int descScrollIndex;
 
 	static {
 		coinCount_excludedGUIs.add(GuiContainerCreative.class);
 		coinCount_excludedInvTypes.add(GOTContainerCoinExchange.InventoryCoinExchangeSlot.class);
 		coinCount_excludedInvTypes.add(InventoryCraftResult.class);
 	}
+
+	public int descScrollIndex;
 
 	public GOTGuiHandler() {
 		descScrollIndex = -1;
@@ -141,7 +142,6 @@ public class GOTGuiHandler {
 				GOTAchievement achievement = GOTAchievement.achievementForCategoryAndID(category, achievementID);
 				assert achievement != null;
 				ChatComponentTranslation name = new ChatComponentTranslation("got.gui.achievements.hover.name", achievement.getAchievementChatComponent(entityplayer));
-				assert category != null;
 				ChatComponentTranslation subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
 				subtitle.getChatStyle().setItalic(true);
 				String desc = achievement.getDescription(entityplayer);
