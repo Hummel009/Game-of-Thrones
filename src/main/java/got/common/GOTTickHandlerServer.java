@@ -101,9 +101,7 @@ public class GOTTickHandlerServer {
 							if (entityplayer.dimension == 0) {
 								dimension = GOTDimension.GAME_OF_THRONES.dimensionID;
 							}
-							if (world instanceof WorldServer) {
-								MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityplayer, dimension, new GOTTeleporter(DimensionManager.getWorld(dimension), true));
-							}
+							MinecraftServer.getServer().getConfigurationManager().transferPlayerToDimension(entityplayer, dimension, new GOTTeleporter(DimensionManager.getWorld(dimension), true));
 							playersInPortals.remove(entityplayer);
 						}
 					} else {
