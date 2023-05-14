@@ -57,7 +57,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 			for (int i11 = -11; i11 <= 11; i11++) {
 				int i12 = Math.abs(i10);
 				int k2 = Math.abs(i11);
-				if (i12 >= 9 && i12 <= 11 && k2 <= 5 || k2 >= 9 && k2 <= 11 && i12 <= 5) {
+				if (i12 >= 9 && k2 <= 5 || k2 >= 9 && i12 <= 5) {
 					boolean pillar = false;
 					if (i12 == 11) {
 						pillar = k2 == 2 || k2 == 5;
@@ -104,7 +104,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 						int i16 = Math.abs(i14);
 						int k4 = Math.abs(k2);
 						if ((i15 != 4 || k3 < 3) && (k3 != 4 || i15 < 3)) {
-							if (i15 == 4 && k3 <= 2 || k3 == 4 && i15 <= 2 || i15 == 3 && k3 == 3) {
+							if (i15 == 4 || k3 == 4 || i15 == 3 && k3 == 3) {
 								boolean pillar = false;
 								if (i15 == 4) {
 									pillar = k3 == 2;

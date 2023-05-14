@@ -244,7 +244,6 @@ public class GOTEntityQuestInfo {
 
 	public void readFromNBT(NBTTagCompound nbt) {
 		int i;
-		UUID player;
 		if (nbt.hasKey("MQOffer", 10)) {
 			NBTTagCompound questData = nbt.getCompoundTag("MQOffer");
 			miniquestOffer = GOTMiniQuest.loadQuestFromNBT(questData, null);
@@ -275,7 +274,9 @@ public class GOTEntityQuestInfo {
 			UUID player2 = UUID.fromString(s);
 			activeQuestPlayers.add(player2);
 		}
-		if (nbt.hasKey("NPCMiniQuestPlayer") && (player = UUID.fromString(nbt.getString("NPCMiniQuestPlayer"))) != null) {
+		if (nbt.hasKey("NPCMiniQuestPlayer")) {
+			String playerString = nbt.getString("NPCMiniQuestPlayer");
+			UUID player = UUID.fromString(playerString);
 			activeQuestPlayers.add(player);
 		}
 	}

@@ -185,7 +185,7 @@ public class GOTMapGenCaves extends MapGenBase {
 						for (int var43 = var56; !anyWater && var43 < var40; ++var43) {
 							for (int var44 = var38 + 1; !anyWater && var44 >= var57 - 1; --var44) {
 								var45 = (var42 * 16 + var43) * 256 + var44;
-								if (var44 < 0 || var44 >= 256) {
+								if (var44 >= 256) {
 									continue;
 								}
 								if (blockArray[var45] == Blocks.flowing_water || blockArray[var45] == Blocks.water) {

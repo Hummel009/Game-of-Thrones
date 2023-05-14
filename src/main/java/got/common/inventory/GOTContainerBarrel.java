@@ -98,7 +98,7 @@ public class GOTContainerBarrel extends Container {
 				if (aBarrelSlot.isItemValid(itemstack1)) {
 					flag = GOTRecipeBrewing.isWaterSource(itemstack1) ? mergeItemStack(itemstack1, 6, 9, false) : mergeItemStack(itemstack1, 0, 6, false);
 				}
-				if (!flag && (i >= 10 && i < 37 ? !mergeItemStack(itemstack1, 37, 46, false) : !mergeItemStack(itemstack1, 10, 37, false))) {
+				if (!flag && (i < 37 ? !mergeItemStack(itemstack1, 37, 46, false) : !mergeItemStack(itemstack1, 10, 37, false))) {
 					return null;
 				}
 			}

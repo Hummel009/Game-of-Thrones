@@ -176,7 +176,7 @@ public class GOTContainerCoinExchange extends Container {
 				if (coinSlot.isItemValid(itemstack1) && mergeItemStack(itemstack1, 0, 1, true)) {
 					flag = true;
 				}
-				if (!flag && (i >= 3 && i < 30 ? !mergeItemStack(itemstack1, 30, 39, false) : !mergeItemStack(itemstack1, 3, 30, false))) {
+				if (!flag && (i < 30 ? !mergeItemStack(itemstack1, 30, 39, false) : !mergeItemStack(itemstack1, 3, 30, false))) {
 					return null;
 				}
 			}

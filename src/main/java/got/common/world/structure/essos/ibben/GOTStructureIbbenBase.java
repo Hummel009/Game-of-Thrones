@@ -217,7 +217,6 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 			fence2Meta = 1;
 			fenceGate2Block = GOTRegistry.fenceGateSpruce;
 			woodBeam2Block = GOTRegistry.woodBeamV1;
-			woodBeam2Meta = 1;
 		} else {
 			log2Block = GOTRegistry.wood3;
 			log2Meta = 1;
@@ -230,8 +229,8 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 			fence2Meta = 13;
 			fenceGate2Block = GOTRegistry.fenceGateLarch;
 			woodBeam2Block = GOTRegistry.woodBeam3;
-			woodBeam2Meta = 1;
 		}
+		woodBeam2Meta = 1;
 		if (oneWoodType() && random.nextInt(3) == 0) {
 			logBlock = log2Block;
 			logMeta = log2Meta;

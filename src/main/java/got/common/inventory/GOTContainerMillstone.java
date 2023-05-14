@@ -72,7 +72,7 @@ public class GOTContainerMillstone extends Container {
 					return null;
 				}
 				slot.onSlotChange(itemstack1, itemstack);
-			} else if (i != 0 ? GOTRecipeMillstone.getMillingResult(itemstack1) != null ? !mergeItemStack(itemstack1, 0, 1, false) : i >= 2 && i < 29 ? !mergeItemStack(itemstack1, 29, 38, false) : i >= 29 && i < 38 && !mergeItemStack(itemstack1, 2, 29, false) : !mergeItemStack(itemstack1, 2, 38, false)) {
+			} else if (i != 0 ? GOTRecipeMillstone.getMillingResult(itemstack1) != null ? !mergeItemStack(itemstack1, 0, 1, false) : i < 29 ? !mergeItemStack(itemstack1, 29, 38, false) : i < 38 && !mergeItemStack(itemstack1, 2, 29, false) : !mergeItemStack(itemstack1, 2, 38, false)) {
 				return null;
 			}
 			if (itemstack1.stackSize == 0) {

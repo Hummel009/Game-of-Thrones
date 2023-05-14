@@ -106,7 +106,7 @@ public class GOTMapGenRavine extends MapGenRavine {
 						for (int k1 = zMin; k1 < zMax; ++k1) {
 							for (int j1 = yMax + 1; j1 >= yMin - 1; --j1) {
 								int blockIndex = (i1 * 16 + k1) * 256 + j1;
-								if (j1 < 0 || j1 >= 256) {
+								if (j1 >= 256) {
 									continue;
 								}
 								if (isOceanBlock(blocks, blockIndex, i1, j1, k1, chunkX, chunkZ)) {

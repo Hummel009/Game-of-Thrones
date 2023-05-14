@@ -51,7 +51,7 @@ public class GOTRenderBlade implements IItemRenderer {
 			Tessellator tessellator = Tessellator.instance;
 			ItemRenderer.renderItemIn2D(tessellator, maxU, minV, minU, maxV, width, height, 0.0625f);
 		}
-		if (itemstack != null && itemstack.hasEffect(0)) {
+		if (itemstack.hasEffect(0)) {
 			GOTClientProxy.renderEnchantmentEffect();
 		}
 		GL11.glEnable(2896);

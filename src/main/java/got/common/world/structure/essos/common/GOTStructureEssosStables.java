@@ -44,7 +44,7 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 			for (int k1 = -7; k1 <= 7; ++k1) {
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
-				if (i2 <= 4 && k2 <= 7 || i1 >= 5 && i1 <= 8 && k2 <= 6) {
+				if (i2 <= 4 || i1 >= 5 && k2 <= 6) {
 					for (j1 = 0; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 						setBlockAndMetadata(world, i1, j1, k1, stoneBlock, stoneMeta);
 						setGrassToDirt(world, i1, j1 - 1, k1);

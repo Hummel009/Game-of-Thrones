@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="AnalysisUIOptions">
-    <option name="SPLITTER_PROPORTION" value="0.32489452" />
+    <option name="SPLITTER_PROPORTION" value="0.53727144" />
     <option name="ANALYZE_INJECTED_CODE" value="false" />
     <option name="SCOPE_TYPE" value="3" />
   </component>
@@ -271,7 +271,7 @@
       <workItem from="1683915143118" duration="763000" />
       <workItem from="1683916068689" duration="6770000" />
       <workItem from="1683967880309" duration="10084000" />
-      <workItem from="1683992362776" duration="14520000" />
+      <workItem from="1683992362776" duration="24844000" />
     </task>
     <servers />
   </component>

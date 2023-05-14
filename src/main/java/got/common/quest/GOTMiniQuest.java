@@ -324,7 +324,6 @@ public abstract class GOTMiniQuest {
 
 	public void readFromNBT(NBTTagCompound nbt) {
 		NBTTagCompound itemData;
-		UUID u;
 		ItemStack item;
 		GOTMiniQuestFactory factory;
 		NBTTagList itemTags;
@@ -333,8 +332,9 @@ public abstract class GOTMiniQuest {
 		if (nbt.hasKey("QuestGroup") && (factory = GOTMiniQuestFactory.forName(nbt.getString("QuestGroup"))) != null) {
 			questGroup = factory;
 		}
-		if (nbt.hasKey("QuestUUID") && (u = UUID.fromString(nbt.getString("QuestUUID"))) != null) {
-			questUUID = u;
+		if (nbt.hasKey("QuestUUID")) {
+			String questUUIDString = nbt.getString("QuestUUID");
+			questUUID = UUID.fromString(questUUIDString);
 		}
 		entityUUID = nbt.hasKey("UUIDMost") && nbt.hasKey("UUIDLeast") ? new UUID(nbt.getLong("UUIDMost"), nbt.getLong("UUIDLeast")) : UUID.fromString(nbt.getString("EntityUUID"));
 		entityName = nbt.getString("Owner");

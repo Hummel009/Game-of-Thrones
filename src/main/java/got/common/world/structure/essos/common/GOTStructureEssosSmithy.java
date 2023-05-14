@@ -41,7 +41,7 @@ public class GOTStructureEssosSmithy extends GOTStructureEssosBase {
 		for (int i1 = -4; i1 <= 4; ++i1) {
 			for (int k1 = -5; k1 <= 13; ++k1) {
 				int i2 = Math.abs(i1);
-				if ((i2 > 3 || k1 < -4 || k1 > 6) && (i2 > 4 || k1 < 7 || k1 > 12)) {
+				if ((i2 > 3 || k1 < -4 || k1 > 6) && (k1 < 7 || k1 > 12)) {
 					continue;
 				}
 				int j1 = 0;

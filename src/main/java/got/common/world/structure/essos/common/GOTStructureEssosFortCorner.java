@@ -52,9 +52,6 @@ public class GOTStructureEssosFortCorner extends GOTStructureEssosBase {
 					}
 				}
 			}
-			if (i1 > 1) {
-				continue;
-			}
 			int k3 = k1 - 1;
 			setBlockAndMetadata(world, i1, 2, k3, brickStairBlock, 2);
 			for (j1 = 1; (j1 >= 1 || !isOpaque(world, i1, j1, k3)) && getY(j1) >= 0; --j1) {
@@ -92,9 +89,6 @@ public class GOTStructureEssosFortCorner extends GOTStructureEssosBase {
 						setGrassToDirt(world, i3, j12 - 1, k1);
 					}
 				}
-			}
-			if (k1 < 0) {
-				continue;
 			}
 			int i3 = i1 + 1;
 			setBlockAndMetadata(world, i3, 2, k1, brickStairBlock, 0);

@@ -173,7 +173,7 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 					int i2 = Math.abs(i1 - i);
 					int k2 = Math.abs(k1 - k);
 					int j2 = j1 - j;
-					if ((i2 != 0 || k2 != 0) && (i2 != k2 || i2 != j2) && (i2 != 0 && k2 != 0 || i2 == k2 || i2 != j2 + 1 && k2 != j2 + 1) || !(block = world.getBlock(i1, j1, k1)).isReplaceable(world, i1, j1, k1) && !block.isLeaves(world, i1, j1, k1)) {
+					if ((i2 != 0 || k2 != 0) && (i2 != k2 || i2 != j2) && (i2 != 0 && k2 != 0 || i2 != j2 + 1 && k2 != j2 + 1) || !(block = world.getBlock(i1, j1, k1)).isReplaceable(world, i1, j1, k1) && !block.isLeaves(world, i1, j1, k1)) {
 						continue;
 					}
 					setBlockAndNotifyAdequately(world, i1, j1, k1, woodBlock, woodMeta | 0xC);

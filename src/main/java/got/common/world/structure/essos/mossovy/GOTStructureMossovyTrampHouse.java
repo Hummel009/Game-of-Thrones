@@ -218,7 +218,7 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 		for (i13 = -6; i13 <= -3; ++i13) {
 			for (int k13 = -3; k13 <= 1; ++k13) {
 				j12 = 1;
-				Block gardenBlock = getBlock(world, i13, j12 - 1, k13);
+				Block gardenBlock = getBlock(world, i13, 0, k13);
 				if (gardenBlock != Blocks.grass && gardenBlock != Blocks.dirt || random.nextInt(3) != 0) {
 					continue;
 				}

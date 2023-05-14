@@ -44,7 +44,7 @@ public class GOTStructureSummerSmithy extends GOTStructureSummerBase {
 		for (int i1 = -10; i1 <= 6; ++i1) {
 			for (int k1 = -6; k1 <= 6; ++k1) {
 				int k2 = Math.abs(k1);
-				if ((i1 < -8 || i1 > 4 || k2 != 4) && (i1 < -10 || i1 > 6 || k2 > 3)) {
+				if ((i1 < -8 || i1 > 4 || k2 != 4) && k2 > 3) {
 					continue;
 				}
 				j1 = -1;

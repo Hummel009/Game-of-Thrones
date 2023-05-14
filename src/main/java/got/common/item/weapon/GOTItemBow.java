@@ -189,7 +189,7 @@ public class GOTItemBow extends ItemBow {
 			world.playSoundAtEntity(entityplayer, "random.bow", 1.0f, 1.0f / (itemRand.nextFloat() * 0.4f + 1.2f) + charge * 0.5f);
 			if (!shouldConsume) {
 				arrow.canBePickedUp = 2;
-			} else if (arrowSlot >= 0) {
+			} else {
 				--arrowItem.stackSize;
 				if (arrowItem.stackSize <= 0) {
 					entityplayer.inventory.mainInventory[arrowSlot] = null;

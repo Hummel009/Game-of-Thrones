@@ -95,8 +95,8 @@ key_Alignment Group Next:208
 key_Dragon: Fly Up:34
 key_Dragon: Fly Down:35
 key_Enable cargocart:19
-soundCategory_master:1.0
-soundCategory_music:1.0
+soundCategory_master:0.0
+soundCategory_music:0.0
 soundCategory_record:1.0
 soundCategory_weather:1.0
 soundCategory_block:1.0

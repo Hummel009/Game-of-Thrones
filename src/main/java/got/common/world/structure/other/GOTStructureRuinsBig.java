@@ -145,7 +145,7 @@ public class GOTStructureRuinsBig extends GOTVillageGen {
 								setAir(world, i1, j14, k1);
 								continue;
 							}
-							if (j14 == portalHeight && i2 <= 1 && k2 <= 1) {
+							if (j14 == portalHeight) {
 								setBlockAndMetadata(world, i1, j14, k1, Blocks.water, 1);
 								continue;
 							}

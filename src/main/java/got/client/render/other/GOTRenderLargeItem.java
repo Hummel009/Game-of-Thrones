@@ -140,7 +140,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 			GL11.glTranslatef(-1.0f, 0.0f, 0.0f);
 		}
 		renderLargeItem();
-		if (itemstack != null && itemstack.hasEffect(0)) {
+		if (itemstack.hasEffect(0)) {
 			GOTClientProxy.renderEnchantmentEffect();
 		}
 		GL11.glPopMatrix();

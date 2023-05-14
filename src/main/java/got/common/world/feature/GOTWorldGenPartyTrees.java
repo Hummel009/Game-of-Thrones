@@ -195,7 +195,7 @@ public class GOTWorldGenPartyTrees extends WorldGenAbstractTree {
 						i15++;
 					} else if (zDirection == -1) {
 						k15--;
-					} else if (zDirection == 1) {
+					} else {
 						k15++;
 					}
 				}

@@ -320,15 +320,13 @@ public class GOTCommandFellowship extends CommandBase {
 								}
 								return;
 							}
-							if ("hired-ff".equals(option)) {
-								ownerData.setFellowshipPreventHiredFF(fellowship, prevent);
-								if (prevent) {
-									func_152373_a(sender, this, "got.command.fellowship.hiredFF.prevent", new Object[]{ownerName, fsName});
-								} else {
-									func_152373_a(sender, this, "got.command.fellowship.hiredFF.allow", new Object[]{ownerName, fsName});
-								}
-								return;
+							ownerData.setFellowshipPreventHiredFF(fellowship, prevent);
+							if (prevent) {
+								func_152373_a(sender, this, "got.command.fellowship.hiredFF.prevent", new Object[]{ownerName, fsName});
+							} else {
+								func_152373_a(sender, this, "got.command.fellowship.hiredFF.allow", new Object[]{ownerName, fsName});
 							}
+							return;
 						} else {
 							if ("map-show".equals(option)) {
 								boolean show;

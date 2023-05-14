@@ -52,13 +52,13 @@ public class GOTStructureEssosFortress extends GOTStructureEssosBase {
 					}
 					continue;
 				}
-				if (i2 >= 15 && i2 <= 21 && k2 >= 9 && k2 <= 15) {
+				if (i2 >= 15 && k2 >= 9) {
 					for (j1 = 1; j1 <= 9; ++j1) {
 						setAir(world, i1, j1, k1);
 					}
 					continue;
 				}
-				if (i2 > 2 || k1 > -10 || k1 < -15) {
+				if (i2 > 2 || k1 > -10) {
 					continue;
 				}
 				for (j1 = 1; j1 <= 12; ++j1) {

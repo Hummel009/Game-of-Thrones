@@ -54,7 +54,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			for (int k1 = -12; k1 <= 8; ++k1) {
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
-				if (i2 >= 5 && i2 <= 9 && k2 >= 10 && k2 <= 12) {
+				if (i2 >= 5 && i2 <= 9 && k2 >= 10) {
 					for (j1 = 1; j1 <= 5; ++j1) {
 						setAir(world, i1, j1, k1);
 					}

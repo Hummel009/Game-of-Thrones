@@ -118,21 +118,19 @@ public class GOTCommandConquest extends CommandBase {
 					CommandBase.func_152373_a(sender, this, "got.command.conquest.add", fac.factionName(), amount, posX, posZ);
 					return;
 				}
-				if ("radial".equals(function)) {
-					EntityPlayerMP senderIfPlayer;
-					float centralStr = zone.getConquestStrength(fac, world);
-					if (centralStr + amount > 2147483647.0f) {
-						throw new WrongUsageException("got.command.conquest.tooHigh", 2147483647.0f);
-					}
-					senderIfPlayer = sender instanceof EntityPlayerMP ? (EntityPlayerMP) sender : null;
-					if (amount < 0.0f) {
-						GOTConquestGrid.doRadialConquest(world, zone, senderIfPlayer, null, fac, -amount, -amount);
-					} else {
-						GOTConquestGrid.doRadialConquest(world, zone, senderIfPlayer, fac, null, amount, amount);
-					}
-					CommandBase.func_152373_a(sender, this, "got.command.conquest.radial", fac.factionName(), amount, posX, posZ);
-					return;
+				EntityPlayerMP senderIfPlayer;
+				float centralStr = zone.getConquestStrength(fac, world);
+				if (centralStr + amount > 2147483647.0f) {
+					throw new WrongUsageException("got.command.conquest.tooHigh", 2147483647.0f);
 				}
+				senderIfPlayer = sender instanceof EntityPlayerMP ? (EntityPlayerMP) sender : null;
+				if (amount < 0.0f) {
+					GOTConquestGrid.doRadialConquest(world, zone, senderIfPlayer, null, fac, -amount, -amount);
+				} else {
+					GOTConquestGrid.doRadialConquest(world, zone, senderIfPlayer, fac, null, amount, amount);
+				}
+				CommandBase.func_152373_a(sender, this, "got.command.conquest.radial", fac.factionName(), amount, posX, posZ);
+				return;
 			}
 		}
 		throw new WrongUsageException(getCommandUsage(sender));

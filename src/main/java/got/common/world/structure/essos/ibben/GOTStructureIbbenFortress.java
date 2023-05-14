@@ -57,7 +57,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 					setAir(world, i12, j14, k12);
 				}
 				for (j14 = 0; (j14 >= 0 || !isOpaque(world, i12, j14, k12)) && getY(j14) >= 0; --j14) {
-					if (i2 == 12 && (k2 == 12 || k2 == 9 || k2 == 2) || k2 == 12 && (i2 == 12 || i2 == 9 || i2 == 2)) {
+					if (i2 == 12 && (k2 == 12 || k2 == 9 || k2 == 2) || k2 == 12 && (i2 == 9 || i2 == 2)) {
 						setBlockAndMetadata(world, i12, j14, k12, woodBeam2Block, woodBeam2Meta);
 					} else if (i2 > 9 || k2 > 9) {
 						setBlockAndMetadata(world, i12, j14, k12, plankBlock, plankMeta);

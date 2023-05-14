@@ -152,7 +152,7 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		for (i13 = -6; i13 <= -3; ++i13) {
 			for (int k13 = -3; k13 <= 1; ++k13) {
 				j12 = 1;
-				if (getBlock(world, i13, j12 - 1, k13) != Blocks.grass || random.nextInt(4) != 0) {
+				if (getBlock(world, i13, 0, k13) != Blocks.grass || random.nextInt(4) != 0) {
 					continue;
 				}
 				plantFlower(world, random, i13, j12, k13);

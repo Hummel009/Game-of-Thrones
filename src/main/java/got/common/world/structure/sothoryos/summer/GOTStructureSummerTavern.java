@@ -55,7 +55,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			for (int k13 = -6; k13 <= 6; ++k13) {
 				int i2 = Math.abs(i13);
 				int k2 = Math.abs(k13);
-				if ((i2 > 8 || k2 != 6) && (i2 > 11 || k2 > 5) && (i2 > 13 || k2 > 4)) {
+				if ((i2 > 8 || k2 != 6) && (i2 > 11 || k2 > 5) && k2 > 4) {
 					continue;
 				}
 				for (j12 = 1; j12 <= 8; ++j12) {

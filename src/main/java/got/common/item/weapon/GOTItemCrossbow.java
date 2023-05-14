@@ -221,7 +221,7 @@ public class GOTItemCrossbow extends ItemBow {
 				boltItem = new ItemStack(GOTRegistry.crossbowBolt);
 			}
 			if (boltItem != null) {
-				if (shouldConsume && boltSlot >= 0) {
+				if (shouldConsume) {
 					--boltItem.stackSize;
 					if (boltItem.stackSize <= 0) {
 						entityplayer.inventory.mainInventory[boltSlot] = null;

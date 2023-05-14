@@ -100,7 +100,7 @@ public class GOTStructureJogosChiefTent extends GOTStructureJogosBase {
 		for (int i1 : new int[]{-5, 5}) {
 			int j12 = 1;
 			int k1 = -8;
-			if (!isOpaque(world, i1, j12 - 1, k1) || !isAir(world, i1, j12, k1)) {
+			if (!isOpaque(world, i1, 0, k1) || !isAir(world, i1, j12, k1)) {
 				continue;
 			}
 			setBlockAndMetadata(world, i1, j12, k1, fenceBlock, fenceMeta);

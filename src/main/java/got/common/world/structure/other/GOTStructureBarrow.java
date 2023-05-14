@@ -116,11 +116,11 @@ public class GOTStructureBarrow extends GOTStructureBase {
 		}
 		for (i12 = -1; i12 <= 1; ++i12) {
 			setBlockAndMetadata(world, i12, innerB + 1, -innerR + 1, Blocks.stone_stairs, 3);
-			for (j1 = innerB + 2; j1 <= 3; ++j1) {
+			for (j1 = 0; j1 <= 3; ++j1) {
 				setAir(world, i12, j1, -innerR + 1);
 				setAir(world, i12, j1, -innerR + 2);
 			}
-			setBlockAndMetadata(world, i12, innerB + 2, -innerR, Blocks.stone_stairs, 3);
+			setBlockAndMetadata(world, i12, 0, -innerR, Blocks.stone_stairs, 3);
 		}
 		placeRandomBrick(world, random, -2, innerB + 1, -innerR + 1);
 		placeRandomBrick(world, random, 2, innerB + 1, -innerR + 1);

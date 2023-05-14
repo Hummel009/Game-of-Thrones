@@ -76,10 +76,10 @@ public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 				}
 				if (i2 >= 2 && i2 <= 8 && k2 >= 2 && k2 <= 8) {
 					if (i2 == 2 && k2 >= 5 || k2 == 2 && i2 >= 5) {
-						int hedgeHeight = 0;
+						int hedgeHeight;
 						if (i2 == 2) {
 							hedgeHeight = k2 - 4;
-						} else if (k2 == 2) {
+						} else {
 							hedgeHeight = i2 - 4;
 						}
 						for (int j12 = 1; j12 <= hedgeHeight; ++j12) {
@@ -91,7 +91,7 @@ public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 						}
 					} else {
 						int sum = i2 + k2;
-						if (sum >= 4 && sum <= 7) {
+						if (sum <= 7) {
 							if (random.nextBoolean()) {
 								plantFlower(world, random, i1, 1, k1);
 							}
@@ -145,7 +145,7 @@ public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 						setBlockAndMetadata(world, i1, 0, k1, brickCarvedBlock, brickCarvedMeta);
 					} else if (i2 + k2 == 1) {
 						setBlockAndMetadata(world, i1, 0, k1, brickFloweryBlock, brickFloweryMeta);
-					} else if (i2 + k2 == 2) {
+					} else {
 						setBlockAndMetadata(world, i1, 0, k1, brickRedBlock, brickRedMeta);
 					}
 				}

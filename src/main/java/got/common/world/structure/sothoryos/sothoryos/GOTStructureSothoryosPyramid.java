@@ -314,9 +314,6 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 						placeRandomStairs(world, random, i12, actingRoomTop - 3, k1, 6);
 						continue;
 					}
-					if (k2 != roomPillarEdge) {
-						continue;
-					}
 					if (i3 == 1) {
 						placeRandomStairs(world, random, i12, actingRoomTop - 3, k1, 4);
 						continue;

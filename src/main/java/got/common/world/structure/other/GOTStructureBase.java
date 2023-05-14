@@ -763,9 +763,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 					default:
 						break;
 				}
-				if (i != 0) {
-					continue;
-				}
 				i = 2;
 			}
 			return j | i;
@@ -873,9 +870,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 					default:
 						break;
 				}
-				if (i != 3) {
-					continue;
-				}
 				i = 1;
 			}
 			return k | j | i;
@@ -942,9 +936,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 							continue;
 						default:
 							break;
-					}
-					if (i != 2) {
-						continue;
 					}
 					i = 4;
 				}
@@ -1017,7 +1008,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 		meta = rotateMeta(block, meta);
 		setBlockAndNotifyAdequately(world, i, j, k, block, meta);
-		if (meta != 0 && (block instanceof BlockChest || block instanceof GOTBlockChest || block instanceof GOTBlockSpawnerChest || block instanceof BlockFurnace || block instanceof GOTBlockOven || block instanceof GOTBlockForgeBase)) {
+		if (meta != 0 && (block instanceof BlockChest || block instanceof GOTBlockChest || block instanceof BlockFurnace || block instanceof GOTBlockOven || block instanceof GOTBlockForgeBase)) {
 			world.setBlockMetadataWithNotify(i, j, k, meta, notifyChanges ? 3 : 2);
 		}
 	}

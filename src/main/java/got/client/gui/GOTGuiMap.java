@@ -941,7 +941,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (isConquestGrid && hasConquestScrollBar() && mouseInFacScroll && k != 0) {
 			if (k < 0) {
 				currentFactionIndex = Math.min(currentFactionIndex + 1, Math.max(0, currentFactionList.size() - 1));
-			} else if (k > 0) {
+			} else {
 				currentFactionIndex = Math.max(currentFactionIndex - 1, 0);
 			}
 			setCurrentScrollFromFaction();

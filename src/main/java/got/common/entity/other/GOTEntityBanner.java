@@ -408,8 +408,13 @@ public class GOTEntityBanner extends Entity {
 			if (isFellowship) {
 				GOTFellowshipProfile pr;
 				UUID fsID;
-				if (playerData.hasKey("FellowshipID") && (fsID = UUID.fromString(playerData.getString("FellowshipID"))) != null && (pr = new GOTFellowshipProfile(this, fsID, "")).getFellowship() != null) {
-					profile = pr;
+				if (playerData.hasKey("FellowshipID")) {
+					String fellowshipIDString = playerData.getString("FellowshipID");
+					fsID = UUID.fromString(fellowshipIDString);
+					GOTFellowshipProfile fellowshipProfile = new GOTFellowshipProfile(this, fsID, "");
+					if (fellowshipProfile.getFellowship() != null) {
+						profile = fellowshipProfile;
+					}
 				}
 			} else if (playerData.hasKey("Profile")) {
 				NBTTagCompound profileData = playerData.getCompoundTag("Profile");

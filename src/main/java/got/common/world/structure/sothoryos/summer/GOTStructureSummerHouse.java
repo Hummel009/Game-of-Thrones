@@ -45,7 +45,7 @@ public class GOTStructureSummerHouse extends GOTStructureSummerBase {
 			for (int k1 = -6; k1 <= 6; ++k1) {
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
-				if ((i2 > 2 || k2 > 6) && (k2 > 2 || i2 > 6)) {
+				if (i2 > 2 && k2 > 2) {
 					continue;
 				}
 				for (j1 = 1; j1 <= 6; ++j1) {

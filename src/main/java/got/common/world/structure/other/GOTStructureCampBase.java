@@ -71,13 +71,6 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			captain.spawnRidingHorse = false;
 			spawnNPCAndSetHome(captain, world, 0, 1, 0, 24);
 		}
-		if (spawnSmith()) {
-			GOTEntityThennBlacksmith smith = new GOTEntityThennBlacksmith(world);
-			if (smith != null) {
-				smith.spawnRidingHorse = false;
-				spawnNPCAndSetHome(smith, world, 5, 1, 0, 24);
-			}
-		}
 		for (l = 0; l < 4; ++l) {
 			int tentX = MathHelper.getRandomIntegerInRange(random, -3, 3);
 			int tentZ = MathHelper.getRandomIntegerInRange(random, 6, 12);
@@ -276,9 +269,5 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 		farmBaseMeta = 7;
 		farmCropBlock = Blocks.wheat;
 		farmCropMeta = 7;
-	}
-
-	public boolean spawnSmith() {
-		return false;
 	}
 }

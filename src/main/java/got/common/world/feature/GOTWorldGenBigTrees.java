@@ -266,11 +266,11 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 				aint3[b3] = MathHelper.floor_double(par1ArrayOfInteger[b3] + j * d1 + 0.5);
 				int b5 = 0;
 				int l = Math.abs(aint3[0] - par1ArrayOfInteger[0]);
-				int j1 = Math.max(l, i1 = Math.abs(aint3[2] - par1ArrayOfInteger[2]));
+				int j1 = Math.max(l, Math.abs(aint3[2] - par1ArrayOfInteger[2]));
 				if (j1 > 0) {
 					if (l == j1) {
 						b5 = 4;
-					} else if (i1 == j1) {
+					} else {
 						b5 = 8;
 					}
 				}

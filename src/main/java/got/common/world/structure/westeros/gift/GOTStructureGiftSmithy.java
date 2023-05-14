@@ -68,9 +68,9 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 				if ((i12 != 2 && i12 != 8 || k2 > 3) && (i12 < 3 || i12 > 7 || k2 > 4)) {
 					continue;
 				}
-				if ((i12 == 2 || i12 == 8) && k2 <= 3 || i12 >= 3 && i12 <= 7 && k2 == 4) {
+				if (i12 == 2 || i12 == 8 || k2 == 4) {
 					boolean beam = (i12 == 2 || i12 == 8) && k2 == 3;
-					if ((i12 == 3 || i12 == 7) && k2 == 4) {
+					if (i12 == 3 || i12 == 7) {
 						beam = true;
 					}
 					if (beam) {

@@ -77,7 +77,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 						for (j13 = 1; j13 <= 7; ++j13) {
 							setBlockAndMetadata(world, i1, j13, k14, brickBlock, brickMeta);
 						}
-					} else if (k14 >= -3 && k14 <= 4 && i2 <= 3) {
+					} else if (i2 <= 3) {
 						for (j13 = 1; j13 <= 3; ++j13) {
 							setAir(world, i1, j13, k14);
 						}
