@@ -695,5 +695,9 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="META-INF" level="project" />
+    <orderEntry type="library" name="CodeChickenLib-1.7.10-1.1.3.140-universal" level="project" />
+    <orderEntry type="library" name="NotEnoughItems-1.7.10-1.0.5.120-universal" level="project" />
+    <orderEntry type="library" name="CodeChickenCore-1.7.10-1.0.7.48-universal" level="project" />
   </component>
 </module>
