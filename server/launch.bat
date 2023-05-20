@@ -1,1 +1,1 @@
-"C:\Program Files\Java\jdk1.8.0_181\bin\java.exe" -jar launch.jar nogui
+java -jar launch.jar nogui
