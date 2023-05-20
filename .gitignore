@@ -5,3 +5,8 @@ bin
 build
 run
 server/world
+server/logs
+server/config
+server/ops.json
+server/usercache.json
+server/whitelist.json
