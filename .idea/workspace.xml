@@ -1,284 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="SPLITTER_PROPORTION" value="0.53727144" />
-    <option name="ANALYZE_INJECTED_CODE" value="false" />
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/client/GOTTextures.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/client/GOTTextures.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/block/other/GOTBlockGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/block/other/GOTBlockGate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/block/other/GOTBlockGlass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/block/other/GOTBlockGlass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/block/sapling/GOTBlockSapling1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/block/sapling/GOTBlockSapling1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/command/GOTCommandAlignment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/command/GOTCommandAlignment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/enchant/GOTEnchantmentType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/enchant/GOTEnchantmentType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/entity/ai/GOTEntityAIDragonWatchLiving.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/entity/ai/GOTEntityAIDragonWatchLiving.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/tileentity/GOTTileEntityBookshelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/tileentity/GOTTileEntityBookshelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/tileentity/GOTTileEntityChest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/tileentity/GOTTileEntityChest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/tileentity/GOTTileEntityGlowLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/tileentity/GOTTileEntityGlowLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/GOTWorldProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/GOTWorldProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/biome/westeros/GOTBiomeDorneMesa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/biome/westeros/GOTBiomeDorneMesa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenAspen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenAspen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenBaobab.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenBaobab.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenDesertTrees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenDesertTrees.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenFotinia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenFotinia.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenGiantTrees.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenGiantTrees.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenIbbenPine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenIbbenPine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenPine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/got/common/world/feature/GOTWorldGenPine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/changelog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/changelog.txt" afterDir="false" />
-    </list>
+    <list default="true" id="bd097ec8-3236-4e7b-8ad9-02b42a8855c8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DebuggerManager">
-    <breakpoint_any converted="true">
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-      <breakpoint>
-        <option name="NOTIFY_CAUGHT" value="true" />
-        <option name="NOTIFY_UNCAUGHT" value="true" />
-        <option name="ENABLED" value="false" />
-        <option name="LOG_ENABLED" value="false" />
-        <option name="LOG_EXPRESSION_ENABLED" value="false" />
-        <option name="SUSPEND_POLICY" value="SuspendAll" />
-        <option name="COUNT_FILTER_ENABLED" value="false" />
-        <option name="COUNT_FILTER" value="0" />
-        <option name="CONDITION_ENABLED" value="false" />
-        <option name="CLASS_FILTERS_ENABLED" value="false" />
-        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
-        <option name="CONDITION" value="" />
-        <option name="LOG_MESSAGE" value="" />
-      </breakpoint>
-    </breakpoint_any>
-    <breakpoint_rules converted="true" />
-    <ui_properties converted="true" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectId" id="2PfU6rQyBr0sVETcXQm2djDr2sl" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2Q4EFnSQiiYLteJmfMGQyBJg4JW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/eclipse/Minecraft 1.7.10/GOTE&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.14941406&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propCompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/Eclipse/Minecraft/Game-of-Thrones",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected="Application.Minecraft Client">
-    <configuration default="true" factoryName="Applet" type="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method>
-        <option enabled="false" name="BuildArtifacts" />
-        <option enabled="true" name="Make" />
-      </method>
-    </configuration>
-    <configuration default="true" name="&lt;template&gt;" selected="false" type="WebApp">
-      <Host>localhost</Host>
-      <Port>5050</Port>
-    </configuration>
-    <configuration name="Minecraft Client" type="Application" factoryName="Application">
+}]]></component>
+  <component name="RunManager">
+    <configuration name="Client" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="GradleStart" />
-      <module name="GOT" />
-      <option name="VM_PARAMETERS" value="-Xincgc -Xmx10240M -Xms10240M" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/eclipse" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
+      <module name="Game-of-Thrones" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/run" />
       <method v="2">
         <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="false" factoryName="Application" name="Minecraft Client" type="Application">
-      <extension enabled="false" name="coverage" runner="idea" sample_coverage="true" />
-      <option name="MAIN_CLASS_NAME" value="GradleStart" />
-      <option name="VM_PARAMETERS" value="-Xincgc -Xmx1024M -Xms1024M" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../GOT\eclipse" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="GOT" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" factoryName="Application" name="Minecraft Client" type="Application">
-      <extension enabled="false" name="coverage" runner="idea" sample_coverage="true" />
-      <option name="MAIN_CLASS_NAME" value="GradleStart" />
-      <option name="VM_PARAMETERS" value="-Xincgc -Xmx1024M -Xms1024M" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../GOT\eclipse" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="GOT" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration name="Minecraft Server" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="GradleStartServer" />
-      <module name="GOT" />
-      <option name="VM_PARAMETERS" value="-Xincgc -Dfml.ignoreInvalidMinecraftCertificates=true" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../GOT\eclipse" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="false" factoryName="Application" name="Minecraft Server" type="Application">
-      <extension enabled="false" name="coverage" runner="idea" sample_coverage="true" />
-      <option name="MAIN_CLASS_NAME" value="GradleStartServer" />
-      <option name="VM_PARAMETERS" value="-Xincgc -Dfml.ignoreInvalidMinecraftCertificates=true" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../GOT\eclipse" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="GOT" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="false" factoryName="Application" name="Minecraft Server" type="Application">
-      <extension enabled="false" name="coverage" runner="idea" sample_coverage="true" />
-      <option name="MAIN_CLASS_NAME" value="GradleStartServer" />
-      <option name="VM_PARAMETERS" value="-Xincgc -Dfml.ignoreInvalidMinecraftCertificates=true" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$/../GOT\eclipse" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" value="" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="GOT" />
-      <envs />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="moduleWithDependencies" />
-      </option>
-      <method v="2">
-        <option name="BuildArtifacts" enabled="false" />
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <option name="AUTO_RESTART" value="false" />
-      <method v="2">
-        <option name="BuildArtifacts" enabled="false" />
       </method>
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b8c8107d-f3ae-479d-9562-bcf68c392981" name="Changes" comment="" />
-      <created>1682857332714</created>
+      <changelist id="bd097ec8-3236-4e7b-8ad9-02b42a8855c8" name="Changes" comment="" />
+      <created>1684604352065</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1682857332714</updated>
-      <workItem from="1682857294118" duration="1246000" />
-      <workItem from="1683815837754" duration="10626000" />
-      <workItem from="1683847398961" duration="58000" />
-      <workItem from="1683847459313" duration="24000" />
-      <workItem from="1683848560941" duration="347000" />
-      <workItem from="1683881756443" duration="16000" />
-      <workItem from="1683882120378" duration="8000" />
-      <workItem from="1683882174649" duration="433000" />
-      <workItem from="1683914271910" duration="814000" />
-      <workItem from="1683915143118" duration="763000" />
-      <workItem from="1683916068689" duration="6770000" />
-      <workItem from="1683967880309" duration="10084000" />
-      <workItem from="1683992362776" duration="24844000" />
+      <updated>1684604352065</updated>
+      <workItem from="1684604353064" duration="106000" />
+      <workItem from="1684604696160" duration="8000" />
+      <workItem from="1684604717195" duration="53000" />
+      <workItem from="1684604825922" duration="605000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>
