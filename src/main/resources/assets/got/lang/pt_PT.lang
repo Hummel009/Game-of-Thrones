@@ -2703,7 +2703,6 @@ got.miniquest.kill.progress=%d de %d mortos
 got.miniquest.kill=Mate %d %s
 got.miniquest.pickpocket.progress≠%d of %d stolen
 got.miniquest.pickpocket=Furto NPC (Shift + RMB)
-got.miniquest.pickpocket=Rob a NPC (Shift + RMB)
 got.miniquest.progressShort=%d / %d
 got.miniquest.retrieve.progress=%d de %d entregues
 got.miniquest.retrieve1=Recupere o(a) %s perdido(a)
