@@ -1,1 +1,10 @@
-﻿You have already taken too many assignments from other people, #. I'm afraid you won't be able to do everything at once. Finish other things first, and then return to me.
+﻿I understand you have a lot of things to do, and I don't want to add another one to the list. Come back when you're free.
+You already have a lot of commitments. Come back when you're free.
+You're busy, I don't want to burden you with my problems. Come back when you're not busy.
+You already help a lot of people, I don't want to burden your schedule. Come back when you have nothing to do.
+I don't want to bother you, knowing that you've already promised everything to other people. Come back later.
+I don't want to be a burden to you, you're busy enough as it is. Come back when your to-do list has shrunk.
+I understand you have a lot of things planned, I don't want to impose on you. Come back later.
+You're already doing too much right now, I don't want to overburden you. Get some rest, then come back later.
+You're busy, I don't want to burden you. When you've done all your work, come back to me and we'll talk.
+You have a lot to do, I don't want to burden you more with my tasks. Come back when you've done everything and get bored.
