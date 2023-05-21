@@ -138,9 +138,9 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements IPickpo
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "standart/wild/usual_friendly";
+			return "standard/wild/usual_friendly";
 		}
-		return "standart/wild/usual_hostile";
+		return "standard/wild/usual_hostile";
 	}
 
 	@Override

@@ -10,7 +10,7 @@ import got.common.world.structure.other.*;
 public abstract class GOTBiomeWesteros extends GOTBiome {
 	protected GOTBiomeWesteros(int i, boolean major) {
 		super(i, major);
-		setupStandartPlainsFauna();
+		setupStandardPlainsFauna();
 		addBiomeVariant(GOTBiomeVariant.FOREST);
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);

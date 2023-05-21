@@ -126,11 +126,11 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "standart/wild/hired_soldier";
+				return "standard/wild/hired_soldier";
 			}
-			return "standart/wild/usual_friendly";
+			return "standard/wild/usual_friendly";
 		}
-		return "standart/wild/usual_hostile";
+		return "standard/wild/usual_hostile";
 	}
 
 	@Override

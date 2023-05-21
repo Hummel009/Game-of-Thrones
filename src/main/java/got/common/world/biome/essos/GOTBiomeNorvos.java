@@ -30,7 +30,7 @@ public class GOTBiomeNorvos extends GOTBiomeEssos {
 
 	public GOTBiomeNorvos(int i, boolean major) {
 		super(i, major);
-		setupStandartPlainsFauna();
+		setupStandardPlainsFauna();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBear.class, 15, 1, 1));
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);

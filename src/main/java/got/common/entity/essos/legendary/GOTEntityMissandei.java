@@ -50,7 +50,7 @@ public class GOTEntityMissandei extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/missandei_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

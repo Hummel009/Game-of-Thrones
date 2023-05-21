@@ -76,7 +76,7 @@ public class GOTEntityRooseBolton extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/roose_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

@@ -82,7 +82,7 @@ public class GOTEntityCraster extends GOTEntityHumanBase implements GOTTradeable
 		if (isFriendly(entityplayer)) {
 			return "legendary/craster_friendly";
 		}
-		return "standart/wild/usual_hostile";
+		return "standard/wild/usual_hostile";
 	}
 
 	@Override

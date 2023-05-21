@@ -114,9 +114,9 @@ public class GOTEntityGiantBase extends GOTEntityNPC {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "standart/special/giant_friendly";
+			return "standard/special/giant_friendly";
 		}
-		return "standart/special/giant_hostile";
+		return "standard/special/giant_hostile";
 	}
 
 	@Override

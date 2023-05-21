@@ -82,7 +82,7 @@ public class GOTEntityCerseiLannister extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/cersei_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

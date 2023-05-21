@@ -74,9 +74,9 @@ public class GOTEntityAeronGreyjoy extends GOTEntityHumanBase implements GOTTrad
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "standart/special/father_friendly";
+			return "standard/special/father_friendly";
 		}
-		return "standart/special/father_hostile";
+		return "standard/special/father_hostile";
 	}
 
 	@Override

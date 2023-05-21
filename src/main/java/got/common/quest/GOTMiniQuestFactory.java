@@ -47,9 +47,9 @@ public enum GOTMiniQuestFactory {
 		this(false);
 	}
 
-	GOTMiniQuestFactory(boolean isStandart) {
-		if (isStandart) {
-			baseName = "standart";
+	GOTMiniQuestFactory(boolean isStandard) {
+		if (isStandard) {
+			baseName = "standard";
 			setAchievement(GOTAchievement.doQuest);
 		} else {
 			baseName = "legendary";

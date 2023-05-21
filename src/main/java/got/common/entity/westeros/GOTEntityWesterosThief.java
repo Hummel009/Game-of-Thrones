@@ -102,9 +102,9 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "standart/special/criminal_friendly";
+			return "standard/special/criminal_friendly";
 		}
-		return "standart/special/criminal_hostile";
+		return "standard/special/criminal_hostile";
 	}
 
 	@Override

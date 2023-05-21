@@ -8,7 +8,7 @@ import got.common.world.feature.GOTTreeType;
 public class GOTBiomeCrackclaw extends GOTBiomeCrownlands {
 	public GOTBiomeCrackclaw(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);

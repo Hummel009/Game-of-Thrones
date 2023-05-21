@@ -18,7 +18,7 @@ import java.util.Random;
 public class GOTBiomeArrynMountains extends GOTBiomeArryn {
 	public GOTBiomeArrynMountains(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);

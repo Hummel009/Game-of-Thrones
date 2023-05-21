@@ -54,7 +54,7 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/beric_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

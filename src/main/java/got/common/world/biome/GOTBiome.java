@@ -1042,7 +1042,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySwan.class, 10, 1, 2));
 	}
 
-	public void setupStandartDomesticFauna() {
+	public void setupStandardDomesticFauna() {
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.red_flower, 4, 3));
 		flowers.add(new FlowerEntry(Blocks.red_flower, 5, 3));
@@ -1067,7 +1067,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 5, 2, 3));
 	}
 
-	public void setupStandartForestFauna() {
+	public void setupStandardForestFauna() {
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.yellow_flower, 0, 20));
 		flowers.add(new FlowerEntry(Blocks.red_flower, 0, 10));
@@ -1095,7 +1095,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 	}
 
-	public void setupStandartPlainsFauna() {
+	public void setupStandardPlainsFauna() {
 		flowers.clear();
 		flowers.add(new FlowerEntry(Blocks.red_flower, 4, 3));
 		flowers.add(new FlowerEntry(Blocks.red_flower, 5, 3));

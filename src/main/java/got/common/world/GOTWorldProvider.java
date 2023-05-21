@@ -75,9 +75,9 @@ public class GOTWorldProvider extends WorldProvider {
 		if (biome instanceof GOTBiomeOcean) {
 			return GOTBiomeOcean.isFrozen(i, k) && canFreezeIgnoreTemp(i, j, k, isBlockUpdate);
 		}
-		boolean standartColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER;
+		boolean standardColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER;
 		boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() != null && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;
-		if (standartColdBiome || altitudeColdBiome) {
+		if (standardColdBiome || altitudeColdBiome) {
 			return worldObj.canBlockFreezeBody(i, j, k, isBlockUpdate);
 		}
 		return false;
@@ -110,9 +110,9 @@ public class GOTWorldProvider extends WorldProvider {
 		if (biome instanceof GOTBiomeOcean) {
 			return GOTBiomeOcean.isFrozen(i, k) && canSnowIgnoreTemp(i, j, k, checkLight);
 		}
-		boolean standartColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER;
+		boolean standardColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER;
 		boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() != null && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;
-		if (standartColdBiome || altitudeColdBiome) {
+		if (standardColdBiome || altitudeColdBiome) {
 			return worldObj.canSnowAtBody(i, j, k, checkLight);
 		}
 		return false;

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 	public GOTBiomeArrynMountainsFoothills(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);

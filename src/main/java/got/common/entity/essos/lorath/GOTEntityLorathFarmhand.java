@@ -23,7 +23,7 @@ public class GOTEntityLorathFarmhand extends GOTEntityLorathMan implements GOTFa
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-			return "standart/civilized/hired_farmhand";
+			return "standard/civilized/hired_farmhand";
 		}
 		return super.getSpeechBank(entityplayer);
 	}

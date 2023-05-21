@@ -7,7 +7,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 public class GOTBiomeNorthForest extends GOTBiomeNorth {
 	public GOTBiomeNorthForest(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);

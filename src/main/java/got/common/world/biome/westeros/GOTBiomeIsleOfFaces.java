@@ -16,7 +16,7 @@ import java.util.Random;
 public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 	public GOTBiomeIsleOfFaces(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.FLOWERS);

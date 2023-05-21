@@ -208,7 +208,7 @@ CHANGELOG
 * Changed armor stats
 * Changed unpledge sound to amogus impostor sound
 * Changed some waypoint regions because of players' complaints. Essos wp can be unlocked in Kings Landing; Sothoryos - Ghiscar; Ulthos - Asshai; Ibben - Essos; Summer Islands - Sothoryos.
-* Changed standart wight armor (for egg)
+* Changed standard wight armor (for egg)
 
 * Optimized client tick handler
 

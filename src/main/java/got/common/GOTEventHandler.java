@@ -1346,11 +1346,11 @@ public class GOTEventHandler implements IFuelHandler {
 				int j = MathHelper.floor_double(entity.boundingBox.minY);
 				int k = MathHelper.floor_double(entity.posZ);
 				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-				boolean standartColdBiome = biome instanceof GOTBiome && biome.temperature == 0.0f;
+				boolean standardColdBiome = biome instanceof GOTBiome && biome.temperature == 0.0f;
 				boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() != null && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;
 				boolean isOpenAir = world.canBlockSeeTheSky(i, j, k);
 				boolean noLightSource = world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10;
-				if ((standartColdBiome || altitudeColdBiome) && (isOpenAir || inWater) && noLightSource) {
+				if ((standardColdBiome || altitudeColdBiome) && (isOpenAir || inWater) && noLightSource) {
 					int frostChance = 50;
 					int frostProtection = 0;
 					for (int l = 0; l < 4; l++) {

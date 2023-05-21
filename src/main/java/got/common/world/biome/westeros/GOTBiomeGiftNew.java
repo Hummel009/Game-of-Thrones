@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class GOTBiomeGiftNew extends GOTBiomeNorthWild {
 	public GOTBiomeGiftNew(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		decorator.clearVillages();
 		decorator.addVillage(new GOTStructureGiftVillage(this, 1.0f));
 		invasionSpawns.clearInvasions();

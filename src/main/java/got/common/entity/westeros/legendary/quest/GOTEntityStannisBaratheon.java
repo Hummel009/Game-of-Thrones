@@ -81,7 +81,7 @@ public class GOTEntityStannisBaratheon extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/stannis_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

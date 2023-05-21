@@ -10,7 +10,7 @@ import got.common.world.spawning.GOTEventSpawner;
 public class GOTBiomeVolantisForest extends GOTBiomeVolantis {
 	public GOTBiomeVolantisForest(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);

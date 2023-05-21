@@ -79,9 +79,9 @@ public class GOTEntityBuGai extends GOTEntityHumanBase {
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
-			return "standart/civilized/usual_friendly";
+			return "standard/civilized/usual_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

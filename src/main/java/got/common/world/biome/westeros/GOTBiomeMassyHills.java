@@ -8,7 +8,7 @@ import got.common.world.feature.GOTTreeType;
 public class GOTBiomeMassyHills extends GOTBiomeDragonstone {
 	public GOTBiomeMassyHills(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);

@@ -71,7 +71,7 @@ public class GOTEntitySamwellTarly extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/sam_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

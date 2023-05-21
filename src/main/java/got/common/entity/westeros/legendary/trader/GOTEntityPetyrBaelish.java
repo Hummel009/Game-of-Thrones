@@ -85,7 +85,7 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 		if (isFriendly(entityplayer)) {
 			return "legendary/baelish_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

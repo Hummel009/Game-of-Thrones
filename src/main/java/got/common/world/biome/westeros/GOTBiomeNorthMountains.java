@@ -16,7 +16,7 @@ import java.util.Random;
 public class GOTBiomeNorthMountains extends GOTBiomeNorth {
 	public GOTBiomeNorthMountains(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
 		enableRocky = true;

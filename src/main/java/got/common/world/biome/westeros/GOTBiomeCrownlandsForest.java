@@ -10,7 +10,7 @@ import got.common.world.map.GOTWaypoint.Region;
 public class GOTBiomeCrownlandsForest extends GOTBiomeWesteros {
 	public GOTBiomeCrownlandsForest(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);

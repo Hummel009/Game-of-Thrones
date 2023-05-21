@@ -9,7 +9,7 @@ import got.common.world.feature.GOTTreeType;
 public class GOTBiomeQohorForest extends GOTBiomeQohor {
 	public GOTBiomeQohorForest(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);

@@ -25,7 +25,7 @@ public class GOTBiomeYiTi extends GOTBiomeEssos {
 
 	public GOTBiomeYiTi(int i, boolean major) {
 		super(i, major);
-		setupStandartPlainsFauna();
+		setupStandardPlainsFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		addBiomeVariant(GOTBiomeVariant.FOREST);

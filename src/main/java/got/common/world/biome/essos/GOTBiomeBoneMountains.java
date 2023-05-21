@@ -17,7 +17,7 @@ import java.util.Random;
 public class GOTBiomeBoneMountains extends GOTBiomeDothrakiSea {
 	public GOTBiomeBoneMountains(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
 		enableRocky = true;

@@ -109,7 +109,7 @@ public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBand
 
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
-		return "standart/special/bandit";
+		return "standard/special/bandit";
 	}
 
 	@Override

@@ -27,7 +27,7 @@ public class GOTBiomeLorath extends GOTBiomeEssos {
 
 	public GOTBiomeLorath(int i, boolean major) {
 		super(i, major);
-		setupStandartPlainsFauna();
+		setupStandardPlainsFauna();
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_LEMON, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_LIME, 0.2f);

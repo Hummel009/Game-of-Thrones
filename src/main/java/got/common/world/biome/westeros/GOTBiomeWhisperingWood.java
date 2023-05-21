@@ -9,7 +9,7 @@ import got.common.world.feature.GOTTreeType;
 public class GOTBiomeWhisperingWood extends GOTBiomeRiverlands {
 	public GOTBiomeWhisperingWood(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);

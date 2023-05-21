@@ -88,7 +88,7 @@ public class GOTEntityIllyrioMopatis extends GOTEntityHumanBase implements GOTTr
 		if (isFriendly(entityplayer)) {
 			return "legendary/illyrio_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

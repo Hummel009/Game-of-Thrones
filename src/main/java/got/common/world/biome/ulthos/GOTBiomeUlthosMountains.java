@@ -15,7 +15,7 @@ import java.util.Random;
 public class GOTBiomeUlthosMountains extends GOTBiomeUlthosForest {
 	public GOTBiomeUlthosMountains(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
 		enableRocky = true;

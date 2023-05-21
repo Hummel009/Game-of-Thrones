@@ -28,11 +28,11 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (hiredNPCInfo.getHiringPlayer() == entityplayer) {
-				return "standart/civilized/hired_soldier";
+				return "standard/civilized/hired_soldier";
 			}
-			return "standart/civilized/usual_friendly";
+			return "standard/civilized/usual_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

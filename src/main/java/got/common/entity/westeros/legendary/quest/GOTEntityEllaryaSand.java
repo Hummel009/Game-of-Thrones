@@ -81,7 +81,7 @@ public class GOTEntityEllaryaSand extends GOTEntityHumanBase {
 		if (isFriendly(entityplayer)) {
 			return "legendary/ellarya_friendly";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

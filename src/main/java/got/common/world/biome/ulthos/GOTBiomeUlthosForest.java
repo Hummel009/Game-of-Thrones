@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class GOTBiomeUlthosForest extends GOTBiomeUlthos {
 	public GOTBiomeUlthosForest(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.FLOWERS);
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);

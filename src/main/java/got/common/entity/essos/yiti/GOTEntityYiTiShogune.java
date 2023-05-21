@@ -47,11 +47,11 @@ public class GOTEntityYiTiShogune extends GOTEntityYiTiSamurai implements GOTUni
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
 			if (canTradeWith(entityplayer)) {
-				return "standart/civilized/usual_friendly";
+				return "standard/civilized/usual_friendly";
 			}
-			return "standart/civilized/usual_neutral";
+			return "standard/civilized/usual_neutral";
 		}
-		return "standart/civilized/usual_hostile";
+		return "standard/civilized/usual_hostile";
 	}
 
 	@Override

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class GOTBiomeNorthTown extends GOTBiomeNorth {
 	public GOTBiomeNorthTown(int i, boolean major) {
 		super(i, major);
-		setupStandartDomesticFauna();
+		setupStandardDomesticFauna();
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CIVILIAN, 10).setSpawnChance(GOTBiome.SPAWN));

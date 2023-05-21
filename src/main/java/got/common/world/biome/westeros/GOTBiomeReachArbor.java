@@ -15,7 +15,7 @@ import java.util.Random;
 public class GOTBiomeReachArbor extends GOTBiomeReach {
 	public GOTBiomeReachArbor(int i, boolean major) {
 		super(i, major);
-		setupStandartDomesticFauna();
+		setupStandardDomesticFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.VINEYARD, 8.0f);
 	}

@@ -21,7 +21,7 @@ import java.util.Random;
 public class GOTBiomeShrykesLand extends GOTBiomeEssosPlains {
 	public GOTBiomeShrykesLand(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.FOREST);
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);

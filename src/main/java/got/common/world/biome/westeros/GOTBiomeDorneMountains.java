@@ -15,7 +15,7 @@ import java.util.Random;
 public class GOTBiomeDorneMountains extends GOTBiomeDorne {
 	public GOTBiomeDorneMountains(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
 		decorator.doubleFlowersPerChunk = 0;

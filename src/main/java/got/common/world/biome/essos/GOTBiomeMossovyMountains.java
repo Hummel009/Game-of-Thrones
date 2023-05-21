@@ -18,7 +18,7 @@ import java.util.Random;
 public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 	public GOTBiomeMossovyMountains(int i, boolean major) {
 		super(i, major);
-		setupStandartForestFauna();
+		setupStandardForestFauna();
 		clearBiomeVariants();
 		addBiomeVariantSet(GOTBiomeVariant.SET_MOUNTAINS);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);

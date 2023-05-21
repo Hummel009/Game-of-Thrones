@@ -27,7 +27,7 @@ public class GOTBiomeOcean extends GOTBiome {
 
 	public GOTBiomeOcean(int i, boolean major) {
 		super(i, major);
-		setupStandartPlainsFauna();
+		setupStandardPlainsFauna();
 		spawnableWaterCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySquid.class, 4, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySeagull.class, 20, 4, 4));
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreSalt, 8), 4.0f, 0, 64);
