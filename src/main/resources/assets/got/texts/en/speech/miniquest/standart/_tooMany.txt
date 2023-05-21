@@ -1,10 +1,10 @@
-﻿I understand you have a lot of things to do, and I don't want to add another one to the list. Come back when you're free.
-You already have a lot of commitments. Come back when you're free.
-You're busy, I don't want to burden you with my problems. Come back when you're not busy.
-You already help a lot of people, I don't want to burden your schedule. Come back when you have nothing to do.
-I don't want to bother you, knowing that you've already promised everything to other people. Come back later.
-I don't want to be a burden to you, you're busy enough as it is. Come back when your to-do list has shrunk.
-I understand you have a lot of things planned, I don't want to impose on you. Come back later.
-You're already doing too much right now, I don't want to overburden you. Get some rest, then come back later.
-You're busy, I don't want to burden you. When you've done all your work, come back to me and we'll talk.
-You have a lot to do, I don't want to burden you more with my tasks. Come back when you've done everything and get bored.
+﻿I understand that you are busy with many obligations, and I have no desire to add another to your list. Please return when you are free from your duties.
+You already have many commitments. Come back when you are free from such constraints.
+You are occupied, and I don't want to burden you with my troubles. Return when you are not engrossed.
+You already help many people, and I don't want to weigh on your schedule. Return when you are unencumbered.
+I don't want to trouble you, knowing that you have already committed yourself to others. Come back at a later time.
+I don't want to be a burden to you, as you are already preoccupied. Return when your list of tasks has diminished.
+I understand that you have many plans, and I don't wish to impose upon you. Return at a later hour.
+You are already engaged in excessive work. I don't want to overload you. Take a break, and return later.
+You are occupied, and I don't want to burden you. When you have completed all your work, come back to me, and we will converse.
+You have many tasks to deal with, and I don't want to further burden you. Return when you have accomplished all, and boredom sets in.
