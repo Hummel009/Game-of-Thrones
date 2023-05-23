@@ -369,11 +369,10 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		int j = chest.yCoord;
 		int k = chest.zCoord;
 		AxisAlignedBB chestBB = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 1, k + 1);
-		List entities = theWorld.getEntitiesWithinAABB(EntityItemFrame.class, chestBB.expand(2.0, 2.0, 2.0));
-		for (Object obj : entities) {
+		List<EntityItemFrame> entities = theWorld.getEntitiesWithinAABB(EntityItemFrame.class, chestBB.expand(2.0, 2.0, 2.0));
+		for (EntityItemFrame entity : entities) {
 			ItemStack frameItem;
-			EntityItemFrame frame = (EntityItemFrame) obj;
-			if (frame.field_146063_b != i || frame.field_146064_c != j || frame.field_146062_d != k || (frameItem = frame.getDisplayedItem()) == null || !(frameItem.getItem() instanceof ItemHoe)) {
+			if (entity.field_146063_b != i || entity.field_146064_c != j || entity.field_146062_d != k || (frameItem = entity.getDisplayedItem()) == null || !(frameItem.getItem() instanceof ItemHoe)) {
 				continue;
 			}
 			return true;
@@ -394,7 +393,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	public boolean isSolidOpenWalkTarget(int i, int j, int k) {
 		Block below = theWorld.getBlock(i, j - 1, k);
 		if (below.isOpaqueCube() || below.canSustainPlant(theWorld, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {
-			ArrayList bounds = new ArrayList<>();
+			ArrayList<AxisAlignedBB> bounds = new ArrayList<>();
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 2, k + 1);
 			for (int j1 = j; j1 <= j + 1; ++j1) {
 				theWorld.getBlock(i, j1, k).addCollisionBoxesToList(theWorld, i, j1, k, aabb, bounds, theEntity);

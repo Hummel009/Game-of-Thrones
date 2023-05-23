@@ -448,7 +448,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		} else {
 			if (canStealItems() && !stealingCrops && stealTargetItem == null && stealTargetPlayer == null && !birdInv.isFull() && rand.nextInt(100) == 0) {
 				double range = 16.0;
-				List players = worldObj.selectEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(range, range, range), new IEntitySelector() {
+				List<EntityPlayer> players = worldObj.selectEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(range, range, range), new IEntitySelector() {
 
 					@Override
 					public boolean isEntityApplicable(Entity e) {
@@ -461,11 +461,11 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 					}
 				});
 				if (!players.isEmpty()) {
-					stealTargetPlayer = (EntityPlayer) players.get(rand.nextInt(players.size()));
+					stealTargetPlayer = players.get(rand.nextInt(players.size()));
 					currentFlightTarget = getPlayerFlightTarget(stealTargetPlayer);
 					newFlight();
 				} else {
-					List entityItems = worldObj.selectEntitiesWithinAABB(EntityItem.class, boundingBox.expand(range, range, range), new IEntitySelector() {
+					List<EntityItem> entityItems = worldObj.selectEntitiesWithinAABB(EntityItem.class, boundingBox.expand(range, range, range), new IEntitySelector() {
 
 						@Override
 						public boolean isEntityApplicable(Entity e) {
@@ -478,7 +478,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 						}
 					});
 					if (!entityItems.isEmpty()) {
-						stealTargetItem = (EntityItem) entityItems.get(rand.nextInt(entityItems.size()));
+						stealTargetItem = entityItems.get(rand.nextInt(entityItems.size()));
 						currentFlightTarget = getItemFlightTarget(stealTargetItem);
 						newFlight();
 					}

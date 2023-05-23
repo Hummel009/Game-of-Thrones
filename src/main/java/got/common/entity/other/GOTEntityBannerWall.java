@@ -146,12 +146,11 @@ public class GOTEntityBannerWall extends EntityHanging {
 		if (!block.getMaterial().isSolid()) {
 			return false;
 		}
-		List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox);
-		for (Object obj : list) {
-			if (!(obj instanceof EntityHanging)) {
-				continue;
+		List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox);
+		for (Entity obj : list) {
+			if (obj instanceof EntityHanging) {
+				return false;
 			}
-			return false;
 		}
 		return true;
 	}

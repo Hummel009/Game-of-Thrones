@@ -24,7 +24,7 @@ public class GOTBlockDeadPlant extends GOTBlockFlower implements IShearable {
 	}
 
 	@Override
-	public ArrayList onSheared(ItemStack item, IBlockAccess world, int i, int j, int k, int fortune) {
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int i, int j, int k, int fortune) {
 		ArrayList<ItemStack> drops = new ArrayList<>();
 		drops.add(new ItemStack(this));
 		return drops;

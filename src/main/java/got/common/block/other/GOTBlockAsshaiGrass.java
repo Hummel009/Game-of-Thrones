@@ -53,7 +53,7 @@ public class GOTBlockAsshaiGrass extends BlockBush implements IShearable {
 	}
 
 	@Override
-	public ArrayList onSheared(ItemStack item, IBlockAccess world, int i, int j, int k, int fortune) {
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int i, int j, int k, int fortune) {
 		ArrayList<ItemStack> list = new ArrayList<>();
 		list.add(new ItemStack(this, 1, world.getBlockMetadata(i, j, k)));
 		return list;

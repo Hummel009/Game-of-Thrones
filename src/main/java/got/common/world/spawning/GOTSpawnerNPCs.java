@@ -14,6 +14,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChunkCoordinates;
@@ -89,8 +90,8 @@ public class GOTSpawnerNPCs {
 
 	public static void getSpawnableChunks(World world, Set<ChunkCoordIntPair> set) {
 		set.clear();
-		for (Object element : world.playerEntities) {
-			EntityPlayer entityplayer = (EntityPlayer) element;
+		List<EntityPlayer> players = world.playerEntities;
+		for (EntityPlayer entityplayer : players) {
 			int i = MathHelper.floor_double(entityplayer.posX / 16.0);
 			int k = MathHelper.floor_double(entityplayer.posZ / 16.0);
 			for (int i1 = -7; i1 <= 7; ++i1) {
@@ -105,8 +106,8 @@ public class GOTSpawnerNPCs {
 	public static void getSpawnableChunksWithPlayerInRange(World world, Set<ChunkCoordIntPair> set, int range) {
 		getSpawnableChunks(world, set);
 		ArrayList<EntityPlayer> validPlayers = new ArrayList<>();
-		for (Object obj : world.playerEntities) {
-			EntityPlayer entityplayer = (EntityPlayer) obj;
+		List<EntityPlayer> players = world.playerEntities;
+		for (EntityPlayer entityplayer : players) {
 			if (entityplayer.capabilities.isCreativeMode) {
 				continue;
 			}

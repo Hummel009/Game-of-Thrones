@@ -15,9 +15,11 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ISpecialArmor;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 public class GOTWeaponStats {
 	public static int basePlayerMeleeTime = 15;
@@ -88,7 +90,7 @@ public class GOTWeaponStats {
 		return kb;
 	}
 
-	public static Object getClassOrItemProperty(ItemStack itemstack, Map propertyMap) {
+	public static Object getClassOrItemProperty(ItemStack itemstack, Map<?, ?> propertyMap) {
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
 			if (propertyMap.containsKey(item)) {
@@ -109,17 +111,14 @@ public class GOTWeaponStats {
 	}
 
 	public static float getMeleeDamageBonus(ItemStack itemstack) {
-		Multimap weaponAttributes;
+		Collection<AttributeModifier> weaponAttributes;
 		float damage = 0.0f;
-		if (itemstack != null && (weaponAttributes = itemstack.getAttributeModifiers()) != null) {
-			for (Object obj : weaponAttributes.entries()) {
-				Entry e = (Entry) obj;
-				AttributeModifier mod = (AttributeModifier) e.getValue();
-				if (mod.getID() != GOTItemSword.accessWeaponDamageModifier()) {
-					continue;
+		if (itemstack != null && (weaponAttributes = itemstack.getAttributeModifiers().values()) != null) {
+			for (AttributeModifier mod : weaponAttributes) {
+				if (mod.getID() == GOTItemSword.accessWeaponDamageModifier()) {
+					damage = (float) (damage + mod.getAmount());
+					damage += EnchantmentHelper.func_152377_a(itemstack, EnumCreatureAttribute.UNDEFINED);
 				}
-				damage = (float) (damage + mod.getAmount());
-				damage += EnchantmentHelper.func_152377_a(itemstack, EnumCreatureAttribute.UNDEFINED);
 			}
 		}
 		return damage;
@@ -248,15 +247,12 @@ public class GOTWeaponStats {
 	}
 
 	public static boolean isMeleeWeapon(ItemStack itemstack) {
-		Multimap weaponAttributes;
-		if (itemstack != null && (weaponAttributes = itemstack.getAttributeModifiers()) != null) {
-			for (Object obj : weaponAttributes.entries()) {
-				Entry e = (Entry) obj;
-				AttributeModifier mod = (AttributeModifier) e.getValue();
-				if (mod.getID() != GOTItemSword.accessWeaponDamageModifier()) {
-					continue;
+		Collection<AttributeModifier> weaponAttributes;
+		if (itemstack != null && (weaponAttributes = itemstack.getAttributeModifiers().values()) != null) {
+			for (AttributeModifier mod : weaponAttributes) {
+				if (mod.getID() == GOTItemSword.accessWeaponDamageModifier()) {
+					return true;
 				}
-				return true;
 			}
 		}
 		return false;

@@ -18,7 +18,7 @@ import net.minecraft.util.WeightedRandom;
 import java.util.*;
 
 public class GOTEnchantmentHelper {
-	public static Map<UUID, ItemStack[]> lastKnownPlayerInventories = (Map) new HashMap<UUID, ItemStack>();
+	public static Map<UUID, ItemStack[]> lastKnownPlayerInventories = new HashMap<>();
 
 	public static Random backupRand;
 

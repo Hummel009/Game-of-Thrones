@@ -12,7 +12,7 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 	public static int MAX_COOLDOWN = 86400;
 
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
 			return CommandBase.getListOfStringsMatchingLastWord(args, "max", "min");
 		}

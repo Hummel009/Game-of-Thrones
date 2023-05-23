@@ -3,6 +3,7 @@ package got.common.entity.other;
 import got.common.database.GOTRegistry;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemArmor;
@@ -21,7 +22,7 @@ public class GOTEntityUtils {
 		return itemstack;
 	}
 
-	public static EntityAITasks.EntityAITaskEntry removeAITask(EntityCreature entity, Class taskClass) {
+	public static EntityAITasks.EntityAITaskEntry removeAITask(EntityCreature entity, Class<? extends EntityAIBase> taskClass) {
 		int i;
 		EntityAITasks.EntityAITaskEntry taskEntry;
 		for (i = 0; i < entity.tasks.taskEntries.size(); ++i) {

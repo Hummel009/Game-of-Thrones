@@ -13,11 +13,11 @@ import java.util.ArrayList;
 public class GOTContainerMountInventory extends ContainerHorseInventory {
 	public GOTContainerMountInventory(IInventory playerInv, IInventory horseInv, GOTEntityHorse horse) {
 		super(playerInv, horseInv, horse);
-		ArrayList slots = new ArrayList(inventorySlots);
+		ArrayList<Slot> slots = new ArrayList<Slot>(inventorySlots);
 		inventorySlots.clear();
 		inventoryItemStacks.clear();
-		addSlotToContainer((Slot) slots.get(0));
-		Slot armorSlot = (Slot) slots.get(1);
+		addSlotToContainer(slots.get(0));
+		Slot armorSlot = slots.get(1);
 		addSlotToContainer(new Slot(armorSlot.inventory, armorSlot.slotNumber, armorSlot.xDisplayPosition, armorSlot.yDisplayPosition) {
 
 			@SideOnly(Side.CLIENT)
@@ -32,7 +32,7 @@ public class GOTContainerMountInventory extends ContainerHorseInventory {
 			}
 		});
 		for (int i = 2; i < slots.size(); ++i) {
-			addSlotToContainer((Slot) slots.get(i));
+			addSlotToContainer(slots.get(i));
 		}
 	}
 

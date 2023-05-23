@@ -69,18 +69,17 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 		if (entityplayer != null) {
 			msgPlayers.add(entityplayer);
 		}
-		List worldPlayers = worldObj.playerEntities;
-		for (Object obj : worldPlayers) {
-			EntityPlayer player = (EntityPlayer) obj;
-			if (msgPlayers.contains(player)) {
+		List<EntityPlayer> worldPlayers = worldObj.playerEntities;
+		for (EntityPlayer obj : worldPlayers) {
+			if (msgPlayers.contains(obj)) {
 				continue;
 			}
 			double d = 64.0;
 			double dSq = d * d;
-			if (getDistanceSqToEntity(player) >= dSq) {
+			if (getDistanceSqToEntity(obj) >= dSq) {
 				continue;
 			}
-			msgPlayers.add(player);
+			msgPlayers.add(obj);
 		}
 		for (EntityPlayer player : msgPlayers) {
 			GOTSpeech.sendSpeechAndChatMessage(player, this, "legendary/jaqen_arrive");
@@ -90,18 +89,15 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 
 	public void depart() {
 		ArrayList<EntityPlayer> msgPlayers = new ArrayList<>();
-		List worldPlayers = worldObj.playerEntities;
-		for (Object obj : worldPlayers) {
-			EntityPlayer player = (EntityPlayer) obj;
-			if (msgPlayers.contains(player)) {
-				continue;
+		List<EntityPlayer> worldPlayers = worldObj.playerEntities;
+		for (EntityPlayer obj : worldPlayers) {
+			if (!msgPlayers.contains(obj)) {
+				double d = 64.0;
+				double dSq = d * d;
+				if (getDistanceSqToEntity(obj) < dSq) {
+					msgPlayers.add(obj);
+				}
 			}
-			double d = 64.0;
-			double dSq = d * d;
-			if (getDistanceSqToEntity(player) >= dSq) {
-				continue;
-			}
-			msgPlayers.add(player);
 		}
 		for (EntityPlayer player : msgPlayers) {
 			GOTSpeech.sendSpeechAndChatMessage(player, this, "legendary/jaqen_depart");

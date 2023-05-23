@@ -52,7 +52,7 @@ public class GOTItemNPCRespawner extends Item {
 		GOTEntityNPCRespawner spawner = new GOTEntityNPCRespawner(world);
 		double f = 0.1;
 		double f1 = 1.0 - f;
-		List entities = world.getEntitiesWithinAABB(GOTEntityNPCRespawner.class, AxisAlignedBB.getBoundingBox(i + f, j + f, k + f, i + f1, j + f1, k + f1));
+		List<GOTEntityNPCRespawner> entities = world.getEntitiesWithinAABB(GOTEntityNPCRespawner.class, AxisAlignedBB.getBoundingBox(i + f, j + f, k + f, i + f1, j + f1, k + f1));
 		if (entities.isEmpty()) {
 			spawner.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
 			double c = 0.01;

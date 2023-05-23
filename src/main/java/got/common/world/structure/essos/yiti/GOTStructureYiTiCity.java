@@ -30,7 +30,7 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 	}
 
 	@Override
-	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+	public GOTVillageGen.AbstractInstance<GOTStructureYiTiCity> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
@@ -57,7 +57,7 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 		VILLAGE, TOWN, FORT, TOWER, WALL
 	}
 
-	public class Instance extends GOTVillageGen.AbstractInstance {
+	public class Instance extends GOTVillageGen.AbstractInstance<GOTStructureYiTiCity> {
 		public VillageType villageType;
 
 		public Instance(GOTStructureYiTiCity village, World world, int i, int k, Random random, LocationInfo loc) {
@@ -330,13 +330,13 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 			int marketX = 4;
 			for (int l = 0; l <= 2; ++l) {
 				marketZ = 56 - l * 7;
-				addStructure(Objects.requireNonNull(GOTStructureYiTiMarketStall.getRandomStall(random, false)), -marketX, marketZ, 1, true);
-				addStructure(Objects.requireNonNull(GOTStructureYiTiMarketStall.getRandomStall(random, false)), marketX, marketZ, 3, true);
+				addStructure(GOTStructureYiTiMarketStall.getRandomStall(random, false), -marketX, marketZ, 1, true);
+				addStructure(GOTStructureYiTiMarketStall.getRandomStall(random, false), marketX, marketZ, 3, true);
 			}
 			marketX = 14;
 			marketZ = 59;
-			addStructure(Objects.requireNonNull(GOTStructureYiTiMarketStall.getRandomStall(random, false)), -marketX, marketZ, 2, true);
-			addStructure(Objects.requireNonNull(GOTStructureYiTiMarketStall.getRandomStall(random, false)), marketX, marketZ, 2, true);
+			addStructure(GOTStructureYiTiMarketStall.getRandomStall(random, false), -marketX, marketZ, 2, true);
+			addStructure(GOTStructureYiTiMarketStall.getRandomStall(random, false), marketX, marketZ, 2, true);
 			int gardenX = 58;
 			addStructure(new GOTStructureYiTiVillageFarm.Tree(false), -gardenX + 5, -gardenX, 0, true);
 			addStructure(new GOTStructureYiTiVillageFarm.Tree(false), gardenX - 5, -gardenX, 0, true);

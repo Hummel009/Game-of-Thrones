@@ -42,7 +42,7 @@ public class GOTGuiScrollPane {
 		Gui.drawRect(x0, y0, x1, y1, widgetColor);
 	}
 
-	public int[] getMinMaxIndices(List list, int displayed) {
+	public int[] getMinMaxIndices(List<?> list, int displayed) {
 		int size = list.size();
 		int min = Math.round(currentScroll * (size - displayed));
 		int max = displayed - 1 + Math.round(currentScroll * (size - displayed));

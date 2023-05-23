@@ -941,8 +941,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (!worldObj.isRemote && isEntityAlive() && getAttackTarget() == null) {
 			boolean guiOpen = false;
 			if (this instanceof GOTTradeable || this instanceof GOTUnitTradeable || this instanceof GOTMercenary) {
-				for (Object element : worldObj.playerEntities) {
-					EntityPlayer entityplayer = (EntityPlayer) element;
+				List<EntityPlayer> players = worldObj.playerEntities;
+				for (EntityPlayer entityplayer : players) {
 					Container container = entityplayer.openContainer;
 					if (container instanceof GOTContainerTrade && ((GOTContainerTrade) container).theTraderNPC == this || container instanceof GOTContainerUnitTrade && ((GOTContainerUnitTrade) container).theLivingTrader == this) {
 						guiOpen = true;
@@ -1127,13 +1127,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		int x = MathHelper.floor_double(posX) >> 4;
 		int z = MathHelper.floor_double(posZ) >> 4;
 		PlayerManager playermanager = ((WorldServer) worldObj).getPlayerManager();
-		List players = worldObj.playerEntities;
-		for (Object obj : players) {
-			EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
-			if (!playermanager.isPlayerWatchingChunk(entityplayer, x, z)) {
-				continue;
+		List<EntityPlayer> players = worldObj.playerEntities;
+		for (EntityPlayer obj : players) {
+			if (playermanager.isPlayerWatchingChunk((EntityPlayerMP) obj, x, z)) {
+				sendIsEatingPacket((EntityPlayerMP) obj);
 			}
-			sendIsEatingPacket(entityplayer);
 		}
 	}
 
@@ -1190,7 +1188,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 						}
 					};
 					double range = 16.0;
-					List nearbyMobs = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range), selectorAttackingNPCs);
+					List<? extends Entity> nearbyMobs = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range), selectorAttackingNPCs);
 					if (nearbyMobs.size() <= 5) {
 						sendSpeechBank(entityplayer, speechBank);
 					}
@@ -1389,13 +1387,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				int x = MathHelper.floor_double(posX) >> 4;
 				int z = MathHelper.floor_double(posZ) >> 4;
 				PlayerManager playermanager = ((WorldServer) worldObj).getPlayerManager();
-				List players = worldObj.playerEntities;
-				for (Object obj : players) {
-					EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
-					if (!playermanager.isPlayerWatchingChunk(entityplayer, x, z)) {
-						continue;
+				List<EntityPlayer> players = worldObj.playerEntities;
+				for (EntityPlayer obj : players) {
+					if (playermanager.isPlayerWatchingChunk((EntityPlayerMP) obj, x, z)) {
+						sendCombatStance((EntityPlayerMP) obj);
 					}
-					sendCombatStance(entityplayer);
 				}
 			}
 		}
@@ -1406,7 +1402,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			nearbyBannerFactor = 0;
 		} else {
 			double range = 16.0;
-			List bannerBearers = worldObj.selectEntitiesWithinAABB(GOTBannerBearer.class, boundingBox.expand(range, range, range), new IEntitySelector() {
+			List<GOTBannerBearer> bannerBearers = worldObj.selectEntitiesWithinAABB(GOTBannerBearer.class, boundingBox.expand(range, range, range), new IEntitySelector() {
 
 				@Override
 				public boolean isEntityApplicable(Entity entity) {

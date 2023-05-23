@@ -497,7 +497,7 @@ public class GOTTickHandlerClient {
 			tooltip.add("");
 			String owner = IPickpocketable.Helper.getOwner(itemstack);
 			owner = StatCollector.translateToLocalFormatted("item.got.generic.stolen", owner);
-			List<String> robbedLines = new ArrayList<>(fontRenderer.listFormattedStringToWidth(owner, 200));
+			List<String> robbedLines = new ArrayList<String>(fontRenderer.listFormattedStringToWidth(owner, 200));
 			for (int i = 0; i < robbedLines.size(); i++) {
 				String line = robbedLines.get(i);
 				if (i > 0) {

@@ -7,6 +7,7 @@ import got.common.GOTSquadrons;
 import got.common.database.GOTCreativeTabs;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
@@ -58,27 +59,26 @@ public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronIte
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!world.isRemote) {
-			List entities = world.loadedEntityList;
-			for (Object entitie : entities) {
-				if (!(entitie instanceof GOTEntityNPC)) {
-					continue;
+			List<? extends Entity> entities = world.loadedEntityList;
+			for (Entity entity : entities) {
+				if (entity instanceof GOTEntityNPC) {
+					GOTEntityNPC npc = (GOTEntityNPC) entity;
+					if (!npc.hiredNPCInfo.isActive || npc.hiredNPCInfo.getHiringPlayer() != entityplayer || !GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
+						continue;
+					}
+					if (itemstack.getItemDamage() == 1 && npc.hiredNPCInfo.getObeyHornHaltReady()) {
+						npc.hiredNPCInfo.halt();
+						continue;
+					}
+					if (itemstack.getItemDamage() == 2 && npc.hiredNPCInfo.getObeyHornHaltReady()) {
+						npc.hiredNPCInfo.ready();
+						continue;
+					}
+					if (itemstack.getItemDamage() != 3 || !npc.hiredNPCInfo.getObeyHornSummon()) {
+						continue;
+					}
+					npc.hiredNPCInfo.tryTeleportToHiringPlayer(true);
 				}
-				GOTEntityNPC npc = (GOTEntityNPC) entitie;
-				if (!npc.hiredNPCInfo.isActive || npc.hiredNPCInfo.getHiringPlayer() != entityplayer || !GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
-					continue;
-				}
-				if (itemstack.getItemDamage() == 1 && npc.hiredNPCInfo.getObeyHornHaltReady()) {
-					npc.hiredNPCInfo.halt();
-					continue;
-				}
-				if (itemstack.getItemDamage() == 2 && npc.hiredNPCInfo.getObeyHornHaltReady()) {
-					npc.hiredNPCInfo.ready();
-					continue;
-				}
-				if (itemstack.getItemDamage() != 3 || !npc.hiredNPCInfo.getObeyHornSummon()) {
-					continue;
-				}
-				npc.hiredNPCInfo.tryTeleportToHiringPlayer(true);
 			}
 		}
 		if (itemstack.getItemDamage() == 1) {

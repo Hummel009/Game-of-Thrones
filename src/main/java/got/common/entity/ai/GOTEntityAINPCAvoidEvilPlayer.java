@@ -44,20 +44,19 @@ public class GOTEntityAINPCAvoidEvilPlayer extends EntityAIBase {
 	@Override
 	public boolean shouldExecute() {
 		ArrayList<EntityPlayer> validPlayers = new ArrayList<>();
-		List list = theNPC.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theNPC.boundingBox.expand(distanceFromEntity, distanceFromEntity / 2.0, distanceFromEntity));
+		List<EntityPlayer> list = theNPC.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theNPC.boundingBox.expand(distanceFromEntity, distanceFromEntity / 2.0, distanceFromEntity));
 		if (list.isEmpty()) {
 			return false;
 		}
-		for (Object element : list) {
-			EntityPlayer entityplayer = (EntityPlayer) element;
-			if (entityplayer.capabilities.isCreativeMode) {
+		for (EntityPlayer element : list) {
+			if (element.capabilities.isCreativeMode) {
 				continue;
 			}
-			float alignment = GOTLevelData.getData(entityplayer).getAlignment(theNPC.getFaction());
+			float alignment = GOTLevelData.getData(element).getAlignment(theNPC.getFaction());
 			if ((theNPC.familyInfo.getAge() >= 0 || alignment >= 0.0f) && alignment > -100.0f) {
 				continue;
 			}
-			validPlayers.add(entityplayer);
+			validPlayers.add(element);
 		}
 		if (validPlayers.isEmpty()) {
 			return false;

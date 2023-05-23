@@ -26,7 +26,7 @@ public class GOTEntitySeagull extends GOTEntityBird {
 	public boolean canBirdSpawnHere() {
 		if (GOTAmbientSpawnChecks.canSpawn(this, 8, 4, 40, 4, Material.leaves, Material.sand)) {
 			double range = 16.0;
-			List nearbyGulls = worldObj.getEntitiesWithinAABB(GOTEntitySeagull.class, boundingBox.expand(range, range, range));
+			List<GOTEntitySeagull> nearbyGulls = worldObj.getEntitiesWithinAABB(GOTEntitySeagull.class, boundingBox.expand(range, range, range));
 			return nearbyGulls.size() < 2;
 		}
 		return false;

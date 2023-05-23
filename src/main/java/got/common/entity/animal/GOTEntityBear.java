@@ -65,14 +65,11 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		if (flag && (attacker = damagesource.getEntity()) instanceof EntityLivingBase) {
 			if (isChild()) {
 				double range = 12.0;
-				List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
-				for (Object obj : list) {
-					GOTEntityBear bear;
-					Entity entity = (Entity) obj;
-					if (!(entity instanceof GOTEntityBear) || (bear = (GOTEntityBear) entity).isChild()) {
-						continue;
+				List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
+				for (Entity entity : list) {
+					if (entity instanceof GOTEntityBear && !((GOTEntityBear) entity).isChild()) {
+						((GOTEntityBear) entity).becomeAngryAt((EntityLivingBase) attacker);
 					}
-					bear.becomeAngryAt((EntityLivingBase) attacker);
 				}
 			} else {
 				becomeAngryAt((EntityLivingBase) attacker);

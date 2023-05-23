@@ -170,22 +170,21 @@ public abstract class GOTEntityFireball extends Entity {
 			}
 
 			Entity entity = null;
-			List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.addCoord(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
+			List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.addCoord(motionX, motionY, motionZ).expand(1.0D, 1.0D, 1.0D));
 			double d0 = 0.0D;
 
-			for (Object element : list) {
-				Entity entity1 = (Entity) element;
+			for (Entity element : list) {
 
-				if (entity1.canBeCollidedWith() && (!entity1.isEntityEqual(shootingEntity) || ticksInAir >= 25)) {
+				if (element.canBeCollidedWith() && (!element.isEntityEqual(shootingEntity) || ticksInAir >= 25)) {
 					float f = 0.3F;
-					AxisAlignedBB axisalignedbb = entity1.boundingBox.expand(f, f, f);
+					AxisAlignedBB axisalignedbb = element.boundingBox.expand(f, f, f);
 					MovingObjectPosition movingobjectposition1 = axisalignedbb.calculateIntercept(vec3, vec31);
 
 					if (movingobjectposition1 != null) {
 						double d1 = vec3.distanceTo(movingobjectposition1.hitVec);
 
 						if (d1 < d0 || d0 == 0.0D) {
-							entity = entity1;
+							entity = element;
 							d0 = d1;
 						}
 					}

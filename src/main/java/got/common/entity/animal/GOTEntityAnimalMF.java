@@ -27,7 +27,7 @@ public abstract class GOTEntityAnimalMF extends EntityAnimal implements GOTBiome
 		return false;
 	}
 
-	public abstract Class getAnimalMFBaseClass();
+	public abstract Class<? extends GOTEntityAnimalMF> getAnimalMFBaseClass();
 
 	@Override
 	public boolean getCanSpawnHere() {

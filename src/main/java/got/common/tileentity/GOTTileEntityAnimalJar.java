@@ -8,6 +8,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
@@ -134,12 +135,12 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 		int i = MathHelper.floor_double(xCoord) >> 4;
 		int k = MathHelper.floor_double(zCoord) >> 4;
 		PlayerManager playermanager = ((WorldServer) worldObj).getPlayerManager();
-		List<EntityPlayerMP> players = worldObj.playerEntities;
-		for (EntityPlayerMP entityplayer : players) {
-			if (!playermanager.isPlayerWatchingChunk(entityplayer, i, k)) {
+		List<EntityPlayer> players = worldObj.playerEntities;
+		for (EntityPlayer entityplayer : players) {
+			if (!playermanager.isPlayerWatchingChunk((EntityPlayerMP) entityplayer, i, k)) {
 				continue;
 			}
-			entityplayer.playerNetServerHandler.sendPacket(packet);
+			((EntityPlayerMP) entityplayer).playerNetServerHandler.sendPacket(packet);
 		}
 	}
 

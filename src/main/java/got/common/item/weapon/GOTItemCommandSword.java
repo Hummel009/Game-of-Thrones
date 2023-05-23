@@ -29,7 +29,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 
 	public void command(EntityPlayer entityplayer, World world, ItemStack itemstack, MovingObjectPosition hitTarget) {
 		entityplayer.setRevengeTarget(null);
-		List spreadTargets = new ArrayList<>();
+		List<Entity> spreadTargets = new ArrayList<>();
 		if (hitTarget != null) {
 			Vec3 vec = hitTarget.hitVec;
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(vec.xCoord, vec.yCoord, vec.zCoord, vec.xCoord, vec.yCoord, vec.zCoord);
@@ -47,7 +47,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		for (GOTEntityNPC npc : nearbyHiredUnits) {
 			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getObeyCommandSword())
 				if (GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
-					List<EntityLivingBase> validTargets = new ArrayList();
+					List<EntityLivingBase> validTargets = new ArrayList<>();
 					if (!spreadTargets.isEmpty()) for (Object obj : spreadTargets) {
 						EntityLivingBase entity = (EntityLivingBase) obj;
 						if (GOT.canNPCAttackEntity(npc, entity, true)) validTargets.add(entity);
@@ -77,37 +77,36 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		Vec3 look = entityplayer.getLookVec();
 		Vec3 sight = eyePos.addVector(look.xCoord * range, look.yCoord * range, look.zCoord * range);
 		float sightWidth = 1.0f;
-		List list = entityplayer.worldObj.getEntitiesWithinAABBExcludingEntity(entityplayer, entityplayer.boundingBox.addCoord(look.xCoord * range, look.yCoord * range, look.zCoord * range).expand(sightWidth, sightWidth, sightWidth));
+		List<? extends Entity> list = entityplayer.worldObj.getEntitiesWithinAABBExcludingEntity(entityplayer, entityplayer.boundingBox.addCoord(look.xCoord * range, look.yCoord * range, look.zCoord * range).expand(sightWidth, sightWidth, sightWidth));
 		Entity pointedEntity = null;
 		double entityDist = range;
-		for (Object element : list) {
+		for (Entity element : list) {
 			double d;
-			Entity entity = (Entity) element;
-			if (!(entity instanceof EntityLivingBase) || !entity.canBeCollidedWith()) {
+			if (!(element instanceof EntityLivingBase) || !element.canBeCollidedWith()) {
 				continue;
 			}
 			float width = 1.0f;
-			AxisAlignedBB axisalignedbb = entity.boundingBox.expand(width, width, width);
+			AxisAlignedBB axisalignedbb = element.boundingBox.expand(width, width, width);
 			MovingObjectPosition movingobjectposition = axisalignedbb.calculateIntercept(eyePos, sight);
 			if (axisalignedbb.isVecInside(eyePos)) {
 				if (entityDist < 0.0) {
 					continue;
 				}
-				pointedEntity = entity;
+				pointedEntity = element;
 				entityDist = 0.0;
 				continue;
 			}
 			if (movingobjectposition == null || (d = eyePos.distanceTo(movingobjectposition.hitVec)) >= entityDist && entityDist != 0.0) {
 				continue;
 			}
-			if (entity == entityplayer.ridingEntity && !entity.canRiderInteract()) {
+			if (element == entityplayer.ridingEntity && !element.canRiderInteract()) {
 				if (entityDist != 0.0) {
 					continue;
 				}
-				pointedEntity = entity;
+				pointedEntity = element;
 				continue;
 			}
-			pointedEntity = entity;
+			pointedEntity = element;
 			entityDist = d;
 		}
 		return pointedEntity;

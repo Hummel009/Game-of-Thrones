@@ -16,17 +16,17 @@ import java.util.Comparator;
 import java.util.List;
 
 public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
-	public Class targetClass;
+	public Class<? extends Entity> targetClass;
 	public int targetChance;
 	public TargetSorter targetSorter;
 	public IEntitySelector targetSelector;
 	public EntityLivingBase targetEntity;
 
-	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class cls, int chance, boolean checkSight) {
+	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight) {
 		this(entity, cls, chance, checkSight, false, null);
 	}
 
-	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class cls, int chance, boolean checkSight, boolean nearby, IEntitySelector selector) {
+	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, boolean nearby, IEntitySelector selector) {
 		super(entity, checkSight, nearby);
 		targetClass = cls;
 		targetChance = chance;
@@ -48,7 +48,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		};
 	}
 
-	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class cls, int chance, boolean checkSight, IEntitySelector selector) {
+	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, IEntitySelector selector) {
 		this(entity, cls, chance, checkSight, false, selector);
 	}
 
@@ -95,7 +95,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		}
 		double range = getTargetDistance();
 		double rangeY = Math.min(range, 8.0);
-		List entities = taskOwner.worldObj.selectEntitiesWithinAABB(targetClass, taskOwner.boundingBox.expand(range, rangeY, range), targetSelector);
+		List<? extends Entity> entities = taskOwner.worldObj.selectEntitiesWithinAABB(targetClass, taskOwner.boundingBox.expand(range, rangeY, range), targetSelector);
 		entities.sort(targetSorter);
 		if (entities.isEmpty()) {
 			return false;
@@ -132,10 +132,9 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			dSq /= avgSq;
 			int dupes = 0;
 			double nearRange = 8.0;
-			List nearbyEntities = theNPC.worldObj.getEntitiesWithinAABB(GOTEntityNPC.class, theNPC.boundingBox.expand(nearRange, nearRange, nearRange));
-			for (Object obj : nearbyEntities) {
-				GOTEntityNPC nearby = (GOTEntityNPC) obj;
-				if (nearby == theNPC || !nearby.isEntityAlive() || nearby.getAttackTarget() != target) {
+			List<GOTEntityNPC> nearbyEntities = theNPC.worldObj.getEntitiesWithinAABB(GOTEntityNPC.class, theNPC.boundingBox.expand(nearRange, nearRange, nearRange));
+			for (GOTEntityNPC obj : nearbyEntities) {
+				if (obj == theNPC || !obj.isEntityAlive() || obj.getAttackTarget() != target) {
 					continue;
 				}
 				++dupes;

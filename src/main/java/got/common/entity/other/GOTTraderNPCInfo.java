@@ -101,8 +101,8 @@ public class GOTTraderNPCInfo {
 				sendUpdate = true;
 			}
 			if (sendUpdate) {
-				for (Object element : theEntity.worldObj.playerEntities) {
-					EntityPlayer entityplayer = (EntityPlayer) element;
+				List<EntityPlayer> players = theEntity.worldObj.playerEntities;
+				for (EntityPlayer entityplayer : players) {
 					Container container = entityplayer.openContainer;
 					if (!(container instanceof GOTContainerTrade) || ((GOTContainerTrade) container).theTraderNPC != theEntity) {
 						continue;
@@ -112,14 +112,13 @@ public class GOTTraderNPCInfo {
 			}
 			if (theEntity.isEntityAlive() && theEntity.getAttackTarget() == null && timeUntilAdvertisement == 0 && timeSinceTrade > 600) {
 				double range = 10.0;
-				List players = theEntity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theEntity.boundingBox.expand(range, range, range));
-				for (Object obj : players) {
+				List<EntityPlayer> players = theEntity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theEntity.boundingBox.expand(range, range, range));
+				for (EntityPlayer obj : players) {
 					String speechBank;
-					EntityPlayer entityplayer = (EntityPlayer) obj;
-					if (!entityplayer.isEntityAlive() || entityplayer.capabilities.isCreativeMode || entityplayer.openContainer != null && entityplayer.openContainer != entityplayer.inventoryContainer || (speechBank = theEntity.getSpeechBank(entityplayer)) == null || theEntity.getRNG().nextInt(3) != 0) {
+					if (!obj.isEntityAlive() || obj.capabilities.isCreativeMode || obj.openContainer != null && obj.openContainer != obj.inventoryContainer || (speechBank = theEntity.getSpeechBank(obj)) == null || theEntity.getRNG().nextInt(3) != 0) {
 						continue;
 					}
-					theEntity.sendSpeechBank(entityplayer, speechBank);
+					theEntity.sendSpeechBank(obj, speechBank);
 				}
 				timeUntilAdvertisement = 20 * MathHelper.getRandomIntegerInRange(theEntity.getRNG(), 5, 20);
 			}
@@ -187,8 +186,8 @@ public class GOTTraderNPCInfo {
 		setBuyTrades(theTrader.getBuyPool().getRandomTrades(rand));
 		setSellTrades(theTrader.getSellPool().getRandomTrades(rand));
 		valueSinceRefresh = 0;
-		for (Object element : theEntity.worldObj.playerEntities) {
-			EntityPlayer entityplayer = (EntityPlayer) element;
+		List<EntityPlayer> players = theEntity.worldObj.playerEntities;
+		for (EntityPlayer entityplayer : players) {
 			Container container = entityplayer.openContainer;
 			if (!(container instanceof GOTContainerTrade) || ((GOTContainerTrade) container).theTraderNPC != theEntity) {
 				continue;

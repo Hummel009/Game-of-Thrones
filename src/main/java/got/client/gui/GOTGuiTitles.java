@@ -147,7 +147,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 			boolean mouseOver = entry.getValue().getLeft();
 			if (mouseOver) {
 				int stringWidth = 200;
-				List titleLines = fontRendererObj.listFormattedStringToWidth(desc, stringWidth);
+				List<String> titleLines = fontRendererObj.listFormattedStringToWidth(desc, stringWidth);
 				int offset = 10;
 				int x = i + offset;
 				int y = j + offset;
@@ -190,7 +190,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		if (mouse == 0) {
 			for (Map.Entry<GOTTitle, Pair<Boolean, Pair<Integer, Integer>>> entry : displayedTitleInfo.entrySet()) {
 				GOTTitle title = entry.getKey();
-				boolean mouseOver = (Boolean) ((Pair) entry.getValue()).getLeft();
+				boolean mouseOver = entry.getValue().getLeft();
 				if (mouseOver && title.canPlayerUse(mc.thePlayer)) {
 					selectedTitle = title;
 					selectedColor = EnumChatFormatting.WHITE;
@@ -200,8 +200,8 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 			if (!displayedColorBoxes.isEmpty()) {
 				for (Map.Entry<EnumChatFormatting, Pair<Integer, Integer>> entry : displayedColorBoxes.entrySet()) {
 					EnumChatFormatting color = entry.getKey();
-					int colorX = (Integer) ((Pair) entry.getValue()).getLeft();
-					int colorY = (Integer) ((Pair) entry.getValue()).getRight();
+					int colorX = entry.getValue().getLeft();
+					int colorY = entry.getValue().getRight();
 					if (i >= colorX && i < colorX + colorBoxWidth && j >= colorY && j < colorY + colorBoxWidth) {
 						selectedColor = color;
 						break;

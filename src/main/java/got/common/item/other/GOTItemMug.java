@@ -76,20 +76,19 @@ public class GOTItemMug extends Item {
 		this(true, false, true, alc);
 	}
 
-	public static void addPotionEffectsToTooltip(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag, List itemEffects) {
+	public static void addPotionEffectsToTooltip(ItemStack itemstack, EntityPlayer entityplayer, List<String> list, boolean flag, List<PotionEffect> itemEffects) {
 		if (!itemEffects.isEmpty()) {
 			ItemStack potionEquivalent = new ItemStack(Items.potionitem);
 			potionEquivalent.setItemDamage(69);
 			NBTTagList effectsData = new NBTTagList();
-			for (Object itemEffect : itemEffects) {
-				PotionEffect effect = (PotionEffect) itemEffect;
+			for (PotionEffect itemEffect : itemEffects) {
 				NBTTagCompound nbt = new NBTTagCompound();
-				effect.writeCustomPotionEffectToNBT(nbt);
+				itemEffect.writeCustomPotionEffectToNBT(nbt);
 				effectsData.appendTag(nbt);
 			}
 			potionEquivalent.setTagCompound(new NBTTagCompound());
 			potionEquivalent.getTagCompound().setTag("CustomPotionEffects", effectsData);
-			ArrayList effectTooltips = new ArrayList<>();
+			ArrayList<String> effectTooltips = new ArrayList<>();
 			potionEquivalent.getItem().addInformation(potionEquivalent, entityplayer, effectTooltips, flag);
 			list.addAll(effectTooltips);
 		}

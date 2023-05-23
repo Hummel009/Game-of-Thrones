@@ -9,7 +9,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GOTDragonBreed {
-
 	public String name;
 	public String skin;
 	public int color;

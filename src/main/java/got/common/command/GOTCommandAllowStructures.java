@@ -13,7 +13,7 @@ import java.util.List;
 
 public class GOTCommandAllowStructures extends CommandBase {
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
 			ArrayList<String> bannedNames = new ArrayList<>(GOTLevelData.getBannedStructurePlayersUsernames());
 			return CommandBase.getListOfStringsMatchingLastWord(args, bannedNames.toArray(new String[0]));

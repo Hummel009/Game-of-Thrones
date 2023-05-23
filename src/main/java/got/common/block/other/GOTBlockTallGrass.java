@@ -39,7 +39,7 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 	}
 
 	@Override
-	public ArrayList getDrops(World world, int i, int j, int k, int meta, int fortune) {
+	public ArrayList<ItemStack> getDrops(World world, int i, int j, int k, int meta, int fortune) {
 		if (meta == 3) {
 			ArrayList<ItemStack> thistles = new ArrayList<>();
 			thistles.add(new ItemStack(this, 1, 3));

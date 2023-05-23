@@ -155,7 +155,7 @@ public class GOTReflection {
 		return null;
 	}
 
-	public static <E> Method getPrivateMethod(Class<? super E> classToAccess, E instance, Class[] methodClasses, String... methodNames) {
+	public static <E> Method getPrivateMethod(Class<? super E> classToAccess, E instance, Class<?>[] methodClasses, String... methodNames) {
 		try {
 			return ReflectionHelper.findMethod(classToAccess, instance, remapMethodNames(classToAccess.getName(), methodNames), methodClasses);
 		} catch (ReflectionHelper.UnableToFindFieldException e) {
@@ -215,8 +215,7 @@ public class GOTReflection {
 
 	public static Entity newEntity(Class<? extends Entity> entityClass, World world) {
 		try {
-			Class[] param = new Class[1];
-			param[0] = World.class;
+			Class<World>[] param = new Class[]{World.class};
 			return entityClass.getDeclaredConstructor(param).newInstance(world);
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
 		         InvocationTargetException | NoSuchMethodException | SecurityException e) {
@@ -227,8 +226,7 @@ public class GOTReflection {
 
 	public static WorldGenerator newStructure(Class<? extends WorldGenerator> structureClass, boolean bool) {
 		try {
-			Class[] param = new Class[1];
-			param[0] = boolean.class;
+			Class<Boolean>[] param = new Class[]{boolean.class};
 			return structureClass.getDeclaredConstructor(param).newInstance(bool);
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
 		         InvocationTargetException | NoSuchMethodException | SecurityException e) {

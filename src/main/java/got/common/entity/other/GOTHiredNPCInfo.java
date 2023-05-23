@@ -465,13 +465,11 @@ public class GOTHiredNPCInfo {
 		int x = MathHelper.floor_double(theEntity.posX) >> 4;
 		int z = MathHelper.floor_double(theEntity.posZ) >> 4;
 		PlayerManager playermanager = ((WorldServer) theEntity.worldObj).getPlayerManager();
-		List players = theEntity.worldObj.playerEntities;
-		for (Object obj : players) {
-			EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
-			if (!playermanager.isPlayerWatchingChunk(entityplayer, x, z)) {
-				continue;
+		List<EntityPlayer> players = theEntity.worldObj.playerEntities;
+		for (EntityPlayer obj : players) {
+			if (playermanager.isPlayerWatchingChunk((EntityPlayerMP) obj, x, z)) {
+				sendBasicData((EntityPlayerMP) obj);
 			}
-			sendBasicData(entityplayer);
 		}
 	}
 

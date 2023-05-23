@@ -46,15 +46,14 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 			GOTFaction fac = theNPC.getHiringFaction();
 			String alignS = GOTAlignmentValues.formatAlignForDisplay(theNPC.hiredNPCInfo.alignmentRequiredToCommand);
 			String alignReq = StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.align", alignS, fac.factionName());
-			ArrayList requirementLines = new ArrayList<>(fontRendererObj.listFormattedStringToWidth(alignReq, maxWidth));
+			ArrayList<String> requirementLines = new ArrayList<String>(fontRendererObj.listFormattedStringToWidth(alignReq, maxWidth));
 			GOTUnitTradeEntry.PledgeType pledge = theNPC.hiredNPCInfo.pledgeType;
 			String pledgeReq = pledge.getCommandReqText(fac);
 			if (pledgeReq != null) {
 				requirementLines.addAll(fontRendererObj.listFormattedStringToWidth(pledgeReq, maxWidth));
 			}
-			for (Object obj : requirementLines) {
-				String line = (String) obj;
-				fontRendererObj.drawString(line, x, y, 3618615);
+			for (String obj : requirementLines) {
+				fontRendererObj.drawString(obj, x, y, 3618615);
 				y += fontRendererObj.FONT_HEIGHT;
 			}
 		}

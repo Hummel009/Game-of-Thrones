@@ -55,13 +55,12 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 				if ((evil || world.rand.nextFloat() < chance) && world.rand.nextInt(4) == 0) {
 					int nearbyGuards = 0;
 					int spawnRange = 8;
-					List guardList = world.getEntitiesWithinAABB(GOTEntityReachSoldier.class, entityplayer.boundingBox.expand(spawnRange, spawnRange, spawnRange));
-					for (Object obj : guardList) {
-						guard = (GOTEntityReachSoldier) obj;
-						if (guard.hiredNPCInfo.isActive) {
-							continue;
+					List<GOTEntityReachSoldier> guardList = world.getEntitiesWithinAABB(GOTEntityReachSoldier.class, entityplayer.boundingBox.expand(spawnRange, spawnRange, spawnRange));
+					for (GOTEntityReachSoldier obj : guardList) {
+						guard = obj;
+						if (!guard.hiredNPCInfo.isActive) {
+							++nearbyGuards;
 						}
-						++nearbyGuards;
 					}
 					if (nearbyGuards < 8) {
 						int guardSpawns = 1 + world.rand.nextInt(6);
@@ -97,10 +96,10 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 					}
 				}
 				int range = 16;
-				List guardList = world.getEntitiesWithinAABB(GOTEntityReachSoldier.class, entityplayer.boundingBox.expand(range, range, range));
+				List<GOTEntityReachSoldier> guardList = world.getEntitiesWithinAABB(GOTEntityReachSoldier.class, entityplayer.boundingBox.expand(range, range, range));
 				boolean anyAlert = false;
-				for (Object obj : guardList) {
-					guard = (GOTEntityReachSoldier) obj;
+				for (GOTEntityReachSoldier obj : guardList) {
+					guard = obj;
 					if (guard.hiredNPCInfo.isActive) {
 						continue;
 					}

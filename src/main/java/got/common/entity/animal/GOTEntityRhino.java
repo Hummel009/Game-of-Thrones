@@ -124,13 +124,12 @@ public class GOTEntityRhino extends GOTEntityHorse {
 					Vec3 look = getLookVec();
 					float sightWidth = 1.0f;
 					double range = 0.5;
-					List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.contract(1.0, 1.0, 1.0).addCoord(look.xCoord * range, look.yCoord * range, look.zCoord * range).expand(sightWidth, sightWidth, sightWidth));
+					List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.contract(1.0, 1.0, 1.0).addCoord(look.xCoord * range, look.yCoord * range, look.zCoord * range).expand(sightWidth, sightWidth, sightWidth));
 					boolean hitAnyEntities = false;
-					for (Object element : list) {
+					for (Entity element : list) {
 						EntityLiving entityliving;
 						EntityLivingBase entity;
-						Entity obj = (Entity) element;
-						if (!(obj instanceof EntityLivingBase) || (entity = (EntityLivingBase) obj) == rhinoRider || rhinoRider instanceof EntityPlayer && !GOT.canPlayerAttackEntity((EntityPlayer) rhinoRider, entity, false) || rhinoRider instanceof EntityCreature && !GOT.canNPCAttackEntity((EntityCreature) rhinoRider, entity, false) || !entity.attackEntityFrom(DamageSource.causeMobDamage(this), strength)) {
+						if (!(element instanceof EntityLivingBase) || (entity = (EntityLivingBase) element) == rhinoRider || rhinoRider instanceof EntityPlayer && !GOT.canPlayerAttackEntity((EntityPlayer) rhinoRider, entity, false) || rhinoRider instanceof EntityCreature && !GOT.canNPCAttackEntity((EntityCreature) rhinoRider, entity, false) || !entity.attackEntityFrom(DamageSource.causeMobDamage(this), strength)) {
 							continue;
 						}
 						float knockback = strength * 0.05f;

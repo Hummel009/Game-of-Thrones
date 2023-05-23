@@ -316,14 +316,13 @@ public class GOTEntityBarrel extends Entity {
 			rotationYaw = (float) (rotationYaw + d12);
 			setRotation(rotationYaw, rotationPitch);
 			if (!worldObj.isRemote) {
-				List nearbyEntities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(0.2, 0.0, 0.2));
+				List<? extends Entity> nearbyEntities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(0.2, 0.0, 0.2));
 				if (nearbyEntities != null && !nearbyEntities.isEmpty()) {
-					for (Object element : nearbyEntities) {
-						Entity entity = (Entity) element;
-						if (entity == riddenByEntity || !entity.canBePushed() || !(entity instanceof GOTEntityBarrel)) {
+					for (Entity element : nearbyEntities) {
+						if (element == riddenByEntity || !element.canBePushed() || !(element instanceof GOTEntityBarrel)) {
 							continue;
 						}
-						entity.applyEntityCollision(this);
+						element.applyEntityCollision(this);
 					}
 				}
 				if (riddenByEntity != null && riddenByEntity.isDead) {

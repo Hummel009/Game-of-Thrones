@@ -69,9 +69,9 @@ public class GOTPacketAlignmentBonus implements IMessage {
 		data.writeByte(mainFaction.ordinal());
 		data.writeFloat(prevMainAlignment);
 		if (!factionBonusMap.isEmpty()) {
-			for (Map.Entry e : factionBonusMap.entrySet()) {
-				GOTFaction faction = (GOTFaction) e.getKey();
-				float bonus = (Float) e.getValue();
+			for (Map.Entry<GOTFaction, Float> e : factionBonusMap.entrySet()) {
+				GOTFaction faction = e.getKey();
+				float bonus = e.getValue();
 				data.writeByte(faction.ordinal());
 				data.writeFloat(bonus);
 			}

@@ -214,10 +214,10 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 		}
 		super.updateAITasks();
 		if (timeUntilHiss <= 0) {
-			List nearbyPlayers;
+			List<EntityPlayer> nearbyPlayers;
 			double range;
 			if (getAttackTarget() == null && rand.nextInt(3) == 0 && !(nearbyPlayers = worldObj.selectEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(range = 8.0, range, range), GOT.selectNonCreativePlayers())).isEmpty()) {
-				EntityPlayer entityplayer = (EntityPlayer) nearbyPlayers.get(rand.nextInt(nearbyPlayers.size()));
+				EntityPlayer entityplayer = nearbyPlayers.get(rand.nextInt(nearbyPlayers.size()));
 				getNavigator().clearPathEntity();
 				float hissLook = (float) Math.toDegrees(Math.atan2(entityplayer.posZ - posZ, entityplayer.posX - posX));
 				rotationYaw = rotationYawHead = hissLook - 90.0f;

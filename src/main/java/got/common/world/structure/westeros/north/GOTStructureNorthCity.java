@@ -29,7 +29,7 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 	}
 
 	@Override
-	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+	public GOTVillageGen.AbstractInstance<GOTStructureNorthCity> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
@@ -55,7 +55,7 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 		VILLAGE, TOWN, FORT
 	}
 
-	public class Instance extends GOTVillageGen.AbstractInstance {
+	public class Instance extends GOTVillageGen.AbstractInstance<GOTStructureNorthCity> {
 		public VillageType villageType;
 
 		public Instance(GOTStructureNorthCity village, World world, int i, int k, Random random, LocationInfo loc) {
@@ -231,18 +231,18 @@ public class GOTStructureNorthCity extends GOTVillageGen {
 			for (int k1 = -1; k1 <= 1; ++k1) {
 				int k2 = k1 * stallPos;
 				if (random.nextInt(3) != 0) {
-					addStructure(Objects.requireNonNull(GOTStructureNorthMarketStall.getRandomStall(random, false)), -stallPos + 3, k2, 1, true);
+					addStructure(GOTStructureNorthMarketStall.getRandomStall(random, false), -stallPos + 3, k2, 1, true);
 				}
 				if (random.nextInt(3) == 0) {
 					continue;
 				}
-				addStructure(Objects.requireNonNull(GOTStructureNorthMarketStall.getRandomStall(random, false)), stallPos - 3, k2, 3, true);
+				addStructure(GOTStructureNorthMarketStall.getRandomStall(random, false), stallPos - 3, k2, 3, true);
 			}
 			if (random.nextInt(3) != 0) {
-				addStructure(Objects.requireNonNull(GOTStructureNorthMarketStall.getRandomStall(random, false)), 0, stallPos - 3, 0, true);
+				addStructure(GOTStructureNorthMarketStall.getRandomStall(random, false), 0, stallPos - 3, 0, true);
 			}
 			if (random.nextInt(3) != 0) {
-				addStructure(Objects.requireNonNull(GOTStructureNorthMarketStall.getRandomStall(random, false)), 0, -stallPos + 3, 2, true);
+				addStructure(GOTStructureNorthMarketStall.getRandomStall(random, false), 0, -stallPos + 3, 2, true);
 			}
 			int flowerX = 12;
 			int flowerZ = 18;

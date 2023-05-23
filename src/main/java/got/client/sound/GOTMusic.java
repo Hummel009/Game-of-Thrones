@@ -27,6 +27,7 @@ import net.minecraftforge.common.MinecraftForge;
 import org.apache.commons.io.input.BOMInputStream;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
 import java.util.zip.ZipEntry;
@@ -66,7 +67,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		if (!created) {
 			GOTLog.logger.info("GOTMusic: file wasn't created");
 		}
-		PrintStream writer = new PrintStream(Files.newOutputStream(readme.toPath()));
+		PrintStream writer = new PrintStream(Files.newOutputStream(readme.toPath()), false, StandardCharsets.UTF_8.name());
 		ResourceLocation template = new ResourceLocation("got:music/readme.txt");
 		InputStream templateIn = Minecraft.getMinecraft().getResourceManager().getResource(template).getInputStream();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(templateIn), Charsets.UTF_8));
@@ -310,7 +311,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		public static void putDomainResourceManager(String domain, IResourceManager manager) {
 			SimpleReloadableResourceManager masterManager = (SimpleReloadableResourceManager) Minecraft.getMinecraft().getResourceManager();
 			try {
-				Map map = ObfuscationReflectionHelper.getPrivateValue(SimpleReloadableResourceManager.class, masterManager, "domainResourceManagers", "field_110548_a");
+				Map<String, IResourceManager> map = ObfuscationReflectionHelper.getPrivateValue(SimpleReloadableResourceManager.class, masterManager, "domainResourceManagers", "field_110548_a");
 				map.put(domain, manager);
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);

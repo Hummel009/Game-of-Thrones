@@ -219,10 +219,9 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 		int prevSkirmishTick = draka;
 		draka = 160;
 		if (!worldObj.isRemote && prevSkirmishTick == 0) {
-			List nearbyPlayers = worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(24.0, 24.0, 24.0));
-			for (Object nearbyPlayer : nearbyPlayers) {
-				EntityPlayer entityplayer = (EntityPlayer) nearbyPlayer;
-				GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, getDothrakiSkirmishSpeech(), entityplayer));
+			List<EntityPlayer> nearbyPlayers = worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(24.0, 24.0, 24.0));
+			for (EntityPlayer nearbyPlayer : nearbyPlayers) {
+				GOTSpeech.sendSpeech(nearbyPlayer, this, GOTSpeech.getRandomSpeechForPlayer(this, getDothrakiSkirmishSpeech(), nearbyPlayer));
 			}
 		}
 	}

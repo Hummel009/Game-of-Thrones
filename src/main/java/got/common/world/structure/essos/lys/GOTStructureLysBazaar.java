@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureLysBazaar extends GOTStructureEssosBazaar {
-	public static Class[] stalls = {Lumber.class, Mason.class, Fish.class, Baker.class, Goldsmith.class, Farmer.class, Blacksmith.class, Brewer.class, Miner.class, Florist.class, Butcher.class};
+	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Lumber.class, Mason.class, Fish.class, Baker.class, Goldsmith.class, Farmer.class, Blacksmith.class, Brewer.class, Miner.class, Florist.class, Butcher.class};
 
 	public GOTStructureLysBazaar(boolean flag) {
 		super(flag);
@@ -21,7 +21,7 @@ public class GOTStructureLysBazaar extends GOTStructureEssosBazaar {
 	}
 
 	@Override
-	public Class[] getStallClasses() {
+	public Class<? extends GOTStructureBase>[] getStallClasses() {
 		return stalls;
 	}
 

@@ -188,8 +188,8 @@ public class GOTBlockWildFire extends BlockFire {
 					runBaseFireUpdate(world, i, j, k, random);
 				}
 				if (!infos.isEmpty()) {
-					for (Map.Entry e : infos.entrySet()) {
-						Blocks.fire.setFireInfo((Block) e.getKey(), (Integer) ((Pair) e.getValue()).getLeft(), (Integer) ((Pair) e.getValue()).getRight());
+					for (Map.Entry<Block, Pair<Integer, Integer>> e : infos.entrySet()) {
+						Blocks.fire.setFireInfo(e.getKey(), e.getValue().getLeft(), e.getValue().getRight());
 					}
 				}
 			}

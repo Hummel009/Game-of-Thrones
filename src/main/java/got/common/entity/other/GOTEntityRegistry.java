@@ -16,15 +16,15 @@ public class GOTEntityRegistry {
 	public static Map<Integer, SpawnEggInfo> spawnEggs = new LinkedHashMap<>();
 	public static Map<String, Integer> stringToIDMapping = new HashMap<>();
 	public static Map<Integer, String> IDToStringMapping = new HashMap<>();
-	public static Map<Class, String> classToNameMapping = new HashMap<>();
-	public static Map<Class, Integer> classToIDMapping = new HashMap<>();
-	public static Map<Class, GOTFaction> classToFactionMapping = new HashMap<>();
-	public static Set<Class> entitySet = new HashSet<>();
+	public static Map<Class<? extends Entity>, String> classToNameMapping = new HashMap<>();
+	public static Map<Class<? extends Entity>, Integer> classToIDMapping = new HashMap<>();
+	public static Map<Class<? extends Entity>, GOTFaction> classToFactionMapping = new HashMap<>();
+	public static Set<Class<? extends Entity>> entitySet = new HashSet<>();
 
-	public static Entity createEntityByClass(Class entityClass, World world) {
+	public static Entity createEntityByClass(Class<? extends Entity> entityClass, World world) {
 		Entity entity = null;
 		try {
-			entity = (Entity) entityClass.getConstructor(World.class).newInstance(world);
+			entity = entityClass.getConstructor(World.class).newInstance(world);
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
@@ -43,7 +43,7 @@ public class GOTEntityRegistry {
 		return getEntityIDFromClass(entity.getClass());
 	}
 
-	public static int getEntityIDFromClass(Class entityClass) {
+	public static int getEntityIDFromClass(Class<? extends Entity> entityClass) {
 		return classToIDMapping.get(entityClass);
 	}
 
@@ -54,7 +54,7 @@ public class GOTEntityRegistry {
 		return stringToIDMapping.get(name);
 	}
 
-	public static String getStringFromClass(Class entityClass) {
+	public static String getStringFromClass(Class<? extends Entity> entityClass) {
 		return EntityList.classToStringMapping.get(entityClass);
 	}
 
@@ -97,7 +97,7 @@ public class GOTEntityRegistry {
 		classToFactionMapping.put(entityClass, faction);
 	}
 
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
+	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
 		for (GOTEntityRegistry.SpawnEggInfo info : spawnEggs.values()) {
 			list.add(new ItemStack(item, 1, info.spawnedID));
 		}

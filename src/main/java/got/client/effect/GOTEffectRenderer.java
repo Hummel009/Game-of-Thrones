@@ -24,7 +24,7 @@ public class GOTEffectRenderer {
 		List<EntityFX> layerList;
 		int layer = entityfx.getFXLayer();
 		if (layer >= particleLayers.length) {
-			List[] newLayers = new List[layer + 1];
+			List<EntityFX>[] newLayers = new List[layer + 1];
 			for (int l = 0; l < newLayers.length; ++l) {
 				newLayers[l] = l < particleLayers.length ? particleLayers[l] : new ArrayList<>();
 			}

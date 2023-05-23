@@ -1,6 +1,7 @@
 package got.common.entity.ai;
 
 import got.common.entity.other.GOTEntityNPC;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIBase;
 
 import java.util.List;
@@ -8,10 +9,10 @@ import java.util.List;
 public class GOTEntityAINPCFollowNPC extends EntityAIBase {
 	public GOTEntityNPC entityFollowing;
 	public GOTEntityNPC entityToFollow;
-	public Class entityClassToFollow;
+	public Class<? extends Entity> entityClassToFollow;
 	public int followDelay;
 
-	public GOTEntityAINPCFollowNPC(GOTEntityNPC npc, Class target) {
+	public GOTEntityAINPCFollowNPC(GOTEntityNPC npc, Class<? extends Entity> target) {
 		entityFollowing = npc;
 		entityClassToFollow = target;
 	}

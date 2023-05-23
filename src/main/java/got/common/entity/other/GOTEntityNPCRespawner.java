@@ -33,8 +33,8 @@ public class GOTEntityNPCRespawner extends Entity {
 	public float prevSpawnerSpin;
 	public int spawnInterval = 3600;
 	public int noPlayerRange = 24;
-	public Class spawnClass1;
-	public Class spawnClass2;
+	public Class<? extends Entity> spawnClass1;
+	public Class<? extends Entity> spawnClass2;
 	public int checkHorizontalRange = 8;
 	public int checkVerticalMin = -4;
 	public int checkVerticalMax = 4;
@@ -61,12 +61,11 @@ public class GOTEntityNPCRespawner extends Entity {
 		int i = MathHelper.floor_double(entity.posX);
 		AxisAlignedBB originBB = AxisAlignedBB.getBoundingBox(i, j = MathHelper.floor_double(entity.boundingBox.minY), k = MathHelper.floor_double(entity.posZ), i + 1, j + 1, k + 1);
 		AxisAlignedBB searchBB = originBB.expand(range = 64, range, range);
-		List spawners = world.getEntitiesWithinAABB(GOTEntityNPCRespawner.class, searchBB);
+		List<GOTEntityNPCRespawner> spawners = world.getEntitiesWithinAABB(GOTEntityNPCRespawner.class, searchBB);
 		if (!spawners.isEmpty()) {
-			for (Object obj : spawners) {
+			for (GOTEntityNPCRespawner obj : spawners) {
 				AxisAlignedBB spawnBlockBB;
-				GOTEntityNPCRespawner spawner = (GOTEntityNPCRespawner) obj;
-				if (!spawner.blockEnemySpawns() || !(spawnBlockBB = spawner.createSpawnBlockRegion()).intersectsWith(searchBB) || !spawnBlockBB.intersectsWith(originBB) || !spawner.isEnemySpawnBlocked(spawnFaction)) {
+				if (!obj.blockEnemySpawns() || !(spawnBlockBB = obj.createSpawnBlockRegion()).intersectsWith(searchBB) || !spawnBlockBB.intersectsWith(originBB) || !obj.isEnemySpawnBlocked(spawnFaction)) {
 					continue;
 				}
 				return true;
@@ -219,7 +218,7 @@ public class GOTEntityNPCRespawner extends Entity {
 				if (!belowSolid || worldObj.getBlock(spawnX, spawnY, spawnZ).isNormalCube() || worldObj.getBlock(spawnX, spawnY + 1, spawnZ).isNormalCube()) {
 					continue;
 				}
-				Class entityClass = null;
+				Class<? extends Entity> entityClass = null;
 				if (spawnClass1 != null && spawnClass2 != null) {
 					entityClass = rand.nextInt(3) == 0 ? spawnClass2 : spawnClass1;
 				} else if (spawnClass1 != null) {
@@ -307,11 +306,11 @@ public class GOTEntityNPCRespawner extends Entity {
 		noPlayerRange = i;
 	}
 
-	public void setSpawnClass(Class c) {
+	public void setSpawnClass(Class<? extends GOTEntityNPC> c) {
 		spawnClass1 = c;
 	}
 
-	public void setSpawnClasses(Class c1, Class c2) {
+	public void setSpawnClasses(Class<? extends GOTEntityNPC> c1, Class<? extends GOTEntityNPC> c2) {
 		spawnClass1 = c1;
 		spawnClass2 = c2;
 	}

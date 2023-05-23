@@ -27,13 +27,13 @@ public class GOTUnitTradeEntry {
 	public GOTHiredNPCInfo.Task task = GOTHiredNPCInfo.Task.WARRIOR;
 	public String extraInfo;
 
-	public GOTUnitTradeEntry(Class c, Class c1, String s, int cost, float alignment) {
+	public GOTUnitTradeEntry(Class<? extends Entity> c, Class<? extends Entity> c1, String s, int cost, float alignment) {
 		this(c, cost, alignment);
 		mountClass = c1;
 		name = s;
 	}
 
-	public GOTUnitTradeEntry(Class c, int cost, float alignment) {
+	public GOTUnitTradeEntry(Class<? extends Entity> c, int cost, float alignment) {
 		entityClass = c;
 		initialCost = cost;
 		alignmentRequired = alignment;

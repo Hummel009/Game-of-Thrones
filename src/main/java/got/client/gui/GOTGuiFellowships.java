@@ -89,10 +89,9 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 
 	public static boolean isPlayerOnline(GameProfile player) {
 		EntityClientPlayerMP mcPlayer = Minecraft.getMinecraft().thePlayer;
-		List list = mcPlayer.sendQueue.playerInfoList;
-		for (Object obj : list) {
-			GuiPlayerInfo info = (GuiPlayerInfo) obj;
-			if (info.name.equalsIgnoreCase(player.getName())) {
+		List<GuiPlayerInfo> list = mcPlayer.sendQueue.playerInfoList;
+		for (GuiPlayerInfo obj : list) {
+			if (obj.name.equalsIgnoreCase(player.getName())) {
 				return true;
 			}
 		}
@@ -930,7 +929,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 	public void renderIconTooltip(int x, int y, String s) {
 		float z = zLevel;
 		int stringWidth = 200;
-		List desc = fontRendererObj.listFormattedStringToWidth(s, stringWidth);
+		List<String> desc = fontRendererObj.listFormattedStringToWidth(s, stringWidth);
 		func_146283_a(desc, x, y);
 		GL11.glDisable(2896);
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);

@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTStructureSothoryosPyramidMapgen extends MapGenStructure {
-	public static List spawnBiomes;
+	public static List<GOTBiome> spawnBiomes;
 	public static int minDist = 12;
 	public static int separation = 24;
 	public int spawnChance = 10;

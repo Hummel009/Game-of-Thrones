@@ -55,7 +55,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	public static GOTEntityInvasionSpawner locateInvasionNearby(Entity seeker, UUID id) {
 		World world = seeker.worldObj;
 		double search = 256.0;
-		List invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), new IEntitySelector() {
+		List<GOTEntityInvasionSpawner> invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), new IEntitySelector() {
 
 			@Override
 			public boolean isEntityApplicable(Entity e) {
@@ -63,7 +63,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 			}
 		});
 		if (!invasions.isEmpty()) {
-			return (GOTEntityInvasionSpawner) invasions.get(0);
+			return invasions.get(0);
 		}
 		return null;
 	}
@@ -299,7 +299,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 				boolean spawnedAnyMobs = false;
 				for (int l = 0; l < spawnAttempts; ++l) {
 					GOTInvasions.InvasionSpawnEntry entry = (GOTInvasions.InvasionSpawnEntry) WeightedRandom.getRandomItem(rand, invasionType.invasionMobs);
-					Class entityClass = entry.getEntityClass();
+					Class<? extends GOTEntityNPC> entityClass = entry.getEntityClass();
 					String entityName = GOTEntityRegistry.getStringFromClass(entityClass);
 					GOTEntityNPC npc = (GOTEntityNPC) EntityList.createEntityByName(entityName, worldObj);
 					if (!attemptSpawnMob(npc)) {

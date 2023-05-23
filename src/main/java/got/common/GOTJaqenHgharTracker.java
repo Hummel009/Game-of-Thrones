@@ -60,7 +60,7 @@ public class GOTJaqenHgharTracker {
 			--spawnCooldown;
 			if (spawnCooldown <= 0) {
 				spawnCooldown = 2400;
-				ArrayList<EntityPlayer> players = new ArrayList<>(world.playerEntities);
+				ArrayList<EntityPlayer> players = new ArrayList<EntityPlayer>(world.playerEntities);
 				Collections.shuffle(players);
 				Random rand = world.rand;
 				block0:

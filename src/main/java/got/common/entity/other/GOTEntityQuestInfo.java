@@ -332,13 +332,11 @@ public class GOTEntityQuestInfo {
 		int x = MathHelper.floor_double(theNPC.posX) >> 4;
 		int z = MathHelper.floor_double(theNPC.posZ) >> 4;
 		PlayerManager playermanager = ((WorldServer) theNPC.worldObj).getPlayerManager();
-		List players = theNPC.worldObj.playerEntities;
-		for (Object obj : players) {
-			EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
-			if (!playermanager.isPlayerWatchingChunk(entityplayer, x, z)) {
-				continue;
+		List<EntityPlayer> players = theNPC.worldObj.playerEntities;
+		for (EntityPlayer obj : players) {
+			if (playermanager.isPlayerWatchingChunk((EntityPlayerMP) obj, x, z)) {
+				sendData((EntityPlayerMP) obj);
 			}
-			sendData(entityplayer);
 		}
 	}
 

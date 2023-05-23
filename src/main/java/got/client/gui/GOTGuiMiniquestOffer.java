@@ -188,10 +188,10 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				if (shouldRenderPass > 0) {
 					model = npcRenderer.npcRenderPassModel;
 					model.isChild = theNPC.isChild();
-					List modelParts = model.boxList;
+					List<ModelRenderer> modelParts = model.boxList;
 					boolean[] prevShowModels = new boolean[modelParts.size()];
 					for (l = 0; l < modelParts.size(); ++l) {
-						part = (ModelRenderer) modelParts.get(l);
+						part = modelParts.get(l);
 						prevShowModels[l] = part.showModel;
 						boolean isHeadPart = recursiveCheckForModel(model.bipedHead, part) || recursiveCheckForModel(model.bipedHeadwear, part);
 						if (!isHeadPart) {
@@ -204,7 +204,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 						model.render(theNPC, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 					}
 					for (l = 0; l < modelParts.size(); ++l) {
-						part = (ModelRenderer) modelParts.get(l);
+						part = modelParts.get(l);
 						part.showModel = prevShowModels[l];
 					}
 				}

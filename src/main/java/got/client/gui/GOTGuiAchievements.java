@@ -22,8 +22,8 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 	public static GOTDimension currentDimension;
 	public static GOTDimension prevDimension;
 	public static GOTAchievement.Category currentCategory;
-	public ArrayList currentCategoryTakenAchievements = new ArrayList<>();
-	public ArrayList currentCategoryUntakenAchievements = new ArrayList<>();
+	public ArrayList<GOTAchievement> currentCategoryTakenAchievements = new ArrayList<>();
+	public ArrayList<GOTAchievement> currentCategoryUntakenAchievements = new ArrayList<>();
 	public int currentCategoryTakenCount;
 	public int currentCategoryUntakenCount;
 	public GOTGuiButtonAchievements buttonCategoryPrev;
@@ -70,10 +70,10 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			GOTAchievement achievement;
 			boolean hasAchievement;
 			if (i < currentCategoryTakenCount) {
-				achievement = (GOTAchievement) currentCategoryTakenAchievements.get(i);
+				achievement = currentCategoryTakenAchievements.get(i);
 				hasAchievement = true;
 			} else {
-				achievement = (GOTAchievement) currentCategoryUntakenAchievements.get(i - currentCategoryTakenCount);
+				achievement = currentCategoryUntakenAchievements.get(i - currentCategoryTakenCount);
 				hasAchievement = false;
 			}
 			int offset = 47 + 50 * (i - min);

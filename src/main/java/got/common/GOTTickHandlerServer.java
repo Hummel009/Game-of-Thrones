@@ -195,8 +195,8 @@ public class GOTTickHandlerServer {
 				}
 				GOTConquestGrid.updateZones(world);
 				if (!world.playerEntities.isEmpty() && world.getTotalWorldTime() % 20L == 0L) {
-					for (Object element : world.playerEntities) {
-						EntityPlayer entityplayer = (EntityPlayer) element;
+					List<EntityPlayer> players = world.playerEntities;
+					for (EntityPlayer entityplayer : players) {
 						GOTLevelData.sendPlayerLocationsToPlayer(entityplayer, world);
 					}
 				}

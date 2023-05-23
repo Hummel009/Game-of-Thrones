@@ -27,30 +27,27 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 		user.swingItem();
 		world.playSoundAtEntity(user, "mob.ghast.fireball", 2.0f, (itemRand.nextFloat() - itemRand.nextFloat()) * 0.2f + 1.0f);
 		if (!world.isRemote) {
-			List entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(12.0, 8.0, 12.0));
-			if (!entities.isEmpty()) {
-				for (Object element : entities) {
-					EntityLivingBase entity = (EntityLivingBase) element;
-					if (entity == user || entity instanceof EntityHorse && ((EntityHorse) entity).isTame() || entity instanceof EntityTameable && ((EntityTameable) entity).isTamed() || entity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entity).isNPCTamed()) {
-						continue;
-					}
-					float strength = 6.0f - user.getDistanceToEntity(entity) * 0.75f;
-					if (strength < 1.0f) {
-						strength = 1.0f;
-					}
-					if (user instanceof EntityPlayer) {
-						entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) user), 6.0f * strength);
-					} else {
-						entity.attackEntityFrom(DamageSource.causeMobDamage(user), 6.0f * strength);
-					}
-					float knockback = strength;
-					if (knockback > 4.0f) {
-						knockback = 4.0f;
-					}
-					assert user instanceof EntityPlayer;
-					if (GOT.canPlayerAttackEntity((EntityPlayer) user, entity, false)) {
-						entity.addVelocity(-MathHelper.sin(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback, 0.2 + 0.12 * knockback, MathHelper.cos(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback);
-					}
+			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(12.0, 8.0, 12.0));
+			for (EntityLivingBase entity : entities) {
+				if (entity == user || entity instanceof EntityHorse && ((EntityHorse) entity).isTame() || entity instanceof EntityTameable && ((EntityTameable) entity).isTamed() || entity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entity).isNPCTamed()) {
+					continue;
+				}
+				float strength = 6.0f - user.getDistanceToEntity(entity) * 0.75f;
+				if (strength < 1.0f) {
+					strength = 1.0f;
+				}
+				if (user instanceof EntityPlayer) {
+					entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) user), 6.0f * strength);
+				} else {
+					entity.attackEntityFrom(DamageSource.causeMobDamage(user), 6.0f * strength);
+				}
+				float knockback = strength;
+				if (knockback > 4.0f) {
+					knockback = 4.0f;
+				}
+				assert user instanceof EntityPlayer;
+				if (GOT.canPlayerAttackEntity((EntityPlayer) user, entity, false)) {
+					entity.addVelocity(-MathHelper.sin(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback, 0.2 + 0.12 * knockback, MathHelper.cos(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback);
 				}
 			}
 		}
@@ -61,30 +58,27 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 		user.swingItem();
 		world.playSoundAtEntity(user, "mob.ghast.fireball", 2.0f, (itemRand.nextFloat() - itemRand.nextFloat()) * 0.2f + 1.0f);
 		if (!world.isRemote) {
-			List entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(12.0, 8.0, 12.0));
-			if (!entities.isEmpty()) {
-				for (Object element : entities) {
-					EntityLivingBase entity = (EntityLivingBase) element;
-					if (entity == user || entity instanceof EntityHorse && ((EntityHorse) entity).isTame() || entity instanceof GOTEntityFlyingTameable && ((GOTEntityFlyingTameable) entity).isTamed() || entity instanceof EntityTameable && ((EntityTameable) entity).isTamed() || entity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entity).isNPCTamed()) {
-						continue;
-					}
-					float strength = 6.0f - user.getDistanceToEntity(entity) * 0.75f;
-					if (strength < 1.0f) {
-						strength = 1.0f;
-					}
-					if (user instanceof EntityPlayer) {
-						entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) user), 6.0f * strength);
-					} else {
-						entity.attackEntityFrom(DamageSource.causeMobDamage(user), 6.0f * strength);
-					}
-					float knockback = strength;
-					if (knockback > 4.0f) {
-						knockback = 4.0f;
-					}
-					assert user instanceof EntityCreature;
-					if (GOT.canNPCAttackEntity((EntityCreature) user, entity, false)) {
-						entity.addVelocity(-MathHelper.sin(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback, 0.2 + 0.12 * knockback, MathHelper.cos(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback);
-					}
+			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(12.0, 8.0, 12.0));
+			for (EntityLivingBase entity : entities) {
+				if (entity == user || entity instanceof EntityHorse && ((EntityHorse) entity).isTame() || entity instanceof GOTEntityFlyingTameable && ((GOTEntityFlyingTameable) entity).isTamed() || entity instanceof EntityTameable && ((EntityTameable) entity).isTamed() || entity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entity).isNPCTamed()) {
+					continue;
+				}
+				float strength = 6.0f - user.getDistanceToEntity(entity) * 0.75f;
+				if (strength < 1.0f) {
+					strength = 1.0f;
+				}
+				if (user instanceof EntityPlayer) {
+					entity.attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) user), 6.0f * strength);
+				} else {
+					entity.attackEntityFrom(DamageSource.causeMobDamage(user), 6.0f * strength);
+				}
+				float knockback = strength;
+				if (knockback > 4.0f) {
+					knockback = 4.0f;
+				}
+				assert user instanceof EntityCreature;
+				if (GOT.canNPCAttackEntity((EntityCreature) user, entity, false)) {
+					entity.addVelocity(-MathHelper.sin(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback, 0.2 + 0.12 * knockback, MathHelper.cos(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback);
 				}
 			}
 		}

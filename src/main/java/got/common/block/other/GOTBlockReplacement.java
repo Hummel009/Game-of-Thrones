@@ -10,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.item.crafting.ShapelessRecipes;
 import net.minecraft.nbt.NBTTagCompound;
@@ -53,19 +54,19 @@ public class GOTBlockReplacement {
 
 	public static void replaceRecipesEtc(Item newItem) {
 		String newItemName = newItem.getUnlocalizedName();
-		List craftingRecipes = CraftingManager.getInstance().getRecipeList();
-		for (Object obj : craftingRecipes) {
+		List<IRecipe> craftingRecipes = CraftingManager.getInstance().getRecipeList();
+		for (IRecipe obj : craftingRecipes) {
 			ItemStack output;
-			if (obj instanceof ShapedRecipes && (output = ((ShapedRecipes) obj).getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
+			if (obj instanceof ShapedRecipes && (output = obj.getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
 				injectReplacementItem(output, newItem);
 			}
-			if (obj instanceof ShapelessRecipes && (output = ((ShapelessRecipes) obj).getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
+			if (obj instanceof ShapelessRecipes && (output = obj.getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
 				injectReplacementItem(output, newItem);
 			}
-			if (obj instanceof ShapedOreRecipe && (output = ((ShapedOreRecipe) obj).getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
+			if (obj instanceof ShapedOreRecipe && (output = obj.getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
 				injectReplacementItem(output, newItem);
 			}
-			if (!(obj instanceof ShapelessOreRecipe) || (output = ((ShapelessOreRecipe) obj).getRecipeOutput()) == null || output.getItem() == null || !output.getItem().getUnlocalizedName().equals(newItemName)) {
+			if (!(obj instanceof ShapelessOreRecipe) || (output = obj.getRecipeOutput()) == null || output.getItem() == null || !output.getItem().getUnlocalizedName().equals(newItemName)) {
 				continue;
 			}
 			injectReplacementItem(output, newItem);
@@ -182,7 +183,7 @@ public class GOTBlockReplacement {
 			}
 		}
 
-		public static Map getOneShotStats() {
+		public static Map<String, StatBase> getOneShotStats() {
 			try {
 				return ObfuscationReflectionHelper.getPrivateValue(StatList.class, null, "oneShotStats", "field_75942_a");
 			} catch (Exception e) {
@@ -200,7 +201,7 @@ public class GOTBlockReplacement {
 			}
 		}
 
-		public static Map getUnderlyingObjMap(RegistryNamespaced registry) {
+		public static Map<Object, Object> getUnderlyingObjMap(RegistryNamespaced registry) {
 			try {
 				return ObfuscationReflectionHelper.getPrivateValue(RegistrySimple.class, registry, "registryObjects", "field_82596_a");
 			} catch (Exception e) {

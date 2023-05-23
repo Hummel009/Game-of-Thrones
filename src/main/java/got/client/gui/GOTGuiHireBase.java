@@ -20,6 +20,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderManager;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
@@ -170,7 +171,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 			if (mouseover) {
 				float z = zLevel;
 				int stringWidth = 200;
-				List desc = fontRendererObj.listFormattedStringToWidth(extraInfo, stringWidth);
+				List<String> desc = fontRendererObj.listFormattedStringToWidth(extraInfo, stringWidth);
 				func_146283_a(desc, i - guiLeft, j - guiTop);
 				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -180,8 +181,8 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 	}
 
 	public void drawMobOnGui(int i, int j, float f, float f1) {
-		Class entityClass = currentTrade().entityClass;
-		Class mountClass = currentTrade().mountClass;
+		Class<? extends Entity> entityClass = currentTrade().entityClass;
+		Class<? extends Entity> mountClass = currentTrade().mountClass;
 		if (currentDisplayedMob == null || currentDisplayedMob.getClass() != entityClass || mountClass == null && currentDisplayedMount != null || mountClass != null && (currentDisplayedMount == null || currentDisplayedMount.getClass() != mountClass)) {
 			currentDisplayedMob = currentTrade().getOrCreateHiredNPC(mc.theWorld);
 			if (mountClass != null) {

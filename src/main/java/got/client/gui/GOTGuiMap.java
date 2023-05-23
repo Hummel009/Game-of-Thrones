@@ -404,7 +404,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					float alphaFunc = GL11.glGetFloat(3010);
 					GL11.glAlphaFunc(516, 0.005f);
 					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-					ArrayList allZones = (ArrayList) facConquestGrids.get(conquestViewingFaction);
+					List<GOTConquestZone> allZones = facConquestGrids.get(conquestViewingFaction);
 					if (allZones == null) {
 						allZones = new ArrayList<>();
 					}
@@ -415,7 +415,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					GOTConquestGrid.ConquestEffective mouseOverEffect = null;
 					for (int pass = 0; pass <= 1; ++pass) {
 						if (pass != 1 || highestViewedConqStr > 0.0f) {
-							ArrayList<GOTConquestZone> zoneList = pass == 0 ? allZones : zonesInView;
+							List<GOTConquestZone> zoneList = pass == 0 ? allZones : zonesInView;
 							for (GOTConquestZone zone : zoneList) {
 								float strength = zone.getConquestStrength(conquestViewingFaction, mc.theWorld);
 								int[] min = GOTConquestGrid.getMinCoordsOnMap(zone);
@@ -1627,7 +1627,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (mouseOverWidget != null) {
 			float z = zLevel;
 			int stringWidth = 200;
-			List desc = fontRendererObj.listFormattedStringToWidth(mouseOverWidget.getTranslatedName(), stringWidth);
+			List<String> desc = fontRendererObj.listFormattedStringToWidth(mouseOverWidget.getTranslatedName(), stringWidth);
 			func_146283_a(desc, mouseX, mouseY);
 			GL11.glDisable(2896);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -1718,9 +1718,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			skin = mc.thePlayer.getLocationSkin();
 		} else {
 			MinecraftProfileTexture.Type type;
-			Map map = mc.func_152342_ad().func_152788_a(profile);
+			Map<MinecraftProfileTexture.Type, MinecraftProfileTexture> map = mc.func_152342_ad().func_152788_a(profile);
 			if (map.containsKey(type = MinecraftProfileTexture.Type.SKIN)) {
-				skin = mc.func_152342_ad().func_152792_a((MinecraftProfileTexture) map.get(type), type);
+				skin = mc.func_152342_ad().func_152792_a(map.get(type), type);
 			}
 		}
 		mc.getTextureManager().bindTexture(skin);
@@ -1759,11 +1759,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (isGameOfThrones()) {
 			playersToRender.put(mc.thePlayer.getUniqueID(), new PlayerLocationInfo(mc.thePlayer.getGameProfile(), mc.thePlayer.posX, mc.thePlayer.posZ));
 		}
-		for (Map.Entry entry : playersToRender.entrySet()) {
+		for (Map.Entry<UUID, PlayerLocationInfo> entry : playersToRender.entrySet()) {
 			int playerY;
 			float[] pos;
 			int playerX;
-			PlayerLocationInfo info = (PlayerLocationInfo) entry.getValue();
+			PlayerLocationInfo info = entry.getValue();
 			GameProfile profile = info.profile;
 			String playerName = profile.getName();
 			double distToPlayer = renderPlayerIcon(profile, playerName, playerX = Math.round((pos = transformCoords(info.posX, info.posZ))[0]), playerY = Math.round(pos[1]), mouseX, mouseY);
@@ -1941,10 +1941,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			if (loreText != null) {
 				GL11.glPushMatrix();
 				GL11.glScalef(loreScaleRel, loreScaleRel, 1.0f);
-				List loreLines = fontRendererObj.listFormattedStringToWidth(loreText, (int) (innerRectWidth * loreScaleRelInv));
-				for (Object loreLine : loreLines) {
-					String line = (String) loreLine;
-					drawCenteredString(line, (int) (stringX * loreScaleRelInv), (int) (stringY * loreScaleRelInv), 16777215);
+				List<String> loreLines = fontRendererObj.listFormattedStringToWidth(loreText, (int) (innerRectWidth * loreScaleRelInv));
+				for (String loreLine : loreLines) {
+					drawCenteredString(loreLine, (int) (stringX * loreScaleRelInv), (int) (stringY * loreScaleRelInv), 16777215);
 					stringY += loreFontHeight;
 				}
 				GL11.glPopMatrix();

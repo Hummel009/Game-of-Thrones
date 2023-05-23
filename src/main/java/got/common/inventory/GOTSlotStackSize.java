@@ -1,6 +1,6 @@
 package got.common.inventory;
 
-public class GOTSlotStackSize implements Comparable {
+public class GOTSlotStackSize implements Comparable<Object> {
 	public int slot;
 	public int stackSize;
 

@@ -12,6 +12,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.input.BOMInputStream;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
 import java.util.Map.Entry;
@@ -217,7 +218,7 @@ public class GOTStructureScan {
 					GOTLog.logger.info("GOTStructureScan: file wasn't created");
 				}
 			}
-			PrintStream writer = new PrintStream(Files.newOutputStream(scanFile.toPath()));
+			PrintStream writer = new PrintStream(Files.newOutputStream(scanFile.toPath()), false, StandardCharsets.UTF_8.name());
 			if (!scan.aliases.isEmpty()) {
 				for (GOTScanAlias alias : scan.aliases) {
 					writer.println(alias.getFullCode());

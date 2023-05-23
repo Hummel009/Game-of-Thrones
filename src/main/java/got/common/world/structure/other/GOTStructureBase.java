@@ -13,6 +13,7 @@ import got.common.util.GOTLog;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLeashKnot;
 import net.minecraft.entity.EntityLiving;
@@ -42,7 +43,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public boolean notifyChanges;
 	public EntityPlayer usingPlayer;
 	public boolean shouldFindSurface;
-	public GOTVillageGen.AbstractInstance villageInstance;
+	public GOTVillageGen.AbstractInstance<? extends GOTVillageGen> villageInstance;
 	public int originX;
 	public int originY;
 	public int originZ;
@@ -679,11 +680,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		placeSkull(world, i, j, k, random.nextInt(16));
 	}
 
-	public void placeSpawnerChest(World world, Random random, int i, int j, int k, Block block, int meta, Class entityClass, GOTChestContents contents) {
+	public void placeSpawnerChest(World world, Random random, int i, int j, int k, Block block, int meta, Class<? extends Entity> entityClass, GOTChestContents contents) {
 		placeSpawnerChest(world, random, i, j, k, block, meta, entityClass, contents, -1);
 	}
 
-	public void placeSpawnerChest(World world, Random random, int i, int j, int k, Block block, int meta, Class entityClass, GOTChestContents contents, int amount) {
+	public void placeSpawnerChest(World world, Random random, int i, int j, int k, Block block, int meta, Class<? extends Entity> entityClass, GOTChestContents contents, int amount) {
 		setBlockAndMetadata(world, i, j, k, block, meta);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof GOTTileEntitySpawnerChest) {

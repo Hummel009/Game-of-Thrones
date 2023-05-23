@@ -8,7 +8,6 @@ import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -32,18 +31,17 @@ public class GOTEntityAIMFMate extends EntityAIBase {
 	}
 
 	public GOTEntityAnimalMF findMate() {
-		GOTEntityAnimalMF mate;
-		float f = 8.0f;
-		Class mateClass = theAnimal.getAnimalMFBaseClass();
-		List list = theWorld.getEntitiesWithinAABB(mateClass, theAnimal.boundingBox.expand(f, f, f));
-		Iterator it = list.iterator();
-		do {
-			if (it.hasNext()) {
-				continue;
+		float searchRadius = 8.0f;
+		Class<? extends GOTEntityAnimalMF> mateClass = theAnimal.getAnimalMFBaseClass();
+		List<? extends GOTEntityAnimalMF> entities = theWorld.getEntitiesWithinAABB(mateClass, theAnimal.boundingBox.expand(searchRadius, searchRadius, searchRadius));
+
+		for (GOTEntityAnimalMF entity : entities) {
+			if (theAnimal.canMateWith(entity)) {
+				return entity;
 			}
-			return null;
-		} while (!theAnimal.canMateWith(mate = (GOTEntityAnimalMF) it.next()));
-		return mate;
+		}
+
+		return null;
 	}
 
 	public void procreate() {

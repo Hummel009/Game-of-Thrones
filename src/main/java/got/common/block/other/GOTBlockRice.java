@@ -131,7 +131,7 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int x, int y, int z, int metadata, int fortune) {
-		ArrayList ret = super.getDrops(world, x, y, z, metadata, fortune);
+		ArrayList<ItemStack> ret = super.getDrops(world, x, y, z, metadata, fortune);
 		if (metadata >= 7) {
 			for (int i = 0; i < 3 + fortune; ++i) {
 				if (world.rand.nextInt(15) > metadata) {

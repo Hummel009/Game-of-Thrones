@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
-	public static Class[] allStallTypes = {Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class};
+	public static Class<? extends GOTStructureBase>[] allStallTypes = new Class[]{Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class};
 
 	protected GOTStructureYiTiMarketStall(boolean flag) {
 		super(flag);
@@ -18,11 +18,11 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 
 	public static GOTStructureBase getRandomStall(Random random, boolean flag) {
 		try {
-			Class cls = allStallTypes[random.nextInt(allStallTypes.length)];
-			return (GOTStructureBase) cls.getConstructor(Boolean.TYPE).newInstance(flag);
+			Class<? extends GOTStructureBase> cls = allStallTypes[random.nextInt(allStallTypes.length)];
+			return cls.getConstructor(Boolean.TYPE).newInstance(flag);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return null;
+			return new GOTStructureYiTiMarketStall.Gold(flag);
 		}
 	}
 

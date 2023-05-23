@@ -124,9 +124,9 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		s = currentShield.getShieldName();
 		drawCenteredString(s, x, y, 16777215);
 		y += fontRendererObj.FONT_HEIGHT * 2;
-		List desc = fontRendererObj.listFormattedStringToWidth(currentShield.getShieldDesc(), 220);
-		for (Object element : desc) {
-			s = (String) element;
+		List<String> desc = fontRendererObj.listFormattedStringToWidth(currentShield.getShieldDesc(), 220);
+		for (String element : desc) {
+			s = element;
 			drawCenteredString(s, x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
 		}

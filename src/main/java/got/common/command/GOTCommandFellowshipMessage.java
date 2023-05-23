@@ -19,7 +19,7 @@ import java.util.List;
 
 public class GOTCommandFellowshipMessage extends CommandBase {
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		GOTPlayerData playerData = GOTLevelData.getData(CommandBase.getCommandSenderAsPlayer(sender));
 		String[] argsOriginal = Arrays.copyOf(args, args.length);
 		if (args.length >= 2 && "bind".equals(args[0])) {
@@ -47,7 +47,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 	}
 
 	@Override
-	public List getCommandAliases() {
+	public List<String> getCommandAliases() {
 		return Collections.singletonList("fchat");
 	}
 

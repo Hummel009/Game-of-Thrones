@@ -116,7 +116,7 @@ public class GOTRecipe {
 		try {
 			Field field = FurnaceRecipes.class.getDeclaredFields()[2];
 			field.setAccessible(true);
-			HashMap<ItemStack, Float> map = (HashMap) field.get(FurnaceRecipes.smelting());
+			HashMap<ItemStack, Float> map = (HashMap<ItemStack, Float>) field.get(FurnaceRecipes.smelting());
 			map.put(new ItemStack(item, 1, 32767), xp);
 		} catch (Exception e) {
 			e.printStackTrace();

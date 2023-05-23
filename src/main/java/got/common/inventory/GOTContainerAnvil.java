@@ -474,7 +474,7 @@ public class GOTContainerAnvil extends Container {
 			ItemStack inputCopy = inputItem.copy();
 			ItemStack combinerItem = invInput.getStackInSlot(1);
 			ItemStack materialItem = isTrader ? null : invInput.getStackInSlot(2);
-			Map inputEnchants = EnchantmentHelper.getEnchantments(inputCopy);
+			Map<Integer, Integer> inputEnchants = EnchantmentHelper.getEnchantments(inputCopy);
 			boolean enchantingWithBook = false;
 			List<GOTEnchantment> inputModifiers = GOTEnchantmentHelper.getEnchantList(inputCopy);
 			baseAnvilCost = GOTEnchantmentHelper.getAnvilCost(inputItem) + (combinerItem == null ? 0 : GOTEnchantmentHelper.getAnvilCost(combinerItem));
@@ -578,19 +578,19 @@ public class GOTContainerAnvil extends Container {
 						return;
 					}
 				}
-				HashMap outputEnchants = new HashMap<>(inputEnchants);
+				HashMap<Integer, Integer> outputEnchants = new HashMap<>(inputEnchants);
 				if (GOTConfig.enchantingVanilla) {
-					Map combinerEnchants = EnchantmentHelper.getEnchantments(combinerItem);
-					for (Object obj : combinerEnchants.keySet()) {
+					Map<Integer, Integer> combinerEnchants = EnchantmentHelper.getEnchantments(combinerItem);
+					for (Integer obj : combinerEnchants.keySet()) {
 						int combinerEnchLevel;
-						int combinerEnchID = (Integer) obj;
+						int combinerEnchID = obj;
 						Enchantment combinerEnch = Enchantment.enchantmentsList[combinerEnchID];
 						int inputEnchLevel = 0;
 						if (outputEnchants.containsKey(combinerEnchID)) {
-							inputEnchLevel = (Integer) outputEnchants.get(combinerEnchID);
+							inputEnchLevel = outputEnchants.get(combinerEnchID);
 						}
 						int combinedEnchLevel;
-						if (inputEnchLevel == (combinerEnchLevel = (Integer) combinerEnchants.get(combinerEnchID))) {
+						if (inputEnchLevel == (combinerEnchLevel = combinerEnchants.get(combinerEnchID))) {
 							++combinerEnchLevel;
 							combinedEnchLevel = combinerEnchLevel;
 						} else {
@@ -602,8 +602,8 @@ public class GOTContainerAnvil extends Container {
 						if (thePlayer.capabilities.isCreativeMode || inputItem.getItem() == Items.enchanted_book) {
 							canApply = true;
 						}
-						for (Object objIn : outputEnchants.keySet()) {
-							int inputEnchID = (Integer) objIn;
+						for (Integer objIn : outputEnchants.keySet()) {
+							int inputEnchID = objIn;
 							Enchantment inputEnch = Enchantment.enchantmentsList[inputEnchID];
 							if (inputEnchID == combinerEnchID || combinerEnch.canApplyTogether(inputEnch) && inputEnch.canApplyTogether(combinerEnch)) {
 								continue;
@@ -681,10 +681,10 @@ public class GOTContainerAnvil extends Container {
 				combining = true;
 			}
 			int numEnchants = 0;
-			for (Object obj : inputEnchants.keySet()) {
-				int enchID = (Integer) obj;
+			for (Integer obj : inputEnchants.keySet()) {
+				int enchID = obj;
 				Enchantment ench = Enchantment.enchantmentsList[enchID];
-				int enchLevel = (Integer) inputEnchants.get(enchID);
+				int enchLevel = inputEnchants.get(enchID);
 				++numEnchants;
 				int costPerLevel = 0;
 				int enchWeight = ench.getWeight();

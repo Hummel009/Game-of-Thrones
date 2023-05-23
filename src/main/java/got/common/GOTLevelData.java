@@ -410,24 +410,24 @@ public class GOTLevelData {
 	}
 
 	public static void sendAlignmentToAllPlayersInWorld(Entity entityplayer, World world) {
-		for (Object element : world.playerEntities) {
-			EntityPlayer worldPlayer = (EntityPlayer) element;
+		List<EntityPlayer> players = world.playerEntities;
+		for (EntityPlayer worldPlayer : players) {
 			GOTPacketAlignment packet = new GOTPacketAlignment(entityplayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 
 	public static void sendAllAlignmentsInWorldToPlayer(EntityPlayer entityplayer, World world) {
-		for (Object element : world.playerEntities) {
-			EntityPlayer worldPlayer = (EntityPlayer) element;
+		List<EntityPlayer> players = world.playerEntities;
+		for (EntityPlayer worldPlayer : players) {
 			GOTPacketAlignment packet = new GOTPacketAlignment(worldPlayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
 	public static void sendAllCapesInWorldToPlayer(EntityPlayer entityplayer, World world) {
-		for (Object element : world.playerEntities) {
-			EntityPlayer worldPlayer = (EntityPlayer) element;
+		List<EntityPlayer> players = world.playerEntities;
+		for (EntityPlayer worldPlayer : players) {
 			GOTPacketCape packet = new GOTPacketCape(worldPlayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
@@ -435,16 +435,16 @@ public class GOTLevelData {
 	}
 
 	public static void sendAllShieldsInWorldToPlayer(EntityPlayer entityplayer, World world) {
-		for (Object element : world.playerEntities) {
-			EntityPlayer worldPlayer = (EntityPlayer) element;
+		List<EntityPlayer> players = world.playerEntities;
+		for (EntityPlayer worldPlayer : players) {
 			GOTPacketShield packet = new GOTPacketShield(worldPlayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
 	public static void sendCapeToAllPlayersInWorld(EntityPlayer entityplayer, World world) {
-		for (Object element : world.playerEntities) {
-			EntityPlayer worldPlayer = (EntityPlayer) element;
+		List<EntityPlayer> players = world.playerEntities;
+		for (EntityPlayer worldPlayer : players) {
 			GOTPacketCape packet = new GOTPacketCape(entityplayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
@@ -493,9 +493,9 @@ public class GOTLevelData {
 				fellowshipsMapShow.add(fs);
 			}
 		}
-		for (Object element : world.playerEntities) {
+		List<EntityPlayer> players = world.playerEntities;
+		for (EntityPlayer otherPlayer : players) {
 			boolean show;
-			EntityPlayer otherPlayer = (EntityPlayer) element;
 			if (otherPlayer != sendPlayer) {
 				show = !getData(otherPlayer).getHideMapLocation();
 				if (!isOp && getData(otherPlayer).getAdminHideMap() || GOTConfig.forceMapLocations == 1) {
@@ -523,8 +523,8 @@ public class GOTLevelData {
 	}
 
 	public static void sendShieldToAllPlayersInWorld(Entity entityplayer, World world) {
-		for (Object element : world.playerEntities) {
-			EntityPlayer worldPlayer = (EntityPlayer) element;
+		List<EntityPlayer> players = world.playerEntities;
+		for (EntityPlayer worldPlayer : players) {
 			GOTPacketShield packet = new GOTPacketShield(entityplayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}

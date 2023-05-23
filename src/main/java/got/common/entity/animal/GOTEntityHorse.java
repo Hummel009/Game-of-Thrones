@@ -82,14 +82,11 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		Entity attacker;
 		boolean flag = super.attackEntityFrom(damagesource, f);
 		if (flag && isChild() && isMountHostile() && (attacker = damagesource.getEntity()) instanceof EntityLivingBase) {
-			List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(12.0, 12.0, 12.0));
-			for (Object element : list) {
-				GOTEntityHorse mount;
-				Entity entity = (Entity) element;
-				if (entity.getClass() != getClass() || (mount = (GOTEntityHorse) entity).isChild() || mount.isTame()) {
-					continue;
+			List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(12.0, 12.0, 12.0));
+			for (Entity element : list) {
+				if (element instanceof GOTEntityHorse && !((GOTEntityHorse) element).isChild() && !((GOTEntityHorse) element).isTame()) {
+					((GOTEntityHorse) element).setAttackTarget((EntityLivingBase) attacker);
 				}
-				mount.setAttackTarget((EntityLivingBase) attacker);
 			}
 		}
 		return flag;

@@ -55,7 +55,7 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class GOTBiome extends BiomeGenBase {
-	public static Class[][] correctCreatureTypeParams = {{EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE}};
+	public static Class<?>[][] correctCreatureTypeParams = {{EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE}};
 	public static EnumCreatureType creatureType_GOTAmbient = EnumHelper.addEnum(correctCreatureTypeParams, EnumCreatureType.class, "GOTAmbient", GOTAmbientCreature.class, 45, Material.air, true, false);
 	public static NoiseGeneratorPerlin biomeTerrainNoise = new NoiseGeneratorPerlin(new Random(1955L), 1);
 	public static Random terrainRand = new Random();
@@ -884,7 +884,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	@Override
-	public List getSpawnableList(EnumCreatureType creatureType) {
+	public List<SpawnListEntry> getSpawnableList(EnumCreatureType creatureType) {
 		if (creatureType == creatureType_GOTAmbient) {
 			return spawnableGOTAmbientList;
 		}

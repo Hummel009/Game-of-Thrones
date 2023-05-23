@@ -40,7 +40,7 @@ public class GOTEntityRenderer extends EntityRenderer {
 			Vec3 sightVec = posVec.addVector(lookVec.xCoord * reach, lookVec.yCoord * reach, lookVec.zCoord * reach);
 			Vec3 targetVec = null;
 			float lookWidth = GOTWeaponStats.getMeleeExtraLookWidth();
-			List<Entity> entities = theMC.theWorld.getEntitiesWithinAABBExcludingEntity(theMC.renderViewEntity, theMC.renderViewEntity.boundingBox.addCoord(lookVec.xCoord * reach, lookVec.yCoord * reach, lookVec.zCoord * reach).expand(lookWidth, lookWidth, lookWidth));
+			List<? extends Entity> entities = theMC.theWorld.getEntitiesWithinAABBExcludingEntity(theMC.renderViewEntity, theMC.renderViewEntity.boundingBox.addCoord(lookVec.xCoord * reach, lookVec.yCoord * reach, lookVec.zCoord * reach).expand(lookWidth, lookWidth, lookWidth));
 			double leastDist = maxDist;
 			for (Entity entity : entities) {
 				double entityDist;

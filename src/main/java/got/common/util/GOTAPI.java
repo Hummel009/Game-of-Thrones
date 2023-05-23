@@ -52,7 +52,7 @@ public class GOTAPI {
 	 * @apiNote Creates new achievement category.
 	 */
 	public static GOTAchievement.Category addAchievementCategory(String enumName, GOTBiome biome) {
-		Class[] classArr = {GOTBiome.class};
+		Class<? extends GOTBiome>[] classArr = new Class[]{GOTBiome.class};
 		Object[] args = {biome};
 		return EnumHelper.addEnum(GOTAchievement.Category.class, enumName, classArr, args);
 	}
@@ -63,7 +63,7 @@ public class GOTAPI {
 	 * @apiNote Creates new achievement category.
 	 */
 	public static GOTAchievement.Category addAchievementCategory(String enumName, GOTFaction faction) {
-		Class[] classArr = {GOTFaction.class};
+		Class<GOTFaction>[] classArr = new Class[]{GOTFaction.class};
 		Object[] args = {faction};
 		return EnumHelper.addEnum(GOTAchievement.Category.class, enumName, classArr, args);
 	}
@@ -74,7 +74,7 @@ public class GOTAPI {
 	 * @apiNote Creates new faction cape.
 	 */
 	public static GOTCapes addAlignmentCape(String enumName, GOTFaction faction) {
-		Class[] classArr = {GOTFaction.class};
+		Class<GOTFaction>[] classArr = new Class[]{GOTFaction.class};
 		Object[] args = {faction};
 		return EnumHelper.addEnum(GOTCapes.class, enumName, classArr, args);
 	}
@@ -85,7 +85,7 @@ public class GOTAPI {
 	 * @apiNote Creates new faction shield.
 	 */
 	public static GOTShields addAlignmentShield(String enumName, GOTFaction faction) {
-		Class[] classArr = {GOTFaction.class};
+		Class<GOTFaction>[] classArr = new Class[]{GOTFaction.class};
 		Object[] args = {faction};
 		return EnumHelper.addEnum(GOTShields.class, enumName, classArr, args);
 	}
@@ -99,7 +99,7 @@ public class GOTAPI {
 	 * @apiNote Creates new faction banner.
 	 */
 	public static GOTItemBanner.BannerType addBanner(String enumName, int id, String bannerName, GOTFaction faction) {
-		Class[] classArr = {Integer.TYPE, String.class, GOTFaction.class};
+		Class<?>[] classArr = {Integer.TYPE, String.class, GOTFaction.class};
 		Object[] args = {id, bannerName, faction};
 		GOTItemBanner.BannerType banner = EnumHelper.addEnum(GOTItemBanner.BannerType.class, enumName, classArr, args);
 		GOTItemBanner.BannerType.bannerForID.put(banner.bannerID, banner);
@@ -125,7 +125,7 @@ public class GOTAPI {
 	 * @apiNote Creates new exclusive cape.
 	 */
 	public static GOTCapes addCape(String enumName, GOTCapes.CapeType type, boolean hidden, List<String> players) {
-		Class[] classArr = {GOTCapes.CapeType.class, Boolean.TYPE, ArrayList.class};
+		Class<?>[] classArr = {GOTCapes.CapeType.class, Boolean.TYPE, ArrayList.class};
 		Object[] args = {type, hidden, players};
 		return EnumHelper.addEnum(GOTCapes.class, enumName, classArr, args);
 	}
@@ -136,7 +136,7 @@ public class GOTAPI {
 	 * @apiNote Creates new dimension region.
 	 */
 	public static DimensionRegion addDimensionRegion(String enumName, String regionName) {
-		Class[] classArr = {String.class};
+		Class<String>[] classArr = new Class[]{String.class};
 		Object[] args = {regionName};
 		return EnumHelper.addEnum(DimensionRegion.class, enumName, classArr, args);
 	}
@@ -149,7 +149,7 @@ public class GOTAPI {
 	 * @apiNote Creates new faction
 	 */
 	public static GOTFaction addFaction(String enumName, int color, DimensionRegion region, GOTMapRegion mapInfo) {
-		Class[] classArr = {Integer.TYPE, GOTDimension.class, DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
+		Class<?>[] classArr = {Integer.TYPE, GOTDimension.class, DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
 		Object[] args = {color, GOTDimension.GAME_OF_THRONES, region, true, true, Integer.MIN_VALUE, mapInfo};
 		return EnumHelper.addEnum(GOTFaction.class, enumName, classArr, args);
 	}
@@ -168,7 +168,7 @@ public class GOTAPI {
 	 */
 	@Deprecated
 	public static GOTFaction addFaction(String enumName, int color, GOTDimension dim, DimensionRegion region, boolean player, boolean registry, int alignment, GOTMapRegion mapInfo) {
-		Class[] classArr = {Integer.TYPE, GOTDimension.class, DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
+		Class<?>[] classArr = {Integer.TYPE, GOTDimension.class, DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
 		Object[] args = {color, dim, region, player, registry, alignment, mapInfo};
 		return EnumHelper.addEnum(GOTFaction.class, enumName, classArr, args);
 	}
@@ -189,7 +189,7 @@ public class GOTAPI {
 	 * @apiNote Creates new secondary faction invasion
 	 */
 	public static GOTInvasions addInvasion(String enumName, GOTFaction faction, String subfaction) {
-		Class[] classArr = {GOTFaction.class, String.class};
+		Class<?>[] classArr = {GOTFaction.class, String.class};
 		Object[] args = {faction, subfaction};
 		return EnumHelper.addEnum(GOTInvasions.class, enumName, classArr, args);
 	}
@@ -200,7 +200,7 @@ public class GOTAPI {
 	 * @apiNote Creates new lore category with its books.
 	 */
 	public static GOTLore.LoreCategory addLoreCategory(String enumName, String name) {
-		Class[] classArr = {String.class};
+		Class<String>[] classArr = new Class[]{String.class};
 		Object[] args = {name};
 		return EnumHelper.addEnum(GOTLore.LoreCategory.class, enumName, classArr, args);
 	}
@@ -230,7 +230,7 @@ public class GOTAPI {
 	}
 
 	private static GOTMapLabels addMapLabel(String enumName, Object label, int x, int y, float scale, int angle, float zoomMin, float zoomMax) {
-		Class[] classArr = {Object.class, Integer.TYPE, Integer.TYPE, Float.TYPE, Integer.TYPE, Float.TYPE, Float.TYPE};
+		Class<?>[] classArr = {Object.class, Integer.TYPE, Integer.TYPE, Float.TYPE, Integer.TYPE, Float.TYPE, Float.TYPE};
 		Object[] args = {label, x, y, scale, angle, zoomMin, zoomMax};
 		return EnumHelper.addEnum(GOTMapLabels.class, enumName, classArr, args);
 	}
@@ -256,7 +256,7 @@ public class GOTAPI {
 	 * @apiNote Creates new miniquest category.
 	 */
 	public static GOTMiniQuestFactory addMiniQuestFactory(String enumName, String name) {
-		Class[] classArr = {String.class};
+		Class<String>[] classArr = new Class[]{String.class};
 		Object[] args = {name};
 		return EnumHelper.addEnum(GOTMiniQuestFactory.class, enumName, classArr, args);
 	}
@@ -283,7 +283,7 @@ public class GOTAPI {
 	 * @apiNote Creates new mountain.
 	 */
 	public static GOTMountains addMountain(String name, double x, double z, float h, int r, int lava) {
-		Class[] classArr = {Double.TYPE, Double.TYPE, Float.TYPE, Integer.TYPE, Integer.TYPE};
+		Class<?>[] classArr = {Double.TYPE, Double.TYPE, Float.TYPE, Integer.TYPE, Integer.TYPE};
 		Object[] args = {x, z, h, r, lava};
 		return EnumHelper.addEnum(GOTMountains.class, name, classArr, args);
 	}
@@ -306,7 +306,7 @@ public class GOTAPI {
 	 * @apiNote Creates new exclusive shield.
 	 */
 	public static GOTShields addShield(String enumName, GOTShields.ShieldType type, boolean hidden, List<String> players) {
-		Class[] classArr = {GOTShields.ShieldType.class, Boolean.TYPE, ArrayList.class};
+		Class<?>[] classArr = {GOTShields.ShieldType.class, Boolean.TYPE, ArrayList.class};
 		Object[] args = {type, hidden, players};
 		return EnumHelper.addEnum(GOTShields.class, enumName, classArr, args);
 	}
@@ -317,7 +317,7 @@ public class GOTAPI {
 	 * @apiNote Creates new tree, that can be added in the biome.
 	 */
 	public static GOTTreeType addTreeType(String enumName, Object treeFactory) {
-		Class[] classArr = {GOTTreeType.ITreeFactory.class};
+		Class<GOTTreeType.ITreeFactory>[] classArr = new Class[]{GOTTreeType.ITreeFactory.class};
 		Object[] args = {treeFactory};
 		return EnumHelper.addEnum(GOTTreeType.class, enumName, classArr, args);
 	}
@@ -332,7 +332,7 @@ public class GOTAPI {
 	 * @apiNote Creates new waypoint.
 	 */
 	public static GOTWaypoint addWaypoint(String name, GOTWaypoint.Region region, GOTFaction faction, double x, double z, boolean hidden) {
-		Class[] classArr = {GOTWaypoint.Region.class, GOTFaction.class, Double.TYPE, Double.TYPE, Boolean.TYPE};
+		Class<?>[] classArr = {GOTWaypoint.Region.class, GOTFaction.class, Double.TYPE, Double.TYPE, Boolean.TYPE};
 		Object[] args = {region, faction, x, z, hidden};
 		return EnumHelper.addEnum(GOTWaypoint.class, name, classArr, args);
 	}
@@ -356,7 +356,7 @@ public class GOTAPI {
 	 * @apiNote Init regions BEGORE adding waypoints.
 	 */
 	public static GOTWaypoint.Region addWaypointRegion(String name) {
-		Class[] classArr = {};
+		Class<?>[] classArr = {};
 		Object[] args = {};
 		return EnumHelper.addEnum(GOTWaypoint.Region.class, name, classArr, args);
 	}

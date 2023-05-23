@@ -31,7 +31,7 @@ public class GOTCommandStrScan extends CommandBase {
 	public Set<String> aliasesToInclude = new HashSet<>();
 
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		return Collections.emptyList();
 	}
 

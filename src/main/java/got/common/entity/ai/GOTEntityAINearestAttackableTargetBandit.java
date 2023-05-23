@@ -2,6 +2,7 @@ package got.common.entity.ai;
 
 import got.common.entity.other.IBandit;
 import net.minecraft.command.IEntitySelector;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,12 +10,12 @@ import net.minecraft.entity.player.EntityPlayer;
 public class GOTEntityAINearestAttackableTargetBandit extends GOTEntityAINearestAttackableTargetBasic {
 	public IBandit taskOwnerAsBandit;
 
-	public GOTEntityAINearestAttackableTargetBandit(EntityCreature entity, Class targetClass, int chance, boolean flag) {
+	public GOTEntityAINearestAttackableTargetBandit(EntityCreature entity, Class<? extends Entity> targetClass, int chance, boolean flag) {
 		super(entity, targetClass, chance, flag);
 		taskOwnerAsBandit = (IBandit) entity;
 	}
 
-	public GOTEntityAINearestAttackableTargetBandit(EntityCreature entity, Class targetClass, int chance, boolean flag, IEntitySelector selector) {
+	public GOTEntityAINearestAttackableTargetBandit(EntityCreature entity, Class<? extends Entity> targetClass, int chance, boolean flag, IEntitySelector selector) {
 		super(entity, targetClass, chance, flag, selector);
 		taskOwnerAsBandit = (IBandit) entity;
 	}

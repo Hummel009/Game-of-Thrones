@@ -61,12 +61,11 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 		Vec3 look = user.getLookVec();
 		Vec3 sight = position.addVector(look.xCoord * range, look.yCoord * range, look.zCoord * range);
 		float sightWidth = 1.0f;
-		List list = user.worldObj.getEntitiesWithinAABBExcludingEntity(user, user.boundingBox.addCoord(look.xCoord * range, look.yCoord * range, look.zCoord * range).expand(sightWidth, sightWidth, sightWidth));
+		List<? extends Entity> list = user.worldObj.getEntitiesWithinAABBExcludingEntity(user, user.boundingBox.addCoord(look.xCoord * range, look.yCoord * range, look.zCoord * range).expand(sightWidth, sightWidth, sightWidth));
 		ArrayList<EntityLivingBase> whipTargets = new ArrayList<>();
-		for (Object element : list) {
+		for (Entity element : list) {
 			EntityLivingBase entity;
-			Entity obj = (Entity) element;
-			if (!(obj instanceof EntityLivingBase) || (entity = (EntityLivingBase) obj) == user.ridingEntity && !entity.canRiderInteract() || !entity.canBeCollidedWith()) {
+			if (!(element instanceof EntityLivingBase) || (entity = (EntityLivingBase) element) == user.ridingEntity && !entity.canRiderInteract() || !entity.canBeCollidedWith()) {
 				continue;
 			}
 			float width = 1.0f;
@@ -82,7 +81,8 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 			whipTargets.add(entity);
 		}
 		for (EntityLivingBase entity : whipTargets) {
-			if (entity != hitEntity && !entity.attackEntityFrom(DamageSource.causeMobDamage(user), 1.0f)) {
+			if (entity != hitEntity) {
+				entity.attackEntityFrom(DamageSource.causeMobDamage(user), 1.0f);
 			}
 		}
 		Vec3 eyeHeight = position.addVector(0.0, user.getEyeHeight(), 0.0);

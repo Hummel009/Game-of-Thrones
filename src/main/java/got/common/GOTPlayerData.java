@@ -614,8 +614,8 @@ public class GOTPlayerData {
 			if (!entityplayer.capabilities.isCreativeMode) {
 				double range = 16.0D;
 				List<EntityLiving> entities = world.getEntitiesWithinAABB(EntityLiving.class, entityplayer.boundingBox.expand(range, range, range));
-				for (EntityLiving entityliving : entities) {
-					if (entityliving.getAttackTarget() == entityplayer) {
+				for (EntityLiving entity : entities) {
+					if (entity.getAttackTarget() == entityplayer) {
 						return false;
 					}
 				}
@@ -2043,8 +2043,8 @@ public class GOTPlayerData {
 				uuidToMountTime--;
 			} else {
 				double range = 32.0D;
-				List<Entity> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, entityplayer.boundingBox.expand(range, range, range));
-				for (Entity entity : entities) {
+				List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, entityplayer.boundingBox.expand(range, range, range));
+				for (EntityLivingBase entity : entities) {
 					if (entity.getUniqueID().equals(uuidToMount)) {
 						entityplayer.mountEntity(entity);
 						break;

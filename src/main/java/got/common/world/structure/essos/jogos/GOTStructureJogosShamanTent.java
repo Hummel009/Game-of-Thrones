@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
-	public static Class[] stalls = {Mason.class, Brewer.class, Miner.class, Armourer.class};
+	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Mason.class, Brewer.class, Miner.class, Armourer.class};
 
 	public GOTStructureJogosShamanTent(boolean flag) {
 		super(flag);
@@ -78,14 +78,14 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		placeAnimalJar(world, -4, 4, 5, GOTRegistry.birdCage, 2, new GOTEntityBird(world));
 		placeAnimalJar(world, -4, 5, -1, GOTRegistry.birdCage, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 0, 5, 5, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
-		ArrayList<Class> stallClasses = new ArrayList<>(Arrays.asList(stalls));
+		ArrayList<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(stalls));
 		while (stallClasses.size() > 3) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));
 		}
 		try {
-			GOTStructureBase stall0 = (GOTStructureBase) stallClasses.get(0).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
-			GOTStructureBase stall1 = (GOTStructureBase) stallClasses.get(1).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
-			GOTStructureBase stall2 = (GOTStructureBase) stallClasses.get(2).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall0 = stallClasses.get(0).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall1 = stallClasses.get(1).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall2 = stallClasses.get(2).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
 			generateSubstructure(stall0, world, random, -4, 1, 6, 0);
 			generateSubstructure(stall1, world, random, 0, 1, 6, 0);
 			generateSubstructure(stall2, world, random, 4, 1, 6, 0);

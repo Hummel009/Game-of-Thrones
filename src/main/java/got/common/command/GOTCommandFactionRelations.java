@@ -11,7 +11,7 @@ import java.util.List;
 
 public class GOTCommandFactionRelations extends CommandBase {
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
 			case 1:
 				return CommandBase.getListOfStringsMatchingLastWord(args, "set", "reset");

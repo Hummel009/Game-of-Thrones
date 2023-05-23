@@ -220,7 +220,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 			worldObj.theProfiler.endSection();
 			rotationYawHead = rotationYaw;
 		}
-		List<Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(0.2, 0, 0));
+		List<? extends Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(0.2, 0, 0));
 		if (entities != null && !entities.isEmpty()) {
 			for (Entity entity : entities) {
 				if (entity.canBePushed()) {

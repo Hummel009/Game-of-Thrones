@@ -243,8 +243,8 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				diaryScroll = pageText.renderAndReturnScroll(fontRendererObj, x, y, textBottom, diaryScroll);
 			}
 			if (deletingMiniquest == null) {
-				List miniquests = getMiniQuests();
-				if (!(miniquests = new ArrayList<GOTMiniQuest>(miniquests)).isEmpty()) {
+				List<GOTMiniQuest> miniquests = getMiniQuests();
+				if (!(miniquests = new ArrayList<>(miniquests)).isEmpty()) {
 					if (viewCompleted) {
 						miniquests = Lists.reverse(miniquests);
 					} else {
@@ -256,7 +256,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 					min = Math.max(min, 0);
 					max = Math.min(max, size - 1);
 					for (int index = min; index <= max; ++index) {
-						GOTMiniQuest quest = (GOTMiniQuest) miniquests.get(index);
+						GOTMiniQuest quest = miniquests.get(index);
 						int displayIndex = index - min;
 						int questX = guiLeft + xSize / 2 + pageBorder;
 						int questY = guiTop + pageTop + displayIndex * (4 + qPanelHeight);
@@ -266,12 +266,11 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				}
 			} else {
 				String deleteText = viewCompleted ? StatCollector.translateToLocal("got.gui.redBook.mq.deleteCmp") : StatCollector.translateToLocal("got.gui.redBook.mq.delete");
-				List deleteTextLines = fontRendererObj.listFormattedStringToWidth(deleteText, pageWidth);
+				List<String> deleteTextLines = fontRendererObj.listFormattedStringToWidth(deleteText, pageWidth);
 				int lineX = guiLeft + xSize / 2 + pageBorder + pageWidth / 2;
 				int lineY = guiTop + 50;
-				for (Object obj : deleteTextLines) {
-					String line = (String) obj;
-					drawCenteredString(line, lineX, lineY, 8019267);
+				for (String obj : deleteTextLines) {
+					drawCenteredString(obj, lineX, lineY, 8019267);
 					lineY += fontRendererObj.FONT_HEIGHT;
 				}
 				int questX = guiLeft + xSize / 2 + pageBorder + pageWidth / 2 - qPanelWidth / 2;

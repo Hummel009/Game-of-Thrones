@@ -129,17 +129,16 @@ public class GOTEntityPortal extends Entity {
 		}
 		if (getScale() >= MAX_SCALE) {
 			int i;
-			List players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(8.0, 8.0, 8.0));
-			for (Object player : players) {
-				EntityPlayer entityplayer = (EntityPlayer) player;
-				if (!boundingBox.intersectsWith(entityplayer.boundingBox) || entityplayer.ridingEntity != null || entityplayer.riddenByEntity != null) {
+			List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(8.0, 8.0, 8.0));
+			for (EntityPlayer player : players) {
+				if (!boundingBox.intersectsWith(player.boundingBox) || player.ridingEntity != null || player.riddenByEntity != null) {
 					continue;
 				}
-				GOT.proxy.setInPortal(entityplayer);
+				GOT.proxy.setInPortal(player);
 			}
-			List entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(8.0, 8.0, 8.0));
+			List<? extends Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(8.0, 8.0, 8.0));
 			for (i = 0; i < entities.size(); ++i) {
-				Entity entity = (Entity) entities.get(i);
+				Entity entity = entities.get(i);
 				if (entity instanceof EntityPlayer || !boundingBox.intersectsWith(entity.boundingBox) || entity.ridingEntity != null || entity.riddenByEntity != null || entity.timeUntilPortal != 0) {
 					continue;
 				}

@@ -275,13 +275,13 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 				vec3d1 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
 			}
 			Entity entity = null;
-			List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.addCoord(motionX, motionY, motionZ).expand(1.0, 1.0, 1.0));
+			List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.addCoord(motionX, motionY, motionZ).expand(1.0, 1.0, 1.0));
 			double d = 0.0;
 			for (l = 0; l < list.size(); ++l) {
 				float f5;
 				double d1;
 				MovingObjectPosition movingobjectposition1;
-				Entity entity1 = (Entity) list.get(l);
+				Entity entity1 = list.get(l);
 				if (!entity1.canBeCollidedWith() || entity1 == shootingEntity && ticksInAir < 5 || (movingobjectposition1 = entity1.boundingBox.expand(f5 = 0.3f, f5, f5).calculateIntercept(vec3d, vec3d1)) == null || (d1 = vec3d.distanceTo(movingobjectposition1.hitVec)) >= d && d != 0.0) {
 					continue;
 				}

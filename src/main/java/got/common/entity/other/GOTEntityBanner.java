@@ -568,13 +568,12 @@ public class GOTEntityBanner extends Entity {
 		int x = MathHelper.floor_double(posX) >> 4;
 		int z = MathHelper.floor_double(posZ) >> 4;
 		PlayerManager playermanager = ((WorldServer) worldObj).getPlayerManager();
-		List players = worldObj.playerEntities;
-		for (Object obj : players) {
-			EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
-			if (!playermanager.isPlayerWatchingChunk(entityplayer, x, z)) {
+		List<EntityPlayer> players = world.playerEntities;
+		for (EntityPlayer obj : players) {
+			if (!playermanager.isPlayerWatchingChunk((EntityPlayerMP) obj, x, z)) {
 				continue;
 			}
-			sendBannerData(entityplayer, false, false);
+			sendBannerData(obj, false, false);
 		}
 	}
 

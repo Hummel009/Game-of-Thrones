@@ -15,7 +15,7 @@ import java.util.List;
 
 public class GOTCommandDragon extends CommandBase {
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
 			return CommandBase.getListOfStringsMatchingLastWord(args, "stage adult", "tame");
 		}
@@ -28,12 +28,12 @@ public class GOTCommandDragon extends CommandBase {
 			double range = 64;
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(player.posX - 1, player.posY - 1, player.posZ - 1, player.posX + 1, player.posY + 1, player.posZ + 1);
 			aabb = aabb.expand(range, range, range);
-			List<Entity> entities = player.worldObj.getEntitiesWithinAABB(GOTEntityDragon.class, aabb);
+			List<GOTEntityDragon> entities = player.worldObj.getEntitiesWithinAABB(GOTEntityDragon.class, aabb);
 
-			Entity closestEntity = null;
+			GOTEntityDragon closestEntity = null;
 			float minPlayerDist = Float.MAX_VALUE;
 
-			for (Entity entity : entities) {
+			for (GOTEntityDragon entity : entities) {
 				float playerDist = entity.getDistanceToEntity(player);
 				if (entity.getDistanceToEntity(player) < minPlayerDist) {
 					closestEntity = entity;
@@ -44,7 +44,7 @@ public class GOTCommandDragon extends CommandBase {
 			if (closestEntity == null) {
 				throw new CommandException("got.command.dragon.nodragons");
 			}
-			modifier.modify((GOTEntityDragon) closestEntity);
+			modifier.modify(closestEntity);
 		} else {
 
 			MinecraftServer server = MinecraftServer.getServer();

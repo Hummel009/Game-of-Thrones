@@ -74,17 +74,17 @@ public class GOTStructureEssosBazaar extends GOTStructureEssosBase {
 		placeAnimalJar(world, 3, 1, 7, GOTRegistry.birdCage, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, -9, 3, 0, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 4, 3, 3, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
-		ArrayList<Class> stallClasses = new ArrayList<>(Arrays.asList(getStallClasses()));
+		ArrayList<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(getStallClasses()));
 		while (stallClasses.size() > 6) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));
 		}
 		try {
-			GOTStructureBase stall0 = (GOTStructureBase) stallClasses.get(0).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
-			GOTStructureBase stall1 = (GOTStructureBase) stallClasses.get(1).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
-			GOTStructureBase stall2 = (GOTStructureBase) stallClasses.get(2).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
-			GOTStructureBase stall3 = (GOTStructureBase) stallClasses.get(3).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
-			GOTStructureBase stall4 = (GOTStructureBase) stallClasses.get(4).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
-			GOTStructureBase stall5 = (GOTStructureBase) stallClasses.get(5).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall0 = stallClasses.get(0).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall1 = stallClasses.get(1).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall2 = stallClasses.get(2).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall3 = stallClasses.get(3).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall4 = stallClasses.get(4).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall5 = stallClasses.get(5).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
 			generateSubstructure(stall0, world, random, -8, 1, -4, 2);
 			generateSubstructure(stall1, world, random, 0, 1, -4, 2);
 			generateSubstructure(stall2, world, random, 8, 1, -4, 2);
@@ -97,7 +97,7 @@ public class GOTStructureEssosBazaar extends GOTStructureEssosBase {
 		return true;
 	}
 
-	public Class[] getStallClasses() {
+	public Class<? extends GOTStructureBase>[] getStallClasses() {
 		return null;
 	}
 }

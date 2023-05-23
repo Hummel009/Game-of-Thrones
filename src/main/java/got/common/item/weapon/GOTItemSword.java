@@ -75,8 +75,8 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 	}
 
 	@Override
-	public Multimap getItemAttributeModifiers() {
-		Multimap multimap = super.getItemAttributeModifiers();
+	public Multimap<String, AttributeModifier> getItemAttributeModifiers() {
+		Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers();
 		multimap.removeAll(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName());
 		multimap.put(SharedMonsterAttributes.attackDamage.getAttributeUnlocalizedName(), new AttributeModifier(field_111210_e, "GOT Weapon modifier", gotWeaponDamage, 0));
 		return multimap;

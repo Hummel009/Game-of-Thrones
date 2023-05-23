@@ -64,10 +64,10 @@ public abstract class GOTEntityLionBase extends GOTEntityAnimalMF {
 		if (flag && (attacker = damagesource.getEntity()) instanceof EntityLivingBase) {
 			if (isChild()) {
 				double range = 12.0;
-				List<GOTEntityLionBase> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
-				for (GOTEntityLionBase lion : list) {
-					if (!lion.isChild()) {
-						lion.becomeAngryAt((EntityLivingBase) attacker);
+				List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
+				for (Entity entity : list) {
+					if (entity instanceof GOTEntityLion && !((GOTEntityLion) entity).isChild()) {
+						((GOTEntityLion) entity).becomeAngryAt((EntityLivingBase) attacker);
 					}
 				}
 			} else {
@@ -116,7 +116,7 @@ public abstract class GOTEntityLionBase extends GOTEntityAnimalMF {
 	}
 
 	@Override
-	public Class getAnimalMFBaseClass() {
+	public Class<? extends GOTEntityAnimalMF> getAnimalMFBaseClass() {
 		return GOTEntityLionBase.class;
 	}
 

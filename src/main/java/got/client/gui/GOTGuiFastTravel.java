@@ -74,7 +74,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		GL11.glEnable(3042);
 		String title = StatCollector.translateToLocalFormatted("got.fastTravel.travel", theWaypoint.getDisplayName());
 		String titleExtra = new String[]{"", ".", "..", "..."}[tickCounter / 10 % 4];
-		List messageLines = fontRendererObj.listFormattedStringToWidth(message, width - 100);
+		List<String> messageLines = fontRendererObj.listFormattedStringToWidth(message, width - 100);
 		String skipText = StatCollector.translateToLocalFormatted("got.fastTravel.skip", GameSettings.getKeyDisplayString(mc.gameSettings.keyBindInventory.getKeyCode()));
 		float boxAlpha = 0.5f;
 		int boxColor = (int) (boxAlpha * 255.0f) << 24;
@@ -89,9 +89,8 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		Gui.drawRect(0, messageY - border, width, height, boxColor);
 		GL11.glDisable(3042);
 		fontRendererObj.drawStringWithShadow(title + titleExtra, width / 2 - fontRendererObj.getStringWidth(title) / 2, border, 16777215);
-		for (Object obj : messageLines) {
-			String s1 = (String) obj;
-			drawCenteredString(fontRendererObj, s1, width / 2, messageY, 16777215);
+		for (String obj : messageLines) {
+			drawCenteredString(fontRendererObj, obj, width / 2, messageY, 16777215);
 			messageY += fh;
 		}
 		if (chunkLoaded) {

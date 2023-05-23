@@ -47,7 +47,7 @@ public class GOTEntityRabbit extends EntityCreature implements GOTAmbientCreatur
 
 	public boolean anyFarmhandsNearby(int i, int j, int k) {
 		int range = 16;
-		List farmhands = worldObj.getEntitiesWithinAABB(GOTFarmhand.class, AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 1, k + 1).expand(range, range, range));
+		List<? extends GOTFarmhand> farmhands = worldObj.getEntitiesWithinAABB(GOTFarmhand.class, AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 1, k + 1).expand(range, range, range));
 		return !farmhands.isEmpty();
 	}
 

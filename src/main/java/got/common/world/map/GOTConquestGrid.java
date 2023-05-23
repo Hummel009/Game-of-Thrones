@@ -64,10 +64,9 @@ public class GOTConquestGrid {
 	public static void checkNotifyConquest(GOTConquestZone zone, EntityPlayer originPlayer, GOTFaction faction, float newConq, float prevConq, boolean isCleansing) {
 		if (MathHelper.floor_double(newConq / 50.0f) != MathHelper.floor_double(prevConq / 50.0f) || newConq == 0.0f && prevConq != newConq) {
 			World world = originPlayer.worldObj;
-			List<EntityPlayer> playerEntities = world.playerEntities;
-			for (EntityPlayer obj : playerEntities) {
+			List<EntityPlayer> players = world.playerEntities;
+			for (EntityPlayer player : players) {
 				GOTFaction pledgeFac;
-				EntityPlayerMP player = (EntityPlayerMP) obj;
 				GOTPlayerData pd = GOTLevelData.getData(player);
 				if (player.getDistanceSqToEntity(originPlayer) > 40000.0 || getZoneByEntityCoords(player) != zone) {
 					continue;
@@ -78,7 +77,7 @@ public class GOTConquestGrid {
 					continue;
 				}
 				GOTPacketConquestNotification pkt = new GOTPacketConquestNotification(faction, newConq, isCleansing);
-				GOTPacketHandler.networkWrapper.sendTo(pkt, player);
+				GOTPacketHandler.networkWrapper.sendTo(pkt, (EntityPlayerMP) player);
 			}
 		}
 	}

@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTBlockLeavesBase extends BlockLeaves {
-	public static List allLeafBlocks = new ArrayList<>();
+	public static List<Block> allLeafBlocks = new ArrayList<>();
 	@SideOnly(Side.CLIENT)
 	public IIcon[][] leafIcons;
 	public String[] leafNames;
@@ -62,7 +63,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		}
 	}
 
-	public void addSpecialLeafDrops(ArrayList drops, World world, int i, int j, int k, int meta, int fortune) {
+	public void addSpecialLeafDrops(ArrayList<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
 	}
 
 	public int calcFortuneModifiedDropChance(int baseChance, int fortune) {

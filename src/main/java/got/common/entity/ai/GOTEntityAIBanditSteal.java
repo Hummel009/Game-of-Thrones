@@ -11,10 +11,7 @@ import got.common.recipe.GOTRecipe;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
-import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.*;
 import net.minecraft.util.MathHelper;
 
 import java.util.ArrayList;
@@ -66,14 +63,13 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 			return false;
 		}
 		double range = 32.0;
-		List players = theBanditAsNPC.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theBanditAsNPC.boundingBox.expand(range, range, range));
+		List<EntityPlayer> players = theBanditAsNPC.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theBanditAsNPC.boundingBox.expand(range, range, range));
 		ArrayList<EntityPlayer> validTargets = new ArrayList<>();
-		for (Object player : players) {
-			EntityPlayer entityplayer = (EntityPlayer) player;
-			if (entityplayer.capabilities.isCreativeMode || !theBandit.canTargetPlayerForTheft(entityplayer) || !IBandit.Helper.canStealFromPlayerInv(theBandit, entityplayer)) {
+		for (EntityPlayer player : players) {
+			if (player.capabilities.isCreativeMode || !theBandit.canTargetPlayerForTheft(player) || !IBandit.Helper.canStealFromPlayerInv(theBandit, player)) {
 				continue;
 			}
-			validTargets.add(entityplayer);
+			validTargets.add(player);
 		}
 		if (validTargets.isEmpty()) {
 			return false;
@@ -156,7 +152,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		});
 	}
 
-	public boolean tryStealItem(InventoryPlayer inv, Class itemclass) {
+	public boolean tryStealItem(InventoryPlayer inv, Class<? extends Item> itemclass) {
 		return tryStealItem_do(inv, new BanditItemFilter() {
 
 			@Override

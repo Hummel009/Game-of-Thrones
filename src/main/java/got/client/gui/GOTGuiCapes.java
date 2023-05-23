@@ -131,9 +131,9 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		s = currentCape.getCapeName();
 		drawCenteredString(s, x, y, 16777215);
 		y += fontRendererObj.FONT_HEIGHT * 2;
-		List desc = fontRendererObj.listFormattedStringToWidth(currentCape.getCapeDesc(), 220);
-		for (Object element : desc) {
-			s = (String) element;
+		List<String> desc = fontRendererObj.listFormattedStringToWidth(currentCape.getCapeDesc(), 220);
+		for (String element : desc) {
+			s = element;
 			drawCenteredString(s, x, y, 16777215);
 			y += fontRendererObj.FONT_HEIGHT;
 		}

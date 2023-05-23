@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public abstract class GOTStructureIronbornMarketStall extends GOTStructureWesterosMarketStall {
-	public static Class[] allStallTypes = {Goldsmith.class, Miner.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class};
+	public static Class<? extends GOTStructureBase>[] allStallTypes = new Class[]{Goldsmith.class, Miner.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class};
 
 	protected GOTStructureIronbornMarketStall(boolean flag) {
 		super(flag);
@@ -19,8 +19,8 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 
 	public static GOTStructureBase getRandomStall(Random random, boolean flag) {
 		try {
-			Class cls = allStallTypes[random.nextInt(allStallTypes.length)];
-			return (GOTStructureBase) cls.getConstructor(Boolean.TYPE).newInstance(flag);
+			Class<? extends GOTStructureBase> cls = allStallTypes[random.nextInt(allStallTypes.length)];
+			return cls.getConstructor(Boolean.TYPE).newInstance(flag);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

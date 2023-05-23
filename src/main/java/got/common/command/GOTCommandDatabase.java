@@ -15,7 +15,7 @@ public class GOTCommandDatabase extends CommandBase {
 	public Random rand = new Random();
 
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
 			List<String> list = Database.getNames();
 			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));

@@ -21,7 +21,7 @@ import java.util.UUID;
 
 public class GOTFamilyInfo {
 	public GOTEntityNPC theEntity;
-	public Class marriageEntityClass;
+	public Class<? extends Entity> marriageEntityClass;
 	public UUID spouseUniqueID;
 	public int children;
 	public int maxChildren;
@@ -72,13 +72,12 @@ public class GOTFamilyInfo {
 
 	public GOTEntityNPC getParentToFollow() {
 		UUID parentToFollowID = male ? maleParentID : femaleParentID;
-		List list = theEntity.worldObj.getEntitiesWithinAABB(theEntity.getClass(), theEntity.boundingBox.expand(16.0, 8.0, 16.0));
-		for (Object element : list) {
-			Entity entity = (Entity) element;
-			if (!(entity instanceof GOTEntityNPC) || entity == theEntity || parentToFollowID == null || !entity.getUniqueID().equals(parentToFollowID)) {
+		List<? extends Entity> list = theEntity.worldObj.getEntitiesWithinAABB(theEntity.getClass(), theEntity.boundingBox.expand(16.0, 8.0, 16.0));
+		for (Entity element : list) {
+			if (!(element instanceof GOTEntityNPC) || element == theEntity || parentToFollowID == null || !element.getUniqueID().equals(parentToFollowID)) {
 				continue;
 			}
-			return (GOTEntityNPC) entity;
+			return (GOTEntityNPC) element;
 		}
 		return null;
 	}
@@ -89,8 +88,8 @@ public class GOTFamilyInfo {
 
 	public EntityPlayer getRingGivingPlayer() {
 		if (ringGivingPlayer != null) {
-			for (Object obj : theEntity.worldObj.playerEntities) {
-				EntityPlayer entityplayer = (EntityPlayer) obj;
+			List<EntityPlayer> players = theEntity.worldObj.playerEntities;
+			for (EntityPlayer entityplayer : players) {
 				if (!entityplayer.getUniqueID().equals(ringGivingPlayer)) {
 					continue;
 				}
@@ -104,13 +103,12 @@ public class GOTFamilyInfo {
 		if (spouseUniqueID == null) {
 			return null;
 		}
-		List list = theEntity.worldObj.getEntitiesWithinAABB(theEntity.getClass(), theEntity.boundingBox.expand(16.0, 8.0, 16.0));
-		for (Object element : list) {
-			Entity entity = (Entity) element;
-			if (!(entity instanceof GOTEntityNPC) || entity == theEntity || !entity.getUniqueID().equals(spouseUniqueID)) {
+		List<? extends Entity> list = theEntity.worldObj.getEntitiesWithinAABB(theEntity.getClass(), theEntity.boundingBox.expand(16.0, 8.0, 16.0));
+		for (Entity element : list) {
+			if (!(element instanceof GOTEntityNPC) || element == theEntity || !element.getUniqueID().equals(spouseUniqueID)) {
 				continue;
 			}
-			GOTEntityNPC npc = (GOTEntityNPC) entity;
+			GOTEntityNPC npc = (GOTEntityNPC) element;
 			if (npc.familyInfo.spouseUniqueID == null || !theEntity.getUniqueID().equals(npc.familyInfo.spouseUniqueID)) {
 				continue;
 			}
@@ -192,14 +190,13 @@ public class GOTFamilyInfo {
 				}
 				if (theEntity.isEntityAlive() && theEntity.getAttackTarget() == null && timeUntilDrunkSpeech == 0) {
 					double range = 12.0;
-					List players = theEntity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theEntity.boundingBox.expand(range, range, range));
-					for (Object obj : players) {
+					List<EntityPlayer> players = theEntity.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theEntity.boundingBox.expand(range, range, range));
+					for (EntityPlayer obj : players) {
 						String speechBank;
-						EntityPlayer entityplayer = (EntityPlayer) obj;
-						if (!entityplayer.isEntityAlive() || entityplayer.capabilities.isCreativeMode || (speechBank = theEntity.getSpeechBank(entityplayer)) == null || theEntity.getRNG().nextInt(3) != 0) {
+						if (!obj.isEntityAlive() || obj.capabilities.isCreativeMode || (speechBank = theEntity.getSpeechBank(obj)) == null || theEntity.getRNG().nextInt(3) != 0) {
 							continue;
 						}
-						theEntity.sendSpeechBank(entityplayer, speechBank);
+						theEntity.sendSpeechBank(obj, speechBank);
 					}
 					timeUntilDrunkSpeech = 20 * MathHelper.getRandomIntegerInRange(theEntity.getRNG(), 5, 20);
 				}
@@ -252,13 +249,11 @@ public class GOTFamilyInfo {
 		int x = MathHelper.floor_double(theEntity.posX) >> 4;
 		int z = MathHelper.floor_double(theEntity.posZ) >> 4;
 		PlayerManager playermanager = ((WorldServer) theEntity.worldObj).getPlayerManager();
-		List players = theEntity.worldObj.playerEntities;
-		for (Object obj : players) {
-			EntityPlayerMP entityplayer = (EntityPlayerMP) obj;
-			if (!playermanager.isPlayerWatchingChunk(entityplayer, x, z)) {
-				continue;
+		List<EntityPlayer> players = theEntity.worldObj.playerEntities;
+		for (EntityPlayer obj : players) {
+			if (playermanager.isPlayerWatchingChunk((EntityPlayerMP) obj, x, z)) {
+				sendData((EntityPlayerMP) obj);
 			}
-			sendData(entityplayer);
 		}
 	}
 

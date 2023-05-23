@@ -145,7 +145,7 @@ public class GOTChunkProvider implements IChunkProvider {
 	}
 
 	@Override
-	public List getPossibleCreatures(EnumCreatureType creatureType, int i, int j, int k) {
+	public List<BiomeGenBase.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, int i, int j, int k) {
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
 		return biome == null ? null : biome.getSpawnableList(creatureType);
 	}

@@ -40,14 +40,12 @@ public class GOTEntityAILionChase extends EntityAIBase {
 		if (theLion.isChild() || theLion.isInLove() || theLion.getRNG().nextInt(800) != 0) {
 			return false;
 		}
-		List entities = theLion.worldObj.getEntitiesWithinAABB(EntityAnimal.class, theLion.boundingBox.expand(12.0, 12.0, 12.0));
+		List<EntityAnimal> entities = theLion.worldObj.getEntitiesWithinAABB(EntityAnimal.class, theLion.boundingBox.expand(12.0, 12.0, 12.0));
 		ArrayList<EntityAnimal> validTargets = new ArrayList<>();
-		for (Object entitie : entities) {
-			EntityAnimal entity = (EntityAnimal) entitie;
-			if (entity.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.attackDamage) != null) {
-				continue;
+		for (EntityAnimal entity : entities) {
+			if (entity.getAttributeMap().getAttributeInstance(SharedMonsterAttributes.attackDamage) == null) {
+				validTargets.add(entity);
 			}
-			validTargets.add(entity);
 		}
 		if (validTargets.isEmpty()) {
 			return false;

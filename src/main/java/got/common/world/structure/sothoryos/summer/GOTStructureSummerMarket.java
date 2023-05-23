@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class GOTStructureSummerMarket extends GOTStructureSummerBase {
-	public static Class[] stalls = {Goldsmith.class, Florist.class, Brewer.class, Fish.class, Butcher.class, Baker.class, Lumber.class, Miner.class, Mason.class, Blacksmith.class, Farmer.class};
+	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Goldsmith.class, Florist.class, Brewer.class, Fish.class, Butcher.class, Baker.class, Lumber.class, Miner.class, Mason.class, Blacksmith.class, Farmer.class};
 
 	public GOTStructureSummerMarket(boolean flag) {
 		super(flag);
@@ -99,15 +99,15 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		placeAnimalJar(world, -2, 3, -2, GOTRegistry.birdCage, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 6, 3, 1, GOTRegistry.birdCage, 0, new GOTEntityBird(world));
 		placeSkull(world, random, 2, 4, -5);
-		ArrayList<Class> stallClasses = new ArrayList<>(Arrays.asList(stalls));
+		ArrayList<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(stalls));
 		while (stallClasses.size() > 4) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));
 		}
 		try {
-			GOTStructureBase stall0 = (GOTStructureBase) stallClasses.get(0).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
-			GOTStructureBase stall1 = (GOTStructureBase) stallClasses.get(1).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
-			GOTStructureBase stall2 = (GOTStructureBase) stallClasses.get(2).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
-			GOTStructureBase stall3 = (GOTStructureBase) stallClasses.get(3).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall0 = stallClasses.get(0).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall1 = stallClasses.get(1).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall2 = stallClasses.get(2).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
+			GOTStructureBase stall3 = stallClasses.get(3).getConstructor(Boolean.TYPE).newInstance(notifyChanges);
 			generateSubstructure(stall0, world, random, 2, 1, 2, 0);
 			generateSubstructure(stall1, world, random, 2, 1, -2, 1);
 			generateSubstructure(stall2, world, random, -2, 1, -2, 2);

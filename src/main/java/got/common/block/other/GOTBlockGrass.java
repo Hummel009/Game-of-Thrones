@@ -41,7 +41,7 @@ public class GOTBlockGrass extends BlockBush implements IShearable {
 	}
 
 	@Override
-	public ArrayList getDrops(World world, int i, int j, int k, int meta, int fortune) {
+	public ArrayList<ItemStack> getDrops(World world, int i, int j, int k, int meta, int fortune) {
 		return Blocks.tallgrass.getDrops(world, i, j, k, meta, fortune);
 	}
 
@@ -61,7 +61,7 @@ public class GOTBlockGrass extends BlockBush implements IShearable {
 	}
 
 	@Override
-	public ArrayList onSheared(ItemStack item, IBlockAccess world, int i, int j, int k, int fortune) {
+	public ArrayList<ItemStack> onSheared(ItemStack item, IBlockAccess world, int i, int j, int k, int fortune) {
 		ArrayList<ItemStack> list = new ArrayList<>();
 		list.add(new ItemStack(this, 1, world.getBlockMetadata(i, j, k)));
 		return list;

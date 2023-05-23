@@ -111,9 +111,9 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			drawTexturedModalRect(k + 155, b0, 0, 45, 155, 44);
 			String modSubtitle = StatCollector.translateToLocal("got.menu.title");
 			drawString(fontRendererObj, modSubtitle, width / 2 - fontRendererObj.getStringWidth(modSubtitle) / 2, 80, -1);
-			List brandings = Lists.reverse((List) FMLCommonHandler.instance().getBrandings(true));
+			List<String> brandings = Lists.reverse(FMLCommonHandler.instance().getBrandings(true));
 			for (int l = 0; l < brandings.size(); ++l) {
-				String brd = (String) brandings.get(l);
+				String brd = brandings.get(l);
 				if (!Strings.isNullOrEmpty(brd)) {
 					drawString(fontRendererObj, brd, 2, height - (10 + l * (fontRendererObj.FONT_HEIGHT + 1)), -1);
 				}

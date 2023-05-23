@@ -105,9 +105,9 @@ public class GOTPacketFactionRelations implements IMessage {
 				Type t = packet.packetType;
 				if (t == Type.FULL_MAP) {
 					GOTFactionRelations.resetAllRelations();
-					for (Map.Entry e : packet.fullMap.entrySet()) {
-						GOTFactionRelations.FactionPair key = (GOTFactionRelations.FactionPair) e.getKey();
-						GOTFactionRelations.Relation rel = (GOTFactionRelations.Relation) e.getValue();
+					for (Map.Entry<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> e : packet.fullMap.entrySet()) {
+						GOTFactionRelations.FactionPair key = e.getKey();
+						GOTFactionRelations.Relation rel = e.getValue();
 						GOTFactionRelations.overrideRelations(key.getLeft(), key.getRight(), rel);
 					}
 				} else if (t == Type.RESET) {

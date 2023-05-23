@@ -134,7 +134,7 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 			if (rand.nextInt(chance) == 0) {
 				double range = inMidgewater ? 16.0 : 24.0;
 				int threshold = inMidgewater ? 6 : 5;
-				List list = worldObj.getEntitiesWithinAABB(GOTEntityMidges.class, boundingBox.expand(range, range, range));
+				List<GOTEntityMidges> list = worldObj.getEntitiesWithinAABB(GOTEntityMidges.class, boundingBox.expand(range, range, range));
 				if (list.size() < threshold) {
 					GOTEntityMidges moreMidges = new GOTEntityMidges(worldObj);
 					moreMidges.setLocationAndAngles(posX, posY, posZ, rand.nextFloat() * 360.0f, 0.0f);

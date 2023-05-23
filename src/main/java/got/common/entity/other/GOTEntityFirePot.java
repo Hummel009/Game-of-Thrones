@@ -44,12 +44,11 @@ public class GOTEntityFirePot extends EntityThrowable {
 			EntityLivingBase thrower = getThrower();
 			Entity hitEntity = m.entityHit;
 			double range = 3.0;
-			List entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, boundingBox.expand(range, range, range));
+			List<EntityLivingBase> entities = worldObj.getEntitiesWithinAABB(EntityLivingBase.class, boundingBox.expand(range, range, range));
 			if (hitEntity instanceof EntityLivingBase && !entities.contains(hitEntity)) {
-				entities.add(hitEntity);
+				entities.add((EntityLivingBase) hitEntity);
 			}
-			for (Object obj : entities) {
-				EntityLivingBase entity = (EntityLivingBase) obj;
+			for (EntityLivingBase entity : entities) {
 				float damage = 1.0f;
 				if (entity == hitEntity) {
 					damage = 3.0f;

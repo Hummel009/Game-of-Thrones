@@ -1,5 +1,6 @@
 package got.common.entity.other;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
@@ -7,7 +8,7 @@ public class GOTMercenaryTradeEntry extends GOTUnitTradeEntry {
 	public GOTMercenary theMerc;
 
 	public GOTMercenaryTradeEntry(GOTMercenary merc) {
-		super(merc.getClass(), merc.getMercBaseCost(), merc.getMercAlignmentRequired());
+		super((Class<? extends Entity>) merc.getClass(), merc.getMercBaseCost(), merc.getMercAlignmentRequired());
 		theMerc = merc;
 	}
 

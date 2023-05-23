@@ -8,10 +8,7 @@ import got.common.entity.westeros.wildling.thenn.GOTEntityThennBerserker;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
-import got.common.world.structure.other.GOTStructureHayBales;
-import got.common.world.structure.other.GOTStructureNPCRespawner;
-import got.common.world.structure.other.GOTVillageGen;
-import got.common.world.structure.other.LocationInfo;
+import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -29,11 +26,11 @@ public class GOTStructureThennVillage extends GOTVillageGen {
 	}
 
 	@Override
-	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+	public GOTVillageGen.AbstractInstance<GOTStructureThennVillage> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public static class Instance extends GOTVillageGen.AbstractInstance {
+	public static class Instance extends GOTVillageGen.AbstractInstance<GOTStructureThennVillage> {
 
 		public Instance(GOTStructureThennVillage village, World world, int i, int k, Random random, LocationInfo loc) {
 			super(village, world, i, k, random, loc);

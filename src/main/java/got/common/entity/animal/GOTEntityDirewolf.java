@@ -63,14 +63,11 @@ public class GOTEntityDirewolf extends EntityAnimal implements GOTBiome.ImmuneTo
 		if (flag && (attacker = damagesource.getEntity()) instanceof EntityLivingBase) {
 			if (isChild()) {
 				double range = 12.0;
-				List list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
-				for (Object obj : list) {
-					GOTEntityDirewolf bear;
-					Entity entity = (Entity) obj;
-					if (!(entity instanceof GOTEntityDirewolf) || (bear = (GOTEntityDirewolf) entity).isChild()) {
-						continue;
+				List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
+				for (Entity obj : list) {
+					if (obj instanceof GOTEntityDirewolf && !((GOTEntityDirewolf) obj).isChild()) {
+						((GOTEntityDirewolf) obj).becomeAngryAt((EntityLivingBase) attacker);
 					}
-					bear.becomeAngryAt((EntityLivingBase) attacker);
 				}
 			} else {
 				becomeAngryAt((EntityLivingBase) attacker);

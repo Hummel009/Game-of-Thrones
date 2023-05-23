@@ -26,7 +26,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 	}
 
 	@Override
-	public GOTVillageGen.AbstractInstance createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+	public GOTVillageGen.AbstractInstance<GOTStructureJogosVillage> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
@@ -40,7 +40,7 @@ public class GOTStructureJogosVillage extends GOTVillageGen {
 
 	}
 
-	public class Instance extends GOTVillageGen.AbstractInstance {
+	public class Instance extends GOTVillageGen.AbstractInstance<GOTStructureJogosVillage> {
 		public VillageType villageType;
 		public int numOuterHouses;
 

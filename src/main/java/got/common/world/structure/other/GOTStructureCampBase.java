@@ -1,7 +1,6 @@
 package got.common.world.structure.other;
 
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.westeros.wildling.thenn.GOTEntityThennBlacksmith;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;

@@ -33,7 +33,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTEntityDragon extends GOTEntityFlyingTameable {
-
 	public static Logger L = LogManager.getLogger();
 	public static double BASE_SPEED_GROUND = 0.3;
 	public static double BASE_SPEED_AIR = 1.5;
@@ -52,7 +51,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	public static String[] ENTITYAITASKS_EXECUTINGTASKENTRIES = {"executingTaskEntries", "field_75780_b"};
 	public static String[] ENTITYLIVING_BODYHELPER = {"bodyHelper", "field_70762_j"};
 	public static String[] GUIMAINMENU_SPLASHTEXT = {"splashText", "field_73975_c"};
-	public Map<Class, GOTDragonHelper> helpers;
+	public Map<Class<? extends GOTDragonHelper>, GOTDragonHelper> helpers;
 	public GOTModelDragonAnimaton animator;
 	public BitSet controlFlags;
 

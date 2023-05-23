@@ -34,17 +34,16 @@ public class GOTEntityAIBanditFlee extends EntityAIBase {
 	}
 
 	public EntityPlayer findNearestPlayer() {
-		List players = theBanditAsNPC.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theBanditAsNPC.boundingBox.expand(range, range, range));
+		List<EntityPlayer> players = theBanditAsNPC.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theBanditAsNPC.boundingBox.expand(range, range, range));
 		double distance = range;
 		EntityPlayer ret = null;
-		for (Object player : players) {
+		for (EntityPlayer player : players) {
 			double d;
-			EntityPlayer entityplayer = (EntityPlayer) player;
-			if (entityplayer.capabilities.isCreativeMode || (d = theBanditAsNPC.getDistanceToEntity(entityplayer)) >= distance) {
+			if (player.capabilities.isCreativeMode || (d = theBanditAsNPC.getDistanceToEntity(player)) >= distance) {
 				continue;
 			}
 			distance = d;
-			ret = entityplayer;
+			ret = player;
 		}
 		return ret;
 	}

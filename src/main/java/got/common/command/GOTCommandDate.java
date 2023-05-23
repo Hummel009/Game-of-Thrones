@@ -11,7 +11,7 @@ import java.util.List;
 
 public class GOTCommandDate extends CommandBase {
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
 			return CommandBase.getListOfStringsMatchingLastWord(args, "get", "set", "add");
 		}

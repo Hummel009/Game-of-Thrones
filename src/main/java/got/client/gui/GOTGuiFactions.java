@@ -70,7 +70,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	public GOTGuiScrollPane scrollPaneAlliesEnemies;
 	public int scrollAlliesEnemiesX;
 	public int numDisplayedAlliesEnemies;
-	public List currentAlliesEnemies;
+	public List<Object> currentAlliesEnemies;
 	public boolean isOtherPlayer;
 	public String otherPlayerName;
 	public Map<GOTFaction, Float> playerAlignmentMap;
@@ -159,13 +159,13 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		return true;
 	}
 
-	public void drawButtonHoveringText(List list, int i, int j) {
+	public void drawButtonHoveringText(List<String> list, int i, int j) {
 		func_146283_a(list, i, j);
 	}
 
 	@Override
 	public void drawScreen(int i, int j, float f) {
-		List desc;
+		List<String> desc;
 		int stringWidth;
 		GOTPlayerData clientPD = GOTLevelData.getData(mc.thePlayer);
 		boolean mouseOverWarCrimes = false;

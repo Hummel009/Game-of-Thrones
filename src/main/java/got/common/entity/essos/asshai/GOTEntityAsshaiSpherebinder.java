@@ -41,9 +41,8 @@ public class GOTEntityAsshaiSpherebinder extends GOTEntityAsshaiWarrior {
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 		if (!worldObj.isRemote && getAttackTarget() != null) {
-			List allMobsExcludingRabbits = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(24.0, 24.0, 24.0));
-			for (Object mobsExcludingRabbit : allMobsExcludingRabbits) {
-				Entity entity = (Entity) mobsExcludingRabbit;
+			List<? extends Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(24.0, 24.0, 24.0));
+			for (Entity entity : entities) {
 				double dSq = getDistanceSqToEntity(entity);
 				if (dSq <= 0.0) {
 					dSq = 1.0E-5;

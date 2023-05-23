@@ -10,7 +10,7 @@ public class GOTMusicResourceManager implements IResourceManager {
 	public Map<ResourceLocation, IResource> resourceMap = new HashMap<>();
 
 	@Override
-	public List getAllResources(ResourceLocation resource) {
+	public List<IResource> getAllResources(ResourceLocation resource) {
 		ArrayList<IResource> list = new ArrayList<>();
 		list.add(getResource(resource));
 		return list;
@@ -22,7 +22,7 @@ public class GOTMusicResourceManager implements IResourceManager {
 	}
 
 	@Override
-	public Set getResourceDomains() {
+	public Set<Map.Entry<ResourceLocation, IResource>> getResourceDomains() {
 		return resourceMap.entrySet();
 	}
 

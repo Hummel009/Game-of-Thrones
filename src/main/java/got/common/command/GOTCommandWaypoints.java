@@ -16,7 +16,7 @@ import java.util.List;
 
 public class GOTCommandWaypoints extends CommandBase {
 	@Override
-	public List addTabCompletionOptions(ICommandSender sender, String[] args) {
+	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
 			case 1:
 				return CommandBase.getListOfStringsMatchingLastWord(args, "unlock", "lock");
