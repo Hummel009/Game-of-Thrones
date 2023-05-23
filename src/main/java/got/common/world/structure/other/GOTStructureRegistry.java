@@ -50,7 +50,7 @@ public class GOTStructureRegistry {
 		classToNameMapping.put(strClass, cut);
 	}
 
-	public static void register(int id, GOTVillageGen village, String name, GOTFaction faction, IVillageProperties<GOTVillageGen.AbstractInstance<?>> properties) {
+	public static void register(int id, GOTVillageGen village, String name, GOTFaction faction, IVillageProperties properties) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
 			@Override
@@ -70,7 +70,7 @@ public class GOTStructureRegistry {
 		registerStructure(id, strProvider, name, faction.eggColor, faction.eggColor, false);
 	}
 
-	public static void register(int id, GOTVillageGen village, String name, int color, IVillageProperties<GOTVillageGen.AbstractInstance<?>> properties) {
+	public static void register(int id, GOTVillageGen village, String name, int color, IVillageProperties properties) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
 			@Override
