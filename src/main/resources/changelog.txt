@@ -6,6 +6,7 @@ CHANGELOG
 
 * Fixed critical bug caused by disappeared meta-info and broken coremod (horses, fences, etc)
 * Fixed potential bug caused by growing Desert Trees at the top limit of the world (256)
+* FIxed potential bug with rare thenn spawning
 * Fixed bug with glowing titles, that should be visible only during the night
 * Fixed bug with always english rank achievements in the chat
 * Fixed bug with rare intersection of random and fixed villages (bigger check radius)
