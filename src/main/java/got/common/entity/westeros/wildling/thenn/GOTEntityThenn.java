@@ -10,7 +10,7 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
-import got.common.world.biome.westeros.GOTBiomeHauntedForest;
+import got.common.world.biome.westeros.GOTBiomeThenn;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -86,7 +86,7 @@ public class GOTEntityThenn extends GOTEntityHumanBase {
 	public float getBlockPathWeight(int i, int j, int k) {
 		float f = 0.0f;
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
-		if (biome instanceof GOTBiomeHauntedForest) {
+		if (biome instanceof GOTBiomeThenn) {
 			f += 20.0f;
 		}
 		return f;
