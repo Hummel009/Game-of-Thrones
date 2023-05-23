@@ -72,13 +72,13 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.*;
 
-@Mod(modid = "got")
+@Mod(modid = "got", useMetadata = true)
 public class GOT {
 	@SidedProxy(clientSide = "got.client.GOTClientProxy", serverSide = "got.common.GOTCommonProxy")
 	public static GOTCommonProxy proxy;
 	@Mod.Instance("got")
 	public static GOT instance;
-	public static String VERSION = "23.05.11";
+	public static String VERSION = "23.05.23";
 	public static List<String> devs = new ArrayList<>();
 	public static GOTEventHandler eventHandler;
 	public static GOTPacketHandler packetHandler;

@@ -1,9 +1,10 @@
 CHANGELOG
->>BUILD NEXT
+>>BUILD 23.05.23
 + Seasons mechanics divided into server-side (temperature) and client-side (rendering) part.
 
 * Improved quests
 
+* Fixed critical bug caused by disappeared meta-info and broken coremod (horses, fences, etc)
 * Fixed potential bug caused by growing Desert Trees at the top limit of the world (256)
 * Fixed bug with glowing titles, that should be visible only during the night
 * Fixed bug with always english rank achievements in the chat
