@@ -86,6 +86,10 @@
       <excludeFolder url="file://$MODULE_DIR$/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/run" />
+      <excludeFolder url="file://$MODULE_DIR$/.metadata" />
+      <excludeFolder url="file://$MODULE_DIR$/server/config" />
+      <excludeFolder url="file://$MODULE_DIR$/server/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/server/world" />
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
