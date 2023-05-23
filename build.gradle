@@ -1,3 +1,6 @@
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
+
 buildscript {
 	repositories {
 		mavenCentral()
@@ -13,9 +16,10 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.0"
+def currentDate = LocalDate.now()
+version = currentDate.format(DateTimeFormatter.ofPattern("yy.MM.dd"))
 group = "com.yourname.modid"
-archivesBaseName = "Game of Thrones Build"
+archivesBaseName = "Game of Thrones"
 
 minecraft {
 	version = "1.7.10-10.13.4.1614-1.7.10"
