@@ -23,15 +23,7 @@ public class GOTBlockSapling9 extends GOTBlockSaplingBase {
 		int zOffset = 0;
 		if (meta == 0) {
 			int[] tree3x3;
-			int[] tree5x5 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, 0, -2, 2, -4, 4);
-			if (tree5x5 != null) {
-				treeGen = GOTTreeType.DRAGONBLOOD_HUGE.create(true, random);
-				trunkNeg = 2;
-				trunkPos = 2;
-				xOffset = tree5x5[0];
-				zOffset = tree5x5[1];
-			}
-			if (treeGen == null && (tree3x3 = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 0)) != null) {
+			if ((tree3x3 = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 0)) != null) {
 				treeGen = GOTTreeType.DRAGONBLOOD_LARGE.create(true, random);
 				trunkNeg = 1;
 				trunkPos = 1;

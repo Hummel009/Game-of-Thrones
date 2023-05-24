@@ -67,7 +67,6 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addTree(GOTTreeType.PALM, 500);
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		decorator.addTree(GOTTreeType.DRAGONBLOOD, 50);
-		decorator.addTree(GOTTreeType.DRAGONBLOOD_HUGE, 5);
 		decorator.addTree(GOTTreeType.DRAGONBLOOD_LARGE, 1);
 		decorator.addTree(GOTTreeType.KANUKA, 50);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);

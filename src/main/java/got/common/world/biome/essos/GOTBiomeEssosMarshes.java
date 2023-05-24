@@ -38,7 +38,6 @@ public class GOTBiomeEssosMarshes extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.PALM, 500);
 		decorator.addTree(GOTTreeType.PLUM, 5);
 		decorator.addTree(GOTTreeType.DRAGONBLOOD, 50);
-		decorator.addTree(GOTTreeType.DRAGONBLOOD_HUGE, 5);
 		decorator.addTree(GOTTreeType.DRAGONBLOOD_LARGE, 1);
 		decorator.addTree(GOTTreeType.KANUKA, 50);
 		variantChance = 1.0f;

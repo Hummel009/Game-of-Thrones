@@ -504,6 +504,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, new GOTStructureLhazarVillage(GOTBiome.lhazar, 1.0f), "LhazarCityLittle", GOTFaction.LHAZAR, (IVillageProperties<GOTStructureLhazarVillage.Instance>) instance -> instance.villageType = GOTStructureLhazarVillage.VillageType.VILLAGE);
 		GOTStructureRegistry.register(id++, new GOTStructureLhazarVillage(GOTBiome.lhazar, 1.0f), "LhazarCityMedium", GOTFaction.LHAZAR, (IVillageProperties<GOTStructureLhazarVillage.Instance>) instance -> instance.villageType = GOTStructureLhazarVillage.VillageType.FORT);
 		GOTStructureRegistry.register(id++, new GOTStructureLhazarVillage(GOTBiome.lhazar, 1.0f), "LhazarCityBig", GOTFaction.LHAZAR, (IVillageProperties<GOTStructureLhazarVillage.Instance>) instance -> instance.villageType = GOTStructureLhazarVillage.VillageType.TOWN);
+
 		GOTStructureRegistry.register(id++, new GOTStructureDothrakiVillage(GOTBiome.dothrakiSea, 1.0f), "DothrakiVillageLittle", GOTFaction.DOTHRAKI, (IVillageProperties<GOTStructureDothrakiVillage.Instance>) instance -> instance.villageType = GOTStructureDothrakiVillage.VillageType.SMALL);
 		GOTStructureRegistry.register(id++, new GOTStructureDothrakiVillage(GOTBiome.dothrakiSea, 1.0f), "DothrakiVillageBig", GOTFaction.DOTHRAKI, (IVillageProperties<GOTStructureDothrakiVillage.Instance>) instance -> instance.villageType = GOTStructureDothrakiVillage.VillageType.BIG);
 

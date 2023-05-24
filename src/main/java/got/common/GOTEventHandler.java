@@ -1351,23 +1351,23 @@ public class GOTEventHandler implements IFuelHandler {
 				boolean isOpenAir = world.canBlockSeeTheSky(i, j, k);
 				boolean noLightSource = world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10;
 				if ((standardColdBiome || altitudeColdBiome) && (isOpenAir || inWater) && noLightSource) {
-					int frostChance = 50;
+					int frostChance = 20;
 					int frostProtection = 0;
 					for (int l = 0; l < 4; l++) {
 						ItemStack armor = entity.getEquipmentInSlot(l + 1);
 						if (armor != null && armor.getItem() instanceof ItemArmor) {
 							ItemArmor.ArmorMaterial material = ((ItemArmor) armor.getItem()).getArmorMaterial();
 							if (material == GOTMaterial.FUR || material == GOTMaterial.GIFT) {
-								frostProtection += 400;
+								frostProtection += 80;
 							}
 						}
 					}
 					frostChance += frostProtection;
 					if (world.isRaining()) {
-						frostChance /= 3;
+						frostChance /= 5;
 					}
 					if (inWater) {
-						frostChance /= 20;
+						frostChance /= 10;
 					}
 					frostChance = Math.max(frostChance, 1);
 					if (world.rand.nextInt(frostChance) == 0) {
@@ -1386,15 +1386,16 @@ public class GOTEventHandler implements IFuelHandler {
 				int j = MathHelper.floor_double(entity.boundingBox.minY);
 				int k = MathHelper.floor_double(entity.posZ);
 				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-				if (biome instanceof GOTBiome.Desert && !inWater && world.canBlockSeeTheSky(i, j, k) && world.isDaytime()) {
-					int burnChance = 50;
+				boolean isOpenAir = world.canBlockSeeTheSky(i, j, k);
+				if (biome instanceof GOTBiome.Desert && !inWater && isOpenAir && world.isDaytime()) {
+					int burnChance = 20;
 					int burnProtection = 0;
 					for (int l = 0; l < 4; l++) {
 						ItemStack armour = entity.getEquipmentInSlot(l + 1);
 						if (armour != null && armour.getItem() instanceof ItemArmor) {
 							ItemArmor.ArmorMaterial material = ((ItemArmor) armour.getItem()).getArmorMaterial();
 							if (material == GOTMaterial.ROBES) {
-								burnProtection += 400;
+								burnProtection += 80;
 							}
 						}
 					}
