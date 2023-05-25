@@ -5,6 +5,6 @@ public class GOTBiomeVariantDeadForest extends GOTBiomeVariant {
 		super(i, s, GOTBiomeVariant.VariantScale.SMALL);
 		setTrees(3.0f);
 		setGrass(0.5f);
-		disableVillages();
+		disableSettlements();
 	}
 }

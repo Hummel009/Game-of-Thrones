@@ -5,6 +5,6 @@ public class GOTBiomeVariantForest extends GOTBiomeVariant {
 		super(i, s, GOTBiomeVariant.VariantScale.LARGE);
 		setTrees(8.0f);
 		setGrass(2.0f);
-		disableVillages();
+		disableSettlements();
 	}
 }

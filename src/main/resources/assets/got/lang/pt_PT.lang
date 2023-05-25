@@ -2940,7 +2940,7 @@ got.structure.GiftVillage.name=Vila da Patrulha da Noite
 got.structure.GiftVillageLight.name=Luz da Aldeia da Vigia da Noite
 got.structure.GiftWatchtower.name=Torre de Vigia da Patrulha da Noite
 got.structure.GoldenCamp.name=Acampamento da Companhia Dourada
-got.structure.GoldenWatchtower.name≠Watchtower of Golden Company
+got.structure.GoldenCampWatchtower.name≠Watchtower of Golden Company
 got.structure.HillmanCampfire.name=Tribos do acampamento
 got.structure.HillmanFort.name=Fort de Hill Tribes
 got.structure.HillmanHouse.name=House de Hill Tribes

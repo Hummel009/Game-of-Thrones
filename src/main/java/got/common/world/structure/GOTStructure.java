@@ -23,9 +23,9 @@ import got.common.world.structure.essos.tyrosh.*;
 import got.common.world.structure.essos.volantis.*;
 import got.common.world.structure.essos.yiti.*;
 import got.common.world.structure.other.*;
-import got.common.world.structure.other.GOTStructureRegistry.IVillageProperties;
+import got.common.world.structure.other.GOTStructureRegistry.ISettlementProperties;
 import got.common.world.structure.sothoryos.sothoryos.*;
-import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosVillage.Instance;
+import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosSettlement.Instance;
 import got.common.world.structure.sothoryos.summer.*;
 import got.common.world.structure.westeros.arryn.*;
 import got.common.world.structure.westeros.crownlands.*;
@@ -34,20 +34,19 @@ import got.common.world.structure.westeros.dragonstone.*;
 import got.common.world.structure.westeros.gift.*;
 import got.common.world.structure.westeros.hillmen.GOTStructureHillmanFort;
 import got.common.world.structure.westeros.hillmen.GOTStructureHillmanHouse;
+import got.common.world.structure.westeros.hillmen.GOTStructureHillmanSettlement;
 import got.common.world.structure.westeros.hillmen.GOTStructureHillmanTavern;
-import got.common.world.structure.westeros.hillmen.GOTStructureHillmanVillage;
 import got.common.world.structure.westeros.ironborn.*;
 import got.common.world.structure.westeros.north.*;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanChieftainHouse;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanHouse;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanVillage;
 import got.common.world.structure.westeros.reach.*;
 import got.common.world.structure.westeros.riverlands.*;
 import got.common.world.structure.westeros.stormlands.*;
 import got.common.world.structure.westeros.westerlands.*;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingChieftainHouse;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingHouse;
-import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
+import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennHouse;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennMagnarHouse;
 
@@ -402,130 +401,129 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureSothoryosChieftainPyramid.class, GOTFaction.SOTHORYOS);
 		GOTStructureRegistry.register(id++, GOTStructureSothoryosSmithy.class, GOTFaction.SOTHORYOS);
 
-		GOTStructureRegistry.register(id++, new GOTStructureWildlingVillage(GOTBiome.hauntedForest, 1.0f), "WildlingVillage", GOTFaction.WILDLING, (IVillageProperties<GOTStructureWildlingVillage.Instance>) instance -> instance.villageType = GOTStructureWildlingVillage.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureWildlingVillage(GOTBiome.thenn, 1.0f).setIsThenn(), "ThennVillage", GOTFaction.WILDLING, (IVillageProperties<GOTStructureWildlingVillage.Instance>) instance -> instance.villageType = GOTStructureWildlingVillage.VillageType.THENN);
+		GOTStructureRegistry.register(id++, new GOTStructureWildlingSettlement(GOTBiome.hauntedForest, 1.0f), "WildlingVillage", GOTFaction.WILDLING, (ISettlementProperties<GOTStructureWildlingSettlement.Instance>) instance -> instance.type = GOTStructureWildlingSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureWildlingSettlement(GOTBiome.thenn, 1.0f).setIsThenn(), "ThennVillage", GOTFaction.WILDLING, (ISettlementProperties<GOTStructureWildlingSettlement.Instance>) instance -> instance.type = GOTStructureWildlingSettlement.Type.THENN);
 
-		GOTStructureRegistry.register(id++, new GOTStructureGiftVillage(GOTBiome.giftNew, 1.0f), "GiftVillage", GOTFaction.NIGHT_WATCH, (IVillageProperties<GOTStructureGiftVillage.Instance>) instance -> instance.villageType = GOTStructureGiftVillage.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureNorthHillmanVillage(GOTBiome.skagos, 1.0f), "NorthHillmanVillage", GOTFaction.NORTH, (IVillageProperties<GOTStructureNorthHillmanVillage.Instance>) instance -> {
+		GOTStructureRegistry.register(id++, new GOTStructureGiftSettlement(GOTBiome.giftNew, 1.0f), "GiftVillage", GOTFaction.NIGHT_WATCH, (ISettlementProperties<GOTStructureGiftSettlement.Instance>) instance -> instance.type = GOTStructureGiftSettlement.Type.VILLAGE);
+
+		GOTStructureRegistry.register(id++, new GOTStructureNorthSettlement(GOTBiome.skagos, 1.0f).setIsHillman(), "NorthHillmanVillage", GOTFaction.NORTH, (ISettlementProperties<GOTStructureNorthSettlement.Instance>) instance -> instance.type = GOTStructureNorthSettlement.Type.HILLMAN);
+		GOTStructureRegistry.register(id++, new GOTStructureNorthSettlement(GOTBiome.north, 1.0f), "NorthVillage", GOTFaction.NORTH, (ISettlementProperties<GOTStructureNorthSettlement.Instance>) instance -> instance.type = GOTStructureNorthSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureNorthSettlement(GOTBiome.north, 1.0f), "NorthTown", GOTFaction.NORTH, (ISettlementProperties<GOTStructureNorthSettlement.Instance>) instance -> instance.type = GOTStructureNorthSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureNorthSettlement(GOTBiome.north, 1.0f), "NorthFortVillage", GOTFaction.NORTH, (ISettlementProperties<GOTStructureNorthSettlement.Instance>) instance -> instance.type = GOTStructureNorthSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureIronbornSettlement(GOTBiome.ironborn, 1.0f), "IronbornCityLittle", GOTFaction.IRONBORN, (ISettlementProperties<GOTStructureIronbornSettlement.Instance>) instance -> instance.type = GOTStructureIronbornSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureIronbornSettlement(GOTBiome.ironborn, 1.0f), "IronbornCityBig", GOTFaction.IRONBORN, (ISettlementProperties<GOTStructureIronbornSettlement.Instance>) instance -> instance.type = GOTStructureIronbornSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureIronbornSettlement(GOTBiome.ironborn, 1.0f), "IronbornCityMedium", GOTFaction.IRONBORN, (ISettlementProperties<GOTStructureIronbornSettlement.Instance>) instance -> instance.type = GOTStructureIronbornSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureWesterlandsSettlement(GOTBiome.westerlands, 1.0f), "WesterlandsCityLittle", GOTFaction.WESTERLANDS, (ISettlementProperties<GOTStructureWesterlandsSettlement.Instance>) instance -> instance.type = GOTStructureWesterlandsSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureWesterlandsSettlement(GOTBiome.westerlands, 1.0f), "WesterlandsCityBig", GOTFaction.WESTERLANDS, (ISettlementProperties<GOTStructureWesterlandsSettlement.Instance>) instance -> instance.type = GOTStructureWesterlandsSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureWesterlandsSettlement(GOTBiome.westerlands, 1.0f), "WesterlandsCityMedium", GOTFaction.WESTERLANDS, (ISettlementProperties<GOTStructureWesterlandsSettlement.Instance>) instance -> instance.type = GOTStructureWesterlandsSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureRiverlandsSettlement(GOTBiome.riverlands, 1.0f), "RiverlandsCityLittle", GOTFaction.RIVERLANDS, (ISettlementProperties<GOTStructureRiverlandsSettlement.Instance>) instance -> instance.type = GOTStructureRiverlandsSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureRiverlandsSettlement(GOTBiome.riverlands, 1.0f), "RiverlandsCityBig", GOTFaction.RIVERLANDS, (ISettlementProperties<GOTStructureRiverlandsSettlement.Instance>) instance -> instance.type = GOTStructureRiverlandsSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureRiverlandsSettlement(GOTBiome.riverlands, 1.0f), "RiverlandsCityMedium", GOTFaction.RIVERLANDS, (ISettlementProperties<GOTStructureRiverlandsSettlement.Instance>) instance -> instance.type = GOTStructureRiverlandsSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureHillmanSettlement(GOTBiome.sothoryosJungle, 1.0f), "HillmanVillage", GOTFaction.HILL_TRIBES, (ISettlementProperties<GOTStructureHillmanSettlement.Instance>) instance -> {
 		});
 
-		GOTStructureRegistry.register(id++, new GOTStructureNorthCity(GOTBiome.north, 1.0f), "NorthVillage", GOTFaction.NORTH, (IVillageProperties<GOTStructureNorthCity.Instance>) instance -> instance.villageType = GOTStructureNorthCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureNorthCity(GOTBiome.north, 1.0f), "NorthTown", GOTFaction.NORTH, (IVillageProperties<GOTStructureNorthCity.Instance>) instance -> instance.villageType = GOTStructureNorthCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureNorthCity(GOTBiome.north, 1.0f), "NorthFortVillage", GOTFaction.NORTH, (IVillageProperties<GOTStructureNorthCity.Instance>) instance -> instance.villageType = GOTStructureNorthCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureArrynSettlement(GOTBiome.arryn, 1.0f), "ArrynCityLittle", GOTFaction.ARRYN, (ISettlementProperties<GOTStructureArrynSettlement.Instance>) instance -> instance.type = GOTStructureArrynSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureArrynSettlement(GOTBiome.arryn, 1.0f), "ArrynCityBig", GOTFaction.ARRYN, (ISettlementProperties<GOTStructureArrynSettlement.Instance>) instance -> instance.type = GOTStructureArrynSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureArrynSettlement(GOTBiome.arryn, 1.0f), "ArrynCityMedium", GOTFaction.ARRYN, (ISettlementProperties<GOTStructureArrynSettlement.Instance>) instance -> instance.type = GOTStructureArrynSettlement.Type.FORT);
 
-		GOTStructureRegistry.register(id++, new GOTStructureIronbornCity(GOTBiome.ironborn, 1.0f), "IronbornCityLittle", GOTFaction.IRONBORN, (IVillageProperties<GOTStructureIronbornCity.Instance>) instance -> instance.villageType = GOTStructureIronbornCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureIronbornCity(GOTBiome.ironborn, 1.0f), "IronbornCityBig", GOTFaction.IRONBORN, (IVillageProperties<GOTStructureIronbornCity.Instance>) instance -> instance.villageType = GOTStructureIronbornCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureIronbornCity(GOTBiome.ironborn, 1.0f), "IronbornCityMedium", GOTFaction.IRONBORN, (IVillageProperties<GOTStructureIronbornCity.Instance>) instance -> instance.villageType = GOTStructureIronbornCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureDragonstoneSettlement(GOTBiome.dragonstone, 1.0f), "DragonstoneCityLittle", GOTFaction.DRAGONSTONE, (ISettlementProperties<GOTStructureDragonstoneSettlement.Instance>) instance -> instance.type = GOTStructureDragonstoneSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureDragonstoneSettlement(GOTBiome.dragonstone, 1.0f), "DragonstoneCityBig", GOTFaction.DRAGONSTONE, (ISettlementProperties<GOTStructureDragonstoneSettlement.Instance>) instance -> instance.type = GOTStructureDragonstoneSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureDragonstoneSettlement(GOTBiome.dragonstone, 1.0f), "DragonstoneCityMedium", GOTFaction.DRAGONSTONE, (ISettlementProperties<GOTStructureDragonstoneSettlement.Instance>) instance -> instance.type = GOTStructureDragonstoneSettlement.Type.FORT);
 
-		GOTStructureRegistry.register(id++, new GOTStructureWesterlandsCity(GOTBiome.westerlands, 1.0f), "WesterlandsCityLittle", GOTFaction.WESTERLANDS, (IVillageProperties<GOTStructureWesterlandsCity.Instance>) instance -> instance.villageType = GOTStructureWesterlandsCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureWesterlandsCity(GOTBiome.westerlands, 1.0f), "WesterlandsCityBig", GOTFaction.WESTERLANDS, (IVillageProperties<GOTStructureWesterlandsCity.Instance>) instance -> instance.villageType = GOTStructureWesterlandsCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureWesterlandsCity(GOTBiome.westerlands, 1.0f), "WesterlandsCityMedium", GOTFaction.WESTERLANDS, (IVillageProperties<GOTStructureWesterlandsCity.Instance>) instance -> instance.villageType = GOTStructureWesterlandsCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureCrownlandsSettlement(GOTBiome.crownlands, 1.0f), "CrownlandsCityLittle", GOTFaction.CROWNLANDS, (ISettlementProperties<GOTStructureCrownlandsSettlement.Instance>) instance -> instance.type = GOTStructureCrownlandsSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureCrownlandsSettlement(GOTBiome.crownlands, 1.0f), "CrownlandsCityBig", GOTFaction.CROWNLANDS, (ISettlementProperties<GOTStructureCrownlandsSettlement.Instance>) instance -> instance.type = GOTStructureCrownlandsSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureCrownlandsSettlement(GOTBiome.crownlands, 1.0f), "CrownlandsCityMedium", GOTFaction.CROWNLANDS, (ISettlementProperties<GOTStructureCrownlandsSettlement.Instance>) instance -> instance.type = GOTStructureCrownlandsSettlement.Type.FORT);
 
-		GOTStructureRegistry.register(id++, new GOTStructureRiverlandsCity(GOTBiome.riverlands, 1.0f), "RiverlandsCityLittle", GOTFaction.RIVERLANDS, (IVillageProperties<GOTStructureRiverlandsCity.Instance>) instance -> instance.villageType = GOTStructureRiverlandsCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureRiverlandsCity(GOTBiome.riverlands, 1.0f), "RiverlandsCityBig", GOTFaction.RIVERLANDS, (IVillageProperties<GOTStructureRiverlandsCity.Instance>) instance -> instance.villageType = GOTStructureRiverlandsCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureRiverlandsCity(GOTBiome.riverlands, 1.0f), "RiverlandsCityMedium", GOTFaction.RIVERLANDS, (IVillageProperties<GOTStructureRiverlandsCity.Instance>) instance -> instance.villageType = GOTStructureRiverlandsCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureStormlandsSettlement(GOTBiome.stormlands, 1.0f), "StormlandsCityLittle", GOTFaction.STORMLANDS, (ISettlementProperties<GOTStructureStormlandsSettlement.Instance>) instance -> instance.type = GOTStructureStormlandsSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureStormlandsSettlement(GOTBiome.stormlands, 1.0f), "StormlandsCityBig", GOTFaction.STORMLANDS, (ISettlementProperties<GOTStructureStormlandsSettlement.Instance>) instance -> instance.type = GOTStructureStormlandsSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureStormlandsSettlement(GOTBiome.stormlands, 1.0f), "StormlandsCityMedium", GOTFaction.STORMLANDS, (ISettlementProperties<GOTStructureStormlandsSettlement.Instance>) instance -> instance.type = GOTStructureStormlandsSettlement.Type.FORT);
 
-		GOTStructureRegistry.register(id++, new GOTStructureHillmanVillage(GOTBiome.sothoryosJungle, 1.0f), "HillmanVillage", GOTFaction.HILL_TRIBES, (IVillageProperties<GOTStructureHillmanVillage.Instance>) instance -> {
+		GOTStructureRegistry.register(id++, new GOTStructureReachSettlement(GOTBiome.reach, 1.0f), "ReachCityLittle", GOTFaction.REACH, (ISettlementProperties<GOTStructureReachSettlement.Instance>) instance -> instance.type = GOTStructureReachSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureReachSettlement(GOTBiome.reach, 1.0f), "ReachCityBig", GOTFaction.REACH, (ISettlementProperties<GOTStructureReachSettlement.Instance>) instance -> instance.type = GOTStructureReachSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureReachSettlement(GOTBiome.reach, 1.0f), "ReachCityMedium", GOTFaction.REACH, (ISettlementProperties<GOTStructureReachSettlement.Instance>) instance -> instance.type = GOTStructureReachSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureDorneSettlement(GOTBiome.dorne, 1.0f), "DorneCityLittle", GOTFaction.DORNE, (ISettlementProperties<GOTStructureDorneSettlement.Instance>) instance -> instance.type = GOTStructureDorneSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureDorneSettlement(GOTBiome.dorne, 1.0f), "DorneCityBig", GOTFaction.DORNE, (ISettlementProperties<GOTStructureDorneSettlement.Instance>) instance -> instance.type = GOTStructureDorneSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureDorneSettlement(GOTBiome.dorne, 1.0f), "DorneCityMedium", GOTFaction.DORNE, (ISettlementProperties<GOTStructureDorneSettlement.Instance>) instance -> instance.type = GOTStructureDorneSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureBraavosSettlement(GOTBiome.braavos, 1.0f), "BraavosCityLittle", GOTFaction.BRAAVOS, (ISettlementProperties<GOTStructureBraavosSettlement.Instance>) instance -> instance.type = GOTStructureBraavosSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureBraavosSettlement(GOTBiome.braavos, 1.0f), "BraavosCityMedium", GOTFaction.BRAAVOS, (ISettlementProperties<GOTStructureBraavosSettlement.Instance>) instance -> instance.type = GOTStructureBraavosSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureBraavosSettlement(GOTBiome.braavos, 1.0f), "BraavosCityBig", GOTFaction.BRAAVOS, (ISettlementProperties<GOTStructureBraavosSettlement.Instance>) instance -> instance.type = GOTStructureBraavosSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureVolantisSettlement(GOTBiome.volantis, 1.0f), "VolantisCityLittle", GOTFaction.VOLANTIS, (ISettlementProperties<GOTStructureVolantisSettlement.Instance>) instance -> instance.type = GOTStructureVolantisSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureVolantisSettlement(GOTBiome.volantis, 1.0f), "VolantisCityMedium", GOTFaction.VOLANTIS, (ISettlementProperties<GOTStructureVolantisSettlement.Instance>) instance -> instance.type = GOTStructureVolantisSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureVolantisSettlement(GOTBiome.volantis, 1.0f), "VolantisCityBig", GOTFaction.VOLANTIS, (ISettlementProperties<GOTStructureVolantisSettlement.Instance>) instance -> instance.type = GOTStructureVolantisSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructurePentosSettlement(GOTBiome.pentos, 1.0f), "PentosCityLittle", GOTFaction.PENTOS, (ISettlementProperties<GOTStructurePentosSettlement.Instance>) instance -> instance.type = GOTStructurePentosSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructurePentosSettlement(GOTBiome.pentos, 1.0f), "PentosCityMedium", GOTFaction.PENTOS, (ISettlementProperties<GOTStructurePentosSettlement.Instance>) instance -> instance.type = GOTStructurePentosSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructurePentosSettlement(GOTBiome.pentos, 1.0f), "PentosCityBig", GOTFaction.PENTOS, (ISettlementProperties<GOTStructurePentosSettlement.Instance>) instance -> instance.type = GOTStructurePentosSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureNorvosSettlement(GOTBiome.norvos, 1.0f), "NorvosCityLittle", GOTFaction.NORVOS, (ISettlementProperties<GOTStructureNorvosSettlement.Instance>) instance -> instance.type = GOTStructureNorvosSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureNorvosSettlement(GOTBiome.norvos, 1.0f), "NorvosCityMedium", GOTFaction.NORVOS, (ISettlementProperties<GOTStructureNorvosSettlement.Instance>) instance -> instance.type = GOTStructureNorvosSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureNorvosSettlement(GOTBiome.norvos, 1.0f), "NorvosCityBig", GOTFaction.NORVOS, (ISettlementProperties<GOTStructureNorvosSettlement.Instance>) instance -> instance.type = GOTStructureNorvosSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureLorathSettlement(GOTBiome.lorath, 1.0f), "LorathCityLittle", GOTFaction.LORATH, (ISettlementProperties<GOTStructureLorathSettlement.Instance>) instance -> instance.type = GOTStructureLorathSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureLorathSettlement(GOTBiome.lorath, 1.0f), "LorathCityMedium", GOTFaction.LORATH, (ISettlementProperties<GOTStructureLorathSettlement.Instance>) instance -> instance.type = GOTStructureLorathSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureLorathSettlement(GOTBiome.lorath, 1.0f), "LorathCityBig", GOTFaction.LORATH, (ISettlementProperties<GOTStructureLorathSettlement.Instance>) instance -> instance.type = GOTStructureLorathSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureQohorSettlement(GOTBiome.qohor, 1.0f), "QohorCityLittle", GOTFaction.QOHOR, (ISettlementProperties<GOTStructureQohorSettlement.Instance>) instance -> instance.type = GOTStructureQohorSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureQohorSettlement(GOTBiome.qohor, 1.0f), "QohorCityMedium", GOTFaction.QOHOR, (ISettlementProperties<GOTStructureQohorSettlement.Instance>) instance -> instance.type = GOTStructureQohorSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureQohorSettlement(GOTBiome.qohor, 1.0f), "QohorCityBig", GOTFaction.QOHOR, (ISettlementProperties<GOTStructureQohorSettlement.Instance>) instance -> instance.type = GOTStructureQohorSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureLysSettlement(GOTBiome.lys, 1.0f), "LysCityLittle", GOTFaction.LYS, (ISettlementProperties<GOTStructureLysSettlement.Instance>) instance -> instance.type = GOTStructureLysSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureLysSettlement(GOTBiome.lys, 1.0f), "LysCityMedium", GOTFaction.LYS, (ISettlementProperties<GOTStructureLysSettlement.Instance>) instance -> instance.type = GOTStructureLysSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureLysSettlement(GOTBiome.lys, 1.0f), "LysCityBig", GOTFaction.LYS, (ISettlementProperties<GOTStructureLysSettlement.Instance>) instance -> instance.type = GOTStructureLysSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureMyrSettlement(GOTBiome.myr, 1.0f), "MyrCityLittle", GOTFaction.MYR, (ISettlementProperties<GOTStructureMyrSettlement.Instance>) instance -> instance.type = GOTStructureMyrSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureMyrSettlement(GOTBiome.myr, 1.0f), "MyrCityMedium", GOTFaction.MYR, (ISettlementProperties<GOTStructureMyrSettlement.Instance>) instance -> instance.type = GOTStructureMyrSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureMyrSettlement(GOTBiome.myr, 1.0f), "MyrCityBig", GOTFaction.MYR, (ISettlementProperties<GOTStructureMyrSettlement.Instance>) instance -> instance.type = GOTStructureMyrSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureTyroshSettlement(GOTBiome.tyrosh, 1.0f), "TyroshCityLittle", GOTFaction.TYROSH, (ISettlementProperties<GOTStructureTyroshSettlement.Instance>) instance -> instance.type = GOTStructureTyroshSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureTyroshSettlement(GOTBiome.tyrosh, 1.0f), "TyroshCityMedium", GOTFaction.TYROSH, (ISettlementProperties<GOTStructureTyroshSettlement.Instance>) instance -> instance.type = GOTStructureTyroshSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureTyroshSettlement(GOTBiome.tyrosh, 1.0f), "TyroshCityBig", GOTFaction.TYROSH, (ISettlementProperties<GOTStructureTyroshSettlement.Instance>) instance -> instance.type = GOTStructureTyroshSettlement.Type.FORT);
+
+		GOTStructureRegistry.register(id++, new GOTStructureGoldenCamp(GOTBiome.essos, 1.0f), "GoldenCamp", 0xffd700, (ISettlementProperties<GOTStructureGoldenCamp.Instance>) instance -> {
 		});
 
-		GOTStructureRegistry.register(id++, new GOTStructureArrynCity(GOTBiome.arryn, 1.0f), "ArrynCityLittle", GOTFaction.ARRYN, (IVillageProperties<GOTStructureArrynCity.Instance>) instance -> instance.villageType = GOTStructureArrynCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureArrynCity(GOTBiome.arryn, 1.0f), "ArrynCityBig", GOTFaction.ARRYN, (IVillageProperties<GOTStructureArrynCity.Instance>) instance -> instance.villageType = GOTStructureArrynCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureArrynCity(GOTBiome.arryn, 1.0f), "ArrynCityMedium", GOTFaction.ARRYN, (IVillageProperties<GOTStructureArrynCity.Instance>) instance -> instance.villageType = GOTStructureArrynCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureGhiscarSettlement(GOTBiome.ghiscar, 1.0f), "GhiscarCityLittle", GOTFaction.GHISCAR, (ISettlementProperties<GOTStructureGhiscarSettlement.Instance>) instance -> instance.type = GOTStructureGhiscarSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureGhiscarSettlement(GOTBiome.ghiscar, 1.0f), "GhiscarCityMedium", GOTFaction.GHISCAR, (ISettlementProperties<GOTStructureGhiscarSettlement.Instance>) instance -> instance.type = GOTStructureGhiscarSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureGhiscarSettlement(GOTBiome.ghiscar, 1.0f), "GhiscarCityBig", GOTFaction.GHISCAR, (ISettlementProperties<GOTStructureGhiscarSettlement.Instance>) instance -> instance.type = GOTStructureGhiscarSettlement.Type.FORT);
 
-		GOTStructureRegistry.register(id++, new GOTStructureDragonstoneCity(GOTBiome.dragonstone, 1.0f), "DragonstoneCityLittle", GOTFaction.DRAGONSTONE, (IVillageProperties<GOTStructureDragonstoneCity.Instance>) instance -> instance.villageType = GOTStructureDragonstoneCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureDragonstoneCity(GOTBiome.dragonstone, 1.0f), "DragonstoneCityBig", GOTFaction.DRAGONSTONE, (IVillageProperties<GOTStructureDragonstoneCity.Instance>) instance -> instance.villageType = GOTStructureDragonstoneCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureDragonstoneCity(GOTBiome.dragonstone, 1.0f), "DragonstoneCityMedium", GOTFaction.DRAGONSTONE, (IVillageProperties<GOTStructureDragonstoneCity.Instance>) instance -> instance.villageType = GOTStructureDragonstoneCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureQarthSettlement(GOTBiome.qarth, 1.0f), "QarthCityLittle", GOTFaction.QARTH, (ISettlementProperties<GOTStructureQarthSettlement.Instance>) instance -> instance.type = GOTStructureQarthSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureQarthSettlement(GOTBiome.qarth, 1.0f), "QarthCityMedium", GOTFaction.QARTH, (ISettlementProperties<GOTStructureQarthSettlement.Instance>) instance -> instance.type = GOTStructureQarthSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureQarthSettlement(GOTBiome.qarth, 1.0f), "QarthCityBig", GOTFaction.QARTH, (ISettlementProperties<GOTStructureQarthSettlement.Instance>) instance -> instance.type = GOTStructureQarthSettlement.Type.FORT);
 
-		GOTStructureRegistry.register(id++, new GOTStructureCrownlandsCity(GOTBiome.crownlands, 1.0f), "CrownlandsCityLittle", GOTFaction.CROWNLANDS, (IVillageProperties<GOTStructureCrownlandsCity.Instance>) instance -> instance.villageType = GOTStructureCrownlandsCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureCrownlandsCity(GOTBiome.crownlands, 1.0f), "CrownlandsCityBig", GOTFaction.CROWNLANDS, (IVillageProperties<GOTStructureCrownlandsCity.Instance>) instance -> instance.villageType = GOTStructureCrownlandsCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureCrownlandsCity(GOTBiome.crownlands, 1.0f), "CrownlandsCityMedium", GOTFaction.CROWNLANDS, (IVillageProperties<GOTStructureCrownlandsCity.Instance>) instance -> instance.villageType = GOTStructureCrownlandsCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureLhazarSettlement(GOTBiome.lhazar, 1.0f), "LhazarCityLittle", GOTFaction.LHAZAR, (ISettlementProperties<GOTStructureLhazarSettlement.Instance>) instance -> instance.type = GOTStructureLhazarSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureLhazarSettlement(GOTBiome.lhazar, 1.0f), "LhazarCityMedium", GOTFaction.LHAZAR, (ISettlementProperties<GOTStructureLhazarSettlement.Instance>) instance -> instance.type = GOTStructureLhazarSettlement.Type.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureLhazarSettlement(GOTBiome.lhazar, 1.0f), "LhazarCityBig", GOTFaction.LHAZAR, (ISettlementProperties<GOTStructureLhazarSettlement.Instance>) instance -> instance.type = GOTStructureLhazarSettlement.Type.TOWN);
 
-		GOTStructureRegistry.register(id++, new GOTStructureStormlandsCity(GOTBiome.stormlands, 1.0f), "StormlandsCityLittle", GOTFaction.STORMLANDS, (IVillageProperties<GOTStructureStormlandsCity.Instance>) instance -> instance.villageType = GOTStructureStormlandsCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureStormlandsCity(GOTBiome.stormlands, 1.0f), "StormlandsCityBig", GOTFaction.STORMLANDS, (IVillageProperties<GOTStructureStormlandsCity.Instance>) instance -> instance.villageType = GOTStructureStormlandsCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureStormlandsCity(GOTBiome.stormlands, 1.0f), "StormlandsCityMedium", GOTFaction.STORMLANDS, (IVillageProperties<GOTStructureStormlandsCity.Instance>) instance -> instance.villageType = GOTStructureStormlandsCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureDothrakiSettlement(GOTBiome.dothrakiSea, 1.0f), "DothrakiVillageLittle", GOTFaction.DOTHRAKI, (ISettlementProperties<GOTStructureDothrakiSettlement.Instance>) instance -> instance.type = GOTStructureDothrakiSettlement.Type.SMALL);
+		GOTStructureRegistry.register(id++, new GOTStructureDothrakiSettlement(GOTBiome.dothrakiSea, 1.0f), "DothrakiVillageBig", GOTFaction.DOTHRAKI, (ISettlementProperties<GOTStructureDothrakiSettlement.Instance>) instance -> instance.type = GOTStructureDothrakiSettlement.Type.BIG);
 
-		GOTStructureRegistry.register(id++, new GOTStructureReachCity(GOTBiome.reach, 1.0f), "ReachCityLittle", GOTFaction.REACH, (IVillageProperties<GOTStructureReachCity.Instance>) instance -> instance.villageType = GOTStructureReachCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureReachCity(GOTBiome.reach, 1.0f), "ReachCityBig", GOTFaction.REACH, (IVillageProperties<GOTStructureReachCity.Instance>) instance -> instance.villageType = GOTStructureReachCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureReachCity(GOTBiome.reach, 1.0f), "ReachCityMedium", GOTFaction.REACH, (IVillageProperties<GOTStructureReachCity.Instance>) instance -> instance.villageType = GOTStructureReachCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureIbbenSettlement(GOTBiome.ibben, 1.0f), "IbbenVillage", GOTFaction.IBBEN, (ISettlementProperties<GOTStructureIbbenSettlement.Instance>) instance -> instance.type = GOTStructureIbbenSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureIbbenSettlement(GOTBiome.ibben, 1.0f), "IbbenFortVillage", GOTFaction.IBBEN, (ISettlementProperties<GOTStructureIbbenSettlement.Instance>) instance -> instance.type = GOTStructureIbbenSettlement.Type.FORT);
 
-		GOTStructureRegistry.register(id++, new GOTStructureDorneCity(GOTBiome.dorne, 1.0f), "DorneCityLittle", GOTFaction.DORNE, (IVillageProperties<GOTStructureDorneCity.Instance>) instance -> instance.villageType = GOTStructureDorneCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureDorneCity(GOTBiome.dorne, 1.0f), "DorneCityBig", GOTFaction.DORNE, (IVillageProperties<GOTStructureDorneCity.Instance>) instance -> instance.villageType = GOTStructureDorneCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureDorneCity(GOTBiome.dorne, 1.0f), "DorneCityMedium", GOTFaction.DORNE, (IVillageProperties<GOTStructureDorneCity.Instance>) instance -> instance.villageType = GOTStructureDorneCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureJogosSettlement(GOTBiome.jogosNhai, 1.0f), "JogosVillageLittle", GOTFaction.JOGOS, (ISettlementProperties<GOTStructureJogosSettlement.Instance>) instance -> instance.type = GOTStructureJogosSettlement.Type.SMALL);
+		GOTStructureRegistry.register(id++, new GOTStructureJogosSettlement(GOTBiome.jogosNhai, 1.0f), "JogosVillageBig", GOTFaction.JOGOS, (ISettlementProperties<GOTStructureJogosSettlement.Instance>) instance -> instance.type = GOTStructureJogosSettlement.Type.BIG);
 
-		GOTStructureRegistry.register(id++, new GOTStructureBraavosCity(GOTBiome.braavos, 1.0f), "BraavosCityLittle", GOTFaction.BRAAVOS, (IVillageProperties<GOTStructureBraavosCity.Instance>) instance -> instance.villageType = GOTStructureBraavosCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureBraavosCity(GOTBiome.braavos, 1.0f), "BraavosCityMedium", GOTFaction.BRAAVOS, (IVillageProperties<GOTStructureBraavosCity.Instance>) instance -> instance.villageType = GOTStructureBraavosCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureBraavosCity(GOTBiome.braavos, 1.0f), "BraavosCityBig", GOTFaction.BRAAVOS, (IVillageProperties<GOTStructureBraavosCity.Instance>) instance -> instance.villageType = GOTStructureBraavosCity.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructureVolantisCity(GOTBiome.volantis, 1.0f), "VolantisCityLittle", GOTFaction.VOLANTIS, (IVillageProperties<GOTStructureVolantisCity.Instance>) instance -> instance.villageType = GOTStructureVolantisCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureVolantisCity(GOTBiome.volantis, 1.0f), "VolantisCityMedium", GOTFaction.VOLANTIS, (IVillageProperties<GOTStructureVolantisCity.Instance>) instance -> instance.villageType = GOTStructureVolantisCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureVolantisCity(GOTBiome.volantis, 1.0f), "VolantisCityBig", GOTFaction.VOLANTIS, (IVillageProperties<GOTStructureVolantisCity.Instance>) instance -> instance.villageType = GOTStructureVolantisCity.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructurePentosCity(GOTBiome.pentos, 1.0f), "PentosCityLittle", GOTFaction.PENTOS, (IVillageProperties<GOTStructurePentosCity.Instance>) instance -> instance.villageType = GOTStructurePentosCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructurePentosCity(GOTBiome.pentos, 1.0f), "PentosCityMedium", GOTFaction.PENTOS, (IVillageProperties<GOTStructurePentosCity.Instance>) instance -> instance.villageType = GOTStructurePentosCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructurePentosCity(GOTBiome.pentos, 1.0f), "PentosCityBig", GOTFaction.PENTOS, (IVillageProperties<GOTStructurePentosCity.Instance>) instance -> instance.villageType = GOTStructurePentosCity.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructureNorvosCity(GOTBiome.norvos, 1.0f), "NorvosCityLittle", GOTFaction.NORVOS, (IVillageProperties<GOTStructureNorvosCity.Instance>) instance -> instance.villageType = GOTStructureNorvosCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureNorvosCity(GOTBiome.norvos, 1.0f), "NorvosCityMedium", GOTFaction.NORVOS, (IVillageProperties<GOTStructureNorvosCity.Instance>) instance -> instance.villageType = GOTStructureNorvosCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureNorvosCity(GOTBiome.norvos, 1.0f), "NorvosCityBig", GOTFaction.NORVOS, (IVillageProperties<GOTStructureNorvosCity.Instance>) instance -> instance.villageType = GOTStructureNorvosCity.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructureLorathCity(GOTBiome.lorath, 1.0f), "LorathCityLittle", GOTFaction.LORATH, (IVillageProperties<GOTStructureLorathCity.Instance>) instance -> instance.villageType = GOTStructureLorathCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureLorathCity(GOTBiome.lorath, 1.0f), "LorathCityMedium", GOTFaction.LORATH, (IVillageProperties<GOTStructureLorathCity.Instance>) instance -> instance.villageType = GOTStructureLorathCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureLorathCity(GOTBiome.lorath, 1.0f), "LorathCityBig", GOTFaction.LORATH, (IVillageProperties<GOTStructureLorathCity.Instance>) instance -> instance.villageType = GOTStructureLorathCity.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructureQohorCity(GOTBiome.qohor, 1.0f), "QohorCityLittle", GOTFaction.QOHOR, (IVillageProperties<GOTStructureQohorCity.Instance>) instance -> instance.villageType = GOTStructureQohorCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureQohorCity(GOTBiome.qohor, 1.0f), "QohorCityMedium", GOTFaction.QOHOR, (IVillageProperties<GOTStructureQohorCity.Instance>) instance -> instance.villageType = GOTStructureQohorCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureQohorCity(GOTBiome.qohor, 1.0f), "QohorCityBig", GOTFaction.QOHOR, (IVillageProperties<GOTStructureQohorCity.Instance>) instance -> instance.villageType = GOTStructureQohorCity.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructureLysCity(GOTBiome.lys, 1.0f), "LysCityLittle", GOTFaction.LYS, (IVillageProperties<GOTStructureLysCity.Instance>) instance -> instance.villageType = GOTStructureLysCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureLysCity(GOTBiome.lys, 1.0f), "LysCityMedium", GOTFaction.LYS, (IVillageProperties<GOTStructureLysCity.Instance>) instance -> instance.villageType = GOTStructureLysCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureLysCity(GOTBiome.lys, 1.0f), "LysCityBig", GOTFaction.LYS, (IVillageProperties<GOTStructureLysCity.Instance>) instance -> instance.villageType = GOTStructureLysCity.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructureMyrCity(GOTBiome.myr, 1.0f), "MyrCityLittle", GOTFaction.MYR, (IVillageProperties<GOTStructureMyrCity.Instance>) instance -> instance.villageType = GOTStructureMyrCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureMyrCity(GOTBiome.myr, 1.0f), "MyrCityMedium", GOTFaction.MYR, (IVillageProperties<GOTStructureMyrCity.Instance>) instance -> instance.villageType = GOTStructureMyrCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureMyrCity(GOTBiome.myr, 1.0f), "MyrCityBig", GOTFaction.MYR, (IVillageProperties<GOTStructureMyrCity.Instance>) instance -> instance.villageType = GOTStructureMyrCity.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructureTyroshCity(GOTBiome.tyrosh, 1.0f), "TyroshCityLittle", GOTFaction.TYROSH, (IVillageProperties<GOTStructureTyroshCity.Instance>) instance -> instance.villageType = GOTStructureTyroshCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureTyroshCity(GOTBiome.tyrosh, 1.0f), "TyroshCityMedium", GOTFaction.TYROSH, (IVillageProperties<GOTStructureTyroshCity.Instance>) instance -> instance.villageType = GOTStructureTyroshCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureTyroshCity(GOTBiome.tyrosh, 1.0f), "TyroshCityBig", GOTFaction.TYROSH, (IVillageProperties<GOTStructureTyroshCity.Instance>) instance -> instance.villageType = GOTStructureTyroshCity.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructureGoldenCamp(GOTBiome.essos, 1.0f), "GoldenCamp", 0xffd700, (IVillageProperties<GOTStructureGoldenCamp.Instance>) instance -> {
+		GOTStructureRegistry.register(id++, new GOTStructureMossovySettlement(GOTBiome.mossovy, 1.0f), "MossovyVillage", GOTFaction.MOSSOVY, (ISettlementProperties<GOTStructureMossovySettlement.Instance>) instance -> {
 		});
 
-		GOTStructureRegistry.register(id++, new GOTStructureGhiscarCity(GOTBiome.ghiscar, 1.0f), "GhiscarCityLittle", GOTFaction.GHISCAR, (IVillageProperties<GOTStructureGhiscarCity.Instance>) instance -> instance.villageType = GOTStructureGhiscarCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureGhiscarCity(GOTBiome.ghiscar, 1.0f), "GhiscarCityMedium", GOTFaction.GHISCAR, (IVillageProperties<GOTStructureGhiscarCity.Instance>) instance -> instance.villageType = GOTStructureGhiscarCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureGhiscarCity(GOTBiome.ghiscar, 1.0f), "GhiscarCityBig", GOTFaction.GHISCAR, (IVillageProperties<GOTStructureGhiscarCity.Instance>) instance -> instance.villageType = GOTStructureGhiscarCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureYiTiSettlement(GOTBiome.yiTi, 1.0f), "YiTiVillage", GOTFaction.YI_TI, (ISettlementProperties<GOTStructureYiTiSettlement.Instance>) instance -> instance.type = GOTStructureYiTiSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureYiTiSettlement(GOTBiome.yiTi, 1.0f), "YiTiTown", GOTFaction.YI_TI, (ISettlementProperties<GOTStructureYiTiSettlement.Instance>) instance -> instance.type = GOTStructureYiTiSettlement.Type.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureYiTiSettlement(GOTBiome.yiTi, 1.0f), "YiTiFortVillage", GOTFaction.YI_TI, (ISettlementProperties<GOTStructureYiTiSettlement.Instance>) instance -> instance.type = GOTStructureYiTiSettlement.Type.FORT);
 
-		GOTStructureRegistry.register(id++, new GOTStructureQarthCity(GOTBiome.qarth, 1.0f), "QarthCityLittle", GOTFaction.QARTH, (IVillageProperties<GOTStructureQarthCity.Instance>) instance -> instance.villageType = GOTStructureQarthCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureQarthCity(GOTBiome.qarth, 1.0f), "QarthCityMedium", GOTFaction.QARTH, (IVillageProperties<GOTStructureQarthCity.Instance>) instance -> instance.villageType = GOTStructureQarthCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureQarthCity(GOTBiome.qarth, 1.0f), "QarthCityBig", GOTFaction.QARTH, (IVillageProperties<GOTStructureQarthCity.Instance>) instance -> instance.villageType = GOTStructureQarthCity.VillageType.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureAsshaiSettlement(GOTBiome.shadowTown, 1.0f), "AsshaiCity", GOTFaction.ASSHAI, (ISettlementProperties<GOTStructureAsshaiSettlement.Instance>) instance -> instance.type = GOTStructureAsshaiSettlement.Type.TOWN);
 
-		GOTStructureRegistry.register(id++, new GOTStructureLhazarVillage(GOTBiome.lhazar, 1.0f), "LhazarCityLittle", GOTFaction.LHAZAR, (IVillageProperties<GOTStructureLhazarVillage.Instance>) instance -> instance.villageType = GOTStructureLhazarVillage.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureLhazarVillage(GOTBiome.lhazar, 1.0f), "LhazarCityMedium", GOTFaction.LHAZAR, (IVillageProperties<GOTStructureLhazarVillage.Instance>) instance -> instance.villageType = GOTStructureLhazarVillage.VillageType.FORT);
-		GOTStructureRegistry.register(id++, new GOTStructureLhazarVillage(GOTBiome.lhazar, 1.0f), "LhazarCityBig", GOTFaction.LHAZAR, (IVillageProperties<GOTStructureLhazarVillage.Instance>) instance -> instance.villageType = GOTStructureLhazarVillage.VillageType.TOWN);
+		GOTStructureRegistry.register(id++, new GOTStructureSummerSettlement(GOTBiome.summerIslands, 1.0f), "SummerVillage", GOTFaction.SUMMER_ISLANDS, (ISettlementProperties<GOTStructureSummerSettlement.Instance>) instance -> instance.type = GOTStructureSummerSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureSummerSettlement(GOTBiome.summerIslands, 1.0f), "SummerFortVillage", GOTFaction.SUMMER_ISLANDS, (ISettlementProperties<GOTStructureSummerSettlement.Instance>) instance -> instance.type = GOTStructureSummerSettlement.Type.FORT);
+		GOTStructureRegistry.register(id++, new GOTStructureSummerSettlement(GOTBiome.summerIslands, 1.0f).setIsRuined(), "SummerVillageRuined", GOTFaction.SUMMER_ISLANDS, (ISettlementProperties<GOTStructureSummerSettlement.Instance>) instance -> instance.type = GOTStructureSummerSettlement.Type.VILLAGE);
 
-		GOTStructureRegistry.register(id++, new GOTStructureDothrakiVillage(GOTBiome.dothrakiSea, 1.0f), "DothrakiVillageLittle", GOTFaction.DOTHRAKI, (IVillageProperties<GOTStructureDothrakiVillage.Instance>) instance -> instance.villageType = GOTStructureDothrakiVillage.VillageType.SMALL);
-		GOTStructureRegistry.register(id++, new GOTStructureDothrakiVillage(GOTBiome.dothrakiSea, 1.0f), "DothrakiVillageBig", GOTFaction.DOTHRAKI, (IVillageProperties<GOTStructureDothrakiVillage.Instance>) instance -> instance.villageType = GOTStructureDothrakiVillage.VillageType.BIG);
-
-		GOTStructureRegistry.register(id++, new GOTStructureIbbenVillage(GOTBiome.ibben, 1.0f), "IbbenVillage", GOTFaction.IBBEN, (IVillageProperties<GOTStructureIbbenVillage.Instance>) instance -> instance.villageType = GOTStructureIbbenVillage.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureIbbenVillage(GOTBiome.ibben, 1.0f), "IbbenFortVillage", GOTFaction.IBBEN, (IVillageProperties<GOTStructureIbbenVillage.Instance>) instance -> instance.villageType = GOTStructureIbbenVillage.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructureJogosVillage(GOTBiome.jogosNhai, 1.0f), "JogosVillageLittle", GOTFaction.JOGOS, (IVillageProperties<GOTStructureJogosVillage.Instance>) instance -> instance.villageType = GOTStructureJogosVillage.VillageType.SMALL);
-		GOTStructureRegistry.register(id++, new GOTStructureJogosVillage(GOTBiome.jogosNhai, 1.0f), "JogosVillageBig", GOTFaction.JOGOS, (IVillageProperties<GOTStructureJogosVillage.Instance>) instance -> instance.villageType = GOTStructureJogosVillage.VillageType.BIG);
-
-		GOTStructureRegistry.register(id++, new GOTStructureMossovyVillage(GOTBiome.mossovy, 1.0f), "MossovyVillage", GOTFaction.MOSSOVY, (IVillageProperties<GOTStructureMossovyVillage.Instance>) instance -> {
-		});
-
-		GOTStructureRegistry.register(id++, new GOTStructureYiTiCity(GOTBiome.yiTi, 1.0f), "YiTiVillage", GOTFaction.YI_TI, (IVillageProperties<GOTStructureYiTiCity.Instance>) instance -> instance.villageType = GOTStructureYiTiCity.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureYiTiCity(GOTBiome.yiTi, 1.0f), "YiTiTown", GOTFaction.YI_TI, (IVillageProperties<GOTStructureYiTiCity.Instance>) instance -> instance.villageType = GOTStructureYiTiCity.VillageType.TOWN);
-		GOTStructureRegistry.register(id++, new GOTStructureYiTiCity(GOTBiome.yiTi, 1.0f), "YiTiFortVillage", GOTFaction.YI_TI, (IVillageProperties<GOTStructureYiTiCity.Instance>) instance -> instance.villageType = GOTStructureYiTiCity.VillageType.FORT);
-
-		GOTStructureRegistry.register(id++, new GOTStructureAsshaiCity(GOTBiome.shadowTown, 1.0f), "AsshaiCity", GOTFaction.ASSHAI, (IVillageProperties<GOTStructureAsshaiCity.Instance>) instance -> instance.villageType = GOTStructureAsshaiCity.VillageType.TOWN);
-
-		GOTStructureRegistry.register(id++, new GOTStructureSummerVillage(GOTBiome.summerIslands, 1.0f), "SummerVillage", GOTFaction.SUMMER_ISLANDS, (IVillageProperties<GOTStructureSummerVillage.Instance>) instance -> instance.villageType = GOTStructureSummerVillage.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureSummerVillage(GOTBiome.summerIslands, 1.0f), "SummerFortVillage", GOTFaction.SUMMER_ISLANDS, (IVillageProperties<GOTStructureSummerVillage.Instance>) instance -> instance.villageType = GOTStructureSummerVillage.VillageType.FORT);
-		GOTStructureRegistry.register(id++, new GOTStructureSummerVillage(GOTBiome.summerIslands, 1.0f).setIsRuined(), "SummerVillageRuined", GOTFaction.SUMMER_ISLANDS, (IVillageProperties<GOTStructureSummerVillage.Instance>) instance -> instance.villageType = GOTStructureSummerVillage.VillageType.VILLAGE);
-
-		GOTStructureRegistry.register(id++, new GOTStructureSothoryosVillage(GOTBiome.sothoryosJungle, 1.0f), "SothoryosVillage", GOTFaction.SOTHORYOS, (IVillageProperties<Instance>) instance -> {
+		GOTStructureRegistry.register(id++, new GOTStructureSothoryosSettlement(GOTBiome.sothoryosJungle, 1.0f), "SothoryosVillage", GOTFaction.SOTHORYOS, (ISettlementProperties<Instance>) instance -> {
 		});
 
 		GOTStructureSothoryosPyramidMapgen.register();

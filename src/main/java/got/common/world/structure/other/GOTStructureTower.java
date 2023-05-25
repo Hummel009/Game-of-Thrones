@@ -1,35 +1,27 @@
 package got.common.world.structure.other;
 
 import got.common.database.GOTChestContents;
-import got.common.database.GOTFoods;
 import got.common.database.GOTRegistry;
-import got.common.entity.essos.asshai.GOTEntityAsshaiCaptain;
 import got.common.entity.westeros.GOTEntityMaester;
-import got.common.item.other.GOTItemBanner;
-import got.common.tileentity.GOTTileEntityAlloyForge;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
-import got.common.world.structure.essos.asshai.GOTStructureAsshaiBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class GOTStructureTower extends GOTVillageGen {
+public class GOTStructureTower extends GOTStructureBaseSettlement {
 	public GOTStructureTower(GOTBiome biome, float f) {
 		super(biome);
 		spawnChance = f;
-		villageChunkRadius = 2;
-		fixedVillageChunkRadius = 2;
+		settlementChunkRadius = 2;
+		fixedSettlementChunkRadius = 2;
 	}
 
 	@Override
-	public GOTVillageGen.AbstractInstance<GOTStructureTower> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureTower> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
@@ -371,13 +363,13 @@ public class GOTStructureTower extends GOTVillageGen {
 		}
 	}
 
-	public static class Instance extends GOTVillageGen.AbstractInstance<GOTStructureTower> {
-		public Instance(GOTStructureTower village, World world, int i, int k, Random random, LocationInfo loc) {
-			super(village, world, i, k, random, loc);
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureTower> {
+		public Instance(GOTStructureTower settlement, World world, int i, int k, Random random, LocationInfo loc) {
+			super(settlement, world, i, k, random, loc);
 		}
 
 		@Override
-		public void addVillageStructures(Random random) {
+		public void addSettlementStructures(Random random) {
 			addStructure(new GOTStructureTowerBase(false), 0, 10, 0, true);
 		}
 
@@ -387,12 +379,12 @@ public class GOTStructureTower extends GOTVillageGen {
 		}
 
 		@Override
-		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
+		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			return false;
 		}
 
 		@Override
-		public void setupVillageProperties(Random random) {
+		public void setupSettlementProperties(Random random) {
 		}
 	}
 

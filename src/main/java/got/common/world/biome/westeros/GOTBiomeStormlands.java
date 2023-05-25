@@ -12,7 +12,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsCity;
+import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsSettlement;
 import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsWatchfort;
 
 import java.util.ArrayList;
@@ -34,8 +34,8 @@ public class GOTBiomeStormlands extends GOTBiomeWesteros {
 		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
 		decorator.generateAgriculture = true;
 		decorator.cornPerChunk = 4;
-		decorator.addVillage(new GOTStructureStormlandsCity(this, 1.0f));
-		decorator.addRandomStructure(new GOTStructureStormlandsWatchfort(false), 800);
+		decorator.addSettlement(new GOTStructureStormlandsSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureStormlandsWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

@@ -2940,7 +2940,7 @@ got.structure.GiftVillage.name=Pueblo de la Guardia de la Noche
 got.structure.GiftVillageLight.name=Luz de la aldea de la guardia de la noche
 got.structure.GiftWatchtower.name=Atalaya de la Guardia de la Noche
 got.structure.GoldenCamp.name=Campamento de la Compañía Dorada
-got.structure.GoldenWatchtower.name≠Watchtower of Golden Company
+got.structure.GoldenCampWatchtower.name≠Watchtower of Golden Company
 got.structure.HillmanCampfire.name≠Camp of Hill Tribes
 got.structure.HillmanFort.name≠Fort of Hill Tribes
 got.structure.HillmanHouse.name≠House of Hill Tribes

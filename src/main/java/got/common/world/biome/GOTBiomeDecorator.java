@@ -10,7 +10,7 @@ import got.common.world.map.GOTFixedStructures;
 import got.common.world.map.GOTFixer;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.structure.other.GOTStructureBase;
-import got.common.world.structure.other.GOTVillageGen;
+import got.common.world.structure.other.GOTStructureBaseSettlement;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.WeightedRandom;
@@ -67,9 +67,9 @@ public class GOTBiomeDecorator {
 	public boolean whiteSand;
 	public List<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
 	public Random structureRand = new Random();
-	public List<RandomStructure> randomStructures = new ArrayList<>();
-	public List<GOTVillageGen> villages = new ArrayList<>();
-	public List<GOTVillageGen> fixedVillages = new ArrayList<>();
+	public List<Structure> structures = new ArrayList<>();
+	public List<GOTStructureBaseSettlement> settlements = new ArrayList<>();
+	public List<GOTStructureBaseSettlement> fixedSettlements = new ArrayList<>();
 
 	public GOTBiomeDecorator(GOTBiome gotbiome) {
 		biome = gotbiome;
@@ -105,9 +105,9 @@ public class GOTBiomeDecorator {
 		addGem(new WorldGenMinable(GOTRegistry.oreGem, 7, 4, Blocks.stone), 0.75f, 0, 24);
 	}
 
-	public void addFixedVillage(GOTVillageGen village) {
-		villages.add(village);
-		fixedVillages.add(village);
+	public void addFixedSettlement(GOTStructureBaseSettlement settlement) {
+		settlements.add(settlement);
+		fixedSettlements.add(settlement);
 	}
 
 	public void addGem(WorldGenMinable gen, float f, int min, int max) {
@@ -118,8 +118,8 @@ public class GOTBiomeDecorator {
 		biomeOres.add(new OreGenerant(gen, f, min, max));
 	}
 
-	public void addRandomStructure(WorldGenerator structure, int chunkChance) {
-		randomStructures.add(new RandomStructure(structure, chunkChance));
+	public void addStructure(WorldGenerator structure, int chunkChance) {
+		structures.add(new Structure(structure, chunkChance));
 	}
 
 	public void addSoil(WorldGenMinable gen, float f, int min, int max) {
@@ -130,30 +130,30 @@ public class GOTBiomeDecorator {
 		treeTypes.add(new GOTTreeType.WeightedTreeType(type, weight));
 	}
 
-	public void addVillage(GOTVillageGen village) {
-		villages.add(village);
+	public void addSettlement(GOTStructureBaseSettlement settlement) {
+		settlements.add(settlement);
 	}
 
-	public boolean anyFixedVillagesAt(World world, int i, int k) {
-		for (GOTVillageGen village : fixedVillages) {
-			if (village.anyFixedVillagesAt(world, i, k)) {
+	public boolean anyFixedSettlementsAt(World world, int i, int k) {
+		for (GOTStructureBaseSettlement settlement : fixedSettlements) {
+			if (settlement.anyFixedSettlementsAt(world, i, k)) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public void clearRandomStructures() {
-		randomStructures.clear();
+	public void clearStructures() {
+		structures.clear();
 	}
 
 	public void clearTrees() {
 		treeTypes.clear();
 	}
 
-	public void clearVillages() {
-		villages.clear();
-		villages.addAll(fixedVillages);
+	public void clearSettlements() {
+		settlements.clear();
+		settlements.addAll(fixedSettlements);
 	}
 
 	public void decorate() {
@@ -218,8 +218,8 @@ public class GOTBiomeDecorator {
 			structureRand.setSeed(seed);
 			boolean roadNear = GOTBeziers.isRoadNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
 			boolean wallNear = GOTBeziers.isWallNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
-			if (!roadNear && !wallNear && !anyFixedVillagesAt(worldObj, chunkX, chunkZ)) {
-				for (RandomStructure randomstructure : randomStructures) {
+			if (!roadNear && !wallNear && !anyFixedSettlementsAt(worldObj, chunkX, chunkZ)) {
+				for (Structure randomstructure : structures) {
 					if (structureRand.nextInt(randomstructure.chunkChance) == 0) {
 						int i6 = chunkX + rand.nextInt(16) + 8;
 						k2 = chunkZ + rand.nextInt(16) + 8;
@@ -228,8 +228,8 @@ public class GOTBiomeDecorator {
 					}
 				}
 			}
-			for (GOTVillageGen village : villages) {
-				village.generateInChunk(worldObj, chunkX, chunkZ);
+			for (GOTStructureBaseSettlement settlement : settlements) {
+				settlement.generateInChunk(worldObj, chunkX, chunkZ);
 			}
 		}
 		int trees = getVariantTreesPerChunk(biomeVariant);
@@ -485,11 +485,11 @@ public class GOTBiomeDecorator {
 		}
 	}
 
-	public static class RandomStructure {
+	public static class Structure {
 		public WorldGenerator structureGen;
 		public int chunkChance;
 
-		public RandomStructure(WorldGenerator w, int i) {
+		public Structure(WorldGenerator w, int i) {
 			structureGen = w;
 			chunkChance = i;
 		}

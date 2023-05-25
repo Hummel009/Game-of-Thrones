@@ -9,7 +9,7 @@ public class GOTBiomeNorthBarrows extends GOTBiomeNorth {
 	public GOTBiomeNorthBarrows(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
-		decorator.addRandomStructure(new GOTStructureBarrow(false), 20);
+		decorator.addStructure(new GOTStructureBarrow(false), 20);
 	}
 
 	@Override

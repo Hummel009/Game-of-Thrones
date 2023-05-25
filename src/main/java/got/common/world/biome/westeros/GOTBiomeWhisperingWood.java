@@ -38,7 +38,7 @@ public class GOTBiomeWhisperingWood extends GOTBiomeRiverlands {
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 5);
 		decorator.addTree(GOTTreeType.APPLE, 5);
 		decorator.addTree(GOTTreeType.PEAR, 5);
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 	}

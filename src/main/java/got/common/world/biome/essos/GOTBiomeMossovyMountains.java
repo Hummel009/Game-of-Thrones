@@ -29,7 +29,7 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 		decorator.grassPerChunk = 4;
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
 		npcSpawnList.clear();

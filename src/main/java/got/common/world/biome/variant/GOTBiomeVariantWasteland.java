@@ -16,7 +16,7 @@ public class GOTBiomeVariantWasteland extends GOTBiomeVariant {
 		setGrass(0.3f);
 		setFlowers(0.3f);
 		stoneBlock = block;
-		disableVillages();
+		disableSettlements();
 	}
 
 	@Override

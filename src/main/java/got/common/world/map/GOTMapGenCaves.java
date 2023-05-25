@@ -41,7 +41,7 @@ public class GOTMapGenCaves extends MapGenBase {
 		int j1;
 		Block block = blockArray[index];
 		boolean isTop = false;
-		boolean belowVillageOrRoad = false;
+		boolean belowSettlementOrRoad = false;
 		int topCheckDepth = 1;
 		if (j >= 59 - topCheckDepth) {
 			isTop = true;
@@ -54,22 +54,22 @@ public class GOTMapGenCaves extends MapGenBase {
 				break;
 			}
 		}
-		if ((chunkFlags.isVillage || chunkFlags.bezierFlags[xzIndex]) && j >= 59 - (roadDepth = 4)) {
-			belowVillageOrRoad = true;
+		if ((chunkFlags.isSettlement || chunkFlags.bezierFlags[xzIndex]) && j >= 59 - (roadDepth = 4)) {
+			belowSettlementOrRoad = true;
 			int checkAboveMax = 5;
 			for (j1 = roadDepth + 1; j1 <= roadDepth + checkAboveMax && j + j1 <= 255; ++j1) {
 				if (!blockArray[index + j1].isOpaqueCube()) {
 					continue;
 				}
-				belowVillageOrRoad = false;
+				belowSettlementOrRoad = false;
 				break;
 			}
 		}
 		dig = isTerrainBlock(block, biome) || block.getMaterial().isLiquid();
-		if (belowVillageOrRoad) {
+		if (belowSettlementOrRoad) {
 			dig = false;
 		}
-		if (isTop && (!cutSurface || chunkFlags.isVillage)) {
+		if (isTop && (!cutSurface || chunkFlags.isSettlement)) {
 			dig = false;
 		}
 		if (dig) {

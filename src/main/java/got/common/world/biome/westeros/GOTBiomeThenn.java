@@ -10,7 +10,7 @@ import got.common.world.feature.GOTWorldGenStreams;
 import got.common.world.feature.GOTWorldGenVolcanoCrater;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
+import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -23,7 +23,7 @@ public class GOTBiomeThenn extends GOTBiomeHauntedForest {
 		decorator.treesPerChunk = 2;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.FOTINIA, 20);
-		decorator.addVillage(new GOTStructureWildlingVillage(this, 1.0f).setIsThenn());
+		decorator.addSettlement(new GOTStructureWildlingSettlement(this, 1.0f).setIsThenn());
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_THENN, 10).setSpawnChance(GOTBiome.SPAWN));

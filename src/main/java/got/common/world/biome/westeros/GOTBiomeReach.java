@@ -12,7 +12,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.westeros.reach.GOTStructureReachCity;
+import got.common.world.structure.westeros.reach.GOTStructureReachSettlement;
 import got.common.world.structure.westeros.reach.GOTStructureReachWatchfort;
 
 import java.util.ArrayList;
@@ -34,8 +34,8 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		decorator.addTree(GOTTreeType.OLIVE_LARGE, 10);
 		decorator.generateAgriculture = true;
 		decorator.cornPerChunk = 4;
-		decorator.addVillage(new GOTStructureReachCity(this, 1.0f));
-		decorator.addRandomStructure(new GOTStructureReachWatchfort(false), 800);
+		decorator.addSettlement(new GOTStructureReachSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureReachWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

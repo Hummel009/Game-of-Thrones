@@ -35,8 +35,8 @@ public class GOTBiomeSothoryosDesert extends GOTBiomeSothoryosBushland implement
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
-		decorator.clearVillages();
-		decorator.clearRandomStructures();
+		decorator.clearSettlements();
+		decorator.clearStructures();
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));

@@ -35,7 +35,7 @@ public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBio
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
 		spawnableCreatureList.clear();
 		spawnableGOTAmbientList.clear();
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
 
 	@Override

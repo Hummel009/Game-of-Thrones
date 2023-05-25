@@ -26,7 +26,7 @@ public class GOTBiomeCrackclaw extends GOTBiomeCrownlands {
 		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
 		decorator.addTree(GOTTreeType.FIR, 500);
 		decorator.addTree(GOTTreeType.PINE, 500);
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 	}

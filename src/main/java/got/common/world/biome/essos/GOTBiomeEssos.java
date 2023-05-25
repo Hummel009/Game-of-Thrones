@@ -70,9 +70,9 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.addTree(GOTTreeType.DRAGONBLOOD_LARGE, 1);
 		decorator.addTree(GOTTreeType.KANUKA, 50);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
 	}
 
 	public boolean disableNoise() {

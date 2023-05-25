@@ -35,11 +35,11 @@ public class GOTBiomeValyria extends GOTBiome {
 		decorator.addTree(GOTTreeType.OAK_GIANT, 20);
 		decorator.addTree(GOTTreeType.OAK_PARTY, 200);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 2000);
-		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 		decorator.treesPerChunk = 7;
 		decorator.grassPerChunk = 6;
 		decorator.doubleGrassPerChunk = 1;

@@ -10,7 +10,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.westeros.arryn.GOTStructureArrynCity;
+import got.common.world.structure.westeros.arryn.GOTStructureArrynSettlement;
 import got.common.world.structure.westeros.arryn.GOTStructureArrynWatchfort;
 
 import java.util.ArrayList;
@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class GOTBiomeArryn extends GOTBiomeWesteros {
 	public GOTBiomeArryn(int i, boolean major) {
 		super(i, major);
-		decorator.addVillage(new GOTStructureArrynCity(this, 1.0f));
-		decorator.addRandomStructure(new GOTStructureArrynWatchfort(false), 800);
+		decorator.addSettlement(new GOTStructureArrynSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureArrynWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.HILL_TRIBES, GOTEventSpawner.EventChance.COMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

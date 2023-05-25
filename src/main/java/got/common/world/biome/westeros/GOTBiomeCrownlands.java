@@ -10,7 +10,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsCity;
+import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsSettlement;
 import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsWatchfort;
 
 import java.util.ArrayList;
@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class GOTBiomeCrownlands extends GOTBiomeWesteros {
 	public GOTBiomeCrownlands(int i, boolean major) {
 		super(i, major);
-		decorator.addVillage(new GOTStructureCrownlandsCity(this, 1.0f));
-		decorator.addRandomStructure(new GOTStructureCrownlandsWatchfort(false), 800);
+		decorator.addSettlement(new GOTStructureCrownlandsSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureCrownlandsWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.STORMLANDS, GOTEventSpawner.EventChance.UNCOMMON);

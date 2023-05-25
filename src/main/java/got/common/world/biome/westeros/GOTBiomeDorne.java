@@ -14,7 +14,7 @@ import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.other.GOTStructureStoneRuin;
-import got.common.world.structure.westeros.dorne.GOTStructureDorneCity;
+import got.common.world.structure.westeros.dorne.GOTStructureDorneSettlement;
 import got.common.world.structure.westeros.dorne.GOTStructureDorneWatchfort;
 
 import java.util.ArrayList;
@@ -32,8 +32,8 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_ORANGE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_PLUM, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.2f);
-		decorator.addVillage(new GOTStructureDorneCity(this, 1.0f));
-		decorator.addRandomStructure(new GOTStructureDorneWatchfort(false), 800);
+		decorator.addSettlement(new GOTStructureDorneSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureDorneWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
@@ -48,7 +48,7 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.RED_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(2).add(c3);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
 
 	@Override

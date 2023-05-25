@@ -10,7 +10,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.essos.volantis.GOTStructureVolantisCity;
+import got.common.world.structure.essos.volantis.GOTStructureVolantisSettlement;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_DATE, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
-		decorator.addVillage(new GOTStructureVolantisCity(this, 1.0f));
+		decorator.addSettlement(new GOTStructureVolantisSettlement(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.BRAAVOS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.TYROSH, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.LYS, GOTEventSpawner.EventChance.UNCOMMON);
@@ -53,8 +53,8 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORVOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 	}
 
 	@Override

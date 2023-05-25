@@ -14,7 +14,7 @@ public class GOTBiomeYiTiWasteland extends GOTBiomeYiTi {
 	public GOTBiomeYiTiWasteland(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

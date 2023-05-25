@@ -4,14 +4,14 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.map.GOTWaypoint.Region;
-import got.common.world.structure.essos.lhazar.GOTStructureLhazarVillage;
+import got.common.world.structure.essos.lhazar.GOTStructureLhazarSettlement;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
 public class GOTBiomeLhazar extends GOTBiomeEssosPlains {
 	public GOTBiomeLhazar(int i, boolean major) {
 		super(i, major);
-		decorator.addVillage(new GOTStructureLhazarVillage(this, 1.0f));
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		decorator.addSettlement(new GOTStructureLhazarSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 	}
 
 	@Override

@@ -25,9 +25,9 @@ public class GOTItemStructureSpawner extends Item {
 	@SideOnly(Side.CLIENT)
 	public IIcon iconOverlay;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconVillageBase;
+	public IIcon iconSettlementBase;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconVillageOverlay;
+	public IIcon iconSettlementOverlay;
 
 	public GOTItemStructureSpawner() {
 		setHasSubtypes(true);
@@ -52,11 +52,11 @@ public class GOTItemStructureSpawner extends Item {
 	public IIcon getIconFromDamageForRenderPass(int i, int pass) {
 		GOTStructureRegistry.StructureColorInfo info = GOTStructureRegistry.structureItemSpawners.get(i);
 		if (info != null) {
-			if (info.isVillage) {
+			if (info.isSettlement) {
 				if (pass == 0) {
-					return iconVillageBase;
+					return iconSettlementBase;
 				}
-				return iconVillageOverlay;
+				return iconSettlementOverlay;
 			}
 			if (pass == 0) {
 				return iconBase;
@@ -115,8 +115,8 @@ public class GOTItemStructureSpawner extends Item {
 	public void registerIcons(IIconRegister iconregister) {
 		iconBase = iconregister.registerIcon(getIconString() + "_base");
 		iconOverlay = iconregister.registerIcon(getIconString() + "_overlay");
-		iconVillageBase = iconregister.registerIcon(getIconString() + "_village_base");
-		iconVillageOverlay = iconregister.registerIcon(getIconString() + "_village_overlay");
+		iconSettlementBase = iconregister.registerIcon(getIconString() + "_village_base");
+		iconSettlementOverlay = iconregister.registerIcon(getIconString() + "_village_overlay");
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -1,7 +1,6 @@
 package got.common.world.structure.westeros.arryn;
 
 import com.google.common.math.IntMath;
-import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.arryn.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;

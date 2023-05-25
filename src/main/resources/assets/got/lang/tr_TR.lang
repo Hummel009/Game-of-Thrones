@@ -2940,7 +2940,7 @@ got.structure.GiftVillage.name=Gece Nöbeti Köyü
 got.structure.GiftVillageLight.name=Gece Nöbeti Köyü Işığı
 got.structure.GiftWatchtower.name=Gece Nöbeti Gözetleme Kulesi
 got.structure.GoldenCamp.name=Altın Şirket Kampı
-got.structure.GoldenWatchtower.name≠Watchtower of Golden Company
+got.structure.GoldenCampWatchtower.name≠Watchtower of Golden Company
 got.structure.HillmanCampfire.name=Tepe Kabileleri Kampı
 got.structure.HillmanFort.name=Tepe Kabileleri Kalesi
 got.structure.HillmanHouse.name=Tepe Kabileleri Evi

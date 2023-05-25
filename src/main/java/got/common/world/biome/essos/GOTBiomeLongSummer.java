@@ -25,8 +25,8 @@ public class GOTBiomeLongSummer extends GOTBiomeEssos {
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.CHARRED, 1000);
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
-		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
 	}
 
 	@Override

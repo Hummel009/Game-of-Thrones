@@ -1045,6 +1045,20 @@ public class GOTTradeEntries {
 		tradeEntries = arr;
 	}
 
+	public static GOTTradeSellResult getItemSellResult(ItemStack itemstack, GOTEntityNPC trader) {
+		GOTTradeEntry[] sellTrades = trader.traderNPCInfo.getSellTrades();
+		if (sellTrades != null) {
+			for (int index = 0; index < sellTrades.length; ++index) {
+				GOTTradeEntry trade = sellTrades[index];
+				if (trade != null && trade.matches(itemstack)) {
+					return new GOTTradeSellResult(index, trade, itemstack);
+				}
+			}
+		}
+
+		return null;
+	}
+
 	public GOTTradeEntry[] getRandomTrades(Random random) {
 		int numTrades = 3 + random.nextInt(3) + random.nextInt(3) + random.nextInt(3);
 		if (numTrades > tradeEntries.length) {
@@ -1100,20 +1114,6 @@ public class GOTTradeEntries {
 		}
 		drinkVessels = v;
 		return this;
-	}
-
-	public static GOTTradeSellResult getItemSellResult(ItemStack itemstack, GOTEntityNPC trader) {
-		GOTTradeEntry[] sellTrades = trader.traderNPCInfo.getSellTrades();
-		if (sellTrades != null) {
-			for (int index = 0; index < sellTrades.length; ++index) {
-				GOTTradeEntry trade = sellTrades[index];
-				if (trade != null && trade.matches(itemstack)) {
-					return new GOTTradeSellResult(index, trade, itemstack);
-				}
-			}
-		}
-
-		return null;
 	}
 
 	public enum TradeType {

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class GOTBiomeMercenary extends GOTBiomeEssos {
 	public GOTBiomeMercenary(int i, boolean major) {
 		super(i, major);
-		decorator.addVillage(new GOTStructureGoldenCamp(this, 1.0f));
+		decorator.addSettlement(new GOTStructureGoldenCamp(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.MYR, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.TYROSH, GOTEventSpawner.EventChance.UNCOMMON);
@@ -41,8 +41,8 @@ public class GOTBiomeMercenary extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 	}
 
 	@Override

@@ -10,6 +10,7 @@ CHANGELOG
 * Reduced chance of baobab plains in dothraki sea
 * Increased village spawn
 
+* Fixed bug with wrong roads in a few settlements
 * Fixed bug with shifted Sothoryos pyramid
 * Fixed bug with dirt path in Asshai
 * Fixed bug with huge trees with broken generation

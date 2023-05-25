@@ -8,16 +8,16 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class GOTStructureRuinsBig extends GOTVillageGen {
+public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 	public GOTStructureRuinsBig(GOTBiome biome, float f) {
 		super(biome);
 		spawnChance = f;
-		villageChunkRadius = 3;
-		fixedVillageChunkRadius = 3;
+		settlementChunkRadius = 3;
+		fixedSettlementChunkRadius = 3;
 	}
 
 	@Override
-	public GOTVillageGen.AbstractInstance<GOTStructureRuinsBig> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureRuinsBig> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
@@ -173,13 +173,13 @@ public class GOTStructureRuinsBig extends GOTVillageGen {
 		}
 	}
 
-	public static class Instance extends GOTVillageGen.AbstractInstance<GOTStructureRuinsBig> {
-		public Instance(GOTStructureRuinsBig village, World world, int i, int k, Random random, LocationInfo loc) {
-			super(village, world, i, k, random, loc);
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureRuinsBig> {
+		public Instance(GOTStructureRuinsBig settlement, World world, int i, int k, Random random, LocationInfo loc) {
+			super(settlement, world, i, k, random, loc);
 		}
 
 		@Override
-		public void addVillageStructures(Random random) {
+		public void addSettlementStructures(Random random) {
 			addStructure(new GOTStructureHarrenhal(), 0, 0, 0, true);
 			addStructure(new GOTStructureHarrenhal(), -15, -15, 0, true);
 			addStructure(new GOTStructureHarrenhal(), -15, 15, 0, true);
@@ -193,12 +193,12 @@ public class GOTStructureRuinsBig extends GOTVillageGen {
 		}
 
 		@Override
-		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
+		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			return false;
 		}
 
 		@Override
-		public void setupVillageProperties(Random random) {
+		public void setupSettlementProperties(Random random) {
 		}
 	}
 

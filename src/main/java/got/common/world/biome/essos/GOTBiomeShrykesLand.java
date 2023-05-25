@@ -39,12 +39,12 @@ public class GOTBiomeShrykesLand extends GOTBiomeEssosPlains {
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SHRYKE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		decorator.addRandomStructure(new GOTStructureBarrow(false), 150);
-		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addStructure(new GOTStructureBarrow(false), 150);
+		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 	}
 
 	@Override

@@ -8,7 +8,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.ironborn.GOTStructureIronbornCity;
+import got.common.world.structure.westeros.ironborn.GOTStructureIronbornSettlement;
 import got.common.world.structure.westeros.ironborn.GOTStructureIronbornWatchfort;
 
 import java.util.ArrayList;
@@ -16,8 +16,8 @@ import java.util.ArrayList;
 public class GOTBiomeIronborn extends GOTBiomeWesteros {
 	public GOTBiomeIronborn(int i, boolean major) {
 		super(i, major);
-		decorator.addVillage(new GOTStructureIronbornCity(this, 1.0f));
-		decorator.addRandomStructure(new GOTStructureIronbornWatchfort(false), 800);
+		decorator.addSettlement(new GOTStructureIronbornSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureIronbornWatchfort(false), 800);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));

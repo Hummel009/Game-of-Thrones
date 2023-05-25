@@ -25,7 +25,7 @@ import got.common.faction.GOTFactionRank;
 import got.common.item.other.GOTItemBanner.BannerType;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.GOTBiomeDecorator.OreGenerant;
-import got.common.world.biome.GOTBiomeDecorator.RandomStructure;
+import got.common.world.biome.GOTBiomeDecorator.Structure;
 import got.common.world.biome.GOTClimateType;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.variant.GOTBiomeVariantList.VariantBucket;
@@ -336,7 +336,7 @@ public class DatabaseGenerator {
 
 	public static void searchForStructures(Iterable<GOTBiome> biomes, Collection<Class<? extends WorldGenerator>> structures) {
 		for (GOTBiome biome : biomes) {
-			for (RandomStructure structure : biome.decorator.randomStructures) {
+			for (Structure structure : biome.decorator.structures) {
 				structures.add(structure.structureGen.getClass());
 			}
 		}
@@ -561,7 +561,7 @@ public class DatabaseGenerator {
 					sb.append("\n| ").append(getStructureName(strClass)).append(" = ").append(Lang.STRUCTURE_BIOMES);
 					next:
 					for (GOTBiome biome : BIOMES) {
-						for (RandomStructure structure : biome.decorator.randomStructures) {
+						for (Structure structure : biome.decorator.structures) {
 							if (structure.structureGen.getClass() == strClass) {
 								sb.append("\n* ").append(getBiomeLink(biome)).append(";");
 								continue next;
@@ -944,11 +944,11 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
-					if (biome.decorator.randomStructures.isEmpty()) {
+					if (biome.decorator.structures.isEmpty()) {
 						sb.append(Lang.BIOME_NO_STRUCTURES);
 					} else {
 						sb.append(Lang.BIOME_HAS_STRUCTURES);
-						for (RandomStructure structure : biome.decorator.randomStructures) {
+						for (Structure structure : biome.decorator.structures) {
 							sb.append("\n* [[").append(getStructureName(structure.structureGen.getClass())).append("]];");
 						}
 					}

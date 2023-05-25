@@ -2940,7 +2940,7 @@ got.structure.GiftVillage.name=Nachtwächterdorf
 got.structure.GiftVillageLight.name=Nachtwache Dorf Lantern
 got.structure.GiftWatchtower.name=Wachtturm der Nachtwache
 got.structure.GoldenCamp.name=Zeltlager der goldenen Gemeinschaft
-got.structure.GoldenWatchtower.name≠Watchtower of Golden Company
+got.structure.GoldenCampWatchtower.name≠Watchtower of Golden Company
 got.structure.HillmanCampfire.name=Hügelmenschen Zeltlager
 got.structure.HillmanFort.name=Hügelmenschen Fort
 got.structure.HillmanHouse.name=Hügelmenschen Haus#

@@ -26,8 +26,8 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 	public GOTBiomeShadowTown(int i, boolean major) {
 		super(i, major);
 		decorator.flowersPerChunk = 0;
-		decorator.addRandomStructure(new GOTStructureAsshaiAltar(false), 250);
-		decorator.addRandomStructure(new GOTStructureAsshaiSpiderPit(false), 150);
+		decorator.addStructure(new GOTStructureAsshaiAltar(false), 250);
+		decorator.addStructure(new GOTStructureAsshaiSpiderPit(false), 150);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ASSHAI_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

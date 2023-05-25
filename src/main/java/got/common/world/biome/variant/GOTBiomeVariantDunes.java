@@ -12,7 +12,7 @@ public class GOTBiomeVariantDunes extends GOTBiomeVariant {
 
 	public GOTBiomeVariantDunes(int i, String s) {
 		super(i, s, GOTBiomeVariant.VariantScale.SMALL);
-		disableVillages();
+		disableSettlements();
 	}
 
 	public int getDuneHeightAt(int i, int k) {

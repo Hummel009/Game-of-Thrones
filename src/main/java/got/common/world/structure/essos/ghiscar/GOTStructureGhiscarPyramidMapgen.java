@@ -4,7 +4,7 @@ import got.common.GOTDimension;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeGhiscar;
-import got.common.world.structure.other.GOTVillagePositionCache;
+import got.common.world.structure.other.GOTSettlementPositionCache;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.gen.structure.MapGenStructure;
@@ -42,7 +42,7 @@ public class GOTStructureGhiscarPyramidMapgen extends MapGenStructure {
 	@Override
 	public boolean canSpawnStructureAtCoords(int i, int k) {
 		GOTWorldChunkManager worldChunkMgr = (GOTWorldChunkManager) worldObj.getWorldChunkManager();
-		GOTVillagePositionCache cache = worldChunkMgr.getStructureCache(this);
+		GOTSettlementPositionCache cache = worldChunkMgr.getStructureCache(this);
 		LocationInfo cacheLocation = cache.getLocationAt(i, k);
 		if (cacheLocation != null) {
 			return cacheLocation.isPresent();

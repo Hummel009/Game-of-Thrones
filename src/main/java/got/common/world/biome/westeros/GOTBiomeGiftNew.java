@@ -7,7 +7,7 @@ import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.gift.GOTStructureGiftVillage;
+import got.common.world.structure.westeros.gift.GOTStructureGiftSettlement;
 
 import java.util.ArrayList;
 
@@ -15,8 +15,8 @@ public class GOTBiomeGiftNew extends GOTBiomeNorthWild {
 	public GOTBiomeGiftNew(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
-		decorator.clearVillages();
-		decorator.addVillage(new GOTStructureGiftVillage(this, 1.0f));
+		decorator.clearSettlements();
+		decorator.addSettlement(new GOTStructureGiftSettlement(this, 1.0f));
 		invasionSpawns.clearInvasions();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 10).setSpawnChance(GOTBiome.SPAWN));

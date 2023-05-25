@@ -2,7 +2,6 @@ package got.common.entity.ai;
 
 import got.common.entity.dragon.GOTDragonLifeStage;
 import got.common.entity.dragon.GOTEntityDragon;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.world.World;
 

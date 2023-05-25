@@ -18,8 +18,8 @@ public class GOTBiomeSothoryosTaiga extends GOTBiomeSothoryosForest {
 		fillerBlock = Blocks.snow;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.PINE, 20);
-		decorator.clearVillages();
-		decorator.clearRandomStructures();
+		decorator.clearSettlements();
+		decorator.clearStructures();
 		npcSpawnList.clear();
 	}
 

@@ -15,7 +15,7 @@ import got.common.world.structure.other.GOTStructureBurntHouse;
 import got.common.world.structure.other.GOTStructureRottenHouse;
 import got.common.world.structure.other.GOTStructureRuinedHouse;
 import got.common.world.structure.other.GOTStructureStoneRuin;
-import got.common.world.structure.sothoryos.summer.GOTStructureSummerVillage;
+import got.common.world.structure.sothoryos.summer.GOTStructureSummerSettlement;
 
 import java.util.ArrayList;
 
@@ -29,12 +29,12 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
 		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		decorator.treesPerChunk = 1;
-		decorator.clearVillages();
-		decorator.addVillage(new GOTStructureSummerVillage(this, 1.0f));
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
+		decorator.clearSettlements();
+		decorator.addSettlement(new GOTStructureSummerSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 		invasionSpawns.addInvasion(GOTInvasions.GHISCAR, GOTEventSpawner.EventChance.COMMON);
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

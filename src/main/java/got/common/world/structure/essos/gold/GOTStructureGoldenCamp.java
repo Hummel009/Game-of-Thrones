@@ -5,8 +5,8 @@ import got.common.entity.essos.gold.GOTEntityGoldenWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
+import got.common.world.structure.other.GOTStructureBaseSettlement;
 import got.common.world.structure.other.GOTStructureNPCRespawner;
-import got.common.world.structure.other.GOTVillageGen;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -15,26 +15,26 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class GOTStructureGoldenCamp extends GOTVillageGen {
+public class GOTStructureGoldenCamp extends GOTStructureBaseSettlement {
 	public GOTStructureGoldenCamp(GOTBiome biome, float f) {
 		super(biome);
 		spawnChance = f;
-		villageChunkRadius = 5;
-		fixedVillageChunkRadius = 5;
+		settlementChunkRadius = 5;
+		fixedSettlementChunkRadius = 5;
 	}
 
 	@Override
-	public GOTVillageGen.AbstractInstance<GOTStructureGoldenCamp> createVillageInstance(World world, int i, int k, Random random, LocationInfo loc) {
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureGoldenCamp> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public static class Instance extends GOTVillageGen.AbstractInstance<GOTStructureGoldenCamp> {
-		public Instance(GOTStructureGoldenCamp village, World world, int i, int k, Random random, LocationInfo loc) {
-			super(village, world, i, k, random, loc);
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureGoldenCamp> {
+		public Instance(GOTStructureGoldenCamp settlement, World world, int i, int k, Random random, LocationInfo loc) {
+			super(settlement, world, i, k, random, loc);
 		}
 
 		@Override
-		public void addVillageStructures(Random random) {
+		public void addSettlementStructures(Random random) {
 			addStructure(new GOTStructureGoldenCampWatchtower(false), 0, -4, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -105,14 +105,14 @@ public class GOTStructureGoldenCamp extends GOTVillageGen {
 		}
 
 		@Override
-		public boolean isVillageSpecificSurface(World world, int i, int j, int k) {
+		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
 			int meta = world.getBlockMetadata(i, j, k);
 			return (block == Blocks.dirt || block == Blocks.sand) && meta == 1 || block == Blocks.sand && meta == 0;
 		}
 
 		@Override
-		public void setupVillageProperties(Random random) {
+		public void setupSettlementProperties(Random random) {
 		}
 	}
 }

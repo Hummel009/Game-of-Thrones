@@ -11,7 +11,7 @@ public class GOTBiomeMossovyForest extends GOTBiomeMossovy {
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 10;
-		decorator.clearVillages();
+		decorator.clearSettlements();
 	}
 
 	@Override

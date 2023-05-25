@@ -18,7 +18,7 @@ public class GOTBiomeQohorForest extends GOTBiomeQohor {
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 2;
 		decorator.whiteSand = true;
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.BEECH_PARTY, 2);
 		decorator.addTree(GOTTreeType.OAK, 300);

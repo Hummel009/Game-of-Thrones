@@ -2940,7 +2940,7 @@ got.structure.GiftVillage.name=Dorp van Night's Watch
 got.structure.GiftVillageLight.name=Village Light van Night's Watch
 got.structure.GiftWatchtower.name=Wachttoren van Night's Watch
 got.structure.GoldenCamp.name=Kamp van Golden Company
-got.structure.GoldenWatchtower.name≠Watchtower of Golden Company
+got.structure.GoldenCampWatchtower.name≠Watchtower of Golden Company
 got.structure.HillmanCampfire.name=Camp van Hill Tribes
 got.structure.HillmanFort.name=Fort van Hill Tribes
 got.structure.HillmanHouse.name=House van Hill Tribes

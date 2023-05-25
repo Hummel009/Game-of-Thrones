@@ -43,7 +43,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public boolean notifyChanges;
 	public EntityPlayer usingPlayer;
 	public boolean shouldFindSurface;
-	public GOTVillageGen.AbstractInstance<? extends GOTVillageGen> villageInstance;
+	public GOTStructureBaseSettlement.AbstractInstance<? extends GOTStructureBaseSettlement> settlementInstance;
 	public int originX;
 	public int originY;
 	public int originZ;
@@ -219,7 +219,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		r += rotationMode;
 		str.restrictions = isRestrict;
 		str.usingPlayer = usingPlayer;
-		str.villageInstance = villageInstance;
+		str.settlementInstance = settlementInstance;
 		str.sbb = sbb;
 		r %= 4;
 		str.generate(world, random, i, j, k, r);
@@ -367,7 +367,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		if (isSurfaceStatic(world, i, j, k)) {
 			return true;
 		}
-		return villageInstance != null && villageInstance.isVillageSpecificSurface(world, i, j, k);
+		return settlementInstance != null && settlementInstance.isSettlementSpecificSurface(world, i, j, k);
 	}
 
 	public void leashEntityTo(EntityCreature entity, World world, int i, int j, int k) {

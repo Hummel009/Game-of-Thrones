@@ -12,7 +12,7 @@ import got.common.world.feature.GOTWorldGenBoulder;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.essos.lorath.GOTStructureLorathCity;
+import got.common.world.structure.essos.lorath.GOTStructureLorathSettlement;
 import got.common.world.structure.other.GOTStructureSmallStoneRuin;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 import net.minecraft.init.Blocks;
@@ -51,7 +51,7 @@ public class GOTBiomeLorath extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.MAPLE, 100);
 		decorator.addTree(GOTTreeType.MAPLE_LARGE, 10);
 		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
-		decorator.addVillage(new GOTStructureLorathCity(this, 1.0f));
+		decorator.addSettlement(new GOTStructureLorathSettlement(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.IBBEN, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LORATH_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
@@ -60,8 +60,8 @@ public class GOTBiomeLorath extends GOTBiomeEssos {
 		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
-		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
 	}
 
 	@Override

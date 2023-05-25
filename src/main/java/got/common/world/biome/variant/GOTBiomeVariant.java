@@ -26,7 +26,7 @@ public class GOTBiomeVariant {
 	public static GOTBiomeVariant SWAMP_LOWLAND = new GOTBiomeVariant(18, "swampLowland", VariantScale.SMALL).setHeight(-0.12f, 0.2f).setTrees(0.5f).setGrass(5.0f).setMarsh();
 	public static GOTBiomeVariant SAVANNAH_BAOBAB = new GOTBiomeVariant(20, "savannahBaobab", VariantScale.SMALL).setHeight(0.0f, 0.5f).setTrees(1.5f).setGrass(0.5f).addTreeTypes(0.6f, GOTTreeType.BAOBAB, 100);
 	public static GOTBiomeVariant LAKE = new GOTBiomeVariant(21, "lake", VariantScale.NONE).setAbsoluteHeight(-0.5f, 0.05f);
-	public static GOTBiomeVariant VINEYARD = new GOTBiomeVariant(26, "vineyard", VariantScale.SMALL).setHeight(0.0f, 0.0f).setTrees(0.0f).setGrass(0.0f).setFlowers(0.0f).disableStructuresVillages();
+	public static GOTBiomeVariant VINEYARD = new GOTBiomeVariant(26, "vineyard", VariantScale.SMALL).setHeight(0.0f, 0.0f).setTrees(0.0f).setGrass(0.0f).setFlowers(0.0f).disableStructuresSettlements();
 	public static GOTBiomeVariant FOREST_ASPEN = new GOTBiomeVariantForest(27, "forest_aspen").addTreeTypes(0.8f, GOTTreeType.ASPEN, 1000, GOTTreeType.ASPEN_LARGE, 50);
 	public static GOTBiomeVariant FOREST_BIRCH = new GOTBiomeVariantForest(28, "forest_birch").addTreeTypes(0.8f, GOTTreeType.BIRCH, 1000, GOTTreeType.BIRCH_LARGE, 150);
 	public static GOTBiomeVariant FOREST_BEECH = new GOTBiomeVariantForest(29, "forest_beech").addTreeTypes(0.8f, GOTTreeType.BEECH, 1000, GOTTreeType.BEECH_LARGE, 150);
@@ -65,7 +65,7 @@ public class GOTBiomeVariant {
 	public float flowerFactor = 1.0f;
 	public boolean hasMarsh;
 	public boolean disableStructures;
-	public boolean disableVillages;
+	public boolean disableSettlements;
 	public List<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
 	public float variantTreeChance;
 	public WorldGenerator boulderGen;
@@ -103,14 +103,14 @@ public class GOTBiomeVariant {
 	public void decorateVariant(World world, Random random, int i, int k, GOTBiome biome) {
 	}
 
-	public GOTBiomeVariant disableStructuresVillages() {
+	public GOTBiomeVariant disableStructuresSettlements() {
 		disableStructures = true;
-		disableVillages = true;
+		disableSettlements = true;
 		return this;
 	}
 
-	public void disableVillages() {
-		disableVillages = true;
+	public void disableSettlements() {
+		disableSettlements = true;
 	}
 
 	public void generateVariantTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int height, GOTBiome biome) {

@@ -50,40 +50,40 @@ public class GOTStructureRegistry {
 		classToNameMapping.put(strClass, cut);
 	}
 
-	public static void register(int id, GOTVillageGen village, String name, GOTFaction faction, IVillageProperties properties) {
+	public static void register(int id, GOTStructureBaseSettlement settlement, String name, GOTFaction faction, ISettlementProperties properties) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
 			@Override
 			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
-				GOTVillageGen.AbstractInstance<?> instance = village.createAndSetupVillageInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
+				GOTStructureBaseSettlement.AbstractInstance<?> instance = settlement.createAndSetupSettlementInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
 				instance.setRotation((getRotationFromPlayer(entityplayer) + 2) % 4);
 				properties.apply(instance);
-				village.generateCompleteVillageInstance(instance, world, i, k);
+				settlement.generateCompleteSettlementInstance(instance, world, i, k);
 				return true;
 			}
 
 			@Override
-			public boolean isVillage() {
+			public boolean isSettlement() {
 				return true;
 			}
 		};
 		registerStructure(id, strProvider, name, faction.eggColor, faction.eggColor, false);
 	}
 
-	public static void register(int id, GOTVillageGen village, String name, int color, IVillageProperties properties) {
+	public static void register(int id, GOTStructureBaseSettlement settlement, String name, int color, ISettlementProperties properties) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
 			@Override
 			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
-				GOTVillageGen.AbstractInstance<?> instance = village.createAndSetupVillageInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
+				GOTStructureBaseSettlement.AbstractInstance<?> instance = settlement.createAndSetupSettlementInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
 				instance.setRotation((getRotationFromPlayer(entityplayer) + 2) % 4);
 				properties.apply(instance);
-				village.generateCompleteVillageInstance(instance, world, i, k);
+				settlement.generateCompleteSettlementInstance(instance, world, i, k);
 				return true;
 			}
 
 			@Override
-			public boolean isVillage() {
+			public boolean isSettlement() {
 				return true;
 			}
 		};
@@ -112,7 +112,7 @@ public class GOTStructureRegistry {
 			}
 
 			@Override
-			public boolean isVillage() {
+			public boolean isSettlement() {
 				return false;
 			}
 		};
@@ -122,23 +122,23 @@ public class GOTStructureRegistry {
 	public static void registerStructure(int id, IStructureProvider str, String name, int colorBG, int colorFG, boolean hide) {
 		idToClassMapping.put(id, str);
 		idToStringMapping.put(id, name);
-		structureItemSpawners.put(id, new StructureColorInfo(id, colorBG, colorFG, str.isVillage(), hide));
+		structureItemSpawners.put(id, new StructureColorInfo(id, colorBG, colorFG, str.isSettlement(), hide));
 	}
 
-	public static void registerVillage(int id, GOTVillageGen village, String name, int colorBG, int colorFG, IVillageProperties<GOTVillageGen.AbstractInstance<?>> properties) {
+	public static void registerSettlement(int id, GOTStructureBaseSettlement settlement, String name, int colorBG, int colorFG, ISettlementProperties<GOTStructureBaseSettlement.AbstractInstance<?>> properties) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
 			@Override
 			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
-				GOTVillageGen.AbstractInstance<?> instance = village.createAndSetupVillageInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
+				GOTStructureBaseSettlement.AbstractInstance<?> instance = settlement.createAndSetupSettlementInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
 				instance.setRotation((getRotationFromPlayer(entityplayer) + 2) % 4);
 				properties.apply(instance);
-				village.generateCompleteVillageInstance(instance, world, i, k);
+				settlement.generateCompleteSettlementInstance(instance, world, i, k);
 				return true;
 			}
 
 			@Override
-			public boolean isVillage() {
+			public boolean isSettlement() {
 				return true;
 			}
 		};
@@ -148,10 +148,10 @@ public class GOTStructureRegistry {
 	public interface IStructureProvider {
 		boolean generateStructure(World var1, EntityPlayer var2, int var3, int var4, int var5);
 
-		boolean isVillage();
+		boolean isSettlement();
 	}
 
-	public interface IVillageProperties<V> {
+	public interface ISettlementProperties<V> {
 		void apply(V var1);
 	}
 
@@ -159,14 +159,14 @@ public class GOTStructureRegistry {
 		public int spawnedID;
 		public int colorBackground;
 		public int colorForeground;
-		public boolean isVillage;
+		public boolean isSettlement;
 		public boolean isHidden;
 
 		public StructureColorInfo(int i, int colorBG, int colorFG, boolean vill, boolean hide) {
 			spawnedID = i;
 			colorBackground = colorBG;
 			colorForeground = colorFG;
-			isVillage = vill;
+			isSettlement = vill;
 			isHidden = hide;
 		}
 	}

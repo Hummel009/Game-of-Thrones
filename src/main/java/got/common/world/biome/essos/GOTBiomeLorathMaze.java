@@ -21,7 +21,7 @@ public class GOTBiomeLorathMaze extends GOTBiomeLorath {
 		fillerBlock = Blocks.stone;
 		clearBiomeVariants();
 		decorator.treesPerChunk = 0;
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		invasionSpawns.clearInvasions();
 		npcSpawnList.clear();
 		spawnableCreatureList.clear();

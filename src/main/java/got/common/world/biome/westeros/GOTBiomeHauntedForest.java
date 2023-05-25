@@ -11,7 +11,7 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
+import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -29,7 +29,7 @@ public class GOTBiomeHauntedForest extends GOTBiomeWesteros {
 		decorator.treesPerChunk = 10;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.PINE, 20);
-		decorator.addVillage(new GOTStructureWildlingVillage(this, 0.5f));
+		decorator.addSettlement(new GOTStructureWildlingSettlement(this, 0.5f));
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));

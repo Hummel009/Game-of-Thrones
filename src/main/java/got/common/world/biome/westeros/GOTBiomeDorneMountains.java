@@ -26,7 +26,7 @@ public class GOTBiomeDorneMountains extends GOTBiomeDorne {
 		decorator.biomeGemFactor = 2.0f;
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 		enableRocky = true;

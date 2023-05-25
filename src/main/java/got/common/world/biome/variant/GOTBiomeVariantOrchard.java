@@ -16,7 +16,7 @@ public class GOTBiomeVariantOrchard extends GOTBiomeVariant {
 		super(i, s, GOTBiomeVariant.VariantScale.SMALL);
 		setHeight(0.0f, 0.4f);
 		setTrees(0.0f);
-		disableVillages();
+		disableSettlements();
 	}
 
 	@Override

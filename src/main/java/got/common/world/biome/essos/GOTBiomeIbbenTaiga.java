@@ -13,7 +13,7 @@ public class GOTBiomeIbbenTaiga extends GOTBiomeIbben {
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 		decorator.treesPerChunk = 10;
-		decorator.clearVillages();
+		decorator.clearSettlements();
 	}
 
 	@Override

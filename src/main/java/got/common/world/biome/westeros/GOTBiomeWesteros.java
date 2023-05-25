@@ -45,11 +45,11 @@ public abstract class GOTBiomeWesteros extends GOTBiome {
 		decorator.addTree(GOTTreeType.OLIVE, 1);
 		decorator.addTree(GOTTreeType.ALMOND, 1);
 		decorator.addTree(GOTTreeType.CHESTNUT, 20);
-		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 	}
 
 	@Override

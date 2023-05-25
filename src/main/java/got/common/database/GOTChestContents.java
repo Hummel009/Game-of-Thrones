@@ -1180,34 +1180,6 @@ public class GOTChestContents {
 		items = w;
 	}
 
-	public GOTChestContents enablePouches() {
-		pouches = true;
-		return this;
-	}
-
-	public ItemStack getOneItem(Random random, boolean isNPCDrop) {
-		InventoryBasic drops = new InventoryBasic("oneItem", false, 1);
-		fillInventory(drops, random, this, 1, isNPCDrop);
-		ItemStack item = drops.getStackInSlot(0);
-		item.stackSize = 1;
-		return item;
-	}
-
-	public GOTChestContents setDrinkVessels(GOTFoods foods) {
-		return setDrinkVessels(foods.getDrinkVessels());
-	}
-
-	public GOTChestContents setDrinkVessels(GOTItemMug.Vessel... v) {
-		vesselTypes = v;
-		return this;
-	}
-
-	public GOTChestContents setLore(int chance, GOTLore.LoreCategory... categories) {
-		loreCategories = Arrays.asList(categories);
-		loreChance = chance;
-		return this;
-	}
-
 	public static void fillChest(World world, Random random, int i, int j, int k, GOTChestContents itemPool) {
 		fillChest(world, random, i, j, k, itemPool, -1);
 	}
@@ -1283,5 +1255,33 @@ public class GOTChestContents {
 
 	public static int getRandomItemAmount(GOTChestContents itemPool, Random random) {
 		return MathHelper.getRandomIntegerInRange(random, itemPool.minItems, itemPool.maxItems);
+	}
+
+	public GOTChestContents enablePouches() {
+		pouches = true;
+		return this;
+	}
+
+	public ItemStack getOneItem(Random random, boolean isNPCDrop) {
+		InventoryBasic drops = new InventoryBasic("oneItem", false, 1);
+		fillInventory(drops, random, this, 1, isNPCDrop);
+		ItemStack item = drops.getStackInSlot(0);
+		item.stackSize = 1;
+		return item;
+	}
+
+	public GOTChestContents setDrinkVessels(GOTFoods foods) {
+		return setDrinkVessels(foods.getDrinkVessels());
+	}
+
+	public GOTChestContents setDrinkVessels(GOTItemMug.Vessel... v) {
+		vesselTypes = v;
+		return this;
+	}
+
+	public GOTChestContents setLore(int chance, GOTLore.LoreCategory... categories) {
+		loreCategories = Arrays.asList(categories);
+		loreChance = chance;
+		return this;
 	}
 }

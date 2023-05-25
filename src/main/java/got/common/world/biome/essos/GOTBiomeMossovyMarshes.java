@@ -29,8 +29,8 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy {
 		decorator.doubleGrassPerChunk = 8;
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 5;
-		decorator.clearVillages();
-		decorator.clearRandomStructures();
+		decorator.clearSettlements();
+		decorator.clearStructures();
 		npcSpawnList.clear();
 	}
 

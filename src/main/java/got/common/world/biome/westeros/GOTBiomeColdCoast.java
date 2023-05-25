@@ -9,7 +9,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
+import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -28,7 +28,7 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
 		super(i, major);
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWalrus.class, 40, 1, 1));
-		decorator.addVillage(new GOTStructureWildlingVillage(this, 1.0f));
+		decorator.addSettlement(new GOTStructureWildlingSettlement(this, 1.0f));
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

@@ -30,7 +30,7 @@ public class GOTBiomeVolantisForest extends GOTBiomeVolantis {
 		decorator.addTree(GOTTreeType.ORANGE, 730);
 		decorator.addTree(GOTTreeType.ASPEN, 100);
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 	}

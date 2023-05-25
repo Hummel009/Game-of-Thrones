@@ -10,7 +10,7 @@ import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.other.*;
-import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanVillage;
+import got.common.world.structure.westeros.north.GOTStructureNorthSettlement;
 
 import java.util.ArrayList;
 
@@ -18,14 +18,14 @@ public class GOTBiomeNorthWild extends GOTBiomeNorth {
 	public GOTBiomeNorthWild(int i, boolean major) {
 		super(i, major);
 		setupTaigaFauna();
-		decorator.clearRandomStructures();
-		decorator.addRandomStructure(new GOTStructureSmallStoneRuin(false), 500);
-		decorator.addRandomStructure(new GOTStructureRuinedHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureBurntHouse(false), 2000);
-		decorator.addRandomStructure(new GOTStructureRottenHouse(false), 4000);
-		decorator.addRandomStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
-		decorator.clearVillages();
-		decorator.addVillage(new GOTStructureNorthHillmanVillage(this, 1.0f));
+		decorator.clearStructures();
+		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
+		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
+		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
+		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
+		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+		decorator.clearSettlements();
+		decorator.addSettlement(new GOTStructureNorthSettlement(this, 1.0f).setIsHillman());
 		invasionSpawns.clearInvasions();
 		invasionSpawns.addInvasion(GOTInvasions.THENN, GOTEventSpawner.EventChance.RARE);
 		invasionSpawns.addInvasion(GOTInvasions.WILDLING, GOTEventSpawner.EventChance.UNCOMMON);

@@ -13,8 +13,8 @@ import got.common.world.biome.variant.GOTBiomeVariantList;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import got.common.world.genlayer.*;
 import got.common.world.map.GOTFixedStructures;
-import got.common.world.structure.other.GOTVillageGen;
-import got.common.world.structure.other.GOTVillagePositionCache;
+import got.common.world.structure.other.GOTSettlementPositionCache;
+import got.common.world.structure.other.GOTStructureBaseSettlement;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeCache;
@@ -39,8 +39,8 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 	public GOTGenLayer[] chunkGenLayers;
 	public GOTGenLayer[] worldLayers;
 	public BiomeCache biomeCache;
-	public Map<GOTVillageGen, GOTVillagePositionCache> villageCacheMap = new HashMap<>();
-	public Map<MapGenStructure, GOTVillagePositionCache> structureCacheMap = new HashMap<>();
+	public Map<GOTStructureBaseSettlement, GOTSettlementPositionCache> settlementCacheMap = new HashMap<>();
+	public Map<MapGenStructure, GOTSettlementPositionCache> structureCacheMap = new HashMap<>();
 
 	public GOTWorldChunkManager(World world, GOTDimension dim) {
 		worldObj = world;
@@ -69,7 +69,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		return true;
 	}
 
-	public boolean areVariantsSuitableVillage(int i, int k, int range) {
+	public boolean areVariantsSuitableSettlement(int i, int k, int range) {
 		int i1 = i - range >> 2;
 		int k1 = k - range >> 2;
 		int i2 = i + range >> 2;
@@ -78,7 +78,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		int k3 = k2 - k1 + 1;
 		BiomeGenBase[] biomes = getBiomesForGeneration(null, i1, k1, i3, k3);
 		for (GOTBiomeVariant v : getVariantsChunkGen(null, i1, k1, i3, k3, biomes)) {
-			if (v.hillFactor > 1.0f || v.treeFactor > 1.0f || v.disableVillages || v.absoluteHeight && v.absoluteHeightLevel < 0.0f) {
+			if (v.hillFactor > 1.0f || v.treeFactor > 1.0f || v.disableSettlements || v.absoluteHeight && v.absoluteHeightLevel < 0.0f) {
 				return false;
 			}
 		}
@@ -215,8 +215,8 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 				boolean[] flags = GOTFixedStructures._mountainNear_structureNear(worldObj, xPos, zPos);
 				boolean mountainNear = flags[0];
 				boolean structureNear = flags[1];
-				boolean fixedVillageNear = biome.decorator.anyFixedVillagesAt(worldObj, xPos, zPos);
-				if (fixedVillageNear) {
+				boolean fixedSettlementNear = biome.decorator.anyFixedSettlementsAt(worldObj, xPos, zPos);
+				if (fixedSettlementNear) {
 					variant = GOTBiomeVariant.STEPPE;
 				} else {
 					if (!mountainNear) {
@@ -281,8 +281,8 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		return rainfall;
 	}
 
-	public GOTVillagePositionCache getStructureCache(MapGenStructure structure) {
-		return structureCacheMap.computeIfAbsent(structure, k -> new GOTVillagePositionCache());
+	public GOTSettlementPositionCache getStructureCache(MapGenStructure structure) {
+		return structureCacheMap.computeIfAbsent(structure, k -> new GOTSettlementPositionCache());
 	}
 
 	@Override
@@ -298,8 +298,8 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		return getBiomeVariantsFromLayers(variants, i, k, xSize, zSize, biomeSource, true);
 	}
 
-	public GOTVillagePositionCache getVillageCache(GOTVillageGen village) {
-		return villageCacheMap.computeIfAbsent(village, k -> new GOTVillagePositionCache());
+	public GOTSettlementPositionCache getSettlementCache(GOTStructureBaseSettlement settlement) {
+		return settlementCacheMap.computeIfAbsent(settlement, k -> new GOTSettlementPositionCache());
 	}
 
 	@Override

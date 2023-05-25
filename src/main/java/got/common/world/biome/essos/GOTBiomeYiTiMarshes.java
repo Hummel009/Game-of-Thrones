@@ -29,7 +29,7 @@ public class GOTBiomeYiTiMarshes extends GOTBiomeYiTi {
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 5;
 		decorator.waterlilyPerChunk = 4;
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

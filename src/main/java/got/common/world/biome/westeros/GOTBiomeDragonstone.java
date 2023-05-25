@@ -13,7 +13,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneCity;
+import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneSettlement;
 import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneWatchfort;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -30,8 +30,8 @@ public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 	public GOTBiomeDragonstone(int i, boolean major) {
 		super(i, major);
 		decorator.addSoil(new WorldGenMinable(GOTRegistry.obsidianGravel, 32), 20.0f, 0, 64);
-		decorator.addVillage(new GOTStructureDragonstoneCity(this, 1.0f));
-		decorator.addRandomStructure(new GOTStructureDragonstoneWatchfort(false), 800);
+		decorator.addSettlement(new GOTStructureDragonstoneSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureDragonstoneWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.STORMLANDS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.REACH, GOTEventSpawner.EventChance.UNCOMMON);

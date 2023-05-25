@@ -29,8 +29,8 @@ public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosJungle {
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 2;
 		decorator.dryReedChance = 1.0f;
-		decorator.clearVillages();
-		decorator.clearRandomStructures();
+		decorator.clearSettlements();
+		decorator.clearStructures();
 		npcSpawnList.clear();
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.JUNGLE, 1000);

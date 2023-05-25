@@ -13,7 +13,7 @@ public class GOTBiomeGiftOld extends GOTBiomeGiftNew {
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = -1;
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		invasionSpawns.addInvasion(GOTInvasions.THENN, GOTEventSpawner.EventChance.RARE);
 		invasionSpawns.addInvasion(GOTInvasions.WILDLING, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.GIANT, GOTEventSpawner.EventChance.RARE);

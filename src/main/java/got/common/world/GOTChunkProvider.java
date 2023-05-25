@@ -483,7 +483,7 @@ public class GOTChunkProvider implements IChunkProvider {
 	}
 
 	public static class ChunkFlags {
-		public boolean isVillage;
+		public boolean isSettlement;
 		public boolean[] bezierFlags = new boolean[256];
 	}
 

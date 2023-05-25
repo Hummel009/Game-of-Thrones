@@ -31,7 +31,7 @@ public class GOTBiomeMassyHills extends GOTBiomeDragonstone {
 		decorator.addTree(GOTTreeType.BIRCH_DEAD, 3);
 		decorator.addTree(GOTTreeType.ASPEN, 100);
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
-		decorator.clearVillages();
+		decorator.clearSettlements();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 	}

@@ -6,6 +6,6 @@ public class GOTBiomeVariantDenseForest extends GOTBiomeVariant {
 		setHeight(0.5f, 2.0f);
 		setTrees(8.0f);
 		setGrass(2.0f);
-		disableVillages();
+		disableSettlements();
 	}
 }

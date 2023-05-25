@@ -9,7 +9,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.westeros.hillmen.GOTStructureHillmanVillage;
+import got.common.world.structure.westeros.hillmen.GOTStructureHillmanSettlement;
 
 import java.util.ArrayList;
 
@@ -25,7 +25,7 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-		decorator.addVillage(new GOTStructureHillmanVillage(this, 1.0f));
+		decorator.addSettlement(new GOTStructureHillmanSettlement(this, 1.0f));
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.HILL_TRIBES_CIVILIAN, 4).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.HILL_TRIBES_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
