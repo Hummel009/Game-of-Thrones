@@ -23,8 +23,6 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 
 	public GOTStructureQarthCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 5;
 		fixedVillageChunkRadius = 5;
@@ -37,13 +35,15 @@ public class GOTStructureQarthCity extends GOTVillageGen {
 
 	public GOTStructureQarthCity setIsCastle() {
 		isCastle = true;
-		fixedVillageChunkRadius = 4;
+		villageChunkRadius = 5;
+		fixedVillageChunkRadius = 5;
 		return this;
 	}
 
 	public GOTStructureQarthCity setIsTown() {
 		isTown = true;
-		fixedVillageChunkRadius = 5;
+		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 

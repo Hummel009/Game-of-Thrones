@@ -20,8 +20,6 @@ public class GOTStructureBraavosCity extends GOTVillageGen {
 
 	public GOTStructureBraavosCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 5;
 		fixedVillageChunkRadius = 5;
@@ -34,6 +32,8 @@ public class GOTStructureBraavosCity extends GOTVillageGen {
 
 	public GOTStructureBraavosCity setIsTown() {
 		isTown = true;
+		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 

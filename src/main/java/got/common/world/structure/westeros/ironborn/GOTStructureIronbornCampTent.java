@@ -1,4 +1,4 @@
-package got.common.world.structure.essos.gold;
+package got.common.world.structure.westeros.ironborn;
 
 import got.common.database.GOTChestContents;
 import got.common.database.GOTRegistry;
@@ -7,8 +7,8 @@ import net.minecraft.init.Blocks;
 
 import java.util.Random;
 
-public class GOTStructureGoldenTent extends GOTStructureTentBase {
-	public GOTStructureGoldenTent(boolean flag) {
+public class GOTStructureIronbornCampTent extends GOTStructureTentBase {
+	public GOTStructureIronbornCampTent(boolean flag) {
 		super(flag);
 	}
 
@@ -19,11 +19,11 @@ public class GOTStructureGoldenTent extends GOTStructureTentBase {
 		switch (randomWool) {
 			case 0:
 				tentBlock = Blocks.wool;
-				tentMeta = 15;
+				tentMeta = 4;
 				break;
 			case 1:
 				tentBlock = Blocks.wool;
-				tentMeta = 12;
+				tentMeta = 15;
 				break;
 			case 2:
 				tentBlock = Blocks.wool;
@@ -32,9 +32,9 @@ public class GOTStructureGoldenTent extends GOTStructureTentBase {
 			default:
 				break;
 		}
-		fenceBlock = GOTRegistry.fence;
-		fenceMeta = 3;
-		tableBlock = Blocks.crafting_table;
-		chestContents = GOTChestContents.GOLDEN;
+		fenceBlock = Blocks.fence;
+		fenceMeta = 0;
+		tableBlock = GOTRegistry.tableIronborn;
+		chestContents = GOTChestContents.BEYOND_WALL;
 	}
 }

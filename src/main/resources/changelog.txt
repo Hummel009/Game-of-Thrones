@@ -2,8 +2,17 @@ CHANGELOG
 >>BUILD 23.05.23
 + Seasons mechanics divided into server-side (temperature) and client-side (rendering) part.
 
+* Improved Victarion camp
+* Improved golden camps
+* Improved westeros towers
+* Impoved asshai tower
 * Improved quests
+* Reduced chance of baobab plains in dothraki sea
+* Increased village spawn
 
+* Fixed bug with shifted Sothoryos pyramid
+* Fixed bug with dirt path in Asshai
+* Fixed bug with huge trees with broken generation
 * Fixed critical bug caused by disappeared meta-info and broken coremod (horses, fences, etc)
 * Fixed potential bug caused by growing Desert Trees at the top limit of the world (256)
 * FIxed potential bug with rare thenn spawning

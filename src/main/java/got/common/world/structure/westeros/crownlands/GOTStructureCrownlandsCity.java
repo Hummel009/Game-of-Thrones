@@ -23,11 +23,9 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 
 	public GOTStructureCrownlandsCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
-		fixedVillageChunkRadius = 5;
+		fixedVillageChunkRadius = 6;
 	}
 
 	@Override
@@ -37,23 +35,28 @@ public class GOTStructureCrownlandsCity extends GOTVillageGen {
 
 	public GOTStructureCrownlandsCity setIsCastle() {
 		isCastle = true;
+		villageChunkRadius = 3;
 		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureCrownlandsCity setIsKingsLanding() {
 		isKingsLanding = true;
+		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 
 	public GOTStructureCrownlandsCity setIsRedKeep() {
 		isRedKeep = true;
+		villageChunkRadius = 3;
 		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureCrownlandsCity setIsTown() {
 		isTown = true;
+		villageChunkRadius = 6;
 		fixedVillageChunkRadius = 6;
 		return this;
 	}

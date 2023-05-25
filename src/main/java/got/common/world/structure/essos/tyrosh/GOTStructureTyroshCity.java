@@ -22,8 +22,6 @@ public class GOTStructureTyroshCity extends GOTVillageGen {
 
 	public GOTStructureTyroshCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 5;
 		fixedVillageChunkRadius = 5;
@@ -36,6 +34,8 @@ public class GOTStructureTyroshCity extends GOTVillageGen {
 
 	public GOTStructureTyroshCity setIsTown() {
 		isTown = true;
+		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 

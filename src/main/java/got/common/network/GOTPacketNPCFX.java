@@ -43,16 +43,20 @@ public class GOTPacketNPCFX implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketNPCFX packet, MessageContext context) {
 			World world = GOT.proxy.getClientWorld();
-			Entity entity = world.getEntityByID(packet.entityID);
-			if (entity instanceof GOTEntityNPC) {
-				GOTEntityNPC npc = (GOTEntityNPC) entity;
-				if (packet.type == FXType.HEARTS) {
-					npc.spawnHearts();
-				} else if (packet.type == FXType.EATING) {
-					npc.spawnFoodParticles();
-				} else if (packet.type == FXType.SMOKE) {
-					npc.spawnSmokes();
+			try {
+				Entity entity = world.getEntityByID(packet.entityID);
+				if (entity instanceof GOTEntityNPC) {
+					GOTEntityNPC npc = (GOTEntityNPC) entity;
+					if (packet.type == FXType.HEARTS) {
+						npc.spawnHearts();
+					} else if (packet.type == FXType.EATING) {
+						npc.spawnFoodParticles();
+					} else if (packet.type == FXType.SMOKE) {
+						npc.spawnSmokes();
+					}
 				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 			return null;
 		}

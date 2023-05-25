@@ -21,11 +21,9 @@ public class GOTStructureRiverlandsCity extends GOTVillageGen {
 
 	public GOTStructureRiverlandsCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 14;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
-		fixedVillageChunkRadius = 5;
+		fixedVillageChunkRadius = 6;
 	}
 
 	@Override
@@ -35,18 +33,21 @@ public class GOTStructureRiverlandsCity extends GOTVillageGen {
 
 	public GOTStructureRiverlandsCity setIsCastle() {
 		isCastle = true;
+		villageChunkRadius = 3;
 		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureRiverlandsCity setIsCrossroads() {
 		isCrossroads = true;
-		fixedVillageChunkRadius = 1;
+		villageChunkRadius = 3;
+		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureRiverlandsCity setIsTown() {
 		isTown = true;
+		villageChunkRadius = 6;
 		fixedVillageChunkRadius = 6;
 		return this;
 	}

@@ -23,11 +23,9 @@ public class GOTStructureStormlandsCity extends GOTVillageGen {
 
 	public GOTStructureStormlandsCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
-		fixedVillageChunkRadius = 5;
+		fixedVillageChunkRadius = 6;
 	}
 
 	@Override
@@ -37,12 +35,14 @@ public class GOTStructureStormlandsCity extends GOTVillageGen {
 
 	public GOTStructureStormlandsCity setIsCastle() {
 		isCastle = true;
+		villageChunkRadius = 3;
 		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureStormlandsCity setIsTown() {
 		isTown = true;
+		villageChunkRadius = 6;
 		fixedVillageChunkRadius = 6;
 		return this;
 	}

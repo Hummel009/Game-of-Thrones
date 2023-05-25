@@ -22,8 +22,6 @@ public class GOTStructureMyrCity extends GOTVillageGen {
 
 	public GOTStructureMyrCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 5;
 		fixedVillageChunkRadius = 5;
@@ -36,6 +34,8 @@ public class GOTStructureMyrCity extends GOTVillageGen {
 
 	public GOTStructureMyrCity setIsTown() {
 		isTown = true;
+		villageChunkRadius = 6;
+		fixedVillageChunkRadius = 6;
 		return this;
 	}
 

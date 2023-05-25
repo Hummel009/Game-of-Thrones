@@ -22,8 +22,6 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 
 	public GOTStructureYiTiCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
 		fixedVillageChunkRadius = 6;
@@ -36,20 +34,23 @@ public class GOTStructureYiTiCity extends GOTVillageGen {
 
 	public GOTStructureYiTiCity setIsTower() {
 		isTower = true;
+		villageChunkRadius = 9;
 		fixedVillageChunkRadius = 9;
 		return this;
 	}
 
 	public GOTStructureYiTiCity setIsTown() {
 		isTown = true;
+		villageChunkRadius = 7;
 		fixedVillageChunkRadius = 7;
 		return this;
 	}
 
 	public GOTStructureYiTiCity setIsWall(boolean b) {
 		isWall = true;
-		fixedVillageChunkRadius = 2;
 		side = b;
+		villageChunkRadius = 2;
+		fixedVillageChunkRadius = 2;
 		return this;
 	}
 

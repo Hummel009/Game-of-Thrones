@@ -4,6 +4,7 @@ import com.google.common.math.IntMath;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornMan;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldier;
+import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldierArcher;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
@@ -11,7 +12,6 @@ import got.common.world.structure.westeros.common.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Objects;
 import java.util.Random;
 
 public class GOTStructureIronbornCity extends GOTVillageGen {
@@ -21,11 +21,9 @@ public class GOTStructureIronbornCity extends GOTVillageGen {
 
 	public GOTStructureIronbornCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
-		fixedVillageChunkRadius = 5;
+		fixedVillageChunkRadius = 6;
 	}
 
 	@Override
@@ -35,24 +33,27 @@ public class GOTStructureIronbornCity extends GOTVillageGen {
 
 	public GOTStructureIronbornCity setIsCamp() {
 		isCamp = true;
-		fixedVillageChunkRadius = 1;
+		villageChunkRadius = 5;
+		fixedVillageChunkRadius = 5;
 		return this;
 	}
 
 	public GOTStructureIronbornCity setIsCastle() {
 		isCastle = true;
+		villageChunkRadius = 3;
 		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureIronbornCity setIsTown() {
 		isTown = true;
+		villageChunkRadius = 6;
 		fixedVillageChunkRadius = 6;
 		return this;
 	}
 
 	public enum VillageType {
-		VILLAGE, TOWN, FORT, VICTARION
+		VILLAGE, TOWN, FORT, CAMP
 	}
 
 	public class Instance extends GOTVillageGen.AbstractInstance<GOTStructureIronbornCity> {
@@ -74,8 +75,8 @@ public class GOTStructureIronbornCity extends GOTVillageGen {
 				case VILLAGE:
 					setupVillage(random);
 					break;
-				case VICTARION:
-					addStructure(new GOTStructureIronbornCamp(false), 0, 0, 0, true);
+				case CAMP:
+					setupCamp(random);
 					break;
 			}
 		}
@@ -531,6 +532,59 @@ public class GOTStructureIronbornCity extends GOTVillageGen {
 			}
 		}
 
+		public void setupCamp(Random random) {
+			addStructure(new GOTStructureIronbornCampWatchtower(false), 0, -4, 0, true);
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClasses(GOTEntityIronbornSoldier.class, GOTEntityIronbornSoldierArcher.class);
+					spawner.setCheckRanges(40, -12, 12, 40);
+					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			addStructure(new GOTStructureIronbornCampTent(false), -21, 0, 1);
+			addStructure(new GOTStructureIronbornCampTent(false), 0, -21, 2);
+			addStructure(new GOTStructureIronbornCampTent(false), 21, 0, 3);
+			addStructure(new GOTStructureIronbornCampTent(false), 0, 21, 0);
+			int houses = 20;
+			float frac = 1.0f / houses;
+			float turn = 0.0f;
+			while (turn < 1.0f) {
+				int k;
+				int l;
+				int i;
+				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
+				float sin = MathHelper.sin(turnR);
+				float cos = MathHelper.cos(turnR);
+				int r = 0;
+				float turn8 = turn * 8.0f;
+				if (turn8 >= 3.0f && turn8 < 5.0f) {
+					r = 1;
+				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
+					r = 2;
+				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
+					r = 3;
+				}
+				if (random.nextBoolean()) {
+					l = 61;
+					i = Math.round(l * cos);
+					k = Math.round(l * sin);
+					addStructure(new GOTStructureIronbornCampTent(false), i, k, r);
+				}
+			}
+			int farmX = 38;
+			int farmZ = 17;
+			int farmSize = 6;
+			addStructure(new GOTStructureIronbornCampTent(false), -farmX + farmSize, -farmZ, 1);
+			addStructure(new GOTStructureIronbornCampTent(false), -farmZ + farmSize, -farmX, 1);
+			addStructure(new GOTStructureIronbornCampTent(false), farmX - farmSize, -farmZ, 3);
+			addStructure(new GOTStructureIronbornCampTent(false), farmZ - farmSize, -farmX, 3);
+			addStructure(new GOTStructureIronbornCampTent(false), -farmX + farmSize, farmZ, 1);
+			addStructure(new GOTStructureIronbornCampTent(false), farmX - farmSize, farmZ, 3);
+		}
+
 		@Override
 		public void setupVillageProperties(Random random) {
 			if (isTown) {
@@ -538,14 +592,12 @@ public class GOTStructureIronbornCity extends GOTVillageGen {
 			} else if (isCastle) {
 				villageType = VillageType.FORT;
 			} else if (isCamp) {
-				villageType = VillageType.VICTARION;
+				villageType = VillageType.CAMP;
 			} else if (random.nextInt(4) == 0) {
 				villageType = VillageType.FORT;
 			} else {
 				villageType = VillageType.VILLAGE;
 			}
 		}
-
 	}
-
 }

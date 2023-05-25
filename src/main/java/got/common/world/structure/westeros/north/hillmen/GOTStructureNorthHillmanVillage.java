@@ -18,8 +18,6 @@ import java.util.Random;
 public class GOTStructureNorthHillmanVillage extends GOTVillageGen {
 	public GOTStructureNorthHillmanVillage(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
 		fixedVillageChunkRadius = 6;

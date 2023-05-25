@@ -16,8 +16,6 @@ import java.util.Random;
 public class GOTStructureIbbenVillage extends GOTVillageGen {
 	public GOTStructureIbbenVillage(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 5;
 		fixedVillageChunkRadius = 5;

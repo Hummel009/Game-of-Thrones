@@ -14,10 +14,9 @@ import java.util.Random;
 public class GOTStructureRuins extends GOTVillageGen {
 	public GOTStructureRuins(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 10;
-		gridRandomDisplace = 1;
 		spawnChance = f;
-		villageChunkRadius = 3;
+		villageChunkRadius = 2;
+		fixedVillageChunkRadius = 2;
 	}
 
 	@Override

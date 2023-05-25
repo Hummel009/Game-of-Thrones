@@ -7,7 +7,7 @@ import got.common.world.structure.essos.braavos.*;
 import got.common.world.structure.essos.dothraki.*;
 import got.common.world.structure.essos.ghiscar.*;
 import got.common.world.structure.essos.gold.GOTStructureGoldenCamp;
-import got.common.world.structure.essos.gold.GOTStructureGoldenWatchtower;
+import got.common.world.structure.essos.gold.GOTStructureGoldenCampWatchtower;
 import got.common.world.structure.essos.ibben.*;
 import got.common.world.structure.essos.jogos.*;
 import got.common.world.structure.essos.lhazar.*;
@@ -50,7 +50,6 @@ import got.common.world.structure.westeros.wildling.GOTStructureWildlingHouse;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingVillage;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennHouse;
 import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennMagnarHouse;
-import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennVillage;
 
 public class GOTStructure {
 	public static int id;
@@ -307,7 +306,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTavern.class, GOTFaction.TYROSH);
 		GOTStructureRegistry.register(id++, GOTStructureTyroshTower.class, GOTFaction.TYROSH);
 
-		GOTStructureRegistry.register(id++, GOTStructureGoldenWatchtower.class, 0xffd700);
+		GOTStructureRegistry.register(id++, GOTStructureGoldenCampWatchtower.class, 0xffd700);
 
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarPyramid.class, GOTFaction.GHISCAR);
 		GOTStructureRegistry.register(id++, GOTStructureGhiscarBarracks.class, GOTFaction.GHISCAR);
@@ -404,8 +403,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureSothoryosSmithy.class, GOTFaction.SOTHORYOS);
 
 		GOTStructureRegistry.register(id++, new GOTStructureWildlingVillage(GOTBiome.hauntedForest, 1.0f), "WildlingVillage", GOTFaction.WILDLING, (IVillageProperties<GOTStructureWildlingVillage.Instance>) instance -> instance.villageType = GOTStructureWildlingVillage.VillageType.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureThennVillage(GOTBiome.thenn, 1.0f), "ThennVillage", GOTFaction.WILDLING, (IVillageProperties<GOTStructureThennVillage.Instance>) instance -> {
-		});
+		GOTStructureRegistry.register(id++, new GOTStructureWildlingVillage(GOTBiome.thenn, 1.0f).setIsThenn(), "ThennVillage", GOTFaction.WILDLING, (IVillageProperties<GOTStructureWildlingVillage.Instance>) instance -> instance.villageType = GOTStructureWildlingVillage.VillageType.THENN);
 
 		GOTStructureRegistry.register(id++, new GOTStructureGiftVillage(GOTBiome.giftNew, 1.0f), "GiftVillage", GOTFaction.NIGHT_WATCH, (IVillageProperties<GOTStructureGiftVillage.Instance>) instance -> instance.villageType = GOTStructureGiftVillage.VillageType.VILLAGE);
 		GOTStructureRegistry.register(id++, new GOTStructureNorthHillmanVillage(GOTBiome.skagos, 1.0f), "NorthHillmanVillage", GOTFaction.NORTH, (IVillageProperties<GOTStructureNorthHillmanVillage.Instance>) instance -> {

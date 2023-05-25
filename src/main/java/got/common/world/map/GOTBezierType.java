@@ -122,7 +122,7 @@ public abstract class GOTBezierType {
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
 			if (slab) {
-				blockTypes = new BezierBlock[]{new BezierBlock(GOTRegistry.slabSingleDirt, 1)};
+				blockTypes = new BezierBlock[]{new BezierBlock(GOTRegistry.slabSingleDirt, 3)};
 			} else {
 				blockTypes = new BezierBlock[]{new BezierBlock(GOTRegistry.basaltGravel, 0), new BezierBlock(GOTRegistry.asshaiDirt, 0)};
 			}

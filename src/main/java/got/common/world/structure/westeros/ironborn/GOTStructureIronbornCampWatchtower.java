@@ -1,11 +1,12 @@
-package got.common.world.structure.essos.gold;
+package got.common.world.structure.westeros.ironborn;
 
 import got.common.database.GOTChestContents;
 import got.common.database.GOTRegistry;
-import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
-import got.common.entity.essos.gold.GOTEntityGoldenSpearman;
-import got.common.entity.essos.gold.GOTEntityGoldenWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
+import got.common.entity.westeros.ironborn.GOTEntityIronbornCaptain;
+import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldier;
+import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldierArcher;
+import got.common.entity.westeros.legendary.warrior.GOTEntityVictarionGreyjoy;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
@@ -14,7 +15,7 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class GOTStructureGoldenWatchtower extends GOTStructureBase {
+public class GOTStructureIronbornCampWatchtower extends GOTStructureBase {
 	public Block woodBlock;
 	public int woodMeta;
 	public Block plankBlock;
@@ -24,7 +25,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 	public Block stairBlock;
 	public Block trapdoorBlock;
 
-	public GOTStructureGoldenWatchtower(boolean flag) {
+	public GOTStructureIronbornCampWatchtower(boolean flag) {
 		super(flag);
 	}
 
@@ -111,6 +112,7 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 			setBlockAndMetadata(world, 2, j1, -2, woodBlock, woodMeta);
 			setBlockAndMetadata(world, 2, j1, 2, woodBlock, woodMeta);
 		}
+		int legend = 0;
 		for (j1 = 5; j1 <= 10; j1 += 5) {
 			for (i1 = -3; i1 <= 3; ++i1) {
 				for (int k13 = -3; k13 <= 3; ++k13) {
@@ -137,7 +139,12 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 			setBlockAndMetadata(world, 0, j1 + 2, 3, Blocks.torch, 5);
 			setBlockAndMetadata(world, -3, j1 + 2, 0, Blocks.torch, 5);
 			setBlockAndMetadata(world, 3, j1 + 2, 0, Blocks.torch, 5);
-			spawnNPCAndSetHome(new GOTEntityGoldenCaptain(world), world, -1, j1 + 1, 0, 8);
+			if (legend == 0) {
+				spawnLegendaryNPC(new GOTEntityVictarionGreyjoy(world), world, -1, j1 + 1, 0);
+				legend++;
+			} else {
+				spawnLegendaryNPC(new GOTEntityIronbornCaptain(world), world, -1, j1 + 1, 0);
+			}
 		}
 		for (i12 = -2; i12 <= 2; ++i12) {
 			for (k1 = -2; k1 <= 2; ++k1) {
@@ -185,20 +192,22 @@ public class GOTStructureGoldenWatchtower extends GOTStructureBase {
 				setBlockAndMetadata(world, 2 - step, 20 + step, k1, stairBlock, 0);
 			}
 		}
-		placeWallBanner(world, -2, 15, 0, GOTItemBanner.BannerType.GOLDENCOMPANY, 3);
-		placeWallBanner(world, 2, 15, 0, GOTItemBanner.BannerType.GOLDENCOMPANY, 1);
-		placeWallBanner(world, 0, 15, -2, GOTItemBanner.BannerType.GOLDENCOMPANY, 2);
-		placeWallBanner(world, 0, 15, 2, GOTItemBanner.BannerType.GOLDENCOMPANY, 0);
+		placeWallBanner(world, -2, 15, 0, GOTItemBanner.BannerType.VICTARION, 3);
+		placeWallBanner(world, 2, 15, 0, GOTItemBanner.BannerType.VICTARION, 1);
+		placeWallBanner(world, 0, 15, -2, GOTItemBanner.BannerType.VICTARION, 2);
+		placeWallBanner(world, 0, 15, 2, GOTItemBanner.BannerType.VICTARION, 0);
 		for (j1 = 24; j1 <= 25; ++j1) {
-			setBlockAndMetadata(world, 1, j1, 0, Blocks.wool, 10);
-			setBlockAndMetadata(world, 2, j1, 1, Blocks.wool, 10);
-			setBlockAndMetadata(world, 2, j1, 2, Blocks.wool, 10);
-			setBlockAndMetadata(world, 3, j1, 3, Blocks.wool, 10);
+			setBlockAndMetadata(world, 1, j1, 0, Blocks.wool, 15);
+			setBlockAndMetadata(world, 2, j1, 1, Blocks.wool, 15);
+			setBlockAndMetadata(world, 2, j1, 2, Blocks.wool, 15);
+			setBlockAndMetadata(world, 3, j1, 3, Blocks.wool, 15);
 		}
 		GOTEntityNPCRespawner respawner = new GOTEntityNPCRespawner(world);
-		respawner.setSpawnClasses(GOTEntityGoldenSpearman.class, GOTEntityGoldenWarrior.class);
-		respawner.setCheckRanges(24, -12, 20, 8);
-		respawner.setSpawnRanges(4, -4, 4, 16);
+		respawner.setSpawnClasses(GOTEntityIronbornSoldier.class, GOTEntityIronbornSoldierArcher.class);
+		respawner.setCheckRanges(80, -12, 0, 30);
+		respawner.setSpawnRanges(80, -12, 0, 80);
+		respawner.setSpawnInterval(1);
+		respawner.setNoPlayerRange(80);
 		placeNPCRespawner(respawner, world, 0, 0, 0);
 		return true;
 	}

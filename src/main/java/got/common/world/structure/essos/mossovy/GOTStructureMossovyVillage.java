@@ -19,8 +19,6 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 
 	public GOTStructureMossovyVillage(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 5;
 		fixedVillageChunkRadius = 5;
@@ -33,6 +31,7 @@ public class GOTStructureMossovyVillage extends GOTVillageGen {
 
 	public GOTStructureMossovyVillage setIsFort() {
 		isFort = true;
+		villageChunkRadius = 2;
 		fixedVillageChunkRadius = 2;
 		return this;
 	}

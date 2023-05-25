@@ -31,7 +31,6 @@ public abstract class GOTBiomeWesteros extends GOTBiome {
 		decorator.addTree(GOTTreeType.BEECH_PARTY, 2);
 		decorator.addTree(GOTTreeType.OAK, 1000);
 		decorator.addTree(GOTTreeType.OAK_TALLER, 12);
-		decorator.addTree(GOTTreeType.OAK_GIANT, 2);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 300);
 		decorator.addTree(GOTTreeType.BIRCH, 50);
 		decorator.addTree(GOTTreeType.BIRCH_LARGE, 20);

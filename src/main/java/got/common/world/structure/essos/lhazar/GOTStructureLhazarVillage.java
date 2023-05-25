@@ -20,8 +20,6 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 
 	public GOTStructureLhazarVillage(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 5;
 		fixedVillageChunkRadius = 5;
@@ -34,6 +32,7 @@ public class GOTStructureLhazarVillage extends GOTVillageGen {
 
 	public GOTStructureLhazarVillage setIsTown() {
 		isTown = true;
+		villageChunkRadius = 7;
 		fixedVillageChunkRadius = 7;
 		return this;
 	}

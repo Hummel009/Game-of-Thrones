@@ -17,8 +17,6 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 
 	public GOTStructureSummerVillage(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 4;
 		fixedVillageChunkRadius = 4;
@@ -31,6 +29,8 @@ public class GOTStructureSummerVillage extends GOTVillageGen {
 
 	public GOTStructureSummerVillage setIsRuined() {
 		isRuinedVillage = true;
+		villageChunkRadius = 4;
+		fixedVillageChunkRadius = 4;
 		return this;
 	}
 

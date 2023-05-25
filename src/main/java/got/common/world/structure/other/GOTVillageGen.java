@@ -23,8 +23,8 @@ public abstract class GOTVillageGen {
 	public static double SQRT2 = 1.4142135623730951;
 	public GOTBiome villageBiome;
 	public List<BiomeGenBase> spawnBiomes;
-	public int gridScale;
-	public int gridRandomDisplace;
+	public int gridScale = 7;
+	public int gridRandomDisplace = 1;
 	public float spawnChance;
 	public int villageChunkRadius;
 	public int fixedVillageChunkRadius;
@@ -60,7 +60,7 @@ public abstract class GOTVillageGen {
 		if (!hasFixedSettlements(world)) {
 			return false;
 		}
-		int checkRange = fixedVillageChunkRadius + 2;
+		int checkRange = fixedVillageChunkRadius + 1;
 		checkRange <<= 4;
 		for (LocationInfo loc : fixedLocations) {
 			int dx = Math.abs(loc.posX - i);

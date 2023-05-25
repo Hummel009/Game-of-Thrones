@@ -13,8 +13,6 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 
 	public GOTStructureSothoryosVillage(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 3;
 		fixedVillageChunkRadius = 3;
@@ -26,8 +24,9 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 	}
 
 	public GOTStructureSothoryosVillage setIsPyramid() {
-		fixedVillageChunkRadius = 3;
 		isPyramid = true;
+		villageChunkRadius = 3;
+		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
@@ -46,7 +45,7 @@ public class GOTStructureSothoryosVillage extends GOTVillageGen {
 		public void addVillageStructures(Random random) {
 			switch (villageType) {
 				case PYRAMID:
-					addStructure(new GOTStructureSothoryosPyramid(false), 20, 0, 0, true);
+					addStructure(new GOTStructureSothoryosPyramid(false), 0, 0, 0, true);
 					break;
 				case VILLAGE:
 					setupVillage(random);

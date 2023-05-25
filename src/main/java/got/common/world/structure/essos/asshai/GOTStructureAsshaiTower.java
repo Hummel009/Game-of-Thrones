@@ -151,14 +151,14 @@ public class GOTStructureAsshaiTower extends GOTStructureAsshaiBase {
 				placeSkull(world, random, 0, sectionBase + 3, 0);
 			}
 			for (j1 = sectionBase + 1; j1 <= sectionBase + 5; ++j1) {
-				setBlockAndMetadata(world, -2, j1, -5, GOTRegistry.planks1, 3);
-				setBlockAndMetadata(world, 2, j1, -5, GOTRegistry.planks1, 3);
-				setBlockAndMetadata(world, 5, j1, -2, GOTRegistry.planks1, 3);
-				setBlockAndMetadata(world, 5, j1, 2, GOTRegistry.planks1, 3);
-				setBlockAndMetadata(world, -3, j1, 4, GOTRegistry.planks1, 3);
-				setBlockAndMetadata(world, 3, j1, 4, GOTRegistry.planks1, 3);
-				setBlockAndMetadata(world, -5, j1, -2, GOTRegistry.planks1, 3);
-				setBlockAndMetadata(world, -5, j1, 2, GOTRegistry.planks1, 3);
+				setBlockAndMetadata(world, -2, j1, -5, GOTRegistry.pillar1, 7);
+				setBlockAndMetadata(world, 2, j1, -5, GOTRegistry.pillar1, 7);
+				setBlockAndMetadata(world, 5, j1, -2, GOTRegistry.pillar1, 7);
+				setBlockAndMetadata(world, 5, j1, 2, GOTRegistry.pillar1, 7);
+				setBlockAndMetadata(world, -3, j1, 4, GOTRegistry.pillar1, 7);
+				setBlockAndMetadata(world, 3, j1, 4, GOTRegistry.pillar1, 7);
+				setBlockAndMetadata(world, -5, j1, -2, GOTRegistry.pillar1, 7);
+				setBlockAndMetadata(world, -5, j1, 2, GOTRegistry.pillar1, 7);
 			}
 			setBlockAndMetadata(world, -3, sectionBase + 4, 3, GOTRegistry.asshaiTorch, 4);
 			setBlockAndMetadata(world, 3, sectionBase + 4, 3, GOTRegistry.asshaiTorch, 4);

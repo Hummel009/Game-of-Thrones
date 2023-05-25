@@ -20,11 +20,9 @@ public class GOTStructureReachCity extends GOTVillageGen {
 
 	public GOTStructureReachCity(GOTBiome biome, float f) {
 		super(biome);
-		gridScale = 12;
-		gridRandomDisplace = 1;
 		spawnChance = f;
 		villageChunkRadius = 6;
-		fixedVillageChunkRadius = 5;
+		fixedVillageChunkRadius = 6;
 	}
 
 	@Override
@@ -34,12 +32,14 @@ public class GOTStructureReachCity extends GOTVillageGen {
 
 	public GOTStructureReachCity setIsCastle() {
 		isCastle = true;
+		villageChunkRadius = 3;
 		fixedVillageChunkRadius = 3;
 		return this;
 	}
 
 	public GOTStructureReachCity setIsTown() {
 		isTown = true;
+		villageChunkRadius = 6;
 		fixedVillageChunkRadius = 6;
 		return this;
 	}
