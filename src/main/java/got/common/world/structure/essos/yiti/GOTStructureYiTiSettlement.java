@@ -80,7 +80,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					setupGate(random);
 					break;
 				case TOWER:
-					addStructure(new GOTStructureYiTiLighthouse(), 0, 0, 0, true);
+					addStructure(new GOTStructureYiTiLighthouse(), 10, -10, 2, true);
 					break;
 			}
 		}

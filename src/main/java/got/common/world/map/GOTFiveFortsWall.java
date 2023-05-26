@@ -43,9 +43,9 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 						if (fences) {
 							setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.fence, 3);
 						} else {
-							setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.brick2, 11);
+							setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.brick1, 0);
 							if (wallEdge && j1 == wallTop) {
-								setBlockAndMetadata(world, i1, j1 + 1, k1, GOTRegistry.wallStone2, 10);
+								setBlockAndMetadata(world, i1, j1 + 1, k1, GOTRegistry.wallStone1, 1);
 							}
 						}
 						Block below = getBlock(world, i1, j1 - 1, k1);
