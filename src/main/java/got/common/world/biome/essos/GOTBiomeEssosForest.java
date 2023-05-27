@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.variant.GOTBiomeVariant;
 
 public class GOTBiomeEssosForest extends GOTBiomeEssos {
@@ -11,10 +9,7 @@ public class GOTBiomeEssosForest extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		decorator.treesPerChunk = 10;
-	}
-
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("essosForest");
+		npcSpawnList.clear();
+		invasionSpawns.clearInvasions();
 	}
 }

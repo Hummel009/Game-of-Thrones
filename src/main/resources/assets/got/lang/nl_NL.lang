@@ -1547,10 +1547,10 @@ got.attribute.desc=Beloning voor het bereiken van 100 reputatie punten met deze 
 got.biome.alwaysWinter.name=Lands van Always Winter
 got.biome.arryn.name=Vallei van Arryn
 got.biome.arrynBaelish.name=De vingers
-got.biome.arrynForest.name=Uitlopers van de maan
+got.biome.arrynMountainsFoothills.name=Uitlopers van de maan
 got.biome.arrynMountains.name=Lunaire Bergen
 got.biome.arrynTown.name=Gull Stad
-got.biome.astapor.name=Astapor
+got.biome.ghiscarAstapor.name=Astapor
 got.biome.beach.name=Strand
 got.biome.beachGravel.name=Grind Strand
 got.biome.beachWhite.name=Wit Strand
@@ -1570,15 +1570,15 @@ got.biome.dorneDesert.name=Dorne-woestijn
 got.biome.dorneMountains.name=Rode bergen
 got.biome.dorneValley.name=Dorne Valley
 got.biome.doshKhalin.name=Moeder van de bergen
-got.biome.dothrakiHills.name≠Dothraki Sea Hills
+got.biome.dothrakiSeaHills.name≠Dothraki Sea Hills
 got.biome.dothrakiSea.name=Dothraki Zee
 got.biome.dragonstone.name=Drakensteen
 got.biome.essos.name=Onbewoonde gebieden
 got.biome.essosForest.name=Essos bossen
 got.biome.essosHills.name=Norvoss Hills
 got.biome.essosMountains.name=Essos-gebergte
-got.biome.farNorthSnowy.name=Besneeuwde woestenij
-got.biome.fireField.name=Hoge tuin
+got.biome.westerosFrost.name=Besneeuwde woestenij
+got.biome.reachFireField.name=Hoge tuin
 got.biome.freeCities.name=Land van vrije steden
 got.biome.frostfangs.name=Frostfangs
 got.biome.ghiscar.name=Ghiscar Bay
@@ -1594,7 +1594,7 @@ got.biome.ibbenTaiga.name=Bos van Ibben
 got.biome.ifekevronForest.name=Ifekevron-bos
 got.biome.ironborn.name=IJzeren eilanden
 got.biome.ironbornHills.name=Ijzere Heuvels
-got.biome.irontree.name=Forrester's Forest
+got.biome.northForestIrontree.name=Forrester's Forest
 got.biome.island.name=Eiland
 got.biome.isleOfFaces.name=Isle van Faces
 got.biome.jogosNhai.name=Jogos Nhai Plains
@@ -1610,7 +1610,7 @@ got.biome.lorathMaze.name≠Maze of Lorath
 got.biome.lys.name=Lys
 got.biome.massy.name=Massy's Hook
 got.biome.massyHills.name≠Massy's Hills
-got.biome.meereen.name=Meereen
+got.biome.ghiscarMeereen.name=Meereen
 got.biome.disputedLands.name=Betwiste landen
 got.biome.mossovy.name=Mossovy
 got.biome.mossovyForest.name≠Mossovy Taiga
@@ -1620,7 +1620,7 @@ got.biome.mossovyTundra.name=Mossovy-toendra
 got.biome.myr.name=Myr
 got.biome.naath.name=Naath
 got.biome.neck.name=Noorden-moerassen
-got.biome.newGhis.name≠New Ghis
+got.biome.ghiscarNewGhis.name≠New Ghis
 got.biome.north.name=Noorden
 got.biome.northBarrows.name=Kruiwagens
 got.biome.northForest.name=Noorden Forest
@@ -1643,8 +1643,8 @@ got.biome.reach.name=Bereiken
 got.biome.reachArbor.name=Prieel
 got.biome.reachHills.name≠Reach Hills
 got.biome.reachTown.name=Oude stad
-got.biome.redMesa.name=Rood plateau
-got.biome.redSea.name=Bloedige zee
+got.biome.dorneMesa.name=Rood plateau
+got.biome.bleedingSea.name=Bloedige zee
 got.biome.river.name=Rivier
 got.biome.riverlands.name=Rivierlanden
 got.biome.riverlandsHills.name=Broederschap-zonder-Vlaggen Bos
@@ -1664,7 +1664,7 @@ got.biome.sothoryosFrost.name=Sothoryos Polar Sphere
 got.biome.sothoryosHell.name=Groene Hel
 got.biome.sothoryosJungle.name=Sothoryos Jungle
 got.biome.sothoryosJungleEdge.name=Rand van Sothoryos Jungle
-got.biome.sothoryosKanuka.name=Sothoryos Kanuka
+got.biome.sothoryosForest.name=Sothoryos Kanuka
 got.biome.sothoryosMangrove.name=Sothoryos Mangrove
 got.biome.sothoryosMountains.name=Sothoryos-gebergte
 got.biome.sothoryosSavannah.name=Sothoryos Savannah
@@ -1676,8 +1676,8 @@ got.biome.stormlandsTown.name=Kaap Durran
 got.biome.summerColony.name≠Summer Islands Colony
 got.biome.summerColonyMangrove.name≠Summer Islands Mangrove Colony
 got.biome.summerIslands.name=Zomer eilanden
-got.biome.tarth.name=Tarth
-got.biome.thenn.name=Thenn Land
+got.biome.stormlandsTarth.name=Tarth
+got.biome.thennLand.name=Thenn Land
 got.biome.tropicalForest.name=Tropische bossen
 got.biome.tyrosh.name=Tyrosh
 got.biome.ulos.name≠Ulos
@@ -1698,7 +1698,7 @@ got.biome.valyria.name=Valyria-schiereiland
 got.biome.valyriaSea.name=Valyria-zee
 got.biome.valyriaVolcano.name=Valyria-vulkanen
 got.biome.volantis.name=Volantis
-got.biome.volantisForest.name=Oranje kust
+got.biome.volantisOrangeForest.name=Oranje kust
 got.biome.volantisMarshes.name=Selhoru-vallei
 got.biome.westerlands.name=Westlanden
 got.biome.westerlandsHills.name=Westlanden Hills
@@ -1714,7 +1714,7 @@ got.biome.yeen.name=Yeen Wasteland
 got.biome.yiTi.name=Yi Ti
 got.biome.yiTiMarshes.name≠Yi Ti Marshes
 got.biome.yiTiWasteland.name=Yi Ti grenszone
-got.biome.yunkai.name=Yunkai
+got.biome.ghiscarYunkai.name=Yunkai
 got.capes.ARRYN.name=Kaap van Vallei van Arryn
 got.capes.ARRYNGUARD.name=Kaap van Arryn Guard
 got.capes.ASSHAI.name=Kaap van Asshai

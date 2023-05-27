@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -28,8 +26,4 @@ public class GOTBiomeYiTiWasteland extends GOTBiomeYiTi {
 		return GOTAchievement.enterYiTiWasteland;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("yiTiWasteland");
-	}
 }

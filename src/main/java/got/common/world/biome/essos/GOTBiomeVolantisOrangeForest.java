@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -29,18 +27,13 @@ public class GOTBiomeVolantisOrangeForest extends GOTBiomeVolantis {
 		decorator.addTree(GOTTreeType.ORANGE, 730);
 		decorator.addTree(GOTTreeType.ASPEN, 100);
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
-		decorator.clearSettlements();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
 	}
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterVolantisForest;
+		return GOTAchievement.enterVolantisOrangeForest;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("volantisForest");
-	}
 }

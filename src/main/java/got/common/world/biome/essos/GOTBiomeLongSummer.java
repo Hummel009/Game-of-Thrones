@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -34,10 +32,6 @@ public class GOTBiomeLongSummer extends GOTBiomeEssos {
 		return GOTAchievement.enterLongSummer;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("longSummer");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {

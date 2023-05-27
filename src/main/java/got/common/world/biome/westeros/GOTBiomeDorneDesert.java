@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import got.common.database.GOTSpawnList;
@@ -114,10 +112,6 @@ public class GOTBiomeDorneDesert extends GOTBiomeDorne implements GOTBiome.Deser
 		return GOTAchievement.enterDorneDesert;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("dorneDesert");
-	}
 
 	@Override
 	public float getChanceToSpawnAnimals() {

@@ -1,8 +1,6 @@
 package got.common.world.biome.essos;
 
 import got.GOT;
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -62,8 +60,4 @@ public class GOTBiomeLorathMaze extends GOTBiomeLorath {
 		topBlockMeta = topBlockMeta_pre;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("lorathMaze");
-	}
 }

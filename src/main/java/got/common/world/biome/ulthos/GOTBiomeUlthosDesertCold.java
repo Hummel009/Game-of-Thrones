@@ -1,7 +1,5 @@
 package got.common.world.biome.ulthos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 
 public class GOTBiomeUlthosDesertCold extends GOTBiomeUlthosDesert {
@@ -16,8 +14,4 @@ public class GOTBiomeUlthosDesertCold extends GOTBiomeUlthosDesert {
 		return GOTAchievement.enterUlthosDesertCold;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ULTHOS.getSubregion("ulthosDesertCold");
-	}
 }

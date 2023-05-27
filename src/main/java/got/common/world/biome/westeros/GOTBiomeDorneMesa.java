@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -191,10 +189,6 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 		return GOTAchievement.enterDorneMesa;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("halfLife");
-	}
 
 	public byte levelGenerator(int a, int b, int c) {
 		int l = (int) Math.round(noise3.func_151601_a(a * 1.0D / 512.0D, a * 1.0D / 512.0D) * 2.0D);

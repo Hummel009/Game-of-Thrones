@@ -74,8 +74,9 @@ public class GOTBiomeOcean extends GOTBiome {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.OCEAN.getSubregion("ocean");
+		return GOTBiomeMusic.OCEAN.getSubregion(biomeName);
 	}
+
 
 	@Override
 	public Region getBiomeWaypoints() {

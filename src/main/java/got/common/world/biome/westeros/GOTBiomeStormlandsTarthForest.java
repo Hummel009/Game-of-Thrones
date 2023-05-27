@@ -1,12 +1,10 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 
-public class GOTBiomeTarthForest extends GOTBiomeTarth {
-	public GOTBiomeTarthForest(int i, boolean major) {
+public class GOTBiomeStormlandsTarthForest extends GOTBiomeStormlandsTarth {
+	public GOTBiomeStormlandsTarthForest(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
 		clearBiomeVariants();
@@ -34,10 +32,8 @@ public class GOTBiomeTarthForest extends GOTBiomeTarth {
 		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
 		decorator.addTree(GOTTreeType.ASPEN, 100);
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
+		npcSpawnList.clear();
+		invasionSpawns.clearInvasions();
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("tarthForest");
-	}
 }

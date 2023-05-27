@@ -2,7 +2,7 @@ package got.common.world.genlayer;
 
 import got.common.GOTDimension;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.essos.GOTBiomeRedBeach;
+import got.common.world.biome.essos.GOTBiomeBleedingBeach;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
@@ -33,8 +33,8 @@ public class GOTGenLayerRedBeach extends GOTGenLayer {
 					int biome3 = biomes[i1 + 1 - 1 + (k1 + 1) * (xSize + 2)];
 					int biome4 = biomes[i1 + 1 + (k1 + 1 + 1) * (xSize + 2)];
 					if (biome1 == targetBiome.biomeID || biome2 == targetBiome.biomeID || biome3 == targetBiome.biomeID || biome4 == targetBiome.biomeID) {
-						if (!(biome instanceof GOTBiomeRedBeach)) {
-							newBiomeID = GOTBiome.beachRed.biomeID;
+						if (!(biome instanceof GOTBiomeBleedingBeach)) {
+							newBiomeID = GOTBiome.bleedingBeach.biomeID;
 						}
 					}
 				}

@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -15,6 +13,7 @@ public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 	public GOTBiomeIfekevronForest(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
+		invasionSpawns.clearInvasions();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IFEKEVRON, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
@@ -26,9 +25,5 @@ public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 		return GOTAchievement.enterIfekevron;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("ifekevronForest");
-	}
 
 }

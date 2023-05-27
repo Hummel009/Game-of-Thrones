@@ -90,7 +90,7 @@ public class GOTAchievement {
 	public static GOTAchievement enterLongSummer;
 	public static GOTAchievement enterLorath;
 	public static GOTAchievement enterLys;
-	public static GOTAchievement enterMercenary;
+	public static GOTAchievement enterDisputedLands;
 	public static GOTAchievement enterMossovy;
 	public static GOTAchievement enterMossovyMarshes;
 	public static GOTAchievement enterMossovySopkas;
@@ -110,7 +110,7 @@ public class GOTAchievement {
 	public static GOTAchievement enterQohorForest;
 	public static GOTAchievement enterReach;
 	public static GOTAchievement enterReachTown;
-	public static GOTAchievement enterRedSea;
+	public static GOTAchievement enterBleedingSea;
 	public static GOTAchievement enterRiverlands;
 	public static GOTAchievement enterShadowLand;
 	public static GOTAchievement enterShadowMountains;
@@ -130,8 +130,8 @@ public class GOTAchievement {
 	public static GOTAchievement enterStoneCoast;
 	public static GOTAchievement enterStormlands;
 	public static GOTAchievement enterSummerIslands;
-	public static GOTAchievement enterTarth;
-	public static GOTAchievement enterThenn;
+	public static GOTAchievement enterStormlandsTarth;
+	public static GOTAchievement enterThennLand;
 	public static GOTAchievement enterTropicalForest;
 	public static GOTAchievement enterTyrosh;
 	public static GOTAchievement enterUlthos;
@@ -140,7 +140,7 @@ public class GOTAchievement {
 	public static GOTAchievement enterValyria;
 	public static GOTAchievement enterValyriaVolcano;
 	public static GOTAchievement enterVolantis;
-	public static GOTAchievement enterVolantisForest;
+	public static GOTAchievement enterVolantisOrangeForest;
 	public static GOTAchievement enterWesterlands;
 	public static GOTAchievement enterWesterlandsHills;
 	public static GOTAchievement enterWesterlandsTown;
@@ -576,7 +576,7 @@ public class GOTAchievement {
 		enterLongSummer = new GOTAchievement(Category.VISIT, id++, Blocks.fire, "VISIT_LONG_SUMMER");
 		enterLorath = new GOTAchievement(Category.VISIT, id++, GOTRegistry.lorathHelmet, "VISIT_LORATH");
 		enterLys = new GOTAchievement(Category.VISIT, id++, GOTRegistry.lysHelmet, "VISIT_LYS");
-		enterMercenary = new GOTAchievement(Category.VISIT, id++, GOTRegistry.goldHelmet, "VISIT_MERCENARY");
+		enterDisputedLands = new GOTAchievement(Category.VISIT, id++, GOTRegistry.goldHelmet, "VISIT_MERCENARY");
 		enterMossovy = new GOTAchievement(Category.VISIT, id++, GOTRegistry.mossovySword, "VISIT_MOSSOVY");
 		enterMossovyMarshes = new GOTAchievement(Category.VISIT, id++, GOTRegistry.reeds, "VISIT_MOSSOVY_MARSHES");
 		enterMossovySopkas = new GOTAchievement(Category.VISIT, id++, Blocks.stone, "VISIT_MOSSOVY_SOPKAS");
@@ -596,7 +596,7 @@ public class GOTAchievement {
 		enterQohorForest = new GOTAchievement(Category.VISIT, id++, GOTRegistry.qohorHelmet, "VISIT_QOHOR_FOREST");
 		enterReach = new GOTAchievement(Category.VISIT, id++, GOTRegistry.reachHelmet, "VISIT_REACH");
 		enterReachTown = new GOTAchievement(Category.VISIT, id++, GOTRegistry.reachguardHelmet, "VISIT_REACH_TOWN");
-		enterRedSea = new GOTAchievement(Category.VISIT, id++, GOTRegistry.bronzeSword, "VISIT_RED_SEA");
+		enterBleedingSea = new GOTAchievement(Category.VISIT, id++, GOTRegistry.bronzeSword, "VISIT_RED_SEA");
 		enterRiverlands = new GOTAchievement(Category.VISIT, id++, GOTRegistry.riverlandsHelmet, "VISIT_RIVERLANDS");
 		enterShadowLand = new GOTAchievement(Category.VISIT, id++, GOTRegistry.asshaiFlower, "VISIT_SHADOW_LAND");
 		enterShadowMountains = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTRegistry.rock, 1, 0), "VISIT_SHADOW_MOUNTAINS");
@@ -616,8 +616,8 @@ public class GOTAchievement {
 		enterStoneCoast = new GOTAchievement(Category.VISIT, id++, GOTRegistry.westerosDaggerPoisoned, "VISIT_STONE_COAST");
 		enterStormlands = new GOTAchievement(Category.VISIT, id++, GOTRegistry.stormlandsHelmet, "VISIT_STORMLANDS");
 		enterSummerIslands = new GOTAchievement(Category.VISIT, id++, GOTRegistry.summerHelmet, "VISIT_SUMMER_ISLANDS");
-		enterTarth = new GOTAchievement(Category.VISIT, id++, GOTRegistry.whiteSandstone, "VISIT_TARTH");
-		enterThenn = new GOTAchievement(Category.VISIT, id++, GOTRegistry.wildlingBattleaxe, "VISIT_THENN");
+		enterStormlandsTarth = new GOTAchievement(Category.VISIT, id++, GOTRegistry.whiteSandstone, "VISIT_TARTH");
+		enterThennLand = new GOTAchievement(Category.VISIT, id++, GOTRegistry.wildlingBattleaxe, "VISIT_THENN");
 		enterTropicalForest = new GOTAchievement(Category.VISIT, id++, GOTRegistry.yitiHelmetShogune, "VISIT_TROPICAL_FOREST");
 		enterTyrosh = new GOTAchievement(Category.VISIT, id++, GOTRegistry.tyroshHelmet, "VISIT_TYROSH");
 		enterUlthos = new GOTAchievement(Category.VISIT, id++, Blocks.web, "VISIT_ULTHOS");
@@ -627,7 +627,7 @@ public class GOTAchievement {
 		enterShrykesLand = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTRegistry.deadMarshPlant), "VISIT_SHRYKES_LAND");
 		enterValyriaVolcano = new GOTAchievement(Category.VISIT, id++, Blocks.lava, "VISIT_VALYRIA_VOLCANO");
 		enterVolantis = new GOTAchievement(Category.VISIT, id++, GOTRegistry.volantisHelmet, "VISIT_VOLANTIS");
-		enterVolantisForest = new GOTAchievement(Category.VISIT, id++, GOTRegistry.orange, "VISIT_VOLANTIS_FOREST");
+		enterVolantisOrangeForest = new GOTAchievement(Category.VISIT, id++, GOTRegistry.orange, "VISIT_VOLANTIS_FOREST");
 		enterWesterlands = new GOTAchievement(Category.VISIT, id++, GOTRegistry.westerlandsHelmet, "VISIT_WESTERLANDS");
 		enterWesterlandsHills = new GOTAchievement(Category.VISIT, id++, Blocks.gold_ore, "VISIT_WESTERLANDS_HILLS");
 		enterWesterlandsTown = new GOTAchievement(Category.VISIT, id++, GOTRegistry.westerlandsguardHelmet, "VISIT_WESTERLANDS_TOWN");

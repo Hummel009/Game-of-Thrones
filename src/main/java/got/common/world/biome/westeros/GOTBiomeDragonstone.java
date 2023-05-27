@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTRegistry;
@@ -89,10 +87,6 @@ public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 		return GOTAchievement.enterDragonstone;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("dragonstone");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {

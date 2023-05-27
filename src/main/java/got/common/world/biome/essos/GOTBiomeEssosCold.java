@@ -1,5 +1,6 @@
 package got.common.world.biome.essos;
 
+import got.client.sound.GOTBiomeMusic;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -37,6 +38,11 @@ public abstract class GOTBiomeEssosCold extends GOTBiome {
 		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
+	}
+
+	@Override
+	public GOTBiomeMusic.MusicRegion getBiomeMusic() {
+		return GOTBiomeMusic.ESSOS.getSubregion(biomeName);
 	}
 
 	@Override

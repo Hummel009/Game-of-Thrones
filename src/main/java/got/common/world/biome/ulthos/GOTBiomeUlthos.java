@@ -88,14 +88,15 @@ public class GOTBiomeUlthos extends GOTBiome {
 	}
 
 	@Override
+	public MusicRegion getBiomeMusic() {
+		return GOTBiomeMusic.ULTHOS.getSubregion(biomeName);
+	}
+
+	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterUlthos;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ULTHOS.getSubregion("ulthos");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {

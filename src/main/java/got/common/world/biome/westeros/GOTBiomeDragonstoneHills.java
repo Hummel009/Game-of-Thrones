@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 
@@ -31,10 +29,5 @@ public class GOTBiomeDragonstoneHills extends GOTBiomeDragonstone {
 		decorator.addTree(GOTTreeType.BIRCH_DEAD, 3);
 		decorator.addTree(GOTTreeType.ASPEN, 100);
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
-	}
-
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("massy");
 	}
 }

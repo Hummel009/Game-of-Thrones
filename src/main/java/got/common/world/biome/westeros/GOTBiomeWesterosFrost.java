@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBezierType;
@@ -27,10 +25,6 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
 		return GOTAchievement.enterFarNorth;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("farNorthSnowy");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {

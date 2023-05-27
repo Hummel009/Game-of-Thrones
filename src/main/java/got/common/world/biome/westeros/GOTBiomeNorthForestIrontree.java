@@ -1,12 +1,10 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.feature.GOTTreeType;
 
-public class GOTBiomeIrontree extends GOTBiomeNorthForest {
-	public GOTBiomeIrontree(int i, boolean major) {
+public class GOTBiomeNorthForestIrontree extends GOTBiomeNorthForest {
+	public GOTBiomeNorthForestIrontree(int i, boolean major) {
 		super(i, major);
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.REDWOOD, 10000);
@@ -19,10 +17,5 @@ public class GOTBiomeIrontree extends GOTBiomeNorthForest {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterIrontree;
-	}
-
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("irontree");
 	}
 }

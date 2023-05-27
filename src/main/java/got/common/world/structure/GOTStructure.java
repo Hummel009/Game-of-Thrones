@@ -402,7 +402,7 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureSothoryosSmithy.class, GOTFaction.SOTHORYOS);
 
 		GOTStructureRegistry.register(id++, new GOTStructureWildlingSettlement(GOTBiome.hauntedForest, 1.0f), "WildlingVillage", GOTFaction.WILDLING, (ISettlementProperties<GOTStructureWildlingSettlement.Instance>) instance -> instance.type = GOTStructureWildlingSettlement.Type.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureWildlingSettlement(GOTBiome.thenn, 1.0f).setIsThenn(), "ThennVillage", GOTFaction.WILDLING, (ISettlementProperties<GOTStructureWildlingSettlement.Instance>) instance -> instance.type = GOTStructureWildlingSettlement.Type.THENN);
+		GOTStructureRegistry.register(id++, new GOTStructureWildlingSettlement(GOTBiome.thennLand, 1.0f).setIsThenn(), "ThennVillage", GOTFaction.WILDLING, (ISettlementProperties<GOTStructureWildlingSettlement.Instance>) instance -> instance.type = GOTStructureWildlingSettlement.Type.THENN);
 
 		GOTStructureRegistry.register(id++, new GOTStructureGiftSettlement(GOTBiome.giftNew, 1.0f), "GiftVillage", GOTFaction.NIGHT_WATCH, (ISettlementProperties<GOTStructureGiftSettlement.Instance>) instance -> instance.type = GOTStructureGiftSettlement.Type.VILLAGE);
 

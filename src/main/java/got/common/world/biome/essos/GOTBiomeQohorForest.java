@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -18,7 +16,6 @@ public class GOTBiomeQohorForest extends GOTBiomeQohor {
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 2;
 		decorator.whiteSand = true;
-		decorator.clearSettlements();
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.BEECH_PARTY, 2);
 		decorator.addTree(GOTTreeType.OAK, 300);
@@ -42,8 +39,4 @@ public class GOTBiomeQohorForest extends GOTBiomeQohor {
 		return GOTAchievement.enterQohorForest;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("qohorForest");
-	}
 }

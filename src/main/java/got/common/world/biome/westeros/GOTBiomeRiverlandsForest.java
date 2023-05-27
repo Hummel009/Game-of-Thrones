@@ -1,9 +1,6 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.variant.GOTBiomeVariant;
-import got.common.world.feature.GOTTreeType;
 
 public class GOTBiomeRiverlandsForest extends GOTBiomeRiverlands {
 	public GOTBiomeRiverlandsForest(int i, boolean major) {
@@ -17,10 +14,8 @@ public class GOTBiomeRiverlandsForest extends GOTBiomeRiverlands {
 		decorator.grassPerChunk = 8;
 		decorator.doubleGrassPerChunk = 2;
 		decorator.whiteSand = true;
+		npcSpawnList.clear();
+		invasionSpawns.clearInvasions();
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("riverlandsForest");
-	}
 }

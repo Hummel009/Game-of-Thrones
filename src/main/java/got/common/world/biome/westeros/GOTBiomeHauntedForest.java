@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.entity.animal.GOTEntityDirewolf;
@@ -53,10 +51,6 @@ public class GOTBiomeHauntedForest extends GOTBiomeWesteros {
 		return GOTAchievement.enterHauntedForest;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("hauntedForest");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {

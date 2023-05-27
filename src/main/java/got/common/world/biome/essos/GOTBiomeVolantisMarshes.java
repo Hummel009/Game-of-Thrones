@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -37,8 +35,4 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("volantisMarshes");
-	}
 }

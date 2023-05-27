@@ -1,7 +1,5 @@
 package got.common.world.biome.ulthos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.entity.animal.GOTEntityBlizzard;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -23,10 +21,6 @@ public class GOTBiomeUlthosFrost extends GOTBiomeUlthosTaiga {
 		return GOTAchievement.enterUlthosFrost;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ULTHOS.getSubregion("ulthosFrost");
-	}
 
 	@Override
 	public boolean getEnableRiver() {

@@ -54,7 +54,7 @@ public abstract class GOTBiomeWesteros extends GOTBiome {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("westeros");
+		return GOTBiomeMusic.WESTEROS.getSubregion(biomeName);
 	}
 
 	@Override

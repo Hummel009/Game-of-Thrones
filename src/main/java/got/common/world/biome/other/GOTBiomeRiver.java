@@ -1,5 +1,6 @@
 package got.common.world.biome.other;
 
+import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTEventSpawner;
@@ -15,8 +16,9 @@ public class GOTBiomeRiver extends GOTBiome {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return null;
+		return GOTBiomeMusic.OCEAN.getSubregion(biomeName);
 	}
+
 
 	@Override
 	public boolean isRiver() {

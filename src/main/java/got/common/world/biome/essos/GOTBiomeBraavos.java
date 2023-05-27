@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
@@ -13,7 +11,6 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.essos.braavos.GOTStructureBraavosFortress;
 import got.common.world.structure.essos.braavos.GOTStructureBraavosSettlement;
-import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
 import got.common.world.structure.other.GOTStructureSmallStoneRuin;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
@@ -67,10 +64,5 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterBraavos;
-	}
-
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("braavos");
 	}
 }

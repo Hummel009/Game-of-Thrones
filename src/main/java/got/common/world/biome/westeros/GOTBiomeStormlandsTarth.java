@@ -1,13 +1,11 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
-public class GOTBiomeTarth extends GOTBiomeStormlands {
-	public GOTBiomeTarth(int i, boolean major) {
+public class GOTBiomeStormlandsTarth extends GOTBiomeStormlands {
+	public GOTBiomeStormlandsTarth(int i, boolean major) {
 		super(i, major);
 		fillerBlock = GOTRegistry.rock;
 		fillerBlockMeta = 5;
@@ -16,11 +14,7 @@ public class GOTBiomeTarth extends GOTBiomeStormlands {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterTarth;
+		return GOTAchievement.enterStormlandsTarth;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("tarth");
-	}
 }

@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.map.GOTBezierType;
 import net.minecraft.init.Blocks;
@@ -10,8 +8,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class GOTBiomeFireField extends GOTBiomeReach {
-	public GOTBiomeFireField(int i, boolean major) {
+public class GOTBiomeReachFireField extends GOTBiomeReach {
+	public GOTBiomeReachFireField(int i, boolean major) {
 		super(i, major);
 		setupStandardDomesticFauna();
 		decorator.treesPerChunk = 0;
@@ -27,10 +25,6 @@ public class GOTBiomeFireField extends GOTBiomeReach {
 		return GOTAchievement.enterFireField;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("fireField");
-	}
 
 	@Override
 	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {

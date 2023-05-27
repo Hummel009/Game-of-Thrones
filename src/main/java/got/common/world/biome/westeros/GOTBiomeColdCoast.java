@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.entity.animal.GOTEntityWalrus;
@@ -67,10 +65,6 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
 		return GOTAchievement.enterColdCoast;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("coldCoast");
-	}
 
 	@Override
 	public float getChanceToSpawnAnimals() {

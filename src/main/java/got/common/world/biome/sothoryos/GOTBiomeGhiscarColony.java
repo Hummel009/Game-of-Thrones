@@ -1,7 +1,5 @@
 package got.common.world.biome.sothoryos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -40,10 +38,6 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 		return GOTAchievement.enterGhiscarColony;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.SOTHORYOS.getSubregion("ghiscarColony");
-	}
 
 	@Override
 	public GOTBezierType getRoadBlock() {

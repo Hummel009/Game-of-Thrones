@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -17,8 +15,8 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class GOTBiomeThenn extends GOTBiomeHauntedForest {
-	public GOTBiomeThenn(int i, boolean major) {
+public class GOTBiomeThennLand extends GOTBiomeHauntedForest {
+	public GOTBiomeThennLand(int i, boolean major) {
 		super(i, major);
 		decorator.treesPerChunk = 2;
 		decorator.clearTrees();
@@ -58,13 +56,9 @@ public class GOTBiomeThenn extends GOTBiomeHauntedForest {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterThenn;
+		return GOTAchievement.enterThennLand;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("thenn");
-	}
 
 	@Override
 	public boolean getEnableRiver() {

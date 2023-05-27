@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
@@ -58,10 +56,6 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		return GOTAchievement.enterReach;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("reach");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {

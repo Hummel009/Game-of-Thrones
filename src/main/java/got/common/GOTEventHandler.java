@@ -56,7 +56,7 @@ import got.common.world.GOTTeleporter;
 import got.common.world.GOTWorldProvider;
 import got.common.world.GOTWorldType;
 import got.common.world.biome.GOTBiome;
-import got.common.world.biome.essos.GOTBiomeMeereen;
+import got.common.world.biome.essos.GOTBiomeGhiscarMeereen;
 import got.common.world.biome.essos.GOTBiomeMossovyMarshes;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
 import got.common.world.biome.essos.GOTBiomeValyria;
@@ -1237,7 +1237,7 @@ public class GOTEventHandler implements IFuelHandler {
 				int i = MathHelper.floor_double(entity.posX);
 				int k = MathHelper.floor_double(entity.posZ);
 				world.getTopSolidOrLiquidBlock(i, k);
-				if (world.rand.nextInt(chance) == 0 && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeMeereen) {
+				if (world.rand.nextInt(chance) == 0 && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeGhiscarMeereen) {
 					List<GOTEntityGhiscarHarpy> nearbyHarpies = world.getEntitiesWithinAABB(GOTEntityGhiscarHarpy.class, entity.boundingBox.expand(12.0D, 6.0D, 12.0D));
 					if (nearbyHarpies.isEmpty()) {
 						boolean sentMessage = false;

@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTWaypoint.Region;
@@ -24,10 +22,6 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("ibbenColony");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {

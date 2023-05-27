@@ -1,7 +1,5 @@
 package got.common.world.biome.sothoryos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import got.common.world.GOTWorldChunkManager;
@@ -28,6 +26,8 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 		decorator.grassPerChunk = 4;
 		decorator.doubleGrassPerChunk = 1;
 		decorator.cornPerChunk = 10;
+		npcSpawnList.clear();
+		invasionSpawns.clearInvasions();
 	}
 
 	@Override
@@ -91,10 +91,6 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 		return GOTAchievement.enterSothoryosKanuka;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.SOTHORYOS.getSubregion("sothoryosKanuka");
-	}
 
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {

@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -24,10 +22,6 @@ public class GOTBiomeGiftOld extends GOTBiomeGiftNew {
 		return GOTAchievement.enterGiftOld;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("giftOld");
-	}
 
 	@Override
 	public int getWallTop() {

@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
@@ -10,7 +8,6 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
 import got.common.world.structure.essos.volantis.GOTStructureVolantisFortress;
 import got.common.world.structure.essos.volantis.GOTStructureVolantisSettlement;
 import got.common.world.structure.other.GOTStructureStoneRuin;
@@ -65,8 +62,4 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 		return GOTAchievement.enterVolantis;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("volantis");
-	}
 }

@@ -50,13 +50,13 @@ public class GOTBiomeShadowLand extends GOTBiome {
 	}
 
 	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("shadowLand");
+	public Region getBiomeWaypoints() {
+		return Region.ASSHAI;
 	}
 
 	@Override
-	public Region getBiomeWaypoints() {
-		return Region.ASSHAI;
+	public MusicRegion getBiomeMusic() {
+		return GOTBiomeMusic.ESSOS.getSubregion(biomeName);
 	}
 
 	@Override

@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
@@ -11,7 +9,6 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
-import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
 import got.common.world.structure.essos.lys.GOTStructureLysFortress;
 import got.common.world.structure.essos.lys.GOTStructureLysSettlement;
 import got.common.world.structure.other.GOTStructureStoneRuin;
@@ -62,10 +59,6 @@ public class GOTBiomeLys extends GOTBiomeEssos {
 		return GOTAchievement.enterLys;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("lys");
-	}
 
 	@Override
 	public GOTBezierType getRoadBlock() {

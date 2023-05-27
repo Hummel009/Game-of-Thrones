@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityShadowcat;
@@ -80,8 +78,4 @@ public class GOTBiomeArrynMountains extends GOTBiomeArryn {
 		return GOTAchievement.enterArrynMountains;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("arrynMountains");
-	}
 }

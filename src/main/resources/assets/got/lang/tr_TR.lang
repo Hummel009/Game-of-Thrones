@@ -1547,10 +1547,10 @@ got.attribute.desc=Bu fraksiyonla +100 itibara Menzil  ödülü
 got.biome.alwaysWinter.name=Daima Kış Toprakları
 got.biome.arryn.name=Vadi
 got.biome.arrynBaelish.name=Parmaklar
-got.biome.arrynForest.name=Ay etekleri
+got.biome.arrynMountainsFoothills.name=Ay etekleri
 got.biome.arrynMountains.name=Ay Dağları
 got.biome.arrynTown.name=Martı Kasabası
-got.biome.astapor.name=Astapor
+got.biome.ghiscarAstapor.name=Astapor
 got.biome.beach.name=Plaj
 got.biome.beachGravel.name=Plaj
 got.biome.beachWhite.name=Plaj
@@ -1570,15 +1570,15 @@ got.biome.dorneDesert.name=Dorne Çölü
 got.biome.dorneMountains.name=Kızıl Dağlar
 got.biome.dorneValley.name=Dorne Vadisi
 got.biome.doshKhalin.name=Dağların Annesi
-got.biome.dothrakiHills.name≠Dothraki Sea Hills
+got.biome.dothrakiSeaHills.name≠Dothraki Sea Hills
 got.biome.dothrakiSea.name=Dothraki Denizi
 got.biome.dragonstone.name=Ejderha taşı
 got.biome.essos.name=Yaşanamayan Araziler
 got.biome.essosForest.name=Essos ormanları
 got.biome.essosHills.name=Norvoss Tepeleri
 got.biome.essosMountains.name=Essos Dağları
-got.biome.farNorthSnowy.name=Karlı çorak
-got.biome.fireField.name=Yüksek bahçe
+got.biome.westerosFrost.name=Karlı çorak
+got.biome.reachFireField.name=Yüksek bahçe
 got.biome.freeCities.name=Özgür Şehirlerin Toprakları
 got.biome.frostfangs.name=Buz Dişleri
 got.biome.ghiscar.name=Ghiscar Körfezi
@@ -1594,7 +1594,7 @@ got.biome.ibbenTaiga.name=İbben Ormanı
 got.biome.ifekevronForest.name=Ifekevron Ormanı
 got.biome.ironborn.name=Demir Adalar
 got.biome.ironbornHills.name=Demir Tepeler
-got.biome.irontree.name=Forrester'ın Ormanı
+got.biome.northForestIrontree.name=Forrester'ın Ormanı
 got.biome.island.name=Adalet
 got.biome.isleOfFaces.name=Yüzler Adası
 got.biome.jogosNhai.name=Jogos Nhai Ovaları
@@ -1610,7 +1610,7 @@ got.biome.lorathMaze.name≠Maze of Lorath
 got.biome.lys.name=Lys
 got.biome.massy.name=Massy'nin Kancası
 got.biome.massyHills.name≠Massy's Hills
-got.biome.meereen.name=Meereen
+got.biome.ghiscarMeereen.name=Meereen
 got.biome.disputedLands.name=İhtilaflı Topraklar
 got.biome.mossovy.name=Mossovy
 got.biome.mossovyForest.name≠Mossovy Taiga
@@ -1620,7 +1620,7 @@ got.biome.mossovyTundra.name=Mossovy tundra
 got.biome.myr.name=Mür
 got.biome.naath.name=Naath
 got.biome.neck.name=Kuzey Bataklıkları
-got.biome.newGhis.name≠New Ghis
+got.biome.ghiscarNewGhis.name≠New Ghis
 got.biome.north.name=Kuzey
 got.biome.northBarrows.name=Höyükler
 got.biome.northForest.name=Kuzey Ormanı
@@ -1643,8 +1643,8 @@ got.biome.reach.name=Menzil
 got.biome.reachArbor.name=çardak
 got.biome.reachHills.name≠Reach Hills
 got.biome.reachTown.name=Eski kasaba
-got.biome.redMesa.name=Kırmızı plato
-got.biome.redSea.name=Kanlı deniz
+got.biome.dorneMesa.name=Kırmızı plato
+got.biome.bleedingSea.name=Kanlı deniz
 got.biome.river.name=Nehir
 got.biome.riverlands.name=Nehir Toprakları
 got.biome.riverlandsHills.name=Afişsiz Kardeşlik Ormanı
@@ -1664,7 +1664,7 @@ got.biome.sothoryosFrost.name=Sothoryos Kutup Küresi
 got.biome.sothoryosHell.name=Yeşil Cehennem
 got.biome.sothoryosJungle.name=Sothoryos ormanı
 got.biome.sothoryosJungleEdge.name=Sothoryos Ormanının Kenarı
-got.biome.sothoryosKanuka.name=Sothoryos kanuka
+got.biome.sothoryosForest.name=Sothoryos kanuka
 got.biome.sothoryosMangrove.name=Sothoryos mangrov
 got.biome.sothoryosMountains.name=Sothoryos Dağları
 got.biome.sothoryosSavannah.name=Sothoryos savana
@@ -1676,8 +1676,8 @@ got.biome.stormlandsTown.name=Durran Burnu
 got.biome.summerColony.name≠Summer Islands Colony
 got.biome.summerColonyMangrove.name≠Summer Islands Mangrove Colony
 got.biome.summerIslands.name=Yaz Adaları
-got.biome.tarth.name=Tart
-got.biome.thenn.name=Sonra Arazi
+got.biome.stormlandsTarth.name=Tart
+got.biome.thennLand.name=Sonra Arazi
 got.biome.tropicalForest.name=Tropikal ormanlar
 got.biome.tyrosh.name=Tiroş
 got.biome.ulos.name=Ulolar
@@ -1698,7 +1698,7 @@ got.biome.valyria.name=Valyria Yarımadası
 got.biome.valyriaSea.name=Valyria Denizi
 got.biome.valyriaVolcano.name=Valyria Volkanları
 got.biome.volantis.name=Volantis
-got.biome.volantisForest.name=Turuncu Sahil
+got.biome.volantisOrangeForest.name=Turuncu Sahil
 got.biome.volantisMarshes.name=Selhoru Vadisi
 got.biome.westerlands.name=Batı Toprakları
 got.biome.westerlandsHills.name=Batı Toprakları Tepeleri
@@ -1714,7 +1714,7 @@ got.biome.yeen.name=Yeen Çorak
 got.biome.yiTi.name=Yi Ti
 got.biome.yiTiMarshes.name≠Yi Ti Marshes
 got.biome.yiTiWasteland.name=Yi Ti Sınır Bölgesi
-got.biome.yunkai.name=Yunkai
+got.biome.ghiscarYunkai.name=Yunkai
 got.capes.ARRYN.name=Vadi Burnu
 got.capes.ARRYNGUARD.name=Arryn Muhafız Burnu
 got.capes.ASSHAI.name=Asshai Burnu

@@ -1,7 +1,5 @@
 package got.common.world.biome.ulthos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -38,10 +36,6 @@ public class GOTBiomeUlthosForest extends GOTBiomeUlthos {
 		return GOTAchievement.enterUlthosForest;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ULTHOS.getSubregion("ulthosForest");
-	}
 
 	@Override
 	public boolean isBushland() {

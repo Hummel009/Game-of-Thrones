@@ -99,7 +99,7 @@ public class DatabaseGenerator {
 		BIOMES.remove(GOTBiome.ocean3);
 		BIOMES.remove(GOTBiome.beachGravel);
 		BIOMES.remove(GOTBiome.beachWhite);
-		BIOMES.remove(GOTBiome.beachRed);
+		BIOMES.remove(GOTBiome.bleedingBeach);
 		CLASS_TO_WP.put(GOTEntityYgritte.class, GOTWaypoint.Hardhome);
 		CLASS_TO_WP.put(GOTEntityTormund.class, GOTWaypoint.Hardhome);
 		CLASS_TO_WP.put(GOTEntityManceRayder.class, GOTWaypoint.Hardhome);

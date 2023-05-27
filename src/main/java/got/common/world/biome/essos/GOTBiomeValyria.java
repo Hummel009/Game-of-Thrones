@@ -55,14 +55,15 @@ public class GOTBiomeValyria extends GOTBiome {
 		return GOTAchievement.enterValyria;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("valyria");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.VALYRIA;
+	}
+
+	@Override
+	public MusicRegion getBiomeMusic() {
+		return GOTBiomeMusic.ESSOS.getSubregion(biomeName);
 	}
 
 	@Override

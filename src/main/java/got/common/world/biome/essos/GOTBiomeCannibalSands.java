@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import got.common.world.biome.GOTBiome;
@@ -106,11 +104,6 @@ public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBio
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterCannibalSands;
-	}
-
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("cannibalSands");
 	}
 
 	@Override

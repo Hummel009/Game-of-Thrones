@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -43,10 +41,6 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 		return GOTAchievement.enterHillTribes;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("arrynMountainsFoothills");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {

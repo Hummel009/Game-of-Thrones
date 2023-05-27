@@ -1,7 +1,5 @@
 package got.common.world.biome.sothoryos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
@@ -53,10 +51,6 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 		return GOTAchievement.enterSummerIslands;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.SOTHORYOS.getSubregion("summerIslands");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {

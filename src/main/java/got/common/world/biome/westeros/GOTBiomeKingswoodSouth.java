@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -36,10 +34,6 @@ public class GOTBiomeKingswoodSouth extends GOTBiomeWesteros {
 		return GOTAchievement.enterKingswood;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("kingswood");
-	}
 
 	@Override
 	public Region getBiomeWaypoints() {

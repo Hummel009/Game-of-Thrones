@@ -1,7 +1,5 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.world.structure.other.GOTStructureBarrow;
 
@@ -17,8 +15,4 @@ public class GOTBiomeNorthBarrows extends GOTBiomeNorth {
 		return GOTAchievement.enterNorthBarrows;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("northBarrows");
-	}
 }

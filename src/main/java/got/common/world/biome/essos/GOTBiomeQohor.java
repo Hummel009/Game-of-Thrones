@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -9,7 +7,6 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
 import got.common.world.structure.essos.qohor.GOTStructureQohorFortress;
 import got.common.world.structure.essos.qohor.GOTStructureQohorSettlement;
 import got.common.world.structure.other.GOTStructureSmallStoneRuin;
@@ -58,8 +55,4 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 		return GOTAchievement.enterQohor;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("qohor");
-	}
 }

@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTRegistry;
 import got.common.world.feature.GOTWorldGenStreams;
@@ -48,10 +46,6 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 		return GOTAchievement.enterValyriaVolcano;
 	}
 
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("valyriaVolcano");
-	}
 
 	@Override
 	public boolean getEnableRiver() {
