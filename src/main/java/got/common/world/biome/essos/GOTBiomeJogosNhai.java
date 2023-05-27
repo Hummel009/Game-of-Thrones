@@ -12,7 +12,7 @@ public class GOTBiomeJogosNhai extends GOTBiomeEssosPlains {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterJogos;
+		return GOTAchievement.enterJogosNhai;
 	}
 
 

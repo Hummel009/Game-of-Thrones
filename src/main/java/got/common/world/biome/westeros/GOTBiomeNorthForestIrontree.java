@@ -16,6 +16,6 @@ public class GOTBiomeNorthForestIrontree extends GOTBiomeNorthForest {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterIrontree;
+		return GOTAchievement.enterIrontreeForest;
 	}
 }

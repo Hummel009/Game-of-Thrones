@@ -37,7 +37,7 @@ public class GOTBiomeArryn extends GOTBiomeWesteros {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterArryn;
+		return GOTAchievement.enterArrynVale;
 	}
 
 

@@ -38,7 +38,7 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterHillTribes;
+		return GOTAchievement.enterMoonMountainsFoothills;
 	}
 
 

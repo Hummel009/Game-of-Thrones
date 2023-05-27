@@ -1547,106 +1547,126 @@ got.attribute.desc=Belohnung für das Erreichen von 100 Reputationspunkten mit d
 got.biome.alwaysWinter.name=Land des Ewigen Winters
 got.biome.arryn.name=Grünes Tal von Arryn
 got.biome.arrynBaelish.name=Finger
-got.biome.arrynMountainsFoothills.name=Wald am Fuße der Mondberge
+got.biome.arrynForest.name≠Arryn Vale Forest
 got.biome.arrynMountains.name=Mondberge
+got.biome.arrynMountainsFoothills.name=Wald am Fuße der Mondberge
 got.biome.arrynTown.name=Möwenstadt
-got.biome.ghiscarAstapor.name=Astapor
 got.biome.beach.name=Strand
 got.biome.beachGravel.name=Kiesstrand
 got.biome.beachWhite.name=Sandstrand
 got.biome.blackIslands.name=Schwarzwasserinseln
+got.biome.bleedingSea.name=Blutendes Meer
 got.biome.boneMountains.name=Knochenberge
 got.biome.braavos.name=Braavos
+got.biome.braavosForest.name≠Braavos Forest
 got.biome.braavosHills.name≠Braavos Hills
 got.biome.cannibalSands.name=Kannibalensande
 got.biome.cannibalSandsHills.name≠Cannibal Sands Hills
 got.biome.coldCoast.name=Eisige Küste
 got.biome.crackclaw.name=Klauenhorn
 got.biome.crownlands.name=Kronlande
-got.biome.kingswood.name=Königswald
+got.biome.crownlandsForest.name≠Crownlands Forest
 got.biome.crownlandsTown.name=Königsmund
+got.biome.disputedLands.name=Umstrittene Lande
+got.biome.disputedLandsForest.name≠Disputed Lands Forest
 got.biome.dorne.name=Dorne Küste
 got.biome.dorneDesert.name=Dorne Wüste
+got.biome.dorneForest.name≠Dorne Forest
+got.biome.dorneMesa.name=Rotes Plateau
 got.biome.dorneMountains.name=Rote Berge
 got.biome.dorneValley.name=Dorne Tal
 got.biome.doshKhalin.name=Mutter aller Berge
-got.biome.dothrakiSeaHills.name≠Dothraki Sea Hills
 got.biome.dothrakiSea.name=Dothrakisches Meer
+got.biome.dothrakiSeaForest.name≠Dothraki Sea Forest
+got.biome.dothrakiSeaHills.name≠Dothraki Sea Hills
 got.biome.dragonstone.name=Drachenstein
 got.biome.essos.name=Unbewohnte Länder
 got.biome.essosForest.name=Essos Wald
 got.biome.essosHills.name=Essos Hügel
+got.biome.essosMarshes.name≠Essos Marshes
 got.biome.essosMountains.name=Essos Berge
-got.biome.westerosFrost.name=Schneebedecktes Ödland
-got.biome.reachFireField.name=Rosengarten
 got.biome.freeCities.name=Freie Städte
 got.biome.frostfangs.name=Frostfänge
 got.biome.ghiscar.name=Länder der Ghiscari
+got.biome.ghiscarAstapor.name=Astapor
 got.biome.ghiscarColony.name=Ghiscari-Kolonie
+got.biome.ghiscarForest.name≠Ghiscar Forest
+got.biome.ghiscarMeereen.name=Meereen
+got.biome.ghiscarNewGhis.name≠New Ghis
+got.biome.ghiscarYunkai.name=Yunkai
 got.biome.giftNew.name=Neue Schenkung
 got.biome.giftOld.name=Alte Schenkung
 got.biome.hauntedForest.name=Verfluchter Wald
 got.biome.ibben.name=Ibben
 got.biome.ibbenColony.name=Ibben Kolonie
+got.biome.ibbenColonyForest.name≠Ibben Colony Forest
 got.biome.ibbenColonyHills.name≠Ibben Colony Hills
 got.biome.ibbenMountains.name=Ibben Mountains
 got.biome.ibbenTaiga.name=Ibben Nadelwald
 got.biome.ifekevronForest.name=Ifekevron Wälder
 got.biome.ironborn.name=Eiseninseln
+got.biome.ironbornForest.name≠Iron Islands Forest
 got.biome.ironbornHills.name=Eiseninseln Hügel
-got.biome.northForestIrontree.name=Eisenrath
 got.biome.island.name=Insel
 got.biome.isleOfFaces.name=Insel der Gesichter
 got.biome.jogosNhai.name=Ebenen der Jogos Nhai
 got.biome.jogosNhaiDesert.name=Schrumpfendes Meer
+got.biome.jogosNhaiForest.name≠Jogos Nhai Forest
 got.biome.jogosNhaiHills.name≠Jogos Nhai Hills
 got.biome.kingSpears.name=Speere des Königs der Meerjungfrauen
+got.biome.kingswood.name=Königswald
 got.biome.lake.name=See
 got.biome.lhazar.name=Lhazar
+got.biome.lhazarForest.name≠Lhazar Forest
 got.biome.lhazarHills.name≠Lhazar Hills
 got.biome.longSummer.name=Länder des Langen Sommers
 got.biome.lorath.name=Lorath
+got.biome.lorathForest.name≠Lorath Forest
+got.biome.lorathHills.name≠Lorath Hills
 got.biome.lorathMaze.name≠Maze of Lorath
 got.biome.lys.name=Lys
 got.biome.massy.name=Massies Haken
 got.biome.massyHills.name≠Massy's Hills
-got.biome.ghiscarMeereen.name=Meereen
-got.biome.disputedLands.name=Umstrittene Lande
 got.biome.mossovy.name=Mossovy
 got.biome.mossovyForest.name≠Mossovy Taiga
 got.biome.mossovyMarshes.name≠Mossovy Marshes
 got.biome.mossovyMountains.name≠Mossovy Mountains
 got.biome.mossovyTundra.name=Mossovy Tundra
 got.biome.myr.name=Welt
+got.biome.myrForest.name≠Myr Forest
 got.biome.naath.name=Naath
 got.biome.neck.name=Die Eng
-got.biome.ghiscarNewGhis.name≠New Ghis
 got.biome.north.name=Norden
 got.biome.northBarrows.name=Hügellande
 got.biome.northForest.name=Norden Nadelwälder
+got.biome.northForestIrontree.name=Eisenrath
 got.biome.northHills.name=Norden Hügel
 got.biome.northMountains.name=Norden Berge
 got.biome.northTown.name=Weißwasserhafen
 got.biome.northWild.name=Heimat der Bergstämme
 got.biome.norvos.name=Norvos
+got.biome.norvosForest.name≠Norvos Forest
 got.biome.norvosHills.name≠Norvos Hills
 got.biome.ocean.name=Ozean
 got.biome.pentos.name=Pentos
+got.biome.pentosForest.name≠Pentos Forest
 got.biome.pentosHills.name≠Pentos Hills
 got.biome.qarth.name=Qarth
 got.biome.qarthColony.name≠Qarth Colony
 got.biome.qarthDesert.name=Rote Wüste
 got.biome.qohor.name=Qohor
 got.biome.qohorForest.name=Wald von Qohor
+got.biome.qohorHills.name≠Qohor Hills
 got.biome.rainwood.name=Regenwald
 got.biome.reach.name=Weite
 got.biome.reachArbor.name=Arbor
+got.biome.reachFireField.name=Rosengarten
+got.biome.reachForest.name≠Reach Forest
 got.biome.reachHills.name≠Reach Hills
 got.biome.reachTown.name=Altsass
-got.biome.dorneMesa.name=Rotes Plateau
-got.biome.bleedingSea.name=Blutendes Meer
 got.biome.river.name=Fluss
 got.biome.riverlands.name=Flusslande
+got.biome.riverlandsForest.name≠Riverlands Forest
 got.biome.riverlandsHills.name=Hügel der Bruderschaft ohne Banner
 got.biome.sarnor.name=Sarnor
 got.biome.shadowLand.name=Schattenlande
@@ -1660,11 +1680,11 @@ got.biome.sothoryosBushland.name=Sothoryos Buschland
 got.biome.sothoryosDeserHills.name=Sothoryos Wüstenhügel
 got.biome.sothoryosDesert.name=Sothoryos Wüste
 got.biome.sothoryosDesertCold.name=Sothoryos Eiswüste
+got.biome.sothoryosForest.name=Sothoryos Wälder
 got.biome.sothoryosFrost.name=Sothoryos Polarregion
 got.biome.sothoryosHell.name=Grüne Hölle
 got.biome.sothoryosJungle.name=Sothoryos Dschungel
 got.biome.sothoryosJungleEdge.name=Sothoryos Dschungelrand
-got.biome.sothoryosForest.name=Sothoryos Wälder
 got.biome.sothoryosMangrove.name=Sothoryos Sümpfe
 got.biome.sothoryosMountains.name=Sothoryos Berge
 got.biome.sothoryosSavannah.name=Sothoryos Savanne
@@ -1672,11 +1692,14 @@ got.biome.sothoryosTaiga.name=Sothoryos Nadelwald
 got.biome.stepstones.name=Trittsteine
 got.biome.stoneCoast.name=Steinige Küste
 got.biome.stormlands.name=Sturmlande
+got.biome.stormlandsForest.name≠Stormlands Forest
+got.biome.stormlandsTarth.name=Tarth
+got.biome.stormlandsTarthForest.name≠Tarth Forest
 got.biome.stormlandsTown.name=Sturmkap
 got.biome.summerColony.name≠Summer Islands Colony
 got.biome.summerColonyMangrove.name≠Summer Islands Mangrove Colony
 got.biome.summerIslands.name=Sommerinseln
-got.biome.stormlandsTarth.name=Tarth
+got.biome.summerIslandsTropicalForest.name≠Tropical Forest
 got.biome.thennLand.name=Thenn
 got.biome.tropicalForest.name=Tropische Wälder
 got.biome.tyrosh.name=Tyrosh
@@ -1698,14 +1721,17 @@ got.biome.valyria.name=Valyrische Halbinsel
 got.biome.valyriaSea.name=Rauchendes Meer
 got.biome.valyriaVolcano.name=Valyria Vulkane
 got.biome.volantis.name=Volantis
-got.biome.volantisOrangeForest.name=Orangenküste
+got.biome.volantisForest.name≠Volantis Forest
 got.biome.volantisMarshes.name=Essos Sümpfe
+got.biome.volantisOrangeForest.name=Orangenküste
 got.biome.westerlands.name=Westlande
+got.biome.westerlandsForest.name≠Westerlands Forest
 got.biome.westerlandsHills.name=Westlande Hügel
 got.biome.westerlandsTown.name=Lennishort
 got.biome.westerosForest.name=Westeros Wälder
 got.biome.westerosForest1.name≠Westeros Coniferous Forest
 got.biome.westerosForest2.name≠Westeros Deciduous Forest
+got.biome.westerosFrost.name=Schneebedecktes Ödland
 got.biome.westerosMountains.name=Westeros Berge
 got.biome.wetwood.name=Feuchtwald
 got.biome.whisperingWood.name=Wisperwald
@@ -1713,8 +1739,8 @@ got.biome.wolfswood.name=Wolfswald
 got.biome.yeen.name=Yeen Ödnis
 got.biome.yiTi.name=Yi Ti
 got.biome.yiTiMarshes.name≠Yi Ti Marshes
+got.biome.yiTiTropicalForest.name≠Tropical Forest
 got.biome.yiTiWasteland.name=Yi Ti Fünf Festungen
-got.biome.ghiscarYunkai.name=Yunkai
 got.capes.ARRYN.name=Umhang eines Kriegers des Grünen Tals
 got.capes.ARRYNGUARD.name=Umhang einer Wache von Möwenstadt
 got.capes.ASSHAI.name=Umhang einer Wache von Asshai

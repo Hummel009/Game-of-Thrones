@@ -110,7 +110,7 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiomeEssosPlains implements GOTB
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterJogosDesert;
+		return GOTAchievement.enterJogosNhaiDesert;
 	}
 
 

@@ -27,7 +27,7 @@ public class GOTBiomeIronborn extends GOTBiomeWesteros {
 
 	@Override
 	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterIronborn;
+		return GOTAchievement.enterIronIslands;
 	}
 
 
