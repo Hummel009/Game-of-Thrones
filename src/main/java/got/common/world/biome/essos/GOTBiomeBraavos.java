@@ -38,7 +38,6 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.OAK, 200);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 30);
 		decorator.addTree(GOTTreeType.OAK_TALLER, 5);
-		decorator.addTree(GOTTreeType.OAK_GIANT, 2);
 		decorator.addTree(GOTTreeType.MAPLE, 100);
 		decorator.addTree(GOTTreeType.MAPLE_LARGE, 10);
 		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);

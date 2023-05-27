@@ -30,11 +30,11 @@ public class GOTBiomeValyria extends GOTBiome {
 		biomeColors.setWater(0x808080);
 		biomeColors.setFoggy(true);
 		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.OAK, 200);
-		decorator.addTree(GOTTreeType.OAK_TALLER, 200);
-		decorator.addTree(GOTTreeType.OAK_GIANT, 20);
-		decorator.addTree(GOTTreeType.OAK_PARTY, 200);
-		decorator.addTree(GOTTreeType.OAK_LARGE, 2000);
+		decorator.addTree(GOTTreeType.OAK, 500);
+		decorator.addTree(GOTTreeType.OAK_TALLER, 100);
+		decorator.addTree(GOTTreeType.OAK_GIANT, 1);
+		decorator.addTree(GOTTreeType.OAK_PARTY, 100);
+		decorator.addTree(GOTTreeType.OAK_LARGE, 1000);
 		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);

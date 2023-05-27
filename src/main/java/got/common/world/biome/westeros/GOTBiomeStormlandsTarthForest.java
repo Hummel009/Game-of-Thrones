@@ -19,7 +19,6 @@ public class GOTBiomeStormlandsTarthForest extends GOTBiomeStormlandsTarth {
 		decorator.addTree(GOTTreeType.BEECH_PARTY, 20);
 		decorator.addTree(GOTTreeType.OAK, 500);
 		decorator.addTree(GOTTreeType.OAK_TALLER, 5);
-		decorator.addTree(GOTTreeType.OAK_GIANT, 2);
 		decorator.addTree(GOTTreeType.OAK_TALL, 500);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 200);
 		decorator.addTree(GOTTreeType.BEECH, 500);

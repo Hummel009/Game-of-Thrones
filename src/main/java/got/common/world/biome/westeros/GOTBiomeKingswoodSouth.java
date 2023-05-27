@@ -21,7 +21,6 @@ public class GOTBiomeKingswoodSouth extends GOTBiomeWesteros {
 		decorator.addTree(GOTTreeType.BEECH_PARTY, 2);
 		decorator.addTree(GOTTreeType.OAK, 300);
 		decorator.addTree(GOTTreeType.OAK_TALLER, 5);
-		decorator.addTree(GOTTreeType.OAK_GIANT, 2);
 		decorator.addTree(GOTTreeType.OAK_LARGE, 50);
 		decorator.addTree(GOTTreeType.LARCH, 200);
 		decorator.addTree(GOTTreeType.BEECH, 100);
