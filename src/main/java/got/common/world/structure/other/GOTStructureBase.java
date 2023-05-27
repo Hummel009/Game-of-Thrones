@@ -81,7 +81,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		if (block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTRegistry.dirtPath) {
 			return true;
 		}
-		if (block == GOTRegistry.mudGrass || block == GOTRegistry.mud || block == Blocks.sand || block == GOTRegistry.whiteSand) {
+		if (block == GOTRegistry.mudGrass || block == GOTRegistry.mud || block == Blocks.sand || block == GOTRegistry.redClay || block == GOTRegistry.whiteSand) {
 			return true;
 		}
 		return block == GOTRegistry.asshaiDirt || block == GOTRegistry.basaltGravel;

@@ -23,8 +23,6 @@ public abstract class GOTStructureBaseSettlement {
 	public static double SQRT2 = 1.4142135623730951;
 	public GOTBiome settlementBiome;
 	public List<BiomeGenBase> spawnBiomes;
-	public int gridScale = 7;
-	public int gridRandomDisplace = 1;
 	public float spawnChance;
 	public int settlementChunkRadius;
 	public int fixedSettlementChunkRadius;
@@ -255,13 +253,14 @@ public abstract class GOTStructureBaseSettlement {
 				return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
 			}
 		}
+		int gridScale = GOTConfig.gridScale;
 		int i2 = MathHelper.floor_double((double) chunkX / gridScale);
 		int k2 = MathHelper.floor_double((double) chunkZ / gridScale);
 		seedSettlementRand(world, i2, k2);
 		i2 *= gridScale;
 		k2 *= gridScale;
-		i2 += MathHelper.getRandomIntegerInRange(settlementRand, -gridRandomDisplace, gridRandomDisplace);
-		if (chunkX == i2 && chunkZ == k2 + MathHelper.getRandomIntegerInRange(settlementRand, -gridRandomDisplace, gridRandomDisplace)) {
+		i2 += MathHelper.getRandomIntegerInRange(settlementRand, -1, 1);
+		if (chunkX == i2 && chunkZ == k2 + MathHelper.getRandomIntegerInRange(settlementRand, -1, 1)) {
 			int i1 = chunkX * 16 + 8;
 			int k1 = chunkZ * 16 + 8;
 			int settlementRange = settlementChunkRadius * 16;
