@@ -107,7 +107,6 @@ public enum GOTClimateType {
 								biome.biomeColors.setGrass(0xffffff);
 								biome.biomeColors.setSky(4212300);
 								biome.biomeColors.setFog(6188664);
-								biome.biomeColors.setWater(2635588);
 								biome.biomeColors.setFoggy(false);
 								break;
 							case SUMMER:
@@ -115,14 +114,12 @@ public enum GOTClimateType {
 								biome.biomeColors.resetGrass();
 								biome.biomeColors.setSky(11653858);
 								biome.biomeColors.resetFog();
-								biome.biomeColors.setWater(2635588);
 								biome.biomeColors.setFoggy(false);
 								break;
 							case WINTER:
 								biome.biomeColors.setGrass(0xffffff);
 								biome.biomeColors.setSky(4212300);
 								biome.biomeColors.setFog(6188664);
-								biome.biomeColors.setWater(2635588);
 								biome.biomeColors.setFoggy(true);
 								break;
 						}
@@ -136,7 +133,6 @@ public enum GOTClimateType {
 								biome.biomeColors.resetGrass();
 								biome.biomeColors.setSky(11653858);
 								biome.biomeColors.resetFog();
-								biome.biomeColors.setWater(2635588);
 								biome.biomeColors.setFoggy(false);
 								break;
 							case SUMMER:
@@ -144,14 +140,12 @@ public enum GOTClimateType {
 								biome.biomeColors.resetGrass();
 								biome.biomeColors.resetSky();
 								biome.biomeColors.resetFog();
-								biome.biomeColors.resetWater();
 								biome.biomeColors.setFoggy(false);
 								break;
 							case WINTER:
 								biome.biomeColors.setGrass(0xffffff);
 								biome.biomeColors.setSky(4212300);
 								biome.biomeColors.setFog(6188664);
-								biome.biomeColors.setWater(2635588);
 								biome.biomeColors.setFoggy(true);
 								break;
 						}
@@ -163,7 +157,6 @@ public enum GOTClimateType {
 								biome.biomeColors.resetGrass();
 								biome.biomeColors.setSky(11653858);
 								biome.biomeColors.resetFog();
-								biome.biomeColors.setWater(2635588);
 								biome.biomeColors.setFoggy(false);
 								break;
 							case NORMAL:
@@ -171,7 +164,6 @@ public enum GOTClimateType {
 								biome.biomeColors.resetGrass();
 								biome.biomeColors.resetSky();
 								biome.biomeColors.resetFog();
-								biome.biomeColors.resetWater();
 								biome.biomeColors.setFoggy(false);
 								break;
 							case SUMMER:
@@ -179,14 +171,12 @@ public enum GOTClimateType {
 								biome.biomeColors.setGrass(14538086);
 								biome.biomeColors.setSky(15592678);
 								biome.biomeColors.resetFog();
-								biome.biomeColors.resetWater();
 								biome.biomeColors.setFoggy(false);
 								break;
 							case WINTER:
 								biome.biomeColors.setGrass(0xffffff);
 								biome.biomeColors.setSky(4212300);
 								biome.biomeColors.setFog(6188664);
-								biome.biomeColors.setWater(2635588);
 								biome.biomeColors.setFoggy(true);
 								break;
 						}
@@ -200,7 +190,6 @@ public enum GOTClimateType {
 								biome.biomeColors.setGrass(0xd09f4d);
 								biome.biomeColors.setSky(11653858);
 								biome.biomeColors.resetFog();
-								biome.biomeColors.setWater(2635588);
 								biome.biomeColors.setFoggy(true);
 								break;
 							case SUMMER:
@@ -208,14 +197,12 @@ public enum GOTClimateType {
 								biome.biomeColors.resetGrass();
 								biome.biomeColors.resetSky();
 								biome.biomeColors.resetFog();
-								biome.biomeColors.resetWater();
 								biome.biomeColors.setFoggy(false);
 								break;
 							case WINTER:
 								biome.biomeColors.setGrass(0xffffff);
 								biome.biomeColors.setSky(4212300);
 								biome.biomeColors.setFog(6188664);
-								biome.biomeColors.setWater(2635588);
 								biome.biomeColors.setFoggy(true);
 								break;
 						}

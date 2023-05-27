@@ -1,11 +1,12 @@
 CHANGELOG
 >>BUILD 23.05.23
++ Added lots of forest biomes
 + Seasons mechanics divided into server-side (temperature) and client-side (rendering) part.
 + Village generationg chunk selector is a config value now (check for the word "grid")
 + Added fortresses into spawning of essos free cities
 
 * Improved Five Forts wall and tower
-* Imporved map (tyrosh)
+* Imporved map
 * Improved Victarion camp
 * Improved golden camps
 * Improved westeros towers
@@ -14,6 +15,8 @@ CHANGELOG
 * Reduced chance of baobab plains in dothraki sea
 * Increased village spawn
 
+* Fixed bug with not rare baobabs in sothoryos
+* Fixed bug with wrong water color
 * Fixed bug with too rare villages in southern essos
 * Fixed bug with wrong roads in a few settlements
 * Fixed bug with shifted Sothoryos pyramid

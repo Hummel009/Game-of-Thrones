@@ -4,8 +4,8 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.variant.GOTBiomeVariant;
 
-public class GOTBiomeVolantisForest extends GOTBiomeVolantis {
-	public GOTBiomeVolantisForest(int i, boolean major) {
+public class GOTBiomeDothrakiSeaForest extends GOTBiomeDothrakiSea {
+	public GOTBiomeDothrakiSeaForest(int i, boolean major) {
 		super(i, major);
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
@@ -15,6 +15,6 @@ public class GOTBiomeVolantisForest extends GOTBiomeVolantis {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion("volantisForest");
+		return GOTBiomeMusic.ESSOS.getSubregion("dothrakiSeaForest");
 	}
 }

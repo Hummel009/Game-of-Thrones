@@ -2,12 +2,11 @@ package got.common.world.biome.westeros;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 
-public class GOTBiomeWhisperingWood extends GOTBiomeRiverlands {
-	public GOTBiomeWhisperingWood(int i, boolean major) {
+public class GOTBiomeReachForest extends GOTBiomeReach {
+	public GOTBiomeReachForest(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
 		clearBiomeVariants();
@@ -38,18 +37,10 @@ public class GOTBiomeWhisperingWood extends GOTBiomeRiverlands {
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 5);
 		decorator.addTree(GOTTreeType.APPLE, 5);
 		decorator.addTree(GOTTreeType.PEAR, 5);
-		decorator.clearSettlements();
-		npcSpawnList.clear();
-		invasionSpawns.clearInvasions();
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterWhisperingWood;
 	}
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("whisperingWood");
+		return GOTBiomeMusic.WESTEROS.getSubregion("reachForest");
 	}
 }

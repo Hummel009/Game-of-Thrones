@@ -5,8 +5,8 @@ import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 
-public class GOTBiomeRainwood extends GOTBiomeStormlands {
-	public GOTBiomeRainwood(int i, boolean major) {
+public class GOTBiomeStormlandsForest extends GOTBiomeStormlands {
+	public GOTBiomeStormlandsForest(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
 		clearBiomeVariants();
@@ -34,13 +34,10 @@ public class GOTBiomeRainwood extends GOTBiomeStormlands {
 		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
 		decorator.addTree(GOTTreeType.ASPEN, 100);
 		decorator.addTree(GOTTreeType.ASPEN_LARGE, 20);
-		decorator.clearSettlements();
-		npcSpawnList.clear();
-		invasionSpawns.clearInvasions();
 	}
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("rainwood");
+		return GOTBiomeMusic.WESTEROS.getSubregion("stormlandsForest");
 	}
 }

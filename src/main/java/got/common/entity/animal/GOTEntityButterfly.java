@@ -5,7 +5,7 @@ import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeQohorForest;
-import got.common.world.biome.essos.GOTBiomeVolantisForest;
+import got.common.world.biome.essos.GOTBiomeVolantisOrangeForest;
 import got.common.world.biome.sothoryos.GOTBiomeSummerIslands;
 import got.common.world.biome.ulthos.GOTBiomeUlthosForest;
 import net.minecraft.block.material.Material;
@@ -144,7 +144,7 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
 		if (biome instanceof GOTBiomeUlthosForest) {
 			setButterflyType(ButterflyType.ULTHOS);
-		} else if (biome instanceof GOTBiomeQohorForest || biome instanceof GOTBiomeVolantisForest) {
+		} else if (biome instanceof GOTBiomeQohorForest || biome instanceof GOTBiomeVolantisOrangeForest) {
 			setButterflyType(ButterflyType.QOHOR);
 		} else if (biome instanceof GOTBiomeSummerIslands) {
 			setButterflyType(ButterflyType.SOTHORYOS);

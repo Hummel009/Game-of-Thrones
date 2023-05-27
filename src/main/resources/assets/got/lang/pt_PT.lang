@@ -1563,7 +1563,7 @@ got.biome.cannibalSandsHills.name≠Cannibal Sands Hills
 got.biome.coldCoast.name=Costa fria
 got.biome.crackclaw.name=Ponto Crackclaw
 got.biome.crownlands.name=Terras da Coroa
-got.biome.crownlandsForest.name=King Forest
+got.biome.kingswood.name=King Forest
 got.biome.crownlandsTown.name=Porto Real
 got.biome.dorne.name=Dorne
 got.biome.dorneDesert.name=Deserto de Dorne
@@ -1611,7 +1611,7 @@ got.biome.lys.name=Lys
 got.biome.massy.name=Massy's Hook
 got.biome.massyHills.name≠Massy's Hills
 got.biome.meereen.name=Meereen
-got.biome.mercenary.name=Terras Disputadas
+got.biome.disputedLands.name=Terras Disputadas
 got.biome.mossovy.name=Mossovy
 got.biome.mossovyForest.name≠Mossovy Taiga
 got.biome.mossovyMarshes.name≠Mossovy Marshes

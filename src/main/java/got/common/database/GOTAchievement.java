@@ -59,7 +59,7 @@ public class GOTAchievement {
 	public static GOTAchievement enterCannibalSands;
 	public static GOTAchievement enterColdCoast;
 	public static GOTAchievement enterCrownlands;
-	public static GOTAchievement enterCrownlandsForest;
+	public static GOTAchievement enterKingswood;
 	public static GOTAchievement enterDorne;
 	public static GOTAchievement enterDorneDesert;
 	public static GOTAchievement enterDorneMesa;
@@ -546,7 +546,7 @@ public class GOTAchievement {
 		enterBraavos = new GOTAchievement(Category.VISIT, id++, GOTRegistry.braavosHelmet, "VISIT_BRAAVOS");
 		enterCannibalSands = new GOTAchievement(Category.VISIT, id++, GOTRegistry.quicksand, "VISIT_CANNIBAL_SANDS");
 		enterColdCoast = new GOTAchievement(Category.VISIT, id++, GOTRegistry.wildlingPolearm, "VISIT_COLD_COAST");
-		enterCrownlandsForest = new GOTAchievement(Category.VISIT, id++, GOTRegistry.mugRedWine, "VISIT_CROWNLANDS_FOREST");
+		enterKingswood = new GOTAchievement(Category.VISIT, id++, GOTRegistry.mugRedWine, "VISIT_CROWNLANDS_FOREST");
 		enterDorne = new GOTAchievement(Category.VISIT, id++, GOTRegistry.dorneHelmet, "VISIT_DORNE");
 		enterDorneDesert = new GOTAchievement(Category.VISIT, id++, Blocks.sand, "VISIT_DORNE_DESERT");
 		enterDorneMesa = new GOTAchievement(Category.VISIT, id++, Blocks.clay, "VISIT_DORNE_MESA");

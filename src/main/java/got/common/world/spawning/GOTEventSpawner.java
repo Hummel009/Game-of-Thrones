@@ -7,6 +7,7 @@ import got.common.GOTJaqenHgharTracker;
 import got.common.GOTLevelData;
 import got.common.database.GOTInvasions;
 import got.common.entity.other.GOTEntityInvasionSpawner;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.westeros.GOTEntityWesterosBandit;
 import got.common.world.GOTWorldProvider;
@@ -57,7 +58,7 @@ public class GOTEventSpawner {
 				continue;
 			}
 			GOTBiome gotbiome = (GOTBiome) biome;
-			Class<? extends GOTEntityWesterosBandit> banditClass = gotbiome.getBanditEntityClass();
+			Class<? extends GOTEntityNPC> banditClass = gotbiome.getBanditEntityClass();
 			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
 			if (chance <= 0.0 || world.rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers()).isEmpty()) {
 				continue;

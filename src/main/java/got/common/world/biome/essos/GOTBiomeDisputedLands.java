@@ -14,8 +14,8 @@ import got.common.world.structure.other.GOTStructureStoneRuin;
 
 import java.util.ArrayList;
 
-public class GOTBiomeMercenary extends GOTBiomeEssos {
-	public GOTBiomeMercenary(int i, boolean major) {
+public class GOTBiomeDisputedLands extends GOTBiomeEssos {
+	public GOTBiomeDisputedLands(int i, boolean major) {
 		super(i, major);
 		decorator.addSettlement(new GOTStructureGoldenCamp(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.MYR, GOTEventSpawner.EventChance.UNCOMMON);

@@ -10,7 +10,7 @@ public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBushland {
 		super(i, major);
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.HILLS);
-		addBiomeVariant(GOTBiomeVariant.SAVANNAH_BAOBAB, 3.0f);
+		addBiomeVariant(GOTBiomeVariant.SAVANNAH_BAOBAB, 0.5f);
 		decorator.grassPerChunk = 256;
 		decorator.logsPerChunk = 0;
 	}

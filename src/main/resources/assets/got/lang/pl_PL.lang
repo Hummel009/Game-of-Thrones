@@ -1563,7 +1563,7 @@ got.biome.cannibalSandsHills.name≠Cannibal Sands Hills
 got.biome.coldCoast.name=Cold Coast
 got.biome.crackclaw.name=Crackclaw Point
 got.biome.crownlands.name=Krainy korony
-got.biome.crownlandsForest.name=King Forest
+got.biome.kingswood.name=King Forest
 got.biome.crownlandsTown.name=Królewska Przystań
 got.biome.dorne.name=Dorne
 got.biome.dorneDesert.name=Pustynia Dorne
@@ -1611,7 +1611,7 @@ got.biome.lys.name=Lys
 got.biome.massy.name=Hak Massy'ego
 got.biome.massyHills.name≠Massy's Hills
 got.biome.meereen.name=Meereen
-got.biome.mercenary.name=Ziemie sporne
+got.biome.disputedLands.name=Ziemie sporne
 got.biome.mossovy.name=Mossovy
 got.biome.mossovyForest.name≠Mossovy Taiga
 got.biome.mossovyMarshes.name≠Mossovy Marshes

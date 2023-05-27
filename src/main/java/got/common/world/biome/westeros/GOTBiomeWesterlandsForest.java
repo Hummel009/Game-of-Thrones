@@ -4,8 +4,8 @@ import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.world.biome.variant.GOTBiomeVariant;
 
-public class GOTBiomeWesterosForest extends GOTBiomeWesteros {
-	public GOTBiomeWesterosForest(int i, boolean major) {
+public class GOTBiomeWesterlandsForest extends GOTBiomeWesterlands {
+	public GOTBiomeWesterlandsForest(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
 		clearBiomeVariants();
@@ -20,6 +20,6 @@ public class GOTBiomeWesterosForest extends GOTBiomeWesteros {
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("westerosForest");
+		return GOTBiomeMusic.WESTEROS.getSubregion("westerlandsForest");
 	}
 }

@@ -2,12 +2,10 @@ package got.common.world.biome.westeros;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.GOTAchievement;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
-import got.common.world.map.GOTWaypoint.Region;
 
-public class GOTBiomeCrownlandsForest extends GOTBiomeWesteros {
+public class GOTBiomeCrownlandsForest extends GOTBiomeCrownlands {
 	public GOTBiomeCrownlandsForest(int i, boolean major) {
 		super(i, major);
 		setupStandardForestFauna();
@@ -20,29 +18,20 @@ public class GOTBiomeCrownlandsForest extends GOTBiomeWesteros {
 		decorator.doubleGrassPerChunk = 2;
 		decorator.whiteSand = true;
 		decorator.clearTrees();
-		decorator.addTree(GOTTreeType.BEECH_PARTY, 2);
-		decorator.addTree(GOTTreeType.OAK, 300);
-		decorator.addTree(GOTTreeType.OAK_TALLER, 5);
-		decorator.addTree(GOTTreeType.OAK_GIANT, 2);
-		decorator.addTree(GOTTreeType.OAK_LARGE, 50);
-		decorator.addTree(GOTTreeType.LARCH, 200);
-		decorator.addTree(GOTTreeType.BEECH, 100);
-		decorator.addTree(GOTTreeType.BEECH_LARGE, 20);
-		decorator.addTree(GOTTreeType.ASPEN, 850);
-	}
-
-	@Override
-	public GOTAchievement getBiomeAchievement() {
-		return GOTAchievement.enterCrownlandsForest;
+		decorator.addTree(GOTTreeType.SPRUCE, 400);
+		decorator.addTree(GOTTreeType.SPRUCE_THIN, 400);
+		decorator.addTree(GOTTreeType.LARCH, 300);
+		decorator.addTree(GOTTreeType.SPRUCE_MEGA, 100);
+		decorator.addTree(GOTTreeType.SPRUCE_MEGA_THIN, 20);
+		decorator.addTree(GOTTreeType.FIR, 500);
+		decorator.addTree(GOTTreeType.PINE, 500);
+		decorator.clearSettlements();
+		npcSpawnList.clear();
+		invasionSpawns.clearInvasions();
 	}
 
 	@Override
 	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion("crownlandsForest");
-	}
-
-	@Override
-	public Region getBiomeWaypoints() {
-		return Region.CROWNLANDS;
+		return GOTBiomeMusic.WESTEROS.getSubregion("northForest");
 	}
 }

@@ -7,7 +7,7 @@ import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTNPCMount;
 import got.common.quest.IPickpocketable;
-import got.common.world.biome.essos.GOTBiomeMercenary;
+import got.common.world.biome.essos.GOTBiomeDisputedLands;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -79,7 +79,7 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 	public float getBlockPathWeight(int i, int j, int k) {
 		float f = 0.0f;
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
-		if (biome instanceof GOTBiomeMercenary) {
+		if (biome instanceof GOTBiomeDisputedLands) {
 			f += 20.0f;
 		}
 		return f;
