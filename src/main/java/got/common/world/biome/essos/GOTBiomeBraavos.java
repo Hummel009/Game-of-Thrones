@@ -11,7 +11,9 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.structure.essos.braavos.GOTStructureBraavosFortress;
 import got.common.world.structure.essos.braavos.GOTStructureBraavosSettlement;
+import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
 import got.common.world.structure.other.GOTStructureSmallStoneRuin;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
@@ -45,6 +47,7 @@ public class GOTBiomeBraavos extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
 		decorator.addTree(GOTTreeType.ARAMANT, 5);
 		decorator.addSettlement(new GOTStructureBraavosSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureBraavosFortress(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.PENTOS, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();

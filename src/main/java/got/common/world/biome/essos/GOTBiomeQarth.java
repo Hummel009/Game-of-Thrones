@@ -9,6 +9,8 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
+import got.common.world.structure.essos.qarth.GOTStructureQarthFortress;
 import got.common.world.structure.essos.qarth.GOTStructureQarthSettlement;
 import net.minecraft.init.Blocks;
 
@@ -31,6 +33,7 @@ public class GOTBiomeQarth extends GOTBiomeQarthDesert {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
 		decorator.grassPerChunk = 5;
 		decorator.addSettlement(new GOTStructureQarthSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureQarthFortress(false), 800);
 		npcSpawnList.clear();
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));

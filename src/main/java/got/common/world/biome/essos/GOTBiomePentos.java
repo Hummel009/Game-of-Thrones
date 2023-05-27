@@ -12,6 +12,8 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
+import got.common.world.structure.essos.pentos.GOTStructurePentosFortress;
 import got.common.world.structure.essos.pentos.GOTStructurePentosSettlement;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
@@ -31,6 +33,7 @@ public class GOTBiomePentos extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
 		decorator.addTree(GOTTreeType.ARAMANT, 5);
 		decorator.addSettlement(new GOTStructurePentosSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructurePentosFortress(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.BRAAVOS, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.PENTOS_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));

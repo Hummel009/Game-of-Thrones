@@ -10,6 +10,8 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
+import got.common.world.structure.essos.volantis.GOTStructureVolantisFortress;
 import got.common.world.structure.essos.volantis.GOTStructureVolantisSettlement;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
@@ -28,6 +30,7 @@ public class GOTBiomeVolantis extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
 		decorator.addSettlement(new GOTStructureVolantisSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureVolantisFortress(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.BRAAVOS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.TYROSH, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.LYS, GOTEventSpawner.EventChance.UNCOMMON);

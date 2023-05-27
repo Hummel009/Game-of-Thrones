@@ -12,6 +12,7 @@ import got.common.world.feature.GOTWorldGenBoulder;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.structure.essos.lorath.GOTStructureLorathFortress;
 import got.common.world.structure.essos.lorath.GOTStructureLorathSettlement;
 import got.common.world.structure.other.GOTStructureSmallStoneRuin;
 import got.common.world.structure.other.GOTStructureStoneRuin;
@@ -52,6 +53,7 @@ public class GOTBiomeLorath extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.MAPLE_LARGE, 10);
 		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
 		decorator.addSettlement(new GOTStructureLorathSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureLorathFortress(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.IBBEN, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LORATH_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));

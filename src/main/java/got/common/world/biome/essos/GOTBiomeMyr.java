@@ -11,6 +11,8 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
+import got.common.world.structure.essos.myr.GOTStructureMyrFortress;
 import got.common.world.structure.essos.myr.GOTStructureMyrSettlement;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
@@ -29,6 +31,7 @@ public class GOTBiomeMyr extends GOTBiomeEssos {
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_APPLE_PEAR, 0.1f);
 		addBiomeVariant(GOTBiomeVariant.ORCHARD_POMEGRANATE, 0.3f);
 		decorator.addSettlement(new GOTStructureMyrSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureMyrFortress(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.LYS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.TYROSH, GOTEventSpawner.EventChance.UNCOMMON);

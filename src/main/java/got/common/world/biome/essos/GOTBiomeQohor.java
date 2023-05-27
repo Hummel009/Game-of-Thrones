@@ -9,6 +9,8 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
+import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
+import got.common.world.structure.essos.qohor.GOTStructureQohorFortress;
 import got.common.world.structure.essos.qohor.GOTStructureQohorSettlement;
 import got.common.world.structure.other.GOTStructureSmallStoneRuin;
 import got.common.world.structure.other.GOTStructureStoneRuin;
@@ -43,6 +45,7 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.MAPLE_LARGE, 10);
 		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
 		decorator.addSettlement(new GOTStructureQohorSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureQohorFortress(false), 800);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QOHOR_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);

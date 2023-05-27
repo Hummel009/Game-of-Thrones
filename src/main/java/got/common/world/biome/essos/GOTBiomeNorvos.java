@@ -13,6 +13,8 @@ import got.common.world.feature.GOTWorldGenBoulder;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
+import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFortress;
+import got.common.world.structure.essos.norvos.GOTStructureNorvosFortress;
 import got.common.world.structure.essos.norvos.GOTStructureNorvosSettlement;
 import got.common.world.structure.other.GOTStructureSmallStoneRuin;
 import got.common.world.structure.other.GOTStructureStoneRuin;
@@ -53,6 +55,7 @@ public class GOTBiomeNorvos extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.FIR, 500);
 		decorator.addTree(GOTTreeType.PINE, 500);
 		decorator.addSettlement(new GOTStructureNorvosSettlement(this, 1.0f));
+		decorator.addStructure(new GOTStructureNorvosFortress(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.VOLANTIS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.DOTHRAKI, GOTEventSpawner.EventChance.UNCOMMON);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
