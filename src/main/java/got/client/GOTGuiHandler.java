@@ -16,7 +16,7 @@ import got.common.GOTChatEvents;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPCRideable;
 import got.common.inventory.GOTContainerCoinExchange;
 import got.common.item.other.GOTItemCoin;
@@ -276,7 +276,7 @@ public class GOTGuiHandler {
 						GL11.glPushMatrix();
 						GL11.glTranslatef(0.0F, 0.0F, 500.0F);
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-						itemRenderer.renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), x, y);
+						itemRenderer.renderItemIntoGUI(mc.fontRenderer, mc.getTextureManager(), new ItemStack(GOTItems.coin), x, y);
 						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 						GL11.glDisable(2896);
 						mc.fontRenderer.drawString(sCoins, x + 16 + 2, y + (16 - mc.fontRenderer.FONT_HEIGHT + 2) / 2, 16777215);

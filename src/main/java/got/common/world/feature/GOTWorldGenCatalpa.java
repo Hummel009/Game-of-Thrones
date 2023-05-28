@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -14,9 +14,9 @@ import java.util.Random;
 public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 	public int minHeight = 10;
 	public int maxHeight = 14;
-	public Block woodBlock = GOTRegistry.wood1;
+	public Block woodBlock = GOTBlocks.wood1;
 	public int woodMeta = 1;
-	public Block leafBlock = GOTRegistry.leaves1;
+	public Block leafBlock = GOTBlocks.leaves1;
 	public int leafMeta = 1;
 
 	public GOTWorldGenCatalpa(boolean flag) {

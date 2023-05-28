@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -22,10 +22,10 @@ public class GOTEntityZebra extends GOTEntityHorse {
 		j = rand.nextInt(2) + 1 + rand.nextInt(1 + i);
 		for (int l = 0; l < j; ++l) {
 			if (isBurning()) {
-				dropItem(GOTRegistry.zebraCooked, 1);
+				dropItem(GOTItems.zebraCooked, 1);
 				continue;
 			}
-			dropItem(GOTRegistry.zebraRaw, 1);
+			dropItem(GOTItems.zebraRaw, 1);
 		}
 	}
 

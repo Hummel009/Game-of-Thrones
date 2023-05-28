@@ -7,7 +7,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.GOTEntityBanner;
 import got.common.entity.other.GOTMountFunctions;
@@ -260,8 +260,8 @@ public class GOTReplacedMethods {
 					if (block == Blocks.grass) {
 						world.setBlock(i, j, k, Blocks.dirt);
 					}
-					if (block == GOTRegistry.mudGrass) {
-						world.setBlock(i, j, k, GOTRegistry.mud);
+					if (block == GOTBlocks.mudGrass) {
+						world.setBlock(i, j, k, GOTBlocks.mud);
 					}
 				} else if (world.getBlockLightValue(i, j + 1, k) >= 9) {
 					for (int l = 0; l < 4; ++l) {
@@ -274,8 +274,8 @@ public class GOTReplacedMethods {
 							if (block == Blocks.dirt && meta == 0) {
 								world.setBlock(i1, j1, k1, Blocks.grass, 0, 3);
 							}
-							if (block == GOTRegistry.mud && meta == 0) {
-								world.setBlock(i1, j1, k1, GOTRegistry.mudGrass, 0, 3);
+							if (block == GOTBlocks.mud && meta == 0) {
+								world.setBlock(i1, j1, k1, GOTBlocks.mudGrass, 0, 3);
 							}
 						}
 					}

@@ -2,7 +2,8 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
@@ -19,12 +20,12 @@ public class GOTBlockPipeweedCrop extends BlockCrops {
 
 	@Override
 	public Item func_149865_P() {
-		return GOTRegistry.pipeweedLeaf;
+		return GOTItems.pipeweedLeaf;
 	}
 
 	@Override
 	public Item func_149866_i() {
-		return GOTRegistry.pipeweedSeeds;
+		return GOTItems.pipeweedSeeds;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -48,7 +49,7 @@ public class GOTBlockPipeweedCrop extends BlockCrops {
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (world.getBlockMetadata(i, j, k) == 7) {
-			GOTRegistry.pipeweedPlant.randomDisplayTick(world, i, j, k, random);
+			GOTBlocks.pipeweedPlant.randomDisplayTick(world, i, j, k, random);
 		}
 	}
 

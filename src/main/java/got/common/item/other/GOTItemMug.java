@@ -6,8 +6,9 @@ import got.client.render.other.GOTDrinkIcons;
 import got.common.GOTLevelData;
 import got.common.block.other.GOTBlockMug;
 import got.common.database.GOTAchievement;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.util.GOTReflection;
 import net.minecraft.block.Block;
@@ -102,7 +103,7 @@ public class GOTItemMug extends Item {
 			}
 			if (item == Items.potionitem && itemstack.getItemDamage() == 0) {
 				ItemStack water = itemstack.copy();
-				water.func_150996_a(GOTRegistry.mugWater);
+				water.func_150996_a(GOTItems.mugWater);
 				setVessel(water, Vessel.BOTTLE, false);
 				return water;
 			}
@@ -199,12 +200,12 @@ public class GOTItemMug extends Item {
 
 	public static void setVessel(ItemStack itemstack, Vessel v, boolean correctItem) {
 		if (correctItem && itemstack.getItem() == Items.potionitem && itemstack.getItemDamage() == 0) {
-			itemstack.func_150996_a(GOTRegistry.mugWater);
+			itemstack.func_150996_a(GOTItems.mugWater);
 			itemstack.setItemDamage(0);
 		}
 		int i = itemstack.getItemDamage();
 		itemstack.setItemDamage(v.id * vesselMeta + i % vesselMeta);
-		if (correctItem && itemstack.getItem() == GOTRegistry.mugWater && v == Vessel.BOTTLE) {
+		if (correctItem && itemstack.getItem() == GOTItems.mugWater && v == Vessel.BOTTLE) {
 			itemstack.func_150996_a(Items.potionitem);
 			itemstack.setItemDamage(0);
 		}
@@ -399,7 +400,7 @@ public class GOTItemMug extends Item {
 		if (vessel == Vessel.SKULL) {
 			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkSkull);
 		}
-		if (!world.isRemote && this == GOTRegistry.mugPlantainBrew) {
+		if (!world.isRemote && this == GOTItems.mugPlantainBrew) {
 			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.drinkPlantainBrew);
 			for (Potion potion : Potion.potionTypes) {
 				if (potion == null || !GOTReflection.isBadEffect(potion)) {
@@ -419,7 +420,7 @@ public class GOTItemMug extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!isFullMug) {
-			ItemStack filled = new ItemStack(GOTRegistry.mugWater);
+			ItemStack filled = new ItemStack(GOTItems.mugWater);
 			setVessel(filled, getEmptyVesselType(), true);
 			MovingObjectPosition m = getMovingObjectPositionFromPlayer(world, entityplayer, true);
 			if (m == null) {
@@ -519,42 +520,42 @@ public class GOTItemMug extends Item {
 
 		public Block getBlock() {
 			if (this == MUG) {
-				return GOTRegistry.mugBlock;
+				return GOTBlocks.mugBlock;
 			}
 			if (this == MUG_CLAY) {
-				return GOTRegistry.ceramicMugBlock;
+				return GOTBlocks.ceramicMugBlock;
 			}
 			if (this == GOBLET_GOLD) {
-				return GOTRegistry.gobletGoldBlock;
+				return GOTBlocks.gobletGoldBlock;
 			}
 			if (this == GOBLET_SILVER) {
-				return GOTRegistry.gobletSilverBlock;
+				return GOTBlocks.gobletSilverBlock;
 			}
 			if (this == GOBLET_COPPER) {
-				return GOTRegistry.gobletCopperBlock;
+				return GOTBlocks.gobletCopperBlock;
 			}
 			if (this == GOBLET_WOOD) {
-				return GOTRegistry.gobletWoodBlock;
+				return GOTBlocks.gobletWoodBlock;
 			}
 			if (this == SKULL) {
-				return GOTRegistry.skullCupBlock;
+				return GOTBlocks.skullCupBlock;
 			}
 			if (this == GLASS) {
-				return GOTRegistry.wineGlassBlock;
+				return GOTBlocks.wineGlassBlock;
 			}
 			if (this == BOTTLE) {
-				return GOTRegistry.glassBottleBlock;
+				return GOTBlocks.glassBottleBlock;
 			}
 			if (this == SKIN) {
 				return null;
 			}
 			if (this == HORN) {
-				return GOTRegistry.aleHornBlock;
+				return GOTBlocks.aleHornBlock;
 			}
 			if (this == HORN_GOLD) {
-				return GOTRegistry.aleHornGoldBlock;
+				return GOTBlocks.aleHornGoldBlock;
 			}
-			return GOTRegistry.mugBlock;
+			return GOTBlocks.mugBlock;
 		}
 
 		public ItemStack getEmptyVessel() {
@@ -563,42 +564,42 @@ public class GOTItemMug extends Item {
 
 		public Item getEmptyVesselItem() {
 			if (this == MUG) {
-				return GOTRegistry.mug;
+				return GOTItems.mug;
 			}
 			if (this == MUG_CLAY) {
-				return GOTRegistry.ceramicMug;
+				return GOTItems.ceramicMug;
 			}
 			if (this == GOBLET_GOLD) {
-				return GOTRegistry.gobletGold;
+				return GOTItems.gobletGold;
 			}
 			if (this == GOBLET_SILVER) {
-				return GOTRegistry.gobletSilver;
+				return GOTItems.gobletSilver;
 			}
 			if (this == GOBLET_COPPER) {
-				return GOTRegistry.gobletCopper;
+				return GOTItems.gobletCopper;
 			}
 			if (this == GOBLET_WOOD) {
-				return GOTRegistry.gobletWood;
+				return GOTItems.gobletWood;
 			}
 			if (this == SKULL) {
-				return GOTRegistry.skullCup;
+				return GOTItems.skullCup;
 			}
 			if (this == GLASS) {
-				return GOTRegistry.wineGlass;
+				return GOTItems.wineGlass;
 			}
 			if (this == BOTTLE) {
 				return Items.glass_bottle;
 			}
 			if (this == SKIN) {
-				return GOTRegistry.waterskin;
+				return GOTItems.waterskin;
 			}
 			if (this == HORN) {
-				return GOTRegistry.aleHorn;
+				return GOTItems.aleHorn;
 			}
 			if (this == HORN_GOLD) {
-				return GOTRegistry.aleHornGold;
+				return GOTItems.aleHornGold;
 			}
-			return GOTRegistry.mug;
+			return GOTItems.mug;
 		}
 	}
 

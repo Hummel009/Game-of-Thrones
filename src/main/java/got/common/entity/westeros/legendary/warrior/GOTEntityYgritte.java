@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -108,8 +108,8 @@ public class GOTEntityYgritte extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.wildlingDagger));
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.westerosBow));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.wildlingDagger));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		return data;
 	}

@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.gold;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.world.structure.other.GOTStructureTentBase;
 import net.minecraft.init.Blocks;
 
@@ -32,7 +32,7 @@ public class GOTStructureGoldenCampTent extends GOTStructureTentBase {
 			default:
 				break;
 		}
-		fenceBlock = GOTRegistry.fence;
+		fenceBlock = GOTBlocks.fence;
 		fenceMeta = 3;
 		tableBlock = Blocks.crafting_table;
 		chestContents = GOTChestContents.GOLDEN;

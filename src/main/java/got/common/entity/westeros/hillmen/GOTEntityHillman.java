@@ -2,8 +2,8 @@ package got.common.entity.westeros.hillmen;
 
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
+import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -149,11 +149,11 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 		switch (i) {
 			case 0:
 			case 1:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.club));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.club));
 				break;
 			case 2:
 			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.trident));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.trident));
 				break;
 			case 4:
 				npcItemsInv.setMeleeWeapon(new ItemStack(Items.wooden_sword));
@@ -168,7 +168,7 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 				npcItemsInv.setMeleeWeapon(new ItemStack(Items.stone_hoe));
 				break;
 			case 8:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.stoneSpear));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.stoneSpear));
 				break;
 			default:
 				break;

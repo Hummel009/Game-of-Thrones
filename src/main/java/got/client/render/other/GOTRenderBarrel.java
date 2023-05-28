@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityBarrel;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBarrel extends Render {
-	public ItemStack barrelItem = new ItemStack(GOTRegistry.barrel);
+	public ItemStack barrelItem = new ItemStack(GOTBlocks.barrel);
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {

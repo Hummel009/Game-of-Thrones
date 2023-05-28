@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.world.GOTWorldChunkManager;
@@ -105,12 +105,12 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 	public void dropFewItems(boolean flag, int i) {
 		int furs = 1 + rand.nextInt(3) + rand.nextInt(i + 1);
 		for (int l = 0; l < furs; ++l) {
-			dropItem(GOTRegistry.fur, 1);
+			dropItem(GOTItems.fur, 1);
 		}
 		if (flag) {
 			int rugChance = 30 - i * 5;
 			if (rand.nextInt(Math.max(rugChance, 1)) == 0) {
-				entityDropItem(new ItemStack(GOTRegistry.bearRug, 1, getBearType().bearID), 0.0f);
+				entityDropItem(new ItemStack(GOTItems.bearRug, 1, getBearType().bearID), 0.0f);
 			}
 		}
 	}
@@ -168,7 +168,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
-		return new ItemStack(GOTRegistry.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
+		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
 	@Override

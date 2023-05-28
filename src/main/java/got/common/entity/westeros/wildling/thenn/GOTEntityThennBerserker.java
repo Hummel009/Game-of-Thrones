@@ -1,7 +1,7 @@
 package got.common.entity.westeros.wildling.thenn;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemStack;
@@ -37,11 +37,11 @@ public class GOTEntityThennBerserker extends GOTEntityThenn {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(4);
 		if (i == 0 || i == 1 || i == 2) {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.wildlingSword));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.wildlingSword));
 		} else {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.wildlingBattleaxe));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.wildlingBattleaxe));
 		}
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.boneChestplate));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.boneChestplate));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(4, null);
 		return data;

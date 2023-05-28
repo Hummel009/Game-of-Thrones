@@ -2,7 +2,7 @@ package got.common.entity.westeros.ironborn;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -52,7 +52,7 @@ public class GOTEntityIronbornPriest extends GOTEntityIronbornMan implements GOT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.alloySteelDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.alloySteelDagger));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

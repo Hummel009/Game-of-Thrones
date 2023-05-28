@@ -3,7 +3,7 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -57,21 +57,21 @@ public class GOTBlockOreGem extends Block {
 	public Item getItemDropped(int i, Random random, int j) {
 		switch (i) {
 			case 0:
-				return GOTRegistry.topaz;
+				return GOTItems.topaz;
 			case 1:
-				return GOTRegistry.amethyst;
+				return GOTItems.amethyst;
 			case 2:
-				return GOTRegistry.sapphire;
+				return GOTItems.sapphire;
 			case 3:
-				return GOTRegistry.ruby;
+				return GOTItems.ruby;
 			case 4:
-				return GOTRegistry.amber;
+				return GOTItems.amber;
 			case 5:
-				return GOTRegistry.diamond;
+				return GOTItems.diamond;
 			case 6:
-				return GOTRegistry.opal;
+				return GOTItems.opal;
 			case 7:
-				return GOTRegistry.emerald;
+				return GOTItems.emerald;
 			default:
 				break;
 		}

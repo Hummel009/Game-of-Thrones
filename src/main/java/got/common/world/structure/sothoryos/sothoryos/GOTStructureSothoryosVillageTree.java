@@ -1,6 +1,6 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -41,7 +41,7 @@ public class GOTStructureSothoryosVillageTree extends GOTStructureSothoryosHouse
 					setBlockAndMetadata(world, i1, 2, k1, brickSlabBlock, brickSlabMeta);
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.mudGrass, 0);
+				setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.mudGrass, 0);
 				if (random.nextInt(2) != 0) {
 					continue;
 				}

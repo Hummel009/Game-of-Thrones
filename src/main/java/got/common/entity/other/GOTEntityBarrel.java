@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.item.other.GOTItemBarrel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -63,7 +63,7 @@ public class GOTEntityBarrel extends Entity {
 			setForwardDirection(-getForwardDirection());
 			setTimeSinceHit(10);
 			setDamageTaken(getDamageTaken() + f * 10.0f);
-			Block.SoundType stepSound = GOTRegistry.barrel.stepSound;
+			Block.SoundType stepSound = GOTBlocks.barrel.stepSound;
 			playSound(stepSound.getBreakSound(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);
 			setBeenAttacked();
 			isCreative = damagesource.getEntity() instanceof EntityPlayer && ((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode;
@@ -100,11 +100,11 @@ public class GOTEntityBarrel extends Entity {
 		dataWatcher.addObject(17, 0);
 		dataWatcher.addObject(18, 1);
 		dataWatcher.addObject(19, 0.0f);
-		dataWatcher.addObject(20, new ItemStack(GOTRegistry.barrel));
+		dataWatcher.addObject(20, new ItemStack(GOTBlocks.barrel));
 	}
 
 	public ItemStack getBarrelDrop() {
-		ItemStack itemstack = new ItemStack(GOTRegistry.barrel);
+		ItemStack itemstack = new ItemStack(GOTBlocks.barrel);
 		if (barrelItemData != null) {
 			GOTItemBarrel.setBarrelData(itemstack, barrelItemData);
 		}

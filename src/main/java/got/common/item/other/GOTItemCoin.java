@@ -4,7 +4,7 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.quest.IPickpocketable;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -81,7 +81,7 @@ public class GOTItemCoin extends Item {
 		}
 		for (i = values.length - 1; i >= 0; --i) {
 			value = values[i];
-			coin = new ItemStack(GOTRegistry.coin, 1, i);
+			coin = new ItemStack(GOTItems.coin, 1, i);
 			while (coins >= value && inv.addItemStackToInventory(coin.copy())) {
 				coins -= value;
 			}
@@ -89,7 +89,7 @@ public class GOTItemCoin extends Item {
 		if (coins > 0) {
 			for (i = values.length - 1; i >= 0; --i) {
 				value = values[i];
-				coin = new ItemStack(GOTRegistry.coin, 1, i);
+				coin = new ItemStack(GOTItems.coin, 1, i);
 				while (coins >= value) {
 					entityplayer.dropPlayerItemWithRandomChoice(coin.copy(), false);
 					coins -= value;
@@ -117,7 +117,7 @@ public class GOTItemCoin extends Item {
 			if (value > initCoins) {
 				continue;
 			}
-			coin = new ItemStack(GOTRegistry.coin, 1, i);
+			coin = new ItemStack(GOTItems.coin, 1, i);
 			for (slot = -1; slot < inv.mainInventory.length; ++slot) {
 				while ((itemstack = slot == -1 ? inv.getItemStack() : inv.mainInventory[slot]) != null && itemstack.isItemEqual(coin)) {
 					if (slot == -1) {
@@ -145,7 +145,7 @@ public class GOTItemCoin extends Item {
 					continue;
 				}
 				value = values[i];
-				coin = new ItemStack(GOTRegistry.coin, 1, i);
+				coin = new ItemStack(GOTItems.coin, 1, i);
 				block4:
 				for (slot = -1; slot < inv.mainInventory.length; ++slot) {
 					while ((itemstack = slot == -1 ? inv.getItemStack() : inv.mainInventory[slot]) != null && itemstack.isItemEqual(coin)) {

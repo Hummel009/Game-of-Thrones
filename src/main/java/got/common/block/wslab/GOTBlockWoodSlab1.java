@@ -3,7 +3,7 @@ package got.common.block.wslab;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.slab.GOTBlockSlabBase;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -16,7 +16,7 @@ public class GOTBlockWoodSlab1 extends GOTBlockSlabBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return GOTRegistry.planks1.getIcon(i, j & 7);
+		return GOTBlocks.planks1.getIcon(i, j & 7);
 	}
 
 	@SideOnly(Side.CLIENT)

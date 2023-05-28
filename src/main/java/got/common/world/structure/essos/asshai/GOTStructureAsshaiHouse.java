@@ -1,8 +1,9 @@
 package got.common.world.structure.essos.asshai;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -160,25 +161,25 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 			setBlockAndMetadata(world, i1, 4, -5, brick2Block, brick2Meta);
 			setBlockAndMetadata(world, i1, 5, -5, brick2SlabBlock, brick2SlabMeta);
 		}
-		setBlockAndMetadata(world, 0, 3, -6, GOTRegistry.chandelier, 12);
+		setBlockAndMetadata(world, 0, 3, -6, GOTBlocks.chandelier, 12);
 		setBlockAndMetadata(world, 0, 1, -4, doorBlock, 1);
 		setBlockAndMetadata(world, 0, 2, -4, doorBlock, 8);
-		setBlockAndMetadata(world, -2, 2, -3, GOTRegistry.asshaiTorch, 3);
-		setBlockAndMetadata(world, 2, 2, -3, GOTRegistry.asshaiTorch, 3);
+		setBlockAndMetadata(world, -2, 2, -3, GOTBlocks.asshaiTorch, 3);
+		setBlockAndMetadata(world, 2, 2, -3, GOTBlocks.asshaiTorch, 3);
 		for (i1 = -1; i1 <= 1; ++i1) {
 			for (k12 = -1; k12 <= 2; ++k12) {
 				setBlockAndMetadata(world, i1, 1, k12, Blocks.carpet, 15);
 			}
 		}
 		if (random.nextInt(4) == 0) {
-			placeChest(world, random, 0, 0, 1, GOTRegistry.chestStone, 2, GOTChestContents.ASSHAI);
+			placeChest(world, random, 0, 0, 1, GOTBlocks.chestStone, 2, GOTChestContents.ASSHAI);
 		}
-		setBlockAndMetadata(world, 3, 2, 4, GOTRegistry.asshaiTorch, 1);
-		setBlockAndMetadata(world, 0, 3, 1, GOTRegistry.chandelier, 12);
+		setBlockAndMetadata(world, 3, 2, 4, GOTBlocks.asshaiTorch, 1);
+		setBlockAndMetadata(world, 0, 3, 1, GOTBlocks.chandelier, 12);
 		for (k1 = 0; k1 <= 1; ++k1) {
 			setBlockAndMetadata(world, -3, 1, k1, Blocks.iron_bars, 0);
 			setBlockAndMetadata(world, -3, 2, k1, Blocks.furnace, 4);
-			setBlockAndMetadata(world, -4, 0, k1, GOTRegistry.hearth, 0);
+			setBlockAndMetadata(world, -4, 0, k1, GOTBlocks.hearth, 0);
 			setBlockAndMetadata(world, -4, 1, k1, Blocks.fire, 0);
 			for (j1 = 2; j1 <= 10; ++j1) {
 				setAir(world, -4, j1, k1);
@@ -195,7 +196,7 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, -3, 1, 3, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, -3, 1, 4, plankBlock, plankMeta);
 		placePlateWithCertainty(world, random, -3, 2, 4, plateBlock, GOTFoods.WESTEROS);
-		setBlockAndMetadata(world, -2, 1, 4, GOTRegistry.tableAsshai, 0);
+		setBlockAndMetadata(world, -2, 1, 4, GOTBlocks.tableAsshai, 0);
 		for (k1 = 0; k1 <= 3; ++k1) {
 			setAir(world, 3, 4, k1);
 		}
@@ -205,8 +206,8 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 3, 1, 1, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 1, 0, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 2, 0, plankStairBlock, 6);
-		placeChest(world, random, 3, 1, -1, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
-		setBlockAndMetadata(world, 3, 1, -2, GOTRegistry.tableAsshai, 0);
+		placeChest(world, random, 3, 1, -1, GOTBlocks.chestStone, 5, GOTChestContents.ASSHAI);
+		setBlockAndMetadata(world, 3, 1, -2, GOTBlocks.tableAsshai, 0);
 		setBlockAndMetadata(world, 3, 1, -3, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 2, -3, fenceBlock, fenceMeta);
 		for (k1 = -3; k1 <= -1; ++k1) {
@@ -234,10 +235,10 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 				setBlockAndMetadata(world, i14 + 2, 6, k13, brickStairBlock, 1);
 				setBlockAndMetadata(world, i14 + 2, 7, k13, brickStairBlock, 5);
 			}
-			setBlockAndMetadata(world, 0, 6, k13, GOTRegistry.brick1, 0);
+			setBlockAndMetadata(world, 0, 6, k13, GOTBlocks.brick1, 0);
 		}
 		setBlockAndMetadata(world, -2, 5, 0, plankBlock, plankMeta);
-		setBlockAndMetadata(world, -2, 6, 0, GOTRegistry.plateBlock, 0);
+		setBlockAndMetadata(world, -2, 6, 0, GOTBlocks.plateBlock, 0);
 		setBlockAndMetadata(world, -2, 5, 1, plankBlock, plankMeta);
 		placeMug(world, random, -2, 6, 1, 3, GOTFoods.WESTEROS_DRINK);
 		int[] j15 = {-1, 2};
@@ -253,18 +254,18 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 				setBlockAndMetadata(world, -3, j1, k122, pillarBlock, pillarMeta);
 			}
 		}
-		placeChest(world, random, -3, 5, -3, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
+		placeChest(world, random, -3, 5, -3, GOTBlocks.chestStone, 4, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, -3, 5, -2, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -3, 5, 3, plankBlock, plankMeta);
-		placeChest(world, random, -3, 5, 4, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
+		placeChest(world, random, -3, 5, 4, GOTBlocks.chestStone, 4, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, 0, 9, -2, brick2Block, brick2Meta);
-		setBlockAndMetadata(world, 0, 8, -2, GOTRegistry.chandelier, 12);
+		setBlockAndMetadata(world, 0, 8, -2, GOTBlocks.chandelier, 12);
 		setBlockAndMetadata(world, 0, 9, 3, brick2Block, brick2Meta);
-		setBlockAndMetadata(world, 0, 8, 3, GOTRegistry.chandelier, 12);
-		setBlockAndMetadata(world, -3, 7, -2, GOTRegistry.asshaiTorch, 2);
-		setBlockAndMetadata(world, -3, 7, 3, GOTRegistry.asshaiTorch, 2);
-		setBlockAndMetadata(world, 3, 7, -2, GOTRegistry.asshaiTorch, 1);
-		setBlockAndMetadata(world, 3, 7, 3, GOTRegistry.asshaiTorch, 1);
+		setBlockAndMetadata(world, 0, 8, 3, GOTBlocks.chandelier, 12);
+		setBlockAndMetadata(world, -3, 7, -2, GOTBlocks.asshaiTorch, 2);
+		setBlockAndMetadata(world, -3, 7, 3, GOTBlocks.asshaiTorch, 2);
+		setBlockAndMetadata(world, 3, 7, -2, GOTBlocks.asshaiTorch, 1);
+		setBlockAndMetadata(world, 3, 7, 3, GOTBlocks.asshaiTorch, 1);
 		for (int k14 = -1; k14 <= 2; ++k14) {
 			setBlockAndMetadata(world, -5, 12, k14, brickStairBlock, 1);
 			setBlockAndMetadata(world, -3, 12, k14, brickStairBlock, 0);
@@ -277,11 +278,11 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, -4, 13, 1, brickWallBlock, brickWallMeta);
 		GOTEntityAsshaiMan male = new GOTEntityAsshaiMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityAsshaiMan female = new GOTEntityAsshaiMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityAsshaiMan child = new GOTEntityAsshaiMan(world);
 		child.familyInfo.setMale(random.nextBoolean());
@@ -293,6 +294,6 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		plateBlock = random.nextBoolean() ? GOTRegistry.plateBlock : GOTRegistry.ceramicPlateBlock;
+		plateBlock = random.nextBoolean() ? GOTBlocks.plateBlock : GOTBlocks.ceramicPlateBlock;
 	}
 }

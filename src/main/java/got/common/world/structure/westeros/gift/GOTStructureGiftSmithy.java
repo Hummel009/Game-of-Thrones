@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.gift;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.westeros.gift.GOTEntityGiftBlacksmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -96,7 +96,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 				if (random.nextInt(3) != 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i12, 1, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i12, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (i12 = 4; i12 <= 6; ++i12) {
@@ -193,7 +193,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 5, 1, 3, bedBlock, 1);
 		setBlockAndMetadata(world, 6, 1, 3, bedBlock, 9);
 		placeChest(world, random, 7, 1, 2, 5, GOTChestContents.GIFT);
-		setBlockAndMetadata(world, 8, 0, 0, GOTRegistry.hearth, 0);
+		setBlockAndMetadata(world, 8, 0, 0, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 8, 1, 0, Blocks.fire, 0);
 		for (j12 = 2; j12 <= 3; ++j12) {
 			setAir(world, 8, j12, 0);
@@ -237,7 +237,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		}
 		setBlockAndMetadata(world, -4, 1, 0, Blocks.furnace, 2);
 		setBlockAndMetadata(world, -3, 1, 0, barsBlock, 0);
-		setBlockAndMetadata(world, -3, 1, 1, GOTRegistry.alloyForge, 4);
+		setBlockAndMetadata(world, -3, 1, 1, GOTBlocks.alloyForge, 4);
 		setBlockAndMetadata(world, -4, 2, 0, barsBlock, 0);
 		setBlockAndMetadata(world, -3, 2, 0, barsBlock, 0);
 		setBlockAndMetadata(world, -3, 2, 1, barsBlock, 0);
@@ -246,7 +246,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 			setAir(world, -4, j12, 1);
 		}
 		setBlockAndMetadata(world, -2, 1, 2, Blocks.cauldron, 3);
-		setBlockAndMetadata(world, -5, 1, -1, GOTRegistry.unsmeltery, 4);
+		setBlockAndMetadata(world, -5, 1, -1, GOTBlocks.unsmeltery, 4);
 		setBlockAndMetadata(world, -5, 1, -3, Blocks.anvil, 1);
 		setBlockAndMetadata(world, -3, 1, -3, Blocks.anvil, 1);
 		GOTEntityGiftBlacksmith blacksmith = new GOTEntityGiftBlacksmith(world);

@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.mossovy;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
 import net.minecraft.init.Blocks;
@@ -107,15 +107,15 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 		addBlockMetaAliasOption("GROUND", 1, Blocks.gravel, 0);
 		addBlockMetaAliasOption("GROUND", 1, Blocks.grass, 0);
 		addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
-		addBlockMetaAliasOption("GROUND", 1, GOTRegistry.dirtPath, 0);
-		addBlockMetaAliasOption("THATCH_FLOOR", 1, GOTRegistry.thatchFloor, 0);
+		addBlockMetaAliasOption("GROUND", 1, GOTBlocks.dirtPath, 0);
+		addBlockMetaAliasOption("THATCH_FLOOR", 1, GOTBlocks.thatchFloor, 0);
 		setBlockAliasChance("THATCH_FLOOR", 0.15f);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, -3, 1, 6, bedBlock, 2);
 		setBlockAndMetadata(world, -3, 1, 5, bedBlock, 10);
 		placeRandomFlowerPot(world, random, 3, 2, 5);
-		placePlateWithCertainty(world, random, 1, 2, 7, GOTRegistry.ceramicPlateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 1, 2, 7, GOTBlocks.ceramicPlateBlock, GOTFoods.WESTEROS);
 		placeMug(world, random, 0, 2, 7, 3, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, -1, 2, 7, 2, GOTFoods.WESTEROS_DRINK);
 		placeChest(world, random, -3, 1, 7, 4, GOTChestContents.MOSSOVY);

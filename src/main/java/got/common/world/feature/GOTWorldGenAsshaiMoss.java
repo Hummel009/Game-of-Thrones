@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.essos.GOTBiomeShadowMountains;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -37,7 +37,7 @@ public class GOTWorldGenAsshaiMoss extends WorldGenerator {
 					if (j1 != j || d9 * d9 + (d10 = (k3 + 0.5 - d6) / (d8 / 2.0)) * d10 >= 1.0 || !GOTBiomeShadowMountains.isBasalt(world, i3, j1 - 1, k3) || world.getBlockMetadata(i3, j1 - 1, k3) != 0 || !world.isAirBlock(i3, j1, k3)) {
 						continue;
 					}
-					world.setBlock(i3, j1, k3, GOTRegistry.asshaiMoss, 0, 2);
+					world.setBlock(i3, j1, k3, GOTBlocks.asshaiMoss, 0, 2);
 				}
 			}
 		}

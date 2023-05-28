@@ -2,7 +2,7 @@ package got.common.world.biome.essos;
 
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -46,8 +46,8 @@ public class GOTBiomeEssos extends GOTBiome {
 		decorator.cactiPerChunk = 1;
 		decorator.cornPerChunk = 4;
 		if (!disableNoise()) {
-			decorator.clayGen = new GOTWorldGenSand(GOTRegistry.redClay, 5, 1);
-			decorator.addSoil(new WorldGenMinable(GOTRegistry.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
+			decorator.clayGen = new GOTWorldGenSand(GOTBlocks.redClay, 5, 1);
+			decorator.addSoil(new WorldGenMinable(GOTBlocks.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
 		}
 		decorator.addTree(GOTTreeType.ACACIA, 300);
 		decorator.addTree(GOTTreeType.ACACIA_DEAD, 1);

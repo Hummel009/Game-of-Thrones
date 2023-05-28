@@ -1,9 +1,9 @@
 package got.common.world.structure.westeros.gift;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.gift.GOTEntityGiftBlacksmith;
@@ -79,13 +79,13 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 								setBlockAndMetadata(world, i15, 0, k12, Blocks.dirt, 1);
 								break;
 							case 2:
-								setBlockAndMetadata(world, i15, 0, k12, GOTRegistry.dirtPath, 0);
+								setBlockAndMetadata(world, i15, 0, k12, GOTBlocks.dirtPath, 0);
 								break;
 							default:
 								break;
 						}
 						if (random.nextInt(3) == 0) {
-							setBlockAndMetadata(world, i15, 1, k12, GOTRegistry.thatchFloor, 0);
+							setBlockAndMetadata(world, i15, 1, k12, GOTBlocks.thatchFloor, 0);
 						}
 					} else {
 						setBlockAndMetadata(world, i15, j14, k12, Blocks.dirt, 0);
@@ -377,8 +377,8 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, -7, 1, -9, Blocks.furnace, 3);
 				setBlockAndMetadata(world, -9, 1, -7, Blocks.furnace, 4);
 			} else {
-				setBlockAndMetadata(world, -7, j17, -9, GOTRegistry.alloyForge, 3);
-				setBlockAndMetadata(world, -9, j17, -7, GOTRegistry.alloyForge, 4);
+				setBlockAndMetadata(world, -7, j17, -9, GOTBlocks.alloyForge, 3);
+				setBlockAndMetadata(world, -9, j17, -7, GOTBlocks.alloyForge, 4);
 			}
 			setBlockAndMetadata(world, -8, j17, -9, plankBlock, plankMeta);
 			setBlockAndMetadata(world, -9, j17, -9, plankBlock, plankMeta);
@@ -468,7 +468,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 				if (!random.nextBoolean()) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k13, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i1, 1, k13, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (int k16 : new int[]{6, 10}) {
@@ -515,7 +515,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			}
 		}
 		if (!isAbandoned) {
-			setBlockAndMetadata(world, 0, 1, 9, GOTRegistry.commandTable, 0);
+			setBlockAndMetadata(world, 0, 1, 9, GOTBlocks.commandTable, 0);
 			placeWallBanner(world, 0, 3, 11, bannerType, 2);
 			spawnLegendaryMobs(world);
 			for (int l = 0; l < 8; ++l) {

@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -11,9 +11,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenMangrove extends WorldGenAbstractTree {
-	public Block woodID = GOTRegistry.wood3;
+	public Block woodID = GOTBlocks.wood3;
 	public int woodMeta = 3;
-	public Block leafID = GOTRegistry.leaves3;
+	public Block leafID = GOTBlocks.leaves3;
 	public int leafMeta = 3;
 
 	public GOTWorldGenMangrove(boolean flag) {

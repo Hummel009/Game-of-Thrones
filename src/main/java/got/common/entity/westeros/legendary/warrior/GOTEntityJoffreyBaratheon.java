@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -64,7 +64,7 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.joffreyCrossbow, 1);
+		dropItem(GOTItems.joffreyCrossbow, 1);
 		dropNPCCrossbowBolts(i);
 	}
 
@@ -120,8 +120,8 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.hearteater));
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.joffreyCrossbow));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.hearteater));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.joffreyCrossbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		return data;
 	}

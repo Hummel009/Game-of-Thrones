@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.yiti;
 
 import com.google.common.math.IntMath;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.yiti.*;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
@@ -72,7 +72,7 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 						setBlockAndMetadata(world, i1, j1, k1, woodBeamBlock, woodBeamMeta);
 					}
 				} else if (i2 == 2 || k2 == 2) {
-					setBlockAndMetadata(world, i1, 3, k1, GOTRegistry.reedBars, 0);
+					setBlockAndMetadata(world, i1, 3, k1, GOTBlocks.reedBars, 0);
 				}
 				generateRoof(world, random, i1, 4, k1);
 			}

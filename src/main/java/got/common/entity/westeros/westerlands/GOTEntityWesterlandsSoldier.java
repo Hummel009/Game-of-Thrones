@@ -1,7 +1,7 @@
 package got.common.entity.westeros.westerlands;
 
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
@@ -56,36 +56,36 @@ public class GOTEntityWesterlandsSoldier extends GOTEntityWesterlandsLevyman {
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosHammer));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosHammer));
 				break;
 			case 1:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosPike));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
 				break;
 			case 2:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosLongsword));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosLongsword));
 				break;
 			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosGreatsword));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosGreatsword));
 				break;
 			default:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 				break;
 		}
 		if (rand.nextInt(3) == 0) {
-			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTRegistry.westerosLance));
+			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTItems.westerosLance));
 		} else {
 			npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		}
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSpear));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.westerlandsBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.westerlandsLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.westerlandsChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.westerlandsHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.westerlandsBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.westerlandsLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.westerlandsChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.westerlandsHelmet));
 		return data;
 	}
 }

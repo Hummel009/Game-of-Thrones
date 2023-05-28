@@ -1,7 +1,7 @@
 package got.common.entity.essos.mossovy;
 
+import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityMarshWraithBall;
 import got.common.entity.other.GOTEntityNPC;
@@ -50,7 +50,7 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		ItemStack itemstack;
 		boolean vulnerable = false;
 		Entity entity = damagesource.getEntity();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL || itemstack.getItem() == GOTRegistry.crowbar)) {
+		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL || itemstack.getItem() == GOTItems.crowbar)) {
 			vulnerable = true;
 		}
 		if (vulnerable && getDeathFadeTime() == 0) {

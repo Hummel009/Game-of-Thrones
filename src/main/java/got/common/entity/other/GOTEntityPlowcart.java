@@ -1,6 +1,6 @@
 package got.common.entity.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -34,7 +34,7 @@ public class GOTEntityPlowcart extends GOTEntityCart {
 	public void dropAsItem(boolean drop) {
 		setDead();
 		if (drop) {
-			entityDropItem(new ItemStack(GOTRegistry.plowcart), 0.0f);
+			entityDropItem(new ItemStack(GOTItems.plowcart), 0.0f);
 		}
 	}
 

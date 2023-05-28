@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -25,8 +25,8 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiomeEssosPlains implements GOTB
 		setupDesertFauna();
 		clearBiomeVariants();
 		addBiomeVariant(GOTBiomeVariant.HILLS);
-		topBlock = GOTRegistry.whiteSand;
-		fillerBlock = GOTRegistry.whiteSand;
+		topBlock = GOTBlocks.whiteSand;
+		fillerBlock = GOTBlocks.whiteSand;
 		variantChance = 0.3f;
 		decorator.cactiPerChunk = 2;
 		decorator.deadBushPerChunk = 2;
@@ -126,7 +126,7 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiomeEssosPlains implements GOTB
 
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
-		return new GOTBiome.GrassBlockAndMeta(GOTRegistry.aridGrass, 0);
+		return new GOTBiome.GrassBlockAndMeta(GOTBlocks.aridGrass, 0);
 	}
 
 }

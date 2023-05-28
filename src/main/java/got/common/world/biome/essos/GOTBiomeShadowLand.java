@@ -3,7 +3,7 @@ package got.common.world.biome.essos;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -22,10 +22,10 @@ public class GOTBiomeShadowLand extends GOTBiome {
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		flowers.clear();
-		flowers.add(new FlowerEntry(GOTRegistry.asshaiFlower, 0, 20));
-		topBlock = GOTRegistry.rock;
+		flowers.add(new FlowerEntry(GOTBlocks.asshaiFlower, 0, 20));
+		topBlock = GOTBlocks.rock;
 		topBlockMeta = 0;
-		fillerBlock = GOTRegistry.rock;
+		fillerBlock = GOTBlocks.rock;
 		fillerBlockMeta = 0;
 		decorator.sandPerChunk = 0;
 		decorator.clayPerChunk = 0;
@@ -41,7 +41,7 @@ public class GOTBiomeShadowLand extends GOTBiome {
 	public static boolean isBlackSurface(World world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		int meta = world.getBlockMetadata(i, j, k);
-		return block == GOTRegistry.rock && meta == 0 || block == GOTRegistry.basaltGravel;
+		return block == GOTBlocks.rock && meta == 0 || block == GOTBlocks.basaltGravel;
 	}
 
 	@Override

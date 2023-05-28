@@ -1,6 +1,7 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosChieftain;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
@@ -42,12 +43,12 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 				if (i2 >= 8 || k2 >= 8) {
 					setBlockAndMetadata(world, i12, 0, k1, brickBlock, brickMeta);
 					if (k1 < 0 && i12 == 0) {
-						setBlockAndMetadata(world, 0, 0, k1, GOTRegistry.brick4, 4);
+						setBlockAndMetadata(world, 0, 0, k1, GOTBlocks.brick4, 4);
 					}
 					if (i2 > 9 || k2 > 9 || i2 != 9 && k2 != 9) {
 						continue;
 					}
-					setBlockAndMetadata(world, i12, 0, k1, GOTRegistry.brick4, 4);
+					setBlockAndMetadata(world, i12, 0, k1, GOTBlocks.brick4, 4);
 					continue;
 				}
 				for (j1 = 1; j1 <= 4; ++j1) {
@@ -63,12 +64,12 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 					}
 					if (step == 0) {
 						setBlockAndMetadata(world, -1, 0, k1, brickBlock, brickMeta);
-						setBlockAndMetadata(world, 0, 0, k1, GOTRegistry.brick4, 4);
+						setBlockAndMetadata(world, 0, 0, k1, GOTBlocks.brick4, 4);
 						setBlockAndMetadata(world, 1, 0, k1, brickBlock, brickMeta);
 						continue;
 					}
 					setBlockAndMetadata(world, -1, step, k1, brickStairBlock, 2);
-					setBlockAndMetadata(world, 0, step, k1, GOTRegistry.stairsSothoryosBrickObsidian, 2);
+					setBlockAndMetadata(world, 0, step, k1, GOTBlocks.stairsSothoryosBrickObsidian, 2);
 					setBlockAndMetadata(world, 1, step, k1, brickStairBlock, 2);
 					continue;
 				}
@@ -80,10 +81,10 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 			}
 		}
 		for (int k13 = -2; k13 <= 4; ++k13) {
-			setBlockAndMetadata(world, 0, 4, k13, GOTRegistry.brick4, 4);
+			setBlockAndMetadata(world, 0, 4, k13, GOTBlocks.brick4, 4);
 		}
 		for (i12 = -4; i12 <= 4; ++i12) {
-			setBlockAndMetadata(world, i12, 4, 0, GOTRegistry.brick4, 4);
+			setBlockAndMetadata(world, i12, 4, 0, GOTBlocks.brick4, 4);
 		}
 		for (int i13 : new int[]{-5, 5}) {
 			for (int k14 : new int[]{-5, 5}) {
@@ -99,7 +100,7 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 							setBlockAndMetadata(world, i22, 5, k22, brickBlock, brickMeta);
 							continue;
 						}
-						setBlockAndMetadata(world, i22, 5, k22, GOTRegistry.hearth, 0);
+						setBlockAndMetadata(world, i22, 5, k22, GOTBlocks.hearth, 0);
 						setBlockAndMetadata(world, i22, 6, k22, Blocks.fire, 0);
 					}
 				}
@@ -162,7 +163,7 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 			setBlockAndMetadata(world, i13, 6, -5, brickSlabBlock, brickSlabMeta);
 			setBlockAndMetadata(world, i13, 8, -4, brickSlabBlock, brickSlabMeta);
 			setBlockAndMetadata(world, i13, 8, -3, brickSlabBlock, brickSlabMeta);
-			placeArmorStand(world, i13, 5, 2, 0, new ItemStack[]{new ItemStack(GOTRegistry.sothoryosHelmet), new ItemStack(GOTRegistry.sothoryosChestplate), new ItemStack(GOTRegistry.sothoryosLeggings), new ItemStack(GOTRegistry.sothoryosBoots)});
+			placeArmorStand(world, i13, 5, 2, 0, new ItemStack[]{new ItemStack(GOTItems.sothoryosHelmet), new ItemStack(GOTItems.sothoryosChestplate), new ItemStack(GOTItems.sothoryosLeggings), new ItemStack(GOTItems.sothoryosBoots)});
 		}
 		for (j12 = 5; j12 <= 7; ++j12) {
 			setBlockAndMetadata(world, -2, j12, 4, brickBlock, brickMeta);
@@ -219,31 +220,31 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 					}
 				}
 				if (i2 == 0 && k2 == 0) {
-					setBlockAndMetadata(world, i1, 10, k1, GOTRegistry.hearth, 0);
+					setBlockAndMetadata(world, i1, 10, k1, GOTBlocks.hearth, 0);
 					setBlockAndMetadata(world, i1, 11, k1, Blocks.fire, 0);
 				}
 				if (i2 > 1 || k2 > 1) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 13, k1, GOTRegistry.brick4, 3);
+				setBlockAndMetadata(world, i1, 13, k1, GOTBlocks.brick4, 3);
 				if (k1 == -1) {
-					setBlockAndMetadata(world, i1, 14, -1, GOTRegistry.stairsSothoryosBrickGold, 2);
+					setBlockAndMetadata(world, i1, 14, -1, GOTBlocks.stairsSothoryosBrickGold, 2);
 					continue;
 				}
 				if (k1 == 1) {
-					setBlockAndMetadata(world, i1, 14, 1, GOTRegistry.stairsSothoryosBrickGold, 3);
+					setBlockAndMetadata(world, i1, 14, 1, GOTBlocks.stairsSothoryosBrickGold, 3);
 					continue;
 				}
 				if (i1 == -1) {
-					setBlockAndMetadata(world, -1, 14, k1, GOTRegistry.stairsSothoryosBrickGold, 1);
+					setBlockAndMetadata(world, -1, 14, k1, GOTBlocks.stairsSothoryosBrickGold, 1);
 					continue;
 				}
 				if (i1 == 1) {
-					setBlockAndMetadata(world, 1, 14, k1, GOTRegistry.stairsSothoryosBrickGold, 0);
+					setBlockAndMetadata(world, 1, 14, k1, GOTBlocks.stairsSothoryosBrickGold, 0);
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 14, k1, GOTRegistry.brick4, 3);
-				setBlockAndMetadata(world, i1, 15, k1, GOTRegistry.wallStone4, 3);
+				setBlockAndMetadata(world, i1, 14, k1, GOTBlocks.brick4, 3);
+				setBlockAndMetadata(world, i1, 15, k1, GOTBlocks.wallStone4, 3);
 				placeSothoryosTorch(world, i1, 16, k1);
 			}
 		}
@@ -259,8 +260,8 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 		setBlockAndMetadata(world, -2, 6, 1, Blocks.torch, 2);
 		setBlockAndMetadata(world, 2, 6, -1, Blocks.torch, 1);
 		setBlockAndMetadata(world, 2, 6, 1, Blocks.torch, 1);
-		spawnItemFrame(world, -1, 6, 3, 2, new ItemStack(GOTRegistry.sarbacaneTrap));
-		spawnItemFrame(world, 1, 6, 3, 2, new ItemStack(GOTRegistry.sothoryosDagger));
+		spawnItemFrame(world, -1, 6, 3, 2, new ItemStack(GOTBlocks.sarbacaneTrap));
+		spawnItemFrame(world, 1, 6, 3, 2, new ItemStack(GOTItems.sothoryosDagger));
 		GOTEntitySothoryosChieftain chieftain = new GOTEntitySothoryosChieftain(world);
 		spawnNPCAndSetHome(chieftain, world, 0, 5, 0, 8);
 		return true;

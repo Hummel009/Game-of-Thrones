@@ -1,7 +1,7 @@
 package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -48,7 +48,7 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		double d4 = noiseGravel.func_151601_a(i * 0.6, k * 0.6);
 		double d5 = noiseObsidianGravel.func_151601_a(i * 0.09, k * 0.09);
 		if (d5 + noiseObsidianGravel.func_151601_a(i * 0.6, k * 0.6) > 0.5) {
-			topBlock = GOTRegistry.obsidianGravel;
+			topBlock = GOTBlocks.obsidianGravel;
 			topBlockMeta = 0;
 		} else if (d3 + d4 > 0.6) {
 			topBlock = Blocks.gravel;

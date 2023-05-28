@@ -110,12 +110,12 @@ public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements 
 		data = super.onSpawnWithEgg(data);
 		int weapon = rand.nextInt(4);
 		if (weapon == 0 || weapon == 1 || weapon == 2) {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironDagger));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		} else {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeDagger));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeDagger));
 		}
 		npcItemsInv.setIdleItem(null);
-		ItemStack hat = new ItemStack(GOTRegistry.leatherHat);
+		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		float h = 0.06111111f;
 		float s = MathHelper.randomFloatClamp(rand, 0.0f, 0.5f);
 		float b = MathHelper.randomFloatClamp(rand, 0.0f, 0.5f);

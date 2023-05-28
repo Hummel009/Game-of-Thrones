@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.world.biome.GOTBiome;
@@ -49,10 +49,10 @@ public class GOTEntityDeer extends GOTEntityHorse implements GOTRandomSkinEntity
 		int meat = rand.nextInt(3) + rand.nextInt(1 + i);
 		for (int l = 0; l < meat; ++l) {
 			if (isBurning()) {
-				dropItem(GOTRegistry.deerCooked, 1);
+				dropItem(GOTItems.deerCooked, 1);
 				continue;
 			}
-			dropItem(GOTRegistry.deerRaw, 1);
+			dropItem(GOTItems.deerRaw, 1);
 		}
 	}
 

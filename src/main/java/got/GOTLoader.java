@@ -1,6 +1,7 @@
 package got;
 
 import got.common.*;
+import got.common.block.other.GOTBlockIronBank;
 import got.common.database.*;
 import got.common.enchant.GOTEnchantmentCombining;
 import got.common.entity.GOTEntity;
@@ -22,6 +23,8 @@ import integrator.NEIGOTIntegrator;
 public class GOTLoader {
 
 	public static void onInit() {
+		GOTBlocks.onInit();
+		GOTItems.onInit();
 		GOTTileEntityRegistry.onInit();
 		GOTCreativeTabs.onInit();
 		GOTRecipe.onInit();
@@ -43,19 +46,17 @@ public class GOTLoader {
 		GOTTitle.onInit();
 		GOTFixer.onInit();
 		if (GOTModChecker.hasLOTR()) {
-			GOTRegistry.fallenLeaves1.setCreativeTab(null);
-			GOTRegistry.fallenLeaves2.setCreativeTab(null);
-			GOTRegistry.fallenLeaves3.setCreativeTab(null);
-			GOTRegistry.fallenLeaves4.setCreativeTab(null);
+			GOTBlocks.fallenLeaves1.setCreativeTab(null);
+			GOTBlocks.fallenLeaves2.setCreativeTab(null);
+			GOTBlocks.fallenLeaves3.setCreativeTab(null);
+			GOTBlocks.fallenLeaves4.setCreativeTab(null);
 		}
 	}
 
 	public static void preInit() {
-		GOTConfig.setupAndLoad();
-		GOTRegistry.assignContent();
-		GOTRegistry.assignMetadata();
-		GOTRegistry.registerBlocks();
-		GOTRegistry.registerItems();
+		GOTConfig.preInit();
+		GOTBlocks.preInit();
+		GOTItems.preInit();
 		GOTEntity.preInit();
 		GOTInvasions.preInit();
 		GOTBiome.preInit();
@@ -66,5 +67,6 @@ public class GOTLoader {
 		if (GOTModChecker.hasNEI() && GOTModChecker.hasGuiContainer()) {
 			NEIGOTIntegrator.registerRecipes();
 		}
+		GOTBlockIronBank.preInit();
 	}
 }

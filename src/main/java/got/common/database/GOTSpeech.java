@@ -109,7 +109,7 @@ public class GOTSpeech {
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8));
 						speechBankNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
-						FMLLog.severe("Failed to load GOT speech bank " + s + "from zip file");
+						FMLLog.severe("Failed to onInit GOT speech bank " + s + "from zip file");
 						e.printStackTrace();
 					}
 				}
@@ -121,7 +121,7 @@ public class GOTSpeech {
 					s = s.substring(speechBankDir.getPath().length() + 1);
 					int i = (s = s.replace(File.separator, "/")).indexOf(".txt");
 					if (i < 0) {
-						FMLLog.severe("Failed to load GOT speech bank " + s + " from MCP folder; speech bank files must be in .txt format");
+						FMLLog.severe("Failed to onInit GOT speech bank " + s + " from MCP folder; speech bank files must be in .txt format");
 						continue;
 					}
 					try {
@@ -129,13 +129,13 @@ public class GOTSpeech {
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(subfile.toPath())), StandardCharsets.UTF_8));
 						speechBankNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
-						FMLLog.severe("Failed to load GOT speech bank " + s + " from MCP folder");
+						FMLLog.severe("Failed to onInit GOT speech bank " + s + " from MCP folder");
 						e.printStackTrace();
 					}
 				}
 			}
 		} catch (Exception e) {
-			FMLLog.severe("Failed to load GOT speech banks");
+			FMLLog.severe("Failed to onInit GOT speech banks");
 			e.printStackTrace();
 		}
 		for (Entry<String, BufferedReader> speechBankName : speechBankNamesAndReaders.entrySet()) {
@@ -166,7 +166,7 @@ public class GOTSpeech {
 				}
 				allSpeechBanks.put(speechBankName.getKey(), bank);
 			} catch (Exception e) {
-				FMLLog.severe("Failed to load GOT speech bank " + speechBankName.getKey());
+				FMLLog.severe("Failed to onInit GOT speech bank " + speechBankName.getKey());
 				e.printStackTrace();
 			}
 		}

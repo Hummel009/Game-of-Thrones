@@ -2,7 +2,7 @@ package got.common.entity.essos.pentos;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTTradeable;
 import got.common.item.other.GOTItemRobes;
@@ -40,7 +40,7 @@ public class GOTEntityPentosBlacksmith extends GOTEntityPentosMan implements GOT
 				dropItem(Items.iron_ingot, 1);
 				continue;
 			}
-			dropItem(GOTRegistry.bronzeIngot, 1);
+			dropItem(GOTItems.bronzeIngot, 1);
 		}
 	}
 
@@ -67,9 +67,9 @@ public class GOTEntityPentosBlacksmith extends GOTEntityPentosMan implements GOT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.blacksmithHammer));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.blacksmithHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		ItemStack turban = new ItemStack(GOTRegistry.robesHelmet);
+		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		GOTItemRobes.setRobesColor(turban, 4993068);
 		setCurrentItemOrArmor(4, turban);
 		return data;

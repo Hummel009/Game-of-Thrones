@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.common;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
@@ -122,10 +122,10 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		}
 		setBlockAndMetadata(world, -2, 3, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 2, 3, 0, Blocks.torch, 1);
-		setBlockAndMetadata(world, 0, 5, 0, GOTRegistry.chandelier, 1);
-		placeChest(world, random, -2, 7, -2, GOTRegistry.chestStone, 4, getChestContents());
-		setBlockAndMetadata(world, -2, 7, 0, GOTRegistry.armorStand, 3);
-		setBlockAndMetadata(world, -2, 8, 0, GOTRegistry.armorStand, 7);
+		setBlockAndMetadata(world, 0, 5, 0, GOTBlocks.chandelier, 1);
+		placeChest(world, random, -2, 7, -2, GOTBlocks.chestStone, 4, getChestContents());
+		setBlockAndMetadata(world, -2, 7, 0, GOTBlocks.armorStand, 3);
+		setBlockAndMetadata(world, -2, 8, 0, GOTBlocks.armorStand, 7);
 		setBlockAndMetadata(world, -2, 7, 2, Blocks.anvil, 0);
 		spawnItemFrame(world, -3, 8, -1, 1, getFramedItem(random));
 		spawnItemFrame(world, -3, 8, 1, 1, getFramedItem(random));
@@ -137,7 +137,7 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		placeMug(world, random, 2, 8, 0, 1, GOTFoods.WESTEROS_DRINK);
 		placePlateWithCertainty(world, random, 2, 8, 1, plateBlock, GOTFoods.WESTEROS);
 		placeBarrel(world, random, 2, 8, 2, 5, GOTFoods.WESTEROS_DRINK);
-		setBlockAndMetadata(world, 0, 9, 0, GOTRegistry.chandelier, 1);
+		setBlockAndMetadata(world, 0, 9, 0, GOTBlocks.chandelier, 1);
 		for (int i3 = -4; i3 <= 4; ++i3) {
 			for (int k3 = -4; k3 <= 4; ++k3) {
 				int i4 = Math.abs(i3);

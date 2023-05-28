@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.common;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntityBird;
 import got.common.entity.animal.GOTEntityButterfly;
 import got.common.world.structure.other.GOTStructureBase;
@@ -69,11 +69,11 @@ public class GOTStructureEssosBazaar extends GOTStructureEssosBase {
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockAlias("FENCE_GATE", fenceGateBlock);
 		generateStrScan(world, random, 0, 0, 0);
-		placeAnimalJar(world, -3, 1, -7, GOTRegistry.butterflyJar, 0, new GOTEntityButterfly(world));
-		placeAnimalJar(world, 11, 1, -1, GOTRegistry.birdCageWood, 0, null);
-		placeAnimalJar(world, 3, 1, 7, GOTRegistry.birdCage, 0, new GOTEntityBird(world));
-		placeAnimalJar(world, -9, 3, 0, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
-		placeAnimalJar(world, 4, 3, 3, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
+		placeAnimalJar(world, -3, 1, -7, GOTBlocks.butterflyJar, 0, new GOTEntityButterfly(world));
+		placeAnimalJar(world, 11, 1, -1, GOTBlocks.birdCageWood, 0, null);
+		placeAnimalJar(world, 3, 1, 7, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
+		placeAnimalJar(world, -9, 3, 0, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
+		placeAnimalJar(world, 4, 3, 3, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
 		ArrayList<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(getStallClasses()));
 		while (stallClasses.size() > 6) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));

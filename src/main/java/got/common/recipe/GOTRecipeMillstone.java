@@ -1,7 +1,8 @@
 package got.common.recipe;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -58,24 +59,24 @@ public class GOTRecipeMillstone {
 	public static void onInit() {
 		addRecipe(Blocks.stone, new ItemStack(Blocks.cobblestone));
 		addRecipe(Blocks.cobblestone, new ItemStack(Blocks.gravel), 0.75f);
-		addRecipe(new ItemStack(GOTRegistry.rock, 1, 0), new ItemStack(GOTRegistry.basaltGravel), 0.75f);
+		addRecipe(new ItemStack(GOTBlocks.rock, 1, 0), new ItemStack(GOTBlocks.basaltGravel), 0.75f);
 		addRecipe(Blocks.gravel, new ItemStack(Items.flint), 0.25f);
-		addRecipe(GOTRegistry.basaltGravel, new ItemStack(Items.flint), 0.25f);
-		addRecipe(GOTRegistry.obsidianGravel, new ItemStack(GOTRegistry.obsidianShard), 1.0f);
-		addRecipe(GOTRegistry.oreSalt, new ItemStack(GOTRegistry.salt));
+		addRecipe(GOTBlocks.basaltGravel, new ItemStack(Items.flint), 0.25f);
+		addRecipe(GOTBlocks.obsidianGravel, new ItemStack(GOTItems.obsidianShard), 1.0f);
+		addRecipe(GOTBlocks.oreSalt, new ItemStack(GOTItems.salt));
 		addRecipe(new ItemStack(Blocks.sandstone, 1, 0), new ItemStack(Blocks.sand, 2, 0));
-		addRecipe(new ItemStack(GOTRegistry.redSandstone, 1, 0), new ItemStack(Blocks.sand, 2, 1));
-		addRecipe(new ItemStack(GOTRegistry.whiteSandstone, 1, 0), new ItemStack(GOTRegistry.whiteSand, 2, 0));
-		addCrackedBricks(new ItemStack(Blocks.brick_block, 1, 0), new ItemStack(GOTRegistry.redBrick, 1, 1));
+		addRecipe(new ItemStack(GOTBlocks.redSandstone, 1, 0), new ItemStack(Blocks.sand, 2, 1));
+		addRecipe(new ItemStack(GOTBlocks.whiteSandstone, 1, 0), new ItemStack(GOTBlocks.whiteSand, 2, 0));
+		addCrackedBricks(new ItemStack(Blocks.brick_block, 1, 0), new ItemStack(GOTBlocks.redBrick, 1, 1));
 		addCrackedBricks(new ItemStack(Blocks.stonebrick, 1, 0), new ItemStack(Blocks.stonebrick, 1, 2));
-		addCrackedBricks(new ItemStack(GOTRegistry.brick1, 1, 0), new ItemStack(GOTRegistry.brick1, 1, 7));
-		addCrackedBricks(new ItemStack(GOTRegistry.brick1, 1, 1), new ItemStack(GOTRegistry.brick1, 1, 3));
-		addCrackedBricks(new ItemStack(GOTRegistry.brick1, 1, 15), new ItemStack(GOTRegistry.brick3, 1, 11));
-		addCrackedBricks(new ItemStack(GOTRegistry.brick3, 1, 13), new ItemStack(GOTRegistry.brick3, 1, 14));
-		addCrackedBricks(new ItemStack(GOTRegistry.brick4, 1, 0), new ItemStack(GOTRegistry.brick4, 1, 2));
-		addCrackedBricks(new ItemStack(GOTRegistry.brick5, 1, 8), new ItemStack(GOTRegistry.brick5, 1, 10));
-		addCrackedBricks(new ItemStack(GOTRegistry.brick5, 1, 11), new ItemStack(GOTRegistry.brick5, 1, 14));
-		addCrackedBricks(new ItemStack(GOTRegistry.brick6, 1, 6), new ItemStack(GOTRegistry.brick6, 1, 4));
+		addCrackedBricks(new ItemStack(GOTBlocks.brick1, 1, 0), new ItemStack(GOTBlocks.brick1, 1, 7));
+		addCrackedBricks(new ItemStack(GOTBlocks.brick1, 1, 1), new ItemStack(GOTBlocks.brick1, 1, 3));
+		addCrackedBricks(new ItemStack(GOTBlocks.brick1, 1, 15), new ItemStack(GOTBlocks.brick3, 1, 11));
+		addCrackedBricks(new ItemStack(GOTBlocks.brick3, 1, 13), new ItemStack(GOTBlocks.brick3, 1, 14));
+		addCrackedBricks(new ItemStack(GOTBlocks.brick4, 1, 0), new ItemStack(GOTBlocks.brick4, 1, 2));
+		addCrackedBricks(new ItemStack(GOTBlocks.brick5, 1, 8), new ItemStack(GOTBlocks.brick5, 1, 10));
+		addCrackedBricks(new ItemStack(GOTBlocks.brick5, 1, 11), new ItemStack(GOTBlocks.brick5, 1, 14));
+		addCrackedBricks(new ItemStack(GOTBlocks.brick6, 1, 6), new ItemStack(GOTBlocks.brick6, 1, 4));
 	}
 
 	public static class MillstoneResult {

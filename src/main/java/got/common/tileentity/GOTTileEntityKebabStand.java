@@ -1,7 +1,7 @@
 package got.common.tileentity;
 
 import got.common.block.other.GOTBlockKebabStand;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -68,7 +68,7 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 			if (itemstack == null || cooked[i]) {
 				continue;
 			}
-			setInventorySlotContents(i, new ItemStack(GOTRegistry.kebab));
+			setInventorySlotContents(i, new ItemStack(GOTItems.kebab));
 			cooked[i] = true;
 			break;
 		}
@@ -93,7 +93,7 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 
 	public void generateCookedKebab(int kebab) {
 		for (int i = 0; i < kebab && i < getSizeInventory(); ++i) {
-			setInventorySlotContents(i, new ItemStack(GOTRegistry.kebab));
+			setInventorySlotContents(i, new ItemStack(GOTItems.kebab));
 			cooked[i] = true;
 		}
 	}

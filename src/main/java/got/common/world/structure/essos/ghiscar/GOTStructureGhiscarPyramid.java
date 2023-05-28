@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.ghiscar;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarHarpy;
 import got.common.item.other.GOTItemBanner;
 import got.common.util.GOTMazeGenerator;
@@ -77,7 +77,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 				for (k12 = -RADIUS; k12 <= RADIUS; ++k12) {
 					j1 = getTopBlock(world, i1, k12);
 					Block block = getBlock(world, i1, j1 - 1, k12);
-					if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.stone || block == GOTRegistry.mudGrass || block == GOTRegistry.mud) {
+					if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.stone || block == GOTBlocks.mudGrass || block == GOTBlocks.mud) {
 						continue;
 					}
 					return false;
@@ -112,20 +112,20 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		}
 		for (int i16 = -2; i16 <= 2; ++i16) {
 			for (int k16 = -2; k16 <= 2; ++k16) {
-				setBlockAndMetadata(world, i16, topHeight, k16, GOTRegistry.brick1, 15);
+				setBlockAndMetadata(world, i16, topHeight, k16, GOTBlocks.brick1, 15);
 				for (int j13 = topHeight + 1; j13 <= topHeight + 6; ++j13) {
-					setBlockAndMetadata(world, i16, j13, k16, GOTRegistry.brick1, 15);
+					setBlockAndMetadata(world, i16, j13, k16, GOTBlocks.brick1, 15);
 				}
-				setBlockAndMetadata(world, i16, topHeight + 7, k16, GOTRegistry.brick1, 15);
+				setBlockAndMetadata(world, i16, topHeight + 7, k16, GOTBlocks.brick1, 15);
 			}
 		}
 		for (int i15 : new int[]{-10, 10}) {
 			for (int k17 : new int[]{-10, 10}) {
-				setBlockAndMetadata(world, i15, topHeight, k17, GOTRegistry.brick1, 15);
+				setBlockAndMetadata(world, i15, topHeight, k17, GOTBlocks.brick1, 15);
 				for (int j14 = topHeight + 1; j14 <= topHeight + 3; ++j14) {
-					setBlockAndMetadata(world, i15, j14, k17, GOTRegistry.brick1, 15);
+					setBlockAndMetadata(world, i15, j14, k17, GOTBlocks.brick1, 15);
 				}
-				setBlockAndMetadata(world, i15, topHeight + 4, k17, GOTRegistry.brick1, 15);
+				setBlockAndMetadata(world, i15, topHeight + 4, k17, GOTBlocks.brick1, 15);
 			}
 		}
 		generateMaze(world, random, 0, topHeight - 13, 0, maze1, 5, 1);
@@ -188,8 +188,8 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 				int i2 = Math.abs(i17);
 				int k2 = Math.abs(k17);
 				if (i2 == chamberRMax + 1 || k2 == chamberRMax + 1) {
-					setBlockAndMetadata(world, i17, topHeight - 25, k17, GOTRegistry.brick1, 15);
-					setBlockAndMetadata(world, i17, topHeight - 24, k17, GOTRegistry.brick1, 15);
+					setBlockAndMetadata(world, i17, topHeight - 25, k17, GOTBlocks.brick1, 15);
+					setBlockAndMetadata(world, i17, topHeight - 24, k17, GOTBlocks.brick1, 15);
 				}
 				if (i2 > chamberRMax || k2 > chamberRMax || i2 < chamberRMin && k2 < chamberRMin) {
 					continue;
@@ -198,17 +198,17 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 					setAir(world, i17, j18, k17);
 				}
 				if (i2 == chamberRMax && k2 == chamberRMax) {
-					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTRegistry.hearth, 0);
+					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTBlocks.hearth, 0);
 					setBlockAndMetadata(world, i17, topHeight - 25, k17, Blocks.fire, 0);
 				} else if (i2 >= chamberRMax - 1 && k2 >= chamberRMax - 1) {
-					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTRegistry.brick1, 15);
+					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTBlocks.brick1, 15);
 				} else if (i2 >= chamberRMax - 2 && k2 >= chamberRMax - 2) {
-					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTRegistry.slabSingle4, 0);
+					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTBlocks.slabSingle4, 0);
 				}
 				if ((i2 != chamberRMax || k2 % 6 != 0 || k2 >= chamberRMax - 4) && (k2 != chamberRMax || i2 % 6 != 0 || i2 >= chamberRMax - 4)) {
 					continue;
 				}
-				Block pillarBlock = GOTRegistry.pillar1;
+				Block pillarBlock = GOTBlocks.pillar1;
 				int pillarMeta = 5;
 				for (int j19 = topHeight - 26; j19 < topHeight - 22; ++j19) {
 					setBlockAndMetadata(world, i17, j19, k17, pillarBlock, pillarMeta);
@@ -268,15 +268,15 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 				}
 				if (i2 == roomPillarEdge || k2 == roomPillarEdge) {
 					for (j112 = roomBottom + 1; j112 <= roomFloor + 1; ++j112) {
-						setBlockAndMetadata(world, i12, j112, k1, GOTRegistry.brick1, 15);
+						setBlockAndMetadata(world, i12, j112, k1, GOTBlocks.brick1, 15);
 					}
 					placeRandomBrick(world, random, i12, actingRoomTop - 1, k1);
-					setBlockAndMetadata(world, i12, actingRoomTop - 2, k1, GOTRegistry.brick1, 15);
+					setBlockAndMetadata(world, i12, actingRoomTop - 2, k1, GOTBlocks.brick1, 15);
 					int i3 = IntMath.mod(i12, 4);
 					int k3 = IntMath.mod(k1, 4);
 					if (i2 == roomPillarEdge && k3 == 0 || k2 == roomPillarEdge && i3 == 0) {
 						for (j111 = roomFloor + 2; j111 <= actingRoomTop - 2; ++j111) {
-							setBlockAndMetadata(world, i12, j111, k1, GOTRegistry.brick1, 15);
+							setBlockAndMetadata(world, i12, j111, k1, GOTBlocks.brick1, 15);
 						}
 					}
 					if (i2 == roomPillarEdge) {
@@ -312,22 +312,22 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 						placeRandomBrick(world, random, i12, j113, k1);
 					}
 					if (max > 3 && max % 2 == 0) {
-						setBlockAndMetadata(world, i12, lvlMax, k1, GOTRegistry.brick1, 15);
+						setBlockAndMetadata(world, i12, lvlMax, k1, GOTBlocks.brick1, 15);
 						if (i2 == k2) {
-							setBlockAndMetadata(world, i12, lvlMax, k1, GOTRegistry.brick1, 15);
-							setBlockAndMetadata(world, i12, lvlMax + 1, k1, GOTRegistry.brick1, 15);
-							setBlockAndMetadata(world, i12, lvlMax + 2, k1, GOTRegistry.fuse, 0);
-							setBlockAndMetadata(world, i12, lvlMax + 3, k1, GOTRegistry.fuse, 1);
+							setBlockAndMetadata(world, i12, lvlMax, k1, GOTBlocks.brick1, 15);
+							setBlockAndMetadata(world, i12, lvlMax + 1, k1, GOTBlocks.brick1, 15);
+							setBlockAndMetadata(world, i12, lvlMax + 2, k1, GOTBlocks.fuse, 0);
+							setBlockAndMetadata(world, i12, lvlMax + 3, k1, GOTBlocks.fuse, 1);
 						}
 					}
 					if (max <= 3 || i2 > 1 && k2 > 1) {
 						continue;
 					}
 					if (max % 2 == 0) {
-						setBlockAndMetadata(world, i12, lvlMax, k1, GOTRegistry.slabSingle4, 0);
+						setBlockAndMetadata(world, i12, lvlMax, k1, GOTBlocks.slabSingle4, 0);
 						continue;
 					}
-					setBlockAndMetadata(world, i12, lvlMax, k1, GOTRegistry.brick1, 15);
+					setBlockAndMetadata(world, i12, lvlMax, k1, GOTBlocks.brick1, 15);
 					continue;
 				}
 				for (j112 = roomBottom + 1; j112 <= roomFloor; ++j112) {
@@ -340,21 +340,21 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 					if (random.nextInt(4) == 0) {
 						continue;
 					}
-					setBlockAndMetadata(world, i12, roomFloor, k1, GOTRegistry.scorchedStone, 0);
+					setBlockAndMetadata(world, i12, roomFloor, k1, GOTBlocks.scorchedStone, 0);
 					continue;
 				}
 				if (i2 == roomPillarEdge - 2 || k2 == roomPillarEdge - 2) {
 					if (random.nextInt(2) != 0) {
 						continue;
 					}
-					setBlockAndMetadata(world, i12, roomFloor, k1, GOTRegistry.scorchedStone, 0);
+					setBlockAndMetadata(world, i12, roomFloor, k1, GOTBlocks.scorchedStone, 0);
 					continue;
 				}
 				if (i2 == roomPillarEdge - 3 || k2 == roomPillarEdge - 3) {
 					if (random.nextInt(4) != 0) {
 						continue;
 					}
-					setBlockAndMetadata(world, i12, roomFloor, k1, GOTRegistry.scorchedStone, 0);
+					setBlockAndMetadata(world, i12, roomFloor, k1, GOTBlocks.scorchedStone, 0);
 					continue;
 				}
 				if (random.nextInt(16) == 0) {
@@ -363,7 +363,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 				if (random.nextInt(200) != 0) {
 					continue;
 				}
-				Block pillarBlock = GOTRegistry.pillar1;
+				Block pillarBlock = GOTBlocks.pillar1;
 				int pillarMeta = 5;
 				for (j111 = roomBottom + 1; j111 < actingRoomTop; ++j111) {
 					setBlockAndMetadata(world, i12, j111, k1, pillarBlock, pillarMeta);
@@ -371,10 +371,10 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 			}
 		}
 		placePyramidBanner(world, 0, roomFloor + 6, 0);
-		placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 5, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
-		placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 4, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
-		placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTRegistry.spawnerChestStone, 2, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
-		placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTRegistry.spawnerChestStone, 3, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTBlocks.spawnerChestStone, 5, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTBlocks.spawnerChestStone, 4, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTBlocks.spawnerChestStone, 2, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
+		placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTBlocks.spawnerChestStone, 3, GOTEntityGhiscarHarpy.class, GOTChestContents.GHISCAR);
 		stepX = 1;
 		stepY = topHeight - 36;
 		stepZ = 0;
@@ -427,7 +427,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 			stepZ = newZ;
 		}
 		for (int j114 = roomFloor + 1; j114 <= topHeight - 32; ++j114) {
-			setBlockAndMetadata(world, maze3EndX, j114, maze3EndZ, GOTRegistry.brick1, 15);
+			setBlockAndMetadata(world, maze3EndX, j114, maze3EndZ, GOTBlocks.brick1, 15);
 		}
 		setBlockAndMetadata(world, maze3EndX + 1, topHeight - 33, maze3EndZ, Blocks.torch, 2);
 		setBlockAndMetadata(world, maze3EndX - 1, topHeight - 33, maze3EndZ, Blocks.torch, 1);
@@ -475,17 +475,17 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 
 	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
 		if (random.nextBoolean()) {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.brick3, 11);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.brick3, 11);
 		} else {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.brick1, 15);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 15);
 		}
 	}
 
 	public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (random.nextBoolean()) {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSandstoneBrickCracked, meta);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsSandstoneBrickCracked, meta);
 		} else {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSandstoneBrick, meta);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsSandstoneBrick, meta);
 		}
 	}
 

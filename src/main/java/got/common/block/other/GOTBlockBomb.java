@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityBomb;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -112,7 +112,7 @@ public class GOTBlockBomb extends Block {
 
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int l, float f, float f1, float f2) {
-		if (entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().getItem() == GOTRegistry.fuseItem) {
+		if (entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().getItem() == GOTItems.fuseItem) {
 			onBlockDestroyedByPlayer(world, i, j, k, -1);
 			world.setBlockToAir(i, j, k);
 			return true;

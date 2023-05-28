@@ -55,7 +55,7 @@ public class GOTEntityTytosBlackwood extends GOTEntityHumanBase implements GOTUn
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.reminder, 1);
+		dropItem(GOTItems.reminder, 1);
 	}
 
 	@Override
@@ -111,7 +111,7 @@ public class GOTEntityTytosBlackwood extends GOTEntityHumanBase implements GOTUn
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.reminder));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.reminder));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

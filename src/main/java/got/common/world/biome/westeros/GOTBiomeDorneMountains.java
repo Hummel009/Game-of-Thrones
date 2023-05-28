@@ -1,7 +1,7 @@
 package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -22,8 +22,8 @@ public class GOTBiomeDorneMountains extends GOTBiomeDorne {
 		decorator.grassPerChunk = 4;
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
+		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
+		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
 		decorator.clearSettlements();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
@@ -55,7 +55,7 @@ public class GOTBiomeDorneMountains extends GOTBiomeDorne {
 					if (blocks[indexH] != Blocks.stone) {
 						continue;
 					}
-					blocks[indexH] = GOTRegistry.rock;
+					blocks[indexH] = GOTBlocks.rock;
 					meta[indexH] = 4;
 				}
 				continue;
@@ -63,7 +63,7 @@ public class GOTBiomeDorneMountains extends GOTBiomeDorne {
 			if (random.nextInt(16) != 0) {
 				continue;
 			}
-			blocks[index] = GOTRegistry.rock;
+			blocks[index] = GOTBlocks.rock;
 			meta[index] = 4;
 		}
 	}

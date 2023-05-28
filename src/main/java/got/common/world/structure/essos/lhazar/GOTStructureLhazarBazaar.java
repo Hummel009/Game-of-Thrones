@@ -1,7 +1,8 @@
 package got.common.world.structure.essos.lhazar;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityBird;
 import got.common.entity.essos.lhazar.*;
 import got.common.item.other.GOTItemBanner;
@@ -69,14 +70,14 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		}
 		loadStrScan("lhazar_bazaar");
 		addBlockMetaAliasOption("BRICK", 6, brickBlock, brickMeta);
-		addBlockMetaAliasOption("BRICK", 2, GOTRegistry.brick3, 11);
+		addBlockMetaAliasOption("BRICK", 2, GOTBlocks.brick3, 11);
 		addBlockMetaAliasOption("BRICK", 8, Blocks.sandstone, 0);
 		addBlockAliasOption("BRICK_STAIR", 6, brickStairBlock);
-		addBlockAliasOption("BRICK_STAIR", 2, GOTRegistry.stairsSandstoneBrickCracked);
+		addBlockAliasOption("BRICK_STAIR", 2, GOTBlocks.stairsSandstoneBrickCracked);
 		addBlockAliasOption("BRICK_STAIR", 8, Blocks.sandstone_stairs);
 		addBlockMetaAliasOption("BRICK_WALL", 6, brickWallBlock, brickWallMeta);
-		addBlockMetaAliasOption("BRICK_WALL", 2, GOTRegistry.wallStone3, 3);
-		addBlockMetaAliasOption("BRICK_WALL", 8, GOTRegistry.wallStoneV, 4);
+		addBlockMetaAliasOption("BRICK_WALL", 2, GOTBlocks.wallStone3, 3);
+		addBlockMetaAliasOption("BRICK_WALL", 8, GOTBlocks.wallStoneV, 4);
 		associateBlockMetaAlias("PLANK", plankBlock, plankMeta);
 		associateBlockMetaAlias("PLANK_SLAB", plankSlabBlock, plankSlabMeta);
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
@@ -88,15 +89,15 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		associateBlockMetaAlias("BEAM2|8", beam2Block, beam2Meta | 8);
 		addBlockMetaAliasOption("GROUND", 10, Blocks.sand, 0);
 		addBlockMetaAliasOption("GROUND", 3, Blocks.dirt, 1);
-		addBlockMetaAliasOption("GROUND", 2, GOTRegistry.dirtPath, 0);
+		addBlockMetaAliasOption("GROUND", 2, GOTBlocks.dirtPath, 0);
 		associateBlockMetaAlias("WOOL", Blocks.wool, 14);
 		associateBlockMetaAlias("CARPET", Blocks.carpet, 14);
 		associateBlockMetaAlias("WOOL2", Blocks.wool, 15);
 		associateBlockMetaAlias("CARPET2", Blocks.carpet, 15);
 		associateBlockMetaAlias("BONE", boneBlock, boneMeta);
 		generateStrScan(world, random, 0, 0, 0);
-		placeAnimalJar(world, -5, 4, -2, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
-		placeAnimalJar(world, -7, 5, 0, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
+		placeAnimalJar(world, -5, 4, -2, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
+		placeAnimalJar(world, -7, 5, 0, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
 		placeWallBanner(world, -3, 4, -7, GOTItemBanner.BannerType.LHAZAR, 2);
 		placeWallBanner(world, 3, 4, -7, GOTItemBanner.BannerType.LHAZAR, 2);
 		placeWallBanner(world, -7, 10, -8, GOTItemBanner.BannerType.LHAZAR, 2);
@@ -142,10 +143,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.furnace, 2);
-			setBlockAndMetadata(world, 1, 1, 2, GOTRegistry.chestBasket, 2);
-			placePlateItem(world, random, 1, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
-			setBlockAndMetadata(world, 3, 2, 2, GOTRegistry.bananaCake, 0);
-			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTRegistry.rollingPin));
+			setBlockAndMetadata(world, 1, 1, 2, GOTBlocks.chestBasket, 2);
+			placePlateItem(world, random, 1, 2, 0, GOTBlocks.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
+			setBlockAndMetadata(world, 3, 2, 2, GOTBlocks.bananaCake, 0);
+			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTItems.rollingPin));
 			GOTEntityLhazarBaker trader = new GOTEntityLhazarBaker(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
@@ -161,7 +162,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.anvil, 3);
-			placeArmorStand(world, 1, 1, 2, 0, new ItemStack[]{null, new ItemStack(GOTRegistry.lhazarChestplate), null, null});
+			placeArmorStand(world, 1, 1, 2, 0, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
 			placeWeaponRack(world, 0, 2, 2, 1, new GOTStructureLhazarBazaar(false).getRandomlhazarWeapon(random));
 			placeWeaponRack(world, 3, 2, 2, 3, new GOTStructureLhazarBazaar(false).getRandomlhazarWeapon(random));
 			GOTEntityLhazarBlacksmith trader = new GOTEntityLhazarBlacksmith(world);
@@ -178,7 +179,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.barrel, 3);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.barrel, 3);
 			placeMug(world, random, 1, 2, 0, 0, GOTFoods.NOMAD_DRINK);
 			placeMug(world, random, 0, 2, 2, 3, GOTFoods.NOMAD_DRINK);
 			placeMug(world, random, 3, 2, 1, 1, GOTFoods.NOMAD_DRINK);
@@ -197,9 +198,9 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			placePlateItem(world, random, 1, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.rabbitRaw, 1 + random.nextInt(3)), true);
-			placePlateItem(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3)), true);
-			placePlateItem(world, random, 3, 2, 1, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.muttonRaw, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 1, 2, 0, GOTBlocks.woodPlateBlock, new ItemStack(GOTItems.rabbitRaw, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 0, 2, 2, GOTBlocks.woodPlateBlock, new ItemStack(GOTItems.camelRaw, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 3, 2, 1, GOTBlocks.woodPlateBlock, new ItemStack(GOTItems.muttonRaw, 1 + random.nextInt(3)), true);
 			placeSkull(world, random, 2, 2, 3);
 			GOTEntityLhazarButcher trader = new GOTEntityLhazarButcher(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
@@ -217,7 +218,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, 1, 2, 3, Blocks.hay_block, 0);
-			placePlateItem(world, random, 3, 2, 1, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.orange, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 3, 2, 1, GOTBlocks.woodPlateBlock, new ItemStack(GOTItems.orange, 1 + random.nextInt(3)), true);
 			placeFlowerPot(world, 0, 2, 2, getRandomFlower(world, random));
 			GOTEntityLhazarFarmer trader = new GOTEntityLhazarFarmer(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
@@ -234,9 +235,9 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.cauldron, 3);
-			placePlateItem(world, random, 1, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
-			placePlateItem(world, random, 0, 2, 2, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
-			placePlateItem(world, random, 3, 2, 1, GOTRegistry.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 1, 2, 0, GOTBlocks.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 0, 2, 2, GOTBlocks.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, 3, 2, 1, GOTBlocks.woodPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
 			placeWeaponRack(world, 1, 2, 3, 0, new ItemStack(Items.fishing_rod));
 			GOTEntityLhazarFishmonger trader = new GOTEntityLhazarFishmonger(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
@@ -252,8 +253,8 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, 2, 2, 2, GOTRegistry.birdCage, 3);
-			setBlockAndMetadata(world, 2, 3, 2, GOTRegistry.goldBars, 0);
+			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.birdCage, 3);
+			setBlockAndMetadata(world, 2, 3, 2, GOTBlocks.goldBars, 0);
 			placeFlowerPot(world, 0, 2, 1, getRandomFlower(world, random));
 			GOTEntityLhazarGoldsmith trader = new GOTEntityLhazarGoldsmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
@@ -269,10 +270,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, 2, 1, 2, GOTRegistry.wood8, 3);
-			setBlockAndMetadata(world, 2, 2, 2, GOTRegistry.wood8, 3);
+			setBlockAndMetadata(world, 2, 1, 2, GOTBlocks.wood8, 3);
+			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.wood8, 3);
 			placeFlowerPot(world, 0, 2, 2, new ItemStack(Blocks.sapling, 1, 4));
-			placeFlowerPot(world, 3, 2, 1, new ItemStack(GOTRegistry.sapling8, 1, 3));
+			placeFlowerPot(world, 3, 2, 1, new ItemStack(GOTBlocks.sapling8, 1, 3));
 			GOTEntityLhazarLumberman trader = new GOTEntityLhazarLumberman(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
@@ -287,10 +288,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, 2, 1, 2, GOTRegistry.brick1, 15);
-			setBlockAndMetadata(world, 2, 2, 2, GOTRegistry.brick3, 13);
+			setBlockAndMetadata(world, 2, 1, 2, GOTBlocks.brick1, 15);
+			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.brick3, 13);
 			placeFlowerPot(world, 0, 2, 2, getRandomFlower(world, random));
-			placeWeaponRack(world, 3, 2, 2, 3, new ItemStack(GOTRegistry.bronzePickaxe));
+			placeWeaponRack(world, 3, 2, 2, 3, new ItemStack(GOTItems.bronzePickaxe));
 			GOTEntityLhazarMason trader = new GOTEntityLhazarMason(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;
@@ -305,10 +306,10 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, 1, 1, 2, GOTRegistry.chestBasket, 2);
-			setBlockAndMetadata(world, 2, 1, 2, GOTRegistry.oreTin, 0);
-			setBlockAndMetadata(world, 2, 2, 2, GOTRegistry.oreCopper, 0);
-			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTRegistry.bronzePickaxe));
+			setBlockAndMetadata(world, 1, 1, 2, GOTBlocks.chestBasket, 2);
+			setBlockAndMetadata(world, 2, 1, 2, GOTBlocks.oreTin, 0);
+			setBlockAndMetadata(world, 2, 2, 2, GOTBlocks.oreCopper, 0);
+			placeWeaponRack(world, 0, 2, 2, 1, new ItemStack(GOTItems.bronzePickaxe));
 			GOTEntityLhazarMiner trader = new GOTEntityLhazarMiner(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 1, 4);
 			return true;

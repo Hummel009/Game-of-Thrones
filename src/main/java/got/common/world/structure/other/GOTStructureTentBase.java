@@ -1,7 +1,7 @@
 package got.common.world.structure.other;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -51,13 +51,13 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 						randomGround = random.nextInt(3);
 						switch (randomGround) {
 							case 0:
-								setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.rock, 0);
+								setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.rock, 0);
 								break;
 							case 1:
-								setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.asshaiDirt, 0);
+								setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.asshaiDirt, 0);
 								break;
 							case 2:
-								setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.basaltGravel, 0);
+								setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.basaltGravel, 0);
 								break;
 							default:
 								break;
@@ -117,7 +117,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 		}
 		if (random.nextBoolean()) {
 			if (isCaptain) {
-				setBlockAndMetadata(world, -1, 1, 0, GOTRegistry.alloyForge, 4);
+				setBlockAndMetadata(world, -1, 1, 0, GOTBlocks.alloyForge, 4);
 				setGrassToDirt(world, -1, 0, 0);
 				setBlockAndMetadata(world, -1, 1, -1, fenceBlock, fenceMeta);
 				setBlockAndMetadata(world, -1, 1, 1, fenceBlock, fenceMeta);
@@ -128,7 +128,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 				setGrassToDirt(world, -1, 0, 1);
 			}
 		} else if (isCaptain) {
-			setBlockAndMetadata(world, 1, 1, 0, GOTRegistry.alloyForge, 5);
+			setBlockAndMetadata(world, 1, 1, 0, GOTBlocks.alloyForge, 5);
 			setGrassToDirt(world, 1, 0, 0);
 			setBlockAndMetadata(world, 1, 1, -1, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 1, 1, 1, fenceBlock, fenceMeta);

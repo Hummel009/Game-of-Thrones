@@ -2,12 +2,14 @@ package got.client;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.render.other.*;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemAnimalJar;
 import got.common.item.weapon.GOTItemBow;
 import got.common.item.weapon.GOTItemCrossbow;
 import got.common.item.weapon.GOTItemSword;
 import got.common.util.GOTAPI;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.IReloadableResourceManager;
@@ -20,6 +22,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public static GOTItemRendererManager INSTANCE;
@@ -38,7 +41,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public void onResourceManagerReload(IResourceManager resourceManager) {
 		largeItemRenderers.clear();
 		try {
-			for (Item item : GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class)) {
+			for (Item item : GOTItems.CONTENT) {
 				boolean isLarge;
 				MinecraftForgeClient.registerItemRenderer(item, null);
 				GOTRenderLargeItem largeItemRenderer = GOTRenderLargeItem.getRendererIfLarge(item);
@@ -60,12 +63,12 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(GOTRegistry.commandTable), new GOTRenderInvTableCommand());
-		MinecraftForgeClient.registerItemRenderer(GOTRegistry.pipe, new GOTRenderBlownItem());
-		MinecraftForgeClient.registerItemRenderer(GOTRegistry.commandHorn, new GOTRenderBlownItem());
-		MinecraftForgeClient.registerItemRenderer(GOTRegistry.conquestHorn, new GOTRenderBlownItem());
-		MinecraftForgeClient.registerItemRenderer(GOTRegistry.banner, new GOTRenderBannerItem());
-		MinecraftForgeClient.registerItemRenderer(GOTRegistry.skullStaff, new GOTRenderSkullStaff());
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(GOTBlocks.commandTable), new GOTRenderInvTableCommand());
+		MinecraftForgeClient.registerItemRenderer(GOTItems.pipe, new GOTRenderBlownItem());
+		MinecraftForgeClient.registerItemRenderer(GOTItems.commandHorn, new GOTRenderBlownItem());
+		MinecraftForgeClient.registerItemRenderer(GOTItems.conquestHorn, new GOTRenderBlownItem());
+		MinecraftForgeClient.registerItemRenderer(GOTItems.banner, new GOTRenderBannerItem());
+		MinecraftForgeClient.registerItemRenderer(GOTItems.skullStaff, new GOTRenderSkullStaff());
 		for (Item item : (Iterable<Item>) Item.itemRegistry) {
 			if (item instanceof GOTItemAnimalJar) {
 				MinecraftForgeClient.registerItemRenderer(item, new GOTRenderAnimalJar());

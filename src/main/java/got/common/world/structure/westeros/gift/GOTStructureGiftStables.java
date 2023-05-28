@@ -1,9 +1,9 @@
 package got.common.world.structure.westeros.gift;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.westeros.gift.GOTEntityGiftMan;
 import net.minecraft.init.Blocks;
@@ -165,7 +165,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 						setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
 						break;
 					case 2:
-						setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+						setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 						break;
 					default:
 						break;
@@ -173,7 +173,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 				if (!random.nextBoolean()) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 			setBlockAndMetadata(world, i1, 4, 5, plankStairBlock, 7);
 			setBlockAndMetadata(world, i1, 4, 6, plankSlabBlock, plankSlabMeta | 8);

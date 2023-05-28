@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -258,7 +258,7 @@ public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		leafBlock = GOTRegistry.leaves6;
+		leafBlock = GOTBlocks.leaves6;
 		leafMeta = 2;
 	}
 }

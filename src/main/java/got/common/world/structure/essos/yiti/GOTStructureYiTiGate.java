@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -20,32 +20,32 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 		for (int x = -6; x <= 6; ++x) {
 			for (int y = -6; y <= 6; ++y) {
 				for (int z = 0; z <= 3; ++z) {
-					setBlockAndMetadata(world, x, z, y, GOTRegistry.cobblebrick, 0);
+					setBlockAndMetadata(world, x, z, y, GOTBlocks.cobblebrick, 0);
 				}
 			}
 		}
 		for (int x = -5; x <= 5; ++x) {
 			for (int y = -6; y <= 6; ++y) {
 				for (int z = 4; z <= 7; ++z) {
-					setBlockAndMetadata(world, x, z, y, GOTRegistry.cobblebrick, 0);
+					setBlockAndMetadata(world, x, z, y, GOTBlocks.cobblebrick, 0);
 				}
 			}
 		}
 		for (int x = -4; x <= 4; ++x) {
 			for (int y = -6; y <= 6; ++y) {
 				for (int z = 8; z <= 9; ++z) {
-					setBlockAndMetadata(world, x, z, y, GOTRegistry.cobblebrick, 0);
+					setBlockAndMetadata(world, x, z, y, GOTBlocks.cobblebrick, 0);
 				}
 			}
 		}
 		for (int x = -3; x <= 3; ++x) {
 			for (int y = -6; y <= 6; ++y) {
-				setBlockAndMetadata(world, x, 10, y, GOTRegistry.cobblebrick, 0);
+				setBlockAndMetadata(world, x, 10, y, GOTBlocks.cobblebrick, 0);
 			}
 		}
 		for (int x = -2; x <= 2; ++x) {
 			for (int y = -6; y <= 6; ++y) {
-				setBlockAndMetadata(world, x, 11, y, GOTRegistry.cobblebrick, 0);
+				setBlockAndMetadata(world, x, 11, y, GOTBlocks.cobblebrick, 0);
 			}
 		}
 		for (int x = -3; x <= 3; ++x) {
@@ -57,7 +57,7 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 		}
 		for (int x = -3; x <= 3; ++x) {
 			for (int z = 0; z <= 6; ++z) {
-				setBlockAndMetadata(world, x, z, 4, GOTRegistry.gateIronBars, 2);
+				setBlockAndMetadata(world, x, z, 4, GOTBlocks.gateIronBars, 2);
 				setBlockAndMetadata(world, x, z, -4, gateBlock, 2);
 			}
 		}
@@ -68,8 +68,8 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 					setBlockAndMetadata(world, -4, z, y, woodBeamBlock, woodBeamMeta);
 					setBlockAndMetadata(world, 4, z, y, woodBeamBlock, woodBeamMeta);
 				} else {
-					setBlockAndMetadata(world, -4, z, y, GOTRegistry.cobblebrick, 0);
-					setBlockAndMetadata(world, 4, z, y, GOTRegistry.cobblebrick, 0);
+					setBlockAndMetadata(world, -4, z, y, GOTBlocks.cobblebrick, 0);
+					setBlockAndMetadata(world, 4, z, y, GOTBlocks.cobblebrick, 0);
 				}
 			}
 		}
@@ -83,7 +83,7 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 				} else {
 					setBlockAndMetadata(world, x, 7, y, plankBlock, plankMeta);
 				}
-				setBlockAndMetadata(world, x, -1, y, GOTRegistry.dirtPath, 2);
+				setBlockAndMetadata(world, x, -1, y, GOTBlocks.dirtPath, 2);
 			}
 		}
 		setBlockAndMetadata(world, 3, 3, 1, Blocks.torch, 1);
@@ -91,8 +91,8 @@ public class GOTStructureYiTiGate extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, -3, 3, 1, Blocks.torch, 2);
 		setBlockAndMetadata(world, -3, 3, -1, Blocks.torch, 2);
 		for (int z = 0; z <= wallTop; ++z) {
-			setBlockAndMetadata(world, -4, z, 7, GOTRegistry.rope, 3);
-			setBlockAndMetadata(world, 4, z, 7, GOTRegistry.rope, 3);
+			setBlockAndMetadata(world, -4, z, 7, GOTBlocks.rope, 3);
+			setBlockAndMetadata(world, 4, z, 7, GOTBlocks.rope, 3);
 			setBlockAndMetadata(world, -4, z, 6, woodBeamBlock, woodBeamMeta);
 			setBlockAndMetadata(world, 4, z, 6, woodBeamBlock, woodBeamMeta);
 		}

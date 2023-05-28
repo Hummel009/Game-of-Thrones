@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.yiti.GOTEntityYiTiFarmer;
 import got.common.entity.essos.yiti.GOTEntityYiTiFarmhand;
 import got.common.world.feature.GOTTreeType;
@@ -187,7 +187,7 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 						setBlockAndMetadata(world, i1, 1, k1, cropBlock, cropMeta);
 						continue;
 					}
-					setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 				}
 			}
 			setBlockAndMetadata(world, 0, 1, -5, fenceGateBlock, 0);
@@ -241,7 +241,7 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 						continue;
 					}
 					setBlockAndMetadata(world, i1, 2, k1, brickWallBlock, brickWallMeta);
-					setBlockAndMetadata(world, i1, 3, k1, GOTRegistry.leaves6, 6);
+					setBlockAndMetadata(world, i1, 3, k1, GOTBlocks.leaves6, 6);
 				}
 			}
 			for (int l = 0; l < 16; ++l) {

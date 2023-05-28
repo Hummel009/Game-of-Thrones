@@ -2,7 +2,7 @@ package got.common.entity.ai;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTAlignmentValues;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -38,9 +38,9 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 		theNPC.familyInfo.spouseUniqueID = theSpouse.getUniqueID();
 		theSpouse.familyInfo.spouseUniqueID = theNPC.getUniqueID();
 		theNPC.setCurrentItemOrArmor(0, null);
-		theNPC.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		theNPC.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		theSpouse.setCurrentItemOrArmor(0, null);
-		theSpouse.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		theSpouse.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		theNPC.familyInfo.maxChildren = maxChildren = theNPC.familyInfo.getRandomMaxChildren();
 		theSpouse.familyInfo.maxChildren = maxChildren;
 		theNPC.familyInfo.setMaxBreedingDelay();

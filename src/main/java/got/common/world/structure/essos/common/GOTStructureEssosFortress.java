@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -97,16 +97,16 @@ public class GOTStructureEssosFortress extends GOTStructureEssosBase {
 		associateBlockAlias("GATE_METAL", gateMetalBlock);
 		if (hasSandstone()) {
 			addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
-			addBlockMetaAliasOption("GROUND", 2, GOTRegistry.pillar1, 5);
-			addBlockMetaAliasOption("GROUND", 3, GOTRegistry.dirtPath, 0);
+			addBlockMetaAliasOption("GROUND", 2, GOTBlocks.pillar1, 5);
+			addBlockMetaAliasOption("GROUND", 3, GOTBlocks.dirtPath, 0);
 			addBlockMetaAliasOption("GROUND", 5, Blocks.sand, 0);
 			addBlockMetaAliasOption("GROUND", 5, Blocks.sandstone, 0);
-			addBlockMetaAliasOption("GROUND", 7, GOTRegistry.brick1, 15);
-			addBlockMetaAliasOption("GROUND", 8, GOTRegistry.brick3, 11);
+			addBlockMetaAliasOption("GROUND", 7, GOTBlocks.brick1, 15);
+			addBlockMetaAliasOption("GROUND", 8, GOTBlocks.brick3, 11);
 		} else {
 			addBlockMetaAliasOption("GROUND", 8, Blocks.dirt, 1);
 			addBlockMetaAliasOption("GROUND", 2, Blocks.gravel, 0);
-			addBlockMetaAliasOption("GROUND", 5, GOTRegistry.dirtPath, 0);
+			addBlockMetaAliasOption("GROUND", 5, GOTBlocks.dirtPath, 0);
 		}
 		generateStrScan(world, random, 0, 0, 0);
 		placeWallBanner(world, -5, 8, -13, bannerType, 2);
@@ -135,8 +135,8 @@ public class GOTStructureEssosFortress extends GOTStructureEssosBase {
 		placeWeaponRack(world, -14, 2, 0, 4, getRandomWeapon(random));
 		placeBarrel(world, random, 3, 2, 4, 5, GOTFoods.ESSOS_DRINK);
 		placeMug(world, random, 3, 2, 5, 1, GOTFoods.ESSOS_DRINK);
-		placeChest(world, random, -1, 1, 8, GOTRegistry.chestBasket, 4, getChestContents());
-		setBlockAndMetadata(world, -5, 1, 1, GOTRegistry.commandTable, 0);
+		placeChest(world, random, -1, 1, 8, GOTBlocks.chestBasket, 4, getChestContents());
+		setBlockAndMetadata(world, -5, 1, 1, GOTBlocks.commandTable, 0);
 		int warriors = 5 + random.nextInt(5);
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntityNPC warrior = getSoldier(world);

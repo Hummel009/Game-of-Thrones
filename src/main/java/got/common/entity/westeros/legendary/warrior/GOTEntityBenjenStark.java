@@ -3,7 +3,7 @@ package got.common.entity.westeros.legendary.warrior;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -53,7 +53,7 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 		if (damagesource.isFireDamage()) {
 			return super.attackEntityFrom(damagesource, f);
 		}
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && (itemstack.getItem() == GOTRegistry.valyrianSword || itemstack.getItem() == GOTRegistry.iceSword || itemstack.getItem() == GOTRegistry.iceHeavySword || itemstack.getItem() == GOTRegistry.sothoryosAxe || itemstack.getItem() == GOTRegistry.sothoryosBattleaxe || itemstack.getItem() == GOTRegistry.sothoryosDagger || itemstack.getItem() == GOTRegistry.sothoryosDaggerPoisoned || itemstack.getItem() == GOTRegistry.sothoryosHammer || itemstack.getItem() == GOTRegistry.sothoryosHoe || itemstack.getItem() == GOTRegistry.sothoryosPickaxe || itemstack.getItem() == GOTRegistry.sothoryosPike || itemstack.getItem() == GOTRegistry.sothoryosShovel || itemstack.getItem() == GOTRegistry.sothoryosSpear || itemstack.getItem() == GOTRegistry.sothoryosSword || itemstack.getItem() == GOTRegistry.valyrianAxe || itemstack.getItem() == GOTRegistry.valyrianBattleaxe || itemstack.getItem() == GOTRegistry.valyrianDagger || itemstack.getItem() == GOTRegistry.valyrianDaggerPoisoned || itemstack.getItem() == GOTRegistry.valyrianHalberd || itemstack.getItem() == GOTRegistry.valyrianHammer || itemstack.getItem() == GOTRegistry.valyrianMattock || itemstack.getItem() == GOTRegistry.valyrianPickaxe || itemstack.getItem() == GOTRegistry.valyrianShovel || itemstack.getItem() == GOTRegistry.valyrianSpear || itemstack.getItem() == GOTRegistry.valyrianHoe || itemstack.getItem() == GOTRegistry.gregorCleganeSword || itemstack.getItem() == GOTRegistry.baelishDagger || itemstack.getItem() == GOTRegistry.blackfyre || itemstack.getItem() == GOTRegistry.boltonDagger || itemstack.getItem() == GOTRegistry.brightroar || itemstack.getItem() == GOTRegistry.celtigarAxe || itemstack.getItem() == GOTRegistry.darkSister || itemstack.getItem() == GOTRegistry.euronDagger || itemstack.getItem() == GOTRegistry.heartsbane || itemstack.getItem() == GOTRegistry.ice || itemstack.getItem() == GOTRegistry.justMaid || itemstack.getItem() == GOTRegistry.ladyForlorn || itemstack.getItem() == GOTRegistry.lamentation || itemstack.getItem() == GOTRegistry.lightbringer || itemstack.getItem() == GOTRegistry.longclaw || itemstack.getItem() == GOTRegistry.oathkeeper || itemstack.getItem() == GOTRegistry.nightfall || itemstack.getItem() == GOTRegistry.orphanMaker || itemstack.getItem() == GOTRegistry.redRain || itemstack.getItem() == GOTRegistry.truth || itemstack.getItem() == GOTRegistry.vigilance || itemstack.getItem() == GOTRegistry.widowWail || itemstack.getItem() == GOTRegistry.blackArakh || itemstack.getItem() == GOTRegistry.crowbar)) {
+		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && (itemstack.getItem() == GOTItems.valyrianSword || itemstack.getItem() == GOTItems.iceSword || itemstack.getItem() == GOTItems.iceHeavySword || itemstack.getItem() == GOTItems.sothoryosAxe || itemstack.getItem() == GOTItems.sothoryosBattleaxe || itemstack.getItem() == GOTItems.sothoryosDagger || itemstack.getItem() == GOTItems.sothoryosDaggerPoisoned || itemstack.getItem() == GOTItems.sothoryosHammer || itemstack.getItem() == GOTItems.sothoryosHoe || itemstack.getItem() == GOTItems.sothoryosPickaxe || itemstack.getItem() == GOTItems.sothoryosPike || itemstack.getItem() == GOTItems.sothoryosShovel || itemstack.getItem() == GOTItems.sothoryosSpear || itemstack.getItem() == GOTItems.sothoryosSword || itemstack.getItem() == GOTItems.valyrianAxe || itemstack.getItem() == GOTItems.valyrianBattleaxe || itemstack.getItem() == GOTItems.valyrianDagger || itemstack.getItem() == GOTItems.valyrianDaggerPoisoned || itemstack.getItem() == GOTItems.valyrianHalberd || itemstack.getItem() == GOTItems.valyrianHammer || itemstack.getItem() == GOTItems.valyrianMattock || itemstack.getItem() == GOTItems.valyrianPickaxe || itemstack.getItem() == GOTItems.valyrianShovel || itemstack.getItem() == GOTItems.valyrianSpear || itemstack.getItem() == GOTItems.valyrianHoe || itemstack.getItem() == GOTItems.gregorCleganeSword || itemstack.getItem() == GOTItems.baelishDagger || itemstack.getItem() == GOTItems.blackfyre || itemstack.getItem() == GOTItems.boltonDagger || itemstack.getItem() == GOTItems.brightroar || itemstack.getItem() == GOTItems.celtigarAxe || itemstack.getItem() == GOTItems.darkSister || itemstack.getItem() == GOTItems.euronDagger || itemstack.getItem() == GOTItems.heartsbane || itemstack.getItem() == GOTItems.ice || itemstack.getItem() == GOTItems.justMaid || itemstack.getItem() == GOTItems.ladyForlorn || itemstack.getItem() == GOTItems.lamentation || itemstack.getItem() == GOTItems.lightbringer || itemstack.getItem() == GOTItems.longclaw || itemstack.getItem() == GOTItems.oathkeeper || itemstack.getItem() == GOTItems.nightfall || itemstack.getItem() == GOTItems.orphanMaker || itemstack.getItem() == GOTItems.redRain || itemstack.getItem() == GOTItems.truth || itemstack.getItem() == GOTItems.vigilance || itemstack.getItem() == GOTItems.widowWail || itemstack.getItem() == GOTItems.blackArakh || itemstack.getItem() == GOTItems.crowbar)) {
 			return super.attackEntityFrom(damagesource, f);
 		}
 		return super.attackEntityFrom(damagesource, 0.0f);
@@ -61,7 +61,7 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.valyrianSword, 1);
+		dropItem(GOTItems.valyrianSword, 1);
 	}
 
 	@Override
@@ -99,7 +99,7 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.valyrianSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.valyrianSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

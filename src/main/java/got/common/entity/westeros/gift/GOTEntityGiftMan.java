@@ -2,8 +2,8 @@ package got.common.entity.westeros.gift;
 
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
+import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -23,7 +23,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketable {
-	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.bronzeAxe), new ItemStack(Items.stone_axe)};
+	public static ItemStack[] weapons = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
 	public GOTEntityGiftMan(World world) {
 		super(world);
@@ -66,7 +66,7 @@ public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketa
 	@Override
 	public GOTNPCMount createMountToRide() {
 		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
-		horse.setMountArmor(new ItemStack(GOTRegistry.westerosHorseArmor));
+		horse.setMountArmor(new ItemStack(GOTItems.westerosHorseArmor));
 		return horse;
 	}
 

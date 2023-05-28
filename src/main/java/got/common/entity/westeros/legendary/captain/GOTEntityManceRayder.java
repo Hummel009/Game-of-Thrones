@@ -102,7 +102,7 @@ public class GOTEntityManceRayder extends GOTEntityHumanBase implements GOTUnitT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.wildlingSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.wildlingSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

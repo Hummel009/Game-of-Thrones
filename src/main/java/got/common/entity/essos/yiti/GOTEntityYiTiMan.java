@@ -2,8 +2,8 @@ package got.common.entity.essos.yiti;
 
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
+import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityYiTiMan extends GOTEntityHumanBase implements IPickpocketable {
-	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.yitiDagger), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger)};
+	public static ItemStack[] weapons = {new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger)};
 
 	public GOTEntityYiTiMan(World world) {
 		super(world);
@@ -64,7 +64,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase implements IPickpocketa
 	@Override
 	public GOTNPCMount createMountToRide() {
 		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
-		horse.setMountArmor(new ItemStack(GOTRegistry.yitiHorseArmor));
+		horse.setMountArmor(new ItemStack(GOTItems.yitiHorseArmor));
 		return horse;
 	}
 

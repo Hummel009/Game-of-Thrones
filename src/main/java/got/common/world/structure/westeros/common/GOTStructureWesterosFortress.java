@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.common;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -148,7 +148,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 								}
 								setBlockAndMetadata(world, i14, 6, k2, plankBlock, plankMeta);
 								if (i16 == 9 && k4 == 9 || i16 == 11 && k4 == 11) {
-									setBlockAndMetadata(world, i14, 5, k2, GOTRegistry.chandelier, 2);
+									setBlockAndMetadata(world, i14, 5, k2, GOTBlocks.chandelier, 2);
 								}
 							}
 						}
@@ -272,10 +272,10 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				placeArmorStand(world, i12, 1, -7, 0, null);
 				placeArmorStand(world, i12, 1, 7, 2, null);
 			}
-			placeChest(world, random, i11, 1, -6, GOTRegistry.chestStone, 2, getChestContents(), 1);
+			placeChest(world, random, i11, 1, -6, GOTBlocks.chestStone, 2, getChestContents(), 1);
 			setAir(world, i11, 2, -6);
 			spawnItemFrame(world, i11, 3, -6, 2, getFramedItem(random));
-			placeChest(world, random, i11, 1, 6, GOTRegistry.chestStone, 3, getChestContents(), 1);
+			placeChest(world, random, i11, 1, 6, GOTBlocks.chestStone, 3, getChestContents(), 1);
 			setAir(world, i11, 2, 6);
 			spawnItemFrame(world, i11, 3, 6, 0, getFramedItem(random));
 		}
@@ -284,10 +284,10 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				placeArmorStand(world, -7, 1, k2, 1, null);
 				placeArmorStand(world, 7, 1, k2, 3, null);
 			}
-			placeChest(world, random, -6, 1, i11, GOTRegistry.chestStone, 5, getChestContents(), 1);
+			placeChest(world, random, -6, 1, i11, GOTBlocks.chestStone, 5, getChestContents(), 1);
 			setAir(world, -6, 2, i11);
 			spawnItemFrame(world, -6, 3, i11, 3, getFramedItem(random));
-			placeChest(world, random, 6, 1, i11, GOTRegistry.chestStone, 4, getChestContents(), 1);
+			placeChest(world, random, 6, 1, i11, GOTBlocks.chestStone, 4, getChestContents(), 1);
 			setAir(world, 6, 2, i11);
 			spawnItemFrame(world, 6, 3, i11, 1, getFramedItem(random));
 		}
@@ -321,7 +321,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		for (int i7 = -12; i7 <= 8; i7++) {
 			setBlockAndMetadata(world, 0, 0, i7, brick2Block, brick2Meta);
 		}
-		setBlockAndMetadata(world, 0, 0, 0, GOTRegistry.brick4, 6);
+		setBlockAndMetadata(world, 0, 0, 0, GOTBlocks.brick4, 6);
 		int i6;
 		for (i6 = 1; i6 <= 4; i6++) {
 			setBlockAndMetadata(world, -1, i6, -1, brickWallBlock, brickWallMeta);
@@ -342,12 +342,12 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 0, i6, 0, pillarBlock, pillarMeta);
 		}
 		setBlockAndMetadata(world, 0, 10, 0, brickCarved, brickCarvedMeta);
-		setBlockAndMetadata(world, 0, 11, 0, GOTRegistry.beacon, 0);
+		setBlockAndMetadata(world, 0, 11, 0, GOTBlocks.beacon, 0);
 		placeWallBanner(world, 0, 9, 0, bannerType, 0);
 		placeWallBanner(world, 0, 9, 0, bannerType, 1);
 		placeWallBanner(world, 0, 9, 0, bannerType, 2);
 		placeWallBanner(world, 0, 9, 0, bannerType, 3);
-		setBlockAndMetadata(world, 0, 4, 0, GOTRegistry.chandelier, 2);
+		setBlockAndMetadata(world, 0, 4, 0, GOTBlocks.chandelier, 2);
 		setBlockAndMetadata(world, -3, 3, -8, brickWallBlock, brickWallMeta);
 		setBlockAndMetadata(world, -3, 4, -8, Blocks.torch, 5);
 		setBlockAndMetadata(world, 3, 3, -8, brickWallBlock, brickWallMeta);
@@ -432,10 +432,10 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		for (int k1 = 0; k1 <= 2; k1++) {
 			setBlockAndMetadata(world, 6, 3, k1, fenceBlock, fenceMeta);
 		}
-		setBlockAndMetadata(world, 8, 1, -1, GOTRegistry.alloyForge, 5);
+		setBlockAndMetadata(world, 8, 1, -1, GOTBlocks.alloyForge, 5);
 		setBlockAndMetadata(world, 8, 2, -1, Blocks.furnace, 5);
 		setBlockAndMetadata(world, 8, 1, 1, tableBlock, 0);
-		placeChest(world, random, 8, 1, 2, GOTRegistry.chestStone, 5, getChestContents());
+		placeChest(world, random, 8, 1, 2, GOTBlocks.chestStone, 5, getChestContents());
 		setBlockAndMetadata(world, 8, 1, 3, Blocks.crafting_table, 0);
 		spawnItemFrame(world, 9, 2, 1, 3, getFramedItem(random));
 		spawnItemFrame(world, 9, 2, 2, 3, getFramedItem(random));
@@ -473,7 +473,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i1, 1, 7, bedBlock, 0);
 				setBlockAndMetadata(world, i1, 1, 8, bedBlock, 8);
 			} else {
-				placeChest(world, random, i1, 1, 8, GOTRegistry.chestStone, 2, getChestContents());
+				placeChest(world, random, i1, 1, 8, GOTBlocks.chestStone, 2, getChestContents());
 			}
 		}
 		placeWallBanner(world, -2, 3, 9, bannerType, 2);
@@ -486,9 +486,9 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 4, 1, 5, plankBlock, plankMeta);
 		placePlateWithCertainty(world, random, 3, 2, 5, plateBlock, GOTFoods.WESTEROS);
 		placePlateWithCertainty(world, random, 4, 2, 5, plateBlock, GOTFoods.WESTEROS);
-		setBlockAndMetadata(world, -3, 3, 6, GOTRegistry.chandelier, 2);
-		setBlockAndMetadata(world, 3, 3, 6, GOTRegistry.chandelier, 2);
-		setBlockAndMetadata(world, -5, 1, 2, GOTRegistry.commandTable, 0);
+		setBlockAndMetadata(world, -3, 3, 6, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, 3, 3, 6, GOTBlocks.chandelier, 2);
+		setBlockAndMetadata(world, -5, 1, 2, GOTBlocks.commandTable, 0);
 		if (hasMaester()) {
 			GOTEntityMaester maester = new GOTEntityMaester(world);
 			maester.spawnRidingHorse = false;

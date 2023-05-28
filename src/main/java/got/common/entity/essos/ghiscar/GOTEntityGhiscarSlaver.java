@@ -62,7 +62,7 @@ public class GOTEntityGhiscarSlaver extends GOTEntityGhiscarMan implements GOTTr
 
 	@Override
 	public void onPlayerTrade(EntityPlayer entityplayer, GOTTradeEntries.TradeType type, ItemStack itemstack) {
-		if (type == GOTTradeEntries.TradeType.WE_CAN_BUY && itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.pipeweedPlant)) {
+		if (type == GOTTradeEntries.TradeType.WE_CAN_BUY && itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.pipeweedPlant)) {
 			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.trade);
 		}
 	}
@@ -72,7 +72,7 @@ public class GOTEntityGhiscarSlaver extends GOTEntityGhiscarMan implements GOTTr
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		ItemStack hat = new ItemStack(GOTRegistry.leatherHat);
+		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 10390131);
 		setCurrentItemOrArmor(4, hat);
 		return data;

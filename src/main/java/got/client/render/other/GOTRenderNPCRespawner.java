@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -32,7 +32,7 @@ public class GOTRenderNPCRespawner extends Render {
 		GL11.glTranslatef(-0.5f * scale, -spawner.height / 2.0f, 0.03125f * scale);
 		GL11.glScalef(scale, scale, scale);
 		if (renderIcon == null) {
-			renderIcon = new ItemStack(GOTRegistry.npcRespawner);
+			renderIcon = new ItemStack(GOTItems.npcRespawner);
 		}
 		icon = renderIcon.getIconIndex();
 		if (icon == null) {

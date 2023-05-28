@@ -1,7 +1,7 @@
 package got.common.world.biome.westeros;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -26,9 +26,9 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 		topBlock = Blocks.sand;
 		topBlockMeta = 1;
 		fillerBlock = Blocks.stained_hardened_clay;
-		decorator.addSoil(new WorldGenMinable(GOTRegistry.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
+		decorator.addSoil(new WorldGenMinable(GOTBlocks.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
+		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
+		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
 	}
 
 	@Override

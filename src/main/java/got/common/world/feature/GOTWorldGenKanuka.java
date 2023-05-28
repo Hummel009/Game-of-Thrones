@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
@@ -16,9 +16,9 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 	public int minHeight;
 	public int maxHeight;
 	public int trunkWidth;
-	public Block woodBlock = GOTRegistry.wood9;
+	public Block woodBlock = GOTBlocks.wood9;
 	public int woodMeta = 1;
-	public Block leafBlock = GOTRegistry.leaves9;
+	public Block leafBlock = GOTBlocks.leaves9;
 	public int leafMeta = 1;
 
 	public GOTWorldGenKanuka(boolean flag) {

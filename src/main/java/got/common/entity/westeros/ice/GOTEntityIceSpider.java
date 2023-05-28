@@ -3,7 +3,7 @@ package got.common.entity.westeros.ice;
 import got.common.GOTDamage;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTMaterial;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -58,10 +58,10 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase {
 		ItemStack itemstack;
 		Entity entity = damagesource.getEntity();
 		Entity damageSource = damagesource.getSourceOfDamage();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL || itemstack.getItem() == GOTRegistry.crowbar)) {
+		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL || itemstack.getItem() == GOTItems.crowbar)) {
 			return super.attackEntityFrom(damagesource, f);
 		}
-		if (damagesource.getEntity() instanceof GOTEntityGregorClegane || damagesource.getEntity() instanceof GOTEntityAsshaiArchmag || damageSource instanceof GOTEntitySpear && ((GOTEntitySpear) damageSource).getProjectileItem().getItem() == GOTRegistry.valyrianSpear) {
+		if (damagesource.getEntity() instanceof GOTEntityGregorClegane || damagesource.getEntity() instanceof GOTEntityAsshaiArchmag || damageSource instanceof GOTEntitySpear && ((GOTEntitySpear) damageSource).getProjectileItem().getItem() == GOTItems.valyrianSpear) {
 			return super.attackEntityFrom(damagesource, f);
 		}
 		return super.attackEntityFrom(damagesource, 0.0f);

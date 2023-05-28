@@ -1,7 +1,7 @@
 package got.common.entity.other;
 
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -37,7 +37,7 @@ public class GOTEntityArrowPoisoned extends EntityArrow implements IEntityAdditi
 		if (!worldObj.isRemote && isInGround && arrowShake <= 0) {
 			boolean pickup;
 			pickup = canBePickedUp == 1 || canBePickedUp == 2 && entityplayer.capabilities.isCreativeMode;
-			if (canBePickedUp == 1 && !entityplayer.inventory.addItemStackToInventory(new ItemStack(GOTRegistry.arrowPoisoned, 1))) {
+			if (canBePickedUp == 1 && !entityplayer.inventory.addItemStackToInventory(new ItemStack(GOTItems.arrowPoisoned, 1))) {
 				pickup = false;
 			}
 			if (pickup) {

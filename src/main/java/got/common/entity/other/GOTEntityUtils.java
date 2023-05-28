@@ -1,6 +1,6 @@
 package got.common.entity.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -54,7 +54,7 @@ public class GOTEntityUtils {
 
 		int legs = rand.nextInt(10);
 		if (legs == 0 || legs == 1) {
-			npc.setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.bronzeChainmailLeggings));
+			npc.setCurrentItemOrArmor(2, new ItemStack(GOTItems.bronzeChainmailLeggings));
 			alreadyHasChain = true;
 		} else if (legs == 2 || legs == 3 || legs == 4) {
 			npc.setCurrentItemOrArmor(2, new ItemStack(Items.chainmail_leggings));
@@ -65,7 +65,7 @@ public class GOTEntityUtils {
 
 		int body = rand.nextInt(10);
 		if ((body == 0 || body == 1) && !alreadyHasChain) {
-			npc.setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.bronzeChainmailChestplate));
+			npc.setCurrentItemOrArmor(3, new ItemStack(GOTItems.bronzeChainmailChestplate));
 		} else if ((body == 2 || body == 3 || body == 4) && !alreadyHasChain) {
 			npc.setCurrentItemOrArmor(3, new ItemStack(Items.chainmail_chestplate));
 		} else {
@@ -73,7 +73,7 @@ public class GOTEntityUtils {
 		}
 
 		if (forceTurban) {
-			ItemStack turban = new ItemStack(GOTRegistry.robesHelmet);
+			ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 			int robeColor = turbanColors[rand.nextInt(turbanColors.length)];
 			GOTItemRobes.setRobesColor(turban, robeColor);
 			npc.setCurrentItemOrArmor(4, turban);

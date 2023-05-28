@@ -2,7 +2,7 @@ package got.common.entity.westeros.gift;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.legendary.warrior.GOTEntityAlliserThorne;
 import net.minecraft.entity.IEntityLivingData;
@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGiftGuard extends GOTEntityGiftMan {
-	public static ItemStack[] militiaWeapons = {new ItemStack(GOTRegistry.westerosSword), new ItemStack(GOTRegistry.westerosHammer), new ItemStack(GOTRegistry.westerosPike), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.ironBattleaxe), new ItemStack(GOTRegistry.ironPike), new ItemStack(GOTRegistry.bronzeSword), new ItemStack(GOTRegistry.bronzeAxe), new ItemStack(GOTRegistry.bronzeBattleaxe)};
+	public static ItemStack[] militiaWeapons = {new ItemStack(GOTItems.westerosSword), new ItemStack(GOTItems.westerosHammer), new ItemStack(GOTItems.westerosPike), new ItemStack(Items.iron_sword), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.ironBattleaxe), new ItemStack(GOTItems.ironPike), new ItemStack(GOTItems.bronzeSword), new ItemStack(GOTItems.bronzeAxe), new ItemStack(GOTItems.bronzeBattleaxe)};
 
 	public GOTEntityGiftGuard(World world) {
 		super(world);
@@ -72,10 +72,10 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 		int i = rand.nextInt(militiaWeapons.length);
 		npcItemsInv.setMeleeWeapon(militiaWeapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.giftBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.giftLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.giftChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.giftHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.giftBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.giftLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.giftChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.giftHelmet));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
 		return data;

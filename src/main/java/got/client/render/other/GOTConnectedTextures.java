@@ -205,7 +205,7 @@ public class GOTConnectedTextures {
 				iconElementMap.put(e, image);
 			}
 		} catch (IOException e) {
-			FMLLog.severe("Failed to load connected textures for %s", modID + ":" + baseIconName);
+			FMLLog.severe("Failed to onInit connected textures for %s", modID + ":" + baseIconName);
 			e.printStackTrace();
 		}
 		return iconElementMap;
@@ -279,7 +279,7 @@ public class GOTConnectedTextures {
 			iconElementMap.put(IconElement.INVCORNER_BOTTOMLEFT, iconElementMap.get(IconElement.CORNER_BOTTOMLEFT));
 			iconElementMap.put(IconElement.INVCORNER_BOTTOMRIGHT, iconElementMap.get(IconElement.CORNER_BOTTOMRIGHT));
 		} catch (IOException e) {
-			FMLLog.severe("Failed to load connected textures for %s", modID + ":" + baseIconName);
+			FMLLog.severe("Failed to onInit connected textures for %s", modID + ":" + baseIconName);
 			e.printStackTrace();
 		}
 		createConnectedIcons(iconregister, block, meta, false, iconElementMap);

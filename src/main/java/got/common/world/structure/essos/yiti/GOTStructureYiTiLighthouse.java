@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.yiti;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.yiti.GOTEntityYiTiShogune;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
@@ -74,7 +74,7 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 					if (distSq >= wallThresholdMin) {
 						placeRandomBrick(world, random, i1, j13, k1);
 					} else {
-						setBlockAndMetadata(world, i1, j13, k1, GOTRegistry.brick1, 0);
+						setBlockAndMetadata(world, i1, j13, k1, GOTBlocks.brick1, 0);
 					}
 					setGrassToDirt(world, i1, j13 - 1, k1);
 				}
@@ -95,7 +95,7 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 							continue;
 						}
 						if (j1 == sectionBase + sectionHeight) {
-							setBlockAndMetadata(world, i12, j1, k15, GOTRegistry.brick1, 0);
+							setBlockAndMetadata(world, i12, j1, k15, GOTBlocks.brick1, 0);
 							continue;
 						}
 						setAir(world, i12, j1, k15);
@@ -104,11 +104,11 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 			}
 			for (j1 = sectionBase + 2; j1 <= sectionBase + 3; ++j1) {
 				for (k13 = -1; k13 <= 1; ++k13) {
-					setBlockAndMetadata(world, -radius, j1, k13, GOTRegistry.asshaiBars, 0);
-					setBlockAndMetadata(world, radius, j1, k13, GOTRegistry.asshaiBars, 0);
+					setBlockAndMetadata(world, -radius, j1, k13, GOTBlocks.asshaiBars, 0);
+					setBlockAndMetadata(world, radius, j1, k13, GOTBlocks.asshaiBars, 0);
 				}
 				for (i12 = -1; i12 <= 1; ++i12) {
-					setBlockAndMetadata(world, i12, j1, -radius, GOTRegistry.asshaiBars, 0);
+					setBlockAndMetadata(world, i12, j1, -radius, GOTBlocks.asshaiBars, 0);
 				}
 			}
 			if (l > 0) {
@@ -118,12 +118,12 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 						int i2 = Math.abs(i13);
 						int k2 = Math.abs(k13);
 						if (i2 == 1 || k2 == 1) {
-							setBlockAndMetadata(world, i13, sectionBase + 1, k13, GOTRegistry.wallStone1, 1);
+							setBlockAndMetadata(world, i13, sectionBase + 1, k13, GOTBlocks.wallStone1, 1);
 						}
 						if (i2 != 1 || k2 != 1) {
 							continue;
 						}
-						setBlockAndMetadata(world, i13, sectionBase + 2, k13, GOTRegistry.wallStone1, 1);
+						setBlockAndMetadata(world, i13, sectionBase + 2, k13, GOTBlocks.wallStone1, 1);
 					}
 				}
 			} else {
@@ -131,73 +131,73 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 					for (j13 = sectionBase + 1; j13 <= sectionBase + 3; ++j13) {
 						setAir(world, i13, j13, -radius);
 					}
-					setBlockAndMetadata(world, i13, sectionBase, -radius, GOTRegistry.brick1, 0);
+					setBlockAndMetadata(world, i13, sectionBase, -radius, GOTBlocks.brick1, 0);
 				}
 				placeRandomStairs(world, random, -1, sectionBase + 3, -radius, 4);
 				placeRandomStairs(world, random, 1, sectionBase + 3, -radius, 5);
 				for (i13 = -5; i13 <= 5; ++i13) {
-					setBlockAndMetadata(world, i13, sectionBase, 0, GOTRegistry.brick1, 0);
+					setBlockAndMetadata(world, i13, sectionBase, 0, GOTBlocks.brick1, 0);
 				}
 				for (k14 = -6; k14 <= 3; ++k14) {
-					setBlockAndMetadata(world, 0, sectionBase, k14, GOTRegistry.brick1, 0);
+					setBlockAndMetadata(world, 0, sectionBase, k14, GOTBlocks.brick1, 0);
 				}
-				setBlockAndMetadata(world, 0, sectionBase + 1, 0, GOTRegistry.brick1, 0);
-				setBlockAndMetadata(world, 0, sectionBase + 2, 0, GOTRegistry.wallStone1, 1);
+				setBlockAndMetadata(world, 0, sectionBase + 1, 0, GOTBlocks.brick1, 0);
+				setBlockAndMetadata(world, 0, sectionBase + 2, 0, GOTBlocks.wallStone1, 1);
 			}
 			for (j1 = sectionBase + 1; j1 <= sectionBase + 5; ++j1) {
-				setBlockAndMetadata(world, -2, j1, -5, GOTRegistry.pillar1, 7);
-				setBlockAndMetadata(world, 2, j1, -5, GOTRegistry.pillar1, 7);
-				setBlockAndMetadata(world, 5, j1, -2, GOTRegistry.pillar1, 7);
-				setBlockAndMetadata(world, 5, j1, 2, GOTRegistry.pillar1, 7);
-				setBlockAndMetadata(world, -3, j1, 4, GOTRegistry.pillar1, 7);
-				setBlockAndMetadata(world, 3, j1, 4, GOTRegistry.pillar1, 7);
-				setBlockAndMetadata(world, -5, j1, -2, GOTRegistry.pillar1, 7);
-				setBlockAndMetadata(world, -5, j1, 2, GOTRegistry.pillar1, 7);
+				setBlockAndMetadata(world, -2, j1, -5, GOTBlocks.pillar1, 7);
+				setBlockAndMetadata(world, 2, j1, -5, GOTBlocks.pillar1, 7);
+				setBlockAndMetadata(world, 5, j1, -2, GOTBlocks.pillar1, 7);
+				setBlockAndMetadata(world, 5, j1, 2, GOTBlocks.pillar1, 7);
+				setBlockAndMetadata(world, -3, j1, 4, GOTBlocks.pillar1, 7);
+				setBlockAndMetadata(world, 3, j1, 4, GOTBlocks.pillar1, 7);
+				setBlockAndMetadata(world, -5, j1, -2, GOTBlocks.pillar1, 7);
+				setBlockAndMetadata(world, -5, j1, 2, GOTBlocks.pillar1, 7);
 			}
-			setBlockAndMetadata(world, -3, sectionBase + 4, 3, GOTRegistry.asshaiTorch, 4);
-			setBlockAndMetadata(world, 3, sectionBase + 4, 3, GOTRegistry.asshaiTorch, 4);
-			setBlockAndMetadata(world, 4, sectionBase + 4, -2, GOTRegistry.asshaiTorch, 1);
-			setBlockAndMetadata(world, 4, sectionBase + 4, 2, GOTRegistry.asshaiTorch, 1);
-			setBlockAndMetadata(world, -2, sectionBase + 4, -4, GOTRegistry.asshaiTorch, 3);
-			setBlockAndMetadata(world, 2, sectionBase + 4, -4, GOTRegistry.asshaiTorch, 3);
-			setBlockAndMetadata(world, -4, sectionBase + 4, -2, GOTRegistry.asshaiTorch, 2);
-			setBlockAndMetadata(world, -4, sectionBase + 4, 2, GOTRegistry.asshaiTorch, 2);
-			setBlockAndMetadata(world, -3, sectionBase + 5, 3, GOTRegistry.stairsBasaltBrick, 6);
-			setBlockAndMetadata(world, 3, sectionBase + 5, 3, GOTRegistry.stairsBasaltBrick, 6);
-			setBlockAndMetadata(world, 4, sectionBase + 5, -2, GOTRegistry.stairsBasaltBrick, 5);
-			setBlockAndMetadata(world, 5, sectionBase + 5, -1, GOTRegistry.stairsBasaltBrick, 7);
-			setBlockAndMetadata(world, 5, sectionBase + 5, 1, GOTRegistry.stairsBasaltBrick, 6);
-			setBlockAndMetadata(world, 4, sectionBase + 5, 2, GOTRegistry.stairsBasaltBrick, 5);
-			setBlockAndMetadata(world, -2, sectionBase + 5, -4, GOTRegistry.stairsBasaltBrick, 7);
-			setBlockAndMetadata(world, -1, sectionBase + 5, -5, GOTRegistry.stairsBasaltBrick, 4);
-			setBlockAndMetadata(world, 1, sectionBase + 5, -5, GOTRegistry.stairsBasaltBrick, 5);
-			setBlockAndMetadata(world, 2, sectionBase + 5, -4, GOTRegistry.stairsBasaltBrick, 7);
-			setBlockAndMetadata(world, -4, sectionBase + 5, -2, GOTRegistry.stairsBasaltBrick, 4);
-			setBlockAndMetadata(world, -5, sectionBase + 5, -1, GOTRegistry.stairsBasaltBrick, 7);
-			setBlockAndMetadata(world, -5, sectionBase + 5, 1, GOTRegistry.stairsBasaltBrick, 6);
-			setBlockAndMetadata(world, -4, sectionBase + 5, 2, GOTRegistry.stairsBasaltBrick, 4);
+			setBlockAndMetadata(world, -3, sectionBase + 4, 3, GOTBlocks.asshaiTorch, 4);
+			setBlockAndMetadata(world, 3, sectionBase + 4, 3, GOTBlocks.asshaiTorch, 4);
+			setBlockAndMetadata(world, 4, sectionBase + 4, -2, GOTBlocks.asshaiTorch, 1);
+			setBlockAndMetadata(world, 4, sectionBase + 4, 2, GOTBlocks.asshaiTorch, 1);
+			setBlockAndMetadata(world, -2, sectionBase + 4, -4, GOTBlocks.asshaiTorch, 3);
+			setBlockAndMetadata(world, 2, sectionBase + 4, -4, GOTBlocks.asshaiTorch, 3);
+			setBlockAndMetadata(world, -4, sectionBase + 4, -2, GOTBlocks.asshaiTorch, 2);
+			setBlockAndMetadata(world, -4, sectionBase + 4, 2, GOTBlocks.asshaiTorch, 2);
+			setBlockAndMetadata(world, -3, sectionBase + 5, 3, GOTBlocks.stairsBasaltBrick, 6);
+			setBlockAndMetadata(world, 3, sectionBase + 5, 3, GOTBlocks.stairsBasaltBrick, 6);
+			setBlockAndMetadata(world, 4, sectionBase + 5, -2, GOTBlocks.stairsBasaltBrick, 5);
+			setBlockAndMetadata(world, 5, sectionBase + 5, -1, GOTBlocks.stairsBasaltBrick, 7);
+			setBlockAndMetadata(world, 5, sectionBase + 5, 1, GOTBlocks.stairsBasaltBrick, 6);
+			setBlockAndMetadata(world, 4, sectionBase + 5, 2, GOTBlocks.stairsBasaltBrick, 5);
+			setBlockAndMetadata(world, -2, sectionBase + 5, -4, GOTBlocks.stairsBasaltBrick, 7);
+			setBlockAndMetadata(world, -1, sectionBase + 5, -5, GOTBlocks.stairsBasaltBrick, 4);
+			setBlockAndMetadata(world, 1, sectionBase + 5, -5, GOTBlocks.stairsBasaltBrick, 5);
+			setBlockAndMetadata(world, 2, sectionBase + 5, -4, GOTBlocks.stairsBasaltBrick, 7);
+			setBlockAndMetadata(world, -4, sectionBase + 5, -2, GOTBlocks.stairsBasaltBrick, 4);
+			setBlockAndMetadata(world, -5, sectionBase + 5, -1, GOTBlocks.stairsBasaltBrick, 7);
+			setBlockAndMetadata(world, -5, sectionBase + 5, 1, GOTBlocks.stairsBasaltBrick, 6);
+			setBlockAndMetadata(world, -4, sectionBase + 5, 2, GOTBlocks.stairsBasaltBrick, 4);
 			for (step2 = 0; step2 <= 2; ++step2) {
-				setBlockAndMetadata(world, 1 - step2, sectionBase + 1 + step2, 4, GOTRegistry.stairsBasaltBrick, 0);
+				setBlockAndMetadata(world, 1 - step2, sectionBase + 1 + step2, 4, GOTBlocks.stairsBasaltBrick, 0);
 				for (j13 = sectionBase + 1; j13 <= sectionBase + step2; ++j13) {
-					setBlockAndMetadata(world, 1 - step2, j13, 4, GOTRegistry.brick1, 0);
+					setBlockAndMetadata(world, 1 - step2, j13, 4, GOTBlocks.brick1, 0);
 				}
 			}
 			for (k14 = 4; k14 <= 5; ++k14) {
 				for (j13 = sectionBase + 1; j13 <= sectionBase + 3; ++j13) {
-					setBlockAndMetadata(world, -2, j13, k14, GOTRegistry.brick1, 0);
+					setBlockAndMetadata(world, -2, j13, k14, GOTBlocks.brick1, 0);
 				}
 			}
 			for (i13 = -2; i13 <= 0; ++i13) {
 				setAir(world, i13, sectionBase + sectionHeight, 5);
 			}
 			for (step2 = 0; step2 <= 2; ++step2) {
-				setBlockAndMetadata(world, -1 + step2, sectionBase + 4 + step2, 5, GOTRegistry.stairsBasaltBrick, 1);
-				setBlockAndMetadata(world, -1 + step2, sectionBase + 3 + step2, 5, GOTRegistry.brick1, 0);
-				setBlockAndMetadata(world, -1 + step2, sectionBase + 2 + step2, 5, GOTRegistry.stairsBasaltBrick, 4);
+				setBlockAndMetadata(world, -1 + step2, sectionBase + 4 + step2, 5, GOTBlocks.stairsBasaltBrick, 1);
+				setBlockAndMetadata(world, -1 + step2, sectionBase + 3 + step2, 5, GOTBlocks.brick1, 0);
+				setBlockAndMetadata(world, -1 + step2, sectionBase + 2 + step2, 5, GOTBlocks.stairsBasaltBrick, 4);
 			}
-			setBlockAndMetadata(world, 2, sectionBase + 5, 5, GOTRegistry.stairsBasaltBrick, 4);
+			setBlockAndMetadata(world, 2, sectionBase + 5, 5, GOTBlocks.stairsBasaltBrick, 4);
 		}
-		placeChest(world, random, -1, 1, 5, GOTRegistry.chestStone, 0, GOTChestContents.TREASURE);
+		placeChest(world, random, -1, 1, 5, GOTBlocks.chestStone, 0, GOTChestContents.TREASURE);
 		for (k12 = -3; k12 <= 3; k12 += 6) {
 			for (step = 0; step <= 3; ++step) {
 				placeBrickSupports(world, random, -9 + step, k12);
@@ -230,17 +230,17 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 				}
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
-				setBlockAndMetadata(world, i1, topHeight + 1, k1, GOTRegistry.wallStone1, 1);
+				setBlockAndMetadata(world, i1, topHeight + 1, k1, GOTBlocks.wallStone1, 1);
 				if (i2 < 3 || k2 < 3) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, topHeight + 2, k1, GOTRegistry.wallStone1, 1);
+				setBlockAndMetadata(world, i1, topHeight + 2, k1, GOTBlocks.wallStone1, 1);
 				if (i2 != 4 || k2 != 4) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, topHeight + 3, k1, GOTRegistry.wallStone1, 1);
-				setBlockAndMetadata(world, i1, topHeight + 4, k1, GOTRegistry.wallStone1, 1);
-				setBlockAndMetadata(world, i1, topHeight + 5, k1, GOTRegistry.asshaiTorch, 5);
+				setBlockAndMetadata(world, i1, topHeight + 3, k1, GOTBlocks.wallStone1, 1);
+				setBlockAndMetadata(world, i1, topHeight + 4, k1, GOTBlocks.wallStone1, 1);
+				setBlockAndMetadata(world, i1, topHeight + 5, k1, GOTBlocks.asshaiTorch, 5);
 			}
 		}
 		setAir(world, -2, topHeight + 1, 5);
@@ -270,10 +270,10 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 			}
 			placeRandomBrick(world, random, i1, topHeight - 1, -7);
 			placeRandomBrick(world, random, i1, topHeight, -7);
-			setBlockAndMetadata(world, i1, topHeight + 1, -7, GOTRegistry.wallStone1, 1);
+			setBlockAndMetadata(world, i1, topHeight + 1, -7, GOTBlocks.wallStone1, 1);
 			placeRandomBrick(world, random, i1, topHeight - 1, 7);
 			placeRandomBrick(world, random, i1, topHeight, 7);
-			setBlockAndMetadata(world, i1, topHeight + 1, 7, GOTRegistry.wallStone1, 1);
+			setBlockAndMetadata(world, i1, topHeight + 1, 7, GOTBlocks.wallStone1, 1);
 			placeRandomStairs(world, random, i1, topHeight - 4, -9, 6);
 			placeRandomStairs(world, random, i1, topHeight - 5, -8, 6);
 			placeRandomStairs(world, random, i1, topHeight - 4, 9, 7);
@@ -305,17 +305,17 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 			}
 			placeRandomBrick(world, random, -7, topHeight - 1, k12);
 			placeRandomBrick(world, random, -7, topHeight, k12);
-			setBlockAndMetadata(world, -7, topHeight + 1, k12, GOTRegistry.wallStone1, 1);
+			setBlockAndMetadata(world, -7, topHeight + 1, k12, GOTBlocks.wallStone1, 1);
 			placeRandomBrick(world, random, 7, topHeight - 1, k12);
 			placeRandomBrick(world, random, 7, topHeight, k12);
-			setBlockAndMetadata(world, 7, topHeight + 1, k12, GOTRegistry.wallStone1, 1);
+			setBlockAndMetadata(world, 7, topHeight + 1, k12, GOTBlocks.wallStone1, 1);
 			placeRandomStairs(world, random, -9, topHeight - 4, k12, 5);
 			placeRandomStairs(world, random, -8, topHeight - 5, k12, 5);
 			placeRandomStairs(world, random, 9, topHeight - 4, k12, 4);
 			placeRandomStairs(world, random, 8, topHeight - 5, k12, 4);
 		}
 		spawnNPCAndSetHome(new GOTEntityYiTiShogune(world), world, 0, topHeight + 1, 0, 16);
-		setBlockAndMetadata(world, 0, topHeight + 1, -4, GOTRegistry.commandTable, 0);
+		setBlockAndMetadata(world, 0, topHeight + 1, -4, GOTBlocks.commandTable, 0);
 		return true;
 	}
 
@@ -330,17 +330,17 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 
 	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
 		if (random.nextInt(4) == 0) {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.brick1, 7);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 7);
 		} else {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.brick1, 0);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 0);
 		}
 	}
 
 	public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (random.nextInt(6) == 0) {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsBasaltBrickCracked, meta);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrickCracked, meta);
 		} else {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsBasaltBrick, meta);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsBasaltBrick, meta);
 		}
 	}
 }

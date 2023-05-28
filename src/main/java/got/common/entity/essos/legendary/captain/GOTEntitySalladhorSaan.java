@@ -50,7 +50,7 @@ public class GOTEntitySalladhorSaan extends GOTEntityHumanBase implements GOTUni
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.truth, 1);
+		dropItem(GOTItems.truth, 1);
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public class GOTEntitySalladhorSaan extends GOTEntityHumanBase implements GOTUni
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.truth));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.truth));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

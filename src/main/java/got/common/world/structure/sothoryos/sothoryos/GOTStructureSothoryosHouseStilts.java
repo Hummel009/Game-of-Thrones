@@ -1,8 +1,8 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosShaman;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -25,7 +25,7 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 		if (!super.generate(world, random, i, j, k, rotation)) {
 			return false;
 		}
-		bedBlock = GOTRegistry.strawBed;
+		bedBlock = GOTBlocks.strawBed;
 		for (i12 = -3; i12 <= 3; ++i12) {
 			for (k1 = -3; k1 <= 3; ++k1) {
 				for (j1 = 3; j1 <= 7; ++j1) {
@@ -62,7 +62,7 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 				if (i2 <= 2 && k2 <= 2) {
 					setBlockAndMetadata(world, i12, 3, k1, plankBlock, plankMeta);
 					if (random.nextInt(3) == 0) {
-						setBlockAndMetadata(world, i12, 4, k1, GOTRegistry.thatchFloor, 0);
+						setBlockAndMetadata(world, i12, 4, k1, GOTBlocks.thatchFloor, 0);
 					}
 				}
 				if (i12 == -3 && k2 == 1) {
@@ -147,7 +147,7 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 			setBlockAndMetadata(world, i14, 4, 1, bedBlock, 0);
 			setBlockAndMetadata(world, i14, 4, 2, bedBlock, 8);
 		}
-		setBlockAndMetadata(world, -1, 4, 2, GOTRegistry.tableSothoryos, 0);
+		setBlockAndMetadata(world, -1, 4, 2, GOTBlocks.tableSothoryos, 0);
 		setBlockAndMetadata(world, 0, 4, 2, woodBlock, woodMeta);
 		placeMug(world, random, 0, 5, 2, 0, GOTFoods.SOTHORYOS_DRINK);
 		setBlockAndMetadata(world, 1, 4, 2, Blocks.crafting_table, 0);

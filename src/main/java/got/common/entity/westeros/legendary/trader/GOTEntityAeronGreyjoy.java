@@ -3,7 +3,7 @@ package got.common.entity.westeros.legendary.trader;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -101,7 +101,7 @@ public class GOTEntityAeronGreyjoy extends GOTEntityHumanBase implements GOTTrad
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

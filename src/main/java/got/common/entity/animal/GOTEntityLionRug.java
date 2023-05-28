@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRugBase;
 import got.common.item.other.GOTItemLionRug;
 import net.minecraft.item.ItemStack;
@@ -21,7 +21,7 @@ public class GOTEntityLionRug extends GOTEntityRugBase {
 
 	@Override
 	public ItemStack getRugItem() {
-		return new ItemStack(GOTRegistry.lionRug, 1, getRugType().lionID);
+		return new ItemStack(GOTItems.lionRug, 1, getRugType().lionID);
 	}
 
 	@Override

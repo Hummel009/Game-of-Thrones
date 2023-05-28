@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.network.GOTPacketFamilyInfo;
 import got.common.network.GOTPacketHandler;
 import net.minecraft.entity.Entity;
@@ -49,7 +49,7 @@ public class GOTFamilyInfo {
 			return false;
 		}
 		ItemStack heldItem = npc.getEquipmentInSlot(0);
-		return heldItem != null && heldItem.getItem() == GOTRegistry.goldRing;
+		return heldItem != null && heldItem.getItem() == GOTItems.goldRing;
 	}
 
 	public int getAge() {
@@ -122,7 +122,7 @@ public class GOTFamilyInfo {
 			return false;
 		}
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-		if (theEntity.canBeMarried && itemstack != null && itemstack.getItem() == GOTRegistry.goldRing && GOTLevelData.getData(entityplayer).getAlignment(theEntity.getFaction()) >= 100.0f && theEntity.getClass() == marriageEntityClass && age == 0 && theEntity.getEquipmentInSlot(0) == null && theEntity.getEquipmentInSlot(4) == null && spouseUniqueID == null) {
+		if (theEntity.canBeMarried && itemstack != null && itemstack.getItem() == GOTItems.goldRing && GOTLevelData.getData(entityplayer).getAlignment(theEntity.getFaction()) >= 100.0f && theEntity.getClass() == marriageEntityClass && age == 0 && theEntity.getEquipmentInSlot(0) == null && theEntity.getEquipmentInSlot(4) == null && spouseUniqueID == null) {
 			if (!entityplayer.capabilities.isCreativeMode) {
 				--itemstack.stackSize;
 				if (itemstack.stackSize <= 0) {
@@ -130,7 +130,7 @@ public class GOTFamilyInfo {
 				}
 			}
 			if (!theEntity.worldObj.isRemote) {
-				theEntity.setCurrentItemOrArmor(0, new ItemStack(GOTRegistry.goldRing));
+				theEntity.setCurrentItemOrArmor(0, new ItemStack(GOTItems.goldRing));
 				ringGivingPlayer = entityplayer.getUniqueID();
 			}
 			theEntity.isNPCPersistent = true;

@@ -3,7 +3,7 @@ package got.common.entity.westeros.hillmen;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -44,7 +44,7 @@ public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTr
 				}
 				case 4:
 				case 5: {
-					entityDropItem(new ItemStack(GOTRegistry.mug), 0.0f);
+					entityDropItem(new ItemStack(GOTItems.mug), 0.0f);
 					continue;
 				}
 				case 6: {
@@ -78,7 +78,7 @@ public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTr
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.mug));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mug));
 		return data;
 	}
 }

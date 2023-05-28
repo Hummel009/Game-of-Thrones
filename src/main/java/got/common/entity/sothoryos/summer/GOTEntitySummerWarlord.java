@@ -3,7 +3,7 @@ package got.common.entity.sothoryos.summer;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -60,7 +60,7 @@ public class GOTEntitySummerWarlord extends GOTEntitySummerWarrior implements GO
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.summerPike));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.summerPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(4, null);
 		return data;

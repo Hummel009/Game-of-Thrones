@@ -1,7 +1,7 @@
 package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.init.Blocks;
@@ -15,8 +15,8 @@ public class GOTBiomeSothoryosJungle extends GOTBiomeSothoryosBushland {
 		addBiomeVariant(GOTBiomeVariant.MOUNTAIN);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.CLEARING, 0.2f);
-		topBlock = GOTRegistry.mudGrass;
-		fillerBlock = GOTRegistry.mud;
+		topBlock = GOTBlocks.mudGrass;
+		fillerBlock = GOTBlocks.mud;
 		decorator.treesPerChunk = 40;
 		decorator.flowersPerChunk = 4;
 		decorator.doubleFlowersPerChunk = 4;
@@ -32,7 +32,7 @@ public class GOTBiomeSothoryosJungle extends GOTBiomeSothoryosBushland {
 		decorator.addTree(GOTTreeType.JUNGLE_SHRUB, 1000);
 		decorator.addTree(GOTTreeType.MANGO, 20);
 		decorator.addTree(GOTTreeType.BANANA, 50);
-		decorator.addGem(new WorldGenMinable(GOTRegistry.oreGem, 4, 8, Blocks.stone), 3.0f, 0, 48);
+		decorator.addGem(new WorldGenMinable(GOTBlocks.oreGem, 4, 8, Blocks.stone), 3.0f, 0, 48);
 	}
 
 	@Override

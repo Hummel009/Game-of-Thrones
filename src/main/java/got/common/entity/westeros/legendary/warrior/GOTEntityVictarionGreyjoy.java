@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -45,8 +45,8 @@ public class GOTEntityVictarionGreyjoy extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.victarionAxe, 1);
-		dropItem(GOTRegistry.victarionHelmet, 1);
+		dropItem(GOTItems.victarionAxe, 1);
+		dropItem(GOTItems.victarionHelmet, 1);
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class GOTEntityVictarionGreyjoy extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.victarionAxe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.victarionAxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

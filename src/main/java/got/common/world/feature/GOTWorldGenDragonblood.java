@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
@@ -16,9 +16,9 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 	public int maxHeight;
 	public int trunkWidth;
 	public boolean hasRoots = true;
-	public Block woodBlock = GOTRegistry.wood9;
+	public Block woodBlock = GOTBlocks.wood9;
 	public int woodMeta;
-	public Block leafBlock = GOTRegistry.leaves9;
+	public Block leafBlock = GOTBlocks.leaves9;
 	public int leafMeta;
 
 	public GOTWorldGenDragonblood(boolean flag, int i, int j, int k) {

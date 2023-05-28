@@ -97,11 +97,11 @@ public class GOTEntityJanosSlynt extends GOTEntityHumanBase implements GOTUnitTr
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.crownlandsBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.crownlandsLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.crownlandsChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.crownlandsBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.crownlandsLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.crownlandsChestplate));
 		return data;
 	}
 

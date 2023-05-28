@@ -3,7 +3,7 @@ package got.common.network;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -33,7 +33,7 @@ public class GOTPacketHornSelect implements IMessage {
 		public IMessage onMessage(GOTPacketHornSelect packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-			if (itemstack != null && itemstack.getItem() == GOTRegistry.commandHorn && itemstack.getItemDamage() == 0) {
+			if (itemstack != null && itemstack.getItem() == GOTItems.commandHorn && itemstack.getItemDamage() == 0) {
 				itemstack.setItemDamage(packet.hornType);
 			}
 			return null;

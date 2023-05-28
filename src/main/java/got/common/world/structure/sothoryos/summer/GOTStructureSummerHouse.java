@@ -1,8 +1,9 @@
 package got.common.world.structure.sothoryos.summer;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -76,17 +77,17 @@ public class GOTStructureSummerHouse extends GOTStructureSummerBase {
 			setBlockAndMetadata(world, 0, 1, 4, bedBlock, 8);
 			placeWeaponRack(world, 0, 3, -4, 4, getRandomWeapon(random));
 			placeWeaponRack(world, 0, 3, 4, 6, getRandomWeapon(random));
-			placeChest(world, random, -4, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.SUMMER);
-			placePlate(world, random, 4, 2, 0, GOTRegistry.ceramicPlateBlock, GOTFoods.SOTHORYOS);
-			placePlate(world, random, -1, 2, 4, GOTRegistry.ceramicPlateBlock, GOTFoods.SOTHORYOS);
+			placeChest(world, random, -4, 1, 0, GOTBlocks.chestBasket, 4, GOTChestContents.SUMMER);
+			placePlate(world, random, 4, 2, 0, GOTBlocks.ceramicPlateBlock, GOTFoods.SOTHORYOS);
+			placePlate(world, random, -1, 2, 4, GOTBlocks.ceramicPlateBlock, GOTFoods.SOTHORYOS);
 			placeMug(world, random, 1, 2, 4, 0, GOTFoods.SOTHORYOS_DRINK);
 			GOTEntitySummerMan male = new GOTEntitySummerMan(world);
 			male.familyInfo.setMale(true);
-			male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+			male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(male, world, 0, 1, -1, 16);
 			GOTEntitySummerMan female = new GOTEntitySummerMan(world);
 			female.familyInfo.setMale(false);
-			female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+			female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(female, world, 0, 1, -1, 16);
 			GOTEntitySummerMan child = new GOTEntitySummerMan(world);
 			child.familyInfo.setMale(random.nextBoolean());

@@ -64,7 +64,7 @@ public class GOTEntityLysBartender extends GOTEntityLysMan implements GOTBartend
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.gobletCopper));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.gobletCopper));
 		return data;
 	}
 

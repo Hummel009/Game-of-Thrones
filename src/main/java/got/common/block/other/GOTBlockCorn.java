@@ -3,7 +3,7 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
@@ -130,7 +130,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 				++corns;
 			}
 			for (int l = 0; l < corns; ++l) {
-				drops.add(new ItemStack(GOTRegistry.corn));
+				drops.add(new ItemStack(GOTItems.corn));
 			}
 		}
 		return drops;

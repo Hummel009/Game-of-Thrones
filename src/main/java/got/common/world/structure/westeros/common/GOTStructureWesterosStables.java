@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
@@ -99,7 +99,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 				if (random.nextInt(3) == 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i13, 1, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i13, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		int[] i15 = {-4, 4};
@@ -198,7 +198,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -2, 1, 1, tableBlock, 0);
 		setBlockAndMetadata(world, 3, 1, 1, plankBlock, plankMeta);
 		placeMug(world, random, 3, 2, 1, 2, GOTFoods.WESTEROS_DRINK);
-		setBlockAndMetadata(world, 0, 3, 3, GOTRegistry.chandelier, 1);
+		setBlockAndMetadata(world, 0, 3, 3, GOTBlocks.chandelier, 1);
 		for (j13 = 1; j13 <= 6; ++j13) {
 			setBlockAndMetadata(world, 0, j13, 0, pillarBlock, pillarMeta);
 		}

@@ -2,7 +2,7 @@ package got.common.entity.essos.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -45,7 +45,7 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.tugarKhanSword, 1);
+		dropItem(GOTItems.tugarKhanSword, 1);
 	}
 
 	@Override
@@ -91,7 +91,7 @@ public class GOTEntityTugarKhan extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.tugarKhanSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.tugarKhanSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

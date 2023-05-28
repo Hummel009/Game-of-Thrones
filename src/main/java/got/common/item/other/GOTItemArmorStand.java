@@ -1,7 +1,7 @@
 package got.common.item.other;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -21,7 +21,7 @@ public class GOTItemArmorStand extends Item {
 		if (world.isRemote) {
 			return true;
 		}
-		Block block = GOTRegistry.armorStand;
+		Block block = GOTBlocks.armorStand;
 		Block block1 = world.getBlock(i += Facing.offsetsXForSide[side], j += Facing.offsetsYForSide[side], k += Facing.offsetsZForSide[side]);
 		Block block2 = world.getBlock(i, j + 1, k);
 		if (block1 != null && !block1.isReplaceable(world, i, j, k) || block2 != null && !block2.isReplaceable(world, i, j + 1, k)) {

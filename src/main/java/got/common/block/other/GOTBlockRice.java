@@ -1,7 +1,7 @@
 /*
  * Decompiled with CFR 0.148.
  *
- * Could not load the following classes:
+ * Could not onInit the following classes:
  *  cpw.mods.fml.relauncher.Side
  *  cpw.mods.fml.relauncher.SideOnly
  *  net.minecraft.block.Block
@@ -23,7 +23,7 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLilyPad;
 import net.minecraft.block.IGrowable;
@@ -117,11 +117,11 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 	}
 
 	public Item func_149865_P() {
-		return GOTRegistry.rice;
+		return GOTItems.rice;
 	}
 
 	public Item func_149866_i() {
-		return GOTRegistry.rice;
+		return GOTItems.rice;
 	}
 
 	@Override

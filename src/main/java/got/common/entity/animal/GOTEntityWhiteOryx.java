@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTRandomSkinEntity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -37,10 +37,10 @@ public class GOTEntityWhiteOryx extends GOTEntityGemsbok implements GOTRandomSki
 		int meat = rand.nextInt(3) + rand.nextInt(1 + i);
 		for (int l = 0; l < meat; ++l) {
 			if (isBurning()) {
-				dropItem(GOTRegistry.deerCooked, 1);
+				dropItem(GOTItems.deerCooked, 1);
 				continue;
 			}
-			dropItem(GOTRegistry.deerRaw, 1);
+			dropItem(GOTItems.deerRaw, 1);
 		}
 	}
 

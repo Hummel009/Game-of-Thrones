@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityTraderRespawn;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -19,7 +19,7 @@ public class GOTRenderTraderRespawn extends Render {
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		if (theItemStack == null) {
-			theItemStack = new ItemStack(GOTRegistry.coin, 1, 6);
+			theItemStack = new ItemStack(GOTItems.coin, 1, 6);
 		}
 		GOTEntityTraderRespawn traderRespawn = (GOTEntityTraderRespawn) entity;
 		bindEntityTexture(traderRespawn);

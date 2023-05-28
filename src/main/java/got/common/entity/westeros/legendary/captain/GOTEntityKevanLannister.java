@@ -98,11 +98,11 @@ public class GOTEntityKevanLannister extends GOTEntityHumanBase implements GOTUn
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
 		npcItemsInv.setIdleItem(null);
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.westerlandsBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.westerlandsLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.westerlandsChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.westerlandsBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.westerlandsLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.westerlandsChestplate));
 		return data;
 	}
 

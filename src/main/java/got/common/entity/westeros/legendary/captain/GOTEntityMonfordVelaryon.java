@@ -50,8 +50,8 @@ public class GOTEntityMonfordVelaryon extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.velaryonBrooch, 1);
-		dropItem(GOTRegistry.cutwave, 1);
+		dropItem(GOTItems.velaryonBrooch, 1);
+		dropItem(GOTItems.cutwave, 1);
 	}
 
 	@Override
@@ -107,8 +107,8 @@ public class GOTEntityMonfordVelaryon extends GOTEntityHumanBase implements GOTU
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.cutwave));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.velaryonBrooch));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.cutwave));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.velaryonBrooch));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

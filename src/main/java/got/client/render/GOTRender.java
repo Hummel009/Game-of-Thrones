@@ -6,7 +6,7 @@ import got.client.effect.GOTEntitySwordCommandMarker;
 import got.client.render.animal.*;
 import got.client.render.npc.*;
 import got.client.render.other.*;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.animal.*;
 import got.common.entity.dragon.GOTEntityDragon;
 import got.common.entity.essos.*;
@@ -365,7 +365,7 @@ public class GOTRender {
 		renders.put(GOTEntityCamel.class, new GOTRenderCamel());
 		renders.put(GOTEntityCargocart.class, new GOTRenderCargocart());
 		renders.put(GOTEntitySnowball.class, new RenderSnowball(Items.snowball));
-		renders.put(GOTEntityConker.class, new RenderSnowball(GOTRegistry.chestnut));
+		renders.put(GOTEntityConker.class, new RenderSnowball(GOTItems.chestnut));
 		renders.put(GOTEntityCrocodile.class, new GOTRenderCrocodile());
 		renders.put(GOTEntityCrossbowBolt.class, new GOTRenderCrossbowBolt());
 		renders.put(GOTEntityDart.class, new GOTRenderDart());
@@ -376,7 +376,7 @@ public class GOTRender {
 		renders.put(GOTEntityElephant.class, new GOTRenderElephant());
 		renders.put(GOTEntityFallingFireJar.class, new GOTRenderFallingFireJar());
 		renders.put(GOTEntityFallingTreasure.class, new GOTRenderFallingCoinPile());
-		renders.put(GOTEntityFirePot.class, new RenderSnowball(GOTRegistry.firePot));
+		renders.put(GOTEntityFirePot.class, new RenderSnowball(GOTItems.firePot));
 		renders.put(GOTEntityFish.class, new GOTRenderFish());
 		renders.put(GOTEntityFlamingo.class, new GOTRenderFlamingo());
 		renders.put(GOTEntityGemsbok.class, new GOTRenderGemsbok());
@@ -399,9 +399,9 @@ public class GOTRender {
 		renders.put(GOTEntityManticore.class, new GOTRenderManticore());
 		renders.put(GOTEntityMidges.class, new GOTRenderMidges());
 		renders.put(GOTEntityMossovyWerewolf.class, new GOTRenderMossovyWerewolf());
-		renders.put(GOTEntityMysteryWeb.class, new RenderSnowball(GOTRegistry.mysteryWeb));
+		renders.put(GOTEntityMysteryWeb.class, new RenderSnowball(GOTItems.mysteryWeb));
 		renders.put(GOTEntityNPCRespawner.class, new GOTRenderNPCRespawner());
-		renders.put(GOTEntityPebble.class, new RenderSnowball(GOTRegistry.pebble));
+		renders.put(GOTEntityPebble.class, new RenderSnowball(GOTItems.pebble));
 		renders.put(GOTEntityPlate.class, new GOTRenderPlate());
 		renders.put(GOTEntityPlowcart.class, new GOTRenderPlowcart());
 		renders.put(GOTEntityPortal.class, new GOTRenderPortal());
@@ -418,7 +418,7 @@ public class GOTRender {
 		renders.put(GOTEntityTheonGreyjoy.TheonGreyjoyTormented.class, new GOTRenderTheonGreyjoy.Tormented());
 		renders.put(GOTEntityThrowingAxe.class, new GOTRenderThrowingAxe());
 		renders.put(GOTEntityThrownRock.class, new GOTRenderThrownRock());
-		renders.put(GOTEntityThrownTermite.class, new RenderSnowball(GOTRegistry.termite));
+		renders.put(GOTEntityThrownTermite.class, new RenderSnowball(GOTItems.termite));
 		renders.put(GOTEntityTraderRespawn.class, new GOTRenderTraderRespawn());
 		renders.put(GOTEntityTyrionLannister.class, new GOTRenderTyrionLannister());
 		renders.put(GOTEntityUlthosSpider.class, new GOTRenderGiantSpider());

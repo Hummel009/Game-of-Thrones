@@ -50,7 +50,7 @@ public class GOTEntityHarrasHarlaw extends GOTEntityHumanBase implements GOTUnit
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.nightfall, 1);
+		dropItem(GOTItems.nightfall, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityHarrasHarlaw extends GOTEntityHumanBase implements GOTUnit
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.nightfall));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nightfall));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

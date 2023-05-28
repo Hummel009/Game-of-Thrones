@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -28,7 +28,7 @@ public class GOTWorldGenBanana extends WorldGenAbstractTree {
 			return false;
 		}
 		Block below = world.getBlock(i, j - 1, k);
-		if (!below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) GOTRegistry.sapling2)) {
+		if (!below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) GOTBlocks.sapling2)) {
 			return false;
 		}
 		for (l = 0; l < height + 2; ++l) {
@@ -53,16 +53,16 @@ public class GOTWorldGenBanana extends WorldGenAbstractTree {
 			}
 		}
 		for (l = 0; l < height + 2; ++l) {
-			setBlockAndNotifyAdequately(world, i, j + l, k, GOTRegistry.wood2, 3);
+			setBlockAndNotifyAdequately(world, i, j + l, k, GOTBlocks.wood2, 3);
 		}
 		for (l = 0; l < 4; ++l) {
 			dir = ForgeDirection.getOrientation(l + 2);
 			for (l1 = 0; l1 < leaves[l]; ++l1) {
-				setBlockAndNotifyAdequately(world, i + dir.offsetX, j + height + l1, k + dir.offsetZ, GOTRegistry.leaves2, 3);
+				setBlockAndNotifyAdequately(world, i + dir.offsetX, j + height + l1, k + dir.offsetZ, GOTBlocks.leaves2, 3);
 			}
-			setBlockAndNotifyAdequately(world, i + dir.getOpposite().offsetX, j + height - 1, k + dir.getOpposite().offsetZ, GOTRegistry.bananaBlock, l);
+			setBlockAndNotifyAdequately(world, i + dir.getOpposite().offsetX, j + height - 1, k + dir.getOpposite().offsetZ, GOTBlocks.bananaBlock, l);
 			for (l1 = -1; l1 < 1; ++l1) {
-				setBlockAndNotifyAdequately(world, i + dir.offsetX * 2, j + height + leaves[l] + l1, k + dir.offsetZ * 2, GOTRegistry.leaves2, 3);
+				setBlockAndNotifyAdequately(world, i + dir.offsetX * 2, j + height + leaves[l] + l1, k + dir.offsetZ * 2, GOTBlocks.leaves2, 3);
 			}
 		}
 		world.getBlock(i, j - 1, k).onPlantGrow(world, i, j - 1, k, i, j, k);

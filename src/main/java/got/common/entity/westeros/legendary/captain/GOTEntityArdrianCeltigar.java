@@ -50,7 +50,7 @@ public class GOTEntityArdrianCeltigar extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.celtigarAxe, 1);
+		dropItem(GOTItems.celtigarAxe, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityArdrianCeltigar extends GOTEntityHumanBase implements GOTU
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.celtigarAxe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.celtigarAxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

@@ -105,7 +105,7 @@ public class GOTEntityDavosSeaworth extends GOTEntityHumanBase implements GOTTra
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.util.GOTReflection;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeavesBase;
@@ -37,7 +37,7 @@ public class GOTEntityGiraffe extends GOTEntityHorse {
 		if (flag) {
 			int rugChance = 30 - i * 5;
 			if (rand.nextInt(Math.max(rugChance, 1)) == 0) {
-				entityDropItem(new ItemStack(GOTRegistry.giraffeRug), 0.0f);
+				entityDropItem(new ItemStack(GOTItems.giraffeRug), 0.0f);
 			}
 		}
 	}

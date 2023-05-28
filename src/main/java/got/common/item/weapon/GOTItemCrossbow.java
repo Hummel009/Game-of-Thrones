@@ -3,7 +3,7 @@ package got.common.item.weapon;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.GOTEntityCrossbowBolt;
@@ -79,7 +79,7 @@ public class GOTItemCrossbow extends ItemBow {
 				return ItemStack.loadItemStackFromNBT(ammoData);
 			}
 			if (nbt.hasKey("GOTCrossbowLoaded")) {
-				return new ItemStack(GOTRegistry.crossbowBolt);
+				return new ItemStack(GOTItems.crossbowBolt);
 			}
 		}
 		return null;
@@ -218,7 +218,7 @@ public class GOTItemCrossbow extends ItemBow {
 			}
 			boolean shouldConsume = shouldConsumeBolt(itemstack, entityplayer);
 			if (boltItem == null && !shouldConsume) {
-				boltItem = new ItemStack(GOTRegistry.crossbowBolt);
+				boltItem = new ItemStack(GOTItems.crossbowBolt);
 			}
 			if (boltItem != null) {
 				if (shouldConsume) {

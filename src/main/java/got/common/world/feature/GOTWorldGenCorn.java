@@ -1,7 +1,7 @@
 /*
  * Decompiled with CFR 0.148.
  *
- * Could not load the following classes:
+ * Could not onInit the following classes:
  *  net.minecraft.block.Block
  *  net.minecraft.block.material.Material
  *  net.minecraft.world.IBlockAccess
@@ -10,7 +10,7 @@
  */
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
@@ -40,8 +40,8 @@ public class GOTWorldGenCorn extends WorldGenerator {
 				if (adjWater) {
 					int cornHeight = 2 + random.nextInt(2);
 					for (int j2 = 0; j2 < cornHeight; ++j2) {
-						if (GOTRegistry.cornStalk.canBlockStay(world, i1, j1 + j2, k1)) {
-							world.setBlock(i1, j1 + j2, k1, GOTRegistry.cornStalk, 0, 2);
+						if (GOTBlocks.cornStalk.canBlockStay(world, i1, j1 + j2, k1)) {
+							world.setBlock(i1, j1 + j2, k1, GOTBlocks.cornStalk, 0, 2);
 						}
 					}
 				}

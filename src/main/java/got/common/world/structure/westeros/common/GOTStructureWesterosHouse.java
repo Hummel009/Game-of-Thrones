@@ -1,7 +1,8 @@
 package got.common.world.structure.westeros.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -162,7 +163,7 @@ public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 		placeChest(world, random, 2, 1, 3, 2, getChestContents());
 		setBlockAndMetadata(world, 0, 1, 3, barsBlock, 0);
 		setBlockAndMetadata(world, 0, 2, 3, Blocks.furnace, 2);
-		setBlockAndMetadata(world, 0, 0, 4, GOTRegistry.hearth, 0);
+		setBlockAndMetadata(world, 0, 0, 4, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 0, 1, 4, Blocks.fire, 0);
 		for (int j13 = 2; j13 <= 7; ++j13) {
 			setAir(world, 0, j13, 4);
@@ -170,11 +171,11 @@ public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 		spawnItemFrame(world, 0, 3, 3, 2, getFramedItem(random));
 		GOTEntityNPC male = getMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityNPC female = getMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityNPC child = getMan(world);
 		child.familyInfo.setMale(random.nextBoolean());

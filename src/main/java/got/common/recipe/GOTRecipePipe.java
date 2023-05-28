@@ -1,6 +1,6 @@
 package got.common.recipe;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemDye;
 import got.common.item.other.GOTItemPipe;
 import net.minecraft.block.BlockColored;
@@ -19,14 +19,14 @@ public class GOTRecipePipe implements IRecipe {
 			if (itemstack == null) {
 				continue;
 			}
-			if (itemstack.getItem() == GOTRegistry.pipe) {
+			if (itemstack.getItem() == GOTItems.pipe) {
 				if (pipe != null) {
 					return null;
 				}
 				pipe = itemstack;
 				continue;
 			}
-			if (itemstack.getItem() == GOTRegistry.valyrianNugget) {
+			if (itemstack.getItem() == GOTItems.valyrianNugget) {
 				dye = itemstack;
 				continue;
 			}
@@ -37,8 +37,8 @@ public class GOTRecipePipe implements IRecipe {
 		}
 		if (pipe != null && dye != null) {
 			int itemDamage = pipe.getItemDamage();
-			int smokeType = dye.getItem() == GOTRegistry.valyrianNugget ? 16 : BlockColored.func_150031_c(GOTItemDye.isItemDye(dye));
-			ItemStack result = new ItemStack(GOTRegistry.pipe);
+			int smokeType = dye.getItem() == GOTItems.valyrianNugget ? 16 : BlockColored.func_150031_c(GOTItemDye.isItemDye(dye));
+			ItemStack result = new ItemStack(GOTItems.pipe);
 			result.setItemDamage(itemDamage);
 			GOTItemPipe.setSmokeColor(result, smokeType);
 			return result;
@@ -65,14 +65,14 @@ public class GOTRecipePipe implements IRecipe {
 			if (itemstack == null) {
 				continue;
 			}
-			if (itemstack.getItem() == GOTRegistry.pipe) {
+			if (itemstack.getItem() == GOTItems.pipe) {
 				if (pipe != null) {
 					return false;
 				}
 				pipe = itemstack;
 				continue;
 			}
-			if (itemstack.getItem() == GOTRegistry.valyrianNugget) {
+			if (itemstack.getItem() == GOTItems.valyrianNugget) {
 				dye = itemstack;
 				continue;
 			}

@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -84,7 +84,7 @@ public class GOTWorldGenVolcanoCrater extends WorldGenerator {
 							setBlockAndNotifyAdequately(world, i1, j1 - 2, k1, Blocks.stone, 0);
 							continue;
 						}
-						setBlockAndNotifyAdequately(world, i1, j1 - 1, k1, GOTRegistry.obsidianGravel, 0);
+						setBlockAndNotifyAdequately(world, i1, j1 - 1, k1, GOTBlocks.obsidianGravel, 0);
 						setBlockAndNotifyAdequately(world, i1, j1 - 2, k1, Blocks.obsidian, 0);
 					}
 				}

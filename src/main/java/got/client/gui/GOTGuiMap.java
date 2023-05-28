@@ -12,7 +12,7 @@ import got.common.GOTConfig;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTControlZone;
 import got.common.faction.GOTFaction;
@@ -51,7 +51,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public static Map<UUID, PlayerLocationInfo> playerLocations = new HashMap<>();
 	public static ResourceLocation mapIconsTexture = new ResourceLocation("got:textures/map/mapScreen.png");
 	public static ResourceLocation conquestTexture = new ResourceLocation("got:textures/map/conquest.png");
-	public static ItemStack questBookIcon = new ItemStack(GOTRegistry.questBook);
+	public static ItemStack questBookIcon = new ItemStack(GOTItems.questBook);
 	public static int BLACK = -16777216;
 	public static int BORDER_COLOR = -6156032;
 	public static boolean fullscreen = true;

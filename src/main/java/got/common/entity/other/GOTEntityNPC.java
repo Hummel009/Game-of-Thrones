@@ -304,7 +304,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public ItemStack createNPCPouchDrop() {
 		GOTFaction faction;
-		ItemStack pouch = new ItemStack(GOTRegistry.pouch, 1, GOTItemPouch.getRandomPouchSize(rand));
+		ItemStack pouch = new ItemStack(GOTItems.pouch, 1, GOTItemPouch.getRandomPouchSize(rand));
 		if (rand.nextBoolean() && (faction = getFaction()) != null) {
 			GOTItemPouch.setPouchColor(pouch, faction.getFactionColor());
 		}
@@ -335,7 +335,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			int coinChance = 8 - i * 2;
 			if (rand.nextInt(Math.max(coinChance, 1)) == 0) {
 				int coins = getRandomCoinDropAmount();
-				dropItem(GOTRegistry.coin, coins * MathHelper.getRandomIntegerInRange(rand, 1, i + 1));
+				dropItem(GOTItems.coin, coins * MathHelper.getRandomIntegerInRange(rand, 1, i + 1));
 			}
 			int rareChance = 50 - i * 5;
 			if (rand.nextInt(Math.max(rareChance, 1)) == 0) {
@@ -376,7 +376,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public void dropNPCCrossbowBolts(int i) {
-		dropNPCAmmo(GOTRegistry.crossbowBolt, i);
+		dropNPCAmmo(GOTItems.crossbowBolt, i);
 	}
 
 	public void dropNPCEquipment(boolean flag, int i) {
@@ -525,16 +525,16 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			if (!initFestiveItems) {
 				festiveRand.setSeed(getEntityId() * 341873128712L);
 				if (GOT.isGuyFawkes()) {
-					festiveItems[4] = new ItemStack(GOTRegistry.anonymousMask);
+					festiveItems[4] = new ItemStack(GOTItems.anonymousMask);
 				} else if (GOT.isNewYear() && festiveRand.nextInt(3) == 0) {
 					ItemStack hat;
 					if (rand.nextBoolean()) {
-						hat = new ItemStack(GOTRegistry.leatherHat);
+						hat = new ItemStack(GOTItems.leatherHat);
 						GOTItemLeatherHat.setHatColor(hat, 13378587);
 						GOTItemLeatherHat.setFeatherColor(hat, 16777215);
 						festiveItems[4] = hat;
 					} else {
-						hat = new ItemStack(GOTRegistry.partyHat);
+						hat = new ItemStack(GOTItems.partyHat);
 						float hue = rand.nextFloat();
 						GOTItemPartyHat.setHatColor(hat, Color.HSBtoRGB(hue, 1.0f, 1.0f));
 					}
@@ -565,12 +565,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public ItemStack getHeldItemLeft() {
 		if (this instanceof GOTBannerBearer) {
 			GOTBannerBearer bannerBearer = (GOTBannerBearer) this;
-			return new ItemStack(GOTRegistry.banner, 1, bannerBearer.getBannerType().bannerID);
+			return new ItemStack(GOTItems.banner, 1, bannerBearer.getBannerType().bannerID);
 		}
 		if (isTrader() && !isLegendaryNPC && !(this instanceof GOTMercenary)) {
 			boolean showCoin = npcShield == null || !clientCombatStance && hiredNPCInfo.getHiringPlayerUUID() == null;
 			if (showCoin) {
-				return new ItemStack(GOTRegistry.coin);
+				return new ItemStack(GOTItems.coin);
 			}
 		}
 		return null;
@@ -642,7 +642,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		int id = GOTEntityRegistry.getEntityID(this);
 		if (GOTEntityRegistry.spawnEggs.containsKey(id)) {
-			return new ItemStack(GOTRegistry.spawnEgg, 1, id);
+			return new ItemStack(GOTItems.spawnEgg, 1, id);
 		}
 		return null;
 	}
@@ -800,7 +800,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		ItemStack heldItem = getHeldItem();
 		float str = 1.0f + getDistanceToEntity(target) / 16.0f * 0.015f;
 		boolean poison = rand.nextFloat() < getPoisonedArrowChance();
-		ItemStack boltItem = poison ? new ItemStack(GOTRegistry.crossbowBoltPoisoned) : new ItemStack(GOTRegistry.crossbowBolt);
+		ItemStack boltItem = poison ? new ItemStack(GOTItems.crossbowBoltPoisoned) : new ItemStack(GOTItems.crossbowBolt);
 		GOTEntityCrossbowBolt bolt = new GOTEntityCrossbowBolt(worldObj, this, target, boltItem, str * GOTItemCrossbow.getCrossbowLaunchSpeedFactor(heldItem), 1.0f);
 		if (heldItem != null) {
 			GOTItemCrossbow.applyCrossbowModifiers(bolt, heldItem);
@@ -877,7 +877,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			int coins = getRandomCoinDropAmount();
 			coins = (int) (coins * MathHelper.randomFloatClamp(rand, 1.0f, 3.0f));
 			if (coins > 0) {
-				entity.dropItem(GOTRegistry.coin, coins);
+				entity.dropItem(GOTItems.coin, coins);
 			}
 		}
 	}

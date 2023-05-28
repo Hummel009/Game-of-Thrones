@@ -1,7 +1,7 @@
 package got.common.entity.essos.asshai;
 
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import net.minecraft.entity.IEntityLivingData;
@@ -48,26 +48,26 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 			case 0:
 			case 1:
 			case 2:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiSword));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiSword));
 				break;
 			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiBattleaxe));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiBattleaxe));
 				break;
 			case 4:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiHammer));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiHammer));
 				break;
 			default:
 				break;
 		}
 		if (rand.nextInt(6) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiSpear));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.asshaiBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.asshaiLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.asshaiChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.asshaiHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.asshaiBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.asshaiLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.asshaiChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiHelmet));
 		return data;
 	}
 

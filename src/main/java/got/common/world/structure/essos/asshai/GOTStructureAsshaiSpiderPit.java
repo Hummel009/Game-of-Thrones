@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.asshai;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityUlthosSpider;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
@@ -122,12 +122,12 @@ public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 		associateBlockMetaAlias("WOOL", plankBlock, plankMeta);
 		associateBlockAlias("GROUND", rockBlock);
 		associateBlockAlias("GROUND_SLAB", brickSlabBlock);
-		addBlockMetaAliasOption("GROUND_COVER", 1, GOTRegistry.thatchFloor, 0);
+		addBlockMetaAliasOption("GROUND_COVER", 1, GOTBlocks.thatchFloor, 0);
 		setBlockAliasChance("GROUND_COVER", 0.25f);
 		associateBlockMetaAlias("BARS", barsBlock, 0);
 		associateBlockAlias("GATE_ORC", gateBlock);
 		associateBlockAlias("GATE_METAL", gateBlock);
-		associateBlockMetaAlias("TABLE", GOTRegistry.tableAsshai, 0);
+		associateBlockMetaAlias("TABLE", GOTBlocks.tableAsshai, 0);
 		generateStrScan(world, random, 0, 0, 0);
 		placeWallBanner(world, -7, 5, 0, GOTItemBanner.BannerType.ASSHAI, 1);
 		placeWallBanner(world, 7, 5, 0, GOTItemBanner.BannerType.ASSHAI, 3);
@@ -149,15 +149,15 @@ public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 		placeBigTorch(world, -4, 8, 4);
 		placeBigTorch(world, -8, 10, -4);
 		placeBigTorch(world, -12, 10, -4);
-		placeChest(world, random, 0, -7, 1, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
-		placeChest(world, random, 1, 7, 12, GOTRegistry.chestStone, 2, GOTChestContents.ASSHAI);
+		placeChest(world, random, 0, -7, 1, GOTBlocks.chestStone, 4, GOTChestContents.ASSHAI);
+		placeChest(world, random, 1, 7, 12, GOTBlocks.chestStone, 2, GOTChestContents.ASSHAI);
 		setBlockAndMetadata(world, -2, 7, 9, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 7, 9, bedBlock, 11);
 		setBlockAndMetadata(world, -2, 7, 11, bedBlock, 3);
 		setBlockAndMetadata(world, -3, 7, 11, bedBlock, 11);
 		placeBarrel(world, random, 3, 8, 11, 5, GOTFoods.RICH_DRINK);
 		placeMug(world, random, 3, 8, 10, 1, GOTFoods.RICH_DRINK);
-		placePlateWithCertainty(world, random, 3, 8, 9, GOTRegistry.woodPlateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 3, 8, 9, GOTBlocks.woodPlateBlock, GOTFoods.WESTEROS);
 		int maxStep = 12;
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (step = 0; step < 2 && !isSideSolid(world, i12, j12 = 5 - step, k12 = -9 - step, ForgeDirection.UP); ++step) {

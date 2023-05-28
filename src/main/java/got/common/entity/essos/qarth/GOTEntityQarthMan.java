@@ -3,7 +3,7 @@ package got.common.entity.essos.qarth;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityCamel;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -150,7 +150,7 @@ public class GOTEntityQarthMan extends GOTEntityHumanBase implements IPickpocket
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDagger));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

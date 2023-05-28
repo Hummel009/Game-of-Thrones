@@ -4,7 +4,7 @@ import got.client.GOTSpeechClient;
 import got.client.GOTTickHandlerClient;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemQuestBook;
 import got.common.quest.GOTMiniQuest;
@@ -252,7 +252,7 @@ public class GOTNPCRendering {
 		RenderManager renderManager = RenderManager.instance;
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
 		if (!GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(npc, true).isEmpty() && !GOTSpeechClient.hasSpeech(npc)) {
-			ItemStack questBook = new ItemStack(GOTRegistry.questBook);
+			ItemStack questBook = new ItemStack(GOTItems.questBook);
 			IIcon icon = questBook.getIconIndex();
 			if (icon == null) {
 				icon = ((TextureMap) textureManager.getTexture(TextureMap.locationItemsTexture)).getAtlasSprite("missingno");

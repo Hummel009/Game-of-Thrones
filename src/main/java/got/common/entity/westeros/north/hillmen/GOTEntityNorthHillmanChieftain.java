@@ -3,7 +3,7 @@ package got.common.entity.westeros.north.hillmen;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -60,11 +60,11 @@ public class GOTEntityNorthHillmanChieftain extends GOTEntityNorthHillmanWarrior
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.northBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.northLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.northChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.northBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.northChestplate));
 		setCurrentItemOrArmor(4, null);
 		return data;
 	}

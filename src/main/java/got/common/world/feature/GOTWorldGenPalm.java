@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -60,7 +60,7 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 			if (hasDates && l == height - 3) {
 				for (int d = 0; d < 4; ++d) {
 					ForgeDirection dir = ForgeDirection.getOrientation(d + 2);
-					setBlockAndNotifyAdequately(world, trunkX + dir.getOpposite().offsetX, j + l, trunkZ + dir.getOpposite().offsetZ, GOTRegistry.dateBlock, d);
+					setBlockAndNotifyAdequately(world, trunkX + dir.getOpposite().offsetX, j + l, trunkZ + dir.getOpposite().offsetZ, GOTBlocks.dateBlock, d);
 				}
 			}
 			if (l <= height / 3 || l >= height - 1 || trunkSwitches >= trunkSwitchesMax || !random.nextBoolean()) {

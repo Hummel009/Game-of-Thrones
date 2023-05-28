@@ -2,7 +2,7 @@ package got.common.entity.essos.pentos;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -29,13 +29,13 @@ public class GOTEntityPentosGuard extends GOTEntityPentosLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(0, new ItemStack(GOTRegistry.essosPolearm));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosPolearm));
+		setCurrentItemOrArmor(0, new ItemStack(GOTItems.essosPolearm));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.pentosBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.pentosLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.pentosChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.pentosHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.pentosBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.pentosLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.pentosChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.pentosHelmet));
 		return data;
 	}
 }

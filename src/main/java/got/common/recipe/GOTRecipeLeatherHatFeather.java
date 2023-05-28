@@ -1,7 +1,7 @@
 package got.common.recipe;
 
 import got.GOT;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemFeatherDyed;
 import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.inventory.InventoryCrafting;
@@ -19,14 +19,14 @@ public class GOTRecipeLeatherHatFeather implements IRecipe {
 			if (itemstack == null) {
 				continue;
 			}
-			if (itemstack.getItem() == GOTRegistry.leatherHat && !GOTItemLeatherHat.hasFeather(itemstack)) {
+			if (itemstack.getItem() == GOTItems.leatherHat && !GOTItemLeatherHat.hasFeather(itemstack)) {
 				if (hat != null) {
 					return null;
 				}
 				hat = itemstack.copy();
 				continue;
 			}
-			if (GOT.isOreNameEqual(itemstack, "feather") || itemstack.getItem() == GOTRegistry.featherDyed) {
+			if (GOT.isOreNameEqual(itemstack, "feather") || itemstack.getItem() == GOTItems.featherDyed) {
 				if (feather != null) {
 					return null;
 				}
@@ -39,7 +39,7 @@ public class GOTRecipeLeatherHatFeather implements IRecipe {
 			return null;
 		}
 		int featherColor = 16777215;
-		if (feather.getItem() == GOTRegistry.featherDyed) {
+		if (feather.getItem() == GOTItems.featherDyed) {
 			featherColor = GOTItemFeatherDyed.getFeatherColor(feather);
 		}
 		GOTItemLeatherHat.setFeatherColor(hat, featherColor);
@@ -65,14 +65,14 @@ public class GOTRecipeLeatherHatFeather implements IRecipe {
 			if (itemstack == null) {
 				continue;
 			}
-			if (itemstack.getItem() == GOTRegistry.leatherHat && !GOTItemLeatherHat.hasFeather(itemstack)) {
+			if (itemstack.getItem() == GOTItems.leatherHat && !GOTItemLeatherHat.hasFeather(itemstack)) {
 				if (hat != null) {
 					return false;
 				}
 				hat = itemstack;
 				continue;
 			}
-			if (GOT.isOreNameEqual(itemstack, "feather") || itemstack.getItem() == GOTRegistry.featherDyed) {
+			if (GOT.isOreNameEqual(itemstack, "feather") || itemstack.getItem() == GOTItems.featherDyed) {
 				if (feather != null) {
 					return false;
 				}

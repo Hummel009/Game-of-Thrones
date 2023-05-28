@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.common.GOTLevelData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemArmor;
@@ -121,7 +121,7 @@ public class GOTRenderShield {
 		}
 		boolean holdingSword = held != null && (held.getItem() instanceof ItemSword || held.getItem() instanceof ItemTool) || inUse != null && inUse.getItemUseAction() == EnumAction.bow;
 		boolean blocking = holdingSword && inUse != null && inUse.getItemUseAction() == EnumAction.block;
-		boolean wearingChestplate = chestplate != null && chestplate.getItem().isValidArmor(chestplate, ((GOTItemArmor) GOTRegistry.valyrianChestplate).armorType, entity);
+		boolean wearingChestplate = chestplate != null && chestplate.getItem().isValidArmor(chestplate, ((GOTItemArmor) GOTItems.valyrianChestplate).armorType, entity);
 		boolean renderOnBack = (!holdingSword || heldLeft != null) && entity != null;
 		boolean doNotRender = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).npcCape != null && renderOnBack || entity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) entity).getCape() != null && renderOnBack;
 		if (!doNotRender) {

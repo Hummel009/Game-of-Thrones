@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
@@ -73,11 +73,11 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 					continue;
 				}
 				case 3: {
-					dropItem(GOTRegistry.zebraRaw, 1);
+					dropItem(GOTItems.zebraRaw, 1);
 					continue;
 				}
 				case 4: {
-					dropItem(GOTRegistry.gemsbokHide, 1);
+					dropItem(GOTItems.gemsbokHide, 1);
 				}
 			}
 		}

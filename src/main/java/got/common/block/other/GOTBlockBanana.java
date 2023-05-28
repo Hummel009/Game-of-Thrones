@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
@@ -16,12 +16,12 @@ public class GOTBlockBanana extends GOTBlockHangingFruit {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
-		return GOTRegistry.banana;
+		return GOTItems.banana;
 	}
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return GOTRegistry.banana;
+		return GOTItems.banana;
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package got.common.enchant;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemModifierTemplate;
 import net.minecraft.item.ItemStack;
 
@@ -81,7 +81,7 @@ public class GOTEnchantmentCombining {
 		}
 
 		public ItemStack createOutputItem() {
-			ItemStack item = new ItemStack(GOTRegistry.smithScroll);
+			ItemStack item = new ItemStack(GOTItems.smithScroll);
 			GOTItemModifierTemplate.setModifier(item, outputMod);
 			return item;
 		}

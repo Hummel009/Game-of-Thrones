@@ -3,8 +3,8 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityFallingFireJar;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -80,7 +80,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 				if (!block.isAir(world, i1, j1, k1) && !block.isReplaceable(world, i1, j1, k1) || block.getMaterial().isLiquid()) {
 					continue;
 				}
-				world.setBlock(i1, j1, k1, GOTRegistry.wildFire, 0, 3);
+				world.setBlock(i1, j1, k1, GOTBlocks.wildFire, 0, 3);
 			}
 		}
 	}
@@ -109,7 +109,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 			default:
 				break;
 		}
-		return GOTRegistry.brick5.getIcon(i, 11);
+		return GOTBlocks.brick5.getIcon(i, 11);
 	}
 
 	@Override

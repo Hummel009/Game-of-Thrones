@@ -1,6 +1,7 @@
 package got.common.world.structure.essos.common;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -108,12 +109,12 @@ public class GOTStructureEssosFarm extends GOTStructureEssosBase {
 					seed1 = Items.potato;
 					break;
 				case 2:
-					crop1Block = GOTRegistry.lettuceCrop;
-					seed1 = GOTRegistry.lettuce;
+					crop1Block = GOTBlocks.lettuceCrop;
+					seed1 = GOTItems.lettuce;
 					break;
 				case 3:
-					crop1Block = GOTRegistry.turnipCrop;
-					seed1 = GOTRegistry.turnip;
+					crop1Block = GOTBlocks.turnipCrop;
+					seed1 = GOTItems.turnip;
 					break;
 				default:
 					break;
@@ -134,12 +135,12 @@ public class GOTStructureEssosFarm extends GOTStructureEssosBase {
 					seed2 = Items.potato;
 					break;
 				case 2:
-					crop2Block = GOTRegistry.lettuceCrop;
-					seed2 = GOTRegistry.lettuce;
+					crop2Block = GOTBlocks.lettuceCrop;
+					seed2 = GOTItems.lettuce;
 					break;
 				case 3:
-					crop2Block = GOTRegistry.turnipCrop;
-					seed2 = GOTRegistry.turnip;
+					crop2Block = GOTBlocks.turnipCrop;
+					seed2 = GOTItems.turnip;
 					break;
 				default:
 					break;

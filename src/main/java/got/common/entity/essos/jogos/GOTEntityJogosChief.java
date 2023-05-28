@@ -3,7 +3,7 @@ package got.common.entity.essos.jogos;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -60,7 +60,7 @@ public class GOTEntityJogosChief extends GOTEntityJogos implements GOTUnitTradea
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.nomadSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadSword));
 		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());

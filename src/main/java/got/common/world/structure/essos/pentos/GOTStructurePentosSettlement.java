@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.pentos;
 
 import com.google.common.math.IntMath;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.pentos.GOTEntityPentosGuard;
 import got.common.entity.essos.pentos.GOTEntityPentosMan;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -244,7 +244,7 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
 			int meta = world.getBlockMetadata(i, j, k);
-			return block == Blocks.dirt && meta == 1 || block == GOTRegistry.dirtPath && meta == 0 || block == GOTRegistry.brick1 && meta == 15 || block == GOTRegistry.brick3 && meta == 11 || block == GOTRegistry.pillar1 && meta == 5 || block == Blocks.sand && meta == 0 || block == Blocks.sandstone && meta == 0 || block == GOTRegistry.slabSingleDirt && meta == 0 || block == GOTRegistry.slabSingleDirt && meta == 1 || block == GOTRegistry.slabSingleSand && meta == 0 || block == GOTRegistry.slabSingle4 && meta == 0 || block == GOTRegistry.slabSingle7 && meta == 1 || block == GOTRegistry.slabSingle4 && meta == 7;
+			return block == Blocks.dirt && meta == 1 || block == GOTBlocks.dirtPath && meta == 0 || block == GOTBlocks.brick1 && meta == 15 || block == GOTBlocks.brick3 && meta == 11 || block == GOTBlocks.pillar1 && meta == 5 || block == Blocks.sand && meta == 0 || block == Blocks.sandstone && meta == 0 || block == GOTBlocks.slabSingleDirt && meta == 0 || block == GOTBlocks.slabSingleDirt && meta == 1 || block == GOTBlocks.slabSingleSand && meta == 0 || block == GOTBlocks.slabSingle4 && meta == 0 || block == GOTBlocks.slabSingle7 && meta == 1 || block == GOTBlocks.slabSingle4 && meta == 7;
 		}
 
 		public void placeChampionRespawner() {

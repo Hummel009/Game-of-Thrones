@@ -85,7 +85,7 @@ public class GOTLore {
 							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
-							GOTLog.logger.error("Failed to load GOT lore {}from zip file", s);
+							GOTLog.logger.error("Failed to onInit GOT lore {}from zip file", s);
 							e.printStackTrace();
 						}
 					}
@@ -96,21 +96,21 @@ public class GOTLore {
 					String s = file.getName();
 					int i = s.indexOf(".txt");
 					if (i < 0) {
-						GOTLog.logger.error("Failed to load GOT lore {} from MCP folder; name bank files must be in .txt format", s);
+						GOTLog.logger.error("Failed to onInit GOT lore {} from MCP folder; name bank files must be in .txt format", s);
 					} else {
 						try {
 							s = s.substring(0, i);
 							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(file.toPath())), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
-							GOTLog.logger.error("Failed to load GOT lore {} from MCP folder", s);
+							GOTLog.logger.error("Failed to onInit GOT lore {} from MCP folder", s);
 							e.printStackTrace();
 						}
 					}
 				}
 			}
 		} catch (Exception e) {
-			GOTLog.logger.error("Failed to load GOT lore");
+			GOTLog.logger.error("Failed to onInit GOT lore");
 			e.printStackTrace();
 		}
 		for (Entry<String, BufferedReader> entry : loreReaders.entrySet()) {
@@ -182,7 +182,7 @@ public class GOTLore {
 					category.addLore(lore);
 				}
 			} catch (Exception e) {
-				GOTLog.logger.error("Failed to load GOT lore: {}", loreName);
+				GOTLog.logger.error("Failed to onInit GOT lore: {}", loreName);
 				e.printStackTrace();
 			}
 		}

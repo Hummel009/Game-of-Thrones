@@ -101,7 +101,7 @@ public class GOTEntityKraznysMoNakloz extends GOTEntityHumanBase implements GOTU
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosDaggerPoisoned));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDaggerPoisoned));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

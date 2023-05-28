@@ -101,7 +101,7 @@ public class GOTEntityYaraGreyjoy extends GOTEntityHumanBase implements GOTUnitT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironBattleaxe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironBattleaxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

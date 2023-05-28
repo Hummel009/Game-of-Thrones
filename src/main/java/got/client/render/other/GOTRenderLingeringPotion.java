@@ -2,7 +2,7 @@ package got.client.render.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityLingeringPotion;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.RenderSnowball;
@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL12;
 public class GOTRenderLingeringPotion extends RenderSnowball {
 
 	public GOTRenderLingeringPotion() {
-		super(GOTRegistry.lingeringPotion);
+		super(GOTItems.lingeringPotion);
 	}
 
 	public static void colour(float r, float g, float b) {

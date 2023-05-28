@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
@@ -203,8 +203,8 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 1, 9, k1, plankSlabBlock, plankSlabMeta | 8);
 			setBlockAndMetadata(world, 3, 7, k1, plankSlabBlock, plankSlabMeta | 8);
 		}
-		setBlockAndMetadata(world, 0, 4, 4, GOTRegistry.chandelier, 1);
-		setBlockAndMetadata(world, 0, 4, 9, GOTRegistry.chandelier, 1);
+		setBlockAndMetadata(world, 0, 4, 4, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 0, 4, 9, GOTBlocks.chandelier, 1);
 		for (int step = 0; step <= 3; ++step) {
 			setBlockAndMetadata(world, 3, 1 + step, 2 + step, plankStairBlock, 2);
 			setBlockAndMetadata(world, 3, 1 + step, 3 + step, plankStairBlock, 7);
@@ -238,8 +238,8 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		placeBarrel(world, random, -3, 6, 6, 4, GOTFoods.WESTEROS_DRINK);
 		placeMug(world, random, -2, 7, 7, 3, GOTFoods.WESTEROS_DRINK);
 		placePlateWithCertainty(world, random, -2, 7, 8, plateBlock, GOTFoods.WESTEROS);
-		setBlockAndMetadata(world, 0, 9, 4, GOTRegistry.chandelier, 1);
-		setBlockAndMetadata(world, 0, 9, 9, GOTRegistry.chandelier, 1);
+		setBlockAndMetadata(world, 0, 9, 4, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 0, 9, 9, GOTBlocks.chandelier, 1);
 		for (k1 = 1; k1 <= 5; ++k1) {
 			setBlockAndMetadata(world, -3, 6, k1, Blocks.hay_block, 0);
 		}
@@ -306,7 +306,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 					setBlockAndMetadata(world, i18, 1, k15, cropBlock, cropMeta);
 					continue;
 				}
-				setBlockAndMetadata(world, i18, 0, k15, GOTRegistry.dirtPath, 0);
+				setBlockAndMetadata(world, i18, 0, k15, GOTBlocks.dirtPath, 0);
 			}
 		}
 		setBlockAndMetadata(world, -10, 2, 6, fenceBlock, fenceMeta);

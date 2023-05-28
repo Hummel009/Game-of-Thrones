@@ -1,6 +1,6 @@
 package got.common.world.map;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.GOTChunkProvider;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
@@ -19,16 +19,16 @@ public class GOTMapGenCaves extends MapGenBase {
 		if (block == biome.topBlock || block == biome.fillerBlock) {
 			return true;
 		}
-		if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == GOTRegistry.whiteSand || block == Blocks.gravel || block == GOTRegistry.mudGrass || block == GOTRegistry.mud) {
+		if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == GOTBlocks.whiteSand || block == Blocks.gravel || block == GOTBlocks.mudGrass || block == GOTBlocks.mud) {
 			return true;
 		}
-		if (block == GOTRegistry.dirtPath) {
+		if (block == GOTBlocks.dirtPath) {
 			return true;
 		}
-		if (block == Blocks.stone || block == GOTRegistry.rock || block == Blocks.sandstone || block == GOTRegistry.redSandstone || block == GOTRegistry.whiteSandstone) {
+		if (block == Blocks.stone || block == GOTBlocks.rock || block == Blocks.sandstone || block == GOTBlocks.redSandstone || block == GOTBlocks.whiteSandstone) {
 			return true;
 		}
-		return block == GOTRegistry.asshaiDirt || block == GOTRegistry.basaltGravel;
+		return block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
 	}
 
 	public int caveRarity() {

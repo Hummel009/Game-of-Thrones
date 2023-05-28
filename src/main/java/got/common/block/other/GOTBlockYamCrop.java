@@ -2,7 +2,7 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
@@ -27,12 +27,12 @@ public class GOTBlockYamCrop extends BlockCrops {
 
 	@Override
 	public Item func_149865_P() {
-		return GOTRegistry.yam;
+		return GOTItems.yam;
 	}
 
 	@Override
 	public Item func_149866_i() {
-		return GOTRegistry.yam;
+		return GOTItems.yam;
 	}
 
 	@SideOnly(Side.CLIENT)

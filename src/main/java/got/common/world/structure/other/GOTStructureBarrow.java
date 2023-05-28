@@ -1,7 +1,7 @@
 package got.common.world.structure.other;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityBarrowWight;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -96,7 +96,7 @@ public class GOTStructureBarrow extends GOTStructureBase {
 				placeRandomBrick(world, random, i12, innerB, k14);
 			}
 		}
-		placeSpawnerChest(world, random, 0, innerB + 1, 0, GOTRegistry.spawnerChestStone, 0, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
+		placeSpawnerChest(world, random, 0, innerB + 1, 0, GOTBlocks.spawnerChestStone, 0, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
 		setBlockAndMetadata(world, 1, innerB + 1, 0, Blocks.stone_stairs, 0);
 		setBlockAndMetadata(world, -1, innerB + 1, 0, Blocks.stone_stairs, 1);
 		setBlockAndMetadata(world, 0, innerB + 1, -1, Blocks.stone_stairs, 2);

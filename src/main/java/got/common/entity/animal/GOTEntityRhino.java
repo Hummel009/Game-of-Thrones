@@ -1,7 +1,7 @@
 package got.common.entity.animal;
 
 import got.GOT;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.util.GOTReflection;
 import net.minecraft.entity.*;
@@ -52,14 +52,14 @@ public class GOTEntityRhino extends GOTEntityHorse {
 	public void dropFewItems(boolean flag, int i) {
 		int j = rand.nextInt(2) + rand.nextInt(1 + i);
 		for (int k = 0; k < j; ++k) {
-			dropItem(GOTRegistry.rhinoHorn, 1);
+			dropItem(GOTItems.rhinoHorn, 1);
 		}
 		int meat = 3 + rand.nextInt(2);
 		for (int l = 0; l < meat; ++l) {
 			if (isBurning()) {
-				dropItem(GOTRegistry.rhinoCooked, 1);
+				dropItem(GOTItems.rhinoCooked, 1);
 			} else {
-				dropItem(GOTRegistry.rhinoRaw, 1);
+				dropItem(GOTItems.rhinoRaw, 1);
 			}
 		}
 	}

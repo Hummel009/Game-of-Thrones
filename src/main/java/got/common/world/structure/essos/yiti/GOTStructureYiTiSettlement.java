@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldier;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldierCrossbower;
@@ -147,7 +147,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
 			int meta = world.getBlockMetadata(i, j, k);
-			return block == GOTRegistry.slabSingleDirt && meta == 5 || block == GOTRegistry.dirtPath && meta == 2;
+			return block == GOTBlocks.slabSingleDirt && meta == 5 || block == GOTBlocks.dirtPath && meta == 2;
 		}
 
 		public void setupFort(Random random) {

@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.lhazar;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.lhazar.GOTEntityLhazarBartender;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import got.common.item.other.GOTItemBanner;
@@ -87,8 +87,8 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 		placeBarrel(world, random, 3, 2, 1, 5, GOTFoods.NOMAD_DRINK);
 		placeFlowerPot(world, 3, 2, -2, getRandomFlower(world, random));
 		placeFlowerPot(world, -3, 2, 1, getRandomFlower(world, random));
-		placeKebabStand(world, random, -2, 2, 2, GOTRegistry.kebabStand, 2);
-		placeKebabStand(world, random, 2, 2, 2, GOTRegistry.kebabStand, 2);
+		placeKebabStand(world, random, -2, 2, 2, GOTBlocks.kebabStand, 2);
+		placeKebabStand(world, random, 2, 2, 2, GOTBlocks.kebabStand, 2);
 		placeWallBanner(world, -2, 4, -3, GOTItemBanner.BannerType.LHAZAR, 2);
 		placeWallBanner(world, 2, 4, -3, GOTItemBanner.BannerType.LHAZAR, 2);
 		placeWallBanner(world, -2, 4, 3, GOTItemBanner.BannerType.LHAZAR, 0);
@@ -132,11 +132,11 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 		}
 		for (i1 = -1; i1 <= 1; ++i1) {
 			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = -step, k1 = -10 - step); ++step) {
-				setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.stairsRedSandstone, 2);
+				setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.stairsRedSandstone, 2);
 				setGrassToDirt(world, i1, j1 - 1, k1);
 				j2 = j1 - 1;
 				while (!isOpaque(world, i1, j2, k1) && getY(j2) >= 0) {
-					setBlockAndMetadata(world, i1, j2, k1, GOTRegistry.redSandstone, 0);
+					setBlockAndMetadata(world, i1, j2, k1, GOTBlocks.redSandstone, 0);
 					setGrassToDirt(world, i1, j2 - 1, k1);
 					--j2;
 				}
@@ -144,11 +144,11 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 		}
 		for (i1 = -1; i1 <= 1; ++i1) {
 			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = -step, k1 = 10 + step); ++step) {
-				setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.stairsRedSandstone, 3);
+				setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.stairsRedSandstone, 3);
 				setGrassToDirt(world, i1, j1 - 1, k1);
 				j2 = j1 - 1;
 				while (!isOpaque(world, i1, j2, k1) && getY(j2) >= 0) {
-					setBlockAndMetadata(world, i1, j2, k1, GOTRegistry.redSandstone, 0);
+					setBlockAndMetadata(world, i1, j2, k1, GOTBlocks.redSandstone, 0);
 					setGrassToDirt(world, i1, j2 - 1, k1);
 					--j2;
 				}
@@ -163,7 +163,7 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.NOMAD_DRINK);
 			} else {
 				Block plateBlock;
-				plateBlock = random.nextBoolean() ? GOTRegistry.woodPlateBlock : GOTRegistry.ceramicPlateBlock;
+				plateBlock = random.nextBoolean() ? GOTBlocks.woodPlateBlock : GOTBlocks.ceramicPlateBlock;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {

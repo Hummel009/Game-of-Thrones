@@ -1,6 +1,6 @@
 package got.common.entity.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.EntityLivingBase;
@@ -43,7 +43,7 @@ public class GOTEntityYiTiLevymanCrossbower extends GOTEntityYiTiLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.ironCrossbow));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironCrossbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		return data;
 	}

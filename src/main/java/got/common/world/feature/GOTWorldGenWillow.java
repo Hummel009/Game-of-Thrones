@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GOTWorldGenWillow extends WorldGenAbstractTree {
-	public Block woodBlock = GOTRegistry.wood6;
+	public Block woodBlock = GOTBlocks.wood6;
 	public int woodMeta = 1;
-	public Block leafBlock = GOTRegistry.leaves6;
+	public Block leafBlock = GOTBlocks.leaves6;
 	public int leafMeta = 1;
 	public int minHeight = 8;
 	public int maxHeight = 13;
@@ -133,11 +133,11 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 	}
 
 	public void growVines(World world, Random random, int i, int j, int k, int meta) {
-		setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.willowVines, meta);
+		setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.willowVines, meta);
 		int vines = 0;
 		--j;
 		while (world.getBlock(i, j, k).isAir(world, i, j, k) && vines < 2 + random.nextInt(4)) {
-			setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.willowVines, meta);
+			setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.willowVines, meta);
 			++vines;
 			--j;
 		}

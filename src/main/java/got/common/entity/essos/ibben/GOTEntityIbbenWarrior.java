@@ -1,6 +1,6 @@
 package got.common.entity.essos.ibben;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -64,27 +64,27 @@ public class GOTEntityIbbenWarrior extends GOTEntityIbbenMan {
 			case 1:
 			case 2:
 			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ibbenSword));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ibbenSword));
 				break;
 			case 4:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironBattleaxe));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironBattleaxe));
 				break;
 			case 5:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironPike));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironPike));
 				break;
 			default:
 				break;
 		}
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ibbenHarpoon));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ibbenHarpoon));
 		}
-		npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTRegistry.ibbenHarpoon));
+		npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTItems.ibbenHarpoon));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.ibbenBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.ibbenLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.ibbenChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.ibbenBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ibbenLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ibbenChestplate));
 		return data;
 	}
 

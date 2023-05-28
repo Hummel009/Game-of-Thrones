@@ -3,7 +3,7 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.slab.GOTBlockSlabBase;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
@@ -16,7 +16,7 @@ public class GOTBlockScorchedSlab extends GOTBlockSlabBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return GOTRegistry.scorchedStone.getIcon(i, j);
+		return GOTBlocks.scorchedStone.getIcon(i, j);
 	}
 
 	@SideOnly(Side.CLIENT)

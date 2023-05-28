@@ -662,7 +662,8 @@ public class GOTAPI {
 	 * @apiNote Removes titles except selected from the GUI.
 	 */
 	public static void removeTitlesExcept(GOTTitle... content) {
-		for (GOTTitle removal : getObjectFieldsOfType(GOTTitle.class, GOTTitle.class)) {
+		Set<GOTTitle> set = getObjectFieldsOfType(GOTTitle.class, GOTTitle.class);
+		for (GOTTitle removal : set) {
 			for (GOTTitle excluded : content) {
 				if (excluded != removal) {
 					removeTitle(removal);

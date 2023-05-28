@@ -65,11 +65,11 @@ public class GOTEntityYiTiFarmer extends GOTEntityYiTiMan implements GOTTradeabl
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeHoe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		int robeColor = 7577646;
-		ItemStack body = new ItemStack(GOTRegistry.kaftanChestplate);
-		ItemStack legs = new ItemStack(GOTRegistry.kaftanLeggings);
+		ItemStack body = new ItemStack(GOTItems.kaftanChestplate);
+		ItemStack legs = new ItemStack(GOTItems.kaftanLeggings);
 		GOTItemRobes.setRobesColor(body, robeColor);
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);

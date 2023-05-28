@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.wildling;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.westeros.legendary.GOTEntityCrasterWife;
 import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
@@ -120,7 +120,7 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 					setBlockAndMetadata(world, i14, 0, k13, Blocks.dirt, 1);
 				}
 				if (random.nextBoolean()) {
-					setBlockAndMetadata(world, i14, 1, k13, GOTRegistry.thatchFloor, 0);
+					setBlockAndMetadata(world, i14, 1, k13, GOTBlocks.thatchFloor, 0);
 				}
 				if (i23 < 2 && k13 > 3) {
 					continue;
@@ -129,7 +129,7 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 				if (!random.nextBoolean()) {
 					continue;
 				}
-				setBlockAndMetadata(world, i14, 6, k13, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i14, 6, k13, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (i14 = -5; i14 <= 5; ++i14) {
@@ -239,10 +239,10 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 		}
 		for (int i17 = -1; i17 <= 1; ++i17) {
 			for (int j14 = 1; j14 <= 4; ++j14) {
-				setBlockAndMetadata(world, i17, j14, 0, GOTRegistry.gateIronBars, 2);
+				setBlockAndMetadata(world, i17, j14, 0, GOTBlocks.gateIronBars, 2);
 			}
 		}
-		setBlockAndMetadata(world, 0, 3, 0, GOTRegistry.gateIronBars, 2);
+		setBlockAndMetadata(world, 0, 3, 0, GOTBlocks.gateIronBars, 2);
 		for (int k17 = 1; k17 <= 14; ++k17) {
 			if (IntMath.mod(k17, 3) == 0) {
 				setBlockAndMetadata(world, -6, 6, k17, plankBlock, plankMeta);
@@ -391,7 +391,7 @@ public class GOTStructureWildlingBarn extends GOTStructureWesterosBase {
 		placeChest(world, random, -4, 1, 13, 4, GOTChestContents.BEYOND_WALL);
 		placeChest(world, random, -4, 1, 14, 4, GOTChestContents.BEYOND_WALL);
 		setBlockAndMetadata(world, 4, 1, 13, Blocks.crafting_table, 0);
-		setBlockAndMetadata(world, 4, 1, 14, GOTRegistry.tableWildling, 0);
+		setBlockAndMetadata(world, 4, 1, 14, GOTBlocks.tableWildling, 0);
 		setBlockAndMetadata(world, -2, 3, 1, Blocks.torch, 3);
 		setBlockAndMetadata(world, 2, 3, 1, Blocks.torch, 3);
 		setBlockAndMetadata(world, -2, 3, 14, Blocks.torch, 4);

@@ -1,7 +1,8 @@
 package got.common.world.structure.westeros.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -78,7 +79,7 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 					setAir(world, i12, j12, k12);
 				}
 				if (random.nextInt(3) != 0) {
-					setBlockAndMetadata(world, i12, 1, k12, GOTRegistry.thatchFloor, 0);
+					setBlockAndMetadata(world, i12, 1, k12, GOTBlocks.thatchFloor, 0);
 				}
 				if (i2 != 4 || k2 != 4) {
 					continue;
@@ -91,7 +92,7 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 		for (i12 = -5; i12 <= 5; ++i12) {
 			for (k12 = -7; k12 <= -6; ++k12) {
 				for (j13 = 0; (j13 >= 0 || !isOpaque(world, i12, j13, k12)) && getY(j13) >= 0; --j13) {
-					setBlockAndMetadata(world, i12, j13, k12, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i12, j13, k12, GOTBlocks.dirtPath, 0);
 					setGrassToDirt(world, i12, j13 - 1, k12);
 				}
 				for (j13 = 1; j13 <= 8; ++j13) {
@@ -105,7 +106,7 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 					continue;
 				}
 				for (j13 = 0; (j13 >= 0 || !isOpaque(world, i12, j13, k12)) && getY(j13) >= 0; --j13) {
-					setBlockAndMetadata(world, i12, j13, k12, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i12, j13, k12, GOTBlocks.dirtPath, 0);
 					setGrassToDirt(world, i12, j13 - 1, k12);
 				}
 				for (j13 = 1; j13 <= 8; ++j13) {
@@ -224,9 +225,9 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 3, 1, 4, rockSlabDoubleBlock, rockSlabDoubleMeta);
 		placeFlowerPot(world, 3, 2, 4, getRandomFlower(world, random));
 		setBlockAndMetadata(world, 2, 1, 4, Blocks.hay_block, 0);
-		setBlockAndMetadata(world, -5, 1, -6, GOTRegistry.reedBars, 0);
+		setBlockAndMetadata(world, -5, 1, -6, GOTBlocks.reedBars, 0);
 		for (i1 = -5; i1 <= -3; ++i1) {
-			setBlockAndMetadata(world, i1, 1, -7, GOTRegistry.reedBars, 0);
+			setBlockAndMetadata(world, i1, 1, -7, GOTBlocks.reedBars, 0);
 		}
 		placeFlowerPot(world, -4, 1, -6, getRandomFlower(world, random));
 		placeFlowerPot(world, -3, 1, -6, getRandomFlower(world, random));
@@ -238,15 +239,15 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 4, 1, -7, Blocks.hay_block, 0);
 		for (j1 = 1; j1 <= 2; ++j1) {
 			for (k12 = 6; k12 <= 9; ++k12) {
-				setBlockAndMetadata(world, -4, j1, k12, GOTRegistry.reedBars, 0);
-				setBlockAndMetadata(world, 4, j1, k12, GOTRegistry.reedBars, 0);
+				setBlockAndMetadata(world, -4, j1, k12, GOTBlocks.reedBars, 0);
+				setBlockAndMetadata(world, 4, j1, k12, GOTBlocks.reedBars, 0);
 			}
-			setBlockAndMetadata(world, -3, j1, 9, GOTRegistry.reedBars, 0);
-			setBlockAndMetadata(world, -2, j1, 9, GOTRegistry.reedBars, 0);
-			setBlockAndMetadata(world, 2, j1, 9, GOTRegistry.reedBars, 0);
-			setBlockAndMetadata(world, 3, j1, 9, GOTRegistry.reedBars, 0);
+			setBlockAndMetadata(world, -3, j1, 9, GOTBlocks.reedBars, 0);
+			setBlockAndMetadata(world, -2, j1, 9, GOTBlocks.reedBars, 0);
+			setBlockAndMetadata(world, 2, j1, 9, GOTBlocks.reedBars, 0);
+			setBlockAndMetadata(world, 3, j1, 9, GOTBlocks.reedBars, 0);
 			for (i13 = -2; i13 <= 2; ++i13) {
-				setBlockAndMetadata(world, i13, j1, 10, GOTRegistry.reedBars, 0);
+				setBlockAndMetadata(world, i13, j1, 10, GOTBlocks.reedBars, 0);
 			}
 		}
 		int[] j15 = {-2, 1};
@@ -269,11 +270,11 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 4, 9, Blocks.pumpkin, 0);
 		GOTEntityNPC male = getMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, -1, 16);
 		GOTEntityNPC female = getMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, -1, 16);
 		GOTEntityNPC child = getMan(world);
 		child.familyInfo.setMale(random.nextBoolean());
@@ -285,7 +286,7 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		wallBlock = GOTRegistry.daub;
+		wallBlock = GOTBlocks.daub;
 		wallMeta = 0;
 		if (random.nextInt(3) == 0) {
 			roofBlock = brick2Block;

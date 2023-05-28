@@ -2,8 +2,8 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStem;
 import net.minecraft.block.IGrowable;
@@ -70,14 +70,14 @@ public class GOTBlockMudGrass extends Block implements IGrowable {
 			return iconTop;
 		}
 		if (i == 0) {
-			return GOTRegistry.mud.getBlockTextureFromSide(0);
+			return GOTBlocks.mud.getBlockTextureFromSide(0);
 		}
 		return blockIcon;
 	}
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return GOTRegistry.mud.getItemDropped(0, random, j);
+		return GOTBlocks.mud.getItemDropped(0, random, j);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -88,7 +88,7 @@ public class GOTBlockMudGrass extends Block implements IGrowable {
 
 	@Override
 	public void onPlantGrow(World world, int i, int j, int k, int sourceX, int sourceY, int sourceZ) {
-		world.setBlock(i, j, k, GOTRegistry.mud, 0, 2);
+		world.setBlock(i, j, k, GOTBlocks.mud, 0, 2);
 	}
 
 	@SideOnly(Side.CLIENT)

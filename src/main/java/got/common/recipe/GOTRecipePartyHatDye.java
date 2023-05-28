@@ -1,6 +1,6 @@
 package got.common.recipe;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemDye;
 import got.common.item.other.GOTItemPartyHat;
 import net.minecraft.block.BlockColored;
@@ -24,7 +24,7 @@ public class GOTRecipePartyHatDye implements IRecipe {
 			if (itemstack == null) {
 				continue;
 			}
-			if (itemstack.getItem() == GOTRegistry.partyHat) {
+			if (itemstack.getItem() == GOTItems.partyHat) {
 				if (hat != null) {
 					return null;
 				}
@@ -93,7 +93,7 @@ public class GOTRecipePartyHatDye implements IRecipe {
 			if (itemstack == null) {
 				continue;
 			}
-			if (itemstack.getItem() == GOTRegistry.partyHat) {
+			if (itemstack.getItem() == GOTItems.partyHat) {
 				if (hat != null) {
 					return false;
 				}

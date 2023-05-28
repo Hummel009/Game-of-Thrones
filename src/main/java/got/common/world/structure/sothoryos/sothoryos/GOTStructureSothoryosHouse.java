@@ -1,6 +1,6 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -92,10 +92,10 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 					plant = new ItemStack(Blocks.sapling, 1, 3);
 					break;
 				case 1:
-					plant = new ItemStack(GOTRegistry.sapling6, 1, 0);
+					plant = new ItemStack(GOTBlocks.sapling6, 1, 0);
 					break;
 				case 2:
-					plant = new ItemStack(GOTRegistry.fruitSapling, 1, 3);
+					plant = new ItemStack(GOTBlocks.fruitSapling, 1, 3);
 					break;
 				case 3:
 					plant = new ItemStack(Blocks.tallgrass, 1, 2);
@@ -104,7 +104,7 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 					plant = new ItemStack(Blocks.tallgrass, 1, 1);
 					break;
 				case 5:
-					plant = new ItemStack(GOTRegistry.tallGrass, 1, 5);
+					plant = new ItemStack(GOTBlocks.tallGrass, 1, 5);
 					break;
 				default:
 					break;
@@ -114,27 +114,27 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 	}
 
 	public void placeSothoryosTorch(World world, int i, int j, int k) {
-		setBlockAndMetadata(world, i, j, k, GOTRegistry.sothoryosDoubleTorch, 0);
-		setBlockAndMetadata(world, i, j + 1, k, GOTRegistry.sothoryosDoubleTorch, 1);
+		setBlockAndMetadata(world, i, j, k, GOTBlocks.sothoryosDoubleTorch, 0);
+		setBlockAndMetadata(world, i, j + 1, k, GOTBlocks.sothoryosDoubleTorch, 1);
 	}
 
 	@Override
 	public void setupRandomBlocks(Random random) {
 		if (useStoneBrick()) {
-			brickBlock = GOTRegistry.brick4;
+			brickBlock = GOTBlocks.brick4;
 			brickMeta = 0;
-			brickSlabBlock = GOTRegistry.slabSingle8;
+			brickSlabBlock = GOTBlocks.slabSingle8;
 			brickSlabMeta = 0;
-			brickStairBlock = GOTRegistry.stairsSothoryosBrick;
-			brickWallBlock = GOTRegistry.wallStone4;
+			brickStairBlock = GOTBlocks.stairsSothoryosBrick;
+			brickWallBlock = GOTBlocks.wallStone4;
 			brickWallMeta = 0;
 		} else {
-			brickBlock = GOTRegistry.brick5;
+			brickBlock = GOTBlocks.brick5;
 			brickMeta = 0;
-			brickSlabBlock = GOTRegistry.slabSingle9;
+			brickSlabBlock = GOTBlocks.slabSingle9;
 			brickSlabMeta = 5;
-			brickStairBlock = GOTRegistry.stairsMudBrick;
-			brickWallBlock = GOTRegistry.wallStone3;
+			brickStairBlock = GOTBlocks.stairsMudBrick;
+			brickWallBlock = GOTBlocks.wallStone3;
 			brickWallMeta = 8;
 		}
 		if (random.nextBoolean()) {
@@ -145,17 +145,17 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 			floorMeta = 12;
 		}
 		if (random.nextInt(3) == 0) {
-			woodBlock = GOTRegistry.wood6;
+			woodBlock = GOTBlocks.wood6;
 			woodMeta = 0;
-			plankBlock = GOTRegistry.planks2;
+			plankBlock = GOTBlocks.planks2;
 			plankMeta = 8;
-			plankSlabBlock = GOTRegistry.woodSlabSingle4;
+			plankSlabBlock = GOTBlocks.woodSlabSingle4;
 			plankSlabMeta = 0;
-			plankStairBlock = GOTRegistry.stairsMahogany;
-			doorBlock = GOTRegistry.doorMahogany;
-			fenceBlock = GOTRegistry.fence2;
+			plankStairBlock = GOTBlocks.stairsMahogany;
+			doorBlock = GOTBlocks.doorMahogany;
+			fenceBlock = GOTBlocks.fence2;
 			fenceMeta = 8;
-			fenceGateBlock = GOTRegistry.fenceGateMahogany;
+			fenceGateBlock = GOTBlocks.fenceGateMahogany;
 		} else {
 			woodBlock = Blocks.log;
 			woodMeta = 3;
@@ -164,18 +164,18 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 			plankSlabBlock = Blocks.wooden_slab;
 			plankSlabMeta = 3;
 			plankStairBlock = Blocks.jungle_stairs;
-			doorBlock = GOTRegistry.doorJungle;
+			doorBlock = GOTBlocks.doorJungle;
 			fenceBlock = Blocks.fence;
 			fenceMeta = 3;
-			fenceGateBlock = GOTRegistry.fenceGateJungle;
+			fenceGateBlock = GOTBlocks.fenceGateJungle;
 		}
-		thatchBlock = GOTRegistry.thatch;
+		thatchBlock = GOTBlocks.thatch;
 		thatchMeta = 1;
-		thatchSlabBlock = GOTRegistry.slabSingleThatch;
+		thatchSlabBlock = GOTBlocks.slabSingleThatch;
 		thatchSlabMeta = 1;
-		thatchStairBlock = GOTRegistry.stairsReed;
-		bedBlock = GOTRegistry.strawBed;
-		plateBlock = GOTRegistry.woodPlateBlock;
+		thatchStairBlock = GOTBlocks.stairsReed;
+		bedBlock = GOTBlocks.strawBed;
+		plateBlock = GOTBlocks.woodPlateBlock;
 	}
 
 	public boolean useStoneBrick() {

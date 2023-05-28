@@ -2,7 +2,7 @@ package got.common;
 
 import com.mojang.authlib.GameProfile;
 import got.GOT;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityBanner;
 import got.common.entity.other.GOTEntityInvasionSpawner;
 import got.common.faction.GOTFaction;
@@ -29,10 +29,10 @@ public class GOTBannerProtection {
 	public static Map<UUID, Integer> lastWarningTimes = new HashMap<>();
 
 	static {
-		Pair<Block, Integer> BRONZE = Pair.of(GOTRegistry.blockMetal1, 2);
-		Pair<Block, Integer> SILVER = Pair.of(GOTRegistry.blockMetal1, 3);
+		Pair<Block, Integer> BRONZE = Pair.of(GOTBlocks.blockMetal1, 2);
+		Pair<Block, Integer> SILVER = Pair.of(GOTBlocks.blockMetal1, 3);
 		Pair<Block, Integer> GOLD = Pair.of(Blocks.gold_block, 0);
-		Pair<Block, Integer> VALYRIAN = Pair.of(GOTRegistry.blockMetal1, 4);
+		Pair<Block, Integer> VALYRIAN = Pair.of(GOTBlocks.blockMetal1, 4);
 		protectionBlocks.put(BRONZE, 8);
 		protectionBlocks.put(SILVER, 16);
 		protectionBlocks.put(GOLD, 32);

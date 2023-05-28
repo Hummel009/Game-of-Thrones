@@ -1,7 +1,7 @@
 package got.common.world.structure.westeros.wildling;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.entity.westeros.legendary.captain.GOTEntityManceRayder;
 import got.common.entity.westeros.legendary.warrior.GOTEntityTormund;
 import got.common.entity.westeros.legendary.warrior.GOTEntityYgritte;
@@ -77,7 +77,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 		stairBlock = Blocks.spruce_stairs;
 		fenceBlock = Blocks.fence;
 		fenceMeta = 0;
-		doorBlock = GOTRegistry.doorSpruce;
+		doorBlock = GOTBlocks.doorSpruce;
 		floorBlock = Blocks.stained_hardened_clay;
 		floorMeta = 15;
 		for (i1 = -5; i1 <= 5; ++i1) {
@@ -101,7 +101,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 				if (random.nextInt(2) != 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k14, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i1, 1, k14, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (int i14 : new int[]{-4, 4}) {
@@ -326,17 +326,17 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 				}
 			}
 		}
-		setBlockAndMetadata(world, 0, -6, 0, GOTRegistry.hearth, 0);
+		setBlockAndMetadata(world, 0, -6, 0, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 0, -5, 0, Blocks.fire, 0);
-		setBlockAndMetadata(world, 0, 0, 0, GOTRegistry.bronzeBars, 0);
+		setBlockAndMetadata(world, 0, 0, 0, GOTBlocks.bronzeBars, 0);
 		setAir(world, 0, 1, 0);
-		setBlockAndMetadata(world, 0, 1, 3, GOTRegistry.strawBed, 0);
-		setBlockAndMetadata(world, 0, 1, 4, GOTRegistry.strawBed, 8);
+		setBlockAndMetadata(world, 0, 1, 3, GOTBlocks.strawBed, 0);
+		setBlockAndMetadata(world, 0, 1, 4, GOTBlocks.strawBed, 8);
 		for (j16 = 1; j16 <= 2; ++j16) {
 			setBlockAndMetadata(world, -1, j16, 4, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 1, j16, 4, fenceBlock, fenceMeta);
 		}
-		setBlockAndMetadata(world, -2, 1, 3, GOTRegistry.tableWildling, 0);
+		setBlockAndMetadata(world, -2, 1, 3, GOTBlocks.tableWildling, 0);
 		setBlockAndMetadata(world, -2, 1, 2, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 2, 1, 3, Blocks.furnace, 5);
 		placeChest(world, random, 2, 1, 2, 5, GOTChestContents.BEYOND_WALL);

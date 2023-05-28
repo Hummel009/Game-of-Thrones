@@ -187,22 +187,22 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) == 0) {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.nomadBattleaxe));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadBattleaxe));
 		} else {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.nomadSword));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadSword));
 		}
 		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		if (rand.nextInt(4) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.nomadSpear));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.dothrakiBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.dothrakiLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.dothrakiChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.dothrakiBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dothrakiLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.dothrakiChestplate));
 		if (rand.nextInt(10) == 0) {
-			setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.dothrakiHelmet));
+			setCurrentItemOrArmor(4, new ItemStack(GOTItems.dothrakiHelmet));
 		} else {
 			setCurrentItemOrArmor(4, null);
 		}

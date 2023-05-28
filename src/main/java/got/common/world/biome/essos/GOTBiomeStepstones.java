@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -36,8 +36,8 @@ public class GOTBiomeStepstones extends GOTBiomeEssos {
 		decorator.flowersPerChunk = 3;
 		decorator.grassPerChunk = 10;
 		decorator.treesPerChunk = 1;
-		decorator.clayGen = new GOTWorldGenSand(GOTRegistry.redClay, 5, 1);
-		decorator.addSoil(new WorldGenMinable(GOTRegistry.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
+		decorator.clayGen = new GOTWorldGenSand(GOTBlocks.redClay, 5, 1);
+		decorator.addSoil(new WorldGenMinable(GOTBlocks.redClay, 32, Blocks.dirt), 40.0f, 0, 80);
 		biomeTerrain.setXZScale(30.0);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.SPAWN));

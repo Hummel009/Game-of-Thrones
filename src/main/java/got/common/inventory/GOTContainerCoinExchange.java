@@ -2,7 +2,7 @@ package got.common.inventory;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemCoin;
 import got.common.quest.IPickpocketable;
@@ -36,7 +36,7 @@ public class GOTContainerCoinExchange extends Container {
 	}
 
 	public static boolean isValidCoin(ItemStack item) {
-		return item.getItem() == GOTRegistry.coin && !IPickpocketable.Helper.isPickpocketed(item);
+		return item.getItem() == GOTItems.coin && !IPickpocketable.Helper.isPickpocketed(item);
 	}
 
 	@Override
@@ -119,12 +119,12 @@ public class GOTContainerCoinExchange extends Container {
 						while (coinsFloor * 4 > exchangeInv.getInventoryStackLimit()) {
 							--coinsFloor;
 						}
-						exchangeInv.setInventorySlotContents(0, new ItemStack(GOTRegistry.coin, coinsFloor * 4, coinType - 1));
+						exchangeInv.setInventorySlotContents(0, new ItemStack(GOTItems.coin, coinsFloor * 4, coinType - 1));
 					} else {
 						exchangeInv.setInventorySlotContents(0, null);
 					}
 					if (coinType < GOTItemCoin.values.length - 1 && coins >= 4) {
-						exchangeInv.setInventorySlotContents(1, new ItemStack(GOTRegistry.coin, coins / 4, coinType + 1));
+						exchangeInv.setInventorySlotContents(1, new ItemStack(GOTItems.coin, coins / 4, coinType + 1));
 					} else {
 						exchangeInv.setInventorySlotContents(1, null);
 					}

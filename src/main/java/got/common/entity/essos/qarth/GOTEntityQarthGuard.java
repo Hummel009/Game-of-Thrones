@@ -2,7 +2,7 @@ package got.common.entity.essos.qarth;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -30,13 +30,13 @@ public class GOTEntityQarthGuard extends GOTEntityQarthLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(0, new ItemStack(GOTRegistry.essosPolearm));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosPolearm));
+		setCurrentItemOrArmor(0, new ItemStack(GOTItems.essosPolearm));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.qarthBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.qarthLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.qarthChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.qarthHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.qarthBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.qarthLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.qarthChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.qarthHelmet));
 		return data;
 	}
 }

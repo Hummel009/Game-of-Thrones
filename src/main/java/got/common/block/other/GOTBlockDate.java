@@ -2,7 +2,7 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -13,12 +13,12 @@ public class GOTBlockDate extends GOTBlockHangingFruit {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
-		return GOTRegistry.date;
+		return GOTItems.date;
 	}
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return GOTRegistry.date;
+		return GOTItems.date;
 	}
 
 	@Override

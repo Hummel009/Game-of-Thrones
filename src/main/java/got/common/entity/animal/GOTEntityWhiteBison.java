@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.util.MathHelper;
@@ -18,7 +18,7 @@ public class GOTEntityWhiteBison extends GOTEntityBison {
 
 	@Override
 	public void dropHornItem(boolean flag, int i) {
-		dropItem(GOTRegistry.whiteBisonHorn, 1);
+		dropItem(GOTItems.whiteBisonHorn, 1);
 	}
 
 	@Override

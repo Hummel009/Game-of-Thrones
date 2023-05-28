@@ -5,7 +5,7 @@ import got.common.GOTBannerProtection;
 import got.common.GOTBannerProtection.Permission;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.fellowship.GOTFellowship;
 import got.common.fellowship.GOTFellowshipClient;
 import got.common.fellowship.GOTFellowshipProfile;
@@ -139,7 +139,7 @@ public class GOTEntityBanner extends Entity {
 	}
 
 	public ItemStack getBannerItem() {
-		ItemStack item = new ItemStack(GOTRegistry.banner, 1, getBannerType().bannerID);
+		ItemStack item = new ItemStack(GOTItems.banner, 1, getBannerType().bannerID);
 		if (wasEverProtecting && protectData == null) {
 			protectData = new NBTTagCompound();
 		}

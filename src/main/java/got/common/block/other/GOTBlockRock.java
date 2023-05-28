@@ -2,8 +2,8 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -43,7 +43,7 @@ public class GOTBlockRock extends Block {
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		int meta = world.getBlockMetadata(i, j, k);
-		if (meta == 0 && side != 1 && side != 0 && world.getBlock(i, j + 1, k) == GOTRegistry.asshaiMoss) {
+		if (meta == 0 && side != 1 && side != 0 && world.getBlock(i, j + 1, k) == GOTBlocks.asshaiMoss) {
 			return iconBasaltMoss;
 		}
 		return super.getIcon(world, i, j, k, side);

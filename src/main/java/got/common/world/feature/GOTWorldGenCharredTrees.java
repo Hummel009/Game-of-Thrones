@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
@@ -25,7 +25,7 @@ public class GOTWorldGenCharredTrees extends WorldGenAbstractTree {
 		below.onPlantGrow(world, i, j - 1, k, i, j, k);
 		int height = 2 + random.nextInt(5);
 		for (int j1 = j; j1 < j + height; ++j1) {
-			world.setBlock(i, j1, k, GOTRegistry.wood1, 3, 2);
+			world.setBlock(i, j1, k, GOTBlocks.wood1, 3, 2);
 		}
 		if (height >= 4) {
 			for (int branch = 0; branch < 4; ++branch) {
@@ -41,19 +41,19 @@ public class GOTWorldGenCharredTrees extends WorldGenAbstractTree {
 					}
 					switch (branch) {
 						case 0: {
-							world.setBlock(i - branchHorizontalPos, branchVerticalPos, k, GOTRegistry.wood1, 15, 2);
+							world.setBlock(i - branchHorizontalPos, branchVerticalPos, k, GOTBlocks.wood1, 15, 2);
 							continue;
 						}
 						case 1: {
-							world.setBlock(i, branchVerticalPos, k + branchHorizontalPos, GOTRegistry.wood1, 15, 2);
+							world.setBlock(i, branchVerticalPos, k + branchHorizontalPos, GOTBlocks.wood1, 15, 2);
 							continue;
 						}
 						case 2: {
-							world.setBlock(i + branchHorizontalPos, branchVerticalPos, k, GOTRegistry.wood1, 15, 2);
+							world.setBlock(i + branchHorizontalPos, branchVerticalPos, k, GOTBlocks.wood1, 15, 2);
 							continue;
 						}
 						case 3: {
-							world.setBlock(i, branchVerticalPos, k - branchHorizontalPos, GOTRegistry.wood1, 15, 2);
+							world.setBlock(i, branchVerticalPos, k - branchHorizontalPos, GOTBlocks.wood1, 15, 2);
 						}
 					}
 				}

@@ -1,7 +1,7 @@
 package got.common.block.other;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityFallingConcrete;
 import got.common.util.GOTEnumDyeColor;
 import net.minecraft.block.Block;
@@ -24,7 +24,7 @@ public class GOTBlockConcretePowder extends BlockFalling {
 	}
 
 	public static GOTBlockConcrete getConcreteFromColor(GOTEnumDyeColor dye) {
-		return GOTRegistry.concrete.get(dye);
+		return GOTBlocks.concrete.get(dye);
 	}
 
 	public void func_149830_m(World world, int i, int j, int k) {

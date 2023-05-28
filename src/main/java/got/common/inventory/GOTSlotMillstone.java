@@ -2,7 +2,7 @@ package got.common.inventory;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -34,7 +34,7 @@ public class GOTSlotMillstone extends Slot {
 	public void onCrafting(ItemStack itemstack) {
 		itemstack.onCrafting(thePlayer.worldObj, thePlayer, itemsTaken);
 		itemsTaken = 0;
-		if (!thePlayer.worldObj.isRemote && itemstack.getItem() == GOTRegistry.obsidianShard) {
+		if (!thePlayer.worldObj.isRemote && itemstack.getItem() == GOTItems.obsidianShard) {
 			GOTLevelData.getData(thePlayer).addAchievement(GOTAchievement.smeltObsidianShard);
 		}
 	}

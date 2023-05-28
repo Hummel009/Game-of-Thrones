@@ -100,14 +100,14 @@ public class GOTMaterial {
 		BLACKSKIN.customCraftingMaterial = Items.iron_ingot;
 		BONE.customCraftingMaterial = Items.bone;
 		BRAAVOS.customCraftingMaterial = Items.iron_ingot;
-		BRONZE.customCraftingMaterial = GOTRegistry.bronzeIngot;
-		BRONZE_CHAINMAIL.customCraftingMaterial = GOTRegistry.bronzeIngot;
+		BRONZE.customCraftingMaterial = GOTItems.bronzeIngot;
+		BRONZE_CHAINMAIL.customCraftingMaterial = GOTItems.bronzeIngot;
 		CROWNLANDS.customCraftingMaterial = Items.iron_ingot;
 		DORNE.customCraftingMaterial = Items.iron_ingot;
-		DOTHRAKI.customCraftingMaterial = Item.getItemFromBlock(GOTRegistry.driedReeds);
+		DOTHRAKI.customCraftingMaterial = Item.getItemFromBlock(GOTBlocks.driedReeds);
 		DRAGONSTONE.customCraftingMaterial = Items.iron_ingot;
-		FUR.customCraftingMaterial = GOTRegistry.fur;
-		GEMSBOK.customCraftingMaterial = GOTRegistry.gemsbokHide;
+		FUR.customCraftingMaterial = GOTItems.fur;
+		GEMSBOK.customCraftingMaterial = GOTItems.gemsbokHide;
 		GHISCAR.customCraftingMaterial = Items.iron_ingot;
 		GIFT.customCraftingMaterial = Items.iron_ingot;
 		GOLDENCOMPANY.customCraftingMaterial = Items.iron_ingot;
@@ -120,8 +120,8 @@ public class GOTMaterial {
 		JOGOS.customCraftingMaterial = Items.iron_ingot;
 		KAFTAN.customCraftingMaterial = Item.getItemFromBlock(Blocks.wool);
 		KINGSGUARD.customCraftingMaterial = Items.iron_ingot;
-		LHAZAR.customCraftingMaterial = GOTRegistry.gemsbokHide;
-		LHAZAR_LION.customCraftingMaterial = GOTRegistry.lionFur;
+		LHAZAR.customCraftingMaterial = GOTItems.gemsbokHide;
+		LHAZAR_LION.customCraftingMaterial = GOTItems.lionFur;
 		LORATH.customCraftingMaterial = Items.iron_ingot;
 		LYS.customCraftingMaterial = Items.iron_ingot;
 		MOSSOVY.customCraftingMaterial = Items.iron_ingot;
@@ -138,7 +138,7 @@ public class GOTMaterial {
 		RENLY.customCraftingMaterial = Items.iron_ingot;
 		RIVERLANDS.customCraftingMaterial = Items.iron_ingot;
 		ROBES.customCraftingMaterial = Item.getItemFromBlock(Blocks.wool);
-		ROYCE.customCraftingMaterial = GOTRegistry.bronzeIngot;
+		ROYCE.customCraftingMaterial = GOTItems.bronzeIngot;
 		SOTHORYOS.customCraftingMaterial = Items.iron_ingot;
 		SOTHORYOS_GOLD.customCraftingMaterial = Items.gold_ingot;
 		STORMLANDS.customCraftingMaterial = Items.iron_ingot;
@@ -146,8 +146,8 @@ public class GOTMaterial {
 		TARGARYEN.customCraftingMaterial = Items.iron_ingot;
 		TYROSH.customCraftingMaterial = Items.iron_ingot;
 		UNSULLIED.customCraftingMaterial = Items.iron_ingot;
-		VALYRIAN_CHAINMAIL.customCraftingMaterial = GOTRegistry.valyrianIngot;
-		VALYRIAN.customCraftingMaterial = GOTRegistry.valyrianIngot;
+		VALYRIAN_CHAINMAIL.customCraftingMaterial = GOTItems.valyrianIngot;
+		VALYRIAN.customCraftingMaterial = GOTItems.valyrianIngot;
 		VOLANTIS.customCraftingMaterial = Items.iron_ingot;
 		WESTERLANDS.customCraftingMaterial = Items.iron_ingot;
 		WESTERLANDSGUARD.customCraftingMaterial = Items.iron_ingot;
@@ -156,14 +156,14 @@ public class GOTMaterial {
 		YITI_FRONTIER.customCraftingMaterial = Items.iron_ingot;
 		YITI_SAMURAI.customCraftingMaterial = Items.iron_ingot;
 
-		BRONZE_TOOL.setRepairItem(new ItemStack(GOTRegistry.bronzeIngot));
-		COBALT_TOOL.setRepairItem(new ItemStack(GOTRegistry.alloySteelIngot));
+		BRONZE_TOOL.setRepairItem(new ItemStack(GOTItems.bronzeIngot));
+		COBALT_TOOL.setRepairItem(new ItemStack(GOTItems.alloySteelIngot));
 		FLINT_TOOL.setRepairItem(new ItemStack(Items.flint));
-		HORN_TOOL.setRepairItem(new ItemStack(GOTRegistry.horn));
-		ICE_TOOL.setRepairItem(new ItemStack(GOTRegistry.iceShard));
-		OBSIDIAN_TOOL.setRepairItem(new ItemStack(GOTRegistry.obsidianShard));
-		SILVER_TOOL.setRepairItem(new ItemStack(GOTRegistry.silverIngot));
-		VALYRIAN_TOOL.setRepairItem(new ItemStack(GOTRegistry.valyrianIngot));
+		HORN_TOOL.setRepairItem(new ItemStack(GOTItems.horn));
+		ICE_TOOL.setRepairItem(new ItemStack(GOTItems.iceShard));
+		OBSIDIAN_TOOL.setRepairItem(new ItemStack(GOTItems.obsidianShard));
+		SILVER_TOOL.setRepairItem(new ItemStack(GOTItems.silverIngot));
+		VALYRIAN_TOOL.setRepairItem(new ItemStack(GOTItems.valyrianIngot));
 		ASSHAI_TOOL.setRepairItem(new ItemStack(Items.iron_ingot));
 	}
 }

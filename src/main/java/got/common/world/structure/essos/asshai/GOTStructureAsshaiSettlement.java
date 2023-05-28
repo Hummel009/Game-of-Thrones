@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.asshai;
 
 import com.google.common.math.IntMath;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.essos.asshai.GOTEntityAsshaiAlchemist;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
@@ -204,7 +204,7 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 			if (type == Type.TOWN) {
 				Block block = world.getBlock(i, j, k);
 				int meta = world.getBlockMetadata(i, j, k);
-				return block == GOTRegistry.asshaiDirt || block == GOTRegistry.slabSingleDirt && meta == 3 || block == GOTRegistry.basaltGravel;
+				return block == GOTBlocks.asshaiDirt || block == GOTBlocks.slabSingleDirt && meta == 3 || block == GOTBlocks.basaltGravel;
 			}
 			return false;
 		}

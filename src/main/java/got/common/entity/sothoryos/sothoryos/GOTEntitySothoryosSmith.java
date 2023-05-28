@@ -2,7 +2,7 @@ package got.common.entity.sothoryos.sothoryos;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -34,7 +34,7 @@ public class GOTEntitySothoryosSmith extends GOTEntitySothoryosMan implements GO
 		super.dropFewItems(flag, i);
 		int ingots = 1 + rand.nextInt(3) + rand.nextInt(i + 1);
 		for (int l = 0; l < ingots; ++l) {
-			dropItem(GOTRegistry.obsidianShard, 1);
+			dropItem(GOTItems.obsidianShard, 1);
 		}
 	}
 
@@ -61,7 +61,7 @@ public class GOTEntitySothoryosSmith extends GOTEntitySothoryosMan implements GO
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.blacksmithHammer));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.blacksmithHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

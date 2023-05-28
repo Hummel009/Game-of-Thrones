@@ -3,7 +3,7 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.tileentity.GOTTileEntityArmorStand;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -75,12 +75,12 @@ public class GOTBlockArmorStand extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
-		return GOTRegistry.armorStandItem;
+		return GOTItems.armorStandItem;
 	}
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return hasTileEntity(i) ? GOTRegistry.armorStandItem : null;
+		return hasTileEntity(i) ? GOTItems.armorStandItem : null;
 	}
 
 	@Override

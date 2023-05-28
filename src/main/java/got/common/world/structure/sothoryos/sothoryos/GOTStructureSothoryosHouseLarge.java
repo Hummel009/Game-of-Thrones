@@ -1,9 +1,10 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosMan;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
@@ -44,7 +45,7 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 				}
 				if ((i13 == -5 || i13 == 4) && k1 >= -3 && k1 <= 3 || (k1 == -3 || k1 == 3) && i13 >= -5 && i13 <= 4) {
 					setBlockAndMetadata(world, i13, 3, k1, brickSlabBlock, brickSlabMeta | 8);
-					setBlockAndMetadata(world, i13, 4, k1, GOTRegistry.mudGrass, 0);
+					setBlockAndMetadata(world, i13, 4, k1, GOTBlocks.mudGrass, 0);
 					setBlockAndMetadata(world, i13, 5, k1, Blocks.tallgrass, 1);
 				}
 				if ((i13 != -4 && i13 != 3 || k1 < -2 || k1 > 2) && (k1 != -2 && k1 != 2 || i13 < -4 || i13 > 3)) {
@@ -177,16 +178,16 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 			placeSothoryosFlowerPot(world, i14, 6, 0, random);
 		}
 		for (i1 = -3; i1 <= 2; ++i1) {
-			setBlockAndMetadata(world, i1, 9, -2, GOTRegistry.stairsSothoryosBrickGold, 2);
-			setBlockAndMetadata(world, i1, 10, -1, GOTRegistry.stairsSothoryosBrickGold, 2);
-			setBlockAndMetadata(world, i1, 9, 2, GOTRegistry.stairsSothoryosBrickGold, 3);
-			setBlockAndMetadata(world, i1, 10, 1, GOTRegistry.stairsSothoryosBrickGold, 3);
+			setBlockAndMetadata(world, i1, 9, -2, GOTBlocks.stairsSothoryosBrickGold, 2);
+			setBlockAndMetadata(world, i1, 10, -1, GOTBlocks.stairsSothoryosBrickGold, 2);
+			setBlockAndMetadata(world, i1, 9, 2, GOTBlocks.stairsSothoryosBrickGold, 3);
+			setBlockAndMetadata(world, i1, 10, 1, GOTBlocks.stairsSothoryosBrickGold, 3);
 		}
 		for (k12 = -1; k12 <= 1; ++k12) {
-			setBlockAndMetadata(world, -4, 9, k12, GOTRegistry.stairsSothoryosBrickGold, 1);
-			setBlockAndMetadata(world, -3, 10, k12, GOTRegistry.stairsSothoryosBrickGold, 1);
-			setBlockAndMetadata(world, 3, 9, k12, GOTRegistry.stairsSothoryosBrickGold, 0);
-			setBlockAndMetadata(world, 2, 10, k12, GOTRegistry.stairsSothoryosBrickGold, 0);
+			setBlockAndMetadata(world, -4, 9, k12, GOTBlocks.stairsSothoryosBrickGold, 1);
+			setBlockAndMetadata(world, -3, 10, k12, GOTBlocks.stairsSothoryosBrickGold, 1);
+			setBlockAndMetadata(world, 3, 9, k12, GOTBlocks.stairsSothoryosBrickGold, 0);
+			setBlockAndMetadata(world, 2, 10, k12, GOTBlocks.stairsSothoryosBrickGold, 0);
 		}
 		for (i1 = -2; i1 <= 1; ++i1) {
 			setBlockAndMetadata(world, i1, 10, 0, brickBlock, brickMeta);
@@ -232,7 +233,7 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 			setBlockAndMetadata(world, i12, 1, 3, Blocks.furnace, 2);
 		}
 		setBlockAndMetadata(world, -3, 1, 3, Blocks.crafting_table, 0);
-		setBlockAndMetadata(world, -2, 1, 3, GOTRegistry.tableSothoryos, 0);
+		setBlockAndMetadata(world, -2, 1, 3, GOTBlocks.tableSothoryos, 0);
 		for (i12 = 1; i12 <= 2; ++i12) {
 			placeChest(world, random, i12, 1, 3, 2, GOTChestContents.SOTHORYOS);
 		}
@@ -271,11 +272,11 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 		setBlockAndMetadata(world, 0, 2, -4, doorBlock, 9);
 		GOTEntitySothoryosMan male = new GOTEntitySothoryosMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, -1, 16);
 		GOTEntitySothoryosMan female = new GOTEntitySothoryosMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, -1, 16);
 		GOTEntitySothoryosMan child = new GOTEntitySothoryosMan(world);
 		child.familyInfo.setMale(random.nextBoolean());

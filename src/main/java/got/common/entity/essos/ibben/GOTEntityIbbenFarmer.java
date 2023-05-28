@@ -69,7 +69,7 @@ public class GOTEntityIbbenFarmer extends GOTEntityIbbenMan implements GOTTradea
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		ItemStack hat = new ItemStack(GOTRegistry.leatherHat);
+		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 10390131);
 		setCurrentItemOrArmor(4, hat);
 		return data;

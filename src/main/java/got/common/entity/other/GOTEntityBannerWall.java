@@ -3,7 +3,7 @@ package got.common.entity.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTBannerProtection;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
@@ -53,7 +53,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 	}
 
 	public ItemStack getBannerItem() {
-		ItemStack item = new ItemStack(GOTRegistry.banner, 1, getBannerType().bannerID);
+		ItemStack item = new ItemStack(GOTItems.banner, 1, getBannerType().bannerID);
 		if (protectData != null) {
 			GOTItemBanner.setProtectionData(item, protectData);
 		}

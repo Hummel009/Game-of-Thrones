@@ -3,7 +3,7 @@ package got.common.item.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
 import net.minecraft.creativetab.CreativeTabs;
@@ -45,7 +45,7 @@ public class GOTItemModifierTemplate extends Item {
 		}
 		GOTEnchantmentHelper.WeightedRandomEnchant chosenWre = (GOTEnchantmentHelper.WeightedRandomEnchant) WeightedRandom.getRandomItem(random, applicable);
 		GOTEnchantment chosenEnch = chosenWre.theEnchant;
-		ItemStack itemstack = new ItemStack(GOTRegistry.smithScroll);
+		ItemStack itemstack = new ItemStack(GOTItems.smithScroll);
 		setModifier(itemstack, chosenEnch);
 		return itemstack;
 	}

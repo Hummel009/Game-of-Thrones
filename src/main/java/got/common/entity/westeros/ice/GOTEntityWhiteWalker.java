@@ -2,8 +2,8 @@ package got.common.entity.westeros.ice;
 
 import got.common.GOTDamage;
 import got.common.database.GOTAchievement;
+import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
@@ -33,7 +33,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityWhiteWalker extends GOTEntityNPC {
-	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.iceSword), new ItemStack(GOTRegistry.iceHeavySword), new ItemStack(GOTRegistry.iceSpear)};
+	public static ItemStack[] weapons = {new ItemStack(GOTItems.iceSword), new ItemStack(GOTItems.iceHeavySword), new ItemStack(GOTItems.iceSpear)};
 
 	public GOTEntityWhiteWalker(World world) {
 		super(world);
@@ -78,10 +78,10 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 		ItemStack itemstack;
 		Entity entity = damagesource.getEntity();
 		Entity damageSource = damagesource.getSourceOfDamage();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL || itemstack.getItem() == GOTRegistry.crowbar)) {
+		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL || itemstack.getItem() == GOTItems.crowbar)) {
 			return super.attackEntityFrom(damagesource, f);
 		}
-		if (damagesource.getEntity() instanceof GOTEntityGregorClegane || damagesource.getEntity() instanceof GOTEntityAsshaiArchmag || damageSource instanceof GOTEntitySpear && ((GOTEntitySpear) damageSource).getProjectileItem().getItem() == GOTRegistry.valyrianSpear) {
+		if (damagesource.getEntity() instanceof GOTEntityGregorClegane || damagesource.getEntity() instanceof GOTEntityAsshaiArchmag || damageSource instanceof GOTEntitySpear && ((GOTEntitySpear) damageSource).getProjectileItem().getItem() == GOTItems.valyrianSpear) {
 			return super.attackEntityFrom(damagesource, f);
 		}
 		return super.attackEntityFrom(damagesource, 0.0f);
@@ -90,7 +90,7 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		if (rand.nextFloat() <= 0.525f) {
-			dropItem(GOTRegistry.iceShard, rand.nextInt(2) + 1);
+			dropItem(GOTItems.iceShard, rand.nextInt(2) + 1);
 		}
 	}
 
@@ -196,9 +196,9 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		if (rand.nextInt(8) == 0) {
-			setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.whiteWalkersBoots));
-			setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.whiteWalkersLeggings));
-			setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.whiteWalkersChestplate));
+			setCurrentItemOrArmor(1, new ItemStack(GOTItems.whiteWalkersBoots));
+			setCurrentItemOrArmor(2, new ItemStack(GOTItems.whiteWalkersLeggings));
+			setCurrentItemOrArmor(3, new ItemStack(GOTItems.whiteWalkersChestplate));
 		}
 		return data;
 	}

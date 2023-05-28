@@ -52,7 +52,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 					biomeImage = ImageIO.read(Files.newInputStream(file.toPath()));
 				}
 				if (biomeImage == null) {
-					throw new RuntimeException("Could not load GOT biome map image");
+					throw new RuntimeException("Could not onInit GOT biome map image");
 				}
 				imageWidth = biomeImage.getWidth();
 				imageHeight = biomeImage.getHeight();

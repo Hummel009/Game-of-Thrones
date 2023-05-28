@@ -1,6 +1,6 @@
 package got.common.world.structure.westeros.gift;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -35,7 +35,7 @@ public class GOTStructureGiftWell extends GOTStructureGiftBase {
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
 				for (j1 = 0; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
-					setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.dirtPath, 0);
 					setGrassToDirt(world, i1, j1 - 1, k1);
 				}
 				for (j1 = 1; j1 <= 5; ++j1) {
@@ -60,7 +60,7 @@ public class GOTStructureGiftWell extends GOTStructureGiftBase {
 				}
 			}
 		}
-		setBlockAndMetadata(world, 0, 0, 0, GOTRegistry.gateWoodenCross, 0);
+		setBlockAndMetadata(world, 0, 0, 0, GOTBlocks.gateWoodenCross, 0);
 		int depth = random.nextInt(2);
 		int waterDepth = 2 + random.nextInt(4);
 		int wellTop = -1;
@@ -70,7 +70,7 @@ public class GOTStructureGiftWell extends GOTStructureGiftBase {
 					int i2 = Math.abs(i12);
 					int k2 = Math.abs(k12);
 					if (j1 == wellBottom) {
-						setBlockAndMetadata(world, i12, j1, k12, GOTRegistry.dirtPath, 0);
+						setBlockAndMetadata(world, i12, j1, k12, GOTBlocks.dirtPath, 0);
 						continue;
 					}
 					if (i2 == 0 && k2 == 0) {
@@ -81,7 +81,7 @@ public class GOTStructureGiftWell extends GOTStructureGiftBase {
 						setAir(world, i12, j1, k12);
 						continue;
 					}
-					setBlockAndMetadata(world, i12, j1, k12, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i12, j1, k12, GOTBlocks.dirtPath, 0);
 				}
 			}
 		}

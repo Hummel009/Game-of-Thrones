@@ -1,6 +1,7 @@
 package got.common.entity.sothoryos.sothoryos;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityDart;
 import got.common.entity.other.GOTEntityNPC;
@@ -31,7 +32,7 @@ public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
 		ItemStack heldItem = getHeldItem();
 		float str = 1.0f + getDistanceToEntity(target) / 16.0f * 0.015f;
-		GOTEntityDart dart = ((GOTItemDart) GOTRegistry.dart).createDart(worldObj, this, target, new ItemStack(GOTRegistry.sarbacaneTrap), str * GOTItemSarbacane.getSarbacaneLaunchSpeedFactor(heldItem), 1.0f);
+		GOTEntityDart dart = ((GOTItemDart) GOTItems.dart).createDart(worldObj, this, target, new ItemStack(GOTBlocks.sarbacaneTrap), str * GOTItemSarbacane.getSarbacaneLaunchSpeedFactor(heldItem), 1.0f);
 		if (heldItem != null) {
 			GOTItemSarbacane.applySarbacaneModifiers(dart, heldItem);
 		}
@@ -47,7 +48,7 @@ public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
-		dropNPCAmmo(GOTRegistry.dart, i);
+		dropNPCAmmo(GOTItems.dart, i);
 	}
 
 	@Override
@@ -67,11 +68,11 @@ public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.sarbacane));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.sarbacane));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.sothoryosBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.sothoryosLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.sothoryosChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.sothoryosBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.sothoryosLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.sothoryosChestplate));
 		return data;
 	}
 
@@ -79,7 +80,7 @@ public class GOTEntitySothoryosBlowgunner extends GOTEntitySothoryosMan {
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		if (npcItemsInv.getRangedWeapon() == null) {
-			npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.sarbacane));
+			npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.sarbacane));
 			npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		}
 	}

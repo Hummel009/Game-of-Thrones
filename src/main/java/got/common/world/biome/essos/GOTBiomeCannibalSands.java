@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -89,7 +89,7 @@ public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBio
 			fillerBlock = Blocks.dirt;
 			fillerBlockMeta = 0;
 		} else if (d1 + d2 > 0.2) {
-			topBlock = GOTRegistry.quicksand;
+			topBlock = GOTBlocks.quicksand;
 			topBlockMeta = 1;
 			fillerBlock = topBlock;
 			fillerBlockMeta = topBlockMeta;
@@ -118,6 +118,6 @@ public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBio
 
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
-		return new GOTBiome.GrassBlockAndMeta(GOTRegistry.aridGrass, 0);
+		return new GOTBiome.GrassBlockAndMeta(GOTBlocks.aridGrass, 0);
 	}
 }

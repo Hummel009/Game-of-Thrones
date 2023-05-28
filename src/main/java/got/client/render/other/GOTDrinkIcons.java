@@ -58,7 +58,7 @@ public class GOTDrinkIcons {
 			textureMap.setTextureEntry(iconName, icon);
 			return icon;
 		} catch (IOException e) {
-			FMLLog.severe("Failed to load mug textures for %s", item.getUnlocalizedName());
+			FMLLog.severe("Failed to onInit mug textures for %s", item.getUnlocalizedName());
 			e.printStackTrace();
 			return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("");
 		}

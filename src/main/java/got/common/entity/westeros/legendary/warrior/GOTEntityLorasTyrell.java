@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -84,12 +84,12 @@ public class GOTEntityLorasTyrell extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.reachguardBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.reachguardLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.reachguardChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.reachguardHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.reachguardBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.reachguardLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.reachguardChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.reachguardHelmet));
 		return data;
 	}
 

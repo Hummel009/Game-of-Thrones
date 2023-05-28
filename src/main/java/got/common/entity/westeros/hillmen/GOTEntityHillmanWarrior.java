@@ -1,6 +1,6 @@
 package got.common.entity.westeros.hillmen;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -40,22 +40,22 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 				npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_sword));
 				break;
 			case 1:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeSword));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeSword));
 				break;
 			case 2:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironDagger));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
 				break;
 			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeDagger));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeDagger));
 				break;
 			case 4:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironBattleaxe));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironBattleaxe));
 				break;
 			case 5:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeBattleaxe));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeBattleaxe));
 				break;
 			case 6:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironPike));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironPike));
 				break;
 			default:
 				break;
@@ -63,17 +63,17 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
 			if (rand.nextBoolean()) {
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironSpear));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironSpear));
 			} else {
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeSpear));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeSpear));
 			}
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.hillmenBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.hillmenLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.hillmenChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.hillmenBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.hillmenLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.hillmenChestplate));
 		if (rand.nextInt(10) != 0) {
-			setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.hillmenHelmet));
+			setCurrentItemOrArmor(4, new ItemStack(GOTItems.hillmenHelmet));
 		}
 		return data;
 	}

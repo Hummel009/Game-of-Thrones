@@ -1,8 +1,8 @@
 package got.common.entity.westeros;
 
 import got.common.database.GOTFoods;
+import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
-	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTRegistry.bronzeAxe), new ItemStack(Items.stone_axe)};
+	public static ItemStack[] weapons = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
 	public GOTEntityWesterosThief(World world) {
 		super(world);
@@ -72,7 +72,7 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 		}
 		int coins = 10 + rand.nextInt(10) + rand.nextInt((i + 1) * 10);
 		for (int l = 0; l < coins; ++l) {
-			dropItem(GOTRegistry.coin, 1);
+			dropItem(GOTItems.coin, 1);
 		}
 		if (rand.nextInt(5) == 0) {
 			entityDropItem(GOTItemMug.Vessel.SKULL.getEmptyVessel(), 0.0f);
@@ -128,7 +128,7 @@ public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBio
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		if (rand.nextInt(3) == 0) {
-			ItemStack hat = new ItemStack(GOTRegistry.leatherHat);
+			ItemStack hat = new ItemStack(GOTItems.leatherHat);
 			GOTItemLeatherHat.setHatColor(hat, 0);
 			GOTItemLeatherHat.setFeatherColor(hat, 16777215);
 			setCurrentItemOrArmor(4, hat);

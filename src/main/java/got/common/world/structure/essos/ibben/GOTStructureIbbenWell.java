@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.ibben;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -60,7 +60,7 @@ public class GOTStructureIbbenWell extends GOTStructureIbbenBase {
 				}
 			}
 		}
-		setBlockAndMetadata(world, 0, 0, 0, GOTRegistry.gateWoodenCross, 0);
+		setBlockAndMetadata(world, 0, 0, 0, GOTBlocks.gateWoodenCross, 0);
 		int depth = random.nextInt(2);
 		int waterDepth = 2 + random.nextInt(4);
 		int wellTop = -1;

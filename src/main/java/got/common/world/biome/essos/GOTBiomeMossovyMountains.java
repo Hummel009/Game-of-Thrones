@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenStreams;
 import got.common.world.feature.GOTWorldGenVolcanoCrater;
@@ -28,8 +28,8 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 		decorator.biomeOreFactor = 2.0f;
 		decorator.biomeGemFactor = 2.0f;
 		decorator.clearSettlements();
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreGlowstone, 4), 8.0f, 0, 48);
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreCobalt, 5), 5.0f, 0, 32);
+		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
+		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
 		npcSpawnList.clear();
 	}
 
@@ -80,7 +80,7 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 					if (blocks[indexH] != Blocks.stone) {
 						continue;
 					}
-					blocks[indexH] = GOTRegistry.rock;
+					blocks[indexH] = GOTBlocks.rock;
 					meta[indexH] = 3;
 				}
 				continue;
@@ -88,7 +88,7 @@ public class GOTBiomeMossovyMountains extends GOTBiomeMossovy {
 			if (random.nextInt(16) != 0) {
 				continue;
 			}
-			blocks[index] = GOTRegistry.rock;
+			blocks[index] = GOTBlocks.rock;
 			meta[index] = 3;
 		}
 	}

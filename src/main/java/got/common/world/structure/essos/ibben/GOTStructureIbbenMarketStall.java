@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.ibben;
 
 import com.google.common.math.IntMath;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.ibben.*;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
@@ -51,7 +51,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
 				for (j1 = 0; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
-					setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.dirtPath, 0);
 					setGrassToDirt(world, i1, j1 - 1, k1);
 				}
 				for (j1 = 1; j1 <= 4; ++j1) {

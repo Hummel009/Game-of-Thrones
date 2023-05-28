@@ -20,8 +20,8 @@ import got.client.sound.GOTMusicTicker;
 import got.client.sound.GOTMusicTrack;
 import got.common.*;
 import got.common.block.leaves.GOTBlockLeavesBase;
+import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
-import got.common.database.GOTRegistry;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.*;
@@ -510,13 +510,13 @@ public class GOTTickHandlerClient {
 			tooltip.set(0, EnumChatFormatting.RED + tooltip.get(0));
 		}
 		if (itemstack.getItem() instanceof GOTMaterialFinder) {
-			if (itemstack.getItem() != GOTRegistry.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
+			if (itemstack.getItem() != GOTItems.baelishDagger && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwalker"));
 			}
-			if (itemstack.getItem() == GOTRegistry.bericSword) {
+			if (itemstack.getItem() == GOTItems.bericSword) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiwight"));
 			}
-			if (itemstack.getItem() == GOTRegistry.baelishDagger) {
+			if (itemstack.getItem() == GOTItems.baelishDagger) {
 				tooltip.add(EnumChatFormatting.GOLD + StatCollector.translateToLocal("item.got.antiking"));
 			}
 			if (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.SILVER_TOOL) {

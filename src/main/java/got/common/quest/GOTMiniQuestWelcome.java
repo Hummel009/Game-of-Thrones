@@ -4,7 +4,7 @@ import got.client.GOTKeyHandler;
 import got.common.GOTJaqenHgharTracker;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.entity.essos.legendary.quest.GOTEntityJaqenHghar;
 import got.common.entity.other.GOTEntityNPC;
@@ -139,7 +139,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 
 	@Override
 	public ItemStack getQuestIcon() {
-		return new ItemStack(GOTRegistry.questBook);
+		return new ItemStack(GOTItems.questBook);
 	}
 
 	@Override
@@ -232,7 +232,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		ArrayList<ItemStack> dropItems = new ArrayList<>();
 		switch (stage) {
 			case 1:
-				dropItems.add(new ItemStack(GOTRegistry.questBook));
+				dropItems.add(new ItemStack(GOTItems.questBook));
 				npc.dropItemList(dropItems);
 				dropItems.clear();
 				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
@@ -302,9 +302,9 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 				break;
 			case 13:
 				if (!pd.getQuestData().getGivenFirstPouches()) {
-					dropItems.add(new ItemStack(GOTRegistry.pouch, 1, 0));
-					dropItems.add(new ItemStack(GOTRegistry.pouch, 1, 0));
-					dropItems.add(new ItemStack(GOTRegistry.valyrianDagger));
+					dropItems.add(new ItemStack(GOTItems.pouch, 1, 0));
+					dropItems.add(new ItemStack(GOTItems.pouch, 1, 0));
+					dropItems.add(new ItemStack(GOTItems.valyrianDagger));
 					pd.getQuestData().setGivenFirstPouches(true);
 				}
 				npc.dropItemList(dropItems);

@@ -3,8 +3,8 @@ package got.common.tileentity;
 import com.mojang.authlib.GameProfile;
 import got.GOT;
 import got.common.block.table.GOTBlockCraftingTable;
+import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
-import got.common.database.GOTRegistry;
 import got.common.inventory.GOTContainerCraftingTable;
 import got.common.item.other.GOTItemMountArmor;
 import got.common.item.weapon.GOTItemCrossbow;
@@ -74,29 +74,29 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 			if (item == Items.bucket) {
 				return new ItemStack(Items.iron_ingot);
 			}
-			if (item == GOTRegistry.silverRing) {
-				return new ItemStack(GOTRegistry.silverNugget);
+			if (item == GOTItems.silverRing) {
+				return new ItemStack(GOTItems.silverNugget);
 			}
-			if (item == GOTRegistry.copperRing) {
-				return new ItemStack(GOTRegistry.copperNugget);
+			if (item == GOTItems.copperRing) {
+				return new ItemStack(GOTItems.copperNugget);
 			}
-			if (item == GOTRegistry.bronzeRing) {
-				return new ItemStack(GOTRegistry.bronzeNugget);
+			if (item == GOTItems.bronzeRing) {
+				return new ItemStack(GOTItems.bronzeNugget);
 			}
-			if (item == GOTRegistry.goldRing) {
+			if (item == GOTItems.goldRing) {
 				return new ItemStack(Items.gold_nugget);
 			}
-			if (item == GOTRegistry.valyrianRing) {
-				return new ItemStack(GOTRegistry.valyrianNugget);
+			if (item == GOTItems.valyrianRing) {
+				return new ItemStack(GOTItems.valyrianNugget);
 			}
-			if (item == GOTRegistry.gobletGold) {
+			if (item == GOTItems.gobletGold) {
 				return new ItemStack(Items.gold_ingot);
 			}
-			if (item == GOTRegistry.gobletSilver) {
-				return new ItemStack(GOTRegistry.silverIngot);
+			if (item == GOTItems.gobletSilver) {
+				return new ItemStack(GOTItems.silverIngot);
 			}
-			if (item == GOTRegistry.gobletCopper) {
-				return new ItemStack(GOTRegistry.copperIngot);
+			if (item == GOTItems.gobletCopper) {
+				return new ItemStack(GOTItems.copperIngot);
 			}
 		}
 		return null;

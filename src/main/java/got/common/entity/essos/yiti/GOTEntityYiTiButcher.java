@@ -1,6 +1,6 @@
 package got.common.entity.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
@@ -26,10 +26,10 @@ public class GOTEntityYiTiButcher extends GOTEntityYiTiMarketTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.rabbitRaw));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.rabbitRaw));
 		int robeColor = 14509656;
-		ItemStack body = new ItemStack(GOTRegistry.kaftanChestplate);
-		ItemStack legs = new ItemStack(GOTRegistry.kaftanLeggings);
+		ItemStack body = new ItemStack(GOTItems.kaftanChestplate);
+		ItemStack legs = new ItemStack(GOTItems.kaftanLeggings);
 		GOTItemRobes.setRobesColor(body, robeColor);
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);

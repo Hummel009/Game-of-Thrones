@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.ibben;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
 import got.common.entity.essos.ibben.GOTEntityIbbenBlacksmith;
@@ -71,13 +71,13 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 								setBlockAndMetadata(world, i12, 0, k12, Blocks.dirt, 1);
 								break;
 							case 2:
-								setBlockAndMetadata(world, i12, 0, k12, GOTRegistry.dirtPath, 0);
+								setBlockAndMetadata(world, i12, 0, k12, GOTBlocks.dirtPath, 0);
 								break;
 							default:
 								break;
 						}
 						if (random.nextInt(3) == 0) {
-							setBlockAndMetadata(world, i12, 1, k12, GOTRegistry.thatchFloor, 0);
+							setBlockAndMetadata(world, i12, 1, k12, GOTBlocks.thatchFloor, 0);
 						}
 					} else {
 						setBlockAndMetadata(world, i12, j14, k12, Blocks.dirt, 0);
@@ -357,8 +357,8 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, -7, 1, -9, Blocks.furnace, 3);
 				setBlockAndMetadata(world, -9, 1, -7, Blocks.furnace, 4);
 			} else {
-				setBlockAndMetadata(world, -7, j17, -9, GOTRegistry.alloyForge, 3);
-				setBlockAndMetadata(world, -9, j17, -7, GOTRegistry.alloyForge, 4);
+				setBlockAndMetadata(world, -7, j17, -9, GOTBlocks.alloyForge, 3);
+				setBlockAndMetadata(world, -9, j17, -7, GOTBlocks.alloyForge, 4);
 			}
 			setBlockAndMetadata(world, -8, j17, -9, plankBlock, plankMeta);
 			setBlockAndMetadata(world, -9, j17, -9, plankBlock, plankMeta);
@@ -373,7 +373,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -9, 2, -6, Blocks.torch, 2);
 		setBlockAndMetadata(world, -9, 1, -5, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -9, 2, -5, fenceBlock, fenceMeta);
-		setBlockAndMetadata(world, -6, 1, -5, GOTRegistry.tableIbben, 1);
+		setBlockAndMetadata(world, -6, 1, -5, GOTBlocks.tableIbben, 1);
 		setBlockAndMetadata(world, -5, 1, -6, Blocks.cauldron, 3);
 		GOTEntityIbbenBlacksmith blacksmith = new GOTEntityIbbenBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, -4, 1, -4, 8);
@@ -394,7 +394,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		placeChest(world, random, -7, 1, 9, 2, GOTChestContents.IBBEN);
 		placeChest(world, random, -8, 1, 9, 2, GOTChestContents.IBBEN);
 		setBlockAndMetadata(world, -9, 1, 8, Blocks.crafting_table, 0);
-		setBlockAndMetadata(world, -9, 1, 7, GOTRegistry.tableIbben, 0);
+		setBlockAndMetadata(world, -9, 1, 7, GOTBlocks.tableIbben, 0);
 		setBlockAndMetadata(world, -9, 1, 6, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -9, 2, 6, Blocks.torch, 2);
 		setBlockAndMetadata(world, -9, 1, 5, plankBlock, plankMeta);
@@ -435,7 +435,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 				if (!random.nextBoolean()) {
 					continue;
 				}
-				setBlockAndMetadata(world, i15, 1, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i15, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (int k16 : new int[]{6, 10}) {
@@ -474,7 +474,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 				setAir(world, i1, j12, 10);
 			}
 		}
-		setBlockAndMetadata(world, 0, 1, 9, GOTRegistry.commandTable, 0);
+		setBlockAndMetadata(world, 0, 1, 9, GOTBlocks.commandTable, 0);
 		placeWallBanner(world, 0, 3, 11, bannerType, 2);
 		GOTEntityIbbenWarlord marshal = new GOTEntityIbbenWarlord(world);
 		marshal.spawnRidingHorse = false;
@@ -495,6 +495,6 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		gateBlock = GOTRegistry.gateIbben;
+		gateBlock = GOTBlocks.gateIbben;
 	}
 }

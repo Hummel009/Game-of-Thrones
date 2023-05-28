@@ -1,9 +1,9 @@
 package got.common.world.structure.other;
 
 import got.common.block.other.*;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.other.*;
 import got.common.item.other.GOTItemBanner;
 import got.common.item.other.GOTItemMug;
@@ -78,13 +78,13 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		if (block == biome.topBlock || block == biome.fillerBlock) {
 			return true;
 		}
-		if (block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTRegistry.dirtPath) {
+		if (block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTBlocks.dirtPath) {
 			return true;
 		}
-		if (block == GOTRegistry.mudGrass || block == GOTRegistry.mud || block == Blocks.sand || block == GOTRegistry.redClay || block == GOTRegistry.whiteSand) {
+		if (block == GOTBlocks.mudGrass || block == GOTBlocks.mud || block == Blocks.sand || block == GOTBlocks.redClay || block == GOTBlocks.whiteSand) {
 			return true;
 		}
-		return block == GOTRegistry.asshaiDirt || block == GOTRegistry.basaltGravel;
+		return block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
 	}
 
 	public void addBlockAliasOption(String alias, int weight, Block block) {
@@ -411,8 +411,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeArmorStand(World world, int i, int j, int k, int direction, ItemStack[] armor) {
-		setBlockAndMetadata(world, i, j, k, GOTRegistry.armorStand, direction);
-		setBlockAndMetadata(world, i, j + 1, k, GOTRegistry.armorStand, direction | 4);
+		setBlockAndMetadata(world, i, j, k, GOTBlocks.armorStand, direction);
+		setBlockAndMetadata(world, i, j + 1, k, GOTBlocks.armorStand, direction | 4);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof GOTTileEntityArmorStand) {
 			GOTTileEntityArmorStand armorStand = (GOTTileEntityArmorStand) tileentity;
@@ -466,7 +466,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeBarrel(World world, Random random, int i, int j, int k, int meta, ItemStack drink) {
-		setBlockAndMetadata(world, i, j, k, GOTRegistry.barrel, meta);
+		setBlockAndMetadata(world, i, j, k, GOTBlocks.barrel, meta);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof GOTTileEntityBarrel) {
 			GOTTileEntityBarrel barrel = (GOTTileEntityBarrel) tileentity;
@@ -480,8 +480,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeBigTorch(World world, int i, int j, int k) {
-		setBlockAndMetadata(world, i, j, k, GOTRegistry.fuse, 0);
-		setBlockAndMetadata(world, i, j + 1, k, GOTRegistry.fuse, 1);
+		setBlockAndMetadata(world, i, j, k, GOTBlocks.fuse, 0);
+		setBlockAndMetadata(world, i, j + 1, k, GOTBlocks.fuse, 1);
 	}
 
 	public void placeChest(World world, Random random, int i, int j, int k, Block chest, int meta, GOTChestContents contents) {
@@ -507,7 +507,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		if (vanilla) {
 			setBlockAndMetadata(world, i, j, k, Blocks.flower_pot, 0);
 		} else {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.flowerPot, 0);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.flowerPot, 0);
 		}
 		int i1 = i;
 		int k1 = k;
@@ -713,7 +713,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeWeaponRack(World world, int i, int j, int k, int meta, ItemStack weapon) {
-		setBlockAndMetadata(world, i, j, k, GOTRegistry.weaponRack, meta);
+		setBlockAndMetadata(world, i, j, k, GOTBlocks.weaponRack, meta);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof GOTTileEntityWeaponRack) {
 			GOTTileEntityWeaponRack weaponRack = (GOTTileEntityWeaponRack) tileentity;

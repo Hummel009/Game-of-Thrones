@@ -1,8 +1,9 @@
 package got.common.world.structure.essos.lhazar;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -72,23 +73,23 @@ public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, 0, 1, 5, bedBlock, 0);
 		setBlockAndMetadata(world, 0, 1, 6, bedBlock, 8);
-		placeChest(world, random, 6, 1, 0, GOTRegistry.chestBasket, 5, GOTChestContents.LHAZAR);
+		placeChest(world, random, 6, 1, 0, GOTBlocks.chestBasket, 5, GOTChestContents.LHAZAR);
 		for (int k1 : new int[]{-2, 0, 2}) {
 			int i1 = -6;
 			int j12 = 2;
 			if (random.nextBoolean()) {
-				placePlate(world, random, i1, j12, k1, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
+				placePlate(world, random, i1, j12, k1, GOTBlocks.woodPlateBlock, GOTFoods.NOMAD);
 				continue;
 			}
 			placeMug(world, random, i1, j12, k1, 3, GOTFoods.NOMAD_DRINK);
 		}
 		GOTEntityLhazarMan male = new GOTEntityLhazarMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 0, 0, 16);
 		GOTEntityLhazarMan female = new GOTEntityLhazarMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 0, 0, 16);
 		GOTEntityLhazarMan child = new GOTEntityLhazarMan(world);
 		child.familyInfo.setMale(random.nextBoolean());

@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.ibben;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -56,7 +56,7 @@ public class GOTStructureIbbenVillagePasture extends GOTStructureIbbenBase {
 								setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
 								break;
 							case 2:
-								setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+								setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 								break;
 							default:
 								break;

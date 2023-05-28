@@ -4,7 +4,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.block.other.GOTBlockForgeBase;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.inventory.GOTSlotStackSize;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -165,19 +166,19 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 
 	public ItemStack getAlloySmeltingResult(ItemStack itemstack, ItemStack alloyItem) {
 		if (isCopper(itemstack) && isTin(alloyItem) || isTin(itemstack) && isCopper(alloyItem)) {
-			return new ItemStack(GOTRegistry.bronzeIngot, 2);
+			return new ItemStack(GOTItems.bronzeIngot, 2);
 		}
 		if (isIron(itemstack) && isGoldNugget(alloyItem) || isGoldNugget(itemstack) && isIron(alloyItem)) {
-			return new ItemStack(GOTRegistry.yitiSteelIngot);
+			return new ItemStack(GOTItems.yitiSteelIngot);
 		}
 		if (isSilver(itemstack) && isValyrianNugget(alloyItem) || isValyrianNugget(itemstack) && isSilver(alloyItem)) {
-			return new ItemStack(GOTRegistry.valyrianPowder);
+			return new ItemStack(GOTItems.valyrianPowder);
 		}
 		if (isWidowWail(itemstack) && isOathkeeper(alloyItem) || isOathkeeper(itemstack) && isWidowWail(alloyItem)) {
-			return new ItemStack(GOTRegistry.ice);
+			return new ItemStack(GOTItems.ice);
 		}
 		if (isCobalt(itemstack) && isIron(alloyItem) || isIron(itemstack) && isCobalt(alloyItem)) {
-			return new ItemStack(GOTRegistry.alloySteelIngot);
+			return new ItemStack(GOTItems.alloySteelIngot);
 		}
 		return null;
 	}
@@ -218,11 +219,11 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 			if (material == Material.rock || material == Material.sand || material == Material.clay) {
 				isStoneMaterial = true;
 			}
-		} else if (item == Items.clay_ball || item == GOTRegistry.redClayBall || item == GOTRegistry.clayMug || item == GOTRegistry.clayPlate || item == GOTRegistry.ceramicPlate) {
+		} else if (item == Items.clay_ball || item == GOTItems.redClayBall || item == GOTItems.clayMug || item == GOTItems.clayPlate || item == GOTItems.ceramicPlate) {
 			isStoneMaterial = true;
 		}
-		if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.oreValyrian)) {
-			return new ItemStack(GOTRegistry.valyrianIngot);
+		if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.oreValyrian)) {
+			return new ItemStack(GOTItems.valyrianIngot);
 		}
 		if (isStoneMaterial || isWood(itemstack)) {
 			return FurnaceRecipes.smelting().getSmeltingResult(itemstack);
@@ -264,7 +265,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	}
 
 	public boolean isCobalt(ItemStack itemstack) {
-		return itemstack.getItem() == GOTRegistry.cobaltIngot;
+		return itemstack.getItem() == GOTItems.cobaltIngot;
 	}
 
 	public boolean isCopper(ItemStack itemstack) {
@@ -291,7 +292,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	}
 
 	public boolean isOathkeeper(ItemStack itemstack) {
-		return itemstack.getItem() == GOTRegistry.oathkeeper;
+		return itemstack.getItem() == GOTItems.oathkeeper;
 	}
 
 	public boolean isSilver(ItemStack itemstack) {
@@ -312,11 +313,11 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	}
 
 	public boolean isValyrianNugget(ItemStack itemstack) {
-		return itemstack.getItem() == GOTRegistry.valyrianNugget;
+		return itemstack.getItem() == GOTItems.valyrianNugget;
 	}
 
 	public boolean isWidowWail(ItemStack itemstack) {
-		return itemstack.getItem() == GOTRegistry.widowWail;
+		return itemstack.getItem() == GOTItems.widowWail;
 	}
 
 	public boolean isWood(ItemStack itemstack) {

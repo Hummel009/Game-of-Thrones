@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.ibben;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.ibben.GOTEntityIbbenBlacksmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -203,7 +203,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -1, 6, 4, brickStairBlock, 1);
 		setBlockAndMetadata(world, 1, 6, 4, brickStairBlock, 0);
 		setBlockAndMetadata(world, 0, 7, 4, brickStairBlock, 3);
-		setBlockAndMetadata(world, 0, 1, 3, GOTRegistry.hearth, 0);
+		setBlockAndMetadata(world, 0, 1, 3, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 0, 2, 3, Blocks.fire, 0);
 		setAir(world, 0, 3, 3);
 		setBlockAndMetadata(world, 0, 4, 2, Blocks.torch, 4);
@@ -212,8 +212,8 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, i1, 6, 2, brickBlock, brickMeta);
 		}
 		setBlockAndMetadata(world, 0, 7, 2, brickStairBlock, 2);
-		setBlockAndMetadata(world, -1, 2, 2, GOTRegistry.alloyForge, 2);
-		setBlockAndMetadata(world, 0, 2, 2, GOTRegistry.unsmeltery, 2);
+		setBlockAndMetadata(world, -1, 2, 2, GOTBlocks.alloyForge, 2);
+		setBlockAndMetadata(world, 0, 2, 2, GOTBlocks.unsmeltery, 2);
 		setBlockAndMetadata(world, 1, 2, 2, Blocks.furnace, 2);
 		for (j13 = 3; j13 <= 4; ++j13) {
 			setBlockAndMetadata(world, -1, j13, 2, brickWallBlock, brickWallMeta);
@@ -226,7 +226,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 			ItemStack weapon = random.nextBoolean() ? getRandomWeapon(random) : null;
 			placeWeaponRack(world, 3, j13, 2, 6, weapon);
 		}
-		setBlockAndMetadata(world, -7, 2, 0, GOTRegistry.tableIbben, 1);
+		setBlockAndMetadata(world, -7, 2, 0, GOTBlocks.tableIbben, 1);
 		setBlockAndMetadata(world, -8, 2, 3, rockSlabDoubleBlock, rockSlabDoubleMeta);
 		setBlockAndMetadata(world, -7, 2, 3, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, -6, 2, 3, rockSlabDoubleBlock, rockSlabDoubleMeta);

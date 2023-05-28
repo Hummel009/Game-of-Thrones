@@ -1,7 +1,8 @@
 package got.common.world.structure.essos.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.braavos.*;
 import got.common.entity.essos.ghiscar.*;
 import got.common.entity.essos.lorath.*;
@@ -153,17 +154,17 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		SOLDIERS.put(City.QOHOR, GOTEntityQohorLevyman.class);
 		SOLDIERS.put(City.TYROSH, GOTEntityTyroshSoldier.class);
 		SOLDIERS.put(City.VOLANTIS, GOTEntityVolantisSoldier.class);
-		TABLES.put(City.BRAAVOS, GOTRegistry.tableBraavos);
-		TABLES.put(City.GHISCAR, GOTRegistry.tableGhiscar);
-		TABLES.put(City.LORATH, GOTRegistry.tableLorath);
-		TABLES.put(City.LYS, GOTRegistry.tableLys);
-		TABLES.put(City.MYR, GOTRegistry.tableMyr);
-		TABLES.put(City.NORVOS, GOTRegistry.tableNorvos);
-		TABLES.put(City.PENTOS, GOTRegistry.tablePentos);
-		TABLES.put(City.QARTH, GOTRegistry.tableQarth);
-		TABLES.put(City.QOHOR, GOTRegistry.tableQohor);
-		TABLES.put(City.TYROSH, GOTRegistry.tableTyrosh);
-		TABLES.put(City.VOLANTIS, GOTRegistry.tableVolantis);
+		TABLES.put(City.BRAAVOS, GOTBlocks.tableBraavos);
+		TABLES.put(City.GHISCAR, GOTBlocks.tableGhiscar);
+		TABLES.put(City.LORATH, GOTBlocks.tableLorath);
+		TABLES.put(City.LYS, GOTBlocks.tableLys);
+		TABLES.put(City.MYR, GOTBlocks.tableMyr);
+		TABLES.put(City.NORVOS, GOTBlocks.tableNorvos);
+		TABLES.put(City.PENTOS, GOTBlocks.tablePentos);
+		TABLES.put(City.QARTH, GOTBlocks.tableQarth);
+		TABLES.put(City.QOHOR, GOTBlocks.tableQohor);
+		TABLES.put(City.TYROSH, GOTBlocks.tableTyrosh);
+		TABLES.put(City.VOLANTIS, GOTBlocks.tableVolantis);
 	}
 
 	public Block stoneBlock;
@@ -265,12 +266,12 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	}
 
 	public ItemStack getRandomItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosSpear), new ItemStack(GOTRegistry.essosPike), new ItemStack(GOTRegistry.essosPolearm), new ItemStack(GOTRegistry.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTRegistry.gobletSilver), new ItemStack(GOTRegistry.gobletCopper), new ItemStack(GOTRegistry.mug), new ItemStack(GOTRegistry.ceramicMug), new ItemStack(GOTRegistry.goldRing), new ItemStack(GOTRegistry.silverRing), new ItemStack(GOTRegistry.copperRing), new ItemStack(GOTRegistry.bronzeRing), new ItemStack(GOTRegistry.doubleFlower, 1, 2), new ItemStack(GOTRegistry.doubleFlower, 1, 3), new ItemStack(GOTRegistry.gemsbokHorn), new ItemStack(GOTRegistry.lionFur)};
+		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.goldRing), new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3), new ItemStack(GOTItems.gemsbokHorn), new ItemStack(GOTItems.lionFur)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
 	public ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosSpear), new ItemStack(GOTRegistry.essosPike), new ItemStack(GOTRegistry.essosPolearm), new ItemStack(GOTRegistry.essosHammer)};
+		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -303,128 +304,128 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		super.setupRandomBlocks(random);
 		if (hasSandstone()) {
 			if (canUseRedBricks() && random.nextInt(4) == 0) {
-				brickBlock = GOTRegistry.brick3;
+				brickBlock = GOTBlocks.brick3;
 				brickMeta = 13;
-				brickSlabBlock = GOTRegistry.slabSingle7;
+				brickSlabBlock = GOTBlocks.slabSingle7;
 				brickSlabMeta = 2;
-				brickStairBlock = GOTRegistry.stairsSandstoneBrickRed;
-				brickWallBlock = GOTRegistry.wallStone3;
+				brickStairBlock = GOTBlocks.stairsSandstoneBrickRed;
+				brickWallBlock = GOTBlocks.wallStone3;
 				brickWallMeta = 4;
-				pillarBlock = GOTRegistry.pillar1;
+				pillarBlock = GOTBlocks.pillar1;
 				pillarMeta = 15;
 			} else {
-				brickBlock = GOTRegistry.brick1;
+				brickBlock = GOTBlocks.brick1;
 				brickMeta = 15;
-				brickSlabBlock = GOTRegistry.slabSingle4;
+				brickSlabBlock = GOTBlocks.slabSingle4;
 				brickSlabMeta = 0;
-				brickStairBlock = GOTRegistry.stairsSandstoneBrick;
-				brickWallBlock = GOTRegistry.wallStone1;
+				brickStairBlock = GOTBlocks.stairsSandstoneBrick;
+				brickWallBlock = GOTBlocks.wallStone1;
 				brickWallMeta = 15;
-				pillarBlock = GOTRegistry.pillar1;
+				pillarBlock = GOTBlocks.pillar1;
 				pillarMeta = 5;
 			}
 			stoneStairBlock = Blocks.sandstone_stairs;
-			stoneWallBlock = GOTRegistry.wallStoneV;
+			stoneWallBlock = GOTBlocks.wallStoneV;
 			stoneWallMeta = 4;
-			gateMetalBlock = GOTRegistry.gateBronzeBars;
+			gateMetalBlock = GOTBlocks.gateBronzeBars;
 			stoneBlock = Blocks.sandstone;
 			stoneMeta = 0;
-			barsBlock = GOTRegistry.bronzeBars;
-			brick2Block = GOTRegistry.brick3;
-			brick2CarvedBlock = GOTRegistry.brick3;
+			barsBlock = GOTBlocks.bronzeBars;
+			brick2Block = GOTBlocks.brick3;
+			brick2CarvedBlock = GOTBlocks.brick3;
 			brick2CarvedMeta = 15;
 			brick2Meta = 13;
-			brick2SlabBlock = GOTRegistry.slabSingle7;
+			brick2SlabBlock = GOTBlocks.slabSingle7;
 			brick2SlabMeta = 2;
-			brick2StairBlock = GOTRegistry.stairsSandstoneBrickRed;
-			brick2WallBlock = GOTRegistry.wallStone3;
+			brick2StairBlock = GOTBlocks.stairsSandstoneBrickRed;
+			brick2WallBlock = GOTBlocks.wallStone3;
 			brick2WallMeta = 4;
-			pillar2Block = GOTRegistry.pillar1;
+			pillar2Block = GOTBlocks.pillar1;
 			pillar2Meta = 15;
 		} else {
-			gateMetalBlock = GOTRegistry.gateIronBars;
-			stoneBlock = GOTRegistry.rock;
+			gateMetalBlock = GOTBlocks.gateIronBars;
+			stoneBlock = GOTBlocks.rock;
 			stoneMeta = 1;
-			stoneStairBlock = GOTRegistry.stairsAndesite;
-			stoneWallBlock = GOTRegistry.wallStone1;
+			stoneStairBlock = GOTBlocks.stairsAndesite;
+			stoneWallBlock = GOTBlocks.wallStone1;
 			stoneWallMeta = 2;
-			brickBlock = GOTRegistry.brick1;
+			brickBlock = GOTBlocks.brick1;
 			brickMeta = 1;
-			brickSlabBlock = GOTRegistry.slabSingle1;
+			brickSlabBlock = GOTBlocks.slabSingle1;
 			brickSlabMeta = 3;
-			brickStairBlock = GOTRegistry.stairsAndesiteBrick;
-			brickWallBlock = GOTRegistry.wallStone1;
+			brickStairBlock = GOTBlocks.stairsAndesiteBrick;
+			brickWallBlock = GOTBlocks.wallStone1;
 			brickWallMeta = 3;
-			pillarBlock = GOTRegistry.pillar1;
+			pillarBlock = GOTBlocks.pillar1;
 			pillarMeta = 6;
 			barsBlock = Blocks.iron_bars;
-			brick2Block = GOTRegistry.brick2;
-			brick2CarvedBlock = GOTRegistry.brick1;
+			brick2Block = GOTBlocks.brick2;
+			brick2CarvedBlock = GOTBlocks.brick1;
 			brick2CarvedMeta = 5;
 			brick2Meta = 11;
-			brick2SlabBlock = GOTRegistry.slabSingle5;
+			brick2SlabBlock = GOTBlocks.slabSingle5;
 			brick2SlabMeta = 3;
-			brick2StairBlock = GOTRegistry.stairsBasaltWesterosBrick;
-			brick2WallBlock = GOTRegistry.wallStone2;
+			brick2StairBlock = GOTBlocks.stairsBasaltWesterosBrick;
+			brick2WallBlock = GOTBlocks.wallStone2;
 			brick2WallMeta = 10;
-			pillar2Block = GOTRegistry.pillar1;
+			pillar2Block = GOTBlocks.pillar1;
 			pillar2Meta = 9;
 		}
-		roofBlock = GOTRegistry.thatch;
+		roofBlock = GOTBlocks.thatch;
 		roofMeta = 1;
-		roofSlabBlock = GOTRegistry.slabSingleThatch;
+		roofSlabBlock = GOTBlocks.slabSingleThatch;
 		roofSlabMeta = 1;
-		roofStairBlock = GOTRegistry.stairsReed;
+		roofStairBlock = GOTBlocks.stairsReed;
 		if (hasNorthernTrees()) {
 			if (forceMonotypeWood()) {
-				woodBlock = GOTRegistry.wood2;
+				woodBlock = GOTBlocks.wood2;
 				woodMeta = 1;
-				plankBlock = GOTRegistry.planks1;
+				plankBlock = GOTBlocks.planks1;
 				plankMeta = 9;
-				plankSlabBlock = GOTRegistry.woodSlabSingle2;
+				plankSlabBlock = GOTBlocks.woodSlabSingle2;
 				plankSlabMeta = 1;
-				plankStairBlock = GOTRegistry.stairsBeech;
-				fenceBlock = GOTRegistry.fence;
+				plankStairBlock = GOTBlocks.stairsBeech;
+				fenceBlock = GOTBlocks.fence;
 				fenceMeta = 9;
-				fenceGateBlock = GOTRegistry.fenceGateBeech;
-				woodBeamBlock = GOTRegistry.woodBeam2;
+				fenceGateBlock = GOTBlocks.fenceGateBeech;
+				woodBeamBlock = GOTBlocks.woodBeam2;
 				woodBeamMeta = 1;
-				doorBlock = GOTRegistry.doorBeech;
-				trapdoorBlock = GOTRegistry.trapdoorBeech;
+				doorBlock = GOTBlocks.doorBeech;
+				trapdoorBlock = GOTBlocks.trapdoorBeech;
 			} else {
 				int randomWood = random.nextInt(5);
 				switch (randomWood) {
 					case 0:
-						woodBlock = GOTRegistry.wood2;
+						woodBlock = GOTBlocks.wood2;
 						woodMeta = 1;
-						plankBlock = GOTRegistry.planks1;
+						plankBlock = GOTBlocks.planks1;
 						plankMeta = 9;
-						plankSlabBlock = GOTRegistry.woodSlabSingle2;
+						plankSlabBlock = GOTBlocks.woodSlabSingle2;
 						plankSlabMeta = 1;
-						plankStairBlock = GOTRegistry.stairsBeech;
-						fenceBlock = GOTRegistry.fence;
+						plankStairBlock = GOTBlocks.stairsBeech;
+						fenceBlock = GOTBlocks.fence;
 						fenceMeta = 9;
-						fenceGateBlock = GOTRegistry.fenceGateBeech;
-						woodBeamBlock = GOTRegistry.woodBeam2;
+						fenceGateBlock = GOTBlocks.fenceGateBeech;
+						woodBeamBlock = GOTBlocks.woodBeam2;
 						woodBeamMeta = 1;
-						doorBlock = GOTRegistry.doorBeech;
-						trapdoorBlock = GOTRegistry.trapdoorBeech;
+						doorBlock = GOTBlocks.doorBeech;
+						trapdoorBlock = GOTBlocks.trapdoorBeech;
 						break;
 					case 1:
-						woodBlock = GOTRegistry.wood4;
+						woodBlock = GOTBlocks.wood4;
 						woodMeta = 2;
-						plankBlock = GOTRegistry.planks2;
+						plankBlock = GOTBlocks.planks2;
 						plankMeta = 2;
-						plankSlabBlock = GOTRegistry.woodSlabSingle3;
+						plankSlabBlock = GOTBlocks.woodSlabSingle3;
 						plankSlabMeta = 2;
-						plankStairBlock = GOTRegistry.stairsCedar;
-						fenceBlock = GOTRegistry.fence2;
+						plankStairBlock = GOTBlocks.stairsCedar;
+						fenceBlock = GOTBlocks.fence2;
 						fenceMeta = 2;
-						fenceGateBlock = GOTRegistry.fenceGateCedar;
-						woodBeamBlock = GOTRegistry.woodBeam4;
+						fenceGateBlock = GOTBlocks.fenceGateCedar;
+						woodBeamBlock = GOTBlocks.woodBeam4;
 						woodBeamMeta = 2;
-						doorBlock = GOTRegistry.doorCedar;
-						trapdoorBlock = GOTRegistry.trapdoorCedar;
+						doorBlock = GOTBlocks.doorCedar;
+						trapdoorBlock = GOTBlocks.trapdoorCedar;
 						break;
 					default:
 						woodBlock = Blocks.log;
@@ -437,7 +438,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 						fenceBlock = Blocks.fence;
 						fenceMeta = 0;
 						fenceGateBlock = Blocks.fence_gate;
-						woodBeamBlock = GOTRegistry.woodBeamV1;
+						woodBeamBlock = GOTBlocks.woodBeamV1;
 						woodBeamMeta = 0;
 						doorBlock = Blocks.wooden_door;
 						trapdoorBlock = Blocks.trapdoor;
@@ -445,70 +446,70 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 				}
 			}
 		} else if (forceMonotypeWood()) {
-			woodBlock = GOTRegistry.wood4;
+			woodBlock = GOTBlocks.wood4;
 			woodMeta = 2;
-			plankBlock = GOTRegistry.planks2;
+			plankBlock = GOTBlocks.planks2;
 			plankMeta = 2;
-			plankSlabBlock = GOTRegistry.woodSlabSingle3;
+			plankSlabBlock = GOTBlocks.woodSlabSingle3;
 			plankSlabMeta = 2;
-			plankStairBlock = GOTRegistry.stairsCedar;
-			fenceBlock = GOTRegistry.fence2;
+			plankStairBlock = GOTBlocks.stairsCedar;
+			fenceBlock = GOTBlocks.fence2;
 			fenceMeta = 2;
-			fenceGateBlock = GOTRegistry.fenceGateCedar;
-			woodBeamBlock = GOTRegistry.woodBeam4;
+			fenceGateBlock = GOTBlocks.fenceGateCedar;
+			woodBeamBlock = GOTBlocks.woodBeam4;
 			woodBeamMeta = 2;
-			doorBlock = GOTRegistry.doorCedar;
-			trapdoorBlock = GOTRegistry.trapdoorCedar;
+			doorBlock = GOTBlocks.doorCedar;
+			trapdoorBlock = GOTBlocks.trapdoorCedar;
 		} else {
 			int randomWood = random.nextInt(3);
 			switch (randomWood) {
 				case 0:
-					woodBlock = GOTRegistry.wood6;
+					woodBlock = GOTBlocks.wood6;
 					woodMeta = 3;
-					plankBlock = GOTRegistry.planks2;
+					plankBlock = GOTBlocks.planks2;
 					plankMeta = 11;
-					plankSlabBlock = GOTRegistry.woodSlabSingle4;
+					plankSlabBlock = GOTBlocks.woodSlabSingle4;
 					plankSlabMeta = 3;
-					plankStairBlock = GOTRegistry.stairsOlive;
-					fenceBlock = GOTRegistry.fence2;
+					plankStairBlock = GOTBlocks.stairsOlive;
+					fenceBlock = GOTBlocks.fence2;
 					fenceMeta = 11;
-					fenceGateBlock = GOTRegistry.fenceGateOlive;
-					woodBeamBlock = GOTRegistry.woodBeam6;
+					fenceGateBlock = GOTBlocks.fenceGateOlive;
+					woodBeamBlock = GOTBlocks.woodBeam6;
 					woodBeamMeta = 3;
-					doorBlock = GOTRegistry.doorOlive;
-					trapdoorBlock = GOTRegistry.trapdoorOlive;
+					doorBlock = GOTBlocks.doorOlive;
+					trapdoorBlock = GOTBlocks.trapdoorOlive;
 					break;
 				case 1:
-					woodBlock = GOTRegistry.wood3;
+					woodBlock = GOTBlocks.wood3;
 					woodMeta = 2;
-					plankBlock = GOTRegistry.planks1;
+					plankBlock = GOTBlocks.planks1;
 					plankMeta = 14;
-					plankSlabBlock = GOTRegistry.woodSlabSingle2;
+					plankSlabBlock = GOTBlocks.woodSlabSingle2;
 					plankSlabMeta = 6;
-					plankStairBlock = GOTRegistry.stairsDatePalm;
-					fenceBlock = GOTRegistry.fence;
+					plankStairBlock = GOTBlocks.stairsDatePalm;
+					fenceBlock = GOTBlocks.fence;
 					fenceMeta = 14;
-					fenceGateBlock = GOTRegistry.fenceGateDatePalm;
-					woodBeamBlock = GOTRegistry.woodBeam3;
+					fenceGateBlock = GOTBlocks.fenceGateDatePalm;
+					woodBeamBlock = GOTBlocks.woodBeam3;
 					woodBeamMeta = 2;
-					doorBlock = GOTRegistry.doorDatePalm;
-					trapdoorBlock = GOTRegistry.trapdoorDatePalm;
+					doorBlock = GOTBlocks.doorDatePalm;
+					trapdoorBlock = GOTBlocks.trapdoorDatePalm;
 					break;
 				case 2:
-					woodBlock = GOTRegistry.wood8;
+					woodBlock = GOTBlocks.wood8;
 					woodMeta = 3;
-					plankBlock = GOTRegistry.planks3;
+					plankBlock = GOTBlocks.planks3;
 					plankMeta = 3;
-					plankSlabBlock = GOTRegistry.woodSlabSingle5;
+					plankSlabBlock = GOTBlocks.woodSlabSingle5;
 					plankSlabMeta = 3;
-					plankStairBlock = GOTRegistry.stairsPalm;
-					fenceBlock = GOTRegistry.fence3;
+					plankStairBlock = GOTBlocks.stairsPalm;
+					fenceBlock = GOTBlocks.fence3;
 					fenceMeta = 3;
-					fenceGateBlock = GOTRegistry.fenceGatePalm;
-					woodBeamBlock = GOTRegistry.woodBeam8;
+					fenceGateBlock = GOTBlocks.fenceGatePalm;
+					woodBeamBlock = GOTBlocks.woodBeam8;
 					woodBeamMeta = 3;
-					doorBlock = GOTRegistry.doorPalm;
-					trapdoorBlock = GOTRegistry.trapdoorPalm;
+					doorBlock = GOTBlocks.doorPalm;
+					trapdoorBlock = GOTBlocks.trapdoorPalm;
 					break;
 				default:
 					break;
@@ -516,7 +517,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		}
 		woodBeamMeta4 = woodBeamMeta | 4;
 		woodBeamMeta8 = woodBeamMeta | 8;
-		bedBlock = GOTRegistry.strawBed;
+		bedBlock = GOTBlocks.strawBed;
 		if (random.nextBoolean()) {
 			cropBlock = Blocks.wheat;
 		} else {
@@ -524,7 +525,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			if (randomCrop == 0 || randomCrop == 1) {
 				cropBlock = Blocks.carrots;
 			} else {
-				cropBlock = GOTRegistry.lettuceCrop;
+				cropBlock = GOTBlocks.lettuceCrop;
 			}
 		}
 		tableBlock = getTable();

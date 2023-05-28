@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.client.effect.GOTEntitySwordCommandMarker;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
@@ -26,7 +26,7 @@ public class GOTRenderSwordCommandMarker extends Render {
 		float scale = 1.2F;
 		GL11.glTranslatef(-0.75F * scale, 0.0F, 0.03125F * scale);
 		GL11.glScalef(scale, scale, scale);
-		ItemStack item = new ItemStack(GOTRegistry.commandSword);
+		ItemStack item = new ItemStack(GOTItems.commandSword);
 		GL11.glTranslatef(0.9375F, 0.0625F, 0.0F);
 		GL11.glRotatef(-335.0F, 0.0F, 0.0F, 1.0F);
 		GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);

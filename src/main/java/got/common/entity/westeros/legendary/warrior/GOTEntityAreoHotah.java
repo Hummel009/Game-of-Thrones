@@ -1,7 +1,7 @@
 package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -46,7 +46,7 @@ public class GOTEntityAreoHotah extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.areoHotahAxe, 1);
+		dropItem(GOTItems.areoHotahAxe, 1);
 	}
 
 	@Override
@@ -80,11 +80,11 @@ public class GOTEntityAreoHotah extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.areoHotahAxe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.areoHotahAxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.dorneBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.dorneLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.dorneChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.dorneBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dorneLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.dorneChestplate));
 		return data;
 	}
 

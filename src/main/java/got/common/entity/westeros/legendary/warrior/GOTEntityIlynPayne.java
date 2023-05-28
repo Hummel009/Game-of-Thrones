@@ -1,7 +1,7 @@
 package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -44,7 +44,7 @@ public class GOTEntityIlynPayne extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.eddardSword, 1);
+		dropItem(GOTItems.eddardSword, 1);
 	}
 
 	@Override

@@ -1,7 +1,7 @@
 package got.common.entity.other;
 
+import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
@@ -64,7 +64,7 @@ public class GOTEntityGiantBase extends GOTEntityNPC {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(Items.beef, 10);
-		dropItem(GOTRegistry.fur, 10);
+		dropItem(GOTItems.fur, 10);
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -14,9 +14,9 @@ import java.util.Random;
 public class GOTWorldGenAlmond extends WorldGenAbstractTree {
 	public int minHeight = 4;
 	public int maxHeight = 5;
-	public Block woodBlock = GOTRegistry.wood7;
+	public Block woodBlock = GOTBlocks.wood7;
 	public int woodMeta = 3;
-	public Block leafBlock = GOTRegistry.leaves7;
+	public Block leafBlock = GOTBlocks.leaves7;
 	public int leafMeta = 3;
 
 	public GOTWorldGenAlmond(boolean flag) {

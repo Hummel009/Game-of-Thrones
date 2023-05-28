@@ -2,7 +2,7 @@ package got.common.entity.essos.dothraki;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTTradeable;
@@ -65,7 +65,7 @@ public class GOTEntityDothrakiKhalin extends GOTEntityDothraki implements GOTTra
 		setCurrentItemOrArmor(2, null);
 		setCurrentItemOrArmor(3, null);
 		setCurrentItemOrArmor(4, null);
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.mugMead));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugMead));
 		return data;
 	}
 

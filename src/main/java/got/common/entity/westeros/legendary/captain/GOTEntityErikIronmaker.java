@@ -101,7 +101,7 @@ public class GOTEntityErikIronmaker extends GOTEntityHumanBase implements GOTUni
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosHammer));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

@@ -3,7 +3,7 @@ package got.common.entity.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.faction.GOTFaction;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketNPCRespawner;
@@ -115,7 +115,7 @@ public class GOTEntityNPCRespawner extends Entity {
 
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
-		return new ItemStack(GOTRegistry.npcRespawner);
+		return new ItemStack(GOTItems.npcRespawner);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -126,7 +126,7 @@ public class GOTEntityNPCRespawner extends Entity {
 				double d = posX + (rand.nextDouble() - 0.5) * width;
 				double d1 = posY + rand.nextDouble() * height;
 				double d2 = posZ + (rand.nextDouble() - 0.5) * width;
-				worldObj.spawnParticle("iconcrack_" + Item.getIdFromItem(GOTRegistry.npcRespawner), d, d1, d2, 0.0, 0.0, 0.0);
+				worldObj.spawnParticle("iconcrack_" + Item.getIdFromItem(GOTItems.npcRespawner), d, d1, d2, 0.0, 0.0, 0.0);
 			}
 		} else {
 			super.handleHealthUpdate(b);

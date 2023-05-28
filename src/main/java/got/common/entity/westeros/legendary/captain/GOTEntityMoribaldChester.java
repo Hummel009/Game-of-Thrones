@@ -50,7 +50,7 @@ public class GOTEntityMoribaldChester extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.pruner, 1);
+		dropItem(GOTItems.pruner, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityMoribaldChester extends GOTEntityHumanBase implements GOTU
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.pruner));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.pruner));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

@@ -2,8 +2,9 @@ package got.common.block.other;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,11 +30,11 @@ public class GOTBlockOre extends Block {
 		if (getItemDropped(meta, world.rand, fortune) != Item.getItemFromBlock(this)) {
 			int amountXp = 0;
 
-			if (this == GOTRegistry.oreGlowstone) {
+			if (this == GOTBlocks.oreGlowstone) {
 				amountXp = MathHelper.getRandomIntegerInRange(world.rand, 0, 2);
 			}
 
-			if (this == GOTRegistry.oreSulfur || this == GOTRegistry.oreSaltpeter) {
+			if (this == GOTBlocks.oreSulfur || this == GOTBlocks.oreSaltpeter) {
 				amountXp = MathHelper.getRandomIntegerInRange(world.rand, 0, 2);
 			}
 			dropXpOnBlockBreak(world, i, j, k, amountXp);
@@ -43,14 +44,14 @@ public class GOTBlockOre extends Block {
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
 
-		if (this == GOTRegistry.oreGlowstone) {
+		if (this == GOTBlocks.oreGlowstone) {
 			return Items.glowstone_dust;
 		}
-		if (this == GOTRegistry.oreSulfur) {
-			return GOTRegistry.sulfur;
+		if (this == GOTBlocks.oreSulfur) {
+			return GOTItems.sulfur;
 		}
-		if (this == GOTRegistry.oreSaltpeter) {
-			return GOTRegistry.saltpeter;
+		if (this == GOTBlocks.oreSaltpeter) {
+			return GOTItems.saltpeter;
 		}
 		return Item.getItemFromBlock(this);
 	}
@@ -59,10 +60,10 @@ public class GOTBlockOre extends Block {
 	public void harvestBlock(World world, EntityPlayer entityplayer, int i, int j, int k, int l) {
 		super.harvestBlock(world, entityplayer, i, j, k, l);
 		if (!world.isRemote) {
-			if (this == GOTRegistry.oreValyrian) {
+			if (this == GOTBlocks.oreValyrian) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.mineValyrian);
 			}
-			if (this == GOTRegistry.oreGlowstone) {
+			if (this == GOTBlocks.oreGlowstone) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.mineGlowstone);
 			}
 		}
@@ -71,10 +72,10 @@ public class GOTBlockOre extends Block {
 	@Override
 	public int quantityDropped(Random random) {
 
-		if (this == GOTRegistry.oreGlowstone) {
+		if (this == GOTBlocks.oreGlowstone) {
 			return 2 + random.nextInt(4);
 		}
-		if (this == GOTRegistry.oreSulfur || this == GOTRegistry.oreSaltpeter) {
+		if (this == GOTBlocks.oreSulfur || this == GOTBlocks.oreSaltpeter) {
 			return 1 + random.nextInt(2);
 		}
 		return 1;
@@ -86,7 +87,7 @@ public class GOTBlockOre extends Block {
 			int factor = random.nextInt(i + 2) - 1;
 			factor = Math.max(factor, 0);
 			int drops = quantityDropped(random) * (factor + 1);
-			if (this == GOTRegistry.oreGlowstone) {
+			if (this == GOTBlocks.oreGlowstone) {
 				drops = Math.min(drops, 8);
 			}
 			return drops;

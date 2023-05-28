@@ -85,7 +85,7 @@ public class GOTEntityHarryStrickland extends GOTEntityHumanBase implements GOTU
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.valyrianSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.valyrianSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

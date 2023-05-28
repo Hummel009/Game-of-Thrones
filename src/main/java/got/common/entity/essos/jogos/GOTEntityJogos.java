@@ -2,8 +2,8 @@ package got.common.entity.essos.jogos;
 
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
+import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityZebra;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -166,22 +166,22 @@ public class GOTEntityJogos extends GOTEntityHumanBase implements IPickpocketabl
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) == 0) {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.nomadBattleaxe));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadBattleaxe));
 		} else {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.nomadSword));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadSword));
 		}
 		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		if (rand.nextInt(4) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.nomadSpear));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.jogosBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.jogosLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.jogosChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.jogosBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.jogosLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.jogosChestplate));
 		if (rand.nextInt(10) == 0) {
-			setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.jogosHelmet));
+			setCurrentItemOrArmor(4, new ItemStack(GOTItems.jogosHelmet));
 		} else {
 			setCurrentItemOrArmor(4, null);
 		}

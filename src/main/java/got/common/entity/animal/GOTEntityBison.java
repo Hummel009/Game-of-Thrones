@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTEntityUtils;
@@ -104,7 +104,7 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 	}
 
 	public void dropHornItem(boolean flag, int i) {
-		dropItem(GOTRegistry.horn, 1);
+		dropItem(GOTItems.horn, 1);
 	}
 
 	@Override
@@ -141,7 +141,7 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
-		return new ItemStack(GOTRegistry.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
+		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
 	@Override

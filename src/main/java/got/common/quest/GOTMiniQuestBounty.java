@@ -4,7 +4,7 @@ import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
@@ -63,7 +63,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		int bComplete = pd.getCompletedBountyQuests();
 		specialReward = bComplete > 0 && bComplete % 5 == 0;
 		if (specialReward) {
-			ItemStack trophy = new ItemStack(GOTRegistry.bountyTrophy);
+			ItemStack trophy = new ItemStack(GOTItems.bountyTrophy);
 			rewardItemTable.add(trophy);
 		}
 		super.complete(entityplayer, npc);

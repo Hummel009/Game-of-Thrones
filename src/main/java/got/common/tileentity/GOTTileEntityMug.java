@@ -1,6 +1,6 @@
 package got.common.tileentity;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.GOTPoisonedDrinks;
 import got.common.item.other.GOTItemMug;
 import net.minecraft.entity.player.EntityPlayer;
@@ -116,7 +116,7 @@ public class GOTTileEntityMug extends TileEntity {
 	@Override
 	public void updateEntity() {
 		if (!worldObj.isRemote && isEmpty() && worldObj.canLightningStrikeAt(xCoord, yCoord, zCoord) && worldObj.rand.nextInt(6000) == 0) {
-			ItemStack waterItem = new ItemStack(GOTRegistry.mugWater);
+			ItemStack waterItem = new ItemStack(GOTItems.mugWater);
 			GOTItemMug.setVessel(waterItem, getVessel(), false);
 			setMugItem(waterItem);
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);

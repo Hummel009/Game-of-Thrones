@@ -1,6 +1,7 @@
 package got.common.world.structure.westeros.gift;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
@@ -62,22 +63,22 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 	}
 
 	public ItemStack getRangerFramedItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTRegistry.giftHelmet), new ItemStack(GOTRegistry.giftChestplate), new ItemStack(GOTRegistry.giftLeggings), new ItemStack(GOTRegistry.giftBoots), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(Items.bow), new ItemStack(Items.arrow)};
+		ItemStack[] items = {new ItemStack(GOTItems.giftHelmet), new ItemStack(GOTItems.giftChestplate), new ItemStack(GOTItems.giftLeggings), new ItemStack(GOTItems.giftBoots), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.bow), new ItemStack(Items.arrow)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
 	@Override
 	public void setupRandomBlocks(Random random) {
-		brickBlock = GOTRegistry.cobblebrick;
+		brickBlock = GOTBlocks.cobblebrick;
 		brickMeta = 0;
 		brickSlabBlock = Blocks.stone_slab;
 		brickSlabMeta = 5;
 		brickStairBlock = Blocks.stone_brick_stairs;
-		brickWallBlock = GOTRegistry.wallStoneV;
+		brickWallBlock = GOTBlocks.wallStoneV;
 		brickWallMeta = 1;
-		brickCarvedBlock = GOTRegistry.cobblebrick;
+		brickCarvedBlock = GOTBlocks.cobblebrick;
 		brickCarvedMeta = 0;
-		gateBlock = GOTRegistry.gateIronBars;
+		gateBlock = GOTBlocks.gateIronBars;
 		cobbleBlock = Blocks.cobblestone;
 		cobbleMeta = 0;
 		cobbleSlabBlock = Blocks.stone_slab;
@@ -92,26 +93,26 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 		plankStairBlock = Blocks.spruce_stairs;
 		fenceBlock = Blocks.fence;
 		fenceMeta = 1;
-		fenceGateBlock = GOTRegistry.fenceGateSpruce;
-		woodBeamBlock = GOTRegistry.woodBeamV1;
+		fenceGateBlock = GOTBlocks.fenceGateSpruce;
+		woodBeamBlock = GOTBlocks.woodBeamV1;
 		woodBeamMeta = 1;
-		doorBlock = GOTRegistry.doorSpruce;
+		doorBlock = GOTBlocks.doorSpruce;
 		if (random.nextBoolean()) {
-			wallBlock = GOTRegistry.daub;
+			wallBlock = GOTBlocks.daub;
 			wallMeta = 0;
 		} else {
 			wallBlock = plankBlock;
 			wallMeta = plankMeta;
 		}
-		roofBlock = GOTRegistry.thatch;
+		roofBlock = GOTBlocks.thatch;
 		roofMeta = 0;
-		roofSlabBlock = GOTRegistry.slabSingleThatch;
+		roofSlabBlock = GOTBlocks.slabSingleThatch;
 		roofSlabMeta = 0;
-		roofStairBlock = GOTRegistry.stairsThatch;
-		barsBlock = random.nextBoolean() ? Blocks.iron_bars : GOTRegistry.bronzeBars;
-		tableBlock = GOTRegistry.tableGift;
-		bedBlock = GOTRegistry.strawBed;
-		plateBlock = random.nextBoolean() ? GOTRegistry.woodPlateBlock : GOTRegistry.ceramicPlateBlock;
+		roofStairBlock = GOTBlocks.stairsThatch;
+		barsBlock = random.nextBoolean() ? Blocks.iron_bars : GOTBlocks.bronzeBars;
+		tableBlock = GOTBlocks.tableGift;
+		bedBlock = GOTBlocks.strawBed;
+		plateBlock = random.nextBoolean() ? GOTBlocks.woodPlateBlock : GOTBlocks.ceramicPlateBlock;
 		if (random.nextBoolean()) {
 			cropBlock = Blocks.wheat;
 			cropMeta = 7;
@@ -130,19 +131,19 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 					seedItem = Items.potato;
 					break;
 				case 2:
-					cropBlock = GOTRegistry.lettuceCrop;
+					cropBlock = GOTBlocks.lettuceCrop;
 					cropMeta = 7;
-					seedItem = GOTRegistry.lettuce;
+					seedItem = GOTItems.lettuce;
 					break;
 				case 3:
-					cropBlock = GOTRegistry.leekCrop;
+					cropBlock = GOTBlocks.leekCrop;
 					cropMeta = 7;
-					seedItem = GOTRegistry.leek;
+					seedItem = GOTItems.leek;
 					break;
 				case 4:
-					cropBlock = GOTRegistry.turnipCrop;
+					cropBlock = GOTBlocks.turnipCrop;
 					cropMeta = 7;
-					seedItem = GOTRegistry.turnip;
+					seedItem = GOTItems.turnip;
 					break;
 				default:
 					break;
@@ -151,20 +152,20 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 		bannerType = GOTItemBanner.BannerType.NIGHT;
 
 		if (isAbandoned) {
-			woodBeamBlock = GOTRegistry.rottenLog;
+			woodBeamBlock = GOTBlocks.rottenLog;
 			woodBeamMeta = 0;
-			plankBlock = GOTRegistry.planksRotten;
+			plankBlock = GOTBlocks.planksRotten;
 			plankMeta = 0;
-			plankSlabBlock = GOTRegistry.rottenSlabSingle;
+			plankSlabBlock = GOTBlocks.rottenSlabSingle;
 			plankSlabMeta = 0;
-			fenceBlock = GOTRegistry.fenceRotten;
+			fenceBlock = GOTBlocks.fenceRotten;
 			fenceMeta = 0;
 			roofBlock = Blocks.air;
 			roofMeta = 0;
 			roofSlabBlock = Blocks.air;
 			roofSlabMeta = 0;
-			plankStairBlock = GOTRegistry.stairsRotten;
-			bedBlock = GOTRegistry.furBed;
+			plankStairBlock = GOTBlocks.stairsRotten;
+			bedBlock = GOTBlocks.furBed;
 		}
 	}
 }

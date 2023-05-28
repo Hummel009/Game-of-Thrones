@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTFaction;
@@ -156,9 +156,9 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		if (itemstack != null && itemstack.getItem() == Items.glass_bottle) {
 			--itemstack.stackSize;
 			if (itemstack.stackSize <= 0) {
-				entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, new ItemStack(GOTRegistry.bottlePoison));
-			} else if (!entityplayer.inventory.addItemStackToInventory(new ItemStack(GOTRegistry.bottlePoison)) && !entityplayer.capabilities.isCreativeMode) {
-				entityplayer.dropPlayerItemWithRandomChoice(new ItemStack(GOTRegistry.bottlePoison), false);
+				entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, new ItemStack(GOTItems.bottlePoison));
+			} else if (!entityplayer.inventory.addItemStackToInventory(new ItemStack(GOTItems.bottlePoison)) && !entityplayer.capabilities.isCreativeMode) {
+				entityplayer.dropPlayerItemWithRandomChoice(new ItemStack(GOTItems.bottlePoison), false);
 			}
 			return true;
 		}

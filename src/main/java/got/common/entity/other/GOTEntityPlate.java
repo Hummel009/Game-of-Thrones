@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import got.common.GOTBannerProtection;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -116,7 +116,7 @@ public class GOTEntityPlate extends EntityThrowable implements IEntityAdditional
 			plateBlock = Block.getBlockById(nbt.getShort("PlateBlockID"));
 		}
 		if (plateBlock == null) {
-			plateBlock = GOTRegistry.plateBlock;
+			plateBlock = GOTBlocks.plateBlock;
 		}
 	}
 
@@ -124,7 +124,7 @@ public class GOTEntityPlate extends EntityThrowable implements IEntityAdditional
 	public void readSpawnData(ByteBuf data) {
 		Block block = Block.getBlockById(data.readShort());
 		if (block == null) {
-			block = GOTRegistry.plateBlock;
+			block = GOTBlocks.plateBlock;
 		}
 		plateBlock = block;
 	}

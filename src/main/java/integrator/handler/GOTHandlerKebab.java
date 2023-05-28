@@ -6,7 +6,7 @@ import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.TemplateRecipeHandler;
 import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
 import cpw.mods.fml.common.registry.GameData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.tileentity.GOTTileEntityKebabStand;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiCrafting;
@@ -44,7 +44,7 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 	@Override
 	public void loadCraftingRecipes(ItemStack result) {
 		result.stackSize = 1;
-		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.kebab, 1))) {
+		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTItems.kebab, 1))) {
 			FMLControlledNamespacedRegistry<Item> items = GameData.getItemRegistry();
 			for (Item item : (Iterable<Item>) items) {
 				ItemStack stack = new ItemStack(item, 1);
@@ -92,7 +92,7 @@ public class GOTHandlerKebab extends TemplateRecipeHandler {
 		public PositionedStack ingredient;
 
 		public CachedKebabRecipe(ItemStack ingredient) {
-			result = new PositionedStack(new ItemStack(GOTRegistry.kebab, 1), 119, 24);
+			result = new PositionedStack(new ItemStack(GOTItems.kebab, 1), 119, 24);
 			this.ingredient = new PositionedStack(ingredient, 43, 24);
 		}
 

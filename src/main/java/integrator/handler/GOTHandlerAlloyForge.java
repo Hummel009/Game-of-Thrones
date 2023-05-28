@@ -8,7 +8,8 @@ import codechicken.nei.recipe.TemplateRecipeHandler;
 import cpw.mods.fml.common.registry.FMLControlledNamespacedRegistry;
 import cpw.mods.fml.common.registry.GameData;
 import got.client.gui.GOTGuiAlloyForge;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.tileentity.GOTTileEntityAlloyForge;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -40,34 +41,34 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 
 	public List<CachedForgeRecipe> getAlloySmeltingRecipes(ItemStack result) {
 		ArrayList<CachedForgeRecipe> ret = new ArrayList<>();
-		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.bronzeIngot))) {
+		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTItems.bronzeIngot))) {
 			result.stackSize = 2;
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.oreCopper), new ItemStack(GOTRegistry.copperIngot)}, new ItemStack[]{new ItemStack(GOTRegistry.oreTin), new ItemStack(GOTRegistry.tinIngot)}, result);
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.oreTin), new ItemStack(GOTRegistry.tinIngot)}, new ItemStack[]{new ItemStack(GOTRegistry.oreCopper), new ItemStack(GOTRegistry.copperIngot)}, result);
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTBlocks.oreCopper), new ItemStack(GOTItems.copperIngot)}, new ItemStack[]{new ItemStack(GOTBlocks.oreTin), new ItemStack(GOTItems.tinIngot)}, result);
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTBlocks.oreTin), new ItemStack(GOTItems.tinIngot)}, new ItemStack[]{new ItemStack(GOTBlocks.oreCopper), new ItemStack(GOTItems.copperIngot)}, result);
 			ret.add(rec1);
 			ret.add(rec2);
 		}
-		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.ice))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.widowWail)}, new ItemStack[]{new ItemStack(GOTRegistry.oathkeeper)}, result);
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.oathkeeper)}, new ItemStack[]{new ItemStack(GOTRegistry.widowWail)}, result);
+		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTItems.ice))) {
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTItems.widowWail)}, new ItemStack[]{new ItemStack(GOTItems.oathkeeper)}, result);
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTItems.oathkeeper)}, new ItemStack[]{new ItemStack(GOTItems.widowWail)}, result);
 			ret.add(rec1);
 			ret.add(rec2);
 		}
-		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.valyrianPowder))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.valyrianNugget)}, new ItemStack[]{new ItemStack(GOTRegistry.silverIngot), new ItemStack(GOTRegistry.oreSilver)}, result);
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.silverIngot), new ItemStack(GOTRegistry.oreSilver)}, new ItemStack[]{new ItemStack(GOTRegistry.valyrianNugget)}, result);
+		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTItems.valyrianPowder))) {
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTItems.valyrianNugget)}, new ItemStack[]{new ItemStack(GOTItems.silverIngot), new ItemStack(GOTBlocks.oreSilver)}, result);
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTItems.silverIngot), new ItemStack(GOTBlocks.oreSilver)}, new ItemStack[]{new ItemStack(GOTItems.valyrianNugget)}, result);
 			ret.add(rec1);
 			ret.add(rec2);
 		}
-		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.yitiSteelIngot))) {
+		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTItems.yitiSteelIngot))) {
 			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(Items.gold_nugget)}, new ItemStack[]{new ItemStack(Items.iron_ingot), new ItemStack(Blocks.iron_ore)}, result);
 			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(Items.iron_ingot), new ItemStack(Blocks.iron_ore)}, new ItemStack[]{new ItemStack(Items.gold_nugget)}, result);
 			ret.add(rec1);
 			ret.add(rec2);
 		}
-		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTRegistry.alloySteelIngot))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.cobaltIngot)}, new ItemStack[]{new ItemStack(Items.iron_ingot)}, result);
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(Items.iron_ingot)}, new ItemStack[]{new ItemStack(GOTRegistry.cobaltIngot)}, result);
+		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTItems.alloySteelIngot))) {
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTItems.cobaltIngot)}, new ItemStack[]{new ItemStack(Items.iron_ingot)}, result);
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(Items.iron_ingot)}, new ItemStack[]{new ItemStack(GOTItems.cobaltIngot)}, result);
 			ret.add(rec1);
 			ret.add(rec2);
 		}
@@ -76,51 +77,51 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 
 	public List<CachedForgeRecipe> getAlloySmeltingRecipesUsage(ItemStack ingredient) {
 		ArrayList<CachedForgeRecipe> ret = new ArrayList<>();
-		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.copperIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.oreCopper))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTRegistry.oreTin), new ItemStack(GOTRegistry.tinIngot)}, new ItemStack(GOTRegistry.bronzeIngot, 2));
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.oreTin), new ItemStack(GOTRegistry.tinIngot)}, new ItemStack[]{ingredient}, new ItemStack(GOTRegistry.bronzeIngot, 2));
+		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTItems.copperIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTBlocks.oreCopper))) {
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTBlocks.oreTin), new ItemStack(GOTItems.tinIngot)}, new ItemStack(GOTItems.bronzeIngot, 2));
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTBlocks.oreTin), new ItemStack(GOTItems.tinIngot)}, new ItemStack[]{ingredient}, new ItemStack(GOTItems.bronzeIngot, 2));
 			ret.add(rec1);
 			ret.add(rec2);
 		}
-		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.tinIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.oreTin))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTRegistry.oreCopper), new ItemStack(GOTRegistry.copperIngot)}, new ItemStack(GOTRegistry.bronzeIngot, 2));
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.oreCopper), new ItemStack(GOTRegistry.copperIngot)}, new ItemStack[]{ingredient}, new ItemStack(GOTRegistry.bronzeIngot, 2));
+		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTItems.tinIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTBlocks.oreTin))) {
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTBlocks.oreCopper), new ItemStack(GOTItems.copperIngot)}, new ItemStack(GOTItems.bronzeIngot, 2));
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTBlocks.oreCopper), new ItemStack(GOTItems.copperIngot)}, new ItemStack[]{ingredient}, new ItemStack(GOTItems.bronzeIngot, 2));
 			ret.add(rec1);
 			ret.add(rec2);
 		}
-		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.widowWail))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTRegistry.oathkeeper)}, new ItemStack(GOTRegistry.ice));
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.oathkeeper)}, new ItemStack[]{ingredient}, new ItemStack(GOTRegistry.ice));
+		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTItems.widowWail))) {
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTItems.oathkeeper)}, new ItemStack(GOTItems.ice));
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTItems.oathkeeper)}, new ItemStack[]{ingredient}, new ItemStack(GOTItems.ice));
 			ret.add(rec1);
 			ret.add(rec2);
 		}
-		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.oathkeeper))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTRegistry.widowWail)}, new ItemStack(GOTRegistry.ice));
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.widowWail)}, new ItemStack[]{ingredient}, new ItemStack(GOTRegistry.ice));
+		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTItems.oathkeeper))) {
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTItems.widowWail)}, new ItemStack(GOTItems.ice));
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTItems.widowWail)}, new ItemStack[]{ingredient}, new ItemStack(GOTItems.ice));
 			ret.add(rec1);
 			ret.add(rec2);
 		}
-		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.silverIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.oreSilver))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTRegistry.valyrianNugget)}, new ItemStack(GOTRegistry.valyrianPowder));
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.valyrianNugget)}, new ItemStack[]{ingredient}, new ItemStack(GOTRegistry.valyrianPowder));
+		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTItems.silverIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTBlocks.oreSilver))) {
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTItems.valyrianNugget)}, new ItemStack(GOTItems.valyrianPowder));
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTItems.valyrianNugget)}, new ItemStack[]{ingredient}, new ItemStack(GOTItems.valyrianPowder));
 			ret.add(rec1);
 			ret.add(rec2);
 		}
-		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTRegistry.valyrianNugget))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTRegistry.oreSilver), new ItemStack(GOTRegistry.silverIngot)}, new ItemStack(GOTRegistry.valyrianPowder));
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTRegistry.oreSilver), new ItemStack(GOTRegistry.silverIngot)}, new ItemStack[]{ingredient}, new ItemStack(GOTRegistry.valyrianPowder));
+		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTItems.valyrianNugget))) {
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTBlocks.oreSilver), new ItemStack(GOTItems.silverIngot)}, new ItemStack(GOTItems.valyrianPowder));
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(GOTBlocks.oreSilver), new ItemStack(GOTItems.silverIngot)}, new ItemStack[]{ingredient}, new ItemStack(GOTItems.valyrianPowder));
 			ret.add(rec1);
 			ret.add(rec2);
 		}
 		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(Items.iron_ingot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(Blocks.iron_ore))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(Items.gold_nugget)}, new ItemStack(GOTRegistry.yitiSteelIngot));
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(Items.gold_nugget)}, new ItemStack[]{ingredient}, new ItemStack(GOTRegistry.yitiSteelIngot));
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(Items.gold_nugget)}, new ItemStack(GOTItems.yitiSteelIngot));
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(Items.gold_nugget)}, new ItemStack[]{ingredient}, new ItemStack(GOTItems.yitiSteelIngot));
 			ret.add(rec1);
 			ret.add(rec2);
 		}
 		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(Items.gold_nugget))) {
-			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(Blocks.iron_ore), new ItemStack(Items.iron_ingot)}, new ItemStack(GOTRegistry.yitiSteelIngot));
-			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(Blocks.iron_ore), new ItemStack(Items.iron_ingot)}, new ItemStack[]{ingredient}, new ItemStack(GOTRegistry.yitiSteelIngot));
+			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(Blocks.iron_ore), new ItemStack(Items.iron_ingot)}, new ItemStack(GOTItems.yitiSteelIngot));
+			CachedForgeRecipe rec2 = new CachedForgeRecipe(new ItemStack[]{new ItemStack(Blocks.iron_ore), new ItemStack(Items.iron_ingot)}, new ItemStack[]{ingredient}, new ItemStack(GOTItems.yitiSteelIngot));
 			ret.add(rec1);
 			ret.add(rec2);
 		}

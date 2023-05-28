@@ -1,7 +1,7 @@
 package got.common.entity.westeros.legendary.reborn;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
@@ -58,7 +58,7 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.gregorCleganeSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.gregorCleganeSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}
@@ -85,13 +85,13 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		public boolean attackEntityFrom(DamageSource damagesource, float f) {
 			ItemStack itemstack;
 			Entity entity = damagesource.getEntity();
-			if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && itemstack.getItem() == GOTRegistry.sunspear) {
+			if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && itemstack.getItem() == GOTItems.sunspear) {
 				return super.attackEntityFrom(damagesource, f);
 			}
-			if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && itemstack.getItem() == GOTRegistry.sandorCleganeSword) {
+			if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && itemstack.getItem() == GOTItems.sandorCleganeSword) {
 				return super.attackEntityFrom(damagesource, f);
 			}
-			if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && itemstack.getItem() == GOTRegistry.crowbar) {
+			if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && itemstack.getItem() == GOTItems.crowbar) {
 				return super.attackEntityFrom(damagesource, f);
 			}
 			if (damagesource == DamageSource.fall) {
@@ -150,7 +150,7 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 			if (damagesource == DamageSource.fall) {
 				return super.attackEntityFrom(damagesource, f);
 			}
-			if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && itemstack.getItem() == GOTRegistry.crowbar) {
+			if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && itemstack.getItem() == GOTItems.crowbar) {
 				return super.attackEntityFrom(damagesource, f);
 			}
 			return super.attackEntityFrom(damagesource, 0.0f);
@@ -158,7 +158,7 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 
 		@Override
 		public void dropFewItems(boolean flag, int i) {
-			dropItem(GOTRegistry.gregorCleganeSword, 1);
+			dropItem(GOTItems.gregorCleganeSword, 1);
 		}
 
 		@Override

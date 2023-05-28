@@ -1,8 +1,9 @@
 package got.common.world.structure.essos.lhazar;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.lhazar.GOTEntityLhazarBlacksmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -81,29 +82,29 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		generateStrScan(world, random, 0, 0, 0);
 		setBlockAndMetadata(world, 0, 1, 3, bedBlock, 0);
 		setBlockAndMetadata(world, 0, 1, 4, bedBlock, 8);
-		placeChest(world, random, -4, 1, -2, GOTRegistry.chestBasket, 3, GOTChestContents.LHAZAR);
+		placeChest(world, random, -4, 1, -2, GOTBlocks.chestBasket, 3, GOTChestContents.LHAZAR);
 		placeFlowerPot(world, 2, 2, -4, getRandomFlower(world, random));
 		placeFlowerPot(world, -2, 2, 4, getRandomFlower(world, random));
 		placeFlowerPot(world, -4, 1, 1, new ItemStack(Blocks.cactus));
 		placeMug(world, random, 4, 2, -1, 1, GOTFoods.NOMAD_DRINK);
 		placeMug(world, random, 2, 2, 4, 0, GOTFoods.NOMAD_DRINK);
-		placePlate(world, random, 4, 2, 0, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
-		placePlate(world, random, 4, 2, 1, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
+		placePlate(world, random, 4, 2, 0, GOTBlocks.woodPlateBlock, GOTFoods.NOMAD);
+		placePlate(world, random, 4, 2, 1, GOTBlocks.woodPlateBlock, GOTFoods.NOMAD);
 		if (random.nextBoolean()) {
-			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{new ItemStack(GOTRegistry.lhazarHelmet), new ItemStack(GOTRegistry.lhazarChestplate), new ItemStack(GOTRegistry.lhazarLeggings), new ItemStack(GOTRegistry.lhazarBoots)});
+			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{new ItemStack(GOTItems.lhazarHelmet), new ItemStack(GOTItems.lhazarChestplate), new ItemStack(GOTItems.lhazarLeggings), new ItemStack(GOTItems.lhazarBoots)});
 		} else {
-			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{null, new ItemStack(GOTRegistry.lhazarChestplate), null, null});
+			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
 		}
 		placeWeaponRack(world, -13, 3, 0, 5, getRandomlhazarWeapon(random));
 		GOTEntityLhazarBlacksmith smith = new GOTEntityLhazarBlacksmith(world);
 		spawnNPCAndSetHome(smith, world, -6, 1, 0, 8);
 		int maxSteps = 12;
 		for (int step = 0; step < maxSteps && !isOpaque(world, i1 = -9, j1 = -step, k1 = -5 - step); ++step) {
-			setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.stairsRedSandstone, 2);
+			setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.stairsRedSandstone, 2);
 			setGrassToDirt(world, i1, j1 - 1, k1);
 			int j2 = j1 - 1;
 			while (!isOpaque(world, i1, j2, k1) && getY(j2) >= 0) {
-				setBlockAndMetadata(world, i1, j2, k1, GOTRegistry.redSandstone, 0);
+				setBlockAndMetadata(world, i1, j2, k1, GOTBlocks.redSandstone, 0);
 				setGrassToDirt(world, i1, j2 - 1, k1);
 				--j2;
 			}

@@ -2,7 +2,7 @@ package got.common.entity.sothoryos.summer;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTTradeable;
 import got.common.item.other.GOTItemRobes;
@@ -24,7 +24,7 @@ public abstract class GOTEntitySummerTrader extends GOTEntitySummerMan implement
 	}
 
 	public static ItemStack createTraderTurban(Random random) {
-		ItemStack turban = new ItemStack(GOTRegistry.robesHelmet);
+		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		if (random.nextInt(3) == 0) {
 			GOTItemTurban.setHasOrnament(turban, true);
 		}

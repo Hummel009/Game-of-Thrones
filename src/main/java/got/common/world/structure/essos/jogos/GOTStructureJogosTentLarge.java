@@ -1,7 +1,8 @@
 package got.common.world.structure.essos.jogos;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.jogos.GOTEntityJogos;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.item.ItemStack;
@@ -61,23 +62,23 @@ public class GOTStructureJogosTentLarge extends GOTStructureJogosBase {
 		associateBlockMetaAlias("TENT2", tent2Block, tent2Meta);
 		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);
 		associateBlockMetaAlias("CARPET2", carpet2Block, carpet2Meta);
-		associateBlockAlias("TABLE", GOTRegistry.tableJogos);
+		associateBlockAlias("TABLE", GOTBlocks.tableJogos);
 		generateStrScan(world, random, 0, 1, 0);
 		setBlockAndMetadata(world, -3, 1, 4, bedBlock, 0);
 		setBlockAndMetadata(world, -3, 1, 5, bedBlock, 8);
 		setBlockAndMetadata(world, -4, 1, 4, bedBlock, 0);
 		setBlockAndMetadata(world, -4, 1, 5, bedBlock, 8);
 		placeWeaponRack(world, 0, 3, 6, 6, getRandomNomadWeapon(random));
-		placeChest(world, random, -4, 1, -5, GOTRegistry.chestBasket, 3, GOTChestContents.JOGOS);
+		placeChest(world, random, -4, 1, -5, GOTBlocks.chestBasket, 3, GOTChestContents.JOGOS);
 		placeWallBanner(world, 0, 5, 7, GOTItemBanner.BannerType.JOGOS, 2);
 		GOTEntityJogos male = new GOTEntityJogos(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		male.spawnRidingHorse = false;
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityJogos female = new GOTEntityJogos(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		female.spawnRidingHorse = false;
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityJogos child = new GOTEntityJogos(world);

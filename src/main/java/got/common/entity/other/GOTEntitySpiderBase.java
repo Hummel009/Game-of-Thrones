@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import got.GOT;
 import got.common.GOTLevelData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
@@ -225,9 +225,9 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		if (getSpiderType() == VENOM_POISON && itemstack != null && itemstack.getItem() == Items.glass_bottle) {
 			--itemstack.stackSize;
 			if (itemstack.stackSize <= 0) {
-				entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, new ItemStack(GOTRegistry.bottlePoison));
-			} else if (!entityplayer.inventory.addItemStackToInventory(new ItemStack(GOTRegistry.bottlePoison)) && !entityplayer.capabilities.isCreativeMode) {
-				entityplayer.dropPlayerItemWithRandomChoice(new ItemStack(GOTRegistry.bottlePoison), false);
+				entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, new ItemStack(GOTItems.bottlePoison));
+			} else if (!entityplayer.inventory.addItemStackToInventory(new ItemStack(GOTItems.bottlePoison)) && !entityplayer.capabilities.isCreativeMode) {
+				entityplayer.dropPlayerItemWithRandomChoice(new ItemStack(GOTItems.bottlePoison), false);
 			}
 			return true;
 		}

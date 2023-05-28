@@ -1,7 +1,8 @@
 package got.common.world.structure.essos.lorath;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.lorath.*;
 import got.common.world.structure.essos.common.GOTStructureEssosBazaar;
 import got.common.world.structure.other.GOTStructureBase;
@@ -34,10 +35,10 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.furnace, 2);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.planks2, 2);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.planks2, 2);
-			placePlateItem(world, random, -1, 2, 1, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
-			placePlateItem(world, random, 1, 2, 1, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.oliveBread, 1 + random.nextInt(3)), true);
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.planks2, 2);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.planks2, 2);
+			placePlateItem(world, random, -1, 2, 1, GOTBlocks.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 1, 2, 1, GOTBlocks.ceramicPlateBlock, new ItemStack(GOTItems.oliveBread, 1 + random.nextInt(3)), true);
 			placeFlowerPot(world, random.nextBoolean() ? -2 : 2, 2, 0, getRandomFlower(world, random));
 			GOTEntityLorathBaker trader = new GOTEntityLorathBaker(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
@@ -70,10 +71,10 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.stairsCedar, 6);
-			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.barrel, 2);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.stairsCedar, 6);
-			setBlockAndMetadata(world, 1, 2, 1, GOTRegistry.barrel, 2);
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.stairsCedar, 6);
+			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.barrel, 2);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.stairsCedar, 6);
+			setBlockAndMetadata(world, 1, 2, 1, GOTBlocks.barrel, 2);
 			placeMug(world, random, -2, 2, 0, 1, GOTFoods.ESSOS_DRINK);
 			placeMug(world, random, 2, 2, 0, 1, GOTFoods.ESSOS_DRINK);
 			GOTEntityLorathBrewer trader = new GOTEntityLorathBrewer(world);
@@ -91,9 +92,9 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.furnace, 2);
-			placeKebabStand(world, random, 0, 2, 1, GOTRegistry.kebabStand, 3);
-			placePlateItem(world, random, -2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.muttonRaw, 1 + random.nextInt(3), 0), true);
-			placePlateItem(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(GOTRegistry.camelRaw, 1 + random.nextInt(3), 1), true);
+			placeKebabStand(world, random, 0, 2, 1, GOTBlocks.kebabStand, 3);
+			placePlateItem(world, random, -2, 2, 0, GOTBlocks.ceramicPlateBlock, new ItemStack(GOTItems.muttonRaw, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTBlocks.ceramicPlateBlock, new ItemStack(GOTItems.camelRaw, 1 + random.nextInt(3), 1), true);
 			GOTEntityLorathButcher trader = new GOTEntityLorathButcher(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -111,8 +112,8 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, -1, 1, -1, Blocks.hay_block, 0);
-			placePlateItem(world, random, -2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.orange, 1 + random.nextInt(3), 0), true);
-			placePlateItem(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, new ItemStack(GOTRegistry.lettuce, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, -2, 2, 0, GOTBlocks.woodPlateBlock, new ItemStack(GOTItems.orange, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTBlocks.woodPlateBlock, new ItemStack(GOTItems.lettuce, 1 + random.nextInt(3), 1), true);
 			GOTEntityLorathFarmer trader = new GOTEntityLorathFarmer(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -129,8 +130,8 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, -1, 1, -1, Blocks.sponge, 0);
-			placePlateItem(world, random, -2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
-			placePlateItem(world, random, 2, 2, 0, GOTRegistry.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, -2, 2, 0, GOTBlocks.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTBlocks.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
 			GOTEntityLorathFishmonger trader = new GOTEntityLorathFishmonger(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -148,8 +149,8 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 			placeFlowerPot(world, -2, 2, 0, getRandomFlower(world, random));
 			placeFlowerPot(world, 2, 2, 0, getRandomFlower(world, random));
 			setBlockAndMetadata(world, -1, 0, 1, Blocks.grass, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.doubleFlower, 3);
-			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.doubleFlower, 11);
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.doubleFlower, 3);
+			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.doubleFlower, 11);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.grass, 0);
 			plantFlower(world, random, 1, 2, 1);
 			setBlockAndMetadata(world, 1, 1, 0, Blocks.trapdoor, 12);
@@ -168,12 +169,12 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, -1, 1, -1, GOTRegistry.goldBars, 0);
-			setBlockAndMetadata(world, 1, 1, -1, GOTRegistry.goldBars, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.goldBars, 0);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.goldBars, 0);
-			setBlockAndMetadata(world, random.nextBoolean() ? -1 : 1, 2, -1, GOTRegistry.birdCage, 2);
-			setBlockAndMetadata(world, random.nextBoolean() ? -1 : 1, 2, 1, GOTRegistry.birdCage, 3);
+			setBlockAndMetadata(world, -1, 1, -1, GOTBlocks.goldBars, 0);
+			setBlockAndMetadata(world, 1, 1, -1, GOTBlocks.goldBars, 0);
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.goldBars, 0);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.goldBars, 0);
+			setBlockAndMetadata(world, random.nextBoolean() ? -1 : 1, 2, -1, GOTBlocks.birdCage, 2);
+			setBlockAndMetadata(world, random.nextBoolean() ? -1 : 1, 2, 1, GOTBlocks.birdCage, 3);
 			GOTEntityLorathGoldsmith trader = new GOTEntityLorathGoldsmith(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -188,11 +189,11 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.wood4, 10);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.wood4, 2);
-			setBlockAndMetadata(world, 1, 2, 1, GOTRegistry.wood4, 2);
-			placeFlowerPot(world, -2, 2, 0, new ItemStack(GOTRegistry.sapling4, 1, 2));
-			placeFlowerPot(world, 2, 2, 0, new ItemStack(GOTRegistry.sapling8, 1, 3));
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.wood4, 10);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.wood4, 2);
+			setBlockAndMetadata(world, 1, 2, 1, GOTBlocks.wood4, 2);
+			placeFlowerPot(world, -2, 2, 0, new ItemStack(GOTBlocks.sapling4, 1, 2));
+			placeFlowerPot(world, 2, 2, 0, new ItemStack(GOTBlocks.sapling8, 1, 3));
 			GOTEntityLorathLumberman trader = new GOTEntityLorathLumberman(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -207,10 +208,10 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.brick1, 1);
-			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.slabSingle1, 3);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.brick1, 5);
-			placeWeaponRack(world, 1, 2, 1, 2, new ItemStack(GOTRegistry.bronzePickaxe));
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.brick1, 1);
+			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.slabSingle1, 3);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.brick1, 5);
+			placeWeaponRack(world, 1, 2, 1, 2, new ItemStack(GOTItems.bronzePickaxe));
 			GOTEntityLorathMason trader = new GOTEntityLorathMason(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -225,10 +226,10 @@ public class GOTStructureLorathBazaar extends GOTStructureEssosBazaar {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.oreTin, 0);
-			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.oreCopper, 0);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.oreCopper, 0);
-			placeWeaponRack(world, 1, 2, 1, 2, new ItemStack(GOTRegistry.bronzePickaxe));
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.oreTin, 0);
+			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.oreCopper, 0);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.oreCopper, 0);
+			placeWeaponRack(world, 1, 2, 1, 2, new ItemStack(GOTItems.bronzePickaxe));
 			GOTEntityLorathMiner trader = new GOTEntityLorathMiner(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;

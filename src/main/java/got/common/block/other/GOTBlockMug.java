@@ -2,7 +2,7 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemBottlePoison;
 import got.common.item.other.GOTItemMug;
 import got.common.tileentity.GOTTileEntityMug;
@@ -46,7 +46,7 @@ public class GOTBlockMug extends BlockContainer {
 			GOTTileEntityMug mug = (GOTTileEntityMug) tileentity;
 			return mug.getMugItem();
 		}
-		return new ItemStack(GOTRegistry.mug);
+		return new ItemStack(GOTItems.mug);
 	}
 
 	public static void setMugItem(World world, int i, int j, int k, ItemStack itemstack, GOTItemMug.Vessel vessel) {

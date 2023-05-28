@@ -3,7 +3,8 @@ package got.common.entity.ai;
 import com.mojang.authlib.GameProfile;
 import got.common.block.other.GOTBlockCorn;
 import got.common.block.other.GOTBlockGrapevine;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTFarmhand;
 import got.common.util.GOTReflection;
@@ -267,7 +268,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			return new ItemStack(Objects.requireNonNull(GOTReflection.getStemFruitBlock((BlockStem) block)).getItemDropped(0, theWorld.rand, 0), 1, 0);
 		}
 		if (block instanceof GOTBlockCorn) {
-			return new ItemStack(GOTRegistry.corn);
+			return new ItemStack(GOTItems.corn);
 		}
 		if (block instanceof GOTBlockGrapevine) {
 			return new ItemStack(((GOTBlockGrapevine) block).getGrapeItem());
@@ -516,7 +517,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		Block block = theWorld.getBlock(i, j, k);
 		boolean isGrassDirt = block.canSustainPlant(theWorld, i, j, k, ForgeDirection.UP, Blocks.tallgrass);
 		boolean isFarmland = block.canSustainPlant(theWorld, i, j, k, ForgeDirection.UP, (IPlantable) Blocks.wheat);
-		if (isGrassDirt && !isFarmland && (isReplaceable(i, j + 1, k) || theWorld.getBlock(i, j + 1, k) == GOTRegistry.grapevine)) {
+		if (isGrassDirt && !isFarmland && (isReplaceable(i, j + 1, k) || theWorld.getBlock(i, j + 1, k) == GOTBlocks.grapevine)) {
 			Block below = theWorld.getBlock(i, j - 1, k);
 			if (below == Blocks.sand) {
 				return false;
@@ -545,7 +546,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	public boolean isSuitableForPlanting(int i, int j, int k) {
 		harvestingSolidBlock = false;
 		if (isFarmingGrapes()) {
-			return theWorld.getBlock(i, j, k) == GOTRegistry.grapevine && GOTBlockGrapevine.canPlantGrapesAt(theWorld, i, j, k, getSeedsToPlant());
+			return theWorld.getBlock(i, j, k) == GOTBlocks.grapevine && GOTBlockGrapevine.canPlantGrapesAt(theWorld, i, j, k, getSeedsToPlant());
 		}
 		return theWorld.getBlock(i, j - 1, k).isFertile(theWorld, i, j - 1, k) && isReplaceable(i, j, k);
 	}

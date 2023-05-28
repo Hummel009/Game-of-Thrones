@@ -3,7 +3,7 @@ package got.common.entity.animal;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntitySnowball;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
@@ -64,9 +64,9 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 		if (flag) {
 			int j = rand.nextInt() + 2;
 			for (int k = 0; k < j; ++k) {
-				dropItem(GOTRegistry.valyrianPowder, 1);
+				dropItem(GOTItems.valyrianPowder, 1);
 			}
-			dropItem(GOTRegistry.valyrianNugget, 1);
+			dropItem(GOTItems.valyrianNugget, 1);
 		}
 	}
 
@@ -115,7 +115,7 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 
 	@Override
 	public Item getDropItem() {
-		return GOTRegistry.valyrianPowder;
+		return GOTItems.valyrianPowder;
 	}
 
 	@Override

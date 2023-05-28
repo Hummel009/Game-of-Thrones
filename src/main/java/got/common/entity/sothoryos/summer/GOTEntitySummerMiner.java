@@ -1,6 +1,6 @@
 package got.common.entity.sothoryos.summer;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -25,7 +25,7 @@ public class GOTEntitySummerMiner extends GOTEntitySummerTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzePickaxe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzePickaxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

@@ -1,7 +1,8 @@
 package got.common.world.structure.essos.yiti;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.essos.yiti.*;
@@ -82,13 +83,13 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 							setBlockAndMetadata(world, i14, 0, k12, Blocks.dirt, 1);
 							break;
 						case 2:
-							setBlockAndMetadata(world, i14, 0, k12, GOTRegistry.dirtPath, 0);
+							setBlockAndMetadata(world, i14, 0, k12, GOTBlocks.dirtPath, 0);
 							break;
 						default:
 							break;
 					}
 					if (random.nextInt(3) == 0) {
-						setBlockAndMetadata(world, i14, 1, k12, GOTRegistry.thatchFloor, 0);
+						setBlockAndMetadata(world, i14, 1, k12, GOTBlocks.thatchFloor, 0);
 					}
 				}
 				if ((i22 == 12 || i22 == 9) && (k2 == 12 || k2 == 9)) {
@@ -159,7 +160,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 				setBlockAndMetadata(world, i17, 3, -12, barsBlock, 0);
 				setBlockAndMetadata(world, i17 + 1, 3, -12, brickStairBlock, 5);
 				setBlockAndMetadata(world, i17, 4, -12, brickStairBlock, 6);
-				setBlockAndMetadata(world, i17, 0, -11, GOTRegistry.hearth, 0);
+				setBlockAndMetadata(world, i17, 0, -11, GOTBlocks.hearth, 0);
 				setBlockAndMetadata(world, i17, 1, -11, Blocks.fire, 0);
 				setBlockAndMetadata(world, i17, 2, -11, brickStairBlock, 6);
 			}
@@ -554,7 +555,7 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, -6, 4, k16, plankStairBlock, 0);
 		}
 		setBlockAndMetadata(world, -8, 1, -10, Blocks.stonebrick, 0);
-		setBlockAndMetadata(world, -8, 2, -10, GOTRegistry.alloyForge, 3);
+		setBlockAndMetadata(world, -8, 2, -10, GOTBlocks.alloyForge, 3);
 		setBlockAndMetadata(world, -10, 1, -8, Blocks.stonebrick, 0);
 		setBlockAndMetadata(world, -10, 2, -8, Blocks.furnace, 4);
 		setBlockAndMetadata(world, -7, 1, -6, Blocks.anvil, 1);
@@ -592,9 +593,9 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		}
 		setBlockAndMetadata(world, 9, 1, -8, tableBlock, 0);
 		setBlockAndMetadata(world, 9, 1, -7, Blocks.crafting_table, 0);
-		setBlockAndMetadata(world, 8, 1, -5, GOTRegistry.commandTable, 0);
-		placeWeaponRack(world, -8, 2, -3, 5, new ItemStack(GOTRegistry.yitiBow));
-		placeWeaponRack(world, -8, 2, 3, 5, new ItemStack(GOTRegistry.yitiBow));
+		setBlockAndMetadata(world, 8, 1, -5, GOTBlocks.commandTable, 0);
+		placeWeaponRack(world, -8, 2, -3, 5, new ItemStack(GOTItems.yitiBow));
+		placeWeaponRack(world, -8, 2, 3, 5, new ItemStack(GOTItems.yitiBow));
 		setBlockAndMetadata(world, -9, 1, -1, plankStairBlock, 6);
 		setBlockAndMetadata(world, -9, 1, 0, Blocks.wool, 0);
 		setBlockAndMetadata(world, -9, 1, 1, plankStairBlock, 7);
@@ -605,8 +606,8 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -9, 3, 0, Blocks.wool, 0);
 		setBlockAndMetadata(world, -9, 3, 1, plankStairBlock, 3);
 		setBlockAndMetadata(world, -8, 2, 0, Blocks.wooden_button, 2);
-		placeWeaponRack(world, 8, 2, -3, 7, new ItemStack(GOTRegistry.yitiSword));
-		placeWeaponRack(world, 8, 2, 3, 7, new ItemStack(GOTRegistry.yitiSword));
+		placeWeaponRack(world, 8, 2, -3, 7, new ItemStack(GOTItems.yitiSword));
+		placeWeaponRack(world, 8, 2, 3, 7, new ItemStack(GOTItems.yitiSword));
 		setBlockAndMetadata(world, 8, 1, 0, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 8, 2, 0, Blocks.hay_block, 0);
 		setBlockAndMetadata(world, 8, 3, 0, Blocks.pumpkin, 3);
@@ -705,6 +706,6 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		bedBlock = GOTRegistry.strawBed;
+		bedBlock = GOTBlocks.strawBed;
 	}
 }

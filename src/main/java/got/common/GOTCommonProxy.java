@@ -6,7 +6,7 @@ import got.GOT;
 import got.client.gui.*;
 import got.common.block.other.GOTBlockFlowerPot;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
 import got.common.faction.GOTAlignmentBonusMap;
@@ -339,7 +339,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			case 55:
 				TileEntity bookshelf;
 				if (world.getBlock(i, j, k) == Blocks.bookshelf) {
-					world.setBlock(i, j, k, GOTRegistry.bookshelfStorage, 0, 3);
+					world.setBlock(i, j, k, GOTBlocks.bookshelfStorage, 0, 3);
 				}
 				bookshelf = world.getTileEntity(i, j, k);
 				if (bookshelf instanceof GOTTileEntityBookshelf) {
@@ -771,20 +771,20 @@ public class GOTCommonProxy implements IGuiHandler {
 		return false;
 	}
 
-	public void onLoad() {
+	public void onInit() {
 	}
 
-	public void onPostload() {
+	public void postInit() {
 	}
 
-	public void onPreload() {
+	public void preInit() {
 	}
 
 	public void openHiredNPCGui(GOTEntityNPC npc) {
 	}
 
 	public void placeFlowerInPot(World world, int i, int j, int k, int side, ItemStack itemstack) {
-		world.setBlock(i, j, k, GOTRegistry.flowerPot, 0, 3);
+		world.setBlock(i, j, k, GOTBlocks.flowerPot, 0, 3);
 		GOTBlockFlowerPot.setPlant(world, i, j, k, itemstack);
 	}
 

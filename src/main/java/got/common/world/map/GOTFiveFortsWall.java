@@ -1,6 +1,6 @@
 package got.common.world.map;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -41,11 +41,11 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 					boolean wallEdge = circleDist > 0.025;
 					for (int j1 = wallTop; j1 > 0; --j1) {
 						if (fences) {
-							setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.fence, 3);
+							setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.fence, 3);
 						} else {
-							setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.brick1, 0);
+							setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.brick1, 0);
 							if (wallEdge && j1 == wallTop) {
-								setBlockAndMetadata(world, i1, j1 + 1, k1, GOTRegistry.wallStone1, 1);
+								setBlockAndMetadata(world, i1, j1 + 1, k1, GOTBlocks.wallStone1, 1);
 							}
 						}
 						Block below = getBlock(world, i1, j1 - 1, k1);

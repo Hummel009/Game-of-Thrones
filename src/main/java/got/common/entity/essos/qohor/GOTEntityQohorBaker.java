@@ -1,6 +1,6 @@
 package got.common.entity.essos.qohor;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -25,8 +25,8 @@ public class GOTEntityQohorBaker extends GOTEntityQohorTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.rollingPin));
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.oliveBread));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.rollingPin));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.oliveBread));
 		return data;
 	}
 }

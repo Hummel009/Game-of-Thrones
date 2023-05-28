@@ -1,6 +1,7 @@
 package got.common.block.leaves;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,22 +21,22 @@ public class GOTBlockLeavesFruit extends GOTBlockLeavesBase {
 			if (world.rand.nextBoolean()) {
 				drops.add(new ItemStack(Items.apple));
 			} else {
-				drops.add(new ItemStack(GOTRegistry.appleGreen));
+				drops.add(new ItemStack(GOTItems.appleGreen));
 			}
 		}
 		if ((meta & 3) == 1 && world.rand.nextInt(calcFortuneModifiedDropChance(16, fortune)) == 0) {
-			drops.add(new ItemStack(GOTRegistry.pear));
+			drops.add(new ItemStack(GOTItems.pear));
 		}
 		if ((meta & 3) == 2 && world.rand.nextInt(calcFortuneModifiedDropChance(8, fortune)) == 0) {
-			drops.add(new ItemStack(GOTRegistry.cherry));
+			drops.add(new ItemStack(GOTItems.cherry));
 		}
 		if ((meta & 3) == 3 && world.rand.nextInt(calcFortuneModifiedDropChance(16, fortune)) == 0) {
-			drops.add(new ItemStack(GOTRegistry.mango));
+			drops.add(new ItemStack(GOTItems.mango));
 		}
 	}
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(GOTRegistry.fruitSapling);
+		return Item.getItemFromBlock(GOTBlocks.fruitSapling);
 	}
 }

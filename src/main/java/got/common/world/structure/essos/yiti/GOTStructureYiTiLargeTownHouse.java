@@ -1,9 +1,10 @@
 package got.common.world.structure.essos.yiti;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -224,10 +225,10 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 				setBlockAndMetadata(world, i19, 8, k1, woodBeamBlock, woodBeamMeta | 8);
 			}
 		}
-		setBlockAndMetadata(world, 0, 6, -7, GOTRegistry.reedBars, 0);
+		setBlockAndMetadata(world, 0, 6, -7, GOTBlocks.reedBars, 0);
 		for (int i1221 : new int[]{-5, 5}) {
-			setBlockAndMetadata(world, i1221, 6, -2, GOTRegistry.reedBars, 0);
-			setBlockAndMetadata(world, i1221, 6, 2, GOTRegistry.reedBars, 0);
+			setBlockAndMetadata(world, i1221, 6, -2, GOTBlocks.reedBars, 0);
+			setBlockAndMetadata(world, i1221, 6, 2, GOTBlocks.reedBars, 0);
 		}
 		for (int k1221 : new int[]{-8, 8}) {
 			setBlockAndMetadata(world, -5, 7, k1221, fenceBlock, fenceMeta);
@@ -402,8 +403,8 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 		placeBarrel(world, random, -2, 2, 3, 5, GOTFoods.YITI_DRINK);
 		setBlockAndMetadata(world, 2, 1, 3, plankStairBlock, 4);
 		placeBarrel(world, random, 2, 2, 3, 4, GOTFoods.YITI_DRINK);
-		setBlockAndMetadata(world, -2, 3, 4, GOTRegistry.chandelier, 3);
-		setBlockAndMetadata(world, 2, 3, 4, GOTRegistry.chandelier, 3);
+		setBlockAndMetadata(world, -2, 3, 4, GOTBlocks.chandelier, 3);
+		setBlockAndMetadata(world, 2, 3, 4, GOTBlocks.chandelier, 3);
 		setBlockAndMetadata(world, 0, 1, 3, tableBlock, 0);
 		setAir(world, 0, 2, 3);
 		setBlockAndMetadata(world, 0, 3, 3, plankStairBlock, 7);
@@ -432,10 +433,10 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 1, 1, 7, brickStairBlock, 0);
 		setBlockAndMetadata(world, 1, 2, 7, brickStairBlock, 4);
 		setBlockAndMetadata(world, 1, 3, 7, brickStairBlock, 4);
-		setBlockAndMetadata(world, 0, 0, 7, GOTRegistry.hearth, 0);
+		setBlockAndMetadata(world, 0, 0, 7, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 0, 1, 7, barsBlock, 0);
 		setBlockAndMetadata(world, 0, 2, 7, Blocks.furnace, 2);
-		setBlockAndMetadata(world, 0, 0, 8, GOTRegistry.hearth, 0);
+		setBlockAndMetadata(world, 0, 0, 8, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 0, 1, 8, Blocks.fire, 0);
 		setAir(world, 0, 2, 8);
 		setBlockAndMetadata(world, -5, 1, 5, plankStairBlock, 4);
@@ -463,12 +464,12 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 			placeMug(world, random, 5, 2, k14, 1, GOTFoods.YITI_DRINK);
 		}
 		placeWallBanner(world, 0, 7, 7, bannerType, 2);
-		setBlockAndMetadata(world, -2, 7, 4, GOTRegistry.chandelier, 3);
-		setBlockAndMetadata(world, 2, 7, 4, GOTRegistry.chandelier, 3);
+		setBlockAndMetadata(world, -2, 7, 4, GOTBlocks.chandelier, 3);
+		setBlockAndMetadata(world, 2, 7, 4, GOTBlocks.chandelier, 3);
 		placeArmorStand(world, -4, 5, 6, 0, null);
 		placeArmorStand(world, 4, 5, 6, 0, null);
-		setBlockAndMetadata(world, -2, 7, -4, GOTRegistry.chandelier, 3);
-		setBlockAndMetadata(world, 2, 7, -4, GOTRegistry.chandelier, 3);
+		setBlockAndMetadata(world, -2, 7, -4, GOTBlocks.chandelier, 3);
+		setBlockAndMetadata(world, 2, 7, -4, GOTBlocks.chandelier, 3);
 		for (int i1221 : new int[]{-4, 0, 4}) {
 			setBlockAndMetadata(world, i1221, 5, -5, bedBlock, 2);
 			setBlockAndMetadata(world, i1221, 5, -6, bedBlock, 10);
@@ -492,11 +493,11 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 		}
 		GOTEntityYiTiMan male = new GOTEntityYiTiMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 5, 3, 16);
 		GOTEntityYiTiMan female = new GOTEntityYiTiMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 5, 3, 16);
 		GOTEntityYiTiMan child = new GOTEntityYiTiMan(world);
 		child.familyInfo.setMale(random.nextBoolean());

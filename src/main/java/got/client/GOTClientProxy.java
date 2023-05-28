@@ -441,7 +441,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void onLoad() {
+	public void onInit() {
 		customEffectRenderer = new GOTEffectRenderer(Minecraft.getMinecraft());
 		GOTTextures.onInit();
 		GOTRender.onInit();
@@ -535,12 +535,12 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void onPostload() {
+	public void postInit() {
 		musicHandler = new GOTMusic();
 	}
 
 	@Override
-	public void onPreload() {
+	public void preInit() {
 		System.setProperty("fml.skipFirstTextureLoad", "false");
 		GOTItemRendererManager.preInit();
 		GOTArmorModels.preInit();

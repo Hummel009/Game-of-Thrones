@@ -1,8 +1,9 @@
 package got.common.world.structure.westeros.hillmen;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityBear;
 import got.common.entity.animal.GOTEntityBearRug;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -66,13 +67,13 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 							setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
 							break;
 						case 2:
-							setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+							setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 							break;
 						default:
 							break;
 					}
 					if ((i2 > 3 || k1 < -3 || k1 > 2) && random.nextInt(5) == 0) {
-						setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);
+						setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.thatchFloor, 0);
 					}
 				} else {
 					setBlockAndMetadata(world, i1, 0, k1, Blocks.cobblestone, 0);
@@ -108,18 +109,18 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 		setBlockAndMetadata(world, 7, 1, 8, bedBlock, 8);
 		setBlockAndMetadata(world, 5, 1, 7, bedBlock, 0);
 		setBlockAndMetadata(world, 5, 1, 8, bedBlock, 8);
-		placeChest(world, random, 5, 1, 5, GOTRegistry.chestBasket, 3, GOTChestContents.HILLMEN);
-		placeChest(world, random, -4, 1, 8, GOTRegistry.chestBasket, 2, GOTChestContents.HILLMEN);
+		placeChest(world, random, 5, 1, 5, GOTBlocks.chestBasket, 3, GOTChestContents.HILLMEN);
+		placeChest(world, random, -4, 1, 8, GOTBlocks.chestBasket, 2, GOTChestContents.HILLMEN);
 		placeChest(world, random, 6, 1, -8, Blocks.chest, 3, GOTChestContents.HILLMEN);
 		placeChest(world, random, 5, 1, -8, Blocks.chest, 3, GOTChestContents.HILLMEN);
 		for (i1 = -6; i1 <= -5; ++i1) {
 			int j12 = 1;
 			int k1 = 8;
 			if (random.nextBoolean()) {
-				placeArmorStand(world, i1, j12, k1, 0, new ItemStack[]{new ItemStack(GOTRegistry.hillmenHelmet), new ItemStack(GOTRegistry.hillmenChestplate), new ItemStack(GOTRegistry.hillmenLeggings), new ItemStack(GOTRegistry.hillmenBoots)});
+				placeArmorStand(world, i1, j12, k1, 0, new ItemStack[]{new ItemStack(GOTItems.hillmenHelmet), new ItemStack(GOTItems.hillmenChestplate), new ItemStack(GOTItems.hillmenLeggings), new ItemStack(GOTItems.hillmenBoots)});
 				continue;
 			}
-			placeArmorStand(world, i1, j12, k1, 0, new ItemStack[]{new ItemStack(GOTRegistry.furHelmet), new ItemStack(GOTRegistry.furChestplate), new ItemStack(GOTRegistry.furLeggings), new ItemStack(GOTRegistry.furBoots)});
+			placeArmorStand(world, i1, j12, k1, 0, new ItemStack[]{new ItemStack(GOTItems.furHelmet), new ItemStack(GOTItems.furChestplate), new ItemStack(GOTItems.furLeggings), new ItemStack(GOTItems.furBoots)});
 		}
 		placeWeaponRack(world, -7, 2, -3, 5, getRandomHillmanWeapon(random));
 		placeBarrel(world, random, 8, 2, 7, 2, GOTFoods.WILD_DRINK);
@@ -128,7 +129,7 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 		placeSkull(world, random, -11, 7, 2);
 		placeSkull(world, random, 3, 7, 8);
 		placeSkull(world, random, 11, 8, -3);
-		setBlockAndMetadata(world, 6, 1, -3, GOTRegistry.commandTable, 0);
+		setBlockAndMetadata(world, 6, 1, -3, GOTBlocks.commandTable, 0);
 		placeWallBanner(world, -2, 5, -11, GOTItemBanner.BannerType.HILLMEN, 2);
 		placeWallBanner(world, 2, 5, -11, GOTItemBanner.BannerType.HILLMEN, 2);
 		placeWallBanner(world, -8, 4, 0, GOTItemBanner.BannerType.HILLMEN, 1);

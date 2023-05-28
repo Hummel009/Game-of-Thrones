@@ -2,7 +2,7 @@ package got.client.gui;
 
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemCoin;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketMoney;
@@ -37,9 +37,9 @@ public class GOTGuiIronBank extends GuiScreen {
 		for (int i = 0; i <= 15; i++) {
 			if (B == button[i]) {
 				if (i <= 7) {
-					packet = new GOTPacketMoneyGive(new ItemStack(GOTRegistry.coin, 1, i));
+					packet = new GOTPacketMoneyGive(new ItemStack(GOTItems.coin, 1, i));
 				} else {
-					packet = new GOTPacketMoneyGet(new ItemStack(GOTRegistry.coin, 1, i - 8));
+					packet = new GOTPacketMoneyGet(new ItemStack(GOTItems.coin, 1, i - 8));
 				}
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			}
@@ -75,11 +75,11 @@ public class GOTGuiIronBank extends GuiScreen {
 			RenderHelper.enableGUIStandardItemLighting();
 			mc.renderEngine.bindTexture(new ResourceLocation("got:textures/gui/bank.png"));
 			drawTexturedModalRect(x, yOrigin + 50, 0, 188, 27, 27);
-			itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, new ItemStack(GOTRegistry.coin, 0, i), x + 5, yOrigin + 50 + 5);
+			itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, new ItemStack(GOTItems.coin, 0, i), x + 5, yOrigin + 50 + 5);
 			mc.renderEngine.bindTexture(new ResourceLocation("got:textures/gui/bank.png"));
 			RenderHelper.enableGUIStandardItemLighting();
 			drawTexturedModalRect(x, yOrigin + 120, 27, 188, 27, 27);
-			itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, new ItemStack(GOTRegistry.coin, 0, i), x + 5, yOrigin + 120 + 5);
+			itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.renderEngine, new ItemStack(GOTItems.coin, 0, i), x + 5, yOrigin + 120 + 5);
 			RenderHelper.disableStandardItemLighting();
 			x += 30;
 			++i;

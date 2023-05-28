@@ -1,7 +1,7 @@
 package got.common.block.other;
 
 import got.common.GOTCommonProxy;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.util.GOTItemStackMapImpl;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -18,8 +18,8 @@ public class GOTBlockIronBank extends GOTBlockForgeBase {
 	public static void preInit() {
 		int k = 1;
 		for (int i = 0; i < 8; ++i) {
-			buy.put(new ItemStack(GOTRegistry.coin, 1, i), k);
-			sell.put(new ItemStack(GOTRegistry.coin, 1, i), k);
+			buy.put(new ItemStack(GOTItems.coin, 1, i), k);
+			sell.put(new ItemStack(GOTItems.coin, 1, i), k);
 			k *= 4;
 		}
 	}

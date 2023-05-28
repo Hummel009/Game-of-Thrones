@@ -3,7 +3,7 @@ package got.common.world.biome.other;
 import got.GOT;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntitySeagull;
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTWorldGenSeaBlock;
@@ -22,7 +22,7 @@ import java.util.Random;
 public class GOTBiomeOcean extends GOTBiome {
 	public static Random iceRand = new Random();
 	public WorldGenerator spongeGen = new GOTWorldGenSeaBlock(Blocks.sponge, 0, 24);
-	public WorldGenerator coralGen = new GOTWorldGenSeaBlock(GOTRegistry.coralReef, 0, 64);
+	public WorldGenerator coralGen = new GOTWorldGenSeaBlock(GOTBlocks.coralReef, 0, 64);
 	public NoiseGeneratorPerlin noiseIceGravel = new NoiseGeneratorPerlin(new Random(12480634985056L), 1);
 
 	public GOTBiomeOcean(int i, boolean major) {
@@ -30,9 +30,9 @@ public class GOTBiomeOcean extends GOTBiome {
 		setupStandardPlainsFauna();
 		spawnableWaterCreatureList.add(new BiomeGenBase.SpawnListEntry(EntitySquid.class, 4, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySeagull.class, 20, 4, 4));
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreSalt, 8), 4.0f, 0, 64);
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreSalt, 8, Blocks.sand), 0.5f, 56, 80);
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreSalt, 8, GOTRegistry.whiteSand), 0.5f, 56, 80);
+		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8), 4.0f, 0, 64);
+		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8, Blocks.sand), 0.5f, 56, 80);
+		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8, GOTBlocks.whiteSand), 0.5f, 56, 80);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
 	}
 
@@ -57,7 +57,7 @@ public class GOTBiomeOcean extends GOTBiome {
 				if (j3 <= 43 && (world.getBlock(i3, j3 - 1, k3) == Blocks.sand || world.getBlock(i3, j3 - 1, k3) == Blocks.dirt)) {
 					int height = j3 + 4 + random.nextInt(4);
 					for (int j2 = j3; j2 < height && !GOT.isOpaque(world, i3, j2, k3); ++j2) {
-						world.setBlock(i3, j2, k3, GOTRegistry.kelp);
+						world.setBlock(i3, j2, k3, GOTBlocks.kelp);
 					}
 				}
 			}

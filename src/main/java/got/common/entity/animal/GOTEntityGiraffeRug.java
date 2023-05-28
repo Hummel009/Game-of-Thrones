@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRugBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -13,7 +13,7 @@ public class GOTEntityGiraffeRug extends GOTEntityRugBase {
 
 	@Override
 	public ItemStack getRugItem() {
-		return new ItemStack(GOTRegistry.giraffeRug);
+		return new ItemStack(GOTItems.giraffeRug);
 	}
 
 	@Override

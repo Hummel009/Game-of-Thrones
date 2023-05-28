@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -14,9 +14,9 @@ import java.util.Random;
 public class GOTWorldGenRedwood extends WorldGenAbstractTree {
 	public int trunkWidth;
 	public int extraTrunkWidth;
-	public Block woodBlock = GOTRegistry.wood8;
+	public Block woodBlock = GOTBlocks.wood8;
 	public int woodMeta = 1;
-	public Block leafBlock = GOTRegistry.leaves8;
+	public Block leafBlock = GOTBlocks.leaves8;
 	public int leafMeta = 1;
 
 	public GOTWorldGenRedwood(boolean flag) {

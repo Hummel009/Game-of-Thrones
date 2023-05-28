@@ -2,7 +2,7 @@ package got.common.entity.essos.yiti;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -34,12 +34,12 @@ public class GOTEntityYiTiSamurai extends GOTEntityYiTiSoldier {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.yitiSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.yitiBootsSamurai));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.yitiLeggingsSamurai));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.yitiChestplateSamurai));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.yitiHelmetSamurai));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yitiBootsSamurai));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yitiLeggingsSamurai));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yitiChestplateSamurai));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yitiHelmetSamurai));
 		return data;
 	}
 }

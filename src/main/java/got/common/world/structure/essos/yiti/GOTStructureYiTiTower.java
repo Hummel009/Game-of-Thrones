@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.yiti;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldier;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldierCrossbower;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -258,6 +258,6 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		bedBlock = GOTRegistry.strawBed;
+		bedBlock = GOTBlocks.strawBed;
 	}
 }

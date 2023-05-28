@@ -1,7 +1,7 @@
 package got.common.entity.westeros.legendary.quest;
 
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -89,11 +89,11 @@ public class GOTEntityDavenLannister extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.westerlandsBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.westerlandsLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.westerlandsChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.westerlandsBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.westerlandsLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.westerlandsChestplate));
 		return data;
 	}
 

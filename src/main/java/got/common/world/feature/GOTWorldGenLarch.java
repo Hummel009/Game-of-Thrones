@@ -1,7 +1,7 @@
 package got.common.world.feature;
 
 import got.common.block.sapling.GOTBlockSaplingBase;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -41,7 +41,7 @@ public class GOTWorldGenLarch extends WorldGenAbstractTree {
 				return false;
 			}
 			Block soil = world.getBlock(i, j - 1, k);
-			boolean isSoil = soil.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (GOTBlockSaplingBase) GOTRegistry.sapling3);
+			boolean isSoil = soil.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (GOTBlockSaplingBase) GOTBlocks.sapling3);
 			if (isSoil && j < 256 - height - 1) {
 				int j1;
 				soil.onPlantGrow(world, i, j - 1, k, i, j, k);
@@ -57,7 +57,7 @@ public class GOTWorldGenLarch extends WorldGenAbstractTree {
 							if (Math.abs(i2) == leafRange && Math.abs(k2) == leafRange && leafRange > 0 || !world.getBlock(i1, j1, k1).canBeReplacedByLeaves(world, i1, j1, k1)) {
 								continue;
 							}
-							setBlockAndNotifyAdequately(world, i1, j1, k1, GOTRegistry.leaves3, 1);
+							setBlockAndNotifyAdequately(world, i1, j1, k1, GOTBlocks.leaves3, 1);
 						}
 					}
 					if (leafRange >= maxLeafRange) {
@@ -78,7 +78,7 @@ public class GOTWorldGenLarch extends WorldGenAbstractTree {
 					if (!block2.isAir(world, i, j + j1, k) && !block2.isLeaves(world, i, j + j1, k)) {
 						continue;
 					}
-					setBlockAndNotifyAdequately(world, i, j + j1, k, GOTRegistry.wood3, 1);
+					setBlockAndNotifyAdequately(world, i, j + j1, k, GOTBlocks.wood3, 1);
 				}
 				return true;
 			}

@@ -1,6 +1,6 @@
 package got.common.entity.essos.qarth;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,7 +32,7 @@ public class GOTEntityQarthWarlock extends GOTEntityQarthTrader {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(4, null);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.skullStaff));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.skullStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

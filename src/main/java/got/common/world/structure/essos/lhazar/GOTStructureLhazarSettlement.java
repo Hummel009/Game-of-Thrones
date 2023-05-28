@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.lhazar;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import got.common.entity.essos.lhazar.GOTEntityLhazarWarrior;
@@ -108,7 +108,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
 			int meta = world.getBlockMetadata(i, j, k);
-			return block == GOTRegistry.slabSingleDirt && (meta == 1 || meta == 0) || block == GOTRegistry.slabSingleGravel && meta == 0 || block == GOTRegistry.dirtPath && meta == 0 || block == Blocks.dirt && meta == 1 || block == Blocks.gravel && meta == 0;
+			return block == GOTBlocks.slabSingleDirt && (meta == 1 || meta == 0) || block == GOTBlocks.slabSingleGravel && meta == 0 || block == GOTBlocks.dirtPath && meta == 0 || block == Blocks.dirt && meta == 1 || block == Blocks.gravel && meta == 0;
 		}
 
 		public void setupFort(Random random) {

@@ -1,8 +1,8 @@
 package got.common.item.other;
 
 import got.common.block.other.GOTBlockGrapevine;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -37,7 +37,7 @@ public class GOTItemGrapeSeeds extends Item implements IPlantable {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
-		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack) && world.getBlock(i, j, k) == GOTRegistry.grapevine && GOTBlockGrapevine.canPlantGrapesAt(world, i, j, k, this)) {
+		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack) && world.getBlock(i, j, k) == GOTBlocks.grapevine && GOTBlockGrapevine.canPlantGrapesAt(world, i, j, k, this)) {
 			world.setBlock(i, j, k, grapevineBlock, 0, 3);
 			--itemstack.stackSize;
 			return true;

@@ -1,6 +1,6 @@
 package got.common.entity.sothoryos.summer;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -25,7 +25,7 @@ public class GOTEntitySummerBrewer extends GOTEntitySummerTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		ItemStack drink = new ItemStack(GOTRegistry.mugAraq);
+		ItemStack drink = new ItemStack(GOTItems.mugAraq);
 		npcItemsInv.setIdleItem(drink);
 		return data;
 	}

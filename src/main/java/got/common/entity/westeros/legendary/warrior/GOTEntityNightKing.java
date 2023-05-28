@@ -1,7 +1,7 @@
 package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -59,7 +59,7 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
 		ItemStack itemstack;
 		Entity entity = damagesource.getEntity();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && (itemstack.getItem() == GOTRegistry.baelishDagger || itemstack.getItem() == GOTRegistry.crowbar)) {
+		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && (itemstack.getItem() == GOTItems.baelishDagger || itemstack.getItem() == GOTItems.crowbar)) {
 			return super.attackEntityFrom(damagesource, f * 100);
 		}
 		return super.attackEntityFrom(damagesource, 0.0f);
@@ -67,7 +67,7 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.nightKingSword, 1);
+		dropItem(GOTItems.nightKingSword, 1);
 	}
 
 	@Override
@@ -146,10 +146,10 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.nightKingSword));
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.whiteWalkersBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.whiteWalkersLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.whiteWalkersChestplate));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nightKingSword));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.whiteWalkersBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.whiteWalkersLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.whiteWalkersChestplate));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

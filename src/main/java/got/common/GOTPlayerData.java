@@ -2357,7 +2357,7 @@ public class GOTPlayerData {
 		if (entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
 			addAchievement(GOTAchievement.enterKnownWorld);
 		}
-		if (entityplayer.inventory.hasItem(GOTRegistry.pouch)) {
+		if (entityplayer.inventory.hasItem(GOTItems.pouch)) {
 			addAchievement(GOTAchievement.getPouch);
 		}
 		Set<Block> tables = new HashSet<>();

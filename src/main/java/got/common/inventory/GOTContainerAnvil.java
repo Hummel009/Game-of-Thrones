@@ -7,7 +7,7 @@ import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTMaterial;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentCombining;
@@ -237,7 +237,7 @@ public class GOTContainerAnvil extends Container {
 				break;
 			}
 		}
-		if (materialPrice <= 0.0f && isRepairMaterial(inputItem, new ItemStack(GOTRegistry.valyrianIngot)) && theTrader instanceof GOTEntityQohorBlacksmith) {
+		if (materialPrice <= 0.0f && isRepairMaterial(inputItem, new ItemStack(GOTItems.valyrianIngot)) && theTrader instanceof GOTEntityQohorBlacksmith) {
 			materialPrice = 200.0f;
 		}
 		return materialPrice;

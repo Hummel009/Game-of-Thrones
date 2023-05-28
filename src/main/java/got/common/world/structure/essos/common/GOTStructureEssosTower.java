@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.world.World;
@@ -53,7 +53,7 @@ public class GOTStructureEssosTower extends GOTStructureEssosBase {
 		associateBlockAlias("TRAPDOOR", trapdoorBlock);
 		associateBlockAlias("GATE_METAL", gateMetalBlock);
 		generateStrScan(world, random, 0, 0, 0);
-		placeChest(world, random, -1, 1, -1, GOTRegistry.chestBasket, 4, getChestContents());
+		placeChest(world, random, -1, 1, -1, GOTBlocks.chestBasket, 4, getChestContents());
 		placeMug(world, random, -1, 2, 1, 0, GOTFoods.ESSOS_DRINK);
 		placeBarrel(world, random, 1, 2, 1, 2, GOTFoods.ESSOS_DRINK);
 		placeWeaponRack(world, -1, 8, 0, 5, getRandomWeapon(random));

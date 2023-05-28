@@ -1,8 +1,9 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityBarrowWight;
 import got.common.item.other.GOTItemBanner;
 import got.common.tileentity.GOTTileEntitySarbacaneTrap;
@@ -85,7 +86,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 				for (k12 = -RADIUS; k12 <= RADIUS; ++k12) {
 					j1 = getTopBlock(world, i1, k12);
 					Block block = getBlock(world, i1, j1 - 1, k12);
-					if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.stone || block == GOTRegistry.mudGrass || block == GOTRegistry.mud) {
+					if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.stone || block == GOTBlocks.mudGrass || block == GOTBlocks.mud) {
 						continue;
 					}
 					return false;
@@ -120,24 +121,24 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		}
 		for (int i16 = -2; i16 <= 2; ++i16) {
 			for (int k16 = -2; k16 <= 2; ++k16) {
-				setBlockAndMetadata(world, i16, topHeight, k16, GOTRegistry.brick4, 3);
+				setBlockAndMetadata(world, i16, topHeight, k16, GOTBlocks.brick4, 3);
 				for (int j13 = topHeight + 1; j13 <= topHeight + 6; ++j13) {
 					if (Math.abs(i16) == 2 && Math.abs(k16) == 2) {
-						setBlockAndMetadata(world, i16, j13, k16, GOTRegistry.pillar2, 12);
+						setBlockAndMetadata(world, i16, j13, k16, GOTBlocks.pillar2, 12);
 						continue;
 					}
-					setBlockAndMetadata(world, i16, j13, k16, GOTRegistry.brick4, 4);
+					setBlockAndMetadata(world, i16, j13, k16, GOTBlocks.brick4, 4);
 				}
-				setBlockAndMetadata(world, i16, topHeight + 7, k16, GOTRegistry.brick4, 3);
+				setBlockAndMetadata(world, i16, topHeight + 7, k16, GOTBlocks.brick4, 3);
 			}
 		}
 		for (int i15 : new int[]{-10, 10}) {
 			for (int k17 : new int[]{-10, 10}) {
-				setBlockAndMetadata(world, i15, topHeight, k17, GOTRegistry.brick4, 3);
+				setBlockAndMetadata(world, i15, topHeight, k17, GOTBlocks.brick4, 3);
 				for (int j14 = topHeight + 1; j14 <= topHeight + 3; ++j14) {
-					setBlockAndMetadata(world, i15, j14, k17, GOTRegistry.pillar2, 12);
+					setBlockAndMetadata(world, i15, j14, k17, GOTBlocks.pillar2, 12);
 				}
-				setBlockAndMetadata(world, i15, topHeight + 4, k17, GOTRegistry.brick4, 3);
+				setBlockAndMetadata(world, i15, topHeight + 4, k17, GOTBlocks.brick4, 3);
 			}
 		}
 		generateMaze(world, random, 0, topHeight - 13, 0, maze1, 5, 1, false);
@@ -200,8 +201,8 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 				int i2 = Math.abs(i17);
 				int k2 = Math.abs(k17);
 				if (i2 == chamberRMax + 1 || k2 == chamberRMax + 1) {
-					setBlockAndMetadata(world, i17, topHeight - 25, k17, GOTRegistry.brick4, 4);
-					setBlockAndMetadata(world, i17, topHeight - 24, k17, GOTRegistry.brick4, 3);
+					setBlockAndMetadata(world, i17, topHeight - 25, k17, GOTBlocks.brick4, 4);
+					setBlockAndMetadata(world, i17, topHeight - 24, k17, GOTBlocks.brick4, 3);
 				}
 				if (i2 > chamberRMax || k2 > chamberRMax || i2 < chamberRMin && k2 < chamberRMin) {
 					continue;
@@ -210,20 +211,20 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 					setAir(world, i17, j18, k17);
 				}
 				if (i2 == chamberRMax && k2 == chamberRMax) {
-					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTRegistry.hearth, 0);
+					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTBlocks.hearth, 0);
 					setBlockAndMetadata(world, i17, topHeight - 25, k17, Blocks.fire, 0);
 				} else if (i2 >= chamberRMax - 1 && k2 >= chamberRMax - 1) {
-					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTRegistry.brick4, 3);
+					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTBlocks.brick4, 3);
 				} else if (i2 >= chamberRMax - 2 && k2 >= chamberRMax - 2) {
-					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTRegistry.slabSingle8, 4);
+					setBlockAndMetadata(world, i17, topHeight - 26, k17, GOTBlocks.slabSingle8, 4);
 				}
 				if ((i2 != chamberRMax || k2 % 6 != 0 || k2 >= chamberRMax - 4) && (k2 != chamberRMax || i2 % 6 != 0 || i2 >= chamberRMax - 4)) {
 					continue;
 				}
-				Block pillarBlock = GOTRegistry.pillar1;
+				Block pillarBlock = GOTBlocks.pillar1;
 				int pillarMeta = 14;
 				if (isGolden) {
-					pillarBlock = GOTRegistry.pillar2;
+					pillarBlock = GOTBlocks.pillar2;
 					pillarMeta = 11;
 				}
 				for (int j19 = topHeight - 26; j19 < topHeight - 22; ++j19) {
@@ -284,23 +285,23 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 				}
 				if (i2 == roomPillarEdge || k2 == roomPillarEdge) {
 					for (j112 = roomBottom + 1; j112 <= roomFloor + 1; ++j112) {
-						setBlockAndMetadata(world, i12, j112, k1, GOTRegistry.brick4, 4);
+						setBlockAndMetadata(world, i12, j112, k1, GOTBlocks.brick4, 4);
 					}
 					placeRandomBrick(world, random, i12, actingRoomTop - 1, k1);
 					if (isGolden) {
-						setBlockAndMetadata(world, i12, actingRoomTop - 2, k1, GOTRegistry.pillar2, 11);
+						setBlockAndMetadata(world, i12, actingRoomTop - 2, k1, GOTBlocks.pillar2, 11);
 					} else {
-						setBlockAndMetadata(world, i12, actingRoomTop - 2, k1, GOTRegistry.pillar1, 14);
+						setBlockAndMetadata(world, i12, actingRoomTop - 2, k1, GOTBlocks.pillar1, 14);
 					}
 					int i3 = IntMath.mod(i12, 4);
 					int k3 = IntMath.mod(k1, 4);
 					if (i2 == roomPillarEdge && k3 == 0 || k2 == roomPillarEdge && i3 == 0) {
 						for (j111 = roomFloor + 2; j111 <= actingRoomTop - 2; ++j111) {
 							if (isGolden) {
-								setBlockAndMetadata(world, i12, j111, k1, GOTRegistry.pillar2, 11);
+								setBlockAndMetadata(world, i12, j111, k1, GOTBlocks.pillar2, 11);
 								continue;
 							}
-							setBlockAndMetadata(world, i12, j111, k1, GOTRegistry.pillar1, 14);
+							setBlockAndMetadata(world, i12, j111, k1, GOTBlocks.pillar1, 14);
 						}
 					}
 					if (i2 == roomPillarEdge) {
@@ -336,22 +337,22 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 						placeRandomBrick(world, random, i12, j113, k1);
 					}
 					if (max > 3 && max % 2 == 0) {
-						setBlockAndMetadata(world, i12, lvlMax, k1, GOTRegistry.brick4, 4);
+						setBlockAndMetadata(world, i12, lvlMax, k1, GOTBlocks.brick4, 4);
 						if (i2 == k2) {
-							setBlockAndMetadata(world, i12, lvlMax, k1, GOTRegistry.pillar2, 11);
-							setBlockAndMetadata(world, i12, lvlMax + 1, k1, GOTRegistry.pillar2, 11);
-							setBlockAndMetadata(world, i12, lvlMax + 2, k1, GOTRegistry.sothoryosDoubleTorch, 0);
-							setBlockAndMetadata(world, i12, lvlMax + 3, k1, GOTRegistry.sothoryosDoubleTorch, 1);
+							setBlockAndMetadata(world, i12, lvlMax, k1, GOTBlocks.pillar2, 11);
+							setBlockAndMetadata(world, i12, lvlMax + 1, k1, GOTBlocks.pillar2, 11);
+							setBlockAndMetadata(world, i12, lvlMax + 2, k1, GOTBlocks.sothoryosDoubleTorch, 0);
+							setBlockAndMetadata(world, i12, lvlMax + 3, k1, GOTBlocks.sothoryosDoubleTorch, 1);
 						}
 					}
 					if (max <= 3 || i2 > 1 && k2 > 1) {
 						continue;
 					}
 					if (max % 2 == 0) {
-						setBlockAndMetadata(world, i12, lvlMax, k1, GOTRegistry.slabSingle8, 3);
+						setBlockAndMetadata(world, i12, lvlMax, k1, GOTBlocks.slabSingle8, 3);
 						continue;
 					}
-					setBlockAndMetadata(world, i12, lvlMax, k1, GOTRegistry.brick4, 3);
+					setBlockAndMetadata(world, i12, lvlMax, k1, GOTBlocks.brick4, 3);
 					continue;
 				}
 				for (j112 = roomBottom + 1; j112 <= roomFloor; ++j112) {
@@ -387,14 +388,14 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 				if (random.nextInt(200) != 0) {
 					continue;
 				}
-				Block pillarBlock = GOTRegistry.pillar1;
+				Block pillarBlock = GOTBlocks.pillar1;
 				int pillarMeta = 14;
 				if (isGolden) {
-					pillarBlock = GOTRegistry.pillar2;
+					pillarBlock = GOTBlocks.pillar2;
 					pillarMeta = 11;
 				}
 				if (random.nextBoolean()) {
-					pillarBlock = GOTRegistry.pillar2;
+					pillarBlock = GOTBlocks.pillar2;
 					pillarMeta = 12;
 				}
 				for (j111 = roomBottom + 1; j111 < actingRoomTop; ++j111) {
@@ -403,10 +404,10 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 			}
 		}
 		placePyramidBanner(world, 0, roomFloor + 6, 0);
-		placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 5, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
-		placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTRegistry.spawnerChestStone, 4, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
-		placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTRegistry.spawnerChestStone, 2, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
-		placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTRegistry.spawnerChestStone, 3, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
+		placeSpawnerChest(world, random, -1, roomFloor + 5, 0, GOTBlocks.spawnerChestStone, 5, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
+		placeSpawnerChest(world, random, 1, roomFloor + 5, 0, GOTBlocks.spawnerChestStone, 4, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
+		placeSpawnerChest(world, random, 0, roomFloor + 5, -1, GOTBlocks.spawnerChestStone, 2, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
+		placeSpawnerChest(world, random, 0, roomFloor + 5, 1, GOTBlocks.spawnerChestStone, 3, GOTEntityBarrowWight.class, GOTChestContents.TREASURE);
 		stepX = 1;
 		stepY = topHeight - 36;
 		stepZ = 0;
@@ -459,7 +460,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 			stepZ = newZ;
 		}
 		for (int j114 = roomFloor + 1; j114 <= topHeight - 32; ++j114) {
-			setBlockAndMetadata(world, maze3EndX, j114, maze3EndZ, GOTRegistry.pillar2, 12);
+			setBlockAndMetadata(world, maze3EndX, j114, maze3EndZ, GOTBlocks.pillar2, 12);
 		}
 		setBlockAndMetadata(world, maze3EndX + 1, topHeight - 33, maze3EndZ, Blocks.torch, 2);
 		setBlockAndMetadata(world, maze3EndX - 1, topHeight - 33, maze3EndZ, Blocks.torch, 1);
@@ -519,9 +520,9 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 	}
 
 	public void placeDartTrap(World world, Random random, int i, int j, int k, int meta) {
-		Block dartTrapBlock = GOTRegistry.sarbacaneTrap;
+		Block dartTrapBlock = GOTBlocks.sarbacaneTrap;
 		if (isGolden) {
-			dartTrapBlock = GOTRegistry.sarbacaneTrapGold;
+			dartTrapBlock = GOTBlocks.sarbacaneTrapGold;
 		}
 		setBlockAndMetadata(world, i, j, k, dartTrapBlock, meta);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
@@ -533,10 +534,10 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 				}
 				int darts = MathHelper.getRandomIntegerInRange(random, 2, 6);
 				if (random.nextBoolean()) {
-					trap.setInventorySlotContents(l, new ItemStack(GOTRegistry.dartPoisoned, darts));
+					trap.setInventorySlotContents(l, new ItemStack(GOTItems.dartPoisoned, darts));
 					continue;
 				}
-				trap.setInventorySlotContents(l, new ItemStack(GOTRegistry.sarbacaneTrap, darts));
+				trap.setInventorySlotContents(l, new ItemStack(GOTBlocks.sarbacaneTrap, darts));
 			}
 		}
 	}
@@ -551,33 +552,33 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 
 	public void placeRandomBrick(World world, Random random, int i, int j, int k) {
 		if (isGolden) {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.brick4, 3);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 3);
 			return;
 		}
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
-				setBlockAndMetadata(world, i, j, k, GOTRegistry.brick4, 1);
+				setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 1);
 			} else {
-				setBlockAndMetadata(world, i, j, k, GOTRegistry.brick4, 2);
+				setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 2);
 			}
 		} else {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.brick4, 0);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 0);
 		}
 	}
 
 	public void placeRandomStairs(World world, Random random, int i, int j, int k, int meta) {
 		if (isGolden) {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSothoryosBrickGold, meta);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsSothoryosBrickGold, meta);
 			return;
 		}
 		if (random.nextBoolean()) {
 			if (random.nextBoolean()) {
-				setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSothoryosBrickMossy, meta);
+				setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsSothoryosBrickMossy, meta);
 			} else {
-				setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSothoryosBrickCracked, meta);
+				setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsSothoryosBrickCracked, meta);
 			}
 		} else {
-			setBlockAndMetadata(world, i, j, k, GOTRegistry.stairsSothoryosBrick, meta);
+			setBlockAndMetadata(world, i, j, k, GOTBlocks.stairsSothoryosBrick, meta);
 		}
 	}
 

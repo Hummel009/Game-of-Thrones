@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.common;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
@@ -51,16 +51,16 @@ public class GOTStructureEssosTraining extends GOTStructureEssosBase {
 		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
 		if (hasSandstone()) {
 			addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
-			addBlockMetaAliasOption("GROUND", 2, GOTRegistry.pillar1, 5);
-			addBlockMetaAliasOption("GROUND", 3, GOTRegistry.dirtPath, 0);
+			addBlockMetaAliasOption("GROUND", 2, GOTBlocks.pillar1, 5);
+			addBlockMetaAliasOption("GROUND", 3, GOTBlocks.dirtPath, 0);
 			addBlockMetaAliasOption("GROUND", 5, Blocks.sand, 0);
 			addBlockMetaAliasOption("GROUND", 5, Blocks.sandstone, 0);
-			addBlockMetaAliasOption("GROUND", 7, GOTRegistry.brick1, 15);
-			addBlockMetaAliasOption("GROUND", 8, GOTRegistry.brick3, 11);
+			addBlockMetaAliasOption("GROUND", 7, GOTBlocks.brick1, 15);
+			addBlockMetaAliasOption("GROUND", 8, GOTBlocks.brick3, 11);
 		} else {
 			addBlockMetaAliasOption("GROUND", 8, Blocks.dirt, 1);
 			addBlockMetaAliasOption("GROUND", 2, Blocks.gravel, 0);
-			addBlockMetaAliasOption("GROUND", 5, GOTRegistry.dirtPath, 0);
+			addBlockMetaAliasOption("GROUND", 5, GOTBlocks.dirtPath, 0);
 		}
 		generateStrScan(world, random, 0, 0, 0);
 		placeWeaponRack(world, -5, 2, -4, 2, getRandomWeapon(random));

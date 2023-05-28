@@ -2,7 +2,7 @@ package got.common.entity.animal;
 
 import got.GOT;
 import got.common.block.other.GOTBlockBerryBush;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.AnimalJarUpdater;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
@@ -263,7 +263,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
-		return new ItemStack(GOTRegistry.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
+		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
 	public ChunkCoordinates getPlayerFlightTarget(EntityPlayer entityplayer) {

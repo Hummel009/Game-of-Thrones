@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.mossovy;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.mossovy.GOTEntityMossovyBlacksmith;
 import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
@@ -70,13 +70,13 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 								setBlockAndMetadata(world, i15, 0, k12, Blocks.dirt, 1);
 								break;
 							case 2:
-								setBlockAndMetadata(world, i15, 0, k12, GOTRegistry.dirtPath, 0);
+								setBlockAndMetadata(world, i15, 0, k12, GOTBlocks.dirtPath, 0);
 								break;
 							default:
 								break;
 						}
 						if (random.nextInt(3) == 0) {
-							setBlockAndMetadata(world, i15, 1, k12, GOTRegistry.thatchFloor, 0);
+							setBlockAndMetadata(world, i15, 1, k12, GOTBlocks.thatchFloor, 0);
 						}
 					} else {
 						setBlockAndMetadata(world, i15, j14, k12, Blocks.dirt, 0);
@@ -278,7 +278,7 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 		}
 		for (j1 = 1; j1 <= 3; ++j1) {
 			for (i1 = -1; i1 <= 1; ++i1) {
-				setBlockAndMetadata(world, i1, j1, -11, GOTRegistry.gateIronBars, 3);
+				setBlockAndMetadata(world, i1, j1, -11, GOTBlocks.gateIronBars, 3);
 			}
 		}
 		for (i14 = -1; i14 <= 1; ++i14) {
@@ -317,9 +317,9 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 			if (IntMath.mod(k1, 4) != 2) {
 				continue;
 			}
-			setBlockAndMetadata(world, -2, 1, k1, GOTRegistry.wallStoneV, 1);
+			setBlockAndMetadata(world, -2, 1, k1, GOTBlocks.wallStoneV, 1);
 			setBlockAndMetadata(world, -2, 2, k1, Blocks.torch, 5);
-			setBlockAndMetadata(world, 2, 1, k1, GOTRegistry.wallStoneV, 1);
+			setBlockAndMetadata(world, 2, 1, k1, GOTBlocks.wallStoneV, 1);
 			setBlockAndMetadata(world, 2, 2, k1, Blocks.torch, 5);
 		}
 		for (j1 = 1; j1 <= 3; ++j1) {
@@ -356,8 +356,8 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 				setBlockAndMetadata(world, -7, 1, -9, Blocks.furnace, 3);
 				setBlockAndMetadata(world, -9, 1, -7, Blocks.furnace, 4);
 			} else {
-				setBlockAndMetadata(world, -7, j17, -9, GOTRegistry.alloyForge, 3);
-				setBlockAndMetadata(world, -9, j17, -7, GOTRegistry.alloyForge, 4);
+				setBlockAndMetadata(world, -7, j17, -9, GOTBlocks.alloyForge, 3);
+				setBlockAndMetadata(world, -9, j17, -7, GOTBlocks.alloyForge, 4);
 			}
 			setBlockAndMetadata(world, -8, j17, -9, plankBlock, plankMeta);
 			setBlockAndMetadata(world, -9, j17, -9, plankBlock, plankMeta);
@@ -434,7 +434,7 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 				if (!random.nextBoolean()) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k13, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i1, 1, k13, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (int k16 : new int[]{6, 10}) {
@@ -471,7 +471,7 @@ public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 				setAir(world, i1, j12, 10);
 			}
 		}
-		setBlockAndMetadata(world, 0, 1, 9, GOTRegistry.commandTable, 0);
+		setBlockAndMetadata(world, 0, 1, 9, GOTBlocks.commandTable, 0);
 		placeWallBanner(world, 0, 3, 11, GOTItemBanner.BannerType.MOSSOVY, 2);
 		for (int l = 0; l < 10; ++l) {
 			spawnNPCAndSetHome(new GOTEntityMossovyWitcher(world), world, 0, 1, 0, 20);

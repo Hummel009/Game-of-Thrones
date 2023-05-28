@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.lhazar;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
 import got.common.entity.essos.lhazar.GOTEntityLhazarWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -58,12 +58,12 @@ public class GOTStructureLhazarTower extends GOTStructureLhazarBase {
 		associateBlockMetaAlias("FLAG", flagBlock, flagMeta);
 		associateBlockMetaAlias("BONE", boneBlock, boneMeta);
 		generateStrScan(world, random, 0, 0, 0);
-		placeChest(world, random, -2, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.LHAZAR);
+		placeChest(world, random, -2, 1, 0, GOTBlocks.chestBasket, 4, GOTChestContents.LHAZAR);
 		placeSkull(world, random, 2, 2, 1);
 		placeBarrel(world, random, -2, 2, -1, 4, GOTFoods.NOMAD_DRINK);
 		placeMug(world, random, 2, 2, -1, 2, GOTFoods.NOMAD_DRINK);
-		placePlate(world, random, 2, 2, 0, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
-		placePlate(world, random, -2, 2, 1, GOTRegistry.woodPlateBlock, GOTFoods.NOMAD);
+		placePlate(world, random, 2, 2, 0, GOTBlocks.woodPlateBlock, GOTFoods.NOMAD);
+		placePlate(world, random, -2, 2, 1, GOTBlocks.woodPlateBlock, GOTFoods.NOMAD);
 		placeWallBanner(world, 0, 8, -3, GOTItemBanner.BannerType.LHAZAR, 2);
 		placeWallBanner(world, 0, 8, 3, GOTItemBanner.BannerType.LHAZAR, 0);
 		int warriors = 1 + random.nextInt(2);

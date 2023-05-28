@@ -1,8 +1,9 @@
 package got.common.world.structure.essos.lhazar;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
 import got.common.entity.essos.lhazar.GOTEntityLhazarWarlord;
@@ -56,7 +57,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 					if (j1 == 0) {
 						if (i2 <= 14 && k2 <= 14) {
 							if (random.nextBoolean()) {
-								setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+								setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 							} else {
 								int randomGround = random.nextInt(3);
 								switch (randomGround) {
@@ -91,7 +92,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 				if (i2 > 12 || k2 > 12 || random.nextInt(5) != 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		loadStrScan("lhazar_war_camp");
@@ -113,11 +114,11 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 			setBlockAndMetadata(world, i1, 1, 12, bedBlock, 0);
 			setBlockAndMetadata(world, i1, 1, 13, bedBlock, 8);
 		}
-		placeChest(world, random, -12, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
-		placeChest(world, random, -10, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
-		placeChest(world, random, 10, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
-		placeChest(world, random, 12, 1, 13, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
-		placeChest(world, random, -1, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.LHAZAR);
+		placeChest(world, random, -12, 1, 13, GOTBlocks.chestBasket, 2, GOTChestContents.LHAZAR);
+		placeChest(world, random, -10, 1, 13, GOTBlocks.chestBasket, 2, GOTChestContents.LHAZAR);
+		placeChest(world, random, 10, 1, 13, GOTBlocks.chestBasket, 2, GOTChestContents.LHAZAR);
+		placeChest(world, random, 12, 1, 13, GOTBlocks.chestBasket, 2, GOTChestContents.LHAZAR);
+		placeChest(world, random, -1, 1, 3, GOTBlocks.chestBasket, 2, GOTChestContents.LHAZAR);
 		placelhazarArmor(world, random, -11, 1, -13, 2);
 		placelhazarArmor(world, random, -9, 1, -13, 2);
 		placelhazarArmor(world, random, -13, 1, -11, 3);
@@ -136,8 +137,8 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 		placeWeaponRack(world, 8, 2, -7, 4, getRandomlhazarWeapon(random));
 		placeSkull(world, random, -12, 3, -2);
 		placeSkull(world, random, -12, 3, 2);
-		placeWeaponRack(world, 11, 2, -4, 7, new ItemStack(GOTRegistry.nomadBow));
-		placeWeaponRack(world, 11, 2, 4, 7, new ItemStack(GOTRegistry.nomadBow));
+		placeWeaponRack(world, 11, 2, -4, 7, new ItemStack(GOTItems.nomadBow));
+		placeWeaponRack(world, 11, 2, 4, 7, new ItemStack(GOTItems.nomadBow));
 		placeBarrel(world, random, -13, 2, 9, 3, GOTFoods.NOMAD_DRINK);
 		placeBarrel(world, random, 13, 2, 9, 3, GOTFoods.NOMAD_DRINK);
 		placeWallBanner(world, 0, 6, -15, GOTItemBanner.BannerType.LHAZAR, 2);
@@ -166,7 +167,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 		GOTEntityLhazarWarlord warlord = new GOTEntityLhazarWarlord(world);
 		warlord.spawnRidingHorse = false;
 		spawnNPCAndSetHome(warlord, world, 0, 9, -3, 6);
-		setBlockAndMetadata(world, 0, 9, 3, GOTRegistry.commandTable, 0);
+		setBlockAndMetadata(world, 0, 9, 3, GOTBlocks.commandTable, 0);
 		int warriors = 6;
 		for (int l = 0; l < warriors; ++l) {
 			GOTEntityLhazarWarrior warrior = random.nextInt(3) == 0 ? new GOTEntityLhazarArcher(world) : new GOTEntityLhazarWarrior(world);
@@ -182,7 +183,7 @@ public class GOTStructureLhazarWarCamp extends GOTStructureLhazarBase {
 	}
 
 	public void placelhazarArmor(World world, Random random, int i, int j, int k, int meta) {
-		ItemStack[] armor = random.nextInt(3) != 0 ? new ItemStack[]{null, null, null, null} : new ItemStack[]{new ItemStack(GOTRegistry.lhazarHelmet), new ItemStack(GOTRegistry.lhazarChestplate), new ItemStack(GOTRegistry.lhazarLeggings), new ItemStack(GOTRegistry.lhazarBoots)};
+		ItemStack[] armor = random.nextInt(3) != 0 ? new ItemStack[]{null, null, null, null} : new ItemStack[]{new ItemStack(GOTItems.lhazarHelmet), new ItemStack(GOTItems.lhazarChestplate), new ItemStack(GOTItems.lhazarLeggings), new ItemStack(GOTItems.lhazarBoots)};
 		placeArmorStand(world, i, j, k, meta, armor);
 	}
 }

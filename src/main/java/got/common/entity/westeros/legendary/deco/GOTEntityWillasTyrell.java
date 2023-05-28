@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.deco;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIDrink;
 import got.common.entity.ai.GOTEntityAIEat;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
@@ -85,8 +85,8 @@ public class GOTEntityWillasTyrell extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.walkingStick));
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.walkingStick));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.walkingStick));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.walkingStick));
 		return data;
 	}
 

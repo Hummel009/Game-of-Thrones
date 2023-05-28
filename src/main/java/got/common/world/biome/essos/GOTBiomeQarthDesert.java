@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -27,7 +27,7 @@ public class GOTBiomeQarthDesert extends GOTBiomeLhazar implements GOTBiome.Dese
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		topBlock = Blocks.sand;
 		topBlockMeta = 1;
-		fillerBlock = GOTRegistry.redSandstone;
+		fillerBlock = GOTBlocks.redSandstone;
 		variantChance = 0.3f;
 		decorator.cactiPerChunk = 2;
 		decorator.deadBushPerChunk = 2;
@@ -128,7 +128,7 @@ public class GOTBiomeQarthDesert extends GOTBiomeLhazar implements GOTBiome.Dese
 
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
-		return new GOTBiome.GrassBlockAndMeta(GOTRegistry.aridGrass, 0);
+		return new GOTBiome.GrassBlockAndMeta(GOTBlocks.aridGrass, 0);
 	}
 
 	@Override

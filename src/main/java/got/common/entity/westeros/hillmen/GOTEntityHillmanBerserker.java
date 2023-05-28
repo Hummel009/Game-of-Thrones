@@ -1,6 +1,6 @@
 package got.common.entity.westeros.hillmen;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.item.ItemStack;
@@ -26,15 +26,15 @@ public class GOTEntityHillmanBerserker extends GOTEntityHillmanWarrior {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(4);
 		if (i == 0 || i == 1 || i == 2) {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironBattleaxe));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironBattleaxe));
 		} else {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeBattleaxe));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeBattleaxe));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.furBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.furLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.boneChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.hillmenHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.furBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.boneChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.hillmenHelmet));
 		return data;
 	}
 }

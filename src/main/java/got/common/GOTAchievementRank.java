@@ -1,7 +1,7 @@
 package got.common;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionRank;
@@ -14,7 +14,7 @@ public class GOTAchievementRank extends GOTAchievement {
 	public GOTFaction theFac;
 
 	public GOTAchievementRank(GOTFactionRank rank) {
-		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTRegistry.gregorCleganeSword, "alignment_" + rank.fac.codeName() + "_" + rank.alignment);
+		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTItems.gregorCleganeSword, "alignment_" + rank.fac.codeName() + "_" + rank.alignment);
 		theRank = rank;
 		theFac = theRank.fac;
 		setRequiresAlly(theFac);

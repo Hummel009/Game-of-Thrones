@@ -6,7 +6,7 @@ import got.common.GOTBannerProtection;
 import got.common.GOTLevelData;
 import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTInvasions;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityInvasionSpawner;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.faction.GOTAlignmentValues;
@@ -37,7 +37,7 @@ public class GOTItemConquestHorn extends Item {
 	}
 
 	public static ItemStack createHorn(GOTInvasions type) {
-		ItemStack itemstack = new ItemStack(GOTRegistry.conquestHorn);
+		ItemStack itemstack = new ItemStack(GOTItems.conquestHorn);
 		setInvasionType(itemstack, type);
 		return itemstack;
 	}

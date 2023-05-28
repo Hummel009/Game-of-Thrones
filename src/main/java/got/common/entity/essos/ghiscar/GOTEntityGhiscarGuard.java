@@ -2,7 +2,7 @@ package got.common.entity.essos.ghiscar;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -29,13 +29,13 @@ public class GOTEntityGhiscarGuard extends GOTEntityGhiscarLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(0, new ItemStack(GOTRegistry.essosPolearm));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosPolearm));
+		setCurrentItemOrArmor(0, new ItemStack(GOTItems.essosPolearm));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.gemsbokBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.gemsbokLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.gemsbokChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.gemsbokHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.gemsbokBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.gemsbokLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.gemsbokChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.gemsbokHelmet));
 		return data;
 	}
 }

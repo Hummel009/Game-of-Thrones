@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.lorath;
 
 import com.google.common.math.IntMath;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.lorath.GOTEntityLorathMan;
 import got.common.entity.essos.lorath.GOTEntityLorathSoldier;
 import got.common.entity.essos.lorath.GOTEntityLorathSoldierArcher;
@@ -244,7 +244,7 @@ public class GOTStructureLorathSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
-			return block == Blocks.stone || block == GOTRegistry.rock;
+			return block == Blocks.stone || block == GOTBlocks.rock;
 		}
 
 		public void placeChampionRespawner() {

@@ -1,7 +1,7 @@
 /*
  * Decompiled with CFR 0.148.
  *
- * Could not load the following classes:
+ * Could not onInit the following classes:
  *  net.minecraft.block.Block
  *  net.minecraft.block.BlockDoublePlant
  *  net.minecraft.block.BlockGrass
@@ -13,9 +13,9 @@
  */
 package got.common.world.structure.essos.mossovy;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
 import got.common.entity.westeros.GOTEntityWesterosThief;
 import net.minecraft.block.Block;
@@ -101,9 +101,9 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 		addBlockMetaAliasOption("COBBLE", 3, Blocks.cobblestone, 0);
 		addBlockMetaAliasOption("COBBLE", 1, Blocks.mossy_cobblestone, 0);
 		addBlockMetaAliasOption("COBBLE_SLAB_INV", 3, Blocks.stone_slab, 11);
-		addBlockMetaAliasOption("COBBLE_SLAB_INV", 1, GOTRegistry.slabSingleV, 12);
+		addBlockMetaAliasOption("COBBLE_SLAB_INV", 1, GOTBlocks.slabSingleV, 12);
 		addBlockAliasOption("COBBLE_STAIR", 3, Blocks.stone_stairs);
-		addBlockAliasOption("COBBLE_STAIR", 1, GOTRegistry.stairsCobblestoneMossy);
+		addBlockAliasOption("COBBLE_STAIR", 1, GOTBlocks.stairsCobblestoneMossy);
 		addBlockMetaAliasOption("COBBLE_WALL", 3, Blocks.cobblestone_wall, 0);
 		addBlockMetaAliasOption("COBBLE_WALL", 1, Blocks.cobblestone_wall, 1);
 		associateBlockMetaAlias("PLANK", plankBlock, plankMeta);
@@ -123,15 +123,15 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		associateBlockMetaAlias("TABLE", tableBlock, 0);
 		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);
-		addBlockMetaAliasOption("THATCH_FLOOR", 1, GOTRegistry.thatchFloor, 0);
+		addBlockMetaAliasOption("THATCH_FLOOR", 1, GOTBlocks.thatchFloor, 0);
 		setBlockAliasChance("THATCH_FLOOR", 0.2f);
-		addBlockMetaAliasOption("LEAF_FLOOR", 1, GOTRegistry.fallenLeaves1, 0);
+		addBlockMetaAliasOption("LEAF_FLOOR", 1, GOTBlocks.fallenLeaves1, 0);
 		setBlockAliasChance("LEAF_FLOOR", 0.3f);
 		addBlockMetaAliasOption("WEB", 1, Blocks.web, 0);
 		setBlockAliasChance("WEB", 0.3f);
 		addBlockMetaAliasOption("PATH", 10, Blocks.grass, 0);
 		addBlockMetaAliasOption("PATH", 10, Blocks.dirt, 1);
-		addBlockMetaAliasOption("PATH", 10, GOTRegistry.dirtPath, 0);
+		addBlockMetaAliasOption("PATH", 10, GOTBlocks.dirtPath, 0);
 		addBlockMetaAliasOption("PATH", 5, Blocks.cobblestone, 0);
 		addBlockMetaAliasOption("PATH", 5, Blocks.mossy_cobblestone, 0);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
@@ -147,7 +147,7 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 						setBlockAndMetadata(world, i13, j12, k1, Blocks.dirt, 1);
 						break;
 					case 2:
-						setBlockAndMetadata(world, i13, j12, k1, GOTRegistry.dirtPath, 0);
+						setBlockAndMetadata(world, i13, j12, k1, GOTBlocks.dirtPath, 0);
 						break;
 					case 3:
 						if (random.nextBoolean()) {
@@ -178,7 +178,7 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 					setBlockAndMetadata(world, i12, j12, k1, Blocks.dirt, 1);
 					break;
 				case 2:
-					setBlockAndMetadata(world, i12, j12, k1, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i12, j12, k1, GOTBlocks.dirtPath, 0);
 					break;
 				case 3:
 					if (random.nextBoolean()) {
@@ -204,14 +204,14 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, 4, -2, 1, bedBlock, 1);
 		setBlockAndMetadata(world, 0, 5, 0, bedBlock, 3);
 		setBlockAndMetadata(world, -1, 5, 0, bedBlock, 11);
-		placePlateWithCertainty(world, random, 1, -1, -4, GOTRegistry.ceramicPlateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 1, -1, -4, GOTBlocks.ceramicPlateBlock, GOTFoods.WESTEROS);
 		placeMug(world, random, 0, -1, -4, 0, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, 5, -2, -4, 5, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, 4, -2, -3, 2, GOTFoods.WESTEROS_DRINK);
 		placeChest(world, random, 3, -2, -3, 2, GOTChestContents.MOSSOVY);
 		placeChest(world, random, -2, -2, 0, 4, GOTChestContents.TREASURE);
 		placeChest(world, random, 3, -2, 1, 2, GOTChestContents.TREASURE);
-		placePlateWithCertainty(world, random, 3, 2, -3, GOTRegistry.plateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 3, 2, -3, GOTBlocks.plateBlock, GOTFoods.WESTEROS);
 		placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
 		placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);
 		placeChest(world, random, 1, 5, 1, 2, GOTChestContents.MOSSOVY);

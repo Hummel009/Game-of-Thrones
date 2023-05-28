@@ -50,7 +50,7 @@ public class GOTEntityDunstanDrumm extends GOTEntityHumanBase implements GOTUnit
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.redRain, 1);
+		dropItem(GOTItems.redRain, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityDunstanDrumm extends GOTEntityHumanBase implements GOTUnit
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.redRain));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.redRain));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

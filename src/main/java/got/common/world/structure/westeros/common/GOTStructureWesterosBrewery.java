@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.common;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemBanner;
 import got.common.item.other.GOTItemMug;
@@ -79,7 +79,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 		}
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (int j12 = 1; j12 <= 3; ++j12) {
-				setBlockAndMetadata(world, i12, j12, 1, GOTRegistry.gateWooden, 2);
+				setBlockAndMetadata(world, i12, j12, 1, GOTBlocks.gateWooden, 2);
 			}
 		}
 		for (k12 = 2; k12 <= 17; ++k12) {

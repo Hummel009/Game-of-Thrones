@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityBomb;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.entity.Render;
@@ -47,14 +47,14 @@ public class GOTRenderBomb extends Render {
 		}
 		f2 = (1.0f - (fuse - ticks + 1.0f) / 100.0f) * 0.8f;
 		bindEntityTexture(entity);
-		blockRenderer.renderBlockAsItem(GOTRegistry.bomb, strengthLevel, brightness);
+		blockRenderer.renderBlockAsItem(GOTBlocks.bomb, strengthLevel, brightness);
 		if (fuse / 5 % 2 == 0) {
 			GL11.glDisable(3553);
 			GL11.glDisable(2896);
 			GL11.glEnable(3042);
 			GL11.glBlendFunc(770, 772);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, f2);
-			blockRenderer.renderBlockAsItem(GOTRegistry.bomb, strengthLevel, 1.0f);
+			blockRenderer.renderBlockAsItem(GOTBlocks.bomb, strengthLevel, 1.0f);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			GL11.glDisable(3042);
 			GL11.glEnable(2896);

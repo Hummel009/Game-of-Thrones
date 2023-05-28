@@ -3,7 +3,7 @@ package got.client.model;
 import got.GOT;
 import got.client.GOTTickHandlerClient;
 import got.client.render.other.GOTRenderBlocks;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTPlateFallingInfo;
 import got.common.item.other.GOTItemPlate;
 import got.common.tileentity.GOTTileEntityPlate;
@@ -55,6 +55,6 @@ public class GOTModelPlateHead extends GOTModelHuman {
 	}
 
 	public void setPlateItem(ItemStack itemstack) {
-		plateBlock = itemstack.getItem() instanceof GOTItemPlate ? ((GOTItemPlate) itemstack.getItem()).plateBlock : GOTRegistry.plateBlock;
+		plateBlock = itemstack.getItem() instanceof GOTItemPlate ? ((GOTItemPlate) itemstack.getItem()).plateBlock : GOTBlocks.plateBlock;
 	}
 }

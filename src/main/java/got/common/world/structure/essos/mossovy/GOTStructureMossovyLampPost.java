@@ -1,7 +1,7 @@
 /*
  * Decompiled with CFR 0.148.
  *
- * Could not load the following classes:
+ * Could not onInit the following classes:
  *  net.minecraft.block.Block
  *  net.minecraft.init.Blocks
  *  net.minecraft.world.World

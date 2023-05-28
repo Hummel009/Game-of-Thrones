@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -45,13 +45,13 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 		double d5 = noiseStone.func_151601_a(i * 0.09, k * 0.09);
 		d6 = noiseStone.func_151601_a(i * 0.6, k * 0.6);
 		if (d5 + d6 > 0.5) {
-			topBlock = GOTRegistry.rock;
+			topBlock = GOTBlocks.rock;
 			topBlockMeta = 0;
 		} else if (d3 + d4 > 0.6) {
-			topBlock = GOTRegistry.basaltGravel;
+			topBlock = GOTBlocks.basaltGravel;
 			topBlockMeta = 0;
 		} else if (d1 + d2 > 0.6) {
-			topBlock = GOTRegistry.asshaiDirt;
+			topBlock = GOTBlocks.asshaiDirt;
 			topBlockMeta = 0;
 		}
 		super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);

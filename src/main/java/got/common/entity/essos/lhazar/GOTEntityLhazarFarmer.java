@@ -2,7 +2,7 @@ package got.common.entity.essos.lhazar;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTTradeable;
 import got.common.item.other.GOTItemLeatherHat;
@@ -46,9 +46,9 @@ public class GOTEntityLhazarFarmer extends GOTEntityLhazarMan implements GOTTrad
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzeHoe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		ItemStack turban = new ItemStack(GOTRegistry.robesHelmet);
+		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		GOTItemLeatherHat.setHatColor(turban, 10390131);
 		setCurrentItemOrArmor(4, turban);
 		return data;

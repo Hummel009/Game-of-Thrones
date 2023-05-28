@@ -1,6 +1,6 @@
 package got.common.block.leaves;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.item.Item;
 
 import java.util.Random;
@@ -12,7 +12,7 @@ public class GOTBlockLeaves3 extends GOTBlockLeavesBase {
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(GOTRegistry.sapling3);
+		return Item.getItemFromBlock(GOTBlocks.sapling3);
 	}
 
 	@Override

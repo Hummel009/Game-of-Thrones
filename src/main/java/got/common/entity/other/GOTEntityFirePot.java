@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import got.common.block.other.GOTBlockPlate;
 import got.common.block.other.GOTBlockWildFireJar;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -73,7 +73,7 @@ public class GOTEntityFirePot extends EntityThrowable {
 			double d = posX + MathHelper.randomFloatClamp(rand, -0.25f, 0.25f);
 			double d1 = posY + MathHelper.randomFloatClamp(rand, -0.25f, 0.25f);
 			double d2 = posZ + MathHelper.randomFloatClamp(rand, -0.25f, 0.25f);
-			worldObj.spawnParticle("blockcrack_" + Block.getIdFromBlock(GOTRegistry.wildFireJar) + "_0", d, d1, d2, 0.0, 0.0, 0.0);
+			worldObj.spawnParticle("blockcrack_" + Block.getIdFromBlock(GOTBlocks.wildFireJar) + "_0", d, d1, d2, 0.0, 0.0, 0.0);
 		}
 		for (int l = 0; l < 16; ++l) {
 			String s = rand.nextBoolean() ? "flame" : "smoke";

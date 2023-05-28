@@ -107,7 +107,7 @@ public class GOTEntityWalderFrey extends GOTEntityHumanBase implements GOTUnitTr
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

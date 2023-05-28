@@ -1,6 +1,6 @@
 package got.common.entity.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityFirePot;
 import got.common.entity.other.GOTEntityNPC;
@@ -76,8 +76,8 @@ public class GOTEntityYiTiFireThrower extends GOTEntityYiTiSoldier {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.yitiDagger));
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.firePot));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiDagger));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.firePot));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		return data;
 	}

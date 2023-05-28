@@ -1,6 +1,6 @@
 package got.common.world.structure.westeros.common;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -79,7 +79,7 @@ public class GOTStructureWesterosObelisk extends GOTStructureWesterosBase {
 		placeRandomStairs(world, random, 0, 19, -1, 2);
 		placeRandomStairs(world, random, 0, 19, 1, 3);
 		placeRandomBrick(world, random, 0, 19, 0);
-		setBlockAndMetadata(world, 0, 20, 0, GOTRegistry.beacon, 0);
+		setBlockAndMetadata(world, 0, 20, 0, GOTBlocks.beacon, 0);
 		return true;
 	}
 

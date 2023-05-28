@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.common;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -32,9 +32,9 @@ public class GOTStructureEssosVillagePost extends GOTStructureEssosBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		plankSlabBlock = GOTRegistry.woodSlabSingle3;
+		plankSlabBlock = GOTBlocks.woodSlabSingle3;
 		plankSlabMeta = 2;
-		woodBeamBlock = GOTRegistry.woodBeam4;
+		woodBeamBlock = GOTBlocks.woodBeam4;
 		woodBeamMeta = 2;
 	}
 }

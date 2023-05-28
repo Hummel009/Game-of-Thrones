@@ -1,6 +1,6 @@
 package got.common.entity.westeros.north;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.entity.IEntityLivingData;
@@ -28,7 +28,7 @@ public class GOTEntityNorthFishmonger extends GOTEntityNorthMarketTrader {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(Items.fishing_rod));
-		ItemStack hat = new ItemStack(GOTRegistry.leatherHat);
+		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 9013900);
 		setCurrentItemOrArmor(4, hat);
 		return data;

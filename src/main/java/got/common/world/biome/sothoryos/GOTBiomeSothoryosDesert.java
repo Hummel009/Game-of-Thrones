@@ -1,7 +1,7 @@
 package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -129,6 +129,6 @@ public class GOTBiomeSothoryosDesert extends GOTBiomeSothoryosBushland implement
 
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
-		return new GOTBiome.GrassBlockAndMeta(GOTRegistry.aridGrass, 0);
+		return new GOTBiome.GrassBlockAndMeta(GOTBlocks.aridGrass, 0);
 	}
 }

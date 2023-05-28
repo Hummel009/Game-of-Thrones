@@ -2,7 +2,7 @@ package got.common.entity.animal;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.world.biome.westeros.GOTBiomeNeck;
@@ -89,7 +89,7 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		int id = GOTEntityRegistry.getEntityID(this);
 		if (id > 0 && GOTEntityRegistry.spawnEggs.containsKey(id)) {
-			return new ItemStack(GOTRegistry.spawnEgg, 1, id);
+			return new ItemStack(GOTItems.spawnEgg, 1, id);
 		}
 		return null;
 	}

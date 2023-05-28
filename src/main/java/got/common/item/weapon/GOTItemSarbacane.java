@@ -1,7 +1,8 @@
 package got.common.item.weapon;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.GOTEntityDart;
@@ -48,7 +49,7 @@ public class GOTItemSarbacane extends Item {
 
 	@Override
 	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
-		return repairItem.getItem() == Item.getItemFromBlock(GOTRegistry.reeds);
+		return repairItem.getItem() == Item.getItemFromBlock(GOTBlocks.reeds);
 	}
 
 	@Override
@@ -95,7 +96,7 @@ public class GOTItemSarbacane extends Item {
 			break;
 		}
 		if (dartItem == null && entityplayer.capabilities.isCreativeMode) {
-			dartItem = new ItemStack(GOTRegistry.dart);
+			dartItem = new ItemStack(GOTItems.dart);
 		}
 		if (dartItem != null) {
 			int useTick = getMaxItemUseDuration(itemstack) - i;

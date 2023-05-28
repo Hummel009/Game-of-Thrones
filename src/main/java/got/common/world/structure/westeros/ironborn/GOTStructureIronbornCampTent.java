@@ -1,7 +1,7 @@
 package got.common.world.structure.westeros.ironborn;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.world.structure.other.GOTStructureTentBase;
 import net.minecraft.init.Blocks;
 
@@ -34,7 +34,7 @@ public class GOTStructureIronbornCampTent extends GOTStructureTentBase {
 		}
 		fenceBlock = Blocks.fence;
 		fenceMeta = 0;
-		tableBlock = GOTRegistry.tableIronborn;
+		tableBlock = GOTBlocks.tableIronborn;
 		chestContents = GOTChestContents.BEYOND_WALL;
 	}
 }

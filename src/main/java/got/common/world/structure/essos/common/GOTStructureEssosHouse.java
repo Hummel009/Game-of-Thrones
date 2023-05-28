@@ -1,7 +1,8 @@
 package got.common.world.structure.essos.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -114,7 +115,7 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 			int i13 = -1;
 			int j13 = 2;
 			if (random.nextBoolean()) {
-				placePlate(world, random, i13, j13, k12, GOTRegistry.woodPlateBlock, GOTFoods.ESSOS);
+				placePlate(world, random, i13, j13, k12, GOTBlocks.woodPlateBlock, GOTFoods.ESSOS);
 				continue;
 			}
 			placeMug(world, random, i13, j13, k12, 1, GOTFoods.ESSOS_DRINK);
@@ -124,14 +125,14 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 		setBlockAndMetadata(world, 1, 5, -2, bedBlock, 2);
 		setBlockAndMetadata(world, 1, 5, -3, bedBlock, 10);
 		placeFlowerPot(world, 0, 6, -3, getRandomFlower(world, random));
-		placeChest(world, random, -1, 5, 3, GOTRegistry.chestBasket, 2, getChestContents());
+		placeChest(world, random, -1, 5, 3, GOTBlocks.chestBasket, 2, getChestContents());
 		GOTEntityNPC male = getMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityNPC female = getMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityNPC child = getMan(world);
 		child.familyInfo.setMale(random.nextBoolean());

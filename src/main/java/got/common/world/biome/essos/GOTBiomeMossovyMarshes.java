@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenMarshLights;
 import got.common.world.spawning.GOTEventSpawner;
@@ -43,7 +43,7 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy {
 			i1 = i + random.nextInt(16) + 8;
 			k1 = k + random.nextInt(16) + 8;
 			j1 = random.nextInt(128);
-			new WorldGenFlowers(GOTRegistry.deadMarshPlant).generate(world, random, i1, j1, k1);
+			new WorldGenFlowers(GOTBlocks.deadMarshPlant).generate(world, random, i1, j1, k1);
 		}
 		for (l = 0; l < 4; ++l) {
 			i1 = i + random.nextInt(16) + 8;

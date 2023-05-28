@@ -1,6 +1,6 @@
 package got.common.entity.essos.lorath;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityUtils;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityLorathLevyman extends GOTEntityLorathMan {
-	public static ItemStack[] weaponsIron = {new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosDaggerPoisoned), new ItemStack(GOTRegistry.essosHammer)};
+	public static ItemStack[] weaponsIron = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned), new ItemStack(GOTItems.essosHammer)};
 
 	public GOTEntityLorathLevyman(World world) {
 		super(world);
@@ -45,7 +45,7 @@ public class GOTEntityLorathLevyman extends GOTEntityLorathMan {
 		npcItemsInv.setMeleeWeapon(weaponsIron[i].copy());
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosSpear));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		GOTEntityUtils.setLevymanArmor(this, rand, true);

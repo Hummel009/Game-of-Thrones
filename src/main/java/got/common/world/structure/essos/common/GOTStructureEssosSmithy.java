@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.world.World;
 
@@ -82,9 +82,9 @@ public class GOTStructureEssosSmithy extends GOTStructureEssosBase {
 		setBlockAndMetadata(world, -2, 5, -2, bedBlock, 2);
 		setBlockAndMetadata(world, -1, 5, -3, bedBlock, 10);
 		setBlockAndMetadata(world, -2, 5, -3, bedBlock, 10);
-		placeChest(world, random, 3, 1, 6, GOTRegistry.chestBasket, 5, getChestContents());
-		placeChest(world, random, 2, 5, -3, GOTRegistry.chestBasket, 5, getChestContents());
-		placePlateWithCertainty(world, random, -1, 6, 3, GOTRegistry.ceramicPlateBlock, GOTFoods.ESSOS);
+		placeChest(world, random, 3, 1, 6, GOTBlocks.chestBasket, 5, getChestContents());
+		placeChest(world, random, 2, 5, -3, GOTBlocks.chestBasket, 5, getChestContents());
+		placePlateWithCertainty(world, random, -1, 6, 3, GOTBlocks.ceramicPlateBlock, GOTFoods.ESSOS);
 		placeMug(world, random, -2, 6, 3, 0, GOTFoods.ESSOS_DRINK);
 		placeWeaponRack(world, -3, 1, 8, 1, getRandomWeapon(random));
 		placeWeaponRack(world, 3, 1, 8, 3, getRandomWeapon(random));

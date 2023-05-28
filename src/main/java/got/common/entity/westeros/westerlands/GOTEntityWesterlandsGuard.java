@@ -1,7 +1,7 @@
 package got.common.entity.westeros.westerlands;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -28,13 +28,13 @@ public class GOTEntityWesterlandsGuard extends GOTEntityWesterlandsSoldier {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(0, new ItemStack(GOTRegistry.westerosPike));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosPike));
+		setCurrentItemOrArmor(0, new ItemStack(GOTItems.westerosPike));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.westerlandsguardBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.westerlandsguardLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.westerlandsguardChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.westerlandsguardHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.westerlandsguardBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.westerlandsguardLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.westerlandsguardChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.westerlandsguardHelmet));
 		return data;
 	}
 }

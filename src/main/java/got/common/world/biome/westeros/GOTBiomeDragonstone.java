@@ -1,9 +1,6 @@
 package got.common.world.biome.westeros;
 
-import got.common.database.GOTAchievement;
-import got.common.database.GOTInvasions;
-import got.common.database.GOTRegistry;
-import got.common.database.GOTSpawnList;
+import got.common.database.*;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenBoulder;
@@ -27,7 +24,7 @@ public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 
 	public GOTBiomeDragonstone(int i, boolean major) {
 		super(i, major);
-		decorator.addSoil(new WorldGenMinable(GOTRegistry.obsidianGravel, 32), 20.0f, 0, 64);
+		decorator.addSoil(new WorldGenMinable(GOTBlocks.obsidianGravel, 32), 20.0f, 0, 64);
 		decorator.addSettlement(new GOTStructureDragonstoneSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureDragonstoneWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.WESTERLANDS, GOTEventSpawner.EventChance.UNCOMMON);

@@ -2,8 +2,8 @@ package got.common.entity.westeros;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
+import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIBanditFlee;
 import got.common.entity.ai.GOTEntityAIBanditSteal;
@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 
 public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat {
 	public static int MAX_THEFTS = 3;
-	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(GOTRegistry.ironDagger)};
+	public static ItemStack[] weapons = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger)};
 	public GOTInventoryNPC banditInventory = new GOTInventoryNPC("BanditInventory", this, MAX_THEFTS);
 
 	public GOTEntityWesterosBandit(World world) {
@@ -75,7 +75,7 @@ public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBand
 		}
 		int coins = 10 + rand.nextInt(10) + rand.nextInt((i + 1) * 10);
 		for (int l = 0; l < coins; ++l) {
-			dropItem(GOTRegistry.coin, 1);
+			dropItem(GOTItems.coin, 1);
 		}
 		if (rand.nextInt(5) == 0) {
 			entityDropItem(GOTItemMug.Vessel.SKULL.getEmptyVessel(), 0.0f);
@@ -155,7 +155,7 @@ public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBand
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		if (rand.nextInt(3) == 0) {
-			ItemStack hat = new ItemStack(GOTRegistry.leatherHat);
+			ItemStack hat = new ItemStack(GOTItems.leatherHat);
 			GOTItemLeatherHat.setHatColor(hat, 0);
 			GOTItemLeatherHat.setFeatherColor(hat, 16777215);
 			setCurrentItemOrArmor(4, hat);

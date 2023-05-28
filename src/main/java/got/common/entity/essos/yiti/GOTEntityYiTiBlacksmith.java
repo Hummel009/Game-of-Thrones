@@ -2,7 +2,7 @@ package got.common.entity.essos.yiti;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -39,7 +39,7 @@ public class GOTEntityYiTiBlacksmith extends GOTEntityYiTiMan implements GOTTrad
 				dropItem(Items.iron_ingot, 1);
 				continue;
 			}
-			dropItem(GOTRegistry.yitiSteelIngot, 1);
+			dropItem(GOTItems.yitiSteelIngot, 1);
 		}
 	}
 
@@ -66,7 +66,7 @@ public class GOTEntityYiTiBlacksmith extends GOTEntityYiTiMan implements GOTTrad
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.blacksmithHammer));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.blacksmithHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

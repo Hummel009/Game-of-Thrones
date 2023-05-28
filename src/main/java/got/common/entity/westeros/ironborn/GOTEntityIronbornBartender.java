@@ -64,7 +64,7 @@ public class GOTEntityIronbornBartender extends GOTEntityIronbornMan implements 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.mug));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mug));
 		return data;
 	}
 

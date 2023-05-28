@@ -3,7 +3,7 @@ package got.common.item.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.other.GOTBlockTallGrass;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -26,7 +26,7 @@ public class GOTItemTallGrass extends GOTItemBlockMetadata {
 	@Override
 	public IIcon getIconFromDamageForRenderPass(int meta, int pass) {
 		if (pass > 0) {
-			return GOTRegistry.tallGrass.getIcon(-1, meta);
+			return GOTBlocks.tallGrass.getIcon(-1, meta);
 		}
 		return super.getIconFromDamageForRenderPass(meta, pass);
 	}

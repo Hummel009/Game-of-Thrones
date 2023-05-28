@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.mossovy;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.mossovy.GOTEntityMossovyBlacksmith;
 import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
 import net.minecraft.init.Blocks;
@@ -72,7 +72,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		associateBlockMetaAlias("TABLE", tableBlock, 0);
 		addBlockMetaAliasOption("PATH", 5, Blocks.dirt, 1);
-		addBlockMetaAliasOption("PATH", 5, GOTRegistry.dirtPath, 0);
+		addBlockMetaAliasOption("PATH", 5, GOTBlocks.dirtPath, 0);
 		addBlockMetaAliasOption("PATH", 5, Blocks.cobblestone, 0);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
@@ -88,7 +88,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		placeWeaponRack(world, -2, 3, -2, 4, getDisplayWeaponOrNull(random));
 		placeMug(world, random, -2, 2, 1, 2, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, -3, 2, 1, 3, GOTFoods.WESTEROS_DRINK);
-		placePlateWithCertainty(world, random, 0, 2, -3, GOTRegistry.ceramicPlateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 0, 2, -3, GOTBlocks.ceramicPlateBlock, GOTFoods.WESTEROS);
 		GOTEntityMossovyBlacksmith blacksmith = new GOTEntityMossovyBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, 0, 1, -1, 8);
 		return true;

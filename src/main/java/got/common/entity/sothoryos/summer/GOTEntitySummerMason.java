@@ -1,6 +1,7 @@
 package got.common.entity.sothoryos.summer;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -25,8 +26,8 @@ public class GOTEntitySummerMason extends GOTEntitySummerTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzePickaxe));
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.brick1, 1, 15));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzePickaxe));
+		npcItemsInv.setIdleItem(new ItemStack(GOTBlocks.brick1, 1, 15));
 		return data;
 	}
 }

@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.quest;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -58,7 +58,7 @@ public class GOTEntityOberynMartell extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.sunspear, 1);
+		dropItem(GOTItems.sunspear, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityOberynMartell extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sunspear));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sunspear));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

@@ -50,11 +50,11 @@ public class GOTEntityYohnRoyce extends GOTEntityHumanBase implements GOTUnitTra
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.lamentation, 1);
-		dropItem(GOTRegistry.royceBoots, 1);
-		dropItem(GOTRegistry.royceLeggings, 1);
-		dropItem(GOTRegistry.royceChestplate, 1);
-		dropItem(GOTRegistry.royceHelmet, 1);
+		dropItem(GOTItems.lamentation, 1);
+		dropItem(GOTItems.royceBoots, 1);
+		dropItem(GOTItems.royceLeggings, 1);
+		dropItem(GOTItems.royceChestplate, 1);
+		dropItem(GOTItems.royceHelmet, 1);
 	}
 
 	@Override
@@ -110,12 +110,12 @@ public class GOTEntityYohnRoyce extends GOTEntityHumanBase implements GOTUnitTra
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lamentation));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lamentation));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.royceBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.royceLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.royceChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.royceHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.royceBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.royceLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.royceChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.royceHelmet));
 		return data;
 	}
 

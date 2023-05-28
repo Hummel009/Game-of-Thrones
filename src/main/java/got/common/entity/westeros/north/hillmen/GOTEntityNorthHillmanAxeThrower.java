@@ -1,6 +1,6 @@
 package got.common.entity.westeros.north.hillmen;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityThrowingAxe;
@@ -20,7 +20,7 @@ public class GOTEntityNorthHillmanAxeThrower extends GOTEntityNorthHillmanWarrio
 	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
 		ItemStack axeItem = npcItemsInv.getRangedWeapon();
 		if (axeItem == null) {
-			axeItem = new ItemStack(GOTRegistry.ironThrowingAxe);
+			axeItem = new ItemStack(GOTItems.ironThrowingAxe);
 		}
 		GOTEntityThrowingAxe axe = new GOTEntityThrowingAxe(worldObj, this, target, axeItem, 1.0f, (float) getEntityAttribute(npcRangedAccuracy).getAttributeValue());
 		playSound("random.bow", 1.0f, 1.0f / (rand.nextFloat() * 0.4f + 0.8f));
@@ -46,9 +46,9 @@ public class GOTEntityNorthHillmanAxeThrower extends GOTEntityNorthHillmanWarrio
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) == 0) {
-			npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.ironThrowingAxe));
+			npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironThrowingAxe));
 		} else {
-			npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.bronzeThrowingAxe));
+			npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.bronzeThrowingAxe));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		return data;

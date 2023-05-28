@@ -2,7 +2,7 @@ package got.common.entity.sothoryos.summer;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTTradeable;
 import got.common.item.other.GOTItemRobes;
@@ -35,7 +35,7 @@ public class GOTEntitySummerBlacksmith extends GOTEntitySummerMan implements GOT
 		super.dropFewItems(flag, i);
 		int ingots = 1 + rand.nextInt(3) + rand.nextInt(i + 1);
 		for (int l = 0; l < ingots; ++l) {
-			dropItem(GOTRegistry.bronzeIngot, 1);
+			dropItem(GOTItems.bronzeIngot, 1);
 		}
 	}
 
@@ -62,9 +62,9 @@ public class GOTEntitySummerBlacksmith extends GOTEntitySummerMan implements GOT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.blacksmithHammer));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.blacksmithHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		ItemStack turban = new ItemStack(GOTRegistry.robesHelmet);
+		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		GOTItemRobes.setRobesColor(turban, 1643539);
 		setCurrentItemOrArmor(4, turban);
 		return data;

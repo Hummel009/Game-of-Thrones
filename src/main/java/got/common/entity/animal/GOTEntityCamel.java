@@ -2,7 +2,7 @@ package got.common.entity.animal;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.util.GOTReflection;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.BlockColored;
@@ -45,10 +45,10 @@ public class GOTEntityCamel extends GOTEntityHorse implements GOTBiome.ImmuneToH
 		int meat = rand.nextInt(3) + rand.nextInt(1 + i);
 		for (int l = 0; l < meat; ++l) {
 			if (isBurning()) {
-				dropItem(GOTRegistry.camelCooked, 1);
+				dropItem(GOTItems.camelCooked, 1);
 				continue;
 			}
-			dropItem(GOTRegistry.camelRaw, 1);
+			dropItem(GOTItems.camelRaw, 1);
 		}
 	}
 

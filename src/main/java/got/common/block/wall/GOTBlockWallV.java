@@ -2,7 +2,7 @@ package got.common.block.wall;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
@@ -28,13 +28,13 @@ public class GOTBlockWallV extends GOTBlockWallBase {
 			case 4:
 				return Blocks.sandstone.getIcon(i, 0);
 			case 5:
-				return GOTRegistry.redSandstone.getIcon(i, 0);
+				return GOTBlocks.redSandstone.getIcon(i, 0);
 			case 6:
 				return Blocks.brick_block.getIcon(i, 0);
 			case 7:
-				return GOTRegistry.redBrick.getIcon(i, 0);
+				return GOTBlocks.redBrick.getIcon(i, 0);
 			case 8:
-				return GOTRegistry.redBrick.getIcon(i, 1);
+				return GOTBlocks.redBrick.getIcon(i, 1);
 			default:
 				break;
 		}

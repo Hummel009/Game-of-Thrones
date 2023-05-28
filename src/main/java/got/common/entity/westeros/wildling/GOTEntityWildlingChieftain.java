@@ -3,7 +3,7 @@ package got.common.entity.westeros.wildling;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -59,11 +59,11 @@ public class GOTEntityWildlingChieftain extends GOTEntityWildling implements GOT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.skullStaff));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.skullStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.furBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.furLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.furChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.furBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.furChestplate));
 		setCurrentItemOrArmor(4, null);
 		return data;
 	}

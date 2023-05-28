@@ -58,13 +58,13 @@ public class GOTEntityNorthCaptain extends GOTEntityNorthSoldier implements GOTU
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.northBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.northLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.northChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.northBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.northChestplate));
 		setCurrentItemOrArmor(4, null);
 		return data;
 	}

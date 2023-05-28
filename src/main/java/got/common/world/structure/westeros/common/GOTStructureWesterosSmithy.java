@@ -1,6 +1,6 @@
 package got.common.world.structure.westeros.common;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.westeros.legendary.trader.GOTEntityGendryBaratheon;
 import got.common.entity.westeros.legendary.trader.GOTEntityTobhoMott;
 import net.minecraft.init.Blocks;
@@ -136,10 +136,10 @@ public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -1, 3, 8, brickStairBlock, 2);
 		setBlockAndMetadata(world, -1, 3, 9, brickStairBlock, 0);
 		setBlockAndMetadata(world, -1, 3, 10, brickStairBlock, 0);
-		setBlockAndMetadata(world, -3, 1, 8, GOTRegistry.alloyForge, 2);
-		setBlockAndMetadata(world, -2, 1, 8, GOTRegistry.alloyForge, 2);
-		setBlockAndMetadata(world, -1, 1, 9, GOTRegistry.alloyForge, 4);
-		setBlockAndMetadata(world, -1, 1, 10, GOTRegistry.alloyForge, 4);
+		setBlockAndMetadata(world, -3, 1, 8, GOTBlocks.alloyForge, 2);
+		setBlockAndMetadata(world, -2, 1, 8, GOTBlocks.alloyForge, 2);
+		setBlockAndMetadata(world, -1, 1, 9, GOTBlocks.alloyForge, 4);
+		setBlockAndMetadata(world, -1, 1, 10, GOTBlocks.alloyForge, 4);
 		world.setBlockMetadataWithNotify(-3, 1, 8, 2, 3);
 		world.setBlockMetadataWithNotify(-2, 1, 8, 2, 3);
 		world.setBlockMetadataWithNotify(-1, 1, 9, 5, 3);

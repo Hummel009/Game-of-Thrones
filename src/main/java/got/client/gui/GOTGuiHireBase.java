@@ -3,7 +3,7 @@ package got.client.gui;
 import got.client.GOTClientProxy;
 import got.common.GOTLevelData;
 import got.common.GOTSquadrons;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTHireableBase;
@@ -119,7 +119,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		int reqGap = 18;
 		GL11.glEnable(2896);
 		GL11.glEnable(2884);
-		itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), reqX, reqY);
+		itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTItems.coin), reqX, reqY);
 		GL11.glDisable(2896);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		int cost = curTrade.getCost(mc.thePlayer, theUnitTrader);
@@ -151,7 +151,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 			if (hasRewardCost) {
 				GL11.glEnable(2896);
 				GL11.glEnable(2884);
-				itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTRegistry.coin), 160, 100);
+				itemRender.renderItemAndEffectIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTItems.coin), 160, 100);
 				GL11.glDisable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				cost = GOTSlotAlignmentReward.REWARD_COST;

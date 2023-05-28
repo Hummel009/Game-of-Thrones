@@ -1,6 +1,6 @@
 package got.common.entity.essos.volantis;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -25,7 +25,7 @@ public class GOTEntityVolantisFlorist extends GOTEntityVolantisTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.essosFlower, 1, rand.nextInt(4)));
+		npcItemsInv.setIdleItem(new ItemStack(GOTBlocks.essosFlower, 1, rand.nextInt(4)));
 		return data;
 	}
 }

@@ -1,9 +1,9 @@
 package got.common.world.structure.westeros.common;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.GOTEntityEssosScrapTrader;
 import got.common.entity.essos.GOTEntityEssosThief;
 import got.common.entity.other.GOTEntityProstitute;
@@ -116,8 +116,8 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				if (IntMath.mod(i1, 4) != 0 || i1 == 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 2, k1421, GOTRegistry.glassPane, 0);
-				setBlockAndMetadata(world, i1, 3, k1421, GOTRegistry.glassPane, 0);
+				setBlockAndMetadata(world, i1, 2, k1421, GOTBlocks.glassPane, 0);
+				setBlockAndMetadata(world, i1, 3, k1421, GOTBlocks.glassPane, 0);
 			}
 		}
 		for (int i1421 : new int[]{-7, 11}) {
@@ -125,8 +125,8 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				if (IntMath.mod(k132, 4) != 3 || i1421 == -7 && k132 == 7) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1421, 2, k132, GOTRegistry.glassPane, 0);
-				setBlockAndMetadata(world, i1421, 3, k132, GOTRegistry.glassPane, 0);
+				setBlockAndMetadata(world, i1421, 2, k132, GOTBlocks.glassPane, 0);
+				setBlockAndMetadata(world, i1421, 3, k132, GOTBlocks.glassPane, 0);
 			}
 		}
 		setBlockAndMetadata(world, 0, 0, 0, plankBlock, plankMeta);
@@ -244,7 +244,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				if (IntMath.mod(i1, 4) != 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 7, k1421, GOTRegistry.glassPane, 0);
+				setBlockAndMetadata(world, i1, 7, k1421, GOTBlocks.glassPane, 0);
 			}
 		}
 		int[] i16 = {-8, 12};
@@ -255,7 +255,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				if (IntMath.mod(k132, 4) != 3) {
 					continue;
 				}
-				setBlockAndMetadata(world, i142, 7, k132, GOTRegistry.glassPane, 0);
+				setBlockAndMetadata(world, i142, 7, k132, GOTBlocks.glassPane, 0);
 			}
 		}
 		for (int step2 = 0; step2 <= 2; ++step2) {
@@ -343,7 +343,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 4, 16, 7, brickBlock, brickMeta);
 		setBlockAndMetadata(world, 4, 17, 7, brickWallBlock, brickWallMeta);
 		setBlockAndMetadata(world, 4, 18, 7, brickWallBlock, brickWallMeta);
-		setBlockAndMetadata(world, 4, 0, 7, GOTRegistry.hearth, 0);
+		setBlockAndMetadata(world, 4, 0, 7, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 4, 1, 7, Blocks.fire, 0);
 		setBlockAndMetadata(world, 4, 1, 6, Blocks.iron_bars, 0);
 		setBlockAndMetadata(world, 4, 1, 8, Blocks.iron_bars, 0);
@@ -353,10 +353,10 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 4, 2, 8, Blocks.furnace, 3);
 		setBlockAndMetadata(world, 3, 2, 7, Blocks.furnace, 5);
 		setBlockAndMetadata(world, 5, 2, 7, Blocks.furnace, 4);
-		setBlockAndMetadata(world, 0, 4, 3, GOTRegistry.chandelier, 1);
-		setBlockAndMetadata(world, 0, 4, 11, GOTRegistry.chandelier, 1);
-		setBlockAndMetadata(world, 8, 4, 3, GOTRegistry.chandelier, 1);
-		setBlockAndMetadata(world, 8, 4, 11, GOTRegistry.chandelier, 1);
+		setBlockAndMetadata(world, 0, 4, 3, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 0, 4, 11, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 8, 4, 3, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 8, 4, 11, GOTBlocks.chandelier, 1);
 		for (int k1421 : new int[]{1, 2}) {
 			setBlockAndMetadata(world, -4, 1, k1421, plankBlock, plankMeta);
 			placeMugOrPlate(world, random, -4, 2, k1421);
@@ -433,7 +433,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, -6, 3, k12, plankStairBlock, 4);
 			placeBarrel(world, random, -6, 4, k12, 4, GOTFoods.WESTEROS_DRINK);
 		}
-		setBlockAndMetadata(world, -4, 4, 7, GOTRegistry.chandelier, 1);
+		setBlockAndMetadata(world, -4, 4, 7, GOTBlocks.chandelier, 1);
 		for (step = 0; step <= 2; ++step) {
 			setBlockAndMetadata(world, -3 - step, 1 + step, 13, plankStairBlock, 0);
 			setBlockAndMetadata(world, -4 - step, 1 + step, 13, plankStairBlock, 5);
@@ -754,8 +754,8 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i13, 11, k1321, roofSlabBlock, roofSlabMeta | 8);
 			}
 		}
-		setBlockAndMetadata(world, -1, 11, 7, GOTRegistry.chandelier, 1);
-		setBlockAndMetadata(world, 7, 11, 7, GOTRegistry.chandelier, 1);
+		setBlockAndMetadata(world, -1, 11, 7, GOTBlocks.chandelier, 1);
+		setBlockAndMetadata(world, 7, 11, 7, GOTBlocks.chandelier, 1);
 		if (isKingsLanding) {
 			spawnNPCAndSetHome(new GOTEntityPetyrBaelish(world), world, -4, 1, 7, 2);
 			spawnNPCAndSetHome(new GOTEntityTyrionLannister(world), world, 2, 1, 7, 16);

@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.client.render.other.GOTRenderBow;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.GOTEntityArrowFire;
@@ -117,7 +117,7 @@ public class GOTItemBow extends ItemBow {
 	public int getInvArrowSlot(EntityPlayer entityplayer) {
 		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
 			ItemStack invItem = entityplayer.inventory.mainInventory[slot];
-			if (invItem == null || invItem.getItem() != Items.arrow && invItem.getItem() != GOTRegistry.arrowPoisoned && invItem.getItem() != GOTRegistry.arrowFire) {
+			if (invItem == null || invItem.getItem() != Items.arrow && invItem.getItem() != GOTItems.arrowPoisoned && invItem.getItem() != GOTItems.arrowFire) {
 				continue;
 			}
 			return slot;
@@ -177,7 +177,7 @@ public class GOTItemBow extends ItemBow {
 			}
 			charge = (charge * charge + charge * 2.0f) / 3.0f;
 			charge = Math.min(charge, 1.0f);
-			EntityArrow arrow = arrowItem.getItem() == GOTRegistry.arrowFire ? new GOTEntityArrowFire(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack)) : arrowItem.getItem() == GOTRegistry.arrowPoisoned ? new GOTEntityArrowPoisoned(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack)) : new EntityArrow(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack));
+			EntityArrow arrow = arrowItem.getItem() == GOTItems.arrowFire ? new GOTEntityArrowFire(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack)) : arrowItem.getItem() == GOTItems.arrowPoisoned ? new GOTEntityArrowPoisoned(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack)) : new EntityArrow(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack));
 			if (arrow.getDamage() < 1.0) {
 				arrow.setDamage(1.0);
 			}

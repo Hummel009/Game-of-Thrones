@@ -1,6 +1,6 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosFarmer;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosFarmhand;
 import net.minecraft.block.Block;
@@ -39,9 +39,9 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 				break;
 			case 2:
 			case 3:
-				cropBlock = GOTRegistry.cornStalk;
+				cropBlock = GOTBlocks.cornStalk;
 				cropMeta = 0;
-				seedItem = Item.getItemFromBlock(GOTRegistry.cornStalk);
+				seedItem = Item.getItemFromBlock(GOTBlocks.cornStalk);
 				melon = false;
 				break;
 			case 4:
@@ -95,7 +95,7 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 						continue;
 					}
 					setBlockAndMetadata(world, i12, 0, k12, Blocks.sand, 0);
-					setBlockAndMetadata(world, i12, 1, k12, GOTRegistry.mudGrass, 0);
+					setBlockAndMetadata(world, i12, 1, k12, GOTBlocks.mudGrass, 0);
 				}
 			}
 		}

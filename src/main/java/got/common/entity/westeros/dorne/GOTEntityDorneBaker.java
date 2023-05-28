@@ -1,6 +1,6 @@
 package got.common.entity.westeros.dorne;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.Items;
@@ -26,7 +26,7 @@ public class GOTEntityDorneBaker extends GOTEntityDorneMarketTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.rollingPin));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.rollingPin));
 		npcItemsInv.setIdleItem(new ItemStack(Items.bread));
 		return data;
 	}

@@ -1,6 +1,6 @@
 package got.common.entity.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.item.ItemStack;
@@ -37,7 +37,7 @@ public class GOTEntityConker extends EntityThrowable {
 			m.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, getThrower()), 1.0f);
 		}
 		if (!worldObj.isRemote) {
-			entityDropItem(new ItemStack(GOTRegistry.chestnut), 0.0f);
+			entityDropItem(new ItemStack(GOTItems.chestnut), 0.0f);
 			setDead();
 		}
 	}

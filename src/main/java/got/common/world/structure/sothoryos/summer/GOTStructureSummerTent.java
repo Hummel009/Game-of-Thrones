@@ -1,8 +1,8 @@
 package got.common.world.structure.sothoryos.summer;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
@@ -102,9 +102,9 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 		setBlockAndMetadata(world, -2, 1, 0, bedBlock, 0);
 		setBlockAndMetadata(world, -2, 1, 1, bedBlock, 8);
 		placeBarrel(world, random, -1, 1, 2, 2, GOTFoods.SOTHORYOS_DRINK);
-		setBlockAndMetadata(world, 0, 1, 2, GOTRegistry.tableSummer, 0);
-		placeChest(world, random, 1, 1, 2, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
-		placeChest(world, random, 2, 1, 1, GOTRegistry.chestBasket, 5, GOTChestContents.SUMMER);
+		setBlockAndMetadata(world, 0, 1, 2, GOTBlocks.tableSummer, 0);
+		placeChest(world, random, 1, 1, 2, GOTBlocks.chestBasket, 2, GOTChestContents.SUMMER);
+		placeChest(world, random, 2, 1, 1, GOTBlocks.chestBasket, 5, GOTChestContents.SUMMER);
 		setBlockAndMetadata(world, 2, 1, 0, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 0, 3, -2, Blocks.torch, 3);
 		setBlockAndMetadata(world, 0, 3, 2, Blocks.torch, 4);

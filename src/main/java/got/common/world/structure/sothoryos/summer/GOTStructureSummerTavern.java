@@ -1,9 +1,6 @@
 package got.common.world.structure.sothoryos.summer;
 
-import got.common.database.GOTChestContents;
-import got.common.database.GOTFoods;
-import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
+import got.common.database.*;
 import got.common.entity.sothoryos.summer.GOTEntitySummerBartender;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
 import got.common.item.other.GOTItemBanner;
@@ -126,13 +123,13 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			placeFoodOrDrink(world, random, -12, 2, 2);
 			placeBarrel(world, random, -12, 2, 3, 4, GOTFoods.SOTHORYOS_DRINK);
 			placeBarrel(world, random, -11, 2, 4, 2, GOTFoods.SOTHORYOS_DRINK);
-			placeKebabStand(world, random, -10, 2, -4, GOTRegistry.kebabStand, 3);
+			placeKebabStand(world, random, -10, 2, -4, GOTBlocks.kebabStand, 3);
 			setBlockAndMetadata(world, 11, 1, -3, bedBlock, 2);
 			setBlockAndMetadata(world, 11, 1, -4, bedBlock, 10);
 			setBlockAndMetadata(world, 11, 1, 3, bedBlock, 0);
 			setBlockAndMetadata(world, 11, 1, 4, bedBlock, 8);
-			placeChest(world, random, 12, 1, -3, GOTRegistry.chestBasket, 3, GOTChestContents.SUMMER);
-			placeChest(world, random, 12, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
+			placeChest(world, random, 12, 1, -3, GOTBlocks.chestBasket, 3, GOTChestContents.SUMMER);
+			placeChest(world, random, 12, 1, 3, GOTBlocks.chestBasket, 2, GOTChestContents.SUMMER);
 			placeFlowerPot(world, 12, 2, -1, getRandomFlower(world, random));
 			placeFoodOrDrink(world, random, 11, 2, -1);
 			placeFlowerPot(world, 11, 2, 1, getRandomFlower(world, random));
@@ -214,7 +211,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			if (random.nextBoolean()) {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.SOTHORYOS_DRINK);
 			} else {
-				Block plateBlock = random.nextBoolean() ? GOTRegistry.woodPlateBlock : GOTRegistry.ceramicPlateBlock;
+				Block plateBlock = random.nextBoolean() ? GOTBlocks.woodPlateBlock : GOTBlocks.ceramicPlateBlock;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {

@@ -1,7 +1,7 @@
 package got.common.world.structure.westeros.stormlands;
 
 import com.google.common.math.IntMath;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.stormlands.GOTEntityStormlandsMan;
 import got.common.entity.westeros.stormlands.GOTEntityStormlandsSoldier;
@@ -129,7 +129,7 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 			if (type == Type.FORT) {
 				Block block = world.getBlock(i, j, k);
 				int meta = world.getBlockMetadata(i, j, k);
-				return block == Blocks.stone || block == GOTRegistry.rock && meta == 4;
+				return block == Blocks.stone || block == GOTBlocks.rock && meta == 4;
 			}
 			return false;
 		}

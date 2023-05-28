@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.ibben;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
 import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
 import net.minecraft.init.Blocks;
@@ -127,7 +127,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 			--j1;
 		}
 		placeChest(world, random, -2, 1, 2, 2, GOTChestContents.IBBEN);
-		setBlockAndMetadata(world, 2, 1, 2, GOTRegistry.tableIbben, 0);
+		setBlockAndMetadata(world, 2, 1, 2, GOTBlocks.tableIbben, 0);
 		for (k1 = -2; k1 <= 2; ++k1) {
 			int k2 = Math.abs(k1);
 			for (int i14 : new int[]{-3, 3}) {

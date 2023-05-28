@@ -1,8 +1,9 @@
 package got.common.world.structure.sothoryos.summer;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
@@ -62,7 +63,7 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 				if (bedRegion || i2 > 10 || k2 > 10 || random.nextInt(5) != 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		loadStrScan("summer_fort");
@@ -90,14 +91,14 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 		setBlockAndMetadata(world, -10, 1, 8, bedBlock, 8);
 		setBlockAndMetadata(world, -7, 1, 10, bedBlock, 3);
 		setBlockAndMetadata(world, -8, 1, 10, bedBlock, 11);
-		placeChest(world, random, 0, 0, 7, GOTRegistry.chestBasket, 3, GOTChestContents.SUMMER);
-		placeChest(world, random, -9, 1, 9, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
-		placeChest(world, random, 9, 1, 9, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
+		placeChest(world, random, 0, 0, 7, GOTBlocks.chestBasket, 3, GOTChestContents.SUMMER);
+		placeChest(world, random, -9, 1, 9, GOTBlocks.chestBasket, 2, GOTChestContents.SUMMER);
+		placeChest(world, random, 9, 1, 9, GOTBlocks.chestBasket, 2, GOTChestContents.SUMMER);
 		for (i1 = -2; i1 <= 0; ++i1) {
 			int j13 = 1;
 			int k1 = 9;
 			if (random.nextBoolean()) {
-				placePlate(world, random, i1, j13, k1, GOTRegistry.ceramicPlateBlock, GOTFoods.SOTHORYOS);
+				placePlate(world, random, i1, j13, k1, GOTBlocks.ceramicPlateBlock, GOTFoods.SOTHORYOS);
 				continue;
 			}
 			placeMug(world, random, i1, j13, k1, 0, GOTFoods.SOTHORYOS_DRINK);
@@ -125,7 +126,7 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 		placeWallBanner(world, -3, 4, -13, GOTItemBanner.BannerType.SUMMER, 2);
 		placeWallBanner(world, 3, 4, -13, GOTItemBanner.BannerType.SUMMER, 2);
 		placeWallBanner(world, 0, 6, 8, GOTItemBanner.BannerType.SUMMER, 2);
-		setBlockAndMetadata(world, 7, 1, 5, GOTRegistry.commandTable, 0);
+		setBlockAndMetadata(world, 7, 1, 5, GOTBlocks.commandTable, 0);
 		GOTEntitySummerWarlord warlord = new GOTEntitySummerWarlord(world);
 		warlord.spawnRidingHorse = false;
 		spawnNPCAndSetHome(warlord, world, 0, 3, 7, 4);
@@ -164,11 +165,11 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 			arritemStack2[3] = null;
 		} else {
 			ItemStack[] arritemStack3 = new ItemStack[4];
-			arritemStack3[0] = new ItemStack(GOTRegistry.summerHelmet);
-			arritemStack3[1] = new ItemStack(GOTRegistry.summerChestplate);
-			arritemStack3[2] = new ItemStack(GOTRegistry.summerLeggings);
+			arritemStack3[0] = new ItemStack(GOTItems.summerHelmet);
+			arritemStack3[1] = new ItemStack(GOTItems.summerChestplate);
+			arritemStack3[2] = new ItemStack(GOTItems.summerLeggings);
 			arritemStack = arritemStack3;
-			arritemStack3[3] = new ItemStack(GOTRegistry.summerBoots);
+			arritemStack3[3] = new ItemStack(GOTItems.summerBoots);
 		}
 		ItemStack[] armor = arritemStack;
 		placeArmorStand(world, i, j, k, meta, armor);

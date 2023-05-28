@@ -50,7 +50,7 @@ public class GOTEntityWymanManderly extends GOTEntityHumanBase implements GOTUni
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.fin, 1);
+		dropItem(GOTItems.fin, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityWymanManderly extends GOTEntityHumanBase implements GOTUni
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.fin));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.fin));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

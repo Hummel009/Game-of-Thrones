@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
@@ -11,9 +11,9 @@ import java.util.Random;
 
 public class GOTWorldGenHolly extends WorldGenAbstractTree {
 	public int extraTrunkWidth;
-	public Block woodBlock = GOTRegistry.wood2;
+	public Block woodBlock = GOTBlocks.wood2;
 	public int woodMeta = 2;
-	public Block leafBlock = GOTRegistry.leaves2;
+	public Block leafBlock = GOTBlocks.leaves2;
 	public int leafMeta = 2;
 
 	public GOTWorldGenHolly(boolean flag) {
@@ -57,7 +57,7 @@ public class GOTWorldGenHolly extends WorldGenAbstractTree {
 			for (i1 = i; i1 <= i + extraTrunkWidth && flag1; ++i1) {
 				for (k1 = k; k1 <= k + extraTrunkWidth && flag1; ++k1) {
 					Block block = world.getBlock(i1, j - 1, k1);
-					if (block.canSustainPlant(world, i1, j - 1, k1, ForgeDirection.UP, (IPlantable) GOTRegistry.sapling2)) {
+					if (block.canSustainPlant(world, i1, j - 1, k1, ForgeDirection.UP, (IPlantable) GOTBlocks.sapling2)) {
 						continue;
 					}
 					flag1 = false;

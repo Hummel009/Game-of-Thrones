@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.ibben;
 
 import com.google.common.math.IntMath;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
@@ -97,7 +97,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 							setBlockAndMetadata(world, i13, 0, k1, rockSlabDoubleBlock, rockSlabDoubleMeta);
 						}
 						if (i2 <= 2 && random.nextBoolean()) {
-							setBlockAndMetadata(world, i13, 1, k1, GOTRegistry.thatchFloor, 0);
+							setBlockAndMetadata(world, i13, 1, k1, GOTBlocks.thatchFloor, 0);
 						}
 					}
 					if (i2 == 7 && k2 != 0) {
@@ -133,7 +133,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 										setBlockAndMetadata(world, i13, 1, k1, Blocks.hay_block, 0);
 									}
 								} else {
-									setBlockAndMetadata(world, i13, 1, k1, GOTRegistry.thatchFloor, 0);
+									setBlockAndMetadata(world, i13, 1, k1, GOTBlocks.thatchFloor, 0);
 								}
 							}
 							if (i2 == 3) {

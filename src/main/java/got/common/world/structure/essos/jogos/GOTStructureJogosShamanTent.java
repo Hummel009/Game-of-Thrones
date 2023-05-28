@@ -1,7 +1,8 @@
 package got.common.world.structure.essos.jogos;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.animal.GOTEntityBird;
 import got.common.entity.animal.GOTEntityButterfly;
 import got.common.entity.essos.jogos.GOTEntityJogosShaman;
@@ -72,12 +73,12 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		placeSkull(world, random, -8, 2, -4);
 		placeBarrel(world, random, 7, 2, -4, 3, GOTFoods.NOMAD_DRINK);
 		placeBarrel(world, random, 8, 2, -4, 3, GOTFoods.NOMAD_DRINK);
-		placeAnimalJar(world, -7, 2, -4, GOTRegistry.butterflyJar, 0, new GOTEntityButterfly(world));
-		placeAnimalJar(world, 9, 1, 5, GOTRegistry.birdCageWood, 0, null);
-		placeAnimalJar(world, 4, 3, 2, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
-		placeAnimalJar(world, -4, 4, 5, GOTRegistry.birdCage, 2, new GOTEntityBird(world));
-		placeAnimalJar(world, -4, 5, -1, GOTRegistry.birdCage, 0, new GOTEntityBird(world));
-		placeAnimalJar(world, 0, 5, 5, GOTRegistry.birdCageWood, 0, new GOTEntityBird(world));
+		placeAnimalJar(world, -7, 2, -4, GOTBlocks.butterflyJar, 0, new GOTEntityButterfly(world));
+		placeAnimalJar(world, 9, 1, 5, GOTBlocks.birdCageWood, 0, null);
+		placeAnimalJar(world, 4, 3, 2, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
+		placeAnimalJar(world, -4, 4, 5, GOTBlocks.birdCage, 2, new GOTEntityBird(world));
+		placeAnimalJar(world, -4, 5, -1, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
+		placeAnimalJar(world, 0, 5, 5, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
 		ArrayList<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(stalls));
 		while (stallClasses.size() > 3) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));
@@ -119,11 +120,11 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.stairsCedar, 6);
-			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.barrel, 2);
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.stairsCedar, 6);
+			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.barrel, 2);
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.cauldron, 3);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.stairsCedar, 6);
-			setBlockAndMetadata(world, 1, 2, 1, GOTRegistry.barrel, 2);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.stairsCedar, 6);
+			setBlockAndMetadata(world, 1, 2, 1, GOTBlocks.barrel, 2);
 			placeMug(world, random, -1, 2, -2, 0, GOTFoods.NOMAD_DRINK);
 			placeMug(world, random, 1, 2, -2, 0, GOTFoods.NOMAD_DRINK);
 			GOTEntityJogosShaman trader = new GOTEntityJogosShaman(world);
@@ -140,16 +141,16 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.redSandstone, 0);
-			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.redSandstone, 0);
-			setBlockAndMetadata(world, -1, 3, 1, GOTRegistry.redSandstone, 0);
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.redSandstone, 0);
+			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.redSandstone, 0);
+			setBlockAndMetadata(world, -1, 3, 1, GOTBlocks.redSandstone, 0);
 			setBlockAndMetadata(world, -1, 1, 0, Blocks.sandstone, 0);
 			setBlockAndMetadata(world, -1, 2, 0, Blocks.sandstone, 0);
-			setBlockAndMetadata(world, 0, 1, 1, GOTRegistry.brick1, 15);
-			setBlockAndMetadata(world, 0, 2, 1, GOTRegistry.slabSingle4, 0);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.brick1, 15);
-			setBlockAndMetadata(world, 1, 2, 1, GOTRegistry.slabSingle4, 0);
-			placeWeaponRack(world, 1, 3, 1, 6, new ItemStack(GOTRegistry.bronzePickaxe));
+			setBlockAndMetadata(world, 0, 1, 1, GOTBlocks.brick1, 15);
+			setBlockAndMetadata(world, 0, 2, 1, GOTBlocks.slabSingle4, 0);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.brick1, 15);
+			setBlockAndMetadata(world, 1, 2, 1, GOTBlocks.slabSingle4, 0);
+			placeWeaponRack(world, 1, 3, 1, 6, new ItemStack(GOTItems.bronzePickaxe));
 			GOTEntityJogosShaman trader = new GOTEntityJogosShaman(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -164,13 +165,13 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
-			setBlockAndMetadata(world, -1, 1, 1, GOTRegistry.oreCopper, 0);
-			setBlockAndMetadata(world, -1, 2, 1, GOTRegistry.oreTin, 0);
-			setBlockAndMetadata(world, 0, 1, 1, GOTRegistry.oreCopper, 0);
-			setBlockAndMetadata(world, 1, 1, 1, GOTRegistry.oreTin, 0);
+			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.oreCopper, 0);
+			setBlockAndMetadata(world, -1, 2, 1, GOTBlocks.oreTin, 0);
+			setBlockAndMetadata(world, 0, 1, 1, GOTBlocks.oreCopper, 0);
+			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.oreTin, 0);
 			setBlockAndMetadata(world, 1, 2, 1, Blocks.lapis_ore, 0);
 			setBlockAndMetadata(world, 1, 1, 0, Blocks.lapis_ore, 0);
-			placeWeaponRack(world, 0, 2, 1, 6, new ItemStack(GOTRegistry.bronzePickaxe));
+			placeWeaponRack(world, 0, 2, 1, 6, new ItemStack(GOTItems.bronzePickaxe));
 			GOTEntityJogosShaman trader = new GOTEntityJogosShaman(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;

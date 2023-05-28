@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.gold;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
 import got.common.entity.essos.gold.GOTEntityGoldenSpearman;
 import got.common.entity.essos.gold.GOTEntityGoldenWarrior;
@@ -68,27 +68,27 @@ public class GOTStructureGoldenCampWatchtower extends GOTStructureBase {
 					fenceBlock = Blocks.fence;
 					fenceMeta = 0;
 					stairBlock = Blocks.spruce_stairs;
-					trapdoorBlock = GOTRegistry.trapdoorSpruce;
+					trapdoorBlock = GOTBlocks.trapdoorSpruce;
 					break;
 				case 2:
-					woodBlock = GOTRegistry.wood2;
+					woodBlock = GOTBlocks.wood2;
 					woodMeta = 1;
-					plankBlock = GOTRegistry.planks1;
+					plankBlock = GOTBlocks.planks1;
 					plankMeta = 9;
-					fenceBlock = GOTRegistry.fence;
+					fenceBlock = GOTBlocks.fence;
 					fenceMeta = 9;
-					stairBlock = GOTRegistry.stairsBeech;
-					trapdoorBlock = GOTRegistry.trapdoorBeech;
+					stairBlock = GOTBlocks.stairsBeech;
+					trapdoorBlock = GOTBlocks.trapdoorBeech;
 					break;
 				case 3:
-					woodBlock = GOTRegistry.wood3;
+					woodBlock = GOTBlocks.wood3;
 					woodMeta = 0;
-					plankBlock = GOTRegistry.planks1;
+					plankBlock = GOTBlocks.planks1;
 					plankMeta = 12;
-					fenceBlock = GOTRegistry.fence;
+					fenceBlock = GOTBlocks.fence;
 					fenceMeta = 12;
-					stairBlock = GOTRegistry.stairsMaple;
-					trapdoorBlock = GOTRegistry.trapdoorMaple;
+					stairBlock = GOTBlocks.stairsMaple;
+					trapdoorBlock = GOTBlocks.trapdoorMaple;
 					break;
 				default:
 					break;
@@ -168,7 +168,7 @@ public class GOTStructureGoldenCampWatchtower extends GOTStructureBase {
 		setBlockAndMetadata(world, -2, 17, 0, Blocks.torch, 5);
 		setBlockAndMetadata(world, 2, 17, 0, Blocks.torch, 5);
 		placeChest(world, random, 0, 16, 1, 0, GOTChestContents.GOLDEN);
-		setBlockAndMetadata(world, 0, 11, 1, GOTRegistry.alloyForge, 0);
+		setBlockAndMetadata(world, 0, 11, 1, GOTBlocks.alloyForge, 0);
 		for (j1 = 17; j1 <= 18; ++j1) {
 			setBlockAndMetadata(world, -2, j1, -2, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, -2, j1, 2, fenceBlock, fenceMeta);

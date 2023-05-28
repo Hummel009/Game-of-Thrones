@@ -1,6 +1,6 @@
 package got.common.world.structure.westeros.common;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -97,7 +97,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 					continue;
 				}
 				setBlockAndMetadata(world, i14, j13, -1, gateBlock, 2);
-				setBlockAndMetadata(world, i14, j13, 1, GOTRegistry.gateIronBars, 2);
+				setBlockAndMetadata(world, i14, j13, 1, GOTBlocks.gateIronBars, 2);
 			}
 		}
 		for (int k14 : new int[]{-3, 3}) {
@@ -109,7 +109,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 				int i23 = Math.abs(i16);
 				setBlockAndMetadata(world, i16, 8, k14, rockSlabDoubleBlock, rockSlabDoubleMeta);
 				if (i23 % 2 == 0) {
-					setBlockAndMetadata(world, i16, 9, k14, GOTRegistry.gateIronBars, 2);
+					setBlockAndMetadata(world, i16, 9, k14, GOTBlocks.gateIronBars, 2);
 				} else {
 					setBlockAndMetadata(world, i16, 9, k14, brickBlock, brickMeta);
 				}

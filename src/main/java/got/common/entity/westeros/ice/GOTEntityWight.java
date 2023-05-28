@@ -2,8 +2,8 @@ package got.common.entity.westeros.ice;
 
 import got.common.GOTDamage;
 import got.common.database.GOTAchievement;
+import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
 import got.common.entity.ai.GOTEntityAIHiredRemainStill;
@@ -34,8 +34,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityWight extends GOTEntityHumanBase {
-	public static ItemStack[] weapons = {new ItemStack(GOTRegistry.wildlingAxe), new ItemStack(GOTRegistry.wildlingBattleaxe), new ItemStack(GOTRegistry.wildlingDagger), new ItemStack(GOTRegistry.wildlingDaggerPoisoned), new ItemStack(GOTRegistry.wildlingHammer), new ItemStack(GOTRegistry.wildlingPolearm), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword), new ItemStack(GOTRegistry.wildlingSword)};
-	public static ItemStack[] spears = {new ItemStack(GOTRegistry.wildlingSpear)};
+	public static ItemStack[] weapons = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
+	public static ItemStack[] spears = {new ItemStack(GOTItems.wildlingSpear)};
 
 	public GOTEntityWight(World world) {
 		super(world);
@@ -81,13 +81,13 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 		ItemStack itemstack;
 		Entity entity = damagesource.getEntity();
 		Entity damageSource = damagesource.getSourceOfDamage();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL || itemstack.getItem() == GOTRegistry.crowbar)) {
+		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL || itemstack.getItem() == GOTItems.crowbar)) {
 			return super.attackEntityFrom(damagesource, f);
 		}
 		if (damagesource.getEntity() instanceof GOTEntityGregorClegane || damagesource.getEntity() instanceof GOTEntityAsshaiArchmag || damagesource.isFireDamage()) {
 			return super.attackEntityFrom(damagesource, f);
 		}
-		if (damageSource instanceof GOTEntitySpear && ((GOTEntitySpear) damageSource).getProjectileItem().getItem() == GOTRegistry.valyrianSpear) {
+		if (damageSource instanceof GOTEntitySpear && ((GOTEntitySpear) damageSource).getProjectileItem().getItem() == GOTItems.valyrianSpear) {
 			return super.attackEntityFrom(damagesource, f);
 		}
 		return super.attackEntityFrom(damagesource, 0.0f);
@@ -182,9 +182,9 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 			npcItemsInv.setMeleeWeapon(spears[i].copy());
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.furBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.furLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.furChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.furBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.furChestplate));
 		setCurrentItemOrArmor(4, null);
 		return data;
 	}

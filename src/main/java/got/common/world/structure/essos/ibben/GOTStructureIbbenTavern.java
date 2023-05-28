@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.ibben;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.ibben.GOTEntityIbbenBartender;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -87,7 +87,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 				if (Math.abs(i13) > 4 || k1 < 4 || k1 > 21 || random.nextInt(4) != 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i13, 2, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i13, 2, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (i13 = -7; i13 <= 7; ++i13) {
@@ -343,7 +343,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, -1, 6, k13, plank2SlabBlock, plank2SlabMeta | 8);
 				setBlockAndMetadata(world, 1, 6, k13, plank2SlabBlock, plank2SlabMeta | 8);
 				setBlockAndMetadata(world, 0, 6, k13, fenceBlock, fenceMeta);
-				setBlockAndMetadata(world, 0, 5, k13, GOTRegistry.chandelier, 1);
+				setBlockAndMetadata(world, 0, 5, k13, GOTBlocks.chandelier, 1);
 			} else {
 				setBlockAndMetadata(world, -4, 5, k13, plankSlabBlock, plankSlabMeta);
 			}
@@ -405,7 +405,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		placeBarrel(world, random, 4, 3, 5, 5, GOTFoods.WILD_DRINK);
 		placeMug(world, random, 4, 3, 6, 1, GOTFoods.WILD_DRINK);
 		for (i1 = -1; i1 <= 1; ++i1) {
-			setBlockAndMetadata(world, i1, 1, 24, GOTRegistry.hearth, 0);
+			setBlockAndMetadata(world, i1, 1, 24, GOTBlocks.hearth, 0);
 			setBlockAndMetadata(world, i1, 2, 24, Blocks.fire, 0);
 			for (j1 = 3; j1 <= 4; ++j1) {
 				setAir(world, i1, j1, 24);

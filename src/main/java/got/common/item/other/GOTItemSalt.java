@@ -1,7 +1,7 @@
 package got.common.item.other;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -36,8 +36,8 @@ public class GOTItemSalt extends Item {
 						if (block == Blocks.grass || block == Blocks.dirt && meta == 0 || block == Blocks.farmland) {
 							newBlock = Blocks.dirt;
 							newMeta = 1;
-						} else if (block == GOTRegistry.mudGrass || block == GOTRegistry.mud && meta == 0 || block == GOTRegistry.mudFarmland) {
-							newBlock = GOTRegistry.mud;
+						} else if (block == GOTBlocks.mudGrass || block == GOTBlocks.mud && meta == 0 || block == GOTBlocks.mudFarmland) {
+							newBlock = GOTBlocks.mud;
 							newMeta = 1;
 						}
 						if (newBlock == null) {

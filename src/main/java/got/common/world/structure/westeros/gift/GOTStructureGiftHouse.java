@@ -1,9 +1,10 @@
 package got.common.world.structure.westeros.gift;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.westeros.gift.GOTEntityGiftMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -115,7 +116,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 					if (random.nextInt(3) != 0) {
 						continue;
 					}
-					setBlockAndMetadata(world, i15, 1, k13, GOTRegistry.thatchFloor, 0);
+					setBlockAndMetadata(world, i15, 1, k13, GOTBlocks.thatchFloor, 0);
 				}
 			}
 			setBlockAndMetadata(world, 0, 0, -3, brickBlock, brickMeta);
@@ -209,7 +210,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 					setBlockAndMetadata(world, 5, j1, k151, fenceBlock, fenceMeta);
 				}
 			}
-			setBlockAndMetadata(world, 6, 0, 0, GOTRegistry.hearth, 0);
+			setBlockAndMetadata(world, 6, 0, 0, GOTBlocks.hearth, 0);
 			setBlockAndMetadata(world, 6, 1, 0, Blocks.fire, 0);
 			for (int j15 = 2; j15 <= 3; ++j15) {
 				setAir(world, 6, j15, 0);
@@ -271,9 +272,9 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 				}
 			}
 			setBlockAndMetadata(world, gateX, 1, gateZ, fenceGateBlock, gateMeta);
-			setBlockAndMetadata(world, gateX, 0, gateZ, GOTRegistry.dirtPath, 0);
+			setBlockAndMetadata(world, gateX, 0, gateZ, GOTBlocks.dirtPath, 0);
 			for (k15 = -2; k15 <= 2; ++k15) {
-				setBlockAndMetadata(world, -5, 0, k15, GOTRegistry.dirtPath, 0);
+				setBlockAndMetadata(world, -5, 0, k15, GOTBlocks.dirtPath, 0);
 				for (i1 = -4; i1 <= -3; ++i1) {
 					if (k15 == 0 && i1 == -3) {
 						continue;
@@ -293,11 +294,11 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 		}
 		GOTEntityGiftMan male = new GOTEntityGiftMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 2, 1, 0, 16);
 		GOTEntityGiftMan female = new GOTEntityGiftMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 2, 1, 0, 16);
 		GOTEntityGiftMan child = new GOTEntityGiftMan(world);
 		child.familyInfo.setMale(random.nextBoolean());

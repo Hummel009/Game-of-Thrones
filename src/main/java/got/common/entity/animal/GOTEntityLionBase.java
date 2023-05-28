@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAILionChase;
 import got.common.entity.ai.GOTEntityAIMFMate;
@@ -91,20 +91,20 @@ public abstract class GOTEntityLionBase extends GOTEntityAnimalMF {
 	public void dropFewItems(boolean flag, int i) {
 		int furs = 1 + rand.nextInt(3) + 1;
 		for (int l = 0; l < furs; ++l) {
-			dropItem(GOTRegistry.lionFur, 1);
+			dropItem(GOTItems.lionFur, 1);
 		}
 		int meats = rand.nextInt(2) + 1 + rand.nextInt(1 + i);
 		for (int l = 0; l < meats; ++l) {
 			if (isBurning()) {
-				dropItem(GOTRegistry.lionCooked, 1);
+				dropItem(GOTItems.lionCooked, 1);
 				continue;
 			}
-			dropItem(GOTRegistry.lionRaw, 1);
+			dropItem(GOTItems.lionRaw, 1);
 		}
 		if (flag) {
 			int rugChance = 30 - i * 5;
 			if (rand.nextInt(Math.max(rugChance, 1)) == 0) {
-				entityDropItem(new ItemStack(GOTRegistry.lionRug, 1, getLionRugType().lionID), 0.0f);
+				entityDropItem(new ItemStack(GOTItems.lionRug, 1, getLionRugType().lionID), 0.0f);
 			}
 		}
 	}

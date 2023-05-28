@@ -1,7 +1,7 @@
 package got.common.entity.essos.lhazar;
 
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.item.other.GOTItemMug;
 import net.minecraft.entity.IEntityLivingData;
@@ -27,7 +27,7 @@ public class GOTEntityLhazarBrewer extends GOTEntityLhazarTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		ItemStack drink = new ItemStack(GOTRegistry.mugAraq);
+		ItemStack drink = new ItemStack(GOTItems.mugAraq);
 		GOTItemMug.setVessel(drink, GOTFoods.NOMAD_DRINK.getRandomVessel(rand), true);
 		npcItemsInv.setIdleItem(drink);
 		return data;

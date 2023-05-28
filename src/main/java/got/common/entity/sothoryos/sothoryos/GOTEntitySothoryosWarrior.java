@@ -1,6 +1,6 @@
 package got.common.entity.sothoryos.sothoryos;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -27,36 +27,36 @@ public class GOTEntitySothoryosWarrior extends GOTEntitySothoryosMan {
 			case 0:
 			case 1:
 			case 2:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosSword));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosSword));
 				break;
 			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosDagger));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosDagger));
 				break;
 			case 4:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosDaggerPoisoned));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosDaggerPoisoned));
 				break;
 			case 5:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosHammer));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosHammer));
 				break;
 			case 6:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosBattleaxe));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosBattleaxe));
 				break;
 			case 7:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosPike));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosPike));
 				break;
 			default:
 				break;
 		}
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosSpear));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.sothoryosBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.sothoryosLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.sothoryosChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.sothoryosBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.sothoryosLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.sothoryosChestplate));
 		if (rand.nextInt(5) != 0) {
-			setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.sothoryosHelmet));
+			setCurrentItemOrArmor(4, new ItemStack(GOTItems.sothoryosHelmet));
 		}
 		return data;
 	}

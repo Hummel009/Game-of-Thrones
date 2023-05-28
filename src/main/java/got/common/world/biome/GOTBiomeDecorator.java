@@ -1,7 +1,7 @@
 package got.common.world.biome;
 
 import got.common.GOTConfig;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
@@ -35,14 +35,14 @@ public class GOTBiomeDecorator {
 	public float biomeGemFactor = 0.5f;
 	public WorldGenerator clayGen = new GOTWorldGenSand(Blocks.clay, 5, 1);
 	public WorldGenerator sandGen = new GOTWorldGenSand(Blocks.sand, 7, 2);
-	public WorldGenerator whiteSandGen = new GOTWorldGenSand(GOTRegistry.whiteSand, 7, 2);
-	public WorldGenerator quagmireGen = new GOTWorldGenSand(GOTRegistry.quagmire, 7, 2);
+	public WorldGenerator whiteSandGen = new GOTWorldGenSand(GOTBlocks.whiteSand, 7, 2);
+	public WorldGenerator quagmireGen = new GOTWorldGenSand(GOTBlocks.quagmire, 7, 2);
 	public WorldGenerator surfaceGravelGen = new GOTWorldGenSurfaceGravel();
 	public WorldGenerator flowerGen = new GOTWorldGenBiomeFlowers();
 	public WorldGenerator logGen = new GOTWorldGenLogs();
 	public WorldGenerator caneGen = new WorldGenReed();
-	public WorldGenerator reedGen = new GOTWorldGenReeds(GOTRegistry.reeds);
-	public WorldGenerator dryReedGen = new GOTWorldGenReeds(GOTRegistry.driedReeds);
+	public WorldGenerator reedGen = new GOTWorldGenReeds(GOTBlocks.reeds);
+	public WorldGenerator dryReedGen = new GOTWorldGenReeds(GOTBlocks.driedReeds);
 	public WorldGenerator cornGen = new GOTWorldGenCorn();
 	public WorldGenerator waterlilyGen = new WorldGenWaterlily();
 	public WorldGenerator stalactiteGen = new GOTWorldGenStalactites();
@@ -79,30 +79,30 @@ public class GOTBiomeDecorator {
 	public void addDefaultOres() {
 		addSoil(new WorldGenMinable(Blocks.dirt, 32), 40.0f, 0, 256);
 		addSoil(new WorldGenMinable(Blocks.gravel, 32), 20.0f, 0, 256);
-		addSoil(new WorldGenMinable(GOTRegistry.rock, 0, 12, Blocks.stone), 30.0f, 0, 10);
-		addSoil(new WorldGenMinable(GOTRegistry.rock, 1, 12, Blocks.stone), 30.0f, 0, 64);
-		addSoil(new WorldGenMinable(GOTRegistry.rock, 2, 12, Blocks.stone), 30.0f, 0, 64);
-		addSoil(new WorldGenMinable(GOTRegistry.rock, 3, 12, Blocks.stone), 30.0f, 0, 64);
-		addSoil(new WorldGenMinable(GOTRegistry.rock, 4, 12, Blocks.stone), 30.0f, 0, 64);
-		addSoil(new WorldGenMinable(GOTRegistry.rock, 5, 12, Blocks.stone), 30.0f, 0, 64);
-		addSoil(new WorldGenMinable(GOTRegistry.rock, 6, 12, Blocks.stone), 30.0f, 0, 64);
-		addOre(new WorldGenMinable(GOTRegistry.oreCopper, 8), 15.0f, 0, 128);
-		addOre(new WorldGenMinable(GOTRegistry.oreTin, 8), 15.0f, 0, 128);
-		addOre(new WorldGenMinable(GOTRegistry.oreSilver, 5), 8.0f, 0, 32);
+		addSoil(new WorldGenMinable(GOTBlocks.rock, 0, 12, Blocks.stone), 30.0f, 0, 10);
+		addSoil(new WorldGenMinable(GOTBlocks.rock, 1, 12, Blocks.stone), 30.0f, 0, 64);
+		addSoil(new WorldGenMinable(GOTBlocks.rock, 2, 12, Blocks.stone), 30.0f, 0, 64);
+		addSoil(new WorldGenMinable(GOTBlocks.rock, 3, 12, Blocks.stone), 30.0f, 0, 64);
+		addSoil(new WorldGenMinable(GOTBlocks.rock, 4, 12, Blocks.stone), 30.0f, 0, 64);
+		addSoil(new WorldGenMinable(GOTBlocks.rock, 5, 12, Blocks.stone), 30.0f, 0, 64);
+		addSoil(new WorldGenMinable(GOTBlocks.rock, 6, 12, Blocks.stone), 30.0f, 0, 64);
+		addOre(new WorldGenMinable(GOTBlocks.oreCopper, 8), 15.0f, 0, 128);
+		addOre(new WorldGenMinable(GOTBlocks.oreTin, 8), 15.0f, 0, 128);
+		addOre(new WorldGenMinable(GOTBlocks.oreSilver, 5), 8.0f, 0, 32);
 		addOre(new WorldGenMinable(Blocks.gold_ore, 4), 2.0f, 0, 32);
 		addOre(new WorldGenMinable(Blocks.coal_ore, 16), 40.0f, 0, 128);
 		addOre(new WorldGenMinable(Blocks.iron_ore, 8), 20.0f, 0, 64);
-		addOre(new WorldGenMinable(GOTRegistry.oreSulfur, 8), 2.0f, 0, 64);
-		addOre(new WorldGenMinable(GOTRegistry.oreSaltpeter, 8), 2.0f, 0, 64);
-		addOre(new WorldGenMinable(GOTRegistry.oreSalt, 12), 2.0f, 0, 64);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 0, 6, Blocks.stone), 2.0f, 0, 64);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 1, 6, Blocks.stone), 2.0f, 0, 64);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 2, 4, Blocks.stone), 1.0f, 0, 32);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 3, 4, Blocks.stone), 1.0f, 0, 32);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 4, 5, Blocks.stone), 1.5f, 0, 48);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 5, 4, Blocks.stone), 0.5f, 0, 16);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 6, 5, Blocks.stone), 1.5f, 0, 48);
-		addGem(new WorldGenMinable(GOTRegistry.oreGem, 7, 4, Blocks.stone), 0.75f, 0, 24);
+		addOre(new WorldGenMinable(GOTBlocks.oreSulfur, 8), 2.0f, 0, 64);
+		addOre(new WorldGenMinable(GOTBlocks.oreSaltpeter, 8), 2.0f, 0, 64);
+		addOre(new WorldGenMinable(GOTBlocks.oreSalt, 12), 2.0f, 0, 64);
+		addGem(new WorldGenMinable(GOTBlocks.oreGem, 0, 6, Blocks.stone), 2.0f, 0, 64);
+		addGem(new WorldGenMinable(GOTBlocks.oreGem, 1, 6, Blocks.stone), 2.0f, 0, 64);
+		addGem(new WorldGenMinable(GOTBlocks.oreGem, 2, 4, Blocks.stone), 1.0f, 0, 32);
+		addGem(new WorldGenMinable(GOTBlocks.oreGem, 3, 4, Blocks.stone), 1.0f, 0, 32);
+		addGem(new WorldGenMinable(GOTBlocks.oreGem, 4, 5, Blocks.stone), 1.5f, 0, 48);
+		addGem(new WorldGenMinable(GOTBlocks.oreGem, 5, 4, Blocks.stone), 0.5f, 0, 16);
+		addGem(new WorldGenMinable(GOTBlocks.oreGem, 6, 5, Blocks.stone), 1.5f, 0, 48);
+		addGem(new WorldGenMinable(GOTBlocks.oreGem, 7, 4, Blocks.stone), 0.75f, 0, 24);
 	}
 
 	public void addFixedSettlement(GOTStructureBaseSettlement settlement) {
@@ -358,19 +358,19 @@ public class GOTBiomeDecorator {
 			i5 = chunkX + rand.nextInt(16) + 8;
 			j3 = rand.nextInt(128);
 			k5 = chunkZ + rand.nextInt(16) + 8;
-			new WorldGenFlowers(GOTRegistry.pipeweedPlant).generate(worldObj, rand, i5, j3, k5);
+			new WorldGenFlowers(GOTBlocks.pipeweedPlant).generate(worldObj, rand, i5, j3, k5);
 		}
 		if (generateAgriculture && rand.nextInt(6) == 0) {
 			i5 = chunkX + rand.nextInt(16) + 8;
 			j3 = rand.nextInt(128);
 			k5 = chunkZ + rand.nextInt(16) + 8;
-			new WorldGenFlowers(GOTRegistry.flaxPlant).generate(worldObj, rand, i5, j3, k5);
+			new WorldGenFlowers(GOTBlocks.flaxPlant).generate(worldObj, rand, i5, j3, k5);
 		}
 		if (generateAgriculture && rand.nextInt(6) == 0) {
 			i5 = chunkX + rand.nextInt(16) + 8;
 			j3 = rand.nextInt(128);
 			k5 = chunkZ + rand.nextInt(16) + 8;
-			new WorldGenFlowers(GOTRegistry.cucumberPlant).generate(worldObj, rand, i5, j3, k5);
+			new WorldGenFlowers(GOTBlocks.cucumberPlant).generate(worldObj, rand, i5, j3, k5);
 		}
 		if (biomeVariant.boulderGen != null && rand.nextInt(biomeVariant.boulderChance) == 0) {
 			int boulders = MathHelper.getRandomIntegerInRange(rand, 1, biomeVariant.boulderMax);

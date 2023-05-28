@@ -3,7 +3,7 @@ package got.common.block.leaves;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.item.Item;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -18,7 +18,7 @@ public class GOTBlockLeaves1 extends GOTBlockLeavesBase {
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(GOTRegistry.sapling1);
+		return Item.getItemFromBlock(GOTBlocks.sapling1);
 	}
 
 	@Override

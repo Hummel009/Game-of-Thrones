@@ -1,7 +1,7 @@
 /*
  * Decompiled with CFR 0.148.
  *
- * Could not load the following classes:
+ * Could not onInit the following classes:
  *  net.minecraft.block.Block
  *  net.minecraft.block.BlockLeaves
  *  net.minecraft.entity.EntityCreature
@@ -11,10 +11,7 @@
  */
 package got.common.world.structure.essos.mossovy;
 
-import got.common.database.GOTChestContents;
-import got.common.database.GOTFoods;
-import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
+import got.common.database.*;
 import got.common.entity.essos.mossovy.GOTEntityMossovyBartender;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -151,7 +148,7 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 			if (random.nextBoolean()) {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
 			} else {
-				Block[] plates = {GOTRegistry.plateBlock, GOTRegistry.ceramicPlateBlock, GOTRegistry.woodPlateBlock};
+				Block[] plates = {GOTBlocks.plateBlock, GOTBlocks.ceramicPlateBlock, GOTBlocks.woodPlateBlock};
 				Block plateBlock = plates[random.nextInt(plates.length)];
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);

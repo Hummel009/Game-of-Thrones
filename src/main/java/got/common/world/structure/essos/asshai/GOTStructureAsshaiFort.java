@@ -1,8 +1,9 @@
 package got.common.world.structure.essos.asshai;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.asshai.GOTEntityAsshaiCaptain;
 import got.common.entity.essos.asshai.GOTEntityAsshaiShadowbinder;
 import got.common.entity.essos.asshai.GOTEntityAsshaiSpherebinder;
@@ -70,20 +71,20 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
 		associateBlockAlias("PLANK_STAIR", plankStairBlock);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
-		associateBlockAlias("TRAPDOOR", GOTRegistry.trapdoorCharred);
+		associateBlockAlias("TRAPDOOR", GOTBlocks.trapdoorCharred);
 		associateBlockMetaAlias("BEAM", woodBeamBlock, woodBeamMeta);
 		associateBlockMetaAlias("BEAM|4", woodBeamBlock, woodBeamMeta | 4);
 		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta | 8);
 		addBlockMetaAliasOption("GROUND", 6, rockBlock, rockMeta);
-		addBlockMetaAliasOption("GROUND", 2, GOTRegistry.asshaiDirt, 0);
-		addBlockMetaAliasOption("GROUND", 2, GOTRegistry.basaltGravel, 0);
+		addBlockMetaAliasOption("GROUND", 2, GOTBlocks.asshaiDirt, 0);
+		addBlockMetaAliasOption("GROUND", 2, GOTBlocks.basaltGravel, 0);
 		associateBlockAlias("GATE_IRON", gateBlock);
 		associateBlockAlias("GATE_STANDARD", gateBlock);
 		associateBlockMetaAlias("BARS", barsBlock, 0);
 		associateBlockMetaAlias("CHANDELIER", chandelierBlock, chandelierMeta);
-		associateBlockMetaAlias("TABLE", GOTRegistry.tableAsshai, 0);
+		associateBlockMetaAlias("TABLE", GOTBlocks.tableAsshai, 0);
 		generateStrScan(world, random, 0, 0, 0);
-		setBlockAndMetadata(world, -2, 11, -15, GOTRegistry.commandTable, 0);
+		setBlockAndMetadata(world, -2, 11, -15, GOTBlocks.commandTable, 0);
 		placeBigTorch(world, -3, 2, -18);
 		placeBigTorch(world, 3, 2, -18);
 		placeBigTorch(world, 19, 2, -11);
@@ -130,13 +131,13 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		placeAsshaiArmor(world, random, 0, 4, 12, 1);
 		placeAsshaiArmor(world, random, 6, 4, 13, 2);
 		placeAsshaiArmor(world, random, 1, 4, 13, 2);
-		placeChest(world, random, 15, 1, 7, GOTRegistry.chestStone, 2, GOTChestContents.ASSHAI);
-		placeChest(world, random, 9, 4, 11, GOTRegistry.chestStone, 3, GOTChestContents.ASSHAI);
-		placeChest(world, random, -2, 4, 11, GOTRegistry.chestStone, 3, GOTChestContents.ASSHAI);
-		placeChest(world, random, 12, 4, 13, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
-		placeChest(world, random, -5, 4, 13, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
-		placeChest(world, random, 12, 4, 17, GOTRegistry.chestStone, 5, GOTChestContents.ASSHAI);
-		placeChest(world, random, -5, 4, 17, GOTRegistry.chestStone, 4, GOTChestContents.ASSHAI);
+		placeChest(world, random, 15, 1, 7, GOTBlocks.chestStone, 2, GOTChestContents.ASSHAI);
+		placeChest(world, random, 9, 4, 11, GOTBlocks.chestStone, 3, GOTChestContents.ASSHAI);
+		placeChest(world, random, -2, 4, 11, GOTBlocks.chestStone, 3, GOTChestContents.ASSHAI);
+		placeChest(world, random, 12, 4, 13, GOTBlocks.chestStone, 5, GOTChestContents.ASSHAI);
+		placeChest(world, random, -5, 4, 13, GOTBlocks.chestStone, 4, GOTChestContents.ASSHAI);
+		placeChest(world, random, 12, 4, 17, GOTBlocks.chestStone, 5, GOTChestContents.ASSHAI);
+		placeChest(world, random, -5, 4, 17, GOTBlocks.chestStone, 4, GOTChestContents.ASSHAI);
 		for (int j1 = 4; j1 <= 5; ++j1) {
 			for (int i1 : new int[]{-3, -1, 1}) {
 				setBlockAndMetadata(world, i1, j1, 17, bedBlock, 0);
@@ -150,7 +151,7 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		for (int k1 = -7; k1 <= -4; ++k1) {
 			for (int i1 : new int[]{-13, -11}) {
 				if (random.nextBoolean()) {
-					placePlate(world, random, i1, 5, k1, GOTRegistry.woodPlateBlock, GOTFoods.WESTEROS);
+					placePlate(world, random, i1, 5, k1, GOTBlocks.woodPlateBlock, GOTFoods.WESTEROS);
 					continue;
 				}
 				placeMug(world, random, i1, 5, k1, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
@@ -178,7 +179,7 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 	}
 
 	public ItemStack getRandomAsshaiWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTRegistry.asshaiSword), new ItemStack(GOTRegistry.asshaiDagger), new ItemStack(GOTRegistry.asshaiDaggerPoisoned), new ItemStack(GOTRegistry.asshaiSpear), new ItemStack(GOTRegistry.asshaiBattleaxe), new ItemStack(GOTRegistry.asshaiHammer)};
+		ItemStack[] items = {new ItemStack(GOTItems.asshaiSword), new ItemStack(GOTItems.asshaiDagger), new ItemStack(GOTItems.asshaiDaggerPoisoned), new ItemStack(GOTItems.asshaiSpear), new ItemStack(GOTItems.asshaiBattleaxe), new ItemStack(GOTItems.asshaiHammer)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -193,11 +194,11 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 			arritemStack2[3] = null;
 		} else {
 			ItemStack[] arritemStack3 = new ItemStack[4];
-			arritemStack3[0] = new ItemStack(GOTRegistry.asshaiHelmet);
-			arritemStack3[1] = new ItemStack(GOTRegistry.asshaiChestplate);
-			arritemStack3[2] = new ItemStack(GOTRegistry.asshaiLeggings);
+			arritemStack3[0] = new ItemStack(GOTItems.asshaiHelmet);
+			arritemStack3[1] = new ItemStack(GOTItems.asshaiChestplate);
+			arritemStack3[2] = new ItemStack(GOTItems.asshaiLeggings);
 			arritemStack = arritemStack3;
-			arritemStack3[3] = new ItemStack(GOTRegistry.asshaiBoots);
+			arritemStack3[3] = new ItemStack(GOTItems.asshaiBoots);
 		}
 		ItemStack[] armor = arritemStack;
 		placeArmorStand(world, i, j, k, meta, armor);

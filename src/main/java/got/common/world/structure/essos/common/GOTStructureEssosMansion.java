@@ -1,7 +1,8 @@
 package got.common.world.structure.essos.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -98,9 +99,9 @@ public class GOTStructureEssosMansion extends GOTStructureEssosBase {
 		plantFlower(world, random, 1, 1, -5);
 		plantFlower(world, random, 2, 1, -5);
 		placeWallBanner(world, 3, 3, -4, bannerType, 0);
-		placeChest(world, random, -3, 1, 3, GOTRegistry.chestBasket, 2, getChestContents());
+		placeChest(world, random, -3, 1, 3, GOTBlocks.chestBasket, 2, getChestContents());
 		placeBarrel(world, random, 6, 2, 2, 4, GOTFoods.ESSOS_DRINK);
-		placePlateWithCertainty(world, random, 6, 2, 1, GOTRegistry.ceramicPlateBlock, GOTFoods.ESSOS);
+		placePlateWithCertainty(world, random, 6, 2, 1, GOTBlocks.ceramicPlateBlock, GOTFoods.ESSOS);
 		placeMug(world, random, 6, 2, 3, 3, GOTFoods.ESSOS_DRINK);
 		placeWeaponRack(world, 10, 2, -2, 7, getRandomWeapon(random));
 		setBlockAndMetadata(world, 8, 5, -1, bedBlock, 1);
@@ -108,15 +109,15 @@ public class GOTStructureEssosMansion extends GOTStructureEssosBase {
 		setBlockAndMetadata(world, 8, 5, 1, bedBlock, 1);
 		setBlockAndMetadata(world, 9, 5, 1, bedBlock, 9);
 		placeFlowerPot(world, 4, 2, 1, getRandomFlower(world, random));
-		placeFlowerPot(world, 9, 6, -3, new ItemStack(GOTRegistry.sapling3, 1, 2));
-		placeFlowerPot(world, 9, 6, 3, new ItemStack(GOTRegistry.sapling3, 1, 2));
+		placeFlowerPot(world, 9, 6, -3, new ItemStack(GOTBlocks.sapling3, 1, 2));
+		placeFlowerPot(world, 9, 6, 3, new ItemStack(GOTBlocks.sapling3, 1, 2));
 		GOTEntityNPC male = getMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityNPC female = getMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityNPC child = getMan(world);
 		child.familyInfo.setMale(random.nextBoolean());

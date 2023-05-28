@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.ghiscar;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarGladiator;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.structure.essos.common.GOTStructureEssosBase;
@@ -123,19 +123,19 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 		associateBlockAlias("DOOR", doorBlock);
 		associateBlockMetaAlias("WOOL", roofBlock, roofMeta);
 		addBlockMetaAliasOption("GROUND", 1, Blocks.dirt, 1);
-		addBlockMetaAliasOption("GROUND", 2, GOTRegistry.pillar1, 5);
-		addBlockMetaAliasOption("GROUND", 3, GOTRegistry.dirtPath, 0);
+		addBlockMetaAliasOption("GROUND", 2, GOTBlocks.pillar1, 5);
+		addBlockMetaAliasOption("GROUND", 3, GOTBlocks.dirtPath, 0);
 		addBlockMetaAliasOption("GROUND", 5, Blocks.sand, 0);
 		addBlockMetaAliasOption("GROUND", 5, Blocks.sandstone, 0);
-		addBlockMetaAliasOption("GROUND", 7, GOTRegistry.brick1, 15);
-		addBlockMetaAliasOption("GROUND", 8, GOTRegistry.brick3, 11);
-		addBlockMetaAliasOption("GROUND_SLAB", 1, GOTRegistry.slabSingleDirt, 0);
-		addBlockMetaAliasOption("GROUND_SLAB", 2, GOTRegistry.slabSingle4, 7);
-		addBlockMetaAliasOption("GROUND_SLAB", 3, GOTRegistry.slabSingleDirt, 1);
-		addBlockMetaAliasOption("GROUND_SLAB", 5, GOTRegistry.slabSingleSand, 0);
-		addBlockMetaAliasOption("GROUND_SLAB", 7, GOTRegistry.slabSingle4, 0);
-		addBlockMetaAliasOption("GROUND_SLAB", 8, GOTRegistry.slabSingle7, 1);
-		addBlockMetaAliasOption("GROUND_COVER", 1, GOTRegistry.thatchFloor, 0);
+		addBlockMetaAliasOption("GROUND", 7, GOTBlocks.brick1, 15);
+		addBlockMetaAliasOption("GROUND", 8, GOTBlocks.brick3, 11);
+		addBlockMetaAliasOption("GROUND_SLAB", 1, GOTBlocks.slabSingleDirt, 0);
+		addBlockMetaAliasOption("GROUND_SLAB", 2, GOTBlocks.slabSingle4, 7);
+		addBlockMetaAliasOption("GROUND_SLAB", 3, GOTBlocks.slabSingleDirt, 1);
+		addBlockMetaAliasOption("GROUND_SLAB", 5, GOTBlocks.slabSingleSand, 0);
+		addBlockMetaAliasOption("GROUND_SLAB", 7, GOTBlocks.slabSingle4, 0);
+		addBlockMetaAliasOption("GROUND_SLAB", 8, GOTBlocks.slabSingle7, 1);
+		addBlockMetaAliasOption("GROUND_COVER", 1, GOTBlocks.thatchFloor, 0);
 		setBlockAliasChance("GROUND_COVER", 0.25f);
 		associateBlockMetaAlias("BARS", barsBlock, 0);
 		associateBlockAlias("GATE_ORC", gateMetalBlock);
@@ -170,7 +170,7 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 		setBlockAndMetadata(world, -3, 7, 11, bedBlock, 11);
 		placeBarrel(world, random, 3, 8, 11, 5, GOTFoods.ESSOS_DRINK);
 		placeMug(world, random, 3, 8, 10, 1, GOTFoods.ESSOS_DRINK);
-		placePlateWithCertainty(world, random, 3, 8, 9, GOTRegistry.woodPlateBlock, GOTFoods.ESSOS);
+		placePlateWithCertainty(world, random, 3, 8, 9, GOTBlocks.woodPlateBlock, GOTFoods.ESSOS);
 		int maxStep = 12;
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (step = 0; step < 2 && !isSideSolid(world, i12, j12 = 5 - step, k12 = -9 - step, ForgeDirection.UP); ++step) {

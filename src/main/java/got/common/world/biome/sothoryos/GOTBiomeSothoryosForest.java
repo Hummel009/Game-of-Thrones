@@ -1,7 +1,7 @@
 package got.common.world.biome.sothoryos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -75,7 +75,7 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 			double d1 = noisePaths1.func_151601_a(i * 0.008, k * 0.008);
 			double d2 = noisePaths2.func_151601_a(i * 0.008, k * 0.008);
 			if (d1 > 0.0 && d1 < 0.1 || d2 > 0.0 && d2 < 0.1) {
-				topBlock = GOTRegistry.dirtPath;
+				topBlock = GOTBlocks.dirtPath;
 				topBlockMeta = 1;
 			}
 		}

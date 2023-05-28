@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.yiti;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import net.minecraft.init.Blocks;
@@ -85,7 +85,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 				if (!random.nextBoolean()) {
 					continue;
 				}
-				setBlockAndMetadata(world, i12, 1, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i12, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (k12 = 1; k12 <= 11; ++k12) {
@@ -112,7 +112,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 						if (random.nextBoolean()) {
 							setBlockAndMetadata(world, i12, 0, k1, Blocks.dirt, 1);
 						} else {
-							setBlockAndMetadata(world, i12, 0, k1, GOTRegistry.dirtPath, 1);
+							setBlockAndMetadata(world, i12, 0, k1, GOTBlocks.dirtPath, 1);
 						}
 					}
 				}
@@ -145,7 +145,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 				if (i2 != 0 || k2 != 2) {
 					continue;
 				}
-				setBlockAndMetadata(world, i12, 4, k1, GOTRegistry.chandelier, 0);
+				setBlockAndMetadata(world, i12, 4, k1, GOTBlocks.chandelier, 0);
 			}
 		}
 		for (k12 = 0; k12 <= 12; ++k12) {

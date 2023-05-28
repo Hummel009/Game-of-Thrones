@@ -2,7 +2,7 @@ package got.common.entity.essos.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.essos.legendary.quest.GOTEntityDaenerysTargaryen;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -87,7 +87,7 @@ public class GOTEntityJorahMormont extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

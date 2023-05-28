@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.mossovy;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.mossovy.GOTEntityMossovyFarmer;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
@@ -91,7 +91,7 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 		associateBlockMetaAlias("ROOF_SLAB", roofSlabBlock, roofSlabMeta);
 		associateBlockMetaAlias("ROOF_SLAB_INV", roofSlabBlock, roofSlabMeta | 8);
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
-		addBlockMetaAliasOption("THATCH_FLOOR", 1, GOTRegistry.thatchFloor, 0);
+		addBlockMetaAliasOption("THATCH_FLOOR", 1, GOTBlocks.thatchFloor, 0);
 		setBlockAliasChance("THATCH_FLOOR", 0.2f);
 		addBlockMetaAliasOption("GROUND", 13, Blocks.grass, 0);
 		addBlockMetaAliasOption("GROUND", 7, Blocks.cobblestone, 0);

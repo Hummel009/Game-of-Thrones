@@ -1,6 +1,6 @@
 package got.common.world.structure.sothoryos.summer;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 
 import java.util.Random;
 
@@ -18,7 +18,7 @@ public class GOTStructureSummerPalisadeRuined extends GOTStructureSummerPalisade
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
 		if (random.nextBoolean()) {
-			woodBlock = GOTRegistry.wood1;
+			woodBlock = GOTBlocks.wood1;
 			woodMeta = 3;
 		}
 	}

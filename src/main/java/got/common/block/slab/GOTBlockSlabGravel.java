@@ -2,7 +2,7 @@ package got.common.block.slab;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -24,9 +24,9 @@ public class GOTBlockSlabGravel extends GOTBlockSlabFalling {
 			case 0:
 				return Blocks.gravel.getIcon(i, 0);
 			case 1:
-				return GOTRegistry.basaltGravel.getIcon(i, 0);
+				return GOTBlocks.basaltGravel.getIcon(i, 0);
 			case 2:
-				return GOTRegistry.obsidianGravel.getIcon(i, 0);
+				return GOTBlocks.obsidianGravel.getIcon(i, 0);
 			default:
 				break;
 		}

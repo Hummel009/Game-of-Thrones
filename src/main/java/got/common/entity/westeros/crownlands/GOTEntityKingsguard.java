@@ -1,7 +1,7 @@
 package got.common.entity.westeros.crownlands;
 
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -22,13 +22,13 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsGuard {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(0, new ItemStack(GOTRegistry.westerosSword));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		setCurrentItemOrArmor(0, new ItemStack(GOTItems.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.kingsguardBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.kingsguardLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.kingsguardChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.kingsguardHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.kingsguardBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.kingsguardLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.kingsguardChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.kingsguardHelmet));
 		return data;
 	}
 }

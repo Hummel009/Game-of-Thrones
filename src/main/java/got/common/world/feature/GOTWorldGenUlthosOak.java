@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
@@ -19,9 +19,9 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 	public boolean restrictions = true;
 	public boolean isDead;
 	public boolean hasRoots = true;
-	public Block woodBlock = GOTRegistry.wood1;
+	public Block woodBlock = GOTBlocks.wood1;
 	public int woodMeta = 2;
-	public Block leafBlock = GOTRegistry.leaves1;
+	public Block leafBlock = GOTBlocks.leaves1;
 	public int leafMeta = 2;
 
 	public GOTWorldGenUlthosOak(boolean flag, int i, int j, int k, boolean mirk) {
@@ -253,11 +253,11 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 	}
 
 	public void growVines(World world, Random random, int i, int j, int k, int meta) {
-		setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.mirkVines, meta);
+		setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.mirkVines, meta);
 		int length = 4 + random.nextInt(8);
 		--j;
 		while (world.isAirBlock(i, j, k) && length > 0) {
-			setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.mirkVines, meta);
+			setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.mirkVines, meta);
 			--length;
 			--j;
 		}
@@ -277,10 +277,10 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 	}
 
 	public GOTWorldGenUlthosOak setGreenOak() {
-		return setBlocks(GOTRegistry.wood7, 1, GOTRegistry.leaves7, 1);
+		return setBlocks(GOTBlocks.wood7, 1, GOTBlocks.leaves7, 1);
 	}
 
 	public GOTWorldGenUlthosOak setRedOak() {
-		return setBlocks(GOTRegistry.wood7, 1, GOTRegistry.leaves1, 3);
+		return setBlocks(GOTBlocks.wood7, 1, GOTBlocks.leaves1, 3);
 	}
 }

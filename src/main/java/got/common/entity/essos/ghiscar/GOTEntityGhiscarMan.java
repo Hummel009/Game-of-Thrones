@@ -2,8 +2,8 @@ package got.common.entity.essos.ghiscar;
 
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
+import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -66,7 +66,7 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase implements IPickpock
 	@Override
 	public GOTNPCMount createMountToRide() {
 		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
-		horse.setMountArmor(new ItemStack(GOTRegistry.essosHorseArmor));
+		horse.setMountArmor(new ItemStack(GOTItems.essosHorseArmor));
 		return horse;
 	}
 
@@ -150,7 +150,7 @@ public class GOTEntityGhiscarMan extends GOTEntityHumanBase implements IPickpock
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDagger));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

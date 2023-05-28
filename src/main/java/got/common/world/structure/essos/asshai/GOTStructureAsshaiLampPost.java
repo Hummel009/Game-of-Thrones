@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.asshai;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -29,10 +29,10 @@ public class GOTStructureAsshaiLampPost extends GOTStructureAsshaiBase {
 			setBlockAndMetadata(world, 0, j1, 0, brickWallBlock, brickWallMeta);
 		}
 		setBlockAndMetadata(world, 0, 5, 0, brickBlock, brickMeta);
-		setBlockAndMetadata(world, -1, 5, 0, GOTRegistry.asshaiTorch, 1);
-		setBlockAndMetadata(world, 1, 5, 0, GOTRegistry.asshaiTorch, 2);
-		setBlockAndMetadata(world, 0, 5, -1, GOTRegistry.asshaiTorch, 4);
-		setBlockAndMetadata(world, 0, 5, 1, GOTRegistry.asshaiTorch, 3);
+		setBlockAndMetadata(world, -1, 5, 0, GOTBlocks.asshaiTorch, 1);
+		setBlockAndMetadata(world, 1, 5, 0, GOTBlocks.asshaiTorch, 2);
+		setBlockAndMetadata(world, 0, 5, -1, GOTBlocks.asshaiTorch, 4);
+		setBlockAndMetadata(world, 0, 5, 1, GOTBlocks.asshaiTorch, 3);
 		return true;
 	}
 }

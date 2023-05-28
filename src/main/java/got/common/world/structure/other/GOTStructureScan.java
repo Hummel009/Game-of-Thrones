@@ -57,7 +57,7 @@ public class GOTStructureScan {
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), Charsets.UTF_8));
 						scanNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
-						FMLLog.severe("Failed to load GOT structure scan " + s + "from zip file");
+						FMLLog.severe("Failed to onInit GOT structure scan " + s + "from zip file");
 						e.printStackTrace();
 					}
 				}
@@ -69,7 +69,7 @@ public class GOTStructureScan {
 					s = s.substring(scanDir.getPath().length() + 1);
 					int i = (s = s.replace(File.separator, "/")).indexOf(strscanFormat);
 					if (i < 0) {
-						FMLLog.severe("Failed to load GOT structure scan " + s + " from MCP folder - not in " + strscanFormat + " format");
+						FMLLog.severe("Failed to onInit GOT structure scan " + s + " from MCP folder - not in " + strscanFormat + " format");
 						continue;
 					}
 					try {
@@ -77,13 +77,13 @@ public class GOTStructureScan {
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(subfile.toPath())), Charsets.UTF_8));
 						scanNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
-						FMLLog.severe("Failed to load GOT structure scan " + s + " from MCP folder");
+						FMLLog.severe("Failed to onInit GOT structure scan " + s + " from MCP folder");
 						e.printStackTrace();
 					}
 				}
 			}
 		} catch (Exception e) {
-			FMLLog.severe("Failed to load GOT structure scans");
+			FMLLog.severe("Failed to onInit GOT structure scans");
 			e.printStackTrace();
 		}
 		for (Entry<String, BufferedReader> strName : scanNamesAndReaders.entrySet()) {
@@ -189,7 +189,7 @@ public class GOTStructureScan {
 				}
 				allLoadedScans.put(scan.scanName, scan);
 			} catch (Exception e) {
-				FMLLog.severe("Failed to load GOT structure scan " + strName.getKey() + ": error on line " + curLine);
+				FMLLog.severe("Failed to onInit GOT structure scan " + strName.getKey() + ": error on line " + curLine);
 				e.printStackTrace();
 			}
 		}

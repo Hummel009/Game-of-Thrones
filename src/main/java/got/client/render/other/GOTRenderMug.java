@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.client.model.*;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.item.other.GOTItemMug;
 import got.common.tileentity.GOTTileEntityMug;
 import net.minecraft.client.model.ModelBase;
@@ -48,7 +48,7 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glTranslatef(dxz, -0.5f, dxz);
 		renderBlocks.setOverrideBlockTexture(icon);
-		GOTRenderBlocks.renderStandardInvBlock(renderBlocks, GOTRegistry.mugBlock, xzMin += edge, yMax - edge, xzMin, xzMax -= edge, yMin + edge, xzMax);
+		GOTRenderBlocks.renderStandardInvBlock(renderBlocks, GOTBlocks.mugBlock, xzMin += edge, yMax - edge, xzMin, xzMax -= edge, yMin + edge, xzMax);
 		renderBlocks.clearOverrideBlockTexture();
 		GL11.glPopMatrix();
 	}

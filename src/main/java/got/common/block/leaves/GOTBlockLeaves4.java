@@ -1,6 +1,7 @@
 package got.common.block.leaves;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,7 +18,7 @@ public class GOTBlockLeaves4 extends GOTBlockLeavesBase {
 	@Override
 	public void addSpecialLeafDrops(ArrayList<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
 		if ((meta & 3) == 0 && world.rand.nextInt(calcFortuneModifiedDropChance(20, fortune)) == 0) {
-			drops.add(new ItemStack(GOTRegistry.chestnut));
+			drops.add(new ItemStack(GOTItems.chestnut));
 		}
 	}
 
@@ -28,7 +29,7 @@ public class GOTBlockLeaves4 extends GOTBlockLeavesBase {
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(GOTRegistry.sapling4);
+		return Item.getItemFromBlock(GOTBlocks.sapling4);
 	}
 
 	@Override
@@ -43,7 +44,7 @@ public class GOTBlockLeaves4 extends GOTBlockLeavesBase {
 				double d = i + random.nextDouble();
 				double d1 = j - 0.2;
 				double d2 = k + random.nextDouble();
-				EntityItem conker = new EntityItem(world, d, d1, d2, new ItemStack(GOTRegistry.chestnut));
+				EntityItem conker = new EntityItem(world, d, d1, d2, new ItemStack(GOTItems.chestnut));
 				conker.delayBeforeCanPickup = 10;
 				conker.motionZ = 0.0;
 				conker.motionY = 0.0;

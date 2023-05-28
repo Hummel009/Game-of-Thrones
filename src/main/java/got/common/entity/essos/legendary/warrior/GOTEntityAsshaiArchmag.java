@@ -2,7 +2,7 @@ package got.common.entity.essos.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAsshaiArchmagUseStaff;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIFollowHiringPlayer;
@@ -51,7 +51,7 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.archmagStaff, 1);
+		dropItem(GOTItems.archmagStaff, 1);
 	}
 
 	@Override
@@ -124,13 +124,13 @@ public class GOTEntityAsshaiArchmag extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(0, new ItemStack(GOTRegistry.archmagStaff));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.archmagStaff));
+		setCurrentItemOrArmor(0, new ItemStack(GOTItems.archmagStaff));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.archmagStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.asshaiBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.asshaiLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.asshaiChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.asshaiMask));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.asshaiBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.asshaiLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.asshaiChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiMask));
 		return data;
 	}
 

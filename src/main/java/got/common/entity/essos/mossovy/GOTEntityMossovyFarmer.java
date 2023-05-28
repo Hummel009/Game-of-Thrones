@@ -2,7 +2,7 @@ package got.common.entity.essos.mossovy;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTTradeable;
 import got.common.item.other.GOTItemLeatherHat;
@@ -49,7 +49,7 @@ public class GOTEntityMossovyFarmer extends GOTEntityMossovyMan implements GOTTr
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_hoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		ItemStack hat = new ItemStack(GOTRegistry.leatherHat);
+		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 10390131);
 		setCurrentItemOrArmor(4, hat);
 		return data;

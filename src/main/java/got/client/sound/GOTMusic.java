@@ -263,7 +263,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 					ZipFile zipFile = new ZipFile(file);
 					loadMusicPack(zipFile, resourceMgr);
 				} catch (Exception e) {
-					GOTLog.logger.warn("Hummel009: Failed to load music pack {}!", file.getName());
+					GOTLog.logger.warn("Hummel009: Failed to onInit music pack {}!", file.getName());
 					e.printStackTrace();
 				}
 			}

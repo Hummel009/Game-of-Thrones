@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIDrink;
 import got.common.entity.ai.GOTEntityAIEat;
@@ -53,7 +53,7 @@ public class GOTEntityHummel009 extends GOTEntityNPC {
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
-		dropItem(GOTRegistry.crowbar, 64);
+		dropItem(GOTItems.crowbar, 64);
 	}
 
 	@Override
@@ -78,7 +78,7 @@ public class GOTEntityHummel009 extends GOTEntityNPC {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.crowbar));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.crowbar));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

@@ -1,7 +1,7 @@
 package got.common.block.other;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
@@ -21,7 +21,7 @@ public class GOTBlockKelp extends Block {
 	@Override
 	public void breakBlock(World par1World, int par2, int par3, int par4, Block par5, int par6) {
 		for (int i = 1; i <= 8; i++) {
-			if (par1World.getBlock(par2, par3 + i, par4) == GOTRegistry.kelp) {
+			if (par1World.getBlock(par2, par3 + i, par4) == GOTBlocks.kelp) {
 				par1World.func_147480_a(par2, par3 + i, par4, true);
 			}
 		}

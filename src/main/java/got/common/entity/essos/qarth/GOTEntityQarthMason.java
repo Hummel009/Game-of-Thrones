@@ -1,6 +1,6 @@
 package got.common.entity.essos.qarth;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.Items;
@@ -27,7 +27,7 @@ public class GOTEntityQarthMason extends GOTEntityQarthTrader {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.brick1, 1, 15));
+		npcItemsInv.setIdleItem(new ItemStack(GOTBlocks.brick1, 1, 15));
 		return data;
 	}
 }

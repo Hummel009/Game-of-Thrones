@@ -228,7 +228,7 @@ public class GOTConfig {
 		}
 	}
 
-	public static void setupAndLoad() {
+	public static void preInit() {
 		config = new Configuration(new File("config", "GOT.cfg"));
 		load();
 	}

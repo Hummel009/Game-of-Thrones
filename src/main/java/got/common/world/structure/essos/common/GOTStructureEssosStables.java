@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.common;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
@@ -60,15 +60,15 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 					if (random.nextBoolean()) {
 						setBlockAndMetadata(world, i1, 0, k1, Blocks.sand, 0);
 					} else {
-						setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+						setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 					}
 				} else if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
 				} else {
-					setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 				}
 				if (random.nextInt(4) == 0) {
-					setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);
+					setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.thatchFloor, 0);
 				}
 			}
 		}
@@ -93,7 +93,7 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 		associateBlockMetaAlias("BEAM|4", woodBeamBlock, woodBeamMeta4);
 		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta8);
 		generateStrScan(world, random, 0, 1, 0);
-		placeChest(world, random, -3, 1, 6, GOTRegistry.chestBasket, 2, getChestContents());
+		placeChest(world, random, -3, 1, 6, GOTBlocks.chestBasket, 2, getChestContents());
 		int numnpc = 1 + random.nextInt(2);
 		for (int l = 0; l < numnpc; ++l) {
 			GOTEntityNPC npc = getMan(world);

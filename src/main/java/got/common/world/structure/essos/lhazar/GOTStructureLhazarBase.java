@@ -1,6 +1,7 @@
 package got.common.world.structure.essos.lhazar;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -61,7 +62,7 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 	}
 
 	public ItemStack getRandomlhazarWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTRegistry.lhazarSword), new ItemStack(GOTRegistry.lhazarSword), new ItemStack(GOTRegistry.lhazarDagger), new ItemStack(GOTRegistry.lhazarSpear), new ItemStack(GOTRegistry.lhazarClub)};
+		ItemStack[] items = {new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarDagger), new ItemStack(GOTItems.lhazarSpear), new ItemStack(GOTItems.lhazarClub)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -69,53 +70,53 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
 		if (canUseRedBrick() && random.nextInt(3) == 0) {
-			brickBlock = GOTRegistry.brick3;
+			brickBlock = GOTBlocks.brick3;
 			brickMeta = 13;
-			brickSlabBlock = GOTRegistry.slabSingle7;
+			brickSlabBlock = GOTBlocks.slabSingle7;
 			brickSlabMeta = 2;
-			brickStairBlock = GOTRegistry.stairsSandstoneBrickRed;
-			brickWallBlock = GOTRegistry.wallStone3;
+			brickStairBlock = GOTBlocks.stairsSandstoneBrickRed;
+			brickWallBlock = GOTBlocks.wallStone3;
 			brickWallMeta = 4;
 		} else {
-			brickBlock = GOTRegistry.brick1;
+			brickBlock = GOTBlocks.brick1;
 			brickMeta = 15;
-			brickSlabBlock = GOTRegistry.slabSingle4;
+			brickSlabBlock = GOTBlocks.slabSingle4;
 			brickSlabMeta = 0;
-			brickStairBlock = GOTRegistry.stairsSandstoneBrick;
-			brickWallBlock = GOTRegistry.wallStone1;
+			brickStairBlock = GOTBlocks.stairsSandstoneBrick;
+			brickWallBlock = GOTBlocks.wallStone1;
 			brickWallMeta = 15;
 		}
-		brick2Block = GOTRegistry.brick3;
+		brick2Block = GOTBlocks.brick3;
 		brick2Meta = 13;
 		if (random.nextInt(5) == 0) {
-			woodBlock = GOTRegistry.wood9;
+			woodBlock = GOTBlocks.wood9;
 			woodMeta = 0;
-			plankBlock = GOTRegistry.planks3;
+			plankBlock = GOTBlocks.planks3;
 			plankMeta = 4;
-			plankSlabBlock = GOTRegistry.woodSlabSingle5;
+			plankSlabBlock = GOTBlocks.woodSlabSingle5;
 			plankSlabMeta = 4;
-			plankStairBlock = GOTRegistry.stairsDragon;
-			fenceBlock = GOTRegistry.fence3;
+			plankStairBlock = GOTBlocks.stairsDragon;
+			fenceBlock = GOTBlocks.fence3;
 			fenceMeta = 4;
-			fenceGateBlock = GOTRegistry.fenceGateDragon;
-			doorBlock = GOTRegistry.doorDragon;
-			trapdoorBlock = GOTRegistry.trapdoorDragon;
-			beamBlock = GOTRegistry.woodBeam9;
+			fenceGateBlock = GOTBlocks.fenceGateDragon;
+			doorBlock = GOTBlocks.doorDragon;
+			trapdoorBlock = GOTBlocks.trapdoorDragon;
+			beamBlock = GOTBlocks.woodBeam9;
 			beamMeta = 0;
 		} else {
-			woodBlock = GOTRegistry.wood8;
+			woodBlock = GOTBlocks.wood8;
 			woodMeta = 3;
-			plankBlock = GOTRegistry.planks3;
+			plankBlock = GOTBlocks.planks3;
 			plankMeta = 3;
-			plankSlabBlock = GOTRegistry.woodSlabSingle5;
+			plankSlabBlock = GOTBlocks.woodSlabSingle5;
 			plankSlabMeta = 3;
-			plankStairBlock = GOTRegistry.stairsPalm;
-			fenceBlock = GOTRegistry.fence3;
+			plankStairBlock = GOTBlocks.stairsPalm;
+			fenceBlock = GOTBlocks.fence3;
 			fenceMeta = 3;
-			fenceGateBlock = GOTRegistry.fenceGatePalm;
-			doorBlock = GOTRegistry.doorPalm;
-			trapdoorBlock = GOTRegistry.trapdoorPalm;
-			beamBlock = GOTRegistry.woodBeam8;
+			fenceGateBlock = GOTBlocks.fenceGatePalm;
+			doorBlock = GOTBlocks.doorPalm;
+			trapdoorBlock = GOTBlocks.trapdoorPalm;
+			beamBlock = GOTBlocks.woodBeam8;
 			beamMeta = 3;
 		}
 		int randomWood2 = random.nextInt(3);
@@ -126,41 +127,41 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 				plank2SlabBlock = Blocks.wooden_slab;
 				plank2SlabMeta = 4;
 				plank2StairBlock = Blocks.acacia_stairs;
-				beam2Block = GOTRegistry.woodBeamV2;
+				beam2Block = GOTBlocks.woodBeamV2;
 				beam2Meta = 0;
 				break;
 			case 1:
-				plank2Block = GOTRegistry.planks1;
+				plank2Block = GOTBlocks.planks1;
 				plank2Meta = 14;
-				plank2SlabBlock = GOTRegistry.woodSlabSingle2;
+				plank2SlabBlock = GOTBlocks.woodSlabSingle2;
 				plank2SlabMeta = 6;
-				plank2StairBlock = GOTRegistry.stairsDatePalm;
-				beam2Block = GOTRegistry.woodBeam4;
+				plank2StairBlock = GOTBlocks.stairsDatePalm;
+				beam2Block = GOTBlocks.woodBeam4;
 				beam2Meta = 2;
 				break;
 			case 2:
-				plank2Block = GOTRegistry.planks3;
+				plank2Block = GOTBlocks.planks3;
 				plank2Meta = 4;
-				plank2SlabBlock = GOTRegistry.woodSlabSingle5;
+				plank2SlabBlock = GOTBlocks.woodSlabSingle5;
 				plank2SlabMeta = 4;
-				plank2StairBlock = GOTRegistry.stairsDragon;
-				beam2Block = GOTRegistry.woodBeam9;
+				plank2StairBlock = GOTBlocks.stairsDragon;
+				beam2Block = GOTBlocks.woodBeam9;
 				beam2Meta = 0;
 				break;
 			default:
 				break;
 		}
-		roofBlock = GOTRegistry.thatch;
+		roofBlock = GOTBlocks.thatch;
 		roofMeta = 1;
-		roofSlabBlock = GOTRegistry.slabSingleThatch;
+		roofSlabBlock = GOTBlocks.slabSingleThatch;
 		roofSlabMeta = 1;
-		roofStairBlock = GOTRegistry.stairsReed;
+		roofStairBlock = GOTBlocks.stairsReed;
 		flagBlock = Blocks.wool;
 		flagMeta = 14;
-		boneBlock = GOTRegistry.boneBlock;
+		boneBlock = GOTBlocks.boneBlock;
 		boneMeta = 0;
-		boneWallBlock = GOTRegistry.wallBone;
+		boneWallBlock = GOTBlocks.wallBone;
 		boneWallMeta = 0;
-		bedBlock = GOTRegistry.strawBed;
+		bedBlock = GOTBlocks.strawBed;
 	}
 }

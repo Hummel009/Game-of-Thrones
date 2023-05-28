@@ -1,6 +1,6 @@
 package got.common.block.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.item.Item;
 
 public class GOTBlockGrapevineRed extends GOTBlockGrapevine {
@@ -10,11 +10,11 @@ public class GOTBlockGrapevineRed extends GOTBlockGrapevine {
 
 	@Override
 	public Item getGrapeItem() {
-		return GOTRegistry.grapeRed;
+		return GOTItems.grapeRed;
 	}
 
 	@Override
 	public Item getGrapeSeedsItem() {
-		return GOTRegistry.seedsGrapeRed;
+		return GOTItems.seedsGrapeRed;
 	}
 }

@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.lhazar;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -85,7 +85,7 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 						if (random.nextBoolean()) {
 							setBlockAndMetadata(world, i2, j2, k2, Blocks.dirt, 1);
 						} else {
-							setBlockAndMetadata(world, i2, j2, k2, GOTRegistry.wasteBlock, 0);
+							setBlockAndMetadata(world, i2, j2, k2, GOTBlocks.wasteBlock, 0);
 						}
 						if (random.nextInt(6) != 0) {
 							continue;

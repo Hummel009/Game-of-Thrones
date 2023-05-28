@@ -1,6 +1,6 @@
 package got.common.entity.ai;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntitySmokeRing;
 import got.common.item.other.GOTItemPipe;
@@ -27,7 +27,7 @@ public class GOTEntityAISmoke extends GOTEntityAIConsumeBase {
 
 	@Override
 	public ItemStack createConsumable() {
-		return new ItemStack(GOTRegistry.pipe);
+		return new ItemStack(GOTItems.pipe);
 	}
 
 	@Override

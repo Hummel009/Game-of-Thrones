@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -12,9 +12,9 @@ import java.util.Random;
 
 public class GOTWorldGenCypress extends WorldGenAbstractTree {
 	public int extraTrunkWidth;
-	public Block woodBlock = GOTRegistry.wood6;
+	public Block woodBlock = GOTBlocks.wood6;
 	public int woodMeta = 2;
-	public Block leafBlock = GOTRegistry.leaves6;
+	public Block leafBlock = GOTBlocks.leaves6;
 	public int leafMeta = 2;
 
 	public GOTWorldGenCypress(boolean flag) {

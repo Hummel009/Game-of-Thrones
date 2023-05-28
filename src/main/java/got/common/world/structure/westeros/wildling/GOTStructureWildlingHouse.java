@@ -1,7 +1,8 @@
 package got.common.world.structure.westeros.wildling;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
 import got.common.entity.westeros.GOTEntityWesterosThief;
 import got.common.entity.westeros.wildling.GOTEntityWildling;
@@ -72,7 +73,7 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 		stairBlock = Blocks.spruce_stairs;
 		fenceBlock = Blocks.fence;
 		fenceMeta = 0;
-		doorBlock = GOTRegistry.doorSpruce;
+		doorBlock = GOTBlocks.doorSpruce;
 		floorBlock = Blocks.stained_hardened_clay;
 		floorMeta = 15;
 		for (i1 = -4; i1 <= 4; ++i1) {
@@ -96,7 +97,7 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 				if (random.nextInt(2) != 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (int j14 = 1; j14 <= 4; ++j14) {
@@ -182,8 +183,8 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 2, 3, -4, Blocks.torch, 3);
 		setBlockAndMetadata(world, -2, 3, 4, Blocks.torch, 4);
 		setBlockAndMetadata(world, 2, 3, 4, Blocks.torch, 4);
-		setBlockAndMetadata(world, 0, 1, 3, GOTRegistry.strawBed, 0);
-		setBlockAndMetadata(world, 0, 1, 4, GOTRegistry.strawBed, 8);
+		setBlockAndMetadata(world, 0, 1, 3, GOTBlocks.strawBed, 0);
+		setBlockAndMetadata(world, 0, 1, 4, GOTBlocks.strawBed, 8);
 		setBlockAndMetadata(world, -1, 1, 4, Blocks.crafting_table, 0);
 		placeChest(world, random, 1, 1, 4, 2, GOTChestContents.BEYOND_WALL);
 		placeWallBanner(world, 0, 4, 5, GOTItemBanner.BannerType.WILDLING, 2);
@@ -201,11 +202,11 @@ public class GOTStructureWildlingHouse extends GOTStructureBase {
 		} else {
 			GOTEntityWildling male = new GOTEntityWildling(world);
 			male.familyInfo.setMale(true);
-			male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+			male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(male, world, 0, 1, 0, 8);
 			GOTEntityWildling female = new GOTEntityWildling(world);
 			female.familyInfo.setMale(false);
-			female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+			female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(female, world, 0, 1, 0, 8);
 			GOTEntityWildling child = new GOTEntityWildling(world);
 			child.familyInfo.setMale(random.nextBoolean());

@@ -1,6 +1,6 @@
 package got.common.entity.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
@@ -29,8 +29,8 @@ public class GOTEntityYiTiFishmonger extends GOTEntityYiTiMarketTrader {
 		data = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(Items.fishing_rod));
 		int robeColor = 4882395;
-		ItemStack body = new ItemStack(GOTRegistry.kaftanChestplate);
-		ItemStack legs = new ItemStack(GOTRegistry.kaftanLeggings);
+		ItemStack body = new ItemStack(GOTItems.kaftanChestplate);
+		ItemStack legs = new ItemStack(GOTItems.kaftanLeggings);
 		GOTItemRobes.setRobesColor(body, robeColor);
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);

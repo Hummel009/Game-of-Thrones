@@ -1,6 +1,6 @@
 package got.common.world.structure.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import net.minecraft.init.Blocks;
@@ -43,7 +43,7 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 					int maxHeight = 100 + random.nextInt(10);
 					for (int j12 = baseHeight; j12 <= maxHeight; ++j12) {
 						if (i2 == radius || k2 == radius || j12 == baseHeight || j12 >= maxHeight - 10) {
-							setBlockAndMetadata(world, i1, j12, k1, GOTRegistry.brick2, 11);
+							setBlockAndMetadata(world, i1, j12, k1, GOTBlocks.brick2, 11);
 							continue;
 						}
 						setAir(world, i1, j12, k1);
@@ -53,7 +53,7 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 					}
 					int height = 1 + random.nextInt(2);
 					for (j1 = baseHeight; j1 <= baseHeight + height; ++j1) {
-						setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.brick2, 11);
+						setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.brick2, 11);
 					}
 				}
 			}
@@ -67,7 +67,7 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 						int base = getTopBlock(world, i2, k2);
 						int top = base + height - random.nextInt(3);
 						for (j2 = base; j2 < top; ++j2) {
-							setBlockAndMetadata(world, i2, j2, k2, GOTRegistry.brick2, 11);
+							setBlockAndMetadata(world, i2, j2, k2, GOTBlocks.brick2, 11);
 						}
 					}
 				}
@@ -96,7 +96,7 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 			int stairZ = entranceZ + 1;
 			int stairDirection = 2;
 			do {
-				setBlockAndMetadata(world, stairX, stairY, stairZ, GOTRegistry.brick2, 11);
+				setBlockAndMetadata(world, stairX, stairY, stairZ, GOTBlocks.brick2, 11);
 				if (stairY <= baseHeight) {
 					break;
 				}
@@ -137,7 +137,7 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 					for (int j14 = portalBase; j14 <= baseHeight + 1; ++j14) {
 						if (i2 < 2 && k2 < 2) {
 							if (j14 == portalBase) {
-								setBlockAndMetadata(world, i1, j14, k1, GOTRegistry.brick2, 11);
+								setBlockAndMetadata(world, i1, j14, k1, GOTBlocks.brick2, 11);
 								continue;
 							}
 							if (j14 < portalHeight) {
@@ -151,7 +151,7 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 							setAir(world, i1, j14, k1);
 							continue;
 						}
-						setBlockAndMetadata(world, i1, j14, k1, GOTRegistry.brick2, 11);
+						setBlockAndMetadata(world, i1, j14, k1, GOTBlocks.brick2, 11);
 					}
 					if (i2 != 2 || k2 != 2) {
 						continue;
@@ -159,13 +159,13 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 					int min = baseHeight + 2;
 					int max = min + 2 + random.nextInt(2);
 					for (j13 = min; j13 <= max; ++j13) {
-						setBlockAndMetadata(world, i1, j13, k1, GOTRegistry.brick2, 11);
+						setBlockAndMetadata(world, i1, j13, k1, GOTBlocks.brick2, 11);
 					}
-					setBlockAndMetadata(world, i1, max + 1, k1, GOTRegistry.brick2, 11);
+					setBlockAndMetadata(world, i1, max + 1, k1, GOTBlocks.brick2, 11);
 					min = max + 2;
 					max = min + 2;
 					for (j13 = min; j13 <= max; ++j13) {
-						setBlockAndMetadata(world, i1, j13, k1, GOTRegistry.brick2, 11);
+						setBlockAndMetadata(world, i1, j13, k1, GOTBlocks.brick2, 11);
 					}
 				}
 			}

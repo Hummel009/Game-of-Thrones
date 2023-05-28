@@ -1,6 +1,6 @@
 package got.common.entity.essos.myr;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
@@ -37,7 +37,7 @@ public class GOTEntityMyrLevymanArcher extends GOTEntityMyrLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.essosBow));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.essosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		return data;
 	}

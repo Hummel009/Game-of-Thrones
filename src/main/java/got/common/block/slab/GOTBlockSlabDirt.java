@@ -2,7 +2,7 @@ package got.common.block.slab;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -24,15 +24,15 @@ public class GOTBlockSlabDirt extends GOTBlockSlabBase {
 			case 0:
 				return Blocks.dirt.getIcon(i, 0);
 			case 1:
-				return GOTRegistry.dirtPath.getIcon(i, 0);
+				return GOTBlocks.dirtPath.getIcon(i, 0);
 			case 2:
-				return GOTRegistry.mud.getIcon(i, 0);
+				return GOTBlocks.mud.getIcon(i, 0);
 			case 3:
-				return GOTRegistry.asshaiDirt.getIcon(i, 0);
+				return GOTBlocks.asshaiDirt.getIcon(i, 0);
 			case 4:
-				return GOTRegistry.dirtPath.getIcon(i, 1);
+				return GOTBlocks.dirtPath.getIcon(i, 1);
 			case 5:
-				return GOTRegistry.dirtPath.getIcon(i, 2);
+				return GOTBlocks.dirtPath.getIcon(i, 2);
 			default:
 				break;
 		}

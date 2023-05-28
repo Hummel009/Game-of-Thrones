@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.asshai;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
@@ -99,24 +99,24 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 					continue;
 				}
 				setBlockAndMetadata(world, i13, j1, -1, gateBlock, 2);
-				setBlockAndMetadata(world, i13, j1, 1, GOTRegistry.gateIronBars, 2);
+				setBlockAndMetadata(world, i13, j1, 1, GOTBlocks.gateIronBars, 2);
 			}
 		}
 		for (int k14 : new int[]{-3, 3}) {
 			setBlockAndMetadata(world, -2, 6, k14, brickStairBlock, 4);
 			setBlockAndMetadata(world, 2, 6, k14, brickStairBlock, 5);
-			setBlockAndMetadata(world, -2, 5, k14, GOTRegistry.asshaiTorch, 2);
-			setBlockAndMetadata(world, 2, 5, k14, GOTRegistry.asshaiTorch, 1);
+			setBlockAndMetadata(world, -2, 5, k14, GOTBlocks.asshaiTorch, 2);
+			setBlockAndMetadata(world, 2, 5, k14, GOTBlocks.asshaiTorch, 1);
 			for (int i16 = -2; i16 <= 2; ++i16) {
 				int i23 = Math.abs(i16);
 				setBlockAndMetadata(world, i16, 8, k14, brickBlock, brickMeta);
 				if (i23 % 2 == 0) {
-					setBlockAndMetadata(world, i16, 9, k14, GOTRegistry.gateIronBars, 2);
+					setBlockAndMetadata(world, i16, 9, k14, GOTBlocks.gateIronBars, 2);
 				} else {
 					setBlockAndMetadata(world, i16, 9, k14, brickBlock, brickMeta);
 				}
 				if (i23 == 0) {
-					setBlockAndMetadata(world, i16, 10, k14, GOTRegistry.brick1, 0);
+					setBlockAndMetadata(world, i16, 10, k14, GOTBlocks.brick1, 0);
 					continue;
 				}
 				setBlockAndMetadata(world, i16, 10, k14, brickBlock, brickMeta);
@@ -168,16 +168,16 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 				setBlockAndMetadata(world, i1421, j12, 2, Blocks.ladder, 2);
 			}
 		}
-		setBlockAndMetadata(world, -2, 10, -2, GOTRegistry.asshaiTorch, 2);
-		setBlockAndMetadata(world, 2, 10, -2, GOTRegistry.asshaiTorch, 1);
-		setBlockAndMetadata(world, -2, 10, 2, GOTRegistry.asshaiTorch, 2);
-		setBlockAndMetadata(world, 2, 10, 2, GOTRegistry.asshaiTorch, 1);
+		setBlockAndMetadata(world, -2, 10, -2, GOTBlocks.asshaiTorch, 2);
+		setBlockAndMetadata(world, 2, 10, -2, GOTBlocks.asshaiTorch, 1);
+		setBlockAndMetadata(world, -2, 10, 2, GOTBlocks.asshaiTorch, 2);
+		setBlockAndMetadata(world, 2, 10, 2, GOTBlocks.asshaiTorch, 1);
 		placeWallBanner(world, 1, 10, -3, GOTItemBanner.BannerType.ASSHAI, 0);
 		placeWallBanner(world, -1, 10, -3, GOTItemBanner.BannerType.ASSHAI, 0);
-		setBlockAndMetadata(world, -3, 12, -3, GOTRegistry.asshaiTorch, 3);
-		setBlockAndMetadata(world, 3, 12, -3, GOTRegistry.asshaiTorch, 3);
-		setBlockAndMetadata(world, -3, 12, 3, GOTRegistry.asshaiTorch, 4);
-		setBlockAndMetadata(world, 3, 12, 3, GOTRegistry.asshaiTorch, 4);
+		setBlockAndMetadata(world, -3, 12, -3, GOTBlocks.asshaiTorch, 3);
+		setBlockAndMetadata(world, 3, 12, -3, GOTBlocks.asshaiTorch, 3);
+		setBlockAndMetadata(world, -3, 12, 3, GOTBlocks.asshaiTorch, 4);
+		setBlockAndMetadata(world, 3, 12, 3, GOTBlocks.asshaiTorch, 4);
 		placeWallBanner(world, -3, 7, -3, GOTItemBanner.BannerType.ASSHAI, 2);
 		placeWallBanner(world, 3, 7, -3, GOTItemBanner.BannerType.ASSHAI, 2);
 		placeWallBanner(world, 3, 7, 3, GOTItemBanner.BannerType.ASSHAI, 0);
@@ -264,7 +264,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 		for (i12 = -9; i12 <= 9; ++i12) {
 			i2 = Math.abs(i12);
 			if (i2 == 5 || i2 == 8) {
-				setBlockAndMetadata(world, i12, 3, 1, GOTRegistry.brick1, 0);
+				setBlockAndMetadata(world, i12, 3, 1, GOTBlocks.brick1, 0);
 				continue;
 			}
 			if (i2 < 4) {

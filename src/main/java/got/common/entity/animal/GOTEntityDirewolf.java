@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
@@ -90,7 +90,7 @@ public class GOTEntityDirewolf extends EntityAnimal implements GOTBiome.ImmuneTo
 	public void dropFewItems(boolean flag, int i) {
 		int meat = 2 + rand.nextInt(2);
 		for (int l = 0; l < meat; ++l) {
-			dropItem(GOTRegistry.fur, 1);
+			dropItem(GOTItems.fur, 1);
 		}
 	}
 

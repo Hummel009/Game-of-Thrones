@@ -1,7 +1,7 @@
 package got.common.world.biome.essos;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.feature.GOTWorldGenStreams;
 import got.common.world.feature.GOTWorldGenVolcanoCrater;
 import net.minecraft.init.Blocks;
@@ -16,7 +16,7 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 		topBlock = Blocks.stone;
 		fillerBlock = Blocks.stone;
 		decorator.treesPerChunk = 0;
-		decorator.addOre(new WorldGenMinable(GOTRegistry.oreValyrian, 3), 2.0f, 0, 16);
+		decorator.addOre(new WorldGenMinable(GOTBlocks.oreValyrian, 3), 2.0f, 0, 16);
 	}
 
 	@Override

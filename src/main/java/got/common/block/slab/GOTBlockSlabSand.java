@@ -2,7 +2,7 @@ package got.common.block.slab;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -26,7 +26,7 @@ public class GOTBlockSlabSand extends GOTBlockSlabFalling {
 			case 1:
 				return Blocks.sand.getIcon(i, 1);
 			case 2:
-				return GOTRegistry.whiteSand.getIcon(i, 0);
+				return GOTBlocks.whiteSand.getIcon(i, 0);
 			default:
 				break;
 		}

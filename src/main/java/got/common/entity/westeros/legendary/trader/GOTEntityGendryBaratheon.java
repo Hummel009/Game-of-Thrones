@@ -3,7 +3,7 @@ package got.common.entity.westeros.legendary.trader;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -53,9 +53,9 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTT
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.gendryHammer, 1);
-		dropItem(GOTRegistry.gendryHelmet, 1);
-		dropItem(GOTRegistry.bloodOfTrueKings, 1);
+		dropItem(GOTItems.gendryHammer, 1);
+		dropItem(GOTItems.gendryHelmet, 1);
+		dropItem(GOTItems.bloodOfTrueKings, 1);
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public class GOTEntityGendryBaratheon extends GOTEntityHumanBase implements GOTT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.blacksmithHammer));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.blacksmithHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

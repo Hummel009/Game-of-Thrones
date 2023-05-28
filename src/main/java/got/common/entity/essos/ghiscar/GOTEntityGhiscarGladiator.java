@@ -1,7 +1,7 @@
 package got.common.entity.essos.ghiscar;
 
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
 import got.common.item.other.GOTItemRobes;
@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
-	public static ItemStack[] weaponsIron = {new ItemStack(GOTRegistry.essosSword), new ItemStack(GOTRegistry.essosDagger), new ItemStack(GOTRegistry.essosDaggerPoisoned), new ItemStack(GOTRegistry.essosHammer)};
+	public static ItemStack[] weaponsIron = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned), new ItemStack(GOTItems.essosHammer)};
 	public static int[] turbanColors = {1643539, 6309443, 7014914, 7809314, 5978155};
 
 	public GOTEntityGhiscarGladiator(World world) {
@@ -54,10 +54,10 @@ public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
 		int i = rand.nextInt(weaponsIron.length);
 		npcItemsInv.setMeleeWeapon(weaponsIron[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.ghiscarBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.ghiscarLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.ghiscarChestplate));
-		ItemStack turban = new ItemStack(GOTRegistry.robesHelmet);
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.ghiscarBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ghiscarLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ghiscarChestplate));
+		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		int robeColor = turbanColors[rand.nextInt(turbanColors.length)];
 		GOTItemRobes.setRobesColor(turban, robeColor);
 		setCurrentItemOrArmor(4, turban);

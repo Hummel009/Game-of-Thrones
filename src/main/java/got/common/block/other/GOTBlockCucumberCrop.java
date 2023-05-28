@@ -2,7 +2,8 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
@@ -16,12 +17,12 @@ public class GOTBlockCucumberCrop extends BlockCrops {
 
 	@Override
 	public Item func_149865_P() {
-		return GOTRegistry.cucumber;
+		return GOTItems.cucumber;
 	}
 
 	@Override
 	public Item func_149866_i() {
-		return GOTRegistry.cucumberSeeds;
+		return GOTItems.cucumberSeeds;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -33,7 +34,7 @@ public class GOTBlockCucumberCrop extends BlockCrops {
 			}
 			return cucumberIcons[j >> 1];
 		}
-		return GOTRegistry.cucumberPlant.getIcon(i, j);
+		return GOTBlocks.cucumberPlant.getIcon(i, j);
 	}
 
 	@Override

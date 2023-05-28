@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.quest;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -52,8 +52,8 @@ public class GOTEntityEllaryaSand extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.nymeriaWhip, 1);
-		dropItem(GOTRegistry.obaraSpear, 1);
+		dropItem(GOTItems.nymeriaWhip, 1);
+		dropItem(GOTItems.obaraSpear, 1);
 	}
 
 	@Override
@@ -101,7 +101,7 @@ public class GOTEntityEllaryaSand extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ironDaggerPoisoned));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDaggerPoisoned));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

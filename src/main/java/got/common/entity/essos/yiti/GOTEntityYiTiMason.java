@@ -1,6 +1,6 @@
 package got.common.entity.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
@@ -31,8 +31,8 @@ public class GOTEntityYiTiMason extends GOTEntityYiTiMarketTrader {
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.stone));
 		int robeColor = 10855057;
-		ItemStack body = new ItemStack(GOTRegistry.kaftanChestplate);
-		ItemStack legs = new ItemStack(GOTRegistry.kaftanLeggings);
+		ItemStack body = new ItemStack(GOTItems.kaftanChestplate);
+		ItemStack legs = new ItemStack(GOTItems.kaftanLeggings);
 		GOTItemRobes.setRobesColor(body, robeColor);
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);

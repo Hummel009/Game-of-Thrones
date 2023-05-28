@@ -1,6 +1,6 @@
 package got.common.entity.sothoryos.sothoryos;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIFarm;
 import got.common.entity.other.GOTFarmhand;
 import net.minecraft.entity.IEntityLivingData;
@@ -42,7 +42,7 @@ public class GOTEntitySothoryosFarmhand extends GOTEntitySothoryosMan implements
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosHoe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

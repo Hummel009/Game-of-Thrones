@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -50,10 +50,10 @@ public class GOTEntityRooseBolton extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.redkingHelmet, 1);
-		dropItem(GOTRegistry.redkingChestplate, 1);
-		dropItem(GOTRegistry.redkingLeggings, 1);
-		dropItem(GOTRegistry.redkingBoots, 1);
+		dropItem(GOTItems.redkingHelmet, 1);
+		dropItem(GOTItems.redkingChestplate, 1);
+		dropItem(GOTItems.redkingLeggings, 1);
+		dropItem(GOTItems.redkingBoots, 1);
 	}
 
 	@Override
@@ -96,7 +96,7 @@ public class GOTEntityRooseBolton extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

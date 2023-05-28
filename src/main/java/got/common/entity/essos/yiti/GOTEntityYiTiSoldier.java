@@ -1,7 +1,7 @@
 package got.common.entity.essos.yiti;
 
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -32,30 +32,30 @@ public class GOTEntityYiTiSoldier extends GOTEntityYiTiLevyman {
 			case 1:
 			case 2:
 			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.yitiSword));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiSword));
 				break;
 			case 4:
 			case 5:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.yitiBattleaxe));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiBattleaxe));
 				break;
 			case 6:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.yitiPolearm));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiPolearm));
 				break;
 			case 7:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.yitiPike));
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiPike));
 				break;
 			default:
 				break;
 		}
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.yitiSpear));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.yitiBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.yitiLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.yitiChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.yitiHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.yitiBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yitiLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yitiChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yitiHelmet));
 		return data;
 	}
 }

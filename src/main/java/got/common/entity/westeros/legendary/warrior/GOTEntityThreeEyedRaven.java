@@ -1,6 +1,6 @@
 package got.common.entity.westeros.legendary.warrior;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityHumanBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -25,8 +25,8 @@ public class GOTEntityThreeEyedRaven extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.blackfyre, 1);
-		dropItem(GOTRegistry.brightroar, 1);
+		dropItem(GOTItems.blackfyre, 1);
+		dropItem(GOTItems.brightroar, 1);
 	}
 
 	@Override

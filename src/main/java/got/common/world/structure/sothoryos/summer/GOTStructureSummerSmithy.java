@@ -1,8 +1,9 @@
 package got.common.world.structure.sothoryos.summer;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.sothoryos.summer.GOTEntitySummerBlacksmith;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -74,17 +75,17 @@ public class GOTStructureSummerSmithy extends GOTStructureSummerBase {
 		placeWeaponRack(world, -1, 2, 1, 5, getRandomWeapon(random));
 		placeArmorStand(world, 3, 1, 3, 2, null);
 		if (random.nextBoolean()) {
-			placeArmorStand(world, 0, 1, 3, 0, new ItemStack[]{new ItemStack(GOTRegistry.summerHelmet), new ItemStack(GOTRegistry.summerChestplate), new ItemStack(GOTRegistry.summerLeggings), new ItemStack(GOTRegistry.summerBoots)});
+			placeArmorStand(world, 0, 1, 3, 0, new ItemStack[]{new ItemStack(GOTItems.summerHelmet), new ItemStack(GOTItems.summerChestplate), new ItemStack(GOTItems.summerLeggings), new ItemStack(GOTItems.summerBoots)});
 		} else {
-			placeArmorStand(world, 0, 1, 3, 0, new ItemStack[]{null, new ItemStack(GOTRegistry.summerChestplate), null, null});
+			placeArmorStand(world, 0, 1, 3, 0, new ItemStack[]{null, new ItemStack(GOTItems.summerChestplate), null, null});
 		}
-		placeChest(world, random, 5, 1, -2, GOTRegistry.chestBasket, 5, GOTChestContents.SUMMER);
-		placeChest(world, random, -7, 1, 3, GOTRegistry.chestBasket, 2, GOTChestContents.SUMMER);
+		placeChest(world, random, 5, 1, -2, GOTBlocks.chestBasket, 5, GOTChestContents.SUMMER);
+		placeChest(world, random, -7, 1, 3, GOTBlocks.chestBasket, 2, GOTChestContents.SUMMER);
 		placeBarrel(world, random, -3, 2, -1, 5, GOTFoods.SOTHORYOS_DRINK);
 		placeMug(world, random, -3, 2, 0, 2, GOTFoods.SOTHORYOS_DRINK);
 		placeMug(world, random, -9, 2, -2, 3, GOTFoods.SOTHORYOS_DRINK);
-		placePlate(world, random, -5, 2, 3, GOTRegistry.ceramicPlateBlock, GOTFoods.SOTHORYOS);
-		placePlate(world, random, -3, 2, 3, GOTRegistry.ceramicPlateBlock, GOTFoods.SOTHORYOS);
+		placePlate(world, random, -5, 2, 3, GOTBlocks.ceramicPlateBlock, GOTFoods.SOTHORYOS);
+		placePlate(world, random, -3, 2, 3, GOTBlocks.ceramicPlateBlock, GOTFoods.SOTHORYOS);
 		placeFlowerPot(world, -4, 2, 3, getRandomFlower(world, random));
 		setBlockAndMetadata(world, -8, 1, 1, bedBlock, 3);
 		setBlockAndMetadata(world, -9, 1, 1, bedBlock, 11);

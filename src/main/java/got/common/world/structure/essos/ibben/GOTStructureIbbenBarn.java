@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.ibben;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.ibben.GOTEntityIbbenFarmer;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
@@ -118,7 +118,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 					setBlockAndMetadata(world, i13, 0, k13, Blocks.dirt, 1);
 				}
 				if (random.nextBoolean()) {
-					setBlockAndMetadata(world, i13, 1, k13, GOTRegistry.thatchFloor, 0);
+					setBlockAndMetadata(world, i13, 1, k13, GOTBlocks.thatchFloor, 0);
 				}
 				if (i23 < 2 && k13 > 3) {
 					continue;
@@ -127,7 +127,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 				if (!random.nextBoolean()) {
 					continue;
 				}
-				setBlockAndMetadata(world, i13, 6, k13, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i13, 6, k13, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (i13 = -5; i13 <= 5; ++i13) {
@@ -240,7 +240,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i17, j14, 0, gateBlock, 2);
 			}
 		}
-		setBlockAndMetadata(world, 0, 3, 0, GOTRegistry.gateIronBars, 2);
+		setBlockAndMetadata(world, 0, 3, 0, GOTBlocks.gateIronBars, 2);
 		for (int k17 = 1; k17 <= 14; ++k17) {
 			if (IntMath.mod(k17, 3) == 0) {
 				setBlockAndMetadata(world, -6, 6, k17, plank2Block, plank2Meta);
@@ -389,7 +389,7 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 		placeChest(world, random, -4, 1, 13, 4, GOTChestContents.IBBEN);
 		placeChest(world, random, -4, 1, 14, 4, GOTChestContents.IBBEN);
 		setBlockAndMetadata(world, 4, 1, 13, Blocks.crafting_table, 0);
-		setBlockAndMetadata(world, 4, 1, 14, GOTRegistry.tableIbben, 0);
+		setBlockAndMetadata(world, 4, 1, 14, GOTBlocks.tableIbben, 0);
 		setBlockAndMetadata(world, -2, 3, 1, Blocks.torch, 3);
 		setBlockAndMetadata(world, 2, 3, 1, Blocks.torch, 3);
 		setBlockAndMetadata(world, -2, 3, 14, Blocks.torch, 4);

@@ -17,10 +17,7 @@ import got.common.block.GOTVanillaSaplings;
 import got.common.block.other.*;
 import got.common.block.sapling.GOTBlockSaplingBase;
 import got.common.block.table.GOTBlockCraftingTable;
-import got.common.database.GOTAchievement;
-import got.common.database.GOTMaterial;
-import got.common.database.GOTRegistry;
-import got.common.database.GOTTitle;
+import got.common.database.*;
 import got.common.enchant.GOTEnchantment;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.enchant.GOTEnchantmentWeaponSpecial;
@@ -178,7 +175,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if (item instanceof ItemBlock && ((ItemBlock) item).field_150939_a instanceof GOTBlockSaplingBase) {
 			return 100;
 		}
-		if (item == Items.reeds || item == Item.getItemFromBlock(GOTRegistry.reeds) || item == Item.getItemFromBlock(GOTRegistry.driedReeds) || item == Item.getItemFromBlock(GOTRegistry.cornStalk)) {
+		if (item == Items.reeds || item == Item.getItemFromBlock(GOTBlocks.reeds) || item == Item.getItemFromBlock(GOTBlocks.driedReeds) || item == Item.getItemFromBlock(GOTBlocks.cornStalk)) {
 			return 100;
 		}
 		return 0;
@@ -315,7 +312,7 @@ public class GOTEventHandler implements IFuelHandler {
 				if (drinkVessel != null) {
 					GOT.proxy.fillMugFromCauldron(world, i, j, k, side, itemstack);
 					itemstack.stackSize--;
-					ItemStack mugFill = new ItemStack(GOTRegistry.mugWater);
+					ItemStack mugFill = new ItemStack(GOTItems.mugWater);
 					GOTItemMug.setVessel(mugFill, drinkVessel, true);
 					if (itemstack.stackSize <= 0) {
 						entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, mugFill);
@@ -406,8 +403,8 @@ public class GOTEventHandler implements IFuelHandler {
 				GOTEntityReachSoldier.defendGrapevines(entityplayer, world, i, j, k);
 			}
 			if (block == Blocks.bookshelf && !entityplayer.isSneaking() && GOTBlockBookshelfStorage.canOpenBookshelf(world, i, j, k, entityplayer) && !world.isRemote) {
-				world.setBlock(i, j, k, GOTRegistry.bookshelfStorage, 0, 3);
-				boolean flag = GOTRegistry.bookshelfStorage.onBlockActivated(world, i, j, k, entityplayer, side, 0.5F, 0.5F, 0.5F);
+				world.setBlock(i, j, k, GOTBlocks.bookshelfStorage, 0, 3);
+				boolean flag = GOTBlocks.bookshelfStorage.onBlockActivated(world, i, j, k, entityplayer, side, 0.5F, 0.5F, 0.5F);
 				if (!flag) {
 					world.setBlock(i, j, k, Blocks.bookshelf, 0, 3);
 				}
@@ -525,17 +522,17 @@ public class GOTEventHandler implements IFuelHandler {
 			if (itemstack.getItem() == Items.saddle) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftSaddle);
 			}
-			if (itemstack.getItem() == GOTRegistry.bronzeIngot) {
+			if (itemstack.getItem() == GOTItems.bronzeIngot) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBronze);
 			}
-			if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.bomb)) {
+			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.bomb)) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBomb);
 			}
-			if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.wildFireJar)) {
+			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.wildFireJar)) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftWildFire);
 			}
 			for (GOTEnumDyeColor color : GOTEnumDyeColor.values()) {
-				if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.concretePowder.get(color))) {
+				if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.concretePowder.get(color))) {
 					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getConcrete);
 				}
 			}
@@ -564,7 +561,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if ((entity instanceof EntityCow || entity instanceof GOTEntityZebra) && GOTItemMug.isItemEmptyDrink(itemstack)) {
 			GOTItemMug.Vessel vessel = GOTItemMug.getVessel(itemstack);
-			ItemStack milkItem = new ItemStack(GOTRegistry.mugMilk);
+			ItemStack milkItem = new ItemStack(GOTItems.mugMilk);
 			GOTItemMug.setVessel(milkItem, vessel, true);
 			if (!entityplayer.capabilities.isCreativeMode) {
 				itemstack.stackSize--;
@@ -774,7 +771,7 @@ public class GOTEventHandler implements IFuelHandler {
 			if (itemstack.stackSize > 0) {
 				for (int i = 0; i < entityplayer.inventory.getSizeInventory(); i++) {
 					ItemStack itemInSlot = entityplayer.inventory.getStackInSlot(i);
-					if (itemInSlot != null && itemInSlot.getItem() == GOTRegistry.pouch) {
+					if (itemInSlot != null && itemInSlot.getItem() == GOTItems.pouch) {
 						GOTItemPouch.tryAddItemToPouch(itemInSlot, itemstack, true);
 						if (itemstack.stackSize <= 0) {
 							break;
@@ -785,10 +782,10 @@ public class GOTEventHandler implements IFuelHandler {
 					event.setResult(Event.Result.ALLOW);
 				}
 			}
-			if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.plantain)) {
+			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.plantain)) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.findPlantain);
 			}
-			if (itemstack.getItem() == Item.getItemFromBlock(GOTRegistry.clover) && itemstack.getItemDamage() == 1) {
+			if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.clover) && itemstack.getItemDamage() == 1) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.findFourLeafClover);
 			}
 			if (GOTConfig.enchantingAutoRemoveVanilla) {
@@ -1064,9 +1061,9 @@ public class GOTEventHandler implements IFuelHandler {
 			int meat = rand.nextInt(3) + rand.nextInt(1 + i);
 			for (int l = 0; l < meat; l++) {
 				if (entity.isBurning()) {
-					entity.dropItem(GOTRegistry.muttonCooked, 1);
+					entity.dropItem(GOTItems.muttonCooked, 1);
 				} else {
-					entity.dropItem(GOTRegistry.muttonRaw, 1);
+					entity.dropItem(GOTItems.muttonRaw, 1);
 				}
 			}
 		}
@@ -1611,10 +1608,10 @@ public class GOTEventHandler implements IFuelHandler {
 		EntityPlayer entityplayer = event.player;
 		ItemStack itemstack = event.smelting;
 		if (!entityplayer.worldObj.isRemote) {
-			if (itemstack.getItem() == GOTRegistry.bronzeIngot) {
+			if (itemstack.getItem() == GOTItems.bronzeIngot) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftBronze);
 			}
-			if (itemstack.getItem() == GOTRegistry.copperIngot) {
+			if (itemstack.getItem() == GOTItems.copperIngot) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftCopper);
 			}
 		}
@@ -1667,7 +1664,7 @@ public class GOTEventHandler implements IFuelHandler {
 				if (rand.nextFloat() < 0.45D) {
 					sapling.incrementGrowth(world, i, j, k, rand);
 				}
-				if (sapling == GOTRegistry.sapling4 && (meta & 0x7) == 1 && world.getBlock(i, j, k) == GOTRegistry.wood4 && world.getBlockMetadata(i, j, k) == 1) {
+				if (sapling == GOTBlocks.sapling4 && (meta & 0x7) == 1 && world.getBlock(i, j, k) == GOTBlocks.wood4 && world.getBlockMetadata(i, j, k) == 1) {
 					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.growBaobab);
 				}
 				event.setResult(Event.Result.ALLOW);
@@ -1723,8 +1720,8 @@ public class GOTEventHandler implements IFuelHandler {
 		int k = event.z;
 		Block block = world.getBlock(i, j, k);
 		GOTBlockGrapevine.hoeing = true;
-		if (world.getBlock(i, j + 1, k).isAir(world, i, j + 1, k) && (block == GOTRegistry.mudGrass || block == GOTRegistry.mud)) {
-			Block tilled = GOTRegistry.mudFarmland;
+		if (world.getBlock(i, j + 1, k).isAir(world, i, j + 1, k) && (block == GOTBlocks.mudGrass || block == GOTBlocks.mud)) {
+			Block tilled = GOTBlocks.mudFarmland;
 			world.playSoundEffect(i + 0.5F, j + 0.5F, k + 0.5F, tilled.stepSound.getStepResourcePath(), (tilled.stepSound.getVolume() + 1.0F) / 2.0F, tilled.stepSound.getPitch() * 0.8F);
 			if (!world.isRemote) {
 				world.setBlock(i, j, k, tilled);

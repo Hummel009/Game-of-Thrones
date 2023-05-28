@@ -1,6 +1,6 @@
 package got.common.world.structure.westeros.common;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -165,7 +165,7 @@ public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWester
 						setBlockAndMetadata(world, i1, 1, k1, cropBlock, cropMeta);
 						continue;
 					}
-					setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 				}
 			}
 			setBlockAndMetadata(world, 0, 1, -5, fenceGateBlock, 0);

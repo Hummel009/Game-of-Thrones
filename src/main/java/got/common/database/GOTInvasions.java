@@ -128,31 +128,31 @@ public enum GOTInvasions {
 	}
 
 	public static void preInit() {
-		JOGOS.invasionIcon = GOTRegistry.nomadSword;
-		DOTHRAKI.invasionIcon = GOTRegistry.nomadSword;
-		VOLANTIS.invasionIcon = GOTRegistry.summerSword;
-		BRAAVOS.invasionIcon = GOTRegistry.summerSword;
-		NORVOS.invasionIcon = GOTRegistry.summerSword;
-		PENTOS.invasionIcon = GOTRegistry.summerSword;
-		TYROSH.invasionIcon = GOTRegistry.summerSword;
-		GHISCAR.invasionIcon = GOTRegistry.summerSword;
-		MYR.invasionIcon = GOTRegistry.summerSword;
-		LYS.invasionIcon = GOTRegistry.summerSword;
-		IRONBORN.invasionIcon = GOTRegistry.westerosSword;
-		IBBEN.invasionIcon = GOTRegistry.flintSpear;
-		WESTERLANDS.invasionIcon = GOTRegistry.westerosSword;
-		RIVERLANDS.invasionIcon = GOTRegistry.westerosSword;
-		ARRYN.invasionIcon = GOTRegistry.westerosSword;
-		DRAGONSTONE.invasionIcon = GOTRegistry.westerosSword;
-		STORMLANDS.invasionIcon = GOTRegistry.westerosSword;
-		REACH.invasionIcon = GOTRegistry.westerosSword;
-		DORNE.invasionIcon = GOTRegistry.westerosSword;
-		NORTH.invasionIcon = GOTRegistry.westerosSword;
-		THENN.invasionIcon = GOTRegistry.wildlingSword;
-		WILDLING.invasionIcon = GOTRegistry.wildlingSword;
-		GIANT.invasionIcon = GOTRegistry.club;
-		YI_TI.invasionIcon = GOTRegistry.yitiSword;
-		HILL_TRIBES.invasionIcon = GOTRegistry.trident;
+		JOGOS.invasionIcon = GOTItems.nomadSword;
+		DOTHRAKI.invasionIcon = GOTItems.nomadSword;
+		VOLANTIS.invasionIcon = GOTItems.summerSword;
+		BRAAVOS.invasionIcon = GOTItems.summerSword;
+		NORVOS.invasionIcon = GOTItems.summerSword;
+		PENTOS.invasionIcon = GOTItems.summerSword;
+		TYROSH.invasionIcon = GOTItems.summerSword;
+		GHISCAR.invasionIcon = GOTItems.summerSword;
+		MYR.invasionIcon = GOTItems.summerSword;
+		LYS.invasionIcon = GOTItems.summerSword;
+		IRONBORN.invasionIcon = GOTItems.westerosSword;
+		IBBEN.invasionIcon = GOTItems.flintSpear;
+		WESTERLANDS.invasionIcon = GOTItems.westerosSword;
+		RIVERLANDS.invasionIcon = GOTItems.westerosSword;
+		ARRYN.invasionIcon = GOTItems.westerosSword;
+		DRAGONSTONE.invasionIcon = GOTItems.westerosSword;
+		STORMLANDS.invasionIcon = GOTItems.westerosSword;
+		REACH.invasionIcon = GOTItems.westerosSword;
+		DORNE.invasionIcon = GOTItems.westerosSword;
+		NORTH.invasionIcon = GOTItems.westerosSword;
+		THENN.invasionIcon = GOTItems.wildlingSword;
+		WILDLING.invasionIcon = GOTItems.wildlingSword;
+		GIANT.invasionIcon = GOTItems.club;
+		YI_TI.invasionIcon = GOTItems.yitiSword;
+		HILL_TRIBES.invasionIcon = GOTItems.trident;
 		HILL_TRIBES.invasionMobs.add(new InvasionSpawnEntry(GOTEntityHillmanWarrior.class, 10));
 		HILL_TRIBES.invasionMobs.add(new InvasionSpawnEntry(GOTEntityHillmanArcher.class, 5));
 		HILL_TRIBES.invasionMobs.add(new InvasionSpawnEntry(GOTEntityHillmanBerserker.class, 2));
@@ -265,7 +265,7 @@ public enum GOTInvasions {
 	}
 
 	public ItemStack createConquestHorn() {
-		ItemStack horn = new ItemStack(GOTRegistry.conquestHorn);
+		ItemStack horn = new ItemStack(GOTItems.conquestHorn);
 		GOTItemConquestHorn.setInvasionType(horn, this);
 		return horn;
 	}

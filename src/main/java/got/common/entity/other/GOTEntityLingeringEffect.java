@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.weapon.GOTItemLingeringPotion;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
@@ -50,7 +50,7 @@ public class GOTEntityLingeringEffect extends Entity implements IEntityAdditiona
 			return;
 		}
 		EntityLivingBase entity = (EntityLivingBase) e;
-		List<PotionEffect> effects = ((GOTItemLingeringPotion) GOTRegistry.lingeringPotion).getEffects(stack);
+		List<PotionEffect> effects = ((GOTItemLingeringPotion) GOTItems.lingeringPotion).getEffects(stack);
 		boolean addedEffect = false;
 		for (PotionEffect effect : effects) {
 			int effectID = effect.getPotionID();

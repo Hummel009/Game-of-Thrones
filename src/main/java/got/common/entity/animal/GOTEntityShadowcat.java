@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
@@ -88,7 +88,7 @@ public class GOTEntityShadowcat extends EntityAnimal implements GOTBiome.ImmuneT
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.fur, 5);
+		dropItem(GOTItems.fur, 5);
 	}
 
 	@Override

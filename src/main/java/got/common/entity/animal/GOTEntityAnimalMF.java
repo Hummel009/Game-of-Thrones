@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -42,7 +42,7 @@ public abstract class GOTEntityAnimalMF extends EntityAnimal implements GOTBiome
 
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
-		return new ItemStack(GOTRegistry.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
+		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
 	public abstract boolean isMale();

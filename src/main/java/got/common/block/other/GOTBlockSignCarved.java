@@ -2,7 +2,8 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.tileentity.GOTTileEntitySign;
 import got.common.util.GOTCommonIcons;
 import net.minecraft.block.Block;
@@ -32,10 +33,10 @@ public class GOTBlockSignCarved extends BlockSign {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
-		if (this == GOTRegistry.signCarvedGlowing) {
-			return GOTRegistry.valyrianChisel;
+		if (this == GOTBlocks.signCarvedGlowing) {
+			return GOTItems.valyrianChisel;
 		}
-		return GOTRegistry.chisel;
+		return GOTItems.chisel;
 	}
 
 	@Override

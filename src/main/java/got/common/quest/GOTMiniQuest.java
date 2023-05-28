@@ -6,7 +6,7 @@ import got.common.GOTDimension;
 import got.common.GOTLore;
 import got.common.GOTPlayerData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
@@ -169,9 +169,9 @@ public abstract class GOTMiniQuest {
 				coinsRemain -= numCoins * coinValue;
 				while (numCoins > 64) {
 					numCoins -= 64;
-					dropItems.add(new ItemStack(GOTRegistry.coin, 64, l));
+					dropItems.add(new ItemStack(GOTItems.coin, 64, l));
 				}
-				dropItems.add(new ItemStack(GOTRegistry.coin, numCoins, l));
+				dropItems.add(new ItemStack(GOTItems.coin, numCoins, l));
 			}
 		}
 		if (!rewardItemTable.isEmpty()) {
@@ -192,7 +192,7 @@ public abstract class GOTMiniQuest {
 				itemsRewarded.add(modItem.copy());
 			}
 			if (npc instanceof GOTEntityQohorBlacksmith && rand.nextInt(10) == 0) {
-				ItemStack mithrilBook = new ItemStack(GOTRegistry.valyrianBook);
+				ItemStack mithrilBook = new ItemStack(GOTItems.valyrianBook);
 				dropItems.add(mithrilBook.copy());
 				itemsRewarded.add(mithrilBook.copy());
 			}

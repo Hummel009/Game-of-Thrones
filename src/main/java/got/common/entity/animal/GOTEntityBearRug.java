@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRugBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -20,7 +20,7 @@ public class GOTEntityBearRug extends GOTEntityRugBase {
 
 	@Override
 	public ItemStack getRugItem() {
-		return new ItemStack(GOTRegistry.bearRug, 1, getRugType().bearID);
+		return new ItemStack(GOTItems.bearRug, 1, getRugType().bearID);
 	}
 
 	@Override

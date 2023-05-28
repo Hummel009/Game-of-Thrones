@@ -3,7 +3,7 @@ package got.client.render.other;
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import got.GOT;
 import got.common.block.other.*;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.tileentity.GOTTileEntityBeacon;
 import got.common.tileentity.GOTTileEntityChest;
 import got.common.tileentity.GOTTileEntityCommandTable;
@@ -134,7 +134,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		renderblocks.drawCrossedSquares(block.getIcon(2, meta), posX, posY, posZ, 1.0f);
 		renderblocks.clearOverrideBlockTexture();
-		if (block == GOTRegistry.tallGrass && meta >= 0 && meta < GOTBlockTallGrass.grassOverlay.length && GOTBlockTallGrass.grassOverlay[meta]) {
+		if (block == GOTBlocks.tallGrass && meta >= 0 && meta < GOTBlockTallGrass.grassOverlay.length && GOTBlockTallGrass.grassOverlay[meta]) {
 			tessellator.setColorOpaque_F(1.0f, 1.0f, 1.0f);
 			renderblocks.drawCrossedSquares(block.getIcon(-1, meta), posX, posY, posZ, 1.0f);
 			renderblocks.clearOverrideBlockTexture();
@@ -827,9 +827,9 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 				tessellator.setColorOpaque_F(plantR, plantG, plantB);
 			}
 			tessellator.addTranslation(0.0f, 0.25f, 0.0f);
-			if (plantBlock == GOTRegistry.clover) {
+			if (plantBlock == GOTBlocks.clover) {
 				renderClover(world, i, j, k, plantBlock, renderblocks, plantMeta == 1 ? 4 : 3, false);
-			} else if (plantBlock == GOTRegistry.plantain) {
+			} else if (plantBlock == GOTBlocks.plantain) {
 				renderPlantain(world, i, j, k, plantBlock, renderblocks, plantMeta == 1 ? 4 : 3, false);
 			} else if (plantBlock instanceof GOTBlockGrass) {
 				renderGrass(world, i, j, k, plantBlock, renderblocks, false);

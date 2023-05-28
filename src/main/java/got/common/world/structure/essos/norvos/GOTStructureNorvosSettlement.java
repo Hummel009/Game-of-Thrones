@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.norvos;
 
 import com.google.common.math.IntMath;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.norvos.GOTEntityNorvosGuard;
 import got.common.entity.essos.norvos.GOTEntityNorvosMan;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -243,7 +243,7 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
-			return block == Blocks.stone || block == GOTRegistry.rock;
+			return block == Blocks.stone || block == GOTBlocks.rock;
 		}
 
 		public void placeChampionRespawner() {

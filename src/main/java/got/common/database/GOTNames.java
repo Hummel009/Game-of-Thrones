@@ -121,7 +121,7 @@ public class GOTNames {
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8));
 						nameBankNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
-						FMLLog.severe("Failed to load GOT name bank " + s + "from zip file");
+						FMLLog.severe("Failed to onInit GOT name bank " + s + "from zip file");
 						e.printStackTrace();
 					}
 				}
@@ -131,7 +131,7 @@ public class GOTNames {
 					String s = file.getName();
 					int i = s.indexOf(".txt");
 					if (i < 0) {
-						FMLLog.severe("Failed to load GOT name bank " + s + " from MCP folder; name bank files must be in .txt format");
+						FMLLog.severe("Failed to onInit GOT name bank " + s + " from MCP folder; name bank files must be in .txt format");
 						continue;
 					}
 					try {
@@ -139,13 +139,13 @@ public class GOTNames {
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(file.toPath())), StandardCharsets.UTF_8));
 						nameBankNamesAndReaders.put(s, reader);
 					} catch (Exception e) {
-						FMLLog.severe("Failed to load GOT name bank " + s + " from MCP folder");
+						FMLLog.severe("Failed to onInit GOT name bank " + s + " from MCP folder");
 						e.printStackTrace();
 					}
 				}
 			}
 		} catch (Exception e) {
-			FMLLog.severe("Failed to load GOT name banks");
+			FMLLog.severe("Failed to onInit GOT name banks");
 			e.printStackTrace();
 		}
 		for (Entry<String, BufferedReader> nameBankName : nameBankNamesAndReaders.entrySet()) {
@@ -164,7 +164,7 @@ public class GOTNames {
 				String[] nameBank = nameList.toArray(new String[0]);
 				allNameBanks.put(nameBankName.getKey(), nameBank);
 			} catch (Exception e) {
-				FMLLog.severe("Failed to load GOT name bank " + nameBankName.getKey());
+				FMLLog.severe("Failed to onInit GOT name bank " + nameBankName.getKey());
 				e.printStackTrace();
 			}
 		}

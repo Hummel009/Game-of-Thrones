@@ -3,7 +3,7 @@ package got.common.entity.essos.legendary.warrior;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -54,10 +54,10 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.unsulliedBoots, 1);
-		dropItem(GOTRegistry.unsulliedLeggings, 1);
-		dropItem(GOTRegistry.unsulliedChestplate, 1);
-		dropItem(GOTRegistry.unsulliedHelmet, 1);
+		dropItem(GOTItems.unsulliedBoots, 1);
+		dropItem(GOTItems.unsulliedLeggings, 1);
+		dropItem(GOTItems.unsulliedChestplate, 1);
+		dropItem(GOTItems.unsulliedHelmet, 1);
 	}
 
 	@Override
@@ -103,11 +103,11 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosPike));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.unsulliedBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.unsulliedLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.unsulliedChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.unsulliedBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.unsulliedLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.unsulliedChestplate));
 		return data;
 	}
 

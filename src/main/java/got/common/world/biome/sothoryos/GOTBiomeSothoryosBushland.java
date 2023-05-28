@@ -3,7 +3,7 @@ package got.common.world.biome.sothoryos;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -59,7 +59,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		decorator.addTree(GOTTreeType.PALM, 500);
 		decorator.addTree(GOTTreeType.DRAGONBLOOD, 50);
 		decorator.addTree(GOTTreeType.KANUKA, 50);
-		decorator.addSoil(new WorldGenMinable(GOTRegistry.obsidianGravel, 32), 20.0f, 0, 64);
+		decorator.addSoil(new WorldGenMinable(GOTBlocks.obsidianGravel, 32), 20.0f, 0, 64);
 		decorator.addSettlement(new GOTStructureSothoryosSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureStoneRuin.RuinSothoryos(1, 4), 400);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
@@ -88,7 +88,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 					i1 = i + random.nextInt(16) + 8;
 					k1 = k + random.nextInt(16) + 8;
 					int j1 = world.getHeightValue(i1, k1);
-					new GOTWorldGenBoulder(GOTRegistry.termiteMound, 0, 1, 4).generate(world, random, i1, j1, k1);
+					new GOTWorldGenBoulder(GOTBlocks.termiteMound, 0, 1, 4).generate(world, random, i1, j1, k1);
 					for (int x = 0; x < 5; ++x) {
 						int k2;
 						int j2;
@@ -98,7 +98,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 						}
 						int j3 = j2 + random.nextInt(4);
 						for (int j4 = j2; j4 <= j3; ++j4) {
-							world.setBlock(i2, j4, k2, GOTRegistry.termiteMound);
+							world.setBlock(i2, j4, k2, GOTBlocks.termiteMound);
 							world.getBlock(i2, j4 - 1, k2).onPlantGrow(world, i2, j4 - 1, k2, i2, j4 - 1, k2);
 						}
 					}

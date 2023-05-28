@@ -50,7 +50,7 @@ public class GOTEntityJasonMallister extends GOTEntityHumanBase implements GOTUn
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.tidewings, 1);
+		dropItem(GOTItems.tidewings, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityJasonMallister extends GOTEntityHumanBase implements GOTUn
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.tidewings));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.tidewings));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

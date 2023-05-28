@@ -7,7 +7,7 @@ import got.common.GOTLore;
 import got.common.GOTPlayerData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.qohor.GOTEntityQohorBlacksmith;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTHiredNPCInfo;
@@ -38,7 +38,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	}
 
 	public static ItemStack createPickpocketIcon() {
-		ItemStack hat = new ItemStack(GOTRegistry.leatherHat);
+		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 0);
 		GOTItemLeatherHat.setFeatherColor(hat, 16777215);
 		return hat;
@@ -71,9 +71,9 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 				coinsRemain -= numCoins * coinValue;
 				while (numCoins > 64) {
 					numCoins -= 64;
-					dropItems.add(new ItemStack(GOTRegistry.coin, 64, l));
+					dropItems.add(new ItemStack(GOTItems.coin, 64, l));
 				}
-				dropItems.add(new ItemStack(GOTRegistry.coin, numCoins, l));
+				dropItems.add(new ItemStack(GOTItems.coin, numCoins, l));
 			}
 		}
 		if (!rewardItemTable.isEmpty()) {
@@ -94,7 +94,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 				itemsRewarded.add(modItem.copy());
 			}
 			if (npc instanceof GOTEntityQohorBlacksmith && rand.nextInt(10) == 0) {
-				ItemStack mithrilBook = new ItemStack(GOTRegistry.valyrianBook);
+				ItemStack mithrilBook = new ItemStack(GOTItems.valyrianBook);
 				dropItems.add(mithrilBook.copy());
 				itemsRewarded.add(mithrilBook.copy());
 			}

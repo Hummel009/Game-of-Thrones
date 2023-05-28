@@ -3,7 +3,7 @@ package got.common.entity.essos.lhazar;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -59,11 +59,11 @@ public class GOTEntityLhazarWarlord extends GOTEntityLhazarWarrior implements GO
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.lhazarBootsLion));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.lhazarLeggingsLion));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.lhazarChestplateLion));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.lhazarHelmetLion));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarClub));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.lhazarBootsLion));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.lhazarLeggingsLion));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.lhazarChestplateLion));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.lhazarHelmetLion));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarClub));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(4, null);
 		return data;

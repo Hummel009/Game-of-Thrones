@@ -2,7 +2,7 @@ package got.common.entity.essos.legendary.quest;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -52,9 +52,9 @@ public class GOTEntityDaenerysTargaryen extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.bloodOfTrueKings, 1);
-		dropItem(GOTRegistry.rhaegarSword, 1);
-		dropItem(GOTRegistry.blackArakh, 1);
+		dropItem(GOTItems.bloodOfTrueKings, 1);
+		dropItem(GOTItems.rhaegarSword, 1);
+		dropItem(GOTItems.blackArakh, 1);
 	}
 
 	@Override

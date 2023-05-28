@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.ibben;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.essos.ibben.GOTEntityIbbenFarmhand;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -44,14 +44,14 @@ public class GOTStructureIbbenVillageFarm extends GOTStructureIbbenBase {
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
 				for (j1 = 0; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
-					setBlockAndMetadata(world, i1, j1, k1, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.dirtPath, 0);
 					setGrassToDirt(world, i1, j1 - 1, k1);
 				}
 				for (j1 = 1; j1 <= 4; ++j1) {
 					setAir(world, i1, j1, k1);
 				}
 				if (i2 <= 3 && k2 <= 4) {
-					setBlockAndMetadata(world, i1, 0, k1, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 				}
 				if (i2 == 0 && k2 == 0) {
 					setBlockAndMetadata(world, i1, -1, k1, Blocks.dirt, 0);

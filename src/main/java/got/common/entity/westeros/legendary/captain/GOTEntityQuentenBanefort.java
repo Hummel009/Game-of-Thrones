@@ -50,7 +50,7 @@ public class GOTEntityQuentenBanefort extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.bane, 1);
+		dropItem(GOTItems.bane, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityQuentenBanefort extends GOTEntityHumanBase implements GOTU
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bane));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bane));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

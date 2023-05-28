@@ -50,7 +50,7 @@ public class GOTEntityRandyllTarly extends GOTEntityHumanBase implements GOTUnit
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.heartsbane, 1);
+		dropItem(GOTItems.heartsbane, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityRandyllTarly extends GOTEntityHumanBase implements GOTUnit
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.heartsbane));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.heartsbane));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

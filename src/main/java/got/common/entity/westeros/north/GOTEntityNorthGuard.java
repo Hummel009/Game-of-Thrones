@@ -2,7 +2,7 @@ package got.common.entity.westeros.north;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -30,13 +30,13 @@ public class GOTEntityNorthGuard extends GOTEntityNorthLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(0, new ItemStack(GOTRegistry.westerosPike));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosPike));
+		setCurrentItemOrArmor(0, new ItemStack(GOTItems.westerosPike));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.northguardBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.northguardLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.northguardChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.northguardHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.northguardBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northguardLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.northguardChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.northguardHelmet));
 		return data;
 	}
 }

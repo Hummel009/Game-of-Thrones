@@ -3,7 +3,7 @@ package got.common.entity.westeros.legendary.trader;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIDrink;
@@ -96,7 +96,7 @@ public class GOTEntityHighSepton extends GOTEntityHumanBase implements GOTTradea
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDagger));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

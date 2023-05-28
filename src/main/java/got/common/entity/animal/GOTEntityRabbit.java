@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAvoidWithChance;
 import got.common.entity.ai.GOTEntityAIFlee;
 import got.common.entity.ai.GOTEntityAIRabbitEatCrops;
@@ -68,10 +68,10 @@ public class GOTEntityRabbit extends EntityCreature implements GOTAmbientCreatur
 		int meat = rand.nextInt(3) + rand.nextInt(1 + i);
 		for (int l = 0; l < meat; ++l) {
 			if (isBurning()) {
-				dropItem(GOTRegistry.rabbitCooked, 1);
+				dropItem(GOTItems.rabbitCooked, 1);
 				continue;
 			}
-			dropItem(GOTRegistry.rabbitRaw, 1);
+			dropItem(GOTItems.rabbitRaw, 1);
 		}
 	}
 
@@ -118,7 +118,7 @@ public class GOTEntityRabbit extends EntityCreature implements GOTAmbientCreatur
 
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
-		return new ItemStack(GOTRegistry.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
+		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
 	@Override

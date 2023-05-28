@@ -50,7 +50,7 @@ public class GOTEntitySelwynTarth extends GOTEntityHumanBase implements GOTUnitT
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.justMaid, 1);
+		dropItem(GOTItems.justMaid, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntitySelwynTarth extends GOTEntityHumanBase implements GOTUnitT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.justMaid));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.justMaid));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

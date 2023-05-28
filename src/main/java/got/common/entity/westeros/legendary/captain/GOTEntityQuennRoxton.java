@@ -50,7 +50,7 @@ public class GOTEntityQuennRoxton extends GOTEntityHumanBase implements GOTUnitT
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.orphanMaker, 1);
+		dropItem(GOTItems.orphanMaker, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityQuennRoxton extends GOTEntityHumanBase implements GOTUnitT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.orphanMaker));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.orphanMaker));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

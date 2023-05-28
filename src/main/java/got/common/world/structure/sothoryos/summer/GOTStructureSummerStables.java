@@ -1,8 +1,8 @@
 package got.common.world.structure.sothoryos.summer;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
 import got.common.item.other.GOTItemBanner;
@@ -74,8 +74,8 @@ public class GOTStructureSummerStables extends GOTStructureSummerBase {
 		spawnItemFrame(world, 2, 2, 0, 3, new ItemStack(Items.lead));
 		setBlockAndMetadata(world, -3, 1, 6, bedBlock, 0);
 		setBlockAndMetadata(world, -3, 1, 7, bedBlock, 8);
-		placeChest(world, random, -4, 1, 6, GOTRegistry.chestBasket, 4, GOTChestContents.SUMMER);
-		placePlateWithCertainty(world, random, 4, 2, 6, GOTRegistry.woodPlateBlock, GOTFoods.SOTHORYOS);
+		placeChest(world, random, -4, 1, 6, GOTBlocks.chestBasket, 4, GOTChestContents.SUMMER);
+		placePlateWithCertainty(world, random, 4, 2, 6, GOTBlocks.woodPlateBlock, GOTFoods.SOTHORYOS);
 		placeMug(world, random, 4, 2, 5, 1, GOTFoods.SOTHORYOS_DRINK);
 		GOTEntitySummerMan summer = new GOTEntitySummerMan(world);
 		spawnNPCAndSetHome(summer, world, 0, 1, 0, 12);

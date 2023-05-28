@@ -1,7 +1,7 @@
 package got.common.entity.animal;
 
 import got.GOT;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityRegistry;
@@ -97,7 +97,7 @@ public class GOTEntityTermite extends EntityMob {
 
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
-		return new ItemStack(GOTRegistry.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
+		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
 	@Override
@@ -109,7 +109,7 @@ public class GOTEntityTermite extends EntityMob {
 	public void onDeath(DamageSource damagesource) {
 		super.onDeath(damagesource);
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
-			dropItem(GOTRegistry.termite, 1);
+			dropItem(GOTItems.termite, 1);
 			setDead();
 		}
 	}

@@ -1,6 +1,7 @@
 package got.common.block.leaves;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -16,12 +17,12 @@ public class GOTBlockLeaves6 extends GOTBlockLeavesBase {
 	@Override
 	public void addSpecialLeafDrops(ArrayList<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
 		if ((meta & 3) == 3 && world.rand.nextInt(calcFortuneModifiedDropChance(10, fortune)) == 0) {
-			drops.add(new ItemStack(GOTRegistry.olive));
+			drops.add(new ItemStack(GOTItems.olive));
 		}
 	}
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return Item.getItemFromBlock(GOTRegistry.sapling6);
+		return Item.getItemFromBlock(GOTBlocks.sapling6);
 	}
 }

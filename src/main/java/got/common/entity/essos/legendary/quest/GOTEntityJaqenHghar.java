@@ -5,7 +5,7 @@ import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTSpeech;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
@@ -165,7 +165,7 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

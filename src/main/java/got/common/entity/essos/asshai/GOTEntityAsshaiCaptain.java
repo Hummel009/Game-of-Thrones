@@ -64,7 +64,7 @@ public class GOTEntityAsshaiCaptain extends GOTEntityAsshaiWarrior implements GO
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiSword));
 		npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());

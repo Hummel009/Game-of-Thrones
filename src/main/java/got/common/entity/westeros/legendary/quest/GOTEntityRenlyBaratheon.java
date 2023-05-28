@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.quest;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -52,11 +52,11 @@ public class GOTEntityRenlyBaratheon extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.bloodOfTrueKings, 1);
-		dropItem(GOTRegistry.renlyBoots, 1);
-		dropItem(GOTRegistry.renlyChestplate, 1);
-		dropItem(GOTRegistry.renlyHelmet, 1);
-		dropItem(GOTRegistry.renlyLeggings, 1);
+		dropItem(GOTItems.bloodOfTrueKings, 1);
+		dropItem(GOTItems.renlyBoots, 1);
+		dropItem(GOTItems.renlyChestplate, 1);
+		dropItem(GOTItems.renlyHelmet, 1);
+		dropItem(GOTItems.renlyLeggings, 1);
 	}
 
 	@Override
@@ -104,7 +104,7 @@ public class GOTEntityRenlyBaratheon extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

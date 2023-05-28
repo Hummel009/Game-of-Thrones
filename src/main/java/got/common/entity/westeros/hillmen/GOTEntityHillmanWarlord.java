@@ -3,7 +3,7 @@ package got.common.entity.westeros.hillmen;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -59,7 +59,7 @@ public class GOTEntityHillmanWarlord extends GOTEntityHillmanWarrior implements 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.furHelmet));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.furHelmet));
 		return data;
 	}
 

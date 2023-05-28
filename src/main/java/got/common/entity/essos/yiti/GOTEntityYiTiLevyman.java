@@ -1,6 +1,6 @@
 package got.common.entity.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,11 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiLevyman extends GOTEntityYiTiMan {
-	public static ItemStack[] levyWeapons = {new ItemStack(GOTRegistry.yitiDagger), new ItemStack(GOTRegistry.yitiDaggerPoisoned), new ItemStack(GOTRegistry.ironDagger), new ItemStack(GOTRegistry.bronzeDagger), new ItemStack(GOTRegistry.yitiBattleaxe), new ItemStack(Items.iron_sword), new ItemStack(GOTRegistry.bronzeSword), new ItemStack(GOTRegistry.ironBattleaxe), new ItemStack(GOTRegistry.bronzeBattleaxe), new ItemStack(GOTRegistry.yitiSpear), new ItemStack(GOTRegistry.ironSpear), new ItemStack(GOTRegistry.bronzeSpear)};
-	public static ItemStack[] levySpears = {new ItemStack(GOTRegistry.yitiSpear), new ItemStack(GOTRegistry.ironSpear), new ItemStack(GOTRegistry.bronzeSpear)};
-	public static ItemStack[] levyBodies = {new ItemStack(Items.leather_chestplate), new ItemStack(GOTRegistry.bronzeChestplate)};
-	public static ItemStack[] levyLegs = {new ItemStack(Items.leather_leggings), new ItemStack(GOTRegistry.bronzeLeggings)};
-	public static ItemStack[] levyBoots = {new ItemStack(Items.leather_boots), new ItemStack(GOTRegistry.bronzeBoots)};
+	public static ItemStack[] levyWeapons = {new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiDaggerPoisoned), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(Items.iron_sword), new ItemStack(GOTItems.bronzeSword), new ItemStack(GOTItems.ironBattleaxe), new ItemStack(GOTItems.bronzeBattleaxe), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.bronzeSpear)};
+	public static ItemStack[] levySpears = {new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.bronzeSpear)};
+	public static ItemStack[] levyBodies = {new ItemStack(Items.leather_chestplate), new ItemStack(GOTItems.bronzeChestplate)};
+	public static ItemStack[] levyLegs = {new ItemStack(Items.leather_leggings), new ItemStack(GOTItems.bronzeLeggings)};
+	public static ItemStack[] levyBoots = {new ItemStack(Items.leather_boots), new ItemStack(GOTItems.bronzeBoots)};
 	public static int[] kaftanColors = {14823729, 11862016, 5512477, 14196753, 11374145, 7366222};
 
 	public GOTEntityYiTiLevyman(World world) {
@@ -57,12 +57,12 @@ public class GOTEntityYiTiLevyman extends GOTEntityYiTiMan {
 		setCurrentItemOrArmor(3, levyBodies[i].copy());
 		setCurrentItemOrArmor(4, null);
 		if (rand.nextBoolean()) {
-			ItemStack kaftan = new ItemStack(GOTRegistry.kaftanChestplate);
+			ItemStack kaftan = new ItemStack(GOTItems.kaftanChestplate);
 			int kaftanColor = kaftanColors[rand.nextInt(kaftanColors.length)];
 			GOTItemRobes.setRobesColor(kaftan, kaftanColor);
 			setCurrentItemOrArmor(3, kaftan);
 			if (rand.nextBoolean()) {
-				ItemStack kaftanLegs = new ItemStack(GOTRegistry.kaftanLeggings);
+				ItemStack kaftanLegs = new ItemStack(GOTItems.kaftanLeggings);
 				GOTItemRobes.setRobesColor(kaftanLegs, kaftanColor);
 				setCurrentItemOrArmor(2, kaftanLegs);
 			}

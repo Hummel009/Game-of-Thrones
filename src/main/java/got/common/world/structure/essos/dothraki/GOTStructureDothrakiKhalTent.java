@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.dothraki;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.animal.GOTEntityCamel;
 import got.common.entity.essos.dothraki.GOTEntityDothraki;
 import got.common.entity.essos.dothraki.GOTEntityDothrakiKhal;
@@ -64,7 +64,7 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 		associateBlockMetaAlias("TENT2", tent2Block, tent2Meta);
 		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);
 		associateBlockMetaAlias("CARPET2", carpet2Block, carpet2Meta);
-		associateBlockAlias("TABLE", GOTRegistry.tableDothraki);
+		associateBlockAlias("TABLE", GOTBlocks.tableDothraki);
 		generateStrScan(world, random, 0, 1, 0);
 		setBlockAndMetadata(world, -6, 1, 4, bedBlock, 0);
 		setBlockAndMetadata(world, -6, 1, 5, bedBlock, 8);
@@ -74,11 +74,11 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 		setBlockAndMetadata(world, 5, 1, 5, bedBlock, 8);
 		setBlockAndMetadata(world, 6, 1, 4, bedBlock, 0);
 		setBlockAndMetadata(world, 6, 1, 5, bedBlock, 8);
-		placeChest(world, random, -11, 1, 0, GOTRegistry.chestBasket, 4, GOTChestContents.DOTHRAKI);
-		placeChest(world, random, 11, 1, 0, GOTRegistry.chestBasket, 5, GOTChestContents.DOTHRAKI);
+		placeChest(world, random, -11, 1, 0, GOTBlocks.chestBasket, 4, GOTChestContents.DOTHRAKI);
+		placeChest(world, random, 11, 1, 0, GOTBlocks.chestBasket, 5, GOTChestContents.DOTHRAKI);
 		placeMug(world, random, -4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
-		placePlateWithCertainty(world, random, -6, 2, -5, GOTRegistry.ceramicPlateBlock, GOTFoods.NOMAD);
-		placePlateWithCertainty(world, random, 6, 2, -5, GOTRegistry.ceramicPlateBlock, GOTFoods.NOMAD);
+		placePlateWithCertainty(world, random, -6, 2, -5, GOTBlocks.ceramicPlateBlock, GOTFoods.NOMAD);
+		placePlateWithCertainty(world, random, 6, 2, -5, GOTBlocks.ceramicPlateBlock, GOTFoods.NOMAD);
 		placeMug(world, random, 4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
 		setBlockAndMetadata(world, -1, 4, -9, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 4, -9, Blocks.skull, 2);
@@ -111,6 +111,6 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 	@Override
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
-		bedBlock = GOTRegistry.lionBed;
+		bedBlock = GOTBlocks.lionBed;
 	}
 }

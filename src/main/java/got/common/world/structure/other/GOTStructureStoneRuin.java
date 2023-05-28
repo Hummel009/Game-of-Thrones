@@ -1,6 +1,6 @@
 package got.common.world.structure.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -111,11 +111,11 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 			int l = random.nextInt(2);
 			switch (l) {
 				case 0: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.brick1, 0);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 0);
 					break;
 				}
 				case 1: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.brick1, 7);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 7);
 				}
 			}
 		}
@@ -125,11 +125,11 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 			int l = random.nextInt(2);
 			switch (l) {
 				case 0: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle1, 1);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle1, 1);
 					break;
 				}
 				case 1: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle2, 2);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle2, 2);
 				}
 			}
 		}
@@ -145,11 +145,11 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 			int l = random.nextInt(2);
 			switch (l) {
 				case 0: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.brick1, 15);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick1, 15);
 					break;
 				}
 				case 1: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.brick3, 11);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick3, 11);
 				}
 			}
 		}
@@ -159,11 +159,11 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 			int l = random.nextInt(2);
 			switch (l) {
 				case 0: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle4, 0);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle4, 0);
 					break;
 				}
 				case 1: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle7, 1);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle7, 1);
 				}
 			}
 		}
@@ -179,15 +179,15 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 			int l = random.nextInt(3);
 			switch (l) {
 				case 0: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.brick4, 0);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 0);
 					break;
 				}
 				case 1: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.brick4, 1);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 1);
 					break;
 				}
 				case 2: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.brick4, 2);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick4, 2);
 				}
 			}
 		}
@@ -195,20 +195,20 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		@Override
 		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
 			if (random.nextInt(4) == 0) {
-				setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle8, 5);
+				setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle8, 5);
 			} else {
 				int l = random.nextInt(3);
 				switch (l) {
 					case 0: {
-						setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle8, 0);
+						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle8, 0);
 						break;
 					}
 					case 1: {
-						setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle8, 1);
+						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle8, 1);
 						break;
 					}
 					case 2: {
-						setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle8, 2);
+						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle8, 2);
 					}
 				}
 			}
@@ -250,11 +250,11 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 						break;
 					}
 					case 1: {
-						setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingleV, 0);
+						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingleV, 0);
 						break;
 					}
 					case 2: {
-						setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingleV, 1);
+						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingleV, 1);
 					}
 				}
 			}
@@ -271,15 +271,15 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 			int l = random.nextInt(3);
 			switch (l) {
 				case 0: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.brick5, 11);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick5, 11);
 					break;
 				}
 				case 1: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.brick5, 13);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick5, 13);
 					break;
 				}
 				case 2: {
-					setBlockAndMetadata(world, i, j, k, GOTRegistry.brick5, 14);
+					setBlockAndMetadata(world, i, j, k, GOTBlocks.brick5, 14);
 				}
 			}
 		}
@@ -287,20 +287,20 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		@Override
 		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
 			if (random.nextInt(4) == 0) {
-				setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle12, 4);
+				setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle12, 4);
 			} else {
 				int l = random.nextInt(3);
 				switch (l) {
 					case 0: {
-						setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle12, 0);
+						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle12, 0);
 						break;
 					}
 					case 1: {
-						setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle12, 1);
+						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle12, 1);
 						break;
 					}
 					case 2: {
-						setBlockAndMetadata(world, i, j, k, GOTRegistry.slabSingle12, 2);
+						setBlockAndMetadata(world, i, j, k, GOTBlocks.slabSingle12, 2);
 					}
 				}
 			}

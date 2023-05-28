@@ -2,7 +2,7 @@ package got.common.world.biome.westeros;
 
 import com.google.common.math.IntMath;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.map.GOTBeziers;
 import net.minecraft.block.Block;
@@ -50,7 +50,7 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 						++h;
 					}
 					boolean red = biomeTerrainNoise.func_151601_a(i * (d = 0.01), k * d) > 0.0;
-					Block vineBlock = red ? GOTRegistry.grapevineRed : GOTRegistry.grapevineWhite;
+					Block vineBlock = red ? GOTBlocks.grapevineRed : GOTBlocks.grapevineWhite;
 					for (int j1 = 1; j1 <= h; ++j1) {
 						blocks[index + j1] = vineBlock;
 						meta[index + j1] = 7;
@@ -58,7 +58,7 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 					break;
 				}
 				if (i1 >= 2 && i1 <= 3) {
-					blocks[index] = GOTRegistry.dirtPath;
+					blocks[index] = GOTBlocks.dirtPath;
 					meta[index] = 0;
 					if (i1 != i2 || (i1 != 2 || k2 != 16) && (i1 != 3 || k2 != 48)) {
 						break;
@@ -70,7 +70,7 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 							meta[index + j1] = 5;
 							continue;
 						}
-						blocks[index + j1] = GOTRegistry.fence2;
+						blocks[index + j1] = GOTBlocks.fence2;
 						meta[index + j1] = 10;
 					}
 					break;

@@ -3,8 +3,8 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
 import got.common.world.biome.westeros.GOTBiomeReachArbor;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -93,7 +93,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 			int meta = world.getBlockMetadata(i, j, k);
 			dropBlockAsItem(world, i, j, k, meta, 0);
 			if (hasGrapes) {
-				world.setBlock(i, j, k, GOTRegistry.grapevine, 0, 3);
+				world.setBlock(i, j, k, GOTBlocks.grapevine, 0, 3);
 				Block newBlock = world.getBlock(i, j, k);
 				newBlock.updateTick(world, i, j, k, world.rand);
 			} else {
@@ -285,7 +285,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 					dropBlockAsItem(world, i, j, k, itemstack);
 				}
 			}
-			world.setBlock(i, j, k, GOTRegistry.grapevine, 0, 3);
+			world.setBlock(i, j, k, GOTBlocks.grapevine, 0, 3);
 			return true;
 		}
 		return false;
@@ -299,7 +299,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		postIcon = !hasGrapes ? iconregister.registerIcon(getTextureName()) : GOTRegistry.grapevine.getIcon(0, 0);
+		postIcon = !hasGrapes ? iconregister.registerIcon(getTextureName()) : GOTBlocks.grapevine.getIcon(0, 0);
 		if (hasGrapes) {
 			vineIcons = new IIcon[2];
 			vineIcons[0] = iconregister.registerIcon(getTextureName() + "_vine");
@@ -310,7 +310,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	@Override
 	public boolean removedByPlayer(World world, EntityPlayer entityplayer, int i, int j, int k, boolean willHarvest) {
 		if (hasGrapes && entityplayer != null) {
-			return world.setBlock(i, j, k, GOTRegistry.grapevine, 0, 3);
+			return world.setBlock(i, j, k, GOTBlocks.grapevine, 0, 3);
 		}
 		return super.removedByPlayer(world, entityplayer, i, j, k, willHarvest);
 	}

@@ -1,7 +1,7 @@
 package got.common.recipe;
 
 import got.GOT;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemDye;
 import got.common.item.other.GOTItemFeatherDyed;
 import net.minecraft.block.BlockColored;
@@ -25,13 +25,13 @@ public class GOTRecipeFeatherDye implements IRecipe {
 			if (itemstack == null) {
 				continue;
 			}
-			if (GOT.isOreNameEqual(itemstack, "feather") || itemstack.getItem() == GOTRegistry.featherDyed) {
+			if (GOT.isOreNameEqual(itemstack, "feather") || itemstack.getItem() == GOTItems.featherDyed) {
 				if (feather != null) {
 					return null;
 				}
 				feather = itemstack.copy();
 				feather.stackSize = 1;
-				if (feather.getItem() != GOTRegistry.featherDyed) {
+				if (feather.getItem() != GOTItems.featherDyed) {
 					continue;
 				}
 				int featherColor = GOTItemFeatherDyed.getFeatherColor(feather);
@@ -71,7 +71,7 @@ public class GOTRecipeFeatherDye implements IRecipe {
 		g = (int) (g * averageColor / maxColor);
 		b = (int) (b * averageColor / maxColor);
 		int color = (r << 16) + (g << 8) + b;
-		feather = new ItemStack(GOTRegistry.featherDyed);
+		feather = new ItemStack(GOTItems.featherDyed);
 		GOTItemFeatherDyed.setFeatherColor(feather, color);
 		return feather;
 	}
@@ -95,7 +95,7 @@ public class GOTRecipeFeatherDye implements IRecipe {
 			if (itemstack == null) {
 				continue;
 			}
-			if (GOT.isOreNameEqual(itemstack, "feather") || itemstack.getItem() == GOTRegistry.featherDyed) {
+			if (GOT.isOreNameEqual(itemstack, "feather") || itemstack.getItem() == GOTItems.featherDyed) {
 				if (feather != null) {
 					return false;
 				}

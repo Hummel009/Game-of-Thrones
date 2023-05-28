@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -45,12 +45,12 @@ public class GOTEntityTywinLannister extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.widowWail, 1);
-		dropItem(GOTRegistry.oathkeeper, 1);
-		dropItem(GOTRegistry.westkingBoots, 1);
-		dropItem(GOTRegistry.westkingLeggings, 1);
-		dropItem(GOTRegistry.westkingChestplate, 1);
-		dropItem(GOTRegistry.westkingHelmet, 1);
+		dropItem(GOTItems.widowWail, 1);
+		dropItem(GOTItems.oathkeeper, 1);
+		dropItem(GOTItems.westkingBoots, 1);
+		dropItem(GOTItems.westkingLeggings, 1);
+		dropItem(GOTItems.westkingChestplate, 1);
+		dropItem(GOTItems.westkingHelmet, 1);
 	}
 
 	@Override
@@ -93,12 +93,12 @@ public class GOTEntityTywinLannister extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.westkingBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.westkingLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.westkingChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.westkingHelmet));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.westkingBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.westkingLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.westkingChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.westkingHelmet));
 		return data;
 	}
 

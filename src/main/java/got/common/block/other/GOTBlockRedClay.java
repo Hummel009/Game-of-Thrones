@@ -1,7 +1,7 @@
 package got.common.block.other;
 
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -18,7 +18,7 @@ public class GOTBlockRedClay extends Block {
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return GOTRegistry.redClayBall;
+		return GOTItems.redClayBall;
 	}
 
 	@Override

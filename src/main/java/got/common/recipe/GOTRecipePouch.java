@@ -1,6 +1,6 @@
 package got.common.recipe;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.faction.GOTFaction;
 import got.common.inventory.GOTInventoryPouch;
 import got.common.item.other.GOTItemDye;
@@ -91,7 +91,7 @@ public class GOTRecipePouch implements IRecipe {
 			pouch = pouches.get(0).copy();
 		} else {
 			int meta = getCombinedMeta(pouches);
-			pouch = new ItemStack(GOTRegistry.pouch);
+			pouch = new ItemStack(GOTItems.pouch);
 			pouch.stackSize = 1;
 			pouch.setItemDamage(meta);
 			GOTInventoryPouch pouchInv = new GOTInventoryPouch(pouch);

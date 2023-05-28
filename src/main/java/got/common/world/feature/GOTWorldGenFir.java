@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -12,9 +12,9 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTWorldGenFir extends WorldGenAbstractTree {
-	public Block woodBlock = GOTRegistry.wood4;
+	public Block woodBlock = GOTBlocks.wood4;
 	public int woodMeta = 3;
-	public Block leafBlock = GOTRegistry.leaves4;
+	public Block leafBlock = GOTBlocks.leaves4;
 	public int leafMeta = 3;
 	public int minHeight = 6;
 	public int maxHeight = 13;

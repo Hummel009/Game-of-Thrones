@@ -1,8 +1,8 @@
 package got.common.world.structure.other;
 
 import got.GOT;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import net.minecraft.block.Block;
@@ -68,7 +68,7 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 						continue;
 					}
 					if (random.nextInt(3) == 0) {
-						setBlockAndNotifyAdequately(world, i1, j1 - 1, k1, GOTRegistry.brick1, 1);
+						setBlockAndNotifyAdequately(world, i1, j1 - 1, k1, GOTBlocks.brick1, 1);
 					}
 					if (random.nextInt(3) == 0) {
 						if (random.nextInt(3) == 0) {
@@ -82,7 +82,7 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 						continue;
 					}
 					if (random.nextInt(5) == 0) {
-						setBlockAndNotifyAdequately(world, i1, j1 + 1, k1, GOTRegistry.wallStone1, 3);
+						setBlockAndNotifyAdequately(world, i1, j1 + 1, k1, GOTBlocks.wallStone1, 3);
 						placeSkull(world, random, i1, j1 + 2, k1);
 						continue;
 					}
@@ -105,7 +105,7 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 							if (i1 == i && k1 == k) {
 								continue block9;
 							}
-							setBlockAndNotifyAdequately(world, i1, j2 + 1, k1, GOTRegistry.brick1, 5);
+							setBlockAndNotifyAdequately(world, i1, j2 + 1, k1, GOTBlocks.brick1, 5);
 							continue block9;
 						}
 						++j2;
@@ -117,19 +117,19 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 
 		public void placeRandomBrick(World world, Random random, int i, int j, int k) {
 			if (random.nextInt(20) == 0) {
-				setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.brick1, 5);
+				setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.brick1, 5);
 			} else if (random.nextInt(4) == 0) {
-				setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.brick1, 2 + random.nextInt(2));
+				setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.brick1, 2 + random.nextInt(2));
 			} else {
-				setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.brick1, 1);
+				setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.brick1, 1);
 			}
 		}
 
 		public void placeRandomSlab(World world, Random random, int i, int j, int k) {
 			if (random.nextInt(5) == 0 || random.nextInt(4) != 0) {
-				setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.slabSingle1, 3);
+				setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.slabSingle1, 3);
 			} else {
-				setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.slabSingle1, 4 + random.nextInt(2));
+				setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.slabSingle1, 4 + random.nextInt(2));
 			}
 		}
 
@@ -213,7 +213,7 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 						if (random.nextInt(6) == 0) {
 							continue;
 						}
-						setBlockAndNotifyAdequately(world, i1, j1, k12, GOTRegistry.slabSingle1, 3);
+						setBlockAndNotifyAdequately(world, i1, j1, k12, GOTBlocks.slabSingle1, 3);
 					}
 				}
 			}
@@ -229,8 +229,8 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 					}
 				}
 			}
-			setBlockAndNotifyAdequately(world, i, j + maxHeight, k, GOTRegistry.slabSingle1, 3);
-			setBlockAndNotifyAdequately(world, i, j + maxHeight + 1, k, GOTRegistry.chestStone, rotation + 2);
+			setBlockAndNotifyAdequately(world, i, j + maxHeight, k, GOTBlocks.slabSingle1, 3);
+			setBlockAndNotifyAdequately(world, i, j + maxHeight + 1, k, GOTBlocks.chestStone, rotation + 2);
 			GOTChestContents.fillChest(world, random, i, j + maxHeight + 1, k, GOTChestContents.TREASURE);
 			switch (rotation) {
 				case 0: {
@@ -324,7 +324,7 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 		}
 
 		public void placeRandomBrick(World world, int i, int j, int k) {
-			setBlockAndNotifyAdequately(world, i, j, k, GOTRegistry.brick1, 1);
+			setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.brick1, 1);
 		}
 	}
 

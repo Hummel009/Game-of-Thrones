@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
@@ -12,7 +12,7 @@ public class GOTWorldGenStalactites extends WorldGenerator {
 	public Block stalactiteBlock;
 
 	public GOTWorldGenStalactites() {
-		this(GOTRegistry.stalactite);
+		this(GOTBlocks.stalactite);
 	}
 
 	public GOTWorldGenStalactites(Block block) {

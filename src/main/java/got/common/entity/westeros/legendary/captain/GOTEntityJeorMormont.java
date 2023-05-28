@@ -52,7 +52,7 @@ public class GOTEntityJeorMormont extends GOTEntityHumanBase implements GOTUnitT
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.longclaw, 1);
+		dropItem(GOTItems.longclaw, 1);
 	}
 
 	@Override
@@ -108,7 +108,7 @@ public class GOTEntityJeorMormont extends GOTEntityHumanBase implements GOTUnitT
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.longclaw));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.longclaw));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

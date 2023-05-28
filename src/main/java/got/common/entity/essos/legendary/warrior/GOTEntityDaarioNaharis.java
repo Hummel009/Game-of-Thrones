@@ -3,7 +3,7 @@ package got.common.entity.essos.legendary.warrior;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -51,7 +51,7 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.daarioArakh, 1);
+		dropItem(GOTItems.daarioArakh, 1);
 	}
 
 	@Override
@@ -89,7 +89,7 @@ public class GOTEntityDaarioNaharis extends GOTEntityHumanBase implements GOTMer
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.daarioArakh));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.daarioArakh));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

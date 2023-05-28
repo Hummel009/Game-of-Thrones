@@ -1,9 +1,6 @@
 package got.common.world.structure.westeros.hillmen;
 
-import got.common.database.GOTChestContents;
-import got.common.database.GOTFoods;
-import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
+import got.common.database.*;
 import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
 import got.common.entity.westeros.GOTEntityWesterosThief;
 import got.common.entity.westeros.hillmen.GOTEntityHillman;
@@ -64,7 +61,7 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 				if (random.nextInt(4) != 0 || i2 <= 3 && k2 <= 2) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		loadStrScan("hillman_tavern");
@@ -89,7 +86,7 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 		placeFlowerPot(world, 8, 2, 5, getRandomFlower(world, random));
 		placeFlowerPot(world, -8, 2, -4, getRandomFlower(world, random));
 		placeFlowerPot(world, -8, 2, 4, getRandomFlower(world, random));
-		placeChest(world, random, 7, 1, -5, GOTRegistry.chestBasket, 5, GOTChestContents.HILLMEN);
+		placeChest(world, random, 7, 1, -5, GOTBlocks.chestBasket, 5, GOTChestContents.HILLMEN);
 		placeBarrel(world, random, 7, 2, 6, 2, GOTFoods.WILD_DRINK);
 		placeBarrel(world, random, 4, 2, 6, 2, GOTFoods.WILD_DRINK);
 		placeFoodOrDrink(world, random, -6, 2, -6);
@@ -142,7 +139,7 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 			if (random.nextBoolean()) {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WILD_DRINK);
 			} else {
-				Block plateBlock = random.nextBoolean() ? GOTRegistry.woodPlateBlock : GOTRegistry.ceramicPlateBlock;
+				Block plateBlock = random.nextBoolean() ? GOTBlocks.woodPlateBlock : GOTBlocks.ceramicPlateBlock;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {

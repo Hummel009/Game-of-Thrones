@@ -55,7 +55,7 @@ public class GOTEntityJonosBracken extends GOTEntityHumanBase implements GOTUnit
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.indomitable, 1);
+		dropItem(GOTItems.indomitable, 1);
 	}
 
 	@Override
@@ -111,7 +111,7 @@ public class GOTEntityJonosBracken extends GOTEntityHumanBase implements GOTUnit
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.indomitable));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.indomitable));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

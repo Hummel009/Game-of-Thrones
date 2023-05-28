@@ -26,17 +26,17 @@ public class GOTCreativeTabs extends CreativeTabs {
 	}
 
 	public static void onInit() {
-		tabBlock.theIcon = new ItemStack(GOTRegistry.brick1, 1, 1);
-		tabUtil.theIcon = new ItemStack(GOTRegistry.unsmeltery);
-		tabDeco.theIcon = new ItemStack(GOTRegistry.chandelier, 1, 3);
-		tabFood.theIcon = new ItemStack(GOTRegistry.mugVodka);
-		tabMaterials.theIcon = new ItemStack(GOTRegistry.valyrianIngot);
-		tabMisc.theIcon = new ItemStack(GOTRegistry.coin, 1, 6);
-		tabTools.theIcon = new ItemStack(GOTRegistry.wildlingAxe);
-		tabCombat.theIcon = new ItemStack(GOTRegistry.ironbornHelmet);
-		tabStory.theIcon = new ItemStack(GOTRegistry.bane);
-		tabSpawn.theIcon = new ItemStack(GOTRegistry.spawnEgg, 1, 248);
-		tabBanner.theIcon = new ItemStack(GOTRegistry.bannerTab);
+		tabBlock.theIcon = new ItemStack(GOTBlocks.brick1, 1, 1);
+		tabUtil.theIcon = new ItemStack(GOTBlocks.unsmeltery);
+		tabDeco.theIcon = new ItemStack(GOTBlocks.chandelier, 1, 3);
+		tabFood.theIcon = new ItemStack(GOTItems.mugVodka);
+		tabMaterials.theIcon = new ItemStack(GOTItems.valyrianIngot);
+		tabMisc.theIcon = new ItemStack(GOTItems.coin, 1, 6);
+		tabTools.theIcon = new ItemStack(GOTItems.wildlingAxe);
+		tabCombat.theIcon = new ItemStack(GOTItems.ironbornHelmet);
+		tabStory.theIcon = new ItemStack(GOTItems.bane);
+		tabSpawn.theIcon = new ItemStack(GOTItems.spawnEgg, 1, 248);
+		tabBanner.theIcon = new ItemStack(GOTItems.bannerTab);
 	}
 
 	@Override

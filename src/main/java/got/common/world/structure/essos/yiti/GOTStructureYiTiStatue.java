@@ -1,6 +1,6 @@
 package got.common.world.structure.essos.yiti;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -33,28 +33,28 @@ public class GOTStructureYiTiStatue extends GOTStructureYiTiBase {
 			for (k12 = -5; k12 <= 5; ++k12) {
 				int j13;
 				for (j13 = 1; (j13 >= 0 || !isOpaque(world, i1, j13, k12)) && getY(j13) >= 0; --j13) {
-					setBlockAndMetadata(world, i1, j13, k12, GOTRegistry.rock, 4);
+					setBlockAndMetadata(world, i1, j13, k12, GOTBlocks.rock, 4);
 					setGrassToDirt(world, i1, j13 - 1, k12);
 				}
 				for (j13 = 2; j13 <= 25; ++j13) {
 					setAir(world, i1, j13, k12);
 				}
 				if (i1 == -6) {
-					setBlockAndMetadata(world, -6, 1, k12, GOTRegistry.stairsGranite, 1);
+					setBlockAndMetadata(world, -6, 1, k12, GOTBlocks.stairsGranite, 1);
 					continue;
 				}
 				if (i1 == 6) {
-					setBlockAndMetadata(world, 6, 1, k12, GOTRegistry.stairsGranite, 0);
+					setBlockAndMetadata(world, 6, 1, k12, GOTBlocks.stairsGranite, 0);
 					continue;
 				}
 				if (k12 == -5) {
-					setBlockAndMetadata(world, i1, 1, -5, GOTRegistry.stairsGranite, 2);
+					setBlockAndMetadata(world, i1, 1, -5, GOTBlocks.stairsGranite, 2);
 					continue;
 				}
 				if (k12 != 5) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k12, GOTRegistry.stairsGranite, 3);
+				setBlockAndMetadata(world, i1, 1, k12, GOTBlocks.stairsGranite, 3);
 			}
 		}
 		for (k1 = 0; k1 <= 1; ++k1) {

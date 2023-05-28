@@ -2,7 +2,7 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
@@ -17,7 +17,7 @@ public class GOTBlockGoblet extends GOTBlockMug {
 		@SideOnly(Side.CLIENT)
 		@Override
 		public IIcon getIcon(int i, int j) {
-			return GOTRegistry.blockMetal1.getIcon(i, 0);
+			return GOTBlocks.blockMetal1.getIcon(i, 0);
 		}
 	}
 
@@ -33,7 +33,7 @@ public class GOTBlockGoblet extends GOTBlockMug {
 		@SideOnly(Side.CLIENT)
 		@Override
 		public IIcon getIcon(int i, int j) {
-			return GOTRegistry.blockMetal1.getIcon(i, 3);
+			return GOTBlocks.blockMetal1.getIcon(i, 3);
 		}
 	}
 

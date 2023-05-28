@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.common;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.essos.GOTEntityEssosScrapTrader;
 import got.common.entity.essos.GOTEntityEssosThief;
 import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
@@ -105,7 +105,7 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		for (i1 = -1; i1 <= 1; ++i1) {
 			for (k1 = 1; k1 <= 3; ++k1) {
 				if (i1 == 0 && k1 == 2) {
-					setBlockAndMetadata(world, 0, 2, 2, GOTRegistry.lemonCake, 0);
+					setBlockAndMetadata(world, 0, 2, 2, GOTBlocks.lemonCake, 0);
 					continue;
 				}
 				placeFoodOrDrink(world, random, i1, 2, k1);
@@ -114,8 +114,8 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		placeFoodOrDrink(world, random, -3, 2, 7);
 		placeFoodOrDrink(world, random, -2, 2, 7);
 		placeFoodOrDrink(world, random, -1, 2, 7);
-		placeKebabStand(world, random, -4, 2, 9, GOTRegistry.kebabStand, 4);
-		placeChest(world, random, 3, 1, 14, GOTRegistry.chestBasket, 2, getChestContents());
+		placeKebabStand(world, random, -4, 2, 9, GOTBlocks.kebabStand, 4);
+		placeChest(world, random, 3, 1, 14, GOTBlocks.chestBasket, 2, getChestContents());
 		placeBarrel(world, random, 4, 2, 11, 5, GOTFoods.ESSOS_DRINK);
 		placeBarrel(world, random, 4, 2, 12, 5, GOTFoods.ESSOS_DRINK);
 		setBlockAndMetadata(world, -3, 8, -13, bedBlock, 2);
@@ -206,7 +206,7 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.ESSOS_DRINK);
 			} else {
 				Block plateBlock;
-				plateBlock = random.nextBoolean() ? GOTRegistry.woodPlateBlock : GOTRegistry.ceramicPlateBlock;
+				plateBlock = random.nextBoolean() ? GOTBlocks.woodPlateBlock : GOTBlocks.ceramicPlateBlock;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {

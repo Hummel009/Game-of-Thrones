@@ -55,7 +55,7 @@ public class GOTEntityGoldenMan extends GOTEntityHumanBase implements IPickpocke
 	@Override
 	public GOTNPCMount createMountToRide() {
 		GOTEntityHorse horse = (GOTEntityHorse) super.createMountToRide();
-		horse.setMountArmor(new ItemStack(GOTRegistry.essosHorseArmor));
+		horse.setMountArmor(new ItemStack(GOTItems.essosHorseArmor));
 		return horse;
 	}
 

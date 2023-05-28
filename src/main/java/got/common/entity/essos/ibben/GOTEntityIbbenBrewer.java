@@ -1,6 +1,6 @@
 package got.common.entity.essos.ibben;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -25,7 +25,7 @@ public class GOTEntityIbbenBrewer extends GOTEntityIbbenMarketTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.mugMead));
+		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugMead));
 		return data;
 	}
 }

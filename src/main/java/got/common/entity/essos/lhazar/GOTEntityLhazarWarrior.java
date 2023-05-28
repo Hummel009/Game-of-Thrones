@@ -1,6 +1,6 @@
 package got.common.entity.essos.lhazar;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -39,22 +39,22 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) != 0) {
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarSword));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarSword));
 		} else {
 			int i = rand.nextInt(5);
 			switch (i) {
 				case 0:
 				case 1:
-					npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarSword));
+					npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarSword));
 					break;
 				case 2:
-					npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarDagger));
+					npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarDagger));
 					break;
 				case 3:
-					npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarDaggerPoisoned));
+					npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarDaggerPoisoned));
 					break;
 				case 4:
-					npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarClub));
+					npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarClub));
 					break;
 				default:
 					break;
@@ -62,16 +62,16 @@ public class GOTEntityLhazarWarrior extends GOTEntityLhazarMan {
 		}
 		if (rand.nextInt(5) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.lhazarSpear));
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarSpear));
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.lhazarBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.lhazarLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.lhazarChestplate));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.lhazarBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.lhazarLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.lhazarChestplate));
 		if (rand.nextInt(10) == 0) {
 			setCurrentItemOrArmor(4, null);
 		} else {
-			setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.lhazarHelmet));
+			setCurrentItemOrArmor(4, new ItemStack(GOTItems.lhazarHelmet));
 		}
 		return data;
 	}

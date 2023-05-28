@@ -3,7 +3,7 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.material.Material;
@@ -78,27 +78,27 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 			int berries = 1 + world.rand.nextInt(4);
 			switch (berryType) {
 				case 0: {
-					berry = GOTRegistry.blueberry;
+					berry = GOTItems.blueberry;
 					break;
 				}
 				case 1: {
-					berry = GOTRegistry.blackberry;
+					berry = GOTItems.blackberry;
 					break;
 				}
 				case 2: {
-					berry = GOTRegistry.raspberry;
+					berry = GOTItems.raspberry;
 					break;
 				}
 				case 3: {
-					berry = GOTRegistry.cranberry;
+					berry = GOTItems.cranberry;
 					break;
 				}
 				case 4: {
-					berry = GOTRegistry.elderberry;
+					berry = GOTItems.elderberry;
 					break;
 				}
 				case 5: {
-					berry = GOTRegistry.wildberry;
+					berry = GOTItems.wildberry;
 				}
 			}
 			if (berry != null) {

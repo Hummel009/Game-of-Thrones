@@ -2,7 +2,7 @@ package got.common.block.slab;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -23,21 +23,21 @@ public class GOTBlockSlab10 extends GOTBlockSlabBase {
 		j &= 7;
 		switch (j) {
 			case 0:
-				return GOTRegistry.pillar2.getIcon(i, 5);
+				return GOTBlocks.pillar2.getIcon(i, 5);
 			case 1:
-				return GOTRegistry.brick5.getIcon(i, 4);
+				return GOTBlocks.brick5.getIcon(i, 4);
 			case 2:
-				return GOTRegistry.brick5.getIcon(i, 5);
+				return GOTBlocks.brick5.getIcon(i, 5);
 			case 3:
-				return GOTRegistry.brick5.getIcon(i, 7);
+				return GOTBlocks.brick5.getIcon(i, 7);
 			case 4:
-				return GOTRegistry.pillar2.getIcon(i, 6);
+				return GOTBlocks.pillar2.getIcon(i, 6);
 			case 5:
-				return GOTRegistry.pillar2.getIcon(i, 7);
+				return GOTBlocks.pillar2.getIcon(i, 7);
 			case 6:
-				return GOTRegistry.whiteSandstone.getIcon(i, 0);
+				return GOTBlocks.whiteSandstone.getIcon(i, 0);
 			case 7:
-				return GOTRegistry.rock.getIcon(i, 0);
+				return GOTBlocks.rock.getIcon(i, 0);
 			default:
 				break;
 		}

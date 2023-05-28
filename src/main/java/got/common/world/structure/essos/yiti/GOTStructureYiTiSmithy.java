@@ -1,8 +1,9 @@
 package got.common.world.structure.essos.yiti;
 
 import com.google.common.math.IntMath;
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.yiti.GOTEntityYiTiBlacksmith;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
@@ -95,8 +96,8 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, -2, 0, k13, woodBeamBlock, woodBeamMeta | 8);
 			setBlockAndMetadata(world, 2, 0, k13, woodBeamBlock, woodBeamMeta | 8);
 		}
-		setBlockAndMetadata(world, -4, 2, -6, GOTRegistry.reedBars, 0);
-		setBlockAndMetadata(world, 4, 2, -6, GOTRegistry.reedBars, 0);
+		setBlockAndMetadata(world, -4, 2, -6, GOTBlocks.reedBars, 0);
+		setBlockAndMetadata(world, 4, 2, -6, GOTBlocks.reedBars, 0);
 		for (int k12 : new int[]{-4, 0}) {
 			setBlockAndMetadata(world, -6, 2, k12 - 1, brickStairBlock, 7);
 			setAir(world, -6, 2, k12);
@@ -193,7 +194,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 					continue;
 				}
 				setBlockAndMetadata(world, i1, 6, k1, roofBlock, roofMeta);
-				setBlockAndMetadata(world, i1, 5, k1, GOTRegistry.chandelier, 0);
+				setBlockAndMetadata(world, i1, 5, k1, GOTBlocks.chandelier, 0);
 			}
 		}
 		for (i1 = -4; i1 <= 4; ++i1) {
@@ -229,7 +230,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 4, 9, 0, roofStairBlock, 1);
 		for (int k12 : new int[]{-3, 3}) {
 			setBlockAndMetadata(world, -1, 7, k12, plankBlock, plankMeta);
-			setBlockAndMetadata(world, 0, 7, k12, GOTRegistry.reedBars, 0);
+			setBlockAndMetadata(world, 0, 7, k12, GOTBlocks.reedBars, 0);
 			setBlockAndMetadata(world, 1, 7, k12, plankBlock, plankMeta);
 			setBlockAndMetadata(world, -1, 8, k12, roofBlock, roofMeta);
 			setBlockAndMetadata(world, 0, 8, k12, plankBlock, plankMeta);
@@ -237,14 +238,14 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		}
 		for (int i15 : new int[]{-3, 3}) {
 			setBlockAndMetadata(world, i15, 7, -1, plankBlock, plankMeta);
-			setBlockAndMetadata(world, i15, 7, 0, GOTRegistry.reedBars, 0);
+			setBlockAndMetadata(world, i15, 7, 0, GOTBlocks.reedBars, 0);
 			setBlockAndMetadata(world, i15, 7, 1, plankBlock, plankMeta);
 			setBlockAndMetadata(world, i15, 8, -1, roofBlock, roofMeta);
 			setBlockAndMetadata(world, i15, 8, 0, plankBlock, plankMeta);
 			setBlockAndMetadata(world, i15, 8, 1, roofBlock, roofMeta);
 		}
 		setBlockAndMetadata(world, 0, 4, -7, plankBlock, plankMeta);
-		spawnItemFrame(world, 0, 4, -7, 2, new ItemStack(GOTRegistry.blacksmithHammer));
+		spawnItemFrame(world, 0, 4, -7, 2, new ItemStack(GOTItems.blacksmithHammer));
 		setBlockAndMetadata(world, -2, 3, -5, Blocks.torch, 3);
 		setBlockAndMetadata(world, 2, 3, -5, Blocks.torch, 3);
 		setBlockAndMetadata(world, 2, 3, -5, Blocks.torch, 3);
@@ -281,7 +282,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		for (int j14 = 1; j14 <= 5; ++j14) {
 			setAir(world, 0, j14, 5);
 		}
-		setBlockAndMetadata(world, 0, 0, 5, GOTRegistry.hearth, 0);
+		setBlockAndMetadata(world, 0, 0, 5, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 0, 1, 5, Blocks.fire, 0);
 		setBlockAndMetadata(world, 0, 0, 4, brickBlock, brickMeta);
 		setBlockAndMetadata(world, 0, 1, 4, barsBlock, 0);
@@ -301,7 +302,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -3, 1, 3, brickBlock, brickMeta);
 		setBlockAndMetadata(world, -3, 2, 3, brickBlock, brickMeta);
 		setBlockAndMetadata(world, -5, 1, 3, Blocks.furnace, 2);
-		setBlockAndMetadata(world, -4, 1, 3, GOTRegistry.alloyForge, 2);
+		setBlockAndMetadata(world, -4, 1, 3, GOTBlocks.alloyForge, 2);
 		setBlockAndMetadata(world, -5, 2, 3, barsBlock, 0);
 		setBlockAndMetadata(world, -4, 2, 3, barsBlock, 0);
 		setBlockAndMetadata(world, -3, 2, 4, barsBlock, 0);

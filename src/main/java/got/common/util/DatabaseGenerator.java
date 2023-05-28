@@ -73,7 +73,6 @@ public class DatabaseGenerator {
 	public static final Map<String, String> FAC_TO_PAGE = new HashMap<>();
 	public static final Map<String, String> ENTITY_TO_PAGE = new HashMap<>();
 	public static final Map<String, String> BIOME_TO_PAGE = new HashMap<>();
-	public static final Set<Item> ITEMS = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTRegistry.class, Item.class));
 	public static final Set<GOTUnitTradeEntries> UNITS = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class));
 	public static final Set<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class));
 	public static final Set<GOTBiome> BIOMES = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class));
@@ -423,7 +422,7 @@ public class DatabaseGenerator {
 				fWaypoints.close();
 
 				sb = new StringBuilder();
-				for (Item item : ITEMS) {
+				for (Item item : GOTItems.CONTENT) {
 					if (item instanceof ItemArmor) {
 						float damage = ((ItemArmor) item).damageReduceAmount;
 						ArmorMaterial material = ((ItemArmor) item).getArmorMaterial();
@@ -441,7 +440,7 @@ public class DatabaseGenerator {
 				fArmor.close();
 
 				sb = new StringBuilder();
-				for (Item item : ITEMS) {
+				for (Item item : GOTItems.CONTENT) {
 					if (item instanceof ItemSword) {
 						float damage = GOTReflection.getDamageAmount(item);
 						ToolMaterial material = GOTReflection.getToolMaterial(item);
@@ -459,7 +458,7 @@ public class DatabaseGenerator {
 				fWeapon.close();
 
 				sb = new StringBuilder();
-				for (Item item : ITEMS) {
+				for (Item item : GOTItems.CONTENT) {
 					if (item instanceof ItemFood) {
 						int heal = ((ItemFood) item).func_150905_g(null);
 						float saturation = ((ItemFood) item).func_150906_h(null);

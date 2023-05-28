@@ -1,8 +1,8 @@
 package got.common.entity.essos.asshai;
 
 import got.common.database.GOTFoods;
+import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.database.GOTRegistry;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -133,7 +133,7 @@ public class GOTEntityAsshaiMan extends GOTEntityHumanBase implements IPickpocke
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiDagger));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiDagger));
 		npcItemsInv.setIdleItem(null);
 		return data;
 	}

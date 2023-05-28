@@ -1,6 +1,6 @@
 package got.common.entity.animal;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -44,10 +44,10 @@ public class GOTEntityGemsbok extends EntityAnimal {
 	public void dropFewItems(boolean flag, int i) {
 		int j = 1 + rand.nextInt(4) + rand.nextInt(1 + i);
 		for (int k = 0; k < j; ++k) {
-			dropItem(GOTRegistry.gemsbokHide, 1);
+			dropItem(GOTItems.gemsbokHide, 1);
 		}
 		if (rand.nextBoolean()) {
-			dropItem(GOTRegistry.gemsbokHorn, 1);
+			dropItem(GOTItems.gemsbokHorn, 1);
 		}
 	}
 
@@ -83,7 +83,7 @@ public class GOTEntityGemsbok extends EntityAnimal {
 
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
-		return new ItemStack(GOTRegistry.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
+		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
 	}
 
 	@Override

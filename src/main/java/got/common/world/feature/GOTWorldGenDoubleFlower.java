@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -17,10 +17,10 @@ public class GOTWorldGenDoubleFlower extends WorldGenerator {
 			int j1;
 			int k1;
 			int i1 = i + random.nextInt(8) - random.nextInt(8);
-			if (!world.isAirBlock(i1, j1 = j + random.nextInt(4) - random.nextInt(4), k1 = k + random.nextInt(8) - random.nextInt(8)) || world.provider.hasNoSky && j1 >= 254 || !GOTRegistry.doubleFlower.canPlaceBlockAt(world, i1, j1, k1)) {
+			if (!world.isAirBlock(i1, j1 = j + random.nextInt(4) - random.nextInt(4), k1 = k + random.nextInt(8) - random.nextInt(8)) || world.provider.hasNoSky && j1 >= 254 || !GOTBlocks.doubleFlower.canPlaceBlockAt(world, i1, j1, k1)) {
 				continue;
 			}
-			((BlockDoublePlant) GOTRegistry.doubleFlower).func_149889_c(world, i1, j1, k1, flowerType, 2);
+			((BlockDoublePlant) GOTBlocks.doubleFlower).func_149889_c(world, i1, j1, k1, flowerType, 2);
 			flag = true;
 		}
 		return flag;

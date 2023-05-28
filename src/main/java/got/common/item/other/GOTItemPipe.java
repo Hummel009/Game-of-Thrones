@@ -3,7 +3,7 @@ package got.common.item.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntitySmokeRing;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -77,10 +77,10 @@ public class GOTItemPipe extends Item {
 
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (entityplayer.inventory.hasItem(GOTRegistry.pipeweed) || entityplayer.capabilities.isCreativeMode) {
+		if (entityplayer.inventory.hasItem(GOTItems.pipeweed) || entityplayer.capabilities.isCreativeMode) {
 			itemstack.damageItem(1, entityplayer);
 			if (!entityplayer.capabilities.isCreativeMode) {
-				entityplayer.inventory.consumeInventoryItem(GOTRegistry.pipeweed);
+				entityplayer.inventory.consumeInventoryItem(GOTItems.pipeweed);
 			}
 			if (entityplayer.canEat(false)) {
 				entityplayer.getFoodStats().addStats(2, 0.3f);
@@ -98,7 +98,7 @@ public class GOTItemPipe extends Item {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (entityplayer.inventory.hasItem(GOTRegistry.pipeweed) || entityplayer.capabilities.isCreativeMode) {
+		if (entityplayer.inventory.hasItem(GOTItems.pipeweed) || entityplayer.capabilities.isCreativeMode) {
 			entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
 		}
 		return itemstack;

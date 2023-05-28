@@ -1,6 +1,6 @@
 package got.common.item.other;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -52,7 +52,7 @@ public class GOTItemRice extends ItemFood implements IPlantable {
 			}
 			if (p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_ + 1, p_77648_6_, p_77648_7_, p_77648_1_)) {
 				if (p_77648_3_.getBlock(i, j, k).getMaterial() == Material.water && p_77648_3_.getBlockMetadata(i, j, k) == 0 && p_77648_3_.isAirBlock(i, j + 1, k)) {
-					p_77648_3_.setBlock(i, j + 1, k, GOTRegistry.ricePlant);
+					p_77648_3_.setBlock(i, j + 1, k, GOTBlocks.ricePlant);
 					--p_77648_1_.stackSize;
 					return true;
 				}

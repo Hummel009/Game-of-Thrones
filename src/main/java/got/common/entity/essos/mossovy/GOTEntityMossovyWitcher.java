@@ -2,7 +2,7 @@ package got.common.entity.essos.mossovy;
 
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
@@ -130,11 +130,11 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.mossovySword));
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.ironCrossbow));
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.mossovyBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.mossovyLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.mossovyChestplate));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.mossovySword));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironCrossbow));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.mossovyBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.mossovyLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.mossovyChestplate));
 		setCurrentItemOrArmor(4, null);
 		return data;
 	}

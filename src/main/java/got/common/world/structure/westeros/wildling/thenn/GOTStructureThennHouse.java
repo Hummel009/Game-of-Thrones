@@ -1,7 +1,8 @@
 package got.common.world.structure.westeros.wildling.thenn;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.westeros.wildling.thenn.*;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.structure.other.GOTStructureBase;
@@ -68,7 +69,7 @@ public class GOTStructureThennHouse extends GOTStructureBase {
 		stairBlock = Blocks.spruce_stairs;
 		fenceBlock = Blocks.fence;
 		fenceMeta = 0;
-		doorBlock = GOTRegistry.doorSpruce;
+		doorBlock = GOTBlocks.doorSpruce;
 		floorBlock = Blocks.stained_hardened_clay;
 		floorMeta = 15;
 		for (i1 = -4; i1 <= 4; ++i1) {
@@ -92,7 +93,7 @@ public class GOTStructureThennHouse extends GOTStructureBase {
 				if (random.nextInt(2) != 0) {
 					continue;
 				}
-				setBlockAndMetadata(world, i1, 1, k1, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i1, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (int j14 = 1; j14 <= 4; ++j14) {
@@ -178,8 +179,8 @@ public class GOTStructureThennHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 2, 3, -4, Blocks.torch, 3);
 		setBlockAndMetadata(world, -2, 3, 4, Blocks.torch, 4);
 		setBlockAndMetadata(world, 2, 3, 4, Blocks.torch, 4);
-		setBlockAndMetadata(world, 0, 1, 3, GOTRegistry.strawBed, 0);
-		setBlockAndMetadata(world, 0, 1, 4, GOTRegistry.strawBed, 8);
+		setBlockAndMetadata(world, 0, 1, 3, GOTBlocks.strawBed, 0);
+		setBlockAndMetadata(world, 0, 1, 4, GOTBlocks.strawBed, 8);
 		setBlockAndMetadata(world, -1, 1, 4, Blocks.crafting_table, 0);
 		placeChest(world, random, 1, 1, 4, 2, GOTChestContents.BEYOND_WALL);
 		placeWallBanner(world, 0, 4, 5, GOTItemBanner.BannerType.THENN, 2);
@@ -194,11 +195,11 @@ public class GOTStructureThennHouse extends GOTStructureBase {
 		} else {
 			GOTEntityThenn male = new GOTEntityThenn(world);
 			male.familyInfo.setMale(true);
-			male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+			male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 			GOTEntityThenn female = new GOTEntityThenn(world);
 			female.familyInfo.setMale(false);
-			female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+			female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 			spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 			GOTEntityThenn child = new GOTEntityThenn(world);
 			child.familyInfo.setMale(random.nextBoolean());

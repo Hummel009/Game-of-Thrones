@@ -1,8 +1,9 @@
 package got.common.world.structure.westeros.hillmen;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.westeros.hillmen.GOTEntityHillman;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.item.ItemStack;
@@ -73,14 +74,14 @@ public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 		generateStrScan(world, random, 0, 1, 0);
 		setBlockAndMetadata(world, 0, 1, 3, bedBlock, 0);
 		setBlockAndMetadata(world, 0, 1, 4, bedBlock, 8);
-		placeChest(world, random, -2, 1, 4, GOTRegistry.chestBasket, 2, GOTChestContents.HILLMEN);
-		placeChest(world, random, 2, 1, 4, GOTRegistry.chestBasket, 2, GOTChestContents.HILLMEN);
+		placeChest(world, random, -2, 1, 4, GOTBlocks.chestBasket, 2, GOTChestContents.HILLMEN);
+		placeChest(world, random, 2, 1, 4, GOTBlocks.chestBasket, 2, GOTChestContents.HILLMEN);
 		placeBarrel(world, random, -3, 2, -3, 4, GOTFoods.WILD_DRINK);
-		placePlate(world, random, -3, 2, -2, GOTRegistry.woodPlateBlock, GOTFoods.WILD);
-		placePlate(world, random, -3, 2, -1, GOTRegistry.woodPlateBlock, GOTFoods.WILD);
+		placePlate(world, random, -3, 2, -2, GOTBlocks.woodPlateBlock, GOTFoods.WILD);
+		placePlate(world, random, -3, 2, -1, GOTBlocks.woodPlateBlock, GOTFoods.WILD);
 		placeMug(world, random, 3, 2, -3, 1, GOTFoods.WILD_DRINK);
-		placePlate(world, random, 3, 2, -2, GOTRegistry.woodPlateBlock, GOTFoods.WILD);
-		placePlate(world, random, 3, 2, -1, GOTRegistry.woodPlateBlock, GOTFoods.WILD);
+		placePlate(world, random, 3, 2, -2, GOTBlocks.woodPlateBlock, GOTFoods.WILD);
+		placePlate(world, random, 3, 2, -1, GOTBlocks.woodPlateBlock, GOTFoods.WILD);
 		placeFlowerPot(world, -3, 2, 1, getRandomFlower(world, random));
 		placeWeaponRack(world, 0, 3, -4, 4, getRandomHillmanWeapon(random));
 		placeHillmanItemFrame(world, random, -2, 2, -5, 0);
@@ -91,11 +92,11 @@ public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 		placeWallBanner(world, 2, 4, -6, GOTItemBanner.BannerType.HILLMEN, 2);
 		GOTEntityHillman male = new GOTEntityHillman(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityHillman female = new GOTEntityHillman(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityHillman child = new GOTEntityHillman(world);
 		child.familyInfo.setMale(random.nextBoolean());

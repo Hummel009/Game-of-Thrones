@@ -3,7 +3,7 @@ package got.common.block.table;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.faction.GOTFaction;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -25,7 +25,7 @@ public class GOTBlockTableAsshai extends GOTBlockCraftingTable {
 			return tableIcons[1];
 		}
 		if (i == 0) {
-			return GOTRegistry.planks1.getIcon(0, 3);
+			return GOTBlocks.planks1.getIcon(0, 3);
 		}
 		return tableIcons[0];
 	}

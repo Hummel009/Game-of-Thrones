@@ -1,6 +1,6 @@
 package got.common.world.feature;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -57,6 +57,6 @@ public class GOTWorldGenStreams extends WorldGenerator {
 
 	public boolean isRock(World world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
-		return block == Blocks.stone || block == Blocks.sandstone || block == GOTRegistry.rock;
+		return block == Blocks.stone || block == Blocks.sandstone || block == GOTBlocks.rock;
 	}
 }

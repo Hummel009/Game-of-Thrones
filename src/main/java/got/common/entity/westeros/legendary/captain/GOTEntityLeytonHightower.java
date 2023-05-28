@@ -50,7 +50,7 @@ public class GOTEntityLeytonHightower extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.vigilance, 1);
+		dropItem(GOTItems.vigilance, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityLeytonHightower extends GOTEntityHumanBase implements GOTU
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.vigilance));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.vigilance));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

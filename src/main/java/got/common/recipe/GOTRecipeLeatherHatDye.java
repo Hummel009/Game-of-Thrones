@@ -1,6 +1,6 @@
 package got.common.recipe;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.item.other.GOTItemDye;
 import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.block.BlockColored;
@@ -24,7 +24,7 @@ public class GOTRecipeLeatherHatDye implements IRecipe {
 			if (itemstack == null) {
 				continue;
 			}
-			if (itemstack.getItem() == GOTRegistry.leatherHat) {
+			if (itemstack.getItem() == GOTItems.leatherHat) {
 				if (hat != null || GOTItemLeatherHat.getFeatherColor(itemstack) > -1) {
 					return null;
 				}
@@ -93,7 +93,7 @@ public class GOTRecipeLeatherHatDye implements IRecipe {
 			if (itemstack == null) {
 				continue;
 			}
-			if (itemstack.getItem() == GOTRegistry.leatherHat) {
+			if (itemstack.getItem() == GOTItems.leatherHat) {
 				if (hat != null || GOTItemLeatherHat.getFeatherColor(itemstack) > -1) {
 					return false;
 				}

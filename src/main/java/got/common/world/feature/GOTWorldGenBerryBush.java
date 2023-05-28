@@ -1,7 +1,7 @@
 package got.common.world.feature;
 
 import got.common.block.other.GOTBlockBerryBush;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -14,7 +14,7 @@ import java.util.Random;
 public class GOTWorldGenBerryBush extends WorldGenerator {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		Block bush = GOTRegistry.berryBush;
+		Block bush = GOTBlocks.berryBush;
 		GOTBlockBerryBush.BushType bushType = GOTBlockBerryBush.BushType.randomType(random);
 		int bushMeta = bushType.bushMeta;
 		bushMeta = GOTBlockBerryBush.setHasBerries(bushMeta, true);

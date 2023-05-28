@@ -3,7 +3,8 @@ package got.common.tileentity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.other.GOTBlockOven;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.inventory.GOTSlotStackSize;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -38,7 +39,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 			return false;
 		}
 		Item item = result.getItem();
-		return item instanceof ItemFood || item == GOTRegistry.pipeweed || item == Item.getItemFromBlock(GOTRegistry.driedReeds);
+		return item instanceof ItemFood || item == GOTItems.pipeweed || item == Item.getItemFromBlock(GOTBlocks.driedReeds);
 	}
 
 	public boolean canCook(int i) {

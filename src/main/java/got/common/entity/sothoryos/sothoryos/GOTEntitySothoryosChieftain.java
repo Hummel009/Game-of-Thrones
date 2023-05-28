@@ -3,7 +3,7 @@ package got.common.entity.sothoryos.sothoryos;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTUnitTradeEntries;
 import got.common.entity.other.GOTUnitTradeable;
 import net.minecraft.entity.IEntityLivingData;
@@ -59,12 +59,12 @@ public class GOTEntitySothoryosChieftain extends GOTEntitySothoryosWarrior imple
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.sothoryosSword));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.sothoryosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.sothoryosBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.sothoryosLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.sothoryosChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.sothoryosHelmetChieftain));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.sothoryosBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.sothoryosLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.sothoryosChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.sothoryosHelmetChieftain));
 		return data;
 	}
 

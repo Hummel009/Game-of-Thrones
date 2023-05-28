@@ -1,8 +1,9 @@
 package got.common.world.structure.essos.ibben;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -78,7 +79,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 				if (!random.nextBoolean()) {
 					continue;
 				}
-				setBlockAndMetadata(world, i12, 1, k12, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i12, 1, k12, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (i12 = -4; i12 <= 3; ++i12) {
@@ -252,7 +253,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, 2, j18, k161, rockWallBlock, rockWallMeta);
 			}
 		}
-		setBlockAndMetadata(world, 2, 0, 2, GOTRegistry.hearth, 0);
+		setBlockAndMetadata(world, 2, 0, 2, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 2, 1, 2, Blocks.fire, 0);
 		setBlockAndMetadata(world, 2, 2, 2, Blocks.furnace, 5);
 		setBlockAndMetadata(world, 2, 3, 2, brickCarvedBlock, brickCarvedMeta);
@@ -270,7 +271,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -3, 1, -4, plankStairBlock, 3);
 		setBlockAndMetadata(world, -3, 1, -3, plankStairBlock, 2);
 		setBlockAndMetadata(world, -3, 1, -2, Blocks.crafting_table, 0);
-		setBlockAndMetadata(world, -3, 1, -1, GOTRegistry.tableIbben, 0);
+		setBlockAndMetadata(world, -3, 1, -1, GOTBlocks.tableIbben, 0);
 		placeChest(world, random, -3, 1, 0, 4, GOTChestContents.IBBEN);
 		setBlockAndMetadata(world, 2, 1, -4, plankStairBlock, 7);
 		setBlockAndMetadata(world, 2, 1, -3, plankSlabBlock, plankSlabMeta | 8);
@@ -355,11 +356,11 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		}
 		GOTEntityIbbenMan male = new GOTEntityIbbenMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityIbbenMan female = new GOTEntityIbbenMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityIbbenMan child = new GOTEntityIbbenMan(world);
 		child.familyInfo.setMale(random.nextBoolean());

@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -48,7 +48,7 @@ public class GOTBlockCoralReef extends Block {
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return GOTRegistry.coral;
+		return GOTItems.coral;
 	}
 
 	public IIcon getRandomPlantIcon(int i, int j, int k) {

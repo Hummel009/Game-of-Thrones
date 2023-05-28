@@ -2,7 +2,7 @@ package got.common.block.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import net.minecraft.block.BlockStainedGlassPane;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -30,7 +30,7 @@ public class GOTBlockStainedGlassPane extends GOTBlockGlassPane {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon func_150097_e() {
-		return ((GOTBlockPane) GOTRegistry.glassPane).func_150097_e();
+		return ((GOTBlockPane) GOTBlocks.glassPane).func_150097_e();
 	}
 
 	@SideOnly(Side.CLIENT)

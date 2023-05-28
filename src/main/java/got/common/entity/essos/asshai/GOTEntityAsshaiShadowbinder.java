@@ -1,6 +1,6 @@
 package got.common.entity.essos.asshai;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAsshaiShadowbinderUseStaff;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -71,13 +71,13 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		setCurrentItemOrArmor(0, new ItemStack(GOTRegistry.asshaiStaff));
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.asshaiStaff));
+		setCurrentItemOrArmor(0, new ItemStack(GOTItems.asshaiStaff));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(1, new ItemStack(GOTRegistry.asshaiBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTRegistry.asshaiLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTRegistry.asshaiChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.asshaiMask));
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.asshaiBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.asshaiLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.asshaiChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiMask));
 		return data;
 	}
 }

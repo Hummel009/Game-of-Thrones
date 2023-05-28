@@ -1,7 +1,7 @@
 package got.common.world.structure.essos.lhazar;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
-import got.common.database.GOTRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
@@ -44,18 +44,18 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 		loadStrScan("lhazar_pyramid");
 		associateBlockMetaAlias("STONE", Blocks.sandstone, 0);
 		associateBlockAlias("STONE_STAIR", Blocks.sandstone_stairs);
-		associateBlockMetaAlias("STONE2", GOTRegistry.redSandstone, 0);
-		associateBlockAlias("STONE2_STAIR", GOTRegistry.stairsRedSandstone);
-		addBlockMetaAliasOption("BRICK", 8, GOTRegistry.brick1, 15);
-		addBlockMetaAliasOption("BRICK", 2, GOTRegistry.brick3, 11);
-		addBlockAliasOption("BRICK_STAIR", 8, GOTRegistry.stairsSandstoneBrick);
-		addBlockAliasOption("BRICK_STAIR", 2, GOTRegistry.stairsSandstoneBrickCracked);
-		addBlockMetaAliasOption("BRICK_WALL", 8, GOTRegistry.wallStone1, 15);
-		addBlockMetaAliasOption("BRICK_WALL", 2, GOTRegistry.wallStone3, 3);
-		addBlockMetaAliasOption("PILLAR", 10, GOTRegistry.pillar1, 5);
-		addBlockMetaAliasOption("BRICK2", 8, GOTRegistry.brick3, 13);
-		addBlockMetaAliasOption("BRICK2", 2, GOTRegistry.brick3, 14);
-		associateBlockMetaAlias("BRICK2_CARVED", GOTRegistry.brick3, 15);
+		associateBlockMetaAlias("STONE2", GOTBlocks.redSandstone, 0);
+		associateBlockAlias("STONE2_STAIR", GOTBlocks.stairsRedSandstone);
+		addBlockMetaAliasOption("BRICK", 8, GOTBlocks.brick1, 15);
+		addBlockMetaAliasOption("BRICK", 2, GOTBlocks.brick3, 11);
+		addBlockAliasOption("BRICK_STAIR", 8, GOTBlocks.stairsSandstoneBrick);
+		addBlockAliasOption("BRICK_STAIR", 2, GOTBlocks.stairsSandstoneBrickCracked);
+		addBlockMetaAliasOption("BRICK_WALL", 8, GOTBlocks.wallStone1, 15);
+		addBlockMetaAliasOption("BRICK_WALL", 2, GOTBlocks.wallStone3, 3);
+		addBlockMetaAliasOption("PILLAR", 10, GOTBlocks.pillar1, 5);
+		addBlockMetaAliasOption("BRICK2", 8, GOTBlocks.brick3, 13);
+		addBlockMetaAliasOption("BRICK2", 2, GOTBlocks.brick3, 14);
+		associateBlockMetaAlias("BRICK2_CARVED", GOTBlocks.brick3, 15);
 		associateBlockMetaAlias("PLANK_SLAB_INV", plankSlabBlock, plankSlabMeta | 8);
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockMetaAlias("ROOF_SLAB", roofSlabBlock, roofSlabMeta);
@@ -70,7 +70,7 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 				if (i2 <= 2 && k2 <= 2 || !isOpaque(world, i1, j13 - 1, k1) || !isAir(world, i1, j13, k1) || random.nextInt(12) != 0) {
 					continue;
 				}
-				placeChest(world, random, i1, j13, k1, GOTRegistry.chestBasket, MathHelper.getRandomIntegerInRange(random, 2, 5), GOTChestContents.TREASURE);
+				placeChest(world, random, i1, j13, k1, GOTBlocks.chestBasket, MathHelper.getRandomIntegerInRange(random, 2, 5), GOTChestContents.TREASURE);
 			}
 		}
 		int maxStep = 4;

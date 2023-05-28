@@ -1,6 +1,7 @@
 package got.common.recipe;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
@@ -71,37 +72,37 @@ public class GOTRecipeBrewing {
 	}
 
 	public static void onInit() {
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugAle, BARREL_CAPACITY), Items.wheat, Items.wheat, Items.wheat, Items.wheat, Items.wheat, Items.wheat);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugUnsulliedTonic, BARREL_CAPACITY), "bone", "bone", "bone", "bone", "bone", "bone");
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugMead, BARREL_CAPACITY), Items.sugar, Items.sugar, Items.sugar, Items.sugar, Items.sugar, Items.sugar);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugCider, BARREL_CAPACITY), "apple", "apple", "apple", "apple", "apple", "apple");
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugPerry, BARREL_CAPACITY), GOTRegistry.pear, GOTRegistry.pear, GOTRegistry.pear, GOTRegistry.pear, GOTRegistry.pear, GOTRegistry.pear);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugCherryLiqueur, BARREL_CAPACITY), GOTRegistry.cherry, GOTRegistry.cherry, GOTRegistry.cherry, GOTRegistry.cherry, GOTRegistry.cherry, GOTRegistry.cherry);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugRum, BARREL_CAPACITY), Items.reeds, Items.reeds, Items.reeds, Items.reeds, Items.reeds, Items.reeds);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugPlantainBrew, BARREL_CAPACITY), GOTRegistry.plantain, GOTRegistry.plantain, GOTRegistry.plantain, GOTRegistry.plantain, GOTRegistry.plantain, GOTRegistry.plantain);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugVodka, BARREL_CAPACITY), Items.potato, Items.potato, Items.potato, Items.potato, Items.potato, Items.potato);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugMapleBeer, BARREL_CAPACITY), Items.wheat, Items.wheat, Items.wheat, Items.wheat, GOTRegistry.mapleSyrup, GOTRegistry.mapleSyrup);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugAraq, BARREL_CAPACITY), GOTRegistry.date, GOTRegistry.date, GOTRegistry.date, GOTRegistry.date, GOTRegistry.date, GOTRegistry.date);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugCarrotWine, BARREL_CAPACITY), Items.carrot, Items.carrot, Items.carrot, Items.carrot, Items.carrot, Items.carrot);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugBananaBeer, BARREL_CAPACITY), GOTRegistry.banana, GOTRegistry.banana, GOTRegistry.banana, GOTRegistry.banana, GOTRegistry.banana, GOTRegistry.banana);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugMelonLiqueur, BARREL_CAPACITY), Items.melon, Items.melon, Items.melon, Items.melon, Items.melon, Items.melon);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugCactusLiqueur, BARREL_CAPACITY), Blocks.cactus, Blocks.cactus, Blocks.cactus, Blocks.cactus, Blocks.cactus, Blocks.cactus);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugLemonLiqueur, BARREL_CAPACITY), GOTRegistry.lemon, GOTRegistry.lemon, GOTRegistry.lemon, GOTRegistry.lemon, GOTRegistry.lemon, GOTRegistry.lemon);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugLimeLiqueur, BARREL_CAPACITY), GOTRegistry.lime, GOTRegistry.lime, GOTRegistry.lime, GOTRegistry.lime, GOTRegistry.lime, GOTRegistry.lime);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugCornLiquor, BARREL_CAPACITY), GOTRegistry.corn, GOTRegistry.corn, GOTRegistry.corn, GOTRegistry.corn, GOTRegistry.corn, GOTRegistry.corn);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugRedWine, BARREL_CAPACITY), GOTRegistry.grapeRed, GOTRegistry.grapeRed, GOTRegistry.grapeRed, GOTRegistry.grapeRed, GOTRegistry.grapeRed, GOTRegistry.grapeRed);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugWhiteWine, BARREL_CAPACITY), GOTRegistry.grapeWhite, GOTRegistry.grapeWhite, GOTRegistry.grapeWhite, GOTRegistry.grapeWhite, GOTRegistry.grapeWhite, GOTRegistry.grapeWhite);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugShadeEvening, BARREL_CAPACITY), Items.dye, Items.dye, Items.dye, Items.dye, Items.dye, Items.dye);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugPlumKvass, BARREL_CAPACITY), Items.wheat, Items.wheat, Items.wheat, GOTRegistry.plum, GOTRegistry.plum, GOTRegistry.plum);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugTermiteTequila, BARREL_CAPACITY), Blocks.cactus, Blocks.cactus, Blocks.cactus, Blocks.cactus, Blocks.cactus, GOTRegistry.termite);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugSourMilk, BARREL_CAPACITY), Items.milk_bucket, Items.milk_bucket, Items.milk_bucket, Items.milk_bucket, Items.milk_bucket, Items.milk_bucket);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugPomegranateWine, BARREL_CAPACITY), GOTRegistry.pomegranate, GOTRegistry.pomegranate, GOTRegistry.pomegranate, GOTRegistry.pomegranate, GOTRegistry.pomegranate, GOTRegistry.pomegranate);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugEthanol, BARREL_CAPACITY), Items.potato, Items.potato, Items.potato, Items.wheat, Items.wheat, Items.wheat);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugWhisky, BARREL_CAPACITY), GOTRegistry.corn, GOTRegistry.corn, GOTRegistry.corn, Items.wheat, Items.wheat, Items.wheat);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugSambuca, BARREL_CAPACITY), GOTRegistry.elderberry, GOTRegistry.elderberry, GOTRegistry.elderberry, GOTRegistry.elderberry, GOTRegistry.elderberry, GOTRegistry.elderberry);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugGin, BARREL_CAPACITY), Items.wheat, Items.wheat, Items.wheat, Items.wheat, GOTRegistry.almond, GOTRegistry.almond);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugBrandy, BARREL_CAPACITY), GOTRegistry.grapeRed, GOTRegistry.grapeRed, GOTRegistry.grapeRed, GOTRegistry.grapeRed, GOTRegistry.plum, GOTRegistry.plum);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugPoppyMilk, BARREL_CAPACITY), Blocks.red_flower, Blocks.red_flower, Blocks.red_flower, Blocks.red_flower, Blocks.red_flower, Blocks.red_flower);
-		addBrewingRecipe(new ItemStack(GOTRegistry.mugWildFire, BARREL_CAPACITY), GOTRegistry.wildFireJar, GOTRegistry.wildFireJar, GOTRegistry.wildFireJar, GOTRegistry.wildFireJar, GOTRegistry.wildFireJar, GOTRegistry.wildFireJar);
+		addBrewingRecipe(new ItemStack(GOTItems.mugAle, BARREL_CAPACITY), Items.wheat, Items.wheat, Items.wheat, Items.wheat, Items.wheat, Items.wheat);
+		addBrewingRecipe(new ItemStack(GOTItems.mugUnsulliedTonic, BARREL_CAPACITY), "bone", "bone", "bone", "bone", "bone", "bone");
+		addBrewingRecipe(new ItemStack(GOTItems.mugMead, BARREL_CAPACITY), Items.sugar, Items.sugar, Items.sugar, Items.sugar, Items.sugar, Items.sugar);
+		addBrewingRecipe(new ItemStack(GOTItems.mugCider, BARREL_CAPACITY), "apple", "apple", "apple", "apple", "apple", "apple");
+		addBrewingRecipe(new ItemStack(GOTItems.mugPerry, BARREL_CAPACITY), GOTItems.pear, GOTItems.pear, GOTItems.pear, GOTItems.pear, GOTItems.pear, GOTItems.pear);
+		addBrewingRecipe(new ItemStack(GOTItems.mugCherryLiqueur, BARREL_CAPACITY), GOTItems.cherry, GOTItems.cherry, GOTItems.cherry, GOTItems.cherry, GOTItems.cherry, GOTItems.cherry);
+		addBrewingRecipe(new ItemStack(GOTItems.mugRum, BARREL_CAPACITY), Items.reeds, Items.reeds, Items.reeds, Items.reeds, Items.reeds, Items.reeds);
+		addBrewingRecipe(new ItemStack(GOTItems.mugPlantainBrew, BARREL_CAPACITY), GOTBlocks.plantain, GOTBlocks.plantain, GOTBlocks.plantain, GOTBlocks.plantain, GOTBlocks.plantain, GOTBlocks.plantain);
+		addBrewingRecipe(new ItemStack(GOTItems.mugVodka, BARREL_CAPACITY), Items.potato, Items.potato, Items.potato, Items.potato, Items.potato, Items.potato);
+		addBrewingRecipe(new ItemStack(GOTItems.mugMapleBeer, BARREL_CAPACITY), Items.wheat, Items.wheat, Items.wheat, Items.wheat, GOTItems.mapleSyrup, GOTItems.mapleSyrup);
+		addBrewingRecipe(new ItemStack(GOTItems.mugAraq, BARREL_CAPACITY), GOTItems.date, GOTItems.date, GOTItems.date, GOTItems.date, GOTItems.date, GOTItems.date);
+		addBrewingRecipe(new ItemStack(GOTItems.mugCarrotWine, BARREL_CAPACITY), Items.carrot, Items.carrot, Items.carrot, Items.carrot, Items.carrot, Items.carrot);
+		addBrewingRecipe(new ItemStack(GOTItems.mugBananaBeer, BARREL_CAPACITY), GOTItems.banana, GOTItems.banana, GOTItems.banana, GOTItems.banana, GOTItems.banana, GOTItems.banana);
+		addBrewingRecipe(new ItemStack(GOTItems.mugMelonLiqueur, BARREL_CAPACITY), Items.melon, Items.melon, Items.melon, Items.melon, Items.melon, Items.melon);
+		addBrewingRecipe(new ItemStack(GOTItems.mugCactusLiqueur, BARREL_CAPACITY), Blocks.cactus, Blocks.cactus, Blocks.cactus, Blocks.cactus, Blocks.cactus, Blocks.cactus);
+		addBrewingRecipe(new ItemStack(GOTItems.mugLemonLiqueur, BARREL_CAPACITY), GOTItems.lemon, GOTItems.lemon, GOTItems.lemon, GOTItems.lemon, GOTItems.lemon, GOTItems.lemon);
+		addBrewingRecipe(new ItemStack(GOTItems.mugLimeLiqueur, BARREL_CAPACITY), GOTItems.lime, GOTItems.lime, GOTItems.lime, GOTItems.lime, GOTItems.lime, GOTItems.lime);
+		addBrewingRecipe(new ItemStack(GOTItems.mugCornLiquor, BARREL_CAPACITY), GOTItems.corn, GOTItems.corn, GOTItems.corn, GOTItems.corn, GOTItems.corn, GOTItems.corn);
+		addBrewingRecipe(new ItemStack(GOTItems.mugRedWine, BARREL_CAPACITY), GOTItems.grapeRed, GOTItems.grapeRed, GOTItems.grapeRed, GOTItems.grapeRed, GOTItems.grapeRed, GOTItems.grapeRed);
+		addBrewingRecipe(new ItemStack(GOTItems.mugWhiteWine, BARREL_CAPACITY), GOTItems.grapeWhite, GOTItems.grapeWhite, GOTItems.grapeWhite, GOTItems.grapeWhite, GOTItems.grapeWhite, GOTItems.grapeWhite);
+		addBrewingRecipe(new ItemStack(GOTItems.mugShadeEvening, BARREL_CAPACITY), Items.dye, Items.dye, Items.dye, Items.dye, Items.dye, Items.dye);
+		addBrewingRecipe(new ItemStack(GOTItems.mugPlumKvass, BARREL_CAPACITY), Items.wheat, Items.wheat, Items.wheat, GOTItems.plum, GOTItems.plum, GOTItems.plum);
+		addBrewingRecipe(new ItemStack(GOTItems.mugTermiteTequila, BARREL_CAPACITY), Blocks.cactus, Blocks.cactus, Blocks.cactus, Blocks.cactus, Blocks.cactus, GOTItems.termite);
+		addBrewingRecipe(new ItemStack(GOTItems.mugSourMilk, BARREL_CAPACITY), Items.milk_bucket, Items.milk_bucket, Items.milk_bucket, Items.milk_bucket, Items.milk_bucket, Items.milk_bucket);
+		addBrewingRecipe(new ItemStack(GOTItems.mugPomegranateWine, BARREL_CAPACITY), GOTItems.pomegranate, GOTItems.pomegranate, GOTItems.pomegranate, GOTItems.pomegranate, GOTItems.pomegranate, GOTItems.pomegranate);
+		addBrewingRecipe(new ItemStack(GOTItems.mugEthanol, BARREL_CAPACITY), Items.potato, Items.potato, Items.potato, Items.wheat, Items.wheat, Items.wheat);
+		addBrewingRecipe(new ItemStack(GOTItems.mugWhisky, BARREL_CAPACITY), GOTItems.corn, GOTItems.corn, GOTItems.corn, Items.wheat, Items.wheat, Items.wheat);
+		addBrewingRecipe(new ItemStack(GOTItems.mugSambuca, BARREL_CAPACITY), GOTItems.elderberry, GOTItems.elderberry, GOTItems.elderberry, GOTItems.elderberry, GOTItems.elderberry, GOTItems.elderberry);
+		addBrewingRecipe(new ItemStack(GOTItems.mugGin, BARREL_CAPACITY), Items.wheat, Items.wheat, Items.wheat, Items.wheat, GOTItems.almond, GOTItems.almond);
+		addBrewingRecipe(new ItemStack(GOTItems.mugBrandy, BARREL_CAPACITY), GOTItems.grapeRed, GOTItems.grapeRed, GOTItems.grapeRed, GOTItems.grapeRed, GOTItems.plum, GOTItems.plum);
+		addBrewingRecipe(new ItemStack(GOTItems.mugPoppyMilk, BARREL_CAPACITY), Blocks.red_flower, Blocks.red_flower, Blocks.red_flower, Blocks.red_flower, Blocks.red_flower, Blocks.red_flower);
+		addBrewingRecipe(new ItemStack(GOTItems.mugWildFire, BARREL_CAPACITY), GOTBlocks.wildFireJar, GOTBlocks.wildFireJar, GOTBlocks.wildFireJar, GOTBlocks.wildFireJar, GOTBlocks.wildFireJar, GOTBlocks.wildFireJar);
 	}
 }

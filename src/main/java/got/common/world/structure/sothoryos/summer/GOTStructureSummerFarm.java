@@ -1,6 +1,7 @@
 package got.common.world.structure.sothoryos.summer;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.entity.sothoryos.summer.GOTEntitySummerFarmer;
 import got.common.entity.sothoryos.summer.GOTEntitySummerFarmhand;
 import net.minecraft.block.Block;
@@ -143,12 +144,12 @@ public class GOTStructureSummerFarm extends GOTStructureSummerBase {
 					seed1 = Items.potato;
 					break;
 				case 2:
-					crop1Block = GOTRegistry.lettuceCrop;
-					seed1 = GOTRegistry.lettuce;
+					crop1Block = GOTBlocks.lettuceCrop;
+					seed1 = GOTItems.lettuce;
 					break;
 				case 3:
-					crop1Block = GOTRegistry.turnipCrop;
-					seed1 = GOTRegistry.turnip;
+					crop1Block = GOTBlocks.turnipCrop;
+					seed1 = GOTItems.turnip;
 					break;
 				default:
 					break;
@@ -169,12 +170,12 @@ public class GOTStructureSummerFarm extends GOTStructureSummerBase {
 					seed2 = Items.potato;
 					break;
 				case 2:
-					crop2Block = GOTRegistry.lettuceCrop;
-					seed2 = GOTRegistry.lettuce;
+					crop2Block = GOTBlocks.lettuceCrop;
+					seed2 = GOTItems.lettuce;
 					break;
 				case 3:
-					crop2Block = GOTRegistry.turnipCrop;
-					seed2 = GOTRegistry.turnip;
+					crop2Block = GOTBlocks.turnipCrop;
+					seed2 = GOTItems.turnip;
 					break;
 				default:
 					break;

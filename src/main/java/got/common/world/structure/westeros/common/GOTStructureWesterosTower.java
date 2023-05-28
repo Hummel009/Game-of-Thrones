@@ -1,6 +1,6 @@
 package got.common.world.structure.westeros.common;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
@@ -104,7 +104,7 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 			}
 		}
 		setBlockAndMetadata(world, 0, 9, 0, rockBlock, rockMeta);
-		setBlockAndMetadata(world, 0, 10, 0, GOTRegistry.beacon, 0);
+		setBlockAndMetadata(world, 0, 10, 0, GOTBlocks.beacon, 0);
 		setBlockAndMetadata(world, -2, 9, 0, fenceGateBlock, 3);
 		int j13 = 8;
 		while (!isOpaque(world, -3, j13, 0) && getY(j13) >= 0) {
@@ -165,7 +165,7 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 0, doorBase + 3, -1, Blocks.torch, 3);
 			setBlockAndMetadata(world, 1, doorBase + 1, -1, tableBlock, 0);
 			placeWallBanner(world, 2, doorBase + 4, -1, bannerType, 3);
-			placeChest(world, random, -1, doorBase + 1, -1, GOTRegistry.chestStone, 3, getChestContents());
+			placeChest(world, random, -1, doorBase + 1, -1, GOTBlocks.chestStone, 3, getChestContents());
 			for (j1 = doorBase + 1; j1 <= doorBase + 4; ++j1) {
 				setBlockAndMetadata(world, 1, j1, 1, brickBlock, brickMeta);
 				setBlockAndMetadata(world, 1, j1, 0, Blocks.ladder, 2);

@@ -1,6 +1,6 @@
 package got.common.entity.essos.lhazar;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.Blocks;
@@ -26,7 +26,7 @@ public class GOTEntityLhazarMason extends GOTEntityLhazarTrader {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.bronzePickaxe));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzePickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.stone));
 		return data;
 	}

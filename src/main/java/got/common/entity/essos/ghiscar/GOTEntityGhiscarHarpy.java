@@ -1,6 +1,6 @@
 package got.common.entity.essos.ghiscar;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetPatriot;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
@@ -16,9 +16,9 @@ public class GOTEntityGhiscarHarpy extends GOTEntityGhiscarLevyman {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.essosDaggerPoisoned));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDaggerPoisoned));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.harpy));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.harpy));
 		return data;
 	}
 }

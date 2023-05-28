@@ -1,6 +1,7 @@
 package got.common.world.structure.westeros.hillmen;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -38,12 +39,12 @@ public abstract class GOTStructureHillmanBase extends GOTStructureBase {
 	}
 
 	public ItemStack getRandomHillmanWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(Items.iron_sword), new ItemStack(GOTRegistry.ironSpear), new ItemStack(GOTRegistry.ironDagger), new ItemStack(Items.stone_sword), new ItemStack(GOTRegistry.stoneSpear), new ItemStack(GOTRegistry.club), new ItemStack(GOTRegistry.trident)};
+		ItemStack[] items = {new ItemStack(Items.iron_sword), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.ironDagger), new ItemStack(Items.stone_sword), new ItemStack(GOTItems.stoneSpear), new ItemStack(GOTItems.club), new ItemStack(GOTItems.trident)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
 	public void placeHillmanItemFrame(World world, Random random, int i, int j, int k, int direction) {
-		ItemStack[] items = {new ItemStack(Items.bone), new ItemStack(GOTRegistry.fur), new ItemStack(Items.flint), new ItemStack(Items.iron_sword), new ItemStack(Items.stone_sword), new ItemStack(GOTRegistry.ironSpear), new ItemStack(GOTRegistry.stoneSpear), new ItemStack(Items.bow), new ItemStack(Items.arrow), new ItemStack(GOTRegistry.mug), new ItemStack(GOTRegistry.skullCup)};
+		ItemStack[] items = {new ItemStack(Items.bone), new ItemStack(GOTItems.fur), new ItemStack(Items.flint), new ItemStack(Items.iron_sword), new ItemStack(Items.stone_sword), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.stoneSpear), new ItemStack(Items.bow), new ItemStack(Items.arrow), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.skullCup)};
 		ItemStack item = items[random.nextInt(items.length)].copy();
 		spawnItemFrame(world, i, j, k, direction, item);
 	}
@@ -85,8 +86,8 @@ public abstract class GOTStructureHillmanBase extends GOTStructureBase {
 			plankStairBlock = Blocks.spruce_stairs;
 			fenceBlock = Blocks.fence;
 			fenceMeta = 1;
-			fenceGateBlock = GOTRegistry.fenceGateSpruce;
-			doorBlock = GOTRegistry.doorSpruce;
+			fenceGateBlock = GOTBlocks.fenceGateSpruce;
+			doorBlock = GOTBlocks.doorSpruce;
 		} else {
 			if (random.nextBoolean()) {
 				woodBlock = Blocks.log;
@@ -101,30 +102,30 @@ public abstract class GOTStructureHillmanBase extends GOTStructureBase {
 				fenceGateBlock = Blocks.fence_gate;
 				doorBlock = Blocks.wooden_door;
 			} else {
-				woodBlock = GOTRegistry.wood5;
+				woodBlock = GOTBlocks.wood5;
 				woodMeta = 0;
-				plankBlock = GOTRegistry.planks2;
+				plankBlock = GOTBlocks.planks2;
 				plankMeta = 4;
-				plankSlabBlock = GOTRegistry.woodSlabSingle3;
+				plankSlabBlock = GOTBlocks.woodSlabSingle3;
 				plankSlabMeta = 4;
-				plankStairBlock = GOTRegistry.stairsPine;
-				fenceBlock = GOTRegistry.fence2;
+				plankStairBlock = GOTBlocks.stairsPine;
+				fenceBlock = GOTBlocks.fence2;
 				fenceMeta = 4;
-				fenceGateBlock = GOTRegistry.fenceGatePine;
-				doorBlock = GOTRegistry.doorPine;
+				fenceGateBlock = GOTBlocks.fenceGatePine;
+				doorBlock = GOTBlocks.doorPine;
 			}
 		}
-		roofBlock = GOTRegistry.thatch;
+		roofBlock = GOTBlocks.thatch;
 		roofMeta = 0;
-		roofSlabBlock = GOTRegistry.slabSingleThatch;
+		roofSlabBlock = GOTBlocks.slabSingleThatch;
 		roofSlabMeta = 0;
-		roofStairBlock = GOTRegistry.stairsThatch;
+		roofStairBlock = GOTBlocks.stairsThatch;
 		if (random.nextBoolean()) {
 			barsBlock = Blocks.iron_bars;
 		} else {
-			barsBlock = GOTRegistry.bronzeBars;
+			barsBlock = GOTBlocks.bronzeBars;
 		}
 		barsMeta = 0;
-		bedBlock = random.nextBoolean() ? GOTRegistry.furBed : GOTRegistry.strawBed;
+		bedBlock = random.nextBoolean() ? GOTBlocks.furBed : GOTBlocks.strawBed;
 	}
 }

@@ -50,7 +50,7 @@ public class GOTEntityLynCorbray extends GOTEntityHumanBase implements GOTUnitTr
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.ladyForlorn, 1);
+		dropItem(GOTItems.ladyForlorn, 1);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class GOTEntityLynCorbray extends GOTEntityHumanBase implements GOTUnitTr
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.ladyForlorn));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ladyForlorn));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
 	}

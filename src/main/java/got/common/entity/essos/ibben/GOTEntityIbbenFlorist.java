@@ -1,6 +1,6 @@
 package got.common.entity.essos.ibben;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.database.GOTTradeEntries;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.Items;
@@ -29,7 +29,7 @@ public class GOTEntityIbbenFlorist extends GOTEntityIbbenMarketTrader {
 		if (rand.nextBoolean()) {
 			npcItemsInv.setIdleItem(new ItemStack(Items.apple));
 		} else {
-			npcItemsInv.setIdleItem(new ItemStack(GOTRegistry.appleGreen));
+			npcItemsInv.setIdleItem(new ItemStack(GOTItems.appleGreen));
 		}
 		return data;
 	}

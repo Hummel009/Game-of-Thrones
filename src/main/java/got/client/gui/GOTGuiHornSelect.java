@@ -1,6 +1,6 @@
 package got.client.gui;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketHornSelect;
 import net.minecraft.client.gui.GuiButton;
@@ -37,7 +37,7 @@ public class GOTGuiHornSelect extends GOTGuiScreenBase {
 		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 4210752);
 		super.drawScreen(i, j, f);
 		for (GuiButton element : buttonList) {
-			itemRenderer.renderItemIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTRegistry.commandHorn, 1, element.id), element.xPosition - 22, element.yPosition + 2);
+			itemRenderer.renderItemIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTItems.commandHorn, 1, element.id), element.xPosition - 22, element.yPosition + 2);
 		}
 	}
 
@@ -53,7 +53,7 @@ public class GOTGuiHornSelect extends GOTGuiScreenBase {
 	public void updateScreen() {
 		super.updateScreen();
 		ItemStack itemstack = mc.thePlayer.inventory.getCurrentItem();
-		if (itemstack == null || itemstack.getItem() != GOTRegistry.commandHorn || itemstack.getItemDamage() != 0) {
+		if (itemstack == null || itemstack.getItem() != GOTItems.commandHorn || itemstack.getItemDamage() != 0) {
 			mc.thePlayer.closeScreen();
 		}
 	}

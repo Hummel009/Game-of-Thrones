@@ -1,7 +1,8 @@
 package got.common.entity.essos.yiti;
 
 import got.common.block.other.GOTBlockBomb;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAIBombardierAttack;
 import got.common.entity.ai.GOTEntityAISmoke;
@@ -76,7 +77,7 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 			if (meta == -1) {
 				npcItemsInv.setBomb(null);
 			} else {
-				npcItemsInv.setBomb(new ItemStack(GOTRegistry.bomb, 1, meta));
+				npcItemsInv.setBomb(new ItemStack(GOTBlocks.bomb, 1, meta));
 			}
 		}
 	}
@@ -84,8 +85,8 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setBombingItem(new ItemStack(GOTRegistry.fuseItem));
-		npcItemsInv.setBomb(new ItemStack(GOTRegistry.bomb, 1, 10));
+		npcItemsInv.setBombingItem(new ItemStack(GOTItems.fuseItem));
+		npcItemsInv.setBomb(new ItemStack(GOTBlocks.bomb, 1, 10));
 		return data;
 	}
 

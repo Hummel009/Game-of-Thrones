@@ -3,7 +3,7 @@ package got.common.entity.animal;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.util.GOTReflection;
 import got.common.world.biome.GOTBiome;
@@ -73,11 +73,11 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 		int meat = 7 + rand.nextInt(2);
 		for (int l = 0; l < meat; ++l) {
 			if (isBurning()) {
-				dropItem(GOTRegistry.elephantCooked, 1);
+				dropItem(GOTItems.elephantCooked, 1);
 			} else {
-				dropItem(GOTRegistry.elephantRaw, 1);
+				dropItem(GOTItems.elephantRaw, 1);
 			}
-			dropItem(GOTRegistry.fur, 1);
+			dropItem(GOTItems.fur, 1);
 		}
 	}
 

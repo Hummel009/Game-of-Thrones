@@ -1,8 +1,9 @@
 package got.common.world.structure.essos.mossovy;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -91,7 +92,7 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		associateBlockMetaAlias("CARPET", carpetBlock, carpetMeta);
 		addBlockMetaAliasOption("PATH", 5, Blocks.grass, 0);
 		addBlockMetaAliasOption("PATH", 5, Blocks.dirt, 1);
-		addBlockMetaAliasOption("PATH", 5, GOTRegistry.dirtPath, 0);
+		addBlockMetaAliasOption("PATH", 5, GOTBlocks.dirtPath, 0);
 		addBlockMetaAliasOption("PATH", 5, Blocks.cobblestone, 0);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
@@ -106,7 +107,7 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 						setBlockAndMetadata(world, i13, j12, k1, Blocks.dirt, 1);
 						break;
 					case 2:
-						setBlockAndMetadata(world, i13, j12, k1, GOTRegistry.dirtPath, 0);
+						setBlockAndMetadata(world, i13, j12, k1, GOTBlocks.dirtPath, 0);
 						break;
 					case 3:
 						setBlockAndMetadata(world, i13, j12, k1, Blocks.cobblestone, 0);
@@ -133,7 +134,7 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 					setBlockAndMetadata(world, i12, j12, k1, Blocks.dirt, 1);
 					break;
 				case 2:
-					setBlockAndMetadata(world, i12, j12, k1, GOTRegistry.dirtPath, 0);
+					setBlockAndMetadata(world, i12, j12, k1, GOTBlocks.dirtPath, 0);
 					break;
 				case 3:
 					setBlockAndMetadata(world, i12, j12, k1, Blocks.cobblestone, 0);
@@ -167,7 +168,7 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		placeChest(world, random, -1, 1, 1, 4, GOTChestContents.MOSSOVY);
 		placeChest(world, random, 1, 5, 1, 2, GOTChestContents.MOSSOVY);
 		placeMug(world, random, 3, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
-		placePlateWithCertainty(world, random, 3, 2, -3, GOTRegistry.plateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 3, 2, -3, GOTBlocks.plateBlock, GOTFoods.WESTEROS);
 		setBlockAndMetadata(world, 0, 5, 0, bedBlock, 3);
 		setBlockAndMetadata(world, -1, 5, 0, bedBlock, 11);
 		if (random.nextBoolean()) {
@@ -175,11 +176,11 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		}
 		GOTEntityMossovyMan male = new GOTEntityMossovyMan(world);
 		male.familyInfo.setMale(true);
-		male.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		male.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(male, world, 0, 1, 0, 16);
 		GOTEntityMossovyMan female = new GOTEntityMossovyMan(world);
 		female.familyInfo.setMale(false);
-		female.setCurrentItemOrArmor(4, new ItemStack(GOTRegistry.goldRing));
+		female.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		spawnNPCAndSetHome(female, world, 0, 1, 0, 16);
 		GOTEntityMossovyMan child = new GOTEntityMossovyMan(world);
 		child.familyInfo.setMale(random.nextBoolean());

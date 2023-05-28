@@ -1,7 +1,7 @@
 package got.common.world.structure.westeros.dragonstone;
 
 import com.google.common.math.IntMath;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.dragonstone.GOTEntityDragonstoneMan;
 import got.common.entity.westeros.dragonstone.GOTEntityDragonstoneSoldier;
@@ -127,7 +127,7 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 		@Override
 		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
-			return block == Blocks.stone || block == GOTRegistry.rock;
+			return block == Blocks.stone || block == GOTBlocks.rock;
 		}
 
 		public void setupCastle(Random random) {

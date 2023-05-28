@@ -2,7 +2,7 @@ package got.common.entity.westeros.legendary.warrior;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -59,7 +59,7 @@ public class GOTEntityEdmureTully extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTRegistry.arrowFire, 64);
+		dropItem(GOTItems.arrowFire, 64);
 	}
 
 	@Override
@@ -119,8 +119,8 @@ public class GOTEntityEdmureTully extends GOTEntityHumanBase {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setMeleeWeapon(new ItemStack(GOTRegistry.westerosDaggerPoisoned));
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.westerosBow));
+		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosDaggerPoisoned));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		return data;
 	}

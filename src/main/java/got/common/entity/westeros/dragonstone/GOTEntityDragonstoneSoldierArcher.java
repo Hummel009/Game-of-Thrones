@@ -1,6 +1,6 @@
 package got.common.entity.westeros.dragonstone;
 
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.IEntityLivingData;
@@ -38,7 +38,7 @@ public class GOTEntityDragonstoneSoldierArcher extends GOTEntityDragonstoneSoldi
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setRangedWeapon(new ItemStack(GOTRegistry.westerosBow));
+		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.westerosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
 		return data;
 	}

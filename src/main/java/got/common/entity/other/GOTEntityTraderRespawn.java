@@ -2,7 +2,7 @@ package got.common.entity.other;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.common.database.GOTRegistry;
+import got.common.database.GOTItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -103,7 +103,7 @@ public class GOTEntityTraderRespawn extends Entity {
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		int entityID = GOTEntityRegistry.getIDFromString(getClientTraderString());
 		if (entityID > 0) {
-			return new ItemStack(GOTRegistry.spawnEgg, 1, entityID);
+			return new ItemStack(GOTItems.spawnEgg, 1, entityID);
 		}
 		return null;
 	}
@@ -129,7 +129,7 @@ public class GOTEntityTraderRespawn extends Entity {
 	public void handleHealthUpdate(byte b) {
 		if (b == 16) {
 			for (int l = 0; l < 16; ++l) {
-				worldObj.spawnParticle("iconcrack_" + Item.getIdFromItem(GOTRegistry.goldRing), posX + (rand.nextDouble() - 0.5) * width, posY + rand.nextDouble() * height, posZ + (rand.nextDouble() - 0.5) * width, 0.0, 0.0, 0.0);
+				worldObj.spawnParticle("iconcrack_" + Item.getIdFromItem(GOTItems.goldRing), posX + (rand.nextDouble() - 0.5) * width, posY + rand.nextDouble() * height, posZ + (rand.nextDouble() - 0.5) * width, 0.0, 0.0, 0.0);
 			}
 		} else {
 			super.handleHealthUpdate(b);

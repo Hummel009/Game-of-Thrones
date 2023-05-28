@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.wildling;
 
+import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTRegistry;
 import got.common.entity.westeros.legendary.trader.GOTEntityCraster;
 import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
 import net.minecraft.block.Block;
@@ -80,7 +80,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 				if (!random.nextBoolean()) {
 					continue;
 				}
-				setBlockAndMetadata(world, i12, 1, k14, GOTRegistry.thatchFloor, 0);
+				setBlockAndMetadata(world, i12, 1, k14, GOTBlocks.thatchFloor, 0);
 			}
 		}
 		for (i12 = -4; i12 <= 3; ++i12) {
@@ -249,7 +249,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, 2, j18, k161, rockWallBlock, rockWallMeta);
 			}
 		}
-		setBlockAndMetadata(world, 2, 0, 2, GOTRegistry.hearth, 0);
+		setBlockAndMetadata(world, 2, 0, 2, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 2, 1, 2, Blocks.fire, 0);
 		setBlockAndMetadata(world, 2, 2, 2, Blocks.furnace, 5);
 		setBlockAndMetadata(world, 2, 3, 2, brickBlock, brickMeta);
@@ -266,7 +266,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -3, 1, -4, plankStairBlock, 3);
 		setBlockAndMetadata(world, -3, 1, -3, plankStairBlock, 2);
 		setBlockAndMetadata(world, -3, 1, -2, Blocks.crafting_table, 0);
-		setBlockAndMetadata(world, -3, 1, -1, GOTRegistry.tableWildling, 0);
+		setBlockAndMetadata(world, -3, 1, -1, GOTBlocks.tableWildling, 0);
 		placeChest(world, random, -3, 1, 0, 4, GOTChestContents.BEYOND_WALL);
 		setBlockAndMetadata(world, 2, 1, -4, plankStairBlock, 7);
 		setBlockAndMetadata(world, 2, 1, -3, plankSlabBlock, plankSlabMeta | 8);
@@ -341,7 +341,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 		}
 		for (int i17 = -1; i17 <= 0; ++i17) {
 			for (int j14 = 1; j14 <= 3; ++j14) {
-				setBlockAndMetadata(world, i17, j14, -5, GOTRegistry.gateWooden, 2);
+				setBlockAndMetadata(world, i17, j14, -5, GOTBlocks.gateWooden, 2);
 			}
 		}
 		spawnNPCAndSetHome(new GOTEntityCraster(world), world, 0, 1, 0, 16);
