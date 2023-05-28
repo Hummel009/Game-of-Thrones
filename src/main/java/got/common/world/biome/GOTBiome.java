@@ -427,7 +427,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		reachHills = new GOTBiomeReach(141, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8F9B4D).setMinMaxHeight(0.1f, 1.0f).setBiomeName("reachHills");
 		reachTown = new GOTBiomeReachTown(104, true).setClimateType(GOTClimateType.SUMMER).setColor(0xC2D87B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reachTown");
 		riverlands = new GOTBiomeRiverlands(109, true).setClimateType(GOTClimateType.NORMAL).setColor(0x87BC58).setMinMaxHeight(0.1f, 0.15f).setBiomeName("riverlands");
-		riverlandsForest = new GOTBiomeRiverlandsForest(111, true).setClimateType(GOTClimateType.NORMAL).setColor(0x53823D).setMinMaxHeight(0.1f, 1.0f).setBiomeName("riverlandsForest");
+		riverlandsForest = new GOTBiomeRiverlandsForest(111, true).setClimateType(GOTClimateType.NORMAL).setColor(0x58873F).setMinMaxHeight(0.1f, 1.0f).setBiomeName("riverlandsForest");
 		shrykesLand = new GOTBiomeShrykesLand(90, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAAAE77).setMinMaxHeight(0.0f, 0.1f).setBiomeName("shrykesLand");
 		skagos = new GOTBiomeSkagos(116, true).setClimateType(GOTClimateType.COLD).setColor(0x97BF85).setMinMaxHeight(0.1f, 0.15f).setBiomeName("skagos");
 		sothoryosBushland = new GOTBiomeSothoryosBushland(118, true).setClimateType(GOTClimateType.SUMMER).setColor(0x998F3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosBushland");
