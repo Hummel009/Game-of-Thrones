@@ -40,7 +40,10 @@ public class GOTAttackTiming {
 				KeyBinding.onTick(attackKey.getKeyCode());
 			}
 			if (pressed && mc.objectMouseOver != null && mc.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && mc.objectMouseOver.entityHit instanceof EntityLivingBase) {
-				if (attackTime <= 0) {
+				if (attackTime > 0) {
+					while (attackKey.isPressed()) {
+					}
+				} else {
 					ItemStack itemstack = mc.thePlayer.getHeldItem();
 					attackTime = fullAttackTime = GOTWeaponStats.getAttackTimePlayer(itemstack);
 					attackItem = itemstack;
