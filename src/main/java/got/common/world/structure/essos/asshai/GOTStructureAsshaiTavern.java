@@ -1,7 +1,10 @@
 package got.common.world.structure.essos.asshai;
 
 import com.google.common.math.IntMath;
-import got.common.database.*;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTNames;
 import got.common.entity.essos.asshai.GOTEntityAsshaiAlchemist;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import net.minecraft.init.Blocks;

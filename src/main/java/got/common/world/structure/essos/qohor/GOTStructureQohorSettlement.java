@@ -8,7 +8,6 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.essos.common.GOTStructureEssosVillageFence;
 import got.common.world.structure.essos.common.GOTStructureEssosVillagePost;
-import got.common.world.structure.essos.common.GOTStructureEssosVillageSign;
 import got.common.world.structure.other.*;
 import net.minecraft.world.World;
 
