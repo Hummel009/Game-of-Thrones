@@ -6,8 +6,8 @@ import got.common.database.GOTNames;
 import got.common.entity.essos.ibben.GOTEntityIbbenBartender;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.other.GOTEntityNPCRespawner;
-import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
-import got.common.entity.westeros.GOTEntityWesterosThief;
+import got.common.entity.westeros.GOTEntityLightSkinThief;
+import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -430,8 +430,8 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		placeWeaponRack(world, 0, 5, 22, 6, getRandomWeapon(random));
 		GOTEntityIbbenBartender meadhost = new GOTEntityIbbenBartender(world);
 		spawnNPCAndSetHome(meadhost, world, 0, 2, 21, 8);
-		spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 0, 1, 0, 16);
-		spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, 0, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 0, 1, 0, 16);
 		int men = 5 + random.nextInt(5);
 		for (int l = 0; l < men; ++l) {
 			GOTEntityIbbenMan ibbenese = new GOTEntityIbbenMan(world);

@@ -18,8 +18,8 @@ import got.common.database.GOTNames;
 import got.common.entity.essos.mossovy.GOTEntityMossovyBartender;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
 import got.common.entity.other.GOTEntityHumanBase;
-import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
-import got.common.entity.westeros.GOTEntityWesterosThief;
+import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
+import got.common.entity.westeros.GOTEntityLightSkinThief;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -141,8 +141,8 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 			GOTEntityHumanBase mossovylander = new GOTEntityMossovyMan(world);
 			spawnNPCAndSetHome(mossovylander, world, -2, 1, 0, 16);
 		}
-		spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, -2, 1, 0, 16);
-		spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, -2, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, -2, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, -2, 1, 0, 16);
 		return true;
 	}
 

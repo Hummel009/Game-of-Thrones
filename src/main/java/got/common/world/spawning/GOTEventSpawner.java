@@ -9,7 +9,7 @@ import got.common.database.GOTInvasions;
 import got.common.entity.other.GOTEntityInvasionSpawner;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityRegistry;
-import got.common.entity.westeros.GOTEntityWesterosBandit;
+import got.common.entity.westeros.GOTEntityLightSkinBandit;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
@@ -67,11 +67,11 @@ public class GOTEventSpawner {
 			int maxBandits = MathHelper.getRandomIntegerInRange(world.rand, 1, 4);
 			for (int attempts = 0; attempts < 32; ++attempts) {
 				Block block;
-				GOTEntityWesterosBandit bandit;
+				GOTEntityLightSkinBandit bandit;
 				int k1;
 				int i1 = i + MathHelper.getRandomIntegerInRange(rand, -32, 32);
 				int j1 = world.getHeightValue(i1, k1 = k + MathHelper.getRandomIntegerInRange(rand, -32, 32));
-				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (bandit = (GOTEntityWesterosBandit) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(banditClass), world)) == null) {
+				if (j1 <= 60 || (block = world.getBlock(i1, j1 - 1, k1)) != biome.topBlock && block != biome.fillerBlock || world.getBlock(i1, j1, k1).isNormalCube() || world.getBlock(i1, j1 + 1, k1).isNormalCube() || (bandit = (GOTEntityLightSkinBandit) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(banditClass), world)) == null) {
 					continue;
 				}
 				bandit.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);

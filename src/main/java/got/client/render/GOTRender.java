@@ -333,12 +333,12 @@ public class GOTRender {
 		renders.put(GOTEntityWymanManderly.class, new GOTRenderLegendaryNPCLayered("wyman_manderly"));
 		renders.put(GOTEntityXaroXhoanDaxos.class, new GOTRenderLegendaryNPCLayered("xaro_xhoan_daxos"));
 		renders.put(GOTEntityYaraGreyjoy.class, new GOTRenderLegendaryNPCLayered("yara_greyjoy"));
-		renders.put(GOTEntityWesterosThief.class, new GOTRenderFactionNPC("westeros/unreliable"));
-		renders.put(GOTEntityEssosThief.class, new GOTRenderFactionNPC("essos/unreliable"));
-		renders.put(GOTEntityWesterosBandit.class, new GOTRenderFactionNPC("westeros/unreliable"));
-		renders.put(GOTEntityEssosBandit.class, new GOTRenderFactionNPC("essos/unreliable"));
-		renders.put(GOTEntityWesterosScrapTrader.class, new GOTRenderFactionNPC("westeros/unreliable"));
-		renders.put(GOTEntityEssosScrapTrader.class, new GOTRenderFactionNPC("essos/unreliable"));
+		renders.put(GOTEntityLightSkinThief.class, new GOTRenderFactionNPC("westeros/unreliable"));
+		renders.put(GOTEntityDarkSkinThief.class, new GOTRenderFactionNPC("essos/unreliable"));
+		renders.put(GOTEntityLightSkinBandit.class, new GOTRenderFactionNPC("westeros/unreliable"));
+		renders.put(GOTEntityDarkSkinBandit.class, new GOTRenderFactionNPC("essos/unreliable"));
+		renders.put(GOTEntityLightSkinScrapTrader.class, new GOTRenderFactionNPC("westeros/unreliable"));
+		renders.put(GOTEntityDarkSkinScrapTrader.class, new GOTRenderFactionNPC("essos/unreliable"));
 		renders.put(GOTEntityGhiscarUnsullied.class, new GOTRenderFactionNPCMonofolder("essos/unsullied"));
 		renders.put(GOTEntityMaester.class, new GOTRenderFactionNPCLayered("westeros/westeros", "maester"));
 		renders.put(GOTEntityQohorUnsullied.class, new GOTRenderFactionNPCMonofolder("essos/unsullied"));

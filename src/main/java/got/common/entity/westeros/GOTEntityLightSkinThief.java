@@ -21,10 +21,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
-public class GOTEntityWesterosThief extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
+public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
 	public static ItemStack[] weapons = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
 
-	public GOTEntityWesterosThief(World world) {
+	public GOTEntityLightSkinThief(World world) {
 		super(world);
 		questInfo.offerChance = 1;
 		canBeMarried = false;

@@ -8,9 +8,9 @@ import got.common.GOTDimension;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.*;
-import got.common.entity.essos.GOTEntityEssosBandit;
+import got.common.entity.essos.GOTEntityDarkSkinBandit;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.entity.westeros.GOTEntityWesterosBandit;
+import got.common.entity.westeros.GOTEntityLightSkinBandit;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.essos.*;
 import got.common.world.biome.other.GOTBiomeBeach;
@@ -710,7 +710,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	public Class<? extends GOTEntityNPC> getBanditEntityClass() {
 		if (banditEntityClass == null) {
-			return GOTEntityWesterosBandit.class;
+			return GOTEntityLightSkinBandit.class;
 		}
 		return banditEntityClass;
 	}
@@ -998,7 +998,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public void setDarkUnreliable() {
-		banditEntityClass = GOTEntityEssosBandit.class;
+		banditEntityClass = GOTEntityDarkSkinBandit.class;
 	}
 
 	public GOTBiome setMinMaxHeight(float f, float f1) {

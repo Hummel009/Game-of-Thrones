@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.hillmen;
 
 import got.common.database.*;
-import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
-import got.common.entity.westeros.GOTEntityWesterosThief;
+import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
+import got.common.entity.westeros.GOTEntityLightSkinThief;
 import got.common.entity.westeros.hillmen.GOTEntityHillman;
 import got.common.entity.westeros.hillmen.GOTEntityHillmanBartender;
 import got.common.item.other.GOTItemBanner;
@@ -129,8 +129,8 @@ public class GOTStructureHillmanTavern extends GOTStructureHillmanBase {
 			GOTEntityHillman man = new GOTEntityHillman(world);
 			spawnNPCAndSetHome(man, world, 0, 1, 0, 16);
 		}
-		spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 0, 1, 0, 16);
-		spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, 0, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
+		spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 0, 1, 0, 16);
 		return true;
 	}
 

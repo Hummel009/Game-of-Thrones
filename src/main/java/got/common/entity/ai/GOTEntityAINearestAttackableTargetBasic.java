@@ -4,7 +4,7 @@ import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRideable;
-import got.common.entity.westeros.GOTEntityWesterosBandit;
+import got.common.entity.westeros.GOTEntityLightSkinBandit;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
@@ -70,7 +70,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			if (entity instanceof EntityPlayer) {
 				return isPlayerSuitableTarget((EntityPlayer) entity);
 			}
-			if (entity instanceof GOTEntityWesterosBandit) {
+			if (entity instanceof GOTEntityLightSkinBandit) {
 				return taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).hiredNPCInfo.isActive;
 			}
 			return true;

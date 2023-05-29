@@ -29,12 +29,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
-public class GOTEntityWesterosBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat {
+public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat {
 	public static int MAX_THEFTS = 3;
 	public static ItemStack[] weapons = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger)};
 	public GOTInventoryNPC banditInventory = new GOTInventoryNPC("BanditInventory", this, MAX_THEFTS);
 
-	public GOTEntityWesterosBandit(World world) {
+	public GOTEntityLightSkinBandit(World world) {
 		super(world);
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);

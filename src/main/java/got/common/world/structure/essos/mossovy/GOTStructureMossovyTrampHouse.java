@@ -16,8 +16,8 @@ package got.common.world.structure.essos.mossovy;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
-import got.common.entity.westeros.GOTEntityWesterosThief;
+import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
+import got.common.entity.westeros.GOTEntityLightSkinThief;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -231,9 +231,9 @@ public class GOTStructureMossovyTrampHouse extends GOTStructureMossovyBase {
 			}
 		}
 		if (random.nextBoolean()) {
-			spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
 		} else {
-			spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 0, 1, 0, 16);
 		}
 		return true;
 	}

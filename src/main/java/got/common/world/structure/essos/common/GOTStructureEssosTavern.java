@@ -3,12 +3,12 @@ package got.common.world.structure.essos.common;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.entity.essos.GOTEntityEssosScrapTrader;
-import got.common.entity.essos.GOTEntityEssosThief;
+import got.common.entity.essos.GOTEntityDarkSkinScrapTrader;
+import got.common.entity.essos.GOTEntityDarkSkinThief;
 import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
 import got.common.entity.other.GOTEntityProstitute;
-import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
-import got.common.entity.westeros.GOTEntityWesterosThief;
+import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
+import got.common.entity.westeros.GOTEntityLightSkinThief;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -143,12 +143,12 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		placeWallBanner(world, 2, 5, -15, bannerType, 0);
 		spawnNPCAndSetHome(getBartender(world), world, -2, 1, 8, 4);
 		spawnNPCAndSetHome(new GOTEntityGoldenCaptain(world), world, 0, 1, 0, 16);
-		if (hasBlackPeople()) {
-			spawnNPCAndSetHome(new GOTEntityEssosThief(world), world, 0, 1, 0, 16);
-			spawnNPCAndSetHome(new GOTEntityEssosScrapTrader(world), world, 0, 1, 0, 16);
+		if (hasDarkSkinPeople()) {
+			spawnNPCAndSetHome(new GOTEntityDarkSkinThief(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityDarkSkinScrapTrader(world), world, 0, 1, 0, 16);
 		} else {
-			spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 0, 1, 0, 16);
-			spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 0, 1, 0, 16);
+			spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 0, 1, 0, 16);
 		}
 		for (int l = 0; l < 5; ++l) {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 0, 1, 0, 16);

@@ -120,12 +120,12 @@ public class GOTEntity {
 		GOTEntityRegistry.register(GOTEntityZebra.class, id++, 15000804);
 		GOTEntityRegistry.register(GOTEntityShryke.class, id++, 2896659);
 
-		GOTEntityRegistry.register(GOTEntityWesterosBandit.class, id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityWesterosThief.class, id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityWesterosScrapTrader.class, id++, 0xBABABA);
-		GOTEntityRegistry.register(GOTEntityEssosBandit.class, id++, 13345354);
-		GOTEntityRegistry.register(GOTEntityEssosThief.class, id++, 13345354);
-		GOTEntityRegistry.register(GOTEntityEssosScrapTrader.class, id++, 13345354);
+		GOTEntityRegistry.register(GOTEntityLightSkinBandit.class, id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityLightSkinThief.class, id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityLightSkinScrapTrader.class, id++, 0xBABABA);
+		GOTEntityRegistry.register(GOTEntityDarkSkinBandit.class, id++, 13345354);
+		GOTEntityRegistry.register(GOTEntityDarkSkinThief.class, id++, 13345354);
+		GOTEntityRegistry.register(GOTEntityDarkSkinScrapTrader.class, id++, 13345354);
 
 		GOTEntityRegistry.register(GOTEntityProstitute.class, id++, 16087966);
 		GOTEntityRegistry.register(GOTEntityMaester.class, id++, 0xffffff);

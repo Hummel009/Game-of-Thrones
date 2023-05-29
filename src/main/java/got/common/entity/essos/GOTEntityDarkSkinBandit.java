@@ -2,18 +2,18 @@ package got.common.entity.essos;
 
 import got.common.database.GOTItems;
 import got.common.database.GOTNames;
-import got.common.entity.westeros.GOTEntityWesterosThief;
+import got.common.entity.westeros.GOTEntityLightSkinBandit;
 import got.common.item.other.GOTItemRobes;
 import got.common.item.other.GOTItemTurban;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class GOTEntityEssosThief extends GOTEntityWesterosThief {
+public class GOTEntityDarkSkinBandit extends GOTEntityLightSkinBandit {
 	public static ItemStack[] weapons = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned)};
 	public static int[] robeColors = {3354412, 5984843, 5968655, 3619908, 9007463, 3228720};
 
-	public GOTEntityEssosThief(World world) {
+	public GOTEntityDarkSkinBandit(World world) {
 		super(world);
 		canBeMarried = false;
 	}

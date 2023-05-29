@@ -287,7 +287,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return TABLES.get(city);
 	}
 
-	public boolean hasBlackPeople() {
+	public boolean hasDarkSkinPeople() {
 		return city == City.GHISCAR;
 	}
 

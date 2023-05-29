@@ -22,8 +22,8 @@ import net.minecraft.world.World;
 
 import java.awt.*;
 
-public class GOTEntityWesterosScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith, GOTBiome.ImmuneToHeat {
-	public GOTEntityWesterosScrapTrader(World world) {
+public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith, GOTBiome.ImmuneToHeat {
+	public GOTEntityLightSkinScrapTrader(World world) {
 		super(world);
 		canBeMarried = false;
 		setSize(0.6f, 1.8f);

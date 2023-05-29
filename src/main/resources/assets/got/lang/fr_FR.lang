@@ -218,9 +218,9 @@ entity.got.EldonEstermont.name≠Eldon Estermont
 entity.got.Elephant.name=Eléphant
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name≠Erik Ironmaker
-entity.got.EssosBandit.name=Bandit
-entity.got.EssosScrapTrader.name=Ferrailleur d'Essos
-entity.got.EssosThief.name=Voleur
+entity.got.DarkSkinBandit.name=Bandit
+entity.got.DarkSkinScrapTrader.name=Ferrailleur d'Essos
+entity.got.DarkSkinThief.name=Voleur
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.FallingFireJar.name=Bocal de feu tombant
 entity.got.FallingTreasure.name=Trésor tombant
@@ -837,9 +837,9 @@ entity.got.WesterlandsMason.name=Maçon des Terres de l'Ouest
 entity.got.WesterlandsMiner.name=Marchand de légumes des Terres de l'Ouest
 entity.got.WesterlandsSoldier.name=Guerrier des Terres de l'Ouest
 entity.got.WesterlandsSoldierArcher.name=Guerrier Archer des Terres de l'Ouest
-entity.got.WesterosBandit.name=Bandit
-entity.got.WesterosScrapTrader.name≠Westeros Scrap Trader
-entity.got.WesterosThief.name=Voleur
+entity.got.LightSkinBandit.name=Bandit
+entity.got.LightSkinScrapTrader.name≠Scrap Trader
+entity.got.LightSkinThief.name=Voleur
 entity.got.WhiteBison.name=Bison Blanc
 entity.got.WhiteOryx.name=Oryx blanc
 entity.got.WhiteWalker.name=Marcheur blanc

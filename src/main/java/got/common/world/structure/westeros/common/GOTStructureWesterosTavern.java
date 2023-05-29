@@ -4,12 +4,12 @@ import com.google.common.math.IntMath;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
-import got.common.entity.essos.GOTEntityEssosScrapTrader;
-import got.common.entity.essos.GOTEntityEssosThief;
+import got.common.entity.essos.GOTEntityDarkSkinScrapTrader;
+import got.common.entity.essos.GOTEntityDarkSkinThief;
 import got.common.entity.other.GOTEntityProstitute;
+import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
+import got.common.entity.westeros.GOTEntityLightSkinThief;
 import got.common.entity.westeros.GOTEntityMercenary;
-import got.common.entity.westeros.GOTEntityWesterosScrapTrader;
-import got.common.entity.westeros.GOTEntityWesterosThief;
 import got.common.entity.westeros.legendary.quest.GOTEntityTyrionLannister;
 import got.common.entity.westeros.legendary.reborn.GOTEntityLancelLannister;
 import got.common.entity.westeros.legendary.trader.GOTEntityHotPie;
@@ -768,13 +768,13 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		} else if (kingdom == Kingdom.DORNE) {
 			spawnNPCAndSetHome(getBartender(world), world, -4, 1, 7, 2);
 			spawnNPCAndSetHome(new GOTEntityMercenary(world), world, 2, 1, 7, 16);
-			spawnNPCAndSetHome(new GOTEntityEssosThief(world), world, 2, 1, 7, 16);
-			spawnNPCAndSetHome(new GOTEntityEssosScrapTrader(world), world, 2, 1, 7, 16);
+			spawnNPCAndSetHome(new GOTEntityDarkSkinThief(world), world, 2, 1, 7, 16);
+			spawnNPCAndSetHome(new GOTEntityDarkSkinScrapTrader(world), world, 2, 1, 7, 16);
 		} else {
 			spawnNPCAndSetHome(getBartender(world), world, -4, 1, 7, 2);
 			spawnNPCAndSetHome(new GOTEntityMercenary(world), world, 2, 1, 7, 16);
-			spawnNPCAndSetHome(new GOTEntityWesterosThief(world), world, 2, 1, 7, 16);
-			spawnNPCAndSetHome(new GOTEntityWesterosScrapTrader(world), world, 2, 1, 7, 16);
+			spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 2, 1, 7, 16);
+			spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 2, 1, 7, 16);
 		}
 		for (int l = 0; l < 5; ++l) {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 2, 1, 7, 16);
