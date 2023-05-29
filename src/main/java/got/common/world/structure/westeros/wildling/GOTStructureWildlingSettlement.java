@@ -79,7 +79,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 					setupHardhome(random);
 					break;
 				case VILLAGE:
-					setupSettlement(random);
+					setupVillage(random);
 					break;
 				case THENN:
 					setupThenn(random);
@@ -247,7 +247,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureWildlingHouse(false).setIsTramp(), gardenX - 5, gardenX, 2, true);
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override

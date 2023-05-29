@@ -67,7 +67,7 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 					setupCastle(random);
 					break;
 				case VILLAGE:
-					setupSettlement(random);
+					setupVillage(random);
 					break;
 			}
 		}
@@ -419,7 +419,7 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 			addStructure(GOTStructureWesterosTownWall.RightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			addStructure(new GOTStructureWesterosWell(false), 0, -4, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
 

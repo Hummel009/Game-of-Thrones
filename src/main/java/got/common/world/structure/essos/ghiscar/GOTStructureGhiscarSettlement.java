@@ -84,7 +84,7 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 					addStructure(new GOTStructureGhiscarPyramid(false), 0, 20, 0, true);
 					break;
 				case VILLAGE:
-					setupSettlement(random);
+					setupVillage(random);
 					break;
 				case TOWN:
 					setupTown(random);
@@ -427,7 +427,7 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override

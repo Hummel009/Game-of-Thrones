@@ -48,7 +48,7 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 					addStructure(new GOTStructureSothoryosPyramid(false), 0, 0, 0, true);
 					break;
 				case VILLAGE:
-					setupSettlement(random);
+					setupVillage(random);
 					break;
 			}
 		}
@@ -63,7 +63,7 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 			return false;
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			int smithyPos = random.nextInt(4);
 			addStructure(new GOTStructureSothoryosChieftainPyramid(false), 0, -11, 0, true);
 			addStructure(new GOTStructureSothoryosVillageTree(false), 0, -16, 2);

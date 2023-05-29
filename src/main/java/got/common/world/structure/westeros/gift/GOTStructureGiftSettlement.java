@@ -91,7 +91,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 					addStructure(new Abandoned(false), 0, 20, 0, true);
 					break;
 				case VILLAGE:
-					setupSettlement(random);
+					setupVillage(random);
 					break;
 			}
 		}
@@ -135,7 +135,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override

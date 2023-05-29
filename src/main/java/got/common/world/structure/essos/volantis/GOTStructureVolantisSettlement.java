@@ -51,7 +51,7 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 		public void addSettlementStructures(Random random) {
 			switch (type) {
 				case VILLAGE:
-					setupSettlement(random);
+					setupVillage(random);
 					break;
 				case TOWN:
 					setupTown(random);
@@ -392,7 +392,7 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override

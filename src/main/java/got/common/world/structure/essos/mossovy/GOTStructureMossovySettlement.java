@@ -51,7 +51,7 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 		public void addSettlementStructures(Random random) {
 			switch (type) {
 				case VILLAGE:
-					setupSettlement(random);
+					setupVillage(random);
 					break;
 				case FORT:
 					setupFort(random);
@@ -87,7 +87,7 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
 

@@ -87,7 +87,7 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 					setupCastle(random);
 					break;
 				case VILLAGE:
-					setupSettlement(random);
+					setupVillage(random);
 					break;
 				case HILLMAN:
 					setupHillman(random);
@@ -496,7 +496,7 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			addStructure(new GOTStructureWesterosWell(false), 0, -4, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
 

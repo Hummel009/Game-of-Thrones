@@ -50,7 +50,7 @@ public class GOTStructureJogosSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void addSettlementStructures(Random random) {
-			setupSettlement(random);
+			setupVillage(random);
 		}
 
 		@Override
@@ -63,7 +63,7 @@ public class GOTStructureJogosSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			if (type == Type.SMALL) {
 				addStructure(new GOTStructureNPCRespawner(false) {
 

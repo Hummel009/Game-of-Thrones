@@ -49,7 +49,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 		public void addSettlementStructures(Random random) {
 			switch (type) {
 				case VILLAGE:
-					setupSettlement(random);
+					setupVillage(random);
 					break;
 				case FORT:
 					setupFortress(random);
@@ -136,7 +136,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			if (!isRuinedSettlement) {
 				addStructure(new GOTStructureNPCRespawner(false) {
 

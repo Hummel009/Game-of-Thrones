@@ -67,7 +67,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 					setupCastle(random);
 					break;
 				case VILLAGE:
-					setupSettlement(random);
+					setupVillage(random);
 					break;
 			}
 		}
@@ -454,7 +454,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			addStructure(getWallRightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
-		public void setupSettlement(Random random) {
+		public void setupVillage(Random random) {
 			addStructure(new GOTStructureDorneWell(false), 0, -4, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
 
