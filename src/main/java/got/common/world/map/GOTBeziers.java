@@ -236,8 +236,26 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.Yronwood, near(GOTWaypoint.Yronwood, 1, 0));
 		registerRoad(id++, GOTWaypoint.Yronwood, new double[]{680, 1953}, GOTWaypoint.Wyl, GOTWaypoint.Blackhaven, GOTWaypoint.Summerhall, GOTWaypoint.Bronzegate);
 		registerRoad(id++, GOTWaypoint.Yunkai, near(GOTWaypoint.Meereen, -9, 55));
-		registerRoad(id++, GOTWaypoint.Meereen, near(GOTWaypoint.Meereen, -1, 0.41));
+		registerRoad(id++, GOTWaypoint.Meereen, near(GOTWaypoint.Meereen, -1, 0.413));
+		registerRoad(id++, GOTWaypoint.Yunkai, near(GOTWaypoint.Yunkai, -1, 0.413));
+		registerRoad(id++, GOTWaypoint.Astapor, near(GOTWaypoint.Astapor, -1, 0.413));
 		registerRoad(id++, GOTWaypoint.Yunnan, near(GOTWaypoint.Yunnan, 1, 0));
+
+		registerRoad(id++, GOTWaypoint.Mantarys, near(GOTWaypoint.Mantarys, -0.413, -1));
+		registerRoad(id++, GOTWaypoint.Braavos, near(GOTWaypoint.Braavos, -0.413, -1));
+		registerRoad(id++, GOTWaypoint.Norvos, near(GOTWaypoint.Norvos, -0.413, -1));
+		registerRoad(id++, GOTWaypoint.Qohor, near(GOTWaypoint.Qohor, -0.413, -1));
+		registerRoad(id++, GOTWaypoint.Pentos, near(GOTWaypoint.Pentos, -1, 0.413));
+		registerRoad(id++, GOTWaypoint.Selhorys, near(GOTWaypoint.Selhorys, -1, 0.413));
+		registerRoad(id++, GOTWaypoint.Valysar, near(GOTWaypoint.Valysar, -1, 0.413));
+		registerRoad(id++, GOTWaypoint.VolonTherys, near(GOTWaypoint.VolonTherys, 0.413, 1));
+		registerRoad(id++, GOTWaypoint.Volantis, near(GOTWaypoint.Volantis, -1, 0.413));
+		registerRoad(id++, GOTWaypoint.LittleValyria, near(GOTWaypoint.LittleValyria, 0.413, 1));
+		registerRoad(id++, GOTWaypoint.Myr, near(GOTWaypoint.Myr, -1, 0.413));
+		registerRoad(id++, GOTWaypoint.PortYhos, near(GOTWaypoint.PortYhos, 0.413, 1));
+		registerRoad(id++, GOTWaypoint.Qarkash, near(GOTWaypoint.Qarkash, 0.413, 1));
+		registerRoad(id++, GOTWaypoint.Qarth, near(GOTWaypoint.Qarth, 0.413, 1));
+
 		registerRoad(id++, GOTWaypoint.Zamettar, new double[]{2150, 2793}, GOTWaypoint.Yeen);
 		registerRoad(id++, near(GOTWaypoint.BlackPool, -1, 0), near(GOTWaypoint.BlackPool, 1, 0));
 		registerRoad(id++, near(GOTWaypoint.BlackPool, 1, 0), near(GOTWaypoint.RamsGate, -1, 0));
