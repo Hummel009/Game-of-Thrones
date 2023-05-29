@@ -51,9 +51,9 @@ public enum GOTFixedStructures {
 		return new boolean[]{mountainNear, structureNear};
 	}
 
-	public static boolean fixedAt(int i, int k, GOTWaypoint waypoint) {
-		int x = GOTWaypoint.mapToWorldX(waypoint.pseudoX);
-		int z = GOTWaypoint.mapToWorldZ(waypoint.pseudoY);
+	public static boolean fixedAt(int i, int k, GOTAbstractWaypoint waypoint) {
+		int x = GOTWaypoint.mapToWorldX(waypoint.getX());
+		int z = GOTWaypoint.mapToWorldZ(waypoint.getY());
 		return fixedAtfixedAtMapImageCoords(i, k, x, z);
 	}
 

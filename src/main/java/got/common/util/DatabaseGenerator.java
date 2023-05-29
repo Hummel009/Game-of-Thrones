@@ -31,6 +31,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.variant.GOTBiomeVariantList.VariantBucket;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.feature.GOTTreeType.WeightedTreeType;
+import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTFixer;
 import got.common.world.map.GOTWaypoint;
 import got.common.world.map.GOTWaypoint.Region;
@@ -1689,7 +1690,7 @@ public class DatabaseGenerator {
 				for (Entry<Class<? extends Entity>, GOTWaypoint> entityEntry : CLASS_TO_WP.entrySet()) {
 					sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = ").append(entityEntry.getValue().getDisplayName());
 				}
-				for (GOTWaypoint wp : GOTFixer.structures.keySet()) {
+				for (GOTAbstractWaypoint wp : GOTFixer.structures.keySet()) {
 					GOTStructureBase str = GOTFixer.structures.get(wp);
 					str.disable();
 					str.generate(world, random, 0, 0, 0);

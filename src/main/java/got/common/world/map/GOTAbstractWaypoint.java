@@ -10,11 +10,15 @@ public interface GOTAbstractWaypoint {
 
 	int getID();
 
+	GOTWaypoint getItself();
+
 	WaypointLockState getLockState(EntityPlayer var1);
 
 	String getLoreText(EntityPlayer var1);
 
 	double getX();
+
+	int getRotation();
 
 	int getXCoord();
 

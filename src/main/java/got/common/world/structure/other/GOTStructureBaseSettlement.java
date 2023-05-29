@@ -46,10 +46,10 @@ public abstract class GOTStructureBaseSettlement {
 		settlementRand.setSeed(seed);
 	}
 
-	public void affix(GOTWaypoint... wps) {
+	public void affix(GOTAbstractWaypoint... wps) {
 		LocationInfo loc;
-		for (GOTWaypoint wp : wps) {
-			loc = new LocationInfo(wp.getXCoord() + wp.getAddX(), wp.getZCoord() + wp.getAddZ(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp);
+		for (GOTAbstractWaypoint wp : wps) {
+			loc = new LocationInfo(wp.getXCoord(), wp.getZCoord(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp.getItself());
 			fixedLocations.add(loc);
 		}
 	}

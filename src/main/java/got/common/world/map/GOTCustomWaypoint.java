@@ -169,6 +169,11 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
+	public GOTWaypoint getItself() {
+		return null;
+	}
+
+	@Override
 	public GOTAbstractWaypoint.WaypointLockState getLockState(EntityPlayer entityplayer) {
 		boolean unlocked = hasPlayerUnlocked(entityplayer);
 		if (isShared()) {
@@ -261,6 +266,11 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	@Override
 	public double getX() {
 		return mapX;
+	}
+
+	@Override
+	public int getRotation() {
+		return 0;
 	}
 
 	@Override

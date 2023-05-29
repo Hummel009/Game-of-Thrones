@@ -58,12 +58,12 @@ import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsSe
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import net.minecraft.world.World;
 
-import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 public class GOTFixer {
-	public static Map<GOTWaypoint, GOTStructureBase> structures = new EnumMap<>(GOTWaypoint.class);
+	public static Map<GOTAbstractWaypoint, GOTStructureBase> structures = new HashMap<>();
 	public static GOTStructureBaseSettlement[] f = new GOTStructureBaseSettlement[68];
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
@@ -104,7 +104,7 @@ public class GOTFixer {
 		f[12] = new GOTStructureDorneSettlement(biome, 0.0f).setIsTown();
 		f[12].affix(GOTWaypoint.GhastonGrey, GOTWaypoint.PlankyTown, GOTWaypoint.Sunspear);
 		f[13] = new GOTStructureDothrakiSettlement(biome, 0.0f).setIsBig();
-		f[13].affix(GOTWaypoint.Hornoth, GOTWaypoint.Kyth, GOTWaypoint.Sathar, GOTWaypoint.Rathylar, GOTWaypoint.VaesAthjikhari, GOTWaypoint.VaesDiaf, GOTWaypoint.VaesDothrak, GOTWaypoint.VaesEfe, GOTWaypoint.VaesGorqoyi, GOTWaypoint.VaesGraddakh, GOTWaypoint.VaesJini, GOTWaypoint.VaesKhadokh, GOTWaypoint.VaesKhewo, GOTWaypoint.VaesLeisi, GOTWaypoint.VaesLeqse, GOTWaypoint.VaesMejhah);
+		f[13].affix(GOTWaypoint.Hornoth.info(1, 0, 0), GOTWaypoint.Kyth.info(1, 0, 0), GOTWaypoint.Sathar.info(1, 0, 0), GOTWaypoint.Rathylar.info(0, -1, 0), GOTWaypoint.VaesAthjikhari.info(0, -1, 0), GOTWaypoint.VaesDiaf, GOTWaypoint.VaesDothrak, GOTWaypoint.VaesEfe, GOTWaypoint.VaesGorqoyi.info(0, -1, 0), GOTWaypoint.VaesGraddakh, GOTWaypoint.VaesJini.info(0, -1, 0), GOTWaypoint.VaesKhadokh.info(0, -1, 0), GOTWaypoint.VaesKhewo.info(0, -1, 0), GOTWaypoint.VaesLeqse.info(1, 0, 0), GOTWaypoint.VaesMejhah.info(0, -1, 0));
 		f[14] = new GOTStructureDragonstoneSettlement(biome, 0.0f).setIsCastle();
 		f[14].affix(GOTWaypoint.ClawIsle, GOTWaypoint.Dragonstone, GOTWaypoint.Driftmark, GOTWaypoint.HighTide, GOTWaypoint.SharpPoint, GOTWaypoint.Stonedance, GOTWaypoint.SweetportSound);
 		f[15] = new GOTStructureDragonstoneSettlement(biome, 0.0f).setIsTown();
@@ -178,7 +178,7 @@ public class GOTFixer {
 		f[49] = new GOTStructureRiverlandsSettlement(biome, 0.0f);
 		f[49].affix(GOTWaypoint.FairMarket, GOTWaypoint.Harroway, GOTWaypoint.Pennytree, GOTWaypoint.Sevenstreams);
 		f[50] = new GOTStructureRuins(biome, 0.0f);
-		f[50].affix(GOTWaypoint.WestWatch, GOTWaypoint.KrazaajHas, GOTWaypoint.Morne, GOTWaypoint.NySar, GOTWaypoint.OldGhis, GOTWaypoint.SarMell, GOTWaypoint.Sarhoy, GOTWaypoint.Shandystone, GOTWaypoint.Starpike, GOTWaypoint.Telyria, GOTWaypoint.TorturersDeep, GOTWaypoint.VaesOrvik, GOTWaypoint.VaesQosar, GOTWaypoint.VaesShirosi, GOTWaypoint.VaesTolorro, GOTWaypoint.ValyrianRoad, GOTWaypoint.Velos, GOTWaypoint.VojjorSamvi, GOTWaypoint.GreyGallows, GOTWaypoint.BloodStone, GOTWaypoint.Anogaria, GOTWaypoint.KrazaajHas, GOTWaypoint.Kayakayanaya, GOTWaypoint.Aegon, GOTWaypoint.Raenys, GOTWaypoint.Visenya, GOTWaypoint.Ghozai, GOTWaypoint.Chroyane, GOTWaypoint.GhoyanDrohe, GOTWaypoint.FourteenFlames, GOTWaypoint.Ibbish, GOTWaypoint.Samyriana, GOTWaypoint.Bhorash, GOTWaypoint.Bayasabhad, GOTWaypoint.ArNoy, GOTWaypoint.Adakhakileki, GOTWaypoint.CastleLychester, GOTWaypoint.MhysaFaer, GOTWaypoint.AquosDhaen, GOTWaypoint.Draconys, GOTWaypoint.Tyria, GOTWaypoint.Rhyos, GOTWaypoint.Oros, GOTWaypoint.VulturesRoost, GOTWaypoint.Spicetown, GOTWaypoint.Castamere, GOTWaypoint.Goldenhill, GOTWaypoint.GreyironCastle, GOTWaypoint.HoareCastle, GOTWaypoint.HoareKeep, GOTWaypoint.HoggHall, GOTWaypoint.HollardCastle, GOTWaypoint.OldStones, GOTWaypoint.Summerhall, GOTWaypoint.TarbeckHall, GOTWaypoint.TowerOfJoy, GOTWaypoint.Whispers, GOTWaypoint.WhiteWalls);
+		f[50].affix(GOTWaypoint.WestWatch, GOTWaypoint.VaesLeisi, GOTWaypoint.KrazaajHas, GOTWaypoint.Morne, GOTWaypoint.NySar, GOTWaypoint.OldGhis, GOTWaypoint.SarMell, GOTWaypoint.Sarhoy, GOTWaypoint.Shandystone, GOTWaypoint.Starpike, GOTWaypoint.Telyria, GOTWaypoint.TorturersDeep, GOTWaypoint.VaesOrvik, GOTWaypoint.VaesQosar, GOTWaypoint.VaesShirosi, GOTWaypoint.VaesTolorro, GOTWaypoint.ValyrianRoad, GOTWaypoint.Velos, GOTWaypoint.VojjorSamvi, GOTWaypoint.GreyGallows, GOTWaypoint.BloodStone, GOTWaypoint.Anogaria, GOTWaypoint.KrazaajHas, GOTWaypoint.Kayakayanaya, GOTWaypoint.Aegon, GOTWaypoint.Raenys, GOTWaypoint.Visenya, GOTWaypoint.Ghozai, GOTWaypoint.Chroyane, GOTWaypoint.GhoyanDrohe, GOTWaypoint.FourteenFlames, GOTWaypoint.Ibbish, GOTWaypoint.Samyriana, GOTWaypoint.Bhorash, GOTWaypoint.Bayasabhad, GOTWaypoint.ArNoy, GOTWaypoint.Adakhakileki, GOTWaypoint.CastleLychester, GOTWaypoint.MhysaFaer, GOTWaypoint.AquosDhaen, GOTWaypoint.Draconys, GOTWaypoint.Tyria, GOTWaypoint.Rhyos, GOTWaypoint.Oros, GOTWaypoint.VulturesRoost, GOTWaypoint.Spicetown, GOTWaypoint.Castamere, GOTWaypoint.Goldenhill, GOTWaypoint.GreyironCastle, GOTWaypoint.HoareCastle, GOTWaypoint.HoareKeep, GOTWaypoint.HoggHall, GOTWaypoint.HollardCastle, GOTWaypoint.OldStones, GOTWaypoint.Summerhall, GOTWaypoint.TarbeckHall, GOTWaypoint.TowerOfJoy, GOTWaypoint.Whispers, GOTWaypoint.WhiteWalls);
 		f[51] = new GOTStructureRuinsBig(biome, 0.0f);
 		f[51].affix(GOTWaypoint.EastBay, GOTWaypoint.EastCoast, GOTWaypoint.NorthForests, GOTWaypoint.WhiteMountains, GOTWaypoint.CentralForests, GOTWaypoint.Marshes, GOTWaypoint.RedForests, GOTWaypoint.SouthUlthos, GOTWaypoint.SouthTaiga, GOTWaypoint.Bonetown, GOTWaypoint.Harrenhal, GOTWaypoint.Stygai, GOTWaypoint.Ulos, GOTWaypoint.Yeen);
 		f[52] = new GOTStructureGiftSettlement(biome, 0.0f).setIsShadowTower();
@@ -234,7 +234,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Astapor.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Astapor.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityKraznysMoNakloz(world), world, -1, 1, 0);
@@ -250,7 +250,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Barrowtown.shift(0, 1), new Spawner() {
+		structures.put(GOTWaypoint.Barrowtown.info(0, 1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityBarbreyDustin(world), world, 0, 1, 3);
@@ -264,7 +264,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Braavos.shift(0, -1), new Spawner() {
+		structures.put(GOTWaypoint.Braavos.info(0, -1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityTychoNestoris(world), world, 0, 1, 1);
@@ -278,7 +278,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.CasterlyRock.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.CasterlyRock.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityTywinLannister(world), world, 2, 1, 0);
@@ -308,7 +308,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Crakehall.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Crakehall.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityLyleCrakehall(world), world, 2, 1, 2);
@@ -394,7 +394,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.GoldenTooth.shift(0, 1), new Spawner() {
+		structures.put(GOTWaypoint.GoldenTooth.info(0, 1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityLeoLefford(world), world, 2, 1, 2);
@@ -457,7 +457,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Highgarden.shift(0, -1), new Spawner() {
+		structures.put(GOTWaypoint.Highgarden.info(0, -1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityMaceTyrell(world), world, 2, 1, 2);
@@ -525,7 +525,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.KingsLanding.shift(1, 0), new Spawner() {
+		structures.put(GOTWaypoint.KingsLanding.info(1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntitySansaStark(world), world, 0, 1, 5);
@@ -534,7 +534,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Lannisport.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Lannisport.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityKevanLannister(world), world, 0, 1, 5);
@@ -585,14 +585,14 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Maidenpool.shift(1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Maidenpool.info(1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityWilliamMooton(world), world, 0, 1, 2);
 			}
 		});
 
-		structures.put(GOTWaypoint.Meereen.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Meereen.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityHizdahrZoLoraq(world), world, -1, 1, -1);
@@ -606,7 +606,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Myr.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Myr.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityHarryStrickland(world), world, -1, 1, -1);
@@ -639,21 +639,21 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Norvos.shift(0, -1), new Spawner() {
+		structures.put(GOTWaypoint.Norvos.info(0, -1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityMellario(world), world, 0, 1, 1);
 			}
 		});
 
-		structures.put(GOTWaypoint.Oldtown.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Oldtown.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityEbrose(world), world, 0, 1, 5);
 			}
 		});
 
-		structures.put(GOTWaypoint.Pentos.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Pentos.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityIllyrioMopatis(world), world, 3, 1, 0);
@@ -676,7 +676,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Qarth.shift(0, 1), new Spawner() {
+		structures.put(GOTWaypoint.Qarth.info(0, 1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityXaroXhoanDaxos(world), world, 3, 1, 0);
@@ -711,14 +711,14 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.RisvellsCastle.shift(0, 1), new Spawner() {
+		structures.put(GOTWaypoint.RisvellsCastle.info(0, 1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityRodrikRyswell(world), world, 0, 1, 2);
 			}
 		});
 
-		structures.put(GOTWaypoint.Riverrun.shift(1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Riverrun.info(1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityBryndenTully(world), world, 2, 1, 2);
@@ -743,21 +743,21 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Seagard.shift(0, -1), new Spawner() {
+		structures.put(GOTWaypoint.Seagard.info(0, -1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityJasonMallister(world), world, 0, 1, 3);
 			}
 		});
 
-		structures.put(GOTWaypoint.ServinsCastle.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.ServinsCastle.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityCleyCerwyn(world), world, 0, 1, 2);
 			}
 		});
 
-		structures.put(GOTWaypoint.SkyReach.shift(0, 1), new Spawner() {
+		structures.put(GOTWaypoint.SkyReach.info(0, 1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityFranklynFowler(world), world, 0, 1, 2);
@@ -771,7 +771,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Starfall.shift(0, -1), new Spawner() {
+		structures.put(GOTWaypoint.Starfall.info(0, -1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityBericDayne(world), world, -2, 1, 2);
@@ -785,7 +785,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.StoneHedge.shift(0, 1), new Spawner() {
+		structures.put(GOTWaypoint.StoneHedge.info(0, 1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityJonosBracken(world), world, 0, 1, 2);
@@ -888,7 +888,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Volantis.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Volantis.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityMoqorro(world), world, -1, 1, 0);
@@ -929,14 +929,14 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Yin.shift(0, 1), new Spawner() {
+		structures.put(GOTWaypoint.Yin.info(0, 1), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityBuGai(world), world, 12, 1, 0);
 			}
 		});
 
-		structures.put(GOTWaypoint.Yronwood.shift(1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Yronwood.info(1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityQuentynMartell(world), world, 0, 1, 2);
@@ -944,7 +944,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Yunkai.shift(-1, 0), new Spawner() {
+		structures.put(GOTWaypoint.Yunkai.info(-1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityDaarioNaharis(world), world, -1, 1, 0);
