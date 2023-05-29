@@ -539,50 +539,49 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 				doorBlock = Blocks.wooden_door;
 				break;
 		}
+		switch (random.nextInt(11)) {
+			case 0:
+				cropBlock = Blocks.carrots;
+				cropMeta = 7;
+				seedItem = Items.carrot;
+				break;
+			case 1:
+				cropBlock = Blocks.potatoes;
+				cropMeta = 7;
+				seedItem = Items.potato;
+				break;
+			case 2:
+				cropBlock = GOTBlocks.lettuceCrop;
+				cropMeta = 7;
+				seedItem = GOTItems.lettuce;
+				break;
+			case 3:
+				cropBlock = GOTBlocks.cornStalk;
+				cropMeta = 0;
+				seedItem = Item.getItemFromBlock(GOTBlocks.cornStalk);
+				break;
+			case 4:
+				cropBlock = GOTBlocks.leekCrop;
+				cropMeta = 7;
+				seedItem = GOTItems.leek;
+				break;
+			case 5:
+				cropBlock = GOTBlocks.turnipCrop;
+				cropMeta = 7;
+				seedItem = GOTItems.turnip;
+				break;
+			default:
+				cropBlock = Blocks.wheat;
+				cropMeta = 7;
+				seedItem = Items.wheat_seeds;
+				break;
+		}
 		if (random.nextBoolean()) {
 			wallBlock = GOTBlocks.daub;
 			wallMeta = 0;
 		} else {
 			wallBlock = plankBlock;
 			wallMeta = plankMeta;
-		}
-		if (random.nextBoolean()) {
-			cropBlock = Blocks.wheat;
-			cropMeta = 7;
-			seedItem = Items.wheat_seeds;
-		} else {
-			switch (random.nextInt(6)) {
-				case 0:
-					cropBlock = Blocks.carrots;
-					cropMeta = 7;
-					seedItem = Items.carrot;
-					break;
-				case 1:
-					cropBlock = Blocks.potatoes;
-					cropMeta = 7;
-					seedItem = Items.potato;
-					break;
-				case 2:
-					cropBlock = GOTBlocks.lettuceCrop;
-					cropMeta = 7;
-					seedItem = GOTItems.lettuce;
-					break;
-				case 3:
-					cropBlock = GOTBlocks.cornStalk;
-					cropMeta = 0;
-					seedItem = Item.getItemFromBlock(GOTBlocks.cornStalk);
-					break;
-				case 4:
-					cropBlock = GOTBlocks.leekCrop;
-					cropMeta = 7;
-					seedItem = GOTItems.leek;
-					break;
-				default:
-					cropBlock = GOTBlocks.turnipCrop;
-					cropMeta = 7;
-					seedItem = GOTItems.turnip;
-					break;
-			}
 		}
 	}
 

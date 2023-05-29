@@ -301,7 +301,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 
 	@Override
 	public void setupRandomBlocks(Random random) {
-		super.setupRandomBlocks(random);
 		if (hasSandstone()) {
 			if (canUseRedBricks() && random.nextInt(4) == 0) {
 				brickBlock = GOTBlocks.brick3;
@@ -393,8 +392,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 				doorBlock = GOTBlocks.doorBeech;
 				trapdoorBlock = GOTBlocks.trapdoorBeech;
 			} else {
-				int randomWood = random.nextInt(5);
-				switch (randomWood) {
+				switch (random.nextInt(5)) {
 					case 0:
 						woodBlock = GOTBlocks.wood2;
 						woodMeta = 1;
