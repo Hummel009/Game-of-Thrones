@@ -187,24 +187,6 @@ public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWester
 			super(flag);
 		}
 
-		public static GOTTreeType getRandomTree(Random random) {
-			ArrayList<GOTTreeType> treeList = new ArrayList<>();
-			treeList.add(GOTTreeType.OAK);
-			treeList.add(GOTTreeType.OAK_LARGE);
-			treeList.add(GOTTreeType.BIRCH);
-			treeList.add(GOTTreeType.BIRCH_TALL);
-			treeList.add(GOTTreeType.BIRCH_LARGE);
-			treeList.add(GOTTreeType.BEECH);
-			treeList.add(GOTTreeType.BEECH_LARGE);
-			treeList.add(GOTTreeType.CEDAR);
-			treeList.add(GOTTreeType.APPLE);
-			treeList.add(GOTTreeType.PEAR);
-			treeList.add(GOTTreeType.PLUM);
-			treeList.add(GOTTreeType.ALMOND);
-			treeList.add(GOTTreeType.OLIVE);
-			return treeList.get(random.nextInt(treeList.size()));
-		}
-
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			int i1;
@@ -222,19 +204,16 @@ public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWester
 					setBlockAndMetadata(world, i1, 3, k1, Blocks.leaves, 4);
 				}
 			}
-			for (int l = 0; l < 16; ++l) {
-				GOTTreeType tree = getRandomTree(random);
-				WorldGenAbstractTree treeGen = tree.create(notifyChanges, random);
-				if (treeGen == null) {
-					continue;
-				}
-				int i12 = 0;
-				int j1 = 1;
-				int k1 = 0;
-				if (treeGen.generate(world, random, getX(i12, k1), getY(j1), getZ(i12, k1))) {
-					break;
-				}
+			GOTTreeType tree;
+			if (hasSouthernWood()) {
+				tree = getRandomSouthernTree(random);
+			} else if (hasNorthernWood()) {
+				tree = getRandomNorthernTree(random);
+			} else {
+				tree = getRandomStandardTree(random);
 			}
+			WorldGenAbstractTree treeGen = tree.create(notifyChanges, random);
+			treeGen.generate(world, random, getX(0, 0), getY(1), getZ(0, 0));
 			for (i1 = -4; i1 <= 4; ++i1) {
 				for (int k1 = -4; k1 <= 4; ++k1) {
 					int j1 = 1;

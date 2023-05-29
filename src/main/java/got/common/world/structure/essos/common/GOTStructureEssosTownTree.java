@@ -55,10 +55,15 @@ public class GOTStructureEssosTownTree extends GOTStructureEssosBase {
 			}
 		}
 		for (int l = 0; l < 16; ++l) {
+			GOTTreeType tree;
 			int i12 = 0;
 			j1 = 2;
 			int k12 = 0;
-			GOTTreeType tree = getRandomTree(random);
+			if (hasNorthernWood()) {
+				tree = getRandomStandardTree(random);
+			} else {
+				tree = getRandomSouthernTree(random);
+			}
 			WorldGenAbstractTree treeGen = tree.create(notifyChanges, random);
 			if (treeGen != null && treeGen.generate(world, random, getX(i12, k12), getY(j1), getZ(i12, k12))) {
 				break;
@@ -73,15 +78,5 @@ public class GOTStructureEssosTownTree extends GOTStructureEssosBase {
 			}
 		}
 		return true;
-	}
-
-	public GOTTreeType getRandomTree(Random random) {
-		ArrayList<GOTTreeType> treeList = new ArrayList<>();
-		treeList.add(GOTTreeType.CEDAR);
-		treeList.add(GOTTreeType.CYPRESS);
-		treeList.add(GOTTreeType.PALM);
-		treeList.add(GOTTreeType.DATE_PALM);
-		treeList.add(GOTTreeType.OLIVE);
-		return treeList.get(random.nextInt(treeList.size()));
 	}
 }

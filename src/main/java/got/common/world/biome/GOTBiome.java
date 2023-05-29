@@ -445,7 +445,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		sothoryosTaiga = new GOTBiomeSothoryosTaiga(130, true).setClimateType(GOTClimateType.WINTER).setColor(0xA3B481).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosTaiga");
 		stepstones = new GOTBiomeStepstones(131, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BA37A).setMinMaxHeight(0.0f, 0.5f).setBiomeName("stepstones");
 		stoneCoast = new GOTBiomeStoneCoast(132, true).setClimateType(GOTClimateType.COLD).setColor(0x89A599).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stoneCoast");
-		stormlands = new GOTBiomeStormlands(133, true).setClimateType(GOTClimateType.SUMMER).setColor(0x98AF56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlands");
+		stormlands = new GOTBiomeStormlands(133, true).setClimateType(GOTClimateType.SUMMER).setColor(0x96AF56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlands");
 		stormlandsForest = new GOTBiomeStormlandsForest(158, true).setClimateType(GOTClimateType.SUMMER).setColor(0x617A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsForest");
 		stormlandsTarth = new GOTBiomeStormlandsTarth(137, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA4AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarth");
 		stormlandsTarthForest = new GOTBiomeStormlandsTarthForest(182, true).setClimateType(GOTClimateType.SUMMER).setColor(0x687749).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarthForest");

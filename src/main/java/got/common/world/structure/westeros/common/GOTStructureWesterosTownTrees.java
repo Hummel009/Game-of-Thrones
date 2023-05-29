@@ -51,13 +51,16 @@ public class GOTStructureWesterosTownTrees extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i1, 2, k1, Blocks.torch, 5);
 			}
 		}
-		for (int i12 : new int[]{-4, 0, 4}) {
-			WorldGenAbstractTree treeGen;
-			j1 = 1;
-			int k12 = 0;
-			for (int l = 0; l < 16 && ((treeGen = GOTTreeType.CYPRESS.create(notifyChanges, random)) == null || !treeGen.generate(world, random, getX(i12, k12), getY(j1), getZ(i12, k12))); ++l) {
-			}
+		GOTTreeType tree;
+		if (hasSouthernWood()) {
+			tree = getRandomSouthernTree(random);
+		} else if (hasNorthernWood()) {
+			tree = getRandomNorthernTree(random);
+		} else {
+			tree = getRandomStandardTree(random);
 		}
+		WorldGenAbstractTree treeGen = tree.create(notifyChanges, random);
+		treeGen.generate(world, random, getX(0, 0), getY(1), getZ(0, 0));
 		return true;
 	}
 }

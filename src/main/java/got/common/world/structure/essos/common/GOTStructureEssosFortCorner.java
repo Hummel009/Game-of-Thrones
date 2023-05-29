@@ -10,7 +10,7 @@ public class GOTStructureEssosFortCorner extends GOTStructureEssosBase {
 	}
 
 	@Override
-	public boolean canUseRedBricks() {
+	public boolean hasRedSandstone() {
 		return false;
 	}
 

@@ -27,7 +27,7 @@ public class GOTStructureEssosStatue extends GOTStructureEssosBase {
 	}
 
 	@Override
-	public boolean canUseRedBricks() {
+	public boolean hasRedSandstone() {
 		return false;
 	}
 

@@ -765,17 +765,16 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		} else if (isCrossroads) {
 			spawnNPCAndSetHome(new GOTEntityHotPie(world), world, -4, 1, 7, 2);
 			spawnNPCAndSetHome(new GOTEntityVargoHoat(world), world, 2, 1, 7, 16);
-		} else if (kingdom == Kingdom.DORNE) {
-			spawnNPCAndSetHome(getBartender(world), world, -4, 1, 7, 2);
-			spawnNPCAndSetHome(new GOTEntityMercenary(world), world, 2, 1, 7, 16);
+		} else if (hasDarkSkinPeople()) {
 			spawnNPCAndSetHome(new GOTEntityDarkSkinThief(world), world, 2, 1, 7, 16);
 			spawnNPCAndSetHome(new GOTEntityDarkSkinScrapTrader(world), world, 2, 1, 7, 16);
 		} else {
-			spawnNPCAndSetHome(getBartender(world), world, -4, 1, 7, 2);
-			spawnNPCAndSetHome(new GOTEntityMercenary(world), world, 2, 1, 7, 16);
 			spawnNPCAndSetHome(new GOTEntityLightSkinThief(world), world, 2, 1, 7, 16);
 			spawnNPCAndSetHome(new GOTEntityLightSkinScrapTrader(world), world, 2, 1, 7, 16);
 		}
+		spawnNPCAndSetHome(getBartender(world), world, -4, 1, 7, 2);
+		spawnNPCAndSetHome(new GOTEntityMercenary(world), world, 2, 1, 7, 16);
+
 		for (int l = 0; l < 5; ++l) {
 			spawnNPCAndSetHome(new GOTEntityProstitute(world), world, 2, 1, 7, 16);
 		}

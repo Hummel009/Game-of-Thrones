@@ -167,25 +167,25 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 					for (i13 = 1; i13 <= 5; i13++) {
 						setBlockAndMetadata(world, i11 + 1, i13, i12, Blocks.ladder, 4);
 					}
-					setBlockAndMetadata(world, i11 + 1, 6, i12, Blocks.trapdoor, 11);
+					setBlockAndMetadata(world, i11 + 1, 6, i12, trapdoorBlock, 11);
 				}
 				if (i11 > 0) {
 					for (i13 = 1; i13 <= 5; i13++) {
 						setBlockAndMetadata(world, i11 - 1, i13, i12, Blocks.ladder, 5);
 					}
-					setBlockAndMetadata(world, i11 - 1, 6, i12, Blocks.trapdoor, 10);
+					setBlockAndMetadata(world, i11 - 1, 6, i12, trapdoorBlock, 10);
 				}
 				if (i12 < 0) {
 					for (i13 = 1; i13 <= 5; i13++) {
 						setBlockAndMetadata(world, i11, i13, i12 + 1, Blocks.ladder, 3);
 					}
-					setBlockAndMetadata(world, i11, 6, i12 + 1, Blocks.trapdoor, 8);
+					setBlockAndMetadata(world, i11, 6, i12 + 1, trapdoorBlock, 8);
 				}
 				if (i12 > 0) {
 					for (i13 = 1; i13 <= 5; i13++) {
 						setBlockAndMetadata(world, i11, i13, i12 - 1, Blocks.ladder, 2);
 					}
-					setBlockAndMetadata(world, i11, 6, i12 - 1, Blocks.trapdoor, 9);
+					setBlockAndMetadata(world, i11, 6, i12 - 1, trapdoorBlock, 9);
 				}
 			}
 		}

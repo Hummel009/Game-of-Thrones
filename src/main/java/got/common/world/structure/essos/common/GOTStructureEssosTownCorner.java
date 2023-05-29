@@ -10,12 +10,12 @@ public class GOTStructureEssosTownCorner extends GOTStructureEssosBase {
 	}
 
 	@Override
-	public boolean canUseRedBricks() {
+	public boolean hasRedSandstone() {
 		return false;
 	}
 
 	@Override
-	public boolean forceMonotypeWood() {
+	public boolean hasMonotypeWood() {
 		return true;
 	}
 

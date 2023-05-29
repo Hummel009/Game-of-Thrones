@@ -108,7 +108,7 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		for (int j3 = 1; j3 <= 9; ++j3) {
 			setBlockAndMetadata(world, 0, j3, 2, Blocks.ladder, 2);
 		}
-		setBlockAndMetadata(world, 0, 10, 2, Blocks.trapdoor, 9);
+		setBlockAndMetadata(world, 0, 10, 2, trapdoorBlock, 9);
 		for (int k5 = -2; k5 <= 2; ++k5) {
 			if (IntMath.mod(k5, 2) == 0) {
 				placeChest(world, random, -2, 1, k5, 4, getChestContents());

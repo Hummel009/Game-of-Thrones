@@ -28,6 +28,7 @@ import got.common.world.structure.sothoryos.sothoryos.*;
 import got.common.world.structure.sothoryos.sothoryos.GOTStructureSothoryosSettlement.Instance;
 import got.common.world.structure.sothoryos.summer.*;
 import got.common.world.structure.westeros.arryn.*;
+import got.common.world.structure.westeros.common.GOTStructureWesterosTownTrees;
 import got.common.world.structure.westeros.crownlands.*;
 import got.common.world.structure.westeros.dorne.*;
 import got.common.world.structure.westeros.dragonstone.*;
@@ -54,6 +55,7 @@ public class GOTStructure {
 	public static int id;
 
 	public static void onInit() {
+		GOTStructureRegistry.register(id++, GOTStructureWesterosTownTrees.class, 9605778);
 		GOTStructureRegistry.register(id++, GOTStructureBarrow.class, 9605778);
 		GOTStructureRegistry.register(id++, GOTStructureRuinedHouse.class, 9605778);
 		GOTStructureRegistry.register(id++, GOTStructureBurntHouse.class, 9605778);
