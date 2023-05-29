@@ -297,8 +297,6 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		treeList.add(GOTTreeType.ORANGE);
 		treeList.add(GOTTreeType.PALM);
 		treeList.add(GOTTreeType.PLUM);
-		treeList.add(GOTTreeType.DRAGONBLOOD);
-		treeList.add(GOTTreeType.DRAGONBLOOD_LARGE);
 		treeList.add(GOTTreeType.KANUKA);
 		return treeList.get(random.nextInt(treeList.size()));
 	}
