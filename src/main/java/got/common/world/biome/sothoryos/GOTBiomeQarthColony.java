@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class GOTBiomeQarthColony extends GOTBiomeSothoryosSavannah {
 	public GOTBiomeQarthColony(int i, boolean major) {
 		super(i, major);
-		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		decorator.clearSettlements();
 		decorator.addSettlement(new GOTStructureQarthSettlement(this, 1.0f).setIsCastle());
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);

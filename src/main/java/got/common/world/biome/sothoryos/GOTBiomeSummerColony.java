@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class GOTBiomeSummerColony extends GOTBiomeSothoryosSavannah {
 	public GOTBiomeSummerColony(int i, boolean major) {
 		super(i, major);
-		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		decorator.clearSettlements();
 		decorator.addSettlement(new GOTStructureSummerSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);

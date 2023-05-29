@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class GOTBiomeSummerColonyMangrove extends GOTBiomeSothoryosMangrove {
 	public GOTBiomeSummerColonyMangrove(int i, boolean major) {
 		super(i, major);
-		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		decorator.clearSettlements();
 		decorator.addSettlement(new GOTStructureSummerSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);

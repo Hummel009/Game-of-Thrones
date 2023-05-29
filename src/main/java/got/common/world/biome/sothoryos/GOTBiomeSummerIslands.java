@@ -25,7 +25,6 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 		addBiomeVariant(GOTBiomeVariant.FOREST_LIGHT);
 		addBiomeVariant(GOTBiomeVariant.HILLS);
 		addBiomeVariant(GOTBiomeVariant.HILLS_FOREST);
-		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		decorator.treesPerChunk = 1;
 		decorator.clearSettlements();
 		decorator.addSettlement(new GOTStructureSummerSettlement(this, 1.0f));

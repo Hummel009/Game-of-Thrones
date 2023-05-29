@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 	public GOTBiomeGhiscarColony(int i, boolean major) {
 		super(i, major);
-		setUnreliableChance(GOTEventSpawner.EventChance.COMMON);
 		decorator.treesPerChunk = 1;
 		decorator.clearSettlements();
 		decorator.addSettlement(new GOTStructureGhiscarSettlement(this, 1.0f).setIsColony());
