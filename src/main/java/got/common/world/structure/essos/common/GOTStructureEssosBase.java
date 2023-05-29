@@ -495,7 +495,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					doorBlock = GOTBlocks.doorDatePalm;
 					trapdoorBlock = GOTBlocks.trapdoorDatePalm;
 					break;
-				case 2:
+				default:
 					woodBlock = GOTBlocks.wood8;
 					woodMeta = 3;
 					plankBlock = GOTBlocks.planks3;
@@ -510,8 +510,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 					woodBeamMeta = 3;
 					doorBlock = GOTBlocks.doorPalm;
 					trapdoorBlock = GOTBlocks.trapdoorPalm;
-					break;
-				default:
 					break;
 			}
 		}

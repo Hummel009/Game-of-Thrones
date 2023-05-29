@@ -337,42 +337,18 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return this;
 	}
 
+	public boolean hasSandstone() {
+		return kingdom == Kingdom.DORNE;
+	}
+
+	public boolean hasGranite() {
+		return kingdom == Kingdom.CROWNLANDS_RED;
+	}
+
 	@Override
 	public void setupRandomBlocks(Random random) {
-		bannerType = getBanner();
-		tableBlock = getTable();
-		brickBlock = GOTBlocks.brick1;
-		brickMeta = 1;
-		brickSlabBlock = GOTBlocks.slabSingle1;
-		brickSlabMeta = 3;
-		brickStairBlock = GOTBlocks.stairsAndesiteBrick;
-		brickWallBlock = GOTBlocks.wallStone1;
-		pillarMeta = 6;
-		rockMeta = 1;
-		rockSlabBlock = GOTBlocks.slabSingle1;
-		rockSlabDoubleBlock = GOTBlocks.slabDouble1;
-		rockSlabDoubleMeta = 2;
-		rockSlabMeta = 2;
-		rockWallBlock = GOTBlocks.wallStone1;
-		rockBlock = GOTBlocks.rock;
-		rockStairBlock = GOTBlocks.stairsAndesite;
-		rockWallMeta = 2;
-		brickWallMeta = 3;
-		brickMossyBlock = GOTBlocks.brick1;
-		brickMossyMeta = 2;
-		brickMossySlabBlock = GOTBlocks.slabSingle1;
-		brickMossySlabMeta = 4;
-		brickMossyStairBlock = GOTBlocks.stairsAndesiteBrickMossy;
-		brickMossyWallBlock = GOTBlocks.wallStone1;
-		brickMossyWallMeta = 4;
-		brickCrackedBlock = GOTBlocks.brick1;
-		brickCrackedMeta = 3;
-		brickCrackedSlabBlock = GOTBlocks.slabSingle1;
-		brickCrackedSlabMeta = 5;
-		brickCrackedStairBlock = GOTBlocks.stairsAndesiteBrickCracked;
-		brickCrackedWallBlock = GOTBlocks.wallStone1;
-		brickCrackedWallMeta = 5;
-		pillarBlock = GOTBlocks.pillar1;
+		barsBlock = Blocks.iron_bars;
+		bedBlock = GOTBlocks.strawBed;
 		brick2Block = GOTBlocks.brick2;
 		brick2Meta = 11;
 		brick2SlabBlock = GOTBlocks.slabSingle5;
@@ -380,52 +356,49 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		brick2StairBlock = GOTBlocks.stairsBasaltWesterosBrick;
 		brick2WallBlock = GOTBlocks.wallStone2;
 		brick2WallMeta = 10;
-		pillar2Block = GOTBlocks.pillar1;
-		pillar2Meta = 9;
 		cobbleBlock = Blocks.cobblestone;
 		cobbleMeta = 0;
 		cobbleSlabBlock = Blocks.stone_slab;
 		cobbleSlabMeta = 3;
 		cobbleStairBlock = Blocks.stone_stairs;
-		brickCarved = GOTBlocks.brick1;
-		brickCarvedMeta = 5;
-		if (kingdom == Kingdom.CROWNLANDS_RED) {
-			brickBlock = GOTBlocks.brick2;
-			brickMeta = 2;
-			brickSlabBlock = GOTBlocks.slabSingle3;
-			brickSlabMeta = 6;
-			brickStairBlock = GOTBlocks.stairsGraniteBrick;
-			brickWallBlock = GOTBlocks.wallStone2;
-			pillarMeta = 4;
-			rockMeta = 4;
-			rockSlabBlock = GOTBlocks.slabSingle3;
-			rockSlabDoubleBlock = GOTBlocks.smoothStone;
-			rockSlabDoubleMeta = 4;
-			rockSlabMeta = 6;
-			rockWallBlock = GOTBlocks.wallStone2;
+		gateBlock = GOTBlocks.gateWesteros;
+		pillar2Block = GOTBlocks.pillar1;
+		pillar2Meta = 9;
+		pillarBlock = GOTBlocks.pillar1;
+		plateBlock = GOTBlocks.ceramicPlateBlock;
+		rockWallBlock = GOTBlocks.wallStone1;
+		rockWallMeta = 2;
+		roofBlock = GOTBlocks.thatch;
+		roofMeta = 0;
+		roofSlabBlock = GOTBlocks.slabSingleThatch;
+		roofSlabMeta = 0;
+		roofStairBlock = GOTBlocks.stairsThatch;
+		bannerType = getBanner();
+		tableBlock = getTable();
+		if (hasSandstone()) {
+			brickBlock = GOTBlocks.brick1;
 			brickCarved = GOTBlocks.brick3;
-			brickCarvedMeta = 1;
-		}
-		if (kingdom == Kingdom.DORNE) {
+			brickCarvedMeta = 8;
+			brickCrackedBlock = GOTBlocks.brick1;
 			brickCrackedMeta = 15;
 			brickCrackedSlabBlock = GOTBlocks.slabSingle4;
 			brickCrackedSlabMeta = 0;
 			brickCrackedStairBlock = GOTBlocks.stairsSandstoneBrick;
+			brickCrackedWallBlock = GOTBlocks.wallStone1;
 			brickCrackedWallMeta = 15;
 			brickMeta = 15;
+			brickMossyBlock = GOTBlocks.brick1;
 			brickMossyMeta = 15;
 			brickMossySlabBlock = GOTBlocks.slabSingle4;
 			brickMossySlabMeta = 0;
 			brickMossyStairBlock = GOTBlocks.stairsSandstoneBrick;
+			brickMossyWallBlock = GOTBlocks.wallStone1;
 			brickMossyWallMeta = 15;
 			brickSlabBlock = GOTBlocks.slabSingle4;
 			brickSlabMeta = 0;
-			brickStairBlock = GOTBlocks.stairsSandstoneBrick;
-			brickWallMeta = 15;
-			cobbleBlock = Blocks.sandstone;
-			cobbleSlabBlock = GOTBlocks.slabSingle7;
-			cobbleSlabMeta = 2;
-			cobbleStairBlock = Blocks.sandstone_stairs;
+			brickStairBlock = GOTBlocks.stairsAndesiteBrick;
+			brickWallBlock = GOTBlocks.wallStone1;
+			brickWallMeta = 3;
 			pillarMeta = 5;
 			rockBlock = Blocks.sandstone;
 			rockMeta = 0;
@@ -434,13 +407,72 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 			rockSlabDoubleMeta = 15;
 			rockSlabMeta = 0;
 			rockStairBlock = GOTBlocks.stairsSandstoneBrickRed;
-			rockWallBlock = GOTBlocks.wallStoneV;
-			rockWallMeta = 4;
+		} else if (hasGranite()) {
+			brickBlock = GOTBlocks.brick2;
 			brickCarved = GOTBlocks.brick3;
-			brickCarvedMeta = 8;
+			brickCarvedMeta = 1;
+			brickCrackedBlock = GOTBlocks.brick1;
+			brickCrackedMeta = 3;
+			brickCrackedSlabBlock = GOTBlocks.slabSingle1;
+			brickCrackedSlabMeta = 5;
+			brickCrackedStairBlock = GOTBlocks.stairsAndesiteBrickCracked;
+			brickCrackedWallBlock = GOTBlocks.wallStone1;
+			brickCrackedWallMeta = 5;
+			brickMeta = 2;
+			brickMossyBlock = GOTBlocks.brick1;
+			brickMossyMeta = 2;
+			brickMossySlabBlock = GOTBlocks.slabSingle1;
+			brickMossySlabMeta = 4;
+			brickMossyStairBlock = GOTBlocks.stairsAndesiteBrickMossy;
+			brickMossyWallBlock = GOTBlocks.wallStone1;
+			brickMossyWallMeta = 4;
+			brickSlabBlock = GOTBlocks.slabSingle3;
+			brickSlabMeta = 6;
+			brickStairBlock = GOTBlocks.stairsGraniteBrick;
+			brickWallBlock = GOTBlocks.wallStone2;
+			brickWallMeta = 3;
+			pillarMeta = 4;
+			rockBlock = GOTBlocks.rock;
+			rockMeta = 4;
+			rockSlabBlock = GOTBlocks.slabSingle3;
+			rockSlabDoubleBlock = GOTBlocks.smoothStone;
+			rockSlabDoubleMeta = 4;
+			rockSlabMeta = 6;
+			rockStairBlock = GOTBlocks.stairsAndesite;
+		} else {
+			brickBlock = GOTBlocks.brick1;
+			brickCarved = GOTBlocks.brick1;
+			brickCarvedMeta = 5;
+			brickCrackedBlock = GOTBlocks.brick1;
+			brickCrackedMeta = 3;
+			brickCrackedSlabBlock = GOTBlocks.slabSingle1;
+			brickCrackedSlabMeta = 5;
+			brickCrackedStairBlock = GOTBlocks.stairsAndesiteBrickCracked;
+			brickCrackedWallBlock = GOTBlocks.wallStone1;
+			brickCrackedWallMeta = 5;
+			brickMeta = 1;
+			brickMossyBlock = GOTBlocks.brick1;
+			brickMossyMeta = 2;
+			brickMossySlabBlock = GOTBlocks.slabSingle1;
+			brickMossySlabMeta = 4;
+			brickMossyStairBlock = GOTBlocks.stairsAndesiteBrickMossy;
+			brickMossyWallBlock = GOTBlocks.wallStone1;
+			brickMossyWallMeta = 4;
+			brickSlabBlock = GOTBlocks.slabSingle1;
+			brickSlabMeta = 3;
+			brickStairBlock = GOTBlocks.stairsAndesiteBrick;
+			brickWallBlock = GOTBlocks.wallStone1;
+			brickWallMeta = 3;
+			pillarMeta = 6;
+			rockBlock = GOTBlocks.rock;
+			rockMeta = 1;
+			rockSlabBlock = GOTBlocks.slabSingle1;
+			rockSlabDoubleBlock = GOTBlocks.slabDouble1;
+			rockSlabDoubleMeta = 2;
+			rockSlabMeta = 2;
+			rockStairBlock = GOTBlocks.stairsAndesite;
 		}
-		int randomWood = random.nextInt(7);
-		switch (randomWood) {
+		switch (random.nextInt(7)) {
 			case 0:
 				plankBlock = GOTBlocks.planks1;
 				plankMeta = 9;
@@ -514,22 +546,12 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 			wallBlock = plankBlock;
 			wallMeta = plankMeta;
 		}
-		roofBlock = GOTBlocks.thatch;
-		roofMeta = 0;
-		roofSlabBlock = GOTBlocks.slabSingleThatch;
-		roofSlabMeta = 0;
-		roofStairBlock = GOTBlocks.stairsThatch;
-		barsBlock = Blocks.iron_bars;
-		bedBlock = GOTBlocks.strawBed;
-		gateBlock = GOTBlocks.gateWesteros;
-		plateBlock = GOTBlocks.ceramicPlateBlock;
 		if (random.nextBoolean()) {
 			cropBlock = Blocks.wheat;
 			cropMeta = 7;
 			seedItem = Items.wheat_seeds;
 		} else {
-			int randomCrop = random.nextInt(6);
-			switch (randomCrop) {
+			switch (random.nextInt(6)) {
 				case 0:
 					cropBlock = Blocks.carrots;
 					cropMeta = 7;
@@ -555,7 +577,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 					cropMeta = 7;
 					seedItem = GOTItems.leek;
 					break;
-				case 5:
+				default:
 					cropBlock = GOTBlocks.turnipCrop;
 					cropMeta = 7;
 					seedItem = GOTItems.turnip;
