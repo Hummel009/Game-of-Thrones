@@ -34,6 +34,9 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 			setResistance(5.0f);
 			setStepSound(Block.soundTypeWood);
 		}
+		if (flag) {
+			setCreativeTab(null);
+		}
 	}
 
 	public static void registerSlabs(Block block, Block block1) {

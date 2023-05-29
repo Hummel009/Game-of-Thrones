@@ -30,7 +30,6 @@ import net.minecraft.block.BlockPressurePlate;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemLeaves;
 
@@ -1866,13 +1865,13 @@ public class GOTBlocks {
 		GOTBlockSlabBase.registerSlabs(slabSingle3, slabDouble3);
 		GOTBlockSlabBase.registerSlabs(slabSingle4, slabDouble4);
 		GOTBlockSlabBase.registerSlabs(slabSingle5, slabDouble5);
+		GOTBlockSlabBase.registerSlabs(slabSingle6, slabDouble6);
 		GOTBlockSlabBase.registerSlabs(slabSingle7, slabDouble7);
 		GOTBlockSlabBase.registerSlabs(slabSingle8, slabDouble8);
 		GOTBlockSlabBase.registerSlabs(slabSingle9, slabDouble9);
 		GOTBlockSlabBase.registerSlabs(slabSingle10, slabDouble10);
 		GOTBlockSlabBase.registerSlabs(slabSingle11, slabDouble11);
 		GOTBlockSlabBase.registerSlabs(slabSingle12, slabDouble12);
-		GOTBlockSlabBase.registerSlabs(slabSingle6, slabDouble6);
 		GOTBlockSlabBase.registerSlabs(slabSingleV, slabDoubleV);
 		GOTBlockSlabBase.registerSlabs(scorchedSlabSingle, scorchedSlabDouble);
 		GOTBlockSlabBase.registerSlabs(slabClayTileSingle, slabClayTileDouble);
@@ -1893,21 +1892,8 @@ public class GOTBlocks {
 		GOTBlockFallenLeaves.assignLeaves(fallenLeaves2, leaves1, fruitLeaves, leaves2, leaves3);
 		GOTBlockFallenLeaves.assignLeaves(fallenLeaves3, leaves4, leaves5, leaves6, leaves7);
 		GOTBlockFallenLeaves.assignLeaves(fallenLeaves4, leaves8, leaves9);
-		slabDouble1.setCreativeTab(null);
-		slabDouble2.setCreativeTab(null);
-		slabDouble3.setCreativeTab(null);
-		slabDouble4.setCreativeTab(null);
-		slabDouble5.setCreativeTab(null);
-		slabDouble7.setCreativeTab(null);
-		slabDouble7.setCreativeTab(null);
-		slabDouble8.setCreativeTab(null);
-		slabDouble9.setCreativeTab(null);
-		slabDouble10.setCreativeTab(null);
-		slabDouble11.setCreativeTab(null);
-		slabDouble12.setCreativeTab(null);
-		slabDouble6.setCreativeTab(null);
 
-		for (Block block : GOTBlocks.CONTENT) {
+		for (Block block : CONTENT) {
 			if (block instanceof GOTBlockWoodBase) {
 				Blocks.fire.setFireInfo(block, 5, 5);
 			}
@@ -1930,6 +1916,7 @@ public class GOTBlocks {
 				Blocks.fire.setFireInfo(block, 60, 100);
 			}
 		}
+
 		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
 		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
 		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);
