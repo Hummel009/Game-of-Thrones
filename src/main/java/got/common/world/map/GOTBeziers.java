@@ -296,8 +296,8 @@ public class GOTBeziers {
 	public static void registerHiddenRoad(int id, Object... waypoints) {
 		ArrayList<BezierPoint> points = new ArrayList<>();
 		for (Object obj : waypoints) {
-			if (obj instanceof GOTWaypoint) {
-				GOTWaypoint wp = (GOTWaypoint) obj;
+			if (obj instanceof GOTAbstractWaypoint) {
+				GOTAbstractWaypoint wp = (GOTAbstractWaypoint) obj;
 				points.add(new BezierPoint(wp.getXCoord(), wp.getZCoord(), true, false));
 			} else if (obj instanceof double[]) {
 				double[] coords = (double[]) obj;
@@ -336,8 +336,8 @@ public class GOTBeziers {
 	public static void registerWall(int id, Object... waypoints) {
 		ArrayList<BezierPoint> points = new ArrayList<>();
 		for (Object obj : waypoints) {
-			if (obj instanceof GOTWaypoint) {
-				GOTWaypoint wp = (GOTWaypoint) obj;
+			if (obj instanceof GOTAbstractWaypoint) {
+				GOTAbstractWaypoint wp = (GOTAbstractWaypoint) obj;
 				points.add(new BezierPoint(wp.getXCoord(), wp.getZCoord(), true, true));
 			} else if (obj instanceof double[]) {
 				double[] coords = (double[]) obj;
