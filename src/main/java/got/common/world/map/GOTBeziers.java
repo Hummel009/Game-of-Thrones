@@ -155,7 +155,7 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.Jinqi, near(GOTWaypoint.Jinqi, -1, 0));
 		registerRoad(id++, GOTWaypoint.Jinqi, new int[]{3620, 2347}, new int[]{3621, 2315}, new int[]{3634, 2281});
 		registerRoad(id++, GOTWaypoint.Jinqi, new int[]{3753, 2449}, new int[]{3810, 2630}, near(GOTWaypoint.Asshai, 0, -1));
-		registerRoad(id++, GOTWaypoint.KingsLanding, near(GOTWaypoint.KingsLanding, 1, 0));
+		registerRoad(id++, GOTWaypoint.KingsLanding, near(GOTWaypoint.KingsLanding, 2, 0));
 		registerRoad(id++, GOTWaypoint.KingsLanding, near(GOTWaypoint.KingsLanding, 5, 28));
 		registerRoad(id++, GOTWaypoint.Kingsgrave, near(GOTWaypoint.Kingsgrave, -1, 0));
 		registerRoad(id++, GOTWaypoint.Kosrak, near(GOTWaypoint.Kosrak, 1, 0));

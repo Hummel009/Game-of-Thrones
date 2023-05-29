@@ -407,7 +407,9 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 				if (treepiece) {
 					addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
 				} else {
-					addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
+					if (houseZ != 0 && isKingsLanding) {
+						addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
+					}
 				}
 				if (Math.abs(k1) >= 2 && k1 <= 2) {
 					if (treepiece) {
@@ -461,6 +463,9 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 				addStructure(new GOTStructureWesterosTownBench(false), 10, k1, 3, true);
 			}
 			addStructure(new GOTStructureCrownlandsGatehouse(false), 0, 84, 2, true);
+			if (isKingsLanding) {
+				addStructure(new GOTStructureCrownlandsGatehouse(false), 0, -84, 0, true);
+			}
 			addStructure(new GOTStructureWesterosLampPost(false), -4, 73, 0, true);
 			addStructure(new GOTStructureWesterosLampPost(false), 4, 73, 0, true);
 			int towerX = 78;

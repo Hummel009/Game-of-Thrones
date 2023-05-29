@@ -429,7 +429,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		pillar2Meta = 9;
 		bannerType = getBanner();
 		tableBlock = getTable();
-		gateBlock = GOTBlocks.gateIronBars;
+		gateBlock = GOTBlocks.gateWesteros;
 		if (hasSandstone()) {
 			brickBlock = GOTBlocks.brick1;
 			brickCarved = GOTBlocks.brick3;
