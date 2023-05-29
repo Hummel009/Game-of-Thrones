@@ -136,66 +136,6 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructurePentosHouse(false);
 		}
 
-		public GOTStructureEssosVillageSign getSignpost(Random random) {
-			return new GOTStructureEssosVillageSign(false);
-		}
-
-		public GOTStructureBase getSmithy(Random random) {
-			return new GOTStructurePentosSmithy(false);
-		}
-
-		public GOTStructureBase getStables(Random random) {
-			return new GOTStructurePentosStables(false);
-		}
-
-		public GOTStructureBase getStatue(Random random) {
-			return new GOTStructurePentosStatue(false);
-		}
-
-		public GOTStructureBase getTavern(Random random) {
-			return new GOTStructurePentosTavern(false);
-		}
-
-		public GOTStructureBase getTower(Random random) {
-			return new GOTStructurePentosTower(false);
-		}
-
-		public GOTStructurePentosTownGate getTownGate(Random random) {
-			return new GOTStructurePentosTownGate(false);
-		}
-
-		public GOTStructureBase getTownWallCorner(Random random) {
-			return new GOTStructurePentosTownCorner(false);
-		}
-
-		public GOTStructureBase getTownWallExtra(Random random) {
-			return new GOTStructurePentosTownWall.Extra(false);
-		}
-
-		public GOTStructureBase getTownWallLong(Random random) {
-			return new GOTStructurePentosTownWall.Long(false);
-		}
-
-		public GOTStructureBase getTownWallShort(Random random) {
-			return new GOTStructurePentosTownWall.Short(false);
-		}
-
-		public GOTStructureBase getTownWallSideMid(Random random) {
-			return new GOTStructurePentosTownWall.SideMid(false);
-		}
-
-		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructurePentosTraining(false);
-		}
-
-		public GOTStructureBase getTree(Random random) {
-			return new GOTStructurePentosTownTree(false);
-		}
-
-		public GOTStructureBase getWell(Random random) {
-			return new GOTStructurePentosWell(false);
-		}
-
 		@Override
 		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			Block block = world.getBlock(i, j, k);
@@ -252,10 +192,10 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructurePentosFortress(false), 0, -15, 0, true);
 			addStructure(new GOTStructurePentosBarracks(false), -33, -8, 0, true);
 			addStructure(new GOTStructurePentosBarracks(false), 32, -8, 0, true);
-			addStructure(getTower(random), -43, -36, 2, true);
-			addStructure(getTower(random), 43, -36, 2, true);
-			addStructure(getTower(random), -43, 36, 0, true);
-			addStructure(getTower(random), 43, 36, 0, true);
+			addStructure(new GOTStructurePentosTower(false), -43, -36, 2, true);
+			addStructure(new GOTStructurePentosTower(false), 43, -36, 2, true);
+			addStructure(new GOTStructurePentosTower(false), -43, 36, 0, true);
+			addStructure(new GOTStructurePentosTower(false), 43, 36, 0, true);
 			for (l = 0; l <= 2; ++l) {
 				i = 10 + l * 11;
 				k = -28;
@@ -263,9 +203,9 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 				addStructure(getRandomFarm(random), i, k, r);
 				addStructure(getRandomFarm(random), -i, k, r);
 			}
-			addStructure(getTraining(random), 0, 27, 0, true);
-			addStructure(getStables(random), -29, 33, 3, true);
-			addStructure(getStables(random), 29, 37, 1, true);
+			addStructure(new GOTStructurePentosTraining(false), 0, 27, 0, true);
+			addStructure(new GOTStructurePentosStables(false), -29, 33, 3, true);
+			addStructure(new GOTStructurePentosStables(false), 29, 37, 1, true);
 			addStructure(new GOTStructurePentosFortGate(false), 0, -47, 0, true);
 			for (l = 0; l <= 9; ++l) {
 				i = 8 + l * 4;
@@ -328,8 +268,8 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructurePentosLamp(false), -13, -2, 0, true);
 			addStructure(new GOTStructurePentosLamp(false), 15, 18, 0, true);
 			addStructure(new GOTStructurePentosLamp(false), -13, 18, 0, true);
-			addStructure(getWell(random), -16, 12, 1, true);
-			addStructure(getWell(random), -16, 4, 1, true);
+			addStructure(new GOTStructurePentosWell(false), -16, 12, 1, true);
+			addStructure(new GOTStructurePentosWell(false), -16, 4, 1, true);
 			addStructure(new GOTStructurePentosTownFlowers(false), 18, 13, 3, true);
 			addStructure(new GOTStructurePentosTownFlowers(false), 18, 3, 3, true);
 			for (l = 0; l <= 3; ++l) {
@@ -344,23 +284,23 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructurePentosMansion(false), i, k, r, true);
 				addStructure(new GOTStructurePentosLamp(false), i - 6, k + 1, r, true);
 			}
-			addStructure(getSmithy(random), -25, 9, 1, true);
+			addStructure(new GOTStructurePentosSmithy(false), -25, 9, 1, true);
 			addStructure(new GOTStructurePentosHouse(false), -25, 18, 1, true);
 			addStructure(new GOTStructurePentosHouse(false), -25, -2, 1, true);
-			addStructure(getTree(random), -45, 8, 1, true);
+			addStructure(new GOTStructurePentosTownTree(false), -45, 8, 1, true);
 			addStructure(new GOTStructurePentosHouse(false), -50, 18, 3, true);
 			addStructure(new GOTStructurePentosHouse(false), -50, -2, 3, true);
-			addStructure(getWell(random), -51, -14, 2, true);
-			addStructure(getTree(random), -46, -29, 2, true);
+			addStructure(new GOTStructurePentosWell(false), -51, -14, 2, true);
+			addStructure(new GOTStructurePentosTownTree(false), -46, -29, 2, true);
 			addStructure(new GOTStructurePentosTownFlowers(false), -42, -32, 3, true);
-			addStructure(getTree(random), -50, 30, 0, true);
+			addStructure(new GOTStructurePentosTownTree(false), -50, 30, 0, true);
 			for (l = -3; l <= 3; ++l) {
 				i = -56;
 				k = -2 + l * 10;
 				r = 1;
 				addStructure(new GOTStructurePentosHouse(false), i, k, r, true);
 			}
-			addStructure(getStatue(random), 26, 8, 3, true);
+			addStructure(new GOTStructurePentosStatue(false), 26, 8, 3, true);
 			addStructure(new GOTStructurePentosHouse(false), 26, 18, 3, true);
 			addStructure(new GOTStructurePentosHouse(false), 26, -2, 3, true);
 			for (l = -3; l <= 2; ++l) {
@@ -369,20 +309,20 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 				r = 1;
 				addStructure(new GOTStructurePentosHouse(false), i, k, r, true);
 			}
-			addStructure(getSmithy(random), 41, -33, 3, true);
+			addStructure(new GOTStructurePentosSmithy(false), 41, -33, 3, true);
 			for (l = -2; l <= 2; ++l) {
 				i = 65;
 				k = 3 + l * 14;
 				r = 2;
 				addStructure(new GOTStructurePentosHouse(false), i, k, r, true);
 			}
-			addStructure(getWell(random), 57, -19, 2, true);
+			addStructure(new GOTStructurePentosWell(false), 57, -19, 2, true);
 			addStructure(new GOTStructurePentosLamp(false), 57, -16, 2, true);
 			addStructure(new GOTStructurePentosLamp(false), 57, -8, 2, true);
-			addStructure(getTree(random), 57, 1, 2, true);
+			addStructure(new GOTStructurePentosTownTree(false), 57, 1, 2, true);
 			addStructure(new GOTStructurePentosLamp(false), 57, 4, 2, true);
 			addStructure(new GOTStructurePentosLamp(false), 57, 12, 2, true);
-			addStructure(getTree(random), 57, 21, 2, true);
+			addStructure(new GOTStructurePentosTownTree(false), 57, 21, 2, true);
 			addStructure(new GOTStructurePentosLamp(false), 57, 24, 2, true);
 			addStructure(new GOTStructurePentosLamp(false), 57, 32, 2, true);
 			for (l = 0; l <= 3; ++l) {
@@ -391,69 +331,69 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 				r = 0;
 				addStructure(new GOTStructurePentosTownFlowers(false), i, k, r, true);
 			}
-			addStructure(getTree(random), 34, 25, 0, true);
-			addStructure(getStables(random), -20, -30, 1, true);
-			addStructure(getTavern(random), 17, -32, 1, true);
+			addStructure(new GOTStructurePentosTownTree(false), 34, 25, 0, true);
+			addStructure(new GOTStructurePentosStables(false), -20, -30, 1, true);
+			addStructure(new GOTStructurePentosTavern(false), 17, -32, 1, true);
 			addStructure(new GOTStructurePentosLamp(false), 19, -28, 1, true);
 			addStructure(new GOTStructurePentosLamp(false), 19, -36, 1, true);
 			addStructure(new GOTStructurePentosLamp(false), -16, -32, 3, true);
 			addStructure(new GOTStructurePentosTownFlowers(false), 25, -32, 3, true);
-			addStructure(getTree(random), 34, -29, 2, true);
+			addStructure(new GOTStructurePentosTownTree(false), 34, -29, 2, true);
 			addStructure(new GOTStructurePentosLamp(false), 34, -26, 2, true);
 			addStructure(new GOTStructurePentosLamp(false), 34, -18, 2, true);
-			addStructure(getTree(random), 34, -9, 2, true);
-			addStructure(getTownGate(random), 34, -47, 0, true);
-			addStructure(getTownWallCorner(random), 73, -47, 0, true);
-			addStructure(getTownWallCorner(random), -77, -43, 3, true);
-			addStructure(getTownWallCorner(random), -73, 47, 2, true);
-			addStructure(getTownWallCorner(random), 77, 43, 1, true);
+			addStructure(new GOTStructurePentosTownTree(false), 34, -9, 2, true);
+			addStructure(new GOTStructurePentosTownGate(false), 34, -47, 0, true);
+			addStructure(new GOTStructurePentosTownCorner(false), 73, -47, 0, true);
+			addStructure(new GOTStructurePentosTownCorner(false), -77, -43, 3, true);
+			addStructure(new GOTStructurePentosTownCorner(false), -73, 47, 2, true);
+			addStructure(new GOTStructurePentosTownCorner(false), 77, 43, 1, true);
 			for (l = 0; l <= 6; ++l) {
 				i = 68 - l * 4;
 				k = -44;
 				r = 0;
 				if (l % 2 == 0) {
-					addStructure(getTownWallShort(random), i, k, r, true);
+					addStructure(new GOTStructurePentosTownWall.Short(false), i, k, r, true);
 					continue;
 				}
-				addStructure(getTownWallLong(random), i, k, r, true);
+				addStructure(new GOTStructurePentosTownWall.Long(false), i, k, r, true);
 			}
-			addStructure(getTownWallExtra(random), 24, -44, 0, true);
+			addStructure(new GOTStructurePentosTownWall.Extra(false), 24, -44, 0, true);
 			for (l = 0; l <= 22; ++l) {
 				i = 20 - l * 4;
 				k = -44;
 				r = 0;
 				if (l % 2 == 0) {
-					addStructure(getTownWallShort(random), i, k, r, true);
+					addStructure(new GOTStructurePentosTownWall.Short(false), i, k, r, true);
 					continue;
 				}
-				addStructure(getTownWallLong(random), i, k, r, true);
+				addStructure(new GOTStructurePentosTownWall.Long(false), i, k, r, true);
 			}
-			addStructure(getTownWallSideMid(random), 74, 0, 1, true);
-			addStructure(getTownWallSideMid(random), -74, 0, 3, true);
+			addStructure(new GOTStructurePentosTownWall.SideMid(false), 74, 0, 1, true);
+			addStructure(new GOTStructurePentosTownWall.SideMid(false), -74, 0, 3, true);
 			for (l = 1; l <= 9; ++l) {
 				i = 74;
 				k = 2 + l * 4;
 				if (l % 2 == 1) {
-					addStructure(getTownWallShort(random), i, k, 1, true);
-					addStructure(getTownWallShort(random), i, -k, 1, true);
-					addStructure(getTownWallShort(random), -i, k, 3, true);
-					addStructure(getTownWallShort(random), -i, -k, 3, true);
+					addStructure(new GOTStructurePentosTownWall.Short(false), i, k, 1, true);
+					addStructure(new GOTStructurePentosTownWall.Short(false), i, -k, 1, true);
+					addStructure(new GOTStructurePentosTownWall.Short(false), -i, k, 3, true);
+					addStructure(new GOTStructurePentosTownWall.Short(false), -i, -k, 3, true);
 					continue;
 				}
-				addStructure(getTownWallLong(random), i, k, 1, true);
-				addStructure(getTownWallLong(random), i, -k, 1, true);
-				addStructure(getTownWallLong(random), -i, k, 3, true);
-				addStructure(getTownWallLong(random), -i, -k, 3, true);
+				addStructure(new GOTStructurePentosTownWall.Long(false), i, k, 1, true);
+				addStructure(new GOTStructurePentosTownWall.Long(false), i, -k, 1, true);
+				addStructure(new GOTStructurePentosTownWall.Long(false), -i, k, 3, true);
+				addStructure(new GOTStructurePentosTownWall.Long(false), -i, -k, 3, true);
 			}
 			for (l = -17; l <= 17; ++l) {
 				i = l * 4;
 				k = 44;
 				r = 2;
 				if (IntMath.mod(l, 2) == 1) {
-					addStructure(getTownWallShort(random), i, k, r, true);
+					addStructure(new GOTStructurePentosTownWall.Short(false), i, k, r, true);
 					continue;
 				}
-				addStructure(getTownWallLong(random), i, k, r, true);
+				addStructure(new GOTStructurePentosTownWall.Long(false), i, k, r, true);
 			}
 		}
 
@@ -478,9 +418,9 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(64);
 				}
 			}, 0, 0, 0);
-			addStructure(getWell(random), 0, -2, 0, true);
+			addStructure(new GOTStructurePentosWell(false), 0, -2, 0, true);
 			int rSquareEdge = 17;
-			addStructure(getTavern(random), 0, rSquareEdge, 0, true);
+			addStructure(new GOTStructurePentosTavern(false), 0, rSquareEdge, 0, true);
 			addStructure(new GOTStructurePentosMansion(false), -3, -rSquareEdge, 2, true);
 			addStructure(new GOTStructurePentosMansion(false), -rSquareEdge, 3, 1, true);
 			addStructure(new GOTStructurePentosMansion(false), rSquareEdge, -3, 3, true);

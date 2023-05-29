@@ -134,66 +134,6 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			return new GOTStructureVolantisHouse(false);
 		}
 
-		public GOTStructureEssosVillageSign getSignpost(Random random) {
-			return new GOTStructureEssosVillageSign(false);
-		}
-
-		public GOTStructureBase getSmithy(Random random) {
-			return new GOTStructureVolantisSmithy(false);
-		}
-
-		public GOTStructureBase getStables(Random random) {
-			return new GOTStructureVolantisStables(false);
-		}
-
-		public GOTStructureBase getStatue(Random random) {
-			return new GOTStructureVolantisStatue(false);
-		}
-
-		public GOTStructureBase getTavern(Random random) {
-			return new GOTStructureVolantisTavern(false);
-		}
-
-		public GOTStructureBase getTower(Random random) {
-			return new GOTStructureVolantisTower(false);
-		}
-
-		public GOTStructureVolantisTownGate getTownGate(Random random) {
-			return new GOTStructureVolantisTownGate(false);
-		}
-
-		public GOTStructureBase getTownWallCorner(Random random) {
-			return new GOTStructureVolantisTownCorner(false);
-		}
-
-		public GOTStructureBase getTownWallExtra(Random random) {
-			return new GOTStructureVolantisTownWall.Extra(false);
-		}
-
-		public GOTStructureBase getTownWallLong(Random random) {
-			return new GOTStructureVolantisTownWall.Long(false);
-		}
-
-		public GOTStructureBase getTownWallShort(Random random) {
-			return new GOTStructureVolantisTownWall.Short(false);
-		}
-
-		public GOTStructureBase getTownWallSideMid(Random random) {
-			return new GOTStructureVolantisTownWall.SideMid(false);
-		}
-
-		public GOTStructureBase getTraining(Random random) {
-			return new GOTStructureVolantisTraining(false);
-		}
-
-		public GOTStructureBase getTree(Random random) {
-			return new GOTStructureVolantisTownTree(false);
-		}
-
-		public GOTStructureBase getWell(Random random) {
-			return new GOTStructureVolantisWell(false);
-		}
-
 		@Override
 		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			return false;
@@ -248,10 +188,10 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureVolantisFortress(false), 0, -15, 0, true);
 			addStructure(new GOTStructureVolantisBarracks(false), -33, -8, 0, true);
 			addStructure(new GOTStructureVolantisBarracks(false), 32, -8, 0, true);
-			addStructure(getTower(random), -43, -36, 2, true);
-			addStructure(getTower(random), 43, -36, 2, true);
-			addStructure(getTower(random), -43, 36, 0, true);
-			addStructure(getTower(random), 43, 36, 0, true);
+			addStructure(new GOTStructureVolantisTower(false), -43, -36, 2, true);
+			addStructure(new GOTStructureVolantisTower(false), 43, -36, 2, true);
+			addStructure(new GOTStructureVolantisTower(false), -43, 36, 0, true);
+			addStructure(new GOTStructureVolantisTower(false), 43, 36, 0, true);
 			for (l = 0; l <= 2; ++l) {
 				i = 10 + l * 11;
 				k = -28;
@@ -259,9 +199,9 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 				addStructure(getRandomFarm(random), i, k, r);
 				addStructure(getRandomFarm(random), -i, k, r);
 			}
-			addStructure(getTraining(random), 0, 27, 0, true);
-			addStructure(getStables(random), -29, 33, 3, true);
-			addStructure(getStables(random), 29, 37, 1, true);
+			addStructure(new GOTStructureVolantisTraining(false), 0, 27, 0, true);
+			addStructure(new GOTStructureVolantisStables(false), -29, 33, 3, true);
+			addStructure(new GOTStructureVolantisStables(false), 29, 37, 1, true);
 			addStructure(new GOTStructureVolantisFortGate(false), 0, -47, 0, true);
 			for (l = 0; l <= 9; ++l) {
 				i = 8 + l * 4;
@@ -324,8 +264,8 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureVolantisLamp(false), -13, -2, 0, true);
 			addStructure(new GOTStructureVolantisLamp(false), 15, 18, 0, true);
 			addStructure(new GOTStructureVolantisLamp(false), -13, 18, 0, true);
-			addStructure(getWell(random), -16, 12, 1, true);
-			addStructure(getWell(random), -16, 4, 1, true);
+			addStructure(new GOTStructureVolantisWell(false), -16, 12, 1, true);
+			addStructure(new GOTStructureVolantisWell(false), -16, 4, 1, true);
 			addStructure(new GOTStructureVolantisTownFlowers(false), 18, 13, 3, true);
 			addStructure(new GOTStructureVolantisTownFlowers(false), 18, 3, 3, true);
 			for (l = 0; l <= 3; ++l) {
@@ -340,23 +280,23 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureVolantisMansion(false), i, k, r, true);
 				addStructure(new GOTStructureVolantisLamp(false), i - 6, k + 1, r, true);
 			}
-			addStructure(getSmithy(random), -25, 9, 1, true);
+			addStructure(new GOTStructureVolantisSmithy(false), -25, 9, 1, true);
 			addStructure(new GOTStructureVolantisHouse(false), -25, 18, 1, true);
 			addStructure(new GOTStructureVolantisHouse(false), -25, -2, 1, true);
-			addStructure(getTree(random), -45, 8, 1, true);
+			addStructure(new GOTStructureVolantisTownTree(false), -45, 8, 1, true);
 			addStructure(new GOTStructureVolantisHouse(false), -50, 18, 3, true);
 			addStructure(new GOTStructureVolantisHouse(false), -50, -2, 3, true);
-			addStructure(getWell(random), -51, -14, 2, true);
-			addStructure(getTree(random), -46, -29, 2, true);
+			addStructure(new GOTStructureVolantisWell(false), -51, -14, 2, true);
+			addStructure(new GOTStructureVolantisTownTree(false), -46, -29, 2, true);
 			addStructure(new GOTStructureVolantisTownFlowers(false), -42, -32, 3, true);
-			addStructure(getTree(random), -50, 30, 0, true);
+			addStructure(new GOTStructureVolantisTownTree(false), -50, 30, 0, true);
 			for (l = -3; l <= 3; ++l) {
 				i = -56;
 				k = -2 + l * 10;
 				r = 1;
 				addStructure(new GOTStructureVolantisHouse(false), i, k, r, true);
 			}
-			addStructure(getStatue(random), 26, 8, 3, true);
+			addStructure(new GOTStructureVolantisStatue(false), 26, 8, 3, true);
 			addStructure(new GOTStructureVolantisHouse(false), 26, 18, 3, true);
 			addStructure(new GOTStructureVolantisHouse(false), 26, -2, 3, true);
 			for (l = -3; l <= 2; ++l) {
@@ -365,20 +305,20 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 				r = 1;
 				addStructure(new GOTStructureVolantisHouse(false), i, k, r, true);
 			}
-			addStructure(getSmithy(random), 41, -33, 3, true);
+			addStructure(new GOTStructureVolantisSmithy(false), 41, -33, 3, true);
 			for (l = -2; l <= 2; ++l) {
 				i = 65;
 				k = 3 + l * 14;
 				r = 2;
 				addStructure(new GOTStructureVolantisHouse(false), i, k, r, true);
 			}
-			addStructure(getWell(random), 57, -19, 2, true);
+			addStructure(new GOTStructureVolantisWell(false), 57, -19, 2, true);
 			addStructure(new GOTStructureVolantisLamp(false), 57, -16, 2, true);
 			addStructure(new GOTStructureVolantisLamp(false), 57, -8, 2, true);
-			addStructure(getTree(random), 57, 1, 2, true);
+			addStructure(new GOTStructureVolantisTownTree(false), 57, 1, 2, true);
 			addStructure(new GOTStructureVolantisLamp(false), 57, 4, 2, true);
 			addStructure(new GOTStructureVolantisLamp(false), 57, 12, 2, true);
-			addStructure(getTree(random), 57, 21, 2, true);
+			addStructure(new GOTStructureVolantisTownTree(false), 57, 21, 2, true);
 			addStructure(new GOTStructureVolantisLamp(false), 57, 24, 2, true);
 			addStructure(new GOTStructureVolantisLamp(false), 57, 32, 2, true);
 			for (l = 0; l <= 3; ++l) {
@@ -387,69 +327,69 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 				r = 0;
 				addStructure(new GOTStructureVolantisTownFlowers(false), i, k, r, true);
 			}
-			addStructure(getTree(random), 34, 25, 0, true);
-			addStructure(getStables(random), -20, -30, 1, true);
-			addStructure(getTavern(random), 17, -32, 1, true);
+			addStructure(new GOTStructureVolantisTownTree(false), 34, 25, 0, true);
+			addStructure(new GOTStructureVolantisStables(false), -20, -30, 1, true);
+			addStructure(new GOTStructureVolantisTavern(false), 17, -32, 1, true);
 			addStructure(new GOTStructureVolantisLamp(false), 19, -28, 1, true);
 			addStructure(new GOTStructureVolantisLamp(false), 19, -36, 1, true);
 			addStructure(new GOTStructureVolantisLamp(false), -16, -32, 3, true);
 			addStructure(new GOTStructureVolantisTownFlowers(false), 25, -32, 3, true);
-			addStructure(getTree(random), 34, -29, 2, true);
+			addStructure(new GOTStructureVolantisTownTree(false), 34, -29, 2, true);
 			addStructure(new GOTStructureVolantisLamp(false), 34, -26, 2, true);
 			addStructure(new GOTStructureVolantisLamp(false), 34, -18, 2, true);
-			addStructure(getTree(random), 34, -9, 2, true);
-			addStructure(getTownGate(random), 34, -47, 0, true);
-			addStructure(getTownWallCorner(random), 73, -47, 0, true);
-			addStructure(getTownWallCorner(random), -77, -43, 3, true);
-			addStructure(getTownWallCorner(random), -73, 47, 2, true);
-			addStructure(getTownWallCorner(random), 77, 43, 1, true);
+			addStructure(new GOTStructureVolantisTownTree(false), 34, -9, 2, true);
+			addStructure(new GOTStructureVolantisTownGate(false), 34, -47, 0, true);
+			addStructure(new GOTStructureVolantisTownCorner(false), 73, -47, 0, true);
+			addStructure(new GOTStructureVolantisTownCorner(false), -77, -43, 3, true);
+			addStructure(new GOTStructureVolantisTownCorner(false), -73, 47, 2, true);
+			addStructure(new GOTStructureVolantisTownCorner(false), 77, 43, 1, true);
 			for (l = 0; l <= 6; ++l) {
 				i = 68 - l * 4;
 				k = -44;
 				r = 0;
 				if (l % 2 == 0) {
-					addStructure(getTownWallShort(random), i, k, r, true);
+					addStructure(new GOTStructureVolantisTownWall.Short(false), i, k, r, true);
 					continue;
 				}
-				addStructure(getTownWallLong(random), i, k, r, true);
+				addStructure(new GOTStructureVolantisTownWall.Long(false), i, k, r, true);
 			}
-			addStructure(getTownWallExtra(random), 24, -44, 0, true);
+			addStructure(new GOTStructureVolantisTownWall.Extra(false), 24, -44, 0, true);
 			for (l = 0; l <= 22; ++l) {
 				i = 20 - l * 4;
 				k = -44;
 				r = 0;
 				if (l % 2 == 0) {
-					addStructure(getTownWallShort(random), i, k, r, true);
+					addStructure(new GOTStructureVolantisTownWall.Short(false), i, k, r, true);
 					continue;
 				}
-				addStructure(getTownWallLong(random), i, k, r, true);
+				addStructure(new GOTStructureVolantisTownWall.Long(false), i, k, r, true);
 			}
-			addStructure(getTownWallSideMid(random), 74, 0, 1, true);
-			addStructure(getTownWallSideMid(random), -74, 0, 3, true);
+			addStructure(new GOTStructureVolantisTownWall.SideMid(false), 74, 0, 1, true);
+			addStructure(new GOTStructureVolantisTownWall.SideMid(false), -74, 0, 3, true);
 			for (l = 1; l <= 9; ++l) {
 				i = 74;
 				k = 2 + l * 4;
 				if (l % 2 == 1) {
-					addStructure(getTownWallShort(random), i, k, 1, true);
-					addStructure(getTownWallShort(random), i, -k, 1, true);
-					addStructure(getTownWallShort(random), -i, k, 3, true);
-					addStructure(getTownWallShort(random), -i, -k, 3, true);
+					addStructure(new GOTStructureVolantisTownWall.Short(false), i, k, 1, true);
+					addStructure(new GOTStructureVolantisTownWall.Short(false), i, -k, 1, true);
+					addStructure(new GOTStructureVolantisTownWall.Short(false), -i, k, 3, true);
+					addStructure(new GOTStructureVolantisTownWall.Short(false), -i, -k, 3, true);
 					continue;
 				}
-				addStructure(getTownWallLong(random), i, k, 1, true);
-				addStructure(getTownWallLong(random), i, -k, 1, true);
-				addStructure(getTownWallLong(random), -i, k, 3, true);
-				addStructure(getTownWallLong(random), -i, -k, 3, true);
+				addStructure(new GOTStructureVolantisTownWall.Long(false), i, k, 1, true);
+				addStructure(new GOTStructureVolantisTownWall.Long(false), i, -k, 1, true);
+				addStructure(new GOTStructureVolantisTownWall.Long(false), -i, k, 3, true);
+				addStructure(new GOTStructureVolantisTownWall.Long(false), -i, -k, 3, true);
 			}
 			for (l = -17; l <= 17; ++l) {
 				i = l * 4;
 				k = 44;
 				r = 2;
 				if (IntMath.mod(l, 2) == 1) {
-					addStructure(getTownWallShort(random), i, k, r, true);
+					addStructure(new GOTStructureVolantisTownWall.Short(false), i, k, r, true);
 					continue;
 				}
-				addStructure(getTownWallLong(random), i, k, r, true);
+				addStructure(new GOTStructureVolantisTownWall.Long(false), i, k, r, true);
 			}
 		}
 
@@ -474,9 +414,9 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(64);
 				}
 			}, 0, 0, 0);
-			addStructure(getWell(random), 0, -2, 0, true);
+			addStructure(new GOTStructureVolantisWell(false), 0, -2, 0, true);
 			int rSquareEdge = 17;
-			addStructure(getTavern(random), 0, rSquareEdge, 0, true);
+			addStructure(new GOTStructureVolantisTavern(false), 0, rSquareEdge, 0, true);
 			addStructure(new GOTStructureVolantisMansion(false), -3, -rSquareEdge, 2, true);
 			addStructure(new GOTStructureVolantisMansion(false), -rSquareEdge, 3, 1, true);
 			addStructure(new GOTStructureVolantisMansion(false), rSquareEdge, -3, 3, true);
