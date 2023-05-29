@@ -11,10 +11,10 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTGuiRendererMap {
 	public static ResourceLocation vignetteTexture = new ResourceLocation("textures/misc/vignette.png");
-	public float prevMapX;
-	public float mapX;
-	public float prevMapY;
-	public float mapY;
+	public double prevMapX;
+	public double mapX;
+	public double prevMapY;
+	public double mapY;
 	public float zoomExp;
 	public float zoomStable;
 	public boolean sepia;
@@ -28,9 +28,9 @@ public class GOTGuiRendererMap {
 		int oceanColor = GOTTextures.getMapOceanColor(sepia);
 		Gui.drawRect(x0, y0, x1, y1, oceanColor);
 		float zoom = (float) Math.pow(2.0, zoomExp);
-		float mapPosX = prevMapX + (mapX - prevMapX) * f;
-		float mapPosY = prevMapY + (mapY - prevMapY) * f;
-		mapGui.setFakeMapProperties(mapPosX, mapPosY, zoom, zoomExp, zoomStable);
+		double mapPosX = prevMapX + (mapX - prevMapX) * f;
+		double mapPosY = prevMapY + (mapY - prevMapY) * f;
+		mapGui.setFakeMapProperties((float) mapPosX, (float) mapPosY, zoom, zoomExp, zoomStable);
 		int[] statics = GOTGuiMap.setFakeStaticProperties(x1 - x0, y1 - y0, x0, x1, y0, y1);
 		mapGui.enableZoomOutWPFading = false;
 		mapGui.renderMapAndOverlay(sepia, 1.0f, true);

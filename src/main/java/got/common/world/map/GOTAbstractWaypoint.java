@@ -14,11 +14,11 @@ public interface GOTAbstractWaypoint {
 
 	String getLoreText(EntityPlayer var1);
 
-	int getX();
+	double getX();
 
 	int getXCoord();
 
-	int getY();
+	double getY();
 
 	int getYCoord(World var1, int var2, int var3);
 

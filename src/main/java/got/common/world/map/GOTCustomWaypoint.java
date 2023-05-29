@@ -259,7 +259,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getX() {
+	public double getX() {
 		return mapX;
 	}
 
@@ -269,7 +269,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getY() {
+	public double getY() {
 		return mapY;
 	}
 

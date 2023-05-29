@@ -6,11 +6,11 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiLabel;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.renderer.OpenGlHelper;
+import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
@@ -99,7 +99,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, fadeIn ? MathHelper.clamp_float(1.0f - fade, 0.0f, 1.0f) : 0.0f);
 		mc.getTextureManager().bindTexture(menuOverlay);
-		Gui.func_152125_a(0, 0, 0.0f, 0.0f, 16, 128, width, height, 16.0f, 128.0f);
+		func_152125_a(0, 0, 0.0f, 0.0f, 16, 128, width, height, 16.0f, 128.0f);
 		int fadeAlphaI = MathHelper.ceiling_float_int(fadeAlpha * 255.0f) << 24;
 		if ((fadeAlphaI & 0xFC000000) != 0) {
 			int short1 = 274;
@@ -129,7 +129,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			int field_92020_v = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92020_v");
 			int field_92019_w = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92019_w");
 			if (field_92025_p != null && field_92025_p.length() > 0) {
-				Gui.drawRect(field_92022_t - 2, field_92021_u - 2, field_92020_v + 2, field_92019_w - 1, 1428160512);
+				drawRect(field_92022_t - 2, field_92021_u - 2, field_92020_v + 2, field_92019_w - 1, 1428160512);
 				drawString(fontRendererObj, field_92025_p, field_92022_t, field_92021_u, -1);
 				drawString(fontRendererObj, field_146972_A, (width - field_92024_r) / 2, buttonList.get(0).yPosition - 12, -1);
 			}
@@ -178,10 +178,10 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		++tickCounter;
 		mapRenderer.updateTick();
 		GOTWaypoint wp = waypointRoute.get(currentWPIndex);
-		float dx = wp.getX() - mapRenderer.mapX;
-		float dy = wp.getY() - mapRenderer.mapY;
-		float distSq = dx * dx + dy * dy;
-		float dist = (float) Math.sqrt(distSq);
+		double dx = wp.getX() - mapRenderer.mapX;
+		double dy = wp.getY() - mapRenderer.mapY;
+		double distSq = dx * dx + dy * dy;
+		double dist = Math.sqrt(distSq);
 		if (dist <= 12.0f) {
 			++currentWPIndex;
 			if (currentWPIndex >= waypointRoute.size()) {
@@ -190,11 +190,11 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		} else {
 			mapSpeed += 0.01f;
 			mapSpeed = Math.min(mapSpeed, 0.8f);
-			float vXNew = dx / dist * mapSpeed;
-			float vYNew = dy / dist * mapSpeed;
+			double vXNew = dx / dist * mapSpeed;
+			double vYNew = dy / dist * mapSpeed;
 			float a = 0.02f;
-			mapVelX += (vXNew - mapVelX) * a;
-			mapVelY += (vYNew - mapVelY) * a;
+			mapVelX = (float) (mapVelX + (vXNew - mapVelX) * a);
+			mapVelY = (float) (mapVelY + (vYNew - mapVelY) * a);
 		}
 		mapRenderer.mapX += mapVelX;
 		mapRenderer.mapY += mapVelY;

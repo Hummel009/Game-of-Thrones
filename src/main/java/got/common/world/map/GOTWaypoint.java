@@ -20,8 +20,8 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 
 	public Region region;
 	public GOTFaction faction;
-	public int imgX;
-	public int imgY;
+	public double imgX;
+	public double imgY;
 	public int pseudoX;
 	public int pseudoY;
 	public int xCoord;
@@ -147,7 +147,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getX() {
+	public double getX() {
 		return imgX;
 	}
 
@@ -157,7 +157,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getY() {
+	public double getY() {
 		return imgY;
 	}
 

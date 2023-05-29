@@ -7,7 +7,6 @@ import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.PositionedSoundRecord;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.ResourceLocation;
@@ -24,6 +23,8 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 	public static float mapSpeedIncr = 0.01f;
 	public static float mapAccel = 0.2f;
 	public static float wpReachedDistance = 1.0f;
+	public float zoomBase;
+	public double mapScaleFactor;
 	public GOTGuiMap mapGui;
 	public GOTGuiRendererMap mapRenderer;
 	public int tickCounter;
@@ -33,14 +34,12 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 	public String message;
 	public boolean chunkLoaded;
 	public boolean playedSound;
-	public float zoomBase;
-	public float mapScaleFactor;
 	public float currentZoom;
 	public float prevZoom;
 	public boolean finishedZoomIn;
-	public float mapSpeed;
-	public float mapVelX;
-	public float mapVelY;
+	public double mapSpeed;
+	public double mapVelX;
+	public double mapVelY;
 	public boolean reachedWP;
 
 	public GOTGuiFastTravel(GOTAbstractWaypoint waypoint, int x, int z) {
@@ -53,12 +52,12 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		mapRenderer.setSepia(true);
 		mapRenderer.mapX = GOTWaypoint.worldToMapX(startX);
 		mapRenderer.mapY = GOTWaypoint.worldToMapZ(startZ);
-		float dx = theWaypoint.getX() - mapRenderer.mapX;
-		float dy = theWaypoint.getY() - mapRenderer.mapY;
-		float distSq = dx * dx + dy * dy;
-		float dist = (float) Math.sqrt(distSq);
-		mapScaleFactor = dist / 100.0f;
-		zoomBase = -((float) (Math.log(mapScaleFactor * 0.3f) / Math.log(2.0)));
+		double dx = theWaypoint.getX() - mapRenderer.mapX;
+		double dy = theWaypoint.getY() - mapRenderer.mapY;
+		double distSq = dx * dx + dy * dy;
+		double dist = Math.sqrt(distSq);
+		mapScaleFactor = dist / 100.0;
+		zoomBase = -((float) (Math.log(mapScaleFactor * 0.30000001192092896) / Math.log(2.0)));
 		currentZoom = prevZoom = zoomBase + 0.5f;
 	}
 
@@ -81,12 +80,12 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		int fh = fontRendererObj.FONT_HEIGHT;
 		int border = fh * 2;
 		if (chunkLoaded) {
-			Gui.drawRect(0, 0, width, border + fh * 3 + border, boxColor);
+			drawRect(0, 0, width, border + fh * 3 + border, boxColor);
 		} else {
-			Gui.drawRect(0, 0, width, border + fh + border, boxColor);
+			drawRect(0, 0, width, border + fh + border, boxColor);
 		}
 		int messageY = height - border - messageLines.size() * fh;
-		Gui.drawRect(0, messageY - border, width, height, boxColor);
+		drawRect(0, messageY - border, width, height, boxColor);
 		GL11.glDisable(3042);
 		fontRendererObj.drawStringWithShadow(title + titleExtra, width / 2 - fontRendererObj.getStringWidth(title) / 2, border, 16777215);
 		for (String obj : messageLines) {
@@ -129,21 +128,21 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		++tickCounter;
 		prevZoom = currentZoom;
 		if (!reachedWP) {
-			float dy;
-			float dx = theWaypoint.getX() - mapRenderer.mapX;
-			float distSq = dx * dx + (dy = theWaypoint.getY() - mapRenderer.mapY) * dy;
-			float dist = (float) Math.sqrt(distSq);
+			double dy;
+			double dx = theWaypoint.getX() - mapRenderer.mapX;
+			double distSq = dx * dx + (dy = theWaypoint.getY() - mapRenderer.mapY) * dy;
+			double dist = Math.sqrt(distSq);
 			if (dist <= mapScaleFactor) {
 				reachedWP = true;
-				mapSpeed = 0.0f;
-				mapVelX = 0.0f;
-				mapVelY = 0.0f;
+				mapSpeed = 0.0;
+				mapVelX = 0.0;
+				mapVelY = 0.0;
 			} else {
-				mapSpeed += 0.01f;
-				mapSpeed = Math.min(mapSpeed, 2.0f);
-				float vXNew = dx / dist * mapSpeed;
-				float vYNew = dy / dist * mapSpeed;
-				float a = 0.2f;
+				mapSpeed += 0.009999999776482582;
+				mapSpeed = Math.min(mapSpeed, 2.0);
+				double vXNew = dx / dist * mapSpeed;
+				double vYNew = dy / dist * mapSpeed;
+				double a = 0.20000000298023224;
 				mapVelX += (vXNew - mapVelX) * a;
 				mapVelY += (vYNew - mapVelY) * a;
 			}
@@ -163,3 +162,4 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		}
 	}
 }
+

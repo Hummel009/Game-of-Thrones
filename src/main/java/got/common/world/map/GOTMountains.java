@@ -10,11 +10,11 @@ public enum GOTMountains {
 	public int range;
 	public int lavaRange;
 
-	GOTMountains(float x, float z, float h, int r) {
+	GOTMountains(double x, double z, float h, int r) {
 		this(x, z, h, r, 0);
 	}
 
-	GOTMountains(float x, float z, float h, int r, int l) {
+	GOTMountains(double x, double z, float h, int r, int l) {
 		xCoord = GOTWaypoint.mapToWorldX(x);
 		zCoord = GOTWaypoint.mapToWorldZ(z);
 		height = h;

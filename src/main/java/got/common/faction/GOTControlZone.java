@@ -3,8 +3,8 @@ package got.common.faction;
 import got.common.world.map.GOTWaypoint;
 
 public class GOTControlZone {
-	public int mapX;
-	public int mapY;
+	public double mapX;
+	public double mapY;
 	public int radius;
 	public int xCoord;
 	public int zCoord;
@@ -15,7 +15,7 @@ public class GOTControlZone {
 		this(wp.getX(), wp.getY(), r);
 	}
 
-	public GOTControlZone(int x, int y, int r) {
+	public GOTControlZone(double x, double y, int r) {
 		mapX = x;
 		mapY = y;
 		radius = r;
