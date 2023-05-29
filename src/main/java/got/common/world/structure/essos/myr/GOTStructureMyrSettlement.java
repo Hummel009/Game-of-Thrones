@@ -65,50 +65,6 @@ public class GOTStructureMyrSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		public GOTStructureBase getBarracks(Random random) {
-			return new GOTStructureMyrBarracks(false);
-		}
-
-		public GOTStructureBase getBazaar(Random random) {
-			return new GOTStructureMyrBazaar(false);
-		}
-
-		public GOTStructureBase getFlowers(Random random) {
-			return new GOTStructureMyrTownFlowers(false);
-		}
-
-		public GOTStructureBase getFortCorner(Random random) {
-			return new GOTStructureMyrFortCorner(false);
-		}
-
-		public GOTStructureBase getFortGate(Random random) {
-			return new GOTStructureMyrFortGate(false);
-		}
-
-		public GOTStructureBase getFortress(Random random) {
-			return new GOTStructureMyrFortress(false);
-		}
-
-		public GOTStructureBase getFortWallLong(Random random) {
-			return new GOTStructureMyrFortWall.Long(false);
-		}
-
-		public GOTStructureBase getFortWallShort(Random random) {
-			return new GOTStructureMyrFortWall.Short(false);
-		}
-
-		public GOTStructureBase getHouse(Random random) {
-			return new GOTStructureMyrHouse(false);
-		}
-
-		public GOTStructureBase getLamp(Random random) {
-			return new GOTStructureMyrLamp(false);
-		}
-
-		public GOTStructureBase getMansion(Random random) {
-			return new GOTStructureMyrMansion(false);
-		}
-
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
@@ -293,9 +249,9 @@ public class GOTStructureMyrSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 			placeChampionRespawner();
-			addStructure(getFortress(random), 0, -15, 0, true);
-			addStructure(getBarracks(random), -33, -8, 0, true);
-			addStructure(getBarracks(random), 32, -8, 0, true);
+			addStructure(new GOTStructureMyrFortress(false), 0, -15, 0, true);
+			addStructure(new GOTStructureMyrBarracks(false), -33, -8, 0, true);
+			addStructure(new GOTStructureMyrBarracks(false), 32, -8, 0, true);
 			addStructure(getTower(random), -43, -36, 2, true);
 			addStructure(getTower(random), 43, -36, 2, true);
 			addStructure(getTower(random), -43, 36, 0, true);
@@ -310,32 +266,32 @@ public class GOTStructureMyrSettlement extends GOTStructureBaseSettlement {
 			addStructure(getTraining(random), 0, 27, 0, true);
 			addStructure(getStables(random), -29, 33, 3, true);
 			addStructure(getStables(random), 29, 37, 1, true);
-			addStructure(getFortGate(random), 0, -47, 0, true);
+			addStructure(new GOTStructureMyrFortGate(false), 0, -47, 0, true);
 			for (l = 0; l <= 9; ++l) {
 				i = 8 + l * 4;
 				k = -46;
 				r = 0;
-				addStructure(getFortWallLong(random), -i, k, r, true);
-				addStructure(getFortWallLong(random), i, k, r, true);
+				addStructure(new GOTStructureMyrFortWall.Long(false), -i, k, r, true);
+				addStructure(new GOTStructureMyrFortWall.Long(false), i, k, r, true);
 			}
 			for (l = -11; l <= 11; ++l) {
 				i = l * 4;
 				k = 46;
 				r = 2;
-				addStructure(getFortWallLong(random), i, k, r, true);
+				addStructure(new GOTStructureMyrFortWall.Long(false), i, k, r, true);
 			}
 			for (l = -10; l <= 10; ++l) {
 				i = -50;
 				k = l * 4;
 				r = 3;
-				addStructure(getFortWallLong(random), i, k, r, true);
+				addStructure(new GOTStructureMyrFortWall.Long(false), i, k, r, true);
 				r = 1;
-				addStructure(getFortWallLong(random), -i, k, r, true);
+				addStructure(new GOTStructureMyrFortWall.Long(false), -i, k, r, true);
 			}
-			addStructure(getFortCorner(random), -50, -46, 0, true);
-			addStructure(getFortCorner(random), 50, -46, 1, true);
-			addStructure(getFortCorner(random), -50, 46, 3, true);
-			addStructure(getFortCorner(random), 50, 46, 2, true);
+			addStructure(new GOTStructureMyrFortCorner(false), -50, -46, 0, true);
+			addStructure(new GOTStructureMyrFortCorner(false), 50, -46, 1, true);
+			addStructure(new GOTStructureMyrFortCorner(false), -50, 46, 3, true);
+			addStructure(new GOTStructureMyrFortCorner(false), 50, 46, 2, true);
 		}
 
 		public void setupTown(Random random) {
@@ -367,84 +323,84 @@ public class GOTStructureMyrSettlement extends GOTStructureBaseSettlement {
 					}, i1, k1, 0);
 				}
 			}
-			addStructure(getBazaar(random), 1, -2, 0, true);
-			addStructure(getLamp(random), 15, -2, 0, true);
-			addStructure(getLamp(random), -13, -2, 0, true);
-			addStructure(getLamp(random), 15, 18, 0, true);
-			addStructure(getLamp(random), -13, 18, 0, true);
+			addStructure(new GOTStructureMyrBazaar(false), 1, -2, 0, true);
+			addStructure(new GOTStructureMyrLamp(false), 15, -2, 0, true);
+			addStructure(new GOTStructureMyrLamp(false), -13, -2, 0, true);
+			addStructure(new GOTStructureMyrLamp(false), 15, 18, 0, true);
+			addStructure(new GOTStructureMyrLamp(false), -13, 18, 0, true);
 			addStructure(getWell(random), -16, 12, 1, true);
 			addStructure(getWell(random), -16, 4, 1, true);
-			addStructure(getFlowers(random), 18, 13, 3, true);
-			addStructure(getFlowers(random), 18, 3, 3, true);
+			addStructure(new GOTStructureMyrTownFlowers(false), 18, 13, 3, true);
+			addStructure(new GOTStructureMyrTownFlowers(false), 18, 3, 3, true);
 			for (l = 0; l <= 3; ++l) {
 				i = -41 + l * 19;
 				k = -7;
 				r = 2;
-				addStructure(getMansion(random), i, k, r, true);
-				addStructure(getLamp(random), i + 6, k - 1, r, true);
+				addStructure(new GOTStructureMyrMansion(false), i, k, r, true);
+				addStructure(new GOTStructureMyrLamp(false), i + 6, k - 1, r, true);
 				i = 24 - l * 19;
 				k = 23;
 				r = 0;
-				addStructure(getMansion(random), i, k, r, true);
-				addStructure(getLamp(random), i - 6, k + 1, r, true);
+				addStructure(new GOTStructureMyrMansion(false), i, k, r, true);
+				addStructure(new GOTStructureMyrLamp(false), i - 6, k + 1, r, true);
 			}
 			addStructure(getSmithy(random), -25, 9, 1, true);
-			addStructure(getHouse(random), -25, 18, 1, true);
-			addStructure(getHouse(random), -25, -2, 1, true);
+			addStructure(new GOTStructureMyrHouse(false), -25, 18, 1, true);
+			addStructure(new GOTStructureMyrHouse(false), -25, -2, 1, true);
 			addStructure(getTree(random), -45, 8, 1, true);
-			addStructure(getHouse(random), -50, 18, 3, true);
-			addStructure(getHouse(random), -50, -2, 3, true);
+			addStructure(new GOTStructureMyrHouse(false), -50, 18, 3, true);
+			addStructure(new GOTStructureMyrHouse(false), -50, -2, 3, true);
 			addStructure(getWell(random), -51, -14, 2, true);
 			addStructure(getTree(random), -46, -29, 2, true);
-			addStructure(getFlowers(random), -42, -32, 3, true);
+			addStructure(new GOTStructureMyrTownFlowers(false), -42, -32, 3, true);
 			addStructure(getTree(random), -50, 30, 0, true);
 			for (l = -3; l <= 3; ++l) {
 				i = -56;
 				k = -2 + l * 10;
 				r = 1;
-				addStructure(getHouse(random), i, k, r, true);
+				addStructure(new GOTStructureMyrHouse(false), i, k, r, true);
 			}
 			addStructure(getStatue(random), 26, 8, 3, true);
-			addStructure(getHouse(random), 26, 18, 3, true);
-			addStructure(getHouse(random), 26, -2, 3, true);
+			addStructure(new GOTStructureMyrHouse(false), 26, 18, 3, true);
+			addStructure(new GOTStructureMyrHouse(false), 26, -2, 3, true);
 			for (l = -3; l <= 2; ++l) {
 				i = 52;
 				k = 8 + l * 10;
 				r = 1;
-				addStructure(getHouse(random), i, k, r, true);
+				addStructure(new GOTStructureMyrHouse(false), i, k, r, true);
 			}
 			addStructure(getSmithy(random), 41, -33, 3, true);
 			for (l = -2; l <= 2; ++l) {
 				i = 65;
 				k = 3 + l * 14;
 				r = 2;
-				addStructure(getHouse(random), i, k, r, true);
+				addStructure(new GOTStructureMyrHouse(false), i, k, r, true);
 			}
 			addStructure(getWell(random), 57, -19, 2, true);
-			addStructure(getLamp(random), 57, -16, 2, true);
-			addStructure(getLamp(random), 57, -8, 2, true);
+			addStructure(new GOTStructureMyrLamp(false), 57, -16, 2, true);
+			addStructure(new GOTStructureMyrLamp(false), 57, -8, 2, true);
 			addStructure(getTree(random), 57, 1, 2, true);
-			addStructure(getLamp(random), 57, 4, 2, true);
-			addStructure(getLamp(random), 57, 12, 2, true);
+			addStructure(new GOTStructureMyrLamp(false), 57, 4, 2, true);
+			addStructure(new GOTStructureMyrLamp(false), 57, 12, 2, true);
 			addStructure(getTree(random), 57, 21, 2, true);
-			addStructure(getLamp(random), 57, 24, 2, true);
-			addStructure(getLamp(random), 57, 32, 2, true);
+			addStructure(new GOTStructureMyrLamp(false), 57, 24, 2, true);
+			addStructure(new GOTStructureMyrLamp(false), 57, 32, 2, true);
 			for (l = 0; l <= 3; ++l) {
 				i = 41 + l * 8;
 				k = 34;
 				r = 0;
-				addStructure(getFlowers(random), i, k, r, true);
+				addStructure(new GOTStructureMyrTownFlowers(false), i, k, r, true);
 			}
 			addStructure(getTree(random), 34, 25, 0, true);
 			addStructure(getStables(random), -20, -30, 1, true);
 			addStructure(getTavern(random), 17, -32, 1, true);
-			addStructure(getLamp(random), 19, -28, 1, true);
-			addStructure(getLamp(random), 19, -36, 1, true);
-			addStructure(getLamp(random), -16, -32, 3, true);
-			addStructure(getFlowers(random), 25, -32, 3, true);
+			addStructure(new GOTStructureMyrLamp(false), 19, -28, 1, true);
+			addStructure(new GOTStructureMyrLamp(false), 19, -36, 1, true);
+			addStructure(new GOTStructureMyrLamp(false), -16, -32, 3, true);
+			addStructure(new GOTStructureMyrTownFlowers(false), 25, -32, 3, true);
 			addStructure(getTree(random), 34, -29, 2, true);
-			addStructure(getLamp(random), 34, -26, 2, true);
-			addStructure(getLamp(random), 34, -18, 2, true);
+			addStructure(new GOTStructureMyrLamp(false), 34, -26, 2, true);
+			addStructure(new GOTStructureMyrLamp(false), 34, -18, 2, true);
 			addStructure(getTree(random), 34, -9, 2, true);
 			addStructure(getTownGate(random), 34, -47, 0, true);
 			addStructure(getTownWallCorner(random), 73, -47, 0, true);
@@ -525,9 +481,9 @@ public class GOTStructureMyrSettlement extends GOTStructureBaseSettlement {
 			addStructure(getWell(random), 0, -2, 0, true);
 			int rSquareEdge = 17;
 			addStructure(getTavern(random), 0, rSquareEdge, 0, true);
-			addStructure(getMansion(random), -3, -rSquareEdge, 2, true);
-			addStructure(getMansion(random), -rSquareEdge, 3, 1, true);
-			addStructure(getMansion(random), rSquareEdge, -3, 3, true);
+			addStructure(new GOTStructureMyrMansion(false), -3, -rSquareEdge, 2, true);
+			addStructure(new GOTStructureMyrMansion(false), -rSquareEdge, 3, 1, true);
+			addStructure(new GOTStructureMyrMansion(false), rSquareEdge, -3, 3, true);
 			int backFenceX = 0;
 			int backFenceZ = rSquareEdge + 19;
 			int backFenceWidth = 12;
