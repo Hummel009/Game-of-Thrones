@@ -4,20 +4,20 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTWaypointInfo implements GOTAbstractWaypoint {
-	public double imgX;
-	public double imgY;
+	public double shiftedX;
+	public double shiftedY;
 	public int rotation;
 	public int xCoord;
 	public int zCoord;
 	public GOTWaypoint waypoint;
 
 	public GOTWaypointInfo(GOTWaypoint waypoint, double shiftedX, double shiftedY, int rotation) {
-		imgX = shiftedX;
-		imgY = shiftedY;
-		xCoord = GOTWaypoint.mapToWorldX(imgX);
-		zCoord = GOTWaypoint.mapToWorldZ(imgY);
+		this.shiftedX = shiftedX;
+		this.shiftedY = shiftedY;
 		this.waypoint = waypoint;
 		this.rotation = rotation;
+		xCoord = GOTWaypoint.mapToWorldX(this.shiftedX);
+		zCoord = GOTWaypoint.mapToWorldZ(this.shiftedY);
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class GOTWaypointInfo implements GOTAbstractWaypoint {
 
 	@Override
 	public double getX() {
-		return imgX;
+		return shiftedX;
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class GOTWaypointInfo implements GOTAbstractWaypoint {
 
 	@Override
 	public double getY() {
-		return imgY;
+		return shiftedY;
 	}
 
 	@Override

@@ -252,18 +252,6 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.Qarkash, GOTWaypoint.Qarkash.info(0.413, 1));
 		registerRoad(id++, GOTWaypoint.Qarth, GOTWaypoint.Qarth.info(0.413, 1));
 
-		registerRoad(id++, GOTWaypoint.Hornoth, GOTWaypoint.Hornoth.info(0.5, 0));
-		registerRoad(id++, GOTWaypoint.VaesLeqse, GOTWaypoint.VaesLeqse.info(0.5, 0));
-		registerRoad(id++, GOTWaypoint.Kyth, GOTWaypoint.Kyth.info(0.5, 0));
-		registerRoad(id++, GOTWaypoint.Sathar, GOTWaypoint.Sathar.info(0.5, 0));
-		registerRoad(id++, GOTWaypoint.Rathylar, GOTWaypoint.Rathylar.info(0, -0.5));
-		registerRoad(id++, GOTWaypoint.VaesAthjikhari, GOTWaypoint.VaesAthjikhari.info(0, -0.5));
-		registerRoad(id++, GOTWaypoint.VaesGorqoyi, GOTWaypoint.VaesGorqoyi.info(0, -0.5));
-		registerRoad(id++, GOTWaypoint.VaesJini, GOTWaypoint.VaesJini.info(0, -0.5));
-		registerRoad(id++, GOTWaypoint.VaesKhadokh, GOTWaypoint.VaesKhadokh.info(0, -0.5));
-		registerRoad(id++, GOTWaypoint.VaesKhewo, GOTWaypoint.VaesKhewo.info(0, -0.5));
-		registerRoad(id++, GOTWaypoint.VaesMejhah, GOTWaypoint.VaesMejhah.info(0, -0.5));
-
 		registerRoad(id++, GOTWaypoint.Zamettar, new double[]{2150, 2793}, GOTWaypoint.Yeen);
 		registerRoad(id++, GOTWaypoint.BlackPool.info(-1, 0), GOTWaypoint.BlackPool.info(1, 0));
 		registerRoad(id++, GOTWaypoint.BlackPool.info(1, 0), GOTWaypoint.RamsGate.info(-1, 0));

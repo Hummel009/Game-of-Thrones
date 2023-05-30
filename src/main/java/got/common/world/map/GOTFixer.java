@@ -104,7 +104,7 @@ public class GOTFixer {
 		f[12] = new GOTStructureDorneSettlement(biome, 0.0f).setIsTown();
 		f[12].affix(GOTWaypoint.GhastonGrey, GOTWaypoint.PlankyTown, GOTWaypoint.Sunspear);
 		f[13] = new GOTStructureDothrakiSettlement(biome, 0.0f).setIsBig();
-		f[13].affix(GOTWaypoint.Hornoth.info(1, 0, 0), GOTWaypoint.Kyth.info(1, 0, 0), GOTWaypoint.Sathar.info(1, 0, 0), GOTWaypoint.Rathylar.info(0, -1, 0), GOTWaypoint.VaesAthjikhari.info(0, -1, 0), GOTWaypoint.VaesDiaf, GOTWaypoint.VaesDothrak, GOTWaypoint.VaesEfe, GOTWaypoint.VaesGorqoyi.info(0, -1, 0), GOTWaypoint.VaesGraddakh, GOTWaypoint.VaesJini.info(0, -1, 0), GOTWaypoint.VaesKhadokh.info(0, -1, 0), GOTWaypoint.VaesKhewo.info(0, -1, 0), GOTWaypoint.VaesLeqse.info(1, 0, 0), GOTWaypoint.VaesMejhah.info(0, -1, 0));
+		f[13].affix(GOTWaypoint.Hornoth.info(0.5, 0, 0), GOTWaypoint.Kyth.info(0.5, 0, 0), GOTWaypoint.Sathar.info(0.5, 0, 0), GOTWaypoint.Rathylar.info(0, -0.5, 0), GOTWaypoint.VaesAthjikhari.info(0, -0.5, 0), GOTWaypoint.VaesDiaf, GOTWaypoint.VaesDothrak, GOTWaypoint.VaesEfe, GOTWaypoint.VaesGorqoyi.info(0, -0.5, 0), GOTWaypoint.VaesGraddakh, GOTWaypoint.VaesJini.info(0, -0.5, 0), GOTWaypoint.VaesKhadokh.info(0, -0.5, 0), GOTWaypoint.VaesKhewo.info(0, -0.5, 0), GOTWaypoint.VaesLeqse.info(0.5, 0, 0), GOTWaypoint.VaesMejhah.info(0, -0.5, 0));
 		f[14] = new GOTStructureDragonstoneSettlement(biome, 0.0f).setIsCastle();
 		f[14].affix(GOTWaypoint.ClawIsle, GOTWaypoint.Dragonstone, GOTWaypoint.Driftmark, GOTWaypoint.HighTide, GOTWaypoint.SharpPoint, GOTWaypoint.Stonedance, GOTWaypoint.SweetportSound);
 		f[15] = new GOTStructureDragonstoneSettlement(biome, 0.0f).setIsTown();
