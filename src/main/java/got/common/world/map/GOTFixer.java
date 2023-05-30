@@ -122,7 +122,7 @@ public class GOTFixer {
 		f[21] = new GOTStructureSothoryosSettlement(biome, 0.0f).setIsPyramid();
 		f[21].affix(GOTWaypoint.Raumati);
 		f[22] = new GOTStructureGiftSettlement(biome, 0.0f);
-		f[22].affix(GOTWaypoint.Moletown, GOTWaypoint.Queenscrown);
+		f[22].affix(GOTWaypoint.Moletown.info(0.5, 0, 0), GOTWaypoint.Queenscrown);
 		f[23] = new GOTStructureWildlingSettlement(biome, 0.0f).setIsHardhome();
 		f[23].affix(GOTWaypoint.Hardhome);
 		f[24] = new GOTStructureIbbenSettlement(biome, 0.0f);
@@ -148,7 +148,7 @@ public class GOTFixer {
 		f[34] = new GOTStructureMyrSettlement(biome, 0.0f).setIsTown();
 		f[34].affix(GOTWaypoint.Myr.info(-1, 0, 1));
 		f[35] = new GOTStructureNorthSettlement(biome, 0.0f).setIsCastle();
-		f[35].affix(GOTWaypoint.CatfishRock.info(0, 0, 0), GOTWaypoint.BreakstoneHill, GOTWaypoint.Goldgrass.info(0, 1, 0), GOTWaypoint.RisvellsCastle.info(0, 1, 0), GOTWaypoint.ServinsCastle.info(-1, 0, 0), GOTWaypoint.Winterfell.info(0, 0, 1), GOTWaypoint.BlackPool, GOTWaypoint.DeepwoodMotte, GOTWaypoint.Dreadfort, GOTWaypoint.FlintsFinger, GOTWaypoint.Highpoint, GOTWaypoint.TorhensSquare, GOTWaypoint.WidowsWatch, GOTWaypoint.Hornwood, GOTWaypoint.Ironrath, GOTWaypoint.Karhold, GOTWaypoint.LastHearth, GOTWaypoint.MoatKailin, GOTWaypoint.MormontsKeep, GOTWaypoint.OldCastle, GOTWaypoint.RamsGate, GOTWaypoint.RillwaterCrossing);
+		f[35].affix(GOTWaypoint.CatfishRock.info(0, 0, 0), GOTWaypoint.BreakstoneHill, GOTWaypoint.Goldgrass.info(0, 1, 0), GOTWaypoint.RisvellsCastle.info(0, 1, 0), GOTWaypoint.ServinsCastle.info(-1, 0, 0), GOTWaypoint.Winterfell.info(0, 0, 1), GOTWaypoint.BlackPool, GOTWaypoint.DeepwoodMotte, GOTWaypoint.Dreadfort.info(0, 1), GOTWaypoint.FlintsFinger, GOTWaypoint.Highpoint, GOTWaypoint.TorhensSquare, GOTWaypoint.WidowsWatch, GOTWaypoint.Hornwood, GOTWaypoint.Ironrath, GOTWaypoint.Karhold.info(1, 0), GOTWaypoint.LastHearth, GOTWaypoint.MoatKailin, GOTWaypoint.MormontsKeep, GOTWaypoint.OldCastle, GOTWaypoint.RamsGate, GOTWaypoint.RillwaterCrossing);
 		f[36] = new GOTStructureNorthSettlement(biome, 0.0f).setIsSmallTown();
 		f[36].affix(GOTWaypoint.Barrowtown.info(0, 1, 2));
 		f[37] = new GOTStructureNorthSettlement(biome, 0.0f).setIsTown();

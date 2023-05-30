@@ -188,7 +188,6 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.Rosby, GOTWaypoint.Rosby.info(0, -1));
 		registerRoad(id++, GOTWaypoint.SarMell, new double[]{1559, 2045}, GOTWaypoint.Volantis);
 		registerRoad(id++, GOTWaypoint.Sarsfield, GOTWaypoint.Sarsfield.info(0, -1));
-		registerRoad(id++, GOTWaypoint.ServinsCastle, GOTWaypoint.Dreadfort.info(-1, 0));
 		registerRoad(id++, GOTWaypoint.ServinsCastle, GOTWaypoint.ServinsCastle.info(-1, 0));
 		registerRoad(id++, GOTWaypoint.SiQo, GOTWaypoint.SiQo.info(1, 0));
 		registerRoad(id++, GOTWaypoint.SkyReach, GOTWaypoint.SkyReach.info(0, 1));
@@ -255,8 +254,9 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.Zamettar, new double[]{2150, 2793}, GOTWaypoint.Yeen);
 		registerRoad(id++, GOTWaypoint.BlackPool.info(-1, 0), GOTWaypoint.BlackPool.info(1, 0));
 		registerRoad(id++, GOTWaypoint.BlackPool.info(1, 0), GOTWaypoint.RamsGate.info(-1, 0));
-		registerRoad(id++, GOTWaypoint.Dreadfort.info(-1, 0), GOTWaypoint.Dreadfort.info(1, 0));
-		registerRoad(id++, GOTWaypoint.Dreadfort.info(1, 0), new double[]{879, 840}, GOTWaypoint.Karhold);
+		registerRoad(id++, GOTWaypoint.ServinsCastle, GOTWaypoint.Dreadfort, GOTWaypoint.Karhold);
+		registerRoad(id++, GOTWaypoint.Dreadfort, GOTWaypoint.Dreadfort.info(0, 1));
+		registerRoad(id++, GOTWaypoint.Karhold, GOTWaypoint.Karhold.info(1, 0));
 		registerRoad(id++, GOTWaypoint.KingsLanding.info(5, 28), GOTWaypoint.Smithyton, GOTWaypoint.Bitterbridge, GOTWaypoint.Appleton, GOTWaypoint.DarkDell, GOTWaypoint.Highgarden);
 		registerRoad(id++, GOTWaypoint.Maidenpool.info(-1, 0), GOTWaypoint.Maidenpool.info(1, 0));
 		registerRoad(id++, GOTWaypoint.MoatKailin.info(-1, 0), GOTWaypoint.MoatKailin.info(1, 0));
