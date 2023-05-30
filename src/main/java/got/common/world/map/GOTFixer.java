@@ -518,7 +518,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Karhold, new Spawner() {
+		structures.put(GOTWaypoint.Karhold.info(1, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityRickardKarstark(world), world, 0, 1, 2);
