@@ -102,7 +102,7 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.Barrowtown, GOTWaypoint.Goldgrass);
 		registerRoad(id++, GOTWaypoint.Bayasabhad, new double[]{3134, 2098}, new double[]{3132, 2128}, GOTWaypoint.Eijiang);
 		registerRoad(id++, GOTWaypoint.Bitterbridge, GOTWaypoint.Bitterbridge.info(0, 1));
-		registerRoad(id++, GOTWaypoint.Blackhaven, GOTWaypoint.Blackhaven.info(-1, 0));
+		registerRoad(id++, GOTWaypoint.Blackhaven, GOTWaypoint.Blackhaven.info(-0.5, 0));
 		registerRoad(id++, GOTWaypoint.Braavos, new double[]{1174, 1274}, new double[]{1194, 1300}, new double[]{1208, 1335});
 		registerRoad(id++, GOTWaypoint.Bronzegate, GOTWaypoint.Bronzegate.info(0, 0.6));
 		registerRoad(id++, GOTWaypoint.CasterlyRock, GOTWaypoint.Lannisport);
