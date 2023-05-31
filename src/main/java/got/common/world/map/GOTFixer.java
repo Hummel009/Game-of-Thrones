@@ -62,7 +62,7 @@ import java.util.*;
 
 public class GOTFixer {
 	public static Map<GOTAbstractWaypoint, GOTStructureBase> structures = new HashMap<>();
-	public static List<GOTStructureBaseSettlement> locations = new ArrayList<>();
+	public static Set<GOTStructureBaseSettlement> locations = new HashSet<>();
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
 		GOTWaypoint[] forts = {GOTWaypoint.FiveForts1, GOTWaypoint.FiveForts2, GOTWaypoint.FiveForts3, GOTWaypoint.FiveForts4, GOTWaypoint.FiveForts5};
@@ -80,6 +80,7 @@ public class GOTFixer {
 	}
 
 	public static void addWaypointLocations(GOTBiome biome) {
+		locations.clear();
 		registerLocation(new GOTStructureArrynSettlement(biome, 0.0f).setIsCastle(), GOTWaypoint.BloodyGate.info(0, -0.5), GOTWaypoint.TheEyrie.info(0, -0.5), GOTWaypoint.ColdwaterBurn, GOTWaypoint.GreyGlen, GOTWaypoint.HeartsHome, GOTWaypoint.IronOak, GOTWaypoint.LongbowHall, GOTWaypoint.Ninestars, GOTWaypoint.OldAnchor, GOTWaypoint.Pebble, GOTWaypoint.Redfort, GOTWaypoint.Runestone, GOTWaypoint.Snakewood, GOTWaypoint.Strongsong, GOTWaypoint.ThePaps, GOTWaypoint.Wickenden, GOTWaypoint.WitchIsle, GOTWaypoint.GateOfTheMoon.info(-0.6, 0));
 		registerLocation(new GOTStructureArrynSettlement(biome, 0.0f).setIsTown(), GOTWaypoint.Gulltown, GOTWaypoint.Sisterton);
 		registerLocation(new GOTStructureAsshaiSettlement(biome, 0.0f), GOTWaypoint.Asshai.info(0, 0, 2));
