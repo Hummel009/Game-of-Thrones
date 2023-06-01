@@ -133,17 +133,21 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 			} else if (type == Type.TOWN && i1 <= 72 && k1 <= 42) {
 				return GOTBezierType.PATH_SANDY;
 			} else if (type == Type.FORT) {
+				GOTBezierType type = GOTBezierType.PATH_SANDY;
+				if (isColony) {
+					type = GOTBezierType.PATH_DIRTY;
+				}
 				if (i1 <= 3 && k >= -45 && k <= -15) {
-					return GOTBezierType.PATH_SANDY;
+					return type;
 				}
 				if (i1 <= 36 && k >= -27 && k <= -20) {
-					return GOTBezierType.PATH_SANDY;
+					return type;
 				}
 				if (i1 >= 29 && i1 <= 36 && k >= -27 && k <= 39 && (k < -7 || k > 7)) {
-					return GOTBezierType.PATH_SANDY;
+					return type;
 				}
 				if (i1 <= 36 && k >= 20 && k <= 27) {
-					return GOTBezierType.PATH_SANDY;
+					return type;
 				}
 			}
 			return null;
