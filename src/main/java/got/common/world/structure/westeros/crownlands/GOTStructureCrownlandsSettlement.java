@@ -93,14 +93,15 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
+			boolean fortRoad = i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12;
 			switch (type) {
 				case FORT:
-					if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+					if (fortRoad) {
 						return GOTBezierType.PATH_DIRTY;
 					}
 					break;
 				case RED_KEEP:
-					if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+					if (fortRoad) {
 						return GOTBezierType.PATH_PAVING;
 					}
 					break;
