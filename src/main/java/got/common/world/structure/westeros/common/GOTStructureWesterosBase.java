@@ -273,14 +273,6 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public BannerType getBanner() {
-		return BANNERS.get(kingdom);
-	}
-
-	public GOTEntityNPC getBartender(World world) {
-		return (GOTEntityNPC) GOTReflection.newEntity(BARTENDERS.get(kingdom), world);
-	}
-
 	public static GOTTreeType getRandomSouthernTree(Random random) {
 		ArrayList<GOTTreeType> treeList = new ArrayList<>();
 		treeList.add(GOTTreeType.ACACIA);
@@ -329,6 +321,14 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		treeList.add(GOTTreeType.FIR);
 		treeList.add(GOTTreeType.PINE);
 		return treeList.get(random.nextInt(treeList.size()));
+	}
+
+	public BannerType getBanner() {
+		return BANNERS.get(kingdom);
+	}
+
+	public GOTEntityNPC getBartender(World world) {
+		return (GOTEntityNPC) GOTReflection.newEntity(BARTENDERS.get(kingdom), world);
 	}
 
 	public GOTEntityNPC getBlacksmith(World world) {

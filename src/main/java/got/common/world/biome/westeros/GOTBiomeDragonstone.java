@@ -1,6 +1,9 @@
 package got.common.world.biome.westeros;
 
-import got.common.database.*;
+import got.common.database.GOTAchievement;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTInvasions;
+import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenBoulder;

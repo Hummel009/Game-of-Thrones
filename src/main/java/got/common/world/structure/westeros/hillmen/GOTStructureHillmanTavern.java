@@ -1,6 +1,9 @@
 package got.common.world.structure.westeros.hillmen;
 
-import got.common.database.*;
+import got.common.database.GOTBlocks;
+import got.common.database.GOTChestContents;
+import got.common.database.GOTFoods;
+import got.common.database.GOTNames;
 import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
 import got.common.entity.westeros.GOTEntityLightSkinThief;
 import got.common.entity.westeros.hillmen.GOTEntityHillman;

@@ -8,7 +8,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class GOTStructureWesterosVillageFarm extends GOTStructureWesterosBase {

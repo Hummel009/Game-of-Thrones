@@ -8,8 +8,6 @@ import got.common.item.other.GOTItemAnimalJar;
 import got.common.item.weapon.GOTItemBow;
 import got.common.item.weapon.GOTItemCrossbow;
 import got.common.item.weapon.GOTItemSword;
-import got.common.util.GOTAPI;
-import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.resources.IReloadableResourceManager;
@@ -22,7 +20,6 @@ import net.minecraftforge.common.MinecraftForge;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public static GOTItemRendererManager INSTANCE;

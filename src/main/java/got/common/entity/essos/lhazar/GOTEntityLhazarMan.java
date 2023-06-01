@@ -2,8 +2,8 @@ package got.common.entity.essos.lhazar;
 
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
-import got.common.database.GOTNames;
 import got.common.database.GOTItems;
+import got.common.database.GOTNames;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;

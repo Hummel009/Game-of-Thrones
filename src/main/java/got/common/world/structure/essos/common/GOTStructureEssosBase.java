@@ -226,6 +226,46 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		super(flag);
 	}
 
+	public static GOTTreeType getRandomSouthernTree(Random random) {
+		ArrayList<GOTTreeType> treeList = new ArrayList<>();
+		treeList.add(GOTTreeType.ACACIA);
+		treeList.add(GOTTreeType.ALMOND);
+		treeList.add(GOTTreeType.CEDAR);
+		treeList.add(GOTTreeType.CEDAR_LARGE);
+		treeList.add(GOTTreeType.CYPRESS);
+		treeList.add(GOTTreeType.CYPRESS_LARGE);
+		treeList.add(GOTTreeType.DATE_PALM);
+		treeList.add(GOTTreeType.LEMON);
+		treeList.add(GOTTreeType.LIME);
+		treeList.add(GOTTreeType.OLIVE);
+		treeList.add(GOTTreeType.OLIVE_LARGE);
+		treeList.add(GOTTreeType.ORANGE);
+		treeList.add(GOTTreeType.PALM);
+		treeList.add(GOTTreeType.PLUM);
+		treeList.add(GOTTreeType.KANUKA);
+		return treeList.get(random.nextInt(treeList.size()));
+	}
+
+	public static GOTTreeType getRandomStandardTree(Random random) {
+		ArrayList<GOTTreeType> treeList = new ArrayList<>();
+		treeList.add(GOTTreeType.OAK);
+		treeList.add(GOTTreeType.OAK_TALLER);
+		treeList.add(GOTTreeType.OAK_LARGE);
+		treeList.add(GOTTreeType.BIRCH);
+		treeList.add(GOTTreeType.BIRCH_LARGE);
+		treeList.add(GOTTreeType.BIRCH_TALL);
+		treeList.add(GOTTreeType.BEECH);
+		treeList.add(GOTTreeType.BEECH_LARGE);
+		treeList.add(GOTTreeType.APPLE);
+		treeList.add(GOTTreeType.PEAR);
+		treeList.add(GOTTreeType.PLUM);
+		treeList.add(GOTTreeType.OLIVE);
+		treeList.add(GOTTreeType.ALMOND);
+		treeList.add(GOTTreeType.CHESTNUT);
+		treeList.add(GOTTreeType.CHESTNUT_LARGE);
+		return treeList.get(random.nextInt(treeList.size()));
+	}
+
 	public boolean hasRedSandstone() {
 		return true;
 	}
@@ -282,46 +322,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 
 	public GOTEntityNPC getSoldierArcher(World world) {
 		return (GOTEntityNPC) GOTReflection.newEntity(ARCHERS.get(city), world);
-	}
-
-	public static GOTTreeType getRandomSouthernTree(Random random) {
-		ArrayList<GOTTreeType> treeList = new ArrayList<>();
-		treeList.add(GOTTreeType.ACACIA);
-		treeList.add(GOTTreeType.ALMOND);
-		treeList.add(GOTTreeType.CEDAR);
-		treeList.add(GOTTreeType.CEDAR_LARGE);
-		treeList.add(GOTTreeType.CYPRESS);
-		treeList.add(GOTTreeType.CYPRESS_LARGE);
-		treeList.add(GOTTreeType.DATE_PALM);
-		treeList.add(GOTTreeType.LEMON);
-		treeList.add(GOTTreeType.LIME);
-		treeList.add(GOTTreeType.OLIVE);
-		treeList.add(GOTTreeType.OLIVE_LARGE);
-		treeList.add(GOTTreeType.ORANGE);
-		treeList.add(GOTTreeType.PALM);
-		treeList.add(GOTTreeType.PLUM);
-		treeList.add(GOTTreeType.KANUKA);
-		return treeList.get(random.nextInt(treeList.size()));
-	}
-
-	public static GOTTreeType getRandomStandardTree(Random random) {
-		ArrayList<GOTTreeType> treeList = new ArrayList<>();
-		treeList.add(GOTTreeType.OAK);
-		treeList.add(GOTTreeType.OAK_TALLER);
-		treeList.add(GOTTreeType.OAK_LARGE);
-		treeList.add(GOTTreeType.BIRCH);
-		treeList.add(GOTTreeType.BIRCH_LARGE);
-		treeList.add(GOTTreeType.BIRCH_TALL);
-		treeList.add(GOTTreeType.BEECH);
-		treeList.add(GOTTreeType.BEECH_LARGE);
-		treeList.add(GOTTreeType.APPLE);
-		treeList.add(GOTTreeType.PEAR);
-		treeList.add(GOTTreeType.PLUM);
-		treeList.add(GOTTreeType.OLIVE);
-		treeList.add(GOTTreeType.ALMOND);
-		treeList.add(GOTTreeType.CHESTNUT);
-		treeList.add(GOTTreeType.CHESTNUT_LARGE);
-		return treeList.get(random.nextInt(treeList.size()));
 	}
 
 	public Block getTable() {

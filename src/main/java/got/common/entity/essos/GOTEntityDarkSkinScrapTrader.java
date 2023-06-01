@@ -1,7 +1,7 @@
 package got.common.entity.essos;
 
-import got.common.database.GOTNames;
 import got.common.database.GOTItems;
+import got.common.database.GOTNames;
 import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
 import got.common.item.other.GOTItemRobes;
 import got.common.item.other.GOTItemTurban;
