@@ -100,9 +100,9 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.Chroyane, GOTWaypoint.ArNoy, GOTWaypoint.Qohor, GOTWaypoint.VaesKhadokh, GOTWaypoint.VaesGorqoyi, GOTWaypoint.VaesKhewo, GOTWaypoint.VojjorSamvi, GOTWaypoint.Sathar, GOTWaypoint.VaesLeqse, GOTWaypoint.VaesAthjikhari);
 		registerRoad(id++, GOTWaypoint.Chroyane, GOTWaypoint.NySar, GOTWaypoint.Norvos);
 		registerRoad(id++, GOTWaypoint.Chroyane, GOTWaypoint.Selhorys, GOTWaypoint.Valysar, GOTWaypoint.VolonTherys);
-		registerRoad(id++, GOTWaypoint.CrossroadsInn, GOTWaypoint.Darry);
+
 		registerRoad(id++, GOTWaypoint.CrossroadsInn, GOTWaypoint.Harroway);
-		registerRoad(id++, GOTWaypoint.Darry, GOTWaypoint.WhiteWalls, GOTWaypoint.Hayford);
+		registerRoad(id++, GOTWaypoint.CrossroadsInn, GOTWaypoint.Darry, GOTWaypoint.WhiteWalls, GOTWaypoint.Hayford);
 		registerRoad(id++, GOTWaypoint.FiveForts1, GOTWaypoint.FiveForts2);
 		registerRoad(id++, GOTWaypoint.FiveForts1, GOTWaypoint.FiveForts2);
 		registerRoad(id++, GOTWaypoint.FiveForts1, new double[]{3687, 1921}, new double[]{3600, 1973}, GOTWaypoint.Vaibei);
