@@ -54,75 +54,16 @@ public class GOTClassTransformer implements IClassTransformer {
 	public static String cls_WorldServer = "net/minecraft/world/WorldServer";
 	public static String cls_WorldServer_obf = "mt";
 
-	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N target) {
-		return findNodeInMethod(method, target, 0);
-	}
-
-	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N targetAbstract, int skip) {
-		int skipped = 0;
-		ListIterator<AbstractInsnNode> it = method.instructions.iterator();
-		while (it.hasNext()) {
-			AbstractInsnNode nextAbstract = it.next();
-			boolean matched = false;
-			if (nextAbstract.getClass() == targetAbstract.getClass()) {
-				AbstractInsnNode next;
-				AbstractInsnNode target;
-				if (targetAbstract.getClass() == InsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode()) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == VarInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((VarInsnNode) next).var == ((VarInsnNode) target).var) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == LdcInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (((LdcInsnNode) next).cst.equals(((LdcInsnNode) target).cst)) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == TypeInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((TypeInsnNode) next).desc.equals(((TypeInsnNode) target).desc)) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == FieldInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((FieldInsnNode) next).owner.equals(((FieldInsnNode) target).owner) && ((FieldInsnNode) next).name.equals(((FieldInsnNode) target).name) && ((FieldInsnNode) next).desc.equals(((FieldInsnNode) target).desc)) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == MethodInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((MethodInsnNode) next).owner.equals(((MethodInsnNode) target).owner) && ((MethodInsnNode) next).name.equals(((MethodInsnNode) target).name) && ((MethodInsnNode) next).desc.equals(((MethodInsnNode) target).desc) && ((MethodInsnNode) next).itf == ((MethodInsnNode) target).itf) {
-						matched = true;
-					}
-				}
-			}
-			if (matched) {
-				if (skipped >= skip) {
-					return (N) nextAbstract;
-				}
-				++skipped;
-			}
-		}
-		return null;
-	}
-
 	public byte[] patchArmorProperties(String name, byte[] bytes) {
 		String targetMethodName;
 		String targetMethodSign;
 		boolean isCauldron = GOTModChecker.isCauldronServer();
-		targetMethodName = "ApplyArmor";
-		targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;[Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;D)F";
+		String targetMethodNameObf = targetMethodName = "ApplyArmor";
+		String targetMethodSignObf = targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;[Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;D)F";
 		if (isCauldron) {
+			targetMethodNameObf = "ApplyArmor";
 			targetMethodName = "ApplyArmor";
+			targetMethodSignObf = "(Lnet/minecraft/entity/EntityLivingBase;[Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;DZ)F";
 			targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;[Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;DZ)F";
 		}
 		ClassNode classNode = new ClassNode();
@@ -130,7 +71,7 @@ public class GOTClassTransformer implements IClassTransformer {
 		classReader.accept(classNode, 0);
 		for (MethodNode method : classNode.methods) {
 			AbstractInsnNode nodePrev;
-			if (method.name.equals(targetMethodName) && method.desc.equals(targetMethodSign)) {
+			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
 				AbstractInsnNode nodeFound = null;
 				block1:
 				for (boolean armorObf : new boolean[]{false, true}) {
@@ -158,10 +99,10 @@ public class GOTClassTransformer implements IClassTransformer {
 				newIns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Enchants", "getDamageReduceAmount", "(Lnet/minecraft/item/ItemStack;)I", false));
 				method.instructions.insert(nodeFound, newIns);
 				method.instructions.remove(nodeFound);
-				if (!isCauldron) {
-					System.out.println("Hummel009: Patched method " + method.name);
-				} else {
+				if (isCauldron) {
 					System.out.println("Hummel009: Patched method " + method.name + " for Cauldron");
+				} else {
+					System.out.println("Hummel009: Patched method " + method.name);
 				}
 			}
 		}
@@ -299,7 +240,7 @@ public class GOTClassTransformer implements IClassTransformer {
 		String targetMethodNameObf = "func_149826_e";
 		String targetMethodSign = "(Lnet/minecraft/world/IBlockAccess;III)Z";
 		String targetMethodSignObf = "(Lahl;III)Z";
-		targetMethodName2 = "func_149825_a";
+		String targetMethodNameObf2 = targetMethodName2 = "func_149825_a";
 		String targetMethodSign2 = "(Lnet/minecraft/block/Block;)Z";
 		String targetMethodSignObf2 = "(Laji;)Z";
 		ClassNode classNode = new ClassNode();
@@ -483,12 +424,12 @@ public class GOTClassTransformer implements IClassTransformer {
 		String targetMethodNameObf = "func_149707_d";
 		String targetMethodSign = "(Lnet/minecraft/world/World;IIII)Z";
 		String targetMethodSignObf = "(Lahb;IIII)Z";
-		targetMethodName2 = "func_150119_a";
+		String targetMethodNameObf2 = targetMethodName2 = "func_150119_a";
 		String targetMethodSign2 = "(Lnet/minecraft/block/Block;)Z";
 		String targetMethodSignObf2 = "(Laji;)Z";
 		String targetMethodName3 = "getRenderType";
 		String targetMethodNameObf3 = "func_149645_b";
-		targetMethodSign3 = "()I";
+		String targetMethodSignObf3 = targetMethodSign3 = "()I";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
@@ -560,7 +501,7 @@ public class GOTClassTransformer implements IClassTransformer {
 
 	public byte[] patchDoorInteract(String name, byte[] bytes) {
 		String targetMethodName;
-		targetMethodName = "func_151503_a";
+		String targetMethodNameObf = targetMethodName = "func_151503_a";
 		String targetMethodSign = "(III)Lnet/minecraft/block/BlockDoor;";
 		String targetMethodSignObf = "(III)Lakn;";
 		ClassNode classNode = new ClassNode();
@@ -606,7 +547,7 @@ public class GOTClassTransformer implements IClassTransformer {
 		String targetMethodNameObf = "func_77512_a";
 		String targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/entity/EntityLivingBase;)F";
 		String targetMethodSignObf = "(Lsv;Lsv;)F";
-		targetMethodName2 = "func_152377_a";
+		String targetMethodNameObf2 = targetMethodName2 = "func_152377_a";
 		String targetMethodSign2 = "(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EnumCreatureAttribute;)F";
 		String targetMethodSignObf2 = "(Ladd;Lsz;)F";
 		String targetMethodName3 = "getSilkTouchModifier";
@@ -738,7 +679,7 @@ public class GOTClassTransformer implements IClassTransformer {
 
 	public byte[] patchEntityClientPlayerMP(String name, byte[] bytes) {
 		String targetMethodName;
-		targetMethodName = "func_110318_g";
+		String targetMethodNameObf = targetMethodName = "func_110318_g";
 		String targetMethodSign = "()V";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
@@ -772,6 +713,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				block1:
 				for (boolean worldObf : new boolean[]{false, true}) {
 					boolean[] arrbl = {false, true};
+					int n = arrbl.length;
 					for (boolean b : arrbl) {
 						String _world = worldObf ? cls_World_obf : cls_World;
 						nodeIsRemote = findNodeInMethod(method, new FieldInsnNode(180, _world, b ? "field_72995_K" : "isRemote", "Z"));
@@ -875,7 +817,7 @@ public class GOTClassTransformer implements IClassTransformer {
 
 	public byte[] patchFMLNetworkHandler(String name, byte[] bytes) {
 		String targetMethodName;
-		targetMethodName = "getEntitySpawningPacket";
+		String targetMethodNameObf = targetMethodName = "getEntitySpawningPacket";
 		String targetMethodSign = "(Lnet/minecraft/entity/Entity;)Lnet/minecraft/network/Packet;";
 		String targetMethodSignObf = "(Lsa;)Lft;";
 		ClassNode classNode = new ClassNode();
@@ -963,6 +905,7 @@ public class GOTClassTransformer implements IClassTransformer {
 					}
 				}
 			}
+
 		}
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);
@@ -993,7 +936,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				method.instructions.insert(newIns);
 				System.out.println("Hummel009: Patched method " + method.name);
 			}
-			if (!method.name.equals(targetMethodName2) && !method.name.equals(targetMethodNameObf2) || !method.desc.equals(targetMethodSign2) && !method.desc.equals(targetMethodSignObf2)) {
+			if ((method.name.equals(targetMethodName2) || method.name.equals(targetMethodNameObf2)) && (method.desc.equals(targetMethodSign2) || method.desc.equals(targetMethodSignObf2))) {
 				method.instructions.clear();
 				newIns = new InsnList();
 				newIns.add(new VarInsnNode(25, 0));
@@ -1011,7 +954,7 @@ public class GOTClassTransformer implements IClassTransformer {
 
 	public byte[] patchPathFinder(String name, byte[] bytes) {
 		String targetMethodName;
-		targetMethodName = "func_82565_a";
+		String targetMethodNameObf = targetMethodName = "func_82565_a";
 		String targetMethodSign = "(Lnet/minecraft/entity/Entity;IIILnet/minecraft/pathfinding/PathPoint;ZZZ)I";
 		String targetMethodSignObf = "(Lsa;IIILaye;ZZZ)I";
 		ClassNode classNode = new ClassNode();
@@ -1091,7 +1034,7 @@ public class GOTClassTransformer implements IClassTransformer {
 
 	public byte[] patchPotionDamage(String name, byte[] bytes) {
 		String targetMethodName;
-		targetMethodName = "func_111183_a";
+		String targetMethodNameObf = targetMethodName = "func_111183_a";
 		String targetMethodSign = "(ILnet/minecraft/entity/ai/attributes/AttributeModifier;)D";
 		String targetMethodSignObf = "(ILtj;)D";
 		ClassNode classNode = new ClassNode();
@@ -1222,5 +1165,66 @@ public class GOTClassTransformer implements IClassTransformer {
 			return patchFMLNetworkHandler(name, basicClass);
 		}
 		return basicClass;
+	}
+
+	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N target) {
+		return findNodeInMethod(method, target, 0);
+	}
+
+	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N targetAbstract, int skip) {
+		int skipped = 0;
+		ListIterator<AbstractInsnNode> it = method.instructions.iterator();
+		while (it.hasNext()) {
+			AbstractInsnNode nextAbstract = it.next();
+			boolean matched = false;
+			if (nextAbstract.getClass() == targetAbstract.getClass()) {
+				AbstractInsnNode next;
+				AbstractInsnNode target;
+				if (targetAbstract.getClass() == InsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode()) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == VarInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((VarInsnNode) next).var == ((VarInsnNode) target).var) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == LdcInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (((LdcInsnNode) next).cst.equals(((LdcInsnNode) target).cst)) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == TypeInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((TypeInsnNode) next).desc.equals(((TypeInsnNode) target).desc)) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == FieldInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((FieldInsnNode) next).owner.equals(((FieldInsnNode) target).owner) && ((FieldInsnNode) next).name.equals(((FieldInsnNode) target).name) && ((FieldInsnNode) next).desc.equals(((FieldInsnNode) target).desc)) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == MethodInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((MethodInsnNode) next).owner.equals(((MethodInsnNode) target).owner) && ((MethodInsnNode) next).name.equals(((MethodInsnNode) target).name) && ((MethodInsnNode) next).desc.equals(((MethodInsnNode) target).desc) && ((MethodInsnNode) next).itf == ((MethodInsnNode) target).itf) {
+						matched = true;
+					}
+				}
+			}
+			if (matched) {
+				if (skipped >= skip) {
+					return (N) nextAbstract;
+				}
+				++skipped;
+			}
+		}
+		return null;
 	}
 }
