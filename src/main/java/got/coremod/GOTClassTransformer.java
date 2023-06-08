@@ -61,9 +61,7 @@ public class GOTClassTransformer implements IClassTransformer {
 		String targetMethodNameObf = targetMethodName = "ApplyArmor";
 		String targetMethodSignObf = targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;[Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;D)F";
 		if (isCauldron) {
-			targetMethodNameObf = "ApplyArmor";
 			targetMethodName = "ApplyArmor";
-			targetMethodSignObf = "(Lnet/minecraft/entity/EntityLivingBase;[Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;DZ)F";
 			targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;[Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;DZ)F";
 		}
 		ClassNode classNode = new ClassNode();
@@ -71,7 +69,7 @@ public class GOTClassTransformer implements IClassTransformer {
 		classReader.accept(classNode, 0);
 		for (MethodNode method : classNode.methods) {
 			AbstractInsnNode nodePrev;
-			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
+			if (method.name.equals(targetMethodName) && method.desc.equals(targetMethodSign)) {
 				AbstractInsnNode nodeFound = null;
 				block1:
 				for (boolean armorObf : new boolean[]{false, true}) {
