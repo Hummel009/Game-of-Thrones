@@ -218,9 +218,9 @@ entity.got.EldonEstermont.name=Eldon Estermont
 entity.got.Elephant.name=Słoń
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name=Erik Żelazny
-entity.got.DarkSkinBandit.name=Bandit
-entity.got.DarkSkinScrapTrader.name=Sprzedawca złomu z Essos
-entity.got.DarkSkinThief.name=Złodziej z Essos
+entity.got.DarkSkinBandit.name≠Bandit
+entity.got.DarkSkinScrapTrader.name≠Scrap Trader
+entity.got.DarkSkinThief.name≠Thief
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.FallingFireJar.name=Dziki ogień
 entity.got.FallingTreasure.name=Obniża się bogactwo
@@ -837,9 +837,9 @@ entity.got.WesterlandsMason.name=Murarz Krainy zachodu
 entity.got.WesterlandsMiner.name=Sprzedawca warzyw Krainy zachodu
 entity.got.WesterlandsSoldier.name=Piechur Krainy zachodu
 entity.got.WesterlandsSoldierArcher.name=Łucznik Krainy zachodu
-entity.got.LightSkinBandit.name=Bandyta
-entity.got.LightSkinScrapTrader.name=Handlarz złomu
-entity.got.LightSkinThief.name=złodziej
+entity.got.LightSkinBandit.name≠Bandit
+entity.got.LightSkinScrapTrader.name≠Scrap Trader
+entity.got.LightSkinThief.name≠Thief
 entity.got.WhiteBison.name=Bawół Arawa
 entity.got.WhiteOryx.name=Biały oryks
 entity.got.WhiteWalker.name=White Walker

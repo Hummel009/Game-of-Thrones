@@ -218,9 +218,9 @@ entity.got.EldonEstermont.name=Eldon Estermont
 entity.got.Elephant.name=Fil
 entity.got.EllaryaSand.name=Ellarya Kumu
 entity.got.ErikIronmaker.name=Erik Demircisi
-entity.got.DarkSkinBandit.name=Haydut
-entity.got.DarkSkinScrapTrader.name=Scarp Tüccarı
-entity.got.DarkSkinThief.name=Hırsız
+entity.got.DarkSkinBandit.name≠Bandit
+entity.got.DarkSkinScrapTrader.name≠Scrap Trader
+entity.got.DarkSkinThief.name≠Thief
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.FallingFireJar.name=Düşen Ateş Potu
 entity.got.FallingTreasure.name=Düşen Hazine Yığını
@@ -837,9 +837,9 @@ entity.got.WesterlandsMason.name=Batı Toprakları Duvarcı
 entity.got.WesterlandsMiner.name=Batı Toprakları Manav
 entity.got.WesterlandsSoldier.name=Batı Toprakları Savaşçı
 entity.got.WesterlandsSoldierArcher.name=Batı Topraklarının Savaşçı Okçusu
-entity.got.LightSkinBandit.name=Haydut
-entity.got.LightSkinScrapTrader.name=Scarp Tüccarı
-entity.got.LightSkinThief.name=Hırsız
+entity.got.LightSkinBandit.name≠Bandit
+entity.got.LightSkinScrapTrader.name≠Scrap Trader
+entity.got.LightSkinThief.name≠Thief
 entity.got.WhiteBison.name=Beyaz bizon
 entity.got.WhiteOryx.name=Beyaz Antilop
 entity.got.WhiteWalker.name=Ak Yürüteç
