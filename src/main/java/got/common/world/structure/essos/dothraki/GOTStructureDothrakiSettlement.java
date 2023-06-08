@@ -37,7 +37,6 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 
 	public enum Type {
 		SMALL, BIG
-
 	}
 
 	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureDothrakiSettlement> {
@@ -50,34 +49,6 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void addSettlementStructures(Random random) {
-			setupVillage(random);
-		}
-
-		@Override
-		public GOTBezierType getPath(Random random, int i, int k) {
-			return null;
-		}
-
-		@Override
-		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
-			return false;
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isBig) {
-				type = Type.BIG;
-				numOuterHouses = 13;
-			} else if (random.nextInt(3) == 0) {
-				type = Type.BIG;
-				numOuterHouses = MathHelper.getRandomIntegerInRange(random, 8, 14);
-			} else {
-				type = Type.SMALL;
-				numOuterHouses = MathHelper.getRandomIntegerInRange(random, 4, 7);
-			}
-		}
-
-		public void setupVillage(Random random) {
 			if (type == Type.SMALL) {
 				addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -155,6 +126,28 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-	}
+		@Override
+		public GOTBezierType getPath(Random random, int i, int k) {
+			return null;
+		}
 
+		@Override
+		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
+			return false;
+		}
+
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isBig) {
+				type = Type.BIG;
+				numOuterHouses = 13;
+			} else if (random.nextInt(3) == 0) {
+				type = Type.BIG;
+				numOuterHouses = MathHelper.getRandomIntegerInRange(random, 8, 14);
+			} else {
+				type = Type.SMALL;
+				numOuterHouses = MathHelper.getRandomIntegerInRange(random, 4, 7);
+			}
+		}
+	}
 }

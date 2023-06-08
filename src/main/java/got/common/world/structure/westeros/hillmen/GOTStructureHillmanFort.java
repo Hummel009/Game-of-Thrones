@@ -66,10 +66,8 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 						case 1:
 							setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
 							break;
-						case 2:
-							setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
-							break;
 						default:
+							setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
 							break;
 					}
 					if ((i2 > 3 || k1 < -3 || k1 > 2) && random.nextInt(5) == 0) {

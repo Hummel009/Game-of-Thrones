@@ -140,12 +140,10 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 					cropMeta = 7;
 					seedItem = GOTItems.leek;
 					break;
-				case 4:
+				default:
 					cropBlock = GOTBlocks.turnipCrop;
 					cropMeta = 7;
 					seedItem = GOTItems.turnip;
-					break;
-				default:
 					break;
 			}
 		}

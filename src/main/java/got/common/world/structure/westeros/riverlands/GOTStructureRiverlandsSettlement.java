@@ -123,10 +123,8 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 						return new GOTStructureRiverlandsStables(false);
 					case 1:
 						return new GOTStructureRiverlandsSmithy(false);
-					case 2:
-						return new GOTStructureRiverlandsBarn(false);
 					default:
-						break;
+						return new GOTStructureRiverlandsBarn(false);
 				}
 			}
 			return new GOTStructureRiverlandsHouse(false);

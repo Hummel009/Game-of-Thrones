@@ -261,6 +261,5 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 		}
-
 	}
 }

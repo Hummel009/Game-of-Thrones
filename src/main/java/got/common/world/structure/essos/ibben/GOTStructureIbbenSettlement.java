@@ -28,7 +28,6 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 
 	public enum Type {
 		VILLAGE, FORT
-
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureIbbenSettlement> {
@@ -299,7 +298,5 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureIbbenGatehouse(false), 0, -rPalisade - 2, 0);
 			}
 		}
-
 	}
-
 }

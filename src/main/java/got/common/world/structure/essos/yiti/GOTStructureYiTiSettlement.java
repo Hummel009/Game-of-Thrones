@@ -132,10 +132,6 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			return null;
 		}
 
-		public GOTStructureBase getRandomHouse(Random random) {
-			return new GOTStructureYiTiHouse(false);
-		}
-
 		public GOTStructureBase getRandomVillageFarm(Random random) {
 			if (random.nextBoolean()) {
 				return new GOTStructureYiTiVillageFarm.Animals(false);
@@ -435,9 +431,9 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					k1 += 15 - pathSide;
 				}
 				if (Math.abs(l) >= 1) {
-					addStructure(getRandomHouse(random), i1, -k1, 2);
+					addStructure(new GOTStructureYiTiHouse(false), i1, -k1, 2);
 				}
-				addStructure(getRandomHouse(random), i1, k1, 0);
+				addStructure(new GOTStructureYiTiHouse(false), i1, k1, 0);
 				int k2 = k1 + 20;
 				if (l != 0) {
 					if (random.nextInt(3) == 0) {

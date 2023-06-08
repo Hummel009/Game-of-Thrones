@@ -144,10 +144,8 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 						return new GOTStructureCrownlandsStables(false);
 					case 1:
 						return new GOTStructureCrownlandsSmithy(false);
-					case 2:
-						return new GOTStructureCrownlandsBarn(false);
 					default:
-						break;
+						return new GOTStructureCrownlandsBarn(false);
 				}
 			}
 			return new GOTStructureCrownlandsHouse(false);

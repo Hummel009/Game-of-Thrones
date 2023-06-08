@@ -30,13 +30,7 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 		return new Instance(this, world, i, k, random, loc);
 	}
 
-	public enum Type {
-		TOWN
-	}
-
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureAsshaiSettlement> {
-		public Type type;
-
 		public Instance(GOTStructureAsshaiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
 			super(settlement, world, i, k, random, loc);
 		}
@@ -191,29 +185,18 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
-			if (type == Type.TOWN && i1 <= 80 && k1 <= 80) {
-				return GOTBezierType.TOWN_ASSHAI;
-			}
-			return null;
+			return GOTBezierType.TOWN_ASSHAI;
 		}
 
 		@Override
 		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
-			if (type == Type.TOWN) {
-				Block block = world.getBlock(i, j, k);
-				int meta = world.getBlockMetadata(i, j, k);
-				return block == GOTBlocks.asshaiDirt || block == GOTBlocks.slabSingleDirt && meta == 3 || block == GOTBlocks.basaltGravel;
-			}
-			return false;
+			Block block = world.getBlock(i, j, k);
+			int meta = world.getBlockMetadata(i, j, k);
+			return block == GOTBlocks.asshaiDirt || block == GOTBlocks.slabSingleDirt && meta == 3 || block == GOTBlocks.basaltGravel;
 		}
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			type = Type.TOWN;
 		}
-
 	}
-
 }

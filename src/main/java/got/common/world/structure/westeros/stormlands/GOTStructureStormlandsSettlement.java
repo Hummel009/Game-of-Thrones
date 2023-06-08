@@ -115,10 +115,8 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 						return new GOTStructureStormlandsStables(false);
 					case 1:
 						return new GOTStructureStormlandsSmithy(false);
-					case 2:
-						return new GOTStructureStormlandsBarn(false);
 					default:
-						break;
+						return new GOTStructureStormlandsBarn(false);
 				}
 			}
 			return new GOTStructureStormlandsHouse(false);

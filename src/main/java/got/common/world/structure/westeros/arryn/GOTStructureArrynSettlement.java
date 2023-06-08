@@ -115,10 +115,8 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 						return new GOTStructureArrynStables(false);
 					case 1:
 						return new GOTStructureArrynSmithy(false);
-					case 2:
-						return new GOTStructureArrynBarn(false);
 					default:
-						break;
+						return new GOTStructureArrynBarn(false);
 				}
 			}
 			return new GOTStructureArrynHouse(false);

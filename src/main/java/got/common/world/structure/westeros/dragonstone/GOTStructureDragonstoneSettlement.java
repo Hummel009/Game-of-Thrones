@@ -115,10 +115,8 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 						return new GOTStructureDragonstoneStables(false);
 					case 1:
 						return new GOTStructureDragonstoneSmithy(false);
-					case 2:
-						return new GOTStructureDragonstoneBarn(false);
 					default:
-						break;
+						return new GOTStructureDragonstoneBarn(false);
 				}
 			}
 			return new GOTStructureDragonstoneHouse(false);

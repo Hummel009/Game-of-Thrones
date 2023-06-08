@@ -112,10 +112,8 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 						return new GOTStructureReachStables(false);
 					case 1:
 						return new GOTStructureReachSmithy(false);
-					case 2:
-						return new GOTStructureReachBarn(false);
 					default:
-						break;
+						return new GOTStructureReachBarn(false);
 				}
 			}
 			return new GOTStructureReachHouse(false);

@@ -502,7 +502,5 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClasses(GOTEntityBraavosSoldier.class, GOTEntityBraavosSoldierArcher.class);
 		}
-
 	}
-
 }

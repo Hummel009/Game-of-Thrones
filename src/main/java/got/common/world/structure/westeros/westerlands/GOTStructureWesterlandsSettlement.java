@@ -112,10 +112,8 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 						return new GOTStructureWesterlandsStables(false);
 					case 1:
 						return new GOTStructureWesterlandsSmithy(false);
-					case 2:
-						return new GOTStructureWesterlandsBarn(false);
 					default:
-						break;
+						return new GOTStructureWesterlandsBarn(false);
 				}
 			}
 			return new GOTStructureWesterlandsHouse(false);

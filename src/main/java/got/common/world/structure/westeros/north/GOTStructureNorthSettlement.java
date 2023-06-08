@@ -144,10 +144,8 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 						return new GOTStructureNorthStables(false);
 					case 1:
 						return new GOTStructureNorthSmithy(false);
-					case 2:
-						return new GOTStructureNorthBarn(false);
 					default:
-						break;
+						return new GOTStructureNorthBarn(false);
 				}
 			}
 			return new GOTStructureNorthHouse(false);
@@ -613,5 +611,4 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 	}
-
 }

@@ -121,10 +121,8 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 						return new GOTStructureDorneStables(false);
 					case 1:
 						return new GOTStructureDorneSmithy(false);
-					case 2:
-						return new GOTStructureDorneBarn(false);
 					default:
-						break;
+						return new GOTStructureDorneBarn(false);
 				}
 			}
 			return new GOTStructureDorneHouse(false);

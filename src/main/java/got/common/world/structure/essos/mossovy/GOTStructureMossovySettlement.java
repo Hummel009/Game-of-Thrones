@@ -54,7 +54,7 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 					setupVillage(random);
 					break;
 				case FORT:
-					setupFort(random);
+					addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
 					break;
 			}
 		}
@@ -81,10 +81,6 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 		@Override
 		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
 			return false;
-		}
-
-		public void setupFort(Random random) {
-			addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
 		}
 
 		@Override

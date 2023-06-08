@@ -121,10 +121,8 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 						return new GOTStructureGiftSmithy(false);
 					case 1:
 						return new GOTStructureGiftStables(false);
-					case 2:
-						return new GOTStructureGiftLodge(false);
 					default:
-						break;
+						return new GOTStructureGiftLodge(false);
 				}
 			}
 			return new GOTStructureGiftHouse(false);

@@ -102,7 +102,5 @@ public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void setupSettlementProperties(Random random) {
 		}
-
 	}
-
 }

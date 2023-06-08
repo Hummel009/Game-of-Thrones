@@ -124,10 +124,8 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 						return new GOTStructureIronbornStables(false);
 					case 1:
 						return new GOTStructureIronbornSmithy(false);
-					case 2:
-						return new GOTStructureIronbornBarn(false);
 					default:
-						break;
+						return new GOTStructureIronbornBarn(false);
 				}
 			}
 			return new GOTStructureIronbornHouse(false);

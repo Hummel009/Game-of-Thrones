@@ -306,6 +306,5 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
 			}
 		}
-
 	}
 }
