@@ -19,6 +19,7 @@ import got.common.world.map.GOTFixer;
 import got.common.world.structure.GOTStructure;
 import got.common.world.structure.other.GOTStructureScan;
 import integrator.NEIGOTIntegrator;
+import net.minecraft.block.Block;
 
 public class GOTLoader {
 
