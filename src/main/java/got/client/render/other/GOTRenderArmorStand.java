@@ -128,8 +128,7 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 						GL11.glDisable(3042);
 						GL11.glDepthFunc(515);
 					}
-				} catch (Exception e) {
-					GOTLog.logger.info("Thaumcraft tries to break everything!");
+				} catch (Exception ignored) {
 				}
 			}
 		}
