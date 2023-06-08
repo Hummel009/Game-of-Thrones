@@ -12,6 +12,7 @@ import got.common.recipe.GOTRecipe;
 import got.common.recipe.GOTRecipeBrewing;
 import got.common.recipe.GOTRecipeMillstone;
 import got.common.tileentity.GOTTileEntityRegistry;
+import got.common.util.GOTAPI;
 import got.common.util.GOTModChecker;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBeziers;
@@ -19,6 +20,10 @@ import got.common.world.map.GOTFixer;
 import got.common.world.structure.GOTStructure;
 import got.common.world.structure.other.GOTStructureScan;
 import integrator.NEIGOTIntegrator;
+import net.minecraft.block.Block;
+import net.minecraftforge.common.IShearable;
+
+import java.util.Set;
 
 public class GOTLoader {
 
@@ -46,10 +51,16 @@ public class GOTLoader {
 		GOTTitle.onInit();
 		GOTFixer.onInit();
 		if (GOTModChecker.hasLOTR()) {
-			GOTBlocks.fallenLeaves1.setCreativeTab(null);
-			GOTBlocks.fallenLeaves2.setCreativeTab(null);
-			GOTBlocks.fallenLeaves3.setCreativeTab(null);
-			GOTBlocks.fallenLeaves4.setCreativeTab(null);
+			try {
+				Class<?> registry = Class.forName("lotr.common.LOTRMod");
+				Set<Block> blocks = GOTAPI.getObjectFieldsOfType(registry, Block.class);
+				for (Block block : blocks) {
+					if (block instanceof IShearable) {
+						block.setCreativeTab(null);
+					}
+				}
+			} catch (Exception ignored) {
+			}
 		}
 	}
 
