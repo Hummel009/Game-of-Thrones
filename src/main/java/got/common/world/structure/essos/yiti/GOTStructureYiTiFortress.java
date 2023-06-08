@@ -82,10 +82,8 @@ public class GOTStructureYiTiFortress extends GOTStructureYiTiBaseTown {
 						case 1:
 							setBlockAndMetadata(world, i14, 0, k12, Blocks.dirt, 1);
 							break;
-						case 2:
-							setBlockAndMetadata(world, i14, 0, k12, GOTBlocks.dirtPath, 0);
-							break;
 						default:
+							setBlockAndMetadata(world, i14, 0, k12, GOTBlocks.dirtPath, 0);
 							break;
 					}
 					if (random.nextInt(3) == 0) {

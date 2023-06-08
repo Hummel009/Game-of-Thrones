@@ -94,12 +94,9 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 				return GOTBlocks.appleCrumble;
 			case 1:
 				return GOTBlocks.cherryPie;
-			case 2:
-				return GOTBlocks.berryPie;
 			default:
-				break;
+				return GOTBlocks.berryPie;
 		}
-		return null;
 	}
 
 	public ItemStack getRandomWeapon(Random random) {
@@ -187,7 +184,7 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 				woodBeamMeta = 0;
 				doorBlock = GOTBlocks.doorApple;
 				break;
-			case 5:
+			default:
 				logBlock = GOTBlocks.wood5;
 				logMeta = 0;
 				plankBlock = GOTBlocks.planks2;
@@ -201,8 +198,6 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 				woodBeamBlock = GOTBlocks.woodBeam5;
 				woodBeamMeta = 0;
 				doorBlock = GOTBlocks.doorPine;
-				break;
-			default:
 				break;
 		}
 		int randomWood2 = random.nextInt(4);
@@ -288,12 +283,10 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 					cropMeta = 7;
 					seedItem = GOTItems.leek;
 					break;
-				case 4:
+				default:
 					cropBlock = GOTBlocks.turnipCrop;
 					cropMeta = 7;
 					seedItem = GOTItems.turnip;
-					break;
-				default:
 					break;
 			}
 		}

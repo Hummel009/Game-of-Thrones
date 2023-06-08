@@ -22,12 +22,9 @@ public class GOTStructureLhazarPasture extends GOTStructureLhazarBase {
 				return new EntitySheep(world);
 			case 3:
 				return new EntityChicken(world);
-			case 4:
-				return new GOTEntityCamel(world);
 			default:
-				break;
+				return new GOTEntityCamel(world);
 		}
-		return null;
 	}
 
 	@Override

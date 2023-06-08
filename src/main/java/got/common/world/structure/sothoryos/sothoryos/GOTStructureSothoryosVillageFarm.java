@@ -56,14 +56,11 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 				seedItem = Items.carrot;
 				melon = false;
 				break;
-			case 6:
-			case 7:
+			default:
 				cropBlock = Blocks.melon_stem;
 				cropMeta = 7;
 				seedItem = Items.melon_seeds;
 				melon = true;
-				break;
-			default:
 				break;
 		}
 		for (i1 = -4; i1 <= 4; ++i1) {

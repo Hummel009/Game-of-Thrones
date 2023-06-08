@@ -80,7 +80,7 @@ public class GOTStructureGoldenCampWatchtower extends GOTStructureBase {
 					stairBlock = GOTBlocks.stairsBeech;
 					trapdoorBlock = GOTBlocks.trapdoorBeech;
 					break;
-				case 3:
+				default:
 					woodBlock = GOTBlocks.wood3;
 					woodMeta = 0;
 					plankBlock = GOTBlocks.planks1;
@@ -89,8 +89,6 @@ public class GOTStructureGoldenCampWatchtower extends GOTStructureBase {
 					fenceMeta = 12;
 					stairBlock = GOTBlocks.stairsMaple;
 					trapdoorBlock = GOTBlocks.trapdoorMaple;
-					break;
-				default:
 					break;
 			}
 		}

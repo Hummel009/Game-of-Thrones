@@ -103,10 +103,8 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 				case 4:
 					plant = new ItemStack(Blocks.tallgrass, 1, 1);
 					break;
-				case 5:
-					plant = new ItemStack(GOTBlocks.tallGrass, 1, 5);
-					break;
 				default:
+					plant = new ItemStack(GOTBlocks.tallGrass, 1, 5);
 					break;
 			}
 		}

@@ -139,7 +139,7 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 				beam2Block = GOTBlocks.woodBeam4;
 				beam2Meta = 2;
 				break;
-			case 2:
+			default:
 				plank2Block = GOTBlocks.planks3;
 				plank2Meta = 4;
 				plank2SlabBlock = GOTBlocks.woodSlabSingle5;
@@ -147,8 +147,6 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 				plank2StairBlock = GOTBlocks.stairsDragon;
 				beam2Block = GOTBlocks.woodBeam9;
 				beam2Meta = 0;
-				break;
-			default:
 				break;
 		}
 		roofBlock = GOTBlocks.thatch;

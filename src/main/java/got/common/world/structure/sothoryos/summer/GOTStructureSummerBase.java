@@ -77,11 +77,9 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 				roofBlock = Blocks.wool;
 				roofMeta = 11;
 				break;
-			case 2:
+			default:
 				roofBlock = Blocks.wool;
 				roofMeta = 8;
-				break;
-			default:
 				break;
 		}
 		if (random.nextBoolean()) {

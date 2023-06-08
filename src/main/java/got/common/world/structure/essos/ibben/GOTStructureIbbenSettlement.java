@@ -100,10 +100,8 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 						return new GOTStructureIbbenSmithy(false);
 					case 1:
 						return new GOTStructureIbbenStables(false);
-					case 2:
-						return new GOTStructureIbbenBarn(false);
 					default:
-						break;
+						return new GOTStructureIbbenBarn(false);
 				}
 			}
 			return new GOTStructureIbbenHouse(false);
