@@ -42,7 +42,7 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			Item item = itemstack.getItem();
-			return !(item instanceof GOTItemLegendaryWhip) || (this != GOTEnchantment.fire && this != GOTEnchantment.chill);
+			return !(item instanceof GOTItemLegendaryWhip) || this != GOTEnchantment.fire && this != GOTEnchantment.chill;
 		}
 		return false;
 	}

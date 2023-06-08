@@ -51,7 +51,6 @@ public class GOTBiomeHauntedForest extends GOTBiomeWesteros {
 		return GOTAchievement.enterHauntedForest;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.ICE;

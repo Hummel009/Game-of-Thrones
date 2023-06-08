@@ -118,6 +118,11 @@ public class GOTBiomeEssos extends GOTBiome {
 	}
 
 	@Override
+	public MusicRegion getBiomeMusic() {
+		return GOTBiomeMusic.ESSOS.getSubregion(biomeName);
+	}
+
+	@Override
 	public Region getBiomeWaypoints() {
 		return Region.FREE;
 	}
@@ -131,11 +136,6 @@ public class GOTBiomeEssos extends GOTBiome {
 			doubleFlowerGen.setFlowerType(2);
 		}
 		return doubleFlowerGen;
-	}
-
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ESSOS.getSubregion(biomeName);
 	}
 
 	@Override

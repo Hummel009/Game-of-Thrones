@@ -741,7 +741,8 @@ public class GOTAchievement {
 					return -1;
 				}
 				return Integer.compare(ach1.ID, ach2.ID);
-			} else if (ach2.isSpecial) {
+			}
+			if (ach2.isSpecial) {
 				return 1;
 			}
 			if (ach1.isBiomeAchievement) {

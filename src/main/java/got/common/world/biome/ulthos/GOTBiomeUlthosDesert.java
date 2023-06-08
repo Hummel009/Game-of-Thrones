@@ -108,7 +108,6 @@ public class GOTBiomeUlthosDesert extends GOTBiomeUlthos implements GOTBiome.Des
 		return GOTAchievement.enterUlthosDesert;
 	}
 
-
 	@Override
 	public float getChanceToSpawnAnimals() {
 		return 0.1f;

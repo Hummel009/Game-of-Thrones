@@ -112,7 +112,6 @@ public class GOTBiomeDorneDesert extends GOTBiomeDorne implements GOTBiome.Deser
 		return GOTAchievement.enterDorneDesert;
 	}
 
-
 	@Override
 	public float getChanceToSpawnAnimals() {
 		return 0.1f;

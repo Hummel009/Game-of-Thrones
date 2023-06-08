@@ -87,6 +87,15 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isFort) {
+				type = Type.FORT;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
 		public void setupVillage(Random random) {
 			addStructure(new GOTStructureMossovyWell(false), 0, -4, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
@@ -162,15 +171,6 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureMossovyTrampHouse(false), farmZ - farmSize, -farmX, 3);
 			addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, farmZ, 1);
 			addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, farmZ, 3);
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isFort) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
-			}
 		}
 	}
 }

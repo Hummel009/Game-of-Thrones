@@ -235,6 +235,11 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return allPlayers;
 	}
 
+	@Override
+	public int getRotation() {
+		return 0;
+	}
+
 	public List<UUID> getSharedFellowshipIDs() {
 		return sharedFellowshipIDs;
 	}
@@ -266,11 +271,6 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	@Override
 	public double getX() {
 		return mapX;
-	}
-
-	@Override
-	public int getRotation() {
-		return 0;
 	}
 
 	@Override

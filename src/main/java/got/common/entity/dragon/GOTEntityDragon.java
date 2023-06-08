@@ -261,11 +261,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		return animator;
 	}
 
-	public void setAttackDamage(double damage) {
-		L.trace("setAttackDamage({})", damage);
-		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(damage);
-	}
-
 	public boolean getBooleanData(int index) {
 		return (dataWatcher.getWatchableObjectByte(index) & 1) != 0;
 	}
@@ -590,6 +585,11 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 			helper.readFromNBT(nbt);
 		}
 		setAttributes();
+	}
+
+	public void setAttackDamage(double damage) {
+		L.trace("setAttackDamage({})", damage);
+		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(damage);
 	}
 
 	public void setAttributes() {

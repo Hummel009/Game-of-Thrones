@@ -51,7 +51,6 @@ public class GOTBiomePentos extends GOTBiomeEssos {
 		return GOTAchievement.enterPentos;
 	}
 
-
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_SANDY;

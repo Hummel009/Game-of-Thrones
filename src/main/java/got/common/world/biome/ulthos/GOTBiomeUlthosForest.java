@@ -36,7 +36,6 @@ public class GOTBiomeUlthosForest extends GOTBiomeUlthos {
 		return GOTAchievement.enterUlthosForest;
 	}
 
-
 	@Override
 	public boolean isBushland() {
 		return false;

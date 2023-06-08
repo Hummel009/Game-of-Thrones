@@ -116,15 +116,14 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		return GOTAchievement.enterSothoryosBushland;
 	}
 
+	@Override
+	public MusicRegion getBiomeMusic() {
+		return GOTBiomeMusic.SOTHORYOS.getSubregion(biomeName);
+	}
 
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.SOTHORYOS;
-	}
-
-	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.SOTHORYOS.getSubregion(biomeName);
 	}
 
 	@Override

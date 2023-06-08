@@ -13,20 +13,20 @@ public abstract class Patcher {
 		patcherName = name;
 	}
 
+	public boolean canRun(String className) {
+		return classes.containsKey(className);
+	}
+
 	public LoadingPhase getLoadPhase() {
 		return LoadingPhase.CORE_MOD_LOADING;
 	}
 
-	public boolean shouldInit() {
-		return true;
+	public String getName() {
+		return patcherName;
 	}
 
 	public boolean isDone() {
 		return classes.isEmpty();
-	}
-
-	public boolean canRun(String className) {
-		return classes.containsKey(className);
 	}
 
 	public void run(String className, ClassNode classNode) {
@@ -34,8 +34,8 @@ public abstract class Patcher {
 		classes.remove(className);
 	}
 
-	public String getName() {
-		return patcherName;
+	public boolean shouldInit() {
+		return true;
 	}
 
 	public enum LoadingPhase {
@@ -47,4 +47,3 @@ public abstract class Patcher {
 		void accept(T var1);
 	}
 }
-

@@ -119,12 +119,10 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 						continue;
 					}
 					int rootY = j + random.nextInt(2 + trunkWidth);
-					int roots = 0;
 					while (world.getBlock(i1, rootY, k15).isReplaceable(world, i1, rootY, k15)) {
 						setBlockAndNotifyAdequately(world, i1, rootY, k15, woodBlock, woodMeta | 0xC);
 						world.getBlock(i1, rootY - 1, k15).onPlantGrow(world, i1, rootY - 1, k15, i1, rootY, k15);
 						--rootY;
-						roots++;
 					}
 				}
 			}

@@ -26,7 +26,6 @@ public class GOTBiomeSothoryosTaiga extends GOTBiomeSothoryosForest {
 		return GOTAchievement.enterSothoryosTaiga;
 	}
 
-
 	@Override
 	public boolean isForest() {
 		return false;

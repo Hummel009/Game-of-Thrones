@@ -15,16 +15,6 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 	}
 
 	@Override
-	public boolean hasRedSandstone() {
-		return false;
-	}
-
-	@Override
-	public boolean hasMonotypeWood() {
-		return true;
-	}
-
-	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
@@ -87,6 +77,16 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public boolean hasMonotypeWood() {
+		return true;
+	}
+
+	@Override
+	public boolean hasRedSandstone() {
+		return false;
 	}
 
 	public static class Extra extends GOTStructureEssosTownWall {

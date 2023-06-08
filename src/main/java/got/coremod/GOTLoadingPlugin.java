@@ -14,6 +14,12 @@ import java.util.Map;
 public class GOTLoadingPlugin implements IFMLLoadingPlugin {
 	private final UCPCoreMod dwarfyAssassinCompatibilityCoremod = new UCPCoreMod();
 
+	@Override
+	public String getAccessTransformerClass() {
+		return null;
+	}
+
+	@Override
 	public String[] getASMTransformerClass() {
 		List<String> classes = new ArrayList<>();
 		classes.add(GOTClassTransformer.class.getName());
@@ -21,18 +27,17 @@ public class GOTLoadingPlugin implements IFMLLoadingPlugin {
 		return classes.toArray(new String[0]);
 	}
 
+	@Override
 	public String getModContainerClass() {
 		return null;
 	}
 
+	@Override
 	public String getSetupClass() {
 		return dwarfyAssassinCompatibilityCoremod.getSetupClass();
 	}
 
+	@Override
 	public void injectData(Map<String, Object> data) {
-	}
-
-	public String getAccessTransformerClass() {
-		return null;
 	}
 }

@@ -65,7 +65,6 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
 		return GOTAchievement.enterColdCoast;
 	}
 
-
 	@Override
 	public float getChanceToSpawnAnimals() {
 		return 0.2f;

@@ -34,7 +34,6 @@ public class GOTBiomeIsleOfFaces extends GOTBiomeWesteros {
 		return GOTAchievement.enterIsleOfFaces;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.RIVERLANDS;

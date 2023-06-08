@@ -65,16 +65,6 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		return posY - worldObj.getHeightValue(blockX, blockZ);
 	}
 
-	public void setMoveSpeedAirHoriz(double airSpeedHorizonal) {
-		L.trace("setMoveSpeedAirHoriz({})", airSpeedHorizonal);
-		this.airSpeedHorizonal = airSpeedHorizonal;
-	}
-
-	public void setMoveSpeedAirVert(double airSpeedVertical) {
-		L.trace("setMoveSpeedAirVert({})", airSpeedVertical);
-		this.airSpeedVertical = airSpeedVertical;
-	}
-
 	public GOTDragonFlightWaypoint getWaypoint() {
 		return waypoint;
 	}
@@ -236,6 +226,16 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		setFlying(nbt.getBoolean(NBT_FLYING));
 		setCanFly(nbt.getBoolean(NBT_CAN_FLY));
 		waypoint.readFromNBT(nbt);
+	}
+
+	public void setMoveSpeedAirHoriz(double airSpeedHorizonal) {
+		L.trace("setMoveSpeedAirHoriz({})", airSpeedHorizonal);
+		this.airSpeedHorizonal = airSpeedHorizonal;
+	}
+
+	public void setMoveSpeedAirVert(double airSpeedVertical) {
+		L.trace("setMoveSpeedAirVert({})", airSpeedVertical);
+		this.airSpeedVertical = airSpeedVertical;
 	}
 
 	public void setTasksEnabled(EntityAITasks tasks, boolean flag) {

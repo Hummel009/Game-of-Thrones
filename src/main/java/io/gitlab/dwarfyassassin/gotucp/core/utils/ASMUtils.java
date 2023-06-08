@@ -8,10 +8,6 @@ import org.objectweb.asm.tree.InsnList;
 import org.objectweb.asm.tree.MethodNode;
 
 public class ASMUtils {
-	public static MethodNode findMethod(ClassNode classNode, String targetMethodName, String obfTargetMethodName, String targetMethodDesc) {
-		return findMethod(classNode, FMLForgePlugin.RUNTIME_DEOBF ? obfTargetMethodName : targetMethodName, targetMethodDesc);
-	}
-
 	public static MethodNode findMethod(ClassNode classNode, String targetMethodName, String targetMethodDesc) {
 		for (MethodNode method : classNode.methods) {
 			if (!method.name.equals(targetMethodName) || !method.desc.equals(targetMethodDesc)) {
@@ -23,6 +19,10 @@ public class ASMUtils {
 		return null;
 	}
 
+	public static MethodNode findMethod(ClassNode classNode, String targetMethodName, String obfTargetMethodName, String targetMethodDesc) {
+		return findMethod(classNode, FMLForgePlugin.RUNTIME_DEOBF ? obfTargetMethodName : targetMethodName, targetMethodDesc);
+	}
+
 	public static void removePreviousNodes(InsnList list, AbstractInsnNode start, int amount) {
 		for (int i = 0; i < amount; ++i) {
 			AbstractInsnNode prevNode = start.getPrevious();
@@ -30,4 +30,3 @@ public class ASMUtils {
 		}
 	}
 }
-

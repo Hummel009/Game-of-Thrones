@@ -22,7 +22,6 @@ public class GOTBiomeGiftOld extends GOTBiomeGiftNew {
 		return GOTAchievement.enterGiftOld;
 	}
 
-
 	@Override
 	public int getWallTop() {
 		return 150;

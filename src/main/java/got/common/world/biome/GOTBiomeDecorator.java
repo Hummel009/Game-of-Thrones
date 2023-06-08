@@ -118,20 +118,20 @@ public class GOTBiomeDecorator {
 		biomeOres.add(new OreGenerant(gen, f, min, max));
 	}
 
-	public void addStructure(WorldGenerator structure, int chunkChance) {
-		structures.add(new Structure(structure, chunkChance));
+	public void addSettlement(GOTStructureBaseSettlement settlement) {
+		settlements.add(settlement);
 	}
 
 	public void addSoil(WorldGenMinable gen, float f, int min, int max) {
 		biomeSoils.add(new OreGenerant(gen, f, min, max));
 	}
 
-	public void addTree(GOTTreeType type, int weight) {
-		treeTypes.add(new GOTTreeType.WeightedTreeType(type, weight));
+	public void addStructure(WorldGenerator structure, int chunkChance) {
+		structures.add(new Structure(structure, chunkChance));
 	}
 
-	public void addSettlement(GOTStructureBaseSettlement settlement) {
-		settlements.add(settlement);
+	public void addTree(GOTTreeType type, int weight) {
+		treeTypes.add(new GOTTreeType.WeightedTreeType(type, weight));
 	}
 
 	public boolean anyFixedSettlementsAt(World world, int i, int k) {
@@ -143,17 +143,17 @@ public class GOTBiomeDecorator {
 		return false;
 	}
 
+	public void clearSettlements() {
+		settlements.clear();
+		settlements.addAll(fixedSettlements);
+	}
+
 	public void clearStructures() {
 		structures.clear();
 	}
 
 	public void clearTrees() {
 		treeTypes.clear();
-	}
-
-	public void clearSettlements() {
-		settlements.clear();
-		settlements.addAll(fixedSettlements);
 	}
 
 	public void decorate() {

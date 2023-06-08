@@ -63,7 +63,6 @@ public class GOTBiomeYiTi extends GOTBiomeEssos {
 		return GOTAchievement.enterYiTi;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.YI_TI;

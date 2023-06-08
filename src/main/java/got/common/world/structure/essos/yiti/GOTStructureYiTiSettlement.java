@@ -241,6 +241,21 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isTown) {
+				type = Type.TOWN;
+			} else if (isTower) {
+				type = Type.TOWER;
+			} else if (isWall) {
+				type = Type.WALL;
+			} else if (random.nextInt(4) == 0) {
+				type = Type.FORT;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
 		public void setupTown(Random random) {
 			int marketZ;
 			addStructure(new GOTStructureNPCRespawner(false) {
@@ -436,21 +451,6 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					continue;
 				}
 				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
-			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (isTower) {
-				type = Type.TOWER;
-			} else if (isWall) {
-				type = Type.WALL;
-			} else if (random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
 			}
 		}
 

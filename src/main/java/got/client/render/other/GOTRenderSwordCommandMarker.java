@@ -1,6 +1,5 @@
 package got.client.render.other;
 
-import got.client.effect.GOTEntitySwordCommandMarker;
 import got.common.database.GOTItems;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -11,12 +10,8 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderSwordCommandMarker extends Render {
-	protected ResourceLocation getEntityTexture(Entity entity) {
-		return TextureMap.locationItemsTexture;
-	}
-
+	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
-		GOTEntitySwordCommandMarker marker = (GOTEntitySwordCommandMarker) entity;
 		GL11.glPushMatrix();
 		GL11.glEnable(32826);
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
@@ -33,5 +28,10 @@ public class GOTRenderSwordCommandMarker extends Render {
 		renderManager.itemRenderer.renderItem(renderManager.livingPlayer, item, 0, IItemRenderer.ItemRenderType.EQUIPPED);
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();
+	}
+
+	@Override
+	protected ResourceLocation getEntityTexture(Entity entity) {
+		return TextureMap.locationItemsTexture;
 	}
 }

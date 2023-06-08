@@ -15,7 +15,6 @@ public class GOTBiomeJogosNhai extends GOTBiomeEssosPlains {
 		return GOTAchievement.enterJogosNhai;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.JOGOS;

@@ -7,4 +7,3 @@ public class PreMCHooks {
 		UCPCoreMod.loadModPatches();
 	}
 }
-

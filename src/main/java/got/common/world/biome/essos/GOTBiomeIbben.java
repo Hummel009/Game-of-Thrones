@@ -33,7 +33,6 @@ public class GOTBiomeIbben extends GOTBiomeEssosCold {
 		return GOTAchievement.enterIbben;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.IBBEN;

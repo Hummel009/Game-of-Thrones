@@ -33,7 +33,6 @@ public class GOTBiomeKingswoodNorth extends GOTBiomeWesteros {
 		return GOTAchievement.enterKingswood;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.CROWNLANDS;

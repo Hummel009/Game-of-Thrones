@@ -10,16 +10,6 @@ public class GOTStructureEssosTownGate extends GOTStructureEssosBase {
 	}
 
 	@Override
-	public boolean hasRedSandstone() {
-		return false;
-	}
-
-	@Override
-	public boolean hasMonotypeWood() {
-		return true;
-	}
-
-	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int i12;
 		int step;
@@ -118,5 +108,15 @@ public class GOTStructureEssosTownGate extends GOTStructureEssosBase {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public boolean hasMonotypeWood() {
+		return true;
+	}
+
+	@Override
+	public boolean hasRedSandstone() {
+		return false;
 	}
 }

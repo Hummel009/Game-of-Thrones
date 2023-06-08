@@ -281,6 +281,10 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		return rainfall;
 	}
 
+	public GOTSettlementPositionCache getSettlementCache(GOTStructureBaseSettlement settlement) {
+		return settlementCacheMap.computeIfAbsent(settlement, k -> new GOTSettlementPositionCache());
+	}
+
 	public GOTSettlementPositionCache getStructureCache(MapGenStructure structure) {
 		return structureCacheMap.computeIfAbsent(structure, k -> new GOTSettlementPositionCache());
 	}
@@ -296,10 +300,6 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 
 	public GOTBiomeVariant[] getVariantsChunkGen(GOTBiomeVariant[] variants, int i, int k, int xSize, int zSize, BiomeGenBase[] biomeSource) {
 		return getBiomeVariantsFromLayers(variants, i, k, xSize, zSize, biomeSource, true);
-	}
-
-	public GOTSettlementPositionCache getSettlementCache(GOTStructureBaseSettlement settlement) {
-		return settlementCacheMap.computeIfAbsent(settlement, k -> new GOTSettlementPositionCache());
 	}
 
 	@Override

@@ -759,6 +759,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return biomeColors.grass != null ? biomeColors.grass.getRGB() : getBaseGrassColor(i, j, k);
 	}
 
+	public abstract MusicRegion getBiomeMusic();
+
 	public BiomeTerrain getBiomeTerrain() {
 		return biomeTerrain;
 	}
@@ -1076,8 +1078,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMidges.class, 90, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntitySwan.class, 10, 1, 2));
 	}
-
-	public abstract MusicRegion getBiomeMusic();
 
 	public void setupStandardDomesticFauna() {
 		flowers.clear();

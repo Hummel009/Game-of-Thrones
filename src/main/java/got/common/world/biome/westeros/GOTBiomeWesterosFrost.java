@@ -25,7 +25,6 @@ public class GOTBiomeWesterosFrost extends GOTBiomeWesteros {
 		return GOTAchievement.enterSnowyWasteland;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.ICE;

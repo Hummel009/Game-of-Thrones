@@ -921,14 +921,12 @@ public class GOTEventHandler implements IFuelHandler {
 					alignmentBonus.needsTranslation = true;
 					alignmentBonus.isCivilianKill = npc.isCivilianNPC();
 				}
-				if (alignmentBonus != null && alignmentBonus.bonus != 0.0F) {
-					if (!creditHiredUnit || byNearbyUnit) {
-						alignmentBonus.isKill = true;
-						if (creditHiredUnit) {
-							alignmentBonus.killByHiredUnit = true;
-						}
-						playerData.addAlignment(entityplayer, alignmentBonus, entityFaction, forcedBonusFactions, entity);
+				if ((alignmentBonus != null && alignmentBonus.bonus != 0.0F) && (!creditHiredUnit || byNearbyUnit)) {
+					alignmentBonus.isKill = true;
+					if (creditHiredUnit) {
+						alignmentBonus.killByHiredUnit = true;
 					}
+					playerData.addAlignment(entityplayer, alignmentBonus, entityFaction, forcedBonusFactions, entity);
 				}
 				if (!creditHiredUnit) {
 					if (entityFaction.allowPlayer) {

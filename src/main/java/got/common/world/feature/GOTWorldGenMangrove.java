@@ -101,7 +101,6 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 						int rootZ = k1;
 						int xWay = Integer.signum(i2);
 						int zWay = Integer.signum(k2);
-						int roots = 0;
 						while (world.getBlock(rootX, rootY, k1).isReplaceable(world, rootX, rootY, rootZ)) {
 							setBlockAndNotifyAdequately(world, rootX, rootY, rootZ, woodID, woodMeta | 0xC);
 							world.getBlock(rootX, rootY - 1, rootZ).onPlantGrow(world, rootX, rootY - 1, rootZ, rootX, rootY, rootZ);
@@ -110,7 +109,6 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 								rootX += xWay;
 								rootZ += zWay;
 							}
-							roots++;
 						}
 					}
 				}

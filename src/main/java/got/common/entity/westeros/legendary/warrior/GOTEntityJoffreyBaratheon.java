@@ -53,6 +53,11 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
 	}
 
+	@Override
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
+		npcCrossbowAttack(target, f);
+	}
+
 	public EntityAIBase createJoffreyAttackAI() {
 		meleeAttackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
 		return meleeAttackAI;
@@ -66,11 +71,6 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.joffreyCrossbow, 1);
 		dropNPCCrossbowBolts(i);
-	}
-
-	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-		npcCrossbowAttack(target, f);
 	}
 
 	@Override

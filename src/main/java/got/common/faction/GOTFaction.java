@@ -413,10 +413,6 @@ public enum GOTFaction {
 		return StatCollector.translateToLocal("got.faction." + codeName() + ".subtitle");
 	}
 
-	public void setAchieveCategory(GOTAchievement.Category cat) {
-		achieveCategory = cat;
-	}
-
 	public List<GOTFaction> getBonusesForKilling() {
 		ArrayList<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : values()) {
@@ -672,6 +668,10 @@ public enum GOTFaction {
 			}
 		}
 		return false;
+	}
+
+	public void setAchieveCategory(GOTAchievement.Category cat) {
+		achieveCategory = cat;
 	}
 
 	public void setFixedAlignment(int alignment) {

@@ -75,7 +75,6 @@ public class GOTBiomeNorthMountains extends GOTBiomeNorth {
 		return GOTAchievement.enterNorthMountains;
 	}
 
-
 	@Override
 	public int getWallTop() {
 		return 150;

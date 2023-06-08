@@ -307,6 +307,8 @@ public abstract class GOTStructureBaseSettlement {
 			locationInfo = loc;
 		}
 
+		public abstract void addSettlementStructures(Random var1);
+
 		public void addStructure(GOTStructureBase structure, int x, int z, int r) {
 			addStructure(structure, x, z, r, false);
 		}
@@ -319,8 +321,6 @@ public abstract class GOTStructureBaseSettlement {
 			}
 			structures.add(new StructureInfo(structure, x, z, r));
 		}
-
-		public abstract void addSettlementStructures(Random var1);
 
 		public abstract GOTBezierType getPath(Random var1, int var2, int var3);
 

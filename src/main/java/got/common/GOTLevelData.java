@@ -183,11 +183,6 @@ public class GOTLevelData {
 		return null;
 	}
 
-	public static void setSavedDifficulty(EnumDifficulty d) {
-		difficulty = d;
-		markDirty();
-	}
-
 	public static int getWaypointCooldownMax() {
 		return waypointCooldownMax;
 	}
@@ -363,7 +358,6 @@ public class GOTLevelData {
 	public static void saveAndClearData(UUID player) {
 		GOTPlayerData pd = playerDataMap.get(player);
 		if (pd != null) {
-			boolean saved = false;
 			if (pd.needsSave()) {
 				saveData(player);
 			}
@@ -553,7 +547,12 @@ public class GOTLevelData {
 	}
 
 	public static void setPlayerBannedForStructures(String username, boolean flag) {
-		UUID uuid = UUID.fromString(PreYggdrasilConverter.func_152719_a(username));
+		UUID.fromString(PreYggdrasilConverter.func_152719_a(username));
+	}
+
+	public static void setSavedDifficulty(EnumDifficulty d) {
+		difficulty = d;
+		markDirty();
 	}
 
 	public static void setStructuresBanned(boolean banned) {

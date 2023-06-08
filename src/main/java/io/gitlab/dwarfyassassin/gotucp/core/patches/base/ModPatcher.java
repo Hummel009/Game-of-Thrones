@@ -20,4 +20,3 @@ public abstract class ModPatcher extends Patcher {
 		return Loader.isModLoaded(modID);
 	}
 }
-

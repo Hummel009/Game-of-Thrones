@@ -53,7 +53,6 @@ public class GOTBiomeCrownlands extends GOTBiomeWesteros {
 		return GOTAchievement.enterCrownlands;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.CROWNLANDS;

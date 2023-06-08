@@ -775,7 +775,6 @@ public class GOTClassTransformer implements IClassTransformer {
 				block1:
 				for (boolean worldObf : new boolean[]{false, true}) {
 					boolean[] arrbl = {false, true};
-					int n = arrbl.length;
 					for (boolean b : arrbl) {
 						String _world = worldObf ? cls_World_obf : cls_World;
 						nodeIsRemote = findNodeInMethod(method, new FieldInsnNode(180, _world, b ? "field_72995_K" : "isRemote", "Z"));

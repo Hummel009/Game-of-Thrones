@@ -117,12 +117,10 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 					continue;
 				}
 				int rootY = j + 1 + random.nextInt(2);
-				int roots = 0;
 				while (world.getBlock(i1, rootY, k1).isReplaceable(world, i1, rootY, k1)) {
 					setBlockAndNotifyAdequately(world, i1, rootY, k1, woodBlock, woodMeta | 0xC);
 					world.getBlock(i1, rootY - 1, k1).onPlantGrow(world, i1, rootY - 1, k1, i1, rootY, k1);
 					--rootY;
-					roots++;
 				}
 			}
 		}

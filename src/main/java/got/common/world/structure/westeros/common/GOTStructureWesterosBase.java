@@ -273,6 +273,16 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		super(flag);
 	}
 
+	public static GOTTreeType getRandomNorthernTree(Random random) {
+		ArrayList<GOTTreeType> treeList = new ArrayList<>();
+		treeList.add(GOTTreeType.SPRUCE);
+		treeList.add(GOTTreeType.SPRUCE_THIN);
+		treeList.add(GOTTreeType.LARCH);
+		treeList.add(GOTTreeType.FIR);
+		treeList.add(GOTTreeType.PINE);
+		return treeList.get(random.nextInt(treeList.size()));
+	}
+
 	public static GOTTreeType getRandomSouthernTree(Random random) {
 		ArrayList<GOTTreeType> treeList = new ArrayList<>();
 		treeList.add(GOTTreeType.ACACIA);
@@ -310,16 +320,6 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		treeList.add(GOTTreeType.ALMOND);
 		treeList.add(GOTTreeType.CHESTNUT);
 		treeList.add(GOTTreeType.CHESTNUT_LARGE);
-		return treeList.get(random.nextInt(treeList.size()));
-	}
-
-	public static GOTTreeType getRandomNorthernTree(Random random) {
-		ArrayList<GOTTreeType> treeList = new ArrayList<>();
-		treeList.add(GOTTreeType.SPRUCE);
-		treeList.add(GOTTreeType.SPRUCE_THIN);
-		treeList.add(GOTTreeType.LARCH);
-		treeList.add(GOTTreeType.FIR);
-		treeList.add(GOTTreeType.PINE);
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
@@ -376,20 +376,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return (GOTStructureWesterosTower) GOTReflection.newStructure(TOWERS.get(kingdom), notifyChanges);
 	}
 
-	public boolean hasMaester() {
-		return KINGDOMS_WITH_MAESTERS.contains(kingdom);
-	}
-
-	public boolean hasSepton() {
-		return KINGDOMS_WITH_SEPTONS.contains(kingdom);
-	}
-
-	public GOTStructureBase setGranite() {
-		kingdom = Kingdom.CROWNLANDS_RED;
-		return this;
-	}
-
-	public boolean hasSandstone() {
+	public boolean hasDarkSkinPeople() {
 		return kingdom == Kingdom.DORNE;
 	}
 
@@ -397,16 +384,29 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return kingdom == Kingdom.CROWNLANDS_RED;
 	}
 
-	public boolean hasDarkSkinPeople() {
+	public boolean hasMaester() {
+		return KINGDOMS_WITH_MAESTERS.contains(kingdom);
+	}
+
+	public boolean hasNorthernWood() {
+		return kingdom == Kingdom.NORTH;
+	}
+
+	public boolean hasSandstone() {
 		return kingdom == Kingdom.DORNE;
+	}
+
+	public boolean hasSepton() {
+		return KINGDOMS_WITH_SEPTONS.contains(kingdom);
 	}
 
 	public boolean hasSouthernWood() {
 		return kingdom == Kingdom.DORNE;
 	}
 
-	public boolean hasNorthernWood() {
-		return kingdom == Kingdom.NORTH;
+	public GOTStructureBase setGranite() {
+		kingdom = Kingdom.CROWNLANDS_RED;
+		return this;
 	}
 
 	@Override
@@ -471,80 +471,70 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 			roofSlabBlock = GOTBlocks.slabSingleThatch;
 			roofSlabMeta = 1;
 			roofStairBlock = GOTBlocks.stairsReed;
-		} else if (hasGranite()) {
-			brickBlock = GOTBlocks.brick2;
-			brickCarved = GOTBlocks.brick3;
-			brickCarvedMeta = 1;
-			brickCrackedBlock = GOTBlocks.brick1;
-			brickCrackedMeta = 3;
-			brickCrackedSlabBlock = GOTBlocks.slabSingle1;
-			brickCrackedSlabMeta = 5;
-			brickCrackedStairBlock = GOTBlocks.stairsAndesiteBrickCracked;
-			brickCrackedWallBlock = GOTBlocks.wallStone1;
-			brickCrackedWallMeta = 5;
-			brickMeta = 2;
-			brickMossyBlock = GOTBlocks.brick1;
-			brickMossyMeta = 2;
-			brickMossySlabBlock = GOTBlocks.slabSingle1;
-			brickMossySlabMeta = 4;
-			brickMossyStairBlock = GOTBlocks.stairsAndesiteBrickMossy;
-			brickMossyWallBlock = GOTBlocks.wallStone1;
-			brickMossyWallMeta = 4;
-			brickSlabBlock = GOTBlocks.slabSingle3;
-			brickSlabMeta = 6;
-			brickStairBlock = GOTBlocks.stairsGraniteBrick;
-			brickWallBlock = GOTBlocks.wallStone2;
-			brickWallMeta = 3;
-			pillarMeta = 4;
-			rockBlock = GOTBlocks.rock;
-			rockMeta = 4;
-			rockSlabBlock = GOTBlocks.slabSingle3;
-			rockSlabDoubleBlock = GOTBlocks.smoothStone;
-			rockSlabDoubleMeta = 4;
-			rockSlabMeta = 6;
-			rockStairBlock = GOTBlocks.stairsAndesite;
-			cobbleBlock = Blocks.cobblestone;
-			cobbleSlabBlock = Blocks.stone_slab;
-			cobbleSlabMeta = 3;
-			cobbleStairBlock = Blocks.stone_stairs;
-			rockWallBlock = GOTBlocks.wallStone1;
-			rockWallMeta = 2;
-			roofBlock = GOTBlocks.thatch;
-			roofMeta = 0;
-			roofSlabBlock = GOTBlocks.slabSingleThatch;
-			roofSlabMeta = 0;
-			roofStairBlock = GOTBlocks.stairsThatch;
 		} else {
-			brickBlock = GOTBlocks.brick1;
-			brickCarved = GOTBlocks.brick1;
-			brickCarvedMeta = 5;
-			brickCrackedBlock = GOTBlocks.brick1;
-			brickCrackedMeta = 3;
-			brickCrackedSlabBlock = GOTBlocks.slabSingle1;
-			brickCrackedSlabMeta = 5;
-			brickCrackedStairBlock = GOTBlocks.stairsAndesiteBrickCracked;
-			brickCrackedWallBlock = GOTBlocks.wallStone1;
-			brickCrackedWallMeta = 5;
-			brickMeta = 1;
-			brickMossyBlock = GOTBlocks.brick1;
-			brickMossyMeta = 2;
-			brickMossySlabBlock = GOTBlocks.slabSingle1;
-			brickMossySlabMeta = 4;
-			brickMossyStairBlock = GOTBlocks.stairsAndesiteBrickMossy;
-			brickMossyWallBlock = GOTBlocks.wallStone1;
-			brickMossyWallMeta = 4;
-			brickSlabBlock = GOTBlocks.slabSingle1;
-			brickSlabMeta = 3;
-			brickStairBlock = GOTBlocks.stairsAndesiteBrick;
-			brickWallBlock = GOTBlocks.wallStone1;
-			brickWallMeta = 3;
-			pillarMeta = 6;
-			rockBlock = GOTBlocks.rock;
-			rockMeta = 1;
-			rockSlabBlock = GOTBlocks.slabSingle1;
-			rockSlabDoubleBlock = GOTBlocks.slabDouble1;
-			rockSlabDoubleMeta = 2;
-			rockSlabMeta = 2;
+			if (hasGranite()) {
+				brickBlock = GOTBlocks.brick2;
+				brickCarved = GOTBlocks.brick3;
+				brickCarvedMeta = 1;
+				brickCrackedBlock = GOTBlocks.brick1;
+				brickCrackedMeta = 3;
+				brickCrackedSlabBlock = GOTBlocks.slabSingle1;
+				brickCrackedSlabMeta = 5;
+				brickCrackedStairBlock = GOTBlocks.stairsAndesiteBrickCracked;
+				brickCrackedWallBlock = GOTBlocks.wallStone1;
+				brickCrackedWallMeta = 5;
+				brickMeta = 2;
+				brickMossyBlock = GOTBlocks.brick1;
+				brickMossyMeta = 2;
+				brickMossySlabBlock = GOTBlocks.slabSingle1;
+				brickMossySlabMeta = 4;
+				brickMossyStairBlock = GOTBlocks.stairsAndesiteBrickMossy;
+				brickMossyWallBlock = GOTBlocks.wallStone1;
+				brickMossyWallMeta = 4;
+				brickSlabBlock = GOTBlocks.slabSingle3;
+				brickSlabMeta = 6;
+				brickStairBlock = GOTBlocks.stairsGraniteBrick;
+				brickWallBlock = GOTBlocks.wallStone2;
+				brickWallMeta = 3;
+				pillarMeta = 4;
+				rockBlock = GOTBlocks.rock;
+				rockMeta = 4;
+				rockSlabBlock = GOTBlocks.slabSingle3;
+				rockSlabDoubleBlock = GOTBlocks.smoothStone;
+				rockSlabDoubleMeta = 4;
+				rockSlabMeta = 6;
+			} else {
+				brickBlock = GOTBlocks.brick1;
+				brickCarved = GOTBlocks.brick1;
+				brickCarvedMeta = 5;
+				brickCrackedBlock = GOTBlocks.brick1;
+				brickCrackedMeta = 3;
+				brickCrackedSlabBlock = GOTBlocks.slabSingle1;
+				brickCrackedSlabMeta = 5;
+				brickCrackedStairBlock = GOTBlocks.stairsAndesiteBrickCracked;
+				brickCrackedWallBlock = GOTBlocks.wallStone1;
+				brickCrackedWallMeta = 5;
+				brickMeta = 1;
+				brickMossyBlock = GOTBlocks.brick1;
+				brickMossyMeta = 2;
+				brickMossySlabBlock = GOTBlocks.slabSingle1;
+				brickMossySlabMeta = 4;
+				brickMossyStairBlock = GOTBlocks.stairsAndesiteBrickMossy;
+				brickMossyWallBlock = GOTBlocks.wallStone1;
+				brickMossyWallMeta = 4;
+				brickSlabBlock = GOTBlocks.slabSingle1;
+				brickSlabMeta = 3;
+				brickStairBlock = GOTBlocks.stairsAndesiteBrick;
+				brickWallBlock = GOTBlocks.wallStone1;
+				brickWallMeta = 3;
+				pillarMeta = 6;
+				rockBlock = GOTBlocks.rock;
+				rockMeta = 1;
+				rockSlabBlock = GOTBlocks.slabSingle1;
+				rockSlabDoubleBlock = GOTBlocks.slabDouble1;
+				rockSlabDoubleMeta = 2;
+				rockSlabMeta = 2;
+			}
 			rockStairBlock = GOTBlocks.stairsAndesite;
 			cobbleBlock = Blocks.cobblestone;
 			cobbleSlabBlock = Blocks.stone_slab;

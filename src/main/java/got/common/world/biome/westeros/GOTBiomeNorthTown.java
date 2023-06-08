@@ -38,7 +38,6 @@ public class GOTBiomeNorthTown extends GOTBiomeNorth {
 		return GOTAchievement.enterNorthTown;
 	}
 
-
 	@Override
 	public boolean getEnableRiver() {
 		return false;

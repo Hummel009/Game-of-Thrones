@@ -41,13 +41,14 @@ public class GOTRenderBanner extends Render {
 		return standTexture;
 	}
 
+	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		GOTEntityBanner banner = (GOTEntityBanner) entity;
 		Minecraft mc = Minecraft.getMinecraft();
 		boolean debug = mc.gameSettings.showDebugInfo;
 		boolean protecting = banner.isProtectingTerritory();
-		boolean renderBox = (debug && protecting);
-		boolean seeThroughWalls = (renderBox && (mc.thePlayer.capabilities.isCreativeMode || banner.clientside_playerHasPermissionInSurvival()));
+		boolean renderBox = debug && protecting;
+		boolean seeThroughWalls = renderBox && (mc.thePlayer.capabilities.isCreativeMode || banner.clientside_playerHasPermissionInSurvival());
 		int protectColor = 65280;
 		bannerFrustum.setPosition(d + RenderManager.renderPosX, d1 + RenderManager.renderPosY, d2 + RenderManager.renderPosZ);
 		if (bannerFrustum.isBoundingBoxInFrustum(banner.boundingBox)) {

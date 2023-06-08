@@ -137,6 +137,18 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isTown) {
+				type = Type.TOWN;
+			} else if (random.nextInt(4) == 0) {
+				type = Type.FORT;
+			} else {
+				type = Type.VILLAGE;
+			}
+			numOuterHouses = MathHelper.getRandomIntegerInRange(random, 5, 8);
+		}
+
 		public void setupTown(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -312,18 +324,6 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 				}
 				addStructure(getRandomFarm(random), i, k, r);
 			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
-			}
-			numOuterHouses = MathHelper.getRandomIntegerInRange(random, 5, 8);
 		}
 
 	}

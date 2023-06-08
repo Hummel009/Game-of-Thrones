@@ -45,24 +45,27 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		boolean anyAttackCommanded = false;
 		List<GOTEntityNPC> nearbyHiredUnits = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(12.0D, 12.0D, 12.0D));
 		for (GOTEntityNPC npc : nearbyHiredUnits) {
-			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getObeyCommandSword())
-				if (GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
-					List<EntityLivingBase> validTargets = new ArrayList<>();
-					if (!spreadTargets.isEmpty()) for (Object obj : spreadTargets) {
+			if ((npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getObeyCommandSword()) && GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
+				List<EntityLivingBase> validTargets = new ArrayList<>();
+				if (!spreadTargets.isEmpty()) {
+					for (Object obj : spreadTargets) {
 						EntityLivingBase entity = (EntityLivingBase) obj;
-						if (GOT.canNPCAttackEntity(npc, entity, true)) validTargets.add(entity);
-					}
-					if (!validTargets.isEmpty()) {
-						GOTEntityAINearestAttackableTargetBasic.TargetSorter targetSorter = new GOTEntityAINearestAttackableTargetBasic.TargetSorter(npc);
-						validTargets.sort(targetSorter);
-						EntityLivingBase target = validTargets.get(0);
-						npc.hiredNPCInfo.commandSwordAttack(target);
-						npc.hiredNPCInfo.wasAttackCommanded = true;
-						anyAttackCommanded = true;
-					} else {
-						npc.hiredNPCInfo.commandSwordCancel();
+						if (GOT.canNPCAttackEntity(npc, entity, true)) {
+							validTargets.add(entity);
+						}
 					}
 				}
+				if (!validTargets.isEmpty()) {
+					GOTEntityAINearestAttackableTargetBasic.TargetSorter targetSorter = new GOTEntityAINearestAttackableTargetBasic.TargetSorter(npc);
+					validTargets.sort(targetSorter);
+					EntityLivingBase target = validTargets.get(0);
+					npc.hiredNPCInfo.commandSwordAttack(target);
+					npc.hiredNPCInfo.wasAttackCommanded = true;
+					anyAttackCommanded = true;
+				} else {
+					npc.hiredNPCInfo.commandSwordCancel();
+				}
+			}
 		}
 		if (anyAttackCommanded) {
 			Vec3 vec = hitTarget.hitVec;

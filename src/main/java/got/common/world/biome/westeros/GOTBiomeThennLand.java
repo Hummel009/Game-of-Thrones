@@ -59,7 +59,6 @@ public class GOTBiomeThennLand extends GOTBiomeHauntedForest {
 		return GOTAchievement.enterThennLand;
 	}
 
-
 	@Override
 	public boolean getEnableRiver() {
 		return false;

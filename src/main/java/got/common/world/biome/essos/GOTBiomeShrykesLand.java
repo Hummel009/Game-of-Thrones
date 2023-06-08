@@ -72,7 +72,6 @@ public class GOTBiomeShrykesLand extends GOTBiomeEssosPlains {
 		return GOTAchievement.enterShrykesLand;
 	}
 
-
 	@Override
 	public GOTWaypoint.Region getBiomeWaypoints() {
 		return GOTWaypoint.Region.MOSSOVY;

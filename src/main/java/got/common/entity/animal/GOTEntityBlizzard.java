@@ -123,16 +123,6 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 		return "mob.blaze.hit";
 	}
 
-	public void setInAttackMode(boolean flag) {
-		byte b0 = dataWatcher.getWatchableObjectByte(16);
-		if (flag) {
-			b0 = (byte) (b0 | 1);
-		} else {
-			b0 &= -2;
-		}
-		dataWatcher.updateObject(16, b0);
-	}
-
 	@Override
 	public String getLivingSound() {
 		return "mob.blaze.breathe";
@@ -157,5 +147,15 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 			GOT.proxy.spawnParticle("chill", posX + (rand.nextDouble() - 0.5D) * width, posY + rand.nextDouble() * height, posZ + (rand.nextDouble() - 0.5D) * width, 0.0D, 0.0D, 0.0D);
 		}
 		super.onLivingUpdate();
+	}
+
+	public void setInAttackMode(boolean flag) {
+		byte b0 = dataWatcher.getWatchableObjectByte(16);
+		if (flag) {
+			b0 = (byte) (b0 | 1);
+		} else {
+			b0 &= -2;
+		}
+		dataWatcher.updateObject(16, b0);
 	}
 }

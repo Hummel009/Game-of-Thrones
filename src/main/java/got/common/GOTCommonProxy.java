@@ -774,18 +774,18 @@ public class GOTCommonProxy implements IGuiHandler {
 	public void onInit() {
 	}
 
-	public void postInit() {
-	}
-
-	public void preInit() {
-	}
-
 	public void openHiredNPCGui(GOTEntityNPC npc) {
 	}
 
 	public void placeFlowerInPot(World world, int i, int j, int k, int side, ItemStack itemstack) {
 		world.setBlock(i, j, k, GOTBlocks.flowerPot, 0, 3);
 		GOTBlockFlowerPot.setPlant(world, i, j, k, itemstack);
+	}
+
+	public void postInit() {
+	}
+
+	public void preInit() {
 	}
 
 	public void queueAchievement(GOTAchievement achievement) {

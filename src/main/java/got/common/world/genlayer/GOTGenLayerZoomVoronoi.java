@@ -39,7 +39,7 @@ public class GOTGenLayerZoomVoronoi extends GOTGenLayer {
 				initChunkSeed((long) i3 + i1 + 1 << 2, (long) k3 + k1 + 1 << 2);
 				double d11_a = nextInt(zoomScale) / zoomDivisor * d0 + 4.0;
 				double d11_b = nextInt(zoomScale) / zoomDivisor * d0 + 4.0;
-				int int10 = variants[i3 + 1 + (k3) * xSizeZoom];
+				int int10 = variants[i3 + 1 + k3 * xSizeZoom];
 				int int11 = variants[i3 + 1 + (k3 + 1) * xSizeZoom];
 				for (int k4 = 0; k4 < 4; ++k4) {
 					int index = ((k3 << 2) + k4) * i2 + (i3 << 2);

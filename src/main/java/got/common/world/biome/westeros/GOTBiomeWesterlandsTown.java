@@ -40,7 +40,6 @@ public class GOTBiomeWesterlandsTown extends GOTBiomeWesterlands {
 		return GOTAchievement.enterWesterlandsTown;
 	}
 
-
 	@Override
 	public boolean getEnableRiver() {
 		return false;

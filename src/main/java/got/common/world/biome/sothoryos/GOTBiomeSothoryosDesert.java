@@ -116,7 +116,6 @@ public class GOTBiomeSothoryosDesert extends GOTBiomeSothoryosBushland implement
 		return GOTAchievement.enterSothoryosDesert;
 	}
 
-
 	@Override
 	public float getChanceToSpawnAnimals() {
 		return 0.1f;

@@ -120,12 +120,10 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 							}
 							if (random.nextInt(4) == 0) {
 								int rootY = j + random.nextInt(2);
-								int roots = 0;
 								while (world.getBlock(i12, rootY, k1).isReplaceable(world, i12, rootY, k1)) {
 									setBlockAndNotifyAdequately(world, i12, rootY, k1, woodBlock, woodMeta | 0xC);
 									world.getBlock(i12, rootY - 1, k1).onPlantGrow(world, i12, rootY - 1, k1, i12, rootY, k1);
 									--rootY;
-									roots++;
 								}
 							}
 							if (random.nextInt(4) != 0 || i2 != 0 && k2 != 0 || !(block = world.getBlock(i12, j12 = leafStart, k1)).isReplaceable(world, i12, j12, k1) && !block.isLeaves(world, i12, j12, k1)) {

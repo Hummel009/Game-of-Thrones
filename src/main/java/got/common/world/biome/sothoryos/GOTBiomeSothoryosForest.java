@@ -91,7 +91,6 @@ public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 		return GOTAchievement.enterSothoryosForest;
 	}
 
-
 	@Override
 	public GOTBiome.GrassBlockAndMeta getRandomGrass(Random random) {
 		if (isForest() && random.nextInt(5) != 0) {

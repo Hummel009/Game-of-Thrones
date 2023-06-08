@@ -138,6 +138,59 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
+		public void setupCamp(Random random) {
+			addStructure(new GOTStructureIronbornCampWatchtower(false), 0, -4, 0, true);
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClasses(GOTEntityIronbornSoldier.class, GOTEntityIronbornSoldierArcher.class);
+					spawner.setCheckRanges(40, -12, 12, 40);
+					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			addStructure(new GOTStructureIronbornCampTent(false), -21, 0, 1);
+			addStructure(new GOTStructureIronbornCampTent(false), 0, -21, 2);
+			addStructure(new GOTStructureIronbornCampTent(false), 21, 0, 3);
+			addStructure(new GOTStructureIronbornCampTent(false), 0, 21, 0);
+			int houses = 20;
+			float frac = 1.0f / houses;
+			float turn = 0.0f;
+			while (turn < 1.0f) {
+				int k;
+				int l;
+				int i;
+				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
+				float sin = MathHelper.sin(turnR);
+				float cos = MathHelper.cos(turnR);
+				int r = 0;
+				float turn8 = turn * 8.0f;
+				if (turn8 >= 3.0f && turn8 < 5.0f) {
+					r = 1;
+				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
+					r = 2;
+				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
+					r = 3;
+				}
+				if (random.nextBoolean()) {
+					l = 61;
+					i = Math.round(l * cos);
+					k = Math.round(l * sin);
+					addStructure(new GOTStructureIronbornCampTent(false), i, k, r);
+				}
+			}
+			int farmX = 38;
+			int farmZ = 17;
+			int farmSize = 6;
+			addStructure(new GOTStructureIronbornCampTent(false), -farmX + farmSize, -farmZ, 1);
+			addStructure(new GOTStructureIronbornCampTent(false), -farmZ + farmSize, -farmX, 1);
+			addStructure(new GOTStructureIronbornCampTent(false), farmX - farmSize, -farmZ, 3);
+			addStructure(new GOTStructureIronbornCampTent(false), farmZ - farmSize, -farmX, 3);
+			addStructure(new GOTStructureIronbornCampTent(false), -farmX + farmSize, farmZ, 1);
+			addStructure(new GOTStructureIronbornCampTent(false), farmX - farmSize, farmZ, 3);
+		}
+
 		public void setupCastle(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -200,6 +253,21 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureWesterosWell(false), 12, 27, 3);
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isTown) {
+				type = Type.TOWN;
+			} else if (isCastle) {
+				type = Type.FORT;
+			} else if (isCamp) {
+				type = Type.CAMP;
+			} else if (random.nextInt(4) == 0) {
+				type = Type.FORT;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
 		public void setupTown(Random random) {
 			int l;
 			int wallX;
@@ -216,7 +284,6 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			}, 0, 0, 0);
 			for (int i1 : new int[]{-40, 40}) {
 				int[] arrn = {-40, 40};
-				int n = arrn.length;
 				for (int k1 : arrn) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -527,74 +594,6 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 			}
 			if (random.nextBoolean()) {
 				addStructure(getRandomFarm(random), farmX - farmSize, farmZ, 3);
-			}
-		}
-
-		public void setupCamp(Random random) {
-			addStructure(new GOTStructureIronbornCampWatchtower(false), 0, -4, 0, true);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClasses(GOTEntityIronbornSoldier.class, GOTEntityIronbornSoldierArcher.class);
-					spawner.setCheckRanges(40, -12, 12, 40);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureIronbornCampTent(false), -21, 0, 1);
-			addStructure(new GOTStructureIronbornCampTent(false), 0, -21, 2);
-			addStructure(new GOTStructureIronbornCampTent(false), 21, 0, 3);
-			addStructure(new GOTStructureIronbornCampTent(false), 0, 21, 0);
-			int houses = 20;
-			float frac = 1.0f / houses;
-			float turn = 0.0f;
-			while (turn < 1.0f) {
-				int k;
-				int l;
-				int i;
-				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
-				float sin = MathHelper.sin(turnR);
-				float cos = MathHelper.cos(turnR);
-				int r = 0;
-				float turn8 = turn * 8.0f;
-				if (turn8 >= 3.0f && turn8 < 5.0f) {
-					r = 1;
-				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
-					r = 2;
-				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
-					r = 3;
-				}
-				if (random.nextBoolean()) {
-					l = 61;
-					i = Math.round(l * cos);
-					k = Math.round(l * sin);
-					addStructure(new GOTStructureIronbornCampTent(false), i, k, r);
-				}
-			}
-			int farmX = 38;
-			int farmZ = 17;
-			int farmSize = 6;
-			addStructure(new GOTStructureIronbornCampTent(false), -farmX + farmSize, -farmZ, 1);
-			addStructure(new GOTStructureIronbornCampTent(false), -farmZ + farmSize, -farmX, 1);
-			addStructure(new GOTStructureIronbornCampTent(false), farmX - farmSize, -farmZ, 3);
-			addStructure(new GOTStructureIronbornCampTent(false), farmZ - farmSize, -farmX, 3);
-			addStructure(new GOTStructureIronbornCampTent(false), -farmX + farmSize, farmZ, 1);
-			addStructure(new GOTStructureIronbornCampTent(false), farmX - farmSize, farmZ, 3);
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (isCastle) {
-				type = Type.FORT;
-			} else if (isCamp) {
-				type = Type.CAMP;
-			} else if (random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
 			}
 		}
 	}

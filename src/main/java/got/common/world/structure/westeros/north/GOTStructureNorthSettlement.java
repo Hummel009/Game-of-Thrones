@@ -44,15 +44,15 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 		return this;
 	}
 
-	public GOTStructureNorthSettlement setIsSmallTown() {
-		isSmallTown = true;
+	public GOTStructureNorthSettlement setIsHillman() {
+		isHillman = true;
 		settlementChunkRadius = 6;
 		fixedSettlementChunkRadius = 6;
 		return this;
 	}
 
-	public GOTStructureNorthSettlement setIsHillman() {
-		isHillman = true;
+	public GOTStructureNorthSettlement setIsSmallTown() {
+		isSmallTown = true;
 		settlementChunkRadius = 6;
 		fixedSettlementChunkRadius = 6;
 		return this;
@@ -92,53 +92,6 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 				case HILLMAN:
 					setupHillman(random);
 					break;
-			}
-		}
-
-		public void setupHillman(Random random) {
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityNorthHillman.class);
-					spawner.setCheckRanges(40, -12, 12, 40);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClasses(GOTEntityNorthHillmanAxeThrower.class, GOTEntityNorthHillmanArcher.class);
-					spawner.setCheckRanges(40, -12, 12, 16);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			int pathEnd = 68;
-			int pathSide = 7;
-			int centreSide = 19;
-			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
-			addStructure(new GOTStructureNorthHillmanHouse(false).setIsCannibal(), 0, -centreSide, 2, true);
-			addStructure(new GOTStructureNorthHillmanHouse(false).setIsWarrior(), -pathEnd, 0, 1, true);
-			addStructure(new GOTStructureNorthHillmanChieftainHouse(false), pathEnd, 0, 3, true);
-			int rowHouses = 3;
-			for (int l = -rowHouses; l <= rowHouses; ++l) {
-				int i1 = l * 18;
-				int k1 = pathSide;
-				if (Math.abs(i1) <= 15) {
-					k1 += 15 - pathSide;
-				}
-				if (Math.abs(l) >= 1) {
-					addStructure(new GOTStructureNorthHillmanHouse(false), i1, -k1, 2);
-				}
-				addStructure(new GOTStructureNorthHillmanHouse(false), i1, k1, 0);
-				int k2 = k1 + 20;
-				if (l != 0) {
-					addStructure(new GOTStructureHayBales(false), i1, -k2, 2);
-				}
-				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
 			}
 		}
 
@@ -267,6 +220,68 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureWesterosWell(false), 12, 27, 3);
 		}
 
+		public void setupHillman(Random random) {
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClass(GOTEntityNorthHillman.class);
+					spawner.setCheckRanges(40, -12, 12, 40);
+					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClasses(GOTEntityNorthHillmanAxeThrower.class, GOTEntityNorthHillmanArcher.class);
+					spawner.setCheckRanges(40, -12, 12, 16);
+					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			int pathEnd = 68;
+			int pathSide = 7;
+			int centreSide = 19;
+			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
+			addStructure(new GOTStructureNorthHillmanHouse(false).setIsCannibal(), 0, -centreSide, 2, true);
+			addStructure(new GOTStructureNorthHillmanHouse(false).setIsWarrior(), -pathEnd, 0, 1, true);
+			addStructure(new GOTStructureNorthHillmanChieftainHouse(false), pathEnd, 0, 3, true);
+			int rowHouses = 3;
+			for (int l = -rowHouses; l <= rowHouses; ++l) {
+				int i1 = l * 18;
+				int k1 = pathSide;
+				if (Math.abs(i1) <= 15) {
+					k1 += 15 - pathSide;
+				}
+				if (Math.abs(l) >= 1) {
+					addStructure(new GOTStructureNorthHillmanHouse(false), i1, -k1, 2);
+				}
+				addStructure(new GOTStructureNorthHillmanHouse(false), i1, k1, 0);
+				int k2 = k1 + 20;
+				if (l != 0) {
+					addStructure(new GOTStructureHayBales(false), i1, -k2, 2);
+				}
+				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
+			}
+		}
+
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isTown) {
+				type = Type.TOWN;
+			} else if (isSmallTown) {
+				type = Type.SMALL_TOWN;
+			} else if (isHillman) {
+				type = Type.HILLMAN;
+			} else if (isCastle || random.nextInt(4) == 0) {
+				type = Type.FORT;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
 		public void setupTown(Random random) {
 			boolean outerTavern = random.nextBoolean();
 			addStructure(new GOTStructureNPCRespawner(false) {
@@ -281,7 +296,6 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			}, 0, 0, 0);
 			for (int i1 : new int[]{-40, 40}) {
 				int[] arrn = {-40, 40};
-				int n = arrn.length;
 				for (int k1 : arrn) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -596,21 +610,6 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			}
 			if (random.nextBoolean()) {
 				addStructure(getRandomFarm(random), farmX - farmSize, farmZ, 3);
-			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (isSmallTown) {
-				type = Type.SMALL_TOWN;
-			} else if (isHillman) {
-				type = Type.HILLMAN;
-			} else if (isCastle || random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
 			}
 		}
 	}

@@ -14,16 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 public class GenericModHooks {
-	public static void setItemDelagateName(Item item, String name) {
-		RegistryDelegate.Delegate<Item> delegate = (RegistryDelegate.Delegate<Item>) item.delegate;
-		ReflectionHelper.setPrivateValue(RegistryDelegate.Delegate.class, delegate, name, "name");
-	}
-
-	public static void setBlockDelagateName(Block block, String name) {
-		RegistryDelegate.Delegate<Block> delegate = (RegistryDelegate.Delegate<Block>) block.delegate;
-		ReflectionHelper.setPrivateValue(RegistryDelegate.Delegate.class, delegate, name, "name");
-	}
-
 	public static void removeBlockFromOreDictionary(Block block) {
 		removeItemFromOreDictionary(Item.getItemFromBlock(block));
 	}
@@ -55,5 +45,14 @@ public class GenericModHooks {
 		Map<Integer, List<Integer>> stackIdToOreId = ReflectionHelper.getPrivateValue(OreDictionary.class, null, "stackToId");
 		stackIdToOreId.remove(stackId);
 	}
-}
 
+	public static void setBlockDelagateName(Block block, String name) {
+		RegistryDelegate.Delegate<Block> delegate = (RegistryDelegate.Delegate<Block>) block.delegate;
+		ReflectionHelper.setPrivateValue(RegistryDelegate.Delegate.class, delegate, name, "name");
+	}
+
+	public static void setItemDelagateName(Item item, String name) {
+		RegistryDelegate.Delegate<Item> delegate = (RegistryDelegate.Delegate<Item>) item.delegate;
+		ReflectionHelper.setPrivateValue(RegistryDelegate.Delegate.class, delegate, name, "name");
+	}
+}

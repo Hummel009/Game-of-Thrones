@@ -217,24 +217,22 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 				roofStairBlock = GOTBlocks.stairsClayTileDyedRed;
 				roofWallBlock = GOTBlocks.wallClayTileDyed;
 				roofWallMeta = 14;
+			} else if (random.nextBoolean()) {
+				roofBlock = GOTBlocks.clayTileDyed;
+				roofMeta = 12;
+				roofSlabBlock = GOTBlocks.slabClayTileDyedSingle2;
+				roofSlabMeta = 4;
+				roofStairBlock = GOTBlocks.stairsClayTileDyedBrown;
+				roofWallBlock = GOTBlocks.wallClayTileDyed;
+				roofWallMeta = 12;
 			} else {
-				if (random.nextBoolean()) {
-					roofBlock = GOTBlocks.clayTileDyed;
-					roofMeta = 12;
-					roofSlabBlock = GOTBlocks.slabClayTileDyedSingle2;
-					roofSlabMeta = 4;
-					roofStairBlock = GOTBlocks.stairsClayTileDyedBrown;
-					roofWallBlock = GOTBlocks.wallClayTileDyed;
-					roofWallMeta = 12;
-				} else {
-					roofBlock = GOTBlocks.clayTileDyed;
-					roofMeta = 1;
-					roofSlabBlock = GOTBlocks.slabClayTileDyedSingle1;
-					roofSlabMeta = 1;
-					roofStairBlock = GOTBlocks.stairsClayTileDyedOrange;
-					roofWallBlock = GOTBlocks.wallClayTileDyed;
-					roofWallMeta = 1;
-				}
+				roofBlock = GOTBlocks.clayTileDyed;
+				roofMeta = 1;
+				roofSlabBlock = GOTBlocks.slabClayTileDyedSingle1;
+				roofSlabMeta = 1;
+				roofStairBlock = GOTBlocks.stairsClayTileDyedOrange;
+				roofWallBlock = GOTBlocks.wallClayTileDyed;
+				roofWallMeta = 1;
 			}
 		} else {
 			roofBlock = GOTBlocks.thatch;

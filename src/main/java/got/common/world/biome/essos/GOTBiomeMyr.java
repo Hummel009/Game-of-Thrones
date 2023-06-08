@@ -60,7 +60,6 @@ public class GOTBiomeMyr extends GOTBiomeEssos {
 		return GOTAchievement.enterMyr;
 	}
 
-
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_SANDY;

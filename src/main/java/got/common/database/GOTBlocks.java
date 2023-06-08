@@ -1236,6 +1236,104 @@ public class GOTBlocks {
 		yitiFlower = new GOTBlockYiTiFlower();
 	}
 
+	public static void onInit() {
+		GOTBlockSlabBase.registerSlabs(slabSingle1, slabDouble1);
+		GOTBlockSlabBase.registerSlabs(slabSingle2, slabDouble2);
+		GOTBlockSlabBase.registerSlabs(slabSingle3, slabDouble3);
+		GOTBlockSlabBase.registerSlabs(slabSingle4, slabDouble4);
+		GOTBlockSlabBase.registerSlabs(slabSingle5, slabDouble5);
+		GOTBlockSlabBase.registerSlabs(slabSingle6, slabDouble6);
+		GOTBlockSlabBase.registerSlabs(slabSingle7, slabDouble7);
+		GOTBlockSlabBase.registerSlabs(slabSingle8, slabDouble8);
+		GOTBlockSlabBase.registerSlabs(slabSingle9, slabDouble9);
+		GOTBlockSlabBase.registerSlabs(slabSingle10, slabDouble10);
+		GOTBlockSlabBase.registerSlabs(slabSingle11, slabDouble11);
+		GOTBlockSlabBase.registerSlabs(slabSingle12, slabDouble12);
+		GOTBlockSlabBase.registerSlabs(slabSingleV, slabDoubleV);
+		GOTBlockSlabBase.registerSlabs(scorchedSlabSingle, scorchedSlabDouble);
+		GOTBlockSlabBase.registerSlabs(slabClayTileSingle, slabClayTileDouble);
+		GOTBlockSlabBase.registerSlabs(slabClayTileDyedSingle1, slabClayTileDyedDouble1);
+		GOTBlockSlabBase.registerSlabs(slabClayTileDyedSingle2, slabClayTileDyedDouble2);
+		GOTBlockSlabBase.registerSlabs(woodSlabSingle1, woodSlabDouble1);
+		GOTBlockSlabBase.registerSlabs(woodSlabSingle2, woodSlabDouble2);
+		GOTBlockSlabBase.registerSlabs(woodSlabSingle3, woodSlabDouble3);
+		GOTBlockSlabBase.registerSlabs(woodSlabSingle4, woodSlabDouble4);
+		GOTBlockSlabBase.registerSlabs(woodSlabSingle5, woodSlabDouble5);
+		GOTBlockSlabBase.registerSlabs(rottenSlabSingle, rottenSlabDouble);
+		GOTBlockSlabBase.registerSlabs(slabSingleThatch, slabDoubleThatch);
+		GOTBlockSlabBase.registerSlabs(slabSingleDirt, slabDoubleDirt);
+		GOTBlockSlabBase.registerSlabs(slabSingleSand, slabDoubleSand);
+		GOTBlockSlabBase.registerSlabs(slabSingleGravel, slabDoubleGravel);
+		GOTBlockSlabBase.registerSlabs(slabBoneSingle, slabBoneDouble);
+		GOTBlockFallenLeaves.assignLeaves(fallenLeaves1, Blocks.leaves, Blocks.leaves2);
+		GOTBlockFallenLeaves.assignLeaves(fallenLeaves2, leaves1, fruitLeaves, leaves2, leaves3);
+		GOTBlockFallenLeaves.assignLeaves(fallenLeaves3, leaves4, leaves5, leaves6, leaves7);
+		GOTBlockFallenLeaves.assignLeaves(fallenLeaves4, leaves8, leaves9);
+
+		for (Block block : CONTENT) {
+			if (block instanceof GOTBlockWoodBase) {
+				Blocks.fire.setFireInfo(block, 5, 5);
+			}
+			if (block instanceof GOTBlockPlanksBase || block instanceof GOTBlockFence || block instanceof GOTBlockWoodBars || block instanceof GOTBlockWoodBeam || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.wood) {
+				Blocks.fire.setFireInfo(block, 5, 20);
+			}
+			if (block instanceof GOTBlockVine) {
+				Blocks.fire.setFireInfo(block, 15, 100);
+			}
+			if (block instanceof GOTBlockLeavesBase || block instanceof GOTBlockFallenLeaves || block instanceof GOTBlockBerryBush) {
+				Blocks.fire.setFireInfo(block, 30, 60);
+			}
+			if (block instanceof GOTBlockDaub) {
+				Blocks.fire.setFireInfo(block, 40, 40);
+			}
+			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.grass) {
+				Blocks.fire.setFireInfo(block, 60, 20);
+			}
+			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars || block instanceof GOTBlockGrass || block instanceof GOTBlockAsshaiGrass || block instanceof GOTBlockAsshaiMoss || block instanceof GOTBlockFlower || block instanceof GOTBlockDoubleFlower) {
+				Blocks.fire.setFireInfo(block, 60, 100);
+			}
+		}
+
+		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
+		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
+		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);
+		String pickaxe = "pickaxe";
+		String shovel = "shovel";
+		oreCopper.setHarvestLevel(pickaxe, 1);
+		oreTin.setHarvestLevel(pickaxe, 1);
+		oreSilver.setHarvestLevel(pickaxe, 2);
+		oreCobalt.setHarvestLevel(pickaxe, 2);
+		oreValyrian.setHarvestLevel(pickaxe, 2);
+		blockMetal1.setHarvestLevel(pickaxe, 1, 0);
+		blockMetal1.setHarvestLevel(pickaxe, 1, 1);
+		blockMetal1.setHarvestLevel(pickaxe, 1, 2);
+		blockMetal1.setHarvestLevel(pickaxe, 2, 3);
+		blockMetal1.setHarvestLevel(pickaxe, 2, 4);
+		oreGlowstone.setHarvestLevel(pickaxe, 1);
+		quagmire.setHarvestLevel(shovel, 0);
+		quicksand.setHarvestLevel(shovel, 0);
+		blockMetal2.setHarvestLevel(pickaxe, 1, 4);
+		asshaiDirt.setHarvestLevel(shovel, 0);
+		basaltGravel.setHarvestLevel(shovel, 0);
+		obsidianGravel.setHarvestLevel(shovel, 0);
+		mud.setHarvestLevel(shovel, 0);
+		mudGrass.setHarvestLevel(shovel, 0);
+		mudFarmland.setHarvestLevel(shovel, 0);
+		dirtPath.setHarvestLevel(shovel, 0);
+		slabSingleDirt.setHarvestLevel(shovel, 0);
+		slabDoubleDirt.setHarvestLevel(shovel, 0);
+		slabSingleSand.setHarvestLevel(shovel, 0);
+		slabDoubleSand.setHarvestLevel(shovel, 0);
+		slabSingleGravel.setHarvestLevel(shovel, 0);
+		slabDoubleGravel.setHarvestLevel(shovel, 0);
+		whiteSand.setHarvestLevel(shovel, 0);
+		stalactiteObsidian.setHarvestLevel(pickaxe, 3);
+		oreGem.setHarvestLevel(pickaxe, 2);
+		blockGem.setHarvestLevel(pickaxe, 2);
+		blockGem.setHarvestLevel(pickaxe, 0, 8);
+		redClay.setHarvestLevel(shovel, 0);
+	}
+
 	public static void preInit() {
 		GOTBlockReplacement.replaceVanillaBlock(Blocks.leaves, new GOTBlockLeavesVanilla1(), ItemLeaves.class);
 		GOTBlockReplacement.replaceVanillaBlock(Blocks.leaves2, new GOTBlockLeavesVanilla2(), ItemLeaves.class);
@@ -1243,6 +1341,18 @@ public class GOTBlocks {
 		GOTBlockReplacement.replaceVanillaBlock(Blocks.cake, new GOTBlockPlaceableFood().setBlockTextureName("cake"), null);
 		assignBlocks();
 		registerBlocks();
+	}
+
+	public static void registerBlock(Block block, String codename) {
+		registerBlock(block, codename, ItemBlock.class);
+	}
+
+	public static void registerBlock(Block block, String codename, Class<? extends ItemBlock> itemClass) {
+		String lowerUnderscoreName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, codename);
+		block.setBlockName("got:" + lowerUnderscoreName);
+		block.setBlockTextureName("got:" + lowerUnderscoreName);
+		GameRegistry.registerBlock(block, itemClass, "tile." + lowerUnderscoreName);
+		CONTENT.add(block);
 	}
 
 	public static void registerBlocks() {
@@ -1845,115 +1955,5 @@ public class GOTBlocks {
 		registerBlock(kelp, "kelp", GOTItemKelp.class);
 		registerBlock(ricePlant, "rice");
 		registerBlock(leavesSnowy, "leavesSnowy");
-	}
-
-	public static void registerBlock(Block block, String codename) {
-		registerBlock(block, codename, ItemBlock.class);
-	}
-
-	public static void registerBlock(Block block, String codename, Class<? extends ItemBlock> itemClass) {
-		String lowerUnderscoreName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, codename);
-		block.setBlockName("got:" + lowerUnderscoreName);
-		block.setBlockTextureName("got:" + lowerUnderscoreName);
-		GameRegistry.registerBlock(block, itemClass, "tile." + lowerUnderscoreName);
-		CONTENT.add(block);
-	}
-
-	public static void onInit() {
-		GOTBlockSlabBase.registerSlabs(slabSingle1, slabDouble1);
-		GOTBlockSlabBase.registerSlabs(slabSingle2, slabDouble2);
-		GOTBlockSlabBase.registerSlabs(slabSingle3, slabDouble3);
-		GOTBlockSlabBase.registerSlabs(slabSingle4, slabDouble4);
-		GOTBlockSlabBase.registerSlabs(slabSingle5, slabDouble5);
-		GOTBlockSlabBase.registerSlabs(slabSingle6, slabDouble6);
-		GOTBlockSlabBase.registerSlabs(slabSingle7, slabDouble7);
-		GOTBlockSlabBase.registerSlabs(slabSingle8, slabDouble8);
-		GOTBlockSlabBase.registerSlabs(slabSingle9, slabDouble9);
-		GOTBlockSlabBase.registerSlabs(slabSingle10, slabDouble10);
-		GOTBlockSlabBase.registerSlabs(slabSingle11, slabDouble11);
-		GOTBlockSlabBase.registerSlabs(slabSingle12, slabDouble12);
-		GOTBlockSlabBase.registerSlabs(slabSingleV, slabDoubleV);
-		GOTBlockSlabBase.registerSlabs(scorchedSlabSingle, scorchedSlabDouble);
-		GOTBlockSlabBase.registerSlabs(slabClayTileSingle, slabClayTileDouble);
-		GOTBlockSlabBase.registerSlabs(slabClayTileDyedSingle1, slabClayTileDyedDouble1);
-		GOTBlockSlabBase.registerSlabs(slabClayTileDyedSingle2, slabClayTileDyedDouble2);
-		GOTBlockSlabBase.registerSlabs(woodSlabSingle1, woodSlabDouble1);
-		GOTBlockSlabBase.registerSlabs(woodSlabSingle2, woodSlabDouble2);
-		GOTBlockSlabBase.registerSlabs(woodSlabSingle3, woodSlabDouble3);
-		GOTBlockSlabBase.registerSlabs(woodSlabSingle4, woodSlabDouble4);
-		GOTBlockSlabBase.registerSlabs(woodSlabSingle5, woodSlabDouble5);
-		GOTBlockSlabBase.registerSlabs(rottenSlabSingle, rottenSlabDouble);
-		GOTBlockSlabBase.registerSlabs(slabSingleThatch, slabDoubleThatch);
-		GOTBlockSlabBase.registerSlabs(slabSingleDirt, slabDoubleDirt);
-		GOTBlockSlabBase.registerSlabs(slabSingleSand, slabDoubleSand);
-		GOTBlockSlabBase.registerSlabs(slabSingleGravel, slabDoubleGravel);
-		GOTBlockSlabBase.registerSlabs(slabBoneSingle, slabBoneDouble);
-		GOTBlockFallenLeaves.assignLeaves(fallenLeaves1, Blocks.leaves, Blocks.leaves2);
-		GOTBlockFallenLeaves.assignLeaves(fallenLeaves2, leaves1, fruitLeaves, leaves2, leaves3);
-		GOTBlockFallenLeaves.assignLeaves(fallenLeaves3, leaves4, leaves5, leaves6, leaves7);
-		GOTBlockFallenLeaves.assignLeaves(fallenLeaves4, leaves8, leaves9);
-
-		for (Block block : CONTENT) {
-			if (block instanceof GOTBlockWoodBase) {
-				Blocks.fire.setFireInfo(block, 5, 5);
-			}
-			if (block instanceof GOTBlockPlanksBase || block instanceof GOTBlockFence || block instanceof GOTBlockWoodBars || block instanceof GOTBlockWoodBeam || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.wood) {
-				Blocks.fire.setFireInfo(block, 5, 20);
-			}
-			if (block instanceof GOTBlockVine) {
-				Blocks.fire.setFireInfo(block, 15, 100);
-			}
-			if (block instanceof GOTBlockLeavesBase || block instanceof GOTBlockFallenLeaves || block instanceof GOTBlockBerryBush) {
-				Blocks.fire.setFireInfo(block, 30, 60);
-			}
-			if (block instanceof GOTBlockDaub) {
-				Blocks.fire.setFireInfo(block, 40, 40);
-			}
-			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.grass) {
-				Blocks.fire.setFireInfo(block, 60, 20);
-			}
-			if (block instanceof GOTBlockThatch || block instanceof GOTBlockThatchFloor || block instanceof GOTBlockReedBars || block instanceof GOTBlockGrass || block instanceof GOTBlockAsshaiGrass || block instanceof GOTBlockAsshaiMoss || block instanceof GOTBlockFlower || block instanceof GOTBlockDoubleFlower) {
-				Blocks.fire.setFireInfo(block, 60, 100);
-			}
-		}
-
-		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
-		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
-		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);
-		String pickaxe = "pickaxe";
-		String shovel = "shovel";
-		oreCopper.setHarvestLevel(pickaxe, 1);
-		oreTin.setHarvestLevel(pickaxe, 1);
-		oreSilver.setHarvestLevel(pickaxe, 2);
-		oreCobalt.setHarvestLevel(pickaxe, 2);
-		oreValyrian.setHarvestLevel(pickaxe, 2);
-		blockMetal1.setHarvestLevel(pickaxe, 1, 0);
-		blockMetal1.setHarvestLevel(pickaxe, 1, 1);
-		blockMetal1.setHarvestLevel(pickaxe, 1, 2);
-		blockMetal1.setHarvestLevel(pickaxe, 2, 3);
-		blockMetal1.setHarvestLevel(pickaxe, 2, 4);
-		oreGlowstone.setHarvestLevel(pickaxe, 1);
-		quagmire.setHarvestLevel(shovel, 0);
-		quicksand.setHarvestLevel(shovel, 0);
-		blockMetal2.setHarvestLevel(pickaxe, 1, 4);
-		asshaiDirt.setHarvestLevel(shovel, 0);
-		basaltGravel.setHarvestLevel(shovel, 0);
-		obsidianGravel.setHarvestLevel(shovel, 0);
-		mud.setHarvestLevel(shovel, 0);
-		mudGrass.setHarvestLevel(shovel, 0);
-		mudFarmland.setHarvestLevel(shovel, 0);
-		dirtPath.setHarvestLevel(shovel, 0);
-		slabSingleDirt.setHarvestLevel(shovel, 0);
-		slabDoubleDirt.setHarvestLevel(shovel, 0);
-		slabSingleSand.setHarvestLevel(shovel, 0);
-		slabDoubleSand.setHarvestLevel(shovel, 0);
-		slabSingleGravel.setHarvestLevel(shovel, 0);
-		slabDoubleGravel.setHarvestLevel(shovel, 0);
-		whiteSand.setHarvestLevel(shovel, 0);
-		stalactiteObsidian.setHarvestLevel(pickaxe, 3);
-		oreGem.setHarvestLevel(pickaxe, 2);
-		blockGem.setHarvestLevel(pickaxe, 2);
-		blockGem.setHarvestLevel(pickaxe, 0, 8);
-		redClay.setHarvestLevel(shovel, 0);
 	}
 }

@@ -28,7 +28,7 @@ public class GOTItemTrident extends GOTItemPolearm {
 		AxisAlignedBB boundingBox = AxisAlignedBB.getBoundingBox(d - d3, d1 - d3, d2 - d3, d + d3, d1 + d3, d2 + d3);
 		int range = 5;
 		for (int l = 0; l < range; ++l) {
-			double d5 = boundingBox.minY + (boundingBox.maxY - boundingBox.minY) * (l) / range - d3 + d3;
+			double d5 = boundingBox.minY + (boundingBox.maxY - boundingBox.minY) * l / range - d3 + d3;
 			double d6 = boundingBox.minY + (boundingBox.maxY - boundingBox.minY) * (l + 1) / range - d3 + d3;
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(boundingBox.minX, d5, boundingBox.minZ, boundingBox.maxX, d6, boundingBox.maxZ);
 			if (!world.isAABBInMaterial(aabb, Material.water)) {

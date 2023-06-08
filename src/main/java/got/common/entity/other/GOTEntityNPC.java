@@ -1140,7 +1140,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, GOTMiniQuest miniquest) {
-		String location = null;
 		String objective = null;
 		if (miniquest != null) {
 			objective = miniquest.getProgressedObjectiveInSpeech();

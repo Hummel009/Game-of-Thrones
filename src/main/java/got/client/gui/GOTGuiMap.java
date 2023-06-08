@@ -770,7 +770,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					xMax = facScrollX + facScrollBorder + xMax * (facScrollWidth - facScrollBorder * 2);
 					float yMin = facScrollY + facScrollBorder;
 					float yMax = facScrollY + facScrollHeight - facScrollBorder;
-					float minU = (facScrollBorder) / 256.0f;
+					float minU = facScrollBorder / 256.0f;
 					float maxU = (facScrollWidth - facScrollBorder) / 256.0f;
 					float minV = (128 + facScrollBorder) / 256.0f;
 					float maxV = (128 + facScrollHeight - facScrollBorder) / 256.0f;
@@ -1392,7 +1392,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								GL11.glBlendFunc(770, 771);
 								int strX = -nameWidth / 2;
 								int strY = -15;
-								fontRendererObj.drawString(null, strX + 1, strY + 1, (alphaI << 24));
+								fontRendererObj.drawString(null, strX + 1, strY + 1, alphaI << 24);
 								fontRendererObj.drawString(null, strX, strY, 16777215 + (alphaI << 24));
 								GL11.glDisable(3042);
 								GL11.glPopMatrix();
@@ -1526,10 +1526,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int strY = -fontRendererObj.FONT_HEIGHT / 2;
 				if (isOSRS()) {
 					if (label.scale > 2.5f) {
-						fontRendererObj.drawString(s, strX + 1, strY + 1, (alphaI << 24));
+						fontRendererObj.drawString(s, strX + 1, strY + 1, alphaI << 24);
 						fontRendererObj.drawString(s, strX, strY, 16755200 + (alphaI << 24));
 					} else {
-						fontRendererObj.drawString(s, strX + 1, strY + 1, (alphaI << 24));
+						fontRendererObj.drawString(s, strX + 1, strY + 1, alphaI << 24);
 						fontRendererObj.drawString(s, strX, strY, 16777215 + (alphaI << 24));
 					}
 				} else {
@@ -1816,7 +1816,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			for (GOTAbstractWaypoint waypoint : waypoints) {
 				boolean unlocked = mc.thePlayer != null && waypoint.hasPlayerUnlocked(mc.thePlayer);
 				boolean hidden = waypoint.isHidden();
-				boolean custom = waypoint instanceof GOTCustomWaypoint;
 				if ((isWaypointVisible(waypoint) || overrideToggles) && (!hidden || unlocked)) {
 					float[] pos = transformCoords(waypoint.getXCoord(), waypoint.getZCoord());
 					float x = pos[0];
@@ -1834,7 +1833,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								drawTexturedModalRectFloat(x / 0.33F - 8.0F, y / 0.33F - 8.0F, 0, 0, 15.0F, 15.0F);
 								GL11.glPopMatrix();
 							} else {
-								GOTAbstractWaypoint.WaypointLockState state = (mc.thePlayer != null) ? waypoint.getLockState(mc.thePlayer) : GOTAbstractWaypoint.WaypointLockState.STANDARD_UNLOCKED;
+								GOTAbstractWaypoint.WaypointLockState state = mc.thePlayer != null ? waypoint.getLockState(mc.thePlayer) : GOTAbstractWaypoint.WaypointLockState.STANDARD_UNLOCKED;
 								mc.getTextureManager().bindTexture(mapIconsTexture);
 								GL11.glColor4f(1.0F, 1.0F, 1.0F, wpZoomlerp);
 								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, state.iconU, state.iconV, 4.0F, 4.0F);
@@ -1856,7 +1855,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 									String s = waypoint.getDisplayName();
 									int strX = -fontRendererObj.getStringWidth(s) / 2;
 									int strY = -15;
-									fontRendererObj.drawString(s, strX + 1, strY + 1, (alphaI << 24));
+									fontRendererObj.drawString(s, strX + 1, strY + 1, alphaI << 24);
 									fontRendererObj.drawString(s, strX, strY, 16777215 + (alphaI << 24));
 									GL11.glDisable(3042);
 									GL11.glPopMatrix();

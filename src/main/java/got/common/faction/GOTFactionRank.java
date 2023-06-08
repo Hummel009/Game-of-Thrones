@@ -43,6 +43,13 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		return -Float.compare(al1, al2);
 	}
 
+	public String getAffiliationCodeName() {
+		if (fac != null) {
+			return "got.rank." + fac.codeName();
+		}
+		return "";
+	}
+
 	public String getCodeFullNameWithGender(GOTPlayerData pd) {
 		if (pd.useFeminineRanks()) {
 			return getCodeNameFem();
@@ -78,13 +85,6 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 
 	public String getDisplayNameFem() {
 		return StatCollector.translateToLocal(getCodeNameFem());
-	}
-
-	public String getAffiliationCodeName() {
-		if (fac != null) {
-			return "got.rank." + fac.codeName();
-		}
-		return "";
 	}
 
 	public String getFullNameWithGender(GOTPlayerData pd) {

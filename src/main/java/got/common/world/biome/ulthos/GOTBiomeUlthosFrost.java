@@ -21,7 +21,6 @@ public class GOTBiomeUlthosFrost extends GOTBiomeUlthosTaiga {
 		return GOTAchievement.enterUlthosFrost;
 	}
 
-
 	@Override
 	public boolean getEnableRiver() {
 		return false;

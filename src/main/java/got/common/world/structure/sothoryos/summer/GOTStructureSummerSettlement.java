@@ -136,6 +136,15 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (random.nextInt(4) == 0) {
+				type = Type.FORT;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
 		public void setupVillage(Random random) {
 			if (!isRuinedSettlement) {
 				addStructure(new GOTStructureNPCRespawner(false) {
@@ -250,15 +259,6 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 					}
 					addStructure(palisade, i, k, 0);
 				}
-			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
 			}
 		}
 

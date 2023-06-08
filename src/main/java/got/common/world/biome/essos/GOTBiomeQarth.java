@@ -45,7 +45,6 @@ public class GOTBiomeQarth extends GOTBiomeQarthDesert {
 		return GOTAchievement.enterQarth;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.QARTH;

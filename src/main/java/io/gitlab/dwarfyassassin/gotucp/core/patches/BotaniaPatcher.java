@@ -32,4 +32,3 @@ public class BotaniaPatcher extends ModPatcher {
 	}
 
 }
-

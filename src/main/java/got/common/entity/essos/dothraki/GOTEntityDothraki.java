@@ -72,6 +72,12 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 		return GOTMiniQuestFactory.DOTHRAKI.createQuest(this);
 	}
 
+	public void dropDothrakiItems(boolean flag, int i) {
+		if (rand.nextInt(6) == 0) {
+			dropChestContents(GOTChestContents.DOTHRAKI, 1, 2 + i);
+		}
+	}
+
 	@Override
 	public void dropFewItems(boolean flag, int i) {
 		super.dropFewItems(flag, i);
@@ -80,12 +86,6 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 			dropItem(Items.bone, 1);
 		}
 		dropDothrakiItems(flag, i);
-	}
-
-	public void dropDothrakiItems(boolean flag, int i) {
-		if (rand.nextInt(6) == 0) {
-			dropChestContents(GOTChestContents.DOTHRAKI, 1, 2 + i);
-		}
 	}
 
 	@Override

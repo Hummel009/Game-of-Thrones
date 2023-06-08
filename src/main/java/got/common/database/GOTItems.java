@@ -1400,6 +1400,10 @@ public class GOTItems {
 		zebraRaw = new GOTItemFood(2, 0.1f, true);
 	}
 
+	public static void onInit() {
+		MinecraftForge.addGrassSeed(new ItemStack(rice), 2);
+	}
+
 	public static void preInit() {
 		GOTBlockReplacement.replaceVanillaItem(Items.cake, new GOTItemPlaceableFood(Blocks.cake).setTextureName("cake").setCreativeTab(CreativeTabs.tabFood));
 		GOTBlockReplacement.replaceVanillaItem(Items.potionitem, new GOTItemPotion().setTextureName("potion"));
@@ -2101,9 +2105,5 @@ public class GOTItems {
 		registerItem(valyrianChainmailBoots, "valyrianChainmailBoots");
 		registerItem(copperRing, "copperRing");
 		registerItem(bronzeRing, "bronzeRing");
-	}
-
-	public static void onInit() {
-		MinecraftForge.addGrassSeed(new ItemStack(rice), 2);
 	}
 }

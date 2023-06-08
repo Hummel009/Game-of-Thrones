@@ -368,7 +368,7 @@ public class GOTHiredNPCInfo {
 			if (hasHiringRequirements() && isActive && (entityplayer = getHiringPlayer()) != null) {
 				GOTFaction fac = theEntity.getHiringFaction();
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-				boolean canCommand = !(pd.getAlignment(fac) < alignmentRequiredToCommand);
+				boolean canCommand = (pd.getAlignment(fac) >= alignmentRequiredToCommand);
 				if (!pledgeType.canAcceptPlayer(entityplayer, fac)) {
 					canCommand = false;
 				}

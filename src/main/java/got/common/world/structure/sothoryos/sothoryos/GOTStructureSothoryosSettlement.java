@@ -63,6 +63,15 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 			return false;
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isPyramid) {
+				type = Type.PYRAMID;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
 		public void setupVillage(Random random) {
 			int smithyPos = random.nextInt(4);
 			addStructure(new GOTStructureSothoryosChieftainPyramid(false), 0, -11, 0, true);
@@ -107,15 +116,6 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 			addStructure(new GOTStructureSothoryosWatchtower(false), 26, -36, 0);
 			addStructure(new GOTStructureSothoryosWatchtower(false), -26, 37, 2);
 			addStructure(new GOTStructureSothoryosWatchtower(false), 26, 37, 2);
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isPyramid) {
-				type = Type.PYRAMID;
-			} else {
-				type = Type.VILLAGE;
-			}
 		}
 	}
 }

@@ -87,7 +87,6 @@ public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 		return GOTAchievement.enterDragonstone;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.DRANGONSTONE;

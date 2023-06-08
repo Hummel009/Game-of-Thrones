@@ -25,7 +25,6 @@ public class GOTBiomeReachFireField extends GOTBiomeReach {
 		return GOTAchievement.enterFireField;
 	}
 
-
 	@Override
 	public WorldGenerator getRandomWorldGenForDoubleFlower(Random random) {
 		if (random.nextInt(5) > 0) {

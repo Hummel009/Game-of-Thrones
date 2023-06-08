@@ -162,4 +162,3 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		}
 	}
 }
-

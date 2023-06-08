@@ -58,7 +58,7 @@ public class ThaumcraftHooks {
 			}
 			UUID uuid = null;
 			try {
-				String golemOwner = (String) method_getOwnerName.invoke(closestGolem, new Object[0]);
+				String golemOwner = (String) method_getOwnerName.invoke(closestGolem);
 				uuid = PlayerUtils.getLastKownUUIDFromUsername(golemOwner);
 			} catch (IllegalAccessException | InvocationTargetException | IllegalArgumentException e) {
 				UCPCoreMod.log.error("Was unable to invoke Thaumcraft EntityGolemBase.getOwnerName method");
@@ -79,4 +79,3 @@ public class ThaumcraftHooks {
 		return null;
 	}
 }
-

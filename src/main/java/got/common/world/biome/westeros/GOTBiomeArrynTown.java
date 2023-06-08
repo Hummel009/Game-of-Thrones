@@ -34,7 +34,6 @@ public class GOTBiomeArrynTown extends GOTBiomeArryn {
 		return GOTAchievement.enterArrynTown;
 	}
 
-
 	@Override
 	public boolean getEnableRiver() {
 		return false;

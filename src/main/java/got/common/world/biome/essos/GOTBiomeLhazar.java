@@ -17,7 +17,6 @@ public class GOTBiomeLhazar extends GOTBiomeEssosPlains {
 		return GOTAchievement.enterLhazar;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.LHAZAR;

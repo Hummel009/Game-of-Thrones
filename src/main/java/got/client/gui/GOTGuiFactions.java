@@ -246,7 +246,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			int y = guiTop;
 			GOTTickHandlerClient.renderAlignmentBar(alignment, isOtherPlayer, currentFaction, x, y, true, false, true, true);
 			String s = currentFaction.factionSubtitle();
-			drawCenteredString(s, x, y + (fontRendererObj.FONT_HEIGHT + 22), 16777215);
+			drawCenteredString(s, x, y + fontRendererObj.FONT_HEIGHT + 22, 16777215);
 			if (!useFullPageTexture()) {
 				if (currentFaction.factionMapInfo != null) {
 					GOTMapRegion mapInfo = currentFaction.factionMapInfo;
@@ -314,7 +314,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 						String alignmentInfo = StatCollector.translateToLocal("got.gui.factions.alignment");
 						fontRendererObj.drawString(alignmentInfo, x, y, 8019267);
 						String alignmentString = GOTAlignmentValues.formatAlignForDisplay(alignment);
-						GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x + (fontRendererObj.getStringWidth(alignmentInfo) + 5), y, alignmentString, 1.0f);
+						GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x + fontRendererObj.getStringWidth(alignmentInfo) + 5, y, alignmentString, 1.0f);
 
 						x = guiLeft + pageBorderLeft;
 						GOTFactionRank curRank = currentFaction.getRank(alignment);
@@ -439,7 +439,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				xMax = guiLeft + scrollBarX + scrollBarBorder + xMax * (scrollBarWidth - scrollBarBorder * 2);
 				float yMin = guiTop + scrollBarY + scrollBarBorder;
 				float yMax = guiTop + scrollBarY + scrollBarHeight - scrollBarBorder;
-				float minU = (scrollBarBorder) / 256.0f;
+				float minU = scrollBarBorder / 256.0f;
 				float maxU = (scrollBarWidth - scrollBarBorder) / 256.0f;
 				float minV = (128 + scrollBarBorder) / 256.0f;
 				float maxV = (128 + scrollBarHeight - scrollBarBorder) / 256.0f;

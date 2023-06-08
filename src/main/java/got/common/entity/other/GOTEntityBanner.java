@@ -406,7 +406,6 @@ public class GOTEntityBanner extends Entity {
 			GameProfile profile = null;
 			boolean isFellowship = playerData.getBoolean("Fellowship");
 			if (isFellowship) {
-				GOTFellowshipProfile pr;
 				UUID fsID;
 				if (playerData.hasKey("FellowshipID")) {
 					String fellowshipIDString = playerData.getString("FellowshipID");

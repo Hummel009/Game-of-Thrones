@@ -115,7 +115,6 @@ public class GOTBiomeQarthDesert extends GOTBiomeLhazar implements GOTBiome.Dese
 		return GOTAchievement.enterQarthDesert;
 	}
 
-
 	@Override
 	public float getChanceToSpawnAnimals() {
 		return 0.1f;

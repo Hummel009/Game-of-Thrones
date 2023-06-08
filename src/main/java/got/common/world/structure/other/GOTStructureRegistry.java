@@ -90,6 +90,26 @@ public class GOTStructureRegistry {
 		registerStructure(id, strProvider, name, color, color, false);
 	}
 
+	public static void registerSettlement(int id, GOTStructureBaseSettlement settlement, String name, int colorBG, int colorFG, ISettlementProperties<GOTStructureBaseSettlement.AbstractInstance<?>> properties) {
+		IStructureProvider strProvider = new IStructureProvider() {
+
+			@Override
+			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
+				GOTStructureBaseSettlement.AbstractInstance<?> instance = settlement.createAndSetupSettlementInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
+				instance.setRotation((getRotationFromPlayer(entityplayer) + 2) % 4);
+				properties.apply(instance);
+				settlement.generateCompleteSettlementInstance(instance, world, i, k);
+				return true;
+			}
+
+			@Override
+			public boolean isSettlement() {
+				return true;
+			}
+		};
+		registerStructure(id, strProvider, name, colorBG, colorFG, false);
+	}
+
 	public static void registerStructure(int id, Class<? extends WorldGenerator> strClass, String name, int colorBG, int colorFG, boolean hide) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
@@ -125,34 +145,14 @@ public class GOTStructureRegistry {
 		structureItemSpawners.put(id, new StructureColorInfo(id, colorBG, colorFG, str.isSettlement(), hide));
 	}
 
-	public static void registerSettlement(int id, GOTStructureBaseSettlement settlement, String name, int colorBG, int colorFG, ISettlementProperties<GOTStructureBaseSettlement.AbstractInstance<?>> properties) {
-		IStructureProvider strProvider = new IStructureProvider() {
-
-			@Override
-			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
-				GOTStructureBaseSettlement.AbstractInstance<?> instance = settlement.createAndSetupSettlementInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
-				instance.setRotation((getRotationFromPlayer(entityplayer) + 2) % 4);
-				properties.apply(instance);
-				settlement.generateCompleteSettlementInstance(instance, world, i, k);
-				return true;
-			}
-
-			@Override
-			public boolean isSettlement() {
-				return true;
-			}
-		};
-		registerStructure(id, strProvider, name, colorBG, colorFG, false);
+	public interface ISettlementProperties<V> {
+		void apply(V var1);
 	}
 
 	public interface IStructureProvider {
 		boolean generateStructure(World var1, EntityPlayer var2, int var3, int var4, int var5);
 
 		boolean isSettlement();
-	}
-
-	public interface ISettlementProperties<V> {
-		void apply(V var1);
 	}
 
 	public static class StructureColorInfo {

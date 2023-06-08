@@ -19,7 +19,6 @@ public class GOTEntityCargocart extends GOTEntityCart {
 		super(worldIn, x, y, z);
 	}
 
-
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
 		if (!isDead && !worldObj.isRemote) {

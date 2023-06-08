@@ -41,7 +41,6 @@ public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 		return GOTAchievement.enterMoonMountainsFoothills;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.ARRYN;

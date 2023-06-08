@@ -114,7 +114,6 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 		return GOTAchievement.enterShadowMountains;
 	}
 
-
 	@Override
 	public GrassBlockAndMeta getRandomGrass(Random random) {
 		return new GrassBlockAndMeta(GOTBlocks.asshaiGrass, 0);

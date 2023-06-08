@@ -23,7 +23,6 @@ public class GOTBiomeSothoryosSavannah extends GOTBiomeSothoryosBushland {
 		return GOTAchievement.enterSothoryosSavannah;
 	}
 
-
 	@Override
 	public int spawnCountMultiplier() {
 		return 3;

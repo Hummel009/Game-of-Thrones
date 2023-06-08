@@ -25,5 +25,4 @@ public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 		return GOTAchievement.enterIfekevronForest;
 	}
 
-
 }

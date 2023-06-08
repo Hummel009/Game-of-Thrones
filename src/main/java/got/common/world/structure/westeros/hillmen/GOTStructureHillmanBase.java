@@ -88,32 +88,30 @@ public abstract class GOTStructureHillmanBase extends GOTStructureBase {
 			fenceMeta = 1;
 			fenceGateBlock = GOTBlocks.fenceGateSpruce;
 			doorBlock = GOTBlocks.doorSpruce;
+		} else if (random.nextBoolean()) {
+			woodBlock = Blocks.log;
+			woodMeta = 0;
+			plankBlock = Blocks.planks;
+			plankMeta = 0;
+			plankSlabBlock = Blocks.wooden_slab;
+			plankSlabMeta = 0;
+			plankStairBlock = Blocks.oak_stairs;
+			fenceBlock = Blocks.fence;
+			fenceMeta = 0;
+			fenceGateBlock = Blocks.fence_gate;
+			doorBlock = Blocks.wooden_door;
 		} else {
-			if (random.nextBoolean()) {
-				woodBlock = Blocks.log;
-				woodMeta = 0;
-				plankBlock = Blocks.planks;
-				plankMeta = 0;
-				plankSlabBlock = Blocks.wooden_slab;
-				plankSlabMeta = 0;
-				plankStairBlock = Blocks.oak_stairs;
-				fenceBlock = Blocks.fence;
-				fenceMeta = 0;
-				fenceGateBlock = Blocks.fence_gate;
-				doorBlock = Blocks.wooden_door;
-			} else {
-				woodBlock = GOTBlocks.wood5;
-				woodMeta = 0;
-				plankBlock = GOTBlocks.planks2;
-				plankMeta = 4;
-				plankSlabBlock = GOTBlocks.woodSlabSingle3;
-				plankSlabMeta = 4;
-				plankStairBlock = GOTBlocks.stairsPine;
-				fenceBlock = GOTBlocks.fence2;
-				fenceMeta = 4;
-				fenceGateBlock = GOTBlocks.fenceGatePine;
-				doorBlock = GOTBlocks.doorPine;
-			}
+			woodBlock = GOTBlocks.wood5;
+			woodMeta = 0;
+			plankBlock = GOTBlocks.planks2;
+			plankMeta = 4;
+			plankSlabBlock = GOTBlocks.woodSlabSingle3;
+			plankSlabMeta = 4;
+			plankStairBlock = GOTBlocks.stairsPine;
+			fenceBlock = GOTBlocks.fence2;
+			fenceMeta = 4;
+			fenceGateBlock = GOTBlocks.fenceGatePine;
+			doorBlock = GOTBlocks.doorPine;
 		}
 		roofBlock = GOTBlocks.thatch;
 		roofMeta = 0;

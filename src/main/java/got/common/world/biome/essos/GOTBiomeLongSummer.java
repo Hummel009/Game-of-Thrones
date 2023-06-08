@@ -32,7 +32,6 @@ public class GOTBiomeLongSummer extends GOTBiomeEssos {
 		return GOTAchievement.enterLongSummer;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.VALYRIA;

@@ -30,7 +30,6 @@ public class GOTBiomeIronborn extends GOTBiomeWesteros {
 		return GOTAchievement.enterIronIslands;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.IRONBORN;

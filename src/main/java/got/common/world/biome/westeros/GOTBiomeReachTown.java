@@ -34,7 +34,6 @@ public class GOTBiomeReachTown extends GOTBiomeReach {
 		return GOTAchievement.enterReachTown;
 	}
 
-
 	@Override
 	public boolean getEnableRiver() {
 		return false;

@@ -113,7 +113,6 @@ public class GOTBiomeJogosNhaiDesert extends GOTBiomeEssosPlains implements GOTB
 		return GOTAchievement.enterJogosNhaiDesert;
 	}
 
-
 	@Override
 	public float getChanceToSpawnAnimals() {
 		return 0.1f;

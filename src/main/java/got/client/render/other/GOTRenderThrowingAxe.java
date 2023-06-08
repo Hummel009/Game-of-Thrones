@@ -15,11 +15,6 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTRenderThrowingAxe extends Render {
 	@Override
-	public ResourceLocation getEntityTexture(Entity entity) {
-		return TextureMap.locationItemsTexture;
-	}
-
-	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
 		GOTEntityThrowingAxe axe = (GOTEntityThrowingAxe) entity;
 		GL11.glPushMatrix();
@@ -29,7 +24,7 @@ public class GOTRenderThrowingAxe extends Render {
 		}
 		GL11.glRotatef(axe.prevRotationYaw + (axe.rotationYaw - axe.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
 		if (!axe.inGround) {
-			GL11.glRotatef(axe.rotationPitch + ((45.0F * f1)), 0.0F, 0.0F, -1.0F);
+			GL11.glRotatef(axe.rotationPitch + 45.0F * f1, 0.0F, 0.0F, -1.0F);
 		} else {
 			GL11.glRotatef(-90.0F, 0.0F, 0.0F, 1.0F);
 			GL11.glTranslatef(0.0F, 0.75F, 0.0F);
@@ -53,5 +48,10 @@ public class GOTRenderThrowingAxe extends Render {
 		ItemRenderer.renderItemIn2D(tessellator, icon.getMaxU(), icon.getMinV(), icon.getMinU(), icon.getMaxV(), icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();
+	}
+
+	@Override
+	public ResourceLocation getEntityTexture(Entity entity) {
+		return TextureMap.locationItemsTexture;
 	}
 }

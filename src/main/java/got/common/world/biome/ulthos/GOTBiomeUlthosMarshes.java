@@ -37,7 +37,6 @@ public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosForest {
 		return GOTAchievement.enterUlthosMarshes;
 	}
 
-
 	@Override
 	public int spawnCountMultiplier() {
 		return 4;

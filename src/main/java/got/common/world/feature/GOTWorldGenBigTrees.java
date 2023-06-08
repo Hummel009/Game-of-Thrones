@@ -102,7 +102,6 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 	}
 
 	public void generateLeafNodeBases() {
-		int j = leafNodes.length;
 		int[] aint = {basePos[0], basePos[1], basePos[2]};
 		for (int[] aint1 : leafNodes) {
 			int[] aint2 = {aint1[0], aint1[1], aint1[2]};
@@ -174,7 +173,6 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 	}
 
 	public void generateLeaves() {
-		int j = leafNodes.length;
 		for (int[] leafNode : leafNodes) {
 			int k = leafNode[0];
 			int l = leafNode[1];
@@ -260,7 +258,6 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 			int[] aint3 = {0, 0, 0};
 			int k = aint2[b1] + b4;
 			for (int j = 0; j != k; j += b4) {
-				int i1;
 				aint3[b1] = MathHelper.floor_double(par1ArrayOfInteger[b1] + j + 0.5);
 				aint3[b2] = MathHelper.floor_double(par1ArrayOfInteger[b2] + j * d0 + 0.5);
 				aint3[b3] = MathHelper.floor_double(par1ArrayOfInteger[b3] + j * d1 + 0.5);

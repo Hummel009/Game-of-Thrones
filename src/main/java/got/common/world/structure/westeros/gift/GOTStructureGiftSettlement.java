@@ -135,6 +135,21 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			return false;
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isCastleBlack) {
+				type = Type.CASTLE_BLACK;
+			} else if (isShadowTower) {
+				type = Type.SHADOW_TOWER;
+			} else if (isEastWatch) {
+				type = Type.EAST_WATCH;
+			} else if (isAbandoned) {
+				type = Type.ABANDONED;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
 		public void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -216,21 +231,6 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 					}
 					addStructure(new GOTStructureGiftVillagePalisade(false), i, k, 0);
 				}
-			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isCastleBlack) {
-				type = Type.CASTLE_BLACK;
-			} else if (isShadowTower) {
-				type = Type.SHADOW_TOWER;
-			} else if (isEastWatch) {
-				type = Type.EAST_WATCH;
-			} else if (isAbandoned) {
-				type = Type.ABANDONED;
-			} else {
-				type = Type.VILLAGE;
 			}
 		}
 	}

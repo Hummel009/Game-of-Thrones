@@ -40,7 +40,6 @@ public class GOTBiomeArryn extends GOTBiomeWesteros {
 		return GOTAchievement.enterArrynVale;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.ARRYN;

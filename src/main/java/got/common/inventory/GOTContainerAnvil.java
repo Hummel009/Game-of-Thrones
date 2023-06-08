@@ -105,8 +105,7 @@ public class GOTContainerAnvil extends Container {
 		for (EnumChatFormatting color : colors) {
 			nameBuilder.insert(0, color);
 		}
-		name = nameBuilder.toString();
-		return name;
+		return nameBuilder.toString();
 	}
 
 	public static boolean costsToRename(ItemStack itemstack) {
@@ -590,7 +589,8 @@ public class GOTContainerAnvil extends Container {
 							inputEnchLevel = outputEnchants.get(combinerEnchID);
 						}
 						int combinedEnchLevel;
-						if (inputEnchLevel == (combinerEnchLevel = combinerEnchants.get(combinerEnchID))) {
+						combinerEnchLevel = combinerEnchants.get(combinerEnchID);
+						if (inputEnchLevel == combinerEnchLevel) {
 							++combinerEnchLevel;
 							combinedEnchLevel = combinerEnchLevel;
 						} else {

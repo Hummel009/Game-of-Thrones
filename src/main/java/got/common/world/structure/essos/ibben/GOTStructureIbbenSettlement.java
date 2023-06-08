@@ -173,6 +173,12 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			type = random.nextInt(3) == 0 ? Type.FORT : Type.VILLAGE;
+			palisade = random.nextBoolean();
+		}
+
 		public void setupVillage(Random random) {
 			addStructure(new GOTStructureIbbenTavern(false), 0, 2, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
@@ -292,12 +298,6 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 				}
 				addStructure(new GOTStructureIbbenGatehouse(false), 0, -rPalisade - 2, 0);
 			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			type = random.nextInt(3) == 0 ? Type.FORT : Type.VILLAGE;
-			palisade = random.nextBoolean();
 		}
 
 	}

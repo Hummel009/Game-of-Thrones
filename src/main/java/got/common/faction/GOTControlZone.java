@@ -11,10 +11,6 @@ public class GOTControlZone {
 	public int radiusCoord;
 	public long radiusCoordSq;
 
-	public GOTControlZone(GOTWaypoint wp, int r) {
-		this(wp.getX(), wp.getY(), r);
-	}
-
 	public GOTControlZone(double x, double y, int r) {
 		mapX = x;
 		mapY = y;
@@ -23,6 +19,10 @@ public class GOTControlZone {
 		zCoord = GOTWaypoint.mapToWorldZ(mapY);
 		radiusCoord = GOTWaypoint.mapToWorldR(radius);
 		radiusCoordSq = (long) radiusCoord * radiusCoord;
+	}
+
+	public GOTControlZone(GOTWaypoint wp, int r) {
+		this(wp.getX(), wp.getY(), r);
 	}
 
 	public boolean intersectsWith(GOTControlZone other, int extraMapRadius) {

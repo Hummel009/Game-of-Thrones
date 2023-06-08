@@ -16,9 +16,9 @@ public interface GOTAbstractWaypoint {
 
 	String getLoreText(EntityPlayer var1);
 
-	double getX();
-
 	int getRotation();
+
+	double getX();
 
 	int getXCoord();
 

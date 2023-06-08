@@ -47,15 +47,15 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 		return this;
 	}
 
-	public GOTStructureWildlingSettlement setIsThenn() {
-		isThenn = true;
+	public GOTStructureWildlingSettlement setIsHardhome() {
+		isHardhome = true;
 		settlementChunkRadius = 6;
 		fixedSettlementChunkRadius = 6;
 		return this;
 	}
 
-	public GOTStructureWildlingSettlement setIsHardhome() {
-		isHardhome = true;
+	public GOTStructureWildlingSettlement setIsThenn() {
+		isThenn = true;
 		settlementChunkRadius = 6;
 		fixedSettlementChunkRadius = 6;
 		return this;
@@ -88,53 +88,6 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 					addStructure(new GOTStructureWildlingKeep(false), -7, 0, 2, true);
 					addStructure(new GOTStructureWildlingBarn(false), 7, 6, 2, true);
 					break;
-			}
-		}
-
-		private void setupThenn(Random random) {
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClasses(GOTEntityThenn.class, GOTEntityThennBerserker.class);
-					spawner.setCheckRanges(40, -12, 12, 40);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClasses(GOTEntityThennAxeThrower.class, GOTEntityThennArcher.class);
-					spawner.setCheckRanges(40, -12, 12, 16);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			int pathEnd = 68;
-			int pathSide = 7;
-			int centreSide = 19;
-			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
-			addStructure(new GOTStructureThennHouse(false).setIsBlacksmith(), 0, -centreSide, 2, true);
-			addStructure(new GOTStructureThennHouse(false), -pathEnd, 0, 1, true);
-			addStructure(new GOTStructureThennMagnarHouse(false), pathEnd, 0, 3, true);
-			int rowHouses = 3;
-			for (int l = -rowHouses; l <= rowHouses; ++l) {
-				int i1 = l * 18;
-				int k1 = pathSide;
-				if (Math.abs(i1) <= 15) {
-					k1 += 15 - pathSide;
-				}
-				if (Math.abs(l) >= 1) {
-					addStructure(new GOTStructureThennHouse(false), i1, -k1, 2);
-				}
-				addStructure(new GOTStructureThennHouse(false), i1, k1, 0);
-				int k2 = k1 + 20;
-				if (l != 0) {
-					addStructure(new GOTStructureHayBales(false), i1, -k2, 2);
-				}
-				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
 			}
 		}
 
@@ -247,6 +200,66 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureWildlingHouse(false).setIsTramp(), gardenX - 5, gardenX, 2, true);
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isHardhome) {
+				type = Type.HARDHOME;
+			} else if (isCraster) {
+				type = Type.CRASTER;
+			} else if (isThenn) {
+				type = Type.THENN;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
+		private void setupThenn(Random random) {
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClasses(GOTEntityThenn.class, GOTEntityThennBerserker.class);
+					spawner.setCheckRanges(40, -12, 12, 40);
+					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClasses(GOTEntityThennAxeThrower.class, GOTEntityThennArcher.class);
+					spawner.setCheckRanges(40, -12, 12, 16);
+					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			int pathEnd = 68;
+			int pathSide = 7;
+			int centreSide = 19;
+			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
+			addStructure(new GOTStructureThennHouse(false).setIsBlacksmith(), 0, -centreSide, 2, true);
+			addStructure(new GOTStructureThennHouse(false), -pathEnd, 0, 1, true);
+			addStructure(new GOTStructureThennMagnarHouse(false), pathEnd, 0, 3, true);
+			int rowHouses = 3;
+			for (int l = -rowHouses; l <= rowHouses; ++l) {
+				int i1 = l * 18;
+				int k1 = pathSide;
+				if (Math.abs(i1) <= 15) {
+					k1 += 15 - pathSide;
+				}
+				if (Math.abs(l) >= 1) {
+					addStructure(new GOTStructureThennHouse(false), i1, -k1, 2);
+				}
+				addStructure(new GOTStructureThennHouse(false), i1, k1, 0);
+				int k2 = k1 + 20;
+				if (l != 0) {
+					addStructure(new GOTStructureHayBales(false), i1, -k2, 2);
+				}
+				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
+			}
+		}
+
 		public void setupVillage(Random random) {
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -291,19 +304,6 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 					addStructure(new GOTStructureHayBales(false), i1, -k2, 2);
 				}
 				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
-			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isHardhome) {
-				type = Type.HARDHOME;
-			} else if (isCraster) {
-				type = Type.CRASTER;
-			} else if (isThenn) {
-				type = Type.THENN;
-			} else {
-				type = Type.VILLAGE;
 			}
 		}
 

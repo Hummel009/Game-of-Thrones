@@ -46,7 +46,6 @@ public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 		return GOTAchievement.enterValyriaVolcano;
 	}
 
-
 	@Override
 	public boolean getEnableRiver() {
 		return false;

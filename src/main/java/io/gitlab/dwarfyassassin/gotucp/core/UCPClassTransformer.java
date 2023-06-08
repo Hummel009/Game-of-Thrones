@@ -4,7 +4,6 @@ import cpw.mods.fml.relauncher.FMLLaunchHandler;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import io.gitlab.dwarfyassassin.gotucp.core.patches.base.Patcher;
 import net.minecraft.launchwrapper.IClassTransformer;
-import net.minecraft.launchwrapper.LaunchClassLoader;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.ClassNode;
@@ -14,9 +13,10 @@ import java.util.HashSet;
 public class UCPClassTransformer implements IClassTransformer {
 	static {
 		FMLLaunchHandler launchHandler = ReflectionHelper.getPrivateValue(FMLLaunchHandler.class, null, "INSTANCE");
-		LaunchClassLoader launchClassLoader = ReflectionHelper.getPrivateValue(FMLLaunchHandler.class, launchHandler, "classLoader");
+		ReflectionHelper.getPrivateValue(FMLLaunchHandler.class, launchHandler, "classLoader");
 	}
 
+	@Override
 	public byte[] transform(String name, String transformedName, byte[] classBytes) {
 		boolean ran = false;
 		for (Patcher patcher : UCPCoreMod.activePatches) {
@@ -47,4 +47,3 @@ public class UCPClassTransformer implements IClassTransformer {
 		return classBytes;
 	}
 }
-

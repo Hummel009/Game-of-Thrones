@@ -41,11 +41,6 @@ public class GOTWaypointInfo implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public int getRotation() {
-		return rotation;
-	}
-
-	@Override
 	public WaypointLockState getLockState(EntityPlayer var1) {
 		return null;
 	}
@@ -53,6 +48,11 @@ public class GOTWaypointInfo implements GOTAbstractWaypoint {
 	@Override
 	public String getLoreText(EntityPlayer var1) {
 		return null;
+	}
+
+	@Override
+	public int getRotation() {
+		return rotation;
 	}
 
 	@Override

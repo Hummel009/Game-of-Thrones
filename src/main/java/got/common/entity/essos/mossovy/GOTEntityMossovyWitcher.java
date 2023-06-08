@@ -36,6 +36,11 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 	}
 
 	@Override
+	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
+		npcCrossbowAttack(target, f);
+	}
+
+	@Override
 	public boolean canTradeWith(EntityPlayer entityplayer) {
 		return GOTLevelData.getData(entityplayer).getAlignment(getFaction()) >= 0.0f && isFriendly(entityplayer);
 	}
@@ -48,6 +53,12 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	public EntityAIBase createMossovyRangedAI() {
 		return new GOTEntityAIRangedAttack(this, 1.25, 20, 40, 20.0f);
+	}
+
+	@Override
+	public void dropFewItems(boolean flag, int i) {
+		super.dropFewItems(flag, i);
+		dropNPCCrossbowBolts(i);
 	}
 
 	@Override
@@ -114,17 +125,6 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 			tasks.addTask(2, rangedAttackAI);
 			setCurrentItemOrArmor(0, npcItemsInv.getRangedWeapon());
 		}
-	}
-
-	@Override
-	public void dropFewItems(boolean flag, int i) {
-		super.dropFewItems(flag, i);
-		dropNPCCrossbowBolts(i);
-	}
-
-	@Override
-	public void attackEntityWithRangedAttack(EntityLivingBase target, float f) {
-		npcCrossbowAttack(target, f);
 	}
 
 	@Override

@@ -27,11 +27,6 @@ public class GOTStructureEssosStatue extends GOTStructureEssosBase {
 	}
 
 	@Override
-	public boolean hasRedSandstone() {
-		return false;
-	}
-
-	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int k1;
 		int i1;
@@ -73,6 +68,11 @@ public class GOTStructureEssosStatue extends GOTStructureEssosBase {
 	public String getRandomStatueStrscan(Random random) {
 		String[] statues = {"mumak", "bird", "snake"};
 		return "essos_statue_" + statues[random.nextInt(statues.length)];
+	}
+
+	@Override
+	public boolean hasRedSandstone() {
+		return false;
 	}
 
 	@Override

@@ -108,12 +108,10 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 					} else if (k2 == 0) {
 						setBlockAndMetadata(world, i12, 1, k1, plankBlock, plankMeta);
 						setBlockAndMetadata(world, i12, 2, k1, plankBlock, plankMeta);
+					} else if (random.nextBoolean()) {
+						setBlockAndMetadata(world, i12, 0, k1, Blocks.dirt, 1);
 					} else {
-						if (random.nextBoolean()) {
-							setBlockAndMetadata(world, i12, 0, k1, Blocks.dirt, 1);
-						} else {
-							setBlockAndMetadata(world, i12, 0, k1, GOTBlocks.dirtPath, 1);
-						}
+						setBlockAndMetadata(world, i12, 0, k1, GOTBlocks.dirtPath, 1);
 					}
 				}
 				if (i2 >= 1 && i2 <= 3 && k1 == 12) {

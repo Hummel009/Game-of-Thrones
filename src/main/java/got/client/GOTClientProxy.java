@@ -535,18 +535,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	@Override
-	public void postInit() {
-		musicHandler = new GOTMusic();
-	}
-
-	@Override
-	public void preInit() {
-		System.setProperty("fml.skipFirstTextureLoad", "false");
-		GOTItemRendererManager.preInit();
-		GOTArmorModels.preInit();
-	}
-
-	@Override
 	public void openHiredNPCGui(GOTEntityNPC npc) {
 		Minecraft mc = Minecraft.getMinecraft();
 		if (npc.hiredNPCInfo.getTask() == GOTHiredNPCInfo.Task.WARRIOR) {
@@ -563,6 +551,18 @@ public class GOTClientProxy extends GOTCommonProxy {
 		} else {
 			Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
 		}
+	}
+
+	@Override
+	public void postInit() {
+		musicHandler = new GOTMusic();
+	}
+
+	@Override
+	public void preInit() {
+		System.setProperty("fml.skipFirstTextureLoad", "false");
+		GOTItemRendererManager.preInit();
+		GOTArmorModels.preInit();
 	}
 
 	@Override

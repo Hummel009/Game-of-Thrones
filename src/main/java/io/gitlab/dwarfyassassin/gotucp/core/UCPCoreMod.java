@@ -16,6 +16,19 @@ public class UCPCoreMod {
 		System.out.println("GOT-UCP: Found core mod.");
 	}
 
+	public static void loadModPatches() {
+		int i = 0;
+		for (Patcher patcher : modPatches) {
+			if (!patcher.shouldInit()) {
+				continue;
+			}
+			activePatches.add(patcher);
+			++i;
+		}
+		log.info("Loaded {} mod patches.", i);
+		modPatches.clear();
+	}
+
 	public static void registerPatcher(Patcher patcher) {
 		if (patcher.getLoadPhase() == Patcher.LoadingPhase.CORE_MOD_LOADING && patcher.shouldInit()) {
 			activePatches.add(patcher);
@@ -24,15 +37,8 @@ public class UCPCoreMod {
 		}
 	}
 
-	public static void loadModPatches() {
-		int i = 0;
-		for (Patcher patcher : modPatches) {
-			if (!patcher.shouldInit()) continue;
-			activePatches.add(patcher);
-			++i;
-		}
-		log.info("Loaded {} mod patches.", i);
-		modPatches.clear();
+	public String getAccessTransformerClass() {
+		return null;
 	}
 
 	public String[] getASMTransformerClass() {
@@ -49,9 +55,4 @@ public class UCPCoreMod {
 
 	public void injectData(Map<String, Object> data) {
 	}
-
-	public String getAccessTransformerClass() {
-		return null;
-	}
 }
-

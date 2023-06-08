@@ -412,9 +412,8 @@ public class GOTItemMug extends Item {
 		if (!entityplayer.capabilities.isCreativeMode) {
 			assert vessel != null;
 			return new ItemStack(vessel.getEmptyVesselItem());
-		} else {
-			return itemstack;
 		}
+		return itemstack;
 	}
 
 	@Override

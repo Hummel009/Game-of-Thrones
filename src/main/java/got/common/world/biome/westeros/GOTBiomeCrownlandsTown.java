@@ -46,7 +46,6 @@ public class GOTBiomeCrownlandsTown extends GOTBiomeCrownlands {
 		return GOTAchievement.enterKingsLanding;
 	}
 
-
 	@Override
 	public boolean getEnableRiver() {
 		return false;

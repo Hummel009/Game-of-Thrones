@@ -196,6 +196,17 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 			addStructure(new GOTStructureWesterosWell(false), 12, 27, 3);
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isTown) {
+				type = Type.TOWN;
+			} else if (isCastle || random.nextInt(4) == 0) {
+				type = Type.FORT;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
 		public void setupTown(Random random) {
 			int l;
 			int wallX;
@@ -212,7 +223,6 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 			}, 0, 0, 0);
 			for (int i1 : new int[]{-40, 40}) {
 				int[] arrn = {-40, 40};
-				int n = arrn.length;
 				for (int k1 : arrn) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -523,17 +533,6 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 			}
 			if (random.nextBoolean()) {
 				addStructure(getRandomFarm(random), farmX - farmSize, farmZ, 3);
-			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (isCastle || random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
 			}
 		}
 

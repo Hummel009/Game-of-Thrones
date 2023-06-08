@@ -102,12 +102,12 @@ public class GOTChunkProvider implements IChunkProvider {
 			for (int j1 = 0; j1 < byte0; ++j1) {
 				for (int k1 = 0; k1 < byte1; ++k1) {
 					double d = 0.125;
-					double d1 = heightNoise[((i1) * l + j1) * byte3 + k1];
-					double d2 = heightNoise[((i1) * l + j1 + 1) * byte3 + k1];
+					double d1 = heightNoise[(i1 * l + j1) * byte3 + k1];
+					double d2 = heightNoise[(i1 * l + j1 + 1) * byte3 + k1];
 					double d3 = heightNoise[((i1 + 1) * l + j1) * byte3 + k1];
 					double d4 = heightNoise[((i1 + 1) * l + j1 + 1) * byte3 + k1];
-					double d5 = (heightNoise[((i1) * l + j1) * byte3 + k1 + 1] - d1) * d;
-					double d6 = (heightNoise[((i1) * l + j1 + 1) * byte3 + k1 + 1] - d2) * d;
+					double d5 = (heightNoise[(i1 * l + j1) * byte3 + k1 + 1] - d1) * d;
+					double d6 = (heightNoise[(i1 * l + j1 + 1) * byte3 + k1 + 1] - d2) * d;
 					double d7 = (heightNoise[((i1 + 1) * l + j1) * byte3 + k1 + 1] - d3) * d;
 					double d8 = (heightNoise[((i1 + 1) * l + j1 + 1) * byte3 + k1 + 1] - d4) * d;
 					for (int l1 = 0; l1 < 8; ++l1) {

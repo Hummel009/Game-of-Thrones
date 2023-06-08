@@ -136,7 +136,7 @@ public class GOTEventSpawner {
 					}
 					GOTEntityInvasionSpawner invasion = new GOTEntityInvasionSpawner(world);
 					invasion.setInvasionType(invasionType);
-					invasion.setLocationAndAngles(i1 + 0.5, j1 + (3 + rand.nextInt(3)), k1 + 0.5, 0.0f, 0.0f);
+					invasion.setLocationAndAngles(i1 + 0.5, j1 + 3 + rand.nextInt(3), k1 + 0.5, 0.0f, 0.0f);
 					if (!invasion.canInvasionSpawnHere()) {
 						continue;
 					}

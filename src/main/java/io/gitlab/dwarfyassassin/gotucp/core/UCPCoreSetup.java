@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import java.util.Map;
 
 public class UCPCoreSetup implements IFMLCallHook {
+	@Override
 	public Void call() {
 		UCPCoreMod.log = LogManager.getLogger("GOT-UCP");
 		UCPCoreMod.registerPatcher(new FMLPatcher());
@@ -17,7 +18,7 @@ public class UCPCoreSetup implements IFMLCallHook {
 		return null;
 	}
 
+	@Override
 	public void injectData(Map<String, Object> data) {
 	}
 }
-

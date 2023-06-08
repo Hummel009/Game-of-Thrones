@@ -258,6 +258,21 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 			addStructure(new GOTStructureWesterosWell(false).setGranite(), 12, 27, 3);
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isTown || isKingsLanding) {
+				type = Type.TOWN;
+			} else if (isCastle) {
+				type = Type.FORT;
+			} else if (isRedKeep) {
+				type = Type.RED_KEEP;
+			} else if (random.nextInt(4) == 0) {
+				type = Type.FORT;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
 		public void setupTown(Random random) {
 			int l;
 			int wallX;
@@ -285,7 +300,6 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 			}, 0, 0, 0);
 			for (int i1 : new int[]{-40, 40}) {
 				int[] arrn = {-40, 40};
-				int n = arrn.length;
 				for (int k1 : arrn) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -407,10 +421,8 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 				}
 				if (treepiece) {
 					addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
-				} else {
-					if (houseZ != 0 && isKingsLanding) {
-						addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
-					}
+				} else if (houseZ != 0 && isKingsLanding) {
+					addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
 				}
 				if (Math.abs(k1) >= 2 && k1 <= 2) {
 					if (treepiece) {
@@ -604,21 +616,6 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 			}
 			if (random.nextBoolean()) {
 				addStructure(getRandomFarm(random), farmX - farmSize, farmZ, 3);
-			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isTown || isKingsLanding) {
-				type = Type.TOWN;
-			} else if (isCastle) {
-				type = Type.FORT;
-			} else if (isRedKeep) {
-				type = Type.RED_KEEP;
-			} else if (random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
 			}
 		}
 	}

@@ -50,7 +50,6 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 		return GOTAchievement.enterSummerIslands;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.SUMMER_ISLANDS;

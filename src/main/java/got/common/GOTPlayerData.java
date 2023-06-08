@@ -965,18 +965,6 @@ public class GOTPlayerData {
 		setChatBoundFellowshipID(fs.getFellowshipID());
 	}
 
-	public void setChatBoundFellowshipID(UUID fsID) {
-		chatBoundFellowshipID = fsID;
-		markDirty();
-	}
-
-	public void setCheckedMenu(boolean flag) {
-		if (checkedMenu != flag) {
-			checkedMenu = flag;
-			markDirty();
-		}
-	}
-
 	public GOTFellowshipClient getClientFellowshipByID(UUID fsID) {
 		for (GOTFellowshipClient fs : fellowshipsClient) {
 			if (fs.getFellowshipID().equals(fsID)) {
@@ -1390,16 +1378,6 @@ public class GOTPlayerData {
 		sendOptionsPacket(9, flag);
 	}
 
-	public void setTargetFTWaypoint(GOTAbstractWaypoint wp) {
-		targetFTWaypoint = wp;
-		markDirty();
-		if (wp != null) {
-			setTicksUntilFT(ticksUntilFT_max);
-		} else {
-			setTicksUntilFT(0);
-		}
-	}
-
 	public boolean getTeleportedKW() {
 		return teleportedKW;
 	}
@@ -1407,15 +1385,6 @@ public class GOTPlayerData {
 	public void setTeleportedKW(boolean flag) {
 		teleportedKW = flag;
 		markDirty();
-	}
-
-	public void setTicksUntilFT(int i) {
-		if (ticksUntilFT != i) {
-			ticksUntilFT = i;
-			if (ticksUntilFT == ticksUntilFT_max || ticksUntilFT == 0) {
-				markDirty();
-			}
-		}
 	}
 
 	public int getTimeSinceFT() {
@@ -2820,6 +2789,18 @@ public class GOTPlayerData {
 		setAlignment(faction, set);
 	}
 
+	public void setChatBoundFellowshipID(UUID fsID) {
+		chatBoundFellowshipID = fsID;
+		markDirty();
+	}
+
+	public void setCheckedMenu(boolean flag) {
+		if (checkedMenu != flag) {
+			checkedMenu = flag;
+			markDirty();
+		}
+	}
+
 	public void setDeathPoint(int i, int j, int k) {
 		deathPoint = new ChunkCoordinates(i, j, k);
 		markDirty();
@@ -2883,6 +2864,25 @@ public class GOTPlayerData {
 	public void setShowWaypoints(boolean flag) {
 		showWaypoints = flag;
 		markDirty();
+	}
+
+	public void setTargetFTWaypoint(GOTAbstractWaypoint wp) {
+		targetFTWaypoint = wp;
+		markDirty();
+		if (wp != null) {
+			setTicksUntilFT(ticksUntilFT_max);
+		} else {
+			setTicksUntilFT(0);
+		}
+	}
+
+	public void setTicksUntilFT(int i) {
+		if (ticksUntilFT != i) {
+			ticksUntilFT = i;
+			if (ticksUntilFT == ticksUntilFT_max || ticksUntilFT == 0) {
+				markDirty();
+			}
+		}
 	}
 
 	public void setTimeSinceFT(int i, boolean forceUpdate) {

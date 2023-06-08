@@ -14,85 +14,6 @@ public enum GOTClimateType {
 		altitudeZone = zone;
 	}
 
-	public static void performSeasonalChangesServerSide() {
-		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
-			if (biome != null && biome.climateType != null) {
-				switch (GOTDate.AegonCalendar.getSeason()) {
-					case WINTER:
-						switch (biome.climateType) {
-							case COLD:
-							case COLD_AZ:
-							case NORMAL:
-							case NORMAL_AZ:
-							case WINTER:
-								biome.setTemperatureRainfall(0.0F, 2.0F);
-								break;
-							case SUMMER:
-							case SUMMER_AZ:
-								biome.setTemperatureRainfall(0.28F, 2.0F);
-								break;
-						}
-						break;
-					case SPRING:
-						switch (biome.climateType) {
-							case COLD:
-							case COLD_AZ:
-							case NORMAL:
-							case NORMAL_AZ:
-							case SUMMER_AZ:
-								biome.setTemperatureRainfall(0.28F, 0.8F);
-								break;
-							case SUMMER:
-								biome.setTemperatureRainfall(0.8F, 0.8F);
-								break;
-							case WINTER:
-								biome.setTemperatureRainfall(0.0F, 2.0F);
-								break;
-						}
-						break;
-					case SUMMER:
-						switch (biome.climateType) {
-							case COLD:
-							case COLD_AZ:
-							case NORMAL_AZ:
-							case SUMMER_AZ:
-								biome.setTemperatureRainfall(0.28F, 0.8F);
-								break;
-							case NORMAL:
-								biome.setTemperatureRainfall(0.8F, 0.8F);
-								break;
-							case SUMMER:
-								biome.setTemperatureRainfall(1.2F, 0.4F);
-								break;
-							case WINTER:
-								biome.setTemperatureRainfall(0.0F, 2.0F);
-								break;
-						}
-						break;
-					case AUTUMN:
-						switch (biome.climateType) {
-							case COLD:
-							case COLD_AZ:
-							case NORMAL:
-							case NORMAL_AZ:
-								biome.setTemperatureRainfall(0.28F, 2.0F);
-								break;
-							case SUMMER:
-								biome.setTemperatureRainfall(0.8F, 0.8F);
-								break;
-							case SUMMER_AZ:
-								biome.setTemperatureRainfall(0.28F, 0.8F);
-								break;
-							case WINTER:
-								biome.setTemperatureRainfall(0.0F, 2.0F);
-								break;
-						}
-						break;
-				}
-			}
-		}
-	}
-
 	@SideOnly(Side.CLIENT)
 	public static void performSeasonalChangesClientSide() {
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
@@ -204,6 +125,85 @@ public enum GOTClimateType {
 								biome.biomeColors.setSky(4212300);
 								biome.biomeColors.setFog(6188664);
 								biome.biomeColors.setFoggy(true);
+								break;
+						}
+						break;
+				}
+			}
+		}
+	}
+
+	public static void performSeasonalChangesServerSide() {
+		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
+			if (biome != null && biome.climateType != null) {
+				switch (GOTDate.AegonCalendar.getSeason()) {
+					case WINTER:
+						switch (biome.climateType) {
+							case COLD:
+							case COLD_AZ:
+							case NORMAL:
+							case NORMAL_AZ:
+							case WINTER:
+								biome.setTemperatureRainfall(0.0F, 2.0F);
+								break;
+							case SUMMER:
+							case SUMMER_AZ:
+								biome.setTemperatureRainfall(0.28F, 2.0F);
+								break;
+						}
+						break;
+					case SPRING:
+						switch (biome.climateType) {
+							case COLD:
+							case COLD_AZ:
+							case NORMAL:
+							case NORMAL_AZ:
+							case SUMMER_AZ:
+								biome.setTemperatureRainfall(0.28F, 0.8F);
+								break;
+							case SUMMER:
+								biome.setTemperatureRainfall(0.8F, 0.8F);
+								break;
+							case WINTER:
+								biome.setTemperatureRainfall(0.0F, 2.0F);
+								break;
+						}
+						break;
+					case SUMMER:
+						switch (biome.climateType) {
+							case COLD:
+							case COLD_AZ:
+							case NORMAL_AZ:
+							case SUMMER_AZ:
+								biome.setTemperatureRainfall(0.28F, 0.8F);
+								break;
+							case NORMAL:
+								biome.setTemperatureRainfall(0.8F, 0.8F);
+								break;
+							case SUMMER:
+								biome.setTemperatureRainfall(1.2F, 0.4F);
+								break;
+							case WINTER:
+								biome.setTemperatureRainfall(0.0F, 2.0F);
+								break;
+						}
+						break;
+					case AUTUMN:
+						switch (biome.climateType) {
+							case COLD:
+							case COLD_AZ:
+							case NORMAL:
+							case NORMAL_AZ:
+								biome.setTemperatureRainfall(0.28F, 2.0F);
+								break;
+							case SUMMER:
+								biome.setTemperatureRainfall(0.8F, 0.8F);
+								break;
+							case SUMMER_AZ:
+								biome.setTemperatureRainfall(0.28F, 0.8F);
+								break;
+							case WINTER:
+								biome.setTemperatureRainfall(0.0F, 2.0F);
 								break;
 						}
 						break;

@@ -8,15 +8,15 @@ public abstract class GOTStructureDragonstoneVillageFarm extends GOTStructureWes
 		kingdom = Kingdom.DRAGONSTONE;
 	}
 
-	public static class Crops extends GOTStructureWesterosVillageFarm.Crops {
-		public Crops(boolean flag) {
+	public static class Animals extends GOTStructureWesterosVillageFarm.Animals {
+		public Animals(boolean flag) {
 			super(flag);
 			kingdom = Kingdom.DRAGONSTONE;
 		}
 	}
 
-	public static class Animals extends GOTStructureWesterosVillageFarm.Animals {
-		public Animals(boolean flag) {
+	public static class Crops extends GOTStructureWesterosVillageFarm.Crops {
+		public Crops(boolean flag) {
 			super(flag);
 			kingdom = Kingdom.DRAGONSTONE;
 		}

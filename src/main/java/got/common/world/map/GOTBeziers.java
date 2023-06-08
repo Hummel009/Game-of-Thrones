@@ -174,14 +174,14 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.Winterfell.info(0, -1), GOTWaypoint.Winterfell.info(0, 1));
 		registerRoad(id++, GOTWaypoint.Winterfell.info(0, 1), GOTWaypoint.ServinsCastle, new double[]{628, 973}, new double[]{647, 1105});
 
-		//Pierieprojektirowano
+		// Pierieprojektirowano
 		registerRoad(id++, GOTWaypoint.WhiteHarbour, new double[]{709, 1070}, new double[]{674, 1097}, new double[]{647, 1105}, new double[]{636, 1104}, new double[]{627, 1101}, new double[]{619, 1090}, new double[]{590, 1082}, new double[]{558, 1081}, GOTWaypoint.Goldgrass);
 		registerRoad(id++, GOTWaypoint.RisvellsCastle, new double[]{449, 1086}, new double[]{504, 1067}, GOTWaypoint.Goldgrass);
 		registerRoad(id++, GOTWaypoint.RisvellsCastle, new double[]{428, 1040}, new double[]{424, 1037}, new double[]{422, 1033});
 		registerRoad(id++, GOTWaypoint.RillwaterCrossing, new double[]{409, 992}, new double[]{399, 996}, new double[]{388, 1005}, new double[]{392, 1012}, new double[]{409, 1020}, new double[]{422, 1033});
 		registerRoad(id++, GOTWaypoint.TorhensSquare, new double[]{555, 996}, new double[]{531, 1035}, GOTWaypoint.Goldgrass);
 
-		//Dolrzny byt widimymi
+		// Dolrzny byt widimymi
 		registerRoad(id++, GOTWaypoint.FairMarket.info(1, -1), GOTWaypoint.FairMarket.info(3, -3));
 		registerRoad(id++, GOTWaypoint.Vaibei, GOTWaypoint.Vaibei.info(-1, 0));
 		registerRoad(id++, GOTWaypoint.TraderTown, GOTWaypoint.TraderTown.info(1, 0));
@@ -191,13 +191,13 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.TraderTown, GOTWaypoint.Tiqui.info(1, 0), GOTWaypoint.SiQo, GOTWaypoint.Yin);
 		registerRoad(id++, GOTWaypoint.TraderTown, new double[]{3411, 1920}, new double[]{3473, 1951}, GOTWaypoint.Vaibei.info(-1, 0));
 
-		//Idiot skwoz toczku w dwie storony
+		// Idiot skwoz toczku w dwie storony
 		registerHiddenRoad(id++, GOTWaypoint.Rosby.info(0, 0.7), GOTWaypoint.Rosby.info(0, -0.5));
 		registerHiddenRoad(id++, GOTWaypoint.Appleton.info(0, 1.2), GOTWaypoint.Appleton.info(0, -0.5));
 		registerHiddenRoad(id++, GOTWaypoint.Maidenpool.info(-0.9, 0), GOTWaypoint.Maidenpool.info(0.5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Seagard.info(0, -0.7), GOTWaypoint.Seagard.info(0, 0.9));
 
-		//Idiot ot toczki otwietwlienie
+		// Idiot ot toczki otwietwlienie
 		registerHiddenRoad(id++, GOTWaypoint.WhiteHarbour, GOTWaypoint.WhiteHarbour.info(0.9, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Anjiang, GOTWaypoint.Anjiang.info(0, 1));
 		registerHiddenRoad(id++, GOTWaypoint.Asabhad, GOTWaypoint.Asabhad.info(-1, 0));

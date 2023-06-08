@@ -32,7 +32,6 @@ public class GOTBiomeQarthColony extends GOTBiomeSothoryosSavannah {
 		return GOTAchievement.enterQarthColony;
 	}
 
-
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_DIRTY;

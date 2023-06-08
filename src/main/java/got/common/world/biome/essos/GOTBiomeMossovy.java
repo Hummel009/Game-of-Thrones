@@ -29,7 +29,6 @@ public class GOTBiomeMossovy extends GOTBiomeEssosCold {
 		return GOTAchievement.enterMossovy;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.MOSSOVY;

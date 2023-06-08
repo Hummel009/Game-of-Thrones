@@ -36,7 +36,6 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 		return GOTAchievement.enterGhiscarColony;
 	}
 
-
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_DIRTY;

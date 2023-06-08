@@ -26,8 +26,8 @@ public class GOTBlockSapling1 extends GOTBlockSaplingBase {
 			treeGen = GOTTreeType.IBBEN_PINE.create(true, random);
 		}
 		if (meta == 1) {
-			int[] partyTree;
-			if ((partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 1)) != null) {
+			int[] partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 1);
+			if (partyTree != null) {
 				treeGen = GOTTreeType.CATALPA_PARTY.create(true, random);
 				trunkPos = 1;
 				trunkNeg = 1;

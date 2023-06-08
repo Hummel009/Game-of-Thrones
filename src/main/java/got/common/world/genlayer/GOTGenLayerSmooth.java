@@ -21,7 +21,7 @@ public class GOTGenLayerSmooth extends GOTGenLayer {
 				int centre = biomes[i2 + 1 + (k2 + 1) * xSizeP];
 				int xn = biomes[i2 + (k2 + 1) * xSizeP];
 				int xp = biomes[i2 + 2 + (k2 + 1) * xSizeP];
-				int zn = biomes[i2 + 1 + (k2) * xSizeP];
+				int zn = biomes[i2 + 1 + k2 * xSizeP];
 				int zp = biomes[i2 + 1 + (k2 + 2) * xSizeP];
 				if (xn == xp && zn == zp) {
 					initChunkSeed(i2 + i, k2 + k);

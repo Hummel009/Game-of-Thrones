@@ -103,14 +103,14 @@ public class GOTBiomeVariant {
 	public void decorateVariant(World world, Random random, int i, int k, GOTBiome biome) {
 	}
 
+	public void disableSettlements() {
+		disableSettlements = true;
+	}
+
 	public GOTBiomeVariant disableStructuresSettlements() {
 		disableStructures = true;
 		disableSettlements = true;
 		return this;
-	}
-
-	public void disableSettlements() {
-		disableSettlements = true;
 	}
 
 	public void generateVariantTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int height, GOTBiome biome) {

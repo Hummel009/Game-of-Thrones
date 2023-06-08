@@ -266,14 +266,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
-	public boolean hasRedSandstone() {
-		return true;
-	}
-
-	public boolean hasMonotypeWood() {
-		return false;
-	}
-
 	public BannerType getBannerType() {
 		return BANNERS.get(city);
 	}
@@ -332,8 +324,16 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return city == City.GHISCAR;
 	}
 
+	public boolean hasMonotypeWood() {
+		return false;
+	}
+
 	public boolean hasNorthernWood() {
 		return NORTHERN_TREE_CITIES.contains(city);
+	}
+
+	public boolean hasRedSandstone() {
+		return true;
 	}
 
 	public boolean hasSandstone() {
@@ -456,109 +456,107 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			woodBeamMeta = 2;
 			doorBlock = GOTBlocks.doorCedar;
 			trapdoorBlock = GOTBlocks.trapdoorCedar;
+		} else if (hasNorthernWood()) {
+			switch (random.nextInt(4)) {
+				case 0:
+					woodBlock = GOTBlocks.wood2;
+					woodMeta = 1;
+					plankBlock = GOTBlocks.planks1;
+					plankMeta = 9;
+					plankSlabBlock = GOTBlocks.woodSlabSingle2;
+					plankSlabMeta = 1;
+					plankStairBlock = GOTBlocks.stairsBeech;
+					fenceBlock = GOTBlocks.fence;
+					fenceMeta = 9;
+					fenceGateBlock = GOTBlocks.fenceGateBeech;
+					woodBeamBlock = GOTBlocks.woodBeam2;
+					woodBeamMeta = 1;
+					doorBlock = GOTBlocks.doorBeech;
+					trapdoorBlock = GOTBlocks.trapdoorBeech;
+					break;
+				case 1:
+					woodBlock = GOTBlocks.wood4;
+					woodMeta = 2;
+					plankBlock = GOTBlocks.planks2;
+					plankMeta = 2;
+					plankSlabBlock = GOTBlocks.woodSlabSingle3;
+					plankSlabMeta = 2;
+					plankStairBlock = GOTBlocks.stairsCedar;
+					fenceBlock = GOTBlocks.fence2;
+					fenceMeta = 2;
+					fenceGateBlock = GOTBlocks.fenceGateCedar;
+					woodBeamBlock = GOTBlocks.woodBeam4;
+					woodBeamMeta = 2;
+					doorBlock = GOTBlocks.doorCedar;
+					trapdoorBlock = GOTBlocks.trapdoorCedar;
+					break;
+				default:
+					woodBlock = Blocks.log;
+					woodMeta = 0;
+					plankBlock = Blocks.planks;
+					plankMeta = 0;
+					plankSlabBlock = Blocks.wooden_slab;
+					plankSlabMeta = 0;
+					plankStairBlock = Blocks.oak_stairs;
+					fenceBlock = Blocks.fence;
+					fenceMeta = 0;
+					fenceGateBlock = Blocks.fence_gate;
+					woodBeamBlock = GOTBlocks.woodBeamV1;
+					woodBeamMeta = 0;
+					doorBlock = Blocks.wooden_door;
+					trapdoorBlock = Blocks.trapdoor;
+					break;
+			}
 		} else {
-			if (hasNorthernWood()) {
-				switch (random.nextInt(4)) {
-					case 0:
-						woodBlock = GOTBlocks.wood2;
-						woodMeta = 1;
-						plankBlock = GOTBlocks.planks1;
-						plankMeta = 9;
-						plankSlabBlock = GOTBlocks.woodSlabSingle2;
-						plankSlabMeta = 1;
-						plankStairBlock = GOTBlocks.stairsBeech;
-						fenceBlock = GOTBlocks.fence;
-						fenceMeta = 9;
-						fenceGateBlock = GOTBlocks.fenceGateBeech;
-						woodBeamBlock = GOTBlocks.woodBeam2;
-						woodBeamMeta = 1;
-						doorBlock = GOTBlocks.doorBeech;
-						trapdoorBlock = GOTBlocks.trapdoorBeech;
-						break;
-					case 1:
-						woodBlock = GOTBlocks.wood4;
-						woodMeta = 2;
-						plankBlock = GOTBlocks.planks2;
-						plankMeta = 2;
-						plankSlabBlock = GOTBlocks.woodSlabSingle3;
-						plankSlabMeta = 2;
-						plankStairBlock = GOTBlocks.stairsCedar;
-						fenceBlock = GOTBlocks.fence2;
-						fenceMeta = 2;
-						fenceGateBlock = GOTBlocks.fenceGateCedar;
-						woodBeamBlock = GOTBlocks.woodBeam4;
-						woodBeamMeta = 2;
-						doorBlock = GOTBlocks.doorCedar;
-						trapdoorBlock = GOTBlocks.trapdoorCedar;
-						break;
-					default:
-						woodBlock = Blocks.log;
-						woodMeta = 0;
-						plankBlock = Blocks.planks;
-						plankMeta = 0;
-						plankSlabBlock = Blocks.wooden_slab;
-						plankSlabMeta = 0;
-						plankStairBlock = Blocks.oak_stairs;
-						fenceBlock = Blocks.fence;
-						fenceMeta = 0;
-						fenceGateBlock = Blocks.fence_gate;
-						woodBeamBlock = GOTBlocks.woodBeamV1;
-						woodBeamMeta = 0;
-						doorBlock = Blocks.wooden_door;
-						trapdoorBlock = Blocks.trapdoor;
-						break;
-				}
-			} else {
-				switch (random.nextInt(3)) {
-					case 0:
-						woodBlock = GOTBlocks.wood6;
-						woodMeta = 3;
-						plankBlock = GOTBlocks.planks2;
-						plankMeta = 11;
-						plankSlabBlock = GOTBlocks.woodSlabSingle4;
-						plankSlabMeta = 3;
-						plankStairBlock = GOTBlocks.stairsOlive;
-						fenceBlock = GOTBlocks.fence2;
-						fenceMeta = 11;
-						fenceGateBlock = GOTBlocks.fenceGateOlive;
-						woodBeamBlock = GOTBlocks.woodBeam6;
-						woodBeamMeta = 3;
-						doorBlock = GOTBlocks.doorOlive;
-						trapdoorBlock = GOTBlocks.trapdoorOlive;
-						break;
-					case 1:
-						woodBlock = GOTBlocks.wood3;
-						woodMeta = 2;
-						plankBlock = GOTBlocks.planks1;
-						plankMeta = 14;
-						plankSlabBlock = GOTBlocks.woodSlabSingle2;
-						plankSlabMeta = 6;
-						plankStairBlock = GOTBlocks.stairsDatePalm;
-						fenceBlock = GOTBlocks.fence;
-						fenceMeta = 14;
-						fenceGateBlock = GOTBlocks.fenceGateDatePalm;
-						woodBeamBlock = GOTBlocks.woodBeam3;
-						woodBeamMeta = 2;
-						doorBlock = GOTBlocks.doorDatePalm;
-						trapdoorBlock = GOTBlocks.trapdoorDatePalm;
-						break;
-					default:
-						woodBlock = GOTBlocks.wood8;
-						woodMeta = 3;
-						plankBlock = GOTBlocks.planks3;
-						plankMeta = 3;
-						plankSlabBlock = GOTBlocks.woodSlabSingle5;
-						plankSlabMeta = 3;
-						plankStairBlock = GOTBlocks.stairsPalm;
-						fenceBlock = GOTBlocks.fence3;
-						fenceMeta = 3;
-						fenceGateBlock = GOTBlocks.fenceGatePalm;
-						woodBeamBlock = GOTBlocks.woodBeam8;
-						woodBeamMeta = 3;
-						doorBlock = GOTBlocks.doorPalm;
-						trapdoorBlock = GOTBlocks.trapdoorPalm;
-						break;
-				}
+			switch (random.nextInt(3)) {
+				case 0:
+					woodBlock = GOTBlocks.wood6;
+					woodMeta = 3;
+					plankBlock = GOTBlocks.planks2;
+					plankMeta = 11;
+					plankSlabBlock = GOTBlocks.woodSlabSingle4;
+					plankSlabMeta = 3;
+					plankStairBlock = GOTBlocks.stairsOlive;
+					fenceBlock = GOTBlocks.fence2;
+					fenceMeta = 11;
+					fenceGateBlock = GOTBlocks.fenceGateOlive;
+					woodBeamBlock = GOTBlocks.woodBeam6;
+					woodBeamMeta = 3;
+					doorBlock = GOTBlocks.doorOlive;
+					trapdoorBlock = GOTBlocks.trapdoorOlive;
+					break;
+				case 1:
+					woodBlock = GOTBlocks.wood3;
+					woodMeta = 2;
+					plankBlock = GOTBlocks.planks1;
+					plankMeta = 14;
+					plankSlabBlock = GOTBlocks.woodSlabSingle2;
+					plankSlabMeta = 6;
+					plankStairBlock = GOTBlocks.stairsDatePalm;
+					fenceBlock = GOTBlocks.fence;
+					fenceMeta = 14;
+					fenceGateBlock = GOTBlocks.fenceGateDatePalm;
+					woodBeamBlock = GOTBlocks.woodBeam3;
+					woodBeamMeta = 2;
+					doorBlock = GOTBlocks.doorDatePalm;
+					trapdoorBlock = GOTBlocks.trapdoorDatePalm;
+					break;
+				default:
+					woodBlock = GOTBlocks.wood8;
+					woodMeta = 3;
+					plankBlock = GOTBlocks.planks3;
+					plankMeta = 3;
+					plankSlabBlock = GOTBlocks.woodSlabSingle5;
+					plankSlabMeta = 3;
+					plankStairBlock = GOTBlocks.stairsPalm;
+					fenceBlock = GOTBlocks.fence3;
+					fenceMeta = 3;
+					fenceGateBlock = GOTBlocks.fenceGatePalm;
+					woodBeamBlock = GOTBlocks.woodBeam8;
+					woodBeamMeta = 3;
+					doorBlock = GOTBlocks.doorPalm;
+					trapdoorBlock = GOTBlocks.trapdoorPalm;
+					break;
 			}
 		}
 

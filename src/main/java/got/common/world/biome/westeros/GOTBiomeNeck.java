@@ -41,7 +41,6 @@ public class GOTBiomeNeck extends GOTBiomeWesteros {
 		return GOTAchievement.enterNeck;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.RIVERLANDS;

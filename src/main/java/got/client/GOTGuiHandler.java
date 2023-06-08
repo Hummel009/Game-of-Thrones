@@ -194,11 +194,13 @@ public class GOTGuiHandler {
 			Container container = guiContainer.inventorySlots;
 			Class<? extends Container> containerCls = container.getClass();
 			Class<? extends GuiContainer> guiCls = guiContainer.getClass();
-			boolean excludeContainer = (coinCount_excludedContainers.contains(containerCls) || coinCount_excludedContainers_clsNames.contains(containerCls.getName()));
-			boolean excludeGui = (coinCount_excludedGUIs.contains(guiCls) || coinCount_excludedGUIs_clsNames.contains(guiCls.getName()));
+			boolean excludeContainer = coinCount_excludedContainers.contains(containerCls) || coinCount_excludedContainers_clsNames.contains(containerCls.getName());
+			boolean excludeGui = coinCount_excludedGUIs.contains(guiCls) || coinCount_excludedGUIs_clsNames.contains(guiCls.getName());
 			if (guiContainer instanceof GuiContainerCreative) {
 				int creativeTabIndex = GOTReflectionClient.getCreativeTabIndex((GuiContainerCreative) guiContainer);
-				if (creativeTabIndex != CreativeTabs.tabInventory.getTabIndex()) excludeGui = true;
+				if (creativeTabIndex != CreativeTabs.tabInventory.getTabIndex()) {
+					excludeGui = true;
+				}
 			}
 			if (!excludeContainer && !excludeGui) {
 				int guiLeft = -1;
@@ -211,15 +213,19 @@ public class GOTGuiHandler {
 					IInventory inv = slot.inventory;
 					if (inv != null) {
 						Class<? extends IInventory> invClass = inv.getClass();
-						boolean excludeInv = (coinCount_excludedInvTypes.contains(invClass) || coinCount_excludedInvTypes_clsNames.contains(invClass.getName()));
+						boolean excludeInv = coinCount_excludedInvTypes.contains(invClass) || coinCount_excludedInvTypes_clsNames.contains(invClass.getName());
 						if (!excludeInv) {
-							if (!differentInvs.contains(inv)) differentInvs.add(inv);
+							if (!differentInvs.contains(inv)) {
+								differentInvs.add(inv);
+							}
 							int slotY = slot.yDisplayPosition;
 							if (!invHighestY.containsKey(inv)) {
 								invHighestY.put(inv, slotY);
 							} else {
 								int highestY = invHighestY.get(inv);
-								if (slotY < highestY) invHighestY.put(inv, slotY);
+								if (slotY < highestY) {
+									invHighestY.put(inv, slotY);
+								}
 							}
 						}
 					}
@@ -235,10 +241,8 @@ public class GOTGuiHandler {
 							guiTop = GOTReflectionClient.getGuiTop(guiContainer);
 							guiXSize = GOTReflectionClient.getGuiXSize(guiContainer);
 							guiLeft = gui.width / 2 - guiXSize / 2;
-							if (guiContainer instanceof InventoryEffectRenderer && GOTReflectionClient.hasGuiPotionEffects((InventoryEffectRenderer) gui)) {
-								if (!GOTModChecker.hasNEI()) {
-									guiLeft += 60;
-								}
+							if ((guiContainer instanceof InventoryEffectRenderer && GOTReflectionClient.hasGuiPotionEffects((InventoryEffectRenderer) gui)) && !GOTModChecker.hasNEI()) {
+								guiLeft += 60;
 							}
 						}
 						int guiGap = 8;

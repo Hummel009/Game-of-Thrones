@@ -42,7 +42,6 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 			noise2 = new NoiseGeneratorPerlin(random1, 1);
 		}
 		seed = world.getSeed();
-		double d5 = 0.0D;
 		int g;
 		int l;
 		g = i & 15;
@@ -188,7 +187,6 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterDorneMesa;
 	}
-
 
 	public byte levelGenerator(int a, int b, int c) {
 		int l = (int) Math.round(noise3.func_151601_a(a * 1.0D / 512.0D, a * 1.0D / 512.0D) * 2.0D);

@@ -21,7 +21,6 @@ public class GOTBiomeLake extends GOTBiome {
 		return GOTBiomeMusic.OCEAN.getSubregion(biomeName);
 	}
 
-
 	@Override
 	public boolean getEnableRiver() {
 		return false;

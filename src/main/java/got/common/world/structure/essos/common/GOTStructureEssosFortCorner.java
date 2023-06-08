@@ -10,11 +10,6 @@ public class GOTStructureEssosFortCorner extends GOTStructureEssosBase {
 	}
 
 	@Override
-	public boolean hasRedSandstone() {
-		return false;
-	}
-
-	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		int j1;
 		boolean beam;
@@ -98,5 +93,10 @@ public class GOTStructureEssosFortCorner extends GOTStructureEssosBase {
 			}
 		}
 		return true;
+	}
+
+	@Override
+	public boolean hasRedSandstone() {
+		return false;
 	}
 }

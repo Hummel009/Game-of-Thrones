@@ -18,7 +18,6 @@ public class GOTBiomeSothoryosFrost extends GOTBiomeSothoryosTaiga {
 		return GOTAchievement.enterSothoryosFrost;
 	}
 
-
 	@Override
 	public boolean getEnableRiver() {
 		return false;

@@ -65,5 +65,4 @@ public class GOTBiomeFrostfangs extends GOTBiomeWesterosFrost {
 		return GOTAchievement.enterFrostfangs;
 	}
 
-
 }

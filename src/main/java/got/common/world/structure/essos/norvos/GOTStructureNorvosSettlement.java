@@ -232,6 +232,17 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureNorvosFortCorner(false), 50, 46, 2, true);
 		}
 
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (isTown) {
+				type = Type.TOWN;
+			} else if (random.nextInt(4) == 0) {
+				type = Type.FORT;
+			} else {
+				type = Type.VILLAGE;
+			}
+		}
+
 		public void setupTown(Random random) {
 			int k;
 			int i;
@@ -484,17 +495,6 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 					continue;
 				}
 				addStructure(getRandomHouse(random), i, k, r);
-			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
 			}
 		}
 

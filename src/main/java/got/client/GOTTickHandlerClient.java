@@ -180,10 +180,10 @@ public class GOTTickHandlerClient {
 		float f = 0.00390625F;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(x + 0.0D, y + height, 0.0D, (u) * f, (v + height) * f);
+		tessellator.addVertexWithUV(x + 0.0D, y + height, 0.0D, u * f, (v + height) * f);
 		tessellator.addVertexWithUV(x + width, y + height, 0.0D, (u + width) * f, (v + height) * f);
-		tessellator.addVertexWithUV(x + width, y + 0.0D, 0.0D, (u + width) * f, (v) * f);
-		tessellator.addVertexWithUV(x + 0.0D, y + 0.0D, 0.0D, (u) * f, (v) * f);
+		tessellator.addVertexWithUV(x + width, y + 0.0D, 0.0D, (u + width) * f, v * f);
+		tessellator.addVertexWithUV(x + 0.0D, y + 0.0D, 0.0D, u * f, v * f);
 		tessellator.draw();
 	}
 

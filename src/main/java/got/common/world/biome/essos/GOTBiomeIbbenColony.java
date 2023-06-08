@@ -22,7 +22,6 @@ public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 		decorator.addStructure(new GOTStructureSmallStoneRuin(false), 500);
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.IBBEN;

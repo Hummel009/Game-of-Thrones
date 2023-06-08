@@ -59,7 +59,6 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 		return GOTAchievement.enterDorne;
 	}
 
-
 	@Override
 	public Region getBiomeWaypoints() {
 		return Region.DORNE;
