@@ -56,6 +56,67 @@ public class GOTClassTransformer implements IClassTransformer {
 	public static String cls_WorldServer = "net/minecraft/world/WorldServer";
 	public static String cls_WorldServer_obf = "mt";
 
+	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N target) {
+		return findNodeInMethod(method, target, 0);
+	}
+
+	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N targetAbstract, int skip) {
+		int skipped = 0;
+		ListIterator<AbstractInsnNode> it = method.instructions.iterator();
+		while (it.hasNext()) {
+			AbstractInsnNode nextAbstract = it.next();
+			boolean matched = false;
+			if (nextAbstract.getClass() == targetAbstract.getClass()) {
+				AbstractInsnNode next;
+				AbstractInsnNode target;
+				if (targetAbstract.getClass() == InsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode()) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == VarInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((VarInsnNode) next).var == ((VarInsnNode) target).var) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == LdcInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (((LdcInsnNode) next).cst.equals(((LdcInsnNode) target).cst)) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == TypeInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((TypeInsnNode) next).desc.equals(((TypeInsnNode) target).desc)) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == FieldInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((FieldInsnNode) next).owner.equals(((FieldInsnNode) target).owner) && ((FieldInsnNode) next).name.equals(((FieldInsnNode) target).name) && ((FieldInsnNode) next).desc.equals(((FieldInsnNode) target).desc)) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == MethodInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((MethodInsnNode) next).owner.equals(((MethodInsnNode) target).owner) && ((MethodInsnNode) next).name.equals(((MethodInsnNode) target).name) && ((MethodInsnNode) next).desc.equals(((MethodInsnNode) target).desc) && ((MethodInsnNode) next).itf == ((MethodInsnNode) target).itf) {
+						matched = true;
+					}
+				}
+			}
+			if (matched) {
+				if (skipped >= skip) {
+					return (N) nextAbstract;
+				}
+				++skipped;
+			}
+		}
+		return null;
+	}
+
 	public byte[] patchArmorProperties(String name, byte[] bytes) {
 		String targetMethodName;
 		String targetMethodSign;
@@ -281,11 +342,6 @@ public class GOTClassTransformer implements IClassTransformer {
 		String targetMethodSign = "(Lnet/minecraft/world/World;IIILjava/util/Random;)V";
 		String targetMethodSignObf = "(Lahb;IIILjava/util/Random;)V";
 
-		String targetMethodName2 = "func_149853_b";
-		String targetMethodName2Obf = "func_149853_b";
-		String targetMethodSign2 = "(Lnet/minecraft/world/World;Ljava/util/Random;III)V";
-		String targetMethodSign2Obf = "(Lahb;Ljava/util/Random;III)V";
-
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
@@ -300,19 +356,6 @@ public class GOTClassTransformer implements IClassTransformer {
 				newIns.add(new VarInsnNode(ILOAD, 4));
 				newIns.add(new VarInsnNode(ALOAD, 5));
 				newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Grass", "updateTick", "(Lnet/minecraft/world/World;IIILjava/util/Random;)V", false));
-				newIns.add(new InsnNode(RETURN));
-				method.instructions.insert(newIns);
-				System.out.println("Hummel009: Patched method " + method.name);
-			}
-			if (method.name.equals(targetMethodName2) && (method.desc.equals(targetMethodSign2) || method.desc.equals(targetMethodSign2Obf))) {
-				method.instructions.clear();
-				InsnList newIns = new InsnList();
-				newIns.add(new VarInsnNode(ALOAD, 1));  // Load World parameter
-				newIns.add(new VarInsnNode(ALOAD, 2));  // Load Random parameter
-				newIns.add(new VarInsnNode(ILOAD, 3));  // Load p_149853_3_
-				newIns.add(new VarInsnNode(ILOAD, 4));  // Load p_149853_4_
-				newIns.add(new VarInsnNode(ILOAD, 5));  // Load p_149853_5_
-				newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Grass", "func_149853_b", "(Lnet/minecraft/world/World;Ljava/util/Random;III)V", false));
 				newIns.add(new InsnNode(RETURN));
 				method.instructions.insert(newIns);
 				System.out.println("Hummel009: Patched method " + method.name);
@@ -1182,70 +1225,50 @@ public class GOTClassTransformer implements IClassTransformer {
 		if ("bjb".equals(name) || "net.minecraft.client.network.NetHandlerPlayClient".equals(name)) {
 			return patchNetHandlerClient(name, basicClass);
 		}
+		if ("bcb".equals(name) || "net.minecraft.client.gui.GuiButton".equals(name)) {
+			return patchGuiButton(name, basicClass);
+		}
 		if ("cpw.mods.fml.common.network.internal.FMLNetworkHandler".equals(name)) {
 			return patchFMLNetworkHandler(name, basicClass);
 		}
 		return basicClass;
 	}
 
-	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N target) {
-		return findNodeInMethod(method, target, 0);
-	}
+	private byte[] patchGuiButton(String name, byte[] bytes) {
+		String targetMethodName2 = "drawButton";
+		String targetMethodName2Obf = "func_146112_a";
+		String targetMethodSign2 = "(Lnet/minecraft/client/Minecraft;II)V";
+		String targetMethodSign2Obf = "(Lbao;II)V";
 
-	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N targetAbstract, int skip) {
-		int skipped = 0;
-		ListIterator<AbstractInsnNode> it = method.instructions.iterator();
-		while (it.hasNext()) {
-			AbstractInsnNode nextAbstract = it.next();
-			boolean matched = false;
-			if (nextAbstract.getClass() == targetAbstract.getClass()) {
-				AbstractInsnNode next;
-				AbstractInsnNode target;
-				if (targetAbstract.getClass() == InsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode()) {
-						matched = true;
+		ClassNode classNode = new ClassNode();
+		ClassReader classReader = new ClassReader(bytes);
+		classReader.accept(classNode, 0);
+		for (MethodNode method : classNode.methods) {
+			if ((method.name.equals(targetMethodName2) || method.name.equals(targetMethodName2Obf)) && (method.desc.equals(targetMethodSign2) || method.desc.equals(targetMethodSign2Obf))) {
+				InsnList instructions = method.instructions;
+				AbstractInsnNode currentNode = instructions.getFirst();
+				while (currentNode != null) {
+					if (currentNode instanceof LdcInsnNode) {
+						LdcInsnNode ldcInsnNode = (LdcInsnNode) currentNode;
+						if (ldcInsnNode.cst.equals(14737632)) {
+							ldcInsnNode.cst = 8019267;
+						}
+						if (ldcInsnNode.cst.equals(10526880)) {
+							ldcInsnNode.cst = 5521198;
+						}
+						if (ldcInsnNode.cst.equals(16777120)) {
+							ldcInsnNode.cst = 8019267;
+						}
 					}
-				} else if (targetAbstract.getClass() == VarInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((VarInsnNode) next).var == ((VarInsnNode) target).var) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == LdcInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (((LdcInsnNode) next).cst.equals(((LdcInsnNode) target).cst)) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == TypeInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((TypeInsnNode) next).desc.equals(((TypeInsnNode) target).desc)) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == FieldInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((FieldInsnNode) next).owner.equals(((FieldInsnNode) target).owner) && ((FieldInsnNode) next).name.equals(((FieldInsnNode) target).name) && ((FieldInsnNode) next).desc.equals(((FieldInsnNode) target).desc)) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == MethodInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((MethodInsnNode) next).owner.equals(((MethodInsnNode) target).owner) && ((MethodInsnNode) next).name.equals(((MethodInsnNode) target).name) && ((MethodInsnNode) next).desc.equals(((MethodInsnNode) target).desc) && ((MethodInsnNode) next).itf == ((MethodInsnNode) target).itf) {
-						matched = true;
-					}
+					currentNode = currentNode.getNext();
 				}
-			}
-			if (matched) {
-				if (skipped >= skip) {
-					return (N) nextAbstract;
-				}
-				++skipped;
+				System.out.println("Hummel009: Patched method " + method.name);
+				break;
 			}
 		}
-		return null;
+
+		ClassWriter writer = new ClassWriter(1);
+		classNode.accept(writer);
+		return writer.toByteArray();
 	}
 }

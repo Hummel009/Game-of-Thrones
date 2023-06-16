@@ -4,6 +4,8 @@ import cpw.mods.fml.common.network.internal.FMLMessage;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.common.network.internal.FMLRuntimeCodec;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
@@ -15,13 +17,17 @@ import got.common.item.GOTWeaponStats;
 import got.common.util.GOTCommonIcons;
 import got.common.util.GOTLog;
 import got.common.util.GOTReflection;
+import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTSpawnerAnimals;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.network.NetHandlerPlayClient;
+import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -42,13 +48,12 @@ import net.minecraft.network.play.client.C0BPacketEntityAction;
 import net.minecraft.network.play.server.S14PacketEntity;
 import net.minecraft.network.play.server.S18PacketEntityTeleport;
 import net.minecraft.potion.Potion;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
+import net.minecraft.util.*;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+import net.minecraft.world.biome.BiomeGenBase;
+import org.lwjgl.opengl.GL11;
 
 import java.util.List;
 import java.util.Random;
@@ -248,40 +253,6 @@ public class GOTReplacedMethods {
 		public static int MIN_GRASS_LIGHT = 4;
 		public static int MAX_GRASS_OPACITY = 2;
 		public static int MIN_SPREAD_LIGHT = 9;
-
-		public static void func_149853_b(World p_149853_1_, Random p_149853_2_, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
-			try {
-				int l = 0;
-				while (l < 128) {
-					int i1 = p_149853_3_;
-					int j1 = p_149853_4_ + 1;
-					int k1 = p_149853_5_;
-					int l1 = 0;
-					while (true) {
-						if (l1 < l / 16) {
-							i1 += p_149853_2_.nextInt(3) - 1;
-							j1 += (p_149853_2_.nextInt(3) - 1) * p_149853_2_.nextInt(3) / 2;
-							k1 += p_149853_2_.nextInt(3) - 1;
-							if (p_149853_1_.getBlock(i1, j1 - 1, k1) == Blocks.grass && !p_149853_1_.getBlock(i1, j1, k1).isNormalCube()) {
-								++l1;
-								continue;
-							}
-						} else if (p_149853_1_.getBlock(i1, j1, k1).getMaterial() == Material.air) {
-							if (p_149853_2_.nextInt(8) != 0) {
-								if (Blocks.tallgrass.canBlockStay(p_149853_1_, i1, j1, k1)) {
-									p_149853_1_.setBlock(i1, j1, k1, Blocks.tallgrass, 1, 3);
-								}
-							} else {
-								p_149853_1_.getBiomeGenForCoords(i1, k1).plantFlower(p_149853_1_, p_149853_2_, i1, j1, k1);
-							}
-						}
-						++l;
-						break;
-					}
-				}
-			} catch (Exception ignored) {
-			}
-		}
 
 		public static void updateTick(World world, int i, int j, int k, Random random) {
 			if (!world.isRemote) {
