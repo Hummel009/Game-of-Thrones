@@ -29,8 +29,7 @@ public class GOTSpawnerAnimals {
 	}
 
 	public static int performSpawning(WorldServer world, boolean hostiles, boolean peacefuls, boolean rareTick) {
-		int interval;
-		interval = rareTick ? 0 : GOTConfig.mobSpawnInterval;
+		int interval = rareTick ? 0 : GOTConfig.mobSpawnInterval;
 		if (interval > 0) {
 			int ticks = 0;
 			int dimID = world.provider.dimensionId;
@@ -51,98 +50,110 @@ public class GOTSpawnerAnimals {
 		int totalSpawned = 0;
 		GOTSpawnerNPCs.getSpawnableChunks(world, eligibleSpawnChunks);
 		ChunkCoordinates spawnPoint = world.getSpawnPoint();
-		block2:
+		label99:
 		for (EnumCreatureType creatureType : EnumCreatureType.values()) {
-			int count;
-			int maxCount;
 			TypeInfo typeInfo = forDimAndType(world, creatureType);
 			boolean canSpawnType;
-			canSpawnType = creatureType.getPeacefulCreature() ? peacefuls : hostiles;
+			if (creatureType.getPeacefulCreature()) {
+				canSpawnType = peacefuls;
+			} else {
+				canSpawnType = hostiles;
+			}
 			if (creatureType.getAnimal()) {
 				canSpawnType = rareTick;
 			}
-			if (!canSpawnType || (count = world.countEntities(creatureType, true)) > (maxCount = GOTSpawnDamping.getCreatureSpawnCap(creatureType, world) * eligibleSpawnChunks.size() / 196)) {
-				continue;
-			}
-			int cycles = Math.max(1, interval);
-			for (int c = 0; c < cycles; ++c) {
-				if (typeInfo.blockedCycles > 0) {
-					--typeInfo.blockedCycles;
-					continue;
-				}
-				int newlySpawned = 0;
-				List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(eligibleSpawnChunks);
-				block4:
-				for (ChunkCoordIntPair chunkCoords : shuffled) {
-					int i;
-					int k;
-					int j;
-					ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
-					if (chunkposition == null || world.spawnRandomCreature(creatureType, i = chunkposition.chunkPosX, j = chunkposition.chunkPosY, k = chunkposition.chunkPosZ) == null || world.getBlock(i, j, k).isNormalCube() || world.getBlock(i, j, k).getMaterial() != creatureType.getCreatureMaterial()) {
-						continue;
-					}
-					for (int groupsSpawned = 0; groupsSpawned < 3; ++groupsSpawned) {
-						int i1 = i;
-						int k1 = k;
-						int range = 6;
-						BiomeGenBase.SpawnListEntry spawnEntry = null;
-						IEntityLivingData entityData = null;
-						for (int attempts = 0; attempts < 4; ++attempts) {
-							float f4;
-							float f;
-							float f3;
-							float f2;
-							float f5;
-							EntityLiving entity;
-							float f1;
-							if (!world.blockExists(i1 += world.rand.nextInt(range) - world.rand.nextInt(range), j, k1 += world.rand.nextInt(range) - world.rand.nextInt(range)) || !SpawnerAnimals.canCreatureTypeSpawnAtLocation(creatureType, world, i1, j, k1) || world.getClosestPlayer(f = i1 + 0.5f, f1 = j, f2 = k1 + 0.5f, 24.0) != null || (f3 = f - spawnPoint.posX) * f3 + (f4 = f1 - spawnPoint.posY) * f4 + (f5 = f2 - spawnPoint.posZ) * f5 < 576.0f) {
-								continue;
-							}
-							if (spawnEntry == null && (spawnEntry = world.spawnRandomCreature(creatureType, i1, j, k1)) == null) {
-								continue block4;
-							}
-							try {
-								entity = (EntityLiving) spawnEntry.entityClass.getConstructor(World.class).newInstance(world);
-							} catch (Exception e) {
-								e.printStackTrace();
-								return totalSpawned;
-							}
-							entity.setLocationAndAngles(f, f1, f2, world.rand.nextFloat() * 360.0f, 0.0f);
-							Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, f, f1, f2);
-							if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !entity.getCanSpawnHere())) {
-								continue;
-							}
-							++totalSpawned;
-							world.spawnEntityInWorld(entity);
-							if (!ForgeEventFactory.doSpecialSpawn(entity, world, f, f1, f2)) {
-								entityData = entity.onSpawnWithEgg(entityData);
-							}
-							++newlySpawned;
-							if (c > 0) {
-								++count;
-								if (count > maxCount) {
-									continue block2;
+			if (canSpawnType) {
+				int count = world.countEntities(creatureType, true);
+				int maxCount = GOTSpawnDamping.getCreatureSpawnCap(creatureType, (World) world) * eligibleSpawnChunks.size() / 196;
+				if (count <= maxCount) {
+					int cycles = Math.max(1, interval);
+					for (int c = 0; c < cycles; c++) {
+						if (typeInfo.blockedCycles > 0) {
+							typeInfo.blockedCycles--;
+						} else {
+							int newlySpawned = 0;
+							List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(eligibleSpawnChunks);
+							label97:
+							for (ChunkCoordIntPair chunkCoords : shuffled) {
+								ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
+								if (chunkposition != null) {
+									int i = chunkposition.chunkPosX;
+									int j = chunkposition.chunkPosY;
+									int k = chunkposition.chunkPosZ;
+									if (world.spawnRandomCreature(creatureType, i, j, k) == null) {
+										continue;
+									}
+									if (!world.getBlock(i, j, k).isNormalCube() && world.getBlock(i, j, k).getMaterial() == creatureType.getCreatureMaterial()) {
+										int groupsSpawned = 0;
+										while (groupsSpawned < 3) {
+											int i1 = i;
+											int j1 = j;
+											int k1 = k;
+											int range = 6;
+											BiomeGenBase.SpawnListEntry spawnEntry = null;
+											IEntityLivingData entityData = null;
+											int attempts = 0;
+											while (attempts < 4) {
+												i1 += world.rand.nextInt(range) - world.rand.nextInt(range);
+												j1 += 0;
+												k1 += world.rand.nextInt(range) - world.rand.nextInt(range);
+												if (world.blockExists(i1, j1, k1) && SpawnerAnimals.canCreatureTypeSpawnAtLocation(creatureType, world, i1, j1, k1)) {
+													float f = i1 + 0.5F;
+													float f2 = k1 + 0.5F;
+													if (world.getClosestPlayer(f, (float) j1, f2, 24.0D) == null) {
+														float f3 = f - spawnPoint.posX;
+														float f4 = (float) j1 - spawnPoint.posY;
+														float f5 = f2 - spawnPoint.posZ;
+														float distSq = f3 * f3 + f4 * f4 + f5 * f5;
+														if (distSq >= 576.0F) {
+															EntityLiving entity;
+															if (spawnEntry == null) {
+																spawnEntry = world.spawnRandomCreature(creatureType, i1, j1, k1);
+																if (spawnEntry == null) continue label97;
+															}
+															try {
+																entity = (EntityLiving) spawnEntry.entityClass.getConstructor(new Class[]{World.class}).newInstance(new Object[]{world});
+															} catch (Exception e) {
+																e.printStackTrace();
+																return totalSpawned;
+															}
+															entity.setLocationAndAngles(f, (float) j1, f2, world.rand.nextFloat() * 360.0F, 0.0F);
+															Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, f, (float) j1, f2);
+															if (canSpawn == Event.Result.ALLOW || (canSpawn == Event.Result.DEFAULT && entity.getCanSpawnHere())) {
+																totalSpawned++;
+																world.spawnEntityInWorld(entity);
+																if (!ForgeEventFactory.doSpecialSpawn(entity, world, f, (float) j1, f2)) {
+																	entityData = entity.onSpawnWithEgg(entityData);
+																}
+																newlySpawned++;
+																count++;
+																if (c > 0 && count > maxCount) continue label99;
+																if (groupsSpawned >= ForgeEventFactory.getMaxSpawnPackSize(entity)) {
+																	continue label97;
+																}
+															}
+														}
+													}
+												}
+												attempts++;
+											}
+											groupsSpawned++;
+										}
+									}
 								}
 							}
-							if (groupsSpawned >= ForgeEventFactory.getMaxSpawnPackSize(entity)) {
-								continue block4;
+							if (newlySpawned == 0) {
+								typeInfo.failedCycles++;
+								if (typeInfo.failedCycles >= 10) {
+									typeInfo.failedCycles = 0;
+									typeInfo.blockedCycles = 100;
+								}
+							} else if (typeInfo.failedCycles > 0) {
+								typeInfo.failedCycles--;
 							}
 						}
 					}
 				}
-				if (newlySpawned == 0) {
-					++typeInfo.failedCycles;
-					if (typeInfo.failedCycles < 10) {
-						continue;
-					}
-					typeInfo.failedCycles = 0;
-					typeInfo.blockedCycles = 100;
-					continue;
-				}
-				if (typeInfo.failedCycles <= 0) {
-					continue;
-				}
-				--typeInfo.failedCycles;
 			}
 		}
 		return totalSpawned;

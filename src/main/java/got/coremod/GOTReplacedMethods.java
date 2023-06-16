@@ -390,7 +390,7 @@ public class GOTReplacedMethods {
 	}
 
 	public static class Spawner {
-		public static int performSpawning(WorldServer world, boolean hostiles, boolean peacefuls, boolean rareTick) {
+		public static int performSpawning_optimised(WorldServer world, boolean hostiles, boolean peacefuls, boolean rareTick) {
 			return GOTSpawnerAnimals.performSpawning(world, hostiles, peacefuls, rareTick);
 		}
 	}

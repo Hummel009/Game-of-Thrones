@@ -1074,7 +1074,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				newIns.add(new VarInsnNode(21, 2));
 				newIns.add(new VarInsnNode(21, 3));
 				newIns.add(new VarInsnNode(21, 4));
-				newIns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Spawner", "performSpawning", "(Lnet/minecraft/world/WorldServer;ZZZ)I", false));
+				newIns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Spawner", "performSpawning_optimised", "(Lnet/minecraft/world/WorldServer;ZZZ)I", false));
 				newIns.add(new InsnNode(172));
 				method.instructions.insert(newIns);
 				System.out.println("Hummel009: Patched method " + method.name);
