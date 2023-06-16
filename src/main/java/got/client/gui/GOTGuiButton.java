@@ -30,11 +30,7 @@ public class GOTGuiButton extends GuiButton {
 			drawTexturedModalRect(xPosition, yPosition, 0, 46 + k * 20, width / 2, height);
 			drawTexturedModalRect(xPosition + width / 2, yPosition, 200 - width / 2, 46 + k * 20, width / 2, height);
 			mouseDragged(mc, i, j);
-			int color = 8019267;
-			if (!enabled) {
-				color = 5521198;
-			}
-			fontrenderer.drawString(displayString, xPosition + width / 2 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, color);
+			fontrenderer.drawString(displayString, xPosition + width / 2 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, 0x5E1C15);
 		}
 	}
 }

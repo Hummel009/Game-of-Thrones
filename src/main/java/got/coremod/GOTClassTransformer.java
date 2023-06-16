@@ -1228,6 +1228,9 @@ public class GOTClassTransformer implements IClassTransformer {
 		if ("bcb".equals(name) || "net.minecraft.client.gui.GuiButton".equals(name)) {
 			return patchGuiButton(name, basicClass);
 		}
+		if ("bbu".equals(name) || "net.minecraft.client.gui.FontRenderer".equals(name)) {
+			return patchShadow(name, basicClass);
+		}
 		if ("cpw.mods.fml.common.network.internal.FMLNetworkHandler".equals(name)) {
 			return patchFMLNetworkHandler(name, basicClass);
 		}
@@ -1243,6 +1246,7 @@ public class GOTClassTransformer implements IClassTransformer {
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName2) || method.name.equals(targetMethodName2Obf)) && (method.desc.equals(targetMethodSign2) || method.desc.equals(targetMethodSign2Obf))) {
 				InsnList instructions = method.instructions;
@@ -1250,14 +1254,43 @@ public class GOTClassTransformer implements IClassTransformer {
 				while (currentNode != null) {
 					if (currentNode instanceof LdcInsnNode) {
 						LdcInsnNode ldcInsnNode = (LdcInsnNode) currentNode;
-						if (ldcInsnNode.cst.equals(14737632)) {
-							ldcInsnNode.cst = 8019267;
+						if (ldcInsnNode.cst.equals(14737632) || ldcInsnNode.cst.equals(10526880) || ldcInsnNode.cst.equals(16777120)) {
+							ldcInsnNode.cst = 0x5E1C15;
 						}
-						if (ldcInsnNode.cst.equals(10526880)) {
-							ldcInsnNode.cst = 5521198;
-						}
-						if (ldcInsnNode.cst.equals(16777120)) {
-							ldcInsnNode.cst = 8019267;
+					}
+					currentNode = currentNode.getNext();
+				}
+				System.out.println("Hummel009: Patched method " + method.name);
+				break;
+			}
+		}
+
+		ClassWriter writer = new ClassWriter(1);
+		classNode.accept(writer);
+		return writer.toByteArray();
+	}
+
+	private byte[] patchShadow(String name, byte[] bytes) {
+		String targetMethodName = "drawStringWithShadow";
+		String targetMethodNameObf = "func_78261_a";
+		String targetMethodSign = "(Ljava/lang/String;III)I";
+		String targetMethodSignObf = "(Ljava/lang/String;III)I";
+
+		ClassNode classNode = new ClassNode();
+		ClassReader classReader = new ClassReader(bytes);
+		classReader.accept(classNode, 0);
+
+		for (MethodNode method : classNode.methods) {
+			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
+				InsnList instructions = method.instructions;
+				AbstractInsnNode currentNode = instructions.getFirst();
+				while (currentNode != null) {
+					if (currentNode instanceof MethodInsnNode) {
+						MethodInsnNode methodInsnNode = (MethodInsnNode) currentNode;
+						if (methodInsnNode.getOpcode() == INVOKEVIRTUAL) {
+							AbstractInsnNode trueInstruction = methodInsnNode.getPrevious();
+							instructions.remove(trueInstruction);
+							instructions.insertBefore(methodInsnNode, new InsnNode(ICONST_0));
 						}
 					}
 					currentNode = currentNode.getNext();
