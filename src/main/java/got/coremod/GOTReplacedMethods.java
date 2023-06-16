@@ -21,6 +21,7 @@ import io.netty.buffer.Unpooled;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.entity.EntityClientPlayerMP;
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.creativetab.CreativeTabs;
@@ -218,6 +219,12 @@ public class GOTReplacedMethods {
 				GOTLog.logger.error("**********************************************");
 			}
 			return new FMLProxyPacket(data, "FML");
+		}
+	}
+
+	public static class Gui {
+		public static void drawCenteredStringHummel(FontRenderer p_73732_1_, String p_73732_2_, int p_73732_3_, int p_73732_4_, int p_73732_5_) {
+			p_73732_1_.drawString(p_73732_2_, p_73732_3_ - p_73732_1_.getStringWidth(p_73732_2_) / 2, p_73732_4_, p_73732_5_);
 		}
 	}
 

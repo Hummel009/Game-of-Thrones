@@ -1228,8 +1228,8 @@ public class GOTClassTransformer implements IClassTransformer {
 		if ("bcb".equals(name) || "net.minecraft.client.gui.GuiButton".equals(name)) {
 			return patchGuiButton(name, basicClass);
 		}
-		if ("bbu".equals(name) || "net.minecraft.client.gui.FontRenderer".equals(name)) {
-			return patchShadow(name, basicClass);
+		if ("bbw".equals(name) || "net.minecraft.client.gui.Gui".equals(name)) {
+			return patchGui(name, basicClass);
 		}
 		if ("cpw.mods.fml.common.network.internal.FMLNetworkHandler".equals(name)) {
 			return patchFMLNetworkHandler(name, basicClass);
@@ -1258,6 +1258,12 @@ public class GOTClassTransformer implements IClassTransformer {
 							ldcInsnNode.cst = 0x5E1C15;
 						}
 					}
+					if (currentNode.getOpcode() == INVOKEVIRTUAL) {
+						MethodInsnNode methodInsnNode = (MethodInsnNode) currentNode;
+						if ("drawCenteredString".equals(methodInsnNode.name) && "(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V".equals(methodInsnNode.desc)) {
+							methodInsnNode.name = "drawCenteredStringHummel";
+						}
+					}
 					currentNode = currentNode.getNext();
 				}
 				System.out.println("Hummel009: Patched method " + method.name);
@@ -1270,36 +1276,25 @@ public class GOTClassTransformer implements IClassTransformer {
 		return writer.toByteArray();
 	}
 
-	private byte[] patchShadow(String name, byte[] bytes) {
-		String targetMethodName = "drawStringWithShadow";
-		String targetMethodNameObf = "func_78261_a";
-		String targetMethodSign = "(Ljava/lang/String;III)I";
-		String targetMethodSignObf = "(Ljava/lang/String;III)I";
-
+	public byte[] patchGui(String name, byte[] bytes) {
+		boolean isObf = !name.startsWith("net.minecraft");
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
-
-		for (MethodNode method : classNode.methods) {
-			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
-				InsnList instructions = method.instructions;
-				AbstractInsnNode currentNode = instructions.getFirst();
-				while (currentNode != null) {
-					if (currentNode instanceof MethodInsnNode) {
-						MethodInsnNode methodInsnNode = (MethodInsnNode) currentNode;
-						if (methodInsnNode.getOpcode() == INVOKEVIRTUAL) {
-							AbstractInsnNode trueInstruction = methodInsnNode.getPrevious();
-							instructions.remove(trueInstruction);
-							instructions.insertBefore(methodInsnNode, new InsnNode(ICONST_0));
-						}
-					}
-					currentNode = currentNode.getNext();
-				}
-				System.out.println("Hummel009: Patched method " + method.name);
-				break;
-			}
-		}
-
+		String targetMethodName = "drawCenteredStringHummel";
+		String targetMethodNameObf = "drawCenteredStringHummel";
+		String targetMethodDesc = "(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V";
+		String targetMethodDescObf = "(Lbbu;Ljava/lang/String;III)V";
+		MethodNode newMethod = isObf ? new MethodNode(1, targetMethodNameObf, targetMethodDescObf, null, null) : new MethodNode(1, targetMethodName, targetMethodDesc, null, null);
+		newMethod.instructions.add(new VarInsnNode(ALOAD, 0));
+		newMethod.instructions.add(new VarInsnNode(ALOAD, 1));
+		newMethod.instructions.add(new VarInsnNode(ILOAD, 2));
+		newMethod.instructions.add(new VarInsnNode(ILOAD, 3));
+		newMethod.instructions.add(new VarInsnNode(ILOAD, 4));
+		newMethod.instructions.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Gui", "drawCenteredStringHummel", "(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V", false));
+		newMethod.instructions.add(new InsnNode(RETURN));
+		classNode.methods.add(newMethod);
+		System.out.println("Hummel009: Added method " + newMethod.name);
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);
 		return writer.toByteArray();
