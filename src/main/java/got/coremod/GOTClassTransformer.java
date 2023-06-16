@@ -1261,7 +1261,7 @@ public class GOTClassTransformer implements IClassTransformer {
 					if (currentNode.getOpcode() == INVOKEVIRTUAL) {
 						MethodInsnNode methodInsnNode = (MethodInsnNode) currentNode;
 						if ("drawCenteredString".equals(methodInsnNode.name) && "(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V".equals(methodInsnNode.desc)) {
-							methodInsnNode.name = "drawCenteredStringHummel";
+							methodInsnNode.name = "drawCenteredStringWithoutShadow";
 						}
 					}
 					currentNode = currentNode.getNext();
@@ -1281,21 +1281,26 @@ public class GOTClassTransformer implements IClassTransformer {
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
-		String targetMethodName = "drawCenteredStringHummel";
-		String targetMethodNameObf = "drawCenteredStringHummel";
+
+		String targetMethodName = "drawCenteredStringWithoutShadow";
+		String targetMethodNameObf = "drawCenteredStringWithoutShadow";
 		String targetMethodDesc = "(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V";
 		String targetMethodDescObf = "(Lbbu;Ljava/lang/String;III)V";
-		MethodNode newMethod = isObf ? new MethodNode(1, targetMethodNameObf, targetMethodDescObf, null, null) : new MethodNode(1, targetMethodName, targetMethodDesc, null, null);
-		newMethod.instructions.add(new VarInsnNode(ALOAD, 0));
+
+		MethodNode newMethod = isObf ? new MethodNode(ACC_PUBLIC, targetMethodNameObf, targetMethodDescObf, null, null) : new MethodNode(1, targetMethodName, targetMethodDesc, null, null);
+
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 1));
-		newMethod.instructions.add(new VarInsnNode(ILOAD, 2));
+		newMethod.instructions.add(new VarInsnNode(ALOAD, 2));
 		newMethod.instructions.add(new VarInsnNode(ILOAD, 3));
 		newMethod.instructions.add(new VarInsnNode(ILOAD, 4));
-		newMethod.instructions.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Gui", "drawCenteredStringHummel", "(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V", false));
+		newMethod.instructions.add(new VarInsnNode(ILOAD, 5));
+		newMethod.instructions.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Gui", "drawCenteredStringWithoutShadow", "(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V", false));
 		newMethod.instructions.add(new InsnNode(RETURN));
+
 		classNode.methods.add(newMethod);
 		System.out.println("Hummel009: Added method " + newMethod.name);
-		ClassWriter writer = new ClassWriter(1);
+
+		ClassWriter writer = new ClassWriter(0);
 		classNode.accept(writer);
 		return writer.toByteArray();
 	}

@@ -223,7 +223,7 @@ public class GOTReplacedMethods {
 	}
 
 	public static class Gui {
-		public static void drawCenteredStringHummel(FontRenderer p_73732_1_, String p_73732_2_, int p_73732_3_, int p_73732_4_, int p_73732_5_) {
+		public static void drawCenteredStringWithoutShadow(FontRenderer p_73732_1_, String p_73732_2_, int p_73732_3_, int p_73732_4_, int p_73732_5_) {
 			p_73732_1_.drawString(p_73732_2_, p_73732_3_ - p_73732_1_.getStringWidth(p_73732_2_) / 2, p_73732_4_, p_73732_5_);
 		}
 	}
