@@ -249,6 +249,40 @@ public class GOTReplacedMethods {
 		public static int MAX_GRASS_OPACITY = 2;
 		public static int MIN_SPREAD_LIGHT = 9;
 
+		public static void func_149853_b(World p_149853_1_, Random p_149853_2_, int p_149853_3_, int p_149853_4_, int p_149853_5_) {
+			try {
+				int l = 0;
+				while (l < 128) {
+					int i1 = p_149853_3_;
+					int j1 = p_149853_4_ + 1;
+					int k1 = p_149853_5_;
+					int l1 = 0;
+					while (true) {
+						if (l1 < l / 16) {
+							i1 += p_149853_2_.nextInt(3) - 1;
+							j1 += (p_149853_2_.nextInt(3) - 1) * p_149853_2_.nextInt(3) / 2;
+							k1 += p_149853_2_.nextInt(3) - 1;
+							if (p_149853_1_.getBlock(i1, j1 - 1, k1) == Blocks.grass && !p_149853_1_.getBlock(i1, j1, k1).isNormalCube()) {
+								++l1;
+								continue;
+							}
+						} else if (p_149853_1_.getBlock(i1, j1, k1).getMaterial() == Material.air) {
+							if (p_149853_2_.nextInt(8) != 0) {
+								if (Blocks.tallgrass.canBlockStay(p_149853_1_, i1, j1, k1)) {
+									p_149853_1_.setBlock(i1, j1, k1, Blocks.tallgrass, 1, 3);
+								}
+							} else {
+								p_149853_1_.getBiomeGenForCoords(i1, k1).plantFlower(p_149853_1_, p_149853_2_, i1, j1, k1);
+							}
+						}
+						++l;
+						break;
+					}
+				}
+			} catch (Exception ignored) {
+			}
+		}
+
 		public static void updateTick(World world, int i, int j, int k, Random random) {
 			if (!world.isRemote) {
 				int checkRange = 1;
