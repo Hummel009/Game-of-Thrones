@@ -55,6 +55,6 @@ public class GOTModelPlateHead extends GOTModelHuman {
 	}
 
 	public void setPlateItem(ItemStack itemstack) {
-		plateBlock = itemstack.getItem() instanceof GOTItemPlate ? ((GOTItemPlate) itemstack.getItem()).plateBlock : GOTBlocks.plateBlock;
+		plateBlock = itemstack.getItem() instanceof GOTItemPlate ? ((GOTItemPlate) itemstack.getItem()).plateBlock : GOTBlocks.plate;
 	}
 }

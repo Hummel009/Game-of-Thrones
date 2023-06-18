@@ -116,7 +116,7 @@ public class GOTEntityPlate extends EntityThrowable implements IEntityAdditional
 			plateBlock = Block.getBlockById(nbt.getShort("PlateBlockID"));
 		}
 		if (plateBlock == null) {
-			plateBlock = GOTBlocks.plateBlock;
+			plateBlock = GOTBlocks.plate;
 		}
 	}
 
@@ -124,7 +124,7 @@ public class GOTEntityPlate extends EntityThrowable implements IEntityAdditional
 	public void readSpawnData(ByteBuf data) {
 		Block block = Block.getBlockById(data.readShort());
 		if (block == null) {
-			block = GOTBlocks.plateBlock;
+			block = GOTBlocks.plate;
 		}
 		plateBlock = block;
 	}

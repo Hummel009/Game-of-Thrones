@@ -163,7 +163,7 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.NOMAD_DRINK);
 			} else {
 				Block plateBlock;
-				plateBlock = random.nextBoolean() ? GOTBlocks.woodPlateBlock : GOTBlocks.ceramicPlateBlock;
+				plateBlock = random.nextBoolean() ? GOTBlocks.woodPlate : GOTBlocks.ceramicPlate;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {

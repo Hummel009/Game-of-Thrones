@@ -173,7 +173,7 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 		thatchSlabMeta = 1;
 		thatchStairBlock = GOTBlocks.stairsReed;
 		bedBlock = GOTBlocks.strawBed;
-		plateBlock = GOTBlocks.woodPlateBlock;
+		plateBlock = GOTBlocks.woodPlate;
 	}
 
 	public boolean useStoneBrick() {

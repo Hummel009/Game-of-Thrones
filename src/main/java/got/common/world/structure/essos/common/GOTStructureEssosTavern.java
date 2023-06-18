@@ -206,7 +206,7 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.ESSOS_DRINK);
 			} else {
 				Block plateBlock;
-				plateBlock = random.nextBoolean() ? GOTBlocks.woodPlateBlock : GOTBlocks.ceramicPlateBlock;
+				plateBlock = random.nextBoolean() ? GOTBlocks.woodPlate : GOTBlocks.ceramicPlate;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {

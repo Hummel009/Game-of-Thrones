@@ -78,8 +78,8 @@ public class GOTStructureSummerHouse extends GOTStructureSummerBase {
 			placeWeaponRack(world, 0, 3, -4, 4, getRandomWeapon(random));
 			placeWeaponRack(world, 0, 3, 4, 6, getRandomWeapon(random));
 			placeChest(world, random, -4, 1, 0, GOTBlocks.chestBasket, 4, GOTChestContents.SUMMER);
-			placePlate(world, random, 4, 2, 0, GOTBlocks.ceramicPlateBlock, GOTFoods.SOTHORYOS);
-			placePlate(world, random, -1, 2, 4, GOTBlocks.ceramicPlateBlock, GOTFoods.SOTHORYOS);
+			placePlate(world, random, 4, 2, 0, GOTBlocks.ceramicPlate, GOTFoods.SOTHORYOS);
+			placePlate(world, random, -1, 2, 4, GOTBlocks.ceramicPlate, GOTFoods.SOTHORYOS);
 			placeMug(world, random, 1, 2, 4, 0, GOTFoods.SOTHORYOS_DRINK);
 			GOTEntitySummerMan male = new GOTEntitySummerMan(world);
 			male.familyInfo.setMale(true);

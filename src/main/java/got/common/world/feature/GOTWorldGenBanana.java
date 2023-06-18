@@ -60,7 +60,7 @@ public class GOTWorldGenBanana extends WorldGenAbstractTree {
 			for (l1 = 0; l1 < leaves[l]; ++l1) {
 				setBlockAndNotifyAdequately(world, i + dir.offsetX, j + height + l1, k + dir.offsetZ, GOTBlocks.leaves2, 3);
 			}
-			setBlockAndNotifyAdequately(world, i + dir.getOpposite().offsetX, j + height - 1, k + dir.getOpposite().offsetZ, GOTBlocks.bananaBlock, l);
+			setBlockAndNotifyAdequately(world, i + dir.getOpposite().offsetX, j + height - 1, k + dir.getOpposite().offsetZ, GOTBlocks.banana, l);
 			for (l1 = -1; l1 < 1; ++l1) {
 				setBlockAndNotifyAdequately(world, i + dir.offsetX * 2, j + height + leaves[l] + l1, k + dir.offsetZ * 2, GOTBlocks.leaves2, 3);
 			}

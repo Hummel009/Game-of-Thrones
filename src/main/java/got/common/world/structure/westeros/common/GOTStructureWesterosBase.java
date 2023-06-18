@@ -415,7 +415,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		bedBlock = GOTBlocks.strawBed;
 		cobbleMeta = 0;
 		pillarBlock = GOTBlocks.pillar1;
-		plateBlock = GOTBlocks.ceramicPlateBlock;
+		plateBlock = GOTBlocks.ceramicPlate;
 		brick2Block = GOTBlocks.brick2;
 		brick2Meta = 11;
 		brick2SlabBlock = GOTBlocks.slabSingle5;

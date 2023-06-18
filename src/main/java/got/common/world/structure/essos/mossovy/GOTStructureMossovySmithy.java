@@ -88,7 +88,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		placeWeaponRack(world, -2, 3, -2, 4, getDisplayWeaponOrNull(random));
 		placeMug(world, random, -2, 2, 1, 2, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, -3, 2, 1, 3, GOTFoods.WESTEROS_DRINK);
-		placePlateWithCertainty(world, random, 0, 2, -3, GOTBlocks.ceramicPlateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 0, 2, -3, GOTBlocks.ceramicPlate, GOTFoods.WESTEROS);
 		GOTEntityMossovyBlacksmith blacksmith = new GOTEntityMossovyBlacksmith(world);
 		spawnNPCAndSetHome(blacksmith, world, 0, 1, -1, 8);
 		return true;

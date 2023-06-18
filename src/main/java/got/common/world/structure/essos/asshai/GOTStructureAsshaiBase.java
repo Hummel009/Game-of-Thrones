@@ -76,7 +76,7 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 		cobbleMeta = 0;
 		wallBlock = GOTBlocks.brick1;
 		wallMeta = 0;
-		plateBlock = GOTBlocks.ceramicPlateBlock;
+		plateBlock = GOTBlocks.ceramicPlate;
 		fenceGateBlock = GOTBlocks.fenceGateDarkOak;
 		doorBlock = GOTBlocks.doorCharred;
 		rockBlock = GOTBlocks.rock;

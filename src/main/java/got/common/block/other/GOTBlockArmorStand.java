@@ -75,12 +75,12 @@ public class GOTBlockArmorStand extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public Item getItem(World world, int i, int j, int k) {
-		return GOTItems.armorStandItem;
+		return GOTItems.armorStand;
 	}
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return hasTileEntity(i) ? GOTItems.armorStandItem : null;
+		return hasTileEntity(i) ? GOTItems.armorStand : null;
 	}
 
 	@Override

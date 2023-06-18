@@ -37,8 +37,8 @@ public class GOTStructureQarthBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.furnace, 2);
 			setBlockAndMetadata(world, -1, 1, 1, GOTBlocks.planks2, 2);
 			setBlockAndMetadata(world, 1, 1, 1, GOTBlocks.planks2, 2);
-			placePlateItem(world, random, -1, 2, 1, GOTBlocks.ceramicPlateBlock, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
-			placePlateItem(world, random, 1, 2, 1, GOTBlocks.ceramicPlateBlock, new ItemStack(GOTItems.oliveBread, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, -1, 2, 1, GOTBlocks.ceramicPlate, new ItemStack(Items.bread, 1 + random.nextInt(3)), true);
+			placePlateItem(world, random, 1, 2, 1, GOTBlocks.ceramicPlate, new ItemStack(GOTItems.oliveBread, 1 + random.nextInt(3)), true);
 			placeFlowerPot(world, random.nextBoolean() ? -2 : 2, 2, 0, getRandomFlower(world, random));
 			GOTEntityQarthBaker trader = new GOTEntityQarthBaker(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
@@ -93,8 +93,8 @@ public class GOTStructureQarthBazaar extends GOTStructureEssosBazaar {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 0, 1, 1, Blocks.furnace, 2);
 			placeKebabStand(world, random, 0, 2, 1, GOTBlocks.kebabStand, 3);
-			placePlateItem(world, random, -2, 2, 0, GOTBlocks.ceramicPlateBlock, new ItemStack(GOTItems.muttonRaw, 1 + random.nextInt(3), 0), true);
-			placePlateItem(world, random, 2, 2, 0, GOTBlocks.ceramicPlateBlock, new ItemStack(GOTItems.camelRaw, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, -2, 2, 0, GOTBlocks.ceramicPlate, new ItemStack(GOTItems.muttonRaw, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTBlocks.ceramicPlate, new ItemStack(GOTItems.camelRaw, 1 + random.nextInt(3), 1), true);
 			GOTEntityQarthButcher trader = new GOTEntityQarthButcher(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -112,8 +112,8 @@ public class GOTStructureQarthBazaar extends GOTStructureEssosBazaar {
 			setBlockAndMetadata(world, -1, 1, 1, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.hay_block, 0);
 			setBlockAndMetadata(world, -1, 1, -1, Blocks.hay_block, 0);
-			placePlateItem(world, random, -2, 2, 0, GOTBlocks.woodPlateBlock, new ItemStack(GOTItems.orange, 1 + random.nextInt(3), 0), true);
-			placePlateItem(world, random, 2, 2, 0, GOTBlocks.woodPlateBlock, new ItemStack(GOTItems.lettuce, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, -2, 2, 0, GOTBlocks.woodPlate, new ItemStack(GOTItems.orange, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTBlocks.woodPlate, new ItemStack(GOTItems.lettuce, 1 + random.nextInt(3), 1), true);
 			GOTEntityQarthFarmer trader = new GOTEntityQarthFarmer(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;
@@ -130,8 +130,8 @@ public class GOTStructureQarthBazaar extends GOTStructureEssosBazaar {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 1, 1, 1, Blocks.cauldron, 3);
 			setBlockAndMetadata(world, -1, 1, -1, Blocks.sponge, 0);
-			placePlateItem(world, random, -2, 2, 0, GOTBlocks.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
-			placePlateItem(world, random, 2, 2, 0, GOTBlocks.ceramicPlateBlock, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
+			placePlateItem(world, random, -2, 2, 0, GOTBlocks.ceramicPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 0), true);
+			placePlateItem(world, random, 2, 2, 0, GOTBlocks.ceramicPlate, new ItemStack(Items.fish, 1 + random.nextInt(3), 1), true);
 			GOTEntityQarthFishmonger trader = new GOTEntityQarthFishmonger(world);
 			spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 			return true;

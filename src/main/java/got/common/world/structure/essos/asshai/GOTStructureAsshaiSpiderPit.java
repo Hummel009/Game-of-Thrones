@@ -157,7 +157,7 @@ public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, -3, 7, 11, bedBlock, 11);
 		placeBarrel(world, random, 3, 8, 11, 5, GOTFoods.RICH_DRINK);
 		placeMug(world, random, 3, 8, 10, 1, GOTFoods.RICH_DRINK);
-		placePlateWithCertainty(world, random, 3, 8, 9, GOTBlocks.woodPlateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 3, 8, 9, GOTBlocks.woodPlate, GOTFoods.WESTEROS);
 		int maxStep = 12;
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (step = 0; step < 2 && !isSideSolid(world, i12, j12 = 5 - step, k12 = -9 - step, ForgeDirection.UP); ++step) {

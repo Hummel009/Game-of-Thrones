@@ -115,7 +115,7 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 			int i13 = -1;
 			int j13 = 2;
 			if (random.nextBoolean()) {
-				placePlate(world, random, i13, j13, k12, GOTBlocks.woodPlateBlock, GOTFoods.ESSOS);
+				placePlate(world, random, i13, j13, k12, GOTBlocks.woodPlate, GOTFoods.ESSOS);
 				continue;
 			}
 			placeMug(world, random, i13, j13, k12, 1, GOTFoods.ESSOS_DRINK);

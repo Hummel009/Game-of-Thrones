@@ -77,11 +77,11 @@ public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 		placeChest(world, random, -2, 1, 4, GOTBlocks.chestBasket, 2, GOTChestContents.HILLMEN);
 		placeChest(world, random, 2, 1, 4, GOTBlocks.chestBasket, 2, GOTChestContents.HILLMEN);
 		placeBarrel(world, random, -3, 2, -3, 4, GOTFoods.WILD_DRINK);
-		placePlate(world, random, -3, 2, -2, GOTBlocks.woodPlateBlock, GOTFoods.WILD);
-		placePlate(world, random, -3, 2, -1, GOTBlocks.woodPlateBlock, GOTFoods.WILD);
+		placePlate(world, random, -3, 2, -2, GOTBlocks.woodPlate, GOTFoods.WILD);
+		placePlate(world, random, -3, 2, -1, GOTBlocks.woodPlate, GOTFoods.WILD);
 		placeMug(world, random, 3, 2, -3, 1, GOTFoods.WILD_DRINK);
-		placePlate(world, random, 3, 2, -2, GOTBlocks.woodPlateBlock, GOTFoods.WILD);
-		placePlate(world, random, 3, 2, -1, GOTBlocks.woodPlateBlock, GOTFoods.WILD);
+		placePlate(world, random, 3, 2, -2, GOTBlocks.woodPlate, GOTFoods.WILD);
+		placePlate(world, random, 3, 2, -1, GOTBlocks.woodPlate, GOTFoods.WILD);
 		placeFlowerPot(world, -3, 2, 1, getRandomFlower(world, random));
 		placeWeaponRack(world, 0, 3, -4, 4, getRandomHillmanWeapon(random));
 		placeHillmanItemFrame(world, random, -2, 2, -5, 0);

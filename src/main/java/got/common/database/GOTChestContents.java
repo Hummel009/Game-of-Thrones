@@ -206,7 +206,7 @@ public class GOTChestContents {
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.pear), 1, 3, 25));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.date), 1, 3, 50));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lemon), 1, 3, 25));
-		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lemonCakeItem), 1, 1, 10));
+		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lemonCake), 1, 1, 10));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.orange), 1, 3, 25));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.lime), 1, 3, 25));
 		SUD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.plum), 1, 3, 25));

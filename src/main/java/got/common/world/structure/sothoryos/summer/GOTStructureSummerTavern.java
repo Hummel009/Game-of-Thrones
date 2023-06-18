@@ -214,7 +214,7 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			if (random.nextBoolean()) {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.SOTHORYOS_DRINK);
 			} else {
-				Block plateBlock = random.nextBoolean() ? GOTBlocks.woodPlateBlock : GOTBlocks.ceramicPlateBlock;
+				Block plateBlock = random.nextBoolean() ? GOTBlocks.woodPlate : GOTBlocks.ceramicPlate;
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
 				} else {

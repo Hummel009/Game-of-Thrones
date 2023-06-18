@@ -48,7 +48,7 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		GL11.glTranslatef(dxz, -0.5f, dxz);
 		renderBlocks.setOverrideBlockTexture(icon);
-		GOTRenderBlocks.renderStandardInvBlock(renderBlocks, GOTBlocks.mugBlock, xzMin += edge, yMax - edge, xzMin, xzMax -= edge, yMin + edge, xzMax);
+		GOTRenderBlocks.renderStandardInvBlock(renderBlocks, GOTBlocks.mug, xzMin += edge, yMax - edge, xzMin, xzMax -= edge, yMin + edge, xzMax);
 		renderBlocks.clearOverrideBlockTexture();
 		GL11.glPopMatrix();
 	}

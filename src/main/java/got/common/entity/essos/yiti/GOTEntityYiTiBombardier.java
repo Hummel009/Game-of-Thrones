@@ -85,7 +85,7 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
 		data = super.onSpawnWithEgg(data);
-		npcItemsInv.setBombingItem(new ItemStack(GOTItems.fuseItem));
+		npcItemsInv.setBombingItem(new ItemStack(GOTItems.fuse));
 		npcItemsInv.setBomb(new ItemStack(GOTBlocks.bomb, 1, 10));
 		return data;
 	}

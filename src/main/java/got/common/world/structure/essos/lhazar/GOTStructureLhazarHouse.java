@@ -78,7 +78,7 @@ public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 			int i1 = -6;
 			int j12 = 2;
 			if (random.nextBoolean()) {
-				placePlate(world, random, i1, j12, k1, GOTBlocks.woodPlateBlock, GOTFoods.NOMAD);
+				placePlate(world, random, i1, j12, k1, GOTBlocks.woodPlate, GOTFoods.NOMAD);
 				continue;
 			}
 			placeMug(world, random, i1, j12, k1, 3, GOTFoods.NOMAD_DRINK);

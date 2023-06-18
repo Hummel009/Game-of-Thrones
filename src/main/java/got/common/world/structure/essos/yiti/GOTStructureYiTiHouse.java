@@ -240,7 +240,7 @@ public class GOTStructureYiTiHouse extends GOTStructureYiTiBase {
 		placeChest(world, random, 5, 1, -2, 5, GOTChestContents.YI_TI);
 		setBlockAndMetadata(world, 5, 1, -1, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 5, 1, 0, plankSlabBlock, plankSlabMeta | 8);
-		setBlockAndMetadata(world, 5, 2, 0, GOTBlocks.ceramicPlateBlock, 0);
+		setBlockAndMetadata(world, 5, 2, 0, GOTBlocks.ceramicPlate, 0);
 		setBlockAndMetadata(world, 5, 1, 1, Blocks.cauldron, 3);
 		setBlockAndMetadata(world, 5, 1, 2, plankSlabBlock, plankSlabMeta | 8);
 		placeMug(world, random, 5, 2, 2, 1, GOTFoods.YITI_DRINK);

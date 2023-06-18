@@ -25,14 +25,10 @@ public class GOTGuiButtonLeftRight extends GuiButton {
 			int k = getHoverState(field_146123_n);
 			drawTexturedModalRect(xPosition, yPosition, leftOrRight ? 0 : 136, k * 20, width, height);
 			mouseDragged(mc, i, j);
-			int color = 8019267;
-			if (!enabled) {
-				color = 5521198;
-			}
 			if (leftOrRight) {
-				fontrenderer.drawString(displayString, xPosition + 67 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, color);
+				fontrenderer.drawString(displayString, xPosition + 67 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, 0x5E1C15);
 			} else {
-				fontrenderer.drawString(displayString, xPosition + width - 67 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, color);
+				fontrenderer.drawString(displayString, xPosition + width - 67 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, 0x5E1C15);
 			}
 		}
 	}

@@ -155,12 +155,12 @@ public class GOTTradeEntries {
 		C_ALCHEMIST_B_L.add(new GOTTradeEntry(new ItemStack(Items.potionitem, 1, 6), 128));
 		C_ALCHEMIST_B_L.add(new GOTTradeEntry(new ItemStack(Items.potionitem, 1, 8), 128));
 		C_ALCHEMIST_B_L.add(new GOTTradeEntry(new ItemStack(Items.potionitem, 1, 9), 128));
-		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.appleCrumbleItem), 12));
-		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.berryPieItem), 12));
+		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.appleCrumble), 12));
+		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.berryPie), 12));
 		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.ceramicPlate), 2));
-		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.cherryPieItem), 12));
+		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.cherryPie), 12));
 		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.cornBread), 5));
-		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lemonCakeItem), 15));
+		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lemonCake), 15));
 		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.marzipan), 6));
 		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTBlocks.marzipanBlock), 20));
 		C_BAKER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.marzipanChocolate), 10));
@@ -193,7 +193,7 @@ public class GOTTradeEntries {
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletCopper), 3));
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.gobletWood), 2));
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.kebab), 8));
-		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lemonCakeItem), 12));
+		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lemonCake), 12));
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.mug), 2));
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.mugAle, 1, 9999), 8));
 		C_BARTENDER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.mugAppleJuice), 6));

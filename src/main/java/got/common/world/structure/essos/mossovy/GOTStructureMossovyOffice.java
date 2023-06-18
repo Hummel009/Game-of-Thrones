@@ -108,11 +108,11 @@ public class GOTStructureMossovyOffice extends GOTStructureMossovyBase {
 		placeBarrel(world, random, -6, 2, -2, 3, GOTFoods.WESTEROS_DRINK);
 		placeMug(world, random, 6, 6, 1, 3, GOTFoods.WESTEROS_DRINK);
 		placeMug(world, random, 6, 6, 2, 3, GOTFoods.WESTEROS_DRINK);
-		placePlate(world, random, -4, 2, 2, GOTBlocks.ceramicPlateBlock, GOTFoods.WESTEROS);
-		placePlate(world, random, -5, 2, 2, GOTBlocks.plateBlock, GOTFoods.WESTEROS);
-		placePlate(world, random, 0, 6, -4, GOTBlocks.ceramicPlateBlock, GOTFoods.WESTEROS);
-		placePlate(world, random, -6, 6, -2, GOTBlocks.plateBlock, GOTFoods.WESTEROS);
-		placePlate(world, random, 5, 6, 1, GOTBlocks.ceramicPlateBlock, GOTFoods.WESTEROS);
+		placePlate(world, random, -4, 2, 2, GOTBlocks.ceramicPlate, GOTFoods.WESTEROS);
+		placePlate(world, random, -5, 2, 2, GOTBlocks.plate, GOTFoods.WESTEROS);
+		placePlate(world, random, 0, 6, -4, GOTBlocks.ceramicPlate, GOTFoods.WESTEROS);
+		placePlate(world, random, -6, 6, -2, GOTBlocks.plate, GOTFoods.WESTEROS);
+		placePlate(world, random, 5, 6, 1, GOTBlocks.ceramicPlate, GOTFoods.WESTEROS);
 		setBlockAndMetadata(world, 5, 6, 2, GOTStructureMossovyBase.getRandomPieBlock(random), 0);
 		setBlockAndMetadata(world, -3, 6, 2, GOTStructureMossovyBase.getRandomPieBlock(random), 0);
 		setBlockAndMetadata(world, 6, 1, -1, GOTBlocks.strawBed, 2);

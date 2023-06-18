@@ -98,7 +98,7 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 			int j13 = 1;
 			int k1 = 9;
 			if (random.nextBoolean()) {
-				placePlate(world, random, i1, j13, k1, GOTBlocks.ceramicPlateBlock, GOTFoods.SOTHORYOS);
+				placePlate(world, random, i1, j13, k1, GOTBlocks.ceramicPlate, GOTFoods.SOTHORYOS);
 				continue;
 			}
 			placeMug(world, random, i1, j13, k1, 0, GOTFoods.SOTHORYOS_DRINK);

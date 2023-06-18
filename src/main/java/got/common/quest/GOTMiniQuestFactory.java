@@ -479,9 +479,9 @@ public enum GOTMiniQuestFactory {
 		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.mugCider), 1, 6).setRewardFactor(3.0f));
 		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.mugMead), 1, 6).setRewardFactor(4.0f));
 		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.mugPerry), 1, 6).setRewardFactor(3.0f));
-		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.appleCrumbleItem), 2, 5).setRewardFactor(3.0f));
+		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.appleCrumble), 2, 5).setRewardFactor(3.0f));
 		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.appleGreen), 3, 12).setRewardFactor(1.5f));
-		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.cherryPieItem), 2, 5).setRewardFactor(3.0f));
+		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.cherryPie), 2, 5).setRewardFactor(3.0f));
 		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.deerCooked), 5, 20).setRewardFactor(0.75f));
 		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.mugAle), 5, 15).setRewardFactor(1.0f));
 		MOSSOVY.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.mugCider), 5, 15).setRewardFactor(1.0f));

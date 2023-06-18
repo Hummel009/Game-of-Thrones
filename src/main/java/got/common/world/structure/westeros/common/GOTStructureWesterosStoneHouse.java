@@ -237,7 +237,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 0, 6, k13, brickCarved, brickCarvedMeta);
 		}
 		setBlockAndMetadata(world, -2, 5, 0, plankBlock, plankMeta);
-		setBlockAndMetadata(world, -2, 6, 0, GOTBlocks.plateBlock, 0);
+		setBlockAndMetadata(world, -2, 6, 0, GOTBlocks.plate, 0);
 		setBlockAndMetadata(world, -2, 5, 1, plankBlock, plankMeta);
 		placeMug(world, random, -2, 6, 1, 3, GOTFoods.WESTEROS_DRINK);
 		int[] j15 = {-1, 2};
@@ -298,6 +298,6 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 			doorBlock = GOTBlocks.doorAramant;
 		}
 		bedBlock = Blocks.bed;
-		plateBlock = random.nextBoolean() ? GOTBlocks.plateBlock : GOTBlocks.ceramicPlateBlock;
+		plateBlock = random.nextBoolean() ? GOTBlocks.plate : GOTBlocks.ceramicPlate;
 	}
 }

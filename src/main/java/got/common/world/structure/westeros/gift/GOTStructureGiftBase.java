@@ -112,7 +112,7 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 		barsBlock = random.nextBoolean() ? Blocks.iron_bars : GOTBlocks.bronzeBars;
 		tableBlock = GOTBlocks.tableGift;
 		bedBlock = GOTBlocks.strawBed;
-		plateBlock = random.nextBoolean() ? GOTBlocks.woodPlateBlock : GOTBlocks.ceramicPlateBlock;
+		plateBlock = random.nextBoolean() ? GOTBlocks.woodPlate : GOTBlocks.ceramicPlate;
 		if (random.nextBoolean()) {
 			cropBlock = Blocks.wheat;
 			cropMeta = 7;

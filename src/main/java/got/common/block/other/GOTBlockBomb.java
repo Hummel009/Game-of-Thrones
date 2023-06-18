@@ -112,7 +112,7 @@ public class GOTBlockBomb extends Block {
 
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int l, float f, float f1, float f2) {
-		if (entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().getItem() == GOTItems.fuseItem) {
+		if (entityplayer.getCurrentEquippedItem() != null && entityplayer.getCurrentEquippedItem().getItem() == GOTItems.fuse) {
 			onBlockDestroyedByPlayer(world, i, j, k, -1);
 			world.setBlockToAir(i, j, k);
 			return true;

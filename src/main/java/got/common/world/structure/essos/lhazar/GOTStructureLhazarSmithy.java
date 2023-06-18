@@ -88,8 +88,8 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		placeFlowerPot(world, -4, 1, 1, new ItemStack(Blocks.cactus));
 		placeMug(world, random, 4, 2, -1, 1, GOTFoods.NOMAD_DRINK);
 		placeMug(world, random, 2, 2, 4, 0, GOTFoods.NOMAD_DRINK);
-		placePlate(world, random, 4, 2, 0, GOTBlocks.woodPlateBlock, GOTFoods.NOMAD);
-		placePlate(world, random, 4, 2, 1, GOTBlocks.woodPlateBlock, GOTFoods.NOMAD);
+		placePlate(world, random, 4, 2, 0, GOTBlocks.woodPlate, GOTFoods.NOMAD);
+		placePlate(world, random, 4, 2, 1, GOTBlocks.woodPlate, GOTFoods.NOMAD);
 		if (random.nextBoolean()) {
 			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{new ItemStack(GOTItems.lhazarHelmet), new ItemStack(GOTItems.lhazarChestplate), new ItemStack(GOTItems.lhazarLeggings), new ItemStack(GOTItems.lhazarBoots)});
 		} else {

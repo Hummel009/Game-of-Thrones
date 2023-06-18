@@ -245,7 +245,7 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 		tableBlock = GOTBlocks.tableYiTi;
 		gateBlock = GOTBlocks.gateYiTi;
 		bedBlock = useTownBlocks() ? Blocks.bed : GOTBlocks.strawBed;
-		plateBlock = useTownBlocks() ? GOTBlocks.ceramicPlateBlock : random.nextBoolean() ? GOTBlocks.ceramicPlateBlock : GOTBlocks.woodPlateBlock;
+		plateBlock = useTownBlocks() ? GOTBlocks.ceramicPlate : random.nextBoolean() ? GOTBlocks.ceramicPlate : GOTBlocks.woodPlate;
 		if (random.nextBoolean()) {
 			cropBlock = Blocks.wheat;
 			cropMeta = 7;

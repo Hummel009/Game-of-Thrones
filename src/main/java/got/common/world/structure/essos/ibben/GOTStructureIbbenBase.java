@@ -253,7 +253,7 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		barsBlock = random.nextBoolean() ? Blocks.iron_bars : GOTBlocks.bronzeBars;
 		bedBlock = GOTBlocks.strawBed;
 		gateBlock = GOTBlocks.gateWooden;
-		plateBlock = random.nextBoolean() ? GOTBlocks.ceramicPlateBlock : GOTBlocks.woodPlateBlock;
+		plateBlock = random.nextBoolean() ? GOTBlocks.ceramicPlate : GOTBlocks.woodPlate;
 		carpetBlock = Blocks.carpet;
 		carpetMeta = 13;
 		if (random.nextBoolean()) {

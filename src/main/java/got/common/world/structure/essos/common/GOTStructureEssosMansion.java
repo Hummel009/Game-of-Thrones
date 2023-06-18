@@ -101,7 +101,7 @@ public class GOTStructureEssosMansion extends GOTStructureEssosBase {
 		placeWallBanner(world, 3, 3, -4, bannerType, 0);
 		placeChest(world, random, -3, 1, 3, GOTBlocks.chestBasket, 2, getChestContents());
 		placeBarrel(world, random, 6, 2, 2, 4, GOTFoods.ESSOS_DRINK);
-		placePlateWithCertainty(world, random, 6, 2, 1, GOTBlocks.ceramicPlateBlock, GOTFoods.ESSOS);
+		placePlateWithCertainty(world, random, 6, 2, 1, GOTBlocks.ceramicPlate, GOTFoods.ESSOS);
 		placeMug(world, random, 6, 2, 3, 3, GOTFoods.ESSOS_DRINK);
 		placeWeaponRack(world, 10, 2, -2, 7, getRandomWeapon(random));
 		setBlockAndMetadata(world, 8, 5, -1, bedBlock, 1);

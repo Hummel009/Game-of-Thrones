@@ -77,8 +77,8 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 		placeChest(world, random, -11, 1, 0, GOTBlocks.chestBasket, 4, GOTChestContents.DOTHRAKI);
 		placeChest(world, random, 11, 1, 0, GOTBlocks.chestBasket, 5, GOTChestContents.DOTHRAKI);
 		placeMug(world, random, -4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
-		placePlateWithCertainty(world, random, -6, 2, -5, GOTBlocks.ceramicPlateBlock, GOTFoods.NOMAD);
-		placePlateWithCertainty(world, random, 6, 2, -5, GOTBlocks.ceramicPlateBlock, GOTFoods.NOMAD);
+		placePlateWithCertainty(world, random, -6, 2, -5, GOTBlocks.ceramicPlate, GOTFoods.NOMAD);
+		placePlateWithCertainty(world, random, 6, 2, -5, GOTBlocks.ceramicPlate, GOTFoods.NOMAD);
 		placeMug(world, random, 4, 2, -5, 2, GOTFoods.NOMAD_DRINK);
 		setBlockAndMetadata(world, -1, 4, -9, Blocks.skull, 2);
 		setBlockAndMetadata(world, 1, 4, -9, Blocks.skull, 2);

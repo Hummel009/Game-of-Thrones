@@ -115,7 +115,7 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 		setBlockAndMetadata(world, -3, 1, 6, bedBlock, 2);
 		setBlockAndMetadata(world, -3, 1, 5, bedBlock, 10);
 		placeRandomFlowerPot(world, random, 3, 2, 5);
-		placePlateWithCertainty(world, random, 1, 2, 7, GOTBlocks.ceramicPlateBlock, GOTFoods.WESTEROS);
+		placePlateWithCertainty(world, random, 1, 2, 7, GOTBlocks.ceramicPlate, GOTFoods.WESTEROS);
 		placeMug(world, random, 0, 2, 7, 3, GOTFoods.WESTEROS_DRINK);
 		placeBarrel(world, random, -1, 2, 7, 2, GOTFoods.WESTEROS_DRINK);
 		placeChest(world, random, -3, 1, 7, 4, GOTChestContents.MOSSOVY);

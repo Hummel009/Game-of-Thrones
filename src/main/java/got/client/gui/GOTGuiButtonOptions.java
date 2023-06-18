@@ -29,11 +29,7 @@ public class GOTGuiButtonOptions extends GuiButton {
 			Gui.func_146110_a(xPosition, yPosition, 170.0f, 316.0f, width / 2, height, 512.0f, 512.0f);
 			Gui.func_146110_a(xPosition + width / 2, yPosition, 370 - (float) width / 2, 316.0f, width / 2, height, 512.0f, 512.0f);
 			mouseDragged(mc, i, j);
-			int color = 8019267;
-			if (!enabled) {
-				color = 5521198;
-			}
-			fontrenderer.drawString(displayString, xPosition + width / 2 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, color);
+			fontrenderer.drawString(displayString, xPosition + width / 2 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, 0x5E1C15);
 		}
 	}
 

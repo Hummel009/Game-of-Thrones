@@ -519,42 +519,42 @@ public class GOTItemMug extends Item {
 
 		public Block getBlock() {
 			if (this == MUG) {
-				return GOTBlocks.mugBlock;
+				return GOTBlocks.mug;
 			}
 			if (this == MUG_CLAY) {
-				return GOTBlocks.ceramicMugBlock;
+				return GOTBlocks.ceramicMug;
 			}
 			if (this == GOBLET_GOLD) {
-				return GOTBlocks.gobletGoldBlock;
+				return GOTBlocks.gobletGold;
 			}
 			if (this == GOBLET_SILVER) {
-				return GOTBlocks.gobletSilverBlock;
+				return GOTBlocks.gobletSilver;
 			}
 			if (this == GOBLET_COPPER) {
-				return GOTBlocks.gobletCopperBlock;
+				return GOTBlocks.gobletCopper;
 			}
 			if (this == GOBLET_WOOD) {
-				return GOTBlocks.gobletWoodBlock;
+				return GOTBlocks.gobletWood;
 			}
 			if (this == SKULL) {
-				return GOTBlocks.skullCupBlock;
+				return GOTBlocks.skullCup;
 			}
 			if (this == GLASS) {
-				return GOTBlocks.wineGlassBlock;
+				return GOTBlocks.wineGlass;
 			}
 			if (this == BOTTLE) {
-				return GOTBlocks.glassBottleBlock;
+				return GOTBlocks.glassBottle;
 			}
 			if (this == SKIN) {
 				return null;
 			}
 			if (this == HORN) {
-				return GOTBlocks.aleHornBlock;
+				return GOTBlocks.aleHorn;
 			}
 			if (this == HORN_GOLD) {
-				return GOTBlocks.aleHornGoldBlock;
+				return GOTBlocks.aleHornGold;
 			}
-			return GOTBlocks.mugBlock;
+			return GOTBlocks.mug;
 		}
 
 		public ItemStack getEmptyVessel() {

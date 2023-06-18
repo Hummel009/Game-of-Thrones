@@ -84,8 +84,8 @@ public class GOTStructureSummerSmithy extends GOTStructureSummerBase {
 		placeBarrel(world, random, -3, 2, -1, 5, GOTFoods.SOTHORYOS_DRINK);
 		placeMug(world, random, -3, 2, 0, 2, GOTFoods.SOTHORYOS_DRINK);
 		placeMug(world, random, -9, 2, -2, 3, GOTFoods.SOTHORYOS_DRINK);
-		placePlate(world, random, -5, 2, 3, GOTBlocks.ceramicPlateBlock, GOTFoods.SOTHORYOS);
-		placePlate(world, random, -3, 2, 3, GOTBlocks.ceramicPlateBlock, GOTFoods.SOTHORYOS);
+		placePlate(world, random, -5, 2, 3, GOTBlocks.ceramicPlate, GOTFoods.SOTHORYOS);
+		placePlate(world, random, -3, 2, 3, GOTBlocks.ceramicPlate, GOTFoods.SOTHORYOS);
 		placeFlowerPot(world, -4, 2, 3, getRandomFlower(world, random));
 		setBlockAndMetadata(world, -8, 1, 1, bedBlock, 3);
 		setBlockAndMetadata(world, -9, 1, 1, bedBlock, 11);
