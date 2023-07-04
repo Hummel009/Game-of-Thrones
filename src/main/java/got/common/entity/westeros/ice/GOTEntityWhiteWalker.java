@@ -1,5 +1,6 @@
 package got.common.entity.westeros.ice;
 
+import got.common.GOTConfig;
 import got.common.GOTDamage;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
@@ -27,6 +28,7 @@ import net.minecraft.entity.ai.EntityAIWander;
 import net.minecraft.entity.ai.EntityAIWatchClosest2;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
@@ -75,16 +77,38 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		ItemStack itemstack;
 		Entity entity = damagesource.getEntity();
 		Entity damageSource = damagesource.getSourceOfDamage();
-		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && ((EntityLivingBase) entity).getHeldItem().getItem() instanceof GOTMaterialFinder && (((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) itemstack.getItem()).getMaterial() == GOTMaterial.OBSIDIAN_TOOL || itemstack.getItem() == GOTItems.crowbar)) {
-			return super.attackEntityFrom(damagesource, f);
+		boolean causeDamage = false;
+		if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage()) {
+			ItemStack itemstack = ((EntityLivingBase) entity).getHeldItem();
+			if (itemstack != null) {
+				Item item = itemstack.getItem();
+				if (item instanceof GOTMaterialFinder && (((GOTMaterialFinder) item).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) item).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
+					causeDamage = true;
+				}
+				if (item == GOTItems.crowbar) {
+					causeDamage = true;
+				}
+			}
 		}
-		if (damagesource.getEntity() instanceof GOTEntityGregorClegane || damagesource.getEntity() instanceof GOTEntityAsshaiArchmag || damageSource instanceof GOTEntitySpear && ((GOTEntitySpear) damageSource).getProjectileItem().getItem() == GOTItems.valyrianSpear) {
-			return super.attackEntityFrom(damagesource, f);
+		if (entity instanceof GOTEntityGregorClegane || entity instanceof GOTEntityAsshaiArchmag) {
+			causeDamage = true;
 		}
-		return super.attackEntityFrom(damagesource, 0.0f);
+		if (damageSource instanceof GOTEntitySpear) {
+			Item item = ((GOTEntitySpear) damageSource).getProjectileItem().getItem();
+			if (item instanceof GOTMaterialFinder && (((GOTMaterialFinder) item).getMaterial() == GOTMaterial.VALYRIAN_TOOL || ((GOTMaterialFinder) item).getMaterial() == GOTMaterial.OBSIDIAN_TOOL)) {
+				causeDamage = true;
+			}
+		}
+		if (GOTConfig.walkerFireDamage && damagesource.isFireDamage()) {
+			causeDamage = true;
+		}
+		if (causeDamage) {
+			return super.attackEntityFrom(damagesource, f);
+		} else {
+			return super.attackEntityFrom(damagesource, 0.0f);
+		}
 	}
 
 	@Override

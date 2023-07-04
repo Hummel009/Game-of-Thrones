@@ -22,7 +22,6 @@ import got.common.faction.GOTFaction;
 import got.common.fellowship.GOTFellowship;
 import got.common.item.other.GOTItemBanner.BannerType;
 import got.common.network.GOTPacketHandler;
-import got.common.util.GOTAPI;
 import got.common.util.GOTLog;
 import got.common.util.GOTReflection;
 import got.common.world.GOTWorldType;
@@ -451,7 +450,7 @@ public class GOT {
 	}
 
 	@Mod.EventHandler
-	public void postload(FMLPostInitializationEvent event) {
+	public void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit();
 		Color baseWater = new Color(4876527);
 		int baseR = baseWater.getRed();
@@ -469,12 +468,12 @@ public class GOT {
 			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
 		}
 		HashMap<String, Integer> map = new HashMap<>();
-		map.put("achievements", GOTAchievement.id);
+		map.put("achievements", GOTAchievement.CONTENT.size());
 		map.put("packets", GOTPacketHandler.id);
 		map.put("banners", BannerType.values().length);
 		map.put("mobs", GOTEntity.id);
 		map.put("structures", GOTStructure.id);
-		map.put("biomes", GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class).size());
+		map.put("biomes", GOTBiome.CONTENT.size());
 		map.put("beziers", GOTBeziers.id);
 		map.put("waypoints", GOTWaypoint.values().length);
 		map.put("factions", GOTFaction.values().length);
@@ -487,7 +486,7 @@ public class GOT {
 	}
 
 	@Mod.EventHandler
-	public void preload(FMLPreInitializationEvent event) {
+	public void preInit(FMLPreInitializationEvent event) {
 		GOTLog.findLogger();
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
 		tickHandler = new GOTTickHandlerServer();

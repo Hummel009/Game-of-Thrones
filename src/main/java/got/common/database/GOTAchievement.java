@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.*;
 
 public class GOTAchievement {
+	public static final Set<GOTAchievement> CONTENT = new HashSet<>();
+
 	public static int id = 1;
 	public static Map<ItemArmor.ArmorMaterial, GOTAchievement> armorAchievements = new EnumMap<>(ArmorMaterial.class);
 	public static GOTAchievement bannerProtect;
@@ -369,6 +371,7 @@ public class GOTAchievement {
 		}
 		category.list.add(this);
 		getDimension().allAchievements.add(this);
+		CONTENT.add(this);
 	}
 
 	public static GOTAchievement achievementForCategoryAndID(Category category, int ID) {

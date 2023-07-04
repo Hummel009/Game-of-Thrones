@@ -66,9 +66,13 @@ import got.common.entity.westeros.wildling.*;
 import got.common.entity.westeros.wildling.thenn.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class GOTUnitTradeEntries {
+	public static final Set<GOTUnitTradeEntries> CONTENT = new HashSet<>();
+
 	public static int LEVYMAN = 5;
 	public static float LEVYMAN_F;
 	public static int LEVYMANA = 10;
@@ -521,5 +525,6 @@ public class GOTUnitTradeEntries {
 			}
 			throw new IllegalArgumentException("Units cannot require negative alignment!");
 		}
+		CONTENT.add(this);
 	}
 }

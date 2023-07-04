@@ -22,6 +22,7 @@ public class GOTConfig {
 	public static boolean lgbt;
 	public static boolean strictFactionTitleRequirements;
 	public static int customWaypointMinY;
+	public static boolean walkerFireDamage;
 	public static boolean allowBannerProtection;
 	public static boolean allowSelfProtectingBanners;
 	public static boolean allowMiniquests;
@@ -149,6 +150,7 @@ public class GOTConfig {
 		enableFellowshipCreation = config.get(CATEGORY_GAMEPLAY, "Enable Fellowship creation", true, "If disabled, admins can still create Fellowships using the command").getBoolean();
 		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
 		lgbt = config.get(CATEGORY_GAMEPLAY, "Enable LGBT marriages between NPC", false, "RENLY BARATHEON TRIGGERED").getBoolean();
+		walkerFireDamage = config.get(CATEGORY_GAMEPLAY, "Enable walkers fire damage", false).getBoolean();
 		allowBannerProtection = config.get(CATEGORY_GAMEPLAY, "Allow Banner Protection", true).getBoolean();
 		enableTitles = config.get(CATEGORY_GAMEPLAY, "Enable Titles", true).getBoolean();
 		allowSelfProtectingBanners = config.get(CATEGORY_GAMEPLAY, "Allow Self-Protecting Banners", true).getBoolean();

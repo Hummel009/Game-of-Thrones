@@ -74,9 +74,9 @@ public class DatabaseGenerator {
 	public static final Map<String, String> FAC_TO_PAGE = new HashMap<>();
 	public static final Map<String, String> ENTITY_TO_PAGE = new HashMap<>();
 	public static final Map<String, String> BIOME_TO_PAGE = new HashMap<>();
-	public static final Set<GOTUnitTradeEntries> UNITS = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTUnitTradeEntries.class, GOTUnitTradeEntries.class));
-	public static final Set<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTAchievement.class, GOTAchievement.class));
-	public static final Set<GOTBiome> BIOMES = new HashSet<>(GOTAPI.getObjectFieldsOfType(GOTBiome.class, GOTBiome.class));
+	public static final Set<GOTUnitTradeEntries> UNITS = new HashSet<>(GOTUnitTradeEntries.CONTENT);
+	public static final Set<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAchievement.CONTENT);
+	public static final Set<GOTBiome> BIOMES = new HashSet<>(GOTBiome.CONTENT);
 	public static final Set<GOTFaction> FACTIONS = EnumSet.allOf(GOTFaction.class);
 	public static final Set<GOTTreeType> TREES = EnumSet.allOf(GOTTreeType.class);
 	public static final Set<GOTWaypoint> WAYPOINTS = EnumSet.allOf(GOTWaypoint.class);
@@ -91,9 +91,6 @@ public class DatabaseGenerator {
 	public static String display = "null";
 
 	static {
-		BIOMES.removeAll(Collections.singleton(null));
-		ACHIEVEMENTS.removeAll(Collections.singleton(null));
-		UNITS.removeAll(Collections.singleton(null));
 		BIOMES.remove(GOTBiome.ocean1);
 		BIOMES.remove(GOTBiome.ocean2);
 		BIOMES.remove(GOTBiome.ocean3);

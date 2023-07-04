@@ -51,11 +51,12 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.EnumHelper;
 
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
 
 public abstract class GOTBiome extends BiomeGenBase {
+	public static final Set<GOTBiome> CONTENT = new HashSet<>();
+
 	public static Class<?>[][] correctCreatureTypeParams = {{EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE}};
 	public static EnumCreatureType creatureType_GOTAmbient = EnumHelper.addEnum(correctCreatureTypeParams, EnumCreatureType.class, "GOTAmbient", GOTAmbientCreature.class, 45, Material.air, true, false);
 	public static NoiseGeneratorPerlin biomeTerrainNoise = new NoiseGeneratorPerlin(new Random(1955L), 1);
@@ -297,6 +298,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		unreliableChance = GOTEventSpawner.EventChance.COMMON;
 		invasionSpawns = new GOTBiomeInvasionSpawns(this);
 		GOTFixer.addWaypointLocations(this);
+		CONTENT.add(this);
 	}
 
 	public static void preInit() {
