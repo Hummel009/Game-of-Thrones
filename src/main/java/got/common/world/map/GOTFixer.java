@@ -69,8 +69,8 @@ public class GOTFixer {
 		for (GOTWaypoint wp : forts) {
 			new GOTFiveFortsWall(false, wp).generate(world, random, i, 0, k, 0);
 		}
-		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteWood) || GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Winterfell)) {
-			((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions().generate(world, random, i + 50, world.getTopSolidOrLiquidBlock(i + 50, k), k);
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteWood) || GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Winterfell.info(-0.5, 0))) {
+			((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions().generate(world, random, i - 50, world.getTopSolidOrLiquidBlock(i - 50, k), k);
 		}
 	}
 
@@ -110,7 +110,7 @@ public class GOTFixer {
 		registerLocation(new GOTStructureMossovySettlement(biome, 0.0f), GOTWaypoint.Kuurulgan, GOTWaypoint.SuudanKorkuu, GOTWaypoint.KanduuBet, GOTWaypoint.Tashtoo, GOTWaypoint.Bashkaruuchu, GOTWaypoint.AzuuKan, GOTWaypoint.Kujruk, GOTWaypoint.Korkunuchtuu, GOTWaypoint.NymduuOoz, GOTWaypoint.Azhydaar, GOTWaypoint.AkShaar, GOTWaypoint.SuuNym, GOTWaypoint.ShyluunUusu, GOTWaypoint.Kadar, GOTWaypoint.Nefer, GOTWaypoint.KDath);
 		registerLocation(new GOTStructureMyrSettlement(biome, 0.0f).setIsTown(), GOTWaypoint.Myr);
 		registerLocation(new GOTStructureNorthSettlement(biome, 0.0f), GOTWaypoint.GreywaterWatch);
-		registerLocation(new GOTStructureNorthSettlement(biome, 0.0f).setIsCastle(), GOTWaypoint.CatfishRock, GOTWaypoint.BreakstoneHill, GOTWaypoint.Goldgrass, GOTWaypoint.RisvellsCastle, GOTWaypoint.ServinsCastle, GOTWaypoint.Winterfell, GOTWaypoint.BlackPool, GOTWaypoint.DeepwoodMotte, GOTWaypoint.Dreadfort, GOTWaypoint.FlintsFinger, GOTWaypoint.Highpoint, GOTWaypoint.TorhensSquare, GOTWaypoint.WidowsWatch, GOTWaypoint.Hornwood, GOTWaypoint.Ironrath, GOTWaypoint.Karhold, GOTWaypoint.LastHearth, GOTWaypoint.MoatKailin, GOTWaypoint.MormontsKeep, GOTWaypoint.OldCastle, GOTWaypoint.RamsGate, GOTWaypoint.RillwaterCrossing);
+		registerLocation(new GOTStructureNorthSettlement(biome, 0.0f).setIsCastle(), GOTWaypoint.CatfishRock, GOTWaypoint.BreakstoneHill, GOTWaypoint.Goldgrass, GOTWaypoint.RisvellsCastle, GOTWaypoint.ServinsCastle, GOTWaypoint.Winterfell.info(-0.5, 0, 3), GOTWaypoint.BlackPool, GOTWaypoint.DeepwoodMotte, GOTWaypoint.Dreadfort, GOTWaypoint.FlintsFinger, GOTWaypoint.Highpoint, GOTWaypoint.TorhensSquare, GOTWaypoint.WidowsWatch, GOTWaypoint.Hornwood, GOTWaypoint.Ironrath, GOTWaypoint.Karhold, GOTWaypoint.LastHearth, GOTWaypoint.MoatKailin, GOTWaypoint.MormontsKeep, GOTWaypoint.OldCastle, GOTWaypoint.RamsGate, GOTWaypoint.RillwaterCrossing);
 		registerLocation(new GOTStructureNorthSettlement(biome, 0.0f).setIsHillman(), GOTWaypoint.Skane, GOTWaypoint.Deepdown, GOTWaypoint.DriftwoodHall, GOTWaypoint.Kingshouse);
 		registerLocation(new GOTStructureNorthSettlement(biome, 0.0f).setIsSmallTown(), GOTWaypoint.Barrowtown);
 		registerLocation(new GOTStructureNorthSettlement(biome, 0.0f).setIsTown(), GOTWaypoint.WhiteHarbour);
@@ -847,7 +847,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Winterfell, new Spawner() {
+		structures.put(GOTWaypoint.Winterfell.info(-0.5, 0), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityRobbStark(world), world, 2, 1, 2);

@@ -94,8 +94,7 @@ public class GOTBeziers {
 		/* NORTH */
 		double[] northRiverlandsCrossroads = new double[]{655, 1257};
 
-		registerRoad(id++, GOTWaypoint.CastleBlack, GOTWaypoint.CastleBlack.info(0, 1));
-		registerRoad(id++, GOTWaypoint.CastleBlack.info(0, 1), new double[]{745, 732}, new double[]{694, 804}, GOTWaypoint.Winterfell);
+		registerRoad(id++, GOTWaypoint.CastleBlack, new double[]{745, 732}, new double[]{694, 804}, GOTWaypoint.Winterfell);
 		registerRoad(id++, GOTWaypoint.Winterfell, new double[]{642, 891}, GOTWaypoint.ServinsCastle);
 		registerRoad(id++, GOTWaypoint.ServinsCastle, new double[]{696, 899}, new double[]{765, 872}, GOTWaypoint.Dreadfort);
 		registerRoad(id++, GOTWaypoint.Dreadfort, new double[]{855, 865}, new double[]{893, 828}, GOTWaypoint.Karhold);
@@ -318,6 +317,10 @@ public class GOTBeziers {
 		registerRoad(id++, yiTiCrossroads, new double[]{3595, 2246}, new double[]{3561, 2222}, GOTWaypoint.Baoji);
 		registerRoad(id++, GOTWaypoint.Baoji, new double[]{3481, 2212}, new double[]{3458, 2206}, GOTWaypoint.Manjin);
 		registerRoad(id++, GOTWaypoint.Tiqui, new double[]{3390, 2123}, new double[]{3432, 2160}, GOTWaypoint.Manjin);
+
+		/* LINKERS */
+		double westerosCastle0p5 = 0.2109375;
+		registerHiddenRoad(id++, GOTWaypoint.Winterfell, GOTWaypoint.Winterfell.info(-westerosCastle0p5, 0));
 
 		/*
 		// Idiot skwoz toczku w dwie storony
