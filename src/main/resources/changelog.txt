@@ -1,20 +1,43 @@
 CHANGELOG
->>BUILD 23.05.23
+>>BUILD 23.07.10
 + Added lots of forest biomes
 + Seasons mechanics divided into server-side (temperature) and client-side (rendering) part.
 + Village generationg chunk selector is a config value now (check for the word "grid")
 + Added fortresses into spawning of essos free cities
 
++ Added thaumcraft stand support (no crash)
++ Added LOTR submods support (no crash in GUI) (you still must remove META-INF to enable general compatibility)
+
+* Remade all roads from scratch
+
+* Improved biome music code
+* Improved map colors
+* Improved tree sets in structures
+* Improved King's Landing (added second gate to the east)
+* Improved road system to enable pixel coords like 1.542434
+* Improved Three Towers waypoint
+* Improved buttons' text color
 * Improved Five Forts wall and tower
-* Imporved map
+* Imporved map accuracy
 * Improved Victarion camp
 * Improved golden camps
 * Improved westeros towers
-* Impoved asshai tower
+* Improved asshai tower
 * Improved quests
-* Reduced chance of baobab plains in dothraki sea
+* Improved code of killing ice creatures (now all spears of needed materials are ok)
 * Increased village spawn
+* Reduced chance of baobab plains in dothraki sea
 
+* Oprimized structures' code
+* Optimized code of fixed structures
+
+* Fixed bugs with bandit names
+* Fixed bugs in english lang file
+* Fixed bugs in chinese lang file
+* Fixed bugs with gui textures
+* Fixed bug with giant skins
+* Fixed bug with English speechbanks
+* Fixed bug with quotes
 * Fixed bug with not rare baobabs in sothoryos
 * Fixed bug with wrong water color
 * Fixed bug with too rare villages in southern essos
@@ -28,6 +51,8 @@ CHANGELOG
 * Fixed bug with glowing titles, that should be visible only during the night
 * Fixed bug with always english rank achievements in the chat
 * Fixed bug with rare intersection of random and fixed villages (bigger check radius)
+
+- Removed too giant oaks from forests
 
 >>BUILD 23.05.11
 + Now conquested enemy waypoints are red on the map
