@@ -863,17 +863,16 @@ public class GOTClassTransformer implements IClassTransformer {
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
 		for (MethodNode method : classNode.methods) {
-			if (!method.name.equals(targetMethodName) && !method.name.equals(targetMethodNameObf) || !method.desc.equals(targetMethodSign)) {
-				continue;
+			if (!(!method.name.equals(targetMethodName) && !method.name.equals(targetMethodNameObf) || !method.desc.equals(targetMethodSign))) {
+				method.instructions.clear();
+				InsnList newIns = new InsnList();
+				newIns.add(new VarInsnNode(25, 0));
+				newIns.add(new VarInsnNode(21, 1));
+				newIns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Player", "canEat", "(Lnet/minecraft/entity/player/EntityPlayer;Z)Z", false));
+				newIns.add(new InsnNode(172));
+				method.instructions.insert(newIns);
+				System.out.println("Hummel009: Patched method " + method.name);
 			}
-			method.instructions.clear();
-			InsnList newIns = new InsnList();
-			newIns.add(new VarInsnNode(25, 0));
-			newIns.add(new VarInsnNode(21, 1));
-			newIns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Player", "canEat", "(Lnet/minecraft/entity/player/EntityPlayer;Z)Z", false));
-			newIns.add(new InsnNode(172));
-			method.instructions.insert(newIns);
-			System.out.println("Hummel009: Patched method " + method.name);
 		}
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);
@@ -915,17 +914,16 @@ public class GOTClassTransformer implements IClassTransformer {
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
 		for (MethodNode method : classNode.methods) {
-			if (!method.name.equals(targetMethodName) && !method.name.equals(targetMethodNameObf) || !method.desc.equals(targetMethodSign)) {
-				continue;
+			if (!(!method.name.equals(targetMethodName) && !method.name.equals(targetMethodNameObf) || !method.desc.equals(targetMethodSign))) {
+				InsnList newIns = new InsnList();
+				newIns.add(new VarInsnNode(23, 1));
+				newIns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Food", "getExhaustionFactor", "()F", false));
+				newIns.add(new InsnNode(106));
+				newIns.add(new VarInsnNode(56, 1));
+				VarInsnNode nodeAfter = findNodeInMethod(method, new VarInsnNode(25, 0));
+				method.instructions.insertBefore(nodeAfter, newIns);
+				System.out.println("Hummel009: Patched method " + method.name);
 			}
-			InsnList newIns = new InsnList();
-			newIns.add(new VarInsnNode(23, 1));
-			newIns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Food", "getExhaustionFactor", "()F", false));
-			newIns.add(new InsnNode(106));
-			newIns.add(new VarInsnNode(56, 1));
-			VarInsnNode nodeAfter = findNodeInMethod(method, new VarInsnNode(25, 0));
-			method.instructions.insertBefore(nodeAfter, newIns);
-			System.out.println("Hummel009: Patched method " + method.name);
 		}
 		ClassWriter writer = new ClassWriter(1);
 		classNode.accept(writer);
