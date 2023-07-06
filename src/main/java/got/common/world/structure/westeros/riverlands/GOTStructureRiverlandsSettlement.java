@@ -75,7 +75,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 					setupVillage(random);
 					break;
 				case CROSSROADS:
-					addStructure(new GOTStructureRiverlandsTavern(false).setIsCrossroads(), -10, 30, 0, true);
+					addStructure(new GOTStructureRiverlandsTavern(false).setIsCrossroads(), 10, -30, 0, true);
 					break;
 			}
 		}

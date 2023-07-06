@@ -17,6 +17,7 @@ import java.util.Random;
 public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement {
 	public boolean isTown;
 	public boolean isCastle;
+	public boolean isVillage;
 	public boolean isKingsLanding;
 	public boolean isRedKeep;
 
@@ -36,6 +37,13 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 		isCastle = true;
 		settlementChunkRadius = 3;
 		fixedSettlementChunkRadius = 3;
+		return this;
+	}
+
+	public GOTStructureCrownlandsSettlement setIsVillage() {
+		isVillage = true;
+		settlementChunkRadius = 6;
+		fixedSettlementChunkRadius = 6;
 		return this;
 	}
 
@@ -264,7 +272,7 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 				type = Type.FORT;
 			} else if (isRedKeep) {
 				type = Type.RED_KEEP;
-			} else if (random.nextInt(4) == 0) {
+			} else if (!isVillage && random.nextInt(4) == 0) {
 				type = Type.FORT;
 			} else {
 				type = Type.VILLAGE;

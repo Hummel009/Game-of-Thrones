@@ -16,6 +16,7 @@ import java.util.Random;
 public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlement {
 	public boolean isTown;
 	public boolean isCastle;
+	public boolean isVillage;
 
 	public GOTStructureWesterlandsSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -38,6 +39,13 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 
 	public GOTStructureWesterlandsSettlement setIsTown() {
 		isTown = true;
+		settlementChunkRadius = 6;
+		fixedSettlementChunkRadius = 6;
+		return this;
+	}
+
+	public GOTStructureBaseSettlement setIsVillage() {
+		isVillage = true;
 		settlementChunkRadius = 6;
 		fixedSettlementChunkRadius = 6;
 		return this;
@@ -190,7 +198,9 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 		public void setupSettlementProperties(Random random) {
 			if (isTown) {
 				type = Type.TOWN;
-			} else if (isCastle || random.nextInt(4) == 0) {
+			} else if (isCastle) {
+				type = Type.FORT;
+			} else if (!isVillage || random.nextInt(4) == 0) {
 				type = Type.FORT;
 			} else {
 				type = Type.VILLAGE;
