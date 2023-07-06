@@ -379,7 +379,27 @@ public class GOTBeziers {
 		registerHiddenRoad(id++, GOTWaypoint.ThreeTowers, GOTWaypoint.ThreeTowers.info(-0.5, -0.5));
 		registerHiddenRoad(id++, GOTWaypoint.ThreeTowers, GOTWaypoint.ThreeTowers.info(-0.5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.ThreeTowers, GOTWaypoint.ThreeTowers.info(-0.5, 0.5));
+		registerHiddenRoad(id++, GOTWaypoint.Grandview, GOTWaypoint.Grandview.info(-westerosCastle0p5, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Blackhaven, GOTWaypoint.Blackhaven.info(-westerosCastle0p5, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Felwood, GOTWaypoint.Felwood.info(0, -westerosCastle0p5));
+		registerHiddenRoad(id++, GOTWaypoint.HaystackHall, GOTWaypoint.HaystackHall.info(0, -westerosCastle0p5));
+		registerHiddenRoad(id++, GOTWaypoint.Gallowsgrey, GOTWaypoint.Gallowsgrey.info(0, -westerosCastle0p5));
+		registerHiddenRoad(id++, GOTWaypoint.Parchments, GOTWaypoint.Parchments.info(0, -westerosCastle0p5));
+		registerHiddenRoad(id++, GOTWaypoint.Bronzegate, GOTWaypoint.Bronzegate.info(0, -westerosCastle0p5));
+		registerHiddenRoad(id++, GOTWaypoint.Poddingfield, GOTWaypoint.Poddingfield.info(0, -westerosCastle0p5));
+		registerHiddenRoad(id++, GOTWaypoint.HarvestHall, GOTWaypoint.HarvestHall.info(0, -westerosCastle0p5));
+		registerHiddenRoad(id++, GOTWaypoint.Nightsong, GOTWaypoint.Nightsong.info(0, -westerosCastle0p5));
+		registerHiddenRoad(id++, GOTWaypoint.StormsEnd, GOTWaypoint.StormsEnd.info(0, westerosCastle0p5));
 
+		registerHiddenRoad(id++, GOTWaypoint.SkyReach, GOTWaypoint.SkyReach.info(0, westerosCastle0p5));
+		registerHiddenRoad(id++, GOTWaypoint.Starfall, GOTWaypoint.Starfall.info(0, westerosCastle0p6));
+
+		registerHiddenRoad(id++, GOTWaypoint.HighHermitage, GOTWaypoint.HighHermitage.info(westerosCastle0p5, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Blackmont, GOTWaypoint.Blackmont.info(westerosCastle0p5, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Kingsgrave, GOTWaypoint.Kingsgrave.info(westerosCastle0p5, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Yronwood, GOTWaypoint.Yronwood.info(westerosCastle0p5, 0));
+
+		registerHiddenRoad(id++, GOTWaypoint.Wyl, GOTWaypoint.Wyl.info(-westerosCastle0p5, 0));
 		/*
 		// Idiot skwoz toczku w dwie storony
 		registerHiddenRoad(id++, GOTWaypoint.Rosby.info(0, 0.7), GOTWaypoint.Rosby.info(0, -0.5));
