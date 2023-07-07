@@ -18,6 +18,7 @@ import java.util.Random;
 
 public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 	public boolean isTown;
+	public boolean isVillage;
 
 	public GOTStructurePentosSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -35,6 +36,13 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 		isTown = true;
 		settlementChunkRadius = 6;
 		fixedSettlementChunkRadius = 6;
+		return this;
+	}
+
+	public GOTStructurePentosSettlement setIsVillage() {
+		isVillage = true;
+		settlementChunkRadius = 5;
+		fixedSettlementChunkRadius = 5;
 		return this;
 	}
 
@@ -237,7 +245,7 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 		public void setupSettlementProperties(Random random) {
 			if (isTown) {
 				type = Type.TOWN;
-			} else if (random.nextInt(4) == 0) {
+			} else if (!isVillage && random.nextInt(4) == 0) {
 				type = Type.FORT;
 			} else {
 				type = Type.VILLAGE;

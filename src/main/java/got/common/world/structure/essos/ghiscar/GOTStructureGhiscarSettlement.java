@@ -20,8 +20,7 @@ import java.util.Random;
 public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 	public boolean isTown;
 	public boolean isColony;
-	public boolean isPyramidShiftX;
-	public boolean isPyramidShiftZ;
+	public boolean isPyramid;
 
 	public GOTStructureGhiscarSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -42,15 +41,8 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 		return this;
 	}
 
-	public GOTStructureGhiscarSettlement setIsPyramidShiftX() {
-		isPyramidShiftX = true;
-		settlementChunkRadius = 4;
-		fixedSettlementChunkRadius = 4;
-		return this;
-	}
-
-	public GOTStructureGhiscarSettlement setIsPyramidShiftZ() {
-		isPyramidShiftZ = true;
+	public GOTStructureGhiscarSettlement setIsPyramid() {
+		isPyramid = true;
 		settlementChunkRadius = 4;
 		fixedSettlementChunkRadius = 4;
 		return this;
@@ -64,7 +56,7 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public enum Type {
-		VILLAGE, TOWN, FORT, PYRAMID_X, PYRAMID_Z
+		VILLAGE, TOWN, FORT, PYRAMID
 	}
 
 	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureGhiscarSettlement> {
@@ -77,11 +69,8 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-				case PYRAMID_X:
-					addStructure(new GOTStructureGhiscarPyramid(false), 20, 0, 0, true);
-					break;
-				case PYRAMID_Z:
-					addStructure(new GOTStructureGhiscarPyramid(false), 0, 20, 0, true);
+				case PYRAMID:
+					addStructure(new GOTStructureGhiscarPyramid(false), 0, 0, 0, true);
 					break;
 				case VILLAGE:
 					setupVillage(random);
@@ -270,10 +259,8 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isPyramidShiftX) {
-				type = Type.PYRAMID_X;
-			} else if (isPyramidShiftZ) {
-				type = Type.PYRAMID_Z;
+			if (isPyramid) {
+				type = Type.PYRAMID;
 			} else if (isTown) {
 				type = Type.TOWN;
 			} else if (isColony || random.nextInt(4) == 0) {
