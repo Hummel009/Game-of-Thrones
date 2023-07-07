@@ -79,7 +79,7 @@ public class GOTFixer {
 		locations.clear();
 		registerLocation(new GOTStructureArrynSettlement(biome, 0.0f).setIsCastle(), GOTWaypoint.BloodyGate.info(0, -0.5), GOTWaypoint.TheEyrie.info(0, -0.5), GOTWaypoint.ColdwaterBurn, GOTWaypoint.GreyGlen, GOTWaypoint.HeartsHome, GOTWaypoint.IronOak, GOTWaypoint.LongbowHall, GOTWaypoint.Ninestars, GOTWaypoint.OldAnchor, GOTWaypoint.Pebble, GOTWaypoint.Redfort, GOTWaypoint.Runestone, GOTWaypoint.Snakewood, GOTWaypoint.Strongsong, GOTWaypoint.ThePaps, GOTWaypoint.Wickenden, GOTWaypoint.WitchIsle, GOTWaypoint.GateOfTheMoon.info(0.5, 0, 1));
 		registerLocation(new GOTStructureArrynSettlement(biome, 0.0f).setIsTown(), GOTWaypoint.Gulltown, GOTWaypoint.Sisterton);
-		registerLocation(new GOTStructureAsshaiSettlement(biome, 0.0f), GOTWaypoint.Asshai.info(0, 0.9, 2));
+		registerLocation(new GOTStructureAsshaiSettlement(biome, 0.0f), GOTWaypoint.Asshai.info(0, 0.8, 2));
 		registerLocation(new GOTStructureBraavosSettlement(biome, 0.0f).setIsTown(), GOTWaypoint.Braavos.info(essosGateShift, -0.5, 2));
 		registerLocation(new GOTStructureCrownlandsSettlement(biome, 0.0f).setIsVillage(), GOTWaypoint.Briarwhite.info(0, -0.7), GOTWaypoint.Rosby.info(0.7, 0));
 		registerLocation(new GOTStructureCrownlandsSettlement(biome, 0.0f).setIsCastle(), GOTWaypoint.Antlers.info(0, -0.5), GOTWaypoint.Brownhollow, GOTWaypoint.DyreDen, GOTWaypoint.Stokeworth.info(-0.5, 0, 3), GOTWaypoint.Hayford.info(0, -0.5), GOTWaypoint.RooksRest.info(0, -0.5), GOTWaypoint.Rosby.info(-0.6, 0, 3));
@@ -88,7 +88,7 @@ public class GOTFixer {
 		registerLocation(new GOTStructureCrownlandsSettlement(biome, 0.0f).setIsTown(), GOTWaypoint.Duskendale.info(0, -1.3));
 		registerLocation(new GOTStructureDorneSettlement(biome, 0.0f).setIsCastle(), GOTWaypoint.Blackmont.info(0.5, 0, 1), GOTWaypoint.GhostHill, GOTWaypoint.Godsgrace, GOTWaypoint.Hellholt, GOTWaypoint.HighHermitage.info(0.5, 0, 1), GOTWaypoint.Tor, GOTWaypoint.Vaith, GOTWaypoint.WaterGardens, GOTWaypoint.Spottswood, GOTWaypoint.Lemonwood, GOTWaypoint.Saltshore, GOTWaypoint.Sandstone, GOTWaypoint.Kingsgrave.info(0.5, 0, 1), GOTWaypoint.SkyReach.info(0, 0.5, 2), GOTWaypoint.Starfall.info(0, 0.6, 2), GOTWaypoint.Wyl.info(-0.5, 0, 3), GOTWaypoint.Yronwood.info(0.5, 0, 1));
 		registerLocation(new GOTStructureDorneSettlement(biome, 0.0f).setIsTown(), GOTWaypoint.GhastonGrey, GOTWaypoint.PlankyTown, GOTWaypoint.Sunspear);
-		registerLocation(new GOTStructureDothrakiSettlement(biome, 0.0f).setIsBig(), GOTWaypoint.Hornoth.info(0.5, 0), GOTWaypoint.Kyth.info(0, -0.5), GOTWaypoint.Sathar.info(0.5, 0), GOTWaypoint.Rathylar.info(0.5, 0), GOTWaypoint.Saath.info(0, -0.5), GOTWaypoint.VaesAthjikhari.info(0, -0.5), GOTWaypoint.VaesDiaf, GOTWaypoint.VaesDothrak, GOTWaypoint.VaesEfe, GOTWaypoint.VaesGorqoyi.info(0, -0.5), GOTWaypoint.VaesGraddakh, GOTWaypoint.VaesJini.info(0, 0.5), GOTWaypoint.VojjorSamvi.info(0, -0.5), GOTWaypoint.VaesKhadokh.info(0, -0.5), GOTWaypoint.VaesKhewo.info(0, -0.5), GOTWaypoint.VaesLeqse.info(0.5, 0), GOTWaypoint.VaesMejhah.info(0, -0.5), GOTWaypoint.KrazaajHas.info(0, -0.5));
+		registerLocation(new GOTStructureDothrakiSettlement(biome, 0.0f).setIsBig(), GOTWaypoint.Hornoth.info(0.5, 0), GOTWaypoint.Kyth.info(0.3, -0.4), GOTWaypoint.Sathar.info(0.5, 0), GOTWaypoint.Rathylar.info(0.6, -0.1), GOTWaypoint.Saath.info(0, -0.5), GOTWaypoint.VaesAthjikhari.info(0, -0.5), GOTWaypoint.VaesDiaf, GOTWaypoint.VaesDothrak, GOTWaypoint.VaesEfe, GOTWaypoint.VaesGorqoyi.info(0.3, -0.4), GOTWaypoint.VaesGraddakh, GOTWaypoint.VaesJini.info(0, 0.5), GOTWaypoint.VojjorSamvi.info(0, -0.5), GOTWaypoint.VaesKhadokh.info(-0.1, -0.5), GOTWaypoint.VaesKhewo.info(0, -0.5), GOTWaypoint.VaesLeqse.info(0.5, 0), GOTWaypoint.VaesMejhah.info(0, -0.5), GOTWaypoint.KrazaajHas.info(0, -0.5));
 		registerLocation(new GOTStructureDragonstoneSettlement(biome, 0.0f).setIsCastle(), GOTWaypoint.ClawIsle, GOTWaypoint.Dragonstone, GOTWaypoint.Driftmark, GOTWaypoint.HighTide, GOTWaypoint.SharpPoint, GOTWaypoint.Stonedance, GOTWaypoint.SweetportSound);
 		registerLocation(new GOTStructureDragonstoneSettlement(biome, 0.0f).setIsTown(), GOTWaypoint.Hull);
 		registerLocation(new GOTStructureGhiscarSettlement(biome, 0.0f).setIsColony(), GOTWaypoint.IsleOfWhips, GOTWaypoint.BarterBeach, GOTWaypoint.Gogossos, GOTWaypoint.Gorosh, GOTWaypoint.Zamettar.info(0, -0.5, 2));
@@ -160,7 +160,7 @@ public class GOTFixer {
 			}
 		});
 
-		structures.put(GOTWaypoint.Asshai.info(0, 0.9, 2), new Spawner() {
+		structures.put(GOTWaypoint.Asshai.info(0, 0.8, 2), new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
 				spawnLegendaryNPC(new GOTEntityAsshaiArchmag(world), world, 0, 1, 0);

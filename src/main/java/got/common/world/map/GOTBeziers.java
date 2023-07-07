@@ -421,10 +421,11 @@ public class GOTBeziers {
 		registerHiddenRoad(id++, GOTWaypoint.Valysar, GOTWaypoint.Valysar.info(-essosTown0p7, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Yunkai, GOTWaypoint.Yunkai.info(-essosTown0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Astapor, GOTWaypoint.Astapor.info(-essosTown0p5, 0));
+
 		registerHiddenRoad(id++, GOTWaypoint.Kosrak, GOTWaypoint.Kosrak.info(1, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Lhazosh, GOTWaypoint.Lhazosh.info(1, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Hesh, GOTWaypoint.Hesh.info(1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Asshai, GOTWaypoint.Asshai.info(0, 0.9));
+		registerHiddenRoad(id++, GOTWaypoint.Asshai, GOTWaypoint.Asshai.info(0, 0.8));
 
 		/*
 		registerHiddenRoad(id++, GOTWaypoint.Anjiang, GOTWaypoint.Anjiang.info(0, 1));
