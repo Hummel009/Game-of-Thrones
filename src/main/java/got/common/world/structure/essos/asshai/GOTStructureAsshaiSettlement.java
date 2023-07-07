@@ -12,6 +12,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.GOTStructureBaseSettlement;
 import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
+import got.common.world.structure.westeros.arryn.GOTStructureArrynSettlement;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
@@ -185,7 +186,12 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
-			return GOTBezierType.TOWN_ASSHAI;
+			int i1 = Math.abs(i);
+			int k1 = Math.abs(k);
+			if (i1 <= 80 && k1 <= 80) {
+				return GOTBezierType.TOWN_ASSHAI;
+			}
+			return null;
 		}
 
 		@Override

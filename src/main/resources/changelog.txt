@@ -31,6 +31,7 @@ CHANGELOG
 * Oprimized structures' code
 * Optimized code of fixed structures
 
+* Fixed bug with Asshai path size
 * Fixed bugs with bandit names
 * Fixed bugs in english lang file
 * Fixed bugs in chinese lang file
