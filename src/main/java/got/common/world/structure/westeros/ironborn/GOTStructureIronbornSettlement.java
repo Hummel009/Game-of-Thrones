@@ -9,6 +9,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
+import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsSettlement;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -18,6 +19,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 	public boolean isTown;
 	public boolean isCastle;
 	public boolean isCamp;
+	public boolean isVillage;
 
 	public GOTStructureIronbornSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -35,6 +37,13 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 		isCamp = true;
 		settlementChunkRadius = 5;
 		fixedSettlementChunkRadius = 5;
+		return this;
+	}
+
+	public GOTStructureIronbornSettlement setIsVillage() {
+		isVillage = true;
+		settlementChunkRadius = 6;
+		fixedSettlementChunkRadius = 6;
 		return this;
 	}
 
@@ -259,7 +268,7 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 				type = Type.FORT;
 			} else if (isCamp) {
 				type = Type.CAMP;
-			} else if (random.nextInt(4) == 0) {
+			} else if (!isVillage && random.nextInt(4) == 0) {
 				type = Type.FORT;
 			} else {
 				type = Type.VILLAGE;

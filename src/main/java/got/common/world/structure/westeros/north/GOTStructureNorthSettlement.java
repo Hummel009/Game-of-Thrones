@@ -12,6 +12,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
+import got.common.world.structure.westeros.ironborn.GOTStructureIronbornSettlement;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanChieftainHouse;
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanHouse;
 import net.minecraft.util.MathHelper;
@@ -24,6 +25,7 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 	public boolean isCastle;
 	public boolean isSmallTown;
 	public boolean isHillman;
+	public boolean isVillage;
 
 	public GOTStructureNorthSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -41,6 +43,13 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 		isCastle = true;
 		settlementChunkRadius = 3;
 		fixedSettlementChunkRadius = 3;
+		return this;
+	}
+
+	public GOTStructureNorthSettlement setIsVillage() {
+		isVillage = true;
+		settlementChunkRadius = 6;
+		fixedSettlementChunkRadius = 6;
 		return this;
 	}
 
@@ -273,7 +282,7 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 				type = Type.SMALL_TOWN;
 			} else if (isHillman) {
 				type = Type.HILLMAN;
-			} else if (isCastle || random.nextInt(4) == 0) {
+			} else if (!isVillage && random.nextInt(4) == 0) {
 				type = Type.FORT;
 			} else {
 				type = Type.VILLAGE;

@@ -17,6 +17,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 	public boolean isTown;
 	public boolean isCastle;
 	public boolean isCrossroads;
+	public boolean isVillage;
 
 	public GOTStructureRiverlandsSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -34,6 +35,13 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 		isCastle = true;
 		settlementChunkRadius = 3;
 		fixedSettlementChunkRadius = 3;
+		return this;
+	}
+
+	public GOTStructureRiverlandsSettlement setIsVillage() {
+		isVillage = true;
+		settlementChunkRadius = 6;
+		fixedSettlementChunkRadius = 6;
 		return this;
 	}
 
@@ -205,7 +213,7 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 				type = Type.FORT;
 			} else if (isCrossroads) {
 				type = Type.CROSSROADS;
-			} else if (random.nextInt(4) == 0) {
+			} else if (!isVillage && random.nextInt(4) == 0) {
 				type = Type.FORT;
 			} else {
 				type = Type.VILLAGE;
