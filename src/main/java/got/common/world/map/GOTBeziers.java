@@ -307,8 +307,8 @@ public class GOTBeziers {
 		registerRoad(id++, asshaiCrossroadsHalfway, new double[]{3695, 2420}, asshaiCrossroads, new double[]{3762, 2448}, new double[]{3791, 2494}, new double[]{3807, 2552}, new double[]{3811, 2608}, new double[]{3803, 2687}, new double[]{3770, 2754}, GOTWaypoint.Asshai);
 		registerRoad(id++, GOTWaypoint.Jinqi, new double[]{3630, 2391}, new double[]{3658, 2398}, asshaiCrossroadsHalfway);
 		registerRoad(id++, GOTWaypoint.Eijiang, new double[]{3175, 2141}, new double[]{3246, 2117}, GOTWaypoint.Tiqui);
-		registerRoad(id++, GOTWaypoint.SiQo, new double[]{3276, 2218}, new double[]{3299, 2178}, GOTWaypoint.Tiqui);
-		registerRoad(id++, GOTWaypoint.Tiqui, new double[]{3316, 2024}, new double[]{3348, 1940}, GOTWaypoint.TraderTown);
+		registerRoad(id++, GOTWaypoint.SiQo, new double[]{3276, 2218}, new double[]{3299, 2178}, GOTWaypoint.Tiqui.info(-1, 0));
+		registerRoad(id++, GOTWaypoint.Tiqui.info(-1, 0), new double[]{3316, 2024}, new double[]{3348, 1940}, GOTWaypoint.TraderTown);
 		registerRoad(id++, GOTWaypoint.Samyriana, new double[]{3144, 1860}, new double[]{3249, 1873}, GOTWaypoint.TraderTown);
 		registerRoad(id++, GOTWaypoint.TraderTown, new double[]{3382, 1864}, new double[]{3383, 1862}, GOTWaypoint.Anjiang);
 		registerRoad(id++, GOTWaypoint.TraderTown, new double[]{3398, 1914}, new double[]{3457, 1960}, GOTWaypoint.Vaibei);
@@ -427,22 +427,21 @@ public class GOTBeziers {
 		registerHiddenRoad(id++, GOTWaypoint.Hesh, GOTWaypoint.Hesh.info(1, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Asshai, GOTWaypoint.Asshai.info(0, 0.8));
 
-		/*
-		registerHiddenRoad(id++, GOTWaypoint.Anjiang, GOTWaypoint.Anjiang.info(0, 1));
-		registerHiddenRoad(id++, GOTWaypoint.Asabhad, GOTWaypoint.Asabhad.info(-1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Baoji, GOTWaypoint.Baoji.info(0, 1));
-		registerHiddenRoad(id++, GOTWaypoint.Eijiang, GOTWaypoint.Eijiang.info(0, 1));
-		registerHiddenRoad(id++, GOTWaypoint.Jinqi, GOTWaypoint.Jinqi.info(-1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Lizhao, GOTWaypoint.Lizhao.info(1.1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Manjin, GOTWaypoint.Manjin.info(1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.SiQo, GOTWaypoint.SiQo.info(1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Tiqui, GOTWaypoint.Tiqui.info(0, -1));
-		registerHiddenRoad(id++, GOTWaypoint.TraderTown, GOTWaypoint.TraderTown.info(0, -1));
-		registerHiddenRoad(id++, GOTWaypoint.Vaibei, GOTWaypoint.Vaibei.info(0, -1));
-		registerHiddenRoad(id++, GOTWaypoint.Yibin, GOTWaypoint.Yibin.info(-1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Yin, GOTWaypoint.Yin.info(0, 1));
-		registerHiddenRoad(id++, GOTWaypoint.Yunnan, GOTWaypoint.Yunnan.info(1, 0));
-		 */
+		double yitiTown1p0 = 0.2734375;
+
+		registerHiddenRoad(id++, GOTWaypoint.TraderTown, GOTWaypoint.TraderTown.info(0, -yitiTown1p0));
+		registerHiddenRoad(id++, GOTWaypoint.Yibin, GOTWaypoint.Yibin.info(0, -yitiTown1p0));
+		registerHiddenRoad(id++, GOTWaypoint.Vaibei, GOTWaypoint.Vaibei.info(0, -yitiTown1p0));
+		registerHiddenRoad(id++, GOTWaypoint.Baoji, GOTWaypoint.Baoji.info(0, -yitiTown1p0));
+		registerHiddenRoad(id++, GOTWaypoint.Eijiang, GOTWaypoint.Eijiang.info(0, yitiTown1p0));
+		registerHiddenRoad(id++, GOTWaypoint.Yin, GOTWaypoint.Yin.info(0, yitiTown1p0));
+		registerHiddenRoad(id++, GOTWaypoint.Jinqi, GOTWaypoint.Jinqi.info(-yitiTown1p0, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Asabhad, GOTWaypoint.Asabhad.info(-yitiTown1p0, 0));
+		registerHiddenRoad(id++, GOTWaypoint.SiQo, GOTWaypoint.SiQo.info(yitiTown1p0, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Yunnan, GOTWaypoint.Yunnan.info(yitiTown1p0, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Manjin, GOTWaypoint.Manjin.info(yitiTown1p0 + 0.1, -0.2));
+		registerHiddenRoad(id++, GOTWaypoint.Lizhao, GOTWaypoint.Lizhao.info(yitiTown1p0, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Tiqui, GOTWaypoint.Tiqui.info(0, -yitiTown1p0));
 	}
 
 	public static void registerHiddenRoad(int id, Object... waypoints) {

@@ -130,6 +130,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome isleOfFaces;
 	public static GOTBiome jogosNhai;
 	public static GOTBiome jogosNhaiDesert;
+	public static GOTBiome jogosNhaiDesertHills;
 	public static GOTBiome jogosNhaiForest;
 	public static GOTBiome jogosNhaiHills;
 	public static GOTBiome kingSpears;
@@ -379,6 +380,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		isleOfFaces = new GOTBiomeIsleOfFaces(56, true).setClimateType(GOTClimateType.NORMAL).setColor(0x82A556).setMinMaxHeight(0.1f, 0.15f).setBiomeName("isleOfFaces");
 		jogosNhai = new GOTBiomeJogosNhai(57, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2B762).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhai");
 		jogosNhaiDesert = new GOTBiomeJogosNhaiDesert(58, true).setClimateType(GOTClimateType.SUMMER).setColor(0xD6C182).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhaiDesert");
+		jogosNhaiDesertHills = new GOTBiomeJogosNhaiDesert(184, true).setClimateType(GOTClimateType.SUMMER).setColor(0xBAA671).setMinMaxHeight(0.1f, 1.0f).setBiomeName("jogosNhaiDesertHills");
 		jogosNhaiForest = new GOTBiomeJogosNhaiForest(171, true).setClimateType(GOTClimateType.SUMMER).setColor(0x727F44).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhaiForest");
 		jogosNhaiHills = new GOTBiomeJogosNhai(2, true).setClimateType(GOTClimateType.SUMMER).setColor(0x979B53).setMinMaxHeight(0.1f, 1.0f).setBiomeName("jogosNhaiHills");
 		kingswoodNorth = new GOTBiomeKingswoodNorth(21, true).setClimateType(GOTClimateType.NORMAL).setColor(0x587A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("kingswood");
