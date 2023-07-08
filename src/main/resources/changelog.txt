@@ -2,7 +2,6 @@ CHANGELOG
 
 >>BUILD 23.07.10
 + Added lots of forest biomes
-+ Seasons mechanics divided into server-side (temperature) and client-side (rendering) part.
 + Village generationg chunk selector is a config value now (check for the word "grid")
 + Added fortresses into spawning of essos free cities
 
@@ -31,11 +30,13 @@ CHANGELOG
 * Improved quests
 * Improved code of killing ice creatures (now all spears of needed materials are ok)
 * Increased village spawn
+* Increased ice creatures spawn
 * Reduced chance of baobab plains in dothraki sea
 
 * Optimized structures' code
 * Optimized code of fixed structures
 
++ Fixed bug with seasons mechanics on server-side
 * Fixed bug with mod data generator
 * Fixed bug with Asshai path size
 * Fixed bugs with bandit names

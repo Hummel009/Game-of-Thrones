@@ -768,7 +768,6 @@
     <inspection_tool class="PreviewNeedsComposableAnnotation" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="PreviewNotSupportedInUnitTestFiles" enabled="false" level="ERROR" enabled_by_default="false" />
     <inspection_tool class="PreviewPickerAnnotation" enabled="false" level="ERROR" enabled_by_default="false" />
-    <inspection_tool class="ProblematicWhitespace" enabled="true" level="WARNING" enabled_by_default="true" />
     <inspection_tool class="ProhibitJvmOverloadsOnConstructorsOfAnnotationClassesMigration" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="ProhibitUseSiteTargetAnnotationsOnSuperTypesMigration" enabled="true" level="ERROR" enabled_by_default="true" />
     <inspection_tool class="PsiElementConcatenation" enabled="false" level="WARNING" enabled_by_default="false" />
@@ -1044,6 +1043,8 @@
       <option name="ADD_APPLET_TO_ENTRIES" value="true" />
       <option name="ADD_SERVLET_TO_ENTRIES" value="true" />
       <option name="ADD_NONJAVA_TO_ENTRIES" value="true" />
+      <option name="selected" value="true" />
+      <option name="mixinEntryPoint" value="true" />
     </inspection_tool>
   </profile>
 </component>
