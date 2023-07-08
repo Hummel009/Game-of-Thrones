@@ -723,6 +723,7 @@ public class GOTTickHandlerClient {
 					}
 					ambienceTicker.updateAmbience(world, entityplayer);
 					if (world.getTotalWorldTime() % 20L == 0L) {
+						GOTClimateType.performSeasonalChangesServerSide();
 						GOTClimateType.performSeasonalChangesClientSide();
 					}
 				}

@@ -10,3 +10,6 @@ server/config
 server/ops.json
 server/usercache.json
 server/whitelist.json
+server/mods/*.jar
+server/server.properties
+server/usernamecache.json

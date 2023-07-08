@@ -14,7 +14,6 @@ public enum GOTClimateType {
 		altitudeZone = zone;
 	}
 
-	@SideOnly(Side.CLIENT)
 	public static void performSeasonalChangesClientSide() {
 		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
 			if (biome != null && biome.climateType != null) {

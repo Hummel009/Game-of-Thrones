@@ -206,6 +206,7 @@ public class GOTTickHandlerServer {
 			}
 			if (world.getTotalWorldTime() % 20L == 0L) {
 				GOTClimateType.performSeasonalChangesServerSide();
+				GOTClimateType.performSeasonalChangesClientSide();
 			}
 		}
 	}
