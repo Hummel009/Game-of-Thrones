@@ -40,7 +40,6 @@ public class GOTEntityWight extends GOTEntityHumanBase {
 
 	public GOTEntityWight(World world) {
 		super(world);
-		canBeMarried = false;
 		setSize(0.6f, 1.8f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);

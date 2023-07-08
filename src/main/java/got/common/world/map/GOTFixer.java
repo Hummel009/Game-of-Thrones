@@ -70,8 +70,12 @@ public class GOTFixer {
 		for (GOTWaypoint wp : forts) {
 			new GOTFiveFortsWall(false, wp).generate(world, random, i, 0, k, 0);
 		}
-		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteWood) || GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Winterfell.info(-0.5, 0, 3))) {
-			((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions().generate(world, random, i - 50, world.getTopSolidOrLiquidBlock(i - 50, k), k);
+		GOTWorldGenPartyTrees worldGen = ((GOTWorldGenPartyTrees) GOTTreeType.WEIRWOOD.create(false, random)).disableRestrictions();
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.Winterfell.info(-0.5, 0, 3))) {
+			worldGen.generate(world, random, i - 50, world.getTopSolidOrLiquidBlock(i - 50, k), k);
+		}
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WhiteWood)) {
+			worldGen.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k - 15), k - 15);
 		}
 	}
 
@@ -780,7 +784,7 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.ThreeEyedRavenCave, new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityThreeEyedRaven(world), world, 0, 1, 0);
+				spawnLegendaryNPC(new GOTEntityThreeEyedRaven(world), world, 0, 2, 5);
 			}
 		});
 
@@ -846,7 +850,7 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.WhiteWood, new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBenjenStark(world), world, 0, 1, 5);
+				spawnLegendaryNPC(new GOTEntityBenjenStark(world).setIsRider(true), world, 0, 1, 5);
 			}
 		});
 

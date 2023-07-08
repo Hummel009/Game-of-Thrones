@@ -9,6 +9,7 @@ CHANGELOG
 + Added thaumcraft stand support (no crash)
 + Added LOTR submods support (no crash in GUI) (you still must remove META-INF to enable general compatibility)
 
+* Benjen Stark spawning without horse from spawn egg now
 * Manticores and red scorpions are bigger now
 * Remade all roads from scratch
 
@@ -35,6 +36,7 @@ CHANGELOG
 * Optimized structures' code
 * Optimized code of fixed structures
 
+* Fixed bug with mod data generator
 * Fixed bug with Asshai path size
 * Fixed bugs with bandit names
 * Fixed bugs in english lang file

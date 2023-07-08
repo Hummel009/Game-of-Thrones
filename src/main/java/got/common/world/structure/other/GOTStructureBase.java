@@ -107,8 +107,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		characters.clear();
 	}
 
-	public void disable() {
-		disable = true;
+	public void disable(boolean disable) {
+		this.disable = disable;
 	}
 
 	public void fillChest(World world, Random random, int i, int j, int k, GOTChestContents contents, int amount) {
@@ -1112,7 +1112,10 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			}
 			world.spawnEntityInWorld(entity);
 		} else {
-			characters.add(entity);
+			if (entity instanceof GOTEntityNPC) {
+				((GOTEntityNPC) entity).spawnRidingHorse = false;
+				characters.add(entity);
+			}
 		}
 	}
 

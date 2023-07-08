@@ -1689,12 +1689,13 @@ public class DatabaseGenerator {
 				}
 				for (GOTAbstractWaypoint wp : GOTFixer.structures.keySet()) {
 					GOTStructureBase str = GOTFixer.structures.get(wp);
-					str.disable();
+					str.disable(true);
 					str.generate(world, random, 0, 0, 0);
 					for (EntityCreature entity : GOTFixer.structures.get(wp).characters) {
 						sb.append("\n| ").append(getEntityPagename(entity.getClass())).append(" = ").append(wp.getDisplayName());
 					}
 					str.clear();
+					str.disable(false);
 				}
 				sb.append(END);
 				sb.append("\n</mediawiki>");
