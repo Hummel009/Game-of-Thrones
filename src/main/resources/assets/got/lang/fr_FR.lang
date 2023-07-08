@@ -156,6 +156,9 @@ entity.got.CrownlandsMiner.name=Mineur des Terres de la Couronne
 entity.got.DaarioNaharis.name≠Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name≠Dagmer
+entity.got.DarkSkinBandit.name≠Bandit
+entity.got.DarkSkinScrapTrader.name≠Scrap Trader
+entity.got.DarkSkinThief.name≠Thief
 entity.got.Dart.name=Fléchette
 entity.got.DavenLannister.name≠Daven Lannister
 entity.got.DavosSeaworth.name=Davos Seaworth
@@ -218,9 +221,6 @@ entity.got.EldonEstermont.name≠Eldon Estermont
 entity.got.Elephant.name=Eléphant
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name≠Erik Ironmaker
-entity.got.DarkSkinBandit.name≠Bandit
-entity.got.DarkSkinScrapTrader.name≠Scrap Trader
-entity.got.DarkSkinThief.name≠Thief
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.FallingFireJar.name=Bocal de feu tombant
 entity.got.FallingTreasure.name=Trésor tombant
@@ -390,6 +390,9 @@ entity.got.LhazarMason.name=Maçon de Lhazar
 entity.got.LhazarMiner.name=Mineur de Lhazar
 entity.got.LhazarWarlord.name=Warlord de Lhazar
 entity.got.LhazarWarrior.name=Guerrier de Lhazar
+entity.got.LightSkinBandit.name≠Bandit
+entity.got.LightSkinScrapTrader.name≠Scrap Trader
+entity.got.LightSkinThief.name≠Thief
 entity.got.LingeringEffect.name≠Lingering Effect
 entity.got.LingeringPotion.name≠Lingering Potion
 entity.got.Lion.name=Lion
@@ -837,9 +840,6 @@ entity.got.WesterlandsMason.name=Maçon des Terres de l'Ouest
 entity.got.WesterlandsMiner.name=Marchand de légumes des Terres de l'Ouest
 entity.got.WesterlandsSoldier.name=Guerrier des Terres de l'Ouest
 entity.got.WesterlandsSoldierArcher.name=Guerrier Archer des Terres de l'Ouest
-entity.got.LightSkinBandit.name≠Bandit
-entity.got.LightSkinScrapTrader.name≠Scrap Trader
-entity.got.LightSkinThief.name≠Thief
 entity.got.WhiteBison.name=Bison Blanc
 entity.got.WhiteOryx.name=Oryx blanc
 entity.got.WhiteWalker.name=Marcheur blanc
@@ -3595,6 +3595,8 @@ got.wp.CatfishRock.info=Le château de l'ancienne maison royale de Fischer.
 got.wp.CatfishRock=Poisson-chat Rock
 got.wp.CentralForests.info≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
 got.wp.CentralForests≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
+got.wp.Changan.info≠Big city at the crossroads of important coastal roads. In the time of Azor Ahai, a ritual scroll was kept here with a prophecy of the "Salvation of the Land of the Golden Empire".
+got.wp.Changan≠Changan
 got.wp.Chroyane.info=Dans les temps anciens, c'était la ville prospère de Roinar de Kroyane. Après que Saroi ait été brûlé par les seigneurs dragons, le prince Kroyane nommé Garin a appelé les Rhoynar à s'unir et à combattre les envahisseurs. Hélas, après une série de victoires, des dizaines de seigneurs-dragons sont arrivés de Valyria et le Roynar est tombé. Garin a été amené à Kroyan dans une cage afin qu'il puisse voir comment son peuple a été asservi et la ville incendiée. En désespoir de cause, Garin a maudit les Valyriens - puis les spores d'une maladie grise sont apparues sur Roina ... Maintenant, les victimes de cette maladie sont expulsées ici. Ainsi, la belle ville s'est transformée en une énorme colonie de lépreux.
 got.wp.Chroyane=Chroyane
 got.wp.CiderHall.info=Le château de la maison des Fossoveev de la branche de la pomme rouge.
@@ -3709,6 +3711,8 @@ got.wp.FlintsFinger.info=Le château est l'une des branches de la maison des sil
 got.wp.FlintsFinger=Doigt de silex
 got.wp.FourteenFlames.info=Tout ce qui reste d'une chaîne de montagnes volcaniques avec des mines en dessous. Pendant le rocher de Valyria, les montagnes ont été englouties par la mer, qui a ensuite été nommée Smoky (voir plus à droite).
 got.wp.FourteenFlames=Quatorze flammes
+got.wp.FuNing.info≠Ancient city at the eastern crossroads. In ancient times there was a famous roadside inn where travelers could drink wine and taste lobster stew.
+got.wp.FuNing≠Fu Ning
 got.wp.Gallowsgrey.info=Le château de la maison des Trants, vassaux des Barathéons.
 got.wp.Gallowsgrey=Gallowsgrey
 got.wp.GarnetGrove.info=Château de la maison chevaleresque de Pommingen, vassaux des Tyrell.

@@ -156,6 +156,9 @@ entity.got.CrownlandsMiner.name=Groenteman van de Kroonlanden
 entity.got.DaarioNaharis.name≠Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name≠Dagmer
+entity.got.DarkSkinBandit.name≠Bandit
+entity.got.DarkSkinScrapTrader.name≠Scrap Trader
+entity.got.DarkSkinThief.name≠Thief
 entity.got.Dart.name=Dart
 entity.got.DavenLannister.name≠Daven Lannister
 entity.got.DavosSeaworth.name=Davos Seaworth
@@ -218,9 +221,6 @@ entity.got.EldonEstermont.name≠Eldon Estermont
 entity.got.Elephant.name=Olifant
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name≠Erik Ironmaker
-entity.got.DarkSkinBandit.name≠Bandit
-entity.got.DarkSkinScrapTrader.name≠Scrap Trader
-entity.got.DarkSkinThief.name≠Thief
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.FallingFireJar.name≠Falling Fire Jar
 entity.got.FallingTreasure.name≠Falling Treasure
@@ -390,6 +390,9 @@ entity.got.LhazarMason.name=Lhazar Mason
 entity.got.LhazarMiner.name=Lhazar mijnwerker
 entity.got.LhazarWarlord.name=Lhazar Krijgsheer
 entity.got.LhazarWarrior.name=Lhazar krijger
+entity.got.LightSkinBandit.name≠Bandit
+entity.got.LightSkinScrapTrader.name≠Scrap Trader
+entity.got.LightSkinThief.name≠Thief
 entity.got.LingeringEffect.name≠Lingering Effect
 entity.got.LingeringPotion.name≠Lingering Potion
 entity.got.Lion.name=Leeuw
@@ -837,9 +840,6 @@ entity.got.WesterlandsMason.name=Metselaar van Westlanden
 entity.got.WesterlandsMiner.name=Groenteman van Westlanden
 entity.got.WesterlandsSoldier.name=Strijder van Westlanden
 entity.got.WesterlandsSoldierArcher.name=Krijger Boogschutter van Westlanden
-entity.got.LightSkinBandit.name≠Bandit
-entity.got.LightSkinScrapTrader.name≠Scrap Trader
-entity.got.LightSkinThief.name≠Thief
 entity.got.WhiteBison.name=Witte-White Bison
 entity.got.WhiteOryx.name=Witte Oryx
 entity.got.WhiteWalker.name=White Walker
@@ -3595,6 +3595,8 @@ got.wp.CatfishRock.info=Het kasteel van het voormalige koningshuis van Fischer.
 got.wp.CatfishRock=Meerval Rock
 got.wp.CentralForests.info≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
 got.wp.CentralForests≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
+got.wp.Changan.info≠Big city at the crossroads of important coastal roads. In the time of Azor Ahai, a ritual scroll was kept here with a prophecy of the "Salvation of the Land of the Golden Empire".
+got.wp.Changan≠Changan
 got.wp.Chroyane.info=In de oudheid was het de welvarende Roinar-stad Kroyane. Nadat Saroi was verbrand door de drakenheren, riep Prins Kroyane genaamd Garin de Rhoynar op om zich te verenigen en de indringers te bestrijden. Helaas, na een reeks overwinningen kwamen tientallen drakenheren uit Valyria en de Roynar viel. Garin werd in een kooi naar Kroyan gebracht, zodat hij kon zien hoe zijn volk tot slaaf werd gemaakt en de stad platbrandde. Wanhopig vervloekte Garin de Valyriërs - toen kwamen de sporen van een grijze ziekte boven Roina ... Nu worden de slachtoffers van deze ziekte hier verdreven. Dus de prachtige stad veranderde in een enorme leprakolonie.
 got.wp.Chroyane=Chroyane
 got.wp.CiderHall.info=Het kasteel van het huis van de Fossoveevs uit de tak van de Rode Appel.
@@ -3709,6 +3711,8 @@ got.wp.FlintsFinger.info=Het kasteel is een van de takken van het House van Flin
 got.wp.FlintsFinger=Vuurstenen Vinger
 got.wp.FourteenFlames.info=Dat alles is overgebleven van een keten van vulkanische bergen met mijnen eronder. Tijdens de Rots van Valyria werden de bergen verzwolgen door de zee, die later Smoky werd genoemd (zie meer aan de rechterkant).
 got.wp.FourteenFlames=Veertien vlammen
+got.wp.FuNing.info≠Ancient city at the eastern crossroads. In ancient times there was a famous roadside inn where travelers could drink wine and taste lobster stew.
+got.wp.FuNing≠Fu Ning
 got.wp.Gallowsgrey.info=Het kasteel van het huis van de Trants, vazallen van de Baratheons.
 got.wp.Gallowsgrey=Gallowsgrey
 got.wp.GarnetGrove.info=Kasteel van het ridderlijk huis van Pommingen, vazallen van de Tyrells.

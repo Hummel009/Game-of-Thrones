@@ -156,6 +156,9 @@ entity.got.CrownlandsMiner.name=Sprzedawca warzyw Krainy korony
 entity.got.DaarioNaharis.name= Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name=Dagner
+entity.got.DarkSkinBandit.name≠Bandit
+entity.got.DarkSkinScrapTrader.name≠Scrap Trader
+entity.got.DarkSkinThief.name≠Thief
 entity.got.Dart.name=Strzałka
 entity.got.DavenLannister.name=Daven Lannister
 entity.got.DavosSeaworth.name=Davos Seaworth
@@ -218,9 +221,6 @@ entity.got.EldonEstermont.name=Eldon Estermont
 entity.got.Elephant.name=Słoń
 entity.got.EllaryaSand.name=Ellarya Sand
 entity.got.ErikIronmaker.name=Erik Żelazny
-entity.got.DarkSkinBandit.name≠Bandit
-entity.got.DarkSkinScrapTrader.name≠Scrap Trader
-entity.got.DarkSkinThief.name≠Thief
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.FallingFireJar.name=Dziki ogień
 entity.got.FallingTreasure.name=Obniża się bogactwo
@@ -390,6 +390,9 @@ entity.got.LhazarMason.name=Lhazarski kamieniarz
 entity.got.LhazarMiner.name=Lhazarski Górnik
 entity.got.LhazarWarlord.name=Lhazarski Wódz
 entity.got.LhazarWarrior.name=Lhazarski Wojownik
+entity.got.LightSkinBandit.name≠Bandit
+entity.got.LightSkinScrapTrader.name≠Scrap Trader
+entity.got.LightSkinThief.name≠Thief
 entity.got.LingeringEffect.name=Utrzymujący się Efekt
 entity.got.LingeringPotion.name=Utrzymująca się Mikstura
 entity.got.Lion.name=Lew
@@ -837,9 +840,6 @@ entity.got.WesterlandsMason.name=Murarz Krainy zachodu
 entity.got.WesterlandsMiner.name=Sprzedawca warzyw Krainy zachodu
 entity.got.WesterlandsSoldier.name=Piechur Krainy zachodu
 entity.got.WesterlandsSoldierArcher.name=Łucznik Krainy zachodu
-entity.got.LightSkinBandit.name≠Bandit
-entity.got.LightSkinScrapTrader.name≠Scrap Trader
-entity.got.LightSkinThief.name≠Thief
 entity.got.WhiteBison.name=Bawół Arawa
 entity.got.WhiteOryx.name=Biały oryks
 entity.got.WhiteWalker.name=White Walker
@@ -3595,6 +3595,8 @@ got.wp.CatfishRock.info=Zamek dawnego domu królewskiego Fischera.
 got.wp.CatfishRock=Catfish Rock
 got.wp.CentralForests.info≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
 got.wp.CentralForests≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
+got.wp.Changan.info≠Big city at the crossroads of important coastal roads. In the time of Azor Ahai, a ritual scroll was kept here with a prophecy of the "Salvation of the Land of the Golden Empire".
+got.wp.Changan≠Changan
 got.wp.Chroyane.info=W starożytności było to prosperujące miasto Roinar Kroyane. Po spaleniu Saroi przez smoczych lordów, książę Kroyane o imieniu Garin wezwał Rhoynarów, by zjednoczyli się i walczyli z najeźdźcami. Niestety, po serii zwycięstw, dziesiątki smoków przybyło z Valyrii i Roynar upadli. Garin został zabrany do Kroyana w klatce, aby mógł zobaczyć, jak jego ludzie zostali zniewoleni, a miasto spalone. Zrozpaczony Garin przeklął Valyrian - wtedy nad Roiną pojawiły się zarodniki szarej dolegliwości ... Teraz ofiary tej choroby są wyrzucane tutaj. Tak więc piękne miasto zamieniło się w ogromną kolonię trędowatych.
 got.wp.Chroyane=Chroyane
 got.wp.CiderHall.info=Zamek domu Fossoveevów z gałęzi Czerwonego Jabłka.
@@ -3709,6 +3711,8 @@ got.wp.FlintsFinger.info=Zamek jest jedną z gałęzi Domu Flintów, wasali Star
 got.wp.FlintsFinger=Flints Finger
 got.wp.FourteenFlames.info=Wszystko to pozostaje z łańcucha wulkanicznych gór z kopalniami pod nimi. Podczas Rock Valyria góry zostały pochłonięte przez morze, które później nazwano Smoky (zobacz więcej po prawej).
 got.wp.FourteenFlames=Czternaście płomieni
+got.wp.FuNing.info≠Ancient city at the eastern crossroads. In ancient times there was a famous roadside inn where travelers could drink wine and taste lobster stew.
+got.wp.FuNing≠Fu Ning
 got.wp.Gallowsgrey.info=Zamek domu Trantów, wasali Baratheonów.
 got.wp.Gallowsgrey=Gallowsgrey
 got.wp.GarnetGrove.info=Zamek rycerskiego domu Pommingen, wasali Tyrellów.

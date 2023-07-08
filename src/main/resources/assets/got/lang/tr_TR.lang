@@ -156,6 +156,9 @@ entity.got.CrownlandsMiner.name=Taç Toprakları Manav
 entity.got.DaarioNaharis.name=Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name=Dagmer
+entity.got.DarkSkinBandit.name≠Bandit
+entity.got.DarkSkinScrapTrader.name≠Scrap Trader
+entity.got.DarkSkinThief.name≠Thief
 entity.got.Dart.name=Dart
 entity.got.DavenLannister.name=Daven Lannister
 entity.got.DavosSeaworth.name=Davos Seaworth
@@ -218,9 +221,6 @@ entity.got.EldonEstermont.name=Eldon Estermont
 entity.got.Elephant.name=Fil
 entity.got.EllaryaSand.name=Ellarya Kumu
 entity.got.ErikIronmaker.name=Erik Demircisi
-entity.got.DarkSkinBandit.name≠Bandit
-entity.got.DarkSkinScrapTrader.name≠Scrap Trader
-entity.got.DarkSkinThief.name≠Thief
 entity.got.EuronGreyjoy.name=Euron Greyjoy
 entity.got.FallingFireJar.name=Düşen Ateş Potu
 entity.got.FallingTreasure.name=Düşen Hazine Yığını
@@ -390,6 +390,9 @@ entity.got.LhazarMason.name=Lhazar Duvarcı
 entity.got.LhazarMiner.name=Lhazar Madenci
 entity.got.LhazarWarlord.name=Lhazar Savaş Lordu
 entity.got.LhazarWarrior.name=Lhazar Savaşçı
+entity.got.LightSkinBandit.name≠Bandit
+entity.got.LightSkinScrapTrader.name≠Scrap Trader
+entity.got.LightSkinThief.name≠Thief
 entity.got.LingeringEffect.name=Çökelme Etkisi
 entity.got.LingeringPotion.name=Yerleştirme İksiri
 entity.got.Lion.name=Aslan
@@ -837,9 +840,6 @@ entity.got.WesterlandsMason.name=Batı Toprakları Duvarcı
 entity.got.WesterlandsMiner.name=Batı Toprakları Manav
 entity.got.WesterlandsSoldier.name=Batı Toprakları Savaşçı
 entity.got.WesterlandsSoldierArcher.name=Batı Topraklarının Savaşçı Okçusu
-entity.got.LightSkinBandit.name≠Bandit
-entity.got.LightSkinScrapTrader.name≠Scrap Trader
-entity.got.LightSkinThief.name≠Thief
 entity.got.WhiteBison.name=Beyaz bizon
 entity.got.WhiteOryx.name=Beyaz Antilop
 entity.got.WhiteWalker.name=Ak Yürüteç
@@ -3595,6 +3595,8 @@ got.wp.CatfishRock.info=Fischer'in eski kraliyet evinin kalesi.
 got.wp.CatfishRock=Yayın balığı kaya
 got.wp.CentralForests.info≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
 got.wp.CentralForests≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
+got.wp.Changan.info≠Big city at the crossroads of important coastal roads. In the time of Azor Ahai, a ritual scroll was kept here with a prophecy of the "Salvation of the Land of the Golden Empire".
+got.wp.Changan≠Changan
 got.wp.Chroyane.info=Antik çağda, Kroyane'nin müreffeh Roinar kasabasıydı. Saroi, ejderha lordları tarafından yakıldıktan sonra, Garin adlı Prens Kroyane, Rhoynar'ı birleşmeye ve işgalcilerle savaşmaya çağırdı. Ne yazık ki, bir dizi zaferden sonra Valyria'dan düzinelerce ejderha lordu geldi ve Roynar düştü. Garin, halkının nasıl köleleştirildiğini ve şehrin nasıl yandığını görebilmesi için bir kafeste Kroyan'a getirildi. Çaresizlik içinde Garin, Valyrialıları lanetledi - sonra Roina'nın üzerinde gri bir hastalığın sporları ortaya çıktı ... Şimdi bu hastalığın kurbanları burada kovuldu. Böylece güzel şehir büyük bir cüzzamlı kolonisine dönüştü.
 got.wp.Chroyane=Kroyan
 got.wp.CiderHall.info=Kızıl Elma şubesinden Fossoveevlerin evinin kalesi.
@@ -3709,6 +3711,8 @@ got.wp.FlintsFinger.info=Kale, Starkların vassalları olan Flint Hanedanı'nın
 got.wp.FlintsFinger=çakmaktaşı parmak
 got.wp.FourteenFlames.info=Altında mayın bulunan bir volkanik dağlar zincirinden geriye kalan her şey. Valyria Kayası sırasında, dağlar deniz tarafından yutuldu ve daha sonra Smoky olarak adlandırıldı (sağda daha fazlasını görün).
 got.wp.FourteenFlames=On dört alev
+got.wp.FuNing.info≠Ancient city at the eastern crossroads. In ancient times there was a famous roadside inn where travelers could drink wine and taste lobster stew.
+got.wp.FuNing≠Fu Ning
 got.wp.Gallowsgrey.info=Baratheonların vasalları olan Trantların hanedanının kalesi.
 got.wp.Gallowsgrey=Darağacı grisi
 got.wp.GarnetGrove.info=Pommingen'in şövalye hanesinin kalesi, Tyrell'lerin vassalları.

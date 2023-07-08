@@ -156,6 +156,9 @@ entity.got.CrownlandsMiner.name=Kronlande Gemüsehändler
 entity.got.DaarioNaharis.name≠Daario Naharis
 entity.got.DaenerysTargaryen.name=Daenerys Targaryen
 entity.got.Dagmer.name≠Dagmer
+entity.got.DarkSkinBandit.name≠Bandit
+entity.got.DarkSkinScrapTrader.name≠Scrap Trader
+entity.got.DarkSkinThief.name≠Thief
 entity.got.Dart.name=Pfeil
 entity.got.DavenLannister.name≠Daven Lannister
 entity.got.DavosSeaworth.name=Davos Seewert
@@ -218,9 +221,6 @@ entity.got.EldonEstermont.name≠Eldon Estermont
 entity.got.Elephant.name=Elefant
 entity.got.EllaryaSand.name=Ellaria Sand
 entity.got.ErikIronmaker.name≠Erik Ironmaker
-entity.got.DarkSkinBandit.name≠Bandit
-entity.got.DarkSkinScrapTrader.name≠Scrap Trader
-entity.got.DarkSkinThief.name≠Thief
 entity.got.EuronGreyjoy.name=Euron Graufreud
 entity.got.FallingFireJar.name≠Falling Fire Jar
 entity.got.FallingTreasure.name≠Falling Treasure
@@ -390,6 +390,9 @@ entity.got.LhazarMason.name=Lhazar Mason
 entity.got.LhazarMiner.name=Lhazar Bergmann
 entity.got.LhazarWarlord.name=Lhazar Kriegsherr
 entity.got.LhazarWarrior.name=Lhazar Krieger
+entity.got.LightSkinBandit.name≠Bandit
+entity.got.LightSkinScrapTrader.name≠Scrap Trader
+entity.got.LightSkinThief.name≠Thief
 entity.got.LingeringEffect.name≠Lingering Effect
 entity.got.LingeringPotion.name≠Lingering Potion
 entity.got.Lion.name=Löwe
@@ -837,9 +840,6 @@ entity.got.WesterlandsMason.name=Westlande Steinmetz
 entity.got.WesterlandsMiner.name=Westlande Gemüsehändler
 entity.got.WesterlandsSoldier.name=Westlande Krieger
 entity.got.WesterlandsSoldierArcher.name=Westlande Krieger-Bogenschütze
-entity.got.LightSkinBandit.name≠Bandit
-entity.got.LightSkinScrapTrader.name≠Scrap Trader
-entity.got.LightSkinThief.name≠Thief
 entity.got.WhiteBison.name=Weißer Bison
 entity.got.WhiteOryx.name=Weißer Oryx
 entity.got.WhiteWalker.name=Weißer Wanderer
@@ -3595,6 +3595,8 @@ got.wp.CatfishRock.info=Schloss des ehemaligen Königshauses von Fisher.
 got.wp.CatfishRock=Somius Rock
 got.wp.CentralForests.info≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
 got.wp.CentralForests≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
+got.wp.Changan.info≠Big city at the crossroads of important coastal roads. In the time of Azor Ahai, a ritual scroll was kept here with a prophecy of the "Salvation of the Land of the Golden Empire".
+got.wp.Changan≠Changan
 got.wp.Chroyane.info=Früher war es die blühende Roinar-Stadt Kroyane. Nachdem Saroi von den Drachenlords verbrannt worden war, forderte der Prinz der Kroyane, Garin, die Rhoynar auf, die Invasoren zu vereinen und zu bekämpfen. Leider kamen nach einer Reihe von Siegen Dutzende Drachenlords aus Valyria, und die Roynar fielen. Garin wurde in einem Käfig nach Kroyan gebracht, damit er sehen konnte, wie seine Leute versklavt und die Stadt niedergebrannt wurden. In seiner Verzweiflung verfluchte Garin die Valyrians - dann entstanden die Sporen einer grauen Krankheit über Roina ... Jetzt werden die Opfer dieser Krankheit hier vertrieben. So verwandelte sich die schöne Stadt in eine riesige Leprakolonie.
 got.wp.Chroyane=Kroyane
 got.wp.CiderHall.info=Haus von Fossovey Schloss von des Haueses der Rot-Apfäl-Äste.
@@ -3709,6 +3711,8 @@ got.wp.FlintsFinger.info=Die Burg eines der Zweige des Hauses der Feuersteine, V
 got.wp.FlintsFinger=Feuersteinfinger
 got.wp.FourteenFlames.info=Alles, was von einer Kette von Vulkanbergen mit Minen darunter übrig bleibt. Während des Felsens von Valyria wurden die Berge vom Meer verschluckt, das später Smoky genannt wurde (siehe rechts).
 got.wp.FourteenFlames=Vierzehn Lichter
+got.wp.FuNing.info≠Ancient city at the eastern crossroads. In ancient times there was a famous roadside inn where travelers could drink wine and taste lobster stew.
+got.wp.FuNing≠Fu Ning
 got.wp.Gallowsgrey.info=Die Burg des Hauses der Trants, Vasallen der Baratheons.
 got.wp.Gallowsgrey=Grauer Galgen
 got.wp.GarnetGrove.info=Schloss des Ritterhauses Pommingen, Vasallen der Tyrellen.

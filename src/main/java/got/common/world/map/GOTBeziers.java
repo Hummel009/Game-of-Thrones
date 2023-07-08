@@ -288,10 +288,8 @@ public class GOTBeziers {
 
 		/* FAR ESSOS */
 		double[] underJungleCrossroadsHalfway = new double[]{3235, 2406};
-		double[] underJungleCrossroads = new double[]{3215, 2347};
 		double[] asshaiCrossroadsHalfway = new double[]{3674, 2408};
 		double[] asshaiCrossroads = new double[]{3729, 2423};
-		double[] yiTiCrossroads = new double[]{3642, 2265};
 
 		registerRoad(id++, GOTWaypoint.FiveForts1, GOTWaypoint.FiveForts2);
 		registerRoad(id++, GOTWaypoint.FiveForts2, GOTWaypoint.FiveForts3);
@@ -300,9 +298,9 @@ public class GOTBeziers {
 		registerRoad(id++, qarthYiTiAfterMount, new double[]{3092, 2210}, new double[]{3098, 2164}, GOTWaypoint.Eijiang);
 		registerRoad(id++, qarthYiTiAfterMount, new double[]{3083, 2244}, new double[]{3086, 2255}, GOTWaypoint.Asabhad);
 		registerRoad(id++, GOTWaypoint.Eijiang, new double[]{3130, 2131}, new double[]{3133, 2100}, GOTWaypoint.Bayasabhad);
-		registerRoad(id++, underJungleCrossroads, new double[]{3212, 2373}, new double[]{3223, 2391}, new double[]{3235, 2406}, new double[]{3256, 2425}, new double[]{3277, 2438}, GOTWaypoint.Yin);
-		registerRoad(id++, underJungleCrossroads, new double[]{3180, 2355}, new double[]{3158, 2330}, new double[]{3132, 2316}, new double[]{3111, 2299}, new double[]{3100, 2270}, GOTWaypoint.Asabhad);
-		registerRoad(id++, GOTWaypoint.SiQo, new double[]{3259, 2291}, new double[]{3227, 2311}, underJungleCrossroads);
+		registerRoad(id++, GOTWaypoint.Changan, new double[]{3212, 2373}, new double[]{3223, 2391}, new double[]{3235, 2406}, new double[]{3256, 2425}, new double[]{3277, 2438}, GOTWaypoint.Yin);
+		registerRoad(id++, GOTWaypoint.Changan, new double[]{3180, 2355}, new double[]{3158, 2330}, new double[]{3132, 2316}, new double[]{3111, 2299}, new double[]{3100, 2270}, GOTWaypoint.Asabhad);
+		registerRoad(id++, GOTWaypoint.SiQo, new double[]{3259, 2291}, new double[]{3227, 2311}, GOTWaypoint.Changan);
 		registerRoad(id++, asshaiCrossroads, new double[]{3757, 2401}, new double[]{3783, 2361}, GOTWaypoint.Yunnan);
 		registerRoad(id++, asshaiCrossroadsHalfway, new double[]{3695, 2420}, asshaiCrossroads, new double[]{3762, 2448}, new double[]{3791, 2494}, new double[]{3807, 2552}, new double[]{3811, 2608}, new double[]{3803, 2687}, new double[]{3770, 2754}, GOTWaypoint.Asshai);
 		registerRoad(id++, GOTWaypoint.Jinqi, new double[]{3630, 2391}, new double[]{3658, 2398}, asshaiCrossroadsHalfway);
@@ -315,9 +313,9 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.Vaibei, new double[]{3553, 2008}, new double[]{3578, 2068}, GOTWaypoint.Yibin);
 		registerRoad(id++, GOTWaypoint.Yibin, new double[]{3732, 2071}, new double[]{3811, 2011}, GOTWaypoint.FiveForts5);
 		registerRoad(id++, GOTWaypoint.Yibin, new double[]{3650, 2108}, new double[]{3663, 2125}, GOTWaypoint.Lizhao);
-		registerRoad(id++, GOTWaypoint.Lizhao, new double[]{3672, 2184}, new double[]{3663, 2220}, yiTiCrossroads);
-		registerRoad(id++, yiTiCrossroads, new double[]{3623, 2308}, new double[]{3620, 2341}, GOTWaypoint.Jinqi);
-		registerRoad(id++, yiTiCrossroads, new double[]{3595, 2246}, new double[]{3561, 2222}, GOTWaypoint.Baoji);
+		registerRoad(id++, GOTWaypoint.Lizhao, new double[]{3672, 2184}, new double[]{3663, 2220}, GOTWaypoint.FuNing);
+		registerRoad(id++, GOTWaypoint.FuNing, new double[]{3623, 2308}, new double[]{3620, 2341}, GOTWaypoint.Jinqi);
+		registerRoad(id++, GOTWaypoint.FuNing, new double[]{3595, 2246}, new double[]{3561, 2222}, GOTWaypoint.Baoji);
 		registerRoad(id++, GOTWaypoint.Baoji, new double[]{3481, 2212}, new double[]{3458, 2206}, GOTWaypoint.Manjin);
 		registerRoad(id++, GOTWaypoint.Tiqui, new double[]{3390, 2123}, new double[]{3432, 2160}, GOTWaypoint.Manjin);
 
@@ -442,6 +440,8 @@ public class GOTBeziers {
 		registerHiddenRoad(id++, GOTWaypoint.Manjin, GOTWaypoint.Manjin.info(yitiTown1p0 + 0.1, -0.2));
 		registerHiddenRoad(id++, GOTWaypoint.Lizhao, GOTWaypoint.Lizhao.info(yitiTown1p0, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Tiqui, GOTWaypoint.Tiqui.info(0, -yitiTown1p0));
+		registerHiddenRoad(id++, GOTWaypoint.Changan, GOTWaypoint.Changan.info(yitiTown1p0, 0));
+		registerHiddenRoad(id++, GOTWaypoint.FuNing, GOTWaypoint.FuNing.info(yitiTown1p0 + 0.1, 0.1));
 	}
 
 	public static void registerHiddenRoad(int id, Object... waypoints) {
