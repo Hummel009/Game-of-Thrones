@@ -18,7 +18,7 @@ public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 		super(i, major);
 		decorator.treesPerChunk = 1;
 		decorator.clearSettlements();
-		decorator.addSettlement(new GOTStructureGhiscarSettlement(this, 1.0f).setIsColony());
+		decorator.addSettlement(new GOTStructureGhiscarSettlement(this, 1.0f).type(GOTStructureGhiscarSettlement.Type.COLONY, 5));
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);

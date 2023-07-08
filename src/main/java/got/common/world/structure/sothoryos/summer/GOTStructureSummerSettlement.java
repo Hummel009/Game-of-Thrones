@@ -13,7 +13,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
-	public boolean isRuinedSettlement;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureSummerSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -24,25 +25,29 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureSummerSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureSummerSettlement setIsRuined() {
-		isRuinedSettlement = true;
-		settlementChunkRadius = 4;
-		fixedSettlementChunkRadius = 4;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
 	public enum Type {
-		VILLAGE, FORT
+		VILLAGE, FORT, RUINED_VILLAGE
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureSummerSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureSummerSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureSummerSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureSummerSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -54,6 +59,57 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 				case FORT:
 					setupFortress(random);
 					break;
+				case RUINED_VILLAGE:
+					setupRuinedVillage(random);
+					break;
+			}
+		}
+
+		private void setupRuinedVillage(Random random) {
+			addStructure(new GOTStructureSummerTavernRuined(false), 3, -7, 0, true);
+			float frac = 1.0f / 8;
+			float turn = 0.0f;
+			while (turn < 1.0f) {
+				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
+				float sin = MathHelper.sin(turnR);
+				float cos = MathHelper.cos(turnR);
+				int r = 0;
+				float turn8 = turn * 8.0f;
+				if (turn8 >= 3.0f && turn8 < 5.0f) {
+					r = 1;
+				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
+					r = 2;
+				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
+					r = 3;
+				}
+				int l = 25;
+				int i = Math.round(l * cos);
+				int k = Math.round(l * sin);
+				if (k < 0 && Math.abs(i) < 10) {
+					continue;
+				}
+				addStructure(new GOTStructureSummerHouseRuined(false), i, k, r);
+			}
+			int rSq = 3721;
+			int rMax = 62;
+			int rSqMax = rMax * rMax;
+			for (int i = -61; i <= 61; ++i) {
+				for (int k = -61; k <= 61; ++k) {
+					int dSq;
+					GOTStructureSummerPalisade palisade;
+					int i1 = Math.abs(i);
+					if (i1 <= 4 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
+						continue;
+					}
+					if (random.nextBoolean()) {
+						continue;
+					}
+					palisade = new GOTStructureSummerPalisadeRuined(false);
+					if (i1 == 5 && k < 0) {
+						palisade.setTall();
+					}
+					addStructure(palisade, i, k, 0);
+				}
 			}
 		}
 
@@ -61,7 +117,18 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
 			if (type == Type.VILLAGE) {
-				if (isRuinedSettlement && random.nextInt(4) == 0) {
+				int dSq = i * i + k * k;
+				int imn = 17 - random.nextInt(3);
+				int imx = 22 + random.nextInt(3);
+				if (dSq > imn * imn && dSq < imx * imx) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+				if (k <= -imx && k >= -66 && i1 < 2 + random.nextInt(3)) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+			}
+			if (type == Type.RUINED_VILLAGE) {
+				if (random.nextInt(4) == 0) {
 					return null;
 				}
 				int dSq = i * i + k * k;
@@ -78,9 +145,6 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 		}
 
 		public GOTStructureBase getRandomHouse(Random random) {
-			if (isRuinedSettlement) {
-				return new GOTStructureSummerHouseRuined(false);
-			}
 			if (random.nextInt(5) == 0) {
 				return new GOTStructureSummerSmithy(false);
 			}
@@ -138,39 +202,37 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
 			}
 		}
 
 		public void setupVillage(Random random) {
-			if (!isRuinedSettlement) {
-				addStructure(new GOTStructureNPCRespawner(false) {
+			addStructure(new GOTStructureNPCRespawner(false) {
 
-					@Override
-					public void setupRespawner(GOTEntityNPCRespawner spawner) {
-						spawner.setSpawnClass(GOTEntitySummerMan.class);
-						spawner.setCheckRanges(64, -12, 12, 24);
-						spawner.setSpawnRanges(32, -6, 6, 32);
-						spawner.setBlockEnemySpawnRange(64);
-					}
-				}, 0, 0, 0);
-				addStructure(new GOTStructureNPCRespawner(false) {
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClass(GOTEntitySummerMan.class);
+					spawner.setCheckRanges(64, -12, 12, 24);
+					spawner.setSpawnRanges(32, -6, 6, 32);
+					spawner.setBlockEnemySpawnRange(64);
+				}
+			}, 0, 0, 0);
+			addStructure(new GOTStructureNPCRespawner(false) {
 
-					@Override
-					public void setupRespawner(GOTEntityNPCRespawner spawner) {
-						spawner.setSpawnClasses(GOTEntitySummerWarrior.class, GOTEntitySummerArcher.class);
-						spawner.setCheckRanges(64, -12, 12, 12);
-						spawner.setSpawnRanges(32, -6, 6, 32);
-						spawner.setBlockEnemySpawnRange(64);
-					}
-				}, 0, 0, 0);
-			}
-			if (isRuinedSettlement) {
-				addStructure(new GOTStructureSummerTavernRuined(false), 3, -7, 0, true);
-			} else if (random.nextBoolean()) {
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClasses(GOTEntitySummerWarrior.class, GOTEntitySummerArcher.class);
+					spawner.setCheckRanges(64, -12, 12, 12);
+					spawner.setSpawnRanges(32, -6, 6, 32);
+					spawner.setBlockEnemySpawnRange(64);
+				}
+			}, 0, 0, 0);
+			if (random.nextBoolean()) {
 				addStructure(new GOTStructureSummerMarket(false), 0, -8, 0, true);
 			} else {
 				addStructure(new GOTStructureSummerTavern(false), 3, -7, 0, true);
@@ -198,43 +260,39 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 				}
 				addStructure(getRandomHouse(random), i, k, r);
 			}
-			if (!isRuinedSettlement) {
-				int numFarms = 8 * 2;
-				frac = 1.0f / numFarms;
-				turn = 0.0f;
-				while (turn < 1.0f) {
-					float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
-					float sin = MathHelper.sin(turnR);
-					float cos = MathHelper.cos(turnR);
-					int r = 0;
-					float turn8 = turn * 8.0f;
-					if (turn8 >= 3.0f && turn8 < 5.0f) {
-						r = 1;
-					} else if (turn8 >= 5.0f && turn8 < 7.0f) {
-						r = 2;
-					} else if (turn8 >= 7.0f || turn8 < 1.0f) {
-						r = 3;
-					}
-					int l = 45;
-					int i = Math.round(l * cos);
-					int k = Math.round(l * sin);
-					if (k < 0 && Math.abs(i) < 10) {
-						continue;
-					}
-					if (random.nextInt(3) == 0) {
-						addStructure(new GOTStructureHayBales(false), i, k, r);
-						continue;
-					}
-					if (random.nextInt(3) == 0) {
-						addStructure(new GOTStructureSummerPasture(false), i, k, r);
-						continue;
-					}
-					addStructure(new GOTStructureSummerFarm(false), i, k, r);
+			int numFarms = 8 * 2;
+			frac = 1.0f / numFarms;
+			turn = 0.0f;
+			while (turn < 1.0f) {
+				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
+				float sin = MathHelper.sin(turnR);
+				float cos = MathHelper.cos(turnR);
+				int r = 0;
+				float turn8 = turn * 8.0f;
+				if (turn8 >= 3.0f && turn8 < 5.0f) {
+					r = 1;
+				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
+					r = 2;
+				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
+					r = 3;
 				}
+				int l = 45;
+				int i = Math.round(l * cos);
+				int k = Math.round(l * sin);
+				if (k < 0 && Math.abs(i) < 10) {
+					continue;
+				}
+				if (random.nextInt(3) == 0) {
+					addStructure(new GOTStructureHayBales(false), i, k, r);
+					continue;
+				}
+				if (random.nextInt(3) == 0) {
+					addStructure(new GOTStructureSummerPasture(false), i, k, r);
+					continue;
+				}
+				addStructure(new GOTStructureSummerFarm(false), i, k, r);
 			}
-			if (!isRuinedSettlement) {
-				addStructure(new GOTStructureSummerVillageSign(false), 5 * (random.nextBoolean() ? 1 : -1), -56, 0, true);
-			}
+			addStructure(new GOTStructureSummerVillageSign(false), 5 * (random.nextBoolean() ? 1 : -1), -56, 0, true);
 			int rSq = 3721;
 			int rMax = 62;
 			int rSqMax = rMax * rMax;
@@ -246,14 +304,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 					if (i1 <= 4 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
 						continue;
 					}
-					if (isRuinedSettlement) {
-						if (random.nextBoolean()) {
-							continue;
-						}
-						palisade = new GOTStructureSummerPalisadeRuined(false);
-					} else {
-						palisade = new GOTStructureSummerPalisade(false);
-					}
+					palisade = new GOTStructureSummerPalisade(false);
 					if (i1 == 5 && k < 0) {
 						palisade.setTall();
 					}

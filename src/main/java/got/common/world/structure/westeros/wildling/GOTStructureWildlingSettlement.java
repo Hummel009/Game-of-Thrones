@@ -24,9 +24,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
-	public boolean isHardhome;
-	public boolean isCraster;
-	public boolean isThenn;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureWildlingSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -37,27 +36,14 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureWildlingSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureWildlingSettlement setIsCraster() {
-		isCraster = true;
-		settlementChunkRadius = 1;
-		fixedSettlementChunkRadius = 1;
-		return this;
-	}
-
-	public GOTStructureWildlingSettlement setIsHardhome() {
-		isHardhome = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
-		return this;
-	}
-
-	public GOTStructureWildlingSettlement setIsThenn() {
-		isThenn = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
@@ -65,11 +51,14 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 		VILLAGE, HARDHOME, CRASTER, THENN
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureWildlingSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureWildlingSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureWildlingSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureWildlingSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -202,13 +191,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isHardhome) {
-				type = Type.HARDHOME;
-			} else if (isCraster) {
-				type = Type.CRASTER;
-			} else if (isThenn) {
-				type = Type.THENN;
-			} else {
+			if (!forcedType) {
 				type = Type.VILLAGE;
 			}
 		}

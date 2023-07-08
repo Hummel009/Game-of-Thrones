@@ -18,9 +18,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
-	public boolean isTown;
-	public boolean isColony;
-	public boolean isPyramid;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureGhiscarSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -31,39 +30,29 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureGhiscarSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureGhiscarSettlement setIsColony() {
-		isColony = true;
-		settlementChunkRadius = 5;
-		fixedSettlementChunkRadius = 5;
-		return this;
-	}
-
-	public GOTStructureGhiscarSettlement setIsPyramid() {
-		isPyramid = true;
-		settlementChunkRadius = 4;
-		fixedSettlementChunkRadius = 4;
-		return this;
-	}
-
-	public GOTStructureGhiscarSettlement setIsTown() {
-		isTown = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
 	public enum Type {
-		VILLAGE, TOWN, FORT, PYRAMID
+		VILLAGE, TOWN, FORT, PYRAMID, COLONY
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureGhiscarSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureGhiscarSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureGhiscarSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureGhiscarSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -79,6 +68,7 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 					setupTown(random);
 					break;
 				case FORT:
+				case COLONY:
 					setupFort(random);
 					break;
 			}
@@ -121,22 +111,26 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 				}
 			} else if (type == Type.TOWN && i1 <= 72 && k1 <= 42) {
 				return GOTBezierType.PATH_SANDY;
-			} else if (type == Type.FORT) {
-				GOTBezierType type = GOTBezierType.PATH_SANDY;
-				if (isColony) {
-					type = GOTBezierType.PATH_DIRTY;
+			} else {
+				GOTBezierType rType = null;
+				if (type == Type.FORT) {
+					rType = GOTBezierType.PATH_SANDY;
+				} else if (type == Type.COLONY) {
+					rType = GOTBezierType.PATH_DIRTY;
 				}
-				if (i1 <= 3 && k >= -45 && k <= -15) {
-					return type;
-				}
-				if (i1 <= 36 && k >= -27 && k <= -20) {
-					return type;
-				}
-				if (i1 >= 29 && i1 <= 36 && k >= -27 && k <= 39 && (k < -7 || k > 7)) {
-					return type;
-				}
-				if (i1 <= 36 && k >= 20 && k <= 27) {
-					return type;
+				if (type == Type.FORT || type == Type.COLONY) {
+					if (i1 <= 3 && k >= -45 && k <= -15) {
+						return rType;
+					}
+					if (i1 <= 36 && k >= -27 && k <= -20) {
+						return rType;
+					}
+					if (i1 >= 29 && i1 <= 36 && k >= -27 && k <= 39 && (k < -7 || k > 7)) {
+						return rType;
+					}
+					if (i1 <= 36 && k >= 20 && k <= 27) {
+						return rType;
+					}
 				}
 			}
 			return null;
@@ -259,14 +253,12 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isPyramid) {
-				type = Type.PYRAMID;
-			} else if (isTown) {
-				type = Type.TOWN;
-			} else if (isColony || random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
 			}
 		}
 

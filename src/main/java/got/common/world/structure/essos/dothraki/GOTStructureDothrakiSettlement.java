@@ -14,7 +14,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
-	public boolean isBig;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureDothrakiSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -25,13 +26,14 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureDothrakiSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureDothrakiSettlement setIsBig() {
-		isBig = true;
-		settlementChunkRadius = 5;
-		fixedSettlementChunkRadius = 5;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
@@ -39,17 +41,21 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 		SMALL, BIG
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureDothrakiSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureDothrakiSettlement> {
 		public Type type;
+		public boolean forcedType;
 		public int numOuterHouses;
 
-		public Instance(GOTStructureDothrakiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureDothrakiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
 		public void addSettlementStructures(Random random) {
 			if (type == Type.SMALL) {
+				numOuterHouses = 6;
 				addStructure(new GOTStructureNPCRespawner(false) {
 
 					@Override
@@ -72,6 +78,7 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 				}, 0, 0, 0);
 				addStructure(new GOTStructureDothrakiTentLarge(false), 0, -8, 0, true);
 			} else if (type == Type.BIG) {
+				numOuterHouses = 13;
 				addStructure(new GOTStructureNPCRespawner(false) {
 
 					@Override
@@ -138,15 +145,12 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isBig) {
-				type = Type.BIG;
-				numOuterHouses = 13;
-			} else if (random.nextInt(3) == 0) {
-				type = Type.BIG;
-				numOuterHouses = MathHelper.getRandomIntegerInRange(random, 8, 14);
-			} else {
-				type = Type.SMALL;
-				numOuterHouses = MathHelper.getRandomIntegerInRange(random, 4, 7);
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.BIG;
+				} else {
+					type = Type.SMALL;
+				}
 			}
 		}
 	}

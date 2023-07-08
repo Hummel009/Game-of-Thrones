@@ -14,9 +14,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlement {
-	public boolean isTown;
-	public boolean isCastle;
-	public boolean isVillage;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureWesterlandsSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -27,27 +26,14 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureWesterlandsSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureWesterlandsSettlement setIsCastle() {
-		isCastle = true;
-		settlementChunkRadius = 3;
-		fixedSettlementChunkRadius = 3;
-		return this;
-	}
-
-	public GOTStructureWesterlandsSettlement setIsTown() {
-		isTown = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
-		return this;
-	}
-
-	public GOTStructureBaseSettlement setIsVillage() {
-		isVillage = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
@@ -55,11 +41,14 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 		VILLAGE, TOWN, FORT
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureWesterlandsSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureWesterlandsSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureWesterlandsSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureWesterlandsSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -196,14 +185,12 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (isCastle) {
-				type = Type.FORT;
-			} else if (!isVillage || random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
 			}
 		}
 

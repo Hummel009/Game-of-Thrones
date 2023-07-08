@@ -1,5 +1,7 @@
 package got.common.entity.animal;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
@@ -24,7 +26,7 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 	protected GOTEntityScorpionSmall(World world) {
 		super(world);
 		canBeMarried = false;
-		setSize(1.2f * 0.2f, 0.9f * 0.2f);
+		setSize(1.2f * 0.5f, 0.9f * 0.5f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
 		getNavigator().setCanSwim(false);
@@ -35,6 +37,11 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 		tasks.addTask(4, new EntityAIWatchClosest2(this, GOTEntityNPC.class, 5.0f, 0.02f));
 		spawnsInDarkness = true;
 		isNotHuman = true;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public float getShadowSize() {
+		return 0.0F;
 	}
 
 	@Override

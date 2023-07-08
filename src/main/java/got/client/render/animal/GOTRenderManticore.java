@@ -38,6 +38,6 @@ public class GOTRenderManticore extends RenderLiving {
 	@Override
 	public void preRenderCallback(EntityLivingBase entity, float f) {
 		super.preRenderCallback(entity, f);
-		GL11.glScalef(0.2f, 0.2f, 0.2f);
+		GL11.glScalef(0.5f, 0.5f, 0.5f);
 	}
 }

@@ -39,7 +39,7 @@ public class GOTBiomeSothoryosMangrove extends GOTBiomeSothoryosJungle {
 		decorator.addTree(GOTTreeType.MANGO, 20);
 		decorator.addTree(GOTTreeType.BANANA, 50);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 

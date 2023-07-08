@@ -524,7 +524,7 @@ public class GOTStructure {
 
 		GOTStructureRegistry.register(id++, new GOTStructureSummerSettlement(GOTBiome.summerIslands, 1.0f), "SummerVillage", GOTFaction.SUMMER_ISLANDS, (ISettlementProperties<GOTStructureSummerSettlement.Instance>) instance -> instance.type = GOTStructureSummerSettlement.Type.VILLAGE);
 		GOTStructureRegistry.register(id++, new GOTStructureSummerSettlement(GOTBiome.summerIslands, 1.0f), "SummerFortVillage", GOTFaction.SUMMER_ISLANDS, (ISettlementProperties<GOTStructureSummerSettlement.Instance>) instance -> instance.type = GOTStructureSummerSettlement.Type.FORT);
-		GOTStructureRegistry.register(id++, new GOTStructureSummerSettlement(GOTBiome.summerIslands, 1.0f).setIsRuined(), "SummerVillageRuined", GOTFaction.SUMMER_ISLANDS, (ISettlementProperties<GOTStructureSummerSettlement.Instance>) instance -> instance.type = GOTStructureSummerSettlement.Type.VILLAGE);
+		GOTStructureRegistry.register(id++, new GOTStructureSummerSettlement(GOTBiome.summerIslands, 1.0f), "SummerVillageRuined", GOTFaction.SUMMER_ISLANDS, (ISettlementProperties<GOTStructureSummerSettlement.Instance>) instance -> instance.type = GOTStructureSummerSettlement.Type.RUINED_VILLAGE);
 
 		GOTStructureRegistry.register(id++, new GOTStructureSothoryosSettlement(GOTBiome.sothoryosJungle, 1.0f), "SothoryosVillage", GOTFaction.SOTHORYOS, (ISettlementProperties<Instance>) instance -> {
 		});

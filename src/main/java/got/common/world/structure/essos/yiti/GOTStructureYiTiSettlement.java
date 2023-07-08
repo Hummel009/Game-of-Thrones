@@ -14,10 +14,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
-	public boolean isTown;
-	public boolean isTower;
-	public boolean isWall;
-	public boolean side;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureYiTiSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -28,40 +26,29 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureYiTiSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureYiTiSettlement setIsTower() {
-		isTower = true;
-		settlementChunkRadius = 9;
-		fixedSettlementChunkRadius = 9;
-		return this;
-	}
-
-	public GOTStructureYiTiSettlement setIsTown() {
-		isTown = true;
-		settlementChunkRadius = 7;
-		fixedSettlementChunkRadius = 7;
-		return this;
-	}
-
-	public GOTStructureYiTiSettlement setIsWall(boolean b) {
-		isWall = true;
-		side = b;
-		settlementChunkRadius = 2;
-		fixedSettlementChunkRadius = 2;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
 	public enum Type {
-		VILLAGE, TOWN, FORT, TOWER, WALL
+		VILLAGE, TOWN, FORT, TOWER, GATE, GATE_ROAD
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureYiTiSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureYiTiSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureYiTiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureYiTiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -76,8 +63,11 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 				case FORT:
 					setupFort(random);
 					break;
-				case WALL:
+				case GATE:
 					setupGate(random);
+					break;
+				case GATE_ROAD:
+					setupGateRoad(random);
 					break;
 				case TOWER:
 					addStructure(new GOTStructureYiTiLighthouse(), 10, -10, 2, true);
@@ -229,26 +219,23 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 		}
 
 		public void setupGate(Random random) {
-			if (side) {
-				addStructure(new GOTStructureYiTiFortress(false), -4, 25, 1, true);
-			} else {
-				addStructure(new GOTStructureYiTiFortress(false), 0, 20, 0, true);
-			}
+			addStructure(new GOTStructureYiTiFortress(false), 0, 20, 0, true);
+			addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
+		}
+
+		public void setupGateRoad(Random random) {
+			addStructure(new GOTStructureYiTiFortress(false), -4, 25, 1, true);
 			addStructure(new GOTStructureYiTiGate(false), 0, 7, 0, true);
 		}
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (isTower) {
-				type = Type.TOWER;
-			} else if (isWall) {
-				type = Type.WALL;
-			} else if (random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
 			}
 		}
 

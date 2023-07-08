@@ -9,7 +9,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement {
-	public boolean isPyramid;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureSothoryosSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -20,13 +21,14 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureSothoryosSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureSothoryosSettlement setIsPyramid() {
-		isPyramid = true;
-		settlementChunkRadius = 3;
-		fixedSettlementChunkRadius = 3;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
@@ -36,9 +38,12 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 
 	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureSothoryosSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureSothoryosSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureSothoryosSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -65,9 +70,7 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isPyramid) {
-				type = Type.PYRAMID;
-			} else {
+			if (!forcedType) {
 				type = Type.VILLAGE;
 			}
 		}

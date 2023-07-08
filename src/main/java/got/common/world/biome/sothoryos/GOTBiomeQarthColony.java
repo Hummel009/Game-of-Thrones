@@ -17,7 +17,7 @@ public class GOTBiomeQarthColony extends GOTBiomeSothoryosSavannah {
 	public GOTBiomeQarthColony(int i, boolean major) {
 		super(i, major);
 		decorator.clearSettlements();
-		decorator.addSettlement(new GOTStructureQarthSettlement(this, 1.0f).setIsCastle());
+		decorator.addSettlement(new GOTStructureQarthSettlement(this, 1.0f).type(GOTStructureQarthSettlement.Type.FORT, 5));
 		decorator.addStructure(new GOTStructureRuinedHouse(false), 2000);
 		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);

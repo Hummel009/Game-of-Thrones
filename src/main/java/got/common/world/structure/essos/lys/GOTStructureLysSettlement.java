@@ -17,7 +17,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureLysSettlement extends GOTStructureBaseSettlement {
-	public boolean isTown;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureLysSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -28,13 +29,14 @@ public class GOTStructureLysSettlement extends GOTStructureBaseSettlement {
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureLysSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureLysSettlement setIsTown() {
-		isTown = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
@@ -42,11 +44,14 @@ public class GOTStructureLysSettlement extends GOTStructureBaseSettlement {
 		VILLAGE, TOWN, FORT
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureLysSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureLysSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureLysSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureLysSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -235,12 +240,12 @@ public class GOTStructureLysSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
 			}
 		}
 

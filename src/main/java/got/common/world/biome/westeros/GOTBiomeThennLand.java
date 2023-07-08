@@ -21,7 +21,7 @@ public class GOTBiomeThennLand extends GOTBiomeHauntedForest {
 		decorator.treesPerChunk = 2;
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.FOTINIA, 20);
-		decorator.addSettlement(new GOTStructureWildlingSettlement(this, 1.0f).setIsThenn());
+		decorator.addSettlement(new GOTStructureWildlingSettlement(this, 1.0f).type(GOTStructureWildlingSettlement.Type.THENN, 6));
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_THENN, 10).setSpawnChance(GOTBiome.SPAWN));

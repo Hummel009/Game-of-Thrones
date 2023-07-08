@@ -32,7 +32,7 @@ public class GOTBiomeNeck extends GOTBiomeWesteros {
 		decorator.addTree(GOTTreeType.WILLOW, 90);
 		decorator.addTree(GOTTreeType.WILLOW_WATER, 10);
 		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
-		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
+		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
 

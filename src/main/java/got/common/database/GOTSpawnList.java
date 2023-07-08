@@ -411,9 +411,9 @@ public class GOTSpawnList {
 		YITI_CONQUEST_L.add(new GOTSpawnEntry(GOTEntityYiTiSamurai.class, 2, 1, 2));
 		YITI_MILITARY_L.add(new GOTSpawnEntry(GOTEntityYiTiBombardier.class, 2, 1, 1));
 		YITI_MILITARY_L.add(new GOTSpawnEntry(GOTEntityYiTiFireThrower.class, 2, 1, 1));
-		YITI_MILITARY_L.add(new GOTSpawnEntry(GOTEntityYiTiSamurai.class, 2, 1, 2));
 		YITI_MILITARY_L.add(new GOTSpawnEntry(GOTEntityYiTiSoldier.class, 10, 1, 2));
 		YITI_MILITARY_L.add(new GOTSpawnEntry(GOTEntityYiTiSoldierCrossbower.class, 5, 1, 1));
+		YITI_MILITARY_L.add(new GOTSpawnEntry(GOTEntityYiTiSamurai.class, 2, 1, 2));
 
 		ARRYN_CIVILIAN = new GOTSpawnList(ARRYN_CIVILIAN_L);
 		ARRYN_CONQUEST = new GOTSpawnList(ARRYN_CONQUEST_L);

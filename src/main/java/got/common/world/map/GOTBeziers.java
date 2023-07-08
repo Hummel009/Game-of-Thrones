@@ -395,7 +395,7 @@ public class GOTBeziers {
 		registerHiddenRoad(id++, GOTWaypoint.Kingsgrave, GOTWaypoint.Kingsgrave.info(westerosCastle0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Yronwood, GOTWaypoint.Yronwood.info(westerosCastle0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Wyl, GOTWaypoint.Wyl.info(-westerosCastle0p5, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Zamettar, GOTWaypoint.Zamettar.info(0, 0.125));
+		registerHiddenRoad(id++, GOTWaypoint.Zamettar, GOTWaypoint.Zamettar.info(0, -0.125));
 
 		double essosTown0p5 = 0.140625;
 		double essosTown0p6 = 0.2265575;

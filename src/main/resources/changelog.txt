@@ -9,8 +9,10 @@ CHANGELOG
 + Added thaumcraft stand support (no crash)
 + Added LOTR submods support (no crash in GUI) (you still must remove META-INF to enable general compatibility)
 
+* Manticores and red scorpions are bigger now
 * Remade all roads from scratch
 
+* Improved qarth & summer colonies
 * Improved waypoints with ruins: now ruins are NEAR and player won't have problems with getting out of
 * Improved biome music code
 * Improved map colors
@@ -30,7 +32,7 @@ CHANGELOG
 * Increased village spawn
 * Reduced chance of baobab plains in dothraki sea
 
-* Oprimized structures' code
+* Optimized structures' code
 * Optimized code of fixed structures
 
 * Fixed bug with Asshai path size

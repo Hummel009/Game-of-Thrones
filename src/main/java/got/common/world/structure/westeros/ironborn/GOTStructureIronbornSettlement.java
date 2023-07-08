@@ -9,17 +9,14 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
-import got.common.world.structure.westeros.crownlands.GOTStructureCrownlandsSettlement;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
 public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
-	public boolean isTown;
-	public boolean isCastle;
-	public boolean isCamp;
-	public boolean isVillage;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureIronbornSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -30,34 +27,14 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureIronbornSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureIronbornSettlement setIsCamp() {
-		isCamp = true;
-		settlementChunkRadius = 5;
-		fixedSettlementChunkRadius = 5;
-		return this;
-	}
-
-	public GOTStructureIronbornSettlement setIsVillage() {
-		isVillage = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
-		return this;
-	}
-
-	public GOTStructureIronbornSettlement setIsCastle() {
-		isCastle = true;
-		settlementChunkRadius = 3;
-		fixedSettlementChunkRadius = 3;
-		return this;
-	}
-
-	public GOTStructureIronbornSettlement setIsTown() {
-		isTown = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
@@ -65,11 +42,14 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 		VILLAGE, TOWN, FORT, CAMP
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureIronbornSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureIronbornSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureIronbornSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureIronbornSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -262,16 +242,12 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (isCastle) {
-				type = Type.FORT;
-			} else if (isCamp) {
-				type = Type.CAMP;
-			} else if (!isVillage && random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
 			}
 		}
 

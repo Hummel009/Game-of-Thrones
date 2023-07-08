@@ -32,10 +32,10 @@ public class GOTStructureArrynSettlement extends GOTStructureBaseSettlement {
 		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureBaseSettlement type(Type t, int radius, int fixedRadius) {
+	public GOTStructureBaseSettlement type(Type t, int radius) {
 		type = t;
 		settlementChunkRadius = radius;
-		fixedSettlementChunkRadius = fixedRadius;
+		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
 	}

@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
-	public boolean isTown;
-	public boolean isVillage;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructurePentosSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -29,20 +29,14 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructurePentosSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructurePentosSettlement setIsTown() {
-		isTown = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
-		return this;
-	}
-
-	public GOTStructurePentosSettlement setIsVillage() {
-		isVillage = true;
-		settlementChunkRadius = 5;
-		fixedSettlementChunkRadius = 5;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
@@ -50,11 +44,14 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 		VILLAGE, TOWN, FORT
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructurePentosSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructurePentosSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructurePentosSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructurePentosSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -243,12 +240,12 @@ public class GOTStructurePentosSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (!isVillage && random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
 			}
 		}
 

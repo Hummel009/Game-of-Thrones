@@ -14,10 +14,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement {
-	public boolean isTown;
-	public boolean isCastle;
-	public boolean isCrossroads;
-	public boolean isVillage;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureRiverlandsSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -28,34 +26,14 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureRiverlandsSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureRiverlandsSettlement setIsCastle() {
-		isCastle = true;
-		settlementChunkRadius = 3;
-		fixedSettlementChunkRadius = 3;
-		return this;
-	}
-
-	public GOTStructureRiverlandsSettlement setIsVillage() {
-		isVillage = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
-		return this;
-	}
-
-	public GOTStructureRiverlandsSettlement setIsCrossroads() {
-		isCrossroads = true;
-		settlementChunkRadius = 3;
-		fixedSettlementChunkRadius = 3;
-		return this;
-	}
-
-	public GOTStructureRiverlandsSettlement setIsTown() {
-		isTown = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
@@ -63,11 +41,14 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 		VILLAGE, TOWN, FORT, CROSSROADS
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureRiverlandsSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureRiverlandsSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureRiverlandsSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureRiverlandsSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -207,16 +188,12 @@ public class GOTStructureRiverlandsSettlement extends GOTStructureBaseSettlement
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (isCastle) {
-				type = Type.FORT;
-			} else if (isCrossroads) {
-				type = Type.CROSSROADS;
-			} else if (!isVillage && random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
 			}
 		}
 

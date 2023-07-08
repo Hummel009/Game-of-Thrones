@@ -15,11 +15,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement {
-	public boolean isTown;
-	public boolean isCastle;
-	public boolean isVillage;
-	public boolean isKingsLanding;
-	public boolean isRedKeep;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureCrownlandsSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -30,53 +27,29 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureCrownlandsSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureCrownlandsSettlement setIsCastle() {
-		isCastle = true;
-		settlementChunkRadius = 3;
-		fixedSettlementChunkRadius = 3;
-		return this;
-	}
-
-	public GOTStructureCrownlandsSettlement setIsVillage() {
-		isVillage = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
-		return this;
-	}
-
-	public GOTStructureCrownlandsSettlement setIsKingsLanding() {
-		isKingsLanding = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
-		return this;
-	}
-
-	public GOTStructureCrownlandsSettlement setIsRedKeep() {
-		isRedKeep = true;
-		settlementChunkRadius = 3;
-		fixedSettlementChunkRadius = 3;
-		return this;
-	}
-
-	public GOTStructureCrownlandsSettlement setIsTown() {
-		isTown = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
 	public enum Type {
-		VILLAGE, TOWN, FORT, RED_KEEP
+		VILLAGE, TOWN, FORT, RED_KEEP, KINGS_LANDING
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureCrownlandsSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureCrownlandsSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureCrownlandsSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureCrownlandsSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -84,6 +57,9 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 			switch (type) {
 				case TOWN:
 					setupTown(random);
+					break;
+				case KINGS_LANDING:
+					setupKingsLanding(random);
 					break;
 				case FORT:
 					setupCastle(random);
@@ -95,6 +71,240 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 					setupRedCastle(random);
 					break;
 			}
+		}
+
+		private void setupKingsLanding(Random random) {
+			int l;
+			int wallX;
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClass(GOTEntityCrownlandsAlchemist.class);
+					spawner.setCheckRanges(80, -12, 12, 10);
+					spawner.setSpawnRanges(60, -6, 6, 64);
+					spawner.setSpawnInterval(1);
+				}
+			}, 0, 0, 0);
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClass(GOTEntityCrownlandsMan.class);
+					spawner.setCheckRanges(80, -12, 12, 100);
+					spawner.setSpawnRanges(60, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			for (int i1 : new int[]{-40, 40}) {
+				int[] arrn = {-40, 40};
+				for (int k1 : arrn) {
+					addStructure(new GOTStructureNPCRespawner(false) {
+
+						@Override
+						public void setupRespawner(GOTEntityNPCRespawner spawner) {
+							spawner.setSpawnClass(GOTEntityWesterlandsSoldier.class);
+							spawner.setCheckRanges(40, -12, 12, 16);
+							spawner.setSpawnRanges(20, -6, 6, 64);
+							spawner.setBlockEnemySpawnRange(60);
+						}
+					}, i1, k1, 0);
+				}
+			}
+			addStructure(new GOTStructureWesterosWell(false), 0, -4, 0, true);
+			int stallPos = 12;
+			for (int k1 = -1; k1 <= 1; ++k1) {
+				int k2 = k1 * stallPos;
+				if (random.nextInt(3) != 0) {
+					addStructure(GOTStructureCrownlandsMarketStall.getRandomStall(random, false), -stallPos + 3, k2, 1, true);
+				}
+				if (random.nextInt(3) == 0) {
+					continue;
+				}
+				addStructure(GOTStructureCrownlandsMarketStall.getRandomStall(random, false), stallPos - 3, k2, 3, true);
+			}
+			if (random.nextInt(3) != 0) {
+				addStructure(GOTStructureCrownlandsMarketStall.getRandomStall(random, false), 0, stallPos - 3, 0, true);
+			}
+			if (random.nextInt(3) != 0) {
+				addStructure(GOTStructureCrownlandsMarketStall.getRandomStall(random, false), 0, -stallPos + 3, 2, true);
+			}
+			int flowerX = 12;
+			int flowerZ = 18;
+			for (int i1 : new int[]{-flowerX, flowerX}) {
+				addStructure(new GOTStructureWesterosTownGarden(false), i1, flowerZ, 0, true);
+				addStructure(new GOTStructureWesterosTownGarden(false), i1, -flowerZ, 2, true);
+				addStructure(new GOTStructureWesterosTownGarden(false), -flowerZ, i1, 1, true);
+				addStructure(new GOTStructureWesterosTownGarden(false), flowerZ, i1, 3, true);
+			}
+			int lampZ = 21;
+			for (int i1 : new int[]{-1, 1}) {
+				int lampX = i1 * 6;
+				addStructure(new GOTStructureWesterosLampPost(false), lampX, lampZ, 0, true);
+				addStructure(new GOTStructureWesterosLampPost(false), lampX, -lampZ, 2, true);
+				if (i1 != -1) {
+					addStructure(new GOTStructureWesterosLampPost(false), -lampZ, lampX, 1, true);
+				}
+				addStructure(new GOTStructureWesterosLampPost(false), lampZ, lampX, 3, true);
+			}
+			int houseX = 24;
+			for (int k1 = -1; k1 <= 1; ++k1) {
+				int houseZ = k1 * 12;
+				if (k1 == 1) {
+					addStructure(new GOTStructureCrownlandsStoneHouse(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureCrownlandsStoneHouse(false), houseX, houseZ, 3, true);
+				}
+				if (k1 == 0) {
+					continue;
+				}
+				addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, houseX, 0, true);
+				addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
+			}
+			addStructure(new GOTStructureCrownlandsSmithy(false).setIsKingsLanding(), 0, -26, 2, true);
+			addStructure(new GOTStructureCrownlandsTavern(false).setIsKingsLanding(), -houseX, -5, 1, true);
+			addStructure(new GOTStructureWesterosObelisk(false), 0, 27, 0, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), -47, -13, 2, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), -47, 1, 0, true);
+			for (int i1 : new int[]{-43, -51}) {
+				addStructure(new GOTStructureWesterosTownBench(false), i1, -9, 2, true);
+				addStructure(new GOTStructureWesterosTownBench(false), i1, -3, 0, true);
+			}
+			addStructure(new GOTStructureCrownlandsBath(false), houseX + 2, -6, 3, true);
+			addStructure(new GOTStructureWesterosTownGarden(false), 51, -13, 2, true);
+			addStructure(new GOTStructureWesterosTownGarden(false), 51, 1, 0, true);
+			addStructure(new GOTStructureWesterosTownGarden(false), 52, -6, 3, true);
+			int wellX = 22;
+			int wellZ = 31;
+			for (int i1 : new int[]{-wellX, wellX}) {
+				addStructure(new GOTStructureWesterosWell(false), i1, -wellZ, 2, true);
+				addStructure(new GOTStructureWesterosWell(false), i1, wellZ, 0, true);
+				addStructure(new GOTStructureWesterosWell(false), -wellZ, i1, 1, true);
+				addStructure(new GOTStructureWesterosWell(false), wellZ, i1, 3, true);
+			}
+			houseX = 54;
+			for (int k1 = -2; k1 <= 2; ++k1) {
+				int houseZ = k1 * 12;
+				if (k1 == -2 || k1 >= 1) {
+					addStructure(new GOTStructureCrownlandsStoneHouse(false), -houseX, houseZ, 3, true);
+					addStructure(new GOTStructureCrownlandsStoneHouse(false), houseX, houseZ, 1, true);
+				}
+				addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, houseX, 2, true);
+				addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 0, true);
+			}
+			int treeX = 47;
+			int treeZ = 35;
+			for (int i1 : new int[]{-treeX, treeX}) {
+				addStructure(new GOTStructureWesterosTownTrees(false), i1, -treeZ, 0, true);
+				addStructure(new GOTStructureWesterosTownTrees(false), i1, treeZ, 2, true);
+				addStructure(new GOTStructureWesterosTownTrees(false), -treeZ, i1, 3, true);
+				addStructure(new GOTStructureWesterosTownTrees(false), treeZ, i1, 1, true);
+			}
+			houseX = 64;
+			int lampX = 59;
+			for (int k1 = -4; k1 <= 4; ++k1) {
+				boolean treepiece;
+				int houseZ = k1 * 12;
+				treepiece = IntMath.mod(k1, 2) == 1;
+				if (treepiece) {
+					addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), -houseX - 2, houseZ, 1, true);
+					addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), houseX + 2, houseZ, 3, true);
+				} else {
+					addStructure(new GOTStructureCrownlandsStoneHouse(false), -houseX, houseZ, 1, true);
+					addStructure(new GOTStructureCrownlandsStoneHouse(false), houseX, houseZ, 3, true);
+				}
+				if (treepiece) {
+					addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
+				} else if (houseZ != 0) {
+					addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
+				}
+				if (Math.abs(k1) >= 2 && k1 <= 2) {
+					if (treepiece) {
+						addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), houseZ, houseX + 2, 0, true);
+					} else {
+						addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, houseX, 0, true);
+					}
+				}
+				addStructure(new GOTStructureWesterosLampPost(false), -lampX, houseZ, 1, true);
+				addStructure(new GOTStructureWesterosLampPost(false), lampX, houseZ, 3, true);
+				addStructure(new GOTStructureWesterosLampPost(false), houseZ, lampX, 0, true);
+				addStructure(new GOTStructureWesterosLampPost(false), houseZ, -lampX, 2, true);
+			}
+			addStructure(new GOTStructureCrownlandsTavern(false), 44, houseX, 0, true);
+			int gardenX = 42;
+			int gardenZ = 48;
+			addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), -gardenX, -gardenZ, 1, true);
+			addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), -gardenX, gardenZ, 1, true);
+			addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), gardenX, -gardenZ, 3, true);
+			addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), gardenX, gardenZ, 3, true);
+			int obeliskX = 62;
+			int obeliskZ = 66;
+			addStructure(new GOTStructureWesterosObelisk(false), -obeliskX, -obeliskZ, 1, true);
+			addStructure(new GOTStructureWesterosObelisk(false), -obeliskX, obeliskZ, 1, true);
+			addStructure(new GOTStructureWesterosObelisk(false), obeliskX, -obeliskZ, 3, true);
+			addStructure(new GOTStructureWesterosObelisk(false), obeliskX, obeliskZ, 3, true);
+			wellX = 64;
+			wellZ = 57;
+			addStructure(new GOTStructureWesterosWell(false), -wellX, -wellZ, 1, true);
+			addStructure(new GOTStructureWesterosWell(false), -wellX, wellZ, 1, true);
+			addStructure(new GOTStructureWesterosWell(false), wellX, -wellZ, 3, true);
+			addStructure(new GOTStructureWesterosWell(false), wellX, wellZ, 3, true);
+			addStructure(new GOTStructureWesterosWell(false), -wellZ, -wellX, 2, true);
+			addStructure(new GOTStructureWesterosWell(false), wellZ, -wellX, 2, true);
+			addStructure(new GOTStructureWesterosWell(false), -wellZ, wellX, 0, true);
+			addStructure(new GOTStructureWesterosWell(false), wellZ, wellX, 0, true);
+			treeX = 75;
+			treeZ = 61;
+			addStructure(new GOTStructureWesterosTownTrees(false), -treeX, -treeZ, 1, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), -treeX, treeZ, 1, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), treeX, -treeZ, 3, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), treeX, treeZ, 3, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), -treeZ, -treeX, 2, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), treeZ, -treeX, 2, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), -treeZ, treeX, 0, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), treeZ, treeX, 0, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), -14, 71, 1, true);
+			addStructure(new GOTStructureWesterosTownTrees(false), 14, 71, 3, true);
+			for (int k1 : new int[]{67, 75}) {
+				addStructure(new GOTStructureWesterosTownBench(false), -10, k1, 1, true);
+				addStructure(new GOTStructureWesterosTownBench(false), 10, k1, 3, true);
+			}
+			addStructure(new GOTStructureCrownlandsGatehouse(false), 0, 84, 2, true);
+			addStructure(new GOTStructureCrownlandsGatehouse(false), 0, -84, 0, true);
+			addStructure(new GOTStructureWesterosLampPost(false), -4, 73, 0, true);
+			addStructure(new GOTStructureWesterosLampPost(false), 4, 73, 0, true);
+			int towerX = 78;
+			int towerZ = 74;
+			for (int i1 : new int[]{-towerX, towerX}) {
+				addStructure(new GOTStructureCrownlandsWatchtower(false), i1, -towerZ, 2, true);
+				addStructure(new GOTStructureCrownlandsWatchtower(false), i1, towerZ, 0, true);
+			}
+			int wallZ = 82;
+			int wallEndX = 76;
+			for (l = 0; l <= 3; ++l) {
+				wallX = 12 + l * 16;
+				addStructure(GOTStructureWesterosTownWall.Left(false), -wallX, wallZ, 2, true);
+				addStructure(GOTStructureWesterosTownWall.Right(false), wallX, wallZ, 2, true);
+			}
+			addStructure(GOTStructureWesterosTownWall.LeftEndShort(false), -wallEndX, wallZ, 2, true);
+			addStructure(GOTStructureWesterosTownWall.RightEndShort(false), wallEndX, wallZ, 2, true);
+			addStructure(GOTStructureWesterosTownWall.Centre(false), -wallZ, 0, 3, true);
+			addStructure(GOTStructureWesterosTownWall.Centre(false), wallZ, 0, 1, true);
+			addStructure(GOTStructureWesterosTownWall.Centre(false), 0, -wallZ, 0, true);
+			for (l = 0; l <= 3; ++l) {
+				wallX = 12 + l * 16;
+				addStructure(GOTStructureWesterosTownWall.Left(false), -wallZ, -wallX, 3, true);
+				addStructure(GOTStructureWesterosTownWall.Right(false), -wallZ, wallX, 3, true);
+				addStructure(GOTStructureWesterosTownWall.Left(false), wallZ, wallX, 1, true);
+				addStructure(GOTStructureWesterosTownWall.Right(false), wallZ, -wallX, 1, true);
+				addStructure(GOTStructureWesterosTownWall.Left(false), wallX, -wallZ, 0, true);
+				addStructure(GOTStructureWesterosTownWall.Right(false), -wallX, -wallZ, 0, true);
+			}
+			addStructure(GOTStructureWesterosTownWall.LeftEnd(false), -wallZ, -wallEndX, 3, true);
+			addStructure(GOTStructureWesterosTownWall.RightEnd(false), -wallZ, wallEndX, 3, true);
+			addStructure(GOTStructureWesterosTownWall.LeftEnd(false), wallZ, wallEndX, 1, true);
+			addStructure(GOTStructureWesterosTownWall.RightEnd(false), wallZ, -wallEndX, 1, true);
+			addStructure(GOTStructureWesterosTownWall.LeftEndShort(false), wallEndX, -wallZ, 0, true);
+			addStructure(GOTStructureWesterosTownWall.RightEndShort(false), -wallEndX, -wallZ, 0, true);
 		}
 
 		@Override
@@ -114,6 +324,7 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 					}
 					break;
 				case TOWN:
+				case KINGS_LANDING:
 					if (i1 <= 80 && k1 <= 80) {
 						return GOTBezierType.PATH_DIRTY;
 					}
@@ -266,34 +477,18 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isTown || isKingsLanding) {
-				type = Type.TOWN;
-			} else if (isCastle) {
-				type = Type.FORT;
-			} else if (isRedKeep) {
-				type = Type.RED_KEEP;
-			} else if (!isVillage && random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
 			}
 		}
 
 		public void setupTown(Random random) {
 			int l;
 			int wallX;
-			if (isKingsLanding) {
-				addStructure(new GOTStructureNPCRespawner(false) {
-
-					@Override
-					public void setupRespawner(GOTEntityNPCRespawner spawner) {
-						spawner.setSpawnClass(GOTEntityCrownlandsAlchemist.class);
-						spawner.setCheckRanges(80, -12, 12, 10);
-						spawner.setSpawnRanges(60, -6, 6, 64);
-						spawner.setSpawnInterval(1);
-					}
-				}, 0, 0, 0);
-			}
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -368,13 +563,8 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 				addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, houseX, 0, true);
 				addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
 			}
-			if (isKingsLanding) {
-				addStructure(new GOTStructureCrownlandsSmithy(false).setIsKingsLanding(), 0, -26, 2, true);
-				addStructure(new GOTStructureCrownlandsTavern(false).setIsKingsLanding(), -houseX, -5, 1, true);
-			} else {
-				addStructure(new GOTStructureCrownlandsSmithy(false), 0, -26, 2, true);
-				addStructure(new GOTStructureCrownlandsTavern(false), -houseX, -5, 1, true);
-			}
+			addStructure(new GOTStructureCrownlandsSmithy(false), 0, -26, 2, true);
+			addStructure(new GOTStructureCrownlandsTavern(false), -houseX, -5, 1, true);
 			addStructure(new GOTStructureWesterosObelisk(false), 0, 27, 0, true);
 			addStructure(new GOTStructureWesterosTownTrees(false), -47, -13, 2, true);
 			addStructure(new GOTStructureWesterosTownTrees(false), -47, 1, 0, true);
@@ -427,8 +617,6 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 				}
 				if (treepiece) {
 					addStructure(new GOTStructureCrownlandsVillageFarm.Tree(false), houseZ, -houseX - 2, 2, true);
-				} else if (houseZ != 0 && isKingsLanding) {
-					addStructure(new GOTStructureCrownlandsStoneHouse(false), houseZ, -houseX, 2, true);
 				}
 				if (Math.abs(k1) >= 2 && k1 <= 2) {
 					if (treepiece) {
@@ -482,9 +670,6 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 				addStructure(new GOTStructureWesterosTownBench(false), 10, k1, 3, true);
 			}
 			addStructure(new GOTStructureCrownlandsGatehouse(false), 0, 84, 2, true);
-			if (isKingsLanding) {
-				addStructure(new GOTStructureCrownlandsGatehouse(false), 0, -84, 0, true);
-			}
 			addStructure(new GOTStructureWesterosLampPost(false), -4, 73, 0, true);
 			addStructure(new GOTStructureWesterosLampPost(false), 4, 73, 0, true);
 			int towerX = 78;

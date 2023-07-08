@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement {
-	public boolean isTown;
-	public boolean isCastle;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureStormlandsSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -29,20 +29,14 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureStormlandsSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureStormlandsSettlement setIsCastle() {
-		isCastle = true;
-		settlementChunkRadius = 3;
-		fixedSettlementChunkRadius = 3;
-		return this;
-	}
-
-	public GOTStructureStormlandsSettlement setIsTown() {
-		isTown = true;
-		settlementChunkRadius = 6;
-		fixedSettlementChunkRadius = 6;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
@@ -50,11 +44,14 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 		VILLAGE, TOWN, FORT
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureStormlandsSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureStormlandsSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureStormlandsSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureStormlandsSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -196,12 +193,12 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isTown) {
-				type = Type.TOWN;
-			} else if (isCastle || random.nextInt(4) == 0) {
-				type = Type.FORT;
-			} else {
-				type = Type.VILLAGE;
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
 			}
 		}
 

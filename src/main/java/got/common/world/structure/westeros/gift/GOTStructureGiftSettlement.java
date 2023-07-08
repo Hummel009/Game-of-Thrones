@@ -16,10 +16,8 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
-	public boolean isCastleBlack;
-	public boolean isShadowTower;
-	public boolean isEastWatch;
-	public boolean isAbandoned;
+	public Type type;
+	public boolean forcedType;
 
 	public GOTStructureGiftSettlement(GOTBiome biome, float f) {
 		super(biome);
@@ -30,34 +28,14 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 
 	@Override
 	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureGiftSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+		return new Instance(this, world, i, k, random, loc, type, forcedType);
 	}
 
-	public GOTStructureGiftSettlement setIsAbandoned() {
-		isAbandoned = true;
-		settlementChunkRadius = 2;
-		fixedSettlementChunkRadius = 2;
-		return this;
-	}
-
-	public GOTStructureGiftSettlement setIsCastleBlack() {
-		isCastleBlack = true;
-		settlementChunkRadius = 2;
-		fixedSettlementChunkRadius = 2;
-		return this;
-	}
-
-	public GOTStructureGiftSettlement setIsEastWatch() {
-		isEastWatch = true;
-		settlementChunkRadius = 2;
-		fixedSettlementChunkRadius = 2;
-		return this;
-	}
-
-	public GOTStructureGiftSettlement setIsShadowTower() {
-		isShadowTower = true;
-		settlementChunkRadius = 2;
-		fixedSettlementChunkRadius = 2;
+	public GOTStructureBaseSettlement type(Type t, int radius) {
+		type = t;
+		settlementChunkRadius = radius;
+		fixedSettlementChunkRadius = radius;
+		forcedType = true;
 		return this;
 	}
 
@@ -65,11 +43,14 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 		ABANDONED, CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureGiftSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureGiftSettlement> {
 		public Type type;
+		public boolean forcedType;
 
-		public Instance(GOTStructureGiftSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		public Instance(GOTStructureGiftSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);
+			type = t;
+			forcedType = b;
 		}
 
 		@Override
@@ -135,15 +116,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public void setupSettlementProperties(Random random) {
-			if (isCastleBlack) {
-				type = Type.CASTLE_BLACK;
-			} else if (isShadowTower) {
-				type = Type.SHADOW_TOWER;
-			} else if (isEastWatch) {
-				type = Type.EAST_WATCH;
-			} else if (isAbandoned) {
-				type = Type.ABANDONED;
-			} else {
+			if (!forcedType) {
 				type = Type.VILLAGE;
 			}
 		}
