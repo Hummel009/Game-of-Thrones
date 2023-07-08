@@ -404,11 +404,11 @@ public class GOTStructure {
 		GOTStructureRegistry.register(id++, GOTStructureSothoryosSmithy.class, GOTFaction.SOTHORYOS);
 
 		GOTStructureRegistry.register(id++, new GOTStructureWildlingSettlement(GOTBiome.hauntedForest, 1.0f), "WildlingVillage", GOTFaction.WILDLING, (ISettlementProperties<GOTStructureWildlingSettlement.Instance>) instance -> instance.type = GOTStructureWildlingSettlement.Type.VILLAGE);
-		GOTStructureRegistry.register(id++, new GOTStructureWildlingSettlement(GOTBiome.thennLand, 1.0f).setIsThenn(), "ThennVillage", GOTFaction.WILDLING, (ISettlementProperties<GOTStructureWildlingSettlement.Instance>) instance -> instance.type = GOTStructureWildlingSettlement.Type.THENN);
+		GOTStructureRegistry.register(id++, new GOTStructureWildlingSettlement(GOTBiome.thennLand, 1.0f), "ThennVillage", GOTFaction.WILDLING, (ISettlementProperties<GOTStructureWildlingSettlement.Instance>) instance -> instance.type = GOTStructureWildlingSettlement.Type.THENN);
 
 		GOTStructureRegistry.register(id++, new GOTStructureGiftSettlement(GOTBiome.giftNew, 1.0f), "GiftVillage", GOTFaction.NIGHT_WATCH, (ISettlementProperties<GOTStructureGiftSettlement.Instance>) instance -> instance.type = GOTStructureGiftSettlement.Type.VILLAGE);
 
-		GOTStructureRegistry.register(id++, new GOTStructureNorthSettlement(GOTBiome.skagos, 1.0f).setIsHillman(), "NorthHillmanVillage", GOTFaction.NORTH, (ISettlementProperties<GOTStructureNorthSettlement.Instance>) instance -> instance.type = GOTStructureNorthSettlement.Type.HILLMAN);
+		GOTStructureRegistry.register(id++, new GOTStructureNorthSettlement(GOTBiome.skagos, 1.0f), "NorthHillmanVillage", GOTFaction.NORTH, (ISettlementProperties<GOTStructureNorthSettlement.Instance>) instance -> instance.type = GOTStructureNorthSettlement.Type.HILLMAN);
 		GOTStructureRegistry.register(id++, new GOTStructureNorthSettlement(GOTBiome.north, 1.0f), "NorthVillage", GOTFaction.NORTH, (ISettlementProperties<GOTStructureNorthSettlement.Instance>) instance -> instance.type = GOTStructureNorthSettlement.Type.VILLAGE);
 		GOTStructureRegistry.register(id++, new GOTStructureNorthSettlement(GOTBiome.north, 1.0f), "NorthTown", GOTFaction.NORTH, (ISettlementProperties<GOTStructureNorthSettlement.Instance>) instance -> instance.type = GOTStructureNorthSettlement.Type.TOWN);
 		GOTStructureRegistry.register(id++, new GOTStructureNorthSettlement(GOTBiome.north, 1.0f), "NorthFortVillage", GOTFaction.NORTH, (ISettlementProperties<GOTStructureNorthSettlement.Instance>) instance -> instance.type = GOTStructureNorthSettlement.Type.FORT);

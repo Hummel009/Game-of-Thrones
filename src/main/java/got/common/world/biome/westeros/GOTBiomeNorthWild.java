@@ -23,7 +23,7 @@ public class GOTBiomeNorthWild extends GOTBiomeNorth {
 		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);
 		decorator.clearSettlements();
-		decorator.addSettlement(new GOTStructureNorthSettlement(this, 1.0f).setIsHillman());
+		decorator.addSettlement(new GOTStructureNorthSettlement(this, 1.0f).type(GOTStructureNorthSettlement.Type.HILLMAN, 6, 6));
 		invasionSpawns.clearInvasions();
 		invasionSpawns.addInvasion(GOTInvasions.THENN, GOTEventSpawner.EventChance.RARE);
 		invasionSpawns.addInvasion(GOTInvasions.WILDLING, GOTEventSpawner.EventChance.UNCOMMON);
