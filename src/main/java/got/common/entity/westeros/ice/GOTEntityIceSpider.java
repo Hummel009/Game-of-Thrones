@@ -127,8 +127,7 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase {
 		GOTEntityIceSpider spider = new GOTEntityIceSpider(worldObj);
 		if (entity instanceof GOTEntityBericDondarrion || entity instanceof GOTEntityGregorClegane || entity instanceof GOTEntityLancelLannister || entity instanceof GOTEntityTheonGreyjoy) {
 			super.onKillEntity(entity);
-		}
-		if (entity instanceof GOTEntityHumanBase) {
+		} else if (entity instanceof GOTEntityHumanBase) {
 			super.onKillEntity(entity);
 			wight.familyInfo.setAge(((GOTEntityHumanBase) entity).familyInfo.getAge());
 			wight.copyLocationAndAnglesFrom(entity);
@@ -141,15 +140,13 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase {
 			wight.familyInfo.setMale(((GOTEntityHumanBase) entity).familyInfo.male);
 			worldObj.removeEntity(entity);
 			worldObj.spawnEntityInWorld(wight);
-		}
-		if (entity instanceof GOTEntityGiant) {
+		} else if (entity instanceof GOTEntityGiant) {
 			super.onKillEntity(entity);
 			giant.copyLocationAndAnglesFrom(entity);
 			worldObj.removeEntity(entity);
 			giant.onSpawnWithEgg(null);
 			worldObj.spawnEntityInWorld(giant);
-		}
-		if (entity instanceof GOTEntitySpiderBase) {
+		} else if (entity instanceof GOTEntitySpiderBase) {
 			super.onKillEntity(entity);
 			spider.copyLocationAndAnglesFrom(entity);
 			worldObj.removeEntity(entity);
