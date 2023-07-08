@@ -19,6 +19,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class GOTBiomeLorath extends GOTBiomeEssos {
@@ -52,11 +53,11 @@ public class GOTBiomeLorath extends GOTBiomeEssos {
 		decorator.addSettlement(new GOTStructureLorathSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureLorathFortress(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.IBBEN, GOTEventSpawner.EventChance.UNCOMMON);
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		List<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LORATH_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.LORATH_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
+		List<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);

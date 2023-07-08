@@ -15,6 +15,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
@@ -27,7 +28,7 @@ public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
 		spawnableCreatureList.clear();
 		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWalrus.class, 40, 1, 1));
 		decorator.addSettlement(new GOTStructureWildlingSettlement(this, 1.0f));
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		List<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

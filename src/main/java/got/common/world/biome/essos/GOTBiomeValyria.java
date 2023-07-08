@@ -15,6 +15,7 @@ import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.other.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GOTBiomeValyria extends GOTBiome {
 	public GOTBiomeValyria(int i, boolean major) {
@@ -45,7 +46,7 @@ public class GOTBiomeValyria extends GOTBiome {
 		decorator.doubleGrassPerChunk = 1;
 		decorator.flowersPerChunk = 3;
 		decorator.doubleFlowersPerChunk = 1;
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		List<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.VALYRIA, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

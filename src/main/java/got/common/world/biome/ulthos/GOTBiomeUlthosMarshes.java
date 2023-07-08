@@ -8,6 +8,7 @@ import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosForest {
 	public GOTBiomeUlthosMarshes(int i, boolean major) {
@@ -27,7 +28,7 @@ public class GOTBiomeUlthosMarshes extends GOTBiomeUlthosForest {
 		decorator.reedPerChunk = 2;
 		decorator.dryReedChance = 1.0f;
 		npcSpawnList.clear();
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		List<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

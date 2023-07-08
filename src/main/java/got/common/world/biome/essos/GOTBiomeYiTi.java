@@ -18,6 +18,7 @@ import got.common.world.structure.other.GOTStructureRuinedHouse;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GOTBiomeYiTi extends GOTBiomeEssos {
 	public GOTBiomeYiTi(int i, boolean major) {
@@ -45,14 +46,14 @@ public class GOTBiomeYiTi extends GOTBiomeEssos {
 		decorator.addStructure(new GOTStructureStoneRuin.RuinYiTi(1, 4), 400);
 		decorator.addSettlement(new GOTStructureYiTiSettlement(this, 1.0f));
 		invasionSpawns.addInvasion(GOTInvasions.JOGOS, GOTEventSpawner.EventChance.UNCOMMON);
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		List<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YITI_CONQUEST, 1).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.YITI_MILITARY, 9).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(8).add(c0);
-		ArrayList<SpawnListContainer> c1 = new ArrayList<>();
+		List<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.JOGOS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-		ArrayList<SpawnListContainer> c2 = new ArrayList<>();
+		List<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 4));
 		npcSpawnList.newFactionList(2).add(c2);
 	}

@@ -7,13 +7,14 @@ import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GOTBiomeSothoryosHell extends GOTBiomeSothoryosJungle {
 
 	public GOTBiomeSothoryosHell(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		List<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WYVERN, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

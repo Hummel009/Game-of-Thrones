@@ -8,6 +8,7 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 	public GOTBiomeVolantisMarshes(int i, boolean major) {
@@ -29,7 +30,7 @@ public class GOTBiomeVolantisMarshes extends GOTBiomeVolantis {
 		decorator.clearSettlements();
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		List<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(10).add(c0);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);

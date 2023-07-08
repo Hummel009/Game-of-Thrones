@@ -14,6 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class GOTBiomeShrykesLand extends GOTBiomeEssosPlains {
@@ -34,7 +35,7 @@ public class GOTBiomeShrykesLand extends GOTBiomeEssosPlains {
 		decorator.addTree(GOTTreeType.OAK_DEAD, 500);
 		decorator.addTree(GOTTreeType.SPRUCE_DEAD, 500);
 		decorator.addTree(GOTTreeType.BEECH_DEAD, 500);
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		List<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SHRYKE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		decorator.addStructure(new GOTStructureBarrow(false), 150);

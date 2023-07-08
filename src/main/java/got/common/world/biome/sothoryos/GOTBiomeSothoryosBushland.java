@@ -22,6 +22,7 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class GOTBiomeSothoryosBushland extends GOTBiome {
@@ -62,7 +63,7 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 		decorator.addSoil(new WorldGenMinable(GOTBlocks.obsidianGravel, 32), 20.0f, 0, 64);
 		decorator.addSettlement(new GOTStructureSothoryosSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureStoneRuin.RuinSothoryos(1, 4), 400);
-		ArrayList<SpawnListContainer> c0 = new ArrayList<>();
+		List<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SOTHORYOS_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}
