@@ -59,9 +59,4 @@ public class GOTBiomeTyrosh extends GOTBiomeEssos {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterTyrosh;
 	}
-
-	@Override
-	public GOTBezierType getRoadBlock() {
-		return GOTBezierType.PATH_SANDY;
-	}
 }
