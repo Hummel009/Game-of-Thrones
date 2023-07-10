@@ -59,4 +59,9 @@ public class GOTBiomeLys extends GOTBiomeEssos {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterLys;
 	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
+	}
 }

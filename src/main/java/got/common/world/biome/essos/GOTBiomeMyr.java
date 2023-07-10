@@ -60,4 +60,9 @@ public class GOTBiomeMyr extends GOTBiomeEssos {
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterMyr;
 	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
+	}
 }
