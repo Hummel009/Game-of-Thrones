@@ -1,7 +1,7 @@
 package got.client.render.other;
 
-import got.GOT;
 import got.client.GOTTickHandlerClient;
+import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeValyria;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -28,7 +28,10 @@ public class GOTRenderWeather extends IRenderHandler {
 	public float[] rainYCoords;
 
 	public static boolean isSandstormBiome(BiomeGenBase biome) {
-		return !biome.canSpawnLightningBolt() && biome.topBlock.getMaterial() == Material.sand;
+		if (biome instanceof GOTBiome.Desert) {
+			return true;
+		}
+		return biome.topBlock.getMaterial() == Material.sand;
 	}
 
 	@Override
@@ -72,7 +75,6 @@ public class GOTRenderWeather extends IRenderHandler {
 			int b1 = -1;
 			float f5 = rendererUpdateCount + partialTicks;
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			boolean isChristmas = GOT.isNewYear();
 			for (int l = i3 - b0; l <= i3 + b0; ++l) {
 				for (int i1 = k2 - b0; i1 <= k2 + b0; ++i1) {
 					float f11;
@@ -90,10 +92,6 @@ public class GOTRenderWeather extends IRenderHandler {
 					boolean snowy = biomegenbase.getEnableSnow();
 					boolean ashy = biomegenbase instanceof GOTBiomeValyria;
 					boolean sandy = isSandstormBiome(biomegenbase);
-					if (isChristmas) {
-						ashy = false;
-						sandy = false;
-					}
 					if (rainy || snowy || ashy || sandy) {
 						int k1 = world.getPrecipitationHeight(i1, l);
 						int l1 = l2 - b0;

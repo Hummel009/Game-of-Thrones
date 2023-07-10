@@ -8,6 +8,7 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
+import got.common.world.structure.westeros.reach.GOTStructureReachSettlement;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
@@ -38,7 +39,7 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 	}
 
 	public enum Type {
-		VILLAGE, TOWN, FORT
+		VILLAGE, TOWN, FORT, CASTERLY_ROCK
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureWesterlandsSettlement> {
@@ -57,6 +58,7 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 				case TOWN:
 					setupTown(random);
 					break;
+				case CASTERLY_ROCK:
 				case FORT:
 					setupCastle(random);
 					break;
@@ -83,9 +85,13 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 				}
 			} else if (type == Type.TOWN && i1 <= 80 && k1 <= 80) {
 				return GOTBezierType.PATH_DIRTY;
-			} else if (type == Type.FORT) {
-				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+			} else {
+				boolean road = i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12;
+				if (road && type == Type.FORT) {
 					return GOTBezierType.PATH_DIRTY;
+				}
+				if (road && type == Type.CASTERLY_ROCK) {
+					return GOTBezierType.PATH_PAVING;
 				}
 			}
 			return null;
