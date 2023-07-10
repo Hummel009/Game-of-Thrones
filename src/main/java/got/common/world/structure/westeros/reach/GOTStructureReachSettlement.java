@@ -38,7 +38,7 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 	}
 
 	public enum Type {
-		VILLAGE, TOWN, FORT
+		VILLAGE, TOWN, FORT, HIGHGARDEN
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureReachSettlement> {
@@ -57,6 +57,7 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 				case TOWN:
 					setupTown(random);
 					break;
+				case HIGHGARDEN:
 				case FORT:
 					setupCastle(random);
 					break;
@@ -83,9 +84,13 @@ public class GOTStructureReachSettlement extends GOTStructureBaseSettlement {
 				}
 			} else if (type == Type.TOWN && i1 <= 80 && k1 <= 80) {
 				return GOTBezierType.PATH_DIRTY;
-			} else if (type == Type.FORT) {
-				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+			} else {
+				boolean road = i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12;
+				if (road && type == Type.FORT) {
 					return GOTBezierType.PATH_DIRTY;
+				}
+				if (road && type == Type.HIGHGARDEN) {
+					return GOTBezierType.PATH_PAVING;
 				}
 			}
 			return null;

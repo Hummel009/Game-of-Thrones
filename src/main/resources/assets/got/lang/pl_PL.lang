@@ -4111,14 +4111,14 @@ got.wp.Redfort.info=Zamek rodu Redfort, wasale Arrynów.
 got.wp.Redfort=Redfort
 got.wp.Rhyos.info=Jedno z potężnych i bogatych miast kolonialnych Valyrii, zniszczone podczas Zagłady Valyrii.
 got.wp.Rhyos=Rhyos
-got.wp.RillwaterCrossing.info=Zamek domu wasali Glenmore z Riswells.
+got.wp.RillwaterCrossing.info=Zamek domu wasali Glenmore z Ryswells.
 got.wp.RillwaterCrossing=Rillwater Crossing
 got.wp.Rimegate.info=Opuszczony zamek Nocnej Straży.
 got.wp.Rimegate=Rimegate
 got.wp.Ring.info=Zamek rodu Roxtonów, wasali Tyrellów.
 got.wp.Ring=Ring
-got.wp.RisvellsCastle.info=Rodowy zamek rodu Riswell, wasali Starków. Riswellowie są lojalnymi sojusznikami Boltonów.
-got.wp.RisvellsCastle=Zamek Ryswells
+got.wp.RyswellsCastle.info=Rodowy zamek rodu Ryswell, wasali Starków. Ryswellowie są lojalnymi sojusznikami Boltonów.
+got.wp.RyswellsCastle=Zamek Ryswells
 got.wp.Riverrun.info=Rodowy zamek rodu Tully, panów nadrzecznych. Zbudowany u zbiegu rzek Kamnegonka i Krasny Zubets.
 got.wp.Riverrun=Riverrun
 got.wp.Riverspring.info=Zamek rodu Sarwików, wasali Lannisterów.
@@ -4980,7 +4980,7 @@ item.got:banner.robert.name=Sztandar Roberta
 item.got:banner.robertB.name=Sztandar Robert (książka)
 item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
-item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
+item.got:banner.rodrikryswell.name≠Banner of Rodrik Ryswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
 item.got:banner.rogers.name=Sztandar Rogersa
 item.got:banner.rolandblackwood.name≠Banner of Roland Blackwood

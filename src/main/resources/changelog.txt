@@ -8,6 +8,7 @@ CHANGELOG
 + Added thaumcraft stand support (no crash)
 + Added LOTR submods support (no crash in GUI) (you still must remove META-INF to enable general compatibility)
 
+* Children and girls now can't participate in dothraki skirmishes
 * Benjen Stark spawning without horse from spawn egg now
 * Manticores and red scorpions are bigger now
 * Remade all roads from scratch

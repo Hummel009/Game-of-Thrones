@@ -4111,14 +4111,14 @@ got.wp.Redfort.info=Château de la Maison Redfort, vassaux de l'Arryn.
 got.wp.Redfort=Fort Rouge
 got.wp.Rhyos.info=L'une des villes coloniales puissantes et riches de l'Empire valyrien, détruite lors de la mort de Valyria.
 got.wp.Rhyos=Rhyos
-got.wp.RillwaterCrossing.info=Le château de la maison des vassaux Glenmore des Riswell.
+got.wp.RillwaterCrossing.info=Le château de la maison des vassaux Glenmore des Ryswell.
 got.wp.RillwaterCrossing=Traversée de Rillwater
 got.wp.Rimegate.info=Le château abandonné de Night's Watch.
 got.wp.Rimegate=Rimegate
 got.wp.Ring.info=Le château de la Maison des Roxton, vassaux des Tyrell.
 got.wp.Ring=Bague
-got.wp.RisvellsCastle.info=Château ancestral de la maison Riswell, vassaux des Starks. Les Riswell sont des alliés fidèles des Bolton.
-got.wp.RisvellsCastle=Château de Ryswells
+got.wp.RyswellsCastle.info=Château ancestral de la maison Ryswell, vassaux des Starks. Les Ryswell sont des alliés fidèles des Bolton.
+got.wp.RyswellsCastle=Château de Ryswells
 got.wp.Riverrun.info=Château ancestral de la maison de Tully, seigneurs des Le Conflans. Construit au confluent des rivières Kamnegonka et Krasny Zubets.
 got.wp.Riverrun=Riverrun
 got.wp.Riverspring.info=Le château de la maison des Sarviks, vassaux des Lannister.
@@ -4980,7 +4980,7 @@ item.got:banner.robert.name=Bannière de Robert
 item.got:banner.robertB.name=Bannière de Robert (Livre)
 item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
-item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
+item.got:banner.rodrikryswell.name≠Banner of Rodrik Ryswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
 item.got:banner.rogers.name=Bannière de Rogers
 item.got:banner.rolandblackwood.name≠Banner of Roland Blackwood

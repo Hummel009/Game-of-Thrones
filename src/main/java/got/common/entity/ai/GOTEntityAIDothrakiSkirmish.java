@@ -17,7 +17,7 @@ public class GOTEntityAIDothrakiSkirmish extends GOTEntityAINearestAttackableTar
 	public boolean canDothrakiSkirmish(EntityLivingBase entity) {
 		if (entity instanceof GOTEntityDothraki) {
 			GOTEntityDothraki mob = (GOTEntityDothraki) entity;
-			return !mob.isTrader() && !mob.hiredNPCInfo.isActive && mob.ridingEntity == null && mob.canDothrakiSkirmish();
+			return theDothraki.familyInfo.isMale() && theDothraki.familyInfo.age >= 0 && mob.familyInfo.isMale() && mob.familyInfo.age >= 0 && !mob.isTrader() && !mob.hiredNPCInfo.isActive && mob.ridingEntity == null && mob.canDothrakiSkirmish();
 		}
 		return false;
 	}

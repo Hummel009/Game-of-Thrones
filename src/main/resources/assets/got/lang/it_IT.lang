@@ -4111,14 +4111,14 @@ got.wp.Redfort.info=Castello di Casa Redfort, vassalli degli Arryn.
 got.wp.Redfort=Redfort
 got.wp.Rhyos.info=Una delle potenti e ricche città coloniali dell'Impero di Valyria, distrutta durante il destino di Valyria.
 got.wp.Rhyos=Rhyos
-got.wp.RillwaterCrossing.info=Il castello della casa dei vassalli Glenmore dei Riswell.
+got.wp.RillwaterCrossing.info=Il castello della casa dei vassalli Glenmore dei Ryswell.
 got.wp.RillwaterCrossing=Rillwater Crossing
 got.wp.Rimegate.info=Il castello abbandonato dei Guardiani della Notte.
 got.wp.Rimegate=Rimegate
 got.wp.Ring.info=Il castello della Casa dei Roxtons, vassalli dei Tyrell.
 got.wp.Ring=Squillare
-got.wp.RisvellsCastle.info=Castello ancestrale di Casa Riswell, vassalli degli Stark. I Riswell sono fedeli alleati dei Bolton.
-got.wp.RisvellsCastle=Castello di Ryswells
+got.wp.RyswellsCastle.info=Castello ancestrale di Casa Ryswell, vassalli degli Stark. I Ryswell sono fedeli alleati dei Bolton.
+got.wp.RyswellsCastle=Castello di Ryswells
 got.wp.Riverrun.info=Castello ancestrale della casa di Tully, Signori delle Terre dei Fiumi. Costruito alla confluenza dei fiumi Kamnegonka e Krasny Zubets.
 got.wp.Riverrun=Delta delle Acque
 got.wp.Riverspring.info=Il castello della casa dei Sarviks, vassalli dei Lannister.
@@ -4980,7 +4980,7 @@ item.got:banner.robert.name=Stendardo di Robert
 item.got:banner.robertB.name=Banner di Robert (Libro)
 item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
-item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
+item.got:banner.rodrikryswell.name≠Banner of Rodrik Ryswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
 item.got:banner.rogers.name=Stendardo di Rogers
 item.got:banner.rolandblackwood.name≠Banner of Roland Blackwood

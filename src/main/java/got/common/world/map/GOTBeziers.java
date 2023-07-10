@@ -100,8 +100,8 @@ public class GOTBeziers {
 		registerRoad(id++, GOTWaypoint.Dreadfort, new double[]{855, 865}, new double[]{893, 828}, GOTWaypoint.Karhold);
 		registerRoad(id++, GOTWaypoint.ServinsCastle, new double[]{632, 976}, new double[]{644, 1043}, GOTWaypoint.MoatKailin.info(0, -0.5));
 		registerRoad(id++, GOTWaypoint.TorhensSquare, new double[]{553, 996}, new double[]{539, 1037}, GOTWaypoint.Goldgrass);
-		registerRoad(id++, GOTWaypoint.RillwaterCrossing, new double[]{422, 989}, new double[]{419, 1013}, GOTWaypoint.RisvellsCastle);
-		registerRoad(id++, GOTWaypoint.RisvellsCastle, new double[]{447, 1064}, new double[]{496, 1066}, GOTWaypoint.Goldgrass);
+		registerRoad(id++, GOTWaypoint.RillwaterCrossing, new double[]{422, 989}, new double[]{419, 1013}, GOTWaypoint.RyswellsCastle);
+		registerRoad(id++, GOTWaypoint.RyswellsCastle, new double[]{447, 1064}, new double[]{496, 1066}, GOTWaypoint.Goldgrass);
 		registerRoad(id++, GOTWaypoint.Goldgrass, new double[]{606, 1081}, new double[]{626, 1103}, GOTWaypoint.MoatKailin.info(-0.5, 0));
 		registerRoad(id++, GOTWaypoint.MoatKailin.info(0.5, 0), new double[]{672, 1101}, new double[]{707, 1072}, GOTWaypoint.WhiteHarbour);
 		registerRoad(id++, GOTWaypoint.MoatKailin.info(0, 0.5), new double[]{649, 1136}, new double[]{656, 1179}, northRiverlandsCrossroads);
@@ -321,11 +321,9 @@ public class GOTBeziers {
 
 		/* LINKERS */
 		double westerosCastle0p5 = 0.1953125;
-		double westerosCastle0p6 = 0.2929688;
-		double westerosCastle0p7 = 0.390625;
-		double westerosTown0p9 = 0.9;
+		double westerosTown0p9 = 0.2453125;
 
-		registerHiddenRoad(id++, GOTWaypoint.Seagard.info(0, -westerosCastle0p7), GOTWaypoint.Seagard.info(0, 0.9));
+		registerHiddenRoad(id++, GOTWaypoint.Seagard.info(0, -westerosCastle0p5 - 0.2), GOTWaypoint.Seagard.info(0, 0.9));
 		registerHiddenRoad(id++, GOTWaypoint.Appleton.info(0, -westerosCastle0p5), GOTWaypoint.Appleton.info(0, 1.2));
 		registerHiddenRoad(id++, GOTWaypoint.Winterfell, GOTWaypoint.Winterfell.info(-westerosCastle0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.CasterlyRock, GOTWaypoint.CasterlyRock.info(-westerosCastle0p5, 0));
@@ -338,7 +336,7 @@ public class GOTBeziers {
 		registerHiddenRoad(id++, GOTWaypoint.WhiteHarbour, GOTWaypoint.WhiteHarbour.info(westerosTown0p9, 0));
 		registerHiddenRoad(id++, GOTWaypoint.TorhensSquare, GOTWaypoint.TorhensSquare.info(0, -westerosCastle0p5));
 		registerHiddenRoad(id++, GOTWaypoint.RillwaterCrossing, GOTWaypoint.RillwaterCrossing.info(-westerosCastle0p5, 0));
-		registerHiddenRoad(id++, GOTWaypoint.RisvellsCastle, GOTWaypoint.RisvellsCastle.info(-westerosCastle0p5, 0));
+		registerHiddenRoad(id++, GOTWaypoint.RyswellsCastle, GOTWaypoint.RyswellsCastle.info(-westerosCastle0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Saltpans, GOTWaypoint.Saltpans.info(westerosTown0p9, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Harroway, GOTWaypoint.Harroway.info(0, westerosTown0p9));
 		registerHiddenRoad(id++, GOTWaypoint.StoneHedge, GOTWaypoint.StoneHedge.info(0, -westerosCastle0p5));
@@ -353,10 +351,10 @@ public class GOTBeziers {
 		registerHiddenRoad(id++, GOTWaypoint.RooksRest, GOTWaypoint.RooksRest.info(0, -westerosCastle0p5));
 		registerHiddenRoad(id++, GOTWaypoint.Antlers, GOTWaypoint.Antlers.info(0, -westerosCastle0p5));
 		registerHiddenRoad(id++, GOTWaypoint.Stokeworth, GOTWaypoint.Stokeworth.info(-westerosCastle0p5, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Rosby, GOTWaypoint.Rosby.info(-westerosCastle0p6, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Duskendale, GOTWaypoint.Duskendale.info(0, -1.3));
+		registerHiddenRoad(id++, GOTWaypoint.Rosby, GOTWaypoint.Rosby.info(-westerosCastle0p5 - 0.05, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Duskendale, GOTWaypoint.Duskendale.info(-0.1, -westerosTown0p9 - 0.2));
 		registerHiddenRoad(id++, GOTWaypoint.KingsLanding, GOTWaypoint.KingsLanding.info(1.6953125, 0));
-		registerHiddenRoad(id++, GOTWaypoint.GoldenTooth, GOTWaypoint.GoldenTooth.info(0, -westerosCastle0p5));
+		registerHiddenRoad(id++, GOTWaypoint.GoldenTooth, GOTWaypoint.GoldenTooth.info(0, -westerosCastle0p5 - 0.01));
 		registerHiddenRoad(id++, GOTWaypoint.Sarsfield, GOTWaypoint.Sarsfield.info(0, -westerosCastle0p5));
 		registerHiddenRoad(id++, GOTWaypoint.OldOak, GOTWaypoint.OldOak.info(0, westerosCastle0p5));
 		registerHiddenRoad(id++, GOTWaypoint.RedLake, GOTWaypoint.RedLake.info(0, westerosCastle0p5));
@@ -389,34 +387,32 @@ public class GOTBeziers {
 		registerHiddenRoad(id++, GOTWaypoint.Nightsong, GOTWaypoint.Nightsong.info(0, -westerosCastle0p5));
 		registerHiddenRoad(id++, GOTWaypoint.StormsEnd, GOTWaypoint.StormsEnd.info(0, westerosCastle0p5));
 		registerHiddenRoad(id++, GOTWaypoint.SkyReach, GOTWaypoint.SkyReach.info(0, westerosCastle0p5));
-		registerHiddenRoad(id++, GOTWaypoint.Starfall, GOTWaypoint.Starfall.info(0, westerosCastle0p6));
+		registerHiddenRoad(id++, GOTWaypoint.Starfall, GOTWaypoint.Starfall.info(0, westerosCastle0p5 + 0.1));
 		registerHiddenRoad(id++, GOTWaypoint.HighHermitage, GOTWaypoint.HighHermitage.info(westerosCastle0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Blackmont, GOTWaypoint.Blackmont.info(westerosCastle0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Kingsgrave, GOTWaypoint.Kingsgrave.info(westerosCastle0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Yronwood, GOTWaypoint.Yronwood.info(westerosCastle0p5, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Wyl, GOTWaypoint.Wyl.info(-westerosCastle0p5, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Wyl, GOTWaypoint.Wyl.info(-westerosCastle0p5 - 0.05, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Zamettar, GOTWaypoint.Zamettar.info(0, -0.125));
 
-		double essosTown0p5 = 0.140625;
-		double essosTown0p6 = 0.2265575;
-		double essosTown0p7 = 0.328115;
+		double essosTown0p5 = 0.120625;
 
 		registerHiddenRoad(id++, GOTWaypoint.Braavos, GOTWaypoint.Braavos.info(0, -essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.Norvos, GOTWaypoint.Norvos.info(0, -essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.Mantarys, GOTWaypoint.Mantarys.info(0, -essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.VolonTherys, GOTWaypoint.VolonTherys.info(0, essosTown0p5));
-		registerHiddenRoad(id++, GOTWaypoint.LittleValyria, GOTWaypoint.LittleValyria.info(0.26, essosTown0p6));
+		registerHiddenRoad(id++, GOTWaypoint.LittleValyria, GOTWaypoint.LittleValyria.info(0.26, essosTown0p5 + 0.1));
 		registerHiddenRoad(id++, GOTWaypoint.Tolos, GOTWaypoint.Tolos.info(0, essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.Meereen, GOTWaypoint.Meereen.info(0, -essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.PortYhos, GOTWaypoint.PortYhos.info(0, essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.Qarkash, GOTWaypoint.Qarkash.info(0, essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.Qarth, GOTWaypoint.Qarth.info(0, essosTown0p5));
-		registerHiddenRoad(id++, GOTWaypoint.Volantis, GOTWaypoint.Volantis.info(-0.2, essosTown0p6));
+		registerHiddenRoad(id++, GOTWaypoint.Volantis, GOTWaypoint.Volantis.info(-0.2, essosTown0p5 + 0.1));
 		registerHiddenRoad(id++, GOTWaypoint.Pentos, GOTWaypoint.Pentos.info(-essosTown0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Myr, GOTWaypoint.Myr.info(-essosTown0p5, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Qohor, GOTWaypoint.Qohor.info(-essosTown0p6, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Qohor, GOTWaypoint.Qohor.info(-essosTown0p5 - 0.1, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Selhorys, GOTWaypoint.Selhorys.info(-essosTown0p5, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Valysar, GOTWaypoint.Valysar.info(-essosTown0p6, 0.25));
+		registerHiddenRoad(id++, GOTWaypoint.Valysar, GOTWaypoint.Valysar.info(-essosTown0p5 - 0.1, 0.25));
 		registerHiddenRoad(id++, GOTWaypoint.Yunkai, GOTWaypoint.Yunkai.info(-essosTown0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Astapor, GOTWaypoint.Astapor.info(-essosTown0p5, 0));
 

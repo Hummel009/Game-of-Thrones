@@ -4111,14 +4111,14 @@ got.wp.Redfort.info=Schloss des Hauses Rotfest, Vasallen der Arryn.
 got.wp.Redfort=Rotfort
 got.wp.Rhyos.info=Eine der mächtigen und wohlhabenden Kolonialstädte des valyrischen Reiches, die während des Untergangs von Valyria zerstört wurde.
 got.wp.Rhyos=Rios
-got.wp.RillwaterCrossing.info=Schloss des Hauses Glenmore, Vasallen der Risvells.
+got.wp.RillwaterCrossing.info=Schloss des Hauses Glenmore, Vasallen der Ryswells.
 got.wp.RillwaterCrossing=Frühlingsfähre
 got.wp.Rimegate.info=Verlassenes Schloss der Nachtwache.
 got.wp.Rimegate=Rimetor
 got.wp.Ring.info=Die Burg des Hauses der Roxtons, Vasallen der Tyrells.
 got.wp.Ring=Ring
-got.wp.RisvellsCastle.info=Ahnenburg des Hauses Risvells, Vasallen der Starks. Die Riswells sind treue Verbündete der Boltons.
-got.wp.RisvellsCastle=Risvells Schloss
+got.wp.RyswellsCastle.info=Ahnenburg des Hauses Ryswells, Vasallen der Starks. Die Ryswells sind treue Verbündete der Boltons.
+got.wp.RyswellsCastle=Ryswells Schloss
 got.wp.Riverrun.info=Ahnenburg des Hauses Tully, Herrn der Flusslande. Erbaut am Zusammenfluss der Flüsse Kamnegonka und Krasny Zubets.
 got.wp.Riverrun=Schnellwasser
 got.wp.Riverspring.info=Schloss des Hauses Sarviks, Vasallen des Lennister.
@@ -4980,7 +4980,7 @@ item.got:banner.robert.name=Baratheon Banner
 item.got:banner.robertB.name=Baratheon Banner (Kopf)
 item.got:banner.robertashford.name≠Banner of Robert Ashford
 item.got:banner.robertblackwood.name≠Banner of Robert Blackwood
-item.got:banner.rodrikryswell.name≠Banner of Rodrik Riswell
+item.got:banner.rodrikryswell.name≠Banner of Rodrik Ryswell
 item.got:banner.rogerblackwood.name≠Banner of Roger Blackwood
 item.got:banner.rogers.name=Rogers Banner
 item.got:banner.rolandblackwood.name≠Banner of Roland Blackwood
