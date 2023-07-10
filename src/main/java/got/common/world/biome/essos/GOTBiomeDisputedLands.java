@@ -4,6 +4,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
+import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
@@ -52,5 +53,10 @@ public class GOTBiomeDisputedLands extends GOTBiomeEssos {
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterDisputedLands;
+	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
 	}
 }
