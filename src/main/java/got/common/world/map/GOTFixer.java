@@ -134,7 +134,7 @@ public class GOTFixer {
 		registerLocation(new GOTStructureReachSettlement(biome, 0.0f).type(GOTStructureReachSettlement.Type.TOWN, 6), GOTWaypoint.Oldtown.info(-1.1, 0, Dir.WEST), GOTWaypoint.Appleton.info(0, 1.2, Dir.SOUTH), GOTWaypoint.Ashford, GOTWaypoint.HewettTown, GOTWaypoint.Smithyton.info(0, 0.9, Dir.SOUTH), GOTWaypoint.StarfishHarbor, GOTWaypoint.Vinetown, GOTWaypoint.Ryamsport, GOTWaypoint.Tumbleton.info(0, -1.0));
 		registerLocation(new GOTStructureRiverlandsSettlement(biome, 0.0f).type(GOTStructureRiverlandsSettlement.Type.CROSSROADS, 1), GOTWaypoint.CrossroadsInn);
 		registerLocation(new GOTStructureRiverlandsSettlement(biome, 0.0f).type(GOTStructureRiverlandsSettlement.Type.FORT, 3), GOTWaypoint.Darry, GOTWaypoint.Maidenpool.info(0, -0.5), GOTWaypoint.PinkmaidenCastle, GOTWaypoint.RaventreeHall, GOTWaypoint.WayfarerRest.info(-0.5, 0, Dir.WEST), GOTWaypoint.AcornHall.info(-0.5, 0, Dir.WEST), GOTWaypoint.Atranta, GOTWaypoint.Riverrun.info(0, -0.5), GOTWaypoint.Seagard.info(0, -0.7), GOTWaypoint.StoneHedge.info(0, -0.5));
-		registerLocation(new GOTStructureRiverlandsSettlement(biome, 0.0f).type(GOTStructureRiverlandsSettlement.Type.TOWN, 6), GOTWaypoint.Harroway.info(0, 0.9, Dir.SOUTH), GOTWaypoint.Maidenpool.info(0, 0.9, Dir.SOUTH), GOTWaypoint.Saltpans.info(0.9, 0), GOTWaypoint.StoneySept.info(-0.9, 0, Dir.WEST), GOTWaypoint.Seagard.info(0, 0.9, Dir.SOUTH));
+		registerLocation(new GOTStructureRiverlandsSettlement(biome, 0.0f).type(GOTStructureRiverlandsSettlement.Type.TOWN, 6), GOTWaypoint.Harroway.info(0, 0.9, Dir.SOUTH), GOTWaypoint.Maidenpool.info(0, 0.9, Dir.SOUTH), GOTWaypoint.Saltpans.info(0.9, 0, Dir.EAST), GOTWaypoint.StoneySept.info(-0.9, 0, Dir.WEST), GOTWaypoint.Seagard.info(0, 0.9, Dir.SOUTH));
 		registerLocation(new GOTStructureRiverlandsSettlement(biome, 0.0f).type(GOTStructureRiverlandsSettlement.Type.VILLAGE, 6), GOTWaypoint.FairMarket, GOTWaypoint.Pennytree, GOTWaypoint.Sevenstreams);
 		registerLocation(new GOTStructureRuins(biome, 0.0f), GOTWaypoint.WestWatch.info(-0.3, 0), GOTWaypoint.VaesLeisi.info(0, 0.3), GOTWaypoint.Morne.info(0, 0.3), GOTWaypoint.NySar.info(0, 0.15), GOTWaypoint.OldGhis.info(0, 0.3), GOTWaypoint.SarMell.info(0, -0.25), GOTWaypoint.Sarhoy.info(0, 0.3), GOTWaypoint.Shandystone.info(0, 0.3), GOTWaypoint.Starpike.info(0, 0.3), GOTWaypoint.Telyria.info(0, 0.3), GOTWaypoint.TorturersDeep.info(0, 0.3), GOTWaypoint.VaesOrvik.info(0.3, 0), GOTWaypoint.VaesQosar.info(0, 0.3), GOTWaypoint.VaesShirosi.info(0, 0.3), GOTWaypoint.VaesTolorro.info(0, 0.3), GOTWaypoint.ValyrianRoad.info(-0.2, 0), GOTWaypoint.Velos.info(0, 0.3), GOTWaypoint.GreyGallows.info(0, 0.3), GOTWaypoint.BloodStone.info(0, 0.3), GOTWaypoint.Anogaria.info(0, 0.2), GOTWaypoint.Kayakayanaya.info(0, 0.3), GOTWaypoint.Aegon.info(0, 0.3), GOTWaypoint.Raenys.info(0, 0.3), GOTWaypoint.Visenya.info(0, 0.3), GOTWaypoint.Ghozai.info(0, 0.3), GOTWaypoint.Chroyane.info(0.3, 0), GOTWaypoint.FourteenFlames.info(0, 0.3), GOTWaypoint.Ibbish.info(0, 0.3), GOTWaypoint.Samyriana.info(0, 0.3), GOTWaypoint.Bhorash.info(0, 0.2), GOTWaypoint.Bayasabhad.info(0, 0.3), GOTWaypoint.ArNoy.info(-0.1, -0.25), GOTWaypoint.Adakhakileki.info(0, 0.3), GOTWaypoint.CastleLychester.info(0, -0.3), GOTWaypoint.MhysaFaer.info(0, 0.3), GOTWaypoint.AquosDhaen.info(0, 0.3), GOTWaypoint.Draconys.info(0, 0.3), GOTWaypoint.Tyria.info(0, 0.3), GOTWaypoint.Rhyos.info(0, 0.3), GOTWaypoint.Oros.info(0, 0.2), GOTWaypoint.VulturesRoost.info(0, 0.3), GOTWaypoint.Spicetown.info(0, 0.3), GOTWaypoint.Castamere.info(0, 0.3), GOTWaypoint.Goldenhill.info(0, 0.3), GOTWaypoint.GreyironCastle.info(0, 0.3), GOTWaypoint.HoareCastle.info(0, 0.3), GOTWaypoint.HoareKeep.info(0, 0.3), GOTWaypoint.HoggHall.info(0.2, -0.2), GOTWaypoint.HollardCastle.info(0.3, 0), GOTWaypoint.OldStones.info(0, 0.3), GOTWaypoint.Summerhall.info(-0.3, 0), GOTWaypoint.TarbeckHall.info(0, 0.3), GOTWaypoint.TowerOfJoy.info(-0.3, 0), GOTWaypoint.Whispers.info(0, 0.3), GOTWaypoint.WhiteWalls.info(0.2, -0.2));
 		registerLocation(new GOTStructureRuinsBig(biome, 0.0f), GOTWaypoint.EastBay.info(0, 0.4), GOTWaypoint.EastCoast.info(0, 0.4), GOTWaypoint.NorthForests.info(0, 0.4), GOTWaypoint.WhiteMountains.info(0, 0.4), GOTWaypoint.CentralForests.info(0, 0.4), GOTWaypoint.Marshes.info(0, 0.4), GOTWaypoint.RedForests.info(0, 0.4), GOTWaypoint.SouthUlthos.info(0, 0.4), GOTWaypoint.SouthTaiga.info(0, 0.4), GOTWaypoint.Bonetown.info(0, 0.4), GOTWaypoint.Harrenhal.info(-0.4, 0), GOTWaypoint.Stygai.info(0, 0.4), GOTWaypoint.Ulos.info(0, 0.4), GOTWaypoint.Yeen.info(0, 0.4));
@@ -803,15 +803,15 @@ public class GOTFixer {
 		structures.put(GOTWaypoint.TwinsLeft, new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBlackWalderFrey(world), world, 0, 1, -15);
-				spawnLegendaryNPC(new GOTEntityLotharFrey(world), world, 0, 1, -15);
+				spawnLegendaryNPC(new GOTEntityBlackWalderFrey(world), world, 0, 2, -15);
+				spawnLegendaryNPC(new GOTEntityLotharFrey(world), world, 0, 2, -15);
 			}
 		});
 
 		structures.put(GOTWaypoint.TwinsRight, new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityWalderFrey(world), world, 0, 1, 15);
+				spawnLegendaryNPC(new GOTEntityWalderFrey(world), world, 0, 2, -15);
 			}
 		});
 
