@@ -405,7 +405,7 @@ public class GOTBeziers {
 		registerHiddenRoad(id++, GOTWaypoint.Norvos, GOTWaypoint.Norvos.info(0, -essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.Mantarys, GOTWaypoint.Mantarys.info(0, -essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.VolonTherys, GOTWaypoint.VolonTherys.info(0, essosTown0p5));
-		registerHiddenRoad(id++, GOTWaypoint.LittleValyria, GOTWaypoint.LittleValyria.info(0, essosTown0p7));
+		registerHiddenRoad(id++, GOTWaypoint.LittleValyria, GOTWaypoint.LittleValyria.info(0.26, essosTown0p6));
 		registerHiddenRoad(id++, GOTWaypoint.Tolos, GOTWaypoint.Tolos.info(0, essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.Meereen, GOTWaypoint.Meereen.info(0, -essosTown0p5));
 		registerHiddenRoad(id++, GOTWaypoint.PortYhos, GOTWaypoint.PortYhos.info(0, essosTown0p5));
@@ -416,7 +416,7 @@ public class GOTBeziers {
 		registerHiddenRoad(id++, GOTWaypoint.Myr, GOTWaypoint.Myr.info(-essosTown0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Qohor, GOTWaypoint.Qohor.info(-essosTown0p6, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Selhorys, GOTWaypoint.Selhorys.info(-essosTown0p5, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Valysar, GOTWaypoint.Valysar.info(-essosTown0p7, 0));
+		registerHiddenRoad(id++, GOTWaypoint.Valysar, GOTWaypoint.Valysar.info(-essosTown0p6, 0.25));
 		registerHiddenRoad(id++, GOTWaypoint.Yunkai, GOTWaypoint.Yunkai.info(-essosTown0p5, 0));
 		registerHiddenRoad(id++, GOTWaypoint.Astapor, GOTWaypoint.Astapor.info(-essosTown0p5, 0));
 
