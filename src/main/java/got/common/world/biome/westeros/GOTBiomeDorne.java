@@ -64,4 +64,9 @@ public class GOTBiomeDorne extends GOTBiomeEssos {
 	public Region getBiomeWaypoints() {
 		return Region.DORNE;
 	}
+
+	@Override
+	public GOTBezierType getRoadBlock() {
+		return GOTBezierType.PATH_SANDY;
+	}
 }
