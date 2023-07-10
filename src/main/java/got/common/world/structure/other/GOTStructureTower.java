@@ -370,7 +370,7 @@ public class GOTStructureTower extends GOTStructureBaseSettlement {
 
 		@Override
 		public void addSettlementStructures(Random random) {
-			addStructure(new GOTStructureTowerBase(false), 0, 10, 0, true);
+			addStructure(new GOTStructureTowerBase(false), 0, -7, 2, true);
 		}
 
 		@Override

@@ -2,7 +2,7 @@
  * Decompiled with CFR 0.148.
  *
  * Could not onInit the following classes:
- *  cpw.mods.fml.relauncher.Side
+ *  cpw.mods.fml.relauncher.Dir
  *  cpw.mods.fml.relauncher.SideOnly
  *  net.minecraft.block.Block
  *  net.minecraft.block.Block$SoundType
