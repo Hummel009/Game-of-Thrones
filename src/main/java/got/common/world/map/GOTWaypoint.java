@@ -182,13 +182,13 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public GOTAbstractWaypoint info(double shiftX, double shiftY) {
-		return info(shiftX, shiftY, 0);
+		return info(shiftX, shiftY, Side.NORTH);
 	}
 
-	public GOTAbstractWaypoint info(double shiftX, double shiftY, int rotation) {
+	public GOTAbstractWaypoint info(double shiftX, double shiftY, Side rotation) {
 		double shiftedX = imgX + shiftX;
 		double shiftedY = imgY + shiftY;
-		return new GOTWaypointInfo(this, shiftedX, shiftedY, rotation);
+		return new GOTWaypointInfo(this, shiftedX, shiftedY, rotation.ordinal());
 	}
 
 	public boolean isCompatibleAlignment(EntityPlayer entityplayer) {
