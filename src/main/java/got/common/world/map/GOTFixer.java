@@ -306,6 +306,7 @@ public class GOTFixer {
 				return true;
 			}
 		});
+
 		structures.put(GOTWaypoint.EvenfallHall, new Spawner() {
 			@Override
 			public void spawnLegendaryNPC(World world) {
