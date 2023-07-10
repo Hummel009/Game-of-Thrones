@@ -7,7 +7,6 @@ public class GOTModChecker {
 	public static int hasLOTR = -1;
 	public static int hasGuiContainer = -1;
 	public static int hasWeather2 = -1;
-	public static boolean hasgot;
 
 	public static boolean hasGuiContainer() {
 		if (hasGuiContainer == -1) {

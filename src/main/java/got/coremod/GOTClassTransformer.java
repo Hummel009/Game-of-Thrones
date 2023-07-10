@@ -1263,7 +1263,7 @@ public class GOTClassTransformer implements IClassTransformer {
 					}
 					if (currentNode.getOpcode() == INVOKEVIRTUAL) {
 						MethodInsnNode methodInsnNode = (MethodInsnNode) currentNode;
-						if ("drawCenteredString".equals(methodInsnNode.name) && "(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V".equals(methodInsnNode.desc)) {
+						if ("(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V".equals(methodInsnNode.desc)) {
 							methodInsnNode.name = "drawCenteredStringWithoutShadow";
 						}
 					}
@@ -1280,17 +1280,14 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchGui(String name, byte[] bytes) {
-		boolean isObf = !name.startsWith("net.minecraft");
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
 
 		String targetMethodName = "drawCenteredStringWithoutShadow";
-		String targetMethodNameObf = "drawCenteredStringWithoutShadow";
 		String targetMethodDesc = "(Lnet/minecraft/client/gui/FontRenderer;Ljava/lang/String;III)V";
-		String targetMethodDescObf = "(Lbbu;Ljava/lang/String;III)V";
 
-		MethodNode newMethod = isObf ? new MethodNode(ACC_PUBLIC, targetMethodNameObf, targetMethodDescObf, null, null) : new MethodNode(1, targetMethodName, targetMethodDesc, null, null);
+		MethodNode newMethod = new MethodNode(ACC_PUBLIC, targetMethodName, targetMethodDesc, null, null);
 
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 1));
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 2));
