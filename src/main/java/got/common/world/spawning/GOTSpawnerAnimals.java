@@ -64,7 +64,7 @@ public class GOTSpawnerAnimals {
 			}
 			if (canSpawnType) {
 				int count = world.countEntities(creatureType, true);
-				int maxCount = GOTSpawnDamping.getCreatureSpawnCap(creatureType, (World) world) * eligibleSpawnChunks.size() / 196;
+				int maxCount = GOTSpawnDamping.getCreatureSpawnCap(creatureType, world) * eligibleSpawnChunks.size() / 196;
 				if (count <= maxCount) {
 					int cycles = Math.max(1, interval);
 					for (int c = 0; c < cycles; c++) {
@@ -100,7 +100,7 @@ public class GOTSpawnerAnimals {
 												if (world.blockExists(i1, j1, k1) && SpawnerAnimals.canCreatureTypeSpawnAtLocation(creatureType, world, i1, j1, k1)) {
 													float f = i1 + 0.5F;
 													float f2 = k1 + 0.5F;
-													if (world.getClosestPlayer(f, (float) j1, f2, 24.0D) == null) {
+													if (world.getClosestPlayer(f, j1, f2, 24.0D) == null) {
 														float f3 = f - spawnPoint.posX;
 														float f4 = (float) j1 - spawnPoint.posY;
 														float f5 = f2 - spawnPoint.posZ;
@@ -109,25 +109,29 @@ public class GOTSpawnerAnimals {
 															EntityLiving entity;
 															if (spawnEntry == null) {
 																spawnEntry = world.spawnRandomCreature(creatureType, i1, j1, k1);
-																if (spawnEntry == null) continue label97;
+																if (spawnEntry == null) {
+																	continue label97;
+																}
 															}
 															try {
-																entity = (EntityLiving) spawnEntry.entityClass.getConstructor(new Class[]{World.class}).newInstance(new Object[]{world});
+																entity = (EntityLiving) spawnEntry.entityClass.getConstructor(World.class).newInstance(world);
 															} catch (Exception e) {
 																e.printStackTrace();
 																return totalSpawned;
 															}
-															entity.setLocationAndAngles(f, (float) j1, f2, world.rand.nextFloat() * 360.0F, 0.0F);
-															Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, f, (float) j1, f2);
-															if (canSpawn == Event.Result.ALLOW || (canSpawn == Event.Result.DEFAULT && entity.getCanSpawnHere())) {
+															entity.setLocationAndAngles(f, j1, f2, world.rand.nextFloat() * 360.0F, 0.0F);
+															Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, f, j1, f2);
+															if (canSpawn == Event.Result.ALLOW || canSpawn == Event.Result.DEFAULT && entity.getCanSpawnHere()) {
 																totalSpawned++;
 																world.spawnEntityInWorld(entity);
-																if (!ForgeEventFactory.doSpecialSpawn(entity, world, f, (float) j1, f2)) {
+																if (!ForgeEventFactory.doSpecialSpawn(entity, world, f, j1, f2)) {
 																	entityData = entity.onSpawnWithEgg(entityData);
 																}
 																newlySpawned++;
 																count++;
-																if (c > 0 && count > maxCount) continue label99;
+																if (c > 0 && count > maxCount) {
+																	continue label99;
+																}
 																if (groupsSpawned >= ForgeEventFactory.getMaxSpawnPackSize(entity)) {
 																	continue label97;
 																}

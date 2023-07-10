@@ -12,7 +12,6 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.GOTStructureBaseSettlement;
 import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
-import got.common.world.structure.westeros.arryn.GOTStructureArrynSettlement;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 

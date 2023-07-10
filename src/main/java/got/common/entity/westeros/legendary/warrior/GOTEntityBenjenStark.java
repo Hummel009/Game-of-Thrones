@@ -38,11 +38,6 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 		npcCape = GOTCapes.NIGHT;
 	}
 
-	public GOTEntityNPC setIsRider(boolean is) {
-		spawnRidingHorse = is;
-		return this;
-	}
-
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -106,6 +101,11 @@ public class GOTEntityBenjenStark extends GOTEntityHumanBase {
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.valyrianSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		return data;
+	}
+
+	public GOTEntityNPC setIsRider(boolean is) {
+		spawnRidingHorse = is;
+		return this;
 	}
 
 	@Override

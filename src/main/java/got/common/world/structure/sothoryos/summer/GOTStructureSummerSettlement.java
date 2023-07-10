@@ -65,54 +65,6 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-		private void setupRuinedVillage(Random random) {
-			addStructure(new GOTStructureSummerTavernRuined(false), 3, -7, 0, true);
-			float frac = 1.0f / 8;
-			float turn = 0.0f;
-			while (turn < 1.0f) {
-				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
-				float sin = MathHelper.sin(turnR);
-				float cos = MathHelper.cos(turnR);
-				int r = 0;
-				float turn8 = turn * 8.0f;
-				if (turn8 >= 3.0f && turn8 < 5.0f) {
-					r = 1;
-				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
-					r = 2;
-				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
-					r = 3;
-				}
-				int l = 25;
-				int i = Math.round(l * cos);
-				int k = Math.round(l * sin);
-				if (k < 0 && Math.abs(i) < 10) {
-					continue;
-				}
-				addStructure(new GOTStructureSummerHouseRuined(false), i, k, r);
-			}
-			int rSq = 3721;
-			int rMax = 62;
-			int rSqMax = rMax * rMax;
-			for (int i = -61; i <= 61; ++i) {
-				for (int k = -61; k <= 61; ++k) {
-					int dSq;
-					GOTStructureSummerPalisade palisade;
-					int i1 = Math.abs(i);
-					if (i1 <= 4 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
-						continue;
-					}
-					if (random.nextBoolean()) {
-						continue;
-					}
-					palisade = new GOTStructureSummerPalisadeRuined(false);
-					if (i1 == 5 && k < 0) {
-						palisade.setTall();
-					}
-					addStructure(palisade, i, k, 0);
-				}
-			}
-		}
-
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
@@ -192,6 +144,54 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 						continue;
 					}
 					GOTStructureSummerPalisade palisade = new GOTStructureSummerPalisade(false);
+					if (i1 == 5 && k < 0) {
+						palisade.setTall();
+					}
+					addStructure(palisade, i, k, 0);
+				}
+			}
+		}
+
+		private void setupRuinedVillage(Random random) {
+			addStructure(new GOTStructureSummerTavernRuined(false), 3, -7, 0, true);
+			float frac = 1.0f / 8;
+			float turn = 0.0f;
+			while (turn < 1.0f) {
+				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
+				float sin = MathHelper.sin(turnR);
+				float cos = MathHelper.cos(turnR);
+				int r = 0;
+				float turn8 = turn * 8.0f;
+				if (turn8 >= 3.0f && turn8 < 5.0f) {
+					r = 1;
+				} else if (turn8 >= 5.0f && turn8 < 7.0f) {
+					r = 2;
+				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
+					r = 3;
+				}
+				int l = 25;
+				int i = Math.round(l * cos);
+				int k = Math.round(l * sin);
+				if (k < 0 && Math.abs(i) < 10) {
+					continue;
+				}
+				addStructure(new GOTStructureSummerHouseRuined(false), i, k, r);
+			}
+			int rSq = 3721;
+			int rMax = 62;
+			int rSqMax = rMax * rMax;
+			for (int i = -61; i <= 61; ++i) {
+				for (int k = -61; k <= 61; ++k) {
+					int dSq;
+					GOTStructureSummerPalisade palisade;
+					int i1 = Math.abs(i);
+					if (i1 <= 4 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
+						continue;
+					}
+					if (random.nextBoolean()) {
+						continue;
+					}
+					palisade = new GOTStructureSummerPalisadeRuined(false);
 					if (i1 == 5 && k < 0) {
 						palisade.setTall();
 					}

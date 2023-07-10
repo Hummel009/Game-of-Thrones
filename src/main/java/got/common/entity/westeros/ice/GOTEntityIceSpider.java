@@ -86,9 +86,8 @@ public class GOTEntityIceSpider extends GOTEntitySpiderBase {
 		}
 		if (causeDamage) {
 			return super.attackEntityFrom(damagesource, f);
-		} else {
-			return super.attackEntityFrom(damagesource, 0.0f);
 		}
+		return super.attackEntityFrom(damagesource, 0.0f);
 	}
 
 	@Override

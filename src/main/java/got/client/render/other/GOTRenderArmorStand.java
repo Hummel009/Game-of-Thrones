@@ -5,7 +5,6 @@ import got.client.model.GOTModelArmorStand;
 import got.common.database.GOTArmorModels;
 import got.common.item.other.GOTItemPlate;
 import got.common.tileentity.GOTTileEntityArmorStand;
-import got.common.util.GOTLog;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderBiped;

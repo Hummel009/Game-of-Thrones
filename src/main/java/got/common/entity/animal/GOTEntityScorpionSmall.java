@@ -39,11 +39,6 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 		isNotHuman = true;
 	}
 
-	@SideOnly(Side.CLIENT)
-	public float getShadowSize() {
-		return 0.0F;
-	}
-
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
@@ -126,6 +121,12 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 	@Override
 	public String getLivingSound() {
 		return "mob.spider.say";
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public float getShadowSize() {
+		return 0.0F;
 	}
 
 	public int getStrikeTime() {

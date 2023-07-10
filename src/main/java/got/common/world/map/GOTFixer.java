@@ -79,10 +79,6 @@ public class GOTFixer {
 		}
 	}
 
-	public enum Dir {
-		NORTH, EAST, SOUTH, WEST
-	}
-
 	public static void addWaypointLocations(GOTBiome biome) {
 		locations.clear();
 		registerLocation(new GOTStructureArrynSettlement(biome, 0.0f).type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.BloodyGate.info(0, -0.5), GOTWaypoint.TheEyrie.info(0, -0.5), GOTWaypoint.ColdwaterBurn, GOTWaypoint.GreyGlen, GOTWaypoint.HeartsHome, GOTWaypoint.IronOak, GOTWaypoint.LongbowHall, GOTWaypoint.Ninestars, GOTWaypoint.OldAnchor, GOTWaypoint.Pebble, GOTWaypoint.Redfort, GOTWaypoint.Runestone, GOTWaypoint.Snakewood, GOTWaypoint.Strongsong, GOTWaypoint.ThePaps, GOTWaypoint.Wickenden, GOTWaypoint.WitchIsle, GOTWaypoint.GateOfTheMoon.info(0.5, 0, Dir.EAST));
@@ -900,6 +896,10 @@ public class GOTFixer {
 	public static void registerLocation(GOTStructureBaseSettlement settlement, GOTAbstractWaypoint... wps) {
 		settlement.affix(wps);
 		locations.add(settlement);
+	}
+
+	public enum Dir {
+		NORTH, EAST, SOUTH, WEST
 	}
 
 	public static class Spawner extends GOTStructureBase {

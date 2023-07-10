@@ -241,7 +241,7 @@ public class GOTGuiHandler {
 							guiTop = GOTReflectionClient.getGuiTop(guiContainer);
 							guiXSize = GOTReflectionClient.getGuiXSize(guiContainer);
 							guiLeft = gui.width / 2 - guiXSize / 2;
-							if ((guiContainer instanceof InventoryEffectRenderer && GOTReflectionClient.hasGuiPotionEffects((InventoryEffectRenderer) gui)) && !GOTModChecker.hasNEI()) {
+							if (guiContainer instanceof InventoryEffectRenderer && GOTReflectionClient.hasGuiPotionEffects((InventoryEffectRenderer) gui) && !GOTModChecker.hasNEI()) {
 								guiLeft += 60;
 							}
 						}

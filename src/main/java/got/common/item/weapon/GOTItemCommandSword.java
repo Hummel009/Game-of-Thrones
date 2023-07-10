@@ -45,7 +45,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		boolean anyAttackCommanded = false;
 		List<GOTEntityNPC> nearbyHiredUnits = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(12.0D, 12.0D, 12.0D));
 		for (GOTEntityNPC npc : nearbyHiredUnits) {
-			if ((npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getObeyCommandSword()) && GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
+			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getObeyCommandSword() && GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
 				List<EntityLivingBase> validTargets = new ArrayList<>();
 				if (!spreadTargets.isEmpty()) {
 					for (Object obj : spreadTargets) {

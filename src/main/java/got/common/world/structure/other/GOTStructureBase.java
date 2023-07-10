@@ -1111,11 +1111,9 @@ public abstract class GOTStructureBase extends WorldGenerator {
 				((GOTEntityNPC) entity).isNPCPersistent = true;
 			}
 			world.spawnEntityInWorld(entity);
-		} else {
-			if (entity instanceof GOTEntityNPC) {
-				((GOTEntityNPC) entity).spawnRidingHorse = false;
-				characters.add(entity);
-			}
+		} else if (entity instanceof GOTEntityNPC) {
+			((GOTEntityNPC) entity).spawnRidingHorse = false;
+			characters.add(entity);
 		}
 	}
 

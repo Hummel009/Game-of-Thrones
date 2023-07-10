@@ -1,7 +1,5 @@
 package got.common.world.biome;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTDate;
 import got.common.GOTDimension;
 

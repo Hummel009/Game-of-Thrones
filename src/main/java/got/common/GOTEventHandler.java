@@ -921,7 +921,7 @@ public class GOTEventHandler implements IFuelHandler {
 					alignmentBonus.needsTranslation = true;
 					alignmentBonus.isCivilianKill = npc.isCivilianNPC();
 				}
-				if ((alignmentBonus != null && alignmentBonus.bonus != 0.0F) && (!creditHiredUnit || byNearbyUnit)) {
+				if (alignmentBonus != null && alignmentBonus.bonus != 0.0F && (!creditHiredUnit || byNearbyUnit)) {
 					alignmentBonus.isKill = true;
 					if (creditHiredUnit) {
 						alignmentBonus.killByHiredUnit = true;

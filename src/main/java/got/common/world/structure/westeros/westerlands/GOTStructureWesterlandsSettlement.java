@@ -8,7 +8,6 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
-import got.common.world.structure.westeros.reach.GOTStructureReachSettlement;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 

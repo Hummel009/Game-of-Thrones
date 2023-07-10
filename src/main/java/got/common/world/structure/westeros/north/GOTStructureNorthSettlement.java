@@ -78,6 +78,187 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
+		@Override
+		public GOTBezierType getPath(Random random, int i, int k) {
+			int i1 = Math.abs(i);
+			int k1 = Math.abs(k);
+			if (type == Type.VILLAGE) {
+				int dSq = i * i + k * k;
+				int imn = 20 + random.nextInt(4);
+				if (dSq < imn * imn) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+				int omn = 53 - random.nextInt(4);
+				int omx = 60 + random.nextInt(4);
+				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+			} else if (type == Type.TOWN && i1 <= 80 && k1 <= 80) {
+				return GOTBezierType.PATH_DIRTY;
+			} else if (type == Type.FORT) {
+				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+			} else if (type == Type.HILLMAN) {
+				int dSq = i * i + k * k;
+				int imn = 15 + random.nextInt(4);
+				if (dSq < imn * imn || i1 <= 64 && k1 <= 3 + random.nextInt(2)) {
+					return GOTBezierType.PATH_DIRTY;
+				}
+			}
+			return null;
+		}
+
+		public GOTStructureBase getRandomFarm(Random random) {
+			if (random.nextBoolean()) {
+				if (random.nextBoolean()) {
+					return new GOTStructureNorthVillageFarm.Animals(false);
+				}
+				return new GOTStructureNorthVillageFarm.Crops(false);
+			}
+			return new GOTStructureNorthVillageFarm.Tree(false);
+		}
+
+		public GOTStructureBase getRandomHouse(Random random) {
+			if (random.nextInt(5) == 0) {
+				int i = random.nextInt(3);
+				switch (i) {
+					case 0:
+						return new GOTStructureNorthStables(false);
+					case 1:
+						return new GOTStructureNorthSmithy(false);
+					default:
+						return new GOTStructureNorthBarn(false);
+				}
+			}
+			return new GOTStructureNorthHouse(false);
+		}
+
+		@Override
+		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
+			return false;
+		}
+
+		public void setupCastle(Random random) {
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClass(GOTEntityNorthMan.class);
+					spawner.setCheckRanges(50, -12, 12, 16);
+					spawner.setSpawnRanges(30, -6, 6, 40);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			for (int i1 : new int[]{-20, 20}) {
+				for (int k1 : new int[]{-20, 20}) {
+					addStructure(new GOTStructureNPCRespawner(false) {
+
+						@Override
+						public void setupRespawner(GOTEntityNPCRespawner spawner) {
+							spawner.setSpawnClass(GOTEntityNorthSoldier.class);
+							spawner.setCheckRanges(20, -12, 12, 16);
+							spawner.setSpawnRanges(20, -6, 6, 40);
+							spawner.setBlockEnemySpawnRange(40);
+						}
+					}, i1, k1, 0);
+				}
+			}
+			addStructure(new GOTStructureNorthFortress(false), 0, 12, 2, true);
+			addStructure(new GOTStructureWesterosFortGate(false), 0, -37, 0, true);
+			addStructure(new GOTStructureWesterosFortWall.Right(false), -11, -37, 0, true);
+			addStructure(new GOTStructureWesterosFortWall.Left(false), 11, -37, 0, true);
+			addStructure(new GOTStructureNorthWatchtower(false), -23, -33, 2, true);
+			addStructure(new GOTStructureNorthWatchtower(false), 23, -33, 2, true);
+			addStructure(new GOTStructureWesterosFortGate(false), -37, 0, 3, true);
+			addStructure(new GOTStructureWesterosFortWall.Left(false), -37, -11, 3, true);
+			addStructure(new GOTStructureWesterosFortWall.Right(false), -37, 11, 3, true);
+			addStructure(new GOTStructureNorthWatchtower(false), -33, -23, 1, true);
+			addStructure(new GOTStructureNorthWatchtower(false), -33, 23, 1, true);
+			addStructure(new GOTStructureWesterosFortGate(false), 0, 37, 2, true);
+			addStructure(new GOTStructureWesterosFortWall.Left(false), -11, 37, 2, true);
+			addStructure(new GOTStructureWesterosFortWall.Right(false), 11, 37, 2, true);
+			addStructure(new GOTStructureNorthWatchtower(false), -23, 33, 0, true);
+			addStructure(new GOTStructureNorthWatchtower(false), 23, 33, 0, true);
+			addStructure(new GOTStructureWesterosFortGate(false), 37, 0, 1, true);
+			addStructure(new GOTStructureWesterosFortWall.Right(false), 37, -11, 1, true);
+			addStructure(new GOTStructureWesterosFortWall.Left(false), 37, 11, 1, true);
+			addStructure(new GOTStructureNorthWatchtower(false), 33, -23, 3, true);
+			addStructure(new GOTStructureNorthWatchtower(false), 33, 23, 3, true);
+			addStructure(new GOTStructureWesterosFortWallCorner(false), -30, -30, 3);
+			addStructure(new GOTStructureWesterosFortWallCorner(false), -30, 30, 2);
+			addStructure(new GOTStructureWesterosFortWallCorner(false), 30, 30, 1);
+			addStructure(new GOTStructureWesterosFortWallCorner(false), 30, -30, 0);
+			addStructure(new GOTStructureNorthStables(false), -24, 2, 0);
+			addStructure(new GOTStructureNorthStables(false), -24, -2, 2);
+			addStructure(new GOTStructureNorthSmithy(false), 24, 1, 0);
+			addStructure(new GOTStructureNorthSmithy(false), 24, -1, 2);
+			addStructure(new GOTStructureNorthStoneHouse(false), -3, -25, 1);
+			addStructure(new GOTStructureNorthStoneHouse(false), 3, -25, 3);
+			addStructure(new GOTStructureNorthVillageFarm.Crops(false), -18, -21, 1);
+			addStructure(new GOTStructureNorthVillageFarm.Crops(false), 18, -21, 3);
+			addStructure(new GOTStructureWesterosWell(false), -12, 27, 1);
+			addStructure(new GOTStructureWesterosWell(false), 12, 27, 3);
+		}
+
+		public void setupHillman(Random random) {
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClass(GOTEntityNorthHillman.class);
+					spawner.setCheckRanges(40, -12, 12, 40);
+					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			addStructure(new GOTStructureNPCRespawner(false) {
+
+				@Override
+				public void setupRespawner(GOTEntityNPCRespawner spawner) {
+					spawner.setSpawnClasses(GOTEntityNorthHillmanAxeThrower.class, GOTEntityNorthHillmanArcher.class);
+					spawner.setCheckRanges(40, -12, 12, 16);
+					spawner.setSpawnRanges(20, -6, 6, 64);
+					spawner.setBlockEnemySpawnRange(60);
+				}
+			}, 0, 0, 0);
+			int pathEnd = 68;
+			int pathSide = 7;
+			int centreSide = 19;
+			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
+			addStructure(new GOTStructureNorthHillmanHouse(false).setIsCannibal(), 0, -centreSide, 2, true);
+			addStructure(new GOTStructureNorthHillmanHouse(false).setIsWarrior(), -pathEnd, 0, 1, true);
+			addStructure(new GOTStructureNorthHillmanChieftainHouse(false), pathEnd, 0, 3, true);
+			int rowHouses = 3;
+			for (int l = -rowHouses; l <= rowHouses; ++l) {
+				int i1 = l * 18;
+				int k1 = pathSide;
+				if (Math.abs(i1) <= 15) {
+					k1 += 15 - pathSide;
+				}
+				if (Math.abs(l) >= 1) {
+					addStructure(new GOTStructureNorthHillmanHouse(false), i1, -k1, 2);
+				}
+				addStructure(new GOTStructureNorthHillmanHouse(false), i1, k1, 0);
+				int k2 = k1 + 20;
+				if (l != 0) {
+					addStructure(new GOTStructureHayBales(false), i1, -k2, 2);
+				}
+				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
+			}
+		}
+
+		@Override
+		public void setupSettlementProperties(Random random) {
+			if (!forcedType) {
+				if (random.nextInt(4) == 0) {
+					type = Type.FORT;
+				} else {
+					type = Type.VILLAGE;
+				}
+			}
+		}
+
 		private void setupSmallTown(Random random) {
 			boolean outerTavern = random.nextBoolean();
 			addStructure(new GOTStructureNPCRespawner(false) {
@@ -260,187 +441,6 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureWesterosTownTrees(false), treeZ, treeX, 0, true);
 			addStructure(new GOTStructureWesterosTownTrees(false), -14, 71, 1, true);
 			addStructure(new GOTStructureWesterosTownTrees(false), 14, 71, 3, true);
-		}
-
-		@Override
-		public GOTBezierType getPath(Random random, int i, int k) {
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
-			if (type == Type.VILLAGE) {
-				int dSq = i * i + k * k;
-				int imn = 20 + random.nextInt(4);
-				if (dSq < imn * imn) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-				int omn = 53 - random.nextInt(4);
-				int omx = 60 + random.nextInt(4);
-				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-			} else if (type == Type.TOWN && i1 <= 80 && k1 <= 80) {
-				return GOTBezierType.PATH_DIRTY;
-			} else if (type == Type.FORT) {
-				if (i1 <= 1 && (k >= 13 || k <= -12) && k1 <= 36 || k1 <= 1 && i1 >= 12 && i1 <= 36 || k >= 26 && k <= 28 && i1 <= 12) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-			} else if (type == Type.HILLMAN) {
-				int dSq = i * i + k * k;
-				int imn = 15 + random.nextInt(4);
-				if (dSq < imn * imn || i1 <= 64 && k1 <= 3 + random.nextInt(2)) {
-					return GOTBezierType.PATH_DIRTY;
-				}
-			}
-			return null;
-		}
-
-		public GOTStructureBase getRandomFarm(Random random) {
-			if (random.nextBoolean()) {
-				if (random.nextBoolean()) {
-					return new GOTStructureNorthVillageFarm.Animals(false);
-				}
-				return new GOTStructureNorthVillageFarm.Crops(false);
-			}
-			return new GOTStructureNorthVillageFarm.Tree(false);
-		}
-
-		public GOTStructureBase getRandomHouse(Random random) {
-			if (random.nextInt(5) == 0) {
-				int i = random.nextInt(3);
-				switch (i) {
-					case 0:
-						return new GOTStructureNorthStables(false);
-					case 1:
-						return new GOTStructureNorthSmithy(false);
-					default:
-						return new GOTStructureNorthBarn(false);
-				}
-			}
-			return new GOTStructureNorthHouse(false);
-		}
-
-		@Override
-		public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
-			return false;
-		}
-
-		public void setupCastle(Random random) {
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityNorthMan.class);
-					spawner.setCheckRanges(50, -12, 12, 16);
-					spawner.setSpawnRanges(30, -6, 6, 40);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			for (int i1 : new int[]{-20, 20}) {
-				for (int k1 : new int[]{-20, 20}) {
-					addStructure(new GOTStructureNPCRespawner(false) {
-
-						@Override
-						public void setupRespawner(GOTEntityNPCRespawner spawner) {
-							spawner.setSpawnClass(GOTEntityNorthSoldier.class);
-							spawner.setCheckRanges(20, -12, 12, 16);
-							spawner.setSpawnRanges(20, -6, 6, 40);
-							spawner.setBlockEnemySpawnRange(40);
-						}
-					}, i1, k1, 0);
-				}
-			}
-			addStructure(new GOTStructureNorthFortress(false), 0, 12, 2, true);
-			addStructure(new GOTStructureWesterosFortGate(false), 0, -37, 0, true);
-			addStructure(new GOTStructureWesterosFortWall.Right(false), -11, -37, 0, true);
-			addStructure(new GOTStructureWesterosFortWall.Left(false), 11, -37, 0, true);
-			addStructure(new GOTStructureNorthWatchtower(false), -23, -33, 2, true);
-			addStructure(new GOTStructureNorthWatchtower(false), 23, -33, 2, true);
-			addStructure(new GOTStructureWesterosFortGate(false), -37, 0, 3, true);
-			addStructure(new GOTStructureWesterosFortWall.Left(false), -37, -11, 3, true);
-			addStructure(new GOTStructureWesterosFortWall.Right(false), -37, 11, 3, true);
-			addStructure(new GOTStructureNorthWatchtower(false), -33, -23, 1, true);
-			addStructure(new GOTStructureNorthWatchtower(false), -33, 23, 1, true);
-			addStructure(new GOTStructureWesterosFortGate(false), 0, 37, 2, true);
-			addStructure(new GOTStructureWesterosFortWall.Left(false), -11, 37, 2, true);
-			addStructure(new GOTStructureWesterosFortWall.Right(false), 11, 37, 2, true);
-			addStructure(new GOTStructureNorthWatchtower(false), -23, 33, 0, true);
-			addStructure(new GOTStructureNorthWatchtower(false), 23, 33, 0, true);
-			addStructure(new GOTStructureWesterosFortGate(false), 37, 0, 1, true);
-			addStructure(new GOTStructureWesterosFortWall.Right(false), 37, -11, 1, true);
-			addStructure(new GOTStructureWesterosFortWall.Left(false), 37, 11, 1, true);
-			addStructure(new GOTStructureNorthWatchtower(false), 33, -23, 3, true);
-			addStructure(new GOTStructureNorthWatchtower(false), 33, 23, 3, true);
-			addStructure(new GOTStructureWesterosFortWallCorner(false), -30, -30, 3);
-			addStructure(new GOTStructureWesterosFortWallCorner(false), -30, 30, 2);
-			addStructure(new GOTStructureWesterosFortWallCorner(false), 30, 30, 1);
-			addStructure(new GOTStructureWesterosFortWallCorner(false), 30, -30, 0);
-			addStructure(new GOTStructureNorthStables(false), -24, 2, 0);
-			addStructure(new GOTStructureNorthStables(false), -24, -2, 2);
-			addStructure(new GOTStructureNorthSmithy(false), 24, 1, 0);
-			addStructure(new GOTStructureNorthSmithy(false), 24, -1, 2);
-			addStructure(new GOTStructureNorthStoneHouse(false), -3, -25, 1);
-			addStructure(new GOTStructureNorthStoneHouse(false), 3, -25, 3);
-			addStructure(new GOTStructureNorthVillageFarm.Crops(false), -18, -21, 1);
-			addStructure(new GOTStructureNorthVillageFarm.Crops(false), 18, -21, 3);
-			addStructure(new GOTStructureWesterosWell(false), -12, 27, 1);
-			addStructure(new GOTStructureWesterosWell(false), 12, 27, 3);
-		}
-
-		public void setupHillman(Random random) {
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClass(GOTEntityNorthHillman.class);
-					spawner.setCheckRanges(40, -12, 12, 40);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			addStructure(new GOTStructureNPCRespawner(false) {
-
-				@Override
-				public void setupRespawner(GOTEntityNPCRespawner spawner) {
-					spawner.setSpawnClasses(GOTEntityNorthHillmanAxeThrower.class, GOTEntityNorthHillmanArcher.class);
-					spawner.setCheckRanges(40, -12, 12, 16);
-					spawner.setSpawnRanges(20, -6, 6, 64);
-					spawner.setBlockEnemySpawnRange(60);
-				}
-			}, 0, 0, 0);
-			int pathEnd = 68;
-			int pathSide = 7;
-			int centreSide = 19;
-			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
-			addStructure(new GOTStructureNorthHillmanHouse(false).setIsCannibal(), 0, -centreSide, 2, true);
-			addStructure(new GOTStructureNorthHillmanHouse(false).setIsWarrior(), -pathEnd, 0, 1, true);
-			addStructure(new GOTStructureNorthHillmanChieftainHouse(false), pathEnd, 0, 3, true);
-			int rowHouses = 3;
-			for (int l = -rowHouses; l <= rowHouses; ++l) {
-				int i1 = l * 18;
-				int k1 = pathSide;
-				if (Math.abs(i1) <= 15) {
-					k1 += 15 - pathSide;
-				}
-				if (Math.abs(l) >= 1) {
-					addStructure(new GOTStructureNorthHillmanHouse(false), i1, -k1, 2);
-				}
-				addStructure(new GOTStructureNorthHillmanHouse(false), i1, k1, 0);
-				int k2 = k1 + 20;
-				if (l != 0) {
-					addStructure(new GOTStructureHayBales(false), i1, -k2, 2);
-				}
-				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
-			}
-		}
-
-		@Override
-		public void setupSettlementProperties(Random random) {
-			if (!forcedType) {
-				if (random.nextInt(4) == 0) {
-					type = Type.FORT;
-				} else {
-					type = Type.VILLAGE;
-				}
-			}
 		}
 
 		public void setupTown(Random random) {
