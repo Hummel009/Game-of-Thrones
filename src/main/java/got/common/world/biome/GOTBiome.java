@@ -254,6 +254,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public static GOTBiome yiTiMarshes;
 	public static GOTBiome yiTiTropicalForest;
 	public static GOTBiome yiTiWasteland;
+	public static GOTBiome autocomplete;
 
 	public GOTBiomeDecorator decorator;
 	public int topBlockMeta;
@@ -303,11 +304,15 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public static void preInit() {
+		int lastUsed = 185;
+
 		beach = new GOTBiomeBeach(9, false).setBeachBlock(Blocks.sand, 0).setColor(14404247).setBiomeName("beach");
 		beachGravel = new GOTBiomeBeach(10, false).setBeachBlock(Blocks.gravel, 0).setColor(9868704).setBiomeName("beachGravel");
 		beachWhite = new GOTBiomeBeach(11, false).setBeachBlock(GOTBlocks.whiteSand, 0).setColor(15592941).setBiomeName("beachWhite");
 		river = new GOTBiomeRiver(108, false).setMinMaxHeight(-0.5f, 0.0f).setColor(3570869).setBiomeName("river");
 		lake = new GOTBiomeLake(60, false).setTemperatureRainfall(0.8F, 0.8F).setColor(3433630).setBiomeName("lake");
+
+		autocomplete = new GOTBiomeOcean(185, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x012A3F).setMinMaxHeight(-1.0f, 0.3f).setBiomeName("ocean");
 
 		ocean = new GOTBiomeOcean(91, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x024B75).setMinMaxHeight(-1.0f, 0.3f).setBiomeName("ocean");
 		ocean1 = new GOTBiomeOcean(166, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x036FAC).setMinMaxHeight(-0.7f, 0.3f).setBiomeName("ocean");

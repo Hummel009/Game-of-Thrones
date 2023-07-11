@@ -351,7 +351,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		if (GOTConfig.osrsMap) {
 			return -10324058;
 		}
-		int ocean = GOTBiome.ocean.color;
+		int ocean = GOTBiome.autocomplete.color;
 		if (sepia) {
 			ocean = getSepia(ocean);
 		}
@@ -383,7 +383,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	public static void loadMapTextures() {
-		mapTexture = new ResourceLocation("got:textures/map/map.png");
+		mapTexture = new ResourceLocation("got:textures/map/map_layer_2.png");
 		try {
 			BufferedImage mapImage = ImageIO.read(mc.getResourceManager().getResource(mapTexture).getInputStream());
 			sepiaMapTexture = convertToSepia(mapImage, new ResourceLocation("got:textures/map_sepia"));
