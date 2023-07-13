@@ -503,6 +503,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 				rockSlabDoubleBlock = GOTBlocks.smoothStone;
 				rockSlabDoubleMeta = 4;
 				rockSlabMeta = 6;
+				rockWallBlock = GOTBlocks.wallStone2;
 			} else {
 				brickBlock = GOTBlocks.brick1;
 				brickCarved = GOTBlocks.brick1;
@@ -534,13 +535,13 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 				rockSlabDoubleBlock = GOTBlocks.slabDouble1;
 				rockSlabDoubleMeta = 2;
 				rockSlabMeta = 2;
+				rockWallBlock = GOTBlocks.wallStone1;
 			}
 			rockStairBlock = GOTBlocks.stairsAndesite;
 			cobbleBlock = Blocks.cobblestone;
 			cobbleSlabBlock = Blocks.stone_slab;
 			cobbleSlabMeta = 3;
 			cobbleStairBlock = Blocks.stone_stairs;
-			rockWallBlock = GOTBlocks.wallStone1;
 			rockWallMeta = 2;
 			roofBlock = GOTBlocks.thatch;
 			roofMeta = 0;
