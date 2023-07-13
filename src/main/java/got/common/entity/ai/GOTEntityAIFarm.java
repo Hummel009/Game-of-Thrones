@@ -169,6 +169,8 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						case DEPOSITING:
 							suitable = isSuitableForDepositing(i, j, k);
 							break;
+						default:
+							break;
 					}
 				}
 			} else {
