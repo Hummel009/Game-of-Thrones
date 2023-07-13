@@ -131,9 +131,9 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		spawnItemFrame(world, -3, 8, 1, 1, getFramedItem(random));
 		setBlockAndMetadata(world, 2, 7, -2, tableBlock, 0);
 		setBlockAndMetadata(world, 2, 7, -1, Blocks.crafting_table, 0);
-		setBlockAndMetadata(world, 2, 7, 0, Blocks.stone_slab, 8);
-		setBlockAndMetadata(world, 2, 7, 1, Blocks.stone_slab, 8);
-		setBlockAndMetadata(world, 2, 7, 2, Blocks.stone_slab, 8);
+		setBlockAndMetadata(world, 2, 7, 0, cobbleSlabBlock, cobbleSlabMeta | 8);
+		setBlockAndMetadata(world, 2, 7, 1, cobbleSlabBlock, cobbleSlabMeta | 8);
+		setBlockAndMetadata(world, 2, 7, 2, cobbleSlabBlock, cobbleSlabMeta | 8);
 		placeMug(world, random, 2, 8, 0, 1, GOTFoods.WESTEROS_DRINK);
 		placePlateWithCertainty(world, random, 2, 8, 1, plateBlock, GOTFoods.WESTEROS);
 		placeBarrel(world, random, 2, 8, 2, 5, GOTFoods.WESTEROS_DRINK);

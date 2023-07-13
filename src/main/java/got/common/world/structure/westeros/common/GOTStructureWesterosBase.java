@@ -473,6 +473,9 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 			roofStairBlock = GOTBlocks.stairsReed;
 		} else {
 			if (hasGranite()) {
+				cobbleSlabBlock = GOTBlocks.slabSingle3;
+				cobbleSlabMeta = 5;
+				rockStairBlock = GOTBlocks.stairsGranite;
 				brickBlock = GOTBlocks.brick2;
 				brickCarved = GOTBlocks.brick3;
 				brickCarvedMeta = 1;
@@ -505,6 +508,9 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 				rockSlabMeta = 6;
 				rockWallBlock = GOTBlocks.wallStone2;
 			} else {
+				cobbleSlabBlock = Blocks.stone_slab;
+				cobbleSlabMeta = 0;
+				rockStairBlock = GOTBlocks.stairsAndesite;
 				brickBlock = GOTBlocks.brick1;
 				brickCarved = GOTBlocks.brick1;
 				brickCarvedMeta = 5;
@@ -537,10 +543,7 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 				rockSlabMeta = 2;
 				rockWallBlock = GOTBlocks.wallStone1;
 			}
-			rockStairBlock = GOTBlocks.stairsAndesite;
 			cobbleBlock = Blocks.cobblestone;
-			cobbleSlabBlock = Blocks.stone_slab;
-			cobbleSlabMeta = 3;
 			cobbleStairBlock = Blocks.stone_stairs;
 			rockWallMeta = 2;
 			roofBlock = GOTBlocks.thatch;
