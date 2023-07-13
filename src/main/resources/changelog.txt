@@ -1,5 +1,9 @@
 CHANGELOG
 
+>>BUILD NEXT
+
+* Fixed 2 bugs with granite structures
+
 >>BUILD 23.07.10
 + Added lots of forest biomes
 + Village generationg chunk selector is a config value now (check for the word "grid")
