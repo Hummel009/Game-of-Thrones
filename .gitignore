@@ -8,12 +8,9 @@
 bin
 build
 run
-server/world
-server/logs
 server/config
-server/ops.json
-server/usercache.json
-server/whitelist.json
+server/logs
 server/mods/*.jar
+server/world
 server/server.properties
-server/usernamecache.json
+server/*.json
