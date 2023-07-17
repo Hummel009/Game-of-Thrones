@@ -1,6 +1,7 @@
 package got.common.entity.other;
 
 import got.GOT;
+import got.common.database.GOTGuiID;
 import got.common.item.other.GOTItemMountArmor;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -115,7 +116,7 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 	public void openGUI(EntityPlayer entityplayer) {
 		IInventory inv = getMountInventory();
 		if (inv != null && !worldObj.isRemote && (riddenByEntity == null || riddenByEntity == entityplayer) && isNPCTamed()) {
-			entityplayer.openGui(GOT.instance, 29, worldObj, getEntityId(), inv.getSizeInventory(), 0);
+			entityplayer.openGui(GOT.instance, GOTGuiID.MOUNT_INVENTORY.ordinal(), worldObj, getEntityId(), inv.getSizeInventory(), 0);
 		}
 	}
 

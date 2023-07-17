@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.GOTSquadrons;
 import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTGuiID;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
@@ -93,7 +94,7 @@ public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronIte
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (itemstack.getItemDamage() == 0) {
-			entityplayer.openGui(GOT.instance, 9, world, 0, 0, 0);
+			entityplayer.openGui(GOT.instance, GOTGuiID.HORN_SELECT.ordinal(), world, 0, 0, 0);
 		} else {
 			entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
 		}

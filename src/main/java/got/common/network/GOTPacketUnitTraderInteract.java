@@ -4,6 +4,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
+import got.common.database.GOTGuiID;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTHireableBase;
 import io.netty.buffer.ByteBuf;
@@ -31,7 +32,7 @@ public class GOTPacketUnitTraderInteract implements IMessage {
 	}
 
 	public void openTradeGUI(EntityPlayer entityplayer, GOTEntityNPC trader) {
-		entityplayer.openGui(GOT.instance, 7, entityplayer.worldObj, trader.getEntityId(), 0, 0);
+		entityplayer.openGui(GOT.instance, GOTGuiID.UNIT_TRADE.ordinal(), entityplayer.worldObj, trader.getEntityId(), 0, 0);
 	}
 
 	@Override

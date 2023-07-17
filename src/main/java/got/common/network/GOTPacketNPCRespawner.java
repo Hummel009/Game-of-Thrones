@@ -5,6 +5,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
+import got.common.database.GOTGuiID;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
@@ -59,7 +60,7 @@ public class GOTPacketNPCRespawner implements IMessage {
 			if (entity instanceof GOTEntityNPCRespawner) {
 				GOTEntityNPCRespawner spawner = (GOTEntityNPCRespawner) entity;
 				spawner.readSpawnerDataFromNBT(packet.spawnerData);
-				entityplayer.openGui(GOT.instance, 45, world, entity.getEntityId(), 0, 0);
+				entityplayer.openGui(GOT.instance, GOTGuiID.NPC_RESPAWNER.ordinal(), world, entity.getEntityId(), 0, 0);
 			}
 			return null;
 		}

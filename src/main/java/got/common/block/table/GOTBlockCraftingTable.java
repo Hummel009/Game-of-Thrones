@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTGuiID;
 import got.common.faction.GOTFaction;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -19,11 +20,11 @@ import java.util.List;
 public class GOTBlockCraftingTable extends Block {
 	public static List<GOTBlockCraftingTable> allCraftingTables = new ArrayList<>();
 	public GOTFaction tableFaction;
-	public int tableGUIID;
+	public GOTGuiID tableGUIID;
 	@SideOnly(Side.CLIENT)
 	public IIcon[] tableIcons;
 
-	public GOTBlockCraftingTable(Material material, GOTFaction faction, int guiID) {
+	public GOTBlockCraftingTable(Material material, GOTFaction faction, GOTGuiID guiID) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		setHardness(2.5f);
@@ -47,7 +48,7 @@ public class GOTBlockCraftingTable extends Block {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, tableGUIID, world, i, j, k);
+			entityplayer.openGui(GOT.instance, tableGUIID.ordinal(), world, i, j, k);
 		}
 		return true;
 	}

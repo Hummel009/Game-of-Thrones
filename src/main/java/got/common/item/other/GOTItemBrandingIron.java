@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTGuiID;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.tileentity.GOTTileEntityAlloyForge;
 import got.common.tileentity.GOTTileEntityOven;
@@ -164,7 +165,7 @@ public class GOTItemBrandingIron extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!hasBrandName(itemstack)) {
-			entityplayer.openGui(GOT.instance, 61, world, 0, 0, 0);
+			entityplayer.openGui(GOT.instance, GOTGuiID.BRANDING_IRON.ordinal(), world, 0, 0, 0);
 		}
 		return itemstack;
 	}

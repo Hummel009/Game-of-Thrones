@@ -3,6 +3,7 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
+import got.common.database.GOTGuiID;
 import got.common.database.GOTItems;
 import got.common.tileentity.GOTTileEntityArmorStand;
 import net.minecraft.block.Block;
@@ -105,7 +106,7 @@ public class GOTBlockArmorStand extends Block {
 		}
 		if (hasTileEntity(world.getBlockMetadata(i, j, k))) {
 			if (!world.isRemote) {
-				entityplayer.openGui(GOT.instance, 17, world, i, j, k);
+				entityplayer.openGui(GOT.instance, GOTGuiID.ARMOR_STAND.ordinal(), world, i, j, k);
 			}
 			return true;
 		}
