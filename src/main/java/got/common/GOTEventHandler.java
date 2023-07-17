@@ -499,7 +499,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if ("got".equals(event.modID)) {
 			GOTConfig.load();
 		}
-		if (GOTModChecker.hasNEI()) {
+		if (GOTModChecker.hasNEI() && GOTModChecker.hasGuiContainer()) {
 			for (IConfigureNEI element : NEIModContainer.plugins) {
 				if (element.getClass().equals(NEIGOTIntegratorConfig.class)) {
 					NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) element;

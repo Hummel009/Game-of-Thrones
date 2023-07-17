@@ -8,6 +8,7 @@ bin
 build
 run
 server/config
+server/crash-reports
 server/logs
 server/mods/*.jar
 server/world
