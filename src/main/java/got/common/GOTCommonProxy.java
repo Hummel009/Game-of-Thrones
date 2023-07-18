@@ -140,16 +140,8 @@ public class GOTCommonProxy implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer entityplayer, World world, int i, int j, int k) {
-		TileEntity stand;
-		TileEntity unsmeltery;
-		TileEntity forge;
-		TileEntity chest;
 		GOTEntityNPC npc;
-		TileEntity oven;
 		Entity entity;
-		TileEntity trap;
-		TileEntity millstone;
-		TileEntity barrel;
 		if (testForSlotPackedGuiID(ID, GOTGuiID.POUCH_CHEST.ordinal())) {
 			int slot = unpackSlot(ID);
 			IInventory chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k);
@@ -167,7 +159,7 @@ public class GOTCommonProxy implements IGuiHandler {
 		GOTGuiID id = GOTGuiID.values()[ID];
 		switch (id) {
 			case ALLOY_FORGE:
-				forge = world.getTileEntity(i, j, k);
+				TileEntity forge = world.getTileEntity(i, j, k);
 				if (forge instanceof GOTTileEntityAlloyForge) {
 					return new GOTGuiAlloyForge(entityplayer.inventory, (GOTTileEntityAlloyForge) forge);
 				}
@@ -181,13 +173,13 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case ARMOR_STAND:
-				stand = world.getTileEntity(i, j, k);
+				TileEntity stand = world.getTileEntity(i, j, k);
 				if (stand instanceof GOTTileEntityArmorStand) {
 					return new GOTGuiArmorStand(entityplayer.inventory, (GOTTileEntityArmorStand) stand);
 				}
 				break;
 			case BARREL:
-				barrel = world.getTileEntity(i, j, k);
+				TileEntity barrel = world.getTileEntity(i, j, k);
 				if (barrel instanceof GOTTileEntityBarrel) {
 					return new GOTGuiBarrel(entityplayer.inventory, (GOTTileEntityBarrel) barrel);
 				}
@@ -205,7 +197,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			case BRANDING_IRON:
 				return new GOTGuiBrandingIron();
 			case CHEST:
-				chest = world.getTileEntity(i, j, k);
+				TileEntity chest = world.getTileEntity(i, j, k);
 				if (chest instanceof GOTTileEntityChest) {
 					return new GuiChest(entityplayer.inventory, (GOTTileEntityChest) chest);
 				}
@@ -224,7 +216,7 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case DISPENSER:
-				trap = world.getTileEntity(i, j, k);
+				TileEntity trap = world.getTileEntity(i, j, k);
 				if (trap instanceof GOTTileEntitySarbacaneTrap) {
 					return new GuiDispenser(entityplayer.inventory, (GOTTileEntitySarbacaneTrap) trap);
 				}
@@ -288,7 +280,7 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case MILLSTONE:
-				millstone = world.getTileEntity(i, j, k);
+				TileEntity millstone = world.getTileEntity(i, j, k);
 				if (millstone instanceof GOTTileEntityMillstone) {
 					return new GOTGuiMillstone(entityplayer.inventory, (GOTTileEntityMillstone) millstone);
 				}
@@ -313,7 +305,7 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case OVEN:
-				oven = world.getTileEntity(i, j, k);
+				TileEntity oven = world.getTileEntity(i, j, k);
 				if (oven instanceof GOTTileEntityOven) {
 					return new GOTGuiOven(entityplayer.inventory, (GOTTileEntityOven) oven);
 				}
@@ -421,7 +413,7 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case UNSMELTERY:
-				unsmeltery = world.getTileEntity(i, j, k);
+				TileEntity unsmeltery = world.getTileEntity(i, j, k);
 				if (unsmeltery instanceof GOTTileEntityUnsmeltery) {
 					return new GOTGuiUnsmeltery(entityplayer.inventory, (GOTTileEntityUnsmeltery) unsmeltery);
 				}
@@ -510,17 +502,8 @@ public class GOTCommonProxy implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer entityplayer, World world, int i, int j, int k) {
-		TileEntity stand;
-		TileEntity unsmeltery;
-		TileEntity forge;
-		TileEntity chest;
 		GOTEntityNPC npc;
-		TileEntity oven;
 		Entity entity;
-		TileEntity trap;
-		TileEntity millstone;
-		TileEntity barrel;
-		TileEntity bookshelf;
 		IInventory chest2;
 		int slot = unpackSlot(ID);
 		if (testForSlotPackedGuiID(ID, GOTGuiID.POUCH_CHEST.ordinal()) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && (chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k)) != null) {
@@ -533,7 +516,7 @@ public class GOTCommonProxy implements IGuiHandler {
 		GOTGuiID id = GOTGuiID.values()[ID];
 		switch (id) {
 			case ALLOY_FORGE:
-				forge = world.getTileEntity(i, j, k);
+				TileEntity forge = world.getTileEntity(i, j, k);
 				if (forge instanceof GOTTileEntityAlloyForge) {
 					return new GOTContainerAlloyForge(entityplayer.inventory, (GOTTileEntityAlloyForge) forge);
 				}
@@ -547,25 +530,25 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case ARMOR_STAND:
-				stand = world.getTileEntity(i, j, k);
+				TileEntity stand = world.getTileEntity(i, j, k);
 				if (stand instanceof GOTTileEntityArmorStand) {
 					return new GOTContainerArmorStand(entityplayer.inventory, (GOTTileEntityArmorStand) stand);
 				}
 				break;
 			case BARREL:
-				barrel = world.getTileEntity(i, j, k);
+				TileEntity barrel = world.getTileEntity(i, j, k);
 				if (barrel instanceof GOTTileEntityBarrel) {
 					return new GOTContainerBarrel(entityplayer.inventory, (GOTTileEntityBarrel) barrel);
 				}
 				break;
 			case BOOKSHELF:
-				bookshelf = world.getTileEntity(i, j, k);
+				TileEntity bookshelf = world.getTileEntity(i, j, k);
 				if (bookshelf instanceof GOTTileEntityBookshelf) {
 					return new GOTContainerBookshelf(entityplayer.inventory, (GOTTileEntityBookshelf) bookshelf);
 				}
 				break;
 			case CHEST:
-				chest = world.getTileEntity(i, j, k);
+				TileEntity chest = world.getTileEntity(i, j, k);
 				if (chest instanceof GOTTileEntityChest) {
 					return new ContainerChest(entityplayer.inventory, (GOTTileEntityChest) chest);
 				}
@@ -583,7 +566,7 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case DISPENSER:
-				trap = world.getTileEntity(i, j, k);
+				TileEntity trap = world.getTileEntity(i, j, k);
 				if (trap instanceof GOTTileEntitySarbacaneTrap) {
 					return new ContainerDispenser(entityplayer.inventory, (GOTTileEntitySarbacaneTrap) trap);
 				}
@@ -615,7 +598,7 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case MILLSTONE:
-				millstone = world.getTileEntity(i, j, k);
+				TileEntity millstone = world.getTileEntity(i, j, k);
 				if (millstone instanceof GOTTileEntityMillstone) {
 					return new GOTContainerMillstone(entityplayer.inventory, (GOTTileEntityMillstone) millstone);
 				}
@@ -631,7 +614,7 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case OVEN:
-				oven = world.getTileEntity(i, j, k);
+				TileEntity oven = world.getTileEntity(i, j, k);
 				if (oven instanceof GOTTileEntityOven) {
 					return new GOTContainerOven(entityplayer.inventory, (GOTTileEntityOven) oven);
 				}
@@ -720,7 +703,7 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case UNSMELTERY:
-				unsmeltery = world.getTileEntity(i, j, k);
+				TileEntity unsmeltery = world.getTileEntity(i, j, k);
 				if (unsmeltery instanceof GOTTileEntityUnsmeltery) {
 					return new GOTContainerUnsmeltery(entityplayer.inventory, (GOTTileEntityUnsmeltery) unsmeltery);
 				}
