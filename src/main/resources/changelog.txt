@@ -2,6 +2,7 @@ CHANGELOG
 
 >>BUILD NEXT
 
+* Fixed bug with cargo cart
 * Fixed 2 bugs with granite structures
 
 >>BUILD 23.07.10

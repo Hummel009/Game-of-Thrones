@@ -1618,7 +1618,7 @@ public class GOTEventHandler implements IFuelHandler {
 	@SubscribeEvent
 	public void onStartTracking(PlayerEvent.StartTracking event) {
 		if (event.target instanceof GOTEntityCart) {
-			GOTEntityCart target = (GOTEntityCargocart) event.target;
+			GOTEntityCart target = (GOTEntityCart) event.target;
 			if (target.getPulling() != null) {
 				GOTPacketHandler.networkWrapper.sendTo(new GOTPacketCargocartUpdate(target.getPulling().getEntityId(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
 			}
