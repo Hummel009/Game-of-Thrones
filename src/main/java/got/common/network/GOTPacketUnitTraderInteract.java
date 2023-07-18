@@ -32,7 +32,7 @@ public class GOTPacketUnitTraderInteract implements IMessage {
 	}
 
 	public void openTradeGUI(EntityPlayer entityplayer, GOTEntityNPC trader) {
-		entityplayer.openGui(GOT.instance, GOTGuiID.UNIT_TRADE_INTERACT.ordinal(), entityplayer.worldObj, trader.getEntityId(), 0, 0);
+		entityplayer.openGui(GOT.instance, GOTGuiID.UNIT_TRADE.ordinal(), entityplayer.worldObj, trader.getEntityId(), 0, 0);
 	}
 
 	@Override
