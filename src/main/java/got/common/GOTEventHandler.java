@@ -417,7 +417,7 @@ public class GOTEventHandler implements IFuelHandler {
 				return;
 			}
 			if (block == Blocks.anvil && (GOTConfig.isGOTEnchantingEnabled(world) || !GOTConfig.isEnchantingEnabled(world)) && !world.isRemote) {
-				entityplayer.openGui(GOT.instance, 53, world, i, j, k);
+				entityplayer.openGui(GOT.instance, GOTGuiID.ANVIL.ordinal(), world, i, j, k);
 				event.setCanceled(true);
 				return;
 			}
@@ -605,22 +605,22 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (entity instanceof GOTTradeable && ((GOTTradeable) entity).canTradeWith(entityplayer)) {
 			if (entity instanceof GOTUnitTradeable) {
-				entityplayer.openGui(GOT.instance, 24, world, entity.getEntityId(), 0, 0);
+				entityplayer.openGui(GOT.instance, GOTGuiID.TRADE_UNIT_TRADE_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 			} else {
-				entityplayer.openGui(GOT.instance, 19, world, entity.getEntityId(), 0, 0);
+				entityplayer.openGui(GOT.instance, GOTGuiID.TRADE_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 			}
 			event.setCanceled(true);
 			return;
 		}
 		if (entity instanceof GOTUnitTradeable && ((GOTUnitTradeable) entity).canTradeWith(entityplayer)) {
-			entityplayer.openGui(GOT.instance, 20, world, entity.getEntityId(), 0, 0);
+			entityplayer.openGui(GOT.instance, GOTGuiID.UNIT_TRADE_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 			event.setCanceled(true);
 			return;
 		}
 		if (entity instanceof GOTMercenary && ((GOTMercenary) entity).canTradeWith(entityplayer)) {
 			assert entity instanceof GOTEntityNPC;
 			if (((GOTEntityNPC) entity).hiredNPCInfo.getHiringPlayerUUID() == null) {
-				entityplayer.openGui(GOT.instance, 58, world, entity.getEntityId(), 0, 0);
+				entityplayer.openGui(GOT.instance, GOTGuiID.MERCENARY_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 				event.setCanceled(true);
 				return;
 			}
@@ -629,9 +629,9 @@ public class GOTEventHandler implements IFuelHandler {
 			GOTEntityNPC npc = (GOTEntityNPC) entity;
 			if (npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
 				if (entity instanceof GOTEntityProstitute) {
-					entityplayer.openGui(GOT.instance, 1, world, entity.getEntityId(), 0, 0);
+					entityplayer.openGui(GOT.instance, GOTGuiID.HIRED_INTERACT_NO_FUNC.ordinal(), world, entity.getEntityId(), 0, 0);
 				} else {
-					entityplayer.openGui(GOT.instance, 21, world, entity.getEntityId(), 0, 0);
+					entityplayer.openGui(GOT.instance, GOTGuiID.HIRED_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 				}
 				event.setCanceled(true);
 				return;
@@ -1419,7 +1419,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if (minecart instanceof EntityMinecartChest && itemstack != null && itemstack.getItem() instanceof GOTItemPouch) {
 			if (!world.isRemote) {
 				int pouchSlot = entityplayer.inventory.currentItem;
-				entityplayer.openGui(GOT.instance, GOTCommonProxy.packGuiIDWithSlot(64, pouchSlot), world, minecart.getEntityId(), 0, 0);
+				entityplayer.openGui(GOT.instance, GOTCommonProxy.packGuiIDWithSlot(GOTGuiID.POUCH_MINECART.ordinal(), pouchSlot), world, minecart.getEntityId(), 0, 0);
 			}
 			event.setCanceled(true);
 		}

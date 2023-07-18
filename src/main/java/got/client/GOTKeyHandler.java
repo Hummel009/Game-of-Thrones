@@ -11,6 +11,7 @@ import got.common.GOTDimension;
 import got.common.GOTDimension.DimensionRegion;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
+import got.common.database.GOTGuiID;
 import got.common.faction.GOTFaction;
 import got.common.network.*;
 import net.minecraft.client.Minecraft;
@@ -64,7 +65,7 @@ public class GOTKeyHandler {
 	public void KeyInputEvent(InputEvent.KeyInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
 		if (keyBindingMenu.getIsKeyPressed() && mc.currentScreen == null) {
-			mc.thePlayer.openGui(GOT.instance, 11, mc.theWorld, 0, 0, 0);
+			mc.thePlayer.openGui(GOT.instance, GOTGuiID.MENU.ordinal(), mc.theWorld, 0, 0, 0);
 		}
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 		boolean usedAlignmentKeys = false;

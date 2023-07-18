@@ -4,6 +4,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
+import got.common.database.GOTGuiID;
 import got.common.tileentity.GOTTileEntitySign;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.block.Block;
@@ -52,7 +53,7 @@ public class GOTPacketOpenSignEditor implements IMessage {
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 			World world = GOT.proxy.getClientWorld();
 			world.setBlock(packet.posX, packet.posY, packet.posZ, packet.blockType, packet.blockMeta, 3);
-			entityplayer.openGui(GOT.instance, 47, world, packet.posX, packet.posY, packet.posZ);
+			entityplayer.openGui(GOT.instance, GOTGuiID.EDIT_SIGN.ordinal(), world, packet.posX, packet.posY, packet.posZ);
 			return null;
 		}
 	}

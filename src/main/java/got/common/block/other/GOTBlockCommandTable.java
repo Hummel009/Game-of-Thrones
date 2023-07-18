@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.GOTSquadrons;
 import got.common.database.GOTCreativeTabs;
+import got.common.database.GOTGuiID;
 import got.common.tileentity.GOTTileEntityCommandTable;
 import got.common.world.map.GOTConquestGrid;
 import net.minecraft.block.Block;
@@ -65,14 +66,14 @@ public class GOTBlockCommandTable extends BlockContainer {
 		}
 		ItemStack itemstack = entityplayer.getCurrentEquippedItem();
 		if (itemstack != null && itemstack.getItem() instanceof GOTSquadrons.SquadronItem) {
-			entityplayer.openGui(GOT.instance, 33, world, 0, 0, 0);
+			entityplayer.openGui(GOT.instance, GOTGuiID.SQUADRON_ITEM.ordinal(), world, 0, 0, 0);
 			if (!world.isRemote) {
 				world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, stepSound.getBreakSound(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.5f);
 			}
 			return true;
 		}
 		if (GOTConquestGrid.conquestEnabled(world)) {
-			entityplayer.openGui(GOT.instance, 60, world, 0, 0, 0);
+			entityplayer.openGui(GOT.instance, GOTGuiID.CONQUEST.ordinal(), world, 0, 0, 0);
 			if (!world.isRemote) {
 				world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, stepSound.getBreakSound(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.5f);
 			}
