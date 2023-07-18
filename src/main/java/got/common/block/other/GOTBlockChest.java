@@ -4,7 +4,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
 import got.common.tileentity.GOTTileEntityChest;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -93,7 +92,7 @@ public class GOTBlockChest extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote && getModChestAt(world, i, j, k) != null) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.CHEST.ordinal(), world, i, j, k);
+			entityplayer.openGui(GOT.instance, 41, world, i, j, k);
 		}
 		return true;
 	}

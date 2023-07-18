@@ -6,7 +6,6 @@ import got.GOT;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
 import got.common.quest.GOTMiniQuestEvent;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,7 +36,7 @@ public class GOTItemQuestBook extends Item {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		entityplayer.openGui(GOT.instance, GOTGuiID.QUEST_BOOK.ordinal(), world, 0, 0, 0);
+		entityplayer.openGui(GOT.instance, 32, world, 0, 0, 0);
 		if (!world.isRemote) {
 			GOTLevelData.getData(entityplayer).distributeMQEvent(new GOTMiniQuestEvent.OpenRedBook());
 		}

@@ -4,7 +4,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTBlocks;
-import got.common.database.GOTGuiID;
 import got.common.faction.GOTFaction;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -15,7 +14,7 @@ import java.util.Random;
 
 public class GOTBlockTableAsshai extends GOTBlockCraftingTable {
 	public GOTBlockTableAsshai() {
-		super(Material.wood, GOTFaction.ASSHAI, GOTGuiID.TABLE_ASSHAI);
+		super(Material.wood, GOTFaction.ASSHAI, 84);
 		setStepSound(Block.soundTypeWood);
 	}
 

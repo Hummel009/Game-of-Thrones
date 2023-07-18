@@ -4,7 +4,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
 import got.common.item.other.GOTItemBarrel;
 import got.common.item.other.GOTItemBottlePoison;
 import got.common.item.other.GOTItemMug;
@@ -175,7 +174,7 @@ public class GOTBlockBarrel extends BlockContainer {
 			return true;
 		}
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.BARREL.ordinal(), world, i, j, k);
+			entityplayer.openGui(GOT.instance, 16, world, i, j, k);
 		}
 		return true;
 	}

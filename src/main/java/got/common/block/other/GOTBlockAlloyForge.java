@@ -1,7 +1,6 @@
 package got.common.block.other;
 
 import got.GOT;
-import got.common.database.GOTGuiID;
 import got.common.tileentity.GOTTileEntityAlloyForge;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
@@ -16,7 +15,7 @@ public class GOTBlockAlloyForge extends GOTBlockForgeBase {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.ALLOY_FORGE.ordinal(), world, i, j, k);
+			entityplayer.openGui(GOT.instance, 5, world, i, j, k);
 		}
 		return true;
 	}

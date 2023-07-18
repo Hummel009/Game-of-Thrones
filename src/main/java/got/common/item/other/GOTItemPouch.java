@@ -6,7 +6,6 @@ import got.GOT;
 import got.common.block.other.GOTBlockChest;
 import got.common.block.other.GOTBlockSpawnerChest;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
 import got.common.inventory.GOTContainerChestWithPouch;
 import got.common.inventory.GOTContainerPouch;
 import got.common.inventory.GOTInventoryPouch;
@@ -233,7 +232,7 @@ public class GOTItemPouch extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.POUCH.ordinal(), world, entityplayer.inventory.currentItem, 0, 0);
+			entityplayer.openGui(GOT.instance, 15, world, entityplayer.inventory.currentItem, 0, 0);
 		}
 		return itemstack;
 	}

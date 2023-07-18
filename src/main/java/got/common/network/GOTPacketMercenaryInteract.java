@@ -4,7 +4,6 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
-import got.common.database.GOTGuiID;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -18,7 +17,7 @@ public class GOTPacketMercenaryInteract extends GOTPacketUnitTraderInteract {
 
 	@Override
 	public void openTradeGUI(EntityPlayer entityplayer, GOTEntityNPC trader) {
-		entityplayer.openGui(GOT.instance, GOTGuiID.MERCENARY_HIRE.ordinal(), entityplayer.worldObj, trader.getEntityId(), 0, 0);
+		entityplayer.openGui(GOT.instance, 59, entityplayer.worldObj, trader.getEntityId(), 0, 0);
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketMercenaryInteract, IMessage> {

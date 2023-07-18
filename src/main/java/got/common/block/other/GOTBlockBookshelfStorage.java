@@ -3,7 +3,6 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.common.database.GOTGuiID;
 import got.common.tileentity.GOTTileEntityBookshelf;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -86,7 +85,7 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 			return false;
 		}
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.BOOKSHELF.ordinal(), world, i, j, k);
+			entityplayer.openGui(GOT.instance, 55, world, i, j, k);
 		}
 		return true;
 	}

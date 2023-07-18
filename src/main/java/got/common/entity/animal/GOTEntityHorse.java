@@ -1,7 +1,6 @@
 package got.common.entity.animal;
 
 import got.GOT;
-import got.common.database.GOTGuiID;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIHiredHorseRemainStill;
 import got.common.entity.ai.GOTEntityAIHorseFollowHiringPlayer;
@@ -457,7 +456,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 			AnimalChest animalchest = GOTReflection.getHorseInv(this);
 			assert animalchest != null;
 			animalchest.func_110133_a(getCommandSenderName());
-			entityplayer.openGui(GOT.instance, GOTGuiID.MOUNT_INVENTORY.ordinal(), worldObj, getEntityId(), animalchest.getSizeInventory(), 0);
+			entityplayer.openGui(GOT.instance, 29, worldObj, getEntityId(), animalchest.getSizeInventory(), 0);
 		}
 	}
 
