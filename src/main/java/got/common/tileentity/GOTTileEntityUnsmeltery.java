@@ -198,7 +198,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		allRecipeLists.add(CraftingManager.getInstance().getRecipeList());
 		EntityPlayer player = getProxyPlayer();
 		for (GOTBlockCraftingTable table : GOTBlockCraftingTable.allCraftingTables) {
-			Object container = GOT.proxy.getServerGuiElement(table.tableGUIID.ordinal(), player, worldObj, 0, 0, 0);
+			Object container = GOT.proxy.getServerGuiElement(table.tableGUIID, player, worldObj, 0, 0, 0);
 			if (container instanceof GOTContainerCraftingTable) {
 				GOTContainerCraftingTable containerTable = (GOTContainerCraftingTable) container;
 				allRecipeLists.add(containerTable.recipeList);
