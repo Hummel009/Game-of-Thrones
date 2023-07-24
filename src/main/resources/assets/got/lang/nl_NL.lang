@@ -890,6 +890,8 @@ entity.got.YoungGriff.name≠Young Griff
 entity.got.Zebra.name=Zebra
 generator.got.info=Je verschijnt in GOT World met kaart
 generator.got=Het Spel Der Tronen
+generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
+generator.gotEmpty≠Game of Thrones
 generator.gotClassic.info=Je verschijnt in de gewone wereld met GOT-biomen
 generator.gotClassic=KREEG Klassieker
 got.achievement.BANDIT.desc=Dood de bewaker

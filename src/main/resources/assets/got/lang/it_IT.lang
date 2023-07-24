@@ -890,6 +890,8 @@ entity.got.YoungGriff.name≠Young Griff
 entity.got.Zebra.name=Zebra
 generator.got.info=Apparirai in GOT World con la mappa
 generator.got=Trono di Spade
+generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
+generator.gotEmpty≠Game of Thrones
 generator.gotClassic.info=Apparirai nel solito mondo con i biomi GOT
 generator.gotClassic=OTTENUTO Classico
 got.achievement.BANDIT.desc=Uccidi la guardia
