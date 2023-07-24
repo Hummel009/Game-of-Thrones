@@ -891,7 +891,7 @@ entity.got.Zebra.name=Zebra
 generator.got.info=Du wirst sofort in der Welt von Spiel um Throne erscheinen.
 generator.got=Spiel um Throne
 generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
-generator.gotEmpty≠Game of Thrones
+generator.gotEmpty≠GOT Empty
 generator.gotClassic.info=Du wirst in der Welt von Spiel um Throne mit zufälligen Biomen erscheinen.
 generator.gotClassic=Zufällige Spiel um Throne-Welt
 got.achievement.BANDIT.desc=Töte die Wache

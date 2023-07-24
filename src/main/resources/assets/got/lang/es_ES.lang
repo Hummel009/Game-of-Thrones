@@ -891,7 +891,7 @@ entity.got.Zebra.name=Cebra
 generator.got.info=Aparecerás en GOT World con mapa
 generator.got=Game de Thrones
 generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
-generator.gotEmpty≠Game of Thrones
+generator.gotEmpty≠GOT Empty
 generator.gotClassic.info=Aparecerás en el mundo habitual con biomas GOT.
 generator.gotClassic=GOT clásico
 got.achievement.BANDIT.desc=Mata a la guardia

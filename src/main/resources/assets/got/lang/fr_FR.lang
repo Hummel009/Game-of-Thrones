@@ -891,7 +891,7 @@ entity.got.Zebra.name=Zèbre
 generator.got.info=Vous apparaitrez dans le mod de GOT
 generator.got=Game of Thrones
 generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
-generator.gotEmpty≠Game of Thrones
+generator.gotEmpty≠GOT Empty
 generator.gotClassic.info=Vous apparaitrez dans le monde habituel avec les biomes de GOT
 generator.gotClassic=GOT classique
 got.achievement.BANDIT.desc=Tuer un garde
