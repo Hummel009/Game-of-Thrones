@@ -35,10 +35,9 @@ public abstract class GOTStructureBaseSettlement {
 	}
 
 	public static boolean hasFixedSettlements(World world) {
-		if (GOTConfig.clearMap) {
-			return false;
-		}
-		return world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+		boolean disableMap = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTClassic;
+		boolean disableLocations = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;
+		return !disableMap && !disableLocations;
 	}
 
 	public static void seedSettlementRand(World world, int i, int k) {
@@ -269,9 +268,15 @@ public abstract class GOTStructureBaseSettlement {
 			}
 			if (settlementRand.nextFloat() < spawnChance) {
 				int diagRange = (int) Math.round((settlementRange + 8) * SQRT2);
-				boolean anythingNear = GOTBeziers.isRoadNear(i1, k1, diagRange) >= 0.0f || GOTBeziers.isWallNear(i1, k1, diagRange) >= 0.0f;
-				if (!anythingNear && !(anythingNear = GOTMountains.mountainNear(i1, k1, diagRange))) {
-					anythingNear = GOTFixedStructures.structureNear(world, i1, k1, diagRange);
+				boolean isRoadNear = GOTBeziers.isBezierNear(i1, k1, diagRange, GOTBeziers.Type.ROAD) >= 0.0f;
+				boolean isWallNear = GOTBeziers.isBezierNear(i1, k1, diagRange, GOTBeziers.Type.LINKER) >= 0.0f;
+				boolean isLinkerNear = GOTBeziers.isBezierNear(i1, k1, diagRange, GOTBeziers.Type.LINKER) >= 0.0f;
+				boolean anythingNear = isRoadNear || isWallNear || isLinkerNear;
+				if (!anythingNear) {
+					anythingNear = GOTMountains.mountainNear(i1, k1, diagRange);
+					if (!anythingNear) {
+						anythingNear = GOTFixedStructures.structureNear(world, i1, k1, diagRange);
+					}
 				}
 				if (!anythingNear) {
 					seedSettlementRand(world, i1, k1);

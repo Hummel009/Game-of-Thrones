@@ -7,10 +7,8 @@ import java.util.*;
 public class GOTBeziers {
 	public static List<GOTBeziers> allBeziers = new ArrayList<>();
 
-	public static List<GOTBeziers> allRoads = new ArrayList<>();
+	public static BezierPointDatabase linkerPointDatabase = new BezierPointDatabase();
 	public static BezierPointDatabase roadPointDatabase = new BezierPointDatabase();
-
-	public static List<GOTBeziers> allWalls = new ArrayList<>();
 	public static BezierPointDatabase wallPointDatabase = new BezierPointDatabase();
 
 	public static int id;
@@ -21,14 +19,23 @@ public class GOTBeziers {
 		Collections.addAll(endpoints, ends);
 	}
 
-	public static boolean isRoadAt(int x, int z) {
-		return isRoadNear(x, z, 4) >= 0.0f;
-	}
-
-	public static float isRoadNear(int x, int z, int width) {
+	public static float isBezierNear(int x, int z, int width, Type type) {
 		double widthSq = width * width;
 		float leastSqRatio = -1.0f;
-		List<BezierPoint> points = roadPointDatabase.getPointsForCoords(x, z);
+		List<BezierPoint> points = null;
+		switch (type) {
+			case ROAD:
+				points = roadPointDatabase.getPointsForCoords(x, z);
+				break;
+			case WALL:
+				points = wallPointDatabase.getPointsForCoords(x, z);
+				break;
+			case LINKER:
+				points = linkerPointDatabase.getPointsForCoords(x, z);
+				break;
+			default:
+				break;
+		}
 		for (BezierPoint point : points) {
 			double dx = point.x - x;
 			double dz = point.z - z;
@@ -49,39 +56,17 @@ public class GOTBeziers {
 		return leastSqRatio;
 	}
 
-	public static boolean isWallAt(int x, int z) {
-		return isWallNear(x, z, 4) >= 0.0f;
-	}
-
-	public static float isWallNear(int x, int z, int width) {
-		double widthSq = width * width;
-		float leastSqRatio = -1.0f;
-		List<BezierPoint> points = wallPointDatabase.getPointsForCoords(x, z);
-		for (BezierPoint point : points) {
-			double dx = point.x - x;
-			double dz = point.z - z;
-			double distSq = dx * dx + dz * dz;
-			if (distSq >= widthSq) {
-				continue;
-			}
-			float f = (float) (distSq / widthSq);
-			if (leastSqRatio == -1.0f) {
-				leastSqRatio = f;
-				continue;
-			}
-			if (f >= leastSqRatio) {
-				continue;
-			}
-			leastSqRatio = f;
-		}
-		return leastSqRatio;
+	public static boolean isBezierAt(int x, int z, Type type) {
+		return isBezierNear(x, z, 4, type) >= 0.0f;
 	}
 
 	public static void onInit() {
-		allRoads.clear();
-		allWalls.clear();
+		allBeziers.clear();
+
 		roadPointDatabase = new BezierPointDatabase();
 		wallPointDatabase = new BezierPointDatabase();
+		linkerPointDatabase = new BezierPointDatabase();
+
 		registerWall(id++, GOTWaypoint.WestWatch, GOTWaypoint.ShadowTower, GOTWaypoint.SentinelStand, GOTWaypoint.Greyguard, GOTWaypoint.Stonedoor, GOTWaypoint.HoarfrostHill, GOTWaypoint.Icemark, GOTWaypoint.Nightfort, GOTWaypoint.DeepLake, GOTWaypoint.Queensgate, GOTWaypoint.CastleBlack, GOTWaypoint.Oakenshield, GOTWaypoint.Woodswatch, GOTWaypoint.SableHall, GOTWaypoint.Rimegate, GOTWaypoint.LongBarrow, GOTWaypoint.Torches, GOTWaypoint.Greenguard, GOTWaypoint.EastWatch);
 		registerWall(id++, GOTWaypoint.Anbei, GOTWaypoint.Jianmen, GOTWaypoint.Anguo, GOTWaypoint.Anjiang, GOTWaypoint.Dingguo, GOTWaypoint.Pinnu, GOTWaypoint.Pingjiang, GOTWaypoint.Wude, GOTWaypoint.Wusheng, GOTWaypoint.Zhenguo, GOTWaypoint.Lungmen, GOTWaypoint.Pingbei);
 
@@ -89,7 +74,7 @@ public class GOTBeziers {
 		registerWall(id++, new double[]{2732, 1308}, new double[]{2683, 1294}, new double[]{2628, 1294}, new double[]{2588, 1275});
 		registerWall(id++, new double[]{2708, 1230}, new double[]{2683, 1244}, new double[]{2656, 1253}, new double[]{2638, 1252});
 
-		registerHiddenRoad(id++, new double[]{559, 544}, new double[]{596, 544});
+		registerRoad(id++, new double[]{559, 544}, GOTWaypoint.SkirlingPass, new double[]{596, 544});
 
 		/* NORTH */
 		double[] northRiverlandsCrossroads = {655, 1257};
@@ -321,141 +306,145 @@ public class GOTBeziers {
 		double westerosCastle = 0.1953125;
 		double westerosTown = 0.2453125;
 
-		registerHiddenRoad(id++, GOTWaypoint.Seagard.info(0, -westerosCastle - 0.2), GOTWaypoint.Seagard.info(0, westerosTown));
-		registerHiddenRoad(id++, GOTWaypoint.Appleton, GOTWaypoint.Appleton.info(0, -westerosCastle - 0.01));
-		registerHiddenRoad(id++, GOTWaypoint.Appleton, GOTWaypoint.Appleton.info(0.1, westerosTown + 0.2));
-		registerHiddenRoad(id++, GOTWaypoint.Winterfell, GOTWaypoint.Winterfell.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.CasterlyRock, GOTWaypoint.CasterlyRock.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Crakehall, GOTWaypoint.Crakehall.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Lannisport, GOTWaypoint.Lannisport.info(-westerosTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.ServinsCastle, GOTWaypoint.ServinsCastle.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Dreadfort, GOTWaypoint.Dreadfort.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Goldgrass, GOTWaypoint.Goldgrass.info(0, westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Karhold, GOTWaypoint.Karhold.info(westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.WhiteHarbour, GOTWaypoint.WhiteHarbour.info(westerosTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.TorhensSquare, GOTWaypoint.TorhensSquare.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.RillwaterCrossing, GOTWaypoint.RillwaterCrossing.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.RyswellsCastle, GOTWaypoint.RyswellsCastle.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Saltpans, GOTWaypoint.Saltpans.info(westerosTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Harroway, GOTWaypoint.Harroway.info(0, westerosTown));
-		registerHiddenRoad(id++, GOTWaypoint.StoneHedge, GOTWaypoint.StoneHedge.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.AcornHall, GOTWaypoint.AcornHall.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.WayfarerRest, GOTWaypoint.WayfarerRest.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Riverrun, GOTWaypoint.Riverrun.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.StoneySept, GOTWaypoint.StoneySept.info(-westerosTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.BloodyGate, GOTWaypoint.BloodyGate.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.TheEyrie, GOTWaypoint.TheEyrie.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.GateOfTheMoon, GOTWaypoint.GateOfTheMoon.info(westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Hayford, GOTWaypoint.Hayford.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.RooksRest, GOTWaypoint.RooksRest.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Antlers, GOTWaypoint.Antlers.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Stokeworth, GOTWaypoint.Stokeworth.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Rosby, GOTWaypoint.Rosby.info(-westerosCastle - 0.05, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Duskendale, GOTWaypoint.Duskendale.info(-0.1, -westerosTown - 0.2));
-		registerHiddenRoad(id++, GOTWaypoint.KingsLanding, GOTWaypoint.KingsLanding.info(1.6953125, 0));
-		registerHiddenRoad(id++, GOTWaypoint.GoldenTooth, GOTWaypoint.GoldenTooth.info(0, -westerosCastle - 0.02));
-		registerHiddenRoad(id++, GOTWaypoint.Sarsfield, GOTWaypoint.Sarsfield.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.OldOak, GOTWaypoint.OldOak.info(0, westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.RedLake, GOTWaypoint.RedLake.info(0, westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Coldmoat, GOTWaypoint.Coldmoat.info(0, westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Bitterbridge, GOTWaypoint.Bitterbridge.info(0, westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.IvyHall, GOTWaypoint.IvyHall.info(0, westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.SunHouse, GOTWaypoint.SunHouse.info(0, westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Ring, GOTWaypoint.Ring.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Tumbleton, GOTWaypoint.Tumbleton.info(0, -westerosTown - 0.1));
-		registerHiddenRoad(id++, GOTWaypoint.Whitegrove, GOTWaypoint.Whitegrove.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.GarnetGrove, GOTWaypoint.GarnetGrove.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.DarkDell, GOTWaypoint.DarkDell.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Hammerhal, GOTWaypoint.Hammerhal.info(westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Holyhall, GOTWaypoint.Holyhall.info(westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Highgarden, GOTWaypoint.Highgarden.info(0.5, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Smithyton, GOTWaypoint.Smithyton.info(0, westerosTown));
-		registerHiddenRoad(id++, GOTWaypoint.Oldtown, GOTWaypoint.Oldtown.info(-westerosTown - 0.2, 0));
-		registerHiddenRoad(id++, GOTWaypoint.ThreeTowers, GOTWaypoint.ThreeTowers.info(-0.5, -0.5));
-		registerHiddenRoad(id++, GOTWaypoint.ThreeTowers, GOTWaypoint.ThreeTowers.info(-0.5, 0));
-		registerHiddenRoad(id++, GOTWaypoint.ThreeTowers, GOTWaypoint.ThreeTowers.info(-0.5, 0.5));
-		registerHiddenRoad(id++, GOTWaypoint.Grandview, GOTWaypoint.Grandview.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Blackhaven, GOTWaypoint.Blackhaven.info(-westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Felwood, GOTWaypoint.Felwood.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.HaystackHall, GOTWaypoint.HaystackHall.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Gallowsgrey, GOTWaypoint.Gallowsgrey.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Parchments, GOTWaypoint.Parchments.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Bronzegate, GOTWaypoint.Bronzegate.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Poddingfield, GOTWaypoint.Poddingfield.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.HarvestHall, GOTWaypoint.HarvestHall.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Nightsong, GOTWaypoint.Nightsong.info(0, -westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.StormsEnd, GOTWaypoint.StormsEnd.info(0, westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.SkyReach, GOTWaypoint.SkyReach.info(0, westerosCastle));
-		registerHiddenRoad(id++, GOTWaypoint.Starfall, GOTWaypoint.Starfall.info(0, westerosCastle + 0.1));
-		registerHiddenRoad(id++, GOTWaypoint.HighHermitage, GOTWaypoint.HighHermitage.info(westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Blackmont, GOTWaypoint.Blackmont.info(westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Kingsgrave, GOTWaypoint.Kingsgrave.info(westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Yronwood, GOTWaypoint.Yronwood.info(westerosCastle, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Wyl, GOTWaypoint.Wyl.info(-westerosCastle - 0.05, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Zamettar, GOTWaypoint.Zamettar.info(0, -0.125));
+		registerLinker(id++, GOTWaypoint.Seagard.info(0, -westerosCastle - 0.2), GOTWaypoint.Seagard.info(0, westerosTown));
+		registerLinker(id++, GOTWaypoint.Appleton, GOTWaypoint.Appleton.info(0, -westerosCastle - 0.01));
+		registerLinker(id++, GOTWaypoint.Appleton, GOTWaypoint.Appleton.info(0.1, westerosTown + 0.2));
+		registerLinker(id++, GOTWaypoint.Winterfell, GOTWaypoint.Winterfell.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.CasterlyRock, GOTWaypoint.CasterlyRock.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Crakehall, GOTWaypoint.Crakehall.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Lannisport, GOTWaypoint.Lannisport.info(-westerosTown, 0));
+		registerLinker(id++, GOTWaypoint.ServinsCastle, GOTWaypoint.ServinsCastle.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Dreadfort, GOTWaypoint.Dreadfort.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.Goldgrass, GOTWaypoint.Goldgrass.info(0, westerosCastle));
+		registerLinker(id++, GOTWaypoint.Karhold, GOTWaypoint.Karhold.info(westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.WhiteHarbour, GOTWaypoint.WhiteHarbour.info(westerosTown, 0));
+		registerLinker(id++, GOTWaypoint.TorhensSquare, GOTWaypoint.TorhensSquare.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.RillwaterCrossing, GOTWaypoint.RillwaterCrossing.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.RyswellsCastle, GOTWaypoint.RyswellsCastle.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Saltpans, GOTWaypoint.Saltpans.info(westerosTown, 0));
+		registerLinker(id++, GOTWaypoint.Harroway, GOTWaypoint.Harroway.info(0, westerosTown));
+		registerLinker(id++, GOTWaypoint.StoneHedge, GOTWaypoint.StoneHedge.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.AcornHall, GOTWaypoint.AcornHall.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.WayfarerRest, GOTWaypoint.WayfarerRest.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Riverrun, GOTWaypoint.Riverrun.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.StoneySept, GOTWaypoint.StoneySept.info(-westerosTown, 0));
+		registerLinker(id++, GOTWaypoint.BloodyGate, GOTWaypoint.BloodyGate.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.TheEyrie, GOTWaypoint.TheEyrie.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.GateOfTheMoon, GOTWaypoint.GateOfTheMoon.info(westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Hayford, GOTWaypoint.Hayford.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.RooksRest, GOTWaypoint.RooksRest.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.Antlers, GOTWaypoint.Antlers.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.Stokeworth, GOTWaypoint.Stokeworth.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Rosby, GOTWaypoint.Rosby.info(-westerosCastle - 0.05, 0));
+		registerLinker(id++, GOTWaypoint.Duskendale, GOTWaypoint.Duskendale.info(-0.1, -westerosTown - 0.2));
+		registerLinker(id++, GOTWaypoint.KingsLanding, GOTWaypoint.KingsLanding.info(1.6953125, 0));
+		registerLinker(id++, GOTWaypoint.GoldenTooth, GOTWaypoint.GoldenTooth.info(0, -westerosCastle - 0.02));
+		registerLinker(id++, GOTWaypoint.Sarsfield, GOTWaypoint.Sarsfield.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.OldOak, GOTWaypoint.OldOak.info(0, westerosCastle));
+		registerLinker(id++, GOTWaypoint.RedLake, GOTWaypoint.RedLake.info(0, westerosCastle));
+		registerLinker(id++, GOTWaypoint.Coldmoat, GOTWaypoint.Coldmoat.info(0, westerosCastle));
+		registerLinker(id++, GOTWaypoint.Bitterbridge, GOTWaypoint.Bitterbridge.info(0, westerosCastle));
+		registerLinker(id++, GOTWaypoint.IvyHall, GOTWaypoint.IvyHall.info(0, westerosCastle));
+		registerLinker(id++, GOTWaypoint.SunHouse, GOTWaypoint.SunHouse.info(0, westerosCastle));
+		registerLinker(id++, GOTWaypoint.Ring, GOTWaypoint.Ring.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.Tumbleton, GOTWaypoint.Tumbleton.info(0, -westerosTown - 0.1));
+		registerLinker(id++, GOTWaypoint.Whitegrove, GOTWaypoint.Whitegrove.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.GarnetGrove, GOTWaypoint.GarnetGrove.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.DarkDell, GOTWaypoint.DarkDell.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Hammerhal, GOTWaypoint.Hammerhal.info(westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Holyhall, GOTWaypoint.Holyhall.info(westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Highgarden, GOTWaypoint.Highgarden.info(0.5, 0));
+		registerLinker(id++, GOTWaypoint.Smithyton, GOTWaypoint.Smithyton.info(0, westerosTown));
+		registerLinker(id++, GOTWaypoint.Oldtown, GOTWaypoint.Oldtown.info(-westerosTown - 0.2, 0));
+		registerLinker(id++, GOTWaypoint.ThreeTowers, GOTWaypoint.ThreeTowers.info(-0.5, -0.5));
+		registerLinker(id++, GOTWaypoint.ThreeTowers, GOTWaypoint.ThreeTowers.info(-0.5, 0));
+		registerLinker(id++, GOTWaypoint.ThreeTowers, GOTWaypoint.ThreeTowers.info(-0.5, 0.5));
+		registerLinker(id++, GOTWaypoint.Grandview, GOTWaypoint.Grandview.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Blackhaven, GOTWaypoint.Blackhaven.info(-westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Felwood, GOTWaypoint.Felwood.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.HaystackHall, GOTWaypoint.HaystackHall.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.Gallowsgrey, GOTWaypoint.Gallowsgrey.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.Parchments, GOTWaypoint.Parchments.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.Bronzegate, GOTWaypoint.Bronzegate.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.Poddingfield, GOTWaypoint.Poddingfield.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.HarvestHall, GOTWaypoint.HarvestHall.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.Nightsong, GOTWaypoint.Nightsong.info(0, -westerosCastle));
+		registerLinker(id++, GOTWaypoint.StormsEnd, GOTWaypoint.StormsEnd.info(0, westerosCastle));
+		registerLinker(id++, GOTWaypoint.SkyReach, GOTWaypoint.SkyReach.info(0, westerosCastle));
+		registerLinker(id++, GOTWaypoint.Starfall, GOTWaypoint.Starfall.info(0, westerosCastle + 0.1));
+		registerLinker(id++, GOTWaypoint.HighHermitage, GOTWaypoint.HighHermitage.info(westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Blackmont, GOTWaypoint.Blackmont.info(westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Kingsgrave, GOTWaypoint.Kingsgrave.info(westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Yronwood, GOTWaypoint.Yronwood.info(westerosCastle, 0));
+		registerLinker(id++, GOTWaypoint.Wyl, GOTWaypoint.Wyl.info(-westerosCastle - 0.05, 0));
+		registerLinker(id++, GOTWaypoint.Zamettar, GOTWaypoint.Zamettar.info(0, -0.125));
 
 		double essosTown = 0.1484375;
 
-		registerHiddenRoad(id++, GOTWaypoint.Braavos, GOTWaypoint.Braavos.info(0, -essosTown));
-		registerHiddenRoad(id++, GOTWaypoint.Norvos, GOTWaypoint.Norvos.info(0, -essosTown));
-		registerHiddenRoad(id++, GOTWaypoint.Mantarys, GOTWaypoint.Mantarys.info(0, -essosTown));
-		registerHiddenRoad(id++, GOTWaypoint.VolonTherys, GOTWaypoint.VolonTherys.info(0, essosTown));
-		registerHiddenRoad(id++, GOTWaypoint.LittleValyria, GOTWaypoint.LittleValyria.info(0.26, essosTown + 0.1));
-		registerHiddenRoad(id++, GOTWaypoint.Tolos, GOTWaypoint.Tolos.info(0, essosTown));
-		registerHiddenRoad(id++, GOTWaypoint.Meereen, GOTWaypoint.Meereen.info(0, -essosTown));
-		registerHiddenRoad(id++, GOTWaypoint.PortYhos, GOTWaypoint.PortYhos.info(0, essosTown));
-		registerHiddenRoad(id++, GOTWaypoint.Qarkash, GOTWaypoint.Qarkash.info(0, essosTown));
-		registerHiddenRoad(id++, GOTWaypoint.Qarth, GOTWaypoint.Qarth.info(0, essosTown));
-		registerHiddenRoad(id++, GOTWaypoint.Volantis, GOTWaypoint.Volantis.info(-0.2, essosTown + 0.1));
-		registerHiddenRoad(id++, GOTWaypoint.Pentos, GOTWaypoint.Pentos.info(-essosTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Myr, GOTWaypoint.Myr.info(-essosTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Qohor, GOTWaypoint.Qohor.info(-essosTown - 0.1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Selhorys, GOTWaypoint.Selhorys.info(-essosTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Valysar, GOTWaypoint.Valysar.info(-essosTown - 0.1, 0.25));
-		registerHiddenRoad(id++, GOTWaypoint.Yunkai, GOTWaypoint.Yunkai.info(-essosTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Astapor, GOTWaypoint.Astapor.info(-essosTown, 0));
+		registerLinker(id++, GOTWaypoint.Braavos, GOTWaypoint.Braavos.info(0, -essosTown));
+		registerLinker(id++, GOTWaypoint.Norvos, GOTWaypoint.Norvos.info(0, -essosTown));
+		registerLinker(id++, GOTWaypoint.Mantarys, GOTWaypoint.Mantarys.info(0, -essosTown));
+		registerLinker(id++, GOTWaypoint.VolonTherys, GOTWaypoint.VolonTherys.info(0, essosTown));
+		registerLinker(id++, GOTWaypoint.LittleValyria, GOTWaypoint.LittleValyria.info(0.26, essosTown + 0.1));
+		registerLinker(id++, GOTWaypoint.Tolos, GOTWaypoint.Tolos.info(0, essosTown));
+		registerLinker(id++, GOTWaypoint.Meereen, GOTWaypoint.Meereen.info(0, -essosTown));
+		registerLinker(id++, GOTWaypoint.PortYhos, GOTWaypoint.PortYhos.info(0, essosTown));
+		registerLinker(id++, GOTWaypoint.Qarkash, GOTWaypoint.Qarkash.info(0, essosTown));
+		registerLinker(id++, GOTWaypoint.Qarth, GOTWaypoint.Qarth.info(0, essosTown));
+		registerLinker(id++, GOTWaypoint.Volantis, GOTWaypoint.Volantis.info(-0.2, essosTown + 0.1));
+		registerLinker(id++, GOTWaypoint.Pentos, GOTWaypoint.Pentos.info(-essosTown, 0));
+		registerLinker(id++, GOTWaypoint.Myr, GOTWaypoint.Myr.info(-essosTown, 0));
+		registerLinker(id++, GOTWaypoint.Qohor, GOTWaypoint.Qohor.info(-essosTown - 0.1, 0));
+		registerLinker(id++, GOTWaypoint.Selhorys, GOTWaypoint.Selhorys.info(-essosTown, 0));
+		registerLinker(id++, GOTWaypoint.Valysar, GOTWaypoint.Valysar.info(-essosTown - 0.1, 0.25));
+		registerLinker(id++, GOTWaypoint.Yunkai, GOTWaypoint.Yunkai.info(-essosTown, 0));
+		registerLinker(id++, GOTWaypoint.Astapor, GOTWaypoint.Astapor.info(-essosTown, 0));
 
-		registerHiddenRoad(id++, GOTWaypoint.Kosrak, GOTWaypoint.Kosrak.info(1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Lhazosh, GOTWaypoint.Lhazosh.info(1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Hesh, GOTWaypoint.Hesh.info(1, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Asshai, GOTWaypoint.Asshai.info(0, westerosTown - 0.1));
+		registerLinker(id++, GOTWaypoint.Kosrak, GOTWaypoint.Kosrak.info(1, 0));
+		registerLinker(id++, GOTWaypoint.Lhazosh, GOTWaypoint.Lhazosh.info(1, 0));
+		registerLinker(id++, GOTWaypoint.Hesh, GOTWaypoint.Hesh.info(1, 0));
+		registerLinker(id++, GOTWaypoint.Asshai, GOTWaypoint.Asshai.info(0, westerosTown - 0.1));
 
 		double yitiTown = 0.2734375;
 
-		registerHiddenRoad(id++, GOTWaypoint.TraderTown, GOTWaypoint.TraderTown.info(0, -yitiTown));
-		registerHiddenRoad(id++, GOTWaypoint.Yibin, GOTWaypoint.Yibin.info(0, -yitiTown));
-		registerHiddenRoad(id++, GOTWaypoint.Vaibei, GOTWaypoint.Vaibei.info(0, -yitiTown));
-		registerHiddenRoad(id++, GOTWaypoint.Baoji, GOTWaypoint.Baoji.info(0, -yitiTown));
-		registerHiddenRoad(id++, GOTWaypoint.Eijiang, GOTWaypoint.Eijiang.info(0, yitiTown));
-		registerHiddenRoad(id++, GOTWaypoint.Yin, GOTWaypoint.Yin.info(0, yitiTown));
-		registerHiddenRoad(id++, GOTWaypoint.Jinqi, GOTWaypoint.Jinqi.info(-yitiTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Asabhad, GOTWaypoint.Asabhad.info(-yitiTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.SiQo, GOTWaypoint.SiQo.info(yitiTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Yunnan, GOTWaypoint.Yunnan.info(yitiTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Manjin, GOTWaypoint.Manjin.info(yitiTown + 0.1, -0.2));
-		registerHiddenRoad(id++, GOTWaypoint.Lizhao, GOTWaypoint.Lizhao.info(yitiTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.Tiqui, GOTWaypoint.Tiqui.info(0, -yitiTown));
-		registerHiddenRoad(id++, GOTWaypoint.Changan, GOTWaypoint.Changan.info(yitiTown, 0));
-		registerHiddenRoad(id++, GOTWaypoint.FuNing, GOTWaypoint.FuNing.info(yitiTown + 0.1, 0.1));
+		registerLinker(id++, GOTWaypoint.TraderTown, GOTWaypoint.TraderTown.info(0, -yitiTown));
+		registerLinker(id++, GOTWaypoint.Yibin, GOTWaypoint.Yibin.info(0, -yitiTown));
+		registerLinker(id++, GOTWaypoint.Vaibei, GOTWaypoint.Vaibei.info(0, -yitiTown));
+		registerLinker(id++, GOTWaypoint.Baoji, GOTWaypoint.Baoji.info(0, -yitiTown));
+		registerLinker(id++, GOTWaypoint.Eijiang, GOTWaypoint.Eijiang.info(0, yitiTown));
+		registerLinker(id++, GOTWaypoint.Yin, GOTWaypoint.Yin.info(0, yitiTown));
+		registerLinker(id++, GOTWaypoint.Jinqi, GOTWaypoint.Jinqi.info(-yitiTown, 0));
+		registerLinker(id++, GOTWaypoint.Asabhad, GOTWaypoint.Asabhad.info(-yitiTown, 0));
+		registerLinker(id++, GOTWaypoint.SiQo, GOTWaypoint.SiQo.info(yitiTown, 0));
+		registerLinker(id++, GOTWaypoint.Yunnan, GOTWaypoint.Yunnan.info(yitiTown, 0));
+		registerLinker(id++, GOTWaypoint.Manjin, GOTWaypoint.Manjin.info(yitiTown + 0.1, -0.2));
+		registerLinker(id++, GOTWaypoint.Lizhao, GOTWaypoint.Lizhao.info(yitiTown, 0));
+		registerLinker(id++, GOTWaypoint.Tiqui, GOTWaypoint.Tiqui.info(0, -yitiTown));
+		registerLinker(id++, GOTWaypoint.Changan, GOTWaypoint.Changan.info(yitiTown, 0));
+		registerLinker(id++, GOTWaypoint.FuNing, GOTWaypoint.FuNing.info(yitiTown + 0.1, 0.1));
 	}
 
-	public static void registerHiddenRoad(int id, Object... waypoints) {
+	public static void registerLinker(int id, Object... waypoints) {
 		ArrayList<BezierPoint> points = new ArrayList<>();
 		for (Object obj : waypoints) {
 			if (obj instanceof GOTAbstractWaypoint) {
 				GOTAbstractWaypoint wp = (GOTAbstractWaypoint) obj;
-				points.add(new BezierPoint(wp.getXCoord(), wp.getZCoord(), true, false));
+				points.add(new BezierPoint(wp.getXCoord(), wp.getZCoord(), true));
 			} else if (obj instanceof double[]) {
 				double[] coords = (double[]) obj;
 				if (coords.length == 2) {
-					points.add(new BezierPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false, false));
+					points.add(new BezierPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false));
 					continue;
 				}
 				throw new IllegalArgumentException("Coords length must be 2!");
 			}
 		}
 		BezierPoint[] array = points.toArray(new BezierPoint[0]);
-		BezierCurves.getSplines(array, false);
+		BezierCurves.getSplines(array, Type.LINKER);
+	}
+
+	public enum Type {
+		ROAD, WALL, LINKER
 	}
 
 	public static void registerRoad(int id, Object... waypoints) {
@@ -463,19 +452,18 @@ public class GOTBeziers {
 		for (Object obj : waypoints) {
 			if (obj instanceof GOTAbstractWaypoint) {
 				GOTAbstractWaypoint wp = (GOTAbstractWaypoint) obj;
-				points.add(new BezierPoint(wp.getXCoord(), wp.getZCoord(), true, false));
+				points.add(new BezierPoint(wp.getXCoord(), wp.getZCoord(), true));
 			} else if (obj instanceof double[]) {
 				double[] coords = (double[]) obj;
 				if (coords.length == 2) {
-					points.add(new BezierPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false, false));
+					points.add(new BezierPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false));
 					continue;
 				}
 				throw new IllegalArgumentException("Coords length must be 2!");
 			}
 		}
 		BezierPoint[] array = points.toArray(new BezierPoint[0]);
-		GOTBeziers[] beziers = BezierCurves.getSplines(array, false);
-		allRoads.addAll(Arrays.asList(beziers));
+		GOTBeziers[] beziers = BezierCurves.getSplines(array, Type.ROAD);
 		allBeziers.addAll(Arrays.asList(beziers));
 	}
 
@@ -484,32 +472,31 @@ public class GOTBeziers {
 		for (Object obj : waypoints) {
 			if (obj instanceof GOTAbstractWaypoint) {
 				GOTAbstractWaypoint wp = (GOTAbstractWaypoint) obj;
-				points.add(new BezierPoint(wp.getXCoord(), wp.getZCoord(), true, true));
+				points.add(new BezierPoint(wp.getXCoord(), wp.getZCoord(), true));
 			} else if (obj instanceof double[]) {
 				double[] coords = (double[]) obj;
 				if (coords.length == 2) {
-					points.add(new BezierPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false, true));
+					points.add(new BezierPoint(GOTWaypoint.mapToWorldX(coords[0]), GOTWaypoint.mapToWorldZ(coords[1]), false));
 					continue;
 				}
 				throw new IllegalArgumentException("Coords length must be 2!");
 			}
 		}
 		BezierPoint[] array = points.toArray(new BezierPoint[0]);
-		GOTBeziers[] beziers = BezierCurves.getSplines(array, true);
-		allWalls.addAll(Arrays.asList(beziers));
+		GOTBeziers[] beziers = BezierCurves.getSplines(array, Type.WALL);
 		allBeziers.addAll(Arrays.asList(beziers));
 	}
 
 	public static class BezierCurves {
 		public static int bezierLengthFactor = 1;
 
-		public static BezierPoint bezier(BezierPoint a, BezierPoint b, BezierPoint c, BezierPoint d, double t, boolean wall) {
-			BezierPoint ab = lerp(a, b, t, wall);
-			BezierPoint bc = lerp(b, c, t, wall);
-			BezierPoint cd = lerp(c, d, t, wall);
-			BezierPoint abbc = lerp(ab, bc, t, wall);
-			BezierPoint bccd = lerp(bc, cd, t, wall);
-			return lerp(abbc, bccd, t, wall);
+		public static BezierPoint bezier(BezierPoint a, BezierPoint b, BezierPoint c, BezierPoint d, double t) {
+			BezierPoint ab = lerp(a, b, t);
+			BezierPoint bc = lerp(b, c, t);
+			BezierPoint cd = lerp(c, d, t);
+			BezierPoint abbc = lerp(ab, bc, t);
+			BezierPoint bccd = lerp(bc, cd, t);
+			return lerp(abbc, bccd, t);
 		}
 
 		public static double[][] getControlPoints(double[] src) {
@@ -551,7 +538,7 @@ public class GOTBeziers {
 			return new double[][]{p1, p2};
 		}
 
-		public static GOTBeziers[] getSplines(BezierPoint[] waypoints, boolean wall) {
+		public static GOTBeziers[] getSplines(BezierPoint[] waypoints, Type type) {
 			if (waypoints.length == 2) {
 				BezierPoint p1 = waypoints[0];
 				BezierPoint p2 = waypoints[1];
@@ -564,11 +551,19 @@ public class GOTBeziers {
 				for (int l = 0; l < points; ++l) {
 					BezierPoint point;
 					double t = (double) l / points;
-					bezier.bezierPoints[l] = point = new BezierPoint(p1.x + dx * t, p1.z + dz * t, false, wall);
-					if (wall) {
-						wallPointDatabase.add(point);
-					} else {
-						roadPointDatabase.add(point);
+					bezier.bezierPoints[l] = point = new BezierPoint(p1.x + dx * t, p1.z + dz * t, false);
+					switch (type) {
+						case ROAD:
+							roadPointDatabase.add(point);
+							break;
+						case WALL:
+							wallPointDatabase.add(point);
+							break;
+						case LINKER:
+							linkerPointDatabase.add(point);
+							break;
+						default:
+							break;
 					}
 				}
 				return new GOTBeziers[]{bezier};
@@ -586,8 +581,8 @@ public class GOTBeziers {
 			BezierPoint[] controlPoints1 = new BezierPoint[controlPoints];
 			BezierPoint[] controlPoints2 = new BezierPoint[controlPoints];
 			for (int i = 0; i < controlPoints; ++i) {
-				BezierPoint p1 = new BezierPoint(controlX[0][i], controlZ[0][i], false, wall);
-				BezierPoint p2 = new BezierPoint(controlX[1][i], controlZ[1][i], false, wall);
+				BezierPoint p1 = new BezierPoint(controlX[0][i], controlZ[0][i], false);
+				BezierPoint p2 = new BezierPoint(controlX[1][i], controlZ[1][i], false);
 				controlPoints1[i] = p1;
 				controlPoints2[i] = p2;
 			}
@@ -607,21 +602,29 @@ public class GOTBeziers {
 				for (int l = 0; l < points; ++l) {
 					BezierPoint point;
 					double t = (double) l / points;
-					bezier.bezierPoints[l] = point = bezier(p1, cp1, cp2, p2, t, wall);
-					if (wall) {
-						wallPointDatabase.add(point);
-					} else {
-						roadPointDatabase.add(point);
+					bezier.bezierPoints[l] = point = bezier(p1, cp1, cp2, p2, t);
+					switch (type) {
+						case ROAD:
+							roadPointDatabase.add(point);
+							break;
+						case WALL:
+							wallPointDatabase.add(point);
+							break;
+						case LINKER:
+							linkerPointDatabase.add(point);
+							break;
+						default:
+							break;
 					}
 				}
 			}
 			return beziers;
 		}
 
-		public static BezierPoint lerp(BezierPoint a, BezierPoint b, double t, boolean wall) {
+		public static BezierPoint lerp(BezierPoint a, BezierPoint b, double t) {
 			double x = a.x + (b.x - a.x) * t;
 			double z = a.z + (b.z - a.z) * t;
-			return new BezierPoint(x, z, false, wall);
+			return new BezierPoint(x, z, false);
 		}
 	}
 
@@ -629,13 +632,11 @@ public class GOTBeziers {
 		public double x;
 		public double z;
 		public boolean isWaypoint;
-		public boolean isWall;
 
-		public BezierPoint(double i, double j, boolean flag, boolean wall) {
+		public BezierPoint(double i, double j, boolean flag) {
 			x = i;
 			z = j;
 			isWaypoint = flag;
-			isWall = wall;
 		}
 	}
 

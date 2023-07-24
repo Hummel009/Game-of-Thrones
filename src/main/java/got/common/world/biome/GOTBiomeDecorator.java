@@ -1,6 +1,6 @@
 package got.common.world.biome;
 
-import got.common.GOTConfig;
+import got.GOT;
 import got.common.database.GOTBlocks;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -216,9 +216,10 @@ public class GOTBiomeDecorator {
 			long seed = chunkX * 1879267L ^ chunkZ * 67209689L;
 			seed = seed * seed * 5829687L + seed * 2876L;
 			structureRand.setSeed(seed);
-			boolean roadNear = GOTBeziers.isRoadNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
-			boolean wallNear = GOTBeziers.isWallNear(chunkX + 8, chunkZ + 8, 16) >= 0.0f;
-			if (!roadNear && !wallNear && !anyFixedSettlementsAt(worldObj, chunkX, chunkZ)) {
+			boolean roadNear = GOTBeziers.isBezierNear(chunkX + 8, chunkZ + 8, 16, GOTBeziers.Type.ROAD) >= 0.0f;
+			boolean wallNear = GOTBeziers.isBezierNear(chunkX + 8, chunkZ + 8, 16, GOTBeziers.Type.WALL) >= 0.0f;
+			boolean linkerNear = GOTBeziers.isBezierNear(chunkX + 8, chunkZ + 8, 16, GOTBeziers.Type.LINKER) >= 0.0f;
+			if (!(roadNear || wallNear || linkerNear) && !anyFixedSettlementsAt(worldObj, chunkX, chunkZ)) {
 				for (Structure randomstructure : structures) {
 					if (structureRand.nextInt(randomstructure.chunkChance) == 0) {
 						int i6 = chunkX + rand.nextInt(16) + 8;
@@ -387,27 +388,16 @@ public class GOTBiomeDecorator {
 		rand = random;
 		chunkX = i;
 		chunkZ = k;
-		Thread decorateThread = new Thread(this::decorate);
-		decorateThread.start();
-		Thread affixThread = new Thread(() -> {
-			if (!GOTConfig.clearMap) {
-				GOTFixer.addSpecialLocations(world, random, i, k);
-				for (Entry<GOTAbstractWaypoint, GOTStructureBase> wp : GOTFixer.structures.entrySet()) {
-					if (GOTFixedStructures.fixedAt(i, k, wp.getKey())) {
-						wp.getValue().generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
-					}
+		boolean disableLocations = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;
+		decorate();
+		if (!disableLocations) {
+			GOTFixer.addSpecialLocations(world, random, i, k);
+			for (Entry<GOTAbstractWaypoint, GOTStructureBase> wp : GOTFixer.structures.entrySet()) {
+				if (GOTFixedStructures.fixedAt(i, k, wp.getKey())) {
+					wp.getValue().generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
 				}
 			}
-		});
-		affixThread.start();
-		try {
-			decorateThread.join();
-			affixThread.join();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-			Thread.currentThread().interrupt();
 		}
-
 	}
 
 	public void generateOres() {

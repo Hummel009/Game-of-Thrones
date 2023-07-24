@@ -234,15 +234,20 @@ public class GOTChunkProvider implements IChunkProvider {
 				float avgVariantHillFactor = totalVariantHillFactor / biomeCount;
 				if (GOTFixedStructures.hasMapFeatures(worldObj)) {
 					float mountain;
-					float roadNear = GOTBeziers.isRoadNear(xPos, zPos, 32);
+					float roadNear = GOTBeziers.isBezierNear(xPos, zPos, 32, GOTBeziers.Type.ROAD);
 					if (roadNear >= 0.0f) {
 						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * roadNear;
 						avgHeightVariation *= roadNear;
 					}
-					float wallNear = GOTBeziers.isWallNear(xPos, zPos, 32);
+					float wallNear = GOTBeziers.isBezierNear(xPos, zPos, 32, GOTBeziers.Type.WALL);
 					if (wallNear >= 0.0f) {
 						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * wallNear;
 						avgHeightVariation *= wallNear;
+					}
+					float linkerNear = GOTBeziers.isBezierNear(xPos, zPos, 32, GOTBeziers.Type.LINKER);
+					if (linkerNear >= 0.0f) {
+						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * linkerNear;
+						avgHeightVariation *= linkerNear;
 					}
 					mountain = GOTMountains.getTotalHeightBoost(xPos, zPos);
 					if (mountain > 0.005f) {

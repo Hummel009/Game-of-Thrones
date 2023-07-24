@@ -1,6 +1,7 @@
 package got.common.world.map;
 
 import com.google.common.math.IntMath;
+import got.GOT;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -19,8 +20,10 @@ public class GOTBezierGenerator {
 		GOTBezierType.BridgeType bridgeType = biome.getBridgeBlock();
 		GOTBezierType wallType = biome.getWallBlock();
 		int wallTop = biome.getWallTop();
+		boolean disableLocations = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;
 
-		if (GOTBeziers.isWallAt(i, k)) {
+		boolean wallAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.WALL);
+		if (wallAt) {
 			int index;
 			int j;
 			for (j = wallTop; j > 62; --j) {
@@ -33,7 +36,9 @@ public class GOTBezierGenerator {
 			return true;
 		}
 
-		if (GOTBeziers.isRoadAt(i, k)) {
+		boolean roadAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.ROAD);
+		boolean linkerAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.LINKER) && !disableLocations;
+		if (roadAt || linkerAt) {
 			int index;
 			int j;
 			int indexLower;
@@ -166,7 +171,7 @@ public class GOTBezierGenerator {
 			block5:
 			for (i1 = -2; i1 <= 2; ++i1) {
 				for (int k1 = -2; k1 <= 2; ++k1) {
-					if (i1 == 0 && k1 == 0 || !GOTBeziers.isRoadAt(i + i1, k + k1)) {
+					if (i1 == 0 && k1 == 0 || !GOTBeziers.isBezierAt(i + i1, k + k1, GOTBeziers.Type.ROAD)) {
 						continue;
 					}
 					adjRoad = true;
@@ -182,7 +187,7 @@ public class GOTBezierGenerator {
 				block7:
 				for (i1 = -3; i1 <= 3; ++i1) {
 					for (int k1 = -3; k1 <= 3; ++k1) {
-						if (Math.abs(i1) <= 2 && Math.abs(k1) <= 2 || !GOTBeziers.isRoadAt(i + i1, k + k1)) {
+						if (Math.abs(i1) <= 2 && Math.abs(k1) <= 2 || !GOTBeziers.isBezierAt(i + i1, k + k1, GOTBeziers.Type.ROAD)) {
 							continue;
 						}
 						adjRoad = true;
@@ -201,13 +206,13 @@ public class GOTBezierGenerator {
 	}
 
 	public static boolean isBridgeEdgePillar(int i, int k) {
-		return GOTBeziers.isRoadAt(i, k) && isFenceAt(i, k) && isPillarAt(i, k);
+		return GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.ROAD) && isFenceAt(i, k) && isPillarAt(i, k);
 	}
 
 	public static boolean isFenceAt(int i, int k) {
 		for (int i1 = -1; i1 <= 1; ++i1) {
 			for (int k1 = -1; k1 <= 1; ++k1) {
-				if (i1 == 0 && k1 == 0 || GOTBeziers.isRoadAt(i + i1, k + k1)) {
+				if (i1 == 0 && k1 == 0 || GOTBeziers.isBezierAt(i + i1, k + k1, GOTBeziers.Type.ROAD)) {
 					continue;
 				}
 				return true;

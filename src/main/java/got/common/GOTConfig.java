@@ -34,7 +34,6 @@ public class GOTConfig {
 	public static boolean enableDothrakiSkirmish;
 	public static boolean enchantingVanilla;
 	public static boolean enchantingGOT;
-	public static boolean clearMap;
 	public static boolean enchantingAutoRemoveVanilla;
 	public static int bannerWarningCooldown;
 	public static boolean dropMutton;
@@ -148,7 +147,6 @@ public class GOTConfig {
 		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.langsName + ".");
 		gridScale = config.get(CATEGORY_GAMEPLAY, "Grid of the world for generating villages", 12, "Smaller integer = greater chance of spawn, but the chance of intersection is growing too.").getInt();
 		enableFellowshipCreation = config.get(CATEGORY_GAMEPLAY, "Enable Fellowship creation", true, "If disabled, admins can still create Fellowships using the command").getBoolean();
-		clearMap = config.get(CATEGORY_GAMEPLAY, "No fixed structures and characters", false, "Useful for servers. Disable fixed structures to build your own").getBoolean();
 		lgbt = config.get(CATEGORY_GAMEPLAY, "Enable LGBT marriages between NPC", false, "RENLY BARATHEON TRIGGERED").getBoolean();
 		walkerFireDamage = config.get(CATEGORY_GAMEPLAY, "Enable walkers fire damage", false).getBoolean();
 		allowBannerProtection = config.get(CATEGORY_GAMEPLAY, "Allow Banner Protection", true).getBoolean();

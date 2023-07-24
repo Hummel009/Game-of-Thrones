@@ -67,6 +67,7 @@ public class GOT {
 	public static GOTPacketHandler packetHandler;
 	public static GOTTickHandlerServer tickHandler;
 	public static WorldType worldTypeGOT;
+	public static WorldType worldTypeGOTEmpty;
 	public static WorldType worldTypeGOTClassic;
 	public static String langsName = "\u0420\u0443\u0441\u0441\u043A\u0438\u0439 (ru), \u0423\u043A\u0440\u0430\u0457\u043D\u0441\u044C\u043A\u0430 (uk), English (en), Fran\u00E7ais (fr), Deutsch (de), Polska (pl), T\u00FCrk\u00E7e (tr), \u4E2D\u6587 (zh)";
 
@@ -493,6 +494,7 @@ public class GOT {
 		eventHandler = new GOTEventHandler();
 		packetHandler = new GOTPacketHandler();
 		worldTypeGOT = new GOTWorldType("got");
+		worldTypeGOTEmpty = new GOTWorldType("gotEmpty");
 		worldTypeGOTClassic = new GOTWorldType("gotClassic");
 		GOTLoader.preInit();
 		proxy.preInit();

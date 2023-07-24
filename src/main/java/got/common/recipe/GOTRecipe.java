@@ -818,9 +818,10 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingle9, 6, 5), "XXX", 'X', new ItemStack(GOTBlocks.brick5, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingleDirt, 6, 0), "XXX", 'X', new ItemStack(Blocks.dirt, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingleDirt, 6, 1), "XXX", 'X', new ItemStack(GOTBlocks.dirtPath, 1, 0));
+		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingleDirt, 6, 4), "XXX", 'X', new ItemStack(GOTBlocks.dirtPath, 1, 1));
+		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingleDirt, 6, 5), "XXX", 'X', new ItemStack(GOTBlocks.dirtPath, 1, 2));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingleDirt, 6, 2), "XXX", 'X', new ItemStack(GOTBlocks.mud, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingleDirt, 6, 3), "XXX", 'X', new ItemStack(GOTBlocks.asshaiDirt, 1, 0));
-		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingleDirt, 6, 4), "XXX", 'X', new ItemStack(GOTBlocks.dirtPath, 1, 1));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingleGravel, 6, 0), "XXX", 'X', new ItemStack(Blocks.gravel, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingleGravel, 6, 1), "XXX", 'X', new ItemStack(GOTBlocks.basaltGravel, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.slabSingleGravel, 6, 2), "XXX", 'X', new ItemStack(GOTBlocks.obsidianGravel, 1, 0));

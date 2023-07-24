@@ -40,10 +40,11 @@ public enum GOTFixedStructures {
 					break;
 				}
 			}
-			if (!structureNear && GOTBeziers.isRoadNear(x, z, 32) >= 0.0f) {
-				structureNear = true;
-			}
-			if (!structureNear && GOTBeziers.isWallNear(x, z, 32) >= 0.0f) {
+			boolean roadNear = GOTBeziers.isBezierNear(x, z, 32, GOTBeziers.Type.ROAD) >= 0.0f;
+			boolean wallNear = GOTBeziers.isBezierNear(x, z, 32, GOTBeziers.Type.WALL) >= 0.0f;
+			boolean linkerNear = GOTBeziers.isBezierNear(x, z, 32, GOTBeziers.Type.LINKER) >= 0.0f;
+
+			if (!structureNear && (roadNear || wallNear || linkerNear)) {
 				structureNear = true;
 			}
 		}
