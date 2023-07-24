@@ -424,6 +424,10 @@ public class GOTBeziers {
 		registerLinker(id++, GOTWaypoint.FuNing, GOTWaypoint.FuNing.info(yitiTown + 0.1, 0.1));
 	}
 
+	public enum Type {
+		ROAD, WALL, LINKER
+	}
+
 	public static void registerLinker(int id, Object... waypoints) {
 		ArrayList<BezierPoint> points = new ArrayList<>();
 		for (Object obj : waypoints) {
@@ -441,10 +445,6 @@ public class GOTBeziers {
 		}
 		BezierPoint[] array = points.toArray(new BezierPoint[0]);
 		BezierCurves.getSplines(array, Type.LINKER);
-	}
-
-	public enum Type {
-		ROAD, WALL, LINKER
 	}
 
 	public static void registerRoad(int id, Object... waypoints) {
