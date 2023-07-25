@@ -139,7 +139,7 @@ public class GOTClassTransformer implements IClassTransformer {
 					for (int dmgObf = 0; dmgObf < 3; ++dmgObf) {
 						String _armor = armorObf ? cls_ItemArmor_obf : cls_ItemArmor;
 						String _dmg = new String[]{"field_77879_b", "damageReduceAmount", "c"}[dmgObf];
-						FieldInsnNode nodeDmg = new FieldInsnNode(180, _armor, _dmg, "I");
+						FieldInsnNode nodeDmg = new FieldInsnNode(GETFIELD, _armor, _dmg, "I");
 						nodeFound = findNodeInMethod(method, nodeDmg);
 						if (nodeFound != null) {
 							break block1;
@@ -183,14 +183,14 @@ public class GOTClassTransformer implements IClassTransformer {
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
-		MethodNode newMethod = isObf ? new MethodNode(1, targetMethodNameObf, targetMethodDescObf, targetMethodSignObf, null) : new MethodNode(1, targetMethodName, targetMethodDesc, targetMethodSign, null);
+		MethodNode newMethod = isObf ? new MethodNode(ACONST_NULL, targetMethodNameObf, targetMethodDescObf, targetMethodSignObf, null) : new MethodNode(ACONST_NULL, targetMethodName, targetMethodDesc, targetMethodSign, null);
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 0));
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 1));
 		newMethod.instructions.add(new VarInsnNode(ILOAD, 2));
 		newMethod.instructions.add(new VarInsnNode(ILOAD, 3));
 		newMethod.instructions.add(new VarInsnNode(ILOAD, 4));
 		newMethod.instructions.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Anvil", "getCollisionBoundingBoxFromPool", "(Lnet/minecraft/block/Block;Lnet/minecraft/world/World;III)Lnet/minecraft/util/AxisAlignedBB;", false));
-		newMethod.instructions.add(new InsnNode(176));
+		newMethod.instructions.add(new InsnNode(ARETURN));
 		classNode.methods.add(newMethod);
 		System.out.println("Hummel009: Added method " + newMethod.name);
 		ClassWriter writer = new ClassWriter(1);
@@ -261,7 +261,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				newIns.add(new VarInsnNode(ALOAD, 0));
 				newIns.add(new VarInsnNode(ILOAD, 1));
 				newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Dirt", "createStackedBlock", "(Lnet/minecraft/block/Block;I)Lnet/minecraft/item/ItemStack;", false));
-				newIns.add(new InsnNode(176));
+				newIns.add(new InsnNode(ARETURN));
 				method.instructions.insert(newIns);
 				System.out.println("Hummel009: Patched method " + method.name);
 			}
@@ -449,7 +449,7 @@ public class GOTClassTransformer implements IClassTransformer {
 		String targetMethodName = "getIcon";
 		String targetMethodNameObf = "func_149673_e";
 		String targetMethodDescObf = targetMethodDesc = "(Lnet/minecraft/world/IBlockAccess;IIII)Lnet/minecraft/util/IIcon;";
-		MethodNode newMethod = isObf ? new MethodNode(1, targetMethodNameObf, targetMethodDescObf, null, null) : new MethodNode(1, targetMethodName, targetMethodDesc, null, null);
+		MethodNode newMethod = isObf ? new MethodNode(ACONST_NULL, targetMethodNameObf, targetMethodDescObf, null, null) : new MethodNode(ACONST_NULL, targetMethodName, targetMethodDesc, null, null);
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 0));
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 1));
 		newMethod.instructions.add(new VarInsnNode(ILOAD, 2));
@@ -457,22 +457,22 @@ public class GOTClassTransformer implements IClassTransformer {
 		newMethod.instructions.add(new VarInsnNode(ILOAD, 4));
 		newMethod.instructions.add(new VarInsnNode(ILOAD, 5));
 		newMethod.instructions.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Stone", "getIconWorld", "(Lnet/minecraft/block/Block;Lnet/minecraft/world/IBlockAccess;IIII)Lnet/minecraft/util/IIcon;", false));
-		newMethod.instructions.add(new InsnNode(176));
+		newMethod.instructions.add(new InsnNode(ARETURN));
 		classNode.methods.add(newMethod);
 		System.out.println("Hummel009: Added method " + newMethod.name);
 		targetMethodName = "getIcon";
 		targetMethodNameObf = "func_149691_a";
 		targetMethodDescObf = targetMethodDesc = "(II)Lnet/minecraft/util/IIcon;";
-		newMethod = isObf ? new MethodNode(1, targetMethodNameObf, targetMethodDescObf, null, null) : new MethodNode(1, targetMethodName, targetMethodDesc, null, null);
+		newMethod = isObf ? new MethodNode(ACONST_NULL, targetMethodNameObf, targetMethodDescObf, null, null) : new MethodNode(ACONST_NULL, targetMethodName, targetMethodDesc, null, null);
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 0));
-		newMethod.instructions.add(new FieldInsnNode(180, cls_Block, isObf ? "field_149761_L" : "blockIcon", "Lnet/minecraft/util/IIcon;"));
-		newMethod.instructions.add(new VarInsnNode(58, 3));
+		newMethod.instructions.add(new FieldInsnNode(GETFIELD, cls_Block, isObf ? "field_149761_L" : "blockIcon", "Lnet/minecraft/util/IIcon;"));
+		newMethod.instructions.add(new VarInsnNode(ASTORE, 3));
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 0));
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 3));
 		newMethod.instructions.add(new VarInsnNode(ILOAD, 1));
 		newMethod.instructions.add(new VarInsnNode(ILOAD, 2));
 		newMethod.instructions.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Stone", "getIconSideMeta", "(Lnet/minecraft/block/Block;Lnet/minecraft/util/IIcon;II)Lnet/minecraft/util/IIcon;", false));
-		newMethod.instructions.add(new InsnNode(176));
+		newMethod.instructions.add(new InsnNode(ARETURN));
 		classNode.methods.add(newMethod);
 		System.out.println("Hummel009: Added method " + newMethod.name);
 		ClassWriter writer = new ClassWriter(1);
@@ -579,7 +579,7 @@ public class GOTClassTransformer implements IClassTransformer {
 						for (boolean blockObf : new boolean[]{false, true}) {
 							String _blocks = blocksObf ? cls_Blocks_obf : cls_Blocks;
 							String _door = doorObf ? "field_150466_ao" : "wooden_door";
-							FieldInsnNode nodeGetDoor = new FieldInsnNode(178, _blocks, _door, "Lnet/minecraft/block/Block;");
+							FieldInsnNode nodeGetDoor = new FieldInsnNode(GETSTATIC, _blocks, _door, "Lnet/minecraft/block/Block;");
 							nodeFound = findNodeInMethod(method, nodeGetDoor);
 							if (nodeFound != null) {
 								break block1;
@@ -644,7 +644,7 @@ public class GOTClassTransformer implements IClassTransformer {
 			InsnNode nodeReturn;
 			InsnList extraIns;
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
-				nodeReturn = findNodeInMethod(method, new InsnNode(174));
+				nodeReturn = findNodeInMethod(method, new InsnNode(FRETURN));
 				extraIns = new InsnList();
 				extraIns.add(new VarInsnNode(ALOAD, 0));
 				extraIns.add(new VarInsnNode(ALOAD, 1));
@@ -653,7 +653,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				System.out.println("Hummel009: Patched method " + method.name);
 			}
 			if (method.name.equals(targetMethodName2) && (method.desc.equals(targetMethodSign2) || method.desc.equals(targetMethodSignObf2))) {
-				nodeReturn = findNodeInMethod(method, new InsnNode(174));
+				nodeReturn = findNodeInMethod(method, new InsnNode(FRETURN));
 				extraIns = new InsnList();
 				extraIns.add(new VarInsnNode(ALOAD, 0));
 				extraIns.add(new VarInsnNode(ALOAD, 1));
@@ -727,7 +727,7 @@ public class GOTClassTransformer implements IClassTransformer {
 		classReader.accept(classNode, 0);
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
-				VarInsnNode nodeIStore = findNodeInMethod(method, new VarInsnNode(54, 2));
+				VarInsnNode nodeIStore = findNodeInMethod(method, new VarInsnNode(ISTORE, 2));
 				InsnList newIns = new InsnList();
 				newIns.add(new VarInsnNode(ALOAD, 0));
 				newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Enchants", "getMaxFireProtectionLevel", "(ILnet/minecraft/entity/Entity;)I", false));
@@ -778,7 +778,7 @@ public class GOTClassTransformer implements IClassTransformer {
 					boolean[] arrbl = {false, true};
 					for (boolean b : arrbl) {
 						String _world = worldObf ? cls_World_obf : cls_World;
-						nodeIsRemote = findNodeInMethod(method, new FieldInsnNode(180, _world, b ? "field_72995_K" : "isRemote", "Z"));
+						nodeIsRemote = findNodeInMethod(method, new FieldInsnNode(GETFIELD, _world, b ? "field_72995_K" : "isRemote", "Z"));
 						if (nodeIsRemote != null) {
 							break block1;
 						}
@@ -819,7 +819,7 @@ public class GOTClassTransformer implements IClassTransformer {
 		classReader.accept(classNode, 0);
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
-				VarInsnNode nodeStore = findNodeInMethod(method, new VarInsnNode(54, 6));
+				VarInsnNode nodeStore = findNodeInMethod(method, new VarInsnNode(ISTORE, 6));
 				for (int l = 0; l < 3; ++l) {
 					method.instructions.remove(nodeStore.getPrevious());
 				}
@@ -837,7 +837,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				AbstractInsnNode nodeIsInstance = null;
 				boolean[] newPrev = {false, true};
 				int newIns22 = newPrev.length;
-				for (int i = 0; i < newIns22 && (nodeIsInstance = findNodeInMethod(method, new TypeInsnNode(193, newPrev[i] ? cls_EntityPlayer_obf : cls_EntityPlayer))) == null; ++i) {
+				for (int i = 0; i < newIns22 && (nodeIsInstance = findNodeInMethod(method, new TypeInsnNode(INSTANCEOF, newPrev[i] ? cls_EntityPlayer_obf : cls_EntityPlayer))) == null; ++i) {
 				}
 				VarInsnNode nodeLoadEntity = (VarInsnNode) nodeIsInstance.getPrevious();
 				method.instructions.remove(nodeIsInstance);
@@ -864,10 +864,10 @@ public class GOTClassTransformer implements IClassTransformer {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
 				method.instructions.clear();
 				InsnList newIns = new InsnList();
-				newIns.add(new VarInsnNode(25, 0));
-				newIns.add(new VarInsnNode(21, 1));
-				newIns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Player", "canEat", "(Lnet/minecraft/entity/player/EntityPlayer;Z)Z", false));
-				newIns.add(new InsnNode(172));
+				newIns.add(new VarInsnNode(ALOAD, 0));
+				newIns.add(new VarInsnNode(ILOAD, 1));
+				newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Player", "canEat", "(Lnet/minecraft/entity/player/EntityPlayer;Z)Z", false));
+				newIns.add(new InsnNode(IRETURN));
 				method.instructions.insert(newIns);
 				System.out.println("Hummel009: Patched method " + method.name);
 			}
@@ -891,7 +891,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				InsnList newIns = new InsnList();
 				newIns.add(new VarInsnNode(ALOAD, 0));
 				newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$EntityPackets", "getMobSpawnPacket", "(Lnet/minecraft/entity/Entity;)Lnet/minecraft/network/Packet;", false));
-				newIns.add(new InsnNode(176));
+				newIns.add(new InsnNode(ARETURN));
 				method.instructions.insert(newIns);
 				System.out.println("Hummel009: Patched method " + method.name);
 			}
@@ -911,11 +911,11 @@ public class GOTClassTransformer implements IClassTransformer {
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
 				InsnList newIns = new InsnList();
-				newIns.add(new VarInsnNode(23, 1));
-				newIns.add(new MethodInsnNode(184, "got/coremod/GOTReplacedMethods$Food", "getExhaustionFactor", "()F", false));
-				newIns.add(new InsnNode(106));
-				newIns.add(new VarInsnNode(56, 1));
-				VarInsnNode nodeAfter = findNodeInMethod(method, new VarInsnNode(25, 0));
+				newIns.add(new VarInsnNode(FLOAD, 1));
+				newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Food", "getExhaustionFactor", "()F", false));
+				newIns.add(new InsnNode(FMUL));
+				newIns.add(new VarInsnNode(FSTORE, 1));
+				VarInsnNode nodeAfter = findNodeInMethod(method, new VarInsnNode(ALOAD, 0));
 				method.instructions.insertBefore(nodeAfter, newIns);
 				System.out.println("Hummel009: Patched method " + method.name);
 			}
@@ -1098,7 +1098,7 @@ public class GOTClassTransformer implements IClassTransformer {
 							for (boolean blockObf : new boolean[]{false, true}) {
 								String _blocks = blocksObf ? "ajn" : cls_Blocks;
 								String _door = doorObf ? "field_150466_ao" : "wooden_door";
-								FieldInsnNode nodeGetDoor = new FieldInsnNode(178, _blocks, _door, "Lnet/minecraft/block/Block;");
+								FieldInsnNode nodeGetDoor = new FieldInsnNode(GETSTATIC, _blocks, _door, "Lnet/minecraft/block/Block;");
 								if (pass == 0 ? (nodeFound1 = findNodeInMethod(method, nodeGetDoor, 0)) != null : (nodeFound2 = findNodeInMethod(method, nodeGetDoor, 1)) != null) {
 									continue block1;
 								}
@@ -1133,7 +1133,7 @@ public class GOTClassTransformer implements IClassTransformer {
 						for (boolean blockObf : new boolean[]{false, true}) {
 							String _blocks2 = blocksObf ? cls_Blocks_obf : cls_Blocks;
 							String _gate = gateObf ? "field_150396_be" : "fence_gate";
-							FieldInsnNode nodeGetGate = new FieldInsnNode(178, _blocks2, _gate, "Lnet/minecraft/block/Block;");
+							FieldInsnNode nodeGetGate = new FieldInsnNode(GETSTATIC, _blocks2, _gate, "Lnet/minecraft/block/Block;");
 							nodeFoundGate = findNodeInMethod(method, nodeGetGate, 0);
 							if (nodeFoundGate != null) {
 								break block5;
@@ -1175,7 +1175,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				newIns.add(new VarInsnNode(ILOAD, 1));
 				newIns.add(new VarInsnNode(ALOAD, 2));
 				newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Potions", "getStrengthModifier", "(Lnet/minecraft/potion/Potion;ILnet/minecraft/entity/ai/attributes/AttributeModifier;)D", false));
-				newIns.add(new InsnNode(175));
+				newIns.add(new InsnNode(DRETURN));
 				method.instructions.insert(newIns);
 				System.out.println("Hummel009: Patched method " + method.name);
 			}
