@@ -219,7 +219,7 @@ public class GOTBiomeDecorator {
 			boolean roadNear = GOTBeziers.isBezierNear(chunkX + 8, chunkZ + 8, 16, GOTBeziers.Type.ROAD) >= 0.0f;
 			boolean wallNear = GOTBeziers.isBezierNear(chunkX + 8, chunkZ + 8, 16, GOTBeziers.Type.WALL) >= 0.0f;
 			boolean linkerNear = GOTBeziers.isBezierNear(chunkX + 8, chunkZ + 8, 16, GOTBeziers.Type.LINKER) >= 0.0f;
-			if (!(roadNear || wallNear || linkerNear) && !anyFixedSettlementsAt(worldObj, chunkX, chunkZ)) {
+			if ((!roadNear && !wallNear && !linkerNear) && !anyFixedSettlementsAt(worldObj, chunkX, chunkZ)) {
 				for (Structure randomstructure : structures) {
 					if (structureRand.nextInt(randomstructure.chunkChance) == 0) {
 						int i6 = chunkX + rand.nextInt(16) + 8;

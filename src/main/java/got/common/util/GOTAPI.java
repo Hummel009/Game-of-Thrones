@@ -380,6 +380,17 @@ public class GOTAPI {
 	}
 
 	/**
+	 * @apiNote Clears all the roads and walls in the world.
+	 * @apiNote Should be used at the FMLInitializationEvent or later.
+	 */
+	public static void clearBezierDataBase() {
+		GOTBeziers.allBeziers.clear();
+		GOTBeziers.roadPointDatabase = new BezierPointDatabase();
+		GOTBeziers.wallPointDatabase = new BezierPointDatabase();
+		GOTBeziers.linkerPointDatabase = new BezierPointDatabase();
+	}
+
+	/**
 	 * @param factory - miniquest factory that will be cleared.
 	 * @apiNote Clears miniquest factory.
 	 */
@@ -390,17 +401,6 @@ public class GOTAPI {
 		factory.alignmentRewardOverride = null;
 		factory.noAlignRewardForEnemy = false;
 		factory.questFactories.clear();
-	}
-
-	/**
-	 * @apiNote Clears all the roads and walls in the world.
-	 * @apiNote Should be used at the FMLInitializationEvent or later.
-	 */
-	public static void clearBezierDataBase() {
-		GOTBeziers.allBeziers.clear();
-		GOTBeziers.roadPointDatabase = new BezierPointDatabase();
-		GOTBeziers.wallPointDatabase = new BezierPointDatabase();
-		GOTBeziers.linkerPointDatabase = new BezierPointDatabase();
 	}
 
 	/**
@@ -700,10 +700,8 @@ public class GOTAPI {
 	 * @apiNote YourClientProxy should implement IResourceManagerReloadListener.
 	 * @apiNote Add onInit() void to the YourClientProxy file, if doesn't exist.
 	 * @apiNote Add next line into the onInit():
-	 * @apiNote (( IReloadableResourceManager)Minecraft.getMinecraft().getResourceManager()).registerReloadListener(new
-	 * YourClientProxy());
-	 * @apiNote Add unimplemented onResourceManagerReload to the
-	 * YourClientProxy.
+	 * @apiNote (( IReloadableResourceManager)Minecraft.getMinecraft().getResourceManager()).registerReloadListener(new YourClientProxy());
+	 * @apiNote Add unimplemented onResourceManagerReload to the YourClientProxy.
 	 * @apiNote Use setClientMapImage void in the onResourceManagerReload.
 	 */
 	@SideOnly(Side.CLIENT)

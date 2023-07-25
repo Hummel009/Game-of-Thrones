@@ -38,7 +38,7 @@ public class GOTBiomeVariantOrchard extends GOTBiomeVariant {
 		boolean roadAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.ROAD);
 		boolean wallAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.WALL);
 		boolean linkerAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.LINKER);
-		if (!(roadAt || wallAt || linkerAt)) {
+		if ((!roadAt && !wallAt && !linkerAt)) {
 			for (int j = 128; j >= 0; --j) {
 				int index = xzIndex * ySize + j;
 				Block above = blocks[index + 1];

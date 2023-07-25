@@ -245,7 +245,7 @@ public class GOTCommandFellowship extends CommandBase {
 			if (ownerID != null) {
 				GOTPlayerData ownerData = GOTLevelData.getData(ownerID);
 				GOTFellowship fellowship = ownerData.getFellowshipByName(fsName);
-				if ((fellowship == null) || !fellowship.isOwner(ownerID)) {
+				if (fellowship == null || !fellowship.isOwner(ownerID)) {
 					throw new WrongUsageException("got.command.fellowship.edit.notFound", ownerName, fsName);
 				}
 				if ("disband".equals(option)) {
@@ -289,13 +289,12 @@ public class GOTCommandFellowship extends CommandBase {
 					ItemStack itemstack;
 					try {
 						NBTBase nbt = JsonToNBT.func_150315_a(iconData);
-						if (nbt instanceof NBTTagCompound) {
-							NBTTagCompound compound = (NBTTagCompound) nbt;
-							itemstack = ItemStack.loadItemStackFromNBT(compound);
-						} else {
+						if (!(nbt instanceof NBTTagCompound)) {
 							func_152373_a(sender, this, "got.command.fellowship.icon.tagError", "Not a valid tag");
 							return;
 						}
+						NBTTagCompound compound = (NBTTagCompound) nbt;
+						itemstack = ItemStack.loadItemStackFromNBT(compound);
 					} catch (NBTException nbtexception) {
 						func_152373_a(sender, this, "got.command.fellowship.icon.tagError", nbtexception.getMessage());
 						return;
@@ -334,87 +333,86 @@ public class GOTCommandFellowship extends CommandBase {
 						func_152373_a(sender, this, "got.command.fellowship.hiredFF.allow", ownerName, fsName);
 					}
 					return;
-				} else {
-					if ("map-show".equals(option)) {
-						boolean show;
-						String setting = args[4];
-						if ("on".equals(setting)) {
-							show = true;
-						} else if ("off".equals(setting)) {
-							show = false;
-						} else {
-							throw new WrongUsageException(getCommandUsage(sender));
-						}
-						ownerData.setFellowshipShowMapLocations(fellowship, show);
-						if (show) {
-							func_152373_a(sender, this, "got.command.fellowship.mapShow.on", ownerName, fsName);
-						} else {
-							func_152373_a(sender, this, "got.command.fellowship.mapShow.off", ownerName, fsName);
-						}
-						return;
-					}
-					String playerName = args[4];
-					UUID playerID = getPlayerIDByName(sender, playerName);
-					if (playerID != null) {
-						GOTPlayerData playerData = GOTLevelData.getData(playerID);
-						if ("invite".equals(option)) {
-							if (!fellowship.containsPlayer(playerID)) {
-								ownerData.invitePlayerToFellowship(fellowship, playerID, ownerName);
-								func_152373_a(sender, this, "got.command.fellowship.invite", ownerName, fsName, playerName);
-								return;
-							}
-							throw new WrongUsageException("got.command.fellowship.edit.alreadyIn", ownerName, fsName, playerName);
-						}
-						if ("add".equals(option)) {
-							if (!fellowship.containsPlayer(playerID)) {
-								ownerData.invitePlayerToFellowship(fellowship, playerID, ownerName);
-								playerData.acceptFellowshipInvite(fellowship, false);
-								func_152373_a(sender, this, "got.command.fellowship.add", ownerName, fsName, playerName);
-								return;
-							}
-							throw new WrongUsageException("got.command.fellowship.edit.alreadyIn", ownerName, fsName, playerName);
-						}
-						if ("remove".equals(option)) {
-							if (fellowship.hasMember(playerID)) {
-								ownerData.removePlayerFromFellowship(fellowship, playerID, ownerName);
-								func_152373_a(sender, this, "got.command.fellowship.remove", ownerName, fsName, playerName);
-								return;
-							}
-							throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
-						}
-						if ("transfer".equals(option)) {
-							if (fellowship.hasMember(playerID)) {
-								ownerData.transferFellowship(fellowship, playerID, ownerName);
-								func_152373_a(sender, this, "got.command.fellowship.transfer", ownerName, fsName, playerName);
-								return;
-							}
-							throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
-						}
-						if ("op".equals(option)) {
-							if (fellowship.hasMember(playerID)) {
-								if (!fellowship.isAdmin(playerID)) {
-									ownerData.setFellowshipAdmin(fellowship, playerID, true, ownerName);
-									func_152373_a(sender, this, "got.command.fellowship.op", ownerName, fsName, playerName);
-									return;
-								}
-								throw new WrongUsageException("got.command.fellowship.edit.alreadyOp", ownerName, fsName, playerName);
-							}
-							throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
-						}
-						if ("deop".equals(option)) {
-							if (fellowship.hasMember(playerID)) {
-								if (fellowship.isAdmin(playerID)) {
-									ownerData.setFellowshipAdmin(fellowship, playerID, false, ownerName);
-									func_152373_a(sender, this, "got.command.fellowship.deop", ownerName, fsName, playerName);
-									return;
-								}
-								throw new WrongUsageException("got.command.fellowship.edit.notOp", ownerName, fsName, playerName);
-							}
-							throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
-						}
+				}
+				if ("map-show".equals(option)) {
+					boolean show;
+					String setting = args[4];
+					if ("on".equals(setting)) {
+						show = true;
+					} else if ("off".equals(setting)) {
+						show = false;
 					} else {
-						throw new PlayerNotFoundException();
+						throw new WrongUsageException(getCommandUsage(sender));
 					}
+					ownerData.setFellowshipShowMapLocations(fellowship, show);
+					if (show) {
+						func_152373_a(sender, this, "got.command.fellowship.mapShow.on", ownerName, fsName);
+					} else {
+						func_152373_a(sender, this, "got.command.fellowship.mapShow.off", ownerName, fsName);
+					}
+					return;
+				}
+				String playerName = args[4];
+				UUID playerID = getPlayerIDByName(sender, playerName);
+				if (playerID != null) {
+					GOTPlayerData playerData = GOTLevelData.getData(playerID);
+					if ("invite".equals(option)) {
+						if (!fellowship.containsPlayer(playerID)) {
+							ownerData.invitePlayerToFellowship(fellowship, playerID, ownerName);
+							func_152373_a(sender, this, "got.command.fellowship.invite", ownerName, fsName, playerName);
+							return;
+						}
+						throw new WrongUsageException("got.command.fellowship.edit.alreadyIn", ownerName, fsName, playerName);
+					}
+					if ("add".equals(option)) {
+						if (!fellowship.containsPlayer(playerID)) {
+							ownerData.invitePlayerToFellowship(fellowship, playerID, ownerName);
+							playerData.acceptFellowshipInvite(fellowship, false);
+							func_152373_a(sender, this, "got.command.fellowship.add", ownerName, fsName, playerName);
+							return;
+						}
+						throw new WrongUsageException("got.command.fellowship.edit.alreadyIn", ownerName, fsName, playerName);
+					}
+					if ("remove".equals(option)) {
+						if (fellowship.hasMember(playerID)) {
+							ownerData.removePlayerFromFellowship(fellowship, playerID, ownerName);
+							func_152373_a(sender, this, "got.command.fellowship.remove", ownerName, fsName, playerName);
+							return;
+						}
+						throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
+					}
+					if ("transfer".equals(option)) {
+						if (fellowship.hasMember(playerID)) {
+							ownerData.transferFellowship(fellowship, playerID, ownerName);
+							func_152373_a(sender, this, "got.command.fellowship.transfer", ownerName, fsName, playerName);
+							return;
+						}
+						throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
+					}
+					if ("op".equals(option)) {
+						if (fellowship.hasMember(playerID)) {
+							if (!fellowship.isAdmin(playerID)) {
+								ownerData.setFellowshipAdmin(fellowship, playerID, true, ownerName);
+								func_152373_a(sender, this, "got.command.fellowship.op", ownerName, fsName, playerName);
+								return;
+							}
+							throw new WrongUsageException("got.command.fellowship.edit.alreadyOp", ownerName, fsName, playerName);
+						}
+						throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
+					}
+					if ("deop".equals(option)) {
+						if (fellowship.hasMember(playerID)) {
+							if (fellowship.isAdmin(playerID)) {
+								ownerData.setFellowshipAdmin(fellowship, playerID, false, ownerName);
+								func_152373_a(sender, this, "got.command.fellowship.deop", ownerName, fsName, playerName);
+								return;
+							}
+							throw new WrongUsageException("got.command.fellowship.edit.notOp", ownerName, fsName, playerName);
+						}
+						throw new WrongUsageException("got.command.fellowship.edit.notMember", ownerName, fsName, playerName);
+					}
+				} else {
+					throw new PlayerNotFoundException();
 				}
 			}
 		}

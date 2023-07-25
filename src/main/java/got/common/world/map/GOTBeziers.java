@@ -19,6 +19,10 @@ public class GOTBeziers {
 		Collections.addAll(endpoints, ends);
 	}
 
+	public static boolean isBezierAt(int x, int z, Type type) {
+		return isBezierNear(x, z, 4, type) >= 0.0f;
+	}
+
 	public static float isBezierNear(int x, int z, int width, Type type) {
 		double widthSq = width * width;
 		float leastSqRatio = -1.0f;
@@ -54,10 +58,6 @@ public class GOTBeziers {
 			leastSqRatio = f;
 		}
 		return leastSqRatio;
-	}
-
-	public static boolean isBezierAt(int x, int z, Type type) {
-		return isBezierNear(x, z, 4, type) >= 0.0f;
 	}
 
 	public static void onInit() {
@@ -424,10 +424,6 @@ public class GOTBeziers {
 		registerLinker(id++, GOTWaypoint.FuNing, GOTWaypoint.FuNing.info(yitiTown + 0.1, 0.1));
 	}
 
-	public enum Type {
-		ROAD, WALL, LINKER
-	}
-
 	public static void registerLinker(int id, Object... waypoints) {
 		ArrayList<BezierPoint> points = new ArrayList<>();
 		for (Object obj : waypoints) {
@@ -485,6 +481,10 @@ public class GOTBeziers {
 		BezierPoint[] array = points.toArray(new BezierPoint[0]);
 		GOTBeziers[] beziers = BezierCurves.getSplines(array, Type.WALL);
 		allBeziers.addAll(Arrays.asList(beziers));
+	}
+
+	public enum Type {
+		ROAD, WALL, LINKER
 	}
 
 	public static class BezierCurves {
