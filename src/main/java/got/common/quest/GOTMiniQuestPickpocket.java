@@ -321,8 +321,8 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		}
 
 		@Override
-		public Class getQuestClass() {
-			return GOTMiniQuestPickpocket.class;
+		public Class<Q> getQuestClass() {
+			return (Class<Q>) GOTMiniQuestPickpocket.class;
 		}
 
 		public QFPickpocket<Q> setPickpocketNumber(int min, int max) {

@@ -49,7 +49,7 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 		nbt.setString("KillClass", GOTEntityRegistry.getStringFromClass(entityType));
 	}
 
-	public static class QFKillEntity extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillEntity> {
+	public static class QFKillEntity extends QFKill<GOTMiniQuestKillEntity> {
 		public Class<? extends Entity> entityType;
 
 		public QFKillEntity(String name) {
@@ -64,7 +64,7 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 		}
 
 		@Override
-		public Class getQuestClass() {
+		public Class<GOTMiniQuestKillEntity> getQuestClass() {
 			return GOTMiniQuestKillEntity.class;
 		}
 

@@ -378,8 +378,8 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		}
 
 		@Override
-		public Class getQuestClass() {
-			return GOTMiniQuestBounty.class;
+		public Class<Q> getQuestClass() {
+			return (Class<Q>) GOTMiniQuestBounty.class;
 		}
 	}
 

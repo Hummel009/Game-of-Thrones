@@ -77,7 +77,6 @@ public class GOTStructureLhazarPasture extends GOTStructureLhazarBase {
 		for (int l = 0; l < animals; ++l) {
 			EntityAnimal animal = getRandomAnimal(world, random);
 			spawnNPCAndSetHome(animal, world, 0, 1, 0, 0);
-			assert animal != null;
 			animal.detachHome();
 		}
 		return true;

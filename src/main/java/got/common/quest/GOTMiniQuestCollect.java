@@ -96,8 +96,8 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 		}
 
 		@Override
-		public Class getQuestClass() {
-			return GOTMiniQuestCollect.class;
+		public Class<Q> getQuestClass() {
+			return (Class<Q>) GOTMiniQuestCollect.class;
 		}
 
 		public QFCollect<Q> setCollectItem(ItemStack itemstack, int min, int max) {

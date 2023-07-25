@@ -36,7 +36,7 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 		VILLAGE, PYRAMID
 	}
 
-	public class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureSothoryosSettlement> {
+	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureSothoryosSettlement> {
 		public Type type;
 		public boolean forcedType;
 

@@ -82,7 +82,7 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 	}
 
 	public void placeSothoryosFlowerPot(World world, int i, int j, int k, Random random) {
-		ItemStack plant = null;
+		ItemStack plant;
 		if (random.nextInt(3) == 0) {
 			plant = getRandomFlower(world, random);
 		} else {

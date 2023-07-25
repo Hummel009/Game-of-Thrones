@@ -4,6 +4,8 @@ CHANGELOG
 + Added new world type - Game of Thrones without fixed structures and characters, but with map.
 
 * Added one forgotten dirtPath:2 recipe
+
+* Fixed bug with one broken command
 * Fixed bug with cargo cart
 * Fixed 2 bugs with granite structures
 

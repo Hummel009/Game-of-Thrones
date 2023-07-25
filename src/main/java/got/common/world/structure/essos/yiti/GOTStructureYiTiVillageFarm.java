@@ -149,7 +149,6 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 				int i12 = 3 * (random.nextBoolean() ? 1 : -1);
 				int k1 = 3 * (random.nextBoolean() ? 1 : -1);
 				spawnNPCAndSetHome(animal, world, i12, 1, k1, 0);
-				assert animal != null;
 				animal.detachHome();
 			}
 			return true;

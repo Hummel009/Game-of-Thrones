@@ -547,7 +547,8 @@ public class GOTLevelData {
 	}
 
 	public static void setPlayerBannedForStructures(String username, boolean flag) {
-		UUID.fromString(PreYggdrasilConverter.func_152719_a(username));
+		UUID uuid = UUID.fromString(PreYggdrasilConverter.func_152719_a(username));
+		getData(uuid).setStructuresBanned(flag);
 	}
 
 	public static void setSavedDifficulty(EnumDifficulty d) {
