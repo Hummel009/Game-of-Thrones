@@ -37,8 +37,6 @@ public class GOTBeziers {
 			case LINKER:
 				points = linkerPointDatabase.getPointsForCoords(x, z);
 				break;
-			default:
-				break;
 		}
 		for (BezierPoint point : points) {
 			double dx = point.x - x;
@@ -526,8 +524,6 @@ public class GOTBeziers {
 						case LINKER:
 							linkerPointDatabase.add(point);
 							break;
-						default:
-							break;
 					}
 				}
 				return new GOTBeziers[]{bezier};
@@ -576,8 +572,6 @@ public class GOTBeziers {
 							break;
 						case LINKER:
 							linkerPointDatabase.add(point);
-							break;
-						default:
 							break;
 					}
 				}
