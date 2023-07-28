@@ -468,7 +468,15 @@ public class GOT {
 			int b = (int) (baseB * rgb[2]);
 			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
 		}
-		HashMap<String, Integer> map = new HashMap<>();
+		Map<String, Integer> info = getModContentInfo();
+
+		for (Map.Entry<String, Integer> entry : info.entrySet()) {
+			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
+		}
+	}
+
+	public static Map<String, Integer> getModContentInfo() {
+		Map<String, Integer> map = new HashMap<>();
 		map.put("achievements", GOTAchievement.CONTENT.size());
 		map.put("packets", GOTPacketHandler.id);
 		map.put("banners", BannerType.values().length);
@@ -480,10 +488,7 @@ public class GOT {
 		map.put("factions", GOTFaction.values().length);
 		map.put("items", GOTItems.CONTENT.size());
 		map.put("blocks", GOTBlocks.CONTENT.size());
-
-		for (Map.Entry<String, Integer> entry : map.entrySet()) {
-			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
-		}
+		return map;
 	}
 
 	@Mod.EventHandler
