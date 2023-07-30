@@ -195,7 +195,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		return specialOvenName != null && specialOvenName.length() > 0;
+		return specialOvenName != null && !specialOvenName.isEmpty();
 	}
 
 	public boolean isCooking() {

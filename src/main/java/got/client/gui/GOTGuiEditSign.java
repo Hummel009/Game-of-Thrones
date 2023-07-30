@@ -86,7 +86,7 @@ public class GOTGuiEditSign extends GuiScreen {
 			++editLine;
 		}
 		editLine &= tileSign.getNumLines() - 1;
-		if (i == 14 && tileSign.signText[editLine].length() > 0) {
+		if (i == 14 && !tileSign.signText[editLine].isEmpty()) {
 			String s = tileSign.signText[editLine];
 			tileSign.signText[editLine] = s.substring(0, s.length() - 1);
 		}

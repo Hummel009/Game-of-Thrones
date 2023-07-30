@@ -90,7 +90,7 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		return customName != null && customName.length() > 0;
+		return customName != null && !customName.isEmpty();
 	}
 
 	@Override

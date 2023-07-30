@@ -127,7 +127,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			int field_92021_u = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92021_u");
 			int field_92020_v = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92020_v");
 			int field_92019_w = ObfuscationReflectionHelper.getPrivateValue(GuiMainMenu.class, this, "field_92019_w");
-			if (field_92025_p != null && field_92025_p.length() > 0) {
+			if (field_92025_p != null && !field_92025_p.isEmpty()) {
 				drawRect(field_92022_t - 2, field_92021_u - 2, field_92020_v + 2, field_92019_w - 1, 1428160512);
 				drawString(fontRendererObj, field_92025_p, field_92022_t, field_92021_u, -1);
 				drawString(fontRendererObj, field_146972_A, (width - field_92024_r) / 2, buttonList.get(0).yPosition - 12, -1);

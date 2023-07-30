@@ -42,9 +42,7 @@ public class GOTTextBody {
 		for (int i = 0; i < size(); ++i) {
 			String part = getText(i);
 			List<String> lineList = fr.listFormattedStringToWidth(part, textWidth);
-			for (String line : lineList) {
-				++lines;
-			}
+			lines += lineList.size();
 		}
 		return lines;
 	}

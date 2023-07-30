@@ -128,7 +128,7 @@ public class GOTFactionRelations {
 	public static void sendPacketToAll(IMessage packet) {
 		MinecraftServer srv = MinecraftServer.getServer();
 		if (srv != null) {
-			for (EntityPlayerMP entityplayer : srv.getConfigurationManager().playerEntityList) {
+			for (EntityPlayerMP entityplayer : (List<EntityPlayerMP>) srv.getConfigurationManager().playerEntityList) {
 				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 			}
 		}

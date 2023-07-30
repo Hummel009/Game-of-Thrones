@@ -105,7 +105,7 @@ public class GOTStructureScan {
 					String alias;
 					String s1;
 					++curLine;
-					if (line.length() == 0) {
+					if (line.isEmpty()) {
 						continue;
 					}
 					if (line.charAt(0) == GOTScanAlias.Type.BLOCK.typeCode) {

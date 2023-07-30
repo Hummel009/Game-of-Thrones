@@ -80,7 +80,7 @@ public abstract class GOTItemRugBase extends Item {
 		if (world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP) && !world.isRemote) {
 			GOTEntityRugBase rug = createRug(world, itemstack);
 			rug.setLocationAndAngles(i + f, j, k + f2, 180.0f - entityplayer.rotationYaw % 360.0f, 0.0f);
-			if (world.checkNoEntityCollision(rug.boundingBox) && world.getCollidingBoundingBoxes(rug, rug.boundingBox).size() == 0 && !world.isAnyLiquid(rug.boundingBox)) {
+			if (world.checkNoEntityCollision(rug.boundingBox) && world.getCollidingBoundingBoxes(rug, rug.boundingBox).isEmpty() && !world.isAnyLiquid(rug.boundingBox)) {
 				world.spawnEntityInWorld(rug);
 				world.playSoundAtEntity(rug, Blocks.wool.stepSound.func_150496_b(), (Blocks.wool.stepSound.getVolume() + 1.0f) / 2.0f, Blocks.wool.stepSound.getPitch() * 0.8f);
 				--itemstack.stackSize;

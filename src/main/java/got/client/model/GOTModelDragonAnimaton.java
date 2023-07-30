@@ -406,7 +406,7 @@ public class GOTModelDragonAnimaton {
 
 			model.neck.rotateAngleX += (1 - speed) * vertMulti;
 
-			model.neck.rotateAngleX -= lerp(0, ofsRotX, ground * health);
+			model.neck.rotateAngleX -= (float) lerp(0, ofsRotX, ground * health);
 
 			model.neck.rotateAngleY = toRadians(lookYaw) * vertMulti * speed;
 

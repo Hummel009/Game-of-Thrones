@@ -18,11 +18,6 @@ public class GOTEntitySeagull extends GOTEntityBird {
 	}
 
 	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-	}
-
-	@Override
 	public boolean canBirdSpawnHere() {
 		if (GOTAmbientSpawnChecks.canSpawn(this, 8, 4, 40, 4, Material.leaves, Material.sand)) {
 			double range = 16.0;

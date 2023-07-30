@@ -261,7 +261,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		return specialForgeName != null && specialForgeName.length() > 0;
+		return specialForgeName != null && !specialForgeName.isEmpty();
 	}
 
 	public boolean isCobalt(ItemStack itemstack) {

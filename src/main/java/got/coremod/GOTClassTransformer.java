@@ -576,14 +576,12 @@ public class GOTClassTransformer implements IClassTransformer {
 				block1:
 				for (boolean blocksObf : new boolean[]{false, true}) {
 					for (boolean doorObf : new boolean[]{false, true}) {
-						for (boolean blockObf : new boolean[]{false, true}) {
-							String _blocks = blocksObf ? cls_Blocks_obf : cls_Blocks;
-							String _door = doorObf ? "field_150466_ao" : "wooden_door";
-							FieldInsnNode nodeGetDoor = new FieldInsnNode(GETSTATIC, _blocks, _door, "Lnet/minecraft/block/Block;");
-							nodeFound = findNodeInMethod(method, nodeGetDoor);
-							if (nodeFound != null) {
-								break block1;
-							}
+						String _blocks = blocksObf ? cls_Blocks_obf : cls_Blocks;
+						String _door = doorObf ? "field_150466_ao" : "wooden_door";
+						FieldInsnNode nodeGetDoor = new FieldInsnNode(GETSTATIC, _blocks, _door, "Lnet/minecraft/block/Block;");
+						nodeFound = findNodeInMethod(method, nodeGetDoor);
+						if (nodeFound != null) {
+							break block1;
 						}
 					}
 				}
@@ -1095,13 +1093,11 @@ public class GOTClassTransformer implements IClassTransformer {
 				for (int pass = 0; pass <= 1; ++pass) {
 					for (boolean blocksObf : new boolean[]{false, true}) {
 						for (boolean doorObf : new boolean[]{false, true}) {
-							for (boolean blockObf : new boolean[]{false, true}) {
-								String _blocks = blocksObf ? "ajn" : cls_Blocks;
-								String _door = doorObf ? "field_150466_ao" : "wooden_door";
-								FieldInsnNode nodeGetDoor = new FieldInsnNode(GETSTATIC, _blocks, _door, "Lnet/minecraft/block/Block;");
-								if (pass == 0 ? (nodeFound1 = findNodeInMethod(method, nodeGetDoor, 0)) != null : (nodeFound2 = findNodeInMethod(method, nodeGetDoor, 1)) != null) {
-									continue block1;
-								}
+							String _blocks = blocksObf ? "ajn" : cls_Blocks;
+							String _door = doorObf ? "field_150466_ao" : "wooden_door";
+							FieldInsnNode nodeGetDoor = new FieldInsnNode(GETSTATIC, _blocks, _door, "Lnet/minecraft/block/Block;");
+							if (pass == 0 ? (nodeFound1 = findNodeInMethod(method, nodeGetDoor, 0)) != null : (nodeFound2 = findNodeInMethod(method, nodeGetDoor, 1)) != null) {
+								continue block1;
 							}
 						}
 					}
@@ -1130,14 +1126,12 @@ public class GOTClassTransformer implements IClassTransformer {
 				block5:
 				for (boolean blocksObf : new boolean[]{false, true}) {
 					for (boolean gateObf : new boolean[]{false, true}) {
-						for (boolean blockObf : new boolean[]{false, true}) {
-							String _blocks2 = blocksObf ? cls_Blocks_obf : cls_Blocks;
-							String _gate = gateObf ? "field_150396_be" : "fence_gate";
-							FieldInsnNode nodeGetGate = new FieldInsnNode(GETSTATIC, _blocks2, _gate, "Lnet/minecraft/block/Block;");
-							nodeFoundGate = findNodeInMethod(method, nodeGetGate, 0);
-							if (nodeFoundGate != null) {
-								break block5;
-							}
+						String _blocks2 = blocksObf ? cls_Blocks_obf : cls_Blocks;
+						String _gate = gateObf ? "field_150396_be" : "fence_gate";
+						FieldInsnNode nodeGetGate = new FieldInsnNode(GETSTATIC, _blocks2, _gate, "Lnet/minecraft/block/Block;");
+						nodeFoundGate = findNodeInMethod(method, nodeGetGate, 0);
+						if (nodeFoundGate != null) {
+							break block5;
 						}
 					}
 				}

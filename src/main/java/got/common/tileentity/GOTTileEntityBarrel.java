@@ -230,7 +230,7 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		return specialBarrelName != null && specialBarrelName.length() > 0;
+		return specialBarrelName != null && !specialBarrelName.isEmpty();
 	}
 
 	@Override

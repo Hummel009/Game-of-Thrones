@@ -117,7 +117,7 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 
 	@Override
 	public boolean hasCustomInventoryName() {
-		return specialMillstoneName != null && specialMillstoneName.length() > 0;
+		return specialMillstoneName != null && !specialMillstoneName.isEmpty();
 	}
 
 	@Override

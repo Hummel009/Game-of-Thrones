@@ -251,8 +251,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 
 	public abstract GOTEntityNPC getCampCaptain(World var1, Random var2);
 
-	public void placeNPCRespawner(World world, Random random, int i, int j, int k) {
-	}
+	public abstract void placeNPCRespawner(World world, Random random, int i, int j, int k);
 
 	@Override
 	public void setupRandomBlocks(Random random) {

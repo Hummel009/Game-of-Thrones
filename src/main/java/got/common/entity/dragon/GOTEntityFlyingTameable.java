@@ -176,7 +176,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 			double yawDelta = GOTModelDragonAnimaton.normDeg(newYaw - rotationYaw);
 			yawDelta = GOTModelDragonAnimaton.clamp(yawDelta, -yawSpeed, yawSpeed);
 			yawAdd *= 0.8f;
-			yawAdd += yawDelta * (0.7 / motionHypot);
+			yawAdd += (float) (yawDelta * (0.7 / motionHypot));
 			rotationYaw += yawAdd * 0.1f;
 			Vec3 motionVec = Vec3.createVectorHelper(motionX, motionY, motionZ).normalize();
 			Vec3 deltaVec = Vec3.createVectorHelper(deltaX, deltaY, deltaZ).normalize();

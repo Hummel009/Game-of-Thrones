@@ -137,7 +137,7 @@ public class GOTLore {
 						}
 						if (metadata.startsWith(codeCategory)) {
 							categoryString = metadata.substring(codeCategory.length());
-							while (categoryString.length() > 0) {
+							while (!categoryString.isEmpty()) {
 								String categoryName;
 								int indexOf = categoryString.indexOf(codeCategorySeparator);
 								if (indexOf >= 0) {
@@ -209,7 +209,7 @@ public class GOTLore {
 		ArrayList<String> loreTextPages = new ArrayList<>();
 		String remainingText = loreText;
 		ArrayList<String> splitTxtWords = new ArrayList<>();
-		while (remainingText.length() > 0) {
+		while (!remainingText.isEmpty()) {
 			String part;
 			if (remainingText.startsWith(newline)) {
 				part = newline;
@@ -350,7 +350,7 @@ public class GOTLore {
 					try {
 						String remaining = formatted.substring("choose:".length());
 						ArrayList<String> words = new ArrayList<>();
-						while (remaining.length() > 0) {
+						while (!remaining.isEmpty()) {
 							String word;
 							int indexOf = remaining.indexOf('/');
 							if (indexOf >= 0) {

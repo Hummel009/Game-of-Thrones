@@ -570,8 +570,8 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		float v = getSoundVolume();
 		float p = getSoundPitch();
 		if (sound.endsWith("breathe")) {
-			v *= 0.5;
-			p *= 0.5;
+			v *= 0.5F;
+			p *= 0.5F;
 		}
 		playSound(sound, v, p);
 	}
