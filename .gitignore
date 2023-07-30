@@ -1,12 +1,30 @@
-.gradle
-.idea/workspace.xml
-.idea/inspectionProfiles
-.idea/scopes
-.idea/uiDesigner.xml
-.idea/vcs.xml
+# eclipse
 bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
 build
+.gradle
+
+# other
+eclipse
 run
+
+# Files from Forge MDK
+forge*changelog.txt
+
+# server
 server/config
 server/crash-reports
 server/logs

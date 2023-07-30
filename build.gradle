@@ -1,43 +1,38 @@
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
+apply plugin: 'forge'
+
 buildscript {
 	repositories {
 		mavenCentral()
 		maven {
-			name = "github"
-			url = "https://github.com/juanmuscaria/maven/raw/master"
+			name = 'forge'
+			url = 'https://maven.minecraftforge.net/'
 		}
 	}
 	dependencies {
-		classpath 'net.minecraftforge.gradle:ForgeGradle:[1.2-1.4.6-SNAPSHOT,)'
+		classpath('com.anatawa12.forge:ForgeGradle:1.2-1.1.+') {
+			changing = true
+		}
 	}
 }
 
-apply plugin: 'forge'
+final def currentDate = LocalDate.now()
+version = currentDate.format(DateTimeFormatter.ofPattern('yy.MM.dd'))
+group = 'com.yourname.modid'
+archivesBaseName = 'Game of Thrones'
 
-def currentDate = LocalDate.now()
-version = currentDate.format(DateTimeFormatter.ofPattern("yy.MM.dd"))
-group = "com.yourname.modid"
-archivesBaseName = "Game of Thrones"
+targetCompatibility = sourceCompatibility = JavaVersion.VERSION_1_8
 
 minecraft {
-	version = "1.7.10-10.13.4.1614-1.7.10"
-	runDir = "run"
-	srcCompat = JavaVersion.VERSION_1_8
-	targetCompat = JavaVersion.VERSION_1_8
-}
-
-jar {
-	manifest {
-		attributes 'FMLCorePlugin': 'got.coremod.GOTLoadingPlugin'
-		attributes 'FMLCorePluginContainsFMLMod': 'true'
-	}
+	version = '1.7.10-10.13.4.1614-1.7.10'
+	runDir = 'run'
 }
 
 processResources {
-	inputs.property "version", project.version
-	inputs.property "mcversion", project.minecraft.version
+	inputs.property 'version', project.version
+	inputs.property 'mcversion', project.minecraft.version
 
 	from(sourceSets.main.resources.srcDirs) {
 		include 'mcmod.info'
