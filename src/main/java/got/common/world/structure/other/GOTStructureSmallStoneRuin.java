@@ -763,17 +763,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 					if (i2 == width || k2 == width) {
 						if (random.nextInt(10) != 0) {
 							for (int j1 = 1; j1 <= height; j1++) {
-								if (random.nextInt(6) != 0) {
-									if (random.nextInt(3) == 0) {
-										if (random.nextBoolean()) {
-											setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.redBrick, 0);
-										} else {
-											setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.redBrick, 1);
-										}
-									} else {
-										setBlockAndMetadata(world, i1, j1, k1, Blocks.brick_block, 0);
-									}
-								} else {
+								if (random.nextInt(6) == 0) {
 									int randomWall = random.nextInt(7);
 									switch (randomWall) {
 										case 0:
@@ -805,6 +795,16 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 													break;
 											}
 											break;
+									}
+								} else {
+									if (random.nextInt(3) == 0) {
+										if (random.nextBoolean()) {
+											setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.redBrick, 0);
+										} else {
+											setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.redBrick, 1);
+										}
+									} else {
+										setBlockAndMetadata(world, i1, j1, k1, Blocks.brick_block, 0);
 									}
 								}
 								if (random.nextInt(6) == 0) {

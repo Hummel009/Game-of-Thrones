@@ -414,13 +414,13 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -5, 1, 9, plankBlock, plankMeta);
 		setBlockAndMetadata(world, -5, 2, 9, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, -6, 1, 9, plankBlock, plankMeta);
-		if (!isAbandoned) {
+		if (isAbandoned) {
+			placeChest(world, random, -7, 1, 9, 2, GOTChestContents.TREASURE);
+			placeChest(world, random, -8, 1, 9, 2, GOTChestContents.TREASURE);
+		} else {
 			setBlockAndMetadata(world, -6, 2, 9, Blocks.torch, 4);
 			placeChest(world, random, -7, 1, 9, 2, GOTChestContents.GIFT);
 			placeChest(world, random, -8, 1, 9, 2, GOTChestContents.GIFT);
-		} else {
-			placeChest(world, random, -7, 1, 9, 2, GOTChestContents.TREASURE);
-			placeChest(world, random, -8, 1, 9, 2, GOTChestContents.TREASURE);
 		}
 		setBlockAndMetadata(world, -9, 1, 8, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, -9, 1, 7, tableBlock, 0);
@@ -475,12 +475,12 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, 9, 1, k16, bedBlock, 1);
 			setBlockAndMetadata(world, 10, 1, k16, bedBlock, 9);
 		}
-		if (!isAbandoned) {
-			placeChest(world, random, 8, 1, 6, 3, GOTChestContents.GIFT);
-			placeChest(world, random, 8, 1, 10, 2, GOTChestContents.GIFT);
-		} else {
+		if (isAbandoned) {
 			placeChest(world, random, 8, 1, 6, 3, GOTChestContents.TREASURE);
 			placeChest(world, random, 8, 1, 10, 2, GOTChestContents.TREASURE);
+		} else {
+			placeChest(world, random, 8, 1, 6, 3, GOTChestContents.GIFT);
+			placeChest(world, random, 8, 1, 10, 2, GOTChestContents.GIFT);
 		}
 		setBlockAndMetadata(world, 10, 1, 8, plankBlock, plankMeta);
 		if (!isAbandoned) {

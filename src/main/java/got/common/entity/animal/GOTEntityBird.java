@@ -460,11 +460,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 						return false;
 					}
 				});
-				if (!players.isEmpty()) {
-					stealTargetPlayer = players.get(rand.nextInt(players.size()));
-					currentFlightTarget = getPlayerFlightTarget(stealTargetPlayer);
-					newFlight();
-				} else {
+				if (players.isEmpty()) {
 					List<EntityItem> entityItems = worldObj.selectEntitiesWithinAABB(EntityItem.class, boundingBox.expand(range, range, range), new IEntitySelector() {
 
 						@Override
@@ -482,6 +478,10 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 						currentFlightTarget = getItemFlightTarget(stealTargetItem);
 						newFlight();
 					}
+				} else {
+					stealTargetPlayer = players.get(rand.nextInt(players.size()));
+					currentFlightTarget = getPlayerFlightTarget(stealTargetPlayer);
+					newFlight();
 				}
 			}
 			if (stealTargetItem != null || stealTargetPlayer != null) {

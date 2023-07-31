@@ -48,10 +48,10 @@ public class GOTTileEntityBeacon extends TileEntity {
 	public void setLit(boolean flag) {
 		boolean wasLit = isLit;
 		isLit = flag;
-		if (!isLit) {
-			litCounter = 0;
-		} else {
+		if (isLit) {
 			unlitCounter = 0;
+		} else {
+			litCounter = 0;
 		}
 		updateLight();
 		stateChangeTime = worldObj.getTotalWorldTime();

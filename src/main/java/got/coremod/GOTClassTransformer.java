@@ -152,10 +152,10 @@ public class GOTClassTransformer implements IClassTransformer {
 				}
 				method.instructions.remove(nodePrev);
 				InsnList newIns = new InsnList();
-				if (!isCauldron) {
-					newIns.add(new VarInsnNode(ALOAD, 7));
-				} else {
+				if (isCauldron) {
 					newIns.add(new VarInsnNode(ALOAD, 8));
+				} else {
+					newIns.add(new VarInsnNode(ALOAD, 7));
 				}
 				newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Enchants", "getDamageReduceAmount", "(Lnet/minecraft/item/ItemStack;)I", false));
 				method.instructions.insert(nodeFound, newIns);
@@ -1005,17 +1005,7 @@ public class GOTClassTransformer implements IClassTransformer {
 		classReader.accept(classNode, 0);
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
-				if (!isCauldron) {
-					method.instructions.clear();
-					InsnList newIns = new InsnList();
-					newIns.add(new VarInsnNode(ALOAD, 0));
-					newIns.add(new VarInsnNode(ILOAD, 1));
-					newIns.add(new VarInsnNode(ALOAD, 2));
-					newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Enchants", "attemptDamageItem", "(Lnet/minecraft/item/ItemStack;ILjava/util/Random;)Z", false));
-					newIns.add(new InsnNode(IRETURN));
-					method.instructions.insert(newIns);
-					System.out.println("Hummel009: Patched method " + method.name);
-				} else {
+				if (isCauldron) {
 					for (AbstractInsnNode n : method.instructions.toArray()) {
 						if (n.getOpcode() == 100) {
 							InsnList insns = new InsnList();
@@ -1028,6 +1018,16 @@ public class GOTClassTransformer implements IClassTransformer {
 							System.out.println("Hummel009: Patched method " + method.name + " for Cauldron");
 						}
 					}
+				} else {
+					method.instructions.clear();
+					InsnList newIns = new InsnList();
+					newIns.add(new VarInsnNode(ALOAD, 0));
+					newIns.add(new VarInsnNode(ILOAD, 1));
+					newIns.add(new VarInsnNode(ALOAD, 2));
+					newIns.add(new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$Enchants", "attemptDamageItem", "(Lnet/minecraft/item/ItemStack;ILjava/util/Random;)Z", false));
+					newIns.add(new InsnNode(IRETURN));
+					method.instructions.insert(newIns);
+					System.out.println("Hummel009: Patched method " + method.name);
 				}
 			}
 
@@ -1109,7 +1109,9 @@ public class GOTClassTransformer implements IClassTransformer {
 				MethodInsnNode nodeCheckDoor2 = new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$PathFinder", "isWoodenDoor", "(Lnet/minecraft/block/Block;)Z", false);
 				method.instructions.set(nodeFound2, nodeCheckDoor2);
 				JumpInsnNode nodeIf2 = (JumpInsnNode) nodeCheckDoor2.getNext();
-				if (nodeIf2.getOpcode() != 165) {
+				if (nodeIf2.getOpcode() == 165) {
+					nodeIf2.setOpcode(154);
+				} else {
 					System.out.println("WARNING! WARNING! THIS OPCODE SHOULD HAVE BEEN IF_ACMPEQ!");
 					System.out.println("WARNING! INSTEAD IT WAS " + nodeIf2.getOpcode());
 					if (nodeIf2.getOpcode() == 166) {
@@ -1119,8 +1121,6 @@ public class GOTClassTransformer implements IClassTransformer {
 					} else {
 						System.out.println("WARNING! NOT SURE WHAT TO DO HERE! THINGS MIGHT BREAK!");
 					}
-				} else {
-					nodeIf2.setOpcode(154);
 				}
 				FieldInsnNode nodeFoundGate = null;
 				block5:
@@ -1138,12 +1138,12 @@ public class GOTClassTransformer implements IClassTransformer {
 				MethodInsnNode nodeCheckGate = new MethodInsnNode(INVOKESTATIC, "got/coremod/GOTReplacedMethods$PathFinder", "isFenceGate", "(Lnet/minecraft/block/Block;)Z", false);
 				method.instructions.set(nodeFoundGate, nodeCheckGate);
 				JumpInsnNode nodeIfGate = (JumpInsnNode) nodeCheckGate.getNext();
-				if (nodeIfGate.getOpcode() != 165) {
+				if (nodeIfGate.getOpcode() == 165) {
+					nodeIfGate.setOpcode(154);
+				} else {
 					System.out.println("WARNING! WARNING! THIS OPCODE SHOULD HAVE BEEN IF_ACMPEQ!");
 					System.out.println("WARNING! INSTEAD IT WAS " + nodeIfGate.getOpcode());
 					System.out.println("WARNING! NOT SURE WHAT TO DO HERE! THINGS MIGHT BREAK!");
-				} else {
-					nodeIfGate.setOpcode(154);
 				}
 				System.out.println("Hummel009: Patched method " + method.name);
 			}

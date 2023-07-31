@@ -65,20 +65,20 @@ public class GOTEntityYiTiBombardier extends GOTEntityYiTiSoldier {
 		if (!worldObj.isRemote && getAttackTarget() == null) {
 			currentRevengeTarget = null;
 		}
-		if (!worldObj.isRemote) {
-			ItemStack bomb = npcItemsInv.getBomb();
-			int meta = -1;
-			if (bomb != null && Block.getBlockFromItem(bomb.getItem()) instanceof GOTBlockBomb) {
-				meta = bomb.getItemDamage();
-			}
-			dataWatcher.updateObject(17, (byte) meta);
-		} else {
+		if (worldObj.isRemote) {
 			byte meta = dataWatcher.getWatchableObjectByte(17);
 			if (meta == -1) {
 				npcItemsInv.setBomb(null);
 			} else {
 				npcItemsInv.setBomb(new ItemStack(GOTBlocks.bomb, 1, meta));
 			}
+		} else {
+			ItemStack bomb = npcItemsInv.getBomb();
+			int meta = -1;
+			if (bomb != null && Block.getBlockFromItem(bomb.getItem()) instanceof GOTBlockBomb) {
+				meta = bomb.getItemDamage();
+			}
+			dataWatcher.updateObject(17, (byte) meta);
 		}
 	}
 
