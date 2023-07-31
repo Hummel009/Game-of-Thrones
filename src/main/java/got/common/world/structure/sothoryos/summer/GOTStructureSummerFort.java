@@ -156,20 +156,20 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 
 	public void placeSummerArmor(World world, Random random, int i, int j, int k, int meta) {
 		ItemStack[] arritemStack;
-		if (random.nextInt(3) != 0) {
-			ItemStack[] arritemStack2 = new ItemStack[4];
-			arritemStack2[0] = null;
-			arritemStack2[1] = null;
-			arritemStack2[2] = null;
-			arritemStack = arritemStack2;
-			arritemStack2[3] = null;
-		} else {
+		if (random.nextInt(3) == 0) {
 			ItemStack[] arritemStack3 = new ItemStack[4];
 			arritemStack3[0] = new ItemStack(GOTItems.summerHelmet);
 			arritemStack3[1] = new ItemStack(GOTItems.summerChestplate);
 			arritemStack3[2] = new ItemStack(GOTItems.summerLeggings);
 			arritemStack = arritemStack3;
 			arritemStack3[3] = new ItemStack(GOTItems.summerBoots);
+		} else {
+			ItemStack[] arritemStack2 = new ItemStack[4];
+			arritemStack2[0] = null;
+			arritemStack2[1] = null;
+			arritemStack2[2] = null;
+			arritemStack = arritemStack2;
+			arritemStack2[3] = null;
 		}
 		ItemStack[] armor = arritemStack;
 		placeArmorStand(world, i, j, k, meta, armor);

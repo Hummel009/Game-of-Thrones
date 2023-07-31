@@ -88,9 +88,7 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 			int k1 = trunkZ;
 			int branchLength = 5;
 			for (int l = 1; l <= branchLength; ++l) {
-				if (Math.floor(sinY * l) != Math.floor(sinY * (l - 1))) {
-					j1 = (int) (j1 + Math.signum(sinY));
-				} else {
+				if (Math.floor(sinY * l) == Math.floor(sinY * (l - 1))) {
 					boolean cosOrSin;
 					double dCos = Math.floor(Math.abs(cos * l)) - Math.floor(Math.abs(cos * (l - 1)));
 					double dSin = Math.floor(Math.abs(sin * l)) - Math.floor(Math.abs(sin * (l - 1)));
@@ -100,6 +98,8 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 					} else {
 						k1 = (int) (k1 + Math.signum(sin));
 					}
+				} else {
+					j1 = (int) (j1 + Math.signum(sinY));
 				}
 				boolean wood = l == 1;
 				Block block = world.getBlock(i1, j1, k1);

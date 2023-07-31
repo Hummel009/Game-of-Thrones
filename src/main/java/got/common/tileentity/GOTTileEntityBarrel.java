@@ -313,7 +313,17 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	@Override
 	public void updateEntity() {
 		boolean needUpdate = false;
-		if (!worldObj.isRemote) {
+		if (worldObj.isRemote) {
+			brewingAnimPrev = brewingAnim;
+			brewingAnim++;
+			if (barrelMode == 1) {
+				if (brewingAnim >= 32) {
+					brewingAnimPrev = brewingAnim = 0;
+				}
+			} else {
+				brewingAnimPrev = brewingAnim = 0;
+			}
+		} else {
 			if (barrelMode == 1) {
 				if (inventory[9] != null) {
 					++brewingTime;
@@ -334,16 +344,6 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 			}
 			if (barrelMode == 2 && inventory[9] == null) {
 				barrelMode = 0;
-			}
-		} else {
-			brewingAnimPrev = brewingAnim;
-			brewingAnim++;
-			if (barrelMode == 1) {
-				if (brewingAnim >= 32) {
-					brewingAnimPrev = brewingAnim = 0;
-				}
-			} else {
-				brewingAnimPrev = brewingAnim = 0;
 			}
 		}
 		if (needUpdate) {
