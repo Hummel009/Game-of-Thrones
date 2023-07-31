@@ -68,7 +68,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 					FMLLog.log(Level.ERROR, "Found unknown biome on map " + Integer.toHexString(color));
 					biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
 				}
-			} catch (Exception e) {
+			} catch (RuntimeException e) {
 				e.printStackTrace();
 			}
 		}

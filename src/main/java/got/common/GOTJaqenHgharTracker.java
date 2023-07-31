@@ -36,7 +36,7 @@ public class GOTJaqenHgharTracker {
 				UUID id = UUID.fromString(nbt.getString("ID"));
 				int cd = nbt.getInteger("CD");
 				activeJaqenHghars.put(id, cd);
-			} catch (Exception e) {
+			} catch (RuntimeException e) {
 				FMLLog.severe("Error loading GOT data: invalid Jaqen Hghar");
 				e.printStackTrace();
 			}

@@ -261,7 +261,7 @@ public class GOTEntityQuestInfo {
 						continue;
 					}
 					playerSpecificOffers.put(playerID, offer);
-				} catch (Exception e) {
+				} catch (RuntimeException e) {
 					FMLLog.warning("Error loading NPC player-specific miniquest offer");
 					e.printStackTrace();
 				}

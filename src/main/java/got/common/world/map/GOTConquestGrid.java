@@ -266,7 +266,7 @@ public class GOTConquestGrid {
 			}
 			needsLoad = false;
 			FMLLog.info("Hummel009: Loaded %s conquest zones", zoneMap.size());
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			FMLLog.severe("Error loading GOT conquest zones");
 			e.printStackTrace();
 		}
@@ -325,7 +325,7 @@ public class GOTConquestGrid {
 			for (GridCoordPair key : removes) {
 				zoneMap.remove(key);
 			}
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			FMLLog.severe("Error saving GOT conquest zones");
 			e.printStackTrace();
 		}

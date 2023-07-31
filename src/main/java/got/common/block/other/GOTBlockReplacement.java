@@ -155,7 +155,7 @@ public class GOTBlockReplacement {
 			Objects.requireNonNull(Reflect.getUnderlyingObjMap(Item.itemRegistry)).put(registryName, newItem);
 			replaceItemStats(id, newItem);
 			replaceRecipesEtc(newItem);
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			FMLLog.severe("Failed to replace vanilla item %s", oldItem.getUnlocalizedName());
 			throw new RuntimeException(e);
 		}
@@ -168,7 +168,7 @@ public class GOTBlockReplacement {
 		public static String getBlockName(Block block) {
 			try {
 				return ObfuscationReflectionHelper.getPrivateValue(Block.class, block, "unlocalizedName", "field_149770_b");
-			} catch (Exception e) {
+			} catch (RuntimeException e) {
 				GOTReflection.logFailure(e);
 				return null;
 			}
@@ -177,7 +177,7 @@ public class GOTBlockReplacement {
 		public static String getItemName(Item item) {
 			try {
 				return ObfuscationReflectionHelper.getPrivateValue(Item.class, item, "unlocalizedName", "field_77774_bZ");
-			} catch (Exception e) {
+			} catch (RuntimeException e) {
 				GOTReflection.logFailure(e);
 				return null;
 			}
@@ -186,7 +186,7 @@ public class GOTBlockReplacement {
 		public static Map<String, StatBase> getOneShotStats() {
 			try {
 				return ObfuscationReflectionHelper.getPrivateValue(StatList.class, null, "oneShotStats", "field_75942_a");
-			} catch (Exception e) {
+			} catch (RuntimeException e) {
 				GOTReflection.logFailure(e);
 				return null;
 			}
@@ -195,7 +195,7 @@ public class GOTBlockReplacement {
 		public static ObjectIntIdentityMap getUnderlyingIntMap(RegistryNamespaced registry) {
 			try {
 				return ObfuscationReflectionHelper.getPrivateValue(RegistryNamespaced.class, registry, "underlyingIntegerMap", "field_148759_a");
-			} catch (Exception e) {
+			} catch (RuntimeException e) {
 				GOTReflection.logFailure(e);
 				return null;
 			}
@@ -204,7 +204,7 @@ public class GOTBlockReplacement {
 		public static Map<Object, Object> getUnderlyingObjMap(RegistryNamespaced registry) {
 			try {
 				return ObfuscationReflectionHelper.getPrivateValue(RegistrySimple.class, registry, "registryObjects", "field_82596_a");
-			} catch (Exception e) {
+			} catch (RuntimeException e) {
 				GOTReflection.logFailure(e);
 				return null;
 			}

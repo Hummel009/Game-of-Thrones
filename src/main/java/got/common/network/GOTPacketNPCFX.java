@@ -55,7 +55,7 @@ public class GOTPacketNPCFX implements IMessage {
 						npc.spawnSmokes();
 					}
 				}
-			} catch (Exception e) {
+			} catch (RuntimeException e) {
 				e.printStackTrace();
 			}
 			return null;

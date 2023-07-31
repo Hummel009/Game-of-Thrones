@@ -74,7 +74,7 @@ public class GOTFellowshipData {
 			destroyAllFellowshipData();
 			needsLoad = false;
 			saveAll();
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			FMLLog.severe("Error loading GOT fellowship data");
 			e.printStackTrace();
 		}
@@ -105,7 +105,7 @@ public class GOTFellowshipData {
 				}
 				saveFellowship(fs);
 			}
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			FMLLog.severe("Error saving GOT fellowship data");
 			e.printStackTrace();
 		}

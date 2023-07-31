@@ -21,7 +21,7 @@ public class GOTReflectionClient {
 	public static float getCameraRoll(EntityRenderer renderer) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(EntityRenderer.class, renderer, "camRoll", "field_78495_O");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 			return 0.0f;
 		}
@@ -31,7 +31,7 @@ public class GOTReflectionClient {
 		if (colorCodes == null) {
 			try {
 				colorCodes = ObfuscationReflectionHelper.getPrivateValue(FontRenderer.class, fontRenderer, "colorCode", "field_78285_g");
-			} catch (Exception e) {
+			} catch (RuntimeException e) {
 				GOTReflection.logFailure(e);
 			}
 		}
@@ -41,7 +41,7 @@ public class GOTReflectionClient {
 	public static int getCreativeTabIndex(GuiContainerCreative gui) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(GuiContainerCreative.class, gui, "selectedTabIndex", "field_147058_w");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 			return 0;
 		}
@@ -70,7 +70,7 @@ public class GOTReflectionClient {
 	public static int getGuiLeft(GuiContainer gui) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(GuiContainer.class, gui, "guiLeft", "field_147003_i");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 			return 0;
 		}
@@ -79,7 +79,7 @@ public class GOTReflectionClient {
 	public static int getGuiTop(GuiContainer gui) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(GuiContainer.class, gui, "guiTop", "field_147009_r");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 			return 0;
 		}
@@ -88,7 +88,7 @@ public class GOTReflectionClient {
 	public static int getGuiXSize(GuiContainer gui) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(GuiContainer.class, gui, "xSize", "field_146999_f");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 			return 0;
 		}
@@ -97,7 +97,7 @@ public class GOTReflectionClient {
 	public static float getHandFOV(EntityRenderer renderer) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(EntityRenderer.class, renderer, "fovModifierHand", "field_78507_R");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 			return 0.0f;
 		}
@@ -106,7 +106,7 @@ public class GOTReflectionClient {
 	public static ItemStack getHighlightedItemStack(GuiIngame gui) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(GuiIngame.class, gui, "highlightingItemStack", "field_92016_l");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 			return null;
 		}
@@ -115,7 +115,7 @@ public class GOTReflectionClient {
 	public static int getHighlightedItemTicks(GuiIngame gui) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(GuiIngame.class, gui, "remainingHighlightTicks", "field_92017_k");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 			return 0;
 		}
@@ -124,7 +124,7 @@ public class GOTReflectionClient {
 	public static boolean hasGuiPotionEffects(InventoryEffectRenderer gui) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(InventoryEffectRenderer.class, gui, "field_147045_u");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 			return false;
 		}
@@ -133,7 +133,7 @@ public class GOTReflectionClient {
 	public static void setCameraRoll(EntityRenderer renderer, float roll) {
 		try {
 			ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, renderer, roll, "camRoll", "field_78495_O");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 		}
 	}
@@ -141,7 +141,7 @@ public class GOTReflectionClient {
 	public static void setHandFOV(EntityRenderer renderer, float fov) {
 		try {
 			ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, renderer, fov, "fovModifierHand", "field_78507_R");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 		}
 	}
@@ -149,7 +149,7 @@ public class GOTReflectionClient {
 	public static void setHighlightedItemTicks(GuiIngame gui, int ticks) {
 		try {
 			ObfuscationReflectionHelper.setPrivateValue(GuiIngame.class, gui, ticks, "remainingHighlightTicks", "field_92017_k");
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			GOTReflection.logFailure(e);
 		}
 	}

@@ -80,7 +80,7 @@ public class GOTFactionBounties {
 			factionBountyMap.clear();
 			needsLoad = false;
 			saveAll();
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			FMLLog.severe("Error loading GOT faction bounty data");
 			e.printStackTrace();
 		}
@@ -112,7 +112,7 @@ public class GOTFactionBounties {
 				saveFaction(fb);
 				fb.needsSave = false;
 			}
-		} catch (Exception e) {
+		} catch (RuntimeException e) {
 			FMLLog.severe("Error saving GOT faction bounty data");
 			e.printStackTrace();
 		}
