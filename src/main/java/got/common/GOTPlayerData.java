@@ -547,11 +547,11 @@ public class GOTPlayerData {
 	}
 
 	public boolean anyMatchingFellowshipNames(String name, boolean client) {
-		name = StringUtils.strip(name).toLowerCase();
+		name = StringUtils.strip(name).toLowerCase(Locale.ROOT);
 		if (client) {
 			for (GOTFellowshipClient fs : fellowshipsClient) {
 				String otherName = fs.getName();
-				otherName = StringUtils.strip(otherName).toLowerCase();
+				otherName = StringUtils.strip(otherName).toLowerCase(Locale.ROOT);
 				if (name.equals(otherName)) {
 					return true;
 				}
@@ -561,7 +561,7 @@ public class GOTPlayerData {
 				GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 				if (fs != null) {
 					String otherName = fs.getName();
-					otherName = StringUtils.strip(otherName).toLowerCase();
+					otherName = StringUtils.strip(otherName).toLowerCase(Locale.ROOT);
 					if (name.equals(otherName)) {
 						return true;
 					}

@@ -178,7 +178,7 @@ public class DatabaseGenerator {
 	}
 
 	public static String getCapeFilename(GOTCapes cape) {
-		return "[[File:Cape " + cape.name().toLowerCase() + ".png]]";
+		return "[[File:Cape " + cape.name().toLowerCase(Locale.ROOT) + ".png]]";
 	}
 
 	public static String getEntityLink(Class<? extends Entity> entityClass) {
@@ -228,7 +228,7 @@ public class DatabaseGenerator {
 	}
 
 	public static String getShieldFilename(GOTShields shield) {
-		return "[[File:Shield " + shield.name().toLowerCase() + ".png]]";
+		return "[[File:Shield " + shield.name().toLowerCase(Locale.ROOT) + ".png]]";
 	}
 
 	public static String getStructureName(Class<? extends WorldGenerator> structureClass) {
@@ -236,7 +236,7 @@ public class DatabaseGenerator {
 	}
 
 	public static String getTreeName(GOTTreeType tree) {
-		return StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase() + ".name");
+		return StatCollector.translateToLocal("got.tree." + tree.name().toLowerCase(Locale.ROOT) + ".name");
 	}
 
 	public static void searchForEntities(World world) {
@@ -876,7 +876,7 @@ public class DatabaseGenerator {
 							sb.append("\n* [[").append(getTreeName(tree)).append("]];");
 						}
 						for (Entry<GOTTreeType, GOTBiomeVariant> tree : additionalTrees.entrySet()) {
-							sb.append("\n* [[").append(getTreeName(tree.getKey())).append("]] (").append(getBiomeVariantName(tree.getValue()).toLowerCase()).append(")").append(";");
+							sb.append("\n* [[").append(getTreeName(tree.getKey())).append("]] (").append(getBiomeVariantName(tree.getValue()).toLowerCase(Locale.ROOT)).append(")").append(";");
 						}
 					}
 				}

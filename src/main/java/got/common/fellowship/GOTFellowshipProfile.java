@@ -6,6 +6,7 @@ import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityBanner;
 import net.minecraft.util.StatCollector;
 
+import java.util.Locale;
 import java.util.UUID;
 
 public class GOTFellowshipProfile extends GameProfile {
@@ -26,7 +27,7 @@ public class GOTFellowshipProfile extends GameProfile {
 	}
 
 	public static boolean hasFellowshipCode(String s) {
-		return s.toLowerCase().startsWith(fellowshipPrefix.toLowerCase());
+		return s.toLowerCase(Locale.ROOT).startsWith(fellowshipPrefix.toLowerCase(Locale.ROOT));
 	}
 
 	public static String stripFellowshipCode(String s) {

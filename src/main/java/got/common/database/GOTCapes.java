@@ -9,6 +9,7 @@ import net.minecraft.util.StatCollector;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 public enum GOTCapes {
@@ -29,7 +30,7 @@ public enum GOTCapes {
 		capeType = type;
 		capeID = capeType.list.size();
 		capeType.list.add(this);
-		capeTexture = new ResourceLocation("got:textures/cape/" + name().toLowerCase() + ".png");
+		capeTexture = new ResourceLocation("got:textures/cape/" + name().toLowerCase(Locale.ROOT) + ".png");
 		exclusiveUUIDs = new UUID[players.size()];
 		for (int i = 0; i < players.size(); ++i) {
 			String s = players.get(i);

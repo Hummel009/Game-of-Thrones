@@ -14,6 +14,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
+import java.util.Locale;
+
 public class GOTEntityProstitute extends GOTEntityHumanBase {
 	public ProstituteType prostituteType;
 
@@ -191,7 +193,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		}
 
 		public String textureName() {
-			return name().toLowerCase();
+			return name().toLowerCase(Locale.ROOT);
 		}
 	}
 }

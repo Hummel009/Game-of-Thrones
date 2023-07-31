@@ -149,7 +149,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 				if (i22 > 3 && k2 > 3 || i22 != 4 && k2 != 4) {
 					continue;
 				}
-				if ((i22 + k2) % 2 == 1) {
+				if ((i22 + k2) % 2 != 0) {
 					setBlockAndMetadata(world, i1, 12, k1, brickBlock, brickMeta);
 					setBlockAndMetadata(world, i1, 13, k1, brickSlabBlock, brickSlabMeta);
 					continue;

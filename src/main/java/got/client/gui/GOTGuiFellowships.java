@@ -21,10 +21,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class GOTGuiFellowships extends GOTGuiMenuBase {
 	public static ResourceLocation iconsTextures = new ResourceLocation("got:textures/gui/fellowships.png");
@@ -998,7 +995,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			int count1 = fs1.getPlayerCount();
 			int count2 = fs2.getPlayerCount();
 			if (count1 == count2) {
-				return fs1.getName().toLowerCase().compareTo(fs2.getName().toLowerCase());
+				return fs1.getName().toLowerCase(Locale.ROOT).compareTo(fs2.getName().toLowerCase(Locale.ROOT));
 			}
 			return -Integer.compare(count1, count2);
 		});
@@ -1007,7 +1004,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 
 	public List<GameProfile> sortMembersForDisplay(GOTFellowshipClient fs) {
 		List<GameProfile> members = new ArrayList<>(fs.getMemberProfiles());
-		members.sort(Comparator.comparing(GOTGuiFellowships::isPlayerOnline).reversed().thenComparing(player -> fs.isAdmin(player.getId())).reversed().thenComparing(player -> player.getName().toLowerCase()));
+		members.sort(Comparator.comparing(GOTGuiFellowships::isPlayerOnline).reversed().thenComparing(player -> fs.isAdmin(player.getId())).reversed().thenComparing(player -> player.getName().toLowerCase(Locale.ROOT)));
 		return members;
 	}
 

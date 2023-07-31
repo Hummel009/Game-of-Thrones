@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.WorldChunkManager;
 
 import java.util.List;
+import java.util.Locale;
 
 public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditions, GOTBiome.ImmuneToFrost {
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.7, false);
@@ -300,7 +301,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		}
 
 		public String textureName() {
-			return name().toLowerCase();
+			return name().toLowerCase(Locale.ROOT);
 		}
 	}
 

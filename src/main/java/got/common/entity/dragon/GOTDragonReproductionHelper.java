@@ -6,6 +6,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Locale;
+
 public class GOTDragonReproductionHelper extends GOTDragonHelper {
 
 	public static Logger L = LogManager.getLogger();
@@ -100,7 +102,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 			return nameOld;
 		}
 
-		char[] chars = nameOld.toLowerCase().toCharArray();
+		char[] chars = nameOld.toLowerCase(Locale.ROOT).toCharArray();
 
 		chars[0] = Character.toUpperCase(chars[0]);
 

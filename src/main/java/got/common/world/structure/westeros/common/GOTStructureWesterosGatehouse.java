@@ -147,7 +147,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 				if (i2 > 3 && k2 > 3 || i2 != 4 && k2 != 4) {
 					continue;
 				}
-				if ((i2 + k2) % 2 == 1) {
+				if ((i2 + k2) % 2 != 0) {
 					setBlockAndMetadata(world, i13, 12, k13, brickBlock, brickMeta);
 					setBlockAndMetadata(world, i13, 13, k13, brickSlabBlock, brickSlabMeta);
 					continue;

@@ -66,7 +66,7 @@ public class GOTCommandFellowship extends CommandBase {
 		ArrayList<String> autocompletes = new ArrayList<>();
 		for (String nextFsName : allFellowshipNames) {
 			String autocompFsName = "\"" + nextFsName + "\"";
-			if (!autocompFsName.toLowerCase().startsWith(fsName.toLowerCase())) {
+			if (!autocompFsName.toLowerCase(Locale.ROOT).startsWith(fsName.toLowerCase(Locale.ROOT))) {
 				continue;
 			}
 			if (argsOriginal.length > argsFixed.length) {

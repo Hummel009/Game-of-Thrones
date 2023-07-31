@@ -10,6 +10,7 @@ import net.minecraft.util.StatCollector;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 public enum GOTShields {
@@ -39,7 +40,7 @@ public enum GOTShields {
 		shieldType = type;
 		shieldID = shieldType.list.size();
 		shieldType.list.add(this);
-		shieldTexture = new ResourceLocation("got:textures/shield/" + name().toLowerCase() + ".png");
+		shieldTexture = new ResourceLocation("got:textures/shield/" + name().toLowerCase(Locale.ROOT) + ".png");
 		exclusiveUUIDs = new UUID[players.size()];
 		for (int i = 0; i < players.size(); ++i) {
 			String s = players.get(i);

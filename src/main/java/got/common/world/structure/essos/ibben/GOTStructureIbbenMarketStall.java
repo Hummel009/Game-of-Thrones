@@ -162,7 +162,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		@Override
 		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
 			int i2 = Math.abs(i1);
-			if (i2 % 2 == 1) {
+			if (i2 % 2 != 0) {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 12);
 			} else {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 4);
@@ -224,7 +224,7 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
 			int i2 = Math.abs(i1);
 			int k2 = Math.abs(k1);
-			if (k2 % 2 == 1) {
+			if (k2 % 2 != 0) {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 11);
 			} else if (i2 % 2 == k2 / 2 % 2) {
 				setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 0);

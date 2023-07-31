@@ -43,7 +43,7 @@ public class GOTStructureEssosTownFlowers extends GOTStructureEssosBase {
 					setBlockAndMetadata(world, i1, j1, k1, stoneBlock, stoneMeta);
 					setGrassToDirt(world, i1, j1 - 1, k1);
 				}
-				if ((k1 == 0 || k1 == 3) && i2 % 2 == 1) {
+				if ((k1 == 0 || k1 == 3) && i2 % 2 != 0) {
 					setBlockAndMetadata(world, i1, 1, k1, brickSlabBlock, brickSlabMeta);
 				}
 				if (k1 < 1 || k1 > 2 || i2 > 2) {

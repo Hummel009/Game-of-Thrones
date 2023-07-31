@@ -5,6 +5,8 @@ import got.common.entity.other.GOTEntityRugBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.Locale;
+
 public class GOTItemLionRug extends GOTItemRugBase {
 	public GOTItemLionRug() {
 		super(LionRugType.lionRugNames());
@@ -45,7 +47,7 @@ public class GOTItemLionRug extends GOTItemRugBase {
 		}
 
 		public String textureName() {
-			return name().toLowerCase();
+			return name().toLowerCase(Locale.ROOT);
 		}
 	}
 

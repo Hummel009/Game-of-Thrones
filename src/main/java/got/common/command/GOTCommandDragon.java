@@ -12,6 +12,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class GOTCommandDragon extends CommandBase {
 	@Override
@@ -69,7 +70,7 @@ public class GOTCommandDragon extends CommandBase {
 
 	@Override
 	public String getCommandUsage(ICommandSender sender) {
-		String stages = StringUtils.join(GOTDragonLifeStage.values(), '|').toLowerCase();
+		String stages = StringUtils.join(GOTDragonLifeStage.values(), '|').toLowerCase(Locale.ROOT);
 		return String.format("/got_dragon <stage <%s> [global]", stages);
 	}
 
@@ -93,7 +94,7 @@ public class GOTCommandDragon extends CommandBase {
 			}
 
 			GOTDragonLifeStage lifeStage = null;
-			String parameter = params[1].toUpperCase();
+			String parameter = params[1].toUpperCase(Locale.ROOT);
 
 			if (!"ITEM".equals(parameter)) {
 				try {

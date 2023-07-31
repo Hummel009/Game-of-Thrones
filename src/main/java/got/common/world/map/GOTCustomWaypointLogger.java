@@ -17,13 +17,14 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 public class GOTCustomWaypointLogger {
 	public static Charset CHARSET = StandardCharsets.UTF_8;
-	public static DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM");
-	public static DateFormat MONTH_DATE_FORMAT = new SimpleDateFormat("MM-dd");
-	public static DateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
+	public static DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM", Locale.ROOT);
+	public static DateFormat MONTH_DATE_FORMAT = new SimpleDateFormat("MM-dd", Locale.ROOT);
+	public static DateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss", Locale.ROOT);
 
 	public static void log(String function, EntityPlayer entityplayer, GOTCustomWaypoint cwp) {
 		if (!GOTConfig.cwpLog) {
