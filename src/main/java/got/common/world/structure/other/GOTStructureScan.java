@@ -17,7 +17,6 @@ import java.nio.file.Files;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 public class GOTStructureScan {
@@ -57,8 +56,6 @@ public class GOTStructureScan {
 						s = s.substring(0, i);
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), Charsets.UTF_8));
 						scanNamesAndReaders.put(s, reader);
-					} catch (IOException e) {
-						throw new RuntimeException(e);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to onInit GOT structure scan " + s + "from zip file");
 						e.printStackTrace();
@@ -79,16 +76,12 @@ public class GOTStructureScan {
 						s = s.substring(0, i);
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(subfile.toPath())), Charsets.UTF_8));
 						scanNamesAndReaders.put(s, reader);
-					} catch (IOException e) {
-						throw new RuntimeException(e);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to onInit GOT structure scan " + s + " from MCP folder");
 						e.printStackTrace();
 					}
 				}
 			}
-		} catch (ZipException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Failed to onInit GOT structure scans");
 			e.printStackTrace();
@@ -195,8 +188,6 @@ public class GOTStructureScan {
 					throw new IllegalArgumentException("Invalid scan instruction on line " + curLine);
 				}
 				allLoadedScans.put(scan.scanName, scan);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
 			} catch (Exception e) {
 				FMLLog.severe("Failed to onInit GOT structure scan " + strName.getKey() + ": error on line " + curLine);
 				e.printStackTrace();
@@ -279,8 +270,6 @@ public class GOTStructureScan {
 			}
 			writer.close();
 			return true;
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			GOTLog.logger.error("Error saving strscan file {}", scan.scanName);
 			e.printStackTrace();

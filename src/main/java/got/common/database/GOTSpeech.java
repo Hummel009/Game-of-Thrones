@@ -24,7 +24,6 @@ import java.nio.file.Files;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 public class GOTSpeech {
@@ -109,8 +108,6 @@ public class GOTSpeech {
 						s = s.substring(0, i);
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8));
 						speechBankNamesAndReaders.put(s, reader);
-					} catch (IOException e) {
-						throw new RuntimeException(e);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to onInit GOT speech bank " + s + "from zip file");
 						e.printStackTrace();
@@ -131,16 +128,12 @@ public class GOTSpeech {
 						s = s.substring(0, i);
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(subfile.toPath())), StandardCharsets.UTF_8));
 						speechBankNamesAndReaders.put(s, reader);
-					} catch (IOException e) {
-						throw new RuntimeException(e);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to onInit GOT speech bank " + s + " from MCP folder");
 						e.printStackTrace();
 					}
 				}
 			}
-		} catch (ZipException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Failed to onInit GOT speech banks");
 			e.printStackTrace();
@@ -172,8 +165,6 @@ public class GOTSpeech {
 					bank = new SpeechBank(speechBankName.getKey(), false, allLines);
 				}
 				allSpeechBanks.put(speechBankName.getKey(), bank);
-			} catch (IOException e) {
-				throw new RuntimeException(e);
 			} catch (Exception e) {
 				FMLLog.severe("Failed to onInit GOT speech bank " + speechBankName.getKey());
 				e.printStackTrace();

@@ -138,8 +138,6 @@ public class GOTBlockReplacement {
 				replaceBlockStats(id, newBlock, itemblock);
 				replaceRecipesEtc(itemblock);
 			}
-		} catch (SecurityException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Failed to replace vanilla block %s", oldBlock.getUnlocalizedName());
 			throw new RuntimeException(e);
@@ -223,8 +221,6 @@ public class GOTBlockReplacement {
 					}
 				}
 				GOTReflection.setFinalField(Blocks.class, null, newBlock, field);
-			} catch (SecurityException e) {
-				throw new RuntimeException(e);
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 			}
@@ -241,8 +237,6 @@ public class GOTBlockReplacement {
 					}
 				}
 				GOTReflection.setFinalField(Items.class, null, newItem, field);
-			} catch (SecurityException e) {
-				throw new RuntimeException(e);
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 			}

@@ -75,8 +75,6 @@ public class GOTRecipePoisonDrinks implements IRecipe {
 					craftingPlayer = playerInv.player;
 					break;
 				}
-			} catch (SecurityException e) {
-				throw new RuntimeException(e);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

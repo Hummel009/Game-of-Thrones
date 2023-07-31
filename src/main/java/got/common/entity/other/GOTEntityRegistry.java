@@ -25,8 +25,6 @@ public class GOTEntityRegistry {
 		Entity entity = null;
 		try {
 			entity = entityClass.getConstructor(World.class).newInstance(world);
-		} catch (InstantiationException e) {
-			throw new RuntimeException(e);
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}

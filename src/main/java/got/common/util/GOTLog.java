@@ -20,8 +20,6 @@ public class GOTLog {
 					break;
 				}
 			}
-		} catch (SecurityException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.warning("Hummel009: Failed to find logger!");
 			e.printStackTrace();
