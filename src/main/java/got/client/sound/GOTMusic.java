@@ -61,7 +61,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		}
 	}
 
-	public static void generateReadme() throws IOException {
+	public static void generateReadme() throws IOException, UnsupportedEncodingException {
 		File readme = new File(musicDir, "readme.txt");
 		boolean created = readme.createNewFile();
 		if (!created) {

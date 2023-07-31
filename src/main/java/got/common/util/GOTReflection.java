@@ -322,7 +322,7 @@ public class GOTReflection {
 		canPistonPushBlock(Blocks.glass, world, 0, 0, 0, false);
 	}
 
-	public static void unlockFinalField(Field f) throws Exception {
+	public static void unlockFinalField(Field f) throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
 		f.setAccessible(true);
 		Field modifiersField = Field.class.getDeclaredField("modifiers");
 		modifiersField.setAccessible(true);

@@ -282,7 +282,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static NBTTagCompound loadNBTFromFile(File file) throws IOException {
+	public static NBTTagCompound loadNBTFromFile(File file) throws IOException, java.io.FileNotFoundException {
 		if (file.exists()) {
 			FileInputStream fis = new FileInputStream(file);
 			NBTTagCompound nbt = CompressedStreamTools.readCompressed(fis);

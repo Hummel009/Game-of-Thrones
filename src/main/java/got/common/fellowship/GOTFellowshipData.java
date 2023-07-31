@@ -4,7 +4,6 @@ import cpw.mods.fml.common.FMLLog;
 import got.common.GOTLevelData;
 import got.common.util.GOTLog;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 
