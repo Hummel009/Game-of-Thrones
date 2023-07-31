@@ -130,12 +130,12 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			if (field_92025_p != null && !field_92025_p.isEmpty()) {
 				drawRect(field_92022_t - 2, field_92021_u - 2, field_92020_v + 2, field_92019_w - 1, 1428160512);
 				drawString(fontRendererObj, field_92025_p, field_92022_t, field_92021_u, -1);
-				drawString(fontRendererObj, field_146972_A, (width - field_92024_r) / 2, buttonList.get(0).yPosition - 12, -1);
+				drawString(fontRendererObj, field_146972_A, (width - field_92024_r) / 2, ((List<GuiButton>) buttonList).get(0).yPosition - 12, -1);
 			}
-			for (GuiButton button : buttonList) {
+			for (GuiButton button : (List<GuiButton>) buttonList) {
 				button.drawButton(mc, i, j);
 			}
-			for (GuiLabel label : labelList) {
+			for (GuiLabel label : (List<GuiLabel>) buttonList) {
 				label.func_146159_a(mc, i, j);
 			}
 		}
@@ -145,7 +145,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 	public void initGui() {
 		super.initGui();
 		int lowerButtonMaxY = 0;
-		for (GuiButton obj : buttonList) {
+		for (GuiButton obj : (List<GuiButton>) buttonList) {
 			int buttonMaxY = obj.yPosition + obj.height;
 			if (buttonMaxY > lowerButtonMaxY) {
 				lowerButtonMaxY = buttonMaxY;
@@ -156,7 +156,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		int moveDown = Math.min(idealMoveDown, lowestSuitableHeight - lowerButtonMaxY);
 		moveDown = Math.max(moveDown, 0);
 		for (int i = 0; i < buttonList.size(); ++i) {
-			GuiButton button = buttonList.get(i);
+			GuiButton button = ((List<GuiButton>) buttonList).get(i);
 			button.yPosition += moveDown;
 			if (button.getClass() == GuiButton.class) {
 				GOTGuiButton newButton = new GOTGuiButton(button.id, button.xPosition, button.yPosition, button.width, button.height, button.displayString);

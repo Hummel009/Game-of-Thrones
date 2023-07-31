@@ -4,14 +4,12 @@ import cpw.mods.fml.common.FMLLog;
 import got.common.GOTLevelData;
 import got.common.util.GOTLog;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class GOTFellowshipData {
 	public static Map<UUID, GOTFellowship> fellowshipMap = new HashMap<>();
@@ -125,7 +123,7 @@ public class GOTFellowshipData {
 			ArrayList<GOTFellowship> clearing = new ArrayList<>();
 			for (GOTFellowship fs : fellowshipMap.values()) {
 				boolean foundMember = false;
-				for (EntityPlayer entityplayer : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+				for (EntityPlayer entityplayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 					if (!fs.containsPlayer(entityplayer.getUniqueID())) {
 						continue;
 					}

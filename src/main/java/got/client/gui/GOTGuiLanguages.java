@@ -11,6 +11,7 @@ import org.lwjgl.opengl.GL11;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
+import java.util.List;
 
 public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 	public GOTGuiButtonOptions buttonFriendlyFire;
@@ -86,7 +87,7 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 			y += fontRendererObj.FONT_HEIGHT;
 		}
 		super.drawScreen(i, j, f);
-		for (GuiButton element : buttonList) {
+		for (GuiButton element : (List<GuiButton>) buttonList) {
 			if (element instanceof GOTGuiButtonOptions) {
 				((GOTGuiButtonOptions) element).drawTooltip(mc, i, j);
 			}

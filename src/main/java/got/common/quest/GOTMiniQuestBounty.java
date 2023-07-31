@@ -223,7 +223,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			}
 			ChatComponentTranslation announceMsg = new ChatComponentTranslation("got.chat.bountyKill", entityplayer.getCommandSenderName(), slainPlayer.getCommandSenderName(), entityFaction.factionName());
 			announceMsg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-			for (EntityPlayer otherPlayer : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+			for (EntityPlayer otherPlayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 				if (otherPlayer == slainPlayer) {
 					continue;
 				}
@@ -264,7 +264,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			killerData.addAchievement(GOTAchievement.killHuntingPlayer);
 			ChatComponentTranslation announceMsg = new ChatComponentTranslation("got.chat.killedByBounty", entityplayer.getCommandSenderName(), killer.getCommandSenderName());
 			announceMsg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-			for (EntityPlayer otherPlayer : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+			for (EntityPlayer otherPlayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 				if (otherPlayer == entityplayer) {
 					continue;
 				}

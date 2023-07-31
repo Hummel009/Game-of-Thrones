@@ -342,7 +342,7 @@ public class GOTFellowship {
 			MinecraftServer server = MinecraftServer.getServer();
 			server.addChatMessage(fullChatComponent);
 			S02PacketChat packetChat = new S02PacketChat(fullChatComponent, false);
-			for (EntityPlayerMP entityplayer : server.getConfigurationManager().playerEntityList) {
+			for (EntityPlayerMP entityplayer : (List<EntityPlayerMP>) server.getConfigurationManager().playerEntityList) {
 				if (!containsPlayer(entityplayer.getUniqueID())) {
 					continue;
 				}

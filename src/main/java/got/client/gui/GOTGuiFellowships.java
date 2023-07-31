@@ -593,7 +593,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				drawPlayerEntry(member, x, y, titleOffset, i, j);
 				y += fontRendererObj.FONT_HEIGHT + 5;
 			}
-			for (GuiButton bObj : buttonList) {
+			for (GuiButton bObj : (List<GuiButton>) buttonList) {
 				if (bObj instanceof GOTGuiButtonFsOption && bObj.visible && bObj.func_146115_a()) {
 					s = new StringBuilder(bObj.displayString);
 					drawCenteredString(s.toString(), guiLeft + xSize / 2, bObj.yPosition + bObj.height + 4, 16777215);

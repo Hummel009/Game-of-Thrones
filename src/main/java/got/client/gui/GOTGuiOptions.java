@@ -8,6 +8,8 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
+import java.util.List;
+
 public class GOTGuiOptions extends GOTGuiMenuWBBase {
 	public GOTGuiButtonOptions buttonFriendlyFire;
 	public GOTGuiButtonOptions buttonHiredDeathMessages;
@@ -44,7 +46,7 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 		buttonConquest.setState(pd.getEnableConquestKills());
 		buttonFeminineRank.setState(pd.getFemRankOverride());
 		super.drawScreen(i, j, f);
-		for (GuiButton element : buttonList) {
+		for (GuiButton element : (List<GuiButton>) buttonList) {
 			if (element instanceof GOTGuiButtonOptions) {
 				((GOTGuiButtonOptions) element).drawTooltip(mc, i, j);
 			}

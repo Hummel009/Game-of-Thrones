@@ -12,6 +12,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class GOTDate {
@@ -48,7 +49,7 @@ public class GOTDate {
 		AegonCalendar.currentDay = date;
 		GOTLevelData.markDirty();
 		FMLLog.info("Updating GOT day: " + AegonCalendar.getDate().getDateName(false));
-		for (EntityPlayerMP entityplayer : MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+		for (EntityPlayerMP entityplayer : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 			sendUpdatePacket(entityplayer, true);
 		}
 	}

@@ -10,6 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
+import java.util.List;
+
 public class GOTGuiHornSelect extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/horn_select.png");
 	public static RenderItem itemRenderer = new RenderItem();
@@ -36,7 +38,7 @@ public class GOTGuiHornSelect extends GOTGuiScreenBase {
 		String s = StatCollector.translateToLocal("got.gui.hornSelect.title");
 		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 4210752);
 		super.drawScreen(i, j, f);
-		for (GuiButton element : buttonList) {
+		for (GuiButton element : (List<GuiButton>) buttonList) {
 			itemRenderer.renderItemIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTItems.commandHorn, 1, element.id), element.xPosition - 22, element.yPosition + 2);
 		}
 	}
