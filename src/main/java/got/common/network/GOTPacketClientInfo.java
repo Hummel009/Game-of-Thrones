@@ -12,6 +12,7 @@ import got.common.quest.GOTMiniQuestEvent;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,7 +43,7 @@ public class GOTPacketClientInfo implements IMessage {
 		}
 		changedRegionsSize = data.readByte();
 		if (changedRegionsSize > 0) {
-			changedRegionMap = new HashMap<>();
+			changedRegionMap = new EnumMap<>(GOTDimension.DimensionRegion.class);
 			for (int l = 0; l < changedRegionsSize; ++l) {
 				GOTDimension.DimensionRegion reg = GOTDimension.DimensionRegion.forID(data.readByte());
 				GOTFaction fac = GOTFaction.forID(data.readByte());
@@ -95,9 +96,9 @@ public class GOTPacketClientInfo implements IMessage {
 			}
 			changedRegionMap = packet.changedRegionMap;
 			if (changedRegionMap != null) {
-				for (GOTDimension.DimensionRegion reg : changedRegionMap.keySet()) {
-					GOTFaction fac = changedRegionMap.get(reg);
-					pd.setRegionLastViewedFaction(reg, fac);
+				for (Map.Entry<DimensionRegion, GOTFaction> entry : changedRegionMap.entrySet()) {
+					GOTFaction fac = entry.getValue();
+					pd.setRegionLastViewedFaction(entry.getKey(), fac);
 				}
 			}
 			pd.setShowWaypoints(packet.showWP);

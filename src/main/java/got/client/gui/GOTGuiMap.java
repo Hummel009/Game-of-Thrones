@@ -76,7 +76,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public static GOTDimension.DimensionRegion currentRegion;
 	public static GOTDimension.DimensionRegion prevRegion;
 	public static List<GOTFaction> currentFactionList;
-	public static Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new HashMap<>();
+	public static Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
 	public GOTGuiMapWidget widgetAddCWP;
 	public GOTGuiMapWidget widgetDelCWP;
 	public GOTGuiMapWidget widgetRenameCWP;
@@ -133,9 +133,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public boolean mouseControlZoneReduced;
 	public boolean isConquestGrid;
 	public boolean loadingConquestGrid;
-	public Map<GOTFaction, List<GOTConquestZone>> facConquestGrids = new HashMap<>();
-	public Set<GOTFaction> requestedFacGrids = new HashSet<>();
-	public Set<GOTFaction> receivedFacGrids = new HashSet<>();
+	public Map<GOTFaction, List<GOTConquestZone>> facConquestGrids = new EnumMap<>(GOTFaction.class);
+	public Set<GOTFaction> requestedFacGrids = EnumSet.noneOf(GOTFaction.class);
+	public Set<GOTFaction> receivedFacGrids = EnumSet.noneOf(GOTFaction.class);
 	public int ticksUntilRequestFac = 40;
 	public float highestViewedConqStr;
 	public int currentFactionIndex;

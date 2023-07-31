@@ -57,8 +57,9 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	}
 
 	public static GOTRenderLargeItem getRendererIfLarge(Item item) {
-		for (String folder : sizeFolders.keySet()) {
-			float iconScale = sizeFolders.get(folder);
+		for (Map.Entry<String, Float> entry : sizeFolders.entrySet()) {
+			String folder = entry.getKey();
+			float iconScale = entry.getValue();
 			try {
 				ResourceLocation resLoc = getLargeTexturePath(item, folder);
 				IResource res = Minecraft.getMinecraft().getResourceManager().getResource(resLoc);

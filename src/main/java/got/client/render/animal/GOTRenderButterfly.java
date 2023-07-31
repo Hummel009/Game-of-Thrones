@@ -3,6 +3,7 @@ package got.client.render.animal;
 import got.client.model.GOTModelButterfly;
 import got.client.render.other.GOTRandomSkins;
 import got.common.entity.animal.GOTEntityButterfly;
+import got.common.item.weapon.GOTItemBow;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
@@ -10,11 +11,12 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderButterfly extends RenderLiving {
-	public static Map<GOTEntityButterfly.ButterflyType, GOTRandomSkins> textures = new HashMap<>();
+	public static Map<GOTEntityButterfly.ButterflyType, GOTRandomSkins> textures = new EnumMap<>(GOTEntityButterfly.ButterflyType.class);
 
 	public GOTRenderButterfly() {
 		super(new GOTModelButterfly(), 0.2f);

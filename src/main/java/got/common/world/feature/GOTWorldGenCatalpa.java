@@ -133,7 +133,7 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 					int dCh = i2 + j2 + k2;
 					grow = dSq < leafRangeSq && dCh <= 4;
 					if (i2 == leafRange - 1 || k2 == leafRange - 1) {
-						grow &= random.nextInt(4) != 0;
+						grow = grow && random.nextInt(4) != 0;
 					}
 					if (!grow || !(block = world.getBlock(i1, j1, k1)).isReplaceable(world, i1, j1, k1) && !block.isLeaves(world, i1, j1, k1)) {
 						continue;

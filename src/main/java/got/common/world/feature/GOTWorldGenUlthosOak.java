@@ -200,7 +200,7 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 						int dist = i2 * i2 + (k2 = Math.abs(k1 - k)) * k2;
 						grow = dist < leafRangeSq;
 						if (i2 == leafRange - 1 || k2 == leafRange - 1) {
-							grow &= random.nextInt(4) > 0;
+							grow = grow && random.nextInt(4) > 0;
 						}
 						if (!grow) {
 							continue;

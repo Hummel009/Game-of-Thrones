@@ -43,7 +43,7 @@ public class GOTCommandDatabase extends CommandBase {
 			DatabaseGenerator.setDisplay(args[0]);
 			CommandBase.func_152373_a(sender, this, "Database \"" + args[0] + "\" is prepared.");
 			DatabaseGenerator gen = new DatabaseGenerator();
-			gen.generate(world, (EntityPlayer) sender, rand);
+			DatabaseGenerator.generate(world, (EntityPlayer) sender, rand);
 		}
 	}
 }

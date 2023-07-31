@@ -21,11 +21,11 @@ import java.util.*;
 
 public class GOTCommandFellowship extends CommandBase {
 	public static String[] fixArgsForFellowship(String[] args, int startIndex, boolean autocompleting) {
-		if (args[startIndex].startsWith("\"")) {
+		if (!args[startIndex].isEmpty() && args[startIndex].charAt(0) == '\"') {
 			int endIndex = startIndex;
 			boolean foundEnd = false;
 			while (!foundEnd) {
-				if (args[endIndex].endsWith("\"")) {
+				if (!args[endIndex].isEmpty() && args[endIndex].charAt(args[endIndex].length() - 1) == '\"') {
 					foundEnd = true;
 					continue;
 				}
@@ -256,9 +256,9 @@ public class GOTCommandFellowship extends CommandBase {
 				if ("rename".equals(option)) {
 					StringBuilder newName = new StringBuilder();
 					int startIndex = 4;
-					if (args[startIndex].startsWith("\"")) {
+					if (!args[startIndex].isEmpty() && args[startIndex].charAt(0) == '\"') {
 						int endIndex = startIndex;
-						while (!args[endIndex].endsWith("\"")) {
+						while (!(!args[endIndex].isEmpty() && args[endIndex].charAt(args[endIndex].length() - 1) == '\"')) {
 							endIndex++;
 							if (endIndex >= args.length) {
 								throw new WrongUsageException("got.command.fellowship.rename.error");

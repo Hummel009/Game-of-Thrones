@@ -1,6 +1,7 @@
 package got.client.render.other;
 
 import got.client.GOTClientProxy;
+import got.common.item.other.GOTItemBanner;
 import got.common.item.weapon.GOTItemBow;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -14,6 +15,7 @@ import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +27,7 @@ public class GOTRenderBow implements IItemRenderer {
 	public GOTRenderBow(GOTRenderLargeItem large) {
 		largeItemRenderer = large;
 		if (largeItemRenderer != null) {
-			tokensPullStates = new HashMap<>();
+			tokensPullStates = new EnumMap<>(GOTItemBow.BowState.class);
 			for (GOTItemBow.BowState state : GOTItemBow.BowState.values()) {
 				if (state != GOTItemBow.BowState.HELD) {
 					GOTRenderLargeItem.ExtraLargeIconToken token = largeItemRenderer.extraIcon(state.iconName);

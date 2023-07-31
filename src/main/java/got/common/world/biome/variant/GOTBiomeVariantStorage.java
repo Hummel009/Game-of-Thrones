@@ -13,12 +13,13 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
 
 import java.util.ArrayList;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
 public class GOTBiomeVariantStorage {
-	public static Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> chunkVariantMap = new HashMap<>();
-	public static Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> chunkVariantMapClient = new HashMap<>();
+	public static Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> chunkVariantMap = new EnumMap<>(GOTDimension.class);
+	public static Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> chunkVariantMapClient = new EnumMap<>(GOTDimension.class);
 
 	public static void clearAllVariants(World world) {
 		getDimensionChunkMap(world).clear();

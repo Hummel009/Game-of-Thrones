@@ -343,7 +343,7 @@ public class DatabaseGenerator {
 		DatabaseGenerator.display = display;
 	}
 
-	public void generate(World world, EntityPlayer player, Random random) {
+	public static void generate(World world, EntityPlayer player, Random random) {
 		long time = System.nanoTime();
 		try {
 			searchForEntities(world);
@@ -1285,9 +1285,9 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					ArrayList<Class<? extends WorldGenerator>> facStructures = new ArrayList<>();
-					for (Class<? extends WorldGenerator> strClass : GOTStructureRegistry.classToFactionMapping.keySet()) {
-						if (GOTStructureRegistry.classToFactionMapping.get(strClass) == fac) {
-							facStructures.add(strClass);
+					for (Entry<Class<? extends WorldGenerator>, GOTFaction> entry : GOTStructureRegistry.classToFactionMapping.entrySet()) {
+						if (entry.getValue() == fac) {
+							facStructures.add(entry.getKey());
 						}
 					}
 					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
@@ -1687,12 +1687,12 @@ public class DatabaseGenerator {
 				for (Entry<Class<? extends Entity>, GOTWaypoint> entityEntry : CLASS_TO_WP.entrySet()) {
 					sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = ").append(entityEntry.getValue().getDisplayName());
 				}
-				for (GOTAbstractWaypoint wp : GOTFixer.structures.keySet()) {
-					GOTStructureBase str = GOTFixer.structures.get(wp);
+				for (Entry<GOTAbstractWaypoint, GOTStructureBase> entry : GOTFixer.structures.entrySet()) {
+					GOTStructureBase str = entry.getValue();
 					str.disable(true);
 					str.generate(world, random, 0, 0, 0);
-					for (EntityCreature entity : GOTFixer.structures.get(wp).characters) {
-						sb.append("\n| ").append(getEntityPagename(entity.getClass())).append(" = ").append(wp.getDisplayName());
+					for (EntityCreature entity : entry.getValue().characters) {
+						sb.append("\n| ").append(getEntityPagename(entity.getClass())).append(" = ").append(entry.getKey().getDisplayName());
 					}
 					str.clear();
 					str.disable(false);

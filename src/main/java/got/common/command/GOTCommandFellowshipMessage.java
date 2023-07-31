@@ -29,7 +29,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 		if (args.length >= 1) {
 			args = GOTCommandFellowship.fixArgsForFellowship(args, 0, true);
 			ArrayList<String> matches = new ArrayList<>();
-			if (args.length == 1 && !argsOriginal[0].startsWith("\"")) {
+			if (args.length == 1 && !(!argsOriginal[0].isEmpty() && argsOriginal[0].charAt(0) == '\"')) {
 				matches.addAll(CommandBase.getListOfStringsMatchingLastWord(args, "bind", "unbind"));
 			}
 			matches.addAll(GOTCommandFellowship.listFellowshipsMatchingLastWord(args, argsOriginal, 0, playerData, false));
@@ -95,7 +95,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 			}
 			GOTFellowship fellowship = null;
 			int msgStartIndex = 0;
-			if (args[0].startsWith("\"")) {
+			if (!args[0].isEmpty() && args[0].charAt(0) == '\"') {
 				String fsName = (args = GOTCommandFellowship.fixArgsForFellowship(args, 0, false))[0];
 				fellowship = playerData.getFellowshipByName(fsName);
 				if (fellowship == null) {

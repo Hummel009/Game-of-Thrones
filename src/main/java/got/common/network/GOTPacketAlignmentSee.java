@@ -9,12 +9,13 @@ import got.common.GOTPlayerData;
 import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
 public class GOTPacketAlignmentSee implements IMessage {
 	public String username;
-	public Map<GOTFaction, Float> alignmentMap = new HashMap<>();
+	public Map<GOTFaction, Float> alignmentMap = new EnumMap<>(GOTFaction.class);
 
 	public GOTPacketAlignmentSee() {
 	}

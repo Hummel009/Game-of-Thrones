@@ -31,7 +31,7 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 		}
 		if (lastMenuScreen != null) {
 			try {
-				return lastMenuScreen.newInstance();
+				return lastMenuScreen.getConstructor().newInstance();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

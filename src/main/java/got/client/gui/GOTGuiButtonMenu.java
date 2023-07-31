@@ -39,7 +39,7 @@ public class GOTGuiButtonMenu extends GuiButton {
 
 	public GOTGuiMenuWBBase openMenu() {
 		try {
-			return menuScreenClass.newInstance();
+			return menuScreenClass.getConstructor().newInstance();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

@@ -128,10 +128,10 @@ public class GOTStructureScan {
 					i = j + 1;
 					j = line.indexOf('.', i);
 					s12 = line.substring(i, j);
-					if (s12.endsWith("v")) {
+					if (!s12.isEmpty() && s12.charAt(s12.length() - 1) == 'v') {
 						fillDown = true;
 						s12 = s12.substring(0, s12.length() - 1);
-					} else if (s12.endsWith("_")) {
+					} else if (!s12.isEmpty() && s12.charAt(s12.length() - 1) == '_') {
 						findLowest = true;
 						s12 = s12.substring(0, s12.length() - 1);
 					}

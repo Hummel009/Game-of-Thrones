@@ -1,6 +1,7 @@
 package got.client.gui;
 
 import got.client.GOTReflectionClient;
+import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.database.GOTTitle;
 import got.common.network.GOTPacketHandler;
@@ -26,7 +27,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 	public EnumChatFormatting selectedColor = EnumChatFormatting.WHITE;
 	public int colorBoxWidth = 8;
 	public int colorBoxGap = 4;
-	public Map<EnumChatFormatting, Pair<Integer, Integer>> displayedColorBoxes = new HashMap<>();
+	public Map<EnumChatFormatting, Pair<Integer, Integer>> displayedColorBoxes = new EnumMap<>(EnumChatFormatting.class);
 	public GuiButton selectButton;
 	public GuiButton removeButton;
 	public float currentScroll;

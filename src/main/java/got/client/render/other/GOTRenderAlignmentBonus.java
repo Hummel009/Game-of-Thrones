@@ -17,6 +17,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
+import java.util.Map;
+
 public class GOTRenderAlignmentBonus extends Render {
 	public GOTRenderAlignmentBonus() {
 		shadowSize = 0.0f;
@@ -48,8 +50,9 @@ public class GOTRenderAlignmentBonus extends Render {
 				renderFaction = mainFaction;
 			} else {
 				float alignment;
-				for (GOTFaction faction : factionBonusMap.keySet()) {
-					if (faction.isPlayableAlignmentFaction() && factionBonusMap.get(faction) > 0.0f) {
+				for (Map.Entry<GOTFaction, Float> entry : factionBonusMap.entrySet()) {
+					GOTFaction faction = entry.getKey();
+					if (faction.isPlayableAlignmentFaction() && entry.getValue() > 0.0f) {
 						alignment = playerData.getAlignment(faction);
 						if (renderFaction == null || alignment > playerData.getAlignment(renderFaction)) {
 							renderFaction = faction;
@@ -60,8 +63,9 @@ public class GOTRenderAlignmentBonus extends Render {
 					if (mainFaction.isPlayableAlignmentFaction() && factionBonusMap.get(mainFaction) < 0.0f) {
 						renderFaction = mainFaction;
 					} else {
-						for (GOTFaction faction : factionBonusMap.keySet()) {
-							if (faction.isPlayableAlignmentFaction() && factionBonusMap.get(faction) < 0.0f) {
+						for (Map.Entry<GOTFaction, Float> entry : factionBonusMap.entrySet()) {
+							GOTFaction faction = entry.getKey();
+							if (faction.isPlayableAlignmentFaction() && entry.getValue() < 0.0f) {
 								alignment = playerData.getAlignment(faction);
 								if (renderFaction == null || alignment > playerData.getAlignment(renderFaction)) {
 									renderFaction = faction;

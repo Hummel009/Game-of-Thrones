@@ -22,10 +22,7 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	public static ResourceLocation factionsTexture = new ResourceLocation("got:textures/gui/factions.png");
@@ -673,7 +670,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	public void updateCurrentDimensionAndFaction() {
 		boolean changes;
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
-		HashMap<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new HashMap<>();
+		EnumMap<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
 		if (currentFactionIndex != prevFactionIndex) {
 			currentFaction = currentFactionList.get(currentFactionIndex);
 		}

@@ -2,6 +2,7 @@ package got.client.render.other;
 
 import got.GOT;
 import got.client.model.GOTModelBanner;
+import got.common.GOTDimension;
 import got.common.entity.other.GOTEntityBanner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.client.Minecraft;
@@ -15,11 +16,12 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderBanner extends Render {
-	public static Map<GOTItemBanner.BannerType, ResourceLocation> bannerTextures = new HashMap<>();
+	public static Map<GOTItemBanner.BannerType, ResourceLocation> bannerTextures = new EnumMap<>(GOTItemBanner.BannerType.class);
 	public static ResourceLocation standTexture = new ResourceLocation("got:textures/banner/stand.png");
 	public static GOTModelBanner model = new GOTModelBanner();
 	public static Frustrum bannerFrustum = new Frustrum();
