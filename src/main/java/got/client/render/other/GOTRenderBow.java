@@ -1,7 +1,6 @@
 package got.client.render.other;
 
 import got.client.GOTClientProxy;
-import got.common.item.other.GOTItemBanner;
 import got.common.item.weapon.GOTItemBow;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -16,7 +15,6 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderBow implements IItemRenderer {

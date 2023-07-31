@@ -1,7 +1,6 @@
 package got.client.gui;
 
 import got.client.GOTReflectionClient;
-import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.database.GOTTitle;
 import got.common.network.GOTPacketHandler;

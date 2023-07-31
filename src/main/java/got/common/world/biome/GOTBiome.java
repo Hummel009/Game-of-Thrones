@@ -25,7 +25,6 @@ import got.common.world.biome.variant.GOTBiomeVariantStorage;
 import got.common.world.biome.westeros.*;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.map.GOTBezierType;
-import got.common.world.map.GOTFixer;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeInvasionSpawns;
 import got.common.world.spawning.GOTBiomeSpawnList;

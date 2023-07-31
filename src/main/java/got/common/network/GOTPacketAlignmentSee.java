@@ -10,7 +10,6 @@ import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
 
 public class GOTPacketAlignmentSee implements IMessage {

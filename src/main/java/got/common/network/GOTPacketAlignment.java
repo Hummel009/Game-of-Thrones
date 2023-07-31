@@ -8,10 +8,8 @@ import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
-import net.minecraft.util.EnumChatFormatting;
 
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 

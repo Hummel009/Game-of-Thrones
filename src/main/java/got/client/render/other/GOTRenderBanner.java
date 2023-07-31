@@ -2,7 +2,6 @@ package got.client.render.other;
 
 import got.GOT;
 import got.client.model.GOTModelBanner;
-import got.common.GOTDimension;
 import got.common.entity.other.GOTEntityBanner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.client.Minecraft;
@@ -17,7 +16,6 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderBanner extends Render {

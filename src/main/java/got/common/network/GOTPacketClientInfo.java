@@ -13,7 +13,6 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
 
 public class GOTPacketClientInfo implements IMessage {
