@@ -135,7 +135,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			for (GuiButton button : (List<GuiButton>) buttonList) {
 				button.drawButton(mc, i, j);
 			}
-			for (GuiLabel label : (List<GuiLabel>) buttonList) {
+			for (GuiLabel label : (List<GuiLabel>) labelList) {
 				label.func_146159_a(mc, i, j);
 			}
 		}
