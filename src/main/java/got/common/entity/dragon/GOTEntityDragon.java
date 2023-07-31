@@ -59,7 +59,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		super(world);
 		try {
 			ReflectionHelper.setPrivateValue(EntityLiving.class, this, new GOTModelDragonBodyHelper(this), ENTITYLIVING_BODYHELPER);
-		} catch (RuntimeException ex) {
+		} catch (Exception ex) {
 			L.warn("Can't override EntityBodyHelper", ex);
 		}
 		setSize(BASE_WIDTH, BASE_HEIGHT);

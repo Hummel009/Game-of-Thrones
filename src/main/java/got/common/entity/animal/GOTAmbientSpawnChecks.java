@@ -36,7 +36,7 @@ public class GOTAmbientSpawnChecks {
 				}
 			}
 			return false;
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			return false;
 		}
 	}

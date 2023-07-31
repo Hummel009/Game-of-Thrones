@@ -57,7 +57,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 					largeItemRenderers.add(largeItemRenderer);
 				}
 			}
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(GOTBlocks.commandTable), new GOTRenderInvTableCommand());

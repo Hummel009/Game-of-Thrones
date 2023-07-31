@@ -342,7 +342,7 @@ public class GOTLore {
 							break block16;
 						}
 						formatted = GOTNames.getRandomName(namebank, random);
-					} catch (RuntimeException e) {
+					} catch (Exception e) {
 						GOTLog.logger.error("Hummel009: Error formatting name {} in text: {}", unformatted, loreName);
 						e.printStackTrace();
 					}
@@ -363,7 +363,7 @@ public class GOTLore {
 							words.add(word);
 						}
 						formatted = words.get(random.nextInt(words.size()));
-					} catch (RuntimeException e) {
+					} catch (Exception e) {
 						GOTLog.logger.error("Hummel009: Error formatting choice {} in text: {}", unformatted, loreName);
 						e.printStackTrace();
 					}

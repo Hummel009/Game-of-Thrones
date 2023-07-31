@@ -282,7 +282,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static NBTTagCompound loadNBTFromFile(File file) throws IOException, java.io.FileNotFoundException {
+	public static NBTTagCompound loadNBTFromFile(File file) throws IOException {
 		if (file.exists()) {
 			FileInputStream fis = new FileInputStream(file);
 			NBTTagCompound nbt = CompressedStreamTools.readCompressed(fis);
@@ -469,7 +469,7 @@ public class GOTLevelData {
 		try {
 			GOTPlayerData pd = getData(entityplayer);
 			pd.sendPlayerData(entityplayer);
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			FMLLog.severe("Failed to send player data to player " + entityplayer.getCommandSenderName());
 			e.printStackTrace();
 		}

@@ -72,7 +72,7 @@ public class GOTReflection {
 	public static int getFishHookBobTime(EntityFishHook fishHook) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(EntityFishHook.class, fishHook, "field_146045_ax");
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			logFailure(e);
 			return 0;
 		}
@@ -81,7 +81,7 @@ public class GOTReflection {
 	public static String[] getHorseArmorTextures() {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(EntityHorse.class, null, "horseArmorTextures", "field_110270_bw");
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			logFailure(e);
 			return new String[0];
 		}
@@ -90,7 +90,7 @@ public class GOTReflection {
 	public static AnimalChest getHorseInv(EntityHorse horse) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(EntityHorse.class, horse, "horseChest", "field_110296_bG");
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			logFailure(e);
 			return null;
 		}
@@ -99,7 +99,7 @@ public class GOTReflection {
 	public static IAttribute getHorseJumpStrength() {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(EntityHorse.class, null, "horseJumpStrength", "field_110271_bv");
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			logFailure(e);
 			return null;
 		}
@@ -108,7 +108,7 @@ public class GOTReflection {
 	public static Map<String, Action> getHoverEventMappings() {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(Action.class, null, "nameMapping", "field_150690_d");
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			logFailure(e);
 			return Collections.emptyMap();
 		}
@@ -170,7 +170,7 @@ public class GOTReflection {
 	public static Block getStemFruitBlock(BlockStem block) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(BlockStem.class, block, "field_149877_a");
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			logFailure(e);
 			return null;
 		}
@@ -193,7 +193,7 @@ public class GOTReflection {
 	public static boolean isBadEffect(Potion potion) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(Potion.class, potion, "isBadEffect", "field_76418_K");
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			logFailure(e);
 			return false;
 		}
@@ -202,7 +202,7 @@ public class GOTReflection {
 	public static boolean isFishHookInGround(EntityFishHook fishHook) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(EntityFishHook.class, fishHook, "field_146051_au");
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			logFailure(e);
 			return false;
 		}
@@ -265,7 +265,7 @@ public class GOTReflection {
 				}
 			}
 			setremoves.forEach(commandSet::remove);
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			logFailure(e);
 		}
 	}
@@ -303,7 +303,7 @@ public class GOTReflection {
 	public static void setWorldInfo(World world, WorldInfo newWorldInfo) {
 		try {
 			ObfuscationReflectionHelper.setPrivateValue(World.class, world, newWorldInfo, "worldInfo", "field_72986_A");
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			logFailure(e);
 		}
 	}
@@ -322,7 +322,7 @@ public class GOTReflection {
 		canPistonPushBlock(Blocks.glass, world, 0, 0, 0, false);
 	}
 
-	public static void unlockFinalField(Field f) throws SecurityException, NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+	public static void unlockFinalField(Field f) throws Exception {
 		f.setAccessible(true);
 		Field modifiersField = Field.class.getDeclaredField("modifiers");
 		modifiersField.setAccessible(true);

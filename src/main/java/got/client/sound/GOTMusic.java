@@ -61,7 +61,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		}
 	}
 
-	public static void generateReadme() throws IOException, UnsupportedEncodingException {
+	public static void generateReadme() throws IOException {
 		File readme = new File(musicDir, "readme.txt");
 		boolean created = readme.createNewFile();
 		if (!created) {
@@ -302,7 +302,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			SoundHandler handler = Minecraft.getMinecraft().getSoundHandler();
 			try {
 				return ObfuscationReflectionHelper.getPrivateValue(SoundHandler.class, handler, "sndRegistry", "field_147697_e");
-			} catch (RuntimeException e) {
+			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 				return null;
 			}
@@ -313,7 +313,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			try {
 				Map<String, IResourceManager> map = ObfuscationReflectionHelper.getPrivateValue(SimpleReloadableResourceManager.class, masterManager, "domainResourceManagers", "field_110548_a");
 				map.put(domain, manager);
-			} catch (RuntimeException e) {
+			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 			}
 		}

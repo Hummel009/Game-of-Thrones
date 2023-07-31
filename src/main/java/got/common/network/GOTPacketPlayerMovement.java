@@ -40,7 +40,7 @@ public class GOTPacketPlayerMovement implements IMessage {
 			mx = buf.readDouble();
 			my = buf.readDouble();
 			mz = buf.readDouble();
-		} catch (RuntimeException ignored) {
+		} catch (Exception ignored) {
 		}
 	}
 
