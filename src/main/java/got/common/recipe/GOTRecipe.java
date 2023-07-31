@@ -119,6 +119,8 @@ public class GOTRecipe {
 			field.setAccessible(true);
 			HashMap<ItemStack, Float> map = (HashMap<ItemStack, Float>) field.get(FurnaceRecipes.smelting());
 			map.put(new ItemStack(item, 1, 32767), xp);
+		} catch (SecurityException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

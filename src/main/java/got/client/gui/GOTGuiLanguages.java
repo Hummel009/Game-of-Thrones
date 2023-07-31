@@ -53,6 +53,8 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 						Class<?> var3 = Class.forName("java.awt.Desktop");
 						Object var4 = var3.getMethod("getDesktop").invoke(null);
 						var3.getMethod("browse", URI.class).invoke(var4, new File(mc.mcDataDir, "config").toURI());
+					} catch (ClassNotFoundException e) {
+						throw new RuntimeException(e);
 					} catch (Throwable var5) {
 						var5.printStackTrace();
 						var8 = true;

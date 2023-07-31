@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.util.HashMap;
 import java.util.Map;
@@ -83,6 +84,8 @@ public class GOTSpawnDamping {
 			}
 			needsSave = true;
 			saveAll();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT spawn damping");
 			e.printStackTrace();
@@ -117,6 +120,8 @@ public class GOTSpawnDamping {
 			spawnData.setTag("Damping", typeTags);
 			GOTLevelData.saveNBTToFile(datFile, spawnData);
 			needsSave = false;
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT spawn damping");
 			e.printStackTrace();

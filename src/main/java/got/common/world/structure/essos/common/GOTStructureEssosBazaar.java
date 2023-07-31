@@ -91,6 +91,8 @@ public class GOTStructureEssosBazaar extends GOTStructureEssosBase {
 			generateSubstructure(stall3, world, random, -8, 1, 4, 0);
 			generateSubstructure(stall4, world, random, 0, 1, 4, 0);
 			generateSubstructure(stall5, world, random, 8, 1, 4, 0);
+		} catch (InstantiationException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

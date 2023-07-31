@@ -31,6 +31,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 public class GOTMusic implements IResourceManagerReloadListener {
@@ -262,6 +263,8 @@ public class GOTMusic implements IResourceManagerReloadListener {
 					resourceMgr.reloadResourcePack(resourcePack);
 					ZipFile zipFile = new ZipFile(file);
 					loadMusicPack(zipFile, resourceMgr);
+				} catch (ZipException e) {
+					throw new RuntimeException(e);
 				} catch (Exception e) {
 					GOTLog.logger.warn("Hummel009: Failed to onInit music pack {}!", file.getName());
 					e.printStackTrace();

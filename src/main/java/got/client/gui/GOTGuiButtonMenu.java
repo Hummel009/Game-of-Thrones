@@ -40,6 +40,8 @@ public class GOTGuiButtonMenu extends GuiButton {
 	public GOTGuiMenuWBBase openMenu() {
 		try {
 			return menuScreenClass.getConstructor().newInstance();
+		} catch (InstantiationException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

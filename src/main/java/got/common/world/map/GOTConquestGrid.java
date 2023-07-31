@@ -25,6 +25,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.*;
 
 public class GOTConquestGrid {
@@ -283,6 +284,8 @@ public class GOTConquestGrid {
 				return null;
 			}
 			return zone;
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT conquest zone from %s", zoneDat.getName());
 			e.printStackTrace();
@@ -344,6 +347,8 @@ public class GOTConquestGrid {
 				zone.writeToNBT(nbt);
 				GOTLevelData.saveNBTToFile(zoneDat, nbt);
 			}
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT conquest zone to %s", zoneDat.getName());
 			e.printStackTrace();

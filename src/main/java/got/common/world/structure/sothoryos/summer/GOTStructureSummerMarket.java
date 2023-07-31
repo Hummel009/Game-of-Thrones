@@ -113,6 +113,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			generateSubstructure(stall1, world, random, 2, 1, -2, 1);
 			generateSubstructure(stall2, world, random, -2, 1, -2, 2);
 			generateSubstructure(stall3, world, random, -2, 1, 2, 3);
+		} catch (InstantiationException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

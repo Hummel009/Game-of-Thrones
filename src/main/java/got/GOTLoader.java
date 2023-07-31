@@ -59,6 +59,8 @@ public class GOTLoader {
 						block.setCreativeTab(null);
 					}
 				}
+			} catch (ClassNotFoundException e) {
+				throw new RuntimeException(e);
 			} catch (Exception ignored) {
 			}
 		}
