@@ -54,7 +54,10 @@ public class GOTMazeGenerator {
 				}
 				validDirs.add(dir);
 			}
-			if (!validDirs.isEmpty()) {
+			if (validDirs.isEmpty()) {
+				positions.remove(randPosIndex);
+				lastDir = null;
+			} else {
 				Dir dir;
 				if (lastDir != null && validDirs.contains(lastDir) && random.nextFloat() >= windyness) {
 					dir = lastDir;
@@ -74,9 +77,6 @@ public class GOTMazeGenerator {
 				}
 				positions.add(new MazePos(x, z));
 				lastDir = dir;
-			} else {
-				positions.remove(randPosIndex);
-				lastDir = null;
 			}
 		}
 	}

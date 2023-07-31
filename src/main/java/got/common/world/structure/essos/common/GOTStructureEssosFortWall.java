@@ -39,10 +39,10 @@ public abstract class GOTStructureEssosFortWall extends GOTStructureEssosBase {
 					setBlockAndMetadata(world, i1, j1, k1, plankBlock, plankMeta);
 					setGrassToDirt(world, i1, j1 - 1, k1);
 				}
-				if (i2 % 2 != 0) {
-					setBlockAndMetadata(world, i1, 5, k1, plankStairBlock, 2);
-				} else {
+				if (i2 % 2 == 0) {
 					setBlockAndMetadata(world, i1, 6, k1, fenceBlock, fenceMeta);
+				} else {
+					setBlockAndMetadata(world, i1, 5, k1, plankStairBlock, 2);
 				}
 			}
 			int k3 = k1 - 1;

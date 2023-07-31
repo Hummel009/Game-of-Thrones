@@ -23,15 +23,15 @@ public class GOTEnchantmentHelper {
 	public static Random backupRand;
 
 	public static void applyRandomEnchantments(ItemStack itemstack, Random random, boolean skilful, boolean keepBanes) {
-		if (!keepBanes) {
-			clearEnchantsAndProgress(itemstack);
-		} else {
+		if (keepBanes) {
 			List<GOTEnchantment> list = getEnchantList(itemstack);
 			for (GOTEnchantment ench : list) {
 				if (!ench.persistsReforge()) {
 					removeEnchant(itemstack, ench);
 				}
 			}
+		} else {
+			clearEnchantsAndProgress(itemstack);
 		}
 
 		int enchants = 0;

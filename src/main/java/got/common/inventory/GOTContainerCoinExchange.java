@@ -217,7 +217,7 @@ public class GOTContainerCoinExchange extends Container {
 		}
 	}
 
-	class SlotCoinResult extends Slot {
+	public class SlotCoinResult extends Slot {
 		SlotCoinResult(IInventory inv, int i, int j, int k) {
 			super(inv, i, j, k);
 		}

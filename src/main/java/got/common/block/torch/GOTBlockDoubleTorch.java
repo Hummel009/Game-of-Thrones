@@ -96,10 +96,10 @@ public class GOTBlockDoubleTorch extends Block {
 	public void onBlockHarvested(World world, int i, int j, int k, int meta, EntityPlayer entityplayer) {
 		if (meta == 1) {
 			if (world.getBlock(i, j - 1, k) == this) {
-				if (!entityplayer.capabilities.isCreativeMode) {
-					world.func_147480_a(i, j - 1, k, true);
-				} else {
+				if (entityplayer.capabilities.isCreativeMode) {
 					world.setBlockToAir(i, j - 1, k);
+				} else {
+					world.func_147480_a(i, j - 1, k, true);
 				}
 			}
 		} else if (entityplayer.capabilities.isCreativeMode && world.getBlock(i, j + 1, k) == this) {

@@ -77,14 +77,14 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 					boolean isColoredArmor = false;
 					if (isArmor) {
 						int j = ((ItemArmor) itemstack.getItem()).getColor(itemstack);
-						if (j != -1) {
+						if (j == -1) {
+							GL11.glColor3f(f1, f1, f1);
+						} else {
 							float f2 = (j >> 16 & 0xFF) / 255.0f;
 							float f3 = (j >> 8 & 0xFF) / 255.0f;
 							f4 = (j & 0xFF) / 255.0f;
 							GL11.glColor3f(f1 * f2, f1 * f3, f1 * f4);
 							isColoredArmor = true;
-						} else {
-							GL11.glColor3f(f1, f1, f1);
 						}
 					} else {
 						GL11.glColor3f(f1, f1, f1);

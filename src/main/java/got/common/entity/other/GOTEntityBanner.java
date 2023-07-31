@@ -279,14 +279,14 @@ public class GOTEntityBanner extends Entity {
 					if (profile instanceof GOTFellowshipProfile) {
 						Object fs;
 						GOTFellowshipProfile fsPro = (GOTFellowshipProfile) profile;
-						if (!worldObj.isRemote) {
-							fs = fsPro.getFellowship();
-							if (fs != null && ((GOTFellowship) fs).containsPlayer(playerID)) {
+						if (worldObj.isRemote) {
+							fs = fsPro.getFellowshipClient();
+							if (fs != null && ((GOTFellowshipClient) fs).containsPlayer(playerID)) {
 								playerMatch = true;
 							}
 						} else {
-							fs = fsPro.getFellowshipClient();
-							if (fs != null && ((GOTFellowshipClient) fs).containsPlayer(playerID)) {
+							fs = fsPro.getFellowship();
+							if (fs != null && ((GOTFellowship) fs).containsPlayer(playerID)) {
 								playerMatch = true;
 							}
 						}

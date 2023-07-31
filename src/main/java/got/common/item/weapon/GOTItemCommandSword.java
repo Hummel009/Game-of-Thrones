@@ -55,15 +55,15 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 						}
 					}
 				}
-				if (!validTargets.isEmpty()) {
+				if (validTargets.isEmpty()) {
+					npc.hiredNPCInfo.commandSwordCancel();
+				} else {
 					GOTEntityAINearestAttackableTargetBasic.TargetSorter targetSorter = new GOTEntityAINearestAttackableTargetBasic.TargetSorter(npc);
 					validTargets.sort(targetSorter);
 					EntityLivingBase target = validTargets.get(0);
 					npc.hiredNPCInfo.commandSwordAttack(target);
 					npc.hiredNPCInfo.wasAttackCommanded = true;
 					anyAttackCommanded = true;
-				} else {
-					npc.hiredNPCInfo.commandSwordCancel();
 				}
 			}
 		}
