@@ -411,7 +411,8 @@ public class GOTReplacedMethods {
 			if (thisBlock.getMaterial() == Material.lava) {
 				int tries = random.nextInt(3);
 				for (int l = 0; l < tries; ++l) {
-					if (world.blockExists(i += random.nextInt(3) - 1, ++j, k += random.nextInt(3) - 1)) {
+					++j;
+					if (world.blockExists(i += random.nextInt(3) - 1, j, k += random.nextInt(3) - 1)) {
 						Block block = world.getBlock(i, j, k);
 						if (block.getMaterial() == Material.air) {
 							if (!isFlammable(world, i - 1, j, k) && !isFlammable(world, i + 1, j, k) && !isFlammable(world, i, j, k - 1) && !isFlammable(world, i, j, k + 1) && !isFlammable(world, i, j - 1, k) && !isFlammable(world, i, j + 1, k)) {
