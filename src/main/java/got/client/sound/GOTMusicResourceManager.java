@@ -11,7 +11,7 @@ public class GOTMusicResourceManager implements IResourceManager {
 
 	@Override
 	public List<IResource> getAllResources(ResourceLocation resource) {
-		ArrayList<IResource> list = new ArrayList<>();
+		List<IResource> list = new ArrayList<>();
 		list.add(getResource(resource));
 		return list;
 	}

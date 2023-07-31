@@ -66,7 +66,7 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 				double range = 12.0;
 				List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
 				for (Entity obj : list) {
-					if (obj instanceof GOTEntityWalrus && !((GOTEntityWalrus) obj).isChild()) {
+					if (obj instanceof GOTEntityWalrus && !((EntityLivingBase) obj).isChild()) {
 						((GOTEntityWalrus) obj).becomeAngryAt((EntityLivingBase) attacker);
 					}
 				}

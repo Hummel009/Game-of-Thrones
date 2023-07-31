@@ -299,7 +299,7 @@ public class GOT {
 	}
 
 	public static boolean isOreNameEqual(ItemStack itemstack, String name) {
-		ArrayList<ItemStack> list = OreDictionary.getOres(name);
+		Iterable<ItemStack> list = OreDictionary.getOres(name);
 		for (ItemStack obj : list) {
 			if (!OreDictionary.itemMatches(obj, itemstack, false)) {
 				continue;
@@ -416,7 +416,7 @@ public class GOT {
 		proxy.testReflection(world);
 		GOTReflection.removeCommand(CommandTime.class);
 		GOTReflection.removeCommand(CommandMessage.class);
-		List<CommandBase> command = new ArrayList<>();
+		Collection<CommandBase> command = new ArrayList<>();
 		command.add(new GOTCommandTimeVanilla());
 		command.add(new GOTCommandMessageFixed());
 		command.add(new GOTCommandTime());

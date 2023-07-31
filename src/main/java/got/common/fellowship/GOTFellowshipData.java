@@ -119,7 +119,7 @@ public class GOTFellowshipData {
 
 	public static void saveAndClearUnusedFellowships() {
 		if (doFullClearing) {
-			ArrayList<GOTFellowship> clearing = new ArrayList<>();
+			Collection<GOTFellowship> clearing = new ArrayList<>();
 			for (GOTFellowship fs : fellowshipMap.values()) {
 				boolean foundMember = false;
 				for (EntityPlayer entityplayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {

@@ -16,6 +16,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class GOTMiniQuestWelcome extends GOTMiniQuest {
@@ -229,7 +230,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		updateJaqenHghar();
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		String line;
-		ArrayList<ItemStack> dropItems = new ArrayList<>();
+		Collection<ItemStack> dropItems = new ArrayList<>();
 		switch (stage) {
 			case 1:
 				dropItems.add(new ItemStack(GOTItems.questBook));

@@ -8,11 +8,11 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 
 import java.awt.image.BufferedImage;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 public class GOTBufferedImageIcon extends TextureAtlasSprite {
-	public static Set<String> loadedResources = new HashSet<>();
+	public static Collection<String> loadedResources = new HashSet<>();
 	public String iconName;
 	public BufferedImage imageRGB;
 

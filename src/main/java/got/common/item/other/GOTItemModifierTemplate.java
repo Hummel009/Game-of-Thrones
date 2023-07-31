@@ -15,6 +15,7 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.WeightedRandom;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
@@ -34,7 +35,7 @@ public class GOTItemModifierTemplate extends Item {
 	}
 
 	public static ItemStack getRandomCommonTemplate(Random random) {
-		ArrayList<GOTEnchantmentHelper.WeightedRandomEnchant> applicable = new ArrayList<>();
+		Collection<GOTEnchantmentHelper.WeightedRandomEnchant> applicable = new ArrayList<>();
 		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
 			if (!ench.hasTemplateItem()) {
 				continue;

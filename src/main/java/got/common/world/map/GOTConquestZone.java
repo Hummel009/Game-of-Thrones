@@ -5,6 +5,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class GOTConquestZone {
@@ -36,7 +37,7 @@ public class GOTConquestZone {
 		zone.lastChangeTime = time;
 		block0:
 		for (GOTFaction fac : allPlayableFacs) {
-			ArrayList<String> nameAndAliases = new ArrayList<>();
+			Collection<String> nameAndAliases = new ArrayList<>();
 			nameAndAliases.add(fac.codeName());
 			nameAndAliases.addAll(fac.listAliases());
 			for (String alias : nameAndAliases) {

@@ -6,6 +6,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
+import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTCustomWaypoint;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -17,7 +18,7 @@ public class GOTPacketRenameCWP implements IMessage {
 	public GOTPacketRenameCWP() {
 	}
 
-	public GOTPacketRenameCWP(GOTCustomWaypoint wp, String s) {
+	public GOTPacketRenameCWP(GOTAbstractWaypoint wp, String s) {
 		wpID = wp.getID();
 		name = s;
 	}

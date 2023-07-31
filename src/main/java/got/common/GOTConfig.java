@@ -8,11 +8,11 @@ import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTConfig {
 	public static Configuration config;
-	public static List<String> allCategories = new ArrayList<>();
+	public static Collection<String> allCategories = new ArrayList<>();
 	public static String CATEGORY_LANGUAGE = getCategory("1_language");
 	public static String CATEGORY_GAMEPLAY = getCategory("2_gameplay");
 	public static String CATEGORY_GUI = getCategory("3_gui");

@@ -70,7 +70,7 @@ public abstract class GOTMiniQuest {
 	public int coinsRewarded;
 	public float alignmentRewarded;
 	public boolean wasHired;
-	public List<ItemStack> itemsRewarded = new ArrayList<>();
+	public Collection<ItemStack> itemsRewarded = new ArrayList<>();
 	public boolean entityDead;
 	public Pair<ChunkCoordinates, Integer> lastLocation;
 	public String speechBankStart;
@@ -138,7 +138,7 @@ public abstract class GOTMiniQuest {
 		completed = true;
 		dateCompleted = GOTDate.AegonCalendar.currentDay;
 		Random rand = npc.getRNG();
-		ArrayList<ItemStack> dropItems = new ArrayList<>();
+		List<ItemStack> dropItems = new ArrayList<>();
 		float alignment = getAlignmentBonus();
 		if (alignment != 0.0f) {
 			alignment *= MathHelper.randomFloatClamp(rand, 0.75f, 1.25f);

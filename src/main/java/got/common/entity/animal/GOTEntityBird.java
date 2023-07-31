@@ -279,7 +279,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	}
 
 	public List<Integer> getStealablePlayerSlots(EntityPlayer entityplayer) {
-		ArrayList<Integer> slots = new ArrayList<>();
+		List<Integer> slots = new ArrayList<>();
 		for (int i = 0; i <= 8; ++i) {
 			ItemStack itemstack;
 			if (i != entityplayer.inventory.currentItem || (itemstack = entityplayer.inventory.getStackInSlot(i)) == null || !isStealable(itemstack)) {

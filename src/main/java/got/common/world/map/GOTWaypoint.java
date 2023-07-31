@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public enum GOTWaypoint implements GOTAbstractWaypoint {
@@ -227,6 +228,6 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	public enum Region {
 		ABOBA, NORTH, ARRYN, ICE, RIVERLANDS, MOSSOVY, DRANGONSTONE, CROWNLANDS, DORNE, DOTHRAKI, IBBEN, IRONBORN, LHAZAR, REACH, OCEAN, STORMLANDS, WESTERLANDS, ASSHAI, GHISCAR, JOGOS, VALYRIA, FREE, QARTH, SOTHORYOS, ULTHOS, YI_TI, SUMMER_ISLANDS, AMOGUS;
 
-		public List<GOTWaypoint> waypoints = new ArrayList<>();
+		public Collection<GOTWaypoint> waypoints = new ArrayList<>();
 	}
 }

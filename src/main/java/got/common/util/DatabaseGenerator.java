@@ -51,6 +51,7 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.IChatComponent;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
@@ -74,17 +75,17 @@ public class DatabaseGenerator {
 	public static final Map<String, String> FAC_TO_PAGE = new HashMap<>();
 	public static final Map<String, String> ENTITY_TO_PAGE = new HashMap<>();
 	public static final Map<String, String> BIOME_TO_PAGE = new HashMap<>();
-	public static final Set<GOTUnitTradeEntries> UNITS = new HashSet<>(GOTUnitTradeEntries.CONTENT);
-	public static final Set<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAchievement.CONTENT);
-	public static final Set<GOTBiome> BIOMES = new HashSet<>(GOTBiome.CONTENT);
+	public static final Iterable<GOTUnitTradeEntries> UNITS = new HashSet<>(GOTUnitTradeEntries.CONTENT);
+	public static final Iterable<GOTAchievement> ACHIEVEMENTS = new HashSet<>(GOTAchievement.CONTENT);
+	public static final Collection<GOTBiome> BIOMES = new HashSet<>(GOTBiome.CONTENT);
 	public static final Set<GOTFaction> FACTIONS = EnumSet.allOf(GOTFaction.class);
 	public static final Set<GOTTreeType> TREES = EnumSet.allOf(GOTTreeType.class);
 	public static final Set<GOTWaypoint> WAYPOINTS = EnumSet.allOf(GOTWaypoint.class);
 	public static final Set<GOTCapes> CAPES = EnumSet.allOf(GOTCapes.class);
 	public static final Set<GOTShields> SHIELDS = EnumSet.allOf(GOTShields.class);
-	public static final Set<String> MINERALS = new HashSet<>();
-	public static final Set<Class<? extends WorldGenerator>> STRUCTURES = new HashSet<>();
-	public static final Set<Class<? extends Entity>> HIREABLE = new HashSet<>();
+	public static final Collection<String> MINERALS = new HashSet<>();
+	public static final Collection<Class<? extends WorldGenerator>> STRUCTURES = new HashSet<>();
+	public static final Collection<Class<? extends Entity>> HIREABLE = new HashSet<>();
 	public static final String BEGIN = "\n</title><ns>10</ns><revision><text>&lt;includeonly&gt;{{#switch: {{{1}}}";
 	public static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;</text></revision></page>";
 	public static final String TITLE = "<page><title>";
@@ -255,7 +256,7 @@ public class DatabaseGenerator {
 
 	public static void searchForMinerals(Iterable<GOTBiome> biomes, Collection<String> minerals) {
 		for (GOTBiome biome : biomes) {
-			List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+			Collection<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
 			oreGenerants.addAll(biome.decorator.biomeOres);
 			oreGenerants.addAll(biome.decorator.biomeGems);
 			for (OreGenerant oreGenerant : oreGenerants) {
@@ -482,7 +483,7 @@ public class DatabaseGenerator {
 					}
 				}
 				Set<String> sitemap;
-				Set<String> neededPages = new HashSet<>();
+				Collection<String> neededPages = new HashSet<>();
 				try (Stream<String> lines = Files.lines(Paths.get("hummel/sitemap.txt"))) {
 					sitemap = lines.collect(Collectors.toSet());
 				}
@@ -576,7 +577,7 @@ public class DatabaseGenerator {
 					sb.append("\n| ").append(mineral).append(" = ").append(Lang.MINERAL_BIOMES);
 					next:
 					for (GOTBiome biome : BIOMES) {
-						List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+						Collection<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
 						oreGenerants.addAll(biome.decorator.biomeOres);
 						oreGenerants.addAll(biome.decorator.biomeGems);
 						for (OreGenerant oreGenerant : oreGenerants) {
@@ -596,8 +597,8 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Tree-Biomes");
 				sb.append(BEGIN);
 				for (GOTTreeType tree : TREES) {
-					HashSet<GOTBiome> biomesTree = new HashSet<>();
-					HashSet<GOTBiome> biomesVariantTree = new HashSet<>();
+					Collection<GOTBiome> biomesTree = new HashSet<>();
+					Collection<GOTBiome> biomesVariantTree = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
 						for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
@@ -639,7 +640,7 @@ public class DatabaseGenerator {
 					if (facContainers.isEmpty()) {
 						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_NO_SPAWN);
 					} else {
-						ArrayList<FactionContainer> spawnContainers = new ArrayList<>();
+						Collection<FactionContainer> spawnContainers = new ArrayList<>();
 						for (FactionContainer facContainer : facContainers) {
 							if (facContainer.baseWeight > 0) {
 								spawnContainers.add(facContainer);
@@ -669,7 +670,7 @@ public class DatabaseGenerator {
 					if (facContainers.isEmpty()) {
 						sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_NO_CONQUEST);
 					} else {
-						ArrayList<FactionContainer> conqestContainers = new ArrayList<>();
+						Collection<FactionContainer> conqestContainers = new ArrayList<>();
 						for (FactionContainer facContainer : facContainers) {
 							if (facContainer.baseWeight <= 0) {
 								conqestContainers.add(facContainer);
@@ -852,7 +853,7 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
 					EnumSet<GOTTreeType> trees = EnumSet.noneOf(GOTTreeType.class);
-					EnumMap<GOTTreeType, GOTBiomeVariant> additionalTrees = new EnumMap<>(GOTTreeType.class);
+					Map<GOTTreeType, GOTBiomeVariant> additionalTrees = new EnumMap<>(GOTTreeType.class);
 					for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
 						trees.add(weightedTreeType.treeType);
 					}
@@ -885,7 +886,7 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Biome-Mobs");
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
-					List<SpawnListEntry> entries = new ArrayList<>(biome.getSpawnableList(EnumCreatureType.ambient));
+					Collection<SpawnListEntry> entries = new ArrayList<>(biome.getSpawnableList(EnumCreatureType.ambient));
 					entries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 					entries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
 					entries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
@@ -910,7 +911,7 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ").append(Lang.BIOME_HAS_MINERALS);
-					List<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
+					Collection<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
 					oreGenerants.addAll(biome.decorator.biomeOres);
 					oreGenerants.addAll(biome.decorator.biomeGems);
 					for (OreGenerant oreGenerant : oreGenerants) {
@@ -970,7 +971,7 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Faction-Invasions");
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
-					HashSet<GOTBiome> invasionBiomes = new HashSet<>();
+					Collection<GOTBiome> invasionBiomes = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
 						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
@@ -998,12 +999,12 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Faction-Spawn");
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
-					HashSet<GOTBiome> spawnBiomes = new HashSet<>();
+					Collection<GOTBiome> spawnBiomes = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
 						List<FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
 						if (!facContainers.isEmpty()) {
-							ArrayList<FactionContainer> spawnContainers = new ArrayList<>();
+							Collection<FactionContainer> spawnContainers = new ArrayList<>();
 							for (FactionContainer facContainer : facContainers) {
 								if (facContainer.baseWeight > 0) {
 									spawnContainers.add(facContainer);
@@ -1040,12 +1041,12 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Faction-Conquest");
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
-					HashSet<GOTBiome> conquestBiomes = new HashSet<>();
+					Collection<GOTBiome> conquestBiomes = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
 						List<FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
 						if (!facContainers.isEmpty()) {
-							ArrayList<FactionContainer> conquestContainers = new ArrayList<>();
+							Collection<FactionContainer> conquestContainers = new ArrayList<>();
 							for (FactionContainer facContainer : facContainers) {
 								if (facContainer.baseWeight <= 0) {
 									conquestContainers.add(facContainer);
@@ -1112,7 +1113,7 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Faction-Waypoints");
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
-					ArrayList<GOTWaypoint> facWaypoints = new ArrayList<>();
+					Collection<GOTWaypoint> facWaypoints = new ArrayList<>();
 					for (GOTWaypoint wp : WAYPOINTS) {
 						if (wp.faction == fac) {
 							facWaypoints.add(wp);
@@ -1133,8 +1134,8 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Faction-Attr");
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
-					ArrayList<GOTCapes> facCapes = new ArrayList<>();
-					ArrayList<GOTShields> facShields = new ArrayList<>();
+					Collection<GOTCapes> facCapes = new ArrayList<>();
+					Collection<GOTShields> facShields = new ArrayList<>();
 					for (GOTCapes cape : CAPES) {
 						if (cape.alignmentFaction == fac) {
 							facCapes.add(cape);
@@ -1174,7 +1175,7 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Faction-Chars");
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
-					ArrayList<Class<? extends Entity>> facCharacters = new ArrayList<>();
+					Collection<Class<? extends Entity>> facCharacters = new ArrayList<>();
 					for (Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_OBJ.entrySet()) {
 						Entity entity = entityEntry.getValue();
 						if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac && ((GOTEntityNPC) entity).isLegendaryNPC()) {
@@ -1196,7 +1197,7 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Faction-Enemies");
 				sb.append(BEGIN);
 				for (GOTFaction fac1 : FACTIONS) {
-					ArrayList<GOTFaction> facEnemies = new ArrayList<>();
+					Collection<GOTFaction> facEnemies = new ArrayList<>();
 					for (GOTFaction fac2 : FACTIONS) {
 						if (fac1.isBadRelation(fac2) && fac1 != fac2) {
 							facEnemies.add(fac2);
@@ -1222,7 +1223,7 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Faction-Friends");
 				sb.append(BEGIN);
 				for (GOTFaction fac1 : FACTIONS) {
-					ArrayList<GOTFaction> facFriends = new ArrayList<>();
+					Collection<GOTFaction> facFriends = new ArrayList<>();
 					for (GOTFaction fac2 : FACTIONS) {
 						if (fac1.isGoodRelation(fac2) && fac1 != fac2) {
 							facFriends.add(fac2);
@@ -1284,7 +1285,7 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Faction-Structures");
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
-					ArrayList<Class<? extends WorldGenerator>> facStructures = new ArrayList<>();
+					Collection<Class<? extends WorldGenerator>> facStructures = new ArrayList<>();
 					for (Entry<Class<? extends WorldGenerator>, GOTFaction> entry : GOTStructureRegistry.classToFactionMapping.entrySet()) {
 						if (entry.getValue() == fac) {
 							facStructures.add(entry.getKey());
@@ -1306,15 +1307,15 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Mob-Spawn");
 				sb.append(BEGIN);
 				for (Class<? extends Entity> entityClass : CLASS_TO_OBJ.keySet()) {
-					HashSet<GOTBiome> spawnBiomes = new HashSet<>();
-					HashSet<GOTBiome> conquestBiomes = new HashSet<>();
-					HashSet<GOTBiome> invasionBiomes = new HashSet<>();
-					HashSet<GOTBiome> unnaturalBiomes = new HashSet<>();
+					Collection<GOTBiome> spawnBiomes = new HashSet<>();
+					Collection<GOTBiome> conquestBiomes = new HashSet<>();
+					Collection<GOTBiome> invasionBiomes = new HashSet<>();
+					Collection<GOTBiome> unnaturalBiomes = new HashSet<>();
 					next:
 					for (GOTBiome biome : BIOMES) {
-						List<SpawnListEntry> spawnEntries = new ArrayList<>();
-						List<SpawnListEntry> conquestEntries = new ArrayList<>();
-						List<InvasionSpawnEntry> invasionEntries = new ArrayList<>();
+						Collection<SpawnListEntry> spawnEntries = new ArrayList<>();
+						Collection<SpawnListEntry> conquestEntries = new ArrayList<>();
+						Collection<InvasionSpawnEntry> invasionEntries = new ArrayList<>();
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.ambient));
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
@@ -1708,7 +1709,7 @@ public class DatabaseGenerator {
 			e.printStackTrace();
 		}
 		long newTime = System.nanoTime();
-		ChatComponentText chatComponentTranslation = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + "s");
+		IChatComponent chatComponentTranslation = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + "s");
 		player.addChatMessage(chatComponentTranslation);
 	}
 
@@ -1731,7 +1732,7 @@ public class DatabaseGenerator {
 		}
 
 		public static List<String> getNames() {
-			ArrayList<String> names = new ArrayList<>();
+			List<String> names = new ArrayList<>();
 			for (Database db : values()) {
 				names.add(db.codeName);
 			}

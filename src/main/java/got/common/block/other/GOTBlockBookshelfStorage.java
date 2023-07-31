@@ -36,7 +36,7 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
-		GOTTileEntityBookshelf bookshelf = (GOTTileEntityBookshelf) world.getTileEntity(i, j, k);
+		IInventory bookshelf = (IInventory) world.getTileEntity(i, j, k);
 		if (bookshelf != null) {
 			GOT.dropContainerItems(bookshelf, world, i, j, k);
 			world.func_147453_f(i, j, k, block);

@@ -5,10 +5,10 @@ import got.common.item.other.GOTItemModifierTemplate;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTEnchantmentCombining {
-	public static List<CombineRecipe> allCombineRecipes = new ArrayList<>();
+	public static Collection<CombineRecipe> allCombineRecipes = new ArrayList<>();
 
 	public static void combine(GOTEnchantment in, GOTEnchantment out, int cost) {
 		if (!in.hasTemplateItem() || !out.hasTemplateItem()) {

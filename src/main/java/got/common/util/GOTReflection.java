@@ -251,7 +251,7 @@ public class GOTReflection {
 			CommandHandler handler = (CommandHandler) MinecraftServer.getServer().getCommandManager();
 			Map<String, ICommand> commandMap = handler.getCommands();
 			Set<ICommand> commandSet = ObfuscationReflectionHelper.getPrivateValue(CommandHandler.class, handler, "commandSet", "field_71561_b");
-			ArrayList<ICommand> mapremoves = new ArrayList<>();
+			Collection<ICommand> mapremoves = new ArrayList<>();
 			for (ICommand command : commandMap.values()) {
 				if (command.getClass() == commandClass) {
 					mapremoves.add(command);

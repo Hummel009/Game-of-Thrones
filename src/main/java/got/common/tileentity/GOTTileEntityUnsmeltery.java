@@ -142,7 +142,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		return itemstack != null && getLargestUnsmeltingResult(itemstack) != null;
 	}
 
-	public int countMatchingIngredients(ItemStack material, List<?> ingredientList, List<IRecipe> recursiveCheckedRecipes) {
+	public int countMatchingIngredients(ItemStack material, Iterable<?> ingredientList, List<IRecipe> recursiveCheckedRecipes) {
 		int i = 0;
 		for (Object obj : ingredientList) {
 			if (obj instanceof ItemStack) {
@@ -158,7 +158,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				continue;
 			}
 			if (obj instanceof List) {
-				List<ItemStack> oreIngredients = (List<ItemStack>) obj;
+				Iterable<ItemStack> oreIngredients = (Iterable<ItemStack>) obj;
 				boolean matched = false;
 				for (ItemStack ingredient : oreIngredients) {
 					if (OreDictionary.itemMatches(material, ingredient, false)) {
@@ -194,7 +194,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 			return unsmeltableCraftingCounts.get(key);
 		}
 		int count = 0;
-		List<List<IRecipe>> allRecipeLists = new ArrayList<>();
+		Collection<List<IRecipe>> allRecipeLists = new ArrayList<>();
 		allRecipeLists.add(CraftingManager.getInstance().getRecipeList());
 		EntityPlayer player = getProxyPlayer();
 		for (GOTBlockCraftingTable table : GOTBlockCraftingTable.allCraftingTables) {

@@ -5,6 +5,7 @@ import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.IChatComponent;
 
 import java.util.Collections;
 import java.util.List;
@@ -38,7 +39,7 @@ public class GOTCommandDate extends CommandBase {
 		if (args.length >= 1 && "get".equals(args[0])) {
 			int date = GOTDate.AegonCalendar.currentDay;
 			String dateName = GOTDate.AegonCalendar.getDate().getDateName(false);
-			ChatComponentTranslation message = new ChatComponentTranslation("got.command.date.get", date, dateName);
+			IChatComponent message = new ChatComponentTranslation("got.command.date.get", date, dateName);
 			sender.addChatMessage(message);
 			return;
 		}

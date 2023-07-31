@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.network.GOTPacketEditSign;
 import got.common.network.GOTPacketHandler;
 import got.common.tileentity.GOTTileEntitySign;
@@ -102,7 +103,7 @@ public class GOTGuiEditSign extends GuiScreen {
 	@Override
 	public void onGuiClosed() {
 		Keyboard.enableRepeatEvents(false);
-		GOTPacketEditSign packet = new GOTPacketEditSign(tileSign);
+		IMessage packet = new GOTPacketEditSign(tileSign);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 		tileSign.setEditable(true);
 	}

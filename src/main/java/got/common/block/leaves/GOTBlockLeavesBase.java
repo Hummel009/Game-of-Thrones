@@ -15,10 +15,11 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class GOTBlockLeavesBase extends BlockLeaves {
-	public static List<Block> allLeafBlocks = new ArrayList<>();
+	public static Collection<Block> allLeafBlocks = new ArrayList<>();
 	@SideOnly(Side.CLIENT)
 	public IIcon[][] leafIcons;
 	public String[] leafNames;
@@ -59,11 +60,11 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 
 	public static void setAllGraphicsLevels(boolean flag) {
 		for (Object allLeafBlock : allLeafBlocks) {
-			((GOTBlockLeavesBase) allLeafBlock).setGraphicsLevel(flag);
+			((BlockLeaves) allLeafBlock).setGraphicsLevel(flag);
 		}
 	}
 
-	public void addSpecialLeafDrops(ArrayList<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
+	public void addSpecialLeafDrops(List<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
 	}
 
 	public int calcFortuneModifiedDropChance(int baseChance, int fortune) {

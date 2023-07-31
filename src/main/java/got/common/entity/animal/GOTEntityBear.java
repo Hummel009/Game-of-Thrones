@@ -68,7 +68,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 				double range = 12.0;
 				List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
 				for (Entity entity : list) {
-					if (entity instanceof GOTEntityBear && !((GOTEntityBear) entity).isChild()) {
+					if (entity instanceof GOTEntityBear && !((EntityLivingBase) entity).isChild()) {
 						((GOTEntityBear) entity).becomeAngryAt((EntityLivingBase) attacker);
 					}
 				}
@@ -308,8 +308,6 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 	public static class BearGroupSpawnData implements IEntityLivingData {
 		public int numSpawned;
 
-		public BearGroupSpawnData() {
-		}
 	}
 
 }

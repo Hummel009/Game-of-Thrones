@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTTradeable;
 import got.common.network.GOTPacketHandler;
@@ -20,7 +21,7 @@ public class GOTGuiTradeInteract extends GOTGuiNPCInteract {
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
-			GOTPacketTraderInteract packet = new GOTPacketTraderInteract(theEntity.getEntityId(), button.id);
+			IMessage packet = new GOTPacketTraderInteract(theEntity.getEntityId(), button.id);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}

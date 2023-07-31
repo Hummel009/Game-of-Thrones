@@ -1,6 +1,7 @@
 package got.client.model;
 
 import got.common.entity.other.GOTEntityCargocart;
+import got.common.entity.other.GOTEntityCart;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
@@ -88,8 +89,8 @@ public class GOTModelCargocart extends ModelBase {
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float rotationYaw, float rotationPitch, float scale, Entity entity) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, ageInTicks, rotationYaw, rotationPitch, scale, entity);
-		leftWheel.rotateAngleX = ((GOTEntityCargocart) entity).getWheelRotation();
-		rightWheel.rotateAngleX = ((GOTEntityCargocart) entity).getWheelRotation();
+		leftWheel.rotateAngleX = ((GOTEntityCart) entity).getWheelRotation();
+		rightWheel.rotateAngleX = ((GOTEntityCart) entity).getWheelRotation();
 		leftWheel.render(scale);
 		rightWheel.render(scale);
 		if (((GOTEntityCargocart) entity).load > 3) {

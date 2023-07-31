@@ -65,7 +65,7 @@ public class GOTEntityShadowcat extends EntityAnimal implements GOTBiome.ImmuneT
 				double range = 12.0;
 				List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
 				for (Entity obj : list) {
-					if (obj instanceof GOTEntityShadowcat && !((GOTEntityShadowcat) obj).isChild()) {
+					if (obj instanceof GOTEntityShadowcat && !((EntityLivingBase) obj).isChild()) {
 						((GOTEntityShadowcat) obj).becomeAngryAt((EntityLivingBase) attacker);
 					}
 				}

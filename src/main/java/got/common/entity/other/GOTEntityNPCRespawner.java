@@ -1,5 +1,6 @@
 package got.common.entity.other;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -141,7 +142,7 @@ public class GOTEntityNPCRespawner extends Entity {
 	public boolean interactFirst(EntityPlayer entityplayer) {
 		if (entityplayer.capabilities.isCreativeMode) {
 			if (!worldObj.isRemote) {
-				GOTPacketNPCRespawner packet = new GOTPacketNPCRespawner(this);
+				IMessage packet = new GOTPacketNPCRespawner(this);
 				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 			return true;

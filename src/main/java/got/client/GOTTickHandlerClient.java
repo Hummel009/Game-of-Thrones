@@ -87,10 +87,7 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import org.lwjgl.opengl.GL11;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GOTTickHandlerClient {
 	public static ResourceLocation portalOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
@@ -365,7 +362,7 @@ public class GOTTickHandlerClient {
 		if (itemstack.getItem() instanceof GOTSquadrons.SquadronItem) {
 			String squadron = GOTSquadrons.getSquadron(itemstack);
 			if (!StringUtils.isNullOrEmpty(squadron)) {
-				List<String> newTooltip = new ArrayList<>();
+				Collection<String> newTooltip = new ArrayList<>();
 				newTooltip.add(tooltip.get(0));
 				newTooltip.add(StatCollector.translateToLocalFormatted("item.got.generic.squadron", squadron));
 				for (int i = 1; i < tooltip.size(); i++) {
@@ -385,7 +382,7 @@ public class GOTTickHandlerClient {
 				}
 			}
 			if (dmgIndex >= 0) {
-				List<String> newTooltip = new ArrayList<>();
+				Collection<String> newTooltip = new ArrayList<>();
 				for (int j = 0; j <= dmgIndex - 1; j++) {
 					newTooltip.add(tooltip.get(j));
 				}
@@ -441,8 +438,8 @@ public class GOTTickHandlerClient {
 		}
 		if (!enchantments.isEmpty()) {
 			tooltip.add("");
-			List<String> enchGood = new ArrayList<>();
-			List<String> enchBad = new ArrayList<>();
+			Collection<String> enchGood = new ArrayList<>();
+			Collection<String> enchBad = new ArrayList<>();
 			for (GOTEnchantment ench : enchantments) {
 				String enchDesc = ench.getNamedFormattedDescription(itemstack);
 				if (ench.isBeneficial()) {
@@ -1185,7 +1182,7 @@ public class GOTTickHandlerClient {
 				}
 				float promptTick = clientTick + renderTick;
 				float promptAlpha = GOTFunctions.triangleWave(promptTick, 0.5f, 1.0f, 80.0f);
-				ArrayList<String> message = new ArrayList<>();
+				Collection<String> message = new ArrayList<>();
 				if (entityplayer.dimension != GOTDimension.GAME_OF_THRONES.dimensionID && renderMenuPrompt && minecraft.currentScreen == null) {
 					message.add(StatCollector.translateToLocal("got.gui.help1"));
 					message.add(StatCollector.translateToLocalFormatted("got.gui.help2", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingReturn.getKeyCode())));
@@ -1231,7 +1228,7 @@ public class GOTTickHandlerClient {
 					GL11.glScalef(invScale, invScale, invScale);
 				}
 				if (GOTConfig.displayMusicTrack && minecraft.currentScreen == null && lastTrack != null && musicTrackTick > 0) {
-					List<String> lines = new ArrayList<>();
+					Collection<String> lines = new ArrayList<>();
 					lines.add(StatCollector.translateToLocal("got.music.nowPlaying"));
 					String title = lastTrack.getTitle();
 					lines.add(title);

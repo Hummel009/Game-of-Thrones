@@ -136,7 +136,7 @@ public class GOTFactionBounties {
 	}
 
 	public List<PlayerData> findBountyTargets(int killAmount) {
-		ArrayList<PlayerData> players = new ArrayList<>();
+		List<PlayerData> players = new ArrayList<>();
 		for (PlayerData pd : playerList.values()) {
 			if (pd.recentlyBountyKilled() || pd.getNumKills() < killAmount) {
 				continue;
@@ -198,7 +198,7 @@ public class GOTFactionBounties {
 		public GOTFactionBounties bountyList;
 		public UUID playerID;
 		public String username;
-		public List<KillRecord> killRecords = new ArrayList<>();
+		public Collection<KillRecord> killRecords = new ArrayList<>();
 		public int recentBountyKilled;
 
 		public PlayerData(GOTFactionBounties b, UUID id) {
@@ -269,7 +269,7 @@ public class GOTFactionBounties {
 				--recentBountyKilled;
 				minorChanges = true;
 			}
-			ArrayList<KillRecord> toRemove = new ArrayList<>();
+			Collection<KillRecord> toRemove = new ArrayList<>();
 			for (KillRecord kr : killRecords) {
 				kr.timeElapsed--;
 				if (kr.timeElapsed <= 0) {

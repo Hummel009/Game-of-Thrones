@@ -28,7 +28,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 		}
 		if (args.length >= 1) {
 			args = GOTCommandFellowship.fixArgsForFellowship(args, 0, true);
-			ArrayList<String> matches = new ArrayList<>();
+			List<String> matches = new ArrayList<>();
 			if (args.length == 1 && !(!argsOriginal[0].isEmpty() && argsOriginal[0].charAt(0) == '\"')) {
 				matches.addAll(CommandBase.getListOfStringsMatchingLastWord(args, "bind", "unbind"));
 			}
@@ -76,7 +76,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 				GOTFellowship fellowship = playerData.getFellowshipByName(fsName);
 				if (fellowship != null && !fellowship.isDisbanded() && fellowship.containsPlayer(entityplayer.getUniqueID())) {
 					playerData.setChatBoundFellowship(fellowship);
-					ChatComponentTranslation notif = new ChatComponentTranslation("got.command.fmsg.bind", fellowship.getName());
+					IChatComponent notif = new ChatComponentTranslation("got.command.fmsg.bind", fellowship.getName());
 					notif.getChatStyle().setColor(EnumChatFormatting.GRAY);
 					notif.getChatStyle().setItalic(true);
 					sender.addChatMessage(notif);
@@ -87,7 +87,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 			if ("unbind".equals(args[0])) {
 				GOTFellowship preBoundFellowship = playerData.getChatBoundFellowship();
 				playerData.setChatBoundFellowshipID(null);
-				ChatComponentTranslation notif = new ChatComponentTranslation("got.command.fmsg.unbind", preBoundFellowship.getName());
+				IChatComponent notif = new ChatComponentTranslation("got.command.fmsg.unbind", preBoundFellowship.getName());
 				notif.getChatStyle().setColor(EnumChatFormatting.GRAY);
 				notif.getChatStyle().setItalic(true);
 				sender.addChatMessage(notif);

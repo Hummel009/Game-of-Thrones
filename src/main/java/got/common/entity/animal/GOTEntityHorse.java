@@ -85,8 +85,8 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		if (flag && isChild() && isMountHostile() && (attacker = damagesource.getEntity()) instanceof EntityLivingBase) {
 			List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(12.0, 12.0, 12.0));
 			for (Entity element : list) {
-				if (element instanceof GOTEntityHorse && !((GOTEntityHorse) element).isChild() && !((GOTEntityHorse) element).isTame()) {
-					((GOTEntityHorse) element).setAttackTarget((EntityLivingBase) attacker);
+				if (element instanceof GOTEntityHorse && !((EntityLivingBase) element).isChild() && !((EntityHorse) element).isTame()) {
+					((EntityLiving) element).setAttackTarget((EntityLivingBase) attacker);
 				}
 			}
 		}
@@ -126,7 +126,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		double moveSpeed = getChildAttribute(this, otherParent, SharedMonsterAttributes.movementSpeed, 0.03);
 		moveSpeed = clampChildSpeed(moveSpeed);
 		child.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(moveSpeed);
-		if (isTame() && ((GOTEntityHorse) otherParent).isTame()) {
+		if (isTame() && ((EntityHorse) otherParent).isTame()) {
 			child.setHorseTamed(true);
 		}
 		return child;
@@ -169,7 +169,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	@Override
 	public float getBlockPathWeight(int i, int j, int k) {
 		if (getBelongsToNPC() && riddenByEntity instanceof GOTEntityNPC) {
-			return ((GOTEntityNPC) riddenByEntity).getBlockPathWeight(i, j, k);
+			return ((EntityCreature) riddenByEntity).getBlockPathWeight(i, j, k);
 		}
 		return super.getBlockPathWeight(i, j, k);
 	}

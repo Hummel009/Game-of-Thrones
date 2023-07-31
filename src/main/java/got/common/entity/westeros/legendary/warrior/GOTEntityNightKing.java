@@ -123,7 +123,7 @@ public class GOTEntityNightKing extends GOTEntityHumanBase {
 			super.onKillEntity(entity);
 		} else if (entity instanceof GOTEntityHumanBase) {
 			super.onKillEntity(entity);
-			walker.familyInfo.setAge(((GOTEntityHumanBase) entity).familyInfo.getAge());
+			walker.familyInfo.setAge(((GOTEntityNPC) entity).familyInfo.getAge());
 			walker.copyLocationAndAnglesFrom(entity);
 			worldObj.removeEntity(entity);
 			walker.onSpawnWithEgg(null);

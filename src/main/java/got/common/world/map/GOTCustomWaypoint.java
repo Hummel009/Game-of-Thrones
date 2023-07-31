@@ -16,13 +16,11 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	public String customName;
@@ -190,7 +188,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		if (ownShared || shared) {
 			int numShared = sharedFellowshipIDs.size();
 			int numShown = 0;
-			ArrayList<String> fsNames = new ArrayList<>();
+			Collection<String> fsNames = new ArrayList<>();
 			for (int i = 0; i < 3 && i < sharedFellowshipIDs.size(); ++i) {
 				UUID fsID = sharedFellowshipIDs.get(i);
 				GOTFellowshipClient fs = GOTLevelData.getData(entityplayer).getClientFellowshipByID(fsID);
@@ -211,15 +209,13 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 			if (ownShared) {
 				return StatCollector.translateToLocalFormatted("got.wp.custom.info", sharedFsNames.toString());
 			}
-			if (shared) {
-				return StatCollector.translateToLocalFormatted("got.waypoint.shared.info", sharingPlayerName, sharedFsNames.toString());
-			}
+			return StatCollector.translateToLocalFormatted("got.waypoint.shared.info", sharingPlayerName, sharedFsNames.toString());
 		}
 		return null;
 	}
 
 	public List<UUID> getPlayersInAllSharedFellowships() {
-		ArrayList<UUID> allPlayers = new ArrayList<>();
+		List<UUID> allPlayers = new ArrayList<>();
 		for (UUID fsID : sharedFellowshipIDs) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null) {
@@ -355,7 +351,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return false;
 	}
 
-	public boolean isSafeBlock(World world, int i, int j, int k) {
+	public boolean isSafeBlock(IBlockAccess world, int i, int j, int k) {
 		Block below = world.getBlock(i, j - 1, k);
 		Block block = world.getBlock(i, j, k);
 		Block above = world.getBlock(i, j + 1, k);
@@ -398,7 +394,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 
 	public void validateFellowshipIDs(GOTPlayerData ownerData) {
 		UUID ownerUUID = ownerData.getPlayerUUID();
-		HashSet<UUID> removeIDs = new HashSet<>();
+		Collection<UUID> removeIDs = new HashSet<>();
 		for (UUID fsID : sharedFellowshipIDs) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null && fs.containsPlayer(ownerUUID)) {

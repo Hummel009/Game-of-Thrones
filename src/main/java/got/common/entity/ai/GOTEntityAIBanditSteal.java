@@ -11,6 +11,7 @@ import got.common.recipe.GOTRecipe;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
 import net.minecraft.util.MathHelper;
 
@@ -117,7 +118,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		}
 	}
 
-	public boolean stealItem(InventoryPlayer inv, int slot) {
+	public boolean stealItem(IInventory inv, int slot) {
 		ItemStack playerItem = inv.getStackInSlot(slot);
 		int theft = getRandomTheftAmount(playerItem);
 		if (theft > playerItem.stackSize) {
@@ -162,7 +163,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		});
 	}
 
-	public boolean tryStealItem(InventoryPlayer inv, List<ItemStack> itemList) {
+	public boolean tryStealItem(InventoryPlayer inv, Iterable<ItemStack> itemList) {
 		return tryStealItem_do(inv, new BanditItemFilter() {
 
 			@Override

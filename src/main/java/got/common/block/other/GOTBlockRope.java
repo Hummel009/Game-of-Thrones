@@ -11,8 +11,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.ArrayList;
-
 public class GOTBlockRope extends GOTBlockLadder {
 	public boolean canRetract;
 
@@ -97,7 +95,7 @@ public class GOTBlockRope extends GOTBlockLadder {
 						break;
 					}
 					if (!entityplayer.capabilities.isCreativeMode) {
-						ArrayList<ItemStack> drops = block.getDrops(world, i, j1, k, meta, 0);
+						Iterable<ItemStack> drops = block.getDrops(world, i, j1, k, meta, 0);
 						for (ItemStack drop : drops) {
 							if (entityplayer.inventory.addItemStackToInventory(drop)) {
 								invAdded = true;

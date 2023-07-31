@@ -415,7 +415,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 			particles.setRGB(newWaterU, newWaterV, newWaterWidth, newWaterHeight, rgb, 0, newWaterWidth);
 			TextureManager textureManager = mc.getTextureManager();
 			textureManager.bindTexture(particleTextures);
-			AbstractTexture texture = (AbstractTexture) textureManager.getTexture(particleTextures);
+			ITextureObject texture = textureManager.getTexture(particleTextures);
 			TextureUtil.uploadTextureImageAllocate(texture.getGlTextureId(), particles, false, false);
 		} catch (IOException e) {
 			FMLLog.severe("Failed to replace rain particles");

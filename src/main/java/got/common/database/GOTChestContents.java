@@ -17,13 +17,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.util.WeightedRandomChestContent;
-import net.minecraft.world.World;
+import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.ChestGenHooks;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GOTChestContents {
 	public static GOTChestContents ARRYN;
@@ -62,9 +59,9 @@ public class GOTChestContents {
 	public static GOTChestContents WESTERLANDS;
 	public static GOTChestContents YI_TI;
 
-	public static List<WeightedRandomChestContent> NORD_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> SUD_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> NOMAD_L = new ArrayList<>();
+	public static Collection<WeightedRandomChestContent> NORD_L = new ArrayList<>();
+	public static Collection<WeightedRandomChestContent> SUD_L = new ArrayList<>();
+	public static Collection<WeightedRandomChestContent> NOMAD_L = new ArrayList<>();
 	public static List<WeightedRandomChestContent> SOTHORYOS_L = new ArrayList<>();
 	public static List<WeightedRandomChestContent> YI_TI_L = new ArrayList<>();
 	public static List<WeightedRandomChestContent> MOSSOVY_L = new ArrayList<>();
@@ -1180,11 +1177,11 @@ public class GOTChestContents {
 		items = w;
 	}
 
-	public static void fillChest(World world, Random random, int i, int j, int k, GOTChestContents itemPool) {
+	public static void fillChest(IBlockAccess world, Random random, int i, int j, int k, GOTChestContents itemPool) {
 		fillChest(world, random, i, j, k, itemPool, -1);
 	}
 
-	public static void fillChest(World world, Random random, int i, int j, int k, GOTChestContents itemPool, int amount) {
+	public static void fillChest(IBlockAccess world, Random random, int i, int j, int k, GOTChestContents itemPool, int amount) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (!(tileentity instanceof IInventory)) {
 			if (j >= 0 && j < 256) {
@@ -1263,7 +1260,7 @@ public class GOTChestContents {
 	}
 
 	public ItemStack getOneItem(Random random, boolean isNPCDrop) {
-		InventoryBasic drops = new InventoryBasic("oneItem", false, 1);
+		IInventory drops = new InventoryBasic("oneItem", false, 1);
 		fillInventory(drops, random, this, 1, isNPCDrop);
 		ItemStack item = drops.getStackInSlot(0);
 		item.stackSize = 1;

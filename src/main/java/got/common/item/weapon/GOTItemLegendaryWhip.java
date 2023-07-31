@@ -13,6 +13,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class GOTItemLegendaryWhip extends GOTItemSword {
@@ -62,7 +63,7 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 		Vec3 sight = position.addVector(look.xCoord * range, look.yCoord * range, look.zCoord * range);
 		float sightWidth = 1.0f;
 		List<? extends Entity> list = user.worldObj.getEntitiesWithinAABBExcludingEntity(user, user.boundingBox.addCoord(look.xCoord * range, look.yCoord * range, look.zCoord * range).expand(sightWidth, sightWidth, sightWidth));
-		ArrayList<EntityLivingBase> whipTargets = new ArrayList<>();
+		Collection<EntityLivingBase> whipTargets = new ArrayList<>();
 		for (Entity element : list) {
 			EntityLivingBase entity;
 			if (!(element instanceof EntityLivingBase) || (entity = (EntityLivingBase) element) == user.ridingEntity && !entity.canRiderInteract() || !entity.canBeCollidedWith()) {

@@ -10,6 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
@@ -27,11 +28,11 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 
-	public static int[] findPartyTree(World world, int i, int j, int k, Block block, int meta) {
+	public static int[] findPartyTree(IBlockAccess world, int i, int j, int k, Block block, int meta) {
 		return findSaplingSquare(world, i, j, k, block, meta, -1, 1, -2, 2);
 	}
 
-	public static int[] findSaplingSquare(World world, int i, int j, int k, Block block, int meta, int squareMin, int squareMax, int searchMin, int searchMax) {
+	public static int[] findSaplingSquare(IBlockAccess world, int i, int j, int k, Block block, int meta, int squareMin, int squareMax, int searchMin, int searchMax) {
 		for (int i1 = searchMin; i1 <= searchMax; ++i1) {
 			for (int k1 = searchMin; k1 <= searchMax; ++k1) {
 				boolean canGenerate = true;
@@ -56,7 +57,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		return null;
 	}
 
-	public static boolean isSameSapling(World world, int i, int j, int k, Block block, int meta) {
+	public static boolean isSameSapling(IBlockAccess world, int i, int j, int k, Block block, int meta) {
 		if (world.getBlock(i, j, k) == block) {
 			int blockMeta = world.getBlockMetadata(i, j, k);
 			return (blockMeta & 7) == meta;
@@ -106,7 +107,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		}
 	}
 
-	public boolean isSameSapling(World world, int i, int j, int k, int meta) {
+	public boolean isSameSapling(IBlockAccess world, int i, int j, int k, int meta) {
 		return isSameSapling(world, i, j, k, this, meta);
 	}
 

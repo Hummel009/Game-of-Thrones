@@ -258,7 +258,7 @@ public class GOTWeaponStats {
 	public static boolean isPoisoned(ItemStack itemstack) {
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
-			return item instanceof GOTItemDagger && ((GOTItemDagger) item).getHitEffect() == GOTItemSword.HitEffect.POISON;
+			return item instanceof GOTItemDagger && ((GOTItemSword) item).getHitEffect() == GOTItemSword.HitEffect.POISON;
 		}
 		return false;
 	}

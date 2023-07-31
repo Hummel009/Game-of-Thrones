@@ -12,7 +12,7 @@ import got.common.world.structure.essos.gold.GOTStructureGoldenCamp;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeDisputedLands extends GOTBiomeEssos {
 	public GOTBiomeDisputedLands(int i, boolean major) {
@@ -23,22 +23,22 @@ public class GOTBiomeDisputedLands extends GOTBiomeEssos {
 		invasionSpawns.addInvasion(GOTInvasions.TYROSH, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.LYS, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.BRAAVOS, GOTEventSpawner.EventChance.UNCOMMON);
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.GOLDEN_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		List<SpawnListContainer> c1 = new ArrayList<>();
+		Collection<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.BRAAVOS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-		List<SpawnListContainer> c2 = new ArrayList<>();
+		Collection<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MYR_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
-		List<SpawnListContainer> c3 = new ArrayList<>();
+		Collection<SpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.LYS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c3);
-		List<SpawnListContainer> c4 = new ArrayList<>();
+		Collection<SpawnListContainer> c4 = new ArrayList<>();
 		c4.add(GOTBiomeSpawnList.entry(GOTSpawnList.TYROSH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c4);
-		List<SpawnListContainer> c5 = new ArrayList<>();
+		Collection<SpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.VOLANTIS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);

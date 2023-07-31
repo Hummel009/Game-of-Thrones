@@ -60,7 +60,7 @@ public class GOTJaqenHgharTracker {
 			--spawnCooldown;
 			if (spawnCooldown <= 0) {
 				spawnCooldown = 2400;
-				ArrayList<EntityPlayer> players = new ArrayList<EntityPlayer>(world.playerEntities);
+				List<EntityPlayer> players = new ArrayList<EntityPlayer>(world.playerEntities);
 				Collections.shuffle(players);
 				Random rand = world.rand;
 				block0:
@@ -118,7 +118,7 @@ public class GOTJaqenHgharTracker {
 	}
 
 	public static void updateCooldowns() {
-		HashSet<UUID> removes = new HashSet<>();
+		Collection<UUID> removes = new HashSet<>();
 		for (Entry<UUID, Integer> id : activeJaqenHghars.entrySet()) {
 			int cd = id.getValue();
 			cd--;

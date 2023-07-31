@@ -1,5 +1,6 @@
 package got.common.tileentity;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketOpenSignEditor;
 import net.minecraft.entity.player.EntityPlayer;
@@ -56,7 +57,7 @@ public abstract class GOTTileEntitySign extends TileEntity {
 
 	public void openEditGUI(EntityPlayerMP entityplayer) {
 		editingPlayer = entityplayer;
-		GOTPacketOpenSignEditor packet = new GOTPacketOpenSignEditor(this);
+		IMessage packet = new GOTPacketOpenSignEditor(this);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 

@@ -18,7 +18,7 @@ public class GOTRenderFlamingo extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return ((GOTEntityFlamingo) entity).isChild() ? textureChick : texture;
+		return ((EntityLivingBase) entity).isChild() ? textureChick : texture;
 	}
 
 	@Override

@@ -162,8 +162,6 @@ public class GOTBlockReplacement {
 	}
 
 	public static class Reflect {
-		public Reflect() {
-		}
 
 		public static String getBlockName(Block block) {
 			try {

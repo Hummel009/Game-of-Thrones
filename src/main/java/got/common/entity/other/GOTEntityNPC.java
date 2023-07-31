@@ -1,6 +1,7 @@
 package got.common.entity.other;
 
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -40,6 +41,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
@@ -56,10 +58,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 import java.awt.*;
 import java.lang.reflect.Constructor;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
-import java.util.UUID;
 
 public abstract class GOTEntityNPC extends EntityCreature implements IRangedAttackMob, GOTRandomSkinEntity {
 	public static IAttribute npcAttackDamage = new RangedAttribute("got.npcAttackDamage", 2.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Attack Damage");
@@ -312,7 +312,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public void dropChestContents(GOTChestContents itemPool, int min, int max) {
-		InventoryBasic drops = new InventoryBasic("drops", false, max * 5);
+		IInventory drops = new InventoryBasic("drops", false, max * 5);
 		GOTChestContents.fillInventory(drops, rand, itemPool, MathHelper.getRandomIntegerInRange(rand, min, max), true);
 		for (int i = 0; i < drops.getSizeInventory(); ++i) {
 			ItemStack item = drops.getStackInSlot(i);
@@ -352,11 +352,11 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 	}
 
-	public void dropItemList(List<ItemStack> items) {
+	public void dropItemList(Collection<ItemStack> items) {
 		dropItemList(items, true);
 	}
 
-	public void dropItemList(List<ItemStack> items, boolean applyOwnership) {
+	public void dropItemList(Collection<ItemStack> items, boolean applyOwnership) {
 		if (!items.isEmpty()) {
 			for (ItemStack item : items) {
 				npcDropItem(item, 0.0f, true, applyOwnership);
@@ -433,7 +433,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public void fillPouchFromListAndRetainUnfilled(ItemStack pouch, List<ItemStack> items) {
-		ArrayList<ItemStack> pouchContents = new ArrayList<>();
+		Collection<ItemStack> pouchContents = new ArrayList<>();
 		while (!items.isEmpty()) {
 			pouchContents.add(items.remove(0));
 		}
@@ -1114,12 +1114,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public void sendCombatStance(EntityPlayerMP entityplayer) {
-		GOTPacketNPCCombatStance packet = new GOTPacketNPCCombatStance(getEntityId(), combatStance);
+		IMessage packet = new GOTPacketNPCCombatStance(getEntityId(), combatStance);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
 	public void sendIsEatingPacket(EntityPlayerMP entityplayer) {
-		GOTPacketNPCIsEating packet = new GOTPacketNPCIsEating(getEntityId(), npcItemsInv.getIsEating());
+		IMessage packet = new GOTPacketNPCIsEating(getEntityId(), npcItemsInv.getIsEating());
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
@@ -1147,7 +1147,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		sendSpeechBank(entityplayer, speechBank, null, objective);
 	}
 
-	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, String location, String objective) {
+	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, CharSequence location, CharSequence objective) {
 		if (GOT.isUkraine()) {
 			GOTSpeech.sendSpeech(entityplayer, this, "\u0421\u043B\u0430\u0432\u0430 \u0423\u043A\u0440\u0430\u0457\u043D\u0456!");
 		} else {
@@ -1287,7 +1287,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				worldObj.spawnParticle("iconcrack_" + Item.getIdFromItem(getHeldItem().getItem()), vec2.xCoord, vec2.yCoord, vec2.zCoord, vec1.xCoord, vec1.yCoord + 0.05, vec1.zCoord);
 			}
 		} else {
-			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.EATING);
+			IMessage packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.EATING);
 			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		}
 	}
@@ -1301,7 +1301,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				worldObj.spawnParticle("heart", posX + rand.nextFloat() * width * 2.0f - width, posY + 0.5 + rand.nextFloat() * height, posZ + rand.nextFloat() * width * 2.0f - width, d, d1, d2);
 			}
 		} else {
-			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.HEARTS);
+			IMessage packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.HEARTS);
 			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		}
 	}
@@ -1315,7 +1315,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				worldObj.spawnParticle("smoke", posX + rand.nextFloat() * width * 2.0f - width, posY + 0.5 + rand.nextFloat() * height, posZ + rand.nextFloat() * width * 2.0f - width, d, d1, d2);
 			}
 		} else {
-			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.SMOKE);
+			IMessage packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.SMOKE);
 			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		}
 	}

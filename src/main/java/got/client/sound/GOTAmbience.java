@@ -28,15 +28,12 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.event.sound.PlaySoundEvent17;
 import net.minecraftforge.common.MinecraftForge;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GOTAmbience {
 	public int ticksSinceWight;
-	public List<ISound> playingWindSounds = new ArrayList<>();
-	public List<ISound> playingSeaSounds = new ArrayList<>();
+	public Collection<ISound> playingWindSounds = new ArrayList<>();
+	public Collection<ISound> playingSeaSounds = new ArrayList<>();
 
 	public GOTAmbience() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -48,13 +45,12 @@ public class GOTAmbience {
 		String name = event.name;
 		ISound sound = event.sound;
 		if (sound instanceof PositionedSound) {
-			PositionedSound ps = (PositionedSound) sound;
 			WorldClient world = Minecraft.getMinecraft().theWorld;
 			if (world != null && world.provider instanceof GOTWorldProvider) {
 				if ("ambient.weather.rain".equals(name)) {
-					event.result = new PositionedSoundRecord(new ResourceLocation("got:ambient.weather.rain"), ps.getVolume(), ps.getPitch(), ps.getXPosF(), ps.getYPosF(), ps.getZPosF());
+					event.result = new PositionedSoundRecord(new ResourceLocation("got:ambient.weather.rain"), sound.getVolume(), sound.getPitch(), sound.getXPosF(), sound.getYPosF(), sound.getZPosF());
 				} else if ("ambient.weather.thunder".equals(name)) {
-					event.result = new PositionedSoundRecord(new ResourceLocation("got:ambient.weather.thunder"), ps.getVolume(), ps.getPitch(), ps.getXPosF(), ps.getYPosF(), ps.getZPosF());
+					event.result = new PositionedSoundRecord(new ResourceLocation("got:ambient.weather.thunder"), sound.getVolume(), sound.getPitch(), sound.getXPosF(), sound.getYPosF(), sound.getZPosF());
 				}
 			}
 		}
@@ -148,7 +144,7 @@ public class GOTAmbience {
 						}
 					}
 				} else {
-					HashSet<ISound> removes = new HashSet<>();
+					Collection<ISound> removes = new HashSet<>();
 					for (ISound wind : playingWindSounds) {
 						if (!mc.getSoundHandler().isSoundPlaying(wind)) {
 							removes.add(wind);
@@ -208,7 +204,7 @@ public class GOTAmbience {
 						}
 					}
 				} else {
-					HashSet<ISound> removes = new HashSet<>();
+					Collection<ISound> removes = new HashSet<>();
 					for (ISound sea : playingSeaSounds) {
 						if (!mc.getSoundHandler().isSoundPlaying(sea)) {
 							removes.add(sea);

@@ -38,7 +38,7 @@ public class GOTBlockChest extends BlockContainer {
 
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
-		GOTTileEntityChest chest = (GOTTileEntityChest) world.getTileEntity(i, j, k);
+		IInventory chest = (IInventory) world.getTileEntity(i, j, k);
 		if (chest != null) {
 			GOT.dropContainerItems(chest, world, i, j, k);
 			world.func_147453_f(i, j, k, block);

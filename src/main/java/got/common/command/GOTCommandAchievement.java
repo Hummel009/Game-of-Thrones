@@ -81,7 +81,7 @@ public class GOTCommandAchievement extends CommandBase {
 			}
 			if ("remove".equalsIgnoreCase(args[0])) {
 				if ("all".equalsIgnoreCase(achName)) {
-					ArrayList<GOTAchievement> allAchievements = new ArrayList<>(playerData.getAchievements());
+					Iterable<GOTAchievement> allAchievements = new ArrayList<>(playerData.getAchievements());
 					for (GOTAchievement ach : allAchievements) {
 						playerData.removeAchievement(ach);
 					}

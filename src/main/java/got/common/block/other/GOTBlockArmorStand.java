@@ -11,6 +11,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
@@ -30,7 +31,7 @@ public class GOTBlockArmorStand extends Block {
 
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
-		GOTTileEntityArmorStand stand = (GOTTileEntityArmorStand) world.getTileEntity(i, j, k);
+		IInventory stand = (IInventory) world.getTileEntity(i, j, k);
 		if (stand != null) {
 			GOT.dropContainerItems(stand, world, i, j, k);
 		}

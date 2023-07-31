@@ -19,11 +19,11 @@ import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public static GOTItemRendererManager INSTANCE;
-	public static List<GOTRenderLargeItem> largeItemRenderers = new ArrayList<>();
+	public static Collection<GOTRenderLargeItem> largeItemRenderers = new ArrayList<>();
 
 	public static void preInit() {
 		Minecraft mc = Minecraft.getMinecraft();

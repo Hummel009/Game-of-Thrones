@@ -48,7 +48,7 @@ public class GOTBlockOven extends BlockContainer {
 
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
-		GOTTileEntityOven oven = (GOTTileEntityOven) world.getTileEntity(i, j, k);
+		IInventory oven = (IInventory) world.getTileEntity(i, j, k);
 		if (oven != null) {
 			GOT.dropContainerItems(oven, world, i, j, k);
 			world.func_147453_f(i, j, k, block);

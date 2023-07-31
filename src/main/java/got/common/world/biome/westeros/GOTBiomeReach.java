@@ -14,7 +14,7 @@ import got.common.world.structure.westeros.reach.GOTStructureReachSettlement;
 import got.common.world.structure.westeros.reach.GOTStructureReachWatchfort;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeReach extends GOTBiomeWesteros {
 	public GOTBiomeReach(int i, boolean major) {
@@ -37,17 +37,17 @@ public class GOTBiomeReach extends GOTBiomeWesteros {
 		decorator.addStructure(new GOTStructureReachWatchfort(false), 800);
 		invasionSpawns.addInvasion(GOTInvasions.DRAGONSTONE, GOTEventSpawner.EventChance.UNCOMMON);
 		invasionSpawns.addInvasion(GOTInvasions.IRONBORN, GOTEventSpawner.EventChance.UNCOMMON);
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.REACH_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.REACH_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		List<SpawnListContainer> c1 = new ArrayList<>();
+		Collection<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-		List<SpawnListContainer> c2 = new ArrayList<>();
+		Collection<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.DORNE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
-		List<SpawnListContainer> c3 = new ArrayList<>();
+		Collection<SpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c3);
 	}

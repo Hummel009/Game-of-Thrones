@@ -1,6 +1,7 @@
 package got.client.gui;
 
 import com.google.common.collect.Lists;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTTextBody;
 import got.common.GOTDate;
 import got.common.GOTLevelData;
@@ -95,7 +96,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				viewCompleted = true;
 			}
 			if (button == buttonQuestDelete && deletingMiniquest != null) {
-				GOTPacketDeleteMiniquest packet = new GOTPacketDeleteMiniquest(deletingMiniquest);
+				IMessage packet = new GOTPacketDeleteMiniquest(deletingMiniquest);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				deletingMiniquest = null;
 				selectedMiniquest = null;
@@ -559,7 +560,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		GOTMiniQuest tracking = getPlayerData().getTrackingMiniQuest();
 		GOTMiniQuest newTracking;
 		newTracking = quest == tracking ? null : quest;
-		GOTPacketMiniquestTrack packet = new GOTPacketMiniquestTrack(newTracking);
+		IMessage packet = new GOTPacketMiniquestTrack(newTracking);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 		getPlayerData().setTrackingMiniQuest(newTracking);
 		trackTicks = 40;

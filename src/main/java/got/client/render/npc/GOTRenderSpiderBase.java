@@ -4,6 +4,7 @@ import got.client.GOTTextures;
 import got.client.model.GOTModelSpider;
 import got.client.render.other.GOTGlowingEyes;
 import got.client.render.other.GOTNPCRendering;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntitySpiderBase;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -13,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public abstract class GOTRenderSpiderBase extends RenderLiving {
-	public GOTModelSpider eyesModel = new GOTModelSpider(0.55f);
+	public GOTGlowingEyes.Model eyesModel = new GOTModelSpider(0.55f);
 
 	protected GOTRenderSpiderBase() {
 		super(new GOTModelSpider(0.5f), 1.0f);
@@ -23,7 +24,7 @@ public abstract class GOTRenderSpiderBase extends RenderLiving {
 	@Override
 	public void doRender(EntityLiving entity, double d, double d1, double d2, float f, float f1) {
 		super.doRender(entity, d, d1, d2, f, f1);
-		if (Minecraft.isGuiEnabled() && ((GOTEntitySpiderBase) entity).hiredNPCInfo.getHiringPlayer() == renderManager.livingPlayer) {
+		if (Minecraft.isGuiEnabled() && ((GOTEntityNPC) entity).hiredNPCInfo.getHiringPlayer() == renderManager.livingPlayer) {
 			GOTNPCRendering.renderHiredIcon(entity, d, d1 + 0.5, d2);
 			GOTNPCRendering.renderNPCHealthBar(entity, d, d1 + 0.5, d2);
 		}

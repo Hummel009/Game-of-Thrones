@@ -45,7 +45,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
-		GOTTileEntityAlloyForge forge = (GOTTileEntityAlloyForge) world.getTileEntity(i, j, k);
+		IInventory forge = (IInventory) world.getTileEntity(i, j, k);
 		if (forge != null) {
 			GOT.dropContainerItems(forge, world, i, j, k);
 			world.func_147453_f(i, j, k, block);

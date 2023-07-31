@@ -28,6 +28,7 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -50,7 +51,7 @@ public class GOTItemMug extends Item {
 	public float alcoholicity;
 	public int foodHealAmount;
 	public float foodSaturationAmount;
-	public List<PotionEffect> potionEffects = new ArrayList<>();
+	public Collection<PotionEffect> potionEffects = new ArrayList<>();
 	public int damageAmount;
 	public boolean curesEffects;
 
@@ -77,7 +78,7 @@ public class GOTItemMug extends Item {
 		this(true, false, true, alc);
 	}
 
-	public static void addPotionEffectsToTooltip(ItemStack itemstack, EntityPlayer entityplayer, List<String> list, boolean flag, List<PotionEffect> itemEffects) {
+	public static void addPotionEffectsToTooltip(ItemStack itemstack, EntityPlayer entityplayer, Collection<String> list, boolean flag, Collection<PotionEffect> itemEffects) {
 		if (!itemEffects.isEmpty()) {
 			ItemStack potionEquivalent = new ItemStack(Items.potionitem);
 			potionEquivalent.setItemDamage(69);
@@ -89,7 +90,7 @@ public class GOTItemMug extends Item {
 			}
 			potionEquivalent.setTagCompound(new NBTTagCompound());
 			potionEquivalent.getTagCompound().setTag("CustomPotionEffects", effectsData);
-			ArrayList<String> effectTooltips = new ArrayList<>();
+			List<String> effectTooltips = new ArrayList<>();
 			potionEquivalent.getItem().addInformation(potionEquivalent, entityplayer, effectTooltips, flag);
 			list.addAll(effectTooltips);
 		}
@@ -282,7 +283,7 @@ public class GOTItemMug extends Item {
 	}
 
 	public List<PotionEffect> convertPotionEffectsForStrength(float strength) {
-		ArrayList<PotionEffect> list = new ArrayList<>();
+		List<PotionEffect> list = new ArrayList<>();
 		for (PotionEffect base : potionEffects) {
 			PotionEffect modified = new PotionEffect(base.getPotionID(), (int) (base.getDuration() * strength));
 			list.add(modified);

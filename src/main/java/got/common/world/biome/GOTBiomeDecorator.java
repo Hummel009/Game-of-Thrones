@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Random;
@@ -29,8 +30,8 @@ public class GOTBiomeDecorator {
 	public int chunkZ;
 	public GOTBiome biome;
 	public List<OreGenerant> biomeSoils = new ArrayList<>();
-	public List<OreGenerant> biomeOres = new ArrayList<>();
-	public List<OreGenerant> biomeGems = new ArrayList<>();
+	public Collection<OreGenerant> biomeOres = new ArrayList<>();
+	public Collection<OreGenerant> biomeGems = new ArrayList<>();
 	public float biomeOreFactor = 1.0f;
 	public float biomeGemFactor = 0.5f;
 	public WorldGenerator clayGen = new GOTWorldGenSand(Blocks.clay, 5, 1);
@@ -65,11 +66,11 @@ public class GOTBiomeDecorator {
 	public int cactiPerChunk;
 	public boolean generateAgriculture;
 	public boolean whiteSand;
-	public List<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
+	public Collection<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
 	public Random structureRand = new Random();
-	public List<Structure> structures = new ArrayList<>();
-	public List<GOTStructureBaseSettlement> settlements = new ArrayList<>();
-	public List<GOTStructureBaseSettlement> fixedSettlements = new ArrayList<>();
+	public Collection<Structure> structures = new ArrayList<>();
+	public Collection<GOTStructureBaseSettlement> settlements = new ArrayList<>();
+	public Collection<GOTStructureBaseSettlement> fixedSettlements = new ArrayList<>();
 
 	public GOTBiomeDecorator(GOTBiome gotbiome) {
 		biome = gotbiome;

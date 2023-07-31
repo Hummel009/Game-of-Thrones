@@ -7,6 +7,7 @@ import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.fellowship.GOTFellowship;
+import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTCustomWaypoint;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -19,7 +20,7 @@ public class GOTPacketShareCWP implements IMessage {
 	public GOTPacketShareCWP() {
 	}
 
-	public GOTPacketShareCWP(GOTCustomWaypoint wp, String s, boolean add) {
+	public GOTPacketShareCWP(GOTAbstractWaypoint wp, String s, boolean add) {
 		wpID = wp.getID();
 		fsName = s;
 		adding = add;

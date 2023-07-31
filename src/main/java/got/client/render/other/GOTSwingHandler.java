@@ -15,9 +15,7 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class GOTSwingHandler {
 	public static Map<EntityLivingBase, SwingTime> entitySwings = new HashMap<>();
@@ -35,7 +33,7 @@ public class GOTSwingHandler {
 			if (mc.theWorld == null) {
 				entitySwings.clear();
 			} else if (!mc.isGamePaused()) {
-				ArrayList<EntityLivingBase> removes = new ArrayList<>();
+				Collection<EntityLivingBase> removes = new ArrayList<>();
 				for (Map.Entry<EntityLivingBase, SwingTime> e : entitySwings.entrySet()) {
 					EntityLivingBase entity = e.getKey();
 					SwingTime swt = e.getValue();
@@ -115,8 +113,6 @@ public class GOTSwingHandler {
 		public int swing;
 		public int swingMax;
 
-		public SwingTime() {
-		}
 	}
 
 }

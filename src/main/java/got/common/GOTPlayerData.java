@@ -85,7 +85,7 @@ public class GOTPlayerData {
 	public int completedMiniquestCount;
 	public int completedBountyQuests;
 	public UUID trackingMiniQuestID;
-	public List<GOTFaction> bountiesPlaced = new ArrayList<>();
+	public Collection<GOTFaction> bountiesPlaced = new ArrayList<>();
 	public GOTWaypoint lastWaypoint;
 	public GOTBiome lastBiome;
 	public Map<GOTGuiMessageTypes, Boolean> sentMessageTypes = new EnumMap<>(GOTGuiMessageTypes.class);
@@ -100,15 +100,15 @@ public class GOTPlayerData {
 	public Set<GOTWaypoint.Region> unlockedFTRegions = EnumSet.noneOf(Region.class);
 	public List<GOTCustomWaypoint> customWaypoints = new ArrayList<>();
 	public List<GOTCustomWaypoint> customWaypointsShared = new ArrayList<>();
-	public Set<CWPSharedKey> cwpSharedUnlocked = new HashSet<>();
-	public Set<CWPSharedKey> cwpSharedHidden = new HashSet<>();
+	public Collection<CWPSharedKey> cwpSharedUnlocked = new HashSet<>();
+	public Collection<CWPSharedKey> cwpSharedHidden = new HashSet<>();
 	public Map<GOTWaypoint, Integer> wpUseCounts = new EnumMap<>(GOTWaypoint.class);
 	public Map<Integer, Integer> cwpUseCounts = new HashMap<>();
 	public Map<CWPSharedKey, Integer> cwpSharedUseCounts = new HashMap<>();
 	public int nextCwpID = 20000;
 	public List<UUID> fellowshipIDs = new ArrayList<>();
 	public List<GOTFellowshipClient> fellowshipsClient = new ArrayList<>();
-	public List<GOTFellowshipInvite> fellowshipInvites = new ArrayList<>();
+	public Collection<GOTFellowshipInvite> fellowshipInvites = new ArrayList<>();
 	public List<GOTFellowshipClient> fellowshipInvitesClient = new ArrayList<>();
 	public UUID chatBoundFellowshipID;
 	public boolean structuresBanned;
@@ -132,7 +132,7 @@ public class GOTPlayerData {
 		if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
 			return null;
 		}
-		return ((GOTItemArmor) item.getItem()).getArmorMaterial();
+		return ((ItemArmor) item.getItem()).getArmorMaterial();
 	}
 
 	public static ItemArmor.ArmorMaterial getFullArmorMaterial(EntityLivingBase entity) {
@@ -158,7 +158,7 @@ public class GOTPlayerData {
 			if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
 				return null;
 			}
-			ArmorMaterial itemMaterial = ((GOTItemArmor) item.getItem()).getArmorMaterial();
+			ArmorMaterial itemMaterial = ((ItemArmor) item.getItem()).getArmorMaterial();
 			if (material != null && itemMaterial != material) {
 				return null;
 			}
@@ -172,7 +172,7 @@ public class GOTPlayerData {
 		if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
 			return null;
 		}
-		return ((GOTItemArmor) item.getItem()).getArmorMaterial();
+		return ((ItemArmor) item.getItem()).getArmorMaterial();
 	}
 
 	public static boolean isTimerAutosaveTick() {
@@ -193,7 +193,7 @@ public class GOTPlayerData {
 			if (fs.isDisbanded()) {
 				rejectFellowshipInvite(fs);
 				if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-					GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.DISBANDED);
+					IMessage resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.DISBANDED);
 					GOTPacketHandler.networkWrapper.sendTo(resultPacket, (EntityPlayerMP) entityplayer);
 				}
 			} else {
@@ -201,7 +201,7 @@ public class GOTPlayerData {
 				if (respectSizeLimit && limit >= 0 && fs.getPlayerCount() >= limit) {
 					rejectFellowshipInvite(fs);
 					if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-						GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.TOO_LARGE);
+						IMessage resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.TOO_LARGE);
 						GOTPacketHandler.networkWrapper.sendTo(resultPacket, (EntityPlayerMP) entityplayer);
 					}
 				} else {
@@ -210,7 +210,7 @@ public class GOTPlayerData {
 					markDirty();
 					sendFellowshipInviteRemovePacket(fs);
 					if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-						GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.JOINED);
+						IMessage resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.JOINED);
 						GOTPacketHandler.networkWrapper.sendTo(resultPacket, (EntityPlayerMP) entityplayer);
 						UUID inviterID = existingInvite.inviterID;
 						if (inviterID == null) {
@@ -272,7 +272,7 @@ public class GOTPlayerData {
 		return addAlignment(entityplayer, source, faction, null, entity);
 	}
 
-	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, List<GOTFaction> forcedBonusFactions, double posX, double posY, double posZ) {
+	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Collection<GOTFaction> forcedBonusFactions, double posX, double posY, double posZ) {
 		float bonus = source.bonus;
 		GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
 		float prevMainAlignment = getAlignment(faction);
@@ -348,7 +348,7 @@ public class GOTPlayerData {
 		return factionBonusMap;
 	}
 
-	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, List<GOTFaction> forcedBonusFactions, Entity entity) {
+	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Collection<GOTFaction> forcedBonusFactions, Entity entity) {
 		return addAlignment(entityplayer, source, faction, forcedBonusFactions, entity.posX, entity.boundingBox.minY + entity.height * 0.7D, entity.posZ);
 	}
 
@@ -492,7 +492,7 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void addSharedCustomWaypointsFrom(UUID onlyOneFellowshipID, List<UUID> checkSpecificPlayers) {
+	public void addSharedCustomWaypointsFrom(UUID onlyOneFellowshipID, Iterable<UUID> checkSpecificPlayers) {
 		List<UUID> checkFellowshipIDs;
 		if (onlyOneFellowshipID != null) {
 			checkFellowshipIDs = new ArrayList<>();
@@ -500,7 +500,7 @@ public class GOTPlayerData {
 		} else {
 			checkFellowshipIDs = fellowshipIDs;
 		}
-		List<UUID> checkFellowPlayerIDs = new ArrayList<>();
+		Collection<UUID> checkFellowPlayerIDs = new ArrayList<>();
 		if (checkSpecificPlayers != null) {
 			for (UUID player : checkSpecificPlayers) {
 				if (!player.equals(playerUUID)) {
@@ -659,7 +659,7 @@ public class GOTPlayerData {
 	}
 
 	public void checkCustomWaypointsSharedBy(Collection<UUID> checkSpecificPlayers) {
-		List<GOTCustomWaypoint> removes = new ArrayList<>();
+		Collection<GOTCustomWaypoint> removes = new ArrayList<>();
 		for (GOTCustomWaypoint waypoint : customWaypointsShared) {
 			UUID waypointSharingPlayer = waypoint.getSharingPlayerID();
 			if (checkSpecificPlayers == null || checkSpecificPlayers.contains(waypointSharingPlayer)) {
@@ -696,7 +696,7 @@ public class GOTPlayerData {
 			GOT.proxy.setTrackedQuest(quest);
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				GOTPacketMiniquestRemove packet = new GOTPacketMiniquestRemove(quest, false, true);
+				IMessage packet = new GOTPacketMiniquestRemove(quest, false, true);
 				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		} else {
@@ -762,7 +762,7 @@ public class GOTPlayerData {
 
 	public void disbandFellowship(GOTFellowship fs, String disbanderUsername) {
 		if (fs.isOwner(playerUUID)) {
-			List<UUID> memberUUIDs = new ArrayList<>(fs.getMemberUUIDs());
+			Iterable<UUID> memberUUIDs = new ArrayList<>(fs.getMemberUUIDs());
 			fs.setDisbandedAndRemoveAllMembers();
 			removeFellowship(fs);
 			for (UUID memberID : memberUUIDs) {
@@ -811,7 +811,7 @@ public class GOTPlayerData {
 			int startZ = MathHelper.floor_double(entityplayer.posZ);
 			double range = 256.0D;
 			List<EntityLiving> entities = world.getEntitiesWithinAABB(EntityLiving.class, entityplayer.boundingBox.expand(range, range, range));
-			Set<EntityLiving> entitiesToTransport = new HashSet<>();
+			Collection<EntityLiving> entitiesToTransport = new HashSet<>();
 			for (EntityLiving entity : entities) {
 				if (!(entity instanceof GOTEntityDragon)) {
 					if (entity instanceof GOTEntityNPC) {
@@ -833,7 +833,7 @@ public class GOTPlayerData {
 					}
 				}
 			}
-			Set<EntityLiving> removes = new HashSet<>();
+			Collection<EntityLiving> removes = new HashSet<>();
 			for (EntityLiving entity : entitiesToTransport) {
 				Entity rider = entity.riddenByEntity;
 				if (rider != null && entitiesToTransport.contains(rider)) {
@@ -1234,7 +1234,7 @@ public class GOTPlayerData {
 		markDirty();
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketTitle packet = new GOTPacketTitle(playerTitle);
+			IMessage packet = new GOTPacketTitle(playerTitle);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		for (UUID fsID : fellowshipIDs) {
@@ -1274,7 +1274,7 @@ public class GOTPlayerData {
 		if (bigChange || pledgeBreakCooldown % 5 == 0) {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				GOTPacketBrokenPledge packet = new GOTPacketBrokenPledge(pledgeBreakCooldown, pledgeBreakCooldownStart, brokenPledgeFaction);
+				IMessage packet = new GOTPacketBrokenPledge(pledgeBreakCooldown, pledgeBreakCooldownStart, brokenPledgeFaction);
 				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
@@ -1287,7 +1287,7 @@ public class GOTPlayerData {
 				} else {
 					brokenName = preBroken.factionName();
 				}
-				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.pledgeBreakCooldown", brokenName);
+				IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.pledgeBreakCooldown", brokenName);
 				entityplayer.addChatMessage(chatComponentTranslation);
 			}
 		}
@@ -1324,7 +1324,7 @@ public class GOTPlayerData {
 				World world = entityplayer.worldObj;
 				world.playSoundAtEntity(entityplayer, "got:event.pledge", 1.0F, 1.0F);
 			}
-			GOTPacketPledge packet = new GOTPacketPledge(fac);
+			IMessage packet = new GOTPacketPledge(fac);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -1420,7 +1420,7 @@ public class GOTPlayerData {
 			markDirty();
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				GOTPacketUpdateViewingFaction packet = new GOTPacketUpdateViewingFaction(viewingFaction);
+				IMessage packet = new GOTPacketUpdateViewingFaction(viewingFaction);
 				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
@@ -1464,7 +1464,7 @@ public class GOTPlayerData {
 		getFactionData(bonusFac).addConquest(Math.abs(conq));
 		if (conq != 0.0F) {
 			GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(0.0F, title);
-			GOTPacketAlignmentBonus packet = new GOTPacketAlignmentBonus(bonusFac, getAlignment(bonusFac), new GOTAlignmentBonusMap(), conq, posX, posY, posZ, source);
+			IMessage packet = new GOTPacketAlignmentBonus(bonusFac, getAlignment(bonusFac), new GOTAlignmentBonusMap(), conq, posX, posY, posZ, source);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -1481,7 +1481,7 @@ public class GOTPlayerData {
 	public boolean hasActiveOrCompleteMQType(Class<? extends GOTMiniQuest> type) {
 		List<GOTMiniQuest> quests = miniQuests;
 		List<GOTMiniQuest> questsComplete = miniQuestsCompleted;
-		List<GOTMiniQuest> allQuests = new ArrayList<>();
+		Collection<GOTMiniQuest> allQuests = new ArrayList<>();
 		for (GOTMiniQuest q : quests) {
 			if (q.isActive()) {
 				allQuests.add(q);
@@ -1915,7 +1915,7 @@ public class GOTPlayerData {
 			markDirty();
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				GOTPacketWaypointRegion packet = new GOTPacketWaypointRegion(region, false);
+				IMessage packet = new GOTPacketWaypointRegion(region, false);
 				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
@@ -1935,7 +1935,7 @@ public class GOTPlayerData {
 		if (pledgeKillCooldown > 24000) {
 			revokePledgeFaction(entityplayer, false);
 		} else if (pledgeFaction != null) {
-			ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.pledgeKillWarn", pledgeFaction.factionName());
+			IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.pledgeKillWarn", pledgeFaction.factionName());
 			entityplayer.addChatMessage(chatComponentTranslation);
 		}
 	}
@@ -1953,11 +1953,11 @@ public class GOTPlayerData {
 			runAchievementChecks(entityplayer, world);
 		}
 		if (!checkedMenu) {
-			GOTPacketMenuPrompt packet = new GOTPacketMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
+			IMessage packet = new GOTPacketMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
 			GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 		}
 		if (playerTitle != null && !playerTitle.getTitle().canPlayerUse(entityplayer)) {
-			ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.loseTitle", playerTitle.getFullTitleComponent(entityplayer));
+			IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.loseTitle", playerTitle.getFullTitleComponent(entityplayer));
 			entityplayer.addChatMessage(chatComponentTranslation);
 			setPlayerTitle(null);
 		}
@@ -1979,7 +1979,7 @@ public class GOTPlayerData {
 		}
 		if (!bountiesPlaced.isEmpty()) {
 			for (GOTFaction fac : bountiesPlaced) {
-				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.bountyPlaced", fac.factionName());
+				IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.bountyPlaced", fac.factionName());
 				chatComponentTranslation.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				entityplayer.addChatMessage(chatComponentTranslation);
 			}
@@ -2172,7 +2172,7 @@ public class GOTPlayerData {
 			markDirty();
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				GOTPacketMiniquestRemove packet = new GOTPacketMiniquestRemove(quest, quest.isCompleted(), false);
+				IMessage packet = new GOTPacketMiniquestRemove(quest, quest.isCompleted(), false);
 				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		} else {
@@ -2329,7 +2329,7 @@ public class GOTPlayerData {
 		if (entityplayer.inventory.hasItem(GOTItems.pouch)) {
 			addAchievement(GOTAchievement.getPouch);
 		}
-		Set<Block> tables = new HashSet<>();
+		Collection<Block> tables = new HashSet<>();
 		int crossbowBolts = 0;
 		for (ItemStack item : entityplayer.inventory.mainInventory) {
 			if (item != null && item.getItem() instanceof ItemBlock) {
@@ -2624,7 +2624,7 @@ public class GOTPlayerData {
 
 	public List<GOTMiniQuest> selectMiniQuests(MiniQuestSelector selector) {
 		List<GOTMiniQuest> ret = new ArrayList<>();
-		List<GOTMiniQuest> threadSafe = new ArrayList<>(miniQuests);
+		Iterable<GOTMiniQuest> threadSafe = new ArrayList<>(miniQuests);
 		for (GOTMiniQuest quest : threadSafe) {
 			if (selector.include(quest)) {
 				ret.add(quest);
@@ -2634,19 +2634,19 @@ public class GOTPlayerData {
 	}
 
 	public void sendAchievementPacket(EntityPlayerMP entityplayer, GOTAchievement achievement, boolean display) {
-		GOTPacketAchievement packet = new GOTPacketAchievement(achievement, display);
+		IMessage packet = new GOTPacketAchievement(achievement, display);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
 	public void sendAchievementRemovePacket(EntityPlayerMP entityplayer, GOTAchievement achievement) {
-		GOTPacketAchievementRemove packet = new GOTPacketAchievementRemove(achievement);
+		IMessage packet = new GOTPacketAchievementRemove(achievement);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
 	public void sendAlignmentBonusPacket(GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionMap, float conqBonus, double posX, double posY, double posZ) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null) {
-			GOTPacketAlignmentBonus packet = new GOTPacketAlignmentBonus(faction, prevMainAlignment, factionMap, conqBonus, posX, posY, posZ, source);
+			IMessage packet = new GOTPacketAlignmentBonus(faction, prevMainAlignment, factionMap, conqBonus, posX, posY, posZ, source);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -2654,7 +2654,7 @@ public class GOTPlayerData {
 	public void sendFellowshipInvitePacket(GOTFellowship fs) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketFellowship packet = new GOTPacketFellowship(this, fs, true);
+			IMessage packet = new GOTPacketFellowship(this, fs, true);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -2662,7 +2662,7 @@ public class GOTPlayerData {
 	public void sendFellowshipInviteRemovePacket(GOTFellowship fs) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketFellowshipRemove packet = new GOTPacketFellowshipRemove(fs, true);
+			IMessage packet = new GOTPacketFellowshipRemove(fs, true);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -2670,7 +2670,7 @@ public class GOTPlayerData {
 	public void sendFellowshipPacket(GOTFellowship fs) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketFellowship packet = new GOTPacketFellowship(this, fs, false);
+			IMessage packet = new GOTPacketFellowship(this, fs, false);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -2678,18 +2678,18 @@ public class GOTPlayerData {
 	public void sendFellowshipRemovePacket(GOTFellowship fs) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketFellowshipRemove packet = new GOTPacketFellowshipRemove(fs, false);
+			IMessage packet = new GOTPacketFellowshipRemove(fs, false);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
 	public void sendFTBouncePacket(EntityPlayerMP entityplayer) {
-		GOTPacketFTBounceClient packet = new GOTPacketFTBounceClient();
+		IMessage packet = new GOTPacketFTBounceClient();
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
 	public void sendFTPacket(EntityPlayerMP entityplayer, GOTAbstractWaypoint waypoint, int startX, int startZ) {
-		GOTPacketFTScreen packet = new GOTPacketFTScreen(waypoint, startX, startZ);
+		IMessage packet = new GOTPacketFTScreen(waypoint, startX, startZ);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
@@ -2700,7 +2700,7 @@ public class GOTPlayerData {
 			if (!sent) {
 				sentMessageTypes.put(message, true);
 				markDirty();
-				GOTPacketMessage packet = new GOTPacketMessage(message);
+				IMessage packet = new GOTPacketMessage(message);
 				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
@@ -2709,14 +2709,14 @@ public class GOTPlayerData {
 	public void sendMiniQuestPacket(EntityPlayerMP entityplayer, GOTMiniQuest quest, boolean completed) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		quest.writeToNBT(nbt);
-		GOTPacketMiniquest packet = new GOTPacketMiniquest(nbt, completed);
+		IMessage packet = new GOTPacketMiniquest(nbt, completed);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
 	public void sendOptionsPacket(int option, boolean flag) {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketOptions packet = new GOTPacketOptions(option, flag);
+			IMessage packet = new GOTPacketOptions(option, flag);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -2730,7 +2730,7 @@ public class GOTPlayerData {
 		nbt.removeTag("CustomWaypoints");
 		nbt.removeTag("Fellowships");
 		nbt.removeTag("FellowshipInvites");
-		GOTPacketLoginPlayerData packet = new GOTPacketLoginPlayerData(nbt);
+		IMessage packet = new GOTPacketLoginPlayerData(nbt);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 		for (GOTAchievement achievement : achievements) {
 			sendAchievementPacket(entityplayer, achievement, false);
@@ -2753,7 +2753,7 @@ public class GOTPlayerData {
 				checkIfStillWaypointSharerForFellowship(fs);
 			}
 		}
-		Set<GOTFellowshipInvite> staleFellowshipInvites = new HashSet<>();
+		Collection<GOTFellowshipInvite> staleFellowshipInvites = new HashSet<>();
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
 			GOTFellowship fs = GOTFellowshipData.getFellowship(invite.fellowshipID);
 			if (fs != null) {
@@ -2896,7 +2896,7 @@ public class GOTPlayerData {
 		if (bigChange || ftSinceTick % 5 == 0 || forceUpdate) {
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				GOTPacketFTTimer packet = new GOTPacketFTTimer(ftSinceTick);
+				IMessage packet = new GOTPacketFTTimer(ftSinceTick);
 				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
@@ -2911,7 +2911,7 @@ public class GOTPlayerData {
 		markDirty();
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketMiniquestTrackClient packet = new GOTPacketMiniquestTrackClient(trackingMiniQuestID);
+			IMessage packet = new GOTPacketMiniquestTrackClient(trackingMiniQuestID);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -2943,7 +2943,7 @@ public class GOTPlayerData {
 		markDirty();
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTPacketWaypointUseCount packet = new GOTPacketWaypointUseCount(wp, count);
+			IMessage packet = new GOTPacketWaypointUseCount(wp, count);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -2978,7 +2978,7 @@ public class GOTPlayerData {
 			markDirty();
 			EntityPlayer entityplayer = getPlayer();
 			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				GOTPacketWaypointRegion packet = new GOTPacketWaypointRegion(region, true);
+				IMessage packet = new GOTPacketWaypointRegion(region, true);
 				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			}
 		}
@@ -3002,7 +3002,7 @@ public class GOTPlayerData {
 
 	public void unlockSharedCustomWaypoints(EntityPlayer entityplayer) {
 		if (pdTick % 20 == 0 && entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) {
-			List<GOTCustomWaypoint> unlockWaypoints = new ArrayList<>();
+			Collection<GOTCustomWaypoint> unlockWaypoints = new ArrayList<>();
 			for (GOTCustomWaypoint waypoint : customWaypointsShared) {
 				if (waypoint.isShared() && !waypoint.isSharedUnlocked() && waypoint.canUnlockShared(entityplayer)) {
 					unlockWaypoints.add(waypoint);
@@ -3028,7 +3028,7 @@ public class GOTPlayerData {
 			markDirty();
 			NBTTagCompound nbt = new NBTTagCompound();
 			factionData.save(nbt);
-			GOTPacketFactionData packet = new GOTPacketFactionData(faction, nbt);
+			IMessage packet = new GOTPacketFactionData(faction, nbt);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -3045,7 +3045,7 @@ public class GOTPlayerData {
 			int ftClockIncrease = (int) (diff * offlineFactor);
 			if (ftClockIncrease > 0) {
 				setTimeSinceFTWithUpdate(ftSinceTick + ftClockIncrease);
-				ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.chat.ft.offlineTick", GOTLevelData.getHMSTime_Ticks(ftClockIncrease));
+				IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.ft.offlineTick", GOTLevelData.getHMSTime_Ticks(ftClockIncrease));
 				player.addChatMessage(chatComponentTranslation);
 			}
 		}

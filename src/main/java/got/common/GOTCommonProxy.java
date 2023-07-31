@@ -2,6 +2,7 @@ package got.common;
 
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.network.IGuiHandler;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.client.gui.*;
 import got.common.block.other.GOTBlockFlowerPot;
@@ -40,6 +41,7 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityDispenser;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
@@ -54,7 +56,7 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public static void sendClientsideGUI(EntityPlayerMP entityplayer, int guiID, int x, int y, int z) {
-		GOTPacketClientsideGUI packet = new GOTPacketClientsideGUI(guiID, x, y, z);
+		IMessage packet = new GOTPacketClientsideGUI(guiID, x, y, z);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
@@ -153,7 +155,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			int slot = unpackSlot(ID);
 			Entity minecart = world.getEntityByID(i);
 			if (minecart instanceof EntityMinecartContainer) {
-				return new GOTGuiChestWithPouch(entityplayer, slot, (EntityMinecartContainer) minecart);
+				return new GOTGuiChestWithPouch(entityplayer, slot, (IInventory) minecart);
 			}
 		}
 		GOTGuiID id = GOTGuiID.values()[ID];
@@ -199,7 +201,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			case CHEST:
 				TileEntity chest = world.getTileEntity(i, j, k);
 				if (chest instanceof GOTTileEntityChest) {
-					return new GuiChest(entityplayer.inventory, (GOTTileEntityChest) chest);
+					return new GuiChest(entityplayer.inventory, (IInventory) chest);
 				}
 				break;
 			case COIN_EXCHANGE:
@@ -218,7 +220,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			case DISPENSER:
 				TileEntity trap = world.getTileEntity(i, j, k);
 				if (trap instanceof GOTTileEntitySarbacaneTrap) {
-					return new GuiDispenser(entityplayer.inventory, (GOTTileEntitySarbacaneTrap) trap);
+					return new GuiDispenser(entityplayer.inventory, (TileEntityDispenser) trap);
 				}
 				break;
 			case EDIT_SIGN:
@@ -511,7 +513,7 @@ public class GOTCommonProxy implements IGuiHandler {
 		}
 		Entity minecart = world.getEntityByID(i);
 		if (testForSlotPackedGuiID(ID, GOTGuiID.POUCH_MINECART.ordinal()) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && minecart instanceof EntityMinecartContainer) {
-			return new GOTContainerChestWithPouch(entityplayer, slot, (EntityMinecartContainer) minecart);
+			return new GOTContainerChestWithPouch(entityplayer, slot, (IInventory) minecart);
 		}
 		GOTGuiID id = GOTGuiID.values()[ID];
 		switch (id) {
@@ -550,7 +552,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			case CHEST:
 				TileEntity chest = world.getTileEntity(i, j, k);
 				if (chest instanceof GOTTileEntityChest) {
-					return new ContainerChest(entityplayer.inventory, (GOTTileEntityChest) chest);
+					return new ContainerChest(entityplayer.inventory, (IInventory) chest);
 				}
 				break;
 			case COIN_EXCHANGE:
@@ -568,7 +570,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			case DISPENSER:
 				TileEntity trap = world.getTileEntity(i, j, k);
 				if (trap instanceof GOTTileEntitySarbacaneTrap) {
-					return new ContainerDispenser(entityplayer.inventory, (GOTTileEntitySarbacaneTrap) trap);
+					return new ContainerDispenser(entityplayer.inventory, (TileEntityDispenser) trap);
 				}
 				break;
 			case HIRED_FARMER_INVENTORY:
@@ -594,7 +596,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			case MERCENARY_HIRE:
 				entity = world.getEntityByID(i);
 				if (entity instanceof GOTMercenary) {
-					return new GOTContainerUnitTrade(entityplayer, (GOTMercenary) entity, world);
+					return new GOTContainerUnitTrade(entityplayer, (GOTHireableBase) entity, world);
 				}
 				break;
 			case MILLSTONE:
@@ -699,7 +701,7 @@ public class GOTCommonProxy implements IGuiHandler {
 			case UNIT_TRADE:
 				entity = world.getEntityByID(i);
 				if (entity instanceof GOTUnitTradeable) {
-					return new GOTContainerUnitTrade(entityplayer, (GOTUnitTradeable) entity, world);
+					return new GOTContainerUnitTrade(entityplayer, (GOTHireableBase) entity, world);
 				}
 				break;
 			case UNSMELTERY:

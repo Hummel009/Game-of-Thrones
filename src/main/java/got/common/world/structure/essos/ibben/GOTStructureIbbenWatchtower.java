@@ -7,6 +7,7 @@ import got.common.database.GOTFoods;
 import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
 import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -168,7 +169,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 		return true;
 	}
 
-	public int getBelowTop(World world, int i, int j, int k) {
+	public int getBelowTop(IBlockAccess world, int i, int j, int k) {
 		while (!isOpaque(world, i, j, k) && getY(j) >= 0) {
 			--j;
 		}

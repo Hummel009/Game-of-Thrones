@@ -192,7 +192,7 @@ public class GOTFactionRelations {
 		}
 
 		public static List<String> listRelationNames() {
-			ArrayList<String> names = new ArrayList<>();
+			List<String> names = new ArrayList<>();
 			for (Relation rel : values()) {
 				names.add(rel.codeName());
 			}

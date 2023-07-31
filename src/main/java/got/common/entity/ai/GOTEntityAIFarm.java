@@ -17,6 +17,7 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemHoe;
@@ -215,7 +216,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		int chunkX = x >> 4;
 		int chunkZ = z >> 4;
 		int chunkRange = (searchRange >> 4) + 1;
-		ArrayList<TileEntityChest> nearbyChests = new ArrayList<>();
+		List<TileEntityChest> nearbyChests = new ArrayList<>();
 		for (int i = -chunkRange; i <= chunkRange; ++i) {
 			for (int k = -chunkRange; k <= chunkRange; ++k) {
 				int nearChunkX = chunkX + i;
@@ -396,7 +397,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	public boolean isSolidOpenWalkTarget(int i, int j, int k) {
 		Block below = theWorld.getBlock(i, j - 1, k);
 		if (below.isOpaqueCube() || below.canSustainPlant(theWorld, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {
-			ArrayList<AxisAlignedBB> bounds = new ArrayList<>();
+			List<AxisAlignedBB> bounds = new ArrayList<>();
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(i, j, k, i + 1, j + 2, k + 1);
 			for (int j1 = j; j1 <= j + 1; ++j1) {
 				theWorld.getBlock(i, j1, k).addCollisionBoxesToList(theWorld, i, j1, k, aabb, bounds, theEntity);
@@ -650,7 +651,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						theEntity.swingItem();
 						TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 						if (te instanceof TileEntityChest) {
-							TileEntityChest chest = (TileEntityChest) te;
+							IInventory chest = (IInventory) te;
 							int[] invSlots = {0, 3};
 							for (int l : invSlots) {
 								ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
@@ -691,7 +692,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						theEntity.swingItem();
 						TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 						if (te instanceof TileEntityChest) {
-							TileEntityChest chest = (TileEntityChest) te;
+							IInventory chest = (IInventory) te;
 							block5:
 							for (int l = 1; l <= 2; ++l) {
 								ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
@@ -729,7 +730,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						int meta;
 						theEntity.swingItem();
 						Block block = theWorld.getBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-						ArrayList<ItemStack> drops = new ArrayList<>();
+						Collection<ItemStack> drops = new ArrayList<>();
 						if (block instanceof GOTBlockCorn) {
 							int x = actionTarget.posX;
 							int z = actionTarget.posZ;

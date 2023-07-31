@@ -9,6 +9,7 @@ import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 public class GOTRecipeVessels {
@@ -24,9 +25,9 @@ public class GOTRecipeVessels {
 	}
 
 	public static List<IRecipe> generateRecipes(ItemStack result, Item drinkBase, Object[] ingredients) {
-		ArrayList<IRecipe> recipes = new ArrayList<>();
+		List<IRecipe> recipes = new ArrayList<>();
 		for (GOTItemMug.Vessel v : GOTItemMug.Vessel.values()) {
-			ArrayList<Object> vIngredients = new ArrayList<>();
+			Collection<Object> vIngredients = new ArrayList<>();
 			ItemStack vBase = v.getEmptyVessel();
 			if (drinkBase != null) {
 				vBase = new ItemStack(drinkBase);
@@ -36,7 +37,7 @@ public class GOTRecipeVessels {
 			vIngredients.addAll(Arrays.asList(ingredients));
 			ItemStack vResult = result.copy();
 			GOTItemMug.setVessel(vResult, v, true);
-			ShapelessOreRecipe recipe = new ShapelessOreRecipe(vResult, vIngredients.toArray());
+			IRecipe recipe = new ShapelessOreRecipe(vResult, vIngredients.toArray());
 			recipes.add(recipe);
 		}
 		return recipes;

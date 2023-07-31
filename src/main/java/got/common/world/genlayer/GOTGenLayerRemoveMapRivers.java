@@ -7,6 +7,7 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
@@ -52,7 +53,7 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 								srcMap.put(subBiomeID, count2);
 							}
 						}
-						HashMap<Integer, Integer> priorityMap = viableBiomes;
+						Map<Integer, Integer> priorityMap = viableBiomes;
 						if (!viableBiomesWateryAdjacent.isEmpty()) {
 							priorityMap = viableBiomesWateryAdjacent;
 						}

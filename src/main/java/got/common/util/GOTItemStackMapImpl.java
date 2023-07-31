@@ -53,7 +53,7 @@ public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
 
 	@Override
 	public Set<ItemStack> keySet() {
-		HashSet<ItemStack> ret = new HashSet<>();
+		Set<ItemStack> ret = new HashSet<>();
 		for (GOTItemStackWrapper key : innerMap.keySet()) {
 			ret.add(key.toItemStack());
 		}

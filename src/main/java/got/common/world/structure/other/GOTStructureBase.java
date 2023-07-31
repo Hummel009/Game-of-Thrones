@@ -20,6 +20,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -30,6 +31,7 @@ import net.minecraft.tileentity.TileEntitySkull;
 import net.minecraft.util.Direction;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.WeightedRandom;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -52,7 +54,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public GOTStructureScan currentStrScan;
 	public Map<String, BlockAliasPool> scanAliases = new HashMap<>();
 	public Map<String, Float> scanAliasChances = new HashMap<>();
-	public List<EntityCreature> characters = new ArrayList<>();
+	public Collection<EntityCreature> characters = new ArrayList<>();
 	public boolean disable;
 
 	protected GOTStructureBase() {
@@ -111,7 +113,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		this.disable = disable;
 	}
 
-	public void fillChest(World world, Random random, int i, int j, int k, GOTChestContents contents, int amount) {
+	public void fillChest(IBlockAccess world, Random random, int i, int j, int k, GOTChestContents contents, int amount) {
 		int i1 = i;
 		int k1 = k;
 		i = getX(i1, k1);
@@ -225,7 +227,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		str.generate(world, random, i, j, k, r);
 	}
 
-	public BiomeGenBase getBiome(World world, int i, int k) {
+	public BiomeGenBase getBiome(IBlockAccess world, int i, int k) {
 		int i1 = i;
 		int k1 = k;
 		i = getX(i1, k1);
@@ -236,7 +238,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return world.getBiomeGenForCoords(i, k);
 	}
 
-	public Block getBlock(World world, int i, int j, int k) {
+	public Block getBlock(IBlockAccess world, int i, int j, int k) {
 		int i1 = i;
 		int k1 = k;
 		i = getX(i1, k1);
@@ -248,7 +250,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return world.getBlock(i, j, k);
 	}
 
-	public ItemStack getRandomFlower(World world, Random random) {
+	public ItemStack getRandomFlower(IBlockAccess world, Random random) {
 		BiomeGenBase biome = getBiome(world, 0, 0);
 		if (biome instanceof GOTBiome) {
 			BiomeGenBase.FlowerEntry fe = ((GOTBiome) biome).getRandomFlower(random);
@@ -260,7 +262,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return new ItemStack(Blocks.red_flower, 0);
 	}
 
-	public ItemStack getRandomTallGrass(World world, Random random) {
+	public ItemStack getRandomTallGrass(IBlockAccess world, Random random) {
 		BiomeGenBase biome = getBiome(world, 0, 0);
 		if (biome instanceof GOTBiome) {
 			GOTBiome.GrassBlockAndMeta gbm = ((GOTBiome) biome).getRandomGrass(random);
@@ -273,7 +275,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return rotationMode;
 	}
 
-	public TileEntity getTileEntity(World world, int i, int j, int k) {
+	public TileEntity getTileEntity(IBlockAccess world, int i, int j, int k) {
 		int i1 = i;
 		int k1 = k;
 		i = getX(i1, k1);
@@ -338,7 +340,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 	}
 
-	public boolean isAir(World world, int i, int j, int k) {
+	public boolean isAir(IBlockAccess world, int i, int j, int k) {
 		return getBlock(world, i, j, k).getMaterial() == Material.air;
 	}
 
@@ -346,15 +348,15 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return sbb == null || sbb.isVecInside(i, j, k);
 	}
 
-	public boolean isOpaque(World world, int i, int j, int k) {
+	public boolean isOpaque(IBlockAccess world, int i, int j, int k) {
 		return getBlock(world, i, j, k).isOpaqueCube();
 	}
 
-	public boolean isReplaceable(World world, int i, int j, int k) {
+	public boolean isReplaceable(IBlockAccess world, int i, int j, int k) {
 		return getBlock(world, i, j, k).isReplaceable(world, getX(i, k), getY(j), getZ(i, k));
 	}
 
-	public boolean isSideSolid(World world, int i, int j, int k, ForgeDirection side) {
+	public boolean isSideSolid(IBlockAccess world, int i, int j, int k, ForgeDirection side) {
 		return getBlock(world, i, j, k).isSideSolid(world, getX(i, k), getY(j), getZ(i, k), side);
 	}
 
@@ -415,7 +417,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		setBlockAndMetadata(world, i, j + 1, k, GOTBlocks.armorStand, direction | 4);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof GOTTileEntityArmorStand) {
-			GOTTileEntityArmorStand armorStand = (GOTTileEntityArmorStand) tileentity;
+			IInventory armorStand = (IInventory) tileentity;
 			if (armor != null) {
 				for (int l = 0; l < armor.length; ++l) {
 					ItemStack armorPart = armor[l];
@@ -1140,11 +1142,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public static class BlockAliasPool {
-		public List<BlockMetaEntry> entries = new ArrayList<>();
+		public Collection<BlockMetaEntry> entries = new ArrayList<>();
 		public int totalWeight;
-
-		public BlockAliasPool() {
-		}
 
 		public void addEntry(int w, Block b, int m) {
 			entries.add(new BlockMetaEntry(w, b, m));

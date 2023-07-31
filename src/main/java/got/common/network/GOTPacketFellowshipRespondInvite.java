@@ -46,7 +46,7 @@ public class GOTPacketFellowshipRespondInvite extends GOTPacketFellowshipDo {
 					playerData.rejectFellowshipInvite(fellowship);
 				}
 			} else {
-				GOTPacketFellowshipAcceptInviteResult resultPacket = new GOTPacketFellowshipAcceptInviteResult(GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.NONEXISTENT);
+				IMessage resultPacket = new GOTPacketFellowshipAcceptInviteResult(GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.NONEXISTENT);
 				GOTPacketHandler.networkWrapper.sendTo(resultPacket, entityplayer);
 			}
 			return null;

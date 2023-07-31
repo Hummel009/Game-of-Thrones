@@ -12,7 +12,7 @@ import got.common.world.structure.other.GOTStructureRuinedHouse;
 import got.common.world.structure.sothoryos.summer.GOTStructureSummerSettlement;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeSummerColonyMangrove extends GOTBiomeSothoryosMangrove {
 	public GOTBiomeSummerColonyMangrove(int i, boolean major) {
@@ -23,7 +23,7 @@ public class GOTBiomeSummerColonyMangrove extends GOTBiomeSothoryosMangrove {
 		decorator.addStructure(new GOTStructureBurntHouse(false), 2000);
 		decorator.addStructure(new GOTStructureRottenHouse(false), 4000);
 		npcSpawnList.clear();
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SUMMER_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

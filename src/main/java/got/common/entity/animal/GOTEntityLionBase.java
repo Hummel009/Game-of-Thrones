@@ -66,8 +66,8 @@ public abstract class GOTEntityLionBase extends GOTEntityAnimalMF {
 				double range = 12.0;
 				List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
 				for (Entity entity : list) {
-					if (entity instanceof GOTEntityLion && !((GOTEntityLion) entity).isChild()) {
-						((GOTEntityLion) entity).becomeAngryAt((EntityLivingBase) attacker);
+					if (entity instanceof GOTEntityLion && !((EntityLivingBase) entity).isChild()) {
+						((GOTEntityLionBase) entity).becomeAngryAt((EntityLivingBase) attacker);
 					}
 				}
 			} else {

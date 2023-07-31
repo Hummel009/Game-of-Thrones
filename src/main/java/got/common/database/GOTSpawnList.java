@@ -102,6 +102,7 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
@@ -189,7 +190,7 @@ public class GOTSpawnList {
 
 	public static List<GOTSpawnEntry> ARRYN_CIVILIAN_L = new ArrayList<>();
 	public static List<GOTSpawnEntry> ARRYN_CONQUEST_L = new ArrayList<>();
-	public static List<GOTSpawnEntry> ARRYN_CONQUEST_l = new ArrayList<>();
+	public static Collection<GOTSpawnEntry> ARRYN_CONQUEST_l = new ArrayList<>();
 	public static List<GOTSpawnEntry> ARRYN_GUARDIAN_L = new ArrayList<>();
 	public static List<GOTSpawnEntry> ARRYN_MILITARY_L = new ArrayList<>();
 	public static List<GOTSpawnEntry> ASSHAI_MILITARY_L = new ArrayList<>();

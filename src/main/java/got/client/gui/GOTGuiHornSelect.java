@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.database.GOTItems;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketHornSelect;
@@ -23,7 +24,7 @@ public class GOTGuiHornSelect extends GOTGuiScreenBase {
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
-			GOTPacketHornSelect packet = new GOTPacketHornSelect(button.id);
+			IMessage packet = new GOTPacketHornSelect(button.id);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 			mc.thePlayer.closeScreen();
 		}

@@ -17,6 +17,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -42,7 +43,7 @@ public class GOTBlockBarrel extends BlockContainer {
 
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
-		GOTTileEntityBarrel barrel = (GOTTileEntityBarrel) world.getTileEntity(i, j, k);
+		IInventory barrel = (IInventory) world.getTileEntity(i, j, k);
 		if (barrel != null) {
 			ItemStack brewing = barrel.getStackInSlot(9);
 			barrel.setInventorySlotContents(9, null);

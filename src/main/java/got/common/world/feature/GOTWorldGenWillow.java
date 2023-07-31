@@ -12,6 +12,7 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTWorldGenWillow extends WorldGenAbstractTree {
@@ -75,7 +76,7 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 			return false;
 		}
 		below.onPlantGrow(world, i, j - 1, k, i, j, k);
-		ArrayList<ChunkCoordinates> vineGrows = new ArrayList<>();
+		Collection<ChunkCoordinates> vineGrows = new ArrayList<>();
 		int angle = 0;
 		while (angle < 360) {
 			float angleR = (float) Math.toRadians(angle += 30 + random.nextInt(30));

@@ -56,7 +56,7 @@ public class GOTBlockFence extends BlockFence {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		ArrayList<ItemStack> plankTypes = new ArrayList<>();
+		List<ItemStack> plankTypes = new ArrayList<>();
 		plankBlock.getSubBlocks(Item.getItemFromBlock(plankBlock), plankBlock.getCreativeTabToDisplayOn(), plankTypes);
 		for (ItemStack plankType : plankTypes) {
 			int meta = plankType.getItemDamage();

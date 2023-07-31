@@ -11,6 +11,7 @@ import got.common.util.GOTMazeGenerator;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
@@ -527,7 +528,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		setBlockAndMetadata(world, i, j, k, dartTrapBlock, meta);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof GOTTileEntitySarbacaneTrap) {
-			GOTTileEntitySarbacaneTrap trap = (GOTTileEntitySarbacaneTrap) tileentity;
+			IInventory trap = (IInventory) tileentity;
 			for (int l = 0; l < trap.getSizeInventory(); ++l) {
 				if (!random.nextBoolean()) {
 					continue;

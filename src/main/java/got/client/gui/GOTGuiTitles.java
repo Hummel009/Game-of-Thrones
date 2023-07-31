@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTReflectionClient;
 import got.common.GOTLevelData;
 import got.common.database.GOTTitle;
@@ -43,10 +44,10 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button == selectButton && (currentTitle == null || selectedTitle != currentTitle.getTitle() || selectedColor != currentTitle.getColor())) {
-				GOTPacketSelectTitle packet = new GOTPacketSelectTitle(new GOTTitle.PlayerTitle(selectedTitle, selectedColor));
+				IMessage packet = new GOTPacketSelectTitle(new GOTTitle.PlayerTitle(selectedTitle, selectedColor));
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button == removeButton) {
-				GOTPacketSelectTitle packet = new GOTPacketSelectTitle(null);
+				IMessage packet = new GOTPacketSelectTitle(null);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button.enabled && button == goBack) {
 				mc.displayGuiScreen(new GOTGuiMenu());
@@ -107,7 +108,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		if (selectedTitle != null) {
 			String title = selectedColor + selectedTitle.getDisplayName(mc.thePlayer);
 			drawCenteredString(title, guiLeft + xSize / 2, guiTop + 185, 16777215);
-			ArrayList<EnumChatFormatting> colorCodes = new ArrayList<>();
+			Collection<EnumChatFormatting> colorCodes = new ArrayList<>();
 			for (EnumChatFormatting ecf : EnumChatFormatting.values()) {
 				if (ecf.isColor()) {
 					colorCodes.add(ecf);
@@ -236,8 +237,8 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		super.updateScreen();
 		currentTitle = GOTLevelData.getData(mc.thePlayer).getPlayerTitle();
 		displayedTitles.clear();
-		ArrayList<GOTTitle> availableTitles = new ArrayList<>();
-		ArrayList<GOTTitle> unavailableTitles = new ArrayList<>();
+		List<GOTTitle> availableTitles = new ArrayList<>();
+		List<GOTTitle> unavailableTitles = new ArrayList<>();
 		for (GOTTitle title : GOTTitle.allTitles) {
 			if (title.canPlayerUse(mc.thePlayer)) {
 				availableTitles.add(title);

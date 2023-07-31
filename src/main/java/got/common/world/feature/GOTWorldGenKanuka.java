@@ -2,11 +2,11 @@ package got.common.world.feature;
 
 import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockSapling;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.ArrayList;
@@ -63,7 +63,7 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 			for (int i1 = i - trunkWidth; i1 <= i + trunkWidth && flag; ++i1) {
 				for (int k1 = k - trunkWidth; k1 <= k + trunkWidth && flag; ++k1) {
 					Block block = world.getBlock(i1, j - 1, k1);
-					boolean isSoil = block.canSustainPlant(world, i1, j - 1, k1, ForgeDirection.UP, (BlockSapling) Blocks.sapling);
+					boolean isSoil = block.canSustainPlant(world, i1, j - 1, k1, ForgeDirection.UP, (IPlantable) Blocks.sapling);
 					if (isSoil) {
 						continue;
 					}

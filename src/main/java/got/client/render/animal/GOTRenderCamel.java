@@ -2,6 +2,7 @@ package got.client.render.animal;
 
 import got.client.model.GOTModelCamel;
 import got.common.entity.animal.GOTEntityCamel;
+import got.common.entity.other.GOTNPCMount;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.texture.DynamicTexture;
@@ -78,7 +79,7 @@ public class GOTRenderCamel extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityCamel camel = (GOTEntityCamel) entity;
+		GOTNPCMount camel = (GOTNPCMount) entity;
 		return GOTRenderHorse.getLayeredMountTexture(camel, camelSkin);
 	}
 

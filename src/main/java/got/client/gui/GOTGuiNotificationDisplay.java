@@ -15,10 +15,7 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class GOTGuiNotificationDisplay extends Gui {
 	public static int guiXSize = 190;
@@ -27,8 +24,8 @@ public class GOTGuiNotificationDisplay extends Gui {
 	public Minecraft mc;
 	public int windowWidth;
 	public int windowHeight;
-	public List<Notification> notifications = new ArrayList<>();
-	public Set<Notification> notificationsToRemove = new HashSet<>();
+	public Collection<Notification> notifications = new ArrayList<>();
+	public Collection<Notification> notificationsToRemove = new HashSet<>();
 
 	public GOTGuiNotificationDisplay() {
 		mc = Minecraft.getMinecraft();

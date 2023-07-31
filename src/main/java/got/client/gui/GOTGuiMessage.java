@@ -7,6 +7,7 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.regex.Pattern;
 
 public class GOTGuiMessage extends GOTGuiScreenBase {
@@ -40,7 +41,7 @@ public class GOTGuiMessage extends GOTGuiScreenBase {
 		String msg = type.getMessage();
 		int pageWidth = xSize - border * 2;
 		String[] splitNewline = msg.split(Pattern.quote("\\n"));
-		ArrayList<String> msgLines = new ArrayList<>();
+		Collection<String> msgLines = new ArrayList<>();
 		for (String line : splitNewline) {
 			msgLines.addAll(fontRendererObj.listFormattedStringToWidth(line, pageWidth));
 		}

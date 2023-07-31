@@ -2,6 +2,7 @@ package got.common;
 
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.database.GOTTitle;
 import got.common.fellowship.GOTFellowship;
@@ -79,7 +80,7 @@ public class GOTLevelData {
 	}
 
 	public static Set<String> getBannedStructurePlayersUsernames() {
-		HashSet<String> players = new HashSet<>();
+		Set<String> players = new HashSet<>();
 		for (UUID uuid : playerDataMap.keySet()) {
 			String username;
 			if (getData(uuid).getStructuresBanned()) {
@@ -282,7 +283,7 @@ public class GOTLevelData {
 		}
 	}
 
-	public static NBTTagCompound loadNBTFromFile(File file) throws IOException, java.io.FileNotFoundException {
+	public static NBTTagCompound loadNBTFromFile(File file) throws IOException {
 		if (file.exists()) {
 			FileInputStream fis = new FileInputStream(file);
 			NBTTagCompound nbt = CompressedStreamTools.readCompressed(fis);
@@ -297,7 +298,7 @@ public class GOTLevelData {
 	}
 
 	public static void markGameOfThronesPortalLocation(int i, int j, int k) {
-		GOTPacketPortalPos packet = new GOTPacketPortalPos(i, j, k);
+		IMessage packet = new GOTPacketPortalPos(i, j, k);
 		GOTPacketHandler.networkWrapper.sendToAll(packet);
 		markDirty();
 	}
@@ -369,7 +370,7 @@ public class GOTLevelData {
 	}
 
 	public static void saveAndClearUnusedPlayerData() {
-		ArrayList<UUID> clearing = new ArrayList<>();
+		Collection<UUID> clearing = new ArrayList<>();
 		for (UUID player : playerDataMap.keySet()) {
 			boolean foundPlayer = false;
 			for (WorldServer world : MinecraftServer.getServer().worldServers) {
@@ -406,7 +407,7 @@ public class GOTLevelData {
 	public static void sendAlignmentToAllPlayersInWorld(Entity entityplayer, World world) {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
-			GOTPacketAlignment packet = new GOTPacketAlignment(entityplayer.getUniqueID());
+			IMessage packet = new GOTPacketAlignment(entityplayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
@@ -414,7 +415,7 @@ public class GOTLevelData {
 	public static void sendAllAlignmentsInWorldToPlayer(EntityPlayer entityplayer, World world) {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
-			GOTPacketAlignment packet = new GOTPacketAlignment(worldPlayer.getUniqueID());
+			IMessage packet = new GOTPacketAlignment(worldPlayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -422,7 +423,7 @@ public class GOTLevelData {
 	public static void sendAllCapesInWorldToPlayer(EntityPlayer entityplayer, World world) {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
-			GOTPacketCape packet = new GOTPacketCape(worldPlayer.getUniqueID());
+			IMessage packet = new GOTPacketCape(worldPlayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
@@ -431,7 +432,7 @@ public class GOTLevelData {
 	public static void sendAllShieldsInWorldToPlayer(EntityPlayer entityplayer, World world) {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
-			GOTPacketShield packet = new GOTPacketShield(worldPlayer.getUniqueID());
+			IMessage packet = new GOTPacketShield(worldPlayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -439,7 +440,7 @@ public class GOTLevelData {
 	public static void sendCapeToAllPlayersInWorld(EntityPlayer entityplayer, World world) {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
-			GOTPacketCape packet = new GOTPacketCape(entityplayer.getUniqueID());
+			IMessage packet = new GOTPacketCape(entityplayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
@@ -480,7 +481,7 @@ public class GOTLevelData {
 		boolean isOp = MinecraftServer.getServer().getConfigurationManager().func_152596_g(sendPlayer.getGameProfile());
 		boolean creative = sendPlayer.capabilities.isCreativeMode;
 		GOTPlayerData playerData = getData(sendPlayer);
-		ArrayList<GOTFellowship> fellowshipsMapShow = new ArrayList<>();
+		Collection<GOTFellowship> fellowshipsMapShow = new ArrayList<>();
 		for (UUID fsID : playerData.getFellowshipIDs()) {
 			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
 			if (fs != null && fs.getShowMapLocations()) {
@@ -519,7 +520,7 @@ public class GOTLevelData {
 	public static void sendShieldToAllPlayersInWorld(Entity entityplayer, World world) {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
-			GOTPacketShield packet = new GOTPacketShield(entityplayer.getUniqueID());
+			IMessage packet = new GOTPacketShield(entityplayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
@@ -530,7 +531,7 @@ public class GOTLevelData {
 		if (!GOT.proxy.isClient()) {
 			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 			for (EntityPlayerMP entityplayer : players) {
-				GOTPacketEnableAlignmentZones packet = new GOTPacketEnableAlignmentZones(enableAlignmentZones);
+				IMessage packet = new GOTPacketEnableAlignmentZones(enableAlignmentZones);
 				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 			}
 		}
@@ -577,7 +578,7 @@ public class GOTLevelData {
 		if (!GOT.proxy.isClient()) {
 			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 			for (EntityPlayerMP entityplayer : players) {
-				GOTPacketFTCooldown packet = new GOTPacketFTCooldown(waypointCooldownMax, waypointCooldownMin);
+				IMessage packet = new GOTPacketFTCooldown(waypointCooldownMax, waypointCooldownMin);
 				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 			}
 		}

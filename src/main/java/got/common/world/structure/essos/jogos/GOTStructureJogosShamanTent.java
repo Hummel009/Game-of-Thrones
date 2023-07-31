@@ -13,6 +13,7 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
@@ -79,7 +80,7 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 		placeAnimalJar(world, -4, 4, 5, GOTBlocks.birdCage, 2, new GOTEntityBird(world));
 		placeAnimalJar(world, -4, 5, -1, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 0, 5, 5, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
-		ArrayList<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(stalls));
+		List<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(stalls));
 		while (stallClasses.size() > 3) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));
 		}

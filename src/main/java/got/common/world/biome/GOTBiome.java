@@ -512,7 +512,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		}
 	}
 
-	public void addBiomeF3Info(List<String> info, World world, GOTBiomeVariant variant) {
+	public void addBiomeF3Info(Collection<String> info, World world, GOTBiomeVariant variant) {
 		info.add("Game of Thrones biome: " + getBiomeDisplayName() + ", ID: " + biomeID + ";");
 		info.add("Variant: " + StatCollector.translateToLocal(variant.getUnlocalizedName()) + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
 	}

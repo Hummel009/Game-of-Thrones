@@ -50,7 +50,7 @@ public class GOTEnchantmentHelper {
 			enchants = 1;
 		}
 
-		List<WeightedRandomEnchant> applicable = new ArrayList<>();
+		Collection<WeightedRandomEnchant> applicable = new ArrayList<>();
 		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
 			if (ench.canApply(itemstack, true) && (!ench.isSkilful() || skilful)) {
 				int weight = ench.getEnchantWeight();
@@ -73,7 +73,7 @@ public class GOTEnchantmentHelper {
 		}
 
 		if (!applicable.isEmpty()) {
-			List<GOTEnchantment> chosenEnchants = new ArrayList<>();
+			Collection<GOTEnchantment> chosenEnchants = new ArrayList<>();
 
 			for (int l = 0; l < enchants; l++) {
 				if (applicable.isEmpty()) {
@@ -86,7 +86,7 @@ public class GOTEnchantmentHelper {
 
 				applicable.remove(chosenWre);
 
-				List<WeightedRandomEnchant> nowIncompatibles = new ArrayList<>();
+				Collection<WeightedRandomEnchant> nowIncompatibles = new ArrayList<>();
 				for (WeightedRandomEnchant wre : applicable) {
 					GOTEnchantment otherEnch = wre.theEnchant;
 					if (!otherEnch.isCompatibleWith(chosenEnch)) {
@@ -420,7 +420,7 @@ public class GOTEnchantmentHelper {
 					List<GOTEnchantment> enchants = getEnchantList(itemstack);
 					for (GOTEnchantment ench : enchants) {
 						if (ench instanceof GOTEnchantmentProtectionFire) {
-							int protection = ((GOTEnchantmentProtectionFire) ench).protectLevel;
+							int protection = ((GOTEnchantmentProtectionSpecial) ench).protectLevel;
 							if (protection > max) {
 								max = protection;
 							}
@@ -612,7 +612,7 @@ public class GOTEnchantmentHelper {
 		itemstack.getTagCompound().setBoolean("GOTRandomEnch", true);
 	}
 
-	public static void setEnchantList(ItemStack itemstack, List<GOTEnchantment> enchants) {
+	public static void setEnchantList(ItemStack itemstack, Iterable<GOTEnchantment> enchants) {
 		clearEnchants(itemstack);
 		for (GOTEnchantment ench : enchants) {
 			setHasEnchant(itemstack, ench);

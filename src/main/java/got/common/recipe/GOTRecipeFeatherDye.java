@@ -12,6 +12,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTRecipeFeatherDye implements IRecipe {
 	@Override
@@ -89,7 +90,7 @@ public class GOTRecipeFeatherDye implements IRecipe {
 	@Override
 	public boolean matches(InventoryCrafting inv, World world) {
 		ItemStack feather = null;
-		ArrayList<ItemStack> dyes = new ArrayList<>();
+		Collection<ItemStack> dyes = new ArrayList<>();
 		for (int i = 0; i < inv.getSizeInventory(); ++i) {
 			ItemStack itemstack = inv.getStackInSlot(i);
 			if (itemstack == null) {

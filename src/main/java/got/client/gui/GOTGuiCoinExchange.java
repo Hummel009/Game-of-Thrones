@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.inventory.GOTContainerCoinExchange;
 import got.common.network.GOTPacketCoinExchange;
@@ -28,7 +29,7 @@ public class GOTGuiCoinExchange extends GuiContainer {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button == buttonLeft || button == buttonRight) {
-				GOTPacketCoinExchange packet = new GOTPacketCoinExchange(button.id);
+				IMessage packet = new GOTPacketCoinExchange(button.id);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else {
 				super.actionPerformed(button);

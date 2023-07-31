@@ -21,7 +21,7 @@ public class GOTFellowshipClient {
 	public boolean preventHiredFF;
 	public boolean showMapLocations;
 
-	public GOTFellowshipClient(UUID id, String name, boolean owned, boolean admin, GameProfile owner, List<GameProfile> members) {
+	public GOTFellowshipClient(UUID id, String name, boolean owned, boolean admin, GameProfile owner, Iterable<GameProfile> members) {
 		fellowshipID = id;
 		fellowshipName = name;
 		isOwned = owned;
@@ -56,7 +56,7 @@ public class GOTFellowshipClient {
 	}
 
 	public List<UUID> getAllPlayerUuids() {
-		ArrayList<UUID> allPlayers = new ArrayList<>();
+		List<UUID> allPlayers = new ArrayList<>();
 		allPlayers.add(ownerUUID);
 		allPlayers.addAll(memberUUIDs);
 		return allPlayers;
@@ -123,7 +123,7 @@ public class GOTFellowshipClient {
 	}
 
 	public List<GameProfile> getProfilesFor(Iterable<UUID> playerUuids) {
-		ArrayList<GameProfile> list = new ArrayList<>();
+		List<GameProfile> list = new ArrayList<>();
 		for (UUID playerUuid : playerUuids) {
 			list.add(getProfileFor(playerUuid));
 		}

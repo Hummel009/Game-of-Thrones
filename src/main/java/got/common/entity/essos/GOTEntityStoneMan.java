@@ -105,15 +105,15 @@ public class GOTEntityStoneMan extends GOTEntityNPC {
 			super.onKillEntity(entity);
 		} else if (entity instanceof GOTEntityHumanBase) {
 			super.onKillEntity(entity);
-			infected.familyInfo.setAge(((GOTEntityHumanBase) entity).familyInfo.getAge());
+			infected.familyInfo.setAge(((GOTEntityNPC) entity).familyInfo.getAge());
 			infected.copyLocationAndAnglesFrom(entity);
-			infected.npcItemsInv.setMeleeWeapon(((GOTEntityHumanBase) entity).npcItemsInv.getMeleeWeapon());
-			infected.npcItemsInv.setIdleItem(((GOTEntityHumanBase) entity).npcItemsInv.getMeleeWeapon());
+			infected.npcItemsInv.setMeleeWeapon(((GOTEntityNPC) entity).npcItemsInv.getMeleeWeapon());
+			infected.npcItemsInv.setIdleItem(((GOTEntityNPC) entity).npcItemsInv.getMeleeWeapon());
 			infected.setCurrentItemOrArmor(1, entity.getEquipmentInSlot(1));
 			infected.setCurrentItemOrArmor(2, entity.getEquipmentInSlot(2));
 			infected.setCurrentItemOrArmor(3, entity.getEquipmentInSlot(3));
 			infected.setCurrentItemOrArmor(4, entity.getEquipmentInSlot(4));
-			infected.familyInfo.setMale(((GOTEntityHumanBase) entity).familyInfo.male);
+			infected.familyInfo.setMale(((GOTEntityNPC) entity).familyInfo.male);
 			worldObj.removeEntity(entity);
 			worldObj.spawnEntityInWorld(infected);
 		}

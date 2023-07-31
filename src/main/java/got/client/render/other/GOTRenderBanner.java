@@ -8,6 +8,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderGlobal;
 import net.minecraft.client.renderer.culling.Frustrum;
+import net.minecraft.client.renderer.culling.ICamera;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
@@ -22,7 +23,7 @@ public class GOTRenderBanner extends Render {
 	public static Map<GOTItemBanner.BannerType, ResourceLocation> bannerTextures = new EnumMap<>(GOTItemBanner.BannerType.class);
 	public static ResourceLocation standTexture = new ResourceLocation("got:textures/banner/stand.png");
 	public static GOTModelBanner model = new GOTModelBanner();
-	public static Frustrum bannerFrustum = new Frustrum();
+	public static ICamera bannerFrustum = new Frustrum();
 
 	public static ResourceLocation getBannerTexture(GOTItemBanner.BannerType type) {
 		ResourceLocation r = bannerTextures.get(type);

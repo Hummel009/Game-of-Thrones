@@ -100,7 +100,7 @@ public class GOTNames {
 	}
 
 	public static void onInit() {
-		HashMap<String, BufferedReader> nameBankNamesAndReaders = new HashMap<>();
+		Map<String, BufferedReader> nameBankNamesAndReaders = new HashMap<>();
 		ZipFile zip = null;
 		try {
 			ModContainer mc = GOT.getModContainer();

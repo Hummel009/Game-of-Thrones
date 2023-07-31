@@ -38,7 +38,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	public static String jsonFilename = "music.json";
 	public static String musicResourcePath = "musicpacks";
 	public static GOTMusicResourceManager trackResourceManager = new GOTMusicResourceManager();
-	public static List<GOTMusicTrack> allTracks = new ArrayList<>();
+	public static Collection<GOTMusicTrack> allTracks = new ArrayList<>();
 	public static Map<GOTBiomeMusic.MusicRegion, GOTRegionTrackPool> regionTracks = new HashMap<>();
 	public static boolean initSubregions;
 	public static Random musicRand = new Random();
@@ -61,7 +61,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		}
 	}
 
-	public static void generateReadme() throws IOException, UnsupportedEncodingException {
+	public static void generateReadme() throws IOException {
 		File readme = new File(musicDir, "readme.txt");
 		boolean created = readme.createNewFile();
 		if (!created) {
@@ -163,7 +163,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 								continue;
 							}
 						}
-						ArrayList<String> subregionNames = new ArrayList<>();
+						Collection<String> subregionNames = new ArrayList<>();
 						if (region != null && regionData.has("sub")) {
 							JsonArray subList = regionData.get("sub").getAsJsonArray();
 							for (JsonElement s : subList) {
@@ -175,7 +175,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 								}
 							}
 						}
-						ArrayList<GOTMusicCategory> regionCategories = new ArrayList<>();
+						Collection<GOTMusicCategory> regionCategories = new ArrayList<>();
 						if (region != null && regionData.has("categories")) {
 							JsonArray catList = regionData.get("categories").getAsJsonArray();
 							for (JsonElement cat : catList) {
@@ -192,7 +192,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 						if (regionData.has("weight")) {
 							weight = regionData.get("weight").getAsDouble();
 						}
-						ArrayList<GOTBiomeMusic> regionsAdd = new ArrayList<>();
+						Collection<GOTBiomeMusic> regionsAdd = new ArrayList<>();
 						if (allRegions) {
 							regionsAdd.addAll(Arrays.asList(GOTBiomeMusic.values()));
 						} else {
@@ -258,7 +258,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		for (File file : Objects.requireNonNull(musicDir.listFiles())) {
 			if (file.isFile() && file.getName().endsWith(".zip")) {
 				try {
-					FileResourcePack resourcePack = new FileResourcePack(file);
+					IResourcePack resourcePack = new FileResourcePack(file);
 					resourceMgr.reloadResourcePack(resourcePack);
 					ZipFile zipFile = new ZipFile(file);
 					loadMusicPack(zipFile, resourceMgr);

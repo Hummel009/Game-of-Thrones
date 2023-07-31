@@ -6,6 +6,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.GOTInfo;
 import got.client.gui.GOTGuiAchievementHoverEvent;
@@ -57,12 +58,12 @@ import java.util.*;
 
 public class GOTGuiHandler {
 	public static RenderItem itemRenderer = new RenderItem();
-	public static Set<Class<? extends Container>> coinCount_excludedContainers = new HashSet<>();
-	public static Set<Class<? extends GuiContainer>> coinCount_excludedGUIs = new HashSet<>();
-	public static Set<Class<? extends IInventory>> coinCount_excludedInvTypes = new HashSet<>();
-	public static Set<String> coinCount_excludedContainers_clsNames = new HashSet<>();
-	public static Set<String> coinCount_excludedGUIs_clsNames = new HashSet<>();
-	public static Set<String> coinCount_excludedInvTypes_clsNames = new HashSet<>();
+	public static Collection<Class<? extends Container>> coinCount_excludedContainers = new HashSet<>();
+	public static Collection<Class<? extends GuiContainer>> coinCount_excludedGUIs = new HashSet<>();
+	public static Collection<Class<? extends IInventory>> coinCount_excludedInvTypes = new HashSet<>();
+	public static Collection<String> coinCount_excludedContainers_clsNames = new HashSet<>();
+	public static Collection<String> coinCount_excludedGUIs_clsNames = new HashSet<>();
+	public static Collection<String> coinCount_excludedInvTypes_clsNames = new HashSet<>();
 	public static boolean coinCountLeftSide;
 
 	static {
@@ -141,11 +142,11 @@ public class GOTGuiHandler {
 				int achievementID = Integer.parseInt(unformattedText.substring(splitIndex + 1));
 				GOTAchievement achievement = GOTAchievement.achievementForCategoryAndID(category, achievementID);
 				assert achievement != null;
-				ChatComponentTranslation name = new ChatComponentTranslation("got.gui.achievements.hover.name", achievement.getAchievementChatComponent(entityplayer));
-				ChatComponentTranslation subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
+				IChatComponent name = new ChatComponentTranslation("got.gui.achievements.hover.name", achievement.getAchievementChatComponent(entityplayer));
+				IChatComponent subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
 				subtitle.getChatStyle().setItalic(true);
 				String desc = achievement.getDescription(entityplayer);
-				ArrayList<String> list = Lists.newArrayList(name.getFormattedText(), subtitle.getFormattedText());
+				List<String> list = Lists.newArrayList(name.getFormattedText(), subtitle.getFormattedText());
 				list.addAll(mc.fontRenderer.listFormattedStringToWidth(desc, 150));
 				proxyGui.func_146283_a(list, mouseX, mouseY);
 			} catch (Exception e) {
@@ -206,7 +207,7 @@ public class GOTGuiHandler {
 				int guiLeft = -1;
 				int guiTop = -1;
 				int guiXSize = -1;
-				List<IInventory> differentInvs = new ArrayList<>();
+				Collection<IInventory> differentInvs = new ArrayList<>();
 				Map<IInventory, Integer> invHighestY = new HashMap<>();
 				for (int i = 0; i < container.inventorySlots.size(); i++) {
 					Slot slot = container.getSlot(i);
@@ -304,7 +305,7 @@ public class GOTGuiHandler {
 		WorldClient world = mc.theWorld;
 		if ((gui instanceof GuiInventory || gui instanceof GuiContainerCreative) && entityplayer != null && world != null && entityplayer.ridingEntity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entityplayer.ridingEntity).getMountInventory() != null) {
 			entityplayer.closeScreen();
-			GOTPacketMountOpenInv packet = new GOTPacketMountOpenInv();
+			IMessage packet = new GOTPacketMountOpenInv();
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 			event.setCanceled(true);
 		}

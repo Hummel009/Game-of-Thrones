@@ -1,14 +1,11 @@
 package got.client.sound;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GOTRegionTrackPool {
 	public GOTBiomeMusic region;
 	public String subregion;
-	public List<GOTMusicTrack> trackList = new ArrayList<>();
+	public Collection<GOTMusicTrack> trackList = new ArrayList<>();
 
 	public GOTRegionTrackPool(GOTBiomeMusic r, String s) {
 		region = r;

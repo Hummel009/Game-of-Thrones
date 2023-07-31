@@ -4,16 +4,12 @@ import got.common.GOTLevelData;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
 import got.common.entity.other.GOTEntityNPC;
-import got.common.item.other.GOTItemArmor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
@@ -121,7 +117,7 @@ public class GOTRenderShield {
 		}
 		boolean holdingSword = held != null && (held.getItem() instanceof ItemSword || held.getItem() instanceof ItemTool) || inUse != null && inUse.getItemUseAction() == EnumAction.bow;
 		boolean blocking = holdingSword && inUse != null && inUse.getItemUseAction() == EnumAction.block;
-		boolean wearingChestplate = chestplate != null && chestplate.getItem().isValidArmor(chestplate, ((GOTItemArmor) GOTItems.valyrianChestplate).armorType, entity);
+		boolean wearingChestplate = chestplate != null && chestplate.getItem().isValidArmor(chestplate, ((ItemArmor) GOTItems.valyrianChestplate).armorType, entity);
 		boolean renderOnBack = (!holdingSword || heldLeft != null) && entity != null;
 		boolean doNotRender = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).npcCape != null && renderOnBack || entity instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) entity).getCape() != null && renderOnBack;
 		if (!doNotRender) {

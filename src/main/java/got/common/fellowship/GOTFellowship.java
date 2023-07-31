@@ -1,9 +1,11 @@
 package got.common.fellowship;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.network.GOTPacketFellowshipNotification;
 import got.common.network.GOTPacketHandler;
 import got.common.util.GOTLog;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.event.ClickEvent;
@@ -30,7 +32,7 @@ public class GOTFellowship {
 	public ItemStack fellowshipIcon;
 	public UUID ownerUUID;
 	public List<UUID> memberUUIDs = new ArrayList<>();
-	public Set<UUID> adminUUIDs = new HashSet<>();
+	public Collection<UUID> adminUUIDs = new HashSet<>();
 	public boolean preventPVP = true;
 	public boolean preventHiredFF = true;
 	public boolean showMapLocations = true;
@@ -90,7 +92,7 @@ public class GOTFellowship {
 	}
 
 	public List<UUID> getAllPlayerUUIDs() {
-		ArrayList<UUID> list = new ArrayList<>();
+		List<UUID> list = new ArrayList<>();
 		list.add(ownerUUID);
 		list.addAll(memberUUIDs);
 		return list;
@@ -351,11 +353,11 @@ public class GOTFellowship {
 		}
 	}
 
-	public void sendNotification(EntityPlayer entityplayer, String key, Object... args) {
+	public void sendNotification(ICommandSender entityplayer, String key, Object... args) {
 		ChatComponentTranslation message = new ChatComponentTranslation(key, args);
 		message.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		entityplayer.addChatMessage(message);
-		GOTPacketFellowshipNotification packet = new GOTPacketFellowshipNotification(message);
+		IMessage packet = new GOTPacketFellowshipNotification(message);
 		GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 	}
 
@@ -376,7 +378,7 @@ public class GOTFellowship {
 	public void setDisbandedAndRemoveAllMembers() {
 		disbanded = true;
 		markDirty();
-		ArrayList<UUID> copyMemberIDs = new ArrayList<>(memberUUIDs);
+		Iterable<UUID> copyMemberIDs = new ArrayList<>(memberUUIDs);
 		for (UUID player : copyMemberIDs) {
 			removeMember(player);
 		}

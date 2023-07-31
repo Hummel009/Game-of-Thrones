@@ -5,7 +5,7 @@ import net.minecraft.util.MathHelper;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import java.util.List;
+import java.util.Collection;
 
 public class GOTGuiScrollPane {
 	public int scrollWidgetWidth;
@@ -42,7 +42,7 @@ public class GOTGuiScrollPane {
 		Gui.drawRect(x0, y0, x1, y1, widgetColor);
 	}
 
-	public int[] getMinMaxIndices(List<?> list, int displayed) {
+	public int[] getMinMaxIndices(Collection<?> list, int displayed) {
 		int size = list.size();
 		int min = Math.round(currentScroll * (size - displayed));
 		int max = displayed - 1 + Math.round(currentScroll * (size - displayed));

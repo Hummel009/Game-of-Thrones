@@ -80,14 +80,14 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.util.WeightedRandom;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public enum GOTInvasions {
 	DOTHRAKI(GOTFaction.DOTHRAKI), JOGOS(GOTFaction.JOGOS), VOLANTIS(GOTFaction.VOLANTIS), BRAAVOS(GOTFaction.BRAAVOS), PENTOS(GOTFaction.PENTOS), TYROSH(GOTFaction.TYROSH), MYR(GOTFaction.MYR), LYS(GOTFaction.LYS), NORVOS(GOTFaction.NORVOS), IRONBORN(GOTFaction.IRONBORN), WESTERLANDS(GOTFaction.WESTERLANDS), RIVERLANDS(GOTFaction.RIVERLANDS), NORTH(GOTFaction.NORTH), THENN(GOTFaction.WILDLING, "THENN"), WILDLING(GOTFaction.WILDLING), GIANT(GOTFaction.WILDLING, "GIANT"), ARRYN(GOTFaction.ARRYN), DRAGONSTONE(GOTFaction.DRAGONSTONE), STORMLANDS(GOTFaction.STORMLANDS), REACH(GOTFaction.REACH), DORNE(GOTFaction.DORNE), YI_TI(GOTFaction.YI_TI), GHISCAR(GOTFaction.GHISCAR), HILL_TRIBES(GOTFaction.HILL_TRIBES), IBBEN(GOTFaction.IBBEN);
 
 	public GOTFaction invasionFaction;
 	public String subfaction;
-	public List<InvasionSpawnEntry> invasionMobs = new ArrayList<>();
+	public Collection<InvasionSpawnEntry> invasionMobs = new ArrayList<>();
 	public Item invasionIcon;
 
 	GOTInvasions(GOTFaction f) {

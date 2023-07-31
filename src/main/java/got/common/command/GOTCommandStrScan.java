@@ -25,10 +25,10 @@ public class GOTCommandStrScan extends CommandBase {
 	public int maxX;
 	public int maxY;
 	public int maxZ;
-	public List<String> aliasOrder = new ArrayList<>();
+	public Collection<String> aliasOrder = new ArrayList<>();
 	public Map<Block, String> blockAliases = new HashMap<>();
 	public Map<Pair<Block, Integer>, String> blockMetaAliases = new HashMap<>();
-	public Set<String> aliasesToInclude = new HashSet<>();
+	public Collection<String> aliasesToInclude = new HashSet<>();
 
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {

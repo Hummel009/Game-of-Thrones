@@ -1,5 +1,6 @@
 package got.common.entity.other;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.database.GOTTradeEntries;
 import got.common.inventory.GOTContainerTrade;
@@ -199,7 +200,7 @@ public class GOTTraderNPCInfo {
 	public void sendClientPacket(EntityPlayer entityplayer) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		writeToNBT(nbt);
-		GOTPacketTraderInfo packet = new GOTPacketTraderInfo(nbt);
+		IMessage packet = new GOTPacketTraderInfo(nbt);
 		GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 	}
 

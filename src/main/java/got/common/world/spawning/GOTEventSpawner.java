@@ -45,7 +45,7 @@ public class GOTEventSpawner {
 		GOTJaqenHgharTracker.performSpawning(world);
 	}
 
-	public static void spawnBandits(World world, List<ChunkCoordIntPair> spawnChunks) {
+	public static void spawnBandits(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
 		block0:
 		for (ChunkCoordIntPair chunkCoords : spawnChunks) {
@@ -90,7 +90,7 @@ public class GOTEventSpawner {
 		}
 	}
 
-	public static void spawnInvasions(World world, List<ChunkCoordIntPair> spawnChunks) {
+	public static void spawnInvasions(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
 		block0:
 		for (ChunkCoordIntPair chunkCoords : spawnChunks) {

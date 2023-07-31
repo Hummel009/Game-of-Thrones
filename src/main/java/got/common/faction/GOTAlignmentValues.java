@@ -1,7 +1,7 @@
 package got.common.faction;
 
 import got.common.util.GOTLog;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.util.*;
 
 import java.text.DecimalFormat;
@@ -41,7 +41,7 @@ public class GOTAlignmentValues {
 		return formatAlignForDisplay(conq, conqFormat, prefixPlus);
 	}
 
-	public static void notifyAlignmentNotHighEnough(EntityPlayer entityplayer, float alignmentRequired, GOTFaction faction) {
+	public static void notifyAlignmentNotHighEnough(ICommandSender entityplayer, float alignmentRequired, GOTFaction faction) {
 		ChatComponentText componentAlignReq = new ChatComponentText(formatAlignForDisplay(alignmentRequired));
 		componentAlignReq.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.insufficientAlignment", componentAlignReq, faction.factionName()));

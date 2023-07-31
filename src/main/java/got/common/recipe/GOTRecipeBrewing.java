@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class GOTRecipeBrewing {
@@ -32,7 +33,7 @@ public class GOTRecipeBrewing {
 		}
 		block1:
 		for (ShapelessOreRecipe recipe : recipes) {
-			ArrayList<Object> ingredients = new ArrayList<>(recipe.getInput());
+			Collection<Object> ingredients = new ArrayList<>(recipe.getInput());
 			for (int i = 0; i < 6; ++i) {
 				ItemStack itemstack = barrel.getStackInSlot(i);
 				if (itemstack == null) {
@@ -44,7 +45,7 @@ public class GOTRecipeBrewing {
 					if (next instanceof ItemStack) {
 						match = GOTRecipe.checkItemEquals((ItemStack) next, itemstack);
 					} else if (next instanceof ArrayList) {
-						for (ItemStack item : (ArrayList<ItemStack>) next) {
+						for (ItemStack item : (Iterable<ItemStack>) next) {
 							match = match || GOTRecipe.checkItemEquals(item, itemstack);
 						}
 					}

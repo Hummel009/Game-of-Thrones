@@ -32,7 +32,7 @@ public enum GOTFaction {
 	public GOTDimension.DimensionRegion factionRegion;
 	public Color factionColor;
 	public Map<Float, float[]> facRGBCache = new HashMap<>();
-	public List<GOTItemBanner.BannerType> factionBanners = new ArrayList<>();
+	public Collection<GOTItemBanner.BannerType> factionBanners = new ArrayList<>();
 	public boolean allowPlayer;
 	public boolean allowEntityRegistry;
 	public boolean hasFixedAlignment;
@@ -107,7 +107,7 @@ public enum GOTFaction {
 
 	public static List<String> getPlayableAlignmentFactionNames() {
 		List<GOTFaction> factions = getPlayableAlignmentFactions();
-		ArrayList<String> names = new ArrayList<>();
+		List<String> names = new ArrayList<>();
 		for (GOTFaction f : factions) {
 			names.add(f.codeName());
 		}
@@ -115,7 +115,7 @@ public enum GOTFaction {
 	}
 
 	public static List<GOTFaction> getPlayableAlignmentFactions() {
-		ArrayList<GOTFaction> factions = new ArrayList<>();
+		List<GOTFaction> factions = new ArrayList<>();
 		for (GOTFaction f : values()) {
 			if (f.isPlayableAlignmentFaction()) {
 				factions.add(f);
@@ -414,7 +414,7 @@ public enum GOTFaction {
 	}
 
 	public List<GOTFaction> getBonusesForKilling() {
-		ArrayList<GOTFaction> list = new ArrayList<>();
+		List<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : values()) {
 			if (f == this || !isBadRelation(f)) {
 				continue;
@@ -425,7 +425,7 @@ public enum GOTFaction {
 	}
 
 	public List<GOTFaction> getConquestBoostRelations() {
-		ArrayList<GOTFaction> list = new ArrayList<>();
+		List<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : values()) {
 			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != Relation.ALLY) {
 				continue;
@@ -489,7 +489,7 @@ public enum GOTFaction {
 	}
 
 	public List<GOTFaction> getOthersOfRelation(Relation rel) {
-		ArrayList<GOTFaction> list = new ArrayList<>();
+		List<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : values()) {
 			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != rel) {
 				continue;
@@ -500,7 +500,7 @@ public enum GOTFaction {
 	}
 
 	public List<GOTFaction> getPenaltiesForKilling() {
-		ArrayList<GOTFaction> list = new ArrayList<>();
+		List<GOTFaction> list = new ArrayList<>();
 		list.add(this);
 		for (GOTFaction f : values()) {
 			if (f == this || !isGoodRelation(f)) {

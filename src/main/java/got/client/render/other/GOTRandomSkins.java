@@ -126,8 +126,8 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 		@Override
 		public void loadAllRandomSkins() {
 			skins = new ArrayList<>();
-			ArrayList<BufferedImage> layeredImages = new ArrayList<>();
-			ArrayList<BufferedImage> tempLayered = new ArrayList<>();
+			Collection<BufferedImage> layeredImages = new ArrayList<>();
+			Collection<BufferedImage> tempLayered = new ArrayList<>();
 			block2:
 			for (String layer : skinLayers) {
 				String layerPath = skinPath + "/" + layer;

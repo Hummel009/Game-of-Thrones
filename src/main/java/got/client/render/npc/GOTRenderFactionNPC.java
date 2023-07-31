@@ -18,7 +18,7 @@ import org.lwjgl.opengl.GL11;
 public class GOTRenderFactionNPC extends GOTRenderBiped {
 	public String path;
 	public float size;
-	public GOTModelHuman eyesModel = new GOTModelHuman();
+	public GOTGlowingEyes.Model eyesModel = new GOTModelHuman();
 
 	public GOTRenderFactionNPC(String texture) {
 		super(new GOTModelHuman(), 0.5f);

@@ -1,5 +1,6 @@
 package got.common.faction;
 
+import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTWaypoint;
 
 public class GOTControlZone {
@@ -21,7 +22,7 @@ public class GOTControlZone {
 		radiusCoordSq = (long) radiusCoord * radiusCoord;
 	}
 
-	public GOTControlZone(GOTWaypoint wp, int r) {
+	public GOTControlZone(GOTAbstractWaypoint wp, int r) {
 		this(wp.getX(), wp.getY(), r);
 	}
 

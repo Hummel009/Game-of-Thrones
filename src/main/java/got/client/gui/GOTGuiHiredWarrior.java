@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTSquadrons;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTHiredNPCInfo;
@@ -151,7 +152,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 		super.onGuiClosed();
 		if (sendSquadronUpdate) {
 			String squadron = theNPC.hiredNPCInfo.getSquadron();
-			GOTPacketNPCSquadron packet = new GOTPacketNPCSquadron(theNPC, squadron);
+			IMessage packet = new GOTPacketNPCSquadron(theNPC, squadron);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}

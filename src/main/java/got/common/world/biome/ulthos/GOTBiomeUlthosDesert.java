@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.WorldGenDeadBush;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeUlthosDesert extends GOTBiomeUlthos implements GOTBiome.Desert {
@@ -34,7 +34,7 @@ public class GOTBiomeUlthosDesert extends GOTBiomeUlthos implements GOTBiome.Des
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.OAK_DEAD, 1000);
 		decorator.addOre(new WorldGenMinable(Blocks.lapis_ore, 6), 1.0f, 0, 48);
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

@@ -3,6 +3,7 @@ package got.common.world.feature;
 import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
@@ -55,7 +56,7 @@ public class GOTWorldGenStreams extends WorldGenerator {
 		return true;
 	}
 
-	public boolean isRock(World world, int i, int j, int k) {
+	public boolean isRock(IBlockAccess world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		return block == Blocks.stone || block == Blocks.sandstone || block == GOTBlocks.rock;
 	}

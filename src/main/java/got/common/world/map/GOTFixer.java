@@ -62,7 +62,7 @@ import java.util.*;
 
 public class GOTFixer {
 	public static Map<GOTAbstractWaypoint, GOTStructureBase> structures = new HashMap<>();
-	public static Set<GOTStructureBaseSettlement> locations = new HashSet<>();
+	public static Collection<GOTStructureBaseSettlement> locations = new HashSet<>();
 	public static double essosGateShift = 0.265625;
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {

@@ -45,7 +45,7 @@ public class GOTConnectedTextures {
 				entry.setValue(errored);
 			}
 		}
-		HashMap<Integer, IIcon> iconsMap = new HashMap<>();
+		Map<Integer, IIcon> iconsMap = new HashMap<>();
 		for (Map.Entry<Integer, Set<IconElement>> entry : IconElement.allCombos.entrySet()) {
 			int key = entry.getKey();
 			Set<IconElement> set = entry.getValue();
@@ -299,7 +299,7 @@ public class GOTConnectedTextures {
 			allCorners = EnumSet.of(CORNER_TOPLEFT, CORNER_TOPRIGHT, CORNER_BOTTOMLEFT, CORNER_BOTTOMRIGHT);
 			allInvCorners = EnumSet.of(INVCORNER_TOPLEFT, INVCORNER_TOPRIGHT, INVCORNER_BOTTOMLEFT, INVCORNER_BOTTOMRIGHT);
 			allCombos = new HashMap<>();
-			ArrayList<Set<IconElement>> permutations = new ArrayList<>();
+			Collection<Set<IconElement>> permutations = new ArrayList<>();
 			boolean[] trueOrFalse = {false, true};
 			for (int i = 0; i < 8192; i++) {
 				boolean base = trueOrFalse[i & 1];
@@ -386,7 +386,7 @@ public class GOTConnectedTextures {
 			priority = i;
 		}
 
-		public static int getIconSetKey(Set<IconElement> set) {
+		public static int getIconSetKey(Collection<IconElement> set) {
 			int i = 0;
 			for (IconElement e : values()) {
 				if (set.contains(e)) {
@@ -397,7 +397,7 @@ public class GOTConnectedTextures {
 		}
 
 		public static List<IconElement> sortIconSet(Set<IconElement> set) {
-			ArrayList<IconElement> list = new ArrayList<>(set);
+			List<IconElement> list = new ArrayList<>(set);
 			list.sort(comparator);
 			return list;
 		}

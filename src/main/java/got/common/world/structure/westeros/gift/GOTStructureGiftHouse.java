@@ -8,6 +8,7 @@ import got.common.database.GOTItems;
 import got.common.entity.westeros.gift.GOTEntityGiftMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
@@ -307,7 +308,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 		return true;
 	}
 
-	public boolean isValidGatePos(World world, int i, int j, int k) {
+	public boolean isValidGatePos(IBlockAccess world, int i, int j, int k) {
 		return isOpaque(world, i, j - 1, k) && isAir(world, i, j, k) && isAir(world, i, j + 1, k);
 	}
 }

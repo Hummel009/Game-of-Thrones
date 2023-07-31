@@ -5,16 +5,16 @@ import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.biome.BiomeGenBase;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 public class GOTDragonBreed {
 	public String name;
 	public String skin;
 	public int color;
-	public Set<String> immunities = new HashSet<>();
-	public Set<Block> breedBlocks = new HashSet<>();
-	public Set<BiomeGenBase> biomes = new HashSet<>();
+	public Collection<String> immunities = new HashSet<>();
+	public Collection<Block> breedBlocks = new HashSet<>();
+	public Collection<BiomeGenBase> biomes = new HashSet<>();
 
 	public GOTDragonBreed(String name, String skin, int color) {
 		this.name = name;

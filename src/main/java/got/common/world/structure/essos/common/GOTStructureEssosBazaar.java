@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class GOTStructureEssosBazaar extends GOTStructureEssosBase {
@@ -74,7 +75,7 @@ public class GOTStructureEssosBazaar extends GOTStructureEssosBase {
 		placeAnimalJar(world, 3, 1, 7, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, -9, 3, 0, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 4, 3, 3, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
-		ArrayList<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(getStallClasses()));
+		List<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(getStallClasses()));
 		while (stallClasses.size() > 6) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));
 		}

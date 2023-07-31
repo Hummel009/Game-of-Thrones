@@ -4,6 +4,7 @@ import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.relauncher.Side;
 import got.client.effect.*;
 import got.client.gui.*;
@@ -157,7 +158,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		boolean showWP = GOTGuiMap.showWP;
 		boolean showCWP = GOTGuiMap.showCWP;
 		boolean showHiddenSWP = GOTGuiMap.showHiddenSWP;
-		GOTPacketClientInfo packet = new GOTPacketClientInfo(viewingFaction, changedRegionMap, showWP, showCWP, showHiddenSWP);
+		IMessage packet = new GOTPacketClientInfo(viewingFaction, changedRegionMap, showWP, showCWP, showHiddenSWP);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 

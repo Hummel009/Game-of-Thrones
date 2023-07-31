@@ -347,8 +347,8 @@ public class GOTAchievement {
 	public boolean isBiomeAchievement;
 	public boolean isSpecial;
 	public GOTTitle achievementTitle;
-	public List<GOTFaction> enemyFactions = new ArrayList<>();
-	public List<GOTFaction> allyFactions = new ArrayList<>();
+	public Collection<GOTFaction> enemyFactions = new ArrayList<>();
+	public Collection<GOTFaction> allyFactions = new ArrayList<>();
 
 	public GOTAchievement(Category c, int i, Block block, String s) {
 		this(c, i, new ItemStack(block), s);
@@ -414,7 +414,7 @@ public class GOTAchievement {
 	}
 
 	public static List<GOTAchievement> getAllAchievements() {
-		ArrayList<GOTAchievement> list = new ArrayList<>();
+		List<GOTAchievement> list = new ArrayList<>();
 		for (Category category : Category.values()) {
 			list.addAll(category.list);
 		}
@@ -763,7 +763,7 @@ public class GOTAchievement {
 
 	public void broadcastEarning(EntityPlayer entityplayer) {
 		IChatComponent earnName = getChatComponentForEarn(entityplayer);
-		ChatComponentTranslation msg = new ChatComponentTranslation("got.chat.achievement", entityplayer.func_145748_c_(), earnName);
+		IChatComponent msg = new ChatComponentTranslation("got.chat.achievement", entityplayer.func_145748_c_(), earnName);
 		MinecraftServer.getServer().getConfigurationManager().sendChatMsg(msg);
 	}
 
@@ -866,7 +866,7 @@ public class GOTAchievement {
 		public String codeName;
 		public float[] categoryColors;
 		public GOTDimension dimension;
-		public List<GOTAchievement> list = new ArrayList<>();
+		public Collection<GOTAchievement> list = new ArrayList<>();
 		public int nextRankAchID = 1000;
 
 		Category(GOTDimension dim, int color) {

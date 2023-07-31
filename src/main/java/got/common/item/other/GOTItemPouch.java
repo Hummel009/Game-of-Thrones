@@ -134,7 +134,7 @@ public class GOTItemPouch extends Item {
 
 	public static boolean tryAddItemToPouch(ItemStack pouch, ItemStack itemstack, boolean requireMatchInPouch) {
 		if (itemstack != null && itemstack.stackSize > 0) {
-			GOTInventoryPouch pouchInv = new GOTInventoryPouch(pouch);
+			IInventory pouchInv = new GOTInventoryPouch(pouch);
 			for (int i = 0; i < pouchInv.getSizeInventory() && itemstack.stackSize > 0; ++i) {
 				int difference;
 				ItemStack itemInSlot = pouchInv.getStackInSlot(i);
@@ -170,7 +170,7 @@ public class GOTItemPouch extends Item {
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		int slots = getCapacity(itemstack);
 		int slotsFull = 0;
-		GOTInventoryPouch pouchInv = new GOTInventoryPouch(itemstack);
+		IInventory pouchInv = new GOTInventoryPouch(itemstack);
 		for (int i = 0; i < pouchInv.getSizeInventory(); ++i) {
 			ItemStack slotItem = pouchInv.getStackInSlot(i);
 			if (slotItem == null) {

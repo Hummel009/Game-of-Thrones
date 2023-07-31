@@ -1,5 +1,6 @@
 package got.common.entity.other;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.GOTItems;
@@ -241,7 +242,7 @@ public class GOTFamilyInfo {
 	}
 
 	public void sendData(EntityPlayerMP entityplayer) {
-		GOTPacketFamilyInfo packet = new GOTPacketFamilyInfo(theEntity.getEntityId(), age, male, name, isDrunk());
+		IMessage packet = new GOTPacketFamilyInfo(theEntity.getEntityId(), age, male, name, isDrunk());
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 

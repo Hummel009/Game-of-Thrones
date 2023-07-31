@@ -2,16 +2,19 @@ package got.common.database;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ModContainer;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.GOTDrunkenSpeech;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketNPCSpeech;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.input.BOMInputStream;
 
@@ -30,7 +33,7 @@ public class GOTSpeech {
 	public static Map<String, SpeechBank> allSpeechBanks = new HashMap<>();
 	public static Random rand = new Random();
 
-	public static String formatSpeech(String speech, EntityPlayer entityplayer, String location, String objective) {
+	public static String formatSpeech(String speech, ICommandSender entityplayer, CharSequence location, CharSequence objective) {
 		if (entityplayer != null) {
 			speech = speech.replace("#", entityplayer.getCommandSenderName());
 		}
@@ -47,11 +50,11 @@ public class GOTSpeech {
 		return getSpeechBank(bankName).getRandomSpeech(rand);
 	}
 
-	public static String getRandomSpeechForPlayer(GOTEntityNPC entity, String speechBankName, EntityPlayer entityplayer) {
+	public static String getRandomSpeechForPlayer(GOTEntityNPC entity, String speechBankName, ICommandSender entityplayer) {
 		return getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
 	}
 
-	public static String getRandomSpeechForPlayer(GOTEntityNPC entity, String speechBankName, EntityPlayer entityplayer, String location, String objective) {
+	public static String getRandomSpeechForPlayer(GOTEntityNPC entity, String speechBankName, ICommandSender entityplayer, CharSequence location, CharSequence objective) {
 		String s = getRandomSpeech(speechBankName);
 		s = formatSpeech(s, entityplayer, location, objective);
 		if (entity.isDrunkard()) {
@@ -73,11 +76,11 @@ public class GOTSpeech {
 		return new SpeechBank("dummy_" + name, true, Collections.singletonList("Speech bank " + name + " could not be found!"));
 	}
 
-	public static String getSpeechLineForPlayer(GOTEntityNPC entity, String speechBankName, int i, EntityPlayer entityplayer) {
+	public static String getSpeechLineForPlayer(GOTEntityNPC entity, String speechBankName, int i, ICommandSender entityplayer) {
 		return getSpeechLineForPlayer(entity, speechBankName, i, entityplayer, null, null);
 	}
 
-	public static String getSpeechLineForPlayer(GOTEntityNPC entity, String speechBankName, int i, EntityPlayer entityplayer, String location, String objective) {
+	public static String getSpeechLineForPlayer(GOTEntityNPC entity, String speechBankName, int i, ICommandSender entityplayer, CharSequence location, CharSequence objective) {
 		String s = getSpeechAtLine(speechBankName, i);
 		s = formatSpeech(s, entityplayer, location, objective);
 		if (entity.isDrunkard()) {
@@ -88,7 +91,7 @@ public class GOTSpeech {
 	}
 
 	public static void onInit() {
-		HashMap<String, BufferedReader> speechBankNamesAndReaders = new HashMap<>();
+		Map<String, BufferedReader> speechBankNamesAndReaders = new HashMap<>();
 		ZipFile zip = null;
 		try {
 			ModContainer mc = GOT.getModContainer();
@@ -184,7 +187,7 @@ public class GOTSpeech {
 	}
 
 	public static void sendSpeech(EntityPlayer entityplayer, GOTEntityNPC entity, String speech, boolean forceChatMsg) {
-		GOTPacketNPCSpeech packet = new GOTPacketNPCSpeech(entity.getEntityId(), speech, forceChatMsg);
+		IMessage packet = new GOTPacketNPCSpeech(entity.getEntityId(), speech, forceChatMsg);
 		GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 	}
 
@@ -192,7 +195,7 @@ public class GOTSpeech {
 		String name = entity.getCommandSenderName();
 		String speech = getRandomSpeechForPlayer(entity, speechBankName, entityplayer, null, null);
 		String message = EnumChatFormatting.YELLOW + "<" + name + ">" + EnumChatFormatting.WHITE + " " + speech;
-		ChatComponentText component = new ChatComponentText(message);
+		IChatComponent component = new ChatComponentText(message);
 		entityplayer.addChatMessage(component);
 		sendSpeech(entityplayer, entity, speech);
 	}

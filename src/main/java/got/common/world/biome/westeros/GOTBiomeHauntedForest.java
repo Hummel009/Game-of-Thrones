@@ -14,7 +14,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeHauntedForest extends GOTBiomeWesteros {
 	public GOTBiomeHauntedForest(int i, boolean major) {
@@ -29,20 +29,20 @@ public class GOTBiomeHauntedForest extends GOTBiomeWesteros {
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.PINE, 20);
 		decorator.addSettlement(new GOTStructureWildlingSettlement(this, 1.0f));
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_GIANT, 1).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.WILDING_MILITARY, 9).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(9).add(c0);
-		List<SpawnListContainer> c1 = new ArrayList<>();
+		Collection<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_MILITARY, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(1).add(c1);
-		List<SpawnListContainer> c2 = new ArrayList<>();
+		Collection<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.GIFT_GUARDIAN, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c2);
-		List<SpawnListContainer> c3 = new ArrayList<>();
+		Collection<SpawnListContainer> c3 = new ArrayList<>();
 		c3.add(GOTBiomeSpawnList.entry(GOTSpawnList.WALKERS_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c3);
-		List<SpawnListContainer> c5 = new ArrayList<>();
+		Collection<SpawnListContainer> c5 = new ArrayList<>();
 		c5.add(GOTBiomeSpawnList.entry(GOTSpawnList.DRAGONSTONE_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c5);
 	}

@@ -19,10 +19,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	public static int MAX_GATE_RANGE = 16;
@@ -131,7 +128,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		return false;
 	}
 
-	public void gatherAdjacentGate(World world, int i, int j, int k, int dir, boolean open, Set<ChunkCoordinates> allCoords, Set<ChunkCoordinates> currentDepthCoords) {
+	public void gatherAdjacentGate(IBlockAccess world, int i, int j, int k, int dir, boolean open, Collection<ChunkCoordinates> allCoords, Collection<ChunkCoordinates> currentDepthCoords) {
 		ChunkCoordinates coords = new ChunkCoordinates(i, j, k);
 		if (allCoords.contains(coords)) {
 			return;
@@ -147,7 +144,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		}
 	}
 
-	public void gatherAdjacentGates(World world, int i, int j, int k, int dir, boolean open, Set<ChunkCoordinates> allCoords, Set<ChunkCoordinates> currentDepthCoords) {
+	public void gatherAdjacentGates(IBlockAccess world, int i, int j, int k, int dir, boolean open, Collection<ChunkCoordinates> allCoords, Collection<ChunkCoordinates> currentDepthCoords) {
 		if (dir != 0 && dir != 1) {
 			gatherAdjacentGate(world, i, j - 1, k, dir, open, allCoords, currentDepthCoords);
 			gatherAdjacentGate(world, i, j + 1, k, dir, open, allCoords, currentDepthCoords);
@@ -176,12 +173,12 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		return super.getCollisionBoundingBoxFromPool(world, i, j, k);
 	}
 
-	public List<ChunkCoordinates> getConnectedGates(World world, int i, int j, int k) {
+	public List<ChunkCoordinates> getConnectedGates(IBlockAccess world, int i, int j, int k) {
 		boolean open = isGateOpen(world, i, j, k);
 		int dir = getGateDirection(world, i, j, k);
 		HashSet<ChunkCoordinates> allCoords = new HashSet<>();
 		HashSet<ChunkCoordinates> lastDepthCoords = new HashSet<>();
-		HashSet<ChunkCoordinates> currentDepthCoords = new HashSet<>();
+		Collection<ChunkCoordinates> currentDepthCoords = new HashSet<>();
 		for (int depth = 0; depth <= 16; ++depth) {
 			if (depth == 0) {
 				allCoords.add(new ChunkCoordinates(i, j, k));

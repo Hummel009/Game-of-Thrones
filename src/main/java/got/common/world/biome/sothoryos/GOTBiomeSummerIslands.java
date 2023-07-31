@@ -16,7 +16,7 @@ import got.common.world.structure.other.GOTStructureStoneRuin;
 import got.common.world.structure.sothoryos.summer.GOTStructureSummerSettlement;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 	public GOTBiomeSummerIslands(int i, boolean major) {
@@ -35,13 +35,13 @@ public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 		decorator.addStructure(new GOTStructureStoneRuin.RuinSandstone(1, 4), 400);
 		invasionSpawns.addInvasion(GOTInvasions.GHISCAR, GOTEventSpawner.EventChance.COMMON);
 		npcSpawnList.clear();
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.SUMMER_MILITARY, 4).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(8).add(c0);
-		List<SpawnListContainer> c1 = new ArrayList<>();
+		Collection<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.GHISCAR_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
-		List<SpawnListContainer> c2 = new ArrayList<>();
+		Collection<SpawnListContainer> c2 = new ArrayList<>();
 		c2.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(2).add(c2);
 	}

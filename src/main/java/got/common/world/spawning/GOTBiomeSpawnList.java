@@ -9,15 +9,12 @@ import got.common.world.map.GOTConquestGrid;
 import got.common.world.map.GOTConquestZone;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GOTBiomeSpawnList {
 	public String biomeIdentifier;
 	public List<FactionContainer> factionContainers = new ArrayList<>();
-	public List<GOTFaction> presentFactions = new ArrayList<>();
+	public Collection<GOTFaction> presentFactions = new ArrayList<>();
 	public float conquestGainRate = 1.0f;
 
 	public GOTBiomeSpawnList(GOTBiome biome) {
@@ -124,7 +121,7 @@ public class GOTBiomeSpawnList {
 	public static class FactionContainer {
 		public GOTBiomeSpawnList parent;
 		public GOTFaction theFaction;
-		public List<SpawnListContainer> spawnLists = new ArrayList<>();
+		public Collection<SpawnListContainer> spawnLists = new ArrayList<>();
 		public int baseWeight;
 		public float conquestSensitivity = 1.0f;
 
@@ -133,7 +130,7 @@ public class GOTBiomeSpawnList {
 			baseWeight = w;
 		}
 
-		public void add(List<SpawnListContainer> list) {
+		public void add(Collection<SpawnListContainer> list) {
 			spawnLists.addAll(list);
 		}
 

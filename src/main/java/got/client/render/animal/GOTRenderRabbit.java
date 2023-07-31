@@ -2,7 +2,7 @@ package got.client.render.animal;
 
 import got.client.model.GOTModelRabbit;
 import got.client.render.other.GOTRandomSkins;
-import got.common.entity.animal.GOTEntityRabbit;
+import got.common.entity.other.GOTRandomSkinEntity;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,7 +19,7 @@ public class GOTRenderRabbit extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityRabbit rabbit = (GOTEntityRabbit) entity;
+		GOTRandomSkinEntity rabbit = (GOTRandomSkinEntity) entity;
 		return rabbitSkins.getRandomSkin(rabbit);
 	}
 

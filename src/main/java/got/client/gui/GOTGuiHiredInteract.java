@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketHiredUnitInteract;
@@ -20,7 +21,7 @@ public class GOTGuiHiredInteract extends GOTGuiNPCInteract {
 				mc.displayGuiScreen(new GOTGuiHiredDismiss(theEntity));
 				return;
 			}
-			GOTPacketHiredUnitInteract packet = new GOTPacketHiredUnitInteract(theEntity.getEntityId(), button.id);
+			IMessage packet = new GOTPacketHiredUnitInteract(theEntity.getEntityId(), button.id);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}

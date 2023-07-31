@@ -550,7 +550,7 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	public void setDefaultPermissions(Collection<GOTBannerProtection.Permission> perms) {
+	public void setDefaultPermissions(Iterable<Permission> perms) {
 		defaultPermissions.clear();
 		for (GOTBannerProtection.Permission p : perms) {
 			if (p == GOTBannerProtection.Permission.FULL) {
@@ -587,19 +587,19 @@ public class GOTEntityBanner extends Entity {
 		}
 	}
 
-	public void whitelistFellowship(int index, GOTFellowship fs, List<GOTBannerProtection.Permission> perms) {
+	public void whitelistFellowship(int index, GOTFellowship fs, Iterable<Permission> perms) {
 		if (isValidFellowship(fs)) {
 			whitelistPlayer(index, new GOTFellowshipProfile(this, fs.getFellowshipID(), ""), perms);
 		}
 	}
 
 	public void whitelistPlayer(int index, GameProfile profile) {
-		ArrayList<GOTBannerProtection.Permission> defaultPerms = new ArrayList<>();
+		Collection<Permission> defaultPerms = new ArrayList<>();
 		defaultPerms.add(GOTBannerProtection.Permission.FULL);
 		whitelistPlayer(index, profile, defaultPerms);
 	}
 
-	public void whitelistPlayer(int index, GameProfile profile, List<GOTBannerProtection.Permission> perms) {
+	public void whitelistPlayer(int index, GameProfile profile, Iterable<Permission> perms) {
 		if (index < 0 || index >= allowedPlayers.length) {
 			return;
 		}

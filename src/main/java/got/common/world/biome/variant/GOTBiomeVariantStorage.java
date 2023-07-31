@@ -1,6 +1,7 @@
 package got.common.world.biome.variant;
 
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTDimension;
 import got.common.network.GOTPacketBiomeVariantsUnwatch;
 import got.common.network.GOTPacketBiomeVariantsWatch;
@@ -12,10 +13,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
 
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class GOTBiomeVariantStorage {
 	public static Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> chunkVariantMap = new EnumMap<>(GOTDimension.class);
@@ -68,7 +66,7 @@ public class GOTBiomeVariantStorage {
 	public static void performCleanup(WorldServer world) {
 		Map<ChunkCoordIntPair, byte[]> dimensionMap = getDimensionChunkMap(world);
 		System.nanoTime();
-		ArrayList<ChunkCoordIntPair> removalChunks = new ArrayList<>();
+		Collection<ChunkCoordIntPair> removalChunks = new ArrayList<>();
 		for (ChunkCoordIntPair chunk : dimensionMap.keySet()) {
 			if (world.theChunkProviderServer.chunkExists(chunk.chunkXPos, chunk.chunkZPos)) {
 				continue;
@@ -90,7 +88,7 @@ public class GOTBiomeVariantStorage {
 	public static void sendChunkVariantsToPlayer(World world, Chunk chunk, EntityPlayerMP entityplayer) {
 		byte[] variants = getChunkBiomeVariants(world, chunk);
 		if (variants != null) {
-			GOTPacketBiomeVariantsWatch packet = new GOTPacketBiomeVariantsWatch(chunk.xPosition, chunk.zPosition, variants);
+			IMessage packet = new GOTPacketBiomeVariantsWatch(chunk.xPosition, chunk.zPosition, variants);
 			GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 		} else {
 			String dimName = world.provider.getDimensionName();
@@ -102,7 +100,7 @@ public class GOTBiomeVariantStorage {
 	}
 
 	public static void sendUnwatchToPlayer(World world, Chunk chunk, EntityPlayerMP entityplayer) {
-		GOTPacketBiomeVariantsUnwatch packet = new GOTPacketBiomeVariantsUnwatch(chunk.xPosition, chunk.zPosition);
+		IMessage packet = new GOTPacketBiomeVariantsUnwatch(chunk.xPosition, chunk.zPosition);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 

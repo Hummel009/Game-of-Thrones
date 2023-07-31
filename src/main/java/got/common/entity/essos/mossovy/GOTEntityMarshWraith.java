@@ -177,7 +177,7 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 					if (!(entity instanceof EntityLiving) || !entity.getUniqueID().equals(attackTargetUUID)) {
 						continue;
 					}
-					setAttackTarget((EntityLiving) entity);
+					setAttackTarget((EntityLivingBase) entity);
 					break;
 				}
 				checkedForAttackTarget = true;

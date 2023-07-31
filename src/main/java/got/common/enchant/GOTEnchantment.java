@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 import java.util.*;
 
 public abstract class GOTEnchantment {
-	public static List<GOTEnchantment> allEnchantments = new ArrayList<>();
+	public static Collection<GOTEnchantment> allEnchantments = new ArrayList<>();
 	public static Map<String, GOTEnchantment> enchantsByName = new HashMap<>();
 
 	public static GOTEnchantment strong1 = new GOTEnchantmentDamage("strong1", 0.5F).setEnchantWeight(10);

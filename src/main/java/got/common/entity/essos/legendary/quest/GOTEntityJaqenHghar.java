@@ -22,6 +22,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
@@ -65,7 +66,7 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	}
 
 	public void arriveAt(EntityPlayer entityplayer) {
-		ArrayList<EntityPlayer> msgPlayers = new ArrayList<>();
+		Collection<EntityPlayer> msgPlayers = new ArrayList<>();
 		if (entityplayer != null) {
 			msgPlayers.add(entityplayer);
 		}
@@ -88,7 +89,7 @@ public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	}
 
 	public void depart() {
-		ArrayList<EntityPlayer> msgPlayers = new ArrayList<>();
+		Collection<EntityPlayer> msgPlayers = new ArrayList<>();
 		List<EntityPlayer> worldPlayers = worldObj.playerEntities;
 		for (EntityPlayer obj : worldPlayers) {
 			if (!msgPlayers.contains(obj)) {

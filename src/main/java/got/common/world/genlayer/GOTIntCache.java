@@ -3,6 +3,7 @@ package got.common.world.genlayer;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class GOTIntCache {
@@ -10,9 +11,9 @@ public class GOTIntCache {
 	public static GOTIntCache CLIENT = new GOTIntCache();
 	public int intCacheSize = 256;
 	public List<int[]> freeSmallArrays = new ArrayList<>();
-	public List<int[]> inUseSmallArrays = new ArrayList<>();
+	public Collection<int[]> inUseSmallArrays = new ArrayList<>();
 	public List<int[]> freeLargeArrays = new ArrayList<>();
-	public List<int[]> inUseLargeArrays = new ArrayList<>();
+	public Collection<int[]> inUseLargeArrays = new ArrayList<>();
 
 	public static GOTIntCache get(World world) {
 		if (!world.isRemote) {

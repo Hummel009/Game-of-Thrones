@@ -25,6 +25,7 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
@@ -58,7 +59,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		}
 	}
 
-	public static boolean canPlantGrapesAt(World world, int i, int j, int k, IPlantable plantable) {
+	public static boolean canPlantGrapesAt(IBlockAccess world, int i, int j, int k, IPlantable plantable) {
 		for (int l = 1; l <= 3; ++l) {
 			int j1 = j - l;
 			Block block = world.getBlock(i, j1, k);
@@ -240,8 +241,8 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		return 0;
 	}
 
-	public ArrayList<ItemStack> getVineDrops(World world, int i, int j, int k, int meta, int fortune) {
-		ArrayList<ItemStack> drops = new ArrayList<>();
+	public Collection<ItemStack> getVineDrops(World world, int i, int j, int k, int meta, int fortune) {
+		Collection<ItemStack> drops = new ArrayList<>();
 		int seeds = 3 + fortune;
 		for (int l = 0; l < seeds; ++l) {
 			if (world.rand.nextInt(15) > meta) {
@@ -280,7 +281,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		int meta;
 		if (hasGrapes && (meta = world.getBlockMetadata(i, j, k)) >= 7) {
 			if (!world.isRemote) {
-				ArrayList<ItemStack> drops = getVineDrops(world, i, j, k, meta, 0);
+				Iterable<ItemStack> drops = getVineDrops(world, i, j, k, meta, 0);
 				for (ItemStack itemstack : drops) {
 					dropBlockAsItem(world, i, j, k, itemstack);
 				}

@@ -2,6 +2,7 @@ package got.client.render.animal;
 
 import got.client.model.GOTModelRhino;
 import got.common.entity.animal.GOTEntityRhino;
+import got.common.entity.other.GOTNPCMount;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,7 +20,7 @@ public class GOTRenderRhino extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityRhino rhino = (GOTEntityRhino) entity;
+		GOTNPCMount rhino = (GOTNPCMount) entity;
 		return GOTRenderHorse.getLayeredMountTexture(rhino, rhinoTexture);
 	}
 
@@ -36,7 +37,7 @@ public class GOTRenderRhino extends RenderLiving {
 
 	@Override
 	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
-		if (pass == 0 && ((GOTEntityRhino) entity).isMountSaddled()) {
+		if (pass == 0 && ((GOTNPCMount) entity).isMountSaddled()) {
 			bindTexture(saddleTexture);
 			return 1;
 		}

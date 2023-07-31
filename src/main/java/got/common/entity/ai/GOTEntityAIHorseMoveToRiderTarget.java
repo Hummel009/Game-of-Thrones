@@ -4,6 +4,7 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTNPCMount;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.pathfinding.PathEntity;
@@ -46,7 +47,7 @@ public class GOTEntityAIHorseMoveToRiderTarget extends EntityAIBase {
 		if (rider == null || !rider.isEntityAlive() || !(rider instanceof GOTEntityNPC)) {
 			return false;
 		}
-		EntityLivingBase riderTarget = ((GOTEntityNPC) rider).getAttackTarget();
+		EntityLivingBase riderTarget = ((EntityLiving) rider).getAttackTarget();
 		if (riderTarget == null || !riderTarget.isEntityAlive()) {
 			return false;
 		}
@@ -56,7 +57,7 @@ public class GOTEntityAIHorseMoveToRiderTarget extends EntityAIBase {
 
 	@Override
 	public void startExecuting() {
-		speed = ((GOTEntityNPC) livingHorse.riddenByEntity).getEntityAttribute(GOTEntityNPC.horseAttackSpeed).getAttributeValue();
+		speed = ((EntityLivingBase) livingHorse.riddenByEntity).getEntityAttribute(GOTEntityNPC.horseAttackSpeed).getAttributeValue();
 		livingHorse.getNavigator().setPath(entityPathEntity, speed);
 		pathCheckTimer = 0;
 	}

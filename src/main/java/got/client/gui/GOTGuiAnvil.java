@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.inventory.GOTContainerAnvil;
@@ -67,11 +68,11 @@ public class GOTGuiAnvil extends GuiContainer {
 			if (button == buttonReforge) {
 				ItemStack inputItem2 = theAnvil.invInput.getStackInSlot(0);
 				if (inputItem2 != null && theAnvil.reforgeCost > 0 && theAnvil.hasMaterialOrCoinAmount(theAnvil.reforgeCost)) {
-					GOTPacketAnvilReforge packet = new GOTPacketAnvilReforge();
+					IMessage packet = new GOTPacketAnvilReforge();
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 				}
 			} else if (button == buttonEngraveOwner && theAnvil.invInput.getStackInSlot(0) != null && theAnvil.engraveOwnerCost > 0 && theAnvil.hasMaterialOrCoinAmount(theAnvil.engraveOwnerCost)) {
-				GOTPacketAnvilEngraveOwner packet = new GOTPacketAnvilEngraveOwner();
+				IMessage packet = new GOTPacketAnvilEngraveOwner();
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			}
 		}
@@ -248,7 +249,7 @@ public class GOTGuiAnvil extends GuiContainer {
 			}
 		}
 		theAnvil.updateItemName(rename);
-		GOTPacketAnvilRename packet = new GOTPacketAnvilRename(rename);
+		IMessage packet = new GOTPacketAnvilRename(rename);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 

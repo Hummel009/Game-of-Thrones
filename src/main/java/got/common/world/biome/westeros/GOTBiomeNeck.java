@@ -10,7 +10,7 @@ import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeNeck extends GOTBiomeWesteros {
 	public GOTBiomeNeck(int i, boolean major) {
@@ -32,7 +32,7 @@ public class GOTBiomeNeck extends GOTBiomeWesteros {
 		decorator.clearTrees();
 		decorator.addTree(GOTTreeType.WILLOW, 90);
 		decorator.addTree(GOTTreeType.WILLOW_WATER, 10);
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

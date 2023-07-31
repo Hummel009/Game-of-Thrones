@@ -11,6 +11,7 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTRecipeLeatherHatDye implements IRecipe {
 	@Override
@@ -87,7 +88,7 @@ public class GOTRecipeLeatherHatDye implements IRecipe {
 	@Override
 	public boolean matches(InventoryCrafting inv, World world) {
 		ItemStack hat = null;
-		ArrayList<ItemStack> dyes = new ArrayList<>();
+		Collection<ItemStack> dyes = new ArrayList<>();
 		for (int i = 0; i < inv.getSizeInventory(); ++i) {
 			ItemStack itemstack = inv.getStackInSlot(i);
 			if (itemstack == null) {

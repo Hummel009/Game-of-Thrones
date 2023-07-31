@@ -86,7 +86,7 @@ public enum GOTMiniQuestFactory {
 	}
 
 	public static int getTotalQuestClassWeight(GOTMiniQuestFactory factory) {
-		Set<Class<? extends GOTMiniQuest>> registeredQuestTypes = new HashSet<>();
+		Collection<Class<? extends GOTMiniQuest>> registeredQuestTypes = new HashSet<>();
 		for (Map.Entry<Class<? extends GOTMiniQuest>, List<QuestFactoryBase<? extends GOTMiniQuest>>> entry : factory.questFactories.entrySet()) {
 			Class<? extends GOTMiniQuest> questType = entry.getKey();
 			registeredQuestTypes.add(questType);

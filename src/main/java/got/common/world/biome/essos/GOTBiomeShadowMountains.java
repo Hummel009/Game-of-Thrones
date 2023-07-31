@@ -6,6 +6,7 @@ import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTWorldGenAsshaiMoss;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenMinable;
@@ -29,7 +30,7 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
 	}
 
-	public static boolean isBasalt(World world, int i, int j, int k) {
+	public static boolean isBasalt(IBlockAccess world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		int meta = world.getBlockMetadata(i, j, k);
 		return block == GOTBlocks.rock && meta == 0 || block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;

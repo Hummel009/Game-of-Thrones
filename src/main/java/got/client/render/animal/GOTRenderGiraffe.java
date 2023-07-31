@@ -2,6 +2,7 @@ package got.client.render.animal;
 
 import got.client.model.GOTModelGiraffe;
 import got.common.entity.animal.GOTEntityGiraffe;
+import got.common.entity.other.GOTNPCMount;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -35,7 +36,7 @@ public class GOTRenderGiraffe extends RenderLiving {
 
 	@Override
 	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
-		if (pass == 0 && ((GOTEntityGiraffe) entity).isMountSaddled()) {
+		if (pass == 0 && ((GOTNPCMount) entity).isMountSaddled()) {
 			bindTexture(saddleTexture);
 			return 1;
 		}

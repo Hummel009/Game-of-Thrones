@@ -41,7 +41,7 @@ public class GOTItemOwnership {
 	}
 
 	public static List<String> getPreviousOwners(ItemStack itemstack) {
-		ArrayList<String> owners = new ArrayList<>();
+		List<String> owners = new ArrayList<>();
 		if (itemstack.getTagCompound() != null) {
 			NBTTagCompound nbt = itemstack.getTagCompound();
 			if (nbt.hasKey("GOTOwner", 8)) {

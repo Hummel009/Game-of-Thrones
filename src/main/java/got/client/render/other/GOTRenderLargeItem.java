@@ -22,10 +22,7 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GOTRenderLargeItem implements IItemRenderer {
 	public static Map<String, Float> sizeFolders = new HashMap<>();
@@ -40,7 +37,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	public float largeIconScale;
 	public IIcon largeIcon;
 
-	public List<ExtraLargeIconToken> extraTokens = new ArrayList<>();
+	public Collection<ExtraLargeIconToken> extraTokens = new ArrayList<>();
 
 	public GOTRenderLargeItem(Item item, String dir, float f) {
 		theItem = item;

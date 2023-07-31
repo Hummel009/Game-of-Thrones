@@ -18,6 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 
@@ -40,7 +41,7 @@ public class GOTBlockMug extends BlockContainer {
 		setStepSound(Block.soundTypeWood);
 	}
 
-	public static ItemStack getMugItem(World world, int i, int j, int k) {
+	public static ItemStack getMugItem(IBlockAccess world, int i, int j, int k) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (tileentity instanceof GOTTileEntityMug) {
 			GOTTileEntityMug mug = (GOTTileEntityMug) tileentity;
@@ -49,7 +50,7 @@ public class GOTBlockMug extends BlockContainer {
 		return new ItemStack(GOTItems.mug);
 	}
 
-	public static void setMugItem(World world, int i, int j, int k, ItemStack itemstack, GOTItemMug.Vessel vessel) {
+	public static void setMugItem(IBlockAccess world, int i, int j, int k, ItemStack itemstack, GOTItemMug.Vessel vessel) {
 		TileEntity te = world.getTileEntity(i, j, k);
 		if (te instanceof GOTTileEntityMug) {
 			GOTTileEntityMug mug = (GOTTileEntityMug) te;

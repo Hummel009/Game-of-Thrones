@@ -55,7 +55,7 @@ public class GOTBlockBeacon extends BlockContainer {
 		return false;
 	}
 
-	public static void setLit(World world, int i, int j, int k, boolean lit) {
+	public static void setLit(IBlockAccess world, int i, int j, int k, boolean lit) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (tileentity instanceof GOTTileEntityBeacon) {
 			GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) tileentity;

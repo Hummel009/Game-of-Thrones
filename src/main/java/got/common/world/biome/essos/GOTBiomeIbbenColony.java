@@ -10,13 +10,13 @@ import got.common.world.structure.other.GOTStructureSmallStoneRuin;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeIbbenColony extends GOTBiomeEssos {
 	public GOTBiomeIbbenColony(int i, boolean major) {
 		super(i, major);
 		decorator.addSettlement(new GOTStructureIbbenSettlement(this, 1.0f));
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IBBEN_MILITARY, 2).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);

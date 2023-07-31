@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class GOTStructureSummerMarket extends GOTStructureSummerBase {
@@ -100,7 +101,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		placeAnimalJar(world, -2, 3, -2, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
 		placeAnimalJar(world, 6, 3, 1, GOTBlocks.birdCage, 0, new GOTEntityBird(world));
 		placeSkull(world, random, 2, 4, -5);
-		ArrayList<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(stalls));
+		List<Class<? extends GOTStructureBase>> stallClasses = new ArrayList<>(Arrays.asList(stalls));
 		while (stallClasses.size() > 4) {
 			stallClasses.remove(random.nextInt(stallClasses.size()));
 		}

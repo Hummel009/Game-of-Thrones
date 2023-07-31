@@ -1,5 +1,6 @@
 package got.common.entity.other;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -457,7 +458,7 @@ public class GOTHiredNPCInfo {
 	}
 
 	public void sendBasicData(EntityPlayerMP entityplayer) {
-		GOTPacketHiredInfo packet = new GOTPacketHiredInfo(theEntity.getEntityId(), hiringPlayerUUID, hiredTask, hiredSquadron, xpLevel);
+		IMessage packet = new GOTPacketHiredInfo(theEntity.getEntityId(), hiringPlayerUUID, hiredTask, hiredSquadron, xpLevel);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 

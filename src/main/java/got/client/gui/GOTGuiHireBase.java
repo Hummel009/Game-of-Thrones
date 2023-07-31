@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTClientProxy;
 import got.common.GOTLevelData;
 import got.common.GOTSquadrons;
@@ -64,7 +65,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 				}
 			} else if (button == buttonHire) {
 				String squadron = squadronNameField.getText();
-				GOTPacketBuyUnit packet = new GOTPacketBuyUnit(currentTradeEntryIndex, squadron);
+				IMessage packet = new GOTPacketBuyUnit(currentTradeEntryIndex, squadron);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button == buttonRightUnit && currentTradeEntryIndex < trades.tradeEntries.length - 1) {
 				++currentTradeEntryIndex;

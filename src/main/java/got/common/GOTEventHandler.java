@@ -10,6 +10,7 @@ import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.*;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import got.GOT;
@@ -105,10 +106,7 @@ import net.minecraftforge.event.terraingen.SaplingGrowTreeEvent;
 import net.minecraftforge.event.world.*;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 public class GOTEventHandler implements IFuelHandler {
 	public GOTItemBow proxyBowItemServer;
@@ -612,12 +610,12 @@ public class GOTEventHandler implements IFuelHandler {
 			event.setCanceled(true);
 			return;
 		}
-		if (entity instanceof GOTUnitTradeable && ((GOTUnitTradeable) entity).canTradeWith(entityplayer)) {
+		if (entity instanceof GOTUnitTradeable && ((GOTHireableBase) entity).canTradeWith(entityplayer)) {
 			entityplayer.openGui(GOT.instance, GOTGuiID.UNIT_TRADE_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 			event.setCanceled(true);
 			return;
 		}
-		if (entity instanceof GOTMercenary && ((GOTMercenary) entity).canTradeWith(entityplayer)) {
+		if (entity instanceof GOTMercenary && ((GOTHireableBase) entity).canTradeWith(entityplayer)) {
 			assert entity instanceof GOTEntityNPC;
 			if (((GOTEntityNPC) entity).hiredNPCInfo.getHiringPlayerUUID() == null) {
 				entityplayer.openGui(GOT.instance, GOTGuiID.MERCENARY_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
@@ -642,7 +640,7 @@ public class GOTEventHandler implements IFuelHandler {
 					if (hiringUUID != null) {
 						String playerName = getUsernameWithoutWebservice(hiringUUID);
 						if (playerName != null) {
-							ChatComponentText chatComponentText = new ChatComponentText("Hired unit belongs to " + playerName);
+							IChatComponent chatComponentText = new ChatComponentText("Hired unit belongs to " + playerName);
 							chatComponentText.getChatStyle().setColor(EnumChatFormatting.GREEN);
 							entityplayer.addChatMessage(chatComponentText);
 						}
@@ -658,7 +656,7 @@ public class GOTEventHandler implements IFuelHandler {
 				if (brandingPlayer != null) {
 					String playerName = getUsernameWithoutWebservice(brandingPlayer);
 					if (playerName != null) {
-						ChatComponentText chatComponentText = new ChatComponentText("Entity was branded by " + playerName);
+						IChatComponent chatComponentText = new ChatComponentText("Entity was branded by " + playerName);
 						chatComponentText.getChatStyle().setColor(EnumChatFormatting.GREEN);
 						entityplayer.addChatMessage(chatComponentText);
 						event.setCanceled(true);
@@ -724,7 +722,7 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 			if (protectFilter != null) {
 				List<ChunkPosition> blockList = expl.affectedBlockPositions;
-				List<ChunkPosition> removes = new ArrayList<>();
+				Collection<ChunkPosition> removes = new ArrayList<>();
 				for (ChunkPosition blockPos : blockList) {
 					int i = blockPos.chunkPosX;
 					int j = blockPos.chunkPosY;
@@ -1025,7 +1023,7 @@ public class GOTEventHandler implements IFuelHandler {
 					if (attackingPlayer.isPotionActive(Potion.confusion.id)) {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killWhileDrunk);
 					}
-					if (entity instanceof GOTEntityYiTiBombardier && ((GOTEntityYiTiBombardier) entity).npcItemsInv.getBomb() != null) {
+					if (entity instanceof GOTEntityYiTiBombardier && ((GOTEntityNPC) entity).npcItemsInv.getBomb() != null) {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killBombardier);
 					}
 					if (source.getSourceOfDamage() instanceof GOTEntityCrossbowBolt) {
@@ -1103,7 +1101,7 @@ public class GOTEventHandler implements IFuelHandler {
 					ItemStack usingItem = entityplayer.getHeldItem();
 					if (GOTWeaponStats.isRangedWeapon(usingItem)) {
 						entityplayer.clearItemInUse();
-						GOTPacketStopItemUse packet = new GOTPacketStopItemUse();
+						IMessage packet = new GOTPacketStopItemUse();
 						GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 					}
 				}
@@ -1145,7 +1143,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (!world.isRemote) {
 			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.fire)) {
-				GOTPacketWeaponFX packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.INFERNAL, entity);
+				IMessage packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.INFERNAL, entity);
 				GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
 			}
 			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.chill)) {
@@ -1555,7 +1553,7 @@ public class GOTEventHandler implements IFuelHandler {
 					Object arg = formatArgs[a];
 					String chatText = null;
 					if (arg instanceof ChatComponentText) {
-						ChatComponentText componentText = (ChatComponentText) arg;
+						IChatComponent componentText = (IChatComponent) arg;
 						chatText = componentText.getUnformattedText();
 					} else if (arg instanceof String) {
 						chatText = (String) arg;
@@ -1564,7 +1562,7 @@ public class GOTEventHandler implements IFuelHandler {
 						String newText = GOTDrunkenSpeech.getDrunkenSpeech(chatText, chance);
 						if (arg instanceof String) {
 							formatArgs[a] = newText;
-						} else if (arg instanceof ChatComponentText) {
+						} else {
 							formatArgs[a] = new ChatComponentText(newText);
 						}
 					}
@@ -1575,10 +1573,10 @@ public class GOTEventHandler implements IFuelHandler {
 		if (GOTConfig.enableTitles) {
 			GOTTitle.PlayerTitle playerTitle = GOTLevelData.getData(entityplayer).getPlayerTitle();
 			if (playerTitle != null) {
-				ArrayList<Object> newFormatArgs = new ArrayList<>();
+				Collection<Object> newFormatArgs = new ArrayList<>();
 				for (Object arg : chatComponent.getFormatArgs()) {
 					if (arg instanceof ChatComponentText) {
-						ChatComponentText componentText = (ChatComponentText) arg;
+						IChatComponent componentText = (IChatComponent) arg;
 						if (componentText.getUnformattedText().contains(username)) {
 							IChatComponent titleComponent = playerTitle.getFullTitleComponent(entityplayer);
 							IChatComponent fullUsernameComponent = new ChatComponentText("").appendSibling(titleComponent).appendSibling(componentText);
@@ -1639,7 +1637,7 @@ public class GOTEventHandler implements IFuelHandler {
 			npc.onPlayerStartTracking(entityplayermp);
 		}
 		if (!entity.worldObj.isRemote && entity instanceof GOTRandomSkinEntity) {
-			GOTPacketEntityUUID packet = new GOTPacketEntityUUID(entity.getEntityId(), entity.getUniqueID());
+			IMessage packet = new GOTPacketEntityUUID(entity.getEntityId(), entity.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		if (!entity.worldObj.isRemote && entity instanceof GOTEntityBanner) {

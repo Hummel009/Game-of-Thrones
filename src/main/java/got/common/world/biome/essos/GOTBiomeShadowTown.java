@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
@@ -27,7 +27,7 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 		decorator.flowersPerChunk = 0;
 		decorator.addStructure(new GOTStructureAsshaiAltar(false), 250);
 		decorator.addStructure(new GOTStructureAsshaiSpiderPit(false), 150);
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.ASSHAI_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

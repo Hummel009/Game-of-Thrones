@@ -40,10 +40,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class GOTAPI {
 	/**
@@ -462,8 +459,8 @@ public class GOTAPI {
 		return getObjectFieldsOfType(clazz, null, type);
 	}
 
-	private static <E, T> HashSet<T> getObjectFieldsOfType(Class<? extends E> clazz, E instance, Class<? extends T> type) {
-		HashSet<Object> list = new HashSet<>();
+	private static <E, T> Set<T> getObjectFieldsOfType(Class<? extends E> clazz, E instance, Class<? extends T> type) {
+		Collection<Object> list = new HashSet<>();
 		try {
 			for (Field field : clazz.getDeclaredFields()) {
 				if (field == null) {
@@ -483,7 +480,7 @@ public class GOTAPI {
 		} catch (IllegalAccessException | IllegalArgumentException e) {
 			GOTLog.logger.error("Errored when getting all field from: {} of type: {}", clazz.getName(), type.getName());
 		}
-		return (HashSet<T>) list;
+		return (Set<T>) list;
 	}
 
 	private static String getPath(ResourceLocation res) {

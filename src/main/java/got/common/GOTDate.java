@@ -2,6 +2,7 @@ package got.common;
 
 import com.google.common.math.IntMath;
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.network.GOTPacketDate;
 import got.common.network.GOTPacketHandler;
 import got.common.world.GOTWorldInfo;
@@ -41,7 +42,7 @@ public class GOTDate {
 	public static void sendUpdatePacket(EntityPlayerMP entityplayer, boolean update) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		saveDates(nbt);
-		GOTPacketDate packet = new GOTPacketDate(nbt, update);
+		IMessage packet = new GOTPacketDate(nbt, update);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 

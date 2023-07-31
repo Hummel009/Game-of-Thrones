@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
@@ -32,7 +32,7 @@ public class GOTBiomeYeen extends GOTBiomeSothoryosJungle {
 		decorator.canePerChunk = 0;
 		biomeColors.setFoggy(true);
 		npcSpawnList.clear();
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

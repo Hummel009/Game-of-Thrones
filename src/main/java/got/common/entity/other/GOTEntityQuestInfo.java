@@ -2,6 +2,7 @@ package got.common.entity.other;
 
 import com.google.common.base.Predicate;
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -33,11 +34,11 @@ public class GOTEntityQuestInfo {
 	public int offerChance;
 	public float minAlignment;
 	public Map<UUID, GOTMiniQuest> playerSpecificOffers = new HashMap<>();
-	public List<EntityPlayer> openOfferPlayers = new ArrayList<>();
+	public Collection<EntityPlayer> openOfferPlayers = new ArrayList<>();
 	public Map<UUID, Boolean> playerPacketCache = new HashMap<>();
 	public boolean clientIsOffering;
 	public int clientOfferColor;
-	public List<UUID> activeQuestPlayers = new ArrayList<>();
+	public Collection<UUID> activeQuestPlayers = new ArrayList<>();
 	public Predicate<EntityPlayer> bountyHelpPredicate;
 	public Predicate<EntityPlayer> bountyHelpConsumer;
 	public MiniQuestSelector.BountyActiveAnyFaction activeBountySelector;
@@ -227,7 +228,7 @@ public class GOTEntityQuestInfo {
 
 	public void pruneActiveQuestPlayers() {
 		if (!activeQuestPlayers.isEmpty()) {
-			HashSet<UUID> removes = new HashSet<>();
+			Collection<UUID> removes = new HashSet<>();
 			for (UUID player : activeQuestPlayers) {
 				List<GOTMiniQuest> playerQuests = GOTLevelData.getData(player).getMiniQuestsForEntity(theNPC, true);
 				if (playerQuests.isEmpty()) {
@@ -323,7 +324,7 @@ public class GOTEntityQuestInfo {
 		}
 		playerPacketCache.put(uuid, isOffering);
 		if (isOffering != prevOffering) {
-			GOTPacketNPCIsOfferingQuest packet = new GOTPacketNPCIsOfferingQuest(theNPC.getEntityId(), isOffering, color);
+			IMessage packet = new GOTPacketNPCIsOfferingQuest(theNPC.getEntityId(), isOffering, color);
 			GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 		}
 	}
@@ -343,7 +344,7 @@ public class GOTEntityQuestInfo {
 	public void sendMiniquestOffer(EntityPlayer entityplayer, GOTMiniQuest quest) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		quest.writeToNBT(nbt);
-		GOTPacketMiniquestOffer packet = new GOTPacketMiniquestOffer(theNPC.getEntityId(), nbt);
+		IMessage packet = new GOTPacketMiniquestOffer(theNPC.getEntityId(), nbt);
 		GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		addOpenOfferPlayer(entityplayer);
 	}

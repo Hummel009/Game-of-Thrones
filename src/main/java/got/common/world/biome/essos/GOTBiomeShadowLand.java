@@ -11,7 +11,7 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTEventSpawner;
 import net.minecraft.block.Block;
-import net.minecraft.world.World;
+import net.minecraft.world.IBlockAccess;
 
 public class GOTBiomeShadowLand extends GOTBiome {
 	public GOTBiomeShadowLand(int i, boolean major) {
@@ -38,7 +38,7 @@ public class GOTBiomeShadowLand extends GOTBiome {
 		biomeColors.setWater(0);
 	}
 
-	public static boolean isBlackSurface(World world, int i, int j, int k) {
+	public static boolean isBlackSurface(IBlockAccess world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		int meta = world.getBlockMetadata(i, j, k);
 		return block == GOTBlocks.rock && meta == 0 || block == GOTBlocks.basaltGravel;

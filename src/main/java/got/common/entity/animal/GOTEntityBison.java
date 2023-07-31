@@ -69,8 +69,8 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 		if (flag && isChild() && (attacker = damagesource.getEntity()) instanceof EntityLivingBase) {
 			List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(12.0, 12.0, 12.0));
 			for (Entity element : list) {
-				if (element instanceof GOTEntityBison && !((GOTEntityBison) element).isChild()) {
-					((GOTEntityBison) element).setAttackTarget((EntityLivingBase) attacker);
+				if (element instanceof GOTEntityBison && !((EntityLivingBase) element).isChild()) {
+					((EntityLiving) element).setAttackTarget((EntityLivingBase) attacker);
 				}
 			}
 		}

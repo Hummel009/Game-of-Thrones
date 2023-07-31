@@ -3,6 +3,7 @@ package got.client.render.animal;
 import got.client.model.GOTModelDeer;
 import got.client.render.other.GOTRandomSkins;
 import got.common.entity.animal.GOTEntityDeer;
+import got.common.entity.other.GOTNPCMount;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -27,7 +28,7 @@ public class GOTRenderDeer extends RenderLiving {
 
 	@Override
 	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
-		if (pass == 0 && ((GOTEntityDeer) entity).isMountSaddled()) {
+		if (pass == 0 && ((GOTNPCMount) entity).isMountSaddled()) {
 			bindTexture(saddleTexture);
 			return 1;
 		}

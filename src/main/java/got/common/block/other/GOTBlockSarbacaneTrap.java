@@ -16,6 +16,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tileentity.TileEntityDispenser;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
@@ -38,7 +39,7 @@ public class GOTBlockSarbacaneTrap extends BlockContainer {
 
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
-		GOTTileEntitySarbacaneTrap trap = (GOTTileEntitySarbacaneTrap) world.getTileEntity(i, j, k);
+		IInventory trap = (IInventory) world.getTileEntity(i, j, k);
 		if (trap != null) {
 			GOT.dropContainerItems(trap, world, i, j, k);
 			world.func_147453_f(i, j, k, block);
@@ -110,7 +111,7 @@ public class GOTBlockSarbacaneTrap extends BlockContainer {
 			world.setBlockMetadataWithNotify(i, j, k, 4, 2);
 		}
 		if (itemstack.hasDisplayName()) {
-			((GOTTileEntitySarbacaneTrap) world.getTileEntity(i, j, k)).func_146018_a(itemstack.getDisplayName());
+			((TileEntityDispenser) world.getTileEntity(i, j, k)).func_146018_a(itemstack.getDisplayName());
 		}
 	}
 

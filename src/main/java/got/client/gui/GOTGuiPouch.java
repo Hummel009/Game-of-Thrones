@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.inventory.GOTContainerPouch;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketRenamePouch;
@@ -66,7 +67,7 @@ public class GOTGuiPouch extends GuiContainer {
 	public void renamePouch() {
 		String name = theGuiTextField.getText();
 		thePouch.renamePouch(name);
-		GOTPacketRenamePouch packet = new GOTPacketRenamePouch(name);
+		IMessage packet = new GOTPacketRenamePouch(name);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 

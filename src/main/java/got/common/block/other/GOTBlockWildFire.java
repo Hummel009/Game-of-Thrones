@@ -37,7 +37,7 @@ public class GOTBlockWildFire extends BlockFire {
 		return false;
 	}
 
-	public int getChanceOfNeighborsEncouragingFire(World world, int i, int j, int k) {
+	public int getChanceOfNeighborsEncouragingFire(IBlockAccess world, int i, int j, int k) {
 		if (!world.isAirBlock(i, j, k)) {
 			return 0;
 		}
@@ -167,7 +167,7 @@ public class GOTBlockWildFire extends BlockFire {
 				world.setBlockToAir(i, j, k);
 			} else {
 				boolean canBurnStone;
-				HashMap<Block, Pair<Integer, Integer>> infos = new HashMap<>();
+				Map<Block, Pair<Integer, Integer>> infos = new HashMap<>();
 				canBurnStone = random.nextFloat() < 0.9f;
 				if (canBurnStone) {
 					for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {

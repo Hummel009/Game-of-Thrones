@@ -1,5 +1,6 @@
 package got.common.enchant;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTDamage;
 import got.common.item.GOTWeaponStats;
 import got.common.item.weapon.GOTItemLegendaryWhip;
@@ -30,7 +31,7 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		int duration = 5;
 		entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, duration * 20, 1));
 
-		GOTPacketWeaponFX packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.CHILLING, entity);
+		IMessage packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.CHILLING, entity);
 		GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
 	}
 

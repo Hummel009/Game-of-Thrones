@@ -19,7 +19,7 @@ public class GOTEntityRegistry {
 	public static Map<Class<? extends Entity>, String> classToNameMapping = new HashMap<>();
 	public static Map<Class<? extends Entity>, Integer> classToIDMapping = new HashMap<>();
 	public static Map<Class<? extends Entity>, GOTFaction> classToFactionMapping = new HashMap<>();
-	public static Set<Class<? extends Entity>> entitySet = new HashSet<>();
+	public static Collection<Class<? extends Entity>> entitySet = new HashSet<>();
 
 	public static Entity createEntityByClass(Class<? extends Entity> entityClass, World world) {
 		Entity entity = null;
@@ -97,7 +97,7 @@ public class GOTEntityRegistry {
 		classToFactionMapping.put(entityClass, faction);
 	}
 
-	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
+	public void getSubItems(Item item, CreativeTabs tab, Collection<ItemStack> list) {
 		for (GOTEntityRegistry.SpawnEggInfo info : spawnEggs.values()) {
 			list.add(new ItemStack(item, 1, info.spawnedID));
 		}

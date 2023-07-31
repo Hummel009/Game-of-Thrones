@@ -5,15 +5,12 @@ import got.common.database.GOTInvasions;
 import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTEventSpawner.EventChance;
 
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class GOTBiomeInvasionSpawns {
 	public GOTBiome theBiome;
 	public Map<GOTEventSpawner.EventChance, List<GOTInvasions>> invasionsByChance = new EnumMap<>(EventChance.class);
-	public List<GOTInvasions> registeredInvasions = new ArrayList<>();
+	public Collection<GOTInvasions> registeredInvasions = new ArrayList<>();
 
 	public GOTBiomeInvasionSpawns(GOTBiome biome) {
 		theBiome = biome;

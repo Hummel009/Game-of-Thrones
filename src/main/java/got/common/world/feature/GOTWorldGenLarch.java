@@ -1,10 +1,10 @@
 package got.common.world.feature;
 
-import got.common.block.sapling.GOTBlockSaplingBase;
 import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
+import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Random;
@@ -41,7 +41,7 @@ public class GOTWorldGenLarch extends WorldGenAbstractTree {
 				return false;
 			}
 			Block soil = world.getBlock(i, j - 1, k);
-			boolean isSoil = soil.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (GOTBlockSaplingBase) GOTBlocks.sapling3);
+			boolean isSoil = soil.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) GOTBlocks.sapling3);
 			if (isSoil && j < 256 - height - 1) {
 				int j1;
 				soil.onPlantGrow(world, i, j - 1, k, i, j, k);

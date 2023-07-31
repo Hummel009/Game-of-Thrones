@@ -2,6 +2,7 @@ package got.common.world.map;
 
 import com.google.common.math.IntMath;
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.GOTDimension;
@@ -32,7 +33,7 @@ public class GOTConquestGrid {
 	public static Map<GridCoordPair, GOTConquestZone> zoneMap = new HashMap<>();
 	public static GOTConquestZone dummyZone = new GOTConquestZone(-999, -999).setDummyZone();
 	public static boolean needsLoad = true;
-	public static Set<GridCoordPair> dirtyZones = new HashSet<>();
+	public static Collection<GridCoordPair> dirtyZones = new HashSet<>();
 	public static float MIN_CONQUEST;
 	public static Map<GridCoordPair, List<GOTFaction>> cachedZoneFactions = new HashMap<>();
 
@@ -76,7 +77,7 @@ public class GOTConquestGrid {
 				if (!playerApplicable) {
 					continue;
 				}
-				GOTPacketConquestNotification pkt = new GOTPacketConquestNotification(faction, newConq, isCleansing);
+				IMessage pkt = new GOTPacketConquestNotification(faction, newConq, isCleansing);
 				GOTPacketHandler.networkWrapper.sendTo(pkt, (EntityPlayerMP) player);
 			}
 		}
@@ -159,7 +160,7 @@ public class GOTConquestGrid {
 		if (cachedFacs == null) {
 			GOTBiome biome;
 			cachedFacs = new ArrayList<>();
-			ArrayList<GOTBiome> includedBiomes = new ArrayList<>();
+			Collection<GOTBiome> includedBiomes = new ArrayList<>();
 			int[] mapMin = getMinCoordsOnMap(zone);
 			int[] mapMax = getMaxCoordsOnMap(zone);
 			int mapXMin = mapMin[0];
@@ -309,7 +310,7 @@ public class GOTConquestGrid {
 
 	public static void saveChangedZones() {
 		try {
-			HashSet<GridCoordPair> removes = new HashSet<>();
+			Collection<GridCoordPair> removes = new HashSet<>();
 			for (GridCoordPair key : dirtyZones) {
 				GOTConquestZone zone = zoneMap.get(key);
 				if (zone == null) {
@@ -351,7 +352,7 @@ public class GOTConquestGrid {
 	}
 
 	public static void sendConquestGridTo(EntityPlayerMP entityplayer, GOTFaction fac) {
-		GOTPacketConquestGrid pkt = new GOTPacketConquestGrid(fac, zoneMap.values(), entityplayer.worldObj);
+		IMessage pkt = new GOTPacketConquestGrid(fac, zoneMap.values(), entityplayer.worldObj);
 		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		if (fac == pd.getPledgeFaction()) {

@@ -67,7 +67,7 @@ public class GOTPacketBannerRequestInvalidName implements IMessage {
 						valid = true;
 					}
 				}
-				GOTPacketBannerValidate packetResponse = new GOTPacketBannerValidate(banner.getEntityId(), packet.slot, packet.username, valid);
+				IMessage packetResponse = new GOTPacketBannerValidate(banner.getEntityId(), packet.slot, packet.username, valid);
 				GOTPacketHandler.networkWrapper.sendTo(packetResponse, entityplayer);
 			}
 			return null;

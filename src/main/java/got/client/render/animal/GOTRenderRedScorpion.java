@@ -3,7 +3,7 @@ package got.client.render.animal;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.client.model.GOTModelScorpion;
-import got.common.entity.animal.GOTEntityRedScorpion;
+import got.common.entity.animal.GOTEntityScorpionSmall;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -28,7 +28,7 @@ public class GOTRenderRedScorpion extends RenderLiving {
 
 	@Override
 	public float handleRotationFloat(EntityLivingBase entity, float f) {
-		float strikeTime = ((GOTEntityRedScorpion) entity).getStrikeTime();
+		float strikeTime = ((GOTEntityScorpionSmall) entity).getStrikeTime();
 		if (strikeTime > 0.0f) {
 			strikeTime -= f;
 		}

@@ -8,6 +8,7 @@ import got.common.item.other.GOTItemBanner;
 import got.common.item.other.GOTItemMug;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
@@ -283,7 +284,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 			if (!(tileentity instanceof TileEntityChest)) {
 				continue;
 			}
-			TileEntityChest chest = (TileEntityChest) tileentity;
+			IInventory chest = (IInventory) tileentity;
 			int wines = MathHelper.getRandomIntegerInRange(random, 3, 6);
 			for (int l = 0; l < wines; ++l) {
 				ItemStack chestDrinkItem = drink.copy();

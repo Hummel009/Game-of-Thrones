@@ -1,11 +1,11 @@
 package got.common.world.biome.variant;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeVariantList {
 	public float totalWeight;
-	public List<VariantBucket> variantList = new ArrayList<>();
+	public Collection<VariantBucket> variantList = new ArrayList<>();
 
 	public void add(GOTBiomeVariant v, float f) {
 		variantList.add(new VariantBucket(v, totalWeight, totalWeight + f));

@@ -8,10 +8,10 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class NEIGOTIntegratorConfig implements IConfigureNEI {
-	public List<ItemStack> hiddenItems = new ArrayList<>();
+	public Collection<ItemStack> hiddenItems = new ArrayList<>();
 
 	@Override
 	public String getName() {

@@ -9,16 +9,14 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionBounties;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.ChatComponentTranslation;
-import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.*;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -214,16 +212,16 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				}
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(alignmentLoss, "got.alignment.bountyKill");
 				slainPlayerData.addAlignment(slainPlayer, source, highestFaction, entityplayer);
-				ChatComponentTranslation slainMsg1 = new ChatComponentTranslation("got.chat.bountyKilled1", entityplayer.getCommandSenderName(), entityFaction.factionName());
-				ChatComponentTranslation slainMsg2 = new ChatComponentTranslation("got.chat.bountyKilled2", highestFaction.factionName());
+				IChatComponent slainMsg1 = new ChatComponentTranslation("got.chat.bountyKilled1", entityplayer.getCommandSenderName(), entityFaction.factionName());
+				IChatComponent slainMsg2 = new ChatComponentTranslation("got.chat.bountyKilled2", highestFaction.factionName());
 				slainMsg1.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				slainMsg2.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				slainPlayer.addChatMessage(slainMsg1);
 				slainPlayer.addChatMessage(slainMsg2);
 			}
-			ChatComponentTranslation announceMsg = new ChatComponentTranslation("got.chat.bountyKill", entityplayer.getCommandSenderName(), slainPlayer.getCommandSenderName(), entityFaction.factionName());
+			IChatComponent announceMsg = new ChatComponentTranslation("got.chat.bountyKill", entityplayer.getCommandSenderName(), slainPlayer.getCommandSenderName(), entityFaction.factionName());
 			announceMsg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-			for (EntityPlayer otherPlayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+			for (ICommandSender otherPlayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 				if (otherPlayer == slainPlayer) {
 					continue;
 				}
@@ -252,8 +250,8 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				}
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(alignmentLoss, "got.alignment.killedByBounty");
 				pd.addAlignment(entityplayer, source, entityFaction, killer);
-				ChatComponentTranslation slainMsg1 = new ChatComponentTranslation("got.chat.killedByBounty1", killer.getCommandSenderName());
-				ChatComponentTranslation slainMsg2 = new ChatComponentTranslation("got.chat.killedByBounty2", entityFaction.factionName());
+				IChatComponent slainMsg1 = new ChatComponentTranslation("got.chat.killedByBounty1", killer.getCommandSenderName());
+				IChatComponent slainMsg2 = new ChatComponentTranslation("got.chat.killedByBounty2", entityFaction.factionName());
 				slainMsg1.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				slainMsg2.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				entityplayer.addChatMessage(slainMsg1);
@@ -262,9 +260,9 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			killedByBounty = true;
 			updateQuest();
 			killerData.addAchievement(GOTAchievement.killHuntingPlayer);
-			ChatComponentTranslation announceMsg = new ChatComponentTranslation("got.chat.killedByBounty", entityplayer.getCommandSenderName(), killer.getCommandSenderName());
+			IChatComponent announceMsg = new ChatComponentTranslation("got.chat.killedByBounty", entityplayer.getCommandSenderName(), killer.getCommandSenderName());
 			announceMsg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-			for (EntityPlayer otherPlayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+			for (ICommandSender otherPlayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 				if (otherPlayer == entityplayer) {
 					continue;
 				}

@@ -20,6 +20,7 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
@@ -38,7 +39,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 
-	public static boolean hasCorn(World world, int i, int j, int k) {
+	public static boolean hasCorn(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		return metaHasCorn(meta);
 	}
@@ -58,7 +59,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return canPlaceBlockAt(world, i, j, k);
 	}
 
-	public boolean canGrowCorn(World world, int i, int j, int k) {
+	public boolean canGrowCorn(IBlockAccess world, int i, int j, int k) {
 		return world.getBlock(i, j - 1, k) == this;
 	}
 
@@ -122,8 +123,8 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return null;
 	}
 
-	public ArrayList<ItemStack> getCornDrops(World world, int i, int j, int k, int meta) {
-		ArrayList<ItemStack> drops = new ArrayList<>();
+	public Collection<ItemStack> getCornDrops(World world, int i, int j, int k, int meta) {
+		Collection<ItemStack> drops = new ArrayList<>();
 		if (metaHasCorn(meta)) {
 			int corns = 1;
 			if (world.rand.nextInt(4) == 0) {
@@ -205,7 +206,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 				int preMeta = world.getBlockMetadata(i, j, k);
 				setHasCorn(world, i, j, k, false);
 				if (!world.isRemote) {
-					ArrayList<ItemStack> cornDrops = getCornDrops(world, i, j, k, preMeta);
+					Iterable<ItemStack> cornDrops = getCornDrops(world, i, j, k, preMeta);
 					for (ItemStack corn : cornDrops) {
 						dropBlockAsItem(world, i, j, k, corn);
 					}

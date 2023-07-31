@@ -23,8 +23,8 @@ public class GOTStructureScan {
 	public static String strscanFormat = ".strscan";
 	public static Map<String, GOTStructureScan> allLoadedScans = new HashMap<>();
 	public String scanName;
-	public List<ScanStepBase> scanSteps = new ArrayList<>();
-	public List<GOTScanAlias> aliases = new ArrayList<>();
+	public Collection<ScanStepBase> scanSteps = new ArrayList<>();
+	public Collection<GOTScanAlias> aliases = new ArrayList<>();
 
 	public GOTStructureScan(String name) {
 		scanName = name;
@@ -36,7 +36,7 @@ public class GOTStructureScan {
 
 	public static void onInit() {
 		allLoadedScans.clear();
-		HashMap<String, BufferedReader> scanNamesAndReaders = new HashMap<>();
+		Map<String, BufferedReader> scanNamesAndReaders = new HashMap<>();
 		ZipFile zip = null;
 		try {
 			ModContainer mc = GOT.getModContainer();
@@ -91,7 +91,7 @@ public class GOTStructureScan {
 			int curLine = 0;
 			try {
 				String nextLine;
-				ArrayList<String> lines = new ArrayList<>();
+				Collection<String> lines = new ArrayList<>();
 				while ((nextLine = reader.readLine()) != null) {
 					lines.add(nextLine);
 				}

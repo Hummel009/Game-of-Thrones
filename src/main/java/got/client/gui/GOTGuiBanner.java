@@ -2,6 +2,7 @@ package got.client.gui;
 
 import com.google.common.base.Function;
 import com.mojang.authlib.GameProfile;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTBannerProtection;
 import got.common.entity.other.GOTBannerWhitelistEntry;
 import got.common.entity.other.GOTEntityBanner;
@@ -101,7 +102,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		GuiTextField textBox = allowedPlayers[index];
 		String username = textBox.getText();
 		if (!StringUtils.isBlank(username) && !invalidUsernames[index]) {
-			GOTPacketBannerRequestInvalidName packet = new GOTPacketBannerRequestInvalidName(theBanner, index, username);
+			IMessage packet = new GOTPacketBannerRequestInvalidName(theBanner, index, username);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}

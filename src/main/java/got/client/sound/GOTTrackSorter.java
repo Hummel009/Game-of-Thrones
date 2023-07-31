@@ -12,8 +12,8 @@ public class GOTTrackSorter {
 		return track -> track.getRegionInfo(reg).getCategories().contains(cat);
 	}
 
-	public static List<GOTMusicTrack> sortTracks(List<GOTMusicTrack> tracks, Filter filter) {
-		ArrayList<GOTMusicTrack> sorted = new ArrayList<>();
+	public static List<GOTMusicTrack> sortTracks(Iterable<GOTMusicTrack> tracks, Filter filter) {
+		List<GOTMusicTrack> sorted = new ArrayList<>();
 		for (GOTMusicTrack track : tracks) {
 			if (filter.accept(track)) {
 				sorted.add(track);

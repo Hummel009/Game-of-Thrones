@@ -9,7 +9,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class GOTBlockLeaves7 extends GOTBlockLeavesBase {
@@ -18,7 +18,7 @@ public class GOTBlockLeaves7 extends GOTBlockLeavesBase {
 	}
 
 	@Override
-	public void addSpecialLeafDrops(ArrayList<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
+	public void addSpecialLeafDrops(List<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
 		if ((meta & 3) == 3 && world.rand.nextInt(calcFortuneModifiedDropChance(12, fortune)) == 0) {
 			drops.add(new ItemStack(GOTItems.almond));
 		}

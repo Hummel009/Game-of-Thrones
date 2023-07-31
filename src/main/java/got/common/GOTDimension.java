@@ -21,13 +21,13 @@ public enum GOTDimension {
 	public GOTBiome[] biomeList = new GOTBiome[256];
 	public Map<Integer, Integer> colorsToBiomeIDs = new HashMap<>();
 	public List<GOTBiome> majorBiomes = new ArrayList<>();
-	public List<GOTFaction> factionList = new ArrayList<>();
+	public Collection<GOTFaction> factionList = new ArrayList<>();
 	public List<DimensionRegion> dimensionRegions = new ArrayList<>();
 	public int spawnCap;
 	public List<GOTAchievement.Category> achievementCategories = new ArrayList<>();
-	public List<GOTAchievement> allAchievements = new ArrayList<>();
+	public Collection<GOTAchievement> allAchievements = new ArrayList<>();
 
-	GOTDimension(String s, int i, Class<? extends WorldProvider> c, boolean flag, int spawns, EnumSet<DimensionRegion> regions) {
+	GOTDimension(String s, int i, Class<? extends WorldProvider> c, boolean flag, int spawns, Collection<DimensionRegion> regions) {
 		dimensionName = s;
 		dimensionID = i;
 		providerClass = c;

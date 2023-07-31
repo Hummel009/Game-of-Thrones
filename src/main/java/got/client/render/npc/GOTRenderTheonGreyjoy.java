@@ -24,8 +24,6 @@ public class GOTRenderTheonGreyjoy extends GOTRenderBiped {
 	}
 
 	public static class Normal extends GOTRenderTheonGreyjoy {
-		public Normal() {
-		}
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
@@ -34,8 +32,6 @@ public class GOTRenderTheonGreyjoy extends GOTRenderBiped {
 	}
 
 	public static class Tormented extends GOTRenderTheonGreyjoy {
-		public Tormented() {
-		}
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {

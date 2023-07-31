@@ -1,8 +1,10 @@
 package got.common.inventory;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.item.other.GOTItemCracker;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketSealCracker;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
@@ -63,9 +65,9 @@ public class GOTContainerCracker extends Container {
 		}
 	}
 
-	public void receiveSealingPacket(EntityPlayer entityplayer) {
+	public void receiveSealingPacket(ICommandSender entityplayer) {
 		if (!isCrackerInvEmpty()) {
-			InventoryBasic tempContents = new InventoryBasic("crackerTemp", false, crackerInventory.getSizeInventory());
+			IInventory tempContents = new InventoryBasic("crackerTemp", false, crackerInventory.getSizeInventory());
 			for (int i = 0; i < tempContents.getSizeInventory(); ++i) {
 				tempContents.setInventorySlotContents(i, crackerInventory.getStackInSlot(i));
 				crackerInventory.setInventorySlotContents(i, null);
@@ -77,7 +79,7 @@ public class GOTContainerCracker extends Container {
 	}
 
 	public void sendSealingPacket(EntityPlayer entityplayer) {
-		GOTPacketSealCracker packet = new GOTPacketSealCracker();
+		IMessage packet = new GOTPacketSealCracker();
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 

@@ -1,5 +1,6 @@
 package got.common.item.weapon;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.GOTSquadrons;
 import got.common.entity.ai.GOTEntityAINearestAttackableTargetBasic;
@@ -18,6 +19,8 @@ import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 
 public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.SquadronItem {
@@ -29,7 +32,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 
 	public void command(EntityPlayer entityplayer, World world, ItemStack itemstack, MovingObjectPosition hitTarget) {
 		entityplayer.setRevengeTarget(null);
-		List<Entity> spreadTargets = new ArrayList<>();
+		Collection<Entity> spreadTargets = new ArrayList<>();
 		if (hitTarget != null) {
 			Vec3 vec = hitTarget.hitVec;
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(vec.xCoord, vec.yCoord, vec.zCoord, vec.xCoord, vec.yCoord, vec.zCoord);
@@ -58,7 +61,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 				if (validTargets.isEmpty()) {
 					npc.hiredNPCInfo.commandSwordCancel();
 				} else {
-					GOTEntityAINearestAttackableTargetBasic.TargetSorter targetSorter = new GOTEntityAINearestAttackableTargetBasic.TargetSorter(npc);
+					Comparator<Entity> targetSorter = new GOTEntityAINearestAttackableTargetBasic.TargetSorter(npc);
 					validTargets.sort(targetSorter);
 					EntityLivingBase target = validTargets.get(0);
 					npc.hiredNPCInfo.commandSwordAttack(target);
@@ -69,7 +72,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		}
 		if (anyAttackCommanded) {
 			Vec3 vec = hitTarget.hitVec;
-			GOTPacketLocationFX lOTRPacketLocationFX = new GOTPacketLocationFX(GOTPacketLocationFX.Type.SWORD_COMMAND, vec.xCoord, vec.yCoord, vec.zCoord);
+			IMessage lOTRPacketLocationFX = new GOTPacketLocationFX(GOTPacketLocationFX.Type.SWORD_COMMAND, vec.xCoord, vec.yCoord, vec.zCoord);
 			GOTPacketHandler.networkWrapper.sendTo(lOTRPacketLocationFX, (EntityPlayerMP) entityplayer);
 		}
 	}

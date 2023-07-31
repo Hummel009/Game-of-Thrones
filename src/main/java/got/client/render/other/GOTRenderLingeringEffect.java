@@ -9,9 +9,6 @@ import net.minecraft.util.ResourceLocation;
 @SideOnly(Side.CLIENT)
 public class GOTRenderLingeringEffect extends Render {
 
-	public GOTRenderLingeringEffect() {
-	}
-
 	@Override
 	public void doRender(Entity entity, double x, double y, double z, float p_76986_8_, float p_76986_9_) {
 	}

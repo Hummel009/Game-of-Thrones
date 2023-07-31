@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.render.other.GOTRenderShield;
 import got.common.GOTLevelData;
 import got.common.database.GOTShields;
@@ -54,13 +55,13 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 				mc.displayGuiScreen(new GOTGuiCapes());
 			} else if (button == shieldSelect) {
 				updateCurrentShield(0, 0);
-				GOTPacketSelectShield packet = new GOTPacketSelectShield(currentShield);
+				IMessage packet = new GOTPacketSelectShield(currentShield);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button == shieldRight) {
 				updateCurrentShield(1, 0);
 			} else if (button == shieldRemove) {
 				updateCurrentShield(0, 0);
-				GOTPacketSelectShield packet = new GOTPacketSelectShield(null);
+				IMessage packet = new GOTPacketSelectShield(null);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button == changeCategory) {
 				updateCurrentShield(0, 1);

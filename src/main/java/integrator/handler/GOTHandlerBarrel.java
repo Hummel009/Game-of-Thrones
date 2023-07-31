@@ -13,11 +13,12 @@ import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
 public class GOTHandlerBarrel extends ShapelessRecipeHandler {
-	public List<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();
+	public Collection<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();
 	public Random rand = new Random();
 
 	public GOTHandlerBarrel() {

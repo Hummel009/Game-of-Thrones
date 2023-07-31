@@ -14,7 +14,7 @@ import net.minecraft.util.*;
 import java.util.*;
 
 public class GOTTitle {
-	public static List<GOTTitle> allTitles = new ArrayList<>();
+	public static Collection<GOTTitle> allTitles = new ArrayList<>();
 	public static GOTTitle targaryenF;
 	public static GOTTitle targaryenM;
 	public static int nextTitleID;
@@ -236,7 +236,7 @@ public class GOTTitle {
 		return setMultiAlignment(alignment, Arrays.asList(factions));
 	}
 
-	public GOTTitle setMultiAlignment(float alignment, List<GOTFaction> factions) {
+	public GOTTitle setMultiAlignment(float alignment, Collection<GOTFaction> factions) {
 		titleType = TitleType.ALIGNMENT;
 		alignmentFactions.addAll(factions);
 		alignmentRequired = alignment;

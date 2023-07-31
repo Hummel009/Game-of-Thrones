@@ -1,6 +1,7 @@
 package got.common.command;
 
 import com.mojang.authlib.GameProfile;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.network.GOTPacketAlignmentSee;
@@ -56,7 +57,7 @@ public class GOTCommandAlignmentSee extends CommandBase {
 			}
 			if (sender instanceof EntityPlayerMP) {
 				GOTPlayerData playerData = GOTLevelData.getData(profile.getId());
-				GOTPacketAlignmentSee packet = new GOTPacketAlignmentSee(username, playerData);
+				IMessage packet = new GOTPacketAlignmentSee(username, playerData);
 				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) sender);
 				return;
 			}

@@ -10,6 +10,7 @@ import net.minecraft.item.crafting.RecipesArmorDyes;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTRecipeArmorDyes extends RecipesArmorDyes {
 	@Override
@@ -78,7 +79,7 @@ public class GOTRecipeArmorDyes extends RecipesArmorDyes {
 	@Override
 	public boolean matches(InventoryCrafting inv, World world) {
 		ItemStack armor = null;
-		ArrayList<ItemStack> dyes = new ArrayList<>();
+		Collection<ItemStack> dyes = new ArrayList<>();
 		for (int i = 0; i < inv.getSizeInventory(); ++i) {
 			ItemStack itemstack = inv.getStackInSlot(i);
 			if (itemstack == null) {

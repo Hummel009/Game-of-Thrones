@@ -55,7 +55,7 @@ public class GOTItemCracker extends Item {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("CustomCracker")) {
 			NBTTagCompound invData = itemstack.getTagCompound().getCompoundTag("CustomCracker");
 			int size = invData.getInteger("Size");
-			InventoryBasic inv = new InventoryBasic("cracker", false, size);
+			IInventory inv = new InventoryBasic("cracker", false, size);
 			NBTTagList items = invData.getTagList("Items", 10);
 			for (int i = 0; i < items.tagCount(); ++i) {
 				NBTTagCompound itemData = items.getCompoundTagAt(i);

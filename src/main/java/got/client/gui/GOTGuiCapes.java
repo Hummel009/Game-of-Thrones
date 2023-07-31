@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.database.GOTCapes;
 import got.common.network.GOTPacketHandler;
@@ -57,13 +58,13 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 				mc.displayGuiScreen(new GOTGuiShields());
 			} else if (button == capeSelect) {
 				updateCurrentCape(0, 0);
-				GOTPacketSelectCape packet = new GOTPacketSelectCape(currentCape);
+				IMessage packet = new GOTPacketSelectCape(currentCape);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button == capeRight) {
 				updateCurrentCape(1, 0);
 			} else if (button == capeRemove) {
 				updateCurrentCape(0, 0);
-				GOTPacketSelectCape packet = new GOTPacketSelectCape(null);
+				IMessage packet = new GOTPacketSelectCape(null);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button == changeCategory) {
 				updateCurrentCape(0, 1);

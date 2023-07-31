@@ -66,7 +66,7 @@ public class GOTLore {
 	}
 
 	public static void onInit() {
-		HashMap<String, BufferedReader> loreReaders = new HashMap<>();
+		Map<String, BufferedReader> loreReaders = new HashMap<>();
 		ZipFile zip = null;
 		try {
 			ModContainer mc = GOT.getModContainer();
@@ -206,7 +206,7 @@ public class GOTLore {
 	}
 
 	public static List<String> organisePages(String loreText) {
-		ArrayList<String> loreTextPages = new ArrayList<>();
+		List<String> loreTextPages = new ArrayList<>();
 		String remainingText = loreText;
 		ArrayList<String> splitTxtWords = new ArrayList<>();
 		while (!remainingText.isEmpty()) {
@@ -379,7 +379,7 @@ public class GOTLore {
 
 		public static String allCode = "all";
 		public String categoryName;
-		public List<GOTLore> loreList = new ArrayList<>();
+		public Collection<GOTLore> loreList = new ArrayList<>();
 
 		LoreCategory(String s) {
 			categoryName = s;

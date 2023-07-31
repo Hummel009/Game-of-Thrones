@@ -42,7 +42,7 @@ import java.lang.reflect.Field;
 import java.util.*;
 
 public class GOTRecipe {
-	public static List<IRecipe> slab = new ArrayList<>();
+	public static Collection<IRecipe> slab = new ArrayList<>();
 	public static List<IRecipe> north = new ArrayList<>();
 	public static List<IRecipe> hillmen = new ArrayList<>();
 	public static List<IRecipe> wildling = new ArrayList<>();
@@ -54,7 +54,7 @@ public class GOTRecipe {
 	public static List<IRecipe> ibben = new ArrayList<>();
 	public static List<IRecipe> unsmelt = new ArrayList<>();
 	public static List<IRecipe> arryn = new ArrayList<>();
-	public static List<IRecipe> tinyBasalt = new ArrayList<>();
+	public static Collection<IRecipe> tinyBasalt = new ArrayList<>();
 	public static List<IRecipe> dorne = new ArrayList<>();
 	public static List<IRecipe> reach = new ArrayList<>();
 	public static List<IRecipe> westerlands = new ArrayList<>();
@@ -77,12 +77,12 @@ public class GOTRecipe {
 	public static List<IRecipe> asshai = new ArrayList<>();
 	public static List<IRecipe> jogos = new ArrayList<>();
 	public static List<IRecipe> dothraki = new ArrayList<>();
-	public static List<IRecipe> commonWesteros = new ArrayList<>();
-	public static List<IRecipe> commonEssos = new ArrayList<>();
+	public static Collection<IRecipe> commonWesteros = new ArrayList<>();
+	public static Collection<IRecipe> commonEssos = new ArrayList<>();
 	public static String[] dyeOreNames = {"dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite"};
 	public static List<IRecipe> mossovy = new ArrayList<>();
 
-	public static void addDyeableWoolRobeRecipes(List<IRecipe> recipeList, ItemStack result, Object... params) {
+	public static void addDyeableWoolRobeRecipes(Collection<IRecipe> recipeList, ItemStack result, Object... params) {
 		for (int i = 0; i <= 15; ++i) {
 			Object[] paramsDyed = Arrays.copyOf(params, params.length);
 			ItemStack wool = new ItemStack(Blocks.wool, 1, i);
@@ -117,7 +117,7 @@ public class GOTRecipe {
 		try {
 			Field field = FurnaceRecipes.class.getDeclaredFields()[2];
 			field.setAccessible(true);
-			HashMap<ItemStack, Float> map = (HashMap<ItemStack, Float>) field.get(FurnaceRecipes.smelting());
+			Map<ItemStack, Float> map = (Map<ItemStack, Float>) field.get(FurnaceRecipes.smelting());
 			map.put(new ItemStack(item, 1, 32767), xp);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -1907,7 +1907,7 @@ public class GOTRecipe {
 	}
 
 	public static void removeRecipesClass(Collection<IRecipe> recipeList, Class<? extends IRecipe> recipeClass) {
-		ArrayList<IRecipe> recipesToRemove = new ArrayList<>();
+		Collection<IRecipe> recipesToRemove = new ArrayList<>();
 		for (IRecipe recipe : recipeList) {
 			if (!recipeClass.isAssignableFrom(recipe.getClass())) {
 				continue;
@@ -1918,7 +1918,7 @@ public class GOTRecipe {
 	}
 
 	public static void removeRecipesItem(Collection<IRecipe> recipeList, Item outputItem) {
-		ArrayList<IRecipe> recipesToRemove = new ArrayList<>();
+		Collection<IRecipe> recipesToRemove = new ArrayList<>();
 		for (IRecipe recipe : recipeList) {
 			ItemStack output = recipe.getRecipeOutput();
 			if (output == null || output.getItem() != outputItem) {
@@ -1930,7 +1930,7 @@ public class GOTRecipe {
 	}
 
 	public static void removeRecipesItemStack(Collection<IRecipe> recipeList, ItemStack outputItemStack) {
-		ArrayList<IRecipe> recipesToRemove = new ArrayList<>();
+		Collection<IRecipe> recipesToRemove = new ArrayList<>();
 		for (IRecipe recipe : recipeList) {
 			ItemStack output = recipe.getRecipeOutput();
 			if (output == null || !output.isItemEqual(outputItemStack)) {

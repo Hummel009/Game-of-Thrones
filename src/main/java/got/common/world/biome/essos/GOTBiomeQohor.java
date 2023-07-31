@@ -13,7 +13,7 @@ import got.common.world.structure.other.GOTStructureSmallStoneRuin;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeQohor extends GOTBiomeEssos {
 	public GOTBiomeQohor(int i, boolean major) {
@@ -43,7 +43,7 @@ public class GOTBiomeQohor extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.MAPLE_PARTY, 2);
 		decorator.addSettlement(new GOTStructureQohorSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureQohorFortress(false), 800);
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QOHOR_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		decorator.addStructure(new GOTStructureStoneRuin.RuinStone(1, 4), 400);

@@ -15,10 +15,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBlockCraftingTable extends Block {
-	public static List<GOTBlockCraftingTable> allCraftingTables = new ArrayList<>();
+	public static Collection<GOTBlockCraftingTable> allCraftingTables = new ArrayList<>();
 	public GOTFaction tableFaction;
 	public GOTGuiID tableGUIID;
 	@SideOnly(Side.CLIENT)

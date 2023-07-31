@@ -65,7 +65,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public static int mapXMax_W;
 	public static int mapYMin_W;
 	public static int mapYMax_W;
-	public static List<GOTGuiMapWidget> mapWidgets = new ArrayList<>();
+	public static Collection<GOTGuiMapWidget> mapWidgets = new ArrayList<>();
 	public static int zoomPower;
 	public static int zoomTicksMax = 6;
 	public static boolean showWP = true;
@@ -194,24 +194,24 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					openOverlayCreateNew();
 				} else if (creatingWaypointNew && isValidWaypointName(nameWPTextField.getText())) {
 					String waypointName = nameWPTextField.getText();
-					GOTPacketCreateCWP packet = new GOTPacketCreateCWP(waypointName);
+					IMessage packet = new GOTPacketCreateCWP(waypointName);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					closeOverlay();
 				} else if (deletingWaypoint) {
-					GOTPacketDeleteCWP packet = new GOTPacketDeleteCWP((GOTCustomWaypoint) selectedWaypoint);
+					IMessage packet = new GOTPacketDeleteCWP(selectedWaypoint);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					closeOverlay();
 					selectedWaypoint = null;
 				} else if (renamingWaypoint && isValidWaypointName(nameWPTextField.getText())) {
 					String newName = nameWPTextField.getText();
-					GOTPacketRenameCWP packet = new GOTPacketRenameCWP((GOTCustomWaypoint) selectedWaypoint, newName);
+					IMessage packet = new GOTPacketRenameCWP(selectedWaypoint, newName);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					closeOverlay();
 				} else if (sharingWaypoint) {
 					openOverlayShareNew();
 				} else if (sharingWaypointNew && isExistingUnsharedFellowshipName(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint)) {
 					String fsName = nameWPTextField.getText();
-					GOTPacketShareCWP packet = new GOTPacketShareCWP((GOTCustomWaypoint) selectedWaypoint, fsName, true);
+					IMessage packet = new GOTPacketShareCWP(selectedWaypoint, fsName, true);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					openOverlayShare();
 				}
@@ -408,7 +408,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					if (allZones == null) {
 						allZones = new ArrayList<>();
 					}
-					ArrayList<GOTConquestZone> zonesInView = new ArrayList<>();
+					List<GOTConquestZone> zonesInView = new ArrayList<>();
 					highestViewedConqStr = 0.0f;
 					float mouseOverStr = 0.0f;
 					GOTConquestZone mouseOverZone = null;
@@ -587,7 +587,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				int stringWidth = 250;
 				String[] splitNewline = loadText.toString().split(Pattern.quote("\\n"));
-				ArrayList<String> loadLines = new ArrayList<>();
+				Collection<String> loadLines = new ArrayList<>();
 				for (String line : splitNewline) {
 					loadLines.addAll(fontRendererObj.listFormattedStringToWidth(line, stringWidth));
 				}
@@ -640,7 +640,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						renderFullscreenSubtitles(ftMoreTime, ftWaitTime);
 					}
 				} else {
-					ArrayList<String> lines = new ArrayList<>();
+					Collection<String> lines = new ArrayList<>();
 					if (hasUnlocked) {
 						if (canFastTravel) {
 							lines.add(ftPrompt);
@@ -817,7 +817,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int stringX = mapXMin + mapWidth / 2;
 				int stringY = rectY0 + 3 + mc.fontRenderer.FONT_HEIGHT;
 				int stringWidth = (int) ((mapWidth - overlayBorder * 2) * 0.75f);
-				ArrayList<String> displayLines = new ArrayList<>();
+				Collection<String> displayLines = new ArrayList<>();
 				for (String s4 : overlayLines) {
 					displayLines.addAll(fontRendererObj.listFormattedStringToWidth(s4, stringWidth));
 				}
@@ -1042,7 +1042,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		fellowshipDrawGUI = new GOTGuiFellowships();
 		fellowshipDrawGUI.setWorldAndResolution(mc, width, height);
 		if (mc.currentScreen == this) {
-			GOTPacketClientMQEvent packet = new GOTPacketClientMQEvent(GOTPacketClientMQEvent.ClientMQEvent.MAP);
+			IMessage packet = new GOTPacketClientMQEvent(GOTPacketClientMQEvent.ClientMQEvent.MAP);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}
@@ -1069,7 +1069,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		return keybinding.getKeyCode() >= 0 && GameSettings.isKeyDown(keybinding);
 	}
 
-	public boolean isValidWaypointName(String name) {
+	public boolean isValidWaypointName(CharSequence name) {
 		return !StringUtils.isBlank(name);
 	}
 
@@ -1106,13 +1106,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			if (!loadingConquestGrid) {
 				GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 				if (i == GOTKeyHandler.keyBindingFastTravel.getKeyCode() && isGameOfThrones() && selectedWaypoint != null && selectedWaypoint.hasPlayerUnlocked(mc.thePlayer) && pd.getTimeSinceFT() >= pd.getWaypointFTTime(selectedWaypoint, mc.thePlayer)) {
-					GOTPacketFastTravel packet = new GOTPacketFastTravel(selectedWaypoint);
+					IMessage packet = new GOTPacketFastTravel(selectedWaypoint);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					mc.thePlayer.closeScreen();
 					return;
 				}
 				if (selectedWaypoint == null && i == GOTKeyHandler.keyBindingMapTeleport.getKeyCode() && isMouseWithinMap && canTeleport()) {
-					GOTPacketMapTp packet = new GOTPacketMapTp(mouseXCoord, mouseZCoord);
+					IMessage packet = new GOTPacketMapTp(mouseXCoord, mouseZCoord);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					mc.thePlayer.closeScreen();
 					return;
@@ -1141,7 +1141,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		if (hasOverlay && k == 0 && sharingWaypoint && mouseOverRemoveSharedFellowship != null) {
 			String fsName = mouseOverRemoveSharedFellowship.getName();
-			packet = new GOTPacketShareCWP((GOTCustomWaypoint) selectedWaypoint, fsName, false);
+			packet = new GOTPacketShareCWP(selectedWaypoint, fsName, false);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 			return;
 		}
@@ -1755,7 +1755,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		double mouseOverPlayerY = 0.0;
 		double distanceMouseOverPlayer = Double.MAX_VALUE;
 		int iconWidthHalf = 4;
-		HashMap<UUID, PlayerLocationInfo> playersToRender = new HashMap<>(playerLocations);
+		Map<UUID, PlayerLocationInfo> playersToRender = new HashMap<>(playerLocations);
 		if (isGameOfThrones()) {
 			playersToRender.put(mc.thePlayer.getUniqueID(), new PlayerLocationInfo(mc.thePlayer.getGameProfile(), mc.thePlayer.posX, mc.thePlayer.posZ));
 		}
@@ -1803,7 +1803,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		renderWaypoints(GOTLevelData.getData(mc.thePlayer).getAllAvailableWaypoints(), pass, mouseX, mouseY, hasMapLabels(), false);
 	}
 
-	public void renderWaypoints(List<GOTAbstractWaypoint> waypoints, int pass, int mouseX, int mouseY, boolean labels, boolean overrideToggles) {
+	public void renderWaypoints(Iterable<GOTAbstractWaypoint> waypoints, int pass, int mouseX, int mouseY, boolean labels, boolean overrideToggles) {
 		setupMapClipping();
 		GOTAbstractWaypoint mouseOverWP = null;
 		double distanceMouseOverWP = Double.MAX_VALUE;
@@ -1954,7 +1954,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public void requestConquestGridIfNeed(GOTFaction conqFac) {
 		if (!requestedFacGrids.contains(conqFac) && ticksUntilRequestFac <= 0) {
 			requestedFacGrids.add(conqFac);
-			GOTPacketConquestGridRequest packet = new GOTPacketConquestGridRequest(conqFac);
+			IMessage packet = new GOTPacketConquestGridRequest(conqFac);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}
@@ -1964,7 +1964,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			IntegratedServer server = mc.getIntegratedServer();
 			isPlayerOp = server.worldServers[0].getWorldInfo().areCommandsAllowed() && server.getServerOwner().equalsIgnoreCase(mc.thePlayer.getGameProfile().getName());
 		} else {
-			GOTPacketIsOpRequest packet = new GOTPacketIsOpRequest();
+			IMessage packet = new GOTPacketIsOpRequest();
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}

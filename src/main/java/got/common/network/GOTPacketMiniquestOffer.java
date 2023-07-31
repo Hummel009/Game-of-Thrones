@@ -35,7 +35,7 @@ public class GOTPacketMiniquestOffer implements IMessage {
 			FMLLog.warning("GOT Warning: Tried to send miniquest offer close packet, but player == null");
 			return;
 		}
-		GOTPacketMiniquestOfferClose packet = new GOTPacketMiniquestOfferClose(npc.getEntityId(), accept);
+		IMessage packet = new GOTPacketMiniquestOfferClose(npc.getEntityId(), accept);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 

@@ -4,6 +4,7 @@ import got.common.block.sapling.GOTBlockSaplingBase;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
@@ -153,7 +154,7 @@ public class GOTVanillaSaplings {
 		}
 	}
 
-	public static boolean isSameSapling(World world, int i, int j, int k, int meta) {
+	public static boolean isSameSapling(IBlockAccess world, int i, int j, int k, int meta) {
 		return GOTBlockSaplingBase.isSameSapling(world, i, j, k, Blocks.sapling, meta);
 	}
 }

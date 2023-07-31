@@ -9,7 +9,7 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeEssosMarshes extends GOTBiomeEssos {
 	public GOTBiomeEssosMarshes(int i, boolean major) {
@@ -50,7 +50,7 @@ public class GOTBiomeEssosMarshes extends GOTBiomeEssos {
 		decorator.canePerChunk = 10;
 		decorator.reedPerChunk = 5;
 		decorator.waterlilyPerChunk = 4;
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.CROCODILE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 2));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

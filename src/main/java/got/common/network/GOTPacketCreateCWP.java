@@ -48,7 +48,7 @@ public class GOTPacketCreateCWP implements IMessage {
 				boolean protection = GOTBannerProtection.isProtected(world, entityplayer, GOTBannerProtection.forPlayer_returnMessage(entityplayer, GOTBannerProtection.Permission.FULL, protectionMessage), true);
 				if (protection) {
 					IChatComponent clientMessage = protectionMessage[0];
-					GOTPacketCWPProtectionMessage packetMessage = new GOTPacketCWPProtectionMessage(clientMessage);
+					IMessage packetMessage = new GOTPacketCWPProtectionMessage(clientMessage);
 					GOTPacketHandler.networkWrapper.sendTo(packetMessage, entityplayer);
 				} else {
 					String wpName = GOTCustomWaypoint.validateCustomName(packet.name);

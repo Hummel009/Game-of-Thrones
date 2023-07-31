@@ -50,7 +50,7 @@ public class OddmentCollectorNameMischief {
 		return name;
 	}
 
-	public static boolean isFormattingCharacter(String s, int index) {
+	public static boolean isFormattingCharacter(CharSequence s, int index) {
 		char charAt = s.charAt(index);
 		if (charAt == '\u00a7') {
 			return true;

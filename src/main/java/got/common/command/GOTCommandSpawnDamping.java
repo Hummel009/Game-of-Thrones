@@ -7,6 +7,7 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -75,7 +76,7 @@ public class GOTCommandSpawnDamping extends CommandBase {
 					int baseCap = GOTSpawnDamping.getBaseSpawnCapForInfo(type, world);
 					int cap = GOTSpawnDamping.getSpawnCap(type, baseCap, players);
 					int capXPlayers = cap * players;
-					ChatComponentTranslation chatComponentTranslation = new ChatComponentTranslation("got.command.spawnDamping.calc", dim, dimName, type, damping, players, expectedChunks, cap, baseCap, capXPlayers);
+					IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.command.spawnDamping.calc", dim, dimName, type, damping, players, expectedChunks, cap, baseCap, capXPlayers);
 					chatComponentTranslation.getChatStyle().setColor(EnumChatFormatting.GREEN);
 					sender.addChatMessage(chatComponentTranslation);
 					return;

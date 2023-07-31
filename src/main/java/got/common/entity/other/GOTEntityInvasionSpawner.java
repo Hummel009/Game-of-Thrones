@@ -2,6 +2,7 @@ package got.common.entity.other;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.Event;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.GOTBannerProtection;
 import got.common.GOTLevelData;
@@ -12,6 +13,7 @@ import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemConquestHorn;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketInvasionWatch;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -43,7 +45,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	public Map<UUID, Integer> recentPlayerContributors = new HashMap<>();
 	public boolean isWarhorn;
 	public boolean spawnsPersistent = true;
-	public List<GOTFaction> bonusFactions = new ArrayList<>();
+	public Collection<GOTFaction> bonusFactions = new ArrayList<>();
 
 	public GOTEntityInvasionSpawner(World world) {
 		super(world);
@@ -74,7 +76,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		recentPlayerContributors.put(entityplayer.getUniqueID(), 2400);
 	}
 
-	public void announceInvasionTo(EntityPlayer entityplayer) {
+	public void announceInvasionTo(ICommandSender entityplayer) {
 		entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.invasion.start", getInvasionType().invasionName()));
 	}
 
@@ -138,8 +140,8 @@ public class GOTEntityInvasionSpawner extends Entity {
 	public void endInvasion(boolean completed) {
 		if (completed) {
 			GOTFaction invasionFac = getInvasionType().invasionFaction;
-			HashSet<EntityPlayer> achievementPlayers = new HashSet<>();
-			HashSet<EntityPlayer> conqRewardPlayers = new HashSet<>();
+			Collection<EntityPlayer> achievementPlayers = new HashSet<>();
+			Collection<EntityPlayer> conqRewardPlayers = new HashSet<>();
 			for (UUID player : recentPlayerContributors.keySet()) {
 				GOTFaction pledged;
 				EntityPlayer entityplayer = worldObj.func_152378_a(player);
@@ -232,7 +234,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	@Override
 	public boolean interactFirst(EntityPlayer entityplayer) {
 		if (!worldObj.isRemote && entityplayer.capabilities.isCreativeMode && !bonusFactions.isEmpty()) {
-			ChatComponentText message = new ChatComponentText("");
+			IChatComponent message = new ChatComponentText("");
 			for (GOTFaction f : bonusFactions) {
 				if (!message.getSiblings().isEmpty()) {
 					message.appendSibling(new ChatComponentText(", "));
@@ -270,7 +272,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 					invasionRemaining = Math.min(invasionRemaining, invasionSize);
 				}
 				if (!recentPlayerContributors.isEmpty()) {
-					HashSet<UUID> removes = new HashSet<>();
+					Collection<UUID> removes = new HashSet<>();
 					for (Map.Entry<UUID, Integer> e : recentPlayerContributors.entrySet()) {
 						UUID player = e.getKey();
 						int time = e.getValue();
@@ -427,7 +429,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public void setWatchingInvasion(EntityPlayerMP entityplayer, boolean overrideAlreadyWatched) {
-		GOTPacketInvasionWatch pkt = new GOTPacketInvasionWatch(this, overrideAlreadyWatched);
+		IMessage pkt = new GOTPacketInvasionWatch(this, overrideAlreadyWatched);
 		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
 	}
 

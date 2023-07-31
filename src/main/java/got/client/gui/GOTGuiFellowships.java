@@ -2,6 +2,7 @@ package got.client.gui;
 
 import com.google.common.math.IntMath;
 import com.mojang.authlib.GameProfile;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -67,7 +68,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 	public GOTGuiButtonFsOption buttonMapShow;
 	public GuiButton buttonOp;
 	public GuiButton buttonDeop;
-	public List<GOTGuiButtonFsOption> orderedFsOptionButtons = new ArrayList<>();
+	public Collection<GOTGuiButtonFsOption> orderedFsOptionButtons = new ArrayList<>();
 	public GuiTextField textFieldName;
 	public GuiTextField textFieldPlayer;
 	public GuiTextField textFieldRename;
@@ -96,7 +97,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 	}
 
 	public void acceptInvitation(GOTFellowshipClient invite) {
-		GOTPacketFellowshipRespondInvite packet = new GOTPacketFellowshipRespondInvite(invite, true);
+		IMessage packet = new GOTPacketFellowshipRespondInvite(invite, true);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 
@@ -109,7 +110,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				String name = textFieldName.getText();
 				if (checkValidFellowshipName(name) == null) {
 					name = StringUtils.trim(name);
-					GOTPacketFellowshipCreate packet = new GOTPacketFellowshipCreate(name);
+					IMessage packet = new GOTPacketFellowshipCreate(name);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 				}
 				page = Page.LIST;
@@ -119,39 +120,39 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				String name = textFieldPlayer.getText();
 				if (checkValidPlayerName(name) == null) {
 					name = StringUtils.trim(name);
-					GOTPacketFellowshipInvitePlayer packet = new GOTPacketFellowshipInvitePlayer(viewingFellowship, name);
+					IMessage packet = new GOTPacketFellowshipInvitePlayer(viewingFellowship, name);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 				}
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonDisband) {
 				page = Page.DISBAND;
 			} else if (button == buttonDisbandThis) {
-				GOTPacketFellowshipDisband packet = new GOTPacketFellowshipDisband(viewingFellowship);
+				IMessage packet = new GOTPacketFellowshipDisband(viewingFellowship);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				page = Page.LIST;
 			} else if (button == buttonLeave) {
 				page = Page.LEAVE;
 			} else if (button == buttonLeaveThis) {
-				GOTPacketFellowshipLeave packet = new GOTPacketFellowshipLeave(viewingFellowship);
+				IMessage packet = new GOTPacketFellowshipLeave(viewingFellowship);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				page = Page.LIST;
 			} else if (button == buttonSetIcon) {
-				GOTPacketFellowshipSetIcon packet = new GOTPacketFellowshipSetIcon(viewingFellowship);
+				IMessage packet = new GOTPacketFellowshipSetIcon(viewingFellowship);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button == buttonRemove) {
-				GOTPacketFellowshipDoPlayer packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, removingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.REMOVE);
+				IMessage packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, removingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.REMOVE);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonOp) {
-				GOTPacketFellowshipDoPlayer packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, oppingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.OP);
+				IMessage packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, oppingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.OP);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonDeop) {
-				GOTPacketFellowshipDoPlayer packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, deoppingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.DEOP);
+				IMessage packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, deoppingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.DEOP);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonTransfer) {
-				GOTPacketFellowshipDoPlayer packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, transferringPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.TRANSFER);
+				IMessage packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, transferringPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.TRANSFER);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonRename) {
@@ -160,7 +161,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				String name = textFieldRename.getText();
 				if (checkValidFellowshipName(name) == null) {
 					name = StringUtils.trim(name);
-					GOTPacketFellowshipRename packet = new GOTPacketFellowshipRename(viewingFellowship, name);
+					IMessage packet = new GOTPacketFellowshipRename(viewingFellowship, name);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 				}
 				page = Page.FELLOWSHIP;
@@ -169,13 +170,13 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			} else if (button == buttonInvites) {
 				page = Page.INVITATIONS;
 			} else if (button == buttonPVP) {
-				GOTPacketFellowshipToggle packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.PVP);
+				IMessage packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.PVP);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button == buttonHiredFF) {
-				GOTPacketFellowshipToggle packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.HIRED_FF);
+				IMessage packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.HIRED_FF);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button == buttonMapShow) {
-				GOTPacketFellowshipToggle packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.MAP_SHOW);
+				IMessage packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.MAP_SHOW);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else {
 				super.actionPerformed(button);
@@ -184,7 +185,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 	}
 
 	public void alignOptionButtons() {
-		List<GuiButton> activeOptionButtons = new ArrayList<>();
+		Collection<GuiButton> activeOptionButtons = new ArrayList<>();
 		for (GuiButton button : orderedFsOptionButtons) {
 			if (button.visible) {
 				activeOptionButtons.add(button);
@@ -906,7 +907,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 	public void refreshFellowshipList() {
 		allFellowshipsLeading.clear();
 		allFellowshipsOther.clear();
-		List<GOTFellowshipClient> fellowships = new ArrayList<>(GOTLevelData.getData(mc.thePlayer).getClientFellowships());
+		Iterable<GOTFellowshipClient> fellowships = new ArrayList<>(GOTLevelData.getData(mc.thePlayer).getClientFellowships());
 		for (GOTFellowshipClient fs : fellowships) {
 			if (fs.isOwned()) {
 				allFellowshipsLeading.add(fs);
@@ -919,7 +920,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 	}
 
 	public void rejectInvitation(GOTFellowshipClient invite) {
-		GOTPacketFellowshipRespondInvite packet = new GOTPacketFellowshipRespondInvite(invite, false);
+		IMessage packet = new GOTPacketFellowshipRespondInvite(invite, false);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 

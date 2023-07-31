@@ -19,7 +19,7 @@ public class GOTPacketFTBounceClient implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketFTBounceClient packet, MessageContext context) {
 			GOT.proxy.getClientPlayer();
-			GOTPacketFTBounceServer packetResponse = new GOTPacketFTBounceServer();
+			IMessage packetResponse = new GOTPacketFTBounceServer();
 			GOTPacketHandler.networkWrapper.sendToServer(packetResponse);
 			return null;
 		}

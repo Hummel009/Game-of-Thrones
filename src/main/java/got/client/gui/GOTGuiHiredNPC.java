@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTUnitTradeEntry;
 import got.common.faction.GOTAlignmentValues;
@@ -11,6 +12,7 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/hired.png");
@@ -46,7 +48,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 			GOTFaction fac = theNPC.getHiringFaction();
 			String alignS = GOTAlignmentValues.formatAlignForDisplay(theNPC.hiredNPCInfo.alignmentRequiredToCommand);
 			String alignReq = StatCollector.translateToLocalFormatted("got.hiredNPC.commandReq.align", alignS, fac.factionName());
-			ArrayList<String> requirementLines = new ArrayList<String>(fontRendererObj.listFormattedStringToWidth(alignReq, maxWidth));
+			Collection<String> requirementLines = new ArrayList<String>(fontRendererObj.listFormattedStringToWidth(alignReq, maxWidth));
 			GOTUnitTradeEntry.PledgeType pledge = theNPC.hiredNPCInfo.pledgeType;
 			String pledgeReq = pledge.getCommandReqText(fac);
 			if (pledgeReq != null) {
@@ -77,7 +79,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 	}
 
 	public void sendActionPacket(int action, int value) {
-		GOTPacketHiredUnitCommand packet = new GOTPacketHiredUnitCommand(theNPC.getEntityId(), page, action, value);
+		IMessage packet = new GOTPacketHiredUnitCommand(theNPC.getEntityId(), page, action, value);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 

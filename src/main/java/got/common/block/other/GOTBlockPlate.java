@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
@@ -46,7 +47,7 @@ public class GOTBlockPlate extends BlockContainer {
 		setBlockBounds(0.125f, 0.0f, 0.125f, 0.875f, 0.125f, 0.875f);
 	}
 
-	public static ItemStack getFoodItem(World world, int i, int j, int k) {
+	public static ItemStack getFoodItem(IBlockAccess world, int i, int j, int k) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (tileentity instanceof GOTTileEntityPlate) {
 			return ((GOTTileEntityPlate) tileentity).getFoodItem();

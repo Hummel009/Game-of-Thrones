@@ -21,10 +21,10 @@ import got.common.item.AnvilNameColorProvider;
 import got.common.item.other.*;
 import got.common.item.weapon.GOTItemSarbacane;
 import got.common.item.weapon.GOTItemThrowingAxe;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.*;
@@ -100,7 +100,7 @@ public class GOTContainerAnvil extends Container {
 		zCoord = k;
 	}
 
-	public static String applyFormattingCodes(String name, List<EnumChatFormatting> colors) {
+	public static String applyFormattingCodes(String name, Iterable<EnumChatFormatting> colors) {
 		StringBuilder nameBuilder = new StringBuilder(name);
 		for (EnumChatFormatting color : colors) {
 			nameBuilder.insert(0, color);
@@ -117,7 +117,7 @@ public class GOTContainerAnvil extends Container {
 	}
 
 	public static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
-		ArrayList<EnumChatFormatting> colors = new ArrayList<>();
+		List<EnumChatFormatting> colors = new ArrayList<>();
 		for (EnumChatFormatting color : EnumChatFormatting.values()) {
 			String formatCode = color.toString();
 			if (!name.startsWith(formatCode)) {
@@ -158,7 +158,7 @@ public class GOTContainerAnvil extends Container {
 		return changed;
 	}
 
-	public boolean canEngraveNewOwner(ItemStack itemstack, EntityPlayer entityplayer) {
+	public boolean canEngraveNewOwner(ItemStack itemstack, ICommandSender entityplayer) {
 		String currentOwner = GOTItemOwnership.getCurrentOwner(itemstack);
 		if (currentOwner == null) {
 			return true;
@@ -343,7 +343,7 @@ public class GOTContainerAnvil extends Container {
 			takeMaterialOrCoinAmount(cost);
 			playAnvilSound();
 			lastReforgeTime = curTime;
-			((EntityPlayerMP) thePlayer).sendProgressBarUpdate(this, 2, 0);
+			((ICrafting) thePlayer).sendProgressBarUpdate(this, 2, 0);
 			if (!isTrader) {
 				GOTLevelData.getData(thePlayer).addAchievement(GOTAchievement.reforge);
 			}
@@ -481,7 +481,7 @@ public class GOTContainerAnvil extends Container {
 			String previousDisplayName = inputCopy.getDisplayName();
 			String defaultItemName = inputCopy.getItem().getItemStackDisplayName(inputCopy);
 			String formattedNameToApply = repairedItemName;
-			ArrayList<EnumChatFormatting> colorsToApply = new ArrayList<>(getAppliedFormattingCodes(inputCopy.getDisplayName()));
+			Collection<EnumChatFormatting> colorsToApply = new ArrayList<>(getAppliedFormattingCodes(inputCopy.getDisplayName()));
 			boolean alteringNameColor = false;
 			if (costsToRename(inputItem) && combinerItem != null) {
 				if (combinerItem.getItem() instanceof AnvilNameColorProvider) {
@@ -641,7 +641,7 @@ public class GOTContainerAnvil extends Container {
 				}
 				EnchantmentHelper.setEnchantments(outputEnchants, inputCopy);
 				int maxMods = 3;
-				ArrayList<GOTEnchantment> outputMods = new ArrayList<>(inputModifiers);
+				Collection<GOTEnchantment> outputMods = new ArrayList<>(inputModifiers);
 				List<GOTEnchantment> combinerMods = GOTEnchantmentHelper.getEnchantList(combinerItem);
 				if (combinerItemEnchant != null) {
 					combinerMods.add(combinerItemEnchant);

@@ -8,6 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 	public int collectTarget;
@@ -53,7 +54,7 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 	@Override
 	public void onInteract(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		int prevAmountGiven = amountGiven;
-		ArrayList<Integer> slotNumbers = new ArrayList<>();
+		Collection<Integer> slotNumbers = new ArrayList<>();
 		slotNumbers.add(entityplayer.inventory.currentItem);
 		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
 			if (slotNumbers.contains(slot)) {

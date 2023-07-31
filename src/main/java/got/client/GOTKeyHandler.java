@@ -5,6 +5,7 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import got.GOT;
 import got.common.GOTDimension;
@@ -120,7 +121,7 @@ public class GOTKeyHandler {
 		}
 		if (skippedHelp && GOTTickHandlerClient.renderMenuPrompt) {
 			GOTTickHandlerClient.renderMenuPrompt = false;
-			GOTPacketCheckMenuPrompt packet = new GOTPacketCheckMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
+			IMessage packet = new GOTPacketCheckMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 		if (usedAlignmentKeys) {

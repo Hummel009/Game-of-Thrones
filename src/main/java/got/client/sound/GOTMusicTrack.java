@@ -86,7 +86,7 @@ public class GOTMusicTrack extends PositionedSound {
 			sndRegistry.registerSound(soundAccessorComp);
 		}
 		SoundPoolEntry soundPoolEntry = new SoundPoolEntry(resource, soundEntry.getSoundEntryPitch(), soundEntry.getSoundEntryVolume(), soundEntry.isStreaming());
-		TrackSoundAccessor soundAccessor = new TrackSoundAccessor(soundPoolEntry, soundEntry.getSoundEntryWeight());
+		ISoundEventAccessor soundAccessor = new TrackSoundAccessor(soundPoolEntry, soundEntry.getSoundEntryWeight());
 		soundAccessorComp.addSoundToEventPool(soundAccessor);
 	}
 

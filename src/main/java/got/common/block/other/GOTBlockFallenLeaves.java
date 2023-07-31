@@ -19,11 +19,12 @@ import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
 public class GOTBlockFallenLeaves extends Block implements IShearable {
-	public static List<GOTBlockFallenLeaves> allFallenLeaves = new ArrayList<>();
+	public static Collection<GOTBlockFallenLeaves> allFallenLeaves = new ArrayList<>();
 	public static Random leafRand = new Random();
 	public Block[] leafBlocks;
 
@@ -124,7 +125,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < leafBlocks.length; ++i) {
 			Block leaf = leafBlocks[i];
-			ArrayList<ItemStack> leafTypes = new ArrayList<>();
+			List<ItemStack> leafTypes = new ArrayList<>();
 			leaf.getSubBlocks(Item.getItemFromBlock(leaf), leaf.getCreativeTabToDisplayOn(), leafTypes);
 			for (ItemStack leafItem : leafTypes) {
 				int meta = leafItem.getItemDamage();

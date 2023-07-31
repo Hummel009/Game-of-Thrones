@@ -17,10 +17,7 @@ import org.lwjgl.opengl.GL11;
 import org.lwjgl.util.glu.Project;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class GOTRenderNorthernLights {
 	public static int nlTick;
@@ -47,8 +44,8 @@ public class GOTRenderNorthernLights {
 	public static int timeUntilColorChange;
 	public static int nightKingCheckTime;
 	public static AuroraCycle wave0 = new AuroraCycle(4.0f, 0.01f, 0.9f);
-	public static List<AuroraCycle> waveOscillations = new ArrayList<>();
-	public static List<AuroraCycle> glowOscillations = new ArrayList<>();
+	public static Collection<AuroraCycle> waveOscillations = new ArrayList<>();
+	public static Collection<AuroraCycle> glowOscillations = new ArrayList<>();
 	public static AuroraCycle glow0 = new AuroraCycle(20.0f, 0.02f, 0.6f);
 
 	public static Color[] generateColorSet() {
@@ -360,7 +357,7 @@ public class GOTRenderNorthernLights {
 			waveOscillations.add(cycle);
 		}
 		if (!waveOscillations.isEmpty()) {
-			HashSet<AuroraCycle> removes = new HashSet<>();
+			Collection<AuroraCycle> removes = new HashSet<>();
 			for (AuroraCycle c : waveOscillations) {
 				c.update();
 				if (c.age <= 0) {
@@ -386,7 +383,7 @@ public class GOTRenderNorthernLights {
 			glowOscillations.add(cycle);
 		}
 		if (!glowOscillations.isEmpty()) {
-			HashSet<AuroraCycle> removes = new HashSet<>();
+			Collection<AuroraCycle> removes = new HashSet<>();
 			for (AuroraCycle c : glowOscillations) {
 				c.update();
 				if (c.age <= 0) {

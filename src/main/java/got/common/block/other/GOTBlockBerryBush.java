@@ -21,6 +21,7 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
@@ -70,8 +71,8 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		}
 	}
 
-	public ArrayList<ItemStack> getBerryDrops(World world, int i, int j, int k, int meta) {
-		ArrayList<ItemStack> drops = new ArrayList<>();
+	public Collection<ItemStack> getBerryDrops(World world, int i, int j, int k, int meta) {
+		Collection<ItemStack> drops = new ArrayList<>();
 		if (hasBerries(meta)) {
 			int berryType = getBerryType(meta);
 			Item berry = null;
@@ -223,7 +224,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		if (hasBerries(meta)) {
 			world.setBlockMetadataWithNotify(i, j, k, setHasBerries(meta, false), 3);
 			if (!world.isRemote) {
-				ArrayList<ItemStack> drops = getBerryDrops(world, i, j, k, meta);
+				Iterable<ItemStack> drops = getBerryDrops(world, i, j, k, meta);
 				for (ItemStack berry : drops) {
 					dropBlockAsItem(world, i, j, k, berry);
 				}

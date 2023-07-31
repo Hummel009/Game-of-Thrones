@@ -7,12 +7,15 @@ import got.common.item.other.GOTItemDye;
 import got.common.item.other.GOTItemPouch;
 import net.minecraft.block.BlockColored;
 import net.minecraft.entity.passive.EntitySheep;
+import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class GOTRecipePouch implements IRecipe {
 	public int overrideColor;
@@ -42,7 +45,7 @@ public class GOTRecipePouch implements IRecipe {
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
 		ItemStack pouch;
-		ArrayList<ItemStack> pouches = new ArrayList<>();
+		List<ItemStack> pouches = new ArrayList<>();
 		int[] rgb = new int[3];
 		int totalColor = 0;
 		int coloredItems = 0;
@@ -94,10 +97,10 @@ public class GOTRecipePouch implements IRecipe {
 			pouch = new ItemStack(GOTItems.pouch);
 			pouch.stackSize = 1;
 			pouch.setItemDamage(meta);
-			GOTInventoryPouch pouchInv = new GOTInventoryPouch(pouch);
+			IInventory pouchInv = new GOTInventoryPouch(pouch);
 			int slot = 0;
 			for (ItemStack craftingPouch : pouches) {
-				GOTInventoryPouch craftingPouchInv = new GOTInventoryPouch(craftingPouch);
+				IInventory craftingPouchInv = new GOTInventoryPouch(craftingPouch);
 				for (int i = 0; i < craftingPouchInv.getSizeInventory(); ++i) {
 					ItemStack slotItem = craftingPouchInv.getStackInSlot(i);
 					if (slotItem == null) {
@@ -137,8 +140,8 @@ public class GOTRecipePouch implements IRecipe {
 
 	@Override
 	public boolean matches(InventoryCrafting inv, World world) {
-		ArrayList<ItemStack> pouches = new ArrayList<>();
-		ArrayList<ItemStack> dyes = new ArrayList<>();
+		Collection<ItemStack> pouches = new ArrayList<>();
+		Collection<ItemStack> dyes = new ArrayList<>();
 		for (int i = 0; i < inv.getSizeInventory(); ++i) {
 			ItemStack itemstack = inv.getStackInSlot(i);
 			if (itemstack == null) {

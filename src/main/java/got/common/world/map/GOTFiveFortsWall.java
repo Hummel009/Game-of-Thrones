@@ -19,7 +19,7 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 	public int gateBottom = 77;
 	public int gateTop = wallTop - 18;
 
-	public GOTFiveFortsWall(boolean flag, GOTWaypoint waypoint) {
+	public GOTFiveFortsWall(boolean flag, GOTAbstractWaypoint waypoint) {
 		super(flag);
 		centreX = waypoint.getXCoord();
 		centreZ = waypoint.getZCoord();

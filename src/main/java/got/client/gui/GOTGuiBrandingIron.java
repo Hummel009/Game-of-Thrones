@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.item.other.GOTItemBrandingIron;
 import got.common.network.GOTPacketBrandingIron;
 import got.common.network.GOTPacketHandler;
@@ -85,7 +86,7 @@ public class GOTGuiBrandingIron extends GOTGuiScreenBase {
 		super.onGuiClosed();
 		String brandName = brandNameField.getText();
 		if (!StringUtils.isBlank(brandName)) {
-			GOTPacketBrandingIron packet = new GOTPacketBrandingIron(brandName);
+			IMessage packet = new GOTPacketBrandingIron(brandName);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}

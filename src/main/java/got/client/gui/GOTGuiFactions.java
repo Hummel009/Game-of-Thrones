@@ -1,6 +1,7 @@
 package got.client.gui;
 
 import com.google.common.math.IntMath;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTClientProxy;
 import got.client.GOTTextures;
 import got.client.GOTTickHandlerClient;
@@ -138,11 +139,11 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 					isPledging = true;
 				}
 			} else if (button == buttonPledgeConfirm) {
-				GOTPacketPledgeSet packet = new GOTPacketPledgeSet(currentFaction);
+				IMessage packet = new GOTPacketPledgeSet(currentFaction);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				isPledging = false;
 			} else if (button == buttonPledgeRevoke) {
-				GOTPacketPledgeSet packet = new GOTPacketPledgeSet(null);
+				IMessage packet = new GOTPacketPledgeSet(null);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				isUnpledging = false;
 				mc.displayGuiScreen(null);
@@ -385,7 +386,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				}
 			} else {
 				int stringWidth2 = pageWidth - pageBorderLeft * 2;
-				ArrayList<String> displayLines = new ArrayList<>();
+				Collection<String> displayLines = new ArrayList<>();
 				if (isPledging) {
 					if (clientPD.canMakeNewPledge()) {
 						if (clientPD.canPledgeTo(currentFaction)) {
@@ -536,7 +537,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(currentFaction);
 		setCurrentScrollFromFaction();
 		if (mc.currentScreen == this) {
-			GOTPacketClientMQEvent packet = new GOTPacketClientMQEvent(GOTPacketClientMQEvent.ClientMQEvent.FACTIONS);
+			IMessage packet = new GOTPacketClientMQEvent(GOTPacketClientMQEvent.ClientMQEvent.FACTIONS);
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}
@@ -670,7 +671,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	public void updateCurrentDimensionAndFaction() {
 		boolean changes;
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
-		EnumMap<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
+		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
 		if (currentFactionIndex != prevFactionIndex) {
 			currentFaction = currentFactionList.get(currentFactionIndex);
 		}

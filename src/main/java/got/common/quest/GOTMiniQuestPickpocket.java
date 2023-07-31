@@ -31,7 +31,7 @@ import net.minecraft.util.*;
 import java.util.*;
 
 public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
-	public Set<UUID> pickpocketedEntityIDs = new HashSet<>();
+	public Collection<UUID> pickpocketedEntityIDs = new HashSet<>();
 
 	public GOTMiniQuestPickpocket(GOTPlayerData pd) {
 		super(pd);
@@ -51,7 +51,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		completed = true;
 		dateCompleted = GOTDate.AegonCalendar.currentDay;
 		Random rand = npc.getRNG();
-		ArrayList<ItemStack> dropItems = new ArrayList<>();
+		List<ItemStack> dropItems = new ArrayList<>();
 		coins = getCoinBonus();
 		if (coins != 0) {
 			if (shouldRandomiseCoinReward()) {

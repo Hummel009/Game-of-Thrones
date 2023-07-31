@@ -5,6 +5,7 @@ import got.client.render.other.GOTNPCRendering;
 import got.client.render.other.GOTRandomSkins;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityThrownRock;
+import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.entity.westeros.wildling.GOTEntityGiant;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -38,7 +39,7 @@ public class GOTRenderGiant extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityNPC mob = (GOTEntityNPC) entity;
+		GOTRandomSkinEntity mob = (GOTRandomSkinEntity) entity;
 		return GOTRandomSkins.loadSkinsList("got:textures/entity/westeros/" + type + "/giant").getRandomSkin(mob);
 	}
 

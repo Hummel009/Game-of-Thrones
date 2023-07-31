@@ -5,6 +5,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
+import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTCustomWaypoint;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -15,7 +16,7 @@ public class GOTPacketDeleteCWP implements IMessage {
 	public GOTPacketDeleteCWP() {
 	}
 
-	public GOTPacketDeleteCWP(GOTCustomWaypoint wp) {
+	public GOTPacketDeleteCWP(GOTAbstractWaypoint wp) {
 		wpID = wp.getID();
 	}
 

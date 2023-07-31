@@ -36,7 +36,7 @@ public class GOTSpeechClient {
 	}
 
 	public static void update() {
-		HashMap<UUID, TimedSpeech> newMap = new HashMap<>();
+		Map<UUID, TimedSpeech> newMap = new HashMap<>();
 		for (Map.Entry<UUID, TimedSpeech> e : npcSpeeches.entrySet()) {
 			UUID key = e.getKey();
 			TimedSpeech speech = e.getValue();

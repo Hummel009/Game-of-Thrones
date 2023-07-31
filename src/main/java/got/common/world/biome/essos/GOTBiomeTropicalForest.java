@@ -12,7 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeTropicalForest extends GOTBiomeEssos {
 	public GOTBiomeTropicalForest(int i, boolean major) {
@@ -37,7 +37,7 @@ public class GOTBiomeTropicalForest extends GOTBiomeEssos {
 		decorator.addTree(GOTTreeType.MANGO, 20);
 		decorator.addTree(GOTTreeType.BANANA, 50);
 		decorator.addGem(new WorldGenMinable(GOTBlocks.oreGem, 4, 8, Blocks.stone), 3.0f, 0, 48);
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.JUNGLE_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

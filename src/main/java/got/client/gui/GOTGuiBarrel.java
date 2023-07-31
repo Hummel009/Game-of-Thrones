@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.inventory.GOTContainerBarrel;
 import got.common.network.GOTPacketBrewingButton;
 import got.common.network.GOTPacketHandler;
@@ -34,7 +35,7 @@ public class GOTGuiBarrel extends GuiContainer {
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled && button.id == 0) {
-			GOTPacketBrewingButton packet = new GOTPacketBrewingButton();
+			IMessage packet = new GOTPacketBrewingButton();
 			GOTPacketHandler.networkWrapper.sendToServer(packet);
 		}
 	}

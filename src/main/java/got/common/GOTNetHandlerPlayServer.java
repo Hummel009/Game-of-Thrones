@@ -3,6 +3,7 @@ package got.common;
 import com.google.common.primitives.Doubles;
 import com.google.common.primitives.Floats;
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTMountFunctions;
 import got.common.item.GOTWeaponStats;
 import got.common.network.GOTPacketHandler;
@@ -71,7 +72,7 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 			double speedSq = mount.motionX * mount.motionX + mount.motionY * mount.motionY + mount.motionZ * mount.motionZ;
 			if (distSq - speedSq > 150.0 && (!server.isSinglePlayer() || !server.getServerOwner().equals(playerEntity.getCommandSenderName()))) {
 				FMLLog.warning(mount.getCommandSenderName() + " (mount of " + playerEntity.getCommandSenderName() + ") moved too quickly! " + (distSq - speedSq));
-				GOTPacketMountControlServerEnforce pktClient = new GOTPacketMountControlServerEnforce(mount);
+				IMessage pktClient = new GOTPacketMountControlServerEnforce(mount);
 				GOTPacketHandler.networkWrapper.sendTo(pktClient, playerEntity);
 				return;
 			}
@@ -100,7 +101,7 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 			if (noCollideBeforeMove && (clientServerConflict || !noCollideAfterMove)) {
 				mount.setPositionAndRotation(d0, d1, d2, yaw, pitch);
 				playerEntity.setPositionAndRotation(d0, d1, d2, yaw, pitch);
-				GOTPacketMountControlServerEnforce pktClient = new GOTPacketMountControlServerEnforce(mount);
+				IMessage pktClient = new GOTPacketMountControlServerEnforce(mount);
 				GOTPacketHandler.networkWrapper.sendTo(pktClient, playerEntity);
 				return;
 			}

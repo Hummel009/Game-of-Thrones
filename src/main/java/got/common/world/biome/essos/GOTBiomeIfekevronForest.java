@@ -8,14 +8,14 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeIfekevronForest extends GOTBiomeTropicalForest {
 	public GOTBiomeIfekevronForest(int i, boolean major) {
 		super(i, major);
 		npcSpawnList.clear();
 		invasionSpawns.clearInvasions();
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IFEKEVRON, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);

@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.network.GOTPacketHandler;
@@ -22,7 +23,7 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button instanceof GOTGuiButtonOptions) {
-				GOTPacketSetOption packet = new GOTPacketSetOption(button.id);
+				IMessage packet = new GOTPacketSetOption(button.id);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else if (button == goBack) {
 				mc.displayGuiScreen(new GOTGuiMenu());

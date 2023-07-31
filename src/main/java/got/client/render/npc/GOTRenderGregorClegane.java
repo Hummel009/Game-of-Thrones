@@ -48,8 +48,6 @@ public class GOTRenderGregorClegane extends GOTRenderBiped {
 	}
 
 	public static class Alive extends GOTRenderGregorClegane {
-		public Alive() {
-		}
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
@@ -58,8 +56,6 @@ public class GOTRenderGregorClegane extends GOTRenderBiped {
 	}
 
 	public static class Dead extends GOTRenderGregorClegane {
-		public Dead() {
-		}
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {

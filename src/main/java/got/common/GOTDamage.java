@@ -1,5 +1,6 @@
 package got.common;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.network.GOTPacketEnvironmentOverlay;
 import got.common.network.GOTPacketHandler;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -11,12 +12,12 @@ public class GOTDamage {
 	public static DamageSource plantHurt = new DamageSource("got.plantHurt").setDamageBypassesArmor();
 
 	public static void doBurnDamage(EntityPlayerMP entityplayer) {
-		GOTPacketEnvironmentOverlay packet = new GOTPacketEnvironmentOverlay(GOTPacketEnvironmentOverlay.Overlay.BURN);
+		IMessage packet = new GOTPacketEnvironmentOverlay(GOTPacketEnvironmentOverlay.Overlay.BURN);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 
 	public static void doFrostDamage(EntityPlayerMP entityplayer) {
-		GOTPacketEnvironmentOverlay packet = new GOTPacketEnvironmentOverlay(GOTPacketEnvironmentOverlay.Overlay.FROST);
+		IMessage packet = new GOTPacketEnvironmentOverlay(GOTPacketEnvironmentOverlay.Overlay.FROST);
 		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
 	}
 }

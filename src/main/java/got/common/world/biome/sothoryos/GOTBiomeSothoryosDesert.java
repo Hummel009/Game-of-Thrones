@@ -16,7 +16,7 @@ import net.minecraft.world.gen.feature.WorldGenDeadBush;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeSothoryosDesert extends GOTBiomeSothoryosBushland implements GOTBiome.Desert {
@@ -37,7 +37,7 @@ public class GOTBiomeSothoryosDesert extends GOTBiomeSothoryosBushland implement
 		decorator.clearSettlements();
 		decorator.clearStructures();
 		npcSpawnList.clear();
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.DESERT_SCORPION, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
 	}

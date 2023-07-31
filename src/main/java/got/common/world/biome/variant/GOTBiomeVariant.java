@@ -9,7 +9,7 @@ import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTBiomeVariant {
@@ -66,7 +66,7 @@ public class GOTBiomeVariant {
 	public boolean hasMarsh;
 	public boolean disableStructures;
 	public boolean disableSettlements;
-	public List<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
+	public Collection<GOTTreeType.WeightedTreeType> treeTypes = new ArrayList<>();
 	public float variantTreeChance;
 	public WorldGenerator boulderGen;
 	public int boulderChance;

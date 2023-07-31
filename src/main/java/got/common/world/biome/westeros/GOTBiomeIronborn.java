@@ -10,18 +10,18 @@ import got.common.world.structure.westeros.ironborn.GOTStructureIronbornSettleme
 import got.common.world.structure.westeros.ironborn.GOTStructureIronbornWatchfort;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeIronborn extends GOTBiomeWesteros {
 	public GOTBiomeIronborn(int i, boolean major) {
 		super(i, major);
 		decorator.addSettlement(new GOTStructureIronbornSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureIronbornWatchfort(false), 800);
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_CONQUEST, 4).setSpawnChance(GOTBiome.SPAWN));
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.IRONBORN_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(10).add(c0);
-		List<SpawnListContainer> c1 = new ArrayList<>();
+		Collection<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.NORTH_CONQUEST, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN));
 		npcSpawnList.newFactionList(0).add(c1);
 	}

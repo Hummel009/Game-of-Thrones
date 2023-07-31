@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTSquadrons;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketItemSquadron;
@@ -93,7 +94,7 @@ public class GOTGuiSquadronItem extends GOTGuiScreenBase {
 	public void onGuiClosed() {
 		super.onGuiClosed();
 		String squadron = squadronNameField.getText();
-		GOTPacketItemSquadron packet = new GOTPacketItemSquadron(squadron);
+		IMessage packet = new GOTPacketItemSquadron(squadron);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 

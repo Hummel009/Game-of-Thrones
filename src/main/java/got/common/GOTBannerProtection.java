@@ -270,7 +270,7 @@ public class GOTBannerProtection {
 	}
 
 	public static void updateWarningCooldowns() {
-		HashSet<UUID> removes = new HashSet<>();
+		Collection<UUID> removes = new HashSet<>();
 		for (Map.Entry<UUID, Integer> e : lastWarningTimes.entrySet()) {
 			UUID player = e.getKey();
 			int time = e.getValue();

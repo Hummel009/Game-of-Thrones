@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class GOTCommandAdminHideMap extends CommandBase {
-	public static void notifyUnhidden(EntityPlayer entityplayer) {
+	public static void notifyUnhidden(ICommandSender entityplayer) {
 		entityplayer.addChatMessage(new ChatComponentTranslation("got.command.opHideMap.unhide"));
 	}
 

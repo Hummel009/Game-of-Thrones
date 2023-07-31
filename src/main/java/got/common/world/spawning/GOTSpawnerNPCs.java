@@ -20,6 +20,7 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.ChunkPosition;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
@@ -32,7 +33,7 @@ public class GOTSpawnerNPCs {
 	public static Set<ChunkCoordIntPair> eligibleSpawnChunks = new HashSet<>();
 	public static Map<Integer, Integer> ticksSinceCycle = new HashMap<>();
 
-	public static boolean canNPCSpawnAtLocation(World world, int i, int j, int k) {
+	public static boolean canNPCSpawnAtLocation(IBlockAccess world, int i, int j, int k) {
 		if (!World.doesBlockHaveSolidTopSurface(world, i, j - 1, k)) {
 			return false;
 		}
@@ -87,7 +88,7 @@ public class GOTSpawnerNPCs {
 		return null;
 	}
 
-	public static void getSpawnableChunks(World world, Set<ChunkCoordIntPair> set) {
+	public static void getSpawnableChunks(World world, Collection<ChunkCoordIntPair> set) {
 		set.clear();
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer entityplayer : players) {
@@ -102,9 +103,9 @@ public class GOTSpawnerNPCs {
 		}
 	}
 
-	public static void getSpawnableChunksWithPlayerInRange(World world, Set<ChunkCoordIntPair> set, int range) {
+	public static void getSpawnableChunksWithPlayerInRange(World world, Collection<ChunkCoordIntPair> set, int range) {
 		getSpawnableChunks(world, set);
-		ArrayList<EntityPlayer> validPlayers = new ArrayList<>();
+		Collection<EntityPlayer> validPlayers = new ArrayList<>();
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer entityplayer : players) {
 			if (entityplayer.capabilities.isCreativeMode) {
@@ -113,7 +114,7 @@ public class GOTSpawnerNPCs {
 			validPlayers.add(entityplayer);
 		}
 		int height = world.getHeight();
-		HashSet<ChunkCoordIntPair> removes = new HashSet<>();
+		Collection<ChunkCoordIntPair> removes = new HashSet<>();
 		for (ChunkCoordIntPair chunkCoords : set) {
 			int i = chunkCoords.getCenterXPos();
 			int k = chunkCoords.getCenterZPosition();
@@ -242,7 +243,7 @@ public class GOTSpawnerNPCs {
 	}
 
 	public static List<ChunkCoordIntPair> shuffle(Set<ChunkCoordIntPair> set) {
-		ArrayList<ChunkCoordIntPair> list = new ArrayList<>(set);
+		List<ChunkCoordIntPair> list = new ArrayList<>(set);
 		Collections.shuffle(list);
 		return list;
 	}

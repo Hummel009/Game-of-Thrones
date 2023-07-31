@@ -5,7 +5,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.*;
 
 public class GOTBeziers {
-	public static List<GOTBeziers> allBeziers = new ArrayList<>();
+	public static Collection<GOTBeziers> allBeziers = new ArrayList<>();
 
 	public static BezierPointDatabase linkerPointDatabase = new BezierPointDatabase();
 	public static BezierPointDatabase roadPointDatabase = new BezierPointDatabase();
@@ -13,7 +13,7 @@ public class GOTBeziers {
 
 	public static int id;
 	public BezierPoint[] bezierPoints;
-	public List<BezierPoint> endpoints = new ArrayList<>();
+	public Collection<BezierPoint> endpoints = new ArrayList<>();
 
 	public GOTBeziers(BezierPoint... ends) {
 		Collections.addAll(endpoints, ends);

@@ -1,9 +1,11 @@
 package got.common.entity.other;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketMountControl;
 import got.common.network.GOTPacketMountControlServerEnforce;
 import got.coremod.GOTReplacedMethods;
+import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,12 +22,12 @@ public class GOTMountFunctions {
 	public static boolean canRiderControl(Entity entity) {
 		Entity rider = entity.riddenByEntity;
 		if (rider instanceof EntityPlayer) {
-			return ((EntityPlayer) rider).isClientWorld();
+			return ((EntityLivingBase) rider).isClientWorld();
 		}
 		return !entity.worldObj.isRemote;
 	}
 
-	public static boolean interact(GOTNPCMount mount, EntityPlayer entityplayer) {
+	public static boolean interact(GOTNPCMount mount, ICommandSender entityplayer) {
 		EntityLiving entity = (EntityLiving) mount;
 		if (mount.getBelongsToNPC() && entity.riddenByEntity == null) {
 			if (!entity.worldObj.isRemote) {
@@ -97,7 +99,7 @@ public class GOTMountFunctions {
 				mount.setPositionAndRotation(pktSet.posX, pktSet.posY, pktSet.posZ, pktSet.rotationYaw, pktSet.rotationPitch);
 				mount.updateRiderPosition();
 			}
-			GOTPacketMountControl pkt = new GOTPacketMountControl(mount);
+			IMessage pkt = new GOTPacketMountControl(mount);
 			GOTPacketHandler.networkWrapper.sendToServer(pkt);
 		}
 	}

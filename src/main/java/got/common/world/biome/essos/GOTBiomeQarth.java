@@ -12,7 +12,7 @@ import got.common.world.structure.essos.qarth.GOTStructureQarthSettlement;
 import net.minecraft.init.Blocks;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 
 public class GOTBiomeQarth extends GOTBiomeQarthDesert {
 	public GOTBiomeQarth(int i, boolean major) {
@@ -33,10 +33,10 @@ public class GOTBiomeQarth extends GOTBiomeQarthDesert {
 		decorator.addSettlement(new GOTStructureQarthSettlement(this, 1.0f));
 		decorator.addStructure(new GOTStructureQarthFortress(false), 800);
 		npcSpawnList.clear();
-		List<SpawnListContainer> c0 = new ArrayList<>();
+		Collection<SpawnListContainer> c0 = new ArrayList<>();
 		c0.add(GOTBiomeSpawnList.entry(GOTSpawnList.QARTH_MILITARY, 10).setSpawnChance(GOTBiome.SPAWN));
 		npcSpawnList.newFactionList(8).add(c0);
-		List<SpawnListContainer> c1 = new ArrayList<>();
+		Collection<SpawnListContainer> c1 = new ArrayList<>();
 		c1.add(GOTBiomeSpawnList.entry(GOTSpawnList.MANTICORE, 10).setSpawnChance(GOTBiome.CONQUEST_SPAWN / 4));
 		npcSpawnList.newFactionList(2).add(c1);
 	}

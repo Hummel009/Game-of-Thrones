@@ -52,7 +52,7 @@ public class GOTBlockMillstone extends BlockContainer {
 
 	@Override
 	public void breakBlock(World world, int i, int j, int k, Block block, int meta) {
-		GOTTileEntityMillstone millstone = (GOTTileEntityMillstone) world.getTileEntity(i, j, k);
+		IInventory millstone = (IInventory) world.getTileEntity(i, j, k);
 		if (millstone != null) {
 			GOT.dropContainerItems(millstone, world, i, j, k);
 			world.func_147453_f(i, j, k, block);

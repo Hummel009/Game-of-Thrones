@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.inventory.GOTContainerCraftingTable;
@@ -30,7 +31,7 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button instanceof GOTGuiButtonTableSwitcher) {
-				GOTPacketSetOption packet = new GOTPacketSetOption(button.id);
+				IMessage packet = new GOTPacketSetOption(button.id);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			} else {
 				super.actionPerformed(button);

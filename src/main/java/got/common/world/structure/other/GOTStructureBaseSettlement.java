@@ -15,6 +15,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Random;
 
@@ -26,7 +27,7 @@ public abstract class GOTStructureBaseSettlement {
 	public float spawnChance;
 	public int settlementChunkRadius;
 	public int fixedSettlementChunkRadius;
-	public List<LocationInfo> fixedLocations = new ArrayList<>();
+	public Collection<LocationInfo> fixedLocations = new ArrayList<>();
 
 	protected GOTStructureBaseSettlement(GOTBiome biome) {
 		settlementBiome = biome;
@@ -182,7 +183,7 @@ public abstract class GOTStructureBaseSettlement {
 	}
 
 	public List<AbstractInstance<?>> getNearbySettlements(World world, int chunkX, int chunkZ) {
-		ArrayList<AbstractInstance<?>> settlements = new ArrayList<>();
+		List<AbstractInstance<?>> settlements = new ArrayList<>();
 		int checkRange = Math.max(settlementChunkRadius, fixedSettlementChunkRadius);
 		for (int i = chunkX - checkRange; i <= chunkX + checkRange; ++i) {
 			for (int k = chunkZ - checkRange; k <= chunkZ + checkRange; ++k) {
@@ -300,7 +301,7 @@ public abstract class GOTStructureBaseSettlement {
 		public int centreX;
 		public int centreZ;
 		public int rotationMode;
-		public List<StructureInfo> structures = new ArrayList<>();
+		public Collection<StructureInfo> structures = new ArrayList<>();
 
 		protected AbstractInstance(V settlement, World world, int i, int k, Random random, LocationInfo loc) {
 			instanceSettlementBiome = settlement.settlementBiome;

@@ -60,7 +60,7 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 		if (!world.isRemote) {
 			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(12.0, 8.0, 12.0));
 			for (EntityLivingBase entity : entities) {
-				if (entity == user || entity instanceof EntityHorse && ((EntityHorse) entity).isTame() || entity instanceof GOTEntityFlyingTameable && ((GOTEntityFlyingTameable) entity).isTamed() || entity instanceof EntityTameable && ((EntityTameable) entity).isTamed() || entity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entity).isNPCTamed()) {
+				if (entity == user || entity instanceof EntityHorse && ((EntityHorse) entity).isTame() || entity instanceof GOTEntityFlyingTameable && ((EntityTameable) entity).isTamed() || entity instanceof EntityTameable && ((EntityTameable) entity).isTamed() || entity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entity).isNPCTamed()) {
 					continue;
 				}
 				float strength = 6.0f - user.getDistanceToEntity(entity) * 0.75f;

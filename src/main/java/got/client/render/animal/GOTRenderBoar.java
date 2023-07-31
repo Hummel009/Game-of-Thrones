@@ -2,6 +2,7 @@ package got.client.render.animal;
 
 import got.client.model.GOTModelBoar;
 import got.common.entity.animal.GOTEntityBoar;
+import got.common.entity.other.GOTNPCMount;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
@@ -34,7 +35,7 @@ public class GOTRenderBoar extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityBoar boar = (GOTEntityBoar) entity;
+		GOTNPCMount boar = (GOTNPCMount) entity;
 		return GOTRenderHorse.getLayeredMountTexture(boar, boarSkin);
 	}
 
@@ -53,7 +54,7 @@ public class GOTRenderBoar extends RenderLiving {
 
 	@Override
 	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
-		if (pass == 0 && ((GOTEntityBoar) entity).isMountSaddled()) {
+		if (pass == 0 && ((GOTNPCMount) entity).isMountSaddled()) {
 			bindTexture(saddleTexture);
 			return 1;
 		}
