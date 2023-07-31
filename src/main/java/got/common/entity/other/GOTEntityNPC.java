@@ -131,6 +131,8 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			Constructor<? extends GOTEntityAINearestAttackableTargetBasic> constructor = c.getConstructor(EntityCreature.class, Class.class, Integer.TYPE, Boolean.TYPE, IEntitySelector.class);
 			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityPlayer.class, 0, true, null));
 			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityLiving.class, 0, true, new GOTNPCTargetSelector(entity)));
+		} catch (NoSuchMethodException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error adding GOT target tasks to entity " + entity.toString());
 			e.printStackTrace();

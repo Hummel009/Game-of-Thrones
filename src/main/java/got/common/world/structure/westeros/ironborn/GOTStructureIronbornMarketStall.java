@@ -21,6 +21,8 @@ public abstract class GOTStructureIronbornMarketStall extends GOTStructureWester
 		try {
 			Class<? extends GOTStructureBase> cls = allStallTypes[random.nextInt(allStallTypes.length)];
 			return cls.getConstructor(Boolean.TYPE).newInstance(flag);
+		} catch (InstantiationException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;

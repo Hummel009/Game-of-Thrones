@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 public class GOTNames {
@@ -120,6 +121,8 @@ public class GOTNames {
 						s = s.substring(0, i);
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8));
 						nameBankNamesAndReaders.put(s, reader);
+					} catch (IOException e) {
+						throw new RuntimeException(e);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to onInit GOT name bank " + s + "from zip file");
 						e.printStackTrace();
@@ -138,12 +141,16 @@ public class GOTNames {
 						s = s.substring(0, i);
 						BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(file.toPath())), StandardCharsets.UTF_8));
 						nameBankNamesAndReaders.put(s, reader);
+					} catch (IOException e) {
+						throw new RuntimeException(e);
 					} catch (Exception e) {
 						FMLLog.severe("Failed to onInit GOT name bank " + s + " from MCP folder");
 						e.printStackTrace();
 					}
 				}
 			}
+		} catch (ZipException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Failed to onInit GOT name banks");
 			e.printStackTrace();
@@ -163,6 +170,8 @@ public class GOTNames {
 				}
 				String[] nameBank = nameList.toArray(new String[0]);
 				allNameBanks.put(nameBankName.getKey(), nameBank);
+			} catch (IOException e) {
+				throw new RuntimeException(e);
 			} catch (Exception e) {
 				FMLLog.severe("Failed to onInit GOT name bank " + nameBankName.getKey());
 				e.printStackTrace();

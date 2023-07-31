@@ -86,6 +86,8 @@ public class GOTMaterial {
 	public static Item.ToolMaterial getToolMaterialByName(String name) {
 		try {
 			return Item.ToolMaterial.valueOf(name);
+		} catch (IllegalArgumentException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			return Item.ToolMaterial.IRON;
 		}

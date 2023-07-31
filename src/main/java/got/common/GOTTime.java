@@ -10,6 +10,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldServer;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 
 public class GOTTime {
@@ -38,6 +39,8 @@ public class GOTTime {
 			worldTime = timeData.getLong("GOTWorldTime");
 			needsLoad = false;
 			save();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT time data");
 			e.printStackTrace();
@@ -54,6 +57,8 @@ public class GOTTime {
 			timeData.setLong("GOTTotalTime", totalTime);
 			timeData.setLong("GOTWorldTime", worldTime);
 			GOTLevelData.saveNBTToFile(time_dat, timeData);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT time data");
 			e.printStackTrace();

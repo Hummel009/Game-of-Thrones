@@ -9,6 +9,7 @@ import net.minecraft.util.EnumChatFormatting;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
@@ -41,6 +42,8 @@ public class GOTVersionChecker {
 								entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.update", component, updateVersion.toString()));
 							}
 						}
+					} catch (MalformedURLException e) {
+						throw new RuntimeException(e);
 					} catch (Exception e) {
 						GOTLog.logger.warn("Hummel009: Version check failed");
 						e.printStackTrace();

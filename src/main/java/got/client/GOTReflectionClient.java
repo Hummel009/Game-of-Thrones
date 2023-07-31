@@ -61,6 +61,8 @@ public class GOTReflectionClient {
 		try {
 			Method method = GOTReflection.getPrivateMethod(EntityRenderer.class, renderer, new Class[]{Float.TYPE, Boolean.TYPE}, "getFOVModifier", "func_78481_a");
 			return (Float) method.invoke(renderer, tick, flag);
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			GOTReflection.logFailure(e);
 			return 0.0f;

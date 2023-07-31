@@ -12,6 +12,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StatCollector;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -67,6 +68,8 @@ public class GOTFactionRelations {
 			}
 			needsLoad = false;
 			save();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT faction relations");
 			e.printStackTrace();
@@ -114,6 +117,8 @@ public class GOTFactionRelations {
 			facData.setTag("Overrides", relationTags);
 			GOTLevelData.saveNBTToFile(datFile, facData);
 			needsSave = false;
+		} catch (IOException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT faction relations");
 			e.printStackTrace();

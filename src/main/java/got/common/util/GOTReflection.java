@@ -39,6 +39,8 @@ public class GOTReflection {
 		try {
 			Method method = getPrivateMethod(BlockPistonBase.class, null, new Class[]{Block.class, World.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Boolean.TYPE}, "canPushBlock", "func_150080_a");
 			return (Boolean) method.invoke(null, block, world, i, j, k, flag);
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			logFailure(e);
 			return false;
@@ -49,6 +51,8 @@ public class GOTReflection {
 		try {
 			Method method = getPrivateMethod(BlockCrops.class, block, new Class[0], "func_149865_P");
 			return (Item) method.invoke(block);
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			logFailure(e);
 			return null;
@@ -274,6 +278,8 @@ public class GOTReflection {
 		try {
 			unlockFinalField(f);
 			f.set(instance, value);
+		} catch (IllegalArgumentException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			GOTLog.logger.log(Level.ERROR, "Unable to access static field");
 			throw e;
@@ -295,6 +301,8 @@ public class GOTReflection {
 		try {
 			Method method = getPrivateMethod(EntityHorse.class, horse, new Class[0], "func_110226_cD");
 			method.invoke(horse);
+		} catch (IllegalAccessException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			logFailure(e);
 		}

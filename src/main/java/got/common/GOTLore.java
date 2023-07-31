@@ -24,6 +24,7 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
 public class GOTLore {
@@ -84,6 +85,8 @@ public class GOTLore {
 							s = s.substring(0, i);
 							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
+						} catch (IOException e) {
+							throw new RuntimeException(e);
 						} catch (Exception e) {
 							GOTLog.logger.error("Failed to onInit GOT lore {}from zip file", s);
 							e.printStackTrace();
@@ -102,6 +105,8 @@ public class GOTLore {
 							s = s.substring(0, i);
 							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(file.toPath())), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
+						} catch (IOException e) {
+							throw new RuntimeException(e);
 						} catch (Exception e) {
 							GOTLog.logger.error("Failed to onInit GOT lore {} from MCP folder", s);
 							e.printStackTrace();
@@ -109,6 +114,8 @@ public class GOTLore {
 					}
 				}
 			}
+		} catch (ZipException e) {
+			throw new RuntimeException(e);
 		} catch (Exception e) {
 			GOTLog.logger.error("Failed to onInit GOT lore");
 			e.printStackTrace();
@@ -181,6 +188,8 @@ public class GOTLore {
 				for (LoreCategory category : categories) {
 					category.addLore(lore);
 				}
+			} catch (IOException e) {
+				throw new RuntimeException(e);
 			} catch (Exception e) {
 				GOTLog.logger.error("Failed to onInit GOT lore: {}", loreName);
 				e.printStackTrace();
@@ -330,6 +339,8 @@ public class GOTLore {
 						int max = Integer.parseInt(s3);
 						int number = MathHelper.getRandomIntegerInRange(random, min, max);
 						formatted = String.valueOf(number);
+					} catch (NumberFormatException e) {
+						throw new RuntimeException(e);
 					} catch (Exception e) {
 						GOTLog.logger.error("Hummel009: Error formatting number {} in text: {}", unformatted, loreName);
 						e.printStackTrace();

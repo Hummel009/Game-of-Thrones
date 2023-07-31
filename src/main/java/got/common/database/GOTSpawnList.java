@@ -523,6 +523,8 @@ public class GOTSpawnList {
 						continue;
 					}
 					throw new IllegalArgumentException("Spawn lists must contain only one faction! Mismatched entity class: " + entityClass.getName());
+				} catch (IllegalArgumentException e) {
+					throw new RuntimeException(e);
 				} catch (Exception e) {
 					e.printStackTrace();
 					continue;

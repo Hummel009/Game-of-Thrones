@@ -115,6 +115,8 @@ public class GOTSpawnerAnimals {
 															}
 															try {
 																entity = (EntityLiving) spawnEntry.entityClass.getConstructor(World.class).newInstance(world);
+															} catch (InstantiationException e) {
+																throw new RuntimeException(e);
 															} catch (Exception e) {
 																e.printStackTrace();
 																return totalSpawned;
@@ -187,6 +189,8 @@ public class GOTSpawnerAnimals {
 							float f2 = k1 + 0.5f;
 							try {
 								entity = (EntityLiving) spawnEntry.entityClass.getConstructor(World.class).newInstance(world);
+							} catch (InstantiationException e) {
+								throw new RuntimeException(e);
 							} catch (Exception exception) {
 								exception.printStackTrace();
 								continue;
