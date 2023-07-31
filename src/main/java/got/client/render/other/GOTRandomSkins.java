@@ -81,8 +81,6 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 				if (mc.getResourceManager().getResource(skin) == null) {
 					noFile = true;
 				}
-			} catch (IOException e) {
-				throw new RuntimeException(e);
 			} catch (Exception e) {
 				noFile = true;
 			}

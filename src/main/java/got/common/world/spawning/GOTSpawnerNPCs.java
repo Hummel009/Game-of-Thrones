@@ -205,8 +205,6 @@ public class GOTSpawnerNPCs {
 							}
 							try {
 								entity = (EntityLiving) spawnEntry.entityClass.getConstructor(World.class).newInstance(world);
-							} catch (InstantiationException e) {
-								throw new RuntimeException(e);
 							} catch (Exception e) {
 								e.printStackTrace();
 								return;

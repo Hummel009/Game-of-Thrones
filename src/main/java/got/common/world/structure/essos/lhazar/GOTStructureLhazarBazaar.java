@@ -128,8 +128,6 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 			generateSubstructure(stall2, world, random, 0, 1, 6, 1);
 			generateSubstructure(stall3, world, random, 8, 1, 2, 3);
 			generateSubstructure(stall4, world, random, 11, 1, -2, 0);
-		} catch (InstantiationException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

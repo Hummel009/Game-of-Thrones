@@ -573,8 +573,6 @@ public class GOTTickHandlerClient {
 					if (field instanceof Integer) {
 						optifineSetting = (Integer) field;
 					}
-				} catch (IllegalArgumentException e) {
-					throw new RuntimeException(e);
 				} catch (Exception ignored) {
 				}
 				boolean fancyGraphics = false;

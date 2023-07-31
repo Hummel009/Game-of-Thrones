@@ -148,8 +148,6 @@ public class GOTGuiHandler {
 				ArrayList<String> list = Lists.newArrayList(name.getFormattedText(), subtitle.getFormattedText());
 				list.addAll(mc.fontRenderer.listFormattedStringToWidth(desc, 150));
 				proxyGui.func_146283_a(list, mouseX, mouseY);
-			} catch (NumberFormatException e) {
-				throw new RuntimeException(e);
 			} catch (Exception e) {
 				proxyGui.drawCreativeTabHoveringText(EnumChatFormatting.RED + "Invalid GOTAchievement!", mouseX, mouseY);
 			}

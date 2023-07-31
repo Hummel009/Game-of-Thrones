@@ -8,7 +8,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -91,8 +90,6 @@ public class GOTFellowshipData {
 			GOTFellowship fs = new GOTFellowship(fsID);
 			fs.load(nbt);
 			return fs;
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT fellowship data for %s", fsDat.getName());
 			e.printStackTrace();
@@ -151,8 +148,6 @@ public class GOTFellowshipData {
 			NBTTagCompound nbt = new NBTTagCompound();
 			fs.save(nbt);
 			GOTLevelData.saveNBTToFile(getFellowshipDat(fs.getFellowshipID()), nbt);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT fellowship data for %s", fs.getFellowshipID());
 			e.printStackTrace();

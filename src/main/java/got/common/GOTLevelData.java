@@ -263,8 +263,6 @@ public class GOTLevelData {
 			needsLoad = false;
 			needsSave = true;
 			save();
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT data");
 			e.printStackTrace();
@@ -277,8 +275,6 @@ public class GOTLevelData {
 			GOTPlayerData pd = new GOTPlayerData(player);
 			pd.load(nbt);
 			return pd;
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT player data for %s", player);
 			e.printStackTrace();
@@ -353,8 +349,6 @@ public class GOTLevelData {
 			if (GOTSpawnDamping.needsSave) {
 				GOTSpawnDamping.saveAll();
 			}
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT data");
 			e.printStackTrace();
@@ -399,8 +393,6 @@ public class GOTLevelData {
 			GOTPlayerData pd = playerDataMap.get(player);
 			pd.save(nbt);
 			saveNBTToFile(getGOTPlayerDat(player), nbt);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT player data for %s", player);
 			e.printStackTrace();

@@ -90,8 +90,6 @@ public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
 			generateSubstructure(stall0, world, random, -4, 1, 6, 0);
 			generateSubstructure(stall1, world, random, 0, 1, 6, 0);
 			generateSubstructure(stall2, world, random, 4, 1, 6, 0);
-		} catch (InstantiationException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

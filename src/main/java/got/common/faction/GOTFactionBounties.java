@@ -12,7 +12,6 @@ import net.minecraftforge.common.UsernameCache;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 public class GOTFactionBounties {
@@ -97,8 +96,6 @@ public class GOTFactionBounties {
 			GOTFactionBounties fb = new GOTFactionBounties(fac);
 			fb.readFromNBT(nbt);
 			return fb;
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error loading GOT faction bounty data for %s", fac.codeName());
 			e.printStackTrace();
@@ -126,8 +123,6 @@ public class GOTFactionBounties {
 			NBTTagCompound nbt = new NBTTagCompound();
 			fb.writeToNBT(nbt);
 			GOTLevelData.saveNBTToFile(getFactionFile(fb.theFaction, false), nbt);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			FMLLog.severe("Error saving GOT faction bounty data for %s", fb.theFaction.codeName());
 			e.printStackTrace();

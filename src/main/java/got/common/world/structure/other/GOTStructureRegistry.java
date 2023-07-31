@@ -118,8 +118,6 @@ public class GOTStructureRegistry {
 				WorldGenerator generator = null;
 				try {
 					generator = strClass.getConstructor(Boolean.TYPE).newInstance(true);
-				} catch (InstantiationException e) {
-					throw new RuntimeException(e);
 				} catch (Exception e) {
 					FMLLog.warning("Failed to build GOT structure " + strClass.getName());
 					e.printStackTrace();

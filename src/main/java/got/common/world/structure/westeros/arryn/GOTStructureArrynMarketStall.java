@@ -21,8 +21,6 @@ public abstract class GOTStructureArrynMarketStall extends GOTStructureWesterosM
 		try {
 			Class<? extends GOTStructureBase> cls = allStallTypes[random.nextInt(allStallTypes.length)];
 			return cls.getConstructor(Boolean.TYPE).newInstance(flag);
-		} catch (InstantiationException e) {
-			throw new RuntimeException(e);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return new GOTStructureArrynMarketStall.Goldsmith(flag);
