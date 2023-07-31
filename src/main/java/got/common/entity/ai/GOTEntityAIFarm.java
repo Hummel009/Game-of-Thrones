@@ -628,7 +628,15 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		} else {
 			canDoAction = distSq < 9.0;
 		}
-		if (canDoAction) {
+		if (!canDoAction) {
+			theEntity.getLookHelper().setLookPosition(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, 10.0f, theEntity.getVerticalFaceSpeed());
+			--rePathDelay;
+			if (rePathDelay <= 0) {
+				rePathDelay = 10;
+				theEntity.getNavigator().tryMoveToXYZ(pathTarget.posX + 0.5, pathTarget.posY, pathTarget.posZ + 0.5, moveSpeed);
+			}
+			++pathingTick;
+		} else {
 			switch (action) {
 				case BONEMEALING:
 					boolean canBonemeal = isSuitableForBonemealing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
@@ -833,14 +841,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					}
 					break;
 			}
-		} else {
-			theEntity.getLookHelper().setLookPosition(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, 10.0f, theEntity.getVerticalFaceSpeed());
-			--rePathDelay;
-			if (rePathDelay <= 0) {
-				rePathDelay = 10;
-				theEntity.getNavigator().tryMoveToXYZ(pathTarget.posX + 0.5, pathTarget.posY, pathTarget.posZ + 0.5, moveSpeed);
-			}
-			++pathingTick;
 		}
 	}
 

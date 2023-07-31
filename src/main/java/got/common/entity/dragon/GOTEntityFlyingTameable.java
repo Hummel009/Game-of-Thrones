@@ -124,10 +124,10 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		}
 
 		if (isServer()) {
-			if (onGround) {
-				inAirTicks = 0;
-			} else {
+			if (!onGround) {
 				inAirTicks++;
+			} else {
+				inAirTicks = 0;
 			}
 
 			setFlying(inAirTicks > IN_AIR_THRESH);

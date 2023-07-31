@@ -283,25 +283,7 @@ public class GOTModelMossovyWerewolf extends ModelBase {
 		float RLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float LLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;
 		Head.rotateAngleY = f3 / radianF;
-		if (hunched) {
-			Head.rotationPointY = 0.0f;
-			Head.rotationPointZ = -11.0f;
-			Head.rotateAngleX = (15.0f + f4) / radianF;
-			Neck.rotateAngleX = -10.0f / radianF;
-			Neck.rotationPointY = 2.0f;
-			Neck.rotationPointZ = -6.0f;
-			Neck2.rotationPointY = 9.0f;
-			Neck2.rotationPointZ = -9.0f;
-			Chest.rotationPointY = 1.0f;
-			Chest.rotationPointZ = -7.5f;
-			Chest.rotateAngleX = 60.0f / radianF;
-			Abdomen.rotateAngleX = 75.0f / radianF;
-			LLegA.rotationPointZ = 7.0f;
-			LArmA.rotationPointY = 4.5f;
-			LArmA.rotationPointZ = -6.0f;
-			TailA.rotationPointY = 7.5f;
-			TailA.rotationPointZ = 10.0f;
-		} else {
+		if (!hunched) {
 			Head.rotationPointY = -8.0f;
 			Head.rotationPointZ = -6.0f;
 			Head.rotateAngleX = f4 / radianF;
@@ -319,6 +301,24 @@ public class GOTModelMossovyWerewolf extends ModelBase {
 			LArmA.rotationPointZ = -2.0f;
 			TailA.rotationPointY = 9.5f;
 			TailA.rotationPointZ = 6.0f;
+		} else {
+			Head.rotationPointY = 0.0f;
+			Head.rotationPointZ = -11.0f;
+			Head.rotateAngleX = (15.0f + f4) / radianF;
+			Neck.rotateAngleX = -10.0f / radianF;
+			Neck.rotationPointY = 2.0f;
+			Neck.rotationPointZ = -6.0f;
+			Neck2.rotationPointY = 9.0f;
+			Neck2.rotationPointZ = -9.0f;
+			Chest.rotationPointY = 1.0f;
+			Chest.rotationPointZ = -7.5f;
+			Chest.rotateAngleX = 60.0f / radianF;
+			Abdomen.rotateAngleX = 75.0f / radianF;
+			LLegA.rotationPointZ = 7.0f;
+			LArmA.rotationPointY = 4.5f;
+			LArmA.rotationPointZ = -6.0f;
+			TailA.rotationPointY = 7.5f;
+			TailA.rotationPointZ = 10.0f;
 		}
 		Nose.rotationPointY = Head.rotationPointY;
 		Snout.rotationPointY = Head.rotationPointY;

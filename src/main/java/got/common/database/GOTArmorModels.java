@@ -281,10 +281,10 @@ public class GOTArmorModels {
 				heldRight = entity.getHeldItem();
 			}
 			ItemStack heldLeft;
-			if (entity instanceof GOTEntityNPC) {
-				heldLeft = ((GOTEntityNPC) entity).getHeldItemLeft();
-			} else {
+			if (!(entity instanceof GOTEntityNPC)) {
 				heldLeft = null;
+			} else {
+				heldLeft = ((GOTEntityNPC) entity).getHeldItemLeft();
 			}
 			setupHeldItem(model, entity, heldRight, true);
 			setupHeldItem(model, entity, heldLeft, false);

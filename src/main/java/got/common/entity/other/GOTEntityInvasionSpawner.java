@@ -465,12 +465,12 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public void updateWatchedInvasionValues() {
-		if (worldObj.isRemote) {
-			invasionSize = dataWatcher.getWatchableObjectShort(21);
-			invasionRemaining = dataWatcher.getWatchableObjectShort(22);
-		} else {
+		if (!worldObj.isRemote) {
 			dataWatcher.updateObject(21, (short) invasionSize);
 			dataWatcher.updateObject(22, (short) invasionRemaining);
+		} else {
+			invasionSize = dataWatcher.getWatchableObjectShort(21);
+			invasionRemaining = dataWatcher.getWatchableObjectShort(22);
 		}
 	}
 

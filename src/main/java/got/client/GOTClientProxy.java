@@ -236,10 +236,10 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void fillMugFromCauldron(World world, int i, int j, int k, int side, ItemStack itemstack) {
-		if (world.isRemote) {
-			Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
-		} else {
+		if (!world.isRemote) {
 			super.fillMugFromCauldron(world, i, j, k, side, itemstack);
+		} else {
+			Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
 		}
 	}
 
@@ -546,10 +546,10 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void placeFlowerInPot(World world, int i, int j, int k, int side, ItemStack itemstack) {
-		if (world.isRemote) {
-			Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
-		} else {
+		if (!world.isRemote) {
 			super.placeFlowerInPot(world, i, j, k, side, itemstack);
+		} else {
+			Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
 		}
 	}
 
@@ -750,10 +750,10 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
-		if (world.isRemote) {
-			((EntityClientPlayerMP) entityplayer).sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
-		} else {
+		if (!world.isRemote) {
 			super.usePouchOnChest(entityplayer, world, i, j, k, side, itemstack, pouchSlot);
+		} else {
+			((EntityClientPlayerMP) entityplayer).sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
 		}
 	}
 

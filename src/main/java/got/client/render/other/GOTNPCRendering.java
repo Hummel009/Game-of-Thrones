@@ -48,7 +48,9 @@ public class GOTNPCRendering {
 			boolean inRange = entity.isInRangeToRender3d(d0, d1, d2);
 			if (entity instanceof GOTEntityNPC && inRange) {
 				GOTEntityNPC npc = (GOTEntityNPC) entity;
-				if (npc.isEntityAlive()) {
+				if (!npc.isEntityAlive()) {
+					GOTSpeechClient.removeSpeech(npc);
+				} else {
 					GOTSpeechClient.TimedSpeech timedSpeech = GOTSpeechClient.getSpeechFor(npc);
 					if (timedSpeech != null) {
 						double d3 = npc.lastTickPosX + (npc.posX - npc.lastTickPosX) * f;
@@ -56,8 +58,6 @@ public class GOTNPCRendering {
 						double d5 = npc.lastTickPosZ + (npc.posZ - npc.lastTickPosZ) * f;
 						renderSpeech(npc, timedSpeech.getSpeech(), timedSpeech.getAge(), d3 - d0, d4 - d1, d5 - d2);
 					}
-				} else {
-					GOTSpeechClient.removeSpeech(npc);
 				}
 			}
 		}

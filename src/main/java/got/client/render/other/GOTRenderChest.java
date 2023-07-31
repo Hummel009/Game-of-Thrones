@@ -47,7 +47,9 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		int meta;
 		GOTTileEntityChest chest = (GOTTileEntityChest) tileentity;
-		if (chest.hasWorldObj()) {
+		if (!chest.hasWorldObj()) {
+			meta = 0;
+		} else {
 			Block block = tileentity.getBlockType();
 			meta = tileentity.getBlockMetadata();
 			if (block instanceof BlockChest && meta == 0) {
@@ -58,8 +60,6 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 				}
 				meta = tileentity.getBlockMetadata();
 			}
-		} else {
-			meta = 0;
 		}
 		GL11.glPushMatrix();
 		GL11.glEnable(32826);

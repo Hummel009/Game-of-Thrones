@@ -72,15 +72,15 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 		} else {
 			buttonMounts.setState(StatCollector.translateToLocal("got.gui.npcRespawner.mounts.2"));
 		}
-		if (theSpawner.blockEnemySpawns()) {
-			sliderBlockEnemy.setOverrideStateString(null);
-		} else {
+		if (!theSpawner.blockEnemySpawns()) {
 			sliderBlockEnemy.setOverrideStateString(StatCollector.translateToLocal("got.gui.npcRespawner.blockEnemy.off"));
-		}
-		if (theSpawner.hasHomeRange()) {
-			sliderHomeRange.setOverrideStateString(null);
 		} else {
+			sliderBlockEnemy.setOverrideStateString(null);
+		}
+		if (!theSpawner.hasHomeRange()) {
 			sliderHomeRange.setOverrideStateString(StatCollector.translateToLocal("got.gui.npcRespawner.homeRange.off"));
+		} else {
+			sliderHomeRange.setOverrideStateString(null);
 		}
 		String timepre = StatCollector.translateToLocal("got.gui.npcRespawner.spawnInterval");
 		int timepreX = sliderSpawnIntervalM.xPosition - 5 - fontRendererObj.getStringWidth(timepre);

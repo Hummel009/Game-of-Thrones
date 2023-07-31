@@ -1121,16 +1121,16 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 50, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 5, 2, 3));
-		if (this instanceof GOTBiomeYiTi) {
-			spawnableCreatureList.add(new SpawnListEntry(GOTEntityWhiteBison.class, 20, 1, 2));
+		if (!(this instanceof GOTBiomeYiTi)) {
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 20, 1, 2));
+		} else {
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWhiteBison.class, 20, 1, 2));
 			flowers.add(new FlowerEntry(GOTBlocks.marigold, 0, 10));
 			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 0, 10));
 			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 1, 10));
 			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 2, 10));
 			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 3, 10));
 			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 4, 10));
-		} else {
-			spawnableCreatureList.add(new SpawnListEntry(GOTEntityBison.class, 20, 1, 2));
 		}
 	}
 
@@ -1156,16 +1156,16 @@ public abstract class GOTBiome extends BiomeGenBase {
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityButterfly.class, 50, 4, 4));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBird.class, 30, 2, 3));
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityGorcrow.class, 5, 2, 3));
-		if (this instanceof GOTBiomeYiTi) {
-			spawnableCreatureList.add(new SpawnListEntry(GOTEntityWhiteBison.class, 10, 1, 2));
+		if (!(this instanceof GOTBiomeYiTi)) {
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBison.class, 10, 1, 2));
+		} else {
+			spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWhiteBison.class, 10, 1, 2));
 			flowers.add(new FlowerEntry(GOTBlocks.marigold, 0, 10));
 			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 0, 10));
 			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 1, 10));
 			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 2, 10));
 			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 3, 10));
 			flowers.add(new FlowerEntry(GOTBlocks.yitiFlower, 4, 10));
-		} else {
-			spawnableCreatureList.add(new SpawnListEntry(GOTEntityBison.class, 10, 1, 2));
 		}
 	}
 

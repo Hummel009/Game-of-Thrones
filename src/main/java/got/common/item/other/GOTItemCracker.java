@@ -202,10 +202,10 @@ public class GOTItemCracker extends Item {
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (isEmpty(itemstack)) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.CRACKER.ordinal(), world, 0, 0, 0);
-		} else {
+		if (!isEmpty(itemstack)) {
 			entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
+		} else {
+			entityplayer.openGui(GOT.instance, GOTGuiID.CRACKER.ordinal(), world, 0, 0, 0);
 		}
 		return itemstack;
 	}

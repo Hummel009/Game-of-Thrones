@@ -22,10 +22,10 @@ public class GOTEntityPickpocketFX extends EntityFX {
 	public void onUpdate() {
 		super.onUpdate();
 		updatePickpocketIcon();
-		if (onGround) {
-			motionY = motionBeforeGround * -bounciness;
-		} else {
+		if (!onGround) {
 			motionBeforeGround = motionY;
+		} else {
+			motionY = motionBeforeGround * -bounciness;
 		}
 	}
 
