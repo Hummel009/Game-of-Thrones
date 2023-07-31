@@ -64,13 +64,13 @@ public class GOTPacketWaypointUseCount implements IMessage {
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			GOTAbstractWaypoint waypoint = null;
-			if (custom) {
-				UUID sharingPlayerID = packet.sharingPlayer;
-				waypoint = sharingPlayerID != null ? pd.getSharedCustomWaypointByID(sharingPlayerID, wpID) : pd.getCustomWaypointByID(wpID);
-			} else {
+			if (!custom) {
 				if (wpID >= 0 && wpID < GOTWaypoint.values().length) {
 					waypoint = GOTWaypoint.values()[wpID];
 				}
+			} else {
+				UUID sharingPlayerID = packet.sharingPlayer;
+				waypoint = sharingPlayerID != null ? pd.getSharedCustomWaypointByID(sharingPlayerID, wpID) : pd.getCustomWaypointByID(wpID);
 			}
 			if (waypoint != null) {
 				pd.setWPUseCount(waypoint, packet.useCount);

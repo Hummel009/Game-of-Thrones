@@ -127,13 +127,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		mapRenderer.updateTick();
 		++tickCounter;
 		prevZoom = currentZoom;
-		if (reachedWP) {
-			currentZoom += 0.008333334f;
-			currentZoom = Math.min(currentZoom, zoomBase + 0.5f);
-			if (currentZoom >= zoomBase + 0.5f) {
-				finishedZoomIn = true;
-			}
-		} else {
+		if (!reachedWP) {
 			double dy;
 			double dx = theWaypoint.getX() - mapRenderer.mapX;
 			double distSq = dx * dx + (dy = theWaypoint.getY() - mapRenderer.mapY) * dy;
@@ -156,6 +150,12 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 			mapRenderer.mapY += mapVelY * mapScaleFactor;
 			currentZoom -= 0.008333334f;
 			currentZoom = Math.max(currentZoom, zoomBase);
+		} else {
+			currentZoom += 0.008333334f;
+			currentZoom = Math.min(currentZoom, zoomBase + 0.5f);
+			if (currentZoom >= zoomBase + 0.5f) {
+				finishedZoomIn = true;
+			}
 		}
 		if (chunkLoaded && reachedWP && finishedZoomIn) {
 			mc.displayGuiScreen(null);

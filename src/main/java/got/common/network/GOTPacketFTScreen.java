@@ -68,13 +68,13 @@ public class GOTPacketFTScreen implements IMessage {
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 			GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 			GOTAbstractWaypoint waypoint = null;
-			if (custom) {
-				UUID sharingPlayerID = packet.sharingPlayer;
-				waypoint = sharingPlayerID != null ? playerData.getSharedCustomWaypointByID(sharingPlayerID, wpID) : playerData.getCustomWaypointByID(wpID);
-			} else {
+			if (!custom) {
 				if (wpID >= 0 && wpID < GOTWaypoint.values().length) {
 					waypoint = GOTWaypoint.values()[wpID];
 				}
+			} else {
+				UUID sharingPlayerID = packet.sharingPlayer;
+				waypoint = sharingPlayerID != null ? playerData.getSharedCustomWaypointByID(sharingPlayerID, wpID) : playerData.getCustomWaypointByID(wpID);
 			}
 			if (waypoint != null) {
 				GOT.proxy.displayFTScreen(waypoint, packet.startX, packet.startZ);

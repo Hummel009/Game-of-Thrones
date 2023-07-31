@@ -57,18 +57,20 @@ public class GOTPacketFastTravel implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketFastTravel packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
-			if (GOTConfig.enableFastTravel) {
+			if (!GOTConfig.enableFastTravel) {
+				entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.ftDisabled"));
+			} else {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 				boolean isCustom = packet.isCustom;
 				int waypointID = packet.wpID;
 				GOTAbstractWaypoint waypoint = null;
-				if (isCustom) {
-					UUID sharingPlayer = packet.sharingPlayer;
-					waypoint = sharingPlayer != null ? playerData.getSharedCustomWaypointByID(sharingPlayer, waypointID) : playerData.getCustomWaypointByID(waypointID);
-				} else {
+				if (!isCustom) {
 					if (waypointID >= 0 && waypointID < GOTWaypoint.values().length) {
 						waypoint = GOTWaypoint.values()[waypointID];
 					}
+				} else {
+					UUID sharingPlayer = packet.sharingPlayer;
+					waypoint = sharingPlayer != null ? playerData.getSharedCustomWaypointByID(sharingPlayer, waypointID) : playerData.getCustomWaypointByID(waypointID);
 				}
 				if (waypoint != null && waypoint.hasPlayerUnlocked(entityplayer)) {
 					if (playerData.getTimeSinceFT() < playerData.getWaypointFTTime(waypoint, entityplayer)) {
@@ -87,8 +89,6 @@ public class GOTPacketFastTravel implements IMessage {
 						}
 					}
 				}
-			} else {
-				entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.ftDisabled"));
 			}
 			return null;
 		}

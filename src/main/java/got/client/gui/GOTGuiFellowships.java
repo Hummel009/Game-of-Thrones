@@ -836,9 +836,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		if (page == Page.RENAME && textFieldRename.textboxKeyTyped(c, i)) {
 			return;
 		}
-		if (page == Page.LIST) {
-			super.keyTyped(c, i);
-		} else {
+		if (page != Page.LIST) {
 			if (i == 1 || i == mc.gameSettings.keyBindInventory.getKeyCode()) {
 				if (page == Page.INVITE || page == Page.DISBAND || page == Page.LEAVE || page == Page.REMOVE || page == Page.OP || page == Page.DEOP || page == Page.TRANSFER || page == Page.RENAME) {
 					page = Page.FELLOWSHIP;
@@ -850,6 +848,8 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 					page = Page.LIST;
 				}
 			}
+		} else {
+			super.keyTyped(c, i);
 		}
 	}
 

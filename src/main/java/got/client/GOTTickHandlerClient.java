@@ -202,7 +202,22 @@ public class GOTTickHandlerClient {
 		float alignMax;
 		GOTFactionRank rankMin;
 		GOTFactionRank rankMax;
-		if (rank.isDummyRank()) {
+		if (!rank.isDummyRank()) {
+			alignMin = rank.alignment;
+			rankMin = rank;
+			GOTFactionRank nextRank = faction.getRankAbove(rank);
+			if (nextRank != null && !nextRank.isDummyRank() && nextRank != rank) {
+				alignMax = nextRank.alignment;
+				rankMax = nextRank;
+			} else {
+				alignMax = rank.alignment * 10.0F;
+				rankMax = rank;
+				while (alignment >= alignMax) {
+					alignMin = alignMax;
+					alignMax = alignMin * 10.0F;
+				}
+			}
+		} else {
 			float firstRankAlign;
 			GOTFactionRank firstRank = faction.getFirstRank();
 			if (firstRank != null && !firstRank.isDummyRank()) {
@@ -231,21 +246,6 @@ public class GOTTickHandlerClient {
 				alignMin = firstRankAlign;
 				alignMax = alignMin * 10.0F;
 				rankMin = rankMax = GOTFactionRank.RANK_NEUTRAL;
-				while (alignment >= alignMax) {
-					alignMin = alignMax;
-					alignMax = alignMin * 10.0F;
-				}
-			}
-		} else {
-			alignMin = rank.alignment;
-			rankMin = rank;
-			GOTFactionRank nextRank = faction.getRankAbove(rank);
-			if (nextRank != null && !nextRank.isDummyRank() && nextRank != rank) {
-				alignMax = nextRank.alignment;
-				rankMax = nextRank;
-			} else {
-				alignMax = rank.alignment * 10.0F;
-				rankMax = rank;
 				while (alignment >= alignMax) {
 					alignMin = alignMax;
 					alignMax = alignMin * 10.0F;

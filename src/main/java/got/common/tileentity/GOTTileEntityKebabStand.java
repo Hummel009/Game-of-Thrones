@@ -360,7 +360,9 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 			boolean prevCooking = isCooking();
 			boolean prevCooked = isCooked();
 			if (isCooking()) {
-				if (canCook()) {
+				if (!canCook()) {
+					stopCooking();
+				} else {
 					++cookTime;
 					if (cookTime > fuelTime) {
 						int fuel2 = takeFuelFromBelow();
@@ -372,8 +374,6 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 					} else if (cookTime >= 200) {
 						cookFirstMeat();
 					}
-				} else {
-					stopCooking();
 				}
 			} else if (canCook() && (fuel = takeFuelFromBelow()) > 0) {
 				startCooking(fuel);

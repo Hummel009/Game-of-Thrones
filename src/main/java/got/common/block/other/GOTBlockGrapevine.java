@@ -40,10 +40,10 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	public GOTBlockGrapevine(boolean grapes) {
 		super(Material.plants);
 		hasGrapes = grapes;
-		if (hasGrapes) {
-			setCreativeTab(null);
-		} else {
+		if (!hasGrapes) {
 			setCreativeTab(GOTCreativeTabs.tabDeco);
+		} else {
+			setCreativeTab(null);
 		}
 		if (hasGrapes) {
 			setStepSound(Block.soundTypeGrass);

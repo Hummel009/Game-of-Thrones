@@ -53,7 +53,9 @@ public class GOTGuiScrollPane {
 
 	public void mouseDragScroll(int i, int j) {
 		boolean isMouseDown = Mouse.isButtonDown(0);
-		if (hasScrollBar) {
+		if (!hasScrollBar) {
+			resetScroll();
+		} else {
 			int x0 = paneX0;
 			int x1 = scrollBarX0 + scrollWidgetWidth;
 			int y0 = paneY0;
@@ -71,8 +73,6 @@ public class GOTGuiScrollPane {
 				currentScroll = (j - y0 - scrollWidgetHeight / 2.0f) / ((float) (y1 - y0) - scrollWidgetHeight);
 				currentScroll = MathHelper.clamp_float(currentScroll, 0.0f, 1.0f);
 			}
-		} else {
-			resetScroll();
 		}
 		wasMouseDown = isMouseDown;
 	}

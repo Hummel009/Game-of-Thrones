@@ -364,7 +364,13 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
-		if (worldObj.isRemote) {
+		if (!worldObj.isRemote) {
+			prevServerActive = serverActive;
+			serverActive = isSmelting();
+			if (serverActive != prevServerActive) {
+				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+			}
+		} else {
 			prevRocking = rocking;
 			prevRockingPhase = rockingPhase;
 			rockingPhase += 0.1F;
@@ -374,12 +380,6 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				rocking -= 0.01F;
 			}
 			rocking = MathHelper.clamp_float(rocking, 0.0F, 1.0F);
-		} else {
-			prevServerActive = serverActive;
-			serverActive = isSmelting();
-			if (serverActive != prevServerActive) {
-				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-			}
 		}
 	}
 }
