@@ -43,10 +43,10 @@ public class GOTFoods {
 			}
 			placeable.add(v);
 		}
-		if (!placeable.isEmpty()) {
-			drinkVesselsPlaceable = placeable.toArray(new GOTItemMug.Vessel[0]);
-		} else {
+		if (placeable.isEmpty()) {
 			drinkVesselsPlaceable = new GOTItemMug.Vessel[]{GOTItemMug.Vessel.MUG};
+		} else {
+			drinkVesselsPlaceable = placeable.toArray(new GOTItemMug.Vessel[0]);
 		}
 		return this;
 	}

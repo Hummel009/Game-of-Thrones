@@ -46,11 +46,11 @@ public class GOTPacketItemSquadron implements IMessage {
 			ItemStack itemstack = entityplayer.getCurrentEquippedItem();
 			if (itemstack != null && itemstack.getItem() instanceof GOTSquadrons.SquadronItem) {
 				String squadron = packet.squadron;
-				if (!StringUtils.isNullOrEmpty(squadron)) {
+				if (StringUtils.isNullOrEmpty(squadron)) {
+					GOTSquadrons.setSquadron(itemstack, "");
+				} else {
 					squadron = GOTSquadrons.checkAcceptableLength(squadron);
 					GOTSquadrons.setSquadron(itemstack, squadron);
-				} else {
-					GOTSquadrons.setSquadron(itemstack, "");
 				}
 			}
 			return null;

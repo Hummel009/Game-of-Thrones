@@ -1150,10 +1150,10 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	}
 
 	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, String location, String objective) {
-		if (!GOT.isUkraine()) {
-			GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, speechBank, entityplayer, location, objective));
-		} else {
+		if (GOT.isUkraine()) {
 			GOTSpeech.sendSpeech(entityplayer, this, "\u0421\u043B\u0430\u0432\u0430 \u0423\u043A\u0440\u0430\u0457\u043D\u0456!");
+		} else {
+			GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, speechBank, entityplayer, location, objective));
 		}
 		markNPCSpoken();
 	}
@@ -1277,10 +1277,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		if (getHeldItem() == null) {
 			return;
 		}
-		if (!worldObj.isRemote) {
-			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.EATING);
-			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
-		} else {
+		if (worldObj.isRemote) {
 			for (int i = 0; i < 5; ++i) {
 				Vec3 vec1 = Vec3.createVectorHelper((rand.nextFloat() - 0.5) * 0.1, Math.random() * 0.1 + 0.1, 0.0);
 				vec1.rotateAroundX(-rotationPitch * 3.1415927f / 180.0f);
@@ -1291,34 +1288,37 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				vec2 = vec2.addVector(posX, posY + getEyeHeight(), posZ);
 				worldObj.spawnParticle("iconcrack_" + Item.getIdFromItem(getHeldItem().getItem()), vec2.xCoord, vec2.yCoord, vec2.zCoord, vec1.xCoord, vec1.yCoord + 0.05, vec1.zCoord);
 			}
+		} else {
+			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.EATING);
+			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		}
 	}
 
 	public void spawnHearts() {
-		if (!worldObj.isRemote) {
-			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.HEARTS);
-			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
-		} else {
+		if (worldObj.isRemote) {
 			for (int i = 0; i < 8; ++i) {
 				double d = rand.nextGaussian() * 0.02;
 				double d1 = rand.nextGaussian() * 0.02;
 				double d2 = rand.nextGaussian() * 0.02;
 				worldObj.spawnParticle("heart", posX + rand.nextFloat() * width * 2.0f - width, posY + 0.5 + rand.nextFloat() * height, posZ + rand.nextFloat() * width * 2.0f - width, d, d1, d2);
 			}
+		} else {
+			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.HEARTS);
+			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		}
 	}
 
 	public void spawnSmokes() {
-		if (!worldObj.isRemote) {
-			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.SMOKE);
-			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
-		} else {
+		if (worldObj.isRemote) {
 			for (int i = 0; i < 8; ++i) {
 				double d = rand.nextGaussian() * 0.02;
 				double d1 = rand.nextGaussian() * 0.02;
 				double d2 = rand.nextGaussian() * 0.02;
 				worldObj.spawnParticle("smoke", posX + rand.nextFloat() * width * 2.0f - width, posY + 0.5 + rand.nextFloat() * height, posZ + rand.nextFloat() * width * 2.0f - width, d, d1, d2);
 			}
+		} else {
+			GOTPacketNPCFX packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.SMOKE);
+			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		}
 	}
 

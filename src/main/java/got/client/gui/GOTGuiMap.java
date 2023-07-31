@@ -641,18 +641,18 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					}
 				} else {
 					ArrayList<String> lines = new ArrayList<>();
-					if (!hasUnlocked) {
-						lines.add(notUnlocked);
-						if (selectedWaypoint instanceof GOTWaypoint && ((GOTWaypoint) selectedWaypoint).isConquestUnlockable(mc.thePlayer)) {
-							lines.add(conquestUnlock);
-						}
-					} else {
+					if (hasUnlocked) {
 						if (canFastTravel) {
 							lines.add(ftPrompt);
 						} else {
 							lines.add(ftMoreTime);
 						}
 						lines.add(ftWaitTime);
+					} else {
+						lines.add(notUnlocked);
+						if (selectedWaypoint instanceof GOTWaypoint && ((GOTWaypoint) selectedWaypoint).isConquestUnlockable(mc.thePlayer)) {
+							lines.add(conquestUnlock);
+						}
 					}
 					int stringHeight = fontRendererObj.FONT_HEIGHT;
 					int rectWidth = mapWidth;
@@ -1147,7 +1147,19 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		if (!hasOverlay && k == 0 && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint) {
 			GOTCustomWaypoint cwp = (GOTCustomWaypoint) selectedWaypoint;
-			if (!cwp.isShared()) {
+			if (cwp.isShared()) {
+				if (mouseWidget == widgetHideSWP) {
+					packet = new GOTPacketCWPSharedHide(cwp, true);
+					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					selectedWaypoint = null;
+					return;
+				}
+				if (mouseWidget == widgetUnhideSWP) {
+					packet = new GOTPacketCWPSharedHide(cwp, false);
+					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					return;
+				}
+			} else {
 				if (mouseWidget == widgetDelCWP) {
 					openOverlayDelete();
 					return;
@@ -1158,18 +1170,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 				if (mouseWidget == widgetShareCWP) {
 					openOverlayShare();
-					return;
-				}
-			} else {
-				if (mouseWidget == widgetHideSWP) {
-					packet = new GOTPacketCWPSharedHide(cwp, true);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
-					selectedWaypoint = null;
-					return;
-				}
-				if (mouseWidget == widgetUnhideSWP) {
-					packet = new GOTPacketCWPSharedHide(cwp, false);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					return;
 				}
 			}

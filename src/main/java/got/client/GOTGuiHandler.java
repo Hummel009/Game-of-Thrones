@@ -221,13 +221,13 @@ public class GOTGuiHandler {
 								differentInvs.add(inv);
 							}
 							int slotY = slot.yDisplayPosition;
-							if (!invHighestY.containsKey(inv)) {
-								invHighestY.put(inv, slotY);
-							} else {
+							if (invHighestY.containsKey(inv)) {
 								int highestY = invHighestY.get(inv);
 								if (slotY < highestY) {
 									invHighestY.put(inv, slotY);
 								}
+							} else {
+								invHighestY.put(inv, slotY);
 							}
 						}
 					}
