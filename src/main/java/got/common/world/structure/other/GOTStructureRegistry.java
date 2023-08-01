@@ -50,6 +50,7 @@ public class GOTStructureRegistry {
 		classToNameMapping.put(strClass, cut);
 	}
 
+	@SuppressWarnings("all")
 	public static void register(int id, GOTStructureBaseSettlement settlement, String name, GOTFaction faction, ISettlementProperties properties) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
@@ -70,6 +71,7 @@ public class GOTStructureRegistry {
 		registerStructure(id, strProvider, name, faction.eggColor, faction.eggColor, false);
 	}
 
+	@SuppressWarnings("all")
 	public static void register(int id, GOTStructureBaseSettlement settlement, String name, int color, ISettlementProperties properties) {
 		IStructureProvider strProvider = new IStructureProvider() {
 

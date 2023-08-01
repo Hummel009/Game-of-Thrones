@@ -314,6 +314,7 @@ public class GOT {
 		return calendar.getMonthValue() == 8 && calendar.getDayOfMonth() == 24;
 	}
 
+	@SuppressWarnings("all")
 	public static IEntitySelector selectLivingExceptCreativePlayers() {
 		return new IEntitySelector() {
 
@@ -330,6 +331,7 @@ public class GOT {
 		};
 	}
 
+	@SuppressWarnings("all")
 	public static IEntitySelector selectNonCreativePlayers() {
 		return new IEntitySelector() {
 

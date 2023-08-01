@@ -100,15 +100,19 @@ public class GOTDragonBreed {
 		return immunities.contains(dmg.damageType);
 	}
 
+	@SuppressWarnings("all")
 	public void onDeath(GOTEntityDragon dragon) {
 	}
 
+	@SuppressWarnings("all")
 	public void onDisable(GOTEntityDragon dragon) {
 	}
 
+	@SuppressWarnings("all")
 	public void onEnable(GOTEntityDragon dragon) {
 	}
 
+	@SuppressWarnings("all")
 	public void onUpdate(GOTEntityDragon dragon) {
 	}
 

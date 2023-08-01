@@ -175,6 +175,7 @@ public class GOTEntityNPCRespawner extends Entity {
 	}
 
 	@Override
+	@SuppressWarnings("all")
 	public void onUpdate() {
 		int maxY;
 		int maxX;

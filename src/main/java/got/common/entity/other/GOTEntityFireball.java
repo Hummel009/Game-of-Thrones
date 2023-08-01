@@ -132,6 +132,7 @@ public abstract class GOTEntityFireball extends Entity {
 	public abstract void onImpact(MovingObjectPosition p_70227_1_);
 
 	@Override
+	@SuppressWarnings("all")
 	public void onUpdate() {
 		if (!worldObj.isRemote && (shootingEntity != null && shootingEntity.isDead || !worldObj.blockExists((int) posX, (int) posY, (int) posZ))) {
 			setDead();

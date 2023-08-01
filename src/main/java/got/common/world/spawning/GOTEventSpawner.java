@@ -90,6 +90,7 @@ public class GOTEventSpawner {
 		}
 	}
 
+	@SuppressWarnings("all")
 	public static void spawnInvasions(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
 		block0:

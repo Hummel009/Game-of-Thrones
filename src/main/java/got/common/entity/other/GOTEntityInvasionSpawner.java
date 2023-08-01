@@ -54,6 +54,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		spawnerSpin = rand.nextFloat() * 360.0f;
 	}
 
+	@SuppressWarnings("all")
 	public static GOTEntityInvasionSpawner locateInvasionNearby(Entity seeker, UUID id) {
 		World world = seeker.worldObj;
 		double search = 256.0;
@@ -414,6 +415,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		}
 	}
 
+	@SuppressWarnings("all")
 	public IEntitySelector selectThisInvasionMobs() {
 		return new IEntitySelector() {
 

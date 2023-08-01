@@ -54,8 +54,8 @@ import net.minecraft.world.WorldServer;
 import java.util.List;
 import java.util.Random;
 
+@SuppressWarnings("all")
 public class GOTReplacedMethods {
-
 	public static class Anvil {
 		public static AxisAlignedBB getCollisionBoundingBoxFromPool(Block block, World world, int i, int j, int k) {
 			block.setBlockBoundsBasedOnState(world, i, j, k);

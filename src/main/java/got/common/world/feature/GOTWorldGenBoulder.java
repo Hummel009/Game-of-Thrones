@@ -24,6 +24,7 @@ public class GOTWorldGenBoulder extends WorldGenerator {
 	}
 
 	@Override
+	@SuppressWarnings("all")
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		world.getBiomeGenForCoords(i, k);
 		if (!GOTStructureBase.isSurfaceStatic(world, i, j - 1, k)) {

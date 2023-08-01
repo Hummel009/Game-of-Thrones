@@ -36,6 +36,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 	public boolean assignedAttackOrFlee;
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, true);
 	public EntityAIBase fleeAI = new EntityAIPanic(this, 1.8);
+	@SuppressWarnings("all")
 	public IEntitySelector swanAttackRange = new IEntitySelector() {
 
 		@Override

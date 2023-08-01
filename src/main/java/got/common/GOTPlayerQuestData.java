@@ -29,6 +29,7 @@ public class GOTPlayerQuestData {
 		playerData.markDirty();
 	}
 
+	@SuppressWarnings("all")
 	public void onUpdate(EntityPlayerMP entityplayer, WorldServer world) {
 	}
 

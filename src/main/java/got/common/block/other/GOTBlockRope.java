@@ -61,6 +61,7 @@ public class GOTBlockRope extends GOTBlockLadder {
 	}
 
 	@Override
+	@SuppressWarnings("all")
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		boolean lookingUpOrDown = entityplayer.rotationPitch <= 0.0f;
 		int lookDir = lookingUpOrDown ? 1 : -1;

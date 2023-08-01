@@ -949,6 +949,7 @@ public class GOTEventHandler implements IFuelHandler {
 						int sentSpeeches = 0;
 						int maxSpeeches = 5;
 						double range = 8.0D;
+						@SuppressWarnings("all")
 						List<EntityLiving> nearbyAlliedNPCs = world.selectEntitiesWithinAABB(EntityLiving.class, entity.boundingBox.expand(range, range, range), new IEntitySelector() {
 							@Override
 							public boolean isEntityApplicable(Entity entitySelect) {
