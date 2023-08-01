@@ -23,7 +23,8 @@ version = currentDate.format(DateTimeFormatter.ofPattern('yy.MM.dd'))
 group = 'com.yourname.modid'
 archivesBaseName = 'Game of Thrones'
 
-targetCompatibility = sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = JavaVersion.VERSION_1_8
 
 minecraft {
 	version = '1.7.10-10.13.4.1614-1.7.10'
