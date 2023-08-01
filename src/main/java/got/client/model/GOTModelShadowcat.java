@@ -8,19 +8,14 @@ import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelShadowcat extends ModelBase {
-	// fields
-	ModelRenderer head;
-	ModelRenderer snout;
-	ModelRenderer neck;
-	ModelRenderer body1;
-	ModelRenderer body2;
-	ModelRenderer ear1;
-	ModelRenderer ear2;
-	ModelRenderer leg1;
-	ModelRenderer leg2;
-	ModelRenderer leg3;
-	ModelRenderer leg4;
-	ModelRenderer tail;
+	public ModelRenderer head;
+	public ModelRenderer body1;
+	public ModelRenderer body2;
+	public ModelRenderer leg1;
+	public ModelRenderer leg2;
+	public ModelRenderer leg3;
+	public ModelRenderer leg4;
+	public ModelRenderer tail;
 
 	public GOTModelShadowcat() {
 		textureWidth = 64;
@@ -32,14 +27,14 @@ public class GOTModelShadowcat extends ModelBase {
 		head.setTextureSize(64, 64);
 		head.mirror = true;
 		setRotation(head, 0.0F, 0.0F, 0.0F);
-		snout = new ModelRenderer(this, 0, 9);
+		ModelRenderer snout = new ModelRenderer(this, 0, 9);
 		snout.addBox(-1.5F, 0.0F, -2.0F, 3, 3, 2);
 		snout.setRotationPoint(0.0F, 8.0F, -14.5F);
 		snout.setTextureSize(64, 64);
 		snout.mirror = true;
 		setRotation(snout, 0.0F, 0.0F, 0.0F);
 		convertToChild(head, snout);
-		neck = new ModelRenderer(this, 20, 0);
+		ModelRenderer neck = new ModelRenderer(this, 20, 0);
 		neck.addBox(-2.5F, -2.5F, -5.0F, 5, 5, 5);
 		neck.setRotationPoint(0.0F, 10.0F, -7.5F);
 		neck.setTextureSize(64, 64);
@@ -58,14 +53,14 @@ public class GOTModelShadowcat extends ModelBase {
 		body2.setTextureSize(64, 64);
 		body2.mirror = true;
 		setRotation(body2, 0.0349066F, 0.0F, 0.0F);
-		ear1 = new ModelRenderer(this, 11, 11);
+		ModelRenderer ear1 = new ModelRenderer(this, 11, 11);
 		ear1.addBox(-1.0F, -1.0F, 0.0F, 2, 1, 1);
 		ear1.setRotationPoint(-2.0F, 6.0F, -12.5F);
 		ear1.setTextureSize(64, 64);
 		ear1.mirror = true;
 		setRotation(ear1, 0.0F, 0.0F, 0.0F);
 		convertToChild(head, ear1);
-		ear2 = new ModelRenderer(this, 11, 11);
+		ModelRenderer ear2 = new ModelRenderer(this, 11, 11);
 		ear2.addBox(-1.0F, -1.0F, 0.0F, 2, 1, 1);
 		ear2.setRotationPoint(2.0F, 6.0F, -12.5F);
 		ear2.setTextureSize(64, 64);

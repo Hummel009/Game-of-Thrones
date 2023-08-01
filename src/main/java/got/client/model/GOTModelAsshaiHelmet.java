@@ -3,7 +3,6 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelAsshaiHelmet extends GOTModelBiped {
-	public ModelRenderer crest;
 
 	public GOTModelAsshaiHelmet() {
 		this(0.0f);
@@ -14,7 +13,7 @@ public class GOTModelAsshaiHelmet extends GOTModelBiped {
 		bipedHead = new ModelRenderer(this, 0, 0);
 		bipedHead.addBox(-4.0f, -8.0f, -4.0f, 8, 8, 8, f);
 		bipedHead.setRotationPoint(0.0f, 0.0f, 0.0f);
-		crest = new ModelRenderer(this, 32, 0);
+		ModelRenderer crest = new ModelRenderer(this, 32, 0);
 		crest.addBox(-8.0f, -16.0f, -3.0f, 16, 10, 0, 0.0f);
 		crest.rotateAngleX = -0.3490658503988659f;
 		bipedHead.addChild(crest);

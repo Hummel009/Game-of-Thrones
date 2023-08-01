@@ -7,7 +7,6 @@ import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelHuman extends GOTModelBiped implements GOTGlowingEyes.Model {
-
 	public ModelRenderer bipedChest = new ModelRenderer(this, 24, 0);
 
 	public GOTModelHuman() {

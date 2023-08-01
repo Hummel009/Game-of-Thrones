@@ -12,10 +12,6 @@ public class GOTModelPlowcart extends ModelBase {
 	public ModelRenderer shaft;
 	public ModelRenderer shaftConnector;
 	public ModelRenderer plowShaftUpper;
-	public ModelRenderer plowShaftLower;
-	public ModelRenderer plowBlade;
-	public ModelRenderer plowHandle;
-	public ModelRenderer plowHandleGrip;
 	public ModelRenderer leftWheel;
 	public ModelRenderer rightWheel;
 
@@ -49,21 +45,21 @@ public class GOTModelPlowcart extends ModelBase {
 		plowShaftUpper = new ModelRenderer(this, 56, 0);
 		plowShaftUpper.addBox(-1.0f, -2.0f, -2.0f, 2, 30, 2);
 		plowShaftUpper.setRotationPoint(0.0f, -7.0f, 0.0f);
-		plowShaftLower = new ModelRenderer(this, 42, 4);
+		ModelRenderer plowShaftLower = new ModelRenderer(this, 42, 4);
 		plowShaftLower.addBox(-1.0f, -0.7f, -0.7f, 2, 10, 2);
 		plowShaftLower.setRotationPoint(0.0f, 28.0f, -1.0f);
 		plowShaftLower.rotateAngleX = 0.7853982f;
 		plowShaftUpper.addChild(plowShaftLower);
-		plowBlade = new ModelRenderer(this, 16, 11);
+		ModelRenderer plowBlade = new ModelRenderer(this, 16, 11);
 		plowBlade.addBox(0.0f, -4.0f, -0.5f, 8, 15, 1);
 		plowBlade.rotateAngleY = 1.5707964f;
 		plowShaftLower.addChild(plowBlade);
-		plowHandle = new ModelRenderer(this, 50, 4);
+		ModelRenderer plowHandle = new ModelRenderer(this, 50, 4);
 		plowHandle.addBox(-0.5f, 0.0f, -0.5f, 1, 18, 1);
 		plowHandle.setRotationPoint(0.0f, 33.0f, 5.0f);
 		plowHandle.rotateAngleX = 1.5707964f;
 		plowShaftUpper.addChild(plowHandle);
-		plowHandleGrip = new ModelRenderer(this, 50, 23);
+		ModelRenderer plowHandleGrip = new ModelRenderer(this, 50, 23);
 		plowHandleGrip.addBox(-0.5f, 0.0f, -1.0f, 1, 5, 1);
 		plowHandleGrip.setRotationPoint(0.0f, 32.8f, 21.0f);
 		plowHandleGrip.rotateAngleX = 0.7853982f;

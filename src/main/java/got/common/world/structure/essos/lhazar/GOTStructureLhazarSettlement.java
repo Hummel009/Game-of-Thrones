@@ -48,7 +48,7 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 		public boolean forcedType;
 		public int numOuterHouses;
 		public boolean townWall = true;
-		int rTownTower = 90;
+		public int rTownTower = 90;
 
 		public Instance(GOTStructureLhazarSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
 			super(settlement, world, i, k, random, loc);

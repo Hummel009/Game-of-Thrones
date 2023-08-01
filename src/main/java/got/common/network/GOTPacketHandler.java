@@ -129,7 +129,6 @@ public class GOTPacketHandler {
 		networkWrapper.registerMessage(GOTPacketNPCSquadron.Handler.class, GOTPacketNPCSquadron.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketOpenSignEditor.Handler.class, GOTPacketOpenSignEditor.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketOptions.Handler.class, GOTPacketOptions.class, id++, Side.CLIENT);
-		networkWrapper.registerMessage(GOTPacketPlayerMovement.Handler.class, GOTPacketPlayerMovement.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketPledge.Handler.class, GOTPacketPledge.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketPledgeSet.Handler.class, GOTPacketPledgeSet.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketPortalPos.Handler.class, GOTPacketPortalPos.class, id++, Side.CLIENT);

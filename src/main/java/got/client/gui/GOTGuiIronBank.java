@@ -18,10 +18,10 @@ import net.minecraft.util.StatCollector;
 
 public class GOTGuiIronBank extends GuiScreen {
 	public GuiButton[] button = new GuiButton[16];
-	int widthHalf;
-	int heightHalf;
-	int xOrigin;
-	int yOrigin;
+	public int widthHalf;
+	public int heightHalf;
+	public int xOrigin;
+	public int yOrigin;
 
 	public GOTGuiIronBank() {
 		widthHalf = width / 2;

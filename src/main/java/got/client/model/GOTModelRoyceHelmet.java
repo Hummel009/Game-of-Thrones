@@ -3,7 +3,6 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelRoyceHelmet extends GOTModelBiped {
-	public ModelRenderer[] spikes = new ModelRenderer[8];
 
 	public GOTModelRoyceHelmet() {
 		this(0.0f);
@@ -16,6 +15,7 @@ public class GOTModelRoyceHelmet extends GOTModelBiped {
 		bipedHead.addBox(-4.0f, -8.0f, -4.0f, 8, 12, 8, f);
 		bipedHead.setRotationPoint(0.0f, 0.0f, 0.0f);
 		bipedHead.setTextureOffset(0, 20).addBox(-3.5f, -18.0f, -3.5f, 7, 10, 1, f);
+		ModelRenderer[] spikes = new ModelRenderer[8];
 		for (i = 0; i < spikes.length; ++i) {
 			spikes[i] = new ModelRenderer(this, 16, 20);
 			spikes[i].setRotationPoint(0.0f, 0.0f, 0.0f);

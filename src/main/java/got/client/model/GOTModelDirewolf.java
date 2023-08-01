@@ -9,44 +9,43 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class GOTModelDirewolf extends ModelBase {
+	public ModelRenderer Head;
+	public ModelRenderer MouthB;
+	public ModelRenderer Nose2;
+	public ModelRenderer Neck;
+	public ModelRenderer Neck2;
+	public ModelRenderer LSide;
+	public ModelRenderer RSide;
+	public ModelRenderer REar2;
+	public ModelRenderer Nose;
+	public ModelRenderer Mouth;
+	public ModelRenderer MouthOpen;
+	public ModelRenderer REar;
+	public ModelRenderer LEar2;
+	public ModelRenderer LEar;
 
-	ModelRenderer Head;
-	ModelRenderer MouthB;
-	ModelRenderer Nose2;
-	ModelRenderer Neck;
-	ModelRenderer Neck2;
-	ModelRenderer LSide;
-	ModelRenderer RSide;
-	ModelRenderer REar2;
-	ModelRenderer Nose;
-	ModelRenderer Mouth;
-	ModelRenderer MouthOpen;
-	ModelRenderer REar;
-	ModelRenderer LEar2;
-	ModelRenderer LEar;
+	public ModelRenderer Chest;
+	public ModelRenderer Body;
 
-	ModelRenderer Chest;
-	ModelRenderer Body;
+	public ModelRenderer TailA;
+	public ModelRenderer TailB;
+	public ModelRenderer TailC;
+	public ModelRenderer TailD;
 
-	ModelRenderer TailA;
-	ModelRenderer TailB;
-	ModelRenderer TailC;
-	ModelRenderer TailD;
-
-	ModelRenderer Leg4A;
-	ModelRenderer Leg4D;
-	ModelRenderer Leg4B;
-	ModelRenderer Leg4C;
-	ModelRenderer Leg3B;
-	ModelRenderer Leg2A;
-	ModelRenderer Leg2B;
-	ModelRenderer Leg2C;
-	ModelRenderer Leg3D;
-	ModelRenderer Leg3C;
-	ModelRenderer Leg3A;
-	ModelRenderer Leg1A;
-	ModelRenderer Leg1B;
-	ModelRenderer Leg1C;
+	public ModelRenderer Leg4A;
+	public ModelRenderer Leg4D;
+	public ModelRenderer Leg4B;
+	public ModelRenderer Leg4C;
+	public ModelRenderer Leg3B;
+	public ModelRenderer Leg2A;
+	public ModelRenderer Leg2B;
+	public ModelRenderer Leg2C;
+	public ModelRenderer Leg3D;
+	public ModelRenderer Leg3C;
+	public ModelRenderer Leg3A;
+	public ModelRenderer Leg1A;
+	public ModelRenderer Leg1B;
+	public ModelRenderer Leg1C;
 
 	public GOTModelDirewolf() {
 		textureWidth = 64;
