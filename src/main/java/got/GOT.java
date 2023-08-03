@@ -52,6 +52,7 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import java.awt.*;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 import java.util.*;
 
@@ -281,17 +282,17 @@ public class GOT {
 
 	public static boolean isAprilFools() {
 		LocalDate calendar = LocalDate.now();
-		return calendar.getMonthValue() == 4 && calendar.getDayOfMonth() == 1;
+		return calendar.getMonth() == Month.APRIL && calendar.getDayOfMonth() == 1;
 	}
 
 	public static boolean isGuyFawkes() {
 		LocalDate calendar = LocalDate.now();
-		return calendar.getMonthValue() == 11 && calendar.getDayOfMonth() == 5;
+		return calendar.getMonth() == Month.NOVEMBER && calendar.getDayOfMonth() == 5;
 	}
 
 	public static boolean isNewYear() {
 		LocalDate calendar = LocalDate.now();
-		return calendar.getMonthValue() == 1 && calendar.getDayOfMonth() == 1;
+		return calendar.getMonth() == Month.JANUARY && calendar.getDayOfMonth() == 1 || calendar.getMonth() == Month.DECEMBER && calendar.getDayOfMonth() == 31;
 	}
 
 	public static boolean isOpaque(IBlockAccess world, int i, int j, int k) {
@@ -311,7 +312,7 @@ public class GOT {
 
 	public static boolean isUkraine() {
 		LocalDate calendar = LocalDate.now();
-		return calendar.getMonthValue() == 8 && calendar.getDayOfMonth() == 24;
+		return calendar.getMonth() == Month.AUGUST && calendar.getDayOfMonth() == 24;
 	}
 
 	@SuppressWarnings("all")
