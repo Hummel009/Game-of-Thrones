@@ -2375,7 +2375,7 @@ public class GOTPlayerData {
 		ArmorMaterial fullMaterial;
 		ItemArmor.ArmorMaterial material = getFullArmorMaterial(entityplayer);
 		if (GOTAchievement.armorAchievements.containsKey(material)) {
-			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.armorAchievements.get(material));
+			addAchievement(GOTAchievement.armorAchievements.get(material));
 		}
 		fullMaterial = getBodyMaterial(entityplayer);
 		if (fullMaterial != null && fullMaterial == GOTMaterial.HAND) {
