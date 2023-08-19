@@ -91,8 +91,8 @@ public class GOTLore {
 					}
 				}
 			} else {
-				File nameBankDir = new File(Objects.requireNonNull(GOT.class.getResource("/assets/got/texts/" + GOTConfig.languageCode + "/lore/")).toURI());
-				for (File file : Objects.requireNonNull(nameBankDir.listFiles())) {
+				File nameBankDir = new File(GOT.class.getResource("/assets/got/texts/" + GOTConfig.languageCode + "/lore/").toURI());
+				for (File file : nameBankDir.listFiles()) {
 					String s = file.getName();
 					int i = s.indexOf(".txt");
 					if (i < 0) {

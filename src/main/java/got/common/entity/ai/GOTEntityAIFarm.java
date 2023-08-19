@@ -268,7 +268,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			return new ItemStack(GOTReflection.getCropItem((BlockCrops) block));
 		}
 		if (block instanceof BlockStem) {
-			return new ItemStack(Objects.requireNonNull(GOTReflection.getStemFruitBlock((BlockStem) block)).getItemDropped(0, theWorld.rand, 0), 1, 0);
+			return new ItemStack(GOTReflection.getStemFruitBlock((BlockStem) block).getItemDropped(0, theWorld.rand, 0), 1, 0);
 		}
 		if (block instanceof GOTBlockCorn) {
 			return new ItemStack(GOTItems.corn);

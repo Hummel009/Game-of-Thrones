@@ -104,7 +104,7 @@ public class GOTBlockFlowerPot extends BlockFlowerPot {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
-		if (getPlant(world, i, j, k) != null && Objects.requireNonNull(getPlant(world, i, j, k)).getItem() == Item.getItemFromBlock(GOTBlocks.pipeweedPlant)) {
+		if (getPlant(world, i, j, k) != null && getPlant(world, i, j, k).getItem() == Item.getItemFromBlock(GOTBlocks.pipeweedPlant)) {
 			double d = i + 0.2 + random.nextFloat() * 0.6f;
 			double d1 = j + 0.625 + random.nextFloat() * 0.1875f;
 			double d2 = k + 0.2 + random.nextFloat() * 0.6f;

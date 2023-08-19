@@ -219,7 +219,7 @@ public class GOTItemMug extends Item {
 		}
 		Block mugBlock = vessel.getBlock();
 		Block block = world.getBlock(i += Facing.offsetsXForSide[side], j += Facing.offsetsYForSide[side], k += Facing.offsetsZForSide[side]);
-		if (block != null && !block.isReplaceable(world, i, j, k) || Objects.requireNonNull(block).getMaterial() == Material.water) {
+		if (block != null && !block.isReplaceable(world, i, j, k) || block != null && block.getMaterial() == Material.water) {
 			return false;
 		}
 		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack)) {

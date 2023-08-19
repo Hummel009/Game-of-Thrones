@@ -129,7 +129,7 @@ public class GOTItemBanner extends Item {
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
-		return getUnlocalizedName() + "." + Objects.requireNonNull(getBannerType(itemstack)).bannerName;
+		return getUnlocalizedName() + "." + getBannerType(itemstack).bannerName;
 	}
 
 	@Override

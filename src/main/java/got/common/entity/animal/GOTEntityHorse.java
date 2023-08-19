@@ -222,7 +222,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	}
 
 	public void setMountArmor(ItemStack itemstack) {
-		Objects.requireNonNull(GOTReflection.getHorseInv(this)).setInventorySlotContents(1, itemstack);
+		GOTReflection.getHorseInv(this).setInventorySlotContents(1, itemstack);
 		GOTReflection.setupHorseInv(this);
 		setMountArmorWatched(itemstack);
 	}
@@ -257,7 +257,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 
 	@Override
 	public int getTotalArmorValue() {
-		ItemStack itemstack = Objects.requireNonNull(GOTReflection.getHorseInv(this)).getStackInSlot(1);
+		ItemStack itemstack = GOTReflection.getHorseInv(this).getStackInSlot(1);
 		if (itemstack != null && itemstack.getItem() instanceof GOTItemMountArmor) {
 			GOTItemMountArmor armor = (GOTItemMountArmor) itemstack.getItem();
 			return armor.getDamageReduceAmount();
@@ -395,7 +395,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	@Override
 	public void onLivingUpdate() {
 		if (!worldObj.isRemote) {
-			ItemStack armor = Objects.requireNonNull(GOTReflection.getHorseInv(this)).getStackInSlot(1);
+			ItemStack armor = GOTReflection.getHorseInv(this).getStackInSlot(1);
 			if (ticksExisted > 20 && !ItemStack.areItemStacksEqual(prevMountArmor, armor)) {
 				playSound("mob.horse.armor", 0.5f, 1.0f);
 			}
@@ -489,7 +489,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 
 	public void saddleMountForWorldGen() {
 		setGrowingAge(0);
-		Objects.requireNonNull(GOTReflection.getHorseInv(this)).setInventorySlotContents(0, new ItemStack(Items.saddle));
+		GOTReflection.getHorseInv(this).setInventorySlotContents(0, new ItemStack(Items.saddle));
 		GOTReflection.setupHorseInv(this);
 		setHorseTamed(true);
 	}

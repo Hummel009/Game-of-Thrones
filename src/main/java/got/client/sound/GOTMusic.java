@@ -52,10 +52,10 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		allTracks.add(track);
 		for (GOTBiomeMusic region : track.getAllRegions()) {
 			if (region.hasNoSubregions()) {
-				Objects.requireNonNull(getTracksForRegion(region, null)).addTrack(track);
+				getTracksForRegion(region, null).addTrack(track);
 			} else {
 				for (String sub : track.getRegionInfo(region).getSubregions()) {
-					Objects.requireNonNull(getTracksForRegion(region, sub)).addTrack(track);
+					getTracksForRegion(region, sub).addTrack(track);
 				}
 			}
 		}
@@ -255,7 +255,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			}
 			initSubregions = true;
 		}
-		for (File file : Objects.requireNonNull(musicDir.listFiles())) {
+		for (File file : musicDir.listFiles()) {
 			if (file.isFile() && file.getName().endsWith(".zip")) {
 				try {
 					IResourcePack resourcePack = new FileResourcePack(file);
@@ -282,7 +282,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 				event.result = null;
 				return;
 			}
-			if (isMenuMusic() && !Objects.requireNonNull(getTracksForRegion(GOTBiomeMusic.MENU, null)).isEmpty()) {
+			if (isMenuMusic() && !getTracksForRegion(GOTBiomeMusic.MENU, null).isEmpty()) {
 				event.result = null;
 			}
 		}

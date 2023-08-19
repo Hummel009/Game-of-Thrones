@@ -135,7 +135,7 @@ public class GOTBlockMug extends BlockContainer {
 				return true;
 			}
 			if (mug.isEmpty() && GOTItemMug.isItemFullDrink(itemstack)) {
-				ItemStack emptyMug = Objects.requireNonNull(GOTItemMug.getVessel(itemstack)).getEmptyVessel();
+				ItemStack emptyMug = GOTItemMug.getVessel(itemstack).getEmptyVessel();
 				entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, emptyMug);
 				ItemStack mugFill = itemstack.copy();
 				mugFill.stackSize = 1;
