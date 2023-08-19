@@ -31,7 +31,7 @@ public class GOTAlignmentValues {
 	public static String formatAlignForDisplay(float alignment, DecimalFormat dFormat, boolean prefixPlus) {
 		setupDecimalFormat(dFormat);
 		String s = dFormat.format(alignment);
-		if (prefixPlus && !(!s.isEmpty() && s.charAt(0) == '-')) {
+		if (prefixPlus && (s.isEmpty() || (s.charAt(0) != '-'))) {
 			s = "+" + s;
 		}
 		return s;

@@ -257,6 +257,22 @@ public class GOT {
 		return FMLCommonHandler.instance().findContainerFor(instance);
 	}
 
+	public static Map<String, Integer> getModContentInfo() {
+		Map<String, Integer> map = new HashMap<>();
+		map.put("achievements", GOTAchievement.CONTENT.size());
+		map.put("packets", GOTPacketHandler.id);
+		map.put("banners", BannerType.values().length);
+		map.put("mobs", GOTEntity.id);
+		map.put("structures", GOTStructure.id);
+		map.put("biomes", GOTBiome.CONTENT.size());
+		map.put("beziers", GOTBeziers.id);
+		map.put("waypoints", GOTWaypoint.values().length);
+		map.put("factions", GOTFaction.values().length);
+		map.put("items", GOTItems.CONTENT.size());
+		map.put("blocks", GOTBlocks.CONTENT.size());
+		return map;
+	}
+
 	public static GOTFaction getNPCFaction(Entity entity) {
 		if (entity == null) {
 			return GOTFaction.UNALIGNED;
@@ -476,22 +492,6 @@ public class GOT {
 		for (Map.Entry<String, Integer> entry : info.entrySet()) {
 			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
 		}
-	}
-
-	public static Map<String, Integer> getModContentInfo() {
-		Map<String, Integer> map = new HashMap<>();
-		map.put("achievements", GOTAchievement.CONTENT.size());
-		map.put("packets", GOTPacketHandler.id);
-		map.put("banners", BannerType.values().length);
-		map.put("mobs", GOTEntity.id);
-		map.put("structures", GOTStructure.id);
-		map.put("biomes", GOTBiome.CONTENT.size());
-		map.put("beziers", GOTBeziers.id);
-		map.put("waypoints", GOTWaypoint.values().length);
-		map.put("factions", GOTFaction.values().length);
-		map.put("items", GOTItems.CONTENT.size());
-		map.put("blocks", GOTBlocks.CONTENT.size());
-		return map;
 	}
 
 	@Mod.EventHandler

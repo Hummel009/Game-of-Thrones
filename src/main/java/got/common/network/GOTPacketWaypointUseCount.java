@@ -67,10 +67,8 @@ public class GOTPacketWaypointUseCount implements IMessage {
 			if (custom) {
 				UUID sharingPlayerID = packet.sharingPlayer;
 				waypoint = sharingPlayerID != null ? pd.getSharedCustomWaypointByID(sharingPlayerID, wpID) : pd.getCustomWaypointByID(wpID);
-			} else {
-				if (wpID >= 0 && wpID < GOTWaypoint.values().length) {
-					waypoint = GOTWaypoint.values()[wpID];
-				}
+			} else if (wpID >= 0 && wpID < GOTWaypoint.values().length) {
+				waypoint = GOTWaypoint.values()[wpID];
 			}
 			if (waypoint != null) {
 				pd.setWPUseCount(waypoint, packet.useCount);

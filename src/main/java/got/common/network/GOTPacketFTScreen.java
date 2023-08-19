@@ -71,10 +71,8 @@ public class GOTPacketFTScreen implements IMessage {
 			if (custom) {
 				UUID sharingPlayerID = packet.sharingPlayer;
 				waypoint = sharingPlayerID != null ? playerData.getSharedCustomWaypointByID(sharingPlayerID, wpID) : playerData.getCustomWaypointByID(wpID);
-			} else {
-				if (wpID >= 0 && wpID < GOTWaypoint.values().length) {
-					waypoint = GOTWaypoint.values()[wpID];
-				}
+			} else if (wpID >= 0 && wpID < GOTWaypoint.values().length) {
+				waypoint = GOTWaypoint.values()[wpID];
 			}
 			if (waypoint != null) {
 				GOT.proxy.displayFTScreen(waypoint, packet.startX, packet.startZ);

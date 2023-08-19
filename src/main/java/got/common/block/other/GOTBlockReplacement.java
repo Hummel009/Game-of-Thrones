@@ -27,7 +27,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class GOTBlockReplacement {
 	public static boolean initForgeHooks;
@@ -56,45 +55,53 @@ public class GOTBlockReplacement {
 		String newItemName = newItem.getUnlocalizedName();
 		List<IRecipe> craftingRecipes = CraftingManager.getInstance().getRecipeList();
 		for (IRecipe obj : craftingRecipes) {
-			ItemStack output;
-			if (obj instanceof ShapedRecipes && (output = obj.getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
-				injectReplacementItem(output, newItem);
+			if (obj instanceof ShapedRecipes) {
+				ItemStack output = obj.getRecipeOutput();
+				if (output != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
+					injectReplacementItem(output, newItem);
+				}
 			}
-			if (obj instanceof ShapelessRecipes && (output = obj.getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
-				injectReplacementItem(output, newItem);
+			if (obj instanceof ShapelessRecipes) {
+				ItemStack output = obj.getRecipeOutput();
+				if (output != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
+					injectReplacementItem(output, newItem);
+				}
 			}
-			if (obj instanceof ShapedOreRecipe && (output = obj.getRecipeOutput()) != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
-				injectReplacementItem(output, newItem);
+			if (obj instanceof ShapedOreRecipe) {
+				ItemStack output = obj.getRecipeOutput();
+				if (output != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
+					injectReplacementItem(output, newItem);
+				}
 			}
-			if (!(obj instanceof ShapelessOreRecipe) || (output = obj.getRecipeOutput()) == null || output.getItem() == null || !output.getItem().getUnlocalizedName().equals(newItemName)) {
-				continue;
+			if (obj instanceof ShapelessOreRecipe) {
+				ItemStack output = obj.getRecipeOutput();
+				if (output != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
+					injectReplacementItem(output, newItem);
+				}
 			}
-			injectReplacementItem(output, newItem);
 		}
 		for (Object obj : AchievementList.achievementList) {
 			Achievement a = (Achievement) obj;
 			ItemStack icon = a.theItemStack;
-			if (!icon.getItem().getUnlocalizedName().equals(newItem.getUnlocalizedName())) {
-				continue;
+			if (icon.getItem().getUnlocalizedName().equals(newItem.getUnlocalizedName())) {
+				injectReplacementItem(icon, newItem);
 			}
-			injectReplacementItem(icon, newItem);
 		}
 	}
 
 	public static void replaceStat(int id, StatBase[] stats, StatBase newStat) {
 		StatBase oldStat = stats[id];
 		if (oldStat != null && oldStat.statId.equals(newStat.statId)) {
-			for (int i = 0; i < stats.length; ++i) {
+			for (int i = 0; i < stats.length; i++) {
 				StatBase otherOldStat = stats[i];
-				if (otherOldStat == null || !otherOldStat.statId.equals(oldStat.statId)) {
-					continue;
+				if (otherOldStat != null && otherOldStat.statId.equals(oldStat.statId)) {
+					StatList.allStats.remove(otherOldStat);
+					StatList.objectMineStats.remove(otherOldStat);
+					StatList.itemStats.remove(otherOldStat);
+					StatList.generalStats.remove(otherOldStat);
+					Reflect.getOneShotStats().remove(otherOldStat.statId);
+					stats[i] = newStat;
 				}
-				StatList.allStats.remove(otherOldStat);
-				StatList.objectMineStats.remove(otherOldStat);
-				StatList.itemStats.remove(otherOldStat);
-				StatList.generalStats.remove(otherOldStat);
-				Objects.requireNonNull(Reflect.getOneShotStats()).remove(otherOldStat.statId);
-				stats[i] = newStat;
 			}
 			newStat.registerStat();
 		}
@@ -112,29 +119,28 @@ public class GOTBlockReplacement {
 			}
 			newBlock.setBlockName(blockName);
 			Reflect.overwriteBlockList(oldBlock, newBlock);
-			Objects.requireNonNull(Reflect.getUnderlyingIntMap(Block.blockRegistry)).func_148746_a(newBlock, id);
-			Objects.requireNonNull(Reflect.getUnderlyingObjMap(Block.blockRegistry)).put(registryName, newBlock);
+			Reflect.getUnderlyingIntMap(Block.blockRegistry).func_148746_a(newBlock, id);
+			Reflect.getUnderlyingObjMap(Block.blockRegistry).put(registryName, newBlock);
 			if (!initForgeHooks) {
 				ForgeHooks.isToolEffective(new ItemStack(Items.iron_shovel), Blocks.dirt, 0);
 				initForgeHooks = true;
 			}
-			for (int meta = 0; meta <= 15; ++meta) {
+			for (int meta = 0; meta <= 15; meta++) {
 				newBlock.setHarvestLevel(oldBlock.getHarvestTool(meta), oldBlock.getHarvestLevel(meta), meta);
 			}
 			if (itemClass != null) {
-				Constructor<?> itemCtor = null;
-				for (Constructor<?> ct : itemClass.getConstructors()) {
+				Constructor<ItemBlock> itemCtor = null;
+				Constructor<ItemBlock>[] itemCtors = (Constructor<ItemBlock>[]) itemClass.getConstructors();
+				for (Constructor<ItemBlock> ct : itemCtors) {
 					Class<?>[] params = ct.getParameterTypes();
-					if (params.length != 1 || !Block.class.isAssignableFrom(params[0])) {
-						continue;
+					if (params.length == 1 && Block.class.isAssignableFrom(params[0])) {
+						itemCtor = ct;
+						break;
 					}
-					itemCtor = ct;
-					break;
 				}
-				assert itemCtor != null;
-				ItemBlock itemblock = ((ItemBlock) itemCtor.newInstance(newBlock)).setUnlocalizedName(itemblockName);
-				Objects.requireNonNull(Reflect.getUnderlyingIntMap(Item.itemRegistry)).func_148746_a(itemblock, id);
-				Objects.requireNonNull(Reflect.getUnderlyingObjMap(Item.itemRegistry)).put(registryName, itemblock);
+				ItemBlock itemblock = itemCtor.newInstance(newBlock).setUnlocalizedName(itemblockName);
+				Reflect.getUnderlyingIntMap(Item.itemRegistry).func_148746_a(itemblock, id);
+				Reflect.getUnderlyingObjMap(Item.itemRegistry).put(registryName, itemblock);
 				replaceBlockStats(id, newBlock, itemblock);
 				replaceRecipesEtc(itemblock);
 			}
@@ -151,8 +157,8 @@ public class GOTBlockReplacement {
 			String registryName = Item.itemRegistry.getNameForObject(oldItem);
 			newItem.setUnlocalizedName(itemName);
 			Reflect.overwriteItemList(oldItem, newItem);
-			Objects.requireNonNull(Reflect.getUnderlyingIntMap(Item.itemRegistry)).func_148746_a(newItem, id);
-			Objects.requireNonNull(Reflect.getUnderlyingObjMap(Item.itemRegistry)).put(registryName, newItem);
+			Reflect.getUnderlyingIntMap(Item.itemRegistry).func_148746_a(newItem, id);
+			Reflect.getUnderlyingObjMap(Item.itemRegistry).put(registryName, newItem);
 			replaceItemStats(id, newItem);
 			replaceRecipesEtc(newItem);
 		} catch (Exception e) {
@@ -162,7 +168,6 @@ public class GOTBlockReplacement {
 	}
 
 	public static class Reflect {
-
 		public static String getBlockName(Block block) {
 			try {
 				return ObfuscationReflectionHelper.getPrivateValue(Block.class, block, "unlocalizedName", "field_149770_b");
@@ -211,7 +216,8 @@ public class GOTBlockReplacement {
 		public static void overwriteBlockList(Block oldBlock, Block newBlock) {
 			try {
 				Field field = null;
-				for (Field f : Blocks.class.getDeclaredFields()) {
+				Field[] declaredFields = Blocks.class.getDeclaredFields();
+				for (Field f : declaredFields) {
 					GOTReflection.unlockFinalField(f);
 					if (f.get(null) == oldBlock) {
 						field = f;
@@ -227,7 +233,8 @@ public class GOTBlockReplacement {
 		public static void overwriteItemList(Item oldItem, Item newItem) {
 			try {
 				Field field = null;
-				for (Field f : Items.class.getDeclaredFields()) {
+				Field[] declaredFields = Items.class.getDeclaredFields();
+				for (Field f : declaredFields) {
 					GOTReflection.unlockFinalField(f);
 					if (f.get(null) == oldItem) {
 						field = f;
@@ -240,5 +247,4 @@ public class GOTBlockReplacement {
 			}
 		}
 	}
-
 }

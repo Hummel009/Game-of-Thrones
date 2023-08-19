@@ -1297,6 +1297,8 @@ public class GOTBlocks {
 		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
 		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
 		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);
+		Blocks.fire.setFireInfo(Blocks.leaves, 30, 60);
+		Blocks.fire.setFireInfo(Blocks.leaves2, 30, 60);
 		String pickaxe = "pickaxe";
 		String shovel = "shovel";
 		oreCopper.setHarvestLevel(pickaxe, 1);

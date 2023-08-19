@@ -22,7 +22,10 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderLargeItem implements IItemRenderer {
 	public static Map<String, Float> sizeFolders = new HashMap<>();

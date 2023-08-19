@@ -232,15 +232,15 @@ public class GOTTitle {
 		return setMultiAlignment(alignment, faction);
 	}
 
-	public GOTTitle setMultiAlignment(float alignment, GOTFaction... factions) {
-		return setMultiAlignment(alignment, Arrays.asList(factions));
-	}
-
 	public GOTTitle setMultiAlignment(float alignment, Collection<GOTFaction> factions) {
 		titleType = TitleType.ALIGNMENT;
 		alignmentFactions.addAll(factions);
 		alignmentRequired = alignment;
 		return this;
+	}
+
+	public GOTTitle setMultiAlignment(float alignment, GOTFaction... factions) {
+		return setMultiAlignment(alignment, Arrays.asList(factions));
 	}
 
 	public GOTTitle setPlayerExclusive(List<String> devs) {

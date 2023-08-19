@@ -52,6 +52,11 @@ public class GOTEntityMelisandra extends GOTEntityHumanBase {
 	}
 
 	@Override
+	public void dropFewItems(boolean flag, int i) {
+		dropItem(GOTItems.ruby, 1);
+	}
+
+	@Override
 	public float getAlignmentBonus() {
 		return 300.0f;
 	}
@@ -77,11 +82,6 @@ public class GOTEntityMelisandra extends GOTEntityHumanBase {
 			return "legendary/melisandra_friendly";
 		}
 		return "standard/special/father_hostile";
-	}
-
-	@Override
-	public void dropFewItems(boolean flag, int i) {
-		dropItem(GOTItems.ruby, 1);
 	}
 
 	@Override

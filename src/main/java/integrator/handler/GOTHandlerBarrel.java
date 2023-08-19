@@ -22,8 +22,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	public Random rand = new Random();
 
 	public GOTHandlerBarrel() {
-		for (int i = 0; i < GOTRecipeBrewing.recipes.size(); i++) {
-			ShapelessOreRecipe rec = GOTRecipeBrewing.recipes.get(i);
+		for (ShapelessOreRecipe rec : GOTRecipeBrewing.recipes) {
 			barrelRecipes.add(getBarrelRecipe(rec));
 		}
 	}

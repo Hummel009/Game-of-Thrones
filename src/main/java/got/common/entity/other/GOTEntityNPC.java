@@ -58,8 +58,8 @@ import net.minecraft.world.biome.BiomeGenBase;
 
 import java.awt.*;
 import java.lang.reflect.Constructor;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 
 public abstract class GOTEntityNPC extends EntityCreature implements IRangedAttackMob, GOTRandomSkinEntity {
 	public static IAttribute npcAttackDamage = new RangedAttribute("got.npcAttackDamage", 2.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Attack Damage");
@@ -1139,14 +1139,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		sendSpeechBank(entityplayer, speechBank, null);
 	}
 
-	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, GOTMiniQuest miniquest) {
-		String objective = null;
-		if (miniquest != null) {
-			objective = miniquest.getProgressedObjectiveInSpeech();
-		}
-		sendSpeechBank(entityplayer, speechBank, null, objective);
-	}
-
 	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, CharSequence location, CharSequence objective) {
 		if (GOT.isUkraine()) {
 			GOTSpeech.sendSpeech(entityplayer, this, "\u0421\u043B\u0430\u0432\u0430 \u0423\u043A\u0440\u0430\u0457\u043D\u0456!");
@@ -1154,6 +1146,14 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, speechBank, entityplayer, location, objective));
 		}
 		markNPCSpoken();
+	}
+
+	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, GOTMiniQuest miniquest) {
+		String objective = null;
+		if (miniquest != null) {
+			objective = miniquest.getProgressedObjectiveInSpeech();
+		}
+		sendSpeechBank(entityplayer, speechBank, null, objective);
 	}
 
 	@Override

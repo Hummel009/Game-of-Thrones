@@ -152,12 +152,10 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 			for (Object tmp : list) {
 				if (tmp instanceof ItemStack) {
 					newList.add((ItemStack) tmp);
-				} else {
-					if (tmp instanceof Item) {
-						newList.add(new ItemStack((Item) tmp, 1, 0));
-					} else if (tmp instanceof Block) {
-						newList.add(new ItemStack((Block) tmp, 1, 0));
-					}
+				} else if (tmp instanceof Item) {
+					newList.add(new ItemStack((Item) tmp, 1, 0));
+				} else if (tmp instanceof Block) {
+					newList.add(new ItemStack((Block) tmp, 1, 0));
 				}
 			}
 

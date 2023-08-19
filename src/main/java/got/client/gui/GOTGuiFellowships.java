@@ -839,17 +839,15 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		}
 		if (page == Page.LIST) {
 			super.keyTyped(c, i);
-		} else {
-			if (i == 1 || i == mc.gameSettings.keyBindInventory.getKeyCode()) {
-				if (page == Page.INVITE || page == Page.DISBAND || page == Page.LEAVE || page == Page.REMOVE || page == Page.OP || page == Page.DEOP || page == Page.TRANSFER || page == Page.RENAME) {
-					page = Page.FELLOWSHIP;
-				} else if (page == Page.ACCEPT_INVITE_RESULT) {
-					if (acceptInviteResult != null) {
-						page = Page.INVITATIONS;
-					}
-				} else {
-					page = Page.LIST;
+		} else if (i == 1 || i == mc.gameSettings.keyBindInventory.getKeyCode()) {
+			if (page == Page.INVITE || page == Page.DISBAND || page == Page.LEAVE || page == Page.REMOVE || page == Page.OP || page == Page.DEOP || page == Page.TRANSFER || page == Page.RENAME) {
+				page = Page.FELLOWSHIP;
+			} else if (page == Page.ACCEPT_INVITE_RESULT) {
+				if (acceptInviteResult != null) {
+					page = Page.INVITATIONS;
 				}
+			} else {
+				page = Page.LIST;
 			}
 		}
 	}

@@ -264,14 +264,6 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, double posX, double posY, double posZ) {
-		addAlignment(entityplayer, source, faction, null, posX, posY, posZ);
-	}
-
-	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Entity entity) {
-		return addAlignment(entityplayer, source, faction, null, entity);
-	}
-
 	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Collection<GOTFaction> forcedBonusFactions, double posX, double posY, double posZ) {
 		float bonus = source.bonus;
 		GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
@@ -350,6 +342,14 @@ public class GOTPlayerData {
 
 	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Collection<GOTFaction> forcedBonusFactions, Entity entity) {
 		return addAlignment(entityplayer, source, faction, forcedBonusFactions, entity.posX, entity.boundingBox.minY + entity.height * 0.7D, entity.posZ);
+	}
+
+	public void addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, double posX, double posY, double posZ) {
+		addAlignment(entityplayer, source, faction, null, posX, posY, posZ);
+	}
+
+	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Entity entity) {
+		return addAlignment(entityplayer, source, faction, null, entity);
 	}
 
 	public void addAlignmentFromCommand(GOTFaction faction, float add) {

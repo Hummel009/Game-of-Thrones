@@ -140,10 +140,8 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		int reproCount = 0;
 		if (nbt.hasKey(NBT_REPRO_COUNT)) {
 			reproCount = nbt.getInteger(NBT_REPRO_COUNT);
-		} else {
-			if (nbt.getBoolean(NBT_REPRODUCED)) {
-				reproCount++;
-			}
+		} else if (nbt.getBoolean(NBT_REPRODUCED)) {
+			reproCount++;
 		}
 
 		setReproCount(reproCount);

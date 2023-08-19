@@ -4,7 +4,10 @@ import com.mojang.authlib.GameProfile;
 import got.common.GOTBannerProtection;
 import got.common.GOTBannerProtection.Permission;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.Set;
 
 public class GOTBannerWhitelistEntry {
 	public GameProfile profile;

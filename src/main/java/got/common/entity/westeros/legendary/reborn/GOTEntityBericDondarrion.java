@@ -38,14 +38,14 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	}
 
 	@Override
-	public void dropFewItems(boolean flag, int i) {
-	}
-
-	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
 		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.22);
+	}
+
+	@Override
+	public void dropFewItems(boolean flag, int i) {
 	}
 
 	@Override

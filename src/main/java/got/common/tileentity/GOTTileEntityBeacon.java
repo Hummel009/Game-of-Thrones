@@ -16,7 +16,10 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.chunk.Chunk;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.UUID;
 
 public class GOTTileEntityBeacon extends TileEntity {
 	public int ticksExisted;

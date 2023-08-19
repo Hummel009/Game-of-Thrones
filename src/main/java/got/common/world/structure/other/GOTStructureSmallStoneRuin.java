@@ -796,16 +796,14 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 											}
 											break;
 									}
-								} else {
-									if (random.nextInt(3) == 0) {
-										if (random.nextBoolean()) {
-											setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.redBrick, 0);
-										} else {
-											setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.redBrick, 1);
-										}
+								} else if (random.nextInt(3) == 0) {
+									if (random.nextBoolean()) {
+										setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.redBrick, 0);
 									} else {
-										setBlockAndMetadata(world, i1, j1, k1, Blocks.brick_block, 0);
+										setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.redBrick, 1);
 									}
+								} else {
+									setBlockAndMetadata(world, i1, j1, k1, Blocks.brick_block, 0);
 								}
 								if (random.nextInt(6) == 0) {
 									break;

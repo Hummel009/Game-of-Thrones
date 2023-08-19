@@ -15,7 +15,10 @@ import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTSwingHandler {
 	public static Map<EntityLivingBase, SwingTime> entitySwings = new HashMap<>();

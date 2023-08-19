@@ -19,7 +19,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
 
 public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	public static int MAX_GATE_RANGE = 16;

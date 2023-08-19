@@ -79,11 +79,6 @@ public class GOTFixer {
 		}
 	}
 
-	public static void onInit() {
-		initSpawners();
-		initLocations();
-	}
-
 	public static void initLocations() {
 		registerLocation(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.BloodyGate.info(0, -0.5), GOTWaypoint.TheEyrie.info(0, -0.5), GOTWaypoint.ColdwaterBurn, GOTWaypoint.GreyGlen, GOTWaypoint.HeartsHome, GOTWaypoint.IronOak, GOTWaypoint.LongbowHall, GOTWaypoint.Ninestars, GOTWaypoint.OldAnchor, GOTWaypoint.Pebble, GOTWaypoint.Redfort, GOTWaypoint.Runestone, GOTWaypoint.Snakewood, GOTWaypoint.Strongsong, GOTWaypoint.ThePaps, GOTWaypoint.Wickenden, GOTWaypoint.WitchIsle, GOTWaypoint.GateOfTheMoon.info(0.5, 0, Dir.EAST));
 		registerLocation(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureArrynSettlement.Type.TOWN, 6), GOTWaypoint.Gulltown, GOTWaypoint.Sisterton);
@@ -898,6 +893,11 @@ public class GOTFixer {
 				spawnLegendaryNPC(new GOTEntityRazdalMoEraz(world), world, -1, 1, 1);
 			}
 		});
+	}
+
+	public static void onInit() {
+		initSpawners();
+		initLocations();
 	}
 
 	public static void registerLocation(GOTStructureBaseSettlement settlement, GOTAbstractWaypoint... wps) {

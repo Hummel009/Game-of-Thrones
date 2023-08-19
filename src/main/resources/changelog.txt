@@ -6,6 +6,7 @@ CHANGELOG
 
 * Added one forgotten dirtPath:2 recipe
 
+* Fixed very old bug with imflammable leaves
 * Fixed bug with Trystane Martell drop
 * Fixed bug with one broken command
 * Fixed bug with cargo cart

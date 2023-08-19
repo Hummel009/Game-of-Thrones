@@ -65,10 +65,8 @@ public class GOTPacketFastTravel implements IMessage {
 				if (isCustom) {
 					UUID sharingPlayer = packet.sharingPlayer;
 					waypoint = sharingPlayer != null ? playerData.getSharedCustomWaypointByID(sharingPlayer, waypointID) : playerData.getCustomWaypointByID(waypointID);
-				} else {
-					if (waypointID >= 0 && waypointID < GOTWaypoint.values().length) {
-						waypoint = GOTWaypoint.values()[waypointID];
-					}
+				} else if (waypointID >= 0 && waypointID < GOTWaypoint.values().length) {
+					waypoint = GOTWaypoint.values()[waypointID];
 				}
 				if (waypoint != null && waypoint.hasPlayerUnlocked(entityplayer)) {
 					if (playerData.getTimeSinceFT() < playerData.getWaypointFTTime(waypoint, entityplayer)) {
