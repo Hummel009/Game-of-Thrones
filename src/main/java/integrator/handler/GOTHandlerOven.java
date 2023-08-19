@@ -18,9 +18,6 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTHandlerOven extends TemplateRecipeHandler {
-	public GOTHandlerOven() {
-		new GOTTileEntityOven();
-	}
 
 	@Override
 	public void drawBackground(int recipe) {

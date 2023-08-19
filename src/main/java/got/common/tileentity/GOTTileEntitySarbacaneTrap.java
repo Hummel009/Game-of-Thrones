@@ -31,7 +31,6 @@ public class GOTTileEntitySarbacaneTrap extends TileEntityDispenser {
 
 	public AxisAlignedBB getTriggerRange() {
 		Vec3 vecTarget;
-		new BlockSourceImpl(worldObj, xCoord, yCoord, zCoord);
 		EnumFacing facing = BlockDispenser.func_149937_b(getBlockMetadata());
 		float front = 0.55f;
 		float range = 16.0f;

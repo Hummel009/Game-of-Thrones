@@ -7,7 +7,7 @@ public class GOTEntityAIDragonHunt extends EntityAITargetNonTamed {
 
 	public GOTEntityDragon dragon;
 
-	public GOTEntityAIDragonHunt(GOTEntityDragon dragon, Class clazz, int par3, boolean par4) {
+	public GOTEntityAIDragonHunt(GOTEntityDragon dragon, Class<?> clazz, int par3, boolean par4) {
 		super(dragon, clazz, par3, par4);
 		this.dragon = dragon;
 	}

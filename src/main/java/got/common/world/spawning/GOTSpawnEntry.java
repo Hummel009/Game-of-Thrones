@@ -3,7 +3,7 @@ package got.common.world.spawning;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTSpawnEntry extends BiomeGenBase.SpawnListEntry {
-	public GOTSpawnEntry(Class c, int weight, int min, int max) {
+	public GOTSpawnEntry(Class<?> c, int weight, int min, int max) {
 		super(c, weight, min, max);
 	}
 
