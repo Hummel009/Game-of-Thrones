@@ -1,6 +1,6 @@
 CHANGELOG
 
->>BUILD NEXT
+>>BUILD 23.09.01
 + Added Janos Slynt's, Pycelle's and Melisandra's drop
 + Added new world type - Game of Thrones without fixed structures and characters, but with map.
 
