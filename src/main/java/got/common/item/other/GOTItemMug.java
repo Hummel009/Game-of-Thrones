@@ -30,7 +30,6 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 public class GOTItemMug extends Item {
 	public static String[] strengthNames = {"weak", "light", "moderate", "strong", "potent"};

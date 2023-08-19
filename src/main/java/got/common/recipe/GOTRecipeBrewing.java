@@ -13,7 +13,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class GOTRecipeBrewing {
-	public static List<ShapelessOreRecipe> recipes = new ArrayList<>();
+	public static Collection<ShapelessOreRecipe> recipes = new ArrayList<>();
 	public static int BARREL_CAPACITY = 16;
 
 	public static void addBrewingRecipe(ItemStack result, Object... ingredients) {

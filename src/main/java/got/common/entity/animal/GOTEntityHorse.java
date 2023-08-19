@@ -31,7 +31,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 import java.util.List;
-import java.util.Objects;
 
 public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	public boolean isMoving;

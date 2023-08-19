@@ -8,11 +8,11 @@ public class GOTEntityAIAvoidWithChance extends EntityAIAvoidEntity {
 	public float chance;
 	public String soundEffect;
 
-	public GOTEntityAIAvoidWithChance(EntityCreature entity, Class avoidClass, float f, double d, double d1, float c) {
+	public GOTEntityAIAvoidWithChance(EntityCreature entity, Class<?> avoidClass, float f, double d, double d1, float c) {
 		this(entity, avoidClass, f, d, d1, c, null);
 	}
 
-	public GOTEntityAIAvoidWithChance(EntityCreature entity, Class avoidClass, float f, double d, double d1, float c, String s) {
+	public GOTEntityAIAvoidWithChance(EntityCreature entity, Class<?> avoidClass, float f, double d, double d1, float c, String s) {
 		super(entity, avoidClass, f, d, d1);
 		theEntity = entity;
 		chance = c;
