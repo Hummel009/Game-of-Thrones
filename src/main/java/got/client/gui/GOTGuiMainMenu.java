@@ -22,7 +22,6 @@ import java.util.Random;
 
 public class GOTGuiMainMenu extends GuiMainMenu {
 	public static ResourceLocation titleTexture = new ResourceLocation("textures/gui/title/minecraft.png");
-	public static ResourceLocation vignetteTexture = new ResourceLocation("textures/misc/vignette.png");
 	public static ResourceLocation menuOverlay = new ResourceLocation("got:textures/gui/menu_overlay.png");
 	public static GOTGuiRendererMap mapRenderer;
 	public static int tickCounter;
