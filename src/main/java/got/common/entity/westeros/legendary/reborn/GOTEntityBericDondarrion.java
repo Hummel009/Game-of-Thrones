@@ -38,6 +38,10 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	}
 
 	@Override
+	public void dropFewItems(boolean flag, int i) {
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);
@@ -87,11 +91,6 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	public static class BericDondarrionLife1 extends GOTEntityBericDondarrion {
 		public BericDondarrionLife1(World world) {
 			super(world);
-			canBeMarried = false;
-		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
@@ -110,11 +109,6 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	public static class BericDondarrionLife2 extends GOTEntityBericDondarrion {
 		public BericDondarrionLife2(World world) {
 			super(world);
-			canBeMarried = false;
-		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
@@ -133,11 +127,6 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	public static class BericDondarrionLife3 extends GOTEntityBericDondarrion {
 		public BericDondarrionLife3(World world) {
 			super(world);
-			canBeMarried = false;
-		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
@@ -156,11 +145,6 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	public static class BericDondarrionLife4 extends GOTEntityBericDondarrion {
 		public BericDondarrionLife4(World world) {
 			super(world);
-			canBeMarried = false;
-		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
@@ -179,11 +163,6 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	public static class BericDondarrionLife5 extends GOTEntityBericDondarrion {
 		public BericDondarrionLife5(World world) {
 			super(world);
-			canBeMarried = false;
-		}
-
-		@Override
-		public void dropFewItems(boolean flag, int i) {
 		}
 
 		@Override
@@ -202,7 +181,6 @@ public class GOTEntityBericDondarrion extends GOTEntityHumanBase {
 	public static class BericDondarrionLife6 extends GOTEntityBericDondarrion {
 		public BericDondarrionLife6(World world) {
 			super(world);
-			canBeMarried = false;
 		}
 
 		@Override

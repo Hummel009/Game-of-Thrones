@@ -40,6 +40,11 @@ public class GOTEntityPycelle extends GOTEntityHumanBase implements GOTTradeable
 	}
 
 	@Override
+	public void dropFewItems(boolean flag, int i) {
+		dropItem(GOTItems.bottlePoison, 1);
+	}
+
+	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(30.0);

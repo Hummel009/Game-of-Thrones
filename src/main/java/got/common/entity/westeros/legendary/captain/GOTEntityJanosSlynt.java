@@ -50,6 +50,11 @@ public class GOTEntityJanosSlynt extends GOTEntityHumanBase implements GOTUnitTr
 	}
 
 	@Override
+	public void dropFewItems(boolean flag, int i) {
+		entityDropItem(new ItemStack(GOTItems.coin, 2, 2), 0.0f);
+	}
+
+	@Override
 	public float getAlignmentBonus() {
 		return 200.0f;
 	}

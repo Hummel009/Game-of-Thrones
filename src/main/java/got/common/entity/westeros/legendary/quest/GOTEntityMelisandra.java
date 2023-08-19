@@ -2,6 +2,7 @@ package got.common.entity.westeros.legendary.quest;
 
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
+import got.common.database.GOTItems;
 import got.common.entity.ai.*;
 import got.common.entity.other.GOTEntityHumanBase;
 import got.common.entity.other.GOTEntityNPC;
@@ -76,6 +77,11 @@ public class GOTEntityMelisandra extends GOTEntityHumanBase {
 			return "legendary/melisandra_friendly";
 		}
 		return "standard/special/father_hostile";
+	}
+
+	@Override
+	public void dropFewItems(boolean flag, int i) {
+		dropItem(GOTItems.ruby, 1);
 	}
 
 	@Override

@@ -43,6 +43,11 @@ public class GOTEntityTrystaneMartell extends GOTEntityHumanBase {
 	}
 
 	@Override
+	public void dropFewItems(boolean flag, int i) {
+		dropItem(GOTItems.trystaneSword, 1);
+	}
+
+	@Override
 	public float getAlignmentBonus() {
 		return 500.0f;
 	}
