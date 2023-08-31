@@ -1,35 +1,22 @@
-
 <div align = center>
 
 <br>
 
-[![Badge License]][License]   
+[![Badge License]][License]
 ![Badge Contributions]
 
-<br>
-<br>
 <br>
 
 ![Logo]
 
-<br>
 <br>
 
 [![Button Curse]][Curse]   
 [![Button Wiki]][Wiki]
 
 <br>
-<br>
-
-<img
-    src = 'src/main/resources/assets/got/textures/map/map.png'
-    height = 400
-/>
 
 </div>
-
-<br>
-<br>
 
 Мод "Игра престолов" для Minecraft - глобальное дополнение, которое превращает Minecraft в RPG c открытым миром. Вас ждёт множество новых блоков, предметов, оружия, мобов и структур. Исследуйте регионы мира, посещая города и замки, добывая новые руды, встречаясь как с друзьями, так и с врагами. Торгуйте, зарабатывайте достижения, выполняйте задания, собирайте армию. Выберите, на чьей стороне вы хотите сражаться!
 
