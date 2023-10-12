@@ -21,10 +21,10 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 
 	public Region region;
 	public GOTFaction faction;
-	public double imgX;
-	public double imgY;
-	public int xCoord;
-	public int zCoord;
+	private double imgX;
+	private double imgY;
+	private int xCoord;
+	private int zCoord;
 	public boolean isHidden;
 
 	GOTWaypoint(Region r, GOTFaction f, double x, double y) {
@@ -116,7 +116,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public GOTWaypoint getItself() {
+	public GOTWaypoint getInstance() {
 		return this;
 	}
 
@@ -141,6 +141,16 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	@Override
 	public double getX() {
 		return imgX;
+	}
+
+	@Override
+	public double getShiftX() {
+		return 0;
+	}
+
+	@Override
+	public double getShiftY() {
+		return 0;
 	}
 
 	@Override
@@ -187,9 +197,7 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public GOTAbstractWaypoint info(double shiftX, double shiftY, GOTFixer.Dir direction) {
-		double shiftedX = imgX + shiftX;
-		double shiftedY = imgY + shiftY;
-		return new GOTWaypointInfo(this, shiftedX, shiftedY, direction.ordinal());
+		return new GOTWaypointInfo(this, shiftX, shiftY, direction.ordinal());
 	}
 
 	public boolean isCompatibleAlignment(EntityPlayer entityplayer) {

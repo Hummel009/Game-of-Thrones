@@ -334,7 +334,7 @@ public class GOTBeziers {
 		registerBezier(Type.LINKER, GOTWaypoint.Antlers, GOTWaypoint.Antlers.info(0, -westerosCastle));
 		registerBezier(Type.LINKER, GOTWaypoint.Stokeworth, GOTWaypoint.Stokeworth.info(-westerosCastle, 0));
 		registerBezier(Type.LINKER, GOTWaypoint.Rosby, GOTWaypoint.Rosby.info(-westerosCastle - 0.05, 0));
-		registerBezier(Type.LINKER, GOTWaypoint.Duskendale, GOTWaypoint.Duskendale.info(-0.1, -westerosTown - 0.2));
+		registerBezierI(GOTWaypoint.Duskendale.info(-0.1, -westerosTown - 0.2), false);
 		registerBezier(Type.LINKER, GOTWaypoint.KingsLanding, GOTWaypoint.KingsLanding.info(1.6953125, 0));
 		registerBezier(Type.LINKER, GOTWaypoint.GoldenTooth, GOTWaypoint.GoldenTooth.info(0, -westerosCastle - 0.02));
 		registerBezier(Type.LINKER, GOTWaypoint.Sarsfield, GOTWaypoint.Sarsfield.info(0, -westerosCastle));
@@ -631,6 +631,25 @@ public class GOTBeziers {
 			int x1 = x / 1000;
 			int z1 = z / 1000;
 			return getBezierList(x1, z1, false);
+		}
+	}
+
+	public static void registerBezierI(GOTAbstractWaypoint to, boolean subtractX) {
+		GOTWaypoint from = to.getInstance();
+		double fromX = from.getX();
+		double fromY = from.getY();
+		double shiftX = to.getShiftX();
+		double shiftY = to.getShiftY();
+		double toX = to.getX();
+		double toY = to.getY();
+		if (subtractX) {
+			double halfway = Math.min(Math.abs(shiftX / 2.0), 0.1) * ((fromX < toX) ? -1 : 1);
+			registerBezier(Type.LINKER, from, from.info(shiftX + halfway, shiftY));
+			registerBezier(Type.LINKER, from.info(shiftX + halfway, shiftY), to);
+		} else {
+			double halfway = Math.min(Math.abs(shiftY / 2.0), 0.1) * ((fromY < toY) ? -1 : 1);
+			registerBezier(Type.LINKER, from, from.info(shiftX, shiftY + halfway));
+			registerBezier(Type.LINKER, from.info(shiftX, shiftY + halfway), to);
 		}
 	}
 }

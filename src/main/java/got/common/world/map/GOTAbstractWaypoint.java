@@ -10,27 +10,31 @@ public interface GOTAbstractWaypoint {
 
 	int getID();
 
-	GOTWaypoint getItself();
+	GOTWaypoint getInstance();
 
-	WaypointLockState getLockState(EntityPlayer var1);
+	WaypointLockState getLockState(EntityPlayer entityplayer);
 
-	String getLoreText(EntityPlayer var1);
+	String getLoreText(EntityPlayer entityplayer);
 
 	int getRotation();
 
 	double getX();
 
+	double getShiftX();
+
+	double getShiftY();
+
 	int getXCoord();
 
 	double getY();
 
-	int getYCoord(World var1, int var2, int var3);
+	int getYCoord(World world, int i, int k);
 
 	int getYCoordSaved();
 
 	int getZCoord();
 
-	boolean hasPlayerUnlocked(EntityPlayer var1);
+	boolean hasPlayerUnlocked(EntityPlayer entityplayer);
 
 	boolean isHidden();
 

@@ -4,50 +4,56 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTWaypointInfo implements GOTAbstractWaypoint {
-	public double shiftedX;
-	public double shiftedY;
-	public int rotation;
-	public int xCoord;
-	public int zCoord;
-	public GOTWaypoint waypoint;
+	private double shiftX;
+	private double shiftY;
+	private int rotation;
+	private GOTWaypoint waypoint;
 
-	public GOTWaypointInfo(GOTWaypoint waypoint, double shiftedX, double shiftedY, int rotation) {
-		this.shiftedX = shiftedX;
-		this.shiftedY = shiftedY;
+	public GOTWaypointInfo(GOTWaypoint waypoint, double shiftX, double shiftY, int rotation) {
+		this.shiftX = shiftX;
+		this.shiftY = shiftY;
 		this.waypoint = waypoint;
 		this.rotation = rotation;
-		xCoord = GOTWaypoint.mapToWorldX(this.shiftedX);
-		zCoord = GOTWaypoint.mapToWorldZ(this.shiftedY);
 	}
 
 	@Override
 	public String getCodeName() {
-		return null;
+		return waypoint.getCodeName();
 	}
 
 	@Override
 	public String getDisplayName() {
-		return null;
+		return waypoint.getDisplayName();
 	}
 
 	@Override
 	public int getID() {
-		return 0;
+		return waypoint.getID();
 	}
 
 	@Override
-	public GOTWaypoint getItself() {
+	public double getShiftX() {
+		return shiftX;
+	}
+
+	@Override
+	public double getShiftY() {
+		return shiftY;
+	}
+
+	@Override
+	public GOTWaypoint getInstance() {
 		return waypoint;
 	}
 
 	@Override
-	public WaypointLockState getLockState(EntityPlayer var1) {
-		return null;
+	public WaypointLockState getLockState(EntityPlayer entityplayer) {
+		return waypoint.getLockState(entityplayer);
 	}
 
 	@Override
-	public String getLoreText(EntityPlayer var1) {
-		return null;
+	public String getLoreText(EntityPlayer entityplayer) {
+		return waypoint.getLoreText(entityplayer);
 	}
 
 	@Override
@@ -57,41 +63,41 @@ public class GOTWaypointInfo implements GOTAbstractWaypoint {
 
 	@Override
 	public double getX() {
-		return shiftedX;
+		return waypoint.getX() + shiftX;
 	}
 
 	@Override
 	public int getXCoord() {
-		return xCoord;
+		return GOTWaypoint.mapToWorldX(waypoint.getX() + shiftX);
 	}
 
 	@Override
 	public double getY() {
-		return shiftedY;
+		return waypoint.getY() + shiftY;
 	}
 
 	@Override
-	public int getYCoord(World var1, int var2, int var3) {
-		return 0;
+	public int getYCoord(World world, int i, int k) {
+		return waypoint.getYCoord(world, i, k);
 	}
 
 	@Override
 	public int getYCoordSaved() {
-		return 0;
+		return waypoint.getYCoordSaved();
 	}
 
 	@Override
 	public int getZCoord() {
-		return zCoord;
+		return GOTWaypoint.mapToWorldZ(waypoint.getY() + shiftY);
 	}
 
 	@Override
-	public boolean hasPlayerUnlocked(EntityPlayer var1) {
+	public boolean hasPlayerUnlocked(EntityPlayer entityplayer) {
 		return false;
 	}
 
 	@Override
 	public boolean isHidden() {
-		return false;
+		return true;
 	}
 }

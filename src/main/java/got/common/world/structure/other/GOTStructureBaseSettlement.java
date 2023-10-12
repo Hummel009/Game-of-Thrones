@@ -48,7 +48,7 @@ public abstract class GOTStructureBaseSettlement {
 
 	public void affix(GOTAbstractWaypoint... wps) {
 		for (GOTAbstractWaypoint wp : wps) {
-			LocationInfo loc = new LocationInfo(wp.getXCoord(), wp.getZCoord(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp.getItself());
+			LocationInfo loc = new LocationInfo(wp.getXCoord(), wp.getZCoord(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp.getInstance());
 			fixedLocations.add(loc);
 		}
 	}
