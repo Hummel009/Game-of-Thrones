@@ -890,10 +890,10 @@ entity.got.YoungGriff.name≠Young Griff
 entity.got.Zebra.name=Cebra
 generator.got.info=Aparecerás en GOT World con mapa
 generator.got=Game de Thrones
-generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
-generator.gotEmpty≠GOT Empty
 generator.gotClassic.info=Aparecerás en el mundo habitual con biomas GOT.
 generator.gotClassic=GOT clásico
+generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
+generator.gotEmpty≠GOT Empty
 got.achievement.BANDIT.desc=Mata a la guardia
 got.achievement.BANDIT.title=Bandido
 got.achievement.BANNER_PROTECT.desc=Conquistar territorio
@@ -3486,965 +3486,965 @@ got.weaponstat.rangedRange=Rango: %d %%
 got.weaponstat.rangedSpeed=Velocidad de Tiro: %d%%
 got.weaponstat.reach=Alcance Directo: %d%%
 got.wp.ACORN_HALL.info=El castillo de la casa de los Smallwoods, vasallos de Tully.
-got.wp.AcornHall=Salón de la Bellota
+got.wp.ACORN_HALL=Salón de la Bellota
 got.wp.ADAKHAKILEKI.info=Ahora se olvida quién construyó la ciudad, pero la gente de Dothraki llama a sus ruinas "la ciudad de los devoradores de pieles"o incluso "la ciudad de los caníbales".
-got.wp.Adakhakileki=Adakhakileki
+got.wp.ADAKHAKILEKI=Adakhakileki
 got.wp.AEGON.info=Una isla descubierta por Alice Westhill al suroeste de Summer Islands.
-got.wp.Aegon=Aegon
+got.wp.AEGON=Aegon
 got.wp.AK_SHAAR.info≠Yi Tish say that there is the home of the goddess of the reptiloids. She is usually said to resemble a black rainbow: she has black-black wings and a bloody countenance.
-got.wp.AkShaar≠Yi Tish say that there is the home of the goddess of the reptiloids. She is usually said to resemble a black rainbow: she has black-black wings and a bloody countenance.
+got.wp.AK_SHAAR≠Yi Tish say that there is the home of the goddess of the reptiloids. She is usually said to resemble a black rainbow: she has black-black wings and a bloody countenance.
 got.wp.AMBERLY.info=Castillo ancestral de los Rogers, vasallos de los Baratheons.
-got.wp.Amberly=Ambarino
+got.wp.AMBERLY=Ambarino
 got.wp.ANBEI.info≠Western edge of the Great Yi Ti Wall, a gigantic and ancient structure that protected the golden empire from the raids of nomads from the north.
-got.wp.Anbei≠Western edge of the Great Yi Ti Wall, a gigantic and ancient structure that protected the golden empire from the raids of nomads from the north.
+got.wp.ANBEI≠Western edge of the Great Yi Ti Wall, a gigantic and ancient structure that protected the golden empire from the raids of nomads from the north.
 got.wp.ANGUO.info≠One of the fortresses of the Great Yi Ti Wall. It was built on the initiative of the emperor 4,200 years ago; the emperor himself financed its construction.
-got.wp.Anguo≠One of the fortresses of the Great Yi Ti Wall. It was built on the initiative of the emperor 4,200 years ago; the emperor himself financed its construction.
+got.wp.ANGUO≠One of the fortresses of the Great Yi Ti Wall. It was built on the initiative of the emperor 4,200 years ago; the emperor himself financed its construction.
 got.wp.ANJIANG.info≠One of the fortresses of the Great Yi Ti Wall. Usually imperial raids across the steppe began at this fortress - it had a good strategic position.
-got.wp.Anjiang≠One of the fortresses of the Great Yi Ti Wall. Usually imperial raids across the steppe began at this fortress - it had a good strategic position.
+got.wp.ANJIANG≠One of the fortresses of the Great Yi Ti Wall. Usually imperial raids across the steppe began at this fortress - it had a good strategic position.
 got.wp.ANOGARIA.info=Una de las antiguas fortalezas de la guardia valyria.
-got.wp.Anogaria=Anogaria
+got.wp.ANOGARIA=Anogaria
 got.wp.ANTLERS.info=El castillo de la casa Buckwell de las Tierras del Rey.
-got.wp.Antlers=Cornamenta
+got.wp.ANTLERS=Cornamenta
 got.wp.APPLETON.info=Castillo ancestral de Appleton y la ciudad que lo rodea.
-got.wp.Appleton=Appleton
+got.wp.APPLETON=Appleton
 got.wp.AQUOS_DHAEN.info=Una de las ciudades coloniales poderosas y ricas del Imperio Valyrio, destruida durante la Perdición de Valyria.
-got.wp.AquosDhaen=Aquos Dhaen
+got.wp.AQUOS_DHAEN=Aquos Dhaen
 got.wp.AR_NOY.info=Roinar es una hermosa ciudad construida de mármol verde y destruida durante las guerras con Valyria. Las ruinas ahora están controladas por la flota de Quohor, que protege las aguas de Koyna de los piratas del lago Dagger.
-got.wp.ArNoy=Ar Noy
+got.wp.AR_NOY=Ar Noy
 got.wp.ASABHAD.info=Una ciudad en la frontera con Yi Ti, posiblemente fundada por gente del Feudo de Girkun.
-got.wp.Asabhad=Asabhad
+got.wp.ASABHAD=Asabhad
 got.wp.ASHEMARK.info=Castillo ancestral de los Marbrands, vasallos de los Lannister.
-got.wp.Ashemark=Ashemark
+got.wp.ASHEMARK=Ashemark
 got.wp.ASHFORD.info=Castillo ancestral de los Ashfords, vasallos de los Tyrell. Hay una pequeña ciudad comercial del mismo nombre cerca del castillo. Aquí tuvo lugar el torneo, en el que murió el heredero al trono, Baylor Broken Spear, y varias décadas después tuvo lugar una de las batallas de Robert's Rebellion, en la que casi muere.
-got.wp.Ashford=Ashford
+got.wp.ASHFORD=Ashford
 got.wp.ASSHAI.info=Una gran ciudad portuaria, conocida por las personas expertas en magia: lanzadores de hechizos de sangre, sombras y tormentas. Los Asshaians poseen conocimientos secretos y profecías. Detrás de Asshai está la misteriosa Tierra de las Sombras, en la que los dragones pueden haber sobrevivido. Melisandre y Quaita vinieron de Asshai.
-got.wp.Asshai=Asshai
+got.wp.ASSHAI=Asshai
 got.wp.ASTAPOR.info=Uno de los tres centros de comercio de esclavos en Slaver's Bay junto con Meereen y Yunkai. La ciudad fue fundada por inmigrantes de Gis y es famosa por los esclavos especialmente educados de los Flawless; un ejército de Inmaculados debido a la disciplina, el coraje y la lealtad es muy valorado en todo el mundo conocido.
-got.wp.Astapor=Astapor
+got.wp.ASTAPOR=Astapor
 got.wp.ATAAHUA.info≠An ancient sea fort where the legendary sword was kept. The place of the holiday preserves the memory of the exploits of the young king Rinne, who died at the hands of a cruel sorcerer during the storming of the castle.
-got.wp.Ataahua≠An ancient sea fort where the legendary sword was kept. The place of the holiday preserves the memory of the exploits of the young king Rinne, who died at the hands of a cruel sorcerer during the storming of the castle.
+got.wp.ATAAHUA≠An ancient sea fort where the legendary sword was kept. The place of the holiday preserves the memory of the exploits of the young king Rinne, who died at the hands of a cruel sorcerer during the storming of the castle.
 got.wp.ATRANTA.info=Castillo ancestral de la rama más joven de los Vance, vasallos de Tully.
-got.wp.Atranta=Atranta
+got.wp.ATRANTA=Atranta
 got.wp.AZHYDAAR.info≠The homeland of Catullah, the ancient king of Mossovy.
-got.wp.Azhydaar≠The homeland of Catullah, the ancient king of Mossovy.
+got.wp.AZHYDAAR≠The homeland of Catullah, the ancient king of Mossovy.
 got.wp.AZUU_KAN.info≠Mystical fortress that sits on the edge of the world. It is inhabited by the spirit of the gandharva. This word in mossovian means "lord of all the righteous."
-got.wp.AzuuKan≠Mystical fortress that sits on the edge of the world. It is inhabited by the spirit of the gandharva. This word in mossovian means "lord of all the righteous."
+got.wp.AZUU_KAN≠Mystical fortress that sits on the edge of the world. It is inhabited by the spirit of the gandharva. This word in mossovian means "lord of all the righteous."
 got.wp.BAELISH_KEEP.info=El dominio ancestral de uno de los señores más insignificantes y pobres de los Siete Reinos: el Beilish. Hace tres generaciones, el bisabuelo del actual Lord Petyr Baelish llegó a Westeros como mercenario Braavos, su hijo recibió el título de caballero, su nieto se convirtió en lord y su bisnieto se casó con la viuda de Lord Arryn.
-got.wp.BaelishKeep=Fortaleza de Baelish
+got.wp.BAELISH_KEEP=Fortaleza de Baelish
 got.wp.BANDALLON.info=Castillo ancestral de la Casa Blackbar de the Reach. Las barras negras tienen muy mala imaginación: su escudo de armas tiene una franja (barra) negra (negra).
-got.wp.Bandallon=Bandallón
+got.wp.BANDALLON=Bandallón
 got.wp.BANEFORT.info=El castillo de la casa de los Bainforth, vasallo de los Lannister.
-got.wp.Banefort=Banefort
+got.wp.BANEFORT=Banefort
 got.wp.BAOJI.info=Una ciudad cercana a la jungla. Compite constantemente con Manjin en todo, incluso en la historia de su fundación.
-got.wp.Baoji=Baoji
+got.wp.BAOJI=Baoji
 got.wp.BARROWTOWN.info=La ciudad está gobernada por los Dustins, antiguos reyes de Barrow de Barrowhall. El Heredero del El Norte, Brandon Stark, fue alumno de Lord Dustin, quien esperaba el matrimonio de su hija y heredera de Winterfell. Los Dustins son leales aliados de los Bolton, los nuevos Guardianes del El Norte.
-got.wp.Barrowtown=Barrowtown
+got.wp.BARROWTOWN=Barrowtown
 got.wp.BARTER_BEACH.info=La playa donde los piratas comerciaban entre ellos. Posiblemente un asentamiento pirata.
-got.wp.BarterBeach=Playa de trueque
+got.wp.BARTER_BEACH=Playa de trueque
 got.wp.BASHKARUUCHU.info≠Cold and gloomy capital of Mossovy, steeped in debauchery and bewitched. If the first is the truth of life, the second is an invention of the authorities.
-got.wp.Bashkaruuchu≠Cold and gloomy capital of Mossovy, steeped in debauchery and bewitched. If the first is the truth of life, the second is an invention of the authorities.
+got.wp.BASHKARUUCHU≠Cold and gloomy capital of Mossovy, steeped in debauchery and bewitched. If the first is the truth of life, the second is an invention of the authorities.
 got.wp.BATARGAS.info≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
-got.wp.Batargas≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
+got.wp.BATARGAS≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
 got.wp.BAYASABHAD.info=Una de las últimas ciudades que surgieron alrededor de la ciudadela, construida para proteger el feudo de Hirkun de las incursiones; el reino cayó en decadencia después del mar seco, pero las belicosas Amazonas aún vigilan al guardia.
-got.wp.Bayasabhad=Bayasabhad
+got.wp.BAYASABHAD=Bayasabhad
 got.wp.BHORASH.info=Ruinas de una ciudad de Valyrian o Ghiskar en Demon Road. Destruido después de la Roca de Valyria, y por quién se desconoce.
-got.wp.Bhorash=Bhorash
+got.wp.BHORASH=Bhorash
 got.wp.BIG_LAKE.info≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
-got.wp.BigLake≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
+got.wp.BIG_LAKE≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
 got.wp.BITTERBRIDGE.info=El castillo ancestral de la Casa de los Caswell. Aquí, el rey Renly llevó a la ganadora del torneo, Brienne Tarth, a su Guardia Arcoíris.
-got.wp.Bitterbridge=Bitterbridge
-got.wp.BLACK_HEART.info=El castillo de la extinta Casa Toyn, arrebatado tras el fallido intento de asesinato de Aegon III el Indigno. Más tarde fue ocupada por Connington House.
-got.wp.BlackHeart=Corazon negro
-got.wp.BLACK_POOL.info=Castillo ancestral de las Pizarras. En los albores de los tiempos, eran reyes, hasta que los Stark los conquistaron, convirtiéndolos en sus vasallos.
-got.wp.BlackPool=Piscina negra
+got.wp.BITTERBRIDGE=Bitterbridge
 got.wp.BLACKCROWN.info=El castillo de la Casa Bulwers, descendiente de Garth Greenhand (como muchas otras casas del Reach).
-got.wp.Blackcrown=Corona Negra
+got.wp.BLACKCROWN=Corona Negra
 got.wp.BLACKHAVEN.info=El castillo de la casa de los Dondarrion, vasallos de los Baratheons.
-got.wp.Blackhaven=Blackhaven
+got.wp.BLACKHAVEN=Blackhaven
 got.wp.BLACKMONT.info=El castillo de la Casa de Blackmont, vasallos de Martell. Se llamaron a sí mismos reyes, hasta que Nymeria finalmente los sometió, exiliando al último rey con cadenas de oro al Muro.
-got.wp.Blackmont=Blackmont
+got.wp.BLACKMONT=Blackmont
 got.wp.BLACKTYDE.info=Castillo de la Casa de las Mareas Negras, vasallos de los Greyjoys
-got.wp.Blacktyde=Blacktyde
+got.wp.BLACKTYDE=Blacktyde
+got.wp.BLACK_HEART.info=El castillo de la extinta Casa Toyn, arrebatado tras el fallido intento de asesinato de Aegon III el Indigno. Más tarde fue ocupada por Connington House.
+got.wp.BLACK_HEART=Corazon negro
+got.wp.BLACK_POOL.info=Castillo ancestral de las Pizarras. En los albores de los tiempos, eran reyes, hasta que los Stark los conquistaron, convirtiéndolos en sus vasallos.
+got.wp.BLACK_POOL=Piscina negra
 got.wp.BLOODSTONE.info=Una de las islas de los Pasos, fue aquí donde se ubicó la sede del autoproclamado Rey de los Pasos y el Mar Angosto, Damon Targaryen.
-got.wp.BloodStone=Piedra de sangre
+got.wp.BLOODSTONE=Piedra de sangre
 got.wp.BLOODY_GATE.info=Un pequeño castillo que bloquea el único camino al valle de Arryn.
-got.wp.BloodyGate=Puerta sangrienta
+got.wp.BLOODY_GATE=Puerta sangrienta
 got.wp.BONETOWN.info=Una ciudad construida enteramente de huesos.
-got.wp.Bonetown=Ciudad hueso
+got.wp.BONETOWN=Ciudad hueso
 got.wp.BRAAVOS.info=Una de las Ciudades Libres, y la más grande de ellas, una ciudad portuaria. Fundada por esclavos fugitivos durante el reinado de Valyria. Uno de los hitos de la ciudad es el Titán de Braavos: una escultura gigante erigida sobre la entrada del puerto.
-got.wp.Braavos=Braavos
+got.wp.BRAAVOS=Braavos
 got.wp.BREAKSTONE_HILL.info=Feudo de los extintos Flint Kings, vasallos de los Reyes del Invierno. Quizás el clan de la montaña que se hace llamar First Flints es descendiente de Stone Hill Flints.
-got.wp.BreakstoneHill=Breakstone Hill
+got.wp.BREAKSTONE_HILL=Breakstone Hill
 got.wp.BRIARWHITE.info=Un pueblo con un campo de maíz. Sus habitantes no abandonaron sus hogares cuando comenzó la Guerra de los Cinco Reyes. Un destacamento de Yoren, que se desplazaba desde la capital hacia el El Norte, pasó y los campesinos exigieron el pago del maíz.
-got.wp.Briarwhite=Briarwhite
+got.wp.BRIARWHITE=Briarwhite
 got.wp.BRIGHTWATER_KEEP.info=La fortaleza ancestral de una de las casas más antiguas de la Expansión - Florentina; el castillo fue confiscado a los propietarios que apoyaban a Stannis Baratheon y entregado a Garlan Tyrell.
-got.wp.BrightwaterKeep=Fortaleza de Brightwater
+got.wp.BRIGHTWATER_KEEP=Fortaleza de Brightwater
 got.wp.BROAD_ARCH.info=Castillo ancestral de los Stedmons, vasallos de los Baratheons.
-got.wp.BroadArch=Arco amplio
+got.wp.BROAD_ARCH=Arco amplio
 got.wp.BRONZEGATE.info=El castillo de la casa de los Bucklers, vasallos de los Baratheons.
-got.wp.Bronzegate=Bronzegate
+got.wp.BRONZEGATE=Bronzegate
 got.wp.BROWNHOLLOW.info=El castillo es una de las ramas de la Casa de Brune, vasallos de los Baratheons.
-got.wp.Brownhollow=Brownhollow
+got.wp.BROWNHOLLOW=Brownhollow
 got.wp.CASTAMERE.info=El castillo ancestral del Rin. Kastamere está escondido bajo tierra en 9 de cada 10 partes, construido en minas cerca del lago Kastamere (al que el castillo debe su nombre). La canción "Reyna de Kastamere"está compuesta sobre cómo la parte subterránea del castillo fue sellada e inundada con todos sus habitantes. Después de la Boda Roja, el castillo fue entregado a Ser Rolf Spicer junto con el título de Lord, como recompensa por su papel en el destino de Robb Stark.
-got.wp.Castamere=Castamere
+got.wp.CASTAMERE=Castamere
 got.wp.CASTERLY_ROCK.info=Hogar ancestral de los Lannister, el castillo principal de las Tierras Occidentales. El primero de la familia de Casterly encontró minas de oro en la cueva del león y reconstruyó un castillo para proteger su riqueza. Se dice que el pícaro de cabello dorado Lann el Inteligente, legendario antepasado de Lannister, se apoderó del castillo por astucia (o por casarse con éxito con una de las hijas del último Lord Casterly, que no tuvo hijos).
-got.wp.CasterlyRock=Roca Casterly
+got.wp.CASTERLY_ROCK=Roca Casterly
 got.wp.CASTLE_BLACK.info=El castillo principal de la Guardia de la Noche, la sede del Lord Comandante y el sitio de uno de los pasajes sin sellar más allá del Muro.
-got.wp.CastleBlack=Castillo negro
+got.wp.CASTLE_BLACK=Castillo negro
+got.wp.CASTLE_CERWYN.info=Castillo ancestral de la Casa Servin, vasallos de los Stark. La familia Servin terminó con la muerte de Clay Servin, con quien Bran Stark era amigo.
+got.wp.CASTLE_CERWYN=Castillo de Cerwyns
 got.wp.CASTLE_LYCHESTER.info=El ruinoso castillo de Leicester, donde el destacamento de Berik Dondarrion junto con Arya se detuvo en busca de su comandante.
-got.wp.CastleLychester=Castillo Lychester
+got.wp.CASTLE_LYCHESTER=Castillo Lychester
 got.wp.CATFISH_ROCK.info=El castillo de la antigua casa real de Fischer.
-got.wp.CatfishRock=Roca de bagre
+got.wp.CATFISH_ROCK=Roca de bagre
 got.wp.CENTRAL_FORESTS.info≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
-got.wp.CentralForests≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
+got.wp.CENTRAL_FORESTS≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
 got.wp.CHANGAN.info≠Big city at the crossroads of important coastal roads. In the time of Azor Ahai, a ritual scroll was kept here with a prophecy of the "Salvation of the Land of the Golden Empire".
-got.wp.Changan≠Changan
+got.wp.CHANGAN≠Changan
 got.wp.CHROYANE.info=En la antigüedad, fue la próspera ciudad de Kroyane en Roinar. Después de que Saroi fue quemado por los señores dragón, el príncipe Kroyane llamado Garin llamó a los Rhoynar para que se unieran y luchasen contra los invasores. Por desgracia, después de una serie de victorias, decenas de señores dragón llegaron de Valyria y los Roynar cayeron. Garin fue llevado a Kroyan en una jaula para que pudiera ver cómo su gente era esclavizada y la ciudad incendiada. Desesperado, Garin maldijo a los Valyrians, luego las esporas de una dolencia gris surgieron sobre Roina ... Ahora las víctimas de esta enfermedad son expulsadas aquí. Entonces, la hermosa ciudad se convirtió en una enorme colonia de leprosos.
-got.wp.Chroyane=Chroyane
+got.wp.CHROYANE=Chroyane
 got.wp.CIDER_HALL.info=El castillo de la casa de los Fossoveevs de la rama de la Manzana Roja.
-got.wp.CiderHall=Sidrería
+got.wp.CIDER_HALL=Sidrería
 got.wp.CLAW_ISLE.info=Una isla cerca de Rocadragón, propiedad de la Casa Seltigar. En los viejos tiempos, el castillo estaba lleno de riquezas y artículos de lujo, pero ahora la familia se ha empobrecido.
-got.wp.ClawIsle=Isla Garra
+got.wp.CLAW_ISLE=Isla Garra
 got.wp.CLEGANES_KEEP.info=El castillo recibido por la perrera como recompensa por salvar la vida de Titos Lannister. Ahora el castillo pertenece al nieto de ese cazador, Grigor Clegan. Grigor Clegane es famoso por el hecho de que puede matar a cualquier guerrero de Westeros en una batalla uno contra uno. A veces, la gente desaparece de su castillo sin dejar rastro.
-got.wp.CleganesKeep=Fortaleza de Cleganes
+got.wp.CLEGANES_KEEP=Fortaleza de Cleganes
 got.wp.COLDMOAT.info=Castillo ancestral de Ausgrey, transferido por la corona a la Casa Webber por la oposición de los Osgrey a la opresión del ejército de la iglesia. Un poco más de cien años después, gracias a una unión matrimonial entre Osgrey y Webbers, el castillo fue devuelto a Osgrey.
-got.wp.Coldmoat=Coldmoat
+got.wp.COLDMOAT=Coldmoat
 got.wp.COLDWATER_BURN.info=Castillo de la Casa Coldwater, vasallos del Arryn.
-got.wp.ColdwaterBurn=Quemadura de agua fría
+got.wp.COLDWATER_BURN=Quemadura de agua fría
 got.wp.CORNFIELD.info=Swift Castle: anteriormente señores, pero ahora solo caballeros terrestres.
-got.wp.Cornfield=Maizal
+got.wp.CORNFIELD=Maizal
 got.wp.CORPSE_LAKE.info=El castillo de una rama menor de la Casa de los buenos hermanos, vasallos de los buenos hermanos mayores.
-got.wp.CorpseLake=Lago cadáver
+got.wp.CORPSE_LAKE=Lago cadáver
 got.wp.CRAG.info=Westerling Castle, donde Robb Stark resultó herido y se casó trágicamente.
-got.wp.Crag=Risco
+got.wp.CRAG=Risco
 got.wp.CRAKEHALL.info=Castle de the Crackhalls, cuyo linaje se remonta al legendario Crack the Boar Slayer.
-got.wp.Crakehall=Crakehall
+got.wp.CRAKEHALL=Crakehall
 got.wp.CRASTERS_KEEP.info=Hogar de Craster y sus hijas esposas. Solo el propio propietario llama a este lugar un castillo, aunque para los estándares de los salvajes, la casa de Craster es grande.
-got.wp.CrastersKeep=Fortaleza de Crasters
+got.wp.CRASTERS_KEEP=Fortaleza de Crasters
 got.wp.CROSSROADS_INN.info=Cruce de tres caminos: Ruta Real, Río y Carreteras altas. Aquí hay una taberna, que se llama la taberna del Crossroads.
-got.wp.CrossroadsInn=Posada Crossroads
-got.wp.CROW_SPIKE_KEEP.info=Fortaleza en Bolshoy Vick, propiedad de una de las ramas más jóvenes de los Goodbrothers.
-got.wp.CrowSpikeKeep=Torre del Cuervo Espiga
+got.wp.CROSSROADS_INN=Posada Crossroads
 got.wp.CROWS_NEST.info=El castillo de la casa de Morrigen, vasallos de los Baratheons.
-got.wp.CrowsNest=Nido de cuervo
+got.wp.CROWS_NEST=Nido de cuervo
+got.wp.CROW_SPIKE_KEEP.info=Fortaleza en Bolshoy Vick, propiedad de una de las ramas más jóvenes de los Goodbrothers.
+got.wp.CROW_SPIKE_KEEP=Torre del Cuervo Espiga
 got.wp.DARKDELL.info=El castillo de la casa de los Virvel, vasallos de los Tyrell.
-got.wp.DarkDell=Dell oscuro
+got.wp.DARKDELL=Dell oscuro
 got.wp.DARRY.info=El antiguo y pequeño castillo ancestral de la Casa de Darry de Tierras de los Ríos. Durante la Guerra de los Cinco Reyes, cambió de propietario varias veces hasta que consiguió a Lancel Lannister.
-got.wp.Darry=Darry
+got.wp.DARRY=Darry
 got.wp.DEAD_HEAD.info=El castillo de la Casa de los Horps, vasallos de los Baratheons.
-got.wp.DeatsHear=Los muertos escuchan
-got.wp.DEEP_DEN.info=El castillo de la casa de los Lydden, vasallo de los Lannister.
-got.wp.DeepDen=Deep Den
-got.wp.DEEP_LAKE.info=Ahora es uno de los castillos abandonados de la Guardia de la Noche. Fue construido por iniciativa de la reina Alisanna hace 200 años; La propia reina financió la construcción para que los hermanos de la Guardia de la Noche pudieran dejar el Castillo de la Noche, demasiado grande y caro. El castillo debe su nombre al lago, cerca del cual se encuentra. El 998º Lord Comandante de la Guardia de la Noche envió una guarnición aquí para restablecer la guardia del Muro.
-got.wp.DeepLake=Lago profundo
+got.wp.DEAD_HEAD=Los muertos escuchan
 got.wp.DEEPDOWN.info=El castillo familiar de la Casa de los Cuervos es solo un castillo de nombre, pero en realidad es una cueva fortificada ... sin embargo, el título de nobleza de los Cuervos también es una formalidad.
-got.wp.Deepdown=En el fondo
+got.wp.DEEPDOWN=En el fondo
 got.wp.DEEPWOOD_MOTTE.info=El castillo es el hogar de los Glovers, vasallos de los Starks.
-got.wp.DeepwoodMotte=Deepwood Motte
+got.wp.DEEPWOOD_MOTTE=Deepwood Motte
+got.wp.DEEP_DEN.info=El castillo de la casa de los Lydden, vasallo de los Lannister.
+got.wp.DEEP_DEN=Deep Den
+got.wp.DEEP_LAKE.info=Ahora es uno de los castillos abandonados de la Guardia de la Noche. Fue construido por iniciativa de la reina Alisanna hace 200 años; La propia reina financió la construcción para que los hermanos de la Guardia de la Noche pudieran dejar el Castillo de la Noche, demasiado grande y caro. El castillo debe su nombre al lago, cerca del cual se encuentra. El 998º Lord Comandante de la Guardia de la Noche envió una guarnición aquí para restablecer la guardia del Muro.
+got.wp.DEEP_LAKE=Lago profundo
 got.wp.DINGGUO.info≠There was a settlement here even before the Great Iti Country was built - there was a settlement of miners and diamond mines. When their deposits were exhausted, the diamonds were sold, and it was enough to build a fortress.
-got.wp.Dingguo≠There was a settlement here even before the Great Iti Country was built - there was a settlement of miners and diamond mines. When their deposits were exhausted, the diamonds were sold, and it was enough to build a fortress.
+got.wp.DINGGUO≠There was a settlement here even before the Great Iti Country was built - there was a settlement of miners and diamond mines. When their deposits were exhausted, the diamonds were sold, and it was enough to build a fortress.
 got.wp.DOQUU.info=Un pequeño asentamiento en la isla del mismo nombre. Es el asentamiento más al sur de las Islas del Verano.
-got.wp.Doquu=Doquu
+got.wp.DOQUU=Doquu
 got.wp.DOWNDELVING.info=Castle on Great Vic, propiedad de una de las ramas más jóvenes de los Goodbrothers.
-got.wp.Downdelving=Downdelving
+got.wp.DOWNDELVING=Downdelving
 got.wp.DRACONYS.info=Una de las ciudades coloniales poderosas y ricas del Imperio Valyrio, destruida durante la Perdición de Valyria.
-got.wp.Draconys=Draconys
-got.wp.DRAGON_PLACE.info≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
-got.wp.DragonPlace≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
+got.wp.DRACONYS=Draconys
 got.wp.DRAGONSTONE.info=La isla y la inexpugnable fortaleza del mismo nombre. Hace varios siglos, los Targaryen llegaron aquí desde Old Valyria, y después de su ascenso y la construcción de Desembarco del Rey, el título de Príncipe de Rocadragón fue llevado por el hijo mayor y heredero del rey. Después del derrocamiento de los Targaryen, el castillo fue entregado a Stannis Baratheon.
-got.wp.Dragonstone=Dragonstone
+got.wp.DRAGONSTONE=Dragonstone
+got.wp.DRAGON_PLACE.info≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
+got.wp.DRAGON_PLACE≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
 got.wp.DREADFORT.info=Castillo ancestral de la Casa de Bolton, vasallos de los Starks. Los Bolton se encuentran entre las casas más antiguas y más fuertes del El Norte. Ellos rivalizaron con los Stark durante milenios y se arrodillaron ante Invernalia hace solo mil años. En los viejos tiempos, los señores de Bolton vestían capas de cuero despojado de los vivos; con el tiempo, los Stark cortaron esta tradición, pero algunos de los viejos trofeos, según la vieja Nan, todavía se conservan en Dredford (incluida la piel de algunos de los Stark).
-got.wp.Dreadfort=Dreadfort
+got.wp.DREADFORT=Dreadfort
 got.wp.DRIFTMARK.info=La isla y el castillo del mismo nombre en ella. Tierras ancestrales de la Casa Velarion, una de las familias supervivientes de Valyria. En Westeros, los Velarion ostentan el título de Señor de la Marea Alta. Hubo un tiempo en que eran sus tesoros los que excitaban la imaginación, y no los de Lannister en absoluto.
-got.wp.Driftmark=Driftmark
+got.wp.DRIFTMARK=Driftmark
 got.wp.DRIFTWOOD_HALL.info=Steins de la "finca"familiar. De hecho, una casa, un poco más rica que una choza de campesinos.
-got.wp.DriftwoodHall=Salón Driftwood
+got.wp.DRIFTWOOD_HALL=Salón Driftwood
 got.wp.DRUMM_CASTLE.info=El castillo de la casa de los Drumms, vasallos de los Greyjoys.
-got.wp.DrummCastle=Castillo de Drumm
+got.wp.DRUMM_CASTLE=Castillo de Drumm
 got.wp.DUNSTONBURY.info=El castillo ancestral de Manderly, arrebatado después de la represión de la rebelión, incluso bajo los Gardner. El castillo pasó a House Peak, cuyo jefe expulsó a Manderly de la Expansión. Posteriormente, los Peaks se unieron a la rebelión de Black Flame y pagaron con sus posesiones, Dunstonbury entre ellos. No se sabe si el castillo vale o se derrumbó, y quiénes son sus nuevos dueños.
-got.wp.Dunstonbury=Dunstonbury
+got.wp.DUNSTONBURY=Dunstonbury
 got.wp.DUSKENDALE.info=Una importante ciudad portuaria gobernada por el hogar de los Rikkers, vasallos del Trono de Hierro.
-got.wp.Duskendale=Duskendale
+got.wp.DUSKENDALE=Duskendale
 got.wp.DYRE_DEN.info=El castillo es una de las ramas de la Casa de Brune, vasallos de los Baratheons.
-got.wp.DyreDen=Dyre Den
+got.wp.DYRE_DEN=Dyre Den
+got.wp.EASTWATCH.info=El castillo más oriental de la Guardia de la Noche, gobernado por Cotter Pike. Uno de los tres activos. A diferencia de los demás, los hermanos de Eastern Watch participan activamente en el comercio.
+got.wp.EASTWATCH=Este reloj
 got.wp.EAST_BAY.info≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
-got.wp.EastBay≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
+got.wp.EAST_BAY≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
 got.wp.EAST_COAST.info≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
-got.wp.EastCoast≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
+got.wp.EAST_COAST≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
+got.wp.EBONHEAD.info=La única ciudad conocida de la isla Jala.
+got.wp.EBONHEAD=Ebonhead
+got.wp.EIJIANG.info=Una de las ciudades occidentales de Yi Ti. Desde aquí puedes ver Ridge de Bones.
+got.wp.EIJIANG=Eijiang
+got.wp.ELYRIA.info=Una ciudad fundada por Valyrian en una isla en la bahía. Durante el reinado de Valyria, fue una ciudad rica gobernada por secuaces de la capital. Aliado con Yunkai contra Daenerys.
+got.wp.ELYRIA=Elyria
+got.wp.EURON.info=El barco de Euron Greyjoy se encuentra aquí. Aquí, según los rumores, Euron se volvió loco, arrancó la lengua a todo su equipo y se llamó a sí mismo el Dios Ahogado, al que se reza desde Old Town hasta Quart.
+got.wp.EURON=Silencio
+got.wp.EVENFALL_HALL.info=El castillo de la casa de Tart, vasallos de los Baratheons.
+got.wp.EVENFALL_HALL=Evenfall Hall
 got.wp.EastPass.info=Cuatro pasos son túmulos funerarios antiguos, hasta las nubes. Su ubicación sugiere que eran estructuras defensivas. Pero, ¿de quién y por qué defender Mossia, si los enemigos están dentro?
 got.wp.EastPass=EastPass
-got.wp.EASTWATCH.info=El castillo más oriental de la Guardia de la Noche, gobernado por Cotter Pike. Uno de los tres activos. A diferencia de los demás, los hermanos de Eastern Watch participan activamente en el comercio.
-got.wp.EastWatch=Este reloj
-got.wp.EBONHEAD.info=La única ciudad conocida de la isla Jala.
-got.wp.Ebonhead=Ebonhead
-got.wp.EIJIANG.info=Una de las ciudades occidentales de Yi Ti. Desde aquí puedes ver Ridge de Bones.
-got.wp.Eijiang=Eijiang
-got.wp.ELYRIA.info=Una ciudad fundada por Valyrian en una isla en la bahía. Durante el reinado de Valyria, fue una ciudad rica gobernada por secuaces de la capital. Aliado con Yunkai contra Daenerys.
-got.wp.Elyria=Elyria
-got.wp.EURON.info=El barco de Euron Greyjoy se encuentra aquí. Aquí, según los rumores, Euron se volvió loco, arrancó la lengua a todo su equipo y se llamó a sí mismo el Dios Ahogado, al que se reza desde Old Town hasta Quart.
-got.wp.Euron=Silencio
-got.wp.EVENFALL_HALL.info=El castillo de la casa de Tart, vasallos de los Baratheons.
-got.wp.EvenfallHall=Evenfall Hall
-got.wp.FAIRMARKET.info=Un pueblo con un puente sobre el río Blue Zubets.
-got.wp.FairMarket=Mercado justo
 got.wp.FAIRCASTLE.info=El castillo de la casa de los Farman, vasallo de los Lannister.
-got.wp.Faircastle=Faircastle
+got.wp.FAIRCASTLE=Faircastle
+got.wp.FAIRMARKET.info=Un pueblo con un puente sobre el río Blue Zubets.
+got.wp.FAIRMARKET=Mercado justo
 got.wp.FAROS.info=Una de las dos ciudades de la isla. Aquí se adora a la Vaca de Piedra.
-got.wp.Faros=Faros
+got.wp.FAROS=Faros
 got.wp.FAWNTOWN.info=Castillo ancestral y ciudad de Kafferenov. Después de que Robert convocó estandartes contra Aerys el Loco, Lord Fell, Kafferen y Grandison eligieron a los Targaryen sobre su señor supremo. Al conocerse, Lord Cafferren fue víctima del encanto de Robert y se acercó a él.
-got.wp.Fawntown=Fawntown
+got.wp.FAWNTOWN=Fawntown
 got.wp.FEASTFIRES.info=Castillo de Prester. Las leyendas dicen que uno de los Lannister, después de casarse con una chica de Prester, eligió vivir en este castillo.
-got.wp.Feastfires=Fuegos festivos
+got.wp.FEASTFIRES=Fuegos festivos
 got.wp.FELWOOD.info=Cayó el castillo de la familia. Después de que Robert convocó estandartes contra Aerys el Loco, Lord Fell, Kafferen y Grandison eligieron a los Targaryen sobre su señor supremo. Robert los rompió uno por uno, mató a Lord Fell y su hijo se dedicó a Robert hasta el de su vida.
-got.wp.Felwood=Felwood
+got.wp.FELWOOD=Felwood
 got.wp.FIST.info=Ruinas de la fortaleza de los Primeros Hombres, que fue construida sobre una colina durante la Era del Amanecer.
-got.wp.Fist=Puño
+got.wp.FIST=Puño
 got.wp.FIVE_FORTS_1.info=Fusionadas a partir de enormes losas negras, como si se usara la llama del dragón en su construcción, las Cinco Fortalezas aparecieron incluso antes del Imperio Dorado de Yi Ti, en la era del Gran Imperio de Yi Ti para proteger al estado del León de la Noche, quien en otras tierras se le llama el Gran Otro. ¿O es solo una leyenda?
-got.wp.FiveForts1=Cinco Fuertes
+got.wp.FIVE_FORTS_1=Cinco Fuertes
 got.wp.FIVE_FORTS_2.info=Fusionadas a partir de enormes losas negras, como si se usara la llama del dragón en su construcción, las Cinco Fortalezas aparecieron incluso antes del Imperio Dorado de Yi Ti, en la era del Gran Imperio de Yi Ti para proteger al estado del León de la Noche, quien en otras tierras se le llama el Gran Otro. ¿O es solo una leyenda?
-got.wp.FiveForts2=Cinco Fuertes
+got.wp.FIVE_FORTS_2=Cinco Fuertes
 got.wp.FIVE_FORTS_3.info=Fusionadas a partir de enormes losas negras, como si se usara la llama del dragón en su construcción, las Cinco Fortalezas aparecieron incluso antes del Imperio Dorado de Yi Ti, en la era del Gran Imperio de Yi Ti para proteger al estado del León de la Noche, quien en otras tierras se le llama el Gran Otro. ¿O es solo una leyenda?
-got.wp.FiveForts3=Cinco Fuertes
+got.wp.FIVE_FORTS_3=Cinco Fuertes
 got.wp.FIVE_FORTS_4.info=Fusionadas a partir de enormes losas negras, como si se usara la llama del dragón en su construcción, las Cinco Fortalezas aparecieron incluso antes del Imperio Dorado de Yi Ti, en la era del Gran Imperio de Yi Ti para proteger al estado del León de la Noche, quien en otras tierras se le llama el Gran Otro. ¿O es solo una leyenda?
-got.wp.FiveForts4=Cinco Fuertes
+got.wp.FIVE_FORTS_4=Cinco Fuertes
 got.wp.FIVE_FORTS_5.info=Fusionadas a partir de enormes losas negras, como si se usara la llama del dragón en su construcción, las Cinco Fortalezas aparecieron incluso antes del Imperio Dorado de Yi Ti, en la era del Gran Imperio de Yi Ti para proteger al estado del León de la Noche, quien en otras tierras se le llama el Gran Otro. ¿O es solo una leyenda?
-got.wp.FiveForts5=Cinco Fuertes
+got.wp.FIVE_FORTS_5=Cinco Fuertes
 got.wp.FLINTS_FINGER.info=El castillo es una de las ramas de la Casa de los Flints, vasallos de los Starks.
-got.wp.FlintsFinger=Dedo de pedernal
+got.wp.FLINTS_FINGER=Dedo de pedernal
 got.wp.FOURTEEN_FLAMES.info=Todo lo que queda de una cadena de montañas volcánicas con minas debajo de ellas. Durante la Roca de Valyria, las montañas fueron tragadas por el mar, que más tarde se llamó Smoky (ver más a la derecha).
-got.wp.FourteenFlames=Catorce llamas
+got.wp.FOURTEEN_FLAMES=Catorce llamas
 got.wp.FU_NING.info≠Ancient city at the eastern crossroads. In ancient times there was a famous roadside inn where travelers could drink wine and taste lobster stew.
-got.wp.FuNing≠Fu Ning
+got.wp.FU_NING≠Fu Ning
 got.wp.GALLOWSGREY.info=El castillo de la casa de los Trants, vasallos de los Baratheons.
-got.wp.Gallowsgrey=Gallowsgrey
+got.wp.GALLOWSGREY=Gallowsgrey
 got.wp.GARNETGROVE.info=Castillo de la casa caballeresca de Pommingen, vasallos de los Tyrell.
-got.wp.GarnetGrove=Garnet Grove
+got.wp.GARNETGROVE=Garnet Grove
 got.wp.GATE_OF_THE_MOON.info=La residencia de invierno de los Arryn, donde el Alto Señor del Valle, su familia y sus sirvientes descienden para vivir durante el invierno cuando el Nido del Águila alpina queda deshabitado. El castillo está dirigido por Royce House de the Moongate.
-got.wp.GateOfTheMoon=Puerta de la luna
+got.wp.GATE_OF_THE_MOON=Puerta de la luna
 got.wp.GHASTON_GREY.info=Un pequeño pueblo con una fortaleza miserable, donde los Martells exilian a criminales de sangre noble. Garin y Andrew Dalt están encarcelados en la fortaleza por su participación en la conspiración de Arianna.
-got.wp.GhastonGrey=Gris Ghaston
+got.wp.GHASTON_GREY=Gris Ghaston
 got.wp.GHOST_HILL.info=El castillo de la casa de los Tolands, vasallos de los Martells.
-got.wp.GhostHill=Colina fantasma
+got.wp.GHOST_HILL=Colina fantasma
 got.wp.GHOYAN_DROHE.info=Pequeño pueblo de Roinar en Andalos con fuentes y flores. Fue reducido a ruinas durante las conquistas de Valyrian. Hoy su población es pequeña y pobre.
-got.wp.GhoyanDrohe=Ghoyan Drohe
+got.wp.GHOYAN_DROHE=Ghoyan Drohe
 got.wp.GHOZAI.info=Un pueblo de esclavos fundado por el pueblo Giscari. Destruido por una ola gigante durante el cataclismo conocido como la Roca de Valyria. Solo sobrevivieron las pirámides de Ghiskar.
-got.wp.Ghozai=Ghozai
+got.wp.GHOZAI=Ghozai
 got.wp.GODSGRACE.info=El castillo de la casa de los Allirion, vasallos de los Martells.
-got.wp.Godsgrace=La gracia de Dios
+got.wp.GODSGRACE=La gracia de Dios
 got.wp.GOGOSSOS.info=Originalmente la ciudad de Giskari de Gorgai, capturada por Valyria. Aquí los Valyrians dieron a sus hechiceros carta blanca completa para experimentar con humanos, e hicieron horribles abominaciones hasta que Valyria cayó. Después de Doom, Gogossos se convirtió en uno de los centros del comercio de esclavos y reclamó el título de la Décima Ciudad Libre hasta que una terrible epidemia la destruyó.
-got.wp.Gogossos=Gogossos
-got.wp.GOLDEN_HEAD.info=Asentamiento en la península de la mayor de las Islas del Verano.
-got.wp.GoldenHead=Cabeza dorada
-got.wp.GOLDEN_TOOTH.info=Una fortaleza que protege las tierras occidentales de los ataques del este. Pertenece a la Casa de los Lefford, vasallos de los Lannister.
-got.wp.GoldenTooth=Diente de oro
+got.wp.GOGOSSOS=Gogossos
 got.wp.GOLDENGROVE.info=El castillo de la casa de los Rowans, vasallos de los Tyrell.
-got.wp.Goldengrove=Goldengrove
+got.wp.GOLDENGROVE=Goldengrove
 got.wp.GOLDENHILL.info=Las ruinas de la colina son un lugar clásico para cualquier leyenda, ¿no?
-got.wp.Goldenhill=Goldenhill
+got.wp.GOLDENHILL=Goldenhill
+got.wp.GOLDEN_HEAD.info=Asentamiento en la península de la mayor de las Islas del Verano.
+got.wp.GOLDEN_HEAD=Cabeza dorada
+got.wp.GOLDEN_TOOTH.info=Una fortaleza que protege las tierras occidentales de los ataques del este. Pertenece a la Casa de los Lefford, vasallos de los Lannister.
+got.wp.GOLDEN_TOOTH=Diente de oro
 got.wp.GOLDGRASS.info=El castillo de la casa de los Stout, vasallos de los Dustins.
-got.wp.Goldgrass=Goldgrass
+got.wp.GOLDGRASS=Goldgrass
 got.wp.GOROSH.info=La ciudad donde los Giscari exiliaron a los criminales a trabajos forzados. Las enfermedades de Sotorio y las criaturas terribles, que destruyeron muchas otras ciudades, se sumaron al arduo trabajo.
-got.wp.Gorosh=Gorosh
+got.wp.GOROSH=Gorosh
 got.wp.GRANDVIEW.info=El castillo ancestral de la Casa de Grandison. Después de que Robert convocó estandartes contra Aerys el Loco, Lord Fell, Kafferen y Grandison eligieron a los Targaryen sobre su señor supremo. Al conocerse, Lord Grandison fue víctima del encanto de Robert y se acercó a él.
-got.wp.Grandview=Grandview
+got.wp.GRANDVIEW=Grandview
 got.wp.GRASSY_VALE.info=Castillo de Lugovin y el pueblo de Lugovy Dol a su alrededor. Tierras de prados ..
-got.wp.GrassyVale=Grassy Vale
+got.wp.GRASSY_VALE=Grassy Vale
 got.wp.GREENFIELD.info=El castillo de la Casa de Greenfield, vasallo de los Lannister.
-got.wp.Greenfield=Greenfield
+got.wp.GREENFIELD=Greenfield
 got.wp.GREENGUARD.info=Uno de los castillos abandonados de la Guardia de la Noche.
-got.wp.Greenguard=Greenguard
+got.wp.GREENGUARD=Greenguard
 got.wp.GREENSHIELD.info=Una de las Islas Escudo, posesión de los Chesters, vasallos de los Tyrell. Posteriormente, Euron cedió la isla a Maron Walmark.
-got.wp.Greenshield=Greenshield
+got.wp.GREENSHIELD=Greenshield
 got.wp.GREENSTONE.info=El castillo de la casa de los Estermonts, vasallos de los Baratheons.
-got.wp.Greenstone=Diorita
-got.wp.GREY_GALLOWS.info=Una de las islas del archipiélago Steps.
-got.wp.GreyGallows=Horca gris
-got.wp.GREY_GARDEN.info=El castillo es una rama menor de la Casa Harlow, vasallos del Elder Harlow.
-got.wp.GreyGarden=Jardín gris
-got.wp.GREY_GLEN.info=El castillo de la casa de los Tolletts, vasallos de los Royce.
-got.wp.GreyGlen=Grey Glen
+got.wp.GREENSTONE=Diorita
 got.wp.GREYGUARD.info=Uno de los castillos abandonados de la Guardia de la Noche. No muy lejos del castillo, Jon Snow cruzó el Muro con el escuadrón de Stear; más tarde, el 998º Lord Comandante de la Guardia de la Noche envió una guarnición aquí para reconstruir.
-got.wp.Greyguard=Greyguard
+got.wp.GREYGUARD=Greyguard
 got.wp.GREYIRON_CASTLE.info=El castillo de la extinta Casa de los Greyarons.
-got.wp.GreyironCastle=Castillo Greyiron
+got.wp.GREYIRON_CASTLE=Castillo Greyiron
 got.wp.GREYWATER_WATCH.info=Castillo ancestral de la Casa Reed, vasallos de los Starks. Se mueve constantemente (sea lo que sea que eso signifique) y no puede ser detectado por los enemigos de los Reeds.
-got.wp.GreywaterWatch=Reloj de aguas grises
+got.wp.GREYWATER_WATCH=Reloj de aguas grises
+got.wp.GREY_GALLOWS.info=Una de las islas del archipiélago Steps.
+got.wp.GREY_GALLOWS=Horca gris
+got.wp.GREY_GARDEN.info=El castillo es una rama menor de la Casa Harlow, vasallos del Elder Harlow.
+got.wp.GREY_GARDEN=Jardín gris
+got.wp.GREY_GLEN.info=El castillo de la casa de los Tolletts, vasallos de los Royce.
+got.wp.GREY_GLEN=Grey Glen
 got.wp.GRIFFINS_ROOST.info=Un castillo ancestral bien fortificado de la Casa Connington, vasallos de los Baratheons.
-got.wp.GriffinsRoost=Gallinero de los grifos
+got.wp.GRIFFINS_ROOST=Gallinero de los grifos
 got.wp.GRIMSTON.info=El castillo de la Casa de Grimm, vasallos de los Tyrell, en el Escudo Gris.
-got.wp.Grimston=Grimston
+got.wp.GRIMSTON=Grimston
 got.wp.GULLTOWN.info=Una de las cinco ciudades más grandes de Westeros y un puerto. La ciudad está gobernada por la casa de Grafton, vasallos de Arryn. Los representantes de la rama más joven de Arryn también viven aquí. Cuando llega el invierno y las carreteras de montaña se vuelven intransitables, la conexión del Valle con el resto del mundo se mantiene por mar a través de la ciudad de Chayach.
-got.wp.Gulltown=Gulltown
+got.wp.GULLTOWN=Gulltown
 got.wp.HAMMERHAL.info=El castillo de la casa de los Cordweiners, vasallos de los Tyrell.
-got.wp.Hammerhal=Hammerhal
+got.wp.HAMMERHAL=Hammerhal
 got.wp.HAMMERHORN.info=El castillo de la casa de los buenos hermanos, vasallos de los Greyjoys. El castillo más alejado del mar de todas las Islas del Hierro.
-got.wp.Hammerhorn=Hammerhorn
+got.wp.HAMMERHORN=Hammerhorn
 got.wp.HARDHOME.info=Los salvajes no reconocen las leyes, por lo tanto no pueden vivir en ciudades, prefiriendo establecerse en pequeñas aldeas. La Casa Severa es su asentamiento más grande, casi una ciudad que pereció hace casi seis siglos debido a un desastre desconocido. Después de la derrota de Mance, la bruja del bosque anunció que el rescate esperaba en las ruinas de los salvajes.
-got.wp.Hardhome=Casa dura
+got.wp.HARDHOME=Casa dura
 got.wp.HARLAW_HALL.info=Una vez que el castillo de la rama más antigua de la Casa de Harlow. Un antiguo castillo con muros húmedos, al que Lord Theomore Harlow culpó de la muerte de los herederos y, por lo tanto, decidió reconstruir un nuevo castillo: las Diez Torres. El viejo Harlowhall acudió a las ramas más jóvenes de la familia.
-got.wp.HarlawHall=Harlaw Hall
+got.wp.HARLAW_HALL=Harlaw Hall
 got.wp.HARRENHAL.info=Un castillo en ruinas de tamaño colosal, para cuya construcción Harren el Negro asoló y se llevó a los campesinos del río para trabajar. Tan pronto como se terminó el castillo, Aegon el Conquistador invadió Poniente, y el rebelde Harren y su familia fueron quemados vivos en llamas de dragón en una de las torres. Dicen que Harren y su familia se convirtieron en espíritus malignos. Sea cierto o no, ninguno de los nuevos propietarios permanece en el castillo durante mucho tiempo.
-got.wp.Harrenhal=Harrenhal
+got.wp.HARRENHAL=Harrenhal
 got.wp.HARRIDAN_HILL.info=El castillo es una rama menor de la Casa Harlow, vasallos del Elder Harlow.
-got.wp.HarridanHill=Harridan Hill
+got.wp.HARRIDAN_HILL=Harridan Hill
 got.wp.HARROWAY.info=Un pequeño pueblo situado en el cruce del Tridente. El nombre de la extinta familia Harrowey. Hoy en día las Ruth gobiernan aquí.
-got.wp.Harroway=Harroway
+got.wp.HARROWAY=Harroway
 got.wp.HARVEST_HALL.info=El castillo de la casa de Selmy, los vasallos de los Baratheons. Aquí nació el legendario Barristan Selmy.
-got.wp.HarvestHall=Salón de la cosecha
+got.wp.HARVEST_HALL=Salón de la cosecha
 got.wp.HAUAURU.info≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
-got.wp.Hauauru≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
+got.wp.HAUAURU≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
 got.wp.HAYFORD.info=Castle House Hayford de las Tierras Reales. Aquí Jaime Lannister comenzó a entrenar con Elin Payne.
-got.wp.Hayford=Hayford
+got.wp.HAYFORD=Hayford
 got.wp.HAYSTACK_HALL.info=Castillo ancestral de la Casa Errol, vasallos de los Baratheons. En la Guerra de los Cinco Reyes, se apoyó a Renly y luego a Stannis.
-got.wp.HaystackHall=Pasillo del pajar
+got.wp.HAYSTACK_HALL=Pasillo del pajar
 got.wp.HEARTS_HOME.info=El castillo de la antigua pero pobre casa de Corbreuil, vasallos de la casa de Arryn. Esta es una de las pocas casas en el Valle que permanecieron leales a los Targaryen durante la Rebelión de Baratheon (sin embargo, no por mucho tiempo). Los antepasados de Petyr Baelish fueron mercenarios al servicio de los Corbrei.
-got.wp.HeartsHome=Corazones Inicio
+got.wp.HEARTS_HOME=Corazones Inicio
 got.wp.HELLHOLT.info=El nido ancestral de los Uller. Dicen que Reinis Targaryen, la amada hermana de Aegon el Señor de los Dragones, quien más tarde derramó mucha sangre dorniana por venganza, murió aquí en agonía.
-got.wp.Hellholt=Hellholt
+got.wp.HELLHOLT=Hellholt
 got.wp.HESH.info=Una de las ciudades de Lhazar, conectada al paso de Mierin Khizay. Probablemente Daario Naharis llegó aquí con una oferta de paz y amistad de la reina Meeren Daenerys Targaryen.
-got.wp.Hesh=Hesh
-got.wp.LORD_HEWETTS_TOWN.info=Una ciudad portuaria con el castillo de Hewatt House en Oak Shield Island.
-got.wp.HewettTown=Ciudad de Hewett
-got.wp.HIGH_HERMITAGE.info=El castillo de la rama más joven de House Dane.
-got.wp.HighHermitage=Ermita de Hegh
-got.wp.HIGH_TIDE.info=El nuevo castillo ancestral del Velarion; construido por el legendario Corlis Velarion en lugar de la antigua propiedad familiar - Driftmark.
-got.wp.HighTide=La marea alta
+got.wp.HESH=Hesh
 got.wp.HIGHGARDEN.info=Castillo ancestral de la Casa Tyrell, Señores de la Expansión y Guardianes del Sur. Durante miles de años, Highgarden perteneció a los Reyes Verdes de la Expansión, pero Aegon el Conquistador maduró y todo se derrumbó: después de la muerte del último Gardner en el campo de batalla, su mayordomo Tyrell rindió el castillo y se arrodilló ante los Targaryen. esto se instaló en Highgarden como maestro y comenzó a gobernar la Expansión ...
-got.wp.Highgarden=Highgarden
+got.wp.HIGHGARDEN=Highgarden
 got.wp.HIGHPOINT.info=El castillo es el hogar de los Whitehills, vasallos de los Bolton.
-got.wp.Highpoint=Punto álgido
+got.wp.HIGHPOINT=Punto álgido
 got.wp.HIGHTOWER_LITEHOUSE.info=El edificio más alto del Casco Antiguo, ubicado en la isla.
-got.wp.HightowerLitehouse=Oldtown Litehouse
+got.wp.HIGHTOWER_LITEHOUSE=Oldtown Litehouse
+got.wp.HIGH_HERMITAGE.info=El castillo de la rama más joven de House Dane.
+got.wp.HIGH_HERMITAGE=Ermita de Hegh
+got.wp.HIGH_TIDE.info=El nuevo castillo ancestral del Velarion; construido por el legendario Corlis Velarion en lugar de la antigua propiedad familiar - Driftmark.
+got.wp.HIGH_TIDE=La marea alta
 got.wp.HOARE_CASTLE.info=El primer castillo de la extinta casa de los Hoare.
-got.wp.HoareCastle=Castillo de Hoare
+got.wp.HOARE_CASTLE=Castillo de Hoare
 got.wp.HOARE_KEEP.info=El segundo castillo de la extinta casa de los Hoare.
-got.wp.HoareKeep=Hoare Keep
+got.wp.HOARE_KEEP=Hoare Keep
 got.wp.HOARFROST_HILL.info=Uno de los castillos abandonados de la Guardia de la Noche. El 998º Lord Comandante de la Guardia de la Noche planeaba entregar el castillo a uno de los jefes salvajes para su restauración, pero no lo consiguió.
-got.wp.HoarfrostHill=Colina de escarcha
+got.wp.HOARFROST_HILL=Colina de escarcha
 got.wp.HOGG_HALL.info=El castillo fue quemado por Vhagar durante la Danza de los Dragones.
-got.wp.HoggHall=Salón Hogg
+got.wp.HOGG_HALL=Salón Hogg
 got.wp.HOJDBAATAR.info≠Capital camp of Jogos Nhai. The name means "Northern Warrior"
-got.wp.Hojdbaatar=Hojdbaatar
+got.wp.HOJDBAATAR=Hojdbaatar
 got.wp.HOLLARD_CASTLE.info=Las ruinas del castillo de Hollard, destruidas como castigo por capturar a Aerys el Loco.
-got.wp.HollardCastle=Castillo de Hollard
+got.wp.HOLLARD_CASTLE=Castillo de Hollard
 got.wp.HOLLOW_HILL.info=El escondite de Berik Dondarrion, líder de la Hermandad-sin-Banderas.
-got.wp.HollowHill=Hollow Hill
+got.wp.HOLLOW_HILL=Hollow Hill
 got.wp.HOLYHALL.info=Castillo ancestral de los Graysfords, vasallos de los Tyrell.
-got.wp.Holyhall=Holyhall
+got.wp.HOLYHALL=Holyhall
 got.wp.HONEYHOLT.info=El castillo ancestral de Bisbury, cuyo linaje se remonta al legendario Garth Greenhand a través de su hija, la apicultora Ellen.
-got.wp.Honeyholt=Honeyholt
-got.wp.HORN_HILL.info=El fuerte castillo de la casa Tarli. La naturaleza jugó una broma cruel con Randill Tarly: él mismo fue un militar que se convirtió en el padre de Samwell Tarly, inteligente, valiente, pero demasiado pacífico y gordo.
-got.wp.HornHill=Horn Hill
+got.wp.HONEYHOLT=Honeyholt
 got.wp.HORNOTH.info=Ciudad de Sarnor destruida por los Dothraki.
-got.wp.Hornoth=Hornoth
+got.wp.HORNOTH=Hornoth
 got.wp.HORNVALE.info=Castillo ancestral de los Brax, vasallos de los Lannister.
-got.wp.Hornvale=Hornvale
+got.wp.HORNVALE=Hornvale
 got.wp.HORNWOOD.info=Castillo ancestral de la Casa Hornwood, vasallos de los Starks. Ahora el clan ha terminado, y Ramsay Bolton reclama la tierra, quien tomó por la fuerza a la última viuda de Hornwood como su esposa, y Manderly, quien estaba relacionado con ella y se apoderó del castillo después de que Ramsey se mudó a Winterfell.
-got.wp.Hornwood=Hornwood
+got.wp.HORNWOOD=Hornwood
+got.wp.HORN_HILL.info=El fuerte castillo de la casa Tarli. La naturaleza jugó una broma cruel con Randill Tarly: él mismo fue un militar que se convirtió en el padre de Samwell Tarly, inteligente, valiente, pero demasiado pacífico y gordo.
+got.wp.HORN_HILL=Horn Hill
 got.wp.HUIJI.info=Uno de los puertos del sur del Imperio Dorado.
-got.wp.Huiji=Huiji
+got.wp.HUIJI=Huiji
 got.wp.HULL.info=Una ciudad portuaria, posiblemente con muelles, como sugiere el nombre.
-got.wp.Hull=Cáscara
-got.wp.IB_NOR.info=Ciudad ibbeniana, de la que no se sabe nada.
-got.wp.IbNor=Ib ni
-got.wp.IB_SAR.info=Una ciudad atrofiada de ibbenianos, que sirvió como lugar de exilio para criminales previamente lisiados. Cuando cayó la monarquía en Port Ibben, la costumbre fue abolida, pero la ciudad permaneció atrofiada y sombría.
-got.wp.IbSar=Ib Sar
+got.wp.HULL=Cáscara
 got.wp.IBBISH.info=Una de las dos colonias de los ibbenianos, erigida en las tierras de los Ifekevrons. Pronto, sin embargo, los Dothraki comenzaron a frecuentar la próspera colonia. Dicen que sucedió tan pronto como los ibbenianos cortaron los últimos árboles del bosque de Ifekevron, que los Dothraki evitaron. Durante muchos años, los ibbenianos lucharon, ganaron y reconstruyeron después de las derrotas, hasta que se les acabó la paciencia y huyeron de la ciudad de una vez por todas frente a Khal Dhako, quien con ira saqueó y quemó a Ibbish. Desde entonces, la ciudad se llama Vaez Aresek, la ciudad de los cobardes.
-got.wp.Ibbish=Ibbish
+got.wp.IBBISH=Ibbish
+got.wp.IB_NOR.info=Ciudad ibbeniana, de la que no se sabe nada.
+got.wp.IB_NOR=Ib ni
+got.wp.IB_SAR.info=Una ciudad atrofiada de ibbenianos, que sirvió como lugar de exilio para criminales previamente lisiados. Cuando cayó la monarquía en Port Ibben, la costumbre fue abolida, pero la ciudad permaneció atrofiada y sombría.
+got.wp.IB_SAR=Ib Sar
 got.wp.ICEMARK.info=Uno de los castillos abandonados de la Guardia de la Noche. El 998º Lord Comandante de la Guardia de la Noche envió una guarnición aquí bajo el mando del Vigilant Bedwick el Gigante para reconstruir el castillo.
-got.wp.Icemark=Icemark
-got.wp.IRON_HOLT.info=El castillo de la casa de los Vinches, los vasallos de los Greyjoys.
-got.wp.IronHolt=Iron Holt
+got.wp.ICEMARK=Icemark
 got.wp.IRONOAKS.info=Castillo de la Casa Waynewood, vasallos de la Casa Arryn. House ha abogado activamente por unirse a la Guerra de los Cinco Reyes del lado de Robb Stark. Después de la muerte de Lisa, Arryn se opuso a Petyr Baelish. Harold Harding, el primero en la fila del Nido del Águila en caso de la muerte del enfermo Robert Arryn, está siendo criado por Lady Waynewood.
-got.wp.IronOak=Roble de hierro
+got.wp.IRONOAKS=Roble de hierro
 got.wp.IRONRATH.info=El castillo de la casa de los Forresters, vasallos de los Glovers.
-got.wp.Ironrath=Ironrath
+got.wp.IRONRATH=Ironrath
+got.wp.IRON_HOLT.info=El castillo de la casa de los Vinches, los vasallos de los Greyjoys.
+got.wp.IRON_HOLT=Iron Holt
 got.wp.ISLE_OF_FACES.info=Según los rumores, la gente verde vive aquí, en la isla de Likov en medio del lago del Ojo de Dios, ¿tal vez son los Hijos del Bosque? Fue aquí donde los Hijos del Bosque y las Primeras Personas se reunieron después de largos años de batallas e hicieron la paz, que pasó a la historia como el Tratado.
-got.wp.IsleOfFaces=Isla de las Caras
+got.wp.ISLE_OF_FACES=Isla de las Caras
 got.wp.ISLE_OF_WHIPS.info=Una isla de esclavos y un enorme mercado de esclavos para esclavos de todo tipo. Isla rocosa sombría.
-got.wp.IsleOfWhips=Isla de los látigos
+got.wp.ISLE_OF_WHIPS=Isla de los látigos
 got.wp.IVY_HALL.info=El castillo de la casa de los Kidwell, vasallos de los Tyrell.
-got.wp.IvyHall=Ivy Hall
+got.wp.IVY_HALL=Ivy Hall
 got.wp.JIANMEN.info≠One of the fortresses of the Great Yi Ti Wall. There was a large prison for prisoners. Today it is empty because nomads do not risk storming the wall.
-got.wp.Jianmen≠One of the fortresses of the Great Yi Ti Wall. There was a large prison for prisoners. Today it is empty because nomads do not risk storming the wall.
+got.wp.JIANMEN≠One of the fortresses of the Great Yi Ti Wall. There was a large prison for prisoners. Today it is empty because nomads do not risk storming the wall.
 got.wp.JINQI.info=Ciudad de Ithian construida para defender el imperio de las incursiones. Capital bajo los emperadores borgoña Yi Ti.
-got.wp.Jinqi=Jinqi
-got.wp.K_DATH.info=Una ciudad supuestamente más antigua que el tiempo mismo. Aquí florecen los sacrificios sangrientos y, al parecer, en tal cantidad que los dioses locales son considerados locos, e incluso los shriks tienen miedo de las ciudades.
-got.wp.KDath=K Dath
+got.wp.JINQI=Jinqi
 got.wp.KADAR.info=Enormes ruinas en el corazón de Mossia. No se sabe de qué quedaron, pero están hechos de la misma piedra negra que cinco fortalezas. Acertijo ...
-got.wp.Kadar=Kadar
+got.wp.KADAR=Kadar
 got.wp.KANDUU_BET.info≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
-got.wp.KanduuBet≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
+got.wp.KANDUU_BET≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
 got.wp.KARHOLD.info=Karhold y las tierras a su alrededor fueron otorgadas por el Rey del El Norte a su hijo menor Carlon Stark como recompensa por derrotar al señor rebelde. Con el tiempo, los Stark de Karhold se convirtieron en Karstarks, pero siguieron siendo una de las casas más devotas de los Stark.
-got.wp.Karhold=Karhold
+got.wp.KARHOLD=Karhold
 got.wp.KARIMAGAR.info≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
-got.wp.Karimagar≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
+got.wp.KARIMAGAR≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
 got.wp.KAYAKAYANAYA.info=Una de las últimas ciudades que surgieron alrededor de la ciudadela, construida para proteger el feudo de Hirkun de las incursiones; el reino cayó en decadencia después del mar seco, pero las belicosas Amazonas aún vigilan al guardia.
-got.wp.Kayakayanaya=Kayakayanaya
+got.wp.KAYAKAYANAYA=Kayakayanaya
 got.wp.KAYCE.info=Una vez que el cuartel general de Ironborn, más tarde conquistado por los reyes del acantilado con la ayuda de los aventureros Kenning y Harlow. Desde entonces, la ciudad ha sido parte de las Tierras del Oeste, y los Kenning han sido vasallos de los Lannister. Los comerciantes adinerados suelen visitar este lugar.
-got.wp.Kayce=Kayce
-got.wp.KINGS_LANDING.info=Capital de los Siete Reinos. Construido por orden de Aegon el Conquistador en el lugar donde aterrizó por primera vez y donde construyó Aegonfort. Al del reinado, Aegon I ordenó demoler la antigua fortaleza de Madera y comenzó la construcción del Castillo Rojo, la residencia de los reyes del nuevo estado. Royal Harbour es una importante ciudad portuaria.
-got.wp.KingsLanding=Desembarco del Rey
+got.wp.KAYCE=Kayce
 got.wp.KINGSGRAVE.info=Castillo ancestral de la casa Manvudi. El último rey de la Casa de Manwudi, que se declaró rey de las Montañas Rojas, fue al Muro en cadenas de oro, junto con otros cinco reyes capturados y depuestos por Nymeria. El castillo recibió su nombre porque se convirtió en la tumba de uno de los reyes de la Expansión.
-got.wp.Kingsgrave=Kingsgrave
+got.wp.KINGSGRAVE=Kingsgrave
 got.wp.KINGSHOUSE.info=La finca familiar de los Magnars de Skagos. Del dialecto antiguo "magnar"significa "señor".
-got.wp.Kingshouse=Kingshouse
+got.wp.KINGSHOUSE=Kingshouse
+got.wp.KINGS_LANDING.info=Capital de los Siete Reinos. Construido por orden de Aegon el Conquistador en el lugar donde aterrizó por primera vez y donde construyó Aegonfort. Al del reinado, Aegon I ordenó demoler la antigua fortaleza de Madera y comenzó la construcción del Castillo Rojo, la residencia de los reyes del nuevo estado. Royal Harbour es una importante ciudad portuaria.
+got.wp.KINGS_LANDING=Desembarco del Rey
+got.wp.KOHURU.info≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
+got.wp.KOHURU≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
+got.wp.KOJ.info=El astillero más grande de Summer Islands.
+got.wp.KOJ=Koj
+got.wp.KORKUNUCHTUU.info≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
+got.wp.KORKUNUCHTUU≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
+got.wp.KOSRAK.info=Una de las ciudades de Lkhazar.
+got.wp.KOSRAK=Kosrak
+got.wp.KRAZAAJ_HAS.info=La antigua ciudad de Gardak en Ghiskar. Quizás los Dothraki dieron el nombre de "montañas afiladas"a las ruinas ya destruidas, admirando la forma de sus pirámides, quizás la ciudad sobrevivió a la conquista y muerte de Valyria, y fue saqueada por los Dothraki.
+got.wp.KRAZAAJ_HAS=Krazaaj tiene
+got.wp.KUJRUK.info≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
+got.wp.KUJRUK≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
+got.wp.KUURULGAN.info≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
+got.wp.KUURULGAN≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
+got.wp.KYTH.info=Ciudad de Sarnor destruida por los Dothraki.
+got.wp.KYTH=Kyth
+got.wp.K_DATH.info=Una ciudad supuestamente más antigua que el tiempo mismo. Aquí florecen los sacrificios sangrientos y, al parecer, en tal cantidad que los dioses locales son considerados locos, e incluso los shriks tienen miedo de las ciudades.
+got.wp.K_DATH=K Dath
 got.wp.KissLock.info=Castillo de los Caballeros de Calaveras y Besos.
 got.wp.KissLock=Beso de bloqueo
-got.wp.KOHURU.info≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
-got.wp.Kohuru≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
-got.wp.KOJ.info=El astillero más grande de Summer Islands.
-got.wp.Koj=Koj
-got.wp.KORKUNUCHTUU.info≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
-got.wp.Korkunuchtuu≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
-got.wp.KOSRAK.info=Una de las ciudades de Lkhazar.
-got.wp.Kosrak=Kosrak
-got.wp.KRAZAAJ_HAS.info=La antigua ciudad de Gardak en Ghiskar. Quizás los Dothraki dieron el nombre de "montañas afiladas"a las ruinas ya destruidas, admirando la forma de sus pirámides, quizás la ciudad sobrevivió a la conquista y muerte de Valyria, y fue saqueada por los Dothraki.
-got.wp.KrazaajHas=Krazaaj tiene
-got.wp.KUJRUK.info≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
-got.wp.Kujruk≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
-got.wp.KUURULGAN.info≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
-got.wp.Kuurulgan≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
-got.wp.KYTH.info=Ciudad de Sarnor destruida por los Dothraki.
-got.wp.Kyth=Kyth
 got.wp.LANNISPORT.info=La tercera ciudad más poblada de Westeros después de la capital y el casco antiguo; el puerto y ciudad industrial más importante de las Tierras Occidentales. Es famoso por sus artesanos, especialmente los orfebres y herreros del oro. La ciudad está gobernada por la rama menor de Lannister.
-got.wp.Lannisport=Lannisport
+got.wp.LANNISPORT=Lannisport
 got.wp.LAST_HEARTH.info=El castillo de la casa de Amber, vasallos de los Stark.
-got.wp.LastHearth=Último hogar
+got.wp.LAST_HEARTH=Último hogar
 got.wp.LAST_LAMENT.info=Una ciudad con un gran puerto en la isla de Volano.
-got.wp.LastLament=Último lamento
+got.wp.LAST_LAMENT=Último lamento
 got.wp.LEMONWOOD.info=El castillo de la casa caballeresca de los Dalt, vasallos de los Martell.
-got.wp.Lemonwood=Lemonwood
+got.wp.LEMONWOOD=Lemonwood
 got.wp.LENG_MA.info=Ciudad de Langi, luego capturada por los itios. Incluso después de que Langa recuperó la independencia, la ciudad siguió siendo étnicamente ithiana.
-got.wp.LengMa=Leng Ma
+got.wp.LENG_MA=Leng Ma
 got.wp.LENG_YI.info=Ciudad de Langi, luego capturada por los itios. Incluso después de que Langa recuperó la independencia, la ciudad siguió siendo étnicamente ithiana.
-got.wp.LengYi=Leng Yi
+got.wp.LENG_YI=Leng Yi
 got.wp.LESSER_MORAQ.info=No se sabe nada sobre la isla excepto su posición.
-got.wp.LesserMoraq=Moraq menor
+got.wp.LESSER_MORAQ=Moraq menor
 got.wp.LHAZOSH.info=Una de las ciudades de Lkhazar.
-got.wp.Lhazosh=Lhazosh
+got.wp.LHAZOSH=Lhazosh
 got.wp.LITTLE_VALYRIA.info=Un antiguo puerto valyrio pequeño, empobrecido.
-got.wp.LittleValyria=Pequeña Valyria
+got.wp.LITTLE_VALYRIA=Pequeña Valyria
 got.wp.LIZARD_HEAD.info=Un pequeño asentamiento en la isla del mismo nombre. Es el asentamiento más oriental de las Islas del Verano.
-got.wp.LizardHead=Cabeza de lagarto
+got.wp.LIZARD_HEAD=Cabeza de lagarto
 got.wp.LIZHAO.info=Ciudad gemela de Yibin. La ciudad más oriental del "Viejo Imperio", es decir, la última ciudad al oeste del Río Dorado.
-got.wp.Lizhao=Lizhao
+got.wp.LIZHAO=Lizhao
 got.wp.LONELY_LIGHT.info=La más pequeña y remota de todas las Islas del Hierro, hogar del castillo de la Casa Farwind, que se dice que puede convertirse en leones marinos, morsas e incluso ballenas.
-got.wp.LonelyLight=Luz solitaria
-got.wp.THE_LONG_BARROW.info=El castillo vacío de la Guardia de la Noche, donde Mance cruzó la muralla para asistir a una fiesta en Invernalia en honor a la llegada del Rey Robert. Más tarde, el 998 ° Lord Comandante de la Guardia de la Noche confió el mando del castillo a Iron Emmett y Sorrowful Edd, y los lanceros de las personas libres se establecieron en él, lo que le dio al castillo su segundo nombre: Shlyukhina Hole.
-got.wp.LongBarrow=Túmulo largo
+got.wp.LONELY_LIGHT=Luz solitaria
 got.wp.LONGBOW_HALL.info=Castillo de House Hunter, vasallos de House Arryn. Después de la muerte de John Arryn, el anciano jefe de los Cazadores cortejó a Lisa Arryn, pero fue en vano.
-got.wp.LongbowHall=Salón del arco largo
+got.wp.LONGBOW_HALL=Salón del arco largo
 got.wp.LONGTABLE.info=Castillo ancestral del Merryweather. La casa una vez rica permaneció leal a los Targaryen. Para ello, la nueva dinastía les privó de la mayor parte de las tierras y del título, que luego devolvieron, pero casi nada quedó de las tierras.
-got.wp.Longtable=Mesa larga
+got.wp.LONGTABLE=Mesa larga
 got.wp.LORATH.info=Una de las Ciudades Libres, la más pobre de todas. Las islas Lorat se caracterizan por sus enormes laberintos de piedra construidos por una raza extinta. Yaken Hgar afirmó ser de aquí.
-got.wp.Lorath=Lorath
+got.wp.LORATH=Lorath
 got.wp.LORDSPORT.info=La ciudad más grande de las Islas del Hierro, la posesión de la Casa de Botley, vasallos de los Greyjoys.
-got.wp.Lordsport=Lordsport
+got.wp.LORDSPORT=Lordsport
+got.wp.LORD_HEWETTS_TOWN.info=Una ciudad portuaria con el castillo de Hewatt House en Oak Shield Island.
+got.wp.LORD_HEWETTS_TOWN=Ciudad de Hewett
 got.wp.LOTUS_POINT.info=Tranquilo pueblo costero de veraneantes.
-got.wp.LotusPoint=Lotus Point
+got.wp.LOTUS_POINT=Lotus Point
 got.wp.LUNGMEN.info≠In the old days, this fortress trained not ordinary frontier soldiers, but kung fu masters, testing whether unclothed fighters could defend the wall. How that story ended is unknown.
-got.wp.Lungmen≠In the old days, this fortress trained not ordinary frontier soldiers, but kung fu masters, testing whether unclothed fighters could defend the wall. How that story ended is unknown.
+got.wp.LUNGMEN≠In the old days, this fortress trained not ordinary frontier soldiers, but kung fu masters, testing whether unclothed fighters could defend the wall. How that story ended is unknown.
 got.wp.LYS.info=Una de las Ciudades Libres. Ampliamente conocido por sus costosos burdeles y sus sofisticadas sacerdotisas del amor.
-got.wp.Lys=Lys
+got.wp.LYS=Lys
 got.wp.MAIDENPOOL.info=La ciudad del castillo es propiedad de Mouton House. La ciudad debe su nombre al antiguo estanque del cuento de hadas Florian el Loco y el hermoso Jonquil.
-got.wp.Maidenpool=Poza de la Doncella
+got.wp.MAIDENPOOL=Poza de la Doncella
 got.wp.MANJIN.info=Una ciudad cercana a la jungla. Se considera una de las primeras ciudades del Imperio del Amanecer, pero Baozi niega este hecho.
-got.wp.Manjin=Manjin
+got.wp.MANJIN=Manjin
 got.wp.MANTARYS.info=Fundada por los Valyrians, una ciudad esclava donde, después de la Perdición de Valyria, nacen niños retorcidos y terribles. Aliado con Yunkai contra Daenerys.
-got.wp.Mantarys=Mantarys
+got.wp.MANTARYS=Mantarys
 got.wp.MANTICORE_ISLES.info=El grupo de islas del Mar de Jade. Casi no hay gente aquí, pero las mantícoras mortales se encuentran en abundancia.
-got.wp.ManticoreIsles=Islas Manticore
+got.wp.MANTICORE_ISLES=Islas Manticore
 got.wp.MARAHAI.info=Isla paradisíaca en forma de media luna. Hay dos islas con volcanes activos en la bahía. Puede parecer extraño que estallen día y noche y nunca se duerman.
-got.wp.Marahai=Marahai
+got.wp.MARAHAI=Marahai
 got.wp.MARSHES.info≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
-got.wp.Marshes≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
+got.wp.MARSHES≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
 got.wp.MATAHAU.info≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
-got.wp.Matahau≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
+got.wp.MATAHAU≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
 got.wp.MATAO.info≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
-got.wp.Matao≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
+got.wp.MATAO≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
 got.wp.MAUNGA.info≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
-got.wp.Maunga≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
+got.wp.MAUNGA≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
 got.wp.MEEREEN.info=Uno de los tres centros del comercio de esclavos en la Bahía de los esclavistas junto con Astapor y Yunkai. La ciudad fue fundada por gente de Gis. El entretenimiento principal y la base de la prosperidad de la ciudad son los pozos de lucha y el entrenamiento de esclavos para las batallas en la arena. La arena más grande, el Gran Foso de Daznak (un análogo del Coliseo Romano) también se encuentra aquí. Después de la conquista de la ciudad, Daenerys Targaryen abolió la esclavitud y cerró temporalmente los pozos de combate.
-got.wp.Meereen=Meereen
+got.wp.MEEREEN=Meereen
 got.wp.MHYSA_FAER.info=Una de las ciudades coloniales poderosas y ricas del Imperio Valyrio, destruida durante la Perdición de Valyria. "Misa"en el nombre indica el origen giscariano de la ciudad (la posición en el mapa es en gran parte cuestionable).
-got.wp.MhysaFaer=Mhysa Faer
+got.wp.MHYSA_FAER=Mhysa Faer
 got.wp.MISTWOOD.info=El castillo de la casa de los Mertins, vasallos de los Baratheons.
-got.wp.Mistwood=Mistwood
+got.wp.MISTWOOD=Mistwood
 got.wp.MOAT_KAILIN.info=Una antigua fortificación, construida por los Primeros Pueblos al El Norte de los pantanos del Istmo, ahora solo han sobrevivido tres torres. Fue aquí donde la conquista andal del El Norte se detuvo hace muchos siglos, y ahora ha comenzado la conquista del El Norte por los nacidos del hierro. La fortaleza se encuentra en el único pasaje entre el El Norte y el resto de Westeros.
-got.wp.MoatKailin=Foso Cailin
+got.wp.MOAT_KAILIN=Foso Cailin
 got.wp.MOLETOWN.info=Un pequeño pueblo ubicado en la Ruta Real cerca del Castillo Negro.
-got.wp.Moletown=Moletown
+got.wp.MOLETOWN=Moletown
 got.wp.MORMONTS_KEEP.info=El castillo, en cuya puerta está tallada una mujer que amamanta con un hacha.
-got.wp.MormontsKeep=Fortaleza de los mormones
+got.wp.MORMONTS_KEEP=Fortaleza de los mormones
 got.wp.MORNE.info=Ruinas del castillo de uno de los antiguos reyes capturados por los reyes de la tormenta. Es curioso que el nombre del castillo esté en consonancia con la palabra mañana - mañana, y hay ruinas en el este de la isla. Quizás el castillo ancestral de Tartow, el Sunset Castle, ubicado en el oeste, se llame así por una razón.
-got.wp.Morne=Morne
+got.wp.MORNE=Morne
 got.wp.MOROSH.info=Colonia de Loratia, puerto comercial.
-got.wp.Morosh=Morosh
+got.wp.MOROSH=Morosh
 got.wp.MYR.info=Una de las Ciudades Libres, famosa por sus maestros ópticos, quienes, según el maestre Luvin, son incomparables en este oficio. En el lugar donde ahora se encuentra el Mundo, durante la Edad del Amanecer vivían personas que desaparecieron mucho antes de la llegada de los Ándalos; Los mercaderes itinerantes de Valyria fundaron el mundo esclavizando a los ándalos que se establecieron aquí.
-got.wp.Myr=Myr
+got.wp.MYR=Myr
 got.wp.MYRE_CASTLE.info=El castillo de la casa de los Mayers, vasallos de Harlow.
-got.wp.MyreCastle=Castillo de Myre
+got.wp.MYReCastle=Castillo de Myre
 got.wp.NAATH.info=La isla está habitada por un pueblo que se llama Pacíficos por su carácter manso y desprecio por el asesinato. Comen frutas y aman la música. Inozemtsev en la isla fue esperado por una terrible enfermedad, transmitida por mariposas locales. Por lo tanto, los barcos de esclavos comenzaron a atacar la isla de noche, mientras las mariposas dormían, y la gente pacífica se escondió en las profundidades de la isla. Patria de Missandei.
-got.wp.Naath=Naath
+got.wp.NAATH=Naath
 got.wp.NAGGAS_HILL.info=Ruinas de los palacios del Rey Gris, un lugar sagrado en la cultura y la historia de las Islas del Hierro, el sitio de Veche.
-got.wp.NaggaHill=Colina Nagga
+got.wp.NAGGAS_HILL=Colina Nagga
 got.wp.NEFER.info=La última ciudad superviviente del reino de N'Gai. Un refugio para nigromantes y torturadores.
-got.wp.Nefer=Nefer
+got.wp.NEFER=Nefer
 got.wp.NEW_BARREL.info=Castillo ancestral de Fossovey de la rama de la Manzana Verde.
-got.wp.NewBarrel=Barril nuevo
+got.wp.NEW_BARREL=Barril nuevo
 got.wp.NEW_GHIS.info=Un pueblo de esclavos que se unió a la coalición contra Daenerys. Los habitantes libres tienen tres años de servicio militar, donde se les capacita en un programa similar al de los Inmaculados. También hay elefantes en Novy Gis.
-got.wp.NewGhis=Nuevo Ghis
+got.wp.NEW_GHIS=Nuevo Ghis
 got.wp.NEW_IBBISH.info=Una ciudad construida por los ibbenianos después de la caída de Ibbish, en una pequeña península detrás de un muro de Madera solo un poco más pequeño que el Muro de la Guardia de la Noche. Sombra débil en comparación con Ibbish, pero sigue siendo la única colonia de Ibben en el continente.
-got.wp.NewIbbish=Nuevo Ibbish
+got.wp.NEW_IBBISH=Nuevo Ibbish
 got.wp.NGAHERE.info≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
-got.wp.Ngahere≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
+got.wp.NGAHERE≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
 got.wp.NGARARA.info≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
-got.wp.Ngarara≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
-got.wp.NIGHT_KING.info≠A sus canyon in the far north of Westeros
-got.wp.NightKing≠A sus canyon in the far north of Westeros
+got.wp.NGARARA≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
 got.wp.NIGHTFORT.info=El enorme, primer castillo construido y abandonado de la Guardia de la Noche. Hubo muchas leyendas aterradoras sobre el castillo. Aquí, en el Muro, se talló un pasaje más allá del Muro: la Puerta Negra del bosque de brujas.
-got.wp.Nightfort=Nightfort
+got.wp.NIGHTFORT=Nightfort
 got.wp.NIGHTSONG.info=El castillo ancestral de Karon, tomado de ellos a favor de los Pies porque los Karon apoyaron a Stannis contra Joffrey Baratheon.
-got.wp.Nightsong=Nightsong
+got.wp.NIGHTSONG=Nightsong
+got.wp.NIGHT_KING.info≠A sus canyon in the far north of Westeros
+got.wp.NIGHT_KING≠A sus canyon in the far north of Westeros
 got.wp.NINESTARS.info=El castillo ancestral de los Templeton, una de las casas más poderosas del Valle, capaz de desplegar mil combatientes. Persuadió sin éxito a Lisa Arryn para que apoyara a Robb Stark.
-got.wp.Ninestars=Ninestars
+got.wp.NINESTARS=Ninestars
 got.wp.NORTH_FORESTS.info≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
-got.wp.NorthForests≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
+got.wp.NORTH_FORESTS≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
+got.wp.NORVOS.info=Una de las Ciudades Libres gobernadas por los llamados "sacerdotes barbudos". De las hordas Dothraki, avanzando por la carretera pasando Norvos, la ciudad rescata con ricos obsequios.
+got.wp.NORVOS=Norvos
+got.wp.NYMDUU_OOZ.info≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
+got.wp.NYMDUU_OOZ≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
+got.wp.NY_SAR.info=Ruinas de una antigua ciudad de Roinar con un enorme puerto; ahora sólo quedaba de la ciudad el palacio de Nymeria, el que llevó a su gente en diez mil barcos a Dorn.
+got.wp.NY_SAR=Ny Sar
 got.wp.NorthPass.info=Cuatro pasos son túmulos funerarios antiguos, hasta las nubes. Su ubicación sugiere que eran estructuras defensivas. Pero, ¿de quién y por qué defender Mossia, si los enemigos están dentro?
 got.wp.NorthPass=Paso El Norte
-got.wp.NORVOS.info=Una de las Ciudades Libres gobernadas por los llamados "sacerdotes barbudos". De las hordas Dothraki, avanzando por la carretera pasando Norvos, la ciudad rescata con ricos obsequios.
-got.wp.Norvos=Norvos
-got.wp.NY_SAR.info=Ruinas de una antigua ciudad de Roinar con un enorme puerto; ahora sólo quedaba de la ciudad el palacio de Nymeria, el que llevó a su gente en diez mil barcos a Dorn.
-got.wp.NySar=Ny Sar
-got.wp.NYMDUU_OOZ.info≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
-got.wp.NymduuOoz≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
 got.wp.OAKENSHIELD.info=El castillo vacío de la Guardia de la Noche. El 998º Lord Comandante de la Guardia de la Noche entregó el castillo al Jefe Salvaje Tormund.
-got.wp.Oakenshield=Escudo de Roble
-got.wp.OLD_ANCHOR.info=El castillo de la casa de los Melcolm, vasallos de los Arryn.
-got.wp.OldAnchor=Ancla vieja
+got.wp.OAKENSHIELD=Escudo de Roble
 got.wp.OLDCASTLE.info=El castillo de la Casa de Locke, vasallos de Stark.
-got.wp.OldCastle=Castillo Viejo
-got.wp.OLD_GHIS.info=Las ruinas que quedaron de la capital del Imperio Giscar, después de la conquista de la República Valyria, comenzaron a llamarse Old Gis.
-got.wp.OldGhis=Viejo Ghis
-got.wp.OLD_OAK.info=El castillo ancestral de los Oakhart, que están muy orgullosos de sus victorias sobre los dornienses y han asignado una sala de tapices para las tramas de estas guerras.
-got.wp.OldOak=Roble Viejo
+got.wp.OLDCASTLE=Castillo Viejo
 got.wp.OLDSTONES.info=El verdadero nombre del castillo ha sido olvidado, y los residentes de los alrededores llaman a las ruinas exactamente lo que son: piedras viejas. La tumba de Tristifer IV Madd todavía se encuentra en las ruinas del antiguo feudo de los Reyes del Río y las Colinas.
-got.wp.OldStones=Piedras antiguas
+got.wp.OLDSTONES=Piedras antiguas
 got.wp.OLDTOWN.info=El Centro de Ciencias de Westeros, la segunda ciudad más grande del país y el puerto más grande de Reach. Propiedad de una vivienda en Hightower.
-got.wp.Oldtown=Pueblo Viejo
+got.wp.OLDTOWN=Pueblo Viejo
+got.wp.OLD_ANCHOR.info=El castillo de la casa de los Melcolm, vasallos de los Arryn.
+got.wp.OLD_ANCHOR=Ancla vieja
+got.wp.OLD_GHIS.info=Las ruinas que quedaron de la capital del Imperio Giscar, después de la conquista de la República Valyria, comenzaron a llamarse Old Gis.
+got.wp.OLD_GHIS=Viejo Ghis
+got.wp.OLD_OAK.info=El castillo ancestral de los Oakhart, que están muy orgullosos de sus victorias sobre los dornienses y han asignado una sala de tapices para las tramas de estas guerras.
+got.wp.OLD_OAK=Roble Viejo
 got.wp.OMBORU.info=El único asentamiento en la isla del mismo nombre. La isla es una de las más grandes, pero está casi completamente cubierta de bosques deshabitados.
-got.wp.Omboru=Omboru
+got.wp.OMBORU=Omboru
 got.wp.ORKWOOD.info=El castillo de la casa de los Orkwoods, vasallos de los Greyjoys.
-got.wp.Orkwood=Orkwood
+got.wp.ORKWOOD=Orkwood
 got.wp.OROS.info=La segunda ciudad más grande y rica del Imperio Valyrio, destruida durante la Perdición de Valyria. Se dice que aquí vive gente, pero no está claro si son descendientes de los valyrios o marineros desafortunados que naufragaron ... o son solo historias.
-got.wp.Oros=Oros
+got.wp.OROS=Oros
 got.wp.OXCROSS.info=Un pueblo de las Tierras del Oeste, a tres días en coche de Lannisport.
-got.wp.Oxcross=Cruz de buey
+got.wp.OXCROSS=Cruz de buey
 got.wp.PARCHMENTS.info=El castillo de la casa de los Penroses, vasallos de los Baratheons.
-got.wp.Parchments=Pergaminos
+got.wp.PARCHMENTS=Pergaminos
 got.wp.PEARL_PALACE.info=La residencia del gobernante de Koca.
-got.wp.PearlPalace=Palacio de la Perla
+got.wp.PEARL_PALACE=Palacio de la Perla
 got.wp.PEBBLE.info=El castillo de la casa de los Pryors, vasallos de Arryn, en Pebble Island
-got.wp.Pebble=Guijarro
+got.wp.PEBBLE=Guijarro
 got.wp.PEBBLETON.info=El castillo de la casa Merlin en Bolshoy Vick, donde Wethead comienza a llamar a los Ironborn para que retengan a Veche.
-got.wp.Pebbleton=Pebbleton
+got.wp.PEBBLETON=Pebbleton
 got.wp.PENNYTREE.info=Un pequeño pueblo entre dos colinas llamado Titki. El pueblo recibió su nombre porque aquí crece un roble al que le han clavado monedas de un centavo. Estos territorios son reclamados por Brackens y Blackwoods, pero debido a estas luchas, las tierras fueron retiradas a favor de la corona. De aquí vino el caballero fronterizo Ser Arlan, quien crió a Dukan.
-got.wp.Pennytree=Pennytree
+got.wp.PENNYTREE=Pennytree
 got.wp.PENTOS.info=Una de las Ciudades Libres, el puerto más importante de la costa oeste de Essos. Esta ciudad es el hogar del maestro Illyrio Mopatis, quien albergó a los últimos Targaryen.
-got.wp.Pentos=Pentos
+got.wp.PENTOS=Pentos
 got.wp.PEREKI.info≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
-got.wp.Pereki≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
+got.wp.PEREKI≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
 got.wp.PINGBEI.info≠The eastern edge of the Great Yi Ti Wall, a huge and ancient structure that protected the golden empire from the raids of nomads from the north.
-got.wp.Pingbei≠The eastern edge of the Great Yi Ti Wall, a huge and ancient structure that protected the golden empire from the raids of nomads from the north.
+got.wp.PINGBEI≠The eastern edge of the Great Yi Ti Wall, a huge and ancient structure that protected the golden empire from the raids of nomads from the north.
 got.wp.PINGJIANG.info≠One of the fortresses of the Great Yi Ti Wall, which housed a gunpowder warehouse. One day while repelling a nomadic attack, the cannon on the Wall misfired, and the cannonball exploded right there and, by chain reaction, so did the warehouse. No one from either side survived. The fortress was later rebuilt.
-got.wp.Pingjiang≠One of the fortresses of the Great Yi Ti Wall, which housed a gunpowder warehouse. One day while repelling a nomadic attack, the cannon on the Wall misfired, and the cannonball exploded right there and, by chain reaction, so did the warehouse. No one from either side survived. The fortress was later rebuilt.
+got.wp.PINGJIANG≠One of the fortresses of the Great Yi Ti Wall, which housed a gunpowder warehouse. One day while repelling a nomadic attack, the cannon on the Wall misfired, and the cannonball exploded right there and, by chain reaction, so did the warehouse. No one from either side survived. The fortress was later rebuilt.
 got.wp.PINKMAIDEN_CASTLE.info=El castillo de la casa de Piper, vasallos de Tully.
-got.wp.PinkmaidenCastle=Castillo de Pinkmaiden
+got.wp.PINKMAIDEN_CASTLE=Castillo de Pinkmaiden
 got.wp.PINNU.info≠The site of this fortress was formerly the hills. The imperial engineers and masters over the coin decided that it would be cheaper to dig out the hills and build a fortress, rather than build a fortress on the hills. In the end, that's what they decided.
-got.wp.Pinnu≠The site of this fortress was formerly the hills. The imperial engineers and masters over the coin decided that it would be cheaper to dig out the hills and build a fortress, rather than build a fortress on the hills. In the end, that's what they decided.
+got.wp.PINNU≠The site of this fortress was formerly the hills. The imperial engineers and masters over the coin decided that it would be cheaper to dig out the hills and build a fortress, rather than build a fortress on the hills. In the end, that's what they decided.
 got.wp.PLANKY_TOWN.info=El puerto más grande de Dorn, construido sobre el agua a partir de barcazas y barcos mercantes unidos. También hay una fortaleza para proteger esta puerta a Dorn.
-got.wp.PlankyTown=Planky Town
+got.wp.PLANKY_TOWN=Planky Town
 got.wp.PLUMWOOD.info=El castillo de la casa de Plumm, vasallo de los Lannister.
-got.wp.Plumwood=Plumwood
+got.wp.PLUMWOOD=Plumwood
 got.wp.PODDINGFIELD.info=El castillo de la casa de Pisbury, vasallos de los Baratheons.
-got.wp.Poddingfield=Poddingfield
+got.wp.PODDINGFIELD=Poddingfield
 got.wp.PORT_MORAQ.info=La ciudad portuaria donde a los comerciantes les gusta detenerse después de un largo viaje por el Mar de Jade.
-got.wp.PortMoraq=Port Moraq
+got.wp.PORT_MORAQ=Port Moraq
 got.wp.PORT_OF_IBBEN.info=La capital de Ibben, el lugar donde se encontraba la fortaleza de sus Reyes-Dioses hasta que cayeron aproximadamente al mismo tiempo que Valyria. Fueron reemplazados por un Consejo de Sombras elegido. Ahora es la ciudad más grande de los ibbenianos.
-got.wp.PortOfIbben=Puerto de Ibben
+got.wp.PORT_OF_IBBEN=Puerto de Ibben
 got.wp.PORT_YHOS.info=Ciudad probablemente fundada por los Quaatianos. Actualmente está controlado desde Quart.
-got.wp.PortYhos=Port Yhos
+got.wp.PORT_YHOS=Port Yhos
 got.wp.PYKE.info=La isla y el castillo familiar del mismo nombre de la casa Greyjoy. El castillo en sí ni siquiera está en la isla principal, sino en su cabo, que con el tiempo se desmoronó en varias pequeñas islas y rocas, conectadas por pasajes e incluso puentes de cuerda. Incluso es peligroso envejecer en un castillo así.
-got.wp.Pyke=Pyke
+got.wp.PYKE=Pyke
 got.wp.QARKASH.info=Ciudad probablemente fundada por los Quaatianos. Actualmente está controlado desde Quart.
-got.wp.Qarkash=Qarkash
+got.wp.QARKASH=Qarkash
 got.wp.QARTH.info=Una de las ciudades comerciales más importantes de la costa del Mar de Verano, se encuentra en el punto más estrecho del estrecho que conecta los dos mares más grandes conocidos y es la ruta más corta a Asshai. Gestionado por los llamados. De pura raza. La última de las ciudades de Quaatian.
-got.wp.Qarth=Qarth
+got.wp.QARTH=Qarth
 got.wp.QOHOR.info=Una de las Ciudades Libres y la más oriental de ellas. La ciudad mantiene una flota que controla las tierras del río hasta las ruinas de la ciudad de Ar Noi, y los Inmaculados sirven como guardias: una vez protegieron la ciudad de las hordas Dothraki, y desde entonces la mayoría de los Khalasars han pasado por alto los muros de Quohor. . Los herreros locales son famosos por su habilidad para trabajar con acero valyrio.
-got.wp.Qohor=Qohor
+got.wp.QOHOR=Qohor
 got.wp.QUEENSCROWN.info=Pueblo del El Norte. Hace casi trescientos años, la reina Alysanna Targaryen pasó la noche aquí de camino al Muro. Posteriormente, los vecinos doraron la parte superior de su torre en memoria de la corona de la reina, que pasó la noche con ellos.
-got.wp.Queenscrown=Corona de reinas
+got.wp.QUEENSCROWN=Corona de reinas
 got.wp.QUEENSGATE.info=Ahora, uno de los castillos abandonados de la Guardia de la Noche, que lleva el nombre de la reina Alisanna (en los viejos tiempos se llamaba la Puerta de la Nieve). El 998º Lord Comandante de la Guardia de la Noche entregó el castillo a Morne, apodado la Máscara Blanca, para restablecer los guardias del Muro.
-got.wp.Queensgate=Queensgate
+got.wp.QUEENSGATE=Queensgate
 got.wp.RAENYS.info=Una isla descubierta por Alice Westhill al suroeste de Summer Islands.
-got.wp.Raenys=Raenys
+got.wp.RAENYS=Raenys
 got.wp.RAIN_HOUSE.info=El castillo de la Casa de la Naturaleza, vasallos de los Baratheons.
-got.wp.RainHouse=Casa de lluvia
-got.wp.RAMSGATE.info=El castillo es el hogar de los Woolfields, vasallos de Manderly.
-got.wp.RamsGate=Puerta de carneros
+got.wp.RAIN_HOUSE=Casa de lluvia
 got.wp.RAMSEY_TOWER.info=La torre donde Ramsay Snow mató de hambre a Lady Hornwood.
-got.wp.RamseyTower=Torre Ramsey
+got.wp.RAMSEY_TOWER=Torre Ramsey
+got.wp.RAMSGATE.info=El castillo es el hogar de los Woolfields, vasallos de Manderly.
+got.wp.RAMSGATE=Puerta de carneros
 got.wp.RATHYLAR.info=Ciudad de Sarnor destruida por los Dothraki.
-got.wp.Rathylar=Rathylar
+got.wp.RATHYLAR=Rathylar
 got.wp.RAUMATI.info≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
-got.wp.Raumati≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
+got.wp.RAUMATI≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
 got.wp.RAVENTREE_HALL.info=El castillo familiar de la casa Blackwood con un enorme y muerto chardree, al que acuden cientos de cuervos para pasar la noche todas las noches, y así durante mil años. Se dice que los Blackwoods vienen del El Norte y gobernaron casi todo el Bosque de los Lobos hasta que fueron expulsados por los Stark.
-got.wp.RaventreeHall=Salón Raventree
-got.wp.RED_FLOWER_VALE.info=El centro de la provincia del mismo nombre en la isla sur.
-got.wp.RedFlowerVale=Valle de la flor roja
-got.wp.RED_FORESTS.info≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
-got.wp.RedForests≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
-got.wp.RED_HAVEN.info=El puerto más grande de las Islas del Hierro, ubicado en Pike.
-got.wp.RedHaven=Red Haven
-got.wp.RED_LAKE.info=El castillo de la casa de Cranes, vasallos de los Tyrell.
-got.wp.RedLake=Lago rojo
+got.wp.RAVENTREE_HALL=Salón Raventree
 got.wp.REDFORT.info=Castillo de Casa Redfort, vasallos del Arryn.
-got.wp.Redfort=Fortaleza roja
+got.wp.REDFORT=Fortaleza roja
+got.wp.RED_FLOWER_VALE.info=El centro de la provincia del mismo nombre en la isla sur.
+got.wp.RED_FLOWER_VALE=Valle de la flor roja
+got.wp.RED_FORESTS.info≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
+got.wp.RED_FORESTS≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
+got.wp.RED_HAVEN.info=El puerto más grande de las Islas del Hierro, ubicado en Pike.
+got.wp.RED_HAVEN=Red Haven
+got.wp.RED_LAKE.info=El castillo de la casa de Cranes, vasallos de los Tyrell.
+got.wp.RED_LAKE=Lago rojo
 got.wp.RHYOS.info=Una de las ciudades coloniales poderosas y ricas del Imperio Valyrio, destruida durante la Perdición de Valyria.
-got.wp.Rhyos=Rhyos
+got.wp.RHYOS=Rhyos
 got.wp.RILLWATER_CROSSING.info=El castillo de la casa de los vasallos de Glenmore de los Ryswell.
-got.wp.RillwaterCrossing=Cruce de Rillwater
+got.wp.RILLWATER_CROSSING=Cruce de Rillwater
 got.wp.RIMEGATE.info=El castillo abandonado de la Guardia de la Noche.
-got.wp.Rimegate=Rimegate
+got.wp.RIMEGATE=Rimegate
 got.wp.RING.info=El castillo de la Casa de los Roxtons, vasallos de los Tyrell.
-got.wp.Ring=Anillo
-got.wp.RYSWELLS_CASTLE.info=Castillo ancestral de la Casa Ryswell, vasallos de los Starks. Los Ryswell son leales aliados de los Bolton.
-got.wp.RyswellsCastle=Castillo de Ryswells
+got.wp.RING=Anillo
 got.wp.RIVERRUN.info=Castillo ancestral de la casa de Tully, Lords de the Tierras de los Ríos. Construido en la confluencia de los ríos Kamnegonka y Krasny Zubets.
-got.wp.Riverrun=Riverrun
+got.wp.RIVERRUN=Riverrun
 got.wp.RIVERSPRING.info=El castillo de la casa de los Sarviks, vasallos de los Lannister.
-got.wp.Riverspring=Riverspring
+got.wp.RIVERSPRING=Riverspring
 got.wp.ROOKS_REST.info=Castillo de la casa de Staunton, vasallos de la corona.
-got.wp.RooksRest=Descanso de las torres
+got.wp.ROOKS_REST=Descanso de las torres
 got.wp.ROSBY.info=Un pequeño castillo y aldea perteneciente a la casa de Rosby, vasallos de la corona. Después de la muerte del último Lord Rosby, la línea masculina fue interrumpida y, contrariamente a la voluntad, la Reina Regente le quitó las propiedades y las tierras de Rosby a favor de la corona.
-got.wp.Rosby=Rosby
+got.wp.ROSBY=Rosby
 got.wp.RUNESTONE.info=El castillo de House Royce, vasallos del Arryn. House ha abogado activamente por unirse a la Guerra de los Cinco Reyes del lado de Robb Stark. Después de la muerte de Lisa, Arryn se opuso a Petyr Baelish.
-got.wp.Runestone=Piedra rúnica
+got.wp.RUNESTONE=Piedra rúnica
 got.wp.RYAMSPORT.info=La ciudad portuaria del Arbor.
-got.wp.Ryamsport=Ryamsport
+got.wp.RYAMSPORT=Ryamsport
+got.wp.RYSWELLS_CASTLE.info=Castillo ancestral de la Casa Ryswell, vasallos de los Starks. Los Ryswell son leales aliados de los Bolton.
+got.wp.RYSWELLS_CASTLE=Castillo de Ryswells
 got.wp.SAATH.info=La única ciudad donde todavía vive la Gente Alta son los habitantes indígenas del reino de Sarnor, destruido por los Dothraki.
-got.wp.Saath=Saath
+got.wp.SAATH=Saath
 got.wp.SABLE_HALL.info=El castillo vacío de la Guardia de la Noche. El 998 ° Lord Comandante de la Guardia de la Noche reconstruyó el castillo con su propia gente y los salvajes.
-got.wp.SableHall=Sable Hall
+got.wp.SABLE_HALL=Sable Hall
 got.wp.SALTCLIFFE.info=El castillo de la casa de los Saltcliffs, vasallos de los Greyjoys.
-got.wp.Saltcliffe=Saltcliffe
+got.wp.SALTCLIFFE=Saltcliffe
 got.wp.SALTPANS.info=La ciudad portuaria es propiedad de House Cox, gobernada por Snoop Dogg.
-got.wp.Saltpans=Salinas
+got.wp.SALTPANS=Salinas
 got.wp.SALT_SHORE.info=El castillo ancestral de la Casa Gargalen. Lord Gargalen era parte del séquito de Oberyn Martell.
-got.wp.Saltshore=Saltshore
+got.wp.SALT_SHORE=Saltshore
 got.wp.SAMYRIANA.info=Una de las últimas ciudades que surgieron alrededor de la ciudadela, construida para proteger el feudo de Hirkun de las incursiones; el reino cayó en decadencia después del mar seco, pero las belicosas Amazonas aún vigilan al guardia.
-got.wp.Samyriana=Samyriana
+got.wp.SAMYRIANA=Samyriana
 got.wp.SANDSTONE.info=Castillo familiar de Kvorgilov con escorpiones en el escudo de armas. Fue aquí donde el gobernador tyrelliano de la época de Deiron I, en lugar de una seductora belleza dorniana, compartió una cama con cien escorpiones y murió.
-got.wp.Sandstone=Arenisca
-got.wp.SAR_MELL.info=Una hermosa ciudad de Roinar en flores, ahora en ruinas.
-got.wp.SarMell=Sar Mell
+got.wp.SANDSTONE=Arenisca
 got.wp.SARHOY.info=Roinar es un hermoso puerto que compitió con Volantis por el control del comercio en la región. Tres dragones decidieron el resultado de la guerra, y todo el reino de Roinar cayó después de eso, junto con su hermoso príncipe Garin.
-got.wp.Sarhoy=Sarhoy
+got.wp.SARHOY=Sarhoy
 got.wp.SARSFIELD.info=El castillo es el hogar de los vasallos de los Lannister en Sarsfield.
-got.wp.Sarsfield=Sarsfield
+got.wp.SARSFIELD=Sarsfield
+got.wp.SAR_MELL.info=Una hermosa ciudad de Roinar en flores, ahora en ruinas.
+got.wp.SAR_MELL=Sar Mell
 got.wp.SATHAR.info=Satar, o ciudad por cascadas, fue la primera de las ciudades de Sarnor en ser destruida por los Dothraki. Los hombres murieron y 3/4 de las mujeres y los niños capturados murieron cuando los Dothraki los llevaron a los traficantes de esclavos en Khazdan Mo.
-got.wp.Sathar=Sathar
+got.wp.SATHAR=Sathar
 got.wp.SEAGARD.info=El Castillo Siegard fue construido para defender la costa de los invasores de las Islas del Hierro. Tanto el castillo como la ciudad que lo rodea pertenecen a los Mallisters, vasallos de Tully. En la Guerra, los Cinco Reyes se unieron a Robb Stark.
-got.wp.Seagard=Seagard
+got.wp.SEAGARD=Seagard
 got.wp.SEALSKIN_POINT.info=El castillo de la casa de Farwind, vasallos de Greyjoys.
-got.wp.SealskinPoint=Punto de piel de foca
+got.wp.SEALSKIN_POINT=Punto de piel de foca
 got.wp.SEAWORTH_CASTLE.info=El castillo y las tierras otorgadas al contrabandista Davos Seaworth como recompensa por las provisiones traídas a Storm's Reach, que fue sitiada por los realistas durante el levantamiento de Baratheon.
-got.wp.SeaworthCastle=Seaworth
+got.wp.SEAWORTH_CASTLE=Seaworth
 got.wp.SELHORYS.info=Pequeño pueblo gobernado desde Volantis.
-got.wp.Selhorys=Selhorys
+got.wp.SELHORYS=Selhorys
 got.wp.SENTINEL_STAND.info=El castillo abandonado de la Guardia de la Noche.
-got.wp.SentinelStand=Soporte centinela
-got.wp.CASTLE_CERWYN.info=Castillo ancestral de la Casa Servin, vasallos de los Stark. La familia Servin terminó con la muerte de Clay Servin, con quien Bran Stark era amigo.
-got.wp.CastleCerwyn=Castillo de Cerwyns
+got.wp.SENTINEL_STAND=Soporte centinela
 got.wp.SEVENSTREAMS.info=El pueblo de Seven Streams en una zona pantanosa llamada Witch's Swamp. Aquí, el Blue Barb se divide en muchos afluentes y pequeños arroyos. La tierra de la casa Frey.
-got.wp.Sevenstreams=Sevenstreams
+got.wp.SEVENSTREAMS=Sevenstreams
 got.wp.SHADOW_TOWER.info=Uno de los tres castillos de la Guardia de la Noche que aún están en funcionamiento. Durante los eventos de la saga principal, el castillo está gobernado por Denis Mallister.
-got.wp.ShadowTower=Torre de las Sombras
+got.wp.SHADOW_TOWER=Torre de las Sombras
 got.wp.SHANDYSTONE.info=Las ruinas donde se reunieron los conspiradores, liderados por Arianna Martell. La ciudad fue abandonada unos 100 años antes de que se secara el pozo.
-got.wp.Shandystone=Shandystone
+got.wp.SHANDYSTONE=Shandystone
 got.wp.SHARP_POINT.info=El castillo de la casa de los Bar-Emmon, vasallos de Stannis Baratheon. Le son fieles.
-got.wp.SharpPoint=Punta afilada
+got.wp.SHARP_POINT=Punta afilada
 got.wp.SHATTERSTONE.info=Una fortaleza en Old Vic, propiedad de una de las ramas más jóvenes de los Goodbrothers.
-got.wp.Shatterstone=Shatterstone
+got.wp.SHATTERSTONE=Shatterstone
 got.wp.SHYLUUN_UUSU.info≠City built on hills. The largest of these is called Anzudon, or the Palace of the Eagle.
-got.wp.ShyluunUusu≠City built on hills. The largest of these is called Anzudon, or the Palace of the Eagle.
-got.wp.SI_QO.info=La capital legendaria del Imperio Dorado Yi Ti durante la Dinastía Escarlata. No está claro por qué decidieron trasladar la capital a la jungla, pero ahora la ciudad está perdida, porque la naturaleza ha reclamado sus posesiones.
-got.wp.SiQo=Si Qo
+got.wp.SHYLUUN_UUSU≠City built on hills. The largest of these is called Anzudon, or the Palace of the Eagle.
 got.wp.SILVERHILL.info=El castillo de la casa de los Serrettes, vasallos de los Lannister.
-got.wp.Silverhill=Silverhill
+got.wp.SILVERHILL=Silverhill
 got.wp.SISTERTON.info=La ciudad principal de las Tres Hermanas y el puerto de contrabando más grande de Westeros, la sede de Sunderlands.
-got.wp.Sisterton=Sisterton
+got.wp.SISTERTON=Sisterton
+got.wp.SI_QO.info=La capital legendaria del Imperio Dorado Yi Ti durante la Dinastía Escarlata. No está claro por qué decidieron trasladar la capital a la jungla, pero ahora la ciudad está perdida, porque la naturaleza ha reclamado sus posesiones.
+got.wp.SI_QO=Si Qo
 got.wp.SKANE.info=Hoy en día solo las ruinas de los asentamientos recuerdan a los habitantes de la isla. Según la leyenda, en la antigüedad, los Skagos, nacidos de piedra, violaron y capturaron a todas las mujeres locales, y los hombres fueron asesinados y comidos durante una fiesta que duró dos semanas.
-got.wp.Skane=Skane
+got.wp.SKANE=Skane
 got.wp.SKIRLING_PASS.info≠Mountain trail through Frostfangs. Here the wildlings cross the mountains to get to the Cold Coast
-got.wp.SkirlingPass≠Mountain trail through Frostfangs. Here the wildlings cross the mountains to get to the Cold Coast
+got.wp.SKIRLING_PASS≠Mountain trail through Frostfangs. Here the wildlings cross the mountains to get to the Cold Coast
 got.wp.SKYREACH.info=Castillo de la casa de Fowler. Se llamaron a sí mismos reyes, hasta que Nymeria finalmente los sometió, exiliando al último rey con cadenas de oro al Muro.
-got.wp.SkyReach=SkyReach
+got.wp.SKYREACH=SkyReach
 got.wp.SMITHYTON.info=La ciudad de la Casa Shermer, que Renly Baratheon mencionó entre aquellos cuyas espadas ascendería al trono.
-got.wp.Smithyton=Smithyton
+got.wp.SMITHYTON=Smithyton
 got.wp.SNAKEWOOD.info=Castillo de la casa de Linderly, vasallos del Arryn.
-got.wp.Snakewood=Snakewood
+got.wp.SNAKEWOOD=Snakewood
+got.wp.SOUTHSHIELD.info=Una de las Islas Escudo, posesión de Serri. Posteriormente, Euron cedió la isla a Andrik Neulyba.
+got.wp.SOUTHSHIELD=Escudo sur
+got.wp.SOUTH_POINT.info≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
+got.wp.SOUTH_POINT≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
+got.wp.SOUTH_TAIGA.info≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
+got.wp.SOUTH_TAIGA≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
+got.wp.SOUTH_ULTHOS.info≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
+got.wp.SOUTH_ULTHOS≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
+got.wp.SPARR_CASTLE.info=El castillo de la Casa de Sparres, vasallos de los Greyjoys.
+got.wp.SPARR_CASTLE=Castillo de Sparr
+got.wp.SPICETOWN.info=La ciudad portuaria destruida durante la Danza de los Dragones.
+got.wp.SPICETOWN=Spicetown
+got.wp.SPIDER.info≠Mysterious clearing in the far south of Ulthos.
+got.wp.SPIDER≠Mysterious clearing in the far south of Ulthos.
+got.wp.SPOTTSWOOD.info=El castillo de la casa de los Santagars, vasallos de los Martells.
+got.wp.SPOTTSWOOD=Spottswood
+got.wp.STANDFAST.info=Una torre abandonada a los Osgrey después de la derrota de la Rebelión del Fuego Negro. El escenario del cuento "La espada jurada".
+got.wp.STANDFAST=Levántate rapido
+got.wp.STARFALL.info=El Dein Feudo, fundado en el lugar donde cayó el meteorito. El danés forjó la espada de Dawn a partir de su fragmento y comenzó a gobernar aquí como los reyes de Swift y Starfall, hasta que Nymeria los derrocó, exiliando al último rey en cadenas de oro al Muro.
+got.wp.STARFALL=Starfall
+got.wp.STARFISH_HARBOR.info=La ciudad portuaria de Arbour, capturada por los Ironborn bajo Tommen I Baratheon. Aquí los piratas montaron una apuesta para saquear el resto de la isla y el casco antiguo.
+got.wp.STARFISH_HARBOR=Puerto de las estrellas de mar
+got.wp.STARPIKE.info=Uno de los castillos de la casa Peak. Después de la ejecución de Gormon Peak, se desconoce la posición del castillo.
+got.wp.STARPIKE=Starpike
+got.wp.STOKEWORTH.info=El castillo es el hogar de Stockworth de the Royal Lands. La línea de Stockworth se cortó en la línea masculina, lo que permitió a Bronn de the Blackwater asumir el título de Lord Stockworth después de un matrimonio y una empresa exitosos.
+got.wp.STOKEWORTH=Stokeworth
+got.wp.STONEDANCE.info=El castillo, fundado por los piratas conquistadores de la península, quedó en la memoria de los descendientes con su nombre: Hook Massy. Posteriormente, las tierras fueron reconquistadas por los reyes de la tormenta, y con la conquista de Aegon entraron en las Tierras Reales.
+got.wp.STONEDANCE=Stonedance
+got.wp.STONEDOOR.info=Uno de los castillos abandonados de la Guardia de la Noche. No muy lejos del castillo, Jon Snow cruzó el Muro con el escuadrón de Stear; Más tarde, el 998 ° Lord Comandante de la Guardia de la Noche entregó el castillo al Cacique Salvaje Soren Shchitolom para su restauración.
+got.wp.STONEDOOR=Stonedoor
+got.wp.STONEHELM.info=Un castillo cuyas torres están construidas con piedra blanca y negra. La finca de la familia Swann.
+got.wp.STONEHELM=Stonehelm
+got.wp.STONEHOUSE.info=El castillo es el hogar de los Stonehouses, vasallos de los Greyjoys.
+got.wp.STONEHOUSE=Casa de Piedra
+got.wp.STONETREE_CASTLE.info=El castillo de la casa de Stuntree, vasallos de Harlow.
+got.wp.STONETREE_CASTLE=StonetreeCastillo
+got.wp.STONEY_SEPT.info=La ciudad es pequeña, pero la más grande de Tierras de los Ríos. Aquí es donde la rebelión de Robert Baratheon casi terminó hace años cuando Lord Connington registró la ciudad sin éxito.
+got.wp.STONEY_SEPT=Stoney septiembre
+got.wp.STONE_HEDGE.info=El castillo de House Bracken, rivalizando con las casas Blackwood de Vranodrev.
+got.wp.STONE_HEDGE=Cobertura de piedra
+got.wp.STORMS_END.info=Castillo ancestral de la Casa Baratheon, Señores de las Tierras Tormentas. Cuenta la leyenda que como castigo por el matrimonio del Rey Tormenta Durran con la hija del dios del mar Elenea, las olas del mar golpearon y destruyeron los castillos de Durran seis veces, hasta que finalmente recurrió a la magia de los Hijos del Bosque. Después de la conquista del reino de Durran por los Targaryen, el castillo fue entregado a Oris Baratheon.
+got.wp.STORMS_END=Fin de las tormentas
+got.wp.STRONGSONG.info=Castillo de la Casa Belmore, vasallos de la Casa Arryn. House ha abogado activamente por unirse a la Guerra de los Cinco Reyes del lado de Robb Stark. Después de la muerte de Lisa, Arryn se opuso a Petyr Baelish.
+got.wp.STRONGSONG=Strongsong
+got.wp.STYGAI.info=Ciudad muerta a orillas del Ash. Incluso los lanzadores de sombras tienen miedo de ir aquí, y el sol entra solo al mediodía por un breve momento.
+got.wp.STYGAI=Stygai
+got.wp.SUMMERHALL.info=Antigua residencia de verano de los Targaryen en las Marcas Dornienses. En el año del nacimiento del príncipe Rhaegar Targaryen, el castillo fue testigo de lo que se conoce como la tragedia del castillo de verano. Desde entonces, el castillo está en ruinas.
+got.wp.SUMMERHALL=Summerhall
+got.wp.SUNDERLY.info=El castillo de la Casa de Sanderly, vasallos de los Greyjoys. Ubicado en Salt Cliff.
+got.wp.SUNDERLY=Sunderly
+got.wp.SUNHOUSE.info=Castillo de House Kew, vasallos de Hightower.
+got.wp.SUNHOUSE=Casa del sol
+got.wp.SUNSPEAR.info=El hogar ancestral de la Casa Martell, surgió de un antiguo castillo: el Arca de las Arenas. Reconstruida con ladrillos de adobe de color marrón amarillento, como la Ciudad Sombría en los muros del castillo.
+got.wp.SUNSPEAR=Lanza del sol
+got.wp.SUUDAN_KORKUU.info≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
+got.wp.SUUDAN_KORKUU≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
+got.wp.SUU_NYM.info≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
+got.wp.SUU_NYM≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
+got.wp.SWEETPORT_SOUND.info=Castillo de Sanglass, juramentado a Rocadragón. Se desconoce si se encuentra en esta isla o en otro lugar.
+got.wp.SWEETPORT_SOUND=Sonido Sweetport
+got.wp.SWEET_LOTUS_VALE.info=El centro de la provincia del mismo nombre en la isla del sur y la primera capital del estado unido de las Islas del Verano, fundada por un ex esclavo: Xanda Ko.
+got.wp.SWEET_LOTUS_VALE=Sweet Lotus Vale
 got.wp.SouthPass.info=Cuatro pasos son túmulos funerarios antiguos, hasta las nubes. Su ubicación sugiere que eran estructuras defensivas. Pero, ¿de quién y por qué defender Mossia, si los enemigos están dentro?
 got.wp.SouthPass=Paso Sur
-got.wp.SOUTH_POINT.info≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
-got.wp.SouthPoint≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
-got.wp.SOUTH_TAIGA.info≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
-got.wp.SouthTaiga≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
-got.wp.SOUTH_ULTHOS.info≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
-got.wp.SouthUlthos≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
-got.wp.SOUTHSHIELD.info=Una de las Islas Escudo, posesión de Serri. Posteriormente, Euron cedió la isla a Andrik Neulyba.
-got.wp.Southshield=Escudo sur
-got.wp.SPARR_CASTLE.info=El castillo de la Casa de Sparres, vasallos de los Greyjoys.
-got.wp.SparrCastle=Castillo de Sparr
-got.wp.SPICETOWN.info=La ciudad portuaria destruida durante la Danza de los Dragones.
-got.wp.Spicetown=Spicetown
-got.wp.SPIDER.info≠Mysterious clearing in the far south of Ulthos.
-got.wp.Spider≠Mysterious clearing in the far south of Ulthos.
-got.wp.SPOTTSWOOD.info=El castillo de la casa de los Santagars, vasallos de los Martells.
-got.wp.Spottswood=Spottswood
-got.wp.STANDFAST.info=Una torre abandonada a los Osgrey después de la derrota de la Rebelión del Fuego Negro. El escenario del cuento "La espada jurada".
-got.wp.Standfast=Levántate rapido
-got.wp.STARFALL.info=El Dein Feudo, fundado en el lugar donde cayó el meteorito. El danés forjó la espada de Dawn a partir de su fragmento y comenzó a gobernar aquí como los reyes de Swift y Starfall, hasta que Nymeria los derrocó, exiliando al último rey en cadenas de oro al Muro.
-got.wp.Starfall=Starfall
-got.wp.STARFISH_HARBOR.info=La ciudad portuaria de Arbour, capturada por los Ironborn bajo Tommen I Baratheon. Aquí los piratas montaron una apuesta para saquear el resto de la isla y el casco antiguo.
-got.wp.StarfishHarbor=Puerto de las estrellas de mar
-got.wp.STARPIKE.info=Uno de los castillos de la casa Peak. Después de la ejecución de Gormon Peak, se desconoce la posición del castillo.
-got.wp.Starpike=Starpike
-got.wp.STOKEWORTH.info=El castillo es el hogar de Stockworth de the Royal Lands. La línea de Stockworth se cortó en la línea masculina, lo que permitió a Bronn de the Blackwater asumir el título de Lord Stockworth después de un matrimonio y una empresa exitosos.
-got.wp.Stokeworth=Stokeworth
-got.wp.STONE_HEDGE.info=El castillo de House Bracken, rivalizando con las casas Blackwood de Vranodrev.
-got.wp.StoneHedge=Cobertura de piedra
-got.wp.STONEDANCE.info=El castillo, fundado por los piratas conquistadores de la península, quedó en la memoria de los descendientes con su nombre: Hook Massy. Posteriormente, las tierras fueron reconquistadas por los reyes de la tormenta, y con la conquista de Aegon entraron en las Tierras Reales.
-got.wp.Stonedance=Stonedance
-got.wp.STONEDOOR.info=Uno de los castillos abandonados de la Guardia de la Noche. No muy lejos del castillo, Jon Snow cruzó el Muro con el escuadrón de Stear; Más tarde, el 998 ° Lord Comandante de la Guardia de la Noche entregó el castillo al Cacique Salvaje Soren Shchitolom para su restauración.
-got.wp.Stonedoor=Stonedoor
-got.wp.STONEHELM.info=Un castillo cuyas torres están construidas con piedra blanca y negra. La finca de la familia Swann.
-got.wp.Stonehelm=Stonehelm
-got.wp.STONEHOUSE.info=El castillo es el hogar de los Stonehouses, vasallos de los Greyjoys.
-got.wp.Stonehouse=Casa de Piedra
-got.wp.STONETREE_CASTLE.info=El castillo de la casa de Stuntree, vasallos de Harlow.
-got.wp.StonetreeCastle=StonetreeCastillo
-got.wp.STONEY_SEPT.info=La ciudad es pequeña, pero la más grande de Tierras de los Ríos. Aquí es donde la rebelión de Robert Baratheon casi terminó hace años cuando Lord Connington registró la ciudad sin éxito.
-got.wp.StoneySept=Stoney septiembre
-got.wp.STORMS_END.info=Castillo ancestral de la Casa Baratheon, Señores de las Tierras Tormentas. Cuenta la leyenda que como castigo por el matrimonio del Rey Tormenta Durran con la hija del dios del mar Elenea, las olas del mar golpearon y destruyeron los castillos de Durran seis veces, hasta que finalmente recurrió a la magia de los Hijos del Bosque. Después de la conquista del reino de Durran por los Targaryen, el castillo fue entregado a Oris Baratheon.
-got.wp.StormsEnd=Fin de las tormentas
-got.wp.STRONGSONG.info=Castillo de la Casa Belmore, vasallos de la Casa Arryn. House ha abogado activamente por unirse a la Guerra de los Cinco Reyes del lado de Robb Stark. Después de la muerte de Lisa, Arryn se opuso a Petyr Baelish.
-got.wp.Strongsong=Strongsong
-got.wp.STYGAI.info=Ciudad muerta a orillas del Ash. Incluso los lanzadores de sombras tienen miedo de ir aquí, y el sol entra solo al mediodía por un breve momento.
-got.wp.Stygai=Stygai
-got.wp.SUMMERHALL.info=Antigua residencia de verano de los Targaryen en las Marcas Dornienses. En el año del nacimiento del príncipe Rhaegar Targaryen, el castillo fue testigo de lo que se conoce como la tragedia del castillo de verano. Desde entonces, el castillo está en ruinas.
-got.wp.Summerhall=Summerhall
-got.wp.SUNHOUSE.info=Castillo de House Kew, vasallos de Hightower.
-got.wp.SunHouse=Casa del sol
-got.wp.SUNDERLY.info=El castillo de la Casa de Sanderly, vasallos de los Greyjoys. Ubicado en Salt Cliff.
-got.wp.Sunderly=Sunderly
-got.wp.SUNSPEAR.info=El hogar ancestral de la Casa Martell, surgió de un antiguo castillo: el Arca de las Arenas. Reconstruida con ladrillos de adobe de color marrón amarillento, como la Ciudad Sombría en los muros del castillo.
-got.wp.Sunspear=Lanza del sol
-got.wp.SUU_NYM.info≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
-got.wp.SuuNym≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
-got.wp.SUUDAN_KORKUU.info≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
-got.wp.SuudanKorkuu≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
-got.wp.SWEET_LOTUS_VALE.info=El centro de la provincia del mismo nombre en la isla del sur y la primera capital del estado unido de las Islas del Verano, fundada por un ex esclavo: Xanda Ko.
-got.wp.SweetLotusVale=Sweet Lotus Vale
-got.wp.SWEETPORT_SOUND.info=Castillo de Sanglass, juramentado a Rocadragón. Se desconoce si se encuentra en esta isla o en otro lugar.
-got.wp.SweetportSound=Sonido Sweetport
 got.wp.TAKUTAI.info≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
-got.wp.Takutai≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
+got.wp.TAKUTAI≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
 got.wp.TALL_TREES_TOWN.info=Una ciudad soleada donde las sacerdotisas tallan la historia, las tradiciones y las leyes de la gente del verano en los árboles que hablan.
-got.wp.TallTreesTown=Pueblo de árboles altos
+got.wp.TALL_TREES_TOWN=Pueblo de árboles altos
 got.wp.TARBECK_HALL.info=El castillo de la casa de Tarbek, quien, junto a las Riendas, subestimó el carácter del joven Tywin y se convirtió en protagonista de la famosa canción "Reyna de Kastamere".
-got.wp.TarbeckHall=Tarbeck Hall
+got.wp.TARBECK_HALL=Tarbeck Hall
 got.wp.TASHTOO.info≠The ancient seaport where Ibben's ships docked. The village where the shipyard workers lived eventually became a town where ships stand in the harbor.
-got.wp.Tashtoo≠The ancient seaport where Ibben's ships docked. The village where the shipyard workers lived eventually became a town where ships stand in the harbor.
+got.wp.TASHTOO≠The ancient seaport where Ibben's ships docked. The village where the shipyard workers lived eventually became a town where ships stand in the harbor.
 got.wp.TAURANGA.info≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
-got.wp.Tauranga≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
+got.wp.TAURANGA≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
 got.wp.TAWNEY_CASTLE.info=El castillo de la casa de Townie, vasallos de los Greyjoys.
-got.wp.TawneyCastle=Castillo de Tawney
+got.wp.TAWNEY_CASTLE=Castillo de Tawney
 got.wp.TELYRIA.info=Puerta del mar de Valyria.
-got.wp.Telyria=Telyria
+got.wp.TELYRIA=Telyria
 got.wp.TEN_TOWERS.info=El castillo más nuevo de las Islas del Hierro, pertenece a la rama más antigua de Harlow. Fue construido porque un Lord Harlow a menudo tenía niños fríos y muertos, por lo que comenzó a temer que no dejaría herederos.
-got.wp.TenTowers=Diez torres
+got.wp.TEN_TOWERS=Diez torres
 got.wp.TERIMAN.info≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
-got.wp.Teriman≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
+got.wp.TERIMAN≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
 got.wp.THE_EYRIE.info=Castillo ancestral de la Casa Arryn, Señores del Valle. Construido en la cima de la montaña más alta de las Montañas de la Luna, la Lanza del Gigante, es casi inexpugnable, pero se vuelve inhabitable en invierno. Es bueno que no tengas mucho con qué luchar en Westeros en invierno.
-got.wp.TheEyrie=El nido de abejas
+got.wp.THE_EYRIE=El nido de abejas
+got.wp.THE_LONG_BARROW.info=El castillo vacío de la Guardia de la Noche, donde Mance cruzó la muralla para asistir a una fiesta en Invernalia en honor a la llegada del Rey Robert. Más tarde, el 998 ° Lord Comandante de la Guardia de la Noche confió el mando del castillo a Iron Emmett y Sorrowful Edd, y los lanceros de las personas libres se establecieron en él, lo que le dio al castillo su segundo nombre: Shlyukhina Hole.
+got.wp.THE_LONG_BARROW=Túmulo largo
 got.wp.THE_PAPS.info=El castillo de la casa de Ilshem, vasallos de los Arryns, en la isla de Soscy.
-got.wp.ThePaps=Los pap
-got.wp.THREE_EYED_RAVEN_CAVE.info=Una cueva en el El Norte más allá del Muro, en la que viven los niños del bosque.
-got.wp.ThreeEyedRavenCave=Cueva del cuervo de tres ojos
-got.wp.THREE_TOWERS.info=El castillo de la Casa de Kostains, vasallos de Hightower.
-got.wp.ThreeTowers=Tres torres
-got.wp.TIQUI.info=La ciudad comercial de múltiples torres de Chikui es la capital del Imperio Dorado Yi Ti durante la dinastía Yi Ti de los emperadores morados. Hoy en día, la ciudad se llama "la puerta del este".
-got.wp.Tiqui=Tiqui
-got.wp.TOLOS.info=Una ciudad esclava fundada por Valyrian. Aliado con Yunkai contra Daenerys. La ciudad es famosa por sus honderos.
-got.wp.Tolos=Tolos
+got.wp.THE_PAPS=Los pap
 got.wp.THE_TOR.info=Castillo de los Jordaines, vasallos de los Martells. Antes de la llegada de los Rhoynar, sucedió que los Martell les inclinaron la cabeza, pero esta vez pasó cuando Nymeria, de todos los hombres, prefirió a Morse Martell.
-got.wp.Tor=Colina
+got.wp.THE_TOR=Colina
 got.wp.THE_TORCHES.info=El castillo abandonado de la Guardia de la Noche.
-got.wp.Torches=Antorchas
+got.wp.THE_TORches=Antorchas
+got.wp.THREE_EYED_RAVEN_CAVE.info=Una cueva en el El Norte más allá del Muro, en la que viven los niños del bosque.
+got.wp.THREE_EYED_RAVEN_CAVE=Cueva del cuervo de tres ojos
+got.wp.THREE_TOWERS.info=El castillo de la Casa de Kostains, vasallos de Hightower.
+got.wp.THREE_TOWERS=Tres torres
+got.wp.TIQUI.info=La ciudad comercial de múltiples torres de Chikui es la capital del Imperio Dorado Yi Ti durante la dinastía Yi Ti de los emperadores morados. Hoy en día, la ciudad se llama "la puerta del este".
+got.wp.TIQUI=Tiqui
+got.wp.TOLOS.info=Una ciudad esclava fundada por Valyrian. Aliado con Yunkai contra Daenerys. La ciudad es famosa por sus honderos.
+got.wp.TOLOS=Tolos
 got.wp.TORHENS_SQUARE.info=El castillo de la Casa Tolhart, vasallos de los Stark.
-got.wp.TorhensSquare=Plaza Torhens
+got.wp.TORHENS_SQUARE=Plaza Torhens
 got.wp.TORTURERS_DEEP.info=La isla se convirtió en la sede del Rey Auran, el autoproclamado Señor de las Aguas y antiguo capitán de barcos que secuestró hábilmente la flota del Rey Tommen bajo su mando.
-got.wp.TorturersDeep=Torturadores profundos
+got.wp.TORTURERS_DEEP=Torturadores profundos
 got.wp.TOWER_OF_GLIMMERING.info=El castillo es una de las ramas más jóvenes de Harlow.
-got.wp.TowerOfGlimmering=Torre de destello
+got.wp.TOWER_OF_GLIMMERING=Torre de destello
 got.wp.TOWER_OF_JOY.info=Ruinas de una torre de piedra en las estribaciones de Dorn. El príncipe Rhaegar Targaryen se llevó a Lyanna Stark, secuestrada por él después del torneo en Harrenhal, aquí. Aquí murió en los brazos de su hermano, Eddard Stark, quien luego ordenó nivelar la torre al suelo.
-got.wp.TowerOfJoy=Torre de la Alegría
+got.wp.TOWER_OF_JOY=Torre de la Alegría
 got.wp.TRADER_TOWN.info=La ciudad fortaleza de crecimiento irregular y rudo del autoproclamado emperador naranja Yi Ti llamado Pol-Ko, el Martillo de Jogos-Nhai.
-got.wp.TraderTown=Trader Town
+got.wp.TRADER_TOWN=Trader Town
 got.wp.TUDBURY_HOLL.info=El castillo de la casa de Tudbury, vasallos de los Baratheons.
-got.wp.TudburyHoll=Tudbury Holl
+got.wp.TUDBURY_HOLL=Tudbury Holl
 got.wp.TUMBLETON.info=La ciudad natal de Footley, los vasallos de Tyrell. Durante la Danza de los Dragones, fue brutalmente saqueado y cortado dos veces, y nunca se ha recuperado desde entonces.
-got.wp.Tumbleton=Tumbleton
+got.wp.TUMBLETON=Tumbleton
 got.wp.TURRANI.info=Ciudad de Langi, donde Langi prevalece sobre los invasores ithianos.
-got.wp.Turrani=Turrani
+got.wp.TURRANI=Turrani
 got.wp.TWINS_LEFT.info=Castillos de la Casa Frey, Señores del Cruce, vasallos de Tully.
-got.wp.TwinsLeft=Mellizos
+got.wp.TWINS_LEFT=Mellizos
 got.wp.TWINS_RIGHT.info=Castillos de la Casa Frey, Señores del Cruce, vasallos de Tully.
-got.wp.TwinsRight=Mellizos
+got.wp.TWINS_RIGHT=Mellizos
 got.wp.TYRIA.info=Una de las ciudades coloniales poderosas y ricas del Imperio Valyrio, destruida durante la Perdición de Valyria. Se dice que aquí vive gente, pero no está claro si son descendientes de los valyrios o marineros desafortunados que naufragaron ... o son solo historias.
-got.wp.Tyria=Tyria
+got.wp.TYRIA=Tyria
 got.wp.TYROSH.info=Una de las Ciudades Libres. Tirosh creció alrededor de una fortaleza diseñada para proteger las aguas, donde encontraron una almeja valiosa para preparar un color brillante especial. Los Tyroshianos hablan un dialecto de Valyrian con un acento reconocible (se nota con Daenerys, que vivió aquí cuando era niña), comercian en todo el mundo, incluso nadan hasta el Muro, se tiñen el pelo de colores brillantes; Esta característica la utiliza, por ejemplo, John Connington con su alumno para que no se reconozca.
-got.wp.Tyrosh=Tyrosh
+got.wp.TYROSH=Tyrosh
 got.wp.ULOS.info=Una isla de la que no se sabe casi nada más que su ubicación y el hecho de que alguna vez estuvo habitada, como lo demuestran las ruinas.
-got.wp.Ulos=Ulos
+got.wp.ULOS=Ulos
+got.wp.UPLANDS.info=El castillo de la casa de Mullendore, vasallos de Hightower.
+got.wp.UPLANDS=Tierras altas
 got.wp.Ulthos.info=Uno de los 4 continentes famosos del mundo. Eso es todo lo que se sabe de él.
 got.wp.Ulthos=Ulthos
-got.wp.UPLANDS.info=El castillo de la casa de Mullendore, vasallos de Hightower.
-got.wp.Uplands=Tierras altas
 got.wp.VAES_ATHJIKHARI.info=Una ciudad de eruditos de Sarnor con una enorme biblioteca quemada por los Dothraki durante la Edad Sangrienta. Hoy las ruinas se llaman Vaez Atjikhari, "la ciudad de la enfermedad".
-got.wp.VaesAthjikhari=Vaes Athjikhari
+got.wp.VAES_ATHJIKHARI=Vaes Athjikhari
 got.wp.VAES_DIAF.info=Una vez una ciudad esclava de Ghiskar, donde los Dothraki trajeron prisioneros de Sarnor; pronto, sin embargo, Khazdan Mo mismo cayó - Vaez Diaf, la llamaron Dothraki, "la ciudad de las calaveras".
-got.wp.VaesDiaf=Vaes Diaf
+got.wp.VAES_DIAF=Vaes Diaf
 got.wp.VAES_DOTHRAK.info=Los Dothraki son nómadas y no permanecen mucho tiempo en un mismo lugar; su única ciudad es Vaez Dothrak. Aquí los Dothraki traen las estatuas de los dioses derrotados, aquí las viudas de los khals - los dosh khalin - mientras pasan sus días, y bajo pena de muerte, está prohibido derramar sangre.
-got.wp.VaesDothrak=Vaes Dothrak
+got.wp.VAES_DOTHRAK=Vaes Dothrak
 got.wp.VAES_EFE.info=Las ruinas de una ciudad desconocida, que los Dothraki llaman "la ciudad de los grilletes"; lo más probable es que los nómadas lo saquearan.
-got.wp.VaesEfe=Vaes Efe
+got.wp.VAES_EFE=Vaes Efe
 got.wp.VAES_GORQOYI.info=La bien fortificada ciudad Sarnor de Mardosh la Inaccesible, o la Ciudad de los Soldados, resistió a los Dothraki Khals durante seis años, hasta que la sitiaron y los habitantes comenzaron a morir de hambre. Cuando sus propios muertos fueron consumidos, las Guerras Sarnor mataron a mujeres y niños y se precipitaron a la batalla. Los Dothraki saquearon las ruinas, a las que se les dio un nuevo nombre: Vaez Gorkoyi, la ciudad del Lanzamiento de Sangre.
-got.wp.VaesGorqoyi=Vaes Gorqoyi
+got.wp.VAES_GORQOYI=Vaes Gorqoyi
 got.wp.VAES_GRADDAKH.info=La ciudad del reino de Sarnor, destruida por los khalasar en la Edad Sangrienta. Khalu Zeggo no obtuvo casi nada: los habitantes de Saris huyeron poco antes de su aparición, llevándose sus pertenencias con ellos, por lo que los Dothraki llamaron a la presa "la ciudad de la basura", Vaez Graddakh.
-got.wp.VaesGraddakh=Vaes Graddakh
+got.wp.VAES_GRADDAKH=Vaes Graddakh
 got.wp.VAES_JINI.info=Yinishar se encuentra en la intersección de tres carreteras y probablemente fue una gran ciudad comercial hasta que fue destruida por los Dothraki, quienes llamaron a la presa "ciudad de las cabras".
-got.wp.VaesJini=Vaes Jini
+got.wp.VAES_JINI=Vaes Jini
 got.wp.VAES_KHADOKH.info=Colonia Valyria, destruida junto con el Reino de Sarnor por las hordas Dothraki en la Edad Sangrienta. Los conquistadores llaman a las ruinas Vaez Hadoh, la ciudad de los cadáveres.
-got.wp.VaesKhadokh=Vaes Khadokh
+got.wp.VAES_KHADOKH=Vaes Khadokh
 got.wp.VAES_KHEWO.info=Una vez que la más famosa de las ciudades de Sarnor, Sarnath the Towering, con una de las maravillas del mundo, el Palacio de las Mil Cámaras, quemó junto con el resto de la ciudad por los Dothraki después de la derrota del ejército unido de Sarnor en el Campo. de buitres. Los Dothraki llamaron a las cenizas de Sarnor la ciudad de los gusanos, o Vaez Khevo.
-got.wp.VaesKhewo=Vaes Khewo
+got.wp.VAES_KHEWO=Vaes Khewo
 got.wp.VAES_LEISI.info=Un asentamiento abandonado, posiblemente Ifekevron.
-got.wp.VaesLeisi=Vaes Leisi
+got.wp.VAES_LEISI=Vaes Leisi
 got.wp.VAES_LEQSE.info=Ruinas de la ciudad de Sarnor de Gornat Priozernoye; El último rey de la ciudad hizo una alianza con Khal Moro, se casó con su hija, pero Moro envejeció y el Khal Horro que lo mató destruyó la ciudad. El nuevo nombre Vaes Lekse significa "ciudad de ratas", las ratas se comieron el cadáver del rey.
-got.wp.VaesLeqse=Vaes Leqse
+got.wp.VAES_LEQSE=Vaes Leqse
 got.wp.VAES_MEJHAH.info=Las ruinas de una ciudad desconocida, que los Dothraki llaman "la ciudad de las polillas"; lo más probable es que los nómadas lo saquearan.
-got.wp.VaesMejhah=Vaes Mejhah
+got.wp.VAES_MEJHAH=Vaes Mejhah
 got.wp.VAES_ORVIK.info=La ciudad de los Dothraki destruida por los Dothraki. Los invasores le dieron a la ciudad el nombre de "ciudad de los látigos". El nombre propio se ha olvidado durante mucho tiempo.
-got.wp.VaesOrvik=Vaes Orvik
+got.wp.VAES_ORVIK=Vaes Orvik
 got.wp.VAES_QOSAR.info=El camino a Kwart pasa por las ruinas de Vaez Kozar (Dothrak. "Ciudad de las arañas"), una de las ciudades Quaati ahora destruidas.
-got.wp.VaesQosar=Vaes Qosar
+got.wp.VAES_QOSAR=Vaes Qosar
 got.wp.VAES_SHIROSI.info=La ciudad de Kwaati destruida por los Dothraki. Los invasores le dieron a la ciudad el nombre de "ciudad de los escorpiones". El nombre propio se ha olvidado durante mucho tiempo.
-got.wp.VaesShirosi=Vaes Shirosi
+got.wp.VAES_SHIROSI=Vaes Shirosi
 got.wp.VAES_TOLORRO.info=Las ruinas de una ciudad cuartica de piedra blanca, abandonada por razones poco claras (¿las conquistas de los Dothraki?); aquí llega la pequeña khalasar Daenerys Targaryen después de una larga caminata por el desierto. Se desconoce el verdadero nombre de la ciudad, Vaez Tolorro, inventado por Daenerys, traducido de Dothraki que significa "ciudad de huesos".
-got.wp.VaesTolorro=Vaes Tolorro
+got.wp.VAES_TOLORRO=Vaes Tolorro
 got.wp.VAHAR.info=Si el estrecho de Quartis es el camino más corto y caro entre el verano y el mar de Jade, entonces Vakhar es el camino más largo y barato. La ciudad vive del comercio de especias.
-got.wp.Vahar=Vahar
+got.wp.VAHAR=Vahar
 got.wp.VAIBEI.info=La ciudad en el corazón de Yi Ti. Curiosamente, nunca ha sido una capital.
-got.wp.Vaibei=Vaibei
+got.wp.VAIBEI=Vaibei
 got.wp.VAITH.info=El río llamado así por la casa de Veit. Uno de los dos ríos que alimentan a Zelenobrovnaya.
-got.wp.Vaith=Vaith
+got.wp.VAITH=Vaith
 got.wp.VALYRIAN_ROAD.info=Callejón sin salida en la carretera valyria inacabada.
-got.wp.ValyrianRoad=Camino Valyrio
+got.wp.VALYRIAN_ROAD=Camino Valyrio
 got.wp.VALYSAR.info=Fundada por los Valyrians, la ciudad fue tomada por el Príncipe Garin durante las Guerras Roinar-Valyrian. Más tarde fue reconstruida, aunque ahora está bajo el control de Volantis.
-got.wp.Valysar=Valysar
+got.wp.VALYSAR=Valysar
 got.wp.VELOS.info=Una vez fue una hermosa ciudad con palacios hechos de cedro y mármol rosa. Durante el Rock, una ola de cien metros golpeó la isla y la ciudad desapareció bajo el agua.
-got.wp.Velos=Velos
+got.wp.VELOS=Velos
 got.wp.VICTARION_LANDING.info=Camp Victarion Greyjoy, yendo a la guerra con el El Norte.
-got.wp.VictarionLanding=Campamento Greyjoy de Victarion
+got.wp.VICTARION_LANDING=Campamento Greyjoy de Victarion
 got.wp.VINETOWN.info=La ciudad portuaria del Arbor.
-got.wp.Vinetown=Vinetown
+got.wp.VINETOWN=Vinetown
 got.wp.VISENYA.info=Una isla descubierta por Alice Westhill al suroeste de Summer Islands.
-got.wp.Visenya=Visenya
+got.wp.VISENYA=Visenya
 got.wp.VOJJOR_SAMVI.info=Ruinas de la ciudad de Sarnor de Kazat, la ciudad de las caravanas; saqueado por el ejército de khal Moro y el rey de la vecina Gornat, con quien no había compartido las sobras que quedaron después de la destrucción de Satar varios años antes. Los Dothraki llamaron a las ruinas Vojjor Samui, que significa los Dioses Rotos.
-got.wp.VojjorSamvi=Vojjor Samvi
+got.wp.VOJJOR_SAMVI=Vojjor Samvi
 got.wp.VOLANTIS.info=Una de las Ciudades Libres, y la más antigua de ellas. Después de Doom, Valyria comenzó a considerarse el heredero del imperio, y durante casi 100 años lo fue. Entonces Volantis sufrió una serie de derrotas en las guerras y se convirtió en una ciudad comercial.
-got.wp.Volantis=Volantis
+got.wp.VOLANTIS=Volantis
 got.wp.VOLMARK.info=Los Volmark son parientes consanguíneos de los Hoar, aspirantes a la corona bajo Aegon el Conquistador.
-got.wp.Volmark=Volmark
+got.wp.VOLMARK=Volmark
 got.wp.VOLON_THERYS.info=Una ciudad construida por los Valyrians en la frontera y para rivalizar con Rhoynar. A partir de la guerra entre Sar Mell y Volon Theris comenzó un largo enfrentamiento entre los pueblos, que terminó con la caída de las ciudades de Roinar y la fuga de Nymeria. De Volon Theris, el Golden Squad se va a Westeros en Dance with Dragons.
-got.wp.VolonTherys=Volon Therys
+got.wp.VOLON_THERYS=Volon Therys
 got.wp.VULTURES_ROOST.info=Ruinas que quedaron de la época de los primeros Targaryen. Aparentemente, fue aquí donde se encontraba el castillo ancestral del Rey Buitre, un dorniense que odiaba a los nuevos gobernantes de Westeros y levantó un gran levantamiento contra ellos al comienzo del reinado de Einis I.
-got.wp.VulturesRoost=Gallinero de buitres
+got.wp.VULTURES_ROOST=Gallinero de buitres
 got.wp.WALANO.info=Uno de los tres asentamientos más grandes del archipiélago y el más poblado de ellos. Aquí, por primera vez, los colonialistas de Ghiskar se encontraron con la gente del verano y los llamaron demonios por su piel negra.
-got.wp.Walano=Walano
+got.wp.WALANO=Walano
 got.wp.WATER_GARDENS.info=Residencia de verano de los Martells. El palacio con jardines y fuentes fue construido para complacer a Daenerys de la Casa Targrarien, de quien estaba enamorado el legendario Damon Blackfire y cuya sangre, según Quentin, se suponía que olían los dragones de otra Daenerys.
-got.wp.WaterGardens=Jardines de agua
+got.wp.WATER_GARDENS=Jardines de agua
 got.wp.WAYFARERS_REST.info=Castillo ancestral de la rama más antigua de los Vance, los vasallos de Tully.
-got.wp.WayfarerRest=Descanso Caminante
+got.wp.WAYFARERS_REST=Descanso Caminante
 got.wp.WEEPING_TOWN.info=Una pequeña ciudad comercial donde llegó un barco con el cuerpo de Deyron I Targaryen, asesinado a traición. Esta lamentable circunstancia se fijó en nombre de la ciudad, y la torre local se llamó Plakuchey.
-got.wp.WeepingTown=Pueblo Llorón
+got.wp.WEEPING_TOWN=Pueblo Llorón
+got.wp.WESTWATCH.info=El castillo más occidental de la Guardia de la Noche, diseñado para proteger uno de los pasajes a los Siete Reinos a través de la Garganta de la Garganta.
+got.wp.WESTWATCH=West Watch
+got.wp.WHISPERS.info=Un viejo castillo abandonado, cerca del cual Brienne de Tart casi muere.
+got.wp.WHISPERS=Susurros
+got.wp.WHITEGROVE.info=Una vez uno de los Castillos de los Tres Picos; después de participar en la primera Rebelión del Fuego Negro, los Picos fueron perdonados, pero se tomaron dos castillos, incluido White Grove. Se desconoce el propietario actual e incluso el estado del castillo.
+got.wp.WHITEGROVE=Whitegrove
+got.wp.WHITETREE.info=Un pequeño pueblo de salvajes bajo la sombra de un árbol brujo gigante.
+got.wp.WHITETREE=Madera blanca
+got.wp.WHITEWALLS.info=Dominio ancestral de los Butterwells. El gran castillo rico duró solo 40 años y fue demolido después del fracaso del Segundo Levantamiento del Fuego Negro.
+got.wp.WHITEWALLS=Paredes blancas
+got.wp.WHITE_HARBOUR.info=Una de las cinco ciudades más grandes de Westeros y el puerto más importante del El Norte. La ciudad está construida alrededor de la antigua fortaleza de Wolf's Lair, que cambió de dueño muchas veces hasta que los Stark entregaron estas tierras a los exiliados de Manderly Expanse. Los recién llegados se construyeron un nuevo castillo de paredes blancas fuera de las murallas de la ciudad.
+got.wp.WHITE_HARBOUR=Puerto blanco
+got.wp.WHITE_MOUNTAINS.info≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
+got.wp.WHITE_MOUNTAINS≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
+got.wp.WICKENDEN.info=Castillo de la Casa Waxley, vasallos de la Casa Corbreuil.
+got.wp.WICKENDEN=Wickenden
+got.wp.WIDOWS_WATCH.info=El castillo ancestral de una de las ramas de la Casa de Flint, vasallos de los Stark.
+got.wp.WIDOWS_WATCH=Reloj de las viudas
+got.wp.WINTERFELL.info=El castillo de la familia Stark, fundado por Brandon el Constructor en la Era de los Héroes. Uno de los castillos más antiguos de los Siete Reinos.
+got.wp.WINTERFELL=Invernalia
+got.wp.WITCH_ISLE.info=El castillo de la casa de los Upcliffs, vasallos de Arryn, en Witch Island.
+got.wp.WITCH_ISLE=Isla Bruja
+got.wp.WOODSWATCH.info=El castillo vacío de la Guardia de la Noche.
+got.wp.WOODSWATCH=Woodswatch
+got.wp.WUDE.info≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
+got.wp.WUDE≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
+got.wp.WUSHENG.info≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
+got.wp.WUSHENG≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
+got.wp.WYL.info=El castillo de la casa de Ville. En algún lugar aquí, el legendario Caballero Dragón se sentó desnudo en una jaula, esperando a que su primo, Baylor el Bendito, caminara descalzo hacia los Martells y los convenciera de hacer las paces. E incluso antes, otro Vil cortó a Orisa Baratheon, el fundador del clan, su mano derecha, por lo que el hijo de ese Vil posteriormente, a su vez, perdió ambos brazos y piernas, y además la cabeza.
+got.wp.WYL=Wyl
+got.wp.WYNDHALL.info=El castillo de la Casa de Estrens, vasallos de los Lannister.
+got.wp.WYNDHALL=Wyndhall
 got.wp.WestPass.info=Cuatro pasos son túmulos funerarios antiguos, hasta las nubes. Su ubicación sugiere que eran estructuras defensivas. Pero, ¿de quién y por qué defender Mossia, si los enemigos están dentro?
 got.wp.WestPass=Paso Oeste
-got.wp.WESTWATCH.info=El castillo más occidental de la Guardia de la Noche, diseñado para proteger uno de los pasajes a los Siete Reinos a través de la Garganta de la Garganta.
-got.wp.WestWatch=West Watch
-got.wp.WHISPERS.info=Un viejo castillo abandonado, cerca del cual Brienne de Tart casi muere.
-got.wp.Whispers=Susurros
-got.wp.WHITE_HARBOUR.info=Una de las cinco ciudades más grandes de Westeros y el puerto más importante del El Norte. La ciudad está construida alrededor de la antigua fortaleza de Wolf's Lair, que cambió de dueño muchas veces hasta que los Stark entregaron estas tierras a los exiliados de Manderly Expanse. Los recién llegados se construyeron un nuevo castillo de paredes blancas fuera de las murallas de la ciudad.
-got.wp.WhiteHarbour=Puerto blanco
-got.wp.WHITE_MOUNTAINS.info≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
-got.wp.WhiteMountains≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
-got.wp.WHITEWALLS.info=Dominio ancestral de los Butterwells. El gran castillo rico duró solo 40 años y fue demolido después del fracaso del Segundo Levantamiento del Fuego Negro.
-got.wp.WhiteWalls=Paredes blancas
-got.wp.WHITETREE.info=Un pequeño pueblo de salvajes bajo la sombra de un árbol brujo gigante.
-got.wp.WhiteWood=Madera blanca
-got.wp.WHITEGROVE.info=Una vez uno de los Castillos de los Tres Picos; después de participar en la primera Rebelión del Fuego Negro, los Picos fueron perdonados, pero se tomaron dos castillos, incluido White Grove. Se desconoce el propietario actual e incluso el estado del castillo.
-got.wp.Whitegrove=Whitegrove
-got.wp.WICKENDEN.info=Castillo de la Casa Waxley, vasallos de la Casa Corbreuil.
-got.wp.Wickenden=Wickenden
-got.wp.WIDOWS_WATCH.info=El castillo ancestral de una de las ramas de la Casa de Flint, vasallos de los Stark.
-got.wp.WidowsWatch=Reloj de las viudas
-got.wp.WINTERFELL.info=El castillo de la familia Stark, fundado por Brandon el Constructor en la Era de los Héroes. Uno de los castillos más antiguos de los Siete Reinos.
-got.wp.Winterfell=Invernalia
-got.wp.WITCH_ISLE.info=El castillo de la casa de los Upcliffs, vasallos de Arryn, en Witch Island.
-got.wp.WitchIsle=Isla Bruja
-got.wp.WOODSWATCH.info=El castillo vacío de la Guardia de la Noche.
-got.wp.Woodswatch=Woodswatch
-got.wp.WUDE.info≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
-got.wp.Wude≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
-got.wp.WUSHENG.info≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
-got.wp.Wusheng≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
-got.wp.WYL.info=El castillo de la casa de Ville. En algún lugar aquí, el legendario Caballero Dragón se sentó desnudo en una jaula, esperando a que su primo, Baylor el Bendito, caminara descalzo hacia los Martells y los convenciera de hacer las paces. E incluso antes, otro Vil cortó a Orisa Baratheon, el fundador del clan, su mano derecha, por lo que el hijo de ese Vil posteriormente, a su vez, perdió ambos brazos y piernas, y además la cabeza.
-got.wp.Wyl=Wyl
-got.wp.WYNDHALL.info=El castillo de la Casa de Estrens, vasallos de los Lannister.
-got.wp.Wyndhall=Wyndhall
 got.wp.XON.info=El asentamiento más pequeño de una pequeña isla. Aquí, los Ghiskari suelen aterrizar de camino a las Islas del Verano.
-got.wp.Xon=Xon
+got.wp.XON=Xon
 got.wp.YEEN.info=Una ciudad con una reputación terrible, construida con piedra negra, como Asshai, y no cubierta por la jungla. Todos los intentos de poblarlo han fracasado. Qué tipo de magia se erigió y qué tipo de magia destruye a las personas en ella, nadie lo sabe.
-got.wp.Yeen=Yeen
+got.wp.YEEN=Yeen
 got.wp.YIBIN.info=Una ciudad ubicada cerca del recodo del Río Dorado. A veces cambia de rumbo e inunda la ciudad. El último derrame fue hace unos trescientos años.
-got.wp.Yibin=Yibin
+got.wp.YIBIN=Yibin
 got.wp.YIN.info=El puerto es la antigua y majestuosa ciudad del Imperio Dorado Yi Ti, la capital del imperio durante varias dinastías imperiales, incluida la actual.
-got.wp.Yin=Yin
+got.wp.YIN=Yin
 got.wp.YRONWOOD.info=El castillo de la casa de los Ironwoods, guardianes del Camino de Piedra, antiguos altos reyes de Dorn, Greenbelt y Red Marks, vasallos de los Martells.
-got.wp.Yronwood=Yronwood
+got.wp.YRONWOOD=Yronwood
 got.wp.YUNKAI.info=Uno de los tres centros de comercio de esclavos en Slaver's Bay junto con Meereen y Astapor. La ciudad fue fundada por gente de Gis. La base de la prosperidad de la ciudad es la trata de esclavos, el perfil es esclavos por placer.
-got.wp.Yunkai=Yunkai
+got.wp.YUNKAI=Yunkai
 got.wp.YUNNAN.info=La ciudad más oriental de Yi Ti, ubicada a la sombra de las Montañas Dawn (por extraño que parezca)
-got.wp.Yunnan=Yunnan
+got.wp.YUNNAN=Yunnan
 got.wp.ZABHAD.info=Ciudad en la isla de los elefantes. El gobernante supremo del Shan vive aquí y se encuentra su palacio de marfil.
-got.wp.Zabhad=Zabhad
+got.wp.ZABHAD=Zabhad
 got.wp.ZAMETTAR.info=Una de las colonias de Giscard, luego capturada por Valyria. Como todas las colonias de Sotorios, Zamettar decayó y abandonó: los valyrios abandonaron la ciudad, los rhoynar huyeron tras los horrores de Yin.
-got.wp.Zamettar=Zamettar
+got.wp.ZAMETTAR=Zamettar
 got.wp.ZHENGUO.info≠The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
-got.wp.Zhenguo≠The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
+got.wp.ZHENGUO≠The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
 got.wp.custom.andMore=Y %d más
 got.wp.custom.info=Es el waypoint de la hermandad "%d"
 got.wp.custom=%s

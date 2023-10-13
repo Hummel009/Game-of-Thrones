@@ -890,10 +890,10 @@ entity.got.YoungGriff.name=Genç griff
 entity.got.Zebra.name=Zebra
 generator.got.info=Harita ile GOT World'de görüneceksiniz
 generator.got=Game of Thrones
-generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
-generator.gotEmpty≠GOT Empty
 generator.gotClassic.info=GOT biyomları ile olağan dünyada görüneceksiniz
 generator.gotClassic=Klasik var
+generator.gotEmpty.info≠You will appear in GOT World with map, but without cities, castles and characters
+generator.gotEmpty≠GOT Empty
 got.achievement.BANDIT.desc=Muhafız öldür
 got.achievement.BANDIT.title=Haydut
 got.achievement.BANNER_PROTECT.desc=Bölgeyi fethetmek
@@ -3486,965 +3486,965 @@ got.weaponstat.rangedRange=Aralık: %d %%
 got.weaponstat.rangedSpeed=Germe Hızı: %d%%
 got.weaponstat.reach=Yakın Dövüş Ulaşımı: %d%%
 got.wp.ACORN_HALL.info=Smallwood'ların hanesinin kalesi, Tully'nin vassalları.
-got.wp.AcornHall=Palamut Salonu
+got.wp.ACORN_HALL=Palamut Salonu
 got.wp.ADAKHAKILEKI.info=Şehri kimin inşa ettiği artık unutuluyor, ancak Dothrakiler onun kalıntılarını “deri yiyiciler şehri” hatta “yamyamlar şehri” olarak adlandırıyor.
-got.wp.Adakhakileki=Adahakileki
+got.wp.ADAKHAKILEKI=Adahakileki
 got.wp.AEGON.info=Yaz Adaları'nın güneybatısında, Alice Westhill tarafından keşfedilen bir ada.
-got.wp.Aegon=Aegon
+got.wp.AEGON=Aegon
 got.wp.AK_SHAAR.info≠Yi Tish say that there is the home of the goddess of the reptiloids. She is usually said to resemble a black rainbow: she has black-black wings and a bloody countenance.
-got.wp.AkShaar≠Yi Tish say that there is the home of the goddess of the reptiloids. She is usually said to resemble a black rainbow: she has black-black wings and a bloody countenance.
+got.wp.AK_SHAAR≠Yi Tish say that there is the home of the goddess of the reptiloids. She is usually said to resemble a black rainbow: she has black-black wings and a bloody countenance.
 got.wp.AMBERLY.info=Rogers'ın atalarının kalesi, Baratheonların vasalları.
-got.wp.Amberly=Kehribar rengi
+got.wp.AMBERLY=Kehribar rengi
 got.wp.ANBEI.info≠Western edge of the Great Yi Ti Wall, a gigantic and ancient structure that protected the golden empire from the raids of nomads from the north.
-got.wp.Anbei≠Western edge of the Great Yi Ti Wall, a gigantic and ancient structure that protected the golden empire from the raids of nomads from the north.
+got.wp.ANBEI≠Western edge of the Great Yi Ti Wall, a gigantic and ancient structure that protected the golden empire from the raids of nomads from the north.
 got.wp.ANGUO.info≠One of the fortresses of the Great Yi Ti Wall. It was built on the initiative of the emperor 4,200 years ago; the emperor himself financed its construction.
-got.wp.Anguo≠One of the fortresses of the Great Yi Ti Wall. It was built on the initiative of the emperor 4,200 years ago; the emperor himself financed its construction.
+got.wp.ANGUO≠One of the fortresses of the Great Yi Ti Wall. It was built on the initiative of the emperor 4,200 years ago; the emperor himself financed its construction.
 got.wp.ANJIANG.info≠One of the fortresses of the Great Yi Ti Wall. Usually imperial raids across the steppe began at this fortress - it had a good strategic position.
-got.wp.Anjiang≠One of the fortresses of the Great Yi Ti Wall. Usually imperial raids across the steppe began at this fortress - it had a good strategic position.
+got.wp.ANJIANG≠One of the fortresses of the Great Yi Ti Wall. Usually imperial raids across the steppe began at this fortress - it had a good strategic position.
 got.wp.ANOGARIA.info=Eski Valyria muhafız kalelerinden biri.
-got.wp.Anogaria=Anogaria
+got.wp.ANOGARIA=Anogaria
 got.wp.ANTLERS.info=Kral Toprakları'ndaki Buckwell hanesinin kalesi.
-got.wp.Antlers=Boynuzlar
+got.wp.ANTLERS=Boynuzlar
 got.wp.APPLETON.info=Appleton atalarının kalesi ve çevresindeki kasaba.
-got.wp.Appleton=Elma
+got.wp.APPLETON=Elma
 got.wp.AQUOS_DHAEN.info=Valyria Kıyameti sırasında yıkılan Valyria İmparatorluğu'nun güçlü ve zengin sömürge şehirlerinden biri.
-got.wp.AquosDhaen=Aquos dhaen
+got.wp.AQUOS_DHAEN=Aquos dhaen
 got.wp.AR_NOY.info=Roinar, yeşil mermerden yapılmış ve Valyria ile yapılan savaşlar sırasında yıkılmış güzel bir şehirdir. Kalıntılar artık Quohor filosu tarafından kontrol ediliyor ve Koyna'nın sularını Hançer Gölü korsanlarından koruyor.
-got.wp.ArNoy=Ar Noy
+got.wp.AR_NOY=Ar Noy
 got.wp.ASABHAD.info=Yi Ti sınırında, muhtemelen Girkun Fiefdom'dan insanlar tarafından kurulmuş bir şehir.
-got.wp.Asabhad=Asabhad
+got.wp.ASABHAD=Asabhad
 got.wp.ASHEMARK.info=Marbrandların atalarının kalesi, Lannister'ın vassalları.
-got.wp.Ashemark=Ashemark
+got.wp.ASHEMARK=Ashemark
 got.wp.ASHFORD.info=Ashford'ların atalarının kalesi, Tyrell'lerin vasalları. Kalenin yanında aynı adı taşıyan küçük bir pazar kasabası var. Burada tahtın varisi Baylor Kırık Mızrak'ın öldüğü turnuva gerçekleşti ve birkaç on yıl sonra, neredeyse öldüğü Robert'ın İsyanı savaşlarından biri gerçekleşti.
-got.wp.Ashford=Ashford
+got.wp.ASHFORD=Ashford
 got.wp.ASSHAI.info=Büyü konusunda yetenekli insanlarla tanınan büyük bir liman şehri - kanın, gölgelerin ve fırtınaların büyüsü. Asshaians gizli bilgi ve kehanetlere sahiptir. Asshai'nin arkasında, ejderhaların hayatta kalmış olabileceği gizemli Gölgeler Ülkesi var. Melisandre ve Quaita Asshai'den geldiler.
-got.wp.Asshai=Asshai
+got.wp.ASSHAI=Asshai
 got.wp.ASTAPOR.info=Meereen ve Yunkai ile birlikte Köle Körfezi'ndeki üç köle ticaret merkezinden biri. Şehir, Gis'ten gelen göçmenler tarafından kurulmuştur ve özellikle Kusursuzların eğitimli köleleri ile ünlüdür; Disiplin, cesaret ve sadakat nedeniyle Lekesizler ordusu bilinen dünyada çok değerlidir.
-got.wp.Astapor=Astapor
+got.wp.ASTAPOR=Astapor
 got.wp.ATAAHUA.info≠An ancient sea fort where the legendary sword was kept. The place of the holiday preserves the memory of the exploits of the young king Rinne, who died at the hands of a cruel sorcerer during the storming of the castle.
-got.wp.Ataahua≠An ancient sea fort where the legendary sword was kept. The place of the holiday preserves the memory of the exploits of the young king Rinne, who died at the hands of a cruel sorcerer during the storming of the castle.
+got.wp.ATAAHUA≠An ancient sea fort where the legendary sword was kept. The place of the holiday preserves the memory of the exploits of the young king Rinne, who died at the hands of a cruel sorcerer during the storming of the castle.
 got.wp.ATRANTA.info=Vance'in genç kolunun atalardan kalma kalesi, Tully'nin vassalları.
-got.wp.Atranta=Atranta
+got.wp.ATRANTA=Atranta
 got.wp.AZHYDAAR.info≠The homeland of Catullah, the ancient king of Mossovy.
-got.wp.Azhydaar≠The homeland of Catullah, the ancient king of Mossovy.
+got.wp.AZHYDAAR≠The homeland of Catullah, the ancient king of Mossovy.
 got.wp.AZUU_KAN.info≠Mystical fortress that sits on the edge of the world. It is inhabited by the spirit of the gandharva. This word in mossovian means "lord of all the righteous."
-got.wp.AzuuKan≠Mystical fortress that sits on the edge of the world. It is inhabited by the spirit of the gandharva. This word in mossovian means "lord of all the righteous."
+got.wp.AZUU_KAN≠Mystical fortress that sits on the edge of the world. It is inhabited by the spirit of the gandharva. This word in mossovian means "lord of all the righteous."
 got.wp.BAELISH_KEEP.info=Yedi Krallığın en önemsiz ve en fakir lordlarından birinin atalarının alanı - Beilish. Üç kuşak önce, şimdiki Lord Petyr Baelish'in büyük büyükbabası Westeros'a Braavos paralı askeri olarak geldi, oğlu şövalyelik aldı, torunu lord oldu ve büyük torunu Lord Arryn'in dul eşiyle evlendi.
-got.wp.BaelishKeep=Baelish Kalesi
+got.wp.BAELISH_KEEP=Baelish Kalesi
 got.wp.BANDALLON.info=Menzil'in Blackbar Hanesi'nin atalardan kalma kalesi. Kara çubukların çok kötü bir hayal gücü vardır: armalarında siyah (siyah) bir şerit (çubuk) bulunur.
-got.wp.Bandallon=Bandalon
+got.wp.BANDALLON=Bandalon
 got.wp.BANEFORT.info=Bainforth hanedanının kalesi, Lannister'ın vasali.
-got.wp.Banefort=Felaket
+got.wp.BANEFORT=Felaket
 got.wp.BAOJI.info=Ormana yakın bir şehir. Manjin ile kuruluş tarihinde bile her şeyde sürekli rekabet eder.
-got.wp.Baoji=Baoji
+got.wp.BAOJI=Baoji
 got.wp.BARROWTOWN.info=Şehir, Barrowhall'dan eski Barrow Kings Dustins tarafından yönetiliyor. Kuzeyin Varisi Brandon Stark, kızının ve Kışyarı'nın varisinin evlenmesini umut eden Lord Dustin'in öğrencisiydi. Dustin'ler, Kuzey'in yeni Muhafız Bolton'ların sadık müttefikleridir.
-got.wp.Barrowtown=Höyük kasabası
+got.wp.BARROWTOWN=Höyük kasabası
 got.wp.BARTER_BEACH.info=Korsanların birbirleriyle ticaret yaptıkları plaj. Muhtemelen bir korsan yerleşimi.
-got.wp.BarterBeach=Takas plajı
+got.wp.BARTER_BEACH=Takas plajı
 got.wp.BASHKARUUCHU.info≠Cold and gloomy capital of Mossovy, steeped in debauchery and bewitched. If the first is the truth of life, the second is an invention of the authorities.
-got.wp.Bashkaruuchu≠Cold and gloomy capital of Mossovy, steeped in debauchery and bewitched. If the first is the truth of life, the second is an invention of the authorities.
+got.wp.BASHKARUUCHU≠Cold and gloomy capital of Mossovy, steeped in debauchery and bewitched. If the first is the truth of life, the second is an invention of the authorities.
 got.wp.BATARGAS.info≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
-got.wp.Batargas≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
+got.wp.BATARGAS≠One of the three currently inhabited Qarth colonies in Sotorios. It is from here that ships with wyverns go to Qarth. There is a small standing army here, adapted for conducting a not too heavy war.
 got.wp.BAYASABHAD.info=Hirkun Beyliği'ni baskınlardan korumak için inşa edilen kalenin çevresinde ortaya çıkan son şehirlerden biri; krallık kuru denizden sonra çürümeye düştü, ancak savaşçı Amazonlar hala Muhafız izliyor.
-got.wp.Bayasabhad=Bayasabhad
+got.wp.BAYASABHAD=Bayasabhad
 got.wp.BHORASH.info=Şeytan Yolu'ndaki bir Valyrian veya Ghiskar şehrinin kalıntıları. Valyria Kayası'ndan sonra yok edildi ve kim tarafından bilinmiyor.
-got.wp.Bhorash=Bhoraş
+got.wp.BHORASH=Bhoraş
 got.wp.BIG_LAKE.info≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
-got.wp.BigLake≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
+got.wp.BIG_LAKE≠A sacred lake for many Sotori tribes. Of course: there are not so many lakes in their arid plain, and even such huge ones. And water is the source of life.
 got.wp.BITTERBRIDGE.info=Caswells Evi'nin atalarının kalesi. Burada turnuvanın galibi Brienne Tarth, Kral Renly tarafından Gökkuşağı Muhafızna getirildi.
-got.wp.Bitterbridge=Acı köprü
-got.wp.BLACK_HEART.info=Soyları tükenmiş Toyn Hanesi'nin kalesi, Değersiz Aegon III'e yapılan başarısız suikast girişiminden sonra onlardan alındı. Daha sonra Connington House tarafından işgal edildi.
-got.wp.BlackHeart=Kara kalp
-got.wp.BLACK_POOL.info=Slates'in atalardan kalma kalesi. Zamanın başlangıcında, Starklar onları fethedip vasallarına dönüştürene kadar onlar kraldı.
-got.wp.BlackPool=Siyah havuz
+got.wp.BITTERBRIDGE=Acı köprü
 got.wp.BLACKCROWN.info=Bulwers Evi'nin kalesi, Garth Yeşilel'in torunları (Menzil'in diğer birçok hanesi gibi).
-got.wp.Blackcrown=Siyah taç
+got.wp.BLACKCROWN=Siyah taç
 got.wp.BLACKHAVEN.info=Dondarrion hanedanının kalesi, Baratheonların vassalları.
-got.wp.Blackhaven=Kara liman
+got.wp.BLACKHAVEN=Kara liman
 got.wp.BLACKMONT.info=Blackmont Hanesi'nin kalesi, Martell'in vassalları. Nymeria sonunda onları boyunduruk altına alıp altın zincirler içindeki son kralı Sur'a sürgün edene kadar kendilerine kral dediler.
-got.wp.Blackmont=Blackmont
+got.wp.BLACKMONT=Blackmont
 got.wp.BLACKTYDE.info=Blacktides Hanedanı Kalesi, Greyjoy'ların vassalları
-got.wp.Blacktyde=Kara kara
+got.wp.BLACKTYDE=Kara kara
+got.wp.BLACK_HEART.info=Soyları tükenmiş Toyn Hanesi'nin kalesi, Değersiz Aegon III'e yapılan başarısız suikast girişiminden sonra onlardan alındı. Daha sonra Connington House tarafından işgal edildi.
+got.wp.BLACK_HEART=Kara kalp
+got.wp.BLACK_POOL.info=Slates'in atalardan kalma kalesi. Zamanın başlangıcında, Starklar onları fethedip vasallarına dönüştürene kadar onlar kraldı.
+got.wp.BLACK_POOL=Siyah havuz
 got.wp.BLOODSTONE.info=Basamak adalarından biri, burada kendini Basamaklar ve Dar Deniz Kralı Damon Targaryen'in karargahının bulunduğu yerdi.
-got.wp.BloodStone=Kan taşı
+got.wp.BLOODSTONE=Kan taşı
 got.wp.BLOODY_GATE.info=Vadi'ne giden tek yolu kapatan küçük bir kale.
-got.wp.BloodyGate=Kanlı kapı
+got.wp.BLOODY_GATE=Kanlı kapı
 got.wp.BONETOWN.info=Tamamen kemiklerden inşa edilmiş bir şehir.
-got.wp.Bonetown=Kemik mahallesi
+got.wp.BONETOWN=Kemik mahallesi
 got.wp.BRAAVOS.info=Hür Şehirlerden biri ve en büyüğü bir liman şehri. Valyria saltanatı sırasında kaçak köleler tarafından kuruldu. Kentin simge yapılarından biri, liman girişinin üzerine dikilmiş dev bir heykel olan Braavos Titan'ıdır.
-got.wp.Braavos=Braavos
+got.wp.BRAAVOS=Braavos
 got.wp.BREAKSTONE_HILL.info=Soyu tükenmiş Flint Kings'in krallığı, Winter Kings'in vassalları. Belki de kendilerine İlk Çakmaktaşları diyen dağ klanı, Taş Tepe Çakmaktaşlarının torunlarıdır.
-got.wp.BreakstoneHill=Kırılma Tepesi
+got.wp.BREAKSTONE_HILL=Kırılma Tepesi
 got.wp.BRIARWHITE.info=Mısır tarlası olan bir köy. Beş Kralın Savaşı başladığında sakinleri evlerini terk etmediler. Başkentten kuzeye hareket eden Yoren'in bir müfrezesi geçti ve köylüler mısır için ödeme talep etti.
-got.wp.Briarwhite=Briarwhite
+got.wp.BRIARWHITE=Briarwhite
 got.wp.BRIGHTWATER_KEEP.info=Expanse - Florentine'in en eski evlerinden birinin atalarının kalesi; kale, Stannis Baratheon'u destekleyen sahiplerinden alındı ve Garlan Tyrell'e verildi.
-got.wp.BrightwaterKeep=Parlak su tutmak
+got.wp.BRIGHTWATER_KEEP=Parlak su tutmak
 got.wp.BROAD_ARCH.info=Stedmonların atalarının kalesi, Baratheonların vasalları.
-got.wp.BroadArch=Geniş Kemer
+got.wp.BROAD_ARCH=Geniş Kemer
 got.wp.BRONZEGATE.info=Baratheonların vassalları olan Buckler'ların hanedanının kalesi.
-got.wp.Bronzegate=Bronz kapı
+got.wp.BRONZEGATE=Bronz kapı
 got.wp.BROWNHOLLOW.info=Kale, Baratheonların vassalları olan Brune Hanedanı'nın kollarından biridir.
-got.wp.Brownhollow=Kahverengi oyuk
+got.wp.BROWNHOLLOW=Kahverengi oyuk
 got.wp.CASTAMERE.info=Ren'in atalarının kalesi. Kastamere, adını kaleye borçlu olan Kastamere gölünün yakınındaki madenlerde inşa edilmiş 10 bölümden 9'unda yeraltında gizlidir. "Kastamere'den Reyna" şarkısı, kalenin yeraltı kısmının nasıl mühürlendiğini ve tüm sakinleriyle sular altında kaldığını anlatıyor. Kızıl Düğün'den sonra kale, Robb Stark'ın kaderindeki rolü için bir ödül olarak Lord unvanıyla birlikte Sör Rolf Spicer'a verildi.
-got.wp.Castamere=Castamere
+got.wp.CASTAMERE=Castamere
 got.wp.CASTERLY_ROCK.info=Batı Topraklarının ana kalesi olan Lannister'ın atalarının evi. Casterly ailesindeki ilk aslan mağarasında altın madenleri buldu ve servetini korumak için bir kaleyi yeniden inşa etti. Efsanevi Lannister atası olan altın saçlı haydut Zeki Lann'in kurnazlıkla (ya da son Lord Casterly'nin oğlu olmayan kızlarından biriyle başarılı bir şekilde evlenerek) kaleyi ele geçirdiği söylenir.
-got.wp.CasterlyRock=Casterly Kayası
+got.wp.CASTERLY_ROCK=Casterly Kayası
 got.wp.CASTLE_BLACK.info=Gece Nöbeti'nin ana kalesi, Lord Kumandan'ın koltuğu ve Sur'un ötesindeki açık geçitlerden birinin yeri.
-got.wp.CastleBlack=Kara Kale
+got.wp.CASTLE_BLACK=Kara Kale
+got.wp.CASTLE_CERWYN.info=House Servin'in atalardan kalma kalesi, Starkların vassalları. Servin ailesi, Bran Stark'ın arkadaş olduğu Clay Servin'in ölümüyle sona erdi.
+got.wp.CASTLE_CERWYN=Cerwyns Kalesi
 got.wp.CASTLE_LYCHESTER.info=Berik Dondarrion'un Arya ile birlikte müfrezesinin komutanlarını aramak için durduğu harap Leicester kalesi.
-got.wp.CastleLychester=Lychester Kalesi
+got.wp.CASTLE_LYCHESTER=Lychester Kalesi
 got.wp.CATFISH_ROCK.info=Fischer'in eski kraliyet evinin kalesi.
-got.wp.CatfishRock=Yayın balığı kaya
+got.wp.CATFISH_ROCK=Yayın balığı kaya
 got.wp.CENTRAL_FORESTS.info≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
-got.wp.CentralForests≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
+got.wp.CENTRAL_FORESTS≠Central Ultos, sometimes referred to as the southern part of northern Ultos. Forests are still widespread here, the same as in the north of the mainland.
 got.wp.CHANGAN.info≠Big city at the crossroads of important coastal roads. In the time of Azor Ahai, a ritual scroll was kept here with a prophecy of the "Salvation of the Land of the Golden Empire".
-got.wp.Changan≠Changan
+got.wp.CHANGAN≠Changan
 got.wp.CHROYANE.info=Antik çağda, Kroyane'nin müreffeh Roinar kasabasıydı. Saroi, ejderha lordları tarafından yakıldıktan sonra, Garin adlı Prens Kroyane, Rhoynar'ı birleşmeye ve işgalcilerle savaşmaya çağırdı. Ne yazık ki, bir dizi zaferden sonra Valyria'dan düzinelerce ejderha lordu geldi ve Roynar düştü. Garin, halkının nasıl köleleştirildiğini ve şehrin nasıl yandığını görebilmesi için bir kafeste Kroyan'a getirildi. Çaresizlik içinde Garin, Valyrialıları lanetledi - sonra Roina'nın üzerinde gri bir hastalığın sporları ortaya çıktı ... Şimdi bu hastalığın kurbanları burada kovuldu. Böylece güzel şehir büyük bir cüzzamlı kolonisine dönüştü.
-got.wp.Chroyane=Kroyan
+got.wp.CHROYANE=Kroyan
 got.wp.CIDER_HALL.info=Kızıl Elma şubesinden Fossoveevlerin evinin kalesi.
-got.wp.CiderHall=Elma şarabı salonu
+got.wp.CIDER_HALL=Elma şarabı salonu
 got.wp.CLAW_ISLE.info=Ejderha Kayası yakınlarında Seltigar Hanesi'ne ait bir ada. Eski günlerde şato zenginlik ve lüks eşyalarla doluydu ama şimdi aile yoksullaştı.
-got.wp.ClawIsle=Pençe Adası
+got.wp.CLAW_ISLE=Pençe Adası
 got.wp.CLEGANES_KEEP.info=Titos Lannister'ın hayatını kurtardığı için köpek kulübesi tarafından alınan kale. Şimdi kale o avcının torunu Grigor Clegan'a ait. Grigor Clegane, Westeros'un herhangi bir Savaşçını bire bir savaşta öldürebilmesiyle ünlüdür. Bazen insanlar onun kalesinden iz bırakmadan kaybolur.
-got.wp.CleganesKeep=Cleganes tutmak
+got.wp.CLEGANES_KEEP=Cleganes tutmak
 got.wp.COLDMOAT.info=Ausgrey atalarının kalesi, Osgrey'in kilise ordusunun baskısına karşı muhalefeti için taç tarafından Webber Hanesi'ne devredildi. Yüz yıldan biraz daha uzun bir süre sonra, Osgrey ve Webbers arasındaki evlilik birliği sayesinde, kale Osgrey'e geri döndü.
-got.wp.Coldmoat=Soğuk hendek
+got.wp.COLDMOAT=Soğuk hendek
 got.wp.COLDWATER_BURN.info=Coldwater Hanesi Kalesi, Arryn'in vassalları.
-got.wp.ColdwaterBurn=Soğuk su yanığı
+got.wp.COLDWATER_BURN=Soğuk su yanığı
 got.wp.CORNFIELD.info=Swift Kalesi - eskiden lordlardı, ama şimdi sadece kara şövalyeleri.
-got.wp.Cornfield=Mısır tarlası
+got.wp.CORNFIELD=Mısır tarlası
 got.wp.CORPSE_LAKE.info=Eski Goodbrothers'ın vassalları olan Goodbrothers Evi'nin küçük bir kolunun kalesi.
-got.wp.CorpseLake=Ceset gölü
+got.wp.CORPSE_LAKE=Ceset gölü
 got.wp.CRAG.info=Robb Stark'ın yaralandığı ve trajik bir şekilde evlendiği Westerling Kalesi.
-got.wp.Crag=Kayalık
+got.wp.CRAG=Kayalık
 got.wp.CRAKEHALL.info=Soylarını efsanevi Crack the Boar Slayer'a kadar takip eden Crackhalls Kalesi.
-got.wp.Crakehall=Crakehall
+got.wp.CRAKEHALL=Crakehall
 got.wp.CRASTERS_KEEP.info=Craster ve kızları-eşlerinin evi. Yabanılların standartlarına göre Craster'ın evi büyük olsa da, yalnızca sahibinin kendisi burayı bir kale olarak adlandırır.
-got.wp.CrastersKeep=Krasterler
+got.wp.CRASTERS_KEEP=Krasterler
 got.wp.CROSSROADS_INN.info=Üç yolun kavşağı - Kraliyet Yolu, Nehir ve Yüksek yollar. Burada Crossroads'taki meyhane denilen bir meyhane var.
-got.wp.CrossroadsInn=Kavşak Hanı
-got.wp.CROW_SPIKE_KEEP.info=Goodbrothers'ın genç kollarından birine ait olan Bolşoy Vick'teki Kale.
-got.wp.CrowSpikeKeep=Karga dikeni kalesi
+got.wp.CROSSROADS_INN=Kavşak Hanı
 got.wp.CROWS_NEST.info=Baratheonların vassalları olan Morrigen hanedanının kalesi.
-got.wp.CrowsNest=Karga yuvası
+got.wp.CROWS_NEST=Karga yuvası
+got.wp.CROW_SPIKE_KEEP.info=Goodbrothers'ın genç kollarından birine ait olan Bolşoy Vick'teki Kale.
+got.wp.CROW_SPIKE_KEEP=Karga dikeni kalesi
 got.wp.DARKDELL.info=Virvellerin hanedanının kalesi, Tyrellerin vassalları.
-got.wp.DarkDell=Karanlık Dell
+got.wp.DARKDELL=Karanlık Dell
 got.wp.DARRY.info=Nehir Toprakları Darry Hanedanı'nın eski ve küçük atalardan kalma kalesi. Beş Kralın Savaşı sırasında, Lancel Lannister'ı alana kadar mülkiyeti birkaç kez değiştirdi.
-got.wp.Darry=Darry
+got.wp.DARRY=Darry
 got.wp.DEAD_HEAD.info=Horps Hanesi'nin kalesi, Baratheonların vassalları.
-got.wp.DeatsHear=Deats duymak
-got.wp.DEEP_DEN.info=Lannister'ın vasalı Lyddens'ın hanesinin kalesi.
-got.wp.DeepDen=Derin Den
-got.wp.DEEP_LAKE.info=Şimdi Gece Nöbeti'nin terk edilmiş kalelerinden biri. 200 yıl önce Kraliçe Alisanna'nın inisiyatifiyle inşa edilmiş; Kraliçe, Gece Nöbeti'nin kardeşleri çok büyük ve pahalı Gece Kalesi'ni terk edebilsin diye inşaatı finanse etti. Kale adını yakınında bulunduğu gölden almıştır. Gece Nöbeti'nin 998. Lord Kumandanı, Sur'un Muhafıznı yeniden kurmak için buraya bir garnizon gönderdi.
-got.wp.DeepLake=Derin göl
+got.wp.DEAD_HEAD=Deats duymak
 got.wp.DEEPDOWN.info=Kargalar Evi'nin aile şatosu sadece ismen bir kaledir, ama aslında müstahkem bir mağaradır ... ancak Crow'un asalet unvanı da bir formalitedir.
-got.wp.Deepdown=Derinlerde
+got.wp.DEEPDOWN=Derinlerde
 got.wp.DEEPWOOD_MOTTE.info=Kale, Starkların vassalları olan Glover'ların evidir.
-got.wp.DeepwoodMotte=Derin Odun Motesi
+got.wp.DEEPWOOD_MOTTE=Derin Odun Motesi
+got.wp.DEEP_DEN.info=Lannister'ın vasalı Lyddens'ın hanesinin kalesi.
+got.wp.DEEP_DEN=Derin Den
+got.wp.DEEP_LAKE.info=Şimdi Gece Nöbeti'nin terk edilmiş kalelerinden biri. 200 yıl önce Kraliçe Alisanna'nın inisiyatifiyle inşa edilmiş; Kraliçe, Gece Nöbeti'nin kardeşleri çok büyük ve pahalı Gece Kalesi'ni terk edebilsin diye inşaatı finanse etti. Kale adını yakınında bulunduğu gölden almıştır. Gece Nöbeti'nin 998. Lord Kumandanı, Sur'un Muhafıznı yeniden kurmak için buraya bir garnizon gönderdi.
+got.wp.DEEP_LAKE=Derin göl
 got.wp.DINGGUO.info≠There was a settlement here even before the Great Iti Country was built - there was a settlement of miners and diamond mines. When their deposits were exhausted, the diamonds were sold, and it was enough to build a fortress.
-got.wp.Dingguo≠There was a settlement here even before the Great Iti Country was built - there was a settlement of miners and diamond mines. When their deposits were exhausted, the diamonds were sold, and it was enough to build a fortress.
+got.wp.DINGGUO≠There was a settlement here even before the Great Iti Country was built - there was a settlement of miners and diamond mines. When their deposits were exhausted, the diamonds were sold, and it was enough to build a fortress.
 got.wp.DOQUU.info=Aynı adı taşıyan adada küçük bir yerleşim. Yaz Adaları'nın en güneydeki yerleşim yeridir.
-got.wp.Doquu=Belge
+got.wp.DOQUU=Belge
 got.wp.DOWNDELVING.info=Goodbrothers'ın genç kollarından birine ait olan Great Vic'deki Kale.
-got.wp.Downdelving=Aşağı iniş
+got.wp.DOWNDELVING=Aşağı iniş
 got.wp.DRACONYS.info=Valyria Kıyameti sırasında yıkılan Valyria İmparatorluğu'nun güçlü ve zengin sömürge şehirlerinden biri.
-got.wp.Draconys=Dracony'ler
-got.wp.DRAGON_PLACE.info≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
-got.wp.DragonPlace≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
+got.wp.DRACONYS=Dracony'ler
 got.wp.DRAGONSTONE.info=Ada ve aynı adı taşıyan zaptedilemez kale. Birkaç yüzyıl önce, Targaryenler buraya Eski Valyria'dan geldiler ve tahta çıktıktan ve Kral'ın Şehri'nin inşasından sonra, Ejderha Kayası Prensi unvanı kralın en büyük oğlu ve varisi tarafından karşılandı. Targaryenların devrilmesinden sonra kale Stannis Baratheon'a devredildi.
-got.wp.Dragonstone=Ejderha taşı
+got.wp.DRAGONSTONE=Ejderha taşı
+got.wp.DRAGON_PLACE.info≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
+got.wp.DRAGON_PLACE≠It is believed that this is the southernmost place where Jainara Beleiris visited on her dragon. Here she set up camp and had plenty of rest, after which she turned back.
 got.wp.DREADFORT.info=Bolton Hanedanı'nın atalarının kalesi, Starkların vassalları. Boltonlar, Kuzey'deki en güçlü ve en eski evler arasındadır. Bin yıl boyunca Starklarla rekabet ettiler ve sadece bin yıl önce Winterfell'in önünde diz çöktüler. Eski günlerde Bolton lordları, yaşayan insanlardan soyulmuş deri pelerinler giyerdi; Zamanla Starklar bu geleneği çiğnediler, ancak eski Nan'a göre eski kupaların bazıları hala Dredford'da tutuluyor (bazı Starkların derisi dahil).
-got.wp.Dreadfort=Korku kalesi
+got.wp.DREADFORT=Korku kalesi
 got.wp.DRIFTMARK.info=Ada ve üzerinde aynı adı taşıyan kale. Valyria'nın hayatta kalan ailelerinden biri olan Velarion Hanesi'nin atalarının toprakları. Westeros'ta Velarionlar, Yüksek Gelgit Lordu unvanına sahiptir. Hayal gücünü heyecanlandıran şeyin onların hazineleri olduğu bir zaman vardı, Lannister'ların değil.
-got.wp.Driftmark=Sürüklenme işareti
+got.wp.DRIFTMARK=Sürüklenme işareti
 got.wp.DRIFTWOOD_HALL.info=Aile "emlak"Steins. Aslında, bir köylü kulübesinden biraz daha zengin bir ev.
-got.wp.DriftwoodHall=Driftwood Salonu
+got.wp.DRIFTWOOD_HALL=Driftwood Salonu
 got.wp.DRUMM_CASTLE.info=Greyjoy'ların vassalları olan Drumm'ların hanesinin kalesi.
-got.wp.DrummCastle=Davul Kalesi
+got.wp.DRUMM_CASTLE=Davul Kalesi
 got.wp.DUNSTONBURY.info=İsyanın bastırılmasından sonra onlardan alınan Manderly'nin atalarının kalesi - Gardner'ların altında bile. Kale, başı Manderly'yi Geniş Alandan kovan Peak Hanesi'ne geçti. Daha sonra, Peaks Kara Alev isyanına katıldı ve aralarında Dunstonbury'nin de bulunduğu mallarıyla ödeme yaptı. Kalenin değeri mi düştü mü ve yeni sahiplerinin kim olduğu bilinmiyor.
-got.wp.Dunstonbury=Dunstonbury
+got.wp.DUNSTONBURY=Dunstonbury
 got.wp.DUSKENDALE.info=Demir Taht'ın vassalları olan Rikker'ların evi tarafından yönetilen büyük bir liman şehri.
-got.wp.Duskendale=Düskendale
+got.wp.DUSKENDALE=Düskendale
 got.wp.DYRE_DEN.info=Kale, Baratheonların vassalları olan Brune Hanedanı'nın kollarından biridir.
-got.wp.DyreDen=Dyre Den
+got.wp.DYRE_DEN=Dyre Den
+got.wp.EASTWATCH.info=Cotter Pike tarafından yönetilen, Gece Nöbeti'nin en doğudaki kalesi. Üç aktiften biri. Diğerlerinden farklı olarak Doğu Gözcüleri'ndeki kardeşler aktif olarak ticaretle uğraşıyorlar.
+got.wp.EASTWATCH=Doğu İzle
 got.wp.EAST_BAY.info≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
-got.wp.EastBay≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
+got.wp.EAST_BAY≠A huge eastern bay that visually separates the central Ultos from the northern one. There are no navigators here and no human foot has ever set foot here.
 got.wp.EAST_COAST.info≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
-got.wp.EastCoast≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
+got.wp.EAST_COAST≠This is not the extreme east of the world and not the extreme east of Ultos, since there are even more eastern shores in southern Ultos. Nevertheless, Asshaians believe that this is the extreme east of the continent.
+got.wp.EBONHEAD.info=Jala adasında bilinen tek şehir.
+got.wp.EBONHEAD=Siyah kafa
+got.wp.EIJIANG.info=Yi Ti'nin batı şehirlerinden biri. Buradan Kemik Sırtı'nı görebilirsiniz.
+got.wp.EIJIANG=Eijiang
+got.wp.ELYRIA.info=Körfezdeki bir adada Valyria tarafından kurulmuş bir şehir. Valyria saltanatı sırasında, başkentten uşaklar tarafından yönetilen zengin bir şehirdi. Daenerys'e karşı Yunkai ile müttefik.
+got.wp.ELYRIA=Elyria
+got.wp.EURON.info=Euron Greyjoy'un gemisi burada. Burada, söylentilere göre, Euron çıldırdı, tüm ekibinin dilini kopardı ve kendisine Old Town'dan Quart'a dua edilen Boğulmuş Tanrı adını verdi.
+got.wp.EURON=Sessizlik
+got.wp.EVENFALL_HALL.info=Baratheonların vassalları olan Tart hanedanının kalesi.
+got.wp.EVENFALL_HALL=Akşamüstü Salonu
 got.wp.EastPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
 got.wp.EastPass=Doğu Geçidi
-got.wp.EASTWATCH.info=Cotter Pike tarafından yönetilen, Gece Nöbeti'nin en doğudaki kalesi. Üç aktiften biri. Diğerlerinden farklı olarak Doğu Gözcüleri'ndeki kardeşler aktif olarak ticaretle uğraşıyorlar.
-got.wp.EastWatch=Doğu İzle
-got.wp.EBONHEAD.info=Jala adasında bilinen tek şehir.
-got.wp.Ebonhead=Siyah kafa
-got.wp.EIJIANG.info=Yi Ti'nin batı şehirlerinden biri. Buradan Kemik Sırtı'nı görebilirsiniz.
-got.wp.Eijiang=Eijiang
-got.wp.ELYRIA.info=Körfezdeki bir adada Valyria tarafından kurulmuş bir şehir. Valyria saltanatı sırasında, başkentten uşaklar tarafından yönetilen zengin bir şehirdi. Daenerys'e karşı Yunkai ile müttefik.
-got.wp.Elyria=Elyria
-got.wp.EURON.info=Euron Greyjoy'un gemisi burada. Burada, söylentilere göre, Euron çıldırdı, tüm ekibinin dilini kopardı ve kendisine Old Town'dan Quart'a dua edilen Boğulmuş Tanrı adını verdi.
-got.wp.Euron=Sessizlik
-got.wp.EVENFALL_HALL.info=Baratheonların vassalları olan Tart hanedanının kalesi.
-got.wp.EvenfallHall=Akşamüstü Salonu
-got.wp.FAIRMARKET.info=Blue Zubets Nehri üzerinde bir köprüsü olan bir köy.
-got.wp.FairMarket=Adil pazar
 got.wp.FAIRCASTLE.info=Lannister'ın vassalı Farman'ın evinin kalesi.
-got.wp.Faircastle=Faircastle
+got.wp.FAIRCASTLE=Faircastle
+got.wp.FAIRMARKET.info=Blue Zubets Nehri üzerinde bir köprüsü olan bir köy.
+got.wp.FAIRMARKET=Adil pazar
 got.wp.FAROS.info=Adadaki iki şehirden biri. Taş İnek burada ibadet edilir.
-got.wp.Faros=Faros
+got.wp.FAROS=Faros
 got.wp.FAWNTOWN.info=Atalardan kalma kale ve Kafferenov şehri. Robert, Deli Aerys'e karşı Bayraktarları çağırdıktan sonra Lord Fell, Kafferen ve Grandison, derebeyleri yerine Targaryenları seçti. Toplantıda Lord Cafferren, Robert'ın büyüsüne yenik düşerek onun tarafına geçti.
-got.wp.Fawntown=Fawntown
+got.wp.FAWNTOWN=Fawntown
 got.wp.FEASTFIRES.info=Prester Kalesi. Efsaneler, Prester'dan bir kızla evlenen Lannister'lardan birinin bu kalede yaşamayı seçtiğini söylüyor.
-got.wp.Feastfires=Bayram ateşleri
+got.wp.FEASTFIRES=Bayram ateşleri
 got.wp.FELWOOD.info=Aile kale düştü. Robert, Deli Aerys'e karşı Bayraktarları çağırdıktan sonra Lord Fell, Kafferen ve Grandison, derebeyleri yerine Targaryenları seçti. Robert onları birer birer kırdı, Lord Fell'i öldürdü ve oğlu hayatının sonuna kadar kendini Robert'a adadı.
-got.wp.Felwood=Felwood
+got.wp.FELWOOD=Felwood
 got.wp.FIST.info=Şafak Çağı'nda bir tepe üzerine inşa edilen İlk İnsanlar kalesinin kalıntıları.
-got.wp.Fist=Yumruk
+got.wp.FIST=Yumruk
 got.wp.FIVE_FORTS_1.info=Sanki inşaatlarında ejderha alevi kullanılmış gibi devasa siyah levhalardan kaynaştırılan Beş Kale, Yi Ti'nin Altın İmparatorluğu'ndan bile önce ortaya çıktı - Yi Ti'nin Büyük İmparatorluğu çağında, devleti Gece Aslanı'ndan korumak için. diğer ülkelerde Büyük Öteki denir. Yoksa sadece bir efsane mi?
-got.wp.FiveForts1=Beş Kale
+got.wp.FIVE_FORTS_1=Beş Kale
 got.wp.FIVE_FORTS_2.info=Sanki inşaatlarında ejderha alevi kullanılmış gibi devasa siyah levhalardan kaynaştırılan Beş Kale, Yi Ti'nin Altın İmparatorluğu'ndan bile önce ortaya çıktı - Yi Ti'nin Büyük İmparatorluğu çağında, devleti Gece Aslanı'ndan korumak için. diğer ülkelerde Büyük Öteki denir. Yoksa sadece bir efsane mi?
-got.wp.FiveForts2=Beş Kale
+got.wp.FIVE_FORTS_2=Beş Kale
 got.wp.FIVE_FORTS_3.info=Sanki inşaatlarında ejderha alevi kullanılmış gibi devasa siyah levhalardan kaynaştırılan Beş Kale, Yi Ti'nin Altın İmparatorluğu'ndan bile önce ortaya çıktı - Yi Ti'nin Büyük İmparatorluğu çağında, devleti Gece Aslanı'ndan korumak için. diğer ülkelerde Büyük Öteki denir. Yoksa sadece bir efsane mi?
-got.wp.FiveForts3=Beş Kale
+got.wp.FIVE_FORTS_3=Beş Kale
 got.wp.FIVE_FORTS_4.info=Sanki inşaatlarında ejderha alevi kullanılmış gibi devasa siyah levhalardan kaynaştırılan Beş Kale, Yi Ti'nin Altın İmparatorluğu'ndan bile önce ortaya çıktı - Yi Ti'nin Büyük İmparatorluğu çağında, devleti Gece Aslanı'ndan korumak için. diğer ülkelerde Büyük Öteki denir. Yoksa sadece bir efsane mi?
-got.wp.FiveForts4=Beş Kale
+got.wp.FIVE_FORTS_4=Beş Kale
 got.wp.FIVE_FORTS_5.info=Sanki inşaatlarında ejderha alevi kullanılmış gibi devasa siyah levhalardan kaynaştırılan Beş Kale, Yi Ti'nin Altın İmparatorluğu'ndan bile önce ortaya çıktı - Yi Ti'nin Büyük İmparatorluğu çağında, devleti Gece Aslanı'ndan korumak için. diğer ülkelerde Büyük Öteki denir. Yoksa sadece bir efsane mi?
-got.wp.FiveForts5=Beş Kale
+got.wp.FIVE_FORTS_5=Beş Kale
 got.wp.FLINTS_FINGER.info=Kale, Starkların vassalları olan Flint Hanedanı'nın kollarından biridir.
-got.wp.FlintsFinger=çakmaktaşı parmak
+got.wp.FLINTS_FINGER=çakmaktaşı parmak
 got.wp.FOURTEEN_FLAMES.info=Altında mayın bulunan bir volkanik dağlar zincirinden geriye kalan her şey. Valyria Kayası sırasında, dağlar deniz tarafından yutuldu ve daha sonra Smoky olarak adlandırıldı (sağda daha fazlasını görün).
-got.wp.FourteenFlames=On dört alev
+got.wp.FOURTEEN_FLAMES=On dört alev
 got.wp.FU_NING.info≠Ancient city at the eastern crossroads. In ancient times there was a famous roadside inn where travelers could drink wine and taste lobster stew.
-got.wp.FuNing≠Fu Ning
+got.wp.FU_NING≠Fu Ning
 got.wp.GALLOWSGREY.info=Baratheonların vasalları olan Trantların hanedanının kalesi.
-got.wp.Gallowsgrey=Darağacı grisi
+got.wp.GALLOWSGREY=Darağacı grisi
 got.wp.GARNETGROVE.info=Pommingen'in şövalye hanesinin kalesi, Tyrell'lerin vassalları.
-got.wp.GarnetGrove=Garnet Korusu
+got.wp.GARNETGROVE=Garnet Korusu
 got.wp.GATE_OF_THE_MOON.info=Arryn'in kışlık ikametgahı, Vadinin Yüce Efendisi, ailesi ve hizmetkarları, Alp Kartalı Yuvası'nın ıssız kaldığı kış için yaşamak üzere iner. Kale, Moongate'in Royce Evi tarafından yönetiliyor.
-got.wp.GateOfTheMoon=Ay Kapısı
+got.wp.GATE_OF_THE_MOON=Ay Kapısı
 got.wp.GHASTON_GREY.info=Martell'lerin soylu kanlı suçluları sürgüne gönderdiği sefil bir kaleye sahip küçük bir kasaba. Garin ve Andrew Dalt, Arianna'nın komplosunda rol aldıkları için kalede hapsedildi.
-got.wp.GhastonGrey=Ghaston Gri
+got.wp.GHASTON_GREY=Ghaston Gri
 got.wp.GHOST_HILL.info=Toland hanedanının kalesi, Martelllerin vassalları.
-got.wp.GhostHill=Hayalet tepe
+got.wp.GHOST_HILL=Hayalet tepe
 got.wp.GHOYAN_DROHE.info=Çeşmeler ve çiçekler ile Andalos'ta küçük Roinar kasabası. Valyria fetihleri sırasında harabeye döndü. Bugün nüfusu az ve fakirdir.
-got.wp.GhoyanDrohe=Ghoyan Drohe
+got.wp.GHOYAN_DROHE=Ghoyan Drohe
 got.wp.GHOZAI.info=Giscari halkı tarafından kurulan bir köle kasabası. Valyria Kayası olarak bilinen afet sırasında dev bir dalga tarafından yok edildi. Sadece Ghiskar piramitleri hayatta kaldı.
-got.wp.Ghozai=Ghozai
+got.wp.GHOZAI=Ghozai
 got.wp.GODSGRACE.info=Allirion hanedanının kalesi, Martelllerin vassalları.
-got.wp.Godsgrace=Tanrı'nın lütfu
+got.wp.GODSGRACE=Tanrı'nın lütfu
 got.wp.GOGOSSOS.info=Aslen Giskari şehri Gorgai, Valyria tarafından ele geçirildi. Burada Valyrialılar, büyücülerine insanlarla deney yapmaları için tam yetki verdi ve Valyria düşene kadar korkunç iğrençlikler yaptılar. Doom'dan sonra Gogossos, köle ticaretinin merkezlerinden biri haline geldi ve korkunç bir salgın onu yok edene kadar Onuncu Özgür Şehir unvanını talep etti.
-got.wp.Gogossos=Gogossos
-got.wp.GOLDEN_HEAD.info=Yaz Adaları'nın en büyüğünün yarımadasında yerleşim.
-got.wp.GoldenHead=Altın kafa
-got.wp.GOLDEN_TOOTH.info=Batı topraklarını doğudan gelecek saldırılara karşı koruyan bir kale. Lannister'ın vassalları olan Lefford Hanedanı'na aittir.
-got.wp.GoldenTooth=Altın diş
+got.wp.GOGOSSOS=Gogossos
 got.wp.GOLDENGROVE.info=Rowanların evinin kalesi, Tyrell'lerin vassalları.
-got.wp.Goldengrove=Altınbahçe
+got.wp.GOLDENGROVE=Altınbahçe
 got.wp.GOLDENHILL.info=Tepedeki kalıntılar herhangi bir efsane için klasik bir yer değil mi?
-got.wp.Goldenhill=Altıntepe
+got.wp.GOLDENHILL=Altıntepe
+got.wp.GOLDEN_HEAD.info=Yaz Adaları'nın en büyüğünün yarımadasında yerleşim.
+got.wp.GOLDEN_HEAD=Altın kafa
+got.wp.GOLDEN_TOOTH.info=Batı topraklarını doğudan gelecek saldırılara karşı koruyan bir kale. Lannister'ın vassalları olan Lefford Hanedanı'na aittir.
+got.wp.GOLDEN_TOOTH=Altın diş
 got.wp.GOLDGRASS.info=Stout'ların evinin kalesi, Dustin'lerin vassalları.
-got.wp.Goldgrass=Altın otu
+got.wp.GOLDGRASS=Altın otu
 got.wp.GOROSH.info=Giscari'nin suçluları ağır çalışmaya sürgün ettiği şehir. Emeklere bir de daha birçok şehri yerle bir eden sotorio hastalıkları ve korkunç yaratıklar eklendi.
-got.wp.Gorosh=Goroş
+got.wp.GOROSH=Goroş
 got.wp.GRANDVIEW.info=Grandison Evi'nin atalarının kalesi. Robert, Deli Aerys'e karşı Bayraktarları çağırdıktan sonra Lord Fell, Kafferen ve Grandison, derebeyleri yerine Targaryenları seçti. Tanıştıktan sonra Lord Grandison, Robert'ın cazibesine kurban gitti ve onun tarafına geçti.
-got.wp.Grandview=Büyük manzara
+got.wp.GRANDVIEW=Büyük manzara
 got.wp.GRASSY_VALE.info=Lugovin Kalesi ve çevresindeki Lugovy Dol kasabası. Çayır Toprakları..
-got.wp.GrassyVale=çimenli vadi
+got.wp.GRASSY_VALE=çimenli vadi
 got.wp.GREENFIELD.info=Greenfield Hanedanı'nın kalesi, Lannister'ın vasalı.
-got.wp.Greenfield=Yeşil alan
+got.wp.GREENFIELD=Yeşil alan
 got.wp.GREENGUARD.info=Gece Nöbeti'nin terk edilmiş kalelerinden biri.
-got.wp.Greenguard=Yeşil Muhafız
+got.wp.GREENGUARD=Yeşil Muhafız
 got.wp.GREENSHIELD.info=Kalkan Adaları'ndan biri, Chester'ların mülkiyeti, Tyrell'lerin vassalları. Ardından Euron adayı Maron Walmark'a verdi.
-got.wp.Greenshield=Yeşil kalkan
+got.wp.GREENSHIELD=Yeşil kalkan
 got.wp.GREENSTONE.info=Estermont hanedanının kalesi, Baratheonların vassalları.
-got.wp.Greenstone=Yeşiltaş
-got.wp.GREY_GALLOWS.info=Steps takımadalarının adalarından biri.
-got.wp.GreyGallows=Gri darağacı
-got.wp.GREY_GARDEN.info=Kale, Elder Harlow'un vassalları olan Harlow Hanesi'nin küçük bir koludur.
-got.wp.GreyGarden=Gri bahçe
-got.wp.GREY_GLEN.info=Tollett'lerin evinin kalesi, Royce'ların vassalları.
-got.wp.GreyGlen=Gri glen
+got.wp.GREENSTONE=Yeşiltaş
 got.wp.GREYGUARD.info=Gece Nöbeti'nin terk edilmiş kalelerinden biri. Kaleden çok uzakta olmayan Jon Snow, Stear'ın ekibiyle Sur'u geçti; Daha sonra Gece Nöbeti'nin 998. Lord Kumandanı, yeniden inşa edilmesi için buraya bir garnizon gönderdi.
-got.wp.Greyguard=Gri muhafız
+got.wp.GREYGUARD=Gri muhafız
 got.wp.GREYIRON_CASTLE.info=Soyu tükenmiş Greyarons Hanedanı'nın kalesi.
-got.wp.GreyironCastle=Greyiron Kalesi
+got.wp.GREYIRON_CASTLE=Greyiron Kalesi
 got.wp.GREYWATER_WATCH.info=Ancestral castle of House Reed, vassals of the Starks. Moves constantly (whatever that means) and cannot be detected by enemies of the Reeds.
-got.wp.GreywaterWatch=Greywater Watch
+got.wp.GREYWATER_WATCH=Greywater Watch
+got.wp.GREY_GALLOWS.info=Steps takımadalarının adalarından biri.
+got.wp.GREY_GALLOWS=Gri darağacı
+got.wp.GREY_GARDEN.info=Kale, Elder Harlow'un vassalları olan Harlow Hanesi'nin küçük bir koludur.
+got.wp.GREY_GARDEN=Gri bahçe
+got.wp.GREY_GLEN.info=Tollett'lerin evinin kalesi, Royce'ların vassalları.
+got.wp.GREY_GLEN=Gri glen
 got.wp.GRIFFINS_ROOST.info=A well-fortified ancestral castle of House Connington, vassals of the Baratheons.
-got.wp.GriffinsRoost=Griffins Roost
+got.wp.GRIFFINS_ROOST=Griffins Roost
 got.wp.GRIMSTON.info=The castle of the House of Grimm, vassals of the Tyrells, on the Gray Shield.
-got.wp.Grimston=Grimston
+got.wp.GRIMSTON=Grimston
 got.wp.GULLTOWN.info=One of the five largest cities in Westeros and a port. The city is governed by the house of Grafton, vassals of the Arryn. Representatives of the younger branch of the Arryn also live here. When winter comes and the mountain roads become impassable, the Valley's connection with the rest of the world is maintained by sea through the Chayach City.
-got.wp.Gulltown=Gulltown
+got.wp.GULLTOWN=Gulltown
 got.wp.HAMMERHAL.info=The castle of the house of the Cordweiners, vassals of the Tyrells.
-got.wp.Hammerhal=Hammerhal
+got.wp.HAMMERHAL=Hammerhal
 got.wp.HAMMERHORN.info=Goodbrothers'ın hanesinin kalesi, Greyjoy'ların vassalları. Tüm Demir Adalar'da denizden en uzak kale.
-got.wp.Hammerhorn=çekiç boynuzu
+got.wp.HAMMERHORN=çekiç boynuzu
 got.wp.HARDHOME.info=Vahşi yasaları tanımıyor, bu nedenle şehirlerde yaşayamazlar, küçük köylere yerleşmeyi tercih ederler. Severe House, neredeyse altı yüzyıl önce bilinmeyen bir felaket nedeniyle yok olan bir şehir olan en büyük yerleşim yeridir. Mance'nin yenilgisinden sonra orman cadısı, yabanılların harabelerinde kurtarmanın beklendiğini duyurdu.
-got.wp.Hardhome=Zor ev
+got.wp.HARDHOME=Zor ev
 got.wp.HARLAW_HALL.info=Bir zamanlar Harlow Hanesi'nin eski şubesinin kalesi. Lord Theomore Harlow'un mirasçıların ölümünden sorumlu tuttuğu ve bu nedenle yeni bir kaleyi - On Kule'yi yeniden inşa etmeye karar verdiği, nemli duvarlı eski bir kale. Yaşlı Harlowhall, ailenin genç kollarına gitti.
-got.wp.HarlawHall=Harlaw Salonu
+got.wp.HARLAW_HALL=Harlaw Salonu
 got.wp.HARRENHAL.info=Kara Harren'in inşası için köylüleri nehirden alıp çalıştırdığı devasa büyüklükte harap bir kale. Kale biter bitmez Fatih Aegon Westeros'u işgal etti ve asi Harren ve ailesi kulelerden birinde ejderha alevlerinde diri diri yakıldı. Harren ve ailesinin kötü ruhlara dönüştüğünü söylüyorlar. Doğru olsun ya da olmasın, ancak yeni sahiplerinden hiçbiri kalede uzun süre kalmaz.
-got.wp.Harrenhal=Harrenhal
+got.wp.HARRENHAL=Harrenhal
 got.wp.HARRIDAN_HILL.info=Kale, Elder Harlow'un vassalları olan Harlow Hanesi'nin küçük bir koludur.
-got.wp.HarridanHill=Harridan Tepesi
+got.wp.HARRIDAN_HILL=Harridan Tepesi
 got.wp.HARROWAY.info=Üç Dişli Mızrak'ın geçişinde bulunan küçük bir köy. Adı soyu tükenmiş Harrowey ailesinden geliyor. Bugünlerde burada Ruthlar hüküm sürüyor.
-got.wp.Harroway=Harroway
+got.wp.HARROWAY=Harroway
 got.wp.HARVEST_HALL.info=Baratheonların vasalları olan Selmy'nin evinin kalesi. Efsanevi Barristan Selmy burada doğdu.
-got.wp.HarvestHall=Hasat Salonu
+got.wp.HARVEST_HALL=Hasat Salonu
 got.wp.HAUAURU.info≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
-got.wp.Hauauru≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
+got.wp.HAUAURU≠The sea port of the Letnians, in which, according to the Sotori ritual, the Matabele sacrifices a man, usually a monk or a wife.
 got.wp.HAYFORD.info=Kraliyet Toprakları'nın Hayford Kalesi Evi. Burada Jaime Lannister, Elin Payne ile eğitime başladı.
-got.wp.Hayford=Hayford
+got.wp.HAYFORD=Hayford
 got.wp.HAYSTACK_HALL.info=Errol Hanesi'nin atalardan kalma kalesi, Baratheonların vassalları. Beş Kralın Savaşı'nda önce Renly, sonra Stannis desteklendi.
-got.wp.HaystackHall=Samanlık Salonu
+got.wp.HAYSTACK_HALL=Samanlık Salonu
 got.wp.HEARTS_HOME.info=Arryn hanedanının vassalları olan Corbreuil'in eski ama fakir hanesinin kalesi. Bu, Vadideki Baratheon İsyanı sırasında Targaryenler'e sadık kalan birkaç haneden biridir (ancak uzun sürmez). Petyr Baelish'in ataları bir zamanlar Corbrei'nin hizmetinde paralı askerlerdi.
-got.wp.HeartsHome=Kalpler Ana Sayfası
+got.wp.HEARTS_HOME=Kalpler Ana Sayfası
 got.wp.HELLHOLT.info=Uller'lerin atalarının yuvası. Ejderha Lordu Aegon'un daha sonra intikam için çok fazla Dorne kanı döken sevgili kız kardeşi Reinis Targaryen'in burada acı içinde öldüğünü söylüyorlar.
-got.wp.Hellholt=Cehennem çukuru
+got.wp.HELLHOLT=Cehennem çukuru
 got.wp.HESH.info=Mierin Khizay geçidine bağlı Lhazar şehirlerinden biri. Muhtemelen Daario Naharis buraya Kraliçe Meeren Daenerys Targaryen'in barış ve dostluk teklifiyle geldi.
-got.wp.Hesh=Heş
-got.wp.LORD_HEWETTS_TOWN.info=Oak Shield Adası'ndaki Hewatt Evi'nin kalesine sahip bir liman şehri.
-got.wp.HewettTown=Hewett Kasabası
-got.wp.HIGH_HERMITAGE.info=Dane Hanesi'nin genç kolunun kalesi.
-got.wp.HighHermitage=Yüksek İnziva Yeri
-got.wp.HIGH_TIDE.info=Velarion'un yeni ata kalesi; eski aile mülkü Driftmark yerine efsanevi Corlis Velarion tarafından inşa edildi.
-got.wp.HighTide=Yüksek gelgit
+got.wp.HESH=Heş
 got.wp.HIGHGARDEN.info=Tyrell Hanesi'nin atalardan kalma kalesi, Genişlik Lordları ve Güney'in Muhafız. Binlerce yıl boyunca Yüksek Bahçe, Genişlik'in Yeşil Krallarına aitti, ancak Fatih Aegon olgunlaştı ve her şey alt üst oldu: savaş alanındaki son Gardner'ın ölümünden sonra, kahyası Tyrell kaleyi teslim etti ve Targaryenların önünde diz çöktü - çünkü Bu, Yüksek Bahçe'ye bir usta olarak yerleşti ve Genişlik'i yönetmeye başladı ...
-got.wp.Highgarden=Yüksek bahçe
+got.wp.HIGHGARDEN=Yüksek bahçe
 got.wp.HIGHPOINT.info=Kale, Boltonların vassalları olan Whitehills'e ev sahipliği yapıyor.
-got.wp.Highpoint=Yüksek nokta
+got.wp.HIGHPOINT=Yüksek nokta
 got.wp.HIGHTOWER_LITEHOUSE.info=Adada bulunan Eski Kent'in en yüksek binası.
-got.wp.HightowerLitehouse=Oldtown Litehouse
+got.wp.HIGHTOWER_LITEHOUSE=Oldtown Litehouse
+got.wp.HIGH_HERMITAGE.info=Dane Hanesi'nin genç kolunun kalesi.
+got.wp.HIGH_HERMITAGE=Yüksek İnziva Yeri
+got.wp.HIGH_TIDE.info=Velarion'un yeni ata kalesi; eski aile mülkü Driftmark yerine efsanevi Corlis Velarion tarafından inşa edildi.
+got.wp.HIGH_TIDE=Yüksek gelgit
 got.wp.HOARE_CASTLE.info=Hoare'nin soyu tükenmiş evinin ilk kalesi.
-got.wp.HoareCastle=Hoare Kalesi
+got.wp.HOARE_CASTLE=Hoare Kalesi
 got.wp.HOARE_KEEP.info=Hoare'nin soyu tükenmiş evinin ikinci kalesi.
-got.wp.HoareKeep=Hoare tutmak
+got.wp.HOARE_KEEP=Hoare tutmak
 got.wp.HOARFROST_HILL.info=Gece Nöbeti'nin terk edilmiş kalelerinden biri. Gece Nöbeti'nin 998. Lord Kumandanı, kaleyi restorasyon için yabanıl reislerinden birine devretmeyi planladı, ancak başarılı olamadı.
-got.wp.HoarfrostHill=Kırağı Tepesi
+got.wp.HOARFROST_HILL=Kırağı Tepesi
 got.wp.HOGG_HALL.info=Kale, Ejderhaların Dansı sırasında Vhagar tarafından yakıldı.
-got.wp.HoggHall=Domuz salonu
+got.wp.HOGG_HALL=Domuz salonu
 got.wp.HOJDBAATAR.info=Jogos Nhai'nin başkenti kampı. Adı "Kuzey Savaşçı" anlamına gelir.
-got.wp.Hojdbaatar=Hojdbaatar
+got.wp.HOJDBAATAR=Hojdbaatar
 got.wp.HOLLARD_CASTLE.info=Hollard kalesinin kalıntıları, Deli Aerys'i ele geçirmenin cezasıyla yok edildi.
-got.wp.HollardCastle=Hollard Kalesi
+got.wp.HOLLARD_CASTLE=Hollard Kalesi
 got.wp.HOLLOW_HILL.info=Afişsiz Kardeşlik'in lideri Berik Dondarrion'un saklandığı yer.
-got.wp.HollowHill=Içi boş tepe
+got.wp.HOLLOW_HILL=Içi boş tepe
 got.wp.HOLYHALL.info=Graysford'ların atalarının kalesi, Tyrell'lerin vasalları.
-got.wp.Holyhall=Kutsal salon
+got.wp.HOLYHALL=Kutsal salon
 got.wp.HONEYHOLT.info=Kızı arıcı Ellen aracılığıyla soylarını efsanevi Garth Yeşilel'e kadar takip eden Bisbury'nin atalarının kalesi.
-got.wp.Honeyholt=Bal otu
-got.wp.HORN_HILL.info=Tarlı hanesinin güçlü kalesi. Doğa, Randill Tarly ile acımasız bir şaka yaptı: kendisi, Samwell Tarly'nin babası olan, akıllı, cesur, ama çok huzurlu ve şişman bir askeri Yerleşikdı.
-got.wp.HornHill=Boynuz Tepe
+got.wp.HONEYHOLT=Bal otu
 got.wp.HORNOTH.info=Sarnor şehri Dothrakiler tarafından yok edildi.
-got.wp.Hornoth=Boynuz
+got.wp.HORNOTH=Boynuz
 got.wp.HORNVALE.info=Brax'ın atalarının kalesi, Lannister'ın vassalları.
-got.wp.Hornvale=Boynuzvale
+got.wp.HORNVALE=Boynuzvale
 got.wp.HORNWOOD.info=Hornwood Hanesi'nin atalardan kalma kalesi, Starkların vassalları. Şimdi klan sona erdi ve Ramsay Bolton, Hornwood'un son dul eşini zorla karısı olarak alan toprakları ve onunla akraba olan ve Ramsey Winterfell'e taşındıktan sonra kaleyi ele geçiren Manderly'yi talep ediyor.
-got.wp.Hornwood=Gürgen
+got.wp.HORNWOOD=Gürgen
+got.wp.HORN_HILL.info=Tarlı hanesinin güçlü kalesi. Doğa, Randill Tarly ile acımasız bir şaka yaptı: kendisi, Samwell Tarly'nin babası olan, akıllı, cesur, ama çok huzurlu ve şişman bir askeri Yerleşikdı.
+got.wp.HORN_HILL=Boynuz Tepe
 got.wp.HUIJI.info=Altın İmparatorluğun güney limanlarından biri.
-got.wp.Huiji=Huiji
+got.wp.HUIJI=Huiji
 got.wp.HULL.info=Adından da anlaşılacağı gibi, muhtemelen rıhtımları olan bir liman şehri.
-got.wp.Hull=Gövde
-got.wp.IB_NOR.info=Hakkında hiçbir şey bilinmeyen İbben şehri.
-got.wp.IbNor=Ib Nor
-got.wp.IB_SAR.info=Daha önce sakat kalmış suçlular için sürgün yeri olarak hizmet veren bodur bir İbben kasabası. Port Ibben'deki monarşi düştüğünde, gelenek kaldırıldı, ancak şehir bodur ve kasvetli kaldı.
-got.wp.IbSar=Ib Sar
+got.wp.HULL=Gövde
 got.wp.IBBISH.info=İbbenlerin iki kolonisinden biri, Ifekevronların topraklarına dikildi. Ancak kısa süre sonra Dothrakiler gelişen koloniyi sık sık ziyaret etmeye başladı. İbbenliler, Dothraki'nin kaçındığı Ifekevron ormanının son ağaçlarını keser kesmez bunun gerçekleştiğini söylüyorlar. Uzun yıllar boyunca İbbenliler savaştı, kazandı ve yenilgilerden sonra yeniden inşa edildi, sabrı tükenene kadar ve şehirden kesin olarak ve öfkeyle Ibbish'i yağmalayan ve yakan Khal Dhako'nun önünde kaçtılar. O zamandan beri, şehre korkaklar şehri Vaez Aresek adı verildi.
-got.wp.Ibbish=İbişçe
+got.wp.IBBISH=İbişçe
+got.wp.IB_NOR.info=Hakkında hiçbir şey bilinmeyen İbben şehri.
+got.wp.IB_NOR=Ib Nor
+got.wp.IB_SAR.info=Daha önce sakat kalmış suçlular için sürgün yeri olarak hizmet veren bodur bir İbben kasabası. Port Ibben'deki monarşi düştüğünde, gelenek kaldırıldı, ancak şehir bodur ve kasvetli kaldı.
+got.wp.IB_SAR=Ib Sar
 got.wp.ICEMARK.info=Gece Nöbeti'nin terk edilmiş kalelerinden biri. Gece Nöbeti'nin 998. Lord Kumandanı, kaleyi yeniden inşa etmesi için Dev Bedwick'in komutasındaki bir garnizonu buraya gönderdi.
-got.wp.Icemark=Dondurma
-got.wp.IRON_HOLT.info=Greyjoyların vassalları olan Vinches hanedanının kalesi.
-got.wp.IronHolt=Demir holt
+got.wp.ICEMARK=Dondurma
 got.wp.IRONOAKS.info=Waynewood Hanesi'nin Kalesi, Arryn Hanesi'nin vassalları. House, Robb Stark'ın yanında Beş Kralın Savaşı'na katılmayı aktif olarak savundu. Arryn, Lisa'nın ölümünden sonra Petyr Baelish'e karşı çıktı. Harold Harding - hasta Robert Arryn'in ölümü durumunda Kartal Yuvası'nın ilk sıralarında yer alan - Lady Waynewood tarafından büyütülüyor.
-got.wp.IronOak=Demir Meşe
+got.wp.IRONOAKS=Demir Meşe
 got.wp.IRONRATH.info=Forresters'ın evinin kalesi, Glover'ların vassalları.
-got.wp.Ironrath=Demirrath
+got.wp.IRONRATH=Demirrath
+got.wp.IRON_HOLT.info=Greyjoyların vassalları olan Vinches hanedanının kalesi.
+got.wp.IRON_HOLT=Demir holt
 got.wp.ISLE_OF_FACES.info=Söylentilere göre, burada, Tanrı'nın Gözü gölünün ortasındaki Likov adasında yeşil insanlar yaşıyor - belki de Ormanın Çocukları? Ormanın Çocukları ve İlk İnsanlar burada uzun yıllar süren savaşlardan sonra bir araya gelerek, tarihe Antlaşma olarak geçen bir barış yaptılar.
-got.wp.IsleOfFaces=Yüzler Adası
+got.wp.ISLE_OF_FACES=Yüzler Adası
 got.wp.ISLE_OF_WHIPS.info=Bir köle adası ve her türden köle için devasa bir köle pazarı. Kasvetli kayalık ada.
-got.wp.IsleOfWhips=Kırbaç Adası
+got.wp.ISLE_OF_WHIPS=Kırbaç Adası
 got.wp.IVY_HALL.info=Kidwell'lerin hanesinin kalesi, Tyrell'lerin vassalları.
-got.wp.IvyHall=Sarmaşık salonu
+got.wp.IVY_HALL=Sarmaşık salonu
 got.wp.JIANMEN.info≠One of the fortresses of the Great Yi Ti Wall. There was a large prison for prisoners. Today it is empty because nomads do not risk storming the wall.
-got.wp.Jianmen≠One of the fortresses of the Great Yi Ti Wall. There was a large prison for prisoners. Today it is empty because nomads do not risk storming the wall.
+got.wp.JIANMEN≠One of the fortresses of the Great Yi Ti Wall. There was a large prison for prisoners. Today it is empty because nomads do not risk storming the wall.
 got.wp.JINQI.info=İthian şehri, imparatorluğu baskınlardan korumak için inşa edildi. Bordo imparatorları Yi Ti'nin başkenti.
-got.wp.Jinqi=Jinqi
-got.wp.K_DATH.info=Zamanın kendisinden daha eski olduğu varsayılan bir şehir. Burada kanlı kurbanlar gelişiyor ve öyle görünüyor ki, yerel tanrılar deli olarak kabul ediliyor ve hatta shrikler şehirlerden korkuyor.
-got.wp.KDath=K Dath
+got.wp.JINQI=Jinqi
 got.wp.KADAR.info=Mossia'nın kalbinde büyük kalıntılar. Ne oldukları bilinmiyor ama beş kaleyle aynı kara taştan yapılmışlar. bilmece...
-got.wp.Kadar=Kader
+got.wp.KADAR=Kader
 got.wp.KANDUU_BET.info≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
-got.wp.KanduuBet≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
+got.wp.KANDUU_BET≠The old temple of Menelon is located in this town, it is more than two thousand years old. Elesuun, the legendary king of Mossovia, was born here several centuries ago.
 got.wp.KARHOLD.info=Karhold ve çevresindeki topraklar, Kuzey Kralı tarafından en küçük oğlu Carlon Stark'a asi lordu yendiği için ödül olarak verildi. Zamanla, Karhold'dan gelen Starklar Karstarklara dönüştü, ancak Starklara en sadık hanelerden biri olarak kaldı.
-got.wp.Karhold=Karhold
+got.wp.KARHOLD=Karhold
 got.wp.KARIMAGAR.info≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
-got.wp.Karimagar≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
+got.wp.KARIMAGAR≠The largest of the Quartic colonies in Sotorios, one of the three inhabited at the moment. The legendary sorcerer Marduk Neturei is considered the head of the harbor.
 got.wp.KAYAKAYANAYA.info=Hirkun Beyliği'ni baskınlardan korumak için inşa edilen kalenin çevresinde ortaya çıkan son şehirlerden biri; krallık kuru denizden sonra çürümeye düştü, ancak savaşçı Amazonlar hala Muhafız izliyor.
-got.wp.Kayakayanaya=Kayakayanaya
+got.wp.KAYAKAYANAYA=Kayakayanaya
 got.wp.KAYCE.info=Bir zamanlar Demirdoğumlular'ın karargahı, daha sonra maceracı Kenning ve Harlow'un yardımıyla Uçurum kralları tarafından fethedildi. O zamandan beri, kasaba Batı Topraklarının bir parçası oldu ve Kenning'ler Lannister'ın vassalları oldu. Zengin tüccarlar genellikle burayı ziyaret eder.
-got.wp.Kayce=Kayce
-got.wp.KINGS_LANDING.info=Yedi Krallığın Başkenti. Fatih Aegon'un emriyle ilk ayak bastığı yerde ve Aegonfort'u inşa ettiği yerde inşa edilmiştir. Saltanatın sonunda, I. Aegon eski ahşap kalenin yıkılmasını emretti ve yeni devletin krallarının ikametgahı olan Kızıl Kale'nin inşasına başladı. Royal Harbour önemli bir liman kentidir.
-got.wp.KingsLanding=Kralların İnişi
+got.wp.KAYCE=Kayce
 got.wp.KINGSGRAVE.info=Manvudi evinin atalarının kalesi. Kendini Kızıl Dağlar'ın kralı ilan eden Manwudi Hanedanı'nın son kralı, Nymeria tarafından yakalanıp tahttan indirilen diğer beş kralla birlikte altın zincirlerle Sur'a gitti. Kale adını, Expanse krallarından birinin mezarı olduğu için aldı.
-got.wp.Kingsgrave=Kral mezarı
+got.wp.KINGSGRAVE=Kral mezarı
 got.wp.KINGSHOUSE.info=Skagos'tan Magnarların aile mülkü. Eski lehçeden "magnar", "efendi" anlamına gelir.
-got.wp.Kingshouse=Krallık
+got.wp.KINGSHOUSE=Krallık
+got.wp.KINGS_LANDING.info=Yedi Krallığın Başkenti. Fatih Aegon'un emriyle ilk ayak bastığı yerde ve Aegonfort'u inşa ettiği yerde inşa edilmiştir. Saltanatın sonunda, I. Aegon eski ahşap kalenin yıkılmasını emretti ve yeni devletin krallarının ikametgahı olan Kızıl Kale'nin inşasına başladı. Royal Harbour önemli bir liman kentidir.
+got.wp.KINGS_LANDING=Kralların İnişi
+got.wp.KOHURU.info≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
+got.wp.KOHURU≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
+got.wp.KOJ.info=Yaz Adaları'nın en büyük tersanesi.
+got.wp.KOJ=Koj
+got.wp.KORKUNUCHTUU.info≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
+got.wp.KORKUNUCHTUU≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
+got.wp.KOSRAK.info=Lkhazar şehirlerinden biri.
+got.wp.KOSRAK=Kosrak
+got.wp.KRAZAAJ_HAS.info=Gardak'ın eski Ghiskar kasabası. Belki de Dothrakiler, piramitlerinin şekline hayran kalarak zaten yıkılmış kalıntılara "keskin dağlar" adını verdiler, belki de şehir Valyria'nın fethinden ve ölümünden kurtuldu ve Dothrakiler tarafından yağmalandı.
+got.wp.KRAZAAJ_HAS=Krazaaj Has
+got.wp.KUJRUK.info≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
+got.wp.KUJRUK≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
+got.wp.KUURULGAN.info≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
+got.wp.KUURULGAN≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
+got.wp.KYTH.info=Sarnor şehri Dothrakiler tarafından yok edildi.
+got.wp.KYTH=Kıt
+got.wp.K_DATH.info=Zamanın kendisinden daha eski olduğu varsayılan bir şehir. Burada kanlı kurbanlar gelişiyor ve öyle görünüyor ki, yerel tanrılar deli olarak kabul ediliyor ve hatta shrikler şehirlerden korkuyor.
+got.wp.K_DATH=K Dath
 got.wp.KissLock.info=Kafatası ve Öpücük Şövalyeleri Kalesi.
 got.wp.KissLock=öpücük kilidi
-got.wp.KOHURU.info≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
-got.wp.Kohuru≠This is a relatively young settlement on the coast, where a strong Sotori shaman is in captivity. His assistants create smoke and read sacred texts.
-got.wp.KOJ.info=Yaz Adaları'nın en büyük tersanesi.
-got.wp.Koj=Koj
-got.wp.KORKUNUCHTUU.info≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
-got.wp.Korkunuchtuu≠A legendary city known for being the capital during the reign of the Ancient Rod. It is now the residence of the great Royal Treasurer.
-got.wp.KOSRAK.info=Lkhazar şehirlerinden biri.
-got.wp.Kosrak=Kosrak
-got.wp.KRAZAAJ_HAS.info=Gardak'ın eski Ghiskar kasabası. Belki de Dothrakiler, piramitlerinin şekline hayran kalarak zaten yıkılmış kalıntılara "keskin dağlar" adını verdiler, belki de şehir Valyria'nın fethinden ve ölümünden kurtuldu ve Dothrakiler tarafından yağmalandı.
-got.wp.KrazaajHas=Krazaaj Has
-got.wp.KUJRUK.info≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
-got.wp.Kujruk≠The Ancient Citadel. The citadel has been garrisoned for thousands of years by some midnight warriors who are loyal to their Dungeon Master.
-got.wp.KUURULGAN.info≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
-got.wp.Kuurulgan≠It is written in ancient scrolls that a sufferer's boat was once washed up here, who was sent "far away" by someone. This man never returned to his native land, and the place where he drowned became a place of mourning.
-got.wp.KYTH.info=Sarnor şehri Dothrakiler tarafından yok edildi.
-got.wp.Kyth=Kıt
 got.wp.LANNISPORT.info=Başkent ve Menzil'den sonra Westeros'un en kalabalık üçüncü şehri; Batı Topraklarının en önemli limanı ve sanayi şehridir. Zanaatkarları, özellikle kuyumcuları ve altın için Demircisileri ile ünlüdür. Şehir, genç Lannister şubesi tarafından yönetiliyor.
-got.wp.Lannisport=Lannis Limanı
+got.wp.LANNISPORT=Lannis Limanı
 got.wp.LAST_HEARTH.info=Amber hanesinin kalesi, Starkların vassalları.
-got.wp.LastHearth=Son ocak
+got.wp.LAST_HEARTH=Son ocak
 got.wp.LAST_LAMENT.info=Volano adasında büyük bir limana sahip bir şehir.
-got.wp.LastLament=Son ağıt
+got.wp.LAST_LAMENT=Son ağıt
 got.wp.LEMONWOOD.info=Daltların şövalye hanesinin kalesi, Martelllerin vassalları.
-got.wp.Lemonwood=Limon ağacı
+got.wp.LEMONWOOD=Limon ağacı
 got.wp.LENG_MA.info=Langi şehri, daha sonra İthians tarafından ele geçirildi. Langa bağımsızlığını kazandıktan sonra bile, şehir etnik olarak Ithian olarak kaldı.
-got.wp.LengMa=Uzun anne
+got.wp.LENG_MA=Uzun anne
 got.wp.LENG_YI.info=Langi şehri, daha sonra İthians tarafından ele geçirildi. Langa bağımsızlığını kazandıktan sonra bile, şehir etnik olarak Ithian olarak kaldı.
-got.wp.LengYi=Uzun yi
+got.wp.LENG_YI=Uzun yi
 got.wp.LESSER_MORAQ.info=Konumu dışında ada hakkında hiçbir şey bilinmiyor.
-got.wp.LesserMoraq=Küçük Moraq
+got.wp.LESSER_MORAQ=Küçük Moraq
 got.wp.LHAZOSH.info=Lkhazar şehirlerinden biri.
-got.wp.Lhazosh=Lhazoş
+got.wp.LHAZOSH=Lhazoş
 got.wp.LITTLE_VALYRIA.info=Küçük, yoksul, eski bir Valyria limanı.
-got.wp.LittleValyria=Küçük Valyria
+got.wp.LITTLE_VALYRIA=Küçük Valyria
 got.wp.LIZARD_HEAD.info=Aynı adı taşıyan adada küçük bir yerleşim. Yaz Adaları'nın en doğusundaki yerleşim yeridir.
-got.wp.LizardHead=Kertenkele kafası
+got.wp.LIZARD_HEAD=Kertenkele kafası
 got.wp.LIZHAO.info=İkiz şehir Yibin. "Eski İmparatorluğun" en doğudaki şehri, yani Altın Nehir'in batısındaki son şehir.
-got.wp.Lizhao=Lizhao
+got.wp.LIZHAO=Lizhao
 got.wp.LONELY_LIGHT.info=Deniz aslanlarına, morslara ve hatta balinalara dönüşebildiği söylenen Farwind Hanesi'nin kalesine ev sahipliği yapan Demir Adalar'ın en küçüğü ve en ücra yeri.
-got.wp.LonelyLight=Yalnız ışık
-got.wp.THE_LONG_BARROW.info=Mance'nin, Kral Robert'ın gelişinin onuruna Winterfell'deki bir ziyafete katılmak için duvarı aştığı, Gece Nöbeti'nin boş kalesi. Daha sonra, Gece Nöbeti'nin 998. Lord Kumandanı, kalenin komutasını Demir Emmett ve Sorrowful Edd'e emanet etti ve özgür insanların mızrakçıları kaleye ikinci adını veren Shlyukhina Hole'a yerleşti.
-got.wp.LongBarrow=Uzun höyük
+got.wp.LONELY_LIGHT=Yalnız ışık
 got.wp.LONGBOW_HALL.info=Hunter Hanesi Kalesi, Arryn Hanesi'nin vassalları. John Arryn'in ölümünden sonra, Avcıların yaşlı başı Lisa Arryn'e kur yaptı, ama boşuna.
-got.wp.LongbowHall=Uzun Yay Salonu
+got.wp.LONGBOW_HALL=Uzun Yay Salonu
 got.wp.LONGTABLE.info=Merryweather'ın atalardan kalma kalesi. Bir zamanlar zengin olan hane Targaryenler'e sadık kaldı. Bunun için, yeni hanedan onları toprakların çoğundan ve daha sonra geri verdikleri unvandan mahrum etti, ancak topraklardan neredeyse hiçbir şey kalmadı.
-got.wp.Longtable=Uzun masa
+got.wp.LONGTABLE=Uzun masa
 got.wp.LORATH.info=Özgür Şehirlerden biri, en fakiri. Lorat Adaları, soyu tükenmiş bir ırk tarafından inşa edilmiş devasa taş labirentlerle dikkat çekiyor. Yaken Hgar'ın buradan olduğunu iddia etti.
-got.wp.Lorath=Lorath
+got.wp.LORATH=Lorath
 got.wp.LORDSPORT.info=Demir Adalar'daki en büyük şehir, Greyjoyların vassalları olan Botley Hanesi'nin sahibi.
-got.wp.Lordsport=Lord sporu
+got.wp.LORDSPORT=Lord sporu
+got.wp.LORD_HEWETTS_TOWN.info=Oak Shield Adası'ndaki Hewatt Evi'nin kalesine sahip bir liman şehri.
+got.wp.LORD_HEWETTS_TOWN=Hewett Kasabası
 got.wp.LOTUS_POINT.info=Yaz insanlarının sakin bir sahil kasabası.
-got.wp.LotusPoint=Lotus Noktası
+got.wp.LOTUS_POINT=Lotus Noktası
 got.wp.LUNGMEN.info≠In the old days, this fortress trained not ordinary frontier soldiers, but kung fu masters, testing whether unclothed fighters could defend the wall. How that story ended is unknown.
-got.wp.Lungmen≠In the old days, this fortress trained not ordinary frontier soldiers, but kung fu masters, testing whether unclothed fighters could defend the wall. How that story ended is unknown.
+got.wp.LUNGMEN≠In the old days, this fortress trained not ordinary frontier soldiers, but kung fu masters, testing whether unclothed fighters could defend the wall. How that story ended is unknown.
 got.wp.LYS.info=Özgür Şehirlerden biri. Yaygın olarak pahalı genelevler ve sofistike aşk rahibeleriyle tanınır.
-got.wp.Lys=Lys
+got.wp.LYS=Lys
 got.wp.MAIDENPOOL.info=Kale kasabası Mouton House'a aittir. Şehir, adını Fool Florian ve güzel Jonquil'in peri masalından gelen antik gölete borçludur.
-got.wp.Maidenpool=Bakire havuzu
+got.wp.MAIDENPOOL=Bakire havuzu
 got.wp.MANJIN.info=Ormana yakın bir şehir. Şafak İmparatorluğu'nun ilk şehirlerinden biri olarak kabul edilir, ancak Baozi bu gerçeğe itiraz eder.
-got.wp.Manjin=Manjin
+got.wp.MANJIN=Manjin
 got.wp.MANTARYS.info=Valyria Kıyameti'nden sonra çocukların çarpık ve korkunç doğduğu bir köle şehri olan Valyrialılar tarafından kuruldu. Daenerys'e karşı Yunkai ile müttefik.
-got.wp.Mantarys=Mantarlar
+got.wp.MANTARYS=Mantarlar
 got.wp.MANTICORE_ISLES.info=Yeşim Denizi adaları grubu. Burada neredeyse hiç insan yok, ancak ölümcül mantikorlar bolca bulunur.
-got.wp.ManticoreIsles=Mantikor Adaları
+got.wp.MANTICORE_ISLES=Mantikor Adaları
 got.wp.MARAHAI.info=Hilal şeklinde cennet adası. Koyda aktif volkanların olduğu iki ada var. Gece gündüz patlamaları ve asla uykuya dalmamaları garip görünebilir.
-got.wp.Marahai=Marahay
+got.wp.MARAHAI=Marahay
 got.wp.MARSHES.info≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
-got.wp.Marshes≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
+got.wp.MARSHES≠A narrow swampy part of Ultos, reminiscent of the Isthmus in Westeros. Its origin is unknown, but, no doubt, one day it will finally sink, and then southern Ultos will become a separate continent.
 got.wp.MATAHAU.info≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
-got.wp.Matahau≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
+got.wp.MATAHAU≠An ancient settlement of the Letnians, in which a huge shining black pearl was found. According to legend, this is a black hole that descended from the sky and absorbs the light of the stars.
 got.wp.MATAO.info≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
-got.wp.Matao≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
+got.wp.MATAO≠According to legend, there is an altar of the Cursed God standing on a high mountain. There were people who claimed that this was not a mountain, but a man-made pyramid.
 got.wp.MAUNGA.info≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
-got.wp.Maunga≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
+got.wp.MAUNGA≠A significant place for all the tribes in the district. Here all the surrounding chiefs gather every 6 years. Why exactly is it? No one knows, it just happened.
 got.wp.MEEREEN.info=Astapor ve Yunkai ile birlikte Köleler Körfezi'ndeki köle ticaretinin üç merkezinden biri. Şehir, Gis'ten insanlar tarafından kuruldu. Ana eğlence ve şehrin refahının temeli, savaş çukurları ve arenadaki savaşlar için köleleri eğitmektir. En büyük arena olan Daznak Büyük Çukuru (Roma Colosseum'un bir benzeri) de burada bulunuyor. Şehrin fethinden sonra Daenerys Targaryen köleliği kaldırdı ve savaş çukurlarını geçici olarak kapattı.
-got.wp.Meereen=Meereen
+got.wp.MEEREEN=Meereen
 got.wp.MHYSA_FAER.info=Valyria Kıyameti sırasında yıkılan Valyria İmparatorluğu'nun güçlü ve zengin sömürge şehirlerinden biri. Adındaki "Misa", şehrin Giskar kökenli olduğunu gösterir (haritadaki konumu büyük ölçüde tartışmalıdır).
-got.wp.MhysaFaer=Mhysa Faer
+got.wp.MHYSA_FAER=Mhysa Faer
 got.wp.MISTWOOD.info=Baratheonların vassalları olan Mertinlerin evinin kalesi.
-got.wp.Mistwood=Sis ağacı
+got.wp.MISTWOOD=Sis ağacı
 got.wp.MOAT_KAILIN.info=An ancient fortification, built by the First People to the north of the Isthmus bogs, now only three towers have survived. It was here that the Andal conquest of the North was stopped many centuries ago, and now the conquest of the North by the iron-born has begun. The fortress stands on the only passage between the North and the rest of Westeros.
-got.wp.MoatKailin=Moat Cailin
+got.wp.MOAT_KAILIN=Moat Cailin
 got.wp.MOLETOWN.info=A small town located on the Royal Route near the Black Castle.
-got.wp.Moletown=Moletown
+got.wp.MOLETOWN=Moletown
 got.wp.MORMONTS_KEEP.info=The castle, on the gate of which a breastfeeding woman with an ax is carved.
-got.wp.MormontsKeep=Mormonts Keep
+got.wp.MORMONTS_KEEP=Mormonts Keep
 got.wp.MORNE.info=Castle ruins of one of the ancient kings captured by the storm kings. It is curious that the name of the castle is consonant with the word morn - morning, and there are ruins in the east of the island. Perhaps the ancestral castle of Tartow, the Sunset Castle, located in the west, is so named for a reason.
-got.wp.Morne=Morne
+got.wp.MORNE=Morne
 got.wp.MOROSH.info=Loratia colony, trading port.
-got.wp.Morosh=Moroş
+got.wp.MOROSH=Moroş
 got.wp.MYR.info=Üstat Luvin'e göre bu zanaatta eşsiz olan usta gözlükçüleriyle ünlü Özgür Şehirlerden biri. Dünyanın şimdi durduğu yerde, Şafak Çağı'nda Andalların gelişinden çok önce ortadan kaybolan insanlar yaşıyordu; Gezici Valyrialı tüccarlar, buraya yerleşen Andalları köleleştirerek Dünya'yı kurdular.
-got.wp.Myr=Mür
+got.wp.MYR=Mür
 got.wp.MYRE_CASTLE.info=Harlow'un vassalları olan Mayers'ın evinin kalesi.
-got.wp.MyreCastle=Myre Kalesi
+got.wp.MYReCastle=Myre Kalesi
 got.wp.NAATH.info=Ada, uysal eğilimleri ve cinayeti hor görmeleri nedeniyle Barışçıl olarak adlandırılan bir halk tarafından iskan edilmiştir. Meyve yerler ve müziği severler. Adadaki Inozemtsev'i yerel kelebekler tarafından taşınan korkunç bir hastalık bekliyordu. Bu nedenle, geceleri kelebekler uyurken köle gemileri adaya saldırmaya başladı ve Barışçıl insanlar adanın derinliklerinde saklandı. Missandei'nin memleketi.
-got.wp.Naath=Naath
+got.wp.NAATH=Naath
 got.wp.NAGGAS_HILL.info=Veche'nin bulunduğu Demir Adalar kültür ve tarihinde kutsal bir yer olan Gri Kral'ın saraylarının kalıntıları.
-got.wp.NaggaHill=Nagga Tepesi
+got.wp.NAGGAS_HILL=Nagga Tepesi
 got.wp.NEFER.info=N'Gai krallığının hayatta kalan son şehri. Necromancerlar ve işkenceciler için bir sığınak.
-got.wp.Nefer=Nefer
+got.wp.NEFER=Nefer
 got.wp.NEW_BARREL.info=Yeşil Elma'nın dalından Fossovey'in atalarının kalesi.
-got.wp.NewBarrel=Yeni varil
+got.wp.NEW_BARREL=Yeni varil
 got.wp.NEW_GHIS.info=Daenerys'e karşı koalisyona katılan bir köle kasabası. Özgür kasaba halkı, Lekesizlere benzer bir programda eğitildikleri üç yıllık askerlik hizmetine sahiptir. Novy Gis'de filler de var.
-got.wp.NewGhis=Yeni Ghis
+got.wp.NEW_GHIS=Yeni Ghis
 got.wp.NEW_IBBISH.info=Ibbish'in düşüşünden sonra İbbenliler tarafından, Gece Nöbetçileri Duvarı'ndan sadece biraz daha küçük olan ahşap bir duvarın arkasındaki küçük bir yarımadada inşa edilen bir kasaba. Ibbish'e kıyasla zayıf gölge, ancak yine de anakaradaki tek Ibben kolonisi.
-got.wp.NewIbbish=Yeni Ibbish
+got.wp.NEW_IBBISH=Yeni Ibbish
 got.wp.NGAHERE.info≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
-got.wp.Ngahere≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
+got.wp.NGAHERE≠An inconspicuous port in the west of the wild lands of Sotorios. A few squat houses, a few bars, an old two-story castle and tents at the pier.
 got.wp.NGARARA.info≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
-got.wp.Ngarara≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
-got.wp.NIGHT_KING.info≠A sus canyon in the far north of Westeros
-got.wp.NightKing≠A sus canyon in the far north of Westeros
+got.wp.NGARARA≠Despite the fact that the Letnians do not respect shamanism, bearded shamans in turbans hang around here. Here it is, a mixture of Sotori and summer culture!
 got.wp.NIGHTFORT.info=Gece Nöbeti'nin devasa, ilk inşa edilmiş ve ilk terk edilmiş kalesi. Kale hakkında birçok korkunç efsane vardı. Burada, Duvar'da, Duvar'ın ötesinde bir geçit oyulmuştur - cadı ağacından Kara Kapı.
-got.wp.Nightfort=Gece Kalesi
+got.wp.NIGHTFORT=Gece Kalesi
 got.wp.NIGHTSONG.info=Karon atalarının kalesi, Karonlar Joffrey Baratheon'a karşı Stannis'i desteklediği için Ayaklar lehine onlardan alındı.
-got.wp.Nightsong=Gece şarkısı
+got.wp.NIGHTSONG=Gece şarkısı
+got.wp.NIGHT_KING.info≠A sus canyon in the far north of Westeros
+got.wp.NIGHT_KING≠A sus canyon in the far north of Westeros
 got.wp.NINESTARS.info=Vadideki en güçlü hanelerden biri olan Templeton'ların atalardan kalma kalesi, bin savaşçıyı savaşa sürüklüyor. Lisa Arryn'i Robb Stark'ı desteklemeye ikna edemedi.
-got.wp.Ninestars=Dokuz Yıldız
+got.wp.NINESTARS=Dokuz Yıldız
 got.wp.NORTH_FORESTS.info≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
-got.wp.NorthForests≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
+got.wp.NORTH_FORESTS≠It is that part of Ultos about which something is known in Asshai, namely that there are forests and large spiders here. An unfriendly place, probably.
+got.wp.NORVOS.info=Sözde "sakallı rahipler" tarafından yönetilen Özgür Şehirlerden biri. Dothraki ordularından, Norvos'u geçen yol boyunca hareket eden şehir, zengin hediyelerle fidye alır.
+got.wp.NORVOS=Norvos
+got.wp.NYMDUU_OOZ.info≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
+got.wp.NYMDUU_OOZ≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
+got.wp.NY_SAR.info=Büyük bir limana sahip eski bir Roinar şehrinin kalıntıları; şimdi şehirden sadece Nymeria sarayı kalmıştı - halkını on bin gemiyle Dorn'a götüren saray.
+got.wp.NY_SAR=Ny Sar
 got.wp.NorthPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
 got.wp.NorthPass=Kuzey Geçidi
-got.wp.NORVOS.info=Sözde "sakallı rahipler" tarafından yönetilen Özgür Şehirlerden biri. Dothraki ordularından, Norvos'u geçen yol boyunca hareket eden şehir, zengin hediyelerle fidye alır.
-got.wp.Norvos=Norvos
-got.wp.NY_SAR.info=Büyük bir limana sahip eski bir Roinar şehrinin kalıntıları; şimdi şehirden sadece Nymeria sarayı kalmıştı - halkını on bin gemiyle Dorn'a götüren saray.
-got.wp.NySar=Ny Sar
-got.wp.NYMDUU_OOZ.info≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
-got.wp.NymduuOoz≠The mysterious city. Yi Tish say that there is home of giants and dwarves, as well as their talking birds and flying horses.
 got.wp.OAKENSHIELD.info=Gece Nöbeti'nin boş kalesi. Gece Nöbeti'nin 998. Lord Kumandanı, kaleyi Vahşi Şef Tormund'a teslim etti.
-got.wp.Oakenshield=Oakenshield
-got.wp.OLD_ANCHOR.info=Arryn'in vassalları olan Melcolm hanedanının kalesi.
-got.wp.OldAnchor=Eski çapa
+got.wp.OAKENSHIELD=Oakenshield
 got.wp.OLDCASTLE.info=Locke Hanedanı'nın kalesi, Stark vasalları.
-got.wp.OldCastle=Eski Kale
-got.wp.OLD_GHIS.info=Valyria Cumhuriyeti'nin fethinden sonra Giscar İmparatorluğu'nun başkentinden kalan kalıntılar Eski Gis olarak anılmaya başlandı.
-got.wp.OldGhis=Eski Ghis
-got.wp.OLD_OAK.info=Dornelulara karşı kazandıkları zaferlerden gurur duyan ve bu savaşların entrikaları için bir goblen odası tahsis eden Oakhartların atalarının kalesi.
-got.wp.OldOak=Yaşlı meşe
+got.wp.OLDCASTLE=Eski Kale
 got.wp.OLDSTONES.info=Kalenin gerçek adı unutuldu ve çevredeki sakinler harabelere tam olarak eski taşlar diyorlar. Tristifer IV Madd'in mezarı hala Nehir ve Tepeler Krallarının eski derebeyliğinin kalıntılarında duruyor.
-got.wp.OldStones=Eski Taşlar
+got.wp.OLDSTONES=Eski Taşlar
 got.wp.OLDTOWN.info=Westeros Bilim Merkezi, ülkenin en büyük ikinci şehri ve Menzil'in en büyük limanı. Hightower ev sahipliği.
-got.wp.Oldtown=Eski kasaba
+got.wp.OLDTOWN=Eski kasaba
+got.wp.OLD_ANCHOR.info=Arryn'in vassalları olan Melcolm hanedanının kalesi.
+got.wp.OLD_ANCHOR=Eski çapa
+got.wp.OLD_GHIS.info=Valyria Cumhuriyeti'nin fethinden sonra Giscar İmparatorluğu'nun başkentinden kalan kalıntılar Eski Gis olarak anılmaya başlandı.
+got.wp.OLD_GHIS=Eski Ghis
+got.wp.OLD_OAK.info=Dornelulara karşı kazandıkları zaferlerden gurur duyan ve bu savaşların entrikaları için bir goblen odası tahsis eden Oakhartların atalarının kalesi.
+got.wp.OLD_OAK=Yaşlı meşe
 got.wp.OMBORU.info=Adada aynı adı taşıyan tek yerleşim yeri. Ada en büyüklerinden biridir, ancak neredeyse tamamen ıssız ormanlarla kaplıdır.
-got.wp.Omboru=Omboru
+got.wp.OMBORU=Omboru
 got.wp.ORKWOOD.info=Orkwood'ların hanesinin kalesi, Greyjoy'ların vassalları.
-got.wp.Orkwood=Orkwood
+got.wp.ORKWOOD=Orkwood
 got.wp.OROS.info=Valyria İmparatorluğu'nun en büyük ikinci ve en zengin şehri, Valyria Kıyameti sırasında yok edildi. İnsanların burada yaşadığı söyleniyor, ancak bunların Valyrialıların torunları mı yoksa mahvolmuş şanssız denizciler mi olduğu belli değil ... yoksa sadece hikayeler mi?
-got.wp.Oros=Oros
+got.wp.OROS=Oros
 got.wp.OXCROSS.info=Batı Toprakları'nda, Lannisport'tan arabayla üç günlük bir köy.
-got.wp.Oxcross=öküz çaprazı
+got.wp.OXCROSS=öküz çaprazı
 got.wp.PARCHMENTS.info=Baratheonların vassalları olan Penrose'ların hanedanının kalesi.
-got.wp.Parchments=Parşömenler
+got.wp.PARCHMENTS=Parşömenler
 got.wp.PEARL_PALACE.info=Koca'nın hükümdarının ikametgahı.
-got.wp.PearlPalace=İnci Sarayı
+got.wp.PEARL_PALACE=İnci Sarayı
 got.wp.PEBBLE.info=Arryn'in vassalları olan Pryors hanesinin Pebble Adası'ndaki kalesi
-got.wp.Pebble=çakıl
+got.wp.PEBBLE=çakıl
 got.wp.PEBBLETON.info=Wethead'in Veche'yi tutması için Demirdoğumluları çağırmaya başladığı Bolşoy Vick'teki Merlin hanesinin kalesi.
-got.wp.Pebbleton=çakıl taşı
+got.wp.PEBBLETON=çakıl taşı
 got.wp.PENNYTREE.info=Titki adında iki tepe arasında küçük bir köy. Köy adını, üzerine çivilenmiş bir meşe ağacının burada yetişmesinden almıştır. Bu topraklar Brackenlar ve Blackwood'lar tarafından talep ediliyor, ancak bu çekişmeler nedeniyle topraklar taç lehine geri çağrıldı. Buradan Dukan'ı yetiştiren sınır şövalyesi Sör Arlan geldi.
-got.wp.Pennytree=Kuruş ağacı
+got.wp.PENNYTREE=Kuruş ağacı
 got.wp.PENTOS.info=Essos'un batı kıyısındaki en önemli liman olan Özgür Şehirlerden biri. Bu şehir, son Targaryenleri koruyan usta Illyrio Mopatis'e ev sahipliği yapıyor.
-got.wp.Pentos=Pentolar
+got.wp.PENTOS=Pentolar
 got.wp.PEREKI.info≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
-got.wp.Pereki≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
+got.wp.PEREKI≠In this town, the masters and alchemists of the summer islands meet, who write treatises on history and astrology, as well as learn the latest political events, trying to predict the time of their death.
 got.wp.PINGBEI.info≠The eastern edge of the Great Yi Ti Wall, a huge and ancient structure that protected the golden empire from the raids of nomads from the north.
-got.wp.Pingbei≠The eastern edge of the Great Yi Ti Wall, a huge and ancient structure that protected the golden empire from the raids of nomads from the north.
+got.wp.PINGBEI≠The eastern edge of the Great Yi Ti Wall, a huge and ancient structure that protected the golden empire from the raids of nomads from the north.
 got.wp.PINGJIANG.info≠One of the fortresses of the Great Yi Ti Wall, which housed a gunpowder warehouse. One day while repelling a nomadic attack, the cannon on the Wall misfired, and the cannonball exploded right there and, by chain reaction, so did the warehouse. No one from either side survived. The fortress was later rebuilt.
-got.wp.Pingjiang≠One of the fortresses of the Great Yi Ti Wall, which housed a gunpowder warehouse. One day while repelling a nomadic attack, the cannon on the Wall misfired, and the cannonball exploded right there and, by chain reaction, so did the warehouse. No one from either side survived. The fortress was later rebuilt.
+got.wp.PINGJIANG≠One of the fortresses of the Great Yi Ti Wall, which housed a gunpowder warehouse. One day while repelling a nomadic attack, the cannon on the Wall misfired, and the cannonball exploded right there and, by chain reaction, so did the warehouse. No one from either side survived. The fortress was later rebuilt.
 got.wp.PINKMAIDEN_CASTLE.info=Tully'nin vassalları Piper'ın evinin kalesi.
-got.wp.PinkmaidenCastle=Pembe Kız Kalesi
+got.wp.PINKMAIDEN_CASTLE=Pembe Kız Kalesi
 got.wp.PINNU.info≠The site of this fortress was formerly the hills. The imperial engineers and masters over the coin decided that it would be cheaper to dig out the hills and build a fortress, rather than build a fortress on the hills. In the end, that's what they decided.
-got.wp.Pinnu≠The site of this fortress was formerly the hills. The imperial engineers and masters over the coin decided that it would be cheaper to dig out the hills and build a fortress, rather than build a fortress on the hills. In the end, that's what they decided.
+got.wp.PINNU≠The site of this fortress was formerly the hills. The imperial engineers and masters over the coin decided that it would be cheaper to dig out the hills and build a fortress, rather than build a fortress on the hills. In the end, that's what they decided.
 got.wp.PLANKY_TOWN.info=Dorn'un en büyük limanı, mavnalardan ve birbirine bağlı ticaret teknelerinden su üzerine inşa edildi. Dorn'a açılan bu kapıyı korumak için bir de kale var.
-got.wp.PlankyTown=Kalabalık Kasaba
+got.wp.PLANKY_TOWN=Kalabalık Kasaba
 got.wp.PLUMWOOD.info=Lannister'ın vassalı Plumm hanedanının kalesi.
-got.wp.Plumwood=Erik ağacı
+got.wp.PLUMWOOD=Erik ağacı
 got.wp.PODDINGFIELD.info=Baratheonların vassalları olan Pisbury hanedanının kalesi.
-got.wp.Poddingfield=Poddingfield
+got.wp.PODDINGFIELD=Poddingfield
 got.wp.PORT_MORAQ.info=Tüccarların Yeşim Denizi'nde uzun bir yolculuktan sonra durmaktan hoşlandıkları liman şehri.
-got.wp.PortMoraq=Liman Moraq
+got.wp.PORT_MORAQ=Liman Moraq
 got.wp.PORT_OF_IBBEN.info=İbben'in başkenti, Valyria ile aynı zamanda, Tanrı-Krallarının kalelerinin yıkılana kadar ayakta kaldığı yer. Onların yerini seçilmiş bir Gölgeler Konseyi aldı. Şimdi İbbenlerin en büyük şehri.
-got.wp.PortOfIbben=İbben Limanı
+got.wp.PORT_OF_IBBEN=İbben Limanı
 got.wp.PORT_YHOS.info=Şehir muhtemelen Quaatiler tarafından kurulmuştur. Günümüzde Quart'tan kontrol ediliyor.
-got.wp.PortYhos=Yhos Limanı
+got.wp.PORT_YHOS=Yhos Limanı
 got.wp.PYKE.info=Greyjoy evinin ada ve aynı adı taşıyan aile kalesi. Kalenin kendisi ana adada bile değil, zamanla birkaç küçük ada ve kayaya ayrılan, geçitler ve hatta halat köprülerle birbirine bağlanan burnunda. Böyle bir şatoda yaşlanmak bile tehlikelidir.
-got.wp.Pyke=Pyke
+got.wp.PYKE=Pyke
 got.wp.QARKASH.info=Şehir muhtemelen Quaatiler tarafından kurulmuştur. Günümüzde Quart'tan kontrol ediliyor.
-got.wp.Qarkash=Qarkash
+got.wp.QARKASH=Qarkash
 got.wp.QARTH.info=Yaz Denizi kıyısındaki en önemli ticaret şehirlerinden biri, bilinen en büyük iki denizi birbirine bağlayan boğazın en dar noktasında yer alır ve Asshai'ye giden en kısa yoldur. Sözde tarafından yönetilir. Safkan. Quaatian şehirlerinin sonuncusu.
-got.wp.Qarth=çeyrek
+got.wp.QARTH=çeyrek
 got.wp.QOHOR.info=Özgür Şehirlerden biri ve en doğusu. Şehir, nehir topraklarını Ar Noi şehrinin kalıntılarına kadar kontrol eden bir filoya sahip ve Lekesizler muhafız olarak hizmet ediyor: bir zamanlar şehri Dothraki ordularından kamuya açıklıyorlar ve o zamandan beri Khalasarların çoğu Quohor'un duvarlarını atlıyorlar. . Yerel Demircisiler Valyria çeliği ile çalışma becerileriyle ünlüdür.
-got.wp.Qohor=Qohor
+got.wp.QOHOR=Qohor
 got.wp.QUEENSCROWN.info=Kuzeydeki köy. Neredeyse üç yüz yıl önce, Kraliçe Alysanna Targaryen Sur'a giderken geceyi burada geçirdi. Bundan sonra, yerel sakinler, geceyi onlarla birlikte geçiren kraliçenin tacının anısına kulelerinin tepesini yaldızladılar.
-got.wp.Queenscrown=Kraliçe tacı
+got.wp.QUEENSCROWN=Kraliçe tacı
 got.wp.QUEENSGATE.info=Şimdi, Kraliçe Alisanna'nın adını taşıyan Gece Nöbeti'nin terk edilmiş kalelerinden biri (eski günlerde buna Kar Kapısı deniyordu). Gece Nöbeti'nin 998. Lord Kumandanı, Sur'un Muhafıznı yeniden kurmak için kaleyi Beyaz Maske lakaplı Morne'a teslim etti.
-got.wp.Queensgate=Kraliçe Geçidi
+got.wp.QUEENSGATE=Kraliçe Geçidi
 got.wp.RAENYS.info=Yaz Adaları'nın güneybatısında, Alice Westhill tarafından keşfedilen bir ada.
-got.wp.Raenys=Raeny'ler
+got.wp.RAENYS=Raeny'ler
 got.wp.RAIN_HOUSE.info=Vahşiler Evi'nin kalesi, Baratheonların vassalları.
-got.wp.RainHouse=Yağmur evi
-got.wp.RAMSGATE.info=Kale, Manderly'nin vassalları olan Woolfields'e ev sahipliği yapmaktadır.
-got.wp.RamsGate=Ram Kapısı
+got.wp.RAIN_HOUSE=Yağmur evi
 got.wp.RAMSEY_TOWER.info=Ramsay Snow'un Leydi Hornwood'u açlıktan öldürdüğü kule.
-got.wp.RamseyTower=Ramsey Kulesi
+got.wp.RAMSEY_TOWER=Ramsey Kulesi
+got.wp.RAMSGATE.info=Kale, Manderly'nin vassalları olan Woolfields'e ev sahipliği yapmaktadır.
+got.wp.RAMSGATE=Ram Kapısı
 got.wp.RATHYLAR.info=Sarnor şehri Dothrakiler tarafından yok edildi.
-got.wp.Rathylar=Rathylar
+got.wp.RATHYLAR=Rathylar
 got.wp.RAUMATI.info≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
-got.wp.Raumati≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
+got.wp.RAUMATI≠The ancient sanctuary of Sotorios, where his first emperor is buried. The temple is so ancient that even the local tribes have no myths about its foundation.
 got.wp.RAVENTREE_HALL.info=Binlerce yıl boyunca yüzlerce kuzgunun geceyi geçirmek için akın ettiği devasa ve ölü bir pazılı Blackwood evinin aile kalesi. Blackwood'ların Kuzey'den geldikleri ve Starklar tarafından sürülene kadar neredeyse tüm Kurt Ormanı'na hükmettikleri söylenir.
-got.wp.RaventreeHall=Kuzgunağacı salonu
-got.wp.RED_FLOWER_VALE.info=Güney adasında aynı adı taşıyan ilin merkezi.
-got.wp.RedFlowerVale=Kırmızı Çiçek Vadisi
-got.wp.RED_FORESTS.info≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
-got.wp.RedForests≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
-got.wp.RED_HAVEN.info=Pike üzerinde bulunan Demir Adalar'ndaki en büyük liman.
-got.wp.RedHaven=Kızıl Cennet
-got.wp.RED_LAKE.info=Turnaların hanesinin kalesi, Tyrell'lerin vasalları.
-got.wp.RedLake=Kızıl Göl
+got.wp.RAVENTREE_HALL=Kuzgunağacı salonu
 got.wp.REDFORT.info=Redfort Hanesi Kalesi, Arryn'in vassalları.
-got.wp.Redfort=Kızıl Kale
+got.wp.REDFORT=Kızıl Kale
+got.wp.RED_FLOWER_VALE.info=Güney adasında aynı adı taşıyan ilin merkezi.
+got.wp.RED_FLOWER_VALE=Kırmızı Çiçek Vadisi
+got.wp.RED_FORESTS.info≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
+got.wp.RED_FORESTS≠There are several islands in this bay, on which a very rare tree grows - the red Ultos oak. It is rare only because it does not grow anywhere else in the world. But there are a dime a dozen of these trees here.
+got.wp.RED_HAVEN.info=Pike üzerinde bulunan Demir Adalar'ndaki en büyük liman.
+got.wp.RED_HAVEN=Kızıl Cennet
+got.wp.RED_LAKE.info=Turnaların hanesinin kalesi, Tyrell'lerin vasalları.
+got.wp.RED_LAKE=Kızıl Göl
 got.wp.RHYOS.info=Valyria Kıyameti sırasında yıkılan Valyria İmparatorluğu'nun güçlü ve zengin sömürge şehirlerinden biri.
-got.wp.Rhyos=Ryolar
+got.wp.RHYOS=Ryolar
 got.wp.RILLWATER_CROSSING.info=Ryswell'lerin Glenmore vasallarının evinin kalesi.
-got.wp.RillwaterCrossing=Nehir Geçişi
+got.wp.RILLWATER_CROSSING=Nehir Geçişi
 got.wp.RIMEGATE.info=Gece Nöbeti'nin terk edilmiş kalesi.
-got.wp.Rimegate=Kırağı
+got.wp.RIMEGATE=Kırağı
 got.wp.RING.info=Roxton Hanedanı'nın kalesi, Tyrell'lerin vassalları.
-got.wp.Ring=Yüzük
-got.wp.RYSWELLS_CASTLE.info=House Ryswell'in atalardan kalma kalesi, Starkların vassalları. Ryswell'ler, Boltonların sadık müttefikleridir.
-got.wp.RyswellsCastle=Ryswells Kalesi
+got.wp.RING=Yüzük
 got.wp.RIVERRUN.info=Nehir Toprakları Lordları Tully hanesinin atalardan kalma kalesi. Kamnegonka ve Krasny Zubets nehirlerinin birleştiği yerde inşa edilmiştir.
-got.wp.Riverrun=Nehirova
+got.wp.RIVERRUN=Nehirova
 got.wp.RIVERSPRING.info=Sarviklerin evinin kalesi, Lannister'ın vassalları.
-got.wp.Riverspring=Nehir kaynağı
+got.wp.RIVERSPRING=Nehir kaynağı
 got.wp.ROOKS_REST.info=Staunton hanedanının kalesi, tacın vasalları.
-got.wp.RooksRest=Kale dinlenme
+got.wp.ROOKS_REST=Kale dinlenme
 got.wp.ROSBY.info=Kraliyet vasalları olan Rosby'nin hanesine ait küçük bir kale ve mezra. Son Lord Rosby'nin ölümünden sonra, erkek soyu kesintiye uğradı ve vasiyetin aksine, Kraliçe Naip Rosby'nin mülkünü ve topraklarını taç lehine aldı.
-got.wp.Rosby=Rosby
+got.wp.ROSBY=Rosby
 got.wp.RUNESTONE.info=Royce Hanesi'nin kalesi, Arryn'in vassalları. House, Robb Stark'ın yanında Beş Kralın Savaşı'na katılmayı aktif olarak savundu. Arryn, Lisa'nın ölümünden sonra Petyr Baelish'e karşı çıktı.
-got.wp.Runestone=Runestone
+got.wp.RUNESTONE=Runestone
 got.wp.RYAMSPORT.info=Arbor'daki liman şehri.
-got.wp.Ryamsport=Ryamsport
+got.wp.RYAMSPORT=Ryamsport
+got.wp.RYSWELLS_CASTLE.info=House Ryswell'in atalardan kalma kalesi, Starkların vassalları. Ryswell'ler, Boltonların sadık müttefikleridir.
+got.wp.RYSWELLS_CASTLE=Ryswells Kalesi
 got.wp.SAATH.info=Uzun İnsanların hala yaşadığı tek şehir, Dothrakiler tarafından yok edilen Sarnor krallığının yerli sakinleridir.
-got.wp.Saath=Saat
+got.wp.SAATH=Saat
 got.wp.SABLE_HALL.info=Gece Nöbeti'nin boş kalesi. Gece Nöbeti'nin 998. Lord Kumandanı, kendi halkı ve yabanıllarla birlikte kaleyi yeniden inşa etti.
-got.wp.SableHall=Samur salonu
+got.wp.SABLE_HALL=Samur salonu
 got.wp.SALTCLIFFE.info=Greyjoy'ların vassalları olan Saltcliffs'in hanesinin kalesi.
-got.wp.Saltcliffe=Saltcliffe
+got.wp.SALTCLIFFE=Saltcliffe
 got.wp.SALTPANS.info=Liman şehri, Snoop Dogg tarafından yönetilen House Cox'a aittir.
-got.wp.Saltpans=Tuzlalar
+got.wp.SALTPANS=Tuzlalar
 got.wp.SALT_SHORE.info=Gargalen Hanesi'nin atalarının kalesi. Lord Gargalen, Oberyn Martell'in maiyetinin bir parçasıydı.
-got.wp.Saltshore=Tuz kıyısı
+got.wp.SALT_SHORE=Tuz kıyısı
 got.wp.SAMYRIANA.info=Hirkun Beyliği'ni baskınlardan korumak için inşa edilen kalenin çevresinde ortaya çıkan son şehirlerden biri; krallık kuru denizden sonra çürümeye düştü, ancak savaşçı Amazonlar hala Muhafız izliyor.
-got.wp.Samyriana=Samyriana
+got.wp.SAMYRIANA=Samyriana
 got.wp.SANDSTONE.info=Arması üzerinde akrepler olan Kvorgilov'un aile kalesi. Deiron I zamanının Tyrelli valisinin, baştan çıkarıcı bir Dorne güzelliği yerine, yüz akreple aynı yatağı paylaştığı ve öldüğü yer burasıydı.
-got.wp.Sandstone=Kumtaşı
-got.wp.SAR_MELL.info=Çiçekler içinde güzel bir Roinar şehri, şimdi harabeler içinde.
-got.wp.SarMell=Sar Mell
+got.wp.SANDSTONE=Kumtaşı
 got.wp.SARHOY.info=Roinar, bölgedeki ticaretin kontrolü için Volantis ile yarışan güzel bir liman. Savaşın sonucuna üç ejderha karar verdi ve tüm Roinar krallığı, güzel prensleri Garin ile birlikte düştü.
-got.wp.Sarhoy=Sarhoy
+got.wp.SARHOY=Sarhoy
 got.wp.SARSFIELD.info=Kale, Lannister'ın Sarsfield vasallarına ev sahipliği yapmaktadır.
-got.wp.Sarsfield=Sarsfield
+got.wp.SARSFIELD=Sarsfield
+got.wp.SAR_MELL.info=Çiçekler içinde güzel bir Roinar şehri, şimdi harabeler içinde.
+got.wp.SAR_MELL=Sar Mell
 got.wp.SATHAR.info=Satar, or city-by-waterfalls, was the first of the Sarnor cities to be destroyed by the Dothraki. The men were killed, and 3/4 of the captured women and children were killed when the Dothraki drove them to slave traders in Khazdan Mo.
-got.wp.Sathar=Sathar
+got.wp.SATHAR=Sathar
 got.wp.SEAGARD.info=Siegard Castle was built to defend the coast from the Demir Adalar raiders. Both the castle and the city around it belong to the Mallisters, vassals of Tully. In the War, the Five Kings joined Robb Stark.
-got.wp.Seagard=Seagard
+got.wp.SEAGARD=Seagard
 got.wp.SEALSKIN_POINT.info=The castle of the house of the Farwind, vassals of the Greyjoys.
-got.wp.SealskinPoint=Sealskin Point
+got.wp.SEALSKIN_POINT=Sealskin Point
 got.wp.SEAWORTH_CASTLE.info=The castle and lands bestowed on the smuggler Davos Seaworth as a reward for provisions brought to Storm's Menzil, which was besieged by the Royalists during the Baratheon uprising.
-got.wp.SeaworthCastle=Seaworth
+got.wp.SEAWORTH_CASTLE=Seaworth
 got.wp.SELHORYS.info=Small town ruled from Volantis.
-got.wp.Selhorys=Selhorys
+got.wp.SELHORYS=Selhorys
 got.wp.SENTINEL_STAND.info=The abandoned castle of the Night's Watch.
-got.wp.SentinelStand=Sentinel Stand
-got.wp.CASTLE_CERWYN.info=House Servin'in atalardan kalma kalesi, Starkların vassalları. Servin ailesi, Bran Stark'ın arkadaş olduğu Clay Servin'in ölümüyle sona erdi.
-got.wp.CastleCerwyn=Cerwyns Kalesi
+got.wp.SENTINEL_STAND=Sentinel Stand
 got.wp.SEVENSTREAMS.info=Witch's Swamp adlı bataklık bir bölgede bulunan Seven Streams köyü. Burada Blue Barb birçok kola ve küçük akarsuya bölünür. Frey evinin ülkesi.
-got.wp.Sevenstreams=Sevenstreams
+got.wp.SEVENSTREAMS=Sevenstreams
 got.wp.SHADOW_TOWER.info=Gece Nöbeti'nin hala işleyen üç kalesinden biri. Ana destanın olayları sırasında, kale Denis Mallister tarafından yönetilir.
-got.wp.ShadowTower=Gölge Kulesi
+got.wp.SHADOW_TOWER=Gölge Kulesi
 got.wp.SHANDYSTONE.info=Arianna Martell liderliğindeki komplocuların toplandığı harabeler. Şehir, kuyu kurumadan yaklaşık 100 yıl önce terk edildi.
-got.wp.Shandystone=Shandystone
+got.wp.SHANDYSTONE=Shandystone
 got.wp.SHARP_POINT.info=Stannis Baratheon'un vassalları olan Bar-Emmon hanedanının kalesi. Ona sadıktırlar.
-got.wp.SharpPoint=Keskin nokta
+got.wp.SHARP_POINT=Keskin nokta
 got.wp.SHATTERSTONE.info=Goodbrothers'ın genç kollarından birine ait olan Old Vic'te bir kale.
-got.wp.Shatterstone=Paramparça
+got.wp.SHATTERSTONE=Paramparça
 got.wp.SHYLUUN_UUSU.info≠City built on hills. The largest of these is called Anzudon, or the Palace of the Eagle.
-got.wp.ShyluunUusu≠City built on hills. The largest of these is called Anzudon, or the Palace of the Eagle.
-got.wp.SI_QO.info=Kızıl Hanedanlığı döneminde Yi Ti Altın İmparatorluğu'nun efsanevi başkenti. Başkenti neden ormana taşımaya karar verdikleri belli değil, ama şimdi şehir kayboldu, çünkü doğa mülklerini geri aldı.
-got.wp.SiQo=Si Qo
+got.wp.SHYLUUN_UUSU≠City built on hills. The largest of these is called Anzudon, or the Palace of the Eagle.
 got.wp.SILVERHILL.info=Lannister'ın vassalları olan Serrettes'in hanesinin kalesi.
-got.wp.Silverhill=Silverhill
+got.wp.SILVERHILL=Silverhill
 got.wp.SISTERTON.info=Üç Kızkardeş'in ana şehri ve Sunderlands'in merkezi olan Westeros'taki en büyük kaçakçılık limanı.
-got.wp.Sisterton=Kızkardeş
+got.wp.SISTERTON=Kızkardeş
+got.wp.SI_QO.info=Kızıl Hanedanlığı döneminde Yi Ti Altın İmparatorluğu'nun efsanevi başkenti. Başkenti neden ormana taşımaya karar verdikleri belli değil, ama şimdi şehir kayboldu, çünkü doğa mülklerini geri aldı.
+got.wp.SI_QO=Si Qo
 got.wp.SKANE.info=Günümüzde sadece yerleşim kalıntıları adanın sakinlerini hatırlatıyor. Efsaneye göre, eski zamanlarda, taştan doğmuş Skagos, tüm yerel kadınlara tecavüz edip esir almış ve erkekler iki hafta süren bir ziyafet sırasında öldürülmüş ve yenmiştir.
-got.wp.Skane=Skane
+got.wp.SKANE=Skane
 got.wp.SKIRLING_PASS.info≠Mountain trail through Frostfangs. Here the wildlings cross the mountains to get to the Cold Coast
-got.wp.SkirlingPass≠Mountain trail through Frostfangs. Here the wildlings cross the mountains to get to the Cold Coast
+got.wp.SKIRLING_PASS≠Mountain trail through Frostfangs. Here the wildlings cross the mountains to get to the Cold Coast
 got.wp.SKYREACH.info=Fowler Evi Kalesi. Nymeria sonunda onları boyunduruk altına alıp altın zincirler içindeki son kralı Sur'a sürgün edene kadar kendilerine kral dediler.
-got.wp.SkyReach=SkyReach
+got.wp.SKYREACH=SkyReach
 got.wp.SMITHYTON.info=Renly Baratheon'un kılıçlarıyla tahta çıkacağı kişiler arasında bahsettiği Shermer Hanesi kasabası.
-got.wp.Smithyton=Smithyton
+got.wp.SMITHYTON=Smithyton
 got.wp.SNAKEWOOD.info=Linderly hanedanının kalesi, Arryn'in vassalları.
-got.wp.Snakewood=Yılan Ağacı
+got.wp.SNAKEWOOD=Yılan Ağacı
+got.wp.SOUTHSHIELD.info=Kalkan Adaları'ndan biri, Serri'nin elinde. Ardından Euron adayı Andrik Neulyba'ya verdi.
+got.wp.SOUTHSHIELD=Güney kalkanı
+got.wp.SOUTH_POINT.info≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
+got.wp.SOUTH_POINT≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
+got.wp.SOUTH_TAIGA.info≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
+got.wp.SOUTH_TAIGA≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
+got.wp.SOUTH_ULTHOS.info≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
+got.wp.SOUTH_ULTHOS≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
+got.wp.SPARR_CASTLE.info=Sparres Evi'nin kalesi, Greyjoy'ların vassalları.
+got.wp.SPARR_CASTLE=Sparr Kalesi
+got.wp.SPICETOWN.info=Ejderhaların Dansı sırasında liman şehri yok edildi.
+got.wp.SPICETOWN=Baharat kasabası
+got.wp.SPIDER.info≠Mysterious clearing in the far south of Ulthos.
+got.wp.SPIDER≠Mysterious clearing in the far south of Ulthos.
+got.wp.SPOTTSWOOD.info=Martell'lerin vassalları olan Santagarların evinin kalesi.
+got.wp.SPOTTSWOOD=Spottswood
+got.wp.STANDFAST.info=Blackfire İsyanı'nın yenilgisinden sonra Osgrey'e terk edilmiş bir kule. "Yeminli Kılıç" hikayesinin sahnesi.
+got.wp.STANDFAST=Bekleme
+got.wp.STARFALL.info=Göktaşının düştüğü yerde kurulan Dein Fiefdom. Danimarkalılar Şafak'ın kılıcını onun parçasından dövdüler ve Nymeria onları devirip altın zincirler içindeki son kralı Sur'a sürgün edene kadar burada Swift ve Starfall kralları olarak hüküm sürmeye başladılar.
+got.wp.STARFALL=Yıldız düşüşü
+got.wp.STARFISH_HARBOR.info=Arbor'daki liman şehri, Tommen I Baratheon komutasındaki Demirdoğumlular tarafından ele geçirildi. Burada korsanlar, adanın geri kalanını ve Eski Kent'i yağmalamak için bir teklifte bulundular.
+got.wp.STARFISH_HARBOR=Denizyıldızı Limanı
+got.wp.STARPIKE.info=Peak evinin kalelerinden biri. Gormon Peak'in infazından sonra kalenin konumu bilinmiyor.
+got.wp.STARPIKE=Starpike
+got.wp.STOKEWORTH.info=Kale, Kraliyet Topraklarının Stockworth'una ev sahipliği yapmaktadır. Stockworth soyu erkek soyunda kesildi, bu da Blackwater'lı Bronn'un başarılı bir evlilik ve girişimden sonra Lord Stockworth unvanını almasına izin verdi.
+got.wp.STOKEWORTH=Stokeworth
+got.wp.STONEDANCE.info=Yarımadanın korsanları tarafından kurulan kale, soyundan gelenlerin anısına kendi adları olan Hook Massy'de kaldı. Daha sonra topraklar fırtına kralları tarafından geri alındı ve Aegon'un fethi ile Kraliyet Topraklarına girdiler.
+got.wp.STONEDANCE=Taş dansı
+got.wp.STONEDOOR.info=Gece Nöbeti'nin terk edilmiş kalelerinden biri. Kaleden çok uzakta olmayan Jon Snow, Stear'ın ekibiyle Sur'u geçti; Daha sonra, Gece Nöbeti'nin 998. Lord Kumandanı, kaleyi restorasyon için Yabani Şef Soren Shchitolom'a teslim etti.
+got.wp.STONEDOOR=Taş kapı
+got.wp.STONEHELM.info=Kuleleri beyaz ve siyah taştan yapılmış bir kale. Swann ailesinin malikanesi.
+got.wp.STONEHELM=Kask
+got.wp.STONEHOUSE.info=Kale, Greyjoyların vassalları olan Taş Evlere ev sahipliği yapmaktadır.
+got.wp.STONEHOUSE=Taş ev
+got.wp.STONETREE_CASTLE.info=Harlow'un vassalları olan Stuntree'nin evinin kalesi.
+got.wp.STONETREE_CASTLE=TaşağacıKale
+got.wp.STONEY_SEPT.info=Şehir küçük ama Nehir Toprakları en büyüğü. Robert Baratheon İsyanı, yıllar önce Lord Connington'ın şehri araması başarısızlıkla sonuçlandığında, neredeyse burada sona erdi.
+got.wp.STONEY_SEPT=Taşlı eylül
+got.wp.STONE_HEDGE.info=Bracken Hanesi'nin kalesi, Vranodrev'in Blackwood hanelerine rakip.
+got.wp.STONE_HEDGE=Taş Çit
+got.wp.STORMS_END.info=Baratheon Hanesi'nin atalardan kalma kalesi, Fırtına Toprakları Lordları. Efsaneye göre Fırtına Kralı Durran'ın deniz tanrısı Elenea'nın kızıyla evlenmesinin cezası olarak deniz dalgaları Durran'ın kalelerini altı kez vurup yıktı, ta ki sonunda Ormanın Çocukları'nın büyüsüne dönene kadar. Durran krallığının Targaryenler tarafından fethinden sonra kale Oris Baratheon'a verildi.
+got.wp.STORMS_END=Fırtınalar Bitiyor
+got.wp.STRONGSONG.info=Belmore Hanesi Kalesi, Arryn Hanesi'nin vassalları. House, Robb Stark'ın yanında Beş Kralın Savaşı'na katılmayı aktif olarak savundu. Arryn, Lisa'nın ölümünden sonra Petyr Baelish'e karşı çıktı.
+got.wp.STRONGSONG=Güçlü şarkı
+got.wp.STYGAI.info=Kül kıyısında ölü şehir. Gölge tekerlekleri bile buraya gitmeye korkuyor ve güneş kısa bir süreliğine sadece öğlen geliyor.
+got.wp.STYGAI=Stygai
+got.wp.SUMMERHALL.info=Targaryenların Dorne İşaretleri'ndeki eski yazlık evi. Prens Rhaegar Targaryen'in doğduğu yıl, kale Yaz Kalesi Trajedisi olarak bilinen şeye tanık oldu. O zamandan beri kale harap durumda.
+got.wp.SUMMERHALL=Yazlık
+got.wp.SUNDERLY.info=Sanderly Hanedanı'nın kalesi, Greyjoy'ların vassalları. Salt Cliff'te bulunur.
+got.wp.SUNDERLY=Sunderly
+got.wp.SUNHOUSE.info=House Kew Kalesi, Hightower'ın vassalları.
+got.wp.SUNHOUSE=Güneş evi
+got.wp.SUNSPEAR.info=Martell Hanesi'nin atalarının evi, eski bir kaleden - Kumların Arkından - büyümüştür. Kale duvarlarındaki Gölgeli Şehir gibi sarı-kahverengi kerpiç tuğlalardan yeniden inşa edildi.
+got.wp.SUNSPEAR=Güneş mızrak
+got.wp.SUUDAN_KORKUU.info≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
+got.wp.SUUDAN_KORKUU≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
+got.wp.SUU_NYM.info≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
+got.wp.SUU_NYM≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
+got.wp.SWEETPORT_SOUND.info=Ejderha Kayası'na yeminli Sanglass Kalesi. Bu adada mı yoksa başka bir yerde mi olduğu bilinmiyor.
+got.wp.SWEETPORT_SOUND=Tatlı liman sesi
+got.wp.SWEET_LOTUS_VALE.info=Güney adasında aynı adı taşıyan ilin merkezi ve eski bir köle olan Xanda Ko tarafından kurulan Birleşik Yaz Adaları devletinin ilk başkenti.
+got.wp.SWEET_LOTUS_VALE=Tatlı Lotus Vadisi
 got.wp.SouthPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
 got.wp.SouthPass=Güney Geçidi
-got.wp.SOUTH_POINT.info≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
-got.wp.SouthPoint≠The southernmost point where the Letnian ships sailed. Nevertheless, they did not build a harbor here: it is too far from their native lands.
-got.wp.SOUTH_TAIGA.info≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
-got.wp.SouthTaiga≠Ultos extends so far south that it reaches the southern polar regions. There is always snow here. There are quite a few animals here - few survive in the year-round frost. The plants here are exclusively coniferous.
-got.wp.SOUTH_ULTHOS.info≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
-got.wp.SouthUlthos≠Clearly a separate part of Ultos from the swamps and to the extreme south. Here the climate is getting cooler, but not critical.
-got.wp.SOUTHSHIELD.info=Kalkan Adaları'ndan biri, Serri'nin elinde. Ardından Euron adayı Andrik Neulyba'ya verdi.
-got.wp.Southshield=Güney kalkanı
-got.wp.SPARR_CASTLE.info=Sparres Evi'nin kalesi, Greyjoy'ların vassalları.
-got.wp.SparrCastle=Sparr Kalesi
-got.wp.SPICETOWN.info=Ejderhaların Dansı sırasında liman şehri yok edildi.
-got.wp.Spicetown=Baharat kasabası
-got.wp.SPIDER.info≠Mysterious clearing in the far south of Ulthos.
-got.wp.Spider≠Mysterious clearing in the far south of Ulthos.
-got.wp.SPOTTSWOOD.info=Martell'lerin vassalları olan Santagarların evinin kalesi.
-got.wp.Spottswood=Spottswood
-got.wp.STANDFAST.info=Blackfire İsyanı'nın yenilgisinden sonra Osgrey'e terk edilmiş bir kule. "Yeminli Kılıç" hikayesinin sahnesi.
-got.wp.Standfast=Bekleme
-got.wp.STARFALL.info=Göktaşının düştüğü yerde kurulan Dein Fiefdom. Danimarkalılar Şafak'ın kılıcını onun parçasından dövdüler ve Nymeria onları devirip altın zincirler içindeki son kralı Sur'a sürgün edene kadar burada Swift ve Starfall kralları olarak hüküm sürmeye başladılar.
-got.wp.Starfall=Yıldız düşüşü
-got.wp.STARFISH_HARBOR.info=Arbor'daki liman şehri, Tommen I Baratheon komutasındaki Demirdoğumlular tarafından ele geçirildi. Burada korsanlar, adanın geri kalanını ve Eski Kent'i yağmalamak için bir teklifte bulundular.
-got.wp.StarfishHarbor=Denizyıldızı Limanı
-got.wp.STARPIKE.info=Peak evinin kalelerinden biri. Gormon Peak'in infazından sonra kalenin konumu bilinmiyor.
-got.wp.Starpike=Starpike
-got.wp.STOKEWORTH.info=Kale, Kraliyet Topraklarının Stockworth'una ev sahipliği yapmaktadır. Stockworth soyu erkek soyunda kesildi, bu da Blackwater'lı Bronn'un başarılı bir evlilik ve girişimden sonra Lord Stockworth unvanını almasına izin verdi.
-got.wp.Stokeworth=Stokeworth
-got.wp.STONE_HEDGE.info=Bracken Hanesi'nin kalesi, Vranodrev'in Blackwood hanelerine rakip.
-got.wp.StoneHedge=Taş Çit
-got.wp.STONEDANCE.info=Yarımadanın korsanları tarafından kurulan kale, soyundan gelenlerin anısına kendi adları olan Hook Massy'de kaldı. Daha sonra topraklar fırtına kralları tarafından geri alındı ve Aegon'un fethi ile Kraliyet Topraklarına girdiler.
-got.wp.Stonedance=Taş dansı
-got.wp.STONEDOOR.info=Gece Nöbeti'nin terk edilmiş kalelerinden biri. Kaleden çok uzakta olmayan Jon Snow, Stear'ın ekibiyle Sur'u geçti; Daha sonra, Gece Nöbeti'nin 998. Lord Kumandanı, kaleyi restorasyon için Yabani Şef Soren Shchitolom'a teslim etti.
-got.wp.Stonedoor=Taş kapı
-got.wp.STONEHELM.info=Kuleleri beyaz ve siyah taştan yapılmış bir kale. Swann ailesinin malikanesi.
-got.wp.Stonehelm=Kask
-got.wp.STONEHOUSE.info=Kale, Greyjoyların vassalları olan Taş Evlere ev sahipliği yapmaktadır.
-got.wp.Stonehouse=Taş ev
-got.wp.STONETREE_CASTLE.info=Harlow'un vassalları olan Stuntree'nin evinin kalesi.
-got.wp.StonetreeCastle=TaşağacıKale
-got.wp.STONEY_SEPT.info=Şehir küçük ama Nehir Toprakları en büyüğü. Robert Baratheon İsyanı, yıllar önce Lord Connington'ın şehri araması başarısızlıkla sonuçlandığında, neredeyse burada sona erdi.
-got.wp.StoneySept=Taşlı eylül
-got.wp.STORMS_END.info=Baratheon Hanesi'nin atalardan kalma kalesi, Fırtına Toprakları Lordları. Efsaneye göre Fırtına Kralı Durran'ın deniz tanrısı Elenea'nın kızıyla evlenmesinin cezası olarak deniz dalgaları Durran'ın kalelerini altı kez vurup yıktı, ta ki sonunda Ormanın Çocukları'nın büyüsüne dönene kadar. Durran krallığının Targaryenler tarafından fethinden sonra kale Oris Baratheon'a verildi.
-got.wp.StormsEnd=Fırtınalar Bitiyor
-got.wp.STRONGSONG.info=Belmore Hanesi Kalesi, Arryn Hanesi'nin vassalları. House, Robb Stark'ın yanında Beş Kralın Savaşı'na katılmayı aktif olarak savundu. Arryn, Lisa'nın ölümünden sonra Petyr Baelish'e karşı çıktı.
-got.wp.Strongsong=Güçlü şarkı
-got.wp.STYGAI.info=Kül kıyısında ölü şehir. Gölge tekerlekleri bile buraya gitmeye korkuyor ve güneş kısa bir süreliğine sadece öğlen geliyor.
-got.wp.Stygai=Stygai
-got.wp.SUMMERHALL.info=Targaryenların Dorne İşaretleri'ndeki eski yazlık evi. Prens Rhaegar Targaryen'in doğduğu yıl, kale Yaz Kalesi Trajedisi olarak bilinen şeye tanık oldu. O zamandan beri kale harap durumda.
-got.wp.Summerhall=Yazlık
-got.wp.SUNHOUSE.info=House Kew Kalesi, Hightower'ın vassalları.
-got.wp.SunHouse=Güneş evi
-got.wp.SUNDERLY.info=Sanderly Hanedanı'nın kalesi, Greyjoy'ların vassalları. Salt Cliff'te bulunur.
-got.wp.Sunderly=Sunderly
-got.wp.SUNSPEAR.info=Martell Hanesi'nin atalarının evi, eski bir kaleden - Kumların Arkından - büyümüştür. Kale duvarlarındaki Gölgeli Şehir gibi sarı-kahverengi kerpiç tuğlalardan yeniden inşa edildi.
-got.wp.Sunspear=Güneş mızrak
-got.wp.SUU_NYM.info≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
-got.wp.SuuNym≠There is a legend that Iwashi, the name of Azor Ahai, lived here in ancient times. According to legend, after the war he came here to create great songs and sacred texts.
-got.wp.SUUDAN_KORKUU.info≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
-got.wp.SuudanKorkuu≠This ancient fortress is unusual in that it is a whole complex of buildings surrounded by a moat without a wall. Warehouses of weapons, food and medicines were built on its territory, workshops and stables were placed.
-got.wp.SWEET_LOTUS_VALE.info=Güney adasında aynı adı taşıyan ilin merkezi ve eski bir köle olan Xanda Ko tarafından kurulan Birleşik Yaz Adaları devletinin ilk başkenti.
-got.wp.SweetLotusVale=Tatlı Lotus Vadisi
-got.wp.SWEETPORT_SOUND.info=Ejderha Kayası'na yeminli Sanglass Kalesi. Bu adada mı yoksa başka bir yerde mi olduğu bilinmiyor.
-got.wp.SweetportSound=Tatlı liman sesi
 got.wp.TAKUTAI.info≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
-got.wp.Takutai≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
+got.wp.TAKUTAI≠The fort on the coast where the legendary Ulysses lived, drowned in a storm after a long journey. This is a very beautiful place.
 got.wp.TALL_TREES_TOWN.info=Rahibelerin Konuşan Ağaçlar üzerinde yaz insanlarının tarihini, geleneklerini ve yasalarını oyduğu güneşli bir şehir.
-got.wp.TallTreesTown=Uzun Ağaçlar Kasabası
+got.wp.TALL_TREES_TOWN=Uzun Ağaçlar Kasabası
 got.wp.TARBECK_HALL.info=Reins ile birlikte genç Tywin'in karakterini hafife alan ve ünlü "Kastamere'den Reyna" şarkısının kahramanları olan Tarbek'in evinin kalesi
-got.wp.TarbeckHall=Tarbeck Salonu
+got.wp.TARBECK_HALL=Tarbeck Salonu
 got.wp.TASHTOO.info≠The ancient seaport where Ibben's ships docked. The village where the shipyard workers lived eventually became a town where ships stand in the harbor.
-got.wp.Tashtoo≠The ancient seaport where Ibben's ships docked. The village where the shipyard workers lived eventually became a town where ships stand in the harbor.
+got.wp.TASHTOO≠The ancient seaport where Ibben's ships docked. The village where the shipyard workers lived eventually became a town where ships stand in the harbor.
 got.wp.TAURANGA.info≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
-got.wp.Tauranga≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
+got.wp.TAURANGA≠Every navigator of the Summer Islands visits this place, because Tana's relatives once found refuge here. She was the leader of a very rich tribe, and gave gold to her rescuers.
 got.wp.TAWNEY_CASTLE.info=Townie hanedanının kalesi, Greyjoyların vassalları.
-got.wp.TawneyCastle=Tawney Kalesi
+got.wp.TAWNEY_CASTLE=Tawney Kalesi
 got.wp.TELYRIA.info=Valyria'nın deniz kapısı.
-got.wp.Telyria=Telyria
+got.wp.TELYRIA=Telyria
 got.wp.TEN_TOWERS.info=Demir Adalar en yeni kalesi, Harlow'un eski koluna aittir. Lord Harlow'un sık sık üşütüp ölen çocukları olduğu için inşa edilmişti, bu yüzden mirasçı bırakmayacağından korkmaya başladı.
-got.wp.TenTowers=On Kule
+got.wp.TEN_TOWERS=On Kule
 got.wp.TERIMAN.info≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
-got.wp.Teriman≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
+got.wp.TERIMAN≠One of the three currently inhabited Qarth colonies in Sotorios. It is located further than all the others. It is known for the fact that particularly dangerous criminals are exiled here.
 got.wp.THE_EYRIE.info=Arryn Hanesi'nin atalardan kalma kalesi, Vadinin Efendileri. Ay Dağları'nın en yüksek dağı olan Dev'in Mızrağı üzerine inşa edilmiş, neredeyse zaptedilemez, ancak kışın yaşanmaz hale geliyor. Kışın Westeros'ta savaşacak çok şeyin olmaması güzel.
-got.wp.TheEyrie=Kartal Yuvası
+got.wp.THE_EYRIE=Kartal Yuvası
+got.wp.THE_LONG_BARROW.info=Mance'nin, Kral Robert'ın gelişinin onuruna Winterfell'deki bir ziyafete katılmak için duvarı aştığı, Gece Nöbeti'nin boş kalesi. Daha sonra, Gece Nöbeti'nin 998. Lord Kumandanı, kalenin komutasını Demir Emmett ve Sorrowful Edd'e emanet etti ve özgür insanların mızrakçıları kaleye ikinci adını veren Shlyukhina Hole'a yerleşti.
+got.wp.THE_LONG_BARROW=Uzun höyük
 got.wp.THE_PAPS.info=Arryns'in vassalları olan Ilshem'in evinin kalesi, Soscy adasında.
-got.wp.ThePaps=Babalar
-got.wp.THREE_EYED_RAVEN_CAVE.info=Kuzeyde, Sur'un ötesinde, ormanın çocuklarının yaşadığı bir mağara.
-got.wp.ThreeEyedRavenCave=Üç gözlü Kuzgun Mağarası
-got.wp.THREE_TOWERS.info=Yüksek Kule'nin vassalları olan Kostains Evi'nin kalesi.
-got.wp.ThreeTowers=Üç Kule
-got.wp.TIQUI.info=Çok kuleli ticaret şehri Chikui, mor imparatorların Yi Ti hanedanlığı döneminde Yi Ti Altın İmparatorluğu'nun başkentidir. Günümüzde kente "doğunun kapısı" denilmektedir.
-got.wp.Tiqui=Tiqui
-got.wp.TOLOS.info=Valyria'nın kurduğu bir köle şehri. Daenerys'e karşı Yunkai ile müttefik. Şehir sapanlarıyla ünlüdür.
-got.wp.Tolos=Tolos
+got.wp.THE_PAPS=Babalar
 got.wp.THE_TOR.info=Jordaines Kalesi, Martell'lerin vassalları. Rhoynarlar gelmeden önce Martelller onlara başlarını eğdiler, ancak bu sefer tüm insanlardan Nymeria Morse Martell'i tercih ettiğinde geçti.
-got.wp.Tor=Tor
+got.wp.THE_TOR=Tor
 got.wp.THE_TORCHES.info=Gece Nöbeti'nin terk edilmiş kalesi.
-got.wp.Torches=Meşaleler
+got.wp.THE_TORches=Meşaleler
+got.wp.THREE_EYED_RAVEN_CAVE.info=Kuzeyde, Sur'un ötesinde, ormanın çocuklarının yaşadığı bir mağara.
+got.wp.THREE_EYED_RAVEN_CAVE=Üç gözlü Kuzgun Mağarası
+got.wp.THREE_TOWERS.info=Yüksek Kule'nin vassalları olan Kostains Evi'nin kalesi.
+got.wp.THREE_TOWERS=Üç Kule
+got.wp.TIQUI.info=Çok kuleli ticaret şehri Chikui, mor imparatorların Yi Ti hanedanlığı döneminde Yi Ti Altın İmparatorluğu'nun başkentidir. Günümüzde kente "doğunun kapısı" denilmektedir.
+got.wp.TIQUI=Tiqui
+got.wp.TOLOS.info=Valyria'nın kurduğu bir köle şehri. Daenerys'e karşı Yunkai ile müttefik. Şehir sapanlarıyla ünlüdür.
+got.wp.TOLOS=Tolos
 got.wp.TORHENS_SQUARE.info=Tolhart Hanesi'nin kalesi, Starkların vassalları.
-got.wp.TorhensSquare=Torhens Meydanı
+got.wp.TORHENS_SQUARE=Torhens Meydanı
 got.wp.TORTURERS_DEEP.info=Ada, kendini Suların Efendisi ilan eden Kral Auran'ın ve komutası altındaki Kral Tommen'ın filosunu ustalıkla kaçıran eski bir gemi ustasının karargahı oldu.
-got.wp.TorturersDeep=İşkenceciler Derin
+got.wp.TORTURERS_DEEP=İşkenceciler Derin
 got.wp.TOWER_OF_GLIMMERING.info=Kale, Harlow'un genç kollarından biridir.
-got.wp.TowerOfGlimmering=Parıldayan Kule
+got.wp.TOWER_OF_GLIMMERING=Parıldayan Kule
 got.wp.TOWER_OF_JOY.info=Dorn'un eteklerinde bir taş kulenin kalıntıları. Prens Rhaegar Targaryen, burada Harrenhal'daki turnuvadan sonra kaçırdığı Lyanna Stark'ı kaçırdı. Burada kardeşi Eddard Stark'ın kollarında öldü, o da daha sonra kulenin yere indirilmesini emretti.
-got.wp.TowerOfJoy=Sevinç kulesi
+got.wp.TOWER_OF_JOY=Sevinç kulesi
 got.wp.TRADER_TOWN.info=Jogos-Nhai'nin Çekici Pol-Ko adlı, kendi kendini turuncu imparator ilan eden Yi Ti'nin kaba, düzensiz büyüyen kale şehri.
-got.wp.TraderTown=Tüccar Kasabası
+got.wp.TRADER_TOWN=Tüccar Kasabası
 got.wp.TUDBURY_HOLL.info=Baratheonların vassalları olan Tudbury hanedanının kalesi.
-got.wp.TudburyHoll=Tudbury Yuvası
+got.wp.TUDBURY_HOLL=Tudbury Yuvası
 got.wp.TUMBLETON.info=Tyrell vasalları Footley'in memleketi. Ejderhaların Dansı sırasında vahşice yağmalandı ve iki kez kesildi ve o zamandan beri asla iyileşmedi.
-got.wp.Tumbleton=Tumblerton
+got.wp.TUMBLETON=Tumblerton
 got.wp.TURRANI.info=Langi şehri, Langi'nin Ithian işgalcilerine karşı üstün geldiği yer.
-got.wp.Turrani=Turrani
+got.wp.TURRANI=Turrani
 got.wp.TWINS_LEFT.info=Frey Hanesi'nin Kaleleri, Geçit Lordları, Tully'nin vassalları.
-got.wp.TwinsLeft=Ikizler
+got.wp.TWINS_LEFT=Ikizler
 got.wp.TWINS_RIGHT.info=Frey Hanesi'nin Kaleleri, Geçit Lordları, Tully'nin vassalları.
-got.wp.TwinsRight=Ikizler
+got.wp.TWINS_RIGHT=Ikizler
 got.wp.TYRIA.info=Valyria Kıyameti sırasında yıkılan Valyria İmparatorluğu'nun güçlü ve zengin sömürge şehirlerinden biri. İnsanların burada yaşadığı söyleniyor, ancak bunların Valyrialıların torunları mı yoksa mahvolmuş şanssız denizciler mi olduğu belli değil ... yoksa sadece hikayeler mi?
-got.wp.Tyria=Tyria
+got.wp.TYRIA=Tyria
 got.wp.TYROSH.info=Özgür Şehirlerden biri. Tirosh, özel bir parlak renk hazırlamak için değerli bir deniz tarağı bulduğu suları korumak için tasarlanmış bir kalenin etrafında büyüdü. Tyroshlular tanınabilir bir aksanla Valyrian lehçesini konuşurlar (burada çocukken yaşayan Daenerys ile fark edilir), tüm dünyada ticaret yapar, hatta Duvar'a yüzerler, saçlarını parlak renklere boyarlar; bu özellik örneğin John Connington tarafından öğrencisiyle tanınmamak için kullanılır.
-got.wp.Tyrosh=Tiroş
+got.wp.TYROSH=Tiroş
 got.wp.ULOS.info=Kalıntılardan da anlaşılacağı gibi, konumu ve bir zamanlar yerleşim olduğu gerçeği dışında hakkında neredeyse hiçbir şey bilinmeyen bir ada.
-got.wp.Ulos=Ulolar
+got.wp.ULOS=Ulolar
+got.wp.UPLANDS.info=Hightower'ın vassalları olan Mullendore hanedanının kalesi.
+got.wp.UPLANDS=Yaylalar
 got.wp.Ulthos.info=Dünyanın 4 ünlü kıtasından biri. Onun hakkında bilinen tek şey bu.
 got.wp.Ulthos=Ulthos
-got.wp.UPLANDS.info=Hightower'ın vassalları olan Mullendore hanedanının kalesi.
-got.wp.Uplands=Yaylalar
 got.wp.VAES_ATHJIKHARI.info=Kanlı Çağ'da Dothrakiler tarafından yakılan devasa bir kütüphaneye sahip Sarnor bilginlerinin şehri. Bugün harabeler Vaez Atjikhari, "hastalık şehri" olarak adlandırılıyor.
-got.wp.VaesAthjikhari=Vaes Athjikhari
+got.wp.VAES_ATHJIKHARI=Vaes Athjikhari
 got.wp.VAES_DIAF.info=Bir zamanlar Dothraki'nin Sarnor mahkumlarını getirdiği bir Ghiskar köle şehri; Ancak kısa süre sonra Khazdan Mo düştü - Dothrakiler Vaez Diaf buna "kafatası şehri" dedi.
-got.wp.VaesDiaf=Vaes diaf
+got.wp.VAES_DIAF=Vaes diaf
 got.wp.VAES_DOTHRAK.info=Dothrakiler göçebedir ve bir yerde uzun süre kalmazlar; tek şehirleri Vaez Dothrak. Burada Dothrakiler mağlup tanrıların heykellerini getirirler, burada khallerin dul kadınları - dosh khalin - günleri uzaktayken ve ölüm acısı ile kan dökmek yasaktır.
-got.wp.VaesDothrak=Vaes Dothrak
+got.wp.VAES_DOTHRAK=Vaes Dothrak
 got.wp.VAES_EFE.info=Dothraki'nin "köprüler şehri" dediği bilinmeyen bir şehrin kalıntıları; büyük olasılıkla, göçebeler onu yağmaladı.
-got.wp.VaesEfe=Vaes Efe
+got.wp.VAES_EFE=Vaes Efe
 got.wp.VAES_GORQOYI.info=İyi tahkim edilmiş Sarnor şehri Ulaşılmaz Mardosh veya Askerler Şehri, Dothraki Khals'ı kuşatana ve sakinleri açlıktan ölmeye başlayana kadar altı yıl boyunca direndi. Kendi ölüleri tükendiğinde, Sarnor Savaşları kadınları ve çocukları öldürdü ve savaşa girdi. Dothrakiler, Blood Throw şehri Vaez Gorkoyi olarak adlandırılan yeni bir isim verilen harabeleri yağmaladılar.
-got.wp.VaesGorqoyi=Vaes Gorqoyi
+got.wp.VAES_GORQOYI=Vaes Gorqoyi
 got.wp.VAES_GRADDAKH.info=Kanlı Çağ'da khalasar tarafından yok edilen Sarnor krallığının şehri. Khalu Zeggo neredeyse hiçbir şey almadı - Saris sakinleri, ortaya çıkmasından kısa bir süre önce eşyalarını alarak kaçtı, - bu nedenle Dothrakiler avına "çöp şehri" dedi - Vaez Graddakh.
-got.wp.VaesGraddakh=Vaes Graddakh
+got.wp.VAES_GRADDAKH=Vaes Graddakh
 got.wp.VAES_JINI.info=Yinishar, üç yolun kesiştiği yerde bulunur ve muhtemelen büyük bir ticaret şehriydi, ta ki avına "keçi şehri" diyen Dothrakiler tarafından yok edilene kadar.
-got.wp.VaesJini=Vaes Jini
+got.wp.VAES_JINI=Vaes Jini
 got.wp.VAES_KHADOKH.info=Valyria kolonisi, Kanlı Çağ'da Dothraki orduları tarafından Sarnor Krallığı ile birlikte yok edildi. Fatihler harabelere Vaez Hadoh - Ölü Bedenler şehri diyorlar.
-got.wp.VaesKhadokh=Vaes Khadokh
+got.wp.VAES_KHADOKH=Vaes Khadokh
 got.wp.VAES_KHEWO.info=Bir zamanlar Sarnor şehirlerinin en ünlüsü olan ve dünyanın harikalarından biri olan Bin Odalı Saray'a sahip Kule Sarnath, Birleşik Sarnor ordusunun Meydan'daki yenilgisinden sonra şehrin geri kalanıyla birlikte Dothrakiler tarafından yakıldı. Akbabalar. Dothrakiler, Sarnor'un küllerini solucanlar şehri veya Vaez Khevo olarak adlandırırdı.
-got.wp.VaesKhewo=Vaes Khewo
+got.wp.VAES_KHEWO=Vaes Khewo
 got.wp.VAES_LEISI.info=Terk edilmiş, muhtemelen Ifekevron yerleşimi.
-got.wp.VaesLeisi=Vaes Leisi
+got.wp.VAES_LEISI=Vaes Leisi
 got.wp.VAES_LEQSE.info=Gornat Priozernoye Sarnor şehrinin kalıntıları; Şehrin son kralı Khal Moro ile ittifak yapar, kızıyla evlenir ama Moro yaşlanır ve onu öldüren Khal Horro şehri yerle bir eder. Yeni adı Vaes Lekse "fareler şehri" anlamına geliyor, fareler kralın cesedini yedi.
-got.wp.VaesLeqse=Vaes Leqse
+got.wp.VAES_LEQSE=Vaes Leqse
 got.wp.VAES_MEJHAH.info=Dothraki'nin "güveler şehri" dediği bilinmeyen bir şehrin kalıntıları; büyük olasılıkla, göçebeler onu yağmaladı.
-got.wp.VaesMejhah=Vaes Mejhah
+got.wp.VAES_MEJHAH=Vaes Mejhah
 got.wp.VAES_ORVIK.info=Dothraki şehri Dothrakiler tarafından yok edildi. İşgalciler şehre "kamçıların şehri" adını verdiler. Kendi adı uzun zamandır unutuldu.
-got.wp.VaesOrvik=Vaes Orvik
+got.wp.VAES_ORVIK=Vaes Orvik
 got.wp.VAES_QOSAR.info=Kwart'a giden yol, şimdi yıkılan Quaati şehirlerinden biri olan Vaez Kozar'ın (Dothrak. "Örümcekler şehri") kalıntılarının yanından geçiyor.
-got.wp.VaesQosar=Vaes Qosar
+got.wp.VAES_QOSAR=Vaes Qosar
 got.wp.VAES_SHIROSI.info=Kwaati şehri Dothrakiler tarafından yok edildi. İşgalciler şehre "akrepler şehri" adını verdiler. Kendi adı uzun zamandır unutuldu.
-got.wp.VaesShirosi=Vaes Shirosi
+got.wp.VAES_SHIROSI=Vaes Shirosi
 got.wp.VAES_TOLORRO.info=Belirsiz nedenlerle terk edilmiş beyaz taşlı bir Quartic şehrinin kalıntıları (Dothraki'nin fetihleri?); küçük khalasar Daenerys Targaryen çölde uzun bir yürüyüşten sonra geliyor. Şehrin gerçek adı bilinmiyor, Daenerys tarafından icat edilen, Dothraki'den tercüme edilen Vaez Tolorro, "kemikler şehri" anlamına geliyor.
-got.wp.VaesTolorro=Vaes Tolorro
+got.wp.VAES_TOLORRO=Vaes Tolorro
 got.wp.VAHAR.info=Quartis Boğazı, Yaz ve Yeşim Denizi arasındaki en kısa ve en pahalı yolsa, Vakhar da uzun ve ucuz yoldur. Şehir baharat ticaretiyle geçiniyor.
-got.wp.Vahar=Vahar
+got.wp.VAHAR=Vahar
 got.wp.VAIBEI.info=Yi Ti'nin kalbindeki şehir. İşin garibi, hiçbir zaman bir başkent olmadı.
-got.wp.Vaibei=Vaibei
+got.wp.VAIBEI=Vaibei
 got.wp.VAITH.info=Veit'in evinin adını taşıyan nehir. Zelenobrovnaya'yı besleyen iki nehirden biri.
-got.wp.Vaith=Vaith
+got.wp.VAITH=Vaith
 got.wp.VALYRIAN_ROAD.info=Bitmemiş Valyria yolunda çıkmaz sokak.
-got.wp.ValyrianRoad=Valyria Yolu
+got.wp.VALYRIAN_ROAD=Valyria Yolu
 got.wp.VALYSAR.info=Valyrialılar tarafından kurulan şehir, Roinar-Valyrian Savaşları sırasında Prens Garin tarafından alındı. Şimdi Volantis'in kontrolünde olmasına rağmen daha sonra yeniden inşa edildi.
-got.wp.Valysar=Valysar
+got.wp.VALYSAR=Valysar
 got.wp.VELOS.info=Bir zamanlar sedir ve pembe mermerden yapılmış sarayları olan güzel bir şehir. Kaya sırasında adaya üç yüz fitlik bir dalga çarptı ve şehir sular altında kayboldu.
-got.wp.Velos=Velolar
+got.wp.VELOS=Velolar
 got.wp.VICTARION_LANDING.info=Kamp Victarion Greyjoy, Kuzey'le savaşa gidiyor.
-got.wp.VictarionLanding=Victarion'un Greyjoy Kampı
+got.wp.VICTARION_LANDING=Victarion'un Greyjoy Kampı
 got.wp.VINETOWN.info=Arbor'daki liman şehri.
-got.wp.Vinetown=Bağ kasabası
+got.wp.VINETOWN=Bağ kasabası
 got.wp.VISENYA.info=An island discovered by Alice Westhill southwest of the Summer Islands.
-got.wp.Visenya=Visenya
+got.wp.VISENYA=Visenya
 got.wp.VOJJOR_SAMVI.info=Ruins of the Sarnor city of Kazat, the city of caravans; plundered by the army of khal Moro and the king of neighboring Gornat, with whom he had not shared the leftovers left after the destruction of Satar several years earlier. The Dothraki called the ruins Vojjor Samui, which means the Broken Gods.
-got.wp.VojjorSamvi=Vojjor Samvi
+got.wp.VOJJOR_SAMVI=Vojjor Samvi
 got.wp.VOLANTIS.info=One of the Free Cities, and the oldest of them. After Doom, Valyria began to consider himself the heir to the empire, and for almost 100 years it was. Then Volantis suffered a series of defeats in wars and became a trading city.
-got.wp.Volantis=Volantis
+got.wp.VOLANTIS=Volantis
 got.wp.VOLMARK.info=The Volmark are blood relatives of the Hoar, contenders for the crown under Aegon the Conqueror.
-got.wp.Volmark=Volmark
+got.wp.VOLMARK=Volmark
 got.wp.VOLON_THERYS.info=Valyrialılar tarafından sınırda ve Rhoynarlara rakip olmak için inşa edilmiş bir şehir. Sar Mell ve Volon Theris arasındaki savaştan, halklar arasında Roinar şehirlerinin düşüşü ve Nymeria'nın kaçışıyla biten uzun bir çatışma başladı. Altın Takım, Ejderhalarla Dans'ta Volon Theris'ten Westeros'a gidiyor.
-got.wp.VolonTherys=Volon Therys
+got.wp.VOLON_THERYS=Volon Therys
 got.wp.VULTURES_ROOST.info=İlk Targaryenler zamanından kalan kalıntılar. Görünüşe göre Akbaba Kral'ın atalarının kalesi buradaydı - Westeros'un yeni hükümdarlarından nefret eden ve Einis I'in saltanatının başlangıcında onlara karşı büyük bir ayaklanma başlatan bir Dornelu.
-got.wp.VulturesRoost=Akbabalar tünek
+got.wp.VULTURES_ROOST=Akbabalar tünek
 got.wp.WALANO.info=Takımadalardaki en büyük üç yerleşim yerinden biri ve en kalabalık olanı. Burada ilk kez Ghiskar sömürgecileri yaz insanlarıyla karşılaşmış ve siyah tenleri nedeniyle onlara iblis adını vermişlerdir.
-got.wp.Walano=Walano
+got.wp.WALANO=Walano
 got.wp.WATER_GARDENS.info=Martelllerin yazlık evi. Bahçeleri ve çeşmeleri olan saray, efsanevi Damon Blackfire'ın aşık olduğu ve Quentin'e göre kanının başka bir Daenerys'in ejderhalarının kokması gereken Targrarien Hanesi'nden Daenerys'i memnun etmek için inşa edildi.
-got.wp.WaterGardens=Su Bahçeleri
+got.wp.WATER_GARDENS=Su Bahçeleri
 got.wp.WAYFARERS_REST.info=Tully'nin vassalları olan Vance'in en eski kolunun atalardan kalma kalesi.
-got.wp.WayfarerRest=Yolcu dinlenme
+got.wp.WAYFARERS_REST=Yolcu dinlenme
 got.wp.WEEPING_TOWN.info=Haince katledilen Deyron I Targaryen'in cesediyle bir geminin geldiği küçük bir ticaret şehri. Bu talihsiz durum şehir adına düzeltildi ve yerel kuleye Plakuchey adı verildi.
-got.wp.WeepingTown=Ağlayan kasaba
+got.wp.WEEPING_TOWN=Ağlayan kasaba
+got.wp.WESTWATCH.info=Gece Nöbetçileri'nin en batıdaki kalesi, Gorge of the Gorge'dan Yedi Krallık'a giden geçitlerden birini korumak için tasarlanmıştır.
+got.wp.WESTWATCH=Batı izle
+got.wp.WHISPERS.info=Brienne of Tart'ın neredeyse öldüğü terk edilmiş eski bir kale.
+got.wp.WHISPERS=Fısıltılar
+got.wp.WHITEGROVE.info=Bir zamanlar Three Peaks Kalesi'nden biri; İlk Blackfire İsyanı'na katıldıktan sonra Peaks affedildi, ancak White Grove dahil iki kale alındı. Kalenin şimdiki sahibi ve hatta durumu bile bilinmiyor.
+got.wp.WHITEGROVE=Beyaz koru
+got.wp.WHITETREE.info=Dev bir cadı ağacının gölgesinde küçük bir yabanıl köyü.
+got.wp.WHITETREE=Beyaz Ahşap
+got.wp.WHITEWALLS.info=Butterwell'lerin atadan kalma alanı. Zengin büyük kale sadece 40 yıl sürdü ve İkinci Kara Ateş Ayaklanması'nın başarısızlığından sonra yıkıldı.
+got.wp.WHITEWALLS=Beyaz duvarlar
+got.wp.WHITE_HARBOUR.info=Westeros'taki en büyük beş şehirden biri ve kuzeydeki en önemli liman. Şehir, Starklar bu toprakları Manderly Expanse'den sürgün edilenlere verene kadar birçok kez sahiplerini değiştiren Wolf's Lair'in eski kalesinin etrafında inşa edilmiştir. Yeni gelenler, şehir surlarının dışında beyaz duvarlı bir Yeni Kale inşa ettiler.
+got.wp.WHITE_HARBOUR=Beyaz Liman
+got.wp.WHITE_MOUNTAINS.info≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
+got.wp.WHITE_MOUNTAINS≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
+got.wp.WICKENDEN.info=Waxley Hanesi'nin Kalesi, Corbreuil Hanesi'nin vassalları.
+got.wp.WICKENDEN=Wickenden
+got.wp.WIDOWS_WATCH.info=Starkların vassalları olan Flint Hanedanı'nın kollarından birinin atalarının kalesi.
+got.wp.WIDOWS_WATCH=Dul izle
+got.wp.WINTERFELL.info=Kahramanlar Çağında İnşaatçı Brandon tarafından kurulan Stark aile kalesi. Yedi Krallık'taki en eski kalelerden biri.
+got.wp.WINTERFELL=Kışyarı
+got.wp.WITCH_ISLE.info=Cadı Adası'ndaki Arryn'in vassalları olan Upcliffs'in hanesinin kalesi.
+got.wp.WITCH_ISLE=Cadı adası
+got.wp.WOODSWATCH.info=Gece Nöbeti'nin boş kalesi.
+got.wp.WOODSWATCH=Orman saati
+got.wp.WUDE.info≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
+got.wp.WUDE≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
+got.wp.WUSHENG.info≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
+got.wp.WUSHENG≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
+got.wp.WYL.info=Ville evinin kalesi. Burada bir yerde, efsanevi Ejderha Şövalyesi bir kafeste çıplak oturmuş kuzeni Kutsanmış Baylor'un Martell'lere yalın ayak yürümesini ve onları barış yapmaya ikna etmesini bekliyordu. Ve daha da önce, başka bir Vil, klanın kurucusu Orisa Baratheon'u, sağ elini kesti, bu Vil'in oğlu daha sonra sırayla hem kollarını hem de bacaklarını kaybetti ve başını Botye başladı.
+got.wp.WYL=Wyl
+got.wp.WYNDHALL.info=Lannister'ın vassalları olan Estrens Hanedanı'nın kalesi.
+got.wp.WYNDHALL=Wyndhall
 got.wp.WestPass.info=Dört geçiş, bulutlara kadar uzanan antik mezar höyükleridir. Konumları onların savunma yapıları olduğunu gösteriyor. Ama düşmanlar içindeyse, Mossia'yı kimden ve neden savunmalı?
 got.wp.WestPass=Batı Geçidi
-got.wp.WESTWATCH.info=Gece Nöbetçileri'nin en batıdaki kalesi, Gorge of the Gorge'dan Yedi Krallık'a giden geçitlerden birini korumak için tasarlanmıştır.
-got.wp.WestWatch=Batı izle
-got.wp.WHISPERS.info=Brienne of Tart'ın neredeyse öldüğü terk edilmiş eski bir kale.
-got.wp.Whispers=Fısıltılar
-got.wp.WHITE_HARBOUR.info=Westeros'taki en büyük beş şehirden biri ve kuzeydeki en önemli liman. Şehir, Starklar bu toprakları Manderly Expanse'den sürgün edilenlere verene kadar birçok kez sahiplerini değiştiren Wolf's Lair'in eski kalesinin etrafında inşa edilmiştir. Yeni gelenler, şehir surlarının dışında beyaz duvarlı bir Yeni Kale inşa ettiler.
-got.wp.WhiteHarbour=Beyaz Liman
-got.wp.WHITE_MOUNTAINS.info≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
-got.wp.WhiteMountains≠Mountains, mostly consisting of diorite. Beautiful white stone is very common here, and nowhere else in the world is it found in such quantity.
-got.wp.WHITEWALLS.info=Butterwell'lerin atadan kalma alanı. Zengin büyük kale sadece 40 yıl sürdü ve İkinci Kara Ateş Ayaklanması'nın başarısızlığından sonra yıkıldı.
-got.wp.WhiteWalls=Beyaz duvarlar
-got.wp.WHITETREE.info=Dev bir cadı ağacının gölgesinde küçük bir yabanıl köyü.
-got.wp.WhiteWood=Beyaz Ahşap
-got.wp.WHITEGROVE.info=Bir zamanlar Three Peaks Kalesi'nden biri; İlk Blackfire İsyanı'na katıldıktan sonra Peaks affedildi, ancak White Grove dahil iki kale alındı. Kalenin şimdiki sahibi ve hatta durumu bile bilinmiyor.
-got.wp.Whitegrove=Beyaz koru
-got.wp.WICKENDEN.info=Waxley Hanesi'nin Kalesi, Corbreuil Hanesi'nin vassalları.
-got.wp.Wickenden=Wickenden
-got.wp.WIDOWS_WATCH.info=Starkların vassalları olan Flint Hanedanı'nın kollarından birinin atalarının kalesi.
-got.wp.WidowsWatch=Dul izle
-got.wp.WINTERFELL.info=Kahramanlar Çağında İnşaatçı Brandon tarafından kurulan Stark aile kalesi. Yedi Krallık'taki en eski kalelerden biri.
-got.wp.Winterfell=Kışyarı
-got.wp.WITCH_ISLE.info=Cadı Adası'ndaki Arryn'in vassalları olan Upcliffs'in hanesinin kalesi.
-got.wp.WitchIsle=Cadı adası
-got.wp.WOODSWATCH.info=Gece Nöbeti'nin boş kalesi.
-got.wp.Woodswatch=Orman saati
-got.wp.WUDE.info≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
-got.wp.Wude≠The most mysterious fortress of the Great Yi Ti Wall: its name is a word from the language of Jogos Nhai, meaning "noon."
-got.wp.WUSHENG.info≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
-got.wp.Wusheng≠One of the fortresses of the Great Yi Ti Wall. It is said to have been named after an Itian frontiersman who studied at Asshai and became a shadow spellcaster.
-got.wp.WYL.info=Ville evinin kalesi. Burada bir yerde, efsanevi Ejderha Şövalyesi bir kafeste çıplak oturmuş kuzeni Kutsanmış Baylor'un Martell'lere yalın ayak yürümesini ve onları barış yapmaya ikna etmesini bekliyordu. Ve daha da önce, başka bir Vil, klanın kurucusu Orisa Baratheon'u, sağ elini kesti, bu Vil'in oğlu daha sonra sırayla hem kollarını hem de bacaklarını kaybetti ve başını Botye başladı.
-got.wp.Wyl=Wyl
-got.wp.WYNDHALL.info=Lannister'ın vassalları olan Estrens Hanedanı'nın kalesi.
-got.wp.Wyndhall=Wyndhall
 got.wp.XON.info=Küçük bir adadaki en küçük yerleşim yeri. Burada Ghiskari genellikle Yaz Adaları'na doğru yola çıkar.
-got.wp.Xon=Kson
+got.wp.XON=Kson
 got.wp.YEEN.info=Asshai gibi kara taştan inşa edilmiş korkunç bir üne sahip bir şehir ve orman tarafından fazla büyütülmemiş. Onu doldurmak için yapılan tüm girişimler başarısız oldu. Ne tür bir sihir dikildi ve ne tür bir sihir içindeki insanları yok ediyor - kimse bilmiyor.
-got.wp.Yeen=Yeen
+got.wp.YEEN=Yeen
 got.wp.YIBIN.info=Altın Nehri'nin kıvrımına yakın bir şehir. Bazen rotasını değiştirir ve şehri sular altında bırakır. Son sızıntı yaklaşık üç yüz yıl önceydi.
-got.wp.Yibin=Yibin
+got.wp.YIBIN=Yibin
 got.wp.YIN.info=Liman, mevcut imparatorluk hanedanlığı da dahil olmak üzere çeşitli imparatorluk hanedanları sırasında imparatorluğun başkenti olan Altın İmparatorluk Yi Ti'nin antik görkemli şehridir.
-got.wp.Yin=Yin
+got.wp.YIN=Yin
 got.wp.YRONWOOD.info=Demir Ormanları'nın hanesinin kalesi, Taş Yol'un koruyucuları, Dorn'un eski yüksek kralları, Yeşil Kuşak ve Kızıl İşaretler, Martell'lerin vasalları.
-got.wp.Yronwood=Yronwood
+got.wp.YRONWOOD=Yronwood
 got.wp.YUNKAI.info=Meereen ve Astapor ile birlikte Köle Körfezi'ndeki üç köle ticaret merkezinden biri. Şehir, Gis'ten insanlar tarafından kuruldu. Şehrin refahının temeli köle ticaretidir, profil zevk için kölelerdir.
-got.wp.Yunkai=Yunkai
+got.wp.YUNKAI=Yunkai
 got.wp.YUNNAN.info=Şafak Dağları'nın gölgesinde bulunan en doğudaki Yi Ti şehri (kulağa ne kadar tuhaf gelse de)
-got.wp.Yunnan=Yunnan
+got.wp.YUNNAN=Yunnan
 got.wp.ZABHAD.info=Filler adasında şehir. Shan'ın yüce hükümdarı burada yaşıyor ve fildişi sarayı duruyor.
-got.wp.Zabhad=Zabhad
+got.wp.ZABHAD=Zabhad
 got.wp.ZAMETTAR.info=Giscard kolonilerinden biri, daha sonra Valyria tarafından ele geçirildi. Sotorios'taki tüm koloniler gibi, Zamettar da çürüdü ve terk edildi: Valyrialılar şehri terk etti, Rhoynarlar Yin'in dehşetinden sonra kaçtı.
-got.wp.Zamettar=Zamettar
+got.wp.ZAMETTAR=Zamettar
 got.wp.ZHENGUO.info≠The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
-got.wp.Zhenguo≠The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
+got.wp.ZHENGUO≠The main fortress of the Great Yi Ti Wall. According to legend, it was from this fortress that the construction of the wall began.
 got.wp.custom.andMore=Ve %d daha
 got.wp.custom.info=Kardeşliğin geçiş noktası "%d" mi
 got.wp.custom=%s
