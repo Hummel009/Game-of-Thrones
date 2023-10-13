@@ -85,7 +85,7 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.CASTLE_CERWYN, new double[]{696, 899}, new double[]{765, 872}, GOTWaypoint.DREADFORT);
 		registerBezier(Type.ROAD, GOTWaypoint.DREADFORT, new double[]{855, 865}, new double[]{893, 828}, GOTWaypoint.KARHOLD);
 		registerBezier(Type.ROAD, GOTWaypoint.CASTLE_CERWYN, new double[]{632, 976}, new double[]{644, 1043}, GOTWaypoint.MOAT_KAILIN.info(0, -0.5));
-		registerBezier(Type.ROAD, GOTWaypoint.TORHENS_SQUARE, new double[]{553, 996}, new double[]{539, 1037}, GOTWaypoint.GOLDGRASS);
+		registerBezier(Type.ROAD, GOTWaypoint.TORRHENS_SQUARE, new double[]{553, 996}, new double[]{539, 1037}, GOTWaypoint.GOLDGRASS);
 		registerBezier(Type.ROAD, GOTWaypoint.RILLWATER_CROSSING, new double[]{422, 989}, new double[]{419, 1013}, GOTWaypoint.RYSWELLS_CASTLE);
 		registerBezier(Type.ROAD, GOTWaypoint.RYSWELLS_CASTLE, new double[]{447, 1064}, new double[]{496, 1066}, GOTWaypoint.GOLDGRASS);
 		registerBezier(Type.ROAD, GOTWaypoint.GOLDGRASS, new double[]{606, 1081}, new double[]{626, 1103}, GOTWaypoint.MOAT_KAILIN.info(-0.5, 0));
@@ -304,21 +304,21 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.TIQUI, new double[]{3390, 2123}, new double[]{3432, 2160}, GOTWaypoint.MANJIN);
 
 		/* LINKERS */
-		registerLinker(GOTWaypoint.SEAGARD.info(0, toWesterosCastle(-0.7)));
-		registerLinker(GOTWaypoint.SEAGARD.info(0, toWesterosTown(0.9)));
+		registerLinker(GOTWaypoint.SEAGARD.info(-0.1, toWesterosCastle(-0.5)), false);
+		registerLinker(GOTWaypoint.SEAGARD.info(0, toWesterosTown(0.8)));
 		registerLinker(GOTWaypoint.APPLETON.info(0, toWesterosCastle(-0.51)));
 		registerLinker(GOTWaypoint.APPLETON.info(0.1, toWesterosTown(1.1)));
 		registerLinker(GOTWaypoint.WINTERFELL.info(toWesterosCastle(-0.5), 0));
 		registerLinker(GOTWaypoint.CASTERLY_ROCK.info(toWesterosCastle(-0.5), 0));
 		registerLinker(GOTWaypoint.CRAKEHALL.info(toWesterosCastle(-0.5), 0));
 		registerLinker(GOTWaypoint.LANNISPORT.info(toWesterosTown(-0.9), 0));
-		registerLinker(GOTWaypoint.CASTLE_CERWYN.info(toWesterosCastle(-0.5), 0));
-		registerLinker(GOTWaypoint.DREADFORT.info(0, toWesterosCastle(-0.5)));
-		registerLinker(GOTWaypoint.GOLDGRASS.info(0, toWesterosCastle(0.5)));
-		registerLinker(GOTWaypoint.KARHOLD.info(toWesterosCastle(0.5), 0));
-		registerLinker(GOTWaypoint.WHITE_HARBOUR.info(toWesterosTown(0.9), 0));
-		registerLinker(GOTWaypoint.TORHENS_SQUARE.info(0, toWesterosCastle(-0.5)));
-		registerLinker(GOTWaypoint.RILLWATER_CROSSING.info(toWesterosCastle(-0.5), 0));
+		registerLinker(GOTWaypoint.CASTLE_CERWYN.info(toWesterosCastle(-0.4), 0));
+		registerLinker(GOTWaypoint.DREADFORT.info(0, toWesterosCastle(-0.4)));
+		registerLinker(GOTWaypoint.GOLDGRASS.info(0, toWesterosCastle(0.4)));
+		registerLinker(GOTWaypoint.KARHOLD.info(toWesterosCastle(0.4), 0));
+		registerLinker(GOTWaypoint.WHITE_HARBOUR.info(toWesterosTown(0.8), 0));
+		registerLinker(GOTWaypoint.TORRHENS_SQUARE.info(toWesterosCastle(-0.4), 0));
+		registerLinker(GOTWaypoint.RILLWATER_CROSSING.info(toWesterosCastle(-0.4), 0));
 		registerLinker(GOTWaypoint.RYSWELLS_CASTLE.info(toWesterosCastle(-0.5), 0));
 		registerLinker(GOTWaypoint.SALTPANS.info(toWesterosTown(0.9), 0));
 		registerLinker(GOTWaypoint.HARROWAY.info(0, toWesterosTown(0.9)));
