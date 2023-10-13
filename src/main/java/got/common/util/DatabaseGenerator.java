@@ -131,8 +131,8 @@ public class DatabaseGenerator {
 		CLASS_TO_WP.put(GOTEntityAlliserThorne.class, GOTWaypoint.CASTLE_BLACK);
 		CLASS_TO_WP.put(GOTEntityEdd.class, GOTWaypoint.CASTLE_BLACK);
 		CLASS_TO_WP.put(GOTEntitySamwellTarly.class, GOTWaypoint.CASTLE_BLACK);
-		CLASS_TO_WP.put(GOTEntityCotterPyke.class, GOTWaypoint.EAST_WATCH);
-		CLASS_TO_WP.put(GOTEntityHarmune.class, GOTWaypoint.EAST_WATCH);
+		CLASS_TO_WP.put(GOTEntityCotterPyke.class, GOTWaypoint.EASTWATCH);
+		CLASS_TO_WP.put(GOTEntityHarmune.class, GOTWaypoint.EASTWATCH);
 		CLASS_TO_WP.put(GOTEntityDenysMallister.class, GOTWaypoint.SHADOW_TOWER);
 		CLASS_TO_WP.put(GOTEntityMullin.class, GOTWaypoint.SHADOW_TOWER);
 	}

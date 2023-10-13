@@ -68,7 +68,7 @@ public class GOTBeziers {
 		wallPointDatabase = new BezierPointDatabase();
 		linkerPointDatabase = new BezierPointDatabase();
 
-		registerBezier(Type.WALL, GOTWaypoint.WEST_WATCH, GOTWaypoint.SHADOW_TOWER, GOTWaypoint.SENTINEL_STAND, GOTWaypoint.GREYGUARD, GOTWaypoint.STONEDOOR, GOTWaypoint.HOARFROST_HILL, GOTWaypoint.ICEMARK, GOTWaypoint.NIGHTFORT, GOTWaypoint.DEEP_LAKE, GOTWaypoint.QUEENSGATE, GOTWaypoint.CASTLE_BLACK, GOTWaypoint.OAKENSHIELD, GOTWaypoint.WOODSWATCH, GOTWaypoint.SABLE_HALL, GOTWaypoint.RIMEGATE, GOTWaypoint.THE_LONG_BARROW, GOTWaypoint.TORCHES, GOTWaypoint.GREENGUARD, GOTWaypoint.EAST_WATCH);
+		registerBezier(Type.WALL, GOTWaypoint.WESTWATCH, GOTWaypoint.SHADOW_TOWER, GOTWaypoint.SENTINEL_STAND, GOTWaypoint.GREYGUARD, GOTWaypoint.STONEDOOR, GOTWaypoint.HOARFROST_HILL, GOTWaypoint.ICEMARK, GOTWaypoint.NIGHTFORT, GOTWaypoint.DEEP_LAKE, GOTWaypoint.QUEENSGATE, GOTWaypoint.CASTLE_BLACK, GOTWaypoint.OAKENSHIELD, GOTWaypoint.WOODSWATCH, GOTWaypoint.SABLE_HALL, GOTWaypoint.RIMEGATE, GOTWaypoint.THE_LONG_BARROW, GOTWaypoint.THE_TORCHES, GOTWaypoint.GREENGUARD, GOTWaypoint.EASTWATCH);
 		registerBezier(Type.WALL, GOTWaypoint.ANBEI, GOTWaypoint.JIANMEN, GOTWaypoint.ANGUO, GOTWaypoint.ANJIANG, GOTWaypoint.DINGGUO, GOTWaypoint.PINNU, GOTWaypoint.PINGJIANG, GOTWaypoint.WUDE, GOTWaypoint.WUSHENG, GOTWaypoint.ZHENGUO, GOTWaypoint.LUNGMEN, GOTWaypoint.PINGBEI);
 
 		registerBezier(Type.WALL, new double[]{2847, 1273}, new double[]{2820, 1292}, new double[]{2771, 1308}, new double[]{2732, 1308});
@@ -81,10 +81,10 @@ public class GOTBeziers {
 		double[] northRiverlandsCrossroads = {655, 1257};
 
 		registerBezier(Type.ROAD, GOTWaypoint.CASTLE_BLACK, new double[]{745, 732}, new double[]{694, 804}, GOTWaypoint.WINTERFELL);
-		registerBezier(Type.ROAD, GOTWaypoint.WINTERFELL, new double[]{642, 891}, GOTWaypoint.SERVINS_CASTLE);
-		registerBezier(Type.ROAD, GOTWaypoint.SERVINS_CASTLE, new double[]{696, 899}, new double[]{765, 872}, GOTWaypoint.DREADFORT);
+		registerBezier(Type.ROAD, GOTWaypoint.WINTERFELL, new double[]{642, 891}, GOTWaypoint.CASTLE_CERWYN);
+		registerBezier(Type.ROAD, GOTWaypoint.CASTLE_CERWYN, new double[]{696, 899}, new double[]{765, 872}, GOTWaypoint.DREADFORT);
 		registerBezier(Type.ROAD, GOTWaypoint.DREADFORT, new double[]{855, 865}, new double[]{893, 828}, GOTWaypoint.KARHOLD);
-		registerBezier(Type.ROAD, GOTWaypoint.SERVINS_CASTLE, new double[]{632, 976}, new double[]{644, 1043}, GOTWaypoint.MOAT_KAILIN.info(0, -0.5));
+		registerBezier(Type.ROAD, GOTWaypoint.CASTLE_CERWYN, new double[]{632, 976}, new double[]{644, 1043}, GOTWaypoint.MOAT_KAILIN.info(0, -0.5));
 		registerBezier(Type.ROAD, GOTWaypoint.TORHENS_SQUARE, new double[]{553, 996}, new double[]{539, 1037}, GOTWaypoint.GOLDGRASS);
 		registerBezier(Type.ROAD, GOTWaypoint.RILLWATER_CROSSING, new double[]{422, 989}, new double[]{419, 1013}, GOTWaypoint.RYSWELLS_CASTLE);
 		registerBezier(Type.ROAD, GOTWaypoint.RYSWELLS_CASTLE, new double[]{447, 1064}, new double[]{496, 1066}, GOTWaypoint.GOLDGRASS);
@@ -111,14 +111,14 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, northRiverlandsBridge, new double[]{721, 1412}, new double[]{723, 1428}, GOTWaypoint.CROSSROADS_INN);
 		registerBezier(Type.ROAD, GOTWaypoint.CROSSROADS_INN, new double[]{758, 1446}, new double[]{776, 1461}, GOTWaypoint.SALTPANS);
 		registerBezier(Type.ROAD, GOTWaypoint.CROSSROADS_INN, antiCrossroadsInn);
-		registerBezier(Type.ROAD, antiCrossroadsInn, new double[]{730, 1463}, new double[]{735, 1479}, GOTWaypoint.WHITE_WALLS);
-		registerBezier(Type.ROAD, GOTWaypoint.WHITE_WALLS, new double[]{726, 1490}, GOTWaypoint.HARRENHAL);
-		registerBezier(Type.ROAD, GOTWaypoint.WHITE_WALLS, new double[]{751, 1503}, new double[]{761, 1513}, GOTWaypoint.HOGG_HALL);
+		registerBezier(Type.ROAD, antiCrossroadsInn, new double[]{730, 1463}, new double[]{735, 1479}, GOTWaypoint.WHITEWALLS);
+		registerBezier(Type.ROAD, GOTWaypoint.WHITEWALLS, new double[]{726, 1490}, GOTWaypoint.HARRENHAL);
+		registerBezier(Type.ROAD, GOTWaypoint.WHITEWALLS, new double[]{751, 1503}, new double[]{761, 1513}, GOTWaypoint.HOGG_HALL);
 		registerBezier(Type.ROAD, GOTWaypoint.HOGG_HALL, GOTWaypoint.ANTLERS);
 		registerBezier(Type.ROAD, antiCrossroadsInn, GOTWaypoint.HARROWAY);
 		registerBezier(Type.ROAD, GOTWaypoint.HARROWAY, new double[]{703, 1443}, new double[]{685, 1446}, GOTWaypoint.CASTLE_LYCHESTER);
 		registerBezier(Type.ROAD, GOTWaypoint.CASTLE_LYCHESTER, new double[]{657, 1450}, new double[]{644, 1458}, GOTWaypoint.ACORN_HALL);
-		registerBezier(Type.ROAD, GOTWaypoint.ACORN_HALL, new double[]{628, 1478}, GOTWaypoint.WAYFARER_REST);
+		registerBezier(Type.ROAD, GOTWaypoint.ACORN_HALL, new double[]{628, 1478}, GOTWaypoint.WAYFARERS_REST);
 		registerBezier(Type.ROAD, GOTWaypoint.CASTLE_LYCHESTER, new double[]{655, 1439}, new double[]{642, 1430}, GOTWaypoint.STONE_HEDGE);
 		registerBezier(Type.ROAD, GOTWaypoint.STONE_HEDGE, new double[]{615, 1431}, new double[]{601, 1434}, GOTWaypoint.RIVERRUN);
 		registerBezier(Type.ROAD, GOTWaypoint.RIVERRUN, new double[]{565, 1444}, new double[]{541, 1462}, hillsExit);
@@ -169,8 +169,8 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.WHITEGROVE, new double[]{459, 1887}, new double[]{419, 1915}, GOTWaypoint.OLDTOWN);
 		registerBezier(Type.ROAD, GOTWaypoint.OLDTOWN, new double[]{383, 1968}, new double[]{376, 1983}, GOTWaypoint.THREE_TOWERS);
 		registerBezier(Type.ROAD, GOTWaypoint.THREE_TOWERS, new double[]{354, 2006}, GOTWaypoint.GARNETGROVE);
-		registerBezier(Type.ROAD, GOTWaypoint.GARNETGROVE, new double[]{378, 2026}, new double[]{394, 2046}, GOTWaypoint.SUN_HOUSE);
-		registerBezier(Type.ROAD, GOTWaypoint.SUN_HOUSE, new double[]{449, 2034}, new double[]{475, 2022}, GOTWaypoint.STARFALL);
+		registerBezier(Type.ROAD, GOTWaypoint.GARNETGROVE, new double[]{378, 2026}, new double[]{394, 2046}, GOTWaypoint.SUNHOUSE);
+		registerBezier(Type.ROAD, GOTWaypoint.SUNHOUSE, new double[]{449, 2034}, new double[]{475, 2022}, GOTWaypoint.STARFALL);
 		registerBezier(Type.ROAD, GOTWaypoint.WHITEGROVE, new double[]{521, 1857}, new double[]{550, 1870}, GOTWaypoint.NIGHTSONG);
 		registerBezier(Type.ROAD, GOTWaypoint.SMITHYTON, new double[]{732, 1692}, new double[]{752, 1677}, kingswoodCrossroads);
 
@@ -187,7 +187,7 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.HARVEST_HALL, new double[]{654, 1849}, new double[]{665, 1846}, GOTWaypoint.PODDINGFIELD);
 		registerBezier(Type.ROAD, GOTWaypoint.PODDINGFIELD, new double[]{698, 1842}, new double[]{719, 1841}, stormlandsCrossroads);
 		registerBezier(Type.ROAD, GOTWaypoint.NIGHTSONG, new double[]{593, 1886}, new double[]{601, 1898}, GOTWaypoint.TOWER_OF_JOY);
-		registerBezier(Type.ROAD, GOTWaypoint.TOWER_OF_JOY, GOTWaypoint.KINGSGRAVE, GOTWaypoint.SKY_REACH);
+		registerBezier(Type.ROAD, GOTWaypoint.TOWER_OF_JOY, GOTWaypoint.KINGSGRAVE, GOTWaypoint.SKYREACH);
 		registerBezier(Type.ROAD, GOTWaypoint.BLACKHAVEN, new double[]{729, 1861}, new double[]{735, 1851}, stormlandsCrossroads);
 		registerBezier(Type.ROAD, stormlandsCrossroads, new double[]{755, 1824}, new double[]{769, 1811}, GOTWaypoint.SUMMERHALL);
 		registerBezier(Type.ROAD, GOTWaypoint.KINGS_LANDING, kingswoodCrossroads, GOTWaypoint.GRANDVIEW, GOTWaypoint.SUMMERHALL);
@@ -312,7 +312,7 @@ public class GOTBeziers {
 		registerLinker(GOTWaypoint.CASTERLY_ROCK.info(toWesterosCastle(-0.5), 0));
 		registerLinker(GOTWaypoint.CRAKEHALL.info(toWesterosCastle(-0.5), 0));
 		registerLinker(GOTWaypoint.LANNISPORT.info(toWesterosTown(-0.9), 0));
-		registerLinker(GOTWaypoint.SERVINS_CASTLE.info(toWesterosCastle(-0.5), 0));
+		registerLinker(GOTWaypoint.CASTLE_CERWYN.info(toWesterosCastle(-0.5), 0));
 		registerLinker(GOTWaypoint.DREADFORT.info(0, toWesterosCastle(-0.5)));
 		registerLinker(GOTWaypoint.GOLDGRASS.info(0, toWesterosCastle(0.5)));
 		registerLinker(GOTWaypoint.KARHOLD.info(toWesterosCastle(0.5), 0));
@@ -324,7 +324,7 @@ public class GOTBeziers {
 		registerLinker(GOTWaypoint.HARROWAY.info(0, toWesterosTown(0.9)));
 		registerLinker(GOTWaypoint.STONE_HEDGE.info(0, toWesterosCastle(-0.5)));
 		registerLinker(GOTWaypoint.ACORN_HALL.info(toWesterosCastle(-0.5), 0));
-		registerLinker(GOTWaypoint.WAYFARER_REST.info(toWesterosCastle(-0.5), 0));
+		registerLinker(GOTWaypoint.WAYFARERS_REST.info(toWesterosCastle(-0.5), 0));
 		registerLinker(GOTWaypoint.RIVERRUN.info(0, toWesterosCastle(-0.5)));
 		registerLinker(GOTWaypoint.STONEY_SEPT.info(toWesterosTown(-0.9), 0));
 		registerLinker(GOTWaypoint.BLOODY_GATE.info(0, toWesterosCastle(-0.5)));
@@ -344,7 +344,7 @@ public class GOTBeziers {
 		registerLinker(GOTWaypoint.COLDMOAT.info(0, toWesterosCastle(0.5)));
 		registerLinker(GOTWaypoint.BITTERBRIDGE.info(0, toWesterosCastle(0.5)));
 		registerLinker(GOTWaypoint.IVY_HALL.info(0, toWesterosCastle(0.5)));
-		registerLinker(GOTWaypoint.SUN_HOUSE.info(0, toWesterosCastle(0.5)));
+		registerLinker(GOTWaypoint.SUNHOUSE.info(0, toWesterosCastle(0.5)));
 		registerLinker(GOTWaypoint.RING.info(0, toWesterosCastle(-0.5)));
 		registerLinker(GOTWaypoint.TUMBLETON.info(0, toWesterosTown(-0.9) - 0.1));
 		registerLinker(GOTWaypoint.WHITEGROVE.info(toWesterosCastle(-0.5), 0));
@@ -369,7 +369,7 @@ public class GOTBeziers {
 		registerLinker(GOTWaypoint.HARVEST_HALL.info(0, toWesterosCastle(-0.5)));
 		registerLinker(GOTWaypoint.NIGHTSONG.info(0, toWesterosCastle(-0.5)));
 		registerLinker(GOTWaypoint.STORMS_END.info(0, toWesterosCastle(0.5)));
-		registerLinker(GOTWaypoint.SKY_REACH.info(0, toWesterosCastle(0.5)));
+		registerLinker(GOTWaypoint.SKYREACH.info(0, toWesterosCastle(0.5)));
 		registerLinker(GOTWaypoint.STARFALL.info(0, toWesterosCastle(0.5) + 0.1));
 		registerLinker(GOTWaypoint.HIGH_HERMITAGE.info(toWesterosCastle(0.5), 0));
 		registerLinker(GOTWaypoint.BLACKMONT.info(toWesterosCastle(0.5), 0));
