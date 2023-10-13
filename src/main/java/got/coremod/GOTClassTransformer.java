@@ -1,15 +1,14 @@
 package got.coremod;
 
-import static org.objectweb.asm.Opcodes.GETFIELD;
-
-import java.util.ListIterator;
-
+import got.common.util.GOTModChecker;
+import net.minecraft.launchwrapper.IClassTransformer;
 import org.objectweb.asm.ClassReader;
 import org.objectweb.asm.ClassWriter;
 import org.objectweb.asm.tree.*;
 
-import got.common.util.GOTModChecker;
-import net.minecraft.launchwrapper.IClassTransformer;
+import java.util.ListIterator;
+
+import static org.objectweb.asm.Opcodes.*;
 
 public class GOTClassTransformer implements IClassTransformer {
 	public static String cls_AABB = "net/minecraft/util/AxisAlignedBB";
@@ -774,7 +773,7 @@ public class GOTClassTransformer implements IClassTransformer {
 			}
 			if ((method.name.equals(targetMethodName2) || method.name.equals(targetMethodNameObf2)) && (method.desc.equals(targetMethodSign2) || method.desc.equals(targetMethodSignObf2))) {
 				AbstractInsnNode nodeIsInstance = null;
-				boolean[] newPrev = { false, true };
+				boolean[] newPrev = {false, true};
 				int newIns22 = newPrev.length;
 				for (int i = 0; i < newIns22 && (nodeIsInstance = findNodeInMethod(method, new TypeInsnNode(INSTANCEOF, newPrev[i] ? cls_EntityPlayer_obf : cls_EntityPlayer))) == null; ++i) {
 				}
