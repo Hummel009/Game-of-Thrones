@@ -111,7 +111,7 @@ public class GOTStructureEssosFortress extends GOTStructureEssosBase {
 		generateStrScan(world, random, 0, 0, 0);
 		placeWallBanner(world, -5, 8, -13, bannerType, 2);
 		placeWallBanner(world, 5, 8, -13, bannerType, 2);
-		for (int k1 : new int[] { 4, 6, 8 }) {
+		for (int k1 : new int[]{4, 6, 8}) {
 			setBlockAndMetadata(world, -6, 1, k1, bedBlock, 1);
 			setBlockAndMetadata(world, -5, 1, k1, bedBlock, 9);
 			setBlockAndMetadata(world, -12, 1, k1, bedBlock, 3);

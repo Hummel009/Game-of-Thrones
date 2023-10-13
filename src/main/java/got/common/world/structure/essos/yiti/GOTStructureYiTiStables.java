@@ -179,7 +179,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 			}
 			setBlockAndMetadata(world, 8, 4, k12, roofStairBlock, 0);
 		}
-		for (int k13 : new int[] { -1, 13 }) {
+		for (int k13 : new int[]{-1, 13}) {
 			setBlockAndMetadata(world, -8, 3, k13, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, -4, 4, k13, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 0, 5, k13, fenceBlock, fenceMeta);

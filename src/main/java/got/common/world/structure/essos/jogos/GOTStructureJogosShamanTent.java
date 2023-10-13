@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTStructureJogosShamanTent extends GOTStructureJogosBase {
-	public static Class<? extends GOTStructureBase>[] stalls = new Class[] { Mason.class, Brewer.class, Miner.class, Armourer.class };
+	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Mason.class, Brewer.class, Miner.class, Armourer.class};
 
 	public GOTStructureJogosShamanTent(boolean flag) {
 		super(flag);

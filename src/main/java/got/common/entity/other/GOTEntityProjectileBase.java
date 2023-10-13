@@ -295,10 +295,10 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 					if (getIsCritical()) {
 						damageInt += rand.nextInt(damageInt / 2 + 2);
 					}
-					double[] prevMotion = { hitEntity.motionX, hitEntity.motionY, hitEntity.motionZ };
+					double[] prevMotion = {hitEntity.motionX, hitEntity.motionY, hitEntity.motionZ};
 					DamageSource damagesource = getDamageSource();
 					if (hitEntity.attackEntityFrom(damagesource, damageInt)) {
-						double[] newMotion = { hitEntity.motionX, hitEntity.motionY, hitEntity.motionZ };
+						double[] newMotion = {hitEntity.motionX, hitEntity.motionY, hitEntity.motionZ};
 						float kbf = getKnockbackFactor();
 						hitEntity.motionX = prevMotion[0] + (newMotion[0] - prevMotion[0]) * kbf;
 						hitEntity.motionY = prevMotion[1] + (newMotion[1] - prevMotion[1]) * kbf;

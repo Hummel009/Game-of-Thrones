@@ -26,49 +26,49 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			switch (button.id) {
-			case 1: {
-				switch (Util.getOSType()) {
-				case OSX: {
+				case 1: {
+					switch (Util.getOSType()) {
+						case OSX: {
+							try {
+								Runtime.getRuntime().exec(new String[]{"/usr/bin/open", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath()});
+								return;
+							} catch (IOException var7) {
+								var7.printStackTrace();
+								break;
+							}
+						}
+						case WINDOWS: {
+							String var2 = String.format("cmd.exe /C start \"Open file\" \"%s\"", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
+							try {
+								Runtime.getRuntime().exec(var2);
+								return;
+							} catch (IOException var6) {
+								var6.printStackTrace();
+								break;
+							}
+						}
+						default:
+							mc.displayGuiScreen(new GOTGuiMenu());
+					}
+					boolean var8 = false;
 					try {
-						Runtime.getRuntime().exec(new String[] { "/usr/bin/open", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath() });
-						return;
-					} catch (IOException var7) {
-						var7.printStackTrace();
+						Class<?> var3 = Class.forName("java.awt.Desktop");
+						Object var4 = var3.getMethod("getDesktop").invoke(null);
+						var3.getMethod("browse", URI.class).invoke(var4, new File(mc.mcDataDir, "config").toURI());
+					} catch (Throwable var5) {
+						var5.printStackTrace();
+						var8 = true;
+					}
+					if (!var8) {
 						break;
 					}
-				}
-				case WINDOWS: {
-					String var2 = String.format("cmd.exe /C start \"Open file\" \"%s\"", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
-					try {
-						Runtime.getRuntime().exec(var2);
-						return;
-					} catch (IOException var6) {
-						var6.printStackTrace();
-						break;
-					}
-				}
-				default:
-					mc.displayGuiScreen(new GOTGuiMenu());
-				}
-				boolean var8 = false;
-				try {
-					Class<?> var3 = Class.forName("java.awt.Desktop");
-					Object var4 = var3.getMethod("getDesktop").invoke(null);
-					var3.getMethod("browse", URI.class).invoke(var4, new File(mc.mcDataDir, "config").toURI());
-				} catch (Throwable var5) {
-					var5.printStackTrace();
-					var8 = true;
-				}
-				if (!var8) {
+					System.out.println("Opening via system class!");
+					Sys.openURL("file://" + new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
 					break;
 				}
-				System.out.println("Opening via system class!");
-				Sys.openURL("file://" + new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
-				break;
-			}
-			case 2: {
-				mc.displayGuiScreen(new GOTGuiMenu());
-			}
+				case 2: {
+					mc.displayGuiScreen(new GOTGuiMenu());
+				}
 			}
 		}
 	}

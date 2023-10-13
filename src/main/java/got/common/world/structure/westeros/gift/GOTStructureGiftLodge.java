@@ -93,12 +93,12 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 				}
 			}
 		}
-		for (int k131 : new int[] { -4, 4 }) {
+		for (int k131 : new int[]{-4, 4}) {
 			for (int i1 = -4; i1 <= 4; ++i1) {
 				setBlockAndMetadata(world, i1, 4, k131, woodBeamBlock, woodBeamMeta | 4);
 			}
 		}
-		for (int i1 : new int[] { -5, 5 }) {
+		for (int i1 : new int[]{-5, 5}) {
 			for (int k14 = -3; k14 <= 3; ++k14) {
 				int k2 = Math.abs(k14);
 				if (k2 == 0) {
@@ -143,8 +143,8 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -5, 2, 1, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 0, 3, 3, Blocks.torch, 4);
 		setBlockAndMetadata(world, -4, 4, 0, Blocks.torch, 2);
-		for (int i1 : new int[] { -4, 4 }) {
-			for (int k16 : new int[] { -3, 3 }) {
+		for (int i1 : new int[]{-4, 4}) {
+			for (int k16 : new int[]{-3, 3}) {
 				setBlockAndMetadata(world, i1, 1, k16, plankBlock, plankMeta);
 				for (j13 = 2; j13 <= 4; ++j13) {
 					setBlockAndMetadata(world, i1, j13, k16, fenceBlock, fenceMeta);
@@ -166,7 +166,7 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		placeBarrel(world, random, -3, 2, 3, 2, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, -2, 1, 3, plankBlock, plankMeta);
 		placeMug(world, random, -2, 2, 3, 0, GOTFoods.WESTEROS_DRINK);
-		int[] k15 = { -3, 3 };
+		int[] k15 = {-3, 3};
 		k12 = k15.length;
 		for (i2 = 0; i2 < k12; ++i2) {
 			k13 = k15[i2];
@@ -204,8 +204,8 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		for (j12 = -2; j12 <= 0; ++j12) {
 			setBlockAndMetadata(world, 4, j12, 2, Blocks.ladder, 3);
 		}
-		for (int i1 : new int[] { -4, 4 }) {
-			for (int k16 : new int[] { -3, 3 }) {
+		for (int i1 : new int[]{-4, 4}) {
+			for (int k16 : new int[]{-3, 3}) {
 				setBlockAndMetadata(world, i1, 0, k16, plankBlock, plankMeta);
 				for (j13 = -2; j13 <= -1; ++j13) {
 					setBlockAndMetadata(world, i1, j13, k16, woodBeamBlock, woodBeamMeta);
@@ -216,22 +216,22 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 3, -1, -3, Blocks.torch, 1);
 		setBlockAndMetadata(world, -3, -1, 3, Blocks.torch, 2);
 		setBlockAndMetadata(world, 3, -1, 3, Blocks.torch, 1);
-		for (int i1 : new int[] { -2, 0, 2 }) {
+		for (int i1 : new int[]{-2, 0, 2}) {
 			setBlockAndMetadata(world, i1, -2, -2, bedBlock, 2);
 			setBlockAndMetadata(world, i1, -2, -3, bedBlock, 10);
 		}
-		for (int k131 : new int[] { -2, 2 }) {
+		for (int k131 : new int[]{-2, 2}) {
 			ItemStack[] armor = null;
 			if (random.nextInt(3) == 0) {
-				armor = new ItemStack[] { new ItemStack(GOTItems.giftHelmet), new ItemStack(GOTItems.giftChestplate), new ItemStack(GOTItems.giftLeggings), new ItemStack(GOTItems.giftBoots) };
+				armor = new ItemStack[]{new ItemStack(GOTItems.giftHelmet), new ItemStack(GOTItems.giftChestplate), new ItemStack(GOTItems.giftLeggings), new ItemStack(GOTItems.giftBoots)};
 			}
 			placeArmorStand(world, -4, -2, k131, 3, armor);
 		}
-		for (int k131 : new int[] { -1, 1 }) {
+		for (int k131 : new int[]{-1, 1}) {
 			spawnItemFrame(world, -5, -1, k131, 1, getRangerFramedItem(random));
 		}
 		setBlockAndMetadata(world, 0, -2, 3, tableBlock, 0);
-		for (int i1 : new int[] { -1, 1 }) {
+		for (int i1 : new int[]{-1, 1}) {
 			int amount = 2 + random.nextInt(5);
 			placeChest(world, random, i1, -2, 3, 2, GOTChestContents.GIFT, amount);
 		}

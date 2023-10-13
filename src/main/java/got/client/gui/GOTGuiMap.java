@@ -1223,9 +1223,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		int maxWaypoints = GOTLevelData.getData(mc.thePlayer).getMaxCustomWaypoints();
 		int remaining = maxWaypoints - numWaypoints;
 		if (remaining <= 0) {
-			overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.allUsed.1", maxWaypoints), "", StatCollector.translateToLocal("got.gui.map.customWaypoint.allUsed.2") };
+			overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.allUsed.1", maxWaypoints), "", StatCollector.translateToLocal("got.gui.map.customWaypoint.allUsed.2")};
 		} else {
-			overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.create.1", numWaypoints, maxWaypoints), "", StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.create.2") };
+			overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.create.1", numWaypoints, maxWaypoints), "", StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.create.2")};
 			buttonOverlayFunction.visible = true;
 			buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.create.button");
 		}
@@ -1235,7 +1235,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		closeOverlay();
 		hasOverlay = true;
 		creatingWaypointNew = true;
-		overlayLines = new String[] { StatCollector.translateToLocal("got.gui.map.customWaypoint.createNew.1") };
+		overlayLines = new String[]{StatCollector.translateToLocal("got.gui.map.customWaypoint.createNew.1")};
 		buttonOverlayFunction.visible = true;
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.createNew.button");
 	}
@@ -1244,7 +1244,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		closeOverlay();
 		hasOverlay = true;
 		deletingWaypoint = true;
-		overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.delete.1", selectedWaypoint.getDisplayName()) };
+		overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.delete.1", selectedWaypoint.getDisplayName())};
 		buttonOverlayFunction.visible = true;
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.delete.button");
 	}
@@ -1253,7 +1253,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		closeOverlay();
 		hasOverlay = true;
 		renamingWaypoint = true;
-		overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.rename.1", selectedWaypoint.getDisplayName()) };
+		overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.rename.1", selectedWaypoint.getDisplayName())};
 		buttonOverlayFunction.visible = true;
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.rename.button");
 	}
@@ -1262,7 +1262,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		closeOverlay();
 		hasOverlay = true;
 		sharingWaypoint = true;
-		overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.share.1", selectedWaypoint.getDisplayName()) };
+		overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.share.1", selectedWaypoint.getDisplayName())};
 		buttonOverlayFunction.visible = true;
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.share.button");
 	}
@@ -1271,7 +1271,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		closeOverlay();
 		hasOverlay = true;
 		sharingWaypointNew = true;
-		overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.shareNew.1", selectedWaypoint.getDisplayName()) };
+		overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.shareNew.1", selectedWaypoint.getDisplayName())};
 		buttonOverlayFunction.visible = true;
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.shareNew.button");
 	}
@@ -1966,7 +1966,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		creatingWaypointNew = false;
 		String protection = StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.protected.1", message.getFormattedText());
 		String warning = StatCollector.translateToLocal("got.gui.map.customWaypoint.protected.2");
-		overlayLines = new String[] { protection, "", warning };
+		overlayLines = new String[]{protection, "", warning};
 	}
 
 	public void setFakeMapProperties(float x, float y, float scale, float scaleExp, float scaleStable) {
@@ -2121,7 +2121,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		z -= posY;
 		x *= zoomScale;
 		z *= zoomScale;
-		return new float[] { x + (mapXMin + (float) mapWidth / 2), z + (mapYMin + (float) mapHeight / 2) };
+		return new float[]{x + (mapXMin + (float) mapWidth / 2), z + (mapYMin + (float) mapHeight / 2)};
 	}
 
 	public void updateCurrentDimensionAndFaction() {
@@ -2189,7 +2189,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public static int[] setFakeStaticProperties(int w, int h, int xmin, int xmax, int ymin, int ymax) {
-		int[] ret = { mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax };
+		int[] ret = {mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
 		mapWidth = w;
 		mapHeight = h;
 		mapXMin = xmin;

@@ -140,17 +140,17 @@ public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements
 	public void setupNPCName() {
 		int i = rand.nextInt(4);
 		switch (i) {
-		case 0:
-			familyInfo.setName(GOTNames.getWesterosName(rand, true));
-			break;
-		case 2:
-			familyInfo.setName(GOTNames.getEssosName(rand, true));
-			break;
-		case 3:
-			familyInfo.setName(GOTNames.getQarthName(rand, true));
-			break;
-		default:
-			familyInfo.setName(GOTNames.getWildName(rand, true));
+			case 0:
+				familyInfo.setName(GOTNames.getWesterosName(rand, true));
+				break;
+			case 2:
+				familyInfo.setName(GOTNames.getEssosName(rand, true));
+				break;
+			case 3:
+				familyInfo.setName(GOTNames.getQarthName(rand, true));
+				break;
+			default:
+				familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
 	}
 }

@@ -32,9 +32,9 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 public class GOTItemMug extends Item {
-	public static String[] strengthNames = { "weak", "light", "moderate", "strong", "potent" };
-	public static float[] strengths = { 0.25f, 0.5f, 1.0f, 2.0f, 3.0f };
-	public static float[] foodStrengths = { 0.5f, 0.75f, 1.0f, 1.25f, 1.5f };
+	public static String[] strengthNames = {"weak", "light", "moderate", "strong", "potent"};
+	public static float[] strengths = {0.25f, 0.5f, 1.0f, 2.0f, 3.0f};
+	public static float[] foodStrengths = {0.5f, 0.75f, 1.0f, 1.25f, 1.5f};
 	public static int vesselMeta = 100;
 	@SideOnly(Side.CLIENT)
 	public static IIcon barrelGui_emptyBucketSlotIcon;
@@ -171,7 +171,7 @@ public class GOTItemMug extends Item {
 	@Override
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		if (isFullMug) {
-			Vessel[] vesselTypes = { Vessel.MUG };
+			Vessel[] vesselTypes = {Vessel.MUG};
 			if (tab == null || tab.hasSearchBar()) {
 				vesselTypes = Vessel.values();
 			}

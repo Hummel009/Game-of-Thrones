@@ -22,24 +22,24 @@ public class GOTBlockSlab2 extends GOTBlockSlabBase {
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
 		switch (j) {
-		case 0:
-			return GOTBlocks.smoothStone.getIcon(i, 6);
-		case 1:
-			return GOTBlocks.smoothStone.getIcon(i, 2);
-		case 2:
-			return GOTBlocks.brick1.getIcon(i, 7);
-		case 3:
-			return GOTBlocks.pillar2.getIcon(i, 0);
-		case 4:
-			return GOTBlocks.rock.getIcon(i, 6);
-		case 5:
-			return GOTBlocks.brick6.getIcon(i, 4);
-		case 6:
-			return GOTBlocks.brick6.getIcon(i, 6);
-		case 7:
-			return GOTBlocks.brick6.getIcon(i, 7);
-		default:
-			break;
+			case 0:
+				return GOTBlocks.smoothStone.getIcon(i, 6);
+			case 1:
+				return GOTBlocks.smoothStone.getIcon(i, 2);
+			case 2:
+				return GOTBlocks.brick1.getIcon(i, 7);
+			case 3:
+				return GOTBlocks.pillar2.getIcon(i, 0);
+			case 4:
+				return GOTBlocks.rock.getIcon(i, 6);
+			case 5:
+				return GOTBlocks.brick6.getIcon(i, 4);
+			case 6:
+				return GOTBlocks.brick6.getIcon(i, 6);
+			case 7:
+				return GOTBlocks.brick6.getIcon(i, 7);
+			default:
+				break;
 		}
 		return super.getIcon(i, j);
 	}

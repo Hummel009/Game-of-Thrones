@@ -216,7 +216,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 0, j15, 5, pillarBlock, pillarMeta);
 		}
 		placeWallBanner(world, 0, 3, 5, bannerType, 2);
-		for (int i13 : new int[] { -3, 1 }) {
+		for (int i13 : new int[]{-3, 1}) {
 			setBlockAndMetadata(world, i13, 2, 5, brickStairBlock, 0);
 			setBlockAndMetadata(world, i13, 3, 5, brickStairBlock, 4);
 			setBlockAndMetadata(world, i13 + 1, 2, 5, brickWallBlock, brickWallMeta);
@@ -224,8 +224,8 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i13 + 2, 2, 5, brickStairBlock, 1);
 			setBlockAndMetadata(world, i13 + 2, 3, 5, brickStairBlock, 5);
 		}
-		for (int k13 : new int[] { -4, 5 }) {
-			for (int i14 : new int[] { -3, 1 }) {
+		for (int k13 : new int[]{-4, 5}) {
+			for (int i14 : new int[]{-3, 1}) {
 				setBlockAndMetadata(world, i14, 6, k13, brickStairBlock, 0);
 				setBlockAndMetadata(world, i14, 7, k13, brickStairBlock, 4);
 				setBlockAndMetadata(world, i14 + 1, 6, k13, brickWallBlock, brickWallMeta);
@@ -240,7 +240,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -2, 6, 0, GOTBlocks.plate, 0);
 		setBlockAndMetadata(world, -2, 5, 1, plankBlock, plankMeta);
 		placeMug(world, random, -2, 6, 1, 3, GOTFoods.WESTEROS_DRINK);
-		int[] j15 = { -1, 2 };
+		int[] j15 = {-1, 2};
 		j1 = j15.length;
 		for (j12 = 0; j12 < j1; ++j12) {
 			int k13;

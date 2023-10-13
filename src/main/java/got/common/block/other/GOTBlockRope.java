@@ -30,16 +30,16 @@ public class GOTBlockRope extends GOTBlockLadder {
 			return true;
 		}
 		switch (meta) {
-		case 2:
-			return world.isSideSolid(i, j, k + 1, ForgeDirection.NORTH);
-		case 3:
-			return world.isSideSolid(i, j, k - 1, ForgeDirection.SOUTH);
-		case 4:
-			return world.isSideSolid(i + 1, j, k, ForgeDirection.WEST);
-		case 5:
-			return world.isSideSolid(i - 1, j, k, ForgeDirection.EAST);
-		default:
-			break;
+			case 2:
+				return world.isSideSolid(i, j, k + 1, ForgeDirection.NORTH);
+			case 3:
+				return world.isSideSolid(i, j, k - 1, ForgeDirection.SOUTH);
+			case 4:
+				return world.isSideSolid(i + 1, j, k, ForgeDirection.WEST);
+			case 5:
+				return world.isSideSolid(i - 1, j, k, ForgeDirection.EAST);
+			default:
+				break;
 		}
 		return false;
 	}

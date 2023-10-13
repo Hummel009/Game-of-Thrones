@@ -55,7 +55,7 @@ public enum GOTFixedStructures {
 			}
 		}
 		nanoTimeElapsed += System.nanoTime() - l;
-		return new boolean[] { mountainNear, structureNear };
+		return new boolean[]{mountainNear, structureNear};
 	}
 
 	public static boolean fixedAt(int i, int k, GOTAbstractWaypoint waypoint) {

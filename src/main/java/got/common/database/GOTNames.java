@@ -81,7 +81,7 @@ public class GOTNames {
 	public static String[] getTavernName(Random rand) {
 		String prefix = getRandomName("tavern_prefix", rand);
 		String suffix = getRandomName("tavern_suffix", rand);
-		return new String[] { prefix, suffix };
+		return new String[]{prefix, suffix};
 	}
 
 	public static String getWesterosName(Random rand, boolean male) {

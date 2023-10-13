@@ -87,7 +87,8 @@ public class GOTItemLegendaryWhip extends GOTItemSword {
 			}
 		}
 		Vec3 eyeHeight = position.addVector(0.0, user.getEyeHeight(), 0.0);
-		block2: for (int l = 4; l < (int) range; ++l) {
+		block2:
+		for (int l = 4; l < (int) range; ++l) {
 			double d = l / range;
 			double dx = sight.xCoord - eyeHeight.xCoord;
 			double dy = sight.yCoord - eyeHeight.yCoord;

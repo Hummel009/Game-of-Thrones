@@ -146,23 +146,23 @@ public class GOTRenderDragon extends RenderLiving {
 		}
 		model.renderPass = pass;
 		switch (pass) {
-		case 0:
-			if (dragon.isSaddled()) {
-				bindTexture(model.saddleTexture);
+			case 0:
+				if (dragon.isSaddled()) {
+					bindTexture(model.saddleTexture);
+					return 1;
+				}
+				break;
+			case 1:
+				bindTexture(model.glowTexture);
+				glEnable(GL_BLEND);
+				glBlendFunc(GL_ONE, GL_ONE);
+				glDisable(GL_LIGHTING);
+				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 65536, 0);
 				return 1;
-			}
-			break;
-		case 1:
-			bindTexture(model.glowTexture);
-			glEnable(GL_BLEND);
-			glBlendFunc(GL_ONE, GL_ONE);
-			glDisable(GL_LIGHTING);
-			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 65536, 0);
-			return 1;
-		case 2:
-			glEnable(GL_LIGHTING);
-			glDisable(GL_BLEND);
-			break;
+			case 2:
+				glEnable(GL_LIGHTING);
+				glDisable(GL_BLEND);
+				break;
 		}
 		return -1;
 	}

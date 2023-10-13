@@ -91,9 +91,9 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		placePlate(world, random, 4, 2, 0, GOTBlocks.woodPlate, GOTFoods.NOMAD);
 		placePlate(world, random, 4, 2, 1, GOTBlocks.woodPlate, GOTFoods.NOMAD);
 		if (random.nextBoolean()) {
-			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[] { new ItemStack(GOTItems.lhazarHelmet), new ItemStack(GOTItems.lhazarChestplate), new ItemStack(GOTItems.lhazarLeggings), new ItemStack(GOTItems.lhazarBoots) });
+			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{new ItemStack(GOTItems.lhazarHelmet), new ItemStack(GOTItems.lhazarChestplate), new ItemStack(GOTItems.lhazarLeggings), new ItemStack(GOTItems.lhazarBoots)});
 		} else {
-			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[] { null, new ItemStack(GOTItems.lhazarChestplate), null, null });
+			placeArmorStand(world, -7, 1, -2, 1, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
 		}
 		placeWeaponRack(world, -13, 3, 0, 5, getRandomlhazarWeapon(random));
 		GOTEntityLhazarBlacksmith smith = new GOTEntityLhazarBlacksmith(world);

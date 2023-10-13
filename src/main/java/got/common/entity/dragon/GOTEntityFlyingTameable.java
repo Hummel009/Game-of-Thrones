@@ -22,7 +22,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	public static int IN_AIR_THRESH = 10;
 	public static IAttribute MOVE_SPEED_AIR = new RangedAttribute("generic.movementSpeedAir", 1.5, 0.0, Double.MAX_VALUE).setDescription("Movement Speed Air").setShouldWatch(true);
 	public static int INDEX_FLYING = 18;
-	public static String[] ENTITYAITASKS_TICKRATE = { "tickRate", "field_75779_e" };
+	public static String[] ENTITYAITASKS_TICKRATE = {"tickRate", "field_75779_e"};
 	public static int INDEX_CAN_FLY = 19;
 	public static String NBT_FLYING = "Flying";
 	public static String NBT_CAN_FLY = "CanFly";

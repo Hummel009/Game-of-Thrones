@@ -65,15 +65,15 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 					} else if (j14 == 0) {
 						int randomGround = random.nextInt(3);
 						switch (randomGround) {
-						case 0:
-							setBlockAndMetadata(world, i12, 0, k12, Blocks.grass, 0);
-							break;
-						case 1:
-							setBlockAndMetadata(world, i12, 0, k12, Blocks.dirt, 1);
-							break;
-						default:
-							setBlockAndMetadata(world, i12, 0, k12, GOTBlocks.dirtPath, 0);
-							break;
+							case 0:
+								setBlockAndMetadata(world, i12, 0, k12, Blocks.grass, 0);
+								break;
+							case 1:
+								setBlockAndMetadata(world, i12, 0, k12, Blocks.dirt, 1);
+								break;
+							default:
+								setBlockAndMetadata(world, i12, 0, k12, GOTBlocks.dirtPath, 0);
+								break;
 						}
 						if (random.nextInt(3) == 0) {
 							setBlockAndMetadata(world, i12, 1, k12, GOTBlocks.thatchFloor, 0);
@@ -152,11 +152,11 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i12, 4 + yBoost, k12, plank2StairBlock, 5);
 			}
 		}
-		int[] i16 = { -12, 9 };
+		int[] i16 = {-12, 9};
 		k12 = i16.length;
 		for (i2 = 0; i2 < k12; ++i2) {
 			i13 = i16[i2];
-			for (int k14 : new int[] { -12, 9 }) {
+			for (int k14 : new int[]{-12, 9}) {
 				int i22;
 				setBlockAndMetadata(world, i13 + 1, 8, k14, plank2StairBlock, 4);
 				setBlockAndMetadata(world, i13 + 2, 8, k14, plank2StairBlock, 5);
@@ -328,7 +328,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		}
 		setBlockAndMetadata(world, -2, 3, 9, Blocks.torch, 4);
 		setBlockAndMetadata(world, 2, 3, 9, Blocks.torch, 4);
-		int[] j16 = { -7, 7 };
+		int[] j16 = {-7, 7};
 		i15 = j16.length;
 		for (j12 = 0; j12 < i15; ++j12) {
 			i13 = j16[j12];
@@ -437,7 +437,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i15, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
-		for (int k16 : new int[] { 6, 10 }) {
+		for (int k16 : new int[]{6, 10}) {
 			setBlockAndMetadata(world, 7, 1, k16, bedBlock, 3);
 			setBlockAndMetadata(world, 6, 1, k16, bedBlock, 11);
 			setBlockAndMetadata(world, 9, 1, k16, bedBlock, 1);

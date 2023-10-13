@@ -30,7 +30,8 @@ public class GOTRecipeBrewing {
 			}
 			return null;
 		}
-		block1: for (ShapelessOreRecipe recipe : recipes) {
+		block1:
+		for (ShapelessOreRecipe recipe : recipes) {
 			Collection<Object> ingredients = new ArrayList<>(recipe.getInput());
 			for (int i = 0; i < 6; ++i) {
 				ItemStack itemstack = barrel.getStackInSlot(i);

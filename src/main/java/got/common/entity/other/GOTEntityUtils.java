@@ -12,8 +12,8 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
 public class GOTEntityUtils {
-	public static int[] leatherDyes = { 10855845, 8026746, 5526612, 3684408, 8350297, 10388590, 4799795, 5330539, 4211801, 2632504 };
-	public static int[] turbanColors = { 1643539, 6309443, 7014914, 7809314, 5978155 };
+	public static int[] leatherDyes = {10855845, 8026746, 5526612, 3684408, 8350297, 10388590, 4799795, 5330539, 4211801, 2632504};
+	public static int[] turbanColors = {1643539, 6309443, 7014914, 7809314, 5978155};
 
 	public static ItemStack dyeLeather(ItemStack itemstack, Random rand) {
 		int i = rand.nextInt(leatherDyes.length);

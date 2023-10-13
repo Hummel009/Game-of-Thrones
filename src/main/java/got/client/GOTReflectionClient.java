@@ -59,7 +59,7 @@ public class GOTReflectionClient {
 
 	public static float getFOVModifier(EntityRenderer renderer, float tick, boolean flag) {
 		try {
-			Method method = GOTReflection.getPrivateMethod(EntityRenderer.class, renderer, new Class[] { Float.TYPE, Boolean.TYPE }, "getFOVModifier", "func_78481_a");
+			Method method = GOTReflection.getPrivateMethod(EntityRenderer.class, renderer, new Class[]{Float.TYPE, Boolean.TYPE}, "getFOVModifier", "func_78481_a");
 			return (Float) method.invoke(renderer, tick, flag);
 		} catch (Exception e) {
 			GOTReflection.logFailure(e);

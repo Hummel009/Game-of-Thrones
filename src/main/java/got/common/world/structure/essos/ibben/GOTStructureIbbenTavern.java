@@ -184,7 +184,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 			for (step = 0; step <= 6; ++step) {
 				i12 = 1 + step;
 				j12 = 8 - (step + 1) / 2;
-				for (int i23 : new int[] { -i12, i12 }) {
+				for (int i23 : new int[]{-i12, i12}) {
 					if (step % 2 == 0) {
 						setBlockAndMetadata(world, i23, j12, k12, plank2SlabBlock, plank2SlabMeta);
 						setBlockAndMetadata(world, i23, j12 - 1, k12, plank2SlabBlock, plank2SlabMeta | 8);
@@ -286,7 +286,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 			}
 			setBlockAndMetadata(world, i13, 3, 26, brickBlock, brickMeta);
 		}
-		for (int k14 : new int[] { 2, 26 }) {
+		for (int k14 : new int[]{2, 26}) {
 			for (int i14 = -5; i14 <= 5; ++i14) {
 				int i24 = Math.abs(i14);
 				if (i24 == 2 || i24 == 5) {
@@ -298,7 +298,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i14, 5, k14, plank2SlabBlock, plank2SlabMeta | 8);
 			}
 		}
-		for (int i15 : new int[] { -4, 3 }) {
+		for (int i15 : new int[]{-4, 3}) {
 			setBlockAndMetadata(world, i15, 2, 2, plank2StairBlock, 4);
 			setBlockAndMetadata(world, i15 + 1, 2, 2, plank2StairBlock, 5);
 			for (int i25 = i15; i25 <= i15 + 1; ++i25) {
@@ -313,12 +313,12 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -1, 3, 2, Blocks.torch, 4);
 		setBlockAndMetadata(world, 1, 3, 2, Blocks.torch, 4);
 		placeSign(world, 0, 4, 2, Blocks.wall_sign, 2, meadNameSign);
-		for (int i15 : new int[] { -2, 2 }) {
+		for (int i15 : new int[]{-2, 2}) {
 			for (j14 = 2; j14 <= 4; ++j14) {
 				setBlockAndMetadata(world, i15, j14, 3, woodBeamRohanGoldBlock, woodBeamRohanGoldMeta);
 			}
 		}
-		for (int i15 : new int[] { -3, 3 }) {
+		for (int i15 : new int[]{-3, 3}) {
 			setBlockAndMetadata(world, i15, 3, 3, plankStairBlock, 2);
 			setBlockAndMetadata(world, i15, 4, 3, fenceBlock, fenceMeta);
 		}
@@ -451,7 +451,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 	public void setupRandomBlocks(Random random) {
 		super.setupRandomBlocks(random);
 		meadHallName = GOTNames.getTavernName(random);
-		meadNameSign = new String[] { "", meadHallName[0], meadHallName[1], "" };
+		meadNameSign = new String[]{"", meadHallName[0], meadHallName[1], ""};
 		meadNameNPC = meadHallName[0] + " " + meadHallName[1];
 	}
 }

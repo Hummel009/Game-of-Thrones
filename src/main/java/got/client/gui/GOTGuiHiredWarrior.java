@@ -16,7 +16,7 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.util.StringUtils;
 
 public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
-	public static String[] pageTitles = { "overview", "options" };
+	public static String[] pageTitles = {"overview", "options"};
 	public static int XP_COLOR = 16733440;
 	public GuiButton buttonLeft;
 	public GuiButton buttonRight;

@@ -105,7 +105,8 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		for (int i1 = searchMin; i1 <= searchMax; ++i1) {
 			for (int k1 = searchMin; k1 <= searchMax; ++k1) {
 				boolean canGenerate = true;
-				block2: for (int i2 = squareMin; i2 <= squareMax; ++i2) {
+				block2:
+				for (int i2 = squareMin; i2 <= squareMax; ++i2) {
 					for (int k2 = squareMin; k2 <= squareMax; ++k2) {
 						int i3 = i + i1 + i2;
 						int k3 = k + k1 + k2;
@@ -119,7 +120,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 				if (!canGenerate) {
 					continue;
 				}
-				return new int[] { i1, k1 };
+				return new int[]{i1, k1};
 			}
 		}
 		return null;

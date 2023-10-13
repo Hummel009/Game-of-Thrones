@@ -120,8 +120,8 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 				setBlockAndMetadata(world, i16, topHeight + 7, k16, GOTBlocks.brick1, 15);
 			}
 		}
-		for (int i15 : new int[] { -10, 10 }) {
-			for (int k17 : new int[] { -10, 10 }) {
+		for (int i15 : new int[]{-10, 10}) {
+			for (int k17 : new int[]{-10, 10}) {
 				setBlockAndMetadata(world, i15, topHeight, k17, GOTBlocks.brick1, 15);
 				for (int j14 = topHeight + 1; j14 <= topHeight + 3; ++j14) {
 					setBlockAndMetadata(world, i15, j14, k17, GOTBlocks.brick1, 15);

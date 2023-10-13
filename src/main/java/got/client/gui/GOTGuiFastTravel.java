@@ -73,7 +73,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		mapRenderer.renderVignettes(this, zLevel, 4);
 		GL11.glEnable(3042);
 		String title = StatCollector.translateToLocalFormatted("got.fastTravel.travel", theWaypoint.getDisplayName());
-		String titleExtra = new String[] { "", ".", "..", "..." }[tickCounter / 10 % 4];
+		String titleExtra = new String[]{"", ".", "..", "..."}[tickCounter / 10 % 4];
 		List<String> messageLines = fontRendererObj.listFormattedStringToWidth(message, width - 100);
 		String skipText = StatCollector.translateToLocalFormatted("got.fastTravel.skip", GameSettings.getKeyDisplayString(mc.gameSettings.keyBindInventory.getKeyCode()));
 		float boxAlpha = 0.5f;

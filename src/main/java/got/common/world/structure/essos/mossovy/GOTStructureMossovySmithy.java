@@ -98,7 +98,7 @@ public class GOTStructureMossovySmithy extends GOTStructureMossovyBase {
 		if (random.nextBoolean()) {
 			GOTEntityMossovyWitcher armorGuard = new GOTEntityMossovyWitcher(world);
 			armorGuard.onSpawnWithEgg(null);
-			return new ItemStack[] { armorGuard.getEquipmentInSlot(4), armorGuard.getEquipmentInSlot(3), null, null };
+			return new ItemStack[]{armorGuard.getEquipmentInSlot(4), armorGuard.getEquipmentInSlot(3), null, null};
 		}
 		return null;
 	}

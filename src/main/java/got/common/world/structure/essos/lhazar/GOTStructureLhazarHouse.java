@@ -74,7 +74,7 @@ public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 		setBlockAndMetadata(world, 0, 1, 5, bedBlock, 0);
 		setBlockAndMetadata(world, 0, 1, 6, bedBlock, 8);
 		placeChest(world, random, 6, 1, 0, GOTBlocks.chestBasket, 5, GOTChestContents.LHAZAR);
-		for (int k1 : new int[] { -2, 0, 2 }) {
+		for (int k1 : new int[]{-2, 0, 2}) {
 			int i1 = -6;
 			int j12 = 2;
 			if (random.nextBoolean()) {

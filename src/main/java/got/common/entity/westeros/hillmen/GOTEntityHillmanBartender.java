@@ -31,26 +31,26 @@ public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTr
 		for (int k = 0; k < j; ++k) {
 			int l = rand.nextInt(7);
 			switch (l) {
-			case 0:
-			case 1:
-			case 2: {
-				Item food = GOTFoods.WILD.getRandomFood(rand).getItem();
-				entityDropItem(new ItemStack(food), 0.0f);
-				continue;
-			}
-			case 3: {
-				entityDropItem(new ItemStack(Items.gold_nugget, 2 + rand.nextInt(3)), 0.0f);
-				continue;
-			}
-			case 4:
-			case 5: {
-				entityDropItem(new ItemStack(GOTItems.mug), 0.0f);
-				continue;
-			}
-			case 6: {
-				Item drink = GOTFoods.WILD_DRINK.getRandomFood(rand).getItem();
-				entityDropItem(new ItemStack(drink, 1, 1 + rand.nextInt(3)), 0.0f);
-			}
+				case 0:
+				case 1:
+				case 2: {
+					Item food = GOTFoods.WILD.getRandomFood(rand).getItem();
+					entityDropItem(new ItemStack(food), 0.0f);
+					continue;
+				}
+				case 3: {
+					entityDropItem(new ItemStack(Items.gold_nugget, 2 + rand.nextInt(3)), 0.0f);
+					continue;
+				}
+				case 4:
+				case 5: {
+					entityDropItem(new ItemStack(GOTItems.mug), 0.0f);
+					continue;
+				}
+				case 6: {
+					Item drink = GOTFoods.WILD_DRINK.getRandomFood(rand).getItem();
+					entityDropItem(new ItemStack(drink, 1, 1 + rand.nextInt(3)), 0.0f);
+				}
 			}
 		}
 	}

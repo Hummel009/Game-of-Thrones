@@ -90,7 +90,7 @@ public abstract class GOTEnchantment {
 	public boolean applyToProjectile;
 
 	protected GOTEnchantment(String s, GOTEnchantmentType type) {
-		this(s, new GOTEnchantmentType[] { type });
+		this(s, new GOTEnchantmentType[]{type});
 	}
 
 	protected GOTEnchantment(String s, GOTEnchantmentType[] types) {

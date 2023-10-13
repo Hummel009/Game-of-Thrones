@@ -33,7 +33,7 @@ import net.minecraft.world.World;
 
 public class GOTItemPouch extends Item {
 	public static int POUCH_COLOR = 10841676;
-	public static String[] pouchTypes = { "small", "medium", "large" };
+	public static String[] pouchTypes = {"small", "medium", "large"};
 	@SideOnly(Side.CLIENT)
 	public IIcon[] pouchIcons;
 	@SideOnly(Side.CLIENT)

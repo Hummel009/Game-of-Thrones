@@ -65,7 +65,8 @@ public class GOTTextBody {
 		if (numLines < maxLines) {
 			y -= (maxLines - numLines) * lineHeight;
 		}
-		block0: for (int i = size() - 1; i >= 0; --i) {
+		block0:
+		for (int i = size() - 1; i >= 0; --i) {
 			String part = getText(i);
 			int color = getColor(i);
 			List<String> lineList = fr.listFormattedStringToWidth(part, textWidth);

@@ -61,8 +61,8 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 					spawner.setSpawnInterval(1);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -40, 40 }) {
-				for (int k12 : new int[] { -40, 40 }) {
+			for (int i1 : new int[]{-40, 40}) {
+				for (int k12 : new int[]{-40, 40}) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -142,7 +142,7 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureAsshaiHouse(false), gardenX, gardenZ, 3, true);
 			int wallX;
 			int l;
-			for (int k11 : new int[] { 67, 75 }) {
+			for (int k11 : new int[]{67, 75}) {
 				addStructure(new GOTStructureAsshaiTownBench(false), -10, k11, 1, true);
 				addStructure(new GOTStructureAsshaiTownBench(false), 10, k11, 3, true);
 			}
@@ -151,7 +151,7 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureAsshaiLampPost(false), 4, 73, 0, true);
 			int towerX = 78;
 			int towerZ = 74;
-			for (int i1 : new int[] { -towerX, towerX }) {
+			for (int i1 : new int[]{-towerX, towerX}) {
 				addStructure(new GOTStructureAsshaiWatchtower(false), i1, -towerZ, 2, true);
 				addStructure(new GOTStructureAsshaiWatchtower(false), i1, towerZ, 0, true);
 			}

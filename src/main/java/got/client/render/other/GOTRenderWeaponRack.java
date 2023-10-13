@@ -32,21 +32,21 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 		int dir = meta & 3;
 		boolean wall = (meta & 4) != 0;
 		switch (dir) {
-		case 0: {
-			GL11.glRotatef(0.0f, 0.0f, 1.0f, 0.0f);
-			break;
-		}
-		case 1: {
-			GL11.glRotatef(270.0f, 0.0f, 1.0f, 0.0f);
-			break;
-		}
-		case 2: {
-			GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
-			break;
-		}
-		case 3: {
-			GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-		}
+			case 0: {
+				GL11.glRotatef(0.0f, 0.0f, 1.0f, 0.0f);
+				break;
+			}
+			case 1: {
+				GL11.glRotatef(270.0f, 0.0f, 1.0f, 0.0f);
+				break;
+			}
+			case 2: {
+				GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
+				break;
+			}
+			case 3: {
+				GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
+			}
 		}
 		if (wall) {
 			GL11.glTranslatef(0.0f, 0.375f, -0.5f);

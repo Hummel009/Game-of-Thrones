@@ -129,7 +129,8 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 			skins = new ArrayList<>();
 			Collection<BufferedImage> layeredImages = new ArrayList<>();
 			Collection<BufferedImage> tempLayered = new ArrayList<>();
-			block2: for (String layer : skinLayers) {
+			block2:
+			for (String layer : skinLayers) {
 				String layerPath = skinPath + "/" + layer;
 				GOTRandomSkins layerSkins = new GOTRandomSkins(layerPath, false);
 				tempLayered.clear();

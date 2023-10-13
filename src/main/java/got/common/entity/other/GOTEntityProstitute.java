@@ -103,67 +103,67 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 	public void setupNPCName() {
 		String name = null;
 		switch (rand.nextInt(10)) {
-		case 0:
-			name = GOTNames.getWildName(rand, familyInfo.isMale());
-			prostituteType = ProstituteType.WILD;
-			break;
-		case 1:
-			name = GOTNames.getGhiscarName(rand, familyInfo.isMale());
-			prostituteType = ProstituteType.DARK;
-			break;
-		case 2:
-			name = GOTNames.getSothoryosName(rand, familyInfo.isMale());
-			prostituteType = ProstituteType.BLACK;
-			break;
-		case 3:
-			switch (rand.nextInt(2)) {
 			case 0:
-				name = GOTNames.getDothrakiName(rand, familyInfo.isMale());
+				name = GOTNames.getWildName(rand, familyInfo.isMale());
+				prostituteType = ProstituteType.WILD;
 				break;
 			case 1:
-				name = GOTNames.getLhazarName(rand, familyInfo.isMale());
-				break;
-			}
-			prostituteType = ProstituteType.NOMAD;
-			break;
-		case 4:
-			name = GOTNames.getYiTiName(rand, familyInfo.isMale());
-			prostituteType = ProstituteType.YITI;
-			break;
-		case 5:
-			name = GOTNames.getJogosName(rand, familyInfo.isMale());
-			prostituteType = ProstituteType.JOGOS;
-			break;
-		default:
-			switch (rand.nextInt(3)) {
-			case 0:
-				name = GOTNames.getWesterosName(rand, familyInfo.isMale());
-				break;
-			case 1:
-				name = GOTNames.getEssosName(rand, familyInfo.isMale());
+				name = GOTNames.getGhiscarName(rand, familyInfo.isMale());
+				prostituteType = ProstituteType.DARK;
 				break;
 			case 2:
-				name = GOTNames.getQarthName(rand, familyInfo.isMale());
-				break;
-			}
-			switch (rand.nextInt(5)) {
-			case 0:
-				prostituteType = ProstituteType.LIGHT_1;
-				break;
-			case 1:
-				prostituteType = ProstituteType.LIGHT_2;
-				break;
-			case 2:
-				prostituteType = ProstituteType.LIGHT_3;
+				name = GOTNames.getSothoryosName(rand, familyInfo.isMale());
+				prostituteType = ProstituteType.BLACK;
 				break;
 			case 3:
-				prostituteType = ProstituteType.LIGHT_4;
+				switch (rand.nextInt(2)) {
+					case 0:
+						name = GOTNames.getDothrakiName(rand, familyInfo.isMale());
+						break;
+					case 1:
+						name = GOTNames.getLhazarName(rand, familyInfo.isMale());
+						break;
+				}
+				prostituteType = ProstituteType.NOMAD;
 				break;
 			case 4:
-				prostituteType = ProstituteType.LIGHT_5;
+				name = GOTNames.getYiTiName(rand, familyInfo.isMale());
+				prostituteType = ProstituteType.YITI;
 				break;
-			}
-			break;
+			case 5:
+				name = GOTNames.getJogosName(rand, familyInfo.isMale());
+				prostituteType = ProstituteType.JOGOS;
+				break;
+			default:
+				switch (rand.nextInt(3)) {
+					case 0:
+						name = GOTNames.getWesterosName(rand, familyInfo.isMale());
+						break;
+					case 1:
+						name = GOTNames.getEssosName(rand, familyInfo.isMale());
+						break;
+					case 2:
+						name = GOTNames.getQarthName(rand, familyInfo.isMale());
+						break;
+				}
+				switch (rand.nextInt(5)) {
+					case 0:
+						prostituteType = ProstituteType.LIGHT_1;
+						break;
+					case 1:
+						prostituteType = ProstituteType.LIGHT_2;
+						break;
+					case 2:
+						prostituteType = ProstituteType.LIGHT_3;
+						break;
+					case 3:
+						prostituteType = ProstituteType.LIGHT_4;
+						break;
+					case 4:
+						prostituteType = ProstituteType.LIGHT_5;
+						break;
+				}
+				break;
 		}
 		familyInfo.setName(name);
 	}

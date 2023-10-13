@@ -350,7 +350,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (Class<? extends WorldGenerator> strClass : STRUCTURES) {
 					sb.append("\n| ").append(getStructureName(strClass)).append(" = ").append(Lang.STRUCTURE_BIOMES);
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						for (Structure structure : biome.decorator.structures) {
 							if (structure.structureGen.getClass() == strClass) {
 								sb.append("\n* ").append(getBiomeLink(biome)).append(";");
@@ -367,7 +368,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (String mineral : MINERALS) {
 					sb.append("\n| ").append(mineral).append(" = ").append(Lang.MINERAL_BIOMES);
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						Collection<OreGenerant> oreGenerants = new ArrayList<>(biome.decorator.biomeSoils);
 						oreGenerants.addAll(biome.decorator.biomeOres);
 						oreGenerants.addAll(biome.decorator.biomeGems);
@@ -390,7 +392,8 @@ public class DatabaseGenerator {
 				for (GOTTreeType tree : TREES) {
 					Collection<GOTBiome> biomesTree = new HashSet<>();
 					Collection<GOTBiome> biomesVariantTree = new HashSet<>();
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
 							if (weightedTreeType.treeType == tree) {
 								biomesTree.add(biome);
@@ -473,7 +476,8 @@ public class DatabaseGenerator {
 							sb.append(Lang.BIOME_HAS_CONQUEST);
 							EnumSet<GOTFaction> conquestFactions = EnumSet.noneOf(GOTFaction.class);
 							for (FactionContainer facContainer : conqestContainers) {
-								next: for (SpawnListContainer container : facContainer.spawnLists) {
+								next:
+								for (SpawnListContainer container : facContainer.spawnLists) {
 									for (GOTSpawnEntry entry : container.spawnList.spawnList) {
 										Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
 										if (entity instanceof GOTEntityNPC) {
@@ -538,27 +542,27 @@ public class DatabaseGenerator {
 					sb.append("\n| ").append(getBiomePagename(biome)).append(" = ");
 					if (biome.getClimateType() != null) {
 						switch (biome.getClimateType()) {
-						case COLD:
-							sb.append(Lang.CLIMATE_COLD);
-							break;
-						case COLD_AZ:
-							sb.append(Lang.CLIMATE_COLD_AZ);
-							break;
-						case NORMAL:
-							sb.append(Lang.CLIMATE_NORMAL);
-							break;
-						case NORMAL_AZ:
-							sb.append(Lang.CLIMATE_NORMAL_AZ);
-							break;
-						case SUMMER:
-							sb.append(Lang.CLIMATE_SUMMER);
-							break;
-						case SUMMER_AZ:
-							sb.append(Lang.CLIMATE_SUMMER_AZ);
-							break;
-						case WINTER:
-							sb.append(Lang.CLIMATE_WINTER);
-							break;
+							case COLD:
+								sb.append(Lang.CLIMATE_COLD);
+								break;
+							case COLD_AZ:
+								sb.append(Lang.CLIMATE_COLD_AZ);
+								break;
+							case NORMAL:
+								sb.append(Lang.CLIMATE_NORMAL);
+								break;
+							case NORMAL_AZ:
+								sb.append(Lang.CLIMATE_NORMAL_AZ);
+								break;
+							case SUMMER:
+								sb.append(Lang.CLIMATE_SUMMER);
+								break;
+							case SUMMER_AZ:
+								sb.append(Lang.CLIMATE_SUMMER_AZ);
+								break;
+							case WINTER:
+								sb.append(Lang.CLIMATE_WINTER);
+								break;
 						}
 					} else {
 						sb.append(Lang.CLIMATE_NULL);
@@ -589,7 +593,8 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.BIOME_HAS_INVASIONS);
 						EnumSet<GOTFaction> invasionFactions = EnumSet.noneOf(GOTFaction.class);
-						next: for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
+						next:
+						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 							for (InvasionSpawnEntry entry : invasion.invasionMobs) {
 								Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
 								if (entity instanceof GOTEntityNPC) {
@@ -760,7 +765,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					Collection<GOTBiome> invasionBiomes = new HashSet<>();
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 							for (InvasionSpawnEntry entry : invasion.invasionMobs) {
 								Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
@@ -787,7 +793,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					Collection<GOTBiome> spawnBiomes = new HashSet<>();
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						List<FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
 						if (!facContainers.isEmpty()) {
 							Collection<FactionContainer> spawnContainers = new ArrayList<>();
@@ -828,7 +835,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					Collection<GOTBiome> conquestBiomes = new HashSet<>();
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						List<FactionContainer> facContainers = biome.getNPCSpawnList().factionContainers;
 						if (!facContainers.isEmpty()) {
 							Collection<FactionContainer> conquestContainers = new ArrayList<>();
@@ -1096,7 +1104,8 @@ public class DatabaseGenerator {
 					Collection<GOTBiome> conquestBiomes = new HashSet<>();
 					Collection<GOTBiome> invasionBiomes = new HashSet<>();
 					Collection<GOTBiome> unnaturalBiomes = new HashSet<>();
-					next: for (GOTBiome biome : BIOMES) {
+					next:
+					for (GOTBiome biome : BIOMES) {
 						Collection<SpawnListEntry> spawnEntries = new ArrayList<>();
 						Collection<SpawnListEntry> conquestEntries = new ArrayList<>();
 						Collection<InvasionSpawnEntry> invasionEntries = new ArrayList<>();
@@ -1171,7 +1180,8 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (Class<? extends Entity> entityClass : HIREABLE) {
 					HashMap<Class<? extends Entity>, Class<? extends Entity>> owners = new HashMap<>();
-					loop: for (Entry<Class<? extends Entity>, Entity> ownerEntry : CLASS_TO_OBJ.entrySet()) {
+					loop:
+					for (Entry<Class<? extends Entity>, Entity> ownerEntry : CLASS_TO_OBJ.entrySet()) {
 						if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
 							GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
 							if (!((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
@@ -1185,7 +1195,8 @@ public class DatabaseGenerator {
 						}
 					}
 					if (owners.isEmpty()) {
-						loop: for (Entry<Class<? extends Entity>, Entity> ownerEntry : CLASS_TO_OBJ.entrySet()) {
+						loop:
+						for (Entry<Class<? extends Entity>, Entity> ownerEntry : CLASS_TO_OBJ.entrySet()) {
 							if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
 								GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
 								if (((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
@@ -1358,7 +1369,8 @@ public class DatabaseGenerator {
 
 				sb.append(TITLE).append("Template:DB Mob-Alignment");
 				sb.append(BEGIN);
-				next: for (Class<? extends Entity> entityClass : HIREABLE) {
+				next:
+				for (Class<? extends Entity> entityClass : HIREABLE) {
 					for (GOTUnitTradeEntries entries : UNITS) {
 						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
 							if (entry.entityClass == entityClass) {
@@ -1630,7 +1642,8 @@ public class DatabaseGenerator {
 	}
 
 	public static void searchForPagenamesBiome(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
-		next: for (GOTBiome biome : biomes) {
+		next:
+		for (GOTBiome biome : biomes) {
 			String preName = getBiomeName(biome);
 			for (GOTFaction fac : factions) {
 				if (preName.equals(getFactionName(fac))) {
@@ -1649,7 +1662,8 @@ public class DatabaseGenerator {
 	}
 
 	public static void searchForPagenamesEntity(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
-		next: for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
+		next:
+		for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
 			String preName = getEntityName(entityClass);
 			for (GOTBiome biome : biomes) {
 				if (preName.equals(getBiomeName(biome))) {
@@ -1668,7 +1682,8 @@ public class DatabaseGenerator {
 	}
 
 	public static void searchForPagenamesFaction(Iterable<GOTBiome> biomes, Iterable<GOTFaction> factions) {
-		next: for (GOTFaction fac : factions) {
+		next:
+		for (GOTFaction fac : factions) {
 			String preName = getFactionName(fac);
 			for (GOTBiome biome : biomes) {
 				if (preName.equals(getBiomeName(biome))) {

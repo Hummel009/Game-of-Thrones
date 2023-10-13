@@ -143,14 +143,14 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 		public static EntityAnimal getRandomAnimal(World world, Random random) {
 			int animal = random.nextInt(4);
 			switch (animal) {
-			case 0:
-				return new EntityCow(world);
-			case 1:
-				return new EntityPig(world);
-			case 2:
-				return new EntitySheep(world);
-			default:
-				return new EntityChicken(world);
+				case 0:
+					return new EntityCow(world);
+				case 1:
+					return new EntityPig(world);
+				case 2:
+					return new EntitySheep(world);
+				default:
+					return new EntityChicken(world);
 			}
 		}
 	}

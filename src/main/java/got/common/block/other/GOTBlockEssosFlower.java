@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockEssosFlower extends GOTBlockFlower {
-	public static String[] flowerNames = { "red", "yellow", "daisy", "pink" };
+	public static String[] flowerNames = {"red", "yellow", "daisy", "pink"};
 	@SideOnly(Side.CLIENT)
 	public IIcon[] flowerIcons;
 

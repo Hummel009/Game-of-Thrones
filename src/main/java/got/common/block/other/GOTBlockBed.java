@@ -65,8 +65,8 @@ public class GOTBlockBed extends BlockBed {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		bedIconsTop = new IIcon[] { iconregister.registerIcon(getTextureName() + "_feet_top"), iconregister.registerIcon(getTextureName() + "_head_top") };
-		bedIconsEnd = new IIcon[] { iconregister.registerIcon(getTextureName() + "_feet_end"), iconregister.registerIcon(getTextureName() + "_head_end") };
-		bedIconsSide = new IIcon[] { iconregister.registerIcon(getTextureName() + "_feet_side"), iconregister.registerIcon(getTextureName() + "_head_side") };
+		bedIconsTop = new IIcon[]{iconregister.registerIcon(getTextureName() + "_feet_top"), iconregister.registerIcon(getTextureName() + "_head_top")};
+		bedIconsEnd = new IIcon[]{iconregister.registerIcon(getTextureName() + "_feet_end"), iconregister.registerIcon(getTextureName() + "_head_end")};
+		bedIconsSide = new IIcon[]{iconregister.registerIcon(getTextureName() + "_feet_side"), iconregister.registerIcon(getTextureName() + "_head_side")};
 	}
 }

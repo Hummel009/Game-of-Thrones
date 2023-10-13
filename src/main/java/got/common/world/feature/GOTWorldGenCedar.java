@@ -77,7 +77,8 @@ public class GOTWorldGenCedar extends WorldGenAbstractTree {
 		}
 		for (j1 = j + height - 1; j1 > j + height / 2; j1 -= 1 + random.nextInt(3)) {
 			int branches = 1 + random.nextInt(3);
-			block7: for (int l = 0; l < branches; ++l) {
+			block7:
+			for (int l = 0; l < branches; ++l) {
 				float angle = random.nextFloat() * 3.1415927f * 2.0f;
 				int i1 = i;
 				int k1 = k;

@@ -82,7 +82,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 				}
 			}
 		}
-		for (int k13 : new int[] { 0, 4 }) {
+		for (int k13 : new int[]{0, 4}) {
 			for (int i16 = -3; i16 <= 3; ++i16) {
 				if (i16 == 0) {
 					continue;
@@ -90,7 +90,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, i16, 3, k13, woodBeamBlock, woodBeamMeta | 4);
 			}
 		}
-		for (int i1321 : new int[] { -4, 0, 4 }) {
+		for (int i1321 : new int[]{-4, 0, 4}) {
 			for (k12 = 0; k12 <= 3; ++k12) {
 				setBlockAndMetadata(world, i1321, 4, k12, woodBeamBlock, woodBeamMeta | 8);
 			}
@@ -101,7 +101,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 		for (int i17 = -4; i17 <= 4; ++i17) {
 			setBlockAndMetadata(world, i17, 7, 4, woodBeamBlock, woodBeamMeta | 4);
 		}
-		int[] i17 = { -4, 4 };
+		int[] i17 = {-4, 4};
 		k1 = i17.length;
 		for (i2 = 0; i2 < k1; ++i2) {
 			i132 = i17[i2];
@@ -126,7 +126,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 			}
 			setBlockAndMetadata(world, i18, 4, 4, plankBlock, plankMeta);
 		}
-		for (int i1321 : new int[] { -4, 0, 4 }) {
+		for (int i1321 : new int[]{-4, 0, 4}) {
 			for (j12 = 1; j12 <= 3; ++j12) {
 				setBlockAndMetadata(world, i1321, j12, 9, woodBeamBlock, woodBeamMeta);
 			}
@@ -140,7 +140,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, i1321, 2, 5, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i1321, 2, 8, fenceBlock, fenceMeta);
 		}
-		int[] i18 = { -4, 4 };
+		int[] i18 = {-4, 4};
 		k1 = i18.length;
 		for (i2 = 0; i2 < k1; ++i2) {
 			i132 = i18[i2];
@@ -159,15 +159,15 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 			for (k1 = 5; k1 <= 8; ++k1) {
 				int randomFloor = random.nextInt(3);
 				switch (randomFloor) {
-				case 0:
-					setBlockAndMetadata(world, i1, 0, k1, Blocks.grass, 0);
-					break;
-				case 1:
-					setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
-					break;
-				default:
-					setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
-					break;
+					case 0:
+						setBlockAndMetadata(world, i1, 0, k1, Blocks.grass, 0);
+						break;
+					case 1:
+						setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
+						break;
+					default:
+						setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
+						break;
 				}
 				if (!random.nextBoolean()) {
 					continue;
@@ -204,7 +204,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, i1, 4 + l, 8 - l, roofStairBlock, 6);
 			}
 		}
-		for (int i1321 : new int[] { -4, 0, 4 }) {
+		for (int i1321 : new int[]{-4, 0, 4}) {
 			setBlockAndMetadata(world, i1321, 3, -1, Blocks.torch, 4);
 			setBlockAndMetadata(world, i1321, 3, 10, Blocks.torch, 3);
 		}
@@ -246,7 +246,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, i12, j1, 6, Blocks.hay_block, 0);
 			}
 		}
-		for (int i1321 : new int[] { -3, 3 }) {
+		for (int i1321 : new int[]{-3, 3}) {
 			for (k12 = 3; k12 <= 5; ++k12) {
 				if (random.nextInt(3) == 0) {
 					continue;
@@ -268,7 +268,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 			GOTEntityGiftMan man = new GOTEntityGiftMan(world);
 			spawnNPCAndSetHome(man, world, 0, 1, 2, 8);
 		}
-		for (int i16 : new int[] { -2, 2 }) {
+		for (int i16 : new int[]{-2, 2}) {
 			GOTEntityHorse horse = new GOTEntityHorse(world);
 			spawnNPCAndSetHome(horse, world, i16, 1, 7, 0);
 			horse.setHorseType(0);

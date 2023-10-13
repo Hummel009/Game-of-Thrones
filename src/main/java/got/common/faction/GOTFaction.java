@@ -124,7 +124,7 @@ public enum GOTFaction {
 			zMin = Math.min(zMin, czMin);
 			zMax = Math.max(zMax, czMax);
 		}
-		return new int[] { xMin, xMax, zMin, zMax };
+		return new int[]{xMin, xMax, zMin, zMax};
 	}
 
 	public void checkAlignmentAchievements(EntityPlayer entityplayer, float alignment) {

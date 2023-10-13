@@ -82,7 +82,7 @@ public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		int[] i13 = { -4, 4 };
+		int[] i13 = {-4, 4};
 		k1 = i13.length;
 		for (i2 = 0; i2 < k1; ++i2) {
 			int i14 = i13[i2];

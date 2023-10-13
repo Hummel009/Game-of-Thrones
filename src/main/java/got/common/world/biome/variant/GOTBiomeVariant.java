@@ -48,7 +48,7 @@ public class GOTBiomeVariant {
 	public static GOTBiomeVariant FOREST_LIME = new GOTBiomeVariantForest(54, "forest_lime").addTreeTypes(0.8f, GOTTreeType.LIME, 1000);
 	public static GOTBiomeVariant FOREST_CEDAR = new GOTBiomeVariantForest(60, "forest_cedar").addTreeTypes(0.8f, GOTTreeType.CEDAR, 1000, GOTTreeType.CEDAR_LARGE, 50);
 	public static GOTBiomeVariant FOREST_CYPRESS = new GOTBiomeVariantForest(61, "forest_cypress").addTreeTypes(0.8f, GOTTreeType.CYPRESS, 1000, GOTTreeType.CYPRESS_LARGE, 50);
-	public static GOTBiomeVariant[] SET_MOUNTAINS = { FOREST, FOREST_LIGHT };
+	public static GOTBiomeVariant[] SET_MOUNTAINS = {FOREST, FOREST_LIGHT};
 	public static NoiseGeneratorPerlin marshNoise = new NoiseGeneratorPerlin(new Random(444L), 1);
 	public static NoiseGeneratorPerlin podzolNoise = new NoiseGeneratorPerlin(new Random(58052L), 1);
 	public int variantID;

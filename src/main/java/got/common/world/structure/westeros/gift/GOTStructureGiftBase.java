@@ -63,7 +63,7 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 	}
 
 	public ItemStack getRangerFramedItem(Random random) {
-		ItemStack[] items = { new ItemStack(GOTItems.giftHelmet), new ItemStack(GOTItems.giftChestplate), new ItemStack(GOTItems.giftLeggings), new ItemStack(GOTItems.giftBoots), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.bow), new ItemStack(Items.arrow) };
+		ItemStack[] items = {new ItemStack(GOTItems.giftHelmet), new ItemStack(GOTItems.giftChestplate), new ItemStack(GOTItems.giftLeggings), new ItemStack(GOTItems.giftBoots), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.bow), new ItemStack(Items.arrow)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -120,31 +120,31 @@ public abstract class GOTStructureGiftBase extends GOTStructureBase {
 		} else {
 			int randomCrop = random.nextInt(5);
 			switch (randomCrop) {
-			case 0:
-				cropBlock = Blocks.carrots;
-				cropMeta = 7;
-				seedItem = Items.carrot;
-				break;
-			case 1:
-				cropBlock = Blocks.potatoes;
-				cropMeta = 7;
-				seedItem = Items.potato;
-				break;
-			case 2:
-				cropBlock = GOTBlocks.lettuceCrop;
-				cropMeta = 7;
-				seedItem = GOTItems.lettuce;
-				break;
-			case 3:
-				cropBlock = GOTBlocks.leekCrop;
-				cropMeta = 7;
-				seedItem = GOTItems.leek;
-				break;
-			default:
-				cropBlock = GOTBlocks.turnipCrop;
-				cropMeta = 7;
-				seedItem = GOTItems.turnip;
-				break;
+				case 0:
+					cropBlock = Blocks.carrots;
+					cropMeta = 7;
+					seedItem = Items.carrot;
+					break;
+				case 1:
+					cropBlock = Blocks.potatoes;
+					cropMeta = 7;
+					seedItem = Items.potato;
+					break;
+				case 2:
+					cropBlock = GOTBlocks.lettuceCrop;
+					cropMeta = 7;
+					seedItem = GOTItems.lettuce;
+					break;
+				case 3:
+					cropBlock = GOTBlocks.leekCrop;
+					cropMeta = 7;
+					seedItem = GOTItems.leek;
+					break;
+				default:
+					cropBlock = GOTBlocks.turnipCrop;
+					cropMeta = 7;
+					seedItem = GOTItems.turnip;
+					break;
 			}
 		}
 		bannerType = GOTItemBanner.BannerType.NIGHT;

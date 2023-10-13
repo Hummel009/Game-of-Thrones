@@ -50,18 +50,18 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 			if (fellowship != null && subjectPlayer != null) {
 				GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 				switch (packet.function) {
-				case DEOP:
-					playerData.setFellowshipAdmin(fellowship, subjectPlayer, false, playerName);
-					break;
-				case OP:
-					playerData.setFellowshipAdmin(fellowship, subjectPlayer, true, playerName);
-					break;
-				case REMOVE:
-					playerData.removePlayerFromFellowship(fellowship, subjectPlayer, playerName);
-					break;
-				case TRANSFER:
-					playerData.transferFellowship(fellowship, subjectPlayer, playerName);
-					break;
+					case DEOP:
+						playerData.setFellowshipAdmin(fellowship, subjectPlayer, false, playerName);
+						break;
+					case OP:
+						playerData.setFellowshipAdmin(fellowship, subjectPlayer, true, playerName);
+						break;
+					case REMOVE:
+						playerData.removePlayerFromFellowship(fellowship, subjectPlayer, playerName);
+						break;
+					case TRANSFER:
+						playerData.transferFellowship(fellowship, subjectPlayer, playerName);
+						break;
 				}
 			}
 			return null;

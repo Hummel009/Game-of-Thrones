@@ -21,7 +21,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class GOTBlockDoubleFlower extends BlockDoublePlant {
-	public static String[] flowerNames = { "black_iris", "yellow_iris", "pink", "red" };
+	public static String[] flowerNames = {"black_iris", "yellow_iris", "pink", "red"};
 	@SideOnly(Side.CLIENT)
 	public IIcon[] doublePlantBottomIcons;
 	@SideOnly(Side.CLIENT)

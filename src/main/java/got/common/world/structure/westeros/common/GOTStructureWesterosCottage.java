@@ -114,14 +114,14 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		for (int i15 : new int[] { -5, 5 }) {
+		for (int i15 : new int[]{-5, 5}) {
 			setBlockAndMetadata(world, i15, 2, -3, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i15, 2, -2, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i15, 2, 0, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i15, 2, 2, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i15, 2, 3, fenceBlock, fenceMeta);
 		}
-		for (int k1321 : new int[] { -5, 5 }) {
+		for (int k1321 : new int[]{-5, 5}) {
 			int i16;
 			for (i16 = -1; i16 <= 1; ++i16) {
 				for (int j14 = 2; j14 <= 3; ++j14) {
@@ -149,7 +149,7 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 1, 5, doorBlock, 3);
 		setBlockAndMetadata(world, 0, 2, 5, doorBlock, 8);
 		setBlockAndMetadata(world, 0, 3, 6, Blocks.torch, 3);
-		int[] i17 = { -5, 5 };
+		int[] i17 = {-5, 5};
 		k12 = i17.length;
 		for (j13 = 0; j13 < k12; ++j13) {
 			k132 = i17[j13];
@@ -250,7 +250,7 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i13, j1, 10, GOTBlocks.reedBars, 0);
 			}
 		}
-		int[] j15 = { -2, 1 };
+		int[] j15 = {-2, 1};
 		i13 = j15.length;
 		for (j13 = 0; j13 < i13; ++j13) {
 			int i15;

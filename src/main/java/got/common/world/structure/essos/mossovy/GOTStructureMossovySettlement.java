@@ -51,12 +51,12 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case FORT:
-				addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case FORT:
+					addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
+					break;
 			}
 		}
 

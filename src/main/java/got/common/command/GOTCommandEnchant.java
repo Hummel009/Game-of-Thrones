@@ -17,36 +17,36 @@ public class GOTCommandEnchant extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
-		case 1:
-			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
-		case 2:
-			return CommandBase.getListOfStringsMatchingLastWord(args, "add", "remove", "clear");
-		case 3:
-			ItemStack itemstack;
-			if ("add".equals(args[1])) {
-				EntityPlayerMP entityplayer2 = CommandBase.getPlayer(sender, args[0]);
-				ItemStack itemstack2 = entityplayer2.getHeldItem();
-				if (itemstack2 != null) {
+			case 1:
+				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+			case 2:
+				return CommandBase.getListOfStringsMatchingLastWord(args, "add", "remove", "clear");
+			case 3:
+				ItemStack itemstack;
+				if ("add".equals(args[1])) {
+					EntityPlayerMP entityplayer2 = CommandBase.getPlayer(sender, args[0]);
+					ItemStack itemstack2 = entityplayer2.getHeldItem();
+					if (itemstack2 != null) {
+						ArrayList<String> enchNames = new ArrayList<>();
+						for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
+							if (GOTEnchantmentHelper.hasEnchant(itemstack2, ench) || !ench.canApply(itemstack2, false) || !GOTEnchantmentHelper.checkEnchantCompatible(itemstack2, ench)) {
+								continue;
+							}
+							enchNames.add(ench.enchantName);
+						}
+						return CommandBase.getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
+					}
+				} else if ("remove".equals(args[1]) && (itemstack = CommandBase.getPlayer(sender, args[0]).getHeldItem()) != null) {
 					ArrayList<String> enchNames = new ArrayList<>();
 					for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
-						if (GOTEnchantmentHelper.hasEnchant(itemstack2, ench) || !ench.canApply(itemstack2, false) || !GOTEnchantmentHelper.checkEnchantCompatible(itemstack2, ench)) {
+						if (!GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
 							continue;
 						}
 						enchNames.add(ench.enchantName);
 					}
 					return CommandBase.getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
 				}
-			} else if ("remove".equals(args[1]) && (itemstack = CommandBase.getPlayer(sender, args[0]).getHeldItem()) != null) {
-				ArrayList<String> enchNames = new ArrayList<>();
-				for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
-					if (!GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
-						continue;
-					}
-					enchNames.add(ench.enchantName);
-				}
-				return CommandBase.getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
-			}
-			break;
+				break;
 		}
 		return Collections.emptyList();
 	}

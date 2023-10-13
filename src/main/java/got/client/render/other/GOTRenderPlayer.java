@@ -91,7 +91,7 @@ public class GOTRenderPlayer {
 			}
 		}
 		if (shouldRenderFellowPlayerHealth(entityplayer)) {
-			GOTNPCRendering.renderHealthBar(entityplayer, fr0, fr1, fr2, new int[] { 16375808, 12006707 }, null);
+			GOTNPCRendering.renderHealthBar(entityplayer, fr0, fr1, fr2, new int[]{16375808, 12006707}, null);
 		}
 	}
 

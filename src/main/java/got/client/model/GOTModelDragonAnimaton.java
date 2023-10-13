@@ -75,23 +75,23 @@ public class GOTModelDragonAnimaton {
 	public float[] wingForearmGlide = new float[3];
 	public float[] wingArmGround = new float[3];
 	public float[] wingForearmGround = new float[3];
-	public float[] xGround = { 0, 0, 0, 0 };
-	public float[][] xGroundStand = { { 0.8f, -1.5f, 1.3f, 0 }, { -0.3f, 1.5f, -0.2f, 0 }, };
+	public float[] xGround = {0, 0, 0, 0};
+	public float[][] xGroundStand = {{0.8f, -1.5f, 1.3f, 0}, {-0.3f, 1.5f, -0.2f, 0},};
 
-	public float[][] xGroundSit = { { 0.3f, -1.8f, 1.8f, 0 }, { -0.8f, 1.8f, -0.9f, 0 }, };
+	public float[][] xGroundSit = {{0.3f, -1.8f, 1.8f, 0}, {-0.8f, 1.8f, -0.9f, 0},};
 
-	public float[][][] xGroundWalk = { { { 0.4f, -1.4f, 1.3f, 0 }, { 0.1f, 1.2f, -0.5f, 0 } }, { { 1.2f, -1.6f, 1.3f, 0 }, { -0.3f, 2.1f, -0.9f, 0.6f } }, { { 0.9f, -2.1f, 1.8f, 0.6f }, { -0.7f, 1.4f, -0.2f, 0 } } };
-	public float[] xGroundWalk2 = { 0, 0, 0, 0 };
+	public float[][][] xGroundWalk = {{{0.4f, -1.4f, 1.3f, 0}, {0.1f, 1.2f, -0.5f, 0}}, {{1.2f, -1.6f, 1.3f, 0}, {-0.3f, 2.1f, -0.9f, 0.6f}}, {{0.9f, -2.1f, 1.8f, 0.6f}, {-0.7f, 1.4f, -0.2f, 0}}};
+	public float[] xGroundWalk2 = {0, 0, 0, 0};
 
-	public float[] yGroundStand = { -0.25f, 0.25f };
+	public float[] yGroundStand = {-0.25f, 0.25f};
 
-	public float[] yGroundSit = { 0.1f, 0.35f };
+	public float[] yGroundSit = {0.1f, 0.35f};
 
-	public float[] yGroundWalk = { -0.1f, 0.1f };
+	public float[] yGroundWalk = {-0.1f, 0.1f};
 	public float[] xAir;
-	public float[][] xAirAll = { { 0, 0, 0, 0 }, { 0, 0, 0, 0 } };
+	public float[][] xAirAll = {{0, 0, 0, 0}, {0, 0, 0, 0}};
 
-	public float[] yAirAll = { -0.1f, 0.1f };
+	public float[] yAirAll = {-0.1f, 0.1f};
 
 	public GOTModelDragonAnimaton(GOTEntityDragon dragon) {
 		entity = dragon;
@@ -371,8 +371,8 @@ public class GOTModelDragonAnimaton {
 		model.wingForearm.rotateAngleY = wingForearm[1];
 		model.wingForearm.rotateAngleZ = wingForearm[2];
 
-		float[] yFold = { 2.7f, 2.8f, 2.9f, 3.0f };
-		float[] yUnfold = { 0.1f, 0.9f, 1.7f, 2.5f };
+		float[] yFold = {2.7f, 2.8f, 2.9f, 3.0f};
+		float[] yUnfold = {0.1f, 0.9f, 1.7f, 2.5f};
 
 		float rotX = 0;
 		float rotYOfs = sin(a1) * sin(a2) * 0.03f;

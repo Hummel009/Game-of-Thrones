@@ -118,7 +118,7 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 		int leafStart = j - 1;
 		int leafTop = j + 2;
 		int maxRange = 3 + random.nextInt(2);
-		int[] ranges = { -2, 0, -1, -2 };
+		int[] ranges = {-2, 0, -1, -2};
 		for (int j1 = leafStart; j1 <= leafTop; ++j1) {
 			int leafRange = maxRange + ranges[j1 - leafStart];
 			int leafRangeSq = leafRange * leafRange;

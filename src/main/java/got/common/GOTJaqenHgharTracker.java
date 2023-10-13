@@ -63,7 +63,8 @@ public class GOTJaqenHgharTracker {
 				List<EntityPlayer> players = new ArrayList<EntityPlayer>(world.playerEntities);
 				Collections.shuffle(players);
 				Random rand = world.rand;
-				block0: for (EntityPlayer entityplayer : players) {
+				block0:
+				for (EntityPlayer entityplayer : players) {
 					if (!GOTLevelData.getData(entityplayer).hasAnyJHQuest()) {
 						for (int attempts = 0; attempts < 32; ++attempts) {
 							int k;

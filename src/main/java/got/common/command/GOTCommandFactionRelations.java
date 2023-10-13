@@ -13,17 +13,17 @@ public class GOTCommandFactionRelations extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
-		case 1:
-			return CommandBase.getListOfStringsMatchingLastWord(args, "set", "reset");
-		case 2:
-		case 3: {
-			List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
-			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
-		}
-		case 4: {
-			List<String> list = GOTFactionRelations.Relation.listRelationNames();
-			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
-		}
+			case 1:
+				return CommandBase.getListOfStringsMatchingLastWord(args, "set", "reset");
+			case 2:
+			case 3: {
+				List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
+				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+			}
+			case 4: {
+				List<String> list = GOTFactionRelations.Relation.listRelationNames();
+				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+			}
 		}
 		return Collections.emptyList();
 	}

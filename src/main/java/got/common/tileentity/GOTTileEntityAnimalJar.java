@@ -52,7 +52,7 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 	}
 
 	public float[] getInitialEntityCoords(Entity entity) {
-		return new float[] { xCoord + 0.5f, yCoord + getEntityHeight() - entity.height / 2.0f, zCoord + 0.5f };
+		return new float[]{xCoord + 0.5f, yCoord + getEntityHeight() - entity.height / 2.0f, zCoord + 0.5f};
 	}
 
 	public Packet getJarPacket(int type) {

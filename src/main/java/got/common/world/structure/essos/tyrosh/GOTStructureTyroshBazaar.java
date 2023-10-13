@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTStructureTyroshBazaar extends GOTStructureEssosBazaar {
-	public static Class<? extends GOTStructureBase>[] stalls = new Class[] { Lumber.class, Mason.class, Fish.class, Baker.class, Goldsmith.class, Farmer.class, Blacksmith.class, Brewer.class, Miner.class, Florist.class, Butcher.class };
+	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Lumber.class, Mason.class, Fish.class, Baker.class, Goldsmith.class, Farmer.class, Blacksmith.class, Brewer.class, Miner.class, Florist.class, Butcher.class};
 
 	public GOTStructureTyroshBazaar(boolean flag) {
 		super(flag);

@@ -17,7 +17,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityBarrowWight extends GOTEntityNPC {
-	public static Potion[] attackEffects = { Potion.moveSlowdown, Potion.digSlowdown, Potion.wither };
+	public static Potion[] attackEffects = {Potion.moveSlowdown, Potion.digSlowdown, Potion.wither};
 
 	public GOTEntityBarrowWight(World world) {
 		super(world);

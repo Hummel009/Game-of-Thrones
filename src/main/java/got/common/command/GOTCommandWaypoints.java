@@ -18,17 +18,17 @@ public class GOTCommandWaypoints extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
-		case 1:
-			return CommandBase.getListOfStringsMatchingLastWord(args, "unlock", "lock");
-		case 2:
-			ArrayList<String> names = new ArrayList<>();
-			for (GOTWaypoint.Region r : GOTWaypoint.Region.values()) {
-				names.add(r.name());
-			}
-			names.add("all");
-			return CommandBase.getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
-		case 3:
-			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+			case 1:
+				return CommandBase.getListOfStringsMatchingLastWord(args, "unlock", "lock");
+			case 2:
+				ArrayList<String> names = new ArrayList<>();
+				for (GOTWaypoint.Region r : GOTWaypoint.Region.values()) {
+					names.add(r.name());
+				}
+				names.add("all");
+				return CommandBase.getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
+			case 3:
+				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
 		return Collections.emptyList();
 	}

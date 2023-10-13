@@ -138,10 +138,10 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			placeFlowerPot(world, 11, 2, 1, getRandomFlower(world, random));
 			placeFoodOrDrink(world, random, 12, 2, 1);
 			String[] tavernName = GOTNames.getTavernName(random);
-			placeSign(world, -1, 2, -6, Blocks.wall_sign, 5, new String[] { "", tavernName[0], tavernName[1], "" });
-			placeSign(world, 1, 2, -6, Blocks.wall_sign, 4, new String[] { "", tavernName[0], tavernName[1], "" });
-			placeSign(world, -1, 2, 6, Blocks.wall_sign, 5, new String[] { "", tavernName[0], tavernName[1], "" });
-			placeSign(world, 1, 2, 6, Blocks.wall_sign, 4, new String[] { "", tavernName[0], tavernName[1], "" });
+			placeSign(world, -1, 2, -6, Blocks.wall_sign, 5, new String[]{"", tavernName[0], tavernName[1], ""});
+			placeSign(world, 1, 2, -6, Blocks.wall_sign, 4, new String[]{"", tavernName[0], tavernName[1], ""});
+			placeSign(world, -1, 2, 6, Blocks.wall_sign, 5, new String[]{"", tavernName[0], tavernName[1], ""});
+			placeSign(world, 1, 2, 6, Blocks.wall_sign, 4, new String[]{"", tavernName[0], tavernName[1], ""});
 			placeWallBanner(world, -6, 4, -8, GOTItemBanner.BannerType.SUMMER, 2);
 			placeWallBanner(world, 6, 4, -8, GOTItemBanner.BannerType.SUMMER, 2);
 			placeWallBanner(world, -6, 4, 8, GOTItemBanner.BannerType.SUMMER, 0);

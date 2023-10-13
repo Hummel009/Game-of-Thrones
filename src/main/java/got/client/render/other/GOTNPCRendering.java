@@ -240,7 +240,7 @@ public class GOTNPCRendering {
 		if (!GOTConfig.hiredUnitHealthBars || entity.riddenByEntity instanceof GOTEntityNPC || entity instanceof GOTEntityNPC && GOTSpeechClient.hasSpeech((GOTEntityNPC) entity)) {
 			return;
 		}
-		renderHealthBar(entity, d, d1, d2, new int[] { 5888860, 12006707 }, new int[] { 6079225, 12006707 });
+		renderHealthBar(entity, d, d1, d2, new int[]{5888860, 12006707}, new int[]{6079225, 12006707});
 	}
 
 	public static void renderQuestBook(GOTEntityNPC npc, double d, double d1, double d2) {

@@ -196,25 +196,25 @@ public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, -8, 7, 8, brickStairBlock, 7);
 		setBlockAndMetadata(world, 8, 7, 8, brickStairBlock, 7);
 		setBlockAndMetadata(world, 9, 7, 8, brickStairBlock, 7);
-		for (int k1 : new int[] { -9, 9 }) {
+		for (int k1 : new int[]{-9, 9}) {
 			setBlockAndMetadata(world, -1, 5, k1, brickStairBlock, 4);
 			setBlockAndMetadata(world, 1, 5, k1, brickStairBlock, 5);
 			setBlockAndMetadata(world, -1, 6, k1, brickStairBlock, 0);
 			setBlockAndMetadata(world, 0, 6, k1, brickSlabBlock, brickSlabMeta);
 			setBlockAndMetadata(world, 1, 6, k1, brickStairBlock, 1);
 		}
-		for (int i1 : new int[] { -9, 9 }) {
+		for (int i1 : new int[]{-9, 9}) {
 			setBlockAndMetadata(world, i1, 5, -1, brickStairBlock, 7);
 			setBlockAndMetadata(world, i1, 5, 1, brickStairBlock, 6);
 			setBlockAndMetadata(world, i1, 6, -1, brickStairBlock, 3);
 			setBlockAndMetadata(world, i1, 6, 0, brickSlabBlock, brickSlabMeta);
 			setBlockAndMetadata(world, i1, 6, 1, brickStairBlock, 2);
 		}
-		for (int i1 : new int[] { -2, 2 }) {
+		for (int i1 : new int[]{-2, 2}) {
 			setBlockAndMetadata(world, i1, 6, -8, Blocks.torch, 3);
 			setBlockAndMetadata(world, i1, 6, 8, Blocks.torch, 4);
 		}
-		for (int k1 : new int[] { -2, 2 }) {
+		for (int k1 : new int[]{-2, 2}) {
 			setBlockAndMetadata(world, -8, 6, k1, Blocks.torch, 2);
 			setBlockAndMetadata(world, 8, 6, k1, Blocks.torch, 1);
 		}
@@ -229,7 +229,7 @@ public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 			if (i2 != 3 && i2 != 7) {
 				continue;
 			}
-			for (int k1 : new int[] { -10, 10 }) {
+			for (int k1 : new int[]{-10, 10}) {
 				setBlockAndMetadata(world, i1 - 1, 9, k1, brickStairBlock, 1);
 				setBlockAndMetadata(world, i1, 9, k1, brickBlock, brickMeta);
 				setBlockAndMetadata(world, i1 + 1, 9, k1, brickStairBlock, 0);
@@ -246,7 +246,7 @@ public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 			if (k2 != 3 && k2 != 7) {
 				continue;
 			}
-			for (int i1 : new int[] { -10, 10 }) {
+			for (int i1 : new int[]{-10, 10}) {
 				setBlockAndMetadata(world, i1, 9, k1 - 1, brickStairBlock, 2);
 				setBlockAndMetadata(world, i1, 9, k1, brickBlock, brickMeta);
 				setBlockAndMetadata(world, i1, 9, k1 + 1, brickStairBlock, 3);

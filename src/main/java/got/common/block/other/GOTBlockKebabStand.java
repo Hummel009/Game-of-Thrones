@@ -150,20 +150,20 @@ public class GOTBlockKebabStand extends BlockContainer {
 		int rotation = MathHelper.floor_double(entity.rotationYaw * 4.0f / 360.0f + 0.5) & 3;
 		int meta = 0;
 		switch (rotation) {
-		case 0:
-			meta = 2;
-			break;
-		case 1:
-			meta = 5;
-			break;
-		case 2:
-			meta = 3;
-			break;
-		case 3:
-			meta = 4;
-			break;
-		default:
-			break;
+			case 0:
+				meta = 2;
+				break;
+			case 1:
+				meta = 5;
+				break;
+			case 2:
+				meta = 3;
+				break;
+			case 3:
+				meta = 4;
+				break;
+			default:
+				break;
 		}
 		world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		TileEntity tileentity = world.getTileEntity(i, j, k);

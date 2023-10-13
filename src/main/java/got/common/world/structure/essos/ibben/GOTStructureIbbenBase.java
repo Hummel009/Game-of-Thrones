@@ -90,17 +90,17 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 	public Block getRandomCakeBlock(Random random) {
 		int i = random.nextInt(3);
 		switch (i) {
-		case 0:
-			return GOTBlocks.appleCrumble;
-		case 1:
-			return GOTBlocks.cherryPie;
-		default:
-			return GOTBlocks.berryPie;
+			case 0:
+				return GOTBlocks.appleCrumble;
+			case 1:
+				return GOTBlocks.cherryPie;
+			default:
+				return GOTBlocks.berryPie;
 		}
 	}
 
 	public ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = { new ItemStack(GOTItems.stoneSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironDaggerPoisoned) };
+		ItemStack[] items = {new ItemStack(GOTItems.stoneSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.ironDaggerPoisoned)};
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -137,68 +137,68 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		cobbleStairBlock = Blocks.stone_stairs;
 		int randomWood = random.nextInt(6);
 		switch (randomWood) {
-		case 0:
-		case 1:
-		case 2:
-			logBlock = Blocks.log;
-			logMeta = 0;
-			plankBlock = Blocks.planks;
-			plankMeta = 0;
-			plankSlabBlock = Blocks.wooden_slab;
-			plankSlabMeta = 0;
-			plankStairBlock = Blocks.oak_stairs;
-			fenceBlock = Blocks.fence;
-			fenceMeta = 0;
-			fenceGateBlock = Blocks.fence_gate;
-			woodBeamBlock = GOTBlocks.woodBeamV1;
-			woodBeamMeta = 0;
-			doorBlock = Blocks.wooden_door;
-			break;
-		case 3:
-			logBlock = GOTBlocks.wood2;
-			logMeta = 1;
-			plankBlock = GOTBlocks.planks1;
-			plankMeta = 9;
-			plankSlabBlock = GOTBlocks.woodSlabSingle2;
-			plankSlabMeta = 1;
-			plankStairBlock = GOTBlocks.stairsBeech;
-			fenceBlock = GOTBlocks.fence;
-			fenceMeta = 9;
-			fenceGateBlock = GOTBlocks.fenceGateBeech;
-			woodBeamBlock = GOTBlocks.woodBeam2;
-			woodBeamMeta = 1;
-			doorBlock = GOTBlocks.doorBeech;
-			break;
-		case 4:
-			logBlock = GOTBlocks.fruitWood;
-			logMeta = 0;
-			plankBlock = GOTBlocks.planks1;
-			plankMeta = 4;
-			plankSlabBlock = GOTBlocks.woodSlabSingle1;
-			plankSlabMeta = 4;
-			plankStairBlock = GOTBlocks.stairsApple;
-			fenceBlock = GOTBlocks.fence;
-			fenceMeta = 4;
-			fenceGateBlock = GOTBlocks.fenceGateApple;
-			woodBeamBlock = GOTBlocks.woodBeamFruit;
-			woodBeamMeta = 0;
-			doorBlock = GOTBlocks.doorApple;
-			break;
-		default:
-			logBlock = GOTBlocks.wood5;
-			logMeta = 0;
-			plankBlock = GOTBlocks.planks2;
-			plankMeta = 4;
-			plankSlabBlock = GOTBlocks.woodSlabSingle3;
-			plankSlabMeta = 4;
-			plankStairBlock = GOTBlocks.stairsPine;
-			fenceBlock = GOTBlocks.fence2;
-			fenceMeta = 4;
-			fenceGateBlock = GOTBlocks.fenceGatePine;
-			woodBeamBlock = GOTBlocks.woodBeam5;
-			woodBeamMeta = 0;
-			doorBlock = GOTBlocks.doorPine;
-			break;
+			case 0:
+			case 1:
+			case 2:
+				logBlock = Blocks.log;
+				logMeta = 0;
+				plankBlock = Blocks.planks;
+				plankMeta = 0;
+				plankSlabBlock = Blocks.wooden_slab;
+				plankSlabMeta = 0;
+				plankStairBlock = Blocks.oak_stairs;
+				fenceBlock = Blocks.fence;
+				fenceMeta = 0;
+				fenceGateBlock = Blocks.fence_gate;
+				woodBeamBlock = GOTBlocks.woodBeamV1;
+				woodBeamMeta = 0;
+				doorBlock = Blocks.wooden_door;
+				break;
+			case 3:
+				logBlock = GOTBlocks.wood2;
+				logMeta = 1;
+				plankBlock = GOTBlocks.planks1;
+				plankMeta = 9;
+				plankSlabBlock = GOTBlocks.woodSlabSingle2;
+				plankSlabMeta = 1;
+				plankStairBlock = GOTBlocks.stairsBeech;
+				fenceBlock = GOTBlocks.fence;
+				fenceMeta = 9;
+				fenceGateBlock = GOTBlocks.fenceGateBeech;
+				woodBeamBlock = GOTBlocks.woodBeam2;
+				woodBeamMeta = 1;
+				doorBlock = GOTBlocks.doorBeech;
+				break;
+			case 4:
+				logBlock = GOTBlocks.fruitWood;
+				logMeta = 0;
+				plankBlock = GOTBlocks.planks1;
+				plankMeta = 4;
+				plankSlabBlock = GOTBlocks.woodSlabSingle1;
+				plankSlabMeta = 4;
+				plankStairBlock = GOTBlocks.stairsApple;
+				fenceBlock = GOTBlocks.fence;
+				fenceMeta = 4;
+				fenceGateBlock = GOTBlocks.fenceGateApple;
+				woodBeamBlock = GOTBlocks.woodBeamFruit;
+				woodBeamMeta = 0;
+				doorBlock = GOTBlocks.doorApple;
+				break;
+			default:
+				logBlock = GOTBlocks.wood5;
+				logMeta = 0;
+				plankBlock = GOTBlocks.planks2;
+				plankMeta = 4;
+				plankSlabBlock = GOTBlocks.woodSlabSingle3;
+				plankSlabMeta = 4;
+				plankStairBlock = GOTBlocks.stairsPine;
+				fenceBlock = GOTBlocks.fence2;
+				fenceMeta = 4;
+				fenceGateBlock = GOTBlocks.fenceGatePine;
+				woodBeamBlock = GOTBlocks.woodBeam5;
+				woodBeamMeta = 0;
+				doorBlock = GOTBlocks.doorPine;
+				break;
 		}
 		int randomWood2 = random.nextInt(4);
 		if (randomWood2 == 0 || randomWood2 == 1 || randomWood2 == 2) {
@@ -263,31 +263,31 @@ public abstract class GOTStructureIbbenBase extends GOTStructureBase {
 		} else {
 			int randomCrop = random.nextInt(5);
 			switch (randomCrop) {
-			case 0:
-				cropBlock = Blocks.carrots;
-				cropMeta = 7;
-				seedItem = Items.carrot;
-				break;
-			case 1:
-				cropBlock = Blocks.potatoes;
-				cropMeta = 7;
-				seedItem = Items.potato;
-				break;
-			case 2:
-				cropBlock = GOTBlocks.lettuceCrop;
-				cropMeta = 7;
-				seedItem = GOTItems.lettuce;
-				break;
-			case 3:
-				cropBlock = GOTBlocks.leekCrop;
-				cropMeta = 7;
-				seedItem = GOTItems.leek;
-				break;
-			default:
-				cropBlock = GOTBlocks.turnipCrop;
-				cropMeta = 7;
-				seedItem = GOTItems.turnip;
-				break;
+				case 0:
+					cropBlock = Blocks.carrots;
+					cropMeta = 7;
+					seedItem = Items.carrot;
+					break;
+				case 1:
+					cropBlock = Blocks.potatoes;
+					cropMeta = 7;
+					seedItem = Items.potato;
+					break;
+				case 2:
+					cropBlock = GOTBlocks.lettuceCrop;
+					cropMeta = 7;
+					seedItem = GOTItems.lettuce;
+					break;
+				case 3:
+					cropBlock = GOTBlocks.leekCrop;
+					cropMeta = 7;
+					seedItem = GOTItems.leek;
+					break;
+				default:
+					cropBlock = GOTBlocks.turnipCrop;
+					cropMeta = 7;
+					seedItem = GOTItems.turnip;
+					break;
 			}
 		}
 		bannerType = GOTItemBanner.BannerType.IBBEN;

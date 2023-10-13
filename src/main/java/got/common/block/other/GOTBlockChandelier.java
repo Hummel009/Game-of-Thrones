@@ -21,7 +21,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class GOTBlockChandelier extends Block {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] chandelierIcons;
-	public String[] chandelierNames = { "bronze", "iron", "silver", "gold", "valyrian", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "asshai", "bronze", "bronze", "bronze" };
+	public String[] chandelierNames = {"bronze", "iron", "silver", "gold", "valyrian", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "asshai", "bronze", "bronze", "bronze"};
 
 	public GOTBlockChandelier() {
 		super(Material.circuits);

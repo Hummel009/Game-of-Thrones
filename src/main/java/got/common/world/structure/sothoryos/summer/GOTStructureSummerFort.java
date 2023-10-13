@@ -136,7 +136,7 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 			warrior.spawnRidingHorse = false;
 			spawnNPCAndSetHome(warrior, world, 0, 1, 0, 16);
 		}
-		for (int i13 : new int[] { -4, 4 }) {
+		for (int i13 : new int[]{-4, 4}) {
 			j1 = 1;
 			int k1 = -6;
 			GOTEntityHorse horse = new GOTEntityHorse(world);

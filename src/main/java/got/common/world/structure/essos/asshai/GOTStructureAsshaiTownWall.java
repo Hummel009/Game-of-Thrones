@@ -46,17 +46,17 @@ public class GOTStructureAsshaiTownWall extends GOTStructureAsshaiBase {
 			} else {
 				setBlockAndMetadata(world, i1, 5, k1, brickBlock, brickMeta);
 				switch (i3) {
-				case 3:
-					setBlockAndMetadata(world, i1, 6, k1, brickStairBlock, 1);
-					break;
-				case 0:
-					setBlockAndMetadata(world, i1, 6, k1, brickBlock, brickMeta);
-					break;
-				case 1:
-					setBlockAndMetadata(world, i1, 6, k1, brickStairBlock, 0);
-					break;
-				default:
-					break;
+					case 3:
+						setBlockAndMetadata(world, i1, 6, k1, brickStairBlock, 1);
+						break;
+					case 0:
+						setBlockAndMetadata(world, i1, 6, k1, brickBlock, brickMeta);
+						break;
+					case 1:
+						setBlockAndMetadata(world, i1, 6, k1, brickStairBlock, 0);
+						break;
+					default:
+						break;
 				}
 			}
 			if (i1 < xMinInner || i1 > xMaxInner) {

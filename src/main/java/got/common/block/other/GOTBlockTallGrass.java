@@ -19,8 +19,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class GOTBlockTallGrass extends GOTBlockGrass {
-	public static String[] grassNames = { "short", "flower", "wheat", "thistle", "nettle", "fernsprout" };
-	public static boolean[] grassOverlay = { false, true, true, true, false, false };
+	public static String[] grassNames = {"short", "flower", "wheat", "thistle", "nettle", "fernsprout"};
+	public static boolean[] grassOverlay = {false, true, true, true, false, false};
 	@SideOnly(Side.CLIENT)
 	public IIcon[] grassIcons;
 	@SideOnly(Side.CLIENT)

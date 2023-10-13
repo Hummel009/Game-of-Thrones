@@ -278,20 +278,20 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public int getX(int x, int z) {
 		switch (rotationMode) {
-		case 0: {
-			return originX - x;
-		}
-		case 1: {
-			return originX - z;
-		}
-		case 2: {
-			return originX + x;
-		}
-		case 3: {
-			return originX + z;
-		}
-		default:
-			return originX;
+			case 0: {
+				return originX - x;
+			}
+			case 1: {
+				return originX - z;
+			}
+			case 2: {
+				return originX + x;
+			}
+			case 3: {
+				return originX + z;
+			}
+			default:
+				return originX;
 		}
 	}
 
@@ -301,20 +301,20 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public int getZ(int x, int z) {
 		switch (rotationMode) {
-		case 0: {
-			return originZ + z;
-		}
-		case 1: {
-			return originZ - x;
-		}
-		case 2: {
-			return originZ - z;
-		}
-		case 3: {
-			return originZ + x;
-		}
-		default:
-			return originZ;
+			case 0: {
+				return originZ + z;
+			}
+			case 1: {
+				return originZ - x;
+			}
+			case 2: {
+				return originZ - z;
+			}
+			case 3: {
+				return originZ + x;
+			}
+			default:
+				return originZ;
 		}
 	}
 
@@ -612,25 +612,25 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 		float f = rotation;
 		switch (rotationMode) {
-		case 0: {
-			f += 0.0f;
-			break;
-		}
-		case 1: {
-			f += 270.0f;
-			break;
-		}
-		case 2: {
-			f += 180.0f;
-			break;
-		}
-		case 3: {
-			f += 90.0f;
-			break;
-		}
-		default:
-			f %= 360.0f;
-			break;
+			case 0: {
+				f += 0.0f;
+				break;
+			}
+			case 1: {
+				f += 270.0f;
+				break;
+			}
+			case 2: {
+				f += 180.0f;
+				break;
+			}
+			case 3: {
+				f += 90.0f;
+				break;
+			}
+			default:
+				f %= 360.0f;
+				break;
 		}
 		rug.setLocationAndAngles(i + 0.5, j, k + 0.5, f, 0.0f);
 		world.spawnEntityInWorld(rug);
@@ -732,17 +732,17 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			int j = meta & 4;
 			for (int l = 0; l < rotationMode; ++l) {
 				switch (i) {
-				case 2:
-					i = 1;
-					continue;
-				case 1:
-					i = 3;
-					continue;
-				case 3:
-					i = 0;
-					continue;
-				default:
-					break;
+					case 2:
+						i = 1;
+						continue;
+					case 1:
+						i = 3;
+						continue;
+					case 3:
+						i = 0;
+						continue;
+					default:
+						break;
 				}
 				i = 2;
 			}
@@ -803,17 +803,17 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			int i = meta;
 			for (int l = 0; l < rotationMode; ++l) {
 				switch (i) {
-				case 4:
-					i = 1;
-					continue;
-				case 1:
-					i = 3;
-					continue;
-				case 3:
-					i = 2;
-					continue;
-				default:
-					break;
+					case 4:
+						i = 1;
+						continue;
+					case 1:
+						i = 3;
+						continue;
+					case 3:
+						i = 2;
+						continue;
+					default:
+						break;
 				}
 				if (i != 2) {
 					continue;
@@ -839,17 +839,17 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			int k = meta & 8;
 			for (int l = 0; l < rotationMode; ++l) {
 				switch (i) {
-				case 0:
-					i = 3;
-					continue;
-				case 1:
-					i = 2;
-					continue;
-				case 2:
-					i = 0;
-					continue;
-				default:
-					break;
+					case 0:
+						i = 3;
+						continue;
+					case 1:
+						i = 2;
+						continue;
+					case 2:
+						i = 0;
+						continue;
+					default:
+						break;
 				}
 				i = 1;
 			}
@@ -906,17 +906,17 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			} else {
 				for (int l = 0; l < rotationMode; ++l) {
 					switch (i) {
-					case 4:
-						i = 1;
-						continue;
-					case 1:
-						i = 3;
-						continue;
-					case 3:
-						i = 2;
-						continue;
-					default:
-						break;
+						case 4:
+							i = 1;
+							continue;
+						case 1:
+							i = 3;
+							continue;
+						case 3:
+							i = 2;
+							continue;
+						default:
+							break;
 					}
 					i = 4;
 				}
@@ -928,17 +928,17 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			int j = meta & 8;
 			for (int l = 0; l < rotationMode; ++l) {
 				switch (i) {
-				case 4:
-					i = 1;
-					continue;
-				case 1:
-					i = 3;
-					continue;
-				case 3:
-					i = 2;
-					continue;
-				default:
-					break;
+					case 4:
+						i = 1;
+						continue;
+					case 1:
+						i = 3;
+						continue;
+					case 3:
+						i = 2;
+						continue;
+					default:
+						break;
 				}
 				if (i != 2) {
 					continue;
@@ -1014,28 +1014,28 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		--j;
 		rotationMode = rotation;
 		switch (rotationMode) {
-		case 0: {
-			k += shift;
-			i += shiftX;
-			break;
-		}
-		case 1: {
-			i -= shift;
-			k += shiftX;
-			break;
-		}
-		case 2: {
-			k -= shift;
-			i -= shiftX;
-			break;
-		}
-		case 3: {
-			i += shift;
-			k -= shiftX;
-			break;
-		}
-		default:
-			break;
+			case 0: {
+				k += shift;
+				i += shiftX;
+				break;
+			}
+			case 1: {
+				i -= shift;
+				k += shiftX;
+				break;
+			}
+			case 2: {
+				k -= shift;
+				i -= shiftX;
+				break;
+			}
+			case 3: {
+				i += shift;
+				k -= shiftX;
+				break;
+			}
+			default:
+				break;
 		}
 		originX = i;
 		originY = j;

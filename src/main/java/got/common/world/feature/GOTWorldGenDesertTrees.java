@@ -73,21 +73,21 @@ public class GOTWorldGenDesertTrees extends WorldGenAbstractTree {
 				}
 				if (random.nextInt(3) != 0) {
 					switch (branch) {
-					case 0: {
-						--i1;
-						break;
-					}
-					case 1: {
-						++k1;
-						break;
-					}
-					case 2: {
-						++i1;
-						break;
-					}
-					case 3: {
-						--k1;
-					}
+						case 0: {
+							--i1;
+							break;
+						}
+						case 1: {
+							++k1;
+							break;
+						}
+						case 2: {
+							++i1;
+							break;
+						}
+						case 3: {
+							--k1;
+						}
 					}
 				}
 				if (!isReplaceable(world, i1, j1, k1)) {

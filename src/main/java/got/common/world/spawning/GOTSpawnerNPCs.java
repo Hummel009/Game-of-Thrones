@@ -157,7 +157,8 @@ public class GOTSpawnerNPCs {
 		int maxSpawnCount = GOTSpawnDamping.getNPCSpawnCap(world) * eligibleSpawnChunks.size() / 196;
 		if (totalSpawnCount <= maxSpawnCount) {
 			int cycles = Math.max(1, interval);
-			block2: for (int c = 0; c < cycles; ++c) {
+			block2:
+			for (int c = 0; c < cycles; ++c) {
 				List<ChunkCoordIntPair> shuffled = shuffle(eligibleSpawnChunks);
 				for (ChunkCoordIntPair chunkCoords : shuffled) {
 					int i;
@@ -168,7 +169,8 @@ public class GOTSpawnerNPCs {
 						continue;
 					}
 					int groups = 3;
-					block4: for (int l = 0; l < groups; ++l) {
+					block4:
+					for (int l = 0; l < groups; ++l) {
 						int i1 = i;
 						int j1 = j;
 						int k1 = k;

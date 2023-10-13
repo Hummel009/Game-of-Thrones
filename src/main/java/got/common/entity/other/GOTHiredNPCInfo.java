@@ -291,7 +291,7 @@ public class GOTHiredNPCInfo {
 			NBTTagCompound explosionData = new NBTTagCompound();
 			explosionData.setBoolean("Flicker", true);
 			explosionData.setBoolean("Trail", bigLvlUp);
-			int[] colors = { 16733440, theEntity.getFaction().getFactionColor() };
+			int[] colors = {16733440, theEntity.getFaction().getFactionColor()};
 			explosionData.setIntArray("Colors", colors);
 			explosionData.setByte("Type", (byte) (bigLvlUp ? 1 : 0));
 			explosionsList.appendTag(explosionData);

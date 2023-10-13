@@ -15,7 +15,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 public abstract class GOTBlockHangingFruit extends Block {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] fruitIcons;
-	public String[] fruitSides = { "top", "side", "bottom" };
+	public String[] fruitSides = {"top", "side", "bottom"};
 
 	protected GOTBlockHangingFruit() {
 		super(Material.plants);

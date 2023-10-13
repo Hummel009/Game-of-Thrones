@@ -32,7 +32,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityWhiteWalker extends GOTEntityNPC {
-	public static ItemStack[] weapons = { new ItemStack(GOTItems.iceSword), new ItemStack(GOTItems.iceHeavySword), new ItemStack(GOTItems.iceSpear) };
+	public static ItemStack[] weapons = {new ItemStack(GOTItems.iceSword), new ItemStack(GOTItems.iceHeavySword), new ItemStack(GOTItems.iceSpear)};
 
 	public GOTEntityWhiteWalker(World world) {
 		super(world);

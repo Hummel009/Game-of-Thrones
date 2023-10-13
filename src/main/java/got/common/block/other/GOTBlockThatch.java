@@ -14,7 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockThatch extends Block {
-	public static String[] thatchNames = { "thatch", "reed" };
+	public static String[] thatchNames = {"thatch", "reed"};
 	@SideOnly(Side.CLIENT)
 	public IIcon[] thatchIcons;
 

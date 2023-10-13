@@ -11,7 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
 public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
-	public static Class<? extends GOTStructureBase>[] allStallTypes = new Class[] { Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class };
+	public static Class<? extends GOTStructureBase>[] allStallTypes = new Class[]{Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class};
 
 	protected GOTStructureYiTiMarketStall(boolean flag) {
 		super(flag);

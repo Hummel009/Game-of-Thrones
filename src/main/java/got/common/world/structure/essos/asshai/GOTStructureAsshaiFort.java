@@ -139,17 +139,17 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 		placeChest(world, random, 12, 4, 17, GOTBlocks.chestStone, 5, GOTChestContents.ASSHAI);
 		placeChest(world, random, -5, 4, 17, GOTBlocks.chestStone, 4, GOTChestContents.ASSHAI);
 		for (int j1 = 4; j1 <= 5; ++j1) {
-			for (int i1 : new int[] { -3, -1, 1 }) {
+			for (int i1 : new int[]{-3, -1, 1}) {
 				setBlockAndMetadata(world, i1, j1, 17, bedBlock, 0);
 				setBlockAndMetadata(world, i1, j1, 18, bedBlock, 8);
 			}
-			for (int i1 : new int[] { 6, 8, 10 }) {
+			for (int i1 : new int[]{6, 8, 10}) {
 				setBlockAndMetadata(world, i1, j1, 17, bedBlock, 0);
 				setBlockAndMetadata(world, i1, j1, 18, bedBlock, 8);
 			}
 		}
 		for (int k1 = -7; k1 <= -4; ++k1) {
-			for (int i1 : new int[] { -13, -11 }) {
+			for (int i1 : new int[]{-13, -11}) {
 				if (random.nextBoolean()) {
 					placePlate(world, random, i1, 5, k1, GOTBlocks.woodPlate, GOTFoods.WESTEROS);
 					continue;
@@ -179,7 +179,7 @@ public class GOTStructureAsshaiFort extends GOTStructureAsshaiBase {
 	}
 
 	public ItemStack getRandomAsshaiWeapon(Random random) {
-		ItemStack[] items = { new ItemStack(GOTItems.asshaiSword), new ItemStack(GOTItems.asshaiDagger), new ItemStack(GOTItems.asshaiDaggerPoisoned), new ItemStack(GOTItems.asshaiSpear), new ItemStack(GOTItems.asshaiBattleaxe), new ItemStack(GOTItems.asshaiHammer) };
+		ItemStack[] items = {new ItemStack(GOTItems.asshaiSword), new ItemStack(GOTItems.asshaiDagger), new ItemStack(GOTItems.asshaiDaggerPoisoned), new ItemStack(GOTItems.asshaiSpear), new ItemStack(GOTItems.asshaiBattleaxe), new ItemStack(GOTItems.asshaiHammer)};
 		return items[random.nextInt(items.length)].copy();
 	}
 

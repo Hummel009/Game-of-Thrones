@@ -86,7 +86,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 				}
 			}
 			if (i2 == 4) {
-				int[] j15 = { -2, 3 };
+				int[] j15 = {-2, 3};
 				j1 = j15.length;
 				for (j14 = 0; j14 < j1; ++j14) {
 					int k14 = j15[j14];

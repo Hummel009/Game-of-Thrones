@@ -40,21 +40,21 @@ public class GOTWorldGenCharredTrees extends WorldGenAbstractTree {
 						++branchVerticalPos;
 					}
 					switch (branch) {
-					case 0: {
-						world.setBlock(i - branchHorizontalPos, branchVerticalPos, k, GOTBlocks.wood1, 15, 2);
-						continue;
-					}
-					case 1: {
-						world.setBlock(i, branchVerticalPos, k + branchHorizontalPos, GOTBlocks.wood1, 15, 2);
-						continue;
-					}
-					case 2: {
-						world.setBlock(i + branchHorizontalPos, branchVerticalPos, k, GOTBlocks.wood1, 15, 2);
-						continue;
-					}
-					case 3: {
-						world.setBlock(i, branchVerticalPos, k - branchHorizontalPos, GOTBlocks.wood1, 15, 2);
-					}
+						case 0: {
+							world.setBlock(i - branchHorizontalPos, branchVerticalPos, k, GOTBlocks.wood1, 15, 2);
+							continue;
+						}
+						case 1: {
+							world.setBlock(i, branchVerticalPos, k + branchHorizontalPos, GOTBlocks.wood1, 15, 2);
+							continue;
+						}
+						case 2: {
+							world.setBlock(i + branchHorizontalPos, branchVerticalPos, k, GOTBlocks.wood1, 15, 2);
+							continue;
+						}
+						case 3: {
+							world.setBlock(i, branchVerticalPos, k - branchHorizontalPos, GOTBlocks.wood1, 15, 2);
+						}
 					}
 				}
 			}

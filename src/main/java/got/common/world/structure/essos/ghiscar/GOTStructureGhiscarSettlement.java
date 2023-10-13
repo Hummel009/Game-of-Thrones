@@ -55,19 +55,19 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-			case PYRAMID:
-				addStructure(new GOTStructureGhiscarPyramid(false), 0, 0, 0, true);
-				break;
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case TOWN:
-				setupTown(random);
-				break;
-			case FORT:
-			case COLONY:
-				setupFort(random);
-				break;
+				case PYRAMID:
+					addStructure(new GOTStructureGhiscarPyramid(false), 0, 0, 0, true);
+					break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case TOWN:
+					setupTown(random);
+					break;
+				case FORT:
+				case COLONY:
+					setupFort(random);
+					break;
 			}
 		}
 
@@ -188,8 +188,8 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -25, 25 }) {
-				for (int k1 : new int[] { -25, 25 }) {
+			for (int i1 : new int[]{-25, 25}) {
+				for (int k1 : new int[]{-25, 25}) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -274,8 +274,8 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -30, 30 }) {
-				for (int k1 : new int[] { -30, 30 }) {
+			for (int i1 : new int[]{-30, 30}) {
+				for (int k1 : new int[]{-30, 30}) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override

@@ -85,21 +85,21 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
-		case 0:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosHammer));
-			break;
-		case 1:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
-			break;
-		case 2:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosLongsword));
-			break;
-		case 3:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosGreatsword));
-			break;
-		default:
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
-			break;
+			case 0:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosHammer));
+				break;
+			case 1:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
+				break;
+			case 2:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosLongsword));
+				break;
+			case 3:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosGreatsword));
+				break;
+			default:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
+				break;
 		}
 		if (rand.nextInt(3) == 0) {
 			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTItems.westerosLance));
@@ -145,7 +145,8 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 					}
 					if (nearbyGuards < 8) {
 						int guardSpawns = 1 + world.rand.nextInt(6);
-						block1: for (int l = 0; l < guardSpawns; ++l) {
+						block1:
+						for (int l = 0; l < guardSpawns; ++l) {
 							guard = new GOTEntityReachSoldier(world);
 							if (world.rand.nextBoolean()) {
 								guard = new GOTEntityReachSoldierArcher(world);

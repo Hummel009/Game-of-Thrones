@@ -20,7 +20,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 
 public class GOTItemCoin extends Item {
-	public static int[] values = { 1, 4, 16, 64, 256, 1024, 4096, 16384 };
+	public static int[] values = {1, 4, 16, 64, 256, 1024, 4096, 16384};
 	@SideOnly(Side.CLIENT)
 	public IIcon[] coinIcons;
 
@@ -157,7 +157,8 @@ public class GOTItemCoin extends Item {
 			FMLLog.warning("Attempted to take " + coins + " coins from player " + entityplayer.getCommandSenderName() + " who has only " + invValue);
 		}
 		int initCoins = coins;
-		block0: for (i = values.length - 1; i >= 0; --i) {
+		block0:
+		for (i = values.length - 1; i >= 0; --i) {
 			value = values[i];
 			if (value > initCoins) {
 				continue;
@@ -191,7 +192,8 @@ public class GOTItemCoin extends Item {
 				}
 				value = values[i];
 				coin = new ItemStack(GOTItems.coin, 1, i);
-				block4: for (slot = -1; slot < inv.mainInventory.length; ++slot) {
+				block4:
+				for (slot = -1; slot < inv.mainInventory.length; ++slot) {
 					while ((itemstack = slot == -1 ? inv.getItemStack() : inv.mainInventory[slot]) != null && itemstack.isItemEqual(coin)) {
 						if (slot == -1) {
 							is = inv.getItemStack();

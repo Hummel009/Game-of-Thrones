@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockYiTiFlower extends GOTBlockFlower {
-	public static String[] flowerNames = { "chrys_blue", "chrys_orange", "chrys_pink", "chrys_yellow", "chrys_white" };
+	public static String[] flowerNames = {"chrys_blue", "chrys_orange", "chrys_pink", "chrys_yellow", "chrys_white"};
 	@SideOnly(Side.CLIENT)
 	public IIcon[] flowerIcons;
 

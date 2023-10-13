@@ -50,7 +50,8 @@ public class GOTSpawnerAnimals {
 		int totalSpawned = 0;
 		GOTSpawnerNPCs.getSpawnableChunks(world, eligibleSpawnChunks);
 		ChunkCoordinates spawnPoint = world.getSpawnPoint();
-		label99: for (EnumCreatureType creatureType : EnumCreatureType.values()) {
+		label99:
+		for (EnumCreatureType creatureType : EnumCreatureType.values()) {
 			TypeInfo typeInfo = forDimAndType(world, creatureType);
 			boolean canSpawnType;
 			if (creatureType.getPeacefulCreature()) {
@@ -72,7 +73,8 @@ public class GOTSpawnerAnimals {
 						} else {
 							int newlySpawned = 0;
 							List<ChunkCoordIntPair> shuffled = GOTSpawnerNPCs.shuffle(eligibleSpawnChunks);
-							label97: for (ChunkCoordIntPair chunkCoords : shuffled) {
+							label97:
+							for (ChunkCoordIntPair chunkCoords : shuffled) {
 								ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
 								if (chunkposition != null) {
 									int i = chunkposition.chunkPosX;

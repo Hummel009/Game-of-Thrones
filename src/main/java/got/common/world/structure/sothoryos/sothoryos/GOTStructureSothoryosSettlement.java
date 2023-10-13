@@ -45,12 +45,12 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-			case PYRAMID:
-				addStructure(new GOTStructureSothoryosPyramid(false), 0, 0, 0, true);
-				break;
-			case VILLAGE:
-				setupVillage(random);
-				break;
+				case PYRAMID:
+					addStructure(new GOTStructureSothoryosPyramid(false), 0, 0, 0, true);
+					break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
 			}
 		}
 

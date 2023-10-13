@@ -17,7 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
-	public static Class<? extends GOTStructureBase>[] stalls = new Class[] { Mason.class, Brewer.class, Miner.class, Armourer.class };
+	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Mason.class, Brewer.class, Miner.class, Armourer.class};
 
 	public GOTStructureDothrakiKhalinTent(boolean flag) {
 		super(flag);

@@ -96,8 +96,8 @@ public class GOTTickHandlerClient {
 	public static ResourceLocation frostOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
 	public static ResourceLocation burnOverlay = new ResourceLocation("got:textures/misc/burn_overlay.png");
 	public static ResourceLocation wightOverlay = new ResourceLocation("got:textures/misc/wight.png");
-	public static float[] frostRGBMiddle = { 0.4F, 0.46F, 0.74F };
-	public static float[] frostRGBEdge = { 1.0F, 1.0F, 1.0F };
+	public static float[] frostRGBMiddle = {0.4F, 0.46F, 0.74F};
+	public static float[] frostRGBEdge = {1.0F, 1.0F, 1.0F};
 	public static Map<EntityPlayer, Integer> playersInPortals = new HashMap<>();
 	public static int clientTick;
 	public static float renderTick;
@@ -374,12 +374,12 @@ public class GOTTickHandlerClient {
 				}
 				boolean fancyGraphics = false;
 				switch (optifineSetting) {
-				case 0:
-					fancyGraphics = minecraft.gameSettings.fancyGraphics;
-					break;
-				case 2:
-					fancyGraphics = true;
-					break;
+					case 0:
+						fancyGraphics = minecraft.gameSettings.fancyGraphics;
+						break;
+					case 2:
+						fancyGraphics = true;
+						break;
 				}
 				GOTBlockLeavesBase.setAllGraphicsLevels(fancyGraphics);
 			} else {
@@ -589,7 +589,7 @@ public class GOTTickHandlerClient {
 		WorldClient worldClient = mc.theWorld;
 		WorldProvider provider = worldClient.provider;
 		if (provider instanceof GOTWorldProvider) {
-			float[] rgb = { event.red, event.green, event.blue };
+			float[] rgb = {event.red, event.green, event.blue};
 			rgb = ((GOTWorldProvider) provider).handleFinalFogColors(event.entity, event.renderPartialTicks, rgb);
 			event.red = rgb[0];
 			event.green = rgb[1];

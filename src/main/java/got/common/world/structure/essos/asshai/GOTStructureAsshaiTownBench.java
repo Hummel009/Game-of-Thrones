@@ -39,7 +39,7 @@ public class GOTStructureAsshaiTownBench extends GOTStructureAsshaiBase {
 		for (i1 = -1; i1 <= 1; ++i1) {
 			setBlockAndMetadata(world, i1, j1, k1, brickSlabBlock, brickSlabMeta | 8);
 		}
-		for (int i13 : new int[] { -2, 2 }) {
+		for (int i13 : new int[]{-2, 2}) {
 			setBlockAndMetadata(world, i13, j1, k1, brickBlock, brickMeta);
 			setGrassToDirt(world, i13, j1 - 1, k1);
 			layFoundation(world, i13, j1 - 1, k1);

@@ -107,7 +107,7 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 								continue;
 							}
 							setBlockAndNotifyAdequately(world, i1, j1, k1, woodBlock, woodMeta | 0xC);
-							trunkCoords.add(new int[] { i1, j1, k1 });
+							trunkCoords.add(new int[]{i1, j1, k1});
 						}
 					}
 				}

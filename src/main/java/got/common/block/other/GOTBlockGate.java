@@ -76,17 +76,17 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 
 	public boolean directionsMatch(int dir1, int dir2) {
 		switch (dir1) {
-		case 0:
-		case 1:
-			return dir1 == dir2;
-		case 2:
-		case 3:
-			return dir2 == 2 || dir2 == 3;
-		case 4:
-		case 5:
-			return dir2 == 4 || dir2 == 5;
-		default:
-			break;
+			case 0:
+			case 1:
+				return dir1 == dir2;
+			case 2:
+			case 3:
+				return dir2 == 2 || dir2 == 3;
+			case 4:
+			case 5:
+				return dir2 == 4 || dir2 == 5;
+			default:
+				break;
 		}
 		return false;
 	}
@@ -256,22 +256,22 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 			float width = 0.25f;
 			float halfWidth = width / 2.0f;
 			switch (dir) {
-			case 0:
-				setBlockBounds(0.0f, 1.0f - width, 0.0f, 1.0f, 1.0f, 1.0f);
-				break;
-			case 1:
-				setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, width, 1.0f);
-				break;
-			case 2:
-			case 3:
-				setBlockBounds(0.0f, 0.0f, 0.5f - halfWidth, 1.0f, 1.0f, 0.5f + halfWidth);
-				break;
-			case 4:
-			case 5:
-				setBlockBounds(0.5f - halfWidth, 0.0f, 0.0f, 0.5f + halfWidth, 1.0f, 1.0f);
-				break;
-			default:
-				break;
+				case 0:
+					setBlockBounds(0.0f, 1.0f - width, 0.0f, 1.0f, 1.0f, 1.0f);
+					break;
+				case 1:
+					setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, width, 1.0f);
+					break;
+				case 2:
+				case 3:
+					setBlockBounds(0.0f, 0.0f, 0.5f - halfWidth, 1.0f, 1.0f, 0.5f + halfWidth);
+					break;
+				case 4:
+				case 5:
+					setBlockBounds(0.5f - halfWidth, 0.0f, 0.0f, 0.5f + halfWidth, 1.0f, 1.0f);
+					break;
+				default:
+					break;
 			}
 		}
 	}

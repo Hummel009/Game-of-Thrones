@@ -65,7 +65,7 @@ public abstract class GOTStructureAsshaiBase extends GOTStructureBase {
 	}
 
 	public ItemStack getFramedItem(Random random) {
-		ItemStack[] items = { new ItemStack(GOTItems.asshaiBattleaxe), new ItemStack(GOTItems.asshaiBow), new ItemStack(GOTItems.asshaiDagger), new ItemStack(GOTItems.asshaiHammer), new ItemStack(GOTItems.asshaiSpear), new ItemStack(GOTItems.asshaiSword) };
+		ItemStack[] items = {new ItemStack(GOTItems.asshaiBattleaxe), new ItemStack(GOTItems.asshaiBow), new ItemStack(GOTItems.asshaiDagger), new ItemStack(GOTItems.asshaiHammer), new ItemStack(GOTItems.asshaiSpear), new ItemStack(GOTItems.asshaiSword)};
 		return items[random.nextInt(items.length)].copy();
 	}
 

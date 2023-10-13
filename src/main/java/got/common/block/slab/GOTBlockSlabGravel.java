@@ -21,14 +21,14 @@ public class GOTBlockSlabGravel extends GOTBlockSlabFalling {
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
 		switch (j) {
-		case 0:
-			return Blocks.gravel.getIcon(i, 0);
-		case 1:
-			return GOTBlocks.basaltGravel.getIcon(i, 0);
-		case 2:
-			return GOTBlocks.obsidianGravel.getIcon(i, 0);
-		default:
-			break;
+			case 0:
+				return Blocks.gravel.getIcon(i, 0);
+			case 1:
+				return GOTBlocks.basaltGravel.getIcon(i, 0);
+			case 2:
+				return GOTBlocks.obsidianGravel.getIcon(i, 0);
+			default:
+				break;
 		}
 		return super.getIcon(i, j);
 	}

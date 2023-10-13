@@ -189,7 +189,7 @@ public class GOTDate {
 					builder.append(StatCollector.translateToLocal("got.date"));
 				}
 				String yearName = builder.toString();
-				return new String[] { dateName, yearName };
+				return new String[]{dateName, yearName};
 			}
 
 			public Date increment() {
@@ -264,7 +264,7 @@ public class GOTDate {
 	public enum Season {
 		SPRING("spring", 0), SUMMER("summer", 1), AUTUMN("autumn", 2), WINTER("winter", 3);
 
-		public static Season[] allSeasons = { SPRING, SUMMER, AUTUMN, WINTER };
+		public static Season[] allSeasons = {SPRING, SUMMER, AUTUMN, WINTER};
 		public String name;
 		public int seasonID;
 

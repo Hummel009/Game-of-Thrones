@@ -9,12 +9,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityYiTiLevyman extends GOTEntityYiTiMan {
-	public static ItemStack[] levyWeapons = { new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiDaggerPoisoned), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(Items.iron_sword), new ItemStack(GOTItems.bronzeSword), new ItemStack(GOTItems.ironBattleaxe), new ItemStack(GOTItems.bronzeBattleaxe), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.bronzeSpear) };
-	public static ItemStack[] levySpears = { new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.bronzeSpear) };
-	public static ItemStack[] levyBodies = { new ItemStack(Items.leather_chestplate), new ItemStack(GOTItems.bronzeChestplate) };
-	public static ItemStack[] levyLegs = { new ItemStack(Items.leather_leggings), new ItemStack(GOTItems.bronzeLeggings) };
-	public static ItemStack[] levyBoots = { new ItemStack(Items.leather_boots), new ItemStack(GOTItems.bronzeBoots) };
-	public static int[] kaftanColors = { 14823729, 11862016, 5512477, 14196753, 11374145, 7366222 };
+	public static ItemStack[] levyWeapons = {new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiDaggerPoisoned), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(Items.iron_sword), new ItemStack(GOTItems.bronzeSword), new ItemStack(GOTItems.ironBattleaxe), new ItemStack(GOTItems.bronzeBattleaxe), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.bronzeSpear)};
+	public static ItemStack[] levySpears = {new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.ironSpear), new ItemStack(GOTItems.bronzeSpear)};
+	public static ItemStack[] levyBodies = {new ItemStack(Items.leather_chestplate), new ItemStack(GOTItems.bronzeChestplate)};
+	public static ItemStack[] levyLegs = {new ItemStack(Items.leather_leggings), new ItemStack(GOTItems.bronzeLeggings)};
+	public static ItemStack[] levyBoots = {new ItemStack(Items.leather_boots), new ItemStack(GOTItems.bronzeBoots)};
+	public static int[] kaftanColors = {14823729, 11862016, 5512477, 14196753, 11374145, 7366222};
 
 	public GOTEntityYiTiLevyman(World world) {
 		super(world);

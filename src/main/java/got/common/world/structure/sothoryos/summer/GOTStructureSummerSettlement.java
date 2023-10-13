@@ -49,15 +49,15 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case FORT:
-				setupFortress(random);
-				break;
-			case RUINED_VILLAGE:
-				setupRuinedVillage(random);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case FORT:
+					setupFortress(random);
+					break;
+				case RUINED_VILLAGE:
+					setupRuinedVillage(random);
+					break;
 			}
 		}
 

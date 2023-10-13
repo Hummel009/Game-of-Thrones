@@ -51,12 +51,12 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case FORT:
-				setupFort(random);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case FORT:
+					setupFort(random);
+					break;
 			}
 		}
 
@@ -106,12 +106,12 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			if (random.nextInt(4) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
-				case 0:
-					return new GOTStructureIbbenSmithy(false);
-				case 1:
-					return new GOTStructureIbbenStables(false);
-				default:
-					return new GOTStructureIbbenBarn(false);
+					case 0:
+						return new GOTStructureIbbenSmithy(false);
+					case 1:
+						return new GOTStructureIbbenStables(false);
+					default:
+						return new GOTStructureIbbenBarn(false);
 				}
 			}
 			return new GOTStructureIbbenHouse(false);
@@ -141,11 +141,11 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			}, 0, 0, 0);
 			addStructure(new GOTStructureIbbenGatehouse(false), 0, -53, 0, true);
 			int towerX = 46;
-			for (int i1 : new int[] { -towerX, towerX }) {
+			for (int i1 : new int[]{-towerX, towerX}) {
 				addStructure(new GOTStructureIbbenWatchtower(false), i1, -towerX, 0, true);
 				addStructure(new GOTStructureIbbenWatchtower(false), i1, towerX, 2, true);
 			}
-			for (int i1 : new int[] { -35, 35 }) {
+			for (int i1 : new int[]{-35, 35}) {
 				addStructure(new GOTStructureIbbenStables(false), i1, -14, 0, true);
 			}
 			int farmZ = -20;
@@ -160,8 +160,8 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureIbbenVillageFarm(false), -farmX, farmZ, 0);
 				addStructure(new GOTStructureIbbenVillageFarm(false), farmX, farmZ, 0);
 			}
-			for (int i1 : new int[] { -51, 51 }) {
-				for (int k1 : new int[] { -51, 51 }) {
+			for (int i1 : new int[]{-51, 51}) {
+				for (int k1 : new int[]{-51, 51}) {
 					addStructure(new GOTStructureIbbenFortCorner(false), i1, k1, 0, true);
 				}
 			}

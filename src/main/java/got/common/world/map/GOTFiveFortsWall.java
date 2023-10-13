@@ -14,9 +14,7 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 	private int centreZ;
 	private int radius = 100;
 	private int radiusSq = radius * radius;
-	private double wallThick = 0.5;
 	private int wallTop = 100;
-	private int gateBottom = 77;
 	private int gateTop = wallTop - 18;
 
 	public GOTFiveFortsWall(boolean flag, GOTAbstractWaypoint waypoint) {
@@ -27,9 +25,11 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+		double wallThick = 0.5;
 		if (isPosInWall(i + 8, k + 8) < wallThick * 3.0) {
 			for (int i1 = i; i1 <= i + 15; ++i1) {
-				block1: for (int k1 = k; k1 <= k + 15; ++k1) {
+				block1:
+				for (int k1 = k; k1 <= k + 15; ++k1) {
 					double circleDist = isPosInWall(i1, k1);
 					if (circleDist >= 0.08) {
 						continue;
@@ -55,6 +55,7 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 						if (!gate) {
 							continue;
 						}
+						int gateBottom = 77;
 						if (fences) {
 							if (j1 != gateBottom) {
 								continue;

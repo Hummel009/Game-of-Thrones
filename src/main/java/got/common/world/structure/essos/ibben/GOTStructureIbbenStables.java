@@ -70,18 +70,18 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 					while (!isOpaque(world, i13, j1, k1) && getY(j1) >= 0) {
 						int randomGround = random.nextInt(4);
 						switch (randomGround) {
-						case 0:
-							setBlockAndMetadata(world, i13, j1, k1, Blocks.dirt, 0);
-							break;
-						case 1:
-							setBlockAndMetadata(world, i13, j1, k1, Blocks.gravel, 0);
-							break;
-						case 2:
-							setBlockAndMetadata(world, i13, j1, k1, cobbleBlock, cobbleMeta);
-							break;
-						default:
-							setBlockAndMetadata(world, i13, j1, k1, rockBlock, rockMeta);
-							break;
+							case 0:
+								setBlockAndMetadata(world, i13, j1, k1, Blocks.dirt, 0);
+								break;
+							case 1:
+								setBlockAndMetadata(world, i13, j1, k1, Blocks.gravel, 0);
+								break;
+							case 2:
+								setBlockAndMetadata(world, i13, j1, k1, cobbleBlock, cobbleMeta);
+								break;
+							default:
+								setBlockAndMetadata(world, i13, j1, k1, rockBlock, rockMeta);
+								break;
 						}
 						setGrassToDirt(world, i13, j1 - 1, k1);
 						--j1;
@@ -240,7 +240,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i12, j14 - 1, k13, block, meta);
 			}
 		}
-		for (int k12 : new int[] { -1, 13 }) {
+		for (int k12 : new int[]{-1, 13}) {
 			for (int step = 0; step <= 7; ++step) {
 				int i14 = 8 - step;
 				int j15 = 4 + step / 2;
@@ -259,11 +259,11 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, 0, 7, k14, logBlock, logMeta | 8);
 			setBlockAndMetadata(world, 0, 8, k14, plank2SlabBlock, plank2SlabMeta);
 		}
-		for (int k12 : new int[] { -1, 6, 13 }) {
+		for (int k12 : new int[]{-1, 6, 13}) {
 			setBlockAndMetadata(world, -1, 8, k12, plank2StairBlock, 5);
 			setBlockAndMetadata(world, 1, 8, k12, plank2StairBlock, 4);
 		}
-		for (int k12 : new int[] { 0, 12 }) {
+		for (int k12 : new int[]{0, 12}) {
 			setBlockAndMetadata(world, -5, 4, k12, plankBlock, plankMeta);
 			setBlockAndMetadata(world, -4, 4, k12, plankSlabBlock, plankSlabMeta | 8);
 			setBlockAndMetadata(world, 4, 4, k12, plankSlabBlock, plankSlabMeta | 8);
@@ -316,7 +316,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, i1, 3, -1, Blocks.torch, 4);
 			setBlockAndMetadata(world, i1, 3, 13, Blocks.torch, 3);
 		}
-		for (int k12 : new int[] { 4, 8 }) {
+		for (int k12 : new int[]{4, 8}) {
 			setBlockAndMetadata(world, -1, 3, k12, Blocks.torch, 1);
 			setBlockAndMetadata(world, 1, 3, k12, Blocks.torch, 2);
 		}

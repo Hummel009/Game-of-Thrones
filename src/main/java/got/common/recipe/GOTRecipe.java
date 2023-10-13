@@ -79,7 +79,7 @@ public class GOTRecipe {
 	public static List<IRecipe> dothraki = new ArrayList<>();
 	public static Collection<IRecipe> commonWesteros = new ArrayList<>();
 	public static Collection<IRecipe> commonEssos = new ArrayList<>();
-	public static String[] dyeOreNames = { "dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite" };
+	public static String[] dyeOreNames = {"dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite"};
 	public static List<IRecipe> mossovy = new ArrayList<>();
 
 	public static void addDyeableWoolRobeRecipes(Collection<IRecipe> recipeList, ItemStack result, Object... params) {
@@ -1357,19 +1357,19 @@ public class GOTRecipe {
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.gunpowder, 2), GOTItems.sulfur, GOTItems.saltpeter, new ItemStack(Items.coal, 1, 1));
 		GameRegistry.addShapelessRecipe(new ItemStack(Items.string), GOTItems.flax);
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.trapdoorAcacia, 2), "XXX", "XXX", 'X', new ItemStack(Blocks.planks, 1, 4)));
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugAppleJuice), new Object[] { "apple", "apple" });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugBlackberryJuice), new Object[] { GOTItems.blackberry, GOTItems.blackberry, GOTItems.blackberry });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugBlueberryJuice), new Object[] { GOTItems.blueberry, GOTItems.blueberry, GOTItems.blueberry });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugChocolate), GOTItems.mugMilk, new Object[] { Items.sugar, new ItemStack(Items.dye, 1, 3) });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugCranberryJuice), new Object[] { GOTItems.cranberry, GOTItems.cranberry, GOTItems.cranberry });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugElderberryJuice), new Object[] { GOTItems.elderberry, GOTItems.elderberry, GOTItems.elderberry });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugLemonade), GOTItems.mugWater, new Object[] { GOTItems.lemon, Items.sugar });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugMangoJuice), new Object[] { GOTItems.mango, GOTItems.mango });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugOrangeJuice), new Object[] { GOTItems.orange, GOTItems.orange });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugPomegranateJuice), new Object[] { GOTItems.pomegranate, GOTItems.pomegranate });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugRaspberryJuice), new Object[] { GOTItems.raspberry, GOTItems.raspberry, GOTItems.raspberry });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugRedGrapeJuice), new Object[] { GOTItems.grapeRed, GOTItems.grapeRed, GOTItems.grapeRed });
-		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugWhiteGrapeJuice), new Object[] { GOTItems.grapeWhite, GOTItems.grapeWhite, GOTItems.grapeWhite });
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugAppleJuice), new Object[]{"apple", "apple"});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugBlackberryJuice), new Object[]{GOTItems.blackberry, GOTItems.blackberry, GOTItems.blackberry});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugBlueberryJuice), new Object[]{GOTItems.blueberry, GOTItems.blueberry, GOTItems.blueberry});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugChocolate), GOTItems.mugMilk, new Object[]{Items.sugar, new ItemStack(Items.dye, 1, 3)});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugCranberryJuice), new Object[]{GOTItems.cranberry, GOTItems.cranberry, GOTItems.cranberry});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugElderberryJuice), new Object[]{GOTItems.elderberry, GOTItems.elderberry, GOTItems.elderberry});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugLemonade), GOTItems.mugWater, new Object[]{GOTItems.lemon, Items.sugar});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugMangoJuice), new Object[]{GOTItems.mango, GOTItems.mango});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugOrangeJuice), new Object[]{GOTItems.orange, GOTItems.orange});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugPomegranateJuice), new Object[]{GOTItems.pomegranate, GOTItems.pomegranate});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugRaspberryJuice), new Object[]{GOTItems.raspberry, GOTItems.raspberry, GOTItems.raspberry});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugRedGrapeJuice), new Object[]{GOTItems.grapeRed, GOTItems.grapeRed, GOTItems.grapeRed});
+		GOTRecipeVessels.addRecipes(new ItemStack(GOTItems.mugWhiteGrapeJuice), new Object[]{GOTItems.grapeWhite, GOTItems.grapeWhite, GOTItems.grapeWhite});
 		addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTItems.robesBoots), "X X", "X X", 'X', Blocks.wool);
 		addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTItems.robesChestplate), "X X", "XXX", "XXX", 'X', Blocks.wool);
 		addDyeableWoolRobeRecipes(commonEssos, new ItemStack(GOTItems.robesHelmet), "XXX", "X X", 'X', Blocks.wool);

@@ -30,8 +30,8 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 	public int currentItemFuelValue;
 	public int currentCookTime;
 	public String specialOvenName;
-	public int[] inputSlots = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
-	public int[] outputSlots = { 9, 10, 11, 12, 13, 14, 15, 16, 17 };
+	public int[] inputSlots = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+	public int[] outputSlots = {9, 10, 11, 12, 13, 14, 15, 16, 17};
 	public int fuelSlot = 18;
 
 	public boolean canCook(int i) {
@@ -139,7 +139,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 			}
 			return temp;
 		}
-		return new int[] { fuelSlot };
+		return new int[]{fuelSlot};
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -80,7 +80,7 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 				setBlockAndMetadata(world, i12, 5, k1, fenceBlock, fenceMeta);
 			}
 		}
-		int[] i13 = { 3, 6 };
+		int[] i13 = {3, 6};
 		k1 = i13.length;
 		for (i2 = 0; i2 < k1; ++i2) {
 			int j12 = i13[i2];
@@ -143,7 +143,7 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 		placeChest(world, random, -2, 5, -2, 3, GOTChestContents.SOTHORYOS);
 		setBlockAndMetadata(world, 2, 4, -2, woodBlock, woodMeta);
 		placeBarrel(world, random, 2, 5, -2, 3, GOTFoods.SOTHORYOS_DRINK);
-		for (int i14 : new int[] { -2, 2 }) {
+		for (int i14 : new int[]{-2, 2}) {
 			setBlockAndMetadata(world, i14, 4, 1, bedBlock, 0);
 			setBlockAndMetadata(world, i14, 4, 2, bedBlock, 8);
 		}

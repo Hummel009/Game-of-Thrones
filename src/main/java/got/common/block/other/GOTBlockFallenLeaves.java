@@ -129,7 +129,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 	public Object[] leafBlockMetaFromFallenMeta(int meta) {
 		Block leaf = leafBlocks[meta / 4];
 		int leafMeta = meta & 3;
-		return new Object[] { leaf, leafMeta };
+		return new Object[]{leaf, leafMeta};
 	}
 
 	@Override
@@ -169,7 +169,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 				if (leafBlock != block) {
 					continue;
 				}
-				return new Object[] { fallenLeaves, i * 4 + meta };
+				return new Object[]{fallenLeaves, i * 4 + meta};
 			}
 		}
 		return null;

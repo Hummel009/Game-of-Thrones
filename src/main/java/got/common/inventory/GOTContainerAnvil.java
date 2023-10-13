@@ -581,20 +581,20 @@ public class GOTContainerAnvil extends Container {
 						int costPerLevel = 0;
 						int enchWeight = combinerEnch.getWeight();
 						switch (enchWeight) {
-						case 1:
-							costPerLevel = 8;
-							break;
-						case 2:
-							costPerLevel = 4;
-							break;
-						case 5:
-							costPerLevel = 2;
-							break;
-						case 10:
-							costPerLevel = 1;
-							break;
-						default:
-							break;
+							case 1:
+								costPerLevel = 8;
+								break;
+							case 2:
+								costPerLevel = 4;
+								break;
+							case 5:
+								costPerLevel = 2;
+								break;
+							case 10:
+								costPerLevel = 1;
+								break;
+							default:
+								break;
 						}
 						combineCost += costPerLevel * levelsAdded;
 					}
@@ -651,20 +651,20 @@ public class GOTContainerAnvil extends Container {
 				int costPerLevel = 0;
 				int enchWeight = ench.getWeight();
 				switch (enchWeight) {
-				case 1:
-					costPerLevel = 8;
-					break;
-				case 2:
-					costPerLevel = 4;
-					break;
-				case 5:
-					costPerLevel = 2;
-					break;
-				case 10:
-					costPerLevel = 1;
-					break;
-				default:
-					break;
+					case 1:
+						costPerLevel = 8;
+						break;
+					case 2:
+						costPerLevel = 4;
+						break;
+					case 5:
+						costPerLevel = 2;
+						break;
+					case 10:
+						costPerLevel = 1;
+						break;
+					default:
+						break;
 				}
 				baseAnvilCost += numEnchants + enchLevel * costPerLevel;
 			}

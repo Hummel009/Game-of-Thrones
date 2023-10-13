@@ -28,8 +28,8 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	public static int FULL = 2;
 	public static int brewTime = 12000;
 	public static int brewAnimTime = 32;
-	public static int[] INGREDIENT_SLOTS = { 0, 1, 2, 3, 4, 5 };
-	public static int[] BUCKET_SLOTS = { 6, 7, 8 };
+	public static int[] INGREDIENT_SLOTS = {0, 1, 2, 3, 4, 5};
+	public static int[] BUCKET_SLOTS = {6, 7, 8};
 	public static int BARREL_SLOT = 9;
 	public ItemStack[] inventory = new ItemStack[10];
 	public int barrelMode;

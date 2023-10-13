@@ -67,7 +67,7 @@ public class GOTFixer {
 	public static Collection<GOTStructureBaseSettlement> locations = new HashSet<>();
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
-		GOTWaypoint[] forts = { GOTWaypoint.FIVE_FORTS_1, GOTWaypoint.FIVE_FORTS_2, GOTWaypoint.FIVE_FORTS_3, GOTWaypoint.FIVE_FORTS_4, GOTWaypoint.FIVE_FORTS_5 };
+		GOTWaypoint[] forts = {GOTWaypoint.FIVE_FORTS_1, GOTWaypoint.FIVE_FORTS_2, GOTWaypoint.FIVE_FORTS_3, GOTWaypoint.FIVE_FORTS_4, GOTWaypoint.FIVE_FORTS_5};
 		for (GOTWaypoint wp : forts) {
 			new GOTFiveFortsWall(false, wp).generate(world, random, i, 0, k, 0);
 		}

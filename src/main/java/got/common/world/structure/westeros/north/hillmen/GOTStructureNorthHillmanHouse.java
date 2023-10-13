@@ -104,7 +104,7 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, -3, j14, 5, woodBlock, woodMeta);
 			setBlockAndMetadata(world, 3, j14, 5, woodBlock, woodMeta);
 		}
-		for (int j15 : new int[] { 1, 4 }) {
+		for (int j15 : new int[]{1, 4}) {
 			for (i12 = -2; i12 <= 2; ++i12) {
 				setBlockAndMetadata(world, i12, j15, -5, woodBlock, woodMeta | 4);
 				setBlockAndMetadata(world, i12, j15, 5, woodBlock, woodMeta | 4);
@@ -120,7 +120,7 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, -3, 3, k14, stairBlock, 5);
 			setBlockAndMetadata(world, 3, 3, k14, stairBlock, 4);
 		}
-		int[] k14 = { -3, 3 };
+		int[] k14 = {-3, 3};
 		k1 = k14.length;
 		for (j1 = 0; j1 < k1; ++j1) {
 			int i14 = k14[j1];
@@ -134,7 +134,7 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 			}
 			setBlockAndMetadata(world, 0, 7, k15, plankBlock, plankMeta);
 		}
-		for (int k12 : new int[] { -5, 5 }) {
+		for (int k12 : new int[]{-5, 5}) {
 			for (i12 = -2; i12 <= 2; ++i12) {
 				setBlockAndMetadata(world, i12, 4, k12, woodBlock, woodMeta | 4);
 				setBlockAndMetadata(world, i12, 5, k12, woodBlock, woodMeta | 4);
@@ -193,21 +193,21 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 		} else if (isWarrior) {
 			int num = random.nextInt(3);
 			switch (num) {
-			case 0:
-				GOTEntityNPC npc = new GOTEntityNorthHillmanArcher(world);
-				npc.spawnRidingHorse = false;
-				spawnNPCAndSetHome(npc, world, 0, 1, 0, 8);
-				break;
-			case 1:
-				GOTEntityNPC npc1 = new GOTEntityNorthHillmanAxeThrower(world);
-				npc1.spawnRidingHorse = false;
-				spawnNPCAndSetHome(npc1, world, 0, 1, 0, 8);
-				break;
-			case 2:
-				GOTEntityNPC npc11 = new GOTEntityNorthHillmanWarrior(world);
-				npc11.spawnRidingHorse = false;
-				spawnNPCAndSetHome(npc11, world, 0, 1, 0, 8);
-				break;
+				case 0:
+					GOTEntityNPC npc = new GOTEntityNorthHillmanArcher(world);
+					npc.spawnRidingHorse = false;
+					spawnNPCAndSetHome(npc, world, 0, 1, 0, 8);
+					break;
+				case 1:
+					GOTEntityNPC npc1 = new GOTEntityNorthHillmanAxeThrower(world);
+					npc1.spawnRidingHorse = false;
+					spawnNPCAndSetHome(npc1, world, 0, 1, 0, 8);
+					break;
+				case 2:
+					GOTEntityNPC npc11 = new GOTEntityNorthHillmanWarrior(world);
+					npc11.spawnRidingHorse = false;
+					spawnNPCAndSetHome(npc11, world, 0, 1, 0, 8);
+					break;
 			}
 		} else {
 			GOTEntityNorthHillman male = new GOTEntityNorthHillman(world);

@@ -162,7 +162,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 			}
 			return sortedSlots;
 		}
-		return new int[] { fuelSlot };
+		return new int[]{fuelSlot};
 	}
 
 	public ItemStack getAlloySmeltingResult(ItemStack itemstack, ItemStack alloyItem) {
@@ -370,8 +370,8 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	}
 
 	public void setupForgeSlots() {
-		inputSlots = new int[] { 4, 5, 6, 7 };
-		outputSlots = new int[] { 8, 9, 10, 11 };
+		inputSlots = new int[]{4, 5, 6, 7};
+		outputSlots = new int[]{8, 9, 10, 11};
 		fuelSlot = 12;
 	}
 

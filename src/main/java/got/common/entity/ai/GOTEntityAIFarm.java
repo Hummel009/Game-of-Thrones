@@ -128,18 +128,18 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		}
 		if (pathingTick < 200) {
 			switch (action) {
-			case BONEMEALING:
-				return canDoBonemealing() && isSuitableForBonemealing(actionTarget);
-			case COLLECTING:
-				return canDoCollecting() && isSuitableForCollecting(actionTarget);
-			case DEPOSITING:
-				return canDoDepositing() && isSuitableForDepositing(actionTarget);
-			case HARVESTING:
-				return canDoHarvesting() && isSuitableForHarvesting(actionTarget);
-			case HOEING:
-				return canDoHoeing() && isSuitableForHoeing(actionTarget);
-			case PLANTING:
-				return canDoPlanting() && isSuitableForPlanting(actionTarget);
+				case BONEMEALING:
+					return canDoBonemealing() && isSuitableForBonemealing(actionTarget);
+				case COLLECTING:
+					return canDoCollecting() && isSuitableForCollecting(actionTarget);
+				case DEPOSITING:
+					return canDoDepositing() && isSuitableForDepositing(actionTarget);
+				case HARVESTING:
+					return canDoHarvesting() && isSuitableForHarvesting(actionTarget);
+				case HOEING:
+					return canDoHoeing() && isSuitableForHoeing(actionTarget);
+				case PLANTING:
+					return canDoPlanting() && isSuitableForPlanting(actionTarget);
 			}
 		}
 		return false;
@@ -165,14 +165,14 @@ public class GOTEntityAIFarm extends EntityAIBase {
 					j = chest.yCoord;
 					k = chest.zCoord;
 					switch (targetAction) {
-					case COLLECTING:
-						suitable = isSuitableForCollecting(i, j, k);
-						break;
-					case DEPOSITING:
-						suitable = isSuitableForDepositing(i, j, k);
-						break;
-					default:
-						break;
+						case COLLECTING:
+							suitable = isSuitableForCollecting(i, j, k);
+							break;
+						case DEPOSITING:
+							suitable = isSuitableForDepositing(i, j, k);
+							break;
+						default:
+							break;
 					}
 				}
 			} else {
@@ -180,20 +180,20 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				j = MathHelper.floor_double(theEntity.boundingBox.minY) + MathHelper.getRandomIntegerInRange(rand, -4, 4);
 				k = MathHelper.floor_double(theEntity.posZ) + MathHelper.getRandomIntegerInRange(rand, -8, 8);
 				switch (targetAction) {
-				case BONEMEALING:
-					suitable = isSuitableForBonemealing(i, j, k);
-					break;
-				case HARVESTING:
-					suitable = isSuitableForHarvesting(i, j, k);
-					break;
-				case HOEING:
-					suitable = isSuitableForHoeing(i, j, k);
-					break;
-				case PLANTING:
-					suitable = isSuitableForPlanting(i, j, k);
-					break;
-				default:
-					break;
+					case BONEMEALING:
+						suitable = isSuitableForBonemealing(i, j, k);
+						break;
+					case HARVESTING:
+						suitable = isSuitableForHarvesting(i, j, k);
+						break;
+					case HOEING:
+						suitable = isSuitableForHoeing(i, j, k);
+						break;
+					case PLANTING:
+						suitable = isSuitableForPlanting(i, j, k);
+						break;
+					default:
+						break;
 				}
 			}
 			if (!suitable || !theEntity.isWithinHomeDistance(i, j, k)) {
@@ -433,7 +433,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		harvestingSolidBlock = false;
 		TileEntityChest chest = getSuitableChest(i, j, k);
 		if (chest != null) {
-			for (int l : new int[] { 0, 3 }) {
+			for (int l : new int[]{0, 3}) {
 				ItemStack collectMatch = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
 				if (collectMatch == null && l == 3) {
 					collectMatch = new ItemStack(Items.dye, 0, 15);
@@ -528,7 +528,8 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			}
 			boolean waterNearby = false;
 			int range = 4;
-			block0: for (int i1 = i - range; i1 <= i + range; ++i1) {
+			block0:
+			for (int i1 = i - range; i1 <= i + range; ++i1) {
 				for (int k1 = k - range; k1 <= k + range; ++k1) {
 					if (theWorld.getBlock(i1, j, k1).getMaterial() != Material.water) {
 						continue;
@@ -631,206 +632,208 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		}
 		if (canDoAction) {
 			switch (action) {
-			case BONEMEALING:
-				boolean canBonemeal = isSuitableForBonemealing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-				if (canBonemeal) {
-					theEntity.swingItem();
-					ItemStack bonemeal = getInventoryBonemeal();
-					if (ItemDye.applyBonemeal(getInventoryBonemeal(), theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, fakePlayer)) {
-						theWorld.playAuxSFX(2005, actionTarget.posX, actionTarget.posY, actionTarget.posZ, 0);
+				case BONEMEALING:
+					boolean canBonemeal = isSuitableForBonemealing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					if (canBonemeal) {
+						theEntity.swingItem();
+						ItemStack bonemeal = getInventoryBonemeal();
+						if (ItemDye.applyBonemeal(getInventoryBonemeal(), theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, fakePlayer)) {
+							theWorld.playAuxSFX(2005, actionTarget.posX, actionTarget.posY, actionTarget.posZ, 0);
+						}
+						if (bonemeal.stackSize <= 0) {
+							bonemeal = null;
+						}
+						theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(3, bonemeal);
 					}
-					if (bonemeal.stackSize <= 0) {
-						bonemeal = null;
-					}
-					theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(3, bonemeal);
-				}
-				break;
-			case COLLECTING:
-				canCollect = isSuitableForCollecting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-				if (canCollect) {
-					theEntity.swingItem();
-					TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-					if (te instanceof TileEntityChest) {
-						IInventory chest = (IInventory) te;
-						int[] invSlots = { 0, 3 };
-						for (int l : invSlots) {
-							ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
-							if (itemstack == null && l == 3) {
-								itemstack = new ItemStack(Items.dye, 0, 15);
-							}
-							if (itemstack != null) {
-								for (int slot = 0; slot < chest.getSizeInventory(); slot++) {
-									ItemStack chestItem = chest.getStackInSlot(slot);
-									if (chestItem != null && chestItem.isItemEqual(itemstack) && ItemStack.areItemStackTagsEqual(chestItem, itemstack) && chestItem.stackSize > 0) {
-										while (itemstack.stackSize < itemstack.getMaxStackSize() && chestItem.stackSize > 0) {
-											chestItem.stackSize--;
-											itemstack.stackSize++;
-										}
-										if (itemstack.stackSize <= 0) {
-											itemstack = null;
-										}
-										if (chestItem.stackSize <= 0) {
-											chestItem = null;
-										}
-										theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack);
-										chest.setInventorySlotContents(slot, chestItem);
-										assert itemstack != null;
-										if (itemstack.stackSize >= itemstack.getMaxStackSize()) {
-											break;
+					break;
+				case COLLECTING:
+					canCollect = isSuitableForCollecting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					if (canCollect) {
+						theEntity.swingItem();
+						TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+						if (te instanceof TileEntityChest) {
+							IInventory chest = (IInventory) te;
+							int[] invSlots = {0, 3};
+							for (int l : invSlots) {
+								ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+								if (itemstack == null && l == 3) {
+									itemstack = new ItemStack(Items.dye, 0, 15);
+								}
+								if (itemstack != null) {
+									for (int slot = 0; slot < chest.getSizeInventory(); slot++) {
+										ItemStack chestItem = chest.getStackInSlot(slot);
+										if (chestItem != null && chestItem.isItemEqual(itemstack) && ItemStack.areItemStackTagsEqual(chestItem, itemstack) && chestItem.stackSize > 0) {
+											while (itemstack.stackSize < itemstack.getMaxStackSize() && chestItem.stackSize > 0) {
+												chestItem.stackSize--;
+												itemstack.stackSize++;
+											}
+											if (itemstack.stackSize <= 0) {
+												itemstack = null;
+											}
+											if (chestItem.stackSize <= 0) {
+												chestItem = null;
+											}
+											theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack);
+											chest.setInventorySlotContents(slot, chestItem);
+											assert itemstack != null;
+											if (itemstack.stackSize >= itemstack.getMaxStackSize()) {
+												break;
+											}
 										}
 									}
 								}
 							}
+							theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, "random.chestopen", 0.5f, theWorld.rand.nextFloat() * 0.1f + 0.9f);
 						}
-						theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, "random.chestopen", 0.5f, theWorld.rand.nextFloat() * 0.1f + 0.9f);
 					}
-				}
-				break;
-			case DEPOSITING:
-				boolean canDeposit = isSuitableForDepositing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-				if (canDeposit) {
-					theEntity.swingItem();
-					TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-					if (te instanceof TileEntityChest) {
-						IInventory chest = (IInventory) te;
-						block5: for (int l = 1; l <= 2; ++l) {
-							ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
-							if (itemstack == null) {
-								continue;
-							}
-							for (int slot = 0; slot < chest.getSizeInventory(); ++slot) {
-								ItemStack chestItem = chest.getStackInSlot(slot);
-								if (chestItem != null && (!chestItem.isItemEqual(itemstack) || !ItemStack.areItemStackTagsEqual(chestItem, itemstack) || chestItem.stackSize >= chestItem.getMaxStackSize())) {
-									continue;
-								}
-								if (chestItem == null) {
-									chestItem = itemstack.copy();
-									chestItem.stackSize = 0;
-								}
-								while (itemstack.stackSize > 0 && chestItem.stackSize < chestItem.getMaxStackSize()) {
-									++chestItem.stackSize;
-									--itemstack.stackSize;
-								}
-								chest.setInventorySlotContents(slot, chestItem);
-								if (itemstack.stackSize > 0) {
-									continue;
-								}
-								theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, null);
-								continue block5;
-							}
-						}
-						theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, "random.chestclosed", 0.5f, theWorld.rand.nextFloat() * 0.1f + 0.9f);
-					}
-				}
-				break;
-			case HARVESTING:
-				boolean canHarvest = isSuitableForHarvesting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-				if (canHarvest) {
-					int meta;
-					theEntity.swingItem();
-					Block block = theWorld.getBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-					Collection<ItemStack> drops = new ArrayList<>();
-					if (block instanceof GOTBlockCorn) {
-						int x = actionTarget.posX;
-						int z = actionTarget.posZ;
-						for (int j1 = 0; j1 <= GOTBlockCorn.MAX_GROW_HEIGHT - 1; ++j1) {
-							int y = actionTarget.posY + j1;
-							if (theWorld.getBlock(x, y, z) != block || !GOTBlockCorn.hasCorn(theWorld, x, y, z)) {
-								continue;
-							}
-							int meta2 = theWorld.getBlockMetadata(x, y, z);
-							drops.addAll(((GOTBlockCorn) block).getCornDrops(theWorld, x, y, z, meta2));
-							GOTBlockCorn.setHasCorn(theWorld, x, y, z, false);
-						}
-					} else if (block instanceof GOTBlockGrapevine) {
-						meta = theWorld.getBlockMetadata(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-						drops.addAll(block.getDrops(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, meta, 0));
-						block.removedByPlayer(theWorld, fakePlayer, actionTarget.posX, actionTarget.posY, actionTarget.posZ, true);
-					} else {
-						meta = theWorld.getBlockMetadata(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-						drops.addAll(block.getDrops(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, meta, 0));
-						theWorld.setBlockToAir(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-					}
-					Block.SoundType cropSound = block.stepSound;
-					theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, cropSound.getBreakSound(), (cropSound.getVolume() + 1.0f) / 2.0f, cropSound.getPitch() * 0.8f);
-					ItemStack seedItem = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
-					ItemStack cropItem = getCropForSeed(getSeedsToPlant());
-					boolean addedOneCropSeed = false;
-					block3: for (ItemStack drop : drops) {
-						ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
-						if (drop.isItemEqual(cropItem)) {
-							if (drop.isItemEqual(seedItem) && !addedOneCropSeed) {
-								addedOneCropSeed = true;
-								itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
-								if (itemstack.stackSize + drop.stackSize <= itemstack.getMaxStackSize()) {
-									++itemstack.stackSize;
-									theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(0, itemstack);
-									continue;
-								}
-							}
+					break;
+				case DEPOSITING:
+					boolean canDeposit = isSuitableForDepositing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					if (canDeposit) {
+						theEntity.swingItem();
+						TileEntity te = theWorld.getTileEntity(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+						if (te instanceof TileEntityChest) {
+							IInventory chest = (IInventory) te;
+							block5:
 							for (int l = 1; l <= 2; ++l) {
-								ItemStack itemstack2 = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
-								if (itemstack2 == null) {
-									theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, drop);
+								ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+								if (itemstack == null) {
+									continue;
+								}
+								for (int slot = 0; slot < chest.getSizeInventory(); ++slot) {
+									ItemStack chestItem = chest.getStackInSlot(slot);
+									if (chestItem != null && (!chestItem.isItemEqual(itemstack) || !ItemStack.areItemStackTagsEqual(chestItem, itemstack) || chestItem.stackSize >= chestItem.getMaxStackSize())) {
+										continue;
+									}
+									if (chestItem == null) {
+										chestItem = itemstack.copy();
+										chestItem.stackSize = 0;
+									}
+									while (itemstack.stackSize > 0 && chestItem.stackSize < chestItem.getMaxStackSize()) {
+										++chestItem.stackSize;
+										--itemstack.stackSize;
+									}
+									chest.setInventorySlotContents(slot, chestItem);
+									if (itemstack.stackSize > 0) {
+										continue;
+									}
+									theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, null);
+									continue block5;
+								}
+							}
+							theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, "random.chestclosed", 0.5f, theWorld.rand.nextFloat() * 0.1f + 0.9f);
+						}
+					}
+					break;
+				case HARVESTING:
+					boolean canHarvest = isSuitableForHarvesting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					if (canHarvest) {
+						int meta;
+						theEntity.swingItem();
+						Block block = theWorld.getBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+						Collection<ItemStack> drops = new ArrayList<>();
+						if (block instanceof GOTBlockCorn) {
+							int x = actionTarget.posX;
+							int z = actionTarget.posZ;
+							for (int j1 = 0; j1 <= GOTBlockCorn.MAX_GROW_HEIGHT - 1; ++j1) {
+								int y = actionTarget.posY + j1;
+								if (theWorld.getBlock(x, y, z) != block || !GOTBlockCorn.hasCorn(theWorld, x, y, z)) {
+									continue;
+								}
+								int meta2 = theWorld.getBlockMetadata(x, y, z);
+								drops.addAll(((GOTBlockCorn) block).getCornDrops(theWorld, x, y, z, meta2));
+								GOTBlockCorn.setHasCorn(theWorld, x, y, z, false);
+							}
+						} else if (block instanceof GOTBlockGrapevine) {
+							meta = theWorld.getBlockMetadata(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+							drops.addAll(block.getDrops(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, meta, 0));
+							block.removedByPlayer(theWorld, fakePlayer, actionTarget.posX, actionTarget.posY, actionTarget.posZ, true);
+						} else {
+							meta = theWorld.getBlockMetadata(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+							drops.addAll(block.getDrops(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ, meta, 0));
+							theWorld.setBlockToAir(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+						}
+						Block.SoundType cropSound = block.stepSound;
+						theWorld.playSoundEffect(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, cropSound.getBreakSound(), (cropSound.getVolume() + 1.0f) / 2.0f, cropSound.getPitch() * 0.8f);
+						ItemStack seedItem = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+						ItemStack cropItem = getCropForSeed(getSeedsToPlant());
+						boolean addedOneCropSeed = false;
+						block3:
+						for (ItemStack drop : drops) {
+							ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+							if (drop.isItemEqual(cropItem)) {
+								if (drop.isItemEqual(seedItem) && !addedOneCropSeed) {
+									addedOneCropSeed = true;
+									itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+									if (itemstack.stackSize + drop.stackSize <= itemstack.getMaxStackSize()) {
+										++itemstack.stackSize;
+										theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(0, itemstack);
+										continue;
+									}
+								}
+								for (int l = 1; l <= 2; ++l) {
+									ItemStack itemstack2 = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(l);
+									if (itemstack2 == null) {
+										theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, drop);
+										continue block3;
+									}
+									if (itemstack2.stackSize + drop.stackSize > itemstack2.getMaxStackSize() || !itemstack2.isItemEqual(cropItem)) {
+										continue;
+									}
+									++itemstack2.stackSize;
+									theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack2);
 									continue block3;
 								}
-								if (itemstack2.stackSize + drop.stackSize > itemstack2.getMaxStackSize() || !itemstack2.isItemEqual(cropItem)) {
+								continue;
+							}
+							if (!drop.isItemEqual(seedItem) || itemstack.stackSize + drop.stackSize > (itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0)).getMaxStackSize()) {
+								continue;
+							}
+							++itemstack.stackSize;
+							theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(0, itemstack);
+						}
+					}
+					break;
+				case HOEING:
+					boolean canHoe = isSuitableForHoeing(actionTarget);
+					if (canHoe) {
+						theEntity.swingItem();
+						ItemStack proxyHoe = new ItemStack(Items.iron_hoe);
+						int hoeRange = 1;
+						for (int i1 = -hoeRange; i1 <= hoeRange; ++i1) {
+							for (int k1 = -hoeRange; k1 <= hoeRange; ++k1) {
+								boolean alreadyChecked;
+								if (Math.abs(i1) + Math.abs(k1) > hoeRange) {
 									continue;
 								}
-								++itemstack2.stackSize;
-								theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack2);
-								continue block3;
+								int x = actionTarget.posX + i1;
+								int z = actionTarget.posZ + k1;
+								int y = actionTarget.posY;
+								alreadyChecked = i1 == 0 && k1 == 0;
+								if (!alreadyChecked && !isSuitableForHoeing(x, y, z)) {
+									continue;
+								}
+								if (isReplaceable(x, y + 1, z)) {
+									theWorld.setBlockToAir(x, y + 1, z);
+								}
+								proxyHoe.tryPlaceItemIntoWorld(fakePlayer, theWorld, x, y, z, 1, 0.5f, 0.5f, 0.5f);
 							}
-							continue;
-						}
-						if (!drop.isItemEqual(seedItem) || itemstack.stackSize + drop.stackSize > (itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0)).getMaxStackSize()) {
-							continue;
-						}
-						++itemstack.stackSize;
-						theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(0, itemstack);
-					}
-				}
-				break;
-			case HOEING:
-				boolean canHoe = isSuitableForHoeing(actionTarget);
-				if (canHoe) {
-					theEntity.swingItem();
-					ItemStack proxyHoe = new ItemStack(Items.iron_hoe);
-					int hoeRange = 1;
-					for (int i1 = -hoeRange; i1 <= hoeRange; ++i1) {
-						for (int k1 = -hoeRange; k1 <= hoeRange; ++k1) {
-							boolean alreadyChecked;
-							if (Math.abs(i1) + Math.abs(k1) > hoeRange) {
-								continue;
-							}
-							int x = actionTarget.posX + i1;
-							int z = actionTarget.posZ + k1;
-							int y = actionTarget.posY;
-							alreadyChecked = i1 == 0 && k1 == 0;
-							if (!alreadyChecked && !isSuitableForHoeing(x, y, z)) {
-								continue;
-							}
-							if (isReplaceable(x, y + 1, z)) {
-								theWorld.setBlockToAir(x, y + 1, z);
-							}
-							proxyHoe.tryPlaceItemIntoWorld(fakePlayer, theWorld, x, y, z, 1, 0.5f, 0.5f, 0.5f);
 						}
 					}
-				}
-				break;
-			case PLANTING:
-				boolean canPlant = isSuitableForPlanting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-				if (canPlant) {
-					theEntity.swingItem();
-					IPlantable seed = getSeedsToPlant();
-					Block plant = seed.getPlant(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-					int meta = seed.getPlantMetadata(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ);
-					theWorld.setBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ, plant, meta, 3);
-					if (theEntity.hiredNPCInfo.isActive) {
-						theEntity.hiredNPCInfo.getHiredInventory().decrStackSize(0, 1);
+					break;
+				case PLANTING:
+					boolean canPlant = isSuitableForPlanting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+					if (canPlant) {
+						theEntity.swingItem();
+						IPlantable seed = getSeedsToPlant();
+						Block plant = seed.getPlant(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+						int meta = seed.getPlantMetadata(theWorld, actionTarget.posX, actionTarget.posY, actionTarget.posZ);
+						theWorld.setBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ, plant, meta, 3);
+						if (theEntity.hiredNPCInfo.isActive) {
+							theEntity.hiredNPCInfo.getHiredInventory().decrStackSize(0, 1);
+						}
 					}
-				}
-				break;
+					break;
 			}
 		} else {
 			theEntity.getLookHelper().setLookPosition(actionTarget.posX + 0.5, actionTarget.posY + 0.5, actionTarget.posZ + 0.5, 10.0f, theEntity.getVerticalFaceSpeed());

@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityDarkSkinBandit extends GOTEntityLightSkinBandit {
-	public static ItemStack[] weapons = { new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned) };
-	public static int[] robeColors = { 3354412, 5984843, 5968655, 3619908, 9007463, 3228720 };
+	public static ItemStack[] weapons = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned)};
+	public static int[] robeColors = {3354412, 5984843, 5968655, 3619908, 9007463, 3228720};
 
 	public GOTEntityDarkSkinBandit(World world) {
 		super(world);
@@ -41,23 +41,23 @@ public class GOTEntityDarkSkinBandit extends GOTEntityLightSkinBandit {
 	public void setupNPCName() {
 		int i = rand.nextInt(6);
 		switch (i) {
-		case 0:
-			familyInfo.setName(GOTNames.getGhiscarName(rand, true));
-			break;
-		case 2:
-			familyInfo.setName(GOTNames.getLhazarName(rand, true));
-			break;
-		case 3:
-			familyInfo.setName(GOTNames.getJogosName(rand, true));
-			break;
-		case 4:
-			familyInfo.setName(GOTNames.getDothrakiName(rand, true));
-			break;
-		case 5:
-			familyInfo.setName(GOTNames.getSothoryosName(rand, true));
-			break;
-		default:
-			familyInfo.setName(GOTNames.getWildName(rand, true));
+			case 0:
+				familyInfo.setName(GOTNames.getGhiscarName(rand, true));
+				break;
+			case 2:
+				familyInfo.setName(GOTNames.getLhazarName(rand, true));
+				break;
+			case 3:
+				familyInfo.setName(GOTNames.getJogosName(rand, true));
+				break;
+			case 4:
+				familyInfo.setName(GOTNames.getDothrakiName(rand, true));
+				break;
+			case 5:
+				familyInfo.setName(GOTNames.getSothoryosName(rand, true));
+				break;
+			default:
+				familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
 	}
 }

@@ -47,7 +47,8 @@ public class GOTEventSpawner {
 
 	public static void spawnBandits(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
-		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
+		block0:
+		for (ChunkCoordIntPair chunkCoords : spawnChunks) {
 			int i;
 			BiomeGenBase biome;
 			int k;

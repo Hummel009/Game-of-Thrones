@@ -177,7 +177,8 @@ public class GOTConquestGrid {
 					includedBiomes.add(biome);
 				}
 			}
-			block2: for (GOTFaction fac : GOTFaction.getPlayableAlignmentFactions()) {
+			block2:
+			for (GOTFaction fac : GOTFaction.getPlayableAlignmentFactions()) {
 				for (GOTBiome biome2 : includedBiomes) {
 					if (!biome2.getNPCSpawnList().isFactionPresent(world, fac)) {
 						continue;
@@ -201,11 +202,11 @@ public class GOTConquestGrid {
 	}
 
 	public static int[] getMaxCoordsOnMap(GOTConquestZone zone) {
-		return new int[] { gridToMapCoord(zone.getGridX() + 1), gridToMapCoord(zone.getGridZ() + 1) };
+		return new int[]{gridToMapCoord(zone.getGridX() + 1), gridToMapCoord(zone.getGridZ() + 1)};
 	}
 
 	public static int[] getMinCoordsOnMap(GOTConquestZone zone) {
-		return new int[] { gridToMapCoord(zone.getGridX()), gridToMapCoord(zone.getGridZ()) };
+		return new int[]{gridToMapCoord(zone.getGridX()), gridToMapCoord(zone.getGridZ())};
 	}
 
 	public static GOTConquestZone getZoneByEntityCoords(Entity entity) {

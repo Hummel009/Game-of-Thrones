@@ -100,7 +100,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i14, j13, 1, GOTBlocks.gateIronBars, 2);
 			}
 		}
-		for (int k14 : new int[] { -3, 3 }) {
+		for (int k14 : new int[]{-3, 3}) {
 			setBlockAndMetadata(world, -2, 6, k14, brickStairBlock, 4);
 			setBlockAndMetadata(world, 2, 6, k14, brickStairBlock, 5);
 			setBlockAndMetadata(world, -2, 5, k14, Blocks.torch, 2);
@@ -120,11 +120,11 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i16, 10, k14, brickBlock, brickMeta);
 			}
 		}
-		int[] i17 = { -3, 3 };
+		int[] i17 = {-3, 3};
 		j13 = i17.length;
 		for (i2 = 0; i2 < j13; ++i2) {
 			i122 = i17[i2];
-			for (int k15 : new int[] { -2, 2 }) {
+			for (int k15 : new int[]{-2, 2}) {
 				setBlockAndMetadata(world, i122, 8, k15, rockSlabDoubleBlock, rockSlabDoubleMeta);
 				setBlockAndMetadata(world, i122, 9, k15, brickBlock, brickMeta);
 				setBlockAndMetadata(world, i122, 10, k15, brickBlock, brickMeta);
@@ -161,7 +161,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 8, 1, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 0, 9, -1, Blocks.lever, 14);
 		setBlockAndMetadata(world, 0, 9, 1, Blocks.lever, 14);
-		for (int i1221 : new int[] { -1, 1 }) {
+		for (int i1221 : new int[]{-1, 1}) {
 			for (j12 = 8; j12 <= 11; ++j12) {
 				setBlockAndMetadata(world, i1221, j12, 2, Blocks.ladder, 2);
 			}
@@ -271,7 +271,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 			}
 			setBlockAndMetadata(world, i1, 3, 1, brickStairBlock, 7);
 		}
-		for (int i1221 : new int[] { -1, 1 }) {
+		for (int i1221 : new int[]{-1, 1}) {
 			j12 = 8;
 			int k17 = 0;
 			GOTEntityNPC levyman = getSoldier(world);

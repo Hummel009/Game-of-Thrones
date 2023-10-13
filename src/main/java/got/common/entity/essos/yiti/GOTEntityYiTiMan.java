@@ -26,7 +26,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityYiTiMan extends GOTEntityHumanBase implements IPickpocketable {
-	public static ItemStack[] weapons = { new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger) };
+	public static ItemStack[] weapons = {new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger)};
 
 	public GOTEntityYiTiMan(World world) {
 		super(world);

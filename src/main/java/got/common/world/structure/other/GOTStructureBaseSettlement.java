@@ -334,27 +334,27 @@ public abstract class GOTStructureBaseSettlement {
 			int xRel = 0;
 			int zRel = 0;
 			switch (rotationMode) {
-			case 0: {
-				xRel = centreX - xWorld;
-				zRel = centreZ - zWorld;
-				break;
+				case 0: {
+					xRel = centreX - xWorld;
+					zRel = centreZ - zWorld;
+					break;
+				}
+				case 1: {
+					xRel = centreZ - zWorld;
+					zRel = xWorld - centreX;
+					break;
+				}
+				case 2: {
+					xRel = xWorld - centreX;
+					zRel = zWorld - centreZ;
+					break;
+				}
+				case 3: {
+					xRel = zWorld - centreZ;
+					zRel = centreX - xWorld;
+				}
 			}
-			case 1: {
-				xRel = centreZ - zWorld;
-				zRel = xWorld - centreX;
-				break;
-			}
-			case 2: {
-				xRel = xWorld - centreX;
-				zRel = zWorld - centreZ;
-				break;
-			}
-			case 3: {
-				xRel = zWorld - centreZ;
-				zRel = centreX - xWorld;
-			}
-			}
-			return new int[] { xRel, zRel };
+			return new int[]{xRel, zRel};
 		}
 
 		public int getStructureRotation(int r) {
@@ -365,27 +365,27 @@ public abstract class GOTStructureBaseSettlement {
 			int xWorld = centreX;
 			int zWorld = centreZ;
 			switch (rotationMode) {
-			case 0: {
-				xWorld = centreX - xRel;
-				zWorld = centreZ - zRel;
-				break;
+				case 0: {
+					xWorld = centreX - xRel;
+					zWorld = centreZ - zRel;
+					break;
+				}
+				case 1: {
+					xWorld = centreX + zRel;
+					zWorld = centreZ - xRel;
+					break;
+				}
+				case 2: {
+					xWorld = centreX + xRel;
+					zWorld = centreZ + zRel;
+					break;
+				}
+				case 3: {
+					xWorld = centreX - zRel;
+					zWorld = centreZ + xRel;
+				}
 			}
-			case 1: {
-				xWorld = centreX + zRel;
-				zWorld = centreZ - xRel;
-				break;
-			}
-			case 2: {
-				xWorld = centreX + xRel;
-				zWorld = centreZ + zRel;
-				break;
-			}
-			case 3: {
-				xWorld = centreX - zRel;
-				zWorld = centreZ + xRel;
-			}
-			}
-			return new int[] { xWorld, zWorld };
+			return new int[]{xWorld, zWorld};
 		}
 
 		public abstract boolean isSettlementSpecificSurface(World var1, int var2, int var3, int var4);

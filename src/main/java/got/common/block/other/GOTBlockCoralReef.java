@@ -20,7 +20,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTBlockCoralReef extends Block {
-	public static String[] plantNames = { "purple", "yellow", "blue", "red", "green" };
+	public static String[] plantNames = {"purple", "yellow", "blue", "red", "green"};
 	public static Random iconRand = new Random();
 	public IIcon[] plantIcons;
 

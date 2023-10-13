@@ -112,7 +112,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		for (int k1421 : new int[] { 0, 14 }) {
+		for (int k1421 : new int[]{0, 14}) {
 			for (i1 = -4; i1 <= 8; ++i1) {
 				if (IntMath.mod(i1, 4) != 0 || i1 == 0) {
 					continue;
@@ -121,7 +121,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i1, 3, k1421, GOTBlocks.glassPane, 0);
 			}
 		}
-		for (int i1421 : new int[] { -7, 11 }) {
+		for (int i1421 : new int[]{-7, 11}) {
 			for (k132 = 3; k132 <= 11; ++k132) {
 				if (IntMath.mod(k132, 4) != 3 || i1421 == -7 && k132 == 7) {
 					continue;
@@ -136,9 +136,10 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 0, 14, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 0, 1, 14, doorBlock, 3);
 		setBlockAndMetadata(world, 0, 2, 14, doorBlock, 8);
-		int[] i15 = { -1, 15 };
+		int[] i15 = {-1, 15};
 		k1 = i15.length;
-		block13: for (beam = 0; beam < k1; ++beam) {
+		block13:
+		for (beam = 0; beam < k1; ++beam) {
 			int j14;
 			i1 = 0;
 			k142 = i15[beam];
@@ -239,7 +240,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		for (int k1421 : new int[] { -1, 15 }) {
+		for (int k1421 : new int[]{-1, 15}) {
 			for (i1 = -4; i1 <= 8; ++i1) {
 				if (IntMath.mod(i1, 4) != 0) {
 					continue;
@@ -247,7 +248,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i1, 7, k1421, GOTBlocks.glassPane, 0);
 			}
 		}
-		int[] i16 = { -8, 12 };
+		int[] i16 = {-8, 12};
 		k1 = i16.length;
 		for (beam = 0; beam < k1; ++beam) {
 			i142 = i16[beam];
@@ -313,7 +314,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i18, 9, 12, roofStairBlock, 6);
 			setBlockAndMetadata(world, i18, 8, 13, roofStairBlock, 6);
 		}
-		for (int i1421 : new int[] { -8, 12 }) {
+		for (int i1421 : new int[]{-8, 12}) {
 			for (k132 = 2; k132 <= 12; ++k132) {
 				setBlockAndMetadata(world, i1421, 9, k132, woodBeamBlock, woodBeamMeta | 8);
 			}
@@ -357,13 +358,13 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 4, 11, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, 8, 4, 3, GOTBlocks.chandelier, 1);
 		setBlockAndMetadata(world, 8, 4, 11, GOTBlocks.chandelier, 1);
-		for (int k1421 : new int[] { 1, 2 }) {
+		for (int k1421 : new int[]{1, 2}) {
 			setBlockAndMetadata(world, -4, 1, k1421, plankBlock, plankMeta);
 			placeMugOrPlate(world, random, -4, 2, k1421);
 			setBlockAndMetadata(world, -6, 1, k1421, plankStairBlock, 0);
 			setBlockAndMetadata(world, -2, 1, k1421, plankStairBlock, 1);
 		}
-		int[] i19 = { 1, 2, 12, 13 };
+		int[] i19 = {1, 2, 12, 13};
 		k1 = i19.length;
 		for (j1 = 0; j1 < k1; ++j1) {
 			k142 = i19[j1];
@@ -389,7 +390,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 10, 1, k12, plankStairBlock, 1);
 		}
 		for (i13 = 7; i13 <= 8; ++i13) {
-			int[] k15 = { 3, 4, 10, 11 };
+			int[] k15 = {3, 4, 10, 11};
 			j1 = k15.length;
 			for (k142 = 0; k142 < j1; ++k142) {
 				k132 = k15[k142];
@@ -750,7 +751,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -6, 6, 1, plankBlock, plankMeta);
 		placeMug(world, random, -6, 7, 1, 3, GOTFoods.WESTEROS_DRINK);
 		for (i13 = -3; i13 <= 7; ++i13) {
-			for (int k1321 : new int[] { 5, 9 }) {
+			for (int k1321 : new int[]{5, 9}) {
 				setBlockAndMetadata(world, i13, 11, k1321, roofSlabBlock, roofSlabMeta | 8);
 			}
 		}
@@ -796,6 +797,6 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		super.setupRandomBlocks(random);
 		bedBlock = Blocks.bed;
 		tavernName = GOTNames.getTavernName(random);
-		tavernNameSign = new String[] { "", tavernName[0], tavernName[1], "" };
+		tavernNameSign = new String[]{"", tavernName[0], tavernName[1], ""};
 	}
 }

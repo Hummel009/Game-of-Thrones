@@ -69,16 +69,16 @@ public class GOTStructureEssosPasture extends GOTStructureEssosBase {
 	public static EntityAnimal getRandomAnimal(World world, Random random) {
 		int animal = random.nextInt(5);
 		switch (animal) {
-		case 0:
-			return new EntityCow(world);
-		case 1:
-			return new EntityPig(world);
-		case 2:
-			return new EntitySheep(world);
-		case 3:
-			return new EntityChicken(world);
-		default:
-			return new GOTEntityCamel(world);
+			case 0:
+				return new EntityCow(world);
+			case 1:
+				return new EntityPig(world);
+			case 2:
+				return new EntitySheep(world);
+			case 3:
+				return new EntityChicken(world);
+			default:
+				return new GOTEntityCamel(world);
 		}
 	}
 }

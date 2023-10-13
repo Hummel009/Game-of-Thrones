@@ -81,8 +81,8 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 		associateBlockAlias("ROOF_STAIR", roofStairBlock);
 		generateStrScan(world, random, 0, 0, 0);
 		String[] tavernName = GOTNames.getTavernName(random);
-		placeSign(world, 0, 3, -10, Blocks.wall_sign, 2, new String[] { "", tavernName[0], tavernName[1], "" });
-		placeSign(world, 0, 3, 10, Blocks.wall_sign, 3, new String[] { "", tavernName[0], tavernName[1], "" });
+		placeSign(world, 0, 3, -10, Blocks.wall_sign, 2, new String[]{"", tavernName[0], tavernName[1], ""});
+		placeSign(world, 0, 3, 10, Blocks.wall_sign, 3, new String[]{"", tavernName[0], tavernName[1], ""});
 		placeBarrel(world, random, -3, 2, -2, 4, GOTFoods.NOMAD_DRINK);
 		placeBarrel(world, random, 3, 2, 1, 5, GOTFoods.NOMAD_DRINK);
 		placeFlowerPot(world, 3, 2, -2, getRandomFlower(world, random));

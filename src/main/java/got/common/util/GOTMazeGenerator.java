@@ -43,7 +43,8 @@ public class GOTMazeGenerator {
 			int randPosIndex = MathHelper.getRandomIntegerInRange(random, (int) (maxIndex * (1.0f - branchingness)), maxIndex);
 			MazePos pos = positions.get(randPosIndex);
 			ArrayList<Dir> validDirs = new ArrayList<>();
-			block1: for (Dir dir : Dir.values()) {
+			block1:
+			for (Dir dir : Dir.values()) {
 				for (int l = 1; l <= 2; ++l) {
 					int x = pos.xPos + dir.xDir * l;
 					int z = pos.zPos + dir.zDir * l;
@@ -81,7 +82,7 @@ public class GOTMazeGenerator {
 	}
 
 	public int[] getEnd() {
-		return new int[] { endX, endZ };
+		return new int[]{endX, endZ};
 	}
 
 	public boolean getFlag(int x, int z, short flag) {

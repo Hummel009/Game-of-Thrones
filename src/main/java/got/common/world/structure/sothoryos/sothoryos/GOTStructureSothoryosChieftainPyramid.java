@@ -86,8 +86,8 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 		for (i12 = -4; i12 <= 4; ++i12) {
 			setBlockAndMetadata(world, i12, 4, 0, GOTBlocks.brick4, 4);
 		}
-		for (int i13 : new int[] { -5, 5 }) {
-			for (int k14 : new int[] { -5, 5 }) {
+		for (int i13 : new int[]{-5, 5}) {
+			for (int k14 : new int[]{-5, 5}) {
 				for (int i22 = i13 - 1; i22 <= i13 + 1; ++i22) {
 					for (int k22 = k14 - 1; k22 <= k14 + 1; ++k22) {
 						int i3 = Math.abs(i22 - i13);
@@ -106,7 +106,7 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 				}
 			}
 		}
-		for (int i13 : new int[] { -3, 3 }) {
+		for (int i13 : new int[]{-3, 3}) {
 			setBlockAndMetadata(world, i13, 5, -6, brickWallBlock, brickWallMeta);
 			for (int j13 = 5; j13 <= 7; ++j13) {
 				for (int k15 = -5; k15 <= -3; ++k15) {
@@ -130,7 +130,7 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 				setBlockAndMetadata(world, i13, 8, k16, brickSlabBlock, brickSlabMeta);
 			}
 		}
-		int[] k13 = { -4, 4 };
+		int[] k13 = {-4, 4};
 		j12 = k13.length;
 		for (int i3 = 0; i3 < j12; ++i3) {
 			int i13;
@@ -153,7 +153,7 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 				setBlockAndMetadata(world, i13, 8, k17, brickSlabBlock, brickSlabMeta);
 			}
 		}
-		int[] i14 = { -2, 2 };
+		int[] i14 = {-2, 2};
 		k1 = i14.length;
 		for (i2 = 0; i2 < k1; ++i2) {
 			int i13 = i14[i2];
@@ -163,7 +163,7 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 			setBlockAndMetadata(world, i13, 6, -5, brickSlabBlock, brickSlabMeta);
 			setBlockAndMetadata(world, i13, 8, -4, brickSlabBlock, brickSlabMeta);
 			setBlockAndMetadata(world, i13, 8, -3, brickSlabBlock, brickSlabMeta);
-			placeArmorStand(world, i13, 5, 2, 0, new ItemStack[] { new ItemStack(GOTItems.sothoryosHelmet), new ItemStack(GOTItems.sothoryosChestplate), new ItemStack(GOTItems.sothoryosLeggings), new ItemStack(GOTItems.sothoryosBoots) });
+			placeArmorStand(world, i13, 5, 2, 0, new ItemStack[]{new ItemStack(GOTItems.sothoryosHelmet), new ItemStack(GOTItems.sothoryosChestplate), new ItemStack(GOTItems.sothoryosLeggings), new ItemStack(GOTItems.sothoryosBoots)});
 		}
 		for (j12 = 5; j12 <= 7; ++j12) {
 			setBlockAndMetadata(world, -2, j12, 4, brickBlock, brickMeta);

@@ -111,7 +111,7 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 			}
 		}
 		placeWallBanner(world, -2, 3, 0, bannerType, 1);
-		for (int k12 : new int[] { -2, 0, 2 }) {
+		for (int k12 : new int[]{-2, 0, 2}) {
 			int i13 = -1;
 			int j13 = 2;
 			if (random.nextBoolean()) {

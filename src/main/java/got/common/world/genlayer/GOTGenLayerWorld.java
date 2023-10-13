@@ -137,7 +137,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		mapRivers = new GOTGenLayerNarrowRivers(3000L, mapRivers, 6);
 		mapRivers = GOTGenLayerZoom.magnify(4000L, mapRivers, 1);
 		rivers = new GOTGenLayerIncludeMapRivers(5000L, rivers, mapRivers);
-		return new GOTGenLayer[] { biomes, variants, variantsSmall, lakes, rivers };
+		return new GOTGenLayer[]{biomes, variants, variantsSmall, lakes, rivers};
 	}
 
 	public static int getBiomeImageID(int x, int z) {

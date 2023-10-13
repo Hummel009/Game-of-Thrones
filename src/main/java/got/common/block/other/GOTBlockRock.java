@@ -24,7 +24,7 @@ public class GOTBlockRock extends Block {
 	public IIcon iconBasaltSide;
 	@SideOnly(Side.CLIENT)
 	public IIcon iconBasaltMoss;
-	public String[] rockNames = { "basalt", "andesite", "rhyolite", "diorite", "granite", "chalk", "labradorite" };
+	public String[] rockNames = {"basalt", "andesite", "rhyolite", "diorite", "granite", "chalk", "labradorite"};
 
 	public GOTBlockRock() {
 		super(Material.rock);

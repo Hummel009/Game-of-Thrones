@@ -74,7 +74,8 @@ public class GOTLore {
 		do {
 			String formatted;
 			String unformatted;
-			block16: {
+			block16:
+			{
 				String s1;
 				int indexStart = text.indexOf('{', lastIndexStart + 1);
 				int indexEnd = text.indexOf('}');

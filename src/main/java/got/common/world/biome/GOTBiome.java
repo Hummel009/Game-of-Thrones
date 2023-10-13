@@ -55,7 +55,7 @@ import net.minecraftforge.common.util.EnumHelper;
 public abstract class GOTBiome extends BiomeGenBase {
 	public static final Set<GOTBiome> CONTENT = new HashSet<>();
 
-	public static Class<?>[][] correctCreatureTypeParams = { { EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE } };
+	public static Class<?>[][] correctCreatureTypeParams = {{EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE}};
 	public static EnumCreatureType creatureType_GOTAmbient = EnumHelper.addEnum(correctCreatureTypeParams, EnumCreatureType.class, "GOTAmbient", GOTAmbientCreature.class, 45, Material.air, true, false);
 	public static NoiseGeneratorPerlin biomeTerrainNoise = new NoiseGeneratorPerlin(new Random(1955L), 1);
 	public static Random terrainRand = new Random();
@@ -656,20 +656,20 @@ public abstract class GOTBiome extends BiomeGenBase {
 		WorldGenDoublePlant doubleFlowerGen = new WorldGenDoublePlant();
 		int i = random.nextInt(3);
 		switch (i) {
-		case 0: {
-			doubleFlowerGen.func_150548_a(1);
-			break;
-		}
-		case 1: {
-			doubleFlowerGen.func_150548_a(4);
-			break;
-		}
-		case 2: {
-			doubleFlowerGen.func_150548_a(5);
-			break;
-		}
-		default:
-			break;
+			case 0: {
+				doubleFlowerGen.func_150548_a(1);
+				break;
+			}
+			case 1: {
+				doubleFlowerGen.func_150548_a(4);
+				break;
+			}
+			case 2: {
+				doubleFlowerGen.func_150548_a(5);
+				break;
+			}
+			default:
+				break;
 		}
 		return doubleFlowerGen;
 	}

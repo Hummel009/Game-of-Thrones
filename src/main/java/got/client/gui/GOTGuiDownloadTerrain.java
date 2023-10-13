@@ -38,7 +38,7 @@ public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 			mapRenderer.renderMap(this, mapGui, f, x0, y0, x1, y1);
 			mapRenderer.renderVignettes(this, zLevel, 1, x0, y0, x1, y1);
 			GL11.glDisable(3042);
-			String titleExtra = new String[] { "", ".", "..", "..." }[tickCounter / 10 % 4];
+			String titleExtra = new String[]{"", ".", "..", "..."}[tickCounter / 10 % 4];
 			String s = StatCollector.translateToLocal("got.loading");
 			drawCenteredString(fontRendererObj, s + titleExtra, width / 2, height / 2 - 50, 16777215);
 		} else {

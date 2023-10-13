@@ -53,7 +53,7 @@ public class GOTCommandConquest extends CommandBase {
 		if (zone.isDummyZone()) {
 			throw new WrongUsageException("got.command.conquest.outOfBounds", posX, posZ);
 		}
-		return new Object[] { posX, posZ, zone };
+		return new Object[]{posX, posZ, zone};
 	}
 
 	@Override

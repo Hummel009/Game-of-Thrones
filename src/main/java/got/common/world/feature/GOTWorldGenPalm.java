@@ -76,7 +76,8 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 			trunkZ = (int) (trunkZ + Math.signum(trunkSin));
 		}
 		int leafAngle = 0;
-		block5: while (leafAngle < 360) {
+		block5:
+		while (leafAngle < 360) {
 			float angleR = (float) Math.toRadians(leafAngle += 15 + random.nextInt(15));
 			float sin = MathHelper.sin(angleR);
 			float cos = MathHelper.cos(angleR);

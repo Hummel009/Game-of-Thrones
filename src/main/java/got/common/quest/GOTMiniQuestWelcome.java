@@ -127,22 +127,22 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	public String getQuestObjective() {
 		KeyBinding keyMenu = GOTKeyHandler.keyBindingMenu;
 		switch (stage) {
-		case 2:
-			return StatCollector.translateToLocal("got.miniquest.welcome.book");
-		case 5:
-			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.map", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
-		case 8:
-			KeyBinding keyLeft = GOTKeyHandler.keyBindingAlignmentCycleLeft;
-			KeyBinding keyRight = GOTKeyHandler.keyBindingAlignmentCycleRight;
-			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.align", GameSettings.getKeyDisplayString(keyLeft.getKeyCode()), GameSettings.getKeyDisplayString(keyRight.getKeyCode()));
-		case 9:
-			KeyBinding keyUp = GOTKeyHandler.keyBindingAlignmentGroupPrev;
-			KeyBinding keyDown = GOTKeyHandler.keyBindingAlignmentGroupNext;
-			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.alignRegions", GameSettings.getKeyDisplayString(keyUp.getKeyCode()), GameSettings.getKeyDisplayString(keyDown.getKeyCode()));
-		case 11:
-			return StatCollector.translateToLocalFormatted("got.miniquest.welcome.factions", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
-		default:
-			break;
+			case 2:
+				return StatCollector.translateToLocal("got.miniquest.welcome.book");
+			case 5:
+				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.map", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
+			case 8:
+				KeyBinding keyLeft = GOTKeyHandler.keyBindingAlignmentCycleLeft;
+				KeyBinding keyRight = GOTKeyHandler.keyBindingAlignmentCycleRight;
+				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.align", GameSettings.getKeyDisplayString(keyLeft.getKeyCode()), GameSettings.getKeyDisplayString(keyRight.getKeyCode()));
+			case 9:
+				KeyBinding keyUp = GOTKeyHandler.keyBindingAlignmentGroupPrev;
+				KeyBinding keyDown = GOTKeyHandler.keyBindingAlignmentGroupNext;
+				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.alignRegions", GameSettings.getKeyDisplayString(keyUp.getKeyCode()), GameSettings.getKeyDisplayString(keyDown.getKeyCode()));
+			case 11:
+				return StatCollector.translateToLocalFormatted("got.miniquest.welcome.factions", GameSettings.getKeyDisplayString(keyMenu.getKeyCode()));
+			default:
+				break;
 		}
 		return StatCollector.translateToLocal("got.miniquest.welcome.speak");
 	}
@@ -160,43 +160,43 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	@Override
 	public void handleEvent(GOTMiniQuestEvent event) {
 		switch (stage) {
-		case 2:
-			if (event instanceof GOTMiniQuestEvent.OpenRedBook) {
-				stage = 3;
-				updateQuest();
-				updateJaqenHghar();
-			}
-			break;
-		case 5:
-			if (event instanceof GOTMiniQuestEvent.ViewMap) {
-				stage = 6;
-				updateQuest();
-				updateJaqenHghar();
-			}
-			break;
-		case 8:
-			if (event instanceof GOTMiniQuestEvent.CycleAlignment) {
-				stage = 9;
-				updateQuest();
-				updateJaqenHghar();
-			}
-			break;
-		case 9:
-			if (event instanceof GOTMiniQuestEvent.CycleAlignmentRegion) {
-				stage = 10;
-				updateQuest();
-				updateJaqenHghar();
-			}
-			break;
-		case 11:
-			if (event instanceof GOTMiniQuestEvent.ViewFactions) {
-				stage = 12;
-				updateQuest();
-				updateJaqenHghar();
-			}
-			break;
-		default:
-			break;
+			case 2:
+				if (event instanceof GOTMiniQuestEvent.OpenRedBook) {
+					stage = 3;
+					updateQuest();
+					updateJaqenHghar();
+				}
+				break;
+			case 5:
+				if (event instanceof GOTMiniQuestEvent.ViewMap) {
+					stage = 6;
+					updateQuest();
+					updateJaqenHghar();
+				}
+				break;
+			case 8:
+				if (event instanceof GOTMiniQuestEvent.CycleAlignment) {
+					stage = 9;
+					updateQuest();
+					updateJaqenHghar();
+				}
+				break;
+			case 9:
+				if (event instanceof GOTMiniQuestEvent.CycleAlignmentRegion) {
+					stage = 10;
+					updateQuest();
+					updateJaqenHghar();
+				}
+				break;
+			case 11:
+				if (event instanceof GOTMiniQuestEvent.ViewFactions) {
+					stage = 12;
+					updateQuest();
+					updateJaqenHghar();
+				}
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -212,97 +212,97 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		String line;
 		Collection<ItemStack> dropItems = new ArrayList<>();
 		switch (stage) {
-		case 1:
-			dropItems.add(new ItemStack(GOTItems.questBook));
-			npc.dropItemList(dropItems);
-			dropItems.clear();
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
-			sendQuoteSpeech(entityplayer, npc, line);
-			quotesStages.add(line);
-			stage = 2;
-			updateQuest();
-			break;
-		case 2:
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
-			sendQuoteSpeech(entityplayer, npc, line);
-			break;
-		case 3:
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 5);
-			sendQuoteSpeech(entityplayer, npc, line);
-			quotesStages.add(line);
-			stage = 4;
-			updateQuest();
-			break;
-		case 4:
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
-			sendQuoteSpeech(entityplayer, npc, line);
-			quotesStages.add(line);
-			stage = 5;
-			updateQuest();
-			break;
-		case 5:
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
-			sendQuoteSpeech(entityplayer, npc, line);
-			break;
-		case 6:
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 7);
-			sendQuoteSpeech(entityplayer, npc, line);
-			quotesStages.add(line);
-			stage = 7;
-			updateQuest();
-			break;
-		case 7:
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
-			sendQuoteSpeech(entityplayer, npc, line);
-			quotesStages.add(line);
-			stage = 8;
-			updateQuest();
-			break;
-		case 8:
-		case 9:
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
-			sendQuoteSpeech(entityplayer, npc, line);
-			break;
-		case 10:
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
-			sendQuoteSpeech(entityplayer, npc, line);
-			quotesStages.add(line);
-			stage = 11;
-			updateQuest();
-			break;
-		case 11:
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
-			sendQuoteSpeech(entityplayer, npc, line);
-			break;
-		case 12:
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 10);
-			sendQuoteSpeech(entityplayer, npc, line);
-			quotesStages.add(line);
-			stage = 13;
-			updateQuest();
-			break;
-		case 13:
-			if (!pd.getQuestData().getGivenFirstPouches()) {
-				dropItems.add(new ItemStack(GOTItems.pouch, 1, 0));
-				dropItems.add(new ItemStack(GOTItems.pouch, 1, 0));
-				dropItems.add(new ItemStack(GOTItems.valyrianDagger));
-				pd.getQuestData().setGivenFirstPouches(true);
-			}
-			npc.dropItemList(dropItems);
-			dropItems.clear();
-			line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 11);
-			sendQuoteSpeech(entityplayer, npc, line);
-			quotesStages.add(line);
-			stage = 14;
-			updateQuest();
-			break;
-		case 14:
-			stage = 15;
-			updateQuest();
-			complete(entityplayer, npc);
-			break;
-		default:
-			break;
+			case 1:
+				dropItems.add(new ItemStack(GOTItems.questBook));
+				npc.dropItemList(dropItems);
+				dropItems.clear();
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
+				sendQuoteSpeech(entityplayer, npc, line);
+				quotesStages.add(line);
+				stage = 2;
+				updateQuest();
+				break;
+			case 2:
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 4);
+				sendQuoteSpeech(entityplayer, npc, line);
+				break;
+			case 3:
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 5);
+				sendQuoteSpeech(entityplayer, npc, line);
+				quotesStages.add(line);
+				stage = 4;
+				updateQuest();
+				break;
+			case 4:
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
+				sendQuoteSpeech(entityplayer, npc, line);
+				quotesStages.add(line);
+				stage = 5;
+				updateQuest();
+				break;
+			case 5:
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 6);
+				sendQuoteSpeech(entityplayer, npc, line);
+				break;
+			case 6:
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 7);
+				sendQuoteSpeech(entityplayer, npc, line);
+				quotesStages.add(line);
+				stage = 7;
+				updateQuest();
+				break;
+			case 7:
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
+				sendQuoteSpeech(entityplayer, npc, line);
+				quotesStages.add(line);
+				stage = 8;
+				updateQuest();
+				break;
+			case 8:
+			case 9:
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 8);
+				sendQuoteSpeech(entityplayer, npc, line);
+				break;
+			case 10:
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
+				sendQuoteSpeech(entityplayer, npc, line);
+				quotesStages.add(line);
+				stage = 11;
+				updateQuest();
+				break;
+			case 11:
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 9);
+				sendQuoteSpeech(entityplayer, npc, line);
+				break;
+			case 12:
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 10);
+				sendQuoteSpeech(entityplayer, npc, line);
+				quotesStages.add(line);
+				stage = 13;
+				updateQuest();
+				break;
+			case 13:
+				if (!pd.getQuestData().getGivenFirstPouches()) {
+					dropItems.add(new ItemStack(GOTItems.pouch, 1, 0));
+					dropItems.add(new ItemStack(GOTItems.pouch, 1, 0));
+					dropItems.add(new ItemStack(GOTItems.valyrianDagger));
+					pd.getQuestData().setGivenFirstPouches(true);
+				}
+				npc.dropItemList(dropItems);
+				dropItems.clear();
+				line = GOTSpeech.getSpeechAtLine(SPEECHBANK, 11);
+				sendQuoteSpeech(entityplayer, npc, line);
+				quotesStages.add(line);
+				stage = 14;
+				updateQuest();
+				break;
+			case 14:
+				stage = 15;
+				updateQuest();
+				complete(entityplayer, npc);
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -344,7 +344,7 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	}
 
 	public static boolean[] forceMenuMapFactions(EntityPlayer entityplayer) {
-		boolean[] flags = { false, false };
+		boolean[] flags = {false, false};
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		List<GOTMiniQuest> activeQuests = pd.getActiveMiniQuests();
 		for (GOTMiniQuest quest : activeQuests) {

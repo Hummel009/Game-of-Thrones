@@ -61,7 +61,8 @@ public class GOTAmbience {
 
 	public void updateAmbience(World world, EntityPlayer entityplayer) {
 		Minecraft mc;
-		block42: {
+		block42:
+		{
 			int xzRange;
 			world.theProfiler.startSection("gotAmbience");
 			mc = Minecraft.getMinecraft();
@@ -159,7 +160,7 @@ public class GOTAmbience {
 				if (playingSeaSounds.size() < 3) {
 					if (biome instanceof GOTBiomeOcean) {
 						xzRange = 64;
-						for (float fr : new float[] { 0.25f, 0.5f, 0.75f, 1.0f }) {
+						for (float fr : new float[]{0.25f, 0.5f, 0.75f, 1.0f}) {
 							int range = (int) (xzRange * fr);
 							for (int l = 0; l < 8; ++l) {
 								int i1 = i + MathHelper.getRandomIntegerInRange(rand, -range, range);

@@ -49,15 +49,15 @@ public class GOTStructureIbbenVillagePasture extends GOTStructureIbbenBase {
 					if (j1 == 0) {
 						int randomFloor = random.nextInt(3);
 						switch (randomFloor) {
-						case 0:
-							setBlockAndMetadata(world, i1, 0, k1, Blocks.grass, 0);
-							break;
-						case 1:
-							setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
-							break;
-						default:
-							setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
-							break;
+							case 0:
+								setBlockAndMetadata(world, i1, 0, k1, Blocks.grass, 0);
+								break;
+							case 1:
+								setBlockAndMetadata(world, i1, 0, k1, Blocks.dirt, 1);
+								break;
+							default:
+								setBlockAndMetadata(world, i1, 0, k1, GOTBlocks.dirtPath, 0);
+								break;
 						}
 					} else {
 						setBlockAndMetadata(world, i1, j1, k1, Blocks.dirt, 0);

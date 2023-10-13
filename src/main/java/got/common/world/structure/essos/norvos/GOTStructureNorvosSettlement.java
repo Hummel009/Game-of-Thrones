@@ -54,15 +54,15 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case TOWN:
-				setupTown(random);
-				break;
-			case FORT:
-				setupFort(random);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case TOWN:
+					setupTown(random);
+					break;
+				case FORT:
+					setupFort(random);
+					break;
 			}
 		}
 
@@ -174,8 +174,8 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -25, 25 }) {
-				for (int k1 : new int[] { -25, 25 }) {
+			for (int i1 : new int[]{-25, 25}) {
+				for (int k1 : new int[]{-25, 25}) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -260,8 +260,8 @@ public class GOTStructureNorvosSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -30, 30 }) {
-				for (int k1 : new int[] { -30, 30 }) {
+			for (int i1 : new int[]{-30, 30}) {
+				for (int k1 : new int[]{-30, 30}) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override

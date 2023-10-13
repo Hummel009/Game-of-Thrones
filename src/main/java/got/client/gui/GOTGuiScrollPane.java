@@ -49,7 +49,7 @@ public class GOTGuiScrollPane {
 		int max = displayed - 1 + Math.round(currentScroll * (size - displayed));
 		min = Math.max(min, 0);
 		max = Math.min(max, size - 1);
-		return new int[] { min, max };
+		return new int[]{min, max};
 	}
 
 	public void mouseDragScroll(int i, int j) {

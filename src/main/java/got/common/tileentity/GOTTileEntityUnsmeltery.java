@@ -153,7 +153,8 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (recursiveCheckedRecipes == null) {
 			recursiveCheckedRecipes = new ArrayList<>();
 		}
-		label63: for (List<IRecipe> recipes : allRecipeLists) {
+		label63:
+		for (List<IRecipe> recipes : allRecipeLists) {
 			for (IRecipe recipesObj : recipes) {
 				if (!recursiveCheckedRecipes.contains(recipesObj)) {
 					ItemStack result = recipesObj.getRecipeOutput();
@@ -300,9 +301,9 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 
 	@Override
 	public void setupForgeSlots() {
-		inputSlots = new int[] { 0 };
+		inputSlots = new int[]{0};
 		fuelSlot = 1;
-		outputSlots = new int[] { 2 };
+		outputSlots = new int[]{2};
 	}
 
 	@Override

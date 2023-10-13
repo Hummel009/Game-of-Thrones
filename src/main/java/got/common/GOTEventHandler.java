@@ -353,17 +353,17 @@ public class GOTEventHandler implements IFuelHandler {
 					if (logFacing != 12) {
 						boolean onInnerFace = false;
 						switch (logFacing) {
-						case 0:
-							onInnerFace = side == 0 || side == 1;
-							break;
-						case 4:
-							onInnerFace = side == 4 || side == 5;
-							break;
-						case 8:
-							onInnerFace = side == 2 || side == 3;
-							break;
-						default:
-							break;
+							case 0:
+								onInnerFace = side == 0 || side == 1;
+								break;
+							case 4:
+								onInnerFace = side == 4 || side == 5;
+								break;
+							case 8:
+								onInnerFace = side == 2 || side == 3;
+								break;
+							default:
+								break;
 						}
 						if (onInnerFace) {
 							meta |= 0xC;
@@ -1653,7 +1653,8 @@ public class GOTEventHandler implements IFuelHandler {
 				if (biomegenbase instanceof GOTBiome) {
 					GOTBiome biome = (GOTBiome) biomegenbase;
 					int attempts = 0;
-					label46: while (attempts < 128) {
+					label46:
+					while (attempts < 128) {
 						int i1 = i;
 						int j1 = j + 1;
 						int k1 = k;

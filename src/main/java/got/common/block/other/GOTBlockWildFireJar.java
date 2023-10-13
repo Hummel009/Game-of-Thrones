@@ -94,20 +94,20 @@ public class GOTBlockWildFireJar extends BlockFalling {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		switch (renderingStage) {
-		case 1:
-			return i == 0 ? iconBaseBottom : i == 1 ? iconBaseTop : iconBaseSide;
-		case 2:
-			return iconNeckSide;
-		case 3:
-			return i == 0 ? iconLidBottom : i == 1 ? iconLidTop : iconLidSide;
-		case 4:
-			return i == 0 ? iconCapBottom : i == 1 ? iconCapTop : iconCapSide;
-		case 5:
-			return iconCrownSide;
-		case 6:
-			return iconHandleSide;
-		default:
-			break;
+			case 1:
+				return i == 0 ? iconBaseBottom : i == 1 ? iconBaseTop : iconBaseSide;
+			case 2:
+				return iconNeckSide;
+			case 3:
+				return i == 0 ? iconLidBottom : i == 1 ? iconLidTop : iconLidSide;
+			case 4:
+				return i == 0 ? iconCapBottom : i == 1 ? iconCapTop : iconCapSide;
+			case 5:
+				return iconCrownSide;
+			case 6:
+				return iconHandleSide;
+			default:
+				break;
 		}
 		return GOTBlocks.brick5.getIcon(i, 11);
 	}

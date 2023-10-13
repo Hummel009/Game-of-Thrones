@@ -74,10 +74,11 @@ public class GOTClassTransformer implements IClassTransformer {
 			AbstractInsnNode nodePrev;
 			if (method.name.equals(targetMethodName) && method.desc.equals(targetMethodSign)) {
 				AbstractInsnNode nodeFound = null;
-				block1: for (boolean armorObf : new boolean[] { false, true }) {
+				block1:
+				for (boolean armorObf : new boolean[]{false, true}) {
 					for (int dmgObf = 0; dmgObf < 3; ++dmgObf) {
 						String _armor = armorObf ? cls_ItemArmor_obf : cls_ItemArmor;
-						String _dmg = new String[] { "field_77879_b", "damageReduceAmount", "c" }[dmgObf];
+						String _dmg = new String[]{"field_77879_b", "damageReduceAmount", "c"}[dmgObf];
 						FieldInsnNode nodeDmg = new FieldInsnNode(GETFIELD, _armor, _dmg, "I");
 						nodeFound = findNodeInMethod(method, nodeDmg);
 						if (nodeFound != null) {
@@ -313,10 +314,11 @@ public class GOTClassTransformer implements IClassTransformer {
 			int skip = 0;
 			do {
 				MethodInsnNode nodeFound = null;
-				block2: for (boolean pistonObf : new boolean[] { false, true }) {
-					for (boolean canPushObf : new boolean[] { false, true }) {
-						for (boolean blockObf : new boolean[] { false, true }) {
-							for (boolean worldObf : new boolean[] { false, true }) {
+				block2:
+				for (boolean pistonObf : new boolean[]{false, true}) {
+					for (boolean canPushObf : new boolean[]{false, true}) {
+						for (boolean blockObf : new boolean[]{false, true}) {
+							for (boolean worldObf : new boolean[]{false, true}) {
 								String _piston = pistonObf ? cls_BlockPistonBase_obf : cls_BlockPistonBase;
 								String _canPush = canPushObf ? "func_150080_a" : "canPushBlock";
 								String _block = blockObf ? cls_Block_obf : cls_Block;
@@ -511,8 +513,9 @@ public class GOTClassTransformer implements IClassTransformer {
 		for (MethodNode method : classNode.methods) {
 			if (method.name.equals(targetMethodName) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				FieldInsnNode nodeFound = null;
-				block1: for (boolean blocksObf : new boolean[] { false, true }) {
-					for (boolean doorObf : new boolean[] { false, true }) {
+				block1:
+				for (boolean blocksObf : new boolean[]{false, true}) {
+					for (boolean doorObf : new boolean[]{false, true}) {
 						String _blocks = blocksObf ? cls_Blocks_obf : cls_Blocks;
 						String _door = doorObf ? "field_150466_ao" : "wooden_door";
 						FieldInsnNode nodeGetDoor = new FieldInsnNode(GETSTATIC, _blocks, _door, "Lnet/minecraft/block/Block;");
@@ -708,8 +711,9 @@ public class GOTClassTransformer implements IClassTransformer {
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
 				AbstractInsnNode nodeIsRemote = null;
-				block1: for (boolean worldObf : new boolean[] { false, true }) {
-					boolean[] arrbl = { false, true };
+				block1:
+				for (boolean worldObf : new boolean[]{false, true}) {
+					boolean[] arrbl = {false, true};
 					for (boolean b : arrbl) {
 						String _world = worldObf ? cls_World_obf : cls_World;
 						nodeIsRemote = findNodeInMethod(method, new FieldInsnNode(GETFIELD, _world, b ? "field_72995_K" : "isRemote", "Z"));
@@ -1026,9 +1030,10 @@ public class GOTClassTransformer implements IClassTransformer {
 			if (method.name.equals(targetMethodName) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				FieldInsnNode nodeFound1 = null;
 				FieldInsnNode nodeFound2 = null;
-				block1: for (int pass = 0; pass <= 1; ++pass) {
-					for (boolean blocksObf : new boolean[] { false, true }) {
-						for (boolean doorObf : new boolean[] { false, true }) {
+				block1:
+				for (int pass = 0; pass <= 1; ++pass) {
+					for (boolean blocksObf : new boolean[]{false, true}) {
+						for (boolean doorObf : new boolean[]{false, true}) {
 							String _blocks = blocksObf ? "ajn" : cls_Blocks;
 							String _door = doorObf ? "field_150466_ao" : "wooden_door";
 							FieldInsnNode nodeGetDoor = new FieldInsnNode(GETSTATIC, _blocks, _door, "Lnet/minecraft/block/Block;");
@@ -1059,8 +1064,9 @@ public class GOTClassTransformer implements IClassTransformer {
 					}
 				}
 				FieldInsnNode nodeFoundGate = null;
-				block5: for (boolean blocksObf : new boolean[] { false, true }) {
-					for (boolean gateObf : new boolean[] { false, true }) {
+				block5:
+				for (boolean blocksObf : new boolean[]{false, true}) {
+					for (boolean gateObf : new boolean[]{false, true}) {
 						String _blocks2 = blocksObf ? cls_Blocks_obf : cls_Blocks;
 						String _gate = gateObf ? "field_150396_be" : "fence_gate";
 						FieldInsnNode nodeGetGate = new FieldInsnNode(GETSTATIC, _blocks2, _gate, "Lnet/minecraft/block/Block;");

@@ -31,7 +31,7 @@ import net.minecraft.world.World;
 
 public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBandit, GOTBiome.ImmuneToHeat {
 	public static int MAX_THEFTS = 3;
-	public static ItemStack[] weapons = { new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger) };
+	public static ItemStack[] weapons = {new ItemStack(GOTItems.bronzeDagger), new ItemStack(GOTItems.ironDagger)};
 	public GOTInventoryNPC banditInventory = new GOTInventoryNPC("BanditInventory", this, MAX_THEFTS);
 
 	public GOTEntityLightSkinBandit(World world) {
@@ -173,17 +173,17 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 	public void setupNPCName() {
 		int i = rand.nextInt(4);
 		switch (i) {
-		case 0:
-			familyInfo.setName(GOTNames.getWesterosName(rand, true));
-			break;
-		case 2:
-			familyInfo.setName(GOTNames.getEssosName(rand, true));
-			break;
-		case 3:
-			familyInfo.setName(GOTNames.getQarthName(rand, true));
-			break;
-		default:
-			familyInfo.setName(GOTNames.getWildName(rand, true));
+			case 0:
+				familyInfo.setName(GOTNames.getWesterosName(rand, true));
+				break;
+			case 2:
+				familyInfo.setName(GOTNames.getEssosName(rand, true));
+				break;
+			case 3:
+				familyInfo.setName(GOTNames.getQarthName(rand, true));
+				break;
+			default:
+				familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
 	}
 

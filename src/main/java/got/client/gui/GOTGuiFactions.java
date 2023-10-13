@@ -287,101 +287,101 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			if (!isPledging && !isUnpledging) {
 				int index;
 				switch (currentPage) {
-				case ALLIES:
-				case ENEMIES:
-					int avgBgColor = GOTTextures.computeAverageFactionPageColor(factionsTexture, 20, 20, 120, 80);
-					int[] minMax = scrollPaneAlliesEnemies.getMinMaxIndices(currentAlliesEnemies, numDisplayedAlliesEnemies);
-					for (index = minMax[0]; index <= minMax[1]; ++index) {
-						Object listObj = currentAlliesEnemies.get(index);
-						if (listObj instanceof GOTFactionRelations.Relation) {
-							GOTFactionRelations.Relation rel = (GOTFactionRelations.Relation) listObj;
-							s = StatCollector.translateToLocalFormatted("got.gui.factions.relationHeader", rel.getDisplayName());
-							fontRendererObj.drawString(s, x, y, 8019267);
-						} else if (listObj instanceof GOTFaction) {
-							GOTFaction fac = (GOTFaction) listObj;
-							s = StatCollector.translateToLocalFormatted("got.gui.factions.list", fac.factionName());
-							fontRendererObj.drawString(s, x, y, GOTTextures.findContrastingColor(fac.getFactionColor(), avgBgColor));
-						}
-						y += fontRendererObj.FONT_HEIGHT;
-					}
-					break;
-				case FRONT:
-					if (isOtherPlayer) {
-						s = StatCollector.translateToLocalFormatted("got.gui.factions.pageOther", otherPlayerName);
-						fontRendererObj.drawString(s, x, y, 8019267);
-						y += fontRendererObj.FONT_HEIGHT * 2;
-					}
-					String alignmentInfo = StatCollector.translateToLocal("got.gui.factions.alignment");
-					fontRendererObj.drawString(alignmentInfo, x, y, 8019267);
-					String alignmentString = GOTAlignmentValues.formatAlignForDisplay(alignment);
-					GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x + fontRendererObj.getStringWidth(alignmentInfo) + 5, y, alignmentString, 1.0f);
-
-					x = guiLeft + pageBorderLeft;
-					GOTFactionRank curRank = currentFaction.getRank(alignment);
-					String rankName = curRank.getFullNameWithGender(clientPD);
-					fontRendererObj.drawString(rankName, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
-					y += fontRendererObj.FONT_HEIGHT * 2;
-					if (!isOtherPlayer) {
-						GOTFactionData factionData = clientPD.getFactionData(currentFaction);
-						if (alignment >= 0.0f) {
-							float conq;
-							s = StatCollector.translateToLocalFormatted("got.gui.factions.data.enemiesKilled", factionData.getEnemiesKilled());
-							fontRendererObj.drawString(s, x, y, 8019267);
-							s = StatCollector.translateToLocalFormatted("got.gui.factions.data.trades", factionData.getTradeCount());
-							fontRendererObj.drawString(s, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
-							s = StatCollector.translateToLocalFormatted("got.gui.factions.data.hires", factionData.getHireCount());
-							fontRendererObj.drawString(s, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
-							s = StatCollector.translateToLocalFormatted("got.gui.factions.data.miniquests", factionData.getMiniQuestsCompleted());
-							fontRendererObj.drawString(s, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
+					case ALLIES:
+					case ENEMIES:
+						int avgBgColor = GOTTextures.computeAverageFactionPageColor(factionsTexture, 20, 20, 120, 80);
+						int[] minMax = scrollPaneAlliesEnemies.getMinMaxIndices(currentAlliesEnemies, numDisplayedAlliesEnemies);
+						for (index = minMax[0]; index <= minMax[1]; ++index) {
+							Object listObj = currentAlliesEnemies.get(index);
+							if (listObj instanceof GOTFactionRelations.Relation) {
+								GOTFactionRelations.Relation rel = (GOTFactionRelations.Relation) listObj;
+								s = StatCollector.translateToLocalFormatted("got.gui.factions.relationHeader", rel.getDisplayName());
+								fontRendererObj.drawString(s, x, y, 8019267);
+							} else if (listObj instanceof GOTFaction) {
+								GOTFaction fac = (GOTFaction) listObj;
+								s = StatCollector.translateToLocalFormatted("got.gui.factions.list", fac.factionName());
+								fontRendererObj.drawString(s, x, y, GOTTextures.findContrastingColor(fac.getFactionColor(), avgBgColor));
+							}
 							y += fontRendererObj.FONT_HEIGHT;
-							if (clientPD.isPledgedTo(currentFaction) && (conq = factionData.getConquestEarned()) != 0.0f) {
-								int conqInt = Math.round(conq);
-								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.conquest", conqInt);
+						}
+						break;
+					case FRONT:
+						if (isOtherPlayer) {
+							s = StatCollector.translateToLocalFormatted("got.gui.factions.pageOther", otherPlayerName);
+							fontRendererObj.drawString(s, x, y, 8019267);
+							y += fontRendererObj.FONT_HEIGHT * 2;
+						}
+						String alignmentInfo = StatCollector.translateToLocal("got.gui.factions.alignment");
+						fontRendererObj.drawString(alignmentInfo, x, y, 8019267);
+						String alignmentString = GOTAlignmentValues.formatAlignForDisplay(alignment);
+						GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x + fontRendererObj.getStringWidth(alignmentInfo) + 5, y, alignmentString, 1.0f);
+
+						x = guiLeft + pageBorderLeft;
+						GOTFactionRank curRank = currentFaction.getRank(alignment);
+						String rankName = curRank.getFullNameWithGender(clientPD);
+						fontRendererObj.drawString(rankName, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
+						y += fontRendererObj.FONT_HEIGHT * 2;
+						if (!isOtherPlayer) {
+							GOTFactionData factionData = clientPD.getFactionData(currentFaction);
+							if (alignment >= 0.0f) {
+								float conq;
+								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.enemiesKilled", factionData.getEnemiesKilled());
 								fontRendererObj.drawString(s, x, y, 8019267);
+								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.trades", factionData.getTradeCount());
+								fontRendererObj.drawString(s, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
+								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.hires", factionData.getHireCount());
+								fontRendererObj.drawString(s, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
+								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.miniquests", factionData.getMiniQuestsCompleted());
+								fontRendererObj.drawString(s, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
 								y += fontRendererObj.FONT_HEIGHT;
+								if (clientPD.isPledgedTo(currentFaction) && (conq = factionData.getConquestEarned()) != 0.0f) {
+									int conqInt = Math.round(conq);
+									s = StatCollector.translateToLocalFormatted("got.gui.factions.data.conquest", conqInt);
+									fontRendererObj.drawString(s, x, y, 8019267);
+									y += fontRendererObj.FONT_HEIGHT;
+								}
 							}
-						}
-						if (alignment <= 0.0f) {
-							s = StatCollector.translateToLocalFormatted("got.gui.factions.data.npcsKilled", factionData.getNPCsKilled());
-							fontRendererObj.drawString(s, x, y, 8019267);
-						}
-						if (buttonPledge.visible && clientPD.isPledgedTo(currentFaction)) {
-							s = StatCollector.translateToLocal("got.gui.factions.pledged");
-							int px = buttonPledge.xPosition + buttonPledge.width + 8;
-							int py = buttonPledge.yPosition + buttonPledge.height / 2 - fontRendererObj.FONT_HEIGHT / 2;
-							fontRendererObj.drawString(s, px, py, 16711680);
-						}
-					}
-					break;
-				case RANKS:
-					GOTFactionRank curRank1 = currentFaction.getRank(clientPD);
-					int[] minMax1 = scrollPaneAlliesEnemies.getMinMaxIndices(currentAlliesEnemies, numDisplayedAlliesEnemies);
-					for (index = minMax1[0]; index <= minMax1[1]; ++index) {
-						Object listObj = currentAlliesEnemies.get(index);
-						if (listObj instanceof String) {
-							s = (String) listObj;
-							fontRendererObj.drawString(s, x, y, 8019267);
-						} else if (listObj instanceof GOTFactionRank) {
-							GOTFactionRank rank = (GOTFactionRank) listObj;
-							String rankName1 = rank.getShortNameWithGender(clientPD);
-							String rankAlign = GOTAlignmentValues.formatAlignForDisplay(rank.alignment);
-							if (rank == GOTFactionRank.RANK_ENEMY) {
-								rankAlign = "-";
-							}
-							boolean hiddenRankName = !clientPD.isPledgedTo(currentFaction) && rank.alignment > currentFaction.getPledgeAlignment() && rank.alignment > currentFaction.getRankAbove(curRank1).alignment;
-							if (hiddenRankName) {
-								rankName1 = StatCollector.translateToLocal("got.gui.factions.rank?");
-							}
-							s = StatCollector.translateToLocalFormatted("got.gui.factions.listRank", rankName1, rankAlign);
-							if (rank == curRank1) {
-								GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x, y, s, 1.0f);
-							} else {
+							if (alignment <= 0.0f) {
+								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.npcsKilled", factionData.getNPCsKilled());
 								fontRendererObj.drawString(s, x, y, 8019267);
 							}
+							if (buttonPledge.visible && clientPD.isPledgedTo(currentFaction)) {
+								s = StatCollector.translateToLocal("got.gui.factions.pledged");
+								int px = buttonPledge.xPosition + buttonPledge.width + 8;
+								int py = buttonPledge.yPosition + buttonPledge.height / 2 - fontRendererObj.FONT_HEIGHT / 2;
+								fontRendererObj.drawString(s, px, py, 16711680);
+							}
 						}
-						y += fontRendererObj.FONT_HEIGHT;
-					}
-					break;
+						break;
+					case RANKS:
+						GOTFactionRank curRank1 = currentFaction.getRank(clientPD);
+						int[] minMax1 = scrollPaneAlliesEnemies.getMinMaxIndices(currentAlliesEnemies, numDisplayedAlliesEnemies);
+						for (index = minMax1[0]; index <= minMax1[1]; ++index) {
+							Object listObj = currentAlliesEnemies.get(index);
+							if (listObj instanceof String) {
+								s = (String) listObj;
+								fontRendererObj.drawString(s, x, y, 8019267);
+							} else if (listObj instanceof GOTFactionRank) {
+								GOTFactionRank rank = (GOTFactionRank) listObj;
+								String rankName1 = rank.getShortNameWithGender(clientPD);
+								String rankAlign = GOTAlignmentValues.formatAlignForDisplay(rank.alignment);
+								if (rank == GOTFactionRank.RANK_ENEMY) {
+									rankAlign = "-";
+								}
+								boolean hiddenRankName = !clientPD.isPledgedTo(currentFaction) && rank.alignment > currentFaction.getPledgeAlignment() && rank.alignment > currentFaction.getRankAbove(curRank1).alignment;
+								if (hiddenRankName) {
+									rankName1 = StatCollector.translateToLocal("got.gui.factions.rank?");
+								}
+								s = StatCollector.translateToLocalFormatted("got.gui.factions.listRank", rankName1, rankAlign);
+								if (rank == curRank1) {
+									GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x, y, s, 1.0f);
+								} else {
+									fontRendererObj.drawString(s, x, y, 8019267);
+								}
+							}
+							y += fontRendererObj.FONT_HEIGHT;
+						}
+						break;
 				}
 				if (scrollPaneAlliesEnemies.hasScrollBar) {
 					scrollPaneAlliesEnemies.drawScrollBar();
@@ -594,56 +594,56 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 		if (currentPage == Page.ALLIES || currentPage == Page.ENEMIES || currentPage == Page.RANKS) {
 			switch (currentPage) {
-			case ALLIES:
-				List<GOTFaction> friends;
-				currentAlliesEnemies = new ArrayList<>();
-				List<GOTFaction> allies = currentFaction.getOthersOfRelation(GOTFactionRelations.Relation.ALLY);
-				if (!allies.isEmpty()) {
-					currentAlliesEnemies.add(GOTFactionRelations.Relation.ALLY);
-					currentAlliesEnemies.addAll(allies);
-				}
-				if (!(friends = currentFaction.getOthersOfRelation(GOTFactionRelations.Relation.FRIEND)).isEmpty()) {
-					if (!currentAlliesEnemies.isEmpty()) {
-						currentAlliesEnemies.add(null);
+				case ALLIES:
+					List<GOTFaction> friends;
+					currentAlliesEnemies = new ArrayList<>();
+					List<GOTFaction> allies = currentFaction.getOthersOfRelation(GOTFactionRelations.Relation.ALLY);
+					if (!allies.isEmpty()) {
+						currentAlliesEnemies.add(GOTFactionRelations.Relation.ALLY);
+						currentAlliesEnemies.addAll(allies);
 					}
-					currentAlliesEnemies.add(GOTFactionRelations.Relation.FRIEND);
-					currentAlliesEnemies.addAll(friends);
-				}
-				break;
-			case ENEMIES:
-				List<GOTFaction> enemies;
-				currentAlliesEnemies = new ArrayList<>();
-				List<GOTFaction> mortals = currentFaction.getOthersOfRelation(GOTFactionRelations.Relation.MORTAL_ENEMY);
-				if (!mortals.isEmpty()) {
-					currentAlliesEnemies.add(GOTFactionRelations.Relation.MORTAL_ENEMY);
-					currentAlliesEnemies.addAll(mortals);
-				}
-				if (!(enemies = currentFaction.getOthersOfRelation(GOTFactionRelations.Relation.ENEMY)).isEmpty()) {
-					if (!currentAlliesEnemies.isEmpty()) {
-						currentAlliesEnemies.add(null);
+					if (!(friends = currentFaction.getOthersOfRelation(GOTFactionRelations.Relation.FRIEND)).isEmpty()) {
+						if (!currentAlliesEnemies.isEmpty()) {
+							currentAlliesEnemies.add(null);
+						}
+						currentAlliesEnemies.add(GOTFactionRelations.Relation.FRIEND);
+						currentAlliesEnemies.addAll(friends);
 					}
-					currentAlliesEnemies.add(GOTFactionRelations.Relation.ENEMY);
-					currentAlliesEnemies.addAll(enemies);
-				}
-				break;
-			case RANKS:
-				currentAlliesEnemies = new ArrayList<>();
-				currentAlliesEnemies.add(StatCollector.translateToLocal("got.gui.factions.rankHeader"));
-				if (GOTLevelData.getData(mc.thePlayer).getAlignment(currentFaction) <= 0.0f) {
-					currentAlliesEnemies.add(GOTFactionRank.RANK_ENEMY);
-				}
-				GOTFactionRank rank = GOTFactionRank.RANK_NEUTRAL;
-				do {
-					currentAlliesEnemies.add(rank);
-					GOTFactionRank nextRank = currentFaction.getRankAbove(rank);
-					if (nextRank == null || nextRank.isDummyRank() || currentAlliesEnemies.contains(nextRank)) {
-						break;
+					break;
+				case ENEMIES:
+					List<GOTFaction> enemies;
+					currentAlliesEnemies = new ArrayList<>();
+					List<GOTFaction> mortals = currentFaction.getOthersOfRelation(GOTFactionRelations.Relation.MORTAL_ENEMY);
+					if (!mortals.isEmpty()) {
+						currentAlliesEnemies.add(GOTFactionRelations.Relation.MORTAL_ENEMY);
+						currentAlliesEnemies.addAll(mortals);
 					}
-					rank = nextRank;
-				} while (true);
-				break;
-			default:
-				break;
+					if (!(enemies = currentFaction.getOthersOfRelation(GOTFactionRelations.Relation.ENEMY)).isEmpty()) {
+						if (!currentAlliesEnemies.isEmpty()) {
+							currentAlliesEnemies.add(null);
+						}
+						currentAlliesEnemies.add(GOTFactionRelations.Relation.ENEMY);
+						currentAlliesEnemies.addAll(enemies);
+					}
+					break;
+				case RANKS:
+					currentAlliesEnemies = new ArrayList<>();
+					currentAlliesEnemies.add(StatCollector.translateToLocal("got.gui.factions.rankHeader"));
+					if (GOTLevelData.getData(mc.thePlayer).getAlignment(currentFaction) <= 0.0f) {
+						currentAlliesEnemies.add(GOTFactionRank.RANK_ENEMY);
+					}
+					GOTFactionRank rank = GOTFactionRank.RANK_NEUTRAL;
+					do {
+						currentAlliesEnemies.add(rank);
+						GOTFactionRank nextRank = currentFaction.getRankAbove(rank);
+						if (nextRank == null || nextRank.isDummyRank() || currentAlliesEnemies.contains(nextRank)) {
+							break;
+						}
+						rank = nextRank;
+					} while (true);
+					break;
+				default:
+					break;
 			}
 			scrollPaneAlliesEnemies.hasScrollBar = false;
 			numDisplayedAlliesEnemies = currentAlliesEnemies.size();

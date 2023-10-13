@@ -23,7 +23,8 @@ public class GOTBlockSapling7 extends GOTBlockSaplingBase {
 		int xOffset = 0;
 		int zOffset = 0;
 		if (meta == 0) {
-			block0: for (i1 = 0; i1 >= -1; --i1) {
+			block0:
+			for (i1 = 0; i1 >= -1; --i1) {
 				for (k1 = 0; k1 >= -1; --k1) {
 					if (!isSameSapling(world, i + i1, j, k + k1, 0) || !isSameSapling(world, i + i1 + 1, j, k + k1, 0) || !isSameSapling(world, i + i1, j, k + k1 + 1, 0) || !isSameSapling(world, i + i1 + 1, j, k + k1 + 1, 0)) {
 						continue;

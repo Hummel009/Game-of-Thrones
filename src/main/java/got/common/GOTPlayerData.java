@@ -1083,7 +1083,7 @@ public class GOTPlayerData {
 	public EntityPlayer getPlayer() {
 		World[] searchWorlds;
 		if (GOT.proxy.isClient()) {
-			searchWorlds = new World[] { GOT.proxy.getClientWorld() };
+			searchWorlds = new World[]{GOT.proxy.getClientWorld()};
 		} else {
 			searchWorlds = MinecraftServer.getServer().worldServers;
 		}

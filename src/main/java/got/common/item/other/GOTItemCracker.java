@@ -27,7 +27,7 @@ public class GOTItemCracker extends Item {
 	public static int CUSTOM_CAPACITY = 3;
 	@SideOnly(Side.CLIENT)
 	public IIcon[] crackerIcons;
-	public String[] crackerNames = { "red", "blue", "green", "silver", "gold" };
+	public String[] crackerNames = {"red", "blue", "green", "silver", "gold"};
 
 	public GOTItemCracker() {
 		setMaxStackSize(1);

@@ -45,8 +45,8 @@ public abstract class GOTRenderSpiderBase extends RenderLiving {
 	@Override
 	public void renderModel(EntityLivingBase entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.renderModel(entity, f, f1, f2, f3, f4, f5);
-		ResourceLocation eyes1 = GOTTextures.getEyesTexture(getEntityTexture(entity), new int[][] { { 39, 10 }, { 42, 11 }, { 44, 11 }, { 47, 10 } }, 2, 2);
-		ResourceLocation eyes2 = GOTTextures.getEyesTexture(getEntityTexture(entity), new int[][] { { 41, 8 }, { 42, 9 }, { 45, 9 }, { 46, 8 } }, 1, 1);
+		ResourceLocation eyes1 = GOTTextures.getEyesTexture(getEntityTexture(entity), new int[][]{{39, 10}, {42, 11}, {44, 11}, {47, 10}}, 2, 2);
+		ResourceLocation eyes2 = GOTTextures.getEyesTexture(getEntityTexture(entity), new int[][]{{41, 8}, {42, 9}, {45, 9}, {46, 8}}, 1, 1);
 		GOTGlowingEyes.renderGlowingEyes(entity, eyes1, eyesModel, f, f1, f2, f3, f4, f5);
 		GOTGlowingEyes.renderGlowingEyes(entity, eyes2, eyesModel, f, f1, f2, f3, f4, f5);
 	}

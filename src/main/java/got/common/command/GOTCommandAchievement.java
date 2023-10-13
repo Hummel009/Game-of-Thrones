@@ -18,20 +18,20 @@ public class GOTCommandAchievement extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
-		case 1:
-			return CommandBase.getListOfStringsMatchingLastWord(args, "give", "remove");
-		case 2:
-			List<GOTAchievement> achievements = GOTAchievement.getAllAchievements();
-			ArrayList<String> names = new ArrayList<>();
-			for (GOTAchievement a : achievements) {
-				names.add(a.getCodeName());
-			}
-			if ("remove".equals(args[0])) {
-				names.add("all");
-			}
-			return CommandBase.getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
-		case 3:
-			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+			case 1:
+				return CommandBase.getListOfStringsMatchingLastWord(args, "give", "remove");
+			case 2:
+				List<GOTAchievement> achievements = GOTAchievement.getAllAchievements();
+				ArrayList<String> names = new ArrayList<>();
+				for (GOTAchievement a : achievements) {
+					names.add(a.getCodeName());
+				}
+				if ("remove".equals(args[0])) {
+					names.add("all");
+				}
+				return CommandBase.getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
+			case 3:
+				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
 		return Collections.emptyList();
 	}

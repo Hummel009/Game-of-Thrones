@@ -50,24 +50,24 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case TOWN:
-				setupTown(random);
-				break;
-			case FORT:
-				setupFort(random);
-				break;
-			case GATE:
-				setupGate(random);
-				break;
-			case GATE_ROAD:
-				setupGateRoad(random);
-				break;
-			case TOWER:
-				addStructure(new GOTStructureYiTiLighthouse(), 10, -10, 2, true);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case TOWN:
+					setupTown(random);
+					break;
+				case FORT:
+					setupFort(random);
+					break;
+				case GATE:
+					setupGate(random);
+					break;
+				case GATE_ROAD:
+					setupGateRoad(random);
+					break;
+				case TOWER:
+					addStructure(new GOTStructureYiTiLighthouse(), 10, -10, 2, true);
+					break;
 			}
 		}
 
@@ -143,8 +143,8 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -48, 48 }) {
-				for (int k1 : new int[] { -48, 48 }) {
+			for (int i1 : new int[]{-48, 48}) {
+				for (int k1 : new int[]{-48, 48}) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -248,8 +248,8 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 				}
 			}, 0, 0, 0);
 			int spawnerX = 60;
-			for (int i1 : new int[] { -spawnerX, spawnerX }) {
-				for (int k1 : new int[] { -spawnerX, spawnerX }) {
+			for (int i1 : new int[]{-spawnerX, spawnerX}) {
+				for (int k1 : new int[]{-spawnerX, spawnerX}) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override

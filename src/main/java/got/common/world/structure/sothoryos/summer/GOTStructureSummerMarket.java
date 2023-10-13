@@ -19,7 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTStructureSummerMarket extends GOTStructureSummerBase {
-	public static Class<? extends GOTStructureBase>[] stalls = new Class[] { Goldsmith.class, Florist.class, Brewer.class, Fish.class, Butcher.class, Baker.class, Lumber.class, Miner.class, Mason.class, Blacksmith.class, Farmer.class };
+	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Goldsmith.class, Florist.class, Brewer.class, Fish.class, Butcher.class, Baker.class, Lumber.class, Miner.class, Mason.class, Blacksmith.class, Farmer.class};
 
 	public GOTStructureSummerMarket(boolean flag) {
 		super(flag);
@@ -94,7 +94,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		spawnItemFrame(world, 2, 2, -3, 3, getFramedItem(random));
 		spawnItemFrame(world, -2, 2, 3, 1, getFramedItem(random));
 		placeWeaponRack(world, -3, 2, 1, 6, getRandomWeapon(random));
-		placeArmorStand(world, 2, 1, -2, 2, new ItemStack[] { new ItemStack(GOTItems.summerHelmet), null, null, null });
+		placeArmorStand(world, 2, 1, -2, 2, new ItemStack[]{new ItemStack(GOTItems.summerHelmet), null, null, null});
 		placeFlowerPot(world, -2, 2, 2, getRandomFlower(world, random));
 		placeAnimalJar(world, 2, 1, 1, GOTBlocks.butterflyJar, 0, new GOTEntityButterfly(world));
 		placeAnimalJar(world, -3, 1, -1, GOTBlocks.birdCageWood, 0, new GOTEntityBird(world));
@@ -205,7 +205,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 			placeWeaponRack(world, 0, 2, 4, 3, new GOTStructureSummerMarket(false).getRandomWeapon(random));
 			placeFlowerPot(world, 0, 2, 2, getRandomFlower(world, random));
 			setBlockAndMetadata(world, 3, 1, 3, Blocks.anvil, 1);
-			placeArmorStand(world, 4, 1, 2, 0, new ItemStack[] { new ItemStack(GOTItems.summerHelmet), new ItemStack(GOTItems.summerChestplate), null, null });
+			placeArmorStand(world, 4, 1, 2, 0, new ItemStack[]{new ItemStack(GOTItems.summerHelmet), new ItemStack(GOTItems.summerChestplate), null, null});
 			placeArmorStand(world, 2, 1, 4, 1, null);
 			GOTEntitySummerBlacksmith trader = new GOTEntitySummerBlacksmith(world);
 			spawnNPCAndSetHome(trader, world, 2, 1, 2, 4);
@@ -275,7 +275,7 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		}
 
 		public ItemStack getRandomFarmFood(Random random) {
-			ItemStack[] items = { new ItemStack(GOTItems.orange), new ItemStack(GOTItems.lemon), new ItemStack(GOTItems.lime), new ItemStack(Items.carrot), new ItemStack(Items.potato), new ItemStack(GOTItems.lettuce), new ItemStack(GOTItems.turnip) };
+			ItemStack[] items = {new ItemStack(GOTItems.orange), new ItemStack(GOTItems.lemon), new ItemStack(GOTItems.lime), new ItemStack(Items.carrot), new ItemStack(Items.potato), new ItemStack(GOTItems.lettuce), new ItemStack(GOTItems.turnip)};
 			ItemStack ret = items[random.nextInt(items.length)].copy();
 			ret.stackSize = 1 + random.nextInt(3);
 			return ret;

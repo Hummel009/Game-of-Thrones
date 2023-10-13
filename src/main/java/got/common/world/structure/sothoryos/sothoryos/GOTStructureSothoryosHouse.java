@@ -88,24 +88,24 @@ public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 		} else {
 			int l = random.nextInt(6);
 			switch (l) {
-			case 0:
-				plant = new ItemStack(Blocks.sapling, 1, 3);
-				break;
-			case 1:
-				plant = new ItemStack(GOTBlocks.sapling6, 1, 0);
-				break;
-			case 2:
-				plant = new ItemStack(GOTBlocks.fruitSapling, 1, 3);
-				break;
-			case 3:
-				plant = new ItemStack(Blocks.tallgrass, 1, 2);
-				break;
-			case 4:
-				plant = new ItemStack(Blocks.tallgrass, 1, 1);
-				break;
-			default:
-				plant = new ItemStack(GOTBlocks.tallGrass, 1, 5);
-				break;
+				case 0:
+					plant = new ItemStack(Blocks.sapling, 1, 3);
+					break;
+				case 1:
+					plant = new ItemStack(GOTBlocks.sapling6, 1, 0);
+					break;
+				case 2:
+					plant = new ItemStack(GOTBlocks.fruitSapling, 1, 3);
+					break;
+				case 3:
+					plant = new ItemStack(Blocks.tallgrass, 1, 2);
+					break;
+				case 4:
+					plant = new ItemStack(Blocks.tallgrass, 1, 1);
+					break;
+				default:
+					plant = new ItemStack(GOTBlocks.tallGrass, 1, 5);
+					break;
 			}
 		}
 		placeFlowerPot(world, i, j, k, plant);

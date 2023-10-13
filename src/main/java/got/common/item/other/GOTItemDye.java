@@ -21,7 +21,7 @@ import net.minecraftforge.oredict.OreDictionary;
 public class GOTItemDye extends Item {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] dyeIcons;
-	public String[] dyeNames = { "elanor", "niphredil", "bluebell", "green", "charcoal", "brown" };
+	public String[] dyeNames = {"elanor", "niphredil", "bluebell", "green", "charcoal", "brown"};
 
 	public GOTItemDye() {
 		setHasSubtypes(true);

@@ -33,7 +33,7 @@ public class GOTBlockCobblebrick extends GOTBlockBrickBase implements GOTConnect
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		boolean[][] adjacentFlags = i == 0 || i == 1 ? new boolean[][] { { false, false, false }, { false, true, false }, { false, false, false } } : new boolean[][] { { false, true, false }, { false, true, false }, { false, true, false } };
+		boolean[][] adjacentFlags = i == 0 || i == 1 ? new boolean[][]{{false, false, false}, {false, true, false}, {false, false, false}} : new boolean[][]{{false, true, false}, {false, true, false}, {false, true, false}};
 		return GOTConnectedTextures.getConnectedIconItem(this, j, adjacentFlags);
 	}
 

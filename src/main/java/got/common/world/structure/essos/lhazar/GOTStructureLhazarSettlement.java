@@ -55,15 +55,15 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-			case VILLAGE:
-				setupVillage(random);
-				break;
-			case FORT:
-				setupFort(random);
-				break;
-			case TOWN:
-				setupTown(random);
-				break;
+				case VILLAGE:
+					setupVillage(random);
+					break;
+				case FORT:
+					setupFort(random);
+					break;
+				case TOWN:
+					setupTown(random);
+					break;
 			}
 		}
 
@@ -159,8 +159,8 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[] { -40, 40 }) {
-				for (int k1 : new int[] { -40, 40 }) {
+			for (int i1 : new int[]{-40, 40}) {
+				for (int k1 : new int[]{-40, 40}) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override

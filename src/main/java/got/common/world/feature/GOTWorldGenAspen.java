@@ -102,17 +102,17 @@ public class GOTWorldGenAspen extends WorldGenAbstractTree {
 					setBlockAndNotifyAdequately(world, i2, j1, k2, leafBlock, leafMeta);
 					int dir = random.nextInt(4);
 					switch (dir) {
-					case 0:
-						--i2;
-						continue;
-					case 1:
-						++i2;
-						continue;
-					case 2:
-						--k2;
-						continue;
-					default:
-						++k2;
+						case 0:
+							--i2;
+							continue;
+						case 1:
+							++i2;
+							continue;
+						case 2:
+							--k2;
+							continue;
+						default:
+							++k2;
 					}
 				}
 			}

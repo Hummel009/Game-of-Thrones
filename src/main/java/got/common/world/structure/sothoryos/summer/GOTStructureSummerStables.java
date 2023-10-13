@@ -79,8 +79,8 @@ public class GOTStructureSummerStables extends GOTStructureSummerBase {
 		placeMug(world, random, 4, 2, 5, 1, GOTFoods.SOTHORYOS_DRINK);
 		GOTEntitySummerMan summer = new GOTEntitySummerMan(world);
 		spawnNPCAndSetHome(summer, world, 0, 1, 0, 12);
-		for (int k1 : new int[] { -2, 2 }) {
-			for (int i1 : new int[] { -4, 4 }) {
+		for (int k1 : new int[]{-2, 2}) {
+			for (int i1 : new int[]{-4, 4}) {
 				int j12 = 1;
 				GOTEntityHorse horse = new GOTEntityHorse(world);
 				spawnNPCAndSetHome(horse, world, i1, j12, k1, 0);

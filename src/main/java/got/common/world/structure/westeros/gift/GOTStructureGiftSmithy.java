@@ -120,7 +120,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, i1, j1, -5 + l, roofStairBlock, 2);
 				setBlockAndMetadata(world, i1, j1, 5 - l, roofStairBlock, 3);
 			}
-			for (int i14 : new int[] { 1 + l, 9 - l }) {
+			for (int i14 : new int[]{1 + l, 9 - l}) {
 				setBlockAndMetadata(world, i14, j1, -4 + l, roofStairBlock, 2);
 				setBlockAndMetadata(world, i14, j1, 4 - l, roofStairBlock, 3);
 			}
@@ -128,7 +128,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, 1 + l, j1, k16, roofStairBlock, 1);
 				setBlockAndMetadata(world, 9 - l, j1, k16, roofStairBlock, 0);
 			}
-			for (int k17 : new int[] { -4 + l, 4 - l }) {
+			for (int k17 : new int[]{-4 + l, 4 - l}) {
 				setBlockAndMetadata(world, 2 + l, j1, k17, roofStairBlock, 1);
 				setBlockAndMetadata(world, 8 - l, j1, k17, roofStairBlock, 0);
 			}
@@ -171,8 +171,8 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		for (k13 = -3; k13 <= 3; ++k13) {
 			setBlockAndMetadata(world, 5, 4, k13, woodBeamBlock, woodBeamMeta | 8);
 		}
-		for (int i15 : new int[] { 3, 7 }) {
-			for (int k18 : new int[] { -3, 3 }) {
+		for (int i15 : new int[]{3, 7}) {
+			for (int k18 : new int[]{-3, 3}) {
 				setBlockAndMetadata(world, i15, 1, k18, plankBlock, plankMeta);
 				for (int j17 = 2; j17 <= 4; ++j17) {
 					setBlockAndMetadata(world, i15, j17, k18, fenceBlock, fenceMeta);

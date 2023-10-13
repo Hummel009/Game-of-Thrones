@@ -99,7 +99,7 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 			GOTEntityNPC npc = getMan(world);
 			spawnNPCAndSetHome(npc, world, 0, 1, 0, 8);
 		}
-		for (int k1 : new int[] { -4, 0, 4 }) {
+		for (int k1 : new int[]{-4, 0, 4}) {
 			int i1 = 5;
 			int j12 = 1;
 			GOTEntityHorse horse = new GOTEntityHorse(world);

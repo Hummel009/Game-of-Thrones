@@ -11,7 +11,7 @@ public abstract class GOTBezierType {
 	public static GOTBezierType WALL_IBBEN = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
-			BezierBlock[] blockTypes = { new BezierBlock(GOTBlocks.woodBeamV1, 1), new BezierBlock(GOTBlocks.wood4, 2), new BezierBlock(GOTBlocks.woodBeam4, 2) };
+			BezierBlock[] blockTypes = {new BezierBlock(GOTBlocks.woodBeamV1, 1), new BezierBlock(GOTBlocks.wood4, 2), new BezierBlock(GOTBlocks.woodBeam4, 2)};
 			return blockTypes[rand.nextInt(blockTypes.length)];
 		}
 	};
@@ -19,7 +19,7 @@ public abstract class GOTBezierType {
 	public static GOTBezierType WALL_ICE = new GOTBezierType() {
 		@Override
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
-			BezierBlock[] blockTypes = { new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(Blocks.packed_ice, 0), new BezierBlock(Blocks.packed_ice, 0), new BezierBlock(Blocks.snow, 0) };
+			BezierBlock[] blockTypes = {new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(GOTBlocks.brickIce, 0), new BezierBlock(Blocks.packed_ice, 0), new BezierBlock(Blocks.packed_ice, 0), new BezierBlock(Blocks.snow, 0)};
 			return blockTypes[rand.nextInt(blockTypes.length)];
 		}
 	};
@@ -48,9 +48,9 @@ public abstract class GOTBezierType {
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
 			if (slab) {
-				blockTypes = new BezierBlock[] { new BezierBlock(Blocks.stone_slab, 5), new BezierBlock(Blocks.stone_slab, 3), new BezierBlock(Blocks.stone_slab, 3), new BezierBlock(GOTBlocks.slabSingleV, 4) };
+				blockTypes = new BezierBlock[]{new BezierBlock(Blocks.stone_slab, 5), new BezierBlock(Blocks.stone_slab, 3), new BezierBlock(Blocks.stone_slab, 3), new BezierBlock(GOTBlocks.slabSingleV, 4)};
 			} else {
-				blockTypes = new BezierBlock[] { new BezierBlock(Blocks.stonebrick, 0), new BezierBlock(Blocks.cobblestone, 0), new BezierBlock(Blocks.cobblestone, 0), new BezierBlock(Blocks.mossy_cobblestone, 0) };
+				blockTypes = new BezierBlock[]{new BezierBlock(Blocks.stonebrick, 0), new BezierBlock(Blocks.cobblestone, 0), new BezierBlock(Blocks.cobblestone, 0), new BezierBlock(Blocks.mossy_cobblestone, 0)};
 			}
 			return blockTypes[rand.nextInt(blockTypes.length)];
 		}
@@ -62,9 +62,9 @@ public abstract class GOTBezierType {
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
 			if (slab) {
-				blockTypes = new BezierBlock[] { new BezierBlock(GOTBlocks.slabSingleDirt, 1), new BezierBlock(GOTBlocks.slabSingleDirt, 0), new BezierBlock(GOTBlocks.slabSingleGravel, 0) };
+				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.slabSingleDirt, 1), new BezierBlock(GOTBlocks.slabSingleDirt, 0), new BezierBlock(GOTBlocks.slabSingleGravel, 0)};
 			} else {
-				blockTypes = new BezierBlock[] { new BezierBlock(GOTBlocks.dirtPath, 0), new BezierBlock(Blocks.dirt, 1), new BezierBlock(Blocks.gravel, 0) };
+				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.dirtPath, 0), new BezierBlock(Blocks.dirt, 1), new BezierBlock(Blocks.gravel, 0)};
 			}
 			return blockTypes[rand.nextInt(blockTypes.length)];
 		}
@@ -87,9 +87,9 @@ public abstract class GOTBezierType {
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
 			if (slab) {
-				blockTypes = new BezierBlock[] { new BezierBlock(GOTBlocks.slabSingleDirt, 0), new BezierBlock(GOTBlocks.slabSingleDirt, 1), new BezierBlock(GOTBlocks.slabSingleSand, 0), new BezierBlock(GOTBlocks.slabSingle4, 0), new BezierBlock(GOTBlocks.slabSingle7, 1), new BezierBlock(GOTBlocks.slabSingle4, 7) };
+				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.slabSingleDirt, 0), new BezierBlock(GOTBlocks.slabSingleDirt, 1), new BezierBlock(GOTBlocks.slabSingleSand, 0), new BezierBlock(GOTBlocks.slabSingle4, 0), new BezierBlock(GOTBlocks.slabSingle7, 1), new BezierBlock(GOTBlocks.slabSingle4, 7)};
 			} else {
-				blockTypes = new BezierBlock[] { new BezierBlock(Blocks.dirt, 1), new BezierBlock(GOTBlocks.dirtPath, 0), top ? new BezierBlock(Blocks.sand, 0) : new BezierBlock(Blocks.sandstone, 0), new BezierBlock(GOTBlocks.brick1, 15), new BezierBlock(GOTBlocks.brick3, 11), new BezierBlock(GOTBlocks.pillar1, 5) };
+				blockTypes = new BezierBlock[]{new BezierBlock(Blocks.dirt, 1), new BezierBlock(GOTBlocks.dirtPath, 0), top ? new BezierBlock(Blocks.sand, 0) : new BezierBlock(Blocks.sandstone, 0), new BezierBlock(GOTBlocks.brick1, 15), new BezierBlock(GOTBlocks.brick3, 11), new BezierBlock(GOTBlocks.pillar1, 5)};
 			}
 			return blockTypes[rand.nextInt(blockTypes.length)];
 		}
@@ -108,9 +108,9 @@ public abstract class GOTBezierType {
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
 			if (slab) {
-				blockTypes = new BezierBlock[] { new BezierBlock(GOTBlocks.slabSingle8, 0), new BezierBlock(GOTBlocks.slabSingle8, 1), new BezierBlock(GOTBlocks.slabSingle8, 2), new BezierBlock(GOTBlocks.slabSingle8, rand.nextBoolean() ? 1 : 2) };
+				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.slabSingle8, 0), new BezierBlock(GOTBlocks.slabSingle8, 1), new BezierBlock(GOTBlocks.slabSingle8, 2), new BezierBlock(GOTBlocks.slabSingle8, rand.nextBoolean() ? 1 : 2)};
 			} else {
-				blockTypes = new BezierBlock[] { new BezierBlock(GOTBlocks.brick4, 0), new BezierBlock(GOTBlocks.brick4, 1), new BezierBlock(GOTBlocks.brick4, 2), new BezierBlock(GOTBlocks.brick4, rand.nextBoolean() ? 1 : 2) };
+				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.brick4, 0), new BezierBlock(GOTBlocks.brick4, 1), new BezierBlock(GOTBlocks.brick4, 2), new BezierBlock(GOTBlocks.brick4, rand.nextBoolean() ? 1 : 2)};
 			}
 			return blockTypes[rand.nextInt(blockTypes.length)];
 		}
@@ -122,9 +122,9 @@ public abstract class GOTBezierType {
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
 			if (slab) {
-				blockTypes = new BezierBlock[] { new BezierBlock(GOTBlocks.slabSingleDirt, 3) };
+				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.slabSingleDirt, 3)};
 			} else {
-				blockTypes = new BezierBlock[] { new BezierBlock(GOTBlocks.basaltGravel, 0), new BezierBlock(GOTBlocks.asshaiDirt, 0) };
+				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.basaltGravel, 0), new BezierBlock(GOTBlocks.asshaiDirt, 0)};
 			}
 			return blockTypes[rand.nextInt(blockTypes.length)];
 		}
@@ -136,9 +136,9 @@ public abstract class GOTBezierType {
 		public BezierBlock getBlock(Random rand, BiomeGenBase biome, boolean top, boolean slab) {
 			BezierBlock[] blockTypes;
 			if (slab) {
-				blockTypes = new BezierBlock[] { new BezierBlock(GOTBlocks.slabSingle12, 0), new BezierBlock(GOTBlocks.slabSingle12, 0), new BezierBlock(GOTBlocks.slabSingle12, 0), new BezierBlock(GOTBlocks.slabSingle12, 1), new BezierBlock(GOTBlocks.slabSingle12, 2) };
+				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.slabSingle12, 0), new BezierBlock(GOTBlocks.slabSingle12, 0), new BezierBlock(GOTBlocks.slabSingle12, 0), new BezierBlock(GOTBlocks.slabSingle12, 1), new BezierBlock(GOTBlocks.slabSingle12, 2)};
 			} else {
-				blockTypes = new BezierBlock[] { new BezierBlock(GOTBlocks.brick5, 11), new BezierBlock(GOTBlocks.brick5, 11), new BezierBlock(GOTBlocks.brick5, 11), new BezierBlock(GOTBlocks.brick5, 13), new BezierBlock(GOTBlocks.brick5, 14) };
+				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.brick5, 11), new BezierBlock(GOTBlocks.brick5, 11), new BezierBlock(GOTBlocks.brick5, 11), new BezierBlock(GOTBlocks.brick5, 13), new BezierBlock(GOTBlocks.brick5, 14)};
 			}
 			return blockTypes[rand.nextInt(blockTypes.length)];
 		}

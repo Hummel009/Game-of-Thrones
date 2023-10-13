@@ -110,24 +110,24 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 			float f3 = 0.52f;
 			float f4 = random.nextFloat() * 0.6f - 0.3f;
 			switch (meta) {
-			case 4:
-				world.spawnParticle("smoke", f - f3, f1, f2 + f4, 0.0, 0.0, 0.0);
-				world.spawnParticle("flame", f - f3, f1, f2 + f4, 0.0, 0.0, 0.0);
-				break;
-			case 5:
-				world.spawnParticle("smoke", f + f3, f1, f2 + f4, 0.0, 0.0, 0.0);
-				world.spawnParticle("flame", f + f3, f1, f2 + f4, 0.0, 0.0, 0.0);
-				break;
-			case 2:
-				world.spawnParticle("smoke", f + f4, f1, f2 - f3, 0.0, 0.0, 0.0);
-				world.spawnParticle("flame", f + f4, f1, f2 - f3, 0.0, 0.0, 0.0);
-				break;
-			case 3:
-				world.spawnParticle("smoke", f + f4, f1, f2 + f3, 0.0, 0.0, 0.0);
-				world.spawnParticle("flame", f + f4, f1, f2 + f3, 0.0, 0.0, 0.0);
-				break;
-			default:
-				break;
+				case 4:
+					world.spawnParticle("smoke", f - f3, f1, f2 + f4, 0.0, 0.0, 0.0);
+					world.spawnParticle("flame", f - f3, f1, f2 + f4, 0.0, 0.0, 0.0);
+					break;
+				case 5:
+					world.spawnParticle("smoke", f + f3, f1, f2 + f4, 0.0, 0.0, 0.0);
+					world.spawnParticle("flame", f + f3, f1, f2 + f4, 0.0, 0.0, 0.0);
+					break;
+				case 2:
+					world.spawnParticle("smoke", f + f4, f1, f2 - f3, 0.0, 0.0, 0.0);
+					world.spawnParticle("flame", f + f4, f1, f2 - f3, 0.0, 0.0, 0.0);
+					break;
+				case 3:
+					world.spawnParticle("smoke", f + f4, f1, f2 + f3, 0.0, 0.0, 0.0);
+					world.spawnParticle("flame", f + f4, f1, f2 + f3, 0.0, 0.0, 0.0);
+					break;
+				default:
+					break;
 			}
 			if (useLargeSmoke()) {
 				for (int l = 0; l < 6; ++l) {

@@ -48,10 +48,10 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	public static int INDEX_BREED = 22;
 	public static int INDEX_REPRO_COUNT = 23;
 	public static String NBT_SADDLED = "Saddle";
-	public static String[] DATAWATCHER_WATCHEDOBJECTS = { "watchedObjects", "field_75695_b" };
-	public static String[] ENTITYAITASKS_EXECUTINGTASKENTRIES = { "executingTaskEntries", "field_75780_b" };
-	public static String[] ENTITYLIVING_BODYHELPER = { "bodyHelper", "field_70762_j" };
-	public static String[] GUIMAINMENU_SPLASHTEXT = { "splashText", "field_73975_c" };
+	public static String[] DATAWATCHER_WATCHEDOBJECTS = {"watchedObjects", "field_75695_b"};
+	public static String[] ENTITYAITASKS_EXECUTINGTASKENTRIES = {"executingTaskEntries", "field_75780_b"};
+	public static String[] ENTITYLIVING_BODYHELPER = {"bodyHelper", "field_70762_j"};
+	public static String[] GUIMAINMENU_SPLASHTEXT = {"splashText", "field_73975_c"};
 	public Map<Class<? extends GOTDragonHelper>, GOTDragonHelper> helpers;
 	public GOTModelDragonAnimaton animator;
 	public BitSet controlFlags;

@@ -100,20 +100,20 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 			for (int step = 0; step < 12 && !isOpaque(world, i13, j12 = -1 - step, k1 = 6 + step); ++step) {
 				randPath = random.nextInt(4);
 				switch (randPath) {
-				case 0:
-					setBlockAndMetadata(world, i13, j12, k1, Blocks.grass, 0);
-					break;
-				case 1:
-					setBlockAndMetadata(world, i13, j12, k1, Blocks.dirt, 1);
-					break;
-				case 2:
-					setBlockAndMetadata(world, i13, j12, k1, GOTBlocks.dirtPath, 0);
-					break;
-				case 3:
-					setBlockAndMetadata(world, i13, j12, k1, Blocks.cobblestone, 0);
-					break;
-				default:
-					break;
+					case 0:
+						setBlockAndMetadata(world, i13, j12, k1, Blocks.grass, 0);
+						break;
+					case 1:
+						setBlockAndMetadata(world, i13, j12, k1, Blocks.dirt, 1);
+						break;
+					case 2:
+						setBlockAndMetadata(world, i13, j12, k1, GOTBlocks.dirtPath, 0);
+						break;
+					case 3:
+						setBlockAndMetadata(world, i13, j12, k1, Blocks.cobblestone, 0);
+						break;
+					default:
+						break;
 				}
 				setGrassToDirt(world, i13, j12 - 1, k1);
 				j2 = j12 - 1;
@@ -127,20 +127,20 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		for (int step = 0; step < 12 && !isOpaque(world, i12 = -5, j12 = -step, k1 = -5 - step); ++step) {
 			randPath = random.nextInt(4);
 			switch (randPath) {
-			case 0:
-				setBlockAndMetadata(world, i12, j12, k1, Blocks.grass, 0);
-				break;
-			case 1:
-				setBlockAndMetadata(world, i12, j12, k1, Blocks.dirt, 1);
-				break;
-			case 2:
-				setBlockAndMetadata(world, i12, j12, k1, GOTBlocks.dirtPath, 0);
-				break;
-			case 3:
-				setBlockAndMetadata(world, i12, j12, k1, Blocks.cobblestone, 0);
-				break;
-			default:
-				break;
+				case 0:
+					setBlockAndMetadata(world, i12, j12, k1, Blocks.grass, 0);
+					break;
+				case 1:
+					setBlockAndMetadata(world, i12, j12, k1, Blocks.dirt, 1);
+					break;
+				case 2:
+					setBlockAndMetadata(world, i12, j12, k1, GOTBlocks.dirtPath, 0);
+					break;
+				case 3:
+					setBlockAndMetadata(world, i12, j12, k1, Blocks.cobblestone, 0);
+					break;
+				default:
+					break;
 			}
 			setGrassToDirt(world, i12, j12 - 1, k1);
 			j2 = j12 - 1;

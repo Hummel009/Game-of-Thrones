@@ -238,22 +238,22 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				npcAction = NPCAction.getRandomAction(rand);
 				if (npcAction != null) {
 					switch (npcAction) {
-					case LOOKING:
-						actionTime = 60 + rand.nextInt(60);
-						actionSlow = 1.0f;
-						break;
-					case LOOKING_UP:
-						actionTime = 30 + rand.nextInt(50);
-						actionSlow = 1.0f;
-						break;
-					case SHAKING:
-						actionTime = 100 + rand.nextInt(60);
-						actionSlow = 1.0f;
-						break;
-					case TALKING:
-						actionTime = 40 + rand.nextInt(60);
-						actionSlow = 1.0f;
-						break;
+						case LOOKING:
+							actionTime = 60 + rand.nextInt(60);
+							actionSlow = 1.0f;
+							break;
+						case LOOKING_UP:
+							actionTime = 30 + rand.nextInt(50);
+							actionSlow = 1.0f;
+							break;
+						case SHAKING:
+							actionTime = 100 + rand.nextInt(60);
+							actionSlow = 1.0f;
+							break;
+						case TALKING:
+							actionTime = 40 + rand.nextInt(60);
+							actionSlow = 1.0f;
+							break;
 					}
 				}
 			}
@@ -267,28 +267,28 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				actionTime = 0;
 			} else {
 				switch (npcAction) {
-				case LOOKING:
-					float slow = actionSlow * 16.0f;
-					headYaw = MathHelper.sin(actionTick / slow) * 1.0471975511965976f;
-					headPitch = (MathHelper.sin(actionTick / slow * 2.0f) + 1.0f) / 2.0f * -0.2617993877991494f;
-					break;
-				case LOOKING_UP:
-					headYaw = 0.0f;
-					headPitch = -0.3490658503988659f;
-					break;
-				case SHAKING:
-					actionSlow += 0.01f;
-					headYaw = MathHelper.sin(actionTick / actionSlow) * 0.5235987755982988f;
-					headPitch += 0.006981317007977318f;
-					break;
-				case TALKING:
-					if (actionTick % 20 == 0) {
-						actionSlow = 0.7f + rand.nextFloat() * 1.5f;
-					}
-					float slow1 = actionSlow * 2.0f;
-					headYaw = MathHelper.sin(actionTick / slow1) * 0.17453292519943295f;
-					headPitch = (MathHelper.sin(actionTick / slow1 * 2.0f) + 1.0f) / 2.0f * -0.3490658503988659f;
-					break;
+					case LOOKING:
+						float slow = actionSlow * 16.0f;
+						headYaw = MathHelper.sin(actionTick / slow) * 1.0471975511965976f;
+						headPitch = (MathHelper.sin(actionTick / slow * 2.0f) + 1.0f) / 2.0f * -0.2617993877991494f;
+						break;
+					case LOOKING_UP:
+						headYaw = 0.0f;
+						headPitch = -0.3490658503988659f;
+						break;
+					case SHAKING:
+						actionSlow += 0.01f;
+						headYaw = MathHelper.sin(actionTick / actionSlow) * 0.5235987755982988f;
+						headPitch += 0.006981317007977318f;
+						break;
+					case TALKING:
+						if (actionTick % 20 == 0) {
+							actionSlow = 0.7f + rand.nextFloat() * 1.5f;
+						}
+						float slow1 = actionSlow * 2.0f;
+						headYaw = MathHelper.sin(actionTick / slow1) * 0.17453292519943295f;
+						headPitch = (MathHelper.sin(actionTick / slow1 * 2.0f) + 1.0f) / 2.0f * -0.3490658503988659f;
+						break;
 				}
 			}
 		} else {
