@@ -1,5 +1,9 @@
 package got.client.render.other;
 
+import java.util.Random;
+
+import org.lwjgl.opengl.GL11;
+
 import got.client.GOTTickHandlerClient;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeValyria;
@@ -14,9 +18,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.IRenderHandler;
-import org.lwjgl.opengl.GL11;
-
-import java.util.Random;
 
 public class GOTRenderWeather extends IRenderHandler {
 	public static ResourceLocation rainTexture = new ResourceLocation("got:textures/weather/rain.png");
@@ -26,13 +27,6 @@ public class GOTRenderWeather extends IRenderHandler {
 	public Random rand = new Random();
 	public float[] rainXCoords;
 	public float[] rainYCoords;
-
-	public static boolean isSandstormBiome(BiomeGenBase biome) {
-		if (biome instanceof GOTBiome.Desert) {
-			return true;
-		}
-		return biome.topBlock.getMaterial() == Material.sand;
-	}
 
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
@@ -219,5 +213,12 @@ public class GOTRenderWeather extends IRenderHandler {
 			GL11.glAlphaFunc(516, 0.1f);
 			er.disableLightmap(partialTicks);
 		}
+	}
+
+	public static boolean isSandstormBiome(BiomeGenBase biome) {
+		if (biome instanceof GOTBiome.Desert) {
+			return true;
+		}
+		return biome.topBlock.getMaterial() == Material.sand;
 	}
 }

@@ -1,5 +1,7 @@
 package got.client.render.npc;
 
+import org.lwjgl.opengl.GL11;
+
 import got.client.GOTSpeechClient;
 import got.client.model.GOTModelHuman;
 import got.client.render.other.GOTRenderBiped;
@@ -10,7 +12,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderGregorClegane extends GOTRenderBiped {
 	public static ResourceLocation armor = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_3.png");

@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.lhazar;
 
+import java.util.Random;
+
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureLhazarTotem extends GOTStructureLhazarBase {
 	public GOTStructureLhazarTotem(boolean flag) {

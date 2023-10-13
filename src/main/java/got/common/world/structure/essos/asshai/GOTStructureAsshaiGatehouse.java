@@ -1,12 +1,12 @@
 package got.common.world.structure.essos.asshai;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 
@@ -102,7 +102,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 				setBlockAndMetadata(world, i13, j1, 1, GOTBlocks.gateIronBars, 2);
 			}
 		}
-		for (int k14 : new int[]{-3, 3}) {
+		for (int k14 : new int[] { -3, 3 }) {
 			setBlockAndMetadata(world, -2, 6, k14, brickStairBlock, 4);
 			setBlockAndMetadata(world, 2, 6, k14, brickStairBlock, 5);
 			setBlockAndMetadata(world, -2, 5, k14, GOTBlocks.asshaiTorch, 2);
@@ -122,11 +122,11 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 				setBlockAndMetadata(world, i16, 10, k14, brickBlock, brickMeta);
 			}
 		}
-		int[] i17 = {-3, 3};
+		int[] i17 = { -3, 3 };
 		j1 = i17.length;
 		for (i22 = 0; i22 < j1; ++i22) {
 			i142 = i17[i22];
-			for (int k15 : new int[]{-2, 2}) {
+			for (int k15 : new int[] { -2, 2 }) {
 				setBlockAndMetadata(world, i142, 8, k15, brickBlock, brickMeta);
 				setBlockAndMetadata(world, i142, 9, k15, brickBlock, brickMeta);
 				setBlockAndMetadata(world, i142, 10, k15, brickBlock, brickMeta);
@@ -163,7 +163,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 0, 8, 1, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 0, 9, -1, Blocks.lever, 14);
 		setBlockAndMetadata(world, 0, 9, 1, Blocks.lever, 14);
-		for (int i1421 : new int[]{-1, 1}) {
+		for (int i1421 : new int[] { -1, 1 }) {
 			for (j12 = 8; j12 <= 11; ++j12) {
 				setBlockAndMetadata(world, i1421, j12, 2, Blocks.ladder, 2);
 			}
@@ -272,7 +272,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 			}
 			setBlockAndMetadata(world, i12, 3, 1, brickStairBlock, 7);
 		}
-		for (int i1421 : new int[]{-1, 1}) {
+		for (int i1421 : new int[] { -1, 1 }) {
 			j12 = 8;
 			int k17 = 0;
 			GOTEntityAsshaiWarrior levyman = new GOTEntityAsshaiWarrior(world);

@@ -1,8 +1,8 @@
 package got.client.gui;
 
-import net.minecraft.client.gui.GuiScreen;
-
 import java.util.List;
+
+import net.minecraft.client.gui.GuiScreen;
 
 public class GOTGuiAchievementHoverEvent extends GuiScreen {
 	@Override

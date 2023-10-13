@@ -1,5 +1,7 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.block.other.GOTBlockTreasurePile;
 import got.common.entity.other.GOTEntityFallingTreasure;
 import net.minecraft.block.Block;
@@ -10,7 +12,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderFallingCoinPile extends Render {
 	public static RenderBlocks blockRenderer = new RenderBlocks();

@@ -12,7 +12,7 @@ import net.minecraft.client.settings.GameSettings;
 
 public class GOTEntityDragon3DViewer {
 
-	public static String[] ENTITYRENDERER_THIRDPERSONDISTANCE = {"thirdPersonDistance", "field_78490_B"};
+	public static String[] ENTITYRENDERER_THIRDPERSONDISTANCE = { "thirdPersonDistance", "field_78490_B" };
 	public Minecraft mc = Minecraft.getMinecraft();
 	public float defaultThirdPersonDistance;
 	public int noticeTicks;
@@ -25,10 +25,6 @@ public class GOTEntityDragon3DViewer {
 
 	public float getThirdPersonDistance() {
 		return ReflectionHelper.getPrivateValue(EntityRenderer.class, mc.entityRenderer, ENTITYRENDERER_THIRDPERSONDISTANCE);
-	}
-
-	public void setThirdPersonDistance(float thirdPersonDistance) {
-		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
 	@SubscribeEvent
@@ -57,5 +53,9 @@ public class GOTEntityDragon3DViewer {
 		}
 
 		ridingDragonPrev = ridingDragon;
+	}
+
+	public void setThirdPersonDistance(float thirdPersonDistance) {
+		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 }

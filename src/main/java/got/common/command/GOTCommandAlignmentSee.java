@@ -1,6 +1,10 @@
 package got.common.command;
 
+import java.util.Collections;
+import java.util.List;
+
 import com.mojang.authlib.GameProfile;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -12,9 +16,6 @@ import net.minecraft.command.PlayerNotFoundException;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
-
-import java.util.Collections;
-import java.util.List;
 
 public class GOTCommandAlignmentSee extends CommandBase {
 	@Override

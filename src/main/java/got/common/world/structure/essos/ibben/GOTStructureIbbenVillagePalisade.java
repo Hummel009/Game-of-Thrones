@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.ibben;
 
-import net.minecraft.world.World;
-
 import java.util.Random;
+
+import net.minecraft.world.World;
 
 public class GOTStructureIbbenVillagePalisade extends GOTStructureIbbenBase {
 	public GOTStructureIbbenVillagePalisade(boolean flag) {

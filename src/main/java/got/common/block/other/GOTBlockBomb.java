@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -18,8 +20,6 @@ import net.minecraft.world.Explosion;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.List;
-
 public class GOTBlockBomb extends Block {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] bombIcons;
@@ -30,14 +30,6 @@ public class GOTBlockBomb extends Block {
 		setHardness(3.0f);
 		setResistance(0.0f);
 		setStepSound(Block.soundTypeMetal);
-	}
-
-	public static int getBombStrengthLevel(int meta) {
-		return meta & 7;
-	}
-
-	public static boolean isFireBomb(int meta) {
-		return (meta & 8) != 0;
 	}
 
 	@Override
@@ -176,5 +168,13 @@ public class GOTBlockBomb extends Block {
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
+	}
+
+	public static int getBombStrengthLevel(int meta) {
+		return meta & 7;
+	}
+
+	public static boolean isFireBomb(int meta) {
+		return (meta & 8) != 0;
 	}
 }

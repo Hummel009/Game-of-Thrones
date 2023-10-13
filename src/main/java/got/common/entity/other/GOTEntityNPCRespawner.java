@@ -1,5 +1,7 @@
 package got.common.entity.other;
 
+import java.util.List;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -24,8 +26,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.List;
 
 public class GOTEntityNPCRespawner extends Entity {
 	public static int spawnInterval_default = 3600;
@@ -52,31 +52,6 @@ public class GOTEntityNPCRespawner extends Entity {
 		super(world);
 		setSize(1.0f, 1.0f);
 		spawnerSpin = rand.nextFloat() * 360.0f;
-	}
-
-	public static boolean isSpawnBlocked(Entity entity, GOTFaction spawnFaction) {
-		int k;
-		int j;
-		int range;
-		World world = entity.worldObj;
-		int i = MathHelper.floor_double(entity.posX);
-		AxisAlignedBB originBB = AxisAlignedBB.getBoundingBox(i, j = MathHelper.floor_double(entity.boundingBox.minY), k = MathHelper.floor_double(entity.posZ), i + 1, j + 1, k + 1);
-		AxisAlignedBB searchBB = originBB.expand(range = 64, range, range);
-		List<GOTEntityNPCRespawner> spawners = world.getEntitiesWithinAABB(GOTEntityNPCRespawner.class, searchBB);
-		if (!spawners.isEmpty()) {
-			for (GOTEntityNPCRespawner obj : spawners) {
-				AxisAlignedBB spawnBlockBB;
-				if (!obj.blockEnemySpawns() || !(spawnBlockBB = obj.createSpawnBlockRegion()).intersectsWith(searchBB) || !spawnBlockBB.intersectsWith(originBB) || !obj.isEnemySpawnBlocked(spawnFaction)) {
-					continue;
-				}
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public static boolean isSpawnBlocked(GOTEntityNPC npc) {
-		return isSpawnBlocked(npc, npc.getFaction());
 	}
 
 	@Override
@@ -366,6 +341,31 @@ public class GOTEntityNPCRespawner extends Entity {
 		nbt.setBoolean("HomeSpawn", setHomePosFromSpawn);
 		nbt.setByte("MountSetting", (byte) mountSetting);
 		nbt.setByte("BlockEnemy", (byte) blockEnemySpawns);
+	}
+
+	public static boolean isSpawnBlocked(Entity entity, GOTFaction spawnFaction) {
+		int k;
+		int j;
+		int range;
+		World world = entity.worldObj;
+		int i = MathHelper.floor_double(entity.posX);
+		AxisAlignedBB originBB = AxisAlignedBB.getBoundingBox(i, j = MathHelper.floor_double(entity.boundingBox.minY), k = MathHelper.floor_double(entity.posZ), i + 1, j + 1, k + 1);
+		AxisAlignedBB searchBB = originBB.expand(range = 64, range, range);
+		List<GOTEntityNPCRespawner> spawners = world.getEntitiesWithinAABB(GOTEntityNPCRespawner.class, searchBB);
+		if (!spawners.isEmpty()) {
+			for (GOTEntityNPCRespawner obj : spawners) {
+				AxisAlignedBB spawnBlockBB;
+				if (!obj.blockEnemySpawns() || !(spawnBlockBB = obj.createSpawnBlockRegion()).intersectsWith(searchBB) || !spawnBlockBB.intersectsWith(originBB) || !obj.isEnemySpawnBlocked(spawnFaction)) {
+					continue;
+				}
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean isSpawnBlocked(GOTEntityNPC npc) {
+		return isSpawnBlocked(npc, npc.getFaction());
 	}
 
 }

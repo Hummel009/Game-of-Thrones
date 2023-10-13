@@ -1,5 +1,12 @@
 package got.common.util;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
+
+import org.apache.logging.log4j.Level;
+
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
@@ -27,17 +34,11 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.storage.WorldInfo;
-import org.apache.logging.log4j.Level;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.*;
 
 public class GOTReflection {
 	public static boolean canPistonPushBlock(Block block, World world, int i, int j, int k, boolean flag) {
 		try {
-			Method method = getPrivateMethod(BlockPistonBase.class, null, new Class[]{Block.class, World.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Boolean.TYPE}, "canPushBlock", "func_150080_a");
+			Method method = getPrivateMethod(BlockPistonBase.class, null, new Class[] { Block.class, World.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Boolean.TYPE }, "canPushBlock", "func_150080_a");
 			return (Boolean) method.invoke(null, block, world, i, j, k, flag);
 		} catch (Exception e) {
 			logFailure(e);
@@ -215,10 +216,9 @@ public class GOTReflection {
 
 	public static Entity newEntity(Class<? extends Entity> entityClass, World world) {
 		try {
-			Class<World>[] param = new Class[]{World.class};
+			Class<World>[] param = new Class[] { World.class };
 			return entityClass.getDeclaredConstructor(param).newInstance(world);
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
-		         InvocationTargetException | NoSuchMethodException | SecurityException e) {
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
 		return null;
@@ -226,10 +226,9 @@ public class GOTReflection {
 
 	public static WorldGenerator newStructure(Class<? extends WorldGenerator> structureClass, boolean bool) {
 		try {
-			Class<Boolean>[] param = new Class[]{boolean.class};
+			Class<Boolean>[] param = new Class[] { boolean.class };
 			return structureClass.getDeclaredConstructor(param).newInstance(bool);
-		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException |
-		         InvocationTargetException | NoSuchMethodException | SecurityException e) {
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
 		return null;

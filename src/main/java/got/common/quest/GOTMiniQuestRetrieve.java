@@ -1,5 +1,7 @@
 package got.common.quest;
 
+import java.util.UUID;
+
 import got.common.GOTPlayerData;
 import got.common.entity.other.GOTEntityRegistry;
 import net.minecraft.entity.Entity;
@@ -9,29 +11,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
-import java.util.UUID;
-
 public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 	public Class<? extends Entity> killEntityType;
 	public boolean hasDropped;
 
 	public GOTMiniQuestRetrieve(GOTPlayerData pd) {
 		super(pd);
-	}
-
-	public static UUID getRetrieveQuestID(ItemStack itemstack) {
-		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("GOTRetrieveID")) {
-			String id = itemstack.getTagCompound().getString("GOTRetrieveID");
-			return UUID.fromString(id);
-		}
-		return null;
-	}
-
-	public static void setRetrieveQuest(ItemStack itemstack, GOTMiniQuest quest) {
-		if (itemstack.getTagCompound() == null) {
-			itemstack.setTagCompound(new NBTTagCompound());
-		}
-		itemstack.getTagCompound().setString("GOTRetrieveID", quest.questUUID.toString());
 	}
 
 	@Override
@@ -87,6 +72,21 @@ public class GOTMiniQuestRetrieve extends GOTMiniQuestCollect {
 		super.writeToNBT(nbt);
 		nbt.setString("KillClass", GOTEntityRegistry.getStringFromClass(killEntityType));
 		nbt.setBoolean("HasDropped", hasDropped);
+	}
+
+	public static UUID getRetrieveQuestID(ItemStack itemstack) {
+		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("GOTRetrieveID")) {
+			String id = itemstack.getTagCompound().getString("GOTRetrieveID");
+			return UUID.fromString(id);
+		}
+		return null;
+	}
+
+	public static void setRetrieveQuest(ItemStack itemstack, GOTMiniQuest quest) {
+		if (itemstack.getTagCompound() == null) {
+			itemstack.setTagCompound(new NBTTagCompound());
+		}
+		itemstack.getTagCompound().setString("GOTRetrieveID", quest.questUUID.toString());
 	}
 
 }

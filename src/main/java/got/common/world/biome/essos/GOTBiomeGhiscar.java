@@ -1,5 +1,7 @@
 package got.common.world.biome.essos;
 
+import java.util.Random;
+
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
@@ -15,8 +17,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 public class GOTBiomeGhiscar extends GOTBiomeEssos {
 	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(3869098386927266L), 1);

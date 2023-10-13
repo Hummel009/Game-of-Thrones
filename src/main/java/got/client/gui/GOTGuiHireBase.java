@@ -1,5 +1,9 @@
 package got.client.gui;
 
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTClientProxy;
 import got.common.GOTLevelData;
@@ -28,9 +32,6 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
-import org.lwjgl.opengl.GL11;
-
-import java.util.List;
 
 public abstract class GOTGuiHireBase extends GuiContainer {
 	public static ResourceLocation guiTexture;

@@ -1,10 +1,10 @@
 package got.client.sound;
 
+import java.util.*;
+
 import net.minecraft.client.resources.IResource;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
-
-import java.util.*;
 
 public class GOTMusicResourceManager implements IResourceManager {
 	public Map<ResourceLocation, IResource> resourceMap = new HashMap<>();

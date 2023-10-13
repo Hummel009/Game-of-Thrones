@@ -1,12 +1,12 @@
 package got.common.faction;
 
-import got.common.util.GOTLog;
-import net.minecraft.command.ICommandSender;
-import net.minecraft.util.*;
-
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
+
+import got.common.util.GOTLog;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.util.*;
 
 public class GOTAlignmentValues {
 	public static AlignmentBonus MARRIAGE_BONUS = new AlignmentBonus(5.0f, "got.alignment.marriage");
@@ -31,7 +31,7 @@ public class GOTAlignmentValues {
 	public static String formatAlignForDisplay(float alignment, DecimalFormat dFormat, boolean prefixPlus) {
 		setupDecimalFormat(dFormat);
 		String s = dFormat.format(alignment);
-		if (prefixPlus && (s.isEmpty() || (s.charAt(0) != '-'))) {
+		if (prefixPlus && (s.isEmpty() || s.charAt(0) != '-')) {
 			s = "+" + s;
 		}
 		return s;

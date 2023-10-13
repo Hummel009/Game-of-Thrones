@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.yiti;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -10,8 +12,6 @@ import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
 import got.common.entity.westeros.GOTEntityLightSkinThief;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 	public String[] tavernName;
@@ -216,7 +216,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 				setBlockAndMetadata(world, i14, 8, k12, woodBeamBlock, woodBeamMeta | 8);
 			}
 		}
-		for (int i1521 : new int[]{-2, 2}) {
+		for (int i1521 : new int[] { -2, 2 }) {
 			setBlockAndMetadata(world, i1521, 6, -9, GOTBlocks.reedBars, 0);
 			setBlockAndMetadata(world, i1521, 7, -9, brickStairBlock, 6);
 			if (i1521 < 0) {
@@ -225,11 +225,11 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, i1521, 6, 9, GOTBlocks.reedBars, 0);
 			setBlockAndMetadata(world, i1521, 7, 9, brickStairBlock, 7);
 		}
-		for (int i1521 : new int[]{-4, 4}) {
+		for (int i1521 : new int[] { -4, 4 }) {
 			setBlockAndMetadata(world, i1521, 8, -10, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i1521, 8, 10, fenceBlock, fenceMeta);
 		}
-		int[] i16 = {-9, 9};
+		int[] i16 = { -9, 9 };
 		k12 = i16.length;
 		for (i22 = 0; i22 < k12; ++i22) {
 			k1 = i16[i22];
@@ -338,7 +338,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		}
 		for (i1 = -5; i1 <= 5; ++i1) {
 			i2 = Math.abs(i1);
-			int[] k17 = {-10, 10};
+			int[] k17 = { -10, 10 };
 			i152 = k17.length;
 			for (j13 = 0; j13 < i152; ++j13) {
 				int k18 = k17[j13];
@@ -399,7 +399,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, 0, 13, -10, roofStairBlock, 3);
 		setBlockAndMetadata(world, 0, 12, 10, roofStairBlock, 7);
 		setBlockAndMetadata(world, 0, 13, 10, roofStairBlock, 2);
-		int[] k19 = {-8, 8};
+		int[] k19 = { -8, 8 };
 		step = k19.length;
 		for (j14 = 0; j14 < step; ++j14) {
 			k1 = k19[j14];
@@ -571,7 +571,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, -3, 5, -5, plankBlock, plankMeta);
 		placePlateWithCertainty(world, random, -3, 6, -5, plateBlock, GOTFoods.YITI);
 		setBlockAndMetadata(world, -3, 5, -6, Blocks.chest, 4);
-		for (int i1521 : new int[]{-3, -1}) {
+		for (int i1521 : new int[] { -3, -1 }) {
 			setBlockAndMetadata(world, i1521, 5, -7, bedBlock, 2);
 			setBlockAndMetadata(world, i1521, 5, -8, bedBlock, 10);
 		}
@@ -584,7 +584,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, 3, 5, -5, plankBlock, plankMeta);
 		placePlateWithCertainty(world, random, 3, 6, -5, plateBlock, GOTFoods.YITI);
 		setBlockAndMetadata(world, 3, 5, -6, Blocks.chest, 5);
-		for (int i1521 : new int[]{1, 3}) {
+		for (int i1521 : new int[] { 1, 3 }) {
 			setBlockAndMetadata(world, i1521, 5, -7, bedBlock, 2);
 			setBlockAndMetadata(world, i1521, 5, -8, bedBlock, 10);
 		}
@@ -626,6 +626,6 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		super.setupRandomBlocks(random);
 		bedBlock = GOTBlocks.strawBed;
 		tavernName = GOTNames.getTavernName(random);
-		tavernNameSign = new String[]{"", tavernName[0], tavernName[1], ""};
+		tavernNameSign = new String[] { "", tavernName[0], tavernName[1], "" };
 	}
 }

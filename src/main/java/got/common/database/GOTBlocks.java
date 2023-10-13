@@ -1,6 +1,12 @@
 package got.common.database;
 
+import java.util.EnumMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 import com.google.common.base.CaseFormat;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.block.GOTItemBlockWeaponRack;
 import got.common.block.GOTItemPlantableBlock;
@@ -32,11 +38,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemLeaves;
-
-import java.util.EnumMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 public class GOTBlocks {
 	public static final Set<Block> CONTENT = new HashSet<>();

@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -10,12 +12,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.Random;
-
 public abstract class GOTBlockHangingFruit extends Block {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] fruitIcons;
-	public String[] fruitSides = {"top", "side", "bottom"};
+	public String[] fruitSides = { "top", "side", "bottom" };
 
 	protected GOTBlockHangingFruit() {
 		super(Material.plants);

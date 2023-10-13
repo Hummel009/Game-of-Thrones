@@ -1,5 +1,8 @@
 package got.common.entity.other;
 
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.database.GOTTradeEntries;
@@ -12,9 +15,6 @@ import net.minecraft.inventory.Container;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.MathHelper;
-
-import java.util.List;
-import java.util.Random;
 
 public class GOTTraderNPCInfo {
 	public GOTEntityNPC theEntity;
@@ -41,26 +41,12 @@ public class GOTTraderNPCInfo {
 		return buyTrades;
 	}
 
-	public void setBuyTrades(GOTTradeEntry[] trades) {
-		for (GOTTradeEntry trade : trades) {
-			trade.setOwningTrader(this);
-		}
-		buyTrades = trades;
-	}
-
 	public int getLockTradeAtValue() {
 		return lockTradeAtValue;
 	}
 
 	public GOTTradeEntry[] getSellTrades() {
 		return sellTrades;
-	}
-
-	public void setSellTrades(GOTTradeEntry[] trades) {
-		for (GOTTradeEntry trade : trades) {
-			trade.setOwningTrader(this);
-		}
-		sellTrades = trades;
 	}
 
 	public int getValueDecayTicks() {
@@ -218,6 +204,20 @@ public class GOTTraderNPCInfo {
 			}
 			trade.setLockedForTicks(delay);
 		}
+	}
+
+	public void setBuyTrades(GOTTradeEntry[] trades) {
+		for (GOTTradeEntry trade : trades) {
+			trade.setOwningTrader(this);
+		}
+		buyTrades = trades;
+	}
+
+	public void setSellTrades(GOTTradeEntry[] trades) {
+		for (GOTTradeEntry trade : trades) {
+			trade.setOwningTrader(this);
+		}
+		sellTrades = trades;
 	}
 
 	public boolean shouldLockTrades() {

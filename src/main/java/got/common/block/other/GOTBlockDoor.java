@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -9,8 +11,6 @@ import net.minecraft.block.BlockDoor;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTBlockDoor extends BlockDoor {
 	public GOTBlockDoor() {

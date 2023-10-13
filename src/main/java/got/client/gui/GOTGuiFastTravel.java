@@ -1,5 +1,9 @@
 package got.client.gui;
 
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
 import got.client.GOTClientProxy;
 import got.common.database.GOTSpeech;
 import got.common.util.GOTFunctions;
@@ -11,9 +15,6 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.opengl.GL11;
-
-import java.util.List;
 
 public class GOTGuiFastTravel extends GOTGuiScreenBase {
 	public static ResourceLocation ftSound = new ResourceLocation("got:event.fastTravel");
@@ -72,7 +73,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		mapRenderer.renderVignettes(this, zLevel, 4);
 		GL11.glEnable(3042);
 		String title = StatCollector.translateToLocalFormatted("got.fastTravel.travel", theWaypoint.getDisplayName());
-		String titleExtra = new String[]{"", ".", "..", "..."}[tickCounter / 10 % 4];
+		String titleExtra = new String[] { "", ".", "..", "..." }[tickCounter / 10 % 4];
 		List<String> messageLines = fontRendererObj.listFormattedStringToWidth(message, width - 100);
 		String skipText = StatCollector.translateToLocalFormatted("got.fastTravel.skip", GameSettings.getKeyDisplayString(mc.gameSettings.keyBindInventory.getKeyCode()));
 		float boxAlpha = 0.5f;

@@ -1,5 +1,7 @@
 package got.common.item.other;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
@@ -14,8 +16,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import java.util.List;
-
 public class GOTItemPipe extends Item {
 	public static int MAGIC_COLOR = 16;
 
@@ -23,29 +23,6 @@ public class GOTItemPipe extends Item {
 		setMaxDamage(300);
 		setMaxStackSize(1);
 		setCreativeTab(GOTCreativeTabs.tabMisc);
-	}
-
-	public static int getSmokeColor(ItemStack itemstack) {
-		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("SmokeColour")) {
-			return itemstack.getTagCompound().getInteger("SmokeColour");
-		}
-		return 0;
-	}
-
-	public static boolean isPipeDyed(ItemStack itemstack) {
-		int color = getSmokeColor(itemstack);
-		return color != 0 && color != 16;
-	}
-
-	public static void removePipeDye(ItemStack itemstack) {
-		setSmokeColor(itemstack, 0);
-	}
-
-	public static void setSmokeColor(ItemStack itemstack, int i) {
-		if (itemstack.getTagCompound() == null) {
-			itemstack.setTagCompound(new NBTTagCompound());
-		}
-		itemstack.getTagCompound().setInteger("SmokeColour", i);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -102,5 +79,28 @@ public class GOTItemPipe extends Item {
 			entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
 		}
 		return itemstack;
+	}
+
+	public static int getSmokeColor(ItemStack itemstack) {
+		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("SmokeColour")) {
+			return itemstack.getTagCompound().getInteger("SmokeColour");
+		}
+		return 0;
+	}
+
+	public static boolean isPipeDyed(ItemStack itemstack) {
+		int color = getSmokeColor(itemstack);
+		return color != 0 && color != 16;
+	}
+
+	public static void removePipeDye(ItemStack itemstack) {
+		setSmokeColor(itemstack, 0);
+	}
+
+	public static void setSmokeColor(ItemStack itemstack, int i) {
+		if (itemstack.getTagCompound() == null) {
+			itemstack.setTagCompound(new NBTTagCompound());
+		}
+		itemstack.getTagCompound().setInteger("SmokeColour", i);
 	}
 }

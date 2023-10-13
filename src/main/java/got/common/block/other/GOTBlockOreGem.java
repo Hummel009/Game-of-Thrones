@@ -1,5 +1,8 @@
 package got.common.block.other;
 
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
@@ -14,13 +17,10 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Random;
-
 public class GOTBlockOreGem extends Block {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] oreIcons;
-	public String[] oreNames = {"topaz", "amethyst", "sapphire", "ruby", "amber", "diamond", "opal", "emerald"};
+	public String[] oreNames = { "topaz", "amethyst", "sapphire", "ruby", "amber", "diamond", "opal", "emerald" };
 
 	public GOTBlockOreGem() {
 		super(Material.rock);
@@ -56,24 +56,24 @@ public class GOTBlockOreGem extends Block {
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
 		switch (i) {
-			case 0:
-				return GOTItems.topaz;
-			case 1:
-				return GOTItems.amethyst;
-			case 2:
-				return GOTItems.sapphire;
-			case 3:
-				return GOTItems.ruby;
-			case 4:
-				return GOTItems.amber;
-			case 5:
-				return GOTItems.diamond;
-			case 6:
-				return GOTItems.opal;
-			case 7:
-				return GOTItems.emerald;
-			default:
-				break;
+		case 0:
+			return GOTItems.topaz;
+		case 1:
+			return GOTItems.amethyst;
+		case 2:
+			return GOTItems.sapphire;
+		case 3:
+			return GOTItems.ruby;
+		case 4:
+			return GOTItems.amber;
+		case 5:
+			return GOTItems.diamond;
+		case 6:
+			return GOTItems.opal;
+		case 7:
+			return GOTItems.emerald;
+		default:
+			break;
 		}
 		return Item.getItemFromBlock(this);
 	}

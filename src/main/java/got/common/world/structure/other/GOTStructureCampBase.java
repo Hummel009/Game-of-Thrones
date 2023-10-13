@@ -1,12 +1,12 @@
 package got.common.world.structure.other;
 
+import java.util.Random;
+
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public abstract class GOTStructureCampBase extends GOTStructureBase {
 	public Block tableBlock;
@@ -76,31 +76,31 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			i14 = 0;
 			int k1 = 0;
 			switch (l) {
-				case 0:
-					i14 = tentX;
-					k1 = tentZ;
-					break;
-				case 1:
-					i14 = tentZ;
-					k1 = -tentX;
-					break;
-				case 2:
-					i14 = -tentX;
-					k1 = -tentZ;
-					break;
-				case 3:
-					i14 = -tentZ;
-					k1 = tentX;
-					break;
-				default:
-					break;
+			case 0:
+				i14 = tentX;
+				k1 = tentZ;
+				break;
+			case 1:
+				i14 = tentZ;
+				k1 = -tentX;
+				break;
+			case 2:
+				i14 = -tentX;
+				k1 = -tentZ;
+				break;
+			case 3:
+				i14 = -tentZ;
+				k1 = tentX;
+				break;
+			default:
+				break;
 			}
 			int j1 = getTopBlock(world, i14, k1);
 			generateSubstructure(createTent(notifyChanges, random), world, random, i14, j1, k1, l);
 		}
 		if (hasDoubleTorches) {
-			for (int i141 : new int[]{-2, 2}) {
-				for (int k1 : new int[]{-2, 2}) {
+			for (int i141 : new int[] { -2, 2 }) {
+				for (int k1 : new int[] { -2, 2 }) {
 					int j1 = getTopBlock(world, i141, k1);
 					placeBigTorch(world, i141, j1, k1);
 				}
@@ -110,8 +110,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			int[] farmCoords = null;
 			int farmRange = 12;
 			int minFarmRange = 5;
-			block7:
-			for (int l2 = 0; l2 < 32; ++l2) {
+			block7: for (int l2 = 0; l2 < 32; ++l2) {
 				int k1;
 				int i15 = MathHelper.getRandomIntegerInRange(random, -farmRange, farmRange);
 				k1 = MathHelper.getRandomIntegerInRange(random, -farmRange, farmRange);
@@ -127,7 +126,7 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 						}
 					}
 				}
-				farmCoords = new int[]{i15, k1};
+				farmCoords = new int[] { i15, k1 };
 				break;
 			}
 			if (farmCoords != null) {
@@ -171,20 +170,20 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 				}
 				int gate = random.nextInt(4);
 				switch (gate) {
-					case 0:
-						setBlockAndMetadata(world, i14, highestFarmHeight, k1 + 2, fenceGateBlock, 0);
-						break;
-					case 1:
-						setBlockAndMetadata(world, i14 - 2, highestFarmHeight, k1, fenceGateBlock, 1);
-						break;
-					case 2:
-						setBlockAndMetadata(world, i14, highestFarmHeight, k1 - 2, fenceGateBlock, 2);
-						break;
-					case 3:
-						setBlockAndMetadata(world, i14 + 2, highestFarmHeight, k1, fenceGateBlock, 3);
-						break;
-					default:
-						break;
+				case 0:
+					setBlockAndMetadata(world, i14, highestFarmHeight, k1 + 2, fenceGateBlock, 0);
+					break;
+				case 1:
+					setBlockAndMetadata(world, i14 - 2, highestFarmHeight, k1, fenceGateBlock, 1);
+					break;
+				case 2:
+					setBlockAndMetadata(world, i14, highestFarmHeight, k1 - 2, fenceGateBlock, 2);
+					break;
+				case 3:
+					setBlockAndMetadata(world, i14 + 2, highestFarmHeight, k1, fenceGateBlock, 3);
+					break;
+				default:
+					break;
 				}
 				int scarecrowX = i14 + (random.nextBoolean() ? -2 : 2);
 				int scarecrowZ = k1 + (random.nextBoolean() ? -2 : 2);

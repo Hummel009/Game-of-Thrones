@@ -1,12 +1,12 @@
 package got.common.world.biome.westeros;
 
+import java.util.Random;
+
 import got.common.database.GOTAchievement;
 import got.common.world.map.GOTBezierType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenDoublePlant;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 public class GOTBiomeReachFireField extends GOTBiomeReach {
 	public GOTBiomeReachFireField(int i, boolean major) {

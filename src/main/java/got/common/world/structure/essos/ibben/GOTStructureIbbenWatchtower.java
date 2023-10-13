@@ -1,6 +1,9 @@
 package got.common.world.structure.essos.ibben;
 
+import java.util.Random;
+
 import com.google.common.math.IntMath;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -9,8 +12,6 @@ import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 	public GOTStructureIbbenWatchtower(boolean flag) {
@@ -39,11 +40,11 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 				}
 			}
 		}
-		int[] i12 = {-3, 3};
+		int[] i12 = { -3, 3 };
 		k12 = i12.length;
 		for (j12 = 0; j12 < k12; ++j12) {
 			int i13 = i12[j12];
-			for (int k13 : new int[]{-3, 3}) {
+			for (int k13 : new int[] { -3, 3 }) {
 				int j13 = 3;
 				while (!isOpaque(world, i13, j13, k13) && getY(j13) >= 0) {
 					setBlockAndMetadata(world, i13, j13, k13, plank2Block, plank2Meta);
@@ -131,7 +132,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, 2, 1, 2, GOTBlocks.tableIbben, 0);
 		for (k1 = -2; k1 <= 2; ++k1) {
 			int k2 = Math.abs(k1);
-			for (int i14 : new int[]{-3, 3}) {
+			for (int i14 : new int[] { -3, 3 }) {
 				int j14 = -1;
 				while (!isOpaque(world, i14, j14, k1) && getY(j14) >= 0) {
 					if (k2 == 2 && IntMath.mod(j14, 4) == 1 || k2 == 1 && IntMath.mod(j14, 2) == 0 || k2 == 0 && IntMath.mod(j14, 4) == 3) {

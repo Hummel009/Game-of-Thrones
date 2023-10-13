@@ -1,5 +1,11 @@
 package got.client.render.other;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.*;
+
+import javax.imageio.ImageIO;
+
 import cpw.mods.fml.common.FMLLog;
 import got.common.block.GOTConnectedBlock;
 import net.minecraft.client.Minecraft;
@@ -9,11 +15,6 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.*;
 
 public class GOTConnectedTextures {
 	public static Map<String, Map<Integer, IIcon>> blockIconsMap = new HashMap<>();
@@ -160,29 +161,29 @@ public class GOTConnectedTextures {
 					int j1 = j;
 					int k1 = k;
 					switch (side) {
-						case 0:
-						case 1:
-							i1 += x;
-							k1 += y;
-							break;
-						case 2:
-							i1 -= x;
-							j1 -= y;
-							break;
-						case 3:
-							i1 += x;
-							j1 -= y;
-							break;
-						case 4:
-							k1 += x;
-							j1 -= y;
-							break;
-						case 5:
-							k1 -= x;
-							j1 -= y;
-							break;
-						default:
-							break;
+					case 0:
+					case 1:
+						i1 += x;
+						k1 += y;
+						break;
+					case 2:
+						i1 -= x;
+						j1 -= y;
+						break;
+					case 3:
+						i1 += x;
+						j1 -= y;
+						break;
+					case 4:
+						k1 += x;
+						j1 -= y;
+						break;
+					case 5:
+						k1 -= x;
+						j1 -= y;
+						break;
+					default:
+						break;
 					}
 					match = block.areBlocksConnected(world, i, j, k, i1, j1, k1);
 				}
@@ -213,7 +214,7 @@ public class GOTConnectedTextures {
 
 	public static IIcon getConnectedIconItem(GOTConnectedBlock block, int meta) {
 		String blockName = block.getConnectedName(meta);
-		boolean[][] flags = {{false, false, false}, {false, true, false}, {false, false, false}};
+		boolean[][] flags = { { false, false, false }, { false, true, false }, { false, false, false } };
 		return getConnectedIcon(blockName, flags, false);
 	}
 
@@ -300,7 +301,7 @@ public class GOTConnectedTextures {
 			allInvCorners = EnumSet.of(INVCORNER_TOPLEFT, INVCORNER_TOPRIGHT, INVCORNER_BOTTOMLEFT, INVCORNER_BOTTOMRIGHT);
 			allCombos = new HashMap<>();
 			Collection<Set<IconElement>> permutations = new ArrayList<>();
-			boolean[] trueOrFalse = {false, true};
+			boolean[] trueOrFalse = { false, true };
 			for (int i = 0; i < 8192; i++) {
 				boolean base = trueOrFalse[i & 1];
 				boolean left = trueOrFalse[i >> 1 & 1];

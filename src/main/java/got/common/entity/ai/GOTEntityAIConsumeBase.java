@@ -1,11 +1,11 @@
 package got.common.entity.ai;
 
+import java.util.Random;
+
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.item.ItemStack;
-
-import java.util.Random;
 
 public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
 	public GOTEntityNPC theEntity;

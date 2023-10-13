@@ -1,5 +1,9 @@
 package got.common.network;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -8,10 +12,6 @@ import got.common.faction.GOTFaction;
 import got.common.world.map.GOTConquestZone;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class GOTPacketConquestGrid implements IMessage {
 	public GOTFaction conqFac;
@@ -57,8 +57,8 @@ public class GOTPacketConquestGrid implements IMessage {
 				continue;
 			}
 			float strRaw = zone.getConquestStrengthRaw(conqFac);
-			data.writeShort(zone.gridX);
-			data.writeShort(zone.gridZ);
+			data.writeShort(zone.getGridX());
+			data.writeShort(zone.getGridZ());
 			data.writeLong(zone.getLastChangeTime());
 			data.writeFloat(strRaw);
 		}

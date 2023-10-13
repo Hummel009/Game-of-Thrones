@@ -1,12 +1,12 @@
 package got.common.world.structure.other;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.other.GOTEntityBarrowWight;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureBarrow extends GOTStructureBase {
 	public GOTStructureBase ruins = new GOTStructureStoneRuin.RuinStone(3, 3);
@@ -124,7 +124,7 @@ public class GOTStructureBarrow extends GOTStructureBase {
 		}
 		placeRandomBrick(world, random, -2, innerB + 1, -innerR + 1);
 		placeRandomBrick(world, random, 2, innerB + 1, -innerR + 1);
-		for (int i15 : new int[]{-3, 3}) {
+		for (int i15 : new int[] { -3, 3 }) {
 			placeRandomBrick(world, random, i15, 1, -radius + 1);
 			placeRandomBrick(world, random, i15, 0, -radius + 1);
 			placeRandomBrick(world, random, i15, -1, -radius + 1);

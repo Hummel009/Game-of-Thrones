@@ -1,8 +1,9 @@
 package got.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonReforge extends GuiButton {
 	public int minU;

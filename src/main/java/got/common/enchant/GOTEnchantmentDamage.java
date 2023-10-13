@@ -10,7 +10,7 @@ public class GOTEnchantmentDamage extends GOTEnchantment {
 	public float baseDamageBoost;
 
 	public GOTEnchantmentDamage(String s, float boost) {
-		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE});
+		super(s, new GOTEnchantmentType[] { GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE });
 		baseDamageBoost = boost;
 		if (baseDamageBoost >= 0.0F) {
 			setValueModifier((7.0F + baseDamageBoost * 5.0F) / 7.0F);

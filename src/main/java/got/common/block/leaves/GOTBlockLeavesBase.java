@@ -1,5 +1,9 @@
 package got.common.block.leaves;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -13,10 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class GOTBlockLeavesBase extends BlockLeaves {
 	public static Collection<Block> allLeafBlocks = new ArrayList<>();
@@ -38,30 +38,6 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 			setCreativeTab(GOTCreativeTabs.tabDeco);
 		}
 		allLeafBlocks.add(this);
-	}
-
-	public static int getBiomeLeafColor(IBlockAccess world, int i, int j, int k) {
-		int r = 0;
-		int g = 0;
-		int b = 0;
-		int count = 0;
-		int range = 1;
-		for (int i1 = -range; i1 <= range; ++i1) {
-			for (int k1 = -range; k1 <= range; ++k1) {
-				int biomeColor = world.getBiomeGenForCoords(i + i1, k + k1).getBiomeFoliageColor(i + i1, j, k + k1);
-				r += (biomeColor & 0xFF0000) >> 16;
-				g += (biomeColor & 0xFF00) >> 8;
-				b += biomeColor & 0xFF;
-				++count;
-			}
-		}
-		return (r / count & 0xFF) << 16 | (g / count & 0xFF) << 8 | b / count & 0xFF;
-	}
-
-	public static void setAllGraphicsLevels(boolean flag) {
-		for (Object allLeafBlock : allLeafBlocks) {
-			((BlockLeaves) allLeafBlock).setGraphicsLevel(flag);
-		}
 	}
 
 	public void addSpecialLeafDrops(List<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
@@ -167,6 +143,30 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 			throw new IllegalArgumentException("Leaf seasons length must match number of types");
 		}
 		seasonal = b;
+	}
+
+	public static int getBiomeLeafColor(IBlockAccess world, int i, int j, int k) {
+		int r = 0;
+		int g = 0;
+		int b = 0;
+		int count = 0;
+		int range = 1;
+		for (int i1 = -range; i1 <= range; ++i1) {
+			for (int k1 = -range; k1 <= range; ++k1) {
+				int biomeColor = world.getBiomeGenForCoords(i + i1, k + k1).getBiomeFoliageColor(i + i1, j, k + k1);
+				r += (biomeColor & 0xFF0000) >> 16;
+				g += (biomeColor & 0xFF00) >> 8;
+				b += biomeColor & 0xFF;
+				++count;
+			}
+		}
+		return (r / count & 0xFF) << 16 | (g / count & 0xFF) << 8 | b / count & 0xFF;
+	}
+
+	public static void setAllGraphicsLevels(boolean flag) {
+		for (Object allLeafBlock : allLeafBlocks) {
+			((BlockLeaves) allLeafBlock).setGraphicsLevel(flag);
+		}
 	}
 
 }

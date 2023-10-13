@@ -1,5 +1,8 @@
 package got.common.entity.animal;
 
+import java.util.List;
+import java.util.UUID;
+
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityRegistry;
@@ -19,9 +22,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import java.util.List;
-import java.util.UUID;
 
 public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
 	public EntityAIBase attackAI;
@@ -171,10 +171,6 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
-	public void setBisonEnraged(boolean flag) {
-		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
-	}
-
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
@@ -205,6 +201,10 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 			setBisonEnraged(getAttackTarget() != null);
 		}
 		prevIsChild = isChild();
+	}
+
+	public void setBisonEnraged(boolean flag) {
+		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
 	}
 
 	@Override

@@ -80,10 +80,6 @@ public class GOTEntityFishHook extends EntityFishHook {
 		return dataWatcher.getWatchableObjectInt(16);
 	}
 
-	public void setPlayerID(int id) {
-		dataWatcher.updateObject(16, id);
-	}
-
 	@Override
 	public void onUpdate() {
 		if (field_146042_b == null) {
@@ -102,5 +98,9 @@ public class GOTEntityFishHook extends EntityFishHook {
 			field_146042_b = entityplayer;
 		}
 		super.onUpdate();
+	}
+
+	public void setPlayerID(int id) {
+		dataWatcher.updateObject(16, id);
 	}
 }

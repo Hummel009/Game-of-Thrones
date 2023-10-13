@@ -1,14 +1,14 @@
 package got.common.command;
 
+import java.util.Collections;
+import java.util.List;
+
 import got.common.GOTLevelData;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
-
-import java.util.Collections;
-import java.util.List;
 
 public class GOTCommandFastTravelClock extends CommandBase {
 	@Override

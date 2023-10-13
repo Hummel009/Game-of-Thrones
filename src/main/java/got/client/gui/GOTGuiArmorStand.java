@@ -1,12 +1,13 @@
 package got.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.inventory.GOTContainerArmorStand;
 import got.common.tileentity.GOTTileEntityArmorStand;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.opengl.GL11;
 
 public class GOTGuiArmorStand extends GuiContainer {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/armor_stand.png");

@@ -1,6 +1,16 @@
 package got.client.gui;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.lang3.tuple.Pair;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
 import com.google.common.collect.Lists;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTTextBody;
 import got.common.GOTDate;
@@ -20,14 +30,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import org.apache.commons.lang3.tuple.Pair;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/questBook.png");

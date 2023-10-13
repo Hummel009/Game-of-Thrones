@@ -1,5 +1,7 @@
 package got.common.network;
 
+import java.io.IOException;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -11,8 +13,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.world.World;
-
-import java.io.IOException;
 
 public class GOTPacketEditNPCRespawner implements IMessage {
 	public int spawnerID;

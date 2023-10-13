@@ -1,5 +1,8 @@
 package got.common.block.other;
 
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -17,11 +20,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Random;
-
 public class GOTBlockDoubleFlower extends BlockDoublePlant {
-	public static String[] flowerNames = {"black_iris", "yellow_iris", "pink", "red"};
+	public static String[] flowerNames = { "black_iris", "yellow_iris", "pink", "red" };
 	@SideOnly(Side.CLIENT)
 	public IIcon[] doublePlantBottomIcons;
 	@SideOnly(Side.CLIENT)
@@ -29,14 +29,6 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 
 	public GOTBlockDoubleFlower() {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
-	}
-
-	public static int getFlowerMeta(int i) {
-		return i & 7;
-	}
-
-	public static boolean isTop(int i) {
-		return (i & 8) != 0;
 	}
 
 	@Override
@@ -181,6 +173,14 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 			doublePlantBottomIcons[i] = iconregister.registerIcon(getTextureName() + "_" + flowerNames[i] + "_bottom");
 			doublePlantTopIcons[i] = iconregister.registerIcon(getTextureName() + "_" + flowerNames[i] + "_top");
 		}
+	}
+
+	public static int getFlowerMeta(int i) {
+		return i & 7;
+	}
+
+	public static boolean isTop(int i) {
+		return (i & 8) != 0;
 	}
 
 }

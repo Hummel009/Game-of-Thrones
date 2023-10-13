@@ -1,5 +1,7 @@
 package got.client.render.npc;
 
+import org.lwjgl.opengl.GL11;
+
 import got.client.GOTSpeechClient;
 import got.client.model.GOTModelTyrionLannister;
 import got.client.render.other.GOTRenderBiped;
@@ -9,7 +11,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderTyrionLannister extends GOTRenderBiped {
 	public GOTRenderTyrionLannister() {

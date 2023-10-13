@@ -38,12 +38,6 @@ public class GOTBiomeShadowLand extends GOTBiome {
 		biomeColors.setWater(0);
 	}
 
-	public static boolean isBlackSurface(IBlockAccess world, int i, int j, int k) {
-		Block block = world.getBlock(i, j, k);
-		int meta = world.getBlockMetadata(i, j, k);
-		return block == GOTBlocks.rock && meta == 0 || block == GOTBlocks.basaltGravel;
-	}
-
 	@Override
 	public GOTAchievement getBiomeAchievement() {
 		return GOTAchievement.enterShadowLand;
@@ -62,5 +56,11 @@ public class GOTBiomeShadowLand extends GOTBiome {
 	@Override
 	public GOTBezierType getRoadBlock() {
 		return GOTBezierType.PATH_ASSHAI;
+	}
+
+	public static boolean isBlackSurface(IBlockAccess world, int i, int j, int k) {
+		Block block = world.getBlock(i, j, k);
+		int meta = world.getBlockMetadata(i, j, k);
+		return block == GOTBlocks.rock && meta == 0 || block == GOTBlocks.basaltGravel;
 	}
 }

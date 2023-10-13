@@ -1,5 +1,7 @@
 package got.common.world.structure.sothoryos.summer;
 
+import java.util.Random;
+
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
@@ -9,8 +11,6 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -36,10 +36,6 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 		return this;
 	}
 
-	public enum Type {
-		VILLAGE, FORT, RUINED_VILLAGE
-	}
-
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureSummerSettlement> {
 		public Type type;
 		public boolean forcedType;
@@ -53,15 +49,15 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-				case VILLAGE:
-					setupVillage(random);
-					break;
-				case FORT:
-					setupFortress(random);
-					break;
-				case RUINED_VILLAGE:
-					setupRuinedVillage(random);
-					break;
+			case VILLAGE:
+				setupVillage(random);
+				break;
+			case FORT:
+				setupFortress(random);
+				break;
+			case RUINED_VILLAGE:
+				setupRuinedVillage(random);
+				break;
 			}
 		}
 
@@ -312,5 +308,9 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 		}
+	}
+
+	public enum Type {
+		VILLAGE, FORT, RUINED_VILLAGE
 	}
 }

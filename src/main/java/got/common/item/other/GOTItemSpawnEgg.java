@@ -1,5 +1,7 @@
 package got.common.item.other;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
@@ -23,31 +25,11 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
-import java.util.List;
-
 public class GOTItemSpawnEgg extends Item {
 	public GOTItemSpawnEgg() {
 		setHasSubtypes(true);
 		setCreativeTab(GOTCreativeTabs.tabSpawn);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseSpawnEgg());
-	}
-
-	public static Entity spawnCreature(World world, int id, double d, double d1, double d2) {
-		if (!GOTEntityRegistry.spawnEggs.containsKey(id)) {
-			return null;
-		}
-		String entityName = GOTEntityRegistry.getStringFromID(id);
-		Entity entity = EntityList.createEntityByName(entityName, world);
-		if (entity instanceof EntityLiving) {
-			EntityLiving entityliving = (EntityLiving) entity;
-			entityliving.setLocationAndAngles(d, d1, d2, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0f), 0.0f);
-			entityliving.rotationYawHead = entityliving.rotationYaw;
-			entityliving.renderYawOffset = entityliving.rotationYaw;
-			entityliving.onSpawnWithEgg(null);
-			world.spawnEntityInWorld(entityliving);
-			entityliving.playLivingSound();
-		}
-		return entity;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -120,5 +102,23 @@ public class GOTItemSpawnEgg extends Item {
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;
+	}
+
+	public static Entity spawnCreature(World world, int id, double d, double d1, double d2) {
+		if (!GOTEntityRegistry.spawnEggs.containsKey(id)) {
+			return null;
+		}
+		String entityName = GOTEntityRegistry.getStringFromID(id);
+		Entity entity = EntityList.createEntityByName(entityName, world);
+		if (entity instanceof EntityLiving) {
+			EntityLiving entityliving = (EntityLiving) entity;
+			entityliving.setLocationAndAngles(d, d1, d2, MathHelper.wrapAngleTo180_float(world.rand.nextFloat() * 360.0f), 0.0f);
+			entityliving.rotationYawHead = entityliving.rotationYaw;
+			entityliving.renderYawOffset = entityliving.rotationYaw;
+			entityliving.onSpawnWithEgg(null);
+			world.spawnEntityInWorld(entityliving);
+			entityliving.playLivingSound();
+		}
+		return entity;
 	}
 }

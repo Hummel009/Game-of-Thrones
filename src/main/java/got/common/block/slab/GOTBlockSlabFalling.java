@@ -1,12 +1,12 @@
 package got.common.block.slab;
 
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public abstract class GOTBlockSlabFalling extends GOTBlockSlabBase {
 	protected GOTBlockSlabFalling(boolean flag, Material material, int n) {

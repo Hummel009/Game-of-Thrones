@@ -23,7 +23,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGiftMan extends GOTEntityHumanBase implements IPickpocketable {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
+	public static ItemStack[] weapons = { new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe) };
 
 	public GOTEntityGiftMan(World world) {
 		super(world);

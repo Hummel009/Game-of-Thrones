@@ -1,5 +1,7 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.entity.other.GOTEntityCrossbowBolt;
 import got.common.item.weapon.GOTItemCrossbowBolt;
 import net.minecraft.client.renderer.Tessellator;
@@ -8,7 +10,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderCrossbowBolt extends Render {
 	public static ResourceLocation boltTexture = new ResourceLocation("got:textures/model/crossbow_bolt.png");

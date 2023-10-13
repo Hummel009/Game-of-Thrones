@@ -1,8 +1,8 @@
 package got.common.world.structure.sothoryos.summer;
 
-import got.common.database.GOTBlocks;
-
 import java.util.Random;
+
+import got.common.database.GOTBlocks;
 
 public class GOTStructureSummerPalisadeRuined extends GOTStructureSummerPalisade {
 	public GOTStructureSummerPalisadeRuined(boolean flag) {

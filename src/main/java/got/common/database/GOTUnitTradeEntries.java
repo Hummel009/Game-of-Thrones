@@ -1,5 +1,10 @@
 package got.common.database;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.animal.GOTEntityWoolyRhino;
 import got.common.entity.animal.GOTEntityZebra;
@@ -64,11 +69,6 @@ import got.common.entity.westeros.stormlands.*;
 import got.common.entity.westeros.westerlands.*;
 import got.common.entity.westeros.wildling.*;
 import got.common.entity.westeros.wildling.thenn.*;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class GOTUnitTradeEntries {
 	public static final Set<GOTUnitTradeEntries> CONTENT = new HashSet<>();

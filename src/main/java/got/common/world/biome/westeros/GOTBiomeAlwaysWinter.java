@@ -1,5 +1,9 @@
 package got.common.world.biome.westeros;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
+
 import got.GOT;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
@@ -11,10 +15,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
 
 public class GOTBiomeAlwaysWinter extends GOTBiomeWesterosFrost {
 	public WorldGenerator snowBoulderGenSmall = new GOTWorldGenBoulder(Blocks.snow, 0, 1, 4);

@@ -19,26 +19,26 @@ public class GOTDragonParticleHelper extends GOTDragonHelper {
 		double oz;
 		float s = dragon.getScale() * 1.2f;
 		switch (effect) {
-			case "explode":
-				ox = rand.nextGaussian() * s;
-				oy = rand.nextGaussian() * s;
-				oz = rand.nextGaussian() * s;
-				break;
-			case "cloud":
-				ox = (rand.nextDouble() - 0.5) * 0.1;
-				oy = rand.nextDouble() * 0.2;
-				oz = (rand.nextDouble() - 0.5) * 0.1;
-				break;
-			case "reddust":
-				ox = 0.8;
-				oy = 0;
-				oz = 0.8;
-				break;
-			default:
-				ox = 0;
-				oy = 0;
-				oz = 0;
-				break;
+		case "explode":
+			ox = rand.nextGaussian() * s;
+			oy = rand.nextGaussian() * s;
+			oz = rand.nextGaussian() * s;
+			break;
+		case "cloud":
+			ox = (rand.nextDouble() - 0.5) * 0.1;
+			oy = rand.nextDouble() * 0.2;
+			oz = (rand.nextDouble() - 0.5) * 0.1;
+			break;
+		case "reddust":
+			ox = 0.8;
+			oy = 0;
+			oz = 0.8;
+			break;
+		default:
+			ox = 0;
+			oy = 0;
+			oz = 0;
+			break;
 		}
 		double x = dragon.posX + (rand.nextDouble() - 0.5) * dragon.width * s;
 		double y = dragon.posY + (rand.nextDouble() - 0.5) * dragon.height * s;

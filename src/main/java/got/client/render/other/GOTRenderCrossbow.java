@@ -1,5 +1,7 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import got.client.GOTClientProxy;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.weapon.GOTItemCrossbow;
@@ -12,7 +14,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderCrossbow implements IItemRenderer {
 	@Override
@@ -52,31 +53,31 @@ public class GOTRenderCrossbow implements IItemRenderer {
 			GL11.glTranslatef(-0.25f, -0.1875f, 0.1875f);
 		}
 		switch (rotationMode) {
-			case ENTITY_HOLDING:
-				GL11.glTranslatef(0.0f, 0.125f, 0.3125f);
-				GL11.glRotatef(-20.0f, 0.0f, 1.0f, 0.0f);
-				GL11.glScalef(0.625f, -0.625f, 0.625f);
-				GL11.glRotatef(-100.0f, 1.0f, 0.0f, 0.0f);
-				GL11.glRotatef(45.0f, 0.0f, 1.0f, 0.0f);
-				GL11.glTranslatef(0.0f, -0.3f, 0.0f);
-				GL11.glScalef(1.625f, 1.625f, 1.625f);
-				GL11.glRotatef(50.0f, 0.0f, 1.0f, 0.0f);
-				GL11.glRotatef(335.0f, 0.0f, 0.0f, 1.0f);
-				GL11.glTranslatef(-0.9375f, -0.0625f, 0.0f);
-				break;
-			case ENTITY_LOADED:
-				GL11.glRotatef(50.0f, 0.0f, 0.0f, 1.0f);
-				GL11.glTranslatef(0.0f, 0.0f, -0.15f);
-				GL11.glTranslatef(0.0f, -0.5f, 0.0f);
-				break;
-			case FIRST_PERSON_HOLDING:
-				break;
-			case FIRST_PERSON_LOADED:
-				GL11.glRotatef(-100.0f, 1.0f, 0.0f, 0.0f);
-				GL11.glRotatef(-60.0f, 0.0f, 1.0f, 0.0f);
-				GL11.glRotatef(-25.0f, 0.0f, 0.0f, 1.0f);
-				GL11.glTranslatef(0.0f, 0.0f, -0.5f);
-				break;
+		case ENTITY_HOLDING:
+			GL11.glTranslatef(0.0f, 0.125f, 0.3125f);
+			GL11.glRotatef(-20.0f, 0.0f, 1.0f, 0.0f);
+			GL11.glScalef(0.625f, -0.625f, 0.625f);
+			GL11.glRotatef(-100.0f, 1.0f, 0.0f, 0.0f);
+			GL11.glRotatef(45.0f, 0.0f, 1.0f, 0.0f);
+			GL11.glTranslatef(0.0f, -0.3f, 0.0f);
+			GL11.glScalef(1.625f, 1.625f, 1.625f);
+			GL11.glRotatef(50.0f, 0.0f, 1.0f, 0.0f);
+			GL11.glRotatef(335.0f, 0.0f, 0.0f, 1.0f);
+			GL11.glTranslatef(-0.9375f, -0.0625f, 0.0f);
+			break;
+		case ENTITY_LOADED:
+			GL11.glRotatef(50.0f, 0.0f, 0.0f, 1.0f);
+			GL11.glTranslatef(0.0f, 0.0f, -0.15f);
+			GL11.glTranslatef(0.0f, -0.5f, 0.0f);
+			break;
+		case FIRST_PERSON_HOLDING:
+			break;
+		case FIRST_PERSON_LOADED:
+			GL11.glRotatef(-100.0f, 1.0f, 0.0f, 0.0f);
+			GL11.glRotatef(-60.0f, 0.0f, 1.0f, 0.0f);
+			GL11.glRotatef(-25.0f, 0.0f, 0.0f, 1.0f);
+			GL11.glTranslatef(0.0f, 0.0f, -0.5f);
+			break;
 		}
 		IIcon icon = ((EntityLivingBase) data[1]).getItemIcon(itemstack, 0);
 		if (icon == null) {

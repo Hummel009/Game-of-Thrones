@@ -98,10 +98,6 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 		return dataWatcher.getWatchableObjectByte(21) == 1;
 	}
 
-	public void setThrowingRocks(boolean flag) {
-		dataWatcher.updateObject(21, flag ? (byte) 1 : 0);
-	}
-
 	@Override
 	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
 		if (mode == GOTEntityNPC.AttackMode.IDLE) {
@@ -121,5 +117,9 @@ public class GOTEntityGiant extends GOTEntityGiantBase {
 			tasks.addTask(3, rangedAttackAI);
 			setThrowingRocks(true);
 		}
+	}
+
+	public void setThrowingRocks(boolean flag) {
+		dataWatcher.updateObject(21, flag ? (byte) 1 : 0);
 	}
 }

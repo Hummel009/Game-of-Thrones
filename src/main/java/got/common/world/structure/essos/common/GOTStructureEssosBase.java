@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.common;
 
+import java.util.*;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
@@ -26,8 +28,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.*;
 
 public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public static final Map<City, BannerType> BANNERS = new EnumMap<>(City.class);
@@ -226,46 +226,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		super(flag);
 	}
 
-	public static GOTTreeType getRandomSouthernTree(Random random) {
-		ArrayList<GOTTreeType> treeList = new ArrayList<>();
-		treeList.add(GOTTreeType.ACACIA);
-		treeList.add(GOTTreeType.ALMOND);
-		treeList.add(GOTTreeType.CEDAR);
-		treeList.add(GOTTreeType.CEDAR_LARGE);
-		treeList.add(GOTTreeType.CYPRESS);
-		treeList.add(GOTTreeType.CYPRESS_LARGE);
-		treeList.add(GOTTreeType.DATE_PALM);
-		treeList.add(GOTTreeType.LEMON);
-		treeList.add(GOTTreeType.LIME);
-		treeList.add(GOTTreeType.OLIVE);
-		treeList.add(GOTTreeType.OLIVE_LARGE);
-		treeList.add(GOTTreeType.ORANGE);
-		treeList.add(GOTTreeType.PALM);
-		treeList.add(GOTTreeType.PLUM);
-		treeList.add(GOTTreeType.KANUKA);
-		return treeList.get(random.nextInt(treeList.size()));
-	}
-
-	public static GOTTreeType getRandomStandardTree(Random random) {
-		ArrayList<GOTTreeType> treeList = new ArrayList<>();
-		treeList.add(GOTTreeType.OAK);
-		treeList.add(GOTTreeType.OAK_TALLER);
-		treeList.add(GOTTreeType.OAK_LARGE);
-		treeList.add(GOTTreeType.BIRCH);
-		treeList.add(GOTTreeType.BIRCH_LARGE);
-		treeList.add(GOTTreeType.BIRCH_TALL);
-		treeList.add(GOTTreeType.BEECH);
-		treeList.add(GOTTreeType.BEECH_LARGE);
-		treeList.add(GOTTreeType.APPLE);
-		treeList.add(GOTTreeType.PEAR);
-		treeList.add(GOTTreeType.PLUM);
-		treeList.add(GOTTreeType.OLIVE);
-		treeList.add(GOTTreeType.ALMOND);
-		treeList.add(GOTTreeType.CHESTNUT);
-		treeList.add(GOTTreeType.CHESTNUT_LARGE);
-		return treeList.get(random.nextInt(treeList.size()));
-	}
-
 	public BannerType getBannerType() {
 		return BANNERS.get(city);
 	}
@@ -299,12 +259,12 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	}
 
 	public ItemStack getRandomItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.goldRing), new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3), new ItemStack(GOTItems.gemsbokHorn), new ItemStack(GOTItems.lionFur)};
+		ItemStack[] items = { new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.gobletCopper), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.goldRing), new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3), new ItemStack(GOTItems.gemsbokHorn), new ItemStack(GOTItems.lionFur) };
 		return items[random.nextInt(items.length)].copy();
 	}
 
 	public ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer)};
+		ItemStack[] items = { new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosSpear), new ItemStack(GOTItems.essosPike), new ItemStack(GOTItems.essosPolearm), new ItemStack(GOTItems.essosHammer) };
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -458,120 +418,160 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 			trapdoorBlock = GOTBlocks.trapdoorCedar;
 		} else if (hasNorthernWood()) {
 			switch (random.nextInt(4)) {
-				case 0:
-					woodBlock = GOTBlocks.wood2;
-					woodMeta = 1;
-					plankBlock = GOTBlocks.planks1;
-					plankMeta = 9;
-					plankSlabBlock = GOTBlocks.woodSlabSingle2;
-					plankSlabMeta = 1;
-					plankStairBlock = GOTBlocks.stairsBeech;
-					fenceBlock = GOTBlocks.fence;
-					fenceMeta = 9;
-					fenceGateBlock = GOTBlocks.fenceGateBeech;
-					woodBeamBlock = GOTBlocks.woodBeam2;
-					woodBeamMeta = 1;
-					doorBlock = GOTBlocks.doorBeech;
-					trapdoorBlock = GOTBlocks.trapdoorBeech;
-					break;
-				case 1:
-					woodBlock = GOTBlocks.wood4;
-					woodMeta = 2;
-					plankBlock = GOTBlocks.planks2;
-					plankMeta = 2;
-					plankSlabBlock = GOTBlocks.woodSlabSingle3;
-					plankSlabMeta = 2;
-					plankStairBlock = GOTBlocks.stairsCedar;
-					fenceBlock = GOTBlocks.fence2;
-					fenceMeta = 2;
-					fenceGateBlock = GOTBlocks.fenceGateCedar;
-					woodBeamBlock = GOTBlocks.woodBeam4;
-					woodBeamMeta = 2;
-					doorBlock = GOTBlocks.doorCedar;
-					trapdoorBlock = GOTBlocks.trapdoorCedar;
-					break;
-				default:
-					woodBlock = Blocks.log;
-					woodMeta = 0;
-					plankBlock = Blocks.planks;
-					plankMeta = 0;
-					plankSlabBlock = Blocks.wooden_slab;
-					plankSlabMeta = 0;
-					plankStairBlock = Blocks.oak_stairs;
-					fenceBlock = Blocks.fence;
-					fenceMeta = 0;
-					fenceGateBlock = Blocks.fence_gate;
-					woodBeamBlock = GOTBlocks.woodBeamV1;
-					woodBeamMeta = 0;
-					doorBlock = Blocks.wooden_door;
-					trapdoorBlock = Blocks.trapdoor;
-					break;
+			case 0:
+				woodBlock = GOTBlocks.wood2;
+				woodMeta = 1;
+				plankBlock = GOTBlocks.planks1;
+				plankMeta = 9;
+				plankSlabBlock = GOTBlocks.woodSlabSingle2;
+				plankSlabMeta = 1;
+				plankStairBlock = GOTBlocks.stairsBeech;
+				fenceBlock = GOTBlocks.fence;
+				fenceMeta = 9;
+				fenceGateBlock = GOTBlocks.fenceGateBeech;
+				woodBeamBlock = GOTBlocks.woodBeam2;
+				woodBeamMeta = 1;
+				doorBlock = GOTBlocks.doorBeech;
+				trapdoorBlock = GOTBlocks.trapdoorBeech;
+				break;
+			case 1:
+				woodBlock = GOTBlocks.wood4;
+				woodMeta = 2;
+				plankBlock = GOTBlocks.planks2;
+				plankMeta = 2;
+				plankSlabBlock = GOTBlocks.woodSlabSingle3;
+				plankSlabMeta = 2;
+				plankStairBlock = GOTBlocks.stairsCedar;
+				fenceBlock = GOTBlocks.fence2;
+				fenceMeta = 2;
+				fenceGateBlock = GOTBlocks.fenceGateCedar;
+				woodBeamBlock = GOTBlocks.woodBeam4;
+				woodBeamMeta = 2;
+				doorBlock = GOTBlocks.doorCedar;
+				trapdoorBlock = GOTBlocks.trapdoorCedar;
+				break;
+			default:
+				woodBlock = Blocks.log;
+				woodMeta = 0;
+				plankBlock = Blocks.planks;
+				plankMeta = 0;
+				plankSlabBlock = Blocks.wooden_slab;
+				plankSlabMeta = 0;
+				plankStairBlock = Blocks.oak_stairs;
+				fenceBlock = Blocks.fence;
+				fenceMeta = 0;
+				fenceGateBlock = Blocks.fence_gate;
+				woodBeamBlock = GOTBlocks.woodBeamV1;
+				woodBeamMeta = 0;
+				doorBlock = Blocks.wooden_door;
+				trapdoorBlock = Blocks.trapdoor;
+				break;
 			}
 		} else {
 			switch (random.nextInt(3)) {
-				case 0:
-					woodBlock = GOTBlocks.wood6;
-					woodMeta = 3;
-					plankBlock = GOTBlocks.planks2;
-					plankMeta = 11;
-					plankSlabBlock = GOTBlocks.woodSlabSingle4;
-					plankSlabMeta = 3;
-					plankStairBlock = GOTBlocks.stairsOlive;
-					fenceBlock = GOTBlocks.fence2;
-					fenceMeta = 11;
-					fenceGateBlock = GOTBlocks.fenceGateOlive;
-					woodBeamBlock = GOTBlocks.woodBeam6;
-					woodBeamMeta = 3;
-					doorBlock = GOTBlocks.doorOlive;
-					trapdoorBlock = GOTBlocks.trapdoorOlive;
-					break;
-				case 1:
-					woodBlock = GOTBlocks.wood3;
-					woodMeta = 2;
-					plankBlock = GOTBlocks.planks1;
-					plankMeta = 14;
-					plankSlabBlock = GOTBlocks.woodSlabSingle2;
-					plankSlabMeta = 6;
-					plankStairBlock = GOTBlocks.stairsDatePalm;
-					fenceBlock = GOTBlocks.fence;
-					fenceMeta = 14;
-					fenceGateBlock = GOTBlocks.fenceGateDatePalm;
-					woodBeamBlock = GOTBlocks.woodBeam3;
-					woodBeamMeta = 2;
-					doorBlock = GOTBlocks.doorDatePalm;
-					trapdoorBlock = GOTBlocks.trapdoorDatePalm;
-					break;
-				default:
-					woodBlock = GOTBlocks.wood8;
-					woodMeta = 3;
-					plankBlock = GOTBlocks.planks3;
-					plankMeta = 3;
-					plankSlabBlock = GOTBlocks.woodSlabSingle5;
-					plankSlabMeta = 3;
-					plankStairBlock = GOTBlocks.stairsPalm;
-					fenceBlock = GOTBlocks.fence3;
-					fenceMeta = 3;
-					fenceGateBlock = GOTBlocks.fenceGatePalm;
-					woodBeamBlock = GOTBlocks.woodBeam8;
-					woodBeamMeta = 3;
-					doorBlock = GOTBlocks.doorPalm;
-					trapdoorBlock = GOTBlocks.trapdoorPalm;
-					break;
+			case 0:
+				woodBlock = GOTBlocks.wood6;
+				woodMeta = 3;
+				plankBlock = GOTBlocks.planks2;
+				plankMeta = 11;
+				plankSlabBlock = GOTBlocks.woodSlabSingle4;
+				plankSlabMeta = 3;
+				plankStairBlock = GOTBlocks.stairsOlive;
+				fenceBlock = GOTBlocks.fence2;
+				fenceMeta = 11;
+				fenceGateBlock = GOTBlocks.fenceGateOlive;
+				woodBeamBlock = GOTBlocks.woodBeam6;
+				woodBeamMeta = 3;
+				doorBlock = GOTBlocks.doorOlive;
+				trapdoorBlock = GOTBlocks.trapdoorOlive;
+				break;
+			case 1:
+				woodBlock = GOTBlocks.wood3;
+				woodMeta = 2;
+				plankBlock = GOTBlocks.planks1;
+				plankMeta = 14;
+				plankSlabBlock = GOTBlocks.woodSlabSingle2;
+				plankSlabMeta = 6;
+				plankStairBlock = GOTBlocks.stairsDatePalm;
+				fenceBlock = GOTBlocks.fence;
+				fenceMeta = 14;
+				fenceGateBlock = GOTBlocks.fenceGateDatePalm;
+				woodBeamBlock = GOTBlocks.woodBeam3;
+				woodBeamMeta = 2;
+				doorBlock = GOTBlocks.doorDatePalm;
+				trapdoorBlock = GOTBlocks.trapdoorDatePalm;
+				break;
+			default:
+				woodBlock = GOTBlocks.wood8;
+				woodMeta = 3;
+				plankBlock = GOTBlocks.planks3;
+				plankMeta = 3;
+				plankSlabBlock = GOTBlocks.woodSlabSingle5;
+				plankSlabMeta = 3;
+				plankStairBlock = GOTBlocks.stairsPalm;
+				fenceBlock = GOTBlocks.fence3;
+				fenceMeta = 3;
+				fenceGateBlock = GOTBlocks.fenceGatePalm;
+				woodBeamBlock = GOTBlocks.woodBeam8;
+				woodBeamMeta = 3;
+				doorBlock = GOTBlocks.doorPalm;
+				trapdoorBlock = GOTBlocks.trapdoorPalm;
+				break;
 			}
 		}
 
 		switch (random.nextInt(7)) {
-			case 0:
-			case 1:
-				cropBlock = Blocks.carrots;
-				break;
-			case 2:
-				cropBlock = GOTBlocks.lettuceCrop;
-				break;
-			default:
-				cropBlock = Blocks.wheat;
-				break;
+		case 0:
+		case 1:
+			cropBlock = Blocks.carrots;
+			break;
+		case 2:
+			cropBlock = GOTBlocks.lettuceCrop;
+			break;
+		default:
+			cropBlock = Blocks.wheat;
+			break;
 		}
+	}
+
+	public static GOTTreeType getRandomSouthernTree(Random random) {
+		ArrayList<GOTTreeType> treeList = new ArrayList<>();
+		treeList.add(GOTTreeType.ACACIA);
+		treeList.add(GOTTreeType.ALMOND);
+		treeList.add(GOTTreeType.CEDAR);
+		treeList.add(GOTTreeType.CEDAR_LARGE);
+		treeList.add(GOTTreeType.CYPRESS);
+		treeList.add(GOTTreeType.CYPRESS_LARGE);
+		treeList.add(GOTTreeType.DATE_PALM);
+		treeList.add(GOTTreeType.LEMON);
+		treeList.add(GOTTreeType.LIME);
+		treeList.add(GOTTreeType.OLIVE);
+		treeList.add(GOTTreeType.OLIVE_LARGE);
+		treeList.add(GOTTreeType.ORANGE);
+		treeList.add(GOTTreeType.PALM);
+		treeList.add(GOTTreeType.PLUM);
+		treeList.add(GOTTreeType.KANUKA);
+		return treeList.get(random.nextInt(treeList.size()));
+	}
+
+	public static GOTTreeType getRandomStandardTree(Random random) {
+		ArrayList<GOTTreeType> treeList = new ArrayList<>();
+		treeList.add(GOTTreeType.OAK);
+		treeList.add(GOTTreeType.OAK_TALLER);
+		treeList.add(GOTTreeType.OAK_LARGE);
+		treeList.add(GOTTreeType.BIRCH);
+		treeList.add(GOTTreeType.BIRCH_LARGE);
+		treeList.add(GOTTreeType.BIRCH_TALL);
+		treeList.add(GOTTreeType.BEECH);
+		treeList.add(GOTTreeType.BEECH_LARGE);
+		treeList.add(GOTTreeType.APPLE);
+		treeList.add(GOTTreeType.PEAR);
+		treeList.add(GOTTreeType.PLUM);
+		treeList.add(GOTTreeType.OLIVE);
+		treeList.add(GOTTreeType.ALMOND);
+		treeList.add(GOTTreeType.CHESTNUT);
+		treeList.add(GOTTreeType.CHESTNUT_LARGE);
+		return treeList.get(random.nextInt(treeList.size()));
 	}
 
 	public enum City {

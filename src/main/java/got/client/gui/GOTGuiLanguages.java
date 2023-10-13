@@ -1,17 +1,18 @@
 package got.client.gui;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.util.List;
+
+import org.lwjgl.Sys;
+import org.lwjgl.opengl.GL11;
+
 import got.GOT;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.Util;
-import org.lwjgl.Sys;
-import org.lwjgl.opengl.GL11;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.util.List;
 
 public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 	public GOTGuiButtonOptions buttonFriendlyFire;
@@ -25,49 +26,49 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			switch (button.id) {
-				case 1: {
-					switch (Util.getOSType()) {
-						case OSX: {
-							try {
-								Runtime.getRuntime().exec(new String[]{"/usr/bin/open", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath()});
-								return;
-							} catch (IOException var7) {
-								var7.printStackTrace();
-								break;
-							}
-						}
-						case WINDOWS: {
-							String var2 = String.format("cmd.exe /C start \"Open file\" \"%s\"", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
-							try {
-								Runtime.getRuntime().exec(var2);
-								return;
-							} catch (IOException var6) {
-								var6.printStackTrace();
-								break;
-							}
-						}
-						default:
-							mc.displayGuiScreen(new GOTGuiMenu());
-					}
-					boolean var8 = false;
+			case 1: {
+				switch (Util.getOSType()) {
+				case OSX: {
 					try {
-						Class<?> var3 = Class.forName("java.awt.Desktop");
-						Object var4 = var3.getMethod("getDesktop").invoke(null);
-						var3.getMethod("browse", URI.class).invoke(var4, new File(mc.mcDataDir, "config").toURI());
-					} catch (Throwable var5) {
-						var5.printStackTrace();
-						var8 = true;
-					}
-					if (!var8) {
+						Runtime.getRuntime().exec(new String[] { "/usr/bin/open", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath() });
+						return;
+					} catch (IOException var7) {
+						var7.printStackTrace();
 						break;
 					}
-					System.out.println("Opening via system class!");
-					Sys.openURL("file://" + new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
-					break;
 				}
-				case 2: {
+				case WINDOWS: {
+					String var2 = String.format("cmd.exe /C start \"Open file\" \"%s\"", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
+					try {
+						Runtime.getRuntime().exec(var2);
+						return;
+					} catch (IOException var6) {
+						var6.printStackTrace();
+						break;
+					}
+				}
+				default:
 					mc.displayGuiScreen(new GOTGuiMenu());
 				}
+				boolean var8 = false;
+				try {
+					Class<?> var3 = Class.forName("java.awt.Desktop");
+					Object var4 = var3.getMethod("getDesktop").invoke(null);
+					var3.getMethod("browse", URI.class).invoke(var4, new File(mc.mcDataDir, "config").toURI());
+				} catch (Throwable var5) {
+					var5.printStackTrace();
+					var8 = true;
+				}
+				if (!var8) {
+					break;
+				}
+				System.out.println("Opening via system class!");
+				Sys.openURL("file://" + new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
+				break;
+			}
+			case 2: {
+				mc.displayGuiScreen(new GOTGuiMenu());
+			}
 			}
 		}
 	}

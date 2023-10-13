@@ -1,12 +1,12 @@
 package got.common.world.structure.essos.common;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureEssosStables extends GOTStructureEssosBase {
 	public GOTStructureEssosStables(boolean flag) {
@@ -99,7 +99,7 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 			GOTEntityNPC npc = getMan(world);
 			spawnNPCAndSetHome(npc, world, 0, 1, 0, 8);
 		}
-		for (int k1 : new int[]{-4, 0, 4}) {
+		for (int k1 : new int[] { -4, 0, 4 }) {
 			int i1 = 5;
 			int j12 = 1;
 			GOTEntityHorse horse = new GOTEntityHorse(world);

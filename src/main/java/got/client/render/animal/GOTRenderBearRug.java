@@ -1,10 +1,11 @@
 package got.client.render.animal;
 
+import org.lwjgl.opengl.GL11;
+
 import got.client.model.GOTModelBearRug;
 import got.common.entity.animal.GOTEntityBearRug;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBearRug extends GOTRenderRugBase {
 	public GOTRenderBearRug() {

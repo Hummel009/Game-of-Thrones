@@ -1,5 +1,8 @@
 package got.common.block.other;
 
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTBlocks;
@@ -14,9 +17,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.List;
-import java.util.Random;
-
 public class GOTBlockRock extends Block {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] rockIcons;
@@ -24,7 +24,7 @@ public class GOTBlockRock extends Block {
 	public IIcon iconBasaltSide;
 	@SideOnly(Side.CLIENT)
 	public IIcon iconBasaltMoss;
-	public String[] rockNames = {"basalt", "andesite", "rhyolite", "diorite", "granite", "chalk", "labradorite"};
+	public String[] rockNames = { "basalt", "andesite", "rhyolite", "diorite", "granite", "chalk", "labradorite" };
 
 	public GOTBlockRock() {
 		super(Material.rock);

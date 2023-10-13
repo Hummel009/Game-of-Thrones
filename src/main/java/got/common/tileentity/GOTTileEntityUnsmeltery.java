@@ -1,6 +1,11 @@
 package got.common.tileentity;
 
+import java.util.*;
+
+import org.apache.commons.lang3.tuple.Pair;
+
 import com.mojang.authlib.GameProfile;
+
 import got.GOT;
 import got.common.block.table.GOTBlockCraftingTable;
 import got.common.database.GOTItems;
@@ -30,9 +35,6 @@ import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-import org.apache.commons.lang3.tuple.Pair;
-
-import java.util.*;
 
 public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	public static Random unsmeltingRand = new Random();
@@ -44,63 +46,6 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	public boolean prevServerActive;
 	public boolean serverActive;
 	public boolean clientActive;
-
-	public static ItemStack getEquipmentMaterial(ItemStack itemstack) {
-		if (itemstack == null) {
-			return null;
-		}
-		Item item = itemstack.getItem();
-		ItemStack material = null;
-		if (item instanceof ItemTool) {
-			material = ((ItemTool) item).func_150913_i().getRepairItemStack();
-		} else if (item instanceof ItemSword) {
-			material = GOTMaterial.getToolMaterialByName(((ItemSword) item).getToolMaterialName()).getRepairItemStack();
-		} else if (item instanceof ItemHoe) {
-			material = GOTMaterial.getToolMaterialByName(((ItemHoe) item).getToolMaterialName()).getRepairItemStack();
-		} else if (item instanceof GOTItemCrossbow) {
-			material = ((GOTItemCrossbow) item).getCrossbowMaterial().getRepairItemStack();
-		} else if (item instanceof GOTItemThrowingAxe) {
-			material = ((GOTItemThrowingAxe) item).getAxeMaterial().getRepairItemStack();
-		} else if (item instanceof ItemArmor) {
-			material = new ItemStack(((ItemArmor) item).getArmorMaterial().func_151685_b());
-		} else if (item instanceof GOTItemMountArmor) {
-			material = new ItemStack(((GOTItemMountArmor) item).getMountArmorMaterial().func_151685_b());
-		}
-		if (material != null) {
-			if (item.getIsRepairable(itemstack, material)) {
-				return material;
-			}
-		} else {
-			if (item == Items.bucket) {
-				return new ItemStack(Items.iron_ingot);
-			}
-			if (item == GOTItems.silverRing) {
-				return new ItemStack(GOTItems.silverNugget);
-			}
-			if (item == GOTItems.copperRing) {
-				return new ItemStack(GOTItems.copperNugget);
-			}
-			if (item == GOTItems.bronzeRing) {
-				return new ItemStack(GOTItems.bronzeNugget);
-			}
-			if (item == GOTItems.goldRing) {
-				return new ItemStack(Items.gold_nugget);
-			}
-			if (item == GOTItems.valyrianRing) {
-				return new ItemStack(GOTItems.valyrianNugget);
-			}
-			if (item == GOTItems.gobletGold) {
-				return new ItemStack(Items.gold_ingot);
-			}
-			if (item == GOTItems.gobletSilver) {
-				return new ItemStack(GOTItems.silverIngot);
-			}
-			if (item == GOTItems.gobletCopper) {
-				return new ItemStack(GOTItems.copperIngot);
-			}
-		}
-		return null;
-	}
 
 	public boolean canBeUnsmelted(ItemStack itemstack) {
 		if (itemstack == null) {
@@ -208,8 +153,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (recursiveCheckedRecipes == null) {
 			recursiveCheckedRecipes = new ArrayList<>();
 		}
-		label63:
-		for (List<IRecipe> recipes : allRecipeLists) {
+		label63: for (List<IRecipe> recipes : allRecipeLists) {
 			for (IRecipe recipesObj : recipes) {
 				if (!recursiveCheckedRecipes.contains(recipesObj)) {
 					ItemStack result = recipesObj.getRecipeOutput();
@@ -356,9 +300,9 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 
 	@Override
 	public void setupForgeSlots() {
-		inputSlots = new int[]{0};
+		inputSlots = new int[] { 0 };
 		fuelSlot = 1;
-		outputSlots = new int[]{2};
+		outputSlots = new int[] { 2 };
 	}
 
 	@Override
@@ -381,5 +325,62 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 			}
 		}
+	}
+
+	public static ItemStack getEquipmentMaterial(ItemStack itemstack) {
+		if (itemstack == null) {
+			return null;
+		}
+		Item item = itemstack.getItem();
+		ItemStack material = null;
+		if (item instanceof ItemTool) {
+			material = ((ItemTool) item).func_150913_i().getRepairItemStack();
+		} else if (item instanceof ItemSword) {
+			material = GOTMaterial.getToolMaterialByName(((ItemSword) item).getToolMaterialName()).getRepairItemStack();
+		} else if (item instanceof ItemHoe) {
+			material = GOTMaterial.getToolMaterialByName(((ItemHoe) item).getToolMaterialName()).getRepairItemStack();
+		} else if (item instanceof GOTItemCrossbow) {
+			material = ((GOTItemCrossbow) item).getCrossbowMaterial().getRepairItemStack();
+		} else if (item instanceof GOTItemThrowingAxe) {
+			material = ((GOTItemThrowingAxe) item).getAxeMaterial().getRepairItemStack();
+		} else if (item instanceof ItemArmor) {
+			material = new ItemStack(((ItemArmor) item).getArmorMaterial().func_151685_b());
+		} else if (item instanceof GOTItemMountArmor) {
+			material = new ItemStack(((GOTItemMountArmor) item).getMountArmorMaterial().func_151685_b());
+		}
+		if (material != null) {
+			if (item.getIsRepairable(itemstack, material)) {
+				return material;
+			}
+		} else {
+			if (item == Items.bucket) {
+				return new ItemStack(Items.iron_ingot);
+			}
+			if (item == GOTItems.silverRing) {
+				return new ItemStack(GOTItems.silverNugget);
+			}
+			if (item == GOTItems.copperRing) {
+				return new ItemStack(GOTItems.copperNugget);
+			}
+			if (item == GOTItems.bronzeRing) {
+				return new ItemStack(GOTItems.bronzeNugget);
+			}
+			if (item == GOTItems.goldRing) {
+				return new ItemStack(Items.gold_nugget);
+			}
+			if (item == GOTItems.valyrianRing) {
+				return new ItemStack(GOTItems.valyrianNugget);
+			}
+			if (item == GOTItems.gobletGold) {
+				return new ItemStack(Items.gold_ingot);
+			}
+			if (item == GOTItems.gobletSilver) {
+				return new ItemStack(GOTItems.silverIngot);
+			}
+			if (item == GOTItems.gobletCopper) {
+				return new ItemStack(GOTItems.copperIngot);
+			}
+		}
+		return null;
 	}
 }

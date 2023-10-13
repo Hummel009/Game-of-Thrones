@@ -1,5 +1,10 @@
 package got.client.render.other;
 
+import java.util.EnumMap;
+import java.util.Map;
+
+import org.lwjgl.opengl.GL11;
+
 import got.GOT;
 import got.client.model.GOTModelBanner;
 import got.common.entity.other.GOTEntityBanner;
@@ -14,33 +19,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
-
-import java.util.EnumMap;
-import java.util.Map;
 
 public class GOTRenderBanner extends Render {
 	public static Map<GOTItemBanner.BannerType, ResourceLocation> bannerTextures = new EnumMap<>(GOTItemBanner.BannerType.class);
 	public static ResourceLocation standTexture = new ResourceLocation("got:textures/banner/stand.png");
 	public static GOTModelBanner model = new GOTModelBanner();
 	public static ICamera bannerFrustum = new Frustrum();
-
-	public static ResourceLocation getBannerTexture(GOTItemBanner.BannerType type) {
-		ResourceLocation r = bannerTextures.get(type);
-		if (r == null) {
-			if (GOT.isAprilFools()) {
-				r = new ResourceLocation("got:textures/banner/null.png");
-			} else {
-				r = new ResourceLocation("got:textures/banner/" + type.bannerName + ".png");
-			}
-			bannerTextures.put(type, r);
-		}
-		return r;
-	}
-
-	public static ResourceLocation getStandTexture(GOTItemBanner.BannerType type) {
-		return standTexture;
-	}
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -120,5 +104,22 @@ public class GOTRenderBanner extends Render {
 	public ResourceLocation getStandTexture(Entity entity) {
 		GOTEntityBanner banner = (GOTEntityBanner) entity;
 		return getStandTexture(banner.getBannerType());
+	}
+
+	public static ResourceLocation getBannerTexture(GOTItemBanner.BannerType type) {
+		ResourceLocation r = bannerTextures.get(type);
+		if (r == null) {
+			if (GOT.isAprilFools()) {
+				r = new ResourceLocation("got:textures/banner/null.png");
+			} else {
+				r = new ResourceLocation("got:textures/banner/" + type.bannerName + ".png");
+			}
+			bannerTextures.put(type, r);
+		}
+		return r;
+	}
+
+	public static ResourceLocation getStandTexture(GOTItemBanner.BannerType type) {
+		return standTexture;
 	}
 }

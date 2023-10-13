@@ -1,5 +1,7 @@
 package got.common.world.structure.sothoryos.summer;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -11,8 +13,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 	public GOTStructureSummerTavern(boolean flag) {
@@ -138,10 +138,10 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 			placeFlowerPot(world, 11, 2, 1, getRandomFlower(world, random));
 			placeFoodOrDrink(world, random, 12, 2, 1);
 			String[] tavernName = GOTNames.getTavernName(random);
-			placeSign(world, -1, 2, -6, Blocks.wall_sign, 5, new String[]{"", tavernName[0], tavernName[1], ""});
-			placeSign(world, 1, 2, -6, Blocks.wall_sign, 4, new String[]{"", tavernName[0], tavernName[1], ""});
-			placeSign(world, -1, 2, 6, Blocks.wall_sign, 5, new String[]{"", tavernName[0], tavernName[1], ""});
-			placeSign(world, 1, 2, 6, Blocks.wall_sign, 4, new String[]{"", tavernName[0], tavernName[1], ""});
+			placeSign(world, -1, 2, -6, Blocks.wall_sign, 5, new String[] { "", tavernName[0], tavernName[1], "" });
+			placeSign(world, 1, 2, -6, Blocks.wall_sign, 4, new String[] { "", tavernName[0], tavernName[1], "" });
+			placeSign(world, -1, 2, 6, Blocks.wall_sign, 5, new String[] { "", tavernName[0], tavernName[1], "" });
+			placeSign(world, 1, 2, 6, Blocks.wall_sign, 4, new String[] { "", tavernName[0], tavernName[1], "" });
 			placeWallBanner(world, -6, 4, -8, GOTItemBanner.BannerType.SUMMER, 2);
 			placeWallBanner(world, 6, 4, -8, GOTItemBanner.BannerType.SUMMER, 2);
 			placeWallBanner(world, -6, 4, 8, GOTItemBanner.BannerType.SUMMER, 0);

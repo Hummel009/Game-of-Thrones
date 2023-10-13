@@ -1,5 +1,7 @@
 package got.common.world.structure.westeros.hillmen;
 
+import java.util.Random;
+
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.hillmen.GOTEntityHillman;
 import got.common.entity.westeros.hillmen.GOTEntityHillmanArcher;
@@ -12,8 +14,6 @@ import got.common.world.structure.other.GOTStructureHayBales;
 import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 	public GOTStructureHillmanSettlement(GOTBiome biome, float f) {

@@ -1,5 +1,10 @@
 package got.common.world.spawning;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
+import java.util.Set;
+
 import cpw.mods.fml.common.eventhandler.Event;
 import got.GOT;
 import got.common.GOTConfig;
@@ -25,11 +30,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.event.ForgeEventFactory;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-
 public class GOTEventSpawner {
 	public static Set<ChunkCoordIntPair> eligibleSpawnChunks = new HashSet<>();
 
@@ -47,8 +47,7 @@ public class GOTEventSpawner {
 
 	public static void spawnBandits(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
-		block0:
-		for (ChunkCoordIntPair chunkCoords : spawnChunks) {
+		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
 			int i;
 			BiomeGenBase biome;
 			int k;
@@ -93,8 +92,7 @@ public class GOTEventSpawner {
 	@SuppressWarnings("all")
 	public static void spawnInvasions(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
-		block0:
-		for (ChunkCoordIntPair chunkCoords : spawnChunks) {
+		block0: for (ChunkCoordIntPair chunkCoords : spawnChunks) {
 			int i;
 			BiomeGenBase biome;
 			int k;

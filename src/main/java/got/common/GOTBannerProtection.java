@@ -1,6 +1,12 @@
 package got.common;
 
+import java.util.*;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
+
 import com.mojang.authlib.GameProfile;
+
 import got.GOT;
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityBanner;
@@ -19,10 +25,6 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
-
-import java.util.*;
 
 public class GOTBannerProtection {
 	public static Map<Pair<Block, Integer>, Integer> protectionBlocks = new HashMap<>();
@@ -285,32 +287,6 @@ public class GOTBannerProtection {
 		}
 	}
 
-	public enum Permission {
-		FULL, DOORS, TABLES, CONTAINERS, PERSONAL_CONTAINERS, FOOD, BEDS, SWITCHES;
-
-		public int bitFlag = 1 << ordinal();
-		public String codeName = name();
-
-		public static Permission forName(String s) {
-			for (Permission p : values()) {
-				if (p.codeName.equals(s)) {
-					return p;
-				}
-			}
-			return null;
-		}
-	}
-
-	public enum ProtectType {
-		NONE, FACTION, PLAYER_SPECIFIC, STRUCTURE
-	}
-
-	public interface IFilter {
-		ProtectType protects(GOTEntityBanner var1);
-
-		void warnProtection(IChatComponent var1);
-	}
-
 	public static class FilterForPlayer implements IFilter {
 		public EntityPlayer thePlayer;
 		public Permission thePerm;
@@ -360,5 +336,31 @@ public class GOTBannerProtection {
 				}
 			}
 		}
+	}
+
+	public interface IFilter {
+		ProtectType protects(GOTEntityBanner var1);
+
+		void warnProtection(IChatComponent var1);
+	}
+
+	public enum Permission {
+		FULL, DOORS, TABLES, CONTAINERS, PERSONAL_CONTAINERS, FOOD, BEDS, SWITCHES;
+
+		public int bitFlag = 1 << ordinal();
+		public String codeName = name();
+
+		public static Permission forName(String s) {
+			for (Permission p : values()) {
+				if (p.codeName.equals(s)) {
+					return p;
+				}
+			}
+			return null;
+		}
+	}
+
+	public enum ProtectType {
+		NONE, FACTION, PLAYER_SPECIFIC, STRUCTURE
 	}
 }

@@ -1,12 +1,12 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
+import java.util.Random;
+
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraft.world.gen.structure.StructureComponent;
-
-import java.util.Random;
 
 public class GOTStructureSothoryosPyramidComponent extends StructureComponent {
 	public static GOTStructureBase pyramidGen = new GOTStructureSothoryosPyramid(false).setRestrictions(false);

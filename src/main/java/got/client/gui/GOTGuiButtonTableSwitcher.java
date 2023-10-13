@@ -1,5 +1,7 @@
 package got.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.GOTLevelData;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -8,7 +10,6 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonTableSwitcher extends GuiButton {
 	public Block table;

@@ -1,6 +1,9 @@
 package got.common.world.structure.essos.yiti;
 
+import java.util.Random;
+
 import com.google.common.math.IntMath;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -9,8 +12,6 @@ import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 	public GOTStructureYiTiTownHouse(boolean flag) {
@@ -85,8 +86,8 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 				}
 			}
 		}
-		for (int k131 : new int[]{-4, 4}) {
-			for (int i14 : new int[]{-4, 4}) {
+		for (int k131 : new int[] { -4, 4 }) {
+			for (int i14 : new int[] { -4, 4 }) {
 				setBlockAndMetadata(world, i14, 2, k131 - 1, brickStairBlock, 7);
 				setAir(world, i14, 2, k131);
 				setBlockAndMetadata(world, i14, 2, k131 + 1, brickStairBlock, 6);
@@ -94,21 +95,21 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, -4, 3, k131, brickStairBlock, 5);
 			setBlockAndMetadata(world, 4, 3, k131, brickStairBlock, 4);
 		}
-		for (int i15 : new int[]{-2, 2}) {
+		for (int i15 : new int[] { -2, 2 }) {
 			setBlockAndMetadata(world, i15, 2, -6, GOTBlocks.reedBars, 0);
 			setBlockAndMetadata(world, i15, 3, -6, brickStairBlock, 6);
 		}
-		for (int i12 : new int[]{-2, 2}) {
+		for (int i12 : new int[] { -2, 2 }) {
 			setBlockAndMetadata(world, i12 - 1, 2, 6, brickStairBlock, 4);
 			setAir(world, i12, 2, 6);
 			setBlockAndMetadata(world, i12 + 1, 2, 6, brickStairBlock, 5);
 			setBlockAndMetadata(world, i12, 3, 6, brickStairBlock, 7);
 		}
-		for (int k131 : new int[]{-7, 7}) {
+		for (int k131 : new int[] { -7, 7 }) {
 			setBlockAndMetadata(world, -4, 3, k131, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 4, 3, k131, fenceBlock, fenceMeta);
 		}
-		for (int i12 : new int[]{-5, 5}) {
+		for (int i12 : new int[] { -5, 5 }) {
 			setBlockAndMetadata(world, i12, 3, -6, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i12, 3, 6, fenceBlock, fenceMeta);
 		}
@@ -126,7 +127,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 		for (int k15 = -5; k15 <= 5; ++k15) {
 			setBlockAndMetadata(world, 0, 0, k15, woodBeamBlock, woodBeamMeta | 8);
 		}
-		for (int k131 : new int[]{-2, 2}) {
+		for (int k131 : new int[] { -2, 2 }) {
 			for (int i16 = -3; i16 <= 3; ++i16) {
 				setBlockAndMetadata(world, i16, 0, k131, woodBeamBlock, woodBeamMeta | 4);
 			}
@@ -145,7 +146,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, 0, 8, k16, roofBlock, roofMeta);
 			setBlockAndMetadata(world, 0, 9, k16, roofSlabBlock, roofSlabMeta);
 		}
-		for (int k131 : new int[]{-7, 7}) {
+		for (int k131 : new int[] { -7, 7 }) {
 			for (int l2 = 0; l2 <= 2; ++l2) {
 				int j12 = 5 + l2;
 				setBlockAndMetadata(world, -3 + l2, j12, k131, roofStairBlock, 1);
@@ -176,7 +177,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 0, 9, -8, roofStairBlock, 3);
 		setBlockAndMetadata(world, 0, 8, 8, roofStairBlock, 7);
 		setBlockAndMetadata(world, 0, 9, 8, roofStairBlock, 2);
-		for (int k131 : new int[]{-6, 6}) {
+		for (int k131 : new int[] { -6, 6 }) {
 			for (int l3 = 0; l3 <= 2; ++l3) {
 				int j13 = 5 + l3;
 				setBlockAndMetadata(world, -3 + l3, j13, k131, roofBlock, roofMeta);
@@ -186,7 +187,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 				}
 			}
 		}
-		for (int i12 : new int[]{-5, 5}) {
+		for (int i12 : new int[] { -5, 5 }) {
 			setBlockAndMetadata(world, i12, 5, -7, roofSlabBlock, roofSlabMeta);
 			setBlockAndMetadata(world, i12, 4, -6, roofStairBlock, 6);
 			setBlockAndMetadata(world, i12, 4, -5, roofStairBlock, 7);
@@ -200,7 +201,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, i12, 4, 6, roofStairBlock, 7);
 			setBlockAndMetadata(world, i12, 5, 7, roofSlabBlock, roofSlabMeta);
 		}
-		int[] k16 = {-2, 2};
+		int[] k16 = { -2, 2 };
 		l = k16.length;
 		for (j1 = 0; j1 < l; ++j1) {
 			k13 = k16[j1];
@@ -216,7 +217,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 				setBlockAndMetadata(world, i18, 5, k12, GOTBlocks.thatchFloor, 0);
 			}
 		}
-		int[] i18 = {-2, 2};
+		int[] i18 = { -2, 2 };
 		k12 = i18.length;
 		for (j1 = 0; j1 < k12; ++j1) {
 			k13 = i18[j1];
@@ -267,7 +268,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 		placePlate(world, random, -3, 2, -5, plateBlock, GOTFoods.YITI);
 		placeMug(world, random, -3, 2, -4, 3, GOTFoods.YITI_DRINK);
 		setBlockAndMetadata(world, 3, 1, -4, tableBlock, 0);
-		for (int k131 : new int[]{-1, 1}) {
+		for (int k131 : new int[] { -1, 1 }) {
 			setBlockAndMetadata(world, -3, 1, k131, plankSlabBlock, plankSlabMeta | 8);
 			placeBarrel(world, random, -3, 2, k131, 4, GOTFoods.YITI_DRINK);
 		}
@@ -293,7 +294,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 		for (i1 = -2; i1 <= 2; ++i1) {
 			setBlockAndMetadata(world, i1, 5, -2, fenceBlock, fenceMeta);
 		}
-		for (int i12 : new int[]{-1, 1}) {
+		for (int i12 : new int[] { -1, 1 }) {
 			setBlockAndMetadata(world, i12, 5, 4, bedBlock, 0);
 			setBlockAndMetadata(world, i12, 5, 5, bedBlock, 8);
 		}

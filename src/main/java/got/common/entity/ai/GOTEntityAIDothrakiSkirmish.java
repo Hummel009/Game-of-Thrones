@@ -1,10 +1,10 @@
 package got.common.entity.ai;
 
+import java.util.List;
+
 import got.common.GOTConfig;
 import got.common.entity.essos.dothraki.GOTEntityDothraki;
 import net.minecraft.entity.EntityLivingBase;
-
-import java.util.List;
 
 public class GOTEntityAIDothrakiSkirmish extends GOTEntityAINearestAttackableTargetBasic {
 	public GOTEntityDothraki theDothraki;

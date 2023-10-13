@@ -1,5 +1,9 @@
 package got.common.world.biome.essos;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
+
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
@@ -12,10 +16,6 @@ import got.common.world.structure.essos.asshai.GOTStructureAsshaiSpiderPit;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
 
 public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 	public NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(42956029606L), 1);

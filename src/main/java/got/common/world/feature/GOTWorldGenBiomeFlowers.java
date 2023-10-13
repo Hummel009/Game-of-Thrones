@@ -1,12 +1,12 @@
 package got.common.world.feature;
 
+import java.util.Random;
+
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 public class GOTWorldGenBiomeFlowers extends WorldGenerator {
 	@Override

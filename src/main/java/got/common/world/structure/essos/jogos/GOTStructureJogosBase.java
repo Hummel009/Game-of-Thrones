@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.jogos;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.world.structure.other.GOTStructureBase;
@@ -7,8 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public abstract class GOTStructureJogosBase extends GOTStructureBase {
 	public Block tentBlock;
@@ -37,7 +37,7 @@ public abstract class GOTStructureJogosBase extends GOTStructureBase {
 	}
 
 	public ItemStack getRandomNomadWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.nomadBattleaxe), new ItemStack(GOTItems.nomadSword), new ItemStack(GOTItems.nomadSpear)};
+		ItemStack[] items = { new ItemStack(GOTItems.nomadBattleaxe), new ItemStack(GOTItems.nomadSword), new ItemStack(GOTItems.nomadSpear) };
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -64,45 +64,45 @@ public abstract class GOTStructureJogosBase extends GOTStructureBase {
 		carpet2Meta = 12;
 		int randomWood = random.nextInt(3);
 		switch (randomWood) {
-			case 0:
-				plankBlock = Blocks.planks;
-				plankMeta = 0;
-				plankSlabBlock = Blocks.wooden_slab;
-				plankSlabMeta = 0;
-				plankStairBlock = Blocks.oak_stairs;
-				fenceBlock = Blocks.fence;
-				fenceMeta = 0;
-				fenceGateBlock = Blocks.fence_gate;
-				beamBlock = GOTBlocks.woodBeamV1;
-				beamMeta = 0;
-				trapdoorBlock = Blocks.trapdoor;
-				break;
-			case 1:
-				plankBlock = GOTBlocks.planks2;
-				plankMeta = 2;
-				plankSlabBlock = GOTBlocks.woodSlabSingle3;
-				plankSlabMeta = 2;
-				plankStairBlock = GOTBlocks.stairsCedar;
-				fenceBlock = GOTBlocks.fence2;
-				fenceMeta = 2;
-				fenceGateBlock = GOTBlocks.fenceGateCedar;
-				beamBlock = GOTBlocks.woodBeam4;
-				beamMeta = 2;
-				trapdoorBlock = GOTBlocks.trapdoorCedar;
-				break;
-			default:
-				plankBlock = GOTBlocks.planks1;
-				plankMeta = 14;
-				plankSlabBlock = GOTBlocks.woodSlabSingle2;
-				plankSlabMeta = 6;
-				plankStairBlock = GOTBlocks.stairsDatePalm;
-				fenceBlock = GOTBlocks.fence;
-				fenceMeta = 14;
-				fenceGateBlock = GOTBlocks.fenceGateDatePalm;
-				beamBlock = GOTBlocks.woodBeam3;
-				beamMeta = 2;
-				trapdoorBlock = GOTBlocks.trapdoorDatePalm;
-				break;
+		case 0:
+			plankBlock = Blocks.planks;
+			plankMeta = 0;
+			plankSlabBlock = Blocks.wooden_slab;
+			plankSlabMeta = 0;
+			plankStairBlock = Blocks.oak_stairs;
+			fenceBlock = Blocks.fence;
+			fenceMeta = 0;
+			fenceGateBlock = Blocks.fence_gate;
+			beamBlock = GOTBlocks.woodBeamV1;
+			beamMeta = 0;
+			trapdoorBlock = Blocks.trapdoor;
+			break;
+		case 1:
+			plankBlock = GOTBlocks.planks2;
+			plankMeta = 2;
+			plankSlabBlock = GOTBlocks.woodSlabSingle3;
+			plankSlabMeta = 2;
+			plankStairBlock = GOTBlocks.stairsCedar;
+			fenceBlock = GOTBlocks.fence2;
+			fenceMeta = 2;
+			fenceGateBlock = GOTBlocks.fenceGateCedar;
+			beamBlock = GOTBlocks.woodBeam4;
+			beamMeta = 2;
+			trapdoorBlock = GOTBlocks.trapdoorCedar;
+			break;
+		default:
+			plankBlock = GOTBlocks.planks1;
+			plankMeta = 14;
+			plankSlabBlock = GOTBlocks.woodSlabSingle2;
+			plankSlabMeta = 6;
+			plankStairBlock = GOTBlocks.stairsDatePalm;
+			fenceBlock = GOTBlocks.fence;
+			fenceMeta = 14;
+			fenceGateBlock = GOTBlocks.fenceGateDatePalm;
+			beamBlock = GOTBlocks.woodBeam3;
+			beamMeta = 2;
+			trapdoorBlock = GOTBlocks.trapdoorDatePalm;
+			break;
 		}
 		bedBlock = GOTBlocks.strawBed;
 	}

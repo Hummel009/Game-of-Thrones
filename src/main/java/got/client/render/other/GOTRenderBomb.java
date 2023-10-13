@@ -1,5 +1,7 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityBomb;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -7,7 +9,6 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBomb extends Render {
 	public RenderBlocks blockRenderer = new RenderBlocks();

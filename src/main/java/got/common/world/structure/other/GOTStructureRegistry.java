@@ -1,5 +1,9 @@
 package got.common.world.structure.other;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import cpw.mods.fml.common.FMLLog;
 import got.common.faction.GOTFaction;
 import got.common.world.structure.GOTStructure;
@@ -7,10 +11,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class GOTStructureRegistry {
 	public static Map<Integer, IStructureProvider> idToClassMapping = new HashMap<>();

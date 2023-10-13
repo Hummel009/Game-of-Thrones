@@ -1,5 +1,7 @@
 package got.client;
 
+import java.lang.reflect.Method;
+
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import got.common.util.GOTReflection;
 import net.minecraft.client.Minecraft;
@@ -12,8 +14,6 @@ import net.minecraft.client.renderer.InventoryEffectRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
-
-import java.lang.reflect.Method;
 
 public class GOTReflectionClient {
 	public static int[] colorCodes;
@@ -59,7 +59,7 @@ public class GOTReflectionClient {
 
 	public static float getFOVModifier(EntityRenderer renderer, float tick, boolean flag) {
 		try {
-			Method method = GOTReflection.getPrivateMethod(EntityRenderer.class, renderer, new Class[]{Float.TYPE, Boolean.TYPE}, "getFOVModifier", "func_78481_a");
+			Method method = GOTReflection.getPrivateMethod(EntityRenderer.class, renderer, new Class[] { Float.TYPE, Boolean.TYPE }, "getFOVModifier", "func_78481_a");
 			return (Float) method.invoke(renderer, tick, flag);
 		} catch (Exception e) {
 			GOTReflection.logFailure(e);

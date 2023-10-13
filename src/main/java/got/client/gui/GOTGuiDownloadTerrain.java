@@ -1,5 +1,7 @@
 package got.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.GOTDimension;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.client.Minecraft;
@@ -7,7 +9,6 @@ import net.minecraft.client.gui.GuiDownloadTerrain;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.opengl.GL11;
 
 public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 	public GOTGuiMap mapGui = new GOTGuiMap();
@@ -37,7 +38,7 @@ public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 			mapRenderer.renderMap(this, mapGui, f, x0, y0, x1, y1);
 			mapRenderer.renderVignettes(this, zLevel, 1, x0, y0, x1, y1);
 			GL11.glDisable(3042);
-			String titleExtra = new String[]{"", ".", "..", "..."}[tickCounter / 10 % 4];
+			String titleExtra = new String[] { "", ".", "..", "..." }[tickCounter / 10 % 4];
 			String s = StatCollector.translateToLocal("got.loading");
 			drawCenteredString(fontRendererObj, s + titleExtra, width / 2, height / 2 - 50, 16777215);
 		} else {

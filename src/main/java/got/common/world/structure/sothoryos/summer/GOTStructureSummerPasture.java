@@ -1,31 +1,15 @@
 package got.common.world.structure.sothoryos.summer;
 
+import java.util.Random;
+
 import got.common.entity.animal.GOTEntityCamel;
 import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public class GOTStructureSummerPasture extends GOTStructureSummerBase {
 	public GOTStructureSummerPasture(boolean flag) {
 		super(flag);
-	}
-
-	public static EntityAnimal getRandomAnimal(World world, Random random) {
-		int animal = random.nextInt(5);
-		switch (animal) {
-			case 0:
-				return new EntityCow(world);
-			case 1:
-				return new EntityPig(world);
-			case 2:
-				return new EntitySheep(world);
-			case 3:
-				return new EntityChicken(world);
-			default:
-				return new GOTEntityCamel(world);
-		}
 	}
 
 	@Override
@@ -73,8 +57,7 @@ public class GOTStructureSummerPasture extends GOTStructureSummerBase {
 		associateBlockMetaAlias("FENCE", fenceBlock, fenceMeta);
 		associateBlockAlias("FENCE_GATE", fenceGateBlock);
 		generateStrScan(world, random, 0, 0, 0);
-		block6:
-		for (int i1 : new int[]{-2, -1, 1, 2}) {
+		block6: for (int i1 : new int[] { -2, -1, 1, 2 }) {
 			j1 = 0;
 			for (int step = 0; step < 6; ++step) {
 				int j2;
@@ -118,5 +101,21 @@ public class GOTStructureSummerPasture extends GOTStructureSummerBase {
 			animal.detachHome();
 		}
 		return true;
+	}
+
+	public static EntityAnimal getRandomAnimal(World world, Random random) {
+		int animal = random.nextInt(5);
+		switch (animal) {
+		case 0:
+			return new EntityCow(world);
+		case 1:
+			return new EntityPig(world);
+		case 2:
+			return new EntitySheep(world);
+		case 3:
+			return new EntityChicken(world);
+		default:
+			return new GOTEntityCamel(world);
+		}
 	}
 }

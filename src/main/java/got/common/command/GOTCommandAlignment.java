@@ -1,5 +1,9 @@
 package got.common.command;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import got.common.GOTLevelData;
 import got.common.faction.GOTFaction;
 import net.minecraft.command.CommandBase;
@@ -8,22 +12,18 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class GOTCommandAlignment extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
-			case 1:
-				return CommandBase.getListOfStringsMatchingLastWord(args, "set", "add");
-			case 2:
-				List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
-				list.add("all");
-				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
-			case 4:
-				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+		case 1:
+			return CommandBase.getListOfStringsMatchingLastWord(args, "set", "add");
+		case 2:
+			List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
+			list.add("all");
+			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+		case 4:
+			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
 		return Collections.emptyList();
 	}

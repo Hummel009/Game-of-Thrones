@@ -1,5 +1,7 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import got.client.GOTTextures;
 import got.common.tileentity.GOTTileEntityCommandTable;
 import got.common.world.genlayer.GOTGenLayerWorld;
@@ -9,7 +11,6 @@ import net.minecraft.client.renderer.texture.TextureMap;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.tileentity.TileEntity;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 	public void renderInvTable() {

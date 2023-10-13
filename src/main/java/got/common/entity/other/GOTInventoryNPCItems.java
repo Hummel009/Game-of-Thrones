@@ -28,17 +28,9 @@ public class GOTInventoryNPCItems extends GOTInventoryNPC {
 		return item == null ? null : item.copy();
 	}
 
-	public void setBomb(ItemStack item) {
-		setInventorySlotContents(BOMB, item);
-	}
-
 	public ItemStack getBombingItem() {
 		ItemStack item = getStackInSlot(BOMBING_ITEM);
 		return item == null ? null : item.copy();
-	}
-
-	public void setBombingItem(ItemStack item) {
-		setInventorySlotContents(BOMBING_ITEM, item);
 	}
 
 	public ItemStack getEatingBackup() {
@@ -46,17 +38,9 @@ public class GOTInventoryNPCItems extends GOTInventoryNPC {
 		return item == null ? null : item.copy();
 	}
 
-	public void setEatingBackup(ItemStack item) {
-		setInventorySlotContents(EATING_BACKUP, item);
-	}
-
 	public ItemStack getIdleItem() {
 		ItemStack item = getStackInSlot(IDLE_ITEM);
 		return item == null ? null : item.copy();
-	}
-
-	public void setIdleItem(ItemStack item) {
-		setInventorySlotContents(IDLE_ITEM, item);
 	}
 
 	public ItemStack getIdleItemMounted() {
@@ -64,17 +48,8 @@ public class GOTInventoryNPCItems extends GOTInventoryNPC {
 		return item == null ? null : item.copy();
 	}
 
-	public void setIdleItemMounted(ItemStack item) {
-		setInventorySlotContents(IDLE_ITEM_MOUNTED, item);
-	}
-
 	public boolean getIsEating() {
 		return isEating;
-	}
-
-	public void setIsEating(boolean flag) {
-		isEating = flag;
-		theNPC.sendIsEatingToWatchers();
 	}
 
 	public ItemStack getMeleeWeapon() {
@@ -82,17 +57,9 @@ public class GOTInventoryNPCItems extends GOTInventoryNPC {
 		return item == null ? null : item.copy();
 	}
 
-	public void setMeleeWeapon(ItemStack item) {
-		setInventorySlotContents(WEAPON_MELEE, item);
-	}
-
 	public ItemStack getMeleeWeaponMounted() {
 		ItemStack item = getStackInSlot(WEAPON_MELEE_MOUNTED);
 		return item == null ? null : item.copy();
-	}
-
-	public void setMeleeWeaponMounted(ItemStack item) {
-		setInventorySlotContents(WEAPON_MELEE_MOUNTED, item);
 	}
 
 	public ItemStack getRangedWeapon() {
@@ -100,17 +67,9 @@ public class GOTInventoryNPCItems extends GOTInventoryNPC {
 		return item == null ? null : item.copy();
 	}
 
-	public void setRangedWeapon(ItemStack item) {
-		setInventorySlotContents(WEAPON_RANGED, item);
-	}
-
 	public ItemStack getReplacedIdleItem() {
 		ItemStack item = getStackInSlot(REPLACED_IDLE);
 		return item == null ? null : item.copy();
-	}
-
-	public void setReplacedIdleItem(ItemStack item) {
-		setInventorySlotContents(REPLACED_IDLE, item);
 	}
 
 	public ItemStack getReplacedIdleItemMounted() {
@@ -118,26 +77,14 @@ public class GOTInventoryNPCItems extends GOTInventoryNPC {
 		return item == null ? null : item.copy();
 	}
 
-	public void setReplacedIdleItemMounted(ItemStack item) {
-		setInventorySlotContents(REPLACED_IDLE_MOUNTED, item);
-	}
-
 	public ItemStack getReplacedMeleeWeaponMounted() {
 		ItemStack item = getStackInSlot(REPLACED_MELEE_MOUNTED);
 		return item == null ? null : item.copy();
 	}
 
-	public void setReplacedMeleeWeaponMounted(ItemStack item) {
-		setInventorySlotContents(REPLACED_MELEE_MOUNTED, item);
-	}
-
 	public ItemStack getSpearBackup() {
 		ItemStack item = getStackInSlot(SPEAR_BACKUP);
 		return item == null ? null : item.copy();
-	}
-
-	public void setSpearBackup(ItemStack item) {
-		setInventorySlotContents(SPEAR_BACKUP, item);
 	}
 
 	@Override
@@ -149,6 +96,59 @@ public class GOTInventoryNPCItems extends GOTInventoryNPC {
 			setEatingBackup(null);
 			setIsEating(false);
 		}
+	}
+
+	public void setBomb(ItemStack item) {
+		setInventorySlotContents(BOMB, item);
+	}
+
+	public void setBombingItem(ItemStack item) {
+		setInventorySlotContents(BOMBING_ITEM, item);
+	}
+
+	public void setEatingBackup(ItemStack item) {
+		setInventorySlotContents(EATING_BACKUP, item);
+	}
+
+	public void setIdleItem(ItemStack item) {
+		setInventorySlotContents(IDLE_ITEM, item);
+	}
+
+	public void setIdleItemMounted(ItemStack item) {
+		setInventorySlotContents(IDLE_ITEM_MOUNTED, item);
+	}
+
+	public void setIsEating(boolean flag) {
+		isEating = flag;
+		theNPC.sendIsEatingToWatchers();
+	}
+
+	public void setMeleeWeapon(ItemStack item) {
+		setInventorySlotContents(WEAPON_MELEE, item);
+	}
+
+	public void setMeleeWeaponMounted(ItemStack item) {
+		setInventorySlotContents(WEAPON_MELEE_MOUNTED, item);
+	}
+
+	public void setRangedWeapon(ItemStack item) {
+		setInventorySlotContents(WEAPON_RANGED, item);
+	}
+
+	public void setReplacedIdleItem(ItemStack item) {
+		setInventorySlotContents(REPLACED_IDLE, item);
+	}
+
+	public void setReplacedIdleItemMounted(ItemStack item) {
+		setInventorySlotContents(REPLACED_IDLE_MOUNTED, item);
+	}
+
+	public void setReplacedMeleeWeaponMounted(ItemStack item) {
+		setInventorySlotContents(REPLACED_MELEE_MOUNTED, item);
+	}
+
+	public void setSpearBackup(ItemStack item) {
+		setInventorySlotContents(SPEAR_BACKUP, item);
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package got.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.inventory.GOTContainerBarrel;
 import got.common.network.GOTPacketBrewingButton;
@@ -15,7 +17,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.opengl.GL11;
 
 public class GOTGuiBarrel extends GuiContainer {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/barrel/barrel.png");

@@ -1,5 +1,10 @@
 package got.client.gui;
 
+import java.util.List;
+
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.entity.other.GOTEntityNPC;
@@ -19,10 +24,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
-
-import java.util.List;
 
 public class GOTGuiAnvil extends GuiContainer {
 	public static ResourceLocation anvilTexture = new ResourceLocation("got:textures/gui/anvil.png");

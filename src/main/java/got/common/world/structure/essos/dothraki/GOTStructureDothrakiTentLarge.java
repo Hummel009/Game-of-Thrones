@@ -1,13 +1,13 @@
 package got.common.world.structure.essos.dothraki;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
 import got.common.entity.essos.dothraki.GOTEntityDothraki;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureDothrakiTentLarge extends GOTStructureDothrakiBase {
 	public GOTStructureDothrakiTentLarge(boolean flag) {

@@ -1,5 +1,8 @@
 package got.common.recipe;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import got.common.database.GOTMaterial;
 import got.common.item.other.GOTItemDye;
 import got.common.item.other.GOTItemRobes;
@@ -11,9 +14,6 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class GOTRecipeRobesDye implements IRecipe {
 	public ItemArmor.ArmorMaterial robeMaterial;

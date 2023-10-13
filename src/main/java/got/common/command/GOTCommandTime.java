@@ -1,12 +1,12 @@
 package got.common.command;
 
+import java.util.Collections;
+import java.util.List;
+
 import got.common.GOTTime;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
-
-import java.util.Collections;
-import java.util.List;
 
 public class GOTCommandTime extends CommandBase {
 	@Override

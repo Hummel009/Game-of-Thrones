@@ -1,6 +1,18 @@
 package got.common.world.genlayer;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.nio.file.Files;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+
+import javax.imageio.ImageIO;
+
+import org.apache.logging.log4j.Level;
+
 import com.google.common.math.IntMath;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ModContainer;
 import got.GOT;
@@ -8,15 +20,6 @@ import got.common.GOTDimension;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
-import org.apache.logging.log4j.Level;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.nio.file.Files;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
 
 public class GOTGenLayerWorld extends GOTGenLayer {
 	public static int scalePower = 7;
@@ -73,6 +76,19 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		}
 	}
 
+	@Override
+	public int[] getInts(World world, int i, int k, int xSize, int zSize) {
+		int[] intArray = GOTIntCache.get(world).getIntArray(xSize * zSize);
+		for (int k1 = 0; k1 < zSize; ++k1) {
+			for (int i1 = 0; i1 < xSize; ++i1) {
+				int i2 = i + i1 + 810;
+				int k2 = k + k1 + 730;
+				intArray[i1 + k1 * xSize] = i2 < 0 || i2 >= imageWidth || k2 < 0 || k2 >= imageHeight ? GOTBiome.ocean.biomeID : getBiomeImageID(i2, k2);
+			}
+		}
+		return intArray;
+	}
+
 	public static GOTGenLayer[] createWorld(GOTDimension dim, WorldType worldType) {
 		int i;
 
@@ -121,7 +137,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		mapRivers = new GOTGenLayerNarrowRivers(3000L, mapRivers, 6);
 		mapRivers = GOTGenLayerZoom.magnify(4000L, mapRivers, 1);
 		rivers = new GOTGenLayerIncludeMapRivers(5000L, rivers, mapRivers);
-		return new GOTGenLayer[]{biomes, variants, variantsSmall, lakes, rivers};
+		return new GOTGenLayer[] { biomes, variants, variantsSmall, lakes, rivers };
 	}
 
 	public static int getBiomeImageID(int x, int z) {
@@ -136,18 +152,5 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 
 	public static boolean loadedBiomeImage() {
 		return biomeImageData != null;
-	}
-
-	@Override
-	public int[] getInts(World world, int i, int k, int xSize, int zSize) {
-		int[] intArray = GOTIntCache.get(world).getIntArray(xSize * zSize);
-		for (int k1 = 0; k1 < zSize; ++k1) {
-			for (int i1 = 0; i1 < xSize; ++i1) {
-				int i2 = i + i1 + 810;
-				int k2 = k + k1 + 730;
-				intArray[i1 + k1 * xSize] = i2 < 0 || i2 >= imageWidth || k2 < 0 || k2 >= imageHeight ? GOTBiome.ocean.biomeID : getBiomeImageID(i2, k2);
-			}
-		}
-		return intArray;
 	}
 }

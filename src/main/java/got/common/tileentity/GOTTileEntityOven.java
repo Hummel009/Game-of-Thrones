@@ -1,5 +1,8 @@
 package got.common.tileentity;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.other.GOTBlockOven;
@@ -21,26 +24,15 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.StatCollector;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 	public ItemStack[] inventory = new ItemStack[19];
 	public int ovenCookTime;
 	public int currentItemFuelValue;
 	public int currentCookTime;
 	public String specialOvenName;
-	public int[] inputSlots = {0, 1, 2, 3, 4, 5, 6, 7, 8};
-	public int[] outputSlots = {9, 10, 11, 12, 13, 14, 15, 16, 17};
+	public int[] inputSlots = { 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+	public int[] outputSlots = { 9, 10, 11, 12, 13, 14, 15, 16, 17 };
 	public int fuelSlot = 18;
-
-	public static boolean isCookResultAcceptable(ItemStack result) {
-		if (result == null) {
-			return false;
-		}
-		Item item = result.getItem();
-		return item instanceof ItemFood || item == GOTItems.pipeweed || item == Item.getItemFromBlock(GOTBlocks.driedReeds);
-	}
 
 	public boolean canCook(int i) {
 		if (inventory[i] == null) {
@@ -147,7 +139,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 			}
 			return temp;
 		}
-		return new int[]{fuelSlot};
+		return new int[] { fuelSlot };
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -323,5 +315,13 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 		if (hasCustomInventoryName()) {
 			nbt.setString("CustomName", specialOvenName);
 		}
+	}
+
+	public static boolean isCookResultAcceptable(ItemStack result) {
+		if (result == null) {
+			return false;
+		}
+		Item item = result.getItem();
+		return item instanceof ItemFood || item == GOTItems.pipeweed || item == Item.getItemFromBlock(GOTBlocks.driedReeds);
 	}
 }

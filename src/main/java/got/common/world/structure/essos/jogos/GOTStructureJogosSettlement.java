@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.jogos;
 
+import java.util.Random;
+
 import got.common.entity.essos.jogos.GOTEntityJogos;
 import got.common.entity.essos.jogos.GOTEntityJogosArcher;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -10,8 +12,6 @@ import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureJogosSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -35,11 +35,6 @@ public class GOTStructureJogosSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
-	}
-
-	public enum Type {
-		SMALL, BIG
-
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureJogosSettlement> {
@@ -154,5 +149,10 @@ public class GOTStructureJogosSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 		}
+	}
+
+	public enum Type {
+		SMALL, BIG
+
 	}
 }

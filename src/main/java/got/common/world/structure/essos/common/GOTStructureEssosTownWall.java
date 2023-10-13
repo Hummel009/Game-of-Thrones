@@ -1,9 +1,10 @@
 package got.common.world.structure.essos.common;
 
-import com.google.common.math.IntMath;
-import net.minecraft.world.World;
-
 import java.util.Random;
+
+import com.google.common.math.IntMath;
+
+import net.minecraft.world.World;
 
 public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 	public boolean centrePillar;
@@ -40,31 +41,31 @@ public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 			setBlockAndMetadata(world, i1, 6, k1 + 2, fenceBlock, fenceMeta);
 			pillarOffset = centrePillar ? IntMath.mod(i1, 4) : IntMath.mod(i1 + 2, 4);
 			switch (pillarOffset) {
-				case 0:
-					k3 = k1 - 1;
-					for (j1 = 4; (j1 >= 1 || !isOpaque(world, i1, j1, k3)) && getY(j1) >= 0; --j1) {
-						setBlockAndMetadata(world, i1, j1, k3, pillarBlock, pillarMeta);
-						setGrassToDirt(world, i1, j1 - 1, k3);
-					}
-					setBlockAndMetadata(world, i1, 5, k3, brickBlock, brickMeta);
-					setBlockAndMetadata(world, i1, 6, k3, brickWallBlock, brickWallMeta);
-					break;
-				case 1:
-					setBlockAndMetadata(world, i1, 5, k1 - 1, brickStairBlock, 4);
-					setBlockAndMetadata(world, i1, 6, k1 - 1, brickBlock, brickMeta);
-					setBlockAndMetadata(world, i1, 7, k1 - 1, brickSlabBlock, brickSlabMeta);
-					break;
-				case 2:
-					setBlockAndMetadata(world, i1, 5, k1 - 1, brickSlabBlock, brickSlabMeta | 8);
-					setBlockAndMetadata(world, i1, 6, k1 - 1, brickWallBlock, brickWallMeta);
-					break;
-				case 3:
-					setBlockAndMetadata(world, i1, 5, k1 - 1, brickStairBlock, 5);
-					setBlockAndMetadata(world, i1, 6, k1 - 1, brickBlock, brickMeta);
-					setBlockAndMetadata(world, i1, 7, k1 - 1, brickSlabBlock, brickSlabMeta);
-					break;
-				default:
-					break;
+			case 0:
+				k3 = k1 - 1;
+				for (j1 = 4; (j1 >= 1 || !isOpaque(world, i1, j1, k3)) && getY(j1) >= 0; --j1) {
+					setBlockAndMetadata(world, i1, j1, k3, pillarBlock, pillarMeta);
+					setGrassToDirt(world, i1, j1 - 1, k3);
+				}
+				setBlockAndMetadata(world, i1, 5, k3, brickBlock, brickMeta);
+				setBlockAndMetadata(world, i1, 6, k3, brickWallBlock, brickWallMeta);
+				break;
+			case 1:
+				setBlockAndMetadata(world, i1, 5, k1 - 1, brickStairBlock, 4);
+				setBlockAndMetadata(world, i1, 6, k1 - 1, brickBlock, brickMeta);
+				setBlockAndMetadata(world, i1, 7, k1 - 1, brickSlabBlock, brickSlabMeta);
+				break;
+			case 2:
+				setBlockAndMetadata(world, i1, 5, k1 - 1, brickSlabBlock, brickSlabMeta | 8);
+				setBlockAndMetadata(world, i1, 6, k1 - 1, brickWallBlock, brickWallMeta);
+				break;
+			case 3:
+				setBlockAndMetadata(world, i1, 5, k1 - 1, brickStairBlock, 5);
+				setBlockAndMetadata(world, i1, 6, k1 - 1, brickBlock, brickMeta);
+				setBlockAndMetadata(world, i1, 7, k1 - 1, brickSlabBlock, brickSlabMeta);
+				break;
+			default:
+				break;
 			}
 			if (pillarOffset % 2 == 0) {
 				setBlockAndMetadata(world, i1, 4, k1 + 2, plankStairBlock, 7);

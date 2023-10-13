@@ -1,10 +1,11 @@
 package got.client.model;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.database.GOTArmorModels;
 import got.common.item.other.GOTItemTurban;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import org.lwjgl.opengl.GL11;
 
 public class GOTModelTurban extends GOTModelRobes {
 	public ModelRenderer ornament;

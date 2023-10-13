@@ -1,5 +1,9 @@
 package got.common.entity.other;
 
+import java.awt.Color;
+import java.lang.reflect.Constructor;
+import java.util.*;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.relauncher.Side;
@@ -55,11 +59,6 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.awt.*;
-import java.lang.reflect.Constructor;
-import java.util.List;
-import java.util.*;
 
 public abstract class GOTEntityNPC extends EntityCreature implements IRangedAttackMob, GOTRandomSkinEntity {
 	public static IAttribute npcAttackDamage = new RangedAttribute("got.npcAttackDamage", 2.0, 0.0, Double.MAX_VALUE).setDescription("GOT NPC Attack Damage");
@@ -124,18 +123,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	protected GOTEntityNPC(World world) {
 		super(world);
 		canBeMarried = false;
-	}
-
-	public static int addTargetTasks(EntityCreature entity, int index, Class<? extends GOTEntityAINearestAttackableTargetBasic> c) {
-		try {
-			Constructor<? extends GOTEntityAINearestAttackableTargetBasic> constructor = c.getConstructor(EntityCreature.class, Class.class, Integer.TYPE, Boolean.TYPE, IEntitySelector.class);
-			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityPlayer.class, 0, true, null));
-			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityLiving.class, 0, true, new GOTNPCTargetSelector(entity)));
-		} catch (Exception e) {
-			FMLLog.severe("Error adding GOT target tasks to entity " + entity.toString());
-			e.printStackTrace();
-		}
-		return index;
 	}
 
 	public int addTargetTasks(boolean seekTargets) {
@@ -582,10 +569,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public UUID getInvasionID() {
 		return invasionID;
-	}
-
-	public void setInvasionID(UUID id) {
-		invasionID = id;
 	}
 
 	public GOTAchievement getKillAchievement() {
@@ -1216,6 +1199,10 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 	}
 
+	public void setInvasionID(UUID id) {
+		invasionID = id;
+	}
+
 	public void setIsLegendaryNPC() {
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
@@ -1450,6 +1437,18 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		nbt.setInteger("InitHomeY", initHomeY);
 		nbt.setInteger("InitHomeZ", initHomeZ);
 		nbt.setInteger("InitHomeR", initHomeRange);
+	}
+
+	public static int addTargetTasks(EntityCreature entity, int index, Class<? extends GOTEntityAINearestAttackableTargetBasic> c) {
+		try {
+			Constructor<? extends GOTEntityAINearestAttackableTargetBasic> constructor = c.getConstructor(EntityCreature.class, Class.class, Integer.TYPE, Boolean.TYPE, IEntitySelector.class);
+			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityPlayer.class, 0, true, null));
+			entity.targetTasks.addTask(index, constructor.newInstance(entity, EntityLiving.class, 0, true, new GOTNPCTargetSelector(entity)));
+		} catch (Exception e) {
+			FMLLog.severe("Error adding GOT target tasks to entity " + entity.toString());
+			e.printStackTrace();
+		}
+		return index;
 	}
 
 	public enum AttackMode {

@@ -1,5 +1,7 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import got.client.GOTClientProxy;
 import got.client.model.GOTModelSmokeShip;
 import got.common.entity.other.GOTEntitySmokeRing;
@@ -9,7 +11,6 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderSmokeRing extends Render {
 	public ModelBase magicShipModel = new GOTModelSmokeShip();

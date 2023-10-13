@@ -1,13 +1,13 @@
 package got.common.world.feature;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.Random;
 
 public class GOTWorldGenHolly extends WorldGenAbstractTree {
 	public int extraTrunkWidth;

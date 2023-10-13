@@ -1,5 +1,11 @@
 package integrator.handler;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.lwjgl.opengl.GL11;
+
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
@@ -11,11 +17,6 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.opengl.GL11;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
 public class GOTHandlerOven extends TemplateRecipeHandler {
 

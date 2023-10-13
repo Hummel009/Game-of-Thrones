@@ -1,5 +1,9 @@
 package got.common.world.biome.westeros;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
+
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -11,10 +15,6 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
 
 public class GOTBiomeThennLand extends GOTBiomeHauntedForest {
 	public GOTBiomeThennLand(int i, boolean major) {

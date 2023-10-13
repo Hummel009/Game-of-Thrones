@@ -1,5 +1,8 @@
 package got.common.command;
 
+import java.util.Collections;
+import java.util.List;
+
 import got.common.GOTLevelData;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
@@ -7,9 +10,6 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentTranslation;
-
-import java.util.Collections;
-import java.util.List;
 
 public class GOTCommandBanStructures extends CommandBase {
 	@Override

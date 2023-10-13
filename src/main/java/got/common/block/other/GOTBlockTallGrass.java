@@ -1,5 +1,8 @@
 package got.common.block.other;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTDamage;
@@ -15,12 +18,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GOTBlockTallGrass extends GOTBlockGrass {
-	public static String[] grassNames = {"short", "flower", "wheat", "thistle", "nettle", "fernsprout"};
-	public static boolean[] grassOverlay = {false, true, true, true, false, false};
+	public static String[] grassNames = { "short", "flower", "wheat", "thistle", "nettle", "fernsprout" };
+	public static boolean[] grassOverlay = { false, true, true, true, false, false };
 	@SideOnly(Side.CLIENT)
 	public IIcon[] grassIcons;
 	@SideOnly(Side.CLIENT)

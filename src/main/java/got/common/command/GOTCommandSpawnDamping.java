@@ -1,5 +1,9 @@
 package got.common.command;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import got.common.GOTSpawnDamping;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
@@ -9,10 +13,6 @@ import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class GOTCommandSpawnDamping extends CommandBase {
 	@Override

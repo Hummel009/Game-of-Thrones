@@ -9,12 +9,18 @@ public enum GOTFixedStructures {
 	SPAWN(648.5, 872), NIGHT_KING(613, 314);
 
 	public static long nanoTimeElapsed;
-	public int xCoord;
-	public int zCoord;
+	private int xCoord;
+	private int zCoord;
 
 	GOTFixedStructures(double x, double z) {
 		xCoord = GOTWaypoint.mapToWorldX(x);
 		zCoord = GOTWaypoint.mapToWorldZ(z);
+	}
+
+	public double distanceSqTo(EntityLivingBase entity) {
+		double dx = entity.posX - (xCoord + 0.5);
+		double dz = entity.posZ - (zCoord + 0.5);
+		return dx * dx + dz * dz;
 	}
 
 	public static boolean[] _mountainNear_structureNear(World world, int x, int z) {
@@ -49,7 +55,7 @@ public enum GOTFixedStructures {
 			}
 		}
 		nanoTimeElapsed += System.nanoTime() - l;
-		return new boolean[]{mountainNear, structureNear};
+		return new boolean[] { mountainNear, structureNear };
 	}
 
 	public static boolean fixedAt(int i, int k, GOTAbstractWaypoint waypoint) {
@@ -81,12 +87,6 @@ public enum GOTFixedStructures {
 			return true;
 		}
 		return false;
-	}
-
-	public double distanceSqTo(EntityLivingBase entity) {
-		double dx = entity.posX - (xCoord + 0.5);
-		double dz = entity.posZ - (zCoord + 0.5);
-		return dx * dx + dz * dz;
 	}
 
 }

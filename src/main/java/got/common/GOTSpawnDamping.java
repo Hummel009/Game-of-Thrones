@@ -1,5 +1,12 @@
 package got.common;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+
 import cpw.mods.fml.common.FMLLog;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.nbt.CompressedStreamTools;
@@ -7,12 +14,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import org.apache.commons.lang3.StringUtils;
-
-import java.io.File;
-import java.nio.file.Files;
-import java.util.HashMap;
-import java.util.Map;
 
 public class GOTSpawnDamping {
 	public static Map<String, Float> spawnDamping = new HashMap<>();

@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
 import got.common.entity.other.GOTEntityFallingConcrete;
@@ -8,8 +10,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTBlockConcretePowder extends BlockFalling {
 	public GOTEnumDyeColor color;
@@ -21,10 +21,6 @@ public class GOTBlockConcretePowder extends BlockFalling {
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(0.5f);
 		setBlockTextureName("got:concrete_powder_" + this.color.getName());
-	}
-
-	public static GOTBlockConcrete getConcreteFromColor(GOTEnumDyeColor dye) {
-		return GOTBlocks.concrete.get(dye);
 	}
 
 	public void func_149830_m(World world, int i, int j, int k) {
@@ -75,5 +71,9 @@ public class GOTBlockConcretePowder extends BlockFalling {
 		if (!world.isRemote) {
 			func_149830_m(world, i, j, k);
 		}
+	}
+
+	public static GOTBlockConcrete getConcreteFromColor(GOTEnumDyeColor dye) {
+		return GOTBlocks.concrete.get(dye);
 	}
 }

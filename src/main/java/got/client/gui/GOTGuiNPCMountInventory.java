@@ -1,5 +1,7 @@
 package got.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.entity.other.GOTEntityNPCRideable;
 import got.common.inventory.GOTContainerNPCMountInventory;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -7,7 +9,6 @@ import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTGuiNPCMountInventory extends GuiContainer {
 	public static ResourceLocation guiTexture = new ResourceLocation("textures/gui/container/horse.png");

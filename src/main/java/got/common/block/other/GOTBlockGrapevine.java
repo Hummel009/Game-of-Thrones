@@ -1,5 +1,9 @@
 package got.common.block.other;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -23,10 +27,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
 
 public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	public static int MAX_GROWTH = 7;
@@ -57,25 +57,6 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		if (hasGrapes) {
 			setTickRandomly(true);
 		}
-	}
-
-	public static boolean canPlantGrapesAt(IBlockAccess world, int i, int j, int k, IPlantable plantable) {
-		for (int l = 1; l <= 3; ++l) {
-			int j1 = j - l;
-			Block block = world.getBlock(i, j1, k);
-			if (block.canSustainPlant(world, i, j1, k, ForgeDirection.UP, plantable)) {
-				return true;
-			}
-			if (block instanceof GOTBlockGrapevine) {
-				continue;
-			}
-			return false;
-		}
-		return false;
-	}
-
-	public static boolean isFullGrownGrapes(Block block, int meta) {
-		return block instanceof GOTBlockGrapevine && ((GOTBlockGrapevine) block).hasGrapes && meta >= 7;
 	}
 
 	@Override
@@ -369,5 +350,24 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 			meta++;
 			world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		}
+	}
+
+	public static boolean canPlantGrapesAt(IBlockAccess world, int i, int j, int k, IPlantable plantable) {
+		for (int l = 1; l <= 3; ++l) {
+			int j1 = j - l;
+			Block block = world.getBlock(i, j1, k);
+			if (block.canSustainPlant(world, i, j1, k, ForgeDirection.UP, plantable)) {
+				return true;
+			}
+			if (block instanceof GOTBlockGrapevine) {
+				continue;
+			}
+			return false;
+		}
+		return false;
+	}
+
+	public static boolean isFullGrownGrapes(Block block, int meta) {
+		return block instanceof GOTBlockGrapevine && ((GOTBlockGrapevine) block).hasGrapes && meta >= 7;
 	}
 }

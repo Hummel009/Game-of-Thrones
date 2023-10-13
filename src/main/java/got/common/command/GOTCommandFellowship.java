@@ -1,6 +1,11 @@
 package got.common.command;
 
+import java.util.*;
+
+import org.apache.commons.lang3.StringUtils;
+
 import com.mojang.authlib.GameProfile;
+
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.fellowship.GOTFellowship;
@@ -15,74 +20,8 @@ import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTException;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.*;
 
 public class GOTCommandFellowship extends CommandBase {
-	public static String[] fixArgsForFellowship(String[] args, int startIndex, boolean autocompleting) {
-		if (!args[startIndex].isEmpty() && args[startIndex].charAt(0) == '\"') {
-			int endIndex = startIndex;
-			boolean foundEnd = false;
-			while (!foundEnd) {
-				if (!args[endIndex].isEmpty() && args[endIndex].charAt(args[endIndex].length() - 1) == '\"') {
-					foundEnd = true;
-					continue;
-				}
-				if (endIndex >= args.length - 1) {
-					if (autocompleting) {
-						break;
-					}
-					throw new WrongUsageException("got.command.fellowship.edit.nameError");
-				}
-				++endIndex;
-			}
-			StringBuilder fsName = new StringBuilder();
-			for (int i = startIndex; i <= endIndex; ++i) {
-				if (i > startIndex) {
-					fsName.append(" ");
-				}
-				fsName.append(args[i]);
-			}
-			if (!autocompleting || foundEnd) {
-				fsName = new StringBuilder(fsName.toString().replace("\"", ""));
-			}
-			int diff = endIndex - startIndex;
-			String[] argsNew = new String[args.length - diff];
-			for (int i = 0; i < argsNew.length; ++i) {
-				argsNew[i] = i < startIndex ? args[i] : i == startIndex ? fsName.toString() : args[i + diff];
-			}
-			return argsNew;
-		}
-		if (!autocompleting) {
-			throw new WrongUsageException("got.command.fellowship.edit.nameError");
-		}
-		return args;
-	}
-
-	public static List<String> listFellowshipsMatchingLastWord(String[] argsFixed, String[] argsOriginal, int fsNameIndex, GOTPlayerData playerData, boolean leadingOnly) {
-		String fsName = argsFixed[fsNameIndex];
-		List<String> allFellowshipNames = leadingOnly ? playerData.listAllLeadingFellowshipNames() : playerData.listAllFellowshipNames();
-		ArrayList<String> autocompletes = new ArrayList<>();
-		for (String nextFsName : allFellowshipNames) {
-			String autocompFsName = "\"" + nextFsName + "\"";
-			if (!autocompFsName.toLowerCase(Locale.ROOT).startsWith(fsName.toLowerCase(Locale.ROOT))) {
-				continue;
-			}
-			if (argsOriginal.length > argsFixed.length) {
-				int diff = argsOriginal.length - argsFixed.length;
-				for (int j = 0; j < diff; ++j) {
-					autocompFsName = autocompFsName.substring(autocompFsName.indexOf(' ') + 1);
-				}
-			}
-			if (autocompFsName.indexOf(' ') >= 0) {
-				autocompFsName = autocompFsName.substring(0, autocompFsName.indexOf(' '));
-			}
-			autocompletes.add(autocompFsName);
-		}
-		return CommandBase.getListOfStringsMatchingLastWord(argsOriginal, autocompletes.toArray(new String[0]));
-	}
-
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
@@ -258,7 +197,7 @@ public class GOTCommandFellowship extends CommandBase {
 					int startIndex = 4;
 					if (!args[startIndex].isEmpty() && args[startIndex].charAt(0) == '\"') {
 						int endIndex = startIndex;
-						while ((args[endIndex].isEmpty() || (args[endIndex].charAt(args[endIndex].length() - 1) != '\"'))) {
+						while (args[endIndex].isEmpty() || args[endIndex].charAt(args[endIndex].length() - 1) != '\"') {
 							endIndex++;
 							if (endIndex >= args.length) {
 								throw new WrongUsageException("got.command.fellowship.rename.error");
@@ -416,5 +355,68 @@ public class GOTCommandFellowship extends CommandBase {
 			}
 		}
 		throw new WrongUsageException(getCommandUsage(sender));
+	}
+
+	public static String[] fixArgsForFellowship(String[] args, int startIndex, boolean autocompleting) {
+		if (!args[startIndex].isEmpty() && args[startIndex].charAt(0) == '\"') {
+			int endIndex = startIndex;
+			boolean foundEnd = false;
+			while (!foundEnd) {
+				if (!args[endIndex].isEmpty() && args[endIndex].charAt(args[endIndex].length() - 1) == '\"') {
+					foundEnd = true;
+					continue;
+				}
+				if (endIndex >= args.length - 1) {
+					if (autocompleting) {
+						break;
+					}
+					throw new WrongUsageException("got.command.fellowship.edit.nameError");
+				}
+				++endIndex;
+			}
+			StringBuilder fsName = new StringBuilder();
+			for (int i = startIndex; i <= endIndex; ++i) {
+				if (i > startIndex) {
+					fsName.append(" ");
+				}
+				fsName.append(args[i]);
+			}
+			if (!autocompleting || foundEnd) {
+				fsName = new StringBuilder(fsName.toString().replace("\"", ""));
+			}
+			int diff = endIndex - startIndex;
+			String[] argsNew = new String[args.length - diff];
+			for (int i = 0; i < argsNew.length; ++i) {
+				argsNew[i] = i < startIndex ? args[i] : i == startIndex ? fsName.toString() : args[i + diff];
+			}
+			return argsNew;
+		}
+		if (!autocompleting) {
+			throw new WrongUsageException("got.command.fellowship.edit.nameError");
+		}
+		return args;
+	}
+
+	public static List<String> listFellowshipsMatchingLastWord(String[] argsFixed, String[] argsOriginal, int fsNameIndex, GOTPlayerData playerData, boolean leadingOnly) {
+		String fsName = argsFixed[fsNameIndex];
+		List<String> allFellowshipNames = leadingOnly ? playerData.listAllLeadingFellowshipNames() : playerData.listAllFellowshipNames();
+		ArrayList<String> autocompletes = new ArrayList<>();
+		for (String nextFsName : allFellowshipNames) {
+			String autocompFsName = "\"" + nextFsName + "\"";
+			if (!autocompFsName.toLowerCase(Locale.ROOT).startsWith(fsName.toLowerCase(Locale.ROOT))) {
+				continue;
+			}
+			if (argsOriginal.length > argsFixed.length) {
+				int diff = argsOriginal.length - argsFixed.length;
+				for (int j = 0; j < diff; ++j) {
+					autocompFsName = autocompFsName.substring(autocompFsName.indexOf(' ') + 1);
+				}
+			}
+			if (autocompFsName.indexOf(' ') >= 0) {
+				autocompFsName = autocompFsName.substring(0, autocompFsName.indexOf(' '));
+			}
+			autocompletes.add(autocompFsName);
+		}
+		return CommandBase.getListOfStringsMatchingLastWord(argsOriginal, autocompletes.toArray(new String[0]));
 	}
 }

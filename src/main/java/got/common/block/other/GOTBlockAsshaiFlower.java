@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -13,8 +15,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 	public GOTBlockAsshaiFlower() {

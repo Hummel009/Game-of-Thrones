@@ -1,5 +1,9 @@
 package got.common.world.biome.westeros;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
+
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTInvasions;
@@ -18,10 +22,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
 
 public class GOTBiomeDragonstone extends GOTBiomeWesteros {
 	public WorldGenerator boulderGen = new GOTWorldGenBoulder(Blocks.stone, 0, 2, 4);

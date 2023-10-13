@@ -5,7 +5,7 @@ import net.minecraft.event.HoverEvent;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class GOTChatEvents {
-	public static Class<?>[][] hoverParams = new Class[][]{{HoverEvent.Action.class, String.class, Boolean.TYPE}};
+	public static Class<?>[][] hoverParams = new Class[][] { { HoverEvent.Action.class, String.class, Boolean.TYPE } };
 	public static HoverEvent.Action SHOW_GOT_ACHIEVEMENT;
 
 	public static void onInit() {

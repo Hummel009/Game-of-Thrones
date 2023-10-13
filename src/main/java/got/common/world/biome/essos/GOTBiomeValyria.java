@@ -1,5 +1,8 @@
 package got.common.world.biome.essos;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
 import got.common.database.GOTAchievement;
@@ -13,9 +16,6 @@ import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.other.*;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class GOTBiomeValyria extends GOTBiome {
 	public GOTBiomeValyria(int i, boolean major) {

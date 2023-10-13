@@ -1,13 +1,13 @@
 package got.common.world.structure.essos.lhazar;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
-
-import java.util.Random;
 
 public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 	public Block brickBlock;
@@ -62,7 +62,7 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 	}
 
 	public ItemStack getRandomlhazarWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarDagger), new ItemStack(GOTItems.lhazarSpear), new ItemStack(GOTItems.lhazarClub)};
+		ItemStack[] items = { new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarSword), new ItemStack(GOTItems.lhazarDagger), new ItemStack(GOTItems.lhazarSpear), new ItemStack(GOTItems.lhazarClub) };
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -121,33 +121,33 @@ public abstract class GOTStructureLhazarBase extends GOTStructureBase {
 		}
 		int randomWood2 = random.nextInt(3);
 		switch (randomWood2) {
-			case 0:
-				plank2Block = Blocks.planks;
-				plank2Meta = 4;
-				plank2SlabBlock = Blocks.wooden_slab;
-				plank2SlabMeta = 4;
-				plank2StairBlock = Blocks.acacia_stairs;
-				beam2Block = GOTBlocks.woodBeamV2;
-				beam2Meta = 0;
-				break;
-			case 1:
-				plank2Block = GOTBlocks.planks1;
-				plank2Meta = 14;
-				plank2SlabBlock = GOTBlocks.woodSlabSingle2;
-				plank2SlabMeta = 6;
-				plank2StairBlock = GOTBlocks.stairsDatePalm;
-				beam2Block = GOTBlocks.woodBeam4;
-				beam2Meta = 2;
-				break;
-			default:
-				plank2Block = GOTBlocks.planks3;
-				plank2Meta = 4;
-				plank2SlabBlock = GOTBlocks.woodSlabSingle5;
-				plank2SlabMeta = 4;
-				plank2StairBlock = GOTBlocks.stairsDragon;
-				beam2Block = GOTBlocks.woodBeam9;
-				beam2Meta = 0;
-				break;
+		case 0:
+			plank2Block = Blocks.planks;
+			plank2Meta = 4;
+			plank2SlabBlock = Blocks.wooden_slab;
+			plank2SlabMeta = 4;
+			plank2StairBlock = Blocks.acacia_stairs;
+			beam2Block = GOTBlocks.woodBeamV2;
+			beam2Meta = 0;
+			break;
+		case 1:
+			plank2Block = GOTBlocks.planks1;
+			plank2Meta = 14;
+			plank2SlabBlock = GOTBlocks.woodSlabSingle2;
+			plank2SlabMeta = 6;
+			plank2StairBlock = GOTBlocks.stairsDatePalm;
+			beam2Block = GOTBlocks.woodBeam4;
+			beam2Meta = 2;
+			break;
+		default:
+			plank2Block = GOTBlocks.planks3;
+			plank2Meta = 4;
+			plank2SlabBlock = GOTBlocks.woodSlabSingle5;
+			plank2SlabMeta = 4;
+			plank2StairBlock = GOTBlocks.stairsDragon;
+			beam2Block = GOTBlocks.woodBeam9;
+			beam2Meta = 0;
+			break;
 		}
 		roofBlock = GOTBlocks.thatch;
 		roofMeta = 1;

@@ -1,5 +1,7 @@
 package got.common.entity.other;
 
+import java.util.UUID;
+
 import got.GOT;
 import got.common.database.GOTGuiID;
 import got.common.item.other.GOTItemMountArmor;
@@ -9,8 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.UUID;
 
 public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNPCMount {
 	public UUID tamingPlayer;
@@ -98,10 +98,6 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
 
-	public void setNPCTamed(boolean flag) {
-		dataWatcher.updateObject(17, (byte) (flag ? 1 : 0));
-	}
-
 	@Override
 	public void moveEntityWithHeading(float strafe, float forward) {
 		GOTMountFunctions.move(this, strafe, forward);
@@ -128,6 +124,10 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 			tamingPlayer = UUID.fromString(nbt.getString("NPCTamer"));
 		}
 		npcTemper = nbt.getInteger("NPCTemper");
+	}
+
+	public void setNPCTamed(boolean flag) {
+		dataWatcher.updateObject(17, (byte) (flag ? 1 : 0));
 	}
 
 	@Override

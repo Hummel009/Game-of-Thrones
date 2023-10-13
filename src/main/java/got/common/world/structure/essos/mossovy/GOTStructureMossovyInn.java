@@ -11,6 +11,8 @@
  */
 package got.common.world.structure.essos.mossovy;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -23,8 +25,6 @@ import got.common.entity.westeros.GOTEntityLightSkinThief;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 	public String[] tavernName;
@@ -151,7 +151,7 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 			if (random.nextBoolean()) {
 				placeMug(world, random, i, j, k, random.nextInt(4), GOTFoods.WESTEROS_DRINK);
 			} else {
-				Block[] plates = {GOTBlocks.plate, GOTBlocks.ceramicPlate, GOTBlocks.woodPlate};
+				Block[] plates = { GOTBlocks.plate, GOTBlocks.ceramicPlate, GOTBlocks.woodPlate };
 				Block plateBlock = plates[random.nextInt(plates.length)];
 				if (random.nextBoolean()) {
 					setBlockAndMetadata(world, i, j, k, plateBlock, 0);
@@ -167,6 +167,6 @@ public class GOTStructureMossovyInn extends GOTStructureMossovyBase {
 		super.setupRandomBlocks(random);
 		bedBlock = Blocks.bed;
 		tavernName = GOTNames.getTavernName(random);
-		tavernNameSign = new String[]{"", tavernName[0], tavernName[1], ""};
+		tavernNameSign = new String[] { "", tavernName[0], tavernName[1], "" };
 	}
 }

@@ -33,20 +33,20 @@ public class GOTEntityGhiscarCorsair extends GOTEntityGhiscarLevyman {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(6);
 		switch (i) {
-			case 0:
-			case 1:
-			case 2:
-			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSword));
-				break;
-			case 4:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosHammer));
-				break;
-			case 5:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPike));
-				break;
-			default:
-				break;
+		case 0:
+		case 1:
+		case 2:
+		case 3:
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosSword));
+			break;
+		case 4:
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosHammer));
+			break;
+		case 5:
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPike));
+			break;
+		default:
+			break;
 		}
 		if (rand.nextInt(3) == 0) {
 			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTItems.essosPike));

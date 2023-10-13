@@ -1,5 +1,9 @@
 package got.common.world.map;
 
+import java.util.*;
+
+import org.apache.commons.lang3.StringUtils;
+
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -18,9 +22,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.*;
 
 public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	private String customName;
@@ -44,47 +45,6 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		yCoord = posY;
 		zCoord = posZ;
 		ID = id;
-	}
-
-	public static void createForPlayer(String name, EntityPlayer entityplayer) {
-		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-		int cwpID = playerData.getNextCwpID();
-		int i = MathHelper.floor_double(entityplayer.posX);
-		int j = MathHelper.floor_double(entityplayer.boundingBox.minY);
-		int k = MathHelper.floor_double(entityplayer.posZ);
-		int mapX = GOTWaypoint.worldToMapX(i);
-		int mapY = GOTWaypoint.worldToMapZ(k);
-		GOTCustomWaypoint cwp = new GOTCustomWaypoint(name, mapX, mapY, i, j, k, cwpID);
-		playerData.addCustomWaypoint(cwp);
-		playerData.incrementNextCwpID();
-	}
-
-	public static GOTCustomWaypoint readFromNBT(NBTTagCompound nbt, GOTPlayerData pd) {
-		String name = nbt.getString("Name");
-		int x = nbt.getInteger("X");
-		int y = nbt.getInteger("Y");
-		int xCoord = nbt.getInteger("XCoord");
-		int zCoord = nbt.getInteger("ZCoord");
-		int yCoord = nbt.hasKey("YCoord") ? nbt.getInteger("YCoord") : -1;
-		int ID = nbt.getInteger("ID");
-		GOTCustomWaypoint cwp = new GOTCustomWaypoint(name, x, y, xCoord, yCoord, zCoord, ID);
-		cwp.sharedFellowshipIDs.clear();
-		if (nbt.hasKey("SharedFellowships")) {
-			NBTTagList sharedFellowshipTags = nbt.getTagList("SharedFellowships", 8);
-			for (int i = 0; i < sharedFellowshipTags.tagCount(); ++i) {
-				UUID fsID = UUID.fromString(sharedFellowshipTags.getStringTagAt(i));
-				cwp.sharedFellowshipIDs.add(fsID);
-			}
-		}
-		cwp.validateFellowshipIDs(pd);
-		return cwp;
-	}
-
-	public static String validateCustomName(String name) {
-		if (!StringUtils.isBlank(name = StringUtils.trim(name))) {
-			return name;
-		}
-		return null;
 	}
 
 	public void addSharedFellowship(UUID fsID) {
@@ -240,33 +200,12 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return sharedFellowshipIDs;
 	}
 
-	public void setSharedFellowshipIDs(List<UUID> fsIDs) {
-		sharedFellowshipIDs = fsIDs;
-	}
-
 	public UUID getSharingPlayerID() {
 		return sharingPlayer;
 	}
 
-	public void setSharingPlayerID(UUID id) {
-		UUID prev = sharingPlayer;
-		sharingPlayer = id;
-		if (MinecraftServer.getServer() != null && (prev == null || !prev.equals(sharingPlayer))) {
-			sharingPlayerName = GOTPacketFellowship.getPlayerProfileWithUsername(sharingPlayer).getName();
-		}
-	}
-
 	public String getSharingPlayerName() {
 		return sharingPlayerName;
-	}
-
-	public void setSharingPlayerName(String s) {
-		sharingPlayerName = s;
-	}
-
-	@Override
-	public double getX() {
-		return mapX;
 	}
 
 	@Override
@@ -277,6 +216,11 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	@Override
 	public double getShiftY() {
 		return 0;
+	}
+
+	@Override
+	public double getX() {
+		return mapX;
 	}
 
 	@Override
@@ -382,10 +326,6 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		return sharedHidden;
 	}
 
-	public void setSharedHidden(boolean flag) {
-		sharedHidden = flag;
-	}
-
 	public boolean isSharedUnlocked() {
 		return sharedUnlocked;
 	}
@@ -398,8 +338,28 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		customName = newName;
 	}
 
+	public void setSharedFellowshipIDs(List<UUID> fsIDs) {
+		sharedFellowshipIDs = fsIDs;
+	}
+
+	public void setSharedHidden(boolean flag) {
+		sharedHidden = flag;
+	}
+
 	public void setSharedUnlocked() {
 		sharedUnlocked = true;
+	}
+
+	public void setSharingPlayerID(UUID id) {
+		UUID prev = sharingPlayer;
+		sharingPlayer = id;
+		if (MinecraftServer.getServer() != null && (prev == null || !prev.equals(sharingPlayer))) {
+			sharingPlayerName = GOTPacketFellowship.getPlayerProfileWithUsername(sharingPlayer).getName();
+		}
+	}
+
+	public void setSharingPlayerName(String s) {
+		sharingPlayerName = s;
 	}
 
 	public void validateFellowshipIDs(GOTPlayerData ownerData) {
@@ -432,5 +392,46 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 			}
 			nbt.setTag("SharedFellowships", sharedFellowshipTags);
 		}
+	}
+
+	public static void createForPlayer(String name, EntityPlayer entityplayer) {
+		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
+		int cwpID = playerData.getNextCwpID();
+		int i = MathHelper.floor_double(entityplayer.posX);
+		int j = MathHelper.floor_double(entityplayer.boundingBox.minY);
+		int k = MathHelper.floor_double(entityplayer.posZ);
+		int mapX = GOTWaypoint.worldToMapX(i);
+		int mapY = GOTWaypoint.worldToMapZ(k);
+		GOTCustomWaypoint cwp = new GOTCustomWaypoint(name, mapX, mapY, i, j, k, cwpID);
+		playerData.addCustomWaypoint(cwp);
+		playerData.incrementNextCwpID();
+	}
+
+	public static GOTCustomWaypoint readFromNBT(NBTTagCompound nbt, GOTPlayerData pd) {
+		String name = nbt.getString("Name");
+		int x = nbt.getInteger("X");
+		int y = nbt.getInteger("Y");
+		int xCoord = nbt.getInteger("XCoord");
+		int zCoord = nbt.getInteger("ZCoord");
+		int yCoord = nbt.hasKey("YCoord") ? nbt.getInteger("YCoord") : -1;
+		int ID = nbt.getInteger("ID");
+		GOTCustomWaypoint cwp = new GOTCustomWaypoint(name, x, y, xCoord, yCoord, zCoord, ID);
+		cwp.sharedFellowshipIDs.clear();
+		if (nbt.hasKey("SharedFellowships")) {
+			NBTTagList sharedFellowshipTags = nbt.getTagList("SharedFellowships", 8);
+			for (int i = 0; i < sharedFellowshipTags.tagCount(); ++i) {
+				UUID fsID = UUID.fromString(sharedFellowshipTags.getStringTagAt(i));
+				cwp.sharedFellowshipIDs.add(fsID);
+			}
+		}
+		cwp.validateFellowshipIDs(pd);
+		return cwp;
+	}
+
+	public static String validateCustomName(String name) {
+		if (!StringUtils.isBlank(name = StringUtils.trim(name))) {
+			return name;
+		}
+		return null;
 	}
 }

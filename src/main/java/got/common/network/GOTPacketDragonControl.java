@@ -1,5 +1,10 @@
 package got.common.network;
 
+import java.util.BitSet;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -7,10 +12,6 @@ import cpw.mods.fml.relauncher.Side;
 import got.common.entity.dragon.GOTEntityDragon;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.util.BitSet;
 
 public class GOTPacketDragonControl implements IMessage {
 	public static Logger L = LogManager.getLogger();

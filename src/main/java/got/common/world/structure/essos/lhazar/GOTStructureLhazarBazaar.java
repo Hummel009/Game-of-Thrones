@@ -1,5 +1,10 @@
 package got.common.world.structure.essos.lhazar;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
@@ -12,13 +17,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
 public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
-	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Miner.class, Goldsmith.class, Lumber.class, Blacksmith.class, Farmer.class};
+	public static Class<? extends GOTStructureBase>[] stalls = new Class[] { Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Miner.class, Goldsmith.class, Lumber.class, Blacksmith.class, Farmer.class };
 
 	public GOTStructureLhazarBazaar(boolean flag) {
 		super(flag);
@@ -108,7 +108,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		placeWallBanner(world, 7, 10, -6, GOTItemBanner.BannerType.LHAZAR, 0);
 		placeWallBanner(world, 6, 10, -7, GOTItemBanner.BannerType.LHAZAR, 3);
 		placeWallBanner(world, 8, 10, -7, GOTItemBanner.BannerType.LHAZAR, 1);
-		for (int i1 : new int[]{-7, 7}) {
+		for (int i1 : new int[] { -7, 7 }) {
 			j1 = 1;
 			int k1 = -11;
 			GOTEntityLhazarWarrior guard = new GOTEntityLhazarWarrior(world);
@@ -162,7 +162,7 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			setOriginAndRotation(world, i, j, k, rotation, 0);
 			setBlockAndMetadata(world, 2, 1, 2, Blocks.anvil, 3);
-			placeArmorStand(world, 1, 1, 2, 0, new ItemStack[]{null, new ItemStack(GOTItems.lhazarChestplate), null, null});
+			placeArmorStand(world, 1, 1, 2, 0, new ItemStack[] { null, new ItemStack(GOTItems.lhazarChestplate), null, null });
 			placeWeaponRack(world, 0, 2, 2, 1, new GOTStructureLhazarBazaar(false).getRandomlhazarWeapon(random));
 			placeWeaponRack(world, 3, 2, 2, 3, new GOTStructureLhazarBazaar(false).getRandomlhazarWeapon(random));
 			GOTEntityLhazarBlacksmith trader = new GOTEntityLhazarBlacksmith(world);

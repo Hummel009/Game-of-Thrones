@@ -1,5 +1,10 @@
 package got.common.database;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
+import java.util.UUID;
+
 import got.GOT;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
@@ -7,11 +12,6 @@ import got.common.faction.GOTFaction;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.UUID;
 
 public enum GOTShields {
 	NORTH(GOTFaction.NORTH), NORTHGUARD(GOTFaction.NORTH), RIVERLANDS(GOTFaction.RIVERLANDS), ARRYN(GOTFaction.ARRYN), ARRYNGUARD(GOTFaction.ARRYN), HILLMEN(GOTFaction.HILL_TRIBES), IRONBORN(GOTFaction.IRONBORN), WESTERLANDS(GOTFaction.WESTERLANDS), WESTERLANDSGUARD(GOTFaction.WESTERLANDS), DRAGONSTONE(GOTFaction.DRAGONSTONE), CROWNLANDS(GOTFaction.CROWNLANDS), STORMLANDS(GOTFaction.STORMLANDS), REACH(GOTFaction.REACH), REACHGUARD(GOTFaction.REACH), DORNE(GOTFaction.DORNE), VOLANTIS(GOTFaction.VOLANTIS), PENTOS(GOTFaction.PENTOS), NORVOS(GOTFaction.NORVOS), BRAAVOS(GOTFaction.BRAAVOS), TYROSH(GOTFaction.TYROSH), LORATH(GOTFaction.LORATH), QOHOR(GOTFaction.QOHOR), LYS(GOTFaction.LYS), MYR(GOTFaction.MYR), QARTH(GOTFaction.QARTH), GHISCAR(GOTFaction.GHISCAR), UNSULLIED(GOTFaction.GHISCAR), YITI(GOTFaction.YI_TI), YITI_FRONTIER(GOTFaction.YI_TI), YITI_SAMURAI(GOTFaction.YI_TI), ASSHAI(GOTFaction.ASSHAI), SUMMER(GOTFaction.SUMMER_ISLANDS), SOTHORYOS(GOTFaction.SOTHORYOS), GOLDENCOMPANY, ALCOHOLIC, ACHIEVEMENT_BRONZE, ACHIEVEMENT_SILVER, ACHIEVEMENT_GOLD, ACHIEVEMENT_VALYRIAN, TARGARYEN(false, GOT.devs);
@@ -47,20 +47,6 @@ public enum GOTShields {
 			exclusiveUUIDs[i] = UUID.fromString(s);
 		}
 		isHidden = hidden;
-	}
-
-	@SuppressWarnings("all")
-	public static void preInit() {
-	}
-
-	public static GOTShields shieldForName(String shieldName) {
-		for (GOTShields shield : values()) {
-			if (!shield.name().equals(shieldName)) {
-				continue;
-			}
-			return shield;
-		}
-		return null;
 	}
 
 	public boolean canDisplay(EntityPlayer entityplayer) {
@@ -109,6 +95,20 @@ public enum GOTShields {
 
 	public String getShieldName() {
 		return StatCollector.translateToLocal("got.shields." + name() + ".name");
+	}
+
+	@SuppressWarnings("all")
+	public static void preInit() {
+	}
+
+	public static GOTShields shieldForName(String shieldName) {
+		for (GOTShields shield : values()) {
+			if (!shield.name().equals(shieldName)) {
+				continue;
+			}
+			return shield;
+		}
+		return null;
 	}
 
 	public enum ShieldType {

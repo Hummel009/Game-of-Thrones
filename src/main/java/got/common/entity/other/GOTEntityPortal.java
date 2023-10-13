@@ -1,5 +1,7 @@
 package got.common.entity.other;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -17,8 +19,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
-
-import java.util.List;
 
 public class GOTEntityPortal extends Entity {
 	public static int MAX_SCALE = 120;
@@ -80,10 +80,6 @@ public class GOTEntityPortal extends Entity {
 
 	public int getScale() {
 		return dataWatcher.getWatchableObjectShort(10);
-	}
-
-	public void setScale(int i) {
-		dataWatcher.updateObject(10, (short) i);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -173,6 +169,10 @@ public class GOTEntityPortal extends Entity {
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		setScale(nbt.getInteger("Scale"));
+	}
+
+	public void setScale(int i) {
+		dataWatcher.updateObject(10, (short) i);
 	}
 
 	public void transferEntity(Entity entity) {

@@ -1,6 +1,14 @@
 package got.client.gui;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
 import com.google.common.math.IntMath;
+
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
@@ -9,12 +17,6 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 
 public class GOTGuiAchievements extends GOTGuiMenuBase {
 	public static ResourceLocation pageTexture = new ResourceLocation("got:textures/gui/achievements/page.png");

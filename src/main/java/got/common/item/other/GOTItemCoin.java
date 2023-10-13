@@ -1,5 +1,7 @@
 package got.common.item.other;
 
+import java.util.List;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -17,10 +19,8 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 
-import java.util.List;
-
 public class GOTItemCoin extends Item {
-	public static int[] values = {1, 4, 16, 64, 256, 1024, 4096, 16384};
+	public static int[] values = { 1, 4, 16, 64, 256, 1024, 4096, 16384 };
 	@SideOnly(Side.CLIENT)
 	public IIcon[] coinIcons;
 
@@ -28,6 +28,52 @@ public class GOTItemCoin extends Item {
 		setHasSubtypes(true);
 		setMaxDamage(0);
 		setCreativeTab(GOTCreativeTabs.tabMaterials);
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		super.addInformation(itemstack, entityplayer, list, flag);
+		int i = itemstack.getItemDamage();
+		if (i >= values.length) {
+			i = 0;
+		}
+		list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("item.got:coin.nominal.name") + ": " + values[i]);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public IIcon getIconFromDamage(int i) {
+		if (i >= coinIcons.length) {
+			i = 0;
+		}
+		return coinIcons[i];
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void getSubItems(Item item, CreativeTabs tab, List list) {
+		for (int j = 0; j < values.length; ++j) {
+			list.add(new ItemStack(item, 1, j));
+		}
+	}
+
+	@Override
+	public String getUnlocalizedName(ItemStack itemstack) {
+		int i = itemstack.getItemDamage();
+		if (i >= values.length) {
+			i = 0;
+		}
+		return getUnlocalizedName() + "." + values[i];
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IIconRegister iconregister) {
+		coinIcons = new IIcon[values.length];
+		for (int i = 0; i < values.length; ++i) {
+			coinIcons[i] = iconregister.registerIcon(getIconString() + "_" + values[i]);
+		}
 	}
 
 	public static int getContainerValue(IInventory inv, boolean allowStolen) {
@@ -111,8 +157,7 @@ public class GOTItemCoin extends Item {
 			FMLLog.warning("Attempted to take " + coins + " coins from player " + entityplayer.getCommandSenderName() + " who has only " + invValue);
 		}
 		int initCoins = coins;
-		block0:
-		for (i = values.length - 1; i >= 0; --i) {
+		block0: for (i = values.length - 1; i >= 0; --i) {
 			value = values[i];
 			if (value > initCoins) {
 				continue;
@@ -146,8 +191,7 @@ public class GOTItemCoin extends Item {
 				}
 				value = values[i];
 				coin = new ItemStack(GOTItems.coin, 1, i);
-				block4:
-				for (slot = -1; slot < inv.mainInventory.length; ++slot) {
+				block4: for (slot = -1; slot < inv.mainInventory.length; ++slot) {
 					while ((itemstack = slot == -1 ? inv.getItemStack() : inv.mainInventory[slot]) != null && itemstack.isItemEqual(coin)) {
 						if (slot == -1) {
 							is = inv.getItemStack();
@@ -174,52 +218,6 @@ public class GOTItemCoin extends Item {
 		}
 		if (coins < 0) {
 			giveCoins(-coins, entityplayer);
-		}
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		super.addInformation(itemstack, entityplayer, list, flag);
-		int i = itemstack.getItemDamage();
-		if (i >= values.length) {
-			i = 0;
-		}
-		list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("item.got:coin.nominal.name") + ": " + values[i]);
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int i) {
-		if (i >= coinIcons.length) {
-			i = 0;
-		}
-		return coinIcons[i];
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (int j = 0; j < values.length; ++j) {
-			list.add(new ItemStack(item, 1, j));
-		}
-	}
-
-	@Override
-	public String getUnlocalizedName(ItemStack itemstack) {
-		int i = itemstack.getItemDamage();
-		if (i >= values.length) {
-			i = 0;
-		}
-		return getUnlocalizedName() + "." + values[i];
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister iconregister) {
-		coinIcons = new IIcon[values.length];
-		for (int i = 0; i < values.length; ++i) {
-			coinIcons[i] = iconregister.registerIcon(getIconString() + "_" + values[i]);
 		}
 	}
 }

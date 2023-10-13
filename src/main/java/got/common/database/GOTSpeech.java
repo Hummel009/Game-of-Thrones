@@ -1,5 +1,19 @@
 package got.common.database;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.input.BOMInputStream;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
@@ -15,19 +29,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.input.BOMInputStream;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.*;
-import java.util.Map.Entry;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
 
 public class GOTSpeech {
 	public static Map<String, SpeechBank> allSpeechBanks = new HashMap<>();

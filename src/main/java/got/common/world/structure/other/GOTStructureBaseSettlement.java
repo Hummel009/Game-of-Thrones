@@ -1,5 +1,10 @@
 package got.common.world.structure.other;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.util.CentredSquareArray;
@@ -13,11 +18,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
 
 public abstract class GOTStructureBaseSettlement {
 	public static Random settlementRand = new Random();
@@ -33,17 +33,6 @@ public abstract class GOTStructureBaseSettlement {
 		settlementBiome = biome;
 		spawnBiomes = new ArrayList<>();
 		spawnBiomes.add(settlementBiome);
-	}
-
-	public static boolean hasFixedSettlements(World world) {
-		boolean disableMap = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTClassic;
-		boolean disableLocations = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;
-		return !disableMap && !disableLocations;
-	}
-
-	public static void seedSettlementRand(World world, int i, int k) {
-		long seed = i * 6890360793007L + k * 456879569029062L + world.getWorldInfo().getSeed() + 274893855L;
-		settlementRand.setSeed(seed);
 	}
 
 	public void affix(GOTAbstractWaypoint... wps) {
@@ -109,8 +98,8 @@ public abstract class GOTStructureBaseSettlement {
 					instance.setupWorldPositionSeed(i1, k1);
 					GOTBezierType.BezierBlock bezierblock = pathType.getBlock(instance.instanceRand, biome, true, isSlab);
 					GOTBezierType.BezierBlock bezierblockSolid = pathType.getBlock(instance.instanceRand, biome, false, false);
-					world.setBlock(i1, j1, k1, bezierblock.block, bezierblock.meta, 2);
-					world.setBlock(i1, j1 - 1, k1, bezierblockSolid.block, bezierblockSolid.meta, 2);
+					world.setBlock(i1, j1, k1, bezierblock.getBlock(), bezierblock.getMeta(), 2);
+					world.setBlock(i1, j1 - 1, k1, bezierblockSolid.getBlock(), bezierblockSolid.getMeta(), 2);
 					Block above = world.getBlock(i1, j1 + 1, k1);
 					if (!above.canBlockStay(world, i1, j1 + 1, k1)) {
 						world.setBlock(i1, j1 + 1, k1, Blocks.air, 0, 3);
@@ -292,6 +281,17 @@ public abstract class GOTStructureBaseSettlement {
 		return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
 	}
 
+	public static boolean hasFixedSettlements(World world) {
+		boolean disableMap = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTClassic;
+		boolean disableLocations = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;
+		return !disableMap && !disableLocations;
+	}
+
+	public static void seedSettlementRand(World world, int i, int k) {
+		long seed = i * 6890360793007L + k * 456879569029062L + world.getWorldInfo().getSeed() + 274893855L;
+		settlementRand.setSeed(seed);
+	}
+
 	public abstract static class AbstractInstance<V extends GOTStructureBaseSettlement> {
 		public final LocationInfo locationInfo;
 		public GOTBiome instanceSettlementBiome;
@@ -334,27 +334,27 @@ public abstract class GOTStructureBaseSettlement {
 			int xRel = 0;
 			int zRel = 0;
 			switch (rotationMode) {
-				case 0: {
-					xRel = centreX - xWorld;
-					zRel = centreZ - zWorld;
-					break;
-				}
-				case 1: {
-					xRel = centreZ - zWorld;
-					zRel = xWorld - centreX;
-					break;
-				}
-				case 2: {
-					xRel = xWorld - centreX;
-					zRel = zWorld - centreZ;
-					break;
-				}
-				case 3: {
-					xRel = zWorld - centreZ;
-					zRel = centreX - xWorld;
-				}
+			case 0: {
+				xRel = centreX - xWorld;
+				zRel = centreZ - zWorld;
+				break;
 			}
-			return new int[]{xRel, zRel};
+			case 1: {
+				xRel = centreZ - zWorld;
+				zRel = xWorld - centreX;
+				break;
+			}
+			case 2: {
+				xRel = xWorld - centreX;
+				zRel = zWorld - centreZ;
+				break;
+			}
+			case 3: {
+				xRel = zWorld - centreZ;
+				zRel = centreX - xWorld;
+			}
+			}
+			return new int[] { xRel, zRel };
 		}
 
 		public int getStructureRotation(int r) {
@@ -365,27 +365,27 @@ public abstract class GOTStructureBaseSettlement {
 			int xWorld = centreX;
 			int zWorld = centreZ;
 			switch (rotationMode) {
-				case 0: {
-					xWorld = centreX - xRel;
-					zWorld = centreZ - zRel;
-					break;
-				}
-				case 1: {
-					xWorld = centreX + zRel;
-					zWorld = centreZ - xRel;
-					break;
-				}
-				case 2: {
-					xWorld = centreX + xRel;
-					zWorld = centreZ + zRel;
-					break;
-				}
-				case 3: {
-					xWorld = centreX - zRel;
-					zWorld = centreZ + xRel;
-				}
+			case 0: {
+				xWorld = centreX - xRel;
+				zWorld = centreZ - zRel;
+				break;
 			}
-			return new int[]{xWorld, zWorld};
+			case 1: {
+				xWorld = centreX + zRel;
+				zWorld = centreZ - xRel;
+				break;
+			}
+			case 2: {
+				xWorld = centreX + xRel;
+				zWorld = centreZ + zRel;
+				break;
+			}
+			case 3: {
+				xWorld = centreX - zRel;
+				zWorld = centreZ + xRel;
+			}
+			}
+			return new int[] { xWorld, zWorld };
 		}
 
 		public abstract boolean isSettlementSpecificSurface(World var1, int var2, int var3, int var4);

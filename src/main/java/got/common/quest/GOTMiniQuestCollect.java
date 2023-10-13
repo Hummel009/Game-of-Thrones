@@ -1,5 +1,7 @@
 package got.common.quest;
 
+import java.util.Random;
+
 import got.common.GOTPlayerData;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemMug;
@@ -7,8 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
-
-import java.util.Random;
 
 public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 	public ItemStack collectItem;

@@ -1,5 +1,10 @@
 package got.client.render.other;
 
+import java.awt.Color;
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
 import got.client.GOTSpeechClient;
 import got.client.GOTTickHandlerClient;
 import got.common.GOTConfig;
@@ -28,10 +33,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
-import org.lwjgl.opengl.GL11;
-
-import java.awt.*;
-import java.util.List;
 
 public class GOTNPCRendering {
 	public static RenderItem itemRenderer = new RenderItem();
@@ -239,7 +240,7 @@ public class GOTNPCRendering {
 		if (!GOTConfig.hiredUnitHealthBars || entity.riddenByEntity instanceof GOTEntityNPC || entity instanceof GOTEntityNPC && GOTSpeechClient.hasSpeech((GOTEntityNPC) entity)) {
 			return;
 		}
-		renderHealthBar(entity, d, d1, d2, new int[]{5888860, 12006707}, new int[]{6079225, 12006707});
+		renderHealthBar(entity, d, d1, d2, new int[] { 5888860, 12006707 }, new int[] { 6079225, 12006707 });
 	}
 
 	public static void renderQuestBook(GOTEntityNPC npc, double d, double d1, double d2) {

@@ -44,11 +44,6 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		return dataWatcher.getWatchableObjectByte(16);
 	}
 
-	public void setBombStrengthLevel(int i) {
-		dataWatcher.updateObject(16, (byte) i);
-		bombFuse = 40 + GOTBlockBomb.getBombStrengthLevel(i) * 20;
-	}
-
 	@Override
 	public void onUpdate() {
 		prevPosX = posX;
@@ -81,6 +76,11 @@ public class GOTEntityBomb extends EntityTNTPrimed {
 		droppedTargetingPlayer = nbt.getBoolean("DroppedTargetingPlayer");
 		setBombStrengthLevel(nbt.getInteger("BombStrengthLevel"));
 		bombFuse = nbt.getInteger("BombFuse");
+	}
+
+	public void setBombStrengthLevel(int i) {
+		dataWatcher.updateObject(16, (byte) i);
+		bombFuse = 40 + GOTBlockBomb.getBombStrengthLevel(i) * 20;
 	}
 
 	public void setFuseFromExplosion() {

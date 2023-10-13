@@ -1,5 +1,7 @@
 package got.common.tileentity;
 
+import java.util.Arrays;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketOpenSignEditor;
@@ -10,8 +12,6 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
-
-import java.util.Arrays;
 
 public abstract class GOTTileEntitySign extends TileEntity {
 	public static int MAX_LINE_LENGTH = 15;
@@ -42,13 +42,6 @@ public abstract class GOTTileEntitySign extends TileEntity {
 		return editable;
 	}
 
-	public void setEditable(boolean flag) {
-		editable = flag;
-		if (!flag) {
-			editingPlayer = null;
-		}
-	}
-
 	@Override
 	public void onDataPacket(NetworkManager manager, S35PacketUpdateTileEntity packet) {
 		NBTTagCompound data = packet.func_148857_g();
@@ -75,6 +68,13 @@ public abstract class GOTTileEntitySign extends TileEntity {
 				continue;
 			}
 			signText[i] = signText[i].substring(0, 15);
+		}
+	}
+
+	public void setEditable(boolean flag) {
+		editable = flag;
+		if (!flag) {
+			editingPlayer = null;
 		}
 	}
 

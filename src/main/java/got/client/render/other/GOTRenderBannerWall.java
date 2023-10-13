@@ -1,5 +1,7 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import got.client.model.GOTModelBannerWall;
 import got.common.entity.other.GOTEntityBannerWall;
 import net.minecraft.client.renderer.RenderGlobal;
@@ -8,7 +10,6 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBannerWall extends Render {
 	public static GOTModelBannerWall model = new GOTModelBannerWall();

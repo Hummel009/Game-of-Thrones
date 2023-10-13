@@ -1,6 +1,13 @@
 package got.client.render.other;
 
+import java.util.Random;
+
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.opengl.GLContext;
+import org.lwjgl.util.glu.Project;
+
 import com.google.common.math.IntMath;
+
 import got.client.GOTReflectionClient;
 import got.common.GOTConfig;
 import got.common.GOTDate;
@@ -12,11 +19,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.client.IRenderHandler;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.opengl.GLContext;
-import org.lwjgl.util.glu.Project;
-
-import java.util.Random;
 
 public class GOTCloudRenderer extends IRenderHandler {
 	public static ResourceLocation cloudTexture = new ResourceLocation("got:textures/sky/clouds.png");
@@ -29,24 +31,6 @@ public class GOTCloudRenderer extends IRenderHandler {
 	public static double cloudPosX;
 	public static double cloudPosZPre;
 	public static double cloudPosZ;
-
-	public static void resetClouds() {
-		cloudOpacity.reset();
-		cloudSpeed.reset();
-		cloudAngle.reset();
-	}
-
-	public static void updateClouds(WorldClient world) {
-		cloudOpacity.update(world);
-		cloudSpeed.update(world);
-		cloudAngle.update(world);
-		float angle = cloudAngle.getValue(1.0f);
-		float speed = cloudSpeed.getValue(1.0f);
-		cloudPosXPre = cloudPosX;
-		cloudPosX += MathHelper.cos(angle) * speed;
-		cloudPosZPre = cloudPosZ;
-		cloudPosZ += MathHelper.sin(angle) * speed;
-	}
 
 	@Override
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
@@ -131,6 +115,24 @@ public class GOTCloudRenderer extends IRenderHandler {
 			GL11.glPopMatrix();
 			world.theProfiler.endSection();
 		}
+	}
+
+	public static void resetClouds() {
+		cloudOpacity.reset();
+		cloudSpeed.reset();
+		cloudAngle.reset();
+	}
+
+	public static void updateClouds(WorldClient world) {
+		cloudOpacity.update(world);
+		cloudSpeed.update(world);
+		cloudAngle.update(world);
+		float angle = cloudAngle.getValue(1.0f);
+		float speed = cloudSpeed.getValue(1.0f);
+		cloudPosXPre = cloudPosX;
+		cloudPosX += MathHelper.cos(angle) * speed;
+		cloudPosZPre = cloudPosZ;
+		cloudPosZ += MathHelper.sin(angle) * speed;
 	}
 
 	public static class CloudProperty {

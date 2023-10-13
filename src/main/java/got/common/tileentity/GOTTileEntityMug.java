@@ -42,15 +42,6 @@ public class GOTTileEntityMug extends TileEntity {
 		return copy;
 	}
 
-	public void setMugItem(ItemStack itemstack) {
-		if (itemstack != null && itemstack.stackSize <= 0) {
-			itemstack = null;
-		}
-		mugItem = itemstack;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
-	}
-
 	public ItemStack getMugItemForRender() {
 		return GOTItemMug.getEquivalentDrink(getMugItem());
 	}
@@ -66,12 +57,6 @@ public class GOTTileEntityMug extends TileEntity {
 			return GOTItemMug.Vessel.MUG;
 		}
 		return mugVessel;
-	}
-
-	public void setVessel(GOTItemMug.Vessel v) {
-		mugVessel = v;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
 	}
 
 	public boolean isEmpty() {
@@ -111,6 +96,21 @@ public class GOTTileEntityMug extends TileEntity {
 
 	public void setEmpty() {
 		setMugItem(null);
+	}
+
+	public void setMugItem(ItemStack itemstack) {
+		if (itemstack != null && itemstack.stackSize <= 0) {
+			itemstack = null;
+		}
+		mugItem = itemstack;
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
+	}
+
+	public void setVessel(GOTItemMug.Vessel v) {
+		mugVessel = v;
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
 	}
 
 	@Override

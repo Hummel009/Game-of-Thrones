@@ -1,5 +1,11 @@
 package got.client.render.animal;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.GOTNPCMount;
 import net.minecraft.client.Minecraft;
@@ -9,17 +15,26 @@ import net.minecraft.client.renderer.texture.ITextureObject;
 import net.minecraft.client.renderer.texture.LayeredTexture;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class GOTRenderHorse extends RenderHorse {
 	public static Map<String, ResourceLocation> layeredMountTextures = new HashMap<>();
 
 	public GOTRenderHorse() {
 		super(new ModelHorse(), 0.75f);
+	}
+
+	@Override
+	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
+		GOTEntityHorse horse = (GOTEntityHorse) entity;
+		horse.getHorseType();
+		super.doRender(entity, d, d1, d2, f, f1);
+	}
+
+	@Override
+	public ResourceLocation getEntityTexture(Entity entity) {
+		GOTNPCMount horse = (GOTNPCMount) entity;
+		ResourceLocation horseSkin = super.getEntityTexture(entity);
+		return getLayeredMountTexture(horse, horseSkin);
 	}
 
 	public static ResourceLocation getLayeredMountTexture(GOTNPCMount mount, ResourceLocation mountSkin) {
@@ -46,19 +61,5 @@ public class GOTRenderHorse extends RenderHorse {
 			layeredMountTextures.put(path, texture);
 		}
 		return texture;
-	}
-
-	@Override
-	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
-		GOTEntityHorse horse = (GOTEntityHorse) entity;
-		horse.getHorseType();
-		super.doRender(entity, d, d1, d2, f, f1);
-	}
-
-	@Override
-	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTNPCMount horse = (GOTNPCMount) entity;
-		ResourceLocation horseSkin = super.getEntityTexture(entity);
-		return getLayeredMountTexture(horse, horseSkin);
 	}
 }

@@ -1,13 +1,13 @@
 package got.common.entity.animal;
 
+import java.util.List;
+
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GOTEntitySeagull extends GOTEntityBird {
 	public static float SEAGULL_SCALE = 1.4f;

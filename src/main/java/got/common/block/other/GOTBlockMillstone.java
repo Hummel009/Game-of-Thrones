@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -21,8 +23,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public class GOTBlockMillstone extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	public IIcon iconSide;
@@ -38,16 +38,6 @@ public class GOTBlockMillstone extends BlockContainer {
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		setHardness(4.0f);
 		setStepSound(Block.soundTypeStone);
-	}
-
-	public static boolean isMillstoneActive(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return (meta & 8) != 0;
-	}
-
-	public static void toggleMillstoneActive(World world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
 	}
 
 	@Override
@@ -126,5 +116,15 @@ public class GOTBlockMillstone extends BlockContainer {
 		iconTop = iconregister.registerIcon(getTextureName() + "_top");
 		iconSideActive = iconregister.registerIcon(getTextureName() + "_side_active");
 		iconTopActive = iconregister.registerIcon(getTextureName() + "_top_active");
+	}
+
+	public static boolean isMillstoneActive(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return (meta & 8) != 0;
+	}
+
+	public static void toggleMillstoneActive(World world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
 	}
 }

@@ -1,7 +1,14 @@
 package got.client.gui;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import org.lwjgl.opengl.GL11;
+
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import got.common.world.map.GOTWaypoint;
@@ -14,11 +21,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.client.ForgeHooksClient;
-import org.lwjgl.opengl.GL11;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 public class GOTGuiMainMenu extends GuiMainMenu {
 	public static ResourceLocation titleTexture = new ResourceLocation("textures/gui/title/minecraft.png");
@@ -49,29 +51,6 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		GOTWaypoint wp = waypointRoute.get(currentWPIndex);
 		mapRenderer.prevMapX = mapRenderer.mapX = wp.getX();
 		mapRenderer.prevMapY = mapRenderer.mapY = wp.getY();
-	}
-
-	public static void setupWaypoints() {
-		waypointRoute.clear();
-		waypointRoute.add(GOTWaypoint.CASTLE_BLACK);
-		waypointRoute.add(GOTWaypoint.WINTERFELL);
-		waypointRoute.add(GOTWaypoint.RIVERRUN);
-		waypointRoute.add(GOTWaypoint.CASTERLY_ROCK);
-		waypointRoute.add(GOTWaypoint.KINGS_LANDING);
-		waypointRoute.add(GOTWaypoint.STORMS_END);
-		waypointRoute.add(GOTWaypoint.HIGHGARDEN);
-		waypointRoute.add(GOTWaypoint.SUNSPEAR);
-		waypointRoute.add(GOTWaypoint.PENTOS);
-		waypointRoute.add(GOTWaypoint.OLD_GHIS);
-		waypointRoute.add(GOTWaypoint.TIQUI);
-		waypointRoute.add(GOTWaypoint.ASSHAI);
-		waypointRoute.add(GOTWaypoint.EAST_COAST);
-		waypointRoute.add(GOTWaypoint.EAST_BAY);
-		waypointRoute.add(GOTWaypoint.SOUTH_ULTHOS);
-		waypointRoute.add(GOTWaypoint.RED_FORESTS);
-		waypointRoute.add(GOTWaypoint.ZAMETTAR);
-		waypointRoute.add(GOTWaypoint.FOURTEEN_FLAMES);
-		waypointRoute.add(GOTWaypoint.KINGS_LANDING);
 	}
 
 	@Override
@@ -196,5 +175,28 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		}
 		mapRenderer.mapX += mapVelX;
 		mapRenderer.mapY += mapVelY;
+	}
+
+	public static void setupWaypoints() {
+		waypointRoute.clear();
+		waypointRoute.add(GOTWaypoint.CASTLE_BLACK);
+		waypointRoute.add(GOTWaypoint.WINTERFELL);
+		waypointRoute.add(GOTWaypoint.RIVERRUN);
+		waypointRoute.add(GOTWaypoint.CASTERLY_ROCK);
+		waypointRoute.add(GOTWaypoint.KINGS_LANDING);
+		waypointRoute.add(GOTWaypoint.STORMS_END);
+		waypointRoute.add(GOTWaypoint.HIGHGARDEN);
+		waypointRoute.add(GOTWaypoint.SUNSPEAR);
+		waypointRoute.add(GOTWaypoint.PENTOS);
+		waypointRoute.add(GOTWaypoint.OLD_GHIS);
+		waypointRoute.add(GOTWaypoint.TIQUI);
+		waypointRoute.add(GOTWaypoint.ASSHAI);
+		waypointRoute.add(GOTWaypoint.EAST_COAST);
+		waypointRoute.add(GOTWaypoint.EAST_BAY);
+		waypointRoute.add(GOTWaypoint.SOUTH_ULTHOS);
+		waypointRoute.add(GOTWaypoint.RED_FORESTS);
+		waypointRoute.add(GOTWaypoint.ZAMETTAR);
+		waypointRoute.add(GOTWaypoint.FOURTEEN_FLAMES);
+		waypointRoute.add(GOTWaypoint.KINGS_LANDING);
 	}
 }

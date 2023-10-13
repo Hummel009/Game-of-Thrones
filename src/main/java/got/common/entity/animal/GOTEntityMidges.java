@@ -1,5 +1,7 @@
 package got.common.entity.animal;
 
+import java.util.List;
+
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
@@ -13,8 +15,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature {
 	public ChunkCoordinates currentFlightTarget;

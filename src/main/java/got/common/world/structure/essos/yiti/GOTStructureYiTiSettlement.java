@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.yiti;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldier;
@@ -10,8 +12,6 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -37,10 +37,6 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 		return this;
 	}
 
-	public enum Type {
-		VILLAGE, TOWN, FORT, TOWER, GATE, GATE_ROAD
-	}
-
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureYiTiSettlement> {
 		public Type type;
 		public boolean forcedType;
@@ -54,24 +50,24 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-				case VILLAGE:
-					setupVillage(random);
-					break;
-				case TOWN:
-					setupTown(random);
-					break;
-				case FORT:
-					setupFort(random);
-					break;
-				case GATE:
-					setupGate(random);
-					break;
-				case GATE_ROAD:
-					setupGateRoad(random);
-					break;
-				case TOWER:
-					addStructure(new GOTStructureYiTiLighthouse(), 10, -10, 2, true);
-					break;
+			case VILLAGE:
+				setupVillage(random);
+				break;
+			case TOWN:
+				setupTown(random);
+				break;
+			case FORT:
+				setupFort(random);
+				break;
+			case GATE:
+				setupGate(random);
+				break;
+			case GATE_ROAD:
+				setupGateRoad(random);
+				break;
+			case TOWER:
+				addStructure(new GOTStructureYiTiLighthouse(), 10, -10, 2, true);
+				break;
 			}
 		}
 
@@ -147,8 +143,8 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[]{-48, 48}) {
-				for (int k1 : new int[]{-48, 48}) {
+			for (int i1 : new int[] { -48, 48 }) {
+				for (int k1 : new int[] { -48, 48 }) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -252,8 +248,8 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 				}
 			}, 0, 0, 0);
 			int spawnerX = 60;
-			for (int i1 : new int[]{-spawnerX, spawnerX}) {
-				for (int k1 : new int[]{-spawnerX, spawnerX}) {
+			for (int i1 : new int[] { -spawnerX, spawnerX }) {
+				for (int k1 : new int[] { -spawnerX, spawnerX }) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -437,5 +433,9 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT, TOWER, GATE, GATE_ROAD
 	}
 }

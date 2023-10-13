@@ -1,6 +1,9 @@
 package got.common.network;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.google.common.base.Charsets;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -8,7 +11,6 @@ import got.common.inventory.GOTContainerAnvil;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
-import org.apache.commons.lang3.StringUtils;
 
 public class GOTPacketAnvilRename implements IMessage {
 	public String rename;

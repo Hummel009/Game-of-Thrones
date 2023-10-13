@@ -1,16 +1,5 @@
 package got.common.world.structure.other;
 
-import com.google.common.base.Charsets;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.ModContainer;
-import got.GOT;
-import got.common.util.GOTLog;
-import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraftforge.common.DimensionManager;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.input.BOMInputStream;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -18,6 +7,19 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.input.BOMInputStream;
+
+import com.google.common.base.Charsets;
+
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.ModContainer;
+import got.GOT;
+import got.common.util.GOTLog;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraftforge.common.DimensionManager;
 
 public class GOTStructureScan {
 	public static String strscanFormat = ".strscan";
@@ -28,6 +30,24 @@ public class GOTStructureScan {
 
 	public GOTStructureScan(String name) {
 		scanName = name;
+	}
+
+	public void addScanStep(ScanStepBase e) {
+		scanSteps.add(e);
+	}
+
+	public void includeAlias(GOTScanAlias alias) {
+		for (GOTScanAlias existingAlias : aliases) {
+			if (!existingAlias.name.equals(alias.name)) {
+				continue;
+			}
+			return;
+		}
+		aliases.add(alias);
+	}
+
+	public void includeAlias(String alias, GOTScanAlias.Type type) {
+		includeAlias(new GOTScanAlias(alias, type));
 	}
 
 	public static GOTStructureScan getScanByName(String name) {
@@ -275,24 +295,6 @@ public class GOTStructureScan {
 			e.printStackTrace();
 			return false;
 		}
-	}
-
-	public void addScanStep(ScanStepBase e) {
-		scanSteps.add(e);
-	}
-
-	public void includeAlias(GOTScanAlias alias) {
-		for (GOTScanAlias existingAlias : aliases) {
-			if (!existingAlias.name.equals(alias.name)) {
-				continue;
-			}
-			return;
-		}
-		aliases.add(alias);
-	}
-
-	public void includeAlias(String alias, GOTScanAlias.Type type) {
-		includeAlias(new GOTScanAlias(alias, type));
 	}
 
 	public static class ScanStep extends ScanStepBase {

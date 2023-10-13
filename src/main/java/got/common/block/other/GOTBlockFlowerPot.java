@@ -1,5 +1,8 @@
 package got.common.block.other;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -20,41 +23,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 public class GOTBlockFlowerPot extends BlockFlowerPot {
-	public static boolean canAcceptPlant(ItemStack itemstack) {
-		Item item = itemstack.getItem();
-		if (item instanceof ItemBlock) {
-			Block block = ((ItemBlock) item).field_150939_a;
-			return block instanceof GOTBlockFlower;
-		}
-		return false;
-	}
-
-	public static ItemStack getPlant(IBlockAccess world, int i, int j, int k) {
-		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (tileentity instanceof GOTTileEntityFlowerPot) {
-			GOTTileEntityFlowerPot flowerPot = (GOTTileEntityFlowerPot) tileentity;
-			if (flowerPot.item == null) {
-				return null;
-			}
-			return new ItemStack(flowerPot.item, 1, flowerPot.meta);
-		}
-		return null;
-	}
-
-	public static void setPlant(World world, int i, int j, int k, ItemStack itemstack) {
-		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (tileentity instanceof GOTTileEntityFlowerPot) {
-			GOTTileEntityFlowerPot flowerPot = (GOTTileEntityFlowerPot) tileentity;
-			flowerPot.item = itemstack.getItem();
-			flowerPot.meta = itemstack.getItemDamage();
-			world.markBlockForUpdate(i, j, k);
-		}
-	}
-
 	@Override
 	public TileEntity createNewTileEntity(World world, int i) {
 		return new GOTTileEntityFlowerPot();
@@ -114,5 +83,36 @@ public class GOTBlockFlowerPot extends BlockFlowerPot {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
+	}
+
+	public static boolean canAcceptPlant(ItemStack itemstack) {
+		Item item = itemstack.getItem();
+		if (item instanceof ItemBlock) {
+			Block block = ((ItemBlock) item).field_150939_a;
+			return block instanceof GOTBlockFlower;
+		}
+		return false;
+	}
+
+	public static ItemStack getPlant(IBlockAccess world, int i, int j, int k) {
+		TileEntity tileentity = world.getTileEntity(i, j, k);
+		if (tileentity instanceof GOTTileEntityFlowerPot) {
+			GOTTileEntityFlowerPot flowerPot = (GOTTileEntityFlowerPot) tileentity;
+			if (flowerPot.item == null) {
+				return null;
+			}
+			return new ItemStack(flowerPot.item, 1, flowerPot.meta);
+		}
+		return null;
+	}
+
+	public static void setPlant(World world, int i, int j, int k, ItemStack itemstack) {
+		TileEntity tileentity = world.getTileEntity(i, j, k);
+		if (tileentity instanceof GOTTileEntityFlowerPot) {
+			GOTTileEntityFlowerPot flowerPot = (GOTTileEntityFlowerPot) tileentity;
+			flowerPot.item = itemstack.getItem();
+			flowerPot.meta = itemstack.getItemDamage();
+			world.markBlockForUpdate(i, j, k);
+		}
 	}
 }

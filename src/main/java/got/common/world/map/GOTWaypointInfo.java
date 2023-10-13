@@ -32,16 +32,6 @@ public class GOTWaypointInfo implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public double getShiftX() {
-		return shiftX;
-	}
-
-	@Override
-	public double getShiftY() {
-		return shiftY;
-	}
-
-	@Override
 	public GOTWaypoint getInstance() {
 		return waypoint;
 	}
@@ -59,6 +49,16 @@ public class GOTWaypointInfo implements GOTAbstractWaypoint {
 	@Override
 	public int getRotation() {
 		return rotation;
+	}
+
+	@Override
+	public double getShiftX() {
+		return shiftX;
+	}
+
+	@Override
+	public double getShiftY() {
+		return shiftY;
 	}
 
 	@Override

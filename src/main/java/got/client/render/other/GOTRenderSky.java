@@ -1,5 +1,7 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.client.Minecraft;
@@ -12,7 +14,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.IRenderHandler;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderSky extends IRenderHandler {
 	public static ResourceLocation moonTexture = new ResourceLocation("got:textures/sky/moon.png");

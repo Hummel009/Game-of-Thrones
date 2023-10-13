@@ -1,5 +1,8 @@
 package got.common.network;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -16,9 +19,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class GOTPacketSell implements IMessage {
 	@Override

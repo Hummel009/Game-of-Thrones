@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBiome.ImmuneToHeat {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe)};
+	public static ItemStack[] weapons = { new ItemStack(GOTItems.ironDagger), new ItemStack(GOTItems.bronzeDagger), new ItemStack(Items.iron_axe), new ItemStack(GOTItems.bronzeAxe), new ItemStack(Items.stone_axe) };
 
 	public GOTEntityLightSkinThief(World world) {
 		super(world);
@@ -140,17 +140,17 @@ public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBi
 	public void setupNPCName() {
 		int i = rand.nextInt(4);
 		switch (i) {
-			case 0:
-				familyInfo.setName(GOTNames.getWesterosName(rand, true));
-				break;
-			case 2:
-				familyInfo.setName(GOTNames.getEssosName(rand, true));
-				break;
-			case 3:
-				familyInfo.setName(GOTNames.getQarthName(rand, true));
-				break;
-			default:
-				familyInfo.setName(GOTNames.getWildName(rand, true));
+		case 0:
+			familyInfo.setName(GOTNames.getWesterosName(rand, true));
+			break;
+		case 2:
+			familyInfo.setName(GOTNames.getEssosName(rand, true));
+			break;
+		case 3:
+			familyInfo.setName(GOTNames.getQarthName(rand, true));
+			break;
+		default:
+			familyInfo.setName(GOTNames.getWildName(rand, true));
 		}
 	}
 }

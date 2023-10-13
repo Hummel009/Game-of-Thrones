@@ -75,9 +75,9 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 	@Override
 	public int[] getAccessibleSlotsFromSide(int side) {
 		if (side == 0) {
-			return new int[]{1};
+			return new int[] { 1 };
 		}
-		return new int[]{0};
+		return new int[] { 0 };
 	}
 
 	@Override

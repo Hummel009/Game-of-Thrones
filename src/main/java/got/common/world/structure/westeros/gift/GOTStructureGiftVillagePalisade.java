@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.gift;
 
-import net.minecraft.world.World;
-
 import java.util.Random;
+
+import net.minecraft.world.World;
 
 public class GOTStructureGiftVillagePalisade extends GOTStructureGiftBase {
 	public GOTStructureGiftVillagePalisade(boolean flag) {

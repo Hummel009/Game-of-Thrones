@@ -1,5 +1,8 @@
 package got.common;
 
+import java.io.File;
+import java.nio.file.Files;
+
 import cpw.mods.fml.common.FMLLog;
 import got.GOT;
 import got.common.world.GOTWorldInfo;
@@ -8,9 +11,6 @@ import net.minecraft.nbt.CompressedStreamTools;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.WorldServer;
-
-import java.io.File;
-import java.nio.file.Files;
 
 public class GOTTime {
 	public static int DAY_LENGTH = 48000;

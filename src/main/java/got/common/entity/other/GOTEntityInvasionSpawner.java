@@ -1,5 +1,7 @@
 package got.common.entity.other;
 
+import java.util.*;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
@@ -31,8 +33,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.ForgeEventFactory;
 
-import java.util.*;
-
 public class GOTEntityInvasionSpawner extends Entity {
 	public static int MAX_INVASION_SIZE = 10000;
 	public static double INVASION_FOLLOW_RANGE = 40.0;
@@ -52,23 +52,6 @@ public class GOTEntityInvasionSpawner extends Entity {
 		setSize(1.5f, 1.5f);
 		renderDistanceWeight = 4.0;
 		spawnerSpin = rand.nextFloat() * 360.0f;
-	}
-
-	@SuppressWarnings("all")
-	public static GOTEntityInvasionSpawner locateInvasionNearby(Entity seeker, UUID id) {
-		World world = seeker.worldObj;
-		double search = 256.0;
-		List<GOTEntityInvasionSpawner> invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), new IEntitySelector() {
-
-			@Override
-			public boolean isEntityApplicable(Entity e) {
-				return e.getUniqueID().equals(id);
-			}
-		});
-		if (!invasions.isEmpty()) {
-			return invasions.get(0);
-		}
-		return null;
 	}
 
 	public void addPlayerKill(EntityPlayer entityplayer) {
@@ -209,10 +192,6 @@ public class GOTEntityInvasionSpawner extends Entity {
 			return type;
 		}
 		return GOTInvasions.NORTH;
-	}
-
-	public void setInvasionType(GOTInvasions type) {
-		dataWatcher.updateObject(20, (byte) type.ordinal());
 	}
 
 	@Override
@@ -430,6 +409,10 @@ public class GOTEntityInvasionSpawner extends Entity {
 		};
 	}
 
+	public void setInvasionType(GOTInvasions type) {
+		dataWatcher.updateObject(20, (byte) type.ordinal());
+	}
+
 	public void setWatchingInvasion(EntityPlayerMP entityplayer, boolean overrideAlreadyWatched) {
 		IMessage pkt = new GOTPacketInvasionWatch(this, overrideAlreadyWatched);
 		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
@@ -507,6 +490,23 @@ public class GOTEntityInvasionSpawner extends Entity {
 			}
 			nbt.setTag("BonusFactions", bonusTags);
 		}
+	}
+
+	@SuppressWarnings("all")
+	public static GOTEntityInvasionSpawner locateInvasionNearby(Entity seeker, UUID id) {
+		World world = seeker.worldObj;
+		double search = 256.0;
+		List<GOTEntityInvasionSpawner> invasions = world.selectEntitiesWithinAABB(GOTEntityInvasionSpawner.class, seeker.boundingBox.expand(search, search, search), new IEntitySelector() {
+
+			@Override
+			public boolean isEntityApplicable(Entity e) {
+				return e.getUniqueID().equals(id);
+			}
+		});
+		if (!invasions.isEmpty()) {
+			return invasions.get(0);
+		}
+		return null;
 	}
 
 }

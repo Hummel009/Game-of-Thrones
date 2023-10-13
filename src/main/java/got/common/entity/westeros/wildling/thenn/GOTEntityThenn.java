@@ -23,8 +23,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 
 public class GOTEntityThenn extends GOTEntityHumanBase {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
-	public static ItemStack[] spears = {new ItemStack(GOTItems.wildlingSpear)};
+	public static ItemStack[] weapons = { new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword) };
+	public static ItemStack[] spears = { new ItemStack(GOTItems.wildlingSpear) };
 
 	public GOTEntityThenn(World world) {
 		super(world);

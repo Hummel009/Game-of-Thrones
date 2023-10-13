@@ -1,10 +1,11 @@
 package got.client.model;
 
+import org.lwjgl.opengl.GL11;
+
 import got.client.render.other.GOTGlowingEyes;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-import org.lwjgl.opengl.GL11;
 
 public class GOTModelHuman extends GOTModelBiped implements GOTGlowingEyes.Model {
 	public ModelRenderer bipedChest = new ModelRenderer(this, 24, 0);

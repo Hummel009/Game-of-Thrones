@@ -1,5 +1,9 @@
 package got.common.world.structure.essos.ghiscar;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 import got.common.GOTDimension;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
@@ -11,33 +15,11 @@ import net.minecraft.world.gen.structure.MapGenStructure;
 import net.minecraft.world.gen.structure.MapGenStructureIO;
 import net.minecraft.world.gen.structure.StructureStart;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 public class GOTStructureGhiscarPyramidMapgen extends MapGenStructure {
 	public static List<GOTBiome> spawnBiomes;
 	public static int minDist = 12;
 	public static int separation = 24;
 	public int spawnChance = 10;
-
-	public static void register() {
-		MapGenStructureIO.registerStructure(GOTStructureGhiscarPyramidStart.class, "GOT.TPyr");
-		MapGenStructureIO.func_143031_a(GOTStructureGhiscarPyramidComponent.class, "GOT.TPyr.Pyramid");
-	}
-
-	public static void setupSpawnBiomes() {
-		if (spawnBiomes == null) {
-			spawnBiomes = new ArrayList<>();
-			for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
-				boolean flag = biome instanceof GOTBiomeGhiscar;
-				if (!flag) {
-					continue;
-				}
-				spawnBiomes.add(biome);
-			}
-		}
-	}
 
 	@Override
 	public boolean canSpawnStructureAtCoords(int i, int k) {
@@ -72,5 +54,23 @@ public class GOTStructureGhiscarPyramidMapgen extends MapGenStructure {
 	@Override
 	public StructureStart getStructureStart(int i, int j) {
 		return new GOTStructureGhiscarPyramidStart(worldObj, rand, i, j);
+	}
+
+	public static void register() {
+		MapGenStructureIO.registerStructure(GOTStructureGhiscarPyramidStart.class, "GOT.TPyr");
+		MapGenStructureIO.func_143031_a(GOTStructureGhiscarPyramidComponent.class, "GOT.TPyr.Pyramid");
+	}
+
+	public static void setupSpawnBiomes() {
+		if (spawnBiomes == null) {
+			spawnBiomes = new ArrayList<>();
+			for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
+				boolean flag = biome instanceof GOTBiomeGhiscar;
+				if (!flag) {
+					continue;
+				}
+				spawnBiomes.add(biome);
+			}
+		}
 	}
 }

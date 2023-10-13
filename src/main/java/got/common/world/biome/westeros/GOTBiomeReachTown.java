@@ -1,14 +1,14 @@
 package got.common.world.biome.westeros;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class GOTBiomeReachTown extends GOTBiomeReach {
 	public GOTBiomeReachTown(int i, boolean major) {

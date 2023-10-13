@@ -1,5 +1,7 @@
 package got.common.entity.ai;
 
+import java.util.Random;
+
 import got.GOT;
 import got.common.entity.animal.GOTEntityRabbit;
 import net.minecraft.block.Block;
@@ -8,8 +10,6 @@ import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTEntityAIRabbitEatCrops extends EntityAIBase {
 	public GOTEntityRabbit theRabbit;

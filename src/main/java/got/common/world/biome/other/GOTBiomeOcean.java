@@ -1,5 +1,7 @@
 package got.common.world.biome.other;
 
+import java.util.Random;
+
 import got.GOT;
 import got.client.sound.GOTBiomeMusic;
 import got.client.sound.GOTBiomeMusic.MusicRegion;
@@ -17,8 +19,6 @@ import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import java.util.Random;
-
 public class GOTBiomeOcean extends GOTBiome {
 	public static Random iceRand = new Random();
 	public WorldGenerator spongeGen = new GOTWorldGenSeaBlock(Blocks.sponge, 0, 24);
@@ -34,10 +34,6 @@ public class GOTBiomeOcean extends GOTBiome {
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8, Blocks.sand), 0.5f, 56, 80);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreSalt, 8, GOTBlocks.whiteSand), 0.5f, 56, 80);
 		setUnreliableChance(GOTEventSpawner.EventChance.NEVER);
-	}
-
-	public static boolean isFrozen(int i, int k) {
-		return k <= -23000 || k >= 490000;
 	}
 
 	@Override
@@ -85,5 +81,9 @@ public class GOTBiomeOcean extends GOTBiome {
 	@Override
 	public boolean getEnableRiver() {
 		return false;
+	}
+
+	public static boolean isFrozen(int i, int k) {
+		return k <= -23000 || k >= 490000;
 	}
 }

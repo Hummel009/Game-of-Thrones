@@ -40,26 +40,26 @@ public class GOTPacketOptions implements IMessage {
 				int option = packet.option;
 				boolean enable = packet.enable;
 				switch (option) {
-					case 0:
-						GOTLevelData.getData(entityplayer).setFriendlyFire(enable);
-						break;
-					case 1:
-						GOTLevelData.getData(entityplayer).setEnableHiredDeathMessages(enable);
-						break;
-					case 3:
-						GOTLevelData.getData(entityplayer).setHideMapLocation(enable);
-						break;
-					case 4:
-						GOTLevelData.getData(entityplayer).setFemRankOverride(enable);
-						break;
-					case 5:
-						GOTLevelData.getData(entityplayer).setEnableConquestKills(enable);
-						break;
-					case 9:
-						GOTLevelData.getData(entityplayer).setTableSwitched(enable);
-						break;
-					default:
-						break;
+				case 0:
+					GOTLevelData.getData(entityplayer).setFriendlyFire(enable);
+					break;
+				case 1:
+					GOTLevelData.getData(entityplayer).setEnableHiredDeathMessages(enable);
+					break;
+				case 3:
+					GOTLevelData.getData(entityplayer).setHideMapLocation(enable);
+					break;
+				case 4:
+					GOTLevelData.getData(entityplayer).setFemRankOverride(enable);
+					break;
+				case 5:
+					GOTLevelData.getData(entityplayer).setEnableConquestKills(enable);
+					break;
+				case 9:
+					GOTLevelData.getData(entityplayer).setTableSwitched(enable);
+					break;
+				default:
+					break;
 				}
 			}
 			return null;

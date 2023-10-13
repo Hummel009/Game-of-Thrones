@@ -1,5 +1,9 @@
 package got.client.gui;
 
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.database.GOTItems;
 import got.common.network.GOTPacketHandler;
@@ -9,9 +13,6 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.opengl.GL11;
-
-import java.util.List;
 
 public class GOTGuiHornSelect extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/horn_select.png");

@@ -1,5 +1,7 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import got.client.GOTTickHandlerClient;
 import got.client.render.animal.GOTRenderBird;
 import got.common.item.other.GOTItemAnimalJar;
@@ -16,7 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Vec3;
 import net.minecraftforge.client.IItemRenderer;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderAnimalJar extends TileEntitySpecialRenderer implements IItemRenderer {
 	@Override

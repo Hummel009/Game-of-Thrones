@@ -1,12 +1,12 @@
 package got.common.item.other;
 
+import java.util.Locale;
+
 import got.common.database.GOTCreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StringUtils;
-
-import java.util.Locale;
 
 public class GOTItemArmor extends ItemArmor {
 	public String extraName;

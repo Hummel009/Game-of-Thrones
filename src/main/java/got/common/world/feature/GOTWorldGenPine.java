@@ -1,5 +1,7 @@
 package got.common.world.feature;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -9,8 +11,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.Random;
 
 public class GOTWorldGenPine extends WorldGenAbstractTree {
 	public Block woodBlock = GOTBlocks.wood5;
@@ -64,23 +64,23 @@ public class GOTWorldGenPine extends WorldGenAbstractTree {
 		while (leafHeight > minLeafHeight) {
 			int r = random.nextInt(3);
 			switch (r) {
-				case 0:
-					generateLeafLayer(world, random, i, leafHeight, k, 1);
-					leafHeight -= 2;
-					continue;
-				case 1:
-					leafHeight--;
-					generateLeafLayer(world, random, i, leafHeight + 1, k, 1);
-					generateLeafLayer(world, random, i, leafHeight, k, 2);
-					generateLeafLayer(world, random, i, leafHeight - 1, k, 1);
-					leafHeight -= 3;
-					continue;
-				default:
-					leafHeight--;
-					generateLeafLayer(world, random, i, leafHeight + 1, k, 2);
-					generateLeafLayer(world, random, i, leafHeight, k, 3);
-					generateLeafLayer(world, random, i, leafHeight - 1, k, 2);
-					leafHeight -= 3;
+			case 0:
+				generateLeafLayer(world, random, i, leafHeight, k, 1);
+				leafHeight -= 2;
+				continue;
+			case 1:
+				leafHeight--;
+				generateLeafLayer(world, random, i, leafHeight + 1, k, 1);
+				generateLeafLayer(world, random, i, leafHeight, k, 2);
+				generateLeafLayer(world, random, i, leafHeight - 1, k, 1);
+				leafHeight -= 3;
+				continue;
+			default:
+				leafHeight--;
+				generateLeafLayer(world, random, i, leafHeight + 1, k, 2);
+				generateLeafLayer(world, random, i, leafHeight, k, 3);
+				generateLeafLayer(world, random, i, leafHeight - 1, k, 2);
+				leafHeight -= 3;
 			}
 		}
 		generateLeafLayer(world, random, i, leafHeight, k, 1);

@@ -1,5 +1,7 @@
 package got.common.entity.other;
 
+import java.util.*;
+
 import cpw.mods.fml.common.registry.EntityRegistry;
 import got.GOT;
 import got.common.faction.GOTFaction;
@@ -10,8 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import java.util.*;
-
 public class GOTEntityRegistry {
 	public static Map<Integer, SpawnEggInfo> spawnEggs = new LinkedHashMap<>();
 	public static Map<String, Integer> stringToIDMapping = new HashMap<>();
@@ -20,6 +20,12 @@ public class GOTEntityRegistry {
 	public static Map<Class<? extends Entity>, Integer> classToIDMapping = new HashMap<>();
 	public static Map<Class<? extends Entity>, GOTFaction> classToFactionMapping = new HashMap<>();
 	public static Collection<Class<? extends Entity>> entitySet = new HashSet<>();
+
+	public void getSubItems(Item item, CreativeTabs tab, Collection<ItemStack> list) {
+		for (GOTEntityRegistry.SpawnEggInfo info : spawnEggs.values()) {
+			list.add(new ItemStack(item, 1, info.spawnedID));
+		}
+	}
 
 	public static Entity createEntityByClass(Class<? extends Entity> entityClass, World world) {
 		Entity entity = null;
@@ -95,12 +101,6 @@ public class GOTEntityRegistry {
 		entitySet.add(entityClass);
 		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
 		classToFactionMapping.put(entityClass, faction);
-	}
-
-	public void getSubItems(Item item, CreativeTabs tab, Collection<ItemStack> list) {
-		for (GOTEntityRegistry.SpawnEggInfo info : spawnEggs.values()) {
-			list.add(new ItemStack(item, 1, info.spawnedID));
-		}
 	}
 
 	public static class SpawnEggInfo {

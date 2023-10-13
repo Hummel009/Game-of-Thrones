@@ -1,12 +1,13 @@
 package got.client.gui;
 
+import java.util.Arrays;
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
 import got.client.GOTClientProxy;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import org.lwjgl.opengl.GL11;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class GOTGuiButtonPledge extends GuiButton {
 	public GOTGuiFactions parentGUI;

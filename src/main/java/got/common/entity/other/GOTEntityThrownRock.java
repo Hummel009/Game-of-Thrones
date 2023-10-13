@@ -52,10 +52,6 @@ public class GOTEntityThrownRock extends EntityThrowable {
 		return dataWatcher.getWatchableObjectByte(16) == 1;
 	}
 
-	public void setSpawnsTroll(boolean flag) {
-		dataWatcher.updateObject(16, flag ? (byte) 1 : 0);
-	}
-
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void handleHealthUpdate(byte b) {
@@ -123,6 +119,10 @@ public class GOTEntityThrownRock extends EntityThrowable {
 
 	public void setDamage(float f) {
 		damage = f;
+	}
+
+	public void setSpawnsTroll(boolean flag) {
+		dataWatcher.updateObject(16, flag ? (byte) 1 : 0);
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package got.common.entity.other;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTBannerProtection;
@@ -17,8 +19,6 @@ import net.minecraft.util.Direction;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GOTEntityBannerWall extends EntityHanging {
 	public NBTTagCompound protectData;
@@ -64,16 +64,8 @@ public class GOTEntityBannerWall extends EntityHanging {
 		return GOTItemBanner.BannerType.forID(getBannerTypeID());
 	}
 
-	public void setBannerType(GOTItemBanner.BannerType type) {
-		setBannerTypeID(type.bannerID);
-	}
-
 	public int getBannerTypeID() {
 		return dataWatcher.getWatchableObjectShort(18);
-	}
-
-	public void setBannerTypeID(int i) {
-		dataWatcher.updateObject(18, (short) i);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -162,6 +154,14 @@ public class GOTEntityBannerWall extends EntityHanging {
 		if (nbt.hasKey("ProtectData")) {
 			protectData = nbt.getCompoundTag("ProtectData");
 		}
+	}
+
+	public void setBannerType(GOTItemBanner.BannerType type) {
+		setBannerTypeID(type.bannerID);
+	}
+
+	public void setBannerTypeID(int i) {
+		dataWatcher.updateObject(18, (short) i);
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package got.common.world.structure.sothoryos.summer;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -7,8 +9,6 @@ import got.common.database.GOTItems;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureSummerHouse extends GOTStructureSummerBase {
 	public GOTStructureSummerHouse(boolean flag) {

@@ -1,10 +1,11 @@
 package got.common.fellowship;
 
+import java.util.*;
+
 import com.mojang.authlib.GameProfile;
+
 import got.common.database.GOTTitle;
 import net.minecraft.item.ItemStack;
-
-import java.util.*;
 
 public class GOTFellowshipClient {
 	public UUID fellowshipID;
@@ -70,10 +71,6 @@ public class GOTFellowshipClient {
 		return fellowshipIcon;
 	}
 
-	public void setIcon(ItemStack itemstack) {
-		fellowshipIcon = itemstack;
-	}
-
 	public List<GameProfile> getMemberProfiles() {
 		return getProfilesFor(memberUUIDs);
 	}
@@ -84,10 +81,6 @@ public class GOTFellowshipClient {
 
 	public String getName() {
 		return fellowshipName;
-	}
-
-	public void setName(String name) {
-		fellowshipName = name;
 	}
 
 	public GameProfile getOwnerProfile() {
@@ -106,16 +99,8 @@ public class GOTFellowshipClient {
 		return preventHiredFF;
 	}
 
-	public void setPreventHiredFriendlyFire(boolean flag) {
-		preventHiredFF = flag;
-	}
-
 	public boolean getPreventPVP() {
 		return preventPVP;
-	}
-
-	public void setPreventPVP(boolean flag) {
-		preventPVP = flag;
 	}
 
 	public GameProfile getProfileFor(UUID playerUuid) {
@@ -132,10 +117,6 @@ public class GOTFellowshipClient {
 
 	public boolean getShowMapLocations() {
 		return showMapLocations;
-	}
-
-	public void setShowMapLocations(boolean flag) {
-		showMapLocations = flag;
 	}
 
 	public GOTTitle.PlayerTitle getTitleFor(UUID playerUuid) {
@@ -186,6 +167,14 @@ public class GOTFellowshipClient {
 		adminUUIDs = admins;
 	}
 
+	public void setIcon(ItemStack itemstack) {
+		fellowshipIcon = itemstack;
+	}
+
+	public void setName(String name) {
+		fellowshipName = name;
+	}
+
 	public void setOwner(GameProfile newOwner, boolean owned) {
 		UUID prevOwnerUuid = ownerUUID;
 		UUID newOwnerUuid = newOwner.getId();
@@ -202,6 +191,18 @@ public class GOTFellowshipClient {
 				isAdminned = false;
 			}
 		}
+	}
+
+	public void setPreventHiredFriendlyFire(boolean flag) {
+		preventHiredFF = flag;
+	}
+
+	public void setPreventPVP(boolean flag) {
+		preventPVP = flag;
+	}
+
+	public void setShowMapLocations(boolean flag) {
+		showMapLocations = flag;
 	}
 
 	public void setTitles(Map<UUID, GOTTitle.PlayerTitle> titles) {

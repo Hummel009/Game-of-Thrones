@@ -1,5 +1,8 @@
 package got.common.world.structure.essos.yiti;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.yiti.GOTEntityYiTiFarmer;
 import got.common.entity.essos.yiti.GOTEntityYiTiFarmhand;
@@ -8,9 +11,6 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 	protected GOTStructureYiTiVillageFarm(boolean flag) {
@@ -100,20 +100,6 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 			super(flag);
 		}
 
-		public static EntityAnimal getRandomAnimal(World world, Random random) {
-			int animal = random.nextInt(4);
-			switch (animal) {
-				case 0:
-					return new EntityCow(world);
-				case 1:
-					return new EntityPig(world);
-				case 2:
-					return new EntitySheep(world);
-				default:
-					return new EntityChicken(world);
-			}
-		}
-
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			int i1;
@@ -152,6 +138,20 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 				animal.detachHome();
 			}
 			return true;
+		}
+
+		public static EntityAnimal getRandomAnimal(World world, Random random) {
+			int animal = random.nextInt(4);
+			switch (animal) {
+			case 0:
+				return new EntityCow(world);
+			case 1:
+				return new EntityPig(world);
+			case 2:
+				return new EntitySheep(world);
+			default:
+				return new EntityChicken(world);
+			}
 		}
 	}
 
@@ -209,20 +209,6 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 			super(flag);
 		}
 
-		public static GOTTreeType getRandomTree(Random random) {
-			ArrayList<GOTTreeType> treeList = new ArrayList<>();
-			treeList.add(GOTTreeType.BEECH);
-			treeList.add(GOTTreeType.BEECH_LARGE);
-			treeList.add(GOTTreeType.MAPLE);
-			treeList.add(GOTTreeType.MAPLE_LARGE);
-			treeList.add(GOTTreeType.CYPRESS);
-			treeList.add(GOTTreeType.ALMOND);
-			treeList.add(GOTTreeType.OLIVE);
-			treeList.add(GOTTreeType.DATE_PALM);
-			treeList.add(GOTTreeType.POMEGRANATE);
-			return treeList.get(random.nextInt(treeList.size()));
-		}
-
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			int i1;
@@ -263,6 +249,20 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 				}
 			}
 			return true;
+		}
+
+		public static GOTTreeType getRandomTree(Random random) {
+			ArrayList<GOTTreeType> treeList = new ArrayList<>();
+			treeList.add(GOTTreeType.BEECH);
+			treeList.add(GOTTreeType.BEECH_LARGE);
+			treeList.add(GOTTreeType.MAPLE);
+			treeList.add(GOTTreeType.MAPLE_LARGE);
+			treeList.add(GOTTreeType.CYPRESS);
+			treeList.add(GOTTreeType.ALMOND);
+			treeList.add(GOTTreeType.OLIVE);
+			treeList.add(GOTTreeType.DATE_PALM);
+			treeList.add(GOTTreeType.POMEGRANATE);
+			return treeList.get(random.nextInt(treeList.size()));
 		}
 	}
 

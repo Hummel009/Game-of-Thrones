@@ -1,12 +1,12 @@
 package got.common.world.feature;
 
+import java.util.Random;
+
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 public class GOTWorldGenBoulder extends WorldGenerator {
 	public Block id;

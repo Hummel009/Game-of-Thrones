@@ -43,7 +43,7 @@ public class GOTPacketMapTp implements IMessage {
 				int i = packet.xCoord;
 				int k = packet.zCoord;
 				int j = world.getTopSolidOrLiquidBlock(i, k);
-				String[] args = {Integer.toString(i), Integer.toString(j), Integer.toString(k)};
+				String[] args = { Integer.toString(i), Integer.toString(j), Integer.toString(k) };
 				new CommandTeleport().processCommand(entityplayer, args);
 			}
 			return null;

@@ -1,12 +1,13 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import got.client.effect.GOTEntityDeadMarshFace;
 import got.client.model.GOTModelMarshWraith;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderDeadMarshFace extends Render {
 	public static ResourceLocation skin = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith.png");

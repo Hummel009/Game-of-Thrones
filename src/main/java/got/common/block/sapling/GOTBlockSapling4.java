@@ -1,11 +1,11 @@
 package got.common.block.sapling;
 
+import java.util.Random;
+
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
-
-import java.util.Random;
 
 public class GOTBlockSapling4 extends GOTBlockSaplingBase {
 	public GOTBlockSapling4() {

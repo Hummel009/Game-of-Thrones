@@ -1,29 +1,20 @@
 package got.common.world.structure.essos.yiti;
 
+import java.util.Random;
+
 import com.google.common.math.IntMath;
+
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.yiti.*;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
-	public static Class<? extends GOTStructureBase>[] allStallTypes = new Class[]{Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class};
+	public static Class<? extends GOTStructureBase>[] allStallTypes = new Class[] { Miner.class, Florist.class, Blacksmith.class, Lumber.class, Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Farmer.class, Gold.class };
 
 	protected GOTStructureYiTiMarketStall(boolean flag) {
 		super(flag);
-	}
-
-	public static GOTStructureBase getRandomStall(Random random, boolean flag) {
-		try {
-			Class<? extends GOTStructureBase> cls = allStallTypes[random.nextInt(allStallTypes.length)];
-			return cls.getConstructor(Boolean.TYPE).newInstance(flag);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return new GOTStructureYiTiMarketStall.Gold(flag);
-		}
 	}
 
 	public abstract GOTEntityYiTiMan createTrader(World var1);
@@ -94,6 +85,16 @@ public abstract class GOTStructureYiTiMarketStall extends GOTStructureYiTiBase {
 	}
 
 	public abstract void generateRoof(World var1, Random var2, int var3, int var4, int var5);
+
+	public static GOTStructureBase getRandomStall(Random random, boolean flag) {
+		try {
+			Class<? extends GOTStructureBase> cls = allStallTypes[random.nextInt(allStallTypes.length)];
+			return cls.getConstructor(Boolean.TYPE).newInstance(flag);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new GOTStructureYiTiMarketStall.Gold(flag);
+		}
+	}
 
 	public static class Baker extends GOTStructureYiTiMarketStall {
 		public Baker(boolean flag) {

@@ -1,5 +1,7 @@
 package got.common.entity.ai;
 
+import java.util.List;
+
 import got.GOT;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTBartender;
@@ -10,8 +12,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
-
-import java.util.List;
 
 public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 	public GOTEntityAIDrink(GOTEntityNPC entity, GOTFoods foods, int chance) {

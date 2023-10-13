@@ -1,5 +1,8 @@
 package got.common.block.sapling;
 
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.other.GOTBlockFlower;
@@ -14,9 +17,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-import java.util.List;
-import java.util.Random;
-
 public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] saplingIcons;
@@ -26,43 +26,6 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		float f = 0.4f;
 		setBlockBounds(0.5f - f, 0.0f, 0.5f - f, 0.5f + f, f * 2.0f, 0.5f + f);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
-	}
-
-	public static int[] findPartyTree(IBlockAccess world, int i, int j, int k, Block block, int meta) {
-		return findSaplingSquare(world, i, j, k, block, meta, -1, 1, -2, 2);
-	}
-
-	public static int[] findSaplingSquare(IBlockAccess world, int i, int j, int k, Block block, int meta, int squareMin, int squareMax, int searchMin, int searchMax) {
-		for (int i1 = searchMin; i1 <= searchMax; ++i1) {
-			for (int k1 = searchMin; k1 <= searchMax; ++k1) {
-				boolean canGenerate = true;
-				block2:
-				for (int i2 = squareMin; i2 <= squareMax; ++i2) {
-					for (int k2 = squareMin; k2 <= squareMax; ++k2) {
-						int i3 = i + i1 + i2;
-						int k3 = k + k1 + k2;
-						if (isSameSapling(world, i3, j, k3, block, meta)) {
-							continue;
-						}
-						canGenerate = false;
-						break block2;
-					}
-				}
-				if (!canGenerate) {
-					continue;
-				}
-				return new int[]{i1, k1};
-			}
-		}
-		return null;
-	}
-
-	public static boolean isSameSapling(IBlockAccess world, int i, int j, int k, Block block, int meta) {
-		if (world.getBlock(i, j, k) == block) {
-			int blockMeta = world.getBlockMetadata(i, j, k);
-			return (blockMeta & 7) == meta;
-		}
-		return false;
 	}
 
 	@Override
@@ -132,5 +95,41 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 				incrementGrowth(world, i, j, k, random);
 			}
 		}
+	}
+
+	public static int[] findPartyTree(IBlockAccess world, int i, int j, int k, Block block, int meta) {
+		return findSaplingSquare(world, i, j, k, block, meta, -1, 1, -2, 2);
+	}
+
+	public static int[] findSaplingSquare(IBlockAccess world, int i, int j, int k, Block block, int meta, int squareMin, int squareMax, int searchMin, int searchMax) {
+		for (int i1 = searchMin; i1 <= searchMax; ++i1) {
+			for (int k1 = searchMin; k1 <= searchMax; ++k1) {
+				boolean canGenerate = true;
+				block2: for (int i2 = squareMin; i2 <= squareMax; ++i2) {
+					for (int k2 = squareMin; k2 <= squareMax; ++k2) {
+						int i3 = i + i1 + i2;
+						int k3 = k + k1 + k2;
+						if (isSameSapling(world, i3, j, k3, block, meta)) {
+							continue;
+						}
+						canGenerate = false;
+						break block2;
+					}
+				}
+				if (!canGenerate) {
+					continue;
+				}
+				return new int[] { i1, k1 };
+			}
+		}
+		return null;
+	}
+
+	public static boolean isSameSapling(IBlockAccess world, int i, int j, int k, Block block, int meta) {
+		if (world.getBlock(i, j, k) == block) {
+			int blockMeta = world.getBlockMetadata(i, j, k);
+			return (blockMeta & 7) == meta;
+		}
+		return false;
 	}
 }

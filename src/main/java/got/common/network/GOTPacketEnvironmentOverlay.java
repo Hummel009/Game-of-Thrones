@@ -27,11 +27,6 @@ public class GOTPacketEnvironmentOverlay implements IMessage {
 		data.writeByte(overlay.ordinal());
 	}
 
-	public enum Overlay {
-		FROST, BURN
-
-	}
-
 	public static class Handler implements IMessageHandler<GOTPacketEnvironmentOverlay, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketEnvironmentOverlay packet, MessageContext context) {
@@ -42,6 +37,11 @@ public class GOTPacketEnvironmentOverlay implements IMessage {
 			}
 			return null;
 		}
+	}
+
+	public enum Overlay {
+		FROST, BURN
+
 	}
 
 }

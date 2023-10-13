@@ -1,9 +1,14 @@
 package got.common;
 
+import java.util.*;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.mojang.authlib.GameProfile;
+
 import codechicken.nei.NEIModContainer;
 import codechicken.nei.api.IConfigureNEI;
 import codechicken.nei.api.ItemInfo;
-import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.IFuelHandler;
@@ -104,9 +109,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent.HarvestCheck;
 import net.minecraftforge.event.entity.player.PlayerEvent.StartTracking;
 import net.minecraftforge.event.terraingen.SaplingGrowTreeEvent;
 import net.minecraftforge.event.world.*;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.*;
 
 public class GOTEventHandler implements IFuelHandler {
 	public GOTItemBow proxyBowItemServer;
@@ -117,27 +119,6 @@ public class GOTEventHandler implements IFuelHandler {
 		MinecraftForge.EVENT_BUS.register(this);
 		MinecraftForge.TERRAIN_GEN_BUS.register(this);
 		GameRegistry.registerFuelHandler(this);
-	}
-
-	public static void dechant(ItemStack itemstack, EntityPlayer entityplayer) {
-		if (!entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.isItemEnchanted()) {
-			Item item = itemstack.getItem();
-			if (!(item instanceof ItemFishingRod)) {
-				itemstack.getTagCompound().removeTag("ench");
-			}
-		}
-	}
-
-	public static String getUsernameWithoutWebservice(UUID player) {
-		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(player);
-		if (profile != null && !StringUtils.isBlank(profile.getName())) {
-			return profile.getName();
-		}
-		String cachedName = UsernameCache.getLastKnownUsername(player);
-		if (cachedName != null && !StringUtils.isBlank(cachedName)) {
-			return cachedName;
-		}
-		return player.toString();
 	}
 
 	public void cancelAttackEvent(LivingAttackEvent event) {
@@ -372,17 +353,17 @@ public class GOTEventHandler implements IFuelHandler {
 					if (logFacing != 12) {
 						boolean onInnerFace = false;
 						switch (logFacing) {
-							case 0:
-								onInnerFace = side == 0 || side == 1;
-								break;
-							case 4:
-								onInnerFace = side == 4 || side == 5;
-								break;
-							case 8:
-								onInnerFace = side == 2 || side == 3;
-								break;
-							default:
-								break;
+						case 0:
+							onInnerFace = side == 0 || side == 1;
+							break;
+						case 4:
+							onInnerFace = side == 4 || side == 5;
+							break;
+						case 8:
+							onInnerFace = side == 2 || side == 3;
+							break;
+						default:
+							break;
 						}
 						if (onInnerFace) {
 							meta |= 0xC;
@@ -1672,8 +1653,7 @@ public class GOTEventHandler implements IFuelHandler {
 				if (biomegenbase instanceof GOTBiome) {
 					GOTBiome biome = (GOTBiome) biomegenbase;
 					int attempts = 0;
-					label46:
-					while (attempts < 128) {
+					label46: while (attempts < 128) {
 						int i1 = i;
 						int j1 = j + 1;
 						int k1 = k;
@@ -1743,5 +1723,26 @@ public class GOTEventHandler implements IFuelHandler {
 		if (world.provider instanceof GOTWorldProvider) {
 			GOTBiomeVariantStorage.clearAllVariants(world);
 		}
+	}
+
+	public static void dechant(ItemStack itemstack, EntityPlayer entityplayer) {
+		if (!entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.isItemEnchanted()) {
+			Item item = itemstack.getItem();
+			if (!(item instanceof ItemFishingRod)) {
+				itemstack.getTagCompound().removeTag("ench");
+			}
+		}
+	}
+
+	public static String getUsernameWithoutWebservice(UUID player) {
+		GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(player);
+		if (profile != null && !StringUtils.isBlank(profile.getName())) {
+			return profile.getName();
+		}
+		String cachedName = UsernameCache.getLastKnownUsername(player);
+		if (cachedName != null && !StringUtils.isBlank(cachedName)) {
+			return cachedName;
+		}
+		return player.toString();
 	}
 }

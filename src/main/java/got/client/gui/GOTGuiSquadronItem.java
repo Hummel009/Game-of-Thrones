@@ -1,5 +1,7 @@
 package got.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTSquadrons;
 import got.common.network.GOTPacketHandler;
@@ -12,7 +14,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.StringUtils;
-import org.lwjgl.opengl.GL11;
 
 public class GOTGuiSquadronItem extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/squadronItem.png");

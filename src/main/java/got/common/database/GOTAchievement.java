@@ -1,5 +1,8 @@
 package got.common.database;
 
+import java.awt.Color;
+import java.util.*;
+
 import got.common.GOTChatEvents;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
@@ -18,10 +21,6 @@ import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
-
-import java.awt.*;
-import java.util.List;
-import java.util.*;
 
 public class GOTAchievement {
 	public static final Set<GOTAchievement> CONTENT = new HashSet<>();
@@ -372,6 +371,105 @@ public class GOTAchievement {
 		category.list.add(this);
 		getDimension().allAchievements.add(this);
 		CONTENT.add(this);
+	}
+
+	public void broadcastEarning(EntityPlayer entityplayer) {
+		IChatComponent earnName = getChatComponentForEarn(entityplayer);
+		IChatComponent msg = new ChatComponentTranslation("got.chat.achievement", entityplayer.func_145748_c_(), earnName);
+		MinecraftServer.getServer().getConfigurationManager().sendChatMsg(msg);
+	}
+
+	public boolean canPlayerEarn(EntityPlayer entityplayer) {
+		float alignment;
+		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
+		if (!enemyFactions.isEmpty()) {
+			boolean anyEnemies = false;
+			for (GOTFaction f : enemyFactions) {
+				alignment = playerData.getAlignment(f);
+				if (alignment > 0.0f) {
+					continue;
+				}
+				anyEnemies = true;
+			}
+			if (!anyEnemies) {
+				return false;
+			}
+		}
+		if (!allyFactions.isEmpty()) {
+			boolean anyAllies = false;
+			for (GOTFaction f : allyFactions) {
+				alignment = playerData.getAlignment(f);
+				if (alignment < 0.0f) {
+					continue;
+				}
+				anyAllies = true;
+			}
+			return anyAllies;
+		}
+		return true;
+	}
+
+	public GOTAchievement createTitle() {
+		return createTitle(null);
+	}
+
+	public GOTAchievement createTitle(String s) {
+		if (achievementTitle != null) {
+			throw new IllegalArgumentException("GOT achievement " + name + " already has an associated title!");
+		}
+		achievementTitle = new GOTTitle(s, this);
+		return this;
+	}
+
+	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
+		ChatComponentTranslation component = new ChatComponentTranslation(getUntranslatedTitle(entityplayer)).createCopy();
+		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
+		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + "$" + ID)));
+		return component;
+	}
+
+	public IChatComponent getChatComponentForEarn(EntityPlayer entityplayer) {
+		IChatComponent base = getAchievementChatComponent(entityplayer);
+		IChatComponent component = new ChatComponentText("[").appendSibling(base).appendText("]");
+		component.setChatStyle(base.getChatStyle());
+		return component;
+	}
+
+	public String getCodeName() {
+		return name;
+	}
+
+	public String getDescription(EntityPlayer entityplayer) {
+		return StatCollector.translateToLocal("got.achievement." + name + ".desc");
+	}
+
+	public GOTDimension getDimension() {
+		return category.dimension;
+	}
+
+	public String getTitle(EntityPlayer entityplayer) {
+		return StatCollector.translateToLocal(getUntranslatedTitle(entityplayer));
+	}
+
+	public String getUntranslatedTitle(EntityPlayer entityplayer) {
+		return "got.achievement." + name + ".title";
+	}
+
+	public void setRequiresAlly(GOTFaction... f) {
+		allyFactions.addAll(Arrays.asList(f));
+	}
+
+	public GOTAchievement setRequiresAnyEnemy(List<GOTFaction> f) {
+		return setRequiresEnemy(f.toArray(new GOTFaction[0]));
+	}
+
+	public GOTAchievement setRequiresEnemy(GOTFaction... f) {
+		enemyFactions.addAll(Arrays.asList(f));
+		return this;
+	}
+
+	public void setSpecial() {
+		isSpecial = true;
 	}
 
 	public static GOTAchievement achievementForCategoryAndID(Category category, int ID) {
@@ -759,105 +857,6 @@ public class GOTAchievement {
 			}
 			return 1;
 		};
-	}
-
-	public void broadcastEarning(EntityPlayer entityplayer) {
-		IChatComponent earnName = getChatComponentForEarn(entityplayer);
-		IChatComponent msg = new ChatComponentTranslation("got.chat.achievement", entityplayer.func_145748_c_(), earnName);
-		MinecraftServer.getServer().getConfigurationManager().sendChatMsg(msg);
-	}
-
-	public boolean canPlayerEarn(EntityPlayer entityplayer) {
-		float alignment;
-		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-		if (!enemyFactions.isEmpty()) {
-			boolean anyEnemies = false;
-			for (GOTFaction f : enemyFactions) {
-				alignment = playerData.getAlignment(f);
-				if (alignment > 0.0f) {
-					continue;
-				}
-				anyEnemies = true;
-			}
-			if (!anyEnemies) {
-				return false;
-			}
-		}
-		if (!allyFactions.isEmpty()) {
-			boolean anyAllies = false;
-			for (GOTFaction f : allyFactions) {
-				alignment = playerData.getAlignment(f);
-				if (alignment < 0.0f) {
-					continue;
-				}
-				anyAllies = true;
-			}
-			return anyAllies;
-		}
-		return true;
-	}
-
-	public GOTAchievement createTitle() {
-		return createTitle(null);
-	}
-
-	public GOTAchievement createTitle(String s) {
-		if (achievementTitle != null) {
-			throw new IllegalArgumentException("GOT achievement " + name + " already has an associated title!");
-		}
-		achievementTitle = new GOTTitle(s, this);
-		return this;
-	}
-
-	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
-		ChatComponentTranslation component = new ChatComponentTranslation(getUntranslatedTitle(entityplayer)).createCopy();
-		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + "$" + ID)));
-		return component;
-	}
-
-	public IChatComponent getChatComponentForEarn(EntityPlayer entityplayer) {
-		IChatComponent base = getAchievementChatComponent(entityplayer);
-		IChatComponent component = new ChatComponentText("[").appendSibling(base).appendText("]");
-		component.setChatStyle(base.getChatStyle());
-		return component;
-	}
-
-	public String getCodeName() {
-		return name;
-	}
-
-	public String getDescription(EntityPlayer entityplayer) {
-		return StatCollector.translateToLocal("got.achievement." + name + ".desc");
-	}
-
-	public GOTDimension getDimension() {
-		return category.dimension;
-	}
-
-	public String getTitle(EntityPlayer entityplayer) {
-		return StatCollector.translateToLocal(getUntranslatedTitle(entityplayer));
-	}
-
-	public String getUntranslatedTitle(EntityPlayer entityplayer) {
-		return "got.achievement." + name + ".title";
-	}
-
-	public void setRequiresAlly(GOTFaction... f) {
-		allyFactions.addAll(Arrays.asList(f));
-	}
-
-	public GOTAchievement setRequiresAnyEnemy(List<GOTFaction> f) {
-		return setRequiresEnemy(f.toArray(new GOTFaction[0]));
-	}
-
-	public GOTAchievement setRequiresEnemy(GOTFaction... f) {
-		enemyFactions.addAll(Arrays.asList(f));
-		return this;
-	}
-
-	public void setSpecial() {
-		isSpecial = true;
 	}
 
 	public enum Category {

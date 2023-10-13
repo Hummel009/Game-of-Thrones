@@ -1,5 +1,7 @@
 package got.common.network;
 
+import java.util.UUID;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -12,8 +14,6 @@ import got.common.world.map.GOTWaypoint;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentTranslation;
-
-import java.util.UUID;
 
 public class GOTPacketFastTravel implements IMessage {
 	public boolean isCustom;

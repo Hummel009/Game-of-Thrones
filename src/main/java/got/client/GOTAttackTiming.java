@@ -1,5 +1,7 @@
 package got.client;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.item.GOTWeaponStats;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
@@ -12,7 +14,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTAttackTiming {
 	public static Minecraft mc = Minecraft.getMinecraft();

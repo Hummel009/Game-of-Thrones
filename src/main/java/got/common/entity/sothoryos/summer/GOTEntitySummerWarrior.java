@@ -9,8 +9,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntitySummerWarrior extends GOTEntitySummerMan {
-	public static ItemStack[] weaponsBronze = {new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerDaggerPoisoned), new ItemStack(GOTItems.summerPike)};
-	public static int[] turbanColors = {1643539, 6309443, 7014914, 7809314, 5978155};
+	public static ItemStack[] weaponsBronze = { new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerDaggerPoisoned), new ItemStack(GOTItems.summerPike) };
+	public static int[] turbanColors = { 1643539, 6309443, 7014914, 7809314, 5978155 };
 
 	public GOTEntitySummerWarrior(World world) {
 		super(world);

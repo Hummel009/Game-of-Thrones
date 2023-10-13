@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -14,8 +16,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 	@SideOnly(Side.CLIENT)
@@ -32,14 +32,6 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		setHardness(0.5f);
 		setStepSound(Block.soundTypeMetal);
 		setCageTypes("bronze", "iron", "silver", "gold");
-	}
-
-	public static boolean isSameBirdCage(IBlockAccess world, int i, int j, int k, int i1, int j1, int k1) {
-		Block block = world.getBlock(i, j, k);
-		int meta = world.getBlockMetadata(i, j, k);
-		Block block1 = world.getBlock(i1, j1, k1);
-		int meta1 = world.getBlockMetadata(i1, j1, k1);
-		return block instanceof GOTBlockBirdCage && block == block1 && meta == meta1;
 	}
 
 	@Override
@@ -100,5 +92,13 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 
 	public void setCageTypes(String... s) {
 		cageTypes = s;
+	}
+
+	public static boolean isSameBirdCage(IBlockAccess world, int i, int j, int k, int i1, int j1, int k1) {
+		Block block = world.getBlock(i, j, k);
+		int meta = world.getBlockMetadata(i, j, k);
+		Block block1 = world.getBlock(i1, j1, k1);
+		int meta1 = world.getBlockMetadata(i1, j1, k1);
+		return block instanceof GOTBlockBirdCage && block == block1 && meta == meta1;
 	}
 }

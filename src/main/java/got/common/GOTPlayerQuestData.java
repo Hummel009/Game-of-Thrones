@@ -16,11 +16,6 @@ public class GOTPlayerQuestData {
 		return givenFirstPouches;
 	}
 
-	public void setGivenFirstPouches(boolean flag) {
-		givenFirstPouches = flag;
-		markDirty();
-	}
-
 	public void load(NBTTagCompound questData) {
 		givenFirstPouches = questData.getBoolean("Pouches");
 	}
@@ -35,5 +30,10 @@ public class GOTPlayerQuestData {
 
 	public void save(NBTTagCompound questData) {
 		questData.setBoolean("Pouches", givenFirstPouches);
+	}
+
+	public void setGivenFirstPouches(boolean flag) {
+		givenFirstPouches = flag;
+		markDirty();
 	}
 }

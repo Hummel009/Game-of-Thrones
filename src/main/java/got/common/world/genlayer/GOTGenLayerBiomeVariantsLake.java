@@ -1,6 +1,7 @@
 package got.common.world.genlayer;
 
 import com.google.common.math.IntMath;
+
 import net.minecraft.world.World;
 
 public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
@@ -14,14 +15,6 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 		super(l);
 		gotParent = layer;
 		zoomScale = IntMath.pow(2, i);
-	}
-
-	public static boolean getFlag(int param, int flag) {
-		return (param & flag) == flag;
-	}
-
-	public static int setFlag(int param, int flag) {
-		return param | flag;
 	}
 
 	@Override
@@ -53,5 +46,13 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 			lakeFlags = setFlag(lakeFlags, f);
 		}
 		return this;
+	}
+
+	public static boolean getFlag(int param, int flag) {
+		return (param & flag) == flag;
+	}
+
+	public static int setFlag(int param, int flag) {
+		return param | flag;
 	}
 }

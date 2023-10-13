@@ -14,6 +14,23 @@ public class GOTItemFeatherDyed extends Item {
 		setMaxStackSize(1);
 	}
 
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getColorFromItemStack(ItemStack itemstack, int pass) {
+		return getFeatherColor(itemstack);
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public IIcon getIconFromDamage(int i) {
+		return Items.feather.getIconFromDamage(i);
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void registerIcons(IIconRegister iconregister) {
+	}
+
 	public static int getFeatherColor(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("FeatherColor")) {
 			return itemstack.getTagCompound().getInteger("FeatherColor");
@@ -34,22 +51,5 @@ public class GOTItemFeatherDyed extends Item {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
 		itemstack.getTagCompound().setInteger("FeatherColor", i);
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		return getFeatherColor(itemstack);
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public IIcon getIconFromDamage(int i) {
-		return Items.feather.getIconFromDamage(i);
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerIcons(IIconRegister iconregister) {
 	}
 }

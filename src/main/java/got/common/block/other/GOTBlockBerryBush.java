@@ -1,5 +1,10 @@
 package got.common.block.other;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
@@ -20,11 +25,6 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-
 public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 	public GOTBlockBerryBush() {
 		super(Material.plants);
@@ -32,21 +32,6 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		setHardness(0.4f);
 		setStepSound(Block.soundTypeGrass);
-	}
-
-	public static int getBerryType(int meta) {
-		return meta & 7;
-	}
-
-	public static boolean hasBerries(int meta) {
-		return (meta & 8) != 0;
-	}
-
-	public static int setHasBerries(int meta, boolean flag) {
-		if (flag) {
-			return getBerryType(meta) | 8;
-		}
-		return getBerryType(meta);
 	}
 
 	@Override
@@ -78,29 +63,29 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 			Item berry = null;
 			int berries = 1 + world.rand.nextInt(4);
 			switch (berryType) {
-				case 0: {
-					berry = GOTItems.blueberry;
-					break;
-				}
-				case 1: {
-					berry = GOTItems.blackberry;
-					break;
-				}
-				case 2: {
-					berry = GOTItems.raspberry;
-					break;
-				}
-				case 3: {
-					berry = GOTItems.cranberry;
-					break;
-				}
-				case 4: {
-					berry = GOTItems.elderberry;
-					break;
-				}
-				case 5: {
-					berry = GOTItems.wildberry;
-				}
+			case 0: {
+				berry = GOTItems.blueberry;
+				break;
+			}
+			case 1: {
+				berry = GOTItems.blackberry;
+				break;
+			}
+			case 2: {
+				berry = GOTItems.raspberry;
+				break;
+			}
+			case 3: {
+				berry = GOTItems.cranberry;
+				break;
+			}
+			case 4: {
+				berry = GOTItems.elderberry;
+				break;
+			}
+			case 5: {
+				berry = GOTItems.wildberry;
+			}
 			}
 			if (berry != null) {
 				for (int l = 0; l < berries; ++l) {
@@ -127,8 +112,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 			int k1;
 			growth = 1.0f;
 			boolean bushAdjacent = false;
-			block0:
-			for (i1 = i - 1; i1 <= i + 1; ++i1) {
+			block0: for (i1 = i - 1; i1 <= i + 1; ++i1) {
 				for (k1 = k - 1; k1 <= k + 1; ++k1) {
 					if (i1 == i && k1 == k || !(world.getBlock(i1, j, k1) instanceof GOTBlockBerryBush)) {
 						continue;
@@ -252,6 +236,21 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 				growBerries(world, i, j, k);
 			}
 		}
+	}
+
+	public static int getBerryType(int meta) {
+		return meta & 7;
+	}
+
+	public static boolean hasBerries(int meta) {
+		return (meta & 8) != 0;
+	}
+
+	public static int setHasBerries(int meta, boolean flag) {
+		if (flag) {
+			return getBerryType(meta) | 8;
+		}
+		return getBerryType(meta);
 	}
 
 	public enum BushType {

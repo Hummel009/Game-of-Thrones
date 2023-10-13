@@ -1,14 +1,14 @@
 package got.common.world.biome.ulthos;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class GOTBiomeUlthosForest extends GOTBiomeUlthos {
 	public GOTBiomeUlthosForest(int i, boolean major) {

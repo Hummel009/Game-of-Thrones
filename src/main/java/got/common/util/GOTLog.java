@@ -1,10 +1,11 @@
 package got.common.util;
 
-import cpw.mods.fml.common.FMLLog;
-import net.minecraft.server.MinecraftServer;
+import java.lang.reflect.Field;
+
 import org.apache.logging.log4j.Logger;
 
-import java.lang.reflect.Field;
+import cpw.mods.fml.common.FMLLog;
+import net.minecraft.server.MinecraftServer;
 
 public class GOTLog {
 	public static Logger logger;

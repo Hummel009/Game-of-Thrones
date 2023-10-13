@@ -1,14 +1,14 @@
 package got.common.item.other;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class GOTItemBerry extends GOTItemFood {
 	public static Collection<Item> allBerries = new ArrayList<>();

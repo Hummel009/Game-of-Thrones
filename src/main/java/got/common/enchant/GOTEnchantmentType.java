@@ -24,16 +24,16 @@ public enum GOTEnchantmentType {
 			ItemArmor itemarmor = (ItemArmor) item;
 			int armorType = itemarmor.armorType;
 			switch (armorType) {
-				case 0:
-					return this == ARMOR_HEAD;
-				case 1:
-					return this == ARMOR_BODY;
-				case 2:
-					return this == ARMOR_LEGS;
-				case 3:
-					return this == ARMOR_FEET;
-				default:
-					break;
+			case 0:
+				return this == ARMOR_HEAD;
+			case 1:
+				return this == ARMOR_BODY;
+			case 2:
+				return this == ARMOR_LEGS;
+			case 3:
+				return this == ARMOR_FEET;
+			default:
+				break;
 			}
 		}
 

@@ -1,5 +1,8 @@
 package got.common.block.leaves;
 
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -8,9 +11,6 @@ import got.common.database.GOTItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.List;
-import java.util.Random;
 
 public class GOTBlockLeaves7 extends GOTBlockLeavesBase {
 	public GOTBlockLeaves7() {

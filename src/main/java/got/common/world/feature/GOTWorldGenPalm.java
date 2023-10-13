@@ -1,5 +1,7 @@
 package got.common.world.feature;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -8,8 +10,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.Random;
 
 public class GOTWorldGenPalm extends WorldGenAbstractTree {
 	public Block woodBlock;
@@ -76,8 +76,7 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 			trunkZ = (int) (trunkZ + Math.signum(trunkSin));
 		}
 		int leafAngle = 0;
-		block5:
-		while (leafAngle < 360) {
+		block5: while (leafAngle < 360) {
 			float angleR = (float) Math.toRadians(leafAngle += 15 + random.nextInt(15));
 			float sin = MathHelper.sin(angleR);
 			float cos = MathHelper.cos(angleR);

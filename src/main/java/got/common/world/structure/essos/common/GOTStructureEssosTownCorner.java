@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.common;
 
-import net.minecraft.world.World;
-
 import java.util.Random;
+
+import net.minecraft.world.World;
 
 public class GOTStructureEssosTownCorner extends GOTStructureEssosBase {
 	public GOTStructureEssosTownCorner(boolean flag) {

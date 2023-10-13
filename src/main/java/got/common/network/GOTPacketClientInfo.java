@@ -1,5 +1,8 @@
 package got.common.network;
 
+import java.util.EnumMap;
+import java.util.Map;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -11,9 +14,6 @@ import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuestEvent;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
-
-import java.util.EnumMap;
-import java.util.Map;
 
 public class GOTPacketClientInfo implements IMessage {
 	public GOTFaction viewingFaction;

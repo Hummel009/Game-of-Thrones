@@ -1,5 +1,10 @@
 package got.client.render.animal;
 
+import static org.lwjgl.opengl.GL11.*;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import got.client.model.GOTModelDragon;
 import got.common.entity.dragon.GOTDragonBreed;
 import got.common.entity.dragon.GOTDragonBreedRegistry;
@@ -13,11 +18,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.lwjgl.opengl.GL11.*;
 
 public class GOTRenderDragon extends RenderLiving {
 	public static boolean updateModel;
@@ -146,23 +146,23 @@ public class GOTRenderDragon extends RenderLiving {
 		}
 		model.renderPass = pass;
 		switch (pass) {
-			case 0:
-				if (dragon.isSaddled()) {
-					bindTexture(model.saddleTexture);
-					return 1;
-				}
-				break;
-			case 1:
-				bindTexture(model.glowTexture);
-				glEnable(GL_BLEND);
-				glBlendFunc(GL_ONE, GL_ONE);
-				glDisable(GL_LIGHTING);
-				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 65536, 0);
+		case 0:
+			if (dragon.isSaddled()) {
+				bindTexture(model.saddleTexture);
 				return 1;
-			case 2:
-				glEnable(GL_LIGHTING);
-				glDisable(GL_BLEND);
-				break;
+			}
+			break;
+		case 1:
+			bindTexture(model.glowTexture);
+			glEnable(GL_BLEND);
+			glBlendFunc(GL_ONE, GL_ONE);
+			glDisable(GL_LIGHTING);
+			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 65536, 0);
+			return 1;
+		case 2:
+			glEnable(GL_LIGHTING);
+			glDisable(GL_BLEND);
+			break;
 		}
 		return -1;
 	}

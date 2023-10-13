@@ -1,5 +1,7 @@
 package got.common.network;
 
+import java.util.UUID;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -8,8 +10,6 @@ import got.common.entity.other.GOTRandomSkinEntity;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
-
-import java.util.UUID;
 
 public class GOTPacketEntityUUID implements IMessage {
 	public int entityID;

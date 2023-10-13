@@ -1,5 +1,8 @@
 package got.common.block.other;
 
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -17,9 +20,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-
-import java.util.List;
-import java.util.Random;
 
 public class GOTBlockStalactite extends Block {
 	public Block modelBlock;

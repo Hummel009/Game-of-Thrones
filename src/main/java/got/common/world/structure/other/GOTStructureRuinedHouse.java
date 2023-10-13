@@ -1,11 +1,11 @@
 package got.common.world.structure.other;
 
+import java.util.Random;
+
 import got.common.database.GOTChestContents;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureRuinedHouse extends GOTStructureBase {
 	public Block woodBlock = Blocks.log;
@@ -112,20 +112,20 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 	public void placeRandomGroundBlock(World world, Random random, int i, int j, int k) {
 		int l = random.nextInt(4);
 		switch (l) {
-			case 0:
-				setBlockAndMetadata(world, i, j, k, Blocks.dirt, 1);
-				break;
-			case 1:
-				setBlockAndMetadata(world, i, j, k, Blocks.gravel, 0);
-				break;
-			case 2:
-				setBlockAndMetadata(world, i, j, k, stoneBlock, stoneMeta);
-				break;
-			case 3:
-				setBlockAndMetadata(world, i, j, k, stoneVariantBlock, stoneVariantMeta);
-				break;
-			default:
-				break;
+		case 0:
+			setBlockAndMetadata(world, i, j, k, Blocks.dirt, 1);
+			break;
+		case 1:
+			setBlockAndMetadata(world, i, j, k, Blocks.gravel, 0);
+			break;
+		case 2:
+			setBlockAndMetadata(world, i, j, k, stoneBlock, stoneMeta);
+			break;
+		case 3:
+			setBlockAndMetadata(world, i, j, k, stoneVariantBlock, stoneVariantMeta);
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -135,26 +135,26 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 		}
 		int l = random.nextInt(4);
 		switch (l) {
-			case 0:
-				setBlockAndMetadata(world, i, j, k, fenceBlock, fenceMeta);
-				break;
-			case 1:
-				setBlockAndMetadata(world, i, j, k, plankBlock, plankMeta);
-				break;
-			case 2:
-				setBlockAndMetadata(world, i, j, k, woodBlock, woodMeta | (northToSouth ? 8 : 4));
-				break;
-			case 3:
-				int upsideDown;
-				upsideDown = random.nextBoolean() ? 4 : 0;
-				if (northToSouth) {
-					setBlockAndMetadata(world, i, j, k, stairBlock, random.nextInt(2) | upsideDown);
-				} else {
-					setBlockAndMetadata(world, i, j, k, stairBlock, 2 + random.nextInt(2) | upsideDown);
-				}
-				break;
-			default:
-				break;
+		case 0:
+			setBlockAndMetadata(world, i, j, k, fenceBlock, fenceMeta);
+			break;
+		case 1:
+			setBlockAndMetadata(world, i, j, k, plankBlock, plankMeta);
+			break;
+		case 2:
+			setBlockAndMetadata(world, i, j, k, woodBlock, woodMeta | (northToSouth ? 8 : 4));
+			break;
+		case 3:
+			int upsideDown;
+			upsideDown = random.nextBoolean() ? 4 : 0;
+			if (northToSouth) {
+				setBlockAndMetadata(world, i, j, k, stairBlock, random.nextInt(2) | upsideDown);
+			} else {
+				setBlockAndMetadata(world, i, j, k, stairBlock, 2 + random.nextInt(2) | upsideDown);
+			}
+			break;
+		default:
+			break;
 		}
 	}
 
@@ -164,20 +164,20 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 		}
 		int l = random.nextInt(4);
 		switch (l) {
-			case 0:
-				setBlockAndMetadata(world, i, j, k, fenceBlock, fenceMeta);
-				break;
-			case 1:
-				setBlockAndMetadata(world, i, j, k, plankBlock, plankMeta);
-				break;
-			case 2:
-				setBlockAndMetadata(world, i, j, k, stoneBlock, stoneMeta);
-				break;
-			case 3:
-				setBlockAndMetadata(world, i, j, k, stoneVariantBlock, stoneVariantMeta);
-				break;
-			default:
-				break;
+		case 0:
+			setBlockAndMetadata(world, i, j, k, fenceBlock, fenceMeta);
+			break;
+		case 1:
+			setBlockAndMetadata(world, i, j, k, plankBlock, plankMeta);
+			break;
+		case 2:
+			setBlockAndMetadata(world, i, j, k, stoneBlock, stoneMeta);
+			break;
+		case 3:
+			setBlockAndMetadata(world, i, j, k, stoneVariantBlock, stoneVariantMeta);
+			break;
+		default:
+			break;
 		}
 	}
 

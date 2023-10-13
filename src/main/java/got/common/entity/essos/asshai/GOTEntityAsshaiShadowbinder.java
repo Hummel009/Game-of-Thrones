@@ -37,10 +37,6 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 		return dataWatcher.getWatchableObjectByte(17) == 1;
 	}
 
-	public void setIsUsingStaff(boolean flag) {
-		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
-	}
-
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
@@ -79,5 +75,9 @@ public class GOTEntityAsshaiShadowbinder extends GOTEntityAsshaiWarrior {
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.asshaiChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.asshaiMask));
 		return data;
+	}
+
+	public void setIsUsingStaff(boolean flag) {
+		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
 	}
 }

@@ -1,5 +1,9 @@
 package got.client.render.other;
 
+import java.util.Random;
+
+import org.lwjgl.opengl.GL11;
+
 import got.common.entity.other.GOTPlateFallingInfo;
 import got.common.tileentity.GOTTileEntityPlate;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -9,9 +13,6 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
-import org.lwjgl.opengl.GL11;
-
-import java.util.Random;
 
 public class GOTRenderPlateFood extends TileEntitySpecialRenderer {
 	public Random rand = new Random();

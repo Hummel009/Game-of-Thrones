@@ -45,19 +45,19 @@ public class GOTEntityAsshaiWarrior extends GOTEntityAsshaiMan {
 		data = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(5);
 		switch (i) {
-			case 0:
-			case 1:
-			case 2:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiSword));
-				break;
-			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiBattleaxe));
-				break;
-			case 4:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiHammer));
-				break;
-			default:
-				break;
+		case 0:
+		case 1:
+		case 2:
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiSword));
+			break;
+		case 3:
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiBattleaxe));
+			break;
+		case 4:
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.asshaiHammer));
+			break;
+		default:
+			break;
 		}
 		if (rand.nextInt(6) == 0) {
 			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());

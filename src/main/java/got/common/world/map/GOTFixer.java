@@ -1,5 +1,9 @@
 package got.common.world.map;
 
+import static got.common.world.map.GOTCoordConverter.toEssosTownGate;
+
+import java.util.*;
+
 import got.common.entity.essos.legendary.GOTEntityMissandei;
 import got.common.entity.essos.legendary.captain.*;
 import got.common.entity.essos.legendary.quest.GOTEntityBuGai;
@@ -58,16 +62,12 @@ import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsSe
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import net.minecraft.world.World;
 
-import java.util.*;
-
-import static got.common.world.map.GOTCoordConverter.toEssosTownGate;
-
 public class GOTFixer {
 	public static Map<GOTAbstractWaypoint, GOTStructureBase> structures = new HashMap<>();
 	public static Collection<GOTStructureBaseSettlement> locations = new HashSet<>();
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
-		GOTWaypoint[] forts = {GOTWaypoint.FIVE_FORTS_1, GOTWaypoint.FIVE_FORTS_2, GOTWaypoint.FIVE_FORTS_3, GOTWaypoint.FIVE_FORTS_4, GOTWaypoint.FIVE_FORTS_5};
+		GOTWaypoint[] forts = { GOTWaypoint.FIVE_FORTS_1, GOTWaypoint.FIVE_FORTS_2, GOTWaypoint.FIVE_FORTS_3, GOTWaypoint.FIVE_FORTS_4, GOTWaypoint.FIVE_FORTS_5 };
 		for (GOTWaypoint wp : forts) {
 			new GOTFiveFortsWall(false, wp).generate(world, random, i, 0, k, 0);
 		}

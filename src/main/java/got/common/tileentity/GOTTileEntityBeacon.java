@@ -1,5 +1,12 @@
 package got.common.tileentity;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.UUID;
+
+import org.apache.commons.lang3.StringUtils;
+
 import got.common.fellowship.GOTFellowship;
 import got.common.fellowship.GOTFellowshipData;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,12 +21,6 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.chunk.Chunk;
-import org.apache.commons.lang3.StringUtils;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.UUID;
 
 public class GOTTileEntityBeacon extends TileEntity {
 	public int ticksExisted;
@@ -44,21 +45,6 @@ public class GOTTileEntityBeacon extends TileEntity {
 
 	public boolean isLit() {
 		return isLit;
-	}
-
-	public void setLit(boolean flag) {
-		boolean wasLit = isLit;
-		isLit = flag;
-		if (isLit) {
-			unlitCounter = 0;
-		} else {
-			litCounter = 0;
-		}
-		updateLight();
-		stateChangeTime = worldObj.getTotalWorldTime();
-		if (wasLit && !isLit) {
-			sendFellowshipMessage(false);
-		}
 	}
 
 	@Override
@@ -95,6 +81,21 @@ public class GOTTileEntityBeacon extends TileEntity {
 				}
 				entityplayer.addChatMessage(message);
 			}
+		}
+	}
+
+	public void setLit(boolean flag) {
+		boolean wasLit = isLit;
+		isLit = flag;
+		if (isLit) {
+			unlitCounter = 0;
+		} else {
+			litCounter = 0;
+		}
+		updateLight();
+		stateChangeTime = worldObj.getTotalWorldTime();
+		if (wasLit && !isLit) {
+			sendFellowshipMessage(false);
 		}
 	}
 

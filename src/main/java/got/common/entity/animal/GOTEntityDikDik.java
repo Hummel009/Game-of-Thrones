@@ -1,5 +1,7 @@
 package got.common.entity.animal;
 
+import java.util.UUID;
+
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAvoidWithChance;
 import got.common.entity.other.GOTEntityRegistry;
@@ -14,8 +16,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import java.util.UUID;
 
 public class GOTEntityDikDik extends EntityCreature implements GOTAmbientCreature, GOTRandomSkinEntity {
 	public GOTEntityDikDik(World world) {

@@ -1,6 +1,9 @@
 package got.common.world.structure.essos.yiti;
 
+import java.util.Random;
+
 import com.google.common.math.IntMath;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.animal.GOTEntityHorse;
@@ -9,8 +12,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 	public GOTStructureYiTiStables(boolean flag) {
@@ -178,7 +179,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 			}
 			setBlockAndMetadata(world, 8, 4, k12, roofStairBlock, 0);
 		}
-		for (int k13 : new int[]{-1, 13}) {
+		for (int k13 : new int[] { -1, 13 }) {
 			setBlockAndMetadata(world, -8, 3, k13, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, -4, 4, k13, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 0, 5, k13, fenceBlock, fenceMeta);

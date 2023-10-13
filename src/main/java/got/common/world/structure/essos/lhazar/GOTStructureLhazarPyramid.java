@@ -1,12 +1,12 @@
 package got.common.world.structure.essos.lhazar;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 	public GOTStructureLhazarPyramid(boolean flag) {
@@ -74,7 +74,7 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 			}
 		}
 		int maxStep = 4;
-		for (int k12 : new int[]{-11, 11}) {
+		for (int k12 : new int[] { -11, 11 }) {
 			int i12;
 			for (step = 0; step < maxStep && !isOpaque(world, i12 = -7 - step, j12 = -step, k12); ++step) {
 				setBlockAndMetadata(world, i12, j12, k12, Blocks.sandstone_stairs, 1);
@@ -97,7 +97,7 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 				}
 			}
 		}
-		for (int i13 : new int[]{-11, 11}) {
+		for (int i13 : new int[] { -11, 11 }) {
 			int k13;
 			for (step = 0; step < maxStep && !isOpaque(world, i13, j12 = -step, k13 = -7 - step); ++step) {
 				setBlockAndMetadata(world, i13, j12, k13, Blocks.sandstone_stairs, 2);

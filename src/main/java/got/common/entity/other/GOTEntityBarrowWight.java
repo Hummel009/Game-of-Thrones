@@ -17,7 +17,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityBarrowWight extends GOTEntityNPC {
-	public static Potion[] attackEffects = {Potion.moveSlowdown, Potion.digSlowdown, Potion.wither};
+	public static Potion[] attackEffects = { Potion.moveSlowdown, Potion.digSlowdown, Potion.wither };
 
 	public GOTEntityBarrowWight(World world) {
 		super(world);
@@ -129,10 +129,6 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 		return dataWatcher.getWatchableObjectInt(16);
 	}
 
-	public void setTargetEntityID(Entity entity) {
-		dataWatcher.updateObject(16, entity == null ? -1 : entity.getEntityId());
-	}
-
 	public EntityAIBase getWightAttackAI() {
 		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	}
@@ -163,5 +159,9 @@ public class GOTEntityBarrowWight extends GOTEntityNPC {
 		if (!worldObj.isRemote) {
 			setTargetEntityID(target);
 		}
+	}
+
+	public void setTargetEntityID(Entity entity) {
+		dataWatcher.updateObject(16, entity == null ? -1 : entity.getEntityId());
 	}
 }

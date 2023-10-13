@@ -1,11 +1,5 @@
 package got.common.database;
 
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.ModContainer;
-import got.GOT;
-import got.common.GOTConfig;
-import org.apache.commons.io.input.BOMInputStream;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -16,6 +10,13 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
+
+import org.apache.commons.io.input.BOMInputStream;
+
+import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.ModContainer;
+import got.GOT;
+import got.common.GOTConfig;
 
 public class GOTNames {
 	public static Map<String, String[]> allNameBanks = new HashMap<>();
@@ -80,7 +81,7 @@ public class GOTNames {
 	public static String[] getTavernName(Random rand) {
 		String prefix = getRandomName("tavern_prefix", rand);
 		String suffix = getRandomName("tavern_suffix", rand);
-		return new String[]{prefix, suffix};
+		return new String[] { prefix, suffix };
 	}
 
 	public static String getWesterosName(Random rand, boolean male) {

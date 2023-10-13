@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.yiti;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
@@ -10,8 +12,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-
-import java.util.Random;
 
 public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 	public Block brickBlock;
@@ -83,12 +83,12 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 	}
 
 	public ItemStack getFramedItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.yitiHelmet), new ItemStack(GOTItems.yitiChestplate), new ItemStack(GOTItems.yitiLeggings), new ItemStack(GOTItems.yitiBoots), new ItemStack(GOTItems.yitiHelmetSamurai), new ItemStack(GOTItems.yitiChestplateSamurai), new ItemStack(GOTItems.yitiLeggingsSamurai), new ItemStack(GOTItems.yitiBootsSamurai), new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiSword), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.yitiBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.goldRing)};
+		ItemStack[] items = { new ItemStack(GOTItems.yitiHelmet), new ItemStack(GOTItems.yitiChestplate), new ItemStack(GOTItems.yitiLeggings), new ItemStack(GOTItems.yitiBoots), new ItemStack(GOTItems.yitiHelmetSamurai), new ItemStack(GOTItems.yitiChestplateSamurai), new ItemStack(GOTItems.yitiLeggingsSamurai), new ItemStack(GOTItems.yitiBootsSamurai), new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiSword), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.yitiBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.goldRing) };
 		return items[random.nextInt(items.length)].copy();
 	}
 
 	public ItemStack getWeaponItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.yitiSword), new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiDaggerPoisoned), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(GOTItems.yitiPolearm), new ItemStack(GOTItems.yitiPike)};
+		ItemStack[] items = { new ItemStack(GOTItems.yitiSword), new ItemStack(GOTItems.yitiDagger), new ItemStack(GOTItems.yitiDaggerPoisoned), new ItemStack(GOTItems.yitiSpear), new ItemStack(GOTItems.yitiBattleaxe), new ItemStack(GOTItems.yitiPolearm), new ItemStack(GOTItems.yitiPike) };
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -144,66 +144,66 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 		} else {
 			int randomWood = random.nextInt(4);
 			switch (randomWood) {
-				case 0:
-					logBlock = Blocks.log;
-					logMeta = 0;
-					plankBlock = Blocks.planks;
-					plankMeta = 0;
-					plankSlabBlock = Blocks.wooden_slab;
-					plankSlabMeta = 0;
-					plankStairBlock = Blocks.oak_stairs;
-					fenceBlock = Blocks.fence;
-					fenceMeta = 0;
-					fenceGateBlock = Blocks.fence_gate;
-					woodBeamBlock = GOTBlocks.woodBeamV1;
-					woodBeamMeta = 0;
-					doorBlock = Blocks.wooden_door;
-					break;
-				case 1:
-					logBlock = GOTBlocks.wood2;
-					logMeta = 1;
-					plankBlock = GOTBlocks.planks1;
-					plankMeta = 9;
-					plankSlabBlock = GOTBlocks.woodSlabSingle2;
-					plankSlabMeta = 1;
-					plankStairBlock = GOTBlocks.stairsBeech;
-					fenceBlock = GOTBlocks.fence;
-					fenceMeta = 9;
-					fenceGateBlock = GOTBlocks.fenceGateBeech;
-					woodBeamBlock = GOTBlocks.woodBeam2;
-					woodBeamMeta = 1;
-					doorBlock = GOTBlocks.doorBeech;
-					break;
-				case 2:
-					logBlock = GOTBlocks.wood6;
-					logMeta = 2;
-					plankBlock = GOTBlocks.planks2;
-					plankMeta = 10;
-					plankSlabBlock = GOTBlocks.woodSlabSingle4;
-					plankSlabMeta = 2;
-					plankStairBlock = GOTBlocks.stairsCypress;
-					fenceBlock = GOTBlocks.fence2;
-					fenceMeta = 10;
-					fenceGateBlock = GOTBlocks.fenceGateCypress;
-					woodBeamBlock = GOTBlocks.woodBeam6;
-					woodBeamMeta = 2;
-					doorBlock = GOTBlocks.doorCypress;
-					break;
-				default:
-					logBlock = GOTBlocks.wood6;
-					logMeta = 3;
-					plankBlock = GOTBlocks.planks2;
-					plankMeta = 11;
-					plankSlabBlock = GOTBlocks.woodSlabSingle4;
-					plankSlabMeta = 3;
-					plankStairBlock = GOTBlocks.stairsOlive;
-					fenceBlock = GOTBlocks.fence2;
-					fenceMeta = 11;
-					fenceGateBlock = GOTBlocks.fenceGateOlive;
-					woodBeamBlock = GOTBlocks.woodBeam6;
-					woodBeamMeta = 3;
-					doorBlock = GOTBlocks.doorOlive;
-					break;
+			case 0:
+				logBlock = Blocks.log;
+				logMeta = 0;
+				plankBlock = Blocks.planks;
+				plankMeta = 0;
+				plankSlabBlock = Blocks.wooden_slab;
+				plankSlabMeta = 0;
+				plankStairBlock = Blocks.oak_stairs;
+				fenceBlock = Blocks.fence;
+				fenceMeta = 0;
+				fenceGateBlock = Blocks.fence_gate;
+				woodBeamBlock = GOTBlocks.woodBeamV1;
+				woodBeamMeta = 0;
+				doorBlock = Blocks.wooden_door;
+				break;
+			case 1:
+				logBlock = GOTBlocks.wood2;
+				logMeta = 1;
+				plankBlock = GOTBlocks.planks1;
+				plankMeta = 9;
+				plankSlabBlock = GOTBlocks.woodSlabSingle2;
+				plankSlabMeta = 1;
+				plankStairBlock = GOTBlocks.stairsBeech;
+				fenceBlock = GOTBlocks.fence;
+				fenceMeta = 9;
+				fenceGateBlock = GOTBlocks.fenceGateBeech;
+				woodBeamBlock = GOTBlocks.woodBeam2;
+				woodBeamMeta = 1;
+				doorBlock = GOTBlocks.doorBeech;
+				break;
+			case 2:
+				logBlock = GOTBlocks.wood6;
+				logMeta = 2;
+				plankBlock = GOTBlocks.planks2;
+				plankMeta = 10;
+				plankSlabBlock = GOTBlocks.woodSlabSingle4;
+				plankSlabMeta = 2;
+				plankStairBlock = GOTBlocks.stairsCypress;
+				fenceBlock = GOTBlocks.fence2;
+				fenceMeta = 10;
+				fenceGateBlock = GOTBlocks.fenceGateCypress;
+				woodBeamBlock = GOTBlocks.woodBeam6;
+				woodBeamMeta = 2;
+				doorBlock = GOTBlocks.doorCypress;
+				break;
+			default:
+				logBlock = GOTBlocks.wood6;
+				logMeta = 3;
+				plankBlock = GOTBlocks.planks2;
+				plankMeta = 11;
+				plankSlabBlock = GOTBlocks.woodSlabSingle4;
+				plankSlabMeta = 3;
+				plankStairBlock = GOTBlocks.stairsOlive;
+				fenceBlock = GOTBlocks.fence2;
+				fenceMeta = 11;
+				fenceGateBlock = GOTBlocks.fenceGateOlive;
+				woodBeamBlock = GOTBlocks.woodBeam6;
+				woodBeamMeta = 3;
+				doorBlock = GOTBlocks.doorOlive;
+				break;
 			}
 		}
 		if (useTownBlocks()) {
@@ -253,31 +253,31 @@ public abstract class GOTStructureYiTiBase extends GOTStructureBase {
 		} else {
 			int randomCrop = random.nextInt(5);
 			switch (randomCrop) {
-				case 0:
-					cropBlock = Blocks.carrots;
-					cropMeta = 7;
-					seedItem = Items.carrot;
-					break;
-				case 1:
-					cropBlock = Blocks.potatoes;
-					cropMeta = 7;
-					seedItem = Items.potato;
-					break;
-				case 2:
-					cropBlock = GOTBlocks.lettuceCrop;
-					cropMeta = 7;
-					seedItem = GOTItems.lettuce;
-					break;
-				case 3:
-					cropBlock = GOTBlocks.leekCrop;
-					cropMeta = 7;
-					seedItem = GOTItems.leek;
-					break;
-				default:
-					cropBlock = GOTBlocks.turnipCrop;
-					cropMeta = 7;
-					seedItem = GOTItems.turnip;
-					break;
+			case 0:
+				cropBlock = Blocks.carrots;
+				cropMeta = 7;
+				seedItem = Items.carrot;
+				break;
+			case 1:
+				cropBlock = Blocks.potatoes;
+				cropMeta = 7;
+				seedItem = Items.potato;
+				break;
+			case 2:
+				cropBlock = GOTBlocks.lettuceCrop;
+				cropMeta = 7;
+				seedItem = GOTItems.lettuce;
+				break;
+			case 3:
+				cropBlock = GOTBlocks.leekCrop;
+				cropMeta = 7;
+				seedItem = GOTItems.leek;
+				break;
+			default:
+				cropBlock = GOTBlocks.turnipCrop;
+				cropMeta = 7;
+				seedItem = GOTItems.turnip;
+				break;
 			}
 		}
 		bannerType = GOTItemBanner.BannerType.YITI;

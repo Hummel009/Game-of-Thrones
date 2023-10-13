@@ -1,5 +1,8 @@
 package got.common.block.slab;
 
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTBlocks;
@@ -15,9 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Facing;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import java.util.List;
-import java.util.Random;
 
 public abstract class GOTBlockSlabBase extends BlockSlab {
 	public Block singleSlab;
@@ -37,13 +37,6 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		if (flag) {
 			setCreativeTab(null);
 		}
-	}
-
-	public static void registerSlabs(Block block, Block block1) {
-		((GOTBlockSlabBase) block).singleSlab = block;
-		((GOTBlockSlabBase) block).doubleSlab = block1;
-		((GOTBlockSlabBase) block1).singleSlab = block;
-		((GOTBlockSlabBase) block1).doubleSlab = block1;
 	}
 
 	@Override
@@ -103,6 +96,13 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		int k1 = k + Facing.offsetsZForSide[Facing.oppositeSide[l]];
 		flag = (world.getBlockMetadata(i1, j1, k1) & 8) != 0;
 		return flag ? l == 0 || l == 1 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) == 0 : l == 1 || l == 0 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) != 0;
+	}
+
+	public static void registerSlabs(Block block, Block block1) {
+		((GOTBlockSlabBase) block).singleSlab = block;
+		((GOTBlockSlabBase) block).doubleSlab = block1;
+		((GOTBlockSlabBase) block1).singleSlab = block;
+		((GOTBlockSlabBase) block1).doubleSlab = block1;
 	}
 
 	public static class SlabItems {

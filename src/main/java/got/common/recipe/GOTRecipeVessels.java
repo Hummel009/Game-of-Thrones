@@ -1,16 +1,16 @@
 package got.common.recipe;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.item.other.GOTItemMug;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 public class GOTRecipeVessels {
 	public static void addRecipes(ItemStack result, Item drinkBase, Object[] ingredients) {

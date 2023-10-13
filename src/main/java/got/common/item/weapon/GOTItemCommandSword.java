@@ -1,5 +1,10 @@
 package got.common.item.weapon;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
+import java.util.List;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.common.GOTSquadrons;
@@ -17,11 +22,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.List;
 
 public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.SquadronItem {
 	public GOTItemCommandSword() {

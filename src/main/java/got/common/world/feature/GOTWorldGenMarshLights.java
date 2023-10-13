@@ -1,10 +1,10 @@
 package got.common.world.feature;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 public class GOTWorldGenMarshLights extends WorldGenerator {
 	@Override

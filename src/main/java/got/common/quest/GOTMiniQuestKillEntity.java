@@ -1,5 +1,7 @@
 package got.common.quest;
 
+import java.util.Random;
+
 import got.common.GOTPlayerData;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityRegistry;
@@ -8,8 +10,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
-
-import java.util.Random;
 
 public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 	public Class<? extends Entity> entityType;

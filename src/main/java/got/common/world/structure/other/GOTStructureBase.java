@@ -1,5 +1,7 @@
 package got.common.world.structure.other;
 
+import java.util.*;
+
 import got.common.block.other.*;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
@@ -38,8 +40,6 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.*;
-
 public abstract class GOTStructureBase extends WorldGenerator {
 	public boolean restrictions = true;
 	public boolean notifyChanges;
@@ -65,28 +65,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	protected GOTStructureBase(boolean flag) {
 		super(flag);
 		notifyChanges = flag;
-	}
-
-	public static boolean isSurfaceStatic(World world, int i, int j, int k) {
-		Block block = world.getBlock(i, j, k);
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-		if (block instanceof BlockSlab && !block.isOpaqueCube()) {
-			return isSurfaceStatic(world, i, j - 1, k);
-		}
-		Block above = world.getBlock(i, j + 1, k);
-		if (above.getMaterial().isLiquid()) {
-			return false;
-		}
-		if (block == biome.topBlock || block == biome.fillerBlock) {
-			return true;
-		}
-		if (block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTBlocks.dirtPath) {
-			return true;
-		}
-		if (block == GOTBlocks.mudGrass || block == GOTBlocks.mud || block == Blocks.sand || block == GOTBlocks.redClay || block == GOTBlocks.whiteSand) {
-			return true;
-		}
-		return block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
 	}
 
 	public void addBlockAliasOption(String alias, int weight, Block block) {
@@ -300,20 +278,20 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public int getX(int x, int z) {
 		switch (rotationMode) {
-			case 0: {
-				return originX - x;
-			}
-			case 1: {
-				return originX - z;
-			}
-			case 2: {
-				return originX + x;
-			}
-			case 3: {
-				return originX + z;
-			}
-			default:
-				return originX;
+		case 0: {
+			return originX - x;
+		}
+		case 1: {
+			return originX - z;
+		}
+		case 2: {
+			return originX + x;
+		}
+		case 3: {
+			return originX + z;
+		}
+		default:
+			return originX;
 		}
 	}
 
@@ -323,20 +301,20 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public int getZ(int x, int z) {
 		switch (rotationMode) {
-			case 0: {
-				return originZ + z;
-			}
-			case 1: {
-				return originZ - x;
-			}
-			case 2: {
-				return originZ - z;
-			}
-			case 3: {
-				return originZ + x;
-			}
-			default:
-				return originZ;
+		case 0: {
+			return originZ + z;
+		}
+		case 1: {
+			return originZ - x;
+		}
+		case 2: {
+			return originZ - z;
+		}
+		case 3: {
+			return originZ + x;
+		}
+		default:
+			return originZ;
 		}
 	}
 
@@ -634,25 +612,25 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 		float f = rotation;
 		switch (rotationMode) {
-			case 0: {
-				f += 0.0f;
-				break;
-			}
-			case 1: {
-				f += 270.0f;
-				break;
-			}
-			case 2: {
-				f += 180.0f;
-				break;
-			}
-			case 3: {
-				f += 90.0f;
-				break;
-			}
-			default:
-				f %= 360.0f;
-				break;
+		case 0: {
+			f += 0.0f;
+			break;
+		}
+		case 1: {
+			f += 270.0f;
+			break;
+		}
+		case 2: {
+			f += 180.0f;
+			break;
+		}
+		case 3: {
+			f += 90.0f;
+			break;
+		}
+		default:
+			f %= 360.0f;
+			break;
 		}
 		rug.setLocationAndAngles(i + 0.5, j, k + 0.5, f, 0.0f);
 		world.spawnEntityInWorld(rug);
@@ -754,17 +732,17 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			int j = meta & 4;
 			for (int l = 0; l < rotationMode; ++l) {
 				switch (i) {
-					case 2:
-						i = 1;
-						continue;
-					case 1:
-						i = 3;
-						continue;
-					case 3:
-						i = 0;
-						continue;
-					default:
-						break;
+				case 2:
+					i = 1;
+					continue;
+				case 1:
+					i = 3;
+					continue;
+				case 3:
+					i = 0;
+					continue;
+				default:
+					break;
 				}
 				i = 2;
 			}
@@ -825,17 +803,17 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			int i = meta;
 			for (int l = 0; l < rotationMode; ++l) {
 				switch (i) {
-					case 4:
-						i = 1;
-						continue;
-					case 1:
-						i = 3;
-						continue;
-					case 3:
-						i = 2;
-						continue;
-					default:
-						break;
+				case 4:
+					i = 1;
+					continue;
+				case 1:
+					i = 3;
+					continue;
+				case 3:
+					i = 2;
+					continue;
+				default:
+					break;
 				}
 				if (i != 2) {
 					continue;
@@ -861,17 +839,17 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			int k = meta & 8;
 			for (int l = 0; l < rotationMode; ++l) {
 				switch (i) {
-					case 0:
-						i = 3;
-						continue;
-					case 1:
-						i = 2;
-						continue;
-					case 2:
-						i = 0;
-						continue;
-					default:
-						break;
+				case 0:
+					i = 3;
+					continue;
+				case 1:
+					i = 2;
+					continue;
+				case 2:
+					i = 0;
+					continue;
+				default:
+					break;
 				}
 				i = 1;
 			}
@@ -928,28 +906,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			} else {
 				for (int l = 0; l < rotationMode; ++l) {
 					switch (i) {
-						case 4:
-							i = 1;
-							continue;
-						case 1:
-							i = 3;
-							continue;
-						case 3:
-							i = 2;
-							continue;
-						default:
-							break;
-					}
-					i = 4;
-				}
-			}
-			return j | i;
-		}
-		if (block instanceof BlockButton) {
-			int i = meta;
-			int j = meta & 8;
-			for (int l = 0; l < rotationMode; ++l) {
-				switch (i) {
 					case 4:
 						i = 1;
 						continue;
@@ -961,6 +917,28 @@ public abstract class GOTStructureBase extends WorldGenerator {
 						continue;
 					default:
 						break;
+					}
+					i = 4;
+				}
+			}
+			return j | i;
+		}
+		if (block instanceof BlockButton) {
+			int i = meta;
+			int j = meta & 8;
+			for (int l = 0; l < rotationMode; ++l) {
+				switch (i) {
+				case 4:
+					i = 1;
+					continue;
+				case 1:
+					i = 3;
+					continue;
+				case 3:
+					i = 2;
+					continue;
+				default:
+					break;
 				}
 				if (i != 2) {
 					continue;
@@ -1036,28 +1014,28 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		--j;
 		rotationMode = rotation;
 		switch (rotationMode) {
-			case 0: {
-				k += shift;
-				i += shiftX;
-				break;
-			}
-			case 1: {
-				i -= shift;
-				k += shiftX;
-				break;
-			}
-			case 2: {
-				k -= shift;
-				i -= shiftX;
-				break;
-			}
-			case 3: {
-				i += shift;
-				k -= shiftX;
-				break;
-			}
-			default:
-				break;
+		case 0: {
+			k += shift;
+			i += shiftX;
+			break;
+		}
+		case 1: {
+			i -= shift;
+			k += shiftX;
+			break;
+		}
+		case 2: {
+			k -= shift;
+			i -= shiftX;
+			break;
+		}
+		case 3: {
+			i += shift;
+			k -= shiftX;
+			break;
+		}
+		default:
+			break;
 		}
 		originX = i;
 		originY = j;
@@ -1139,6 +1117,28 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public int usingPlayerRotation() {
 		return GOTStructureRegistry.getRotationFromPlayer(usingPlayer);
+	}
+
+	public static boolean isSurfaceStatic(World world, int i, int j, int k) {
+		Block block = world.getBlock(i, j, k);
+		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		if (block instanceof BlockSlab && !block.isOpaqueCube()) {
+			return isSurfaceStatic(world, i, j - 1, k);
+		}
+		Block above = world.getBlock(i, j + 1, k);
+		if (above.getMaterial().isLiquid()) {
+			return false;
+		}
+		if (block == biome.topBlock || block == biome.fillerBlock) {
+			return true;
+		}
+		if (block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTBlocks.dirtPath) {
+			return true;
+		}
+		if (block == GOTBlocks.mudGrass || block == GOTBlocks.mud || block == Blocks.sand || block == GOTBlocks.redClay || block == GOTBlocks.whiteSand) {
+			return true;
+		}
+		return block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
 	}
 
 	public static class BlockAliasPool {

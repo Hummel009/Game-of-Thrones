@@ -1,8 +1,18 @@
 package got.client.gui;
 
+import java.awt.Color;
+import java.util.*;
+import java.util.regex.Pattern;
+
+import org.apache.commons.lang3.StringUtils;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
 import com.google.common.math.IntMath;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.minecraft.MinecraftProfileTexture;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTClientProxy;
 import got.client.GOTKeyHandler;
@@ -37,15 +47,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.util.*;
 import net.minecraft.world.chunk.EmptyChunk;
-import org.apache.commons.lang3.StringUtils;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
-import java.awt.*;
-import java.util.List;
-import java.util.*;
-import java.util.regex.Pattern;
 
 public class GOTGuiMap extends GOTGuiMenuBase {
 	public static Map<UUID, PlayerLocationInfo> playerLocations = new HashMap<>();
@@ -159,31 +160,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
 			new GOTGenLayerWorld();
 		}
-	}
-
-	public static void addPlayerLocationInfo(GameProfile player, double x, double z) {
-		if (player.isComplete()) {
-			playerLocations.put(player.getId(), new PlayerLocationInfo(player, x, z));
-		}
-	}
-
-	public static void clearPlayerLocations() {
-		playerLocations.clear();
-	}
-
-	public static boolean isOSRS() {
-		return GOTConfig.osrsMap;
-	}
-
-	public static int[] setFakeStaticProperties(int w, int h, int xmin, int xmax, int ymin, int ymax) {
-		int[] ret = {mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
-		mapWidth = w;
-		mapHeight = h;
-		mapXMin = xmin;
-		mapXMax = xmax;
-		mapYMin = ymin;
-		mapYMax = ymax;
-		return ret;
 	}
 
 	@Override
@@ -565,21 +541,21 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				tess.draw();
 				StringBuilder loadText;
 				GOTConquestGrid.ConquestViewableQuery query = GOTConquestGrid.canPlayerViewConquest(mc.thePlayer, conquestViewingFaction);
-				if (query.result == GOTConquestGrid.ConquestViewable.CAN_VIEW) {
+				if (query.getResult() == GOTConquestGrid.ConquestViewable.CAN_VIEW) {
 					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.wait"));
 					int ellipsis = 1 + tickCounter / 10 % 3;
 					for (int l = 0; l < ellipsis; ++l) {
 						loadText.append(".");
 					}
-				} else if (query.result == GOTConquestGrid.ConquestViewable.UNPLEDGED) {
+				} else if (query.getResult() == GOTConquestGrid.ConquestViewable.UNPLEDGED) {
 					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.noPledge"));
 				} else {
 					GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 					GOTFaction pledgeFac = pd.getPledgeFaction();
-					GOTFactionRank needRank = query.needRank;
+					GOTFactionRank needRank = query.getNeedRank();
 					String needAlign = GOTAlignmentValues.formatAlignForDisplay(needRank.alignment);
 					String format = "";
-					if (query.result == GOTConquestGrid.ConquestViewable.NEED_RANK) {
+					if (query.getResult() == GOTConquestGrid.ConquestViewable.NEED_RANK) {
 						format = "got.gui.map.conquest.needRank";
 					}
 					loadText = new StringBuilder(StatCollector.translateToLocalFormatted(format, pledgeFac.factionName(), needRank.getFullNameWithGender(pd), needAlign));
@@ -1247,9 +1223,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		int maxWaypoints = GOTLevelData.getData(mc.thePlayer).getMaxCustomWaypoints();
 		int remaining = maxWaypoints - numWaypoints;
 		if (remaining <= 0) {
-			overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.allUsed.1", maxWaypoints), "", StatCollector.translateToLocal("got.gui.map.customWaypoint.allUsed.2")};
+			overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.allUsed.1", maxWaypoints), "", StatCollector.translateToLocal("got.gui.map.customWaypoint.allUsed.2") };
 		} else {
-			overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.create.1", numWaypoints, maxWaypoints), "", StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.create.2")};
+			overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.create.1", numWaypoints, maxWaypoints), "", StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.create.2") };
 			buttonOverlayFunction.visible = true;
 			buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.create.button");
 		}
@@ -1259,7 +1235,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		closeOverlay();
 		hasOverlay = true;
 		creatingWaypointNew = true;
-		overlayLines = new String[]{StatCollector.translateToLocal("got.gui.map.customWaypoint.createNew.1")};
+		overlayLines = new String[] { StatCollector.translateToLocal("got.gui.map.customWaypoint.createNew.1") };
 		buttonOverlayFunction.visible = true;
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.createNew.button");
 	}
@@ -1268,7 +1244,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		closeOverlay();
 		hasOverlay = true;
 		deletingWaypoint = true;
-		overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.delete.1", selectedWaypoint.getDisplayName())};
+		overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.delete.1", selectedWaypoint.getDisplayName()) };
 		buttonOverlayFunction.visible = true;
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.delete.button");
 	}
@@ -1277,7 +1253,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		closeOverlay();
 		hasOverlay = true;
 		renamingWaypoint = true;
-		overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.rename.1", selectedWaypoint.getDisplayName())};
+		overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.rename.1", selectedWaypoint.getDisplayName()) };
 		buttonOverlayFunction.visible = true;
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.rename.button");
 	}
@@ -1286,7 +1262,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		closeOverlay();
 		hasOverlay = true;
 		sharingWaypoint = true;
-		overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.share.1", selectedWaypoint.getDisplayName())};
+		overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.share.1", selectedWaypoint.getDisplayName()) };
 		buttonOverlayFunction.visible = true;
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.share.button");
 	}
@@ -1295,7 +1271,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		closeOverlay();
 		hasOverlay = true;
 		sharingWaypointNew = true;
-		overlayLines = new String[]{StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.shareNew.1", selectedWaypoint.getDisplayName())};
+		overlayLines = new String[] { StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.shareNew.1", selectedWaypoint.getDisplayName()) };
 		buttonOverlayFunction.visible = true;
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.shareNew.button");
 	}
@@ -1324,10 +1300,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			for (GOTBeziers bezier : GOTBeziers.allBeziers) {
 				int interval = Math.round(400.0f / zoomScaleStable);
 				interval = Math.max(interval, 1);
-				for (int i = 0; i < bezier.bezierPoints.length; i += interval) {
+				for (int i = 0; i < bezier.getBezierPoints().length; i += interval) {
 					int clip;
-					GOTBeziers.BezierPoint point = bezier.bezierPoints[i];
-					float[] pos = transformCoords(point.x, point.z);
+					GOTBeziers.BezierPoint point = bezier.getBezierPoints()[i];
+					float[] pos = transformCoords(point.getX(), point.getZ());
 					float x = pos[0];
 					float y = pos[1];
 					if (x >= mapXMin && x < mapXMax && y >= mapYMin && y < mapYMax) {
@@ -1363,9 +1339,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							boolean endNear = false;
 							double dMax = (nameWidth / 2.0 + 25.0) * scale;
 							double dMaxSq = dMax * dMax;
-							for (GOTBeziers.BezierPoint end : bezier.endpoints) {
+							for (GOTBeziers.BezierPoint end : bezier.getEndpoints()) {
 								float dy;
-								float[] endPos = transformCoords(end.x, end.z);
+								float[] endPos = transformCoords(end.getX(), end.getZ());
 								float endX = endPos[0];
 								float dx = x - endX;
 								double dSq = dx * dx + (dy = y - endPos[1]) * dy;
@@ -1378,9 +1354,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								GL11.glPushMatrix();
 								GL11.glTranslatef(x, y, 0.0f);
 								GL11.glScalef(scale, scale, scale);
-								GOTBeziers.BezierPoint nextPoint = bezier.bezierPoints[Math.min(i + 1, bezier.bezierPoints.length - 1)];
-								GOTBeziers.BezierPoint prevPoint = bezier.bezierPoints[Math.max(i - 1, 0)];
-								double grad = (nextPoint.z - prevPoint.z) / (nextPoint.x - prevPoint.x);
+								GOTBeziers.BezierPoint nextPoint = bezier.getBezierPoints()[Math.min(i + 1, bezier.getBezierPoints().length - 1)];
+								GOTBeziers.BezierPoint prevPoint = bezier.getBezierPoints()[Math.max(i - 1, 0)];
+								double grad = (nextPoint.getZ() - prevPoint.getZ()) / (nextPoint.getX() - prevPoint.getX());
 								float angle = (float) Math.atan(grad);
 								angle = (float) Math.toDegrees(angle);
 								if (Math.abs(angle) > 90.0f) {
@@ -1495,10 +1471,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		setupMapClipping();
 		for (GOTMapLabels label : GOTMapLabels.allMapLabels()) {
-			float[] pos = transformMapCoords(label.posX, label.posY);
+			float[] pos = transformMapCoords(label.getPosX(), label.getPosY());
 			float x = pos[0];
 			float y = pos[1];
-			float zoomlerp = (zoomExp - label.minZoom) / (label.maxZoom - label.minZoom);
+			float zoomlerp = (zoomExp - label.getMinZoom()) / (label.getMaxZoom() - label.getMinZoom());
 			if (zoomlerp > 0.0f && zoomlerp < 1.0f) {
 				float alpha = (0.5f - Math.abs(zoomlerp - 0.5f)) / 0.5f;
 				alpha *= 0.7f;
@@ -1510,10 +1486,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 				GL11.glPushMatrix();
 				GL11.glTranslatef(x, y, 0.0f);
-				float scale = zoomScale * label.scale;
+				float scale = zoomScale * label.getScale();
 				GL11.glScalef(scale, scale, scale);
 				if (!isOSRS()) {
-					GL11.glRotatef(label.angle, 0.0f, 0.0f, 1.0f);
+					GL11.glRotatef(label.getAngle(), 0.0f, 0.0f, 1.0f);
 				}
 				int alphaI = (int) (alpha * 255.0f);
 				alphaI = MathHelper.clamp_int(alphaI, 4, 255);
@@ -1525,7 +1501,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int strX = -fontRendererObj.getStringWidth(s) / 2;
 				int strY = -fontRendererObj.FONT_HEIGHT / 2;
 				if (isOSRS()) {
-					if (label.scale > 2.5f) {
+					if (label.getScale() > 2.5f) {
 						fontRendererObj.drawString(s, strX + 1, strY + 1, alphaI << 24);
 						fontRendererObj.drawString(s, strX, strY, 16755200 + (alphaI << 24));
 					} else {
@@ -1836,7 +1812,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								GOTAbstractWaypoint.WaypointLockState state = mc.thePlayer != null ? waypoint.getLockState(mc.thePlayer) : GOTAbstractWaypoint.WaypointLockState.STANDARD_UNLOCKED;
 								mc.getTextureManager().bindTexture(mapIconsTexture);
 								GL11.glColor4f(1.0F, 1.0F, 1.0F, wpZoomlerp);
-								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, state.iconU, state.iconV, 4.0F, 4.0F);
+								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, state.getIconU(), state.getIconV(), 4.0F, 4.0F);
 							}
 							GL11.glDisable(3042);
 							if (labels) {
@@ -1990,7 +1966,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		creatingWaypointNew = false;
 		String protection = StatCollector.translateToLocalFormatted("got.gui.map.customWaypoint.protected.1", message.getFormattedText());
 		String warning = StatCollector.translateToLocal("got.gui.map.customWaypoint.protected.2");
-		overlayLines = new String[]{protection, "", warning};
+		overlayLines = new String[] { protection, "", warning };
 	}
 
 	public void setFakeMapProperties(float x, float y, float scale, float scaleExp, float scaleStable) {
@@ -2145,7 +2121,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		z -= posY;
 		x *= zoomScale;
 		z *= zoomScale;
-		return new float[]{x + (mapXMin + (float) mapWidth / 2), z + (mapYMin + (float) mapHeight / 2)};
+		return new float[] { x + (mapXMin + (float) mapWidth / 2), z + (mapYMin + (float) mapHeight / 2) };
 	}
 
 	public void updateCurrentDimensionAndFaction() {
@@ -2196,6 +2172,31 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	public void zoomOut() {
 		zoom(-1);
+	}
+
+	public static void addPlayerLocationInfo(GameProfile player, double x, double z) {
+		if (player.isComplete()) {
+			playerLocations.put(player.getId(), new PlayerLocationInfo(player, x, z));
+		}
+	}
+
+	public static void clearPlayerLocations() {
+		playerLocations.clear();
+	}
+
+	public static boolean isOSRS() {
+		return GOTConfig.osrsMap;
+	}
+
+	public static int[] setFakeStaticProperties(int w, int h, int xmin, int xmax, int ymin, int ymax) {
+		int[] ret = { mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax };
+		mapWidth = w;
+		mapHeight = h;
+		mapXMin = xmin;
+		mapXMax = xmax;
+		mapYMin = ymin;
+		mapYMax = ymax;
+		return ret;
 	}
 
 	public static class PlayerLocationInfo {

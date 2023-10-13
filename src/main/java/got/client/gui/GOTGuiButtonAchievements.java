@@ -1,9 +1,10 @@
 package got.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import got.common.database.GOTAchievement;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
-import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonAchievements extends GuiButton {
 	public boolean leftOrRight;

@@ -1,5 +1,9 @@
 package got.common.block.other;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
@@ -19,10 +23,6 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
-
 public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 	public static int MAX_GROW_HEIGHT = 3;
 	public static int META_GROW_END = 7;
@@ -37,21 +37,6 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		setHardness(0.0f);
 		setStepSound(soundTypeGrass);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
-	}
-
-	public static boolean hasCorn(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return metaHasCorn(meta);
-	}
-
-	public static boolean metaHasCorn(int l) {
-		return (l & 8) != 0;
-	}
-
-	public static void setHasCorn(World world, int i, int j, int k, boolean flag) {
-		int meta = world.getBlockMetadata(i, j, k);
-		meta = flag ? meta | 8 : meta & 7;
-		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
 	}
 
 	@Override
@@ -259,6 +244,21 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 				setHasCorn(world, i, j, k, true);
 			}
 		}
+	}
+
+	public static boolean hasCorn(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return metaHasCorn(meta);
+	}
+
+	public static boolean metaHasCorn(int l) {
+		return (l & 8) != 0;
+	}
+
+	public static void setHasCorn(World world, int i, int j, int k, boolean flag) {
+		int meta = world.getBlockMetadata(i, j, k);
+		meta = flag ? meta | 8 : meta & 7;
+		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
 	}
 
 }

@@ -1,12 +1,12 @@
 package got.common.world.structure.westeros.common;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 	public boolean generateRoom = true;
@@ -87,11 +87,11 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		for (int i13 : new int[]{-1, 1}) {
+		for (int i13 : new int[] { -1, 1 }) {
 			setBlockAndMetadata(world, i13, 5, -3, brickStairBlock, 2);
 			setBlockAndMetadata(world, i13, 5, 3, brickStairBlock, 3);
 		}
-		int[] i14 = {-1, 1};
+		int[] i14 = { -1, 1 };
 		k1 = i14.length;
 		for (i2 = 0; i2 < k1; ++i2) {
 			int k12 = i14[i2];
@@ -138,12 +138,12 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i12, 14, k1, brickBlock, brickMeta);
 			}
 		}
-		int[] i15 = {-2, 2};
+		int[] i15 = { -2, 2 };
 		k1 = i15.length;
 		for (i2 = 0; i2 < k1; ++i2) {
 			int i13;
 			i13 = i15[i2];
-			for (int k13 : new int[]{-2, 2}) {
+			for (int k13 : new int[] { -2, 2 }) {
 				setBlockAndMetadata(world, i13, 13, k13 - 1, brickStairBlock, 6);
 				setBlockAndMetadata(world, i13, 13, k13 + 1, brickStairBlock, 7);
 				setBlockAndMetadata(world, i13 - 1, 13, k13, brickStairBlock, 5);
@@ -172,7 +172,7 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 			}
 			setBlockAndMetadata(world, -1, doorBase + 2, 1, brickSlabBlock, brickSlabMeta | 8);
 			setBlockAndMetadata(world, 0, doorBase + 2, 1, brickSlabBlock, brickSlabMeta | 8);
-			for (int j14 : new int[]{doorBase + 1, doorBase + 3}) {
+			for (int j14 : new int[] { doorBase + 1, doorBase + 3 }) {
 				setBlockAndMetadata(world, -1, j14, 1, bedBlock, 1);
 				setBlockAndMetadata(world, 0, j14, 1, bedBlock, 9);
 			}

@@ -1,5 +1,7 @@
 package got.common.quest;
 
+import java.util.*;
+
 import got.GOT;
 import got.common.GOTDate;
 import got.common.GOTLevelData;
@@ -28,20 +30,11 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.*;
 
-import java.util.*;
-
 public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	public Collection<UUID> pickpocketedEntityIDs = new HashSet<>();
 
 	public GOTMiniQuestPickpocket(GOTPlayerData pd) {
 		super(pd);
-	}
-
-	public static ItemStack createPickpocketIcon() {
-		ItemStack hat = new ItemStack(GOTItems.leatherHat);
-		GOTItemLeatherHat.setHatColor(hat, 0);
-		GOTItemLeatherHat.setFeatherColor(hat, 16777215);
-		return hat;
 	}
 
 	@Override
@@ -304,6 +297,13 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			ids.appendTag(new NBTTagString(id.toString()));
 		}
 		nbt.setTag("PickpocketedIDs", ids);
+	}
+
+	public static ItemStack createPickpocketIcon() {
+		ItemStack hat = new ItemStack(GOTItems.leatherHat);
+		GOTItemLeatherHat.setHatColor(hat, 0);
+		GOTItemLeatherHat.setFeatherColor(hat, 16777215);
+		return hat;
 	}
 
 	public static class QFPickpocket<Q extends GOTMiniQuestPickpocket> extends GOTMiniQuest.QuestFactoryBase<Q> {

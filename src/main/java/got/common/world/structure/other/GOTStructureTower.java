@@ -1,5 +1,7 @@
 package got.common.world.structure.other;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.westeros.GOTEntityMaester;
@@ -9,8 +11,6 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureTower extends GOTStructureBaseSettlement {
 	public GOTStructureTower(GOTBiome biome, float f) {

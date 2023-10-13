@@ -1,5 +1,7 @@
 package got.common.item.weapon;
 
+import java.util.List;
+
 import got.GOT;
 import got.common.entity.dragon.GOTEntityFlyingTameable;
 import got.common.entity.other.GOTEntityNPCRideable;
@@ -14,13 +16,33 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.List;
-
 public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 	public GOTItemAsshaiShadowbinderStaff() {
 		super(ToolMaterial.WOOD);
 		setMaxDamage(1500);
 		gotWeaponDamage = 8.0f;
+	}
+
+	@Override
+	public EnumAction getItemUseAction(ItemStack itemstack) {
+		return EnumAction.bow;
+	}
+
+	@Override
+	public int getMaxItemUseDuration(ItemStack itemstack) {
+		return 40;
+	}
+
+	@Override
+	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+		itemstack.damageItem(2, entityplayer);
+		return useStaff(itemstack, world, entityplayer);
+	}
+
+	@Override
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+		entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
+		return itemstack;
 	}
 
 	public static ItemStack useStaff(ItemStack itemstack, World world, EntityLivingBase user) {
@@ -82,27 +104,5 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 				}
 			}
 		}
-	}
-
-	@Override
-	public EnumAction getItemUseAction(ItemStack itemstack) {
-		return EnumAction.bow;
-	}
-
-	@Override
-	public int getMaxItemUseDuration(ItemStack itemstack) {
-		return 40;
-	}
-
-	@Override
-	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		itemstack.damageItem(2, entityplayer);
-		return useStaff(itemstack, world, entityplayer);
-	}
-
-	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
-		return itemstack;
 	}
 }

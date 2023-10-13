@@ -1,5 +1,8 @@
 package got.common.world;
 
+import java.util.List;
+import java.util.Random;
+
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
@@ -22,9 +25,6 @@ import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenStructure;
-
-import java.util.List;
-import java.util.Random;
 
 public class GOTChunkProvider implements IChunkProvider {
 	public World worldObj;
@@ -388,7 +388,7 @@ public class GOTChunkProvider implements IChunkProvider {
 		biomesForGeneration = chunkManager.loadBlockGeneratorData(biomesForGeneration, i * 16, k * 16, 16, 16);
 		variantsForGeneration = chunkManager.getBiomeVariants(variantsForGeneration, i * 16, k * 16, 16, 16);
 		replaceBlocksForBiome(i, k, blocks, metadata, biomesForGeneration, variantsForGeneration, chunkFlags);
-		caveGenerator.chunkFlags = chunkFlags;
+		caveGenerator.setChunkFlags(chunkFlags);
 		caveGenerator.func_151539_a(this, worldObj, i, k, blocks);
 		ravineGenerator.func_151539_a(this, worldObj, i, k, blocks);
 		ghiscarPyramid.func_151539_a(this, worldObj, i, k, blocks);

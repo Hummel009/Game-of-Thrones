@@ -1,6 +1,9 @@
 package got.common.world.structure.essos.braavos;
 
+import java.util.Random;
+
 import com.google.common.math.IntMath;
+
 import got.common.entity.essos.braavos.GOTEntityBraavosMan;
 import got.common.entity.essos.braavos.GOTEntityBraavosSoldier;
 import got.common.entity.essos.braavos.GOTEntityBraavosSoldierArcher;
@@ -11,8 +14,6 @@ import got.common.world.structure.essos.common.GOTStructureEssosVillageFence;
 import got.common.world.structure.essos.common.GOTStructureEssosVillagePost;
 import got.common.world.structure.other.*;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -38,10 +39,6 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 		return this;
 	}
 
-	public enum Type {
-		VILLAGE, TOWN, FORT
-	}
-
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureBraavosSettlement> {
 		public Type type;
 		public boolean forcedType;
@@ -55,15 +52,15 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-				case VILLAGE:
-					setupVillage(random);
-					break;
-				case TOWN:
-					setupTown(random);
-					break;
-				case FORT:
-					setupFort(random);
-					break;
+			case VILLAGE:
+				setupVillage(random);
+				break;
+			case TOWN:
+				setupTown(random);
+				break;
+			case FORT:
+				setupFort(random);
+				break;
 			}
 		}
 
@@ -178,8 +175,8 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[]{-25, 25}) {
-				for (int k1 : new int[]{-25, 25}) {
+			for (int i1 : new int[] { -25, 25 }) {
+				for (int k1 : new int[] { -25, 25 }) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -264,8 +261,8 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[]{-30, 30}) {
-				for (int k1 : new int[]{-30, 30}) {
+			for (int i1 : new int[] { -30, 30 }) {
+				for (int k1 : new int[] { -30, 30 }) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -507,5 +504,9 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClasses(GOTEntityBraavosSoldier.class, GOTEntityBraavosSoldierArcher.class);
 		}
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT
 	}
 }

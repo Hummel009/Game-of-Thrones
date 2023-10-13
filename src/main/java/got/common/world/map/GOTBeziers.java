@@ -1,10 +1,13 @@
 package got.common.world.map;
 
-import org.apache.commons.lang3.tuple.Pair;
+import static got.common.world.map.GOTCoordConverter.toEssosTown;
+import static got.common.world.map.GOTCoordConverter.toWesterosCastle;
+import static got.common.world.map.GOTCoordConverter.toWesterosTown;
+import static got.common.world.map.GOTCoordConverter.toYiTiTown;
 
 import java.util.*;
 
-import static got.common.world.map.GOTCoordConverter.*;
+import org.apache.commons.lang3.tuple.Pair;
 
 public class GOTBeziers {
 	public static Collection<GOTBeziers> allBeziers = new ArrayList<>();
@@ -14,8 +17,9 @@ public class GOTBeziers {
 	public static BezierPointDatabase wallPointDatabase = new BezierPointDatabase();
 
 	public static int id;
-	public BezierPoint[] bezierPoints;
-	public Collection<BezierPoint> endpoints = new ArrayList<>();
+
+	private BezierPoint[] bezierPoints;
+	private Collection<BezierPoint> endpoints = new ArrayList<>();
 
 	public GOTBeziers(BezierPoint... ends) {
 		Collections.addAll(endpoints, ends);
@@ -377,7 +381,6 @@ public class GOTBeziers {
 		registerLinker(GOTWaypoint.WYL.info(toWesterosCastle(-0.5) - 0.05, 0));
 		registerLinker(GOTWaypoint.ZAMETTAR.info(0, -0.125));
 
-
 		registerLinker(GOTWaypoint.BRAAVOS.info(0, toEssosTown(-0.5)));
 		registerLinker(GOTWaypoint.NORVOS.info(0, toEssosTown(-0.5)));
 		registerLinker(GOTWaypoint.MANTARYS.info(0, toEssosTown(-0.5)));
@@ -440,6 +443,37 @@ public class GOTBeziers {
 			allBeziers.addAll(Arrays.asList(beziers));
 		}
 		id++;
+	}
+
+	public static void registerLinker(GOTAbstractWaypoint to) {
+		registerBezier(Type.LINKER, to.getInstance(), to);
+	}
+
+	public static void registerLinker(GOTAbstractWaypoint to, boolean xAxis) {
+		GOTWaypoint from = to.getInstance();
+		double fromX = from.getX();
+		double fromY = from.getY();
+		double shiftX = to.getShiftX();
+		double shiftY = to.getShiftY();
+		double toX = to.getX();
+		double toY = to.getY();
+		if (xAxis) {
+			double halfway = Math.min(Math.abs(shiftX / 2.0), 0.1) * (fromX < toX ? -1 : 1);
+			registerBezier(Type.LINKER, from, from.info(shiftX + halfway, shiftY));
+			registerBezier(Type.LINKER, from.info(shiftX + halfway, shiftY), to);
+		} else {
+			double halfway = Math.min(Math.abs(shiftY / 2.0), 0.1) * (fromY < toY ? -1 : 1);
+			registerBezier(Type.LINKER, from, from.info(shiftX, shiftY + halfway));
+			registerBezier(Type.LINKER, from.info(shiftX, shiftY + halfway), to);
+		}
+	}
+
+	public BezierPoint[] getBezierPoints() {
+		return bezierPoints;
+	}
+
+	public Collection<BezierPoint> getEndpoints() {
+		return endpoints;
 	}
 
 	public enum Type {
@@ -510,7 +544,7 @@ public class GOTBeziers {
 				for (int l = 0; l < points; ++l) {
 					BezierPoint point;
 					double t = (double) l / points;
-					bezier.bezierPoints[l] = point = new BezierPoint(p1.x + dx * t, p1.z + dz * t, false);
+					bezier.getBezierPoints()[l] = point = new BezierPoint(p1.x + dx * t, p1.z + dz * t, false);
 					switch (type) {
 						case ROAD:
 							roadPointDatabase.add(point);
@@ -559,7 +593,7 @@ public class GOTBeziers {
 				for (int l = 0; l < points; ++l) {
 					BezierPoint point;
 					double t = (double) l / points;
-					bezier.bezierPoints[l] = point = bezier(p1, cp1, cp2, p2, t);
+					bezier.getBezierPoints()[l] = point = bezier(p1, cp1, cp2, p2, t);
 					switch (type) {
 						case ROAD:
 							roadPointDatabase.add(point);
@@ -584,20 +618,32 @@ public class GOTBeziers {
 	}
 
 	public static class BezierPoint {
-		public double x;
-		public double z;
-		public boolean isWaypoint;
+		private double x;
+		private double z;
+		private boolean isWaypoint;
 
 		public BezierPoint(double i, double j, boolean flag) {
 			x = i;
 			z = j;
 			isWaypoint = flag;
 		}
+
+		public double getX() {
+			return x;
+		}
+
+		public double getZ() {
+			return z;
+		}
+
+		public boolean isWaypoint() {
+			return isWaypoint;
+		}
 	}
 
 	public static class BezierPointDatabase {
 		public static int COORD_LOOKUP_SIZE = 1000;
-		public Map<Pair<Integer, Integer>, List<BezierPoint>> pointMap = new HashMap<>();
+		private Map<Pair<Integer, Integer>, List<BezierPoint>> pointMap = new HashMap<>();
 
 		public void add(BezierPoint point) {
 			int x = (int) Math.round(point.x / 1000.0);
@@ -628,29 +674,6 @@ public class GOTBeziers {
 			int x1 = x / 1000;
 			int z1 = z / 1000;
 			return getBezierList(x1, z1, false);
-		}
-	}
-
-	public static void registerLinker(GOTAbstractWaypoint to) {
-		registerBezier(Type.LINKER, to.getInstance(), to);
-	}
-
-	public static void registerLinker(GOTAbstractWaypoint to, boolean xAxis) {
-		GOTWaypoint from = to.getInstance();
-		double fromX = from.getX();
-		double fromY = from.getY();
-		double shiftX = to.getShiftX();
-		double shiftY = to.getShiftY();
-		double toX = to.getX();
-		double toY = to.getY();
-		if (xAxis) {
-			double halfway = Math.min(Math.abs(shiftX / 2.0), 0.1) * ((fromX < toX) ? -1 : 1);
-			registerBezier(Type.LINKER, from, from.info(shiftX + halfway, shiftY));
-			registerBezier(Type.LINKER, from.info(shiftX + halfway, shiftY), to);
-		} else {
-			double halfway = Math.min(Math.abs(shiftY / 2.0), 0.1) * ((fromY < toY) ? -1 : 1);
-			registerBezier(Type.LINKER, from, from.info(shiftX, shiftY + halfway));
-			registerBezier(Type.LINKER, from.info(shiftX, shiftY + halfway), to);
 		}
 	}
 }

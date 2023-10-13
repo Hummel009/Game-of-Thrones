@@ -1,5 +1,8 @@
 package got.common.world.biome;
 
+import java.awt.Color;
+import java.util.*;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -49,14 +52,10 @@ import net.minecraft.world.gen.feature.WorldGenTallGrass;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.util.EnumHelper;
 
-import java.awt.*;
-import java.util.List;
-import java.util.*;
-
 public abstract class GOTBiome extends BiomeGenBase {
 	public static final Set<GOTBiome> CONTENT = new HashSet<>();
 
-	public static Class<?>[][] correctCreatureTypeParams = {{EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE}};
+	public static Class<?>[][] correctCreatureTypeParams = { { EnumCreatureType.class, Class.class, Integer.TYPE, Material.class, Boolean.TYPE, Boolean.TYPE } };
 	public static EnumCreatureType creatureType_GOTAmbient = EnumHelper.addEnum(correctCreatureTypeParams, EnumCreatureType.class, "GOTAmbient", GOTAmbientCreature.class, 45, Material.air, true, false);
 	public static NoiseGeneratorPerlin biomeTerrainNoise = new NoiseGeneratorPerlin(new Random(1955L), 1);
 	public static Random terrainRand = new Random();
@@ -298,218 +297,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		unreliableChance = GOTEventSpawner.EventChance.COMMON;
 		invasionSpawns = new GOTBiomeInvasionSpawns(this);
 		CONTENT.add(this);
-	}
-
-	public static void preInit() {
-		beach = new GOTBiomeBeach(9, false).setBeachBlock(Blocks.sand, 0).setColor(14404247).setBiomeName("beach");
-		beachGravel = new GOTBiomeBeach(10, false).setBeachBlock(Blocks.gravel, 0).setColor(9868704).setBiomeName("beachGravel");
-		beachWhite = new GOTBiomeBeach(11, false).setBeachBlock(GOTBlocks.whiteSand, 0).setColor(15592941).setBiomeName("beachWhite");
-		river = new GOTBiomeRiver(108, false).setMinMaxHeight(-0.5f, 0.0f).setColor(3570869).setBiomeName("river");
-		lake = new GOTBiomeLake(60, false).setTemperatureRainfall(0.8F, 0.8F).setColor(3433630).setBiomeName("lake");
-
-		ocean = new GOTBiomeOcean(91, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x024B75).setMinMaxHeight(-1.0f, 0.3f).setBiomeName("ocean");
-		ocean1 = new GOTBiomeOcean(166, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x036FAC).setMinMaxHeight(-0.7f, 0.3f).setBiomeName("ocean");
-		ocean2 = new GOTBiomeOcean(167, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x026193).setMinMaxHeight(-0.8f, 0.3f).setBiomeName("ocean");
-		ocean3 = new GOTBiomeOcean(46, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x025582).setMinMaxHeight(-0.9f, 0.3f).setBiomeName("ocean");
-		island = new GOTBiomeOcean(55, false).setTemperatureRainfall(0.8F, 0.8F).setColor(10138963).setMinMaxHeight(0.0f, 0.3f).setBiomeName("island");
-		kingSpears = new GOTBiomeOcean(59, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0xA0A0A0).setMinMaxHeight(-0.7f, 0.3f).setBiomeName("kingSpears");
-		shadowLand = new GOTBiomeShadowLand(112, true).setMinMaxHeight(0.1f, 0.15f).setColor(0x8E8854).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowLand");
-		shadowMountains = new GOTBiomeShadowMountains(113, true).setMinMaxHeight(2.0f, 2.0f).setColor(0x635E3B).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowMountains");
-		shadowTown = new GOTBiomeShadowTown(114, true).setMinMaxHeight(0.1f, 0.15f).setColor(0xA39C68).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowTown");
-		valyria = new GOTBiomeValyria(145, true).setMinMaxHeight(0.1f, 0.15f).setColor(6710111).setTemperatureRainfall(1.2F, 0.8F).setBiomeName("valyria");
-		valyriaSea = new GOTBiomeValyria(146, true).setMinMaxHeight(-1.0f, 0.3f).setColor(0x0D304C).setTemperatureRainfall(0.8F, 0.8F).setBiomeName("valyriaSea");
-		valyriaVolcano = new GOTBiomeValyriaVolcano(147, true).setMinMaxHeight(2.0f, 2.0f).setColor(0xA5A5A5).setTemperatureRainfall(1.2F, 0.8F).setBiomeName("valyriaVolcano");
-
-		bleedingBeach = new GOTBiomeBleedingBeach(105, false).setClimateType(GOTClimateType.SUMMER).setColor(14403247).setMinMaxHeight(0.1f, 0.0f).setBiomeName("beach");
-
-		alwaysWinter = new GOTBiomeAlwaysWinter(1, true).setClimateType(GOTClimateType.WINTER).setColor(0xC9DAE0).setMinMaxHeight(0.1f, 0.15f).setBiomeName("alwaysWinter");
-		arryn = new GOTBiomeArryn(3, true).setClimateType(GOTClimateType.NORMAL).setColor(0x8CBA5B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("arryn");
-		arrynForest = new GOTBiomeArrynForest(177, true).setClimateType(GOTClimateType.NORMAL).setColor(0x598440).setMinMaxHeight(0.1f, 0.15f).setBiomeName("arrynForest");
-		arrynMountains = new GOTBiomeArrynMountains(6, true).setClimateType(GOTClimateType.NORMAL_AZ).setColor(0xC1E0BA).setMinMaxHeight(2.0f, 2.0f).setBiomeName("arrynMountains");
-		arrynMountainsFoothills = new GOTBiomeArrynMountainsFoothills(5, true).setClimateType(GOTClimateType.NORMAL).setColor(0x598454).setMinMaxHeight(0.1f, 0.15f).setBiomeName("arrynMountainsFoothills");
-		arrynTown = new GOTBiomeArrynTown(7, true).setClimateType(GOTClimateType.NORMAL).setColor(0x89BC5C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("arrynTown");
-		bleedingSea = new GOTBiomeBleedingSea(107, true).setClimateType(GOTClimateType.SUMMER).setColor(0x916c3e).setMinMaxHeight(-1.0f, 0.3f).setBiomeName("bleedingSea");
-		boneMountains = new GOTBiomeBoneMountains(14, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xE5E2B3).setMinMaxHeight(2.0f, 2.0f).setBiomeName("boneMountains");
-		braavos = new GOTBiomeBraavos(15, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAA9747).setMinMaxHeight(0.1f, 0.15f).setBiomeName("braavos");
-		braavosForest = new GOTBiomeBraavosForest(149, true).setClimateType(GOTClimateType.SUMMER).setColor(0x686530).setMinMaxHeight(0.1f, 0.15f).setBiomeName("braavosForest");
-		braavosHills = new GOTBiomeBraavos(96, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8E7E3B).setMinMaxHeight(0.1f, 1.0f).setBiomeName("braavosHills");
-		cannibalSands = new GOTBiomeCannibalSands(23, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCCBC82).setMinMaxHeight(0.1f, 0.15f).setBiomeName("cannibalSands");
-		cannibalSandsHills = new GOTBiomeCannibalSands(83, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2A472).setMinMaxHeight(0.1f, 1.0f).setBiomeName("cannibalSandsHills");
-		coldCoast = new GOTBiomeColdCoast(17, true).setClimateType(GOTClimateType.WINTER).setColor(0xC0D6CC).setMinMaxHeight(0.1f, 0.15f).setBiomeName("coldCoast");
-		crownlands = new GOTBiomeCrownlands(19, true).setClimateType(GOTClimateType.NORMAL).setColor(0x81af57).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlands");
-		crownlandsForest = new GOTBiomeCrownlandsForest(18, true).setClimateType(GOTClimateType.NORMAL).setColor(0x507A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlandsForest");
-		crownlandsTown = new GOTBiomeCrownlandsTown(22, true).setClimateType(GOTClimateType.NORMAL).setColor(0x9DC677).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlandsTown");
-		disputedLands = new GOTBiomeDisputedLands(70, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAFB25B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("disputedLands");
-		disputedLandsForest = new GOTBiomeDisputedLandsForest(48, true).setClimateType(GOTClimateType.SUMMER).setColor(0x707C40).setMinMaxHeight(0.1f, 0.15f).setBiomeName("disputedLandsForest");
-		dorne = new GOTBiomeDorne(24, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaa753).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorne");
-		dorneDesert = new GOTBiomeDorneDesert(25, true).setClimateType(GOTClimateType.SUMMER).setColor(14074229).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorneDesert");
-		dorneForest = new GOTBiomeDorneForest(100, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6B7239).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorneForest");
-		dorneMesa = new GOTBiomeDorneMesa(106, true).setClimateType(GOTClimateType.SUMMER).setColor(0xDDD5AF).setMinMaxHeight(1.5f, 0.0f).setBiomeName("dorneMesa");
-		dorneMountains = new GOTBiomeDorneMountains(27, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xD7E0AF).setMinMaxHeight(2.0f, 2.0f).setBiomeName("dorneMountains");
-		dothrakiSea = new GOTBiomeDothrakiSea(30, true).setClimateType(GOTClimateType.SUMMER).setColor(10398278).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dothrakiSea");
-		dothrakiSeaForest = new GOTBiomeDothrakiSeaForest(174, true).setClimateType(GOTClimateType.SUMMER).setColor(0x637531).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dothrakiSeaForest");
-		dothrakiSeaHills = new GOTBiomeDothrakiSea(103, true).setClimateType(GOTClimateType.SUMMER).setColor(0x858E3B).setMinMaxHeight(0.1f, 1.0f).setBiomeName("dothrakiSeaHills");
-		dragonstone = new GOTBiomeDragonstone(31, true).setClimateType(GOTClimateType.NORMAL).setColor(0x96AF85).setMinMaxHeight(0.3f, 0.35f).setBiomeName("dragonstone");
-		essos = new GOTBiomeEssos(33, true).setClimateType(GOTClimateType.SUMMER).setColor(0x92A54A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("essos");
-		essosForest = new GOTBiomeEssosForest(34, true).setClimateType(GOTClimateType.SUMMER).setColor(0x617027).setMinMaxHeight(0.1f, 0.15f).setBiomeName("essosForest");
-		essosMarshes = new GOTBiomeEssosMarshes(4, true).setClimateType(GOTClimateType.SUMMER).setColor(0x739655).setMinMaxHeight(0.0f, 0.1f).setBiomeName("essosMarshes");
-		essosMountains = new GOTBiomeEssosMountains(36, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xDDDDAF).setMinMaxHeight(2.0f, 2.0f).setBiomeName("essosMountains");
-		frostfangs = new GOTBiomeFrostfangs(39, true).setClimateType(GOTClimateType.WINTER).setColor(0xB8C5C6).setMinMaxHeight(2.0f, 2.0f).setBiomeName("frostfangs");
-		ghiscar = new GOTBiomeGhiscar(40, true).setClimateType(GOTClimateType.SUMMER).setColor(0xADAF6B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscar");
-		ghiscarAstapor = new GOTBiomeGhiscarAstapor(8, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB1BA7A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarAstapor");
-		ghiscarColony = new GOTBiomeGhiscarColony(41, true).setClimateType(GOTClimateType.SUMMER).setColor(0x5B8C2A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarColony");
-		ghiscarForest = new GOTBiomeGhiscarForest(172, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6F7A4B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarForest");
-		ghiscarMeereen = new GOTBiomeGhiscarMeereen(69, true).setClimateType(GOTClimateType.SUMMER).setColor(0xC1BA7A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarMeereen");
-		ghiscarNewGhis = new GOTBiomeGhiscarNewGhis(80, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB1AF7A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarNewGhis");
-		ghiscarYunkai = new GOTBiomeGhiscarYunkai(164, true).setClimateType(GOTClimateType.SUMMER).setColor(0xb9ba7a).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarYunkai");
-		giftNew = new GOTBiomeGiftNew(42, true).setClimateType(GOTClimateType.COLD).setColor(0x9CC78A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("giftNew");
-		giftOld = new GOTBiomeGiftOld(43, true).setClimateType(GOTClimateType.WINTER).setColor(0xB3D3A9).setMinMaxHeight(0.1f, 0.15f).setBiomeName("giftOld");
-		hauntedForest = new GOTBiomeHauntedForest(44, true).setClimateType(GOTClimateType.WINTER).setColor(0x88AD8D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("hauntedForest");
-		ibben = new GOTBiomeIbben(45, true).setClimateType(GOTClimateType.COLD).setColor(0x7AA04B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ibben");
-		ibbenColony = new GOTBiomeIbbenColony(47, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9EAF56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ibbenColony");
-		ibbenColonyForest = new GOTBiomeIbbenColonyForest(183, true).setClimateType(GOTClimateType.SUMMER).setColor(0x657A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ibbenColonyForest");
-		ibbenColonyHills = new GOTBiomeIbbenColony(110, true).setClimateType(GOTClimateType.SUMMER).setColor(0x869349).setMinMaxHeight(0.1f, 1.0f).setBiomeName("ibbenColonyHills");
-		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setClimateType(GOTClimateType.COLD_AZ).setColor(0xafbc9f).setMinMaxHeight(2.0f, 2.0f).setBiomeName("ibbenMountains");
-		ibbenTaiga = new GOTBiomeIbbenTaiga(49, true).setClimateType(GOTClimateType.COLD).setColor(0x4C6B23).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ibbenTaiga");
-		ifekevronForest = new GOTBiomeIfekevronForest(50, true).setClimateType(GOTClimateType.SUMMER).setColor(0x657231).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ifekevronForest");
-		ironborn = new GOTBiomeIronborn(51, true).setClimateType(GOTClimateType.COLD).setColor(0x8BBA83).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ironborn");
-		ironbornForest = new GOTBiomeIronbornForest(180, true).setClimateType(GOTClimateType.COLD).setColor(0x59845E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ironbornForest");
-		ironbornHills = new GOTBiomeIronbornHills(53, true).setClimateType(GOTClimateType.COLD).setColor(0x779E70).setMinMaxHeight(0.1f, 1.0f).setBiomeName("ironbornHills");
-		isleOfFaces = new GOTBiomeIsleOfFaces(56, true).setClimateType(GOTClimateType.NORMAL).setColor(0x82A556).setMinMaxHeight(0.1f, 0.15f).setBiomeName("isleOfFaces");
-		jogosNhai = new GOTBiomeJogosNhai(57, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2B762).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhai");
-		jogosNhaiDesert = new GOTBiomeJogosNhaiDesert(58, true).setClimateType(GOTClimateType.SUMMER).setColor(0xD6C182).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhaiDesert");
-		jogosNhaiDesertHills = new GOTBiomeJogosNhaiDesert(184, true).setClimateType(GOTClimateType.SUMMER).setColor(0xBAA671).setMinMaxHeight(0.1f, 1.0f).setBiomeName("jogosNhaiDesertHills");
-		jogosNhaiForest = new GOTBiomeJogosNhaiForest(171, true).setClimateType(GOTClimateType.SUMMER).setColor(0x727F44).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhaiForest");
-		jogosNhaiHills = new GOTBiomeJogosNhai(2, true).setClimateType(GOTClimateType.SUMMER).setColor(0x979B53).setMinMaxHeight(0.1f, 1.0f).setBiomeName("jogosNhaiHills");
-		kingswoodNorth = new GOTBiomeKingswoodNorth(21, true).setClimateType(GOTClimateType.NORMAL).setColor(0x587A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("kingswood");
-		kingswoodSouth = new GOTBiomeKingswoodSouth(159, true).setClimateType(GOTClimateType.SUMMER).setColor(0x5F7A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("kingswood");
-		lhazar = new GOTBiomeLhazar(61, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2B758).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lhazar");
-		lhazarForest = new GOTBiomeLhazarForest(173, true).setClimateType(GOTClimateType.SUMMER).setColor(0x74823F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lhazarForest");
-		lhazarHills = new GOTBiomeLhazar(117, true).setClimateType(GOTClimateType.SUMMER).setColor(0x979B4C).setMinMaxHeight(0.1f, 1.0f).setBiomeName("lhazarHills");
-		longSummer = new GOTBiomeLongSummer(62, true).setClimateType(GOTClimateType.SUMMER).setColor(0x95A03D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("longSummer");
-		lorath = new GOTBiomeLorath(63, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA5B25B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lorath");
-		lorathForest = new GOTBiomeLorathForest(153, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6A7C40).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lorathForest");
-		lorathHills = new GOTBiomeLorath(162, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8C964E).setMinMaxHeight(0.1f, 1.0f).setBiomeName("lorathHills");
-		lorathMaze = new GOTBiomeLorathMaze(93, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA8AF7B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lorathMaze");
-		lys = new GOTBiomeLys(65, true).setClimateType(GOTClimateType.SUMMER).setColor(0x70A564).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lys");
-		massy = new GOTBiomeDragonstone(28, true).setClimateType(GOTClimateType.NORMAL).setColor(0x89AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("massy");
-		massyHills = new GOTBiomeDragonstoneHills(67, true).setClimateType(GOTClimateType.NORMAL).setColor(0x749158).setMinMaxHeight(0.1f, 1.0f).setBiomeName("massyHills");
-		mossovy = new GOTBiomeMossovy(71, true).setClimateType(GOTClimateType.COLD).setColor(0x92A35E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("mossovy");
-		mossovyForest = new GOTBiomeMossovyForest(72, true).setClimateType(GOTClimateType.COLD).setColor(0x647A46).setMinMaxHeight(0.1f, 0.15f).setBiomeName("mossovyForest");
-		mossovyMarshes = new GOTBiomeMossovyMarshes(73, true).setClimateType(GOTClimateType.COLD).setColor(0x749975).setMinMaxHeight(0.0f, 0.1f).setBiomeName("mossovyMarshes");
-		mossovyMountains = new GOTBiomeMossovyMountains(75, true).setClimateType(GOTClimateType.COLD_AZ).setColor(0xD7E2B3).setMinMaxHeight(2.0f, 2.0f).setBiomeName("mossovyMountains");
-		myr = new GOTBiomeMyr(76, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA0A349).setMinMaxHeight(0.1f, 0.15f).setBiomeName("myr");
-		myrForest = new GOTBiomeMyrForest(168, true).setClimateType(GOTClimateType.SUMMER).setColor(0x626D31).setMinMaxHeight(0.1f, 0.15f).setBiomeName("myrForest");
-		naath = new GOTBiomeSummerIslands(78, true).setClimateType(GOTClimateType.SUMMER).setColor(0x7DA33C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("naath");
-		neck = new GOTBiomeNeck(79, true).setClimateType(GOTClimateType.COLD).setColor(0x6DAA75).setMinMaxHeight(0.0f, 0.1f).setBiomeName("neck");
-		north = new GOTBiomeNorth(81, true).setClimateType(GOTClimateType.COLD).setColor(0x8BBA6D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("north");
-		northBarrows = new GOTBiomeNorthBarrows(82, true).setClimateType(GOTClimateType.COLD).setColor(0x97C17C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northBarrows");
-		northForest = new GOTBiomeNorthForest(84, true).setClimateType(GOTClimateType.COLD).setColor(0x59844E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northForest");
-		northForestIrontree = new GOTBiomeNorthForestIrontree(54, true).setClimateType(GOTClimateType.COLD).setColor(0x868254).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northForestIrontree");
-		northHills = new GOTBiomeNorth(85, true).setClimateType(GOTClimateType.COLD).setColor(0x779E5D).setMinMaxHeight(0.1f, 1.0f).setBiomeName("northHills");
-		northMountains = new GOTBiomeNorthMountains(86, true).setClimateType(GOTClimateType.COLD_AZ).setColor(0xD3E0BA).setMinMaxHeight(2.0f, 2.0f).setBiomeName("northMountains");
-		northTown = new GOTBiomeNorthTown(87, true).setClimateType(GOTClimateType.COLD).setColor(0xAAD190).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northTown");
-		northWild = new GOTBiomeNorthWild(88, true).setClimateType(GOTClimateType.COLD).setColor(0xA9C69D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northWild");
-		norvos = new GOTBiomeNorvos(89, true).setClimateType(GOTClimateType.SUMMER).setColor(0x7DA344).setMinMaxHeight(0.1f, 0.15f).setBiomeName("norvos");
-		norvosForest = new GOTBiomeNorvosForest(176, true).setClimateType(GOTClimateType.SUMMER).setColor(0x4A6D2E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("norvosForest");
-		norvosHills = new GOTBiomeNorvos(35, true).setClimateType(GOTClimateType.SUMMER).setColor(0x678738).setMinMaxHeight(0.1f, 1.0f).setBiomeName("norvosHills");
-		pentos = new GOTBiomePentos(92, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2A349).setMinMaxHeight(0.1f, 0.15f).setBiomeName("pentos");
-		pentosForest = new GOTBiomePentosForest(169, true).setClimateType(GOTClimateType.SUMMER).setColor(0x706F34).setMinMaxHeight(0.1f, 0.15f).setBiomeName("pentosForest");
-		pentosHills = new GOTBiomePentos(98, true).setClimateType(GOTClimateType.SUMMER).setColor(0x96893F).setMinMaxHeight(0.1f, 1.0f).setBiomeName("pentosHills");
-		qarth = new GOTBiomeQarth(94, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9EAA4E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("qarth");
-		qarthColony = new GOTBiomeQarthColony(52, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9DAF54).setMinMaxHeight(0.1f, 0.15f).setBiomeName("qarthColony");
-		qarthDesert = new GOTBiomeQarthDesert(95, true).setClimateType(GOTClimateType.SUMMER).setColor(0xDCC175).setMinMaxHeight(0.1f, 0.15f).setBiomeName("qarthDesert");
-		qohor = new GOTBiomeQohor(97, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAFB350).setMinMaxHeight(0.1f, 0.15f).setBiomeName("qohor");
-		qohorForest = new GOTBiomeQohorForest(99, true).setClimateType(GOTClimateType.SUMMER).setColor(0x737F39).setMinMaxHeight(0.1f, 0.15f).setBiomeName("qohorForest");
-		qohorHills = new GOTBiomeQohor(170, true).setClimateType(GOTClimateType.SUMMER).setColor(0x969944).setMinMaxHeight(0.1f, 1.0f).setBiomeName("qohorHills");
-		reach = new GOTBiomeReach(101, true).setClimateType(GOTClimateType.SUMMER).setColor(0xa7b65a).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reach");
-		reachArbor = new GOTBiomeReachArbor(102, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA7AC5A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reachArbor");
-		reachFireField = new GOTBiomeReachFireField(38, true).setClimateType(GOTClimateType.SUMMER).setColor(0xC2C47B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reachFireField");
-		reachForest = new GOTBiomeReachForest(181, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6e8241).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reachForest");
-		reachHills = new GOTBiomeReach(141, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8F9B4D).setMinMaxHeight(0.1f, 1.0f).setBiomeName("reachHills");
-		reachTown = new GOTBiomeReachTown(104, true).setClimateType(GOTClimateType.SUMMER).setColor(0xC2D87B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reachTown");
-		riverlands = new GOTBiomeRiverlands(109, true).setClimateType(GOTClimateType.NORMAL).setColor(0x87BC58).setMinMaxHeight(0.1f, 0.15f).setBiomeName("riverlands");
-		riverlandsForest = new GOTBiomeRiverlandsForest(111, true).setClimateType(GOTClimateType.NORMAL).setColor(0x58873F).setMinMaxHeight(0.1f, 1.0f).setBiomeName("riverlandsForest");
-		shrykesLand = new GOTBiomeShrykesLand(90, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAAAE77).setMinMaxHeight(0.0f, 0.1f).setBiomeName("shrykesLand");
-		skagos = new GOTBiomeSkagos(116, true).setClimateType(GOTClimateType.COLD).setColor(0x97BF85).setMinMaxHeight(0.1f, 0.15f).setBiomeName("skagos");
-		sothoryosBushland = new GOTBiomeSothoryosBushland(118, true).setClimateType(GOTClimateType.SUMMER).setColor(0x998F3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosBushland");
-		sothoryosDesert = new GOTBiomeSothoryosDesert(119, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCCB882).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosDesert");
-		sothoryosDesertCold = new GOTBiomeSothoryosDesertCold(120, true).setClimateType(GOTClimateType.WINTER).setColor(0xDAD4AF).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosDesertCold");
-		sothoryosDesertHills = new GOTBiomeSothoryosDesert(121, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB9A762).setMinMaxHeight(0.1f, 1.0f).setBiomeName("sothoryosDeserHills");
-		sothoryosForest = new GOTBiomeSothoryosForest(126, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6A8436).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosForest");
-		sothoryosFrost = new GOTBiomeSothoryosFrost(122, true).setClimateType(GOTClimateType.WINTER).setColor(0xD8D8D2).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosFrost");
-		sothoryosHell = new GOTBiomeSothoryosHell(123, true).setClimateType(GOTClimateType.SUMMER).setColor(0x2E421B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosHell");
-		sothoryosJungle = new GOTBiomeSothoryosJungle(124, true).setClimateType(GOTClimateType.SUMMER).setColor(0x4A6B2B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosJungle");
-		sothoryosJungleEdge = new GOTBiomeSothoryosJungleEdge(125, true).setClimateType(GOTClimateType.SUMMER).setColor(0x748F3A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosJungleEdge");
-		sothoryosMangrove = new GOTBiomeSothoryosMangrove(127, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6E8E48).setMinMaxHeight(0.0f, 0.1f).setBiomeName("sothoryosMangrove");
-		sothoryosMountains = new GOTBiomeSothoryosMountains(128, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xD8D2B1).setMinMaxHeight(2.0f, 2.0f).setBiomeName("sothoryosMountains");
-		sothoryosSavannah = new GOTBiomeSothoryosSavannah(129, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8CA041).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosSavannah");
-		sothoryosTaiga = new GOTBiomeSothoryosTaiga(130, true).setClimateType(GOTClimateType.WINTER).setColor(0xA3B481).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosTaiga");
-		stepstones = new GOTBiomeStepstones(131, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BA37A).setMinMaxHeight(0.0f, 0.5f).setBiomeName("stepstones");
-		stoneCoast = new GOTBiomeStoneCoast(132, true).setClimateType(GOTClimateType.COLD).setColor(0x89A599).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stoneCoast");
-		stormlands = new GOTBiomeStormlands(133, true).setClimateType(GOTClimateType.SUMMER).setColor(0x96AF56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlands");
-		stormlandsForest = new GOTBiomeStormlandsForest(158, true).setClimateType(GOTClimateType.SUMMER).setColor(0x617A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsForest");
-		stormlandsTarth = new GOTBiomeStormlandsTarth(137, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA4AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarth");
-		stormlandsTarthForest = new GOTBiomeStormlandsTarthForest(182, true).setClimateType(GOTClimateType.SUMMER).setColor(0x687749).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarthForest");
-		stormlandsTown = new GOTBiomeStormlands(135, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB3C677).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTown");
-		summerColony = new GOTBiomeSummerColony(64, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BAD53).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerColony");
-		summerColonyMangrove = new GOTBiomeSummerColonyMangrove(66, true).setClimateType(GOTClimateType.SUMMER).setColor(0x85A361).setMinMaxHeight(0.0f, 0.1f).setBiomeName("summerColonyMangrove");
-		summerIslands = new GOTBiomeSummerIslands(136, true).setClimateType(GOTClimateType.SUMMER).setColor(0x83A54A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslands");
-		summerIslandsTropicalForest = new GOTBiomeTropicalForest(175, true).setClimateType(GOTClimateType.SUMMER).setColor(0x4F7032).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslandsTropicalForest");
-		thennLand = new GOTBiomeThennLand(138, true).setClimateType(GOTClimateType.WINTER).setColor(0xC3DDCF).setMinMaxHeight(0.1f, 0.15f).setBiomeName("thennLand");
-		tyrosh = new GOTBiomeTyrosh(140, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9AA5A2).setMinMaxHeight(0.1f, 0.15f).setBiomeName("tyrosh");
-		ulthos = new GOTBiomeUlthos(13, true).setClimateType(GOTClimateType.SUMMER).setColor(0x648432).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthos");
-		ulthosDesert = new GOTBiomeUlthosDesert(143, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCEBA84).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosDesert");
-		ulthosDesertCold = new GOTBiomeUlthosDesertCold(32, true).setClimateType(GOTClimateType.WINTER).setColor(0xD8D2AD).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosDesertCold");
-		ulthosForest = new GOTBiomeUlthosForest(142, true).setClimateType(GOTClimateType.SUMMER).setColor(0x284F1E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosForest");
-		ulthosForestEdge = new GOTBiomeUlthosForestEdge(16, true).setClimateType(GOTClimateType.SUMMER).setColor(0x436A28).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosForestEdge");
-		ulthosFrost = new GOTBiomeUlthosFrost(20, true).setClimateType(GOTClimateType.WINTER).setColor(0xCECECA).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosFrost");
-		ulthosMarshes = new GOTBiomeUlthosMarshes(68, true).setClimateType(GOTClimateType.SUMMER).setColor(0x588E4D).setMinMaxHeight(0.0f, 0.1f).setBiomeName("ulthosMarshes");
-		ulthosMarshesForest = new GOTBiomeUlthosMarshesForest(74, true).setClimateType(GOTClimateType.SUMMER).setColor(0x41753F).setMinMaxHeight(0.0f, 0.1f).setBiomeName("ulthosMarshesForest");
-		ulthosMountains = new GOTBiomeUlthosMountains(144, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xCDD6AF).setMinMaxHeight(2.0f, 2.0f).setBiomeName("ulthosMountains");
-		ulthosRedForest = new GOTBiomeUlthosRedForest(115, true).setClimateType(GOTClimateType.SUMMER).setColor(0x5E441C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosRedForest");
-		ulthosRedForestEdge = new GOTBiomeUlthosRedForestEdge(77, true).setClimateType(GOTClimateType.SUMMER).setColor(0x5E6526).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosRedForestEdge");
-		ulthosTaiga = new GOTBiomeUlthosTaiga(26, true).setClimateType(GOTClimateType.WINTER).setColor(0x5C6B3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosTaiga");
-		ulthosTaigaEdge = new GOTBiomeUlthosTaigaEdge(29, true).setClimateType(GOTClimateType.WINTER).setColor(0x818E66).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosTaigaEdge");
-		volantis = new GOTBiomeVolantis(148, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2A24C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("volantis");
-		volantisForest = new GOTBiomeVolantisForest(178, true).setClimateType(GOTClimateType.SUMMER).setColor(0x727135).setMinMaxHeight(0.1f, 0.15f).setBiomeName("volantisForest");
-		volantisMarshes = new GOTBiomeVolantisMarshes(151, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9EA260).setMinMaxHeight(0.0f, 0.1f).setBiomeName("volantisMarshes");
-		volantisOrangeForest = new GOTBiomeVolantisOrangeForest(150, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9D8840).setMinMaxHeight(0.1f, 0.15f).setBiomeName("volantisOrangeForest");
-		westerlands = new GOTBiomeWesterlands(152, true).setClimateType(GOTClimateType.NORMAL).setColor(0xB9BA5E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlands");
-		westerlandsForest = new GOTBiomeWesterlandsForest(179, true).setClimateType(GOTClimateType.NORMAL).setColor(0x7A8443).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlandsForest");
-		westerlandsHills = new GOTBiomeWesterlandsHills(154, true).setClimateType(GOTClimateType.NORMAL).setColor(0x9E9E50).setMinMaxHeight(0.1f, 1.0f).setBiomeName("westerlandsHills");
-		westerlandsTown = new GOTBiomeWesterlandsTown(155, true).setClimateType(GOTClimateType.NORMAL).setColor(0xD1D17F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlandsTown");
-		westerosFrost = new GOTBiomeWesterosFrost(37, true).setClimateType(GOTClimateType.WINTER).setColor(0xD7E4E5).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerosFrost");
-		wetwood = new GOTBiomeWetwood(157, true).setClimateType(GOTClimateType.COLD).setColor(0x427551).setMinMaxHeight(0.1f, 0.15f).setBiomeName("wetwood");
-		yeen = new GOTBiomeYeen(160, true).setClimateType(GOTClimateType.SUMMER).setColor(0x242F0F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yeen");
-		yiTi = new GOTBiomeYiTi(161, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAAAE55).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTi");
-		yiTiMarshes = new GOTBiomeYiTiMarshes(12, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8BA061).setMinMaxHeight(0.0f, 0.1f).setBiomeName("yiTiMarshes");
-		yiTiTropicalForest = new GOTBiomeTropicalForest(139, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6E7A3B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiTropicalForest");
-		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaae56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiWasteland");
-	}
-
-	public static void updateWaterColor(int k) {
-		int min = 0;
-		int max = waterLimitSouth - waterLimitNorth;
-		float latitude = (float) MathHelper.clamp_int(k - waterLimitNorth, min, max) / max;
-		float[] northColors = waterColorNorth.getColorComponents(null);
-		float[] southColors = waterColorSouth.getColorComponents(null);
-		float dR = southColors[0] - northColors[0];
-		float dG = southColors[1] - northColors[1];
-		float dB = southColors[2] - northColors[2];
-		float r = dR * latitude;
-		float g = dG * latitude;
-		float b = dB * latitude;
-		r += northColors[0];
-		g += northColors[1];
-		b += northColors[2];
-		Color water = new Color(r, g, b);
-		int waterRGB = water.getRGB();
-		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
-			if (biome != null && !biome.biomeColors.hasCustomWater()) {
-				biome.biomeColors.updateWater(waterRGB);
-			}
-		}
 	}
 
 	public void addBiomeF3Info(Collection<String> info, World world, GOTBiomeVariant variant) {
@@ -791,12 +578,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return climateType;
 	}
 
-	public GOTBiome setClimateType(GOTClimateType type) {
-		climateType = type;
-		decorator.generateAgriculture = type == GOTClimateType.SUMMER;
-		return this;
-	}
-
 	public void getCloudColor(Vec3 clouds) {
 		if (biomeColors.clouds != null) {
 			float[] colors = biomeColors.clouds.getColorComponents(null);
@@ -875,20 +656,20 @@ public abstract class GOTBiome extends BiomeGenBase {
 		WorldGenDoublePlant doubleFlowerGen = new WorldGenDoublePlant();
 		int i = random.nextInt(3);
 		switch (i) {
-			case 0: {
-				doubleFlowerGen.func_150548_a(1);
-				break;
-			}
-			case 1: {
-				doubleFlowerGen.func_150548_a(4);
-				break;
-			}
-			case 2: {
-				doubleFlowerGen.func_150548_a(5);
-				break;
-			}
-			default:
-				break;
+		case 0: {
+			doubleFlowerGen.func_150548_a(1);
+			break;
+		}
+		case 1: {
+			doubleFlowerGen.func_150548_a(4);
+			break;
+		}
+		case 2: {
+			doubleFlowerGen.func_150548_a(5);
+			break;
+		}
+		default:
+			break;
 		}
 		return doubleFlowerGen;
 	}
@@ -949,10 +730,6 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return unreliableChance;
 	}
 
-	public void setUnreliableChance(GOTEventSpawner.EventChance c) {
-		unreliableChance = c;
-	}
-
 	public float getVariantChance() {
 		return variantChance;
 	}
@@ -990,6 +767,12 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return (GOTBiome) super.setBiomeName(s);
 	}
 
+	public GOTBiome setClimateType(GOTClimateType type) {
+		climateType = type;
+		decorator.generateAgriculture = type == GOTClimateType.SUMMER;
+		return this;
+	}
+
 	@Override
 	public GOTBiome setColor(int color) {
 		color |= 0xFF000000;
@@ -1017,6 +800,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 	public GOTBiome setTemperatureRainfall(float f, float f1) {
 		super.setTemperatureRainfall(f, f1);
 		return this;
+	}
+
+	public void setUnreliableChance(GOTEventSpawner.EventChance c) {
+		unreliableChance = c;
 	}
 
 	public void setupDesertFauna() {
@@ -1189,13 +976,216 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return 1;
 	}
 
-	public interface Desert {
+	public static void preInit() {
+		beach = new GOTBiomeBeach(9, false).setBeachBlock(Blocks.sand, 0).setColor(14404247).setBiomeName("beach");
+		beachGravel = new GOTBiomeBeach(10, false).setBeachBlock(Blocks.gravel, 0).setColor(9868704).setBiomeName("beachGravel");
+		beachWhite = new GOTBiomeBeach(11, false).setBeachBlock(GOTBlocks.whiteSand, 0).setColor(15592941).setBiomeName("beachWhite");
+		river = new GOTBiomeRiver(108, false).setMinMaxHeight(-0.5f, 0.0f).setColor(3570869).setBiomeName("river");
+		lake = new GOTBiomeLake(60, false).setTemperatureRainfall(0.8F, 0.8F).setColor(3433630).setBiomeName("lake");
+
+		ocean = new GOTBiomeOcean(91, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x024B75).setMinMaxHeight(-1.0f, 0.3f).setBiomeName("ocean");
+		ocean1 = new GOTBiomeOcean(166, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x036FAC).setMinMaxHeight(-0.7f, 0.3f).setBiomeName("ocean");
+		ocean2 = new GOTBiomeOcean(167, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x026193).setMinMaxHeight(-0.8f, 0.3f).setBiomeName("ocean");
+		ocean3 = new GOTBiomeOcean(46, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0x025582).setMinMaxHeight(-0.9f, 0.3f).setBiomeName("ocean");
+		island = new GOTBiomeOcean(55, false).setTemperatureRainfall(0.8F, 0.8F).setColor(10138963).setMinMaxHeight(0.0f, 0.3f).setBiomeName("island");
+		kingSpears = new GOTBiomeOcean(59, true).setTemperatureRainfall(0.8F, 0.8F).setColor(0xA0A0A0).setMinMaxHeight(-0.7f, 0.3f).setBiomeName("kingSpears");
+		shadowLand = new GOTBiomeShadowLand(112, true).setMinMaxHeight(0.1f, 0.15f).setColor(0x8E8854).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowLand");
+		shadowMountains = new GOTBiomeShadowMountains(113, true).setMinMaxHeight(2.0f, 2.0f).setColor(0x635E3B).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowMountains");
+		shadowTown = new GOTBiomeShadowTown(114, true).setMinMaxHeight(0.1f, 0.15f).setColor(0xA39C68).setTemperatureRainfall(1.0f, 0.2f).setBiomeName("shadowTown");
+		valyria = new GOTBiomeValyria(145, true).setMinMaxHeight(0.1f, 0.15f).setColor(6710111).setTemperatureRainfall(1.2F, 0.8F).setBiomeName("valyria");
+		valyriaSea = new GOTBiomeValyria(146, true).setMinMaxHeight(-1.0f, 0.3f).setColor(0x0D304C).setTemperatureRainfall(0.8F, 0.8F).setBiomeName("valyriaSea");
+		valyriaVolcano = new GOTBiomeValyriaVolcano(147, true).setMinMaxHeight(2.0f, 2.0f).setColor(0xA5A5A5).setTemperatureRainfall(1.2F, 0.8F).setBiomeName("valyriaVolcano");
+
+		bleedingBeach = new GOTBiomeBleedingBeach(105, false).setClimateType(GOTClimateType.SUMMER).setColor(14403247).setMinMaxHeight(0.1f, 0.0f).setBiomeName("beach");
+
+		alwaysWinter = new GOTBiomeAlwaysWinter(1, true).setClimateType(GOTClimateType.WINTER).setColor(0xC9DAE0).setMinMaxHeight(0.1f, 0.15f).setBiomeName("alwaysWinter");
+		arryn = new GOTBiomeArryn(3, true).setClimateType(GOTClimateType.NORMAL).setColor(0x8CBA5B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("arryn");
+		arrynForest = new GOTBiomeArrynForest(177, true).setClimateType(GOTClimateType.NORMAL).setColor(0x598440).setMinMaxHeight(0.1f, 0.15f).setBiomeName("arrynForest");
+		arrynMountains = new GOTBiomeArrynMountains(6, true).setClimateType(GOTClimateType.NORMAL_AZ).setColor(0xC1E0BA).setMinMaxHeight(2.0f, 2.0f).setBiomeName("arrynMountains");
+		arrynMountainsFoothills = new GOTBiomeArrynMountainsFoothills(5, true).setClimateType(GOTClimateType.NORMAL).setColor(0x598454).setMinMaxHeight(0.1f, 0.15f).setBiomeName("arrynMountainsFoothills");
+		arrynTown = new GOTBiomeArrynTown(7, true).setClimateType(GOTClimateType.NORMAL).setColor(0x89BC5C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("arrynTown");
+		bleedingSea = new GOTBiomeBleedingSea(107, true).setClimateType(GOTClimateType.SUMMER).setColor(0x916c3e).setMinMaxHeight(-1.0f, 0.3f).setBiomeName("bleedingSea");
+		boneMountains = new GOTBiomeBoneMountains(14, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xE5E2B3).setMinMaxHeight(2.0f, 2.0f).setBiomeName("boneMountains");
+		braavos = new GOTBiomeBraavos(15, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAA9747).setMinMaxHeight(0.1f, 0.15f).setBiomeName("braavos");
+		braavosForest = new GOTBiomeBraavosForest(149, true).setClimateType(GOTClimateType.SUMMER).setColor(0x686530).setMinMaxHeight(0.1f, 0.15f).setBiomeName("braavosForest");
+		braavosHills = new GOTBiomeBraavos(96, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8E7E3B).setMinMaxHeight(0.1f, 1.0f).setBiomeName("braavosHills");
+		cannibalSands = new GOTBiomeCannibalSands(23, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCCBC82).setMinMaxHeight(0.1f, 0.15f).setBiomeName("cannibalSands");
+		cannibalSandsHills = new GOTBiomeCannibalSands(83, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2A472).setMinMaxHeight(0.1f, 1.0f).setBiomeName("cannibalSandsHills");
+		coldCoast = new GOTBiomeColdCoast(17, true).setClimateType(GOTClimateType.WINTER).setColor(0xC0D6CC).setMinMaxHeight(0.1f, 0.15f).setBiomeName("coldCoast");
+		crownlands = new GOTBiomeCrownlands(19, true).setClimateType(GOTClimateType.NORMAL).setColor(0x81af57).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlands");
+		crownlandsForest = new GOTBiomeCrownlandsForest(18, true).setClimateType(GOTClimateType.NORMAL).setColor(0x507A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlandsForest");
+		crownlandsTown = new GOTBiomeCrownlandsTown(22, true).setClimateType(GOTClimateType.NORMAL).setColor(0x9DC677).setMinMaxHeight(0.1f, 0.15f).setBiomeName("crownlandsTown");
+		disputedLands = new GOTBiomeDisputedLands(70, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAFB25B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("disputedLands");
+		disputedLandsForest = new GOTBiomeDisputedLandsForest(48, true).setClimateType(GOTClimateType.SUMMER).setColor(0x707C40).setMinMaxHeight(0.1f, 0.15f).setBiomeName("disputedLandsForest");
+		dorne = new GOTBiomeDorne(24, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaa753).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorne");
+		dorneDesert = new GOTBiomeDorneDesert(25, true).setClimateType(GOTClimateType.SUMMER).setColor(14074229).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorneDesert");
+		dorneForest = new GOTBiomeDorneForest(100, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6B7239).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dorneForest");
+		dorneMesa = new GOTBiomeDorneMesa(106, true).setClimateType(GOTClimateType.SUMMER).setColor(0xDDD5AF).setMinMaxHeight(1.5f, 0.0f).setBiomeName("dorneMesa");
+		dorneMountains = new GOTBiomeDorneMountains(27, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xD7E0AF).setMinMaxHeight(2.0f, 2.0f).setBiomeName("dorneMountains");
+		dothrakiSea = new GOTBiomeDothrakiSea(30, true).setClimateType(GOTClimateType.SUMMER).setColor(10398278).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dothrakiSea");
+		dothrakiSeaForest = new GOTBiomeDothrakiSeaForest(174, true).setClimateType(GOTClimateType.SUMMER).setColor(0x637531).setMinMaxHeight(0.1f, 0.15f).setBiomeName("dothrakiSeaForest");
+		dothrakiSeaHills = new GOTBiomeDothrakiSea(103, true).setClimateType(GOTClimateType.SUMMER).setColor(0x858E3B).setMinMaxHeight(0.1f, 1.0f).setBiomeName("dothrakiSeaHills");
+		dragonstone = new GOTBiomeDragonstone(31, true).setClimateType(GOTClimateType.NORMAL).setColor(0x96AF85).setMinMaxHeight(0.3f, 0.35f).setBiomeName("dragonstone");
+		essos = new GOTBiomeEssos(33, true).setClimateType(GOTClimateType.SUMMER).setColor(0x92A54A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("essos");
+		essosForest = new GOTBiomeEssosForest(34, true).setClimateType(GOTClimateType.SUMMER).setColor(0x617027).setMinMaxHeight(0.1f, 0.15f).setBiomeName("essosForest");
+		essosMarshes = new GOTBiomeEssosMarshes(4, true).setClimateType(GOTClimateType.SUMMER).setColor(0x739655).setMinMaxHeight(0.0f, 0.1f).setBiomeName("essosMarshes");
+		essosMountains = new GOTBiomeEssosMountains(36, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xDDDDAF).setMinMaxHeight(2.0f, 2.0f).setBiomeName("essosMountains");
+		frostfangs = new GOTBiomeFrostfangs(39, true).setClimateType(GOTClimateType.WINTER).setColor(0xB8C5C6).setMinMaxHeight(2.0f, 2.0f).setBiomeName("frostfangs");
+		ghiscar = new GOTBiomeGhiscar(40, true).setClimateType(GOTClimateType.SUMMER).setColor(0xADAF6B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscar");
+		ghiscarAstapor = new GOTBiomeGhiscarAstapor(8, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB1BA7A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarAstapor");
+		ghiscarColony = new GOTBiomeGhiscarColony(41, true).setClimateType(GOTClimateType.SUMMER).setColor(0x5B8C2A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarColony");
+		ghiscarForest = new GOTBiomeGhiscarForest(172, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6F7A4B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarForest");
+		ghiscarMeereen = new GOTBiomeGhiscarMeereen(69, true).setClimateType(GOTClimateType.SUMMER).setColor(0xC1BA7A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarMeereen");
+		ghiscarNewGhis = new GOTBiomeGhiscarNewGhis(80, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB1AF7A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarNewGhis");
+		ghiscarYunkai = new GOTBiomeGhiscarYunkai(164, true).setClimateType(GOTClimateType.SUMMER).setColor(0xb9ba7a).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ghiscarYunkai");
+		giftNew = new GOTBiomeGiftNew(42, true).setClimateType(GOTClimateType.COLD).setColor(0x9CC78A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("giftNew");
+		giftOld = new GOTBiomeGiftOld(43, true).setClimateType(GOTClimateType.WINTER).setColor(0xB3D3A9).setMinMaxHeight(0.1f, 0.15f).setBiomeName("giftOld");
+		hauntedForest = new GOTBiomeHauntedForest(44, true).setClimateType(GOTClimateType.WINTER).setColor(0x88AD8D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("hauntedForest");
+		ibben = new GOTBiomeIbben(45, true).setClimateType(GOTClimateType.COLD).setColor(0x7AA04B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ibben");
+		ibbenColony = new GOTBiomeIbbenColony(47, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9EAF56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ibbenColony");
+		ibbenColonyForest = new GOTBiomeIbbenColonyForest(183, true).setClimateType(GOTClimateType.SUMMER).setColor(0x657A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ibbenColonyForest");
+		ibbenColonyHills = new GOTBiomeIbbenColony(110, true).setClimateType(GOTClimateType.SUMMER).setColor(0x869349).setMinMaxHeight(0.1f, 1.0f).setBiomeName("ibbenColonyHills");
+		ibbenMountains = new GOTBiomeIbbenMountains(165, true).setClimateType(GOTClimateType.COLD_AZ).setColor(0xafbc9f).setMinMaxHeight(2.0f, 2.0f).setBiomeName("ibbenMountains");
+		ibbenTaiga = new GOTBiomeIbbenTaiga(49, true).setClimateType(GOTClimateType.COLD).setColor(0x4C6B23).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ibbenTaiga");
+		ifekevronForest = new GOTBiomeIfekevronForest(50, true).setClimateType(GOTClimateType.SUMMER).setColor(0x657231).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ifekevronForest");
+		ironborn = new GOTBiomeIronborn(51, true).setClimateType(GOTClimateType.COLD).setColor(0x8BBA83).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ironborn");
+		ironbornForest = new GOTBiomeIronbornForest(180, true).setClimateType(GOTClimateType.COLD).setColor(0x59845E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ironbornForest");
+		ironbornHills = new GOTBiomeIronbornHills(53, true).setClimateType(GOTClimateType.COLD).setColor(0x779E70).setMinMaxHeight(0.1f, 1.0f).setBiomeName("ironbornHills");
+		isleOfFaces = new GOTBiomeIsleOfFaces(56, true).setClimateType(GOTClimateType.NORMAL).setColor(0x82A556).setMinMaxHeight(0.1f, 0.15f).setBiomeName("isleOfFaces");
+		jogosNhai = new GOTBiomeJogosNhai(57, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2B762).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhai");
+		jogosNhaiDesert = new GOTBiomeJogosNhaiDesert(58, true).setClimateType(GOTClimateType.SUMMER).setColor(0xD6C182).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhaiDesert");
+		jogosNhaiDesertHills = new GOTBiomeJogosNhaiDesert(184, true).setClimateType(GOTClimateType.SUMMER).setColor(0xBAA671).setMinMaxHeight(0.1f, 1.0f).setBiomeName("jogosNhaiDesertHills");
+		jogosNhaiForest = new GOTBiomeJogosNhaiForest(171, true).setClimateType(GOTClimateType.SUMMER).setColor(0x727F44).setMinMaxHeight(0.1f, 0.15f).setBiomeName("jogosNhaiForest");
+		jogosNhaiHills = new GOTBiomeJogosNhai(2, true).setClimateType(GOTClimateType.SUMMER).setColor(0x979B53).setMinMaxHeight(0.1f, 1.0f).setBiomeName("jogosNhaiHills");
+		kingswoodNorth = new GOTBiomeKingswoodNorth(21, true).setClimateType(GOTClimateType.NORMAL).setColor(0x587A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("kingswood");
+		kingswoodSouth = new GOTBiomeKingswoodSouth(159, true).setClimateType(GOTClimateType.SUMMER).setColor(0x5F7A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("kingswood");
+		lhazar = new GOTBiomeLhazar(61, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2B758).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lhazar");
+		lhazarForest = new GOTBiomeLhazarForest(173, true).setClimateType(GOTClimateType.SUMMER).setColor(0x74823F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lhazarForest");
+		lhazarHills = new GOTBiomeLhazar(117, true).setClimateType(GOTClimateType.SUMMER).setColor(0x979B4C).setMinMaxHeight(0.1f, 1.0f).setBiomeName("lhazarHills");
+		longSummer = new GOTBiomeLongSummer(62, true).setClimateType(GOTClimateType.SUMMER).setColor(0x95A03D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("longSummer");
+		lorath = new GOTBiomeLorath(63, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA5B25B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lorath");
+		lorathForest = new GOTBiomeLorathForest(153, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6A7C40).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lorathForest");
+		lorathHills = new GOTBiomeLorath(162, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8C964E).setMinMaxHeight(0.1f, 1.0f).setBiomeName("lorathHills");
+		lorathMaze = new GOTBiomeLorathMaze(93, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA8AF7B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lorathMaze");
+		lys = new GOTBiomeLys(65, true).setClimateType(GOTClimateType.SUMMER).setColor(0x70A564).setMinMaxHeight(0.1f, 0.15f).setBiomeName("lys");
+		massy = new GOTBiomeDragonstone(28, true).setClimateType(GOTClimateType.NORMAL).setColor(0x89AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("massy");
+		massyHills = new GOTBiomeDragonstoneHills(67, true).setClimateType(GOTClimateType.NORMAL).setColor(0x749158).setMinMaxHeight(0.1f, 1.0f).setBiomeName("massyHills");
+		mossovy = new GOTBiomeMossovy(71, true).setClimateType(GOTClimateType.COLD).setColor(0x92A35E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("mossovy");
+		mossovyForest = new GOTBiomeMossovyForest(72, true).setClimateType(GOTClimateType.COLD).setColor(0x647A46).setMinMaxHeight(0.1f, 0.15f).setBiomeName("mossovyForest");
+		mossovyMarshes = new GOTBiomeMossovyMarshes(73, true).setClimateType(GOTClimateType.COLD).setColor(0x749975).setMinMaxHeight(0.0f, 0.1f).setBiomeName("mossovyMarshes");
+		mossovyMountains = new GOTBiomeMossovyMountains(75, true).setClimateType(GOTClimateType.COLD_AZ).setColor(0xD7E2B3).setMinMaxHeight(2.0f, 2.0f).setBiomeName("mossovyMountains");
+		myr = new GOTBiomeMyr(76, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA0A349).setMinMaxHeight(0.1f, 0.15f).setBiomeName("myr");
+		myrForest = new GOTBiomeMyrForest(168, true).setClimateType(GOTClimateType.SUMMER).setColor(0x626D31).setMinMaxHeight(0.1f, 0.15f).setBiomeName("myrForest");
+		naath = new GOTBiomeSummerIslands(78, true).setClimateType(GOTClimateType.SUMMER).setColor(0x7DA33C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("naath");
+		neck = new GOTBiomeNeck(79, true).setClimateType(GOTClimateType.COLD).setColor(0x6DAA75).setMinMaxHeight(0.0f, 0.1f).setBiomeName("neck");
+		north = new GOTBiomeNorth(81, true).setClimateType(GOTClimateType.COLD).setColor(0x8BBA6D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("north");
+		northBarrows = new GOTBiomeNorthBarrows(82, true).setClimateType(GOTClimateType.COLD).setColor(0x97C17C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northBarrows");
+		northForest = new GOTBiomeNorthForest(84, true).setClimateType(GOTClimateType.COLD).setColor(0x59844E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northForest");
+		northForestIrontree = new GOTBiomeNorthForestIrontree(54, true).setClimateType(GOTClimateType.COLD).setColor(0x868254).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northForestIrontree");
+		northHills = new GOTBiomeNorth(85, true).setClimateType(GOTClimateType.COLD).setColor(0x779E5D).setMinMaxHeight(0.1f, 1.0f).setBiomeName("northHills");
+		northMountains = new GOTBiomeNorthMountains(86, true).setClimateType(GOTClimateType.COLD_AZ).setColor(0xD3E0BA).setMinMaxHeight(2.0f, 2.0f).setBiomeName("northMountains");
+		northTown = new GOTBiomeNorthTown(87, true).setClimateType(GOTClimateType.COLD).setColor(0xAAD190).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northTown");
+		northWild = new GOTBiomeNorthWild(88, true).setClimateType(GOTClimateType.COLD).setColor(0xA9C69D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("northWild");
+		norvos = new GOTBiomeNorvos(89, true).setClimateType(GOTClimateType.SUMMER).setColor(0x7DA344).setMinMaxHeight(0.1f, 0.15f).setBiomeName("norvos");
+		norvosForest = new GOTBiomeNorvosForest(176, true).setClimateType(GOTClimateType.SUMMER).setColor(0x4A6D2E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("norvosForest");
+		norvosHills = new GOTBiomeNorvos(35, true).setClimateType(GOTClimateType.SUMMER).setColor(0x678738).setMinMaxHeight(0.1f, 1.0f).setBiomeName("norvosHills");
+		pentos = new GOTBiomePentos(92, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2A349).setMinMaxHeight(0.1f, 0.15f).setBiomeName("pentos");
+		pentosForest = new GOTBiomePentosForest(169, true).setClimateType(GOTClimateType.SUMMER).setColor(0x706F34).setMinMaxHeight(0.1f, 0.15f).setBiomeName("pentosForest");
+		pentosHills = new GOTBiomePentos(98, true).setClimateType(GOTClimateType.SUMMER).setColor(0x96893F).setMinMaxHeight(0.1f, 1.0f).setBiomeName("pentosHills");
+		qarth = new GOTBiomeQarth(94, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9EAA4E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("qarth");
+		qarthColony = new GOTBiomeQarthColony(52, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9DAF54).setMinMaxHeight(0.1f, 0.15f).setBiomeName("qarthColony");
+		qarthDesert = new GOTBiomeQarthDesert(95, true).setClimateType(GOTClimateType.SUMMER).setColor(0xDCC175).setMinMaxHeight(0.1f, 0.15f).setBiomeName("qarthDesert");
+		qohor = new GOTBiomeQohor(97, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAFB350).setMinMaxHeight(0.1f, 0.15f).setBiomeName("qohor");
+		qohorForest = new GOTBiomeQohorForest(99, true).setClimateType(GOTClimateType.SUMMER).setColor(0x737F39).setMinMaxHeight(0.1f, 0.15f).setBiomeName("qohorForest");
+		qohorHills = new GOTBiomeQohor(170, true).setClimateType(GOTClimateType.SUMMER).setColor(0x969944).setMinMaxHeight(0.1f, 1.0f).setBiomeName("qohorHills");
+		reach = new GOTBiomeReach(101, true).setClimateType(GOTClimateType.SUMMER).setColor(0xa7b65a).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reach");
+		reachArbor = new GOTBiomeReachArbor(102, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA7AC5A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reachArbor");
+		reachFireField = new GOTBiomeReachFireField(38, true).setClimateType(GOTClimateType.SUMMER).setColor(0xC2C47B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reachFireField");
+		reachForest = new GOTBiomeReachForest(181, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6e8241).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reachForest");
+		reachHills = new GOTBiomeReach(141, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8F9B4D).setMinMaxHeight(0.1f, 1.0f).setBiomeName("reachHills");
+		reachTown = new GOTBiomeReachTown(104, true).setClimateType(GOTClimateType.SUMMER).setColor(0xC2D87B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("reachTown");
+		riverlands = new GOTBiomeRiverlands(109, true).setClimateType(GOTClimateType.NORMAL).setColor(0x87BC58).setMinMaxHeight(0.1f, 0.15f).setBiomeName("riverlands");
+		riverlandsForest = new GOTBiomeRiverlandsForest(111, true).setClimateType(GOTClimateType.NORMAL).setColor(0x58873F).setMinMaxHeight(0.1f, 1.0f).setBiomeName("riverlandsForest");
+		shrykesLand = new GOTBiomeShrykesLand(90, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAAAE77).setMinMaxHeight(0.0f, 0.1f).setBiomeName("shrykesLand");
+		skagos = new GOTBiomeSkagos(116, true).setClimateType(GOTClimateType.COLD).setColor(0x97BF85).setMinMaxHeight(0.1f, 0.15f).setBiomeName("skagos");
+		sothoryosBushland = new GOTBiomeSothoryosBushland(118, true).setClimateType(GOTClimateType.SUMMER).setColor(0x998F3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosBushland");
+		sothoryosDesert = new GOTBiomeSothoryosDesert(119, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCCB882).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosDesert");
+		sothoryosDesertCold = new GOTBiomeSothoryosDesertCold(120, true).setClimateType(GOTClimateType.WINTER).setColor(0xDAD4AF).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosDesertCold");
+		sothoryosDesertHills = new GOTBiomeSothoryosDesert(121, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB9A762).setMinMaxHeight(0.1f, 1.0f).setBiomeName("sothoryosDeserHills");
+		sothoryosForest = new GOTBiomeSothoryosForest(126, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6A8436).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosForest");
+		sothoryosFrost = new GOTBiomeSothoryosFrost(122, true).setClimateType(GOTClimateType.WINTER).setColor(0xD8D8D2).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosFrost");
+		sothoryosHell = new GOTBiomeSothoryosHell(123, true).setClimateType(GOTClimateType.SUMMER).setColor(0x2E421B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosHell");
+		sothoryosJungle = new GOTBiomeSothoryosJungle(124, true).setClimateType(GOTClimateType.SUMMER).setColor(0x4A6B2B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosJungle");
+		sothoryosJungleEdge = new GOTBiomeSothoryosJungleEdge(125, true).setClimateType(GOTClimateType.SUMMER).setColor(0x748F3A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosJungleEdge");
+		sothoryosMangrove = new GOTBiomeSothoryosMangrove(127, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6E8E48).setMinMaxHeight(0.0f, 0.1f).setBiomeName("sothoryosMangrove");
+		sothoryosMountains = new GOTBiomeSothoryosMountains(128, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xD8D2B1).setMinMaxHeight(2.0f, 2.0f).setBiomeName("sothoryosMountains");
+		sothoryosSavannah = new GOTBiomeSothoryosSavannah(129, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8CA041).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosSavannah");
+		sothoryosTaiga = new GOTBiomeSothoryosTaiga(130, true).setClimateType(GOTClimateType.WINTER).setColor(0xA3B481).setMinMaxHeight(0.1f, 0.15f).setBiomeName("sothoryosTaiga");
+		stepstones = new GOTBiomeStepstones(131, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BA37A).setMinMaxHeight(0.0f, 0.5f).setBiomeName("stepstones");
+		stoneCoast = new GOTBiomeStoneCoast(132, true).setClimateType(GOTClimateType.COLD).setColor(0x89A599).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stoneCoast");
+		stormlands = new GOTBiomeStormlands(133, true).setClimateType(GOTClimateType.SUMMER).setColor(0x96AF56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlands");
+		stormlandsForest = new GOTBiomeStormlandsForest(158, true).setClimateType(GOTClimateType.SUMMER).setColor(0x617A3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsForest");
+		stormlandsTarth = new GOTBiomeStormlandsTarth(137, true).setClimateType(GOTClimateType.SUMMER).setColor(0xA4AD68).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarth");
+		stormlandsTarthForest = new GOTBiomeStormlandsTarthForest(182, true).setClimateType(GOTClimateType.SUMMER).setColor(0x687749).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTarthForest");
+		stormlandsTown = new GOTBiomeStormlands(135, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB3C677).setMinMaxHeight(0.1f, 0.15f).setBiomeName("stormlandsTown");
+		summerColony = new GOTBiomeSummerColony(64, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9BAD53).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerColony");
+		summerColonyMangrove = new GOTBiomeSummerColonyMangrove(66, true).setClimateType(GOTClimateType.SUMMER).setColor(0x85A361).setMinMaxHeight(0.0f, 0.1f).setBiomeName("summerColonyMangrove");
+		summerIslands = new GOTBiomeSummerIslands(136, true).setClimateType(GOTClimateType.SUMMER).setColor(0x83A54A).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslands");
+		summerIslandsTropicalForest = new GOTBiomeTropicalForest(175, true).setClimateType(GOTClimateType.SUMMER).setColor(0x4F7032).setMinMaxHeight(0.1f, 0.15f).setBiomeName("summerIslandsTropicalForest");
+		thennLand = new GOTBiomeThennLand(138, true).setClimateType(GOTClimateType.WINTER).setColor(0xC3DDCF).setMinMaxHeight(0.1f, 0.15f).setBiomeName("thennLand");
+		tyrosh = new GOTBiomeTyrosh(140, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9AA5A2).setMinMaxHeight(0.1f, 0.15f).setBiomeName("tyrosh");
+		ulthos = new GOTBiomeUlthos(13, true).setClimateType(GOTClimateType.SUMMER).setColor(0x648432).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthos");
+		ulthosDesert = new GOTBiomeUlthosDesert(143, true).setClimateType(GOTClimateType.SUMMER).setColor(0xCEBA84).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosDesert");
+		ulthosDesertCold = new GOTBiomeUlthosDesertCold(32, true).setClimateType(GOTClimateType.WINTER).setColor(0xD8D2AD).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosDesertCold");
+		ulthosForest = new GOTBiomeUlthosForest(142, true).setClimateType(GOTClimateType.SUMMER).setColor(0x284F1E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosForest");
+		ulthosForestEdge = new GOTBiomeUlthosForestEdge(16, true).setClimateType(GOTClimateType.SUMMER).setColor(0x436A28).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosForestEdge");
+		ulthosFrost = new GOTBiomeUlthosFrost(20, true).setClimateType(GOTClimateType.WINTER).setColor(0xCECECA).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosFrost");
+		ulthosMarshes = new GOTBiomeUlthosMarshes(68, true).setClimateType(GOTClimateType.SUMMER).setColor(0x588E4D).setMinMaxHeight(0.0f, 0.1f).setBiomeName("ulthosMarshes");
+		ulthosMarshesForest = new GOTBiomeUlthosMarshesForest(74, true).setClimateType(GOTClimateType.SUMMER).setColor(0x41753F).setMinMaxHeight(0.0f, 0.1f).setBiomeName("ulthosMarshesForest");
+		ulthosMountains = new GOTBiomeUlthosMountains(144, true).setClimateType(GOTClimateType.SUMMER_AZ).setColor(0xCDD6AF).setMinMaxHeight(2.0f, 2.0f).setBiomeName("ulthosMountains");
+		ulthosRedForest = new GOTBiomeUlthosRedForest(115, true).setClimateType(GOTClimateType.SUMMER).setColor(0x5E441C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosRedForest");
+		ulthosRedForestEdge = new GOTBiomeUlthosRedForestEdge(77, true).setClimateType(GOTClimateType.SUMMER).setColor(0x5E6526).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosRedForestEdge");
+		ulthosTaiga = new GOTBiomeUlthosTaiga(26, true).setClimateType(GOTClimateType.WINTER).setColor(0x5C6B3D).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosTaiga");
+		ulthosTaigaEdge = new GOTBiomeUlthosTaigaEdge(29, true).setClimateType(GOTClimateType.WINTER).setColor(0x818E66).setMinMaxHeight(0.1f, 0.15f).setBiomeName("ulthosTaigaEdge");
+		volantis = new GOTBiomeVolantis(148, true).setClimateType(GOTClimateType.SUMMER).setColor(0xB2A24C).setMinMaxHeight(0.1f, 0.15f).setBiomeName("volantis");
+		volantisForest = new GOTBiomeVolantisForest(178, true).setClimateType(GOTClimateType.SUMMER).setColor(0x727135).setMinMaxHeight(0.1f, 0.15f).setBiomeName("volantisForest");
+		volantisMarshes = new GOTBiomeVolantisMarshes(151, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9EA260).setMinMaxHeight(0.0f, 0.1f).setBiomeName("volantisMarshes");
+		volantisOrangeForest = new GOTBiomeVolantisOrangeForest(150, true).setClimateType(GOTClimateType.SUMMER).setColor(0x9D8840).setMinMaxHeight(0.1f, 0.15f).setBiomeName("volantisOrangeForest");
+		westerlands = new GOTBiomeWesterlands(152, true).setClimateType(GOTClimateType.NORMAL).setColor(0xB9BA5E).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlands");
+		westerlandsForest = new GOTBiomeWesterlandsForest(179, true).setClimateType(GOTClimateType.NORMAL).setColor(0x7A8443).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlandsForest");
+		westerlandsHills = new GOTBiomeWesterlandsHills(154, true).setClimateType(GOTClimateType.NORMAL).setColor(0x9E9E50).setMinMaxHeight(0.1f, 1.0f).setBiomeName("westerlandsHills");
+		westerlandsTown = new GOTBiomeWesterlandsTown(155, true).setClimateType(GOTClimateType.NORMAL).setColor(0xD1D17F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerlandsTown");
+		westerosFrost = new GOTBiomeWesterosFrost(37, true).setClimateType(GOTClimateType.WINTER).setColor(0xD7E4E5).setMinMaxHeight(0.1f, 0.15f).setBiomeName("westerosFrost");
+		wetwood = new GOTBiomeWetwood(157, true).setClimateType(GOTClimateType.COLD).setColor(0x427551).setMinMaxHeight(0.1f, 0.15f).setBiomeName("wetwood");
+		yeen = new GOTBiomeYeen(160, true).setClimateType(GOTClimateType.SUMMER).setColor(0x242F0F).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yeen");
+		yiTi = new GOTBiomeYiTi(161, true).setClimateType(GOTClimateType.SUMMER).setColor(0xAAAE55).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTi");
+		yiTiMarshes = new GOTBiomeYiTiMarshes(12, true).setClimateType(GOTClimateType.SUMMER).setColor(0x8BA061).setMinMaxHeight(0.0f, 0.1f).setBiomeName("yiTiMarshes");
+		yiTiTropicalForest = new GOTBiomeTropicalForest(139, true).setClimateType(GOTClimateType.SUMMER).setColor(0x6E7A3B).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiTropicalForest");
+		yiTiWasteland = new GOTBiomeYiTiWasteland(163, true).setClimateType(GOTClimateType.SUMMER).setColor(0xaaae56).setMinMaxHeight(0.1f, 0.15f).setBiomeName("yiTiWasteland");
 	}
 
-	public interface ImmuneToFrost {
-	}
-
-	public interface ImmuneToHeat {
+	public static void updateWaterColor(int k) {
+		int min = 0;
+		int max = waterLimitSouth - waterLimitNorth;
+		float latitude = (float) MathHelper.clamp_int(k - waterLimitNorth, min, max) / max;
+		float[] northColors = waterColorNorth.getColorComponents(null);
+		float[] southColors = waterColorSouth.getColorComponents(null);
+		float dR = southColors[0] - northColors[0];
+		float dG = southColors[1] - northColors[1];
+		float dB = southColors[2] - northColors[2];
+		float r = dR * latitude;
+		float g = dG * latitude;
+		float b = dB * latitude;
+		r += northColors[0];
+		g += northColors[1];
+		b += northColors[2];
+		Color water = new Color(r, g, b);
+		int waterRGB = water.getRGB();
+		for (GOTBiome biome : GOTDimension.GAME_OF_THRONES.biomeList) {
+			if (biome != null && !biome.biomeColors.hasCustomWater()) {
+				biome.biomeColors.updateWater(waterRGB);
+			}
+		}
 	}
 
 	public static class BiomeColors {
@@ -1290,16 +1280,8 @@ public abstract class GOTBiome extends BiomeGenBase {
 			return heightStretchFactor;
 		}
 
-		public void setHeightStretchFactor(double d) {
-			heightStretchFactor = d;
-		}
-
 		public double getXZScale() {
 			return xzScale;
-		}
-
-		public void setXZScale(double d) {
-			xzScale = d;
 		}
 
 		public boolean hasHeightStretchFactor() {
@@ -1317,6 +1299,17 @@ public abstract class GOTBiome extends BiomeGenBase {
 		public void resetXZScale() {
 			xzScale = -1.0;
 		}
+
+		public void setHeightStretchFactor(double d) {
+			heightStretchFactor = d;
+		}
+
+		public void setXZScale(double d) {
+			xzScale = d;
+		}
+	}
+
+	public interface Desert {
 	}
 
 	public static class GrassBlockAndMeta {
@@ -1327,5 +1320,11 @@ public abstract class GOTBiome extends BiomeGenBase {
 			block = b;
 			meta = i;
 		}
+	}
+
+	public interface ImmuneToFrost {
+	}
+
+	public interface ImmuneToHeat {
 	}
 }

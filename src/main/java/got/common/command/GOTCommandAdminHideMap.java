@@ -1,5 +1,8 @@
 package got.common.command;
 
+import java.util.Collections;
+import java.util.List;
+
 import got.common.GOTLevelData;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
@@ -8,14 +11,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ChatComponentTranslation;
 
-import java.util.Collections;
-import java.util.List;
-
 public class GOTCommandAdminHideMap extends CommandBase {
-	public static void notifyUnhidden(ICommandSender entityplayer) {
-		entityplayer.addChatMessage(new ChatComponentTranslation("got.command.opHideMap.unhide"));
-	}
-
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		return Collections.emptyList();
@@ -50,5 +46,9 @@ public class GOTCommandAdminHideMap extends CommandBase {
 			}
 		}
 		throw new WrongUsageException("got.command.opHideMap.notOp");
+	}
+
+	public static void notifyUnhidden(ICommandSender entityplayer) {
+		entityplayer.addChatMessage(new ChatComponentTranslation("got.command.opHideMap.unhide"));
 	}
 }

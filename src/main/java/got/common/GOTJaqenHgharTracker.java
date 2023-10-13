@@ -1,5 +1,8 @@
 package got.common;
 
+import java.util.*;
+import java.util.Map.Entry;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.Event;
 import got.common.entity.essos.legendary.quest.GOTEntityJaqenHghar;
@@ -9,9 +12,6 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
-
-import java.util.*;
-import java.util.Map.Entry;
 
 public class GOTJaqenHgharTracker {
 	public static Map<UUID, Integer> activeJaqenHghars = new HashMap<>();
@@ -63,8 +63,7 @@ public class GOTJaqenHgharTracker {
 				List<EntityPlayer> players = new ArrayList<EntityPlayer>(world.playerEntities);
 				Collections.shuffle(players);
 				Random rand = world.rand;
-				block0:
-				for (EntityPlayer entityplayer : players) {
+				block0: for (EntityPlayer entityplayer : players) {
 					if (!GOTLevelData.getData(entityplayer).hasAnyJHQuest()) {
 						for (int attempts = 0; attempts < 32; ++attempts) {
 							int k;

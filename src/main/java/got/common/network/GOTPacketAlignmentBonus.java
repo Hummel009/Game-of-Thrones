@@ -1,6 +1,9 @@
 package got.common.network;
 
+import java.util.Map;
+
 import com.google.common.base.Charsets;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -10,8 +13,6 @@ import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.util.StatCollector;
-
-import java.util.Map;
 
 public class GOTPacketAlignmentBonus implements IMessage {
 	public GOTFaction mainFaction;

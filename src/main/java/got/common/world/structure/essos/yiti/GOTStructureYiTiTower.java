@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.yiti;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldier;
@@ -7,8 +9,6 @@ import got.common.entity.essos.yiti.GOTEntityYiTiSoldierCrossbower;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 	public boolean enableDoor = true;
@@ -127,7 +127,7 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 0, 10, 1, Blocks.trapdoor, 9);
 		setBlockAndMetadata(world, -1, 6, -1, plankSlabBlock, plankSlabMeta | 8);
 		setBlockAndMetadata(world, 0, 6, -1, plankSlabBlock, plankSlabMeta | 8);
-		int[] j1 = {5, 7};
+		int[] j1 = { 5, 7 };
 		k1 = j1.length;
 		for (i2 = 0; i2 < k1; ++i2) {
 			int j13 = j1[i2];

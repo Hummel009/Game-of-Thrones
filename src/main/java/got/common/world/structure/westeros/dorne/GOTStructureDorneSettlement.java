@@ -1,6 +1,9 @@
 package got.common.world.structure.westeros.dorne;
 
+import java.util.Random;
+
 import com.google.common.math.IntMath;
+
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.dorne.GOTEntityDorneMan;
@@ -13,8 +16,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -40,10 +41,6 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 		return this;
 	}
 
-	public enum Type {
-		VILLAGE, TOWN, FORT
-	}
-
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureDorneSettlement> {
 		public Type type;
 		public boolean forcedType;
@@ -57,15 +54,15 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-				case TOWN:
-					setupTown(random);
-					break;
-				case FORT:
-					setupCastle(random);
-					break;
-				case VILLAGE:
-					setupVillage(random);
-					break;
+			case TOWN:
+				setupTown(random);
+				break;
+			case FORT:
+				setupCastle(random);
+				break;
+			case VILLAGE:
+				setupVillage(random);
+				break;
 			}
 		}
 
@@ -114,12 +111,12 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			if (random.nextInt(5) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
-					case 0:
-						return new GOTStructureDorneStables(false);
-					case 1:
-						return new GOTStructureDorneSmithy(false);
-					default:
-						return new GOTStructureDorneBarn(false);
+				case 0:
+					return new GOTStructureDorneStables(false);
+				case 1:
+					return new GOTStructureDorneSmithy(false);
+				default:
+					return new GOTStructureDorneBarn(false);
 				}
 			}
 			return new GOTStructureDorneHouse(false);
@@ -171,8 +168,8 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[]{-20, 20}) {
-				for (int k1 : new int[]{-20, 20}) {
+			for (int i1 : new int[] { -20, 20 }) {
+				for (int k1 : new int[] { -20, 20 }) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -247,8 +244,8 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			for (int i1 : new int[]{-40, 40}) {
-				int[] arrn = {-40, 40};
+			for (int i1 : new int[] { -40, 40 }) {
+				int[] arrn = { -40, 40 };
 				for (int k1 : arrn) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -282,14 +279,14 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			}
 			int flowerX = 12;
 			int flowerZ = 18;
-			for (int i1 : new int[]{-flowerX, flowerX}) {
+			for (int i1 : new int[] { -flowerX, flowerX }) {
 				addStructure(new GOTStructureDorneTownGarden(false), i1, flowerZ, 0, true);
 				addStructure(new GOTStructureDorneTownGarden(false), i1, -flowerZ, 2, true);
 				addStructure(new GOTStructureDorneTownGarden(false), -flowerZ, i1, 1, true);
 				addStructure(new GOTStructureDorneTownGarden(false), flowerZ, i1, 3, true);
 			}
 			int lampZ = 21;
-			for (int i1 : new int[]{-1, 1}) {
+			for (int i1 : new int[] { -1, 1 }) {
 				int lampX = i1 * 6;
 				addStructure(new GOTStructureDorneLampPost(false), lampX, lampZ, 0, true);
 				addStructure(new GOTStructureDorneLampPost(false), lampX, -lampZ, 2, true);
@@ -316,7 +313,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureDorneTavern(false), -houseX, -5, 1, true);
 			addStructure(new GOTStructureDorneTownTrees(false), -47, -13, 2, true);
 			addStructure(new GOTStructureDorneTownTrees(false), -47, 1, 0, true);
-			for (int i1 : new int[]{-43, -51}) {
+			for (int i1 : new int[] { -43, -51 }) {
 				addStructure(new GOTStructureDorneTownBench(false), i1, -9, 2, true);
 				addStructure(new GOTStructureDorneTownBench(false), i1, -3, 0, true);
 			}
@@ -326,7 +323,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureDorneTownGarden(false), 52, -6, 3, true);
 			int wellX = 22;
 			int wellZ = 31;
-			for (int i1 : new int[]{-wellX, wellX}) {
+			for (int i1 : new int[] { -wellX, wellX }) {
 				addStructure(new GOTStructureDorneWell(false), i1, -wellZ, 2, true);
 				addStructure(new GOTStructureDorneWell(false), i1, wellZ, 0, true);
 				addStructure(new GOTStructureDorneWell(false), -wellZ, i1, 1, true);
@@ -344,7 +341,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			}
 			int treeX = 47;
 			int treeZ = 35;
-			for (int i1 : new int[]{-treeX, treeX}) {
+			for (int i1 : new int[] { -treeX, treeX }) {
 				addStructure(new GOTStructureDorneTownTrees(false), i1, -treeZ, 0, true);
 				addStructure(new GOTStructureDorneTownTrees(false), i1, treeZ, 2, true);
 				addStructure(new GOTStructureDorneTownTrees(false), -treeZ, i1, 3, true);
@@ -417,7 +414,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureDorneTownTrees(false), treeZ, treeX, 0, true);
 			addStructure(new GOTStructureDorneTownTrees(false), -14, 71, 1, true);
 			addStructure(new GOTStructureDorneTownTrees(false), 14, 71, 3, true);
-			for (int k1 : new int[]{67, 75}) {
+			for (int k1 : new int[] { 67, 75 }) {
 				addStructure(new GOTStructureDorneTownBench(false), -10, k1, 1, true);
 				addStructure(new GOTStructureDorneTownBench(false), 10, k1, 3, true);
 			}
@@ -426,7 +423,7 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureDorneLampPost(false), 4, 73, 0, true);
 			int towerX = 78;
 			int towerZ = 74;
-			for (int i1 : new int[]{-towerX, towerX}) {
+			for (int i1 : new int[] { -towerX, towerX }) {
 				addStructure(new GOTStructureDorneWatchtower(false), i1, -towerZ, 2, true);
 				addStructure(new GOTStructureDorneWatchtower(false), i1, towerZ, 0, true);
 			}
@@ -562,6 +559,10 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT
 	}
 
 }

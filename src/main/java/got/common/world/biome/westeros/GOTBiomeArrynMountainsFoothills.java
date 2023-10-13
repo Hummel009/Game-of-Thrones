@@ -1,5 +1,8 @@
 package got.common.world.biome.westeros;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -8,9 +11,6 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.westeros.hillmen.GOTStructureHillmanSettlement;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class GOTBiomeArrynMountainsFoothills extends GOTBiomeWesteros {
 	public GOTBiomeArrynMountainsFoothills(int i, boolean major) {

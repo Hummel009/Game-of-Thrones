@@ -1,6 +1,7 @@
 package got.common.network;
 
 import com.google.common.base.Charsets;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;

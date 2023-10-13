@@ -1,13 +1,13 @@
 package got.common.item;
 
+import java.util.UUID;
+
 import got.common.item.other.GOTItemMug;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-
-import java.util.UUID;
 
 public class GOTPoisonedDrinks {
 	public static int POISON_DURATION = 3000;

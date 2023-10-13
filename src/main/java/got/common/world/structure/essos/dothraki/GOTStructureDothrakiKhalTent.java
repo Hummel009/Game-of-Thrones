@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.dothraki;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -8,8 +10,6 @@ import got.common.entity.essos.dothraki.GOTEntityDothraki;
 import got.common.entity.essos.dothraki.GOTEntityDothrakiKhal;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 	public GOTStructureDothrakiKhalTent(boolean flag) {
@@ -90,7 +90,7 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 			warrior.spawnRidingHorse = false;
 			spawnNPCAndSetHome(warrior, world, random.nextBoolean() ? -6 : 6, 1, 0, 8);
 		}
-		for (int i1 : new int[]{-5, 5}) {
+		for (int i1 : new int[] { -5, 5 }) {
 			int j12 = 1;
 			int k1 = -8;
 			if (!isOpaque(world, i1, 0, k1) || !isAir(world, i1, j12, k1)) {

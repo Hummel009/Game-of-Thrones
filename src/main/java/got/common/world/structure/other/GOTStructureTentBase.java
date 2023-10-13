@@ -1,5 +1,7 @@
 package got.common.world.structure.other;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
@@ -7,8 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-
-import java.util.Random;
 
 public abstract class GOTStructureTentBase extends GOTStructureBase {
 	public Block tentBlock;
@@ -50,36 +50,36 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 					if (biome instanceof GOTBiomeShadowLand) {
 						randomGround = random.nextInt(3);
 						switch (randomGround) {
-							case 0:
-								setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.rock, 0);
-								break;
-							case 1:
-								setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.asshaiDirt, 0);
-								break;
-							case 2:
-								setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.basaltGravel, 0);
-								break;
-							default:
-								break;
+						case 0:
+							setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.rock, 0);
+							break;
+						case 1:
+							setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.asshaiDirt, 0);
+							break;
+						case 2:
+							setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.basaltGravel, 0);
+							break;
+						default:
+							break;
 						}
 					} else {
 						randomGround = random.nextInt(3);
 						switch (randomGround) {
-							case 0:
-								if (j1 == 0) {
-									setBiomeTop(world, i1, 0, k1);
-								} else {
-									setBiomeFiller(world, i1, j1, k1);
-								}
-								break;
-							case 1:
-								setBlockAndMetadata(world, i1, j1, k1, Blocks.gravel, 0);
-								break;
-							case 2:
-								setBlockAndMetadata(world, i1, j1, k1, Blocks.cobblestone, 0);
-								break;
-							default:
-								break;
+						case 0:
+							if (j1 == 0) {
+								setBiomeTop(world, i1, 0, k1);
+							} else {
+								setBiomeFiller(world, i1, j1, k1);
+							}
+							break;
+						case 1:
+							setBlockAndMetadata(world, i1, j1, k1, Blocks.gravel, 0);
+							break;
+						case 2:
+							setBlockAndMetadata(world, i1, j1, k1, Blocks.cobblestone, 0);
+							break;
+						default:
+							break;
 						}
 					}
 					setGrassToDirt(world, i1, j1 - 1, k1);
@@ -90,7 +90,7 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 			}
 		}
 		for (int k12 = -3; k12 <= 3; ++k12) {
-			for (int i12 : new int[]{-2, 2}) {
+			for (int i12 : new int[] { -2, 2 }) {
 				for (int j12 = 1; j12 <= 2; ++j12) {
 					setBlockAndMetadata(world, i12, j12, k12, tentBlock, tentMeta);
 				}

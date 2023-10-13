@@ -11,8 +11,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTEntityGhiscarGladiator extends GOTEntityGhiscarMan {
-	public static ItemStack[] weaponsIron = {new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned), new ItemStack(GOTItems.essosHammer)};
-	public static int[] turbanColors = {1643539, 6309443, 7014914, 7809314, 5978155};
+	public static ItemStack[] weaponsIron = { new ItemStack(GOTItems.essosSword), new ItemStack(GOTItems.essosDagger), new ItemStack(GOTItems.essosDaggerPoisoned), new ItemStack(GOTItems.essosHammer) };
+	public static int[] turbanColors = { 1643539, 6309443, 7014914, 7809314, 5978155 };
 
 	public GOTEntityGhiscarGladiator(World world) {
 		super(world);

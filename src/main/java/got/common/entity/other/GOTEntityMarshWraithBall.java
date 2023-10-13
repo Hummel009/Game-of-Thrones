@@ -65,10 +65,6 @@ public class GOTEntityMarshWraithBall extends EntityThrowable {
 		return dataWatcher.getWatchableObjectShort(16);
 	}
 
-	public void setBallAge(int age) {
-		dataWatcher.updateObject(16, (short) age);
-	}
-
 	@Override
 	public float getGravityVelocity() {
 		return 0.0f;
@@ -115,6 +111,10 @@ public class GOTEntityMarshWraithBall extends EntityThrowable {
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		setBallAge(nbt.getInteger("BallAge"));
+	}
+
+	public void setBallAge(int age) {
+		dataWatcher.updateObject(16, (short) age);
 	}
 
 	@Override

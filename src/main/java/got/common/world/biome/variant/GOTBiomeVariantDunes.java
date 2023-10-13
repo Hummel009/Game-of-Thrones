@@ -1,10 +1,10 @@
 package got.common.world.biome.variant;
 
+import java.util.Random;
+
 import got.common.util.GOTFunctions;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
-
-import java.util.Random;
 
 public class GOTBiomeVariantDunes extends GOTBiomeVariant {
 	public static NoiseGeneratorPerlin duneWaveNoise = new NoiseGeneratorPerlin(new Random(305620668206968L), 1);

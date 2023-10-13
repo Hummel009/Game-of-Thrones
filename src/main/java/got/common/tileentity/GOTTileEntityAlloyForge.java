@@ -1,5 +1,10 @@
 package got.common.tileentity;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -23,10 +28,6 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.StatCollector;
-import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.ArrayList;
-import java.util.Collections;
 
 public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInventory {
 	public ItemStack[] inventory = new ItemStack[getForgeInvSize()];
@@ -161,7 +162,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 			}
 			return sortedSlots;
 		}
-		return new int[]{fuelSlot};
+		return new int[] { fuelSlot };
 	}
 
 	public ItemStack getAlloySmeltingResult(ItemStack itemstack, ItemStack alloyItem) {
@@ -369,8 +370,8 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	}
 
 	public void setupForgeSlots() {
-		inputSlots = new int[]{4, 5, 6, 7};
-		outputSlots = new int[]{8, 9, 10, 11};
+		inputSlots = new int[] { 4, 5, 6, 7 };
+		outputSlots = new int[] { 8, 9, 10, 11 };
 		fuelSlot = 12;
 	}
 

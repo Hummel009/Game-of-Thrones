@@ -32,8 +32,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
 public class GOTEntityWight extends GOTEntityHumanBase {
-	public static ItemStack[] weapons = {new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword)};
-	public static ItemStack[] spears = {new ItemStack(GOTItems.wildlingSpear)};
+	public static ItemStack[] weapons = { new ItemStack(GOTItems.wildlingAxe), new ItemStack(GOTItems.wildlingBattleaxe), new ItemStack(GOTItems.wildlingDagger), new ItemStack(GOTItems.wildlingDaggerPoisoned), new ItemStack(GOTItems.wildlingHammer), new ItemStack(GOTItems.wildlingPolearm), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword), new ItemStack(GOTItems.wildlingSword) };
+	public static ItemStack[] spears = { new ItemStack(GOTItems.wildlingSpear) };
 
 	public GOTEntityWight(World world) {
 		super(world);

@@ -1,5 +1,7 @@
 package got.common.entity.other;
 
+import java.util.List;
+
 import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.registry.IEntityAdditionalSpawnData;
 import got.common.database.GOTItems;
@@ -12,8 +14,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GOTEntityLingeringEffect extends Entity implements IEntityAdditionalSpawnData {
 	public static int TICKS_DATA_WATCHER = 10;

@@ -1,5 +1,7 @@
 package got.common.world.map;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
@@ -7,17 +9,15 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public class GOTFiveFortsWall extends GOTStructureBase {
-	public int centreX;
-	public int centreZ;
-	public int radius = 100;
-	public int radiusSq = radius * radius;
-	public double wallThick = 0.5;
-	public int wallTop = 100;
-	public int gateBottom = 77;
-	public int gateTop = wallTop - 18;
+	private int centreX;
+	private int centreZ;
+	private int radius = 100;
+	private int radiusSq = radius * radius;
+	private double wallThick = 0.5;
+	private int wallTop = 100;
+	private int gateBottom = 77;
+	private int gateTop = wallTop - 18;
 
 	public GOTFiveFortsWall(boolean flag, GOTAbstractWaypoint waypoint) {
 		super(flag);
@@ -29,8 +29,7 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 		if (isPosInWall(i + 8, k + 8) < wallThick * 3.0) {
 			for (int i1 = i; i1 <= i + 15; ++i1) {
-				block1:
-				for (int k1 = k; k1 <= k + 15; ++k1) {
+				block1: for (int k1 = k; k1 <= k + 15; ++k1) {
 					double circleDist = isPosInWall(i1, k1);
 					if (circleDist >= 0.08) {
 						continue;

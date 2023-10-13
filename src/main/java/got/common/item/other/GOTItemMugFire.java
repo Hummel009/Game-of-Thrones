@@ -1,5 +1,7 @@
 package got.common.item.other;
 
+import java.util.List;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTLevelData;
@@ -11,8 +13,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GOTItemMugFire extends GOTItemMug {
 	public GOTItemMugFire(float f) {

@@ -1,11 +1,12 @@
 package got.client.gui;
 
-import net.minecraft.client.gui.Gui;
-import net.minecraft.util.MathHelper;
+import java.util.Collection;
+
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import java.util.Collection;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.util.MathHelper;
 
 public class GOTGuiScrollPane {
 	public int scrollWidgetWidth;
@@ -48,7 +49,7 @@ public class GOTGuiScrollPane {
 		int max = displayed - 1 + Math.round(currentScroll * (size - displayed));
 		min = Math.max(min, 0);
 		max = Math.min(max, size - 1);
-		return new int[]{min, max};
+		return new int[] { min, max };
 	}
 
 	public void mouseDragScroll(int i, int j) {

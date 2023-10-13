@@ -21,20 +21,20 @@ public class GOTBlockSlabDirt extends GOTBlockSlabBase {
 	public IIcon getIcon(int i, int j) {
 		j &= 7;
 		switch (j) {
-			case 0:
-				return Blocks.dirt.getIcon(i, 0);
-			case 1:
-				return GOTBlocks.dirtPath.getIcon(i, 0);
-			case 2:
-				return GOTBlocks.mud.getIcon(i, 0);
-			case 3:
-				return GOTBlocks.asshaiDirt.getIcon(i, 0);
-			case 4:
-				return GOTBlocks.dirtPath.getIcon(i, 1);
-			case 5:
-				return GOTBlocks.dirtPath.getIcon(i, 2);
-			default:
-				break;
+		case 0:
+			return Blocks.dirt.getIcon(i, 0);
+		case 1:
+			return GOTBlocks.dirtPath.getIcon(i, 0);
+		case 2:
+			return GOTBlocks.mud.getIcon(i, 0);
+		case 3:
+			return GOTBlocks.asshaiDirt.getIcon(i, 0);
+		case 4:
+			return GOTBlocks.dirtPath.getIcon(i, 1);
+		case 5:
+			return GOTBlocks.dirtPath.getIcon(i, 2);
+		default:
+			break;
 		}
 		return super.getIcon(i, j);
 	}

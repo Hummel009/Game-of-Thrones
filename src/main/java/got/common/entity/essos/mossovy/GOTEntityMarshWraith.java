@@ -1,5 +1,7 @@
 package got.common.entity.essos.mossovy;
 
+import java.util.UUID;
+
 import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
 import got.common.entity.ai.GOTEntityAIRangedAttack;
@@ -20,8 +22,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.UUID;
 
 public class GOTEntityMarshWraith extends GOTEntityNPC {
 	public UUID attackTargetUUID;
@@ -106,10 +106,6 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		return dataWatcher.getWatchableObjectInt(17);
 	}
 
-	public void setDeathFadeTime(int i) {
-		dataWatcher.updateObject(17, i);
-	}
-
 	@Override
 	public String getDeathSound() {
 		return "got:wight.death";
@@ -127,10 +123,6 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 
 	public int getSpawnFadeTime() {
 		return dataWatcher.getWatchableObjectInt(16);
-	}
-
-	public void setSpawnFadeTime(int i) {
-		dataWatcher.updateObject(16, i);
 	}
 
 	@Override
@@ -223,8 +215,16 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 		}
 	}
 
+	public void setDeathFadeTime(int i) {
+		dataWatcher.updateObject(17, i);
+	}
+
 	@Override
 	public void setInWeb() {
+	}
+
+	public void setSpawnFadeTime(int i) {
+		dataWatcher.updateObject(16, i);
 	}
 
 	@Override

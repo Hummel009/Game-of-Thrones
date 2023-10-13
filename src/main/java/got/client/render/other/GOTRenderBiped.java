@@ -1,6 +1,9 @@
 package got.client.render.other;
 
+import org.lwjgl.opengl.GL11;
+
 import com.mojang.authlib.GameProfile;
+
 import got.client.model.GOTModelBiped;
 import got.common.database.GOTArmorModels;
 import got.common.database.GOTCapes;
@@ -26,7 +29,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
-import org.lwjgl.opengl.GL11;
 
 public abstract class GOTRenderBiped extends RenderBiped {
 	public static float PLAYER_SCALE = 0.9375f;

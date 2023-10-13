@@ -1,12 +1,12 @@
 package got.common.world.structure.essos.common;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureEssosTower extends GOTStructureEssosBase {
 	public GOTStructureEssosTower(boolean flag) {

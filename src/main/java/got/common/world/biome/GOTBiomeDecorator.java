@@ -1,5 +1,11 @@
 package got.common.world.biome;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Random;
+
 import got.GOT;
 import got.common.database.GOTBlocks;
 import got.common.world.GOTWorldChunkManager;
@@ -16,12 +22,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.*;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map.Entry;
-import java.util.Random;
 
 public class GOTBiomeDecorator {
 	public World worldObj;

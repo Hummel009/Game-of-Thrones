@@ -1,6 +1,10 @@
 package got.common.world.map;
 
+import java.io.File;
+import java.util.*;
+
 import com.google.common.math.IntMath;
+
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
@@ -24,9 +28,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.io.File;
-import java.util.*;
 
 public class GOTConquestGrid {
 	public static int MAP_GRID_SCALE = IntMath.pow(2, 3);
@@ -88,7 +89,7 @@ public class GOTConquestGrid {
 	}
 
 	public static float doRadialConquest(World world, GOTConquestZone centralZone, EntityPlayer killingPlayer, GOTFaction pledgeFaction, GOTFaction enemyFaction, float conqGain, float conqCleanse) {
-		if (!centralZone.isDummyZone) {
+		if (!centralZone.isDummyZone()) {
 			float centralConqBonus = 0.0f;
 			for (int i1 = -3; i1 <= 3; ++i1) {
 				for (int k1 = -3; k1 <= 3; ++k1) {
@@ -97,14 +98,14 @@ public class GOTConquestGrid {
 					if (distSq > 12.25f) {
 						continue;
 					}
-					int zoneX = centralZone.gridX + i1;
-					int zoneZ = centralZone.gridZ + k1;
+					int zoneX = centralZone.getGridX() + i1;
+					int zoneZ = centralZone.getGridZ() + k1;
 					float dist = MathHelper.sqrt_float(distSq);
 					float frac = 1.0f - dist / 3.5f;
 					float conqGainHere = frac * conqGain;
 					float conqCleanseHere = frac * conqCleanse;
 					GOTConquestZone zone = getZoneByGridCoords(zoneX, zoneZ);
-					if (zone.isDummyZone) {
+					if (zone.isDummyZone()) {
 						continue;
 					}
 					boolean doneEnemyCleansing = false;
@@ -176,8 +177,7 @@ public class GOTConquestGrid {
 					includedBiomes.add(biome);
 				}
 			}
-			block2:
-			for (GOTFaction fac : GOTFaction.getPlayableAlignmentFactions()) {
+			block2: for (GOTFaction fac : GOTFaction.getPlayableAlignmentFactions()) {
 				for (GOTBiome biome2 : includedBiomes) {
 					if (!biome2.getNPCSpawnList().isFactionPresent(world, fac)) {
 						continue;
@@ -201,11 +201,11 @@ public class GOTConquestGrid {
 	}
 
 	public static int[] getMaxCoordsOnMap(GOTConquestZone zone) {
-		return new int[]{gridToMapCoord(zone.gridX + 1), gridToMapCoord(zone.gridZ + 1)};
+		return new int[] { gridToMapCoord(zone.getGridX() + 1), gridToMapCoord(zone.getGridZ() + 1) };
 	}
 
 	public static int[] getMinCoordsOnMap(GOTConquestZone zone) {
-		return new int[]{gridToMapCoord(zone.gridX), gridToMapCoord(zone.gridZ)};
+		return new int[] { gridToMapCoord(zone.getGridX()), gridToMapCoord(zone.getGridZ()) };
 	}
 
 	public static GOTConquestZone getZoneByEntityCoords(Entity entity) {
@@ -386,21 +386,27 @@ public class GOTConquestGrid {
 
 	public enum ConquestEffective {
 		EFFECTIVE, ALLY_BOOST, NO_EFFECT
-
 	}
 
 	public enum ConquestViewable {
 		UNPLEDGED, CAN_VIEW, NEED_RANK
-
 	}
 
 	public static class ConquestViewableQuery {
-		public ConquestViewable result;
-		public GOTFactionRank needRank;
+		private ConquestViewable result;
+		private GOTFactionRank needRank;
 
 		public ConquestViewableQuery(ConquestViewable res, GOTFactionRank rank) {
 			result = res;
 			needRank = rank;
+		}
+
+		public GOTFactionRank getNeedRank() {
+			return needRank;
+		}
+
+		public ConquestViewable getResult() {
+			return result;
 		}
 
 		public static ConquestViewableQuery canView() {
@@ -409,16 +415,12 @@ public class GOTConquestGrid {
 	}
 
 	public static class GridCoordPair {
-		public int gridX;
-		public int gridZ;
+		private int gridX;
+		private int gridZ;
 
 		public GridCoordPair(int i, int k) {
 			gridX = i;
 			gridZ = k;
-		}
-
-		public static GridCoordPair forZone(GOTConquestZone zone) {
-			return new GridCoordPair(zone.gridX, zone.gridZ);
 		}
 
 		@Override
@@ -439,6 +441,9 @@ public class GOTConquestGrid {
 			int j = 1664525 * (gridZ ^ 0xDEADBEEF) + 1013904223;
 			return i ^ j;
 		}
-	}
 
+		public static GridCoordPair forZone(GOTConquestZone zone) {
+			return new GridCoordPair(zone.getGridX(), zone.getGridZ());
+		}
+	}
 }

@@ -1,12 +1,13 @@
 package got.common.entity.dragon;
 
-import net.minecraft.entity.EntityAgeable;
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.nbt.NBTTagCompound;
+import java.util.Locale;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Locale;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.passive.EntityAnimal;
+import net.minecraft.nbt.NBTTagCompound;
 
 public class GOTDragonReproductionHelper extends GOTDragonHelper {
 
@@ -119,18 +120,8 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		return dataWatcher.getWatchableObjectString(dataIndexBreeder);
 	}
 
-	public void setBreederName(String breederName) {
-		L.trace("setBreederName({})", breederName);
-		dataWatcher.updateObject(dataIndexBreeder, breederName);
-	}
-
 	public int getReproCount() {
 		return dataWatcher.getWatchableObjectInt(dataIndexReproduced);
-	}
-
-	public void setReproCount(int reproCount) {
-		L.trace("setReproCount({})", reproCount);
-		dataWatcher.updateObject(dataIndexReproduced, reproCount);
 	}
 
 	@Override
@@ -145,6 +136,16 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		}
 
 		setReproCount(reproCount);
+	}
+
+	public void setBreederName(String breederName) {
+		L.trace("setBreederName({})", breederName);
+		dataWatcher.updateObject(dataIndexBreeder, breederName);
+	}
+
+	public void setReproCount(int reproCount) {
+		L.trace("setReproCount({})", reproCount);
+		dataWatcher.updateObject(dataIndexReproduced, reproCount);
 	}
 
 	@Override

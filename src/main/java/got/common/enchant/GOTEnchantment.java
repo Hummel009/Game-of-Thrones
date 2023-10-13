@@ -1,11 +1,11 @@
 package got.common.enchant;
 
+import java.text.DecimalFormat;
+import java.util.*;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
-
-import java.text.DecimalFormat;
-import java.util.*;
 
 public abstract class GOTEnchantment {
 	public static Collection<GOTEnchantment> allEnchantments = new ArrayList<>();
@@ -90,7 +90,7 @@ public abstract class GOTEnchantment {
 	public boolean applyToProjectile;
 
 	protected GOTEnchantment(String s, GOTEnchantmentType type) {
-		this(s, new GOTEnchantmentType[]{type});
+		this(s, new GOTEnchantmentType[] { type });
 	}
 
 	protected GOTEnchantment(String s, GOTEnchantmentType[] types) {
@@ -98,10 +98,6 @@ public abstract class GOTEnchantment {
 		itemTypes = Arrays.asList(types);
 		allEnchantments.add(this);
 		enchantsByName.put(enchantName, this);
-	}
-
-	public static GOTEnchantment getEnchantmentByName(String s) {
-		return enchantsByName.get(s);
 	}
 
 	public boolean applyToProjectile() {
@@ -158,11 +154,6 @@ public abstract class GOTEnchantment {
 		return enchantWeight;
 	}
 
-	public GOTEnchantment setEnchantWeight(int i) {
-		enchantWeight = i;
-		return this;
-	}
-
 	public String getNamedFormattedDescription(ItemStack itemstack) {
 		String s = StatCollector.translateToLocalFormatted("got.enchant.descFormat", getDisplayName(), getDescription(itemstack));
 		if (isBeneficial()) {
@@ -175,10 +166,6 @@ public abstract class GOTEnchantment {
 
 	public float getValueModifier() {
 		return valueModifier;
-	}
-
-	public void setValueModifier(float f) {
-		valueModifier = f;
 	}
 
 	public boolean hasTemplateItem() {
@@ -208,8 +195,21 @@ public abstract class GOTEnchantment {
 		bypassAnvilLimit = true;
 	}
 
+	public GOTEnchantment setEnchantWeight(int i) {
+		enchantWeight = i;
+		return this;
+	}
+
 	public GOTEnchantment setSkilful() {
 		skilful = true;
 		return this;
+	}
+
+	public void setValueModifier(float f) {
+		valueModifier = f;
+	}
+
+	public static GOTEnchantment getEnchantmentByName(String s) {
+		return enchantsByName.get(s);
 	}
 }

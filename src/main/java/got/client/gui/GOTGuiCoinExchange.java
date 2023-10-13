@@ -1,5 +1,7 @@
 package got.client.gui;
 
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.inventory.GOTContainerCoinExchange;
@@ -11,7 +13,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.opengl.GL11;
 
 public class GOTGuiCoinExchange extends GuiContainer {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/coin_exchange.png");

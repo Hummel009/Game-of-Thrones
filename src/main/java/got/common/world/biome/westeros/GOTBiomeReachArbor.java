@@ -1,6 +1,9 @@
 package got.common.world.biome.westeros;
 
+import java.util.Random;
+
 import com.google.common.math.IntMath;
+
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -9,8 +12,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTBiomeReachArbor extends GOTBiomeReach {
 	public GOTBiomeReachArbor(int i, boolean major) {

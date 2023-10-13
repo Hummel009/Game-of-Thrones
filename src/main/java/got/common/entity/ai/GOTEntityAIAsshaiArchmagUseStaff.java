@@ -1,5 +1,7 @@
 package got.common.entity.ai;
 
+import java.util.List;
+
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.essos.legendary.warrior.GOTEntityAsshaiArchmag;
@@ -9,8 +11,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GOTEntityAIAsshaiArchmagUseStaff extends EntityAIBase {
 	public GOTEntityAsshaiArchmag wizard;

@@ -1,5 +1,7 @@
 package got.common.world.structure.westeros.common;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -8,25 +10,9 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 	public GOTStructureWesterosBarn(boolean flag) {
 		super(flag);
-	}
-
-	public static EntityAnimal getRandomAnimal(World world, Random random) {
-		int animal = random.nextInt(4);
-		switch (animal) {
-			case 0:
-				return new EntityCow(world);
-			case 1:
-				return new EntityPig(world);
-			case 2:
-				return new EntitySheep(world);
-			default:
-				return new EntityChicken(world);
-		}
 	}
 
 	@Override
@@ -75,7 +61,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		for (int i15 : new int[]{-4, 4}) {
+		for (int i15 : new int[] { -4, 4 }) {
 			for (int k14 = 0; k14 <= 13; ++k14) {
 				int j13;
 				setBlockAndMetadata(world, i15, 1, k14, rockBlock, rockMeta);
@@ -96,7 +82,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i15, 4, 11, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i15, 4, 12, plankStairBlock, 6);
 		}
-		for (int k1221 : new int[]{0, 13}) {
+		for (int k1221 : new int[] { 0, 13 }) {
 			for (i12 = -3; i12 <= 3; ++i12) {
 				int j14;
 				int i2 = Math.abs(i12);
@@ -132,7 +118,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 0, 7, k1221, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 1, 7, k1221, wallBlock, wallMeta);
 		}
-		int[] i14 = {-1, 14};
+		int[] i14 = { -1, 14 };
 		k13 = i14.length;
 		for (j1 = 0; j1 < k13; ++j1) {
 			k122 = i14[j1];
@@ -284,7 +270,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		for (k13 = 1; k13 <= 12; ++k13) {
 			setBlockAndMetadata(world, -10, 1, k13, rockWallBlock, rockWallMeta);
 		}
-		for (int k14 : new int[]{0, 13}) {
+		for (int k14 : new int[] { 0, 13 }) {
 			setBlockAndMetadata(world, -10, 1, k14, rockWallBlock, rockWallMeta);
 			setBlockAndMetadata(world, -10, 2, k14, Blocks.torch, 5);
 			setBlockAndMetadata(world, -9, 1, k14, fenceGateBlock, 0);
@@ -321,5 +307,19 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 			farmhand.seedsItem = seedItem;
 		}
 		return true;
+	}
+
+	public static EntityAnimal getRandomAnimal(World world, Random random) {
+		int animal = random.nextInt(4);
+		switch (animal) {
+		case 0:
+			return new EntityCow(world);
+		case 1:
+			return new EntityPig(world);
+		case 2:
+			return new EntitySheep(world);
+		default:
+			return new EntityChicken(world);
+		}
 	}
 }

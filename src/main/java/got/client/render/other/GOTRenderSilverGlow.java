@@ -1,7 +1,8 @@
 package got.client.render.other;
 
-import net.minecraft.client.renderer.OpenGlHelper;
 import org.lwjgl.opengl.GL11;
+
+import net.minecraft.client.renderer.OpenGlHelper;
 
 public class GOTRenderSilverGlow {
 	public static void endGlow(float alphaFunc) {

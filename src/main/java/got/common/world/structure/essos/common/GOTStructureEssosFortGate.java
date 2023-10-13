@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.common;
 
-import net.minecraft.world.World;
-
 import java.util.Random;
+
+import net.minecraft.world.World;
 
 public class GOTStructureEssosFortGate extends GOTStructureEssosBase {
 	public GOTStructureEssosFortGate(boolean flag) {

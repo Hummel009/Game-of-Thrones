@@ -1,5 +1,7 @@
 package got.common.entity.animal;
 
+import java.util.List;
+
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.world.biome.GOTBiome;
@@ -16,8 +18,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GOTEntitySnowBear extends EntityAnimal implements GOTBiome.ImmuneToFrost {
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.5, false);
@@ -150,10 +150,6 @@ public class GOTEntitySnowBear extends EntityAnimal implements GOTBiome.ImmuneTo
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
-	public void setHostile(boolean flag) {
-		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
-	}
-
 	@Override
 	public void onLivingUpdate() {
 		boolean isChild;
@@ -193,6 +189,10 @@ public class GOTEntitySnowBear extends EntityAnimal implements GOTBiome.ImmuneTo
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		hostileTick = nbt.getInteger("Angry");
+	}
+
+	public void setHostile(boolean flag) {
+		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
 	}
 
 	@Override

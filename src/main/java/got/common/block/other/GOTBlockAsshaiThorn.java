@@ -1,5 +1,8 @@
 package got.common.block.other;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 import got.GOT;
 import got.common.GOTDamage;
 import got.common.faction.GOTFaction;
@@ -9,9 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class GOTBlockAsshaiThorn extends GOTBlockAsshaiPlant implements IShearable {
 	public GOTBlockAsshaiThorn() {

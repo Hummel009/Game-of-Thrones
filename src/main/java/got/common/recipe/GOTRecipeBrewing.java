@@ -1,5 +1,8 @@
 package got.common.recipe;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import net.minecraft.init.Blocks;
@@ -7,9 +10,6 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class GOTRecipeBrewing {
 	public static Collection<ShapelessOreRecipe> recipes = new ArrayList<>();
@@ -30,8 +30,7 @@ public class GOTRecipeBrewing {
 			}
 			return null;
 		}
-		block1:
-		for (ShapelessOreRecipe recipe : recipes) {
+		block1: for (ShapelessOreRecipe recipe : recipes) {
 			Collection<Object> ingredients = new ArrayList<>(recipe.getInput());
 			for (int i = 0; i < 6; ++i) {
 				ItemStack itemstack = barrel.getStackInSlot(i);

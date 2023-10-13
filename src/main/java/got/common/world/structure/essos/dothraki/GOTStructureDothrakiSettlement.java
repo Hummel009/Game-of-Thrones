@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.dothraki;
 
+import java.util.Random;
+
 import got.common.entity.essos.dothraki.GOTEntityDothraki;
 import got.common.entity.essos.dothraki.GOTEntityDothrakiArcher;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -10,8 +12,6 @@ import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -35,10 +35,6 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
-	}
-
-	public enum Type {
-		SMALL, BIG
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureDothrakiSettlement> {
@@ -153,5 +149,9 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 		}
+	}
+
+	public enum Type {
+		SMALL, BIG
 	}
 }

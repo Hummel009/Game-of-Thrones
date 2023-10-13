@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -25,8 +27,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import java.util.Random;
-
 public class GOTBlockBeacon extends BlockContainer {
 	public GOTBlockBeacon() {
 		super(Material.wood);
@@ -35,32 +35,6 @@ public class GOTBlockBeacon extends BlockContainer {
 		setHardness(0.0f);
 		setResistance(5.0f);
 		setStepSound(Block.soundTypeWood);
-	}
-
-	public static boolean isFullyLit(IBlockAccess world, int i, int j, int k) {
-		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (tileentity instanceof GOTTileEntityBeacon) {
-			GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) tileentity;
-			return beacon.isFullyLit();
-		}
-		return false;
-	}
-
-	public static boolean isLit(IBlockAccess world, int i, int j, int k) {
-		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (tileentity instanceof GOTTileEntityBeacon) {
-			GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) tileentity;
-			return beacon.isLit();
-		}
-		return false;
-	}
-
-	public static void setLit(IBlockAccess world, int i, int j, int k, boolean lit) {
-		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (tileentity instanceof GOTTileEntityBeacon) {
-			GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) tileentity;
-			beacon.setLit(lit);
-		}
 	}
 
 	@Override
@@ -183,5 +157,31 @@ public class GOTBlockBeacon extends BlockContainer {
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
+	}
+
+	public static boolean isFullyLit(IBlockAccess world, int i, int j, int k) {
+		TileEntity tileentity = world.getTileEntity(i, j, k);
+		if (tileentity instanceof GOTTileEntityBeacon) {
+			GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) tileentity;
+			return beacon.isFullyLit();
+		}
+		return false;
+	}
+
+	public static boolean isLit(IBlockAccess world, int i, int j, int k) {
+		TileEntity tileentity = world.getTileEntity(i, j, k);
+		if (tileentity instanceof GOTTileEntityBeacon) {
+			GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) tileentity;
+			return beacon.isLit();
+		}
+		return false;
+	}
+
+	public static void setLit(IBlockAccess world, int i, int j, int k, boolean lit) {
+		TileEntity tileentity = world.getTileEntity(i, j, k);
+		if (tileentity instanceof GOTTileEntityBeacon) {
+			GOTTileEntityBeacon beacon = (GOTTileEntityBeacon) tileentity;
+			beacon.setLit(lit);
+		}
 	}
 }

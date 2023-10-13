@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.mossovy;
 
+import java.util.Random;
+
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
 import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -11,8 +13,6 @@ import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -38,10 +38,6 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 		return this;
 	}
 
-	public enum Type {
-		VILLAGE, FORT
-	}
-
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureMossovySettlement> {
 		public Type type;
 		public boolean forcedType;
@@ -55,12 +51,12 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-				case VILLAGE:
-					setupVillage(random);
-					break;
-				case FORT:
-					addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
-					break;
+			case VILLAGE:
+				setupVillage(random);
+				break;
+			case FORT:
+				addStructure(new GOTStructureMossovyCastle(false), 0, 0, 0, true);
+				break;
 			}
 		}
 
@@ -175,5 +171,9 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, farmZ, 1);
 			addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, farmZ, 3);
 		}
+	}
+
+	public enum Type {
+		VILLAGE, FORT
 	}
 }

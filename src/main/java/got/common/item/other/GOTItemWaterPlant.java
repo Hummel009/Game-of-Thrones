@@ -13,6 +13,11 @@ public class GOTItemWaterPlant extends ItemBlock {
 		super(block);
 	}
 
+	@Override
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+		return tryPlaceWaterPlant(this, itemstack, world, entityplayer, getMovingObjectPositionFromPlayer(world, entityplayer, true));
+	}
+
 	public static ItemStack tryPlaceWaterPlant(ItemBlock itemblock, ItemStack itemstack, World world, EntityPlayer entityplayer, MovingObjectPosition targetBlock) {
 		if (targetBlock == null) {
 			return itemstack;
@@ -35,10 +40,5 @@ public class GOTItemWaterPlant extends ItemBlock {
 			}
 		}
 		return itemstack;
-	}
-
-	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		return tryPlaceWaterPlant(this, itemstack, world, entityplayer, getMovingObjectPositionFromPlayer(world, entityplayer, true));
 	}
 }

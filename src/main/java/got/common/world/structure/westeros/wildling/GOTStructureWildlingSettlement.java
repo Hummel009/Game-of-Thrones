@@ -1,5 +1,7 @@
 package got.common.world.structure.westeros.wildling;
 
+import java.util.Random;
+
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.wildling.GOTEntityWildling;
 import got.common.entity.westeros.wildling.GOTEntityWildlingArcher;
@@ -20,8 +22,6 @@ import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennMagna
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -47,10 +47,6 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 		return this;
 	}
 
-	public enum Type {
-		VILLAGE, HARDHOME, CRASTER, THENN
-	}
-
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureWildlingSettlement> {
 		public Type type;
 		public boolean forcedType;
@@ -64,19 +60,19 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-				case HARDHOME:
-					setupHardhome(random);
-					break;
-				case VILLAGE:
-					setupVillage(random);
-					break;
-				case THENN:
-					setupThenn(random);
-					break;
-				case CRASTER:
-					addStructure(new GOTStructureWildlingKeep(false), -7, 0, 2, true);
-					addStructure(new GOTStructureWildlingBarn(false), 7, 6, 2, true);
-					break;
+			case HARDHOME:
+				setupHardhome(random);
+				break;
+			case VILLAGE:
+				setupVillage(random);
+				break;
+			case THENN:
+				setupThenn(random);
+				break;
+			case CRASTER:
+				addStructure(new GOTStructureWildlingKeep(false), -7, 0, 2, true);
+				addStructure(new GOTStructureWildlingBarn(false), 7, 6, 2, true);
+				break;
 			}
 		}
 
@@ -126,8 +122,8 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 				}
 			}, 0, 0, 0);
 			int spawnerX = 60;
-			for (int i1 : new int[]{-spawnerX, spawnerX}) {
-				for (int k1 : new int[]{-spawnerX, spawnerX}) {
+			for (int i1 : new int[] { -spawnerX, spawnerX }) {
+				for (int k1 : new int[] { -spawnerX, spawnerX }) {
 					addStructure(new GOTStructureNPCRespawner(false) {
 
 						@Override
@@ -289,5 +285,9 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
 			}
 		}
+	}
+
+	public enum Type {
+		VILLAGE, HARDHOME, CRASTER, THENN
 	}
 }

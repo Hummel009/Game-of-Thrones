@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.common;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
@@ -8,8 +10,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureEssosFarm extends GOTStructureEssosBase {
 	public Block crop1Block;
@@ -100,22 +100,22 @@ public class GOTStructureEssosFarm extends GOTStructureEssosBase {
 		} else {
 			randomCrop = random.nextInt(4);
 			switch (randomCrop) {
-				case 0:
-					crop1Block = Blocks.carrots;
-					seed1 = Items.carrot;
-					break;
-				case 1:
-					crop1Block = Blocks.potatoes;
-					seed1 = Items.potato;
-					break;
-				case 2:
-					crop1Block = GOTBlocks.lettuceCrop;
-					seed1 = GOTItems.lettuce;
-					break;
-				default:
-					crop1Block = GOTBlocks.turnipCrop;
-					seed1 = GOTItems.turnip;
-					break;
+			case 0:
+				crop1Block = Blocks.carrots;
+				seed1 = Items.carrot;
+				break;
+			case 1:
+				crop1Block = Blocks.potatoes;
+				seed1 = Items.potato;
+				break;
+			case 2:
+				crop1Block = GOTBlocks.lettuceCrop;
+				seed1 = GOTItems.lettuce;
+				break;
+			default:
+				crop1Block = GOTBlocks.turnipCrop;
+				seed1 = GOTItems.turnip;
+				break;
 			}
 		}
 		if (random.nextBoolean()) {
@@ -124,24 +124,24 @@ public class GOTStructureEssosFarm extends GOTStructureEssosBase {
 		} else {
 			randomCrop = random.nextInt(4);
 			switch (randomCrop) {
-				case 0:
-					crop2Block = Blocks.carrots;
-					seed2 = Items.carrot;
-					break;
-				case 1:
-					crop2Block = Blocks.potatoes;
-					seed2 = Items.potato;
-					break;
-				case 2:
-					crop2Block = GOTBlocks.lettuceCrop;
-					seed2 = GOTItems.lettuce;
-					break;
-				case 3:
-					crop2Block = GOTBlocks.turnipCrop;
-					seed2 = GOTItems.turnip;
-					break;
-				default:
-					break;
+			case 0:
+				crop2Block = Blocks.carrots;
+				seed2 = Items.carrot;
+				break;
+			case 1:
+				crop2Block = Blocks.potatoes;
+				seed2 = Items.potato;
+				break;
+			case 2:
+				crop2Block = GOTBlocks.lettuceCrop;
+				seed2 = GOTItems.lettuce;
+				break;
+			case 3:
+				crop2Block = GOTBlocks.turnipCrop;
+				seed2 = GOTItems.turnip;
+				break;
+			default:
+				break;
 			}
 		}
 	}

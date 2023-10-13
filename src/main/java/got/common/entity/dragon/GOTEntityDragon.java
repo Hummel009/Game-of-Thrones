@@ -1,5 +1,12 @@
 package got.common.entity.dragon;
 
+import java.util.BitSet;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -25,12 +32,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.util.BitSet;
-import java.util.HashMap;
-import java.util.Map;
 
 public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	public static Logger L = LogManager.getLogger();
@@ -47,10 +48,10 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	public static int INDEX_BREED = 22;
 	public static int INDEX_REPRO_COUNT = 23;
 	public static String NBT_SADDLED = "Saddle";
-	public static String[] DATAWATCHER_WATCHEDOBJECTS = {"watchedObjects", "field_75695_b"};
-	public static String[] ENTITYAITASKS_EXECUTINGTASKENTRIES = {"executingTaskEntries", "field_75780_b"};
-	public static String[] ENTITYLIVING_BODYHELPER = {"bodyHelper", "field_70762_j"};
-	public static String[] GUIMAINMENU_SPLASHTEXT = {"splashText", "field_73975_c"};
+	public static String[] DATAWATCHER_WATCHEDOBJECTS = { "watchedObjects", "field_75695_b" };
+	public static String[] ENTITYAITASKS_EXECUTINGTASKENTRIES = { "executingTaskEntries", "field_75780_b" };
+	public static String[] ENTITYLIVING_BODYHELPER = { "bodyHelper", "field_70762_j" };
+	public static String[] GUIMAINMENU_SPLASHTEXT = { "splashText", "field_73975_c" };
 	public Map<Class<? extends GOTDragonHelper>, GOTDragonHelper> helpers;
 	public GOTModelDragonAnimaton animator;
 	public BitSet controlFlags;
@@ -87,61 +88,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		targetTasks.addTask(4, new GOTEntityAIDragonHunt(this, EntityPig.class, 200, false));
 		targetTasks.addTask(4, new GOTEntityAIDragonHunt(this, EntityChicken.class, 200, false));
 		isImmuneToFire = true;
-	}
-
-	public static Item consumeEquipped(EntityPlayer player, Item... items) {
-		ItemStack itemStack = player.getCurrentEquippedItem();
-
-		if (itemStack == null) {
-			return null;
-		}
-
-		Item equippedItem = itemStack.getItem();
-
-		for (Item item : items) {
-			if (item == equippedItem) {
-				if (!player.capabilities.isCreativeMode) {
-					itemStack.stackSize--;
-				}
-				if (itemStack.stackSize <= 0) {
-					player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
-				}
-
-				return item;
-			}
-		}
-
-		return null;
-	}
-
-	public static boolean hasEquipped(EntityPlayer player, Item item) {
-		ItemStack itemStack = player.getCurrentEquippedItem();
-
-		if (itemStack == null) {
-			return false;
-		}
-
-		return itemStack.getItem() == item;
-	}
-
-	public static boolean hasEquippedFood(EntityPlayer player) {
-		ItemStack itemStack = player.getCurrentEquippedItem();
-
-		if (itemStack == null) {
-			return false;
-		}
-
-		return itemStack.getItem() instanceof ItemFood;
-	}
-
-	public static boolean hasEquippedUsable(EntityPlayer player) {
-		ItemStack itemStack = player.getCurrentEquippedItem();
-
-		if (itemStack == null) {
-			return false;
-		}
-
-		return itemStack.getItemUseAction() != EnumAction.none;
 	}
 
 	public void addHelper(GOTDragonHelper helper) {
@@ -269,10 +215,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		return getBreedHelper().getBreed();
 	}
 
-	public void setBreed(GOTDragonBreed breed) {
-		getBreedHelper().setBreed(breed);
-	}
-
 	public GOTDragonBreedHelper getBreedHelper() {
 		return getHelper(GOTDragonBreedHelper.class);
 	}
@@ -288,10 +230,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
 	public BitSet getControlFlags() {
 		return controlFlags;
-	}
-
-	public void setControlFlags(BitSet flags) {
-		controlFlags = flags;
 	}
 
 	@Override
@@ -372,13 +310,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 			return (EntityPlayer) riddenByEntity;
 		}
 		return null;
-	}
-
-	public void setRidingPlayer(EntityPlayer player) {
-		L.trace("setRidingPlayer({})", player.getCommandSenderName());
-		player.rotationYaw = rotationYaw;
-		player.rotationPitch = rotationPitch;
-		player.mountEntity(this);
 	}
 
 	public float getScale() {
@@ -508,11 +439,6 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		return getBooleanData(INDEX_SADDLED);
 	}
 
-	public void setSaddled(boolean saddled) {
-		L.trace("setSaddled({})", saddled);
-		setBooleanData(INDEX_SADDLED, saddled);
-	}
-
 	@Override
 	public void onDeathUpdate() {
 		for (GOTDragonHelper helper : helpers.values()) {
@@ -603,12 +529,32 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		dataWatcher.updateObject(index, value ? (byte) 1 : (byte) 0);
 	}
 
+	public void setBreed(GOTDragonBreed breed) {
+		getBreedHelper().setBreed(breed);
+	}
+
+	public void setControlFlags(BitSet flags) {
+		controlFlags = flags;
+	}
+
 	@Override
 	public void setDead() {
 		for (GOTDragonHelper helper : helpers.values()) {
 			helper.onDeath();
 		}
 		super.setDead();
+	}
+
+	public void setRidingPlayer(EntityPlayer player) {
+		L.trace("setRidingPlayer({})", player.getCommandSenderName());
+		player.rotationYaw = rotationYaw;
+		player.rotationPitch = rotationPitch;
+		player.mountEntity(this);
+	}
+
+	public void setSaddled(boolean saddled) {
+		L.trace("setSaddled({})", saddled);
+		setBooleanData(INDEX_SADDLED, saddled);
 	}
 
 	@Override
@@ -673,5 +619,60 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		for (GOTDragonHelper helper : helpers.values()) {
 			helper.writeToNBT(nbt);
 		}
+	}
+
+	public static Item consumeEquipped(EntityPlayer player, Item... items) {
+		ItemStack itemStack = player.getCurrentEquippedItem();
+
+		if (itemStack == null) {
+			return null;
+		}
+
+		Item equippedItem = itemStack.getItem();
+
+		for (Item item : items) {
+			if (item == equippedItem) {
+				if (!player.capabilities.isCreativeMode) {
+					itemStack.stackSize--;
+				}
+				if (itemStack.stackSize <= 0) {
+					player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+				}
+
+				return item;
+			}
+		}
+
+		return null;
+	}
+
+	public static boolean hasEquipped(EntityPlayer player, Item item) {
+		ItemStack itemStack = player.getCurrentEquippedItem();
+
+		if (itemStack == null) {
+			return false;
+		}
+
+		return itemStack.getItem() == item;
+	}
+
+	public static boolean hasEquippedFood(EntityPlayer player) {
+		ItemStack itemStack = player.getCurrentEquippedItem();
+
+		if (itemStack == null) {
+			return false;
+		}
+
+		return itemStack.getItem() instanceof ItemFood;
+	}
+
+	public static boolean hasEquippedUsable(EntityPlayer player) {
+		ItemStack itemStack = player.getCurrentEquippedItem();
+
+		if (itemStack == null) {
+			return false;
+		}
+
+		return itemStack.getItemUseAction() != EnumAction.none;
 	}
 }

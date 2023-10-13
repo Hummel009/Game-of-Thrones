@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -22,8 +24,6 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public class GOTBlockOven extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] ovenIcons;
@@ -33,17 +33,6 @@ public class GOTBlockOven extends BlockContainer {
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		setHardness(3.5f);
 		setStepSound(Block.soundTypeStone);
-	}
-
-	public static boolean isOvenActive(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return meta > 7;
-	}
-
-	public static void setOvenActive(World world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
-		world.updateLightByType(EnumSkyBlock.Block, i, j, k);
 	}
 
 	@Override
@@ -137,24 +126,24 @@ public class GOTBlockOven extends BlockContainer {
 			float f3 = 0.52f;
 			float f4 = random.nextFloat() * 0.6f - 0.3f;
 			switch (meta) {
-				case 4:
-					world.spawnParticle("smoke", f - f3, f1, f2 + f4, 0.0, 0.0, 0.0);
-					world.spawnParticle("flame", f - f3, f1, f2 + f4, 0.0, 0.0, 0.0);
-					break;
-				case 5:
-					world.spawnParticle("smoke", f + f3, f1, f2 + f4, 0.0, 0.0, 0.0);
-					world.spawnParticle("flame", f + f3, f1, f2 + f4, 0.0, 0.0, 0.0);
-					break;
-				case 2:
-					world.spawnParticle("smoke", f + f4, f1, f2 - f3, 0.0, 0.0, 0.0);
-					world.spawnParticle("flame", f + f4, f1, f2 - f3, 0.0, 0.0, 0.0);
-					break;
-				case 3:
-					world.spawnParticle("smoke", f + f4, f1, f2 + f3, 0.0, 0.0, 0.0);
-					world.spawnParticle("flame", f + f4, f1, f2 + f3, 0.0, 0.0, 0.0);
-					break;
-				default:
-					break;
+			case 4:
+				world.spawnParticle("smoke", f - f3, f1, f2 + f4, 0.0, 0.0, 0.0);
+				world.spawnParticle("flame", f - f3, f1, f2 + f4, 0.0, 0.0, 0.0);
+				break;
+			case 5:
+				world.spawnParticle("smoke", f + f3, f1, f2 + f4, 0.0, 0.0, 0.0);
+				world.spawnParticle("flame", f + f3, f1, f2 + f4, 0.0, 0.0, 0.0);
+				break;
+			case 2:
+				world.spawnParticle("smoke", f + f4, f1, f2 - f3, 0.0, 0.0, 0.0);
+				world.spawnParticle("flame", f + f4, f1, f2 - f3, 0.0, 0.0, 0.0);
+				break;
+			case 3:
+				world.spawnParticle("smoke", f + f4, f1, f2 + f3, 0.0, 0.0, 0.0);
+				world.spawnParticle("flame", f + f4, f1, f2 + f3, 0.0, 0.0, 0.0);
+				break;
+			default:
+				break;
 			}
 		}
 	}
@@ -187,5 +176,16 @@ public class GOTBlockOven extends BlockContainer {
 			}
 			world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		}
+	}
+
+	public static boolean isOvenActive(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return meta > 7;
+	}
+
+	public static void setOvenActive(World world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
+		world.updateLightByType(EnumSkyBlock.Block, i, j, k);
 	}
 }

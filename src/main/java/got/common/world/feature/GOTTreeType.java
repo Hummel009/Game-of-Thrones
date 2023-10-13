@@ -1,11 +1,11 @@
 package got.common.world.feature;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.gen.feature.*;
-
-import java.util.Random;
 
 public enum GOTTreeType {
 	OAK((flag, rand) -> {

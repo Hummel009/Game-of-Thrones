@@ -1,9 +1,9 @@
 package got.common.block.leaves;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import net.minecraft.item.Item;
-
-import java.util.Random;
 
 public class GOTBlockLeaves9 extends GOTBlockLeavesBase {
 	public GOTBlockLeaves9() {

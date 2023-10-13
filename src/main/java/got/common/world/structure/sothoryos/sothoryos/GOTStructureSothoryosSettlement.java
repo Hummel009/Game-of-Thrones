@@ -1,12 +1,12 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
+import java.util.Random;
+
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.GOTStructureBaseSettlement;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -32,10 +32,6 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 		return this;
 	}
 
-	public enum Type {
-		VILLAGE, PYRAMID
-	}
-
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureSothoryosSettlement> {
 		public Type type;
 		public boolean forcedType;
@@ -49,12 +45,12 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-				case PYRAMID:
-					addStructure(new GOTStructureSothoryosPyramid(false), 0, 0, 0, true);
-					break;
-				case VILLAGE:
-					setupVillage(random);
-					break;
+			case PYRAMID:
+				addStructure(new GOTStructureSothoryosPyramid(false), 0, 0, 0, true);
+				break;
+			case VILLAGE:
+				setupVillage(random);
+				break;
 			}
 		}
 
@@ -120,5 +116,9 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 			addStructure(new GOTStructureSothoryosWatchtower(false), -26, 37, 2);
 			addStructure(new GOTStructureSothoryosWatchtower(false), 26, 37, 2);
 		}
+	}
+
+	public enum Type {
+		VILLAGE, PYRAMID
 	}
 }

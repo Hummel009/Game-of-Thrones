@@ -1,10 +1,10 @@
 package got.common.world.genlayer;
 
+import java.util.List;
+
 import got.common.GOTDimension;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.world.World;
-
-import java.util.List;
 
 public class GOTGenLayerClassicBiomes extends GOTGenLayer {
 	public GOTDimension dimension;

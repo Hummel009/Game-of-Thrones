@@ -1,5 +1,11 @@
 package got.common.tileentity;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import got.common.inventory.GOTSlotStackSize;
 import got.common.item.GOTPoisonedDrinks;
 import got.common.item.other.GOTItemMug;
@@ -15,11 +21,6 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
-import org.apache.commons.lang3.ArrayUtils;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	public static int EMPTY;
@@ -27,8 +28,8 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	public static int FULL = 2;
 	public static int brewTime = 12000;
 	public static int brewAnimTime = 32;
-	public static int[] INGREDIENT_SLOTS = {0, 1, 2, 3, 4, 5};
-	public static int[] BUCKET_SLOTS = {6, 7, 8};
+	public static int[] INGREDIENT_SLOTS = { 0, 1, 2, 3, 4, 5 };
+	public static int[] BUCKET_SLOTS = { 6, 7, 8 };
 	public static int BARREL_SLOT = 9;
 	public ItemStack[] inventory = new ItemStack[10];
 	public int barrelMode;

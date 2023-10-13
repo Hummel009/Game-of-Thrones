@@ -1,5 +1,8 @@
 package got.common.world.biome.sothoryos;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -10,9 +13,6 @@ import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarSettlement;
 import got.common.world.structure.other.GOTStructureBurntHouse;
 import got.common.world.structure.other.GOTStructureRottenHouse;
 import got.common.world.structure.other.GOTStructureRuinedHouse;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class GOTBiomeGhiscarColony extends GOTBiomeSothoryosJungle {
 	public GOTBiomeGhiscarColony(int i, boolean major) {

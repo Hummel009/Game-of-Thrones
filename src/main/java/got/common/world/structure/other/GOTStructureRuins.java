@@ -1,5 +1,7 @@
 package got.common.world.structure.other;
 
+import java.util.Random;
+
 import got.GOT;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
@@ -8,8 +10,6 @@ import got.common.world.map.GOTBezierType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureRuins extends GOTStructureBaseSettlement {
 	public GOTStructureRuins(GOTBiome biome, float f) {
@@ -38,24 +38,24 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 				rotation = usingPlayerRotation();
 			}
 			switch (rotation) {
-				case 0: {
-					k += 8;
-					break;
-				}
-				case 1: {
-					i -= 8;
-					break;
-				}
-				case 2: {
-					k -= 8;
-					break;
-				}
-				case 3: {
-					i += 8;
-					break;
-				}
-				default:
-					break;
+			case 0: {
+				k += 8;
+				break;
+			}
+			case 1: {
+				i -= 8;
+				break;
+			}
+			case 2: {
+				k -= 8;
+				break;
+			}
+			case 3: {
+				i += 8;
+				break;
+			}
+			default:
+				break;
 			}
 			if (restrictions && world.getBlock(i, world.getTopSolidOrLiquidBlock(i, k) - 1, k) != Blocks.grass) {
 				return false;
@@ -94,8 +94,7 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 				}
 			}
 			for (i1 = i - 7; i1 <= i + 7; i1 += 7) {
-				block9:
-				for (k1 = k - 7; k1 <= k + 7; k1 += 7) {
+				block9: for (k1 = k - 7; k1 <= k + 7; k1 += 7) {
 					j1 = world.getTopSolidOrLiquidBlock(i1, k1);
 					setGrassToDirt(world, i1, j1 - 1, k1);
 					int j2 = j1;
@@ -152,24 +151,24 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 			if (!restrictions && usingPlayer != null) {
 				rotation = usingPlayerRotation();
 				switch (rotation) {
-					case 0: {
-						k += radius;
-						break;
-					}
-					case 1: {
-						i -= radius;
-						break;
-					}
-					case 2: {
-						k -= radius;
-						break;
-					}
-					case 3: {
-						i += radius;
-						break;
-					}
-					default:
-						break;
+				case 0: {
+					k += radius;
+					break;
+				}
+				case 1: {
+					i -= radius;
+					break;
+				}
+				case 2: {
+					k -= radius;
+					break;
+				}
+				case 3: {
+					i += radius;
+					break;
+				}
+				default:
+					break;
 				}
 			}
 			int sections = 4 + random.nextInt(3);
@@ -233,54 +232,54 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 			setBlockAndNotifyAdequately(world, i, j + maxHeight + 1, k, GOTBlocks.chestStone, rotation + 2);
 			GOTChestContents.fillChest(world, random, i, j + maxHeight + 1, k, GOTChestContents.TREASURE);
 			switch (rotation) {
-				case 0: {
-					int j1;
-					int height;
-					for (i1 = i - 1; i1 <= i + 1; ++i1) {
-						height = j + 1 + random.nextInt(3);
-						for (j1 = j; j1 <= height; ++j1) {
-							setBlockAndNotifyAdequately(world, i1, j1, k - radius, Blocks.air, 0);
-						}
+			case 0: {
+				int j1;
+				int height;
+				for (i1 = i - 1; i1 <= i + 1; ++i1) {
+					height = j + 1 + random.nextInt(3);
+					for (j1 = j; j1 <= height; ++j1) {
+						setBlockAndNotifyAdequately(world, i1, j1, k - radius, Blocks.air, 0);
 					}
-					break;
 				}
-				case 1: {
-					int j1;
-					int k13;
-					int height;
-					for (k13 = k - 1; k13 <= k + 1; ++k13) {
-						height = j + 1 + random.nextInt(3);
-						for (j1 = j; j1 <= height; ++j1) {
-							setBlockAndNotifyAdequately(world, i + radius, j1, k13, Blocks.air, 0);
-						}
+				break;
+			}
+			case 1: {
+				int j1;
+				int k13;
+				int height;
+				for (k13 = k - 1; k13 <= k + 1; ++k13) {
+					height = j + 1 + random.nextInt(3);
+					for (j1 = j; j1 <= height; ++j1) {
+						setBlockAndNotifyAdequately(world, i + radius, j1, k13, Blocks.air, 0);
 					}
-					break;
 				}
-				case 2: {
-					int j1;
-					int height;
-					for (i1 = i - 1; i1 <= i + 1; ++i1) {
-						height = j + 1 + random.nextInt(3);
-						for (j1 = j; j1 <= height; ++j1) {
-							setBlockAndNotifyAdequately(world, i1, j1, k + radius, Blocks.air, 0);
-						}
+				break;
+			}
+			case 2: {
+				int j1;
+				int height;
+				for (i1 = i - 1; i1 <= i + 1; ++i1) {
+					height = j + 1 + random.nextInt(3);
+					for (j1 = j; j1 <= height; ++j1) {
+						setBlockAndNotifyAdequately(world, i1, j1, k + radius, Blocks.air, 0);
 					}
-					break;
 				}
-				case 3: {
-					int j1;
-					int k13;
-					int height;
-					for (k13 = k - 1; k13 <= k + 1; ++k13) {
-						height = j + 1 + random.nextInt(3);
-						for (j1 = j; j1 <= height; ++j1) {
-							setBlockAndNotifyAdequately(world, i - radius, j1, k13, Blocks.air, 0);
-						}
+				break;
+			}
+			case 3: {
+				int j1;
+				int k13;
+				int height;
+				for (k13 = k - 1; k13 <= k + 1; ++k13) {
+					height = j + 1 + random.nextInt(3);
+					for (j1 = j; j1 <= height; ++j1) {
+						setBlockAndNotifyAdequately(world, i - radius, j1, k13, Blocks.air, 0);
 					}
-					break;
 				}
-				default:
-					break;
+				break;
+			}
+			default:
+				break;
 			}
 			for (int l = 0; l < 16; ++l) {
 				int j1;

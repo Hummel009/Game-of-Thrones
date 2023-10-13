@@ -1,11 +1,11 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureSothoryosVillageTree extends GOTStructureSothoryosHouse {
 	public GOTStructureSothoryosVillageTree(boolean flag) {

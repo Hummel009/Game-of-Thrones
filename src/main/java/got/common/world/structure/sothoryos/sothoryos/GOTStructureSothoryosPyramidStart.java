@@ -1,9 +1,9 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
+import java.util.Random;
+
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.StructureStart;
-
-import java.util.Random;
 
 public class GOTStructureSothoryosPyramidStart extends StructureStart {
 	public GOTStructureSothoryosPyramidStart() {

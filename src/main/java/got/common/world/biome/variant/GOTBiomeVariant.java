@@ -1,5 +1,9 @@
 package got.common.world.biome.variant;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
+
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.block.Block;
@@ -7,10 +11,6 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
 
 public class GOTBiomeVariant {
 	public static GOTBiomeVariant[] allVariants = new GOTBiomeVariant[256];
@@ -48,7 +48,7 @@ public class GOTBiomeVariant {
 	public static GOTBiomeVariant FOREST_LIME = new GOTBiomeVariantForest(54, "forest_lime").addTreeTypes(0.8f, GOTTreeType.LIME, 1000);
 	public static GOTBiomeVariant FOREST_CEDAR = new GOTBiomeVariantForest(60, "forest_cedar").addTreeTypes(0.8f, GOTTreeType.CEDAR, 1000, GOTTreeType.CEDAR_LARGE, 50);
 	public static GOTBiomeVariant FOREST_CYPRESS = new GOTBiomeVariantForest(61, "forest_cypress").addTreeTypes(0.8f, GOTTreeType.CYPRESS, 1000, GOTTreeType.CYPRESS_LARGE, 50);
-	public static GOTBiomeVariant[] SET_MOUNTAINS = {FOREST, FOREST_LIGHT};
+	public static GOTBiomeVariant[] SET_MOUNTAINS = { FOREST, FOREST_LIGHT };
 	public static NoiseGeneratorPerlin marshNoise = new NoiseGeneratorPerlin(new Random(444L), 1);
 	public static NoiseGeneratorPerlin podzolNoise = new NoiseGeneratorPerlin(new Random(58052L), 1);
 	public int variantID;
@@ -80,14 +80,6 @@ public class GOTBiomeVariant {
 		allVariants[i] = this;
 		variantName = s;
 		variantScale = scale;
-	}
-
-	public static GOTBiomeVariant getVariantForID(int i) {
-		GOTBiomeVariant variant = allVariants[i];
-		if (variant == null) {
-			return STANDARD;
-		}
-		return variant;
 	}
 
 	public GOTBiomeVariant addTreeTypes(float f, Object... trees) {
@@ -173,6 +165,14 @@ public class GOTBiomeVariant {
 	public GOTBiomeVariant setTrees(float f) {
 		treeFactor = f;
 		return this;
+	}
+
+	public static GOTBiomeVariant getVariantForID(int i) {
+		GOTBiomeVariant variant = allVariants[i];
+		if (variant == null) {
+			return STANDARD;
+		}
+		return variant;
 	}
 
 	public enum VariantScale {

@@ -1,5 +1,8 @@
 package got.client.gui;
 
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.network.GOTPacketEditSign;
 import got.common.network.GOTPacketHandler;
@@ -14,8 +17,6 @@ import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.Direction;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.opengl.GL11;
 
 public class GOTGuiEditSign extends GuiScreen {
 	public static RenderItem itemRenderer = new RenderItem();

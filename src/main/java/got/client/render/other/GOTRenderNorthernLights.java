@@ -1,5 +1,14 @@
 package got.client.render.other;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Random;
+
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.glu.Project;
+
 import got.GOT;
 import got.client.GOTReflectionClient;
 import got.common.GOTDate;
@@ -13,14 +22,6 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.glu.Project;
-
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Random;
 
 public class GOTRenderNorthernLights {
 	public static int nlTick;
@@ -70,7 +71,7 @@ public class GOTRenderNorthernLights {
 		Color topColor = new Color(Color.HSBtoRGB(h1, 1.0f, 1.0f));
 		Color midColor = new Color(Color.HSBtoRGB(h2, 1.0f, 1.0f));
 		Color bottomColor = new Color(Color.HSBtoRGB(h3, 1.0f, 1.0f));
-		return new Color[]{topColor, midColor, bottomColor};
+		return new Color[] { topColor, midColor, bottomColor };
 	}
 
 	public static float getNorthernness(EntityLivingBase entity) {
@@ -335,9 +336,9 @@ public class GOTRenderNorthernLights {
 			if (GOTFixedStructures.NIGHT_KING.distanceSqTo(viewer) <= range * range) {
 				atNightKing = true;
 				timeUntilColorChange = 0;
-				colorTopNext = new float[]{1.0f, 0.4f, 0.0f};
-				colorMidNext = new float[]{1.0f, 0.0f, 0.0f};
-				colorBottomNext = new float[]{1.0f, 0.0f, 0.3f};
+				colorTopNext = new float[] { 1.0f, 0.4f, 0.0f };
+				colorMidNext = new float[] { 1.0f, 0.0f, 0.0f };
+				colorBottomNext = new float[] { 1.0f, 0.0f, 0.3f };
 				colorChangeTick = colorChangeTime = MathHelper.getRandomIntegerInRange(rand, 100, 200);
 			} else {
 				atNightKing = false;

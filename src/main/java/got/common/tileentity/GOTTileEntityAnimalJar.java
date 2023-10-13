@@ -1,5 +1,8 @@
 package got.common.tileentity;
 
+import java.util.List;
+import java.util.Random;
+
 import got.common.block.other.GOTBlockAnimalJar;
 import got.common.entity.animal.GOTEntityButterfly;
 import got.common.entity.other.AnimalJarUpdater;
@@ -19,9 +22,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-
-import java.util.List;
-import java.util.Random;
 
 public class GOTTileEntityAnimalJar extends TileEntity {
 	public NBTTagCompound jarEntityData;
@@ -43,12 +43,6 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 		return jarEntityData;
 	}
 
-	public void setEntityData(NBTTagCompound nbt) {
-		jarEntityData = nbt;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
-	}
-
 	public float getEntityHeight() {
 		Block block = getBlockType();
 		if (block instanceof GOTBlockAnimalJar) {
@@ -58,7 +52,7 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 	}
 
 	public float[] getInitialEntityCoords(Entity entity) {
-		return new float[]{xCoord + 0.5f, yCoord + getEntityHeight() - entity.height / 2.0f, zCoord + 0.5f};
+		return new float[] { xCoord + 0.5f, yCoord + getEntityHeight() - entity.height / 2.0f, zCoord + 0.5f };
 	}
 
 	public Packet getJarPacket(int type) {
@@ -142,6 +136,12 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 			}
 			((EntityPlayerMP) entityplayer).playerNetServerHandler.sendPacket(packet);
 		}
+	}
+
+	public void setEntityData(NBTTagCompound nbt) {
+		jarEntityData = nbt;
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
 	}
 
 	@Override

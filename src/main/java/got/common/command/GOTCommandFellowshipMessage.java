@@ -1,5 +1,10 @@
 package got.common.command;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.fellowship.GOTFellowship;
@@ -11,11 +16,6 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 public class GOTCommandFellowshipMessage extends CommandBase {
 	@Override
@@ -29,7 +29,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 		if (args.length >= 1) {
 			args = GOTCommandFellowship.fixArgsForFellowship(args, 0, true);
 			List<String> matches = new ArrayList<>();
-			if (args.length == 1 && (argsOriginal[0].isEmpty() || (argsOriginal[0].charAt(0) != '\"'))) {
+			if (args.length == 1 && (argsOriginal[0].isEmpty() || argsOriginal[0].charAt(0) != '\"')) {
 				matches.addAll(CommandBase.getListOfStringsMatchingLastWord(args, "bind", "unbind"));
 			}
 			matches.addAll(GOTCommandFellowship.listFellowshipsMatchingLastWord(args, argsOriginal, 0, playerData, false));

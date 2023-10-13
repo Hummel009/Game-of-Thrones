@@ -1,5 +1,7 @@
 package got.common.inventory;
 
+import java.util.ArrayList;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.entity.animal.GOTEntityHorse;
@@ -7,8 +9,6 @@ import net.minecraft.inventory.ContainerHorseInventory;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
-
-import java.util.ArrayList;
 
 public class GOTContainerMountInventory extends ContainerHorseInventory {
 	public GOTContainerMountInventory(IInventory playerInv, IInventory horseInv, GOTEntityHorse horse) {

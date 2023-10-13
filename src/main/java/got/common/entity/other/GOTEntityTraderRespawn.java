@@ -95,10 +95,6 @@ public class GOTEntityTraderRespawn extends Entity {
 		return dataWatcher.getWatchableObjectString(18);
 	}
 
-	public void setClientTraderString(String s) {
-		dataWatcher.updateObject(18, s);
-	}
-
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		int entityID = GOTEntityRegistry.getIDFromString(getClientTraderString());
@@ -110,10 +106,6 @@ public class GOTEntityTraderRespawn extends Entity {
 
 	public int getScale() {
 		return dataWatcher.getWatchableObjectInt(16);
-	}
-
-	public void setScale(int i) {
-		dataWatcher.updateObject(16, i);
 	}
 
 	public float getScaleFloat(float tick) {
@@ -233,6 +225,14 @@ public class GOTEntityTraderRespawn extends Entity {
 		if (nbt.hasKey("TraderData")) {
 			traderData = nbt.getCompoundTag("TraderData");
 		}
+	}
+
+	public void setClientTraderString(String s) {
+		dataWatcher.updateObject(18, s);
+	}
+
+	public void setScale(int i) {
+		dataWatcher.updateObject(16, i);
 	}
 
 	public void setSpawnImminent() {

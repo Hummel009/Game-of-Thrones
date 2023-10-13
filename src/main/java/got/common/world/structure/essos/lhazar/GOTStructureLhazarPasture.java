@@ -1,30 +1,14 @@
 package got.common.world.structure.essos.lhazar;
 
+import java.util.Random;
+
 import got.common.entity.animal.GOTEntityCamel;
 import net.minecraft.entity.passive.*;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public class GOTStructureLhazarPasture extends GOTStructureLhazarBase {
 	public GOTStructureLhazarPasture(boolean flag) {
 		super(flag);
-	}
-
-	public static EntityAnimal getRandomAnimal(World world, Random random) {
-		int animal = random.nextInt(5);
-		switch (animal) {
-			case 0:
-				return new EntityCow(world);
-			case 1:
-				return new EntityPig(world);
-			case 2:
-				return new EntitySheep(world);
-			case 3:
-				return new EntityChicken(world);
-			default:
-				return new GOTEntityCamel(world);
-		}
 	}
 
 	@Override
@@ -80,5 +64,21 @@ public class GOTStructureLhazarPasture extends GOTStructureLhazarBase {
 			animal.detachHome();
 		}
 		return true;
+	}
+
+	public static EntityAnimal getRandomAnimal(World world, Random random) {
+		int animal = random.nextInt(5);
+		switch (animal) {
+		case 0:
+			return new EntityCow(world);
+		case 1:
+			return new EntityPig(world);
+		case 2:
+			return new EntitySheep(world);
+		case 3:
+			return new EntityChicken(world);
+		default:
+			return new GOTEntityCamel(world);
+		}
 	}
 }

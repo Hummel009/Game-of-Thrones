@@ -1,13 +1,13 @@
 package got.common.world.structure.westeros.common;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 	public GOTStructureWesterosWatchfort(boolean flag) {
@@ -90,7 +90,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 				}
 			}
 		}
-		int[] i19 = {4, 9};
+		int[] i19 = { 4, 9 };
 		k12 = i19.length;
 		for (j1 = 0; j1 < k12; ++j1) {
 			j12 = i19[j1];
@@ -145,11 +145,11 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 			placeRandomWall(world, random, -4, 17, k1);
 			placeRandomWall(world, random, 4, 17, k1);
 		}
-		int[] k16 = {-4, 4};
+		int[] k16 = { -4, 4 };
 		k12 = k16.length;
 		for (j1 = 0; j1 < k12; ++j1) {
 			i162 = k16[j1];
-			for (int k17 : new int[]{-4, 4}) {
+			for (int k17 : new int[] { -4, 4 }) {
 				for (int j16 = 17; j16 <= 19; ++j16) {
 					setBlockAndMetadata(world, i162, j16, k17, pillar2Block, pillar2Meta);
 				}
@@ -175,11 +175,11 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i12, 21, k12, brick2SlabBlock, brick2SlabMeta);
 			}
 		}
-		int[] i110 = {-4, 4};
+		int[] i110 = { -4, 4 };
 		k12 = i110.length;
 		for (j1 = 0; j1 < k12; ++j1) {
 			i162 = i110[j1];
-			for (int k17 : new int[]{-4, 4}) {
+			for (int k17 : new int[] { -4, 4 }) {
 				setBlockAndMetadata(world, i162, 20, k17 - 1, brick2StairBlock, 6);
 				setBlockAndMetadata(world, i162, 20, k17 + 1, brick2StairBlock, 7);
 				for (int k2 = k17 - 1; k2 <= k17 + 1; ++k2) {
@@ -319,7 +319,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		placeChest(world, random, 0, 2, 2, GOTBlocks.chestStone, 3, getChestContents());
 		setAir(world, 0, 3, 2);
 		setBlockAndMetadata(world, 0, 7, -4, GOTBlocks.commandTable, 0);
-		int[] i111 = {-3, 3};
+		int[] i111 = { -3, 3 };
 		step = i111.length;
 		for (k13 = 0; k13 < step; ++k13) {
 			i162 = i111[k13];
@@ -356,7 +356,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 			placeRandomBrick(world, random, i14, 13, 4);
 			placeRandomBrick(world, random, i14, 14, 4);
 		}
-		for (int i1621 : new int[]{-2, 2}) {
+		for (int i1621 : new int[] { -2, 2 }) {
 			placeRandomBrick(world, random, i1621, 12, 5);
 			placeRandomBrick(world, random, i1621, 13, 5);
 			setBlockAndMetadata(world, i1621, 14, 5, brick2WallBlock, brick2WallMeta);

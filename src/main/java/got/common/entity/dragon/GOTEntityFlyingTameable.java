@@ -1,5 +1,10 @@
 package got.common.entity.dragon;
 
+import java.util.List;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import got.client.model.GOTModelDragonAnimaton;
 import got.common.world.biome.GOTBiome;
@@ -11,17 +16,13 @@ import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import java.util.List;
 
 public abstract class GOTEntityFlyingTameable extends EntityTameable implements GOTBiome.ImmuneToFrost {
 	public static Logger L = LogManager.getLogger();
 	public static int IN_AIR_THRESH = 10;
 	public static IAttribute MOVE_SPEED_AIR = new RangedAttribute("generic.movementSpeedAir", 1.5, 0.0, Double.MAX_VALUE).setDescription("Movement Speed Air").setShouldWatch(true);
 	public static int INDEX_FLYING = 18;
-	public static String[] ENTITYAITASKS_TICKRATE = {"tickRate", "field_75779_e"};
+	public static String[] ENTITYAITASKS_TICKRATE = { "tickRate", "field_75779_e" };
 	public static int INDEX_CAN_FLY = 19;
 	public static String NBT_FLYING = "Flying";
 	public static String NBT_CAN_FLY = "CanFly";
@@ -77,21 +78,12 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		return (dataWatcher.getWatchableObjectByte(INDEX_CAN_FLY) & 1) != 0;
 	}
 
-	public void setCanFly(boolean canFly) {
-		L.trace("setCanFly({})", canFly);
-		dataWatcher.updateObject(INDEX_CAN_FLY, canFly ? (byte) 1 : (byte) 0);
-	}
-
 	public boolean isClient() {
 		return worldObj.isRemote;
 	}
 
 	public boolean isFlying() {
 		return (dataWatcher.getWatchableObjectByte(INDEX_FLYING) & 1) != 0;
-	}
-
-	public void setFlying(boolean flying) {
-		dataWatcher.updateObject(INDEX_FLYING, flying ? (byte) 1 : (byte) 0);
 	}
 
 	public boolean isGroundAIEnabled() {
@@ -226,6 +218,15 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 		setFlying(nbt.getBoolean(NBT_FLYING));
 		setCanFly(nbt.getBoolean(NBT_CAN_FLY));
 		waypoint.readFromNBT(nbt);
+	}
+
+	public void setCanFly(boolean canFly) {
+		L.trace("setCanFly({})", canFly);
+		dataWatcher.updateObject(INDEX_CAN_FLY, canFly ? (byte) 1 : (byte) 0);
+	}
+
+	public void setFlying(boolean flying) {
+		dataWatcher.updateObject(INDEX_FLYING, flying ? (byte) 1 : (byte) 0);
 	}
 
 	public void setMoveSpeedAirHoriz(double airSpeedHorizonal) {

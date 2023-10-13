@@ -30,12 +30,6 @@ public class GOTTileEntityCommandTable extends TileEntity {
 		return zoomExp;
 	}
 
-	public void setZoomExp(int i) {
-		zoomExp = MathHelper.clamp_int(i, -2, 2);
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
-	}
-
 	@Override
 	public void onDataPacket(NetworkManager manager, S35PacketUpdateTileEntity packet) {
 		NBTTagCompound data = packet.func_148857_g();
@@ -50,6 +44,12 @@ public class GOTTileEntityCommandTable extends TileEntity {
 
 	public void readTableFromNBT(NBTTagCompound nbt) {
 		zoomExp = nbt.getByte("Zoom");
+	}
+
+	public void setZoomExp(int i) {
+		zoomExp = MathHelper.clamp_int(i, -2, 2);
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
 	}
 
 	public void toggleZoomExp() {

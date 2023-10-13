@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.ArrayList;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTItems;
@@ -22,8 +24,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 
-import java.util.ArrayList;
-
 public class GOTBlockMug extends BlockContainer {
 	public static float MUG_SCALE = 0.75f;
 
@@ -38,24 +38,6 @@ public class GOTBlockMug extends BlockContainer {
 		setBlockBounds(0.5f - (f *= 0.75f), 0.0f, 0.5f - f, 0.5f + f, f1 * 0.75f, 0.5f + f);
 		setHardness(0.0f);
 		setStepSound(Block.soundTypeWood);
-	}
-
-	public static ItemStack getMugItem(IBlockAccess world, int i, int j, int k) {
-		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (tileentity instanceof GOTTileEntityMug) {
-			GOTTileEntityMug mug = (GOTTileEntityMug) tileentity;
-			return mug.getMugItem();
-		}
-		return new ItemStack(GOTItems.mug);
-	}
-
-	public static void setMugItem(IBlockAccess world, int i, int j, int k, ItemStack itemstack, GOTItemMug.Vessel vessel) {
-		TileEntity te = world.getTileEntity(i, j, k);
-		if (te instanceof GOTTileEntityMug) {
-			GOTTileEntityMug mug = (GOTTileEntityMug) te;
-			mug.setMugItem(itemstack);
-			mug.setVessel(vessel);
-		}
 	}
 
 	@Override
@@ -200,5 +182,23 @@ public class GOTBlockMug extends BlockContainer {
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
+	}
+
+	public static ItemStack getMugItem(IBlockAccess world, int i, int j, int k) {
+		TileEntity tileentity = world.getTileEntity(i, j, k);
+		if (tileentity instanceof GOTTileEntityMug) {
+			GOTTileEntityMug mug = (GOTTileEntityMug) tileentity;
+			return mug.getMugItem();
+		}
+		return new ItemStack(GOTItems.mug);
+	}
+
+	public static void setMugItem(IBlockAccess world, int i, int j, int k, ItemStack itemstack, GOTItemMug.Vessel vessel) {
+		TileEntity te = world.getTileEntity(i, j, k);
+		if (te instanceof GOTTileEntityMug) {
+			GOTTileEntityMug mug = (GOTTileEntityMug) te;
+			mug.setMugItem(itemstack);
+			mug.setVessel(vessel);
+		}
 	}
 }

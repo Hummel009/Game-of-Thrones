@@ -1,14 +1,5 @@
 package got.common.world.map;
 
-import com.google.common.io.Files;
-import cpw.mods.fml.common.FMLLog;
-import got.common.GOTConfig;
-import got.common.fellowship.GOTFellowship;
-import got.common.fellowship.GOTFellowshipData;
-import got.common.util.GOTLog;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraftforge.common.DimensionManager;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -19,6 +10,16 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
+
+import com.google.common.io.Files;
+
+import cpw.mods.fml.common.FMLLog;
+import got.common.GOTConfig;
+import got.common.fellowship.GOTFellowship;
+import got.common.fellowship.GOTFellowshipData;
+import got.common.util.GOTLog;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraftforge.common.DimensionManager;
 
 public class GOTCustomWaypointLogger {
 	public static Charset CHARSET = StandardCharsets.UTF_8;

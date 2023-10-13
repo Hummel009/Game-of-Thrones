@@ -1,5 +1,7 @@
 package got.common.world.structure.essos.gold;
 
+import java.util.Random;
+
 import got.common.entity.essos.gold.GOTEntityGoldenSpearman;
 import got.common.entity.essos.gold.GOTEntityGoldenWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -12,8 +14,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureGoldenCamp extends GOTStructureBaseSettlement {
 	public GOTStructureGoldenCamp(GOTBiome biome, float f) {

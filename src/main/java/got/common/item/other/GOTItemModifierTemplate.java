@@ -1,5 +1,10 @@
 package got.common.item.other;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
@@ -14,46 +19,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.WeightedRandom;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-
 public class GOTItemModifierTemplate extends Item {
 	public GOTItemModifierTemplate() {
 		setMaxStackSize(1);
 		setCreativeTab(GOTCreativeTabs.tabTools);
-	}
-
-	public static GOTEnchantment getModifier(ItemStack itemstack) {
-		NBTTagCompound nbt = itemstack.getTagCompound();
-		if (nbt != null) {
-			String s = nbt.getString("ScrollModifier");
-			return GOTEnchantment.getEnchantmentByName(s);
-		}
-		return null;
-	}
-
-	public static ItemStack getRandomCommonTemplate(Random random) {
-		Collection<GOTEnchantmentHelper.WeightedRandomEnchant> applicable = new ArrayList<>();
-		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
-			if (!ench.hasTemplateItem()) {
-				continue;
-			}
-			int weight = GOTEnchantmentHelper.getSkilfulWeight(ench);
-			GOTEnchantmentHelper.WeightedRandomEnchant wre = new GOTEnchantmentHelper.WeightedRandomEnchant(ench, weight);
-			applicable.add(wre);
-		}
-		GOTEnchantmentHelper.WeightedRandomEnchant chosenWre = (GOTEnchantmentHelper.WeightedRandomEnchant) WeightedRandom.getRandomItem(random, applicable);
-		GOTEnchantment chosenEnch = chosenWre.theEnchant;
-		ItemStack itemstack = new ItemStack(GOTItems.smithScroll);
-		setModifier(itemstack, chosenEnch);
-		return itemstack;
-	}
-
-	public static void setModifier(ItemStack itemstack, GOTEnchantment ench) {
-		String s = ench.enchantName;
-		itemstack.setTagInfo("ScrollModifier", new NBTTagString(s));
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -88,5 +57,36 @@ public class GOTItemModifierTemplate extends Item {
 			setModifier(itemstack, ench);
 			list.add(itemstack);
 		}
+	}
+
+	public static GOTEnchantment getModifier(ItemStack itemstack) {
+		NBTTagCompound nbt = itemstack.getTagCompound();
+		if (nbt != null) {
+			String s = nbt.getString("ScrollModifier");
+			return GOTEnchantment.getEnchantmentByName(s);
+		}
+		return null;
+	}
+
+	public static ItemStack getRandomCommonTemplate(Random random) {
+		Collection<GOTEnchantmentHelper.WeightedRandomEnchant> applicable = new ArrayList<>();
+		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
+			if (!ench.hasTemplateItem()) {
+				continue;
+			}
+			int weight = GOTEnchantmentHelper.getSkilfulWeight(ench);
+			GOTEnchantmentHelper.WeightedRandomEnchant wre = new GOTEnchantmentHelper.WeightedRandomEnchant(ench, weight);
+			applicable.add(wre);
+		}
+		GOTEnchantmentHelper.WeightedRandomEnchant chosenWre = (GOTEnchantmentHelper.WeightedRandomEnchant) WeightedRandom.getRandomItem(random, applicable);
+		GOTEnchantment chosenEnch = chosenWre.theEnchant;
+		ItemStack itemstack = new ItemStack(GOTItems.smithScroll);
+		setModifier(itemstack, chosenEnch);
+		return itemstack;
+	}
+
+	public static void setModifier(ItemStack itemstack, GOTEnchantment ench) {
+		String s = ench.enchantName;
+		itemstack.setTagInfo("ScrollModifier", new NBTTagString(s));
 	}
 }

@@ -1,7 +1,14 @@
 package got.client.gui;
 
+import java.util.*;
+
+import org.apache.commons.lang3.StringUtils;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
 import com.google.common.math.IntMath;
 import com.mojang.authlib.GameProfile;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
@@ -18,11 +25,6 @@ import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
-import org.apache.commons.lang3.StringUtils;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
-import java.util.*;
 
 public class GOTGuiFellowships extends GOTGuiMenuBase {
 	public static ResourceLocation iconsTextures = new ResourceLocation("got:textures/gui/fellowships.png");
@@ -84,17 +86,6 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 	public int displayedMembers;
 	public int displayedInvites;
 	public int tickCounter;
-
-	public static boolean isPlayerOnline(GameProfile player) {
-		EntityClientPlayerMP mcPlayer = Minecraft.getMinecraft().thePlayer;
-		List<GuiPlayerInfo> list = mcPlayer.sendQueue.playerInfoList;
-		for (GuiPlayerInfo obj : list) {
-			if (obj.name.equalsIgnoreCase(player.getName())) {
-				return true;
-			}
-		}
-		return false;
-	}
 
 	public void acceptInvitation(GOTFellowshipClient invite) {
 		IMessage packet = new GOTPacketFellowshipRespondInvite(invite, true);
@@ -1024,6 +1015,17 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		if (page != Page.RENAME) {
 			textFieldRename.setText("");
 		}
+	}
+
+	public static boolean isPlayerOnline(GameProfile player) {
+		EntityClientPlayerMP mcPlayer = Minecraft.getMinecraft().thePlayer;
+		List<GuiPlayerInfo> list = mcPlayer.sendQueue.playerInfoList;
+		for (GuiPlayerInfo obj : list) {
+			if (obj.name.equalsIgnoreCase(player.getName())) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public enum Page {

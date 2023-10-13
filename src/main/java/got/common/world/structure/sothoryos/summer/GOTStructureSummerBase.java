@@ -1,5 +1,7 @@
 package got.common.world.structure.sothoryos.summer;
 
+import java.util.Random;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.world.structure.other.GOTStructureBase;
@@ -7,8 +9,6 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-
-import java.util.Random;
 
 public abstract class GOTStructureSummerBase extends GOTStructureBase {
 	public Block woodBlock;
@@ -39,12 +39,12 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 	}
 
 	public ItemStack getFramedItem(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.summerHelmet), new ItemStack(GOTItems.summerChestplate), new ItemStack(GOTItems.summerLeggings), new ItemStack(GOTItems.summerBoots), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSpear), new ItemStack(GOTItems.summerPike), new ItemStack(GOTItems.essosBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.goldRing), new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3)};
+		ItemStack[] items = { new ItemStack(GOTItems.summerHelmet), new ItemStack(GOTItems.summerChestplate), new ItemStack(GOTItems.summerLeggings), new ItemStack(GOTItems.summerBoots), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerSpear), new ItemStack(GOTItems.summerPike), new ItemStack(GOTItems.essosBow), new ItemStack(Items.arrow), new ItemStack(Items.skull), new ItemStack(Items.bone), new ItemStack(GOTItems.gobletSilver), new ItemStack(GOTItems.mug), new ItemStack(GOTItems.ceramicMug), new ItemStack(GOTItems.goldRing), new ItemStack(GOTItems.silverRing), new ItemStack(GOTItems.copperRing), new ItemStack(GOTItems.bronzeRing), new ItemStack(GOTBlocks.doubleFlower, 1, 2), new ItemStack(GOTBlocks.doubleFlower, 1, 3) };
 		return items[random.nextInt(items.length)].copy();
 	}
 
 	public ItemStack getRandomWeapon(Random random) {
-		ItemStack[] items = {new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerSpear), new ItemStack(GOTItems.summerPike)};
+		ItemStack[] items = { new ItemStack(GOTItems.summerSword), new ItemStack(GOTItems.summerDagger), new ItemStack(GOTItems.summerSpear), new ItemStack(GOTItems.summerPike) };
 		return items[random.nextInt(items.length)].copy();
 	}
 
@@ -69,18 +69,18 @@ public abstract class GOTStructureSummerBase extends GOTStructureBase {
 		trapdoorBlock = GOTBlocks.trapdoorCedar;
 		int randomWool = random.nextInt(3);
 		switch (randomWool) {
-			case 0:
-				roofBlock = Blocks.wool;
-				roofMeta = 13;
-				break;
-			case 1:
-				roofBlock = Blocks.wool;
-				roofMeta = 11;
-				break;
-			default:
-				roofBlock = Blocks.wool;
-				roofMeta = 8;
-				break;
+		case 0:
+			roofBlock = Blocks.wool;
+			roofMeta = 13;
+			break;
+		case 1:
+			roofBlock = Blocks.wool;
+			roofMeta = 11;
+			break;
+		default:
+			roofBlock = Blocks.wool;
+			roofMeta = 8;
+			break;
 		}
 		if (random.nextBoolean()) {
 			plank2Block = GOTBlocks.planks2;

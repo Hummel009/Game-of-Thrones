@@ -1,5 +1,9 @@
 package got.common.entity.essos.legendary.quest;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 import got.common.GOTJaqenHgharTracker;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -20,10 +24,6 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class GOTEntityJaqenHghar extends GOTEntityHumanBase {
 	public GOTEntityJaqenHghar(World world) {

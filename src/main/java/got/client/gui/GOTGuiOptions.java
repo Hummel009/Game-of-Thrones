@@ -1,5 +1,9 @@
 package got.client.gui;
 
+import java.util.List;
+
+import org.lwjgl.opengl.GL11;
+
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -7,9 +11,6 @@ import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketSetOption;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
-import org.lwjgl.opengl.GL11;
-
-import java.util.List;
 
 public class GOTGuiOptions extends GOTGuiMenuWBBase {
 	public GOTGuiButtonOptions buttonFriendlyFire;

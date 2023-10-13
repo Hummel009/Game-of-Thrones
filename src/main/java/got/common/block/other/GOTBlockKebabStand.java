@@ -1,5 +1,7 @@
 package got.common.block.other;
 
+import java.util.ArrayList;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTLevelData;
@@ -22,8 +24,6 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
-
-import java.util.ArrayList;
 
 public class GOTBlockKebabStand extends BlockContainer {
 	public String standTextureName;
@@ -150,20 +150,20 @@ public class GOTBlockKebabStand extends BlockContainer {
 		int rotation = MathHelper.floor_double(entity.rotationYaw * 4.0f / 360.0f + 0.5) & 3;
 		int meta = 0;
 		switch (rotation) {
-			case 0:
-				meta = 2;
-				break;
-			case 1:
-				meta = 5;
-				break;
-			case 2:
-				meta = 3;
-				break;
-			case 3:
-				meta = 4;
-				break;
-			default:
-				break;
+		case 0:
+			meta = 2;
+			break;
+		case 1:
+			meta = 5;
+			break;
+		case 2:
+			meta = 3;
+			break;
+		case 3:
+			meta = 4;
+			break;
+		default:
+			break;
 		}
 		world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		TileEntity tileentity = world.getTileEntity(i, j, k);

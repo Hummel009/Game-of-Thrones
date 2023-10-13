@@ -1,5 +1,10 @@
 package got.client.render.animal;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.lwjgl.opengl.GL11;
+
 import got.client.model.GOTModelBird;
 import got.client.render.other.GOTRandomSkins;
 import got.common.entity.animal.GOTEntityBird;
@@ -10,10 +15,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class GOTRenderBird extends RenderLiving {
 	public static Map<String, GOTRandomSkins> birdTypeSkins = new HashMap<>();

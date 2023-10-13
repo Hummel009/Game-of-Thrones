@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.common;
 
-import net.minecraft.world.World;
-
 import java.util.Random;
+
+import net.minecraft.world.World;
 
 public class GOTStructureWesterosTownBench extends GOTStructureWesterosBase {
 	public GOTStructureWesterosTownBench(boolean flag) {
@@ -39,7 +39,7 @@ public class GOTStructureWesterosTownBench extends GOTStructureWesterosBase {
 		for (i1 = -1; i1 <= 1; ++i1) {
 			setBlockAndMetadata(world, i1, j1, k1, rockSlabBlock, rockSlabMeta | 8);
 		}
-		for (int i13 : new int[]{-2, 2}) {
+		for (int i13 : new int[] { -2, 2 }) {
 			setBlockAndMetadata(world, i13, j1, k1, rockSlabDoubleBlock, rockSlabDoubleMeta);
 			setGrassToDirt(world, i13, j1 - 1, k1);
 			layFoundation(world, i13, j1 - 1, k1);

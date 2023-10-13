@@ -1,5 +1,7 @@
 package got.common.world.structure.westeros.gift;
 
+import java.util.Random;
+
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.gift.GOTEntityGiftGuard;
 import got.common.entity.westeros.gift.GOTEntityGiftMan;
@@ -12,8 +14,6 @@ import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.EastWatch
 import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.ShadowTower;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -39,10 +39,6 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 		return this;
 	}
 
-	public enum Type {
-		ABANDONED, CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE
-	}
-
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureGiftSettlement> {
 		public Type type;
 		public boolean forcedType;
@@ -56,24 +52,24 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			switch (type) {
-				case CASTLE_BLACK:
-					addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
-					addStructure(new CastleBlack(false), -4, 25, 1, true);
-					break;
-				case SHADOW_TOWER:
-					addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
-					addStructure(new ShadowTower(false), 0, 20, 0, true);
-					break;
-				case EAST_WATCH:
-					addStructure(new EastWatch(false), 0, 50, 0, true);
-					break;
-				case ABANDONED:
-					addStructure(new GOTStructureGiftGate(false).setIsAbandoned(), 0, 7, 0, true);
-					addStructure(new Abandoned(false), 0, 20, 0, true);
-					break;
-				case VILLAGE:
-					setupVillage(random);
-					break;
+			case CASTLE_BLACK:
+				addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
+				addStructure(new CastleBlack(false), -4, 25, 1, true);
+				break;
+			case SHADOW_TOWER:
+				addStructure(new GOTStructureGiftGate(false), 0, 7, 0, true);
+				addStructure(new ShadowTower(false), 0, 20, 0, true);
+				break;
+			case EAST_WATCH:
+				addStructure(new EastWatch(false), 0, 50, 0, true);
+				break;
+			case ABANDONED:
+				addStructure(new GOTStructureGiftGate(false).setIsAbandoned(), 0, 7, 0, true);
+				addStructure(new Abandoned(false), 0, 20, 0, true);
+				break;
+			case VILLAGE:
+				setupVillage(random);
+				break;
 			}
 		}
 
@@ -98,12 +94,12 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			if (random.nextInt(3) == 0) {
 				int i = random.nextInt(3);
 				switch (i) {
-					case 0:
-						return new GOTStructureGiftSmithy(false);
-					case 1:
-						return new GOTStructureGiftStables(false);
-					default:
-						return new GOTStructureGiftLodge(false);
+				case 0:
+					return new GOTStructureGiftSmithy(false);
+				case 1:
+					return new GOTStructureGiftStables(false);
+				default:
+					return new GOTStructureGiftLodge(false);
 				}
 			}
 			return new GOTStructureGiftHouse(false);
@@ -142,8 +138,8 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			}, 0, 0, 0);
 			addStructure(new GOTStructureGiftWell(false), 0, -2, 0, true);
 			int lampX = 8;
-			for (int i : new int[]{-lampX, lampX}) {
-				for (int k : new int[]{-lampX, lampX}) {
+			for (int i : new int[] { -lampX, lampX }) {
+				for (int k : new int[] { -lampX, lampX }) {
 					addStructure(new GOTStructureGiftVillageLight(false), i, k, 0);
 				}
 			}
@@ -204,5 +200,9 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 		}
+	}
+
+	public enum Type {
+		ABANDONED, CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE
 	}
 }

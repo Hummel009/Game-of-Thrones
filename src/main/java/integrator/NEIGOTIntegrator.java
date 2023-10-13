@@ -1,5 +1,7 @@
 package integrator;
 
+import java.util.List;
+
 import codechicken.nei.recipe.GuiCraftingRecipe;
 import codechicken.nei.recipe.GuiUsageRecipe;
 import codechicken.nei.recipe.TemplateRecipeHandler;
@@ -8,8 +10,6 @@ import got.common.recipe.GOTRecipe;
 import integrator.handler.*;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.item.crafting.IRecipe;
-
-import java.util.List;
 
 public class NEIGOTIntegrator {
 	public static void registerHandler(String unlocalizedName, Class<? extends GuiContainer> guiClass, List<IRecipe> recipes) {

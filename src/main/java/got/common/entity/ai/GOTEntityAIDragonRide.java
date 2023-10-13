@@ -1,10 +1,10 @@
 package got.common.entity.ai;
 
+import java.util.BitSet;
+
 import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.player.EntityPlayer;
-
-import java.util.BitSet;
 
 public abstract class GOTEntityAIDragonRide extends EntityAIBase {
 

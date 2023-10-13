@@ -1,6 +1,9 @@
 package got.common.world.structure.westeros.common;
 
+import java.util.Random;
+
 import com.google.common.math.IntMath;
+
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTEntityNPC;
@@ -14,8 +17,6 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-
-import java.util.Random;
 
 public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 	public GOTStructureWesterosBrewery(boolean flag) {
@@ -157,7 +158,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i12, 2, 18, brickSlabBlock, brickSlabMeta);
 			setAir(world, i12, 3, 18);
 		}
-		for (int k14 : new int[]{1, 18}) {
+		for (int k14 : new int[] { 1, 18 }) {
 			int i14;
 			setBlockAndMetadata(world, -4, 6, k14, brickBlock, brickMeta);
 			setBlockAndMetadata(world, -3, 6, k14, brickBlock, brickMeta);
@@ -207,7 +208,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 4, 7, k13, plankStairBlock, 0);
 			setBlockAndMetadata(world, 5, 6, k13, plankStairBlock, 0);
 		}
-		for (int k14 : new int[]{0, 19}) {
+		for (int k14 : new int[] { 0, 19 }) {
 			setBlockAndMetadata(world, -4, 6, k14, plankStairBlock, 4);
 			setBlockAndMetadata(world, -3, 7, k14, plankStairBlock, 4);
 			setBlockAndMetadata(world, -2, 8, k14, plankStairBlock, 4);

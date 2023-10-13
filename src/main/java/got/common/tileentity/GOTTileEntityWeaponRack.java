@@ -44,15 +44,6 @@ public class GOTTileEntityWeaponRack extends TileEntity {
 		return weaponItem;
 	}
 
-	public void setWeaponItem(ItemStack item) {
-		if (item != null && item.stackSize <= 0) {
-			item = null;
-		}
-		weaponItem = item;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
-	}
-
 	@Override
 	public void onDataPacket(NetworkManager manager, S35PacketUpdateTileEntity packet) {
 		NBTTagCompound data = packet.func_148857_g();
@@ -64,6 +55,15 @@ public class GOTTileEntityWeaponRack extends TileEntity {
 		super.readFromNBT(nbt);
 		boolean hasWeapon = nbt.getBoolean("HasWeapon");
 		weaponItem = hasWeapon ? ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("WeaponItem")) : null;
+	}
+
+	public void setWeaponItem(ItemStack item) {
+		if (item != null && item.stackSize <= 0) {
+			item = null;
+		}
+		weaponItem = item;
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
 	}
 
 	@Override
