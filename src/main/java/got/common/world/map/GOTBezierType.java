@@ -1,11 +1,11 @@
 package got.common.world.map;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.Random;
 
 public abstract class GOTBezierType {
 	public static GOTBezierType WALL_IBBEN = new GOTBezierType() {

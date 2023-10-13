@@ -1,10 +1,6 @@
 package got.common.world.map;
 
-import java.io.File;
-import java.util.*;
-
 import com.google.common.math.IntMath;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
@@ -28,6 +24,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.io.File;
+import java.util.*;
 
 public class GOTConquestGrid {
 	public static int MAP_GRID_SCALE = IntMath.pow(2, 3);

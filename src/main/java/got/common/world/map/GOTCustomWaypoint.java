@@ -1,9 +1,5 @@
 package got.common.world.map;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -22,6 +18,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.*;
 
 public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	private String customName;

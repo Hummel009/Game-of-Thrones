@@ -88,5 +88,4 @@ public enum GOTFixedStructures {
 		}
 		return false;
 	}
-
 }

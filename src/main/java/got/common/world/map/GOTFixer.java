@@ -1,9 +1,5 @@
 package got.common.world.map;
 
-import static got.common.world.map.GOTCoordConverter.toEssosTownGate;
-
-import java.util.*;
-
 import got.common.entity.essos.legendary.GOTEntityMissandei;
 import got.common.entity.essos.legendary.captain.*;
 import got.common.entity.essos.legendary.quest.GOTEntityBuGai;
@@ -61,6 +57,10 @@ import got.common.world.structure.westeros.stormlands.GOTStructureStormlandsSett
 import got.common.world.structure.westeros.westerlands.GOTStructureWesterlandsSettlement;
 import got.common.world.structure.westeros.wildling.GOTStructureWildlingSettlement;
 import net.minecraft.world.World;
+
+import java.util.*;
+
+import static got.common.world.map.GOTCoordConverter.toEssosTownGate;
 
 public class GOTFixer {
 	public static Map<GOTAbstractWaypoint, GOTStructureBase> structures = new HashMap<>();

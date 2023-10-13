@@ -1,7 +1,5 @@
 package got.common.world.map;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.world.GOTChunkProvider;
 import got.common.world.biome.GOTBiome;
@@ -11,6 +9,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.MapGenBase;
+
+import java.util.Random;
 
 public class GOTMapGenCaves extends MapGenBase {
 	private GOTChunkProvider.ChunkFlags chunkFlags;

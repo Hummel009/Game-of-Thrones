@@ -1,12 +1,12 @@
 package got.common.world.map;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import got.common.faction.GOTFaction;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class GOTConquestZone {
 	public static List<GOTFaction> allPlayableFacs;

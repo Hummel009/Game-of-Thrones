@@ -1,13 +1,13 @@
 package got.common.world.map;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.MapGenRavine;
+
+import java.util.Random;
 
 public class GOTMapGenRavine extends MapGenRavine {
 	private float[] ravineNoise = new float[1024];

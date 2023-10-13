@@ -1,13 +1,10 @@
 package got.common.world.map;
 
-import static got.common.world.map.GOTCoordConverter.toEssosTown;
-import static got.common.world.map.GOTCoordConverter.toWesterosCastle;
-import static got.common.world.map.GOTCoordConverter.toWesterosTown;
-import static got.common.world.map.GOTCoordConverter.toYiTiTown;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.util.*;
 
-import org.apache.commons.lang3.tuple.Pair;
+import static got.common.world.map.GOTCoordConverter.*;
 
 public class GOTBeziers {
 	public static Collection<GOTBeziers> allBeziers = new ArrayList<>();
