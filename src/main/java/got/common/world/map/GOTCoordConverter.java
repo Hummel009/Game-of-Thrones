@@ -1,6 +1,6 @@
 package got.common.world.map;
 
-public class GOTCoordConerter {
+public class GOTCoordConverter {
 	public static double toSettlement(double value, double radius) {
 		if (value > 0.0) {
 			return value - radius / 128.0;

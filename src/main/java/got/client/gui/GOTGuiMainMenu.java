@@ -53,25 +53,25 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 
 	public static void setupWaypoints() {
 		waypointRoute.clear();
-		waypointRoute.add(GOTWaypoint.CastleBlack);
-		waypointRoute.add(GOTWaypoint.Winterfell);
-		waypointRoute.add(GOTWaypoint.Riverrun);
-		waypointRoute.add(GOTWaypoint.CasterlyRock);
-		waypointRoute.add(GOTWaypoint.KingsLanding);
-		waypointRoute.add(GOTWaypoint.StormsEnd);
-		waypointRoute.add(GOTWaypoint.Highgarden);
-		waypointRoute.add(GOTWaypoint.Sunspear);
-		waypointRoute.add(GOTWaypoint.Pentos);
-		waypointRoute.add(GOTWaypoint.OldGhis);
-		waypointRoute.add(GOTWaypoint.Tiqui);
-		waypointRoute.add(GOTWaypoint.Asshai);
-		waypointRoute.add(GOTWaypoint.EastCoast);
-		waypointRoute.add(GOTWaypoint.EastBay);
-		waypointRoute.add(GOTWaypoint.SouthUlthos);
-		waypointRoute.add(GOTWaypoint.RedForests);
-		waypointRoute.add(GOTWaypoint.Zamettar);
-		waypointRoute.add(GOTWaypoint.FourteenFlames);
-		waypointRoute.add(GOTWaypoint.KingsLanding);
+		waypointRoute.add(GOTWaypoint.CASTLE_BLACK);
+		waypointRoute.add(GOTWaypoint.WINTERFELL);
+		waypointRoute.add(GOTWaypoint.RIVERRUN);
+		waypointRoute.add(GOTWaypoint.CASTERLY_ROCK);
+		waypointRoute.add(GOTWaypoint.KINGS_LANDING);
+		waypointRoute.add(GOTWaypoint.STORMS_END);
+		waypointRoute.add(GOTWaypoint.HIGHGARDEN);
+		waypointRoute.add(GOTWaypoint.SUNSPEAR);
+		waypointRoute.add(GOTWaypoint.PENTOS);
+		waypointRoute.add(GOTWaypoint.OLD_GHIS);
+		waypointRoute.add(GOTWaypoint.TIQUI);
+		waypointRoute.add(GOTWaypoint.ASSHAI);
+		waypointRoute.add(GOTWaypoint.EAST_COAST);
+		waypointRoute.add(GOTWaypoint.EAST_BAY);
+		waypointRoute.add(GOTWaypoint.SOUTH_ULTHOS);
+		waypointRoute.add(GOTWaypoint.RED_FORESTS);
+		waypointRoute.add(GOTWaypoint.ZAMETTAR);
+		waypointRoute.add(GOTWaypoint.FOURTEEN_FLAMES);
+		waypointRoute.add(GOTWaypoint.KINGS_LANDING);
 	}
 
 	@Override
