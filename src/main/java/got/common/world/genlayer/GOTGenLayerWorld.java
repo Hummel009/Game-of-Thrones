@@ -19,6 +19,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class GOTGenLayerWorld extends GOTGenLayer {
+	public static final int ORIGIN_X = 648;
+	public static final int ORIGIN_Z = 871;
+	public static int scalePower = 7;
 	public static byte[] biomeImageData;
 	public static int scale = IntMath.pow(2, 7);
 	public static int imageWidth;
@@ -140,8 +143,8 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		int[] intArray = GOTIntCache.get(world).getIntArray(xSize * zSize);
 		for (int k1 = 0; k1 < zSize; ++k1) {
 			for (int i1 = 0; i1 < xSize; ++i1) {
-				int i2 = i + i1 + 810;
-				int k2 = k + k1 + 730;
+				int i2 = i + i1 + ORIGIN_X;
+				int k2 = k + k1 + ORIGIN_Z;
 				intArray[i1 + k1 * xSize] = i2 < 0 || i2 >= imageWidth || k2 < 0 || k2 >= imageHeight ? GOTBiome.ocean.biomeID : getBiomeImageID(i2, k2);
 			}
 		}
