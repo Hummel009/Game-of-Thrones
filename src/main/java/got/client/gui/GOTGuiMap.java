@@ -675,8 +675,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float biomePosZ = posY + (j - mapYMin - (float) mapHeight / 2) / zoomScale;
 				int biomePosX_int = MathHelper.floor_double(biomePosX);
 				GOTBiome biome = GOTGenLayerWorld.getBiomeOrOcean(biomePosX_int, MathHelper.floor_double(biomePosZ));
-				mouseXCoord = Math.round((biomePosX - GOTGenLayerWorld.ORIGIN_X) * GOTGenLayerWorld.scale);
-				mouseZCoord = Math.round((biomePosZ - GOTGenLayerWorld.ORIGIN_Z) * GOTGenLayerWorld.scale);
+				mouseXCoord = Math.round((biomePosX - 810.0f) * GOTGenLayerWorld.scale);
+				mouseZCoord = Math.round((biomePosZ - 730.0f) * GOTGenLayerWorld.scale);
 				String biomeName = biome.getBiomeDisplayName();
 				String coords = StatCollector.translateToLocalFormatted("got.gui.map.coords", mouseXCoord, mouseZCoord);
 				String teleport = StatCollector.translateToLocalFormatted("got.gui.map.tp", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingMapTeleport.getKeyCode()));
@@ -1018,8 +1018,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			int zMax = zoneBorders[3];
 			float x = (xMin + xMax) / 2.0f;
 			float z = (zMin + zMax) / 2.0f;
-			posX = x / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_X;
-			posY = z / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_Z;
+			posX = x / GOTGenLayerWorld.scale + 810.0f;
+			posY = z / GOTGenLayerWorld.scale + 730.0f;
 			int zoneWidth = xMax - xMin;
 			int zoneHeight = zMax - zMin;
 			double mapZoneWidth = (double) zoneWidth / GOTGenLayerWorld.scale;
@@ -1028,8 +1028,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			int zoomPowerHeight = MathHelper.floor_double(Math.log(mapHeight / mapZoneHeight) / Math.log(2.0));
 			prevZoomPower = zoomPower = Math.min(zoomPowerWidth, zoomPowerHeight);
 		} else if (mc.thePlayer != null) {
-			posX = (float) (mc.thePlayer.posX / GOTGenLayerWorld.scale) + GOTGenLayerWorld.ORIGIN_X;
-			posY = (float) (mc.thePlayer.posZ / GOTGenLayerWorld.scale) + GOTGenLayerWorld.ORIGIN_Z;
+			posX = (float) (mc.thePlayer.posX / GOTGenLayerWorld.scale) + 810.0f;
+			posY = (float) (mc.thePlayer.posZ / GOTGenLayerWorld.scale) + 730.0f;
 		}
 		prevPosX = posX;
 		prevPosY = posY;
@@ -2135,8 +2135,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public float[] transformCoords(float x, float z) {
-		x = x / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_X;
-		z = z / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_Z;
+		x = x / GOTGenLayerWorld.scale + 810.0f;
+		z = z / GOTGenLayerWorld.scale + 730.0f;
 		return transformMapCoords(x, z);
 	}
 
