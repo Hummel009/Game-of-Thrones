@@ -19,8 +19,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class GOTGenLayerWorld extends GOTGenLayer {
-	public static final int ORIGIN_X = 649;
-	public static final int ORIGIN_Z = 872;
+	public static final int ORIGIN_X = 648;
+	public static final int ORIGIN_Z = 871;
 	public static int scalePower = 7;
 	public static byte[] biomeImageData;
 	public static int scale = IntMath.pow(2, 7);
@@ -51,7 +51,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 					biomeImage = ImageIO.read(Files.newInputStream(file.toPath()));
 				}
 				if (biomeImage == null) {
-					throw new RuntimeException("Could not onInit GOT biome map image");
+					throw new RuntimeException("Could not init GOT biome map image");
 				}
 				imageWidth = biomeImage.getWidth();
 				imageHeight = biomeImage.getHeight();
