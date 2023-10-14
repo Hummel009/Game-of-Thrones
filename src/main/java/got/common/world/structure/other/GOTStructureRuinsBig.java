@@ -3,9 +3,11 @@ package got.common.world.structure.other;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTFixer;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
@@ -17,8 +19,8 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureRuinsBig> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureRuinsBig> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 	}
 
 	public static class GOTStructureHarrenhal extends GOTStructureBase {
@@ -174,12 +176,13 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureRuinsBig> {
-		public Instance(GOTStructureRuinsBig settlement, World world, int i, int k, Random random, LocationInfo loc) {
-			super(settlement, world, i, k, random, loc);
+		public Instance(GOTStructureRuinsBig settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+			super(settlement, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 		}
 
 		@Override
 		public void addSettlementStructures(Random random) {
+			super.addSettlementStructures(random);
 			addStructure(new GOTStructureHarrenhal(), 0, 0, 0, true);
 			addStructure(new GOTStructureHarrenhal(), -15, -15, 0, true);
 			addStructure(new GOTStructureHarrenhal(), -15, 15, 0, true);

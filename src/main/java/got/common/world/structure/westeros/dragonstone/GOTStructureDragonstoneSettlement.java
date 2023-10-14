@@ -7,6 +7,7 @@ import got.common.entity.westeros.dragonstone.GOTEntityDragonstoneMan;
 import got.common.entity.westeros.dragonstone.GOTEntityDragonstoneSoldier;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTFixer;
 import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
 import net.minecraft.block.Block;
@@ -14,6 +15,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlement {
@@ -28,8 +30,8 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureDragonstoneSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc, type, forcedType);
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureDragonstoneSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, specialStructure, type, forcedType);
 	}
 
 	public GOTStructureBaseSettlement type(Type t, int radius) {
@@ -48,14 +50,15 @@ public class GOTStructureDragonstoneSettlement extends GOTStructureBaseSettlemen
 		public Type type;
 		public boolean forcedType;
 
-		public Instance(GOTStructureDragonstoneSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
-			super(settlement, world, i, k, random, loc);
+		public Instance(GOTStructureDragonstoneSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure, Type t, boolean b) {
+			super(settlement, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 			type = t;
 			forcedType = b;
 		}
 
 		@Override
 		public void addSettlementStructures(Random random) {
+			super.addSettlementStructures(random);
 			switch (type) {
 				case TOWN:
 					setupTown(random);

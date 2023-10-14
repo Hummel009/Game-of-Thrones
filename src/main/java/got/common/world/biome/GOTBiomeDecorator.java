@@ -381,7 +381,6 @@ public class GOTBiomeDecorator {
 	}
 
 	public void decorate(World world, Random random, int i, int k) {
-		long startTime = System.currentTimeMillis();
 		worldObj = world;
 		rand = random;
 		chunkX = i;
@@ -391,9 +390,6 @@ public class GOTBiomeDecorator {
 		if (!disableLocations) {
 			GOTFixer.addSpecialLocations(world, random, i, k);
 		}
-		long endTime = System.currentTimeMillis();
-		long executionTime = endTime - startTime;
-		System.out.println(executionTime);
 	}
 
 	public void generateOres() {

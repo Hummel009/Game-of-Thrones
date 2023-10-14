@@ -9,12 +9,15 @@ import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTFixer;
+import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.other.GOTStructureBaseSettlement;
 import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
@@ -26,17 +29,18 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureAsshaiSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureAsshaiSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureAsshaiSettlement> {
-		public Instance(GOTStructureAsshaiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
-			super(settlement, world, i, k, random, loc);
+		public Instance(GOTStructureAsshaiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+			super(settlement, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 		}
 
 		@Override
 		public void addSettlementStructures(Random random) {
+			super.addSettlementStructures(random);
 			int k1;
 			int houseZ;
 			boolean outerTavern = random.nextBoolean();
