@@ -51,11 +51,11 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public static int mapToWorldX(double x) {
-		return (int) Math.round((x - 810.0 + 0.5) * GOTGenLayerWorld.scale);
+		return (int) Math.round((x - GOTGenLayerWorld.ORIGIN_X + 0.5) * GOTGenLayerWorld.scale);
 	}
 
 	public static int mapToWorldZ(double z) {
-		return (int) Math.round((z - 730.0 + 0.5) * GOTGenLayerWorld.scale);
+		return (int) Math.round((z - GOTGenLayerWorld.ORIGIN_Z + 0.5) * GOTGenLayerWorld.scale);
 	}
 
 	public static Region regionForID(int id) {
@@ -93,11 +93,11 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public static int worldToMapX(double x) {
-		return (int) Math.round(x / GOTGenLayerWorld.scale - 0.5 + 810.0);
+		return (int) Math.round(x / GOTGenLayerWorld.scale - 0.5 + GOTGenLayerWorld.ORIGIN_X);
 	}
 
 	public static int worldToMapZ(double z) {
-		return (int) Math.round(z / GOTGenLayerWorld.scale - 0.5 + 730.0);
+		return (int) Math.round(z / GOTGenLayerWorld.scale - 0.5 + GOTGenLayerWorld.ORIGIN_Z);
 	}
 
 	@Override

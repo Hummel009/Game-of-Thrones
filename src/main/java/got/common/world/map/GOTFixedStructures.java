@@ -6,7 +6,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 
 public enum GOTFixedStructures {
-	SPAWN(648.5, 872), NIGHT_KING(613, 314);
+	NIGHT_KING(613, 314);
 
 	public static long nanoTimeElapsed;
 	private int xCoord;

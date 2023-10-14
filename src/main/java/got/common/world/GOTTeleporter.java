@@ -4,6 +4,7 @@ import got.GOT;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityPortal;
+import got.common.world.genlayer.GOTGenLayerWorld;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.Teleporter;
@@ -25,8 +26,8 @@ public class GOTTeleporter extends Teleporter {
 		int i;
 		int j;
 		if (world.provider.dimensionId == GOTDimension.GAME_OF_THRONES.dimensionID) {
-			i = GOTWaypoint.WINTERFELL.info(-0.5, 0).getXCoord();
-			k = GOTWaypoint.WINTERFELL.info(-0.5, 0).getZCoord();
+			i = GOTWaypoint.WINTERFELL.info(-0.5, -0.1).getXCoord();
+			k = GOTWaypoint.WINTERFELL.info(-0.5, -0.1).getZCoord();
 			j = GOT.getTrueTopBlock(world, i, k);
 		} else {
 			i = GOTLevelData.overworldPortalX;
