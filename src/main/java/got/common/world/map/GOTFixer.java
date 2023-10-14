@@ -271,7 +271,7 @@ public class GOTFixer {
 			}
 		}.type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.DRUMM_CASTLE);
 
-		registerSpawner(new GOTStructureEmptySettlement() {
+		registerSpawner(new GOTStructureEmptySettlement(3) {
 			@Override
 			public void addLegendaryNPCs(World world) {
 				spawnInfos.add(new SpawnInfo(new GOTEntityEuronGreyjoy(world), 0, 0));
@@ -549,7 +549,7 @@ public class GOTFixer {
 			}
 		}, GOTWaypoint.NAGGAS_HILL);
 
-		registerSpawner(new GOTStructureEmptySettlement() {
+		registerSpawner(new GOTStructureEmptySettlement(2) {
 			@Override
 			public void addLegendaryNPCs(World world) {
 				spawnInfos.add(new SpawnInfo(new GOTEntityNightKing(world), 0, 0));

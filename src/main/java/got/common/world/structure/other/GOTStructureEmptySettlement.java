@@ -16,6 +16,13 @@ public class GOTStructureEmptySettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = 0;
 	}
 
+	public GOTStructureEmptySettlement(int i) {
+		super(GOTBiome.ocean);
+		spawnChance = 0.0f;
+		settlementChunkRadius = i;
+		fixedSettlementChunkRadius = i;
+	}
+
 	@Override
 	public AbstractInstance<GOTStructureEmptySettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
 		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, specialStructure);
