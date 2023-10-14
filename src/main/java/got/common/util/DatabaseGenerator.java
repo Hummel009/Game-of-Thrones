@@ -38,7 +38,6 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList.FactionContainer;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTSpawnEntry;
-import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.other.GOTStructureRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -1481,15 +1480,13 @@ public class DatabaseGenerator {
 				for (Entry<Class<? extends Entity>, GOTWaypoint> entityEntry : CLASS_TO_WP.entrySet()) {
 					sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = ").append(entityEntry.getValue().getDisplayName());
 				}
-				for (Entry<GOTAbstractWaypoint, GOTStructureBase> entry : GOTFixer.structures.entrySet()) {
-					GOTStructureBase str = entry.getValue();
-					str.disable(true);
-					str.generate(world, random, 0, 0, 0);
-					for (EntityCreature entity : entry.getValue().characters) {
-						sb.append("\n| ").append(getEntityPagename(entity.getClass())).append(" = ").append(entry.getKey().getDisplayName());
+				for (Entry<GOTAbstractWaypoint, GOTFixer.Spawner> entry : GOTFixer.spawners.entrySet()) {
+					GOTFixer.Spawner spawner = entry.getValue();
+					spawner.addLegendaryNPCs(world);
+					for (GOTFixer.SpawnInfo info : spawner.spawnInfos) {
+						sb.append("\n| ").append(getEntityPagename(info.getNPC().getClass())).append(" = ").append(entry.getKey().getDisplayName());
 					}
-					str.clear();
-					str.disable(false);
+					spawner.spawnInfos.clear();
 				}
 				sb.append(END);
 				sb.append("\n</mediawiki>");

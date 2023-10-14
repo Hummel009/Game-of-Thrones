@@ -11,6 +11,7 @@ import got.common.entity.essos.legendary.trader.GOTEntityTychoNestoris;
 import got.common.entity.essos.legendary.trader.GOTEntityXaroXhoanDaxos;
 import got.common.entity.essos.legendary.warrior.*;
 import got.common.entity.other.GOTEntityHummel009;
+import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldier;
 import got.common.entity.westeros.legendary.captain.*;
 import got.common.entity.westeros.legendary.deco.*;
@@ -63,7 +64,7 @@ import java.util.*;
 import static got.common.world.map.GOTCoordConverter.toEssosTownGate;
 
 public class GOTFixer {
-	public static Map<GOTAbstractWaypoint, GOTStructureBase> structures = new HashMap<>();
+	public static Map<GOTAbstractWaypoint, Spawner> spawners = new HashMap<>();
 	public static Collection<GOTStructureBaseSettlement> locations = new HashSet<>();
 
 	public static void addSpecialLocations(World world, Random random, int i, int k) {
@@ -80,7 +81,7 @@ public class GOTFixer {
 		}
 	}
 
-	public static void initLocations() {
+	public static void onInit() {
 		registerLocation(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureArrynSettlement.Type.FORT, 3), GOTWaypoint.BLOODY_GATE.info(0, -0.5), GOTWaypoint.THE_EYRIE.info(0, -0.4), GOTWaypoint.COLDWATER_BURN, GOTWaypoint.GREY_GLEN, GOTWaypoint.HEARTS_HOME, GOTWaypoint.IRONOAKS, GOTWaypoint.LONGBOW_HALL, GOTWaypoint.NINESTARS, GOTWaypoint.OLD_ANCHOR, GOTWaypoint.PEBBLE, GOTWaypoint.REDFORT, GOTWaypoint.RUNESTONE, GOTWaypoint.SNAKEWOOD, GOTWaypoint.STRONGSONG, GOTWaypoint.THE_PAPS, GOTWaypoint.WICKENDEN, GOTWaypoint.WITCH_ISLE, GOTWaypoint.GATE_OF_THE_MOON.info(0.5, 0, Dir.EAST));
 		registerLocation(new GOTStructureArrynSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureArrynSettlement.Type.TOWN, 6), GOTWaypoint.GULLTOWN, GOTWaypoint.SISTERTON);
 		registerLocation(new GOTStructureAsshaiSettlement(GOTBiome.ocean, 0.0f), GOTWaypoint.ASSHAI.info(0, 0.8, Dir.SOUTH));
@@ -154,751 +155,749 @@ public class GOTFixer {
 		registerLocation(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureYiTiSettlement.Type.TOWER, 9), GOTWaypoint.FIVE_FORTS_1, GOTWaypoint.FIVE_FORTS_2, GOTWaypoint.FIVE_FORTS_3, GOTWaypoint.FIVE_FORTS_4, GOTWaypoint.FIVE_FORTS_5);
 		registerLocation(new GOTStructureYiTiSettlement(GOTBiome.ocean, 0.0f).type(GOTStructureYiTiSettlement.Type.TOWN, 7), GOTWaypoint.ASABHAD.info(-1, 0, Dir.WEST), GOTWaypoint.BAOJI.info(0, -1), GOTWaypoint.EIJIANG.info(0, 1, Dir.SOUTH), GOTWaypoint.JINQI.info(-1, 0, Dir.WEST), GOTWaypoint.LIZHAO.info(1, 0, Dir.EAST), GOTWaypoint.MANJIN.info(1.1, -0.2, Dir.EAST), GOTWaypoint.SI_QO.info(1, 0, Dir.EAST), GOTWaypoint.TIQUI.info(0, -1), GOTWaypoint.TRADER_TOWN.info(0, -1), GOTWaypoint.VAIBEI.info(0, -1), GOTWaypoint.YIBIN.info(0, -1), GOTWaypoint.YIN.info(0, 1, Dir.SOUTH), GOTWaypoint.YUNNAN.info(1, 0, Dir.EAST), GOTWaypoint.CHANGAN.info(1, 0, Dir.EAST), GOTWaypoint.FU_NING.info(1.1, 0.1, Dir.EAST), GOTWaypoint.ZABHAD, GOTWaypoint.TURRANI, GOTWaypoint.VAHAR, GOTWaypoint.FAROS, GOTWaypoint.HUIJI, GOTWaypoint.LENG_MA, GOTWaypoint.LENG_YI, GOTWaypoint.LESSER_MORAQ, GOTWaypoint.MARAHAI, GOTWaypoint.PORT_MORAQ);
 
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityAddamMarbrand(world), 0, 2));
+			}
+		}, GOTWaypoint.ASHEMARK);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityAsshaiArchmag(world), 0, 0));
+			}
+		}, GOTWaypoint.ASSHAI.info(0, 0.8));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityKraznysMoNakloz(world), -1, 0));
+				spawnInfos.add(new SpawnInfo(new GOTEntityMissandei(world), -1, -1));
+				spawnInfos.add(new SpawnInfo(new GOTEntityGreyWorm(world), -1, 1));
+			}
+		}, GOTWaypoint.ASTAPOR.info(-0.5, toEssosTownGate(0.0, false)));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityQuentenBanefort(world), 0, 2));
+			}
+		}, GOTWaypoint.BANEFORT);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityBarbreyDustin(world), 0, 3));
+			}
+		}, GOTWaypoint.BARROWTOWN);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityBaelorBlacktyde(world), -2, -2));
+			}
+		}, GOTWaypoint.BLACKTYDE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityTychoNestoris(world), 0, 1));
+			}
+		}, GOTWaypoint.BRAAVOS.info(toEssosTownGate(0.0, true), -0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityGarlanTyrell(world), 2, -2));
+			}
+		}, GOTWaypoint.BRIGHTWATER_KEEP);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityTywinLannister(world), 2, 0));
+				spawnInfos.add(new SpawnInfo(new GOTEntityQyburn(world), -2, 0));
+			}
+		}, GOTWaypoint.CASTERLY_ROCK.info(-0.4, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityArdrianCeltigar(world), 0, 2));
+			}
+		}, GOTWaypoint.CLAW_ISLE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityGregorClegane.GregorCleganeAlive(world), 2, 0));
+				spawnInfos.add(new SpawnInfo(new GOTEntityPolliver(world), -2, 0));
+			}
+		}, GOTWaypoint.CLEGANES_KEEP);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityHarysSwyft(world), 0, 2));
+			}
+		}, GOTWaypoint.CORNFIELD);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityLyleCrakehall(world), 2, 2));
+			}
+		}, GOTWaypoint.CRAKEHALL.info(-0.5, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityStannisBaratheon(world), -2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityDavosSeaworth(world), 2, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityMelisandra(world), -2, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityShireenBaratheon(world), 2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntitySelyseBaratheon(world), 0, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityMatthosSeaworth(world), 0, -2));
+			}
+		}, GOTWaypoint.DRAGONSTONE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityRamsayBolton(world), 2, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityRooseBolton(world), -2, -2));
+			}
+		}, GOTWaypoint.DREADFORT.info(0, -0.4));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityMonfordVelaryon(world), -2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityAuraneWaters(world), 2, 2));
+			}
+		}, GOTWaypoint.DRIFTMARK);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityDunstanDrumm(world), -2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityAndrikTheUnsmilling(world), -2, -2));
+			}
+		}, GOTWaypoint.DRUMM_CASTLE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityEuronGreyjoy(world), 0, 0));
+			}
+
+			@Override
+			public GOTStructureBase getSpecialStructure() {
+				return new GOTStructureBase() {
+					@Override
+					public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+						setOriginAndRotation(world, i, j, k, rotation, 0);
+						loadStrScan("euron_ship");
+						generateStrScan(world, random, 16, 27, -58);
+						for (int l = 0; l < 10; ++l) {
+							spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 1, 0);
+						}
+						spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 1, 0);
+						return true;
+					}
+				};
+			}
+		}, GOTWaypoint.EURON);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntitySelwynTarth(world), 0, 2));
+			}
+		}, GOTWaypoint.EVENFALL_HALL);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntitySebastonFarman(world), 0, 2));
+			}
+		}, GOTWaypoint.FAIRCASTLE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityForleyPrester(world), 0, 2));
+			}
+		}, GOTWaypoint.FEASTFIRES);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityMathisRowan(world), 2, 2));
+			}
+		}, GOTWaypoint.GOLDENGROVE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityLeoLefford(world), 2, 2));
+			}
+		}, GOTWaypoint.GOLDEN_TOOTH.info(-0.1, -0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityMoribaldChester(world), 2, 0));
+			}
+		}, GOTWaypoint.GREENSHIELD);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityEldonEstermont(world), 0, 2));
+			}
+		}, GOTWaypoint.GREENSTONE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityHarrasHarlaw(world), 0, 2));
+			}
+		}, GOTWaypoint.GREY_GARDEN);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityHowlandReed(world), 0, 5));
+			}
+		}, GOTWaypoint.GREYWATER_WATCH);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityGeroldGrafton(world), 3, 0));
+			}
+		}, GOTWaypoint.GULLTOWN);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityGoroldGoodbrother(world), 0, 2));
+			}
+		}, GOTWaypoint.HAMMERHORN);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityLynCorbray(world), 2, 2));
+			}
+		}, GOTWaypoint.HEARTS_HOME);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityHarmenUller(world), 0, 2));
+			}
+		}, GOTWaypoint.HELLHOLT);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityMaceTyrell(world), 2, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityOlennaTyrell(world), -2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityMargaeryTyrell(world), 2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityWillasTyrell(world), -2, 2));
+			}
+		}, GOTWaypoint.HIGHGARDEN.info(0.5, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityGeroldDayne(world), 2, -2));
+			}
+		}, GOTWaypoint.HIGH_HERMITAGE.info(0.5, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityLeytonHightower(world), 0, -5));
+			}
+		}, GOTWaypoint.HIGHTOWER_LITEHOUSE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityTugarKhan(world), 0, 3));
+			}
+		}, GOTWaypoint.HOJDBAATAR);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityBericDondarrion.BericDondarrionLife1(world), 3, 0));
+				spawnInfos.add(new SpawnInfo(new GOTEntityThoros(world), 0, 3));
+			}
+		}, GOTWaypoint.HOLLOW_HILL);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityRandyllTarly(world), 0, 2));
+			}
+		}, GOTWaypoint.HORN_HILL);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityTytosBrax(world), 0, 2));
+			}
+		}, GOTWaypoint.HORNVALE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityHarroldHardyng(world), 0, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityAnyaWaynwood(world), 0, 2));
+			}
+		}, GOTWaypoint.IRONOAKS);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityRickardKarstark(world), 0, 2));
+			}
+		}, GOTWaypoint.KARHOLD.info(0.4, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntitySansaStark(world), 0, 5));
+				spawnInfos.add(new SpawnInfo(new GOTEntityShae(world), 0, 6));
+				spawnInfos.add(new SpawnInfo(new GOTEntityYoren(world), 0, 4));
+			}
+		}, GOTWaypoint.KINGS_LANDING.info(0.9, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityKevanLannister(world), 0, 4));
+				spawnInfos.add(new SpawnInfo(new GOTEntityDavenLannister(world), 0, -4));
+				spawnInfos.add(new SpawnInfo(new GOTEntityAmoryLorch(world), 4, 0));
+			}
+		}, GOTWaypoint.LANNISPORT.info(-0.8, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityJohnUmber(world), 0, 2));
+			}
+		}, GOTWaypoint.LAST_HEARTH);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityGylbertFarwynd(world), -2, -2));
+			}
+		}, GOTWaypoint.LONELY_LIGHT);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityGilwoodHunter(world), 0, 2));
+			}
+		}, GOTWaypoint.LONGBOW_HALL);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityOrtonMerryweather(world), 0, 2));
+			}
+		}, GOTWaypoint.LONGTABLE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityDagmer(world), 0, 3));
+			}
+		}, GOTWaypoint.LORDSPORT);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntitySalladhorSaan(world), 0, -1));
+			}
+		}, GOTWaypoint.LYS);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityWilliamMooton(world), 0, 2));
+			}
+		}, GOTWaypoint.MAIDENPOOL.info(0, -0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityHizdahrZoLoraq(world), -1, -1));
+			}
+		}, GOTWaypoint.MEEREEN.info(toEssosTownGate(0.0, true), -0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityMaegeMormont(world), 0, 2));
+			}
+		}, GOTWaypoint.MORMONTS_KEEP);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityHarryStrickland(world), -1, -1));
+			}
+		}, GOTWaypoint.MYR.info(-0.5, toEssosTownGate(0.0, false)));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityAeronGreyjoy(world), 0, 2));
+			}
+		}, GOTWaypoint.NAGGAS_HILL);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityNightKing(world), 0, 0));
+			}
+		}, GOTWaypoint.NIGHT_KING);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntitySymondTempleton(world), 0, 2));
+			}
+		}, GOTWaypoint.NINESTARS);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityMellario(world), 0, 1));
+			}
+		}, GOTWaypoint.NORVOS.info(toEssosTownGate(0.0, true), -0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityEbrose(world), 0, 5));
+			}
+		}, GOTWaypoint.OLDTOWN.info(-1.1, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityIllyrioMopatis(world), 3, 0));
+			}
+		}, GOTWaypoint.PENTOS.info(-0.5, toEssosTownGate(0.0, false)));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityClementPiper(world), 0, 2));
+			}
+		}, GOTWaypoint.PINKMAIDEN_CASTLE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityBalonGreyjoy(world), 2, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityYaraGreyjoy(world), -2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityTheonGreyjoy.TheonGreyjoyNormal(world), -2, 2));
+			}
+		}, GOTWaypoint.PYKE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityXaroXhoanDaxos(world), 3, 0));
+			}
+		}, GOTWaypoint.QARTH.info(toEssosTownGate(0.0, false), 0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityTytosBlackwood(world), 2, 0));
+			}
+		}, GOTWaypoint.RAVENTREE_HALL);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityHortonRedfort(world), 0, 2));
+			}
+		}, GOTWaypoint.REDFORT);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityErikIronmaker(world), -2, -2));
+			}
+		}, GOTWaypoint.RED_HAVEN);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityQuennRoxton(world), 0, 2));
+			}
+		}, GOTWaypoint.RING.info(0, -0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityRodrikRyswell(world), 0, 2));
+			}
+		}, GOTWaypoint.RYSWELLS_CASTLE.info(-0.5, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityBryndenTully(world), 2, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityEdmureTully(world), -2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityHosterTully(world), 2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityRodrikCassel(world), -2, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityCatelynStark(world), 2, 0));
+			}
+		}, GOTWaypoint.RIVERRUN.info(0, -0.4));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityYohnRoyce(world), 2, 0));
+			}
+		}, GOTWaypoint.RUNESTONE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityQuentynQorgyle(world), 0, 2));
+			}
+		}, GOTWaypoint.SANDSTONE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityJasonMallister(world), 0, 3));
+			}
+		}, GOTWaypoint.SEAGARD.info(-0.1, -0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityCleyCerwyn(world), 0, 2));
+			}
+		}, GOTWaypoint.CASTLE_CERWYN.info(-0.4, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityFranklynFowler(world), 0, 2));
+			}
+		}, GOTWaypoint.SKYREACH.info(0, 0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityHummel009(world), 0, 0));
+			}
+		}, GOTWaypoint.SPIDER);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityBericDayne(world), -2, 2));
+			}
+		}, GOTWaypoint.STARFALL.info(0, 0.6));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityPaxterRedwyne(world), 0, 5));
+			}
+		}, GOTWaypoint.STARFISH_HARBOR);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityJonosBracken(world), 0, 2));
+			}
+		}, GOTWaypoint.STONE_HEDGE.info(0, -0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityGulianSwann(world), 0, 2));
+			}
+		}, GOTWaypoint.STONEHELM);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityRenlyBaratheon(world), 2, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityLorasTyrell(world), -2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityBrienneTarth(world), -2, 2));
+			}
+		}, GOTWaypoint.STORMS_END.info(0, 0.5));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityBenedarBelmore(world), 0, 2));
+			}
+		}, GOTWaypoint.STRONGSONG);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityOberynMartell(world), 3, 0));
+				spawnInfos.add(new SpawnInfo(new GOTEntityDoranMartell(world), 0, 3));
+				spawnInfos.add(new SpawnInfo(new GOTEntityEllaryaSand(world), 3, 3));
+				spawnInfos.add(new SpawnInfo(new GOTEntityAreoHotah(world), 0, -3));
+				spawnInfos.add(new SpawnInfo(new GOTEntityTrystaneMartell(world), -3, 0));
+				spawnInfos.add(new SpawnInfo(new GOTEntityArianneMartell(world), -3, 3));
+				spawnInfos.add(new SpawnInfo(new GOTEntityManfreyMartell(world), -3, -3));
+			}
+		}, GOTWaypoint.SUNSPEAR);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityRodrikHarlaw(world), 0, 2));
+			}
+		}, GOTWaypoint.TEN_TOWERS);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityRobinArryn(world), 0, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityLysaArryn(world), -2, 0));
+			}
+		}, GOTWaypoint.THE_EYRIE.info(0, -0.4));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityThreeEyedRaven(world), 0, 5));
+			}
+		}, GOTWaypoint.THREE_EYED_RAVEN_CAVE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityHelmanTallhart(world), 0, 2));
+			}
+		}, GOTWaypoint.TORRHENS_SQUARE.info(-0.4, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityBlackWalderFrey(world), 0, -15));
+				spawnInfos.add(new SpawnInfo(new GOTEntityLotharFrey(world), 0, -15));
+			}
+		}, GOTWaypoint.TWINS_LEFT);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityWalderFrey(world), 0, -15));
+			}
+		}, GOTWaypoint.TWINS_RIGHT);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityJonConnington(world), 0, -1));
+				spawnInfos.add(new SpawnInfo(new GOTEntityYoungGriff(world), 0, -1));
+			}
+		}, GOTWaypoint.TYROSH);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityDaenerysTargaryen(world), 0, 3));
+				spawnInfos.add(new SpawnInfo(new GOTEntityJorahMormont(world), 0, 3));
+			}
+		}, GOTWaypoint.VAES_EFE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityMoqorro(world), -1, 0));
+			}
+		}, GOTWaypoint.VOLANTIS.info(toEssosTownGate(0.0, false) - 0.2, 0.6));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityMaronVolmark(world), -2, -2));
+			}
+		}, GOTWaypoint.VOLMARK);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityWymanManderly(world), 0, 5));
+			}
+		}, GOTWaypoint.WHITE_HARBOUR.info(0.8, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityBenjenStark(world).setIsRider(true), 0, 5));
+			}
+		}, GOTWaypoint.WHITETREE);
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityRobbStark(world), 2, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityHodor(world), -2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityAryaStark(world), 2, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityBranStark(world), -2, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityRickonStark(world), 0, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityLuwin(world), 0, -2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityOsha(world), 2, 0));
+			}
+		}, GOTWaypoint.WINTERFELL.info(-0.5, -0.1));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityBuGai(world), 12, 0));
+			}
+		}, GOTWaypoint.YIN.info(0, 1));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityQuentynMartell(world), 0, 2));
+				spawnInfos.add(new SpawnInfo(new GOTEntityAndersYronwood(world), 0, 2));
+			}
+		}, GOTWaypoint.YRONWOOD.info(0.5, 0));
+
+		registerSpawner(new Spawner() {
+			@Override
+			public void addLegendaryNPCs(World world) {
+				spawnInfos.add(new SpawnInfo(new GOTEntityDaarioNaharis(world), -1, 0));
+				spawnInfos.add(new SpawnInfo(new GOTEntityRazdalMoEraz(world), -1, 1));
+			}
+		}, GOTWaypoint.YUNKAI.info(-0.5, toEssosTownGate(0.0, false)));
+
 		for (GOTStructureBaseSettlement location : locations) {
 			for (GOTBiome biome : GOTBiome.CONTENT) {
 				biome.decorator.addFixedSettlement(location);
 			}
 		}
-	}
 
-	public static void initSpawners() {
-		structures.put(GOTWaypoint.ASHEMARK, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityAddamMarbrand(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.ASSHAI.info(0, 0.8), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityAsshaiArchmag(world), world, 0, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.ASTAPOR.info(-0.5, toEssosTownGate(0.0, false)), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityKraznysMoNakloz(world), world, -1, 1, 0);
-				spawnLegendaryNPC(new GOTEntityMissandei(world), world, -1, 1, -1);
-				spawnLegendaryNPC(new GOTEntityGreyWorm(world), world, -1, 1, 1);
-			}
-		});
-
-		structures.put(GOTWaypoint.BANEFORT, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityQuentenBanefort(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.BARROWTOWN, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBarbreyDustin(world), world, 0, 1, 3);
-			}
-		});
-
-		structures.put(GOTWaypoint.BLACKTYDE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBaelorBlacktyde(world), world, -2, 1, -2);
-			}
-		});
-
-		structures.put(GOTWaypoint.BRAAVOS.info(toEssosTownGate(0.0, true), -0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityTychoNestoris(world), world, 0, 1, 1);
-			}
-		});
-
-		structures.put(GOTWaypoint.BRIGHTWATER_KEEP, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityGarlanTyrell(world), world, 2, 1, -2);
-			}
-		});
-
-		structures.put(GOTWaypoint.CASTERLY_ROCK.info(-0.4, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityTywinLannister(world), world, 2, 1, 0);
-				spawnLegendaryNPC(new GOTEntityQyburn(world), world, -2, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.CLAW_ISLE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityArdrianCeltigar(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.CLEGANES_KEEP, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityGregorClegane.GregorCleganeAlive(world), world, 2, 1, 0);
-				spawnLegendaryNPC(new GOTEntityPolliver(world), world, -2, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.CORNFIELD, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHarysSwyft(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.CRAKEHALL.info(-0.5, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityLyleCrakehall(world), world, 2, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.DRAGONSTONE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityStannisBaratheon(world), world, -2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityDavosSeaworth(world), world, 2, 1, 2);
-				spawnLegendaryNPC(new GOTEntityMelisandra(world), world, -2, 1, 2);
-				spawnLegendaryNPC(new GOTEntityShireenBaratheon(world), world, 2, 1, -2);
-				spawnLegendaryNPC(new GOTEntitySelyseBaratheon(world), world, 0, 1, 2);
-				spawnLegendaryNPC(new GOTEntityMatthosSeaworth(world), world, 0, 1, -2);
-			}
-		});
-
-		structures.put(GOTWaypoint.DREADFORT.info(0, -0.4), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityRamsayBolton(world), world, 2, 1, 2);
-				spawnLegendaryNPC(new GOTEntityRooseBolton(world), world, -2, 1, -2);
-			}
-		});
-
-		structures.put(GOTWaypoint.DRIFTMARK, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityMonfordVelaryon(world), world, -2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityAuraneWaters(world), world, 2, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.DRUMM_CASTLE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityDunstanDrumm(world), world, -2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityAndrikTheUnsmilling(world), world, -2, 1, -2);
-			}
-		});
-
-		structures.put(GOTWaypoint.EURON, new Spawner() {
-			@Override
-			public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-				setOriginAndRotation(world, i, j, k, rotation, 0);
-				loadStrScan("euron_ship");
-				if (!disable) {
-					generateStrScan(world, random, 16, 27, -58);
-				}
-				for (int l = 0; l < 10; ++l) {
-					spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 1, 0);
-				}
-				spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 1, 0);
-				return true;
-			}
-		});
-
-		structures.put(GOTWaypoint.EVENFALL_HALL, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntitySelwynTarth(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.FAIRCASTLE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntitySebastonFarman(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.FEASTFIRES, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityForleyPrester(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.GOLDENGROVE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityMathisRowan(world), world, 2, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.GOLDEN_TOOTH.info(-0.1, -0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityLeoLefford(world), world, 2, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.GREENSHIELD, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityMoribaldChester(world), world, 2, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.GREENSTONE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityEldonEstermont(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.GREY_GARDEN, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHarrasHarlaw(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.GREYWATER_WATCH, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHowlandReed(world), world, 0, 1, 5);
-			}
-		});
-
-		structures.put(GOTWaypoint.GULLTOWN, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityGeroldGrafton(world), world, 3, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.HAMMERHORN, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityGoroldGoodbrother(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.HEARTS_HOME, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityLynCorbray(world), world, 2, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.HELLHOLT, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHarmenUller(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.HIGHGARDEN.info(0.5, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityMaceTyrell(world), world, 2, 1, 2);
-				spawnLegendaryNPC(new GOTEntityOlennaTyrell(world), world, -2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityMargaeryTyrell(world), world, 2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityWillasTyrell(world), world, -2, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.HIGH_HERMITAGE.info(0.5, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityGeroldDayne(world), world, 2, 1, -2);
-			}
-		});
-
-		structures.put(GOTWaypoint.HIGHTOWER_LITEHOUSE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityLeytonHightower(world), world, 0, 26, -5);
-			}
-		});
-
-		structures.put(GOTWaypoint.HOJDBAATAR, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityTugarKhan(world), world, 0, 5, 3);
-			}
-		});
-
-		structures.put(GOTWaypoint.HOLLOW_HILL, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBericDondarrion.BericDondarrionLife1(world), world, 3, 1, 0);
-				spawnLegendaryNPC(new GOTEntityThoros(world), world, 0, 1, 3);
-			}
-		});
-
-		structures.put(GOTWaypoint.HORN_HILL, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityRandyllTarly(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.HORNVALE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityTytosBrax(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.IRONOAKS, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHarroldHardyng(world), world, 0, 1, 2);
-				spawnLegendaryNPC(new GOTEntityAnyaWaynwood(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.KARHOLD.info(0.4, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityRickardKarstark(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.KINGS_LANDING.info(0.9, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntitySansaStark(world), world, 0, 1, 5);
-				spawnLegendaryNPC(new GOTEntityShae(world), world, 0, 1, 6);
-				spawnLegendaryNPC(new GOTEntityYoren(world), world, 0, 1, 4);
-			}
-		});
-
-		structures.put(GOTWaypoint.LANNISPORT.info(-0.8, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityKevanLannister(world), world, 0, 1, 5);
-				spawnLegendaryNPC(new GOTEntityDavenLannister(world), world, 0, 1, -5);
-				spawnLegendaryNPC(new GOTEntityAmoryLorch(world), world, 5, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.LAST_HEARTH, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityJohnUmber(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.LONELY_LIGHT, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityGylbertFarwynd(world), world, -2, 1, -2);
-			}
-		});
-
-		structures.put(GOTWaypoint.LONGBOW_HALL, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityGilwoodHunter(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.LONGTABLE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityOrtonMerryweather(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.LORDSPORT, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityDagmer(world), world, 0, 1, 3);
-			}
-		});
-
-		structures.put(GOTWaypoint.LYS, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntitySalladhorSaan(world), world, 0, 1, -1);
-			}
-		});
-
-		structures.put(GOTWaypoint.MAIDENPOOL.info(0, -0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityWilliamMooton(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.MEEREEN.info(toEssosTownGate(0.0, true), -0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHizdahrZoLoraq(world), world, -1, 1, -1);
-			}
-		});
-
-		structures.put(GOTWaypoint.MORMONTS_KEEP, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityMaegeMormont(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.MYR.info(-0.5, toEssosTownGate(0.0, false)), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHarryStrickland(world), world, -1, 1, -1);
-			}
-		});
-
-		structures.put(GOTWaypoint.NAGGAS_HILL, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityAeronGreyjoy(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.NIGHT_KING, new Spawner() {
-			@Override
-			public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-				setOriginAndRotation(world, i, j, k, rotation, 0);
-				loadStrScan("night_king");
-				spawnLegendaryNPC(new GOTEntityNightKing(world), world, 0, 10, 0);
-				if (!disable) {
-					generateStrScan(world, random, 0, 0, 0);
-				}
-				return true;
-			}
-		});
-		structures.put(GOTWaypoint.NINESTARS, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntitySymondTempleton(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.NORVOS.info(toEssosTownGate(0.0, true), -0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityMellario(world), world, 0, 1, 1);
-			}
-		});
-
-		structures.put(GOTWaypoint.OLDTOWN.info(-1.1, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityEbrose(world), world, 0, 1, 5);
-			}
-		});
-
-		structures.put(GOTWaypoint.PENTOS.info(-0.5, toEssosTownGate(0.0, false)), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityIllyrioMopatis(world), world, 3, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.PINKMAIDEN_CASTLE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityClementPiper(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.PYKE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBalonGreyjoy(world), world, 2, 1, 2);
-				spawnLegendaryNPC(new GOTEntityYaraGreyjoy(world), world, -2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityTheonGreyjoy.TheonGreyjoyNormal(world), world, -2, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.QARTH.info(toEssosTownGate(0.0, false), 0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityXaroXhoanDaxos(world), world, 3, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.RAVENTREE_HALL, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityTytosBlackwood(world), world, 2, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.REDFORT, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHortonRedfort(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.RED_HAVEN, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityErikIronmaker(world), world, -2, 1, -2);
-			}
-		});
-
-		structures.put(GOTWaypoint.RING.info(0, -0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityQuennRoxton(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.RYSWELLS_CASTLE.info(-0.5, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityRodrikRyswell(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.RIVERRUN.info(0, -0.4), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBryndenTully(world), world, 2, 1, 2);
-				spawnLegendaryNPC(new GOTEntityEdmureTully(world), world, -2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityHosterTully(world), world, 2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityRodrikCassel(world), world, -2, 1, 2);
-				spawnLegendaryNPC(new GOTEntityCatelynStark(world), world, 2, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.RUNESTONE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityYohnRoyce(world), world, 2, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.SANDSTONE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityQuentynQorgyle(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.SEAGARD.info(-0.1, -0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityJasonMallister(world), world, 0, 1, 3);
-			}
-		});
-
-		structures.put(GOTWaypoint.CASTLE_CERWYN.info(-0.4, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityCleyCerwyn(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.SKYREACH.info(0, 0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityFranklynFowler(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.SPIDER, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHummel009(world), world, 0, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.STARFALL.info(0, 0.6), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBericDayne(world), world, -2, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.STARFISH_HARBOR, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityPaxterRedwyne(world), world, 0, 1, 5);
-			}
-		});
-
-		structures.put(GOTWaypoint.STONE_HEDGE.info(0, -0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityJonosBracken(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.STONEHELM, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityGulianSwann(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.STORMS_END.info(0, 0.5), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityRenlyBaratheon(world), world, 2, 1, 2);
-				spawnLegendaryNPC(new GOTEntityLorasTyrell(world), world, -2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityBrienneTarth(world), world, -2, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.STRONGSONG, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBenedarBelmore(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.SUNSPEAR, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityOberynMartell(world), world, 3, 1, 0);
-				spawnLegendaryNPC(new GOTEntityDoranMartell(world), world, 0, 1, 3);
-				spawnLegendaryNPC(new GOTEntityEllaryaSand(world), world, 3, 1, 3);
-				spawnLegendaryNPC(new GOTEntityAreoHotah(world), world, 0, 1, -3);
-				spawnLegendaryNPC(new GOTEntityTrystaneMartell(world), world, -3, 1, 0);
-				spawnLegendaryNPC(new GOTEntityArianneMartell(world), world, -3, 1, 3);
-				spawnLegendaryNPC(new GOTEntityManfreyMartell(world), world, -3, 1, -3);
-			}
-		});
-
-		structures.put(GOTWaypoint.TEN_TOWERS, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityRodrikHarlaw(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.THE_EYRIE.info(0, -0.4), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityRobinArryn(world), world, 0, 1, 2);
-				spawnLegendaryNPC(new GOTEntityLysaArryn(world), world, -2, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.THREE_EYED_RAVEN_CAVE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityThreeEyedRaven(world), world, 0, 2, 5);
-			}
-		});
-
-		structures.put(GOTWaypoint.TORRHENS_SQUARE.info(-0.4, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityHelmanTallhart(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.TWINS_LEFT, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBlackWalderFrey(world), world, 0, 2, -15);
-				spawnLegendaryNPC(new GOTEntityLotharFrey(world), world, 0, 2, -15);
-			}
-		});
-
-		structures.put(GOTWaypoint.TWINS_RIGHT, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityWalderFrey(world), world, 0, 2, -15);
-			}
-		});
-
-		structures.put(GOTWaypoint.TYROSH, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityJonConnington(world), world, 0, 1, -1);
-				spawnLegendaryNPC(new GOTEntityYoungGriff(world), world, 0, 1, -1);
-			}
-		});
-
-		structures.put(GOTWaypoint.VAES_EFE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityDaenerysTargaryen(world), world, 0, 5, 3);
-				spawnLegendaryNPC(new GOTEntityJorahMormont(world), world, 0, 5, 3);
-			}
-		});
-
-		structures.put(GOTWaypoint.VOLANTIS.info(toEssosTownGate(0.0, false) - 0.2, 0.6), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityMoqorro(world), world, -1, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.VOLMARK, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityMaronVolmark(world), world, -2, 1, -2);
-			}
-		});
-
-		structures.put(GOTWaypoint.WHITE_HARBOUR.info(0.8, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityWymanManderly(world), world, 0, 1, 5);
-			}
-		});
-
-		structures.put(GOTWaypoint.WHITETREE, new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBenjenStark(world).setIsRider(true), world, 0, 1, 5);
-			}
-		});
-
-		structures.put(GOTWaypoint.WINTERFELL.info(-0.5, -0.1), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityRobbStark(world), world, 2, 1, 2);
-				spawnLegendaryNPC(new GOTEntityHodor(world), world, -2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityAryaStark(world), world, 2, 1, -2);
-				spawnLegendaryNPC(new GOTEntityBranStark(world), world, -2, 1, 2);
-				spawnLegendaryNPC(new GOTEntityRickonStark(world), world, 0, 1, 2);
-				spawnLegendaryNPC(new GOTEntityLuwin(world), world, 0, 1, -2);
-				spawnLegendaryNPC(new GOTEntityOsha(world), world, 2, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.YIN.info(0, 1), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityBuGai(world), world, 12, 1, 0);
-			}
-		});
-
-		structures.put(GOTWaypoint.YRONWOOD.info(0.5, 0), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityQuentynMartell(world), world, 0, 1, 2);
-				spawnLegendaryNPC(new GOTEntityAndersYronwood(world), world, 0, 1, 2);
-			}
-		});
-
-		structures.put(GOTWaypoint.YUNKAI.info(-0.5, toEssosTownGate(0.0, false)), new Spawner() {
-			@Override
-			public void spawnLegendaryNPC(World world) {
-				spawnLegendaryNPC(new GOTEntityDaarioNaharis(world), world, -1, 1, 0);
-				spawnLegendaryNPC(new GOTEntityRazdalMoEraz(world), world, -1, 1, 1);
-			}
-		});
-	}
-
-	public static void onInit() {
-		initSpawners();
-		initLocations();
+		locations.clear();
 	}
 
 	public static void registerLocation(GOTStructureBaseSettlement settlement, GOTAbstractWaypoint... wps) {
@@ -906,20 +905,108 @@ public class GOTFixer {
 		locations.add(settlement);
 	}
 
+	public static void registerSpawner(Spawner spawner, GOTAbstractWaypoint wp) {
+		spawner.affix(wp);
+		locations.add(spawner);
+		spawners.put(wp, spawner);
+	}
+
 	public enum Dir {
 		NORTH, EAST, SOUTH, WEST
 	}
 
-	public static class Spawner extends GOTStructureBase {
+	public static class SpawnInfo {
+		private GOTEntityNPC npc;
+		private int i;
+		private int k;
 
-		@Override
-		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			setOriginAndRotation(world, i, j, k, rotation, 0);
-			spawnLegendaryNPC(world);
-			return true;
+		public SpawnInfo(GOTEntityNPC npc, int i, int k) {
+			this.npc = npc;
+			this.i = i;
+			this.k = k;
 		}
 
-		public void spawnLegendaryNPC(World world) {
+		public GOTEntityNPC getNPC() {
+			return npc;
+		}
+
+		public int getI() {
+			return i;
+		}
+
+		public int getJ() {
+			return 6;
+		}
+
+		public int getK() {
+			return k;
+		}
+	}
+
+	public abstract static class Spawner extends GOTStructureBaseSettlement {
+		public Collection<SpawnInfo> spawnInfos = new ArrayList<>();
+
+		protected Spawner() {
+			super(GOTBiome.ocean);
+			spawnChance = 0.0f;
+			settlementChunkRadius = 1;
+			fixedSettlementChunkRadius = 0;
+		}
+
+		public abstract void addLegendaryNPCs(World world);
+
+		public GOTStructureBase getSpecialStructure() {
+			return null;
+		}
+
+		@Override
+		public GOTStructureBaseSettlement.AbstractInstance<Spawner> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
+			return new Spawner.Instance(this, world, i, k, random, loc, () -> addLegendaryNPCs(world), spawnInfos, getSpecialStructure());
+		}
+
+		public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<Spawner> {
+			private Runnable filler;
+			private Collection<SpawnInfo> spawnInfos;
+			private GOTStructureBase specialStructure;
+
+			public Instance(Spawner settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+				super(settlement, world, i, k, random, loc);
+				this.filler = filler;
+				this.spawnInfos = spawnInfos;
+				this.specialStructure = specialStructure;
+			}
+
+			@Override
+			public void addSettlementStructures(Random random) {
+				if (specialStructure == null) {
+					addStructure(new GOTStructureBase(false) {
+						@Override
+						public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+							setOriginAndRotation(world, i, j, k, rotation, 0);
+							filler.run();
+							spawnInfos.forEach((info) -> spawnLegendaryNPC(info.getNPC(), world, info.getI(), info.getJ(), info.getK()));
+							spawnInfos.clear();
+							return true;
+						}
+					}, 0, 0, 0, true);
+				} else {
+					addStructure(specialStructure, 0, 0, 0, true);
+				}
+			}
+
+			@Override
+			public GOTBezierType getPath(Random random, int i, int k) {
+				return null;
+			}
+
+			@Override
+			public boolean isSettlementSpecificSurface(World world, int i, int j, int k) {
+				return false;
+			}
+
+			@Override
+			public void setupSettlementProperties(Random random) {
+			}
 		}
 	}
 }

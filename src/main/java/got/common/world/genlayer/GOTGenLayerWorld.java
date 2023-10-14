@@ -19,8 +19,8 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class GOTGenLayerWorld extends GOTGenLayer {
-	public static final int ORIGIN_X = 648;
-	public static final int ORIGIN_Z = 871;
+	public static final int ORIGIN_X = 653;
+	public static final int ORIGIN_Z = 870;
 	public static int scalePower = 7;
 	public static byte[] biomeImageData;
 	public static int scale = IntMath.pow(2, 7);

@@ -54,8 +54,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public GOTStructureScan currentStrScan;
 	public Map<String, BlockAliasPool> scanAliases = new HashMap<>();
 	public Map<String, Float> scanAliasChances = new HashMap<>();
-	public Collection<EntityCreature> characters = new ArrayList<>();
-	public boolean disable;
 
 	protected GOTStructureBase() {
 		super(false);
@@ -103,14 +101,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public void associateBlockMetaAlias(String alias, Block block, int meta) {
 		addBlockMetaAliasOption(alias, 1, block, meta);
-	}
-
-	public void clear() {
-		characters.clear();
-	}
-
-	public void disable(boolean disable) {
-		this.disable = disable;
 	}
 
 	public void fillChest(IBlockAccess world, Random random, int i, int j, int k, GOTChestContents contents, int amount) {
@@ -1098,25 +1088,20 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void spawnLegendaryNPC(EntityCreature entity, World world, int i, int j, int k) {
-		if (!disable) {
-			int i1 = i;
-			int k1 = k;
-			i = getX(i1, k1);
-			k = getZ(i1, k1);
-			j = getY(j);
-			if (!isInSBB(i, j, k)) {
-				return;
-			}
-			entity.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
-			entity.onSpawnWithEgg(null);
-			if (entity instanceof GOTEntityNPC) {
-				((GOTEntityNPC) entity).isNPCPersistent = true;
-			}
-			world.spawnEntityInWorld(entity);
-		} else if (entity instanceof GOTEntityNPC) {
-			((GOTEntityNPC) entity).spawnRidingHorse = false;
-			characters.add(entity);
+		int i1 = i;
+		int k1 = k;
+		i = getX(i1, k1);
+		k = getZ(i1, k1);
+		j = getY(j);
+		if (!isInSBB(i, j, k)) {
+			return;
 		}
+		entity.setLocationAndAngles(i + 0.5, j, k + 0.5, 0.0f, 0.0f);
+		entity.onSpawnWithEgg(null);
+		if (entity instanceof GOTEntityNPC) {
+			((GOTEntityNPC) entity).isNPCPersistent = true;
+		}
+		world.spawnEntityInWorld(entity);
 	}
 
 	public void spawnNPCAndSetHome(EntityCreature entity, World world, int i, int j, int k, int homeDistance) {
