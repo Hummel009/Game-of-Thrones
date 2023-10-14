@@ -933,10 +933,6 @@ public class GOTFixer {
 			return i;
 		}
 
-		public int getJ() {
-			return 6;
-		}
-
 		public int getK() {
 			return k;
 		}
