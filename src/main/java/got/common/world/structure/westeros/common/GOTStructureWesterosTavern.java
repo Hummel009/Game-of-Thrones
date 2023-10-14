@@ -1,9 +1,6 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
@@ -22,6 +19,8 @@ import got.common.entity.westeros.legendary.warrior.GOTEntityPodrickPayne;
 import got.common.entity.westeros.legendary.warrior.GOTEntityVargoHoat;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 	public String[] tavernName;

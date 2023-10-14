@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.mossovy;
 
-import java.util.Random;
-
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
 import got.common.entity.essos.mossovy.GOTEntityMossovyWitcher;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -13,6 +11,8 @@ import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -36,6 +36,10 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, FORT
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureMossovySettlement> {
@@ -171,9 +175,5 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureMossovyTrampHouse(false), -farmX + farmSize, farmZ, 1);
 			addStructure(new GOTStructureMossovyTrampHouse(false), farmX - farmSize, farmZ, 3);
 		}
-	}
-
-	public enum Type {
-		VILLAGE, FORT
 	}
 }

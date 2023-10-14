@@ -1,7 +1,5 @@
 package got.common.tileentity;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.block.other.GOTBlockChest;
@@ -13,6 +11,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
+
+import java.util.List;
 
 public class GOTTileEntityChest extends TileEntity implements IInventory {
 	public ItemStack[] chestContents = new ItemStack[getSizeInventory()];

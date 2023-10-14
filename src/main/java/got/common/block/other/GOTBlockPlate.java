@@ -1,7 +1,5 @@
 package got.common.block.other;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -19,6 +17,8 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public class GOTBlockPlate extends BlockContainer {
 	public static Block.SoundType soundTypePlate = new Block.SoundType("got:plate", 1.0f, 1.0f) {
@@ -45,6 +45,14 @@ public class GOTBlockPlate extends BlockContainer {
 		super(Material.circuits);
 		setHardness(0.0f);
 		setBlockBounds(0.125f, 0.0f, 0.125f, 0.875f, 0.125f, 0.875f);
+	}
+
+	public static ItemStack getFoodItem(IBlockAccess world, int i, int j, int k) {
+		TileEntity tileentity = world.getTileEntity(i, j, k);
+		if (tileentity instanceof GOTTileEntityPlate) {
+			return ((GOTTileEntityPlate) tileentity).getFoodItem();
+		}
+		return null;
 	}
 
 	@Override
@@ -180,14 +188,6 @@ public class GOTBlockPlate extends BlockContainer {
 
 	public void setPlateItem(Item item) {
 		plateItem = item;
-	}
-
-	public static ItemStack getFoodItem(IBlockAccess world, int i, int j, int k) {
-		TileEntity tileentity = world.getTileEntity(i, j, k);
-		if (tileentity instanceof GOTTileEntityPlate) {
-			return ((GOTTileEntityPlate) tileentity).getFoodItem();
-		}
-		return null;
 	}
 
 }

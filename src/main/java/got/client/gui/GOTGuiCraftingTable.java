@@ -1,7 +1,5 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -15,6 +13,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
 
 public abstract class GOTGuiCraftingTable extends GuiContainer {
 	public static ResourceLocation craftingTexture = new ResourceLocation("textures/gui/container/crafting_table.png");

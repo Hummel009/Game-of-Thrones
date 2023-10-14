@@ -1,7 +1,5 @@
 package got.common.world.structure.westeros.gift;
 
-import java.util.Random;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.gift.GOTEntityGiftGuard;
 import got.common.entity.westeros.gift.GOTEntityGiftMan;
@@ -14,6 +12,8 @@ import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.EastWatch
 import got.common.world.structure.westeros.gift.GOTStructureGiftCastle.ShadowTower;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -37,6 +37,10 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		ABANDONED, CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureGiftSettlement> {
@@ -200,9 +204,5 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 		}
-	}
-
-	public enum Type {
-		ABANDONED, CASTLE_BLACK, SHADOW_TOWER, EAST_WATCH, VILLAGE
 	}
 }

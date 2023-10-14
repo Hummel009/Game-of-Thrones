@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import java.util.Random;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
@@ -14,6 +12,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenCactus;
 import net.minecraft.world.gen.feature.WorldGenDeadBush;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import java.util.Random;
 
 public class GOTBiomeCannibalSands extends GOTBiomeEssosPlains implements GOTBiome.Desert {
 	public GOTBiomeCannibalSands(int i, boolean major) {

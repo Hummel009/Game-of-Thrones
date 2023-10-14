@@ -1,7 +1,5 @@
 package got.client.render.npc;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTTextures;
 import got.client.model.GOTModelHuman;
 import got.client.render.other.GOTGlowingEyes;
@@ -15,6 +13,7 @@ import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderFactionNPC extends GOTRenderBiped {
 	public String path;

@@ -1,15 +1,14 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 	public GOTStructureWesterosWatchtower(boolean flag) {

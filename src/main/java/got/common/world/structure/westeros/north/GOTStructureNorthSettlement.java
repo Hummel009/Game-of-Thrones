@@ -1,9 +1,6 @@
 package got.common.world.structure.westeros.north;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.north.GOTEntityNorthMan;
 import got.common.entity.westeros.north.GOTEntityNorthSoldier;
@@ -19,6 +16,8 @@ import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillma
 import got.common.world.structure.westeros.north.hillmen.GOTStructureNorthHillmanHouse;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -42,6 +41,10 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT, SMALL_TOWN, HILLMAN
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureNorthSettlement> {
@@ -768,9 +771,5 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 				addStructure(getRandomFarm(random), farmX - farmSize, farmZ, 3);
 			}
 		}
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT, SMALL_TOWN, HILLMAN
 	}
 }

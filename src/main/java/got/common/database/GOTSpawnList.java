@@ -1,10 +1,5 @@
 package got.common.database;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-
 import got.common.entity.animal.*;
 import got.common.entity.essos.GOTEntityIfekevron;
 import got.common.entity.essos.GOTEntityShryke;
@@ -105,6 +100,11 @@ import got.common.faction.GOTFaction;
 import got.common.world.spawning.GOTSpawnEntry;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
 
 public class GOTSpawnList {
 	public static GOTSpawnList ARRYN_CIVILIAN;

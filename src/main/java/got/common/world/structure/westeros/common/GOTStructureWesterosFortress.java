@@ -1,9 +1,6 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.entity.essos.GOTEntityRedPriest;
@@ -23,6 +20,8 @@ import got.common.entity.westeros.legendary.trader.GOTEntityPycelle;
 import got.common.entity.westeros.legendary.warrior.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 	public GOTStructureWesterosFortress(boolean flag) {

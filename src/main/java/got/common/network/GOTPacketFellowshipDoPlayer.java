@@ -1,7 +1,5 @@
 package got.common.network;
 
-import java.util.UUID;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -11,6 +9,8 @@ import got.common.fellowship.GOTFellowship;
 import got.common.fellowship.GOTFellowshipClient;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
+
+import java.util.UUID;
 
 public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 	public UUID subjectUuid;
@@ -40,6 +40,10 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 		data.writeByte(function.ordinal());
 	}
 
+	public enum PlayerFunction {
+		REMOVE, TRANSFER, OP, DEOP
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipDoPlayer, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFellowshipDoPlayer packet, MessageContext context) {
@@ -66,9 +70,5 @@ public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
 			}
 			return null;
 		}
-	}
-
-	public enum PlayerFunction {
-		REMOVE, TRANSFER, OP, DEOP
 	}
 }

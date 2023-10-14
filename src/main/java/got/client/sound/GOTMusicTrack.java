@@ -1,10 +1,10 @@
 package got.client.sound;
 
-import java.io.InputStream;
-import java.util.*;
-
 import net.minecraft.client.audio.*;
 import net.minecraft.util.ResourceLocation;
+
+import java.io.InputStream;
+import java.util.*;
 
 public class GOTMusicTrack extends PositionedSound {
 	public String filename;
@@ -23,6 +23,10 @@ public class GOTMusicTrack extends PositionedSound {
 		field_147665_h = 0;
 		field_147666_i = ISound.AttenuationType.NONE;
 		filename = s;
+	}
+
+	public static ResourceLocation getMusicResource(String s) {
+		return new ResourceLocation("gotmusic", s);
 	}
 
 	public void addAuthor(String s) {
@@ -55,6 +59,10 @@ public class GOTMusicTrack extends PositionedSound {
 		return filename;
 	}
 
+	public void setTitle(String s) {
+		title = s;
+	}
+
 	public void loadSoundResource() {
 		SoundEventAccessorComposite soundAccessorComp;
 		ResourceLocation resource = getPositionedSoundLocation();
@@ -85,14 +93,6 @@ public class GOTMusicTrack extends PositionedSound {
 	public void loadTrack(InputStream in) {
 		loadSoundResource();
 		GOTMusic.addTrackToRegions(this);
-	}
-
-	public void setTitle(String s) {
-		title = s;
-	}
-
-	public static ResourceLocation getMusicResource(String s) {
-		return new ResourceLocation("gotmusic", s);
 	}
 
 	public static class TrackSoundAccessor implements ISoundEventAccessor {

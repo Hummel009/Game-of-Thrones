@@ -1,8 +1,5 @@
 package got.common.block.other;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import got.common.database.GOTCreativeTabs;
 import got.common.item.other.GOTItemAnimalJar;
 import got.common.tileentity.GOTTileEntityAnimalJar;
@@ -18,6 +15,9 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class GOTBlockAnimalJar extends BlockContainer {
 	protected GOTBlockAnimalJar(Material material) {

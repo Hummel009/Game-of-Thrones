@@ -1,12 +1,11 @@
 package got.client.gui;
 
-import java.util.Collection;
-
+import net.minecraft.client.gui.Gui;
+import net.minecraft.util.MathHelper;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
-import net.minecraft.client.gui.Gui;
-import net.minecraft.util.MathHelper;
+import java.util.Collection;
 
 public class GOTGuiScrollPane {
 	public int scrollWidgetWidth;

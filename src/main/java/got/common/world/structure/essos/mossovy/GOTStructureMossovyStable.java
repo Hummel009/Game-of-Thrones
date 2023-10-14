@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.mossovy;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -9,6 +7,8 @@ import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.mossovy.GOTEntityMossovyMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 	public GOTStructureMossovyStable(boolean flag) {

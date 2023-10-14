@@ -1,8 +1,5 @@
 package got.common.command;
 
-import java.util.Collections;
-import java.util.List;
-
 import got.common.GOTLevelData;
 import got.common.faction.GOTFaction;
 import got.common.world.map.GOTConquestGrid;
@@ -13,6 +10,9 @@ import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
+
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandConquest extends CommandBase {
 	@Override

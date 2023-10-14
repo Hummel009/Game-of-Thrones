@@ -1,10 +1,5 @@
 package got.client.gui;
 
-import java.util.List;
-import java.util.Random;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.render.other.GOTRenderBiped;
 import got.common.database.GOTSpeech;
 import got.common.entity.other.GOTEntityNPC;
@@ -21,6 +16,10 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
+
+import java.util.List;
+import java.util.Random;
 
 public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/miniquest.png");

@@ -1,16 +1,5 @@
 package got.common.util;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.DecimalFormat;
-import java.util.*;
-import java.util.Map.Entry;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
 import got.common.GOTDate;
 import got.common.GOTDate.AegonCalendar;
 import got.common.GOTDate.Season;
@@ -68,6 +57,17 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.DecimalFormat;
+import java.util.*;
+import java.util.Map.Entry;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DatabaseGenerator {
 	public static final Map<Class<? extends Entity>, Entity> CLASS_TO_OBJ = new HashMap<>();

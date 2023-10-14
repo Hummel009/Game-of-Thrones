@@ -1,10 +1,5 @@
 package got.client.render.animal;
 
-import static org.lwjgl.opengl.GL11.*;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import got.client.model.GOTModelDragon;
 import got.common.entity.dragon.GOTDragonBreed;
 import got.common.entity.dragon.GOTDragonBreedRegistry;
@@ -18,6 +13,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.AdvancedModelLoader;
 import net.minecraftforge.client.model.IModelCustom;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.lwjgl.opengl.GL11.*;
 
 public class GOTRenderDragon extends RenderLiving {
 	public static boolean updateModel;

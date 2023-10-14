@@ -1,8 +1,5 @@
 package got.common.recipe;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.GOT;
 import got.common.database.GOTItems;
 import got.common.item.other.GOTItemDye;
@@ -13,6 +10,9 @@ import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTRecipeFeatherDye implements IRecipe {
 	@Override

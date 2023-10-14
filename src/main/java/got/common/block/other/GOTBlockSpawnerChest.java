@@ -1,7 +1,5 @@
 package got.common.block.other;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.entity.other.GOTEntityBarrowWight;
@@ -19,6 +17,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTBlockSpawnerChest extends BlockChest {
 	public static boolean dropChestItems = true;

@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.ghiscar;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarCorsair;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarCorsairArcher;
@@ -17,6 +14,8 @@ import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -40,6 +39,10 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT, PYRAMID, COLONY
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureGhiscarSettlement> {
@@ -518,10 +521,6 @@ public class GOTStructureGhiscarSettlement extends GOTStructureBaseSettlement {
 			spawner.setSpawnClasses(GOTEntityGhiscarCorsair.class, GOTEntityGhiscarCorsairArcher.class);
 		}
 
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT, PYRAMID, COLONY
 	}
 
 }

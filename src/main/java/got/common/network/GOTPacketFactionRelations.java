@@ -1,8 +1,5 @@
 package got.common.network;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -11,11 +8,35 @@ import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionRelations;
 import io.netty.buffer.ByteBuf;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class GOTPacketFactionRelations implements IMessage {
 	public Type packetType;
 	public Map<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> fullMap;
 	public GOTFactionRelations.FactionPair singleKey;
 	public GOTFactionRelations.Relation singleRelation;
+
+	public static GOTPacketFactionRelations fullMap(Map<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> map) {
+		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
+		pkt.packetType = Type.FULL_MAP;
+		pkt.fullMap = map;
+		return pkt;
+	}
+
+	public static GOTPacketFactionRelations oneEntry(GOTFactionRelations.FactionPair pair, GOTFactionRelations.Relation rel) {
+		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
+		pkt.packetType = Type.ONE_ENTRY;
+		pkt.singleKey = pair;
+		pkt.singleRelation = rel;
+		return pkt;
+	}
+
+	public static GOTPacketFactionRelations reset() {
+		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
+		pkt.packetType = Type.RESET;
+		return pkt;
+	}
 
 	@Override
 	public void fromBytes(ByteBuf data) {
@@ -63,25 +84,18 @@ public class GOTPacketFactionRelations implements IMessage {
 		}
 	}
 
-	public static GOTPacketFactionRelations fullMap(Map<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> map) {
-		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
-		pkt.packetType = Type.FULL_MAP;
-		pkt.fullMap = map;
-		return pkt;
-	}
+	public enum Type {
+		FULL_MAP, RESET, ONE_ENTRY;
 
-	public static GOTPacketFactionRelations oneEntry(GOTFactionRelations.FactionPair pair, GOTFactionRelations.Relation rel) {
-		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
-		pkt.packetType = Type.ONE_ENTRY;
-		pkt.singleKey = pair;
-		pkt.singleRelation = rel;
-		return pkt;
-	}
-
-	public static GOTPacketFactionRelations reset() {
-		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
-		pkt.packetType = Type.RESET;
-		return pkt;
+		public static Type forID(int id) {
+			for (Type t : values()) {
+				if (t.ordinal() != id) {
+					continue;
+				}
+				return t;
+			}
+			return null;
+		}
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFactionRelations, IMessage> {
@@ -103,20 +117,6 @@ public class GOTPacketFactionRelations implements IMessage {
 					GOTFactionRelations.Relation rel = packet.singleRelation;
 					GOTFactionRelations.overrideRelations(key.getLeft(), key.getRight(), rel);
 				}
-			}
-			return null;
-		}
-	}
-
-	public enum Type {
-		FULL_MAP, RESET, ONE_ENTRY;
-
-		public static Type forID(int id) {
-			for (Type t : values()) {
-				if (t.ordinal() != id) {
-					continue;
-				}
-				return t;
 			}
 			return null;
 		}

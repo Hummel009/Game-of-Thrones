@@ -1,12 +1,12 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import java.util.Random;
-
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.GOTStructureBaseSettlement;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -30,6 +30,10 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, PYRAMID
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureSothoryosSettlement> {
@@ -116,9 +120,5 @@ public class GOTStructureSothoryosSettlement extends GOTStructureBaseSettlement 
 			addStructure(new GOTStructureSothoryosWatchtower(false), -26, 37, 2);
 			addStructure(new GOTStructureSothoryosWatchtower(false), 26, 37, 2);
 		}
-	}
-
-	public enum Type {
-		VILLAGE, PYRAMID
 	}
 }

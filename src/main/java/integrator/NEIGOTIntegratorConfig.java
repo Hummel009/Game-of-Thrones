@@ -1,14 +1,14 @@
 package integrator;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
 import got.GOT;
 import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class NEIGOTIntegratorConfig implements IConfigureNEI {
 	public Collection<ItemStack> hiddenItems = new ArrayList<>();

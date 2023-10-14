@@ -1,11 +1,10 @@
 package got.common.inventory;
 
-import org.apache.commons.lang3.StringUtils;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
+import org.apache.commons.lang3.StringUtils;
 
 public class GOTContainerPouch extends Container {
 	public int thePouchSlot;
@@ -34,6 +33,14 @@ public class GOTContainerPouch extends Container {
 		for (i = 0; i < 9; ++i) {
 			addSlotToContainer(new Slot(entityplayer.inventory, i, 8 + i * 18, 156));
 		}
+	}
+
+	public static boolean isPouchSlot(Container container, int slotNo, EntityPlayer entityplayer, int pouchSlotNo) {
+		if (slotNo >= 0 && slotNo < container.inventorySlots.size()) {
+			Slot slot = (Slot) container.inventorySlots.get(slotNo);
+			return slot.inventory == entityplayer.inventory && slot.getSlotIndex() == pouchSlotNo;
+		}
+		return false;
 	}
 
 	@Override
@@ -88,13 +95,5 @@ public class GOTContainerPouch extends Container {
 			slot.onPickupFromSlot(entityplayer, itemstack1);
 		}
 		return itemstack;
-	}
-
-	public static boolean isPouchSlot(Container container, int slotNo, EntityPlayer entityplayer, int pouchSlotNo) {
-		if (slotNo >= 0 && slotNo < container.inventorySlots.size()) {
-			Slot slot = (Slot) container.inventorySlots.get(slotNo);
-			return slot.inventory == entityplayer.inventory && slot.getSlotIndex() == pouchSlotNo;
-		}
-		return false;
 	}
 }

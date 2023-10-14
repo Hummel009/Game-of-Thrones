@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.GOTLevelData;
 import got.common.database.GOTItems;
 import got.common.database.GOTShields;
@@ -13,6 +11,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderShield {
 	public static int SHIELD_WIDTH = 32;

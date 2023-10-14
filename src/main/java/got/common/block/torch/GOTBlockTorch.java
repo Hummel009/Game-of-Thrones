@@ -1,13 +1,13 @@
 package got.common.block.torch;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
 import net.minecraft.block.BlockTorch;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public abstract class GOTBlockTorch extends BlockTorch {
 	protected GOTBlockTorch() {

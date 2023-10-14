@@ -1,12 +1,11 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonOptions extends GuiButton {
 	public String baseDisplayString;

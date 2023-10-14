@@ -1,7 +1,5 @@
 package got;
 
-import java.util.Set;
-
 import got.common.*;
 import got.common.block.other.GOTBlockIronBank;
 import got.common.database.*;
@@ -24,6 +22,8 @@ import got.common.world.structure.other.GOTStructureScan;
 import integrator.NEIGOTIntegrator;
 import net.minecraft.block.Block;
 import net.minecraftforge.common.IShearable;
+
+import java.util.Set;
 
 public class GOTLoader {
 	public static void onInit() {

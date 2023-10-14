@@ -1,11 +1,7 @@
 package got.common.network;
 
-import java.io.IOException;
-import java.util.UUID;
-
 import com.google.common.base.Charsets;
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -22,6 +18,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
+
+import java.io.IOException;
+import java.util.UUID;
 
 public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	public UUID fellowshipID;

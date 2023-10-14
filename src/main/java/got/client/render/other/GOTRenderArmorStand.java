@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTClientProxy;
 import got.client.model.GOTModelArmorStand;
 import got.common.database.GOTArmorModels;
@@ -16,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.ForgeHooksClient;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 	public static ResourceLocation standTexture = new ResourceLocation("got:textures/model/armor_stand.png");

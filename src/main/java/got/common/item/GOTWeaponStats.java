@@ -1,9 +1,5 @@
 package got.common.item;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
 import got.common.enchant.GOTEnchantmentHelper;
 import got.common.item.weapon.*;
 import net.minecraft.enchantment.Enchantment;
@@ -17,6 +13,10 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ISpecialArmor;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTWeaponStats {
 	public static int basePlayerMeleeTime = 15;

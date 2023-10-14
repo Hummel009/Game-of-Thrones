@@ -1,8 +1,8 @@
 package got.common.util;
 
-import java.util.*;
-
 import net.minecraft.item.ItemStack;
+
+import java.util.*;
 
 public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
 	public boolean isNBTSensitive;

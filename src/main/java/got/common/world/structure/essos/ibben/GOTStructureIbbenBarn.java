@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.essos.ibben.GOTEntityIbbenFarmer;
@@ -11,9 +8,25 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 	public GOTStructureIbbenBarn(boolean flag) {
 		super(flag);
+	}
+
+	public static EntityAnimal getRandomAnimal(World world, Random random) {
+		int animal = random.nextInt(4);
+		switch (animal) {
+			case 0:
+				return new EntityCow(world);
+			case 1:
+				return new EntityPig(world);
+			case 2:
+				return new EntitySheep(world);
+			default:
+				return new EntityChicken(world);
+		}
 	}
 
 	@Override
@@ -445,19 +458,5 @@ public class GOTStructureIbbenBarn extends GOTStructureIbbenBase {
 		GOTEntityIbbenFarmer farmer = new GOTEntityIbbenFarmer(world);
 		spawnNPCAndSetHome(farmer, world, 0, 1, 8, 16);
 		return true;
-	}
-
-	public static EntityAnimal getRandomAnimal(World world, Random random) {
-		int animal = random.nextInt(4);
-		switch (animal) {
-			case 0:
-				return new EntityCow(world);
-			case 1:
-				return new EntityPig(world);
-			case 2:
-				return new EntitySheep(world);
-			default:
-				return new EntityChicken(world);
-		}
 	}
 }

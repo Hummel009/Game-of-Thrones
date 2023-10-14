@@ -38,6 +38,10 @@ public class GOTContainerCoinExchange extends Container {
 		onCraftMatrixChanged(coinInputInv);
 	}
 
+	public static boolean isValidCoin(ItemStack item) {
+		return item.getItem() == GOTItems.coin && !IPickpocketable.Helper.isPickpocketed(item);
+	}
+
 	@Override
 	public void addCraftingToCrafters(ICrafting crafting) {
 		sendClientExchangedData(crafting);
@@ -199,10 +203,6 @@ public class GOTContainerCoinExchange extends Container {
 		if (i == 0) {
 			exchanged = j == 1;
 		}
-	}
-
-	public static boolean isValidCoin(ItemStack item) {
-		return item.getItem() == GOTItems.coin && !IPickpocketable.Helper.isPickpocketed(item);
 	}
 
 	public class InventoryCoinExchangeSlot extends InventoryBasic {

@@ -1,12 +1,12 @@
 package got.common.item.other;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GOTItemOwnership {
 	public static void addPreviousOwner(ItemStack itemstack, String name) {

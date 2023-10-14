@@ -1,9 +1,5 @@
 package got.common.inventory;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -37,6 +33,9 @@ import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.*;
 
 public class GOTContainerAnvil extends Container {
 	public static int maxReforgeTime = 40;
@@ -99,6 +98,45 @@ public class GOTContainerAnvil extends Container {
 		xCoord = i;
 		yCoord = j;
 		zCoord = k;
+	}
+
+	public static String applyFormattingCodes(String name, Iterable<EnumChatFormatting> colors) {
+		StringBuilder nameBuilder = new StringBuilder(name);
+		for (EnumChatFormatting color : colors) {
+			nameBuilder.insert(0, color);
+		}
+		return nameBuilder.toString();
+	}
+
+	public static boolean costsToRename(ItemStack itemstack) {
+		Item item = itemstack.getItem();
+		if (item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
+			return true;
+		}
+		return item instanceof ItemBow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
+	}
+
+	public static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
+		List<EnumChatFormatting> colors = new ArrayList<>();
+		for (EnumChatFormatting color : EnumChatFormatting.values()) {
+			String formatCode = color.toString();
+			if (!name.startsWith(formatCode)) {
+				continue;
+			}
+			colors.add(color);
+		}
+		return colors;
+	}
+
+	public static String stripFormattingCodes(String name) {
+		for (EnumChatFormatting color : EnumChatFormatting.values()) {
+			String formatCode = color.toString();
+			if (!name.startsWith(formatCode)) {
+				continue;
+			}
+			name = name.substring(formatCode.length());
+		}
+		return name;
 	}
 
 	public boolean applyMischief(ItemStack itemstack) {
@@ -791,45 +829,6 @@ public class GOTContainerAnvil extends Container {
 			}
 			detectAndSendChanges();
 		}
-	}
-
-	public static String applyFormattingCodes(String name, Iterable<EnumChatFormatting> colors) {
-		StringBuilder nameBuilder = new StringBuilder(name);
-		for (EnumChatFormatting color : colors) {
-			nameBuilder.insert(0, color);
-		}
-		return nameBuilder.toString();
-	}
-
-	public static boolean costsToRename(ItemStack itemstack) {
-		Item item = itemstack.getItem();
-		if (item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
-			return true;
-		}
-		return item instanceof ItemBow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
-	}
-
-	public static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
-		List<EnumChatFormatting> colors = new ArrayList<>();
-		for (EnumChatFormatting color : EnumChatFormatting.values()) {
-			String formatCode = color.toString();
-			if (!name.startsWith(formatCode)) {
-				continue;
-			}
-			colors.add(color);
-		}
-		return colors;
-	}
-
-	public static String stripFormattingCodes(String name) {
-		for (EnumChatFormatting color : EnumChatFormatting.values()) {
-			String formatCode = color.toString();
-			if (!name.startsWith(formatCode)) {
-				continue;
-			}
-			name = name.substring(formatCode.length());
-		}
-		return name;
 	}
 
 }

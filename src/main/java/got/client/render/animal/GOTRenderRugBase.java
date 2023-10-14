@@ -1,11 +1,10 @@
 package got.client.render.animal;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.entity.other.GOTEntityRugBase;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
+import org.lwjgl.opengl.GL11;
 
 public abstract class GOTRenderRugBase extends Render {
 	public ModelBase rugotel;

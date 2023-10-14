@@ -1,8 +1,5 @@
 package got.common.entity.ai;
 
-import java.util.Comparator;
-import java.util.List;
-
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityNPC;
@@ -14,6 +11,9 @@ import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAITarget;
 import net.minecraft.entity.player.EntityPlayer;
+
+import java.util.Comparator;
+import java.util.List;
 
 public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 	public Class<? extends Entity> targetClass;

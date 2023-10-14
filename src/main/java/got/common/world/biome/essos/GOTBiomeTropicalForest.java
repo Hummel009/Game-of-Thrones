@@ -1,8 +1,5 @@
 package got.common.world.biome.essos;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
@@ -13,6 +10,9 @@ import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTBiomeTropicalForest extends GOTBiomeEssos {
 	public GOTBiomeTropicalForest(int i, boolean major) {

@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.entity.other.GOTEntityDart;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;
@@ -12,6 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderDart extends Render {
 	@Override

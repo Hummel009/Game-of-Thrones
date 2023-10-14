@@ -1,9 +1,9 @@
 package got.common.world.structure.other;
 
+import net.minecraft.world.ChunkCoordIntPair;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import net.minecraft.world.ChunkCoordIntPair;
 
 public class GOTSettlementPositionCache {
 	public static int MAX_SIZE = 20000;

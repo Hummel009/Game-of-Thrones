@@ -1,7 +1,5 @@
 package got.client;
 
-import java.lang.reflect.Method;
-
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import got.common.util.GOTReflection;
 import net.minecraft.client.Minecraft;
@@ -14,6 +12,8 @@ import net.minecraft.client.renderer.InventoryEffectRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+
+import java.lang.reflect.Method;
 
 public class GOTReflectionClient {
 	public static int[] colorCodes;

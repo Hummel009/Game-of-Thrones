@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import got.common.entity.essos.ibben.GOTEntityIbbenArcher;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
 import got.common.entity.essos.ibben.GOTEntityIbbenWarlord;
@@ -12,6 +10,8 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -35,6 +35,10 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, FORT
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureIbbenSettlement> {
@@ -312,9 +316,5 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureIbbenGatehouse(false), 0, -rPalisade - 2, 0);
 			}
 		}
-	}
-
-	public enum Type {
-		VILLAGE, FORT
 	}
 }

@@ -34,14 +34,14 @@ public class GOTEntityLionRug extends GOTEntityRugBase {
 		return GOTItemLionRug.LionRugType.forID(i);
 	}
 
+	public void setRugType(GOTItemLionRug.LionRugType t) {
+		dataWatcher.updateObject(18, (byte) t.lionID);
+	}
+
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		setRugType(GOTItemLionRug.LionRugType.forID(nbt.getByte("RugType")));
-	}
-
-	public void setRugType(GOTItemLionRug.LionRugType t) {
-		dataWatcher.updateObject(18, (byte) t.lionID);
 	}
 
 	@Override

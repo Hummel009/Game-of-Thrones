@@ -1,8 +1,5 @@
 package got.common.world.biome.westeros;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
@@ -13,6 +10,9 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.westeros.arryn.GOTStructureArrynSettlement;
 import got.common.world.structure.westeros.arryn.GOTStructureArrynWatchfort;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTBiomeArryn extends GOTBiomeWesteros {
 	public GOTBiomeArryn(int i, boolean major) {

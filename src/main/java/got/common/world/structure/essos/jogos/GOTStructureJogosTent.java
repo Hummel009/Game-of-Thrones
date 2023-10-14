@@ -1,13 +1,13 @@
 package got.common.world.structure.essos.jogos;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
 import got.common.entity.essos.jogos.GOTEntityJogos;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureJogosTent extends GOTStructureJogosBase {
 	public GOTStructureJogosTent(boolean flag) {

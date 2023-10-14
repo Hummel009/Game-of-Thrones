@@ -1,8 +1,5 @@
 package got.common.world.biome.westeros;
 
-import java.util.Arrays;
-import java.util.Random;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -12,6 +9,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import java.util.Arrays;
+import java.util.Random;
 
 public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 	public byte[] clayMeta;

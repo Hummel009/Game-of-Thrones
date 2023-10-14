@@ -1,7 +1,5 @@
 package got.common.network;
 
-import java.util.UUID;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -10,6 +8,8 @@ import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.database.GOTShields;
 import io.netty.buffer.ByteBuf;
+
+import java.util.UUID;
 
 public class GOTPacketShield implements IMessage {
 	public UUID player;

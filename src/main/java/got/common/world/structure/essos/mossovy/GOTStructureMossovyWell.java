@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.mossovy;
 
-import java.util.Random;
-
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureMossovyWell extends GOTStructureMossovyBase {
 	public GOTStructureMossovyWell(boolean flag) {

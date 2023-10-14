@@ -1,10 +1,7 @@
 package got.common.network;
 
-import java.util.List;
-
 import com.google.common.base.Charsets;
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -19,6 +16,8 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTPacketEditBanner implements IMessage {
 	public int bannerID;

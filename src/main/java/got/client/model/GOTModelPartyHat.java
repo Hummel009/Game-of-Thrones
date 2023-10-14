@@ -1,11 +1,10 @@
 package got.client.model;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.item.other.GOTItemPartyHat;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
+import org.lwjgl.opengl.GL11;
 
 public class GOTModelPartyHat extends GOTModelBiped {
 	public ItemStack hatItem;

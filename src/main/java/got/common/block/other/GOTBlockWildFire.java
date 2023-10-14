@@ -1,11 +1,5 @@
 package got.common.block.other;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
-
-import org.apache.commons.lang3.tuple.Pair;
-
 import got.GOT;
 import got.common.GOTBannerProtection;
 import net.minecraft.block.Block;
@@ -15,6 +9,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class GOTBlockWildFire extends BlockFire {
 	public GOTBlockWildFire() {

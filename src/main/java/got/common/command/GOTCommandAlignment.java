@@ -1,9 +1,5 @@
 package got.common.command;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import got.common.GOTLevelData;
 import got.common.faction.GOTFaction;
 import net.minecraft.command.CommandBase;
@@ -11,6 +7,10 @@ import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandAlignment extends CommandBase {
 	@Override

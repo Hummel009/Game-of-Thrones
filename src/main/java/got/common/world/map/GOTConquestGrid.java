@@ -401,16 +401,16 @@ public class GOTConquestGrid {
 			needRank = rank;
 		}
 
+		public static ConquestViewableQuery canView() {
+			return new ConquestViewableQuery(ConquestViewable.CAN_VIEW, null);
+		}
+
 		public GOTFactionRank getNeedRank() {
 			return needRank;
 		}
 
 		public ConquestViewable getResult() {
 			return result;
-		}
-
-		public static ConquestViewableQuery canView() {
-			return new ConquestViewableQuery(ConquestViewable.CAN_VIEW, null);
 		}
 	}
 
@@ -421,6 +421,10 @@ public class GOTConquestGrid {
 		public GridCoordPair(int i, int k) {
 			gridX = i;
 			gridZ = k;
+		}
+
+		public static GridCoordPair forZone(GOTConquestZone zone) {
+			return new GridCoordPair(zone.getGridX(), zone.getGridZ());
 		}
 
 		@Override
@@ -440,10 +444,6 @@ public class GOTConquestGrid {
 			int i = 1664525 * gridX + 1013904223;
 			int j = 1664525 * (gridZ ^ 0xDEADBEEF) + 1013904223;
 			return i ^ j;
-		}
-
-		public static GridCoordPair forZone(GOTConquestZone zone) {
-			return new GridCoordPair(zone.getGridX(), zone.getGridZ());
 		}
 	}
 }

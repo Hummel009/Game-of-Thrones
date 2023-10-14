@@ -1,12 +1,6 @@
 package got.common;
 
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.Pair;
-
 import com.google.common.collect.ImmutableList;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
@@ -52,6 +46,10 @@ import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.biome.BiomeGenBase;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.*;
 
 public class GOTPlayerData {
 	public static int ticksUntilFT_max = 200;
@@ -127,6 +125,58 @@ public class GOTPlayerData {
 		playerUUID = uuid;
 		viewingFaction = GOTFaction.NORTH;
 		ftSinceTick = GOTLevelData.getWaypointCooldownMax() * 20;
+	}
+
+	public static ArmorMaterial getBodyMaterial(EntityLivingBase entity) {
+		ItemStack item = entity.getEquipmentInSlot(3);
+		if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
+			return null;
+		}
+		return ((ItemArmor) item.getItem()).getArmorMaterial();
+	}
+
+	public static ArmorMaterial getFullArmorMaterial(EntityLivingBase entity) {
+		ArmorMaterial material = null;
+		for (int i = 1; i <= 4; ++i) {
+			ItemStack item = entity.getEquipmentInSlot(i);
+			if (item == null || !(item.getItem() instanceof ItemArmor)) {
+				return null;
+			}
+			ArmorMaterial itemMaterial = ((ItemArmor) item.getItem()).getArmorMaterial();
+			if (material != null && itemMaterial != material) {
+				return null;
+			}
+			material = itemMaterial;
+		}
+		return material;
+	}
+
+	public static ArmorMaterial getFullArmorMaterialWithoutHelmet(EntityLivingBase entity) {
+		ArmorMaterial material = null;
+		for (int i = 1; i <= 3; ++i) {
+			ItemStack item = entity.getEquipmentInSlot(i);
+			if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
+				return null;
+			}
+			ArmorMaterial itemMaterial = ((ItemArmor) item.getItem()).getArmorMaterial();
+			if (material != null && itemMaterial != material) {
+				return null;
+			}
+			material = itemMaterial;
+		}
+		return material;
+	}
+
+	public static ArmorMaterial getHelmetMaterial(EntityLivingBase entity) {
+		ItemStack item = entity.getEquipmentInSlot(4);
+		if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
+			return null;
+		}
+		return ((ItemArmor) item.getItem()).getArmorMaterial();
+	}
+
+	public static boolean isTimerAutosaveTick() {
+		return MinecraftServer.getServer() != null && MinecraftServer.getServer().getTickCounter() % 200 == 0;
 	}
 
 	public void acceptFellowshipInvite(GOTFellowship fs, boolean respectSizeLimit) {
@@ -839,8 +889,24 @@ public class GOTPlayerData {
 		return adminHideMap;
 	}
 
+	public void setAdminHideMap(boolean flag) {
+		adminHideMap = flag;
+		markDirty();
+	}
+
 	public int getAlcoholTolerance() {
 		return alcoholTolerance;
+	}
+
+	public void setAlcoholTolerance(int i) {
+		alcoholTolerance = i;
+		markDirty();
+		if (alcoholTolerance >= 250) {
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				addAchievement(GOTAchievement.gainHighAlcoholTolerance);
+			}
+		}
 	}
 
 	public float getAlignment(GOTFaction faction) {
@@ -865,12 +931,27 @@ public class GOTPlayerData {
 		return balance;
 	}
 
+	public void setBalance(int b) {
+		balance = b;
+		markDirty();
+	}
+
 	public GOTFaction getBrokenPledgeFaction() {
 		return brokenPledgeFaction;
 	}
 
+	public void setBrokenPledgeFaction(GOTFaction f) {
+		brokenPledgeFaction = f;
+		markDirty();
+	}
+
 	public GOTCapes getCape() {
 		return cape;
+	}
+
+	public void setCape(GOTCapes cape) {
+		this.cape = cape;
+		markDirty();
 	}
 
 	public GOTFellowship getChatBoundFellowship() {
@@ -878,6 +959,10 @@ public class GOTPlayerData {
 			return GOTFellowshipData.getActiveFellowship(chatBoundFellowshipID);
 		}
 		return null;
+	}
+
+	public void setChatBoundFellowship(GOTFellowship fs) {
+		setChatBoundFellowshipID(fs.getFellowshipID());
 	}
 
 	public GOTFellowshipClient getClientFellowshipByID(UUID fsID) {
@@ -935,6 +1020,11 @@ public class GOTPlayerData {
 		return deathDim;
 	}
 
+	public void setDeathDimension(int dim) {
+		deathDim = dim;
+		markDirty();
+	}
+
 	public ChunkCoordinates getDeathPoint() {
 		return deathPoint;
 	}
@@ -956,8 +1046,20 @@ public class GOTPlayerData {
 		return conquestKills;
 	}
 
+	public void setEnableConquestKills(boolean flag) {
+		conquestKills = flag;
+		markDirty();
+		sendOptionsPacket(5, flag);
+	}
+
 	public boolean getEnableHiredDeathMessages() {
 		return hiredDeathMessages;
+	}
+
+	public void setEnableHiredDeathMessages(boolean flag) {
+		hiredDeathMessages = flag;
+		markDirty();
+		sendOptionsPacket(1, flag);
 	}
 
 	public GOTFactionData getFactionData(GOTFaction faction) {
@@ -993,16 +1095,43 @@ public class GOTPlayerData {
 		return femRankOverride;
 	}
 
+	public void setFemRankOverride(boolean flag) {
+		femRankOverride = flag;
+		markDirty();
+		sendOptionsPacket(4, flag);
+	}
+
 	public boolean getFriendlyFire() {
 		return friendlyFire;
+	}
+
+	public void setFriendlyFire(boolean flag) {
+		friendlyFire = flag;
+		markDirty();
+		sendOptionsPacket(0, flag);
 	}
 
 	public boolean getHideAlignment() {
 		return hideAlignment;
 	}
 
+	public void setHideAlignment(boolean flag) {
+		hideAlignment = flag;
+		markDirty();
+		EntityPlayer entityplayer = getPlayer();
+		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+			GOTLevelData.sendAlignmentToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
+		}
+	}
+
 	public boolean getHideMapLocation() {
 		return hideOnMap;
+	}
+
+	public void setHideMapLocation(boolean flag) {
+		hideOnMap = flag;
+		markDirty();
+		sendOptionsPacket(3, flag);
 	}
 
 	public GOTBiome getLastKnownBiome() {
@@ -1100,6 +1229,22 @@ public class GOTPlayerData {
 		return playerTitle;
 	}
 
+	public void setPlayerTitle(GOTTitle.PlayerTitle title) {
+		playerTitle = title;
+		markDirty();
+		EntityPlayer entityplayer = getPlayer();
+		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+			IMessage packet = new GOTPacketTitle(playerTitle);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+		}
+		for (UUID fsID : fellowshipIDs) {
+			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
+			if (fs != null) {
+				fs.updateForAllMembers(new FellowshipUpdateType.UpdatePlayerTitle(playerUUID, playerTitle));
+			}
+		}
+	}
+
 	public UUID getPlayerUUID() {
 		return playerUUID;
 	}
@@ -1108,8 +1253,53 @@ public class GOTPlayerData {
 		return pledgeBreakCooldown;
 	}
 
+	public void setPledgeBreakCooldown(int i) {
+		int preCD = pledgeBreakCooldown;
+		GOTFaction preBroken = brokenPledgeFaction;
+		i = Math.max(0, i);
+		pledgeBreakCooldown = i;
+		boolean bigChange = (pledgeBreakCooldown == 0 || preCD == 0) && pledgeBreakCooldown != preCD;
+		if (pledgeBreakCooldown > pledgeBreakCooldownStart) {
+			setPledgeBreakCooldownStart(pledgeBreakCooldown);
+			bigChange = true;
+		}
+		if (pledgeBreakCooldown <= 0 && preBroken != null) {
+			setPledgeBreakCooldownStart(0);
+			setBrokenPledgeFaction(null);
+			bigChange = true;
+		}
+		if (bigChange || isTimerAutosaveTick()) {
+			markDirty();
+		}
+		if (bigChange || pledgeBreakCooldown % 5 == 0) {
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				IMessage packet = new GOTPacketBrokenPledge(pledgeBreakCooldown, pledgeBreakCooldownStart, brokenPledgeFaction);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			}
+		}
+		if (pledgeBreakCooldown == 0 && preCD != pledgeBreakCooldown) {
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				String brokenName;
+				if (preBroken == null) {
+					brokenName = StatCollector.translateToLocal("got.gui.factions.pledgeUnknown");
+				} else {
+					brokenName = preBroken.factionName();
+				}
+				IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.pledgeBreakCooldown", brokenName);
+				entityplayer.addChatMessage(chatComponentTranslation);
+			}
+		}
+	}
+
 	public int getPledgeBreakCooldownStart() {
 		return pledgeBreakCooldownStart;
+	}
+
+	public void setPledgeBreakCooldownStart(int i) {
+		pledgeBreakCooldownStart = i;
+		markDirty();
 	}
 
 	public float getPledgeEnemyAlignmentLimit(GOTFaction fac) {
@@ -1118,6 +1308,25 @@ public class GOTPlayerData {
 
 	public GOTFaction getPledgeFaction() {
 		return pledgeFaction;
+	}
+
+	public void setPledgeFaction(GOTFaction fac) {
+		pledgeFaction = fac;
+		pledgeKillCooldown = 0;
+		markDirty();
+		if (fac != null) {
+			checkAlignmentAchievements(fac, getAlignment(fac));
+			addAchievement(GOTAchievement.pledgeService);
+		}
+		EntityPlayer entityplayer = getPlayer();
+		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+			if (fac != null) {
+				World world = entityplayer.worldObj;
+				world.playSoundAtEntity(entityplayer, "got:event.pledge", 1.0F, 1.0F);
+			}
+			IMessage packet = new GOTPacketPledge(fac);
+			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+		}
 	}
 
 	public GOTPlayerQuestData getQuestData() {
@@ -1145,20 +1354,45 @@ public class GOTPlayerData {
 		return shield;
 	}
 
+	public void setShield(GOTShields gotshield) {
+		shield = gotshield;
+		markDirty();
+	}
+
 	public boolean getStructuresBanned() {
 		return structuresBanned;
+	}
+
+	public void setStructuresBanned(boolean flag) {
+		structuresBanned = flag;
+		markDirty();
 	}
 
 	public boolean getTableSwitched() {
 		return tableSwitched;
 	}
 
+	public void setTableSwitched(boolean flag) {
+		tableSwitched = flag;
+		markDirty();
+		sendOptionsPacket(9, flag);
+	}
+
 	public boolean getTeleportedKW() {
 		return teleportedKW;
 	}
 
+	public void setTeleportedKW(boolean flag) {
+		teleportedKW = flag;
+		markDirty();
+	}
+
 	public int getTimeSinceFT() {
 		return ftSinceTick;
+	}
+
+	public void setTimeSinceFT(int i) {
+		setTimeSinceFT(i, false);
 	}
 
 	public GOTMiniQuest getTrackingMiniQuest() {
@@ -1168,8 +1402,28 @@ public class GOTPlayerData {
 		return getMiniQuestForID(trackingMiniQuestID, false);
 	}
 
+	public void setTrackingMiniQuest(GOTMiniQuest quest) {
+		if (quest == null) {
+			setTrackingMiniQuestID(null);
+		} else {
+			setTrackingMiniQuestID(quest.questUUID);
+		}
+	}
+
 	public GOTFaction getViewingFaction() {
 		return viewingFaction;
+	}
+
+	public void setViewingFaction(GOTFaction faction) {
+		if (faction != null) {
+			viewingFaction = faction;
+			markDirty();
+			EntityPlayer entityplayer = getPlayer();
+			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
+				IMessage packet = new GOTPacketUpdateViewingFaction(viewingFaction);
+				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			}
+		}
 	}
 
 	public int getWaypointFTTime(GOTAbstractWaypoint wp, Entity entityplayer) {
@@ -1309,6 +1563,10 @@ public class GOTPlayerData {
 
 	public boolean isSiegeActive() {
 		return siegeActiveTime > 0;
+	}
+
+	public void setSiegeActive(int duration) {
+		siegeActiveTime = Math.max(siegeActiveTime, duration);
 	}
 
 	public void leaveFellowship(GOTFellowship fs) {
@@ -2511,22 +2769,6 @@ public class GOTPlayerData {
 		addSharedCustomWaypointsFromAllFellowships();
 	}
 
-	public void setAdminHideMap(boolean flag) {
-		adminHideMap = flag;
-		markDirty();
-	}
-
-	public void setAlcoholTolerance(int i) {
-		alcoholTolerance = i;
-		markDirty();
-		if (alcoholTolerance >= 250) {
-			EntityPlayer entityplayer = getPlayer();
-			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				addAchievement(GOTAchievement.gainHighAlcoholTolerance);
-			}
-		}
-	}
-
 	public void setAlignment(GOTFaction faction, float alignment) {
 		EntityPlayer entityplayer = getPlayer();
 		if (faction.isPlayableAlignmentFaction()) {
@@ -2547,25 +2789,6 @@ public class GOTPlayerData {
 		setAlignment(faction, set);
 	}
 
-	public void setBalance(int b) {
-		balance = b;
-		markDirty();
-	}
-
-	public void setBrokenPledgeFaction(GOTFaction f) {
-		brokenPledgeFaction = f;
-		markDirty();
-	}
-
-	public void setCape(GOTCapes cape) {
-		this.cape = cape;
-		markDirty();
-	}
-
-	public void setChatBoundFellowship(GOTFellowship fs) {
-		setChatBoundFellowshipID(fs.getFellowshipID());
-	}
-
 	public void setChatBoundFellowshipID(UUID fsID) {
 		chatBoundFellowshipID = fsID;
 		markDirty();
@@ -2578,26 +2801,9 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void setDeathDimension(int dim) {
-		deathDim = dim;
-		markDirty();
-	}
-
 	public void setDeathPoint(int i, int j, int k) {
 		deathPoint = new ChunkCoordinates(i, j, k);
 		markDirty();
-	}
-
-	public void setEnableConquestKills(boolean flag) {
-		conquestKills = flag;
-		markDirty();
-		sendOptionsPacket(5, flag);
-	}
-
-	public void setEnableHiredDeathMessages(boolean flag) {
-		hiredDeathMessages = flag;
-		markDirty();
-		sendOptionsPacket(1, flag);
 	}
 
 	public void setFellowshipAdmin(GOTFellowship fs, UUID player, boolean flag, String granterUsername) {
@@ -2638,123 +2844,11 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void setFemRankOverride(boolean flag) {
-		femRankOverride = flag;
-		markDirty();
-		sendOptionsPacket(4, flag);
-	}
-
-	public void setFriendlyFire(boolean flag) {
-		friendlyFire = flag;
-		markDirty();
-		sendOptionsPacket(0, flag);
-	}
-
-	public void setHideAlignment(boolean flag) {
-		hideAlignment = flag;
-		markDirty();
-		EntityPlayer entityplayer = getPlayer();
-		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			GOTLevelData.sendAlignmentToAllPlayersInWorld(entityplayer, entityplayer.worldObj);
-		}
-	}
-
-	public void setHideMapLocation(boolean flag) {
-		hideOnMap = flag;
-		markDirty();
-		sendOptionsPacket(3, flag);
-	}
-
-	public void setPlayerTitle(GOTTitle.PlayerTitle title) {
-		playerTitle = title;
-		markDirty();
-		EntityPlayer entityplayer = getPlayer();
-		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			IMessage packet = new GOTPacketTitle(playerTitle);
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
-		}
-		for (UUID fsID : fellowshipIDs) {
-			GOTFellowship fs = GOTFellowshipData.getActiveFellowship(fsID);
-			if (fs != null) {
-				fs.updateForAllMembers(new FellowshipUpdateType.UpdatePlayerTitle(playerUUID, playerTitle));
-			}
-		}
-	}
-
-	public void setPledgeBreakCooldown(int i) {
-		int preCD = pledgeBreakCooldown;
-		GOTFaction preBroken = brokenPledgeFaction;
-		i = Math.max(0, i);
-		pledgeBreakCooldown = i;
-		boolean bigChange = (pledgeBreakCooldown == 0 || preCD == 0) && pledgeBreakCooldown != preCD;
-		if (pledgeBreakCooldown > pledgeBreakCooldownStart) {
-			setPledgeBreakCooldownStart(pledgeBreakCooldown);
-			bigChange = true;
-		}
-		if (pledgeBreakCooldown <= 0 && preBroken != null) {
-			setPledgeBreakCooldownStart(0);
-			setBrokenPledgeFaction(null);
-			bigChange = true;
-		}
-		if (bigChange || isTimerAutosaveTick()) {
-			markDirty();
-		}
-		if (bigChange || pledgeBreakCooldown % 5 == 0) {
-			EntityPlayer entityplayer = getPlayer();
-			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				IMessage packet = new GOTPacketBrokenPledge(pledgeBreakCooldown, pledgeBreakCooldownStart, brokenPledgeFaction);
-				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
-			}
-		}
-		if (pledgeBreakCooldown == 0 && preCD != pledgeBreakCooldown) {
-			EntityPlayer entityplayer = getPlayer();
-			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				String brokenName;
-				if (preBroken == null) {
-					brokenName = StatCollector.translateToLocal("got.gui.factions.pledgeUnknown");
-				} else {
-					brokenName = preBroken.factionName();
-				}
-				IChatComponent chatComponentTranslation = new ChatComponentTranslation("got.chat.pledgeBreakCooldown", brokenName);
-				entityplayer.addChatMessage(chatComponentTranslation);
-			}
-		}
-	}
-
-	public void setPledgeBreakCooldownStart(int i) {
-		pledgeBreakCooldownStart = i;
-		markDirty();
-	}
-
-	public void setPledgeFaction(GOTFaction fac) {
-		pledgeFaction = fac;
-		pledgeKillCooldown = 0;
-		markDirty();
-		if (fac != null) {
-			checkAlignmentAchievements(fac, getAlignment(fac));
-			addAchievement(GOTAchievement.pledgeService);
-		}
-		EntityPlayer entityplayer = getPlayer();
-		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			if (fac != null) {
-				World world = entityplayer.worldObj;
-				world.playSoundAtEntity(entityplayer, "got:event.pledge", 1.0F, 1.0F);
-			}
-			IMessage packet = new GOTPacketPledge(fac);
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
-		}
-	}
-
 	public void setRegionLastViewedFaction(GOTDimension.DimensionRegion region, GOTFaction fac) {
 		if (region.factionList.contains(fac)) {
 			prevRegionFactions.put(region, fac);
 			markDirty();
 		}
-	}
-
-	public void setShield(GOTShields gotshield) {
-		shield = gotshield;
-		markDirty();
 	}
 
 	public void setShowCustomWaypoints(boolean flag) {
@@ -2772,21 +2866,6 @@ public class GOTPlayerData {
 		markDirty();
 	}
 
-	public void setSiegeActive(int duration) {
-		siegeActiveTime = Math.max(siegeActiveTime, duration);
-	}
-
-	public void setStructuresBanned(boolean flag) {
-		structuresBanned = flag;
-		markDirty();
-	}
-
-	public void setTableSwitched(boolean flag) {
-		tableSwitched = flag;
-		markDirty();
-		sendOptionsPacket(9, flag);
-	}
-
 	public void setTargetFTWaypoint(GOTAbstractWaypoint wp) {
 		targetFTWaypoint = wp;
 		markDirty();
@@ -2797,11 +2876,6 @@ public class GOTPlayerData {
 		}
 	}
 
-	public void setTeleportedKW(boolean flag) {
-		teleportedKW = flag;
-		markDirty();
-	}
-
 	public void setTicksUntilFT(int i) {
 		if (ticksUntilFT != i) {
 			ticksUntilFT = i;
@@ -2809,10 +2883,6 @@ public class GOTPlayerData {
 				markDirty();
 			}
 		}
-	}
-
-	public void setTimeSinceFT(int i) {
-		setTimeSinceFT(i, false);
 	}
 
 	public void setTimeSinceFT(int i, boolean forceUpdate) {
@@ -2836,14 +2906,6 @@ public class GOTPlayerData {
 		setTimeSinceFT(i, true);
 	}
 
-	public void setTrackingMiniQuest(GOTMiniQuest quest) {
-		if (quest == null) {
-			setTrackingMiniQuestID(null);
-		} else {
-			setTrackingMiniQuestID(quest.questUUID);
-		}
-	}
-
 	public void setTrackingMiniQuestID(UUID npcID) {
 		trackingMiniQuestID = npcID;
 		markDirty();
@@ -2862,18 +2924,6 @@ public class GOTPlayerData {
 			uuidToMountTime = 0;
 		}
 		markDirty();
-	}
-
-	public void setViewingFaction(GOTFaction faction) {
-		if (faction != null) {
-			viewingFaction = faction;
-			markDirty();
-			EntityPlayer entityplayer = getPlayer();
-			if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-				IMessage packet = new GOTPacketUpdateViewingFaction(viewingFaction);
-				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
-			}
-		}
 	}
 
 	public void setWPUseCount(GOTAbstractWaypoint wp, int count) {
@@ -3037,58 +3087,6 @@ public class GOTPlayerData {
 		return false;
 	}
 
-	public static ArmorMaterial getBodyMaterial(EntityLivingBase entity) {
-		ItemStack item = entity.getEquipmentInSlot(3);
-		if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
-			return null;
-		}
-		return ((ItemArmor) item.getItem()).getArmorMaterial();
-	}
-
-	public static ItemArmor.ArmorMaterial getFullArmorMaterial(EntityLivingBase entity) {
-		ItemArmor.ArmorMaterial material = null;
-		for (int i = 1; i <= 4; ++i) {
-			ItemStack item = entity.getEquipmentInSlot(i);
-			if (item == null || !(item.getItem() instanceof ItemArmor)) {
-				return null;
-			}
-			ItemArmor.ArmorMaterial itemMaterial = ((ItemArmor) item.getItem()).getArmorMaterial();
-			if (material != null && itemMaterial != material) {
-				return null;
-			}
-			material = itemMaterial;
-		}
-		return material;
-	}
-
-	public static ArmorMaterial getFullArmorMaterialWithoutHelmet(EntityLivingBase entity) {
-		ArmorMaterial material = null;
-		for (int i = 1; i <= 3; ++i) {
-			ItemStack item = entity.getEquipmentInSlot(i);
-			if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
-				return null;
-			}
-			ArmorMaterial itemMaterial = ((ItemArmor) item.getItem()).getArmorMaterial();
-			if (material != null && itemMaterial != material) {
-				return null;
-			}
-			material = itemMaterial;
-		}
-		return material;
-	}
-
-	public static ArmorMaterial getHelmetMaterial(EntityLivingBase entity) {
-		ItemStack item = entity.getEquipmentInSlot(4);
-		if (item == null || !(item.getItem() instanceof GOTItemArmor)) {
-			return null;
-		}
-		return ((ItemArmor) item.getItem()).getArmorMaterial();
-	}
-
-	public static boolean isTimerAutosaveTick() {
-		return MinecraftServer.getServer() != null && MinecraftServer.getServer().getTickCounter() % 200 == 0;
-	}
-
 	public static class CWPSharedKey extends Pair<UUID, Integer> {
 		public UUID sharingPlayer;
 		public int waypointID;
@@ -3096,6 +3094,10 @@ public class GOTPlayerData {
 		public CWPSharedKey(UUID player, int id) {
 			sharingPlayer = player;
 			waypointID = id;
+		}
+
+		public static CWPSharedKey keyFor(UUID player, int id) {
+			return new CWPSharedKey(player, id);
 		}
 
 		@Override
@@ -3111,10 +3113,6 @@ public class GOTPlayerData {
 		@Override
 		public Integer setValue(Integer value) {
 			throw new UnsupportedOperationException();
-		}
-
-		public static CWPSharedKey keyFor(UUID player, int id) {
-			return new CWPSharedKey(player, id);
 		}
 	}
 }

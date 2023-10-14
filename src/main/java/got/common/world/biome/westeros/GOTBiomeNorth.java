@@ -1,8 +1,5 @@
 package got.common.world.biome.westeros;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
@@ -15,6 +12,9 @@ import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
 import got.common.world.structure.westeros.north.GOTStructureNorthSettlement;
 import got.common.world.structure.westeros.north.GOTStructureNorthWatchfort;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTBiomeNorth extends GOTBiomeWesteros {
 	public GOTBiomeNorth(int i, boolean major) {

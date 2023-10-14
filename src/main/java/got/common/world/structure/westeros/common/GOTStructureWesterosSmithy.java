@@ -1,12 +1,12 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.westeros.legendary.trader.GOTEntityGendryBaratheon;
 import got.common.entity.westeros.legendary.trader.GOTEntityTobhoMott;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 	public boolean issKingsLanding;

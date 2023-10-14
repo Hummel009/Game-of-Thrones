@@ -1,7 +1,5 @@
 package got.common.item.other;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.tileentity.GOTTileEntityKebabStand;
@@ -12,24 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
+import java.util.List;
+
 public class GOTItemKebabStand extends ItemBlock {
 	public GOTItemKebabStand(Block block) {
 		super(block);
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		NBTTagCompound kebabData = getKebabData(itemstack);
-		if (kebabData != null) {
-			GOTTileEntityKebabStand kebabStand = new GOTTileEntityKebabStand();
-			kebabStand.readKebabStandFromNBT(kebabData);
-			int meats = kebabStand.getMeatAmount();
-			list.add(StatCollector.translateToLocalFormatted("tile.got.kebabStand.meats", meats));
-			if (kebabStand.isCooked()) {
-				list.add(StatCollector.translateToLocal("tile.got.kebabStand.cooked"));
-			}
-		}
 	}
 
 	public static NBTTagCompound getKebabData(ItemStack itemstack) {
@@ -59,5 +44,20 @@ public class GOTItemKebabStand extends ItemBlock {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
 		itemstack.getTagCompound().setTag("GOTKebabData", kebabData);
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		NBTTagCompound kebabData = getKebabData(itemstack);
+		if (kebabData != null) {
+			GOTTileEntityKebabStand kebabStand = new GOTTileEntityKebabStand();
+			kebabStand.readKebabStandFromNBT(kebabData);
+			int meats = kebabStand.getMeatAmount();
+			list.add(StatCollector.translateToLocalFormatted("tile.got.kebabStand.meats", meats));
+			if (kebabStand.isCooked()) {
+				list.add(StatCollector.translateToLocal("tile.got.kebabStand.cooked"));
+			}
+		}
 	}
 }

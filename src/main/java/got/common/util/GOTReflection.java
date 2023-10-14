@@ -1,12 +1,5 @@
 package got.common.util;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.*;
-
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
@@ -34,6 +27,12 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.storage.WorldInfo;
+import org.apache.logging.log4j.Level;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.*;
 
 public class GOTReflection {
 	public static boolean canPistonPushBlock(Block block, World world, int i, int j, int k, boolean flag) {

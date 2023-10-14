@@ -1,15 +1,6 @@
 package got.common;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.*;
-
-import org.apache.commons.lang3.StringUtils;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
@@ -31,6 +22,13 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.common.DimensionManager;
+import org.apache.commons.lang3.StringUtils;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.util.*;
 
 public class GOTLevelData {
 	public static int madePortal;
@@ -100,6 +98,11 @@ public class GOTLevelData {
 
 	public static float getConquestRate() {
 		return conquestRate;
+	}
+
+	public static void setConquestRate(float f) {
+		conquestRate = f;
+		markDirty();
 	}
 
 	public static GOTPlayerData getData(EntityPlayer entityplayer) {
@@ -191,6 +194,11 @@ public class GOTLevelData {
 
 	public static boolean isDifficultyLocked() {
 		return difficultyLock;
+	}
+
+	public static void setDifficultyLocked(boolean flag) {
+		difficultyLock = flag;
+		markDirty();
 	}
 
 	public static boolean isPlayerBannedForStructures(EntityPlayer entityplayer) {
@@ -515,16 +523,6 @@ public class GOTLevelData {
 			IMessage packet = new GOTPacketShield(entityplayer.getUniqueID());
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
-	}
-
-	public static void setConquestRate(float f) {
-		conquestRate = f;
-		markDirty();
-	}
-
-	public static void setDifficultyLocked(boolean flag) {
-		difficultyLock = flag;
-		markDirty();
 	}
 
 	public static void setEnableAlignmentZones(boolean flag) {

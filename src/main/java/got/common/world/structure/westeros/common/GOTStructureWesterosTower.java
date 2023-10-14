@@ -1,12 +1,12 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 	public boolean generateRoom = true;

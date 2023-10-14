@@ -133,6 +133,10 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 		return dataWatcher.getWatchableObjectInt(19);
 	}
 
+	public void setStrikeTime(int i) {
+		dataWatcher.updateObject(19, i);
+	}
+
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
@@ -163,9 +167,5 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 		if (!worldObj.isRemote && (i = getStrikeTime()) > 0) {
 			setStrikeTime(i - 1);
 		}
-	}
-
-	public void setStrikeTime(int i) {
-		dataWatcher.updateObject(19, i);
 	}
 }

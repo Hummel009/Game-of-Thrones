@@ -1,8 +1,5 @@
 package got.common.block.other;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
@@ -14,6 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTBlockAsshaiGrass extends BlockBush implements IShearable {
 	public GOTBlockAsshaiGrass() {

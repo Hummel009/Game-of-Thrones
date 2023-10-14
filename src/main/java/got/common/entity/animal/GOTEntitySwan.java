@@ -1,8 +1,5 @@
 package got.common.entity.animal;
 
-import java.util.List;
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -22,6 +19,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.Random;
 
 public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature, ImmuneToFrost {
 	public static Random violenceRand = new Random();

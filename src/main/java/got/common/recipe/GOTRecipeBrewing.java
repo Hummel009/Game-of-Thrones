@@ -1,8 +1,5 @@
 package got.common.recipe;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import net.minecraft.init.Blocks;
@@ -10,6 +7,9 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTRecipeBrewing {
 	public static Collection<ShapelessOreRecipe> recipes = new ArrayList<>();

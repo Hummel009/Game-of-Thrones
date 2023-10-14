@@ -1,7 +1,5 @@
 package got.common.world.structure.westeros.wildling.thenn;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
@@ -12,6 +10,8 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureThennHouse extends GOTStructureBase {
 	public Block woodBlock;

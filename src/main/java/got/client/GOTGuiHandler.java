@@ -1,12 +1,6 @@
 package got.client;
 
-import java.util.*;
-
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.collect.Lists;
-
 import cpw.mods.fml.client.GuiModList;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ModContainer;
@@ -57,6 +51,10 @@ import net.minecraft.world.WorldProvider;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.GuiScreenEvent;
 import net.minecraftforge.common.MinecraftForge;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.util.*;
 
 public class GOTGuiHandler {
 	public static RenderItem itemRenderer = new RenderItem();

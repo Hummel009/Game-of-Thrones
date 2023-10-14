@@ -1,5 +1,18 @@
 package got.common;
 
+import cpw.mods.fml.common.ModContainer;
+import got.GOT;
+import got.common.database.GOTNames;
+import got.common.util.GOTLog;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
+import net.minecraft.nbt.NBTTagString;
+import net.minecraft.util.MathHelper;
+import org.apache.commons.io.input.BOMInputStream;
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -12,20 +25,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-
-import org.apache.commons.io.input.BOMInputStream;
-import org.apache.commons.lang3.StringUtils;
-
-import cpw.mods.fml.common.ModContainer;
-import got.GOT;
-import got.common.database.GOTNames;
-import got.common.util.GOTLog;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
-import net.minecraft.nbt.NBTTagString;
-import net.minecraft.util.MathHelper;
 
 public class GOTLore {
 	public static String newline = "\n";
@@ -49,94 +48,6 @@ public class GOTLore {
 		loreText = text;
 		loreCategories = categories;
 		isRewardable = reward;
-	}
-
-	public ItemStack createLoreBook(Random random) {
-		ItemStack itemstack = new ItemStack(Items.written_book);
-		NBTTagCompound data = new NBTTagCompound();
-		itemstack.setTagCompound(data);
-		String title = formatRandom(loreTitle, random);
-		String author = formatRandom(loreAuthor, random);
-		String text = formatRandom(loreText, random);
-		List<String> textPages = organisePages(text);
-		data.setString("title", title);
-		data.setString("author", author);
-		NBTTagList pages = new NBTTagList();
-		for (String pageText : textPages) {
-			pages.appendTag(new NBTTagString(pageText));
-		}
-		data.setTag("pages", pages);
-		return itemstack;
-	}
-
-	public String formatRandom(String text, Random random) {
-		int lastIndexStart = -1;
-		do {
-			String formatted;
-			String unformatted;
-			block16:
-			{
-				String s1;
-				int indexStart = text.indexOf('{', lastIndexStart + 1);
-				int indexEnd = text.indexOf('}');
-				lastIndexStart = indexStart;
-				if (indexStart < 0 || indexEnd <= indexStart) {
-					break;
-				}
-				unformatted = text.substring(indexStart, indexEnd + 1);
-				formatted = unformatted.substring(1, unformatted.length() - 1);
-				if (formatted.startsWith("num:")) {
-					try {
-						s1 = formatted.substring("num:".length());
-						int i1 = s1.indexOf(codeCategorySeparator);
-						String s2 = s1.substring(0, i1);
-						String s3 = s1.substring(i1 + codeCategorySeparator.length());
-						int min = Integer.parseInt(s2);
-						int max = Integer.parseInt(s3);
-						int number = MathHelper.getRandomIntegerInRange(random, min, max);
-						formatted = String.valueOf(number);
-					} catch (Exception e) {
-						GOTLog.logger.error("Hummel009: Error formatting number {} in text: {}", unformatted, loreName);
-						e.printStackTrace();
-					}
-				} else if (formatted.startsWith("name:")) {
-					try {
-						String namebank = formatted.substring("name:".length());
-						if (!GOTNames.nameBankExists(namebank)) {
-							GOTLog.logger.error("Hummel009: No namebank exists for {}!", namebank);
-							break block16;
-						}
-						formatted = GOTNames.getRandomName(namebank, random);
-					} catch (Exception e) {
-						GOTLog.logger.error("Hummel009: Error formatting name {} in text: {}", unformatted, loreName);
-						e.printStackTrace();
-					}
-				} else if (formatted.startsWith("choose:")) {
-					try {
-						String remaining = formatted.substring("choose:".length());
-						ArrayList<String> words = new ArrayList<>();
-						while (!remaining.isEmpty()) {
-							String word;
-							int indexOf = remaining.indexOf('/');
-							if (indexOf >= 0) {
-								word = remaining.substring(0, indexOf);
-								remaining = remaining.substring(indexOf + "/".length());
-							} else {
-								word = remaining;
-								remaining = "";
-							}
-							words.add(word);
-						}
-						formatted = words.get(random.nextInt(words.size()));
-					} catch (Exception e) {
-						GOTLog.logger.error("Hummel009: Error formatting choice {} in text: {}", unformatted, loreName);
-						e.printStackTrace();
-					}
-				}
-			}
-			text = Pattern.compile(unformatted, Pattern.LITERAL).matcher(text).replaceFirst(Matcher.quoteReplacement(formatted));
-		} while (true);
-		return text;
 	}
 
 	public static GOTLore getMultiRandomLore(Iterable<LoreCategory> categories, Random random, boolean rewardsOnly) {
@@ -375,6 +286,94 @@ public class GOTLore {
 		return loreTextPages;
 	}
 
+	public ItemStack createLoreBook(Random random) {
+		ItemStack itemstack = new ItemStack(Items.written_book);
+		NBTTagCompound data = new NBTTagCompound();
+		itemstack.setTagCompound(data);
+		String title = formatRandom(loreTitle, random);
+		String author = formatRandom(loreAuthor, random);
+		String text = formatRandom(loreText, random);
+		List<String> textPages = organisePages(text);
+		data.setString("title", title);
+		data.setString("author", author);
+		NBTTagList pages = new NBTTagList();
+		for (String pageText : textPages) {
+			pages.appendTag(new NBTTagString(pageText));
+		}
+		data.setTag("pages", pages);
+		return itemstack;
+	}
+
+	public String formatRandom(String text, Random random) {
+		int lastIndexStart = -1;
+		do {
+			String formatted;
+			String unformatted;
+			block16:
+			{
+				String s1;
+				int indexStart = text.indexOf('{', lastIndexStart + 1);
+				int indexEnd = text.indexOf('}');
+				lastIndexStart = indexStart;
+				if (indexStart < 0 || indexEnd <= indexStart) {
+					break;
+				}
+				unformatted = text.substring(indexStart, indexEnd + 1);
+				formatted = unformatted.substring(1, unformatted.length() - 1);
+				if (formatted.startsWith("num:")) {
+					try {
+						s1 = formatted.substring("num:".length());
+						int i1 = s1.indexOf(codeCategorySeparator);
+						String s2 = s1.substring(0, i1);
+						String s3 = s1.substring(i1 + codeCategorySeparator.length());
+						int min = Integer.parseInt(s2);
+						int max = Integer.parseInt(s3);
+						int number = MathHelper.getRandomIntegerInRange(random, min, max);
+						formatted = String.valueOf(number);
+					} catch (Exception e) {
+						GOTLog.logger.error("Hummel009: Error formatting number {} in text: {}", unformatted, loreName);
+						e.printStackTrace();
+					}
+				} else if (formatted.startsWith("name:")) {
+					try {
+						String namebank = formatted.substring("name:".length());
+						if (!GOTNames.nameBankExists(namebank)) {
+							GOTLog.logger.error("Hummel009: No namebank exists for {}!", namebank);
+							break block16;
+						}
+						formatted = GOTNames.getRandomName(namebank, random);
+					} catch (Exception e) {
+						GOTLog.logger.error("Hummel009: Error formatting name {} in text: {}", unformatted, loreName);
+						e.printStackTrace();
+					}
+				} else if (formatted.startsWith("choose:")) {
+					try {
+						String remaining = formatted.substring("choose:".length());
+						ArrayList<String> words = new ArrayList<>();
+						while (!remaining.isEmpty()) {
+							String word;
+							int indexOf = remaining.indexOf('/');
+							if (indexOf >= 0) {
+								word = remaining.substring(0, indexOf);
+								remaining = remaining.substring(indexOf + "/".length());
+							} else {
+								word = remaining;
+								remaining = "";
+							}
+							words.add(word);
+						}
+						formatted = words.get(random.nextInt(words.size()));
+					} catch (Exception e) {
+						GOTLog.logger.error("Hummel009: Error formatting choice {} in text: {}", unformatted, loreName);
+						e.printStackTrace();
+					}
+				}
+			}
+			text = Pattern.compile(unformatted, Pattern.LITERAL).matcher(text).replaceFirst(Matcher.quoteReplacement(formatted));
+		} while (true);
+		return text;
+	}
+
 	public enum LoreCategory {
 		WESTEROS("westeros"), ESSOS("essos"), YITI("yiti"), ASSHAI("asshai"), SOTHORYOS("sothoryos"), MOSSOVY("mossovy");
 
@@ -386,10 +385,6 @@ public class GOTLore {
 			categoryName = s;
 		}
 
-		public void addLore(GOTLore lore) {
-			loreList.add(lore);
-		}
-
 		public static LoreCategory forName(String s) {
 			for (LoreCategory r : values()) {
 				if (s.equalsIgnoreCase(r.categoryName)) {
@@ -397,6 +392,10 @@ public class GOTLore {
 				}
 			}
 			return null;
+		}
+
+		public void addLore(GOTLore lore) {
+			loreList.add(lore);
 		}
 	}
 

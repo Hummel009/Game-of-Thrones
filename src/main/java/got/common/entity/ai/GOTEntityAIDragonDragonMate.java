@@ -1,11 +1,11 @@
 package got.common.entity.ai;
 
-import java.util.List;
-
 import got.common.entity.dragon.GOTDragonLifeStage;
 import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTEntityAIDragonDragonMate extends EntityAIBase {
 

@@ -1,7 +1,5 @@
 package got.common.world.structure.other;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import net.minecraft.block.Block;
@@ -9,6 +7,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.Direction;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 	public Block brickBlock;

@@ -1,10 +1,6 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
@@ -21,6 +17,9 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 	public static int RADIUS = 60;

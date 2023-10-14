@@ -1,11 +1,11 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIbbenVillagePasture extends GOTStructureIbbenBase {
 	public GOTStructureIbbenVillagePasture(boolean flag) {

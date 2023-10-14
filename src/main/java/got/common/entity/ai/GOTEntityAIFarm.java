@@ -1,9 +1,6 @@
 package got.common.entity.ai;
 
-import java.util.*;
-
 import com.mojang.authlib.GameProfile;
-
 import got.common.block.other.GOTBlockCorn;
 import got.common.block.other.GOTBlockGrapevine;
 import got.common.database.GOTBlocks;
@@ -39,6 +36,8 @@ import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.common.util.FakePlayerFactory;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.*;
 
 public class GOTEntityAIFarm extends EntityAIBase {
 	public static int DEPOSIT_THRESHOLD = 16;

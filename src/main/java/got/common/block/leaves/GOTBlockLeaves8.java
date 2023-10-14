@@ -1,13 +1,13 @@
 package got.common.block.leaves;
 
-import java.util.List;
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.Random;
 
 public class GOTBlockLeaves8 extends GOTBlockLeavesBase {
 	public GOTBlockLeaves8() {

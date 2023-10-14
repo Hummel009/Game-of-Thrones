@@ -1,9 +1,9 @@
 package got.client.sound;
 
+import org.apache.commons.lang3.tuple.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.apache.commons.lang3.tuple.Pair;
 
 public enum GOTBiomeMusic {
 	MENU("menu"), ESSOS("essos"), WESTEROS("westeros"), ULTHOS("ulthos"), SOTHORYOS("sothoryos"), OCEAN("ocean");
@@ -14,6 +14,15 @@ public enum GOTBiomeMusic {
 
 	GOTBiomeMusic(String s) {
 		regionName = s;
+	}
+
+	public static GOTBiomeMusic forName(String s) {
+		for (GOTBiomeMusic r : values()) {
+			if (s.equalsIgnoreCase(r.regionName)) {
+				return r;
+			}
+		}
+		return null;
 	}
 
 	public List<String> getAllSubregions() {
@@ -37,15 +46,6 @@ public enum GOTBiomeMusic {
 
 	public boolean hasSubregion(String s) {
 		return subregions.contains(s);
-	}
-
-	public static GOTBiomeMusic forName(String s) {
-		for (GOTBiomeMusic r : values()) {
-			if (s.equalsIgnoreCase(r.regionName)) {
-				return r;
-			}
-		}
-		return null;
 	}
 
 	public static class MusicRegion extends Pair<GOTBiomeMusic, String> {

@@ -1,8 +1,5 @@
 package got.common.world.biome.sothoryos;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
@@ -17,6 +14,9 @@ import got.common.world.structure.other.GOTStructureRottenHouse;
 import got.common.world.structure.other.GOTStructureRuinedHouse;
 import got.common.world.structure.other.GOTStructureStoneRuin;
 import got.common.world.structure.sothoryos.summer.GOTStructureSummerSettlement;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTBiomeSummerIslands extends GOTBiomeSothoryosJungle {
 	public GOTBiomeSummerIslands(int i, boolean major) {

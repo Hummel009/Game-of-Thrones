@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.jogos;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -11,6 +9,8 @@ import got.common.entity.essos.jogos.GOTEntityJogosChief;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureJogosChiefTent extends GOTStructureJogosBase {
 	public GOTStructureJogosChiefTent(boolean flag) {

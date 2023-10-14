@@ -1,14 +1,6 @@
 package got.client;
 
-import java.util.BitSet;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
-
-import org.lwjgl.input.Keyboard;
-
 import com.google.common.math.IntMath;
-
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
@@ -25,6 +17,12 @@ import got.common.faction.GOTFaction;
 import got.common.network.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.KeyBinding;
+import org.lwjgl.input.Keyboard;
+
+import java.util.BitSet;
+import java.util.EnumMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTKeyHandler {
 	public static KeyBinding keyBindingMenu = new KeyBinding("Menu", 38, "Game of Thrones");
@@ -56,6 +54,12 @@ public class GOTKeyHandler {
 		ClientRegistry.registerKeyBinding(keyBindingDragonUp);
 		ClientRegistry.registerKeyBinding(keyBindingDragonDown);
 		ClientRegistry.registerKeyBinding(keyBindingCargoCart);
+	}
+
+	public static void update() {
+		if (alignmentChangeTick > 0) {
+			--alignmentChangeTick;
+		}
 	}
 
 	@SubscribeEvent
@@ -141,12 +145,6 @@ public class GOTKeyHandler {
 		flags.set(1, keyBindingDragonDown.getIsKeyPressed());
 		if (dcm.hasChanged()) {
 			network.sendToServer(dcm);
-		}
-	}
-
-	public static void update() {
-		if (alignmentChangeTick > 0) {
-			--alignmentChangeTick;
 		}
 	}
 }

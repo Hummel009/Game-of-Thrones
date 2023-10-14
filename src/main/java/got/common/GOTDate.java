@@ -1,11 +1,6 @@
 package got.common;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.google.common.math.IntMath;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.network.GOTPacketDate;
@@ -16,6 +11,10 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTDate {
 	public static int ticksInDay = GOTTime.DAY_LENGTH;
@@ -70,6 +69,20 @@ public class GOTDate {
 		prevWorldTime = worldTime;
 	}
 
+	public enum Season {
+		SPRING("spring", 0), SUMMER("summer", 1), AUTUMN("autumn", 2), WINTER("winter", 3);
+
+		public static Season[] allSeasons = {SPRING, SUMMER, AUTUMN, WINTER};
+		public String name;
+		public int seasonID;
+
+		Season(String s, int i) {
+			name = s;
+			seasonID = i;
+		}
+
+	}
+
 	public static class AegonCalendar {
 		public static Date startDate = new Date(298, Month.JULY, 10);
 		public static int currentDay;
@@ -103,6 +116,50 @@ public class GOTDate {
 
 		public static boolean isLeapYear(int year) {
 			return year % 4 == 0 && year % 100 != 0;
+		}
+
+		public enum Day {
+			SUNDAY("sunday"), MONDAY("monday"), TUESDAY("tuesday"), WEDNESDAY("wednesday"), THIRSDAY("thirsday"), FRIDAY("friday"), SATURDAY("saturday");
+
+			public String name;
+
+			Day(String s) {
+				name = s;
+			}
+
+			public String getDayName() {
+				return StatCollector.translateToLocal("got.date.day." + name);
+			}
+		}
+
+		public enum Month {
+			JANUARY("january", 31, Season.WINTER), FEBRUARY("february", 28, Season.WINTER), MARCH("march", 31, Season.SPRING), APRIL("april", 30, Season.SPRING), MAY("may", 31, Season.SPRING), JUNE("june", 30, Season.SUMMER), JULY("july", 31, Season.SUMMER), AUGUST("august", 31, Season.SUMMER), SEPTEMBER("september", 30, Season.AUTUMN), OCTOBER("october", 31, Season.AUTUMN), NOVEMBER("november", 30, Season.AUTUMN), DECEMBER("december", 31, Season.WINTER);
+
+			public String name;
+			public int days;
+			public boolean hasWeekdayName;
+			public boolean isLeapYear;
+			public Season season;
+
+			Month(String s, int i, Season se) {
+				this(s, i, se, true, false);
+			}
+
+			Month(String s, int i, Season se, boolean flag, boolean flag1) {
+				name = s;
+				days = i;
+				hasWeekdayName = flag;
+				isLeapYear = flag1;
+				season = se;
+			}
+
+			public String getMonthName() {
+				return StatCollector.translateToLocal("got.date.month." + name);
+			}
+
+			public boolean isSingleDay() {
+				return days == 1;
+			}
 		}
 
 		public static class Date {
@@ -213,64 +270,6 @@ public class GOTDate {
 				}
 				return new Date(newYear, newMonth, newDate);
 			}
-		}
-
-		public enum Day {
-			SUNDAY("sunday"), MONDAY("monday"), TUESDAY("tuesday"), WEDNESDAY("wednesday"), THIRSDAY("thirsday"), FRIDAY("friday"), SATURDAY("saturday");
-
-			public String name;
-
-			Day(String s) {
-				name = s;
-			}
-
-			public String getDayName() {
-				return StatCollector.translateToLocal("got.date.day." + name);
-			}
-		}
-
-		public enum Month {
-			JANUARY("january", 31, Season.WINTER), FEBRUARY("february", 28, Season.WINTER), MARCH("march", 31, Season.SPRING), APRIL("april", 30, Season.SPRING), MAY("may", 31, Season.SPRING), JUNE("june", 30, Season.SUMMER), JULY("july", 31, Season.SUMMER), AUGUST("august", 31, Season.SUMMER), SEPTEMBER("september", 30, Season.AUTUMN), OCTOBER("october", 31, Season.AUTUMN), NOVEMBER("november", 30, Season.AUTUMN), DECEMBER("december", 31, Season.WINTER);
-
-			public String name;
-			public int days;
-			public boolean hasWeekdayName;
-			public boolean isLeapYear;
-			public Season season;
-
-			Month(String s, int i, Season se) {
-				this(s, i, se, true, false);
-			}
-
-			Month(String s, int i, Season se, boolean flag, boolean flag1) {
-				name = s;
-				days = i;
-				hasWeekdayName = flag;
-				isLeapYear = flag1;
-				season = se;
-			}
-
-			public String getMonthName() {
-				return StatCollector.translateToLocal("got.date.month." + name);
-			}
-
-			public boolean isSingleDay() {
-				return days == 1;
-			}
-		}
-
-	}
-
-	public enum Season {
-		SPRING("spring", 0), SUMMER("summer", 1), AUTUMN("autumn", 2), WINTER("winter", 3);
-
-		public static Season[] allSeasons = {SPRING, SUMMER, AUTUMN, WINTER};
-		public String name;
-		public int seasonID;
-
-		Season(String s, int i) {
-			name = s;
-			seasonID = i;
 		}
 
 	}

@@ -1,7 +1,5 @@
 package got.common.item.other;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -12,12 +10,28 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 
+import java.util.List;
+
 public class GOTItemTurban extends GOTItemRobes {
 	@SideOnly(Side.CLIENT)
 	public IIcon ornamentIcon;
 
 	public GOTItemTurban() {
 		super(0);
+	}
+
+	public static boolean hasOrnament(ItemStack itemstack) {
+		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("TurbanOrnament")) {
+			return itemstack.getTagCompound().getBoolean("TurbanOrnament");
+		}
+		return false;
+	}
+
+	public static void setHasOrnament(ItemStack itemstack, boolean flag) {
+		if (itemstack.getTagCompound() == null) {
+			itemstack.setTagCompound(new NBTTagCompound());
+		}
+		itemstack.getTagCompound().setBoolean("TurbanOrnament", flag);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -63,19 +77,5 @@ public class GOTItemTurban extends GOTItemRobes {
 	@Override
 	public boolean requiresMultipleRenderPasses() {
 		return true;
-	}
-
-	public static boolean hasOrnament(ItemStack itemstack) {
-		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("TurbanOrnament")) {
-			return itemstack.getTagCompound().getBoolean("TurbanOrnament");
-		}
-		return false;
-	}
-
-	public static void setHasOrnament(ItemStack itemstack, boolean flag) {
-		if (itemstack.getTagCompound() == null) {
-			itemstack.setTagCompound(new NBTTagCompound());
-		}
-		itemstack.getTagCompound().setBoolean("TurbanOrnament", flag);
 	}
 }

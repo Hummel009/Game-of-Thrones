@@ -1,10 +1,9 @@
 package got.common.world.structure.essos.common;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public abstract class GOTStructureEssosTownWall extends GOTStructureEssosBase {
 	public boolean centrePillar;

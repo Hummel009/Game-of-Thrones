@@ -1,14 +1,13 @@
 package got.common.fellowship;
 
-import java.util.Locale;
-import java.util.UUID;
-
 import com.mojang.authlib.GameProfile;
-
 import got.GOT;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityBanner;
 import net.minecraft.util.StatCollector;
+
+import java.util.Locale;
+import java.util.UUID;
 
 public class GOTFellowshipProfile extends GameProfile {
 	public static String fellowshipPrefix = "f/";
@@ -17,19 +16,6 @@ public class GOTFellowshipProfile extends GameProfile {
 	public GOTFellowshipProfile(GOTEntityBanner banner, UUID fsID, String fsName) {
 		super(fsID, fsName);
 		fellowshipName = fsName;
-	}
-
-	public GOTFellowship getFellowship() {
-		return GOTFellowshipData.getActiveFellowship(getId());
-	}
-
-	public GOTFellowshipClient getFellowshipClient() {
-		return GOTLevelData.getData(GOT.proxy.getClientPlayer()).getClientFellowshipByName(fellowshipName);
-	}
-
-	@Override
-	public String getName() {
-		return addFellowshipCode(super.getName());
 	}
 
 	public static String addFellowshipCode(String s) {
@@ -46,5 +32,18 @@ public class GOTFellowshipProfile extends GameProfile {
 
 	public static String stripFellowshipCode(String s) {
 		return s.substring(fellowshipPrefix.length());
+	}
+
+	public GOTFellowship getFellowship() {
+		return GOTFellowshipData.getActiveFellowship(getId());
+	}
+
+	public GOTFellowshipClient getFellowshipClient() {
+		return GOTLevelData.getData(GOT.proxy.getClientPlayer()).getClientFellowshipByName(fellowshipName);
+	}
+
+	@Override
+	public String getName() {
+		return addFellowshipCode(super.getName());
 	}
 }

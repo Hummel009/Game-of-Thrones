@@ -1,11 +1,11 @@
 package got.common.enchant;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.database.GOTItems;
 import got.common.item.other.GOTItemModifierTemplate;
 import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTEnchantmentCombining {
 	public static Collection<CombineRecipe> allCombineRecipes = new ArrayList<>();

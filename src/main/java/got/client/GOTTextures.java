@@ -1,15 +1,5 @@
 package got.client;
 
-import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.imageio.ImageIO;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.gui.GOTGuiMap;
@@ -34,6 +24,14 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
+import org.lwjgl.opengl.GL11;
+
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTTextures implements IResourceManagerReloadListener {
 	public static Minecraft mc = Minecraft.getMinecraft();
@@ -64,28 +62,6 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	public static int newWaterHeight = 8;
 	public static Map<ResourceLocation, ResourceLocation> eyesTextures = new HashMap<>();
 	public static Map<ResourceLocation, Integer> averagedPageColors = new HashMap<>();
-
-	@Override
-	public void onResourceManagerReload(IResourceManager resourceManager) {
-		loadMapTextures();
-		replaceWaterParticles();
-		eyesTextures.clear();
-		averagedPageColors.clear();
-	}
-
-	@SubscribeEvent
-	public void preTextureStitch(TextureStitchEvent.Pre event) {
-		TextureMap map = event.map;
-		if (map.getTextureType() == 0) {
-			GOTCommonIcons.iconEmptyBlock = generateIconEmpty(map);
-			GOTCommonIcons.iconStoneSnow = map.registerIcon("stone_snow");
-		}
-		if (map.getTextureType() == 1) {
-			GOTCommonIcons.iconEmptyItem = generateIconEmpty(map);
-			GOTCommonIcons.iconMeleeWeapon = map.registerIcon("got:slot_melee");
-			GOTCommonIcons.iconBomb = map.registerIcon("got:slot_bomb");
-		}
-	}
 
 	public static int computeAverageFactionPageColor(ResourceLocation texture, int u0, int v0, int u1, int v1) {
 		if (!averagedPageColors.containsKey(texture)) {
@@ -444,6 +420,28 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		} catch (IOException e) {
 			FMLLog.severe("Failed to replace rain particles");
 			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void onResourceManagerReload(IResourceManager resourceManager) {
+		loadMapTextures();
+		replaceWaterParticles();
+		eyesTextures.clear();
+		averagedPageColors.clear();
+	}
+
+	@SubscribeEvent
+	public void preTextureStitch(TextureStitchEvent.Pre event) {
+		TextureMap map = event.map;
+		if (map.getTextureType() == 0) {
+			GOTCommonIcons.iconEmptyBlock = generateIconEmpty(map);
+			GOTCommonIcons.iconStoneSnow = map.registerIcon("stone_snow");
+		}
+		if (map.getTextureType() == 1) {
+			GOTCommonIcons.iconEmptyItem = generateIconEmpty(map);
+			GOTCommonIcons.iconMeleeWeapon = map.registerIcon("got:slot_melee");
+			GOTCommonIcons.iconBomb = map.registerIcon("got:slot_bomb");
 		}
 	}
 }

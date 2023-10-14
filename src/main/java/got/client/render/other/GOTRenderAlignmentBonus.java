@@ -1,9 +1,5 @@
 package got.client.render.other;
 
-import java.util.Map;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTClientProxy;
 import got.client.GOTTickHandlerClient;
 import got.client.effect.GOTEntityAlignmentBonus;
@@ -19,6 +15,9 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import java.util.Map;
 
 public class GOTRenderAlignmentBonus extends Render {
 	public GOTRenderAlignmentBonus() {

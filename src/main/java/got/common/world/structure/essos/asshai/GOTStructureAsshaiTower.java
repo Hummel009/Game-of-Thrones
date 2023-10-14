@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.essos.asshai.GOTEntityAsshaiCaptain;
@@ -9,6 +7,8 @@ import got.common.item.other.GOTItemBanner;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiTower extends GOTStructureAsshaiBase {
 	public GOTStructureAsshaiTower(boolean flag) {

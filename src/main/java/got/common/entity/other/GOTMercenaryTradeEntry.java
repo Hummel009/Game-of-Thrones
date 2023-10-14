@@ -12,6 +12,10 @@ public class GOTMercenaryTradeEntry extends GOTUnitTradeEntry {
 		theMerc = merc;
 	}
 
+	public static GOTMercenaryTradeEntry createFor(GOTMercenary merc) {
+		return new GOTMercenaryTradeEntry(merc);
+	}
+
 	@Override
 	public GOTEntityNPC getOrCreateHiredNPC(World world) {
 		return (GOTEntityNPC) theMerc;
@@ -23,9 +27,5 @@ public class GOTMercenaryTradeEntry extends GOTUnitTradeEntry {
 			return false;
 		}
 		return super.hasRequiredCostAndAlignment(entityplayer, trader);
-	}
-
-	public static GOTMercenaryTradeEntry createFor(GOTMercenary merc) {
-		return new GOTMercenaryTradeEntry(merc);
 	}
 }

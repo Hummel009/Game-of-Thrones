@@ -1,22 +1,35 @@
 package got.client.render.other;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelKebabStand;
 import got.common.tileentity.GOTTileEntityKebabStand;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StringUtils;
+import org.lwjgl.opengl.GL11;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 	public static GOTModelKebabStand standModel = new GOTModelKebabStand();
 	public static Map<String, ResourceLocation> standTextures = new HashMap<>();
 	public static ResourceLocation rawTexture = new ResourceLocation("got:textures/model/kebab/raw.png");
 	public static ResourceLocation cookedTexture = new ResourceLocation("got:textures/model/kebab/cooked.png");
+
+	public static ResourceLocation getStandTexture(GOTTileEntityKebabStand kebabStand) {
+		ResourceLocation r;
+		String s = kebabStand.getStandTextureName();
+		if (!StringUtils.isNullOrEmpty(s)) {
+			s = "_" + s;
+		}
+		r = standTextures.get(s = "stand" + s);
+		if (r == null) {
+			r = new ResourceLocation("got:textures/model/kebab/" + s + ".png");
+			standTextures.put(s, r);
+		}
+		return r;
+	}
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
@@ -62,19 +75,5 @@ public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 		GL11.glEnable(2884);
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();
-	}
-
-	public static ResourceLocation getStandTexture(GOTTileEntityKebabStand kebabStand) {
-		ResourceLocation r;
-		String s = kebabStand.getStandTextureName();
-		if (!StringUtils.isNullOrEmpty(s)) {
-			s = "_" + s;
-		}
-		r = standTextures.get(s = "stand" + s);
-		if (r == null) {
-			r = new ResourceLocation("got:textures/model/kebab/" + s + ".png");
-			standTextures.put(s, r);
-		}
-		return r;
 	}
 }

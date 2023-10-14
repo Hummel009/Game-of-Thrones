@@ -1,10 +1,5 @@
 package got.common.command;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.fellowship.GOTFellowship;
@@ -16,6 +11,11 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandFellowshipMessage extends CommandBase {
 	@Override

@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.braavos;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.entity.essos.braavos.GOTEntityBraavosMan;
 import got.common.entity.essos.braavos.GOTEntityBraavosSoldier;
 import got.common.entity.essos.braavos.GOTEntityBraavosSoldierArcher;
@@ -14,6 +11,8 @@ import got.common.world.structure.essos.common.GOTStructureEssosVillageFence;
 import got.common.world.structure.essos.common.GOTStructureEssosVillagePost;
 import got.common.world.structure.other.*;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -37,6 +36,10 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureBraavosSettlement> {
@@ -504,9 +507,5 @@ public class GOTStructureBraavosSettlement extends GOTStructureBaseSettlement {
 		public void setWarriorSpawnClasses(GOTEntityNPCRespawner spawner) {
 			spawner.setSpawnClasses(GOTEntityBraavosSoldier.class, GOTEntityBraavosSoldierArcher.class);
 		}
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT
 	}
 }

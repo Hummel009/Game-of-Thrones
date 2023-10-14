@@ -1,12 +1,12 @@
 package got.common.database;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import got.common.item.other.GOTItemMug;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTFoods {
 	public static GOTFoods WESTEROS = new GOTFoods(new ItemStack[]{new ItemStack(Items.cooked_porkchop), new ItemStack(Items.cooked_chicken), new ItemStack(Items.cooked_beef), new ItemStack(Items.cooked_fished), new ItemStack(GOTItems.muttonCooked), new ItemStack(GOTItems.deerCooked), new ItemStack(Items.baked_potato), new ItemStack(Items.apple), new ItemStack(GOTItems.appleGreen), new ItemStack(GOTItems.pear), new ItemStack(GOTItems.olive), new ItemStack(GOTItems.plum), new ItemStack(Items.bread), new ItemStack(GOTItems.oliveBread), new ItemStack(GOTItems.blueberry), new ItemStack(GOTItems.blackberry), new ItemStack(GOTItems.cranberry)});
@@ -32,6 +32,23 @@ public class GOTFoods {
 
 	public GOTItemMug.Vessel[] getDrinkVessels() {
 		return drinkVessels;
+	}
+
+	public GOTFoods setDrinkVessels(GOTItemMug.Vessel... vessels) {
+		drinkVessels = vessels;
+		ArrayList<GOTItemMug.Vessel> placeable = new ArrayList<>();
+		for (GOTItemMug.Vessel v : drinkVessels) {
+			if (!v.canPlace) {
+				continue;
+			}
+			placeable.add(v);
+		}
+		if (placeable.isEmpty()) {
+			drinkVesselsPlaceable = new GOTItemMug.Vessel[]{GOTItemMug.Vessel.MUG};
+		} else {
+			drinkVesselsPlaceable = placeable.toArray(new GOTItemMug.Vessel[0]);
+		}
+		return this;
 	}
 
 	public GOTItemMug.Vessel[] getPlaceableDrinkVessels() {
@@ -95,22 +112,5 @@ public class GOTFoods {
 			}
 			GOTItemMug.setVessel(itemstack, v, true);
 		}
-	}
-
-	public GOTFoods setDrinkVessels(GOTItemMug.Vessel... vessels) {
-		drinkVessels = vessels;
-		ArrayList<GOTItemMug.Vessel> placeable = new ArrayList<>();
-		for (GOTItemMug.Vessel v : drinkVessels) {
-			if (!v.canPlace) {
-				continue;
-			}
-			placeable.add(v);
-		}
-		if (placeable.isEmpty()) {
-			drinkVesselsPlaceable = new GOTItemMug.Vessel[]{GOTItemMug.Vessel.MUG};
-		} else {
-			drinkVesselsPlaceable = placeable.toArray(new GOTItemMug.Vessel[0]);
-		}
-		return this;
 	}
 }

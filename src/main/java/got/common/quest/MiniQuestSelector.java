@@ -1,10 +1,9 @@
 package got.common.quest;
 
-import java.util.UUID;
-
 import com.google.common.base.Supplier;
-
 import got.common.faction.GOTFaction;
+
+import java.util.UUID;
 
 public interface MiniQuestSelector {
 	boolean include(GOTMiniQuest var1);

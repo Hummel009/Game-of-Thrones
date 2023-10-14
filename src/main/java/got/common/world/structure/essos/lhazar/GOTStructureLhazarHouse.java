@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -9,6 +7,8 @@ import got.common.database.GOTItems;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 	public GOTStructureLhazarHouse(boolean flag) {

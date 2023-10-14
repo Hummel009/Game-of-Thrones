@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.entity.other.GOTEntityInvasionSpawner;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.texture.TextureMap;
@@ -9,6 +7,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderInvasionSpawner extends Render {
 	@Override

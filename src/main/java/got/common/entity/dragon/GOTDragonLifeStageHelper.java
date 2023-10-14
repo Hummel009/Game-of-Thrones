@@ -1,14 +1,13 @@
 package got.common.entity.dragon;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 
@@ -50,6 +49,12 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 			return GOTDragonLifeStage.HATCHLING;
 		}
 		return GOTDragonLifeStage.EGG;
+	}
+
+	public void setLifeStage(GOTDragonLifeStage lifeStage) {
+		L.trace("setLifeStage({})", lifeStage);
+		dragon.setGrowingAge(lifeStage.ageLimit);
+		updateLifeStage();
 	}
 
 	public float getScale() {
@@ -129,12 +134,6 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 		int by = (int) Math.round(dragon.posY);
 		int bz = (int) Math.round(dragon.posZ - 0.5);
 		dragon.worldObj.playAuxSFX(2001, bx, by, bz, Block.getIdFromBlock(Blocks.dragon_egg));
-	}
-
-	public void setLifeStage(GOTDragonLifeStage lifeStage) {
-		L.trace("setLifeStage({})", lifeStage);
-		dragon.setGrowingAge(lifeStage.ageLimit);
-		updateLifeStage();
 	}
 
 	public void transformToEgg() {

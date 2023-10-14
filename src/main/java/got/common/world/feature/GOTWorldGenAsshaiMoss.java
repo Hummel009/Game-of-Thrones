@@ -1,12 +1,12 @@
 package got.common.world.feature;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.world.biome.essos.GOTBiomeShadowMountains;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class GOTWorldGenAsshaiMoss extends WorldGenerator {
 	@Override

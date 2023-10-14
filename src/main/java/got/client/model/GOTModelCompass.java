@@ -1,13 +1,12 @@
 package got.client.model;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.render.other.GOTRenderCompass;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.texture.TextureManager;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTModelCompass extends ModelBase {
 	public static GOTModelCompass compassModel = new GOTModelCompass();

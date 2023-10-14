@@ -1,8 +1,5 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -12,6 +9,9 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 	public GOTStructureIbbenHouse(boolean flag) {

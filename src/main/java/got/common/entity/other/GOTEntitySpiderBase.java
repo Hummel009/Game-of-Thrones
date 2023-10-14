@@ -136,6 +136,10 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		return false;
 	}
 
+	@Override
+	public void setBelongsToNPC(boolean flag) {
+	}
+
 	public float getClimbFractionRemaining() {
 		float f = getSpiderClimbTime() / 100.0f;
 		f = Math.min(f, 1.0f);
@@ -191,8 +195,16 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		return dataWatcher.getWatchableObjectShort(23);
 	}
 
+	public void setSpiderClimbTime(int i) {
+		dataWatcher.updateObject(23, (short) i);
+	}
+
 	public int getSpiderScale() {
 		return dataWatcher.getWatchableObjectByte(22);
+	}
+
+	public void setSpiderScale(int i) {
+		dataWatcher.updateObject(22, (byte) i);
 	}
 
 	public float getSpiderScaleAmount() {
@@ -201,6 +213,10 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 
 	public int getSpiderType() {
 		return dataWatcher.getWatchableObjectByte(21);
+	}
+
+	public void setSpiderType(int i) {
+		dataWatcher.updateObject(21, (byte) i);
 	}
 
 	@Override
@@ -280,6 +296,12 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 		return (dataWatcher.getWatchableObjectByte(20) & 1) != 0;
 	}
 
+	public void setSpiderClimbing(boolean flag) {
+		byte b = dataWatcher.getWatchableObjectByte(20);
+		b = flag ? (byte) (b | 1) : (byte) (b & 0xFFFFFFFE);
+		dataWatcher.updateObject(20, b);
+	}
+
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
@@ -316,29 +338,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 	}
 
 	@Override
-	public void setBelongsToNPC(boolean flag) {
-	}
-
-	@Override
 	public void setInWeb() {
-	}
-
-	public void setSpiderClimbing(boolean flag) {
-		byte b = dataWatcher.getWatchableObjectByte(20);
-		b = flag ? (byte) (b | 1) : (byte) (b & 0xFFFFFFFE);
-		dataWatcher.updateObject(20, b);
-	}
-
-	public void setSpiderClimbTime(int i) {
-		dataWatcher.updateObject(23, (short) i);
-	}
-
-	public void setSpiderScale(int i) {
-		dataWatcher.updateObject(22, (byte) i);
-	}
-
-	public void setSpiderType(int i) {
-		dataWatcher.updateObject(21, (byte) i);
 	}
 
 	public boolean shouldRenderClimbingMeter() {

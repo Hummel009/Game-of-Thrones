@@ -1,7 +1,5 @@
 package got.common.world.biome.variant;
 
-import java.util.*;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTDimension;
@@ -14,6 +12,8 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.Chunk;
+
+import java.util.*;
 
 public class GOTBiomeVariantStorage {
 	public static Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> chunkVariantMap = new EnumMap<>(GOTDimension.class);

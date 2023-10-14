@@ -1,7 +1,5 @@
 package got.common.entity.ai;
 
-import java.util.Random;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -9,6 +7,8 @@ import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTEntityAIBurningPanic extends EntityAIBase {
 	public EntityCreature theEntity;

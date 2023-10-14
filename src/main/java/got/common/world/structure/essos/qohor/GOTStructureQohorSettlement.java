@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.qohor;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.entity.essos.qohor.GOTEntityQohorGuard;
 import got.common.entity.essos.qohor.GOTEntityQohorMan;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -13,6 +10,8 @@ import got.common.world.structure.essos.common.GOTStructureEssosVillageFence;
 import got.common.world.structure.essos.common.GOTStructureEssosVillagePost;
 import got.common.world.structure.other.*;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -36,6 +35,10 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureQohorSettlement> {
@@ -500,10 +503,6 @@ public class GOTStructureQohorSettlement extends GOTStructureBaseSettlement {
 			spawner.setSpawnClass(GOTEntityQohorGuard.class);
 		}
 
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT
 	}
 
 }

@@ -1,7 +1,5 @@
 package got.common.entity.westeros;
 
-import java.awt.Color;
-
 import got.common.GOTLevelData;
 import got.common.database.*;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
@@ -21,6 +19,8 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.awt.*;
 
 public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements GOTTradeable.Smith, GOTBiome.ImmuneToHeat {
 	public GOTEntityLightSkinScrapTrader(World world) {

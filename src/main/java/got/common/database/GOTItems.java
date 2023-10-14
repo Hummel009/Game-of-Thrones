@@ -1,10 +1,6 @@
 package got.common.database;
 
-import java.util.HashSet;
-import java.util.Set;
-
 import com.google.common.base.CaseFormat;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.block.other.GOTBlockReplacement;
 import got.common.enchant.GOTEnchantment;
@@ -25,6 +21,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class GOTItems {
 	public static final Set<Item> CONTENT = new HashSet<>();

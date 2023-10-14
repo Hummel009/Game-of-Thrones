@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.tyrosh;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.entity.essos.tyrosh.GOTEntityTyroshMan;
 import got.common.entity.essos.tyrosh.GOTEntityTyroshSoldier;
 import got.common.entity.essos.tyrosh.GOTEntityTyroshSoldierArcher;
@@ -16,6 +13,8 @@ import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -39,6 +38,10 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureTyroshSettlement> {
@@ -505,10 +508,6 @@ public class GOTStructureTyroshSettlement extends GOTStructureBaseSettlement {
 			spawner.setSpawnClasses(GOTEntityTyroshSoldier.class, GOTEntityTyroshSoldierArcher.class);
 		}
 
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT
 	}
 
 }

@@ -1,7 +1,5 @@
 package got.common.block.other;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -15,6 +13,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
+
+import java.util.Random;
 
 public class GOTBlockReed extends Block implements IPlantable {
 	public static int MAX_GROW_HEIGHT = 3;

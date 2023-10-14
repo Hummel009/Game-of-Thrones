@@ -1,11 +1,5 @@
 package got.client.render.other;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.*;
-
-import javax.imageio.ImageIO;
-
 import cpw.mods.fml.common.FMLLog;
 import got.common.block.GOTConnectedBlock;
 import net.minecraft.client.Minecraft;
@@ -15,6 +9,11 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.*;
 
 public class GOTConnectedTextures {
 	public static Map<String, Map<Integer, IIcon>> blockIconsMap = new HashMap<>();

@@ -1,12 +1,11 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.entity.other.GOTEntityMarshWraithBall;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderWraithBall extends Render {
 	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith_ball.png");

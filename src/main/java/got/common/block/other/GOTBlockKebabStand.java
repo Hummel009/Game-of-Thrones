@@ -1,7 +1,5 @@
 package got.common.block.other;
 
-import java.util.ArrayList;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.GOTLevelData;
@@ -24,6 +22,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 public class GOTBlockKebabStand extends BlockContainer {
 	public String standTextureName;

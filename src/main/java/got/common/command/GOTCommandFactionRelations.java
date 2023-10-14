@@ -1,13 +1,13 @@
 package got.common.command;
 
-import java.util.Collections;
-import java.util.List;
-
 import got.common.faction.GOTFaction;
 import got.common.faction.GOTFactionRelations;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
+
+import java.util.Collections;
+import java.util.List;
 
 public class GOTCommandFactionRelations extends CommandBase {
 	@Override

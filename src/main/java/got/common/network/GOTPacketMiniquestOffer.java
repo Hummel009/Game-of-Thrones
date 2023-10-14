@@ -1,7 +1,5 @@
 package got.common.network;
 
-import java.io.IOException;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -18,6 +16,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.world.World;
 
+import java.io.IOException;
+
 public class GOTPacketMiniquestOffer implements IMessage {
 	public int entityID;
 	public NBTTagCompound miniquestData;
@@ -28,6 +28,15 @@ public class GOTPacketMiniquestOffer implements IMessage {
 	public GOTPacketMiniquestOffer(int id, NBTTagCompound nbt) {
 		entityID = id;
 		miniquestData = nbt;
+	}
+
+	public static void sendClosePacket(EntityPlayer entityplayer, GOTEntityNPC npc, boolean accept) {
+		if (entityplayer == null) {
+			FMLLog.warning("GOT Warning: Tried to send miniquest offer close packet, but player == null");
+			return;
+		}
+		IMessage packet = new GOTPacketMiniquestOfferClose(npc.getEntityId(), accept);
+		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 
 	@Override
@@ -50,15 +59,6 @@ public class GOTPacketMiniquestOffer implements IMessage {
 			FMLLog.severe("Error writing miniquest data");
 			e.printStackTrace();
 		}
-	}
-
-	public static void sendClosePacket(EntityPlayer entityplayer, GOTEntityNPC npc, boolean accept) {
-		if (entityplayer == null) {
-			FMLLog.warning("GOT Warning: Tried to send miniquest offer close packet, but player == null");
-			return;
-		}
-		IMessage packet = new GOTPacketMiniquestOfferClose(npc.getEntityId(), accept);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketMiniquestOffer, IMessage> {

@@ -1,9 +1,5 @@
 package got.common.item.other;
 
-import java.util.UUID;
-
-import org.apache.commons.lang3.StringUtils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -30,6 +26,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.UUID;
 
 public class GOTItemBrandingIron extends Item {
 	public static int HEAT_USES = 5;
@@ -43,6 +42,62 @@ public class GOTItemBrandingIron extends Item {
 		setMaxStackSize(1);
 		setMaxDamage(100);
 		setFull3D();
+	}
+
+	public static UUID getBrandingPlayer(Entity entity) {
+		NBTTagCompound nbt = entity.getEntityData();
+		if (nbt.hasKey("GOTBrander")) {
+			String s = nbt.getString("GOTBrander");
+			return UUID.fromString(s);
+		}
+		return null;
+	}
+
+	public static String getBrandName(ItemStack itemstack) {
+		String s;
+		if (itemstack.hasTagCompound() && !StringUtils.isBlank(s = itemstack.getTagCompound().getString("BrandName"))) {
+			return s;
+		}
+		return null;
+	}
+
+	public static boolean hasBrandName(ItemStack itemstack) {
+		return getBrandName(itemstack) != null;
+	}
+
+	public static boolean isHeated(ItemStack itemstack) {
+		if (itemstack.hasTagCompound()) {
+			return itemstack.getTagCompound().getBoolean("HotIron");
+		}
+		return false;
+	}
+
+	public static void setBrandingPlayer(Entity entity, UUID player) {
+		String s = player.toString();
+		entity.getEntityData().setString("GOTBrander", s);
+	}
+
+	public static void setBrandName(ItemStack itemstack, String s) {
+		if (!itemstack.hasTagCompound()) {
+			itemstack.setTagCompound(new NBTTagCompound());
+		}
+		itemstack.getTagCompound().setString("BrandName", s);
+	}
+
+	public static void setHeated(ItemStack itemstack, boolean flag) {
+		if (!itemstack.hasTagCompound()) {
+			itemstack.setTagCompound(new NBTTagCompound());
+		}
+		itemstack.getTagCompound().setBoolean("HotIron", flag);
+	}
+
+	public static String trimAcceptableBrandName(String s) {
+		s = StringUtils.trim(s);
+		int maxLength = 64;
+		if (s.length() > maxLength) {
+			s = s.substring(0, maxLength);
+		}
+		return s;
 	}
 
 	@Override
@@ -145,61 +200,5 @@ public class GOTItemBrandingIron extends Item {
 	public void registerIcons(IIconRegister iconregister) {
 		iconCool = iconregister.registerIcon(getIconString());
 		iconHot = iconregister.registerIcon(getIconString() + "_hot");
-	}
-
-	public static UUID getBrandingPlayer(Entity entity) {
-		NBTTagCompound nbt = entity.getEntityData();
-		if (nbt.hasKey("GOTBrander")) {
-			String s = nbt.getString("GOTBrander");
-			return UUID.fromString(s);
-		}
-		return null;
-	}
-
-	public static String getBrandName(ItemStack itemstack) {
-		String s;
-		if (itemstack.hasTagCompound() && !StringUtils.isBlank(s = itemstack.getTagCompound().getString("BrandName"))) {
-			return s;
-		}
-		return null;
-	}
-
-	public static boolean hasBrandName(ItemStack itemstack) {
-		return getBrandName(itemstack) != null;
-	}
-
-	public static boolean isHeated(ItemStack itemstack) {
-		if (itemstack.hasTagCompound()) {
-			return itemstack.getTagCompound().getBoolean("HotIron");
-		}
-		return false;
-	}
-
-	public static void setBrandingPlayer(Entity entity, UUID player) {
-		String s = player.toString();
-		entity.getEntityData().setString("GOTBrander", s);
-	}
-
-	public static void setBrandName(ItemStack itemstack, String s) {
-		if (!itemstack.hasTagCompound()) {
-			itemstack.setTagCompound(new NBTTagCompound());
-		}
-		itemstack.getTagCompound().setString("BrandName", s);
-	}
-
-	public static void setHeated(ItemStack itemstack, boolean flag) {
-		if (!itemstack.hasTagCompound()) {
-			itemstack.setTagCompound(new NBTTagCompound());
-		}
-		itemstack.getTagCompound().setBoolean("HotIron", flag);
-	}
-
-	public static String trimAcceptableBrandName(String s) {
-		s = StringUtils.trim(s);
-		int maxLength = 64;
-		if (s.length() > maxLength) {
-			s = s.substring(0, maxLength);
-		}
-		return s;
 	}
 }

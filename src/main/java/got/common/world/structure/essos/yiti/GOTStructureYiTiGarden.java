@@ -1,11 +1,11 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiGarden extends GOTStructureYiTiBase {
 	public Block leafBlock;

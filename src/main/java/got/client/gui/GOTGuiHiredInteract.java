@@ -1,13 +1,13 @@
 package got.client.gui;
 
-import java.util.List;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketHiredUnitInteract;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
+
+import java.util.List;
 
 public class GOTGuiHiredInteract extends GOTGuiNPCInteract {
 	public GOTGuiHiredInteract(GOTEntityNPC entity) {

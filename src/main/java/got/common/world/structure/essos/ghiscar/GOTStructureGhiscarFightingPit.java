@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.ghiscar;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -11,6 +9,8 @@ import got.common.world.structure.essos.common.GOTStructureEssosBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 	public GOTStructureGhiscarFightingPit(boolean flag) {

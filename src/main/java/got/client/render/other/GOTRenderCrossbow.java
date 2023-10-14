@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTClientProxy;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.weapon.GOTItemCrossbow;
@@ -14,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderCrossbow implements IItemRenderer {
 	@Override

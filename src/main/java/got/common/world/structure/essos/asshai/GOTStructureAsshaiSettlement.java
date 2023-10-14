@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.GOTEntityRedPriest;
 import got.common.entity.essos.asshai.GOTEntityAsshaiAlchemist;
@@ -17,6 +14,8 @@ import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 	public GOTStructureAsshaiSettlement(GOTBiome biome, float f) {

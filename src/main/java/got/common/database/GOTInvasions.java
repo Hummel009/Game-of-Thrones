@@ -1,8 +1,5 @@
 package got.common.database;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.entity.essos.braavos.GOTEntityBraavosBannerBearer;
 import got.common.entity.essos.braavos.GOTEntityBraavosSoldier;
 import got.common.entity.essos.braavos.GOTEntityBraavosSoldierArcher;
@@ -82,6 +79,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.WeightedRandom;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public enum GOTInvasions {
 	DOTHRAKI(GOTFaction.DOTHRAKI), JOGOS(GOTFaction.JOGOS), VOLANTIS(GOTFaction.VOLANTIS), BRAAVOS(GOTFaction.BRAAVOS), PENTOS(GOTFaction.PENTOS), TYROSH(GOTFaction.TYROSH), MYR(GOTFaction.MYR), LYS(GOTFaction.LYS), NORVOS(GOTFaction.NORVOS), IRONBORN(GOTFaction.IRONBORN), WESTERLANDS(GOTFaction.WESTERLANDS), RIVERLANDS(GOTFaction.RIVERLANDS), NORTH(GOTFaction.NORTH), THENN(GOTFaction.WILDLING, "THENN"), WILDLING(GOTFaction.WILDLING), GIANT(GOTFaction.WILDLING, "GIANT"), ARRYN(GOTFaction.ARRYN), DRAGONSTONE(GOTFaction.DRAGONSTONE), STORMLANDS(GOTFaction.STORMLANDS), REACH(GOTFaction.REACH), DORNE(GOTFaction.DORNE), YI_TI(GOTFaction.YI_TI), GHISCAR(GOTFaction.GHISCAR), HILL_TRIBES(GOTFaction.HILL_TRIBES), IBBEN(GOTFaction.IBBEN);
 
@@ -97,39 +97,6 @@ public enum GOTInvasions {
 	GOTInvasions(GOTFaction f, String s) {
 		invasionFaction = f;
 		subfaction = s;
-	}
-
-	public String codeName() {
-		StringBuilder s = new StringBuilder(invasionFaction.codeName());
-		if (subfaction != null) {
-			s.append("_").append(subfaction);
-		}
-		return s.toString();
-	}
-
-	public String codeNameHorn() {
-		return "got.invasion." + codeName() + ".horn";
-	}
-
-	public ItemStack createConquestHorn() {
-		ItemStack horn = new ItemStack(GOTItems.conquestHorn);
-		GOTItemConquestHorn.setInvasionType(horn, this);
-		return horn;
-	}
-
-	public ItemStack getInvasionIcon() {
-		Item sword = invasionIcon;
-		if (sword == null) {
-			sword = Items.iron_sword;
-		}
-		return new ItemStack(sword);
-	}
-
-	public String invasionName() {
-		if (subfaction == null) {
-			return invasionFaction.factionName();
-		}
-		return StatCollector.translateToLocal("got.invasion." + codeName());
 	}
 
 	public static GOTInvasions forID(int ID) {
@@ -283,6 +250,39 @@ public enum GOTInvasions {
 		NORTH.invasionMobs.add(new InvasionSpawnEntry(GOTEntityNorthSoldier.class, 10));
 		NORTH.invasionMobs.add(new InvasionSpawnEntry(GOTEntityNorthSoldierArcher.class, 5));
 		NORTH.invasionMobs.add(new InvasionSpawnEntry(GOTEntityNorthBannerBearer.class, 2));
+	}
+
+	public String codeName() {
+		StringBuilder s = new StringBuilder(invasionFaction.codeName());
+		if (subfaction != null) {
+			s.append("_").append(subfaction);
+		}
+		return s.toString();
+	}
+
+	public String codeNameHorn() {
+		return "got.invasion." + codeName() + ".horn";
+	}
+
+	public ItemStack createConquestHorn() {
+		ItemStack horn = new ItemStack(GOTItems.conquestHorn);
+		GOTItemConquestHorn.setInvasionType(horn, this);
+		return horn;
+	}
+
+	public ItemStack getInvasionIcon() {
+		Item sword = invasionIcon;
+		if (sword == null) {
+			sword = Items.iron_sword;
+		}
+		return new ItemStack(sword);
+	}
+
+	public String invasionName() {
+		if (subfaction == null) {
+			return invasionFaction.factionName();
+		}
+		return StatCollector.translateToLocal("got.invasion." + codeName());
 	}
 
 	public static class InvasionSpawnEntry extends WeightedRandom.Item {

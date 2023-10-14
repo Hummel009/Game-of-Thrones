@@ -1,8 +1,8 @@
 package got.common.entity.dragon;
 
-import java.util.UUID;
-
 import net.minecraft.entity.ai.attributes.AttributeModifier;
+
+import java.util.UUID;
 
 public class GOTDragonScaleModifier extends AttributeModifier {
 

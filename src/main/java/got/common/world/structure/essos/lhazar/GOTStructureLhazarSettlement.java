@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.lhazar.GOTEntityLhazarArcher;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
@@ -14,6 +12,8 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -37,6 +37,10 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureLhazarSettlement> {
@@ -325,9 +329,5 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT
 	}
 }

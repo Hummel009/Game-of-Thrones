@@ -1,7 +1,5 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosChieftain;
@@ -9,6 +7,8 @@ import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryosHouse {
 	public GOTStructureSothoryosChieftainPyramid(boolean flag) {

@@ -27,15 +27,15 @@ public class GOTPacketMenuPrompt implements IMessage {
 		data.writeByte(type.ordinal());
 	}
 
+	public enum Type {
+		MENU
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketMenuPrompt, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketMenuPrompt packet, MessageContext context) {
 			GOT.proxy.displayMenuPrompt(packet.type);
 			return null;
 		}
-	}
-
-	public enum Type {
-		MENU
 	}
 }

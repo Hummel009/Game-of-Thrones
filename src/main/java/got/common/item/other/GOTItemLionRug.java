@@ -1,11 +1,11 @@
 package got.common.item.other;
 
-import java.util.Locale;
-
 import got.common.entity.animal.GOTEntityLionRug;
 import got.common.entity.other.GOTEntityRugBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Locale;
 
 public class GOTItemLionRug extends GOTItemRugBase {
 	public GOTItemLionRug() {
@@ -28,10 +28,6 @@ public class GOTItemLionRug extends GOTItemRugBase {
 			lionID = i;
 		}
 
-		public String textureName() {
-			return name().toLowerCase(Locale.ROOT);
-		}
-
 		public static LionRugType forID(int ID) {
 			for (LionRugType t : values()) {
 				if (t.lionID != ID) {
@@ -48,6 +44,10 @@ public class GOTItemLionRug extends GOTItemRugBase {
 				names[i] = values()[i].textureName();
 			}
 			return names;
+		}
+
+		public String textureName() {
+			return name().toLowerCase(Locale.ROOT);
 		}
 	}
 

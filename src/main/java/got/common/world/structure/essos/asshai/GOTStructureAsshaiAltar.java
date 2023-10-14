@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiAltar extends GOTStructureAsshaiBase {
 	public GOTStructureAsshaiAltar(boolean flag) {

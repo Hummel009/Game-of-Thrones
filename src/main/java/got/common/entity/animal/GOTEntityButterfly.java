@@ -1,7 +1,5 @@
 package got.common.entity.animal;
 
-import java.util.UUID;
-
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
@@ -24,6 +22,8 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.UUID;
 
 public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
 	public ChunkCoordinates currentFlightTarget;
@@ -102,6 +102,14 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		return ButterflyType.values()[i];
 	}
 
+	public void setButterflyType(ButterflyType type) {
+		setButterflyType(type.ordinal());
+	}
+
+	public void setButterflyType(int i) {
+		dataWatcher.updateObject(16, (byte) i);
+	}
+
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
@@ -122,6 +130,10 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 
 	public boolean isButterflyStill() {
 		return dataWatcher.getWatchableObjectByte(17) == 1;
+	}
+
+	public void setButterflyStill(boolean flag) {
+		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
 	}
 
 	@Override
@@ -171,18 +183,6 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		super.readEntityFromNBT(nbt);
 		setButterflyType(nbt.getInteger("ButterflyType"));
 		setButterflyStill(nbt.getBoolean("ButterflyStill"));
-	}
-
-	public void setButterflyStill(boolean flag) {
-		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
-	}
-
-	public void setButterflyType(ButterflyType type) {
-		setButterflyType(type.ordinal());
-	}
-
-	public void setButterflyType(int i) {
-		dataWatcher.updateObject(16, (byte) i);
 	}
 
 	@Override

@@ -1,7 +1,5 @@
 package got.common.tileentity;
 
-import java.util.List;
-
 import got.common.block.other.GOTBlockBookshelfStorage;
 import got.common.database.GOTItems;
 import got.common.inventory.GOTContainerBookshelf;
@@ -16,10 +14,26 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
+import java.util.List;
+
 public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 	public ItemStack[] chestContents = new ItemStack[getSizeInventory()];
 	public int numPlayersUsing;
 	public int ticksSinceSync;
+
+	public static boolean isBookItem(ItemStack itemstack) {
+		if (itemstack != null) {
+			Item item = itemstack.getItem();
+			if (item instanceof ItemBook || item instanceof ItemWritableBook || item instanceof ItemEditableBook) {
+				return true;
+			}
+			if (item instanceof GOTItemQuestBook || item == GOTItems.valyrianBook || item instanceof ItemEnchantedBook || item instanceof ItemMapBase) {
+				return true;
+			}
+			return item == Items.paper || item instanceof GOTItemModifierTemplate;
+		}
+		return false;
+	}
 
 	@Override
 	public void closeInventory() {
@@ -160,19 +174,5 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 			itemTags.appendTag(slotData);
 		}
 		nbt.setTag("Items", itemTags);
-	}
-
-	public static boolean isBookItem(ItemStack itemstack) {
-		if (itemstack != null) {
-			Item item = itemstack.getItem();
-			if (item instanceof ItemBook || item instanceof ItemWritableBook || item instanceof ItemEditableBook) {
-				return true;
-			}
-			if (item instanceof GOTItemQuestBook || item == GOTItems.valyrianBook || item instanceof ItemEnchantedBook || item instanceof ItemMapBase) {
-				return true;
-			}
-			return item == Items.paper || item instanceof GOTItemModifierTemplate;
-		}
-		return false;
 	}
 }

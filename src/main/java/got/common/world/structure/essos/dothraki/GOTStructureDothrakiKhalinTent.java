@@ -1,10 +1,5 @@
 package got.common.world.structure.essos.dothraki;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
@@ -15,6 +10,11 @@ import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class GOTStructureDothrakiKhalinTent extends GOTStructureDothrakiBase {
 	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Mason.class, Brewer.class, Miner.class, Armourer.class};

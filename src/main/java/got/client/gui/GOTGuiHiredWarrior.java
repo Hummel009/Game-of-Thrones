@@ -1,7 +1,5 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTSquadrons;
 import got.common.entity.other.GOTEntityNPC;
@@ -14,6 +12,7 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.StringUtils;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 	public static String[] pageTitles = {"overview", "options"};

@@ -1,7 +1,5 @@
 package got.common.world.biome.sothoryos;
 
-import java.util.Random;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.GOTWorldChunkManager;
@@ -13,6 +11,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenDoublePlant;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.Random;
 
 public class GOTBiomeSothoryosForest extends GOTBiomeSothoryosBushland {
 	public static NoiseGeneratorPerlin noisePaths1 = new NoiseGeneratorPerlin(new Random(22L), 1);

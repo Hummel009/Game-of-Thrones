@@ -1,8 +1,8 @@
 package got.common.util;
 
-import javax.annotation.Nullable;
-
 import net.minecraft.util.MathHelper;
+
+import javax.annotation.Nullable;
 
 public class GOTVec3d {
 	public static GOTVec3d ZERO = new GOTVec3d(0.0, 0.0, 0.0);
@@ -23,6 +23,14 @@ public class GOTVec3d {
 		xCoord = x;
 		yCoord = y;
 		zCoord = z;
+	}
+
+	public static GOTVec3d fromPitchYaw(float p_189986_0_, float p_189986_1_) {
+		float f = MathHelper.cos(-p_189986_1_ * 0.017453292f - 3.1415927f);
+		float f1 = MathHelper.sin(-p_189986_1_ * 0.017453292f - 3.1415927f);
+		float f2 = -MathHelper.cos(-p_189986_0_ * 0.017453292f);
+		float f3 = MathHelper.sin(-p_189986_0_ * 0.017453292f);
+		return new GOTVec3d(f1 * f2, f3, f * f2);
 	}
 
 	public GOTVec3d add(GOTVec3d vec) {
@@ -158,13 +166,5 @@ public class GOTVec3d {
 	@Override
 	public String toString() {
 		return "(" + xCoord + ", " + yCoord + ", " + zCoord + ")";
-	}
-
-	public static GOTVec3d fromPitchYaw(float p_189986_0_, float p_189986_1_) {
-		float f = MathHelper.cos(-p_189986_1_ * 0.017453292f - 3.1415927f);
-		float f1 = MathHelper.sin(-p_189986_1_ * 0.017453292f - 3.1415927f);
-		float f2 = -MathHelper.cos(-p_189986_0_ * 0.017453292f);
-		float f3 = MathHelper.sin(-p_189986_0_ * 0.017453292f);
-		return new GOTVec3d(f1 * f2, f3, f * f2);
 	}
 }

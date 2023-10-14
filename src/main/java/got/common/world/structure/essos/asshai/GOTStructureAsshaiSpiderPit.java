@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -10,6 +8,8 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiSpiderPit extends GOTStructureAsshaiBase {
 	public GOTStructureAsshaiSpiderPit(boolean flag) {

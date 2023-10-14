@@ -1,7 +1,5 @@
 package got.common.entity.westeros.reach;
 
-import java.util.List;
-
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTCapes;
@@ -26,6 +24,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import java.util.List;
+
 public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 	public static int MAX_GRAPE_ALERT = 3;
 	public int grapeAlert;
@@ -36,87 +36,6 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 		spawnRidingHorse = rand.nextInt(10) == 0;
 		npcShield = GOTShields.REACH;
 		npcCape = GOTCapes.REACH;
-	}
-
-	@Override
-	public void applyEntityAttributes() {
-		super.applyEntityAttributes();
-		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
-	}
-
-	@Override
-	public EntityAIBase createReachAttackAI() {
-		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
-	}
-
-	@Override
-	public float getAlignmentBonus() {
-		return 3.0f;
-	}
-
-	@Override
-	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
-		if (mode == GOTEntityNPC.AttackMode.IDLE) {
-			if (mounted) {
-				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
-			} else {
-				setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
-			}
-		} else if (mounted) {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeaponMounted());
-		} else {
-			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
-		}
-	}
-
-	@Override
-	public void onDeath(DamageSource damagesource) {
-		super.onDeath(damagesource);
-		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
-			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
-			if (grapeAlert >= 3) {
-				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.stealArborGrapes);
-			}
-		}
-	}
-
-	@Override
-	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		int i = rand.nextInt(10);
-		switch (i) {
-			case 0:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosHammer));
-				break;
-			case 1:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
-				break;
-			case 2:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosLongsword));
-				break;
-			case 3:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosGreatsword));
-				break;
-			default:
-				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
-				break;
-		}
-		if (rand.nextInt(3) == 0) {
-			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTItems.westerosLance));
-		} else {
-			npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
-		}
-		if (rand.nextInt(5) == 0) {
-			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
-			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSpear));
-		}
-		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		setCurrentItemOrArmor(1, new ItemStack(GOTItems.reachBoots));
-		setCurrentItemOrArmor(2, new ItemStack(GOTItems.reachLeggings));
-		setCurrentItemOrArmor(3, new ItemStack(GOTItems.reachChestplate));
-		setCurrentItemOrArmor(4, new ItemStack(GOTItems.reachHelmet));
-		return data;
 	}
 
 	public static void defendGrapevines(EntityPlayer entityplayer, World world, int i, int j, int k) {
@@ -206,5 +125,86 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 				}
 			}
 		}
+	}
+
+	@Override
+	public void applyEntityAttributes() {
+		super.applyEntityAttributes();
+		getEntityAttribute(npcRangedAccuracy).setBaseValue(0.75);
+	}
+
+	@Override
+	public EntityAIBase createReachAttackAI() {
+		return new GOTEntityAIAttackOnCollide(this, 1.4, false);
+	}
+
+	@Override
+	public float getAlignmentBonus() {
+		return 3.0f;
+	}
+
+	@Override
+	public void onAttackModeChange(GOTEntityNPC.AttackMode mode, boolean mounted) {
+		if (mode == GOTEntityNPC.AttackMode.IDLE) {
+			if (mounted) {
+				setCurrentItemOrArmor(0, npcItemsInv.getIdleItemMounted());
+			} else {
+				setCurrentItemOrArmor(0, npcItemsInv.getIdleItem());
+			}
+		} else if (mounted) {
+			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeaponMounted());
+		} else {
+			setCurrentItemOrArmor(0, npcItemsInv.getMeleeWeapon());
+		}
+	}
+
+	@Override
+	public void onDeath(DamageSource damagesource) {
+		super.onDeath(damagesource);
+		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
+			if (grapeAlert >= 3) {
+				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.stealArborGrapes);
+			}
+		}
+	}
+
+	@Override
+	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
+		data = super.onSpawnWithEgg(data);
+		int i = rand.nextInt(10);
+		switch (i) {
+			case 0:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosHammer));
+				break;
+			case 1:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
+				break;
+			case 2:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosLongsword));
+				break;
+			case 3:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosGreatsword));
+				break;
+			default:
+				npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
+				break;
+		}
+		if (rand.nextInt(3) == 0) {
+			npcItemsInv.setMeleeWeaponMounted(new ItemStack(GOTItems.westerosLance));
+		} else {
+			npcItemsInv.setMeleeWeaponMounted(npcItemsInv.getMeleeWeapon());
+		}
+		if (rand.nextInt(5) == 0) {
+			npcItemsInv.setSpearBackup(npcItemsInv.getMeleeWeapon());
+			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSpear));
+		}
+		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
+		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
+		setCurrentItemOrArmor(1, new ItemStack(GOTItems.reachBoots));
+		setCurrentItemOrArmor(2, new ItemStack(GOTItems.reachLeggings));
+		setCurrentItemOrArmor(3, new ItemStack(GOTItems.reachChestplate));
+		setCurrentItemOrArmor(4, new ItemStack(GOTItems.reachHelmet));
+		return data;
 	}
 }

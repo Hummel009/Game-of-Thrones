@@ -1,18 +1,17 @@
 package got.client.gui;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.util.List;
-
-import org.lwjgl.Sys;
-import org.lwjgl.opengl.GL11;
-
 import got.GOT;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.Util;
+import org.lwjgl.Sys;
+import org.lwjgl.opengl.GL11;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
+import java.util.List;
 
 public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 	public GOTGuiButtonOptions buttonFriendlyFire;

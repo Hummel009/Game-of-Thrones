@@ -1,12 +1,5 @@
 package got.client.gui;
 
-import java.awt.Color;
-import java.util.*;
-
-import org.apache.commons.lang3.tuple.Pair;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTReflectionClient;
 import got.common.GOTLevelData;
@@ -18,6 +11,13 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
+import org.apache.commons.lang3.tuple.Pair;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.awt.*;
+import java.util.List;
+import java.util.*;
 
 public class GOTGuiTitles extends GOTGuiMenuWBBase {
 	public GOTTitle.PlayerTitle currentTitle;

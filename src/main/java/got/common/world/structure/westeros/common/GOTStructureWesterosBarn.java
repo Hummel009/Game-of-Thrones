@@ -1,7 +1,5 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -10,9 +8,25 @@ import net.minecraft.entity.passive.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 	public GOTStructureWesterosBarn(boolean flag) {
 		super(flag);
+	}
+
+	public static EntityAnimal getRandomAnimal(World world, Random random) {
+		int animal = random.nextInt(4);
+		switch (animal) {
+			case 0:
+				return new EntityCow(world);
+			case 1:
+				return new EntityPig(world);
+			case 2:
+				return new EntitySheep(world);
+			default:
+				return new EntityChicken(world);
+		}
 	}
 
 	@Override
@@ -307,19 +321,5 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 			farmhand.seedsItem = seedItem;
 		}
 		return true;
-	}
-
-	public static EntityAnimal getRandomAnimal(World world, Random random) {
-		int animal = random.nextInt(4);
-		switch (animal) {
-			case 0:
-				return new EntityCow(world);
-			case 1:
-				return new EntityPig(world);
-			case 2:
-				return new EntitySheep(world);
-			default:
-				return new EntityChicken(world);
-		}
 	}
 }

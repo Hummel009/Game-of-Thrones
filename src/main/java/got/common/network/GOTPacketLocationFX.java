@@ -41,6 +41,10 @@ public class GOTPacketLocationFX implements IMessage {
 		data.writeDouble(posZ);
 	}
 
+	public enum Type {
+		SWORD_COMMAND
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketLocationFX, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketLocationFX packet, MessageContext context) {
@@ -54,9 +58,5 @@ public class GOTPacketLocationFX implements IMessage {
 			}
 			return null;
 		}
-	}
-
-	public enum Type {
-		SWORD_COMMAND
 	}
 }

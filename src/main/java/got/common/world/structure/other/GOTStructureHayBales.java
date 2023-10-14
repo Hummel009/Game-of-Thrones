@@ -1,12 +1,12 @@
 package got.common.world.structure.other;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureHayBales extends GOTStructureBase {
 	public GOTStructureHayBales(boolean flag) {

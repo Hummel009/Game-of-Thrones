@@ -1,8 +1,5 @@
 package got.common.world;
 
-import java.util.List;
-import java.util.Random;
-
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
@@ -25,6 +22,9 @@ import net.minecraft.world.gen.MapGenBase;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
 import net.minecraft.world.gen.feature.WorldGenLakes;
 import net.minecraft.world.gen.structure.MapGenStructure;
+
+import java.util.List;
+import java.util.Random;
 
 public class GOTChunkProvider implements IChunkProvider {
 	public World worldObj;

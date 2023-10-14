@@ -1,7 +1,5 @@
 package got.common.world.spawning;
 
-import java.util.*;
-
 import cpw.mods.fml.common.FMLLog;
 import got.common.database.GOTSpawnList;
 import got.common.faction.GOTFaction;
@@ -10,6 +8,8 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTConquestGrid;
 import got.common.world.map.GOTConquestZone;
 import net.minecraft.world.World;
+
+import java.util.*;
 
 public class GOTBiomeSpawnList {
 	public String biomeIdentifier;
@@ -23,6 +23,14 @@ public class GOTBiomeSpawnList {
 
 	public GOTBiomeSpawnList(String s) {
 		biomeIdentifier = s;
+	}
+
+	public static SpawnListContainer entry(GOTSpawnList list) {
+		return entry(list, 1);
+	}
+
+	public static SpawnListContainer entry(GOTSpawnList list, int weight) {
+		return new SpawnListContainer(list, weight);
 	}
 
 	public void clear() {
@@ -108,14 +116,6 @@ public class GOTBiomeSpawnList {
 		cont.conquestSensitivity = conq;
 		factionContainers.add(cont);
 		return cont;
-	}
-
-	public static SpawnListContainer entry(GOTSpawnList list) {
-		return entry(list, 1);
-	}
-
-	public static SpawnListContainer entry(GOTSpawnList list, int weight) {
-		return new SpawnListContainer(list, weight);
 	}
 
 	public static class FactionContainer {

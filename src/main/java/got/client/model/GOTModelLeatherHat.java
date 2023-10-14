@@ -1,7 +1,5 @@
 package got.client.model;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.item.other.GOTItemLeatherHat;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelRenderer;
@@ -10,6 +8,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import org.lwjgl.opengl.GL11;
 
 public class GOTModelLeatherHat extends GOTModelBiped {
 	public static ItemStack feather = new ItemStack(Items.feather);

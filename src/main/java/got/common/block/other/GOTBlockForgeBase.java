@@ -1,7 +1,5 @@
 package got.common.block.other;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -21,6 +19,8 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public abstract class GOTBlockForgeBase extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] forgeIcons;
@@ -30,6 +30,17 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		setHardness(4.0f);
 		setStepSound(Block.soundTypeStone);
+	}
+
+	public static boolean isForgeActive(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return (meta & 8) != 0;
+	}
+
+	public static void toggleForgeActive(World world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
+		world.updateLightByType(EnumSkyBlock.Block, i, j, k);
 	}
 
 	@Override
@@ -177,15 +188,4 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 	}
 
 	public abstract boolean useLargeSmoke();
-
-	public static boolean isForgeActive(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return (meta & 8) != 0;
-	}
-
-	public static void toggleForgeActive(World world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
-		world.updateLightByType(EnumSkyBlock.Block, i, j, k);
-	}
 }

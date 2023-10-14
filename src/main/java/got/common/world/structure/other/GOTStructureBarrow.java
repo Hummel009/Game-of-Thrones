@@ -1,12 +1,12 @@
 package got.common.world.structure.other;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.other.GOTEntityBarrowWight;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureBarrow extends GOTStructureBase {
 	public GOTStructureBase ruins = new GOTStructureStoneRuin.RuinStone(3, 3);

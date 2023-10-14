@@ -1,7 +1,5 @@
 package got.common.item.other;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -18,6 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.oredict.OreDictionary;
 
+import java.util.List;
+
 public class GOTItemDye extends Item {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] dyeIcons;
@@ -27,6 +27,23 @@ public class GOTItemDye extends Item {
 		setHasSubtypes(true);
 		setMaxDamage(0);
 		setCreativeTab(GOTCreativeTabs.tabMaterials);
+	}
+
+	public static int isItemDye(ItemStack itemstack) {
+		if (itemstack.getItem() == Items.dye) {
+			return itemstack.getItemDamage();
+		}
+		for (int id : OreDictionary.getOreIDs(itemstack)) {
+			String oreName = OreDictionary.getOreName(id);
+			for (int j = 0; j <= 15; ++j) {
+				ItemStack dye = new ItemStack(Items.dye, 1, j);
+				if (!GOT.isOreNameEqual(dye, oreName)) {
+					continue;
+				}
+				return j;
+			}
+		}
+		return -1;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -76,22 +93,5 @@ public class GOTItemDye extends Item {
 		for (int i = 0; i < dyeNames.length; ++i) {
 			dyeIcons[i] = iconregister.registerIcon(getIconString() + "_" + dyeNames[i]);
 		}
-	}
-
-	public static int isItemDye(ItemStack itemstack) {
-		if (itemstack.getItem() == Items.dye) {
-			return itemstack.getItemDamage();
-		}
-		for (int id : OreDictionary.getOreIDs(itemstack)) {
-			String oreName = OreDictionary.getOreName(id);
-			for (int j = 0; j <= 15; ++j) {
-				ItemStack dye = new ItemStack(Items.dye, 1, j);
-				if (!GOT.isOreNameEqual(dye, oreName)) {
-					continue;
-				}
-				return j;
-			}
-		}
-		return -1;
 	}
 }

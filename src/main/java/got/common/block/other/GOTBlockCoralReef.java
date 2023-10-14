@@ -1,7 +1,5 @@
 package got.common.block.other;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -18,6 +16,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTBlockCoralReef extends Block {
 	public static String[] plantNames = {"purple", "yellow", "blue", "red", "green"};

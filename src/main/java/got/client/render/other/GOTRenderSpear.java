@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.FMLLog;
 import got.common.entity.other.GOTEntitySpear;
 import net.minecraft.client.renderer.entity.Render;
@@ -12,6 +10,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderSpear extends Render {
 	@Override

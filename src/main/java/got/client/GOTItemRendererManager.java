@@ -1,8 +1,5 @@
 package got.client;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.render.other.*;
 import got.common.database.GOTBlocks;
@@ -21,9 +18,21 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.MinecraftForge;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public static GOTItemRendererManager INSTANCE;
 	public static Collection<GOTRenderLargeItem> largeItemRenderers = new ArrayList<>();
+
+	public static void preInit() {
+		Minecraft mc = Minecraft.getMinecraft();
+		IResourceManager resMgr = mc.getResourceManager();
+		INSTANCE = new GOTItemRendererManager();
+		INSTANCE.onResourceManagerReload(resMgr);
+		((IReloadableResourceManager) resMgr).registerReloadListener(INSTANCE);
+		MinecraftForge.EVENT_BUS.register(INSTANCE);
+	}
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
@@ -72,14 +81,5 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 				largeRenderer.registerIcons(map);
 			}
 		}
-	}
-
-	public static void preInit() {
-		Minecraft mc = Minecraft.getMinecraft();
-		IResourceManager resMgr = mc.getResourceManager();
-		INSTANCE = new GOTItemRendererManager();
-		INSTANCE.onResourceManagerReload(resMgr);
-		((IReloadableResourceManager) resMgr).registerReloadListener(INSTANCE);
-		MinecraftForge.EVENT_BUS.register(INSTANCE);
 	}
 }

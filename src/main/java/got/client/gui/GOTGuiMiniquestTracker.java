@@ -1,7 +1,5 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTTickHandlerClient;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
@@ -16,6 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiMiniquestTracker extends Gui {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/tracker.png");

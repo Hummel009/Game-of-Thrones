@@ -1,9 +1,6 @@
 package got.common.world.structure.westeros.crownlands;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.crownlands.GOTEntityCrownlandsAlchemist;
 import got.common.entity.westeros.crownlands.GOTEntityCrownlandsMan;
@@ -14,6 +11,8 @@ import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -37,6 +36,10 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT, RED_KEEP, KINGS_LANDING
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureCrownlandsSettlement> {
@@ -806,9 +809,5 @@ public class GOTStructureCrownlandsSettlement extends GOTStructureBaseSettlement
 				addStructure(getRandomFarm(random), farmX - farmSize, farmZ, 3);
 			}
 		}
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT, RED_KEEP, KINGS_LANDING
 	}
 }

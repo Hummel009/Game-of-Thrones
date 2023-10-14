@@ -1,11 +1,10 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosFortWallCorner extends GOTStructureWesterosBase {
 	public GOTStructureWesterosFortWallCorner(boolean flag) {

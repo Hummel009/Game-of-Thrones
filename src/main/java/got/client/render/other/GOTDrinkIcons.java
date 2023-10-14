@@ -1,12 +1,5 @@
 package got.client.render.other;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.imageio.ImageIO;
-
 import cpw.mods.fml.common.FMLLog;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -15,6 +8,12 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTDrinkIcons {
 	public static int maskColor = 16711935;

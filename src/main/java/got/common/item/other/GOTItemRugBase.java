@@ -1,7 +1,5 @@
 package got.common.item.other;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
@@ -16,6 +14,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.List;
 
 public abstract class GOTItemRugBase extends Item {
 	@SideOnly(Side.CLIENT)

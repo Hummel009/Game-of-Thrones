@@ -1,8 +1,5 @@
 package got.coremod;
 
-import java.util.List;
-import java.util.Random;
-
 import cpw.mods.fml.common.network.internal.FMLMessage;
 import cpw.mods.fml.common.network.internal.FMLProxyPacket;
 import cpw.mods.fml.common.network.internal.FMLRuntimeCodec;
@@ -53,6 +50,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
+
+import java.util.List;
+import java.util.Random;
 
 @SuppressWarnings("all")
 public class GOTReplacedMethods {

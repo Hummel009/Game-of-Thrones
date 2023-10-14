@@ -1,9 +1,5 @@
 package got.common.command;
 
-import java.util.*;
-
-import org.apache.commons.lang3.tuple.Pair;
-
 import got.common.world.structure.other.GOTScanAlias;
 import got.common.world.structure.other.GOTStructureScan;
 import net.minecraft.block.Block;
@@ -14,6 +10,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.util.*;
 
 public class GOTCommandStrScan extends CommandBase {
 	public boolean scanning;

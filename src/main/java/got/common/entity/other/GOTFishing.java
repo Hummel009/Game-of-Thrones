@@ -1,9 +1,5 @@
 package got.common.entity.other;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import net.minecraft.init.Blocks;
@@ -13,6 +9,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.WeightedRandom;
 import net.minecraftforge.common.FishingHooks;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
 
 public class GOTFishing {
 	public static Collection<FishingItem> fish = new ArrayList<>();

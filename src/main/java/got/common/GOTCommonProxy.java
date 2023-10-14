@@ -1,11 +1,6 @@
 package got.common;
 
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.network.IGuiHandler;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
@@ -51,7 +46,28 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+
 public class GOTCommonProxy implements IGuiHandler {
+	public static int packGuiIDWithSlot(int guiID, int slotNo) {
+		return guiID | slotNo << 16;
+	}
+
+	public static void sendClientsideGUI(EntityPlayerMP entityplayer, int guiID, int x, int y, int z) {
+		IMessage packet = new GOTPacketClientsideGUI(guiID, x, y, z);
+		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+	}
+
+	public static boolean testForSlotPackedGuiID(int fullID, int guiID) {
+		return (fullID & 0xFFFF) == guiID;
+	}
+
+	public static int unpackSlot(int fullID) {
+		return fullID >> 16;
+	}
+
 	public void addMapPlayerLocation(GameProfile player, double posX, double posZ) {
 	}
 
@@ -817,22 +833,5 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public void validateBannerUsername(GOTEntityBanner banner, int slot, String prevText, boolean valid) {
-	}
-
-	public static int packGuiIDWithSlot(int guiID, int slotNo) {
-		return guiID | slotNo << 16;
-	}
-
-	public static void sendClientsideGUI(EntityPlayerMP entityplayer, int guiID, int x, int y, int z) {
-		IMessage packet = new GOTPacketClientsideGUI(guiID, x, y, z);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
-	}
-
-	public static boolean testForSlotPackedGuiID(int fullID, int guiID) {
-		return (fullID & 0xFFFF) == guiID;
-	}
-
-	public static int unpackSlot(int fullID) {
-		return fullID >> 16;
 	}
 }

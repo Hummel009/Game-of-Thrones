@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.gold;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.essos.gold.GOTEntityGoldenCaptain;
@@ -13,6 +11,8 @@ import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureGoldenCampWatchtower extends GOTStructureBase {
 	public Block woodBlock;

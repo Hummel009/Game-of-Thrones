@@ -1,8 +1,5 @@
 package got.common.world.biome.essos;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -10,6 +7,9 @@ import got.common.world.feature.GOTTreeType;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTEventSpawner;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTBiomeEssosMarshes extends GOTBiomeEssos {
 	public GOTBiomeEssosMarshes(int i, boolean major) {

@@ -1,10 +1,10 @@
 package got.client;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.MathHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GOTTextBody {
 	public static String LINEBREAK = "<BR>";

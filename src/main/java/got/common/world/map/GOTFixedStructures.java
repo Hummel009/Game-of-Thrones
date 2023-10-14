@@ -17,12 +17,6 @@ public enum GOTFixedStructures {
 		zCoord = GOTWaypoint.mapToWorldZ(z);
 	}
 
-	public double distanceSqTo(EntityLivingBase entity) {
-		double dx = entity.posX - (xCoord + 0.5);
-		double dz = entity.posZ - (zCoord + 0.5);
-		return dx * dx + dz * dz;
-	}
-
 	public static boolean[] _mountainNear_structureNear(World world, int x, int z) {
 		long l = System.nanoTime();
 		boolean mountainNear = false;
@@ -87,5 +81,11 @@ public enum GOTFixedStructures {
 			return true;
 		}
 		return false;
+	}
+
+	public double distanceSqTo(EntityLivingBase entity) {
+		double dx = entity.posX - (xCoord + 0.5);
+		double dz = entity.posZ - (zCoord + 0.5);
+		return dx * dx + dz * dz;
 	}
 }

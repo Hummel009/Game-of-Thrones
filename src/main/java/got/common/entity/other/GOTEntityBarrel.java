@@ -1,7 +1,5 @@
 package got.common.entity.other;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTBlocks;
@@ -18,6 +16,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTEntityBarrel extends Entity {
 	public static double minSpeedMultiplier = 0.04;
@@ -115,6 +115,10 @@ public class GOTEntityBarrel extends Entity {
 		return dataWatcher.getWatchableObjectItemStack(20);
 	}
 
+	public void setBarrelItem(ItemStack itemstack) {
+		dataWatcher.updateObject(20, itemstack);
+	}
+
 	@Override
 	public AxisAlignedBB getBoundingBox() {
 		return boundingBox;
@@ -129,8 +133,16 @@ public class GOTEntityBarrel extends Entity {
 		return dataWatcher.getWatchableObjectFloat(19);
 	}
 
+	public void setDamageTaken(float f) {
+		dataWatcher.updateObject(19, f);
+	}
+
 	public int getForwardDirection() {
 		return dataWatcher.getWatchableObjectInt(18);
+	}
+
+	public void setForwardDirection(int i) {
+		dataWatcher.updateObject(18, i);
 	}
 
 	@Override
@@ -151,6 +163,10 @@ public class GOTEntityBarrel extends Entity {
 
 	public int getTimeSinceHit() {
 		return dataWatcher.getWatchableObjectInt(17);
+	}
+
+	public void setTimeSinceHit(int i) {
+		dataWatcher.updateObject(17, i);
 	}
 
 	@Override
@@ -331,18 +347,6 @@ public class GOTEntityBarrel extends Entity {
 		}
 	}
 
-	public void setBarrelItem(ItemStack itemstack) {
-		dataWatcher.updateObject(20, itemstack);
-	}
-
-	public void setDamageTaken(float f) {
-		dataWatcher.updateObject(19, f);
-	}
-
-	public void setForwardDirection(int i) {
-		dataWatcher.updateObject(18, i);
-	}
-
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void setPositionAndRotation2(double d, double d1, double d2, float f, float f1, int i) {
@@ -366,10 +370,6 @@ public class GOTEntityBarrel extends Entity {
 		motionX = velocityX;
 		motionY = velocityY;
 		motionZ = velocityZ;
-	}
-
-	public void setTimeSinceHit(int i) {
-		dataWatcher.updateObject(17, i);
 	}
 
 	@Override

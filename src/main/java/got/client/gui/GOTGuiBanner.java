@@ -1,14 +1,7 @@
 package got.client.gui;
 
-import java.util.Arrays;
-
-import org.apache.commons.lang3.StringUtils;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.base.Function;
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTBannerProtection;
 import got.common.entity.other.GOTBannerWhitelistEntry;
@@ -24,6 +17,11 @@ import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import org.apache.commons.lang3.StringUtils;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.util.Arrays;
 
 public class GOTGuiBanner extends GOTGuiScreenBase {
 	public static ResourceLocation bannerTexture = new ResourceLocation("got:textures/gui/banner_edit.png");

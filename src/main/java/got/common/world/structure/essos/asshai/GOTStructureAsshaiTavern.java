@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -12,6 +9,8 @@ import got.common.entity.essos.asshai.GOTEntityAsshaiAlchemist;
 import got.common.entity.essos.asshai.GOTEntityAsshaiMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiTavern extends GOTStructureAsshaiBase {
 	public String[] tavernName;

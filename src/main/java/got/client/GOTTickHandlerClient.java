@@ -1,9 +1,5 @@
 package got.client;
 
-import java.util.*;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
@@ -89,6 +85,9 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.WorldEvent;
+import org.lwjgl.opengl.GL11;
+
+import java.util.*;
 
 public class GOTTickHandlerClient {
 	public static ResourceLocation portalOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
@@ -145,6 +144,207 @@ public class GOTTickHandlerClient {
 		ambienceTicker = new GOTAmbience();
 		notificationDisplay = new GOTGuiNotificationDisplay();
 		miniquestTracker = new GOTGuiMiniquestTracker();
+	}
+
+	public static void drawAlignmentText(FontRenderer f, int x, int y, String s, float alphaF) {
+		drawBorderedText(f, x, y, s, 16772620, alphaF);
+	}
+
+	public static void drawBorderedText(FontRenderer f, int x, int y, String s, int color, float alphaF) {
+		int alpha = (int) (alphaF * 255.0F);
+		alpha = MathHelper.clamp_int(alpha, 4, 255);
+		alpha <<= 24;
+		f.drawString(s, x - 1, y - 1, alpha);
+		f.drawString(s, x, y - 1, alpha);
+		f.drawString(s, x + 1, y - 1, alpha);
+		f.drawString(s, x + 1, y, alpha);
+		f.drawString(s, x + 1, y + 1, alpha);
+		f.drawString(s, x, y + 1, alpha);
+		f.drawString(s, x - 1, y + 1, alpha);
+		f.drawString(s, x - 1, y, alpha);
+		f.drawString(s, x, y, color | alpha);
+	}
+
+	public static void drawConquestText(FontRenderer f, int x, int y, String s, boolean cleanse, float alphaF) {
+		if (cleanse) {
+			drawBorderedText(f, x, y, s, 16773846, alphaF);
+		} else {
+			drawBorderedText(f, x, y, s, 14833677, alphaF);
+		}
+	}
+
+	public static void drawTexturedModalRect(double x, double y, int u, int v, int width, int height) {
+		float f = 0.00390625F;
+		Tessellator tessellator = Tessellator.instance;
+		tessellator.startDrawingQuads();
+		tessellator.addVertexWithUV(x + 0.0D, y + height, 0.0D, u * f, (v + height) * f);
+		tessellator.addVertexWithUV(x + width, y + height, 0.0D, (u + width) * f, (v + height) * f);
+		tessellator.addVertexWithUV(x + width, y + 0.0D, 0.0D, (u + width) * f, v * f);
+		tessellator.addVertexWithUV(x + 0.0D, y + 0.0D, 0.0D, u * f, v * f);
+		tessellator.draw();
+	}
+
+	public static boolean isBossActive() {
+		return BossStatus.bossName != null && BossStatus.statusBarTime > 0;
+	}
+
+	public static void renderAlignmentBar(float alignment, boolean isOtherPlayer, GOTFaction faction, float x, float y, boolean renderFacName, boolean renderValue, boolean renderLimits, boolean renderLimitValues) {
+		Minecraft mc = Minecraft.getMinecraft();
+		EntityClientPlayerMP entityClientPlayerMP = mc.thePlayer;
+		GOTPlayerData clientPD = GOTLevelData.getData(entityClientPlayerMP);
+		GOTFactionRank rank = faction.getRank(alignment);
+		boolean pledged = clientPD.isPledgedTo(faction);
+		GOTAlignmentTicker ticker = GOTAlignmentTicker.forFaction(faction);
+		float alignMin;
+		float alignMax;
+		GOTFactionRank rankMin;
+		GOTFactionRank rankMax;
+		if (rank.isDummyRank()) {
+			float firstRankAlign;
+			GOTFactionRank firstRank = faction.getFirstRank();
+			if (firstRank != null && !firstRank.isDummyRank()) {
+				firstRankAlign = firstRank.alignment;
+			} else {
+				firstRankAlign = 10.0F;
+			}
+			if (Math.abs(alignment) < firstRankAlign) {
+				alignMin = -firstRankAlign;
+				alignMax = firstRankAlign;
+				rankMin = GOTFactionRank.RANK_ENEMY;
+				if (firstRank != null && !firstRank.isDummyRank()) {
+					rankMax = firstRank;
+				} else {
+					rankMax = GOTFactionRank.RANK_NEUTRAL;
+				}
+			} else if (alignment < 0.0F) {
+				alignMax = -firstRankAlign;
+				alignMin = alignMax * 10.0F;
+				rankMin = rankMax = GOTFactionRank.RANK_ENEMY;
+				while (alignment <= alignMin) {
+					alignMax *= 10.0F;
+					alignMin = alignMax * 10.0F;
+				}
+			} else {
+				alignMin = firstRankAlign;
+				alignMax = alignMin * 10.0F;
+				rankMin = rankMax = GOTFactionRank.RANK_NEUTRAL;
+				while (alignment >= alignMax) {
+					alignMin = alignMax;
+					alignMax = alignMin * 10.0F;
+				}
+			}
+		} else {
+			alignMin = rank.alignment;
+			rankMin = rank;
+			GOTFactionRank nextRank = faction.getRankAbove(rank);
+			if (nextRank != null && !nextRank.isDummyRank() && nextRank != rank) {
+				alignMax = nextRank.alignment;
+				rankMax = nextRank;
+			} else {
+				alignMax = rank.alignment * 10.0F;
+				rankMax = rank;
+				while (alignment >= alignMax) {
+					alignMin = alignMax;
+					alignMax = alignMin * 10.0F;
+				}
+			}
+		}
+		float ringProgress = (alignment - alignMin) / (alignMax - alignMin);
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
+		int barWidth = 232;
+		int barHeight = 14;
+		int activeBarWidth = 220;
+		float[] factionColors = faction.getFactionRGB();
+		GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], 1.0F);
+		drawTexturedModalRect(x - (double) barWidth / 2, y, 0, 14, barWidth, barHeight);
+		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		drawTexturedModalRect(x - (double) barWidth / 2, y, 0, 0, barWidth, barHeight);
+		float ringProgressAdj = (ringProgress - 0.5F) * 2.0F;
+		int ringSize = 16;
+		float ringX = x - (float) ringSize / 2 + ringProgressAdj * activeBarWidth / 2.0F;
+		float ringY = y + (float) barHeight / 2 - (float) ringSize / 2;
+		int flashTick = ticker.flashTick;
+		if (pledged) {
+			drawTexturedModalRect(ringX, ringY, 16 * Math.round((float) flashTick / 3), 212, ringSize, ringSize);
+		} else {
+			drawTexturedModalRect(ringX, ringY, 16 * Math.round((float) flashTick / 3), 36, ringSize, ringSize);
+		}
+		if (faction.isPlayableAlignmentFaction()) {
+			float alpha;
+			boolean definedZone;
+			if (faction.inControlZone(entityClientPlayerMP)) {
+				alpha = 1.0F;
+				definedZone = faction.inDefinedControlZone(entityClientPlayerMP);
+			} else {
+				alpha = faction.getControlZoneAlignmentMultiplier(entityClientPlayerMP);
+				definedZone = true;
+			}
+			if (alpha > 0.0F) {
+				int arrowSize = 14;
+				int y0;
+				int y1;
+				if (definedZone) {
+					y0 = 60;
+					y1 = 74;
+				} else {
+					y0 = 88;
+					y1 = 102;
+				}
+				GL11.glEnable(3042);
+				OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+				GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], alpha);
+				drawTexturedModalRect(x - (double) barWidth / 2 - arrowSize, y, 0, y1, arrowSize, arrowSize);
+				drawTexturedModalRect(x + (double) barWidth / 2, y, arrowSize, y1, arrowSize, arrowSize);
+				GL11.glColor4f(1.0F, 1.0F, 1.0F, alpha);
+				drawTexturedModalRect(x - (double) barWidth / 2 - arrowSize, y, 0, y0, arrowSize, arrowSize);
+				drawTexturedModalRect(x + (double) barWidth / 2, y, arrowSize, y0, arrowSize, arrowSize);
+				GL11.glDisable(3042);
+			}
+		}
+		FontRenderer fr = mc.fontRenderer;
+		int textX = Math.round(x);
+		int textY = Math.round(y + barHeight + 4.0F);
+		if (renderLimits) {
+			String sMin = rankMin.getShortNameWithGender(clientPD);
+			String sMax = rankMax.getShortNameWithGender(clientPD);
+			if (renderLimitValues) {
+				sMin = StatCollector.translateToLocalFormatted("got.gui.factions.alignment.limits", sMin, GOTAlignmentValues.formatAlignForDisplay(alignMin));
+				sMax = StatCollector.translateToLocalFormatted("got.gui.factions.alignment.limits", sMax, GOTAlignmentValues.formatAlignForDisplay(alignMax));
+			}
+			int limitsX = barWidth / 2 - 6;
+			int xMin = Math.round(x - limitsX);
+			int xMax = Math.round(x + limitsX);
+			GL11.glPushMatrix();
+			GL11.glScalef(0.5F, 0.5F, 0.5F);
+			drawAlignmentText(fr, xMin * 2 - fr.getStringWidth(sMin) / 2, textY * 2, sMin, 1.0F);
+			drawAlignmentText(fr, xMax * 2 - fr.getStringWidth(sMax) / 2, textY * 2, sMax, 1.0F);
+			GL11.glPopMatrix();
+		}
+		if (renderFacName) {
+			String name = faction.factionName();
+			drawAlignmentText(fr, textX - fr.getStringWidth(name) / 2, textY, name, 1.0F);
+		}
+		if (renderValue) {
+			String alignS;
+			float alignAlpha;
+			int numericalTick = ticker.numericalTick;
+			if (numericalTick > 0) {
+				alignS = GOTAlignmentValues.formatAlignForDisplay(alignment);
+				alignAlpha = GOTFunctions.triangleWave(numericalTick, 0.7F, 1.0F, 30.0F);
+				int fadeTick = 15;
+				if (numericalTick < fadeTick) {
+					alignAlpha *= (float) numericalTick / fadeTick;
+				}
+			} else {
+				alignS = rank.getShortNameWithGender(clientPD);
+				alignAlpha = 1.0F;
+			}
+			GL11.glEnable(3042);
+			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
+			drawAlignmentText(fr, textX - fr.getStringWidth(alignS) / 2, textY + fr.FONT_HEIGHT + 3, alignS, alignAlpha);
+			GL11.glDisable(3042);
+		}
 	}
 
 	@SubscribeEvent
@@ -1253,206 +1453,5 @@ public class GOTTickHandlerClient {
 
 	public void updateDate() {
 		newDate = 200;
-	}
-
-	public static void drawAlignmentText(FontRenderer f, int x, int y, String s, float alphaF) {
-		drawBorderedText(f, x, y, s, 16772620, alphaF);
-	}
-
-	public static void drawBorderedText(FontRenderer f, int x, int y, String s, int color, float alphaF) {
-		int alpha = (int) (alphaF * 255.0F);
-		alpha = MathHelper.clamp_int(alpha, 4, 255);
-		alpha <<= 24;
-		f.drawString(s, x - 1, y - 1, alpha);
-		f.drawString(s, x, y - 1, alpha);
-		f.drawString(s, x + 1, y - 1, alpha);
-		f.drawString(s, x + 1, y, alpha);
-		f.drawString(s, x + 1, y + 1, alpha);
-		f.drawString(s, x, y + 1, alpha);
-		f.drawString(s, x - 1, y + 1, alpha);
-		f.drawString(s, x - 1, y, alpha);
-		f.drawString(s, x, y, color | alpha);
-	}
-
-	public static void drawConquestText(FontRenderer f, int x, int y, String s, boolean cleanse, float alphaF) {
-		if (cleanse) {
-			drawBorderedText(f, x, y, s, 16773846, alphaF);
-		} else {
-			drawBorderedText(f, x, y, s, 14833677, alphaF);
-		}
-	}
-
-	public static void drawTexturedModalRect(double x, double y, int u, int v, int width, int height) {
-		float f = 0.00390625F;
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(x + 0.0D, y + height, 0.0D, u * f, (v + height) * f);
-		tessellator.addVertexWithUV(x + width, y + height, 0.0D, (u + width) * f, (v + height) * f);
-		tessellator.addVertexWithUV(x + width, y + 0.0D, 0.0D, (u + width) * f, v * f);
-		tessellator.addVertexWithUV(x + 0.0D, y + 0.0D, 0.0D, u * f, v * f);
-		tessellator.draw();
-	}
-
-	public static boolean isBossActive() {
-		return BossStatus.bossName != null && BossStatus.statusBarTime > 0;
-	}
-
-	public static void renderAlignmentBar(float alignment, boolean isOtherPlayer, GOTFaction faction, float x, float y, boolean renderFacName, boolean renderValue, boolean renderLimits, boolean renderLimitValues) {
-		Minecraft mc = Minecraft.getMinecraft();
-		EntityClientPlayerMP entityClientPlayerMP = mc.thePlayer;
-		GOTPlayerData clientPD = GOTLevelData.getData(entityClientPlayerMP);
-		GOTFactionRank rank = faction.getRank(alignment);
-		boolean pledged = clientPD.isPledgedTo(faction);
-		GOTAlignmentTicker ticker = GOTAlignmentTicker.forFaction(faction);
-		float alignMin;
-		float alignMax;
-		GOTFactionRank rankMin;
-		GOTFactionRank rankMax;
-		if (rank.isDummyRank()) {
-			float firstRankAlign;
-			GOTFactionRank firstRank = faction.getFirstRank();
-			if (firstRank != null && !firstRank.isDummyRank()) {
-				firstRankAlign = firstRank.alignment;
-			} else {
-				firstRankAlign = 10.0F;
-			}
-			if (Math.abs(alignment) < firstRankAlign) {
-				alignMin = -firstRankAlign;
-				alignMax = firstRankAlign;
-				rankMin = GOTFactionRank.RANK_ENEMY;
-				if (firstRank != null && !firstRank.isDummyRank()) {
-					rankMax = firstRank;
-				} else {
-					rankMax = GOTFactionRank.RANK_NEUTRAL;
-				}
-			} else if (alignment < 0.0F) {
-				alignMax = -firstRankAlign;
-				alignMin = alignMax * 10.0F;
-				rankMin = rankMax = GOTFactionRank.RANK_ENEMY;
-				while (alignment <= alignMin) {
-					alignMax *= 10.0F;
-					alignMin = alignMax * 10.0F;
-				}
-			} else {
-				alignMin = firstRankAlign;
-				alignMax = alignMin * 10.0F;
-				rankMin = rankMax = GOTFactionRank.RANK_NEUTRAL;
-				while (alignment >= alignMax) {
-					alignMin = alignMax;
-					alignMax = alignMin * 10.0F;
-				}
-			}
-		} else {
-			alignMin = rank.alignment;
-			rankMin = rank;
-			GOTFactionRank nextRank = faction.getRankAbove(rank);
-			if (nextRank != null && !nextRank.isDummyRank() && nextRank != rank) {
-				alignMax = nextRank.alignment;
-				rankMax = nextRank;
-			} else {
-				alignMax = rank.alignment * 10.0F;
-				rankMax = rank;
-				while (alignment >= alignMax) {
-					alignMin = alignMax;
-					alignMax = alignMin * 10.0F;
-				}
-			}
-		}
-		float ringProgress = (alignment - alignMin) / (alignMax - alignMin);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
-		int barWidth = 232;
-		int barHeight = 14;
-		int activeBarWidth = 220;
-		float[] factionColors = faction.getFactionRGB();
-		GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], 1.0F);
-		drawTexturedModalRect(x - (double) barWidth / 2, y, 0, 14, barWidth, barHeight);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		drawTexturedModalRect(x - (double) barWidth / 2, y, 0, 0, barWidth, barHeight);
-		float ringProgressAdj = (ringProgress - 0.5F) * 2.0F;
-		int ringSize = 16;
-		float ringX = x - (float) ringSize / 2 + ringProgressAdj * activeBarWidth / 2.0F;
-		float ringY = y + (float) barHeight / 2 - (float) ringSize / 2;
-		int flashTick = ticker.flashTick;
-		if (pledged) {
-			drawTexturedModalRect(ringX, ringY, 16 * Math.round((float) flashTick / 3), 212, ringSize, ringSize);
-		} else {
-			drawTexturedModalRect(ringX, ringY, 16 * Math.round((float) flashTick / 3), 36, ringSize, ringSize);
-		}
-		if (faction.isPlayableAlignmentFaction()) {
-			float alpha;
-			boolean definedZone;
-			if (faction.inControlZone(entityClientPlayerMP)) {
-				alpha = 1.0F;
-				definedZone = faction.inDefinedControlZone(entityClientPlayerMP);
-			} else {
-				alpha = faction.getControlZoneAlignmentMultiplier(entityClientPlayerMP);
-				definedZone = true;
-			}
-			if (alpha > 0.0F) {
-				int arrowSize = 14;
-				int y0;
-				int y1;
-				if (definedZone) {
-					y0 = 60;
-					y1 = 74;
-				} else {
-					y0 = 88;
-					y1 = 102;
-				}
-				GL11.glEnable(3042);
-				OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-				GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], alpha);
-				drawTexturedModalRect(x - (double) barWidth / 2 - arrowSize, y, 0, y1, arrowSize, arrowSize);
-				drawTexturedModalRect(x + (double) barWidth / 2, y, arrowSize, y1, arrowSize, arrowSize);
-				GL11.glColor4f(1.0F, 1.0F, 1.0F, alpha);
-				drawTexturedModalRect(x - (double) barWidth / 2 - arrowSize, y, 0, y0, arrowSize, arrowSize);
-				drawTexturedModalRect(x + (double) barWidth / 2, y, arrowSize, y0, arrowSize, arrowSize);
-				GL11.glDisable(3042);
-			}
-		}
-		FontRenderer fr = mc.fontRenderer;
-		int textX = Math.round(x);
-		int textY = Math.round(y + barHeight + 4.0F);
-		if (renderLimits) {
-			String sMin = rankMin.getShortNameWithGender(clientPD);
-			String sMax = rankMax.getShortNameWithGender(clientPD);
-			if (renderLimitValues) {
-				sMin = StatCollector.translateToLocalFormatted("got.gui.factions.alignment.limits", sMin, GOTAlignmentValues.formatAlignForDisplay(alignMin));
-				sMax = StatCollector.translateToLocalFormatted("got.gui.factions.alignment.limits", sMax, GOTAlignmentValues.formatAlignForDisplay(alignMax));
-			}
-			int limitsX = barWidth / 2 - 6;
-			int xMin = Math.round(x - limitsX);
-			int xMax = Math.round(x + limitsX);
-			GL11.glPushMatrix();
-			GL11.glScalef(0.5F, 0.5F, 0.5F);
-			drawAlignmentText(fr, xMin * 2 - fr.getStringWidth(sMin) / 2, textY * 2, sMin, 1.0F);
-			drawAlignmentText(fr, xMax * 2 - fr.getStringWidth(sMax) / 2, textY * 2, sMax, 1.0F);
-			GL11.glPopMatrix();
-		}
-		if (renderFacName) {
-			String name = faction.factionName();
-			drawAlignmentText(fr, textX - fr.getStringWidth(name) / 2, textY, name, 1.0F);
-		}
-		if (renderValue) {
-			String alignS;
-			float alignAlpha;
-			int numericalTick = ticker.numericalTick;
-			if (numericalTick > 0) {
-				alignS = GOTAlignmentValues.formatAlignForDisplay(alignment);
-				alignAlpha = GOTFunctions.triangleWave(numericalTick, 0.7F, 1.0F, 30.0F);
-				int fadeTick = 15;
-				if (numericalTick < fadeTick) {
-					alignAlpha *= (float) numericalTick / fadeTick;
-				}
-			} else {
-				alignS = rank.getShortNameWithGender(clientPD);
-				alignAlpha = 1.0F;
-			}
-			GL11.glEnable(3042);
-			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-			drawAlignmentText(fr, textX - fr.getStringWidth(alignS) / 2, textY + fr.FONT_HEIGHT + 3, alignS, alignAlpha);
-			GL11.glDisable(3042);
-		}
 	}
 }

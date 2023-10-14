@@ -1,12 +1,5 @@
 package got.common.quest;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.UUID;
-
-import org.apache.commons.lang3.StringUtils;
-
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -24,6 +17,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.UUID;
 
 public class GOTMiniQuestBounty extends GOTMiniQuest {
 	public UUID targetID;

@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -12,6 +10,8 @@ import got.common.entity.westeros.GOTEntityLightSkinScrapTrader;
 import got.common.entity.westeros.GOTEntityLightSkinThief;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 	public String[] tavernName;

@@ -1,21 +1,11 @@
 package got.client.sound;
 
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.util.*;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipFile;
-
-import org.apache.commons.io.input.BOMInputStream;
-
 import com.google.common.base.Charsets;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
-
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.common.GOTDimension;
@@ -34,6 +24,14 @@ import net.minecraft.client.resources.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.sound.PlaySoundEvent17;
 import net.minecraftforge.common.MinecraftForge;
+import org.apache.commons.io.input.BOMInputStream;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.util.*;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipFile;
 
 public class GOTMusic implements IResourceManagerReloadListener {
 	public static File musicDir;
@@ -48,28 +46,6 @@ public class GOTMusic implements IResourceManagerReloadListener {
 	public GOTMusic() {
 		((IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager()).registerReloadListener(this);
 		MinecraftForge.EVENT_BUS.register(this);
-	}
-
-	@SubscribeEvent
-	public void onPlaySound(PlaySoundEvent17 event) {
-		if (!allTracks.isEmpty() && event.category == SoundCategory.MUSIC && !(event.sound instanceof GOTMusicTrack)) {
-			if (isGOTDimension()) {
-				event.result = null;
-				return;
-			}
-			if (isMenuMusic() && !getTracksForRegion(GOTBiomeMusic.MENU, null).isEmpty()) {
-				event.result = null;
-			}
-		}
-	}
-
-	@Override
-	public void onResourceManagerReload(IResourceManager resourcemanager) {
-		loadMusicPacks(Minecraft.getMinecraft().mcDataDir, (SimpleReloadableResourceManager) resourcemanager);
-	}
-
-	public void update() {
-		GOTMusicTicker.update(musicRand);
 	}
 
 	public static void addTrackToRegions(GOTMusicTrack track) {
@@ -297,6 +273,28 @@ public class GOTMusic implements IResourceManagerReloadListener {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@SubscribeEvent
+	public void onPlaySound(PlaySoundEvent17 event) {
+		if (!allTracks.isEmpty() && event.category == SoundCategory.MUSIC && !(event.sound instanceof GOTMusicTrack)) {
+			if (isGOTDimension()) {
+				event.result = null;
+				return;
+			}
+			if (isMenuMusic() && !getTracksForRegion(GOTBiomeMusic.MENU, null).isEmpty()) {
+				event.result = null;
+			}
+		}
+	}
+
+	@Override
+	public void onResourceManagerReload(IResourceManager resourcemanager) {
+		loadMusicPacks(Minecraft.getMinecraft().mcDataDir, (SimpleReloadableResourceManager) resourcemanager);
+	}
+
+	public void update() {
+		GOTMusicTicker.update(musicRand);
 	}
 
 	public static class Reflect {

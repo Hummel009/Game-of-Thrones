@@ -1,7 +1,5 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.database.GOTTradeEntries;
 import got.common.entity.other.GOTEntityNPC;
@@ -21,6 +19,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiTrade extends GuiContainer {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/trade.png");

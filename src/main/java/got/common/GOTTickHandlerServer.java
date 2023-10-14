@@ -1,9 +1,5 @@
 package got.common;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -37,6 +33,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.storage.WorldInfo;
 import net.minecraftforge.common.DimensionManager;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTTickHandlerServer {
 	public static Map<EntityPlayer, Integer> playersInPortals = new HashMap<>();

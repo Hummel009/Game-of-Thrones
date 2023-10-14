@@ -1,9 +1,9 @@
 package got.common.entity.dragon;
 
-import java.util.Random;
-
 import net.minecraft.entity.DataWatcher;
 import net.minecraft.nbt.NBTTagCompound;
+
+import java.util.Random;
 
 public class GOTDragonHelper {
 	public GOTEntityDragon dragon;

@@ -1,7 +1,5 @@
 package got.common;
 
-import java.util.*;
-
 import got.common.database.GOTAchievement;
 import got.common.faction.GOTFaction;
 import got.common.world.GOTWorldProvider;
@@ -10,6 +8,8 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.common.DimensionManager;
+
+import java.util.*;
 
 public enum GOTDimension {
 	GAME_OF_THRONES("GameOfThrones", 99, GOTWorldProvider.class, true, 99, EnumSet.of(DimensionRegion.EAST_ESSOS, DimensionRegion.WEST_ESSOS, DimensionRegion.WESTEROS, DimensionRegion.OTHER));
@@ -37,14 +37,6 @@ public enum GOTDimension {
 		for (DimensionRegion r : dimensionRegions) {
 			r.setDimension(this);
 		}
-	}
-
-	public String getDimensionName() {
-		return StatCollector.translateToLocal(getUntranslatedDimensionName());
-	}
-
-	public String getUntranslatedDimensionName() {
-		return "got.dimension." + dimensionName;
 	}
 
 	public static GOTDimension forName(String s) {
@@ -79,6 +71,14 @@ public enum GOTDimension {
 		}
 	}
 
+	public String getDimensionName() {
+		return StatCollector.translateToLocal(getUntranslatedDimensionName());
+	}
+
+	public String getUntranslatedDimensionName() {
+		return "got.dimension." + dimensionName;
+	}
+
 	public enum DimensionRegion {
 		WESTEROS("westeros"), WEST_ESSOS("westEssos"), EAST_ESSOS("eastEssos"), OTHER("other");
 
@@ -88,22 +88,6 @@ public enum GOTDimension {
 
 		DimensionRegion(String s) {
 			regionName = s;
-		}
-
-		public String codeName() {
-			return regionName;
-		}
-
-		public GOTDimension getDimension() {
-			return dimension;
-		}
-
-		public String getRegionName() {
-			return StatCollector.translateToLocal("got.dimension." + dimension.dimensionName + "." + codeName());
-		}
-
-		public void setDimension(GOTDimension dim) {
-			dimension = dim;
 		}
 
 		public static DimensionRegion forID(int ID) {
@@ -122,6 +106,22 @@ public enum GOTDimension {
 				}
 			}
 			return null;
+		}
+
+		public String codeName() {
+			return regionName;
+		}
+
+		public GOTDimension getDimension() {
+			return dimension;
+		}
+
+		public void setDimension(GOTDimension dim) {
+			dimension = dim;
+		}
+
+		public String getRegionName() {
+			return StatCollector.translateToLocal("got.dimension." + dimension.dimensionName + "." + codeName());
 		}
 	}
 

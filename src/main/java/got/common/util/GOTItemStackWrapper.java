@@ -1,10 +1,10 @@
 package got.common.util;
 
-import java.util.Objects;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+
+import java.util.Objects;
 
 public class GOTItemStackWrapper {
 	public boolean isNBTSensitive;

@@ -134,12 +134,20 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		return dataWatcher.getWatchableObjectByte(18);
 	}
 
+	public void setScorpionScale(int i) {
+		dataWatcher.updateObject(18, (byte) i);
+	}
+
 	public float getScorpionScaleAmount() {
 		return 0.5f + getScorpionScale() / 2.0f;
 	}
 
 	public int getStrikeTime() {
 		return dataWatcher.getWatchableObjectInt(19);
+	}
+
+	public void setStrikeTime(int i) {
+		dataWatcher.updateObject(19, i);
 	}
 
 	@Override
@@ -186,10 +194,6 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		super.setSize(scorpionWidth * f, scorpionHeight * f);
 	}
 
-	public void setScorpionScale(int i) {
-		dataWatcher.updateObject(18, (byte) i);
-	}
-
 	@Override
 	public void setSize(float f, float f1) {
 		boolean flag = scorpionWidth > 0.0f;
@@ -198,10 +202,6 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 		if (!flag) {
 			rescaleScorpion(1.0f);
 		}
-	}
-
-	public void setStrikeTime(int i) {
-		dataWatcher.updateObject(19, i);
 	}
 
 	@Override

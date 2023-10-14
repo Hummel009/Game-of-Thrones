@@ -1,12 +1,12 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.asshai.GOTEntityAsshaiWarrior;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 

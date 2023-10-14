@@ -1,18 +1,8 @@
 package got.client.gui;
 
-import java.awt.Color;
-import java.util.*;
-import java.util.regex.Pattern;
-
-import org.apache.commons.lang3.StringUtils;
-import org.lwjgl.input.Keyboard;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.math.IntMath;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.minecraft.MinecraftProfileTexture;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTClientProxy;
 import got.client.GOTKeyHandler;
@@ -47,6 +37,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraft.util.*;
 import net.minecraft.world.chunk.EmptyChunk;
+import org.apache.commons.lang3.StringUtils;
+import org.lwjgl.input.Keyboard;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.awt.*;
+import java.util.List;
+import java.util.*;
+import java.util.regex.Pattern;
 
 public class GOTGuiMap extends GOTGuiMenuBase {
 	public static Map<UUID, PlayerLocationInfo> playerLocations = new HashMap<>();
@@ -160,6 +159,31 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
 			new GOTGenLayerWorld();
 		}
+	}
+
+	public static void addPlayerLocationInfo(GameProfile player, double x, double z) {
+		if (player.isComplete()) {
+			playerLocations.put(player.getId(), new PlayerLocationInfo(player, x, z));
+		}
+	}
+
+	public static void clearPlayerLocations() {
+		playerLocations.clear();
+	}
+
+	public static boolean isOSRS() {
+		return GOTConfig.osrsMap;
+	}
+
+	public static int[] setFakeStaticProperties(int w, int h, int xmin, int xmax, int ymin, int ymax) {
+		int[] ret = {mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
+		mapWidth = w;
+		mapHeight = h;
+		mapXMin = xmin;
+		mapXMax = xmax;
+		mapYMin = ymin;
+		mapYMax = ymax;
+		return ret;
 	}
 
 	@Override
@@ -2172,31 +2196,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	public void zoomOut() {
 		zoom(-1);
-	}
-
-	public static void addPlayerLocationInfo(GameProfile player, double x, double z) {
-		if (player.isComplete()) {
-			playerLocations.put(player.getId(), new PlayerLocationInfo(player, x, z));
-		}
-	}
-
-	public static void clearPlayerLocations() {
-		playerLocations.clear();
-	}
-
-	public static boolean isOSRS() {
-		return GOTConfig.osrsMap;
-	}
-
-	public static int[] setFakeStaticProperties(int w, int h, int xmin, int xmax, int ymin, int ymax) {
-		int[] ret = {mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
-		mapWidth = w;
-		mapHeight = h;
-		mapXMin = xmin;
-		mapXMax = xmax;
-		mapYMin = ymin;
-		mapYMax = ymax;
-		return ret;
 	}
 
 	public static class PlayerLocationInfo {

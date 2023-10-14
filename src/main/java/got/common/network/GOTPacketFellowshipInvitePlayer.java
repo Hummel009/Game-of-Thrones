@@ -1,10 +1,7 @@
 package got.common.network;
 
-import java.util.UUID;
-
 import com.google.common.base.Charsets;
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -17,6 +14,8 @@ import got.common.util.GOTLog;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
+
+import java.util.UUID;
 
 public class GOTPacketFellowshipInvitePlayer extends GOTPacketFellowshipDo {
 	public String invitedUsername;

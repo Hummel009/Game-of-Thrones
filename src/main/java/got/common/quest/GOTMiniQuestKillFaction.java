@@ -1,7 +1,5 @@
 package got.common.quest;
 
-import java.util.Random;
-
 import got.GOT;
 import got.common.GOTPlayerData;
 import got.common.entity.other.GOTEntityNPC;
@@ -9,6 +7,8 @@ import got.common.faction.GOTFaction;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
+
+import java.util.Random;
 
 public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	public GOTFaction killFaction;

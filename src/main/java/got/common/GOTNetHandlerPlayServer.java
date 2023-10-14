@@ -2,7 +2,6 @@ package got.common;
 
 import com.google.common.primitives.Doubles;
 import com.google.common.primitives.Floats;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.entity.other.GOTMountFunctions;

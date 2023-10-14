@@ -1,8 +1,8 @@
 package got.common.world.structure.essos.asshai;
 
-import java.util.Random;
-
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureAsshaiTownBench extends GOTStructureAsshaiBase {
 	public GOTStructureAsshaiTownBench(boolean flag) {

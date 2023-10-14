@@ -1,10 +1,9 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiTownWall extends GOTStructureYiTiBase {
 	public int xMin;
@@ -16,6 +15,18 @@ public class GOTStructureYiTiTownWall extends GOTStructureYiTiBase {
 		xMin = x0;
 		xMax = x1;
 		isCentre = c;
+	}
+
+	public static GOTStructureYiTiTownWall Centre(boolean flag) {
+		return new GOTStructureYiTiTownWall(flag, -7, 7, true);
+	}
+
+	public static GOTStructureYiTiTownWall Left(boolean flag) {
+		return new GOTStructureYiTiTownWall(flag, -4, 3, false);
+	}
+
+	public static GOTStructureYiTiTownWall Right(boolean flag) {
+		return new GOTStructureYiTiTownWall(flag, -3, 4, false);
 	}
 
 	@Override
@@ -48,17 +59,5 @@ public class GOTStructureYiTiTownWall extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, i1, 6, -2, brickWallBlock, brickWallMeta);
 		}
 		return true;
-	}
-
-	public static GOTStructureYiTiTownWall Centre(boolean flag) {
-		return new GOTStructureYiTiTownWall(flag, -7, 7, true);
-	}
-
-	public static GOTStructureYiTiTownWall Left(boolean flag) {
-		return new GOTStructureYiTiTownWall(flag, -4, 3, false);
-	}
-
-	public static GOTStructureYiTiTownWall Right(boolean flag) {
-		return new GOTStructureYiTiTownWall(flag, -3, 4, false);
 	}
 }

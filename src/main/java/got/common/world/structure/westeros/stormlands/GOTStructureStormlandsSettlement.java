@@ -1,9 +1,6 @@
 package got.common.world.structure.westeros.stormlands;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.stormlands.GOTEntityStormlandsMan;
@@ -16,6 +13,8 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -39,6 +38,10 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureStormlandsSettlement> {
@@ -528,10 +531,6 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 			}
 		}
 
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT
 	}
 
 }

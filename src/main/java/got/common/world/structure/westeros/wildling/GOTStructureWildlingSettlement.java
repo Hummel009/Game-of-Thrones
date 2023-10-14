@@ -1,7 +1,5 @@
 package got.common.world.structure.westeros.wildling;
 
-import java.util.Random;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.wildling.GOTEntityWildling;
 import got.common.entity.westeros.wildling.GOTEntityWildlingArcher;
@@ -22,6 +20,8 @@ import got.common.world.structure.westeros.wildling.thenn.GOTStructureThennMagna
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -45,6 +45,10 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, HARDHOME, CRASTER, THENN
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureWildlingSettlement> {
@@ -285,9 +289,5 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureHayBales(false), i1, k2, 0);
 			}
 		}
-	}
-
-	public enum Type {
-		VILLAGE, HARDHOME, CRASTER, THENN
 	}
 }

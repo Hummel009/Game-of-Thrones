@@ -1,7 +1,5 @@
 package got.common.world.structure.other;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
@@ -9,6 +7,8 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.Random;
 
 public abstract class GOTStructureTentBase extends GOTStructureBase {
 	public Block tentBlock;

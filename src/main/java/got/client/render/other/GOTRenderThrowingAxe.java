@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.FMLLog;
 import got.common.entity.other.GOTEntityThrowingAxe;
 import net.minecraft.client.renderer.ItemRenderer;
@@ -13,6 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderThrowingAxe extends Render {
 	@Override

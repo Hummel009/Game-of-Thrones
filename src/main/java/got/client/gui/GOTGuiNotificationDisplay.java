@@ -1,11 +1,5 @@
 package got.client.gui;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTClientProxy;
 import got.client.GOTTickHandlerClient;
 import got.common.database.GOTAchievement;
@@ -19,6 +13,11 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 
 public class GOTGuiNotificationDisplay extends Gui {
 	public static int guiXSize = 190;

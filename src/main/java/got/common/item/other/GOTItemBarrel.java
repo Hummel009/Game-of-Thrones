@@ -1,7 +1,5 @@
 package got.common.item.other;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.entity.other.GOTEntityBarrel;
@@ -17,9 +15,36 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
+import java.util.List;
+
 public class GOTItemBarrel extends ItemBlock {
 	public GOTItemBarrel(Block block) {
 		super(block);
+	}
+
+	public static NBTTagCompound getBarrelData(ItemStack itemstack) {
+		if (itemstack.hasTagCompound() && itemstack.getTagCompound().hasKey("GOTBarrelData")) {
+			return itemstack.getTagCompound().getCompoundTag("GOTBarrelData");
+		}
+		return null;
+	}
+
+	public static void loadBarrelDataToTE(ItemStack itemstack, GOTTileEntityBarrel barrel) {
+		NBTTagCompound nbt = getBarrelData(itemstack);
+		if (nbt != null) {
+			barrel.readBarrelFromNBT(nbt);
+		}
+	}
+
+	public static void setBarrelData(ItemStack itemstack, NBTTagCompound nbt) {
+		itemstack.setTagCompound(new NBTTagCompound());
+		itemstack.getTagCompound().setTag("GOTBarrelData", nbt);
+	}
+
+	public static void setBarrelDataFromTE(ItemStack itemstack, GOTTileEntityBarrel barrel) {
+		NBTTagCompound nbt = new NBTTagCompound();
+		barrel.writeBarrelToNBT(nbt);
+		setBarrelData(itemstack, nbt);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -82,30 +107,5 @@ public class GOTItemBarrel extends ItemBlock {
 			return true;
 		}
 		return false;
-	}
-
-	public static NBTTagCompound getBarrelData(ItemStack itemstack) {
-		if (itemstack.hasTagCompound() && itemstack.getTagCompound().hasKey("GOTBarrelData")) {
-			return itemstack.getTagCompound().getCompoundTag("GOTBarrelData");
-		}
-		return null;
-	}
-
-	public static void loadBarrelDataToTE(ItemStack itemstack, GOTTileEntityBarrel barrel) {
-		NBTTagCompound nbt = getBarrelData(itemstack);
-		if (nbt != null) {
-			barrel.readBarrelFromNBT(nbt);
-		}
-	}
-
-	public static void setBarrelData(ItemStack itemstack, NBTTagCompound nbt) {
-		itemstack.setTagCompound(new NBTTagCompound());
-		itemstack.getTagCompound().setTag("GOTBarrelData", nbt);
-	}
-
-	public static void setBarrelDataFromTE(ItemStack itemstack, GOTTileEntityBarrel barrel) {
-		NBTTagCompound nbt = new NBTTagCompound();
-		barrel.writeBarrelToNBT(nbt);
-		setBarrelData(itemstack, nbt);
 	}
 }

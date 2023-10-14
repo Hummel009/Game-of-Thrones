@@ -1,7 +1,5 @@
 package got.common.recipe;
 
-import java.lang.reflect.Field;
-
 import cpw.mods.fml.common.FMLLog;
 import got.GOT;
 import got.common.item.GOTPoisonedDrinks;
@@ -14,6 +12,8 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+
+import java.lang.reflect.Field;
 
 public class GOTRecipePoisonDrinks implements IRecipe {
 	@Override

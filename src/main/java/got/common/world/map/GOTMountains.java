@@ -25,26 +25,6 @@ public enum GOTMountains {
 		this(waypoint.getX(), waypoint.getY(), h, r, 0);
 	}
 
-	public float getHeightBoost(int x, int z) {
-		double dx = x - xCoord;
-		double dz = z - zCoord;
-		double distSq = dx * dx + dz * dz;
-		double rangeSq = range * range;
-		if (distSq < rangeSq) {
-			if (lavaRange > 0 && distSq < lavaRange * lavaRange) {
-				return getLavaCraterHeight();
-			}
-			double dist = Math.sqrt(distSq);
-			float f = (float) (dist / range);
-			return (1.0f - f) * height;
-		}
-		return 0.0f;
-	}
-
-	public float getLavaCraterHeight() {
-		return (1.0f - (float) lavaRange / range) * height * 0.4f;
-	}
-
 	public static int getLavaHeight(int x, int z) {
 		for (GOTMountains m : values()) {
 			double dx;
@@ -82,5 +62,25 @@ public enum GOTMountains {
 			return true;
 		}
 		return false;
+	}
+
+	public float getHeightBoost(int x, int z) {
+		double dx = x - xCoord;
+		double dz = z - zCoord;
+		double distSq = dx * dx + dz * dz;
+		double rangeSq = range * range;
+		if (distSq < rangeSq) {
+			if (lavaRange > 0 && distSq < lavaRange * lavaRange) {
+				return getLavaCraterHeight();
+			}
+			double dist = Math.sqrt(distSq);
+			float f = (float) (dist / range);
+			return (1.0f - f) * height;
+		}
+		return 0.0f;
+	}
+
+	public float getLavaCraterHeight() {
+		return (1.0f - (float) lavaRange / range) * height * 0.4f;
 	}
 }

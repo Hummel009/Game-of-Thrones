@@ -1,10 +1,5 @@
 package got.common.block.other;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -23,6 +18,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+
 public class GOTBlockFallenLeaves extends Block implements IShearable {
 	public static Collection<GOTBlockFallenLeaves> allFallenLeaves = new ArrayList<>();
 	public static Random leafRand = new Random();
@@ -36,6 +36,24 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 		setStepSound(Block.soundTypeGrass);
 		useNeighborBrightness = true;
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.125f, 1.0f);
+	}
+
+	public static void assignLeaves(Block fallenLeaves, Block... leaves) {
+		((GOTBlockFallenLeaves) fallenLeaves).leafBlocks = leaves;
+	}
+
+	public static Object[] fallenBlockMetaFromLeafBlockMeta(Block block, int meta) {
+		meta &= 3;
+		for (GOTBlockFallenLeaves fallenLeaves : allFallenLeaves) {
+			for (int i = 0; i < fallenLeaves.leafBlocks.length; ++i) {
+				Block leafBlock = fallenLeaves.leafBlocks[i];
+				if (leafBlock != block) {
+					continue;
+				}
+				return new Object[]{fallenLeaves, i * 4 + meta};
+			}
+		}
+		return null;
 	}
 
 	@Override
@@ -155,23 +173,5 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 	@Override
 	public boolean renderAsNormalBlock() {
 		return false;
-	}
-
-	public static void assignLeaves(Block fallenLeaves, Block... leaves) {
-		((GOTBlockFallenLeaves) fallenLeaves).leafBlocks = leaves;
-	}
-
-	public static Object[] fallenBlockMetaFromLeafBlockMeta(Block block, int meta) {
-		meta &= 3;
-		for (GOTBlockFallenLeaves fallenLeaves : allFallenLeaves) {
-			for (int i = 0; i < fallenLeaves.leafBlocks.length; ++i) {
-				Block leafBlock = fallenLeaves.leafBlocks[i];
-				if (leafBlock != block) {
-					continue;
-				}
-				return new Object[]{fallenLeaves, i * 4 + meta};
-			}
-		}
-		return null;
 	}
 }

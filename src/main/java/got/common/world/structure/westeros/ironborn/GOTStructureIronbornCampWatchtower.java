@@ -1,7 +1,5 @@
 package got.common.world.structure.westeros.ironborn;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.other.GOTEntityNPCRespawner;
@@ -14,6 +12,8 @@ import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIronbornCampWatchtower extends GOTStructureBase {
 	public Block woodBlock;

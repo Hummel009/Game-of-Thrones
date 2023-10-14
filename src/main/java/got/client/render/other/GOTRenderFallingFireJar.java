@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.block.other.GOTBlockWildFireJar;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
@@ -11,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityFallingBlock;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderFallingFireJar extends RenderFallingBlock {
 	public static RenderBlocks renderBlocks = new RenderBlocks();

@@ -1,7 +1,5 @@
 package got.client;
 
-import java.util.List;
-
 import got.common.item.GOTWeaponStats;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
@@ -12,6 +10,8 @@ import net.minecraft.entity.item.EntityItemFrame;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
+
+import java.util.List;
 
 public class GOTEntityRenderer extends EntityRenderer {
 	public Minecraft theMC;

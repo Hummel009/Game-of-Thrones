@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.volantis;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.entity.essos.volantis.GOTEntityVolantisMan;
 import got.common.entity.essos.volantis.GOTEntityVolantisSoldier;
 import got.common.entity.essos.volantis.GOTEntityVolantisSoldierArcher;
@@ -14,6 +11,8 @@ import got.common.world.structure.essos.common.GOTStructureEssosVillageFence;
 import got.common.world.structure.essos.common.GOTStructureEssosVillagePost;
 import got.common.world.structure.other.*;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -37,6 +36,10 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureVolantisSettlement> {
@@ -501,10 +504,6 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			spawner.setSpawnClasses(GOTEntityVolantisSoldier.class, GOTEntityVolantisSoldierArcher.class);
 		}
 
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT
 	}
 
 }

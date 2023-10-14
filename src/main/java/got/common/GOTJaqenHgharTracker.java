@@ -1,8 +1,5 @@
 package got.common;
 
-import java.util.*;
-import java.util.Map.Entry;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.Event;
 import got.common.entity.essos.legendary.quest.GOTEntityJaqenHghar;
@@ -12,6 +9,9 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
+
+import java.util.*;
+import java.util.Map.Entry;
 
 public class GOTJaqenHgharTracker {
 	public static Map<UUID, Integer> activeJaqenHghars = new HashMap<>();

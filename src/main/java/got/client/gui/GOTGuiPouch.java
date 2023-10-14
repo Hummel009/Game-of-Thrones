@@ -1,7 +1,5 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.inventory.GOTContainerPouch;
 import got.common.network.GOTPacketHandler;
@@ -11,6 +9,7 @@ import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiPouch extends GuiContainer {
 	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/pouch.png");

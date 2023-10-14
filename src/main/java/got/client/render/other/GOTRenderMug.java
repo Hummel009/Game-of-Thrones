@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.*;
 import got.common.database.GOTBlocks;
 import got.common.item.other.GOTItemMug;
@@ -16,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderMug extends TileEntitySpecialRenderer {
 	public static ResourceLocation mugTexture = new ResourceLocation("got:textures/model/mug.png");

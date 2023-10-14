@@ -1,10 +1,5 @@
 package got.common.tileentity;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -28,6 +23,10 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraft.util.StatCollector;
+import org.apache.commons.lang3.ArrayUtils;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInventory {
 	public ItemStack[] inventory = new ItemStack[getForgeInvSize()];

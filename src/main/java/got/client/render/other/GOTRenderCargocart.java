@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelCargocart;
 import got.common.entity.other.GOTEntityCart;
 import net.minecraft.client.model.ModelBase;
@@ -9,6 +7,7 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderCargocart extends Render {
 	public static ResourceLocation TEXTURE = new ResourceLocation("got:textures/model/cargocart.png");

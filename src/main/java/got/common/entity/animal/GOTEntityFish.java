@@ -1,7 +1,5 @@
 package got.common.entity.animal;
 
-import java.util.UUID;
-
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
@@ -18,6 +16,8 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import java.util.UUID;
 
 public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity, ImmuneToFrost {
 	public static int swimTargetTimeMax = 200;
@@ -82,6 +82,14 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 		return FishType.values()[i];
 	}
 
+	public void setFishType(FishType type) {
+		setFishType(type.ordinal());
+	}
+
+	public void setFishType(int i) {
+		dataWatcher.updateObject(16, (byte) i);
+	}
+
 	@Override
 	public ItemStack getPickedResult(MovingObjectPosition target) {
 		return new ItemStack(GOTItems.spawnEgg, 1, GOTEntityRegistry.getEntityID(this));
@@ -128,14 +136,6 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		setFishType(nbt.getInteger("FishType"));
-	}
-
-	public void setFishType(FishType type) {
-		setFishType(type.ordinal());
-	}
-
-	public void setFishType(int i) {
-		dataWatcher.updateObject(16, (byte) i);
 	}
 
 	@Override

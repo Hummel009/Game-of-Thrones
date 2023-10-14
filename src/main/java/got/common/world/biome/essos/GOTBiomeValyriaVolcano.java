@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import java.util.Random;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.feature.GOTWorldGenStreams;
@@ -9,6 +7,8 @@ import got.common.world.feature.GOTWorldGenVolcanoCrater;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import java.util.Random;
 
 public class GOTBiomeValyriaVolcano extends GOTBiomeValyria {
 	public GOTBiomeValyriaVolcano(int i, boolean major) {

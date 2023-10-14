@@ -8,6 +8,14 @@ public class GOTGenLayerZoom extends GOTGenLayer {
 		gotParent = layer;
 	}
 
+	public static GOTGenLayer magnify(long seed, GOTGenLayer source, int zooms) {
+		GOTGenLayer layer = source;
+		for (int i = 0; i < zooms; ++i) {
+			layer = new GOTGenLayerZoom(seed + i, layer);
+		}
+		return layer;
+	}
+
 	@Override
 	public int[] getInts(World world, int i, int k, int xSize, int zSize) {
 		int i1 = i >> 1;
@@ -37,13 +45,5 @@ public class GOTGenLayerZoom extends GOTGenLayer {
 			System.arraycopy(ints, (k3 + (k & 1)) * i2 + (i & 1), zoomedInts, k3 * xSize, xSize);
 		}
 		return zoomedInts;
-	}
-
-	public static GOTGenLayer magnify(long seed, GOTGenLayer source, int zooms) {
-		GOTGenLayer layer = source;
-		for (int i = 0; i < zooms; ++i) {
-			layer = new GOTGenLayerZoom(seed + i, layer);
-		}
-		return layer;
 	}
 }

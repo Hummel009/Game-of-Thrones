@@ -1,10 +1,5 @@
 package integrator.handler;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.recipe.ShapelessRecipeHandler;
@@ -16,6 +11,11 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
 
 public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	public Collection<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();

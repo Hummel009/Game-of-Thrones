@@ -1,15 +1,15 @@
 package got.common.command;
 
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
 import got.common.util.DatabaseGenerator;
 import got.common.util.DatabaseGenerator.Database;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class GOTCommandDatabase extends CommandBase {
 	public Random rand = new Random();

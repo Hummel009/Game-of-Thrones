@@ -124,6 +124,10 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 		return dataWatcher.getWatchableObjectInt(20);
 	}
 
+	public void setSnapTime(int i) {
+		dataWatcher.updateObject(20, i);
+	}
+
 	@Override
 	public void onLivingUpdate() {
 		int i;
@@ -131,9 +135,5 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 		if (!worldObj.isRemote && (i = getSnapTime()) > 0) {
 			setSnapTime(i - 1);
 		}
-	}
-
-	public void setSnapTime(int i) {
-		dataWatcher.updateObject(20, i);
 	}
 }

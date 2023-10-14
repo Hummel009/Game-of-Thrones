@@ -1,8 +1,5 @@
 package got.common.world.structure.westeros.wildling;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -11,6 +8,9 @@ import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 	public GOTStructureWildlingKeep(boolean flag) {

@@ -1,8 +1,5 @@
 package got.client.render;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import got.client.effect.GOTEntityAlignmentBonus;
 import got.client.effect.GOTEntityDeadMarshFace;
 import got.client.effect.GOTEntitySwordCommandMarker;
@@ -96,6 +93,9 @@ import net.minecraft.client.renderer.entity.RenderSnowball;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityPotion;
 import net.minecraft.init.Items;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRender {
 	public static Map<Class<? extends Entity>, Render> renders = new HashMap<>();

@@ -1,20 +1,29 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.ibben.*;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase {
 	public static Class<? extends GOTStructureBase>[] allStallTypes = new Class[]{Goldsmith.class, Miner.class, Blacksmith.class, Farmer.class, Lumber.class, Mason.class, Brewer.class, Butcher.class, Fish.class, Baker.class, Florist.class};
 
 	protected GOTStructureIbbenMarketStall(boolean flag) {
 		super(flag);
+	}
+
+	public static GOTStructureBase getRandomStall(Random random, boolean flag) {
+		try {
+			Class<? extends GOTStructureBase> cls = allStallTypes[random.nextInt(allStallTypes.length)];
+			return cls.getConstructor(Boolean.TYPE).newInstance(flag);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public abstract GOTEntityIbbenMan createTrader(World var1);
@@ -97,16 +106,6 @@ public abstract class GOTStructureIbbenMarketStall extends GOTStructureIbbenBase
 	}
 
 	public abstract void generateRoof(World var1, Random var2, int var3, int var4, int var5);
-
-	public static GOTStructureBase getRandomStall(Random random, boolean flag) {
-		try {
-			Class<? extends GOTStructureBase> cls = allStallTypes[random.nextInt(allStallTypes.length)];
-			return cls.getConstructor(Boolean.TYPE).newInstance(flag);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
 
 	public static class Baker extends GOTStructureIbbenMarketStall {
 		public Baker(boolean flag) {

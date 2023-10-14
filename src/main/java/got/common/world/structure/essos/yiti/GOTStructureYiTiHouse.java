@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -10,6 +8,8 @@ import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiHouse extends GOTStructureYiTiBase {
 	public GOTStructureYiTiHouse(boolean flag) {

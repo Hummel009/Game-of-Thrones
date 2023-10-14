@@ -1,8 +1,5 @@
 package got.client.gui;
 
-import org.apache.commons.lang3.StringUtils;
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.item.other.GOTItemBrandingIron;
 import got.common.network.GOTPacketBrandingIron;
@@ -13,6 +10,8 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import org.apache.commons.lang3.StringUtils;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiBrandingIron extends GOTGuiScreenBase {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/brandingIron.png");

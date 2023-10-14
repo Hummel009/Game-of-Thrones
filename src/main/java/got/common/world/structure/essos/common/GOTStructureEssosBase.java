@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.common;
 
-import java.util.*;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTItems;
@@ -28,6 +26,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.*;
 
 public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public static final Map<City, BannerType> BANNERS = new EnumMap<>(City.class);
@@ -224,6 +224,46 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 
 	protected GOTStructureEssosBase(boolean flag) {
 		super(flag);
+	}
+
+	public static GOTTreeType getRandomSouthernTree(Random random) {
+		ArrayList<GOTTreeType> treeList = new ArrayList<>();
+		treeList.add(GOTTreeType.ACACIA);
+		treeList.add(GOTTreeType.ALMOND);
+		treeList.add(GOTTreeType.CEDAR);
+		treeList.add(GOTTreeType.CEDAR_LARGE);
+		treeList.add(GOTTreeType.CYPRESS);
+		treeList.add(GOTTreeType.CYPRESS_LARGE);
+		treeList.add(GOTTreeType.DATE_PALM);
+		treeList.add(GOTTreeType.LEMON);
+		treeList.add(GOTTreeType.LIME);
+		treeList.add(GOTTreeType.OLIVE);
+		treeList.add(GOTTreeType.OLIVE_LARGE);
+		treeList.add(GOTTreeType.ORANGE);
+		treeList.add(GOTTreeType.PALM);
+		treeList.add(GOTTreeType.PLUM);
+		treeList.add(GOTTreeType.KANUKA);
+		return treeList.get(random.nextInt(treeList.size()));
+	}
+
+	public static GOTTreeType getRandomStandardTree(Random random) {
+		ArrayList<GOTTreeType> treeList = new ArrayList<>();
+		treeList.add(GOTTreeType.OAK);
+		treeList.add(GOTTreeType.OAK_TALLER);
+		treeList.add(GOTTreeType.OAK_LARGE);
+		treeList.add(GOTTreeType.BIRCH);
+		treeList.add(GOTTreeType.BIRCH_LARGE);
+		treeList.add(GOTTreeType.BIRCH_TALL);
+		treeList.add(GOTTreeType.BEECH);
+		treeList.add(GOTTreeType.BEECH_LARGE);
+		treeList.add(GOTTreeType.APPLE);
+		treeList.add(GOTTreeType.PEAR);
+		treeList.add(GOTTreeType.PLUM);
+		treeList.add(GOTTreeType.OLIVE);
+		treeList.add(GOTTreeType.ALMOND);
+		treeList.add(GOTTreeType.CHESTNUT);
+		treeList.add(GOTTreeType.CHESTNUT_LARGE);
+		return treeList.get(random.nextInt(treeList.size()));
 	}
 
 	public BannerType getBannerType() {
@@ -532,46 +572,6 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 				cropBlock = Blocks.wheat;
 				break;
 		}
-	}
-
-	public static GOTTreeType getRandomSouthernTree(Random random) {
-		ArrayList<GOTTreeType> treeList = new ArrayList<>();
-		treeList.add(GOTTreeType.ACACIA);
-		treeList.add(GOTTreeType.ALMOND);
-		treeList.add(GOTTreeType.CEDAR);
-		treeList.add(GOTTreeType.CEDAR_LARGE);
-		treeList.add(GOTTreeType.CYPRESS);
-		treeList.add(GOTTreeType.CYPRESS_LARGE);
-		treeList.add(GOTTreeType.DATE_PALM);
-		treeList.add(GOTTreeType.LEMON);
-		treeList.add(GOTTreeType.LIME);
-		treeList.add(GOTTreeType.OLIVE);
-		treeList.add(GOTTreeType.OLIVE_LARGE);
-		treeList.add(GOTTreeType.ORANGE);
-		treeList.add(GOTTreeType.PALM);
-		treeList.add(GOTTreeType.PLUM);
-		treeList.add(GOTTreeType.KANUKA);
-		return treeList.get(random.nextInt(treeList.size()));
-	}
-
-	public static GOTTreeType getRandomStandardTree(Random random) {
-		ArrayList<GOTTreeType> treeList = new ArrayList<>();
-		treeList.add(GOTTreeType.OAK);
-		treeList.add(GOTTreeType.OAK_TALLER);
-		treeList.add(GOTTreeType.OAK_LARGE);
-		treeList.add(GOTTreeType.BIRCH);
-		treeList.add(GOTTreeType.BIRCH_LARGE);
-		treeList.add(GOTTreeType.BIRCH_TALL);
-		treeList.add(GOTTreeType.BEECH);
-		treeList.add(GOTTreeType.BEECH_LARGE);
-		treeList.add(GOTTreeType.APPLE);
-		treeList.add(GOTTreeType.PEAR);
-		treeList.add(GOTTreeType.PLUM);
-		treeList.add(GOTTreeType.OLIVE);
-		treeList.add(GOTTreeType.ALMOND);
-		treeList.add(GOTTreeType.CHESTNUT);
-		treeList.add(GOTTreeType.CHESTNUT_LARGE);
-		return treeList.get(random.nextInt(treeList.size()));
 	}
 
 	public enum City {

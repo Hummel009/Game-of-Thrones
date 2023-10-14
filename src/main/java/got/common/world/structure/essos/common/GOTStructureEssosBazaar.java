@@ -1,15 +1,15 @@
 package got.common.world.structure.essos.common;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntityBird;
 import got.common.entity.animal.GOTEntityButterfly;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class GOTStructureEssosBazaar extends GOTStructureEssosBase {
 	public GOTStructureEssosBazaar(boolean flag) {

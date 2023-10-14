@@ -1,12 +1,12 @@
 package got.common.network;
 
-import java.util.UUID;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.fellowship.GOTFellowship;
 import got.common.fellowship.GOTFellowshipClient;
 import got.common.fellowship.GOTFellowshipData;
 import io.netty.buffer.ByteBuf;
+
+import java.util.UUID;
 
 public abstract class GOTPacketFellowshipDo implements IMessage {
 	public UUID fellowshipID;

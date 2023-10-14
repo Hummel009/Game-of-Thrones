@@ -1,10 +1,5 @@
 package got.client.render.other;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.FMLLog;
 import got.common.block.other.GOTBlockChest;
 import got.common.block.other.GOTBlockSpawnerChest;
@@ -15,11 +10,24 @@ import net.minecraft.client.model.ModelChest;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderChest extends TileEntitySpecialRenderer {
 	public static Map<String, ResourceLocation> chestTextures = new HashMap<>();
 	public static ModelChest chestModel = new ModelChest();
 	public GOTTileEntityChest itemEntity = new GOTTileEntityChest();
+
+	public static ResourceLocation getChestTexture(String s) {
+		ResourceLocation r = chestTextures.get(s);
+		if (r == null) {
+			r = new ResourceLocation("got:textures/model/chest/" + s + ".png");
+			chestTextures.put(s, r);
+		}
+		return r;
+	}
 
 	public void renderInvChest(Block block, int meta) {
 		Block c;
@@ -83,14 +91,5 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-	}
-
-	public static ResourceLocation getChestTexture(String s) {
-		ResourceLocation r = chestTextures.get(s);
-		if (r == null) {
-			r = new ResourceLocation("got:textures/model/chest/" + s + ".png");
-			chestTextures.put(s, r);
-		}
-		return r;
 	}
 }

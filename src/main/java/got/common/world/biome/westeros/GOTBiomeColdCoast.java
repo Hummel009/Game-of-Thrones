@@ -1,9 +1,5 @@
 package got.common.world.biome.westeros;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.entity.animal.GOTEntityWalrus;
@@ -17,6 +13,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
 
 public class GOTBiomeColdCoast extends GOTBiomeWesterosFrost {
 	public NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(42956029606L), 1);

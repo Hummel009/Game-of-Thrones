@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelWeaponRack;
 import got.common.tileentity.GOTTileEntityWeaponRack;
 import net.minecraft.client.Minecraft;
@@ -15,6 +13,7 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 	public static ResourceLocation rackTexture = new ResourceLocation("got:textures/model/weapon_rack.png");

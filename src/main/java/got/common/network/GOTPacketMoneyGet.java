@@ -1,7 +1,5 @@
 package got.common.network;
 
-import java.io.IOException;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -16,6 +14,8 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
+
+import java.io.IOException;
 
 public class GOTPacketMoneyGet extends GOTPacketMoney {
 	public ItemStack item;

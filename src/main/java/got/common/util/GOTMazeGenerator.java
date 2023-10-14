@@ -1,9 +1,9 @@
 package got.common.util;
 
+import net.minecraft.util.MathHelper;
+
 import java.util.ArrayList;
 import java.util.Random;
-
-import net.minecraft.util.MathHelper;
 
 public class GOTMazeGenerator {
 	public static short FLAG_PATH = 1;

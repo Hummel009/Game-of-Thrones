@@ -1,9 +1,6 @@
 package got.common.entity.other;
 
-import java.util.*;
-
 import com.google.common.base.Predicate;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTConfig;
@@ -26,6 +23,8 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraft.server.management.PlayerManager;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.WorldServer;
+
+import java.util.*;
 
 public class GOTEntityQuestInfo {
 	public static int maxOfferTime = 24000;

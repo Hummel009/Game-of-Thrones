@@ -1,10 +1,5 @@
 package got.common.block.other;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.client.render.other.GOTConnectedTextures;
@@ -24,6 +19,11 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.List;
+
 public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	public static int MAX_GATE_RANGE = 16;
 	public boolean hasConnectedTextures;
@@ -33,6 +33,46 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		super(material);
 		hasConnectedTextures = ct;
 		setCreativeTab(GOTCreativeTabs.tabUtil);
+	}
+
+	public static GOTBlockGate createMetal(boolean ct) {
+		GOTBlockGate block = new GOTBlockGate(Material.iron, ct);
+		block.setHardness(4.0f);
+		block.setResistance(10.0f);
+		block.setStepSound(Block.soundTypeMetal);
+		return block;
+	}
+
+	public static GOTBlockGate createWooden(boolean ct) {
+		GOTBlockGate block = new GOTBlockGate(Material.wood, ct);
+		block.setHardness(4.0f);
+		block.setResistance(5.0f);
+		block.setStepSound(Block.soundTypeWood);
+		return block;
+	}
+
+	public static int getGateDirection(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return getGateDirection(meta);
+	}
+
+	public static int getGateDirection(int meta) {
+		return meta & 7;
+	}
+
+	public static boolean isGateOpen(IBlockAccess world, int i, int j, int k) {
+		int meta = world.getBlockMetadata(i, j, k);
+		return isGateOpen(meta);
+	}
+
+	public static boolean isGateOpen(int meta) {
+		return (meta & 8) != 0;
+	}
+
+	public static void setGateOpen(World world, int i, int j, int k, boolean flag) {
+		int meta = world.getBlockMetadata(i, j, k);
+		meta = flag ? meta | 8 : meta & 7;
+		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
 	}
 
 	public void activateGate(World world, int i, int j, int k) {
@@ -304,45 +344,5 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 			}
 		}
 		return super.shouldSideBeRendered(world, i, j, k, side);
-	}
-
-	public static GOTBlockGate createMetal(boolean ct) {
-		GOTBlockGate block = new GOTBlockGate(Material.iron, ct);
-		block.setHardness(4.0f);
-		block.setResistance(10.0f);
-		block.setStepSound(Block.soundTypeMetal);
-		return block;
-	}
-
-	public static GOTBlockGate createWooden(boolean ct) {
-		GOTBlockGate block = new GOTBlockGate(Material.wood, ct);
-		block.setHardness(4.0f);
-		block.setResistance(5.0f);
-		block.setStepSound(Block.soundTypeWood);
-		return block;
-	}
-
-	public static int getGateDirection(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return getGateDirection(meta);
-	}
-
-	public static int getGateDirection(int meta) {
-		return meta & 7;
-	}
-
-	public static boolean isGateOpen(IBlockAccess world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		return isGateOpen(meta);
-	}
-
-	public static boolean isGateOpen(int meta) {
-		return (meta & 8) != 0;
-	}
-
-	public static void setGateOpen(World world, int i, int j, int k, boolean flag) {
-		int meta = world.getBlockMetadata(i, j, k);
-		meta = flag ? meta | 8 : meta & 7;
-		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
 	}
 }

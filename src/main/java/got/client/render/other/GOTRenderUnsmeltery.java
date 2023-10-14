@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelUnsmeltery;
 import got.common.block.other.GOTBlockForgeBase;
 import got.common.tileentity.GOTTileEntityUnsmeltery;
@@ -9,6 +7,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderUnsmeltery extends TileEntitySpecialRenderer {
 	public ModelBase unsmelteryModel = new GOTModelUnsmeltery();

@@ -1,7 +1,6 @@
 package got.common.world;
 
 import com.google.common.math.IntMath;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -46,6 +45,16 @@ public class GOTWorldProvider extends WorldProvider {
 	public double fogR;
 	public double fogG;
 	public double fogB;
+
+	public static int getGOTMoonPhase() {
+		int day = GOTDate.AegonCalendar.currentDay;
+		return IntMath.mod(day, MOON_PHASES);
+	}
+
+	public static boolean isLunarEclipse() {
+		int day = GOTDate.AegonCalendar.currentDay;
+		return getGOTMoonPhase() == 0 && IntMath.mod(day / MOON_PHASES, 4) == 3;
+	}
 
 	@Override
 	public float calculateCelestialAngle(long time, float partialTick) {
@@ -360,15 +369,5 @@ public class GOTWorldProvider extends WorldProvider {
 	@Override
 	public boolean shouldMapSpin(String entity, double x, double y, double z) {
 		return false;
-	}
-
-	public static int getGOTMoonPhase() {
-		int day = GOTDate.AegonCalendar.currentDay;
-		return IntMath.mod(day, MOON_PHASES);
-	}
-
-	public static boolean isLunarEclipse() {
-		int day = GOTDate.AegonCalendar.currentDay;
-		return getGOTMoonPhase() == 0 && IntMath.mod(day / MOON_PHASES, 4) == 3;
 	}
 }

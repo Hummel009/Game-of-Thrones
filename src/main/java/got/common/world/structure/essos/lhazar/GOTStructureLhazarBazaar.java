@@ -1,10 +1,5 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
@@ -16,6 +11,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Mason.class, Butcher.class, Brewer.class, Fish.class, Baker.class, Miner.class, Goldsmith.class, Lumber.class, Blacksmith.class, Farmer.class};

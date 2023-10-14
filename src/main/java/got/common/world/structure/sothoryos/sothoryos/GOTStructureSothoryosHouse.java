@@ -1,13 +1,13 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public abstract class GOTStructureSothoryosHouse extends GOTStructureBase {
 	public Block brickBlock;

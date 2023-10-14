@@ -1,7 +1,5 @@
 package got.client.render.animal;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelGiraffe;
 import got.common.entity.animal.GOTEntityGiraffe;
 import got.common.entity.other.GOTNPCMount;
@@ -9,6 +7,7 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderGiraffe extends RenderLiving {
 	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/giraffe/giraffe.png");

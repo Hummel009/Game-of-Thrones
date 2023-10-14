@@ -1,11 +1,11 @@
 package got.common.world.structure.essos.gold;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.world.structure.other.GOTStructureTentBase;
 import net.minecraft.init.Blocks;
+
+import java.util.Random;
 
 public class GOTStructureGoldenCampTent extends GOTStructureTentBase {
 	public GOTStructureGoldenCampTent(boolean flag) {

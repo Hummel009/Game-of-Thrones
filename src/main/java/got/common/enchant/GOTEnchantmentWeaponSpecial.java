@@ -23,6 +23,22 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		setBypassAnvilLimit();
 	}
 
+	public static void doChillAttack(EntityLivingBase entity) {
+		if (entity instanceof EntityPlayerMP) {
+			GOTDamage.doFrostDamage((EntityPlayerMP) entity);
+		}
+
+		int duration = 5;
+		entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, duration * 20, 1));
+
+		IMessage packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.CHILLING, entity);
+		GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
+	}
+
+	public static int getFireAmount() {
+		return 2;
+	}
+
 	@Override
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
@@ -54,21 +70,5 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 	public GOTEnchantmentWeaponSpecial setCompatibleOtherSpecial() {
 		compatibleOtherSpecial = true;
 		return this;
-	}
-
-	public static void doChillAttack(EntityLivingBase entity) {
-		if (entity instanceof EntityPlayerMP) {
-			GOTDamage.doFrostDamage((EntityPlayerMP) entity);
-		}
-
-		int duration = 5;
-		entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, duration * 20, 1));
-
-		IMessage packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.CHILLING, entity);
-		GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
-	}
-
-	public static int getFireAmount() {
-		return 2;
 	}
 }

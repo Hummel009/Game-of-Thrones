@@ -1,7 +1,5 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.GOTDimension;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.client.Minecraft;
@@ -9,6 +7,7 @@ import net.minecraft.client.gui.GuiDownloadTerrain;
 import net.minecraft.client.network.NetHandlerPlayClient;
 import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 	public GOTGuiMap mapGui = new GOTGuiMap();

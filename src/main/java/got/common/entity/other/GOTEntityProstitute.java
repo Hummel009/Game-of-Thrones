@@ -1,7 +1,5 @@
 package got.common.entity.other;
 
-import java.util.Locale;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
@@ -15,6 +13,8 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
+
+import java.util.Locale;
 
 public class GOTEntityProstitute extends GOTEntityHumanBase {
 	public ProstituteType prostituteType;
@@ -74,6 +74,10 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		return ProstituteType.forID(i);
 	}
 
+	public void setProstituteType(ProstituteType t) {
+		dataWatcher.updateObject(18, (byte) t.prostituteID);
+	}
+
 	@Override
 	public String getSpeechBank(EntityPlayer entityplayer) {
 		if (isFriendly(entityplayer)) {
@@ -88,10 +92,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 		if (nbt.hasKey("ProstituteType")) {
 			setProstituteType(ProstituteType.forID(nbt.getByte("ProstituteType")));
 		}
-	}
-
-	public void setProstituteType(ProstituteType t) {
-		dataWatcher.updateObject(18, (byte) t.prostituteID);
 	}
 
 	@Override
@@ -183,10 +183,6 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 			prostituteID = i;
 		}
 
-		public String textureName() {
-			return name().toLowerCase(Locale.ROOT);
-		}
-
 		public static ProstituteType forID(int ID) {
 			for (ProstituteType t : values()) {
 				if (t.prostituteID == ID) {
@@ -194,6 +190,10 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 				}
 			}
 			return LIGHT_1;
+		}
+
+		public String textureName() {
+			return name().toLowerCase(Locale.ROOT);
 		}
 	}
 }

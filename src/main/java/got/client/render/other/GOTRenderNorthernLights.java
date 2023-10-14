@@ -1,14 +1,5 @@
 package got.client.render.other;
 
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Random;
-
-import org.lwjgl.opengl.GL11;
-import org.lwjgl.util.glu.Project;
-
 import got.GOT;
 import got.client.GOTReflectionClient;
 import got.common.GOTDate;
@@ -22,6 +13,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+import org.lwjgl.opengl.GL11;
+import org.lwjgl.util.glu.Project;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Random;
 
 public class GOTRenderNorthernLights {
 	public static int nlTick;

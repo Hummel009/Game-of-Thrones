@@ -1,7 +1,5 @@
 package got.common.block.other;
 
-import java.util.ArrayList;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -21,12 +19,19 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
+import java.util.ArrayList;
+
 public class GOTBlockBookshelfStorage extends BlockContainer {
 	public GOTBlockBookshelfStorage() {
 		super(Material.wood);
 		setHardness(1.5f);
 		setStepSound(Block.soundTypeWood);
 		setCreativeTab(null);
+	}
+
+	public static boolean canOpenBookshelf(World world, int i, int j, int k, EntityPlayer entityplayer) {
+		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
+		return itemstack == null || itemstack.getItem() != Item.getItemFromBlock(Blocks.bookshelf);
 	}
 
 	@Override
@@ -89,10 +94,5 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-	}
-
-	public static boolean canOpenBookshelf(World world, int i, int j, int k, EntityPlayer entityplayer) {
-		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-		return itemstack == null || itemstack.getItem() != Item.getItemFromBlock(Blocks.bookshelf);
 	}
 }

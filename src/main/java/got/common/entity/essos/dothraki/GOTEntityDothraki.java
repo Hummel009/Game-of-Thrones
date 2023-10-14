@@ -1,7 +1,5 @@
 package got.common.entity.essos.dothraki;
 
-import java.util.List;
-
 import got.common.GOTConfig;
 import got.common.database.*;
 import got.common.entity.ai.*;
@@ -23,6 +21,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.List;
 
 public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocketable {
 	public int draka;

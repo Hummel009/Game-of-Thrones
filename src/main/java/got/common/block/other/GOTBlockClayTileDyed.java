@@ -1,7 +1,5 @@
 package got.common.block.other;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockColored;
@@ -11,6 +9,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemDye;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+
+import java.util.List;
 
 public class GOTBlockClayTileDyed extends GOTBlockClayTile {
 	@SideOnly(Side.CLIENT)

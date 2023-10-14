@@ -1,11 +1,11 @@
 package got.common.world.structure.essos.common;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureEssosTownFlowers extends GOTStructureEssosBase {
 	public GOTStructureEssosTownFlowers(boolean flag) {

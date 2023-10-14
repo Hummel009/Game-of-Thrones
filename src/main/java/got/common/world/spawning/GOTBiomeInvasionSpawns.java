@@ -1,11 +1,11 @@
 package got.common.world.spawning;
 
-import java.util.*;
-
 import cpw.mods.fml.common.FMLLog;
 import got.common.database.GOTInvasions;
 import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTEventSpawner.EventChance;
+
+import java.util.*;
 
 public class GOTBiomeInvasionSpawns {
 	public GOTBiome theBiome;

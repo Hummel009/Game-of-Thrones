@@ -1,8 +1,5 @@
 package got.common.inventory;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.block.table.GOTBlockCraftingTable;
@@ -17,6 +14,9 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 	public World theWorld;

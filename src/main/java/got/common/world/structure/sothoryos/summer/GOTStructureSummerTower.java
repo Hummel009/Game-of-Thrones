@@ -1,13 +1,13 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerWarrior;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSummerTower extends GOTStructureSummerBase {
 	public GOTStructureSummerTower(boolean flag) {

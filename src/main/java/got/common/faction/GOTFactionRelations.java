@@ -1,11 +1,5 @@
 package got.common.faction;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
@@ -16,6 +10,12 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.StatCollector;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class GOTFactionRelations {
 	public static Map<FactionPair, Relation> defaultMap = new HashMap<>();
@@ -168,6 +168,46 @@ public class GOTFactionRelations {
 		}
 	}
 
+	public enum Relation {
+		ALLY, FRIEND, NEUTRAL, ENEMY, MORTAL_ENEMY;
+
+		public static Relation forID(int id) {
+			for (Relation rel : values()) {
+				if (rel.ordinal() != id) {
+					continue;
+				}
+				return rel;
+			}
+			return null;
+		}
+
+		public static Relation forName(String name) {
+			for (Relation rel : values()) {
+				if (!rel.codeName().equals(name)) {
+					continue;
+				}
+				return rel;
+			}
+			return null;
+		}
+
+		public static List<String> listRelationNames() {
+			List<String> names = new ArrayList<>();
+			for (Relation rel : values()) {
+				names.add(rel.codeName());
+			}
+			return names;
+		}
+
+		public String codeName() {
+			return name();
+		}
+
+		public String getDisplayName() {
+			return StatCollector.translateToLocal("got.faction.rel." + codeName());
+		}
+	}
+
 	public static class FactionPair {
 		public GOTFaction fac1;
 		public GOTFaction fac2;
@@ -175,6 +215,15 @@ public class GOTFactionRelations {
 		public FactionPair(GOTFaction f1, GOTFaction f2) {
 			fac1 = f1;
 			fac2 = f2;
+		}
+
+		public static FactionPair readFromNBT(NBTTagCompound nbt) {
+			GOTFaction f1 = GOTFaction.forName(nbt.getString("FacPair1"));
+			GOTFaction f2 = GOTFaction.forName(nbt.getString("FacPair2"));
+			if (f1 != null && f2 != null) {
+				return new FactionPair(f1, f2);
+			}
+			return null;
 		}
 
 		@Override
@@ -209,55 +258,6 @@ public class GOTFactionRelations {
 		public void writeToNBT(NBTTagCompound nbt) {
 			nbt.setString("FacPair1", fac1.codeName());
 			nbt.setString("FacPair2", fac2.codeName());
-		}
-
-		public static FactionPair readFromNBT(NBTTagCompound nbt) {
-			GOTFaction f1 = GOTFaction.forName(nbt.getString("FacPair1"));
-			GOTFaction f2 = GOTFaction.forName(nbt.getString("FacPair2"));
-			if (f1 != null && f2 != null) {
-				return new FactionPair(f1, f2);
-			}
-			return null;
-		}
-	}
-
-	public enum Relation {
-		ALLY, FRIEND, NEUTRAL, ENEMY, MORTAL_ENEMY;
-
-		public String codeName() {
-			return name();
-		}
-
-		public String getDisplayName() {
-			return StatCollector.translateToLocal("got.faction.rel." + codeName());
-		}
-
-		public static Relation forID(int id) {
-			for (Relation rel : values()) {
-				if (rel.ordinal() != id) {
-					continue;
-				}
-				return rel;
-			}
-			return null;
-		}
-
-		public static Relation forName(String name) {
-			for (Relation rel : values()) {
-				if (!rel.codeName().equals(name)) {
-					continue;
-				}
-				return rel;
-			}
-			return null;
-		}
-
-		public static List<String> listRelationNames() {
-			List<String> names = new ArrayList<>();
-			for (Relation rel : values()) {
-				names.add(rel.codeName());
-			}
-			return names;
 		}
 	}
 

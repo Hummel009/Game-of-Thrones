@@ -1,7 +1,5 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.world.structure.other.GOTStructureBase;
@@ -9,6 +7,8 @@ import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+
+import java.util.Random;
 
 public abstract class GOTStructureSummerBase extends GOTStructureBase {
 	public Block woodBlock;

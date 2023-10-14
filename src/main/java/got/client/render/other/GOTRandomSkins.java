@@ -1,11 +1,5 @@
 package got.client.render.other;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.*;
-
-import javax.imageio.ImageIO;
-
 import cpw.mods.fml.common.FMLLog;
 import got.client.GOTTextures;
 import got.common.entity.other.GOTRandomSkinEntity;
@@ -16,6 +10,11 @@ import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.*;
 
 public class GOTRandomSkins implements IResourceManagerReloadListener {
 	public static Random rand = new Random();
@@ -32,6 +31,15 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 		} else {
 			loadAllRandomSkins();
 		}
+	}
+
+	public static GOTRandomSkins loadSkinsList(String path) {
+		GOTRandomSkins skins = allRandomSkins.get(path);
+		if (skins == null) {
+			skins = new GOTRandomSkins(path, true);
+			allRandomSkins.put(path, skins);
+		}
+		return skins;
 	}
 
 	public List<ResourceLocation> getAllSkins() {
@@ -101,15 +109,6 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 	@Override
 	public void onResourceManagerReload(IResourceManager resourcemanager) {
 		loadAllRandomSkins();
-	}
-
-	public static GOTRandomSkins loadSkinsList(String path) {
-		GOTRandomSkins skins = allRandomSkins.get(path);
-		if (skins == null) {
-			skins = new GOTRandomSkins(path, true);
-			allRandomSkins.put(path, skins);
-		}
-		return skins;
 	}
 
 	public static class GOTRandomSkinsCombinatorial extends GOTRandomSkins {

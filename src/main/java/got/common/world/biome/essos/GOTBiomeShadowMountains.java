@@ -1,7 +1,5 @@
 package got.common.world.biome.essos;
 
-import java.util.Random;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -12,6 +10,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import java.util.Random;
 
 public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 	public static NoiseGeneratorPerlin noiseDirt = new NoiseGeneratorPerlin(new Random(389502092662L), 1);
@@ -28,6 +28,12 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 		decorator.dryReedChance = 1.0f;
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreGlowstone, 4), 8.0f, 0, 48);
 		decorator.addOre(new WorldGenMinable(GOTBlocks.oreCobalt, 5), 5.0f, 0, 32);
+	}
+
+	public static boolean isBasalt(IBlockAccess world, int i, int j, int k) {
+		Block block = world.getBlock(i, j, k);
+		int meta = world.getBlockMetadata(i, j, k);
+		return block == GOTBlocks.rock && meta == 0 || block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
 	}
 
 	@Override
@@ -112,11 +118,5 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 	@Override
 	public GrassBlockAndMeta getRandomGrass(Random random) {
 		return new GrassBlockAndMeta(GOTBlocks.asshaiGrass, 0);
-	}
-
-	public static boolean isBasalt(IBlockAccess world, int i, int j, int k) {
-		Block block = world.getBlock(i, j, k);
-		int meta = world.getBlockMetadata(i, j, k);
-		return block == GOTBlocks.rock && meta == 0 || block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
 	}
 }

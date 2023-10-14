@@ -1,10 +1,5 @@
 package got.common.world.structure.other;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Random;
-
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.util.CentredSquareArray;
@@ -18,6 +13,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
 
 public abstract class GOTStructureBaseSettlement {
 	public static Random settlementRand = new Random();
@@ -33,6 +33,17 @@ public abstract class GOTStructureBaseSettlement {
 		settlementBiome = biome;
 		spawnBiomes = new ArrayList<>();
 		spawnBiomes.add(settlementBiome);
+	}
+
+	public static boolean hasFixedSettlements(World world) {
+		boolean disableMap = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTClassic;
+		boolean disableLocations = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;
+		return !disableMap && !disableLocations;
+	}
+
+	public static void seedSettlementRand(World world, int i, int k) {
+		long seed = i * 6890360793007L + k * 456879569029062L + world.getWorldInfo().getSeed() + 274893855L;
+		settlementRand.setSeed(seed);
 	}
 
 	public void affix(GOTAbstractWaypoint... wps) {
@@ -279,17 +290,6 @@ public abstract class GOTStructureBaseSettlement {
 			}
 		}
 		return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
-	}
-
-	public static boolean hasFixedSettlements(World world) {
-		boolean disableMap = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTClassic;
-		boolean disableLocations = world.getWorldInfo().getTerrainType() == GOT.worldTypeGOTEmpty;
-		return !disableMap && !disableLocations;
-	}
-
-	public static void seedSettlementRand(World world, int i, int k) {
-		long seed = i * 6890360793007L + k * 456879569029062L + world.getWorldInfo().getSeed() + 274893855L;
-		settlementRand.setSeed(seed);
 	}
 
 	public abstract static class AbstractInstance<V extends GOTStructureBaseSettlement> {

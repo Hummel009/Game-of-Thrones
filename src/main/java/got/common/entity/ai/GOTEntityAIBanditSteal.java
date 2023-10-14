@@ -1,10 +1,5 @@
 package got.common.entity.ai;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.IBandit;
@@ -19,6 +14,11 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.*;
 import net.minecraft.util.MathHelper;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class GOTEntityAIBanditSteal extends EntityAIBase {
 	public IBandit theBandit;

@@ -1,7 +1,5 @@
 package got.common.world.spawning;
 
-import java.util.*;
-
 import cpw.mods.fml.common.eventhandler.Event;
 import got.common.GOTConfig;
 import got.common.GOTSpawnDamping;
@@ -18,6 +16,8 @@ import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 import net.minecraftforge.event.ForgeEventFactory;
+
+import java.util.*;
 
 public class GOTSpawnerAnimals {
 	public static Set<ChunkCoordIntPair> eligibleSpawnChunks = new HashSet<>();

@@ -1,7 +1,5 @@
 package got.common.entity.other;
 
-import java.util.List;
-
 import got.common.block.other.GOTBlockPlate;
 import got.common.block.other.GOTBlockWildFireJar;
 import got.common.database.GOTBlocks;
@@ -13,6 +11,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTEntityFirePot extends EntityThrowable {
 	public GOTEntityFirePot(World world) {

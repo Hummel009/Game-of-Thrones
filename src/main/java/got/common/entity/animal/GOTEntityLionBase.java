@@ -1,7 +1,5 @@
 package got.common.entity.animal;
 
-import java.util.List;
-
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.ai.GOTEntityAILionChase;
@@ -18,6 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public abstract class GOTEntityLionBase extends GOTEntityAnimalMF {
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.5, false);
@@ -169,6 +169,10 @@ public abstract class GOTEntityLionBase extends GOTEntityAnimalMF {
 		return dataWatcher.getWatchableObjectByte(20) == 1;
 	}
 
+	public void setHostile(boolean flag) {
+		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
+	}
+
 	@Override
 	public void onLivingUpdate() {
 		boolean isChild;
@@ -208,10 +212,6 @@ public abstract class GOTEntityLionBase extends GOTEntityAnimalMF {
 	public void readEntityFromNBT(NBTTagCompound nbt) {
 		super.readEntityFromNBT(nbt);
 		hostileTick = nbt.getInteger("Angry");
-	}
-
-	public void setHostile(boolean flag) {
-		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
 	}
 
 	@Override

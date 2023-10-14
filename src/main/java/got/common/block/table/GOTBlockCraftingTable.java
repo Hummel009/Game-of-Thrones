@@ -1,8 +1,5 @@
 package got.common.block.table;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -16,6 +13,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTBlockCraftingTable extends Block {
 	public static Collection<GOTBlockCraftingTable> allCraftingTables = new ArrayList<>();

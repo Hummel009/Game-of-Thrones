@@ -1,14 +1,13 @@
 package got.common.world.structure.westeros.crownlands;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.entity.westeros.crownlands.*;
 import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.westeros.common.GOTStructureWesterosMarketStall;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public abstract class GOTStructureCrownlandsMarketStall extends GOTStructureWesterosMarketStall {
 	public static Class<? extends GOTStructureBase>[] allStallTypes = new Class[]{Goldsmith.class, Miner.class, Lumber.class, Mason.class, Brewer.class, Flowers.class, Butcher.class, Fish.class, Farmer.class, Blacksmith.class, Baker.class};

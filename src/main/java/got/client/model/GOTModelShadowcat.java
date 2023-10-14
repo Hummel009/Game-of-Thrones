@@ -1,12 +1,11 @@
 package got.client.model;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
+import org.lwjgl.opengl.GL11;
 
 public class GOTModelShadowcat extends ModelBase {
 	public ModelRenderer head;
@@ -100,6 +99,19 @@ public class GOTModelShadowcat extends ModelBase {
 		setRotation(tail, 0.4363323F, 0.0F, 0.0F);
 	}
 
+	public static void convertToChild(ModelRenderer parent, ModelRenderer child) {
+		// move child rotation point to be relative to parent
+		child.rotationPointX -= parent.rotationPointX;
+		child.rotationPointY -= parent.rotationPointY;
+		child.rotationPointZ -= parent.rotationPointZ;
+		// make rotations relative to parent
+		child.rotateAngleX -= parent.rotateAngleX;
+		child.rotateAngleY -= parent.rotateAngleY;
+		child.rotateAngleZ -= parent.rotateAngleZ;
+		// create relationship
+		parent.addChild(child);
+	}
+
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.render(entity, f, f1, f2, f3, f4, f5);
@@ -163,18 +175,5 @@ public class GOTModelShadowcat extends ModelBase {
 		head.rotateAngleY = f3 / (360.0F / (float) Math.PI);
 		head.rotationPointZ = -7.2F;
 		tail.rotateAngleZ = MathHelper.cos(f * 0.666F) * 0.5F * f1;
-	}
-
-	public static void convertToChild(ModelRenderer parent, ModelRenderer child) {
-		// move child rotation point to be relative to parent
-		child.rotationPointX -= parent.rotationPointX;
-		child.rotationPointY -= parent.rotationPointY;
-		child.rotationPointZ -= parent.rotationPointZ;
-		// make rotations relative to parent
-		child.rotateAngleX -= parent.rotateAngleX;
-		child.rotateAngleY -= parent.rotateAngleY;
-		child.rotateAngleZ -= parent.rotateAngleZ;
-		// create relationship
-		parent.addChild(child);
 	}
 }

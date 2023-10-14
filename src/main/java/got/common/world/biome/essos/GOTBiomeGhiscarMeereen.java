@@ -1,13 +1,13 @@
 package got.common.world.biome.essos;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.ghiscar.GOTStructureGhiscarFightingPit;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTBiomeGhiscarMeereen extends GOTBiomeGhiscar {
 	public GOTBiomeGhiscarMeereen(int i, boolean major) {

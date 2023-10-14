@@ -1,8 +1,5 @@
 package got.common.block.other;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -16,6 +13,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTBlockPlaceableFood extends Block {
 	public static int MAX_EATS = 6;

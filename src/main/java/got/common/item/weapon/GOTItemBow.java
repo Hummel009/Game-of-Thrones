@@ -1,7 +1,5 @@
 package got.common.item.weapon;
 
-import java.util.Arrays;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.client.render.other.GOTRenderBow;
@@ -29,6 +27,8 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 import net.minecraftforge.event.entity.player.ArrowNockEvent;
 
+import java.util.Arrays;
+
 public class GOTItemBow extends ItemBow {
 	public static float MIN_BOW_DRAW_AMOUNT = 0.65f;
 	public Item.ToolMaterial bowMaterial;
@@ -47,6 +47,38 @@ public class GOTItemBow extends ItemBow {
 		setCreativeTab(GOTCreativeTabs.tabCombat);
 		arrowDamageFactor = d;
 		bowPullTime = 20;
+	}
+
+	public static void applyBowModifiers(EntityArrow arrow, ItemStack itemstack) {
+		int power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack);
+		if (power > 0) {
+			arrow.setDamage(arrow.getDamage() + power * 0.5 + 0.5);
+		}
+		int punch = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, itemstack);
+		punch += GOTEnchantmentHelper.calcRangedKnockback(itemstack);
+		if (punch > 0) {
+			arrow.setKnockbackStrength(punch);
+		}
+		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {
+			arrow.setFire(100);
+		}
+		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
+			if (!ench.applyToProjectile() || !GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
+				continue;
+			}
+			GOTEnchantmentHelper.setProjectileEnchantment(arrow, ench);
+		}
+	}
+
+	public static float getLaunchSpeedFactor(ItemStack itemstack) {
+		float f = 1.0f;
+		if (itemstack != null) {
+			if (itemstack.getItem() instanceof GOTItemBow) {
+				f = (float) (f * ((GOTItemBow) itemstack.getItem()).arrowDamageFactor);
+			}
+			f *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
+		}
+		return f;
 	}
 
 	public BowState getBowState(EntityLivingBase entity, ItemStack usingItem, int useRemaining) {
@@ -191,38 +223,6 @@ public class GOTItemBow extends ItemBow {
 
 	public boolean shouldConsumeArrow(ItemStack itemstack, EntityPlayer entityplayer) {
 		return !entityplayer.capabilities.isCreativeMode && EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, itemstack) == 0;
-	}
-
-	public static void applyBowModifiers(EntityArrow arrow, ItemStack itemstack) {
-		int power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack);
-		if (power > 0) {
-			arrow.setDamage(arrow.getDamage() + power * 0.5 + 0.5);
-		}
-		int punch = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, itemstack);
-		punch += GOTEnchantmentHelper.calcRangedKnockback(itemstack);
-		if (punch > 0) {
-			arrow.setKnockbackStrength(punch);
-		}
-		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {
-			arrow.setFire(100);
-		}
-		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
-			if (!ench.applyToProjectile() || !GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
-				continue;
-			}
-			GOTEnchantmentHelper.setProjectileEnchantment(arrow, ench);
-		}
-	}
-
-	public static float getLaunchSpeedFactor(ItemStack itemstack) {
-		float f = 1.0f;
-		if (itemstack != null) {
-			if (itemstack.getItem() instanceof GOTItemBow) {
-				f = (float) (f * ((GOTItemBow) itemstack.getItem()).arrowDamageFactor);
-			}
-			f *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
-		}
-		return f;
 	}
 
 	public enum BowState {

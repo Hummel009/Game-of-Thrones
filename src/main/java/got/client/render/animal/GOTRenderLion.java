@@ -1,7 +1,5 @@
 package got.client.render.animal;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelLion;
 import got.common.entity.animal.GOTEntityLionBase;
 import got.common.entity.animal.GOTEntityLioness;
@@ -9,6 +7,7 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderLion extends RenderLiving {
 	public static ResourceLocation textureLion = new ResourceLocation("got:textures/entity/animal/lion/lion.png");

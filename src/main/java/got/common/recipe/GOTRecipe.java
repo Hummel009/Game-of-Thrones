@@ -1,8 +1,5 @@
 package got.common.recipe;
 
-import java.lang.reflect.Field;
-import java.util.*;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.GOTConfig;
 import got.common.block.leaves.GOTBlockLeavesBase;
@@ -40,6 +37,9 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.RecipeSorter;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import java.lang.reflect.Field;
+import java.util.*;
 
 public class GOTRecipe {
 	public static Collection<IRecipe> slab = new ArrayList<>();

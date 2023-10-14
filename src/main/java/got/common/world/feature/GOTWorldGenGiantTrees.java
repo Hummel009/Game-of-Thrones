@@ -1,7 +1,5 @@
 package got.common.world.feature;
 
-import java.util.Random;
-
 import got.GOT;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,6 +9,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.Random;
 
 public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 	public Block woodID;

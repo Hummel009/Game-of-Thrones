@@ -1,7 +1,5 @@
 package got.client.render.npc;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTTextures;
 import got.client.model.GOTModelSpider;
 import got.client.render.other.GOTGlowingEyes;
@@ -13,6 +11,7 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public abstract class GOTRenderSpiderBase extends RenderLiving {
 	public GOTGlowingEyes.Model eyesModel = new GOTModelSpider(0.55f);

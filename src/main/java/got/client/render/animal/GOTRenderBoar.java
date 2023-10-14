@@ -1,7 +1,5 @@
 package got.client.render.animal;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelBoar;
 import got.common.entity.animal.GOTEntityBoar;
 import got.common.entity.other.GOTNPCMount;
@@ -11,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBoar extends RenderLiving {
 	public static ResourceLocation boarSkin = new ResourceLocation("got:textures/entity/animal/boar/boar.png");
@@ -19,6 +18,10 @@ public class GOTRenderBoar extends RenderLiving {
 	public GOTRenderBoar() {
 		super(new GOTModelBoar(), 0.7f);
 		setRenderPassModel(new GOTModelBoar(0.5f));
+	}
+
+	public static boolean isRobert(GOTEntityBoar boar) {
+		return boar.hasCustomNameTag() && "robert".equalsIgnoreCase(boar.getCustomNameTag());
 	}
 
 	@Override
@@ -56,9 +59,5 @@ public class GOTRenderBoar extends RenderLiving {
 			return 1;
 		}
 		return super.shouldRenderPass(entity, pass, f);
-	}
-
-	public static boolean isRobert(GOTEntityBoar boar) {
-		return boar.hasCustomNameTag() && "robert".equalsIgnoreCase(boar.getCustomNameTag());
 	}
 }

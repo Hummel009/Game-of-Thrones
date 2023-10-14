@@ -1,11 +1,10 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonLeftRight extends GuiButton {
 	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/widgets.png");

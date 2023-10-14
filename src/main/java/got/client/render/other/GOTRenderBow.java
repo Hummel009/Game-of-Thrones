@@ -1,10 +1,5 @@
 package got.client.render.other;
 
-import java.util.EnumMap;
-import java.util.Map;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTClientProxy;
 import got.common.item.weapon.GOTItemBow;
 import net.minecraft.client.Minecraft;
@@ -17,6 +12,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
+
+import java.util.EnumMap;
+import java.util.Map;
 
 public class GOTRenderBow implements IItemRenderer {
 	public static boolean renderingWeaponRack;

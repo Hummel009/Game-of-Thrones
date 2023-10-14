@@ -1,10 +1,5 @@
 package got.common.block.other;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.util.List;
-import java.util.Map;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import got.common.util.GOTReflection;
@@ -27,6 +22,11 @@ import net.minecraft.util.RegistrySimple;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.util.List;
+import java.util.Map;
 
 public class GOTBlockReplacement {
 	public static boolean initForgeHooks;

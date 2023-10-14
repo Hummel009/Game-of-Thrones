@@ -1,9 +1,6 @@
 package got.common.world.structure.westeros.gift;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -11,6 +8,8 @@ import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.westeros.gift.GOTEntityGiftMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureGiftStables extends GOTStructureGiftBase {
 	public GOTStructureGiftStables(boolean flag) {

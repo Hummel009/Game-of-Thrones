@@ -1,9 +1,5 @@
 package got.common.world.biome.ulthos;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTSpawnList;
@@ -18,6 +14,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenCactus;
 import net.minecraft.world.gen.feature.WorldGenDeadBush;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
 
 public class GOTBiomeUlthosDesert extends GOTBiomeUlthos implements GOTBiome.Desert {
 	public GOTBiomeUlthosDesert(int i, boolean major) {

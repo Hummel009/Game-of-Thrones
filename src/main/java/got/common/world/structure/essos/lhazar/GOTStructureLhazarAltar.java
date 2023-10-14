@@ -1,11 +1,11 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.lhazar.GOTEntityLhazarMan;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 	public GOTStructureLhazarAltar(boolean flag) {

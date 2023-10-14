@@ -1,12 +1,12 @@
 package got.common.block.other;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.IShearable;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTBlockDeadPlant extends GOTBlockFlower implements IShearable {
 	public GOTBlockDeadPlant() {

@@ -1,15 +1,6 @@
 package got.client;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Random;
-import java.util.UUID;
-
-import org.lwjgl.opengl.GL11;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -63,6 +54,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
+import org.lwjgl.opengl.GL11;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Random;
+import java.util.UUID;
 
 public class GOTClientProxy extends GOTCommonProxy {
 	public static ResourceLocation enchantmentTexture = new ResourceLocation("textures/misc/enchanted_item_glint.png");
@@ -111,6 +109,58 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public int ropeRenderID;
 	public int chainRenderID;
 	public int trapdoorRenderID;
+
+	public static boolean doesClientChunkExist(World world, int i, int k) {
+		int chunkX = i >> 4;
+		int chunkZ = k >> 4;
+		Chunk chunk = world.getChunkProvider().provideChunk(chunkX, chunkZ);
+		return !(chunk instanceof net.minecraft.world.chunk.EmptyChunk);
+	}
+
+	public static int getAlphaInt(float alphaF) {
+		int alphaI = (int) (alphaF * 255.0F);
+		return MathHelper.clamp_int(alphaI, 4, 255);
+	}
+
+	public static void renderEnchantmentEffect() {
+		Tessellator tessellator = Tessellator.instance;
+		TextureManager texturemanager = Minecraft.getMinecraft().getTextureManager();
+		GL11.glDepthFunc(514);
+		GL11.glDisable(2896);
+		texturemanager.bindTexture(enchantmentTexture);
+		GL11.glEnable(3042);
+		GL11.glBlendFunc(768, 1);
+		float shade = 0.76F;
+		GL11.glColor4f(0.5F * shade, 0.25F * shade, 0.8F * shade, 1.0F);
+		GL11.glMatrixMode(5890);
+		GL11.glPushMatrix();
+		float scale = 0.125F;
+		GL11.glScalef(scale, scale, scale);
+		float randomShift = Minecraft.getSystemTime() % 3000L / 3000.0F * 8.0F;
+		GL11.glTranslatef(randomShift, 0.0F, 0.0F);
+		GL11.glRotatef(-50.0F, 0.0F, 0.0F, 1.0F);
+		ItemRenderer.renderItemIn2D(tessellator, 0.0F, 0.0F, 1.0F, 1.0F, 256, 256, 0.0625F);
+		GL11.glPopMatrix();
+		GL11.glPushMatrix();
+		GL11.glScalef(scale, scale, scale);
+		randomShift = Minecraft.getSystemTime() % 4873L / 4873.0F * 8.0F;
+		GL11.glTranslatef(-randomShift, 0.0F, 0.0F);
+		GL11.glRotatef(10.0F, 0.0F, 0.0F, 1.0F);
+		ItemRenderer.renderItemIn2D(tessellator, 0.0F, 0.0F, 1.0F, 1.0F, 256, 256, 0.0625F);
+		GL11.glPopMatrix();
+		GL11.glMatrixMode(5888);
+		GL11.glDisable(3042);
+		GL11.glEnable(2896);
+		GL11.glDepthFunc(515);
+	}
+
+	public static void sendClientInfoPacket(GOTFaction viewingFaction, Map<GOTDimension.DimensionRegion, GOTFaction> changedRegionMap) {
+		boolean showWP = GOTGuiMap.showWP;
+		boolean showCWP = GOTGuiMap.showCWP;
+		boolean showHiddenSWP = GOTGuiMap.showHiddenSWP;
+		IMessage packet = new GOTPacketClientInfo(viewingFaction, changedRegionMap, showWP, showCWP, showHiddenSWP);
+		GOTPacketHandler.networkWrapper.sendToServer(packet);
+	}
 
 	@Override
 	public void addMapPlayerLocation(GameProfile player, double posX, double posZ) {
@@ -718,57 +768,5 @@ public class GOTClientProxy extends GOTCommonProxy {
 				guiBanner.validateUsername(slot, prevText, valid);
 			}
 		}
-	}
-
-	public static boolean doesClientChunkExist(World world, int i, int k) {
-		int chunkX = i >> 4;
-		int chunkZ = k >> 4;
-		Chunk chunk = world.getChunkProvider().provideChunk(chunkX, chunkZ);
-		return !(chunk instanceof net.minecraft.world.chunk.EmptyChunk);
-	}
-
-	public static int getAlphaInt(float alphaF) {
-		int alphaI = (int) (alphaF * 255.0F);
-		return MathHelper.clamp_int(alphaI, 4, 255);
-	}
-
-	public static void renderEnchantmentEffect() {
-		Tessellator tessellator = Tessellator.instance;
-		TextureManager texturemanager = Minecraft.getMinecraft().getTextureManager();
-		GL11.glDepthFunc(514);
-		GL11.glDisable(2896);
-		texturemanager.bindTexture(enchantmentTexture);
-		GL11.glEnable(3042);
-		GL11.glBlendFunc(768, 1);
-		float shade = 0.76F;
-		GL11.glColor4f(0.5F * shade, 0.25F * shade, 0.8F * shade, 1.0F);
-		GL11.glMatrixMode(5890);
-		GL11.glPushMatrix();
-		float scale = 0.125F;
-		GL11.glScalef(scale, scale, scale);
-		float randomShift = Minecraft.getSystemTime() % 3000L / 3000.0F * 8.0F;
-		GL11.glTranslatef(randomShift, 0.0F, 0.0F);
-		GL11.glRotatef(-50.0F, 0.0F, 0.0F, 1.0F);
-		ItemRenderer.renderItemIn2D(tessellator, 0.0F, 0.0F, 1.0F, 1.0F, 256, 256, 0.0625F);
-		GL11.glPopMatrix();
-		GL11.glPushMatrix();
-		GL11.glScalef(scale, scale, scale);
-		randomShift = Minecraft.getSystemTime() % 4873L / 4873.0F * 8.0F;
-		GL11.glTranslatef(-randomShift, 0.0F, 0.0F);
-		GL11.glRotatef(10.0F, 0.0F, 0.0F, 1.0F);
-		ItemRenderer.renderItemIn2D(tessellator, 0.0F, 0.0F, 1.0F, 1.0F, 256, 256, 0.0625F);
-		GL11.glPopMatrix();
-		GL11.glMatrixMode(5888);
-		GL11.glDisable(3042);
-		GL11.glEnable(2896);
-		GL11.glDepthFunc(515);
-	}
-
-	public static void sendClientInfoPacket(GOTFaction viewingFaction, Map<GOTDimension.DimensionRegion, GOTFaction> changedRegionMap) {
-		boolean showWP = GOTGuiMap.showWP;
-		boolean showCWP = GOTGuiMap.showCWP;
-		boolean showHiddenSWP = GOTGuiMap.showHiddenSWP;
-		IMessage packet = new GOTPacketClientInfo(viewingFaction, changedRegionMap, showWP, showCWP, showHiddenSWP);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 }

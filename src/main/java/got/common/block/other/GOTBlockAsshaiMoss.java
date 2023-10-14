@@ -1,8 +1,5 @@
 package got.common.block.other;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import got.common.database.GOTCreativeTabs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -11,6 +8,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.IShearable;
+
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GOTBlockAsshaiMoss extends Block implements IShearable {
 	public GOTBlockAsshaiMoss() {

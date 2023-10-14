@@ -1,8 +1,5 @@
 package got.common.world.biome.essos;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTSpawnList;
 import got.common.world.biome.GOTBiome;
@@ -11,6 +8,9 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovySettlement;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTBiomeMossovy extends GOTBiomeEssosCold {
 	public GOTBiomeMossovy(int i, boolean major) {

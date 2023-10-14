@@ -1,10 +1,5 @@
 package got.common.quest;
 
-import java.awt.Color;
-import java.util.*;
-
-import org.apache.commons.lang3.tuple.Pair;
-
 import cpw.mods.fml.common.FMLLog;
 import got.common.GOTDate;
 import got.common.GOTDimension;
@@ -33,6 +28,11 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.biome.BiomeGenBase;
+import org.apache.commons.lang3.tuple.Pair;
+
+import java.awt.*;
+import java.util.List;
+import java.util.*;
 
 public abstract class GOTMiniQuest {
 	public static Map<String, Class<? extends GOTMiniQuest>> nameToQuestMapping = new HashMap<>();
@@ -86,6 +86,38 @@ public abstract class GOTMiniQuest {
 	protected GOTMiniQuest(GOTPlayerData pd) {
 		playerData = pd;
 		questUUID = UUID.randomUUID();
+	}
+
+	public static GOTMiniQuest loadQuestFromNBT(NBTTagCompound nbt, GOTPlayerData playerData) {
+		String questTypeName = nbt.getString("QuestType");
+		Class<? extends GOTMiniQuest> questType = nameToQuestMapping.get(questTypeName);
+		if (questType == null) {
+			FMLLog.severe("Could not instantiate miniquest of type " + questTypeName);
+			return null;
+		}
+		GOTMiniQuest quest = newQuestInstance(questType, playerData);
+		if (quest != null) {
+			quest.readFromNBT(nbt);
+			if (quest.isValidQuest()) {
+				return quest;
+			}
+			FMLLog.severe("Loaded an invalid GOT miniquest " + quest.speechBankStart);
+		}
+		return null;
+	}
+
+	public static <Q extends GOTMiniQuest> Q newQuestInstance(Class<Q> questType, GOTPlayerData playerData) {
+		try {
+			return questType.getConstructor(GOTPlayerData.class).newInstance(playerData);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	public static void registerQuestType(String name, Class<? extends GOTMiniQuest> questType) {
+		nameToQuestMapping.put(name, questType);
+		questToNameMapping.put(questType, name);
 	}
 
 	public boolean anyRewardsGiven() {
@@ -223,6 +255,10 @@ public abstract class GOTMiniQuest {
 
 	public GOTPlayerData getPlayerData() {
 		return playerData;
+	}
+
+	public void setPlayerData(GOTPlayerData pd) {
+		playerData = pd;
 	}
 
 	public abstract String getProgressedObjectiveInSpeech();
@@ -402,10 +438,6 @@ public abstract class GOTMiniQuest {
 		questColor = npc.getMiniquestColor();
 	}
 
-	public void setPlayerData(GOTPlayerData pd) {
-		playerData = pd;
-	}
-
 	public boolean shouldRandomiseCoinReward() {
 		return true;
 	}
@@ -518,38 +550,6 @@ public abstract class GOTMiniQuest {
 		}
 	}
 
-	public static GOTMiniQuest loadQuestFromNBT(NBTTagCompound nbt, GOTPlayerData playerData) {
-		String questTypeName = nbt.getString("QuestType");
-		Class<? extends GOTMiniQuest> questType = nameToQuestMapping.get(questTypeName);
-		if (questType == null) {
-			FMLLog.severe("Could not instantiate miniquest of type " + questTypeName);
-			return null;
-		}
-		GOTMiniQuest quest = newQuestInstance(questType, playerData);
-		if (quest != null) {
-			quest.readFromNBT(nbt);
-			if (quest.isValidQuest()) {
-				return quest;
-			}
-			FMLLog.severe("Loaded an invalid GOT miniquest " + quest.speechBankStart);
-		}
-		return null;
-	}
-
-	public static <Q extends GOTMiniQuest> Q newQuestInstance(Class<Q> questType, GOTPlayerData playerData) {
-		try {
-			return questType.getConstructor(GOTPlayerData.class).newInstance(playerData);
-		} catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
-	}
-
-	public static void registerQuestType(String name, Class<? extends GOTMiniQuest> questType) {
-		nameToQuestMapping.put(name, questType);
-		questToNameMapping.put(questType, name);
-	}
-
 	public abstract static class QuestFactoryBase<Q extends GOTMiniQuest> {
 		public GOTMiniQuestFactory questFactoryGroup;
 		public String questName;
@@ -593,11 +593,11 @@ public abstract class GOTMiniQuest {
 			return questFactoryGroup;
 		}
 
-		public abstract Class<Q> getQuestClass();
-
 		public void setFactoryGroup(GOTMiniQuestFactory factory) {
 			questFactoryGroup = factory;
 		}
+
+		public abstract Class<Q> getQuestClass();
 
 		public QuestFactoryBase<Q> setHiring() {
 			willHire = true;

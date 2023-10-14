@@ -1,9 +1,5 @@
 package got.client.gui;
 
-import java.util.List;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTClientProxy;
 import got.common.database.GOTSpeech;
 import got.common.util.GOTFunctions;
@@ -15,6 +11,9 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
+
+import java.util.List;
 
 public class GOTGuiFastTravel extends GOTGuiScreenBase {
 	public static ResourceLocation ftSound = new ResourceLocation("got:event.fastTravel");

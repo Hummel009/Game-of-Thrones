@@ -1,7 +1,5 @@
 package got.common.entity.animal;
 
-import java.util.List;
-
 import got.GOT;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
@@ -15,6 +13,8 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTEntityRhino extends GOTEntityHorse {
 	public GOTEntityRhino(World world) {

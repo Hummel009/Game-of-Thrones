@@ -1,12 +1,12 @@
 package got.client;
 
-import java.util.EnumMap;
-import java.util.Map;
-
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.faction.GOTFaction;
 import net.minecraft.entity.player.EntityPlayer;
+
+import java.util.EnumMap;
+import java.util.Map;
 
 public class GOTAlignmentTicker {
 	public static Map<GOTFaction, GOTAlignmentTicker> allFactionTickers = new EnumMap<>(GOTFaction.class);
@@ -23,6 +23,18 @@ public class GOTAlignmentTicker {
 
 	public GOTAlignmentTicker(GOTFaction f) {
 		theFac = f;
+	}
+
+	public static GOTAlignmentTicker forFaction(GOTFaction fac) {
+		return allFactionTickers.computeIfAbsent(fac, GOTAlignmentTicker::new);
+	}
+
+	public static void updateAll(EntityPlayer entityplayer, boolean forceInstant) {
+		for (GOTDimension dim : GOTDimension.values()) {
+			for (GOTFaction fac : dim.factionList) {
+				forFaction(fac).update(entityplayer, forceInstant);
+			}
+		}
 	}
 
 	public float getInterpolatedAlignment(float f) {
@@ -63,18 +75,6 @@ public class GOTAlignmentTicker {
 			}
 			if (numericalTick > 0) {
 				--numericalTick;
-			}
-		}
-	}
-
-	public static GOTAlignmentTicker forFaction(GOTFaction fac) {
-		return allFactionTickers.computeIfAbsent(fac, GOTAlignmentTicker::new);
-	}
-
-	public static void updateAll(EntityPlayer entityplayer, boolean forceInstant) {
-		for (GOTDimension dim : GOTDimension.values()) {
-			for (GOTFaction fac : dim.factionList) {
-				forFaction(fac).update(entityplayer, forceInstant);
 			}
 		}
 	}

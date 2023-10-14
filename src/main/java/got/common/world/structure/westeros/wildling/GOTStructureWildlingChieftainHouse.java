@@ -1,7 +1,5 @@
 package got.common.world.structure.westeros.wildling;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.entity.westeros.legendary.captain.GOTEntityManceRayder;
@@ -13,6 +11,8 @@ import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 	public Block woodBlock;

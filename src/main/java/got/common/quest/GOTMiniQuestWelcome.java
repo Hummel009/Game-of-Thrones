@@ -1,9 +1,5 @@
 package got.common.quest;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-
 import got.client.GOTKeyHandler;
 import got.common.GOTJaqenHgharTracker;
 import got.common.GOTLevelData;
@@ -18,6 +14,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class GOTMiniQuestWelcome extends GOTMiniQuest {
 	public static String SPEECHBANK = "legendary/jaqen_quest";
@@ -53,6 +53,26 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		speechBankTooMany = "";
 		quoteStart = GOTSpeech.getSpeechAtLine(SPEECHBANK, 2);
 		quoteComplete = GOTSpeech.getSpeechAtLine(SPEECHBANK, 12);
+	}
+
+	public static boolean[] forceMenuMapFactions(EntityPlayer entityplayer) {
+		boolean[] flags = {false, false};
+		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
+		List<GOTMiniQuest> activeQuests = pd.getActiveMiniQuests();
+		for (GOTMiniQuest quest : activeQuests) {
+			if (quest instanceof GOTMiniQuestWelcome) {
+				GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
+				if (qw.stage == 5) {
+					flags[0] = true;
+					break;
+				}
+				if (qw.stage == 11) {
+					flags[1] = true;
+					break;
+				}
+			}
+		}
+		return flags;
 	}
 
 	@Override
@@ -341,25 +361,5 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 		super.writeToNBT(nbt);
 		nbt.setByte("WStage", (byte) stage);
 		nbt.setBoolean("WMovedOn", movedOn);
-	}
-
-	public static boolean[] forceMenuMapFactions(EntityPlayer entityplayer) {
-		boolean[] flags = {false, false};
-		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-		List<GOTMiniQuest> activeQuests = pd.getActiveMiniQuests();
-		for (GOTMiniQuest quest : activeQuests) {
-			if (quest instanceof GOTMiniQuestWelcome) {
-				GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
-				if (qw.stage == 5) {
-					flags[0] = true;
-					break;
-				}
-				if (qw.stage == 11) {
-					flags[1] = true;
-					break;
-				}
-			}
-		}
-		return flags;
 	}
 }

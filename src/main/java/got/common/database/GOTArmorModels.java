@@ -1,10 +1,5 @@
 package got.common.database;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.model.*;
 import got.common.entity.other.GOTEntityNPC;
@@ -24,6 +19,10 @@ import net.minecraft.item.*;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.common.MinecraftForge;
+import org.lwjgl.opengl.GL11;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTArmorModels {
 	public static GOTArmorModels INSTANCE;
@@ -31,6 +30,10 @@ public class GOTArmorModels {
 
 	public GOTArmorModels() {
 		MinecraftForge.EVENT_BUS.register(this);
+	}
+
+	public static void preInit() {
+		INSTANCE = new GOTArmorModels();
 	}
 
 	public void copyBoxRotations(ModelRenderer target, ModelRenderer src) {
@@ -286,9 +289,5 @@ public class GOTArmorModels {
 			setupHeldItem(model, entity, heldRight, true);
 			setupHeldItem(model, entity, heldLeft, false);
 		}
-	}
-
-	public static void preInit() {
-		INSTANCE = new GOTArmorModels();
 	}
 }

@@ -1,10 +1,5 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTItems;
@@ -17,6 +12,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 	public static Class<? extends GOTStructureBase>[] stalls = new Class[]{Goldsmith.class, Florist.class, Brewer.class, Fish.class, Butcher.class, Baker.class, Lumber.class, Miner.class, Mason.class, Blacksmith.class, Farmer.class};

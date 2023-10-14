@@ -1,7 +1,5 @@
 package got.common.network;
 
-import java.util.Random;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
@@ -10,6 +8,8 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTPacketWeaponFX implements IMessage {
 	public Type type;
@@ -34,6 +34,10 @@ public class GOTPacketWeaponFX implements IMessage {
 	public void toBytes(ByteBuf data) {
 		data.writeByte(type.ordinal());
 		data.writeInt(entityID);
+	}
+
+	public enum Type {
+		ASSHAI, INFERNAL, CHILLING
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketWeaponFX, IMessage> {
@@ -92,10 +96,6 @@ public class GOTPacketWeaponFX implements IMessage {
 			}
 			return null;
 		}
-	}
-
-	public enum Type {
-		ASSHAI, INFERNAL, CHILLING
 	}
 
 }

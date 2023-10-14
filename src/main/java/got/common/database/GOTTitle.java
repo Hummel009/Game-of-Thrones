@@ -1,7 +1,5 @@
 package got.common.database;
 
-import java.util.*;
-
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
@@ -12,6 +10,8 @@ import got.common.faction.GOTFactionRank;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.*;
+
+import java.util.*;
 
 public class GOTTitle {
 	public static Collection<GOTTitle> allTitles = new ArrayList<>();
@@ -53,6 +53,35 @@ public class GOTTitle {
 		if (s == null) {
 			useAchievementName = true;
 		}
+	}
+
+	public static Comparator<GOTTitle> createTitleSorter(EntityPlayer entityplayer) {
+		return Comparator.comparing(title -> title.getDisplayName(entityplayer));
+	}
+
+	public static GOTTitle forID(int ID) {
+		for (GOTTitle title : allTitles) {
+			if (title.titleID != ID) {
+				continue;
+			}
+			return title;
+		}
+		return null;
+	}
+
+	public static GOTTitle forName(String name) {
+		for (GOTTitle title : allTitles) {
+			if (!title.name.equals(name)) {
+				continue;
+			}
+			return title;
+		}
+		return null;
+	}
+
+	public static void onInit() {
+		targaryenF = new GOTTitle("targaryenF").setPlayerExclusive(GOT.devs);
+		targaryenM = new GOTTitle("targaryenM").setPlayerExclusive(GOT.devs);
 	}
 
 	public boolean canDisplay(EntityPlayer entityplayer) {
@@ -229,33 +258,9 @@ public class GOTTitle {
 		return this;
 	}
 
-	public static Comparator<GOTTitle> createTitleSorter(EntityPlayer entityplayer) {
-		return Comparator.comparing(title -> title.getDisplayName(entityplayer));
-	}
+	public enum TitleType {
+		STARTER, PLAYER_EXCLUSIVE, ALIGNMENT, ACHIEVEMENT, RANK
 
-	public static GOTTitle forID(int ID) {
-		for (GOTTitle title : allTitles) {
-			if (title.titleID != ID) {
-				continue;
-			}
-			return title;
-		}
-		return null;
-	}
-
-	public static GOTTitle forName(String name) {
-		for (GOTTitle title : allTitles) {
-			if (!title.name.equals(name)) {
-				continue;
-			}
-			return title;
-		}
-		return null;
-	}
-
-	public static void onInit() {
-		targaryenF = new GOTTitle("targaryenF").setPlayerExclusive(GOT.devs);
-		targaryenM = new GOTTitle("targaryenM").setPlayerExclusive(GOT.devs);
 	}
 
 	public static class PlayerTitle {
@@ -272,29 +277,6 @@ public class GOTTitle {
 				color = EnumChatFormatting.WHITE;
 			}
 			theColor = color;
-		}
-
-		public EnumChatFormatting getColor() {
-			return theColor;
-		}
-
-		public String getFormattedTitle(EntityPlayer entityplayer) {
-			return getFullTitleComponent(entityplayer).getFormattedText();
-		}
-
-		public IChatComponent getFullTitleComponent(EntityPlayer entityplayer) {
-			IChatComponent component;
-			if (theTitle.titleType != null && theTitle.titleType == TitleType.RANK && theTitle.titleRank.addFacName) {
-				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText(" ").appendSibling(new ChatComponentTranslation(theTitle.titleRank.getAffiliationCodeName())).appendText("]").appendText(" ");
-			} else {
-				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText("]").appendText(" ");
-			}
-			component.getChatStyle().setColor(theColor);
-			return component;
-		}
-
-		public GOTTitle getTitle() {
-			return theTitle;
 		}
 
 		public static EnumChatFormatting colorForID(int ID) {
@@ -328,11 +310,29 @@ public class GOTTitle {
 				data.writeShort(-1);
 			}
 		}
-	}
 
-	public enum TitleType {
-		STARTER, PLAYER_EXCLUSIVE, ALIGNMENT, ACHIEVEMENT, RANK
+		public EnumChatFormatting getColor() {
+			return theColor;
+		}
 
+		public String getFormattedTitle(EntityPlayer entityplayer) {
+			return getFullTitleComponent(entityplayer).getFormattedText();
+		}
+
+		public IChatComponent getFullTitleComponent(EntityPlayer entityplayer) {
+			IChatComponent component;
+			if (theTitle.titleType != null && theTitle.titleType == TitleType.RANK && theTitle.titleRank.addFacName) {
+				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText(" ").appendSibling(new ChatComponentTranslation(theTitle.titleRank.getAffiliationCodeName())).appendText("]").appendText(" ");
+			} else {
+				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText("]").appendText(" ");
+			}
+			component.getChatStyle().setColor(theColor);
+			return component;
+		}
+
+		public GOTTitle getTitle() {
+			return theTitle;
+		}
 	}
 
 }

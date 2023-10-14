@@ -1,7 +1,5 @@
 package got.common.world.structure.westeros.hillmen;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -16,6 +14,8 @@ import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 	public GOTStructureHillmanFort(boolean flag) {

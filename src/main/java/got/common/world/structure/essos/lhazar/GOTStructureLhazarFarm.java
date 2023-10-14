@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.lhazar;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.entity.essos.ghiscar.GOTEntityGhiscarSlave;
@@ -11,6 +9,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLhazarFarm extends GOTStructureLhazarBase {
 	public Block crop1Block;

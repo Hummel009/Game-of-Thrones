@@ -1,11 +1,5 @@
 package integrator.handler;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import org.lwjgl.opengl.GL11;
-
 import codechicken.lib.gui.GuiDraw;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
@@ -23,6 +17,11 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 	public GOTTileEntityAlloyForge alloyForgeDummy = new GOTTileEntityAlloyForge();

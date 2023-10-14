@@ -1,11 +1,10 @@
 package got.client.model;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.ItemStack;
+import org.lwjgl.opengl.GL11;
 
 public class GOTModelRobes extends GOTModelHuman {
 	public ItemStack robeItem;

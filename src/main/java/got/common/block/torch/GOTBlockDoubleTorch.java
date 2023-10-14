@@ -1,7 +1,5 @@
 package got.common.block.torch;
 
-import java.util.Random;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
@@ -16,6 +14,8 @@ import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
+import java.util.Random;
+
 public class GOTBlockDoubleTorch extends Block {
 	@SideOnly(Side.CLIENT)
 	public IIcon[] torchIcons;
@@ -25,6 +25,10 @@ public class GOTBlockDoubleTorch extends Block {
 		super(Material.circuits);
 		setHardness(0.0f);
 		setStepSound(Block.soundTypeWood);
+	}
+
+	public static boolean canPlaceTorchOn(World world, int i, int j, int k) {
+		return world.getBlock(i, j, k).canPlaceTorchOnTop(world, i, j, k);
 	}
 
 	@Override
@@ -151,9 +155,5 @@ public class GOTBlockDoubleTorch extends Block {
 		} else if (meta == 1) {
 			setBlockBounds(0.4375f, 0.0f, 0.4375f, 0.5625f, 0.5f, 0.5625f);
 		}
-	}
-
-	public static boolean canPlaceTorchOn(World world, int i, int j, int k) {
-		return world.getBlock(i, j, k).canPlaceTorchOnTop(world, i, j, k);
 	}
 }

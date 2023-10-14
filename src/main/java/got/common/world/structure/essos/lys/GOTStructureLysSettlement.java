@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.lys;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.entity.essos.lys.GOTEntityLysMan;
 import got.common.entity.essos.lys.GOTEntityLysSoldier;
 import got.common.entity.essos.lys.GOTEntityLysSoldierArcher;
@@ -16,6 +13,8 @@ import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureLysSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -39,6 +38,10 @@ public class GOTStructureLysSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureLysSettlement> {
@@ -505,10 +508,6 @@ public class GOTStructureLysSettlement extends GOTStructureBaseSettlement {
 			spawner.setSpawnClasses(GOTEntityLysSoldier.class, GOTEntityLysSoldierArcher.class);
 		}
 
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT
 	}
 
 }

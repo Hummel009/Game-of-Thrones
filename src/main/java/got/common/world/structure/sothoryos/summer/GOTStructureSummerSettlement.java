@@ -1,7 +1,5 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.Random;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.sothoryos.summer.GOTEntitySummerArcher;
 import got.common.entity.sothoryos.summer.GOTEntitySummerMan;
@@ -11,6 +9,8 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -34,6 +34,10 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, FORT, RUINED_VILLAGE
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureSummerSettlement> {
@@ -308,9 +312,5 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 				}
 			}
 		}
-	}
-
-	public enum Type {
-		VILLAGE, FORT, RUINED_VILLAGE
 	}
 }

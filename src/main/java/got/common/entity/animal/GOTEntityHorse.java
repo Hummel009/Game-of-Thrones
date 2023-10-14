@@ -1,7 +1,5 @@
 package got.common.entity.animal;
 
-import java.util.List;
-
 import got.GOT;
 import got.common.database.GOTGuiID;
 import got.common.database.GOTItems;
@@ -31,6 +29,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
+
+import java.util.List;
 
 public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	public boolean isMoving;
@@ -151,6 +151,21 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	}
 
 	@Override
+	public void setBelongsToNPC(boolean flag) {
+		dataWatcher.updateObject(25, flag ? (byte) 1 : 0);
+		if (flag) {
+			setHorseTamed(true);
+			setHorseSaddled(true);
+			if (getGrowingAge() < 0) {
+				setGrowingAge(0);
+			}
+			if (getClass() == GOTEntityHorse.class) {
+				setHorseType(0);
+			}
+		}
+	}
+
+	@Override
 	public float getBlockPathWeight(int i, int j, int k) {
 		if (getBelongsToNPC() && riddenByEntity instanceof GOTEntityNPC) {
 			return ((EntityCreature) riddenByEntity).getBlockPathWeight(i, j, k);
@@ -195,10 +210,20 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		return dataWatcher.getWatchableObjectByte(26) == 1;
 	}
 
+	public void setMountable(boolean flag) {
+		dataWatcher.updateObject(26, flag ? (byte) 1 : 0);
+	}
+
 	public ItemStack getMountArmor() {
 		int ID = dataWatcher.getWatchableObjectInt(27);
 		byte meta = dataWatcher.getWatchableObjectByte(28);
 		return new ItemStack(Item.getItemById(ID), 1, meta);
+	}
+
+	public void setMountArmor(ItemStack itemstack) {
+		GOTReflection.getHorseInv(this).setInventorySlotContents(1, itemstack);
+		GOTReflection.setupHorseInv(this);
+		setMountArmorWatched(itemstack);
 	}
 
 	@Override
@@ -293,6 +318,10 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 
 	public boolean isMountEnraged() {
 		return dataWatcher.getWatchableObjectByte(29) == 1;
+	}
+
+	public void setMountEnraged(boolean flag) {
+		dataWatcher.updateObject(29, flag ? (byte) 1 : 0);
 	}
 
 	public boolean isMountHostile() {
@@ -464,34 +493,9 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		setHorseTamed(true);
 	}
 
-	@Override
-	public void setBelongsToNPC(boolean flag) {
-		dataWatcher.updateObject(25, flag ? (byte) 1 : 0);
-		if (flag) {
-			setHorseTamed(true);
-			setHorseSaddled(true);
-			if (getGrowingAge() < 0) {
-				setGrowingAge(0);
-			}
-			if (getClass() == GOTEntityHorse.class) {
-				setHorseType(0);
-			}
-		}
-	}
-
 	public void setChestedForWorldGen() {
 		setChested(true);
 		GOTReflection.setupHorseInv(this);
-	}
-
-	public void setMountable(boolean flag) {
-		dataWatcher.updateObject(26, flag ? (byte) 1 : 0);
-	}
-
-	public void setMountArmor(ItemStack itemstack) {
-		GOTReflection.getHorseInv(this).setInventorySlotContents(1, itemstack);
-		GOTReflection.setupHorseInv(this);
-		setMountArmorWatched(itemstack);
 	}
 
 	public void setMountArmorWatched(ItemStack itemstack) {
@@ -502,10 +506,6 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 			dataWatcher.updateObject(27, Item.getIdFromItem(itemstack.getItem()));
 			dataWatcher.updateObject(28, (byte) itemstack.getItemDamage());
 		}
-	}
-
-	public void setMountEnraged(boolean flag) {
-		dataWatcher.updateObject(29, flag ? (byte) 1 : 0);
 	}
 
 	@Override

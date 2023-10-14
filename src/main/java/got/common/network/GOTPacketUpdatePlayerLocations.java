@@ -1,10 +1,6 @@
 package got.common.network;
 
-import java.io.IOException;
-import java.util.*;
-
 import com.mojang.authlib.GameProfile;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -15,6 +11,9 @@ import io.netty.buffer.Unpooled;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTUtil;
 import net.minecraft.network.PacketBuffer;
+
+import java.io.IOException;
+import java.util.*;
 
 public class GOTPacketUpdatePlayerLocations implements IMessage {
 	public static Map<UUID, byte[]> cachedProfileBytes = new HashMap<>();

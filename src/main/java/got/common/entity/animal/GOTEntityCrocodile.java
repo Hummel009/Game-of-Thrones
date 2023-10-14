@@ -117,6 +117,10 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 		return dataWatcher.getWatchableObjectInt(20);
 	}
 
+	public void setSnapTime(int i) {
+		dataWatcher.updateObject(20, i);
+	}
+
 	@Override
 	public void moveEntityWithHeading(float f, float f1) {
 		if (!worldObj.isRemote && isInWater() && getAttackTarget() != null) {
@@ -135,9 +139,5 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 		if (!worldObj.isRemote && (i = getSnapTime()) > 0) {
 			setSnapTime(i - 1);
 		}
-	}
-
-	public void setSnapTime(int i) {
-		dataWatcher.updateObject(20, i);
 	}
 }

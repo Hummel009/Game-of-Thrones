@@ -1,11 +1,10 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import got.GOT;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.multiplayer.WorldClient;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonMenu extends GuiButton {
 	public GOTGuiMenu parentGUI;

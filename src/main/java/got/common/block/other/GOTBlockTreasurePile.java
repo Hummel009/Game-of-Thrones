@@ -1,8 +1,5 @@
 package got.common.block.other;
 
-import java.util.List;
-import java.util.Random;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -26,6 +23,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+
+import java.util.List;
+import java.util.Random;
 
 public class GOTBlockTreasurePile extends Block {
 	public static Block.SoundType soundTypeTreasure = new Block.SoundType("got:treasure", 1.0f, 1.0f) {
@@ -60,6 +60,26 @@ public class GOTBlockTreasurePile extends Block {
 		setHardness(0.0f);
 		setStepSound(soundTypeTreasure);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
+	}
+
+	public static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock, int thisMeta) {
+		Block block = world.getBlock(i, j, k);
+		int meta = world.getBlockMetadata(i, j, k);
+		if (block == thisBlock && meta < 7) {
+			return true;
+		}
+		return BlockFalling.func_149831_e(world, i, j, k);
+	}
+
+	public static void generateTreasureRecipes(Block block, Item ingot) {
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block, 8, 0), "XX", "XX", 'X', ingot));
+		GameRegistry.addRecipe(new GOTRecipeTreasurePile(block, ingot));
+	}
+
+	public static void setTreasureBlockBounds(Block block, int meta) {
+		if (block instanceof GOTBlockTreasurePile) {
+			((GOTBlockTreasurePile) block).setBlockBoundsMeta(meta);
+		}
 	}
 
 	@Override
@@ -255,26 +275,6 @@ public class GOTBlockTreasurePile extends Block {
 		if (!world.isRemote && !tryFall(world, i, j, k) && !canBlockStay(world, i, j, k)) {
 			dropBlockAsItem(world, i, j, k, world.getBlockMetadata(i, j, k), 0);
 			world.setBlockToAir(i, j, k);
-		}
-	}
-
-	public static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock, int thisMeta) {
-		Block block = world.getBlock(i, j, k);
-		int meta = world.getBlockMetadata(i, j, k);
-		if (block == thisBlock && meta < 7) {
-			return true;
-		}
-		return BlockFalling.func_149831_e(world, i, j, k);
-	}
-
-	public static void generateTreasureRecipes(Block block, Item ingot) {
-		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(block, 8, 0), "XX", "XX", 'X', ingot));
-		GameRegistry.addRecipe(new GOTRecipeTreasurePile(block, ingot));
-	}
-
-	public static void setTreasureBlockBounds(Block block, int meta) {
-		if (block instanceof GOTBlockTreasurePile) {
-			((GOTBlockTreasurePile) block).setBlockBoundsMeta(meta);
 		}
 	}
 

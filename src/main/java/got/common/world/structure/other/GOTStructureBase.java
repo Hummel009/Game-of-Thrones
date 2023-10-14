@@ -1,7 +1,5 @@
 package got.common.world.structure.other;
 
-import java.util.*;
-
 import got.common.block.other.*;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
@@ -40,6 +38,8 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import net.minecraftforge.common.util.ForgeDirection;
 
+import java.util.*;
+
 public abstract class GOTStructureBase extends WorldGenerator {
 	public boolean restrictions = true;
 	public boolean notifyChanges;
@@ -65,6 +65,28 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	protected GOTStructureBase(boolean flag) {
 		super(flag);
 		notifyChanges = flag;
+	}
+
+	public static boolean isSurfaceStatic(World world, int i, int j, int k) {
+		Block block = world.getBlock(i, j, k);
+		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		if (block instanceof BlockSlab && !block.isOpaqueCube()) {
+			return isSurfaceStatic(world, i, j - 1, k);
+		}
+		Block above = world.getBlock(i, j + 1, k);
+		if (above.getMaterial().isLiquid()) {
+			return false;
+		}
+		if (block == biome.topBlock || block == biome.fillerBlock) {
+			return true;
+		}
+		if (block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTBlocks.dirtPath) {
+			return true;
+		}
+		if (block == GOTBlocks.mudGrass || block == GOTBlocks.mud || block == Blocks.sand || block == GOTBlocks.redClay || block == GOTBlocks.whiteSand) {
+			return true;
+		}
+		return block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
 	}
 
 	public void addBlockAliasOption(String alias, int weight, Block block) {
@@ -1117,28 +1139,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public int usingPlayerRotation() {
 		return GOTStructureRegistry.getRotationFromPlayer(usingPlayer);
-	}
-
-	public static boolean isSurfaceStatic(World world, int i, int j, int k) {
-		Block block = world.getBlock(i, j, k);
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-		if (block instanceof BlockSlab && !block.isOpaqueCube()) {
-			return isSurfaceStatic(world, i, j - 1, k);
-		}
-		Block above = world.getBlock(i, j + 1, k);
-		if (above.getMaterial().isLiquid()) {
-			return false;
-		}
-		if (block == biome.topBlock || block == biome.fillerBlock) {
-			return true;
-		}
-		if (block == Blocks.snow || block == Blocks.grass || block == Blocks.dirt || block == Blocks.gravel || block == GOTBlocks.dirtPath) {
-			return true;
-		}
-		if (block == GOTBlocks.mudGrass || block == GOTBlocks.mud || block == Blocks.sand || block == GOTBlocks.redClay || block == GOTBlocks.whiteSand) {
-			return true;
-		}
-		return block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
 	}
 
 	public static class BlockAliasPool {

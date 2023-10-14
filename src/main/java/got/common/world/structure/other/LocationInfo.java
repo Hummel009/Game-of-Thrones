@@ -30,14 +30,14 @@ public class LocationInfo {
 		return isFixedLocation;
 	}
 
-	public boolean isPresent() {
-		return true;
-	}
-
 	public LocationInfo setFixedLocation(GOTWaypoint wp) {
 		isFixedLocation = true;
 		associatedWaypoint = wp;
 		return this;
+	}
+
+	public boolean isPresent() {
+		return true;
 	}
 
 }

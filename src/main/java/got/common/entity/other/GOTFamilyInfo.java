@@ -1,8 +1,5 @@
 package got.common.entity.other;
 
-import java.util.List;
-import java.util.UUID;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
@@ -19,6 +16,9 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.server.management.PlayerManager;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.WorldServer;
+
+import java.util.List;
+import java.util.UUID;
 
 public class GOTFamilyInfo {
 	public GOTEntityNPC theEntity;
@@ -57,8 +57,18 @@ public class GOTFamilyInfo {
 		return age;
 	}
 
+	public void setAge(int i) {
+		age = i;
+		markDirty();
+	}
+
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String s) {
+		name = s;
+		markDirty();
 	}
 
 	public GOTEntityNPC getParentToFollow() {
@@ -140,6 +150,11 @@ public class GOTFamilyInfo {
 
 	public boolean isMale() {
 		return male;
+	}
+
+	public void setMale(boolean flag) {
+		male = flag;
+		markDirty();
 	}
 
 	public void markDirty() {
@@ -243,11 +258,6 @@ public class GOTFamilyInfo {
 		}
 	}
 
-	public void setAge(int i) {
-		age = i;
-		markDirty();
-	}
-
 	public void setChild() {
 		setAge(-72000);
 	}
@@ -260,19 +270,9 @@ public class GOTFamilyInfo {
 		}
 	}
 
-	public void setMale(boolean flag) {
-		male = flag;
-		markDirty();
-	}
-
 	public void setMaxBreedingDelay() {
 		float f = 48000;
 		setAge((int) (f * (0.5f + theEntity.getRNG().nextFloat() * 0.5f)));
-	}
-
-	public void setName(String s) {
-		name = s;
-		markDirty();
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {

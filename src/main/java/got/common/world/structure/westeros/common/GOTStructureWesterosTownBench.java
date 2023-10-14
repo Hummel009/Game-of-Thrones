@@ -1,8 +1,8 @@
 package got.common.world.structure.westeros.common;
 
-import java.util.Random;
-
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureWesterosTownBench extends GOTStructureWesterosBase {
 	public GOTStructureWesterosTownBench(boolean flag) {

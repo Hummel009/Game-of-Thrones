@@ -1,9 +1,6 @@
 package got.common.world.structure.westeros.gift;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -23,6 +20,8 @@ import got.common.entity.westeros.legendary.warrior.GOTEntityAlliserThorne;
 import got.common.entity.westeros.legendary.warrior.GOTEntityEdd;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 	public GOTStructureGiftCastle(boolean flag) {

@@ -1,12 +1,6 @@
 package got.client.gui;
 
-import java.util.*;
-
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
 import com.google.common.math.IntMath;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTClientProxy;
 import got.client.GOTTextures;
@@ -26,6 +20,10 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.util.*;
 
 public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	public static ResourceLocation factionsTexture = new ResourceLocation("got:textures/gui/factions.png");

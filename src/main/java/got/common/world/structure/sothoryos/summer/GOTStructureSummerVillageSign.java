@@ -1,9 +1,9 @@
 package got.common.world.structure.sothoryos.summer;
 
-import java.util.Random;
-
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSummerVillageSign extends GOTStructureSummerBase {
 	public GOTStructureSummerVillageSign(boolean flag) {

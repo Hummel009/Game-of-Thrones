@@ -1,8 +1,5 @@
 package got.common.recipe;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
@@ -11,6 +8,9 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRecipeMillstone {
 	public static Map<ItemStack, MillstoneResult> recipeList = new HashMap<>();

@@ -1,7 +1,5 @@
 package got.client.render.animal;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelRabbit;
 import got.client.render.other.GOTRandomSkins;
 import got.common.entity.other.GOTRandomSkinEntity;
@@ -9,6 +7,7 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderRabbit extends RenderLiving {
 	public static GOTRandomSkins rabbitSkins;

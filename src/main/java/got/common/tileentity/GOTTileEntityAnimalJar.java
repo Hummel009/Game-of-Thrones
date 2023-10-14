@@ -1,8 +1,5 @@
 package got.common.tileentity;
 
-import java.util.List;
-import java.util.Random;
-
 import got.common.block.other.GOTBlockAnimalJar;
 import got.common.entity.animal.GOTEntityButterfly;
 import got.common.entity.other.AnimalJarUpdater;
@@ -23,6 +20,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
+import java.util.List;
+import java.util.Random;
+
 public class GOTTileEntityAnimalJar extends TileEntity {
 	public NBTTagCompound jarEntityData;
 	public Entity jarEntity;
@@ -41,6 +41,12 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 
 	public NBTTagCompound getEntityData() {
 		return jarEntityData;
+	}
+
+	public void setEntityData(NBTTagCompound nbt) {
+		jarEntityData = nbt;
+		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
+		markDirty();
 	}
 
 	public float getEntityHeight() {
@@ -136,12 +142,6 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 			}
 			((EntityPlayerMP) entityplayer).playerNetServerHandler.sendPacket(packet);
 		}
-	}
-
-	public void setEntityData(NBTTagCompound nbt) {
-		jarEntityData = nbt;
-		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
-		markDirty();
 	}
 
 	@Override

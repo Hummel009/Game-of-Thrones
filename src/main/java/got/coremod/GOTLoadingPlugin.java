@@ -1,10 +1,10 @@
 package got.coremod;
 
+import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 @IFMLLoadingPlugin.TransformerExclusions("got.coremod")
 @IFMLLoadingPlugin.SortingIndex(1001)

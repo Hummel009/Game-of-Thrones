@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTFoods;
 import got.common.database.GOTNames;
@@ -13,6 +11,8 @@ import got.common.entity.westeros.GOTEntityLightSkinThief;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 	public String[] meadHallName;

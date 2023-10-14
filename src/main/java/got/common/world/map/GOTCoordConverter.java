@@ -19,9 +19,8 @@ public class GOTCoordConverter {
 		}
 		if (value < 0.0) {
 			return value + radius / 128.0;
-		} else {
-			return value;
 		}
+		return value;
 	}
 
 	public static double toWesterosCastle(double value) {

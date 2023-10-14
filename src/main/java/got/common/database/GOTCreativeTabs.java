@@ -25,6 +25,20 @@ public class GOTCreativeTabs extends CreativeTabs {
 		super(label);
 	}
 
+	public static void onInit() {
+		tabBlock.theIcon = new ItemStack(GOTBlocks.brick1, 1, 1);
+		tabUtil.theIcon = new ItemStack(GOTBlocks.unsmeltery);
+		tabDeco.theIcon = new ItemStack(GOTBlocks.chandelier, 1, 3);
+		tabFood.theIcon = new ItemStack(GOTItems.mugVodka);
+		tabMaterials.theIcon = new ItemStack(GOTItems.valyrianIngot);
+		tabMisc.theIcon = new ItemStack(GOTItems.coin, 1, 6);
+		tabTools.theIcon = new ItemStack(GOTItems.wildlingAxe);
+		tabCombat.theIcon = new ItemStack(GOTItems.ironbornHelmet);
+		tabStory.theIcon = new ItemStack(GOTItems.bane);
+		tabSpawn.theIcon = new ItemStack(GOTItems.spawnEgg, 1, 248);
+		tabBanner.theIcon = new ItemStack(GOTItems.bannerTab);
+	}
+
 	@Override
 	public ItemStack getIconItemStack() {
 		return theIcon;
@@ -40,19 +54,5 @@ public class GOTCreativeTabs extends CreativeTabs {
 	@SideOnly(Side.CLIENT)
 	public String getTranslatedTabLabel() {
 		return StatCollector.translateToLocal("got.tab." + getTabLabel());
-	}
-
-	public static void onInit() {
-		tabBlock.theIcon = new ItemStack(GOTBlocks.brick1, 1, 1);
-		tabUtil.theIcon = new ItemStack(GOTBlocks.unsmeltery);
-		tabDeco.theIcon = new ItemStack(GOTBlocks.chandelier, 1, 3);
-		tabFood.theIcon = new ItemStack(GOTItems.mugVodka);
-		tabMaterials.theIcon = new ItemStack(GOTItems.valyrianIngot);
-		tabMisc.theIcon = new ItemStack(GOTItems.coin, 1, 6);
-		tabTools.theIcon = new ItemStack(GOTItems.wildlingAxe);
-		tabCombat.theIcon = new ItemStack(GOTItems.ironbornHelmet);
-		tabStory.theIcon = new ItemStack(GOTItems.bane);
-		tabSpawn.theIcon = new ItemStack(GOTItems.spawnEgg, 1, 248);
-		tabBanner.theIcon = new ItemStack(GOTItems.bannerTab);
 	}
 }

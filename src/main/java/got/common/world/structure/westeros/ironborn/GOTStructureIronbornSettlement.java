@@ -1,9 +1,6 @@
 package got.common.world.structure.westeros.ironborn;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornMan;
 import got.common.entity.westeros.ironborn.GOTEntityIronbornSoldier;
@@ -14,6 +11,8 @@ import got.common.world.structure.other.*;
 import got.common.world.structure.westeros.common.*;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -37,6 +36,10 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT, CAMP
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureIronbornSettlement> {
@@ -576,9 +579,5 @@ public class GOTStructureIronbornSettlement extends GOTStructureBaseSettlement {
 				addStructure(getRandomFarm(random), farmX - farmSize, farmZ, 3);
 			}
 		}
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT, CAMP
 	}
 }

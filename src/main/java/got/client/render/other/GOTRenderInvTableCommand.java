@@ -1,11 +1,10 @@
 package got.client.render.other;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.client.IItemRenderer;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderInvTableCommand implements IItemRenderer {
 	@Override

@@ -1,7 +1,5 @@
 package got.client.render.npc;
 
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelGiant;
 import got.client.render.other.GOTNPCRendering;
 import got.client.render.other.GOTRandomSkins;
@@ -15,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
 
 public class GOTRenderGiant extends RenderLiving {
 	public ResourceLocation weaponsTexture = new ResourceLocation("got:textures/entity/westeros/giant/weapons.png");

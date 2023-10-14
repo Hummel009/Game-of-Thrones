@@ -1,9 +1,5 @@
 package got.common.world.biome.variant;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Random;
-
 import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import net.minecraft.block.Block;
@@ -11,6 +7,10 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraft.world.gen.feature.WorldGenerator;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Random;
 
 public class GOTBiomeVariant {
 	public static GOTBiomeVariant[] allVariants = new GOTBiomeVariant[256];
@@ -80,6 +80,14 @@ public class GOTBiomeVariant {
 		allVariants[i] = this;
 		variantName = s;
 		variantScale = scale;
+	}
+
+	public static GOTBiomeVariant getVariantForID(int i) {
+		GOTBiomeVariant variant = allVariants[i];
+		if (variant == null) {
+			return STANDARD;
+		}
+		return variant;
 	}
 
 	public GOTBiomeVariant addTreeTypes(float f, Object... trees) {
@@ -165,14 +173,6 @@ public class GOTBiomeVariant {
 	public GOTBiomeVariant setTrees(float f) {
 		treeFactor = f;
 		return this;
-	}
-
-	public static GOTBiomeVariant getVariantForID(int i) {
-		GOTBiomeVariant variant = allVariants[i];
-		if (variant == null) {
-			return STANDARD;
-		}
-		return variant;
 	}
 
 	public enum VariantScale {

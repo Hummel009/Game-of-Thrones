@@ -1,10 +1,5 @@
 package got.client.gui;
 
-import java.util.List;
-
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTLevelData;
 import got.common.database.GOTCapes;
@@ -16,6 +11,10 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
+
+import java.util.List;
 
 public class GOTGuiCapes extends GOTGuiMenuWBBase {
 	public static ModelBiped playerModel = new ModelBiped();

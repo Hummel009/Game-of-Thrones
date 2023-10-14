@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.mossovy;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTItems;
 import got.common.world.structure.other.GOTStructureBase;
@@ -10,6 +8,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 	public Block woodBeamBlock;
@@ -53,6 +53,21 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 
 	protected GOTStructureMossovyBase(boolean flag) {
 		super(flag);
+	}
+
+	public static Block getRandomPieBlock(Random random) {
+		int i = random.nextInt(3);
+		switch (i) {
+			case 0:
+				return GOTBlocks.appleCrumble;
+			case 1:
+				return GOTBlocks.cherryPie;
+			case 2:
+				return GOTBlocks.berryPie;
+			default:
+				break;
+		}
+		return GOTBlocks.appleCrumble;
 	}
 
 	public ItemStack getRandomBreeWeapon(Random random) {
@@ -202,20 +217,5 @@ public abstract class GOTStructureMossovyBase extends GOTStructureBase {
 		carpetMeta = 12;
 		bedBlock = GOTBlocks.strawBed;
 		tableBlock = GOTBlocks.tableMossovy;
-	}
-
-	public static Block getRandomPieBlock(Random random) {
-		int i = random.nextInt(3);
-		switch (i) {
-			case 0:
-				return GOTBlocks.appleCrumble;
-			case 1:
-				return GOTBlocks.cherryPie;
-			case 2:
-				return GOTBlocks.berryPie;
-			default:
-				break;
-		}
-		return GOTBlocks.appleCrumble;
 	}
 }

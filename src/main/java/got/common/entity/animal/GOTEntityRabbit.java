@@ -1,8 +1,5 @@
 package got.common.entity.animal;
 
-import java.util.List;
-import java.util.UUID;
-
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAvoidWithChance;
 import got.common.entity.ai.GOTEntityAIFlee;
@@ -27,6 +24,9 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
+
+import java.util.List;
+import java.util.UUID;
 
 public class GOTEntityRabbit extends EntityCreature implements GOTAmbientCreature, GOTRandomSkinEntity, GOTBiome.ImmuneToFrost {
 	public static String fleeSound = "got:rabbit.flee";

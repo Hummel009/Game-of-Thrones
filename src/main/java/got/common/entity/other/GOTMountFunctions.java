@@ -1,7 +1,5 @@
 package got.common.entity.other;
 
-import java.util.Random;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketMountControl;
@@ -17,6 +15,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTMountFunctions {
 	public static boolean canRiderControl(Entity entity) {

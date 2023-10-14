@@ -1,10 +1,5 @@
 package got.client.render.other;
 
-import java.awt.Color;
-import java.util.List;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTSpeechClient;
 import got.client.GOTTickHandlerClient;
 import got.common.GOTConfig;
@@ -33,6 +28,10 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
+import org.lwjgl.opengl.GL11;
+
+import java.awt.*;
+import java.util.List;
 
 public class GOTNPCRendering {
 	public static RenderItem itemRenderer = new RenderItem();

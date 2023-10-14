@@ -1,9 +1,5 @@
 package got.common.entity.animal;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
-
 import got.GOT;
 import got.common.block.other.GOTBlockBerryBush;
 import got.common.database.GOTItems;
@@ -41,6 +37,10 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, GOTRandomSkinEntity, AnimalJarUpdater, GOTBiome.ImmuneToFrost {
 	public ChunkCoordinates currentFlightTarget;
@@ -204,6 +204,14 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return BirdType.values()[i];
 	}
 
+	public void setBirdType(BirdType type) {
+		setBirdType(type.ordinal());
+	}
+
+	public void setBirdType(int i) {
+		dataWatcher.updateObject(16, (byte) i);
+	}
+
 	@Override
 	public boolean getCanSpawnHere() {
 		if (super.getCanSpawnHere()) {
@@ -286,6 +294,10 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		return getEquipmentInSlot(4);
 	}
 
+	public void setStolenItem(ItemStack itemstack) {
+		setCurrentItemOrArmor(4, itemstack);
+	}
+
 	@Override
 	public int getTalkInterval() {
 		return 60;
@@ -303,6 +315,10 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 
 	public boolean isBirdStill() {
 		return dataWatcher.getWatchableObjectByte(17) == 1;
+	}
+
+	public void setBirdStill(boolean flag) {
+		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
 	}
 
 	public boolean isStealable(ItemStack itemstack) {
@@ -408,22 +424,6 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		setBirdStill(nbt.getBoolean("BirdStill"));
 		birdInv.writeToNBT(nbt);
 		nbt.setShort("StealTime", (short) stolenTime);
-	}
-
-	public void setBirdStill(boolean flag) {
-		dataWatcher.updateObject(17, flag ? (byte) 1 : 0);
-	}
-
-	public void setBirdType(BirdType type) {
-		setBirdType(type.ordinal());
-	}
-
-	public void setBirdType(int i) {
-		dataWatcher.updateObject(16, (byte) i);
-	}
-
-	public void setStolenItem(ItemStack itemstack) {
-		setCurrentItemOrArmor(4, itemstack);
 	}
 
 	@Override

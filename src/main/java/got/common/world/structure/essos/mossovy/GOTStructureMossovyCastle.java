@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.mossovy;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTFoods;
@@ -14,6 +11,8 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.item.other.GOTItemBanner;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureMossovyCastle extends GOTStructureMossovyBase {
 	public GOTStructureMossovyCastle(boolean flag) {

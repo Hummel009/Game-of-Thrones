@@ -1,7 +1,5 @@
 package got.common.entity.ai;
 
-import java.util.List;
-
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
@@ -12,6 +10,8 @@ import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class GOTEntityAINPCMarry extends EntityAIBase {
 	public GOTEntityNPC theNPC;

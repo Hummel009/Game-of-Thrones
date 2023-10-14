@@ -1,10 +1,10 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIbbenVillageGarden extends GOTStructureIbbenBase {
 	public Block leafBlock;

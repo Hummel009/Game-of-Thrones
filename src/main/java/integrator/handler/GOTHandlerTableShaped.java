@@ -1,8 +1,5 @@
 package integrator.handler;
 
-import java.awt.Rectangle;
-import java.util.List;
-
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.recipe.ShapedRecipeHandler;
 import codechicken.nei.recipe.TemplateRecipeHandler;
@@ -12,6 +9,9 @@ import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+
+import java.awt.*;
+import java.util.List;
 
 public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 	public List<IRecipe> recipeList;

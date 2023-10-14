@@ -1,7 +1,5 @@
 package got.common.world.structure.sothoryos.sothoryos;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosFarmer;
 import got.common.entity.sothoryos.sothoryos.GOTEntitySothoryosFarmhand;
@@ -10,6 +8,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse {
 	public Block cropBlock;

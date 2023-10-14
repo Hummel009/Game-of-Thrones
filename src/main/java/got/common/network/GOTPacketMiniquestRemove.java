@@ -1,7 +1,5 @@
 package got.common.network;
 
-import java.util.UUID;
-
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -12,6 +10,8 @@ import got.common.GOTPlayerData;
 import got.common.quest.GOTMiniQuest;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
+
+import java.util.UUID;
 
 public class GOTPacketMiniquestRemove implements IMessage {
 	public UUID questUUID;

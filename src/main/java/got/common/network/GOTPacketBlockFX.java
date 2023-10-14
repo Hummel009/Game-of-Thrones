@@ -1,13 +1,13 @@
 package got.common.network;
 
-import java.util.Random;
-
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTPacketBlockFX implements IMessage {
 	public Type type;
@@ -42,6 +42,11 @@ public class GOTPacketBlockFX implements IMessage {
 		data.writeInt(blockZ);
 	}
 
+	public enum Type {
+		UTUMNO_EVAPORATE
+
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketBlockFX, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketBlockFX packet, MessageContext context) {
@@ -57,11 +62,6 @@ public class GOTPacketBlockFX implements IMessage {
 			}
 			return null;
 		}
-	}
-
-	public enum Type {
-		UTUMNO_EVAPORATE
-
 	}
 
 }

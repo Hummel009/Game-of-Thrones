@@ -56,6 +56,67 @@ public class GOTClassTransformer implements IClassTransformer {
 	public static String cls_WorldServer = "net/minecraft/world/WorldServer";
 	public static String cls_WorldServer_obf = "mt";
 
+	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N target) {
+		return findNodeInMethod(method, target, 0);
+	}
+
+	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N targetAbstract, int skip) {
+		int skipped = 0;
+		ListIterator<AbstractInsnNode> it = method.instructions.iterator();
+		while (it.hasNext()) {
+			AbstractInsnNode nextAbstract = it.next();
+			boolean matched = false;
+			if (nextAbstract.getClass() == targetAbstract.getClass()) {
+				AbstractInsnNode next;
+				AbstractInsnNode target;
+				if (targetAbstract.getClass() == InsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode()) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == VarInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((VarInsnNode) next).var == ((VarInsnNode) target).var) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == LdcInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (((LdcInsnNode) next).cst.equals(((LdcInsnNode) target).cst)) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == TypeInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((TypeInsnNode) next).desc.equals(((TypeInsnNode) target).desc)) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == FieldInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((FieldInsnNode) next).owner.equals(((FieldInsnNode) target).owner) && ((FieldInsnNode) next).name.equals(((FieldInsnNode) target).name) && ((FieldInsnNode) next).desc.equals(((FieldInsnNode) target).desc)) {
+						matched = true;
+					}
+				} else if (targetAbstract.getClass() == MethodInsnNode.class) {
+					next = nextAbstract;
+					target = targetAbstract;
+					if (next.getOpcode() == target.getOpcode() && ((MethodInsnNode) next).owner.equals(((MethodInsnNode) target).owner) && ((MethodInsnNode) next).name.equals(((MethodInsnNode) target).name) && ((MethodInsnNode) next).desc.equals(((MethodInsnNode) target).desc) && ((MethodInsnNode) next).itf == ((MethodInsnNode) target).itf) {
+						matched = true;
+					}
+				}
+			}
+			if (matched) {
+				if (skipped >= skip) {
+					return (N) nextAbstract;
+				}
+				++skipped;
+			}
+		}
+		return null;
+	}
+
 	public byte[] patchArmorProperties(String name, byte[] bytes) {
 		String targetMethodName;
 		String targetMethodSign;
@@ -1232,66 +1293,5 @@ public class GOTClassTransformer implements IClassTransformer {
 			return patchFMLNetworkHandler(name, basicClass);
 		}
 		return basicClass;
-	}
-
-	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N target) {
-		return findNodeInMethod(method, target, 0);
-	}
-
-	public static <N extends AbstractInsnNode> N findNodeInMethod(MethodNode method, N targetAbstract, int skip) {
-		int skipped = 0;
-		ListIterator<AbstractInsnNode> it = method.instructions.iterator();
-		while (it.hasNext()) {
-			AbstractInsnNode nextAbstract = it.next();
-			boolean matched = false;
-			if (nextAbstract.getClass() == targetAbstract.getClass()) {
-				AbstractInsnNode next;
-				AbstractInsnNode target;
-				if (targetAbstract.getClass() == InsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode()) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == VarInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((VarInsnNode) next).var == ((VarInsnNode) target).var) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == LdcInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (((LdcInsnNode) next).cst.equals(((LdcInsnNode) target).cst)) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == TypeInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((TypeInsnNode) next).desc.equals(((TypeInsnNode) target).desc)) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == FieldInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((FieldInsnNode) next).owner.equals(((FieldInsnNode) target).owner) && ((FieldInsnNode) next).name.equals(((FieldInsnNode) target).name) && ((FieldInsnNode) next).desc.equals(((FieldInsnNode) target).desc)) {
-						matched = true;
-					}
-				} else if (targetAbstract.getClass() == MethodInsnNode.class) {
-					next = nextAbstract;
-					target = targetAbstract;
-					if (next.getOpcode() == target.getOpcode() && ((MethodInsnNode) next).owner.equals(((MethodInsnNode) target).owner) && ((MethodInsnNode) next).name.equals(((MethodInsnNode) target).name) && ((MethodInsnNode) next).desc.equals(((MethodInsnNode) target).desc) && ((MethodInsnNode) next).itf == ((MethodInsnNode) target).itf) {
-						matched = true;
-					}
-				}
-			}
-			if (matched) {
-				if (skipped >= skip) {
-					return (N) nextAbstract;
-				}
-				++skipped;
-			}
-		}
-		return null;
 	}
 }

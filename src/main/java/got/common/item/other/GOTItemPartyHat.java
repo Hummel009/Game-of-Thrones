@@ -1,7 +1,5 @@
 package got.common.item.other;
 
-import java.util.List;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
@@ -12,31 +10,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.StatCollector;
 
+import java.util.List;
+
 public class GOTItemPartyHat extends GOTItemArmor {
 	public static int HAT_WHITE = 16777215;
 
 	public GOTItemPartyHat() {
 		super(GOTMaterial.ROBES, 0);
 		setCreativeTab(GOTCreativeTabs.tabMisc);
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
-		if (isHatDyed(itemstack) && getHatColor(itemstack) != 16777215) {
-			list.add(StatCollector.translateToLocal("item.got.hat.dyed"));
-		}
-	}
-
-	@Override
-	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
-		return "got:textures/armor/partyhat.png";
-	}
-
-	@SideOnly(Side.CLIENT)
-	@Override
-	public int getColorFromItemStack(ItemStack itemstack, int pass) {
-		return getHatColor(itemstack);
 	}
 
 	public static int getHatColor(ItemStack itemstack) {
@@ -69,5 +50,24 @@ public class GOTItemPartyHat extends GOTItemArmor {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
 		itemstack.getTagCompound().setInteger("HatColor", i);
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
+		if (isHatDyed(itemstack) && getHatColor(itemstack) != 16777215) {
+			list.add(StatCollector.translateToLocal("item.got.hat.dyed"));
+		}
+	}
+
+	@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
+		return "got:textures/armor/partyhat.png";
+	}
+
+	@SideOnly(Side.CLIENT)
+	@Override
+	public int getColorFromItemStack(ItemStack itemstack, int pass) {
+		return getHatColor(itemstack);
 	}
 }

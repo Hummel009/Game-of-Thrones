@@ -1,7 +1,5 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.entity.essos.yiti.GOTEntityYiTiBombardier;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.inventory.GOTContainerHiredWarriorInventory;
@@ -10,6 +8,7 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiHiredWarriorInventory extends GuiContainer {
 	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/hiredWarrior.png");

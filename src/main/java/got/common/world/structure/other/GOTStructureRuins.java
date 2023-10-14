@@ -1,7 +1,5 @@
 package got.common.world.structure.other;
 
-import java.util.Random;
-
 import got.GOT;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
@@ -10,6 +8,8 @@ import got.common.world.map.GOTBezierType;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureRuins extends GOTStructureBaseSettlement {
 	public GOTStructureRuins(GOTBiome biome, float f) {

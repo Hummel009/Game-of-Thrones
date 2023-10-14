@@ -1,10 +1,9 @@
 package got.client.gui;
 
-import org.lwjgl.opengl.GL11;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.MathHelper;
+import org.lwjgl.opengl.GL11;
 
 public class GOTGuiSlider extends GuiButton {
 	public String baseDisplayString;
@@ -56,6 +55,11 @@ public class GOTGuiSlider extends GuiButton {
 
 	public int getSliderValue() {
 		return minValue + Math.round(sliderValue * (maxValue - minValue));
+	}
+
+	public void setSliderValue(int value) {
+		value = MathHelper.clamp_int(value, minValue, maxValue);
+		sliderValue = (float) (value - minValue) / (maxValue - minValue);
 	}
 
 	public float getSliderValue_F() {
@@ -112,11 +116,6 @@ public class GOTGuiSlider extends GuiButton {
 
 	public void setOverrideStateString(String s) {
 		overrideStateString = s;
-	}
-
-	public void setSliderValue(int value) {
-		value = MathHelper.clamp_int(value, minValue, maxValue);
-		sliderValue = (float) (value - minValue) / (maxValue - minValue);
 	}
 
 	public void setValueOnly() {

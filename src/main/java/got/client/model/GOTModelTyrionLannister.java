@@ -1,10 +1,9 @@
 package got.client.model;
 
-import org.lwjgl.opengl.GL11;
-
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import org.lwjgl.opengl.GL11;
 
 public class GOTModelTyrionLannister extends GOTModelBiped {
 	public ModelRenderer bipedChest;

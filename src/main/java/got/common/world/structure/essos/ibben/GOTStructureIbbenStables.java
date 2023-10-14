@@ -1,9 +1,6 @@
 package got.common.world.structure.essos.ibben;
 
-import java.util.Random;
-
 import com.google.common.math.IntMath;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.essos.ibben.GOTEntityIbbenMan;
@@ -11,6 +8,8 @@ import got.common.entity.essos.ibben.GOTEntityIbbenWarrior;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 	public GOTStructureIbbenStables(boolean flag) {

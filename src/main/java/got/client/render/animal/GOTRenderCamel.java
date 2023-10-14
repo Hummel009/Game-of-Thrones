@@ -1,15 +1,5 @@
 package got.client.render.animal;
 
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.imageio.ImageIO;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.model.GOTModelCamel;
 import got.common.entity.animal.GOTEntityCamel;
 import got.common.entity.other.GOTNPCMount;
@@ -19,6 +9,14 @@ import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
+import org.lwjgl.opengl.GL11;
+
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class GOTRenderCamel extends RenderLiving {
 	public static ResourceLocation camelSkin = new ResourceLocation("got:textures/entity/animal/camel/camel.png");
@@ -32,41 +30,6 @@ public class GOTRenderCamel extends RenderLiving {
 	public GOTRenderCamel() {
 		super(new GOTModelCamel(), 0.5f);
 		setRenderPassModel(modelSaddle);
-	}
-
-	@Override
-	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTNPCMount camel = (GOTNPCMount) entity;
-		return GOTRenderHorse.getLayeredMountTexture(camel, camelSkin);
-	}
-
-	@Override
-	public void preRenderCallback(EntityLivingBase entity, float f) {
-		super.preRenderCallback(entity, f);
-		GOTEntityCamel animal = (GOTEntityCamel) entity;
-		if (animal.isChild()) {
-			GL11.glScalef(0.62f, 0.62f, 0.62f);
-		} else {
-			GL11.glScalef(1.25f, 1.25f, 1.25f);
-		}
-	}
-
-	@Override
-	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
-		GOTEntityCamel camel = (GOTEntityCamel) entity;
-		if (pass == 0 && camel.isMountSaddled()) {
-			setRenderPassModel(modelSaddle);
-			bindTexture(saddleTexture);
-			return 1;
-		}
-		if (pass == 1 && camel.isCamelWearingCarpet()) {
-			setRenderPassModel(modelCarpet);
-			int color = camel.getCamelCarpetColor();
-			ResourceLocation carpet = getColoredCarpetTexture(color);
-			bindTexture(carpet);
-			return 1;
-		}
-		return super.shouldRenderPass(entity, pass, f);
 	}
 
 	public static ResourceLocation getColoredCarpetTexture(int carpetRGB) {
@@ -112,5 +75,40 @@ public class GOTRenderCamel extends RenderLiving {
 			coloredCarpetTextures.put(path, res);
 		}
 		return res;
+	}
+
+	@Override
+	public ResourceLocation getEntityTexture(Entity entity) {
+		GOTNPCMount camel = (GOTNPCMount) entity;
+		return GOTRenderHorse.getLayeredMountTexture(camel, camelSkin);
+	}
+
+	@Override
+	public void preRenderCallback(EntityLivingBase entity, float f) {
+		super.preRenderCallback(entity, f);
+		GOTEntityCamel animal = (GOTEntityCamel) entity;
+		if (animal.isChild()) {
+			GL11.glScalef(0.62f, 0.62f, 0.62f);
+		} else {
+			GL11.glScalef(1.25f, 1.25f, 1.25f);
+		}
+	}
+
+	@Override
+	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
+		GOTEntityCamel camel = (GOTEntityCamel) entity;
+		if (pass == 0 && camel.isMountSaddled()) {
+			setRenderPassModel(modelSaddle);
+			bindTexture(saddleTexture);
+			return 1;
+		}
+		if (pass == 1 && camel.isCamelWearingCarpet()) {
+			setRenderPassModel(modelCarpet);
+			int color = camel.getCamelCarpetColor();
+			ResourceLocation carpet = getColoredCarpetTexture(color);
+			bindTexture(carpet);
+			return 1;
+		}
+		return super.shouldRenderPass(entity, pass, f);
 	}
 }

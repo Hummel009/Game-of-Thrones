@@ -1,7 +1,5 @@
 package got.common.entity.other;
 
-import java.util.Random;
-
 import got.common.database.GOTItems;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.entity.EntityCreature;
@@ -10,6 +8,8 @@ import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+
+import java.util.Random;
 
 public class GOTEntityUtils {
 	public static int[] leatherDyes = {10855845, 8026746, 5526612, 3684408, 8350297, 10388590, 4799795, 5330539, 4211801, 2632504};

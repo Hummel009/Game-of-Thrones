@@ -1,9 +1,9 @@
 package got.common.world.structure.essos.common;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureEssosVillageFence extends GOTStructureEssosBase {
 	public int leftExtent;

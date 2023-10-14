@@ -1,8 +1,5 @@
 package got.common.world.biome.essos;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import got.common.database.GOTAchievement;
 import got.common.database.GOTInvasions;
 import got.common.database.GOTSpawnList;
@@ -19,6 +16,9 @@ import got.common.world.structure.other.GOTStructureBurntHouse;
 import got.common.world.structure.other.GOTStructureRottenHouse;
 import got.common.world.structure.other.GOTStructureRuinedHouse;
 import got.common.world.structure.other.GOTStructureStoneRuin;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GOTBiomeYiTi extends GOTBiomeEssos {
 	public GOTBiomeYiTi(int i, boolean major) {

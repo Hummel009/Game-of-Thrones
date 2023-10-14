@@ -1,11 +1,11 @@
 package got.common.world.structure.westeros.ironborn;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.world.structure.other.GOTStructureTentBase;
 import net.minecraft.init.Blocks;
+
+import java.util.Random;
 
 public class GOTStructureIronbornCampTent extends GOTStructureTentBase {
 	public GOTStructureIronbornCampTent(boolean flag) {

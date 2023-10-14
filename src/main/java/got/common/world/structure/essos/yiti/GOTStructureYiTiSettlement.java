@@ -1,7 +1,5 @@
 package got.common.world.structure.essos.yiti;
 
-import java.util.Random;
-
 import got.common.database.GOTBlocks;
 import got.common.entity.essos.yiti.GOTEntityYiTiMan;
 import got.common.entity.essos.yiti.GOTEntityYiTiSoldier;
@@ -12,6 +10,8 @@ import got.common.world.map.GOTBezierType;
 import got.common.world.structure.other.*;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 	public Type type;
@@ -35,6 +35,10 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 		fixedSettlementChunkRadius = radius;
 		forcedType = true;
 		return this;
+	}
+
+	public enum Type {
+		VILLAGE, TOWN, FORT, TOWER, GATE, GATE_ROAD
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureYiTiSettlement> {
@@ -433,9 +437,5 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			}
 		}
 
-	}
-
-	public enum Type {
-		VILLAGE, TOWN, FORT, TOWER, GATE, GATE_ROAD
 	}
 }

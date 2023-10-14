@@ -1,8 +1,5 @@
 package got.common.entity.essos.ghiscar;
 
-import java.awt.Color;
-import java.util.Random;
-
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
@@ -16,11 +13,27 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+import java.awt.*;
+import java.util.Random;
+
 public abstract class GOTEntityGhiscarTrader extends GOTEntityGhiscarMan implements GOTTradeable {
 	protected GOTEntityGhiscarTrader(World world) {
 		super(world);
 		canBeMarried = false;
 		addTargetTasks(false);
+	}
+
+	public static ItemStack createTraderTurban(Random random) {
+		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
+		if (random.nextInt(3) == 0) {
+			GOTItemTurban.setHasOrnament(turban, true);
+		}
+		float h = random.nextFloat() * 360.0f;
+		float s = MathHelper.randomFloatClamp(random, 0.6f, 0.8f);
+		float b = MathHelper.randomFloatClamp(random, 0.5f, 0.75f);
+		int turbanColor = Color.HSBtoRGB(h, s, b) & 0xFFFFFF;
+		GOTItemRobes.setRobesColor(turban, turbanColor);
+		return turban;
 	}
 
 	@Override
@@ -43,18 +56,5 @@ public abstract class GOTEntityGhiscarTrader extends GOTEntityGhiscarMan impleme
 		data = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(4, createTraderTurban(rand));
 		return data;
-	}
-
-	public static ItemStack createTraderTurban(Random random) {
-		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
-		if (random.nextInt(3) == 0) {
-			GOTItemTurban.setHasOrnament(turban, true);
-		}
-		float h = random.nextFloat() * 360.0f;
-		float s = MathHelper.randomFloatClamp(random, 0.6f, 0.8f);
-		float b = MathHelper.randomFloatClamp(random, 0.5f, 0.75f);
-		int turbanColor = Color.HSBtoRGB(h, s, b) & 0xFFFFFF;
-		GOTItemRobes.setRobesColor(turban, turbanColor);
-		return turban;
 	}
 }

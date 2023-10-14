@@ -1,9 +1,5 @@
 package got.client.gui;
 
-import java.util.ArrayList;
-
-import org.lwjgl.opengl.GL11;
-
 import got.client.GOTTickHandlerClient;
 import got.common.GOTDimension;
 import got.common.network.GOTPacketCheckMenuPrompt;
@@ -16,11 +12,36 @@ import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.StatCollector;
+import org.lwjgl.opengl.GL11;
+
+import java.util.ArrayList;
 
 public class GOTGuiMenu extends GOTGuiScreenBase {
 	public static ResourceLocation menuIconsTexture = new ResourceLocation("got:textures/gui/menu_icons.png");
 	public static Class<? extends GOTGuiMenuWBBase> lastMenuScreen;
 	public boolean sentCheckPacket;
+
+	public static GuiScreen openMenu(EntityPlayer entityplayer) {
+		boolean[] map_factions = GOTMiniQuestWelcome.forceMenuMapFactions(entityplayer);
+		if (map_factions[0]) {
+			return new GOTGuiMap();
+		}
+		if (map_factions[1]) {
+			return new GOTGuiFactions();
+		}
+		if (lastMenuScreen != null) {
+			try {
+				return lastMenuScreen.getConstructor().newInstance();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return new GOTGuiMenu();
+	}
+
+	public static void resetLastMenuScreen() {
+		lastMenuScreen = null;
+	}
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -117,27 +138,5 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 				sentCheckPacket = true;
 			}
 		}
-	}
-
-	public static GuiScreen openMenu(EntityPlayer entityplayer) {
-		boolean[] map_factions = GOTMiniQuestWelcome.forceMenuMapFactions(entityplayer);
-		if (map_factions[0]) {
-			return new GOTGuiMap();
-		}
-		if (map_factions[1]) {
-			return new GOTGuiFactions();
-		}
-		if (lastMenuScreen != null) {
-			try {
-				return lastMenuScreen.getConstructor().newInstance();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		return new GOTGuiMenu();
-	}
-
-	public static void resetLastMenuScreen() {
-		lastMenuScreen = null;
 	}
 }
