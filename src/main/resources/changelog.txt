@@ -1,11 +1,19 @@
 CHANGELOG
 
 >>BUILD 23.09.01
++ Added beavers (with their spawn) and their drop (with its usage)
 + Added Janos Slynt's, Pycelle's and Melisandra's drop
 + Added new world type - Game of Thrones without fixed structures and characters, but with map.
++ Added one forgotten dirtPath:2 recipe
 
-* Added one forgotten dirtPath:2 recipe
+* Moved zero coords of the world closer to Winterfell
 
+* Improved fixed structures system (more clear, optimized and stable)
+* Improved road-to-settlemen's-gate system
+* Improved roads & walls code
+* Improved GUI opening code
+
+* Fixed wrong names of waypoints (example: Servin's C. -> Cerwyn's C.)
 * Fixed very old bug with imflammable leaves
 * Fixed bug with Trystane Martell drop
 * Fixed bug with one broken command
