@@ -79,6 +79,21 @@ public class GOTFixer {
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WHITETREE)) {
 			worldGen.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k - 15), k - 15);
 		}
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.EURON)) {
+			new GOTStructureBase() {
+				@Override
+				public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+					setOriginAndRotation(world, i, j, k, rotation, 0);
+					loadStrScan("euron_ship");
+					generateStrScan(world, random, 16, 27, -58);
+					for (int l = 0; l < 10; ++l) {
+						spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 1, 0);
+					}
+					spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 1, 0);
+					return true;
+				}
+			}.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k - 15), k - 15);
+		}
 	}
 
 	public static void onInit() {
@@ -270,30 +285,6 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntityAndrikTheUnsmilling(world), -2, -2));
 			}
 		}.type(GOTStructureIronbornSettlement.Type.FORT, 3), GOTWaypoint.DRUMM_CASTLE);
-
-		registerSpawner(new GOTStructureEmptySettlement(3) {
-			@Override
-			public void addLegendaryNPCs(World world) {
-				spawnInfos.add(new SpawnInfo(new GOTEntityEuronGreyjoy(world), 0, 0));
-			}
-
-			@Override
-			public GOTStructureBase getSpecialStructure() {
-				return new GOTStructureBase() {
-					@Override
-					public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-						setOriginAndRotation(world, i, j, k, rotation, 0);
-						loadStrScan("euron_ship");
-						generateStrScan(world, random, 16, 27, -58);
-						for (int l = 0; l < 10; ++l) {
-							spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 1, 0);
-						}
-						spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 1, 0);
-						return true;
-					}
-				};
-			}
-		}, GOTWaypoint.EURON);
 
 		registerSpawner(new GOTStructureStormlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
@@ -553,20 +544,6 @@ public class GOTFixer {
 			@Override
 			public void addLegendaryNPCs(World world) {
 				spawnInfos.add(new SpawnInfo(new GOTEntityNightKing(world), 0, 0));
-			}
-
-			@Override
-			public GOTStructureBase getSpecialStructure() {
-				return new GOTStructureBase() {
-					@Override
-					public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-						setOriginAndRotation(world, i, j, k, rotation, 0);
-						loadStrScan("night_king");
-						spawnLegendaryNPC(new GOTEntityNightKing(world), world, 0, 2, 0);
-						generateStrScan(world, random, 0, 0, 0);
-						return true;
-					}
-				};
 			}
 		}, GOTWaypoint.NIGHT_KING);
 

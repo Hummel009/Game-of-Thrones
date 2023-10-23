@@ -27,8 +27,8 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureWesterlandsSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
-		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, specialStructure, type, forcedType);
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureWesterlandsSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, type, forcedType);
 	}
 
 	public GOTStructureBaseSettlement type(Type t, int radius) {
@@ -47,8 +47,8 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 		public Type type;
 		public boolean forcedType;
 
-		public Instance(GOTStructureWesterlandsSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure, Type t, boolean b) {
-			super(settlement, world, i, k, random, loc, filler, spawnInfos, specialStructure);
+		public Instance(GOTStructureWesterlandsSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+			super(settlement, world, i, k, random, loc, filler, spawnInfos);
 			type = t;
 			forcedType = b;
 		}
