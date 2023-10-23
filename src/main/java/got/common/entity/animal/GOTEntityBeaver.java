@@ -19,7 +19,7 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFrost {
+public class GOTEntityBeaver extends EntityAnimal implements GOTBiome.ImmuneToFrost {
 	public static float HEIGHT = 1.5f;
 	public EntityAIBase attackAI = new GOTEntityAIAttackOnCollide(this, 1.4, false);
 	public EntityAIBase panicAI = new EntityAIPanic(this, 1.5);
@@ -27,7 +27,7 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 	public int hostileTick;
 	public boolean prevIsChild = true;
 
-	public GOTEntityWalrus(World world) {
+	public GOTEntityBeaver(World world) {
 		super(world);
 		setSize(1.05f, 1.35f);
 		getNavigator().setAvoidsWater(true);
@@ -46,9 +46,9 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 	@Override
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(50.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.18);
-		getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(5.0);
+		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
+		getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.0);
 	}
 
 	@Override
@@ -66,8 +66,8 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 				double range = 12.0;
 				List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(range, range, range));
 				for (Entity obj : list) {
-					if (obj instanceof GOTEntityWalrus && !((EntityLivingBase) obj).isChild()) {
-						((GOTEntityWalrus) obj).becomeAngryAt((EntityLivingBase) attacker);
+					if (obj instanceof GOTEntityBeaver && !((EntityLivingBase) obj).isChild()) {
+						((GOTEntityBeaver) obj).becomeAngryAt((EntityLivingBase) attacker);
 					}
 				}
 			} else {
@@ -84,7 +84,7 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 
 	@Override
 	public EntityAgeable createChild(EntityAgeable entity) {
-		return new GOTEntityWalrus(worldObj);
+		return new GOTEntityBeaver(worldObj);
 	}
 
 	@Override
@@ -92,10 +92,12 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 		int meat = 3 + rand.nextInt(2);
 		for (int l = 0; l < meat; ++l) {
 			if (isBurning()) {
-				dropItem(GOTItems.walrusLardCooked, 1);
+				dropItem(GOTItems.beaverCooked, 1);
+				dropItem(GOTItems.beaverTail, 1);
 				continue;
 			}
-			dropItem(GOTItems.walrusLardRaw, 1);
+			dropItem(GOTItems.beaverRaw, 1);
+			dropItem(GOTItems.beaverTail, 1);
 		}
 	}
 
@@ -114,26 +116,6 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock;
 		}
 		return false;
-	}
-
-	@Override
-	public String getDeathSound() {
-		return "got:direwolf.death";
-	}
-
-	@Override
-	public String getHurtSound() {
-		return "got:direwolf.hurt";
-	}
-
-	@Override
-	public String getLivingSound() {
-		return "got:direwolf.say";
-	}
-
-	@Override
-	public int getTalkInterval() {
-		return 200;
 	}
 
 	@Override

@@ -28,6 +28,9 @@ import java.util.Set;
 public class GOTItems {
 	public static final Set<Item> CONTENT = new HashSet<>();
 
+	public static Item beaverRaw;
+	public static Item beaverTail;
+	public static Item beaverCooked;
 	public static Item aegonHelmet;
 	public static Item aleHorn;
 	public static Item aleHornGold;
@@ -1254,6 +1257,7 @@ public class GOTItems {
 		strawBed = new GOTItemBed(GOTBlocks.strawBed);
 		structureSpawner = new GOTItemStructureSpawner();
 		sulfur = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
+		beaverTail = new Item().setCreativeTab(GOTCreativeTabs.tabMaterials);
 		sulfurMatch = new GOTItemMatch();
 		summerBoots = new GOTItemArmor(GOTMaterial.SUMMER, 3);
 		summerChestplate = new GOTItemArmor(GOTMaterial.SUMMER, 1, "body");
@@ -1330,6 +1334,8 @@ public class GOTItems {
 		walkingStick = new GOTItemSword(ToolMaterial.WOOD);
 		walrusLardCooked = new GOTItemFood(7, 0.4f, true);
 		walrusLardRaw = new GOTItemFood(2, 0.1f, true);
+		beaverCooked = new GOTItemFood(7, 0.4f, true);
+		beaverRaw = new GOTItemFood(2, 0.1f, true);
 		waterskin = new GOTItemVessel();
 		westerlandsBoots = new GOTItemArmor(GOTMaterial.WESTERLANDS, 3);
 		westerlandsChestplate = new GOTItemArmor(GOTMaterial.WESTERLANDS, 1);
@@ -2105,5 +2111,8 @@ public class GOTItems {
 		register(valyrianChainmailBoots, "valyrianChainmailBoots");
 		register(copperRing, "copperRing");
 		register(bronzeRing, "bronzeRing");
+		register(beaverRaw, "beaverRaw");
+		register(beaverCooked, "beaverCooked");
+		register(beaverTail, "beaverTail");
 	}
 }

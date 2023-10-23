@@ -1,4 +1,8 @@
 ﻿
+entity.got.Beaver.name=海狸
+item.got:beaver_raw.name=生海狸肉
+item.got:beaver_cooked.name=油炸海狸肉
+item.got:beaver_tail.name=海狸尾巴
 attribute.name.generic.movementSpeedAir=速度(Air)
 color.black=黑色
 color.blue=蓝色

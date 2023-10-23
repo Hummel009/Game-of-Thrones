@@ -32,7 +32,7 @@ public class GOTEntityGemsbok extends EntityAnimal {
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(22.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
 	}
 
 	@Override

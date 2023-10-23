@@ -45,7 +45,7 @@ public class GOTEntityFlamingo extends EntityAnimal {
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
 	}
 
 	@Override

@@ -42,6 +42,21 @@ public enum GOTWaypoint implements GOTAbstractWaypoint {
 		isHidden = hide;
 	}
 
+	public static GOTAbstractWaypoint createAnonymousWaypoint(double targetX, double targetY) {
+		double minDistance = Double.POSITIVE_INFINITY;
+		GOTWaypoint closestWaypoint = null;
+
+		for (GOTWaypoint waypoint : values()) {
+			double distance = Math.sqrt(Math.pow(waypoint.imgX - targetX, 2) + Math.pow(waypoint.imgY - targetY, 2));
+			if (distance < minDistance) {
+				minDistance = distance;
+				closestWaypoint = waypoint;
+			}
+		}
+
+		return new GOTWaypointInfo(closestWaypoint, targetX - closestWaypoint.imgX, targetY - closestWaypoint.imgY, 0);
+	}
+
 	public static List<GOTAbstractWaypoint> listAllWaypoints() {
 		return new ArrayList<>(Arrays.asList(values()));
 	}

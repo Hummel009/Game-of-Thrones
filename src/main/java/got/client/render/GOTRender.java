@@ -102,6 +102,7 @@ public class GOTRender {
 
 	public static void onInit() {
 		renders.put(GOTEntityBlizzard.class, new GOTRenderBlizzard());
+		renders.put(GOTEntityBeaver.class, new GOTRenderBeaver());
 		renders.put(GOTEntityShryke.class, new GOTRenderFactionNPCLayered("essos/shryke"));
 		renders.put(GOTEntityHillman.class, new GOTRenderFactionNPCLayered("westeros/wild"));
 		renders.put(GOTEntityIbbenMan.class, new GOTRenderFactionNPCLayered("essos/ibben"));

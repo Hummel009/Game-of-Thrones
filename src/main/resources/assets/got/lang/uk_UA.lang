@@ -1,4 +1,8 @@
 ﻿
+entity.got.Beaver.name=Бобр
+item.got:beaver_raw.name=Сире м'ясо бобра
+item.got:beaver_cooked.name=Смажене м'ясо бобра
+item.got:beaver_tail.name=Хвіст бобра
 attribute.name.generic.movementSpeedAir=Швидкість (Повітря)
 color.black=Чорний
 color.blue=Блакитний

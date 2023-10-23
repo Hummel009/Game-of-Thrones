@@ -1,4 +1,8 @@
 ﻿
+entity.got.Beaver.name≠Beaver
+item.got:beaver_raw.name≠Raw Beaver
+item.got:beaver_cooked.name≠Cooked Beaver
+item.got:beaver_tail.name≠Beaver Tail
 attribute.name.generic.movementSpeedAir=Snelheid (lucht)
 color.black=Zwart
 color.blue=Blauw
