@@ -1075,7 +1075,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		flowers.clear();
 		flowers.add(new FlowerEntry(GOTBlocks.deadMarshPlant, 0, 10));
 		spawnableCreatureList.clear();
-		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityWalrus.class, 40, 1, 1));
+		spawnableCreatureList.add(new BiomeGenBase.SpawnListEntry(GOTEntityBeaver.class, 40, 1, 1));
 		spawnableWaterCreatureList.clear();
 		spawnableGOTAmbientList.clear();
 		spawnableGOTAmbientList.add(new BiomeGenBase.SpawnListEntry(GOTEntityMidges.class, 90, 4, 4));
