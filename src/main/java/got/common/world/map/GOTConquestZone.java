@@ -10,14 +10,15 @@ import java.util.List;
 
 public class GOTConquestZone {
 	public static List<GOTFaction> allPlayableFacs;
-	public int gridX;
-	public int gridZ;
-	public boolean isDummyZone;
-	public float[] conquestStrengths;
-	public long lastChangeTime;
-	public long isEmptyKey;
-	public boolean isLoaded = true;
-	public boolean clientSide;
+
+	private int gridX;
+	private int gridZ;
+	private boolean isDummyZone;
+	private float[] conquestStrengths;
+	private long lastChangeTime;
+	private long isEmptyKey;
+	private boolean isLoaded = true;
+	private boolean clientSide;
 
 	public GOTConquestZone(int i, int k) {
 		gridX = i;
@@ -113,6 +114,14 @@ public class GOTConquestZone {
 		return conquestStrengths[index];
 	}
 
+	public int getGridX() {
+		return gridX;
+	}
+
+	public int getGridZ() {
+		return gridZ;
+	}
+
 	public long getLastChangeTime() {
 		return lastChangeTime;
 	}
@@ -120,6 +129,10 @@ public class GOTConquestZone {
 	public void setLastChangeTime(long l) {
 		lastChangeTime = l;
 		markDirty();
+	}
+
+	public boolean isDummyZone() {
+		return isDummyZone;
 	}
 
 	public boolean isEmpty() {

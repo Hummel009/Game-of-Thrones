@@ -62,7 +62,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.2);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
 		getAttributeMap().registerAttribute(SharedMonsterAttributes.attackDamage);
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.0);
 	}

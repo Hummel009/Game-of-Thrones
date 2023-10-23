@@ -55,7 +55,7 @@ public class GOTEntityRabbit extends EntityCreature implements GOTAmbientCreatur
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(4.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
 	}
 
 	@Override

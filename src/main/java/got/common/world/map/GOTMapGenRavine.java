@@ -10,7 +10,7 @@ import net.minecraft.world.gen.MapGenRavine;
 import java.util.Random;
 
 public class GOTMapGenRavine extends MapGenRavine {
-	public float[] ravineNoise = new float[1024];
+	private float[] ravineNoise = new float[1024];
 
 	@Override
 	public void digBlock(Block[] data, int index, int i, int j, int k, int chunkX, int chunkZ, boolean topBlock) {

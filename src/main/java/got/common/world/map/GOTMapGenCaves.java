@@ -13,7 +13,7 @@ import net.minecraft.world.gen.MapGenBase;
 import java.util.Random;
 
 public class GOTMapGenCaves extends MapGenBase {
-	public GOTChunkProvider.ChunkFlags chunkFlags;
+	private GOTChunkProvider.ChunkFlags chunkFlags;
 
 	public static boolean isTerrainBlock(Block block, BiomeGenBase biome) {
 		if (block == biome.topBlock || block == biome.fillerBlock) {
@@ -234,5 +234,9 @@ public class GOTMapGenCaves extends MapGenBase {
 
 	public int getCaveGenerationHeight() {
 		return rand.nextInt(rand.nextInt(120) + 8);
+	}
+
+	public void setChunkFlags(GOTChunkProvider.ChunkFlags chunkFlags) {
+		this.chunkFlags = chunkFlags;
 	}
 }

@@ -5,12 +5,15 @@ import got.common.entity.essos.dothraki.GOTEntityDothrakiArcher;
 import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTFixer;
+import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.other.GOTStructureBaseSettlement;
 import got.common.world.structure.other.GOTStructureNPCRespawner;
 import got.common.world.structure.other.LocationInfo;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
@@ -25,8 +28,8 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureDothrakiSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc, type, forcedType);
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureDothrakiSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, specialStructure, type, forcedType);
 	}
 
 	public GOTStructureBaseSettlement type(Type t, int radius) {
@@ -46,14 +49,15 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 		public boolean forcedType;
 		public int numOuterHouses;
 
-		public Instance(GOTStructureDothrakiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Type t, boolean b) {
-			super(settlement, world, i, k, random, loc);
+		public Instance(GOTStructureDothrakiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure, Type t, boolean b) {
+			super(settlement, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 			type = t;
 			forcedType = b;
 		}
 
 		@Override
 		public void addSettlementStructures(Random random) {
+			super.addSettlementStructures(random);
 			if (type == Type.SMALL) {
 				numOuterHouses = 6;
 				addStructure(new GOTStructureNPCRespawner(false) {

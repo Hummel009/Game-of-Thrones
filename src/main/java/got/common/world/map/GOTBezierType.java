@@ -179,12 +179,20 @@ public abstract class GOTBezierType {
 	}
 
 	public static class BezierBlock {
-		public Block block;
-		public int meta;
+		private Block block;
+		private int meta;
 
 		public BezierBlock(Block b, int i) {
 			block = b;
 			meta = i;
+		}
+
+		public Block getBlock() {
+			return block;
+		}
+
+		public int getMeta() {
+			return meta;
 		}
 	}
 
@@ -240,5 +248,4 @@ public abstract class GOTBezierType {
 		public abstract BezierBlock getFence(Random var1);
 
 	}
-
 }

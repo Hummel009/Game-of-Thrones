@@ -6,11 +6,11 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.world.World;
 
 public enum GOTFixedStructures {
-	SPAWN(648.5, 872), NIGHT_KING(613, 314);
+	NIGHT_KING(613, 314);
 
 	public static long nanoTimeElapsed;
-	public int xCoord;
-	public int zCoord;
+	private int xCoord;
+	private int zCoord;
 
 	GOTFixedStructures(double x, double z) {
 		xCoord = GOTWaypoint.mapToWorldX(x);
@@ -88,5 +88,4 @@ public enum GOTFixedStructures {
 		double dz = entity.posZ - (zCoord + 0.5);
 		return dx * dx + dz * dz;
 	}
-
 }

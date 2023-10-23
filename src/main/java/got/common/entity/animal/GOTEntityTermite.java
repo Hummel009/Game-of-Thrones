@@ -44,7 +44,7 @@ public class GOTEntityTermite extends EntityMob {
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.3);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
 	}
 
 	@Override

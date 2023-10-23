@@ -37,7 +37,7 @@ public class GOTPacketConquestGridRequest implements IMessage {
 			GOTFaction fac = packet.conqFac;
 			if (fac != null) {
 				GOTConquestGrid.ConquestViewableQuery query = GOTConquestGrid.canPlayerViewConquest(entityplayer, fac);
-				if (query.result == GOTConquestGrid.ConquestViewable.CAN_VIEW) {
+				if (query.getResult() == GOTConquestGrid.ConquestViewable.CAN_VIEW) {
 					GOTConquestGrid.sendConquestGridTo(entityplayer, fac);
 				}
 			}

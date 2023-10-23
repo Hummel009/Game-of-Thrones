@@ -23,18 +23,18 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 
 public class GOTCustomWaypoint implements GOTAbstractWaypoint {
-	public String customName;
-	public int mapX;
-	public int mapY;
-	public int xCoord;
-	public int yCoord;
-	public int zCoord;
-	public int ID;
-	public List<UUID> sharedFellowshipIDs = new ArrayList<>();
-	public UUID sharingPlayer;
-	public String sharingPlayerName;
-	public boolean sharedUnlocked;
-	public boolean sharedHidden;
+	private String customName;
+	private int mapX;
+	private int mapY;
+	private int xCoord;
+	private int yCoord;
+	private int zCoord;
+	private int ID;
+	private List<UUID> sharedFellowshipIDs = new ArrayList<>();
+	private UUID sharingPlayer;
+	private String sharingPlayerName;
+	private boolean sharedUnlocked;
+	private boolean sharedHidden;
 
 	public GOTCustomWaypoint(String name, int i, int j, int posX, int posY, int posZ, int id) {
 		customName = name;
@@ -167,7 +167,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	@Override
-	public GOTWaypoint getItself() {
+	public GOTWaypoint getInstance() {
 		return null;
 	}
 
@@ -262,6 +262,16 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 
 	public void setSharingPlayerName(String s) {
 		sharingPlayerName = s;
+	}
+
+	@Override
+	public double getShiftX() {
+		return 0;
+	}
+
+	@Override
+	public double getShiftY() {
+		return 0;
 	}
 
 	@Override

@@ -388,7 +388,7 @@ public class GOTChunkProvider implements IChunkProvider {
 		biomesForGeneration = chunkManager.loadBlockGeneratorData(biomesForGeneration, i * 16, k * 16, 16, 16);
 		variantsForGeneration = chunkManager.getBiomeVariants(variantsForGeneration, i * 16, k * 16, 16, 16);
 		replaceBlocksForBiome(i, k, blocks, metadata, biomesForGeneration, variantsForGeneration, chunkFlags);
-		caveGenerator.chunkFlags = chunkFlags;
+		caveGenerator.setChunkFlags(chunkFlags);
 		caveGenerator.func_151539_a(this, worldObj, i, k, blocks);
 		ravineGenerator.func_151539_a(this, worldObj, i, k, blocks);
 		ghiscarPyramid.func_151539_a(this, worldObj, i, k, blocks);

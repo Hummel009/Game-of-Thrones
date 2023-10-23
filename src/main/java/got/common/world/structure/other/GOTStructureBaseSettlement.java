@@ -28,6 +28,7 @@ public abstract class GOTStructureBaseSettlement {
 	public int settlementChunkRadius;
 	public int fixedSettlementChunkRadius;
 	public Collection<LocationInfo> fixedLocations = new ArrayList<>();
+	public Collection<GOTFixer.SpawnInfo> spawnInfos = new ArrayList<>();
 
 	protected GOTStructureBaseSettlement(GOTBiome biome) {
 		settlementBiome = biome;
@@ -48,7 +49,7 @@ public abstract class GOTStructureBaseSettlement {
 
 	public void affix(GOTAbstractWaypoint... wps) {
 		for (GOTAbstractWaypoint wp : wps) {
-			LocationInfo loc = new LocationInfo(wp.getXCoord(), wp.getZCoord(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp.getItself());
+			LocationInfo loc = new LocationInfo(wp.getXCoord(), wp.getZCoord(), wp.getRotation(), wp.getCodeName()).setFixedLocation(wp.getInstance());
 			fixedLocations.add(loc);
 		}
 	}
@@ -70,12 +71,12 @@ public abstract class GOTStructureBaseSettlement {
 	}
 
 	public AbstractInstance<?> createAndSetupSettlementInstance(World world, int i, int k, Random random, LocationInfo location) {
-		AbstractInstance<?> instance = createSettlementInstance(world, i, k, random, location);
+		AbstractInstance<?> instance = createSettlementInstance(world, i, k, random, location, () -> addLegendaryNPCs(world), spawnInfos, getSpecialStructure());
 		instance.setupBaseAndSettlementProperties();
 		return instance;
 	}
 
-	public abstract AbstractInstance<?> createSettlementInstance(World var1, int var2, int var3, Random var4, LocationInfo var5);
+	public abstract AbstractInstance<?> createSettlementInstance(World var1, int var2, int var3, Random var4, LocationInfo var5, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure);
 
 	public void generateCompleteSettlementInstance(AbstractInstance<?> instance, World world, int i, int k) {
 		instance.setupSettlementStructures();
@@ -109,8 +110,8 @@ public abstract class GOTStructureBaseSettlement {
 					instance.setupWorldPositionSeed(i1, k1);
 					GOTBezierType.BezierBlock bezierblock = pathType.getBlock(instance.instanceRand, biome, true, isSlab);
 					GOTBezierType.BezierBlock bezierblockSolid = pathType.getBlock(instance.instanceRand, biome, false, false);
-					world.setBlock(i1, j1, k1, bezierblock.block, bezierblock.meta, 2);
-					world.setBlock(i1, j1 - 1, k1, bezierblockSolid.block, bezierblockSolid.meta, 2);
+					world.setBlock(i1, j1, k1, bezierblock.getBlock(), bezierblock.getMeta(), 2);
+					world.setBlock(i1, j1 - 1, k1, bezierblockSolid.getBlock(), bezierblockSolid.getMeta(), 2);
 					Block above = world.getBlock(i1, j1 + 1, k1);
 					if (!above.canBlockStay(world, i1, j1 + 1, k1)) {
 						world.setBlock(i1, j1 + 1, k1, Blocks.air, 0, 3);
@@ -292,6 +293,13 @@ public abstract class GOTStructureBaseSettlement {
 		return cache.markResult(chunkX, chunkZ, LocationInfo.NONE_HERE);
 	}
 
+	public void addLegendaryNPCs(World world) {
+	}
+
+	public GOTStructureBase getSpecialStructure() {
+		return null;
+	}
+
 	public abstract static class AbstractInstance<V extends GOTStructureBaseSettlement> {
 		public final LocationInfo locationInfo;
 		public GOTBiome instanceSettlementBiome;
@@ -302,8 +310,11 @@ public abstract class GOTStructureBaseSettlement {
 		public int centreZ;
 		public int rotationMode;
 		public Collection<StructureInfo> structures = new ArrayList<>();
+		public Runnable filler;
+		public Collection<GOTFixer.SpawnInfo> spawnInfos;
+		public GOTStructureBase specialStructure;
 
-		protected AbstractInstance(V settlement, World world, int i, int k, Random random, LocationInfo loc) {
+		protected AbstractInstance(V settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable f, Collection<GOTFixer.SpawnInfo> spawn, GOTStructureBase special) {
 			instanceSettlementBiome = settlement.settlementBiome;
 			theWorld = world;
 			instanceRand = new Random();
@@ -311,9 +322,27 @@ public abstract class GOTStructureBaseSettlement {
 			centreX = i;
 			centreZ = k;
 			locationInfo = loc;
+			filler = f;
+			spawnInfos = spawn;
+			specialStructure = special;
 		}
 
-		public abstract void addSettlementStructures(Random var1);
+		public void addSettlementStructures(Random var1) {
+			if (specialStructure == null) {
+				filler.run();
+				spawnInfos.forEach((info) -> addStructure(new GOTStructureBase(false) {
+					@Override
+					public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+						setOriginAndRotation(world, i, j, k, rotation, 0);
+						spawnLegendaryNPC(info.getNPC(), world, 0, 2, 0);
+						return true;
+					}
+				}, info.getI(), info.getK(), 0, true));
+				spawnInfos.clear();
+			} else {
+				addStructure(specialStructure, 0, 0, 0, true);
+			}
+		}
 
 		public void addStructure(GOTStructureBase structure, int x, int z, int r) {
 			addStructure(structure, x, z, r, false);

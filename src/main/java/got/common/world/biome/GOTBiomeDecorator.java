@@ -5,11 +5,8 @@ import got.common.database.GOTBlocks;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.*;
-import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTBeziers;
-import got.common.world.map.GOTFixedStructures;
 import got.common.world.map.GOTFixer;
-import got.common.world.structure.other.GOTStructureBase;
 import got.common.world.structure.other.GOTStructureBaseSettlement;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -20,7 +17,6 @@ import net.minecraft.world.gen.feature.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Random;
 
 public class GOTBiomeDecorator {
@@ -393,11 +389,6 @@ public class GOTBiomeDecorator {
 		decorate();
 		if (!disableLocations) {
 			GOTFixer.addSpecialLocations(world, random, i, k);
-			for (Entry<GOTAbstractWaypoint, GOTStructureBase> wp : GOTFixer.structures.entrySet()) {
-				if (GOTFixedStructures.fixedAt(i, k, wp.getKey())) {
-					wp.getValue().generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k), k, 0);
-				}
-			}
 		}
 	}
 

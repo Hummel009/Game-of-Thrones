@@ -10,14 +10,12 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTFiveFortsWall extends GOTStructureBase {
-	public int centreX;
-	public int centreZ;
-	public int radius = 100;
-	public int radiusSq = radius * radius;
-	public double wallThick = 0.5;
-	public int wallTop = 100;
-	public int gateBottom = 77;
-	public int gateTop = wallTop - 18;
+	private int centreX;
+	private int centreZ;
+	private int radius = 100;
+	private int radiusSq = radius * radius;
+	private int wallTop = 100;
+	private int gateTop = wallTop - 18;
 
 	public GOTFiveFortsWall(boolean flag, GOTAbstractWaypoint waypoint) {
 		super(flag);
@@ -27,6 +25,7 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+		double wallThick = 0.5;
 		if (isPosInWall(i + 8, k + 8) < wallThick * 3.0) {
 			for (int i1 = i; i1 <= i + 15; ++i1) {
 				block1:
@@ -56,6 +55,7 @@ public class GOTFiveFortsWall extends GOTStructureBase {
 						if (!gate) {
 							continue;
 						}
+						int gateBottom = 77;
 						if (fences) {
 							if (j1 != gateBottom) {
 								continue;

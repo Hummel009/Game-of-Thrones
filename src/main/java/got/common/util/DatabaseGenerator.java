@@ -38,7 +38,7 @@ import got.common.world.map.GOTWaypoint.Region;
 import got.common.world.spawning.GOTBiomeSpawnList.FactionContainer;
 import got.common.world.spawning.GOTBiomeSpawnList.SpawnListContainer;
 import got.common.world.spawning.GOTSpawnEntry;
-import got.common.world.structure.other.GOTStructureBase;
+import got.common.world.structure.other.GOTStructureBaseSettlement;
 import got.common.world.structure.other.GOTStructureRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDirt;
@@ -98,43 +98,43 @@ public class DatabaseGenerator {
 		BIOMES.remove(GOTBiome.beachGravel);
 		BIOMES.remove(GOTBiome.beachWhite);
 		BIOMES.remove(GOTBiome.bleedingBeach);
-		CLASS_TO_WP.put(GOTEntityYgritte.class, GOTWaypoint.Hardhome);
-		CLASS_TO_WP.put(GOTEntityTormund.class, GOTWaypoint.Hardhome);
-		CLASS_TO_WP.put(GOTEntityManceRayder.class, GOTWaypoint.Hardhome);
-		CLASS_TO_WP.put(GOTEntityCraster.class, GOTWaypoint.CrastersKeep);
-		CLASS_TO_WP.put(GOTEntityVictarionGreyjoy.class, GOTWaypoint.VictarionLanding);
-		CLASS_TO_WP.put(LancelLannisterNormal.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityTobhoMott.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityTyrionLannister.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityGendryBaratheon.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityPetyrBaelish.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityBronn.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityPodrickPayne.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityHotPie.class, GOTWaypoint.CrossroadsInn);
-		CLASS_TO_WP.put(GOTEntityVargoHoat.class, GOTWaypoint.CrossroadsInn);
-		CLASS_TO_WP.put(GOTEntitySandorClegane.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityJoffreyBaratheon.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityCerseiLannister.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityJaimeLannister.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityPycelle.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityJanosSlynt.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityVarys.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityIlynPayne.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityHighSepton.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityTommenBaratheon.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityMyrcellaBaratheon.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityMerynTrant.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityBarristanSelmy.class, GOTWaypoint.KingsLanding);
-		CLASS_TO_WP.put(GOTEntityJeorMormont.class, GOTWaypoint.CastleBlack);
-		CLASS_TO_WP.put(JonSnowLife1.class, GOTWaypoint.CastleBlack);
-		CLASS_TO_WP.put(GOTEntityAemonTargaryen.class, GOTWaypoint.CastleBlack);
-		CLASS_TO_WP.put(GOTEntityAlliserThorne.class, GOTWaypoint.CastleBlack);
-		CLASS_TO_WP.put(GOTEntityEdd.class, GOTWaypoint.CastleBlack);
-		CLASS_TO_WP.put(GOTEntitySamwellTarly.class, GOTWaypoint.CastleBlack);
-		CLASS_TO_WP.put(GOTEntityCotterPyke.class, GOTWaypoint.EastWatch);
-		CLASS_TO_WP.put(GOTEntityHarmune.class, GOTWaypoint.EastWatch);
-		CLASS_TO_WP.put(GOTEntityDenysMallister.class, GOTWaypoint.ShadowTower);
-		CLASS_TO_WP.put(GOTEntityMullin.class, GOTWaypoint.ShadowTower);
+		CLASS_TO_WP.put(GOTEntityYgritte.class, GOTWaypoint.HARDHOME);
+		CLASS_TO_WP.put(GOTEntityTormund.class, GOTWaypoint.HARDHOME);
+		CLASS_TO_WP.put(GOTEntityManceRayder.class, GOTWaypoint.HARDHOME);
+		CLASS_TO_WP.put(GOTEntityCraster.class, GOTWaypoint.CRASTERS_KEEP);
+		CLASS_TO_WP.put(GOTEntityVictarionGreyjoy.class, GOTWaypoint.VICTARION_LANDING);
+		CLASS_TO_WP.put(LancelLannisterNormal.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityTobhoMott.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityTyrionLannister.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityGendryBaratheon.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityPetyrBaelish.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityBronn.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityPodrickPayne.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityHotPie.class, GOTWaypoint.CROSSROADS_INN);
+		CLASS_TO_WP.put(GOTEntityVargoHoat.class, GOTWaypoint.CROSSROADS_INN);
+		CLASS_TO_WP.put(GOTEntitySandorClegane.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityJoffreyBaratheon.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityCerseiLannister.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityJaimeLannister.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityPycelle.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityJanosSlynt.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityVarys.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityIlynPayne.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityHighSepton.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityTommenBaratheon.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityMyrcellaBaratheon.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityMerynTrant.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityBarristanSelmy.class, GOTWaypoint.KINGS_LANDING);
+		CLASS_TO_WP.put(GOTEntityJeorMormont.class, GOTWaypoint.CASTLE_BLACK);
+		CLASS_TO_WP.put(JonSnowLife1.class, GOTWaypoint.CASTLE_BLACK);
+		CLASS_TO_WP.put(GOTEntityAemonTargaryen.class, GOTWaypoint.CASTLE_BLACK);
+		CLASS_TO_WP.put(GOTEntityAlliserThorne.class, GOTWaypoint.CASTLE_BLACK);
+		CLASS_TO_WP.put(GOTEntityEdd.class, GOTWaypoint.CASTLE_BLACK);
+		CLASS_TO_WP.put(GOTEntitySamwellTarly.class, GOTWaypoint.CASTLE_BLACK);
+		CLASS_TO_WP.put(GOTEntityCotterPyke.class, GOTWaypoint.EASTWATCH);
+		CLASS_TO_WP.put(GOTEntityHarmune.class, GOTWaypoint.EASTWATCH);
+		CLASS_TO_WP.put(GOTEntityDenysMallister.class, GOTWaypoint.SHADOW_TOWER);
+		CLASS_TO_WP.put(GOTEntityMullin.class, GOTWaypoint.SHADOW_TOWER);
 	}
 
 	public static void generate(World world, EntityPlayer player, Random random) {
@@ -621,8 +621,8 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.BIOME_HAS_WAYPOINTS);
 						for (GOTWaypoint wp : WAYPOINTS) {
-							if (wp.region == region) {
-								sb.append("\n* ").append(wp.getDisplayName()).append(" (").append(getFactionLink(wp.faction)).append(");");
+							if (wp.getRegion() == region) {
+								sb.append("\n* ").append(wp.getDisplayName()).append(" (").append(getFactionLink(wp.getFaction())).append(");");
 							}
 						}
 					}
@@ -908,7 +908,7 @@ public class DatabaseGenerator {
 				for (GOTFaction fac : FACTIONS) {
 					Collection<GOTWaypoint> facWaypoints = new ArrayList<>();
 					for (GOTWaypoint wp : WAYPOINTS) {
-						if (wp.faction == fac) {
+						if (wp.getFaction() == fac) {
 							facWaypoints.add(wp);
 						}
 					}
@@ -1481,15 +1481,13 @@ public class DatabaseGenerator {
 				for (Entry<Class<? extends Entity>, GOTWaypoint> entityEntry : CLASS_TO_WP.entrySet()) {
 					sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = ").append(entityEntry.getValue().getDisplayName());
 				}
-				for (Entry<GOTAbstractWaypoint, GOTStructureBase> entry : GOTFixer.structures.entrySet()) {
-					GOTStructureBase str = entry.getValue();
-					str.disable(true);
-					str.generate(world, random, 0, 0, 0);
-					for (EntityCreature entity : entry.getValue().characters) {
-						sb.append("\n| ").append(getEntityPagename(entity.getClass())).append(" = ").append(entry.getKey().getDisplayName());
+				for (Entry<GOTAbstractWaypoint, GOTStructureBaseSettlement> entry : GOTFixer.spawners.entrySet()) {
+					GOTStructureBaseSettlement spawner = entry.getValue();
+					spawner.addLegendaryNPCs(world);
+					for (GOTFixer.SpawnInfo info : spawner.spawnInfos) {
+						sb.append("\n| ").append(getEntityPagename(info.getNPC().getClass())).append(" = ").append(entry.getKey().getDisplayName());
 					}
-					str.clear();
-					str.disable(false);
+					spawner.spawnInfos.clear();
 				}
 				sb.append(END);
 				sb.append("\n</mediawiki>");

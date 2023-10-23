@@ -26,7 +26,6 @@ import net.minecraftforge.common.IShearable;
 import java.util.Set;
 
 public class GOTLoader {
-
 	public static void onInit() {
 		GOTBlocks.onInit();
 		GOTItems.onInit();

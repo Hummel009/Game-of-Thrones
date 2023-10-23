@@ -50,7 +50,7 @@ public class GOTCommandConquest extends CommandBase {
 			posZ = CommandBase.parseInt(sender, args[specifyIndex + 1]);
 		}
 		GOTConquestZone zone = GOTConquestGrid.getZoneByWorldCoords(posX, posZ);
-		if (zone.isDummyZone) {
+		if (zone.isDummyZone()) {
 			throw new WrongUsageException("got.command.conquest.outOfBounds", posX, posZ);
 		}
 		return new Object[]{posX, posZ, zone};

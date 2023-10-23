@@ -57,8 +57,8 @@ public class GOTPacketConquestGrid implements IMessage {
 				continue;
 			}
 			float strRaw = zone.getConquestStrengthRaw(conqFac);
-			data.writeShort(zone.gridX);
-			data.writeShort(zone.gridZ);
+			data.writeShort(zone.getGridX());
+			data.writeShort(zone.getGridZ());
 			data.writeLong(zone.getLastChangeTime());
 			data.writeFloat(strRaw);
 		}

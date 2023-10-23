@@ -10,13 +10,17 @@ public interface GOTAbstractWaypoint {
 
 	int getID();
 
-	GOTWaypoint getItself();
+	GOTWaypoint getInstance();
 
-	WaypointLockState getLockState(EntityPlayer var1);
+	WaypointLockState getLockState(EntityPlayer entityplayer);
 
-	String getLoreText(EntityPlayer var1);
+	String getLoreText(EntityPlayer entityplayer);
 
 	int getRotation();
+
+	double getShiftX();
+
+	double getShiftY();
 
 	double getX();
 
@@ -24,26 +28,33 @@ public interface GOTAbstractWaypoint {
 
 	double getY();
 
-	int getYCoord(World var1, int var2, int var3);
+	int getYCoord(World world, int i, int k);
 
 	int getYCoordSaved();
 
 	int getZCoord();
 
-	boolean hasPlayerUnlocked(EntityPlayer var1);
+	boolean hasPlayerUnlocked(EntityPlayer entityplayer);
 
 	boolean isHidden();
 
 	enum WaypointLockState {
 		STANDARD_LOCKED(0, 200), STANDARD_UNLOCKED(4, 200), STANDARD_UNLOCKED_CONQUEST(8, 200), CUSTOM_LOCKED(0, 204), CUSTOM_UNLOCKED(4, 204), SHARED_CUSTOM_LOCKED(0, 208), SHARED_CUSTOM_UNLOCKED(4, 208);
 
-		public int iconU;
-		public int iconV;
+		private int iconU;
+		private int iconV;
 
 		WaypointLockState(int u, int v) {
 			iconU = u;
 			iconV = v;
 		}
-	}
 
+		public int getIconU() {
+			return iconU;
+		}
+
+		public int getIconV() {
+			return iconV;
+		}
+	}
 }

@@ -35,7 +35,7 @@ public class GOTEntityDikDik extends EntityCreature implements GOTAmbientCreatur
 	public void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(12.0);
-		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.25);
+		getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.23);
 	}
 
 	@Override

@@ -258,7 +258,7 @@ public class GOTCommandFellowship extends CommandBase {
 					int startIndex = 4;
 					if (!args[startIndex].isEmpty() && args[startIndex].charAt(0) == '\"') {
 						int endIndex = startIndex;
-						while ((args[endIndex].isEmpty() || (args[endIndex].charAt(args[endIndex].length() - 1) != '\"'))) {
+						while (args[endIndex].isEmpty() || args[endIndex].charAt(args[endIndex].length() - 1) != '\"') {
 							endIndex++;
 							if (endIndex >= args.length) {
 								throw new WrongUsageException("got.command.fellowship.rename.error");

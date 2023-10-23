@@ -229,6 +229,8 @@ public class GOTTradeEntries {
 		C_BARTENDER_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.clayPlate), 1));
 		C_BARTENDER_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.date), 2));
 		C_BARTENDER_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.deerRaw), 3));
+		C_BARTENDER_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.beaverRaw), 3));
+		C_BARTENDER_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.beaverTail), 3));
 		C_BARTENDER_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lemon), 2));
 		C_BARTENDER_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.lime), 2));
 		C_BARTENDER_S_L.add(new GOTTradeEntry(new ItemStack(GOTItems.muttonRaw), 3));
@@ -342,6 +344,8 @@ public class GOTTradeEntries {
 		C_BREWER_S_L.add(new GOTTradeEntry(new ItemStack(Items.water_bucket), 4));
 		C_BREWER_S_L.add(new GOTTradeEntry(new ItemStack(Items.wheat, 2), 1));
 		C_BUTCHER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.deerRaw), 4));
+		C_BUTCHER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.beaverRaw), 3));
+		C_BUTCHER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.beaverTail), 3));
 		C_BUTCHER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.gammon), 6));
 		C_BUTCHER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.muttonRaw), 5));
 		C_BUTCHER_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.rabbitRaw), 4));

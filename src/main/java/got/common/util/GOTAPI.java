@@ -575,8 +575,8 @@ public class GOTAPI {
 	}
 
 	private static void removeMapLabel(GOTMapLabels label) {
-		label.maxZoom = 1.0E-4f;
-		label.minZoom = 0;
+		label.setMaxZoom(1.0E-4f);
+		label.setMinZoom(0);
 	}
 
 	/**
@@ -663,8 +663,8 @@ public class GOTAPI {
 	}
 
 	private static void removeWaypoint(GOTWaypoint wp) {
-		wp.isHidden = true;
-		wp.faction = GOTFaction.HOSTILE;
+		wp.setHidden(true);
+		wp.setFaction(GOTFaction.HOSTILE);
 	}
 
 	/**
@@ -697,8 +697,11 @@ public class GOTAPI {
 	 * @apiNote YourClientProxy should implement IResourceManagerReloadListener.
 	 * @apiNote Add onInit() void to the YourClientProxy file, if doesn't exist.
 	 * @apiNote Add next line into the onInit():
-	 * @apiNote (( IReloadableResourceManager)Minecraft.getMinecraft().getResourceManager()).registerReloadListener(new YourClientProxy());
-	 * @apiNote Add unimplemented onResourceManagerReload to the YourClientProxy.
+	 * @apiNote ((
+	 *IReloadableResourceManager)Minecraft.getMinecraft().getResourceManager()).registerReloadListener(new
+	 * YourClientProxy());
+	 * @apiNote Add unimplemented onResourceManagerReload to the
+	 * YourClientProxy.
 	 * @apiNote Use setClientMapImage void in the onResourceManagerReload.
 	 */
 	@SideOnly(Side.CLIENT)

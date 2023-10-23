@@ -5,10 +5,12 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTChestContents;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTFixer;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureRuins extends GOTStructureBaseSettlement {
@@ -20,8 +22,8 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureRuins> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureRuins> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 	}
 
 	public static class GOTStructureRuinsPart extends GOTStructureBase {
@@ -329,12 +331,13 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureRuins> {
-		public Instance(GOTStructureRuins settlement, World world, int i, int k, Random random, LocationInfo loc) {
-			super(settlement, world, i, k, random, loc);
+		public Instance(GOTStructureRuins settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+			super(settlement, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 		}
 
 		@Override
 		public void addSettlementStructures(Random random) {
+			super.addSettlementStructures(random);
 			addStructure(new GOTStructureRuinsPart(false), -8, 0, 0, true);
 			addStructure(new GOTStructureRuinsPart(false), +8, 0, 0, true);
 			addStructure(new GOTStructureRuinsPart(false), -8, -8, 0, true);

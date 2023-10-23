@@ -5,11 +5,13 @@ import got.common.database.GOTChestContents;
 import got.common.entity.westeros.GOTEntityMaester;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTFixer;
 import got.common.world.structure.westeros.common.GOTStructureWesterosBase;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureTower extends GOTStructureBaseSettlement {
@@ -21,8 +23,8 @@ public class GOTStructureTower extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureTower> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureTower> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 	}
 
 	public static class GOTStructureTowerBase extends GOTStructureWesterosBase {
@@ -364,12 +366,13 @@ public class GOTStructureTower extends GOTStructureBaseSettlement {
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureTower> {
-		public Instance(GOTStructureTower settlement, World world, int i, int k, Random random, LocationInfo loc) {
-			super(settlement, world, i, k, random, loc);
+		public Instance(GOTStructureTower settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+			super(settlement, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 		}
 
 		@Override
 		public void addSettlementStructures(Random random) {
+			super.addSettlementStructures(random);
 			addStructure(new GOTStructureTowerBase(false), 0, -7, 2, true);
 		}
 

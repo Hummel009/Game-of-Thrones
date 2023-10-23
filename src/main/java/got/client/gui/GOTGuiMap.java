@@ -565,21 +565,21 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				tess.draw();
 				StringBuilder loadText;
 				GOTConquestGrid.ConquestViewableQuery query = GOTConquestGrid.canPlayerViewConquest(mc.thePlayer, conquestViewingFaction);
-				if (query.result == GOTConquestGrid.ConquestViewable.CAN_VIEW) {
+				if (query.getResult() == GOTConquestGrid.ConquestViewable.CAN_VIEW) {
 					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.wait"));
 					int ellipsis = 1 + tickCounter / 10 % 3;
 					for (int l = 0; l < ellipsis; ++l) {
 						loadText.append(".");
 					}
-				} else if (query.result == GOTConquestGrid.ConquestViewable.UNPLEDGED) {
+				} else if (query.getResult() == GOTConquestGrid.ConquestViewable.UNPLEDGED) {
 					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.noPledge"));
 				} else {
 					GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 					GOTFaction pledgeFac = pd.getPledgeFaction();
-					GOTFactionRank needRank = query.needRank;
+					GOTFactionRank needRank = query.getNeedRank();
 					String needAlign = GOTAlignmentValues.formatAlignForDisplay(needRank.alignment);
 					String format = "";
-					if (query.result == GOTConquestGrid.ConquestViewable.NEED_RANK) {
+					if (query.getResult() == GOTConquestGrid.ConquestViewable.NEED_RANK) {
 						format = "got.gui.map.conquest.needRank";
 					}
 					loadText = new StringBuilder(StatCollector.translateToLocalFormatted(format, pledgeFac.factionName(), needRank.getFullNameWithGender(pd), needAlign));
@@ -675,8 +675,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float biomePosZ = posY + (j - mapYMin - (float) mapHeight / 2) / zoomScale;
 				int biomePosX_int = MathHelper.floor_double(biomePosX);
 				GOTBiome biome = GOTGenLayerWorld.getBiomeOrOcean(biomePosX_int, MathHelper.floor_double(biomePosZ));
-				mouseXCoord = Math.round((biomePosX - 810.0f) * GOTGenLayerWorld.scale);
-				mouseZCoord = Math.round((biomePosZ - 730.0f) * GOTGenLayerWorld.scale);
+				mouseXCoord = Math.round((biomePosX - GOTGenLayerWorld.ORIGIN_X) * GOTGenLayerWorld.scale);
+				mouseZCoord = Math.round((biomePosZ - GOTGenLayerWorld.ORIGIN_Z) * GOTGenLayerWorld.scale);
 				String biomeName = biome.getBiomeDisplayName();
 				String coords = StatCollector.translateToLocalFormatted("got.gui.map.coords", mouseXCoord, mouseZCoord);
 				String teleport = StatCollector.translateToLocalFormatted("got.gui.map.tp", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingMapTeleport.getKeyCode()));
@@ -1018,8 +1018,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			int zMax = zoneBorders[3];
 			float x = (xMin + xMax) / 2.0f;
 			float z = (zMin + zMax) / 2.0f;
-			posX = x / GOTGenLayerWorld.scale + 810.0f;
-			posY = z / GOTGenLayerWorld.scale + 730.0f;
+			posX = x / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_X;
+			posY = z / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_Z;
 			int zoneWidth = xMax - xMin;
 			int zoneHeight = zMax - zMin;
 			double mapZoneWidth = (double) zoneWidth / GOTGenLayerWorld.scale;
@@ -1028,8 +1028,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			int zoomPowerHeight = MathHelper.floor_double(Math.log(mapHeight / mapZoneHeight) / Math.log(2.0));
 			prevZoomPower = zoomPower = Math.min(zoomPowerWidth, zoomPowerHeight);
 		} else if (mc.thePlayer != null) {
-			posX = (float) (mc.thePlayer.posX / GOTGenLayerWorld.scale) + 810.0f;
-			posY = (float) (mc.thePlayer.posZ / GOTGenLayerWorld.scale) + 730.0f;
+			posX = (float) (mc.thePlayer.posX / GOTGenLayerWorld.scale) + GOTGenLayerWorld.ORIGIN_X;
+			posY = (float) (mc.thePlayer.posZ / GOTGenLayerWorld.scale) + GOTGenLayerWorld.ORIGIN_Z;
 		}
 		prevPosX = posX;
 		prevPosY = posY;
@@ -1324,10 +1324,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			for (GOTBeziers bezier : GOTBeziers.allBeziers) {
 				int interval = Math.round(400.0f / zoomScaleStable);
 				interval = Math.max(interval, 1);
-				for (int i = 0; i < bezier.bezierPoints.length; i += interval) {
+				for (int i = 0; i < bezier.getBezierPoints().length; i += interval) {
 					int clip;
-					GOTBeziers.BezierPoint point = bezier.bezierPoints[i];
-					float[] pos = transformCoords(point.x, point.z);
+					GOTBeziers.BezierPoint point = bezier.getBezierPoints()[i];
+					float[] pos = transformCoords(point.getX(), point.getZ());
 					float x = pos[0];
 					float y = pos[1];
 					if (x >= mapXMin && x < mapXMax && y >= mapYMin && y < mapYMax) {
@@ -1363,9 +1363,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							boolean endNear = false;
 							double dMax = (nameWidth / 2.0 + 25.0) * scale;
 							double dMaxSq = dMax * dMax;
-							for (GOTBeziers.BezierPoint end : bezier.endpoints) {
+							for (GOTBeziers.BezierPoint end : bezier.getEndpoints()) {
 								float dy;
-								float[] endPos = transformCoords(end.x, end.z);
+								float[] endPos = transformCoords(end.getX(), end.getZ());
 								float endX = endPos[0];
 								float dx = x - endX;
 								double dSq = dx * dx + (dy = y - endPos[1]) * dy;
@@ -1378,9 +1378,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								GL11.glPushMatrix();
 								GL11.glTranslatef(x, y, 0.0f);
 								GL11.glScalef(scale, scale, scale);
-								GOTBeziers.BezierPoint nextPoint = bezier.bezierPoints[Math.min(i + 1, bezier.bezierPoints.length - 1)];
-								GOTBeziers.BezierPoint prevPoint = bezier.bezierPoints[Math.max(i - 1, 0)];
-								double grad = (nextPoint.z - prevPoint.z) / (nextPoint.x - prevPoint.x);
+								GOTBeziers.BezierPoint nextPoint = bezier.getBezierPoints()[Math.min(i + 1, bezier.getBezierPoints().length - 1)];
+								GOTBeziers.BezierPoint prevPoint = bezier.getBezierPoints()[Math.max(i - 1, 0)];
+								double grad = (nextPoint.getZ() - prevPoint.getZ()) / (nextPoint.getX() - prevPoint.getX());
 								float angle = (float) Math.atan(grad);
 								angle = (float) Math.toDegrees(angle);
 								if (Math.abs(angle) > 90.0f) {
@@ -1495,10 +1495,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		setupMapClipping();
 		for (GOTMapLabels label : GOTMapLabels.allMapLabels()) {
-			float[] pos = transformMapCoords(label.posX, label.posY);
+			float[] pos = transformMapCoords(label.getPosX(), label.getPosY());
 			float x = pos[0];
 			float y = pos[1];
-			float zoomlerp = (zoomExp - label.minZoom) / (label.maxZoom - label.minZoom);
+			float zoomlerp = (zoomExp - label.getMinZoom()) / (label.getMaxZoom() - label.getMinZoom());
 			if (zoomlerp > 0.0f && zoomlerp < 1.0f) {
 				float alpha = (0.5f - Math.abs(zoomlerp - 0.5f)) / 0.5f;
 				alpha *= 0.7f;
@@ -1510,10 +1510,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 				GL11.glPushMatrix();
 				GL11.glTranslatef(x, y, 0.0f);
-				float scale = zoomScale * label.scale;
+				float scale = zoomScale * label.getScale();
 				GL11.glScalef(scale, scale, scale);
 				if (!isOSRS()) {
-					GL11.glRotatef(label.angle, 0.0f, 0.0f, 1.0f);
+					GL11.glRotatef(label.getAngle(), 0.0f, 0.0f, 1.0f);
 				}
 				int alphaI = (int) (alpha * 255.0f);
 				alphaI = MathHelper.clamp_int(alphaI, 4, 255);
@@ -1525,7 +1525,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int strX = -fontRendererObj.getStringWidth(s) / 2;
 				int strY = -fontRendererObj.FONT_HEIGHT / 2;
 				if (isOSRS()) {
-					if (label.scale > 2.5f) {
+					if (label.getScale() > 2.5f) {
 						fontRendererObj.drawString(s, strX + 1, strY + 1, alphaI << 24);
 						fontRendererObj.drawString(s, strX, strY, 16755200 + (alphaI << 24));
 					} else {
@@ -1836,7 +1836,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								GOTAbstractWaypoint.WaypointLockState state = mc.thePlayer != null ? waypoint.getLockState(mc.thePlayer) : GOTAbstractWaypoint.WaypointLockState.STANDARD_UNLOCKED;
 								mc.getTextureManager().bindTexture(mapIconsTexture);
 								GL11.glColor4f(1.0F, 1.0F, 1.0F, wpZoomlerp);
-								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, state.iconU, state.iconV, 4.0F, 4.0F);
+								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, state.getIconU(), state.getIconV(), 4.0F, 4.0F);
 							}
 							GL11.glDisable(3042);
 							if (labels) {
@@ -2135,8 +2135,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public float[] transformCoords(float x, float z) {
-		x = x / GOTGenLayerWorld.scale + 810.0f;
-		z = z / GOTGenLayerWorld.scale + 730.0f;
+		x = x / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_X;
+		z = z / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_Z;
 		return transformMapCoords(x, z);
 	}
 

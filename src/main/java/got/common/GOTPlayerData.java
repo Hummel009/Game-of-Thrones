@@ -135,14 +135,14 @@ public class GOTPlayerData {
 		return ((ItemArmor) item.getItem()).getArmorMaterial();
 	}
 
-	public static ItemArmor.ArmorMaterial getFullArmorMaterial(EntityLivingBase entity) {
-		ItemArmor.ArmorMaterial material = null;
+	public static ArmorMaterial getFullArmorMaterial(EntityLivingBase entity) {
+		ArmorMaterial material = null;
 		for (int i = 1; i <= 4; ++i) {
 			ItemStack item = entity.getEquipmentInSlot(i);
 			if (item == null || !(item.getItem() instanceof ItemArmor)) {
 				return null;
 			}
-			ItemArmor.ArmorMaterial itemMaterial = ((ItemArmor) item.getItem()).getArmorMaterial();
+			ArmorMaterial itemMaterial = ((ItemArmor) item.getItem()).getArmorMaterial();
 			if (material != null && itemMaterial != material) {
 				return null;
 			}

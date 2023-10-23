@@ -6,13 +6,12 @@ import got.common.entity.westeros.hillmen.GOTEntityHillmanArcher;
 import got.common.entity.westeros.hillmen.GOTEntityHillmanWarrior;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.GOTBezierType;
+import got.common.world.map.GOTFixer;
 import got.common.world.structure.essos.mossovy.GOTStructureMossovyWell;
-import got.common.world.structure.other.GOTStructureBaseSettlement;
-import got.common.world.structure.other.GOTStructureHayBales;
-import got.common.world.structure.other.GOTStructureNPCRespawner;
-import got.common.world.structure.other.LocationInfo;
+import got.common.world.structure.other.*;
 import net.minecraft.world.World;
 
+import java.util.Collection;
 import java.util.Random;
 
 public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
@@ -24,18 +23,19 @@ public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureHillmanSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc) {
-		return new Instance(this, world, i, k, random, loc);
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureHillmanSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 	}
 
 	public static class Instance extends GOTStructureBaseSettlement.AbstractInstance<GOTStructureHillmanSettlement> {
 
-		public Instance(GOTStructureHillmanSettlement settlement, World world, int i, int k, Random random, LocationInfo loc) {
-			super(settlement, world, i, k, random, loc);
+		public Instance(GOTStructureHillmanSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
+			super(settlement, world, i, k, random, loc, filler, spawnInfos, specialStructure);
 		}
 
 		@Override
 		public void addSettlementStructures(Random random) {
+			super.addSettlementStructures(random);
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override

@@ -30,8 +30,8 @@ public class GOTBezierGenerator {
 				index = xzIndex * ySize + j;
 				boolean isTop = j == wallTop;
 				GOTBezierType.BezierBlock wallblock = wallType.getBlock(rand, biome, isTop, false);
-				blocks[index] = wallblock.block;
-				metadata[index] = (byte) wallblock.meta;
+				blocks[index] = wallblock.getBlock();
+				metadata[index] = (byte) wallblock.getMeta();
 			}
 			return true;
 		}
@@ -89,49 +89,49 @@ public class GOTBezierGenerator {
 						int pillarIndex;
 						for (int j2 = roadTop + 4; j2 > 0 && !blocks[pillarIndex = xzIndex * ySize + j2].isOpaqueCube(); --j2) {
 							if (j2 >= roadTop + 4) {
-								blocks[pillarIndex] = bridgeFence.block;
-								metadata[pillarIndex] = (byte) bridgeFence.meta;
+								blocks[pillarIndex] = bridgeFence.getBlock();
+								metadata[pillarIndex] = (byte) bridgeFence.getMeta();
 								continue;
 							}
 							if (j2 >= roadTop + 3) {
-								blocks[pillarIndex] = bridgeBlock.block;
-								metadata[pillarIndex] = (byte) bridgeBlock.meta;
+								blocks[pillarIndex] = bridgeBlock.getBlock();
+								metadata[pillarIndex] = (byte) bridgeBlock.getMeta();
 								continue;
 							}
-							blocks[pillarIndex] = bridgeEdge.block;
-							metadata[pillarIndex] = (byte) bridgeEdge.meta;
+							blocks[pillarIndex] = bridgeEdge.getBlock();
+							metadata[pillarIndex] = (byte) bridgeEdge.getMeta();
 						}
 					} else {
 						int support;
-						blocks[index2] = bridgeEdge.block;
-						metadata[index2] = (byte) bridgeEdge.meta;
+						blocks[index2] = bridgeEdge.getBlock();
+						metadata[index2] = (byte) bridgeEdge.getMeta();
 						int indexUpper = index2 + 1;
-						blocks[indexUpper] = bridgeFence.block;
-						metadata[indexUpper] = (byte) bridgeFence.meta;
+						blocks[indexUpper] = bridgeFence.getBlock();
+						metadata[indexUpper] = (byte) bridgeFence.getMeta();
 						if (roadTop > bridgeBase) {
 							int indexLower2 = index2 - 1;
-							blocks[indexLower2] = bridgeEdge.block;
-							metadata[indexLower2] = (byte) bridgeEdge.meta;
+							blocks[indexLower2] = bridgeEdge.getBlock();
+							metadata[indexLower2] = (byte) bridgeEdge.getMeta();
 						}
 						support = bridgeBase + 2;
 						if (roadTop - 1 > support) {
 							int indexSupport = xzIndex * ySize + support;
-							blocks[indexSupport] = bridgeFence.block;
-							metadata[indexSupport] = (byte) bridgeFence.meta;
+							blocks[indexSupport] = bridgeFence.getBlock();
+							metadata[indexSupport] = (byte) bridgeFence.getMeta();
 						}
 					}
 				} else {
 					if (bridgeSlab) {
-						blocks[index2] = bridgeBlockSlab.block;
-						metadata[index2] = (byte) bridgeBlockSlab.meta;
+						blocks[index2] = bridgeBlockSlab.getBlock();
+						metadata[index2] = (byte) bridgeBlockSlab.getMeta();
 					} else {
-						blocks[index2] = bridgeBlock.block;
-						metadata[index2] = (byte) bridgeBlock.meta;
+						blocks[index2] = bridgeBlock.getBlock();
+						metadata[index2] = (byte) bridgeBlock.getMeta();
 					}
 					if (roadTop > bridgeBase) {
 						indexLower = index2 - 1;
-						blocks[indexLower] = bridgeBlock.block;
-						metadata[indexLower] = (byte) bridgeBlock.meta;
+						blocks[indexLower] = bridgeBlock.getBlock();
+						metadata[indexLower] = (byte) bridgeBlock.getMeta();
 					}
 				}
 			} else {
@@ -148,8 +148,8 @@ public class GOTBezierGenerator {
 						isSlab = avgNoise < 0.0;
 					}
 					GOTBezierType.BezierBlock roadblock = roadType.getBlock(rand, biome, isTop, isSlab);
-					blocks[index] = roadblock.block;
-					metadata[index] = (byte) roadblock.meta;
+					blocks[index] = roadblock.getBlock();
+					metadata[index] = (byte) roadblock.getMeta();
 				}
 			}
 			return true;
