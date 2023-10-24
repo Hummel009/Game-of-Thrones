@@ -51,6 +51,7 @@ import got.common.world.structure.westeros.dorne.GOTStructureDorneSettlement;
 import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneSettlement;
 import got.common.world.structure.westeros.gift.GOTStructureGiftSettlement;
 import got.common.world.structure.westeros.ironborn.GOTStructureIronbornSettlement;
+import got.common.world.structure.westeros.ironborn.GOTStructureIronbornShip;
 import got.common.world.structure.westeros.north.GOTStructureNorthSettlement;
 import got.common.world.structure.westeros.reach.GOTStructureReachSettlement;
 import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsSettlement;
@@ -78,17 +79,6 @@ public class GOTFixer {
 		}
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WHITETREE)) {
 			worldGen.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k - 15), k - 15);
-		}
-		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.EURON)) {
-			new GOTStructureBase() {
-				@Override
-				public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-					setOriginAndRotation(world, i, j, k, rotation, 0);
-					loadStrScan("euron_ship");
-					generateStrScan(world, random, 16, 27, -58);
-					return true;
-				}
-			}.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k - 15), k - 15);
 		}
 	}
 
@@ -289,7 +279,7 @@ public class GOTFixer {
 			}
 		}.type(GOTStructureStormlandsSettlement.Type.FORT, 3), GOTWaypoint.EVENFALL_HALL);
 
-		registerSpawner(new GOTStructureEmptySettlement() {
+		registerSpawner(new GOTStructureIronbornShip() {
 			@Override
 			public void addLegendaryNPCs(World world) {
 				spawnInfos.add(new SpawnInfo(new GOTEntityEuronGreyjoy(world), 0, 2));
