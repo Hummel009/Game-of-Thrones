@@ -51,7 +51,6 @@ import got.common.world.structure.westeros.dorne.GOTStructureDorneSettlement;
 import got.common.world.structure.westeros.dragonstone.GOTStructureDragonstoneSettlement;
 import got.common.world.structure.westeros.gift.GOTStructureGiftSettlement;
 import got.common.world.structure.westeros.ironborn.GOTStructureIronbornSettlement;
-import got.common.world.structure.westeros.ironborn.GOTStructureIronbornShip;
 import got.common.world.structure.westeros.north.GOTStructureNorthSettlement;
 import got.common.world.structure.westeros.reach.GOTStructureReachSettlement;
 import got.common.world.structure.westeros.riverlands.GOTStructureRiverlandsSettlement;
@@ -79,6 +78,21 @@ public class GOTFixer {
 		}
 		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.WHITETREE)) {
 			worldGen.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k - 15), k - 15);
+		}
+		if (GOTFixedStructures.fixedAt(i, k, GOTWaypoint.EURON)) {
+			new GOTStructureBase() {
+				@Override
+				public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+					setOriginAndRotation(world, i, j, k, rotation, 0);
+					loadStrScan("euron_ship");
+					generateStrScan(world, random, 16, 27, -58);
+					spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 27, 0);
+					for (int l = 0; l < 10; ++l) {
+						spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 27, 0);
+					}
+					return true;
+				}
+			}.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k - 15), k - 15);
 		}
 	}
 
@@ -278,16 +292,6 @@ public class GOTFixer {
 				spawnInfos.add(new SpawnInfo(new GOTEntitySelwynTarth(world), 0, 2));
 			}
 		}.type(GOTStructureStormlandsSettlement.Type.FORT, 3), GOTWaypoint.EVENFALL_HALL);
-
-		registerSpawner(new GOTStructureIronbornShip() {
-			@Override
-			public void addLegendaryNPCs(World world) {
-				spawnInfos.add(new SpawnInfo(new GOTEntityEuronGreyjoy(world), 0, 2));
-				for (int l = 0; l < 10; ++l) {
-					spawnInfos.add(new SpawnInfo(new GOTEntityIronbornSoldier(world), 0, 0));
-				}
-			}
-		}, GOTWaypoint.EURON);
 
 		registerSpawner(new GOTStructureWesterlandsSettlement(GOTBiome.ocean, 0.0f) {
 			@Override
