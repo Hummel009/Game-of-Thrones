@@ -217,7 +217,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		str.generate(world, random, i, j, k, r);
 	}
 
-	public BiomeGenBase getBiome(IBlockAccess world, int i, int k) {
+	@SuppressWarnings("all")
+	public BiomeGenBase getBiome(World world, int i, int k) {
 		int i1 = i;
 		int k1 = k;
 		i = getX(i1, k1);
@@ -240,7 +241,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return world.getBlock(i, j, k);
 	}
 
-	public ItemStack getRandomFlower(IBlockAccess world, Random random) {
+	public ItemStack getRandomFlower(World world, Random random) {
 		BiomeGenBase biome = getBiome(world, 0, 0);
 		if (biome instanceof GOTBiome) {
 			BiomeGenBase.FlowerEntry fe = ((GOTBiome) biome).getRandomFlower(random);
@@ -252,7 +253,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		return new ItemStack(Blocks.red_flower, 0);
 	}
 
-	public ItemStack getRandomTallGrass(IBlockAccess world, Random random) {
+	public ItemStack getRandomTallGrass(World world, Random random) {
 		BiomeGenBase biome = getBiome(world, 0, 0);
 		if (biome instanceof GOTBiome) {
 			GOTBiome.GrassBlockAndMeta gbm = ((GOTBiome) biome).getRandomGrass(random);
