@@ -89,16 +89,12 @@ public class GOTEntityBeaver extends EntityAnimal implements GOTBiome.ImmuneToFr
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
-		int meat = 3 + rand.nextInt(2);
-		for (int l = 0; l < meat; ++l) {
-			if (isBurning()) {
-				dropItem(GOTItems.beaverCooked, 1);
-				dropItem(GOTItems.beaverTail, 1);
-				continue;
-			}
+		if (isBurning()) {
+			dropItem(GOTItems.beaverCooked, 1);
+		} else {
 			dropItem(GOTItems.beaverRaw, 1);
-			dropItem(GOTItems.beaverTail, 1);
 		}
+		dropItem(GOTItems.beaverTail, 1);
 	}
 
 	@Override

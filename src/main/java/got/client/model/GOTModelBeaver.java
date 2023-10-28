@@ -84,16 +84,12 @@ public class GOTModelBeaver extends ModelBase {
 
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-		head.rotateAngleX = 0.0f;
-		head.rotateAngleY = 0.0f;
-		head.rotateAngleZ = 0.0f;
-		head.rotateAngleX += (float) Math.toRadians(f4);
-		head.rotateAngleY += (float) Math.toRadians(f3);
-		head.rotateAngleX += MathHelper.cos(f * 0.2f) * f1 * 0.4f;
-		leg1.rotateAngleX = MathHelper.cos(f * 0.4f) * f1 * 0.8f;
-		leg2.rotateAngleX = MathHelper.cos(f * 0.4f + 3.1415927f) * f1 * 0.8f;
-		leg3.rotateAngleX = MathHelper.cos(f * 0.4f + 3.1415927f) * f1 * 0.8f;
-		leg4.rotateAngleX = MathHelper.cos(f * 0.4f) * f1 * 0.8f;
+		head.rotateAngleX = (float) Math.toRadians(f4);
+		head.rotateAngleY = (float) Math.toRadians(f3);
+		leg1.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
+		leg2.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
+		leg3.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
+		leg4.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
 	}
 
 	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

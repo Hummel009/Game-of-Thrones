@@ -28,8 +28,8 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 	}
 
 	@Override
-	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureDothrakiSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure) {
-		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, specialStructure, type, forcedType);
+	public GOTStructureBaseSettlement.AbstractInstance<GOTStructureDothrakiSettlement> createSettlementInstance(World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos) {
+		return new Instance(this, world, i, k, random, loc, filler, spawnInfos, type, forcedType);
 	}
 
 	public GOTStructureBaseSettlement type(Type t, int radius) {
@@ -49,8 +49,8 @@ public class GOTStructureDothrakiSettlement extends GOTStructureBaseSettlement {
 		public boolean forcedType;
 		public int numOuterHouses;
 
-		public Instance(GOTStructureDothrakiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, GOTStructureBase specialStructure, Type t, boolean b) {
-			super(settlement, world, i, k, random, loc, filler, spawnInfos, specialStructure);
+		public Instance(GOTStructureDothrakiSettlement settlement, World world, int i, int k, Random random, LocationInfo loc, Runnable filler, Collection<GOTFixer.SpawnInfo> spawnInfos, Type t, boolean b) {
+			super(settlement, world, i, k, random, loc, filler, spawnInfos);
 			type = t;
 			forcedType = b;
 		}
