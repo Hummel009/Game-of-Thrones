@@ -13,6 +13,8 @@ CHANGELOG
 * Improved roads & walls code
 * Improved GUI opening code
 
+* Fixed bug with month name
+* Fixed bug with drown Euron Greyjoy and its soldiers
 * Fixed wrong names of waypoints (example: Servin's C. -> Cerwyn's C.)
 * Fixed very old bug with imflammable leaves
 * Fixed bug with Trystane Martell drop
