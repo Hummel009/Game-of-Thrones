@@ -85,14 +85,15 @@ public class GOTFixer {
 				public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 					setOriginAndRotation(world, i, j, k, rotation, 0);
 					loadStrScan("euron_ship");
-					generateStrScan(world, random, 16, 27, -58);
-					spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 27, 0);
+					generateStrScan(world, random, 16, 0, -58);
+					originY = 73;
+					spawnLegendaryNPC(new GOTEntityEuronGreyjoy(world), world, 0, 1, 0);
 					for (int l = 0; l < 10; ++l) {
-						spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 27, 0);
+						spawnLegendaryNPC(new GOTEntityIronbornSoldier(world), world, 0, 1, 0);
 					}
 					return true;
 				}
-			}.generate(world, random, i, world.getTopSolidOrLiquidBlock(i, k - 15), k - 15);
+			}.generate(world, random, i, 55, k);
 		}
 	}
 
