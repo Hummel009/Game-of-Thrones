@@ -12,6 +12,7 @@ import got.common.faction.GOTFactionBounties;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -221,7 +222,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			}
 			IChatComponent announceMsg = new ChatComponentTranslation("got.chat.bountyKill", entityplayer.getCommandSenderName(), slainPlayer.getCommandSenderName(), entityFaction.factionName());
 			announceMsg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-			for (ICommandSender otherPlayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+			for (ICommandSender otherPlayer : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 				if (otherPlayer == slainPlayer) {
 					continue;
 				}
@@ -262,7 +263,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			killerData.addAchievement(GOTAchievement.killHuntingPlayer);
 			IChatComponent announceMsg = new ChatComponentTranslation("got.chat.killedByBounty", entityplayer.getCommandSenderName(), killer.getCommandSenderName());
 			announceMsg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-			for (ICommandSender otherPlayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+			for (ICommandSender otherPlayer : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 				if (otherPlayer == entityplayer) {
 					continue;
 				}
