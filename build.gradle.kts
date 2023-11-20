@@ -1,44 +1,51 @@
-import net.minecraftforge.gradle.user.UserExtension
+import org.jetbrains.gradle.ext.Gradle
+import org.jetbrains.gradle.ext.RunConfigurationContainer
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-buildscript {
-	repositories {
-		mavenCentral()
-		maven {
-			name = "forge"
-			url = uri("https://maven.minecraftforge.net/")
-		}
-	}
-	dependencies {
-		classpath("com.anatawa12.forge:ForgeGradle:1.2-1.1.+") {
-			isChanging = true
-		}
-	}
+plugins {
+	id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
+	id("com.gtnewhorizons.retrofuturagradle") version "1.3.24"
 }
 
-apply(plugin = "forge")
+group = "hummel"
+version = "v" + LocalDate.now().format(DateTimeFormatter.ofPattern("yy.MM.dd"))
 
-plugins {
-	id("java")
+dependencies {
+	implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 }
 
 java {
-	sourceCompatibility = JavaVersion.VERSION_1_8
-	targetCompatibility = JavaVersion.VERSION_1_8
+	toolchain {
+		languageVersion.set(JavaLanguageVersion.of(8))
+	}
 }
 
-group = "org.example"
-version = "v" + LocalDate.now().format(DateTimeFormatter.ofPattern("yy.MM.dd"))
+minecraft {
+	mcVersion.set("1.7.10")
+	username.set("Hummel009")
+}
 
-val Project.minecraft: UserExtension
-	get() = extensions.getByName<UserExtension>("minecraft")
-
-minecraft.version = "1.7.10-10.13.4.1614-1.7.10"
-
-configure<UserExtension> {
-	replacements["@version@"] = project.version
-	runDir = "run"
+idea {
+	project {
+		this.withGroovyBuilder {
+			"settings" {
+				"runConfigurations" {
+					val self = this.delegate as RunConfigurationContainer
+					self.add(
+						Gradle("1. Run Client").apply {
+							setProperty("taskNames", listOf("runClient"))
+						},
+					)
+					self.add(
+						Gradle("2. Run Server").apply {
+							setProperty("taskNames", listOf("runServer"))
+						},
+					)
+				}
+			}
+		}
+	}
 }
 
 tasks {
@@ -50,5 +57,8 @@ tasks {
 				)
 			)
 		}
+	}
+	withType<JavaCompile>().configureEach {
+		options.encoding = "UTF-8"
 	}
 }

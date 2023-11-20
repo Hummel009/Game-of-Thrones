@@ -41,12 +41,3 @@ bin/
 ### Minecraft ###
 forge*changelog.txt
 run
-
-### Server ###
-server/config
-server/crash-reports
-server/logs
-server/mods/*.jar
-server/world
-server/server.properties
-server/*.json
