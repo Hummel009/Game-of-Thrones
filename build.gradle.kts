@@ -2,7 +2,6 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 plugins {
-	id("org.jetbrains.gradle.plugin.idea-ext") version "1.1.7"
 	id("com.gtnewhorizons.retrofuturagradle") version "1.3.24"
 }
 
