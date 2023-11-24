@@ -19,8 +19,8 @@ java {
 }
 
 minecraft {
-	mcVersion.set("1.7.10")
-	username.set("Hummel009")
+	mcVersion = "1.7.10"
+	username = "Hummel009"
 }
 
 tasks {
