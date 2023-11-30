@@ -186,7 +186,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings("all")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		List<ItemStack> potions = new ArrayList<>();
 		super.getSubItems(item, tab, potions);

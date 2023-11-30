@@ -123,7 +123,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings("all")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < leafBlocks.length; ++i) {
 			Block leaf = leafBlocks[i];
