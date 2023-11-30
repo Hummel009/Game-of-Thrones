@@ -20,6 +20,7 @@ public class GOTItemWildFireJar extends ItemBlock {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
 		list.add(StatCollector.translateToLocal("tile.got.wild_fire.warning"));

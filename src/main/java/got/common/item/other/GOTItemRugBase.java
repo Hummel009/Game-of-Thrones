@@ -43,6 +43,7 @@ public abstract class GOTItemRugBase extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < rugNames.length; ++i) {
 			list.add(new ItemStack(item, 1, i));

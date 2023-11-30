@@ -75,6 +75,7 @@ public class GOTItemSpawnEgg extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (GOTEntityRegistry.SpawnEggInfo info : GOTEntityRegistry.spawnEggs.values()) {
 			list.add(new ItemStack(item, 1, info.spawnedID));

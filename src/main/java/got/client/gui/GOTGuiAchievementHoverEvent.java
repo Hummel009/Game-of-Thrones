@@ -11,6 +11,7 @@ public class GOTGuiAchievementHoverEvent extends GuiScreen {
 	}
 
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void func_146283_a(List text, int x, int y) {
 		super.func_146283_a(text, x, y);
 	}

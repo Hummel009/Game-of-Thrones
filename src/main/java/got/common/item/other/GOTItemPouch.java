@@ -167,6 +167,7 @@ public class GOTItemPouch extends Item {
 
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		int slots = getCapacity(itemstack);
 		int slotsFull = 0;
@@ -219,6 +220,7 @@ public class GOTItemPouch extends Item {
 
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < pouchTypes.length; ++i) {
 			list.add(new ItemStack(item, 1, i));

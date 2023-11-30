@@ -68,6 +68,7 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j < grassNames.length; ++j) {
 			list.add(new ItemStack(item, 1, j));

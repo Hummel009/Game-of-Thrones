@@ -4,7 +4,6 @@ import got.GOT;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.entity.other.GOTEntityPortal;
-import got.common.world.genlayer.GOTGenLayerWorld;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.entity.Entity;
 import net.minecraft.world.Teleporter;

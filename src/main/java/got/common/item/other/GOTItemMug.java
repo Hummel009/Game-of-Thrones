@@ -240,6 +240,7 @@ public class GOTItemMug extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		if (isBrewable) {
 			float strength = getStrength(itemstack);
@@ -330,6 +331,7 @@ public class GOTItemMug extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		if (isFullMug) {
 			Vessel[] vesselTypes = {Vessel.MUG};

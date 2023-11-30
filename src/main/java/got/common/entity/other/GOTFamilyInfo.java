@@ -75,7 +75,7 @@ public class GOTFamilyInfo {
 		UUID parentToFollowID = male ? maleParentID : femaleParentID;
 		List<? extends Entity> list = theEntity.worldObj.getEntitiesWithinAABB(theEntity.getClass(), theEntity.boundingBox.expand(16.0, 8.0, 16.0));
 		for (Entity element : list) {
-			if (!(element instanceof GOTEntityNPC) || element == theEntity || parentToFollowID == null || !element.getUniqueID().equals(parentToFollowID)) {
+			if (!(element instanceof GOTEntityNPC) || element == theEntity || !element.getUniqueID().equals(parentToFollowID)) {
 				continue;
 			}
 			return (GOTEntityNPC) element;
@@ -110,7 +110,7 @@ public class GOTFamilyInfo {
 				continue;
 			}
 			GOTEntityNPC npc = (GOTEntityNPC) element;
-			if (npc.familyInfo.spouseUniqueID == null || !theEntity.getUniqueID().equals(npc.familyInfo.spouseUniqueID)) {
+			if (!theEntity.getUniqueID().equals(npc.familyInfo.spouseUniqueID)) {
 				continue;
 			}
 			return npc;

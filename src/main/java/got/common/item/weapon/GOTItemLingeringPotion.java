@@ -42,6 +42,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean isComplex) {
 		if (stack.getItemDamage() == 0) {
 			return;
@@ -185,6 +186,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		List<ItemStack> potions = new ArrayList<>();
 		super.getSubItems(item, tab, potions);

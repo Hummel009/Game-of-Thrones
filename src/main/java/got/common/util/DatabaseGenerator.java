@@ -284,7 +284,7 @@ public class DatabaseGenerator {
 				for (String pageName : MINERALS) {
 					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
-						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0418\u0441\u043A\u043E\u043F\u0430\u0435\u043C\u043E\u0435}}</text></revision></page>\n";
+						String s2 = "</title><revision><text>{{Статья Ископаемое}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
@@ -293,7 +293,7 @@ public class DatabaseGenerator {
 					String pageName = getEntityPagename(entityClass);
 					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
-						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u041C\u043E\u0431}}</text></revision></page>\n";
+						String s2 = "</title><revision><text>{{Статья Моб}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
@@ -302,7 +302,7 @@ public class DatabaseGenerator {
 					String pageName = getBiomePagename(biome);
 					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
-						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0411\u0438\u043E\u043C}}</text></revision></page>\n";
+						String s2 = "</title><revision><text>{{Статья Биом}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
@@ -311,7 +311,7 @@ public class DatabaseGenerator {
 					String pageName = getFactionPagename(fac);
 					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
-						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0424\u0440\u0430\u043A\u0446\u0438\u044F}}</text></revision></page>\n";
+						String s2 = "</title><revision><text>{{Статья Фракция}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
@@ -320,7 +320,7 @@ public class DatabaseGenerator {
 					String pageName = getTreeName(tree);
 					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
-						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0414\u0435\u0440\u0435\u0432\u043E}}</text></revision></page>\n";
+						String s2 = "</title><revision><text>{{Статья Дерево}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
@@ -329,7 +329,7 @@ public class DatabaseGenerator {
 					String pageName = getStructureName(strClass);
 					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
-						String s2 = "</title><revision><text>{{\u0421\u0442\u0430\u0442\u044C\u044F \u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0430}}</text></revision></page>\n";
+						String s2 = "</title><revision><text>{{Статья Структура}}</text></revision></page>\n";
 						sb.append(TITLE).append(pageName).append(s2);
 					}
 				}
@@ -1005,7 +1005,7 @@ public class DatabaseGenerator {
 							if (first) {
 								first = false;
 							} else {
-								sb.append(" \u2022 ");
+								sb.append(" • ");
 							}
 							sb.append(getFactionLink(fac));
 						}
@@ -1031,7 +1031,7 @@ public class DatabaseGenerator {
 							if (first) {
 								first = false;
 							} else {
-								sb.append(" \u2022 ");
+								sb.append(" • ");
 							}
 							sb.append(getFactionLink(fac));
 						}

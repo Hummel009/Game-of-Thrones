@@ -54,6 +54,7 @@ public class GOTItemPartyHat extends GOTItemArmor {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		if (isHatDyed(itemstack) && getHatColor(itemstack) != 16777215) {
 			list.add(StatCollector.translateToLocal("item.got.hat.dyed"));

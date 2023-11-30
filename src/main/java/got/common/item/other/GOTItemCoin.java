@@ -179,6 +179,7 @@ public class GOTItemCoin extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
 		int i = itemstack.getItemDamage();
@@ -199,6 +200,7 @@ public class GOTItemCoin extends Item {
 
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j < values.length; ++j) {
 			list.add(new ItemStack(item, 1, j));

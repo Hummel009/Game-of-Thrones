@@ -48,9 +48,7 @@ public class GOTCommandAllowStructures extends CommandBase {
 			GOTLevelData.setPlayerBannedForStructures(args[0], false);
 			CommandBase.func_152373_a(sender, this, "got.command.allowStructures.allowPlayer", args[0]);
 			EntityPlayerMP entityplayer = CommandBase.getPlayer(sender, args[0]);
-			if (entityplayer != null) {
-				entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.allowStructures"));
-			}
+			entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.allowStructures"));
 		}
 	}
 }

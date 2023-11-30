@@ -87,6 +87,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < saplingNames.length; ++i) {
 			list.add(new ItemStack(item, 1, i));

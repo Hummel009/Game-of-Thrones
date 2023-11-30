@@ -21,6 +21,7 @@ public class GOTItemMugFire extends GOTItemMug {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
 		list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("item.got.drink.fire"));

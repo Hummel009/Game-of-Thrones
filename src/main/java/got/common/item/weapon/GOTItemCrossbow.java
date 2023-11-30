@@ -91,6 +91,7 @@ public class GOTItemCrossbow extends ItemBow {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		ItemStack ammo = getLoaded(itemstack);
 		if (ammo != null) {

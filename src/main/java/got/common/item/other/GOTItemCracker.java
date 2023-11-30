@@ -116,6 +116,7 @@ public class GOTItemCracker extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		if (!isEmpty(itemstack)) {
 			String name = getSealingPlayerName(itemstack);
@@ -157,6 +158,7 @@ public class GOTItemCracker extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < crackerNames.length; ++i) {
 			list.add(new ItemStack(item, 1, i));

@@ -32,6 +32,7 @@ public class GOTBlockClayTileDyed extends GOTBlockClayTile {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < 16; ++i) {
 			list.add(new ItemStack(item, 1, i));

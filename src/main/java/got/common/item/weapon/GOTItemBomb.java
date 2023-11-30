@@ -23,6 +23,7 @@ public class GOTItemBomb extends ItemBlock {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		int meta = itemstack.getItemDamage();
 		int strength = GOTBlockBomb.getBombStrengthLevel(meta);

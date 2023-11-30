@@ -50,6 +50,7 @@ public class GOTItemPipe extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		int color = getSmokeColor(itemstack);
 		list.add(StatCollector.translateToLocal("item.got.pipe.subtitle." + color));
@@ -67,6 +68,7 @@ public class GOTItemPipe extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i <= 16; ++i) {
 			ItemStack itemstack = new ItemStack(this);

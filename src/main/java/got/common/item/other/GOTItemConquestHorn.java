@@ -126,6 +126,7 @@ public class GOTItemConquestHorn extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (GOTInvasions type : GOTInvasions.values()) {
 			ItemStack itemstack = new ItemStack(item);

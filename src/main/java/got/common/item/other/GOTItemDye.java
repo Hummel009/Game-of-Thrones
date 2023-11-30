@@ -57,6 +57,7 @@ public class GOTItemDye extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < dyeNames.length; ++i) {
 			list.add(new ItemStack(item, 1, i));

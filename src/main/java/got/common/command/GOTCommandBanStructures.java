@@ -47,9 +47,7 @@ public class GOTCommandBanStructures extends CommandBase {
 			GOTLevelData.setPlayerBannedForStructures(args[0], true);
 			CommandBase.func_152373_a(sender, this, "got.command.banStructures.banPlayer", args[0]);
 			EntityPlayerMP entityplayer = CommandBase.getPlayer(sender, args[0]);
-			if (entityplayer != null) {
-				entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.banStructures"));
-			}
+			entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.banStructures"));
 		}
 	}
 }

@@ -57,6 +57,7 @@ public class GOTItemRobes extends GOTItemArmor {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		if (areRobesDyed(itemstack)) {
 			list.add(StatCollector.translateToLocal("item.got.robes.dyed"));

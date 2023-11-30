@@ -49,6 +49,7 @@ public class GOTItemBarrel extends ItemBlock {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		NBTTagCompound barrelData = getBarrelData(itemstack);
 		if (barrelData != null) {

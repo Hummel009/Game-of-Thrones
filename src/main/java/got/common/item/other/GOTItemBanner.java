@@ -90,6 +90,7 @@ public class GOTItemBanner extends Item {
 
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		NBTTagCompound protectData = getProtectionData(itemstack);
 		if (protectData != null) {
@@ -121,6 +122,7 @@ public class GOTItemBanner extends Item {
 
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (BannerType type : BannerType.bannerTypes) {
 			list.add(new ItemStack(item, 1, type.bannerID));

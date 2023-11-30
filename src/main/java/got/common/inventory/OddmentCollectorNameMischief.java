@@ -52,9 +52,9 @@ public class OddmentCollectorNameMischief {
 
 	public static boolean isFormattingCharacter(CharSequence s, int index) {
 		char charAt = s.charAt(index);
-		if (charAt == '\u00a7') {
+		if (charAt == '§') {
 			return true;
 		}
-		return index >= 1 && s.charAt(index - 1) == '\u00a7';
+		return index >= 1 && s.charAt(index - 1) == '§';
 	}
 }

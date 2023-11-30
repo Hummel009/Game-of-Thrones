@@ -200,6 +200,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (BushType type : BushType.values()) {
 			int meta = type.bushMeta;

@@ -37,6 +37,7 @@ public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronIte
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j <= 3; ++j) {
 			list.add(new ItemStack(item, 1, j));

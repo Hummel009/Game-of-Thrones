@@ -45,6 +45,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int j = 0; j < woodNames.length; ++j) {
 			list.add(new ItemStack(item, 1, j));

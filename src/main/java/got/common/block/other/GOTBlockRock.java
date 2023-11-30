@@ -63,6 +63,7 @@ public class GOTBlockRock extends Block {
 
 	@Override
 	@SideOnly(Side.CLIENT)
+	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < rockNames.length; ++i) {
 			list.add(new ItemStack(item, 1, i));

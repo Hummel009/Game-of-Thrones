@@ -1043,7 +1043,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				for (GOTTradeEntry trade : traderNPCInfo.getBuyTrades()) {
 					trade.setCost(trade.getCost() * 100);
 				}
-				familyInfo.setName("\u041C\u043E\u0439\u0448\u0430 \u0420\u0430\u0431\u0438\u043D\u043E\u0432\u0438\u0447");
+				familyInfo.setName("Мойша Рабинович");
 			}
 		}
 		return data;
@@ -1141,7 +1141,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public void sendSpeechBank(EntityPlayer entityplayer, String speechBank, CharSequence location, CharSequence objective) {
 		if (GOT.isUkraine()) {
-			GOTSpeech.sendSpeech(entityplayer, this, "\u0421\u043B\u0430\u0432\u0430 \u0423\u043A\u0440\u0430\u0457\u043D\u0456!");
+			GOTSpeech.sendSpeech(entityplayer, this, "Слава Україні!");
 		} else {
 			GOTSpeech.sendSpeech(entityplayer, this, GOTSpeech.getRandomSpeechForPlayer(this, speechBank, entityplayer, location, objective));
 		}

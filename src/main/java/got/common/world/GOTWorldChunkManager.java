@@ -50,6 +50,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 	}
 
 	@Override
+	@SuppressWarnings("rawtypes")
 	public boolean areBiomesViable(int i, int k, int range, List list) {
 		GOTIntCache.get(worldObj).resetIntCache();
 		int i1 = i - range >> 2;
@@ -91,6 +92,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 	}
 
 	@Override
+	@SuppressWarnings("rawtypes")
 	public ChunkPosition findBiomePosition(int i, int k, int range, List list, Random random) {
 		GOTIntCache.get(worldObj).resetIntCache();
 		int i1 = i - range >> 2;

@@ -89,7 +89,7 @@ public class GOTRenderCrossbow implements IItemRenderer {
 		float f2 = icon.getMinV();
 		float f3 = icon.getMaxV();
 		ItemRenderer.renderItemIn2D(tessellator, f1, f2, f, f3, icon.getIconWidth(), icon.getIconHeight(), 0.0625f);
-		if (itemstack != null && itemstack.hasEffect(0)) {
+		if (itemstack.hasEffect(0)) {
 			GOTClientProxy.renderEnchantmentEffect();
 		}
 		GL11.glDisable(32826);

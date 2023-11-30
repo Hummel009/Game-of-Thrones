@@ -144,6 +144,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < doublePlantBottomIcons.length; ++i) {
 			list.add(new ItemStack(item, 1, i));

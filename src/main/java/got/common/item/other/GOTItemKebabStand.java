@@ -48,6 +48,7 @@ public class GOTItemKebabStand extends ItemBlock {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		NBTTagCompound kebabData = getKebabData(itemstack);
 		if (kebabData != null) {

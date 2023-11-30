@@ -58,6 +58,7 @@ public class GOTItemModifierTemplate extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
 		GOTEnchantment mod = getModifier(itemstack);
@@ -79,6 +80,7 @@ public class GOTItemModifierTemplate extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
 			if (!ench.hasTemplateItem()) {

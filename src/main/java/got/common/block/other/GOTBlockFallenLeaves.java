@@ -57,6 +57,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 	}
 
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addCollisionBoxesToList(World world, int i, int j, int k, AxisAlignedBB bb, List boxes, Entity entity) {
 	}
 
@@ -122,6 +123,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		for (int i = 0; i < leafBlocks.length; ++i) {
 			Block leaf = leafBlocks[i];

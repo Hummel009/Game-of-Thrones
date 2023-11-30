@@ -75,6 +75,7 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		if (item != Item.getItemFromBlock(doubleSlab)) {
 			for (int j = 0; j < subtypes; ++j) {

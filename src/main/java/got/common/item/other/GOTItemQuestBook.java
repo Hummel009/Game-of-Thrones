@@ -29,6 +29,7 @@ public class GOTItemQuestBook extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		int activeQuests = playerData.getActiveMiniQuests().size();

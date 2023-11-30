@@ -18,7 +18,7 @@ public class GOTItemMattock extends GOTItemPickaxe {
 	@Override
 	public float func_150893_a(ItemStack itemstack, Block block) {
 		float f = super.func_150893_a(itemstack, block);
-		if (f == 1.0f && block != null && (block.getMaterial() == Material.wood || block.getMaterial() == Material.plants || block.getMaterial() == Material.vine)) {
+		if (f == 1.0f && (block.getMaterial() == Material.wood || block.getMaterial() == Material.plants || block.getMaterial() == Material.vine)) {
 			return efficiencyOnProperMaterial;
 		}
 		return f;

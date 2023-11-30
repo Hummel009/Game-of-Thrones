@@ -78,6 +78,7 @@ public class GOTItemStructureSpawner extends Item {
 
 	@SideOnly(Side.CLIENT)
 	@Override
+	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (GOTStructureRegistry.StructureColorInfo info : GOTStructureRegistry.structureItemSpawners.values()) {
 			if (info.isHidden) {
