@@ -107,6 +107,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	}
 
 	@Override
+	@SuppressWarnings("CastCanBeReplacedWithVariable")
 	public void renderItem(IItemRenderer.ItemRenderType type, ItemStack itemstack, Object... data) {
 		EntityLivingBase entityliving;
 		GL11.glPushMatrix();

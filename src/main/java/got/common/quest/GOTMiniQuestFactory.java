@@ -640,7 +640,7 @@ public enum GOTMiniQuestFactory {
 		Class<?> questClass = factory.getQuestClass();
 		Class<? extends GOTMiniQuest> registryClass = null;
 		for (Class<? extends GOTMiniQuest> c : questClassWeights.keySet()) {
-			if (questClass.equals(c)) {
+			if (questClass == c) {
 				registryClass = c;
 				break;
 			}

@@ -20,7 +20,7 @@ public abstract class GOTEntityAnimalMF extends EntityAnimal implements GOTBiome
 		if (mate == this) {
 			return false;
 		}
-		if (getAnimalMFBaseClass().equals(mfMate.getAnimalMFBaseClass()) && isInLove() && mate.isInLove()) {
+		if (getAnimalMFBaseClass() == mfMate.getAnimalMFBaseClass() && isInLove() && mate.isInLove()) {
 			boolean thisMale = isMale();
 			return thisMale != mfMate.isMale();
 		}

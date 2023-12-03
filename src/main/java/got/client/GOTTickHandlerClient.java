@@ -537,6 +537,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("JavaReflectionMemberAccess")
 	public void onClientTick(TickEvent.ClientTickEvent event) {
 		Minecraft minecraft = Minecraft.getMinecraft();
 		EntityClientPlayerMP entityplayer = minecraft.thePlayer;
