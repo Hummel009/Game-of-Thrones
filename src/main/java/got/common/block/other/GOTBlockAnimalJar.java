@@ -87,6 +87,7 @@ public abstract class GOTBlockAnimalJar extends BlockContainer {
 	}
 
 	@Override
+	@SuppressWarnings("deprecation")
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int i, int j, int k) {
 		world.markBlockForUpdate(i, j, k);
 		return getJarDrop(world, i, j, k, world.getBlockMetadata(i, j, k));

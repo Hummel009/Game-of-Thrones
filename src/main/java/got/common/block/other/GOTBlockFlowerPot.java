@@ -78,6 +78,7 @@ public class GOTBlockFlowerPot extends BlockFlowerPot {
 	}
 
 	@Override
+	@SuppressWarnings("deprecation")
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int i, int j, int k) {
 		return getPlant(world, i, j, k);
 	}

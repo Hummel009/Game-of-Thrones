@@ -94,6 +94,7 @@ public class GOTBlockMug extends BlockContainer {
 	}
 
 	@Override
+	@SuppressWarnings("deprecation")
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int i, int j, int k) {
 		return getMugItem(world, i, j, k);
 	}

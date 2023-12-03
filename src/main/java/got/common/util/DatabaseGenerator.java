@@ -137,6 +137,7 @@ public class DatabaseGenerator {
 		CLASS_TO_WP.put(GOTEntityMullin.class, GOTWaypoint.SHADOW_TOWER);
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void generate(World world, EntityPlayer player, Random random) {
 		long time = System.nanoTime();
 		try {
