@@ -1,6 +1,5 @@
 package got.common.entity.other;
 
-import com.google.common.base.Predicate;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTConfig;
@@ -25,6 +24,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.WorldServer;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 public class GOTEntityQuestInfo {
 	public static int maxOfferTime = 24000;
@@ -158,7 +158,7 @@ public class GOTEntityQuestInfo {
 				return true;
 			}
 			GOTMiniQuestFactory bountyHelpSpeechDir = theNPC.getBountyHelpSpeechDir();
-			if (bountyHelpSpeechDir != null && bountyHelpPredicate.apply(entityplayer) && !(bountyQuests = playerData.selectMiniQuests(activeBountySelector)).isEmpty()) {
+			if (bountyHelpSpeechDir != null && bountyHelpPredicate.test(entityplayer) && !(bountyQuests = playerData.selectMiniQuests(activeBountySelector)).isEmpty()) {
 				GOTWaypoint lastWP;
 				GOTMiniQuestBounty bQuest = (GOTMiniQuestBounty) bountyQuests.get(theNPC.getRNG().nextInt(bountyQuests.size()));
 				UUID targetID = bQuest.targetID;
@@ -177,7 +177,7 @@ public class GOTEntityQuestInfo {
 				if (location != null) {
 					String speechBank = "miniquest/" + bountyHelpSpeechDir.getBaseName() + "/_bountyHelp_" + helpType.speechName;
 					theNPC.sendSpeechBank(entityplayer, speechBank, location, objective);
-					bountyHelpConsumer.apply(entityplayer);
+					bountyHelpConsumer.test(entityplayer);
 					return true;
 				}
 			}

@@ -1,6 +1,5 @@
 package got.client.gui;
 
-import com.google.common.base.Function;
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.common.GOTBannerProtection;
@@ -22,6 +21,7 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
 import java.util.Arrays;
+import java.util.function.Function;
 
 public class GOTGuiBanner extends GOTGuiScreenBase {
 	public static ResourceLocation bannerTexture = new ResourceLocation("got:textures/gui/banner_edit.png");
