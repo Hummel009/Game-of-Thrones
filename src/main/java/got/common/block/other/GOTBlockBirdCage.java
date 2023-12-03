@@ -93,9 +93,9 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		topIcons = new IIcon[cageTypes.length];
 		baseIcons = new IIcon[cageTypes.length];
 		for (int i = 0; i < cageTypes.length; ++i) {
-			sideIcons[i] = iconregister.registerIcon(getTextureName() + "_" + cageTypes[i] + "_side");
-			topIcons[i] = iconregister.registerIcon(getTextureName() + "_" + cageTypes[i] + "_top");
-			baseIcons[i] = iconregister.registerIcon(getTextureName() + "_" + cageTypes[i] + "_base");
+			sideIcons[i] = iconregister.registerIcon(getTextureName() + '_' + cageTypes[i] + "_side");
+			topIcons[i] = iconregister.registerIcon(getTextureName() + '_' + cageTypes[i] + "_top");
+			baseIcons[i] = iconregister.registerIcon(getTextureName() + '_' + cageTypes[i] + "_base");
 		}
 	}
 

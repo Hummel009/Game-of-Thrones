@@ -190,7 +190,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 		public void renderText(int x, int y) {
 			String conqS = GOTAlignmentValues.formatConqForDisplay(conqValue, false);
 			GOTTickHandlerClient.drawConquestText(mc.fontRenderer, x + 1, y, conqS, isCleansing, 1.0f);
-			mc.fontRenderer.drawString(StatCollector.translateToLocal("got.gui.map.conquest.notif"), x + mc.fontRenderer.getStringWidth(conqS + " ") + 2, y, 8019267);
+			mc.fontRenderer.drawString(StatCollector.translateToLocal("got.gui.map.conquest.notif"), x + mc.fontRenderer.getStringWidth(conqS + ' ') + 2, y, 8019267);
 			mc.fontRenderer.drawString(EnumChatFormatting.ITALIC + conqFac.factionName(), x, y + 11, 9666921);
 		}
 	}

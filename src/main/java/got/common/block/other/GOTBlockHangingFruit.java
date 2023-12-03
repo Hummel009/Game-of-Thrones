@@ -73,7 +73,7 @@ public abstract class GOTBlockHangingFruit extends Block {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		fruitIcons = new IIcon[3];
 		for (int i = 0; i < 3; ++i) {
-			fruitIcons[i] = iconregister.registerIcon(getTextureName() + "_" + fruitSides[i]);
+			fruitIcons[i] = iconregister.registerIcon(getTextureName() + '_' + fruitSides[i]);
 		}
 	}
 

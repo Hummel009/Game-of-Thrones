@@ -54,7 +54,7 @@ public class GOTRenderFactionNPCLayered extends GOTRenderBiped {
 	}
 
 	public ResourceLocation getSecondLayerTexture() {
-		return new ResourceLocation("got:textures/entity/" + path + "/" + outfit + ".png");
+		return new ResourceLocation("got:textures/entity/" + path + '/' + outfit + ".png");
 	}
 
 	@Override

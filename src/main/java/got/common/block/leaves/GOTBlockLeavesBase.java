@@ -151,8 +151,8 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		leafIcons = new IIcon[leafNames.length][2];
 		for (int i = 0; i < leafNames.length; ++i) {
-			IIcon fancy = iconregister.registerIcon(getTextureName() + "_" + leafNames[i] + "_fancy");
-			IIcon fast = iconregister.registerIcon(getTextureName() + "_" + leafNames[i] + "_fast");
+			IIcon fancy = iconregister.registerIcon(getTextureName() + '_' + leafNames[i] + "_fancy");
+			IIcon fast = iconregister.registerIcon(getTextureName() + '_' + leafNames[i] + "_fast");
 			leafIcons[i][0] = fancy;
 			leafIcons[i][1] = fast;
 		}

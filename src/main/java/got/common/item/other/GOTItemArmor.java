@@ -32,7 +32,7 @@ public class GOTItemArmor extends ItemArmor {
 		if (!StringUtils.isNullOrEmpty(extraName)) {
 			suffix = extraName;
 		}
-		return prefix + "_" + suffix;
+		return prefix + '_' + suffix;
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class GOTItemArmor extends ItemArmor {
 		String armorName = getArmorName();
 		StringBuilder texture = new StringBuilder(path).append(armorName);
 		if (type != null) {
-			texture.append("_").append(type);
+			texture.append('_').append(type);
 		}
 		return texture.append(".png").toString();
 	}

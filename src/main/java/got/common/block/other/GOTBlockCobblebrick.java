@@ -21,7 +21,7 @@ public class GOTBlockCobblebrick extends GOTBlockBrickBase implements GOTConnect
 
 	@Override
 	public String getConnectedName(int meta) {
-		return textureName + "_" + brickNames[meta];
+		return textureName + '_' + brickNames[meta];
 	}
 
 	@Override

@@ -200,11 +200,11 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 			}
 			StringBuilder sharedFsNames = new StringBuilder();
 			for (String s : fsNames) {
-				sharedFsNames.append("\n").append(s);
+				sharedFsNames.append('\n').append(s);
 			}
 			if (numShared > numShown) {
 				int numMore = numShared - numShown;
-				sharedFsNames.append("\n").append(StatCollector.translateToLocalFormatted("got.wp.custom.andMore", numMore));
+				sharedFsNames.append('\n').append(StatCollector.translateToLocalFormatted("got.wp.custom.andMore", numMore));
 			}
 			if (ownShared) {
 				return StatCollector.translateToLocalFormatted("got.wp.custom.info", sharedFsNames.toString());

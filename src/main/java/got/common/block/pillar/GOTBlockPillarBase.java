@@ -103,7 +103,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		pillarSideMiddleIcons = new IIcon[pillarNames.length];
 		pillarSideBottomIcons = new IIcon[pillarNames.length];
 		for (int i = 0; i < pillarNames.length; ++i) {
-			String s = getTextureName() + "_" + pillarNames[i];
+			String s = getTextureName() + '_' + pillarNames[i];
 			pillarFaceIcons[i] = iconregister.registerIcon(s + "_face");
 			pillarSideIcons[i] = iconregister.registerIcon(s + "_side");
 			pillarSideTopIcons[i] = iconregister.registerIcon(s + "_side_top");

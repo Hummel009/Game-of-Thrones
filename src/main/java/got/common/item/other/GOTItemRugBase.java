@@ -97,7 +97,7 @@ public abstract class GOTItemRugBase extends Item {
 	public void registerIcons(IIconRegister iconregister) {
 		rugIcons = new IIcon[rugNames.length];
 		for (int i = 0; i < rugIcons.length; ++i) {
-			rugIcons[i] = iconregister.registerIcon(getIconString() + "_" + rugNames[i]);
+			rugIcons[i] = iconregister.registerIcon(getIconString() + '_' + rugNames[i]);
 		}
 	}
 }

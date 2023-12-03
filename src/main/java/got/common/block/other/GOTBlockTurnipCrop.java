@@ -46,7 +46,7 @@ public class GOTBlockTurnipCrop extends BlockCrops {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		turnipIcons = new IIcon[4];
 		for (int i = 0; i < turnipIcons.length; ++i) {
-			turnipIcons[i] = iconregister.registerIcon(getTextureName() + "_" + i);
+			turnipIcons[i] = iconregister.registerIcon(getTextureName() + '_' + i);
 		}
 	}
 }

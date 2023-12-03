@@ -93,11 +93,11 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 		grassIcons = new IIcon[grassNames.length];
 		overlayIcons = new IIcon[grassNames.length];
 		for (int i = 0; i < grassNames.length; ++i) {
-			grassIcons[i] = iconregister.registerIcon(getTextureName() + "_" + grassNames[i]);
+			grassIcons[i] = iconregister.registerIcon(getTextureName() + '_' + grassNames[i]);
 			if (!grassOverlay[i]) {
 				continue;
 			}
-			overlayIcons[i] = iconregister.registerIcon(getTextureName() + "_" + grassNames[i] + "_overlay");
+			overlayIcons[i] = iconregister.registerIcon(getTextureName() + '_' + grassNames[i] + "_overlay");
 		}
 	}
 }

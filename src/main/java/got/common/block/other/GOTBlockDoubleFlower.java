@@ -179,8 +179,8 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 		doublePlantBottomIcons = new IIcon[flowerNames.length];
 		doublePlantTopIcons = new IIcon[flowerNames.length];
 		for (int i = 0; i < doublePlantBottomIcons.length; ++i) {
-			doublePlantBottomIcons[i] = iconregister.registerIcon(getTextureName() + "_" + flowerNames[i] + "_bottom");
-			doublePlantTopIcons[i] = iconregister.registerIcon(getTextureName() + "_" + flowerNames[i] + "_top");
+			doublePlantBottomIcons[i] = iconregister.registerIcon(getTextureName() + '_' + flowerNames[i] + "_bottom");
+			doublePlantTopIcons[i] = iconregister.registerIcon(getTextureName() + '_' + flowerNames[i] + "_top");
 		}
 	}
 

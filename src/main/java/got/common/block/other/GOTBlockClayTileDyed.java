@@ -48,7 +48,7 @@ public class GOTBlockClayTileDyed extends GOTBlockClayTile {
 			if ("lightBlue".equals(ItemDye.field_150923_a[dyeMeta])) {
 				clayIcons[i] = iconregister.registerIcon(getTextureName() + "_light_blue");
 			} else {
-				clayIcons[i] = iconregister.registerIcon(getTextureName() + "_" + ItemDye.field_150923_a[dyeMeta]);
+				clayIcons[i] = iconregister.registerIcon(getTextureName() + '_' + ItemDye.field_150923_a[dyeMeta]);
 			}
 		}
 	}

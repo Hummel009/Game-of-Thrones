@@ -66,7 +66,7 @@ public class GOTItemDye extends Item {
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
-		return getUnlocalizedName() + "." + itemstack.getItemDamage();
+		return getUnlocalizedName() + '.' + itemstack.getItemDamage();
 	}
 
 	@Override
@@ -92,7 +92,7 @@ public class GOTItemDye extends Item {
 	public void registerIcons(IIconRegister iconregister) {
 		dyeIcons = new IIcon[dyeNames.length];
 		for (int i = 0; i < dyeNames.length; ++i) {
-			dyeIcons[i] = iconregister.registerIcon(getIconString() + "_" + dyeNames[i]);
+			dyeIcons[i] = iconregister.registerIcon(getIconString() + '_' + dyeNames[i]);
 		}
 	}
 }

@@ -230,16 +230,16 @@ public class GOTDate {
 				if (month.hasWeekdayName) {
 					builder.append(getDay().getDayName());
 				}
-				builder.append(" ");
+				builder.append(' ');
 				if (!month.isSingleDay()) {
 					builder.append(monthDate);
 				}
-				builder.append(" ");
+				builder.append(' ');
 				builder.append(month.getMonthName());
 				String dateName = builder.toString();
 				builder = new StringBuilder();
 				builder.append(year);
-				builder.append(" ");
+				builder.append(' ');
 				if (longName) {
 					builder.append(StatCollector.translateToLocal("got.date.long"));
 				} else {

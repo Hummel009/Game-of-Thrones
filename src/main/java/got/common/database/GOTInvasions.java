@@ -255,7 +255,7 @@ public enum GOTInvasions {
 	public String codeName() {
 		StringBuilder s = new StringBuilder(invasionFaction.codeName());
 		if (subfaction != null) {
-			s.append("_").append(subfaction);
+			s.append('_').append(subfaction);
 		}
 		return s.toString();
 	}

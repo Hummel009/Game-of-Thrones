@@ -338,7 +338,7 @@ public class DatabaseGenerator {
 				StringBuilder del = new StringBuilder();
 				for (String existing : sitemap) {
 					if (!neededPages.contains(existing)) {
-						del.append(existing).append("\n");
+						del.append(existing).append('\n');
 					}
 				}
 				PrintWriter removal = new PrintWriter("hummel/removal.txt", "UTF-8");
@@ -355,7 +355,7 @@ public class DatabaseGenerator {
 					for (GOTBiome biome : BIOMES) {
 						for (Structure structure : biome.decorator.structures) {
 							if (structure.structureGen.getClass() == strClass) {
-								sb.append("\n* ").append(getBiomeLink(biome)).append(";");
+								sb.append("\n* ").append(getBiomeLink(biome)).append(';');
 								continue next;
 							}
 						}
@@ -378,7 +378,7 @@ public class DatabaseGenerator {
 							Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
 							int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
 							if (getBlockMetaName(block, meta).equals(mineral) || getBlockName(block).equals(mineral)) {
-								sb.append("\n* ").append(getBiomeLink(biome)).append(" (").append(oreGenerant.oreChance).append("%; Y: ").append(oreGenerant.minHeight).append("-").append(oreGenerant.maxHeight).append(");");
+								sb.append("\n* ").append(getBiomeLink(biome)).append(" (").append(oreGenerant.oreChance).append("%; Y: ").append(oreGenerant.minHeight).append('-').append(oreGenerant.maxHeight).append(");");
 								continue next;
 							}
 						}
@@ -417,7 +417,7 @@ public class DatabaseGenerator {
 						sb.append(Lang.TREE_HAS_BIOMES);
 					}
 					for (GOTBiome biome : biomesTree) {
-						sb.append("\n* ").append(getBiomeLink(biome)).append(";");
+						sb.append("\n* ").append(getBiomeLink(biome)).append(';');
 					}
 					for (GOTBiome biome : biomesVariantTree) {
 						sb.append("\n* ").append(getBiomeLink(biome)).append(" (").append(Lang.TREE_VARIANT_ONLY).append(");");
@@ -579,7 +579,7 @@ public class DatabaseGenerator {
 						sb.append(Lang.BIOME_NO_VARIANTS);
 					} else {
 						for (VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
-							sb.append("\n* ").append(getBiomeVariantName(variantBucket.variant)).append(";");
+							sb.append("\n* ").append(getBiomeVariantName(variantBucket.variant)).append(';');
 						}
 					}
 				}
@@ -606,7 +606,7 @@ public class DatabaseGenerator {
 							}
 						}
 						for (GOTFaction fac : invasionFactions) {
-							sb.append("\n* ").append(getFactionLink(fac)).append(";");
+							sb.append("\n* ").append(getFactionLink(fac)).append(';');
 						}
 					}
 				}
@@ -638,7 +638,7 @@ public class DatabaseGenerator {
 					if (ach == null) {
 						sb.append(Lang.BIOME_NO_ACHIEVEMENT);
 					} else {
-						sb.append("\"").append(getAchievementTitle(ach)).append("\"");
+						sb.append('"').append(getAchievementTitle(ach)).append('"');
 					}
 				}
 				sb.append(END);
@@ -671,7 +671,7 @@ public class DatabaseGenerator {
 							sb.append("\n* [[").append(getTreeName(tree)).append("]];");
 						}
 						for (Entry<GOTTreeType, GOTBiomeVariant> tree : additionalTrees.entrySet()) {
-							sb.append("\n* [[").append(getTreeName(tree.getKey())).append("]] (").append(getBiomeVariantName(tree.getValue()).toLowerCase(Locale.ROOT)).append(")").append(";");
+							sb.append("\n* [[").append(getTreeName(tree.getKey())).append("]] (").append(getBiomeVariantName(tree.getValue()).toLowerCase(Locale.ROOT)).append(')').append(';');
 						}
 					}
 				}
@@ -692,9 +692,9 @@ public class DatabaseGenerator {
 						sb.append(Lang.BIOME_HAS_ANIMALS);
 						for (SpawnListEntry entry : entries) {
 							if (GOTEntityRegistry.classToNameMapping.containsKey(entry.entityClass)) {
-								sb.append("\n* ").append(getEntityLink(entry.entityClass)).append(";");
+								sb.append("\n* ").append(getEntityLink(entry.entityClass)).append(';');
 							} else {
-								sb.append("\n* ").append(getEntityVanillaName(entry.entityClass)).append(";");
+								sb.append("\n* ").append(getEntityVanillaName(entry.entityClass)).append(';');
 							}
 						}
 					}
@@ -712,9 +712,9 @@ public class DatabaseGenerator {
 						Block block = GOTReflection.getOreBlock(oreGenerant.oreGen);
 						int meta = GOTReflection.getOreMeta(oreGenerant.oreGen);
 						if (block instanceof GOTBlockOreGem || block instanceof BlockDirt || block instanceof GOTBlockRock) {
-							sb.append("\n* [[").append(getBlockMetaName(block, meta)).append("]] (").append(oreGenerant.oreChance).append("%; Y: ").append(oreGenerant.minHeight).append("-").append(oreGenerant.maxHeight).append(");");
+							sb.append("\n* [[").append(getBlockMetaName(block, meta)).append("]] (").append(oreGenerant.oreChance).append("%; Y: ").append(oreGenerant.minHeight).append('-').append(oreGenerant.maxHeight).append(");");
 						} else {
-							sb.append("\n* [[").append(getBlockName(block)).append("]] (").append(oreGenerant.oreChance).append("%; Y: ").append(oreGenerant.minHeight).append("-").append(oreGenerant.maxHeight).append(");");
+							sb.append("\n* [[").append(getBlockName(block)).append("]] (").append(oreGenerant.oreChance).append("%; Y: ").append(oreGenerant.minHeight).append('-').append(oreGenerant.maxHeight).append(");");
 						}
 					}
 				}
@@ -756,7 +756,7 @@ public class DatabaseGenerator {
 					for (Entry<Class<? extends Entity>, Entity> entityEntry : CLASS_TO_OBJ.entrySet()) {
 						Entity entity = entityEntry.getValue();
 						if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac && !((GOTEntityNPC) entity).isLegendaryNPC()) {
-							sb.append("\n* ").append(getEntityLink(entityEntry.getKey())).append(";");
+							sb.append("\n* ").append(getEntityLink(entityEntry.getKey())).append(';');
 						}
 					}
 				}
@@ -784,7 +784,7 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.FACTION_HAS_INVASION);
 						for (GOTBiome biome : invasionBiomes) {
-							sb.append("\n* ").append(getBiomeLink(biome)).append(";");
+							sb.append("\n* ").append(getBiomeLink(biome)).append(';');
 						}
 					}
 				}
@@ -825,7 +825,7 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.FACTION_HAS_SPAWN);
 						for (GOTBiome biome : spawnBiomes) {
-							sb.append("\n* ").append(getBiomeLink(biome)).append(";");
+							sb.append("\n* ").append(getBiomeLink(biome)).append(';');
 						}
 					}
 
@@ -867,7 +867,7 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.FACTION_HAS_CONQUEST);
 						for (GOTBiome biome : conquestBiomes) {
-							sb.append("\n* ").append(getBiomeLink(biome)).append(";");
+							sb.append("\n* ").append(getBiomeLink(biome)).append(';');
 						}
 					}
 
@@ -883,7 +883,7 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.FACTION_HAS_RANKS);
 						for (GOTFactionRank rank : fac.ranksSortedDescending) {
-							sb.append("\n* ").append(rank.getDisplayFullName()).append("/").append(rank.getDisplayFullNameFem()).append(" (+").append(rank.alignment).append(");");
+							sb.append("\n* ").append(rank.getDisplayFullName()).append('/').append(rank.getDisplayFullNameFem()).append(" (+").append(rank.alignment).append(");");
 						}
 					}
 				}
@@ -898,7 +898,7 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.FACTION_HAS_BANNERS);
 						for (BannerType banner : fac.factionBanners) {
-							sb.append("\n* ").append(getBannerName(banner)).append(";");
+							sb.append("\n* ").append(getBannerName(banner)).append(';');
 						}
 					}
 				}
@@ -919,7 +919,7 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.FACTION_HAS_WAYPOINTS);
 						for (GOTWaypoint wp : facWaypoints) {
-							sb.append("\n* ").append(wp.getDisplayName()).append(";");
+							sb.append("\n* ").append(wp.getDisplayName()).append(';');
 						}
 					}
 				}
@@ -961,7 +961,7 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					if (fac.getPledgeRank() != null) {
-						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(fac.getPledgeRank().getDisplayName()).append("/").append(fac.getPledgeRank().getDisplayNameFem()).append(" (+").append(fac.getPledgeAlignment()).append(")");
+						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(fac.getPledgeRank().getDisplayName()).append('/').append(fac.getPledgeRank().getDisplayNameFem()).append(" (+").append(fac.getPledgeAlignment()).append(')');
 					}
 				}
 				sb.append(END);
@@ -982,7 +982,7 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.FACTION_HAS_CHARS);
 						for (Class<? extends Entity> entityClass : facCharacters) {
-							sb.append("\n* ").append(getEntityLink(entityClass)).append(";");
+							sb.append("\n* ").append(getEntityLink(entityClass)).append(';');
 						}
 					}
 				}
@@ -1090,7 +1090,7 @@ public class DatabaseGenerator {
 						sb.append(Lang.FACTION_NO_STRUCTURES);
 					} else {
 						for (Class<? extends WorldGenerator> str : facStructures) {
-							sb.append("\n* ").append(getStructureName(str)).append(";");
+							sb.append("\n* ").append(getStructureName(str)).append(';');
 						}
 					}
 				}
@@ -1156,21 +1156,21 @@ public class DatabaseGenerator {
 					} else {
 						sb.append(Lang.ENTITY_HAS_BIOMES);
 						for (GOTBiome biome : spawnBiomes) {
-							sb.append("\n* ").append(getBiomeLink(biome)).append(";");
+							sb.append("\n* ").append(getBiomeLink(biome)).append(';');
 						}
 						for (GOTBiome biome : conquestBiomes) {
 							if (!invasionBiomes.contains(biome)) {
-								sb.append("\n* ").append(getBiomeLink(biome)).append(" ").append(Lang.ENTITY_CONQUEST).append(";");
+								sb.append("\n* ").append(getBiomeLink(biome)).append(' ').append(Lang.ENTITY_CONQUEST).append(';');
 							}
 						}
 						for (GOTBiome biome : invasionBiomes) {
 							if (!conquestBiomes.contains(biome)) {
-								sb.append("\n* ").append(getBiomeLink(biome)).append(" ").append(Lang.ENTITY_INVASION).append(";");
+								sb.append("\n* ").append(getBiomeLink(biome)).append(' ').append(Lang.ENTITY_INVASION).append(';');
 							}
 						}
 						for (GOTBiome biome : unnaturalBiomes) {
 							if (conquestBiomes.contains(biome) && invasionBiomes.contains(biome)) {
-								sb.append("\n* ").append(getBiomeLink(biome)).append(" ").append(Lang.ENTITY_CONQUEST_INVASION).append(";");
+								sb.append("\n* ").append(getBiomeLink(biome)).append(' ').append(Lang.ENTITY_CONQUEST_INVASION).append(';');
 							}
 						}
 					}
@@ -1379,7 +1379,7 @@ public class DatabaseGenerator {
 								if (entry.getPledgeType() == PledgeType.NONE || entry.alignmentRequired >= 101.0f) {
 									sb.append(entry.alignmentRequired);
 								} else {
-									sb.append("+").append(100.0);
+									sb.append('+').append(100.0);
 								}
 								continue next;
 							}
@@ -1416,7 +1416,7 @@ public class DatabaseGenerator {
 						if (ach == null) {
 							sb.append("N/A");
 						} else {
-							sb.append("\"").append(getAchievementTitle(ach)).append("\"");
+							sb.append('"').append(getAchievementTitle(ach)).append('"');
 						}
 					}
 				}
@@ -1465,11 +1465,11 @@ public class DatabaseGenerator {
 							if (entry.mountClass == null) {
 								sb.append("\n* ").append(getEntityLink(entry.entityClass));
 								if (entry.getPledgeType() == PledgeType.NONE) {
-									sb.append(": {{Coins|").append(entry.initialCost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.initialCost).append("}} ").append(Lang.NEED_PLEDGE).append("; ").append(entry.alignmentRequired).append("+ ").append(Lang.REPUTATION).append(";");
+									sb.append(": {{Coins|").append(entry.initialCost * 2).append("}} ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.initialCost).append("}} ").append(Lang.NEED_PLEDGE).append("; ").append(entry.alignmentRequired).append("+ ").append(Lang.REPUTATION).append(';');
 								} else if (entry.alignmentRequired < 101.0f) {
-									sb.append(": N/A ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.initialCost).append("}} ").append(Lang.NEED_PLEDGE).append("; +").append(100.0).append("+ ").append(Lang.REPUTATION).append(";");
+									sb.append(": N/A ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.initialCost).append("}} ").append(Lang.NEED_PLEDGE).append("; +").append(100.0).append("+ ").append(Lang.REPUTATION).append(';');
 								} else {
-									sb.append(": N/A ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.initialCost).append("}} ").append(Lang.NEED_PLEDGE).append("; +").append(entry.alignmentRequired).append("+ ").append(Lang.REPUTATION).append(";");
+									sb.append(": N/A ").append(Lang.NO_PLEDGE).append(", {{Coins|").append(entry.initialCost).append("}} ").append(Lang.NEED_PLEDGE).append("; +").append(entry.alignmentRequired).append("+ ").append(Lang.REPUTATION).append(';');
 								}
 							}
 						}
@@ -1501,7 +1501,7 @@ public class DatabaseGenerator {
 			e.printStackTrace();
 		}
 		long newTime = System.nanoTime();
-		IChatComponent chatComponentTranslation = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + "s");
+		IChatComponent chatComponentTranslation = new ChatComponentText("Generated databases in " + (newTime - time) / 1.0E9 + 's');
 		player.addChatMessage(chatComponentTranslation);
 	}
 
@@ -1523,7 +1523,7 @@ public class DatabaseGenerator {
 		if (biomeName.equals(biomePagename)) {
 			return "[[" + biomeName + "]]";
 		}
-		return "[[" + biomePagename + "|" + biomeName + "]]";
+		return "[[" + biomePagename + '|' + biomeName + "]]";
 	}
 
 	public static String getBiomeName(GOTBiome biome) {
@@ -1539,7 +1539,7 @@ public class DatabaseGenerator {
 	}
 
 	public static String getBlockMetaName(Block block, int meta) {
-		return StatCollector.translateToLocal(block.getUnlocalizedName() + "." + meta + ".name");
+		return StatCollector.translateToLocal(block.getUnlocalizedName() + '.' + meta + ".name");
 	}
 
 	public static String getBlockName(Block block) {
@@ -1556,7 +1556,7 @@ public class DatabaseGenerator {
 		if (entityName.equals(entityPagename)) {
 			return "[[" + entityPagename + "]]";
 		}
-		return "[[" + entityPagename + "|" + entityName + "]]";
+		return "[[" + entityPagename + '|' + entityName + "]]";
 	}
 
 	public static String getEntityName(Class<? extends Entity> entityClass) {
@@ -1577,7 +1577,7 @@ public class DatabaseGenerator {
 		if (facName.equals(facPagename)) {
 			return "[[" + facPagename + "]]";
 		}
-		return "[[" + facPagename + "|" + facName + "]]";
+		return "[[" + facPagename + '|' + facName + "]]";
 	}
 
 	public static String getFactionName(GOTFaction fac) {
@@ -1646,13 +1646,13 @@ public class DatabaseGenerator {
 			String preName = getBiomeName(biome);
 			for (GOTFaction fac : factions) {
 				if (preName.equals(getFactionName(fac))) {
-					BIOME_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_BIOME + ")");
+					BIOME_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_BIOME + ')');
 					continue next;
 				}
 			}
 			for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
 				if (preName.equals(getEntityName(entityClass))) {
-					BIOME_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_BIOME + ")");
+					BIOME_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_BIOME + ')');
 					continue next;
 				}
 			}
@@ -1666,13 +1666,13 @@ public class DatabaseGenerator {
 			String preName = getEntityName(entityClass);
 			for (GOTBiome biome : biomes) {
 				if (preName.equals(getBiomeName(biome))) {
-					ENTITY_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_ENTITY + ")");
+					ENTITY_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_ENTITY + ')');
 					continue next;
 				}
 			}
 			for (GOTFaction fac : factions) {
 				if (preName.equals(getFactionName(fac))) {
-					ENTITY_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_ENTITY + ")");
+					ENTITY_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_ENTITY + ')');
 					continue next;
 				}
 			}
@@ -1686,13 +1686,13 @@ public class DatabaseGenerator {
 			String preName = getFactionName(fac);
 			for (GOTBiome biome : biomes) {
 				if (preName.equals(getBiomeName(biome))) {
-					FAC_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_FACTION + ")");
+					FAC_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_FACTION + ')');
 					continue next;
 				}
 			}
 			for (Class<? extends Entity> entityClass : GOTEntityRegistry.entitySet) {
 				if (preName.equals(getEntityName(entityClass))) {
-					FAC_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_FACTION + ")");
+					FAC_TO_PAGE.put(preName, preName + " (" + Lang.PAGE_FACTION + ')');
 					continue next;
 				}
 			}

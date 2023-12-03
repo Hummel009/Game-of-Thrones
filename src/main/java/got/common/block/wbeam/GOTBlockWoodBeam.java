@@ -67,8 +67,8 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 		sideIcons = new IIcon[woodNames.length];
 		topIcons = new IIcon[woodNames.length];
 		for (int i = 0; i < woodNames.length; ++i) {
-			topIcons[i] = iconregister.registerIcon(getTextureName() + "_" + woodNames[i] + "_top");
-			sideIcons[i] = iconregister.registerIcon(getTextureName() + "_" + woodNames[i] + "_side");
+			topIcons[i] = iconregister.registerIcon(getTextureName() + '_' + woodNames[i] + "_top");
+			sideIcons[i] = iconregister.registerIcon(getTextureName() + '_' + woodNames[i] + "_side");
 		}
 	}
 

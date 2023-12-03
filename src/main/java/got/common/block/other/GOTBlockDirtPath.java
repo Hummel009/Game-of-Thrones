@@ -53,7 +53,7 @@ public class GOTBlockDirtPath extends Block {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		pathIcons = new IIcon[pathNames.length];
 		for (int i = 0; i < pathNames.length; ++i) {
-			pathIcons[i] = iconregister.registerIcon(getTextureName() + "_" + pathNames[i]);
+			pathIcons[i] = iconregister.registerIcon(getTextureName() + '_' + pathNames[i]);
 		}
 	}
 }

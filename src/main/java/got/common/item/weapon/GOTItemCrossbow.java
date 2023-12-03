@@ -249,9 +249,9 @@ public class GOTItemCrossbow extends ItemBow {
 	public void registerIcons(IIconRegister iconregister) {
 		itemIcon = iconregister.registerIcon(getIconString());
 		crossbowPullIcons = new IIcon[3];
-		crossbowPullIcons[0] = iconregister.registerIcon(getIconString() + "_" + GOTItemBow.BowState.PULL_0.iconName);
-		crossbowPullIcons[1] = iconregister.registerIcon(getIconString() + "_" + GOTItemBow.BowState.PULL_1.iconName);
-		crossbowPullIcons[2] = iconregister.registerIcon(getIconString() + "_" + GOTItemBow.BowState.PULL_2.iconName);
+		crossbowPullIcons[0] = iconregister.registerIcon(getIconString() + '_' + GOTItemBow.BowState.PULL_0.iconName);
+		crossbowPullIcons[1] = iconregister.registerIcon(getIconString() + '_' + GOTItemBow.BowState.PULL_1.iconName);
+		crossbowPullIcons[2] = iconregister.registerIcon(getIconString() + '_' + GOTItemBow.BowState.PULL_2.iconName);
 	}
 
 	public void setLoaded(ItemStack itemstack, ItemStack ammo) {

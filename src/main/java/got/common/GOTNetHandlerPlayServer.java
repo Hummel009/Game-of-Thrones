@@ -110,7 +110,7 @@ public class GOTNetHandlerPlayServer extends NetHandlerPlayServer {
 				if (movedY >= -0.03125) {
 					++floatingMountTick;
 					if (floatingMountTick > 80) {
-						FMLLog.warning(playerEntity.getCommandSenderName() + " was kicked for floating too long on mount " + mount.getCommandSenderName() + "!");
+						FMLLog.warning(playerEntity.getCommandSenderName() + " was kicked for floating too long on mount " + mount.getCommandSenderName() + '!');
 						kickPlayerFromServer("Flying is not enabled on this server");
 						return;
 					}

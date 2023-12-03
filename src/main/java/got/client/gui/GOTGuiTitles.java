@@ -84,7 +84,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 			if (title != null) {
 				name = title.getDisplayName(mc.thePlayer);
 				if (isCurrentTitle) {
-					name = "[" + name + "]";
+					name = '[' + name + ']';
 					name = currentTitle.getColor() + name;
 				}
 			} else {

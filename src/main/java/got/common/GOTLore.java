@@ -262,7 +262,7 @@ public class GOTLore {
 				currentLine.append(word);
 				++usedWords;
 				if (i < splitTxtWords.size() - 1) {
-					currentLine.append(" ");
+					currentLine.append(' ');
 				}
 				if (currentLine.length() >= 17) {
 					pageText.append(currentLine);

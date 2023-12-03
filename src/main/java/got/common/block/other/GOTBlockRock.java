@@ -91,7 +91,7 @@ public class GOTBlockRock extends Block {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		rockIcons = new IIcon[rockNames.length];
 		for (int i = 0; i < rockNames.length; ++i) {
-			String subName = getTextureName() + "_" + rockNames[i];
+			String subName = getTextureName() + '_' + rockNames[i];
 			rockIcons[i] = iconregister.registerIcon(subName);
 			if (i == 0) {
 				iconBasaltSide = iconregister.registerIcon(subName + "_side");

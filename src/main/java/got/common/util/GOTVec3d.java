@@ -165,6 +165,6 @@ public class GOTVec3d {
 
 	@Override
 	public String toString() {
-		return "(" + xCoord + ", " + yCoord + ", " + zCoord + ")";
+		return "(" + xCoord + ", " + yCoord + ", " + zCoord + ')';
 	}
 }

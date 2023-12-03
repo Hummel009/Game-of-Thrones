@@ -336,7 +336,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 						}
 					}
 				}
-				eyes = mc.renderEngine.getDynamicTextureLocation(skin.toString() + "_eyes_" + eyeWidth + "_" + eyeHeight, new DynamicTexture(eyesImage));
+				eyes = mc.renderEngine.getDynamicTextureLocation(skin.toString() + "_eyes_" + eyeWidth + '_' + eyeHeight, new DynamicTexture(eyesImage));
 			} catch (IOException e) {
 				GOTLog.logger.error("Failed to generate eyes skin");
 				e.printStackTrace();

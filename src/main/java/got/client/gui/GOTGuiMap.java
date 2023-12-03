@@ -569,7 +569,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.wait"));
 					int ellipsis = 1 + tickCounter / 10 % 3;
 					for (int l = 0; l < ellipsis; ++l) {
-						loadText.append(".");
+						loadText.append('.');
 					}
 				} else if (query.getResult() == GOTConquestGrid.ConquestViewable.UNPLEDGED) {
 					loadText = new StringBuilder(StatCollector.translateToLocal("got.gui.map.conquest.noPledge"));

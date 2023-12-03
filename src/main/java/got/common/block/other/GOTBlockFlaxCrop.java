@@ -47,7 +47,7 @@ public class GOTBlockFlaxCrop extends BlockCrops {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		flaxIcons = new IIcon[3];
 		for (int i = 0; i < flaxIcons.length; ++i) {
-			flaxIcons[i] = iconregister.registerIcon(getTextureName() + "_" + i);
+			flaxIcons[i] = iconregister.registerIcon(getTextureName() + '_' + i);
 		}
 	}
 }

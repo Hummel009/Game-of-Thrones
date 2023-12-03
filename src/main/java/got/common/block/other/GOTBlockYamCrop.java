@@ -57,7 +57,7 @@ public class GOTBlockYamCrop extends BlockCrops {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		yamIcons = new IIcon[4];
 		for (int i = 0; i < yamIcons.length; ++i) {
-			yamIcons[i] = iconregister.registerIcon(getTextureName() + "_" + i);
+			yamIcons[i] = iconregister.registerIcon(getTextureName() + '_' + i);
 		}
 	}
 }

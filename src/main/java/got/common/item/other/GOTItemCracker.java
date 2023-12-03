@@ -217,7 +217,7 @@ public class GOTItemCracker extends Item {
 	public void registerIcons(IIconRegister iconregister) {
 		crackerIcons = new IIcon[crackerNames.length];
 		for (int i = 0; i < crackerNames.length; ++i) {
-			crackerIcons[i] = iconregister.registerIcon(getIconString() + "_" + crackerNames[i]);
+			crackerIcons[i] = iconregister.registerIcon(getIconString() + '_' + crackerNames[i]);
 		}
 	}
 }

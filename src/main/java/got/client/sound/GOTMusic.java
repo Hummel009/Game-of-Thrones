@@ -87,7 +87,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 							}
 							subs.append(s);
 						}
-						regionString.append(": {").append(subs).append("}");
+						regionString.append(": {").append(subs).append('}');
 					}
 					writer.println(regionString);
 				}

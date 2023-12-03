@@ -117,7 +117,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		saplingIcons = new IIcon[saplingNames.length];
 		for (int i = 0; i < saplingNames.length; ++i) {
-			saplingIcons[i] = iconregister.registerIcon(getTextureName() + "_" + saplingNames[i]);
+			saplingIcons[i] = iconregister.registerIcon(getTextureName() + '_' + saplingNames[i]);
 		}
 	}
 

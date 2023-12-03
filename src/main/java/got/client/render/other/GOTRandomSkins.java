@@ -75,7 +75,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 		int maxSkips = 10;
 		boolean foundAfterSkip = false;
 		do {
-			ResourceLocation skin = new ResourceLocation(skinPath + "/" + skinCount + ".png");
+			ResourceLocation skin = new ResourceLocation(skinPath + '/' + skinCount + ".png");
 			boolean noFile = false;
 			try {
 				if (mc.getResourceManager().getResource(skin) == null) {
@@ -130,7 +130,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 			Collection<BufferedImage> tempLayered = new ArrayList<>();
 			block2:
 			for (String layer : skinLayers) {
-				String layerPath = skinPath + "/" + layer;
+				String layerPath = skinPath + '/' + layer;
 				GOTRandomSkins layerSkins = new GOTRandomSkins(layerPath, false);
 				tempLayered.clear();
 				for (ResourceLocation overlay : layerSkins.getAllSkins()) {
@@ -160,7 +160,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 							tempLayered.add(newImage);
 						}
 					} catch (IOException e) {
-						FMLLog.severe("Hummel009: Error combining skins " + skinPath + " on layer " + layer + "!");
+						FMLLog.severe("Hummel009: Error combining skins " + skinPath + " on layer " + layer + '!');
 						e.printStackTrace();
 						break block2;
 					}

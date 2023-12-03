@@ -239,8 +239,8 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		for (BushType type : BushType.values()) {
-			type.iconBare = iconregister.registerIcon(getTextureName() + "_" + type.bushName + "_bare");
-			type.iconGrown = iconregister.registerIcon(getTextureName() + "_" + type.bushName);
+			type.iconBare = iconregister.registerIcon(getTextureName() + '_' + type.bushName + "_bare");
+			type.iconGrown = iconregister.registerIcon(getTextureName() + '_' + type.bushName);
 		}
 	}
 

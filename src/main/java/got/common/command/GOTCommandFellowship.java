@@ -40,7 +40,7 @@ public class GOTCommandFellowship extends CommandBase {
 			StringBuilder fsName = new StringBuilder();
 			for (int i = startIndex; i <= endIndex; ++i) {
 				if (i > startIndex) {
-					fsName.append(" ");
+					fsName.append(' ');
 				}
 				fsName.append(args[i]);
 			}
@@ -65,7 +65,7 @@ public class GOTCommandFellowship extends CommandBase {
 		List<String> allFellowshipNames = leadingOnly ? playerData.listAllLeadingFellowshipNames() : playerData.listAllFellowshipNames();
 		ArrayList<String> autocompletes = new ArrayList<>();
 		for (String nextFsName : allFellowshipNames) {
-			String autocompFsName = "\"" + nextFsName + "\"";
+			String autocompFsName = '"' + nextFsName + '"';
 			if (!autocompFsName.toLowerCase(Locale.ROOT).startsWith(fsName.toLowerCase(Locale.ROOT))) {
 				continue;
 			}
@@ -264,7 +264,7 @@ public class GOTCommandFellowship extends CommandBase {
 						}
 						for (int i = startIndex; i <= endIndex; i++) {
 							if (i > startIndex) {
-								newName.append(" ");
+								newName.append(' ');
 							}
 							newName.append(args[i]);
 						}

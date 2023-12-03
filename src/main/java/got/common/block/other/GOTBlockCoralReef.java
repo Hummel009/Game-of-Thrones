@@ -92,7 +92,7 @@ public class GOTBlockCoralReef extends Block {
 		super.registerBlockIcons(iconregister);
 		plantIcons = new IIcon[plantNames.length];
 		for (int i = 0; i < plantNames.length; ++i) {
-			plantIcons[i] = iconregister.registerIcon(getTextureName() + "_" + plantNames[i]);
+			plantIcons[i] = iconregister.registerIcon(getTextureName() + '_' + plantNames[i]);
 		}
 	}
 }

@@ -53,7 +53,7 @@ public class GOTBlockThatch extends Block {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		thatchIcons = new IIcon[thatchNames.length];
 		for (int i = 0; i < thatchNames.length; ++i) {
-			thatchIcons[i] = iconregister.registerIcon(getTextureName() + "_" + thatchNames[i]);
+			thatchIcons[i] = iconregister.registerIcon(getTextureName() + '_' + thatchNames[i]);
 		}
 	}
 }

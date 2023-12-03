@@ -46,7 +46,7 @@ public class GOTBlockLeekCrop extends BlockCrops {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		leekIcons = new IIcon[4];
 		for (int i = 0; i < leekIcons.length; ++i) {
-			leekIcons[i] = iconregister.registerIcon(getTextureName() + "_" + i);
+			leekIcons[i] = iconregister.registerIcon(getTextureName() + '_' + i);
 		}
 	}
 }

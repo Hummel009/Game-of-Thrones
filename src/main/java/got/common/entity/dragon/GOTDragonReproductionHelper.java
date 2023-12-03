@@ -71,7 +71,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 				String[] p2Names = p2Name.split(" ");
 				p1Name = fixChildName(p1Names[rand.nextInt(p1Names.length)]);
 				p2Name = fixChildName(p2Names[rand.nextInt(p2Names.length)]);
-				babyName = rand.nextBoolean() ? p1Name + " " + p2Name : p2Name + " " + p1Name;
+				babyName = rand.nextBoolean() ? p1Name + ' ' + p2Name : p2Name + ' ' + p1Name;
 			} else {
 
 				if (rand.nextBoolean()) {

@@ -281,7 +281,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		super(i, false);
 		biomeDimension = dim;
 		if (biomeDimension.biomeList[i] != null) {
-			throw new IllegalArgumentException("GOT biome already exists at index " + i + " for dimension " + biomeDimension.dimensionName + "!");
+			throw new IllegalArgumentException("GOT biome already exists at index " + i + " for dimension " + biomeDimension.dimensionName + '!');
 		}
 		biomeDimension.biomeList[i] = this;
 		if (major) {
@@ -513,7 +513,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public void addBiomeF3Info(Collection<String> info, World world, GOTBiomeVariant variant) {
-		info.add("Game of Thrones biome: " + getBiomeDisplayName() + ", ID: " + biomeID + ";");
+		info.add("Game of Thrones biome: " + getBiomeDisplayName() + ", ID: " + biomeID + ';');
 		info.add("Variant: " + StatCollector.translateToLocal(variant.getUnlocalizedName()) + ", loaded: " + GOTBiomeVariantStorage.getSize(world));
 	}
 
@@ -995,7 +995,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		color |= 0xFF000000;
 		Integer existingBiomeID = biomeDimension.colorsToBiomeIDs.get(color);
 		if (existingBiomeID != null) {
-			throw new RuntimeException("GOT biome (ID " + biomeID + ") is duplicating the color of another GOT biome (ID " + existingBiomeID + ")");
+			throw new RuntimeException("GOT biome (ID " + biomeID + ") is duplicating the color of another GOT biome (ID " + existingBiomeID + ')');
 		}
 		biomeDimension.colorsToBiomeIDs.put(color, biomeID);
 		return (GOTBiome) super.setColor(color);

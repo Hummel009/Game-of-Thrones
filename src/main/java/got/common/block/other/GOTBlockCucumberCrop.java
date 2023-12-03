@@ -47,7 +47,7 @@ public class GOTBlockCucumberCrop extends BlockCrops {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		cucumberIcons = new IIcon[3];
 		for (int i = 0; i < cucumberIcons.length; ++i) {
-			cucumberIcons[i] = iconregister.registerIcon(getTextureName() + "_" + i);
+			cucumberIcons[i] = iconregister.registerIcon(getTextureName() + '_' + i);
 		}
 	}
 }

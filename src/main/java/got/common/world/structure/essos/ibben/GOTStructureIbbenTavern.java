@@ -452,6 +452,6 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		super.setupRandomBlocks(random);
 		meadHallName = GOTNames.getTavernName(random);
 		meadNameSign = new String[]{"", meadHallName[0], meadHallName[1], ""};
-		meadNameNPC = meadHallName[0] + " " + meadHallName[1];
+		meadNameNPC = meadHallName[0] + ' ' + meadHallName[1];
 	}
 }

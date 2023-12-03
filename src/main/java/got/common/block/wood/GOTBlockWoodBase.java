@@ -52,8 +52,8 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		woodIcons = new IIcon[woodNames.length][2];
 		for (int i = 0; i < woodNames.length; ++i) {
-			woodIcons[i][0] = iconregister.registerIcon(getTextureName() + "_" + woodNames[i] + "_top");
-			woodIcons[i][1] = iconregister.registerIcon(getTextureName() + "_" + woodNames[i] + "_side");
+			woodIcons[i][0] = iconregister.registerIcon(getTextureName() + '_' + woodNames[i] + "_top");
+			woodIcons[i][1] = iconregister.registerIcon(getTextureName() + '_' + woodNames[i] + "_side");
 		}
 	}
 

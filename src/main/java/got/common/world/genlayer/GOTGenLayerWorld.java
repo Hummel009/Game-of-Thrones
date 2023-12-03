@@ -47,7 +47,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 					}
 					zip.close();
 				} else {
-					File file = new File(GOT.class.getResource("/" + imageName).toURI());
+					File file = new File(GOT.class.getResource('/' + imageName).toURI());
 					biomeImage = ImageIO.read(Files.newInputStream(file.toPath()));
 				}
 				if (biomeImage == null) {

@@ -213,7 +213,7 @@ public class GOTItemCoin extends Item {
 		if (i >= values.length) {
 			i = 0;
 		}
-		return getUnlocalizedName() + "." + values[i];
+		return getUnlocalizedName() + '.' + values[i];
 	}
 
 	@Override
@@ -221,7 +221,7 @@ public class GOTItemCoin extends Item {
 	public void registerIcons(IIconRegister iconregister) {
 		coinIcons = new IIcon[values.length];
 		for (int i = 0; i < values.length; ++i) {
-			coinIcons[i] = iconregister.registerIcon(getIconString() + "_" + values[i]);
+			coinIcons[i] = iconregister.registerIcon(getIconString() + '_' + values[i]);
 		}
 	}
 }

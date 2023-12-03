@@ -30,8 +30,8 @@ public abstract class GOTBlockSmoothStoneBase extends GOTBlockBrickBase {
 		topIcons = new IIcon[brickNames.length];
 		sideIcons = new IIcon[brickNames.length];
 		for (int i = 0; i < brickNames.length; ++i) {
-			topIcons[i] = iconregister.registerIcon(getTextureName() + "_" + brickNames[i] + "_top");
-			sideIcons[i] = iconregister.registerIcon(getTextureName() + "_" + brickNames[i] + "_side");
+			topIcons[i] = iconregister.registerIcon(getTextureName() + '_' + brickNames[i] + "_top");
+			sideIcons[i] = iconregister.registerIcon(getTextureName() + '_' + brickNames[i] + "_side");
 		}
 	}
 }

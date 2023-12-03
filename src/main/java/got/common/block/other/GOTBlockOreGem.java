@@ -106,7 +106,7 @@ public class GOTBlockOreGem extends Block {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		oreIcons = new IIcon[oreNames.length];
 		for (int i = 0; i < oreNames.length; ++i) {
-			oreIcons[i] = iconregister.registerIcon(getTextureName() + "_" + oreNames[i]);
+			oreIcons[i] = iconregister.registerIcon(getTextureName() + '_' + oreNames[i]);
 		}
 	}
 }

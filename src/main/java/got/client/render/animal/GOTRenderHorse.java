@@ -29,7 +29,7 @@ public class GOTRenderHorse extends RenderHorse {
 			return mountSkin;
 		}
 		Minecraft mc = Minecraft.getMinecraft();
-		String path = "got_" + skinPath + "_" + armorPath;
+		String path = "got_" + skinPath + '_' + armorPath;
 		ResourceLocation texture = layeredMountTextures.get(path);
 		if (texture == null) {
 			texture = new ResourceLocation(path);

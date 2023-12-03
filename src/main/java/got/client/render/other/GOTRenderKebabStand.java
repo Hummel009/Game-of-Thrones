@@ -21,7 +21,7 @@ public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 		ResourceLocation r;
 		String s = kebabStand.getStandTextureName();
 		if (!StringUtils.isNullOrEmpty(s)) {
-			s = "_" + s;
+			s = '_' + s;
 		}
 		r = standTextures.get(s = "stand" + s);
 		if (r == null) {

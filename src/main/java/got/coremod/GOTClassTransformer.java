@@ -403,7 +403,7 @@ public class GOTClassTransformer implements IClassTransformer {
 				++skip;
 			} while (true);
 			if (skip > 0) {
-				System.out.println("Hummel009: Patched method " + method.name + " " + skip + " times");
+				System.out.println("Hummel009: Patched method " + method.name + ' ' + skip + " times");
 			}
 		}
 		ClassWriter writer = new ClassWriter(1);

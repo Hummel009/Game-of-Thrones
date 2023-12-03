@@ -54,7 +54,7 @@ public abstract class GOTBlockPlanksBase extends Block {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		plankIcons = new IIcon[plankTypes.length];
 		for (int i = 0; i < plankTypes.length; ++i) {
-			plankIcons[i] = iconregister.registerIcon(getTextureName() + "_" + plankTypes[i]);
+			plankIcons[i] = iconregister.registerIcon(getTextureName() + '_' + plankTypes[i]);
 		}
 	}
 

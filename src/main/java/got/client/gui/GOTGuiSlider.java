@@ -39,7 +39,7 @@ public class GOTGuiSlider extends GuiButton {
 			int value = getSliderValue();
 			displayString = String.valueOf(value);
 			if (numberDigits > 0) {
-				displayString = String.format("%0" + numberDigits + "d", value);
+				displayString = String.format("%0" + numberDigits + 'd', value);
 			}
 		}
 		if (!valueOnly) {

@@ -363,11 +363,11 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		if (isOwner) {
 			mc.getTextureManager().bindTexture(iconsTextures);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-			drawTexturedModalRect(x + titleOffset + fontRendererObj.getStringWidth(playerUsername + " "), y, 0, 0, 8, 8);
+			drawTexturedModalRect(x + titleOffset + fontRendererObj.getStringWidth(playerUsername + ' '), y, 0, 0, 8, 8);
 		} else if (isAdmin) {
 			mc.getTextureManager().bindTexture(iconsTextures);
 			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-			drawTexturedModalRect(x + titleOffset + fontRendererObj.getStringWidth(playerUsername + " "), y, 8, 0, 8, 8);
+			drawTexturedModalRect(x + titleOffset + fontRendererObj.getStringWidth(playerUsername + ' '), y, 8, 0, 8, 8);
 		}
 		boolean owned = viewingFellowship.isOwned();
 		boolean adminned = viewingFellowship.isAdminned();
@@ -581,7 +581,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				GOTTitle.PlayerTitle title = viewingFellowship.getTitleFor(playerUuid);
 				if (title != null) {
 					String titleName = title.getFormattedTitle(mc.thePlayer);
-					int thisTitleWidth = fontRendererObj.getStringWidth(titleName + " ");
+					int thisTitleWidth = fontRendererObj.getStringWidth(titleName + ' ');
 					titleOffset = Math.max(titleOffset, thisTitleWidth);
 				}
 			}
@@ -721,7 +721,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				int waitingDots = IntMath.mod(tickCounter / 10, 3);
 				s = new StringBuilder();
 				for (int l = 0; l < waitingDots; l++) {
-					s.append(".");
+					s.append('.');
 				}
 				drawCenteredString(s.toString(), guiLeft + xSize / 2, y, 16777215);
 			} else if (acceptInviteResult == GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.JOINED) {

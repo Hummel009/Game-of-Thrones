@@ -51,7 +51,7 @@ public class GOTConnectedTextures {
 			Set<IconElement> set = entry.getValue();
 			List<IconElement> list = IconElement.sortIconSet(set);
 			if (includeNoBase || list.contains(IconElement.BASE)) {
-				String iconName = modID + ":textures/blocks/" + baseIconName + "_" + key;
+				String iconName = modID + ":textures/blocks/" + baseIconName + '_' + key;
 				if (textureMap.getTextureExtry(iconName) != null) {
 					FMLLog.severe("Icon is already registered for %s", iconName);
 				} else {
@@ -200,12 +200,12 @@ public class GOTConnectedTextures {
 		Map<IconElement, BufferedImage> iconElementMap = new EnumMap<>(IconElement.class);
 		try {
 			for (IconElement e : IconElement.values()) {
-				ResourceLocation res = new ResourceLocation(modID, "textures/blocks/" + baseIconName + "_" + e.iconName + ".png");
+				ResourceLocation res = new ResourceLocation(modID, "textures/blocks/" + baseIconName + '_' + e.iconName + ".png");
 				BufferedImage image = ImageIO.read(resourceManager.getResource(res).getInputStream());
 				iconElementMap.put(e, image);
 			}
 		} catch (IOException e) {
-			FMLLog.severe("Failed to onInit connected textures for %s", modID + ":" + baseIconName);
+			FMLLog.severe("Failed to onInit connected textures for %s", modID + ':' + baseIconName);
 			e.printStackTrace();
 		}
 		return iconElementMap;
@@ -279,7 +279,7 @@ public class GOTConnectedTextures {
 			iconElementMap.put(IconElement.INVCORNER_BOTTOMLEFT, iconElementMap.get(IconElement.CORNER_BOTTOMLEFT));
 			iconElementMap.put(IconElement.INVCORNER_BOTTOMRIGHT, iconElementMap.get(IconElement.CORNER_BOTTOMRIGHT));
 		} catch (IOException e) {
-			FMLLog.severe("Failed to onInit connected textures for %s", modID + ":" + baseIconName);
+			FMLLog.severe("Failed to onInit connected textures for %s", modID + ':' + baseIconName);
 			e.printStackTrace();
 		}
 		createConnectedIcons(iconregister, block, meta, false, iconElementMap);

@@ -229,7 +229,7 @@ public class GOTItemPouch extends Item {
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
-		return getUnlocalizedName() + "." + itemstack.getItemDamage();
+		return getUnlocalizedName() + '.' + itemstack.getItemDamage();
 	}
 
 	@Override
@@ -258,10 +258,10 @@ public class GOTItemPouch extends Item {
 		overlayIcons = new IIcon[pouchTypes.length];
 		overlayIconsOpen = new IIcon[pouchTypes.length];
 		for (int i = 0; i < pouchTypes.length; ++i) {
-			pouchIcons[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i]);
-			pouchIconsOpen[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i] + "_open");
-			overlayIcons[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i] + "_overlay");
-			overlayIconsOpen[i] = iconregister.registerIcon(getIconString() + "_" + pouchTypes[i] + "_open_overlay");
+			pouchIcons[i] = iconregister.registerIcon(getIconString() + '_' + pouchTypes[i]);
+			pouchIconsOpen[i] = iconregister.registerIcon(getIconString() + '_' + pouchTypes[i] + "_open");
+			overlayIcons[i] = iconregister.registerIcon(getIconString() + '_' + pouchTypes[i] + "_overlay");
+			overlayIconsOpen[i] = iconregister.registerIcon(getIconString() + '_' + pouchTypes[i] + "_open_overlay");
 		}
 	}
 

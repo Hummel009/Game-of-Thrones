@@ -71,7 +71,7 @@ public class GOTItemStructureSpawner extends Item {
 		StringBuilder s = new StringBuilder(StatCollector.translateToLocal(getUnlocalizedName() + ".name").trim());
 		String structureName = GOTStructureRegistry.getNameFromID(itemstack.getItemDamage());
 		if (structureName != null) {
-			s.append(" ").append(StatCollector.translateToLocal("got.structure." + structureName + ".name"));
+			s.append(' ').append(StatCollector.translateToLocal("got.structure." + structureName + ".name"));
 		}
 		return s.toString();
 	}

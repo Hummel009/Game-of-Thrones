@@ -52,7 +52,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		String prefix = "got:";
 		String itemName = item.getUnlocalizedName();
 		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
-		String s = prefix + "textures/items/" + folder + "/" + itemName + ".png";
+		String s = prefix + "textures/items/" + folder + '/' + itemName + ".png";
 		return new ResourceLocation(s);
 	}
 
@@ -99,9 +99,9 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		String prefix = "got:";
 		String itemName = theItem.getUnlocalizedName();
 		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
-		StringBuilder path = new StringBuilder(prefix).append(folderName).append("/").append(itemName);
+		StringBuilder path = new StringBuilder(prefix).append(folderName).append('/').append(itemName);
 		if (!StringUtils.isNullOrEmpty(extra)) {
-			path.append("_").append(extra);
+			path.append('_').append(extra);
 		}
 		return register.registerIcon(path.toString());
 	}

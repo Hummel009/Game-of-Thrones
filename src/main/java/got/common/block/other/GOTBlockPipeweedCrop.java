@@ -58,7 +58,7 @@ public class GOTBlockPipeweedCrop extends BlockCrops {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		pipeweedIcons = new IIcon[4];
 		for (int i = 0; i < pipeweedIcons.length; ++i) {
-			pipeweedIcons[i] = iconregister.registerIcon(getTextureName() + "_" + i);
+			pipeweedIcons[i] = iconregister.registerIcon(getTextureName() + '_' + i);
 		}
 	}
 }

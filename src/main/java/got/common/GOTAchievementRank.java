@@ -14,7 +14,7 @@ public class GOTAchievementRank extends GOTAchievement {
 	public GOTFaction theFac;
 
 	public GOTAchievementRank(GOTFactionRank rank) {
-		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTItems.gregorCleganeSword, "alignment_" + rank.fac.codeName() + "_" + rank.alignment);
+		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTItems.gregorCleganeSword, "alignment_" + rank.fac.codeName() + '_' + rank.alignment);
 		theRank = rank;
 		theFac = theRank.fac;
 		setRequiresAlly(theFac);
@@ -36,7 +36,7 @@ public class GOTAchievementRank extends GOTAchievement {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		IChatComponent component = new ChatComponentTranslation(theRank.getCodeFullNameWithGender(pd)).appendText(" ").appendSibling(new ChatComponentTranslation(theRank.getAffiliationCodeName())).createCopy();
 		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + "$" + ID)));
+		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + '$' + ID)));
 		return component;
 	}
 

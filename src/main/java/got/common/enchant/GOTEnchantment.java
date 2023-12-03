@@ -124,7 +124,7 @@ public abstract class GOTEnchantment {
 	public String formatAdditive(float f) {
 		String s = formatDecimalNumber(f);
 		if (f >= 0.0F) {
-			s = "+" + s;
+			s = '+' + s;
 		}
 		return s;
 	}
@@ -132,7 +132,7 @@ public abstract class GOTEnchantment {
 	public String formatAdditiveInt(int i) {
 		String s = String.valueOf(i);
 		if (i >= 0) {
-			s = "+" + s;
+			s = '+' + s;
 		}
 		return s;
 	}
@@ -145,7 +145,7 @@ public abstract class GOTEnchantment {
 
 	public String formatMultiplicative(float f) {
 		String s = formatDecimalNumber(f);
-		return "x" + s;
+		return 'x' + s;
 	}
 
 	public abstract String getDescription(ItemStack paramItemStack);

@@ -121,7 +121,7 @@ public enum GOTDimension {
 		}
 
 		public String getRegionName() {
-			return StatCollector.translateToLocal("got.dimension." + dimension.dimensionName + "." + codeName());
+			return StatCollector.translateToLocal("got.dimension." + dimension.dimensionName + '.' + codeName());
 		}
 	}
 

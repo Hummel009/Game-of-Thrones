@@ -567,9 +567,9 @@ public abstract class GOTMiniQuest {
 			Q quest = newQuestInstance(getQuestClass(), null);
 			if (quest != null) {
 				quest.questGroup = questFactoryGroup;
-				String pathName = "miniquest/" + questFactoryGroup.getBaseName() + "/";
-				String pathNameBaseSpeech = "miniquest/" + questFactoryGroup.getBaseSpeechGroup().getBaseName() + "/";
-				String questPathName = pathName + questName + "_";
+				String pathName = "miniquest/" + questFactoryGroup.getBaseName() + '/';
+				String pathNameBaseSpeech = "miniquest/" + questFactoryGroup.getBaseSpeechGroup().getBaseName() + '/';
+				String questPathName = pathName + questName + '_';
 				quest.speechBankStart = questPathName + "start";
 				quest.speechBankProgress = questPathName + "progress";
 				quest.speechBankComplete = questPathName + "complete";

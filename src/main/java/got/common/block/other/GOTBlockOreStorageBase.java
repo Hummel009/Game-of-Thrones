@@ -65,7 +65,7 @@ public abstract class GOTBlockOreStorageBase extends Block {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		oreStorageIcons = new IIcon[oreStorageNames.length];
 		for (int i = 0; i < oreStorageNames.length; ++i) {
-			oreStorageIcons[i] = iconregister.registerIcon(getTextureName() + "_" + oreStorageNames[i]);
+			oreStorageIcons[i] = iconregister.registerIcon(getTextureName() + '_' + oreStorageNames[i]);
 		}
 	}
 

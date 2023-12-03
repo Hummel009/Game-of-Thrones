@@ -250,7 +250,7 @@ public class GOTItemMug extends Item {
 				EnumChatFormatting c;
 				float f = alcoholicity * strength * 10.0f;
 				c = f < 2.0f ? EnumChatFormatting.GREEN : f < 5.0f ? EnumChatFormatting.YELLOW : f < 10.0f ? EnumChatFormatting.GOLD : f < 20.0f ? EnumChatFormatting.RED : EnumChatFormatting.DARK_RED;
-				list.add(c + StatCollector.translateToLocal("item.got.drink.alcoholicity") + ": " + String.format("%.2f", f) + "%");
+				list.add(c + StatCollector.translateToLocal("item.got.drink.alcoholicity") + ": " + String.format("%.2f", f) + '%');
 			}
 			addPotionEffectsToTooltip(itemstack, entityplayer, list, flag, convertPotionEffectsForStrength(strength));
 		}

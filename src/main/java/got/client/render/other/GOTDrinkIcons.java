@@ -39,7 +39,7 @@ public class GOTDrinkIcons {
 				liquidIcon = ImageIO.read(resourceManager.getResource(res).getInputStream());
 				liquidIcons.put(item, liquidIcon);
 			}
-			String iconName = "got:textures/items/" + baseIconName + "_" + vessel;
+			String iconName = "got:textures/items/" + baseIconName + '_' + vessel;
 			int iconWidth = vesselIcon.getWidth();
 			int iconHeight = vesselIcon.getHeight();
 			BufferedImage iconImage = new BufferedImage(iconWidth, iconHeight, 2);

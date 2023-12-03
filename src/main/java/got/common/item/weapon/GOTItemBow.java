@@ -210,9 +210,9 @@ public class GOTItemBow extends ItemBow {
 		if (bowRenderer instanceof GOTRenderBow && ((GOTRenderBow) bowRenderer).isLargeBow()) {
 			Arrays.fill(bowPullIcons, itemIcon);
 		} else {
-			bowPullIcons[0] = iconregister.registerIcon(getIconString() + "_" + BowState.PULL_0.iconName);
-			bowPullIcons[1] = iconregister.registerIcon(getIconString() + "_" + BowState.PULL_1.iconName);
-			bowPullIcons[2] = iconregister.registerIcon(getIconString() + "_" + BowState.PULL_2.iconName);
+			bowPullIcons[0] = iconregister.registerIcon(getIconString() + '_' + BowState.PULL_0.iconName);
+			bowPullIcons[1] = iconregister.registerIcon(getIconString() + '_' + BowState.PULL_1.iconName);
+			bowPullIcons[2] = iconregister.registerIcon(getIconString() + '_' + BowState.PULL_2.iconName);
 		}
 	}
 

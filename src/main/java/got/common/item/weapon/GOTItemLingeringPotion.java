@@ -69,10 +69,10 @@ public class GOTItemLingeringPotion extends ItemPotion {
 				}
 
 				if (potioneffect.getAmplifier() > 0) {
-					s1 = s1 + " " + StatCollector.translateToLocal("potion.potency." + potioneffect.getAmplifier()).trim();
+					s1 = s1 + ' ' + StatCollector.translateToLocal("potion.potency." + potioneffect.getAmplifier()).trim();
 				}
 				if (potioneffect.getDuration() > 20) {
-					s1 = s1 + " (" + Potion.getDurationString(potioneffect) + ")";
+					s1 = s1 + " (" + Potion.getDurationString(potioneffect) + ')';
 				}
 
 				if (potion.isBadEffect()) {
@@ -160,7 +160,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 		if (stack.getItemDamage() == 0) {
 			return StatCollector.translateToLocal("item.emptyPotion.name").trim();
 		}
-		String s = StatCollector.translateToLocal("got.potion").trim() + " ";
+		String s = StatCollector.translateToLocal("got.potion").trim() + ' ';
 
 		List<PotionEffect> list = getEffects(stack);
 		String s1;
@@ -171,7 +171,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 			return s + StatCollector.translateToLocal(s1).trim();
 		}
 		s1 = PotionHelper.func_77905_c(stack.getItemDamage());
-		return StatCollector.translateToLocal(s1).trim() + " " + super.getItemStackDisplayName(stack);
+		return StatCollector.translateToLocal(s1).trim() + ' ' + super.getItemStackDisplayName(stack);
 	}
 
 	@Override

@@ -1243,7 +1243,7 @@ public class GOTTickHandlerClient {
 							}
 							a++;
 						}
-						authors.append(")");
+						authors.append(')');
 						lines.add(authors.toString());
 					}
 					ScaledResolution resolution = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);

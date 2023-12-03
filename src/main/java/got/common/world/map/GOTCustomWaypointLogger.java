@@ -42,7 +42,7 @@ public class GOTCustomWaypointLogger {
 					if (fellowship == null || !fellowship.containsPlayer(entityplayer.getUniqueID())) {
 						continue;
 					}
-					logLine.append(",");
+					logLine.append(',');
 					logLine.append(fellowship.getName());
 				}
 			}

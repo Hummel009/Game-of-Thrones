@@ -51,7 +51,7 @@ public class GOTBlockLettuceCrop extends BlockCrops {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		lettuceIcons = new IIcon[4];
 		for (int i = 0; i < lettuceIcons.length; ++i) {
-			lettuceIcons[i] = iconregister.registerIcon(getTextureName() + "_" + i);
+			lettuceIcons[i] = iconregister.registerIcon(getTextureName() + '_' + i);
 		}
 	}
 }

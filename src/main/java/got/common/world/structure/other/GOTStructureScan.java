@@ -227,34 +227,34 @@ public class GOTStructureScan {
 			}
 			for (ScanStepBase e : scan.scanSteps) {
 				writer.print(e.x);
-				writer.print(".");
+				writer.print('.');
 				writer.print(e.y);
 				if (e.fillDown) {
-					writer.print("v");
+					writer.print('v');
 				}
-				writer.print(".");
+				writer.print('.');
 				writer.print(e.z);
-				writer.print(".");
+				writer.print('.');
 				if (e instanceof ScanStep) {
 					ScanStep step = (ScanStep) e;
-					writer.print("\"");
+					writer.print('"');
 					String blockName = Block.blockRegistry.getNameForObject(step.block);
 					if (blockName.startsWith("minecraft:")) {
 						blockName = blockName.substring("minecraft:".length());
 					}
 					writer.print(blockName);
-					writer.print("\"");
-					writer.print(".");
+					writer.print('"');
+					writer.print('.');
 					writer.print(step.meta);
 					writer.println();
 					continue;
 				}
 				if (e instanceof ScanStepBlockAlias) {
 					ScanStepBlockAlias step = (ScanStepBlockAlias) e;
-					writer.print("#");
+					writer.print('#');
 					writer.print(step.alias);
-					writer.print("#");
-					writer.print(".");
+					writer.print('#');
+					writer.print('.');
 					writer.print(step.meta);
 					writer.println();
 					continue;
@@ -263,9 +263,9 @@ public class GOTStructureScan {
 					continue;
 				}
 				ScanStepBlockMetaAlias step = (ScanStepBlockMetaAlias) e;
-				writer.print("~");
+				writer.print('~');
 				writer.print(step.alias);
-				writer.print("~");
+				writer.print('~');
 				writer.println();
 			}
 			writer.close();

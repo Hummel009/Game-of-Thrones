@@ -812,7 +812,7 @@ public class GOTAchievement {
 	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
 		ChatComponentTranslation component = new ChatComponentTranslation(getUntranslatedTitle(entityplayer)).createCopy();
 		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + "$" + ID)));
+		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + '$' + ID)));
 		return component;
 	}
 

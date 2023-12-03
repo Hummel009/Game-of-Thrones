@@ -45,7 +45,7 @@ public class GOTBlockStainedGlass extends GOTBlockGlass {
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		for (int i = 0; i < glassIcons.length; ++i) {
-			glassIcons[i] = iconregister.registerIcon(getTextureName() + "_" + ItemDye.field_150921_b[BlockStainedGlass.func_149997_b(i)]);
+			glassIcons[i] = iconregister.registerIcon(getTextureName() + '_' + ItemDye.field_150921_b[BlockStainedGlass.func_149997_b(i)]);
 		}
 	}
 }

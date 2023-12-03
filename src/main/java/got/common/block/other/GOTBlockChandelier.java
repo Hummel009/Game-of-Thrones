@@ -120,7 +120,7 @@ public class GOTBlockChandelier extends Block {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		chandelierIcons = new IIcon[chandelierNames.length];
 		for (int i = 0; i < chandelierNames.length; ++i) {
-			chandelierIcons[i] = iconregister.registerIcon(getTextureName() + "_" + chandelierNames[i]);
+			chandelierIcons[i] = iconregister.registerIcon(getTextureName() + '_' + chandelierNames[i]);
 		}
 	}
 

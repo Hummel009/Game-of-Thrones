@@ -484,7 +484,7 @@ public class GOTAPI {
 	}
 
 	private static String getPath(ResourceLocation res) {
-		return "/assets/" + res.getResourceDomain() + "/" + res.getResourcePath();
+		return "/assets/" + res.getResourceDomain() + '/' + res.getResourcePath();
 	}
 
 	@SideOnly(Side.CLIENT)

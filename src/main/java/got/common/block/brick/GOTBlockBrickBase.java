@@ -54,7 +54,7 @@ public abstract class GOTBlockBrickBase extends Block {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		brickIcons = new IIcon[brickNames.length];
 		for (int i = 0; i < brickNames.length; ++i) {
-			brickIcons[i] = iconregister.registerIcon(getTextureName() + "_" + brickNames[i]);
+			brickIcons[i] = iconregister.registerIcon(getTextureName() + '_' + brickNames[i]);
 		}
 	}
 

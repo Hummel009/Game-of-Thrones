@@ -43,7 +43,7 @@ public class GOTBlockYiTiFlower extends GOTBlockFlower {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		flowerIcons = new IIcon[flowerNames.length];
 		for (int i = 0; i < flowerNames.length; ++i) {
-			flowerIcons[i] = iconregister.registerIcon(getTextureName() + "_" + flowerNames[i]);
+			flowerIcons[i] = iconregister.registerIcon(getTextureName() + '_' + flowerNames[i]);
 		}
 	}
 }
