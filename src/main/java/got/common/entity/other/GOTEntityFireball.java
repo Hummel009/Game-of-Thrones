@@ -43,17 +43,17 @@ public abstract class GOTEntityFireball extends Entity {
 
 	protected GOTEntityFireball(World p_i1761_1_, EntityLivingBase p_i1761_2_, double p_i1761_3_, double p_i1761_5_, double p_i1761_7_) {
 		super(p_i1761_1_);
-		double p_i1761_3_1 = p_i1761_3_;
-		double p_i1761_5_1 = p_i1761_5_;
-		double p_i1761_7_1 = p_i1761_7_;
 		shootingEntity = p_i1761_2_;
 		setSize(1.0f, 1.0f);
 		setLocationAndAngles(p_i1761_2_.posX, p_i1761_2_.posY, p_i1761_2_.posZ, p_i1761_2_.rotationYaw, p_i1761_2_.rotationPitch);
 		setPosition(posX, posY, posZ);
 		yOffset = 0.0f;
 		motionX = motionY = motionZ = 0.0;
+		double p_i1761_3_1 = p_i1761_3_;
 		p_i1761_3_1 += rand.nextGaussian() * 0.4;
+		double p_i1761_5_1 = p_i1761_5_;
 		p_i1761_5_1 += rand.nextGaussian() * 0.4;
+		double p_i1761_7_1 = p_i1761_7_;
 		p_i1761_7_1 += rand.nextGaussian() * 0.4;
 		double d3 = MathHelper.sqrt_double(p_i1761_3_1 * p_i1761_3_1 + p_i1761_5_1 * p_i1761_5_1 + p_i1761_7_1 * p_i1761_7_1);
 		accelerationX = p_i1761_3_1 / d3 * 0.1;

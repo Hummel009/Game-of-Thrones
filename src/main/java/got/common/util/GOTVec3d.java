@@ -12,14 +12,14 @@ public class GOTVec3d {
 
 	public GOTVec3d(double x, double y, double z) {
 		double x1 = x;
-		double y1 = y;
-		double z1 = z;
 		if (x1 == -0.0) {
 			x1 = 0.0;
 		}
+		double y1 = y;
 		if (y1 == -0.0) {
 			y1 = 0.0;
 		}
+		double z1 = z;
 		if (z1 == -0.0) {
 			z1 = 0.0;
 		}

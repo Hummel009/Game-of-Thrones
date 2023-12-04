@@ -22,13 +22,13 @@ public class GOTItemBed extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
-		int j1 = j;
 		if (world.isRemote) {
 			return true;
 		}
 		if (side != 1) {
 			return false;
 		}
+		int j1 = j;
 		++j1;
 		int i1 = MathHelper.floor_double(entityplayer.rotationYaw * 4.0f / 360.0f + 0.5) & 3;
 		int b1 = 0;

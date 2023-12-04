@@ -18,13 +18,13 @@ public class GOTItemArmorStand extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
-		int i1 = i;
-		int j1 = j;
-		int k1 = k;
 		if (world.isRemote) {
 			return true;
 		}
 		Block block = GOTBlocks.armorStand;
+		int k1 = k;
+		int j1 = j;
+		int i1 = i;
 		Block block1 = world.getBlock(i1 += Facing.offsetsXForSide[side], j1 += Facing.offsetsYForSide[side], k1 += Facing.offsetsZForSide[side]);
 		Block block2 = world.getBlock(i1, j1 + 1, k1);
 		if (block1 != null && !block1.isReplaceable(world, i1, j1, k1) || block2 != null && !block2.isReplaceable(world, i1, j1 + 1, k1)) {

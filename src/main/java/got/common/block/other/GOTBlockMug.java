@@ -33,9 +33,9 @@ public class GOTBlockMug extends BlockContainer {
 
 	public GOTBlockMug(float f, float f1) {
 		super(Material.circuits);
-		float f11 = f1;
 		float f2 = f;
 		f2 /= 16.0f;
+		float f11 = f1;
 		f11 /= 16.0f;
 		setBlockBounds(0.5f - (f2 *= 0.75f), 0.0f, 0.5f - f2, 0.5f + f2, f11 * 0.75f, 0.5f + f2);
 		setHardness(0.0f);

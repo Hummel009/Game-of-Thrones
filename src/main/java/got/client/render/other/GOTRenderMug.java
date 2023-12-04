@@ -38,10 +38,10 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 
 	public void renderLiquid(IIcon icon, int uvMin, int uvMax, double yMin, double yMax, float scale) {
 		double yMin1 = yMin;
-		double yMax1 = yMax;
 		double xzMin = (double) uvMin * scale;
 		double xzMax = (double) uvMax * scale;
 		yMin1 = 16.0 - yMin1;
+		double yMax1 = yMax;
 		yMax1 = 16.0 - yMax1;
 		yMin1 *= scale;
 		yMax1 *= scale;
@@ -56,14 +56,14 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 	}
 
 	public void renderMeniscus(IIcon icon, int uvMin, int uvMax, double width, double height, float scale) {
-		double width1 = width;
-		double height1 = height;
 		float minU = icon.getInterpolatedU(uvMin);
 		float maxU = icon.getInterpolatedU(uvMax);
 		float minV = icon.getInterpolatedV(uvMin);
 		float maxV = icon.getInterpolatedV(uvMax);
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
+		double height1 = height;
+		double width1 = width;
 		tessellator.addVertexWithUV(-(width1 *= scale), -(height1 *= scale), width1, minU, maxV);
 		tessellator.addVertexWithUV(width1, -height1, width1, maxU, maxV);
 		tessellator.addVertexWithUV(width1, -height1, -width1, maxU, minV);

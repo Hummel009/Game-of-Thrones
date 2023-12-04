@@ -1717,11 +1717,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			}
 		}
 		mc.getTextureManager().bindTexture(skin);
-		double playerX_d = playerX1 + 0.5;
-		double playerY_d = playerY1 + 0.5;
 		tessellator.startDrawingQuads();
 		double iconMaxV = 0.5;
 		double iconMinU = 0.125;
+		double playerY_d = playerY1 + 0.5;
+		double playerX_d = playerX1 + 0.5;
 		tessellator.addVertexWithUV(playerX_d - iconWidthHalf, playerY_d + iconWidthHalf, zLevel, iconMinU, iconMaxV);
 		double iconMaxU = 0.25;
 		tessellator.addVertexWithUV(playerX_d + iconWidthHalf, playerY_d + iconWidthHalf, zLevel, iconMaxU, iconMaxV);
@@ -2135,8 +2135,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	public float[] transformMapCoords(float x, float z) {
 		float x1 = x;
-		float z1 = z;
 		x1 -= posX;
+		float z1 = z;
 		z1 -= posY;
 		x1 *= zoomScale;
 		z1 *= zoomScale;

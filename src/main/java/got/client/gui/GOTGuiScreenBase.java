@@ -8,14 +8,14 @@ public abstract class GOTGuiScreenBase extends GuiScreen {
 	public static void drawFloatRect(float x0, float y0, float x1, float y1, int color) {
 		float x01 = x0;
 		float x11 = x1;
-		float y01 = y0;
-		float y11 = y1;
 		float temp;
 		if (x01 < x11) {
 			temp = x01;
 			x01 = x11;
 			x11 = temp;
 		}
+		float y11 = y1;
+		float y01 = y0;
 		if (y01 < y11) {
 			temp = y01;
 			y01 = y11;

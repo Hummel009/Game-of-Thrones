@@ -388,9 +388,9 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static String getFullEnchantedName(ItemStack itemstack, String name) {
-		String name1 = name;
 		List<GOTEnchantment> enchants = getEnchantList(itemstack);
 		enchants = Lists.reverse(enchants);
+		String name1 = name;
 		for (GOTEnchantment ench : enchants) {
 			name1 = StatCollector.translateToLocalFormatted("got.enchant.nameFormat", ench.getDisplayName(), name1);
 		}

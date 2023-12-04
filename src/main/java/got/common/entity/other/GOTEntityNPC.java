@@ -216,10 +216,10 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		float f2 = f;
 		if (riddenByEntity != null && damagesource.getEntity() == riddenByEntity) {
 			return false;
 		}
+		float f2 = f;
 		if (nearbyBannerFactor > 0) {
 			int i = 12 - nearbyBannerFactor;
 			float f1 = f2 * i;

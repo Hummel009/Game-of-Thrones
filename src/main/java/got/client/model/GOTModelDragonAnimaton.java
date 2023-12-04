@@ -131,13 +131,13 @@ public class GOTModelDragonAnimaton {
 	}
 
 	public static float interp(float x, float... knots) {
-		float x1 = x;
 		int nknots = knots.length;
 		int nspans = nknots - 3;
 		if (nspans < 1) {
 			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
 			return 0;
 		}
+		float x1 = x;
 		x1 = clamp(x1, 0, 0.9999f) * nspans;
 		int span = (int) x1;
 		if (span >= nknots - 3) {
@@ -159,13 +159,13 @@ public class GOTModelDragonAnimaton {
 	}
 
 	public static void interp(float x, float[] result, float[]... knots) {
-		float x1 = x;
 		int nknots = knots.length;
 		int nspans = nknots - 3;
 		if (nspans < 1) {
 			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
 			return;
 		}
+		float x1 = x;
 		x1 = clamp(x1, 0, 0.9999f) * nspans;
 		int span = (int) x1;
 		if (span >= nknots - 3) {

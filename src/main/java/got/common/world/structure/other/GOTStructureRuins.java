@@ -34,11 +34,11 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			int rotation1 = rotation;
-			int k2 = k;
-			int i2 = i;
 			if (!restrictions && usingPlayer != null) {
 				rotation1 = usingPlayerRotation();
 			}
+			int i2 = i;
+			int k2 = k;
 			switch (rotation1) {
 				case 0:
 					k2 += 8;
@@ -144,7 +144,6 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
 			int j4 = j;
-			int rotation1 = rotation;
 			int k3 = k;
 			int i3 = i;
 			if (restrictions && world.getBlock(i3, j4 - 1, k3) != Blocks.grass) {
@@ -152,6 +151,7 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 			}
 			--j4;
 			int radius = 4 + random.nextInt(2);
+			int rotation1 = rotation;
 			if (!restrictions && usingPlayer != null) {
 				rotation1 = usingPlayerRotation();
 				switch (rotation1) {

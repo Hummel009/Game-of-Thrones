@@ -18,11 +18,11 @@ public class GOTItemDoor extends ItemBlock {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
-		int j1 = j;
 		if (side != 1) {
 			return false;
 		}
 		Block doorBlock = field_150939_a;
+		int j1 = j;
 		++j1;
 		if (entityplayer.canPlayerEdit(i, j1, k, side, itemstack) && entityplayer.canPlayerEdit(i, j1 + 1, k, side, itemstack)) {
 			if (!doorBlock.canPlaceBlockAt(world, i, j1, k)) {

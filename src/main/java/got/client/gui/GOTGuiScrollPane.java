@@ -89,11 +89,11 @@ public class GOTGuiScrollPane {
 
 	public GOTGuiScrollPane setColors(int c1, int c2) {
 		int c11 = c1;
-		int c21 = c2;
 		int alphaMask = -16777216;
 		if ((c11 & alphaMask) == 0) {
 			c11 |= alphaMask;
 		}
+		int c21 = c2;
 		if ((c21 & alphaMask) == 0) {
 			c21 |= alphaMask;
 		}

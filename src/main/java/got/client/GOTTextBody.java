@@ -57,7 +57,6 @@ public class GOTTextBody {
 		float scroll2 = Math.max(scroll, 0.0f);
 		int ySize = yBottom - yTop;
 		float scroll1 = Math.min(scroll2, numLines - MathHelper.floor_double((float) ySize / lineHeight));
-		int d1 = Math.round(scroll1);
 		int y = yTop;
 		y += ySize / lineHeight * lineHeight;
 		y -= lineHeight;
@@ -65,7 +64,7 @@ public class GOTTextBody {
 		if (numLines < maxLines) {
 			y -= (maxLines - numLines) * lineHeight;
 		}
-		block0:
+		int d1 = Math.round(scroll1);
 		for (int i = size() - 1; i >= 0; --i) {
 			String part = getText(i);
 			int color = getColor(i);
@@ -76,7 +75,7 @@ public class GOTTextBody {
 					--d1;
 				} else {
 					if (y < yTop) {
-						break block0;
+						return scroll1;
 					}
 					if (line.toString().equals(LINEBREAK)) {
 						line = new StringBuilder();

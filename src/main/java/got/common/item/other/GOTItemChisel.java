@@ -24,12 +24,12 @@ public class GOTItemChisel extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
-		int i1 = i;
-		int j1 = j;
-		int k1 = k;
 		if (side == 0 || side == 1) {
 			return false;
 		}
+		int k1 = k;
+		int j1 = j;
+		int i1 = i;
 		Block block = world.getBlock(i1, j1, k1);
 		Material mt = block.getMaterial();
 		if (block.isOpaqueCube() && (mt == Material.rock || mt == Material.wood || mt == Material.iron)) {

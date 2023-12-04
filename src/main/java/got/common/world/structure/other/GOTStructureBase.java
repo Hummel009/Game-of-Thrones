@@ -92,10 +92,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void fillChest(IBlockAccess world, Random random, int i, int j, int k, GOTChestContents contents, int amount) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
@@ -192,10 +190,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public void generateSubstructureWithRestrictionFlag(GOTStructureBase str, World world, Random random, int i, int j, int k, int r, boolean isRestrict) {
 		int r1 = r;
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		r1 += rotationMode;
 		str.restrictions = isRestrict;
@@ -219,10 +215,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public Block getBlock(IBlockAccess world, int i, int j, int k) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return Blocks.air;
@@ -256,10 +250,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public TileEntity getTileEntity(IBlockAccess world, int i, int j, int k) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return null;
@@ -268,10 +260,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public int getTopBlock(World world, int i, int k) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		if (!isInSBB(i2, 0, k2)) {
 			return 0;
 		}
@@ -333,19 +323,15 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public boolean isSurface(World world, int i, int j, int k) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		return isSurfaceStatic(world, i2, j1, k2) || settlementInstance != null && settlementInstance.isSettlementSpecificSurface(world, i2, j1, k2);
 	}
 
 	public void leashEntityTo(EntityCreature entity, World world, int i, int j, int k) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
@@ -405,15 +391,13 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeBanner(World world, int i, int j, int k, GOTItemBanner.BannerType bt, int direction, boolean protection, int r) {
-		int direction1 = direction;
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
 		}
+		int direction1 = direction;
 		for (int l = 0; l < rotationMode; ++l) {
 			direction1 = Direction.rotateRight[direction1];
 		}
@@ -481,10 +465,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		} else {
 			setBlockAndMetadata(world, i, j, k, GOTBlocks.flowerPot, 0);
 		}
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
@@ -548,10 +530,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeNPCRespawner(GOTEntityNPCRespawner entity, World world, int i, int j, int k) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
@@ -597,10 +577,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeRug(GOTEntityRugBase rug, World world, int i, int j, int k, float rotation) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
@@ -637,11 +615,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeSkull(World world, int i, int j, int k, int dir) {
-		int dir1 = dir;
 		setBlockAndMetadata(world, i, j, k, Blocks.skull, 1);
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof TileEntitySkull) {
 			TileEntitySkull skull = (TileEntitySkull) tileentity;
+			int dir1 = dir;
 			dir1 += rotationMode * 4;
 			dir1 %= 16;
 			skull.func_145903_a(dir1);
@@ -668,15 +646,13 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void placeWallBanner(World world, int i, int j, int k, GOTItemBanner.BannerType bt, int direction) {
-		int direction1 = direction;
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
 		}
+		int direction1 = direction;
 		for (int l = 0; l < rotationMode; ++l) {
 			direction1 = Direction.rotateRight[direction1];
 		}
@@ -971,10 +947,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void setBlockAndMetadata(World world, int i, int j, int k, Block block, int meta) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
@@ -987,10 +961,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void setGrassToDirt(World world, int i, int j, int k) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
@@ -1004,10 +976,10 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public void setOriginAndRotation(World world, int i, int j, int k, int rotation, int shift, int shiftX) {
 		int j1 = j;
-		int i1 = i;
-		int k1 = k;
 		--j1;
 		rotationMode = rotation;
+		int k1 = k;
+		int i1 = i;
 		switch (rotationMode) {
 			case 0:
 				k1 += shift;
@@ -1050,15 +1022,13 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void spawnItemFrame(World world, int i, int j, int k, int direction, ItemStack itemstack) {
-		int direction1 = direction;
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
 		}
+		int direction1 = direction;
 		for (int l = 0; l < rotationMode; ++l) {
 			direction1 = Direction.rotateRight[direction1];
 		}
@@ -1068,10 +1038,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void spawnLegendaryNPC(EntityCreature entity, World world, int i, int j, int k) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;
@@ -1085,10 +1053,8 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	}
 
 	public void spawnNPCAndSetHome(EntityCreature entity, World world, int i, int j, int k, int homeDistance) {
-		int i1 = i;
-		int k1 = k;
-		int i2 = getX(i1, k1);
-		int k2 = getZ(i1, k1);
+		int i2 = getX(i, k);
+		int k2 = getZ(i, k);
 		int j1 = getY(j);
 		if (!isInSBB(i2, j1, k2)) {
 			return;

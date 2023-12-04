@@ -80,6 +80,7 @@ public class GOTEffectRenderer {
 		}
 	}
 
+	@SuppressWarnings("AssignmentToForLoopParameter")
 	public void updateEffects() {
 		for (List<EntityFX> layer : particleLayers) {
 			for (int i = 0; i < layer.size(); ++i) {

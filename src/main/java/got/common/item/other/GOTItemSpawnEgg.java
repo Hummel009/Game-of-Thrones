@@ -84,12 +84,12 @@ public class GOTItemSpawnEgg extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l, float f, float f1, float f2) {
-		int i1 = i;
-		int j1 = j;
-		int k1 = k;
 		if (world.isRemote) {
 			return true;
 		}
+		int k1 = k;
+		int j1 = j;
+		int i1 = i;
 		Block block = world.getBlock(i1, j1, k1);
 		i1 += Facing.offsetsXForSide[l];
 		j1 += Facing.offsetsYForSide[l];

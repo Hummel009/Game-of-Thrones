@@ -213,14 +213,14 @@ public class GOTItemMug extends Item {
 	}
 
 	public static boolean tryPlaceMug(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side) {
-		int i1 = i;
-		int j1 = j;
-		int k1 = k;
 		Vessel vessel = getVessel(itemstack);
 		if (vessel == null || !vessel.canPlace) {
 			return false;
 		}
 		Block mugBlock = vessel.getBlock();
+		int k1 = k;
+		int j1 = j;
+		int i1 = i;
 		Block block = world.getBlock(i1 += Facing.offsetsXForSide[side], j1 += Facing.offsetsYForSide[side], k1 += Facing.offsetsZForSide[side]);
 		if (block != null && !block.isReplaceable(world, i1, j1, k1) || block != null && block.getMaterial() == Material.water) {
 			return false;

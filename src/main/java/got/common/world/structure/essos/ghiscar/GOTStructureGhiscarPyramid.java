@@ -438,10 +438,10 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 
 	public void generateMaze(World world, Random random, int i, int j, int k, GOTMazeGenerator maze, int height, int scale) {
 		int i3 = i;
-		int k3 = k;
 		int xr = (maze.xSize - 1) / 2;
 		int zr = (maze.zSize - 1) / 2;
 		i3 -= xr;
+		int k3 = k;
 		k3 -= zr;
 		int scaleR = (scale - 1) / 2;
 		for (int pass = 0; pass <= 1; ++pass) {

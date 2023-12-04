@@ -1253,8 +1253,7 @@ public class GOTPlayerData {
 	public void setPledgeBreakCooldown(int i) {
 		int preCD = pledgeBreakCooldown;
 		GOTFaction preBroken = brokenPledgeFaction;
-		int i1 = Math.max(0, i);
-		pledgeBreakCooldown = i1;
+		pledgeBreakCooldown = Math.max(0, i);
 		boolean bigChange = (pledgeBreakCooldown == 0 || preCD == 0) && pledgeBreakCooldown != preCD;
 		if (pledgeBreakCooldown > pledgeBreakCooldownStart) {
 			setPledgeBreakCooldownStart(pledgeBreakCooldown);
@@ -2883,8 +2882,7 @@ public class GOTPlayerData {
 
 	public void setTimeSinceFT(int i, boolean forceUpdate) {
 		int preTick = ftSinceTick;
-		int i1 = Math.max(0, i);
-		ftSinceTick = i1;
+		ftSinceTick = Math.max(0, i);
 		boolean bigChange = (ftSinceTick == 0 || preTick == 0) && ftSinceTick != preTick || preTick < 0;
 		if (bigChange || isTimerAutosaveTick() || forceUpdate) {
 			markDirty();

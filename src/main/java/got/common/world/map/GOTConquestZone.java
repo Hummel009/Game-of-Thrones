@@ -157,10 +157,10 @@ public class GOTConquestZone {
 	}
 
 	public void setConquestStrengthRaw(GOTFaction fac, float str) {
-		float str1 = str;
 		if (!fac.isPlayableAlignmentFaction()) {
 			return;
 		}
+		float str1 = str;
 		if (str1 < 0.0f) {
 			str1 = 0.0f;
 		}

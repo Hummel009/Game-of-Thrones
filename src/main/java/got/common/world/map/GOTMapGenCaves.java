@@ -106,20 +106,16 @@ public class GOTMapGenCaves extends MapGenBase {
 		}
 	}
 
+	@SuppressWarnings("AssignmentToForLoopParameter")
 	public void generateCaveNode(long seed, int par3, int par4, Block[] blockArray, double par6, double par8, double par10, float par12, float angle, float par14, int par15, int par16, double par17, boolean cutSurface) {
 		int par161 = par16;
-		double par61 = par6;
-		double par81 = par8;
-		double par101 = par10;
-		float par141 = par14;
-		float angle1 = angle;
-		int par151 = par15;
 		Random caveRand = new Random(seed);
 		if (par161 <= 0) {
 			int var26 = range * 16 - 16;
 			par161 = var26 - caveRand.nextInt(var26 / 4);
 		}
 		boolean var54 = false;
+		int par151 = par15;
 		if (par151 == -1) {
 			par151 = par161 / 2;
 			var54 = true;
@@ -130,6 +126,11 @@ public class GOTMapGenCaves extends MapGenBase {
 		float var23 = 0.0f;
 		double var21 = par4 * 16 + 8;
 		double var19 = par3 * 16 + 8;
+		float angle1 = angle;
+		float par141 = par14;
+		double par101 = par10;
+		double par81 = par8;
+		double par61 = par6;
 		while (par151 < par161) {
 			double var29 = 1.5 + MathHelper.sin(par151 * 3.1415927f / par161) * par12 * 1.0f;
 			float var33 = MathHelper.cos(par141);

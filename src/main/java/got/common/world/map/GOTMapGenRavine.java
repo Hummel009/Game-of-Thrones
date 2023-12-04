@@ -38,21 +38,17 @@ public class GOTMapGenRavine extends MapGenRavine {
 		}
 	}
 
+	@SuppressWarnings("AssignmentToForLoopParameter")
 	@Override
 	public void func_151540_a(long seed, int chunkX, int chunkZ, Block[] blocks, double d, double d1, double d2, float f, float ravineAngle, float f2, int intPar1, int intPar2, double increase) {
 		int intPar21 = intPar2;
-		double d3 = d;
-		double d15 = d1;
-		double d21 = d2;
-		float f21 = f2;
-		float ravineAngle1 = ravineAngle;
-		int intPar11 = intPar1;
 		Random random = new Random(seed);
 		if (intPar21 <= 0) {
 			int j1 = range * 16 - 16;
 			intPar21 = j1 - random.nextInt(j1 / 4);
 		}
 		boolean flag = false;
+		int intPar11 = intPar1;
 		if (intPar11 == -1) {
 			intPar11 = intPar21 / 2;
 			flag = true;
@@ -68,6 +64,11 @@ public class GOTMapGenRavine extends MapGenRavine {
 		float f3 = 0.0f;
 		double chunkCentreZ = chunkZ * 16 + 8;
 		double chunkCentreX = chunkX * 16 + 8;
+		float ravineAngle1 = ravineAngle;
+		float f21 = f2;
+		double d21 = d2;
+		double d15 = d1;
+		double d3 = d;
 		while (intPar11 < intPar21) {
 			double d6 = 1.5 + MathHelper.sin(intPar11 * 3.1415927f / intPar21) * f * 1.0f;
 			double d7 = d6 * increase;

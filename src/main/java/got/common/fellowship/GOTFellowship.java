@@ -309,13 +309,13 @@ public class GOTFellowship {
 	}
 
 	public void sendFellowshipMessage(EntityPlayerMP sender, String message) {
-		String message1 = message;
 		if (sender.func_147096_v() == EntityPlayer.EnumChatVisibility.HIDDEN) {
 			ChatComponentTranslation msgCannotSend = new ChatComponentTranslation("chat.cannotSend");
 			msgCannotSend.getChatStyle().setColor(EnumChatFormatting.RED);
 			sender.playerNetServerHandler.sendPacket(new S02PacketChat(msgCannotSend));
 		} else {
 			sender.func_143004_u();
+			String message1 = message;
 			message1 = StringUtils.normalizeSpace(message1);
 			if (StringUtils.isBlank(message1)) {
 				return;

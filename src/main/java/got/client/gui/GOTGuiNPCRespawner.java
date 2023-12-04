@@ -56,8 +56,6 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 
 	@Override
 	public void drawScreen(int i, int j, float f) {
-		int i1 = i;
-		int j1 = j;
 		drawDefaultBackground();
 		String s = StatCollector.translateToLocal("got.gui.npcRespawner.title");
 		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop, 16777215);
@@ -92,6 +90,8 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 		int timesplitX = (sliderSpawnIntervalM.xPosition + sliderSpawnIntervalM.width + sliderSpawnIntervalS.xPosition) / 2 - fontRendererObj.getStringWidth(timesplit) / 2;
 		int timesplitY = sliderSpawnIntervalM.yPosition + sliderSpawnIntervalM.height / 2 - fontRendererObj.FONT_HEIGHT / 2;
 		fontRendererObj.drawString(timesplit, timesplitX, timesplitY, 16777215);
+		int j1 = j;
+		int i1 = i;
 		super.drawScreen(i1, j1, f);
 		updateSliders();
 		if (sliderBlockEnemy.enabled && sliderBlockEnemy.func_146115_a() && !sliderBlockEnemy.dragging) {

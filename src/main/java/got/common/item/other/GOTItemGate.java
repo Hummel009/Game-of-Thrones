@@ -19,7 +19,7 @@ public class GOTItemGate extends ItemBlock {
 
 	@Override
 	public boolean placeBlockAt(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2, int meta) {
-		int meta1 = meta;
+		int meta1;
 		int yaw = MathHelper.floor_double(entityplayer.rotationYaw * 4.0f / 360.0f + 0.5) & 3;
 		float horizontalAngle = 40.0f;
 		boolean lookingUp = entityplayer.rotationPitch < -horizontalAngle;

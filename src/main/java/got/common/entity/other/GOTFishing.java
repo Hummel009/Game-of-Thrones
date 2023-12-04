@@ -77,12 +77,12 @@ public class GOTFishing {
 	}
 
 	public static FishResult getFishResult(Random rand, float chance, int luck, int speed, boolean allowJunkTreasure) {
-		float chance1 = chance;
 		float junkChance = 0.1f - luck * 0.025f - speed * 0.01f;
 		junkChance = MathHelper.clamp_float(junkChance, 0.0f, 1.0f);
 		float treasureChance = 0.2f + luck * 0.01f - speed * 0.01f;
 		treasureChance = MathHelper.clamp_float(treasureChance, 0.0f, 1.0f);
 		if (allowJunkTreasure) {
+			float chance1 = chance;
 			if (chance1 < junkChance) {
 				ItemStack result = ((FishingItem) WeightedRandom.getRandomItem(rand, junk)).getRandomResult(rand);
 				return new FishResult(FishingHooks.FishableCategory.JUNK, result);

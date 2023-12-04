@@ -48,9 +48,9 @@ public class GOTAlignmentValues {
 	}
 
 	public static float parseDisplayedAlign(String alignmentText) {
-		String alignmentText1 = alignmentText;
 		DecimalFormat dFormat = alignFormat;
 		setupDecimalFormat(dFormat);
+		String alignmentText1 = alignmentText;
 		if (!alignmentText1.isEmpty() && alignmentText1.charAt(0) == '+') {
 			alignmentText1 = alignmentText1.substring("+".length());
 		}
