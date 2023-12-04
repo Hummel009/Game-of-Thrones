@@ -80,17 +80,11 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 					if (i15 > 5) {
 						continue;
 					}
-					boolean beam = false;
-					if (i15 == -2 && IntMath.mod(k13, 3) == 0) {
-						beam = true;
-					}
+					boolean beam = i15 == -2 && IntMath.mod(k13, 3) == 0;
 					if (k2 == 3 && (i15 == 2 || i15 == 5)) {
 						beam = true;
 					}
-					boolean wall = false;
-					if (i15 == -2 || k2 == 3) {
-						wall = true;
-					}
+					boolean wall = i15 == -2 || k2 == 3;
 					int j13;
 					if (beam) {
 						for (j13 = 4; (j13 >= 0 || !isOpaque(world, i15, j13, k13)) && getY(j13) >= 0; --j13) {

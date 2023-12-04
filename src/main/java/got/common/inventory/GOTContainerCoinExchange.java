@@ -175,10 +175,7 @@ public class GOTContainerCoinExchange extends Container {
 			} else {
 				Slot coinSlot = (Slot) inventorySlots.get(0);
 				coinSlot.getStack();
-				boolean flag = false;
-				if (coinSlot.isItemValid(itemstack1) && mergeItemStack(itemstack1, 0, 1, true)) {
-					flag = true;
-				}
+				boolean flag = coinSlot.isItemValid(itemstack1) && mergeItemStack(itemstack1, 0, 1, true);
 				if (!flag && (i < 30 ? !mergeItemStack(itemstack1, 30, 39, false) : !mergeItemStack(itemstack1, 3, 30, false))) {
 					return null;
 				}
