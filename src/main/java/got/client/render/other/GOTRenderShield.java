@@ -19,14 +19,6 @@ public class GOTRenderShield {
 	public static float MODELSCALE = 0.0625f;
 
 	public static void doRenderShield(float f) {
-		int k;
-		float f8;
-		float f9;
-		float f7;
-		float minU = 0.0f + f;
-		float maxU = 0.5f + f;
-		float minV = 0.0f;
-		float maxV = 1.0f;
 		int width = SHIELD_WIDTH;
 		int height = SHIELD_HEIGHT;
 		double depth1 = MODELSCALE * 0.5f * f;
@@ -34,8 +26,12 @@ public class GOTRenderShield {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0f, 0.0f, 1.0f);
+		float maxV = 1.0f;
+		float maxU = 0.5f + f;
 		tessellator.addVertexWithUV(0.0, 0.0, depth1, maxU, maxV);
+		float minU = 0.0f + f;
 		tessellator.addVertexWithUV(1.0, 0.0, depth1, minU, maxV);
+		float minV = 0.0f;
 		tessellator.addVertexWithUV(1.0, 1.0, depth1, minU, minV);
 		tessellator.addVertexWithUV(0.0, 1.0, depth1, maxU, minV);
 		tessellator.draw();
@@ -46,10 +42,12 @@ public class GOTRenderShield {
 		tessellator.addVertexWithUV(1.0, 0.0, depth2, minU, maxV);
 		tessellator.addVertexWithUV(0.0, 0.0, depth2, maxU, maxV);
 		tessellator.draw();
-		float f5 = 0.5f * (maxU - minU) / width;
-		float f6 = 0.5f * (maxV - minV) / height;
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(-1.0f, 0.0f, 0.0f);
+		float f5 = 0.5f * (maxU - minU) / width;
+		float f7;
+		float f8;
+		int k;
 		for (k = 0; k < width; ++k) {
 			f7 = (float) k / width;
 			f8 = maxU + (minU - maxU) * f7 - f5;
@@ -61,6 +59,7 @@ public class GOTRenderShield {
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(1.0f, 0.0f, 0.0f);
+		float f9;
 		for (k = 0; k < width; ++k) {
 			f7 = (float) k / width;
 			f8 = maxU + (minU - maxU) * f7 - f5;
@@ -73,6 +72,7 @@ public class GOTRenderShield {
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0f, 1.0f, 0.0f);
+		float f6 = 0.5f * (maxV - minV) / height;
 		for (k = 0; k < height; ++k) {
 			f7 = (float) k / height;
 			f8 = maxV + (minV - maxV) * f7 - f6;
@@ -100,18 +100,18 @@ public class GOTRenderShield {
 		Minecraft mc = Minecraft.getMinecraft();
 		ResourceLocation shieldTexture = shield.shieldTexture;
 		ItemStack held = null;
-		ItemStack heldLeft = null;
-		ItemStack inUse = null;
-		ItemStack chestplate = null;
 		if (entity != null) {
 			held = entity.getHeldItem();
 		}
+		ItemStack heldLeft = null;
 		if (entity instanceof GOTEntityNPC) {
 			heldLeft = ((GOTEntityNPC) entity).getHeldItemLeft();
 		}
+		ItemStack inUse = null;
 		if (entity instanceof EntityPlayer) {
 			inUse = ((EntityPlayer) entity).getItemInUse();
 		}
+		ItemStack chestplate = null;
 		if (entity != null) {
 			chestplate = entity.getEquipmentInSlot(3);
 		}

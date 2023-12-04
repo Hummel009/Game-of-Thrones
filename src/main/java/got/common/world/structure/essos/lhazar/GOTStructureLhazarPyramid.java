@@ -15,14 +15,11 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int j12;
-		int j2;
-		int step;
-		int k1;
 		setOriginAndRotation(world, i, j, k, rotation, 11);
 		setupRandomBlocks(random);
+		int k1;
+		int i1;
+		int j1;
 		if (restrictions) {
 			for (i1 = -11; i1 <= 11; ++i1) {
 				for (k1 = -11; k1 <= 11; ++k1) {
@@ -74,6 +71,9 @@ public class GOTStructureLhazarPyramid extends GOTStructureLhazarBase {
 			}
 		}
 		int maxStep = 4;
+		int step;
+		int j2;
+		int j12;
 		for (int k12 : new int[]{-11, 11}) {
 			int i12;
 			for (step = 0; step < maxStep && !isOpaque(world, i12 = -7 - step, j12 = -step, k12); ++step) {

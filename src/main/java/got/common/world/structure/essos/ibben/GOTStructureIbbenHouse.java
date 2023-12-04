@@ -20,20 +20,9 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int roofEdge;
-		int k16;
-		int i12;
-		int j1;
-		int j12;
-		int k12;
-		int j13;
-		int i13;
-		int step;
-		int k13;
-		int k14;
 		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
+		int k16;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -56,6 +45,9 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 				}
 			}
 		}
+		int k12;
+		int j1;
+		int i12;
 		for (i12 = -3; i12 <= 2; ++i12) {
 			for (k12 = -5; k12 <= 4; ++k12) {
 				if (k12 < -4 && (i12 < -1 || i12 > 0)) {
@@ -82,6 +74,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i12, 1, k12, GOTBlocks.thatchFloor, 0);
 			}
 		}
+		int j13;
 		for (i12 = -4; i12 <= 3; ++i12) {
 			for (k12 = -7; k12 <= 5; ++k12) {
 				boolean beam = false;
@@ -119,6 +112,8 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i12, 4, k12, woodBeamBlock, woodBeamMeta | 4);
 			}
 		}
+		int step;
+		int roofEdge;
 		for (int k15 = -7; k15 <= 6; ++k15) {
 			roofEdge = k15 == -7 || k15 == 6 ? 1 : 0;
 			for (step = 0; step <= 4; ++step) {
@@ -155,6 +150,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, -1, 8, k16, plank2StairBlock, 0);
 			setBlockAndMetadata(world, 0, 8, k16, plank2StairBlock, 1);
 		}
+		int i1;
 		for (i1 = -4; i1 <= 3; ++i1) {
 			if (i1 == -4 || i1 == -2 || i1 == 1 || i1 == 3) {
 				setBlockAndMetadata(world, i1, 3, -7, plank2Block, plank2Meta);
@@ -182,6 +178,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		}
 		setBlockAndMetadata(world, -1, 3, -5, plankStairBlock, 4);
 		setBlockAndMetadata(world, 0, 3, -5, plankStairBlock, 5);
+		int j12;
 		for (int i15 : new int[]{-5, 4}) {
 			for (int k17 : new int[]{-7, 6}) {
 				for (j12 = 2; (j12 >= 1 || !isOpaque(world, i15, j12, k17)) && getY(j12) >= 0; --j12) {
@@ -225,6 +222,8 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, -4, 2, 3, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, -2, 2, 5, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 1, 2, 5, fenceBlock, fenceMeta);
+		int k13;
+		int i13;
 		for (k13 = 1; k13 <= 3; ++k13) {
 			for (i13 = 2; i13 <= 3; ++i13) {
 				for (j1 = 5; (j1 >= 0 || !isOpaque(world, i13, j1, k13)) && getY(j1) >= 0; --j1) {
@@ -261,6 +260,7 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, 1, 1, 1, brickBlock, brickMeta);
 		setBlockAndMetadata(world, 1, 1, 2, barsBlock, 0);
 		setBlockAndMetadata(world, 1, 1, 3, brickBlock, brickMeta);
+		int k14;
 		for (k14 = 1; k14 <= 3; ++k14) {
 			setBlockAndMetadata(world, 1, 2, k14, rockSlabBlock, rockSlabMeta);
 		}
@@ -336,10 +336,10 @@ public class GOTStructureIbbenHouse extends GOTStructureIbbenBase {
 			}
 		}
 		if (random.nextBoolean()) {
-			int i15;
-			int j110 = 2;
 			k12 = 6;
 			ArrayList<Integer> chestCoords = new ArrayList<>();
+			int j110 = 2;
+			int i15;
 			for (i15 = -4; i15 <= 3; ++i15) {
 				if (isOpaque(world, i15, j110, k12)) {
 					continue;

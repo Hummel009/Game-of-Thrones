@@ -16,7 +16,6 @@ public class GOTStructureWesterosFortWallCorner extends GOTStructureWesterosBase
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		for (int l = -8; l <= 8; ++l) {
-			int j1;
 			int k1;
 			int i1;
 			if (l >= 0) {
@@ -28,6 +27,7 @@ public class GOTStructureWesterosFortWallCorner extends GOTStructureWesterosBase
 			}
 			findSurface(world, i1, k1);
 			boolean pillar = Math.abs(l) == 3;
+			int j1;
 			if (pillar) {
 				for (j1 = 4; (j1 >= 1 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					setBlockAndMetadata(world, i1, j1, k1, pillar2Block, pillar2Meta);

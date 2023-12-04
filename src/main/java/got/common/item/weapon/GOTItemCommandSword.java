@@ -88,7 +88,6 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		Entity pointedEntity = null;
 		double entityDist = range;
 		for (Entity element : list) {
-			double d;
 			if (!(element instanceof EntityLivingBase) || !element.canBeCollidedWith()) {
 				continue;
 			}
@@ -103,6 +102,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 				entityDist = 0.0;
 				continue;
 			}
+			double d;
 			if (movingobjectposition == null || (d = eyePos.distanceTo(movingobjectposition.hitVec)) >= entityDist && entityDist != 0.0) {
 				continue;
 			}

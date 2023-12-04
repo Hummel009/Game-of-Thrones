@@ -14,11 +14,11 @@ public class GOTStructureEssosTownTree extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int i1;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 3);
 		setupRandomBlocks(random);
+		int j1;
+		int i1;
+		int k1;
 		if (restrictions) {
 			for (i1 = -2; i1 <= 2; ++i1) {
 				for (k1 = -2; k1 <= 2; ++k1) {
@@ -54,16 +54,16 @@ public class GOTStructureEssosTownTree extends GOTStructureEssosBase {
 			}
 		}
 		for (int l = 0; l < 16; ++l) {
-			GOTTreeType tree;
-			int i12 = 0;
 			j1 = 2;
-			int k12 = 0;
+			GOTTreeType tree;
 			if (hasNorthernWood()) {
 				tree = getRandomStandardTree(random);
 			} else {
 				tree = getRandomSouthernTree(random);
 			}
 			WorldGenAbstractTree treeGen = tree.create(notifyChanges, random);
+			int k12 = 0;
+			int i12 = 0;
 			if (treeGen != null && treeGen.generate(world, random, getX(i12, k12), getY(j1), getZ(i12, k12))) {
 				break;
 			}

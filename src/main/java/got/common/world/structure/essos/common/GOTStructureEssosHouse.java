@@ -16,11 +16,9 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int i1;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -43,6 +41,8 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 				}
 			}
 		}
+		int i1;
+		int k1;
 		for (i1 = -3; i1 <= 3; ++i1) {
 			for (k1 = -6; k1 <= 6; ++k1) {
 				int i2 = Math.abs(i1);
@@ -96,10 +96,10 @@ public class GOTStructureEssosHouse extends GOTStructureEssosBase {
 		if (!isOpaque(world, 0, 0, 7) || isOpaque(world, 0, 1, 7)) {
 			for (i1 = -4; i1 <= 2; ++i1) {
 				for (k1 = 6; k1 <= 7; ++k1) {
-					int j12;
 					if (k1 != 7 && (i1 != -4 || k1 != 6)) {
 						continue;
 					}
+					int j12;
 					for (j12 = 0; (j12 >= 0 || !isOpaque(world, i1, j12, k1)) && getY(j12) >= 0; --j12) {
 						setBlockAndMetadata(world, i1, j12, k1, brickBlock, brickMeta);
 						setGrassToDirt(world, i1, j12 - 1, k1);

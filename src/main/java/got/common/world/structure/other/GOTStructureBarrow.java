@@ -18,15 +18,10 @@ public class GOTStructureBarrow extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int i12;
-		int j12;
-		int k1;
 		int radius = 12;
-		int height = 7;
-		int base = -4;
 		setOriginAndRotation(world, i, j, k, rotation, usingPlayer != null ? radius : 0);
+		int k1;
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -49,6 +44,9 @@ public class GOTStructureBarrow extends GOTStructureBase {
 				return false;
 			}
 		}
+		int base = -4;
+		int height = 7;
+		int i1;
 		for (i1 = -radius; i1 <= radius; ++i1) {
 			for (int j13 = height; j13 >= base; --j13) {
 				for (int k12 = -radius; k12 <= radius; ++k12) {
@@ -76,6 +74,8 @@ public class GOTStructureBarrow extends GOTStructureBase {
 		int innerR = 5;
 		int innerH = 5;
 		int innerB = -2;
+		int j12;
+		int i12;
 		for (i12 = -innerR - 1; i12 <= innerR + 1; ++i12) {
 			for (int k14 = -innerR - 1; k14 <= innerR + 1; ++k14) {
 				for (j12 = innerB + 1; j12 <= innerB + innerH + 1; ++j12) {

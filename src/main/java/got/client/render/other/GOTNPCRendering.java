@@ -75,13 +75,13 @@ public class GOTNPCRendering {
 		double distance = RendererLivingEntity.NAME_TAG_RANGE;
 		double distanceSq = entity.getDistanceSqToEntity(renderManager.livingPlayer);
 		if (distanceSq <= distance * distance) {
-			float f1 = 1.6f;
-			float f2 = 0.016666666f * f1;
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) d, (float) d1 + entity.height + 0.7f, (float) d2);
 			GL11.glNormal3f(0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(-renderManager.playerViewY, 0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(renderManager.playerViewX, 1.0f, 0.0f, 0.0f);
+			float f1 = 1.6f;
+			float f2 = 0.016666666f * f1;
 			GL11.glScalef(-f2, -f2, f2);
 			GL11.glDisable(2896);
 			GL11.glDepthMask(false);
@@ -264,13 +264,13 @@ public class GOTNPCRendering {
 			float maxV = icon.getMaxV();
 			if (aboveHead) {
 				float age = npc.ticksExisted + GOTTickHandlerClient.renderTick;
-				float rotation = age % 360.0f;
 				GL11.glPushMatrix();
 				GL11.glEnable(32826);
 				GL11.glDisable(2896);
 				GL11.glTranslatef((float) d, (float) d1 + npc.height + 1.3f, (float) d2);
-				float scale = 1.0f;
+				float rotation = age % 360.0f;
 				GL11.glRotatef(rotation * 6.0f, 0.0f, 1.0f, 0.0f);
+				float scale = 1.0f;
 				GL11.glTranslatef(-0.5f * scale, -0.5f * scale, 0.03125f * scale);
 				GL11.glScalef(scale, scale, scale);
 				textureManager.bindTexture(TextureMap.locationItemsTexture);
@@ -330,8 +330,6 @@ public class GOTNPCRendering {
 				icon.getMaxU();
 				icon.getMinV();
 				icon.getMaxV();
-				float scale = 0.75f;
-				float alpha = 1.0f;
 				int questColor = npc.questInfo.clientOfferColor;
 				float[] questRGB = new Color(questColor).getColorComponents(null);
 				GL11.glPushMatrix();
@@ -339,12 +337,14 @@ public class GOTNPCRendering {
 				GL11.glNormal3f(0.0f, 1.0f, 0.0f);
 				GL11.glRotatef(-renderManager.playerViewY, 0.0f, 1.0f, 0.0f);
 				GL11.glRotatef(renderManager.playerViewX, 1.0f, 0.0f, 0.0f);
+				float scale = 0.75f;
 				GL11.glScalef(scale, scale, scale);
 				GL11.glDisable(2896);
 				GL11.glEnable(3042);
 				OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 				textureManager.bindTexture(TextureMap.locationItemsTexture);
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, 240.0f, 240.0f);
+				float alpha = 1.0f;
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
 				GL11.glScalef(-1.0f, -1.0f, 1.0f);

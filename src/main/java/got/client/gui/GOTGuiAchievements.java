@@ -154,9 +154,9 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 		buttonCategoryNext.buttonCategory = getCategoryAtRelativeIndex(1);
 		super.drawScreen(i, j, f);
 		int catScrollCentre = guiLeft + xSize / 2;
-		int catScrollX = catScrollCentre - 76;
 		int catScrollY = guiTop + 13;
 		mc.getTextureManager().bindTexture(iconsTexture);
+		int catScrollX = catScrollCentre - 76;
 		drawTexturedModalRect(catScrollX, catScrollY, 0, 100, 152, 10);
 		catScrollAreaX0 = catScrollX;
 		catScrollAreaX1 = catScrollX + 152;

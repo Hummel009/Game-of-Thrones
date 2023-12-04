@@ -109,7 +109,6 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	@Override
 	@SuppressWarnings("CastCanBeReplacedWithVariable")
 	public void renderItem(IItemRenderer.ItemRenderType type, ItemStack itemstack, Object... data) {
-		EntityLivingBase entityliving;
 		GL11.glPushMatrix();
 		Entity holder = (Entity) data[1];
 		boolean isFirstPerson = holder == Minecraft.getMinecraft().thePlayer && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0;
@@ -118,6 +117,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 			GL11.glRotatef(260.0f, 0.0f, 0.0f, 1.0f);
 			GL11.glTranslatef(-1.0f, 0.0f, 0.0f);
 		}
+		EntityLivingBase entityliving;
 		if (item instanceof GOTItemPike && holder instanceof EntityLivingBase && (entityliving = (EntityLivingBase) holder).getHeldItem() == itemstack && entityliving.swingProgress <= 0.0f) {
 			if (entityliving.isSneaking()) {
 				if (isFirstPerson) {

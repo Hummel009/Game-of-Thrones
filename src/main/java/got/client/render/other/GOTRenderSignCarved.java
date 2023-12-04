@@ -46,10 +46,10 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 			for (int x = u0; x < u1; ++x) {
 				int rgb = cachedBlockAtlasImage.getRGB(x, y);
 				int r = rgb >> 16 & 0xFF;
-				int g = rgb >> 8 & 0xFF;
-				int b = rgb & 0xFF;
 				totalR += r;
+				int g = rgb >> 8 & 0xFF;
 				totalG += g;
+				int b = rgb & 0xFF;
 				totalB += b;
 				++count;
 			}
@@ -96,8 +96,8 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		int pixelSize = width * height;
 		BufferedImage atlasImage = new BufferedImage(width, height, 2);
 		IntBuffer buffer = BufferUtils.createIntBuffer(pixelSize);
-		int[] imgData = new int[pixelSize];
 		GL11.glGetTexImage(3553, 0, 32993, 33639, buffer);
+		int[] imgData = new int[pixelSize];
 		buffer.get(imgData);
 		atlasImage.setRGB(0, 0, width, height, imgData, 0, width);
 		return atlasImage;
@@ -115,14 +115,14 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		GOTTileEntitySignCarved sign = (GOTTileEntitySignCarved) tileentity;
 		int meta = tileentity.getBlockMetadata();
 		float rotation = Direction.facingToDirection[meta] * 90.0f;
-		float f1 = 0.6666667f;
-		float f3 = 0.016666668f * f1;
 		GL11.glDisable(32826);
 		GL11.glPushMatrix();
+		float f1 = 0.6666667f;
 		GL11.glTranslatef((float) d + 0.5f, (float) d1 + 0.75f * f1, (float) d2 + 0.5f);
 		GL11.glRotatef(-rotation, 0.0f, 1.0f, 0.0f);
 		GL11.glTranslatef(0.0f, -0.3125f, -0.4375f);
 		GL11.glTranslatef(0.0f, 0.5f * f1, -0.09f * f1);
+		float f3 = 0.016666668f * f1;
 		GL11.glScalef(f3, -f3, f3);
 		GL11.glNormal3f(0.0f, 0.0f, -1.0f * f3);
 		GL11.glDepthMask(false);

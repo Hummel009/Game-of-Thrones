@@ -20,21 +20,10 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int j12;
-		int k1;
-		int i1;
-		int k122;
-		int i122;
-		int k13;
-		int i13;
-		int i2;
-		int l;
-		int k2;
-		int k14;
-		int i14;
 		setOriginAndRotation(world, i, j, k, rotation, 9);
 		setupRandomBlocks(random);
+		int k122;
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -57,6 +46,10 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 				}
 			}
 		}
+		int k2;
+		int i2;
+		int i1;
+		int k1;
 		for (i1 = -6; i1 <= 6; ++i1) {
 			for (k1 = -8; k1 <= 8; ++k1) {
 				i2 = Math.abs(i1);
@@ -98,11 +91,13 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 				setBlockAndMetadata(world, i1, 0, k1, brickGoldBlock, brickGoldMeta);
 			}
 		}
+		int i13;
 		for (int k1221 : new int[]{-4, 0, 4}) {
 			for (i13 = -5; i13 <= 5; ++i13) {
 				setBlockAndMetadata(world, i13, 0, k1221, woodBeamBlock, woodBeamMeta | 4);
 			}
 		}
+		int k13;
 		for (int i1221 : new int[]{-2, 2}) {
 			for (k13 = -7; k13 <= 7; ++k13) {
 				setBlockAndMetadata(world, i1221, 0, k13, woodBeamBlock, woodBeamMeta | 8);
@@ -167,6 +162,7 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 		}
 		int[] i17 = {-2, 2};
 		k1 = i17.length;
+		int i122;
 		for (i2 = 0; i2 < k1; ++i2) {
 			i122 = i17[i2];
 			for (j1 = 1; j1 <= 3; ++j1) {
@@ -320,6 +316,8 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 			}
 			setBlockAndMetadata(world, i122, 8, 7, roofStairBlock, 7);
 		}
+		int l;
+		int j12;
 		for (int k19 = -7; k19 <= 7; ++k19) {
 			for (l = 0; l <= 4; ++l) {
 				j12 = 9 + l;
@@ -379,6 +377,7 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 		spawnItemFrame(world, 2, 2, -4, 3, getFramedItem(random));
 		setBlockAndMetadata(world, -3, 1, -6, plankStairBlock, 1);
 		setBlockAndMetadata(world, 3, 1, -6, plankStairBlock, 0);
+		int k14;
 		for (k14 = -7; k14 <= -5; ++k14) {
 			setBlockAndMetadata(world, -5, 1, k14, plankStairBlock, 4);
 			if (random.nextBoolean()) {
@@ -408,6 +407,7 @@ public class GOTStructureYiTiLargeTownHouse extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 0, 1, 3, tableBlock, 0);
 		setAir(world, 0, 2, 3);
 		setBlockAndMetadata(world, 0, 3, 3, plankStairBlock, 7);
+		int i14;
 		for (i14 = -1; i14 <= 1; ++i14) {
 			for (k1 = 5; k1 <= 7; ++k1) {
 				setBlockAndMetadata(world, i14, 0, k1, brickBlock, brickMeta);

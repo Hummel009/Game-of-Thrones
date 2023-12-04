@@ -30,7 +30,6 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		float posY = Math.round(viewerZ / GOTGenLayerWorld.scale) + GOTGenLayerWorld.ORIGIN_Z;
 		int viewportWidth = 400;
 		viewportWidth = (int) Math.round(viewportWidth * Math.pow(2.0, zoomExp));
-		double radius = 0.9;
 		float minX = posX - (float) viewportWidth / 2;
 		float maxX = posX + (float) viewportWidth / 2;
 		if (minX < 0.0f) {
@@ -53,17 +52,17 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		double maxV = (double) (posY + viewportWidth / 2) / GOTGenLayerWorld.imageHeight;
 		GL11.glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+		double radius = 0.9;
 		GOTTextures.drawMap(Minecraft.getMinecraft().thePlayer, true, -radius, radius, -radius, radius, 0.0, minU, maxU, minV, maxV, 1.0f);
 		GOTTextures.drawMapOverlay(Minecraft.getMinecraft().thePlayer, -radius, radius, -radius, radius, 0.0, minU, maxU, minV, maxV);
 		double compassInset = radius * 0.05;
 		GOTTextures.drawMapCompassBottomLeft(-radius + compassInset, radius - compassInset, -0.01, 0.15 * radius * 0.0625);
 		GL11.glDisable(3553);
 		Tessellator tess = Tessellator.instance;
-		double rRed = radius + 0.015;
-		double rBlack = rRed + 0.015;
 		GL11.glTranslatef(0.0f, 0.0f, 0.01f);
 		tess.startDrawingQuads();
 		tess.setColorOpaque_I(-6156032);
+		double rRed = radius + 0.015;
 		tess.addVertex(-rRed, rRed, 0.0);
 		tess.addVertex(rRed, rRed, 0.0);
 		tess.addVertex(rRed, -rRed, 0.0);
@@ -72,6 +71,7 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		GL11.glTranslatef(0.0f, 0.0f, 0.01f);
 		tess.startDrawingQuads();
 		tess.setColorOpaque_I(-16777216);
+		double rBlack = rRed + 0.015;
 		tess.addVertex(-rBlack, rBlack, 0.0);
 		tess.addVertex(rBlack, rBlack, 0.0);
 		tess.addVertex(rBlack, -rBlack, 0.0);

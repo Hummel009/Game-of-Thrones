@@ -24,15 +24,11 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int i12;
-		int k1;
-		int k12;
-		int k13;
-		int i13;
 		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
+		int k1;
+		int i12;
+		int j1;
 		if (restrictions) {
 			for (i12 = -6; i12 <= 6; ++i12) {
 				for (k1 = 0; k1 <= 19; ++k1) {
@@ -83,6 +79,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i12, j12, 1, GOTBlocks.gateWooden, 2);
 			}
 		}
+		int k12;
 		for (k12 = 2; k12 <= 17; ++k12) {
 			if (k12 % 3 == 2) {
 				setBlockAndMetadata(world, -6, 1, k12, brickStairBlock, 1);
@@ -158,7 +155,6 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 			setAir(world, i12, 3, 18);
 		}
 		for (int k14 : new int[]{1, 18}) {
-			int i14;
 			setBlockAndMetadata(world, -4, 6, k14, brickBlock, brickMeta);
 			setBlockAndMetadata(world, -3, 6, k14, brickBlock, brickMeta);
 			setBlockAndMetadata(world, -2, 6, k14, brickSlabBlock, brickSlabMeta);
@@ -175,6 +171,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 1, 7, k14, brickBlock, brickMeta);
 			setAir(world, 2, 7, k14);
 			setBlockAndMetadata(world, 3, 7, k14, brickBlock, brickMeta);
+			int i14;
 			for (i14 = -2; i14 <= 2; ++i14) {
 				setBlockAndMetadata(world, i14, 8, k14, brickBlock, brickMeta);
 			}
@@ -183,6 +180,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 			}
 			setBlockAndMetadata(world, 0, 10, k14, brickBlock, brickMeta);
 		}
+		int k13;
 		for (k13 = 2; k13 <= 17; ++k13) {
 			setBlockAndMetadata(world, -4, 6, k13, plankStairBlock, 4);
 			setBlockAndMetadata(world, -3, 7, k13, plankStairBlock, 4);
@@ -218,6 +216,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 3, 7, k14, plankStairBlock, 5);
 			setBlockAndMetadata(world, 4, 6, k14, plankStairBlock, 5);
 		}
+		int i13;
 		for (int k15 = 2; k15 <= 17; ++k15) {
 			if (k15 % 3 != 2) {
 				continue;
@@ -235,6 +234,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 		placeWallBanner(world, 0, 5, 1, GOTItemBanner.BannerType.TYRELL, 0);
 		placeWallBanner(world, 0, 5, 18, GOTItemBanner.BannerType.TYRELL, 2);
 		ItemStack drink = GOTFoods.WESTEROS_DRINK.getRandomBrewableDrink(random);
+		int i1;
 		for (k1 = 2; k1 <= 17; ++k1) {
 			for (i1 = -4; i1 <= 4; ++i1) {
 				if (Math.abs(i1) < 3) {

@@ -25,12 +25,11 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		BiomeGenBase biome;
-		int k1;
-		int j1;
-		int i1;
 		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
+		int i1;
+		int j1;
+		int k1;
 		if (restrictions) {
 			for (i1 = -2; i1 <= 2; ++i1) {
 				for (k1 = -3; k1 <= 3; ++k1) {
@@ -45,8 +44,8 @@ public abstract class GOTStructureTentBase extends GOTStructureBase {
 		for (i1 = -2; i1 <= 2; ++i1) {
 			for (k1 = -3; k1 <= 3; ++k1) {
 				for (j1 = 0; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
+					BiomeGenBase biome = getBiome(world, i1, k1);
 					int randomGround;
-					biome = getBiome(world, i1, k1);
 					if (biome instanceof GOTBiomeShadowLand) {
 						randomGround = random.nextInt(3);
 						switch (randomGround) {

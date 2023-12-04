@@ -1,5 +1,6 @@
 package got.client.gui;
 
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTTickHandlerClient;
 import got.common.GOTDimension;
 import got.common.network.GOTPacketCheckMenuPrompt;
@@ -130,10 +131,9 @@ public class GOTGuiMenu extends GOTGuiScreenBase {
 	public void setWorldAndResolution(Minecraft mc, int i, int j) {
 		super.setWorldAndResolution(mc, i, j);
 		if (mc.thePlayer != null) {
-			GOTPacketCheckMenuPrompt packet;
 			if (!sentCheckPacket) {
 				GOTTickHandlerClient.renderMenuPrompt = false;
-				packet = new GOTPacketCheckMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
+				IMessage packet = new GOTPacketCheckMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 				sentCheckPacket = true;
 			}

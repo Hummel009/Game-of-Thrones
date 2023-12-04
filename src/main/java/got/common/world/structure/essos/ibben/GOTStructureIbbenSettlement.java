@@ -70,7 +70,6 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
 			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
 			if (type == Type.VILLAGE) {
 				int dSq = i * i + k * k;
 				int imn = 20 + random.nextInt(4);
@@ -79,6 +78,7 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 				}
 				int omn = 50 - random.nextInt(4);
 				int omx = 56 + random.nextInt(4);
+				int k1 = Math.abs(k);
 				if (dSq > omn * omn && dSq < omx * omx || dSq < 2500 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
@@ -130,11 +130,6 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 		}
 
 		public void setupFort(Random random) {
-			int wallX;
-			int l;
-			int wallZ;
-			int farmX;
-			int l2;
 			addStructure(new GOTStructureIbbenFortress(false), 0, -13, 0, true);
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -156,6 +151,8 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureIbbenStables(false), i1, -14, 0, true);
 			}
 			int farmZ = -20;
+			int l2;
+			int farmX;
 			for (l2 = 0; l2 <= 1; ++l2) {
 				farmX = 30 - l2 * 12;
 				addStructure(new GOTStructureIbbenVillageFarm(false), -farmX, farmZ, 2);
@@ -172,6 +169,9 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 					addStructure(new GOTStructureIbbenFortCorner(false), i1, k1, 0, true);
 				}
 			}
+			int wallZ;
+			int l;
+			int wallX;
 			for (l = 0; l <= 4; ++l) {
 				wallX = 13 + l * 8;
 				wallZ = -51;
@@ -235,9 +235,6 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
-				int i;
-				int l;
-				int k;
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
 				float sin = MathHelper.sin(turnR);
 				float cos = MathHelper.cos(turnR);
@@ -253,6 +250,9 @@ public class GOTStructureIbbenSettlement extends GOTStructureBaseSettlement {
 				if (palisade && sin < 0.0f && Math.abs(cos) <= 0.25f) {
 					continue;
 				}
+				int k;
+				int l;
+				int i;
 				if (random.nextBoolean()) {
 					l = 57;
 					i = Math.round(l * cos);

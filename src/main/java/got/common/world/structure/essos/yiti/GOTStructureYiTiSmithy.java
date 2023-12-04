@@ -18,18 +18,10 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int j1;
-		int i2;
-		int i1;
-		int i12;
-		int i13;
-		int i14;
-		int j12;
-		int i22;
-		int k2;
 		setOriginAndRotation(world, i, j, k, rotation, 7);
 		setupRandomBlocks(random);
+		int j12;
+		int i13;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -52,6 +44,10 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 				}
 			}
 		}
+		int k2;
+		int i22;
+		int i14;
+		int k1;
 		for (i14 = -6; i14 <= 6; ++i14) {
 			for (k1 = -6; k1 <= 6; ++k1) {
 				i22 = Math.abs(i14);
@@ -130,6 +126,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 0, 0, -6, woodBeamBlock, woodBeamMeta | 4);
 		setBlockAndMetadata(world, 0, 1, -6, doorBlock, 1);
 		setBlockAndMetadata(world, 0, 2, -6, doorBlock, 8);
+		int i1;
 		for (i1 = -7; i1 <= 7; ++i1) {
 			for (k1 = -7; k1 <= 7; ++k1) {
 				i22 = Math.abs(i1);
@@ -163,13 +160,14 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 				setBlockAndMetadata(world, i1, 4, k1, roofStairBlock, i1 < 0 ? 1 : 0);
 			}
 		}
+		int j1;
 		for (int step = 0; step <= 1; ++step) {
-			int k14;
 			j1 = 5 + step;
 			for (i13 = -6 + step; i13 <= 6 - step; ++i13) {
 				setBlockAndMetadata(world, i13, j1, -6 + step, roofStairBlock, 2);
 				setBlockAndMetadata(world, i13, j1, 6 - step, roofStairBlock, 3);
 			}
+			int k14;
 			for (k14 = -6 + step; k14 <= 6 - step; ++k14) {
 				setBlockAndMetadata(world, -6 + step, j1, k14, roofStairBlock, 1);
 				setBlockAndMetadata(world, 6 - step, j1, k14, roofStairBlock, 0);
@@ -197,6 +195,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 				setBlockAndMetadata(world, i1, 5, k1, GOTBlocks.chandelier, 0);
 			}
 		}
+		int i2;
 		for (i1 = -4; i1 <= 4; ++i1) {
 			i2 = Math.abs(i1);
 			if (i2 >= 2) {
@@ -250,6 +249,7 @@ public class GOTStructureYiTiSmithy extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 2, 3, -5, Blocks.torch, 3);
 		setBlockAndMetadata(world, 2, 3, -5, Blocks.torch, 3);
 		setBlockAndMetadata(world, 5, 3, -2, Blocks.torch, 1);
+		int i12;
 		for (i12 = -5; i12 <= 5; ++i12) {
 			i2 = Math.abs(i12);
 			if (i2 == 2) {

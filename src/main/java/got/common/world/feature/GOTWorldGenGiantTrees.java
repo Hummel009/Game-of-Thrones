@@ -37,7 +37,6 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 		float f = 1.0f;
 		int height = (int) (f * 40.0f * heightFactor);
 		int trunkRadiusMin = (int) (f * 5.0f);
-		int trunkRadiusMax = trunkRadiusMin + 4;
 		int xSlope = 4 + random.nextInt(7);
 		if (random.nextBoolean()) {
 			xSlope *= -1;
@@ -46,11 +45,12 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 		if (random.nextBoolean()) {
 			zSlope *= -1;
 		}
+		int trunkRadiusMax = trunkRadiusMin + 4;
 		if (restrictions) {
-			boolean flag = true;
 			if (j < 1 || j + height + 5 > 256) {
 				return false;
 			}
+			boolean flag = true;
 			for (int i1 = i - 1; i1 <= i + 1; ++i1) {
 				for (int k1 = k - 1; k1 <= k + 1; ++k1) {
 					for (int j1 = j; j1 <= j + height; ++j1) {

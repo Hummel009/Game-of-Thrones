@@ -243,7 +243,6 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 		}
 
 		public void setupTown(Random random) {
-			int marketZ;
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -286,9 +285,8 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureYiTiLargeTownHouse(false), mansionZ, mansionX, 3, true);
 			for (int l = 0; l <= 3; ++l) {
 				int houseX = 10 + 14 * l;
-				int houseZ1 = 58;
-				int houseZ2 = 68;
 				if (l <= 2) {
+					int houseZ1 = 58;
 					if (l >= 1) {
 						if (l == 1) {
 							addStructure(new GOTStructureYiTiTavernTown(false), -houseX - 7, -houseZ1, 0, true);
@@ -306,6 +304,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					addStructure(new GOTStructureYiTiTownHouse(false), houseZ1, -houseX, 1, true);
 					addStructure(new GOTStructureYiTiTownHouse(false), houseZ1, houseX, 1, true);
 				}
+				int houseZ2 = 68;
 				if (l == 1) {
 					addStructure(new GOTStructureYiTiVillageFarm.Tree(false), -houseX, -houseZ2, 2, true);
 					addStructure(new GOTStructureYiTiVillageFarm.Tree(false), houseX, -houseZ2, 2, true);
@@ -327,6 +326,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureYiTiTownHouse(false), houseZ2, houseX, 3, true);
 			}
 			int marketX = 4;
+			int marketZ;
 			for (int l = 0; l <= 2; ++l) {
 				marketZ = 56 - l * 7;
 				addStructure(GOTStructureYiTiMarketStall.getRandomStall(random, false), -marketX, marketZ, 1, true);
@@ -398,14 +398,13 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			int pathEnd = 68;
-			int pathSide = 7;
-			int centreSide = 19;
 			addStructure(new GOTStructureYiTiWell(false), 0, -2, 0, true);
 			int signX = 12;
 			addStructure(new GOTStructureYiTiVillageSign(false), -signX, 0, 1, true);
 			addStructure(new GOTStructureYiTiVillageSign(false), signX, 0, 3, true);
+			int centreSide = 19;
 			addStructure(new GOTStructureYiTiLargeTownHouse(false), 0, -centreSide, 2, true);
+			int pathEnd = 68;
 			if (random.nextBoolean()) {
 				addStructure(new GOTStructureYiTiTavern(false), -pathEnd, 0, 1, true);
 				addStructure(getOtherSettlementStructure(random), pathEnd, 0, 3, true);
@@ -414,6 +413,7 @@ public class GOTStructureYiTiSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureYiTiTavern(false), pathEnd, 0, 3, true);
 			}
 			int rowHouses = 3;
+			int pathSide = 7;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
 				int i1 = l * 18;
 				int k1 = pathSide;

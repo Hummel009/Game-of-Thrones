@@ -225,14 +225,14 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			int pathEnd = 68;
-			int pathSide = 7;
-			int centreSide = 19;
 			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
+			int centreSide = 19;
 			addStructure(new GOTStructureNorthHillmanHouse(false).setIsCannibal(), 0, -centreSide, 2, true);
+			int pathEnd = 68;
 			addStructure(new GOTStructureNorthHillmanHouse(false).setIsWarrior(), -pathEnd, 0, 1, true);
 			addStructure(new GOTStructureNorthHillmanChieftainHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
+			int pathSide = 7;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
 				int i1 = l * 18;
 				int k1 = pathSide;
@@ -626,8 +626,6 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureWesterosTownTrees(false), treeZ, treeX, 0, true);
 			addStructure(new GOTStructureWesterosTownTrees(false), -14, 71, 1, true);
 			addStructure(new GOTStructureWesterosTownTrees(false), 14, 71, 3, true);
-			int wallX;
-			int l;
 			for (int k1 : new int[]{67, 75}) {
 				addStructure(new GOTStructureWesterosTownBench(false), -10, k1, 1, true);
 				addStructure(new GOTStructureWesterosTownBench(false), 10, k1, 3, true);
@@ -642,12 +640,14 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureNorthWatchtower(false), i1, towerZ, 0, true);
 			}
 			int wallZ = 82;
-			int wallEndX = 76;
+			int l;
+			int wallX;
 			for (l = 0; l <= 3; ++l) {
 				wallX = 12 + l * 16;
 				addStructure(GOTStructureWesterosTownWall.Left(false), -wallX, wallZ, 2, true);
 				addStructure(GOTStructureWesterosTownWall.Right(false), wallX, wallZ, 2, true);
 			}
+			int wallEndX = 76;
 			addStructure(GOTStructureWesterosTownWall.LeftEndShort(false), -wallEndX, wallZ, 2, true);
 			addStructure(GOTStructureWesterosTownWall.RightEndShort(false), wallEndX, wallZ, 2, true);
 			addStructure(GOTStructureWesterosTownWall.Centre(false), -wallZ, 0, 3, true);
@@ -714,9 +714,6 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
-				int i;
-				int k;
-				int l;
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
 				float sin = MathHelper.sin(turnR);
 				float cos = MathHelper.cos(turnR);
@@ -729,6 +726,9 @@ public class GOTStructureNorthSettlement extends GOTStructureBaseSettlement {
 				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
 					r = 3;
 				}
+				int l;
+				int k;
+				int i;
 				if (random.nextBoolean()) {
 					l = 61;
 					i = Math.round(l * cos);

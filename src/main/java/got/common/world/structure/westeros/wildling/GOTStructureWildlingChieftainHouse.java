@@ -35,19 +35,8 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int k12;
-		int j1;
-		int j12;
-		int j13;
-		int i1;
-		int j14;
-		int j15;
-		int k13;
-		int k14;
-		int i12;
-		int j16;
 		setOriginAndRotation(world, i, j, k, rotation, 5);
+		int j15;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -80,6 +69,9 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 		doorBlock = GOTBlocks.doorSpruce;
 		floorBlock = Blocks.stained_hardened_clay;
 		floorMeta = 15;
+		int k14;
+		int j14;
+		int i1;
 		for (i1 = -5; i1 <= 5; ++i1) {
 			for (k14 = -6; k14 <= 6; ++k14) {
 				for (j14 = 1; j14 <= 10; ++j14) {
@@ -104,6 +96,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 				setBlockAndMetadata(world, i1, 1, k14, GOTBlocks.thatchFloor, 0);
 			}
 		}
+		int k13;
 		for (int i14 : new int[]{-4, 4}) {
 			for (k13 = -4; k13 <= 4; ++k13) {
 				setBlockAndMetadata(world, i14, 1, k13, woodBlock, woodMeta | 8);
@@ -149,6 +142,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, i14, 2, -6, Blocks.torch, 4);
 			setBlockAndMetadata(world, i14, 3, -6, Blocks.skull, 2);
 		}
+		int j1;
 		for (j1 = 1; j1 <= 3; ++j1) {
 			setBlockAndMetadata(world, -1, j1, -4, woodBlock, woodMeta);
 			setBlockAndMetadata(world, 1, j1, -4, woodBlock, woodMeta);
@@ -163,6 +157,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 0, 2, -4, doorBlock, 8);
 		setBlockAndMetadata(world, 0, 3, -4, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 0, 3, -5, slabBlock, slabMeta | 8);
+		int i12;
 		for (i12 = -3; i12 <= 3; ++i12) {
 			setBlockAndMetadata(world, i12, 4, -4, woodBlock, woodMeta | 4);
 			setBlockAndMetadata(world, i12, 5, -5, stairBlock, 6);
@@ -197,6 +192,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 1, 5, 5, slabBlock, slabMeta | 8);
 		setBlockAndMetadata(world, 2, 5, 5, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 3, 5, 5, plankBlock, plankMeta);
+		int j12;
 		for (i12 = -2; i12 <= 2; ++i12) {
 			for (j12 = 6; j12 <= 7; ++j12) {
 				setBlockAndMetadata(world, i12, j12, 5, plankBlock, plankMeta);
@@ -208,6 +204,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 			}
 			setBlockAndMetadata(world, i14, 5, 4, fenceBlock, fenceMeta);
 		}
+		int j13;
 		for (j13 = 4; j13 <= 5; ++j13) {
 			setBlockAndMetadata(world, -3, j13, 4, plankBlock, plankMeta);
 			setBlockAndMetadata(world, 3, j13, 4, plankBlock, plankMeta);
@@ -229,6 +226,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 		placeWallBanner(world, -3, 3, 0, GOTItemBanner.BannerType.WILDLING, 1);
 		setBlockAndMetadata(world, 2, 5, 0, Blocks.torch, 1);
 		placeWallBanner(world, 3, 3, 0, GOTItemBanner.BannerType.WILDLING, 3);
+		int k12;
 		for (k12 = -3; k12 <= -1; ++k12) {
 			setBlockAndMetadata(world, -3, 4, k12, stairBlock, 0);
 			setBlockAndMetadata(world, 3, 4, k12, stairBlock, 1);
@@ -278,6 +276,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 0, 11, 6, stairBlock, 2);
 		setBlockAndMetadata(world, 0, 11, 7, stairBlock, 7);
 		setBlockAndMetadata(world, 0, 12, 7, stairBlock, 2);
+		int k1;
 		for (k1 = -1; k1 <= 1; ++k1) {
 			setBlockAndMetadata(world, -1, 10, k1, plankBlock, plankMeta);
 			setBlockAndMetadata(world, 1, 10, k1, plankBlock, plankMeta);
@@ -314,6 +313,7 @@ public class GOTStructureWildlingChieftainHouse extends GOTStructureBase {
 		setBlockAndMetadata(world, 1, 7, -4, stairBlock, 5);
 		setBlockAndMetadata(world, -1, 7, 4, stairBlock, 4);
 		setBlockAndMetadata(world, 1, 7, 4, stairBlock, 5);
+		int j16;
 		for (j16 = 0; j16 >= -5; --j16) {
 			for (int i16 = -1; i16 <= 1; ++i16) {
 				for (int k16 = -1; k16 <= 1; ++k16) {

@@ -127,7 +127,6 @@ public class GOTEntityRhino extends GOTEntityHorse {
 					List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.contract(1.0, 1.0, 1.0).addCoord(look.xCoord * range, look.yCoord * range, look.zCoord * range).expand(sightWidth, sightWidth, sightWidth));
 					boolean hitAnyEntities = false;
 					for (Entity element : list) {
-						EntityLiving entityliving;
 						EntityLivingBase entity;
 						if (!(element instanceof EntityLivingBase) || (entity = (EntityLivingBase) element) == rhinoRider || rhinoRider instanceof EntityPlayer && !GOT.canPlayerAttackEntity((EntityPlayer) rhinoRider, entity, false) || rhinoRider instanceof EntityCreature && !GOT.canNPCAttackEntity((EntityCreature) rhinoRider, entity, false) || !entity.attackEntityFrom(DamageSource.causeMobDamage(this), strength)) {
 							continue;
@@ -135,6 +134,7 @@ public class GOTEntityRhino extends GOTEntityHorse {
 						float knockback = strength * 0.05f;
 						entity.addVelocity(-MathHelper.sin(rotationYaw * 3.1415927f / 180.0f) * knockback, knockback, MathHelper.cos(rotationYaw * 3.1415927f / 180.0f) * knockback);
 						hitAnyEntities = true;
+						EntityLiving entityliving;
 						if (!(entity instanceof EntityLiving) || (entityliving = (EntityLiving) entity).getAttackTarget() != this) {
 							continue;
 						}

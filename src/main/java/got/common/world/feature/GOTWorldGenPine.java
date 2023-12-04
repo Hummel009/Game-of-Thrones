@@ -26,7 +26,6 @@ public class GOTWorldGenPine extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		Block below;
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		boolean flag = true;
 		if (j >= 1 && height + 1 <= 256) {
@@ -50,6 +49,7 @@ public class GOTWorldGenPine extends WorldGenAbstractTree {
 		} else {
 			flag = false;
 		}
+		Block below;
 		if (!(below = world.getBlock(i, j - 1, k)).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
 			flag = false;
 		}
@@ -86,15 +86,15 @@ public class GOTWorldGenPine extends WorldGenAbstractTree {
 		generateLeafLayer(world, random, i, leafHeight, k, 1);
 		int lastDir = -1;
 		for (int j1 = j; j1 < j + height; ++j1) {
-			int i1;
-			int dir;
-			int k1;
 			setBlockAndNotifyAdequately(world, i, j1, k, woodBlock, woodMeta);
+			int dir;
 			if (j1 < j + 3 || j1 >= minLeafHeight || random.nextInt(3) != 0 || (dir = random.nextInt(4)) == lastDir) {
 				continue;
 			}
 			lastDir = dir;
 			int length = 1;
+			int k1;
+			int i1;
 			for (int l = 1; l <= length && isReplaceable(world, i1 = i + Direction.offsetX[dir] * l, j1, k1 = k + Direction.offsetZ[dir] * l); ++l) {
 				if (dir == 0 || dir == 2) {
 					setBlockAndNotifyAdequately(world, i1, j1, k1, woodBlock, woodMeta | 8);

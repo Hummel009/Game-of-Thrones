@@ -61,7 +61,6 @@ public class GOTPacketEditSign implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketEditSign, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketEditSign packet, MessageContext context) {
-			TileEntity te;
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			entityplayer.func_143004_u();
 			World world = entityplayer.worldObj;
@@ -69,6 +68,7 @@ public class GOTPacketEditSign implements IMessage {
 			int j = packet.posY;
 			int k = packet.posZ;
 			String[] newText = packet.signText;
+			TileEntity te;
 			if (world.blockExists(i, j, k) && (te = world.getTileEntity(i, j, k)) instanceof GOTTileEntitySign) {
 				GOTTileEntitySign sign = (GOTTileEntitySign) te;
 				if (!sign.isEditable() || sign.getEditingPlayer() != entityplayer) {

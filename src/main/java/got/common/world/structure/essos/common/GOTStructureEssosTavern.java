@@ -22,11 +22,11 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int k1;
 		setOriginAndRotation(world, i, j, k, rotation, 16);
 		setupRandomBlocks(random);
+		int k1;
+		int i1;
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;

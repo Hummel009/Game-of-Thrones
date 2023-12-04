@@ -38,9 +38,6 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int j1;
-		int i1;
-		int k1;
 		super.decorate(world, random, i, k);
 		int l;
 		int k12;
@@ -64,6 +61,9 @@ public class GOTBiomeShadowMountains extends GOTBiomeShadowLand {
 					world.setBlock(i12, j12, k12, GOTBlocks.asshaiThorn, 0, 2);
 				}
 			}
+			int k1;
+			int i1;
+			int j1;
 			if (random.nextInt(20) == 0 && world.isAirBlock(i1 = i + random.nextInt(16) + 8, j1 = world.getHeightValue(i1, k1 = k + random.nextInt(16) + 8), k1) && GOTBlocks.asshaiMoss.canBlockStay(world, i1, j1, k1)) {
 				new GOTWorldGenAsshaiMoss().generate(world, random, i1, j1, k1);
 			}

@@ -32,14 +32,12 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 				if (biomeID == GOTBiome.river.biomeID) {
 					int replaceID = -1;
 					for (int range = 1; range <= maxRange; ++range) {
-						int id;
-						int subBiomeID;
-						int count;
 						HashMap<Integer, Integer> viableBiomes = new HashMap<>();
 						HashMap<Integer, Integer> viableBiomesWateryAdjacent = new HashMap<>();
 						for (int k2 = k1 - range; k2 <= k1 + range; ++k2) {
 							for (int i2 = i1 - range; i2 <= i1 + range; ++i2) {
 								GOTBiome subBiome;
+								int subBiomeID;
 								if (Math.abs(i2 - i1) != range && Math.abs(k2 - k1) != range || (subBiome = dimension.biomeList[subBiomeID = biomes[i2 + maxRange + (k2 + maxRange) * (xSize + maxRange * 2)]]) == GOTBiome.river) {
 									continue;
 								}
@@ -60,8 +58,8 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 						if (priorityMap.isEmpty()) {
 							continue;
 						}
-						ArrayList<Integer> maxCountBiomes = new ArrayList<>();
 						int maxCount = 0;
+						int count;
 						for (Entry<Integer, Integer> e : priorityMap.entrySet()) {
 							count = e.getValue();
 							if (count <= maxCount) {
@@ -69,8 +67,9 @@ public class GOTGenLayerRemoveMapRivers extends GOTGenLayer {
 							}
 							maxCount = count;
 						}
+						ArrayList<Integer> maxCountBiomes = new ArrayList<>();
 						for (Entry<Integer, Integer> e : priorityMap.entrySet()) {
-							id = e.getKey();
+							int id = e.getKey();
 							count = e.getValue();
 							if (count != maxCount) {
 								continue;

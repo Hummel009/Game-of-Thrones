@@ -27,10 +27,10 @@ public abstract class GOTGuiMenuBase extends GOTGuiMenuWBBase {
 		guiLeft = (width - xSize) / 2;
 		guiTop = (height - ySize) / 2;
 		int buttonH = 20;
-		int buttonGap = 35;
-		int minGap = 10;
 		buttonMenuReturn = new GOTGuiButtonLeftRight(1000, true, 0, guiTop + (ySize + buttonH) / 4, StatCollector.translateToLocal("got.gui.menuButton"));
 		buttonList.add(buttonMenuReturn);
+		int minGap = 10;
+		int buttonGap = 35;
 		buttonMenuReturn.xPosition = Math.min(buttonGap, guiLeft - minGap - buttonMenuReturn.width);
 	}
 

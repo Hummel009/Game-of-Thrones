@@ -125,7 +125,6 @@ public class GOTEntityPortal extends Entity {
 			setScale(getScale() + 1);
 		}
 		if (getScale() >= MAX_SCALE) {
-			int i;
 			List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(8.0, 8.0, 8.0));
 			for (EntityPlayer player : players) {
 				if (!boundingBox.intersectsWith(player.boundingBox) || player.ridingEntity != null || player.riddenByEntity != null) {
@@ -134,6 +133,7 @@ public class GOTEntityPortal extends Entity {
 				GOT.proxy.setInPortal(player);
 			}
 			List<? extends Entity> entities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(8.0, 8.0, 8.0));
+			int i;
 			for (i = 0; i < entities.size(); ++i) {
 				Entity entity = entities.get(i);
 				if (entity instanceof EntityPlayer || !boundingBox.intersectsWith(entity.boundingBox) || entity.ridingEntity != null || entity.riddenByEntity != null || entity.timeUntilPortal != 0) {

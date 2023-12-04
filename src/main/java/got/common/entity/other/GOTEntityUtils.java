@@ -49,10 +49,10 @@ public class GOTEntityUtils {
 	}
 
 	public static void setLevymanArmor(GOTEntityNPC npc, Random rand, boolean forceTurban) {
-		boolean alreadyHasChain = false;
 		npc.setCurrentItemOrArmor(1, dyeLeather(new ItemStack(Items.leather_boots), rand));
 
 		int legs = rand.nextInt(10);
+		boolean alreadyHasChain = false;
 		if (legs == 0 || legs == 1) {
 			npc.setCurrentItemOrArmor(2, new ItemStack(GOTItems.bronzeChainmailLeggings));
 			alreadyHasChain = true;

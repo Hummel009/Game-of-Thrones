@@ -114,9 +114,9 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		fontRendererObj.drawString(boxSubtitle, windowX + 4, windowY + 14, 11184810);
 		mc.getTextureManager().bindTexture(bannerTexture);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		int x = windowX + 4;
-		int y = windowY + 32;
 		mouseOverPermission = null;
+		int y = windowY + 32;
+		int x = windowX + 4;
 		for (GOTBannerProtection.Permission p : GOTBannerProtection.Permission.values()) {
 			if (includeFull || p != GOTBannerProtection.Permission.FULL) {
 				if (i >= x && i < x + 10 && j >= y && j < y + 10) {
@@ -137,8 +137,6 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 
 	@Override
 	public void drawScreen(int i, int j, float f) {
-		int windowY;
-		String s;
 		permissionsMouseoverIndex = -1;
 		permissionsMouseoverY = -1;
 		mouseOverPermission = null;
@@ -155,6 +153,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		String title = StatCollector.translateToLocal("got.gui.bannerEdit.title");
 		fontRendererObj.drawString(title, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(title) / 2, guiTop + 6, 4210752);
+		String s;
 		if (theBanner.isPlayerSpecificProtection()) {
 			buttonMode.displayString = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.playerSpecific");
 			s = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.playerSpecific.desc.1");
@@ -215,6 +214,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			alignmentField.setEnabled(true);
 			alignmentField.drawTextBox();
 		}
+		int windowY;
 		if (permissionsOpenIndex >= 0) {
 			int windowX = guiLeft + xSize + permWindowBorder;
 			windowY = permissionsOpenY;
@@ -311,10 +311,10 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		alignmentField.setEnabled(false);
 		refreshWhitelist();
 		for (int i = 0; i < allowedPlayers.length; ++i) {
-			String name;
 			GuiTextField textBox = allowedPlayers[i];
 			textBox.setTextColor(16777215);
 			GameProfile profile = theBanner.getWhitelistedPlayer(i);
+			String name;
 			if (profile != null && !StringUtils.isBlank(name = profile.getName())) {
 				textBox.setText(name);
 				textBox.setTextColor(65280);
@@ -355,7 +355,6 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 
 	@Override
 	public void mouseClicked(int i, int j, int k) {
-		int dx;
 		super.mouseClicked(i, j, k);
 		if (alignmentField.getVisible()) {
 			alignmentField.mouseClicked(i, j, k);
@@ -384,6 +383,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			buttonSound();
 			return;
 		}
+		int dx;
 		if (permissionsOpenIndex >= 0) {
 			dx = i - (guiLeft + xSize + permWindowBorder);
 			int dy = j - permissionsOpenY;

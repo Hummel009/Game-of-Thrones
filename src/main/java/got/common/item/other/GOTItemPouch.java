@@ -59,7 +59,6 @@ public class GOTItemPouch extends Item {
 	}
 
 	public static IInventory getChestInvAt(EntityPlayer entityplayer, World world, int i, int j, int k) {
-		InventoryEnderChest enderInv;
 		Block block = world.getBlock(i, j, k);
 		TileEntity te = world.getTileEntity(i, j, k);
 		if (block instanceof GOTBlockSpawnerChest) {
@@ -71,6 +70,7 @@ public class GOTItemPouch extends Item {
 		if (block instanceof GOTBlockChest) {
 			return ((GOTBlockChest) block).getModChestAt(world, i, j, k);
 		}
+		InventoryEnderChest enderInv;
 		if (block instanceof BlockEnderChest && !world.getBlock(i, j + 1, k).isNormalCube() && (enderInv = entityplayer.getInventoryEnderChest()) != null && te instanceof TileEntityEnderChest) {
 			TileEntityEnderChest enderChest = (TileEntityEnderChest) te;
 			if (!world.isRemote) {

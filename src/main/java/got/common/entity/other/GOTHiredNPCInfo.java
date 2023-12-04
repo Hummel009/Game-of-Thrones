@@ -349,7 +349,6 @@ public class GOTHiredNPCInfo {
 
 	public void onUpdate() {
 		if (!theEntity.worldObj.isRemote) {
-			EntityPlayer entityplayer;
 			if (!doneFirstUpdate) {
 				doneFirstUpdate = true;
 			}
@@ -357,6 +356,7 @@ public class GOTHiredNPCInfo {
 				sendBasicDataToAllWatchers();
 				resendBasicData = false;
 			}
+			EntityPlayer entityplayer;
 			if (hasHiringRequirements() && isActive && (entityplayer = getHiringPlayer()) != null) {
 				GOTFaction fac = theEntity.getHiringFaction();
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
@@ -506,13 +506,13 @@ public class GOTHiredNPCInfo {
 				int i = MathHelper.floor_double(entityplayer.posX);
 				int j = MathHelper.floor_double(entityplayer.boundingBox.minY);
 				int k = MathHelper.floor_double(entityplayer.posZ);
-				float minDist = 3.0f;
-				float maxDist = 6.0f;
 				float extraDist = theEntity.width / 2.0f;
 				if (theEntity.ridingEntity instanceof EntityLiving) {
 					extraDist = Math.max(theEntity.width, theEntity.ridingEntity.width) / 2.0f;
 				}
+				float minDist = 3.0f;
 				minDist += extraDist;
+				float maxDist = 6.0f;
 				maxDist += extraDist;
 				int attempts = 120;
 				for (int l = 0; l < attempts; ++l) {
@@ -556,9 +556,9 @@ public class GOTHiredNPCInfo {
 					return;
 				}
 				if (failsafe) {
-					double d = i + 0.5;
-					double d2 = k + 0.5;
 					if (world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP)) {
+						double d2 = k + 0.5;
+						double d = i + 0.5;
 						if (theEntity.ridingEntity instanceof EntityLiving) {
 							EntityLiving mount = (EntityLiving) theEntity.ridingEntity;
 							mount.setLocationAndAngles(d, j, d2, theEntity.rotationYaw, theEntity.rotationPitch);

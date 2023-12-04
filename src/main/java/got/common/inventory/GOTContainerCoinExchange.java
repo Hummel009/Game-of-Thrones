@@ -173,9 +173,9 @@ public class GOTContainerCoinExchange extends Container {
 				}
 				onCraftMatrixChanged(slot.inventory);
 			} else {
-				boolean flag = false;
 				Slot coinSlot = (Slot) inventorySlots.get(0);
 				coinSlot.getStack();
+				boolean flag = false;
 				if (coinSlot.isItemValid(itemstack1) && mergeItemStack(itemstack1, 0, 1, true)) {
 					flag = true;
 				}

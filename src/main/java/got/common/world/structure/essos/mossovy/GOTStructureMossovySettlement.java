@@ -66,8 +66,6 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
 			if (type == Type.VILLAGE) {
 				int dSq = i * i + k * k;
 				int imn = 20 + random.nextInt(4);
@@ -76,6 +74,8 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 				}
 				int omn = 53 - random.nextInt(4);
 				int omx = 60 + random.nextInt(4);
+				int k1 = Math.abs(k);
+				int i1 = Math.abs(i);
 				if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
@@ -129,9 +129,6 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
-				int k;
-				int l;
-				int i;
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
 				float sin = MathHelper.sin(turnR);
 				float cos = MathHelper.cos(turnR);
@@ -144,6 +141,9 @@ public class GOTStructureMossovySettlement extends GOTStructureBaseSettlement {
 				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
 					r = 3;
 				}
+				int i;
+				int l;
+				int k;
 				if (random.nextBoolean()) {
 					l = 61;
 					i = Math.round(l * cos);

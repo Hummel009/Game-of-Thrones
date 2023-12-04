@@ -203,8 +203,6 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 		}
 
 		public void setupTown(Random random) {
-			int l;
-			int wallX;
 			boolean outerTavern = random.nextBoolean();
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -399,12 +397,14 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 				addStructure(new GOTStructureWesterlandsWatchtower(false), i1, towerZ, 0, true);
 			}
 			int wallZ = 82;
-			int wallEndX = 76;
+			int wallX;
+			int l;
 			for (l = 0; l <= 3; ++l) {
 				wallX = 12 + l * 16;
 				addStructure(GOTStructureWesterosTownWall.Left(false), -wallX, wallZ, 2, true);
 				addStructure(GOTStructureWesterosTownWall.Right(false), wallX, wallZ, 2, true);
 			}
+			int wallEndX = 76;
 			addStructure(GOTStructureWesterosTownWall.LeftEndShort(false), -wallEndX, wallZ, 2, true);
 			addStructure(GOTStructureWesterosTownWall.RightEndShort(false), wallEndX, wallZ, 2, true);
 			addStructure(GOTStructureWesterosTownWall.Centre(false), -wallZ, 0, 3, true);
@@ -471,9 +471,6 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
-				int k;
-				int l;
-				int i;
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
 				float sin = MathHelper.sin(turnR);
 				float cos = MathHelper.cos(turnR);
@@ -486,6 +483,9 @@ public class GOTStructureWesterlandsSettlement extends GOTStructureBaseSettlemen
 				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
 					r = 3;
 				}
+				int i;
+				int l;
+				int k;
 				if (random.nextBoolean()) {
 					l = 61;
 					i = Math.round(l * cos);

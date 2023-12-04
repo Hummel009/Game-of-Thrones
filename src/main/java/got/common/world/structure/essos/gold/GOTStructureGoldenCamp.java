@@ -57,9 +57,6 @@ public class GOTStructureGoldenCamp extends GOTStructureBaseSettlement {
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
-				int k;
-				int l;
-				int i;
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
 				float sin = MathHelper.sin(turnR);
 				float cos = MathHelper.cos(turnR);
@@ -73,9 +70,9 @@ public class GOTStructureGoldenCamp extends GOTStructureBaseSettlement {
 					r = 3;
 				}
 				if (random.nextBoolean()) {
-					l = 61;
-					i = Math.round(l * cos);
-					k = Math.round(l * sin);
+					int l = 61;
+					int i = Math.round(l * cos);
+					int k = Math.round(l * sin);
 					addStructure(new GOTStructureGoldenCampTent(false), i, k, r);
 				}
 			}
@@ -92,8 +89,6 @@ public class GOTStructureGoldenCamp extends GOTStructureBaseSettlement {
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
 			int dSq = i * i + k * k;
 			int imn = 20 + random.nextInt(4);
 			if (dSq < imn * imn) {
@@ -101,6 +96,8 @@ public class GOTStructureGoldenCamp extends GOTStructureBaseSettlement {
 			}
 			int omn = 53 - random.nextInt(4);
 			int omx = 60 + random.nextInt(4);
+			int k1 = Math.abs(k);
+			int i1 = Math.abs(i);
 			if (dSq > omn * omn && dSq < omx * omx || dSq < 2809 && Math.abs(i1 - k1) <= 2 + random.nextInt(4)) {
 				return GOTBezierType.PATH_DIRTY;
 			}

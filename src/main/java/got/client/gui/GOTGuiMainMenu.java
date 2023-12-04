@@ -102,9 +102,9 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		if ((fadeAlphaI & 0xFC000000) != 0) {
 			int short1 = 274;
 			int k = width / 2 - short1 / 2;
-			int b0 = 30;
 			mc.getTextureManager().bindTexture(titleTexture);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, fadeAlpha);
+			int b0 = 30;
 			drawTexturedModalRect(k, b0, 0, 0, 155, 44);
 			drawTexturedModalRect(k + 155, b0, 0, 45, 155, 44);
 			String modSubtitle = StatCollector.translateToLocal("got.menu.title");

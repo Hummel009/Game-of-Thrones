@@ -53,8 +53,8 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 
 	@Override
 	public void onEntityCollidedWithBlock(World world, int i, int j, int k, Entity entity) {
-		EntityLivingBase living;
 		super.onEntityCollidedWithBlock(world, i, j, k, entity);
+		EntityLivingBase living;
 		if (!world.isRemote && entity instanceof EntityLivingBase && isEntityVulnerable(living = (EntityLivingBase) entity)) {
 			int dur = 100;
 			living.addPotionEffect(new PotionEffect(Potion.poison.id, dur));

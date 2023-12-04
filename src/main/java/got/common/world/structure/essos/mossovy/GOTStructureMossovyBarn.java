@@ -33,16 +33,11 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j2;
-		int step;
-		int k13;
-		int j1;
-		int i1;
-		int k12;
-		int i12;
-		int j12;
 		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
+		int j12;
+		int k12;
+		int i1;
 		if (restrictions) {
 			for (i1 = -6; i1 <= 6; ++i1) {
 				for (k12 = -9; k12 <= 9; ++k12) {
@@ -97,6 +92,11 @@ public class GOTStructureMossovyBarn extends GOTStructureMossovyBase {
 		addBlockMetaAliasOption("GROUND", 7, Blocks.cobblestone, 0);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
+		int i12;
+		int j1;
+		int k13;
+		int step;
+		int j2;
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (step = 0; step < 12 && !isOpaque(world, i12, j1 = -step, k13 = -8 - step); ++step) {
 				setBlockAndMetadata(world, i12, j1, k13, Blocks.grass, 0);

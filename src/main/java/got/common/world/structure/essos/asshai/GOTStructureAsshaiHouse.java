@@ -19,15 +19,9 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k12;
-		int j13;
-		int i2;
-		int j12;
-		int i1;
-		int j1;
-		int k1;
 		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
+		int j13;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -50,6 +44,8 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 				}
 			}
 		}
+		int i1;
+		int i2;
 		for (i1 = -5; i1 <= 4; ++i1) {
 			for (int k14 = -7; k14 <= 5; ++k14) {
 				i2 = Math.abs(i1);
@@ -117,9 +113,9 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 			}
 		}
 		for (i1 = -5; i1 <= 5; ++i1) {
-			int j14;
-			int j2;
 			i2 = Math.abs(i1);
+			int j2;
+			int j14;
 			for (int step = 0; step <= 2; ++step) {
 				j14 = 8 + step;
 				setBlockAndMetadata(world, i1, j14, -5 + step, brick2StairBlock, 2);
@@ -147,6 +143,8 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 				}
 			}
 		}
+		int j12;
+		int k12;
 		for (i1 = -5; i1 <= -3; ++i1) {
 			for (k12 = -1; k12 <= 2; ++k12) {
 				for (j12 = 1; j12 <= 11; ++j12) {
@@ -176,6 +174,8 @@ public class GOTStructureAsshaiHouse extends GOTStructureAsshaiBase {
 		}
 		setBlockAndMetadata(world, 3, 2, 4, GOTBlocks.asshaiTorch, 1);
 		setBlockAndMetadata(world, 0, 3, 1, GOTBlocks.chandelier, 12);
+		int k1;
+		int j1;
 		for (k1 = 0; k1 <= 1; ++k1) {
 			setBlockAndMetadata(world, -3, 1, k1, Blocks.iron_bars, 0);
 			setBlockAndMetadata(world, -3, 2, k1, Blocks.furnace, 4);

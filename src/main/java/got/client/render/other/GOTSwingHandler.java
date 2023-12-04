@@ -56,14 +56,12 @@ public class GOTSwingHandler {
 	@SubscribeEvent
 	public void onEntityUpdate(LivingEvent.LivingUpdateEvent event) {
 		ItemStack item;
-		SwingTime swt;
 		EntityLivingBase entity = event.entityLiving;
 		World world = entity.worldObj;
 		if (world.isRemote && entitySwings.get(entity) == null && entity.isSwingInProgress && entity.swingProgressInt == 0 && GOTWeaponStats.isMeleeWeapon(item = entity.getHeldItem())) {
-			int time;
-			time = GOTWeaponStats.getAttackTimePlayer(item);
+			int time = GOTWeaponStats.getAttackTimePlayer(item);
 			time = Math.round(time * swingFactor);
-			swt = new SwingTime();
+			SwingTime swt = new SwingTime();
 			swt.swing = 1;
 			swt.swingPrev = 0;
 			swt.swingMax = time;

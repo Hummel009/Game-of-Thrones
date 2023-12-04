@@ -12,14 +12,11 @@ public class GOTStructureAsshaiAltar extends GOTStructureAsshaiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int k1;
-		int k12;
 		setOriginAndRotation(world, i, j, k, rotation, 6);
+		int i1;
 		for (i1 = -5; i1 <= 5; ++i1) {
-			for (k1 = -5; k1 <= 5; ++k1) {
-				j1 = 0;
+			for (int k1 = -5; k1 <= 5; ++k1) {
+				int j1 = 0;
 				while (!isOpaque(world, i1, j1, k1) && getY(j1) >= 0) {
 					placeRandomBrick(world, random, i1, j1, k1);
 					setGrassToDirt(world, i1, j1 - 1, k1);
@@ -47,6 +44,7 @@ public class GOTStructureAsshaiAltar extends GOTStructureAsshaiBase {
 			placeRandomStairs(world, random, i1, 1, -5, 2);
 			placeRandomStairs(world, random, i1, 1, 5, 3);
 		}
+		int k12;
 		for (k12 = -5; k12 <= 5; ++k12) {
 			placeRandomStairs(world, random, -5, 1, k12, 1);
 			placeRandomStairs(world, random, 5, 1, k12, 0);

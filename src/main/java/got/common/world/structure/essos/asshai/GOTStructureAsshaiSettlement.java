@@ -40,8 +40,6 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 		@Override
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
-			int k1;
-			int houseZ;
 			boolean outerTavern = random.nextBoolean();
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -83,6 +81,8 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureAsshaiTower(false), -29, -36, 0, true);
 			addStructure(new GOTStructureAsshaiTower(false), 29, -36, 0, true);
 			int houseX = 24;
+			int houseZ;
+			int k1;
 			for (k1 = -1; k1 <= 1; ++k1) {
 				houseZ = k1 * 12;
 				if (k1 == 1) {
@@ -142,8 +142,6 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureAsshaiHouse(false), -gardenX, gardenZ, 1, true);
 			addStructure(new GOTStructureAsshaiHouse(false), gardenX, -gardenZ, 3, true);
 			addStructure(new GOTStructureAsshaiHouse(false), gardenX, gardenZ, 3, true);
-			int wallX;
-			int l;
 			for (int k11 : new int[]{67, 75}) {
 				addStructure(new GOTStructureAsshaiTownBench(false), -10, k11, 1, true);
 				addStructure(new GOTStructureAsshaiTownBench(false), 10, k11, 3, true);
@@ -158,12 +156,14 @@ public class GOTStructureAsshaiSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureAsshaiWatchtower(false), i1, towerZ, 0, true);
 			}
 			int wallZ = 82;
-			int wallEndX = 76;
+			int l;
+			int wallX;
 			for (l = 0; l <= 3; ++l) {
 				wallX = 12 + l * 16;
 				addStructure(GOTStructureAsshaiTownWall.Left(false), -wallX, wallZ, 2, true);
 				addStructure(GOTStructureAsshaiTownWall.Right(false), wallX, wallZ, 2, true);
 			}
+			int wallEndX = 76;
 			addStructure(GOTStructureAsshaiTownWall.LeftEndShort(false), -wallEndX, wallZ, 2, true);
 			addStructure(GOTStructureAsshaiTownWall.RightEndShort(false), wallEndX, wallZ, 2, true);
 			addStructure(GOTStructureAsshaiTownWall.Centre(false), -wallZ, 0, 3, true);

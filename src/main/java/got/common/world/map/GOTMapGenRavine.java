@@ -41,10 +41,6 @@ public class GOTMapGenRavine extends MapGenRavine {
 	@Override
 	public void func_151540_a(long seed, int chunkX, int chunkZ, Block[] blocks, double d, double d1, double d2, float f, float ravineAngle, float f2, int intPar1, int intPar2, double increase) {
 		Random random = new Random(seed);
-		double chunkCentreX = chunkX * 16 + 8;
-		double chunkCentreZ = chunkZ * 16 + 8;
-		float f3 = 0.0f;
-		float f4 = 0.0f;
 		if (intPar2 <= 0) {
 			int j1 = range * 16 - 16;
 			intPar2 = j1 - random.nextInt(j1 / 4);
@@ -61,6 +57,10 @@ public class GOTMapGenRavine extends MapGenRavine {
 			}
 			ravineNoise[k1] = f5 * f5;
 		}
+		float f4 = 0.0f;
+		float f3 = 0.0f;
+		double chunkCentreZ = chunkZ * 16 + 8;
+		double chunkCentreX = chunkX * 16 + 8;
 		while (intPar1 < intPar2) {
 			double d6 = 1.5 + MathHelper.sin(intPar1 * 3.1415927f / intPar2) * f * 1.0f;
 			double d7 = d6 * increase;
@@ -87,7 +87,6 @@ public class GOTMapGenRavine extends MapGenRavine {
 					return;
 				}
 				if (d >= chunkCentreX - 16.0 - d6 * 2.0 && d2 >= chunkCentreZ - 16.0 - d6 * 2.0 && d <= chunkCentreX + 16.0 + d6 * 2.0 && d2 <= chunkCentreZ + 16.0 + d6 * 2.0) {
-					int i1;
 					int xMin = MathHelper.floor_double(d - d6) - chunkX * 16 - 1;
 					int xMax = MathHelper.floor_double(d + d6) - chunkX * 16 + 1;
 					int yMin = MathHelper.floor_double(d1 - d7) - 1;
@@ -101,6 +100,7 @@ public class GOTMapGenRavine extends MapGenRavine {
 					zMin = Math.max(zMin, 0);
 					zMax = Math.min(zMax, 16);
 					boolean isWater = false;
+					int i1;
 					block2:
 					for (i1 = xMin; i1 < xMax; ++i1) {
 						for (int k1 = zMin; k1 < zMax; ++k1) {
@@ -127,10 +127,10 @@ public class GOTMapGenRavine extends MapGenRavine {
 							for (int k1 = zMin; k1 < zMax; ++k1) {
 								double d13 = (k1 + chunkZ * 16 + 0.5 - d2) / d6;
 								int blockIndex = (i1 * 16 + k1) * 256 + yMax;
-								boolean topBlock = false;
 								if (d12 * d12 + d13 * d13 >= 1.0) {
 									continue;
 								}
+								boolean topBlock = false;
 								for (int j1 = yMax - 1; j1 >= yMin; --j1) {
 									double d14 = (j1 + 0.5 - d1) / d7;
 									if ((d12 * d12 + d13 * d13) * ravineNoise[j1] + d14 * d14 / 6.0 < 1.0) {

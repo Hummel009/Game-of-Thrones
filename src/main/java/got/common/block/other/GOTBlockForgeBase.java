@@ -144,9 +144,9 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 				for (int l = 0; l < 6; ++l) {
 					float f10 = random.nextBoolean() ? 0.0f : 1.0f;
 					float f11 = random.nextBoolean() ? 0.0f : 1.0f;
-					float f12 = 0.5f;
 					f10 += -0.1f + random.nextFloat() * 0.2f;
 					f11 += -0.1f + random.nextFloat() * 0.2f;
+					float f12 = 0.5f;
 					if (random.nextInt(3) > 0) {
 						world.spawnParticle("largesmoke", i + f10, j + f12, k + f11, 0.0, 0.0, 0.0);
 						continue;

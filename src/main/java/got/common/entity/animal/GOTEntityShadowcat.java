@@ -154,7 +154,6 @@ public class GOTEntityShadowcat extends EntityAnimal implements GOTBiome.ImmuneT
 	@Override
 	public void onLivingUpdate() {
 		boolean isChild;
-		EntityLivingBase entity;
 		if (!worldObj.isRemote && (isChild = isChild()) != prevIsChild) {
 			if (isChild) {
 				tasks.removeTask(attackAI);
@@ -172,6 +171,7 @@ public class GOTEntityShadowcat extends EntityAnimal implements GOTBiome.ImmuneT
 			}
 		}
 		super.onLivingUpdate();
+		EntityLivingBase entity;
 		if (!worldObj.isRemote && getAttackTarget() != null && (!(entity = getAttackTarget()).isEntityAlive() || entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode)) {
 			setAttackTarget(null);
 		}

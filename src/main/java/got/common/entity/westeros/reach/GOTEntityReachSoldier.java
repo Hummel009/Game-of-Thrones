@@ -43,14 +43,14 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 			BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
 			GOTBiomeVariant variant = world.provider instanceof GOTWorldProvider ? ((GOTWorldChunkManager) world.provider.worldChunkMgr).getBiomeVariantAt(i, k) : null;
 			if (biome instanceof GOTBiomeReachArbor && variant == GOTBiomeVariant.VINEYARD) {
-				GOTEntityReachSoldier guard;
 				float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.REACH);
-				boolean evil = alignment < 0.0f;
 				float limit = 2000.0f;
 				float chance = (limit - alignment) / limit;
 				chance = Math.max(chance, 0.0f);
 				chance = Math.min(chance, 1.0f);
 				chance *= chance;
+				boolean evil = alignment < 0.0f;
+				GOTEntityReachSoldier guard;
 				if ((evil || world.rand.nextFloat() < chance) && world.rand.nextInt(4) == 0) {
 					int nearbyGuards = 0;
 					int spawnRange = 8;

@@ -18,10 +18,9 @@ public class GOTWorldGenLarch extends WorldGenAbstractTree {
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		int height = random.nextInt(9) + 8;
 		int trunkBaseHeight = 2 + random.nextInt(2);
-		int leafStart = height - trunkBaseHeight;
 		int leafWidth = 2 + random.nextInt(2);
-		boolean flag = true;
 		if (j >= 1 && j + height + 1 <= 256) {
+			boolean flag = true;
 			for (int j1 = j; j1 <= j + 1 + height && flag; ++j1) {
 				int range = j1 - j < trunkBaseHeight ? 0 : leafWidth;
 				for (int i1 = i - range; i1 <= i + range && flag; ++i1) {
@@ -42,11 +41,12 @@ public class GOTWorldGenLarch extends WorldGenAbstractTree {
 			Block soil = world.getBlock(i, j - 1, k);
 			boolean isSoil = soil.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) GOTBlocks.sapling3);
 			if (isSoil && j < 256 - height - 1) {
-				int j1;
 				soil.onPlantGrow(world, i, j - 1, k, i, j, k);
 				int leafRange = random.nextInt(2);
 				int maxLeafRange = 1;
 				int minLeafRange = 0;
+				int j1;
+				int leafStart = height - trunkBaseHeight;
 				for (int leafLayer = 0; leafLayer <= leafStart; ++leafLayer) {
 					j1 = j + height - leafLayer;
 					for (int i1 = i - leafRange; i1 <= i + leafRange; ++i1) {

@@ -24,10 +24,10 @@ public abstract class GOTStructureStoneRuin extends GOTStructureBase {
 		boolean generateColumn = random.nextInt(3) > 0;
 		if (generateColumn) {
 			int minHeight = 0;
-			int maxHeight = 0;
 			int columnX = -width / 2;
 			int columnZ = -width / 2;
 			if (restrictions) {
+				int maxHeight = 0;
 				block0:
 				for (int i1 = columnX; i1 < columnX + width; ++i1) {
 					for (int k1 = columnZ; k1 < columnZ + width; ++k1) {

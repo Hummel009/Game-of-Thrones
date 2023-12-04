@@ -33,12 +33,10 @@ public class GOTPacketConquestGrid implements IMessage {
 		conqFac = GOTFaction.forID(facID);
 		allZones = new ArrayList<>();
 		short gridX;
-		short gridZ;
-		float str;
 		while ((gridX = data.readShort()) != -15000) {
-			gridZ = data.readShort();
+			short gridZ = data.readShort();
 			long time = data.readLong();
-			str = data.readFloat();
+			float str = data.readFloat();
 			GOTConquestZone zone = new GOTConquestZone(gridX, gridZ);
 			zone.setClientSide();
 			zone.setLastChangeTime(time);

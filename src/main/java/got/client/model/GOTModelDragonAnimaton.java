@@ -133,7 +133,6 @@ public class GOTModelDragonAnimaton {
 	public static float interp(float x, float... knots) {
 		int nknots = knots.length;
 		int nspans = nknots - 3;
-		int knot = 0;
 		if (nspans < 1) {
 			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
 			return 0;
@@ -144,6 +143,7 @@ public class GOTModelDragonAnimaton {
 			span = nknots - 3;
 		}
 		x -= span;
+		int knot = 0;
 		knot += span;
 		float knot0 = knots[knot];
 		float knot1 = knots[knot + 1];
@@ -160,7 +160,6 @@ public class GOTModelDragonAnimaton {
 	public static void interp(float x, float[] result, float[]... knots) {
 		int nknots = knots.length;
 		int nspans = nknots - 3;
-		int knot = 0;
 		if (nspans < 1) {
 			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
 			return;
@@ -171,6 +170,7 @@ public class GOTModelDragonAnimaton {
 			span = nknots - 3;
 		}
 		x -= span;
+		int knot = 0;
 		knot += span;
 		int dimension = result.length;
 		for (int i = 0; i < dimension; i++) {
@@ -390,7 +390,6 @@ public class GOTModelDragonAnimaton {
 		model.neck.rotateAngleZ = 0;
 
 		double health = entity.getHealthRelative();
-		float neckSize;
 
 		for (int i = 0; i < model.neckProxy.length; i++) {
 			float vertMulti = (i + 1) / (float) model.neckProxy.length;
@@ -417,7 +416,7 @@ public class GOTModelDragonAnimaton {
 
 			model.neckProxy[i].update();
 
-			neckSize = GOTModelDragon.NECK_SIZE * model.neck.renderScaleZ - 1.4f;
+			float neckSize = GOTModelDragon.NECK_SIZE * model.neck.renderScaleZ - 1.4f;
 			model.neck.rotationPointX -= sin(model.neck.rotateAngleY) * cos(model.neck.rotateAngleX) * neckSize;
 			model.neck.rotationPointY += sin(model.neck.rotateAngleX) * neckSize;
 			model.neck.rotationPointZ -= cos(model.neck.rotateAngleY) * cos(model.neck.rotateAngleX) * neckSize;
@@ -490,9 +489,8 @@ public class GOTModelDragonAnimaton {
 			}
 
 			float yAir = yAirAll[i % 2];
-			float yGround;
 
-			yGround = slerp(yGroundStand[i % 2], yGroundSit[i % 2], sit);
+			float yGround = slerp(yGroundStand[i % 2], yGroundSit[i % 2], sit);
 
 			yGround = slerp(yGround, yGroundWalk[i % 2], walk);
 
@@ -515,10 +513,7 @@ public class GOTModelDragonAnimaton {
 		model.tail.rotateAngleY = 0;
 		model.tail.rotateAngleZ = 0;
 
-		float rotXStand;
 		float rotYStand = 0;
-		float rotXSit;
-		float rotYSit;
 		float rotXAir = 0;
 		float rotYAir = 0;
 
@@ -527,12 +522,12 @@ public class GOTModelDragonAnimaton {
 
 			float amp = 0.1f + i / (model.tailProxy.length * 2.0f);
 
-			rotXStand = (i - model.tailProxy.length * 0.6f) * -amp * 0.4f;
+			float rotXStand = (i - model.tailProxy.length * 0.6f) * -amp * 0.4f;
 			rotXStand += (sin(animBase * 0.2f) * sin(animBase * 0.37f) * 0.4f * amp - 0.1f) * (1 - sit);
-			rotXSit = rotXStand * 0.8f;
+			float rotXSit = rotXStand * 0.8f;
 
 			rotYStand = (rotYStand + sin(i * 0.45f + animBase * 0.5f)) * amp * 0.4f;
-			rotYSit = sin(vertMulti * PI_F) * PI_F * 1.2f - 0.5f;
+			float rotYSit = sin(vertMulti * PI_F) * PI_F * 1.2f - 0.5f;
 
 			rotXAir -= sin(i * 0.45f + animBase) * 0.04f * lerp(0.3f, 1, flutter);
 

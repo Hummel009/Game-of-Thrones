@@ -340,10 +340,10 @@ public class GOTContainerAnvil extends Container {
 
 	@Override
 	public ItemStack slotClick(int slotNo, int j, int k, EntityPlayer entityplayer) {
-		ItemStack resultCopy;
 		ItemStack resultItem = invOutput.getStackInSlot(0);
 		resultItem = ItemStack.copyItemStack(resultItem);
 		boolean changed = false;
+		ItemStack resultCopy;
 		if (resultItem != null && slotNo == getSlotFromInventory(invOutput, 0).slotNumber && !theWorld.isRemote && isTrader && theNPC instanceof GOTEntityLightSkinScrapTrader && (changed = applyMischief(resultCopy = resultItem.copy()))) {
 			invOutput.setInventorySlotContents(0, resultCopy);
 		}
@@ -447,29 +447,23 @@ public class GOTContainerAnvil extends Container {
 		reforgeCost = 0;
 		engraveOwnerCost = 0;
 		isSmithScrollCombine = false;
-		int baseAnvilCost;
-		int repairCost = 0;
-		int combineCost = 0;
-		int renameCost = 0;
 		if (inputItem == null) {
 			invOutput.setInventorySlotContents(0, null);
 			materialCost = 0;
 		} else {
-			int oneItemRepair;
-			GOTEnchantmentCombining.CombineRecipe scrollCombine;
 			ItemStack inputCopy = inputItem.copy();
 			ItemStack combinerItem = invInput.getStackInSlot(1);
 			ItemStack materialItem = isTrader ? null : invInput.getStackInSlot(2);
 			Map<Integer, Integer> inputEnchants = EnchantmentHelper.getEnchantments(inputCopy);
-			boolean enchantingWithBook = false;
 			List<GOTEnchantment> inputModifiers = GOTEnchantmentHelper.getEnchantList(inputCopy);
-			baseAnvilCost = GOTEnchantmentHelper.getAnvilCost(inputItem) + (combinerItem == null ? 0 : GOTEnchantmentHelper.getAnvilCost(combinerItem));
+			int baseAnvilCost = GOTEnchantmentHelper.getAnvilCost(inputItem) + (combinerItem == null ? 0 : GOTEnchantmentHelper.getAnvilCost(combinerItem));
 			materialCost = 0;
 			String previousDisplayName = inputCopy.getDisplayName();
 			String defaultItemName = inputCopy.getItem().getItemStackDisplayName(inputCopy);
 			String formattedNameToApply = repairedItemName;
 			Collection<EnumChatFormatting> colorsToApply = new ArrayList<>(getAppliedFormattingCodes(inputCopy.getDisplayName()));
 			boolean alteringNameColor = false;
+			int renameCost = 0;
 			if (costsToRename(inputItem) && combinerItem != null) {
 				if (combinerItem.getItem() instanceof AnvilNameColorProvider) {
 					AnvilNameColorProvider nameColorProvider = (AnvilNameColorProvider) combinerItem.getItem();
@@ -520,6 +514,7 @@ public class GOTContainerAnvil extends Container {
 			if (nameChange && costsToRename(inputItem)) {
 				++renameCost;
 			}
+			GOTEnchantmentCombining.CombineRecipe scrollCombine;
 			if (isTrader && (scrollCombine = GOTEnchantmentCombining.getCombinationResult(inputItem, combinerItem)) != null) {
 				invOutput.setInventorySlotContents(0, scrollCombine.createOutputItem());
 				materialCost = scrollCombine.cost;
@@ -529,6 +524,8 @@ public class GOTContainerAnvil extends Container {
 				return;
 			}
 			boolean combining = false;
+			boolean enchantingWithBook = false;
+			int combineCost = 0;
 			if (combinerItem != null) {
 				enchantingWithBook = combinerItem.getItem() == Items.enchanted_book && Items.enchanted_book.func_92110_g(combinerItem).tagCount() > 0;
 				if (enchantingWithBook && !GOTConfig.enchantingVanilla) {
@@ -625,12 +622,12 @@ public class GOTContainerAnvil extends Container {
 					outputEnchants.clear();
 				}
 				EnchantmentHelper.setEnchantments(outputEnchants, inputCopy);
-				int maxMods = 3;
 				Collection<GOTEnchantment> outputMods = new ArrayList<>(inputModifiers);
 				List<GOTEnchantment> combinerMods = GOTEnchantmentHelper.getEnchantList(combinerItem);
 				if (combinerItemEnchant != null) {
 					combinerMods.add(combinerItemEnchant);
 				}
+				int maxMods = 3;
 				for (GOTEnchantment combinerMod : combinerMods) {
 					boolean canApply = combinerMod.canApply(inputItem, false);
 					if (canApply) {
@@ -700,6 +697,8 @@ public class GOTContainerAnvil extends Container {
 				}
 				baseAnvilCost += Math.max(1, (int) mod.getValueModifier());
 			}
+			int oneItemRepair;
+			int repairCost = 0;
 			if (inputCopy.isItemStackDamageable()) {
 				boolean canRepair;
 				int availableMaterials = 0;
@@ -753,11 +752,11 @@ public class GOTContainerAnvil extends Container {
 				GOTEnchantmentHelper.setAnvilCost(inputCopy, nextAnvilCost);
 			}
 			if (GOTEnchantmentHelper.isReforgeable(inputItem)) {
-				ItemStack reforgeCopy;
 				reforgeCost = 2;
 				if (inputItem.getItem() instanceof ItemArmor) {
 					reforgeCost = 3;
 				}
+				ItemStack reforgeCopy;
 				if (inputItem.isItemStackDamageable() && (oneItemRepair = Math.min((reforgeCopy = inputItem.copy()).getItemDamageForDisplay(), reforgeCopy.getMaxDamage() / 4)) > 0) {
 					int usedMaterials = 0;
 					while (oneItemRepair > 0) {

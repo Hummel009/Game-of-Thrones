@@ -14,12 +14,12 @@ public class GOTContainerBookshelf extends Container {
 	public int numRows;
 
 	public GOTContainerBookshelf(IInventory player, GOTTileEntityBookshelf shelf) {
-		int j;
-		int i;
 		shelfInv = shelf;
 		numRows = shelfInv.getSizeInventory() / 9;
 		shelfInv.openInventory();
 		int playerSlotY = (numRows - 4) * 18;
+		int i;
+		int j;
 		for (j = 0; j < numRows; ++j) {
 			for (i = 0; i < 9; ++i) {
 				addSlotToContainer(new Slot(shelfInv, i + j * 9, 8 + i * 18, 18 + j * 18) {

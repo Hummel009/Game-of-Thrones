@@ -83,10 +83,10 @@ public class GOTModelSwan extends ModelBase {
 		tail.rotateAngleX = 0.3490658503988659f;
 		tail.rotateAngleX += MathHelper.cos(f * 0.4f) * f1 * 0.5f;
 		tail.rotateAngleX += MathHelper.cos(f2 * 0.1f) * 0.1f;
-		float wingX = 0.17453292519943295f;
 		float wingY = (1.0f + MathHelper.cos(f * 0.4f + 3.1415927f)) * f1 * 0.5f;
 		wingY += (1.0f + MathHelper.cos(f2 * 0.15f)) * 0.1f;
 		float wingZ = MathHelper.cos(f * 0.4f + 3.1415927f) * f1 * 0.2f;
+		float wingX = 0.17453292519943295f;
 		wingRight.rotateAngleX = wingX;
 		wingLeft.rotateAngleX = wingX;
 		wingRight.rotateAngleY = -(wingY += flapping * 0.2f);

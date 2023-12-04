@@ -72,13 +72,13 @@ public class GOTItemCoin extends Item {
 	}
 
 	public static void giveCoins(int coins, EntityPlayer entityplayer) {
-		int i;
-		int value;
-		ItemStack coin;
 		InventoryPlayer inv = entityplayer.inventory;
 		if (coins <= 0) {
 			FMLLog.warning("Attempted to give a non-positive value of coins " + coins + " to player " + entityplayer.getCommandSenderName());
 		}
+		ItemStack coin;
+		int value;
+		int i;
 		for (i = values.length - 1; i >= 0; --i) {
 			value = values[i];
 			coin = new ItemStack(GOTItems.coin, 1, i);
@@ -99,18 +99,18 @@ public class GOTItemCoin extends Item {
 	}
 
 	public static void takeCoins(int coins, EntityPlayer entityplayer) {
-		int slot;
-		int i;
-		ItemStack coin;
-		ItemStack is;
-		ItemStack itemstack;
-		int value;
 		InventoryPlayer inv = entityplayer.inventory;
 		int invValue = getInventoryValue(entityplayer, false);
 		if (invValue < coins) {
 			FMLLog.warning("Attempted to take " + coins + " coins from player " + entityplayer.getCommandSenderName() + " who has only " + invValue);
 		}
 		int initCoins = coins;
+		int value;
+		ItemStack itemstack;
+		ItemStack is;
+		ItemStack coin;
+		int i;
+		int slot;
 		block0:
 		for (i = values.length - 1; i >= 0; --i) {
 			value = values[i];

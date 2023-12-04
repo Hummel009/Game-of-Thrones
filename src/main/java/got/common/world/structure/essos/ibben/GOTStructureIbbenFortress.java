@@ -22,21 +22,11 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int j12;
-		int i12;
-		int k1;
-		int i13;
-		int i2;
-		int j13;
-		int k12;
-		int i14;
-		int k13;
-		int i15;
-		int k2;
 		setOriginAndRotation(world, i, j, k, rotation, 13);
 		setupRandomBlocks(random);
+		int k12;
+		int i12;
+		int j12;
 		if (restrictions) {
 			for (i12 = -12; i12 <= 12; ++i12) {
 				for (k12 = -12; k12 <= 12; ++k12) {
@@ -48,11 +38,13 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 				}
 			}
 		}
+		int k2;
+		int i2;
 		for (i12 = -12; i12 <= 12; ++i12) {
 			for (k12 = -12; k12 <= 12; ++k12) {
-				int j14;
 				i2 = Math.abs(i12);
 				k2 = Math.abs(k12);
+				int j14;
 				for (j14 = 1; j14 <= 10; ++j14) {
 					setAir(world, i12, j14, k12);
 				}
@@ -86,13 +78,13 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		}
 		for (i12 = -12; i12 <= 12; ++i12) {
 			for (k12 = -12; k12 <= 12; ++k12) {
-				int j15;
 				i2 = Math.abs(i12);
 				k2 = Math.abs(k12);
 				int yBoost = 0;
 				if (k12 < 8 && i2 < 7) {
 					yBoost = 1;
 				}
+				int j15;
 				if ((i2 == 9 || i2 == 12) && (k2 == 9 || k2 == 12)) {
 					for (j15 = 1; j15 <= 8; ++j15) {
 						setBlockAndMetadata(world, i12, j15, k12, woodBeam2Block, woodBeam2Meta);
@@ -153,10 +145,10 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 		}
 		int[] i16 = {-12, 9};
 		k12 = i16.length;
+		int i13;
 		for (i2 = 0; i2 < k12; ++i2) {
 			i13 = i16[i2];
 			for (int k14 : new int[]{-12, 9}) {
-				int i22;
 				setBlockAndMetadata(world, i13 + 1, 8, k14, plank2StairBlock, 4);
 				setBlockAndMetadata(world, i13 + 2, 8, k14, plank2StairBlock, 5);
 				setBlockAndMetadata(world, i13 + 1, 8, k14 + 3, plank2StairBlock, 4);
@@ -165,6 +157,7 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i13, 8, k14 + 2, plank2StairBlock, 6);
 				setBlockAndMetadata(world, i13 + 3, 8, k14 + 1, plank2StairBlock, 7);
 				setBlockAndMetadata(world, i13 + 3, 8, k14 + 2, plank2StairBlock, 6);
+				int i22;
 				for (i22 = i13; i22 <= i13 + 3; ++i22) {
 					setBlockAndMetadata(world, i22, 9, k14 - 1, roofSlabBlock, roofSlabMeta);
 					setBlockAndMetadata(world, i22, 9, k14 + 4, roofSlabBlock, roofSlabMeta);
@@ -185,6 +178,8 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 				}
 			}
 		}
+		int k13;
+		int i14;
 		for (k13 = -12; k13 <= 12; ++k13) {
 			int k24 = Math.abs(k13);
 			if (k24 >= 10 && k24 <= 11 || k24 >= 3 && k24 <= 8) {
@@ -218,6 +213,8 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 			setAir(world, 0, 3, k13);
 			setBlockAndMetadata(world, 1, 3, k13, plank2StairBlock, 5);
 		}
+		int k1;
+		int i1;
 		for (i1 = -12; i1 <= 12; ++i1) {
 			int i23 = Math.abs(i1);
 			if (i23 >= 10 && i23 <= 11 || i23 >= 3 && i23 <= 8) {
@@ -257,12 +254,15 @@ public class GOTStructureIbbenFortress extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, 5, 5, k13, plankStairBlock, 0);
 			setAir(world, 6, 5, k13);
 		}
+		int j13;
 		for (j13 = 4; j13 <= 7; ++j13) {
 			setBlockAndMetadata(world, -6, j13, -9, woodBeam2Block, woodBeam2Meta);
 			setBlockAndMetadata(world, 6, j13, -9, woodBeam2Block, woodBeam2Meta);
 		}
 		setBlockAndMetadata(world, -6, 8, -9, Blocks.torch, 5);
 		setBlockAndMetadata(world, 6, 8, -9, Blocks.torch, 5);
+		int i15;
+		int j1;
 		for (k13 = -12; k13 <= -10; ++k13) {
 			for (j1 = 1; j1 <= 4; ++j1) {
 				for (i14 = -1; i14 <= 1; ++i14) {

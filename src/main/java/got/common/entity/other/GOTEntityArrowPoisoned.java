@@ -48,11 +48,11 @@ public class GOTEntityArrowPoisoned extends EntityArrow implements IEntityAdditi
 
 	@Override
 	public void readSpawnData(ByteBuf data) {
-		Entity entity;
 		motionX = data.readDouble();
 		motionY = data.readDouble();
 		motionZ = data.readDouble();
 		int id = data.readInt();
+		Entity entity;
 		if (id >= 0 && (entity = worldObj.getEntityByID(id)) != null) {
 			shootingEntity = entity;
 		}

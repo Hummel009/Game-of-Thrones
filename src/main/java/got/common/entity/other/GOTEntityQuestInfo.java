@@ -133,7 +133,6 @@ public class GOTEntityQuestInfo {
 			}
 		}
 		if (canOfferQuestsTo(entityplayer)) {
-			List<GOTMiniQuest> bountyQuests;
 			if (!thisNPCQuests.isEmpty()) {
 				GOTMiniQuest activeQuest = thisNPCQuests.get(0);
 				activeQuest.onInteract(entityplayer, theNPC);
@@ -155,6 +154,7 @@ public class GOTEntityQuestInfo {
 				return true;
 			}
 			GOTMiniQuestFactory bountyHelpSpeechDir = theNPC.getBountyHelpSpeechDir();
+			List<GOTMiniQuest> bountyQuests;
 			if (bountyHelpSpeechDir != null && bountyHelpPredicate.test(entityplayer) && !(bountyQuests = playerData.selectMiniQuests(activeBountySelector)).isEmpty()) {
 				GOTWaypoint lastWP;
 				GOTMiniQuestBounty bQuest = (GOTMiniQuestBounty) bountyQuests.get(theNPC.getRNG().nextInt(bountyQuests.size()));
@@ -241,13 +241,13 @@ public class GOTEntityQuestInfo {
 	}
 
 	public void readFromNBT(NBTTagCompound nbt) {
-		int i;
 		if (nbt.hasKey("MQOffer", 10)) {
 			NBTTagCompound questData = nbt.getCompoundTag("MQOffer");
 			miniquestOffer = GOTMiniQuest.loadQuestFromNBT(questData, null);
 		}
 		offerTime = nbt.getInteger("MQOfferTime");
 		playerSpecificOffers.clear();
+		int i;
 		if (nbt.hasKey("MQSpecificOffers")) {
 			NBTTagList specificTags = nbt.getTagList("MQSpecificOffers", 10);
 			for (i = 0; i < specificTags.tagCount(); ++i) {

@@ -27,7 +27,6 @@ public class GOTWorldGenDesertTrees extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		Block below;
 		int height = 3 + random.nextInt(3);
 		boolean flag = true;
 		if (!isNatural) {
@@ -53,6 +52,7 @@ public class GOTWorldGenDesertTrees extends WorldGenAbstractTree {
 				flag = false;
 			}
 		}
+		Block below;
 		boolean isSoil = (below = world.getBlock(i, j - 1, k)).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling) || isNatural && (below == Blocks.sand || below == Blocks.stone);
 		if (!isSoil) {
 			flag = false;

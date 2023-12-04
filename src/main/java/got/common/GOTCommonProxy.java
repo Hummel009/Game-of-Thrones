@@ -142,8 +142,6 @@ public class GOTCommonProxy implements IGuiHandler {
 
 	@Override
 	public Object getClientGuiElement(int ID, EntityPlayer entityplayer, World world, int i, int j, int k) {
-		GOTEntityNPC npc;
-		Entity entity;
 		if (testForSlotPackedGuiID(ID, GOTGuiID.POUCH_CHEST.ordinal())) {
 			int slot = unpackSlot(ID);
 			IInventory chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k);
@@ -159,6 +157,8 @@ public class GOTCommonProxy implements IGuiHandler {
 			}
 		}
 		GOTGuiID id = GOTGuiID.values()[ID];
+		Entity entity;
+		GOTEntityNPC npc;
 		switch (id) {
 			case ALLOY_FORGE:
 				TileEntity forge = world.getTileEntity(i, j, k);
@@ -503,8 +503,6 @@ public class GOTCommonProxy implements IGuiHandler {
 
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer entityplayer, World world, int i, int j, int k) {
-		GOTEntityNPC npc;
-		Entity entity;
 		IInventory chest2;
 		int slot = unpackSlot(ID);
 		if (testForSlotPackedGuiID(ID, GOTGuiID.POUCH_CHEST.ordinal()) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && (chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k)) != null) {
@@ -515,6 +513,8 @@ public class GOTCommonProxy implements IGuiHandler {
 			return new GOTContainerChestWithPouch(entityplayer, slot, (IInventory) minecart);
 		}
 		GOTGuiID id = GOTGuiID.values()[ID];
+		Entity entity;
+		GOTEntityNPC npc;
 		switch (id) {
 			case ALLOY_FORGE:
 				TileEntity forge = world.getTileEntity(i, j, k);

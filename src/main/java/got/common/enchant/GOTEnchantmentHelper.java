@@ -376,10 +376,10 @@ public class GOTEnchantmentHelper {
 
 	public static NBTTagList getEntityEnchantTags(Entity entity, boolean create) {
 		NBTTagCompound data = entity.getEntityData();
-		NBTTagList tags = null;
 		if (data != null && data.hasKey("GOTEnchEntity")) {
 			return data.getTagList("GOTEnchEntity", 8);
 		}
+		NBTTagList tags = null;
 		if (create) {
 			tags = new NBTTagList();
 			data.setTag("GOTEnchEntity", tags);
@@ -398,10 +398,10 @@ public class GOTEnchantmentHelper {
 
 	public static NBTTagList getItemEnchantTags(ItemStack itemstack, boolean create) {
 		NBTTagCompound itemData = itemstack.getTagCompound();
-		NBTTagList tags = null;
 		if (itemData != null && itemData.hasKey("GOTEnch")) {
 			return itemData.getTagList("GOTEnch", 8);
 		}
+		NBTTagList tags = null;
 		if (create) {
 			if (itemData == null) {
 				itemData = new NBTTagCompound();

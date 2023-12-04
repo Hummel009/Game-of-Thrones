@@ -20,13 +20,13 @@ public abstract class GOTBlockTorch extends BlockTorch {
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		int meta = world.getBlockMetadata(i, j, k);
-		double d = i + 0.5;
-		double d1 = j + 0.7;
-		double d2 = k + 0.5;
-		double particleY = 0.2;
-		double particleX = 0.27;
 		TorchParticle particle = createTorchParticle(random);
 		if (particle != null) {
+			double particleX = 0.27;
+			double particleY = 0.2;
+			double d2 = k + 0.5;
+			double d1 = j + 0.7;
+			double d = i + 0.5;
 			switch (meta) {
 				case 1:
 					particle.spawn(d - particleX, d1 + particleY, d2);

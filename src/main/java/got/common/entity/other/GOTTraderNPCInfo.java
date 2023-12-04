@@ -129,7 +129,6 @@ public class GOTTraderNPCInfo {
 	public void readFromNBT(NBTTagCompound data) {
 		int i;
 		NBTTagCompound nbt;
-		NBTTagCompound sellTradesData;
 		NBTTagCompound buyTradesData;
 		GOTTradeEntry trade;
 		if (data.hasKey("GOTBuyTrades") && (buyTradesData = data.getCompoundTag("GOTBuyTrades")).hasKey("Trades")) {
@@ -142,6 +141,7 @@ public class GOTTraderNPCInfo {
 				buyTrades[i] = trade;
 			}
 		}
+		NBTTagCompound sellTradesData;
 		if (data.hasKey("GOTSellTrades") && (sellTradesData = data.getCompoundTag("GOTSellTrades")).hasKey("Trades")) {
 			NBTTagList sellTradesTags = sellTradesData.getTagList("Trades", 10);
 			sellTrades = new GOTTradeEntry[sellTradesTags.tagCount()];

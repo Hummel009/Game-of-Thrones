@@ -52,7 +52,6 @@ public class GOTEventSpawner {
 			int i;
 			BiomeGenBase biome;
 			int k;
-			int range;
 			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
 			if (chunkposition == null || !((biome = world.getBiomeGenForCoords(i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
 				continue;
@@ -60,6 +59,7 @@ public class GOTEventSpawner {
 			GOTBiome gotbiome = (GOTBiome) biome;
 			Class<? extends GOTEntityNPC> banditClass = gotbiome.getBanditEntityClass();
 			double chance = gotbiome.getUnreliableChance().chancesPerSecondPerChunk[16];
+			int range;
 			if (chance <= 0.0 || world.rand.nextDouble() >= chance || world.selectEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(i - (range = 48), 0.0, k - range, i + range, world.getHeight(), k + range), GOT.selectNonCreativePlayers()).isEmpty()) {
 				continue;
 			}

@@ -82,14 +82,14 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
 			if (type == Type.VILLAGE) {
-				int dSq = i * i + k * k;
+				int k1 = Math.abs(k);
+				int i1 = Math.abs(i);
 				if (i1 <= 2 && k1 <= 2) {
 					return null;
 				}
 				int imn = 19 + random.nextInt(3);
+				int dSq = i * i + k * k;
 				if (dSq < imn * imn || k < 0 && k > -47 && i1 <= 2 + random.nextInt(3)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
@@ -154,9 +154,6 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
-				int l;
-				int k;
-				int i;
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
 				float sin = MathHelper.sin(turnR);
 				float cos = MathHelper.cos(turnR);
@@ -172,6 +169,9 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 				if (sin < 0.0f && Math.abs(cos) <= 0.5f) {
 					continue;
 				}
+				int i;
+				int k;
+				int l;
 				if (random.nextInt(3) != 0) {
 					l = 22;
 					if (random.nextInt(3) == 0) {

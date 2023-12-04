@@ -25,12 +25,12 @@ public class GOTEntityRenderer extends EntityRenderer {
 	@Override
 	public void getMouseOver(float partialTick) {
 		if (theMC.renderViewEntity != null && theMC.theWorld != null) {
-			double reach;
 			theMC.pointedEntity = null;
 			thePointedEntity = null;
 			double blockReach = theMC.playerController.getBlockReachDistance();
 			float meleeReachFactor = GOTWeaponStats.getMeleeReachFactor(theMC.thePlayer.getHeldItem());
 			theMC.objectMouseOver = theMC.renderViewEntity.rayTrace(blockReach * meleeReachFactor, partialTick);
+			double reach;
 			double maxDist = reach = GOTWeaponStats.getMeleeReachDistance(theMC.thePlayer);
 			Vec3 posVec = theMC.renderViewEntity.getPosition(partialTick);
 			if (theMC.objectMouseOver != null) {
@@ -43,7 +43,6 @@ public class GOTEntityRenderer extends EntityRenderer {
 			List<? extends Entity> entities = theMC.theWorld.getEntitiesWithinAABBExcludingEntity(theMC.renderViewEntity, theMC.renderViewEntity.boundingBox.addCoord(lookVec.xCoord * reach, lookVec.yCoord * reach, lookVec.zCoord * reach).expand(lookWidth, lookWidth, lookWidth));
 			double leastDist = maxDist;
 			for (Entity entity : entities) {
-				double entityDist;
 				if (entity.canBeCollidedWith()) {
 					float f = entity.getCollisionBorderSize();
 					AxisAlignedBB entityBB = entity.boundingBox.expand(f, f, f);
@@ -61,6 +60,7 @@ public class GOTEntityRenderer extends EntityRenderer {
 						leastDist = 0.0;
 						continue;
 					}
+					double entityDist;
 					if (movingobjectposition == null || (entityDist = posVec.distanceTo(movingobjectposition.hitVec)) >= leastDist && leastDist != 0.0) {
 						continue;
 					}

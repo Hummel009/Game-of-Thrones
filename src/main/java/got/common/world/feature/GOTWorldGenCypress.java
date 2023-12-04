@@ -27,10 +27,8 @@ public class GOTWorldGenCypress extends WorldGenAbstractTree {
 		if (extraTrunkWidth > 0) {
 			height += 5 + random.nextInt(5);
 		}
-		boolean flag = true;
 		if (j >= 1 && j + height + 1 <= 256) {
-			int i1;
-			int k1;
+			boolean flag = true;
 			for (int j1 = j; j1 <= j + 1 + height; ++j1) {
 				int range = 1;
 				if (j1 == j) {
@@ -55,6 +53,8 @@ public class GOTWorldGenCypress extends WorldGenAbstractTree {
 				return false;
 			}
 			boolean canGrow = true;
+			int k1;
+			int i1;
 			for (i1 = i; i1 <= i + extraTrunkWidth && canGrow; ++i1) {
 				for (k1 = k; k1 <= k + extraTrunkWidth && canGrow; ++k1) {
 					Block block = world.getBlock(i1, j - 1, k1);
@@ -65,9 +65,6 @@ public class GOTWorldGenCypress extends WorldGenAbstractTree {
 				}
 			}
 			if (canGrow) {
-				int i13;
-				int j1;
-				int k13;
 				for (i1 = i; i1 <= i + extraTrunkWidth; ++i1) {
 					for (k1 = k; k1 <= k + extraTrunkWidth; ++k1) {
 						world.getBlock(i1, j - 1, k1).onPlantGrow(world, i1, j - 1, k1, i1, j, k1);
@@ -79,6 +76,9 @@ public class GOTWorldGenCypress extends WorldGenAbstractTree {
 					leafStop += 2 + random.nextInt(2);
 					++leafStopHeight;
 				}
+				int k13;
+				int j1;
+				int i13;
 				for (j1 = height + 1; j1 > leafStop; --j1) {
 					if (j1 >= height) {
 						for (i13 = 0; i13 <= extraTrunkWidth; ++i13) {

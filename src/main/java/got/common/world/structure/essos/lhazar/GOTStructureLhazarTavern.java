@@ -20,15 +20,10 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int step;
-		int j2;
-		int k1;
-		int i1;
-		int j1;
-		int i12;
-		int j12;
 		setOriginAndRotation(world, i, j, k, rotation, 10);
 		setupRandomBlocks(random);
+		int j12;
+		int i12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -129,6 +124,11 @@ public class GOTStructureLhazarTavern extends GOTStructureLhazarBase {
 			GOTEntityLhazarMan haradrim = new GOTEntityLhazarMan(world);
 			spawnNPCAndSetHome(haradrim, world, random.nextBoolean() ? -5 : 5, 1, 0, 16);
 		}
+		int j1;
+		int i1;
+		int k1;
+		int j2;
+		int step;
 		for (i1 = -1; i1 <= 1; ++i1) {
 			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = -step, k1 = -10 - step); ++step) {
 				setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.stairsRedSandstone, 2);

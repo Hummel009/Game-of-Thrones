@@ -14,13 +14,13 @@ public class GOTStructureEssosTownFlowers extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int i1;
 		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
 		ItemStack flower = getRandomFlower(world, random);
 		Block flowerBlock = Block.getBlockFromItem(flower.getItem());
 		int flowerMeta = flower.getItemDamage();
+		int i1;
+		int k1;
 		if (restrictions) {
 			for (i1 = -3; i1 <= 3; ++i1) {
 				for (k1 = 0; k1 <= 3; ++k1) {

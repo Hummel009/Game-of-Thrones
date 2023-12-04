@@ -17,12 +17,11 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j12;
-		int k1;
-		int i1;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
+		int i1;
+		int k1;
+		int j12;
 		if (restrictions) {
 			for (i1 = -3; i1 <= 3; ++i1) {
 				for (k1 = -3; k1 <= 3; ++k1) {
@@ -36,7 +35,6 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 		}
 		for (i1 = -3; i1 <= 3; ++i1) {
 			for (k1 = -3; k1 <= 3; ++k1) {
-				int j13;
 				j12 = 0;
 				while (!isOpaque(world, i1, j12, k1) && getY(j12) >= 0) {
 					setBlockAndMetadata(world, i1, j12, k1, Blocks.sandstone, 0);
@@ -48,6 +46,7 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 				}
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
+				int j13;
 				if (i2 == 3 && k2 == 3) {
 					for (j13 = 1; j13 <= 5; ++j13) {
 						setBlockAndMetadata(world, i1, j13, k1, fenceBlock, fenceMeta);
@@ -76,6 +75,7 @@ public class GOTStructureSummerTent extends GOTStructureSummerBase {
 				setBlockAndMetadata(world, i1, 1, k1, Blocks.carpet, 14);
 			}
 		}
+		int j1;
 		for (j1 = 1; j1 <= 5; ++j1) {
 			setBlockAndMetadata(world, 0, j1, 0, fenceBlock, fenceMeta);
 		}

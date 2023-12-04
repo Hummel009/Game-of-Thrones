@@ -56,14 +56,14 @@ public class GOTStructureHillmanSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			int pathEnd = 68;
-			int pathSide = 7;
-			int centreSide = 19;
 			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
+			int centreSide = 19;
 			addStructure(new GOTStructureHillmanHouse(false), 0, -centreSide, 2, true);
+			int pathEnd = 68;
 			addStructure(new GOTStructureHillmanFort(false), -pathEnd, 0, 1, true);
 			addStructure(new GOTStructureHillmanTavern(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
+			int pathSide = 7;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
 				int i1 = l * 18;
 				int k1 = pathSide;

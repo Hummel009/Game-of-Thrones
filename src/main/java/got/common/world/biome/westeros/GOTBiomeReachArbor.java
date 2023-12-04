@@ -23,13 +23,13 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
 		super.generateBiomeTerrain(world, random, blocks, meta, i, k, stoneNoise, height, variant);
-		int chunkX = i & 0xF;
-		int chunkZ = k & 0xF;
-		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
 		boolean vineyard = variant == GOTBiomeVariant.VINEYARD;
 		boolean roadNear = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.ROAD);
 		if (vineyard && !roadNear) {
+			int chunkZ = k & 0xF;
+			int chunkX = i & 0xF;
+			int xzIndex = chunkX * 16 + chunkZ;
 			for (int j = 128; j >= 0; --j) {
 				int index = xzIndex * ySize + j;
 				Block above = blocks[index + 1];
@@ -42,13 +42,13 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 				int k1 = IntMath.mod(k, 32);
 				int k2 = IntMath.mod(k, 64);
 				if ((i1 == 0 || i1 == 5) && k1 != 0) {
-					double d;
 					blocks[index] = Blocks.farmland;
 					meta[index] = 0;
 					int h = 2;
 					if (biomeTerrainNoise.func_151601_a(i, k) > 0.0) {
 						++h;
 					}
+					double d;
 					boolean red = biomeTerrainNoise.func_151601_a(i * (d = 0.01), k * d) > 0.0;
 					Block vineBlock = red ? GOTBlocks.grapevineRed : GOTBlocks.grapevineWhite;
 					for (int j1 = 1; j1 <= h; ++j1) {

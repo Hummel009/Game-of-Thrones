@@ -147,8 +147,8 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		ItemStack stack = new ItemStack(forgeItem, 1);
 		if (NEIServerUtils.areStacksSameType(alloyForgeDummy.getSmeltingResult(stack), result)) {
 			List<Object> list = new ArrayList<>();
-			ArrayList<ItemStack> newList = new ArrayList<>();
 			stack.getItem().getSubItems(forgeItem, null, list);
+			ArrayList<ItemStack> newList = new ArrayList<>();
 			for (Object tmp : list) {
 				if (tmp instanceof ItemStack) {
 					newList.add((ItemStack) tmp);
@@ -247,10 +247,10 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 
 		@Override
 		public List<PositionedStack> getOtherStacks() {
-			List<PositionedStack> tmp = new ArrayList<>();
 			PositionedStack tmpStack = FurnaceRecipeHandler.afuels.get(cycleticks / 48 % FurnaceRecipeHandler.afuels.size()).stack;
 			tmpStack.relx = fuelX;
 			tmpStack.rely = fuelY;
+			List<PositionedStack> tmp = new ArrayList<>();
 			tmp.add(tmpStack);
 			tmp.add(resultItem[1]);
 			tmp.add(resultItem[2]);

@@ -11,11 +11,11 @@ public class GOTStructureMossovyWell extends GOTStructureMossovyBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int k1;
 		setOriginAndRotation(world, i, j, k, rotation, 2);
 		setupRandomBlocks(random);
+		int k1;
+		int i1;
+		int j1;
 		if (restrictions) {
 			for (i1 = -1; i1 <= 2; ++i1) {
 				for (k1 = -1; k1 <= 2; ++k1) {

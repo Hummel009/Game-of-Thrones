@@ -498,10 +498,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 		float dG = southColors[1] - northColors[1];
 		float dB = southColors[2] - northColors[2];
 		float r = dR * latitude;
-		float g = dG * latitude;
-		float b = dB * latitude;
 		r += northColors[0];
+		float g = dG * latitude;
 		g += northColors[1];
+		float b = dB * latitude;
 		b += northColors[2];
 		Color water = new Color(r, g, b);
 		int waterRGB = water.getRGB();
@@ -562,14 +562,9 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
-		int chunkX = i & 0xF;
-		int chunkZ = k & 0xF;
-		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
-		int seaLevel = 63;
 		double stoneNoiseFiller = modifyStoneNoiseForFiller(stoneNoise);
 		int fillerDepthBase = (int) (stoneNoiseFiller / 4.0 + 5.0 + random.nextDouble() * 0.25);
-		int fillerDepth = -1;
 		Block top = topBlock;
 		byte topMeta = (byte) topBlockMeta;
 		Block filler = fillerBlock;
@@ -622,6 +617,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 				}
 			}
 		}
+		int seaLevel = 63;
+		int chunkZ = k & 0xF;
+		int chunkX = i & 0xF;
+		int xzIndex = chunkX * 16 + chunkZ;
 		if (variant.hasMarsh && GOTBiomeVariant.marshNoise.func_151601_a(i * 0.1, k * 0.1) > -0.1) {
 			for (int j = ySize - 1; j >= 0; --j) {
 				int index = xzIndex * ySize + j;
@@ -634,6 +633,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 				}
 			}
 		}
+		int fillerDepth = -1;
 		for (int j = ySize - 1; j >= 0; --j) {
 			int index = xzIndex * ySize + j;
 			if (j <= random.nextInt(5)) {

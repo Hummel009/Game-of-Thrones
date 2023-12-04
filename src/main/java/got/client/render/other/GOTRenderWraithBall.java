@@ -28,18 +28,18 @@ public class GOTRenderWraithBall extends Render {
 	}
 
 	public void drawSprite(Tessellator tessellator, int index) {
-		float var3 = index % 4 * 16 / 64.0f;
-		float var4 = (index % 4 * 16 + 16) / 64.0f;
 		float var5 = (float) index / 4 * 16 / 64.0f;
 		float var6 = ((float) index / 4 * 16 + 16) / 64.0f;
-		float var7 = 1.0f;
-		float var8 = 0.5f;
-		float var9 = 0.25f;
 		GL11.glRotatef(180.0f - renderManager.playerViewY, 0.0f, 1.0f, 0.0f);
 		GL11.glRotatef(-renderManager.playerViewX, 1.0f, 0.0f, 0.0f);
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0f, 1.0f, 0.0f);
+		float var9 = 0.25f;
+		float var8 = 0.5f;
+		float var3 = index % 4 * 16 / 64.0f;
 		tessellator.addVertexWithUV(0.0f - var8, 0.0f - var9, 0.0, var3, var6);
+		float var7 = 1.0f;
+		float var4 = (index % 4 * 16 + 16) / 64.0f;
 		tessellator.addVertexWithUV(var7 - var8, 0.0f - var9, 0.0, var4, var6);
 		tessellator.addVertexWithUV(var7 - var8, var7 - var9, 0.0, var4, var5);
 		tessellator.addVertexWithUV(0.0f - var8, var7 - var9, 0.0, var3, var5);

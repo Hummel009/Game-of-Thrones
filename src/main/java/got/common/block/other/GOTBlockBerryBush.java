@@ -120,10 +120,10 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 		float growth;
 		Block below = world.getBlock(i, j - 1, k);
 		if (below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, this) && world.getBlockLightValue(i, j + 1, k) >= 9) {
-			int i1;
-			int k1;
 			growth = 1.0f;
 			boolean bushAdjacent = false;
+			int k1;
+			int i1;
 			block0:
 			for (i1 = i - 1; i1 <= i + 1; ++i1) {
 				for (k1 = k - 1; k1 <= k + 1; ++k1) {

@@ -21,17 +21,13 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 	}
 
 	public boolean generateAndHeight(World world, Random random, int i, int j, int k, int rotation, int height) {
-		int i2;
-		int k2;
-		int j1;
-		int i1;
-		int i12;
-		int j12;
-		int k1;
-		int doorBase = j - 1;
 		setOriginAndRotation(world, i, j + height, k, rotation, 3);
+		int doorBase = j - 1;
 		doorBase -= getY(0);
 		setupRandomBlocks(random);
+		int k1;
+		int j12;
+		int i1;
 		if (restrictions) {
 			for (i1 = -3; i1 <= 3; ++i1) {
 				for (k1 = -3; k1 <= 3; ++k1) {
@@ -50,6 +46,9 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int j1;
+		int k2;
+		int i2;
 		for (i1 = -2; i1 <= 2; ++i1) {
 			for (k1 = -2; k1 <= 2; ++k1) {
 				i2 = Math.abs(i1);
@@ -98,6 +97,7 @@ public class GOTStructureWesterosTower extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, -3, 5, k12, brickStairBlock, 1);
 			setBlockAndMetadata(world, 3, 5, k12, brickStairBlock, 0);
 		}
+		int i12;
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (k1 = -1; k1 <= 1; ++k1) {
 				setBlockAndMetadata(world, i12, 8, k1, rockSlabDoubleBlock, rockSlabDoubleMeta);

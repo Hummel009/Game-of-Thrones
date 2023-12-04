@@ -20,8 +20,6 @@ public class GOTRecipeTreasurePile implements IRecipe {
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
 		int ingredientCount = 0;
 		int ingredientTotalSize = 0;
-		int resultCount = 0;
-		int resultMeta = 0;
 		for (int i = 0; i < inv.getSizeInventory(); ++i) {
 			ItemStack itemstack = inv.getStackInSlot(i);
 			if (itemstack == null) {
@@ -35,6 +33,8 @@ public class GOTRecipeTreasurePile implements IRecipe {
 			}
 			return null;
 		}
+		int resultMeta = 0;
+		int resultCount = 0;
 		if (ingredientCount > 0) {
 			if (ingredientCount == 1) {
 				if (ingredientTotalSize > 1) {

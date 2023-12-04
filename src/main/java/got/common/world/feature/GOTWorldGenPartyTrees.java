@@ -37,11 +37,11 @@ public class GOTWorldGenPartyTrees extends WorldGenAbstractTree {
 		int k1;
 		int trunkWidth = 1;
 		int height = random.nextInt(12) + 12;
-		boolean flag = true;
 		if (restrictions) {
 			if (j < 1 || j + height + 1 > 256) {
 				return false;
 			}
+			boolean flag = true;
 			for (j1 = j; j1 <= j + 1 + height; ++j1) {
 				int range = trunkWidth + 1;
 				if (j1 == j) {

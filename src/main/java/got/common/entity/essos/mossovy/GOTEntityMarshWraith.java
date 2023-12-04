@@ -192,11 +192,11 @@ public class GOTEntityMarshWraith extends GOTEntityNPC {
 				if (getAttackTarget() == null || getAttackTarget().isDead) {
 					setDeathFadeTime(30);
 				} else {
-					int j;
-					int k;
 					if (timeUntilDespawn == -1) {
 						timeUntilDespawn = 100;
 					}
+					int k;
+					int j;
 					if (worldObj.getBlock(i = MathHelper.floor_double(getAttackTarget().posX), j = MathHelper.floor_double(getAttackTarget().boundingBox.minY), k = MathHelper.floor_double(getAttackTarget().posZ)).getMaterial() == Material.water || worldObj.getBlock(i, j - 1, k).getMaterial() == Material.water) {
 						timeUntilDespawn = 100;
 					} else if (timeUntilDespawn > 0) {

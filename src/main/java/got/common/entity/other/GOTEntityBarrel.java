@@ -181,8 +181,6 @@ public class GOTEntityBarrel extends Entity {
 
 	@Override
 	public void onUpdate() {
-		double d4;
-		double d5;
 		super.onUpdate();
 		if (!worldObj.isRemote) {
 			setBarrelItem(getBarrelDrop());
@@ -208,6 +206,8 @@ public class GOTEntityBarrel extends Entity {
 			d0 += 1.0 / b0;
 		}
 		double d3 = Math.sqrt(motionX * motionX + motionZ * motionZ);
+		double d5;
+		double d4;
 		if (d3 > 0.2625) {
 			d4 = Math.cos(rotationYaw * 3.141592653589793 / 180.0);
 			d5 = Math.sin(rotationYaw * 3.141592653589793 / 180.0);
@@ -254,7 +254,6 @@ public class GOTEntityBarrel extends Entity {
 				motionZ *= 0.99;
 			}
 		} else {
-			double d11;
 			if (d0 < 1.0) {
 				d4 = d0 * 2.0 - 1.0;
 				motionY += 0.04 * d4;
@@ -264,6 +263,7 @@ public class GOTEntityBarrel extends Entity {
 				}
 				motionY += 0.007;
 			}
+			double d11;
 			if (riddenByEntity instanceof EntityLivingBase && ((EntityLivingBase) riddenByEntity).moveForward > 0.0) {
 				d5 = -Math.sin(riddenByEntity.rotationYaw * 3.1415927f / 180.0f);
 				d11 = Math.cos(riddenByEntity.rotationYaw * 3.1415927f / 180.0f);

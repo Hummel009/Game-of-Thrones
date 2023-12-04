@@ -11,11 +11,11 @@ public class GOTStructureEssosFortCorner extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		boolean beam;
-		int j12;
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
+		int j12;
+		boolean beam;
+		int j1;
 		for (int i1 = -4; i1 <= 1; ++i1) {
 			int i2 = Math.abs(i1);
 			int k1 = 0;

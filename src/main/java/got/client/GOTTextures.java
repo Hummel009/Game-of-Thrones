@@ -156,8 +156,8 @@ public class GOTTextures implements IResourceManagerReloadListener {
 					int rgb = temp.getRGB(i, j);
 					if (rgb == 5468426) {
 						range = 8;
-						int water = 0;
 						total = 0;
+						int water = 0;
 						for (x = -range; x < range; ++x) {
 							for (y = -range; y < range; ++y) {
 								x1 = i + x;
@@ -177,8 +177,8 @@ public class GOTTextures implements IResourceManagerReloadListener {
 						}
 					} else if (rgb == 14736861) {
 						range = 8;
-						int edge = 0;
 						total = 0;
+						int edge = 0;
 						for (x = -range; x < range; ++x) {
 							for (y = -range; y < range; ++y) {
 								x1 = i + x;
@@ -249,20 +249,20 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	public static void drawMapCompassBottomLeft(double x, double y, double z, double scale) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(GOTGuiMap.mapIconsTexture);
-		int width = 32;
-		int height = 32;
-		double x1 = x + width * scale;
-		double y0 = y - height * scale;
-		int texU = 224;
-		int texV = 200;
-		float u0 = texU / 256.0f;
-		float u1 = (texU + width) / 256.0f;
-		float v0 = texV / 256.0f;
-		float v1 = (texV + height) / 256.0f;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
+		int texV = 200;
+		int height = 32;
+		float v1 = (texV + height) / 256.0f;
+		int texU = 224;
+		float u0 = texU / 256.0f;
 		tessellator.addVertexWithUV(x, y, z, u0, v1);
+		int width = 32;
+		float u1 = (texU + width) / 256.0f;
+		double x1 = x + width * scale;
 		tessellator.addVertexWithUV(x1, y, z, u1, v1);
+		float v0 = texV / 256.0f;
+		double y0 = y - height * scale;
 		tessellator.addVertexWithUV(x1, y0, z, u1, v0);
 		tessellator.addVertexWithUV(x, y0, z, u0, v0);
 		tessellator.draw();
@@ -303,7 +303,6 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	public static IIcon generateIconEmpty(TextureMap textureMap) {
-		String iconName = "textures/blocks/GOT_EMPTY_ICON";
 		int size = 16;
 		BufferedImage iconImage = new BufferedImage(size, size, 2);
 		for (int i = 0; i < iconImage.getWidth(); ++i) {
@@ -311,6 +310,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 				iconImage.setRGB(i, j, 0);
 			}
 		}
+		String iconName = "textures/blocks/GOT_EMPTY_ICON";
 		GOTBufferedImageIcon icon = new GOTBufferedImageIcon(iconName, iconImage);
 		icon.setIconWidth(iconImage.getWidth());
 		icon.setIconHeight(iconImage.getHeight());
@@ -367,18 +367,18 @@ public class GOTTextures implements IResourceManagerReloadListener {
 
 	public static int getSepia(int rgb) {
 		Color color = new Color(rgb);
-		int alpha = rgb >> 24 & 0xFF;
 		float[] colors = color.getColorComponents(null);
 		float r = colors[0];
 		float g = colors[1];
 		float b = colors[2];
 		float newR = r * 0.79f + g * 0.39f + b * 0.26f;
-		float newG = r * 0.52f + g * 0.35f + b * 0.19f;
-		float newB = r * 0.35f + g * 0.26f + b * 0.15f;
 		newR = Math.min(Math.max(0.0f, newR), 1.0f);
+		float newG = r * 0.52f + g * 0.35f + b * 0.19f;
 		newG = Math.min(Math.max(0.0f, newG), 1.0f);
+		float newB = r * 0.35f + g * 0.26f + b * 0.15f;
 		newB = Math.min(Math.max(0.0f, newB), 1.0f);
 		int sepia = new Color(newR, newG, newB).getRGB();
+		int alpha = rgb >> 24 & 0xFF;
 		return sepia | alpha << 24;
 	}
 

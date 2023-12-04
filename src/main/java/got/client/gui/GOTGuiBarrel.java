@@ -61,7 +61,6 @@ public class GOTGuiBarrel extends GuiContainer {
 			int y0 = guiTop + 34;
 			int y1 = guiTop + 130;
 			int yFull = y1 - fullAmount;
-			float yAnim = y1 - brewAnimF;
 			ItemStack itemstack = theBarrel.getStackInSlot(9);
 			if (itemstack != null && (liquidIcon = itemstack.getItem().getIconFromDamage(-1)) != null) {
 				mc.getTextureManager().bindTexture(TextureMap.locationItemsTexture);
@@ -85,6 +84,7 @@ public class GOTGuiBarrel extends GuiContainer {
 				OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 				GL11.glDisable(3008);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, brewAnimPc);
+				float yAnim = y1 - brewAnimF;
 				GOTGuiScreenBase.drawTexturedModalRectFloat(x0, yAnim, 51.0, 0.0, x1 - x0, y1 - yAnim, 256, zLevel);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				GL11.glEnable(3008);

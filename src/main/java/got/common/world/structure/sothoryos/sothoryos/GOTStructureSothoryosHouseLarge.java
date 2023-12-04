@@ -20,16 +20,12 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j12;
-		int i13;
-		int i12;
-		int j1;
-		int k1;
-		int i1;
-		int k12;
 		if (!super.generate(world, random, i, j, k, rotation)) {
 			return false;
 		}
+		int k1;
+		int j1;
+		int i13;
 		for (i13 = -6; i13 <= 5; ++i13) {
 			for (k1 = -4; k1 <= 4; ++k1) {
 				layFoundation(world, i13, k1);
@@ -126,6 +122,7 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 				setBlockAndMetadata(world, i14, 3, k13 + 1, brickStairBlock, 7);
 			}
 		}
+		int j12;
 		for (j12 = 1; j12 <= 3; ++j12) {
 			setBlockAndMetadata(world, -2, j12, -4, woodBlock, woodMeta);
 			setBlockAndMetadata(world, 1, j12, -4, woodBlock, woodMeta);
@@ -175,12 +172,14 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 			}
 			placeSothoryosFlowerPot(world, i14, 6, 0, random);
 		}
+		int i1;
 		for (i1 = -3; i1 <= 2; ++i1) {
 			setBlockAndMetadata(world, i1, 9, -2, GOTBlocks.stairsSothoryosBrickGold, 2);
 			setBlockAndMetadata(world, i1, 10, -1, GOTBlocks.stairsSothoryosBrickGold, 2);
 			setBlockAndMetadata(world, i1, 9, 2, GOTBlocks.stairsSothoryosBrickGold, 3);
 			setBlockAndMetadata(world, i1, 10, 1, GOTBlocks.stairsSothoryosBrickGold, 3);
 		}
+		int k12;
 		for (k12 = -1; k12 <= 1; ++k12) {
 			setBlockAndMetadata(world, -4, 9, k12, GOTBlocks.stairsSothoryosBrickGold, 1);
 			setBlockAndMetadata(world, -3, 10, k12, GOTBlocks.stairsSothoryosBrickGold, 1);
@@ -213,6 +212,7 @@ public class GOTStructureSothoryosHouseLarge extends GOTStructureSothoryosHouse 
 			setBlockAndMetadata(world, 2, j17, 1, Blocks.ladder, 5);
 		}
 		placeWallBanner(world, 3, 3, 1, GOTItemBanner.BannerType.SOTHORYOS, 2);
+		int i12;
 		for (i12 = -1; i12 <= 0; ++i12) {
 			for (k1 = 0; k1 <= 2; ++k1) {
 				setBlockAndMetadata(world, i12, 3, k1, brickSlabBlock, brickSlabMeta | 8);

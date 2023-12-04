@@ -16,9 +16,6 @@ public class GOTWorldGenBanana extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		ForgeDirection dir;
-		int l;
-		int l1;
 		int height = 2 + random.nextInt(3);
 		int[] leaves = new int[4];
 		for (int l2 = 0; l2 < 4; ++l2) {
@@ -31,12 +28,15 @@ public class GOTWorldGenBanana extends WorldGenAbstractTree {
 		if (!below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) GOTBlocks.sapling2)) {
 			return false;
 		}
+		int l;
 		for (l = 0; l < height + 2; ++l) {
 			if (isReplaceable(world, i, j + l, k)) {
 				continue;
 			}
 			return false;
 		}
+		int l1;
+		ForgeDirection dir;
 		for (l = 0; l < 4; ++l) {
 			dir = ForgeDirection.getOrientation(l + 2);
 			for (l1 = -1; l1 < leaves[l]; ++l1) {

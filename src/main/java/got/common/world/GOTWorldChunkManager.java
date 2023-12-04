@@ -204,7 +204,6 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		int[] variantsRiversInts = variantsRivers.getInts(worldObj, i, k, xSize, zSize);
 		for (int k1 = 0; k1 < zSize; ++k1) {
 			for (int i1 = 0; i1 < xSize; ++i1) {
-				int riverCode;
 				int index = i1 + k1 * xSize;
 				GOTBiome biome = (GOTBiome) biomes[index];
 				GOTBiomeVariant variant = GOTBiomeVariant.STANDARD;
@@ -253,7 +252,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 							}
 						}
 					}
-					riverCode = variantsRiversInts[index];
+					int riverCode = variantsRiversInts[index];
 					if (riverCode == 2 || riverCode == 1 && biome.getEnableRiver() && !structureNear) {
 						variant = GOTBiomeVariant.RIVER;
 					}
@@ -309,10 +308,10 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 	}
 
 	public void setupGenLayers() {
-		int i;
 		long seed = worldObj.getSeed() + 1954L;
 		chunkGenLayers = GOTGenLayerWorld.createWorld(gotDimension, worldObj.getWorldInfo().getTerrainType());
 		worldLayers = new GOTGenLayer[chunkGenLayers.length];
+		int i;
 		for (i = 0; i < worldLayers.length; ++i) {
 			GOTGenLayer layer = chunkGenLayers[i];
 			worldLayers[i] = new GOTGenLayerZoomVoronoi(10L, layer);

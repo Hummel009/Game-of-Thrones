@@ -237,8 +237,6 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 		}
 
 		public void setupTown(Random random) {
-			int l;
-			int wallX;
 			boolean outerTavern = random.nextBoolean();
 			addStructure(new GOTStructureNPCRespawner(false) {
 
@@ -433,12 +431,14 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 				addStructure(new GOTStructureDorneWatchtower(false), i1, towerZ, 0, true);
 			}
 			int wallZ = 82;
-			int wallEndX = 76;
+			int wallX;
+			int l;
 			for (l = 0; l <= 3; ++l) {
 				wallX = 12 + l * 16;
 				addStructure(getWallLeft(false), -wallX, wallZ, 2, true);
 				addStructure(getWallRight(false), wallX, wallZ, 2, true);
 			}
+			int wallEndX = 76;
 			addStructure(getWallLeftEndShort(false), -wallEndX, wallZ, 2, true);
 			addStructure(getWallRightEndShort(false), wallEndX, wallZ, 2, true);
 			addStructure(getWallCentre(false), -wallZ, 0, 3, true);
@@ -505,9 +505,6 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 			float frac = 1.0f / houses;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
-				int k;
-				int l;
-				int i;
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
 				float sin = MathHelper.sin(turnR);
 				float cos = MathHelper.cos(turnR);
@@ -520,6 +517,9 @@ public class GOTStructureDorneSettlement extends GOTStructureBaseSettlement {
 				} else if (turn8 >= 7.0f || turn8 < 1.0f) {
 					r = 3;
 				}
+				int i;
+				int l;
+				int k;
 				if (random.nextBoolean()) {
 					l = 61;
 					i = Math.round(l * cos);

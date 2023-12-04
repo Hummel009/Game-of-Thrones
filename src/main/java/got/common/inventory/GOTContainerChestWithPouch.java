@@ -15,7 +15,6 @@ public class GOTContainerChestWithPouch extends ContainerChest {
 
 	public GOTContainerChestWithPouch(EntityPlayer entityplayer, int pouchSlot, IInventory chest) {
 		super(entityplayer.inventory, chest);
-		int i;
 		inventorySlots.clear();
 		inventoryItemStacks.clear();
 		chestInv = chest;
@@ -29,6 +28,7 @@ public class GOTContainerChestWithPouch extends ContainerChest {
 			}
 		}
 		int pouchSlotsY = 103 + (numChestRows - 4) * 18;
+		int i;
 		for (int j = 0; j < numPouchRows; ++j) {
 			for (i = 0; i < 9; ++i) {
 				int pouchSlotID = i + j * 9;

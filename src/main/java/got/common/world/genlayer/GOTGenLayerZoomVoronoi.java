@@ -22,12 +22,11 @@ public class GOTGenLayerZoomVoronoi extends GOTGenLayer {
 		int k2 = zSizeZoom - 1 << 2;
 		int[] ints = GOTIntCache.get(world).getIntArray(i2 * k2);
 		for (int k3 = 0; k3 < zSizeZoom - 1; ++k3) {
-			int i3;
 			int int00 = variants[k3 * xSizeZoom];
 			int int01 = variants[k3 + xSizeZoom];
-			for (i3 = 0; i3 < xSizeZoom - 1; ++i3) {
-				double d0 = 3.6;
+			for (int i3 = 0; i3 < xSizeZoom - 1; ++i3) {
 				initChunkSeed((long) i3 + i1 << 2, (long) k3 + k1 << 2);
+				double d0 = 3.6;
 				double d00_a = nextInt(zoomScale) / zoomDivisor * d0;
 				double d00_b = nextInt(zoomScale) / zoomDivisor * d0;
 				initChunkSeed((long) i3 + i1 + 1 << 2, (long) k3 + k1 << 2);

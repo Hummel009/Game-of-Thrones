@@ -98,9 +98,9 @@ public class GOTBlockChandelier extends Block {
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		int meta = world.getBlockMetadata(i, j, k);
 		double d = 0.13;
-		double d1 = 1.0 - d;
 		double d2 = 0.6875;
 		spawnChandelierParticles(world, i + d, j + d2, k + d, random, meta);
+		double d1 = 1.0 - d;
 		spawnChandelierParticles(world, i + d1, j + d2, k + d1, random, meta);
 		spawnChandelierParticles(world, i + d, j + d2, k + d1, random, meta);
 		spawnChandelierParticles(world, i + d1, j + d2, k + d, random, meta);

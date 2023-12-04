@@ -22,8 +22,6 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
 		setOriginAndRotation(world, i, j, k, rotation, 12);
 		setupRandomBlocks(random);
 		if (restrictions) {
@@ -48,6 +46,8 @@ public class GOTStructureSummerFort extends GOTStructureSummerBase {
 				}
 			}
 		}
+		int i1;
+		int j1;
 		for (i1 = -15; i1 <= 15; ++i1) {
 			for (int k1 = -15; k1 <= 15; ++k1) {
 				int i2 = Math.abs(i1);

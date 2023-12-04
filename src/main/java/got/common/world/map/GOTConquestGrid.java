@@ -67,11 +67,11 @@ public class GOTConquestGrid {
 			World world = originPlayer.worldObj;
 			List<EntityPlayer> players = world.playerEntities;
 			for (EntityPlayer player : players) {
-				GOTFaction pledgeFac;
 				GOTPlayerData pd = GOTLevelData.getData(player);
 				if (player.getDistanceSqToEntity(originPlayer) > 40000.0 || getZoneByEntityCoords(player) != zone) {
 					continue;
 				}
+				GOTFaction pledgeFac;
 				boolean playerApplicable = isCleansing ? (pledgeFac = pd.getPledgeFaction()) != null && pledgeFac.isBadRelation(faction) : pd.isPledgedTo(faction);
 				if (!playerApplicable) {
 					continue;
@@ -91,7 +91,6 @@ public class GOTConquestGrid {
 			float centralConqBonus = 0.0f;
 			for (int i1 = -3; i1 <= 3; ++i1) {
 				for (int k1 = -3; k1 <= 3; ++k1) {
-					float enemyConq;
 					int distSq = i1 * i1 + k1 * k1;
 					if (distSq > 12.25f) {
 						continue;
@@ -99,15 +98,15 @@ public class GOTConquestGrid {
 					int zoneX = centralZone.getGridX() + i1;
 					int zoneZ = centralZone.getGridZ() + k1;
 					float dist = MathHelper.sqrt_float(distSq);
-					float frac = 1.0f - dist / 3.5f;
-					float conqGainHere = frac * conqGain;
-					float conqCleanseHere = frac * conqCleanse;
 					GOTConquestZone zone = getZoneByGridCoords(zoneX, zoneZ);
 					if (zone.isDummyZone()) {
 						continue;
 					}
 					boolean doneEnemyCleansing = false;
+					float enemyConq;
+					float frac = 1.0f - dist / 3.5f;
 					if (enemyFaction != null && (enemyConq = zone.getConquestStrength(enemyFaction, world)) > 0.0f) {
+						float conqCleanseHere = frac * conqCleanse;
 						zone.addConquestStrength(enemyFaction, -conqCleanseHere, world);
 						float newEnemyConq = zone.getConquestStrength(enemyFaction, world);
 						if (zone == centralZone) {
@@ -122,6 +121,7 @@ public class GOTConquestGrid {
 						continue;
 					}
 					float prevZoneConq = zone.getConquestStrength(pledgeFaction, world);
+					float conqGainHere = frac * conqGain;
 					zone.addConquestStrength(pledgeFaction, conqGainHere, world);
 					float newZoneConq = zone.getConquestStrength(pledgeFaction, world);
 					if (zone == centralZone) {
@@ -150,13 +150,12 @@ public class GOTConquestGrid {
 	}
 
 	public static ConquestEffective getConquestEffectIn(World world, GOTConquestZone zone, GOTFaction theFaction) {
-		GridCoordPair gridCoords;
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
 			new GOTGenLayerWorld();
 		}
+		GridCoordPair gridCoords;
 		List<GOTFaction> cachedFacs = cachedZoneFactions.get(gridCoords = GridCoordPair.forZone(zone));
 		if (cachedFacs == null) {
-			GOTBiome biome;
 			cachedFacs = new ArrayList<>();
 			Collection<GOTBiome> includedBiomes = new ArrayList<>();
 			int[] mapMin = getMinCoordsOnMap(zone);
@@ -167,7 +166,7 @@ public class GOTConquestGrid {
 			int mapZMax = mapMax[1];
 			for (int i = mapXMin; i < mapXMax; ++i) {
 				for (int k = mapZMin; k < mapZMax; ++k) {
-					biome = GOTGenLayerWorld.getBiomeOrOcean(i, k);
+					GOTBiome biome = GOTGenLayerWorld.getBiomeOrOcean(i, k);
 					if (includedBiomes.contains(biome)) {
 						continue;
 					}

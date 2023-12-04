@@ -19,8 +19,8 @@ public class GOTContainerAlloyForge extends Container {
 	public int currentItemFuelValue;
 
 	public GOTContainerAlloyForge(InventoryPlayer inv, GOTTileEntityAlloyForge forge) {
-		int i;
 		theForge = forge;
+		int i;
 		for (i = 0; i < 4; ++i) {
 			addSlotToContainer(new Slot(forge, i, 53 + i * 18, 21));
 		}

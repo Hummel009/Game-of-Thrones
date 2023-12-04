@@ -144,10 +144,10 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 
 	public void renderNPC(int i, int j, float dx, float dy, float f) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		float scale = 70.0f;
 		GL11.glEnable(2903);
 		GL11.glPushMatrix();
 		GL11.glTranslatef(i, j, 40.0f);
+		float scale = 70.0f;
 		GL11.glScalef(-scale, -scale, -scale);
 		GL11.glRotatef(180.0f, 0.0f, 0.0f, 1.0f);
 		GL11.glRotatef(135.0f, 0.0f, 1.0f, 0.0f);
@@ -182,14 +182,14 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			model.bipedHead.render(0.0625f);
 			model.bipedHeadwear.render(0.0625f);
 			for (int pass = 0; pass < 4; ++pass) {
-				int l;
-				ModelRenderer part;
 				int shouldRenderPass = npcRenderer.shouldRenderPass(theNPC, pass, 1.0f);
 				if (shouldRenderPass > 0) {
 					model = npcRenderer.npcRenderPassModel;
 					model.isChild = theNPC.isChild();
 					List<ModelRenderer> modelParts = model.boxList;
 					boolean[] prevShowModels = new boolean[modelParts.size()];
+					ModelRenderer part;
+					int l;
 					for (l = 0; l < modelParts.size(); ++l) {
 						part = modelParts.get(l);
 						prevShowModels[l] = part.showModel;

@@ -12,11 +12,10 @@ public class GOTStructureJogosWell extends GOTStructureJogosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int k1;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
+		int k1;
+		int i1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -50,6 +49,7 @@ public class GOTStructureJogosWell extends GOTStructureJogosBase {
 			}
 		}
 		int waterDepth = 3 + random.nextInt(3);
+		int j1;
 		for (int i13 = -2; i13 <= 2; ++i13) {
 			for (int k13 = -2; k13 <= 2; ++k13) {
 				int i2 = Math.abs(i13);

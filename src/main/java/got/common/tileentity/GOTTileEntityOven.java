@@ -259,10 +259,10 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 	@Override
 	public void updateEntity() {
 		boolean cooking = ovenCookTime > 0;
-		boolean needUpdate = false;
 		if (ovenCookTime > 0) {
 			--ovenCookTime;
 		}
+		boolean needUpdate = false;
 		if (!worldObj.isRemote) {
 			if (ovenCookTime == 0 && canCookAnyItem()) {
 				currentItemFuelValue = ovenCookTime = TileEntityFurnace.getItemBurnTime(inventory[18]);

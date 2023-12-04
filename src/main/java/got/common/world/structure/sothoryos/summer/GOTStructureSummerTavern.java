@@ -21,14 +21,9 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int j2;
-		int step;
-		int j12;
-		int j1;
-		int i1;
 		setOriginAndRotation(world, i, j, k, rotation, 7, -3);
 		setupRandomBlocks(random);
+		int j12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -158,6 +153,11 @@ public class GOTStructureSummerTavern extends GOTStructureSummerBase {
 				spawnNPCAndSetHome(npc, world, 0, 1, 0, 16);
 			}
 		}
+		int i1;
+		int j1;
+		int step;
+		int j2;
+		int k1;
 		for (i1 = -5; i1 <= -1; ++i1) {
 			for (step = 0; step < 12 && !isOpaque(world, i1, j1 = -step, k1 = -7 - step); ++step) {
 				setBlockAndMetadata(world, i1, j1, k1, plank2StairBlock, 2);

@@ -393,10 +393,10 @@ public class GOTModelMammoth extends ModelBase {
 		adjustXRotationPoints(FrontLeftLowerLeg, FrontLeftUpperLeg);
 		adjustXRotationPoints(BackLeftLowerLeg, BackLeftUpperLeg);
 		float LLegXRotD = LLegXRot * 57.29578f;
-		float RLegXRotD = RLegXRot * 57.29578f;
 		if (LLegXRotD > 0.0f) {
 			LLegXRotD *= 2.0f;
 		}
+		float RLegXRotD = RLegXRot * 57.29578f;
 		if (RLegXRotD > 0.0f) {
 			RLegXRotD *= 2.0f;
 		}

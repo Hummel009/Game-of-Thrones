@@ -13,8 +13,6 @@ import java.util.Random;
 public class GOTVanillaSaplings {
 	public static void growTree(World world, int i, int j, int k, Random random) {
 		int[] partyTree;
-		int i1;
-		int k1;
 		Block block = world.getBlock(i, j, k);
 		int meta = world.getBlockMetadata(i, j, k) & 7;
 		WorldGenAbstractTree treeGen = null;
@@ -39,6 +37,7 @@ public class GOTVanillaSaplings {
 				zOffset = 0;
 			}
 		}
+		int k1;
 		if (meta == 1) {
 			for (int i12 = 0; i12 >= -1; --i12) {
 				for (k1 = 0; k1 >= -1; --k1) {
@@ -140,6 +139,7 @@ public class GOTVanillaSaplings {
 				return;
 			}
 		}
+		int i1;
 		for (i1 = -trunkNeg; i1 <= trunkPos; ++i1) {
 			for (k1 = -trunkNeg; k1 <= trunkPos; ++k1) {
 				world.setBlock(i + xOffset + i1, j, k + zOffset + k1, Blocks.air, 0, 4);

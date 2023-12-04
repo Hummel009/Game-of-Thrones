@@ -14,7 +14,6 @@ public class GOTBlockSapling9 extends GOTBlockSaplingBase {
 
 	@Override
 	public void growTree(World world, int i, int j, int k, Random random) {
-		int i1;
 		int meta = world.getBlockMetadata(i, j, k) & 7;
 		WorldGenAbstractTree treeGen = null;
 		int trunkNeg = 0;
@@ -47,6 +46,7 @@ public class GOTBlockSapling9 extends GOTBlockSaplingBase {
 		if (meta == 3) {
 			treeGen = GOTTreeType.OAK_GIANT.create(true, random);
 		}
+		int i1;
 		for (i1 = -trunkNeg; i1 <= trunkPos; ++i1) {
 			for (int k1 = -trunkNeg; k1 <= trunkPos; ++k1) {
 				world.setBlock(i + xOffset + i1, j, k + zOffset + k1, Blocks.air, 0, 4);

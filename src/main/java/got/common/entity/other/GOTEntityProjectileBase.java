@@ -262,7 +262,6 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 				ticksInAir = 0;
 			}
 		} else {
-			int l;
 			++ticksInAir;
 			Vec3 vec3d = Vec3.createVectorHelper(posX, posY, posZ);
 			Vec3 vec3d1 = Vec3.createVectorHelper(posX + motionX, posY + motionY, posZ + motionZ);
@@ -275,6 +274,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 			Entity entity = null;
 			List<? extends Entity> list = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.addCoord(motionX, motionY, motionZ).expand(1.0, 1.0, 1.0));
 			double d = 0.0;
+			int l;
 			for (l = 0; l < list.size(); ++l) {
 				float f5;
 				double d1;

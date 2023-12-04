@@ -17,12 +17,12 @@ public class OddmentCollectorNameMischief {
 		}
 		int replaces = rand.nextInt(3);
 		for (int l = 0; l < replaces; ++l) {
-			char cNew;
 			int x = rand.nextInt(name.length());
 			if (isFormattingCharacter(name, x)) {
 				continue;
 			}
 			char c = name.charAt(x);
+			char cNew;
 			if (VOWELS.indexOf(Character.toLowerCase(c)) >= 0) {
 				cNew = VOWELS.charAt(rand.nextInt(VOWELS.length()));
 				if (Character.isUpperCase(c)) {

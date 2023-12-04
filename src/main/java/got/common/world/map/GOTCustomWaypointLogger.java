@@ -31,8 +31,6 @@ public class GOTCustomWaypointLogger {
 			return;
 		}
 		try {
-			File logFile;
-			File dupeLogDir;
 			LocalDateTime date = LocalDateTime.now();
 			StringBuilder logLine = new StringBuilder(String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s", MONTH_DATE_FORMAT.format(date), TIME_FORMAT.format(date), function, entityplayer.getCommandSenderName(), entityplayer.getPersistentID(), cwp.getCodeName(), cwp.getXCoord(), cwp.getYCoordSaved(), cwp.getZCoord(), cwp.isShared(), cwp.isShared() ? cwp.getSharingPlayerName() : "N/A", cwp.isShared() ? cwp.getSharingPlayerID() : "N/A"));
 			if (cwp.isShared()) {
@@ -46,12 +44,14 @@ public class GOTCustomWaypointLogger {
 					logLine.append(fellowship.getName());
 				}
 			}
+			File dupeLogDir;
 			if (!(dupeLogDir = new File(DimensionManager.getCurrentSaveRootDirectory(), "got_cwp_logs")).exists()) {
 				boolean created = dupeLogDir.mkdirs();
 				if (!created) {
 					GOTLog.logger.info("GOTCustomWaypointLogger: directory wasn't created");
 				}
 			}
+			File logFile;
 			if (!(logFile = new File(dupeLogDir, DATE_FORMAT.format(date) + ".csv")).exists()) {
 				Files.append("date,time,function,username,UUID,wp_name,x,y,z,shared,sharer_name,sharer_UUID,common_fellowships" + System.lineSeparator(), logFile, CHARSET);
 			}

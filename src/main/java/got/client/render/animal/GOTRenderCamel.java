@@ -54,13 +54,13 @@ public class GOTRenderCamel extends RenderLiving {
 							imgDyed.setRGB(i, j, argbOverlay);
 						} else {
 							int argb = imgBase.getRGB(i, j);
-							int a = argb >> 24 & 0xFF;
 							int r = argb >> 16 & 0xFF;
-							int g = argb >> 8 & 0xFF;
-							int b = argb & 0xFF;
 							r = r * carpetR / 255;
+							int g = argb >> 8 & 0xFF;
 							g = g * carpetG / 255;
+							int b = argb & 0xFF;
 							b = b * carpetB / 255;
+							int a = argb >> 24 & 0xFF;
 							int dyed = a << 24 | r << 16 | g << 8 | b;
 							imgDyed.setRGB(i, j, dyed);
 						}

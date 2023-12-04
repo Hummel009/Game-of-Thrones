@@ -52,10 +52,10 @@ public class GOTTextBody {
 	}
 
 	public float renderAndReturnScroll(FontRenderer fr, int x, int yTop, int yBottom, float scroll) {
-		int ySize = yBottom - yTop;
 		int numLines = getTotalLines(fr);
 		int lineHeight = fr.FONT_HEIGHT;
 		scroll = Math.max(scroll, 0.0f);
+		int ySize = yBottom - yTop;
 		scroll = Math.min(scroll, numLines - MathHelper.floor_double((float) ySize / lineHeight));
 		int d1 = Math.round(scroll);
 		int y = yTop;

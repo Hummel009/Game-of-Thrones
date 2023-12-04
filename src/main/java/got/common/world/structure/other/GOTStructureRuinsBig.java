@@ -30,14 +30,11 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			int j2;
-			int j1;
 			setOriginAndRotation(world, i, j, k, 2, 0);
 			originY = 0;
 			int radius = 8;
 			int baseHeight = 40;
-			int portalHeight = 10;
-			int portalBase = portalHeight - 2 - 1;
+			int j1;
 			for (int i1 = -radius; i1 <= radius; ++i1) {
 				for (int k1 = -radius; k1 <= radius; ++k1) {
 					int i2 = Math.abs(i1);
@@ -59,6 +56,7 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 					}
 				}
 			}
+			int j2;
 			for (int l = 0; l < 40; ++l) {
 				int i1 = -random.nextInt(radius * 3) + random.nextInt(radius * 3);
 				int k1 = -random.nextInt(radius * 3) + random.nextInt(radius * 3);
@@ -131,9 +129,10 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 				}
 				++stairX;
 			} while (true);
+			int portalHeight = 10;
+			int portalBase = portalHeight - 2 - 1;
 			for (int i1 = -2; i1 <= 2; ++i1) {
 				for (int k1 = -2; k1 <= 2; ++k1) {
-					int j13;
 					int i2 = Math.abs(i1);
 					int k2 = Math.abs(k1);
 					for (int j14 = portalBase; j14 <= baseHeight + 1; ++j14) {
@@ -160,6 +159,7 @@ public class GOTStructureRuinsBig extends GOTStructureBaseSettlement {
 					}
 					int min = baseHeight + 2;
 					int max = min + 2 + random.nextInt(2);
+					int j13;
 					for (j13 = min; j13 <= max; ++j13) {
 						setBlockAndMetadata(world, i1, j13, k1, GOTBlocks.brick2, 11);
 					}

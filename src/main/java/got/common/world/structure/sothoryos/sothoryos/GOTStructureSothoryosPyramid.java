@@ -31,11 +31,6 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int i12;
-		int j1;
-		int k1;
-		int k12;
 		int depth = 20;
 		setOriginAndRotation(world, i, j - (depth - 1), k, rotation, usingPlayer != null ? RADIUS - depth : 0);
 		isGolden = random.nextInt(20) == 0;
@@ -82,6 +77,9 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		}
 		maze3.generate(random);
 		maze3.selectOuterEndpoint(random);
+		int k12;
+		int j1;
+		int i1;
 		if (restrictions) {
 			for (i1 = -RADIUS; i1 <= RADIUS; ++i1) {
 				for (k12 = -RADIUS; k12 <= RADIUS; ++k12) {
@@ -105,7 +103,6 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 			}
 		}
 		int steps = (RADIUS - 10) / 2;
-		int topHeight = steps * 2;
 		for (int step = 0; step < steps; ++step) {
 			for (int j12 = step * 2; j12 <= step * 2 + 1; ++j12) {
 				int r = RADIUS - step * 2;
@@ -120,6 +117,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 				}
 			}
 		}
+		int topHeight = steps * 2;
 		for (int i16 = -2; i16 <= 2; ++i16) {
 			for (int k16 = -2; k16 <= 2; ++k16) {
 				setBlockAndMetadata(world, i16, topHeight, k16, GOTBlocks.brick4, 3);
@@ -241,12 +239,12 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		maze3EndZ *= 3;
 		for (int step = 0; step <= 9; ++step) {
 			for (int i18 = -1; i18 <= 1; ++i18) {
-				int j2;
 				int j110 = topHeight - 36 + step;
 				int k18 = 13 + step;
 				if (step > 0) {
 					placeRandomStairs(world, random, i18, j110, k18, 2);
 				}
+				int j2;
 				for (j2 = 1; j2 <= 4; ++j2) {
 					setAir(world, i18, j110 + j2, k18);
 				}
@@ -265,16 +263,17 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 		int roomFloor = topHeight - 47;
 		int roomTop = topHeight - 36;
 		int roomPillarEdge = 32;
+		int k1;
+		int i12;
 		for (i12 = -37; i12 <= 37; ++i12) {
 			for (k1 = -37; k1 <= 37; ++k1) {
-				int j112;
-				int j111;
 				int i2 = Math.abs(i12);
 				int k2 = Math.abs(k1);
 				int actingRoomTop = roomTop;
 				if (i2 != roomPillarEdge && k2 != roomPillarEdge) {
 					actingRoomTop -= random.nextInt(2);
 				}
+				int j112;
 				for (j112 = roomFloor + 1; j112 < actingRoomTop; ++j112) {
 					setAir(world, i12, j112, k1);
 				}
@@ -284,6 +283,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 					}
 					continue;
 				}
+				int j111;
 				if (i2 == roomPillarEdge || k2 == roomPillarEdge) {
 					for (j112 = roomBottom + 1; j112 <= roomFloor + 1; ++j112) {
 						setBlockAndMetadata(world, i12, j112, k1, GOTBlocks.brick4, 4);
@@ -327,12 +327,12 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 					continue;
 				}
 				if (i2 <= 10 && k2 <= 10) {
-					int max = Math.max(i2, k2);
-					int height = (10 - Math.max(max, 3)) / 2;
 					for (j111 = roomBottom + 1; j111 <= roomFloor; ++j111) {
 						placeRandomBrick(world, random, i12, j111, k1);
 					}
 					int lvlMin = roomFloor + 1;
+					int max = Math.max(i2, k2);
+					int height = (10 - Math.max(max, 3)) / 2;
 					int lvlMax = lvlMin + height;
 					for (int j113 = lvlMin; j113 <= lvlMax; ++j113) {
 						placeRandomBrick(world, random, i12, j113, k1);

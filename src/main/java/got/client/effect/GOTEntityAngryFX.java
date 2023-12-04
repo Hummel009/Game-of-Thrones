@@ -54,14 +54,14 @@ public class GOTEntityAngryFX extends EntityFX {
 		modScale = MathHelper.clamp_float(modScale, 0.0f, 1.0f);
 		particleScale = angryScale * (0.7f + modScale * 0.3f);
 		float uMin = particleTextureIndexX / 4.0f;
-		float uMax = uMin + 0.25f;
 		float vMin = particleTextureIndexY / 4.0f;
-		float vMax = vMin + 0.25f;
 		float scale = 0.125f * particleScale;
 		float x = (float) (prevPosX + (posX - prevPosX) * f - interpPosX);
 		float y = (float) (prevPosY + (posY - prevPosY) * f - interpPosY);
 		float z = (float) (prevPosZ + (posZ - prevPosZ) * f - interpPosZ);
 		tessellator.setColorRGBA_F(particleRed, particleGreen, particleBlue, particleAlpha);
+		float vMax = vMin + 0.25f;
+		float uMax = uMin + 0.25f;
 		tessellator.addVertexWithUV(x - f1 * scale - f4 * scale, y - f2 * scale, z - f3 * scale - f5 * scale, uMax, vMax);
 		tessellator.addVertexWithUV(x - f1 * scale + f4 * scale, y + f2 * scale, z - f3 * scale + f5 * scale, uMax, vMin);
 		tessellator.addVertexWithUV(x + f1 * scale + f4 * scale, y + f2 * scale, z + f3 * scale + f5 * scale, uMin, vMin);

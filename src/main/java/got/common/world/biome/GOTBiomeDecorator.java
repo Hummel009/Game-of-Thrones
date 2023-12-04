@@ -154,37 +154,18 @@ public class GOTBiomeDecorator {
 	}
 
 	public void decorate() {
-		int k;
-		int k2;
-		int i;
-		int l;
-		int k3;
-		int k4;
-		int l2;
-		int j2;
-		int i2;
-		int l3;
-		int k5;
-		int l4;
-		int i3;
-		int l5;
-		int j3;
-		int j4;
-		int k6;
-		int i4;
-		int i5;
-		int l7;
-		int j5;
-		int k7;
 		GOTBiomeVariant biomeVariant = ((GOTWorldChunkManager) worldObj.getWorldChunkManager()).getBiomeVariantAt(chunkX + 8, chunkZ + 8);
 		generateOres();
 		biomeVariant.decorateVariant(worldObj, rand, chunkX, chunkZ, biome);
+		int l2;
+		int i;
 		for (l2 = 0; l2 < 3; ++l2) {
 			i = chunkX + rand.nextInt(16) + 8;
-			j4 = rand.nextInt(60);
+			int j4 = rand.nextInt(60);
 			int k8 = chunkZ + rand.nextInt(16) + 8;
 			stalactiteGen.generate(worldObj, rand, i, j4, k8);
 		}
+		int k;
 		for (l2 = 0; l2 < quagmirePerChunk; ++l2) {
 			i = chunkX + rand.nextInt(16) + 8;
 			k = chunkZ + rand.nextInt(16) + 8;
@@ -205,10 +186,11 @@ public class GOTBiomeDecorator {
 			clayGen.generate(worldObj, rand, i, worldObj.getTopSolidOrLiquidBlock(i, k), k);
 		}
 		if (rand.nextInt(60) == 0) {
-			i4 = chunkX + rand.nextInt(16) + 8;
-			k6 = chunkZ + rand.nextInt(16) + 8;
+			int i4 = chunkX + rand.nextInt(16) + 8;
+			int k6 = chunkZ + rand.nextInt(16) + 8;
 			surfaceGravelGen.generate(worldObj, rand, i4, 0, k6);
 		}
+		int j5;
 		if (!biomeVariant.disableStructures && Math.abs(chunkX) > 32 && Math.abs(chunkZ) > 32) {
 			long seed = chunkX * 1879267L ^ chunkZ * 67209689L;
 			seed = seed * seed * 5829687L + seed * 2876L;
@@ -220,7 +202,7 @@ public class GOTBiomeDecorator {
 				for (Structure randomstructure : structures) {
 					if (structureRand.nextInt(randomstructure.chunkChance) == 0) {
 						int i6 = chunkX + rand.nextInt(16) + 8;
-						k2 = chunkZ + rand.nextInt(16) + 8;
+						int k2 = chunkZ + rand.nextInt(16) + 8;
 						j5 = worldObj.getTopSolidOrLiquidBlock(i6, k2);
 						randomstructure.structureGen.generate(worldObj, rand, i6, j5, k2);
 					}
@@ -234,12 +216,15 @@ public class GOTBiomeDecorator {
 		if (rand.nextFloat() < biome.getTreeIncreaseChance() * biomeVariant.treeFactor) {
 			++trees;
 		}
-		for (l4 = 0; l4 < trees; ++l4) {
+		for (int l4 = 0; l4 < trees; ++l4) {
 			int i7 = chunkX + rand.nextInt(16) + 8;
-			k7 = chunkZ + rand.nextInt(16) + 8;
+			int k7 = chunkZ + rand.nextInt(16) + 8;
 			WorldGenAbstractTree treeGen = getRandomTreeForVariant(rand, biomeVariant).create(false, rand);
 			treeGen.generate(worldObj, rand, i7, worldObj.getHeightValue(i7, k7), k7);
 		}
+		int i5;
+		int l3;
+		int k4;
 		if (trees > 0) {
 			float fallenLeaves = trees / 2.0f;
 			l3 = 0;
@@ -258,7 +243,7 @@ public class GOTBiomeDecorator {
 				++l3;
 			}
 		}
-		for (l5 = 0; l5 < logsPerChunk; ++l5) {
+		for (int l5 = 0; l5 < logsPerChunk; ++l5) {
 			int i9 = chunkX + rand.nextInt(16) + 8;
 			int k9 = chunkZ + rand.nextInt(16) + 8;
 			logGen.generate(worldObj, rand, i9, worldObj.getHeightValue(i9, k9), k9);
@@ -282,6 +267,7 @@ public class GOTBiomeDecorator {
 		}
 		int grasses = grassPerChunk;
 		grasses = Math.round(grasses * biomeVariant.grassFactor);
+		int j3;
 		for (l3 = 0; l3 < grasses; ++l3) {
 			i5 = chunkX + rand.nextInt(16) + 8;
 			j3 = rand.nextInt(128);
@@ -291,6 +277,8 @@ public class GOTBiomeDecorator {
 		}
 		int doubleGrasses = doubleGrassPerChunk;
 		doubleGrasses = Math.round(doubleGrasses * biomeVariant.grassFactor);
+		int l7;
+		int i2;
 		for (l7 = 0; l7 < doubleGrasses; ++l7) {
 			i2 = chunkX + rand.nextInt(16) + 8;
 			int j9 = rand.nextInt(128);
@@ -310,6 +298,7 @@ public class GOTBiomeDecorator {
 			int j11 = rand.nextInt(128);
 			waterlilyGen.generate(worldObj, rand, i2, j11, k14);
 		}
+		int j2;
 		for (l7 = 0; l7 < canePerChunk; ++l7) {
 			i2 = chunkX + rand.nextInt(16) + 8;
 			j2 = rand.nextInt(128);
@@ -322,6 +311,7 @@ public class GOTBiomeDecorator {
 			int k18 = chunkZ + rand.nextInt(16) + 8;
 			caneGen.generate(worldObj, rand, i2, j2, k18);
 		}
+		int k5;
 		for (l7 = 0; l7 < reedPerChunk; ++l7) {
 			i2 = chunkX + rand.nextInt(16) + 8;
 			k5 = chunkZ + rand.nextInt(16) + 8;
@@ -370,9 +360,9 @@ public class GOTBiomeDecorator {
 		}
 		if (biomeVariant.boulderGen != null && rand.nextInt(biomeVariant.boulderChance) == 0) {
 			int boulders = MathHelper.getRandomIntegerInRange(rand, 1, biomeVariant.boulderMax);
-			for (l = 0; l < boulders; ++l) {
-				i3 = chunkX + rand.nextInt(16) + 8;
-				k3 = chunkZ + rand.nextInt(16) + 8;
+			for (int l = 0; l < boulders; ++l) {
+				int i3 = chunkX + rand.nextInt(16) + 8;
+				int k3 = chunkZ + rand.nextInt(16) + 8;
 				biomeVariant.boulderGen.generate(worldObj, rand, i3, worldObj.getHeightValue(i3, k3), k3);
 			}
 		}
@@ -391,10 +381,10 @@ public class GOTBiomeDecorator {
 	}
 
 	public void generateOres() {
-		float f;
 		for (OreGenerant soil : biomeSoils) {
 			genStandardOre(soil.oreChance, soil.oreGen, soil.minHeight, soil.maxHeight);
 		}
+		float f;
 		for (OreGenerant ore : biomeOres) {
 			f = ore.oreChance * biomeOreFactor;
 			genStandardOre(f, ore.oreGen, ore.minHeight, ore.maxHeight);

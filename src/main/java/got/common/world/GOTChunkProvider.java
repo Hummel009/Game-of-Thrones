@@ -90,14 +90,14 @@ public class GOTChunkProvider implements IChunkProvider {
 	public void generateTerrain(int i, int j, Block[] blocks, ChunkFlags chunkFlags) {
 		GOTWorldChunkManager chunkManager = (GOTWorldChunkManager) worldObj.getWorldChunkManager();
 		int byte0 = 4;
-		int byte1 = 32;
 		int k = byte0 + 1;
-		int byte3 = 33;
 		int l = byte0 + 1;
 		biomesForGeneration = chunkManager.getBiomesForGeneration(biomesForGeneration, i * byte0 - biomeSampleRadius, j * byte0 - biomeSampleRadius, k + biomeSampleWidth, l + biomeSampleWidth);
 		variantsForGeneration = chunkManager.getVariantsChunkGen(variantsForGeneration, i * byte0 - biomeSampleRadius, j * byte0 - biomeSampleRadius, k + biomeSampleWidth, l + biomeSampleWidth, biomesForGeneration);
+		int byte3 = 33;
 		heightNoise = initializeHeightNoise(heightNoise, i * byte0, 0, j * byte0, k, byte3, l, chunkFlags);
 		blockHeightNoiseArray = new double[blocks.length];
+		int byte1 = 32;
 		for (int i1 = 0; i1 < byte0; ++i1) {
 			for (int j1 = 0; j1 < byte0; ++j1) {
 				for (int k1 = 0; k1 < byte1; ++k1) {
@@ -155,12 +155,12 @@ public class GOTChunkProvider implements IChunkProvider {
 			noise = new double[xSize * ySize * zSize];
 		}
 		double xzNoiseScale = 400.0;
-		double heightStretch = 6.0;
 		int noiseCentralIndex = (xSize - 1) / 2 + biomeSampleRadius + ((zSize - 1) / 2 + biomeSampleRadius) * (xSize + biomeSampleWidth);
 		GOTBiome noiseCentralBiome = (GOTBiome) biomesForGeneration[noiseCentralIndex];
 		if (noiseCentralBiome.getBiomeTerrain().hasXZScale()) {
 			xzNoiseScale = noiseCentralBiome.getBiomeTerrain().getXZScale();
 		}
+		double heightStretch = 6.0;
 		if (noiseCentralBiome.getBiomeTerrain().hasHeightStretchFactor()) {
 			heightStretch *= noiseCentralBiome.getBiomeTerrain().getHeightStretchFactor();
 		}
@@ -175,12 +175,6 @@ public class GOTChunkProvider implements IChunkProvider {
 			for (int k1 = 0; k1 < zSize; ++k1) {
 				int xPos = i + i1 << 2;
 				int zPos = k + k1 << 2;
-				float totalBaseHeight = 0.0f;
-				float totalHeightVariation = 0.0f;
-				float totalHeightNoise = 0.0f;
-				float totalVariantHillFactor = 0.0f;
-				float totalFlatBiomeHeight = 0.0f;
-				int biomeCount = 0;
 				int centreBiomeIndex = i1 + biomeSampleRadius + (k1 + biomeSampleRadius) * (xSize + biomeSampleWidth);
 				BiomeGenBase centreBiome = biomesForGeneration[centreBiomeIndex];
 				GOTBiomeVariant centreVariant = variantsForGeneration[centreBiomeIndex];
@@ -188,6 +182,12 @@ public class GOTChunkProvider implements IChunkProvider {
 				if (centreVariant.absoluteHeight) {
 					centreHeight = centreVariant.getHeightBoostAt(xPos, zPos);
 				}
+				int biomeCount = 0;
+				float totalFlatBiomeHeight = 0.0f;
+				float totalVariantHillFactor = 0.0f;
+				float totalHeightNoise = 0.0f;
+				float totalHeightVariation = 0.0f;
+				float totalBaseHeight = 0.0f;
 				for (int i2 = -biomeSampleRadius; i2 <= biomeSampleRadius; ++i2) {
 					for (int k2 = -biomeSampleRadius; k2 <= biomeSampleRadius; ++k2) {
 						int biomeIndex = i1 + i2 + biomeSampleRadius + (k1 + k2 + biomeSampleRadius) * (xSize + biomeSampleWidth);
@@ -283,7 +283,6 @@ public class GOTChunkProvider implements IChunkProvider {
 					baseHeight += heightNoise * 0.2 * avgVariantHillFactor;
 					baseHeight = baseHeight * ySize / 16.0;
 					double var28 = ySize / 2.0 + baseHeight * 4.0;
-					double totalNoise;
 					double var32 = (j1 - var28) * heightStretch * 128.0 / 256.0 / avgHeightVariation;
 					if (var32 < 0.0) {
 						var32 *= 4.0;
@@ -291,7 +290,7 @@ public class GOTChunkProvider implements IChunkProvider {
 					double var34 = noise1[noiseIndex] / 512.0;
 					double var36 = noise2[noiseIndex] / 512.0;
 					double var38 = (noise3[noiseIndex] / 10.0 + 1.0) / 2.0 * avgVariantHillFactor;
-					totalNoise = var38 < 0.0 ? var34 : var38 > 1.0 ? var36 : var34 + (var36 - var34) * var38;
+					double totalNoise = var38 < 0.0 ? var34 : var38 > 1.0 ? var36 : var34 + (var36 - var34) * var38;
 					totalNoise -= var32;
 					if (j1 > ySize - 4) {
 						double var40 = (j1 - (ySize - 4)) / 3.0f;
@@ -317,9 +316,6 @@ public class GOTChunkProvider implements IChunkProvider {
 
 	@Override
 	public void populate(IChunkProvider ichunkprovider, int i, int j) {
-		int j1;
-		int k1;
-		int i1;
 		BlockFalling.fallInstantly = true;
 		int k = i * 16;
 		int l = j * 16;
@@ -331,6 +327,9 @@ public class GOTChunkProvider implements IChunkProvider {
 		rand.setSeed(i * l1 + j * l2 ^ worldObj.getSeed());
 		ghiscarPyramid.generateStructuresInChunk(worldObj, rand, i, j);
 		sothoryosPyramid.generateStructuresInChunk(worldObj, rand, i, j);
+		int i1;
+		int k1;
+		int j1;
 		if (rand.nextInt(4) == 0) {
 			i1 = k + rand.nextInt(16) + 8;
 			j1 = rand.nextInt(128);
@@ -380,11 +379,11 @@ public class GOTChunkProvider implements IChunkProvider {
 		rand.setSeed(i * 341873128712L + k * 132897987541L);
 		GOTWorldChunkManager chunkManager = (GOTWorldChunkManager) worldObj.getWorldChunkManager();
 		Block[] blocks = new Block[65536];
-		byte[] metadata = new byte[65536];
 		ChunkFlags chunkFlags = new ChunkFlags();
 		generateTerrain(i, k, blocks, chunkFlags);
 		biomesForGeneration = chunkManager.loadBlockGeneratorData(biomesForGeneration, i * 16, k * 16, 16, 16);
 		variantsForGeneration = chunkManager.getBiomeVariants(variantsForGeneration, i * 16, k * 16, 16, 16);
+		byte[] metadata = new byte[65536];
 		replaceBlocksForBiome(i, k, blocks, metadata, biomesForGeneration, variantsForGeneration, chunkFlags);
 		caveGenerator.setChunkFlags(chunkFlags);
 		caveGenerator.func_151539_a(this, worldObj, i, k, blocks);
@@ -437,7 +436,6 @@ public class GOTChunkProvider implements IChunkProvider {
 		int ySize = blocks.length / 256;
 		for (int i1 = 0; i1 < 16; ++i1) {
 			for (int k1 = 0; k1 < 16; ++k1) {
-				int index;
 				int x = i * 16 + i1;
 				int z = k * 16 + k1;
 				int xzIndex = i1 * 16 + k1;
@@ -463,6 +461,7 @@ public class GOTChunkProvider implements IChunkProvider {
 				if (lavaHeight <= 0) {
 					continue;
 				}
+				int index;
 				for (int j = lavaHeight; j >= 0 && !blocks[index = xzIndex * ySize + j].isOpaqueCube(); --j) {
 					blocks[index] = Blocks.lava;
 					metadata[index] = 0;

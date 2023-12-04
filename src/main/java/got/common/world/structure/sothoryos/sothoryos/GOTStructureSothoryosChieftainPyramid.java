@@ -17,17 +17,12 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int j1;
-		int k2;
-		int i12;
-		int i1;
-		int k12;
-		int j12;
-		int i2;
 		if (!super.generate(world, random, i, j, k, rotation)) {
 			return false;
 		}
+		int i12;
+		int j1;
+		int k1;
 		for (i12 = -10; i12 <= 10; ++i12) {
 			for (k1 = -10; k1 <= 10; ++k1) {
 				layFoundation(world, i12, k1);
@@ -36,6 +31,9 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 				}
 			}
 		}
+		int i2;
+		int j12;
+		int k2;
 		for (i12 = -10; i12 <= 10; ++i12) {
 			for (k1 = -10; k1 <= 10; ++k1) {
 				i2 = Math.abs(i12);
@@ -177,11 +175,13 @@ public class GOTStructureSothoryosChieftainPyramid extends GOTStructureSothoryos
 		setBlockAndMetadata(world, 2, 7, 3, brickStairBlock, 5);
 		setBlockAndMetadata(world, -1, 7, 4, brickSlabBlock, brickSlabMeta | 8);
 		setBlockAndMetadata(world, 1, 7, 4, brickSlabBlock, brickSlabMeta | 8);
+		int i1;
 		for (i1 = -2; i1 <= 2; ++i1) {
 			setBlockAndMetadata(world, i1, 8, 3, brickSlabBlock, brickSlabMeta);
 			setBlockAndMetadata(world, i1, 8, 4, brickSlabBlock, brickSlabMeta);
 		}
 		setBlockAndMetadata(world, 0, 8, 3, brickBlock, brickMeta);
+		int k12;
 		for (k12 = -3; k12 <= 3; ++k12) {
 			setBlockAndMetadata(world, -7, 5, k12, brickWallBlock, brickWallMeta);
 			setBlockAndMetadata(world, 7, 5, k12, brickWallBlock, brickWallMeta);

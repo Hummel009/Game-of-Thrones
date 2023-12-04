@@ -26,9 +26,9 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -110,9 +110,9 @@ public class GOTStructureLhazarBazaar extends GOTStructureLhazarBase {
 		placeWallBanner(world, 8, 10, -7, GOTItemBanner.BannerType.LHAZAR, 1);
 		for (int i1 : new int[]{-7, 7}) {
 			j1 = 1;
-			int k1 = -11;
 			GOTEntityLhazarWarrior guard = new GOTEntityLhazarWarrior(world);
 			guard.spawnRidingHorse = false;
+			int k1 = -11;
 			spawnNPCAndSetHome(guard, world, i1, j1, k1, 4);
 		}
 		List<Class<? extends GOTStructureBase>> stallClasses = Arrays.asList(Arrays.copyOf(stalls, stalls.length));

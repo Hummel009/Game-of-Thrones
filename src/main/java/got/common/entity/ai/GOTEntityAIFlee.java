@@ -52,8 +52,8 @@ public class GOTEntityAIFlee extends EntityAIBase {
 
 	@Override
 	public void updateTask() {
-		Vec3 vec3;
 		--timer;
+		Vec3 vec3;
 		if ((!firstPath || theEntity.getNavigator().noPath()) && (vec3 = RandomPositionGenerator.findRandomTargetBlockAwayFrom(theEntity, 16, 7, Vec3.createVectorHelper(attackerX, attackerY, attackerZ))) != null && theEntity.getNavigator().tryMoveToXYZ(vec3.xCoord, vec3.yCoord, vec3.zCoord, speed)) {
 			theEntity.setRevengeTarget(null);
 			firstPath = true;

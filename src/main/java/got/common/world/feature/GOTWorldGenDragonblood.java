@@ -31,11 +31,9 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
-		boolean flag = true;
 		if (j >= 1 && j + height + 5 <= 256) {
-			int k1;
-			int i1;
 			int j1;
+			boolean flag = true;
 			for (j1 = j; j1 <= j + height + 5; ++j1) {
 				int range = trunkWidth + 1;
 				if (j1 == j) {
@@ -53,6 +51,8 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 					}
 				}
 			}
+			int i1;
+			int k1;
 			for (i1 = i - trunkWidth; i1 <= i + trunkWidth && flag; ++i1) {
 				for (k1 = k - trunkWidth; k1 <= k + trunkWidth && flag; ++k1) {
 					Block block = world.getBlock(i1, j - 1, k1);
@@ -91,7 +91,6 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 					int k14 = k;
 					int j12 = j + height - 1 - random.nextInt(5);
 					for (int l = 0; l < (length *= 1 + random.nextInt(trunkWidth)); ++l) {
-						Block block;
 						if (Math.floor(cos * l) != Math.floor(cos * (l - 1))) {
 							i14 = (int) (i14 + Math.signum(cos));
 						}
@@ -101,6 +100,7 @@ public class GOTWorldGenDragonblood extends WorldGenAbstractTree {
 						if (Math.floor(sinY * l) != Math.floor(sinY * (l - 1))) {
 							j12 = (int) (j12 + Math.signum(sinY));
 						}
+						Block block;
 						if (!(block = world.getBlock(i14, j12, k14)).isReplaceable(world, i14, j12, k14) && !block.isWood(world, i14, j12, k14) && !block.isLeaves(world, i14, j12, k14)) {
 							break;
 						}

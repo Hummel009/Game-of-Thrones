@@ -17,9 +17,6 @@ public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int k1;
-		int i12;
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		if (restrictions) {
@@ -44,6 +41,8 @@ public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int k1;
+		int i1;
 		for (k1 = 1; k1 <= 11; ++k1) {
 			for (i1 = -4; i1 <= 4; ++i1) {
 				int j1;
@@ -80,6 +79,7 @@ public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int i12;
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (int j1 = 1; j1 <= 3; ++j1) {
 				setBlockAndMetadata(world, i12, j1, 1, rockBlock, rockMeta);

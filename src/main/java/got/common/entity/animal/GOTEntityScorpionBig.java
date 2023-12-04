@@ -52,11 +52,11 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 	@Override
 	public boolean attackEntityAsMob(Entity entity) {
 		if (super.attackEntityAsMob(entity)) {
-			int difficulty;
-			int duration;
 			if (!worldObj.isRemote) {
 				setStrikeTime(20);
 			}
+			int duration;
+			int difficulty;
 			if (entity instanceof EntityLivingBase && (duration = (difficulty = worldObj.difficultySetting.getDifficultyId()) * (difficulty + 5) / 2) > 0) {
 				((EntityLivingBase) entity).addPotionEffect(new PotionEffect(Potion.poison.id, duration * 20, 0));
 			}
@@ -172,9 +172,9 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 
 	@Override
 	public void onLivingUpdate() {
-		int i;
 		super.onLivingUpdate();
 		rescaleScorpion(getScorpionScaleAmount());
+		int i;
 		if (!worldObj.isRemote && (i = getStrikeTime()) > 0) {
 			setStrikeTime(i - 1);
 		}

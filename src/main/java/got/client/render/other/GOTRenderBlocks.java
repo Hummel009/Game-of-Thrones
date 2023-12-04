@@ -41,11 +41,9 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public static void renderClover(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
-		double scale = 0.5;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
 		int l = block.colorMultiplier(world, i, j, k);
-		float f = 1.0f;
 		float f1 = (l >> 16 & 0xFF) / 255.0f;
 		float f2 = (l >> 8 & 0xFF) / 255.0f;
 		float f3 = (l & 0xFF) / 255.0f;
@@ -57,6 +55,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			f2 = f5;
 			f3 = f6;
 		}
+		float f = 1.0f;
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		renderblocks.setOverrideBlockTexture(GOTBlockClover.stemIcon);
 		double posX = i;
@@ -67,6 +66,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
 			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
 		}
+		double scale = 0.5;
 		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, j, posZ, (float) scale);
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
@@ -109,7 +109,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
 		int meta = world.getBlockMetadata(i, j, k);
 		int l = block.colorMultiplier(world, i, j, k);
-		float f = 1.0f;
 		float f1 = (l >> 16 & 0xFF) / 255.0f;
 		float f2 = (l >> 8 & 0xFF) / 255.0f;
 		float f3 = (l & 0xFF) / 255.0f;
@@ -121,6 +120,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			f2 = f5;
 			f3 = f6;
 		}
+		float f = 1.0f;
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		double posX = i;
 		double posY = j;
@@ -143,10 +143,8 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 
 	public static void renderInvClover(Block block, RenderBlocks renderblocks, int petalCount) {
 		GL11.glDisable(2896);
-		double scale = 1.0;
 		Tessellator tessellator = Tessellator.instance;
 		int l = block.getRenderColor(0);
-		float f = 1.0f;
 		float f1 = (l >> 16 & 0xFF) / 255.0f;
 		float f2 = (l >> 8 & 0xFF) / 255.0f;
 		float f3 = (l & 0xFF) / 255.0f;
@@ -158,9 +156,11 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			f2 = f5;
 			f3 = f6;
 		}
+		float f = 1.0f;
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		renderblocks.setOverrideBlockTexture(GOTBlockClover.stemIcon);
 		tessellator.startDrawingQuads();
+		double scale = 1.0;
 		renderblocks.drawCrossedSquares(block.getIcon(2, 0), -scale * 0.5, -scale * 0.5, -scale * 0.5, (float) scale);
 		tessellator.draw();
 		renderblocks.clearOverrideBlockTexture();
@@ -197,10 +197,8 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 
 	public static void renderInvPlantain(Block block, RenderBlocks renderblocks, int petalCount) {
 		GL11.glDisable(2896);
-		double scale = 1.0;
 		Tessellator tessellator = Tessellator.instance;
 		int l = block.getRenderColor(0);
-		float f = 1.0f;
 		float f1 = (l >> 16 & 0xFF) / 255.0f;
 		float f2 = (l >> 8 & 0xFF) / 255.0f;
 		float f3 = (l & 0xFF) / 255.0f;
@@ -212,9 +210,11 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			f2 = f5;
 			f3 = f6;
 		}
+		float f = 1.0f;
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.stemIcon);
 		tessellator.startDrawingQuads();
+		double scale = 1.0;
 		renderblocks.drawCrossedSquares(block.getIcon(2, 0), -scale * 0.5, -scale * 0.5, -scale * 0.5, (float) scale);
 		tessellator.draw();
 		renderblocks.clearOverrideBlockTexture();
@@ -250,11 +250,9 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public static void renderPlantain(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
-		double scale = 0.5;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
 		int l = block.colorMultiplier(world, i, j, k);
-		float f = 1.0f;
 		float f1 = (l >> 16 & 0xFF) / 255.0f;
 		float f2 = (l >> 8 & 0xFF) / 255.0f;
 		float f3 = (l & 0xFF) / 255.0f;
@@ -266,6 +264,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			f2 = f5;
 			f3 = f6;
 		}
+		float f = 1.0f;
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		renderblocks.setOverrideBlockTexture(GOTBlockPlantain.stemIcon);
 		double posX = i;
@@ -276,6 +275,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			posX += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.5;
 			posZ += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.5;
 		}
+		double scale = 0.5;
 		renderblocks.drawCrossedSquares(block.getIcon(2, 0), posX, j, posZ, (float) scale);
 		renderblocks.clearOverrideBlockTexture();
 		for (int petal = 0; petal < petalCount; ++petal) {
@@ -632,22 +632,21 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		if (world.getBlock(i, topDoor ? j - 1 : j + 1, k) != block) {
 			return false;
 		}
-		float f = 0.5f;
-		float f1 = 1.0f;
-		float f2 = 0.8f;
-		float f3 = 0.6f;
 		int light = block.getMixedBrightnessForBlock(world, i, j, k);
 		if (!topDoor || world.getBlock(i, j - 1, k) != block) {
 			tessellator.setBrightness(renderblocks.renderMinY > 0.0 ? light : block.getMixedBrightnessForBlock(world, i, j - 1, k));
+			float f = 0.5f;
 			tessellator.setColorOpaque_F(f, f, f);
 			renderblocks.renderFaceYNeg(block, i, j, k, renderblocks.getBlockIcon(block, world, i, j, k, 0));
 		}
 		if (topDoor || world.getBlock(i, j + 1, k) != block) {
 			tessellator.setBrightness(renderblocks.renderMaxY < 1.0 ? light : block.getMixedBrightnessForBlock(world, i, j + 1, k));
+			float f1 = 1.0f;
 			tessellator.setColorOpaque_F(f1, f1, f1);
 			renderblocks.renderFaceYPos(block, i, j, k, renderblocks.getBlockIcon(block, world, i, j, k, 1));
 		}
 		tessellator.setBrightness(renderblocks.renderMinZ > 0.0 ? light : block.getMixedBrightnessForBlock(world, i, j, k - 1));
+		float f2 = 0.8f;
 		tessellator.setColorOpaque_F(f2, f2, f2);
 		IIcon iicon = renderblocks.getBlockIcon(block, world, i, j, k, 2);
 		renderblocks.renderFaceZNeg(block, i, j, k, iicon);
@@ -658,6 +657,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderFaceZPos(block, i, j, k, iicon);
 		renderblocks.flipTexture = false;
 		tessellator.setBrightness(renderblocks.renderMinX > 0.0 ? light : block.getMixedBrightnessForBlock(world, i - 1, j, k));
+		float f3 = 0.6f;
 		tessellator.setColorOpaque_F(f3, f3, f3);
 		iicon = renderblocks.getBlockIcon(block, world, i, j, k, 4);
 		renderblocks.renderFaceXNeg(block, i, j, k, iicon);
@@ -671,7 +671,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public void renderDoublePlant(IBlockAccess world, int i, int j, int k, BlockDoublePlant block, RenderBlocks renderblocks) {
-		int plantType;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
 		int color = block.colorMultiplier(world, i, j, k);
@@ -687,14 +686,15 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			b = f5;
 		}
 		tessellator.setColorOpaque_F(r, g, b);
-		double d = i;
-		double d2 = k;
 		long seed = i * 3129871L ^ k * 116129781L;
 		seed = seed * seed * 42317861L + seed * 11L;
+		double d = i;
 		d += ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3;
+		double d2 = k;
 		d2 += ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3;
 		int meta = world.getBlockMetadata(i, j, k);
 		boolean isTop = BlockDoublePlant.func_149887_c(meta);
+		int plantType;
 		if (isTop) {
 			if (world.getBlock(i, j - 1, k) != block) {
 				return;
@@ -719,10 +719,10 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		world.getBlockMetadata(i, j, k);
 		int color = block.colorMultiplier(world, i, j, k);
 		float r = (color >> 16 & 0xFF) / 255.0f;
-		float g = (color >> 8 & 0xFF) / 255.0f;
-		float b = (color & 0xFF) / 255.0f;
 		r *= shade;
+		float g = (color >> 8 & 0xFF) / 255.0f;
 		g *= shade;
+		float b = (color & 0xFF) / 255.0f;
 		b *= shade;
 		if (EntityRenderer.anaglyphEnable) {
 			r = (r * 30.0f + g * 59.0f + b * 11.0f) / 100.0f;
@@ -789,16 +789,15 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public void renderFlowerPot(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		float f4;
 		renderblocks.renderStandardBlock(block, i, j, k);
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
-		float f = 1.0f;
 		int l = block.colorMultiplier(world, i, j, k);
 		IIcon icon = renderblocks.getBlockIconFromSide(block, 0);
 		float f1 = (l >> 16 & 0xFF) / 255.0f;
 		float f2 = (l >> 8 & 0xFF) / 255.0f;
 		float f3 = (l & 0xFF) / 255.0f;
+		float f4;
 		if (EntityRenderer.anaglyphEnable) {
 			f4 = (f1 * 30.0f + f2 * 59.0f + f3 * 11.0f) / 100.0f;
 			float f5 = (f1 * 30.0f + f2 * 70.0f) / 100.0f;
@@ -807,6 +806,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			f2 = f5;
 			f3 = f6;
 		}
+		float f = 1.0f;
 		tessellator.setColorOpaque_F(f * f1, f * f2, f * f3);
 		f4 = 0.1865f;
 		renderblocks.renderFaceXPos(block, i - 0.5f + f4, j, k, icon);
@@ -1013,13 +1013,13 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	public void renderInvFence(Block block, int meta, RenderBlocks renderblocks) {
 		for (int k = 0; k < 4; ++k) {
 			float f = 0.125f;
-			float f1 = 0.0625f;
 			if (k == 0) {
 				renderblocks.setRenderBounds(0.5f - f, 0.0, 0.0, 0.5f + f, 1.0, f * 2.0f);
 			}
 			if (k == 1) {
 				renderblocks.setRenderBounds(0.5f - f, 0.0, 1.0f - f * 2.0f, 0.5f + f, 1.0, 1.0);
 			}
+			float f1 = 0.0625f;
 			if (k == 2) {
 				renderblocks.setRenderBounds(0.5f - f1, 1.0f - f1 * 3.0f, -f1 * 2.0f, 0.5f + f1, 1.0f - f1, 1.0f + f1 * 2.0f);
 			}

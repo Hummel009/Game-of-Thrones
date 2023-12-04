@@ -372,7 +372,6 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		boolean owned = viewingFellowship.isOwned();
 		boolean adminned = viewingFellowship.isAdminned();
 		if (!isOwner && (owned || adminned)) {
-			int iconWidth = 8;
 			int iconRemoveX = x + xSize - 28;
 			int iconOpDeopX = x + xSize - 18;
 			int iconTransferX = x + xSize - 8;
@@ -382,6 +381,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			boolean remove = false;
 			boolean opDeop = false;
 			boolean transfer = false;
+			int iconWidth = 8;
 			if (isMouseOver) {
 				mouseOverPlayerRemove = mouseX >= iconRemoveX && mouseX <= iconRemoveX + iconWidth && mouseY >= y && mouseY <= y + iconWidth;
 				remove = mouseOverPlayerRemove;
@@ -559,9 +559,9 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			int iconHFFX = guiLeft + xSize - 16;
 			int iconMapX = guiLeft + xSize - 56;
 			int iconY = y;
-			int iconSize = 16;
 			mc.getTextureManager().bindTexture(iconsTextures);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			int iconSize = 16;
 			drawTexturedModalRect(iconPVPX, iconY, 64, preventPVP ? 80 : 48, iconSize, iconSize);
 			drawTexturedModalRect(iconHFFX, iconY, 80, preventHiredFF ? 80 : 48, iconSize, iconSize);
 			drawTexturedModalRect(iconMapX, iconY, 96, mapShow ? 48 : 80, iconSize, iconSize);

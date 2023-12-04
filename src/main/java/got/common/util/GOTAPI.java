@@ -706,8 +706,8 @@ public class GOTAPI {
 	 */
 	@SideOnly(Side.CLIENT)
 	public static void setClientMapImage(ResourceLocation mapTexture) {
-		ResourceLocation sepiaMapTexture;
 		GOTTextures.mapTexture = mapTexture;
+		ResourceLocation sepiaMapTexture;
 		try {
 			BufferedImage mapImage = getImage(Minecraft.getMinecraft().getResourceManager().getResource(mapTexture).getInputStream());
 			sepiaMapTexture = GOTTextures.convertToSepia(mapImage, new ResourceLocation("got:map_sepia"));

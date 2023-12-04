@@ -15,15 +15,9 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int k1;
-		int i2;
-		int j12;
-		int i1;
-		int j13;
-		int j14;
 		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
+		int j14;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -46,6 +40,9 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 				}
 			}
 		}
+		int i1;
+		int j12;
+		int j1;
 		for (i1 = -10; i1 <= 5; ++i1) {
 			for (int k13 = -3; k13 <= 4; ++k13) {
 				for (j12 = 2; j12 <= 8; ++j12) {
@@ -69,6 +66,8 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 		for (i1 = -1; i1 <= 1; ++i1) {
 			setBlockAndMetadata(world, i1, 1, -3, brickStairBlock, 2);
 		}
+		int i2;
+		int k1;
 		for (i1 = -4; i1 <= 4; ++i1) {
 			i2 = Math.abs(i1);
 			if (i2 == 2) {
@@ -189,6 +188,7 @@ public class GOTStructureIbbenSmithy extends GOTStructureIbbenBase {
 		}
 		setBlockAndMetadata(world, -1, 7, 3, brickStairBlock, 1);
 		setBlockAndMetadata(world, 1, 7, 3, brickStairBlock, 0);
+		int j13;
 		for (j13 = 7; j13 <= 9; ++j13) {
 			setBlockAndMetadata(world, 0, j13, 3, brickBlock, brickMeta);
 		}

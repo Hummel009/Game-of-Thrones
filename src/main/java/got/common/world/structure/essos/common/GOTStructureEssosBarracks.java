@@ -13,7 +13,6 @@ public class GOTStructureEssosBarracks extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
 		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
 		if (restrictions) {
@@ -60,6 +59,7 @@ public class GOTStructureEssosBarracks extends GOTStructureEssosBase {
 		associateBlockMetaAlias("ROOF_SLAB", roofSlabBlock, roofSlabMeta);
 		associateBlockMetaAlias("ROOF_SLAB_INV", roofSlabBlock, roofSlabMeta | 8);
 		generateStrScan(world, random, 0, 0, 0);
+		int k1;
 		for (k1 = -4; k1 <= 4; k1 += 2) {
 			if (random.nextBoolean()) {
 				placeChest(world, random, -4, 1, k1, GOTBlocks.chestBasket, 4, getChestContents(), 1 + random.nextInt(2));

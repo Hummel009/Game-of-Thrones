@@ -11,16 +11,11 @@ public class GOTStructureEssosTownGate extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i12;
-		int step;
-		int k1;
-		int j1;
-		int j12;
-		int j2;
-		int i1;
-		int k12;
 		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
+		int k12;
+		int i1;
+		int j12;
 		if (restrictions) {
 			for (i1 = -8; i1 <= 8; ++i1) {
 				for (k12 = -3; k12 <= 3; ++k12) {
@@ -59,6 +54,11 @@ public class GOTStructureEssosTownGate extends GOTStructureEssosBase {
 		generateStrScan(world, random, 0, 0, 0);
 		placeWallBanner(world, -6, 4, -2, bannerType, 2);
 		placeWallBanner(world, 6, 4, -2, bannerType, 2);
+		int j2;
+		int j1;
+		int k1;
+		int step;
+		int i12;
 		for (step = 0; step < 12; ++step) {
 			i12 = -7 - step;
 			j1 = 5 - step;

@@ -18,14 +18,10 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k13;
-		int k12;
-		int j1;
-		int j12;
-		int i2;
-		int j13;
 		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
+		int j1;
+		int k13;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -48,6 +44,8 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 				}
 			}
 		}
+		int i2;
+		int k12;
 		for (int i1 = -5; i1 <= 5; ++i1) {
 			for (k12 = -4; k12 <= 4; ++k12) {
 				i2 = Math.abs(i1);
@@ -63,7 +61,6 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 					setAir(world, i1, j1, k12);
 				}
 				if (k2 == 4 || i2 == 5) {
-					int j14;
 					boolean beam = k12 == -4 && (i2 == 1 || i2 == 4);
 					if (k12 == 4 && (i2 == 0 || i2 == 4)) {
 						beam = true;
@@ -71,6 +68,7 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 					if (i2 == 5 && (k2 == 0 || k2 == 3)) {
 						beam = true;
 					}
+					int j14;
 					if (beam) {
 						for (j14 = 1; j14 <= 3; ++j14) {
 							setBlockAndMetadata(world, i1, j14, k12, woodBeamBlock, woodBeamMeta);
@@ -143,6 +141,7 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, -5, 2, 1, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 0, 3, 3, Blocks.torch, 4);
 		setBlockAndMetadata(world, -4, 4, 0, Blocks.torch, 2);
+		int j13;
 		for (int i1 : new int[]{-4, 4}) {
 			for (int k16 : new int[]{-3, 3}) {
 				setBlockAndMetadata(world, i1, 1, k16, plankBlock, plankMeta);
@@ -186,6 +185,7 @@ public class GOTStructureGiftLodge extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 6, 5, -1, brickStairBlock, 2);
 		setBlockAndMetadata(world, 6, 5, 1, brickStairBlock, 3);
 		setBlockAndMetadata(world, 6, 6, 0, brickStairBlock, 0);
+		int j12;
 		for (j12 = 6; j12 <= 8; ++j12) {
 			setBlockAndMetadata(world, 5, j12, 0, brickBlock, brickMeta);
 		}

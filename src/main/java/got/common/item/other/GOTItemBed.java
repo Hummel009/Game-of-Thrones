@@ -30,11 +30,11 @@ public class GOTItemBed extends Item {
 		}
 		++j;
 		int i1 = MathHelper.floor_double(entityplayer.rotationYaw * 4.0f / 360.0f + 0.5) & 3;
-		int b0 = 0;
 		int b1 = 0;
 		if (i1 == 0) {
 			b1 = 1;
 		}
+		int b0 = 0;
 		if (i1 == 1) {
 			b0 = -1;
 		}

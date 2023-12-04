@@ -14,29 +14,15 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int j1;
-		int step;
-		int k1;
-		int i12;
-		int k12;
-		int distSq;
-		int i13;
-		int k13;
-		int j12;
-		int k14;
-		int j2;
-		int j13;
 		int radius = 6;
 		int radiusPlusOne = radius + 1;
 		setOriginAndRotation(world, i, j, k, rotation, radiusPlusOne);
-		int sections = 9;
-		int sectionHeight = 6;
-		int topHeight = sections * sectionHeight;
 		double radiusD = radius - 0.5;
 		double radiusDPlusOne = radiusD + 1.0;
 		int wallThresholdMin = (int) (radiusD * radiusD);
 		int wallThresholdMax = (int) (radiusDPlusOne * radiusDPlusOne);
+		int k13;
+		int i13;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -64,6 +50,10 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 				}
 			}
 		}
+		int j13;
+		int distSq;
+		int k1;
+		int i1;
 		for (i1 = -radius; i1 <= radius; ++i1) {
 			for (k1 = -radius; k1 <= radius; ++k1) {
 				distSq = i1 * i1 + k1 * k1;
@@ -80,8 +70,12 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 				}
 			}
 		}
+		int k14;
+		int i12;
+		int j1;
+		int sectionHeight = 6;
+		int sections = 9;
 		for (int l = 0; l < sections; ++l) {
-			int step2;
 			int sectionBase = l * sectionHeight;
 			for (j1 = sectionBase + 1; j1 <= sectionBase + sectionHeight; ++j1) {
 				for (i12 = -radius; i12 <= radius; ++i12) {
@@ -176,6 +170,7 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 			setBlockAndMetadata(world, -5, sectionBase + 5, -1, GOTBlocks.stairsBasaltBrick, 7);
 			setBlockAndMetadata(world, -5, sectionBase + 5, 1, GOTBlocks.stairsBasaltBrick, 6);
 			setBlockAndMetadata(world, -4, sectionBase + 5, 2, GOTBlocks.stairsBasaltBrick, 4);
+			int step2;
 			for (step2 = 0; step2 <= 2; ++step2) {
 				setBlockAndMetadata(world, 1 - step2, sectionBase + 1 + step2, 4, GOTBlocks.stairsBasaltBrick, 0);
 				for (j13 = sectionBase + 1; j13 <= sectionBase + step2; ++j13) {
@@ -198,6 +193,8 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 			setBlockAndMetadata(world, 2, sectionBase + 5, 5, GOTBlocks.stairsBasaltBrick, 4);
 		}
 		placeChest(world, random, -1, 1, 5, GOTBlocks.chestStone, 0, GOTChestContents.TREASURE);
+		int k12;
+		int step;
 		for (k12 = -3; k12 <= 3; k12 += 6) {
 			for (step = 0; step <= 3; ++step) {
 				placeBrickSupports(world, random, -9 + step, k12);
@@ -222,6 +219,7 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 				}
 			}
 		}
+		int topHeight = sections * sectionHeight;
 		for (i1 = -radius; i1 <= radius; ++i1) {
 			for (k1 = -radius; k1 <= radius; ++k1) {
 				distSq = i1 * i1 + k1 * k1;
@@ -244,6 +242,8 @@ public class GOTStructureYiTiLighthouse extends GOTStructureBase {
 			}
 		}
 		setAir(world, -2, topHeight + 1, 5);
+		int j2;
+		int j12;
 		for (i1 = -2; i1 <= 2; i1 += 4) {
 			for (step = 0; step <= 4; ++step) {
 				j1 = topHeight + 1 + step * 2;

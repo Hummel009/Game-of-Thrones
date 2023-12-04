@@ -26,16 +26,11 @@ public class GOTWorldGenAspen extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		int k1;
-		int i1;
-		int i12;
-		int j1;
-		Block below;
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		int leafMin = 3 + random.nextInt(3);
 		leafMin = j + leafMin - 1;
-		int leafTop = j + height + 1;
 		boolean flag = true;
+		int i1;
 		if (j >= 1 && height + 1 <= 256) {
 			for (int j12 = j; j12 <= j + height + 1; ++j12) {
 				int range = 1;
@@ -61,6 +56,9 @@ public class GOTWorldGenAspen extends WorldGenAbstractTree {
 			return false;
 		}
 		boolean canGrow = true;
+		Block below;
+		int i12;
+		int k1;
 		for (i12 = i; i12 <= i + extraTrunk && canGrow; ++i12) {
 			for (k1 = k; k1 <= k + extraTrunk && canGrow; ++k1) {
 				below = world.getBlock(i12, j - 1, k1);
@@ -79,6 +77,8 @@ public class GOTWorldGenAspen extends WorldGenAbstractTree {
 				below.onPlantGrow(world, i12, j - 1, k1, i12, j, k1);
 			}
 		}
+		int leafTop = j + height + 1;
+		int j1;
 		for (j1 = leafMin; j1 <= leafTop; ++j1) {
 			int leafWidth = 2;
 			if (j1 >= leafTop - 1) {
@@ -88,7 +88,6 @@ public class GOTWorldGenAspen extends WorldGenAbstractTree {
 			}
 			int branches = 4 + random.nextInt(5);
 			for (int b = 0; b < branches; ++b) {
-				Block block;
 				int i13 = i;
 				int k13 = k;
 				if (extraTrunk > 0) {
@@ -98,6 +97,7 @@ public class GOTWorldGenAspen extends WorldGenAbstractTree {
 				int i2 = i13;
 				int k2 = k13;
 				int length = 4 + random.nextInt(8);
+				Block block;
 				for (int l = 0; l < (length *= extraTrunk + 1) && Math.abs(i2 - i13) <= leafWidth && Math.abs(k2 - k13) <= leafWidth && ((block = world.getBlock(i2, j1, k2)).isReplaceable(world, i2, j1, k2) || block.isLeaves(world, i2, j1, k2)); ++l) {
 					setBlockAndNotifyAdequately(world, i2, j1, k2, leafBlock, leafMeta);
 					int dir = random.nextInt(4);

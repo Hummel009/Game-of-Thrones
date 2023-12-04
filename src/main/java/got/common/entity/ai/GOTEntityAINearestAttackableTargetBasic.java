@@ -78,7 +78,6 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 
 	@Override
 	public boolean shouldExecute() {
-		GOTEntityNPCRideable rideable;
 		if (targetChance > 0 && taskOwner.getRNG().nextInt(targetChance) != 0) {
 			return false;
 		}
@@ -88,6 +87,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 				return false;
 			}
 		}
+		GOTEntityNPCRideable rideable;
 		if (taskOwner instanceof GOTEntityNPCRideable && ((rideable = (GOTEntityNPCRideable) taskOwner).isNPCTamed() || rideable.riddenByEntity instanceof EntityPlayer)) {
 			return false;
 		}

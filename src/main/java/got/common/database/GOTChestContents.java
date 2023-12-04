@@ -1205,7 +1205,6 @@ public class GOTChestContents {
 		for (int i = 0; i < amount; ++i) {
 			WeightedRandomChestContent wrcc = (WeightedRandomChestContent) WeightedRandom.getRandomItem(random, itemPool.items);
 			for (ItemStack itemstack : ChestGenHooks.generateStacks(random, wrcc.theItemId, wrcc.theMinimumChanceToGenerateItem, wrcc.theMaximumChanceToGenerateItem)) {
-				Item item;
 				if (!isNPCDrop && itemPool.pouches) {
 					if (random.nextInt(50) == 0) {
 						itemstack = new ItemStack(GOTItems.pouch, 1, GOTItemPouch.getRandomPouchSize(random));
@@ -1214,13 +1213,13 @@ public class GOTChestContents {
 					}
 				}
 				if (!itemPool.loreCategories.isEmpty()) {
-					GOTLore lore;
 					int loreChance = itemPool.loreChance;
 					int minDropLoreChance = 8;
 					if (isNPCDrop && loreChance > minDropLoreChance) {
 						loreChance = (int) (loreChance * 0.75f);
 						loreChance = Math.max(loreChance, minDropLoreChance);
 					}
+					GOTLore lore;
 					if (random.nextInt(Math.max(loreChance, 1)) == 0 && (lore = GOTLore.getMultiRandomLore(itemPool.loreCategories, random, false)) != null) {
 						itemstack = lore.createLoreBook(random);
 					}
@@ -1235,11 +1234,12 @@ public class GOTChestContents {
 					boolean skilful = !isNPCDrop && random.nextInt(5) == 0;
 					GOTEnchantmentHelper.applyRandomEnchantments(itemstack, random, skilful, false);
 				}
+				Item item;
 				if ((item = itemstack.getItem()) instanceof GOTItemMug) {
-					GOTItemMug.Vessel[] vessels;
 					if (((GOTItemMug) item).isBrewable) {
 						GOTItemMug.setStrengthMeta(itemstack, 1 + random.nextInt(3));
 					}
+					GOTItemMug.Vessel[] vessels;
 					if (GOTItemMug.isItemFullDrink(itemstack) && (vessels = itemPool.vesselTypes) != null) {
 						GOTItemMug.Vessel v = vessels[random.nextInt(vessels.length)];
 						GOTItemMug.setVessel(itemstack, v, true);

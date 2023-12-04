@@ -57,16 +57,16 @@ public class GOTGuiTrade extends GuiContainer {
 
 	@Override
 	public void drawGuiContainerForegroundLayer(int i, int j) {
-		GOTTradeEntry trade;
-		int y;
-		int x;
-		int cost;
-		int l;
 		drawCenteredString(theEntity.getNPCName(), 89, 11, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("got.container.trade.buy"), 8, 28, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("got.container.trade.sell"), 8, 79, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("got.container.trade.sellOffer"), 8, 129, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, 176, 4210752);
+		int l;
+		int cost;
+		int x;
+		int y;
+		GOTTradeEntry trade;
 		for (l = 0; l < containerTrade.tradeInvBuy.getSizeInventory(); ++l) {
 			GOTSlotTrade slotBuy = (GOTSlotTrade) containerTrade.getSlotFromInventory(containerTrade.tradeInvBuy, l);
 			trade = slotBuy.getTrade();

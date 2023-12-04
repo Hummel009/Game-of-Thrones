@@ -56,9 +56,9 @@ public class GOTStructureWesterosTownWall extends GOTStructureWesterosBase {
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		for (int i1 = xMin; i1 <= xMax; ++i1) {
-			int j1;
 			int k1 = 0;
 			findSurface(world, i1, k1);
+			int j1;
 			for (j1 = 1; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 				setBlockAndMetadata(world, i1, j1, k1, rockSlabDoubleBlock, rockSlabDoubleMeta);
 				setGrassToDirt(world, i1, j1 - 1, k1);

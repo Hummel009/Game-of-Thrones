@@ -104,12 +104,12 @@ public class GOTRenderNorthernLights {
 	}
 
 	public static void render(Minecraft mc, WorldClient world, float tick) {
-		float maxDaylight;
 		if (mc.gameSettings.renderDistanceChunks < 6) {
 			return;
 		}
 		float minSun = 0.2f;
 		float daylight = (world.getSunBrightness(tick) - minSun) / (1.0f - minSun);
+		float maxDaylight;
 		float nlBrightness = (1.0f - daylight - (1.0f - (maxDaylight = 0.3f))) / maxDaylight;
 		if (nlBrightness <= 0.0f) {
 			return;
@@ -132,16 +132,16 @@ public class GOTRenderNorthernLights {
 		}
 		nlBrightness *= 1.0f - raininess;
 		world.theProfiler.startSection("aurora");
-		float nlScale = 2000.0f;
-		float nlDistance = (1.0f - northernness) * nlScale * 2.0f;
-		float nlHeight = nlScale * 0.5f;
 		GL11.glMatrixMode(5889);
 		GL11.glPushMatrix();
 		GL11.glLoadIdentity();
 		float fov = GOTReflectionClient.getFOVModifier(mc.entityRenderer, tick, true);
+		float nlScale = 2000.0f;
 		Project.gluPerspective(fov, (float) mc.displayWidth / mc.displayHeight, 0.05f, nlScale * 5.0f);
 		GL11.glMatrixMode(5888);
 		GL11.glPushMatrix();
+		float nlHeight = nlScale * 0.5f;
+		float nlDistance = (1.0f - northernness) * nlScale * 2.0f;
 		GL11.glTranslatef(0.0f, nlHeight, -nlDistance);
 		GL11.glScalef(1.0f, 1.0f, 1.0f);
 		GL11.glDisable(3553);
@@ -196,10 +196,10 @@ public class GOTRenderNorthernLights {
 			b3 = colorBottomCurrent[2] + (colorBottomNext[2] - colorBottomCurrent[2]) * t;
 		}
 		float a1 = 0.0f;
-		float a2 = 0.4f;
-		float a3 = 0.8f;
 		a1 *= nlBrightness;
+		float a2 = 0.4f;
 		a2 *= nlBrightness;
+		float a3 = 0.8f;
 		a3 *= nlBrightness;
 		float fullTick = nlTick + tick + tickExtra;
 		Tessellator tess = Tessellator.instance;
@@ -229,11 +229,11 @@ public class GOTRenderNorthernLights {
 			double x1 = x0 + halfWidth * 2.0 / strips;
 			double yMin = -halfHeight;
 			double yMid = -halfHeight * 0.4;
-			double z0 = nlDistance;
-			double z1 = nlDistance;
-			double extra = halfHeight * 0.15;
 			tess.setColorRGBA_F(r3, g3, b3, 0.0f);
+			double extra = halfHeight * 0.15;
+			double z0 = nlDistance;
 			tess.addVertex(x0, yMin - extra, z0 += waveEquation(mc, t, fullTick, tick) * (halfWidth * 0.15));
+			double z1 = nlDistance;
 			tess.addVertex(x1, yMin - extra, z1 += waveEquation(mc, t1, fullTick, tick) * (halfWidth * 0.15));
 			tess.setColorRGBA_F(r3, g3, b3, a3_here *= randomFade);
 			tess.addVertex(x1, yMin, z1);
@@ -258,9 +258,6 @@ public class GOTRenderNorthernLights {
 	}
 
 	public static void update(EntityLivingBase viewer) {
-		AuroraCycle cycle;
-		float amp;
-		float speed;
 		++nlTick;
 		World world = viewer.worldObj;
 		int effectiveDay = GOTDate.AegonCalendar.currentDay;
@@ -348,6 +345,9 @@ public class GOTRenderNorthernLights {
 		} else if (nightKingChange > 0) {
 			--nightKingChange;
 		}
+		float speed;
+		float amp;
+		AuroraCycle cycle;
 		if (rand.nextInt(50) == 0) {
 			float freq = MathHelper.randomFloatClamp(rand, 8.0f, 100.0f);
 			speed = freq * 5.0E-4f;

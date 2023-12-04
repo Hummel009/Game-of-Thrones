@@ -390,7 +390,6 @@ public class GOTEntityBanner extends Entity {
 		allowedPlayers = new GOTBannerWhitelistEntry[wlength];
 		NBTTagList allowedPlayersTags = nbt.getTagList("AllowedPlayers", 10);
 		for (int i = 0; i < allowedPlayersTags.tagCount(); ++i) {
-			GOTBannerWhitelistEntry entry;
 			NBTTagCompound playerData = allowedPlayersTags.getCompoundTagAt(i);
 			int index = playerData.getInteger("Index");
 			if (index < 0 || index >= wlength) {
@@ -399,10 +398,9 @@ public class GOTEntityBanner extends Entity {
 			GameProfile profile = null;
 			boolean isFellowship = playerData.getBoolean("Fellowship");
 			if (isFellowship) {
-				UUID fsID;
 				if (playerData.hasKey("FellowshipID")) {
 					String fellowshipIDString = playerData.getString("FellowshipID");
-					fsID = UUID.fromString(fellowshipIDString);
+					UUID fsID = UUID.fromString(fellowshipIDString);
 					GOTFellowshipProfile fellowshipProfile = new GOTFellowshipProfile(this, fsID, "");
 					if (fellowshipProfile.getFellowship() != null) {
 						profile = fellowshipProfile;
@@ -415,6 +413,7 @@ public class GOTEntityBanner extends Entity {
 			if (profile == null) {
 				continue;
 			}
+			GOTBannerWhitelistEntry entry;
 			allowedPlayers[i] = entry = new GOTBannerWhitelistEntry(profile);
 			boolean savedWithPerms = playerData.getBoolean("PermsSaved");
 			if (savedWithPerms) {
@@ -503,10 +502,10 @@ public class GOTEntityBanner extends Entity {
 					whitelistSlots[index] = GOTFellowshipProfile.addFellowshipCode(fs.getName());
 				}
 			} else {
-				String username;
 				if (StringUtils.isNullOrEmpty(profile.getName())) {
 					MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
 				}
+				String username;
 				if (StringUtils.isNullOrEmpty(username = profile.getName())) {
 					whitelistSlots[index] = null;
 					if (index == 0) {

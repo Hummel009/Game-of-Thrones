@@ -86,10 +86,10 @@ public class GOTRenderDragon extends RenderLiving {
 		float tickX = lifeStage.getEggWiggleX();
 		float tickZ = lifeStage.getEggWiggleZ();
 		float rotX = 0;
-		float rotZ = 0;
 		if (tickX > 0) {
 			rotX = (float) Math.sin(tickX - partialTicks) * 8;
 		}
+		float rotZ = 0;
 		if (tickZ > 0) {
 			rotZ = (float) Math.sin(tickZ - partialTicks) * 8;
 		}

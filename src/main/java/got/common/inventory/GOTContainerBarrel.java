@@ -18,9 +18,9 @@ public class GOTContainerBarrel extends Container {
 	public int brewingTime;
 
 	public GOTContainerBarrel(InventoryPlayer inv, GOTTileEntityBarrel barrel) {
-		int i;
-		int j;
 		theBarrel = barrel;
+		int j;
+		int i;
 		for (i = 0; i < 3; ++i) {
 			for (j = 0; j < 3; ++j) {
 				GOTSlotBarrel slot = new GOTSlotBarrel(barrel, j + i * 3, 14 + j * 18, 34 + i * 18);

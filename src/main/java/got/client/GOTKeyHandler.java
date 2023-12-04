@@ -78,10 +78,10 @@ public class GOTKeyHandler {
 		List<GOTDimension.DimensionRegion> regionList = currentDimension.dimensionRegions;
 		List<GOTFaction> factionList = currentRegion.factionList;
 		if (mc.currentScreen == null && alignmentChangeTick <= 0) {
-			int i;
 			if (keyBindingReturn.getIsKeyPressed()) {
 				skippedHelp = true;
 			}
+			int i;
 			if (keyBindingAlignmentCycleLeft.getIsKeyPressed()) {
 				i = factionList.indexOf(currentFaction);
 				--i;

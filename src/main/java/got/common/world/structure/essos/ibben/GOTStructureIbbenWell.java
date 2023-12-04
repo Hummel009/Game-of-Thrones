@@ -13,12 +13,10 @@ public class GOTStructureIbbenWell extends GOTStructureIbbenBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int wellBottom;
-		int i1;
-		int j1;
-		int k1;
 		setOriginAndRotation(world, i, j, k, rotation, 2);
 		setupRandomBlocks(random);
+		int k1;
+		int i1;
 		if (restrictions) {
 			for (i1 = -2; i1 <= 2; ++i1) {
 				for (k1 = -2; k1 <= 2; ++k1) {
@@ -30,6 +28,7 @@ public class GOTStructureIbbenWell extends GOTStructureIbbenBase {
 				}
 			}
 		}
+		int j1;
 		for (i1 = -2; i1 <= 2; ++i1) {
 			for (k1 = -2; k1 <= 2; ++k1) {
 				int i2 = Math.abs(i1);
@@ -64,6 +63,7 @@ public class GOTStructureIbbenWell extends GOTStructureIbbenBase {
 		int depth = random.nextInt(2);
 		int waterDepth = 2 + random.nextInt(4);
 		int wellTop = -1;
+		int wellBottom;
 		for (j1 = wellBottom = wellTop - depth - waterDepth - 1; j1 <= wellTop; ++j1) {
 			for (int i12 = -1; i12 <= 1; ++i12) {
 				for (int k12 = -1; k12 <= 1; ++k12) {

@@ -288,11 +288,11 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	public ItemStack getInventorySeeds() {
-		Item item;
 		if (theEntity.hiredNPCInfo.getHiredInventory() == null) {
 			return null;
 		}
 		ItemStack itemstack = theEntity.hiredNPCInfo.getHiredInventory().getStackInSlot(0);
+		Item item;
 		if (itemstack != null && (item = itemstack.getItem()) instanceof IPlantable && ((IPlantable) item).getPlantType(theWorld, -1, -1, -1) == EnumPlantType.Crop) {
 			return itemstack;
 		}
@@ -583,7 +583,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			return false;
 		}
 		if (theEntity.getRNG().nextFloat() < farmingEfficiency * 0.1f) {
-			TargetPair depositTarget;
 			Map<Action, Boolean> map = new EnumMap<>(Action.class);
 			map.put(Action.DEPOSITING, canDoDepositing());
 			map.put(Action.HOEING, canDoHoeing());
@@ -592,6 +591,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			map.put(Action.BONEMEALING, canDoBonemealing());
 			map.put(Action.COLLECTING, canDoCollecting());
 			for (Action act : Action.values()) {
+				TargetPair depositTarget;
 				if (Boolean.TRUE.equals(map.get(act)) && (depositTarget = findTarget(act)) != null) {
 					actionTarget = depositTarget.actionTarget;
 					pathTarget = depositTarget.pathTarget;
@@ -611,7 +611,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 
 	@Override
 	public void updateTask() {
-		boolean canCollect;
 		boolean canDoAction;
 		double distSq = theEntity.getDistanceSq(pathTarget.posX + 0.5, pathTarget.posY, pathTarget.posZ + 0.5);
 		if (action == Action.HOEING || action == Action.PLANTING) {
@@ -623,6 +622,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			canDoAction = distSq < 9.0;
 		}
 		if (canDoAction) {
+			boolean canCollect;
 			switch (action) {
 				case BONEMEALING:
 					boolean canBonemeal = isSuitableForBonemealing(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
@@ -719,10 +719,10 @@ public class GOTEntityAIFarm extends EntityAIBase {
 				case HARVESTING:
 					boolean canHarvest = isSuitableForHarvesting(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 					if (canHarvest) {
-						int meta;
 						theEntity.swingItem();
 						Block block = theWorld.getBlock(actionTarget.posX, actionTarget.posY, actionTarget.posZ);
 						Collection<ItemStack> drops = new ArrayList<>();
+						int meta;
 						if (block instanceof GOTBlockCorn) {
 							int x = actionTarget.posX;
 							int z = actionTarget.posZ;

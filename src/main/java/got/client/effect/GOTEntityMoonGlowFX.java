@@ -16,16 +16,16 @@ public class GOTEntityMoonGlowFX extends EntityFlameFX {
 
 	@Override
 	public void renderParticle(Tessellator tessellator, float f, float f1, float f2, float f3, float f4, float f5) {
-		float minU = 0.25f;
-		float maxU = minU + 0.25f;
-		float minV = 0.125f;
-		float maxV = minV + 0.25f;
 		float var12 = 0.25f + 0.002f * MathHelper.sin((particleAge + f - 1.0f) * 0.25f * 3.1415927f);
 		particleAlpha = 0.9f - (particleAge + f - 1.0f) * 0.02f;
 		float var13 = (float) (prevPosX + (posX - prevPosX) * f - interpPosX);
 		float var14 = (float) (prevPosY + (posY - prevPosY) * f - interpPosY);
 		float var15 = (float) (prevPosZ + (posZ - prevPosZ) * f - interpPosZ);
 		tessellator.setColorRGBA_F(particleRed, particleGreen, particleBlue, particleAlpha);
+		float minV = 0.125f;
+		float maxV = minV + 0.25f;
+		float minU = 0.25f;
+		float maxU = minU + 0.25f;
 		tessellator.addVertexWithUV(var13 - f1 * var12 - f4 * var12, var14 - f2 * var12, var15 - f3 * var12 - f5 * var12, maxU, maxV);
 		tessellator.addVertexWithUV(var13 - f1 * var12 + f4 * var12, var14 + f2 * var12, var15 - f3 * var12 + f5 * var12, maxU, minV);
 		tessellator.addVertexWithUV(var13 + f1 * var12 + f4 * var12, var14 + f2 * var12, var15 + f3 * var12 + f5 * var12, minU, minV);

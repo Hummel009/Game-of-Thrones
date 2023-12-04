@@ -49,8 +49,8 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 			int max = GOTLevelData.getWaypointCooldownMax();
 			int min = GOTLevelData.getWaypointCooldownMin();
 			if ("max".equals(function)) {
-				boolean updatedMin = false;
 				max = cooldown;
+				boolean updatedMin = false;
 				if (max < min) {
 					min = max;
 					updatedMin = true;
@@ -63,8 +63,8 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 				return;
 			}
 			if ("min".equals(function)) {
-				boolean updatedMax = false;
 				min = cooldown;
+				boolean updatedMax = false;
 				if (min > max) {
 					max = min;
 					updatedMax = true;

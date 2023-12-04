@@ -14,10 +14,10 @@ public class GOTColorUtil {
 		float g1 = rgb1[1];
 		float b1 = rgb1[2];
 		float r = r0 + (r1 - r0) * f;
-		float g = g0 + (g1 - g0) * f;
-		float b = b0 + (b1 - b0) * f;
 		r = MathHelper.clamp_float(r, 0.0f, 1.0f);
+		float g = g0 + (g1 - g0) * f;
 		g = MathHelper.clamp_float(g, 0.0f, 1.0f);
+		float b = b0 + (b1 - b0) * f;
 		b = MathHelper.clamp_float(b, 0.0f, 1.0f);
 		return new float[]{r, g, b};
 	}

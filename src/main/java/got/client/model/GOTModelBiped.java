@@ -31,9 +31,6 @@ public class GOTModelBiped extends ModelBiped {
 
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-		GOTEntityNPC npc;
-		float f6;
-		float f7;
 		if (!setup) {
 			setupModelBiped();
 			setup = true;
@@ -68,6 +65,8 @@ public class GOTModelBiped extends ModelBiped {
 		}
 		bipedRightArm.rotateAngleY = 0.0f;
 		bipedLeftArm.rotateAngleY = 0.0f;
+		float f7;
+		float f6;
 		if (onGround > -9990.0f) {
 			f6 = onGround;
 			bipedBody.rotateAngleY = MathHelper.sin(MathHelper.sqrt_float(f6) * 3.1415927f * 2.0f) * 0.2f;
@@ -127,6 +126,7 @@ public class GOTModelBiped extends ModelBiped {
 			bipedRightArm.rotateAngleX += MathHelper.sin(f2 * 0.067f) * 0.05f;
 			bipedLeftArm.rotateAngleX -= MathHelper.sin(f2 * 0.067f) * 0.05f;
 		}
+		GOTEntityNPC npc;
 		if (entity instanceof GOTEntityNPC && (npc = (GOTEntityNPC) entity).isDrunkard()) {
 			float f62 = f2 / 80.0f;
 			float f72 = (f2 + 40.0f) / 80.0f;

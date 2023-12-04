@@ -70,11 +70,11 @@ public class GOTBiomeSothoryosBushland extends GOTBiome {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int i1;
-		int k1;
-		int l;
 		super.decorate(world, random, i, k);
 		if (enableTermite()) {
+			int l;
+			int k1;
+			int i1;
 			if (random.nextInt(32) == 0) {
 				int boulders = 1 + random.nextInt(4);
 				for (l = 0; l < boulders; ++l) {

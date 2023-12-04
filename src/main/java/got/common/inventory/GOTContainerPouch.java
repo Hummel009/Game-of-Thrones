@@ -13,13 +13,13 @@ public class GOTContainerPouch extends Container {
 	public int capacity;
 
 	public GOTContainerPouch(EntityPlayer entityplayer, int slot) {
-		int i;
-		int j;
 		thePouchSlot = slot;
 		thePouchItem = entityplayer.inventory.getStackInSlot(thePouchSlot);
 		pouchInventory = new GOTInventoryPouch(entityplayer, this, slot);
 		capacity = pouchInventory.getSizeInventory();
 		int rows = capacity / 9;
+		int j;
+		int i;
 		for (i = 0; i < rows; ++i) {
 			for (j = 0; j < 9; ++j) {
 				addSlotToContainer(new GOTSlotPouch(pouchInventory, j + i * 9, 8 + j * 18, 30 + i * 18));

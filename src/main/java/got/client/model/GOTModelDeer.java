@@ -107,13 +107,13 @@ public class GOTModelDeer extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		boolean showAntlers;
 		GOTEntityDeer elk = (GOTEntityDeer) entity;
 		setRotationAngles(f, f1, f2, f3, f4, f5, elk);
 		GL11.glPushMatrix();
 		float scale = elk.getHorseSize();
 		GL11.glTranslatef(0.0f, 24.0f * (1.0f - scale) * f5, 0.0f);
 		GL11.glScalef(scale, scale, scale);
+		boolean showAntlers;
 		antlersRight_1.showModel = showAntlers = scale > 0.75f;
 		antlersRight_2.showModel = showAntlers;
 		antlersRight_3.showModel = showAntlers;
@@ -137,11 +137,11 @@ public class GOTModelDeer extends ModelBase {
 		GOTEntityDeer elk = (GOTEntityDeer) entity;
 		float renderTick = GOTTickHandlerClient.renderTick;
 		float rearAmount = elk.getRearingAmount(renderTick);
-		float antiRearAmount = 1.0f - rearAmount;
 		head.rotationPointY = 4.0f;
 		head.rotationPointZ = -10.0f;
 		head.rotateAngleX = 0.3490658503988659f;
 		head.rotateAngleY = 0.0f;
+		float antiRearAmount = 1.0f - rearAmount;
 		head.rotationPointY = rearAmount * -6.0f + antiRearAmount * head.rotationPointY;
 		head.rotationPointZ = rearAmount * -1.0f + antiRearAmount * head.rotationPointZ;
 		head.rotateAngleX = (float) (head.rotateAngleX + Math.toRadians(f4));
@@ -158,15 +158,15 @@ public class GOTModelDeer extends ModelBase {
 		body.rotateAngleX = 0.0f;
 		body.rotateAngleX = rearAmount * -0.7853982f + antiRearAmount * body.rotateAngleX;
 		float legRotation = MathHelper.cos(f * 0.4f + 3.1415927f) * f1;
-		float f17 = -1.0471976f;
-		float f18 = 0.2617994f * rearAmount;
 		float f19 = MathHelper.cos(f2 * 0.4f + 3.1415927f);
 		leg4.rotationPointY = -2.0f * rearAmount + 4.0f * antiRearAmount;
 		leg4.rotationPointZ = -2.0f * rearAmount + -6.0f * antiRearAmount;
 		leg3.rotationPointY = leg4.rotationPointY;
 		leg3.rotationPointZ = leg4.rotationPointZ;
+		float f18 = 0.2617994f * rearAmount;
 		leg1.rotateAngleX = f18 + legRotation * antiRearAmount;
 		leg2.rotateAngleX = f18 + -legRotation * antiRearAmount;
+		float f17 = -1.0471976f;
 		leg3.rotateAngleX = (f17 - f19) * rearAmount + -legRotation * 0.8f * antiRearAmount;
 		leg4.rotateAngleX = (f17 + f19) * rearAmount + legRotation * 0.8f * antiRearAmount;
 	}

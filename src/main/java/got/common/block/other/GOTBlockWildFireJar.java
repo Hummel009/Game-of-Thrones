@@ -193,7 +193,6 @@ public class GOTBlockWildFireJar extends BlockFalling {
 
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random random) {
-		int b0;
 		if (GOT.doFireTick(world)) {
 			boolean foundFire = false;
 			for (int l = 0; l < 12; ++l) {
@@ -211,6 +210,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 				explode(world, i, j, k);
 			}
 		}
+		int b0;
 		if (world.getBlock(i, j, k) == this && !world.isRemote && BlockFalling.func_149831_e(world, i, j - 1, k) && j >= 0 && world.checkChunksExist(i - (b0 = 32), j - b0, k - b0, i + b0, j + b0, k + b0)) {
 			GOTEntityFallingFireJar falling = new GOTEntityFallingFireJar(world, i + 0.5, j + 0.5, k + 0.5, this, world.getBlockMetadata(i, j, k));
 			func_149829_a(falling);

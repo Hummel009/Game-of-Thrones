@@ -12,9 +12,9 @@ public class GOTContainerHiredFarmerInventory extends Container {
 	public GOTEntityNPC theNPC;
 
 	public GOTContainerHiredFarmerInventory(InventoryPlayer inv, GOTEntityNPC entity) {
-		int i;
 		theNPC = entity;
 		addSlotToContainer(new GOTSlotSeeds(theNPC.hiredNPCInfo.getHiredInventory(), 0, 80, 21, theNPC.worldObj));
+		int i;
 		for (i = 0; i < 2; ++i) {
 			addSlotToContainer(new GOTSlotProtected(theNPC.hiredNPCInfo.getHiredInventory(), i + 1, 71 + i * 18, 47));
 		}

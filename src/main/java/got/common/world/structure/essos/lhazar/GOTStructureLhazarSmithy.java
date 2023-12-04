@@ -18,11 +18,9 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int k1;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -98,6 +96,8 @@ public class GOTStructureLhazarSmithy extends GOTStructureLhazarBase {
 		GOTEntityLhazarBlacksmith smith = new GOTEntityLhazarBlacksmith(world);
 		spawnNPCAndSetHome(smith, world, -6, 1, 0, 8);
 		int maxSteps = 12;
+		int k1;
+		int i1;
 		for (int step = 0; step < maxSteps && !isOpaque(world, i1 = -9, j1 = -step, k1 = -5 - step); ++step) {
 			setBlockAndMetadata(world, i1, j1, k1, GOTBlocks.stairsRedSandstone, 2);
 			setGrassToDirt(world, i1, j1 - 1, k1);

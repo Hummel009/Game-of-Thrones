@@ -34,10 +34,10 @@ public class GOTMazeGenerator {
 	}
 
 	public void generate(Random random) {
-		ArrayList<MazePos> positions = new ArrayList<>();
-		Dir lastDir = null;
 		clear(startX, startZ);
+		ArrayList<MazePos> positions = new ArrayList<>();
 		positions.add(new MazePos(startX, startZ));
+		Dir lastDir = null;
 		while (!positions.isEmpty()) {
 			int maxIndex = positions.size() - 1;
 			int randPosIndex = MathHelper.getRandomIntegerInRange(random, (int) (maxIndex * (1.0f - branchingness)), maxIndex);

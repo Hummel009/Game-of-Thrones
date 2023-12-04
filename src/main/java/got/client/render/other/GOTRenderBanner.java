@@ -50,8 +50,8 @@ public class GOTRenderBanner extends Render {
 		boolean protecting = banner.isProtectingTerritory();
 		boolean renderBox = debug && protecting;
 		boolean seeThroughWalls = renderBox && (mc.thePlayer.capabilities.isCreativeMode || banner.clientside_playerHasPermissionInSurvival());
-		int protectColor = 65280;
 		bannerFrustum.setPosition(d + RenderManager.renderPosX, d1 + RenderManager.renderPosY, d2 + RenderManager.renderPosZ);
+		int protectColor = 65280;
 		if (bannerFrustum.isBoundingBoxInFrustum(banner.boundingBox)) {
 			GL11.glPushMatrix();
 			GL11.glDisable(2884);

@@ -117,8 +117,8 @@ public class GOTModelShadowcat extends ModelBase {
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		if (isChild) {
-			float f6 = 2.0f;
 			GL11.glPushMatrix();
+			float f6 = 2.0f;
 			GL11.glScalef(1.3f / f6, 1.3f / f6, 1.3f / f6);
 			GL11.glTranslatef(0.0f, 17.0f * f5, 2.0f * f5);
 			head.render(f5);

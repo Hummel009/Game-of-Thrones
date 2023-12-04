@@ -12,10 +12,9 @@ public class GOTStructureWesterosWell extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int j12;
 		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
+		int j12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -84,6 +83,7 @@ public class GOTStructureWesterosWell extends GOTStructureWesterosBase {
 		}
 		int waterDepth = 1 + random.nextInt(4);
 		int depth = waterDepth + 1 + random.nextInt(3);
+		int j1;
 		for (j1 = 0; j1 < depth; ++j1) {
 			int j2 = -j1;
 			boolean watery = j1 >= depth - waterDepth;

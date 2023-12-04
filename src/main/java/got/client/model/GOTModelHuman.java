@@ -30,8 +30,8 @@ public class GOTModelHuman extends GOTModelBiped implements GOTGlowingEyes.Model
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		bipedChest.showModel = entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).shouldRenderNPCChest();
 		if (isChild) {
-			float f6 = 2.0f;
 			GL11.glPushMatrix();
+			float f6 = 2.0f;
 			GL11.glScalef(1.5f / f6, 1.5f / f6, 1.5f / f6);
 			GL11.glTranslatef(0.0f, 16.0f * f5, 0.0f);
 			bipedHead.render(f5);

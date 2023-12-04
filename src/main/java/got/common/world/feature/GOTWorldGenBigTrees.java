@@ -40,7 +40,6 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 	}
 
 	public int checkBlockLine(int[] par1ArrayOfInteger, int[] par2ArrayOfInteger) {
-		int i;
 		int[] aint2 = {0, 0, 0};
 		int b1 = 0;
 		for (int b0 = 0; b0 < 3; b0 = (byte) (b0 + 1)) {
@@ -60,6 +59,7 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		double d1 = (double) aint2[b3] / aint2[b1];
 		int[] aint3 = {0, 0, 0};
 		int j = aint2[b1] + b4;
+		int i;
 		for (i = 0; i != j; i += b4) {
 			aint3[b1] = par1ArrayOfInteger[b1] + i;
 			aint3[b2] = MathHelper.floor_double(par1ArrayOfInteger[b2] + i * d0);
@@ -125,7 +125,6 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		}
 		int[][] aint = new int[i * heightLimit][4];
 		int j = basePos[1] + heightLimit - leafDistanceLimit;
-		int k = 1;
 		int l = basePos[1] + height;
 		int i1 = j - basePos[1];
 		aint[0][0] = basePos[0];
@@ -133,6 +132,7 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		j--;
 		aint[0][2] = basePos[2];
 		aint[0][3] = l;
+		int k = 1;
 		while (i1 >= 0) {
 			float f = layerSize(i1);
 			if (f < 0.0f) {
@@ -197,11 +197,10 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 		byte b2 = otherCoordPairs[par5 + 3];
 		int[] aint = {par1, par2, par3};
 		int[] aint1 = {0, 0, 0};
-		int k1;
 		aint1[par5] = aint[par5];
 		for (int j1 = -i1; j1 <= i1; ++j1) {
 			aint1[b1] = aint[b1] + j1;
-			k1 = -i1;
+			int k1 = -i1;
 			while (k1 <= i1) {
 				double d0 = Math.pow(Math.abs(j1) + 0.5, 2.0) + Math.pow(Math.abs(k1) + 0.5, 2.0);
 				if (d0 > par4 * par4) {

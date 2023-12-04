@@ -78,7 +78,6 @@ public class GOTCommandAlignment extends CommandBase {
 			}
 			if ("add".equals(args[0])) {
 				EntityPlayerMP entityplayer;
-				float newAlignment;
 				float alignment = (float) CommandBase.parseDouble(sender, args[2]);
 				if (args.length >= 4) {
 					entityplayer = CommandBase.getPlayer(sender, args[3]);
@@ -86,7 +85,7 @@ public class GOTCommandAlignment extends CommandBase {
 					entityplayer = CommandBase.getCommandSenderAsPlayer(sender);
 				}
 				for (GOTFaction f : factions) {
-					newAlignment = GOTLevelData.getData(entityplayer).getAlignment(f) + alignment;
+					float newAlignment = GOTLevelData.getData(entityplayer).getAlignment(f) + alignment;
 					if (newAlignment < -2.14748365E9f) {
 						throw new WrongUsageException("got.command.alignment.tooLow", -2.14748365E9f);
 					}

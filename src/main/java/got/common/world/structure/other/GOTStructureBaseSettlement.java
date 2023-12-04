@@ -188,12 +188,12 @@ public abstract class GOTStructureBaseSettlement {
 		int checkRange = Math.max(settlementChunkRadius, fixedSettlementChunkRadius);
 		for (int i = chunkX - checkRange; i <= chunkX + checkRange; ++i) {
 			for (int k = chunkZ - checkRange; k <= chunkZ + checkRange; ++k) {
-				int centreZ;
-				int centreX;
 				LocationInfo loc = isSettlementCentre(world, i, k);
 				if (!loc.isPresent()) {
 					continue;
 				}
+				int centreX;
+				int centreZ;
 				if (loc.isFixedLocation()) {
 					centreX = loc.posX;
 					centreZ = loc.posZ;

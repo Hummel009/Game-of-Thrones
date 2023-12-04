@@ -21,9 +21,9 @@ public class GOTGenLayerClassicBiomes extends GOTGenLayer {
 		int[] ints = GOTIntCache.get(world).getIntArray(xSize * zSize);
 		for (int k1 = 0; k1 < zSize; ++k1) {
 			for (int i1 = 0; i1 < xSize; ++i1) {
-				int biomeID;
 				initChunkSeed(i + i1, k + k1);
 				int isOcean = oceans[i1 + k1 * xSize];
+				int biomeID;
 				if (isOcean == 1) {
 					biomeID = GOTBiome.ocean.biomeID;
 				} else {

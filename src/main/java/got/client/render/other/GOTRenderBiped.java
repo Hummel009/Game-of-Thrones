@@ -90,9 +90,9 @@ public abstract class GOTRenderBiped extends RenderBiped {
 
 	@Override
 	public void renderEquippedItems(EntityLivingBase entity, float f) {
-		float f1;
 		GL11.glColor3f(1.0f, 1.0f, 1.0f);
 		ItemStack headItem = entity.getEquipmentInSlot(4);
+		float f1;
 		if (headItem != null) {
 			GL11.glPushMatrix();
 			modelBipedMain.bipedHead.postRender(0.0625f);
@@ -124,18 +124,18 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		}
 		ItemStack heldItem = entity.getHeldItem();
 		if (heldItem != null) {
-			float f12;
 			GL11.glPushMatrix();
 			if (mainModel.isChild) {
-				float f13 = 0.5f;
 				GL11.glTranslatef(0.0f, 0.625f, 0.0f);
 				GL11.glRotatef(-20.0f, -1.0f, 0.0f, 0.0f);
+				float f13 = 0.5f;
 				GL11.glScalef(f13, f13, f13);
 			}
 			modelBipedMain.bipedRightArm.postRender(0.0625f);
 			GL11.glTranslatef(-0.0625f, 0.4375f, 0.0625f);
 			IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(heldItem, IItemRenderer.ItemRenderType.EQUIPPED);
 			boolean is3D = customRenderer != null && customRenderer.shouldUseRenderHelper(IItemRenderer.ItemRenderType.EQUIPPED, heldItem, IItemRenderer.ItemRendererHelper.BLOCK_3D);
+			float f12;
 			if (heldItem.getItem() instanceof ItemBlock && (is3D || RenderBlocks.renderItemIn3d(Block.getBlockFromItem(heldItem.getItem()).getRenderType()))) {
 				f12 = 0.5f;
 				GL11.glTranslatef(0.0f, getHeldItemYTranslation(), -0.3125f);
@@ -177,7 +177,6 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		}
 		ItemStack heldItemLeft = ((GOTEntityNPC) entity).getHeldItemLeft();
 		if (heldItemLeft != null) {
-			float f14;
 			GL11.glPushMatrix();
 			if (mainModel.isChild) {
 				f1 = 0.5f;
@@ -189,6 +188,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			GL11.glTranslatef(0.0625f, 0.4375f, 0.0625f);
 			IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(heldItemLeft, IItemRenderer.ItemRenderType.EQUIPPED);
 			boolean is3D = customRenderer != null && customRenderer.shouldUseRenderHelper(IItemRenderer.ItemRenderType.EQUIPPED, heldItemLeft, IItemRenderer.ItemRendererHelper.BLOCK_3D);
+			float f14;
 			if (heldItemLeft.getItem() instanceof ItemBlock && (is3D || RenderBlocks.renderItemIn3d(Block.getBlockFromItem(heldItemLeft.getItem()).getRenderType()))) {
 				f14 = 0.5f;
 				GL11.glTranslatef(0.0f, getHeldItemYTranslation(), -0.3125f);

@@ -48,7 +48,6 @@ public class GOTWorldGenVolcanoCrater extends WorldGenerator {
 			int sphereWidth = MathHelper.getRandomIntegerInRange(random, minWidth, maxWidth);
 			for (int i1 = i - sphereWidth; i1 <= i + sphereWidth; ++i1) {
 				for (int k1 = k - sphereWidth; k1 <= k + sphereWidth; ++k1) {
-					int j1;
 					int i2 = i1 - i;
 					int k2 = k1 - k;
 					int xzDistSq = i2 * i2 + k2 * k2;
@@ -59,6 +58,7 @@ public class GOTWorldGenVolcanoCrater extends WorldGenerator {
 						setBlockAndNotifyAdequately(world, i1, j2, k1, Blocks.air, 0);
 					}
 					int depthHere = (int) ((sphereWidth - Math.sqrt(xzDistSq)) * 0.7) + random.nextInt(2);
+					int j1;
 					for (j1 = posY - depthHere - 1; j1 >= posY - (depthHere + heightCheck + 2 + random.nextInt(2)) && !world.getBlock(i1, j1, k1).isOpaqueCube(); --j1) {
 						setBlockAndNotifyAdequately(world, i1, j1, k1, Blocks.stone, 0);
 					}

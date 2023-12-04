@@ -44,7 +44,6 @@ public class GOTRecipePouch implements IRecipe {
 
 	@Override
 	public ItemStack getCraftingResult(InventoryCrafting inv) {
-		ItemStack pouch;
 		List<ItemStack> pouches = new ArrayList<>();
 		int[] rgb = new int[3];
 		int totalColor = 0;
@@ -90,6 +89,7 @@ public class GOTRecipePouch implements IRecipe {
 		if (pouches.isEmpty()) {
 			return null;
 		}
+		ItemStack pouch;
 		if (pouches.size() == 1) {
 			pouch = pouches.get(0).copy();
 		} else {

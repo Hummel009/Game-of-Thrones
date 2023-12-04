@@ -129,7 +129,6 @@ public class GOTClassTransformer implements IClassTransformer {
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
 		for (MethodNode method : classNode.methods) {
-			AbstractInsnNode nodePrev;
 			if (method.name.equals(targetMethodName) && method.desc.equals(targetMethodSign)) {
 				AbstractInsnNode nodeFound = null;
 				block1:
@@ -144,6 +143,7 @@ public class GOTClassTransformer implements IClassTransformer {
 						}
 					}
 				}
+				AbstractInsnNode nodePrev;
 				if (!((nodePrev = nodeFound.getPrevious()) instanceof VarInsnNode) || nodePrev.getOpcode() != 25 || ((VarInsnNode) nodePrev).var != 9) {
 					System.out.println("WARNING! Expected ALOAD 9! Instead got " + nodePrev);
 					System.out.println("WARNING! Things may break!");
@@ -174,13 +174,13 @@ public class GOTClassTransformer implements IClassTransformer {
 		String targetMethodDesc;
 		String targetMethodSign;
 		boolean isObf = !name.startsWith("net.minecraft");
-		String targetMethodName = "getCollisionBoundingBoxFromPool";
-		String targetMethodNameObf = "func_149668_a";
 		String targetMethodDescObf = targetMethodDesc = "(Lnet/minecraft/world/World;III)Lnet/minecraft/util/AxisAlignedBB;";
 		String targetMethodSignObf = targetMethodSign = "Lnet/minecraft/world/World;III";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodNameObf = "func_149668_a";
+		String targetMethodName = "getCollisionBoundingBoxFromPool";
 		MethodNode newMethod = isObf ? new MethodNode(ACONST_NULL, targetMethodNameObf, targetMethodDescObf, targetMethodSignObf, null) : new MethodNode(ACONST_NULL, targetMethodName, targetMethodDesc, targetMethodSign, null);
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 0));
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 1));
@@ -197,12 +197,12 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchBlockCauldron(String name, byte[] bytes) {
-		String targetMethodName = "getRenderType";
-		String targetMethodNameObf = "func_149645_b";
-		String targetMethodSign = "()I";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSign = "()I";
+		String targetMethodNameObf = "func_149645_b";
+		String targetMethodName = "getRenderType";
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
 				method.instructions.clear();
@@ -219,31 +219,31 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchBlockDirt(String name, byte[] bytes) {
-		String targetMethodName = "damageDropped";
-		String targetMethodNameObf = "func_149692_a";
-		String targetMethodSign = "(I)I";
-		String targetMethodName2 = "createStackedBlock";
-		String targetMethodNameObf2 = "func_149644_j";
-		String targetMethodSign2 = "(I)Lnet/minecraft/item/ItemStack;";
-		String targetMethodSignObf2 = "(I)Ladd;";
-		String targetMethodName3 = "getSubBlocks";
-		String targetMethodNameObf3 = "func_149666_a";
-		String targetMethodSign3 = "(Lnet/minecraft/item/Item;Lnet/minecraft/creativetab/CreativeTabs;Ljava/util/List;)V";
-		String targetMethodSignObf3 = "(Ladb;Labt;Ljava/util/List;)V";
-		String targetMethodName4 = "getDamageValue";
-		String targetMethodNameObf4 = "func_149643_k";
-		String targetMethodSign4 = "(Lnet/minecraft/world/World;III)I";
-		String targetMethodSignObf4 = "(Lahb;III)I";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf4 = "(Lahb;III)I";
+		String targetMethodSign4 = "(Lnet/minecraft/world/World;III)I";
+		String targetMethodNameObf4 = "func_149643_k";
+		String targetMethodName4 = "getDamageValue";
+		String targetMethodSignObf3 = "(Ladb;Labt;Ljava/util/List;)V";
+		String targetMethodSign3 = "(Lnet/minecraft/item/Item;Lnet/minecraft/creativetab/CreativeTabs;Ljava/util/List;)V";
+		String targetMethodNameObf3 = "func_149666_a";
+		String targetMethodName3 = "getSubBlocks";
+		String targetMethodSignObf2 = "(I)Ladd;";
+		String targetMethodSign2 = "(I)Lnet/minecraft/item/ItemStack;";
+		String targetMethodNameObf2 = "func_149644_j";
+		String targetMethodName2 = "createStackedBlock";
+		String targetMethodSign = "(I)I";
+		String targetMethodNameObf = "func_149692_a";
+		String targetMethodName = "damageDropped";
 		for (MethodNode method : classNode.methods) {
-			InsnList newIns;
 			if ("<clinit>".equals(method.name)) {
 				LdcInsnNode nodeNameIndex1 = findNodeInMethod(method, new LdcInsnNode("default"), 1);
 				method.instructions.set(nodeNameIndex1, new LdcInsnNode(GOTReplacedMethods.Dirt.nameIndex1));
 				System.out.println("Hummel009: Patched method " + method.name);
 			}
+			InsnList newIns;
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
 				method.instructions.clear();
 				newIns = new InsnList();
@@ -294,16 +294,16 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchBlockFence(String name, byte[] bytes) {
-		String targetMethodName = "canConnectFenceTo";
-		String targetMethodNameObf = "func_149826_e";
-		String targetMethodSign = "(Lnet/minecraft/world/IBlockAccess;III)Z";
-		String targetMethodSignObf = "(Lahl;III)Z";
-		String targetMethodName2 = "func_149825_a";
-		String targetMethodSign2 = "(Lnet/minecraft/block/Block;)Z";
-		String targetMethodSignObf2 = "(Laji;)Z";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf2 = "(Laji;)Z";
+		String targetMethodSign2 = "(Lnet/minecraft/block/Block;)Z";
+		String targetMethodName2 = "func_149825_a";
+		String targetMethodSignObf = "(Lahl;III)Z";
+		String targetMethodSign = "(Lnet/minecraft/world/IBlockAccess;III)Z";
+		String targetMethodNameObf = "func_149826_e";
+		String targetMethodName = "canConnectFenceTo";
 		for (MethodNode method : classNode.methods) {
 			InsnList newIns;
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
@@ -334,15 +334,15 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchBlockGrass(String name, byte[] bytes) {
-		String targetMethodName = "updateTick";
-		String targetMethodNameObf = "func_149674_a";
-		String targetMethodSign = "(Lnet/minecraft/world/World;IIILjava/util/Random;)V";
-		String targetMethodSignObf = "(Lahb;IIILjava/util/Random;)V";
 
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
 
+		String targetMethodSignObf = "(Lahb;IIILjava/util/Random;)V";
+		String targetMethodSign = "(Lnet/minecraft/world/World;IIILjava/util/Random;)V";
+		String targetMethodNameObf = "func_149674_a";
+		String targetMethodName = "updateTick";
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				method.instructions.clear();
@@ -410,13 +410,13 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchBlockStaticLiquid(String name, byte[] bytes) {
-		String targetMethodName = "updateTick";
-		String targetMethodNameObf = "func_149674_a";
-		String targetMethodSign = "(Lnet/minecraft/world/World;IIILjava/util/Random;)V";
-		String targetMethodSignObf = "(Lahb;IIILjava/util/Random;)V";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf = "(Lahb;IIILjava/util/Random;)V";
+		String targetMethodSign = "(Lnet/minecraft/world/World;IIILjava/util/Random;)V";
+		String targetMethodNameObf = "func_149674_a";
+		String targetMethodName = "updateTick";
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				method.instructions.clear();
@@ -439,13 +439,13 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchBlockStone(String name, byte[] bytes) {
-		String targetMethodDesc;
 		boolean isObf = !name.startsWith("net.minecraft");
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
 		String targetMethodName = "getIcon";
 		String targetMethodNameObf = "func_149673_e";
+		String targetMethodDesc;
 		String targetMethodDescObf = targetMethodDesc = "(Lnet/minecraft/world/IBlockAccess;IIII)Lnet/minecraft/util/IIcon;";
 		MethodNode newMethod = isObf ? new MethodNode(ACONST_NULL, targetMethodNameObf, targetMethodDescObf, null, null) : new MethodNode(ACONST_NULL, targetMethodName, targetMethodDesc, null, null);
 		newMethod.instructions.add(new VarInsnNode(ALOAD, 0));
@@ -479,19 +479,19 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchBlockTrapdoor(String name, byte[] bytes) {
-		String targetMethodName = "canPlaceBlockOnSide";
-		String targetMethodNameObf = "func_149707_d";
-		String targetMethodSign = "(Lnet/minecraft/world/World;IIII)Z";
-		String targetMethodSignObf = "(Lahb;IIII)Z";
-		String targetMethodName2 = "func_150119_a";
-		String targetMethodSign2 = "(Lnet/minecraft/block/Block;)Z";
-		String targetMethodSignObf2 = "(Laji;)Z";
-		String targetMethodName3 = "getRenderType";
-		String targetMethodNameObf3 = "func_149645_b";
-		String targetMethodSign3 = "()I";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSign3 = "()I";
+		String targetMethodNameObf3 = "func_149645_b";
+		String targetMethodName3 = "getRenderType";
+		String targetMethodSignObf2 = "(Laji;)Z";
+		String targetMethodSign2 = "(Lnet/minecraft/block/Block;)Z";
+		String targetMethodName2 = "func_150119_a";
+		String targetMethodSignObf = "(Lahb;IIII)Z";
+		String targetMethodSign = "(Lnet/minecraft/world/World;IIII)Z";
+		String targetMethodNameObf = "func_149707_d";
+		String targetMethodName = "canPlaceBlockOnSide";
 		for (MethodNode method : classNode.methods) {
 			InsnList newIns;
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
@@ -532,13 +532,13 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchBlockWall(String name, byte[] bytes) {
-		String targetMethodName = "canConnectWallTo";
-		String targetMethodNameObf = "func_150091_e";
-		String targetMethodSign = "(Lnet/minecraft/world/IBlockAccess;III)Z";
-		String targetMethodSignObf = "(Lahl;III)Z";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf = "(Lahl;III)Z";
+		String targetMethodSign = "(Lnet/minecraft/world/IBlockAccess;III)Z";
+		String targetMethodNameObf = "func_150091_e";
+		String targetMethodName = "canConnectWallTo";
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				method.instructions.clear();
@@ -559,12 +559,12 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchDoorInteract(String name, byte[] bytes) {
-		String targetMethodName = "func_151503_a";
-		String targetMethodSign = "(III)Lnet/minecraft/block/BlockDoor;";
-		String targetMethodSignObf = "(III)Lakn;";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf = "(III)Lakn;";
+		String targetMethodSign = "(III)Lnet/minecraft/block/BlockDoor;";
+		String targetMethodName = "func_151503_a";
 		for (MethodNode method : classNode.methods) {
 			if (method.name.equals(targetMethodName) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				FieldInsnNode nodeFound = null;
@@ -598,40 +598,40 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchEnchantmentHelper(String name, byte[] bytes) {
-		String targetMethodName = "getEnchantmentModifierLiving";
-		String targetMethodNameObf = "func_77512_a";
-		String targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/entity/EntityLivingBase;)F";
-		String targetMethodSignObf = "(Lsv;Lsv;)F";
-		String targetMethodName2 = "func_152377_a";
-		String targetMethodSign2 = "(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EnumCreatureAttribute;)F";
-		String targetMethodSignObf2 = "(Ladd;Lsz;)F";
-		String targetMethodName3 = "getSilkTouchModifier";
-		String targetMethodNameObf3 = "func_77502_d";
-		String targetMethodSign3 = "(Lnet/minecraft/entity/EntityLivingBase;)Z";
-		String targetMethodSignObf3 = "(Lsv;)Z";
-		String targetMethodName4 = "getKnockbackModifier";
-		String targetMethodNameObf4 = "func_77507_b";
-		String targetMethodSign4 = "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/entity/EntityLivingBase;)I";
-		String targetMethodSignObf4 = "(Lsv;Lsv;)I";
-		String targetMethodName5 = "getFortuneModifier";
-		String targetMethodNameObf5 = "func_77517_e";
-		String targetMethodSign5 = "(Lnet/minecraft/entity/EntityLivingBase;)I";
-		String targetMethodSignObf5 = "(Lsv;)I";
-		String targetMethodName6 = "getLootingotifier";
-		String targetMethodNameObf6 = "func_77519_f";
-		String targetMethodSign6 = "(Lnet/minecraft/entity/EntityLivingBase;)I";
-		String targetMethodSignObf6 = "(Lsv;)I";
-		String targetMethodName7 = "getEnchantmentModifierDamage";
-		String targetMethodNameObf7 = "func_77508_a";
-		String targetMethodSign7 = "([Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;)I";
-		String targetMethodSignObf7 = "([Ladd;Lro;)I";
-		String targetMethodName8 = "getFireAspectModifier";
-		String targetMethodNameObf8 = "func_90036_a";
-		String targetMethodSign8 = "(Lnet/minecraft/entity/EntityLivingBase;)I";
-		String targetMethodSignObf8 = "(Lsv;)I";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf8 = "(Lsv;)I";
+		String targetMethodSign8 = "(Lnet/minecraft/entity/EntityLivingBase;)I";
+		String targetMethodNameObf8 = "func_90036_a";
+		String targetMethodName8 = "getFireAspectModifier";
+		String targetMethodSignObf7 = "([Ladd;Lro;)I";
+		String targetMethodSign7 = "([Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;)I";
+		String targetMethodNameObf7 = "func_77508_a";
+		String targetMethodName7 = "getEnchantmentModifierDamage";
+		String targetMethodSignObf6 = "(Lsv;)I";
+		String targetMethodSign6 = "(Lnet/minecraft/entity/EntityLivingBase;)I";
+		String targetMethodNameObf6 = "func_77519_f";
+		String targetMethodName6 = "getLootingotifier";
+		String targetMethodSignObf5 = "(Lsv;)I";
+		String targetMethodSign5 = "(Lnet/minecraft/entity/EntityLivingBase;)I";
+		String targetMethodNameObf5 = "func_77517_e";
+		String targetMethodName5 = "getFortuneModifier";
+		String targetMethodSignObf4 = "(Lsv;Lsv;)I";
+		String targetMethodSign4 = "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/entity/EntityLivingBase;)I";
+		String targetMethodNameObf4 = "func_77507_b";
+		String targetMethodName4 = "getKnockbackModifier";
+		String targetMethodSignObf3 = "(Lsv;)Z";
+		String targetMethodSign3 = "(Lnet/minecraft/entity/EntityLivingBase;)Z";
+		String targetMethodNameObf3 = "func_77502_d";
+		String targetMethodName3 = "getSilkTouchModifier";
+		String targetMethodSignObf2 = "(Ladd;Lsz;)F";
+		String targetMethodSign2 = "(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EnumCreatureAttribute;)F";
+		String targetMethodName2 = "func_152377_a";
+		String targetMethodSignObf = "(Lsv;Lsv;)F";
+		String targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/entity/EntityLivingBase;)F";
+		String targetMethodNameObf = "func_77512_a";
+		String targetMethodName = "getEnchantmentModifierLiving";
 		for (MethodNode method : classNode.methods) {
 			InsnNode nodeReturn;
 			InsnList extraIns;
@@ -710,13 +710,13 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchEnchantmentProtection(String name, byte[] bytes) {
-		String targetMethodName = "getFireTimeForEntity";
-		String targetMethodNameObf = "func_92093_a";
-		String targetMethodSign = "(Lnet/minecraft/entity/Entity;I)I";
-		String targetMethodSignObf = "(Lsa;I)I";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf = "(Lsa;I)I";
+		String targetMethodSign = "(Lnet/minecraft/entity/Entity;I)I";
+		String targetMethodNameObf = "func_92093_a";
+		String targetMethodName = "getFireTimeForEntity";
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				VarInsnNode nodeIStore = findNodeInMethod(method, new VarInsnNode(ISTORE, 2));
@@ -733,11 +733,11 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchEntityClientPlayerMP(String name, byte[] bytes) {
-		String targetMethodName = "func_110318_g";
-		String targetMethodSign = "()V";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSign = "()V";
+		String targetMethodName = "func_110318_g";
 		for (MethodNode method : classNode.methods) {
 			if (method.name.equals(targetMethodName) && method.desc.equals(targetMethodSign)) {
 				method.instructions.clear();
@@ -755,12 +755,12 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchEntityHorse(String name, byte[] bytes) {
-		String targetMethodName = "moveEntityWithHeading";
-		String targetMethodNameObf = "func_70612_e";
-		String targetMethodSign = "(FF)V";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSign = "(FF)V";
+		String targetMethodNameObf = "func_70612_e";
+		String targetMethodName = "moveEntityWithHeading";
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
 				AbstractInsnNode nodeIsRemote = null;
@@ -846,12 +846,12 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchEntityPlayer(String name, byte[] bytes) {
-		String targetMethodName = "canEat";
-		String targetMethodNameObf = "func_71043_e";
-		String targetMethodSign = "(Z)Z";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSign = "(Z)Z";
+		String targetMethodNameObf = "func_71043_e";
+		String targetMethodName = "canEat";
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
 				method.instructions.clear();
@@ -870,12 +870,12 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchFMLNetworkHandler(String name, byte[] bytes) {
-		String targetMethodName = "getEntitySpawningPacket";
-		String targetMethodSign = "(Lnet/minecraft/entity/Entity;)Lnet/minecraft/network/Packet;";
-		String targetMethodSignObf = "(Lsa;)Lft;";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf = "(Lsa;)Lft;";
+		String targetMethodSign = "(Lnet/minecraft/entity/Entity;)Lnet/minecraft/network/Packet;";
+		String targetMethodName = "getEntitySpawningPacket";
 		for (MethodNode method : classNode.methods) {
 			if (method.name.equals(targetMethodName) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				method.instructions.clear();
@@ -893,12 +893,12 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchFoodStats(String name, byte[] bytes) {
-		String targetMethodName = "addExhaustion";
-		String targetMethodNameObf = "func_75113_a";
-		String targetMethodSign = "(F)V";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSign = "(F)V";
+		String targetMethodNameObf = "func_75113_a";
+		String targetMethodName = "addExhaustion";
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
 				InsnList newIns = new InsnList();
@@ -943,15 +943,15 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	private byte[] patchGuiButton(String name, byte[] bytes) {
-		String targetMethodName2 = "drawButton";
-		String targetMethodName2Obf = "func_146112_a";
-		String targetMethodSign2 = "(Lnet/minecraft/client/Minecraft;II)V";
-		String targetMethodSign2Obf = "(Lbao;II)V";
 
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
 
+		String targetMethodSign2Obf = "(Lbao;II)V";
+		String targetMethodSign2 = "(Lnet/minecraft/client/Minecraft;II)V";
+		String targetMethodName2Obf = "func_146112_a";
+		String targetMethodName2 = "drawButton";
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName2) || method.name.equals(targetMethodName2Obf)) && (method.desc.equals(targetMethodSign2) || method.desc.equals(targetMethodSign2Obf))) {
 				InsnList instructions = method.instructions;
@@ -1031,17 +1031,17 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchNetHandlerClient(String name, byte[] bytes) {
-		String targetMethodName = "handleEntityTeleport";
-		String targetMethodNameObf = "func_147275_a";
-		String targetMethodSign = "(Lnet/minecraft/network/play/server/S18PacketEntityTeleport;)V";
-		String targetMethodSignObf = "(Lik;)V";
-		String targetMethodName2 = "handleEntityMovement";
-		String targetMethodNameObf2 = "func_147259_a";
-		String targetMethodSign2 = "(Lnet/minecraft/network/play/server/S14PacketEntity;)V";
-		String targetMethodSignObf2 = "(Lhf;)V";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf2 = "(Lhf;)V";
+		String targetMethodSign2 = "(Lnet/minecraft/network/play/server/S14PacketEntity;)V";
+		String targetMethodNameObf2 = "func_147259_a";
+		String targetMethodName2 = "handleEntityMovement";
+		String targetMethodSignObf = "(Lik;)V";
+		String targetMethodSign = "(Lnet/minecraft/network/play/server/S18PacketEntityTeleport;)V";
+		String targetMethodNameObf = "func_147275_a";
+		String targetMethodName = "handleEntityTeleport";
 		for (MethodNode method : classNode.methods) {
 			InsnList newIns;
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
@@ -1072,12 +1072,12 @@ public class GOTClassTransformer implements IClassTransformer {
 
 	@SuppressWarnings("ConditionalCanBePushedInsideExpression")
 	public byte[] patchPathFinder(String name, byte[] bytes) {
-		String targetMethodName = "func_82565_a";
-		String targetMethodSign = "(Lnet/minecraft/entity/Entity;IIILnet/minecraft/pathfinding/PathPoint;ZZZ)I";
-		String targetMethodSignObf = "(Lsa;IIILaye;ZZZ)I";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf = "(Lsa;IIILaye;ZZZ)I";
+		String targetMethodSign = "(Lnet/minecraft/entity/Entity;IIILnet/minecraft/pathfinding/PathPoint;ZZZ)I";
+		String targetMethodName = "func_82565_a";
 		for (MethodNode method : classNode.methods) {
 			if (method.name.equals(targetMethodName) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				FieldInsnNode nodeFound1 = null;
@@ -1147,12 +1147,12 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchPotionDamage(String name, byte[] bytes) {
-		String targetMethodName = "func_111183_a";
-		String targetMethodSign = "(ILnet/minecraft/entity/ai/attributes/AttributeModifier;)D";
-		String targetMethodSignObf = "(ILtj;)D";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf = "(ILtj;)D";
+		String targetMethodSign = "(ILnet/minecraft/entity/ai/attributes/AttributeModifier;)D";
+		String targetMethodName = "func_111183_a";
 		for (MethodNode method : classNode.methods) {
 			if (method.name.equals(targetMethodName) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				method.instructions.clear();
@@ -1172,13 +1172,13 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchSpawnerAnimals(String name, byte[] bytes) {
-		String targetMethodName = "findChunksForSpawning";
-		String targetMethodNameObf = "func_77192_a";
-		String targetMethodSign = "(Lnet/minecraft/world/WorldServer;ZZZ)I";
-		String targetMethodSignObf = "(Lmt;ZZZ)I";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
+		String targetMethodSignObf = "(Lmt;ZZZ)I";
+		String targetMethodSign = "(Lnet/minecraft/world/WorldServer;ZZZ)I";
+		String targetMethodNameObf = "func_77192_a";
+		String targetMethodName = "findChunksForSpawning";
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && (method.desc.equals(targetMethodSign) || method.desc.equals(targetMethodSignObf))) {
 				method.instructions.clear();

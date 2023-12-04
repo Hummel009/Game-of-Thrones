@@ -30,21 +30,11 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int i1;
-		int i12;
-		int k2;
-		int k12;
-		int i13;
-		int k13;
-		int j1;
-		int j12;
-		int i14;
-		int i15;
-		int i2;
-		int j13;
 		setOriginAndRotation(world, i, j, k, rotation, 13);
 		setupRandomBlocks(random);
+		int i15;
+		int j12;
+		int k12;
 		if (restrictions) {
 			for (i15 = -12; i15 <= 12; ++i15) {
 				for (k12 = -12; k12 <= 12; ++k12) {
@@ -56,11 +46,13 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 				}
 			}
 		}
+		int i2;
+		int k2;
 		for (i15 = -12; i15 <= 12; ++i15) {
 			for (k12 = -12; k12 <= 12; ++k12) {
-				int j14;
 				i2 = Math.abs(i15);
 				k2 = Math.abs(k12);
+				int j14;
 				for (j14 = 1; j14 <= 10; ++j14) {
 					setAir(world, i15, j14, k12);
 				}
@@ -94,13 +86,13 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		}
 		for (i15 = -12; i15 <= 12; ++i15) {
 			for (k12 = -12; k12 <= 12; ++k12) {
-				int j15;
 				i2 = Math.abs(i15);
 				k2 = Math.abs(k12);
 				int yBoost = 0;
 				if (k12 < 8 && i2 < 7) {
 					yBoost = 1;
 				}
+				int j15;
 				if ((i2 == 9 || i2 == 12) && (k2 == 9 || k2 == 12)) {
 					for (j15 = 1; j15 <= 8; ++j15) {
 						setBlockAndMetadata(world, i15, j15, k12, woodBeamBlock, woodBeamMeta);
@@ -161,10 +153,10 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 		}
 		int[] i16 = {-12, 9};
 		k12 = i16.length;
+		int i13;
 		for (i2 = 0; i2 < k12; ++i2) {
 			i13 = i16[i2];
 			for (int k14 : new int[]{-12, 9}) {
-				int i22;
 				setBlockAndMetadata(world, i13 + 1, 8, k14, plankStairBlock, 4);
 				setBlockAndMetadata(world, i13 + 2, 8, k14, plankStairBlock, 5);
 				setBlockAndMetadata(world, i13 + 1, 8, k14 + 3, plankStairBlock, 4);
@@ -173,6 +165,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, i13, 8, k14 + 2, plankStairBlock, 6);
 				setBlockAndMetadata(world, i13 + 3, 8, k14 + 1, plankStairBlock, 7);
 				setBlockAndMetadata(world, i13 + 3, 8, k14 + 2, plankStairBlock, 6);
+				int i22;
 				for (i22 = i13; i22 <= i13 + 3; ++i22) {
 					setBlockAndMetadata(world, i22, 9, k14 - 1, roofSlabBlock, roofSlabMeta);
 					setBlockAndMetadata(world, i22, 9, k14 + 4, roofSlabBlock, roofSlabMeta);
@@ -193,6 +186,8 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 				}
 			}
 		}
+		int i12;
+		int k1;
 		for (k1 = -12; k1 <= 12; ++k1) {
 			int k24 = Math.abs(k1);
 			if (k24 >= 10 && k24 <= 11 || k24 >= 3 && k24 <= 8) {
@@ -226,6 +221,8 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			setAir(world, 0, 3, k1);
 			setBlockAndMetadata(world, 1, 3, k1, plankStairBlock, 5);
 		}
+		int i14;
+		int k13;
 		for (i14 = -12; i14 <= 12; ++i14) {
 			int i23 = Math.abs(i14);
 			if (i23 >= 10 && i23 <= 11 || i23 >= 3 && i23 <= 8) {
@@ -265,6 +262,7 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, 5, 5, k1, plankStairBlock, 0);
 			setAir(world, 6, 5, k1);
 		}
+		int j1;
 		for (j1 = 4; j1 <= 7; ++j1) {
 			setBlockAndMetadata(world, -6, j1, -9, woodBeamBlock, woodBeamMeta);
 			setBlockAndMetadata(world, 6, j1, -9, woodBeamBlock, woodBeamMeta);
@@ -273,6 +271,8 @@ public class GOTStructureGiftCastle extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, -6, 8, -9, Blocks.torch, 5);
 			setBlockAndMetadata(world, 6, 8, -9, Blocks.torch, 5);
 		}
+		int j13;
+		int i1;
 		for (k1 = -12; k1 <= -10; ++k1) {
 			for (j13 = 1; j13 <= 4; ++j13) {
 				for (i12 = -1; i12 <= 1; ++i12) {

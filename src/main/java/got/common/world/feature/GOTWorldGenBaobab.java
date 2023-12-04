@@ -23,13 +23,6 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		int k2;
-		int k1;
-		int i2;
-		int j1;
-		int i1;
-		int j12;
-		int trunkCircleWidth = 4;
 		int height = 16 + random.nextInt(10);
 		int xSlope = 5 + random.nextInt(10);
 		if (random.nextBoolean()) {
@@ -40,6 +33,12 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 			zSlope *= -1;
 		}
 		boolean flag = true;
+		int trunkCircleWidth = 4;
+		int i1;
+		int j1;
+		int i2;
+		int k1;
+		int k2;
 		if (j >= 1 && j + height + 5 <= 256) {
 			for (i1 = i - trunkCircleWidth - 1; i1 <= i + trunkCircleWidth + 1 && flag; ++i1) {
 				for (k1 = k - trunkCircleWidth - 1; k1 <= k + trunkCircleWidth + 1 && flag; ++k1) {
@@ -71,6 +70,7 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 		if (!flag) {
 			return false;
 		}
+		int j12;
 		for (j12 = 0; j12 < height; ++j12) {
 			for (int i12 = i - trunkCircleWidth - 1; i12 <= i + trunkCircleWidth + 1; ++i12) {
 				for (int k12 = k - trunkCircleWidth - 1; k12 <= k + trunkCircleWidth + 1; ++k12) {

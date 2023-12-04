@@ -28,13 +28,10 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int i1;
-		int i12;
-		int k2;
-		int i2;
 		setOriginAndRotation(world, i, j, k, rotation, 3);
 		setupRandomBlocks(random);
+		int i12;
+		int k1;
 		if (restrictions) {
 			for (i12 = -3; i12 <= 3; ++i12) {
 				for (k1 = -3; k1 <= 3; ++k1) {
@@ -46,11 +43,13 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 				}
 			}
 		}
+		int i2;
+		int k2;
 		for (i12 = -2; i12 <= 2; ++i12) {
 			for (k1 = -2; k1 <= 2; ++k1) {
-				int j1;
 				i2 = Math.abs(i12);
 				k2 = Math.abs(k1);
+				int j1;
 				for (j1 = 1; j1 <= 15; ++j1) {
 					setAir(world, i12, j1, k1);
 				}
@@ -167,6 +166,7 @@ public class GOTStructureYiTiTower extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, -3, 13, 0, roofSlabBlock, roofSlabMeta | 8);
 		setBlockAndMetadata(world, -3, 13, -1, roofStairBlock, 1);
 		setBlockAndMetadata(world, -3, 13, -2, roofStairBlock, 6);
+		int i1;
 		for (i1 = -2; i1 <= 2; ++i1) {
 			setBlockAndMetadata(world, i1, 14, -2, roofStairBlock, 2);
 			setBlockAndMetadata(world, i1, 14, 2, roofStairBlock, 3);

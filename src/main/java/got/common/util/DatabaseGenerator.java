@@ -276,11 +276,11 @@ public class DatabaseGenerator {
 					}
 				}
 				Set<String> sitemap;
-				Collection<String> neededPages = new HashSet<>();
 				try (Stream<String> lines = Files.lines(Paths.get("hummel/sitemap.txt"))) {
 					sitemap = lines.collect(Collectors.toSet());
 				}
 
+				Collection<String> neededPages = new HashSet<>();
 				for (String pageName : MINERALS) {
 					neededPages.add(pageName);
 					if (!sitemap.contains(pageName)) {
@@ -646,10 +646,10 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTBiome biome : BIOMES) {
 					EnumSet<GOTTreeType> trees = EnumSet.noneOf(GOTTreeType.class);
-					Map<GOTTreeType, GOTBiomeVariant> additionalTrees = new EnumMap<>(GOTTreeType.class);
 					for (WeightedTreeType weightedTreeType : biome.decorator.treeTypes) {
 						trees.add(weightedTreeType.treeType);
 					}
+					Map<GOTTreeType, GOTBiomeVariant> additionalTrees = new EnumMap<>(GOTTreeType.class);
 					for (VariantBucket variantBucket : biome.getBiomeVariantsSmall().variantList) {
 						for (WeightedTreeType weightedTreeType : variantBucket.variant.treeTypes) {
 							if (!trees.contains(weightedTreeType.treeType)) {
@@ -928,12 +928,12 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					Collection<GOTCapes> facCapes = new ArrayList<>();
-					Collection<GOTShields> facShields = new ArrayList<>();
 					for (GOTCapes cape : CAPES) {
 						if (cape.alignmentFaction == fac) {
 							facCapes.add(cape);
 						}
 					}
+					Collection<GOTShields> facShields = new ArrayList<>();
 					for (GOTShields shield : SHIELDS) {
 						if (shield.alignmentFaction == fac) {
 							facShields.add(shield);
@@ -1107,13 +1107,12 @@ public class DatabaseGenerator {
 					next:
 					for (GOTBiome biome : BIOMES) {
 						Collection<SpawnListEntry> spawnEntries = new ArrayList<>();
-						Collection<SpawnListEntry> conquestEntries = new ArrayList<>();
-						Collection<InvasionSpawnEntry> invasionEntries = new ArrayList<>();
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.ambient));
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.waterCreature));
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.creature));
 						spawnEntries.addAll(biome.getSpawnableList(EnumCreatureType.monster));
 						spawnEntries.addAll(biome.getSpawnableGOTAmbientList());
+						Collection<SpawnListEntry> conquestEntries = new ArrayList<>();
 						for (FactionContainer facContainer : biome.getNPCSpawnList().factionContainers) {
 							if (facContainer.baseWeight > 0) {
 								for (SpawnListContainer container : facContainer.spawnLists) {
@@ -1125,6 +1124,7 @@ public class DatabaseGenerator {
 								}
 							}
 						}
+						Collection<InvasionSpawnEntry> invasionEntries = new ArrayList<>();
 						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
 							invasionEntries.addAll(invasion.invasionMobs);
 						}

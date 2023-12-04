@@ -27,8 +27,8 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		int leafMin = j + (int) (height * 0.6f);
-		boolean flag = true;
 		if (j >= 1 && j + height + 1 <= 256) {
+			boolean flag = true;
 			for (int j1 = j; j1 <= j + height + 1; ++j1) {
 				int range = 1;
 				if (j1 == j) {
@@ -55,10 +55,10 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 				canGrow = false;
 			}
 			if (canGrow) {
-				int j1;
 				below = world.getBlock(i, j - 1, k);
 				below.onPlantGrow(world, i, j - 1, k, i, j, k);
 				int deg = 0;
+				int j1;
 				for (j1 = j + height; j1 >= leafMin; --j1) {
 					int branches = 1 + random.nextInt(2);
 					for (int b = 0; b < branches; ++b) {
@@ -72,7 +72,6 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 						int k1 = k;
 						int j2 = j1;
 						for (int l = 0; l < length; ++l) {
-							Block block;
 							if (Math.floor(cos * l) != Math.floor(cos * (l - 1))) {
 								i1 = (int) (i1 + Math.signum(cos));
 							}
@@ -82,6 +81,7 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 							if (Math.floor(sinY * l) != Math.floor(sinY * (l - 1))) {
 								j2 = (int) (j2 + Math.signum(sinY));
 							}
+							Block block;
 							if (!(block = world.getBlock(i1, j2, k1)).isReplaceable(world, i1, j2, k1) && !block.isWood(world, i1, j2, k1) && !block.isLeaves(world, i1, j2, k1)) {
 								break;
 							}
@@ -124,7 +124,6 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 			int leafRangeSq = leafRange * leafRange;
 			for (int i1 = i - leafRange; i1 <= i + leafRange; ++i1) {
 				for (int k1 = k - leafRange; k1 <= k + leafRange; ++k1) {
-					Block block;
 					int i2 = Math.abs(i1 - i);
 					int k2 = Math.abs(k1 - k);
 					int j2 = Math.abs(j1 - j);
@@ -134,6 +133,7 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 					if (i2 == leafRange - 1 || k2 == leafRange - 1) {
 						grow = grow && random.nextInt(4) != 0;
 					}
+					Block block;
 					if (!grow || !(block = world.getBlock(i1, j1, k1)).isReplaceable(world, i1, j1, k1) && !block.isLeaves(world, i1, j1, k1)) {
 						continue;
 					}

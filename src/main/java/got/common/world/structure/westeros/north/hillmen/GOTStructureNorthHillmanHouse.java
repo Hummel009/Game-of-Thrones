@@ -36,11 +36,6 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int i12;
-		int k1;
-		int j12;
 		setOriginAndRotation(world, i, j, k, rotation, 5);
 		if (restrictions) {
 			int minHeight = 0;
@@ -74,6 +69,9 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 		doorBlock = GOTBlocks.doorSpruce;
 		floorBlock = Blocks.stained_hardened_clay;
 		floorMeta = 15;
+		int k1;
+		int i1;
+		int j1;
 		for (i1 = -4; i1 <= 4; ++i1) {
 			for (k1 = -6; k1 <= 6; ++k1) {
 				for (j1 = 1; j1 <= 7; ++j1) {
@@ -104,6 +102,7 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 			setBlockAndMetadata(world, -3, j14, 5, woodBlock, woodMeta);
 			setBlockAndMetadata(world, 3, j14, 5, woodBlock, woodMeta);
 		}
+		int i12;
 		for (int j15 : new int[]{1, 4}) {
 			for (i12 = -2; i12 <= 2; ++i12) {
 				setBlockAndMetadata(world, i12, j15, -5, woodBlock, woodMeta | 4);
@@ -149,6 +148,7 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 		}
 		setBlockAndMetadata(world, 0, 3, 5, plankBlock, plankMeta);
 		setBlockAndMetadata(world, 0, 3, 6, stairBlock, 7);
+		int j12;
 		for (j12 = 4; j12 <= 8; ++j12) {
 			setBlockAndMetadata(world, 0, j12, 6, woodBlock, woodMeta);
 		}

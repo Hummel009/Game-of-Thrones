@@ -18,9 +18,9 @@ public class GOTWorldGenFallenLeaves extends WorldGenerator {
 		Block fallenLeaf = null;
 		int fallenMeta = 0;
 		for (l = 0; l < 40; ++l) {
-			Object[] obj;
 			i1 = i - random.nextInt(6) + random.nextInt(6);
 			Block block = world.getBlock(i1, j1 = j + random.nextInt(12), k1 = k - random.nextInt(6) + random.nextInt(6));
+			Object[] obj;
 			if (!(block instanceof BlockLeavesBase) || (obj = GOTBlockFallenLeaves.fallenBlockMetaFromLeafBlockMeta(block, world.getBlockMetadata(i1, j1, k1))) == null) {
 				continue;
 			}

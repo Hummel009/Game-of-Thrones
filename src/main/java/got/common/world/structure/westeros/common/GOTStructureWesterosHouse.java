@@ -17,12 +17,9 @@ public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i2;
-		int i1;
-		int k1;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -45,6 +42,8 @@ public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int k1;
+		int i2;
 		for (int i13 = -4; i13 <= 4; ++i13) {
 			for (k1 = -4; k1 <= 4; ++k1) {
 				i2 = Math.abs(i13);
@@ -123,6 +122,7 @@ public class GOTStructureWesterosHouse extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, 0, 5, k13, wallBlock, wallMeta);
 			setBlockAndMetadata(world, 1, 5, k13, wallBlock, wallMeta);
 		}
+		int i1;
 		for (i1 = -1; i1 <= 1; ++i1) {
 			for (k1 = 3; k1 <= 5; ++k1) {
 				for (int j12 = 7; (j12 >= 0 || !isOpaque(world, i1, j12, k1)) && getY(j12) >= 0; --j12) {

@@ -179,8 +179,8 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 
 	@Override
 	public void updateTick(World p_149674_1_, int p_149674_2_, int p_149674_3_, int p_149674_4_, Random p_149674_5_) {
-		int l;
 		super.updateTick(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_, p_149674_5_);
+		int l;
 		if (p_149674_1_.getBlockLightValue(p_149674_2_, p_149674_3_ + 1, p_149674_4_) >= 9 && (l = p_149674_1_.getBlockMetadata(p_149674_2_, p_149674_3_, p_149674_4_)) < 7 && p_149674_5_.nextInt((int) (25.0f / func_149864_n(p_149674_1_, p_149674_2_, p_149674_3_, p_149674_4_)) + 1) == 0) {
 			l++;
 			p_149674_1_.setBlockMetadataWithNotify(p_149674_2_, p_149674_3_, p_149674_4_, l, 2);

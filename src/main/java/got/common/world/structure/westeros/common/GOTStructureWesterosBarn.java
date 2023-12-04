@@ -31,14 +31,9 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int j1;
-		int k122;
-		int i1;
-		int k13;
-		int i12;
 		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
+		int k122;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -61,6 +56,8 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int k13;
+		int j1;
 		for (int i14 = -12; i14 <= 4; ++i14) {
 			for (k13 = -2; k13 <= 15; ++k13) {
 				setBlockAndMetadata(world, i14, 0, k13, Blocks.grass, 0);
@@ -77,8 +74,8 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		}
 		for (int i15 : new int[]{-4, 4}) {
 			for (int k14 = 0; k14 <= 13; ++k14) {
-				int j13;
 				setBlockAndMetadata(world, i15, 1, k14, rockBlock, rockMeta);
+				int j13;
 				if (k14 == 0 || k14 == 4 || k14 == 9 || k14 == 13) {
 					for (j13 = 2; j13 <= 5; ++j13) {
 						setBlockAndMetadata(world, i15, j13, k14, woodBeamBlock, woodBeamMeta);
@@ -96,15 +93,16 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i15, 4, 11, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i15, 4, 12, plankStairBlock, 6);
 		}
+		int i12;
 		for (int k1221 : new int[]{0, 13}) {
 			for (i12 = -3; i12 <= 3; ++i12) {
-				int j14;
 				int i2 = Math.abs(i12);
 				if (i2 <= 1) {
 					setBlockAndMetadata(world, i12, 1, k1221, fenceGateBlock, 0);
 				} else {
 					setBlockAndMetadata(world, i12, 1, k1221, rockBlock, rockMeta);
 				}
+				int j14;
 				if (i2 == 2) {
 					for (j14 = 2; j14 <= 7; ++j14) {
 						setBlockAndMetadata(world, i12, j14, k1221, woodBeamBlock, woodBeamMeta);
@@ -142,6 +140,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		}
 		setBlockAndMetadata(world, 0, 5, -1, plankStairBlock, 6);
 		setBlockAndMetadata(world, 0, 5, 14, plankStairBlock, 7);
+		int k1;
 		for (k1 = -1; k1 <= 14; ++k1) {
 			setBlockAndMetadata(world, -2, 8, k1, woodBeamBlock, woodBeamMeta | 8);
 			setBlockAndMetadata(world, 2, 8, k1, woodBeamBlock, woodBeamMeta | 8);
@@ -230,6 +229,7 @@ public class GOTStructureWesterosBarn extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 2, 6, 12, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 3, 6, 12, tableBlock, 0);
 		placeChest(world, random, 3, 6, 11, 5, getChestContents());
+		int i1;
 		for (i1 = -3; i1 <= -2; ++i1) {
 			for (k13 = 7; k13 <= 8; ++k13) {
 				setBlockAndMetadata(world, i1, 6, k13, plankBlock, plankMeta);

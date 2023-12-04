@@ -16,19 +16,10 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int l;
-		int i12;
-		int j12;
-		int k1;
-		int j13;
-		int k12;
-		int k13;
-		int k14;
-		int i13;
 		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
+		int j13;
+		int i1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -51,6 +42,8 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 				}
 			}
 		}
+		int k1;
+		int i12;
 		for (i12 = -7; i12 <= 8; ++i12) {
 			for (k1 = -4; k1 <= 4; ++k1) {
 				int j14;
@@ -103,6 +96,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, i12, 4, -4, woodBeamBlock, woodBeamMeta | 4);
 			setBlockAndMetadata(world, i12, 4, 4, woodBeamBlock, woodBeamMeta | 4);
 		}
+		int k13;
 		for (k13 = -2; k13 <= 2; ++k13) {
 			setBlockAndMetadata(world, 2, 4, k13, woodBeamBlock, woodBeamMeta | 8);
 			setBlockAndMetadata(world, 8, 4, k13, woodBeamBlock, woodBeamMeta | 8);
@@ -114,6 +108,8 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 2, 1, 0, doorBlock, 2);
 		setBlockAndMetadata(world, 2, 2, 0, doorBlock, 8);
 		setBlockAndMetadata(world, 3, 3, 0, Blocks.torch, 2);
+		int l;
+		int j1;
 		for (l = 0; l <= 2; ++l) {
 			j1 = 4 + l;
 			for (i1 = 2 + l; i1 <= 8 - l; ++i1) {
@@ -140,6 +136,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		}
 		setBlockAndMetadata(world, 5, 7, -2, roofSlabBlock, roofSlabMeta);
 		setBlockAndMetadata(world, 5, 7, 2, roofSlabBlock, roofSlabMeta);
+		int k12;
 		for (l = 0; l <= 1; ++l) {
 			j1 = 5 + l;
 			for (i1 = 4 + l; i1 <= 6 - l; ++i1) {
@@ -195,6 +192,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		placeChest(world, random, 7, 1, 2, 5, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, 8, 0, 0, GOTBlocks.hearth, 0);
 		setBlockAndMetadata(world, 8, 1, 0, Blocks.fire, 0);
+		int j12;
 		for (j12 = 2; j12 <= 3; ++j12) {
 			setAir(world, 8, j12, 0);
 		}
@@ -204,6 +202,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 		placeChest(world, random, 1, 1, 2, 5, GOTChestContents.GIFT);
 		setBlockAndMetadata(world, 1, 1, -2, tableBlock, 0);
 		setBlockAndMetadata(world, 1, 1, -3, Blocks.crafting_table, 0);
+		int i13;
 		for (j12 = 1; j12 <= 3; ++j12) {
 			for (i13 = -6; i13 <= -3; ++i13) {
 				for (k12 = 0; k12 <= 3; ++k12) {
@@ -227,6 +226,7 @@ public class GOTStructureGiftSmithy extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, -2 - l2, j1, k12, brickStairBlock, 0);
 			}
 		}
+		int k14;
 		for (k14 = -2; k14 <= 2; ++k14) {
 			for (i13 = -5; i13 <= -3; ++i13) {
 				setBlockAndMetadata(world, i13, 4, k14, brickBlock, brickMeta);

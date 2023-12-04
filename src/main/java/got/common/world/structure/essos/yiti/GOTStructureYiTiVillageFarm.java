@@ -19,9 +19,9 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -116,10 +116,10 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			int i1;
 			if (!super.generate(world, random, i, j, k, rotation)) {
 				return false;
 			}
+			int i1;
 			for (i1 = -1; i1 <= 1; ++i1) {
 				setBlockAndMetadata(world, i1, 1, -5, fenceGateBlock, 0);
 				setBlockAndMetadata(world, i1, 1, 5, fenceGateBlock, 2);
@@ -133,11 +133,11 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 					if (random.nextInt(3) != 0) {
 						continue;
 					}
-					int j1 = 1;
 					int j2 = 1;
 					if (i1 == 0 && k1 == 0 && random.nextBoolean()) {
 						++j2;
 					}
+					int j1 = 1;
 					for (int j3 = j1; j3 <= j2; ++j3) {
 						setBlockAndMetadata(world, i1, j3, k1, Blocks.hay_block, 0);
 					}
@@ -225,10 +225,10 @@ public abstract class GOTStructureYiTiVillageFarm extends GOTStructureYiTiBase {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			int i1;
 			if (!super.generate(world, random, i, j, k, rotation)) {
 				return false;
 			}
+			int i1;
 			for (i1 = -5; i1 <= 5; ++i1) {
 				for (int k1 = -5; k1 <= 5; ++k1) {
 					int i2 = Math.abs(i1);

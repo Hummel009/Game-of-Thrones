@@ -20,17 +20,12 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int j2;
-		int step;
-		int k12;
-		int j12;
-		int i1;
-		int i12;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 8, -10);
 		originY -= 4;
 		setupRandomBlocks(random);
+		int j1;
+		int i1;
+		int k1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -171,7 +166,11 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 		placeBarrel(world, random, 3, 8, 11, 5, GOTFoods.ESSOS_DRINK);
 		placeMug(world, random, 3, 8, 10, 1, GOTFoods.ESSOS_DRINK);
 		placePlateWithCertainty(world, random, 3, 8, 9, GOTBlocks.woodPlate, GOTFoods.ESSOS);
-		int maxStep = 12;
+		int i12;
+		int j12;
+		int k12;
+		int step;
+		int j2;
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (step = 0; step < 2 && !isSideSolid(world, i12, j12 = 5 - step, k12 = -9 - step, ForgeDirection.UP); ++step) {
 				setBlockAndMetadata(world, i12, j12, k12, brickStairBlock, 2);
@@ -184,6 +183,7 @@ public class GOTStructureGhiscarFightingPit extends GOTStructureEssosBase {
 				}
 			}
 		}
+		int maxStep = 12;
 		for (i12 = -1; i12 <= 1; ++i12) {
 			for (step = 0; step < maxStep && !isOpaque(world, i12, j12 = 3 - step, k12 = -13 - step); ++step) {
 				setBlockAndMetadata(world, i12, j12, k12, brickStairBlock, 2);

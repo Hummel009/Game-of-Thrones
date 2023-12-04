@@ -16,21 +16,9 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int i12;
-		int i13;
-		int j12;
-		int i142;
-		int k1;
-		int i2;
-		int k12;
-		int i22;
-		int k2;
-		int k13;
-		int j13;
 		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
+		int j12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -53,6 +41,10 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 				}
 			}
 		}
+		int k2;
+		int i22;
+		int k1;
+		int i13;
 		for (i13 = -3; i13 <= 3; ++i13) {
 			for (k1 = -3; k1 <= 3; ++k1) {
 				i22 = Math.abs(i13);
@@ -93,6 +85,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 			setGrassToDirt(world, i13, -2, 0);
 			setAir(world, i13, 0, 0);
 		}
+		int j1;
 		for (i13 = -2; i13 <= 2; ++i13) {
 			for (j1 = 1; j1 <= 7; ++j1) {
 				if (j1 > 6 && i13 != 0) {
@@ -124,6 +117,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 		}
 		int[] i17 = {-3, 3};
 		j1 = i17.length;
+		int i142;
 		for (i22 = 0; i22 < j1; ++i22) {
 			i142 = i17[i22];
 			for (int k15 : new int[]{-2, 2}) {
@@ -134,6 +128,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 			setBlockAndMetadata(world, i142, 10, -1, brickStairBlock, 7);
 			setBlockAndMetadata(world, i142, 10, 1, brickStairBlock, 6);
 		}
+		int i1;
 		for (i1 = -3; i1 <= 3; ++i1) {
 			setBlockAndMetadata(world, i1, 11, -4, brickStairBlock, 6);
 			setBlockAndMetadata(world, i1, 11, 4, brickStairBlock, 7);
@@ -182,6 +177,10 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 		placeWallBanner(world, 3, 7, -3, GOTItemBanner.BannerType.ASSHAI, 2);
 		placeWallBanner(world, 3, 7, 3, GOTItemBanner.BannerType.ASSHAI, 0);
 		placeWallBanner(world, -3, 7, 3, GOTItemBanner.BannerType.ASSHAI, 0);
+		int j13;
+		int k12;
+		int i2;
+		int i12;
 		for (i12 = -5; i12 <= 5; ++i12) {
 			i2 = Math.abs(i12);
 			if (i2 >= 4) {
@@ -214,6 +213,7 @@ public class GOTStructureAsshaiGatehouse extends GOTStructureAsshaiBase {
 			setBlockAndMetadata(world, i12, 5, k12, brickStairBlock, 6);
 			setBlockAndMetadata(world, i12, 6, k12, brickWallBlock, brickWallMeta);
 		}
+		int k13;
 		for (k13 = -1; k13 <= 1; ++k13) {
 			setBlockAndMetadata(world, -3, 7, k13, brickStairBlock, 1);
 			setBlockAndMetadata(world, -4, 6, k13, brickStairBlock, 1);

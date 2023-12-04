@@ -24,10 +24,8 @@ public class GOTBezierGenerator {
 
 		boolean wallAt = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.WALL);
 		if (wallAt) {
-			int index;
-			int j;
-			for (j = wallTop; j > 62; --j) {
-				index = xzIndex * ySize + j;
+			for (int j = wallTop; j > 62; --j) {
+				int index = xzIndex * ySize + j;
 				boolean isTop = j == wallTop;
 				GOTBezierType.BezierBlock wallblock = wallType.getBlock(rand, biome, isTop, false);
 				blocks[index] = wallblock.getBlock();
@@ -41,7 +39,6 @@ public class GOTBezierGenerator {
 		if (roadAt || linkerAt) {
 			int index;
 			int j;
-			int indexLower;
 			int roadTop = 0;
 			int bridgeBase = 0;
 			boolean bridge = false;
@@ -128,7 +125,7 @@ public class GOTBezierGenerator {
 						metadata[index2] = (byte) bridgeBlock.getMeta();
 					}
 					if (roadTop > bridgeBase) {
-						indexLower = index2 - 1;
+						int indexLower = index2 - 1;
 						blocks[indexLower] = bridgeBlock.getBlock();
 						metadata[indexLower] = (byte) bridgeBlock.getMeta();
 					}
@@ -155,7 +152,6 @@ public class GOTBezierGenerator {
 		}
 		if (roadType.hasFlowers()) {
 			int index;
-			int i1;
 			int roadTop = 0;
 			for (int j = ySize - 1; j > 0; --j) {
 				index = xzIndex * ySize + j;
@@ -167,6 +163,7 @@ public class GOTBezierGenerator {
 				break;
 			}
 			boolean adjRoad = false;
+			int i1;
 			block5:
 			for (i1 = -2; i1 <= 2; ++i1) {
 				for (int k1 = -2; k1 <= 2; ++k1) {

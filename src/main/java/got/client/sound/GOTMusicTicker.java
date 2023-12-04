@@ -36,14 +36,14 @@ public class GOTMusicTicker {
 	}
 
 	public static GOTBiomeMusic.MusicRegion getCurrentRegion(Minecraft mc, Random rand) {
-		int k;
-		int i;
-		BiomeGenBase biome;
 		WorldClient world = mc.theWorld;
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
 		if (GOTMusic.isMenuMusic()) {
 			return GOTBiomeMusic.MENU.getWithoutSub();
 		}
+		BiomeGenBase biome;
+		int i;
+		int k;
 		if (GOTMusic.isGOTDimension() && GOTClientProxy.doesClientChunkExist(world, i = MathHelper.floor_double(entityplayer.posX), k = MathHelper.floor_double(entityplayer.posZ)) && (biome = world.getBiomeGenForCoords(i, k)) instanceof GOTBiome) {
 			GOTBiome gotbiome = (GOTBiome) biome;
 			return gotbiome.getBiomeMusic();

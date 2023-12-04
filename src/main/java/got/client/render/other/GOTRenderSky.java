@@ -25,8 +25,6 @@ public class GOTRenderSky extends IRenderHandler {
 	public int glSkyList2;
 
 	public GOTRenderSky(GOTWorldProvider provider) {
-		int k;
-		int j;
 		worldProvider = provider;
 		skyTextures = GOTRandomSkins.loadSkinsList("got:textures/sky/night");
 		Tessellator tessellator = Tessellator.instance;
@@ -35,6 +33,8 @@ public class GOTRenderSky extends IRenderHandler {
 		int b2 = 64;
 		int i = 256 / b2 + 2;
 		float f = 16.0f;
+		int j;
+		int k;
 		for (j = -b2 * i; j <= b2 * i; j += b2) {
 			for (k = -b2 * i; k <= b2 * i; k += b2) {
 				tessellator.startDrawingQuads();
@@ -200,14 +200,14 @@ public class GOTRenderSky extends IRenderHandler {
 				GL11.glColor3f(1.0f, 0.6f, 0.4f);
 			}
 			mc.renderEngine.bindTexture(moonTexture);
-			float rMoon = 10.0f;
 			float f14 = (float) moonPhase / phases;
-			float f15 = 0.0f;
 			float f16 = (float) (moonPhase + 1) / phases;
-			float f17 = 1.0f;
 			tessellator.startDrawingQuads();
+			float f17 = 1.0f;
+			float rMoon = 10.0f;
 			tessellator.addVertexWithUV(-rMoon, -100.0, rMoon, f16, f17);
 			tessellator.addVertexWithUV(rMoon, -100.0, rMoon, f14, f17);
+			float f15 = 0.0f;
 			tessellator.addVertexWithUV(rMoon, -100.0, -rMoon, f14, f15);
 			tessellator.addVertexWithUV(-rMoon, -100.0, -rMoon, f16, f15);
 			tessellator.draw();
@@ -222,14 +222,14 @@ public class GOTRenderSky extends IRenderHandler {
 				float eHalfWidth = eMax - eMid;
 				float eBright = MathHelper.cos((f1 - eMid) / eHalfWidth * 3.1415927f / 2.0f);
 				eBright *= eBright;
-				float eAngle = Math.signum(f0) * 18.0f;
 				GL11.glPushMatrix();
+				float eAngle = Math.signum(f0) * 18.0f;
 				GL11.glRotatef(eAngle, 1.0f, 0.0f, 0.0f);
 				GL11.glBlendFunc(770, 1);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, eBright * rainBrightness);
 				mc.renderEngine.bindTexture(earendilTexture);
-				float rEarendil = 1.5f;
 				tessellator.startDrawingQuads();
+				float rEarendil = 1.5f;
 				tessellator.addVertexWithUV(-rEarendil, 100.0, -rEarendil, 0.0, 0.0);
 				tessellator.addVertexWithUV(rEarendil, 100.0, -rEarendil, 1.0, 0.0);
 				tessellator.addVertexWithUV(rEarendil, 100.0, rEarendil, 1.0, 1.0);
@@ -294,9 +294,9 @@ public class GOTRenderSky extends IRenderHandler {
 	}
 
 	public void renderSkyboxSide(Tessellator tessellator, int side) {
-		double u = side % 3 / 3.0;
 		double v = (double) side / 3 / 2.0;
 		tessellator.startDrawingQuads();
+		double u = side % 3 / 3.0;
 		tessellator.addVertexWithUV(-100.0, -100.0, -100.0, u, v);
 		tessellator.addVertexWithUV(-100.0, -100.0, 100.0, u, v + 0.5);
 		tessellator.addVertexWithUV(100.0, -100.0, 100.0, u + 0.3333333333333333, v + 0.5);

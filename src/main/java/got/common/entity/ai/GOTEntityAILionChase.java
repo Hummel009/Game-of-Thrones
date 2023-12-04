@@ -61,7 +61,6 @@ public class GOTEntityAILionChase extends EntityAIBase {
 
 	@Override
 	public void updateTask() {
-		Vec3 vec3;
 		--chaseTimer;
 		theLion.getLookHelper().setLookPositionWithEntity(targetEntity, 30.0f, 30.0f);
 		--lionRePathDelay;
@@ -69,6 +68,7 @@ public class GOTEntityAILionChase extends EntityAIBase {
 			lionRePathDelay = 10;
 			theLion.getNavigator().tryMoveToEntityLiving(targetEntity, speed);
 		}
+		Vec3 vec3;
 		if (targetEntity.getNavigator().noPath() && (vec3 = RandomPositionGenerator.findRandomTargetBlockAwayFrom(targetEntity, 16, 7, Vec3.createVectorHelper(theLion.posX, theLion.posY, theLion.posZ))) != null) {
 			targetEntity.getNavigator().tryMoveToXYZ(vec3.xCoord, vec3.yCoord, vec3.zCoord, 2.0);
 		}

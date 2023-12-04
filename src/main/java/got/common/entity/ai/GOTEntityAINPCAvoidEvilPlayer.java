@@ -43,11 +43,11 @@ public class GOTEntityAINPCAvoidEvilPlayer extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		ArrayList<EntityPlayer> validPlayers = new ArrayList<>();
 		List<EntityPlayer> list = theNPC.worldObj.getEntitiesWithinAABB(EntityPlayer.class, theNPC.boundingBox.expand(distanceFromEntity, distanceFromEntity / 2.0, distanceFromEntity));
 		if (list.isEmpty()) {
 			return false;
 		}
+		ArrayList<EntityPlayer> validPlayers = new ArrayList<>();
 		for (EntityPlayer element : list) {
 			if (element.capabilities.isCreativeMode) {
 				continue;

@@ -41,8 +41,8 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 		float trunkYSin = MathHelper.sin(trunkAngleY);
 		float trunkCos = MathHelper.cos(trunkAngle) * trunkYCos;
 		float trunkSin = MathHelper.sin(trunkAngle) * trunkYCos;
-		boolean flag = true;
 		if (j >= 1 && j + height + 3 <= 256) {
+			boolean flag = true;
 			for (int j1 = j; j1 <= j + height + 3; ++j1) {
 				int range = trunkWidth + 1;
 				if (j1 == j) {
@@ -136,7 +136,6 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 					int j1 = oneTrunkCoord[1];
 					int k1 = oneTrunkCoord[2];
 					for (int l = 0; l < (length += trunkWidth); ++l) {
-						Block block;
 						if (Math.floor(cos * l) != Math.floor(cos * (l + 1))) {
 							i1 = (int) (i1 + Math.signum(cos));
 						}
@@ -146,6 +145,7 @@ public class GOTWorldGenKanuka extends WorldGenAbstractTree {
 						if (Math.floor(sinY * l) != Math.floor(sinY * (l + 1))) {
 							j1 = (int) (j1 + Math.signum(sinY));
 						}
+						Block block;
 						if (!(block = world.getBlock(i1, j1, k1)).isReplaceable(world, i1, j1, k1) && !block.isWood(world, i1, j1, k1) && !block.isLeaves(world, i1, j1, k1)) {
 							break;
 						}

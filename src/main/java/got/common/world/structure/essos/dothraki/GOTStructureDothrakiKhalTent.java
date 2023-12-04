@@ -18,9 +18,9 @@ public class GOTStructureDothrakiKhalTent extends GOTStructureDothrakiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 9);
 		setupRandomBlocks(random);
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;

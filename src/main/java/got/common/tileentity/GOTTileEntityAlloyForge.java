@@ -71,11 +71,11 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	}
 
 	public boolean canSmelt(int i) {
-		ItemStack alloyResult;
-		int resultSize;
 		if (inventory[i] == null) {
 			return false;
 		}
+		int resultSize;
+		ItemStack alloyResult;
 		if (inventory[i - 4] != null && (alloyResult = getAlloySmeltingResult(inventory[i], inventory[i - 4])) != null) {
 			if (inventory[i + 4] == null) {
 				return true;
@@ -409,10 +409,10 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 	@Override
 	public void updateEntity() {
 		boolean smelting = forgeSmeltTime > 0;
-		boolean needUpdate = false;
 		if (forgeSmeltTime > 0) {
 			--forgeSmeltTime;
 		}
+		boolean needUpdate = false;
 		if (!worldObj.isRemote) {
 			if (forgeSmeltTime == 0 && canDoSmelting()) {
 				currentItemFuelValue = forgeSmeltTime = TileEntityFurnace.getItemBurnTime(inventory[fuelSlot]);

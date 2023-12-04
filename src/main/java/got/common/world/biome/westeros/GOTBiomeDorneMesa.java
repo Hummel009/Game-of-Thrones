@@ -167,8 +167,8 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 		i1 = random.nextInt(3) + 3;
 		j1 = 0;
 		for (k1 = 0; k1 < i1; ++k1) {
-			byte b0 = 1;
 			j1 += random.nextInt(16) + 4;
+			byte b0 = 1;
 			for (int i2 = 0; j1 + i2 < 64 && i2 < b0; ++i2) {
 				clayMeta[j1 + i2] = 0;
 				if (j1 + i2 > 1 && random.nextBoolean()) {

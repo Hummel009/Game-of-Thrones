@@ -29,12 +29,9 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 		int i122;
 		block54:
 		{
-			int k13;
-			int i13;
-			int k2;
-			int j1;
 			setOriginAndRotation(world, i, j, k, rotation, 4);
 			setupRandomBlocks(random);
+			int j1;
 			if (restrictions) {
 				int minHeight = 0;
 				int maxHeight = 0;
@@ -57,11 +54,12 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 					}
 				}
 			}
+			int k2;
+			int k13;
 			for (int i15 = -2; i15 <= 7; ++i15) {
 				for (k13 = -3; k13 <= 3; ++k13) {
-					int j12;
-					int j13;
 					k2 = Math.abs(k13);
+					int j12;
 					for (j12 = 1; j12 <= 8; ++j12) {
 						setAir(world, i15, j12, k13);
 					}
@@ -83,16 +81,17 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 						continue;
 					}
 					boolean beam = false;
-					boolean wall = false;
 					if (i15 == -2 && IntMath.mod(k13, 3) == 0) {
 						beam = true;
 					}
 					if (k2 == 3 && (i15 == 2 || i15 == 5)) {
 						beam = true;
 					}
+					boolean wall = false;
 					if (i15 == -2 || k2 == 3) {
 						wall = true;
 					}
+					int j13;
 					if (beam) {
 						for (j13 = 4; (j13 >= 0 || !isOpaque(world, i15, j13, k13)) && getY(j13) >= 0; --j13) {
 							setBlockAndMetadata(world, i15, j13, k13, woodBeamBlock, woodBeamMeta);
@@ -134,6 +133,7 @@ public class GOTStructureGiftHouse extends GOTStructureGiftBase {
 				}
 				setBlockAndMetadata(world, 3, 2, k15, fenceBlock, fenceMeta);
 			}
+			int i13;
 			for (i13 = -2; i13 <= 5; ++i13) {
 				setBlockAndMetadata(world, i13, 4, -3, woodBeamBlock, woodBeamMeta | 4);
 				setBlockAndMetadata(world, i13, 4, 3, woodBeamBlock, woodBeamMeta | 4);

@@ -334,7 +334,6 @@ public class GOTEntityInvasionSpawner extends Entity {
 		if (type == null || type.invasionMobs.isEmpty()) {
 			setDead();
 		} else {
-			int i;
 			setInvasionType(type);
 			if (nbt.hasKey("MobsRemaining")) {
 				invasionSize = invasionRemaining = nbt.getInteger("MobsRemaining");
@@ -345,6 +344,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 			successiveFailedSpawns = nbt.getInteger("SuccessiveFailedSpawns");
 			timeSincePlayerProgress = nbt.getInteger("TimeSinceProgress");
 			recentPlayerContributors.clear();
+			int i;
 			if (nbt.hasKey("RecentPlayers")) {
 				NBTTagList recentTags = nbt.getTagList("RecentPlayers", 10);
 				for (i = 0; i < recentTags.tagCount(); ++i) {

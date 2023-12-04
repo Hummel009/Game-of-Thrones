@@ -24,10 +24,9 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 10);
 		setupRandomBlocks(random);
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -50,6 +49,7 @@ public class GOTStructureHillmanFort extends GOTStructureHillmanBase {
 				}
 			}
 		}
+		int i1;
 		for (i1 = -11; i1 <= 11; ++i1) {
 			for (int k1 = -11; k1 <= 11; ++k1) {
 				int i2 = Math.abs(i1);

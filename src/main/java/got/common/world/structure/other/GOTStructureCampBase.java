@@ -32,8 +32,6 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int l;
-		int i14;
 		if (restrictions && (!GOTStructureBase.isSurfaceStatic(world, i, j - 1, k) || world.getBlock(i, j, k).getMaterial().isLiquid())) {
 			return false;
 		}
@@ -68,6 +66,8 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			captain.spawnRidingHorse = false;
 			spawnNPCAndSetHome(captain, world, 0, 1, 0, 24);
 		}
+		int i14;
+		int l;
 		for (l = 0; l < 4; ++l) {
 			int tentX = MathHelper.getRandomIntegerInRange(random, -3, 3);
 			int tentZ = MathHelper.getRandomIntegerInRange(random, 6, 12);
@@ -128,12 +128,12 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 				break;
 			}
 			if (farmCoords != null) {
-				int k2;
-				int j2;
-				int i2;
 				i14 = farmCoords[0];
 				int k1 = farmCoords[1];
 				int highestFarmHeight = getTopBlock(world, i14, k1);
+				int i2;
+				int j2;
+				int k2;
 				for (i2 = i14 - 2; i2 <= i14 + 2; ++i2) {
 					for (k2 = k1 - 2; k2 <= k1 + 2; ++k2) {
 						j2 = getTopBlock(world, i2, k2);

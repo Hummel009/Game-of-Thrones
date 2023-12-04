@@ -12,12 +12,10 @@ public class GOTStructureYiTiStatue extends GOTStructureYiTiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int k1;
-		int k12;
-		int i1;
 		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
+		int i1;
+		int k12;
 		if (restrictions) {
 			for (i1 = -6; i1 <= 6; ++i1) {
 				for (k12 = -5; k12 <= 5; ++k12) {
@@ -57,6 +55,7 @@ public class GOTStructureYiTiStatue extends GOTStructureYiTiBase {
 				setBlockAndMetadata(world, i1, 1, k12, GOTBlocks.stairsGranite, 3);
 			}
 		}
+		int k1;
 		for (k1 = 0; k1 <= 1; ++k1) {
 			setBlockAndMetadata(world, -2, 2, k1, brickStairBlock, 1);
 			setBlockAndMetadata(world, -1, 2, k1, brickStairBlock, 0);
@@ -306,6 +305,7 @@ public class GOTStructureYiTiStatue extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, 4, 12, -1, brickStairBlock, 4);
 		setBlockAndMetadata(world, 4, 12, 0, brickStairBlock, 7);
 		setBlockAndMetadata(world, 1, 2, -3, brickBlock, brickMeta);
+		int j1;
 		for (j1 = 3; j1 <= 11; ++j1) {
 			setBlockAndMetadata(world, 1, j1, -3, brickWallBlock, brickWallMeta);
 		}

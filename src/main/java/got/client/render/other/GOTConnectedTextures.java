@@ -260,12 +260,12 @@ public class GOTConnectedTextures {
 			BufferedImage blockIconImage = ImageIO.read(resourceManager.getResource(res).getInputStream());
 			int iconWidth = blockIconImage.getWidth();
 			int iconHeight = blockIconImage.getHeight();
-			int sideWidth = Math.max(Math.round(iconWidth / 16.0f * 3.0f), 1);
-			int sideHeight = Math.max(Math.round(iconHeight / 16.0f * 3.0f), 1);
 			BufferedImage emptyBase = new BufferedImage(iconWidth, iconHeight, 2);
 			iconElementMap.put(IconElement.BASE, emptyBase);
+			int sideWidth = Math.max(Math.round(iconWidth / 16.0f * 3.0f), 1);
 			iconElementMap.put(IconElement.SIDE_LEFT, getSubImageIcon(blockIconImage, 0, 0, sideWidth, iconHeight));
 			iconElementMap.put(IconElement.SIDE_RIGHT, getSubImageIcon(blockIconImage, iconWidth - sideWidth, 0, sideWidth, iconHeight));
+			int sideHeight = Math.max(Math.round(iconHeight / 16.0f * 3.0f), 1);
 			iconElementMap.put(IconElement.SIDE_TOP, getSubImageIcon(blockIconImage, 0, 0, iconWidth, sideHeight));
 			iconElementMap.put(IconElement.SIDE_BOTTOM, getSubImageIcon(blockIconImage, 0, iconHeight - sideHeight, iconWidth, sideHeight));
 			iconElementMap.put(IconElement.CORNER_TOPLEFT, getSubImageIcon(blockIconImage, 0, 0, sideWidth, sideHeight));

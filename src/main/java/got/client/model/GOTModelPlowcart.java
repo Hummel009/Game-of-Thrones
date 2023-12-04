@@ -16,9 +16,6 @@ public class GOTModelPlowcart extends ModelBase {
 	public ModelRenderer rightWheel;
 
 	public GOTModelPlowcart() {
-		ModelRenderer rim;
-		ModelRenderer spoke;
-		int i;
 		axis = new ModelRenderer(this, 0, 0);
 		axis.addBox(-12.5f, 4.0f, 0.0f, 25, 2, 2);
 		triangle[0] = new ModelRenderer(this, 0, 4);
@@ -67,6 +64,9 @@ public class GOTModelPlowcart extends ModelBase {
 		leftWheel = new ModelRenderer(this, 34, 4);
 		leftWheel.setRotationPoint(14.5f, 5.0f, 1.0f);
 		leftWheel.addBox(-2.0f, -1.0f, -1.0f, 1, 2, 2);
+		int i;
+		ModelRenderer spoke;
+		ModelRenderer rim;
 		for (i = 0; i < 8; ++i) {
 			rim = new ModelRenderer(this, 0, 11);
 			rim.addBox(-1.5f, -4.5f, 9.86f, 1, 9, 1);

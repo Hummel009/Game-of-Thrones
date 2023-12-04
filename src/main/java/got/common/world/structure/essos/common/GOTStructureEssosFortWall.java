@@ -22,12 +22,11 @@ public abstract class GOTStructureEssosFortWall extends GOTStructureEssosBase {
 			xMax = 2;
 		}
 		for (int i1 = xMin; i1 <= xMax; ++i1) {
-			int j1;
-			int j12;
 			int i2 = Math.abs(i1);
 			int k1 = 0;
 			findSurface(world, i1, k1);
 			boolean beam = i2 % 4 == 2;
+			int j1;
 			if (beam) {
 				for (j1 = 6; (j1 >= 1 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					setBlockAndMetadata(world, i1, j1, k1, woodBeamBlock, woodBeamMeta);
@@ -46,6 +45,7 @@ public abstract class GOTStructureEssosFortWall extends GOTStructureEssosBase {
 			}
 			int k3 = k1 - 1;
 			setBlockAndMetadata(world, i1, 2, k3, brickStairBlock, 2);
+			int j12;
 			for (j12 = 1; (j12 >= 1 || !isOpaque(world, i1, j12, k3)) && getY(j12) >= 0; --j12) {
 				setBlockAndMetadata(world, i1, j12, k3, brickBlock, brickMeta);
 				setGrassToDirt(world, i1, j12 - 1, k3);

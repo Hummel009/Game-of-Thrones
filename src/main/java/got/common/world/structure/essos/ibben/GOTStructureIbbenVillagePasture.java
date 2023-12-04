@@ -14,11 +14,9 @@ public class GOTStructureIbbenVillagePasture extends GOTStructureIbbenBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int j1;
-		int k1;
 		setOriginAndRotation(world, i, j, k, rotation, 5);
 		setupRandomBlocks(random);
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -41,6 +39,8 @@ public class GOTStructureIbbenVillagePasture extends GOTStructureIbbenBase {
 				}
 			}
 		}
+		int k1;
+		int i1;
 		for (i1 = -4; i1 <= 4; ++i1) {
 			for (k1 = -4; k1 <= 4; ++k1) {
 				int i2 = Math.abs(i1);
@@ -87,11 +87,11 @@ public class GOTStructureIbbenVillagePasture extends GOTStructureIbbenBase {
 				if (random.nextInt(3) != 0) {
 					continue;
 				}
-				int j12 = 1;
 				int j2 = 1;
 				if (i1 == 0 && k1 == 0 && random.nextBoolean()) {
 					++j2;
 				}
+				int j12 = 1;
 				for (int j3 = j12; j3 <= j2; ++j3) {
 					setBlockAndMetadata(world, i1, j3, k1, Blocks.hay_block, 0);
 				}

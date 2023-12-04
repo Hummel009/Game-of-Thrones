@@ -19,9 +19,9 @@ public class GOTGuiBookshelf extends GuiContainer {
 		playerInv = player;
 		shelfInv = shelf;
 		allowUserInput = false;
+		inventoryRows = shelf.getSizeInventory() / 9;
 		int i = 222;
 		int j = i - 108;
-		inventoryRows = shelf.getSizeInventory() / 9;
 		ySize = j + inventoryRows * 18;
 	}
 

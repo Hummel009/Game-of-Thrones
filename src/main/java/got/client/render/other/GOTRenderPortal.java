@@ -18,8 +18,8 @@ public class GOTRenderPortal extends Render {
 		GL11.glEnable(32826);
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
 		float rotation = interpolateRotation(spawner.prevPortalRotation, spawner.portalRotation, f1);
-		float scale = 1.5f;
 		GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
+		float scale = 1.5f;
 		GL11.glScalef(scale, scale, scale);
 		ItemStack item = new ItemStack(Items.iron_sword);
 		renderManager.itemRenderer.renderItem(renderManager.livingPlayer, item, 0, IItemRenderer.ItemRenderType.EQUIPPED);

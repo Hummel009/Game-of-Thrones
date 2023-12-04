@@ -14,21 +14,9 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i2;
-		int k1;
-		int j1;
-		int k2;
-		int i22;
-		int k12;
-		int k13;
-		int i1;
-		int i122;
-		int j12;
-		int i13;
-		int i14;
-		int j13;
 		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
+		int j12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -51,6 +39,10 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int i14;
+		int k13;
+		int k2;
+		int i2;
 		for (i14 = -3; i14 <= 3; ++i14) {
 			for (k13 = -3; k13 <= 3; ++k13) {
 				i2 = Math.abs(i14);
@@ -91,6 +83,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 			setGrassToDirt(world, i14, -2, 0);
 			setAir(world, i14, 0, 0);
 		}
+		int j13;
 		for (i14 = -2; i14 <= 2; ++i14) {
 			for (j13 = 1; j13 <= 7; ++j13) {
 				if (j13 > 6 && i14 != 0) {
@@ -122,6 +115,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 		}
 		int[] i17 = {-3, 3};
 		j13 = i17.length;
+		int i122;
 		for (i2 = 0; i2 < j13; ++i2) {
 			i122 = i17[i2];
 			for (int k15 : new int[]{-2, 2}) {
@@ -132,6 +126,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i122, 10, -1, brickStairBlock, 7);
 			setBlockAndMetadata(world, i122, 10, 1, brickStairBlock, 6);
 		}
+		int i13;
 		for (i13 = -3; i13 <= 3; ++i13) {
 			setBlockAndMetadata(world, i13, 11, -4, brickStairBlock, 6);
 			setBlockAndMetadata(world, i13, 11, 4, brickStairBlock, 7);
@@ -181,6 +176,10 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 		placeWallBanner(world, 3, 7, 3, bannerType, 0);
 		placeWallBanner(world, -3, 7, 3, bannerType, 0);
 
+		int i1;
+		int k12;
+		int i22;
+		int j1;
 		for (i1 = -5; i1 <= 5; ++i1) {
 			i22 = Math.abs(i1);
 			if (i22 >= 4) {
@@ -213,6 +212,7 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i1, 5, k12, brickStairBlock, 6);
 			setBlockAndMetadata(world, i1, 6, k12, rockWallBlock, rockWallMeta);
 		}
+		int k1;
 		for (k1 = -1; k1 <= 1; ++k1) {
 			setBlockAndMetadata(world, -3, 7, k1, brickStairBlock, 1);
 			setBlockAndMetadata(world, -4, 6, k1, brickStairBlock, 1);
@@ -273,9 +273,9 @@ public class GOTStructureWesterosGatehouse extends GOTStructureWesterosBase {
 		}
 		for (int i1221 : new int[]{-1, 1}) {
 			j12 = 8;
-			int k17 = 0;
 			GOTEntityNPC levyman = getSoldier(world);
 			levyman.spawnRidingHorse = false;
+			int k17 = 0;
 			spawnNPCAndSetHome(levyman, world, i1221, j12, k17, 8);
 		}
 		return true;

@@ -30,10 +30,10 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 	}
 
 	public void renderInvChest(Block block, int meta) {
-		Block c;
 		GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
 		GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
 		itemEntity.textureName = "";
+		Block c;
 		if (block instanceof GOTBlockChest) {
 			itemEntity.textureName = ((GOTBlockChest) block).getChestTextureName();
 		} else if (block instanceof GOTBlockSpawnerChest && (c = ((GOTBlockSpawnerChest) block).chestModel) instanceof GOTBlockChest) {

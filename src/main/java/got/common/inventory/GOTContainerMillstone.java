@@ -17,10 +17,10 @@ public class GOTContainerMillstone extends Container {
 	public boolean isMilling;
 
 	public GOTContainerMillstone(InventoryPlayer inv, GOTTileEntityMillstone millstone) {
-		int i;
 		theMillstone = millstone;
 		addSlotToContainer(new Slot(millstone, 0, 84, 25));
 		addSlotToContainer(new GOTSlotMillstone(inv.player, millstone, 1, 84, 71));
+		int i;
 		for (i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
 				addSlotToContainer(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 100 + i * 18));

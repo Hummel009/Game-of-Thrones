@@ -29,7 +29,6 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 		GL11.glTranslatef((float) d + 0.5f, (float) d1 + 1.5f, (float) d2 + 0.5f);
 		int meta = weaponRack.getBlockMetadata();
 		int dir = meta & 3;
-		boolean wall = (meta & 4) != 0;
 		switch (dir) {
 			case 0:
 				GL11.glRotatef(0.0f, 0.0f, 1.0f, 0.0f);
@@ -46,13 +45,14 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 			default:
 				break;
 		}
+		boolean wall = (meta & 4) != 0;
 		if (wall) {
 			GL11.glTranslatef(0.0f, 0.375f, -0.5f);
 		}
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
-		float scale = 0.0625f;
 		bindTexture(rackTexture);
 		rackModel.onWall = wall;
+		float scale = 0.0625f;
 		rackModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		ItemStack weaponItem = weaponRack.getWeaponItem();
 		if (weaponItem != null) {
@@ -98,8 +98,6 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 			if (Minecraft.isGuiEnabled() && weaponItem != null && weaponItem.hasDisplayName()) {
 				RenderManager renderManager = RenderManager.instance;
 				FontRenderer fontRenderer = func_147498_b();
-				float f = 1.6f;
-				float f1 = 0.016666668f * f;
 				double dSq = renderManager.livingPlayer.getDistanceSq(rack.xCoord + 0.5, rack.yCoord + 0.5, rack.zCoord);
 				float f2 = 64.0f;
 				if (dSq < f2 * f2) {
@@ -109,6 +107,8 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 					GL11.glNormal3f(0.0f, 1.0f, 0.0f);
 					GL11.glRotatef(-renderManager.playerViewY, 0.0f, 1.0f, 0.0f);
 					GL11.glRotatef(renderManager.playerViewX, 1.0f, 0.0f, 0.0f);
+					float f = 1.6f;
+					float f1 = 0.016666668f * f;
 					GL11.glScalef(-f1, -f1, f1);
 					GL11.glDisable(2896);
 					GL11.glDepthMask(false);
@@ -116,11 +116,11 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 					GL11.glEnable(3042);
 					OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 					Tessellator tessellator = Tessellator.instance;
-					int b0 = 0;
 					GL11.glDisable(3553);
 					tessellator.startDrawingQuads();
 					int j = fontRenderer.getStringWidth(name) / 2;
 					tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, 0.25f);
+					int b0 = 0;
 					tessellator.addVertex(-j - 1, -1 + b0, 0.0);
 					tessellator.addVertex(-j - 1, 8 + b0, 0.0);
 					tessellator.addVertex(j + 1, 8 + b0, 0.0);

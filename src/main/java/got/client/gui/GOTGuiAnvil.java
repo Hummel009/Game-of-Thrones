@@ -163,8 +163,6 @@ public class GOTGuiAnvil extends GuiContainer {
 
 	@Override
 	public void drawScreen(int i, int j, float f) {
-		float z;
-		String tooltip;
 		ItemStack inputItem = theAnvil.invInput.getStackInSlot(0);
 		boolean canReforge = inputItem != null && GOTEnchantmentHelper.isReforgeable(inputItem) && theAnvil.reforgeCost > 0;
 		boolean canEngrave = inputItem != null && GOTEnchantmentHelper.isReforgeable(inputItem) && theAnvil.engraveOwnerCost > 0;
@@ -172,6 +170,8 @@ public class GOTGuiAnvil extends GuiContainer {
 		buttonEngraveOwner.enabled = canEngrave && theAnvil.canEngraveNewOwner(inputItem, mc.thePlayer);
 		buttonEngraveOwner.visible = buttonEngraveOwner.enabled;
 		super.drawScreen(i, j, f);
+		String tooltip;
+		float z;
 		if (buttonReforge.visible && buttonReforge.func_146115_a()) {
 			z = zLevel;
 			tooltip = StatCollector.translateToLocal("got.container.anvil.reforge");

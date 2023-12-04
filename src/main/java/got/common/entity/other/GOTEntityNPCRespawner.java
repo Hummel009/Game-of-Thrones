@@ -340,10 +340,10 @@ public class GOTEntityNPCRespawner extends Entity {
 		nbt.setInteger("SpawnInterval", spawnInterval);
 		nbt.setByte("NoPlayerRange", (byte) noPlayerRange);
 		String class1String = "";
-		String class2String = "";
 		if (spawnClass1 != null) {
 			class1String = GOTEntityRegistry.getStringFromClass(spawnClass1);
 		}
+		String class2String = "";
 		if (spawnClass2 != null) {
 			class2String = GOTEntityRegistry.getStringFromClass(spawnClass2);
 		}

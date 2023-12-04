@@ -37,17 +37,17 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 	public static RenderBlocks renderBlocks = new RenderBlocks();
 
 	public void renderLiquid(IIcon icon, int uvMin, int uvMax, double yMin, double yMax, float scale) {
-		double edge = 0.001;
 		double xzMin = (double) uvMin * scale;
 		double xzMax = (double) uvMax * scale;
-		float dxz = 0.5f - (uvMin + uvMax) / 2.0f * scale;
 		yMin = 16.0 - yMin;
 		yMax = 16.0 - yMax;
 		yMin *= scale;
 		yMax *= scale;
 		GL11.glPushMatrix();
+		float dxz = 0.5f - (uvMin + uvMax) / 2.0f * scale;
 		GL11.glTranslatef(dxz, -0.5f, dxz);
 		renderBlocks.setOverrideBlockTexture(icon);
+		double edge = 0.001;
 		GOTRenderBlocks.renderStandardInvBlock(renderBlocks, GOTBlocks.mug, xzMin += edge, yMax - edge, xzMin, xzMax -= edge, yMin + edge, xzMax);
 		renderBlocks.clearOverrideBlockTexture();
 		GL11.glPopMatrix();
@@ -83,7 +83,6 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
 		float mugScale = 0.75f;
 		GL11.glScalef(mugScale, mugScale, mugScale);
-		float scale = 0.0625f;
 		switch (mug.getBlockMetadata()) {
 			case 0:
 				GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
@@ -103,6 +102,7 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		if (vessel == GOTItemMug.Vessel.SKULL || vessel == GOTItemMug.Vessel.HORN || vessel == GOTItemMug.Vessel.HORN_GOLD) {
 			GL11.glRotatef(-90.0f, 0.0f, 1.0f, 0.0f);
 		}
+		float scale = 0.0625f;
 		if (full) {
 			GL11.glDisable(2896);
 			GL11.glPushMatrix();

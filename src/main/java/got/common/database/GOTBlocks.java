@@ -1300,7 +1300,6 @@ public class GOTBlocks {
 		Blocks.fire.setFireInfo(Blocks.leaves, 30, 60);
 		Blocks.fire.setFireInfo(Blocks.leaves2, 30, 60);
 		String pickaxe = "pickaxe";
-		String shovel = "shovel";
 		oreCopper.setHarvestLevel(pickaxe, 1);
 		oreTin.setHarvestLevel(pickaxe, 1);
 		oreSilver.setHarvestLevel(pickaxe, 2);
@@ -1312,6 +1311,7 @@ public class GOTBlocks {
 		blockMetal1.setHarvestLevel(pickaxe, 2, 3);
 		blockMetal1.setHarvestLevel(pickaxe, 2, 4);
 		oreGlowstone.setHarvestLevel(pickaxe, 1);
+		String shovel = "shovel";
 		quagmire.setHarvestLevel(shovel, 0);
 		quicksand.setHarvestLevel(shovel, 0);
 		blockMetal2.setHarvestLevel(pickaxe, 1, 4);

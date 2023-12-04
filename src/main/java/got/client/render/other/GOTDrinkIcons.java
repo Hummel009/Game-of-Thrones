@@ -24,7 +24,6 @@ public class GOTDrinkIcons {
 		Minecraft mc = Minecraft.getMinecraft();
 		IResourceManager resourceManager = mc.getResourceManager();
 		TextureMap textureMap = (TextureMap) iconregister;
-		String baseIconName = itemName.substring("got:".length());
 		try {
 			BufferedImage vesselIcon = vesselIcons.get(vessel);
 			if (vesselIcon == null) {
@@ -33,12 +32,12 @@ public class GOTDrinkIcons {
 				vesselIcons.put(vessel, vesselIcon);
 			}
 			BufferedImage liquidIcon = liquidIcons.get(item);
+			String baseIconName = itemName.substring("got:".length());
 			if (liquidIcon == null) {
 				ResourceLocation res = new ResourceLocation("got:textures/items/" + baseIconName + "_liquid.png");
 				liquidIcon = ImageIO.read(resourceManager.getResource(res).getInputStream());
 				liquidIcons.put(item, liquidIcon);
 			}
-			String iconName = "got:textures/items/" + baseIconName + '_' + vessel;
 			int iconWidth = vesselIcon.getWidth();
 			int iconHeight = vesselIcon.getHeight();
 			BufferedImage iconImage = new BufferedImage(iconWidth, iconHeight, 2);
@@ -51,6 +50,7 @@ public class GOTDrinkIcons {
 					iconImage.setRGB(i, j, rgb);
 				}
 			}
+			String iconName = "got:textures/items/" + baseIconName + '_' + vessel;
 			GOTBufferedImageIcon icon = new GOTBufferedImageIcon(iconName, iconImage);
 			icon.setIconWidth(iconImage.getWidth());
 			icon.setIconHeight(iconImage.getHeight());

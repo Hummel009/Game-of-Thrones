@@ -33,13 +33,13 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 	}
 
 	public void marry() {
-		int maxChildren;
 		theNPC.familyInfo.spouseUniqueID = theSpouse.getUniqueID();
 		theSpouse.familyInfo.spouseUniqueID = theNPC.getUniqueID();
 		theNPC.setCurrentItemOrArmor(0, null);
 		theNPC.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
 		theSpouse.setCurrentItemOrArmor(0, null);
 		theSpouse.setCurrentItemOrArmor(4, new ItemStack(GOTItems.goldRing));
+		int maxChildren;
 		theNPC.familyInfo.maxChildren = maxChildren = theNPC.familyInfo.getRandomMaxChildren();
 		theSpouse.familyInfo.maxChildren = maxChildren;
 		theNPC.familyInfo.setMaxBreedingDelay();

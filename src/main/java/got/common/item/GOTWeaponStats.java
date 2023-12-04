@@ -163,12 +163,12 @@ public class GOTWeaponStats {
 					weaponFactor *= 2.0f;
 				}
 			} else if (item instanceof ItemBow) {
-				int power;
 				weaponFactor = baseArrowFactor;
 				if (item instanceof GOTItemBow) {
 					weaponFactor *= (float) ((GOTItemBow) item).arrowDamageFactor;
 				}
 				weaponFactor *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
+				int power;
 				if (!launchSpeedOnly && (power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack)) > 0) {
 					weaponFactor = (float) (weaponFactor + (power * 0.5 + 0.5));
 				}
@@ -198,7 +198,6 @@ public class GOTWeaponStats {
 	}
 
 	public static float getRangedSpeed(ItemStack itemstack) {
-		int base = 20;
 		int time = 0;
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
@@ -217,6 +216,7 @@ public class GOTWeaponStats {
 			}
 		}
 		if (time > 0) {
+			int base = 20;
 			return 1.0f / ((float) time / base);
 		}
 		return 0.0f;

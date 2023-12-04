@@ -174,10 +174,6 @@ public class GOTSpawnerNPCs {
 						int i1 = i;
 						int j1 = j;
 						int k1 = k;
-						int range = 5;
-						int yRange = 0;
-						int rangeP1 = range + 1;
-						int yRangeP1 = yRange + 1;
 						GOTSpawnEntry.Instance spawnEntryInstance = getRandomSpawnListEntry(world, i1, j1, k1);
 						if (spawnEntryInstance == null) {
 							continue;
@@ -192,6 +188,10 @@ public class GOTSpawnerNPCs {
 						IEntityLivingData entityData = null;
 						int spawned = 0;
 						int attempts = spawnCount * 8;
+						int yRange = 0;
+						int yRangeP1 = yRange + 1;
+						int range = 5;
+						int rangeP1 = range + 1;
 						for (int a = 0; a < attempts; ++a) {
 							float f1;
 							float f4;
@@ -199,10 +199,10 @@ public class GOTSpawnerNPCs {
 							float f5;
 							float f3;
 							float f;
-							EntityLiving entity;
 							if (!world.blockExists(i1 += world.rand.nextInt(rangeP1) - world.rand.nextInt(rangeP1), j1 += world.rand.nextInt(yRangeP1) - world.rand.nextInt(yRangeP1), k1 += world.rand.nextInt(rangeP1) - world.rand.nextInt(rangeP1)) || !canNPCSpawnAtLocation(world, i1, j1, k1) || world.getClosestPlayer(f = i1 + 0.5f, f1 = j1, f2 = k1 + 0.5f, 24.0) != null || (f3 = f - spawnPoint.posX) * f3 + (f4 = f1 - spawnPoint.posY) * f4 + (f5 = f2 - spawnPoint.posZ) * f5 < 576.0f) {
 								continue;
 							}
+							EntityLiving entity;
 							try {
 								entity = (EntityLiving) spawnEntry.entityClass.getConstructor(World.class).newInstance(world);
 							} catch (Exception e) {

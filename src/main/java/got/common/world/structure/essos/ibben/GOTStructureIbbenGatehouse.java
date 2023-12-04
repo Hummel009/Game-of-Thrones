@@ -13,11 +13,10 @@ public class GOTStructureIbbenGatehouse extends GOTStructureIbbenBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int i1;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 2);
 		setupRandomBlocks(random);
+		int i1;
+		int k1;
 		if (restrictions) {
 			for (i1 = -9; i1 <= 9; ++i1) {
 				for (k1 = -2; k1 <= 2; ++k1) {
@@ -29,6 +28,7 @@ public class GOTStructureIbbenGatehouse extends GOTStructureIbbenBase {
 				}
 			}
 		}
+		int j1;
 		for (i1 = -9; i1 <= 9; ++i1) {
 			for (k1 = -2; k1 <= 2; ++k1) {
 				int i2 = Math.abs(i1);

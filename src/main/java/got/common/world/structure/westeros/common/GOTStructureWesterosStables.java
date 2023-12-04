@@ -17,17 +17,9 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int k1;
-		int i1;
-		int i122;
-		int i2;
-		int j12;
-		int j13;
-		int i13;
-		int k12;
 		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
+		int j12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -50,6 +42,8 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int k12;
+		int i13;
 		for (i13 = -4; i13 <= 4; ++i13) {
 			for (k12 = -5; k12 <= 5; ++k12) {
 				for (j12 = 0; (j12 == 0 || !isOpaque(world, i13, j12, k12)) && getY(j12) >= 0; --j12) {
@@ -69,6 +63,8 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i13, 6, -2, roofSlabBlock, roofSlabMeta);
 			setBlockAndMetadata(world, i13, 6, -1, roofSlabBlock, roofSlabMeta | 8);
 		}
+		int i2;
+		int k1;
 		for (i13 = -4; i13 <= 4; ++i13) {
 			i2 = Math.abs(i13);
 			if (i2 == 4 || i2 == 0) {
@@ -104,9 +100,8 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 		}
 		int[] i15 = {-4, 4};
 		i2 = i15.length;
+		int i122;
 		for (k1 = 0; k1 < i2; ++k1) {
-			int j15;
-			int k14;
 			i122 = i15[k1];
 			for (j12 = 1; j12 <= 6; ++j12) {
 				setBlockAndMetadata(world, i122, j12, 0, pillarBlock, pillarMeta);
@@ -114,6 +109,8 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 			for (j12 = 1; j12 <= 5; ++j12) {
 				setBlockAndMetadata(world, i122, j12, 5, pillarBlock, pillarMeta);
 			}
+			int k14;
+			int j15;
 			for (k14 = 1; k14 <= 4; ++k14) {
 				for (j15 = 1; j15 <= 6; ++j15) {
 					setBlockAndMetadata(world, i122, j15, k14, brickBlock, brickMeta);
@@ -130,6 +127,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i122, 4, k14, woodBeamBlock, woodBeamMeta | 8);
 			}
 		}
+		int j1;
 		for (int i16 = -3; i16 <= 3; ++i16) {
 			for (j1 = 1; j1 <= 6; ++j1) {
 				if (j1 >= 2 && j1 <= 4) {
@@ -154,6 +152,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 			horse.saddleMountForWorldGen();
 			horse.detachHome();
 		}
+		int i1;
 		for (i1 = -3; i1 <= 3; ++i1) {
 			for (k12 = 1; k12 <= 4; ++k12) {
 				setBlockAndMetadata(world, i1, 4, k12, plankBlock, plankMeta);
@@ -199,6 +198,7 @@ public class GOTStructureWesterosStables extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 3, 1, 1, plankBlock, plankMeta);
 		placeMug(world, random, 3, 2, 1, 2, GOTFoods.WESTEROS_DRINK);
 		setBlockAndMetadata(world, 0, 3, 3, GOTBlocks.chandelier, 1);
+		int j13;
 		for (j13 = 1; j13 <= 6; ++j13) {
 			setBlockAndMetadata(world, 0, j13, 0, pillarBlock, pillarMeta);
 		}

@@ -20,15 +20,9 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k2;
-		int k1;
-		int i1;
-		int j1;
-		int j12;
-		int k12;
-		int i2;
 		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
+		int j12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -51,6 +45,10 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 				}
 			}
 		}
+		int i2;
+		int i1;
+		int k1;
+		int k2;
 		for (i1 = -3; i1 <= 3; ++i1) {
 			for (k1 = -3; k1 <= 3; ++k1) {
 				i2 = Math.abs(i1);
@@ -95,6 +93,7 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 			setBlockAndMetadata(world, i1, 10, -4, brickStairBlock, 6);
 			setBlockAndMetadata(world, i1, 10, 4, brickStairBlock, 7);
 		}
+		int k12;
 		for (k12 = -2; k12 <= 2; ++k12) {
 			setBlockAndMetadata(world, -4, 10, k12, brickStairBlock, 5);
 			setBlockAndMetadata(world, 4, 10, k12, brickStairBlock, 4);
@@ -110,6 +109,7 @@ public class GOTStructureAsshaiWatchtower extends GOTStructureAsshaiBase {
 		setBlockAndMetadata(world, 0, 0, -3, brickBlock, brickMeta);
 		setBlockAndMetadata(world, 0, 1, -3, doorBlock, 1);
 		setBlockAndMetadata(world, 0, 2, -3, doorBlock, 8);
+		int j1;
 		for (j1 = 1; j1 <= 2; ++j1) {
 			setBlockAndMetadata(world, -1, j1, -3, GOTBlocks.brick1, 0);
 			setBlockAndMetadata(world, 1, j1, -3, GOTBlocks.brick1, 0);

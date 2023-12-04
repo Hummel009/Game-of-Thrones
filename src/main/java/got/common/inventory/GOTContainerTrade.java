@@ -20,13 +20,13 @@ public class GOTContainerTrade extends Container {
 	public World theWorld;
 
 	public GOTContainerTrade(InventoryPlayer inv, GOTTradeable trader, World world) {
-		int i;
 		theTrader = trader;
 		theTraderNPC = (GOTEntityNPC) trader;
 		theWorld = world;
 		if (!world.isRemote) {
 			updateAllTradeSlots();
 		}
+		int i;
 		for (i = 0; i < 9; ++i) {
 			addSlotToContainer(new GOTSlotTrade(this, tradeInvBuy, i, 8 + i * 18, 40, theTraderNPC, GOTTradeEntries.TradeType.WE_CAN_BUY));
 		}

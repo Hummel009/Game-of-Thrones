@@ -273,9 +273,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	@Override
 	public void drawScreen(int i, int j, float f) {
-		String s;
-		int y;
-		int x;
 		Tessellator tess = Tessellator.instance;
 		zLevel = 0.0f;
 		setupMapDimensions();
@@ -329,10 +326,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			tess.startDrawingQuads();
 			if (isConquestGrid) {
 				int w = 8;
-				int up = 22;
 				int down = 54;
 				tess.addVertexWithUV(mapXMin - w, mapYMax + down, zLevel, 0.0, 1.0);
 				tess.addVertexWithUV(mapXMax + w, mapYMax + down, zLevel, 1.0, 1.0);
+				int up = 22;
 				tess.addVertexWithUV(mapXMax + w, mapYMin - up, zLevel, 1.0, 0.0);
 				tess.addVertexWithUV(mapXMin - w, mapYMin - up, zLevel, 0.0, 0.0);
 			} else {
@@ -378,14 +375,14 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int strWidth = mc.fontRenderer.getStringWidth(tooltip);
 				int strHeight = mc.fontRenderer.FONT_HEIGHT;
 				int rectX = i + 12;
-				int rectY = j - 12;
-				int border = 3;
-				int rectWidth = strWidth + border * 2;
-				int rectHeight = strHeight + border * 2;
 				int mapBorder2 = 2;
 				rectX = Math.max(rectX, mapXMin + mapBorder2);
+				int border = 3;
+				int rectWidth = strWidth + border * 2;
 				rectX = Math.min(rectX, mapXMax - mapBorder2 - rectWidth);
+				int rectY = j - 12;
 				rectY = Math.max(rectY, mapYMin + mapBorder2);
+				int rectHeight = strHeight + border * 2;
 				rectY = Math.min(rectY, mapYMax - mapBorder2 - rectHeight);
 				GL11.glTranslatef(0.0f, 0.0f, 300.0f);
 				drawFancyRect(rectX, rectY, rectX + rectWidth, rectY + rectHeight);
@@ -407,11 +404,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					if (allZones == null) {
 						allZones = new ArrayList<>();
 					}
-					List<GOTConquestZone> zonesInView = new ArrayList<>();
 					highestViewedConqStr = 0.0f;
 					float mouseOverStr = 0.0f;
 					GOTConquestZone mouseOverZone = null;
 					GOTConquestGrid.ConquestEffective mouseOverEffect = null;
+					List<GOTConquestZone> zonesInView = new ArrayList<>();
 					for (int pass = 0; pass <= 1; ++pass) {
 						if (pass != 1 || highestViewedConqStr > 0.0f) {
 							List<GOTConquestZone> zoneList = pass == 0 ? allZones : zonesInView;
@@ -496,8 +493,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						float guiScale = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight).getScaleFactor();
 						float subScale = guiScale <= 2.0f ? guiScale : guiScale - 1.0f;
 						float subScaleRel = subScale / guiScale;
-						int rectX = i + 12;
-						int rectY = j - 12;
 						int border = 3;
 						int iconSize = 16;
 						int rectWidth = border * 2 + Math.max(strWidth + iconSize + border, (int) (subWidth * subScaleRel));
@@ -506,8 +501,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							rectHeight += border + (int) (strHeight * subScaleRel);
 						}
 						int mapBorder2 = 2;
+						int rectX = i + 12;
 						rectX = Math.max(rectX, mapXMin + mapBorder2);
 						rectX = Math.min(rectX, mapXMax - mapBorder2 - rectWidth);
+						int rectY = j - 12;
 						rectY = Math.max(rectY, mapYMin + mapBorder2);
 						rectY = Math.min(rectY, mapYMax - mapBorder2 - rectHeight);
 						GL11.glTranslatef(0.0f, 0.0f, 300.0f);
@@ -610,8 +607,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				boolean hasUnlocked = selectedWaypoint.hasPlayerUnlocked(mc.thePlayer);
 				int ftSince = pd.getTimeSinceFT();
 				int wpTimeThreshold = pd.getWaypointFTTime(selectedWaypoint, mc.thePlayer);
-				int timeRemaining = wpTimeThreshold - ftSince;
-				boolean canFastTravel = hasUnlocked && timeRemaining <= 0;
 				String notUnlocked = "If you can read this, something has gone hideously wrong";
 				if (selectedWaypoint instanceof GOTCustomWaypoint) {
 					GOTCustomWaypoint cwp = (GOTCustomWaypoint) selectedWaypoint;
@@ -624,8 +619,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 				String conquestUnlock = pd.getPledgeFaction() == null ? "" : StatCollector.translateToLocalFormatted("got.gui.map.locked.conquerable", pd.getPledgeFaction().factionName());
 				String ftPrompt = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.prompt", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingFastTravel.getKeyCode()));
+				int timeRemaining = wpTimeThreshold - ftSince;
 				String ftMoreTime = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.moreTime", GOTLevelData.getHMSTime_Ticks(timeRemaining));
 				String ftWaitTime = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.waitTime", GOTLevelData.getHMSTime_Ticks(wpTimeThreshold));
+				boolean canFastTravel = hasUnlocked && timeRemaining <= 0;
 				if (fullscreen || isConquestGrid) {
 					if (!hasUnlocked) {
 						if (selectedWaypoint instanceof GOTWaypoint && ((GOTWaypoint) selectedWaypoint).isConquestUnlockable(mc.thePlayer)) {
@@ -660,8 +657,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					int x3 = mapXMin + mapWidth / 2 - rectWidth / 2;
 					int y3 = mapYMax + 10;
 					int strX = mapXMin + mapWidth / 2;
-					int strY = y3 + border;
 					drawFancyRect(x3, y3, x3 + rectWidth, y3 + rectHeight);
+					int strY = y3 + border;
 					for (String s3 : lines) {
 						drawCenteredString(s3, strX, strY, 16777215);
 						strY += stringHeight + border;
@@ -713,23 +710,26 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				zLevel -= 500.0f;
 			}
 		}
+		int x;
+		int y;
+		String s;
 		if (isConquestGrid) {
 			s = StatCollector.translateToLocalFormatted("got.gui.map.conquest.title", conquestViewingFaction.factionName());
 			x = mapXMin + mapWidth / 2;
 			y = mapYMin - 14;
 			GOTTickHandlerClient.drawAlignmentText(fontRendererObj, x - fontRendererObj.getStringWidth(s) / 2, y, s, 1.0f);
 			if (!loadingConquestGrid) {
-				int keyBorder = 8;
-				int keyWidth = 24;
-				int keyHeight = 12;
-				int iconSize = 16;
-				int iconGap = keyBorder / 2;
 				float guiScale = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight).getScaleFactor();
 				float labelScale = guiScale <= 2.0f ? guiScale : guiScale - 1.0f;
-				float labelScaleRel = labelScale / guiScale;
 				mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+				int iconSize = 16;
+				int keyBorder = 8;
 				drawTexturedModalRect(mapXMax - keyBorder - iconSize, mapYMax - keyBorder - iconSize, 0, 228, iconSize, iconSize);
+				float labelScaleRel = labelScale / guiScale;
+				int iconGap = keyBorder / 2;
+				int keyHeight = 12;
+				int keyWidth = 24;
 				for (int pass = 0; pass <= 1; ++pass) {
 					for (int l = 0; l <= 10; ++l) {
 						float frac = (10 - l) / 10.0f;
@@ -1013,8 +1013,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			int zMin = zoneBorders[2];
 			int zMax = zoneBorders[3];
 			float x = (xMin + xMax) / 2.0f;
-			float z = (zMin + zMax) / 2.0f;
 			posX = x / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_X;
+			float z = (zMin + zMax) / 2.0f;
 			posY = z / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_Z;
 			int zoneWidth = xMax - xMin;
 			int zoneHeight = zMax - zMin;
@@ -1121,7 +1121,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	@Override
 	public void mouseClicked(int i, int j, int k) {
-		IMessage packet;
 		GOTGuiMapWidget mouseWidget = null;
 		for (GOTGuiMapWidget widget : mapWidgets) {
 			if (widget.isMouseOver(i - mapXMin, j - mapYMin, mapWidth, mapHeight)) {
@@ -1132,6 +1131,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (hasOverlay && (creatingWaypointNew || renamingWaypoint || sharingWaypointNew)) {
 			nameWPTextField.mouseClicked(i, j, k);
 		}
+		IMessage packet;
 		if (hasOverlay && k == 0 && sharingWaypoint && mouseOverRemoveSharedFellowship != null) {
 			String fsName = mouseOverRemoveSharedFellowship.getName();
 			packet = new GOTPacketShareCWP(selectedWaypoint, fsName, false);
@@ -1318,7 +1318,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int interval = Math.round(400.0f / zoomScaleStable);
 				interval = Math.max(interval, 1);
 				for (int i = 0; i < bezier.getBezierPoints().length; i += interval) {
-					int clip;
 					GOTBeziers.BezierPoint point = bezier.getBezierPoints()[i];
 					float[] pos = transformCoords(point.getX(), point.getZ());
 					float x = pos[0];
@@ -1347,6 +1346,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						GL11.glDisable(3042);
 						GL11.glEnable(3553);
 					}
+					int clip;
 					if (labels && x >= mapXMin - (clip = 200) && x <= mapXMax + clip && y >= mapYMin - clip && y <= mapYMax + clip) {
 						float zoomlerp = (zoomExp + 1.0f) / 4.0f;
 						float scale = zoomlerp = Math.min(zoomlerp, 1.0f);
@@ -1399,10 +1399,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public void renderControlZone(int mouseX, int mouseY) {
-		List<GOTControlZone> controlZones;
 		mouseControlZone = false;
 		mouseControlZoneReduced = false;
 		GOTFaction faction = controlZoneFaction;
+		List<GOTControlZone> controlZones;
 		if (faction.factionDimension == GOTDimension.GAME_OF_THRONES && !(controlZones = faction.getControlZones()).isEmpty()) {
 			Tessellator tessellator = Tessellator.instance;
 			setupMapClipping();
@@ -1416,10 +1416,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					color = 16733525;
 				}
 				for (GOTControlZone zone : controlZones) {
-					float dx;
-					float[] trans;
-					float dy;
-					float rScaled;
 					float radius = zone.radius;
 					if (pass == 2) {
 						radius -= 1.0f;
@@ -1439,6 +1435,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						tessellator.addVertex(trans2[0], trans2[1], zLevel);
 					}
 					tessellator.draw();
+					float rScaled;
+					float dy;
+					float[] trans;
+					float dx;
 					if ((!mouseControlZone || !mouseControlZoneReduced) && (dx = mouseX - (trans = transformCoords(zone.xCoord, zone.zCoord))[0]) * dx + (dy = mouseY - trans[1]) * dy <= (rScaled = radius * zoomScale) * rScaled) {
 						if (pass >= 1) {
 							mouseControlZone = true;
@@ -1644,7 +1644,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int questX = Math.round(pos[0]);
 				int questY = Math.round(pos[1]);
 				float scale = 0.5f;
-				float invScale = 1.0f / scale;
 				IIcon icon = questBookIcon.getIconIndex();
 				int iconWidthHalf = icon.getIconWidth() / 2;
 				iconWidthHalf = (int) (iconWidthHalf * scale);
@@ -1653,6 +1652,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				questX = Math.min(mapXMax - iconBorder - 1, questX);
 				questY = Math.max(mapYMin + iconBorder, questY);
 				questY = Math.min(mapYMax - iconBorder - 1, questY);
+				float invScale = 1.0f / scale;
 				int iconX = Math.round(questX * invScale);
 				int iconY = Math.round(questY * invScale);
 				GL11.glScalef(scale, scale, scale);
@@ -1684,11 +1684,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			int border = 3;
 			int rectWidth = stringWidth + border * 2;
 			x -= rectWidth / 2;
-			int rectHeight = stringHeight + border * 2;
 			int mapBorder2 = 2;
 			x = Math.max(x, mapXMin + mapBorder2);
 			x = Math.min(x, mapXMax - mapBorder2 - rectWidth);
 			y = Math.max(y, mapYMin + mapBorder2);
+			int rectHeight = stringHeight + border * 2;
 			y = Math.min(y, mapYMax - mapBorder2 - rectHeight);
 			GL11.glTranslatef(0.0f, 0.0f, 300.0f);
 			drawFancyRect(x, y, x + rectWidth, y + rectHeight);
@@ -1717,15 +1717,15 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			}
 		}
 		mc.getTextureManager().bindTexture(skin);
-		double iconMinU = 0.125;
-		double iconMaxU = 0.25;
-		double iconMinV = 0.25;
-		double iconMaxV = 0.5;
 		double playerX_d = playerX + 0.5;
 		double playerY_d = playerY + 0.5;
 		tessellator.startDrawingQuads();
+		double iconMaxV = 0.5;
+		double iconMinU = 0.125;
 		tessellator.addVertexWithUV(playerX_d - iconWidthHalf, playerY_d + iconWidthHalf, zLevel, iconMinU, iconMaxV);
+		double iconMaxU = 0.25;
 		tessellator.addVertexWithUV(playerX_d + iconWidthHalf, playerY_d + iconWidthHalf, zLevel, iconMaxU, iconMaxV);
+		double iconMinV = 0.25;
 		tessellator.addVertexWithUV(playerX_d + iconWidthHalf, playerY_d - iconWidthHalf, zLevel, iconMaxU, iconMinV);
 		tessellator.addVertexWithUV(playerX_d - iconWidthHalf, playerY_d - iconWidthHalf, zLevel, iconMinU, iconMinV);
 		tessellator.draw();
@@ -1743,15 +1743,15 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public void renderPlayers(int mouseX, int mouseY) {
-		String mouseOverPlayerName = null;
-		double mouseOverPlayerX = 0.0;
-		double mouseOverPlayerY = 0.0;
-		double distanceMouseOverPlayer = Double.MAX_VALUE;
-		int iconWidthHalf = 4;
 		Map<UUID, PlayerLocationInfo> playersToRender = new HashMap<>(playerLocations);
 		if (isGameOfThrones()) {
 			playersToRender.put(mc.thePlayer.getUniqueID(), new PlayerLocationInfo(mc.thePlayer.getGameProfile(), mc.thePlayer.posX, mc.thePlayer.posZ));
 		}
+		int iconWidthHalf = 4;
+		double distanceMouseOverPlayer = Double.MAX_VALUE;
+		double mouseOverPlayerY = 0.0;
+		double mouseOverPlayerX = 0.0;
+		String mouseOverPlayerName = null;
 		for (Map.Entry<UUID, PlayerLocationInfo> entry : playersToRender.entrySet()) {
 			int playerY;
 			float[] pos;
@@ -1776,11 +1776,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			int border = 3;
 			int rectWidth = strWidth + border * 2;
 			rectX -= rectWidth / 2;
-			int rectHeight = strHeight + border * 2;
 			int mapBorder2 = 2;
 			rectX = Math.max(rectX, mapXMin + mapBorder2);
 			rectX = Math.min(rectX, mapXMax - mapBorder2 - rectWidth);
 			rectY = Math.max(rectY, mapYMin + mapBorder2);
+			int rectHeight = strHeight + border * 2;
 			rectY = Math.min(rectY, mapYMax - mapBorder2 - rectHeight);
 			GL11.glTranslatef(0.0f, 0.0f, 300.0f);
 			drawFancyRect(rectX, rectY, rectX + rectWidth, rectY + rectHeight);
@@ -1798,14 +1798,14 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	public void renderWaypoints(Iterable<GOTAbstractWaypoint> waypoints, int pass, int mouseX, int mouseY, boolean labels, boolean overrideToggles) {
 		setupMapClipping();
-		GOTAbstractWaypoint mouseOverWP = null;
-		double distanceMouseOverWP = Double.MAX_VALUE;
 		float wpZoomlerp = (zoomExp + 3.3f) / 2.2f;
 		wpZoomlerp = Math.min(wpZoomlerp, 1.0f);
 		if (!enableZoomOutWPFading) {
 			wpZoomlerp = 1.0f;
 		}
+		GOTAbstractWaypoint mouseOverWP = null;
 		if (wpZoomlerp > 0.0f) {
+			double distanceMouseOverWP = Double.MAX_VALUE;
 			for (GOTAbstractWaypoint waypoint : waypoints) {
 				boolean unlocked = mc.thePlayer != null && waypoint.hasPlayerUnlocked(mc.thePlayer);
 				boolean hidden = waypoint.isHidden();
@@ -1889,13 +1889,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			loreScale = guiScale;
 		}
 		float loreScaleRel = loreScale / guiScale;
-		float loreScaleRelInv = 1.0f / loreScaleRel;
 		int loreFontHeight = MathHelper.ceiling_double_int(fontRendererObj.FONT_HEIGHT * loreScaleRel);
 		float[] pos = transformCoords(wpX, wpZ);
 		int rectX = Math.round(pos[0]);
 		int rectY = Math.round(pos[1]);
 		rectY += 5;
-		int border = 3;
 		int stringHeight = fontRendererObj.FONT_HEIGHT;
 		int innerRectWidth = fontRendererObj.getStringWidth(name);
 		if (selected) {
@@ -1905,9 +1903,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				innerRectWidth = Math.round(innerRectWidth * (loreScaleRel / 0.66667f));
 			}
 		}
+		int border = 3;
 		int rectWidth = innerRectWidth + border * 2;
 		rectX -= rectWidth / 2;
 		int rectHeight = border * 2 + stringHeight;
+		float loreScaleRelInv = 1.0f / loreScaleRel;
 		if (selected) {
 			rectHeight += border + stringHeight;
 			if (loreText != null) {
@@ -2025,9 +2025,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public void setupMapDimensions() {
 		if (isConquestGrid) {
 			int windowWidth = 400;
-			int windowHeight = 240;
 			mapXMin = width / 2 - windowWidth / 2;
 			mapXMax = width / 2 + windowWidth / 2;
+			int windowHeight = 240;
 			mapYMin = height / 2 - 16 - windowHeight / 2;
 			mapYMax = mapYMin + windowHeight;
 		} else if (fullscreen) {

@@ -33,9 +33,9 @@ public class GOTGuiIronBank extends GuiScreen {
 	@Override
 	public void actionPerformed(GuiButton B) {
 		Minecraft.getMinecraft().thePlayer.getDisplayName();
-		GOTPacketMoney packet;
 		for (int i = 0; i <= 15; i++) {
 			if (B == button[i]) {
+				GOTPacketMoney packet;
 				if (i <= 7) {
 					packet = new GOTPacketMoneyGive(new ItemStack(GOTItems.coin, 1, i));
 				} else {
@@ -56,9 +56,9 @@ public class GOTGuiIronBank extends GuiScreen {
 		drawDefaultBackground();
 		int widthHalf = width / 2;
 		int heightHalf = height / 2;
-		int xOrigin = widthHalf - 128;
-		int yOrigin = heightHalf - 94;
 		mc.renderEngine.bindTexture(new ResourceLocation("got:textures/gui/bank.png"));
+		int yOrigin = heightHalf - 94;
+		int xOrigin = widthHalf - 128;
 		drawTexturedModalRect(xOrigin, yOrigin, 0, 0, 256, 188);
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 		String balance = StatCollector.translateToLocalFormatted("got.gui.money.balance", pd.getBalance());

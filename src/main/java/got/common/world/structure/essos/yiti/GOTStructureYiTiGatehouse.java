@@ -14,18 +14,10 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k16;
-		int k12;
-		int i1;
-		int i12;
-		int i13;
-		int k13;
-		int i2;
-		int j1;
-		int k2;
-		int k14;
 		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
+		int i12;
+		int k12;
 		if (restrictions) {
 			for (i12 = -7; i12 <= 7; ++i12) {
 				for (k12 = -4; k12 <= 4; ++k12) {
@@ -37,11 +29,13 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 				}
 			}
 		}
+		int k2;
+		int i2;
 		for (i12 = -7; i12 <= 7; ++i12) {
 			for (k12 = -3; k12 <= 3; ++k12) {
-				int j13;
 				i2 = Math.abs(i12);
 				k2 = Math.abs(k12);
+				int j13;
 				for (j13 = 1; j13 <= 12; ++j13) {
 					setAir(world, i12, j13, k12);
 				}
@@ -76,6 +70,7 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 		}
 		int[] k15 = {-3, 3};
 		k12 = k15.length;
+		int k16;
 		for (i2 = 0; i2 < k12; ++i2) {
 			k16 = k15[i2];
 			for (int i14 : new int[]{-3, 3}) {
@@ -145,10 +140,12 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 				setBlockAndMetadata(world, i17, 11, k16, brickBlock, brickMeta);
 			}
 		}
+		int k14;
 		for (k14 = -2; k14 <= 2; ++k14) {
 			setBlockAndMetadata(world, -3, 11, k14, brickBlock, brickMeta);
 			setBlockAndMetadata(world, 3, 11, k14, brickBlock, brickMeta);
 		}
+		int i1;
 		for (i1 = -3; i1 <= 3; ++i1) {
 			for (k12 = -3; k12 <= 3; ++k12) {
 				i2 = Math.abs(i1);
@@ -229,6 +226,7 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 		setBlockAndMetadata(world, 0, 16, 1, roofStairBlock, 3);
 		setBlockAndMetadata(world, -1, 16, 0, roofStairBlock, 1);
 		setBlockAndMetadata(world, 1, 16, 0, roofStairBlock, 0);
+		int k13;
 		for (i1 = -7; i1 <= 7; ++i1) {
 			int i22 = Math.abs(i1);
 			if (i22 >= 4 && i22 <= 6) {
@@ -278,6 +276,7 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 		placeWallBanner(world, -5, 6, 2, bannerType, 0);
 		placeWallBanner(world, 5, 6, 2, bannerType, 0);
 		int maxStep = 12;
+		int i13;
 		for (k12 = 2; k12 <= 2; ++k12) {
 			int j2;
 			int step;
@@ -292,6 +291,7 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 					--j2;
 				}
 			}
+			int j1;
 			for (step = 0; step < maxStep && !isOpaque(world, i13 = 8 + step, j1 = 5 - step, k12); ++step) {
 				setBlockAndMetadata(world, i13, j1, k12, brickStairBlock, 0);
 				setGrassToDirt(world, i13, j1 - 1, k12);
@@ -306,10 +306,10 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 		int men = 2;
 		for (int l = 0; l < men; ++l) {
 			i13 = 0;
-			int j111 = 8;
-			int k17 = 0;
 			GOTEntityYiTiSoldier guard = new GOTEntityYiTiSoldier(world);
 			guard.spawnRidingHorse = false;
+			int k17 = 0;
+			int j111 = 8;
 			spawnNPCAndSetHome(guard, world, i13, j111, k17, 8);
 		}
 		return true;

@@ -368,13 +368,13 @@ public class GOTItemMug extends Item {
 			entityplayer.getFoodStats().addStats(Math.round(foodHealAmount * foodStrength), foodSaturationAmount * foodStrength);
 		}
 		if (alcoholicity > 0.0f) {
-			int duration;
 			float alcoholPower = alcoholicity * strength;
 			int tolerance = GOTLevelData.getData(entityplayer).getAlcoholTolerance();
 			if (tolerance > 0) {
 				float f = (float) Math.pow(0.99, tolerance);
 				alcoholPower *= f;
 			}
+			int duration;
 			if (!world.isRemote && itemRand.nextFloat() < alcoholPower && (duration = (int) (60.0f * (1.0f + itemRand.nextFloat() * 0.5f) * alcoholPower)) >= 1) {
 				int durationTicks = duration * 20;
 				entityplayer.addPotionEffect(new PotionEffect(Potion.confusion.id, durationTicks));

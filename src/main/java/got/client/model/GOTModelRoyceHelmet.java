@@ -10,12 +10,12 @@ public class GOTModelRoyceHelmet extends GOTModelBiped {
 
 	public GOTModelRoyceHelmet(float f) {
 		super(f);
-		int i;
 		bipedHead = new ModelRenderer(this, 0, 0);
 		bipedHead.addBox(-4.0f, -8.0f, -4.0f, 8, 12, 8, f);
 		bipedHead.setRotationPoint(0.0f, 0.0f, 0.0f);
 		bipedHead.setTextureOffset(0, 20).addBox(-3.5f, -18.0f, -3.5f, 7, 10, 1, f);
 		ModelRenderer[] spikes = new ModelRenderer[8];
+		int i;
 		for (i = 0; i < spikes.length; ++i) {
 			spikes[i] = new ModelRenderer(this, 16, 20);
 			spikes[i].setRotationPoint(0.0f, 0.0f, 0.0f);

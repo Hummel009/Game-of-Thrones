@@ -69,18 +69,11 @@ public class GOTRenderWeather extends IRenderHandler {
 			if (mc.gameSettings.fancyGraphics) {
 				b0 = 10;
 			}
-			int b1 = -1;
-			float f5 = rendererUpdateCount + partialTicks;
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+			float f5 = rendererUpdateCount + partialTicks;
+			int b1 = -1;
 			for (int l = i3 - b0; l <= i3 + b0; ++l) {
 				for (int i1 = k2 - b0; i1 <= k2 + b0; ++i1) {
-					float f11;
-					float f15;
-					float f14;
-					double d4;
-					float f10;
-					double d5;
-					float f16;
 					int j1 = (l - i3 + 16) * 32 + i1 - k2 + 16;
 					float f6 = rainXCoords[j1] * 0.5f;
 					float f7 = rainYCoords[j1] * 0.5f;
@@ -99,13 +92,20 @@ public class GOTRenderWeather extends IRenderHandler {
 						if (i2 < k1) {
 							i2 = k1;
 						}
-						float f8 = 1.0f;
-						int j2 = Math.max(k1, k);
 						if (l1 == i2) {
 							continue;
 						}
 						rand.setSeed((long) i1 * i1 * 3121 + i1 * 45238971L ^ (long) l * l * 418711 + l * 13761L);
 						float f9 = biomegenbase.getFloatTemperature(i1, l1, l);
+						int j2 = Math.max(k1, k);
+						float f8 = 1.0f;
+						float f16;
+						double d5;
+						float f10;
+						double d4;
+						float f14;
+						float f15;
+						float f11;
 						if (ashy) {
 							if (b1 != 1) {
 								if (b1 == 0) {
@@ -171,8 +171,8 @@ public class GOTRenderWeather extends IRenderHandler {
 							double d3 = i1 + 0.5f - entitylivingbase.posX;
 							d4 = l + 0.5f - entitylivingbase.posZ;
 							float f12 = MathHelper.sqrt_double(d3 * d3 + d4 * d4) / b0;
-							float f13 = 1.0f;
 							tessellator.setBrightness(world.getLightBrightnessForSkyBlocks(i1, j2, l, 0));
+							float f13 = 1.0f;
 							tessellator.setColorRGBA_F(f13, f13, f13, ((1.0f - f12 * f12) * 0.5f + 0.5f) * rainStrength);
 							tessellator.setTranslation(-d0, -d1, -d2);
 							tessellator.addVertexWithUV(i1 - f6 + 0.5, l1, l - f7 + 0.5, 0.0f * f8, l1 * f8 / 4.0f + f10 * f8);

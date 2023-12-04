@@ -23,27 +23,11 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int i12;
-		int i13;
-		int i14;
-		int j12;
-		int k2;
-		int k22;
-		int k1;
-		int step;
-		int k12;
-		int i2;
-		int j13;
-		int j14;
-		int i152;
-		int k13;
-		int i22;
-		int k14;
-		int k15;
 		setOriginAndRotation(world, i, j, k, rotation, 11);
 		setupRandomBlocks(random);
+		int j13;
+		int k1;
+		int i13;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -66,6 +50,10 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 				}
 			}
 		}
+		int i22;
+		int k12;
+		int k22;
+		int i14;
 		for (i14 = -8; i14 <= 8; ++i14) {
 			for (k12 = -10; k12 <= 10; ++k12) {
 				i22 = Math.abs(i14);
@@ -127,6 +115,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 				}
 			}
 		}
+		int i2;
 		for (i14 = -8; i14 <= 8; ++i14) {
 			i2 = Math.abs(i14);
 			if (i2 == 2) {
@@ -156,6 +145,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, i14, 3, -11, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i14, 3, 11, fenceBlock, fenceMeta);
 		}
+		int k2;
 		for (int k16 = -10; k16 <= 10; ++k16) {
 			k2 = Math.abs(k16);
 			if (k2 % 4 == 0) {
@@ -236,6 +226,9 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, -5, 8, k1, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, 5, 8, k1, fenceBlock, fenceMeta);
 		}
+		int k13;
+		int i152;
+		int j1;
 		for (int step2 = 0; step2 <= 1; ++step2) {
 			j1 = 5 + step2;
 			for (k13 = -10 + step2; k13 <= 10 - step2; ++k13) {
@@ -279,6 +272,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		setBlockAndMetadata(world, 2, 5, -10, roofSlabBlock, roofSlabMeta);
 		setBlockAndMetadata(world, 3, 5, -10, roofSlabBlock, roofSlabMeta);
 		setBlockAndMetadata(world, 4, 5, -10, roofStairBlock, 1);
+		int i1;
 		for (i1 = -4; i1 <= 4; ++i1) {
 			setBlockAndMetadata(world, i1, 5, 10, roofStairBlock, 3);
 		}
@@ -314,6 +308,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, i1, 4, 11, roofStairBlock, 3);
 			setBlockAndMetadata(world, i1 + 1, 4, 11, roofStairBlock, 4);
 		}
+		int k14;
 		for (k14 = -10; k14 <= 10; ++k14) {
 			k2 = Math.abs(k14);
 			if (k2 % 4 == 0) {
@@ -381,6 +376,8 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 			setBlockAndMetadata(world, 5, 8, k14, roofStairBlock, 6);
 			setBlockAndMetadata(world, 5, 8, k14 + 1, roofStairBlock, 7);
 		}
+		int j14;
+		int step;
 		for (k14 = -9; k14 <= 9; ++k14) {
 			for (step = 0; step <= 3; ++step) {
 				j14 = 9 + step;
@@ -410,6 +407,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 				}
 			}
 		}
+		int i12;
 		for (i12 = -3; i12 <= 3; ++i12) {
 			setBlockAndMetadata(world, i12, 8, -8, plankStairBlock, 7);
 			setBlockAndMetadata(world, i12, 8, 8, plankStairBlock, 6);
@@ -427,6 +425,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 		for (i12 = -7; i12 <= -4; ++i12) {
 			setBlockAndMetadata(world, i12, 1, -9, plankStairBlock, 3);
 		}
+		int k15;
 		for (k15 = -8; k15 <= -6; ++k15) {
 			setBlockAndMetadata(world, -7, 1, k15, plankStairBlock, 0);
 		}
@@ -502,6 +501,7 @@ public class GOTStructureYiTiTavern extends GOTStructureYiTiBase {
 				}
 			}
 		}
+		int j12;
 		for (j12 = 1; j12 <= 7; ++j12) {
 			setAir(world, -2, j12, 9);
 		}

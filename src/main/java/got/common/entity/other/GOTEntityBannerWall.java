@@ -76,13 +76,13 @@ public class GOTEntityBannerWall extends EntityHanging {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int getBrightnessForRender(float f) {
-		int k;
-		int i;
 		if (!updatedClientBB) {
 			getWatchedDirection();
 			setDirection(hangingDirection);
 			updatedClientBB = true;
 		}
+		int i;
+		int k;
 		if (worldObj.blockExists(i = MathHelper.floor_double(posX), 0, k = MathHelper.floor_double(posZ))) {
 			int j = MathHelper.floor_double(posY);
 			return worldObj.getLightBrightnessForSkyBlocks(i, j, k, 0);
@@ -163,11 +163,6 @@ public class GOTEntityBannerWall extends EntityHanging {
 
 	@Override
 	public void setDirection(int dir) {
-		float edge;
-		float zSize;
-		float xSize;
-		float zEdge;
-		float xEdge;
 		if (dir < 0 || dir >= Direction.directions.length) {
 			dir = 0;
 		}
@@ -175,7 +170,12 @@ public class GOTEntityBannerWall extends EntityHanging {
 		prevRotationYaw = rotationYaw = Direction.rotateOpposite[dir] * 90.0f;
 		float width = 1.0f;
 		float thickness = 0.0625f;
+		float edge;
 		float yEdge = edge = 0.01f;
+		float xEdge;
+		float zEdge;
+		float xSize;
+		float zSize;
 		if (dir == 0 || dir == 2) {
 			xSize = width;
 			zSize = thickness;

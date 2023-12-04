@@ -40,7 +40,6 @@ public class GOTEntityFirePot extends EntityThrowable {
 	@Override
 	public void onImpact(MovingObjectPosition m) {
 		if (!worldObj.isRemote) {
-			Block block;
 			EntityLivingBase thrower = getThrower();
 			Entity hitEntity = m.entityHit;
 			double range = 3.0;
@@ -62,6 +61,7 @@ public class GOTEntityFirePot extends EntityThrowable {
 				}
 				entity.setFire(fire);
 			}
+			Block block;
 			if (m.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK && (block = worldObj.getBlock(m.blockX, m.blockY, m.blockZ)) instanceof GOTBlockWildFireJar) {
 				((GOTBlockWildFireJar) block).explode(worldObj, m.blockX, m.blockY, m.blockZ);
 			}

@@ -14,9 +14,6 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int step;
-		int k1;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 13);
 		setupRandomBlocks(random);
 		if (restrictions) {
@@ -61,8 +58,9 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 		placeSkull(world, 0, 7, 0, 0);
 		int holeX = 0;
 		int holeZ = 6;
-		int holeR = 3;
+		int k1;
 		if (getTopBlock(world, holeX, holeZ) >= -8) {
+			int holeR = 3;
 			for (int i1 = -holeR; i1 <= holeR; ++i1) {
 				for (k1 = -holeR; k1 <= holeR; ++k1) {
 					int holeY;
@@ -96,6 +94,8 @@ public class GOTStructureLhazarAltar extends GOTStructureLhazarBase {
 			}
 		}
 		int maxSteps = 12;
+		int j1;
+		int step;
 		for (int i1 = -1; i1 <= 1; ++i1) {
 			int k14;
 			for (step = 0; step < maxSteps && !isOpaque(world, i1, j1 = -step / 2, k14 = -13 - step); ++step) {

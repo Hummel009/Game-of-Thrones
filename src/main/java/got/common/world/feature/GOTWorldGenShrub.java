@@ -25,8 +25,8 @@ public class GOTWorldGenShrub extends WorldGenTrees {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		Block block;
 		--j;
+		Block block;
 		while (((block = world.getBlock(i, j, k)).isLeaves(world, i, j, k) || block.isAir(world, i, j, k)) && j > 0) {
 			--j;
 		}

@@ -20,7 +20,6 @@ public class GOTContainerHiredWarriorInventory extends Container {
 	public int npcActiveSlotCount;
 
 	public GOTContainerHiredWarriorInventory(InventoryPlayer inv, GOTEntityNPC entity) {
-		int i;
 		theNPC = entity;
 		npcInv = theNPC.hiredReplacedInv;
 		npcFullInvSize = npcInv.getSizeInventory();
@@ -40,6 +39,7 @@ public class GOTContainerHiredWarriorInventory extends Container {
 			GOTSlotHiredReplaceItem slot = new GOTSlotHiredReplaceItem(new GOTSlotBomb(proxyInv, i4, 110, 48), theNPC);
 			addSlotToContainer(slot);
 		}
+		int i;
 		for (i = 0; i < npcFullInvSize; ++i) {
 			if (getSlotFromInventory(proxyInv, i) == null) {
 				continue;

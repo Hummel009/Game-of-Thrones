@@ -34,21 +34,10 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int k1;
-		int beam;
-		int j1;
-		int oppHeight;
-		int step;
-		int k12;
-		int j12;
-		int i12;
-		int i13;
-		int k132;
-		int i142;
-		int k142;
 		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
+		int k142;
+		int i12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -71,9 +60,13 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int oppHeight;
 		if (restrictions && (oppHeight = getTopBlock(world, 0, 15) - 1) > 0) {
 			originY = getY(oppHeight);
 		}
+		int j12;
+		int beam;
+		int k1;
 		for (int i15 = -7; i15 <= 11; ++i15) {
 			for (k1 = 0; k1 <= 14; ++k1) {
 				if ((i15 == -7 || i15 == 11) && (k1 == 0 || k1 == 14)) {
@@ -111,6 +104,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int i1;
 		for (int k1421 : new int[]{0, 14}) {
 			for (i1 = -4; i1 <= 8; ++i1) {
 				if (IntMath.mod(i1, 4) != 0 || i1 == 0) {
@@ -120,6 +114,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i1, 3, k1421, GOTBlocks.glassPane, 0);
 			}
 		}
+		int k132;
 		for (int i1421 : new int[]{-7, 11}) {
 			for (k132 = 3; k132 <= 11; ++k132) {
 				if (IntMath.mod(k132, 4) != 3 || i1421 == -7 && k132 == 7) {
@@ -139,13 +134,13 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		k1 = i15.length;
 		block13:
 		for (beam = 0; beam < k1; ++beam) {
-			int j14;
 			i1 = 0;
 			k142 = i15[beam];
 			int doorHeight = getTopBlock(world, i1, k142) - 1;
 			if (doorHeight >= 0) {
 				continue;
 			}
+			int j14;
 			for (j14 = 0; (j14 == 0 || !isOpaque(world, i1, j14, k142)) && getY(j14) >= 0; --j14) {
 				setBlockAndMetadata(world, i1, j14, k142, plankBlock, plankMeta);
 				setGrassToDirt(world, i1, j14 - 1, k142);
@@ -249,6 +244,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 		}
 		int[] i16 = {-8, 12};
 		k1 = i16.length;
+		int i142;
 		for (beam = 0; beam < k1; ++beam) {
 			i142 = i16[beam];
 			for (k132 = 3; k132 <= 11; ++k132) {
@@ -324,6 +320,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i1421, 11, k132, wallBlock, wallMeta);
 			}
 		}
+		int j1;
 		for (int i19 = 3; i19 <= 5; ++i19) {
 			for (k1 = 6; k1 <= 8; ++k1) {
 				for (j1 = 0; j1 <= 13; ++j1) {
@@ -373,11 +370,13 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 			placeMugOrPlate(world, random, 3, 2, k142);
 			setBlockAndMetadata(world, 5, 1, k142, plankStairBlock, 1);
 		}
+		int k12;
 		for (k12 = 6; k12 <= 8; ++k12) {
 			setBlockAndMetadata(world, 8, 1, k12, plankBlock, plankMeta);
 			placeMugOrPlate(world, random, 8, 2, k12);
 			setBlockAndMetadata(world, 10, 1, k12, plankStairBlock, 1);
 		}
+		int i13;
 		for (i13 = 7; i13 <= 10; ++i13) {
 			setBlockAndMetadata(world, i13, 1, 1, plankStairBlock, 3);
 			setBlockAndMetadata(world, i13, 1, 13, plankStairBlock, 2);
@@ -434,6 +433,7 @@ public class GOTStructureWesterosTavern extends GOTStructureWesterosBase {
 			placeBarrel(world, random, -6, 4, k12, 4, GOTFoods.WESTEROS_DRINK);
 		}
 		setBlockAndMetadata(world, -4, 4, 7, GOTBlocks.chandelier, 1);
+		int step;
 		for (step = 0; step <= 2; ++step) {
 			setBlockAndMetadata(world, -3 - step, 1 + step, 13, plankStairBlock, 0);
 			setBlockAndMetadata(world, -4 - step, 1 + step, 13, plankStairBlock, 5);

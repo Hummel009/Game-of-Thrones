@@ -23,8 +23,6 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int k1;
 		if (!super.generate(world, random, i, j, k, rotation)) {
 			return false;
 		}
@@ -63,6 +61,8 @@ public class GOTStructureSothoryosVillageFarm extends GOTStructureSothoryosHouse
 				melon = true;
 				break;
 		}
+		int k1;
+		int i1;
 		for (i1 = -4; i1 <= 4; ++i1) {
 			for (k1 = -3; k1 <= 3; ++k1) {
 				for (int j1 = 1; j1 <= 4; ++j1) {

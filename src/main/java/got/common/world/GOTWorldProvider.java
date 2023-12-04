@@ -302,8 +302,6 @@ public class GOTWorldProvider extends WorldProvider {
 		Minecraft mc = Minecraft.getMinecraft();
 		int i = (int) mc.renderViewEntity.posX;
 		int k = (int) mc.renderViewEntity.posZ;
-		float fogStart = 0.0f;
-		float fogEnd = 0.0f;
 		GameSettings settings = mc.gameSettings;
 		int[] ranges = ForgeModContainer.blendRanges;
 		int distance = 0;
@@ -311,6 +309,8 @@ public class GOTWorldProvider extends WorldProvider {
 			distance = ranges[settings.renderDistanceChunks];
 		}
 		int l = 0;
+		float fogEnd = 0.0f;
+		float fogStart = 0.0f;
 		for (int i1 = -distance; i1 <= distance; ++i1) {
 			for (int k1 = -distance; k1 <= distance; ++k1) {
 				float thisFogStart;

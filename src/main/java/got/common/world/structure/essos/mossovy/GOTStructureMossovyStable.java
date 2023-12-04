@@ -17,15 +17,11 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int k1;
-		int j2;
-		int i1;
-		int j12;
-		int i12;
-		int k12;
 		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
+		int k12;
+		int i1;
+		int j1;
 		if (restrictions) {
 			for (i1 = -9; i1 <= 9; ++i1) {
 				for (k12 = -5; k12 <= 9; ++k12) {
@@ -60,6 +56,9 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 				setAir(world, i1, j1, k12);
 			}
 		}
+		int j12;
+		int j2;
+		int k1;
 		for (int i13 = -2; i13 <= 2; ++i13) {
 			if (i13 == 0) {
 				continue;
@@ -78,6 +77,7 @@ public class GOTStructureMossovyStable extends GOTStructureMossovyBase {
 		for (int j13 = 1; j13 <= 2; ++j13) {
 			setAir(world, 5, j13, 6);
 		}
+		int i12;
 		for (int step = 0; step < 12 && !isOpaque(world, i12 = 5 + step, j12 = -step, k1 = 6); ++step) {
 			setBlockAndMetadata(world, i12, j12, k1, Blocks.stone_stairs, 0);
 			setGrassToDirt(world, i12, j12 - 1, k1);

@@ -143,7 +143,6 @@ public class GOT {
 			return false;
 		}
 		GOTPlayerData playerData = GOTLevelData.getData(attacker);
-		boolean friendlyFire = false;
 		boolean friendlyFireEnabled = playerData.getFriendlyFire();
 		if (target instanceof EntityPlayer && target != attacker) {
 			EntityPlayer targetPlayer = (EntityPlayer) target;
@@ -158,14 +157,14 @@ public class GOT {
 			}
 		}
 		Entity targetNPC = null;
-		GOTFaction targetNPCFaction;
 		if (target instanceof GOTEntityGoldenMan && getNPCFaction(target) == GOTFaction.UNALIGNED || getNPCFaction(target) != GOTFaction.UNALIGNED) {
 			targetNPC = target;
 		} else if (getNPCFaction(target.riddenByEntity) != GOTFaction.UNALIGNED) {
 			targetNPC = target.riddenByEntity;
 		}
+		boolean friendlyFire = false;
 		if (targetNPC != null) {
-			targetNPCFaction = getNPCFaction(targetNPC);
+			GOTFaction targetNPCFaction = getNPCFaction(targetNPC);
 			if (targetNPC instanceof GOTEntityNPC) {
 				GOTEntityNPC targetgotNPC = (GOTEntityNPC) targetNPC;
 				GOTHiredNPCInfo hiredInfo = targetgotNPC.hiredNPCInfo;
@@ -392,8 +391,6 @@ public class GOT {
 	@Mod.EventHandler
 	public void onMissingMappings(FMLMissingMappingsEvent event) {
 		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
-			Item item;
-			Block block;
 			String newName;
 			if (mapping.type == GameRegistry.Type.BLOCK) {
 				if (mapping.name.contains("Carnotite")) {
@@ -403,7 +400,7 @@ public class GOT {
 				} else {
 					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
 				}
-				block = (Block) Block.blockRegistry.getObject(newName);
+				Block block = (Block) Block.blockRegistry.getObject(newName);
 				if (block != null) {
 					mapping.remap(block);
 				}
@@ -418,7 +415,7 @@ public class GOT {
 				} else {
 					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
 				}
-				item = (Item) Item.itemRegistry.getObject(newName);
+				Item item = (Item) Item.itemRegistry.getObject(newName);
 				if (item != null) {
 					mapping.remap(item);
 				}

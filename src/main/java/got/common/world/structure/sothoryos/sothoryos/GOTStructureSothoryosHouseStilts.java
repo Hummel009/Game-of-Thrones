@@ -16,16 +16,13 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k2;
-		int i1;
-		int j1;
-		int k1;
-		int i2;
-		int i12;
 		if (!super.generate(world, random, i, j, k, rotation)) {
 			return false;
 		}
 		bedBlock = GOTBlocks.strawBed;
+		int i12;
+		int k1;
+		int j1;
 		for (i12 = -3; i12 <= 3; ++i12) {
 			for (k1 = -3; k1 <= 3; ++k1) {
 				for (j1 = 3; j1 <= 7; ++j1) {
@@ -38,6 +35,8 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 		placeStilt(world, -3, 3, false);
 		placeStilt(world, 3, 3, false);
 		placeStilt(world, 0, -4, true);
+		int i2;
+		int k2;
 		for (i12 = -3; i12 <= 3; ++i12) {
 			for (k1 = -3; k1 <= 3; ++k1) {
 				i2 = Math.abs(i12);
@@ -93,6 +92,7 @@ public class GOTStructureSothoryosHouseStilts extends GOTStructureSothoryosHouse
 			setBlockAndMetadata(world, 3, j12, -4, woodBlock, woodMeta | 8);
 			setBlockAndMetadata(world, 3, j12, 4, woodBlock, woodMeta | 8);
 		}
+		int i1;
 		for (i1 = -4; i1 <= 4; ++i1) {
 			for (k1 = -4; k1 <= 4; ++k1) {
 				i2 = Math.abs(i1);

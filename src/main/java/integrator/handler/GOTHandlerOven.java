@@ -117,10 +117,10 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 
 		@Override
 		public List<PositionedStack> getOtherStacks() {
-			List<PositionedStack> tmp = new ArrayList<>();
 			PositionedStack tmpStack = FurnaceRecipeHandler.afuels.get(cycleticks / 48 % FurnaceRecipeHandler.afuels.size()).stack;
 			tmpStack.relx = fuelX;
 			tmpStack.rely = fuelY;
+			List<PositionedStack> tmp = new ArrayList<>();
 			tmp.add(tmpStack);
 			tmp.addAll(1, results);
 			return tmp;

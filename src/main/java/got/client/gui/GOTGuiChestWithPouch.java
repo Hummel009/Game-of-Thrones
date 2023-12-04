@@ -27,11 +27,11 @@ public class GOTGuiChestWithPouch extends GuiContainer {
 
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
-		int l;
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(guiTexture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, 17 + chestRows * 18);
 		drawTexturedModalRect(guiLeft, guiTop + 17 + chestRows * 18, 0, 125, xSize, 13);
+		int l;
 		for (l = 0; l < 3; ++l) {
 			drawTexturedModalRect(guiLeft, guiTop + 17 + chestRows * 18 + 13 + l * 18, 0, 138, xSize, 18);
 		}

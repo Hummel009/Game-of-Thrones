@@ -16,8 +16,6 @@ public class GOTModelCargocart extends ModelBase {
 	public ModelRenderer rightWheel;
 
 	public GOTModelCargocart() {
-		ModelRenderer box;
-		int i;
 		boardb.addBox(-11.0f, 6.0f, -14.5f, 22, 1, 29);
 		boardb.addBox(-12.5f, 4.0f, 0.0f, 25, 2, 2);
 		ModelRenderer shaft = new ModelRenderer(this, 0, 0).setTextureSize(128, 128);
@@ -54,6 +52,8 @@ public class GOTModelCargocart extends ModelBase {
 		leftWheel = new ModelRenderer(this, 0, 42).setTextureSize(128, 128);
 		leftWheel.setRotationPoint(-14.5f, 5.0f, 1.0f);
 		leftWheel.addBox(1.0f, -1.0f, -1.0f, 1, 2, 2);
+		int i;
+		ModelRenderer box;
 		for (i = 0; i < 8; ++i) {
 			box = new ModelRenderer(this, 0, 42).setTextureSize(128, 128);
 			box.addBox(0.5f, 1.0f, -0.5f, 1, 9, 1);

@@ -27,14 +27,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j2;
-		int i1;
-		int i12;
-		int k12;
-		int k1;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 8);
 		setupRandomBlocks(random);
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -117,6 +112,9 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		int k12;
+		int i1;
+		int j2;
 		for (i1 = -1; i1 <= 1; ++i1) {
 			int j12;
 			for (int step = 0; step < 12 && !isOpaque(world, i1, j12 = -step, k12 = -9 - step); ++step) {
@@ -143,6 +141,8 @@ public class GOTStructureSummerMarket extends GOTStructureSummerBase {
 				}
 			}
 		}
+		int k1;
+		int i12;
 		for (k1 = -1; k1 <= 1; ++k1) {
 			int j14;
 			for (int step = 0; step < 12 && !isOpaque(world, i12 = -9 - step, j14 = -step, k1); ++step) {

@@ -76,8 +76,6 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
-			int i1 = Math.abs(i);
-			int k1 = Math.abs(k);
 			int dSq = i * i + k * k;
 			if (type == Type.VILLAGE) {
 				int imn = 16 - random.nextInt(3);
@@ -89,6 +87,8 @@ public class GOTStructureLhazarSettlement extends GOTStructureBaseSettlement {
 				if (dSq < 576) {
 					return GOTBezierType.PATH_DIRTY;
 				}
+				int k1 = Math.abs(k);
+				int i1 = Math.abs(i);
 				if (k1 <= 3 && i1 <= 74 || i1 <= 3 && k <= 74) {
 					return GOTBezierType.PATH_DIRTY;
 				}

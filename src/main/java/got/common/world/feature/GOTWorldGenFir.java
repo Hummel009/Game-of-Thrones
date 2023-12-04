@@ -25,7 +25,6 @@ public class GOTWorldGenFir extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		Block below;
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		boolean flag = true;
 		if (j >= 1 && height + 2 <= 256) {
@@ -49,6 +48,7 @@ public class GOTWorldGenFir extends WorldGenAbstractTree {
 		} else {
 			flag = false;
 		}
+		Block below;
 		if (!(below = world.getBlock(i, j - 1, k)).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
 			flag = false;
 		}

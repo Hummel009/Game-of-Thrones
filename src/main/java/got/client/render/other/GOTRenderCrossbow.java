@@ -22,7 +22,6 @@ public class GOTRenderCrossbow implements IItemRenderer {
 
 	@Override
 	public void renderItem(IItemRenderer.ItemRenderType type, ItemStack itemstack, Object... data) {
-		RotationMode rotationMode;
 		EntityLivingBase holder = (EntityLivingBase) data[1];
 		boolean loaded = GOTItemCrossbow.isLoaded(itemstack);
 		boolean using = false;
@@ -34,6 +33,7 @@ public class GOTRenderCrossbow implements IItemRenderer {
 				using = ((GOTEntityNPC) holder).clientCombatStance;
 			}
 		}
+		RotationMode rotationMode;
 		if (GOTRenderBow.renderingWeaponRack) {
 			rotationMode = RotationMode.FIRST_PERSON_HOLDING;
 		} else if (holder == Minecraft.getMinecraft().renderViewEntity && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0) {

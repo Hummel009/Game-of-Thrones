@@ -19,20 +19,9 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int k16;
-		int k12;
-		int k13;
-		int i1;
-		int step;
-		int roofEdge;
-		int i12;
-		int j12;
-		int i13;
-		int k14;
-		int j13;
 		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
+		int k16;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -56,6 +45,9 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 			}
 		}
 
+		int j13;
+		int k14;
+		int i12;
 		for (i12 = -3; i12 <= 2; ++i12) {
 			for (k14 = -5; k14 <= 4; ++k14) {
 				if (k14 < -4 && (i12 < -1 || i12 > 0)) {
@@ -83,6 +75,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i12, 1, k14, GOTBlocks.thatchFloor, 0);
 			}
 		}
+		int j12;
 		for (i12 = -4; i12 <= 3; ++i12) {
 			for (k14 = -7; k14 <= 5; ++k14) {
 				boolean beam = k14 == -7 && (i12 == -4 || i12 == -2 || i12 == 1 || i12 == 3) || Math.abs(k14) == 5 && (i12 == -4 || i12 == 3);
@@ -115,6 +108,8 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i12, 4, k14, woodBeamBlock, woodBeamMeta | 4);
 			}
 		}
+		int roofEdge;
+		int step;
 		for (int k15 = -7; k15 <= 6; ++k15) {
 			roofEdge = k15 == -7 || k15 == 6 ? 1 : 0;
 			for (step = 0; step <= 4; ++step) {
@@ -151,6 +146,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, -1, 8, k16, plankStairBlock, 0);
 			setBlockAndMetadata(world, 0, 8, k16, plankStairBlock, 1);
 		}
+		int i1;
 		for (i1 = -4; i1 <= 3; ++i1) {
 			if (i1 == -4 || i1 == -2 || i1 == 1 || i1 == 3) {
 				setBlockAndMetadata(world, i1, 3, -7, plankBlock, plankMeta);
@@ -178,6 +174,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 		}
 		setBlockAndMetadata(world, -1, 3, -5, plankStairBlock, 4);
 		setBlockAndMetadata(world, 0, 3, -5, plankStairBlock, 5);
+		int j1;
 		for (int i15 : new int[]{-5, 4}) {
 			for (int k17 : new int[]{-7, 6}) {
 				for (j1 = 2; (j1 >= 1 || !isOpaque(world, i15, j1, k17)) && getY(j1) >= 0; --j1) {
@@ -221,6 +218,8 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -4, 2, 3, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, -2, 2, 5, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 1, 2, 5, fenceBlock, fenceMeta);
+		int i13;
+		int k12;
 		for (k12 = 1; k12 <= 3; ++k12) {
 			for (i13 = 2; i13 <= 3; ++i13) {
 				for (j13 = 5; (j13 >= 0 || !isOpaque(world, i13, j13, k12)) && getY(j13) >= 0; --j13) {
@@ -257,6 +256,7 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 1, 1, 1, brickBlock, brickMeta);
 		setBlockAndMetadata(world, 1, 1, 2, barsBlock, 0);
 		setBlockAndMetadata(world, 1, 1, 3, brickBlock, brickMeta);
+		int k13;
 		for (k13 = 1; k13 <= 3; ++k13) {
 			setBlockAndMetadata(world, 1, 2, k13, rockSlabBlock, rockSlabMeta);
 		}
@@ -321,10 +321,10 @@ public class GOTStructureWildlingKeep extends GOTStructureWesterosBase {
 			}
 		}
 		if (random.nextBoolean()) {
-			int i15;
-			int j110 = 2;
 			k14 = 6;
 			ArrayList<Integer> chestCoords = new ArrayList<>();
+			int j110 = 2;
+			int i15;
 			for (i15 = -4; i15 <= 3; ++i15) {
 				if (isOpaque(world, i15, j110, k14)) {
 					continue;

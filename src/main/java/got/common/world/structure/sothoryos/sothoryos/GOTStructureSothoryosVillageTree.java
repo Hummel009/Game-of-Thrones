@@ -14,11 +14,11 @@ public class GOTStructureSothoryosVillageTree extends GOTStructureSothoryosHouse
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int i1;
 		if (!super.generate(world, random, i, j, k, rotation)) {
 			return false;
 		}
+		int i1;
+		int k1;
 		for (i1 = -3; i1 <= 3; ++i1) {
 			for (k1 = -3; k1 <= 3; ++k1) {
 				layFoundation(world, i1, k1);

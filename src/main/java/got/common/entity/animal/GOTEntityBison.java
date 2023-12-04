@@ -175,7 +175,6 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
 		if (!worldObj.isRemote) {
-			EntityLivingBase target;
 			boolean isChild = isChild();
 			if (isChild != prevIsChild) {
 				EntityAITasks.EntityAITaskEntry taskEntry;
@@ -187,6 +186,7 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 					tasks.addTask(taskEntry.priority, attackAI);
 				}
 			}
+			EntityLivingBase target;
 			if (getAttackTarget() != null && (!(target = getAttackTarget()).isEntityAlive() || target instanceof EntityPlayer && ((EntityPlayer) target).capabilities.isCreativeMode)) {
 				setAttackTarget(null);
 			}

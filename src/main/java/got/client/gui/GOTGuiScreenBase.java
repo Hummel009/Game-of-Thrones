@@ -17,14 +17,14 @@ public abstract class GOTGuiScreenBase extends GuiScreen {
 			y0 = y1;
 			y1 = temp;
 		}
-		float alpha = (color >> 24 & 0xFF) / 255.0f;
-		float r = (color >> 16 & 0xFF) / 255.0f;
-		float g = (color >> 8 & 0xFF) / 255.0f;
-		float b = (color & 0xFF) / 255.0f;
 		Tessellator tessellator = Tessellator.instance;
 		GL11.glEnable(3042);
 		GL11.glDisable(3553);
 		GL11.glBlendFunc(770, 771);
+		float b = (color & 0xFF) / 255.0f;
+		float g = (color >> 8 & 0xFF) / 255.0f;
+		float r = (color >> 16 & 0xFF) / 255.0f;
+		float alpha = (color >> 24 & 0xFF) / 255.0f;
 		GL11.glColor4f(r, g, b, alpha);
 		tessellator.startDrawingQuads();
 		tessellator.addVertex(x0, y1, 0.0);
@@ -37,10 +37,10 @@ public abstract class GOTGuiScreenBase extends GuiScreen {
 	}
 
 	public static void drawTexturedModalRectFloat(double x, double y, double u, double v, double width, double height, int imageWidth, float z) {
-		float f = 1.0f / imageWidth;
-		float f1 = 1.0f / imageWidth;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
+		float f1 = 1.0f / imageWidth;
+		float f = 1.0f / imageWidth;
 		tessellator.addVertexWithUV(x + 0.0, y + height, z, (u + 0.0) * f, (v + height) * f1);
 		tessellator.addVertexWithUV(x + width, y + height, z, (u + width) * f, (v + height) * f1);
 		tessellator.addVertexWithUV(x + width, y + 0.0, z, (u + width) * f, (v + 0.0) * f1);

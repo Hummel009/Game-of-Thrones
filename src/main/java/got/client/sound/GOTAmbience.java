@@ -60,12 +60,10 @@ public class GOTAmbience {
 	}
 
 	public void updateAmbience(World world, EntityPlayer entityplayer) {
-		Minecraft mc;
 		block42:
 		{
-			int xzRange;
 			world.theProfiler.startSection("gotAmbience");
-			mc = Minecraft.getMinecraft();
+			Minecraft mc = Minecraft.getMinecraft();
 			boolean enableAmbience = GOTConfig.enableAmbience;
 			double x = entityplayer.posX;
 			double y = entityplayer.boundingBox.minY;
@@ -104,17 +102,18 @@ public class GOTAmbience {
 					world.playSound(x, y, z, "ambient.cave.cave", 1.0f, 0.8f + rand.nextFloat() * 0.2f, false);
 				}
 			}
+			int xzRange;
 			if (world.provider instanceof GOTWorldProvider) {
 				if (playingWindSounds.size() < 4) {
 					xzRange = 16;
 					int minWindHeight = 100;
-					int fullWindHeight = 180;
 					if (rand.nextInt(20) == 0) {
 						minWindHeight -= 10;
 						if (rand.nextInt(10) == 0) {
 							minWindHeight -= 10;
 						}
 					}
+					int fullWindHeight = 180;
 					if (world.isRaining()) {
 						minWindHeight = 80;
 						fullWindHeight = 120;

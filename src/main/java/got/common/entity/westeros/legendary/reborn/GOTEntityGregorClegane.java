@@ -145,11 +145,11 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 
 		@Override
 		public boolean attackEntityFrom(DamageSource damagesource, float f) {
-			ItemStack itemstack;
 			Entity entity = damagesource.getEntity();
 			if (damagesource == DamageSource.fall) {
 				return super.attackEntityFrom(damagesource, f);
 			}
+			ItemStack itemstack;
 			if (entity instanceof EntityLivingBase && entity == damagesource.getSourceOfDamage() && (itemstack = ((EntityLivingBase) entity).getHeldItem()) != null && itemstack.getItem() == GOTItems.crowbar) {
 				return super.attackEntityFrom(damagesource, f);
 			}

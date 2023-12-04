@@ -35,13 +35,13 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
-		boolean flag = true;
 		if (!restrictions || j >= 1 && j + height + 5 <= 256) {
 			int k1;
 			int i1;
 			int j1;
 			int i12;
 			if (restrictions) {
+				boolean flag = true;
 				for (j1 = j; j1 <= j + height + 5; ++j1) {
 					int range = trunkWidth + 1;
 					if (j1 == j) {
@@ -100,7 +100,6 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 					int k14 = k;
 					int j12 = j + height - 1 - random.nextInt(5);
 					for (int l = 0; l < (length *= 1 + random.nextInt(trunkWidth)); ++l) {
-						Block block;
 						if (Math.floor(cos * l) != Math.floor(cos * (l - 1))) {
 							i14 = (int) (i14 + Math.signum(cos));
 						}
@@ -110,6 +109,7 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 						if (Math.floor(sinY * l) != Math.floor(sinY * (l - 1))) {
 							j12 = (int) (j12 + Math.signum(sinY));
 						}
+						Block block;
 						if (!(block = world.getBlock(i14, j12, k14)).isReplaceable(world, i14, j12, k14) && !block.isWood(world, i14, j12, k14) && !block.isLeaves(world, i14, j12, k14)) {
 							break;
 						}
@@ -184,10 +184,10 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 
 	public void growLeafCanopy(World world, Random random, int i, int j, int k) {
 		int j1;
-		int leafStart = j + 2;
-		int leafTop = j + 5;
 		int maxRange = 3;
 		if (!isDead) {
+			int leafTop = j + 5;
+			int leafStart = j + 2;
 			for (j1 = leafStart; j1 <= leafTop; ++j1) {
 				int j2 = j1 - leafTop;
 				int leafRange = maxRange - j2;

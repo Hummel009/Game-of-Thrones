@@ -103,8 +103,8 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 
 	@Override
 	public void onDeath(DamageSource damagesource) {
-		Entity attacker;
 		super.onDeath(damagesource);
+		Entity attacker;
 		if (!worldObj.isRemote && damagesource instanceof EntityDamageSourceIndirect && (attacker = damagesource.getEntity()) instanceof GOTEntityNPC) {
 			GOTEntityNPC npc = (GOTEntityNPC) attacker;
 			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() != null) {

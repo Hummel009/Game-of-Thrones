@@ -13,7 +13,6 @@ public class GOTContainerNPCMountInventory extends Container {
 	public GOTEntityNPCRideable theMount;
 
 	public GOTContainerNPCMountInventory(IInventory playerInv, IInventory mountInv, GOTEntityNPCRideable mount) {
-		int j;
 		theMountInv = mountInv;
 		theMount = mount;
 		mountInv.openInventory();
@@ -33,6 +32,7 @@ public class GOTContainerNPCMountInventory extends Container {
 		});
 		int chestRows = 3;
 		int yOffset = (chestRows - 4) * 18;
+		int j;
 		for (j = 0; j < 3; ++j) {
 			for (int k = 0; k < 9; ++k) {
 				addSlotToContainer(new Slot(playerInv, k + j * 9 + 9, 8 + k * 18, 102 + j * 18 + yOffset));

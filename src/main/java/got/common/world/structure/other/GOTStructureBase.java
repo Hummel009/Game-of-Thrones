@@ -699,7 +699,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public int rotateMeta(Block block, int meta) {
 		if (block instanceof BlockRotatedPillar) {
-			int i = meta & 3;
 			int j = meta & 0xC;
 			if (j == 0 || rotationMode == 0 || rotationMode == 2) {
 				return meta;
@@ -709,11 +708,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			} else if (j == 8) {
 				j = 4;
 			}
+			int i = meta & 3;
 			return j | i;
 		}
 		if (block instanceof BlockStairs) {
 			int i = meta & 3;
-			int j = meta & 4;
 			for (int l = 0; l < rotationMode; ++l) {
 				switch (i) {
 					case 2:
@@ -730,6 +729,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 				}
 				i = 2;
 			}
+			int j = meta & 4;
 			return j | i;
 		}
 		if (block instanceof GOTBlockMug || block instanceof BlockTripWireHook || block instanceof BlockAnvil) {
@@ -741,10 +741,10 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 		if (block instanceof GOTBlockArmorStand || block instanceof GOTBlockWeaponRack) {
 			int i = meta & 3;
-			int j = meta & 4;
 			for (int l = 0; l < rotationMode; ++l) {
 				i = Direction.rotateRight[i];
 			}
+			int j = meta & 4;
 			return j | i;
 		}
 		if (block == Blocks.wall_sign || block instanceof BlockLadder || block instanceof BlockFurnace || block instanceof BlockChest || block instanceof GOTBlockChest || block instanceof GOTBlockBarrel || block instanceof GOTBlockOven || block instanceof GOTBlockForgeBase || block instanceof GOTBlockKebabStand) {
@@ -810,16 +810,14 @@ public abstract class GOTStructureBase extends WorldGenerator {
 				return meta;
 			}
 			int i = meta & 3;
-			int j = meta & 4;
 			for (int l = 0; l < rotationMode; ++l) {
 				i = Direction.rotateRight[i];
 			}
+			int j = meta & 4;
 			return j | i;
 		}
 		if (block instanceof BlockTrapDoor) {
 			int i = meta & 3;
-			int j = meta & 4;
-			int k = meta & 8;
 			for (int l = 0; l < rotationMode; ++l) {
 				switch (i) {
 					case 0:
@@ -836,14 +834,16 @@ public abstract class GOTStructureBase extends WorldGenerator {
 				}
 				i = 1;
 			}
+			int k = meta & 8;
+			int j = meta & 4;
 			return k | j | i;
 		}
 		if (block instanceof BlockFenceGate) {
 			int i = meta & 3;
-			int j = meta & 4;
 			for (int l = 0; l < rotationMode; ++l) {
 				i = Direction.rotateRight[i];
 			}
+			int j = meta & 4;
 			return j | i;
 		}
 		if (block instanceof BlockPumpkin) {
@@ -865,7 +865,6 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		}
 		if (block instanceof GOTBlockGate) {
 			int i = meta & 7;
-			int j = meta & 8;
 			if (i != 0 && i != 1) {
 				for (int l = 0; l < rotationMode; ++l) {
 					i = Direction.facingToDirection[i];
@@ -873,11 +872,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 					i = Direction.directionToFacing[i];
 				}
 			}
+			int j = meta & 8;
 			return j | i;
 		}
 		if (block instanceof BlockLever) {
 			int i = meta & 7;
-			int j = meta & 8;
 			if (i == 0 || i == 7) {
 				for (int l = 0; l < rotationMode; ++l) {
 					i = i == 0 ? 7 : 0;
@@ -904,11 +903,11 @@ public abstract class GOTStructureBase extends WorldGenerator {
 					i = 4;
 				}
 			}
+			int j = meta & 8;
 			return j | i;
 		}
 		if (block instanceof BlockButton) {
 			int i = meta;
-			int j = meta & 8;
 			for (int l = 0; l < rotationMode; ++l) {
 				switch (i) {
 					case 4:
@@ -928,6 +927,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 				}
 				i = 4;
 			}
+			int j = meta & 8;
 			return j | i;
 		}
 		return meta;

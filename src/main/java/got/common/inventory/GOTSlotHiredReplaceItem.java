@@ -15,10 +15,10 @@ public class GOTSlotHiredReplaceItem extends Slot {
 
 	public GOTSlotHiredReplaceItem(Slot slot, GOTEntityNPC npc) {
 		super(slot.inventory, slot.getSlotIndex(), slot.xDisplayPosition, slot.yDisplayPosition);
-		int i;
 		parentSlot = slot;
 		theNPC = npc;
 		npcInv = theNPC.hiredReplacedInv;
+		int i;
 		if (!theNPC.worldObj.isRemote && npcInv.hasReplacedEquipment(i = getSlotIndex())) {
 			inventory.setInventorySlotContents(i, npcInv.getEquippedReplacement(i));
 		}

@@ -169,7 +169,6 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 
 	@Override
 	public void onLivingUpdate() {
-		EntityLivingBase target;
 		super.onLivingUpdate();
 		prevFlapPhase = flapPhase;
 		prevFlapPower = flapPower;
@@ -186,6 +185,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 		if (inWater && motionY < 0.0) {
 			motionY *= 0.01;
 		}
+		EntityLivingBase target;
 		if (!worldObj.isRemote && getAttackTarget() != null && (!(target = getAttackTarget()).isEntityAlive() || target instanceof EntityPlayer && ((EntityPlayer) target).capabilities.isCreativeMode)) {
 			setAttackTarget(null);
 		}

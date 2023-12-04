@@ -11,7 +11,6 @@ public class GOTStructureWesterosTownBench extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		if (restrictions) {
@@ -30,6 +29,7 @@ public class GOTStructureWesterosTownBench extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, j1, k1, rockSlabBlock, rockSlabMeta);
 		setBlockAndMetadata(world, -1, j1, k1, rockStairBlock, 0);
 		setBlockAndMetadata(world, 1, j1, k1, rockStairBlock, 1);
+		int i1;
 		for (i1 = -1; i1 <= 1; ++i1) {
 			setGrassToDirt(world, i1, j1 - 1, k1);
 			layFoundation(world, i1, j1 - 1, k1);

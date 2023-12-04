@@ -14,17 +14,15 @@ public class GOTBlockSapling1 extends GOTBlockSaplingBase {
 
 	@Override
 	public void growTree(World world, int i, int j, int k, Random random) {
-		int k1;
-		int i1;
 		int meta = world.getBlockMetadata(i, j, k) & 7;
 		WorldGenAbstractTree treeGen = null;
-		int trunkNeg = 0;
-		int trunkPos = 0;
-		int xOffset = 0;
-		int zOffset = 0;
 		if (meta == 0) {
 			treeGen = GOTTreeType.IBBEN_PINE.create(true, random);
 		}
+		int zOffset = 0;
+		int xOffset = 0;
+		int trunkPos = 0;
+		int trunkNeg = 0;
 		if (meta == 1) {
 			int[] partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 1);
 			if (partyTree != null) {
@@ -76,6 +74,8 @@ public class GOTBlockSapling1 extends GOTBlockSaplingBase {
 				zOffset = 0;
 			}
 		}
+		int i1;
+		int k1;
 		for (i1 = -trunkNeg; i1 <= trunkPos; ++i1) {
 			for (k1 = -trunkNeg; k1 <= trunkPos; ++k1) {
 				world.setBlock(i + xOffset + i1, j, k + zOffset + k1, Blocks.air, 0, 4);

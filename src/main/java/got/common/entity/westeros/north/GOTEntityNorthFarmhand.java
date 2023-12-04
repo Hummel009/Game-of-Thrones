@@ -46,8 +46,8 @@ public class GOTEntityNorthFarmhand extends GOTEntityNorthMan implements GOTFarm
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
-		Item item;
 		super.readEntityFromNBT(nbt);
+		Item item;
 		if (nbt.hasKey("SeedsID") && (item = Item.getItemById(nbt.getInteger("SeedsID"))) != null && item instanceof IPlantable) {
 			seedsItem = item;
 		}

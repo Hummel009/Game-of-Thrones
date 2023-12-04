@@ -72,10 +72,10 @@ public class GOTEntityAIRabbitEatCrops extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		Vec3 vec3;
 		if (!GOT.canGrief(theWorld)) {
 			return false;
 		}
+		Vec3 vec3;
 		if (theRabbit.getRNG().nextInt(20) == 0 && (vec3 = findCropsLocation()) != null) {
 			xPos = vec3.xCoord;
 			yPos = vec3.yCoord;

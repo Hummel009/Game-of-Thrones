@@ -103,10 +103,10 @@ public class GOTEntityAIRangedAttack extends EntityAIBase {
 		theOwner.getLookHelper().setLookPositionWithEntity(attackTarget, 30.0f, 30.0f);
 		--rangedAttackTime;
 		if (rangedAttackTime == 0) {
-			float distanceRatio;
 			if (distanceSq > attackRangeSq || !canSee) {
 				return;
 			}
+			float distanceRatio;
 			float power = distanceRatio = MathHelper.sqrt_double(distanceSq) / attackRange;
 			power = MathHelper.clamp_float(power, 0.1f, 1.0f);
 			theOwnerRanged.attackEntityWithRangedAttack(attackTarget, power);

@@ -18,16 +18,9 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int i12;
-		int k1;
-		int j1;
-		int j12;
-		int k12;
-		int i2;
-		int i132;
 		setOriginAndRotation(world, i, j, k, rotation, 1, -2);
 		setupRandomBlocks(random);
+		int j12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -50,6 +43,9 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 				}
 			}
 		}
+		int i2;
+		int j1;
+		int k1;
 		for (int i15 = -4; i15 <= 4; ++i15) {
 			for (k1 = 0; k1 <= 9; ++k1) {
 				i2 = Math.abs(i15);
@@ -89,6 +85,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 				setBlockAndMetadata(world, i16, 3, k13, woodBeamBlock, woodBeamMeta | 4);
 			}
 		}
+		int k12;
 		for (int i1321 : new int[]{-4, 0, 4}) {
 			for (k12 = 0; k12 <= 3; ++k12) {
 				setBlockAndMetadata(world, i1321, 4, k12, woodBeamBlock, woodBeamMeta | 8);
@@ -102,6 +99,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 		}
 		int[] i17 = {-4, 4};
 		k1 = i17.length;
+		int i132;
 		for (i2 = 0; i2 < k1; ++i2) {
 			i132 = i17[i2];
 			setBlockAndMetadata(world, i132, 5, 2, wallBlock, wallMeta);
@@ -150,6 +148,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 			setBlockAndMetadata(world, i132, 6, 6, wallBlock, wallMeta);
 			setBlockAndMetadata(world, i132, 7, 5, wallBlock, wallMeta);
 		}
+		int i1;
 		for (i1 = -3; i1 <= 3; ++i1) {
 			if (i1 == 0) {
 				continue;
@@ -181,12 +180,12 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 1, 3, 9, plankStairBlock, 4);
 		setBlockAndMetadata(world, 3, 3, 9, plankStairBlock, 5);
 		for (i1 = -5; i1 <= 5; ++i1) {
-			int l;
 			int avoidBeam = IntMath.mod(i1, 4) == 0 ? 1 : 0;
 			if (avoidBeam == 0) {
 				setBlockAndMetadata(world, i1, 4, 0, roofStairBlock, 2);
 				setBlockAndMetadata(world, i1, 4, 9, roofStairBlock, 3);
 			}
+			int l;
 			for (l = 0; l <= 2; ++l) {
 				setBlockAndMetadata(world, i1, 5 + l, 1 + l, roofStairBlock, 2);
 				setBlockAndMetadata(world, i1, 5 + l, 8 - l, roofStairBlock, 3);
@@ -228,6 +227,7 @@ public class GOTStructureGiftStables extends GOTStructureGiftBase {
 		setBlockAndMetadata(world, 0, 7, 5, plankStairBlock, 7);
 		setBlockAndMetadata(world, -3, 7, 5, plankStairBlock, 4);
 		setBlockAndMetadata(world, 3, 7, 5, plankStairBlock, 5);
+		int i12;
 		for (i12 = -3; i12 <= 3; ++i12) {
 			if (random.nextInt(3) == 0) {
 				continue;

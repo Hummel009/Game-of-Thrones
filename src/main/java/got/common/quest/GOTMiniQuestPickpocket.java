@@ -46,7 +46,6 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 
 	@Override
 	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		GOTAchievement achievement;
 		completed = true;
 		dateCompleted = GOTDate.AegonCalendar.currentDay;
 		Random rand = npc.getRNG();
@@ -122,6 +121,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		updateQuest();
 		playerData.completeMiniQuest(this);
 		sendCompletedSpeech(entityplayer, npc);
+		GOTAchievement achievement;
 		if (questGroup != null && (achievement = questGroup.getAchievement()) != null) {
 			playerData.addAchievement(achievement);
 		}
@@ -176,7 +176,6 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		if (entityplayer.isSneaking() && entityplayer.getHeldItem() == null && npc instanceof IPickpocketable) {
 			UUID id = npc.getPersistentID();
 			if (!pickpocketedEntityIDs.contains(id)) {
-				boolean noticed;
 				if (npc.getAttackTarget() != null) {
 					entityplayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + StatCollector.translateToLocalFormatted("got.chat.pickpocket.inCombat")));
 					return true;
@@ -187,6 +186,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 				}
 				Random rand = npc.getRNG();
 				boolean success = rand.nextInt(3) == 0;
+				boolean noticed;
 				boolean anyoneNoticed = noticed = rand.nextInt(success ? 3 : 4) == 0;
 				if (success) {
 					ItemStack picked = GOTChestContents.TREASURE.getOneItem(rand, true);

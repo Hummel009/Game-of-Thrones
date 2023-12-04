@@ -12,8 +12,8 @@ public class GOTContainerArmorStand extends Container {
 	public GOTTileEntityArmorStand theArmorStand;
 
 	public GOTContainerArmorStand(InventoryPlayer inv, GOTTileEntityArmorStand armorStand) {
-		int i;
 		theArmorStand = armorStand;
+		int i;
 		for (i = 0; i < 4; ++i) {
 			addSlotToContainer(new GOTSlotArmorStand(armorStand, i, 80, 21 + i * 18, i, inv.player));
 		}

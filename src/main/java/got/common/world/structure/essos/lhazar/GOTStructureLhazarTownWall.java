@@ -20,14 +20,14 @@ public class GOTStructureLhazarTownWall extends GOTStructureLhazarBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int k1;
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
+		int k1;
+		int i1;
 		if (restrictions && !isSurface(world, i1 = 0, getTopBlock(world, i1, k1 = 0) - 1, k1)) {
 			return false;
 		}
+		int j1;
 		for (j1 = 1; (j1 >= 0 || !isOpaque(world, 0, j1, 0)) && getY(j1) >= 0; --j1) {
 			if (random.nextBoolean()) {
 				setBlockAndMetadata(world, 0, j1, 0, Blocks.sandstone, 0);

@@ -19,15 +19,12 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int j12;
-		int k1;
-		int k12;
-		int i1;
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		setupRandomBlocks(random);
 		int height = 7 + random.nextInt(3);
 		originY += height;
+		int k12;
+		int j12;
 		if (restrictions) {
 			for (int i12 = -4; i12 <= 4; ++i12) {
 				for (k12 = -4; k12 <= 4; ++k12) {
@@ -52,6 +49,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 				}
 			}
 		}
+		int i1;
 		for (i1 = -2; i1 <= 2; ++i1) {
 			for (k12 = -2; k12 <= 2; ++k12) {
 				setBlockAndMetadata(world, i1, 0, k12, plankBlock, plankMeta);
@@ -74,6 +72,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, i1, 3, -3, fenceBlock, fenceMeta);
 			setBlockAndMetadata(world, i1, 3, 3, fenceBlock, fenceMeta);
 		}
+		int k1;
 		for (k1 = -2; k1 <= 2; ++k1) {
 			setBlockAndMetadata(world, -3, 0, k1, logBlock, logMeta | 8);
 			setBlockAndMetadata(world, 3, 0, k1, logBlock, logMeta | 8);
@@ -114,6 +113,7 @@ public class GOTStructureIbbenWatchtower extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, -4, 4, k1, plankStairBlock, 1);
 			setBlockAndMetadata(world, 4, 4, k1, plankStairBlock, 0);
 		}
+		int j1;
 		for (j1 = 0; j1 <= 3; ++j1) {
 			setBlockAndMetadata(world, 0, j1, 3, plank2Block, plank2Meta);
 			setBlockAndMetadata(world, 0, j1, 2, Blocks.ladder, 2);

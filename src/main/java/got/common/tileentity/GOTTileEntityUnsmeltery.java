@@ -187,7 +187,6 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (unsmeltableCraftingCounts.containsKey(key)) {
 			return unsmeltableCraftingCounts.get(key);
 		}
-		int count = 0;
 		Collection<List<IRecipe>> allRecipeLists = new ArrayList<>();
 		allRecipeLists.add(CraftingManager.getInstance().getRecipeList());
 		EntityPlayer player = getProxyPlayer();
@@ -202,6 +201,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (recursiveCheckedRecipes == null) {
 			recursiveCheckedRecipes = new ArrayList<>();
 		}
+		int count = 0;
 		label63:
 		for (List<IRecipe> recipes : allRecipeLists) {
 			for (IRecipe recipesObj : recipes) {

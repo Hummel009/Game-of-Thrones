@@ -163,10 +163,6 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 		}
 
 		public void setupFort(Random random) {
-			int k;
-			int i;
-			int r;
-			int l;
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -199,6 +195,10 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureVolantisTower(false), 43, -36, 2, true);
 			addStructure(new GOTStructureVolantisTower(false), -43, 36, 0, true);
 			addStructure(new GOTStructureVolantisTower(false), 43, 36, 0, true);
+			int l;
+			int r;
+			int i;
+			int k;
 			for (l = 0; l <= 2; ++l) {
 				i = 10 + l * 11;
 				k = -28;
@@ -249,10 +249,6 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 		}
 
 		public void setupTown(Random random) {
-			int k;
-			int i;
-			int r;
-			int l;
 			addStructure(new GOTStructureNPCRespawner(false) {
 
 				@Override
@@ -286,6 +282,10 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureVolantisWell(false), -16, 4, 1, true);
 			addStructure(new GOTStructureVolantisTownFlowers(false), 18, 13, 3, true);
 			addStructure(new GOTStructureVolantisTownFlowers(false), 18, 3, 3, true);
+			int l;
+			int r;
+			int i;
+			int k;
 			for (l = 0; l <= 3; ++l) {
 				i = -41 + l * 19;
 				k = -7;
@@ -441,13 +441,13 @@ public class GOTStructureVolantisSettlement extends GOTStructureBaseSettlement {
 			int backFenceX = 0;
 			int backFenceZ = rSquareEdge + 19;
 			int backFenceWidth = 12;
-			int sideFenceX = 13;
-			int sideFenceZ = rSquareEdge + 11;
-			int sideFenceWidth = 8;
-			int frontPostZ = sideFenceZ - sideFenceWidth - 1;
 			addStructure(new GOTStructureEssosVillageFence(false).setLeftRightExtent(backFenceWidth, backFenceWidth), backFenceX, -backFenceZ, 0);
+			int sideFenceX = 13;
+			int sideFenceWidth = 8;
+			int sideFenceZ = rSquareEdge + 11;
 			addStructure(new GOTStructureEssosVillageFence(false).setLeftRightExtent(sideFenceWidth, sideFenceWidth - 1), -sideFenceX, -sideFenceZ, 1);
 			addStructure(new GOTStructureEssosVillageFence(false).setLeftRightExtent(sideFenceWidth - 1, sideFenceWidth), sideFenceX, -sideFenceZ, 3);
+			int frontPostZ = sideFenceZ - sideFenceWidth - 1;
 			addStructure(new GOTStructureEssosVillagePost(false), -sideFenceX, -frontPostZ, 0);
 			addStructure(new GOTStructureEssosVillagePost(false), sideFenceX, -frontPostZ, 0);
 			addStructure(new GOTStructureEssosVillagePost(false), -sideFenceX, -backFenceZ, 0);

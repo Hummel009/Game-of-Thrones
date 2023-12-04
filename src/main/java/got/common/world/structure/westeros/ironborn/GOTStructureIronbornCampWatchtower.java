@@ -31,10 +31,6 @@ public class GOTStructureIronbornCampWatchtower extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int i1;
-		int i12;
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 0);
 		if (restrictions) {
 			for (int i13 = -4; i13 <= 4; ++i13) {
@@ -96,6 +92,8 @@ public class GOTStructureIronbornCampWatchtower extends GOTStructureBase {
 		generateSupportPillar(world, -3, 4, 3);
 		generateSupportPillar(world, 3, 4, -3);
 		generateSupportPillar(world, 3, 4, 3);
+		int i12;
+		int k1;
 		for (i12 = -2; i12 <= 2; ++i12) {
 			for (k1 = -2; k1 <= 2; ++k1) {
 				for (int j13 = 5; j13 <= 19; ++j13) {
@@ -103,6 +101,7 @@ public class GOTStructureIronbornCampWatchtower extends GOTStructureBase {
 				}
 			}
 		}
+		int j1;
 		for (j1 = 6; j1 <= 19; ++j1) {
 			setBlockAndMetadata(world, -2, j1, -2, woodBlock, woodMeta);
 			setBlockAndMetadata(world, -2, j1, 2, woodBlock, woodMeta);
@@ -110,6 +109,7 @@ public class GOTStructureIronbornCampWatchtower extends GOTStructureBase {
 			setBlockAndMetadata(world, 2, j1, 2, woodBlock, woodMeta);
 		}
 		int legend = 0;
+		int i1;
 		for (j1 = 5; j1 <= 10; j1 += 5) {
 			for (i1 = -3; i1 <= 3; ++i1) {
 				for (int k13 = -3; k13 <= 3; ++k13) {

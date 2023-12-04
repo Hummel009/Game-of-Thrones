@@ -63,13 +63,13 @@ public class GOTAlignmentValues {
 	}
 
 	public static void setupDecimalFormat(DecimalFormat dFormat) {
-		String groupSeparator;
 		char decimalSeparatorChar = '.';
-		char groupSeparatorChar = ',';
 		String decimalSeparator = StatCollector.translateToLocal("got.alignment.decimal_separator_char");
 		if (decimalSeparator.length() == 1) {
 			decimalSeparatorChar = decimalSeparator.charAt(0);
 		}
+		char groupSeparatorChar = ',';
+		String groupSeparator;
 		if ((groupSeparator = StatCollector.translateToLocal("got.alignment.group_separator_char")).length() == 1) {
 			groupSeparatorChar = groupSeparator.charAt(0);
 		}

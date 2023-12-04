@@ -436,11 +436,11 @@ public enum GOTFaction {
 	}
 
 	public float getControlZoneAlignmentMultiplier(EntityPlayer entityplayer) {
-		int reducedRange;
-		double dist;
 		if (inControlZone(entityplayer)) {
 			return 1.0f;
 		}
+		double dist;
+		int reducedRange;
 		if (isFactionDimension(entityplayer.worldObj) && (dist = distanceToNearestControlZoneInRange(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, reducedRange = getControlZoneReducedRange())) >= 0.0) {
 			double mapDist = GOTWaypoint.worldToMapR(dist);
 			float frac = (float) mapDist / reducedRange;

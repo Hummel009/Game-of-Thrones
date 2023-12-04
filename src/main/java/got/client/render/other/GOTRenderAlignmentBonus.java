@@ -128,7 +128,6 @@ public class GOTRenderAlignmentBonus extends Render {
 			GOTTickHandlerClient.drawAlignmentText(fr, -MathHelper.floor_double(fr.getStringWidth(name) / 2.0), y += 14, name, alpha);
 		}
 		if (showConquest && conq != 0.0f) {
-			boolean negative = conq < 0.0f;
 			String strConq = GOTAlignmentValues.formatConqForDisplay(conq, true);
 			x = -MathHelper.floor_double((fr.getStringWidth(strConq) + 18) / 2.0);
 			if (showAlign) {
@@ -136,6 +135,7 @@ public class GOTRenderAlignmentBonus extends Render {
 			}
 			bindEntityTexture(alignmentBonus);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
+			boolean negative = conq < 0.0f;
 			GOTTickHandlerClient.drawTexturedModalRect(x, y - 5, negative ? 16 : 0, 228, 16, 16);
 			GOTTickHandlerClient.drawConquestText(fr, x + 18, y, strConq, negative, alpha);
 		}

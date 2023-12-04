@@ -32,9 +32,9 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		super(0L);
 		if (!loadedBiomeImage()) {
 			try {
-				BufferedImage biomeImage = null;
 				imageName = "assets/got/textures/map/map.png";
 				ModContainer mc = GOT.getModContainer();
+				BufferedImage biomeImage = null;
 				if (mc.getSource().isFile()) {
 					ZipFile zip = new ZipFile(mc.getSource());
 					Enumeration<? extends ZipEntry> entries = zip.entries();
@@ -74,7 +74,6 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 	}
 
 	public static GOTGenLayer[] createWorld(GOTDimension dim, WorldType worldType) {
-		int i;
 
 		GOTGenLayer rivers = new GOTGenLayerRiverInit(100L);
 		rivers = GOTGenLayerZoom.magnify(1000L, rivers, 10);
@@ -105,6 +104,7 @@ public class GOTGenLayerWorld extends GOTGenLayer {
 		GOTGenLayer variantsSmall = new GOTGenLayerBiomeVariants(300L);
 		variantsSmall = GOTGenLayerZoom.magnify(300L, variantsSmall, 6);
 		GOTGenLayer lakes = new GOTGenLayerBiomeVariantsLake(100L, null, 0).setLakeFlags(1);
+		int i;
 		for (i = 1; i <= 5; ++i) {
 			lakes = new GOTGenLayerZoom(200L + i, lakes);
 			if (i <= 2) {

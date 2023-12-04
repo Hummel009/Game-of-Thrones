@@ -14,20 +14,16 @@ public class GOTBlockSapling8 extends GOTBlockSaplingBase {
 
 	@Override
 	public void growTree(World world, int i, int j, int k, Random random) {
-		int i1;
 		int meta = world.getBlockMetadata(i, j, k) & 7;
 		WorldGenAbstractTree treeGen = null;
-		int trunkNeg = 0;
-		int trunkPos = 0;
-		int xOffset = 0;
-		int zOffset = 0;
 		if (meta == 0) {
 			treeGen = GOTTreeType.PLUM.create(true, random);
 		}
+		int zOffset = 0;
+		int xOffset = 0;
+		int trunkPos = 0;
+		int trunkNeg = 0;
 		if (meta == 1) {
-			int[] tree2x2;
-			int[] tree4x4;
-			int[] tree3x3;
 			int[] tree5x5 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, 1, -2, 2, -4, 4);
 			if (tree5x5 != null) {
 				treeGen = GOTTreeType.REDWOOD_5.create(true, random);
@@ -36,6 +32,7 @@ public class GOTBlockSapling8 extends GOTBlockSaplingBase {
 				xOffset = tree5x5[0];
 				zOffset = tree5x5[1];
 			}
+			int[] tree4x4;
 			if (treeGen == null && (tree4x4 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, 1, -1, 2, -2, 1)) != null) {
 				treeGen = GOTTreeType.REDWOOD_4.create(true, random);
 				trunkNeg = 1;
@@ -43,6 +40,7 @@ public class GOTBlockSapling8 extends GOTBlockSaplingBase {
 				xOffset = tree4x4[0];
 				zOffset = tree4x4[1];
 			}
+			int[] tree3x3;
 			if (treeGen == null && (tree3x3 = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 1)) != null) {
 				treeGen = GOTTreeType.REDWOOD_3.create(true, random);
 				trunkNeg = 1;
@@ -50,6 +48,7 @@ public class GOTBlockSapling8 extends GOTBlockSaplingBase {
 				xOffset = tree3x3[0];
 				zOffset = tree3x3[1];
 			}
+			int[] tree2x2;
 			if (treeGen == null && (tree2x2 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, 1, 0, 1, -1, 0)) != null) {
 				treeGen = GOTTreeType.REDWOOD_2.create(true, random);
 				trunkNeg = 0;
@@ -71,6 +70,7 @@ public class GOTBlockSapling8 extends GOTBlockSaplingBase {
 		if (meta == 3) {
 			treeGen = GOTTreeType.PALM.create(true, random);
 		}
+		int i1;
 		for (i1 = -trunkNeg; i1 <= trunkPos; ++i1) {
 			for (int k1 = -trunkNeg; k1 <= trunkPos; ++k1) {
 				world.setBlock(i + xOffset + i1, j, k + zOffset + k1, Blocks.air, 0, 4);

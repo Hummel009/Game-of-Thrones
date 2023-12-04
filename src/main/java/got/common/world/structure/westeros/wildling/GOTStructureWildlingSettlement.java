@@ -82,8 +82,6 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 
 		@Override
 		public GOTBezierType getPath(Random random, int i, int k) {
-			int innerOut;
-			int outerOut;
 			int i1 = Math.abs(i);
 			int k1 = Math.abs(k);
 			if (type == Type.VILLAGE || type == Type.THENN) {
@@ -93,14 +91,14 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 					return GOTBezierType.PATH_DIRTY;
 				}
 			} else if (type == Type.HARDHOME) {
-				innerOut = 18;
+				int innerOut = 18;
 				if (i1 <= innerOut && k1 <= innerOut && (i1 >= 12 || k1 >= 12)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
 				if (i1 <= 3 && k1 >= innerOut && k1 <= 86 || k1 <= 3 && i1 >= innerOut && i1 <= 86) {
 					return GOTBezierType.PATH_DIRTY;
 				}
-				outerOut = 66;
+				int outerOut = 66;
 				if (i1 <= outerOut && k1 <= outerOut && (i1 >= 60 || k1 >= 60)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
@@ -153,9 +151,8 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 			addStructure(new GOTStructureWildlingHouse(false), mansionZ, mansionX, 3, true);
 			for (int l = 0; l <= 3; ++l) {
 				int houseX = 10 + 14 * l;
-				int houseZ1 = 58;
-				int houseZ2 = 68;
 				if (l <= 2) {
+					int houseZ1 = 58;
 					if (l >= 1) {
 						if (l == 1) {
 							addStructure(new GOTStructureWildlingHouse(false), -houseX - 7, -houseZ1, 0, true);
@@ -173,6 +170,7 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 					addStructure(new GOTStructureWildlingHouse(false), houseZ1, -houseX, 1, true);
 					addStructure(new GOTStructureWildlingHouse(false), houseZ1, houseX, 1, true);
 				}
+				int houseZ2 = 68;
 				addStructure(new GOTStructureWildlingHouse(false), -houseX, -houseZ2, 2, true);
 				addStructure(new GOTStructureWildlingHouse(false), houseX, -houseZ2, 2, true);
 				addStructure(new GOTStructureWildlingHouse(false), -houseX, houseZ2, 0, true);
@@ -217,14 +215,14 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			int pathEnd = 68;
-			int pathSide = 7;
-			int centreSide = 19;
 			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
+			int centreSide = 19;
 			addStructure(new GOTStructureThennHouse(false).setIsBlacksmith(), 0, -centreSide, 2, true);
+			int pathEnd = 68;
 			addStructure(new GOTStructureThennHouse(false), -pathEnd, 0, 1, true);
 			addStructure(new GOTStructureThennMagnarHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
+			int pathSide = 7;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
 				int i1 = l * 18;
 				int k1 = pathSide;
@@ -264,14 +262,14 @@ public class GOTStructureWildlingSettlement extends GOTStructureBaseSettlement {
 					spawner.setBlockEnemySpawnRange(60);
 				}
 			}, 0, 0, 0);
-			int pathEnd = 68;
-			int pathSide = 7;
-			int centreSide = 19;
 			addStructure(new GOTStructureMossovyWell(false), 0, -2, 0, true);
+			int centreSide = 19;
 			addStructure(new GOTStructureWildlingHouse(false).setIsTramp(), 0, -centreSide, 2, true);
+			int pathEnd = 68;
 			addStructure(new GOTStructureWildlingHouse(false), -pathEnd, 0, 1, true);
 			addStructure(new GOTStructureWildlingChieftainHouse(false), pathEnd, 0, 3, true);
 			int rowHouses = 3;
+			int pathSide = 7;
 			for (int l = -rowHouses; l <= rowHouses; ++l) {
 				int i1 = l * 18;
 				int k1 = pathSide;

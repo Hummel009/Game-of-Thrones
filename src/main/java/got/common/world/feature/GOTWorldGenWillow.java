@@ -30,7 +30,6 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		Block below;
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		boolean flag = true;
 		if (j >= 1 && height + 1 <= 256) {
@@ -54,6 +53,7 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 		} else {
 			flag = false;
 		}
+		Block below;
 		if (!(below = world.getBlock(i, j - 1, k)).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
 			flag = false;
 		}
@@ -133,8 +133,8 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 
 	public void growVines(World world, Random random, int i, int j, int k, int meta) {
 		setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.willowVines, meta);
-		int vines = 0;
 		--j;
+		int vines = 0;
 		while (world.getBlock(i, j, k).isAir(world, i, j, k) && vines < 2 + random.nextInt(4)) {
 			setBlockAndNotifyAdequately(world, i, j, k, GOTBlocks.willowVines, meta);
 			++vines;

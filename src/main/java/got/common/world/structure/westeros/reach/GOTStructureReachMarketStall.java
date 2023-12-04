@@ -153,8 +153,8 @@ public abstract class GOTStructureReachMarketStall extends GOTStructureWesterosM
 		@Override
 		public void generateRoof(World world, Random random, int i1, int j1, int k1) {
 			int i2 = Math.abs(i1);
-			int k2 = Math.abs(k1);
 			if (i2 % 2 == 0) {
+				int k2 = Math.abs(k1);
 				if (k2 == 2) {
 					setBlockAndMetadata(world, i1, j1, k1, Blocks.wool, 0);
 				} else {

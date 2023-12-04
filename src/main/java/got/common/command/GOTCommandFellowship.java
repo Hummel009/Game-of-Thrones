@@ -101,12 +101,12 @@ public class GOTCommandFellowship extends CommandBase {
 				String ownerName = (args = fixArgsForFellowship(args, 2, true))[1];
 				UUID ownerID = getPlayerIDByName(sender, ownerName);
 				if (ownerID != null) {
-					GOTFellowship fellowship;
 					GOTPlayerData playerData = GOTLevelData.getData(ownerID);
 					String fsName = args[2];
 					if (args.length == 3) {
 						return listFellowshipsMatchingLastWord(args, argsOriginal, 2, playerData, true);
 					}
+					GOTFellowship fellowship;
 					if (fsName != null && (fellowship = playerData.getFellowshipByName(fsName)) != null) {
 						if (args.length == 4) {
 							return CommandBase.getListOfStringsMatchingLastWord(args, "invite", "add", "remove", "transfer", "op", "deop", "disband", "rename", "icon", "pvp", "hired-ff", "map-show");

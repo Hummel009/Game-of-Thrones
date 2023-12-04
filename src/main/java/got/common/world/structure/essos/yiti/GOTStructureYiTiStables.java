@@ -19,15 +19,10 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int k2;
-		int i1;
-		int i12;
-		int j1;
-		int k12;
-		int i2;
 		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
+		int j1;
+		int i1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -50,6 +45,10 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 				}
 			}
 		}
+		int i2;
+		int i12;
+		int k2;
+		int k1;
 		for (i12 = -8; i12 <= 8; ++i12) {
 			for (k1 = 0; k1 <= 12; ++k1) {
 				i2 = Math.abs(i12);
@@ -88,6 +87,7 @@ public class GOTStructureYiTiStables extends GOTStructureYiTiBase {
 				setBlockAndMetadata(world, i12, 1, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
+		int k12;
 		for (k12 = 1; k12 <= 11; ++k12) {
 			setBlockAndMetadata(world, 0, 5, k12, woodBeamBlock, woodBeamMeta | 8);
 		}

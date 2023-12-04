@@ -359,12 +359,12 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random random) {
-		float growth;
-		int meta;
 		super.updateTick(world, i, j, k, random);
 		if (!checkCanStay(world, i, j, k)) {
 			return;
 		}
+		int meta;
+		float growth;
 		if (hasGrapes && world.getBlockLightValue(i, j + 1, k) >= 9 && (meta = world.getBlockMetadata(i, j, k)) < 7 && (growth = getGrowthFactor(world, i, j, k)) > 0.0f && random.nextInt((int) (80.0f / growth) + 1) == 0) {
 			meta++;
 			world.setBlockMetadataWithNotify(i, j, k, meta, 2);

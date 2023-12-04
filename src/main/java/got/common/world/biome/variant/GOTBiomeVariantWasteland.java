@@ -21,9 +21,6 @@ public class GOTBiomeVariantWasteland extends GOTBiomeVariant {
 
 	@Override
 	public void generateVariantTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, int height, GOTBiome biome) {
-		int chunkX = i & 0xF;
-		int chunkZ = k & 0xF;
-		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
 		double d1 = GOTBiome.biomeTerrainNoise.func_151601_a(i * 0.04, k * 0.04);
 		double d2 = GOTBiome.biomeTerrainNoise.func_151601_a(i * 0.3, k * 0.3);
@@ -31,6 +28,9 @@ public class GOTBiomeVariantWasteland extends GOTBiomeVariant {
 		double d3 = podzolNoise.func_151601_a(i * 0.04, k * 0.04);
 		double d4 = podzolNoise.func_151601_a(i * 0.3, k * 0.3);
 		d4 *= 0.3;
+		int chunkZ = k & 0xF;
+		int chunkX = i & 0xF;
+		int xzIndex = chunkX * 16 + chunkZ;
 		if (d3 + d4 > 0.5) {
 			int index = xzIndex * ySize + height;
 			blocks[index] = Blocks.dirt;

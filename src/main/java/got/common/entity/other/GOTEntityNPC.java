@@ -814,8 +814,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public void onDeath(DamageSource damagesource) {
-		EntityPlayer entityplayer;
-		GOTEntityInvasionSpawner invasion;
 		enpouchNPCDrops = true;
 		hiredNPCInfo.onDeath(damagesource);
 		super.onDeath(damagesource);
@@ -827,6 +825,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 		enpouchNPCDrops = false;
 		dropItemList(enpouchedDrops, false);
+		EntityPlayer entityplayer;
 		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
 			entityplayer = (EntityPlayer) damagesource.getEntity();
 			if (hurtOnlyByPlates && damagesource.getSourceOfDamage() instanceof GOTEntityPlate) {
@@ -847,6 +846,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			entity.onSpawn();
 		}
 		questInfo.onDeath();
+		GOTEntityInvasionSpawner invasion;
 		if (!worldObj.isRemote && isInvasionSpawned() && (entityplayer = GOT.getDamagingPlayerIncludingUnits(damagesource)) != null && (invasion = GOTEntityInvasionSpawner.locateInvasionNearby(this, invasionID)) != null) {
 			invasion.addPlayerKill(entityplayer);
 			if (damagesource.getEntity() == entityplayer) {

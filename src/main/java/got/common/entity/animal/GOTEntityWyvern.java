@@ -125,8 +125,8 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 
 	@Override
 	public void onLivingUpdate() {
-		int i;
 		super.onLivingUpdate();
+		int i;
 		if (!worldObj.isRemote && (i = getSnapTime()) > 0) {
 			setSnapTime(i - 1);
 		}

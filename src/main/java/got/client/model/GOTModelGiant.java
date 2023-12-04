@@ -189,7 +189,6 @@ public class GOTModelGiant extends ModelBase {
 
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-		float f6;
 		head.rotationPointX = 0.0f;
 		head.rotationPointY = -27.0f;
 		head.rotateAngleZ = 0.0f;
@@ -211,7 +210,7 @@ public class GOTModelGiant extends ModelBase {
 		rightArm.rotateAngleZ = 0.0f;
 		leftArm.rotateAngleZ = 0.0f;
 		if (onGround > -9990.0f) {
-			f6 = onGround;
+			float f6 = onGround;
 			body.rotateAngleY = MathHelper.sin(MathHelper.sqrt_float(f6) * 3.1415927f * 2.0f) * 0.2f;
 			rightArm.rotationPointZ = MathHelper.sin(body.rotateAngleY) * 5.0f;
 			rightArm.rotationPointX = -MathHelper.cos(body.rotateAngleY) * 12.0f;

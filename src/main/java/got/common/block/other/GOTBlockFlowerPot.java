@@ -62,9 +62,9 @@ public class GOTBlockFlowerPot extends BlockFlowerPot {
 
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int i, int j, int k, int meta, int fortune) {
-		ItemStack itemstack;
 		ArrayList<ItemStack> drops = new ArrayList<>();
 		drops.add(new ItemStack(Items.flower_pot));
+		ItemStack itemstack;
 		if ((meta & 8) == 0 && (itemstack = getPlant(world, i, j, k)) != null && world.getTileEntity(i, j, k) != null) {
 			drops.add(itemstack);
 		}

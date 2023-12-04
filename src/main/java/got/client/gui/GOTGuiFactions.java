@@ -164,10 +164,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 
 	@Override
 	public void drawScreen(int i, int j, float f) {
-		List<String> desc;
-		int stringWidth;
 		GOTPlayerData clientPD = GOTLevelData.getData(mc.thePlayer);
-		boolean mouseOverWarCrimes = false;
 		if (!isPledging && !isUnpledging) {
 			buttonPagePrev.enabled = currentPage.prev() != null;
 			buttonPageNext.enabled = currentPage.next() != null;
@@ -239,6 +236,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			buttonRegions.enabled = false;
 			buttonRegions.visible = false;
 		}
+		boolean mouseOverWarCrimes = false;
 		if (currentFaction != null) {
 			float alignment = isOtherPlayer && playerAlignmentMap != null ? playerAlignmentMap.get(currentFaction) : clientPD.getAlignment(currentFaction);
 			int x = guiLeft + xSize / 2;
@@ -269,9 +267,9 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				}
 				int wcX = guiLeft + pageMapX + 3;
 				int wcY = guiTop + pageY + pageMapY + pageMapSize + 5;
-				int wcWidth = 8;
 				mc.getTextureManager().bindTexture(factionsTexture);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+				int wcWidth = 8;
 				if (currentFaction.approvesWarCrimes) {
 					drawTexturedModalRect(wcX, wcY, 33, 142, wcWidth, wcWidth);
 				} else {
@@ -323,7 +321,6 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 						if (!isOtherPlayer) {
 							GOTFactionData factionData = clientPD.getFactionData(currentFaction);
 							if (alignment >= 0.0f) {
-								float conq;
 								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.enemiesKilled", factionData.getEnemiesKilled());
 								fontRendererObj.drawString(s, x, y, 8019267);
 								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.trades", factionData.getTradeCount());
@@ -333,6 +330,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 								s = StatCollector.translateToLocalFormatted("got.gui.factions.data.miniquests", factionData.getMiniQuestsCompleted());
 								fontRendererObj.drawString(s, x, y += fontRendererObj.FONT_HEIGHT, 8019267);
 								y += fontRendererObj.FONT_HEIGHT;
+								float conq;
 								if (clientPD.isPledgedTo(currentFaction) && (conq = factionData.getConquestEarned()) != 0.0f) {
 									int conqInt = Math.round(conq);
 									s = StatCollector.translateToLocalFormatted("got.gui.factions.data.conquest", conqInt);
@@ -458,6 +456,8 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			}
 		}
 		super.drawScreen(i, j, f);
+		int stringWidth;
+		List<String> desc;
 		if (buttonFactionMap.enabled && buttonFactionMap.func_146115_a()) {
 			float z = zLevel;
 			String s = StatCollector.translateToLocal("got.gui.factions.viewMap");
@@ -671,7 +671,6 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 
 	public void updateCurrentDimensionAndFaction() {
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
-		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
 		if (currentFactionIndex != prevFactionIndex) {
 			currentFaction = currentFactionList.get(currentFactionIndex);
 		}
@@ -680,6 +679,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		if (currentDimension != prevDimension) {
 			currentRegion = currentDimension.dimensionRegions.get(0);
 		}
+		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
 		if (currentRegion != prevRegion) {
 			pd.setRegionLastViewedFaction(prevRegion, currentFaction);
 			lastViewedRegions.put(prevRegion, currentFaction);

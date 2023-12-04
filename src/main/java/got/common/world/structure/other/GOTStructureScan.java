@@ -102,12 +102,11 @@ public class GOTStructureScan {
 				}
 				GOTStructureScan scan = new GOTStructureScan(strName.getKey());
 				for (String line : lines) {
-					String alias;
-					String s1;
 					++curLine;
 					if (line.isEmpty()) {
 						continue;
 					}
+					String s1;
 					if (line.charAt(0) == GOTScanAlias.Type.BLOCK.typeCode) {
 						s1 = line.substring(1, line.length() - 1);
 						scan.aliases.add(new GOTScanAlias(s1, GOTScanAlias.Type.BLOCK));
@@ -122,12 +121,11 @@ public class GOTStructureScan {
 					int j = line.indexOf('.');
 					String s12 = line.substring(i, j);
 					int x = Integer.parseInt(s12);
-					ScanStepBase step = null;
-					boolean fillDown = false;
-					boolean findLowest = false;
 					i = j + 1;
 					j = line.indexOf('.', i);
 					s12 = line.substring(i, j);
+					boolean findLowest = false;
+					boolean fillDown = false;
 					if (!s12.isEmpty() && s12.charAt(s12.length() - 1) == 'v') {
 						fillDown = true;
 						s12 = s12.substring(0, s12.length() - 1);
@@ -142,6 +140,8 @@ public class GOTStructureScan {
 					int z = Integer.parseInt(s12);
 					i = j + 1;
 					char c = line.charAt(i);
+					ScanStepBase step = null;
+					String alias;
 					if (c == '\"') {
 						j = line.indexOf('"', i + 1);
 						s12 = line.substring(i, j + 1);

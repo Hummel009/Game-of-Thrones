@@ -18,10 +18,10 @@ public class GOTContainerCracker extends Container {
 	public int capacity;
 
 	public GOTContainerCracker(EntityPlayer entityplayer) {
-		int i;
 		theCrackerItem = entityplayer.inventory.getCurrentItem();
 		capacity = 3;
 		crackerInventory = new InventoryBasic("cracker", false, capacity);
+		int i;
 		for (i = 0; i < capacity; ++i) {
 			addSlotToContainer(new GOTSlotCracker(crackerInventory, i, 62 + i * 18, 24));
 		}

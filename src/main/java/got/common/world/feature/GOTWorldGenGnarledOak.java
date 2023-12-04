@@ -70,12 +70,12 @@ public class GOTWorldGenGnarledOak extends WorldGenAbstractTree {
 			float angleY = random.nextFloat() * 0.6981317007977318f;
 			float sinY = MathHelper.sin(angleY);
 			int length = 2 + random.nextInt(3);
-			int i1 = i;
-			int k1 = k;
 			int j1 = j + height - 1 - random.nextInt(3);
 			if (j1 < j + 2) {
 				j1 = j + 2;
 			}
+			int k1 = k;
+			int i1 = i;
 			for (int l = 0; l < length; ++l) {
 				if (Math.floor(cos * l) != Math.floor(cos * (l - 1))) {
 					i1 = (int) (i1 + Math.signum(cos));
@@ -95,15 +95,15 @@ public class GOTWorldGenGnarledOak extends WorldGenAbstractTree {
 		}
 		int lastDir = -1;
 		for (int j1 = j + 2; j1 < j + height; ++j1) {
-			int i1;
-			int k1;
-			Block block;
 			int dir;
 			if (random.nextInt(3) != 0 || (dir = random.nextInt(4)) == lastDir) {
 				continue;
 			}
 			lastDir = dir;
 			int length = 1;
+			Block block;
+			int k1;
+			int i1;
 			for (int l = 1; l <= length && ((block = world.getBlock(i1 = i + Direction.offsetX[dir] * l, j1, k1 = k + Direction.offsetZ[dir] * l)).isReplaceable(world, i1, j1, k1) || block.isLeaves(world, i1, j1, k1)); ++l) {
 				if (dir == 0 || dir == 2) {
 					setBlockAndNotifyAdequately(world, i1, j1, k1, woodBlock, woodMeta | 8);

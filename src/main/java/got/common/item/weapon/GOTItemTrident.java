@@ -52,15 +52,15 @@ public class GOTItemTrident extends GOTItemPolearm {
 
 	@Override
 	public void onPlayerStoppedUsing(ItemStack itemstack, World world, EntityPlayer entityplayer, int useTick) {
-		int i;
-		int k;
-		int j;
 		int usageTime = getMaxItemUseDuration(itemstack) - useTick;
 		if (usageTime <= 5) {
 			return;
 		}
 		entityplayer.swingItem();
 		MovingObjectPosition m = getMovingObjectPositionFromPlayer(world, entityplayer, true);
+		int j;
+		int k;
+		int i;
 		if (m != null && m.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK && canFishAt(world, i = m.blockX, j = m.blockY, k = m.blockZ)) {
 			for (int l = 0; l < 20; ++l) {
 				double d = i + world.rand.nextFloat();

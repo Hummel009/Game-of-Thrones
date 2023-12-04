@@ -47,9 +47,9 @@ public class GOTSpawnerAnimals {
 		if (!hostiles && !peacefuls) {
 			return 0;
 		}
-		int totalSpawned = 0;
 		GOTSpawnerNPCs.getSpawnableChunks(world, eligibleSpawnChunks);
 		ChunkCoordinates spawnPoint = world.getSpawnPoint();
+		int totalSpawned = 0;
 		label99:
 		for (EnumCreatureType creatureType : EnumCreatureType.values()) {
 			TypeInfo typeInfo = forDimAndType(world, creatureType);
@@ -106,13 +106,13 @@ public class GOTSpawnerAnimals {
 														float f5 = f2 - spawnPoint.posZ;
 														float distSq = f3 * f3 + f4 * f4 + f5 * f5;
 														if (distSq >= 576.0f) {
-															EntityLiving entity;
 															if (spawnEntry == null) {
 																spawnEntry = world.spawnRandomCreature(creatureType, i1, j1, k1);
 																if (spawnEntry == null) {
 																	continue label97;
 																}
 															}
+															EntityLiving entity;
 															try {
 																entity = (EntityLiving) spawnEntry.entityClass.getConstructor(World.class).newInstance(world);
 															} catch (Exception e) {
@@ -164,10 +164,10 @@ public class GOTSpawnerAnimals {
 	}
 
 	public static void worldGenSpawnAnimals(World world, GOTBiome biome, GOTBiomeVariant variant, int i, int k, Random rand) {
-		int spawnRange = 16;
-		int spawnFuzz = 5;
 		List<SpawnListEntry> spawnList = biome.getSpawnableList(EnumCreatureType.creature);
 		if (!spawnList.isEmpty()) {
+			int spawnFuzz = 5;
+			int spawnRange = 16;
 			while (rand.nextFloat() < biome.getSpawningChance()) {
 				BiomeGenBase.SpawnListEntry spawnEntry = (BiomeGenBase.SpawnListEntry) WeightedRandom.getRandomItem(world.rand, spawnList);
 				int count = MathHelper.getRandomIntegerInRange(rand, spawnEntry.minGroupCount, spawnEntry.maxGroupCount);

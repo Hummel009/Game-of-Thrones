@@ -28,10 +28,10 @@ public class GOTRenderBomb extends Render {
 	}
 
 	public void renderBomb(Entity entity, double d, double d1, double d2, float ticks, int fuse, int strengthLevel, float bombScale, float brightness) {
-		float f2;
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
 		GL11.glScalef(bombScale, bombScale, bombScale);
+		float f2;
 		if (fuse - ticks + 1.0f < 10.0f) {
 			f2 = 1.0f - (fuse - ticks + 1.0f) / 10.0f;
 			if (f2 < 0.0f) {

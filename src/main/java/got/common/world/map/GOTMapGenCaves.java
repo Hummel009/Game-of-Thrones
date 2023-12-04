@@ -24,11 +24,8 @@ public class GOTMapGenCaves extends MapGenBase {
 	}
 
 	public void digBlock(Block[] blockArray, int index, int xzIndex, int i, int j, int k, int chunkX, int chunkZ, GOTBiome biome, boolean cutSurface) {
-		int roadDepth;
-		int j1;
 		Block block = blockArray[index];
 		boolean isTop = false;
-		boolean belowSettlementOrRoad = false;
 		int topCheckDepth = 1;
 		if (j >= 59 - topCheckDepth) {
 			isTop = true;
@@ -41,6 +38,9 @@ public class GOTMapGenCaves extends MapGenBase {
 				break;
 			}
 		}
+		boolean belowSettlementOrRoad = false;
+		int j1;
+		int roadDepth;
 		if ((chunkFlags.isSettlement || chunkFlags.bezierFlags[xzIndex]) && j >= 59 - (roadDepth = 4)) {
 			belowSettlementOrRoad = true;
 			int checkAboveMax = 5;
@@ -107,10 +107,6 @@ public class GOTMapGenCaves extends MapGenBase {
 	}
 
 	public void generateCaveNode(long seed, int par3, int par4, Block[] blockArray, double par6, double par8, double par10, float par12, float angle, float par14, int par15, int par16, double par17, boolean cutSurface) {
-		double var19 = par3 * 16 + 8;
-		double var21 = par4 * 16 + 8;
-		float var23 = 0.0f;
-		float var24 = 0.0f;
 		Random caveRand = new Random(seed);
 		if (par16 <= 0) {
 			int var26 = range * 16 - 16;
@@ -123,9 +119,12 @@ public class GOTMapGenCaves extends MapGenBase {
 		}
 		int var27 = caveRand.nextInt(par16 / 2) + par16 / 4;
 		boolean var28 = caveRand.nextInt(6) == 0;
+		float var24 = 0.0f;
+		float var23 = 0.0f;
+		double var21 = par4 * 16 + 8;
+		double var19 = par3 * 16 + 8;
 		while (par15 < par16) {
 			double var29 = 1.5 + MathHelper.sin(par15 * 3.1415927f / par16) * par12 * 1.0f;
-			double var31 = var29 * par17;
 			float var33 = MathHelper.cos(par14);
 			float var34 = MathHelper.sin(par14);
 			par6 += MathHelper.cos(angle) * var33;
@@ -152,10 +151,9 @@ public class GOTMapGenCaves extends MapGenBase {
 					return;
 				}
 				if (par6 >= var19 - 16.0 - var29 * 2.0 && par10 >= var21 - 16.0 - var29 * 2.0 && par6 <= var19 + 16.0 + var29 * 2.0 && par10 <= var21 + 16.0 + var29 * 2.0) {
-					int var42;
-					int var45;
 					int var55 = MathHelper.floor_double(par6 - var29) - par3 * 16 - 1;
 					int var36 = MathHelper.floor_double(par6 + var29) - par3 * 16 + 1;
+					double var31 = var29 * par17;
 					int var57 = MathHelper.floor_double(par8 - var31) - 1;
 					int var38 = MathHelper.floor_double(par8 + var31) + 1;
 					int var56 = MathHelper.floor_double(par10 - var29) - par4 * 16 - 1;
@@ -167,6 +165,8 @@ public class GOTMapGenCaves extends MapGenBase {
 					var56 = Math.max(var56, 0);
 					var40 = Math.min(var40, 16);
 					boolean anyWater = false;
+					int var45;
+					int var42;
 					for (var42 = var55; !anyWater && var42 < var36; ++var42) {
 						for (int var43 = var56; !anyWater && var43 < var40; ++var43) {
 							for (int var44 = var38 + 1; !anyWater && var44 >= var57 - 1; --var44) {

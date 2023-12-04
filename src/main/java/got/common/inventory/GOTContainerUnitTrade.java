@@ -22,7 +22,6 @@ public class GOTContainerUnitTrade extends Container {
 	public int alignmentRewardSlots;
 
 	public GOTContainerUnitTrade(EntityPlayer entityplayer, GOTHireableBase trader, World world) {
-		int i;
 		theUnitTrader = trader;
 		theLivingTrader = (GOTEntityNPC) theUnitTrader;
 		traderFaction = theLivingTrader.getFaction();
@@ -40,6 +39,7 @@ public class GOTContainerUnitTrade extends Container {
 				alignmentRewardInv.setInventorySlotContents(0, reward.copy());
 			}
 		}
+		int i;
 		for (i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
 				addSlotToContainer(new Slot(entityplayer.inventory, j + i * 9 + 9, 30 + j * 18, 174 + i * 18));

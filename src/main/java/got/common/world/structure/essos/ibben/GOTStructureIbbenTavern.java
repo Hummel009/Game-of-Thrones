@@ -25,20 +25,10 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int i12;
-		int i13;
-		int j12;
-		int step;
-		int k1;
-		int i2;
-		int j13;
-		int j14;
-		int k12;
-		int k13;
 		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
+		int j14;
+		int i12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -61,6 +51,9 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 				}
 			}
 		}
+		int j13;
+		int k1;
+		int i13;
 		for (i13 = -8; i13 <= 8; ++i13) {
 			for (k1 = 0; k1 <= 28; ++k1) {
 				for (j13 = 1; j13 <= 11; ++j13) {
@@ -89,6 +82,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i13, 2, k1, GOTBlocks.thatchFloor, 0);
 			}
 		}
+		int i2;
 		for (i13 = -7; i13 <= 7; ++i13) {
 			i2 = Math.abs(i13);
 			if (i2 <= 2) {
@@ -102,6 +96,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 			}
 			setBlockAndMetadata(world, i13, 2, 0, fenceBlock, fenceMeta);
 		}
+		int j12;
 		for (i13 = -7; i13 <= 7; ++i13) {
 			for (k1 = 2; k1 <= 26; ++k1) {
 				int i22 = Math.abs(i13);
@@ -157,6 +152,8 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i13, 4, k1, fenceBlock, fenceMeta);
 			}
 		}
+		int k12;
+		int step;
 		for (k12 = 3; k12 <= 25; ++k12) {
 			for (step = 0; step <= 5; ++step) {
 				i12 = 1 + step;
@@ -174,6 +171,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 				setBlockAndMetadata(world, i12, j12, k12, block, meta);
 			}
 		}
+		int j1;
 		for (k12 = 2; k12 <= 26; ++k12) {
 			setBlockAndMetadata(world, 0, 7, k12, logBlock, logMeta | 8);
 			setBlockAndMetadata(world, 0, 8, k12, plank2SlabBlock, plank2SlabMeta);
@@ -324,6 +322,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 		setBlockAndMetadata(world, 0, 4, 4, Blocks.torch, 3);
 		setBlockAndMetadata(world, -2, 5, 4, woodBeamBlock, woodBeamMeta | 8);
 		setBlockAndMetadata(world, 2, 5, 4, woodBeamBlock, woodBeamMeta | 8);
+		int k13;
 		for (k13 = 4; k13 <= 24; ++k13) {
 			setBlockAndMetadata(world, -5, 5, k13, roofBlock, roofMeta);
 			setBlockAndMetadata(world, 5, 5, k13, roofBlock, roofMeta);
@@ -380,6 +379,7 @@ public class GOTStructureIbbenTavern extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, -3, 2, k13, plankStairBlock, 0);
 			setBlockAndMetadata(world, 3, 2, k13, plankStairBlock, 1);
 		}
+		int i1;
 		for (i1 = -1; i1 <= 1; ++i1) {
 			for (k1 = 6; k1 <= 7; ++k1) {
 				setBlockAndMetadata(world, i1, 2, k1, carpetBlock, carpetMeta);

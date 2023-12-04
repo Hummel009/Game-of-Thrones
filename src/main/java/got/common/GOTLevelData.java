@@ -82,12 +82,12 @@ public class GOTLevelData {
 	public static Set<String> getBannedStructurePlayersUsernames() {
 		Set<String> players = new HashSet<>();
 		for (UUID uuid : playerDataMap.keySet()) {
-			String username;
 			if (getData(uuid).getStructuresBanned()) {
 				GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(uuid);
 				if (StringUtils.isBlank(profile.getName())) {
 					MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
 				}
+				String username;
 				if (!StringUtils.isBlank(username = profile.getName())) {
 					players.add(username);
 				}
@@ -490,9 +490,8 @@ public class GOTLevelData {
 		}
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer otherPlayer : players) {
-			boolean show;
 			if (otherPlayer != sendPlayer) {
-				show = !getData(otherPlayer).getHideMapLocation();
+				boolean show = !getData(otherPlayer).getHideMapLocation();
 				if (!isOp && getData(otherPlayer).getAdminHideMap() || GOTConfig.forceMapLocations == 1) {
 					show = false;
 				} else if (GOTConfig.forceMapLocations == 2) {

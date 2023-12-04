@@ -1341,7 +1341,6 @@ public class GOTEventHandler implements IFuelHandler {
 				boolean isOpenAir = world.canBlockSeeTheSky(i, j, k);
 				boolean noLightSource = world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10;
 				if ((standardColdBiome || altitudeColdBiome) && (isOpenAir || inWater) && noLightSource) {
-					int frostChance = 20;
 					int frostProtection = 0;
 					for (int l = 0; l < 4; l++) {
 						ItemStack armor = entity.getEquipmentInSlot(l + 1);
@@ -1352,6 +1351,7 @@ public class GOTEventHandler implements IFuelHandler {
 							}
 						}
 					}
+					int frostChance = 20;
 					frostChance += frostProtection;
 					if (world.isRaining()) {
 						frostChance /= 5;
@@ -1378,7 +1378,6 @@ public class GOTEventHandler implements IFuelHandler {
 				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
 				boolean isOpenAir = world.canBlockSeeTheSky(i, j, k);
 				if (biome instanceof GOTBiome.Desert && !inWater && isOpenAir && world.isDaytime()) {
-					int burnChance = 20;
 					int burnProtection = 0;
 					for (int l = 0; l < 4; l++) {
 						ItemStack armour = entity.getEquipmentInSlot(l + 1);
@@ -1389,6 +1388,7 @@ public class GOTEventHandler implements IFuelHandler {
 							}
 						}
 					}
+					int burnChance = 20;
 					burnChance += burnProtection;
 					burnChance = Math.max(burnChance, 1);
 					if (world.rand.nextInt(burnChance) == 0) {

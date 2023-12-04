@@ -28,13 +28,9 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		int leafStart = j + height - 3 + random.nextInt(2);
-		int leafTop = j + height;
-		boolean flag = true;
 		if (j >= 1 && j + height + 1 <= 256) {
-			int k1;
 			int i1;
-			int i12;
-			Block below;
+			boolean flag = true;
 			for (int j1 = j; j1 <= j + height + 1; ++j1) {
 				int range = 1;
 				if (j1 == j) {
@@ -56,6 +52,9 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 				return false;
 			}
 			boolean canGrow = true;
+			Block below;
+			int i12;
+			int k1;
 			for (i12 = i; i12 <= i + extraTrunk && canGrow; ++i12) {
 				for (k1 = k; k1 <= k + extraTrunk && canGrow; ++k1) {
 					below = world.getBlock(i12, j - 1, k1);
@@ -66,18 +65,18 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 				}
 			}
 			if (canGrow) {
-				int j1;
 				for (i12 = i; i12 <= i + extraTrunk; ++i12) {
 					for (k1 = k; k1 <= k + extraTrunk; ++k1) {
 						below = world.getBlock(i12, j - 1, k1);
 						below.onPlantGrow(world, i12, j - 1, k1, i12, j, k1);
 					}
 				}
+				int j1;
+				int leafTop = j + height;
 				for (j1 = leafStart; j1 <= leafTop; ++j1) {
 					int leafRange = j1 == leafTop ? 2 : j1 == leafStart ? 1 : 3;
 					for (int i13 = i - leafRange; i13 <= i + extraTrunk + leafRange; ++i13) {
 						for (int k13 = k - leafRange; k13 <= k + extraTrunk + leafRange; ++k13) {
-							Block block;
 							int i2 = Math.abs(i13 - i);
 							int k2 = Math.abs(k13 - k);
 							if (extraTrunk > 0) {
@@ -88,6 +87,7 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 									k2 -= extraTrunk;
 								}
 							}
+							Block block;
 							if (i2 + k2 > 4 || (i2 >= leafRange || k2 >= leafRange) && random.nextInt(3) == 0 || !(block = world.getBlock(i13, j1, k13)).isReplaceable(world, i13, j1, k13) && !block.isLeaves(world, i13, j1, k13)) {
 								continue;
 							}
@@ -105,8 +105,6 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 				if (extraTrunk > 0) {
 					for (i12 = i - 1; i12 <= i + extraTrunk + 1; ++i12) {
 						for (k1 = k - 1; k1 <= k + extraTrunk + 1; ++k1) {
-							int j12;
-							Block block;
 							int i2 = Math.abs(i12 - i);
 							int k2 = Math.abs(k1 - k);
 							if (extraTrunk > 0) {
@@ -125,6 +123,8 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 									--rootY;
 								}
 							}
+							Block block;
+							int j12;
 							if (random.nextInt(4) != 0 || i2 != 0 && k2 != 0 || !(block = world.getBlock(i12, j12 = leafStart, k1)).isReplaceable(world, i12, j12, k1) && !block.isLeaves(world, i12, j12, k1)) {
 								continue;
 							}

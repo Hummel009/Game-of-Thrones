@@ -90,7 +90,6 @@ public class GOTCloudRenderer extends IRenderHandler {
 			Vec3 pos = mc.renderViewEntity.getPosition(partialTicks);
 			for (int pass = 0; pass < 2; ++pass) {
 				int scale = 4096 * IntMath.pow(2, pass);
-				double invScaleD = 1.0 / scale;
 				double posX = pos.xCoord;
 				double posZ = pos.zCoord;
 				double posY = pos.yCoord;
@@ -104,15 +103,16 @@ public class GOTCloudRenderer extends IRenderHandler {
 				tessellator.startDrawingQuads();
 				tessellator.setColorRGBA_F(r, g, b, (0.8f - pass * 0.5f) * cloudOpacity.getValue(partialTicks));
 				int interval = cloudRange;
+				double invScaleD = 1.0 / scale;
 				for (int i = -cloudRange; i < cloudRange; i += interval) {
 					for (int k = -cloudRange; k < cloudRange; k += interval) {
 						int xMax = i + interval;
 						int zMax = k + interval;
 						double uMin = (i + cloudX) * invScaleD;
-						double uMax = (xMax + cloudX) * invScaleD;
 						double vMin = (k + cloudZ) * invScaleD;
 						double vMax = (zMax + cloudZ) * invScaleD;
 						tessellator.addVertexWithUV(i, cloudY, zMax, uMin, vMax);
+						double uMax = (xMax + cloudX) * invScaleD;
 						tessellator.addVertexWithUV(xMax, cloudY, zMax, uMax, vMax);
 						tessellator.addVertexWithUV(xMax, cloudY, k, uMax, vMin);
 						tessellator.addVertexWithUV(i, cloudY, k, uMin, vMin);

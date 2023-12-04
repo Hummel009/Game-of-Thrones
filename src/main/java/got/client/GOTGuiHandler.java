@@ -203,9 +203,6 @@ public class GOTGuiHandler {
 				}
 			}
 			if (!excludeContainer && !excludeGui) {
-				int guiLeft = -1;
-				int guiTop = -1;
-				int guiXSize = -1;
 				Collection<IInventory> differentInvs = new ArrayList<>();
 				Map<IInventory, Integer> invHighestY = new HashMap<>();
 				for (int i = 0; i < container.inventorySlots.size(); i++) {
@@ -230,13 +227,14 @@ public class GOTGuiHandler {
 						}
 					}
 				}
+				int guiXSize = -1;
+				int guiTop = -1;
+				int guiLeft = -1;
 				for (IInventory inv : differentInvs) {
 					int coins = GOTItemCoin.getContainerValue(inv, true);
 					if (coins > 0) {
 						String sCoins = String.valueOf(coins);
 						int sCoinsW = mc.fontRenderer.getStringWidth(sCoins);
-						int border = 2;
-						int rectWidth = 18 + sCoinsW + 1;
 						if (guiLeft == -1) {
 							guiTop = GOTReflectionClient.getGuiTop(guiContainer);
 							guiXSize = GOTReflectionClient.getGuiXSize(guiContainer);
@@ -247,17 +245,15 @@ public class GOTGuiHandler {
 						}
 						int guiGap = 8;
 						int x = guiLeft + guiXSize + guiGap;
+						int rectWidth = 18 + sCoinsW + 1;
 						if (coinCountLeftSide) {
 							x = guiLeft - guiGap;
 							x -= rectWidth;
 						}
 						int y = invHighestY.get(inv) + guiTop;
+						int border = 2;
 						int rectX0 = x - border;
 						int rectX1 = x + rectWidth + border;
-						int rectY0 = y - border;
-						int rectY1 = y + 16 + border;
-						float a0 = 1.0f;
-						float a1 = 0.1f;
 						GL11.glDisable(3553);
 						GL11.glDisable(3008);
 						GL11.glShadeModel(7425);
@@ -265,10 +261,14 @@ public class GOTGuiHandler {
 						GL11.glTranslatef(0.0f, 0.0f, -500.0f);
 						Tessellator tessellator = Tessellator.instance;
 						tessellator.startDrawingQuads();
+						float a1 = 0.1f;
 						tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a1);
+						int rectY0 = y - border;
 						tessellator.addVertex(rectX1, rectY0, 0.0);
+						float a0 = 1.0f;
 						tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a0);
 						tessellator.addVertex(rectX0, rectY0, 0.0);
+						int rectY1 = y + 16 + border;
 						tessellator.addVertex(rectX0, rectY1, 0.0);
 						tessellator.setColorRGBA_F(0.0f, 0.0f, 0.0f, a1);
 						tessellator.addVertex(rectX1, rectY1, 0.0);

@@ -12,12 +12,11 @@ public class GOTStructureWesterosObelisk extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int k1;
-		int k12;
-		int i1;
 		setOriginAndRotation(world, i, j, k, rotation, 4);
 		setupRandomBlocks(random);
+		int i1;
+		int k12;
+		int j1;
 		if (restrictions) {
 			for (i1 = -3; i1 <= 3; ++i1) {
 				for (k12 = -3; k12 <= 3; ++k12) {
@@ -48,6 +47,7 @@ public class GOTStructureWesterosObelisk extends GOTStructureWesterosBase {
 			placeRandomStairs(world, random, i1, 4, -3, 2);
 			placeRandomStairs(world, random, i1, 4, 3, 3);
 		}
+		int k1;
 		for (k1 = -2; k1 <= 2; ++k1) {
 			placeRandomStairs(world, random, -3, 4, k1, 1);
 			placeRandomStairs(world, random, 3, 4, k1, 0);

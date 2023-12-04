@@ -16,26 +16,10 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j2;
-		int step;
-		int k1;
-		int k12;
-		int j1;
-		int k13;
-		int j12;
-		int k14;
-		int j13;
-		int i1;
-		int i12;
-		int i13;
-		int i14;
-		int i15;
-		int j14;
-		int i162;
-		int i17;
-		int j15;
 		setOriginAndRotation(world, i, j, k, rotation, 9);
 		setupRandomBlocks(random);
+		int j15;
+		int k14;
 		if (restrictions) {
 			int x1 = -6;
 			int x2 = 6;
@@ -51,6 +35,9 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int i17;
+		int j13;
+		int k13;
 		for (i17 = -5; i17 <= 5; ++i17) {
 			for (j13 = 1; j13 <= 11; ++j13) {
 				for (k13 = -5; k13 <= 5; ++k13) {
@@ -70,6 +57,8 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, -6, 1, k15, brick2StairBlock, 1);
 			setBlockAndMetadata(world, 6, 1, k15, brick2StairBlock, 0);
 		}
+		int j1;
+		int k12;
 		for (i17 = -6; i17 <= 6; ++i17) {
 			for (k12 = -6; k12 <= 6; ++k12) {
 				j1 = 0;
@@ -92,6 +81,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		}
 		int[] i19 = {4, 9};
 		k12 = i19.length;
+		int j12;
 		for (j1 = 0; j1 < k12; ++j1) {
 			j12 = i19[j1];
 			setBlockAndMetadata(world, -4, j12, -2, Blocks.torch, 2);
@@ -103,6 +93,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, -2, j12, 4, Blocks.torch, 4);
 			setBlockAndMetadata(world, 2, j12, 4, Blocks.torch, 4);
 		}
+		int i15;
 		for (i15 = -4; i15 <= 4; ++i15) {
 			for (j13 = 12; j13 <= 16; ++j13) {
 				for (k13 = -4; k13 <= 4; ++k13) {
@@ -118,6 +109,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 			setBlockAndMetadata(world, i15, 12, -5, brick2StairBlock, 2);
 			setBlockAndMetadata(world, i15, 12, 5, brick2StairBlock, 3);
 		}
+		int k1;
 		for (k1 = -4; k1 <= 4; ++k1) {
 			setBlockAndMetadata(world, -5, 12, k1, brick2StairBlock, 1);
 			setBlockAndMetadata(world, 5, 12, k1, brick2StairBlock, 0);
@@ -147,6 +139,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		}
 		int[] k16 = {-4, 4};
 		k12 = k16.length;
+		int i162;
 		for (j1 = 0; j1 < k12; ++j1) {
 			i162 = k16[j1];
 			for (int k17 : new int[]{-4, 4}) {
@@ -160,6 +153,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 4, 19, -3, Blocks.torch, 3);
 		setBlockAndMetadata(world, -4, 19, 3, Blocks.torch, 4);
 		setBlockAndMetadata(world, 4, 19, 3, Blocks.torch, 4);
+		int i12;
 		for (i12 = -2; i12 <= 2; ++i12) {
 			for (k12 = -2; k12 <= 2; ++k12) {
 				setBlockAndMetadata(world, i12, 21, k12, brick2Block, brick2Meta);
@@ -256,6 +250,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		placeBarredWindowOnZ(world, 4, 13, 0);
 		placeBarredWindowOnX(world, 0, 13, -4);
 		placeBarredWindowOnX(world, 0, 13, 4);
+		int i1;
 		for (i1 = -2; i1 <= 2; ++i1) {
 			for (k12 = -8; k12 <= -7; ++k12) {
 				j1 = 0;
@@ -304,6 +299,8 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		placeChest(world, random, 4, 2, -2, GOTBlocks.chestStone, 5, getChestContents());
 		setBlockAndMetadata(world, -4, 2, 4, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 4, 2, 4, tableBlock, 0);
+		int step;
+		int j2;
 		for (i1 = -1; i1 <= 1; ++i1) {
 			for (step = 0; step <= 3; ++step) {
 				k13 = -1 + step;
@@ -333,6 +330,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 				placeRandomStairs(world, random, i162, j15, k14, 3);
 			}
 		}
+		int i14;
 		for (i14 = -1; i14 <= 1; ++i14) {
 			for (step = 0; step <= 3; ++step) {
 				k13 = -2 + step;
@@ -373,6 +371,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 			placeRandomStairs(world, random, -2, 11, k19, 5);
 			placeRandomStairs(world, random, 2, 11, k19, 4);
 		}
+		int i13;
 		for (i13 = -1; i13 <= 1; ++i13) {
 			placeRandomStairs(world, random, i13, 10, 6, 7);
 			placeRandomStairs(world, random, i13, 10, 16, 6);
@@ -385,6 +384,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 				--j13;
 			}
 		}
+		int j14;
 		for (j14 = 12; j14 <= 13; ++j14) {
 			placeRandomBrick(world, random, -2, j14, 11);
 			placeRandomBrick(world, random, 2, j14, 11);

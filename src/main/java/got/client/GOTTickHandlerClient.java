@@ -176,9 +176,9 @@ public class GOTTickHandlerClient {
 	}
 
 	public static void drawTexturedModalRect(double x, double y, int u, int v, int width, int height) {
-		float f = 0.00390625f;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
+		float f = 0.00390625f;
 		tessellator.addVertexWithUV(x + 0.0, y + height, 0.0, u * f, (v + height) * f);
 		tessellator.addVertexWithUV(x + width, y + height, 0.0, (u + width) * f, (v + height) * f);
 		tessellator.addVertexWithUV(x + width, y + 0.0, 0.0, (u + width) * f, v * f);
@@ -254,16 +254,16 @@ public class GOTTickHandlerClient {
 		float ringProgress = (alignment - alignMin) / (alignMax - alignMin);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
-		int barWidth = 232;
-		int barHeight = 14;
-		int activeBarWidth = 220;
 		float[] factionColors = faction.getFactionRGB();
 		GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], 1.0f);
+		int barHeight = 14;
+		int barWidth = 232;
 		drawTexturedModalRect(x - (double) barWidth / 2, y, 0, 14, barWidth, barHeight);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		drawTexturedModalRect(x - (double) barWidth / 2, y, 0, 0, barWidth, barHeight);
 		float ringProgressAdj = (ringProgress - 0.5f) * 2.0f;
 		int ringSize = 16;
+		int activeBarWidth = 220;
 		float ringX = x - (float) ringSize / 2 + ringProgressAdj * activeBarWidth / 2.0f;
 		float ringY = y + (float) barHeight / 2 - (float) ringSize / 2;
 		int flashTick = ticker.flashTick;
@@ -283,7 +283,6 @@ public class GOTTickHandlerClient {
 				definedZone = true;
 			}
 			if (alpha > 0.0f) {
-				int arrowSize = 14;
 				int y0;
 				int y1;
 				if (definedZone) {
@@ -296,6 +295,7 @@ public class GOTTickHandlerClient {
 				GL11.glEnable(3042);
 				OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 				GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], alpha);
+				int arrowSize = 14;
 				drawTexturedModalRect(x - (double) barWidth / 2 - arrowSize, y, 0, y1, arrowSize, arrowSize);
 				drawTexturedModalRect(x + (double) barWidth / 2, y, arrowSize, y1, arrowSize, arrowSize);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
@@ -305,7 +305,6 @@ public class GOTTickHandlerClient {
 			}
 		}
 		FontRenderer fr = mc.fontRenderer;
-		int textX = Math.round(x);
 		int textY = Math.round(y + barHeight + 4.0f);
 		if (renderLimits) {
 			String sMin = rankMin.getShortNameWithGender(clientPD);
@@ -314,15 +313,16 @@ public class GOTTickHandlerClient {
 				sMin = StatCollector.translateToLocalFormatted("got.gui.factions.alignment.limits", sMin, GOTAlignmentValues.formatAlignForDisplay(alignMin));
 				sMax = StatCollector.translateToLocalFormatted("got.gui.factions.alignment.limits", sMax, GOTAlignmentValues.formatAlignForDisplay(alignMax));
 			}
-			int limitsX = barWidth / 2 - 6;
-			int xMin = Math.round(x - limitsX);
-			int xMax = Math.round(x + limitsX);
 			GL11.glPushMatrix();
 			GL11.glScalef(0.5f, 0.5f, 0.5f);
+			int limitsX = barWidth / 2 - 6;
+			int xMin = Math.round(x - limitsX);
 			drawAlignmentText(fr, xMin * 2 - fr.getStringWidth(sMin) / 2, textY * 2, sMin, 1.0f);
+			int xMax = Math.round(x + limitsX);
 			drawAlignmentText(fr, xMax * 2 - fr.getStringWidth(sMax) / 2, textY * 2, sMax, 1.0f);
 			GL11.glPopMatrix();
 		}
+		int textX = Math.round(x);
 		if (renderFacName) {
 			String name = faction.factionName();
 			drawAlignmentText(fr, textX - fr.getStringWidth(name) / 2, textY, name, 1.0f);
@@ -879,13 +879,13 @@ public class GOTTickHandlerClient {
 				int width = scaledresolution.getScaledWidth();
 				int barWidth = 182;
 				int remainingWidth = (int) (watchedInvasion.getHealth() * (barWidth - 2));
-				int barHeight = 5;
-				int barX = width / 2 - barWidth / 2;
 				int barY = 12;
 				if (isBossActive()) {
 					barY += 20;
 				}
 				mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
+				int barX = width / 2 - barWidth / 2;
+				int barHeight = 5;
 				guiIngame.drawTexturedModalRect(barX, barY, 64, 64, barWidth, barHeight);
 				if (remainingWidth > 0) {
 					float[] rgb = watchedInvasion.getRGB();
@@ -1035,10 +1035,10 @@ public class GOTTickHandlerClient {
 				int height = resolution.getScaledHeight();
 				mc.mcProfiler.startSection("armor");
 				GL11.glEnable(3042);
-				int left = width / 2 - 91;
 				int top = height - GuiIngameForge.left_height;
 				int level = GOTWeaponStats.getTotalArmorValue(mc.thePlayer);
 				if (level > 0) {
+					int left = width / 2 - 91;
 					for (int i = 1; i < 20; i += 2) {
 						if (i < level) {
 							guiIngame.drawTexturedModalRect(left, top, 34, 9, 9, 9);
@@ -1093,23 +1093,23 @@ public class GOTTickHandlerClient {
 				float rain = prevRainFactor + (rainFactor - prevRainFactor) * renderTick;
 				if (rain > 0.0f) {
 					float rainOpacityStart = 0.95f;
-					float rainOpacityEnd = 0.2f;
 					fogStart -= fogStart * rain * rainOpacityStart;
+					float rainOpacityEnd = 0.2f;
 					fogEnd -= fogEnd * rain * rainOpacityEnd;
 				}
 			}
 			if (mistFactor > 0.0f) {
 				float mistOpacityStart = 0.95f;
-				float mistOpacityEnd = 0.7f;
 				fogStart -= fogStart * mistFactor * mistOpacityStart;
+				float mistOpacityEnd = 0.7f;
 				fogEnd -= fogEnd * mistFactor * mistOpacityEnd;
 			}
 			float wightFactor = prevWightNearTick + (wightNearTick - prevWightNearTick) * renderTick;
 			wightFactor /= 100.0f;
 			if (wightFactor > 0.0f) {
 				float wightOpacityStart = 0.97f;
-				float wightOpacityEnd = 0.75f;
 				fogStart -= fogStart * wightFactor * wightOpacityStart;
+				float wightOpacityEnd = 0.75f;
 				fogEnd -= fogEnd * wightFactor * wightOpacityEnd;
 			}
 			GL11.glFogf(2915, fogStart);
@@ -1193,12 +1193,11 @@ public class GOTTickHandlerClient {
 					ScaledResolution resolution2 = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);
 					int width = resolution2.getScaledWidth();
 					int height = resolution2.getScaledHeight();
-					int x;
 					int y = height * 2 / 3 - message.size() * minecraft.fontRenderer.FONT_HEIGHT / 2;
 					GL11.glEnable(3042);
 					OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 					for (String line : message) {
-						x = (width - minecraft.fontRenderer.getStringWidth(line)) / 2;
+						int x = (width - minecraft.fontRenderer.getStringWidth(line)) / 2;
 						minecraft.fontRenderer.drawString(line, x, y, 0xFFFFFF | GOTClientProxy.getAlphaInt(promptAlpha) << 24);
 						y += minecraft.fontRenderer.FONT_HEIGHT;
 					}
@@ -1251,7 +1250,6 @@ public class GOTTickHandlerClient {
 					int w = resolution.getScaledWidth();
 					int h = resolution.getScaledHeight();
 					int border = 20;
-					int x;
 					int y = h - border - lines.size() * minecraft.fontRenderer.FONT_HEIGHT;
 					float alpha = 1.0f;
 					if (musicTrackTick >= 140) {
@@ -1260,7 +1258,7 @@ public class GOTTickHandlerClient {
 						alpha = musicTrackTick / 60.0f;
 					}
 					for (String line : lines) {
-						x = w - border - minecraft.fontRenderer.getStringWidth(line);
+						int x = w - border - minecraft.fontRenderer.getStringWidth(line);
 						minecraft.fontRenderer.drawString(line, x, y, 16777215 + (GOTClientProxy.getAlphaInt(alpha) << 24));
 						y += minecraft.fontRenderer.FONT_HEIGHT;
 					}
@@ -1364,8 +1362,6 @@ public class GOTTickHandlerClient {
 		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 		int width = resolution.getScaledWidth();
 		int height = resolution.getScaledHeight();
-		int heightThird = height / 3;
-		int heightTwoThirds = height * 2 / 3;
 		GL11.glEnable(3042);
 		GL11.glBlendFunc(770, 771);
 		GL11.glDisable(2929);
@@ -1376,6 +1372,7 @@ public class GOTTickHandlerClient {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
+		int heightThird = height / 3;
 		tessellator.addVertex(0.0, heightThird, -90.0);
 		tessellator.addVertex(width, heightThird, -90.0);
 		tessellator.setColorRGBA_F(rgbEdge[0], rgbEdge[1], rgbEdge[2], alphaEdge);
@@ -1384,6 +1381,7 @@ public class GOTTickHandlerClient {
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
+		int heightTwoThirds = height * 2 / 3;
 		tessellator.addVertex(0.0, heightTwoThirds, -90.0);
 		tessellator.addVertex(width, heightTwoThirds, -90.0);
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);

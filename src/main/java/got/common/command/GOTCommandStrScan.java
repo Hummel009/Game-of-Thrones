@@ -150,23 +150,23 @@ public class GOTCommandStrScan extends CommandBase {
 				for (int j = minY; j <= maxY; ++j) {
 					for (int k = minZ; k <= maxZ; ++k) {
 						for (int i = minX; i <= maxX; ++i) {
-							String alias;
 							int i1 = i - originX;
 							int j1 = j - originY;
 							int k1 = k - originZ;
 							Block block = world.getBlock(i, j, k);
 							int meta = world.getBlockMetadata(i, j, k);
-							boolean fillBelow = false;
-							boolean findLowest = false;
 							if (block == Blocks.air || block == fillBelowKey || block == findLowestKey) {
 								continue;
 							}
+							boolean findLowest = false;
+							boolean fillBelow = false;
 							if (world.getBlock(i, j - 1, k) == fillBelowKey) {
 								fillBelow = true;
 							} else if (world.getBlock(i, j - 1, k) == findLowestKey) {
 								findLowest = true;
 							}
 							GOTStructureScan.ScanStepBase step;
+							String alias;
 							if (blockMetaAliases.containsKey(Pair.of((Object) block, (Object) meta))) {
 								alias = blockMetaAliases.get(Pair.of((Object) block, (Object) meta));
 								step = new GOTStructureScan.ScanStepBlockMetaAlias(i1, j1, k1, alias);

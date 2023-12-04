@@ -58,7 +58,6 @@ public class GOTArmorModels {
 	public int getEntityArmorModel(RendererLivingEntity renderer, ModelBiped mainModel, EntityLivingBase entity, ItemStack armor, int slot) {
 		ModelBiped armorModel = getSpecialArmorModel(armor, slot, entity, mainModel);
 		if (armorModel != null) {
-			int color;
 			Item armorItem;
 			if (armor != null) {
 				armorItem = armor.getItem();
@@ -70,6 +69,7 @@ public class GOTArmorModels {
 			}
 			renderer.setRenderPassModel(armorModel);
 			setupModelForRender(armorModel, mainModel, entity);
+			int color;
 			if (armorItem instanceof ItemArmor && (color = ((ItemArmor) armorItem).getColor(armor)) != -1) {
 				float r = (color >> 16 & 0xFF) / 255.0f;
 				float g = (color >> 8 & 0xFF) / 255.0f;

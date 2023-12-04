@@ -19,11 +19,6 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int j1;
-		int k13;
-		int k12;
-		int l;
 		setOriginAndRotation(world, i, j, k, rotation, 7);
 		setupRandomBlocks(random);
 		if (restrictions) {
@@ -131,6 +126,8 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 				setBlockAndMetadata(world, i16, 0, k131, woodBeamBlock, woodBeamMeta | 4);
 			}
 		}
+		int l;
+		int j1;
 		for (int k16 = -6; k16 <= 6; ++k16) {
 			for (l = 0; l <= 3; ++l) {
 				j1 = 5 + l;
@@ -202,11 +199,13 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 		}
 		int[] k16 = {-2, 2};
 		l = k16.length;
+		int k13;
 		for (j1 = 0; j1 < l; ++j1) {
 			k13 = k16[j1];
 			setBlockAndMetadata(world, -5, 4, k13, roofStairBlock, 1);
 			setBlockAndMetadata(world, 5, 4, k13, roofStairBlock, 0);
 		}
+		int k12;
 		for (int i18 = -3; i18 <= 3; ++i18) {
 			for (k12 = -2; k12 <= 5; ++k12) {
 				setBlockAndMetadata(world, i18, 4, k12, plankSlabBlock, plankSlabMeta | 8);
@@ -271,6 +270,7 @@ public class GOTStructureYiTiTownHouse extends GOTStructureYiTiBaseTown {
 			setBlockAndMetadata(world, -3, 1, k131, plankSlabBlock, plankSlabMeta | 8);
 			placeBarrel(world, random, -3, 2, k131, 4, GOTFoods.YITI_DRINK);
 		}
+		int i1;
 		for (i1 = -3; i1 <= 3; ++i1) {
 			setBlockAndMetadata(world, i1, 1, 5, plankStairBlock, 6);
 			if (Math.abs(i1) < 2) {

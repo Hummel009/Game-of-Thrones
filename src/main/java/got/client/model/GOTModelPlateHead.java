@@ -25,7 +25,6 @@ public class GOTModelPlateHead extends GOTModelHuman {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		ItemStack heldItem;
 		float tick = GOTTickHandlerClient.renderTick;
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		GOTPlateFallingInfo fallingInfo = entity == null ? null : GOTPlateFallingInfo.getOrCreateFor(entity, false);
@@ -39,6 +38,7 @@ public class GOTModelPlateHead extends GOTModelHuman {
 		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
 		World world = entity == null ? GOT.proxy.getClientWorld() : entity.worldObj;
 		GOTRenderBlocks.renderEntityPlate(world, 0, 0, 0, plateBlock, blockRenderer);
+		ItemStack heldItem;
 		if (entity instanceof EntityLivingBase && (heldItem = ((EntityLivingBase) entity).getHeldItem()) != null && GOTTileEntityPlate.isValidFoodItem(heldItem)) {
 			ItemStack heldItemMinusOne = heldItem.copy();
 			--heldItemMinusOne.stackSize;

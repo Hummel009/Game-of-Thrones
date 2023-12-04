@@ -18,11 +18,11 @@ public class GOTModelTyrionLannister extends GOTModelBiped {
 
 	public GOTModelTyrionLannister(float f, int width, int height) {
 		super(f, 0.0f, width, height);
-		boolean isArmor = height == 32;
 		bipedChest = new ModelRenderer(this, 24, 0);
 		bipedChest.addBox(-3.0f, 2.0f, -4.0f, 6, 3, 2, f);
 		bipedChest.setRotationPoint(0.0f, 0.0f, 0.0f);
 		bipedBody.addChild(bipedChest);
+		boolean isArmor = height == 32;
 		if (!isArmor) {
 			bipedHeadwear = new ModelRenderer(this, 0, 32);
 			bipedHeadwear.addBox(-4.0f, -8.0f, -4.0f, 8, 12, 8, 0.5f + f);

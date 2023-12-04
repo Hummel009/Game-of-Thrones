@@ -19,17 +19,11 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int k1;
-		int i1;
-		int j2;
-		int j12;
-		int i12;
-		int i13;
-		int k12;
-		int randPath;
 		setOriginAndRotation(world, i, j, k, rotation, 9);
 		setupRandomBlocks(random);
+		int k12;
+		int i1;
+		int j1;
 		if (restrictions) {
 			for (i1 = -7; i1 <= 8; ++i1) {
 				for (k12 = -8; k12 <= 5; ++k12) {
@@ -96,6 +90,11 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 		addBlockMetaAliasOption("PATH", 5, Blocks.cobblestone, 0);
 		associateBlockMetaAlias("LEAF", Blocks.leaves, 4);
 		generateStrScan(world, random, 0, 0, 0);
+		int randPath;
+		int i13;
+		int j12;
+		int j2;
+		int k1;
 		for (i13 = 3; i13 <= 6; ++i13) {
 			for (int step = 0; step < 12 && !isOpaque(world, i13, j12 = -1 - step, k1 = 6 + step); ++step) {
 				randPath = random.nextInt(4);
@@ -124,6 +123,7 @@ public class GOTStructureMossovyHouse extends GOTStructureMossovyBase {
 				}
 			}
 		}
+		int i12;
 		for (int step = 0; step < 12 && !isOpaque(world, i12 = -5, j12 = -step, k1 = -5 - step); ++step) {
 			randPath = random.nextInt(4);
 			switch (randPath) {

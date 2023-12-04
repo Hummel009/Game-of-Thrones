@@ -14,11 +14,10 @@ public class GOTStructureWesterosTownTrees extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
-		int j1;
-		int k1;
 		setOriginAndRotation(world, i, j, k, rotation, 2);
 		setupRandomBlocks(random);
+		int k1;
+		int i1;
 		if (restrictions) {
 			for (i1 = -6; i1 <= 6; ++i1) {
 				for (k1 = -2; k1 <= 2; ++k1) {
@@ -34,6 +33,7 @@ public class GOTStructureWesterosTownTrees extends GOTStructureWesterosBase {
 			for (k1 = -2; k1 <= 2; ++k1) {
 				int i2 = Math.abs(i1);
 				int k2 = Math.abs(k1);
+				int j1;
 				for (j1 = 0; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 					setBlockAndMetadata(world, i1, j1, k1, rockSlabDoubleBlock, rockSlabDoubleMeta);
 					setGrassToDirt(world, i1, j1 - 1, k1);

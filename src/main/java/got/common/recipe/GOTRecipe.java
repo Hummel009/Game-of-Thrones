@@ -608,7 +608,6 @@ public class GOTRecipe {
 	}
 
 	public static void createStandardRecipes() {
-		int i;
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick6, 1, 3), "XXX", "XYX", "XXX", 'X', GOTItems.westerosSword, 'Y', Items.lava_bucket));
 		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick6, 1, 3), "XXX", "XYX", "XXX", 'X', Items.iron_sword, 'Y', Items.lava_bucket));
 
@@ -1407,6 +1406,7 @@ public class GOTRecipe {
 		for (GOTEnumDyeColor dye : GOTEnumDyeColor.values()) {
 			GameRegistry.addShapelessRecipe(new ItemStack(getPowderFromDye(dye), 8), Blocks.sand, Blocks.sand, Blocks.sand, Blocks.sand, Blocks.gravel, Blocks.gravel, Blocks.gravel, Blocks.gravel, new ItemStack(Items.dye, 1, dye.getDyeDamage()));
 		}
+		int i;
 		for (i = 0; i <= 1; ++i) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.woodBeam9, 3, i), "X", "X", "X", 'X', new ItemStack(GOTBlocks.wood9, 1, i)));
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.woodBeamV2, 3, i), "X", "X", "X", 'X', new ItemStack(Blocks.log2, 1, i)));

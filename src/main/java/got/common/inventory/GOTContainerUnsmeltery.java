@@ -18,11 +18,11 @@ public class GOTContainerUnsmeltery extends Container {
 	public int currentItemFuelValue;
 
 	public GOTContainerUnsmeltery(InventoryPlayer inv, GOTTileEntityUnsmeltery unsmeltery) {
-		int i;
 		theUnsmeltery = unsmeltery;
 		addSlotToContainer(new Slot(unsmeltery, 0, 56, 17));
 		addSlotToContainer(new Slot(unsmeltery, 1, 56, 53));
 		addSlotToContainer(new GOTSlotUnsmeltResult(unsmeltery, 2, 116, 35));
+		int i;
 		for (i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
 				addSlotToContainer(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));

@@ -32,10 +32,8 @@ public class GOTWorldGenSimpleTrees extends WorldGenAbstractTree {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
-		boolean flag = true;
 		if (j >= 1 && j + height + 1 <= 256) {
-			int i1;
-			int k1;
+			boolean flag = true;
 			for (int j1 = j; j1 <= j + 1 + height; ++j1) {
 				int range = 1;
 				if (j1 == j) {
@@ -57,6 +55,8 @@ public class GOTWorldGenSimpleTrees extends WorldGenAbstractTree {
 				return false;
 			}
 			boolean flag1 = true;
+			int k1;
+			int i1;
 			for (i1 = i; i1 <= i + extraTrunkWidth && flag1; ++i1) {
 				for (k1 = k; k1 <= k + extraTrunkWidth && flag1; ++k1) {
 					Block block = world.getBlock(i1, j - 1, k1);
@@ -67,7 +67,6 @@ public class GOTWorldGenSimpleTrees extends WorldGenAbstractTree {
 				}
 			}
 			if (flag1) {
-				int j1;
 				for (i1 = i; i1 <= i + extraTrunkWidth; ++i1) {
 					for (k1 = k; k1 <= k + extraTrunkWidth; ++k1) {
 						world.getBlock(i1, j - 1, k1).onPlantGrow(world, i1, j - 1, k1, i1, j, k1);
@@ -75,6 +74,7 @@ public class GOTWorldGenSimpleTrees extends WorldGenAbstractTree {
 				}
 				int leafStart = 3;
 				int leafRangeMin = 0;
+				int j1;
 				for (j1 = j - leafStart + height; j1 <= j + height; ++j1) {
 					int j2 = j1 - (j + height);
 					int leafRange = leafRangeMin + 1 - j2 / 2;

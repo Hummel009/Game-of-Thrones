@@ -17,18 +17,10 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int i1;
-		int j1;
-		int j12;
-		int j13;
-		int i12;
-		int k12;
-		int i13;
-		int k132;
-		int l;
 		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
+		int k132;
+		int j12;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -51,6 +43,8 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int k12;
+		int i12;
 		for (i12 = -5; i12 <= 5; ++i12) {
 			for (k12 = -5; k12 <= 5; ++k12) {
 				int i2 = Math.abs(i12);
@@ -89,6 +83,7 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 				}
 			}
 		}
+		int j13;
 		for (i12 = -5; i12 <= 5; ++i12) {
 			for (k12 = -7; k12 <= -6; ++k12) {
 				for (j13 = 0; (j13 >= 0 || !isOpaque(world, i12, j13, k12)) && getY(j13) >= 0; --j13) {
@@ -165,7 +160,9 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 0, 5, 5, wallBlock, wallMeta);
 		setBlockAndMetadata(world, 0, 6, 5, fenceBlock, fenceMeta);
 		setBlockAndMetadata(world, 0, 7, 5, wallBlock, wallMeta);
+		int k1;
 		for (k1 = -6; k1 <= 6; ++k1) {
+			int l;
 			for (l = 0; l <= 5; ++l) {
 				setBlockAndMetadata(world, -6 + l, 3 + l, k1, roofStairBlock, 1);
 				setBlockAndMetadata(world, 6 - l, 3 + l, k1, roofStairBlock, 0);
@@ -180,12 +177,14 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, 5 - l, 3 + l, k1, roofStairBlock, 5);
 			}
 		}
+		int i1;
 		for (i1 = -4; i1 <= 4; ++i1) {
 			setBlockAndMetadata(world, i1, 4, 0, woodBeamBlock, woodBeamMeta | 4);
 		}
 		for (k1 = -4; k1 <= 4; ++k1) {
 			setBlockAndMetadata(world, 0, 4, k1, woodBeamBlock, woodBeamMeta | 8);
 		}
+		int j1;
 		for (j1 = 1; j1 <= 7; ++j1) {
 			setBlockAndMetadata(world, 0, j1, 0, woodBeamBlock, woodBeamMeta);
 		}
@@ -237,6 +236,7 @@ public class GOTStructureWesterosCottage extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 5, 1, -6, Blocks.hay_block, 0);
 		setBlockAndMetadata(world, 4, 2, -6, Blocks.hay_block, 0);
 		setBlockAndMetadata(world, 4, 1, -7, Blocks.hay_block, 0);
+		int i13;
 		for (j1 = 1; j1 <= 2; ++j1) {
 			for (k12 = 6; k12 <= 9; ++k12) {
 				setBlockAndMetadata(world, -4, j1, k12, GOTBlocks.reedBars, 0);

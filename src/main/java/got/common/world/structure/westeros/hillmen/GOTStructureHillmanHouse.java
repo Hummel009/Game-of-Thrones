@@ -18,7 +18,6 @@ public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
 		setOriginAndRotation(world, i, j, k, rotation, 6);
 		setupRandomBlocks(random);
 		if (restrictions) {
@@ -43,6 +42,7 @@ public class GOTStructureHillmanHouse extends GOTStructureHillmanBase {
 		}
 		for (int i1 = -4; i1 <= 4; ++i1) {
 			for (int k1 = -6; k1 <= 5; ++k1) {
+				int j1;
 				if (k1 >= -5) {
 					j1 = -1;
 					while (!isOpaque(world, i1, j1, k1) && getY(j1) >= 0) {

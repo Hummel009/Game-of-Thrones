@@ -16,10 +16,10 @@ public class GOTStructureIbbenVillageGarden extends GOTStructureIbbenBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int k1;
-		int i1;
 		setOriginAndRotation(world, i, j, k, rotation, 2);
 		setupRandomBlocks(random);
+		int i1;
+		int k1;
 		if (restrictions) {
 			for (i1 = -3; i1 <= 3; ++i1) {
 				for (k1 = -1; k1 <= 1; ++k1) {

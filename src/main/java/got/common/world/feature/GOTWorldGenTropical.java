@@ -29,10 +29,8 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 		if (fullWidth > 1) {
 			height += (fullWidth - 1) * MathHelper.getRandomIntegerInRange(random, 0, 8);
 		}
-		boolean flag = true;
 		if (j >= 1 && j + height + 1 <= 256) {
-			int k1;
-			int i1;
+			boolean flag = true;
 			for (int j1 = j; j1 <= j + 1 + height; ++j1) {
 				int range = 1;
 				if (j1 == j) {
@@ -57,6 +55,8 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 				return false;
 			}
 			boolean canGrow = true;
+			int i1;
+			int k1;
 			for (i1 = i - trunkWidth; i1 <= i + trunkWidth + extraTrunkWidth && canGrow; ++i1) {
 				for (k1 = k - trunkWidth; k1 <= k + trunkWidth + extraTrunkWidth && canGrow; ++k1) {
 					Block block = world.getBlock(i1, j - 1, k1);
@@ -67,12 +67,6 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 				}
 			}
 			if (canGrow) {
-				int j1;
-				int i13;
-				int trunkWidthHere;
-				int k13;
-				int i2;
-				int k2;
 				for (i1 = i - trunkWidth; i1 <= i + trunkWidth + extraTrunkWidth; ++i1) {
 					for (k1 = k - trunkWidth; k1 <= k + trunkWidth + extraTrunkWidth; ++k1) {
 						world.getBlock(i1, j - 1, k1).onPlantGrow(world, i1, j - 1, k1, i1, j, k1);
@@ -87,6 +81,12 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 				int leafRange = 0;
 				int maxRange = 2;
 				boolean increasing = true;
+				int k2;
+				int i2;
+				int k13;
+				int trunkWidthHere;
+				int i13;
+				int j1;
 				for (j1 = leafTop; j1 >= leafStart; --j1) {
 					if (j1 >= leafTop - 1) {
 						leafRange = 0;
@@ -108,7 +108,6 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 					}
 					for (i13 = i - trunkWidthHere - maxRange; i13 <= i + trunkWidthHere + extraTrunkWidth + maxRange; ++i13) {
 						for (k13 = k - trunkWidthHere - maxRange; k13 <= k + trunkWidthHere + extraTrunkWidth + maxRange; ++k13) {
-							Block block;
 							i2 = Math.abs(i13 - i);
 							k2 = Math.abs(k13 - k);
 							i2 -= trunkWidthHere;
@@ -123,6 +122,7 @@ public class GOTWorldGenTropical extends WorldGenAbstractTree {
 							if (j1 < leafTop - 2) {
 								d += random.nextInt(2);
 							}
+							Block block;
 							if (d > leafRange || !(block = world.getBlock(i13, j1, k13)).isReplaceable(world, i13, j1, k13) && !block.isLeaves(world, i13, j1, k13)) {
 								continue;
 							}

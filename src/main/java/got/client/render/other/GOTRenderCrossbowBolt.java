@@ -27,15 +27,10 @@ public class GOTRenderCrossbowBolt extends Render {
 		if (boltItem != null && boltItem.getItem() instanceof GOTItemCrossbowBolt && ((GOTItemCrossbowBolt) boltItem.getItem()).isPoisoned) {
 			yOffset = 1;
 		}
-		float f2 = 0.0f;
-		float f3 = 0.5f;
 		float f4 = yOffset * 10 / 32.0f;
 		float f5 = (5 + yOffset * 10) / 32.0f;
-		float f6 = 0.0f;
-		float f7 = 0.15625f;
 		float f8 = (5 + yOffset * 10) / 32.0f;
 		float f9 = (10 + yOffset * 10) / 32.0f;
-		float f10 = 0.05625f;
 		GL11.glEnable(32826);
 		float f11 = bolt.shake - f1;
 		if (f11 > 0.0f) {
@@ -43,11 +38,14 @@ public class GOTRenderCrossbowBolt extends Render {
 			GL11.glRotatef(f12, 0.0f, 0.0f, 1.0f);
 		}
 		GL11.glRotatef(45.0f, 1.0f, 0.0f, 0.0f);
+		float f10 = 0.05625f;
 		GL11.glScalef(f10, f10, f10);
 		GL11.glTranslatef(-4.0f, 0.0f, 0.0f);
 		GL11.glNormal3f(f10, 0.0f, 0.0f);
 		tessellator.startDrawingQuads();
+		float f6 = 0.0f;
 		tessellator.addVertexWithUV(-7.0, -2.0, -2.0, f6, f8);
+		float f7 = 0.15625f;
 		tessellator.addVertexWithUV(-7.0, -2.0, 2.0, f7, f8);
 		tessellator.addVertexWithUV(-7.0, 2.0, 2.0, f7, f9);
 		tessellator.addVertexWithUV(-7.0, 2.0, -2.0, f6, f9);
@@ -59,6 +57,8 @@ public class GOTRenderCrossbowBolt extends Render {
 		tessellator.addVertexWithUV(-7.0, -2.0, 2.0, f7, f9);
 		tessellator.addVertexWithUV(-7.0, -2.0, -2.0, f6, f9);
 		tessellator.draw();
+		float f3 = 0.5f;
+		float f2 = 0.0f;
 		for (int i = 0; i < 4; ++i) {
 			GL11.glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
 			GL11.glNormal3f(0.0f, 0.0f, f10);

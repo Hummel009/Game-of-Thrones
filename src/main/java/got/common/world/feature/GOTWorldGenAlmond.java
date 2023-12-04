@@ -26,10 +26,9 @@ public class GOTWorldGenAlmond extends WorldGenAbstractTree {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
-		int leafStart = j + height - 3;
-		int leafTop = j + height;
-		boolean flag = true;
 		if (j >= 1 && j + height + 1 <= 256) {
+			boolean flag = true;
+			int leafStart = j + height - 3;
 			for (int j1 = j; j1 <= j + height + 1; ++j1) {
 				int range = 1;
 				if (j1 == j) {
@@ -56,9 +55,10 @@ public class GOTWorldGenAlmond extends WorldGenAbstractTree {
 				canGrow = false;
 			}
 			if (canGrow) {
-				int j1;
 				below = world.getBlock(i, j - 1, k);
 				below.onPlantGrow(world, i, j - 1, k, i, j, k);
+				int j1;
+				int leafTop = j + height;
 				for (j1 = leafStart; j1 <= leafTop; ++j1) {
 					int maxRange = 2;
 					int j2 = leafTop - j1;

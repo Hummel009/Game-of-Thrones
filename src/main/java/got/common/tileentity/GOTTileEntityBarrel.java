@@ -189,8 +189,8 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 
 	public void handleBrewingButtonPress() {
 		if (barrelMode == 0 && inventory[9] != null) {
-			int i;
 			barrelMode = 1;
+			int i;
 			for (i = 0; i < 9; ++i) {
 				if (inventory[i] == null) {
 					continue;

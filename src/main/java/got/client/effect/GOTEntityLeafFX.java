@@ -43,14 +43,14 @@ public class GOTEntityLeafFX extends EntityFX {
 	@Override
 	public void renderParticle(Tessellator tessellator, float f, float f1, float f2, float f3, float f4, float f5) {
 		float uMin = particleTextureIndexX / 8.0f;
-		float uMax = uMin + 0.125f;
 		float vMin = particleTextureIndexY / 8.0f;
-		float vMax = vMin + 0.125f;
 		float scale = 0.25f * particleScale;
 		float x = (float) (prevPosX + (posX - prevPosX) * f - interpPosX);
 		float y = (float) (prevPosY + (posY - prevPosY) * f - interpPosY);
 		float z = (float) (prevPosZ + (posZ - prevPosZ) * f - interpPosZ);
 		tessellator.setColorRGBA_F(particleRed, particleGreen, particleBlue, particleAlpha);
+		float vMax = vMin + 0.125f;
+		float uMax = uMin + 0.125f;
 		tessellator.addVertexWithUV(x - f1 * scale - f4 * scale, y - f2 * scale, z - f3 * scale - f5 * scale, uMax, vMax);
 		tessellator.addVertexWithUV(x - f1 * scale + f4 * scale, y + f2 * scale, z - f3 * scale + f5 * scale, uMax, vMin);
 		tessellator.addVertexWithUV(x + f1 * scale + f4 * scale, y + f2 * scale, z + f3 * scale + f5 * scale, uMin, vMin);

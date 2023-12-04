@@ -27,8 +27,6 @@ public class GOTBeziers {
 	}
 
 	public static float isBezierNear(int x, int z, int width, Type type) {
-		double widthSq = width * width;
-		float leastSqRatio = -1.0f;
 		List<BezierPoint> points = null;
 		switch (type) {
 			case ROAD:
@@ -41,6 +39,8 @@ public class GOTBeziers {
 				points = linkerPointDatabase.getPointsForCoords(x, z);
 				break;
 		}
+		float leastSqRatio = -1.0f;
+		double widthSq = width * width;
 		for (BezierPoint point : points) {
 			double dx = point.x - x;
 			double dz = point.z - z;
@@ -78,7 +78,6 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, new double[]{559, 544}, GOTWaypoint.SKIRLING_PASS, new double[]{596, 544});
 
 		/* NORTH */
-		double[] northRiverlandsCrossroads = {655, 1257};
 
 		registerBezier(Type.ROAD, GOTWaypoint.CASTLE_BLACK, new double[]{745, 732}, new double[]{694, 804}, GOTWaypoint.WINTERFELL);
 		registerBezier(Type.ROAD, GOTWaypoint.WINTERFELL, new double[]{642, 891}, GOTWaypoint.CASTLE_CERWYN);
@@ -90,6 +89,7 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.RYSWELLS_CASTLE, new double[]{447, 1064}, new double[]{496, 1066}, GOTWaypoint.GOLDGRASS);
 		registerBezier(Type.ROAD, GOTWaypoint.GOLDGRASS, new double[]{606, 1081}, new double[]{626, 1103}, GOTWaypoint.MOAT_KAILIN.info(-0.5, 0));
 		registerBezier(Type.ROAD, GOTWaypoint.MOAT_KAILIN.info(0.5, 0), new double[]{672, 1101}, new double[]{707, 1072}, GOTWaypoint.WHITE_HARBOUR);
+		double[] northRiverlandsCrossroads = {655, 1257};
 		registerBezier(Type.ROAD, GOTWaypoint.MOAT_KAILIN.info(0, 0.5), new double[]{649, 1136}, new double[]{656, 1179}, northRiverlandsCrossroads);
 		registerBezier(Type.ROAD, GOTWaypoint.MOAT_KAILIN.info(-0.5, 0), GOTWaypoint.MOAT_KAILIN.info(0.5, 0));
 		registerBezier(Type.ROAD, GOTWaypoint.MOAT_KAILIN.info(0, -0.5), GOTWaypoint.MOAT_KAILIN.info(0, 0.5));
@@ -100,16 +100,15 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.GATE_OF_THE_MOON, new double[]{827, 1369}, new double[]{828, 1361}, GOTWaypoint.THE_EYRIE);
 
 		/* RIVERLANDS */
-		double[] northRiverlandsBridge = {713, 1400};
-		double[] antiCrossroadsInn = {732, 1447};
-		double[] hillsExit = {519, 1476};
 
 		registerBezier(Type.ROAD, northRiverlandsCrossroads, new double[]{638, 1268}, new double[]{623, 1282}, GOTWaypoint.TWINS_RIGHT);
 		registerBezier(Type.ROAD, GOTWaypoint.TWINS_RIGHT, GOTWaypoint.TWINS_LEFT);
 		registerBezier(Type.ROAD, GOTWaypoint.TWINS_LEFT, new double[]{590, 1296}, new double[]{583, 1311}, GOTWaypoint.SEAGARD);
+		double[] northRiverlandsBridge = {713, 1400};
 		registerBezier(Type.ROAD, northRiverlandsCrossroads, new double[]{664, 1310}, new double[]{683, 1360}, northRiverlandsBridge);
 		registerBezier(Type.ROAD, northRiverlandsBridge, new double[]{721, 1412}, new double[]{723, 1428}, GOTWaypoint.CROSSROADS_INN);
 		registerBezier(Type.ROAD, GOTWaypoint.CROSSROADS_INN, new double[]{758, 1446}, new double[]{776, 1461}, GOTWaypoint.SALTPANS);
+		double[] antiCrossroadsInn = {732, 1447};
 		registerBezier(Type.ROAD, GOTWaypoint.CROSSROADS_INN, antiCrossroadsInn);
 		registerBezier(Type.ROAD, antiCrossroadsInn, new double[]{730, 1463}, new double[]{735, 1479}, GOTWaypoint.WHITEWALLS);
 		registerBezier(Type.ROAD, GOTWaypoint.WHITEWALLS, new double[]{726, 1490}, GOTWaypoint.HARRENHAL);
@@ -121,6 +120,7 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.ACORN_HALL, new double[]{628, 1478}, GOTWaypoint.WAYFARERS_REST);
 		registerBezier(Type.ROAD, GOTWaypoint.CASTLE_LYCHESTER, new double[]{655, 1439}, new double[]{642, 1430}, GOTWaypoint.STONE_HEDGE);
 		registerBezier(Type.ROAD, GOTWaypoint.STONE_HEDGE, new double[]{615, 1431}, new double[]{601, 1434}, GOTWaypoint.RIVERRUN);
+		double[] hillsExit = {519, 1476};
 		registerBezier(Type.ROAD, GOTWaypoint.RIVERRUN, new double[]{565, 1444}, new double[]{541, 1462}, hillsExit);
 		registerBezier(Type.ROAD, GOTWaypoint.STONEY_SEPT, new double[]{691, 1565}, GOTWaypoint.BRIARWHITE);
 
@@ -135,9 +135,6 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.ROSBY, new double[]{793, 1614}, new double[]{778, 1617}, GOTWaypoint.KINGS_LANDING);
 
 		/* WESTERLANDS */
-		double[] westerlandsCrossroads = {363, 1716};
-		double[] westerlandsHillsHalfway = {489, 1577};
-		double[] reachCrossroads = {574, 1623};
 
 		registerBezier(Type.ROAD, hillsExit, new double[]{510, 1480}, new double[]{501, 1485}, GOTWaypoint.GOLDEN_TOOTH);
 		registerBezier(Type.ROAD, GOTWaypoint.GOLDEN_TOOTH, new double[]{476, 1504}, new double[]{460, 1513}, GOTWaypoint.SARSFIELD);
@@ -145,12 +142,14 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.OXCROSS, GOTWaypoint.CASTERLY_ROCK);
 		registerBezier(Type.ROAD, GOTWaypoint.CASTERLY_ROCK, GOTWaypoint.LANNISPORT);
 		registerBezier(Type.ROAD, GOTWaypoint.LANNISPORT, new double[]{371, 1607}, new double[]{366, 1639}, GOTWaypoint.CRAKEHALL);
+		double[] westerlandsCrossroads = {363, 1716};
 		registerBezier(Type.ROAD, GOTWaypoint.CRAKEHALL, new double[]{349, 1681}, new double[]{359, 1700}, westerlandsCrossroads);
+		double[] westerlandsHillsHalfway = {489, 1577};
 		registerBezier(Type.ROAD, GOTWaypoint.LANNISPORT, new double[]{410, 1572}, new double[]{453, 1569}, westerlandsHillsHalfway);
+		double[] reachCrossroads = {574, 1623};
 		registerBezier(Type.ROAD, westerlandsHillsHalfway, new double[]{518, 1592}, new double[]{543, 1612}, reachCrossroads);
 
 		/* REACH */
-		double[] kingswoodCrossroads = {775, 1666};
 
 		registerBezier(Type.ROAD, westerlandsCrossroads, new double[]{365, 1730}, new double[]{371, 1743}, GOTWaypoint.OLD_OAK);
 		registerBezier(Type.ROAD, reachCrossroads, GOTWaypoint.HAMMERHAL, GOTWaypoint.IVY_HALL);
@@ -172,6 +171,7 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.GARNETGROVE, new double[]{378, 2026}, new double[]{394, 2046}, GOTWaypoint.SUNHOUSE);
 		registerBezier(Type.ROAD, GOTWaypoint.SUNHOUSE, new double[]{449, 2034}, new double[]{475, 2022}, GOTWaypoint.STARFALL);
 		registerBezier(Type.ROAD, GOTWaypoint.WHITEGROVE, new double[]{521, 1857}, new double[]{550, 1870}, GOTWaypoint.NIGHTSONG);
+		double[] kingswoodCrossroads = {775, 1666};
 		registerBezier(Type.ROAD, GOTWaypoint.SMITHYTON, new double[]{732, 1692}, new double[]{752, 1677}, kingswoodCrossroads);
 
 		/* DORNE */
@@ -181,10 +181,10 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.WYL, new double[]{734, 1894}, new double[]{726, 1884}, GOTWaypoint.BLACKHAVEN);
 
 		/* STORMLANDS */
-		double[] stormlandsCrossroads = {741, 1840};
 
 		registerBezier(Type.ROAD, GOTWaypoint.NIGHTSONG, new double[]{607, 1870}, new double[]{625, 1861}, GOTWaypoint.HARVEST_HALL);
 		registerBezier(Type.ROAD, GOTWaypoint.HARVEST_HALL, new double[]{654, 1849}, new double[]{665, 1846}, GOTWaypoint.PODDINGFIELD);
+		double[] stormlandsCrossroads = {741, 1840};
 		registerBezier(Type.ROAD, GOTWaypoint.PODDINGFIELD, new double[]{698, 1842}, new double[]{719, 1841}, stormlandsCrossroads);
 		registerBezier(Type.ROAD, GOTWaypoint.NIGHTSONG, new double[]{593, 1886}, new double[]{601, 1898}, GOTWaypoint.TOWER_OF_JOY);
 		registerBezier(Type.ROAD, GOTWaypoint.TOWER_OF_JOY, GOTWaypoint.KINGSGRAVE, GOTWaypoint.SKYREACH);
@@ -201,10 +201,10 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, sothoryosHalfway, new double[]{2189, 2807}, new double[]{2195, 2819}, GOTWaypoint.YEEN);
 
 		/* GHISCAR & LHAZAR */
-		double[] giscarLhazarCrossroads = {2373, 1919};
 
 		registerBezier(Type.ROAD, GOTWaypoint.LHAZOSH, new double[]{2474, 2056}, new double[]{2462, 2111}, new double[]{2463, 2153}, new double[]{2483, 2183}, new double[]{2522, 2203}, GOTWaypoint.VAES_ORVIK);
 		registerBezier(Type.ROAD, GOTWaypoint.LHAZOSH, new double[]{2492, 1993}, new double[]{2528, 1976}, GOTWaypoint.KOSRAK);
+		double[] giscarLhazarCrossroads = {2373, 1919};
 		registerBezier(Type.ROAD, GOTWaypoint.MEEREEN, new double[]{2297, 1945}, new double[]{2334, 1930}, giscarLhazarCrossroads);
 		registerBezier(Type.ROAD, GOTWaypoint.ASTAPOR, new double[]{2190, 2130}, new double[]{2196, 2111}, new double[]{2203, 2090}, new double[]{2206, 2059}, new double[]{2196, 2028}, GOTWaypoint.YUNKAI);
 		registerBezier(Type.ROAD, GOTWaypoint.YUNKAI, new double[]{2224, 1993}, new double[]{2236, 1970}, GOTWaypoint.MEEREEN.info(-0.5, 0));
@@ -230,10 +230,10 @@ public class GOTBeziers {
 
 		/* QARTH */
 		double[] boneMountP1 = {2978, 2279};
-		double[] qarthYiTiBeforeMount = {2928, 2260};
 		double[] qarthYiTiAfterMount = {3078, 2240};
 
 		registerBezier(Type.ROAD, boneMountP1, new double[]{3002, 2284}, new double[]{3036, 2247}, qarthYiTiAfterMount);
+		double[] qarthYiTiBeforeMount = {2928, 2260};
 		registerBezier(Type.ROAD, qarthYiTiBeforeMount, new double[]{2948, 2260}, new double[]{2965, 2267}, boneMountP1);
 		registerBezier(Type.ROAD, GOTWaypoint.QARTH, new double[]{2884, 2288}, new double[]{2901, 2268}, qarthYiTiBeforeMount);
 		registerBezier(Type.ROAD, GOTWaypoint.QARKASH, new double[]{2735, 2265}, new double[]{2766, 2288}, new double[]{2807, 2285}, new double[]{2840, 2275}, new double[]{2864, 2290}, GOTWaypoint.QARTH);
@@ -241,12 +241,9 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.VAES_ORVIK, new double[]{2571, 2255}, new double[]{2563, 2268}, GOTWaypoint.PORT_YHOS);
 
 		/* FREE CITIES */
-		double[] unhabitedCrossroads = {1956, 2026};
-		double[] norvosHalfway = {1423, 1552};
-		double[] braavosHalfway1 = {1250, 1451};
-		double[] braavosHalfway2 = {1210, 1339};
 
 		registerBezier(Type.ROAD, GOTWaypoint.MANTARYS, new double[]{1864, 2058}, new double[]{1843, 2089}, new double[]{1832, 2136}, new double[]{1830, 2184}, new double[]{1835, 2219}, GOTWaypoint.OROS);
+		double[] unhabitedCrossroads = {1956, 2026};
 		registerBezier(Type.ROAD, GOTWaypoint.BHORASH, new double[]{2024, 1981}, new double[]{1988, 2001}, unhabitedCrossroads);
 		registerBezier(Type.ROAD, unhabitedCrossroads, new double[]{1958, 2043}, new double[]{1951, 2058}, GOTWaypoint.TOLOS);
 		registerBezier(Type.ROAD, unhabitedCrossroads, new double[]{1942, 2030}, new double[]{1913, 2027}, GOTWaypoint.MANTARYS);
@@ -264,16 +261,16 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.SELHORYS, new double[]{1501, 1916}, new double[]{1491, 1897}, new double[]{1486, 1879}, new double[]{1484, 1862}, new double[]{1484, 1846}, GOTWaypoint.CHROYANE);
 		registerBezier(Type.ROAD, GOTWaypoint.CHROYANE, new double[]{1499, 1802}, new double[]{1505, 1730}, GOTWaypoint.AR_NOY);
 		registerBezier(Type.ROAD, GOTWaypoint.AR_NOY, new double[]{1479, 1682}, new double[]{1453, 1660}, GOTWaypoint.NY_SAR);
+		double[] norvosHalfway = {1423, 1552};
 		registerBezier(Type.ROAD, GOTWaypoint.NY_SAR, new double[]{1430, 1617}, new double[]{1417, 1583}, norvosHalfway);
 		registerBezier(Type.ROAD, norvosHalfway, new double[]{1425, 1528}, new double[]{1417, 1510}, GOTWaypoint.NORVOS);
 		registerBezier(Type.ROAD, GOTWaypoint.NY_SAR, new double[]{1391, 1635}, new double[]{1356, 1612}, GOTWaypoint.GHOYAN_DROHE);
 		registerBezier(Type.ROAD, GOTWaypoint.GHOYAN_DROHE, new double[]{1262, 1604}, GOTWaypoint.PENTOS);
+		double[] braavosHalfway1 = {1250, 1451};
 		registerBezier(Type.ROAD, GOTWaypoint.GHOYAN_DROHE, new double[]{1315, 1539}, new double[]{1263, 1493}, braavosHalfway1);
+		double[] braavosHalfway2 = {1210, 1339};
 		registerBezier(Type.ROAD, braavosHalfway1, new double[]{1246, 1421}, new double[]{1223, 1376}, braavosHalfway2);
 		registerBezier(Type.ROAD, braavosHalfway2, new double[]{1197, 1304}, new double[]{1175, 1270}, GOTWaypoint.BRAAVOS);
-
-		double[] asshaiCrossroadsHalfway = {3674, 2408};
-		double[] asshaiCrossroads = {3729, 2423};
 
 		registerBezier(Type.ROAD, GOTWaypoint.FIVE_FORTS_1, GOTWaypoint.FIVE_FORTS_2);
 		registerBezier(Type.ROAD, GOTWaypoint.FIVE_FORTS_2, GOTWaypoint.FIVE_FORTS_3);
@@ -285,7 +282,9 @@ public class GOTBeziers {
 		registerBezier(Type.ROAD, GOTWaypoint.CHANGAN, new double[]{3212, 2373}, new double[]{3223, 2391}, new double[]{3235, 2406}, new double[]{3256, 2425}, new double[]{3277, 2438}, GOTWaypoint.YIN);
 		registerBezier(Type.ROAD, GOTWaypoint.CHANGAN, new double[]{3180, 2355}, new double[]{3158, 2330}, new double[]{3132, 2316}, new double[]{3111, 2299}, new double[]{3100, 2270}, GOTWaypoint.ASABHAD);
 		registerBezier(Type.ROAD, GOTWaypoint.SI_QO, new double[]{3259, 2291}, new double[]{3227, 2311}, GOTWaypoint.CHANGAN);
+		double[] asshaiCrossroads = {3729, 2423};
 		registerBezier(Type.ROAD, asshaiCrossroads, new double[]{3757, 2401}, new double[]{3783, 2361}, GOTWaypoint.YUNNAN);
+		double[] asshaiCrossroadsHalfway = {3674, 2408};
 		registerBezier(Type.ROAD, asshaiCrossroadsHalfway, new double[]{3695, 2420}, asshaiCrossroads, new double[]{3762, 2448}, new double[]{3791, 2494}, new double[]{3807, 2552}, new double[]{3811, 2608}, new double[]{3803, 2687}, new double[]{3770, 2754}, GOTWaypoint.ASSHAI);
 		registerBezier(Type.ROAD, GOTWaypoint.JINQI, new double[]{3630, 2391}, new double[]{3658, 2398}, asshaiCrossroadsHalfway);
 		registerBezier(Type.ROAD, GOTWaypoint.EIJIANG, new double[]{3175, 2141}, new double[]{3246, 2117}, GOTWaypoint.TIQUI);
@@ -490,18 +489,16 @@ public class GOTBeziers {
 		}
 
 		public static double[][] getControlPoints(double[] src) {
-			int i;
 			int length = src.length - 1;
-			double[] p1 = new double[length];
-			double[] p2 = new double[length];
 			double[] a = new double[length];
-			double[] b = new double[length];
-			double[] c = new double[length];
-			double[] r = new double[length];
 			a[0] = 0.0;
+			double[] b = new double[length];
 			b[0] = 2.0;
+			double[] c = new double[length];
 			c[0] = 1.0;
+			double[] r = new double[length];
 			r[0] = src[0] + 2.0 * src[1];
+			int i;
 			for (i = 1; i < length - 1; ++i) {
 				a[i] = 1.0;
 				b[i] = 4.0;
@@ -517,10 +514,12 @@ public class GOTBeziers {
 				b[i] = b[i] - m * c[i - 1];
 				r[i] = r[i] - m * r[i - 1];
 			}
+			double[] p1 = new double[length];
 			p1[length - 1] = r[length - 1] / b[length - 1];
 			for (i = length - 2; i >= 0; --i) {
 				p1[i] = (r[i] - c[i] * p1[i + 1]) / b[i];
 			}
+			double[] p2 = new double[length];
 			for (i = 0; i < length - 1; ++i) {
 				p2[i] = 2.0 * src[i + 1] - p1[i + 1];
 			}

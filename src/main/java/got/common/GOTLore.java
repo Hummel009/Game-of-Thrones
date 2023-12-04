@@ -117,7 +117,6 @@ public class GOTLore {
 			String loreName = entry.getKey();
 			BufferedReader reader = entry.getValue();
 			try {
-				String categoryString;
 				String line;
 				String title = "";
 				String author = "";
@@ -136,7 +135,7 @@ public class GOTLore {
 							continue;
 						}
 						if (metadata.startsWith(codeCategory)) {
-							categoryString = metadata.substring(codeCategory.length());
+							String categoryString = metadata.substring(codeCategory.length());
 							while (!categoryString.isEmpty()) {
 								String categoryName;
 								int indexOf = categoryString.indexOf(codeCategorySeparator);
@@ -206,7 +205,6 @@ public class GOTLore {
 	}
 
 	public static List<String> organisePages(String loreText) {
-		List<String> loreTextPages = new ArrayList<>();
 		String remainingText = loreText;
 		ArrayList<String> splitTxtWords = new ArrayList<>();
 		while (!remainingText.isEmpty()) {
@@ -228,6 +226,7 @@ public class GOTLore {
 			Collections.addAll(splitTxtWords, StringUtils.split(part, " "));
 			remainingText = remainingText.substring(part.length());
 		}
+		List<String> loreTextPages = new ArrayList<>();
 		while (!splitTxtWords.isEmpty()) {
 			int i;
 			StringBuilder pageText = new StringBuilder();
@@ -311,7 +310,6 @@ public class GOTLore {
 			String unformatted;
 			block16:
 			{
-				String s1;
 				int indexStart = text.indexOf('{', lastIndexStart + 1);
 				int indexEnd = text.indexOf('}');
 				lastIndexStart = indexStart;
@@ -322,7 +320,7 @@ public class GOTLore {
 				formatted = unformatted.substring(1, unformatted.length() - 1);
 				if (formatted.startsWith("num:")) {
 					try {
-						s1 = formatted.substring("num:".length());
+						String s1 = formatted.substring("num:".length());
 						int i1 = s1.indexOf(codeCategorySeparator);
 						String s2 = s1.substring(0, i1);
 						String s3 = s1.substring(i1 + codeCategorySeparator.length());

@@ -28,9 +28,8 @@ public class GOTBiomeLorathMaze extends GOTBiomeLorath {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int l;
 		super.decorate(world, random, i, k);
-		for (l = 0; l < 10; ++l) {
+		for (int l = 0; l < 10; ++l) {
 			Block block = Blocks.stone;
 			for (int l2 = 0; l2 < 10; ++l2) {
 				int k3;

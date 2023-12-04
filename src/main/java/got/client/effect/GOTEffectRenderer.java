@@ -21,7 +21,6 @@ public class GOTEffectRenderer {
 	}
 
 	public void addEffect(EntityFX entityfx) {
-		List<EntityFX> layerList;
 		int layer = entityfx.getFXLayer();
 		if (layer >= particleLayers.length) {
 			List<EntityFX>[] newLayers = new List[layer + 1];
@@ -30,6 +29,7 @@ public class GOTEffectRenderer {
 			}
 			particleLayers = newLayers;
 		}
+		List<EntityFX> layerList;
 		if ((layerList = particleLayers[layer]).size() >= 4000) {
 			layerList.remove(0);
 		}

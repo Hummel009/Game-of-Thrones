@@ -26,7 +26,6 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int i1;
 		int width = 4 + random.nextInt(3);
 		setOriginAndRotation(world, i, j, k, rotation, width + 1);
 		if (restrictions) {
@@ -52,6 +51,7 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 				return false;
 			}
 		}
+		int i1;
 		for (i1 = -width; i1 <= width; ++i1) {
 			for (int k1 = -width; k1 <= width; ++k1) {
 				int j1;

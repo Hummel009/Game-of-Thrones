@@ -18,14 +18,10 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-		int j1;
-		int i1;
-		int i12;
-		int k1;
-		int i2;
-		int k2;
 		setOriginAndRotation(world, i, j, k, rotation, 1);
 		setupRandomBlocks(random);
+		int i12;
+		int j1;
 		if (restrictions) {
 			int minHeight = 0;
 			int maxHeight = 0;
@@ -48,6 +44,9 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 				}
 			}
 		}
+		int k2;
+		int i2;
+		int k1;
 		for (int i13 = -7; i13 <= 7; ++i13) {
 			for (k1 = 0; k1 <= 26; ++k1) {
 				i2 = Math.abs(i13);
@@ -272,6 +271,7 @@ public class GOTStructureIbbenStables extends GOTStructureIbbenBase {
 			setBlockAndMetadata(world, 1, 6, k12, plankBlock, plankMeta);
 			setBlockAndMetadata(world, 2, 6, k12, plankBlock, plankMeta);
 		}
+		int i1;
 		for (i1 = -7; i1 <= 7; ++i1) {
 			for (k1 = 0; k1 <= 12; ++k1) {
 				i2 = Math.abs(i1);

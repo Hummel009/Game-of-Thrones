@@ -27,12 +27,12 @@ public class GOTRecipeVessels {
 	public static List<IRecipe> generateRecipes(ItemStack result, Item drinkBase, Object[] ingredients) {
 		List<IRecipe> recipes = new ArrayList<>();
 		for (GOTItemMug.Vessel v : GOTItemMug.Vessel.values()) {
-			Collection<Object> vIngredients = new ArrayList<>();
 			ItemStack vBase = v.getEmptyVessel();
 			if (drinkBase != null) {
 				vBase = new ItemStack(drinkBase);
 				GOTItemMug.setVessel(vBase, v, true);
 			}
+			Collection<Object> vIngredients = new ArrayList<>();
 			vIngredients.add(vBase);
 			vIngredients.addAll(Arrays.asList(ingredients));
 			ItemStack vResult = result.copy();

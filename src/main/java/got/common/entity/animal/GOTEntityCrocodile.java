@@ -128,11 +128,11 @@ public class GOTEntityCrocodile extends GOTEntityNPC implements GOTBiome.ImmuneT
 
 	@Override
 	public void onLivingUpdate() {
-		int i;
 		super.onLivingUpdate();
 		if (!worldObj.isRemote && isInWater()) {
 			motionY += 0.02;
 		}
+		int i;
 		if (!worldObj.isRemote && (i = getSnapTime()) > 0) {
 			setSnapTime(i - 1);
 		}

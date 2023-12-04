@@ -133,11 +133,9 @@ public abstract class GOTMiniQuest {
 	}
 
 	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		GOTAchievement achievement;
 		completed = true;
 		dateCompleted = GOTDate.AegonCalendar.currentDay;
 		Random rand = npc.getRNG();
-		List<ItemStack> dropItems = new ArrayList<>();
 		float alignment = getAlignmentBonus();
 		if (alignment != 0.0f) {
 			alignment *= MathHelper.randomFloatClamp(rand, 0.75f, 1.25f);
@@ -150,6 +148,7 @@ public abstract class GOTMiniQuest {
 			}
 		}
 		int coins = getCoinBonus();
+		List<ItemStack> dropItems = new ArrayList<>();
 		if (coins != 0) {
 			if (shouldRandomiseCoinReward()) {
 				coins = Math.round(coins * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
@@ -220,6 +219,7 @@ public abstract class GOTMiniQuest {
 		updateQuest();
 		playerData.completeMiniQuest(this);
 		sendCompletedSpeech(entityplayer, npc);
+		GOTAchievement achievement;
 		if (questGroup != null && (achievement = questGroup.getAchievement()) != null) {
 			playerData.addAchievement(achievement);
 		}
@@ -321,12 +321,8 @@ public abstract class GOTMiniQuest {
 	}
 
 	public void readFromNBT(NBTTagCompound nbt) {
-		NBTTagCompound itemData;
-		ItemStack item;
-		GOTMiniQuestFactory factory;
-		NBTTagList itemTags;
-		String recovery;
 		isLegendary = nbt.getBoolean("Legendary");
+		GOTMiniQuestFactory factory;
 		if (nbt.hasKey("QuestGroup") && (factory = GOTMiniQuestFactory.forName(nbt.getString("QuestGroup"))) != null) {
 			questGroup = factory;
 		}
@@ -352,6 +348,9 @@ public abstract class GOTMiniQuest {
 		willHire = nbt.getBoolean("WillHire");
 		hiringAlignment = nbt.hasKey("HiringAlignment") ? nbt.getInteger("HiringAlignment") : nbt.getFloat("HiringAlignF");
 		rewardItemTable.clear();
+		NBTTagList itemTags;
+		ItemStack item;
+		NBTTagCompound itemData;
 		if (nbt.hasKey("RewardItemTable")) {
 			itemTags = nbt.getTagList("RewardItemTable", 10);
 			for (int l = 0; l < itemTags.tagCount(); ++l) {
@@ -400,6 +399,7 @@ public abstract class GOTMiniQuest {
 				quotesStages.add(s);
 			}
 		}
+		String recovery;
 		if (questGroup == null && (recovery = speechBankStart) != null) {
 			GOTMiniQuestFactory factory2;
 			int i1 = recovery.indexOf('/');
@@ -476,8 +476,6 @@ public abstract class GOTMiniQuest {
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {
-		NBTTagList itemTags;
-		NBTTagCompound itemData;
 		nbt.setString("QuestType", questToNameMapping.get(getClass()));
 		if (questGroup != null) {
 			nbt.setString("QuestGroup", questGroup.getBaseName());
@@ -496,6 +494,8 @@ public abstract class GOTMiniQuest {
 		nbt.setFloat("RewardFactor", rewardFactor);
 		nbt.setBoolean("WillHire", willHire);
 		nbt.setFloat("HiringAlignF", hiringAlignment);
+		NBTTagCompound itemData;
+		NBTTagList itemTags;
 		if (!rewardItemTable.isEmpty()) {
 			itemTags = new NBTTagList();
 			for (ItemStack item : rewardItemTable) {

@@ -26,9 +26,6 @@ public class GOTWorldGenCedar extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		int canopyMin;
-		int j1;
-		Block below;
 		int height = MathHelper.getRandomIntegerInRange(random, minHeight, maxHeight);
 		boolean flag = true;
 		if (j >= 1 && height + 1 <= 256) {
@@ -52,6 +49,7 @@ public class GOTWorldGenCedar extends WorldGenAbstractTree {
 		} else {
 			flag = false;
 		}
+		Block below;
 		if (!(below = world.getBlock(i, j - 1, k)).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
 			flag = false;
 		}
@@ -59,6 +57,8 @@ public class GOTWorldGenCedar extends WorldGenAbstractTree {
 			return false;
 		}
 		below.onPlantGrow(world, i, j - 1, k, i, j, k);
+		int j1;
+		int canopyMin;
 		for (j1 = canopyMin = j + height - 2; j1 <= j + height; ++j1) {
 			int leafRange = 2 - (j1 - (j + height));
 			spawnLeaves(world, random, i, j1, k, leafRange);

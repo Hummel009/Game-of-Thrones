@@ -401,7 +401,6 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 			isAirBorne = true;
 		}
 		if (!worldObj.isRemote && isMountHostile()) {
-			EntityLivingBase target;
 			boolean isChild = isChild();
 			if (isChild != prevIsChild) {
 				EntityAITasks.EntityAITaskEntry taskEntry;
@@ -413,6 +412,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 					tasks.addTask(taskEntry.priority, attackAI);
 				}
 			}
+			EntityLivingBase target;
 			if (getAttackTarget() != null && (!(target = getAttackTarget()).isEntityAlive() || target instanceof EntityPlayer && ((EntityPlayer) target).capabilities.isCreativeMode)) {
 				setAttackTarget(null);
 			}
@@ -453,8 +453,6 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 
 	@Override
 	public void readEntityFromNBT(NBTTagCompound nbt) {
-		ItemStack armor;
-		double jumpStrength;
 		super.readEntityFromNBT(nbt);
 		boolean pre35 = false;
 		if (nbt.hasKey("BelongsToNPC")) {
@@ -467,11 +465,12 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 			setMountable(nbt.getBoolean("Mountable"));
 		}
 		AnimalChest inv = GOTReflection.getHorseInv(this);
+		ItemStack armor;
 		if (nbt.hasKey("GOTMountArmorItem") && (armor = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("GOTMountArmorItem"))) != null && isMountArmorValid(armor)) {
 			inv.setInventorySlotContents(1, armor);
 		}
 		if (pre35 && getEntityAttribute(GOTReflection.getHorseJumpStrength()).getAttributeValue() > 1.0) {
-			jumpStrength = 1.0;
+			double jumpStrength = 1.0;
 			getEntityAttribute(GOTReflection.getHorseJumpStrength()).setBaseValue(jumpStrength);
 		}
 	}
