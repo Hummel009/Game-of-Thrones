@@ -125,8 +125,8 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		if (page == Page.MINIQUESTS && selectedMiniquest == null) {
 			float scale = 2.0f;
 			float invScale = 1.0f / scale;
-			x *= invScale;
-			y *= invScale;
+			x *= (int) invScale;
+			y *= (int) invScale;
 			GL11.glScalef(scale, scale, scale);
 			drawCenteredString(page.getTitle(), x, y, 8019267);
 			GL11.glScalef(invScale, invScale, invScale);

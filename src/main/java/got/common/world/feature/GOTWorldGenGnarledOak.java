@@ -78,13 +78,13 @@ public class GOTWorldGenGnarledOak extends WorldGenAbstractTree {
 			int i1 = i;
 			for (int l = 0; l < length; ++l) {
 				if (Math.floor(cos * l) != Math.floor(cos * (l - 1))) {
-					i1 += Math.signum(cos);
+					i1 += (int) Math.signum(cos);
 				}
 				if (Math.floor(sin * l) != Math.floor(sin * (l - 1))) {
-					k1 += Math.signum(sin);
+					k1 += (int) Math.signum(sin);
 				}
 				if (Math.floor(sinY * l) != Math.floor(sinY * (l - 1))) {
-					j1 += Math.signum(sinY);
+					j1 += (int) Math.signum(sinY);
 				}
 				if (!isReplaceable(world, i1, j1, k1)) {
 					break;

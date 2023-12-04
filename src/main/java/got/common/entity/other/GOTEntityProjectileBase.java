@@ -301,7 +301,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 					ItemStack itemstack = getProjectileItem();
 					int damageInt = MathHelper.ceiling_double_int(getBaseImpactDamage(hitEntity, itemstack));
 					if (itemstack != null) {
-						knockbackStrength += (shootingEntity instanceof EntityLivingBase && hitEntity instanceof EntityLivingBase ? EnchantmentHelper.getKnockbackModifier((EntityLivingBase) shootingEntity, (EntityLivingBase) hitEntity) : GOTWeaponStats.getTotalKnockback(itemstack));
+						knockbackStrength += shootingEntity instanceof EntityLivingBase && hitEntity instanceof EntityLivingBase ? EnchantmentHelper.getKnockbackModifier((EntityLivingBase) shootingEntity, (EntityLivingBase) hitEntity) : GOTWeaponStats.getTotalKnockback(itemstack);
 					}
 					if (getIsCritical()) {
 						damageInt += rand.nextInt(damageInt / 2 + 2);

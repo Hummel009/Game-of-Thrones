@@ -623,7 +623,7 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 							factor = 1.0f / (factor + 0.01f);
 							factor *= 0.5f + random.nextFloat() * 0.5f;
 							factor = Math.min(factor, 1.0f);
-							h *= factor;
+							h *= (int) factor;
 							int top = j1 + h;
 							for (int j2 = j1 + 1; j2 <= top; j2++) {
 								if (random.nextInt(8) == 0) {

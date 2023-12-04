@@ -156,7 +156,7 @@ public class GOTEntityTraderRespawn extends Entity {
 		prevPosY = posY;
 		prevPosZ = posZ;
 		prevSpawnerSpin = spawnerSpin;
-		spawnerSpin += (isSpawnImminent() ? 24.0f : 6.0f);
+		spawnerSpin += isSpawnImminent() ? 24.0f : 6.0f;
 		prevSpawnerSpin = MathHelper.wrapAngleTo180_float(prevSpawnerSpin);
 		spawnerSpin = MathHelper.wrapAngleTo180_float(spawnerSpin);
 		if (getScale() < MAX_SCALE) {

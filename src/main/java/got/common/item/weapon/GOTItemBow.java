@@ -74,7 +74,7 @@ public class GOTItemBow extends ItemBow {
 		float f = 1.0f;
 		if (itemstack != null) {
 			if (itemstack.getItem() instanceof GOTItemBow) {
-				f *= ((GOTItemBow) itemstack.getItem()).arrowDamageFactor;
+				f *= (float) ((GOTItemBow) itemstack.getItem()).arrowDamageFactor;
 			}
 			f *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
 		}

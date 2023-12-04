@@ -81,9 +81,9 @@ public class GOTPlateFallingInfo implements IExtendedEntityProperties {
 			}
 			isFalling[l] = fall;
 			if (fall) {
-				speed += 0.08;
+				speed += 0.08F;
 				pos -= speed;
-				speed *= 0.98;
+				speed *= 0.98F;
 			} else {
 				speed = 0.0f;
 			}

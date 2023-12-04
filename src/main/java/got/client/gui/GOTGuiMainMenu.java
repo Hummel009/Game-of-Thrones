@@ -191,8 +191,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			double vXNew = dx / dist * mapSpeed;
 			double vYNew = dy / dist * mapSpeed;
 			float a = 0.02f;
-			mapVelX += (vXNew - mapVelX) * a;
-			mapVelY += (vYNew - mapVelY) * a;
+			mapVelX += (float) ((vXNew - mapVelX) * a);
+			mapVelY += (float) ((vYNew - mapVelY) * a);
 		}
 		mapRenderer.mapX += mapVelX;
 		mapRenderer.mapY += mapVelY;

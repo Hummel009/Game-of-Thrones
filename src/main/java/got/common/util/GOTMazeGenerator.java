@@ -132,7 +132,7 @@ public class GOTMazeGenerator {
 			arrs[z] |= flag;
 		} else {
 			short[] arrs = mazeFlags[x];
-			arrs[z] &= ~flag;
+			arrs[z] &= (short) ~flag;
 		}
 	}
 

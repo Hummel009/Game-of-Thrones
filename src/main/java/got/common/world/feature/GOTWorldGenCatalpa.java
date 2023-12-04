@@ -73,13 +73,13 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 						int j2 = j1;
 						for (int l = 0; l < length; ++l) {
 							if (Math.floor(cos * l) != Math.floor(cos * (l - 1))) {
-								i1 += Math.signum(cos);
+								i1 += (int) Math.signum(cos);
 							}
 							if (Math.floor(sin * l) != Math.floor(sin * (l - 1))) {
-								k1 += Math.signum(sin);
+								k1 += (int) Math.signum(sin);
 							}
 							if (Math.floor(sinY * l) != Math.floor(sinY * (l - 1))) {
-								j2 += Math.signum(sinY);
+								j2 += (int) Math.signum(sinY);
 							}
 							Block block;
 							if (!(block = world.getBlock(i1, j2, k1)).isReplaceable(world, i1, j2, k1) && !block.isWood(world, i1, j2, k1) && !block.isLeaves(world, i1, j2, k1)) {

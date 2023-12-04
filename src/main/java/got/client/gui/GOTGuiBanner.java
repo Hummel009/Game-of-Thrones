@@ -277,7 +277,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			if (i < 0) {
 				i = -1;
 			}
-			currentScroll -= (double) i / j;
+			currentScroll -= (float) ((double) i / j);
 			if (currentScroll < 0.0f) {
 				currentScroll = 0.0f;
 			}

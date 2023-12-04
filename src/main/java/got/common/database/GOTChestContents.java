@@ -1216,7 +1216,7 @@ public class GOTChestContents {
 					int loreChance = itemPool.loreChance;
 					int minDropLoreChance = 8;
 					if (isNPCDrop && loreChance > minDropLoreChance) {
-						loreChance *= 0.75f;
+						loreChance *= (int) 0.75f;
 						loreChance = Math.max(loreChance, minDropLoreChance);
 					}
 					GOTLore lore;
