@@ -54,6 +54,7 @@ public enum GOTCapes {
 		return null;
 	}
 
+	@SuppressWarnings("EmptyMethod")
 	public static void preInit() {
 	}
 

@@ -49,6 +49,7 @@ public enum GOTShields {
 		isHidden = hidden;
 	}
 
+	@SuppressWarnings("EmptyMethod")
 	public static void preInit() {
 	}
 

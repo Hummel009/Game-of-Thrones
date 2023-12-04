@@ -225,7 +225,6 @@ public abstract class GOTEntityFireball extends Entity {
 				prevRotationYaw += 360.0f;
 			}
 
-			rotationPitch = prevRotationPitch + (rotationPitch - prevRotationPitch) * 0.2f;
 			rotationYaw = prevRotationYaw + (rotationYaw - prevRotationYaw) * 0.2f;
 			float f2 = getMotionFactor();
 
