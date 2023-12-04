@@ -92,10 +92,10 @@ public class GOTWorldGenWillow extends WorldGenAbstractTree {
 					++j1;
 				}
 				if (random.nextFloat() < Math.abs(cos)) {
-					i1 = (int) (i1 + Math.signum(cos));
+					i1 += Math.signum(cos);
 				}
 				if (random.nextFloat() < Math.abs(sin)) {
-					k1 = (int) (k1 + Math.signum(sin));
+					k1 += Math.signum(sin);
 				}
 				setBlockAndNotifyAdequately(world, i1, j1, k1, woodBlock, woodMeta);
 			}

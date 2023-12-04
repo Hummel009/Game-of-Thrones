@@ -38,10 +38,10 @@ public class GOTRecipePartyHatDye implements IRecipe {
 				float r = (hatColor >> 16 & 0xFF) / 255.0f;
 				float g = (hatColor >> 8 & 0xFF) / 255.0f;
 				float b = (hatColor & 0xFF) / 255.0f;
-				totalColor = (int) (totalColor + Math.max(r, Math.max(g, b)) * 255.0f);
-				rgb[0] = (int) (rgb[0] + r * 255.0f);
-				rgb[1] = (int) (rgb[1] + g * 255.0f);
-				rgb[2] = (int) (rgb[2] + b * 255.0f);
+				totalColor += Math.max(r, Math.max(g, b)) * 255.0f;
+				rgb[0] += r * 255.0f;
+				rgb[1] += g * 255.0f;
+				rgb[2] += b * 255.0f;
 				++coloredItems;
 				continue;
 			}
@@ -54,9 +54,9 @@ public class GOTRecipePartyHatDye implements IRecipe {
 			int g = (int) (dyeColors[1] * 255.0f);
 			int b = (int) (dyeColors[2] * 255.0f);
 			totalColor += Math.max(r, Math.max(g, b));
-			rgb[0] = rgb[0] + r;
-			rgb[1] = rgb[1] + g;
-			rgb[2] = rgb[2] + b;
+			rgb[0] += r;
+			rgb[1] += g;
+			rgb[2] += b;
 			++coloredItems;
 		}
 		if (hat == null) {

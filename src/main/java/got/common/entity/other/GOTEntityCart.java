@@ -77,7 +77,7 @@ public class GOTEntityCart extends Entity {
 		if (worldObj.isRemote && Minecraft.getMinecraft().isGamePaused()) {
 			factor = 0.0;
 		}
-		wheelrot = (float) (wheelrot - 0.11999999731779099 * factor);
+		wheelrot -= 0.11999999731779099 * factor;
 		return wheelrot;
 	}
 
@@ -140,8 +140,8 @@ public class GOTEntityCart extends Entity {
 			double d1 = posY + (lerpY - posY) / lerpSteps;
 			double d2 = posZ + (lerpZ - posZ) / lerpSteps;
 			double d3 = MathHelper.wrapAngleTo180_double(lerpYaw - rotationYaw);
-			rotationYaw = (float) (rotationYaw + d3 / lerpSteps);
-			rotationPitch = (float) (rotationPitch + (lerpPitch - rotationPitch) / lerpSteps);
+			rotationYaw += d3 / lerpSteps;
+			rotationPitch += (lerpPitch - rotationPitch) / lerpSteps;
 			--lerpSteps;
 			setPosition(d0, d1, d2);
 			setRotation(rotationYaw, rotationPitch);

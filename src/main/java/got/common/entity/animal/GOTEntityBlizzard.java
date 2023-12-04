@@ -152,7 +152,7 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 	public void setInAttackMode(boolean flag) {
 		byte b0 = dataWatcher.getWatchableObjectByte(16);
 		if (flag) {
-			b0 = (byte) (b0 | 1);
+			b0 |= 1;
 		} else {
 			b0 &= -2;
 		}

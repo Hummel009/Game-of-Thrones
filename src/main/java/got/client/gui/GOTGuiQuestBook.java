@@ -125,8 +125,8 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		if (page == Page.MINIQUESTS && selectedMiniquest == null) {
 			float scale = 2.0f;
 			float invScale = 1.0f / scale;
-			x = (int) (x * invScale);
-			y = (int) (y * invScale);
+			x *= invScale;
+			y *= invScale;
 			GL11.glScalef(scale, scale, scale);
 			drawCenteredString(page.getTitle(), x, y, 8019267);
 			GL11.glScalef(invScale, invScale, invScale);
@@ -483,7 +483,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 						objective = objective.substring(0, objective.length() - 1);
 					}
 				}
-				objective = objective + ellipsis;
+				objective += ellipsis;
 			}
 			fontRendererObj.drawString(objective, questX + qPanelBorder, questY + 25, 8019267);
 			String progress = quest.getQuestProgress();

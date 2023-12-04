@@ -83,7 +83,7 @@ public class GOTModelBiped extends ModelBiped {
 			f6 = 1.0f - f6;
 			f7 = MathHelper.sin(f6 * 3.1415927f);
 			float f8 = MathHelper.sin(onGround * 3.1415927f) * -(bipedHead.rotateAngleX - 0.7f) * 0.75f;
-			bipedRightArm.rotateAngleX = (float) (bipedRightArm.rotateAngleX - (f7 * 1.2 + f8));
+			bipedRightArm.rotateAngleX -= (f7 * 1.2 + f8);
 			bipedRightArm.rotateAngleY += bipedBody.rotateAngleY * 2.0f;
 			bipedRightArm.rotateAngleZ = MathHelper.sin(onGround * 3.1415927f) * -0.4f;
 		}

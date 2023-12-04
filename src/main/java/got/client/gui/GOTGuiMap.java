@@ -1646,7 +1646,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float scale = 0.5f;
 				IIcon icon = questBookIcon.getIconIndex();
 				int iconWidthHalf = icon.getIconWidth() / 2;
-				iconWidthHalf = (int) (iconWidthHalf * scale);
+				iconWidthHalf *= scale;
 				int iconBorder = iconWidthHalf + 1;
 				questX = Math.max(mapXMin + iconBorder, questX);
 				questX = Math.min(mapXMax - iconBorder - 1, questX);

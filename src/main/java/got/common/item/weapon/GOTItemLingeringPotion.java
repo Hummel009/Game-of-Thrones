@@ -167,7 +167,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 
 		if (list != null && !list.isEmpty()) {
 			s1 = list.get(0).getEffectName();
-			s1 = s1 + ".postfix";
+			s1 += ".postfix";
 			return s + StatCollector.translateToLocal(s1).trim();
 		}
 		s1 = PotionHelper.func_77905_c(stack.getItemDamage());

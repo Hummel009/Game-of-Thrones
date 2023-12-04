@@ -511,8 +511,8 @@ public class GOTBeziers {
 			r[length - 1] = 8.0 * src[length - 1] + src[length];
 			for (i = 1; i < length; ++i) {
 				double m = a[i] / b[i - 1];
-				b[i] = b[i] - m * c[i - 1];
-				r[i] = r[i] - m * r[i - 1];
+				b[i] -= m * c[i - 1];
+				r[i] -= m * r[i - 1];
 			}
 			double[] p1 = new double[length];
 			p1[length - 1] = r[length - 1] / b[length - 1];

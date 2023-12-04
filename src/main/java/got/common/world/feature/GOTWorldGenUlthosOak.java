@@ -101,13 +101,13 @@ public class GOTWorldGenUlthosOak extends WorldGenAbstractTree {
 					int j12 = j + height - 1 - random.nextInt(5);
 					for (int l = 0; l < (length *= 1 + random.nextInt(trunkWidth)); ++l) {
 						if (Math.floor(cos * l) != Math.floor(cos * (l - 1))) {
-							i14 = (int) (i14 + Math.signum(cos));
+							i14 += Math.signum(cos);
 						}
 						if (Math.floor(sin * l) != Math.floor(sin * (l - 1))) {
-							k14 = (int) (k14 + Math.signum(sin));
+							k14 += Math.signum(sin);
 						}
 						if (Math.floor(sinY * l) != Math.floor(sinY * (l - 1))) {
-							j12 = (int) (j12 + Math.signum(sinY));
+							j12 += Math.signum(sinY);
 						}
 						Block block;
 						if (!(block = world.getBlock(i14, j12, k14)).isReplaceable(world, i14, j12, k14) && !block.isWood(world, i14, j12, k14) && !block.isLeaves(world, i14, j12, k14)) {

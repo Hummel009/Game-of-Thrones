@@ -287,7 +287,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			while (fontRendererObj.getStringWidth(fsName + ellipsis) > maxLength) {
 				fsName = fsName.substring(0, fsName.length() - 1);
 			}
-			fsName = fsName + ellipsis;
+			fsName += ellipsis;
 		}
 		GameProfile owner = fs.getOwnerProfile();
 		boolean ownerOnline = isPlayerOnline(owner);

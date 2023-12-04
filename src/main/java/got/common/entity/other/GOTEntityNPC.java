@@ -861,7 +861,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		hiredNPCInfo.onKillEntity(entity);
 		if (lootsExtraCoins() && !worldObj.isRemote && entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).canDropRares() && rand.nextInt(2) == 0) {
 			int coins = getRandomCoinDropAmount();
-			coins = (int) (coins * MathHelper.randomFloatClamp(rand, 1.0f, 3.0f));
+			coins *= MathHelper.randomFloatClamp(rand, 1.0f, 3.0f);
 			if (coins > 0) {
 				entity.dropItem(GOTItems.coin, coins);
 			}

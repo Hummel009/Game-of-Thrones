@@ -68,12 +68,12 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 			}
 			++trunkSwitches;
 			if (Math.abs(trunkCos) >= MathHelper.getRandomDoubleInRange(random, 0.25, 0.5)) {
-				trunkX = (int) (trunkX + Math.signum(trunkCos));
+				trunkX += Math.signum(trunkCos);
 			}
 			if (Math.abs(trunkSin) < MathHelper.getRandomDoubleInRange(random, 0.25, 0.5)) {
 				continue;
 			}
-			trunkZ = (int) (trunkZ + Math.signum(trunkSin));
+			trunkZ += Math.signum(trunkSin);
 		}
 		int leafAngle = 0;
 		block5:
@@ -93,12 +93,12 @@ public class GOTWorldGenPalm extends WorldGenAbstractTree {
 					double dSin = Math.floor(Math.abs(sin * l)) - Math.floor(Math.abs(sin * (l - 1)));
 					boolean cosOrSin = (dCos = Math.abs(dCos)) == (dSin = Math.abs(dSin)) ? random.nextBoolean() : dCos > dSin;
 					if (cosOrSin) {
-						i1 = (int) (i1 + Math.signum(cos));
+						i1 += Math.signum(cos);
 					} else {
-						k1 = (int) (k1 + Math.signum(sin));
+						k1 += Math.signum(sin);
 					}
 				} else {
-					j1 = (int) (j1 + Math.signum(sinY));
+					j1 += Math.signum(sinY);
 				}
 				boolean wood = l == 1;
 				Block block = world.getBlock(i1, j1, k1);

@@ -93,7 +93,7 @@ public class GOTGuiEditSign extends GuiScreen {
 		}
 		if (ChatAllowedCharacters.isAllowedCharacter(c) && tileSign.signText[editLine].length() < 15) {
 			int n = editLine;
-			tileSign.signText[n] = tileSign.signText[n] + c;
+			tileSign.signText[n] += c;
 		}
 		if (i == 1) {
 			actionPerformed(buttonDone);
