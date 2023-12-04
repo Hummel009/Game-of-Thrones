@@ -135,7 +135,7 @@ public class GOTEntityFlamingo extends EntityAnimal {
 		super.onLivingUpdate();
 		field_756_e = field_752_b;
 		field_757_d = destPos;
-		destPos += (onGround || inWater ? -1 : 4) * 0.3;
+		destPos += (float) ((onGround || inWater ? -1 : 4) * 0.3);
 		if (destPos < 0.0f) {
 			destPos = 0.0f;
 		}
@@ -145,7 +145,7 @@ public class GOTEntityFlamingo extends EntityAnimal {
 		if (!onGround && !inWater && field_755_h < 1.0f) {
 			field_755_h = 1.0f;
 		}
-		field_755_h *= 0.9;
+		field_755_h *= 0.9F;
 		if (!onGround && !inWater && motionY < 0.0) {
 			motionY *= 0.6;
 		}

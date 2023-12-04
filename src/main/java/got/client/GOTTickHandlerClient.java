@@ -1163,8 +1163,8 @@ public class GOTTickHandlerClient {
 							GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 							float scale = 0.5f;
 							float invScale = 1.0f / scale;
-							compassX *= invScale;
-							compassY *= invScale;
+							compassX *= (int) invScale;
+							compassY *= (int) invScale;
 							GL11.glScalef(scale, scale, scale);
 							String coords = MathHelper.floor_double(entityplayer.posX) + ", " + MathHelper.floor_double(entityplayer.boundingBox.minY) + ", " + MathHelper.floor_double(entityplayer.posZ);
 							FontRenderer fontRenderer = minecraft.fontRenderer;
@@ -1217,8 +1217,8 @@ public class GOTTickHandlerClient {
 					int j = resolution.getScaledHeight();
 					float scale = 1.5f;
 					float invScale = 1.0f / scale;
-					i *= invScale;
-					j *= invScale;
+					i *= (int) invScale;
+					j *= (int) invScale;
 					int x = (i - minecraft.fontRenderer.getStringWidth(date)) / 2;
 					int y = (j - minecraft.fontRenderer.FONT_HEIGHT) * 2 / 5;
 					GL11.glScalef(scale, scale, scale);
