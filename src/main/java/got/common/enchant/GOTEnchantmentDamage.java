@@ -12,10 +12,10 @@ public class GOTEnchantmentDamage extends GOTEnchantment {
 	public GOTEnchantmentDamage(String s, float boost) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE});
 		baseDamageBoost = boost;
-		if (baseDamageBoost >= 0.0F) {
-			setValueModifier((7.0F + baseDamageBoost * 5.0F) / 7.0F);
+		if (baseDamageBoost >= 0.0f) {
+			setValueModifier((7.0f + baseDamageBoost * 5.0f) / 7.0f);
 		} else {
-			setValueModifier((7.0F + baseDamageBoost) / 7.0F);
+			setValueModifier((7.0f + baseDamageBoost) / 7.0f);
 		}
 	}
 
@@ -24,7 +24,7 @@ public class GOTEnchantmentDamage extends GOTEnchantment {
 		if (super.canApply(itemstack, considering)) {
 			float dmg = GOTWeaponStats.getMeleeDamageBonus(itemstack);
 			dmg += baseDamageBoost;
-			return dmg > 0.0F;
+			return dmg > 0.0f;
 		}
 		return false;
 	}
@@ -43,11 +43,11 @@ public class GOTEnchantmentDamage extends GOTEnchantment {
 	}
 
 	public float getEntitySpecificDamage(EntityLivingBase entity) {
-		return 0.0F;
+		return 0.0f;
 	}
 
 	@Override
 	public boolean isBeneficial() {
-		return baseDamageBoost >= 0.0F;
+		return baseDamageBoost >= 0.0f;
 	}
 }

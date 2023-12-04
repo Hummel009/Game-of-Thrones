@@ -97,8 +97,8 @@ public class GOTTickHandlerClient {
 	public static ResourceLocation frostOverlay = new ResourceLocation("got:textures/misc/frost_overlay.png");
 	public static ResourceLocation burnOverlay = new ResourceLocation("got:textures/misc/burn_overlay.png");
 	public static ResourceLocation wightOverlay = new ResourceLocation("got:textures/misc/wight.png");
-	public static float[] frostRGBMiddle = {0.4F, 0.46F, 0.74F};
-	public static float[] frostRGBEdge = {1.0F, 1.0F, 1.0F};
+	public static float[] frostRGBMiddle = {0.4f, 0.46f, 0.74f};
+	public static float[] frostRGBEdge = {1.0f, 1.0f, 1.0f};
 	public static Map<EntityPlayer, Integer> playersInPortals = new HashMap<>();
 	public static int clientTick;
 	public static float renderTick;
@@ -153,7 +153,7 @@ public class GOTTickHandlerClient {
 	}
 
 	public static void drawBorderedText(FontRenderer f, int x, int y, String s, int color, float alphaF) {
-		int alpha = (int) (alphaF * 255.0F);
+		int alpha = (int) (alphaF * 255.0f);
 		alpha = MathHelper.clamp_int(alpha, 4, 255);
 		alpha <<= 24;
 		f.drawString(s, x - 1, y - 1, alpha);
@@ -176,13 +176,13 @@ public class GOTTickHandlerClient {
 	}
 
 	public static void drawTexturedModalRect(double x, double y, int u, int v, int width, int height) {
-		float f = 0.00390625F;
+		float f = 0.00390625f;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(x + 0.0D, y + height, 0.0D, u * f, (v + height) * f);
-		tessellator.addVertexWithUV(x + width, y + height, 0.0D, (u + width) * f, (v + height) * f);
-		tessellator.addVertexWithUV(x + width, y + 0.0D, 0.0D, (u + width) * f, v * f);
-		tessellator.addVertexWithUV(x + 0.0D, y + 0.0D, 0.0D, u * f, v * f);
+		tessellator.addVertexWithUV(x + 0.0, y + height, 0.0, u * f, (v + height) * f);
+		tessellator.addVertexWithUV(x + width, y + height, 0.0, (u + width) * f, (v + height) * f);
+		tessellator.addVertexWithUV(x + width, y + 0.0, 0.0, (u + width) * f, v * f);
+		tessellator.addVertexWithUV(x + 0.0, y + 0.0, 0.0, u * f, v * f);
 		tessellator.draw();
 	}
 
@@ -207,7 +207,7 @@ public class GOTTickHandlerClient {
 			if (firstRank != null && !firstRank.isDummyRank()) {
 				firstRankAlign = firstRank.alignment;
 			} else {
-				firstRankAlign = 10.0F;
+				firstRankAlign = 10.0f;
 			}
 			if (Math.abs(alignment) < firstRankAlign) {
 				alignMin = -firstRankAlign;
@@ -218,21 +218,21 @@ public class GOTTickHandlerClient {
 				} else {
 					rankMax = GOTFactionRank.RANK_NEUTRAL;
 				}
-			} else if (alignment < 0.0F) {
+			} else if (alignment < 0.0f) {
 				alignMax = -firstRankAlign;
-				alignMin = alignMax * 10.0F;
+				alignMin = alignMax * 10.0f;
 				rankMin = rankMax = GOTFactionRank.RANK_ENEMY;
 				while (alignment <= alignMin) {
-					alignMax *= 10.0F;
-					alignMin = alignMax * 10.0F;
+					alignMax *= 10.0f;
+					alignMin = alignMax * 10.0f;
 				}
 			} else {
 				alignMin = firstRankAlign;
-				alignMax = alignMin * 10.0F;
+				alignMax = alignMin * 10.0f;
 				rankMin = rankMax = GOTFactionRank.RANK_NEUTRAL;
 				while (alignment >= alignMax) {
 					alignMin = alignMax;
-					alignMax = alignMin * 10.0F;
+					alignMax = alignMin * 10.0f;
 				}
 			}
 		} else {
@@ -243,28 +243,28 @@ public class GOTTickHandlerClient {
 				alignMax = nextRank.alignment;
 				rankMax = nextRank;
 			} else {
-				alignMax = rank.alignment * 10.0F;
+				alignMax = rank.alignment * 10.0f;
 				rankMax = rank;
 				while (alignment >= alignMax) {
 					alignMin = alignMax;
-					alignMax = alignMin * 10.0F;
+					alignMax = alignMin * 10.0f;
 				}
 			}
 		}
 		float ringProgress = (alignment - alignMin) / (alignMax - alignMin);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
 		int barWidth = 232;
 		int barHeight = 14;
 		int activeBarWidth = 220;
 		float[] factionColors = faction.getFactionRGB();
-		GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], 1.0F);
+		GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], 1.0f);
 		drawTexturedModalRect(x - (double) barWidth / 2, y, 0, 14, barWidth, barHeight);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		drawTexturedModalRect(x - (double) barWidth / 2, y, 0, 0, barWidth, barHeight);
-		float ringProgressAdj = (ringProgress - 0.5F) * 2.0F;
+		float ringProgressAdj = (ringProgress - 0.5f) * 2.0f;
 		int ringSize = 16;
-		float ringX = x - (float) ringSize / 2 + ringProgressAdj * activeBarWidth / 2.0F;
+		float ringX = x - (float) ringSize / 2 + ringProgressAdj * activeBarWidth / 2.0f;
 		float ringY = y + (float) barHeight / 2 - (float) ringSize / 2;
 		int flashTick = ticker.flashTick;
 		if (pledged) {
@@ -276,13 +276,13 @@ public class GOTTickHandlerClient {
 			float alpha;
 			boolean definedZone;
 			if (faction.inControlZone(entityClientPlayerMP)) {
-				alpha = 1.0F;
+				alpha = 1.0f;
 				definedZone = faction.inDefinedControlZone(entityClientPlayerMP);
 			} else {
 				alpha = faction.getControlZoneAlignmentMultiplier(entityClientPlayerMP);
 				definedZone = true;
 			}
-			if (alpha > 0.0F) {
+			if (alpha > 0.0f) {
 				int arrowSize = 14;
 				int y0;
 				int y1;
@@ -298,7 +298,7 @@ public class GOTTickHandlerClient {
 				GL11.glColor4f(factionColors[0], factionColors[1], factionColors[2], alpha);
 				drawTexturedModalRect(x - (double) barWidth / 2 - arrowSize, y, 0, y1, arrowSize, arrowSize);
 				drawTexturedModalRect(x + (double) barWidth / 2, y, arrowSize, y1, arrowSize, arrowSize);
-				GL11.glColor4f(1.0F, 1.0F, 1.0F, alpha);
+				GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
 				drawTexturedModalRect(x - (double) barWidth / 2 - arrowSize, y, 0, y0, arrowSize, arrowSize);
 				drawTexturedModalRect(x + (double) barWidth / 2, y, arrowSize, y0, arrowSize, arrowSize);
 				GL11.glDisable(3042);
@@ -306,7 +306,7 @@ public class GOTTickHandlerClient {
 		}
 		FontRenderer fr = mc.fontRenderer;
 		int textX = Math.round(x);
-		int textY = Math.round(y + barHeight + 4.0F);
+		int textY = Math.round(y + barHeight + 4.0f);
 		if (renderLimits) {
 			String sMin = rankMin.getShortNameWithGender(clientPD);
 			String sMax = rankMax.getShortNameWithGender(clientPD);
@@ -318,14 +318,14 @@ public class GOTTickHandlerClient {
 			int xMin = Math.round(x - limitsX);
 			int xMax = Math.round(x + limitsX);
 			GL11.glPushMatrix();
-			GL11.glScalef(0.5F, 0.5F, 0.5F);
-			drawAlignmentText(fr, xMin * 2 - fr.getStringWidth(sMin) / 2, textY * 2, sMin, 1.0F);
-			drawAlignmentText(fr, xMax * 2 - fr.getStringWidth(sMax) / 2, textY * 2, sMax, 1.0F);
+			GL11.glScalef(0.5f, 0.5f, 0.5f);
+			drawAlignmentText(fr, xMin * 2 - fr.getStringWidth(sMin) / 2, textY * 2, sMin, 1.0f);
+			drawAlignmentText(fr, xMax * 2 - fr.getStringWidth(sMax) / 2, textY * 2, sMax, 1.0f);
 			GL11.glPopMatrix();
 		}
 		if (renderFacName) {
 			String name = faction.factionName();
-			drawAlignmentText(fr, textX - fr.getStringWidth(name) / 2, textY, name, 1.0F);
+			drawAlignmentText(fr, textX - fr.getStringWidth(name) / 2, textY, name, 1.0f);
 		}
 		if (renderValue) {
 			String alignS;
@@ -333,14 +333,14 @@ public class GOTTickHandlerClient {
 			int numericalTick = ticker.numericalTick;
 			if (numericalTick > 0) {
 				alignS = GOTAlignmentValues.formatAlignForDisplay(alignment);
-				alignAlpha = GOTFunctions.triangleWave(numericalTick, 0.7F, 1.0F, 30.0F);
+				alignAlpha = GOTFunctions.triangleWave(numericalTick, 0.7f, 1.0f, 30.0f);
 				int fadeTick = 15;
 				if (numericalTick < fadeTick) {
 					alignAlpha *= (float) numericalTick / fadeTick;
 				}
 			} else {
 				alignS = rank.getShortNameWithGender(clientPD);
-				alignAlpha = 1.0F;
+				alignAlpha = 1.0f;
 			}
 			GL11.glEnable(3042);
 			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
@@ -391,10 +391,10 @@ public class GOTTickHandlerClient {
 				float meleeDamage = GOTWeaponStats.getMeleeDamageBonus(itemstack);
 				newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.meleeDamage", meleeDamage));
 				float meleeSpeed = GOTWeaponStats.getMeleeSpeed(itemstack);
-				int pcSpeed = Math.round(meleeSpeed * 100.0F);
+				int pcSpeed = Math.round(meleeSpeed * 100.0f);
 				newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.meleeSpeed", pcSpeed));
 				float reach = GOTWeaponStats.getMeleeReachFactor(itemstack);
-				int pcReach = Math.round(reach * 100.0F);
+				int pcReach = Math.round(reach * 100.0f);
 				newTooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.reach", pcReach));
 				int kb = GOTWeaponStats.getTotalKnockback(itemstack);
 				if (kb > 0) {
@@ -410,17 +410,17 @@ public class GOTTickHandlerClient {
 		if (GOTWeaponStats.isRangedWeapon(itemstack)) {
 			tooltip.add("");
 			float drawSpeed = GOTWeaponStats.getRangedSpeed(itemstack);
-			if (drawSpeed > 0.0F) {
-				int pcSpeed = Math.round(drawSpeed * 100.0F);
+			if (drawSpeed > 0.0f) {
+				int pcSpeed = Math.round(drawSpeed * 100.0f);
 				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedSpeed", pcSpeed));
 			}
 			float damage = GOTWeaponStats.getRangedDamageFactor(itemstack, false);
-			if (damage > 0.0F) {
-				int pcDamage = Math.round(damage * 100.0F);
+			if (damage > 0.0f) {
+				int pcDamage = Math.round(damage * 100.0f);
 				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedDamage", pcDamage));
 				if (itemstack.getItem() instanceof ItemBow || itemstack.getItem() instanceof GOTItemCrossbow) {
 					float range = GOTWeaponStats.getRangedDamageFactor(itemstack, true);
-					int pcRange = Math.round(range * 100.0F);
+					int pcRange = Math.round(range * 100.0f);
 					tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.range", pcRange));
 				}
 			}
@@ -435,7 +435,7 @@ public class GOTTickHandlerClient {
 		int armorProtect = GOTWeaponStats.getArmorProtection(itemstack);
 		if (armorProtect > 0) {
 			tooltip.add("");
-			int pcProtection = Math.round(armorProtect / 25.0F * 100.0F);
+			int pcProtection = Math.round(armorProtect / 25.0f * 100.0f);
 			tooltip.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("got.weaponstat.protection", armorProtect, pcProtection));
 		}
 		if (!enchantments.isEmpty()) {
@@ -526,7 +526,7 @@ public class GOTTickHandlerClient {
 
 	public float getWightLookFactor() {
 		float f = prevWightLookTick + (wightLookTick - prevWightLookTick) * renderTick;
-		f /= 100.0F;
+		f /= 100.0f;
 		return f;
 	}
 
@@ -622,7 +622,7 @@ public class GOTTickHandlerClient {
 					GOTKeyHandler.update();
 					GOTAttackTiming.update();
 					prevMistTick = mistTick;
-					if (viewer.posY >= 72.0D && biome instanceof GOTBiomeFrostfangs && world.canBlockSeeTheSky(i, j, k) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 7) {
+					if (viewer.posY >= 72.0 && biome instanceof GOTBiomeFrostfangs && world.canBlockSeeTheSky(i, j, k) && world.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 7) {
 						if (mistTick < 80) {
 							mistTick++;
 						}
@@ -644,7 +644,7 @@ public class GOTTickHandlerClient {
 						wightLookTick--;
 					}
 					prevWightNearTick = wightNearTick;
-					double wightRange = 32.0D;
+					double wightRange = 32.0;
 					List<GOTEntityBarrowWight> nearbyWights = world.getEntitiesWithinAABB(GOTEntityBarrowWight.class, viewer.boundingBox.expand(wightRange, wightRange, wightRange));
 					if (!nearbyWights.isEmpty()) {
 						if (wightNearTick < 100) {
@@ -655,51 +655,51 @@ public class GOTTickHandlerClient {
 					}
 					if (GOTConfig.enableSunFlare && world.provider instanceof GOTWorldProvider && !world.provider.hasNoSky) {
 						prevSunGlare = sunGlare;
-						MovingObjectPosition look = viewer.rayTrace(10000.0D, renderTick);
+						MovingObjectPosition look = viewer.rayTrace(10000.0, renderTick);
 						boolean lookingAtSky = look == null || look.typeOfHit == MovingObjectPosition.MovingObjectType.MISS;
 						boolean biomeHasSun = !(biome instanceof GOTBiome) || ((GOTBiome) biome).hasSky();
-						float sunYaw = 90.0F;
-						float yc = MathHelper.cos((float) Math.toRadians(-sunYaw - 180.0F));
-						float ys = MathHelper.sin((float) Math.toRadians(-sunYaw - 180.0F));
-						float pc = -MathHelper.cos((float) Math.toRadians(-(world.getCelestialAngle(renderTick) * 360.0F - 90.0F)));
-						float ps = MathHelper.sin((float) Math.toRadians(-(world.getCelestialAngle(renderTick) * 360.0F - 90.0F)));
+						float sunYaw = 90.0f;
+						float yc = MathHelper.cos((float) Math.toRadians(-sunYaw - 180.0f));
+						float ys = MathHelper.sin((float) Math.toRadians(-sunYaw - 180.0f));
+						float pc = -MathHelper.cos((float) Math.toRadians(-(world.getCelestialAngle(renderTick) * 360.0f - 90.0f)));
+						float ps = MathHelper.sin((float) Math.toRadians(-(world.getCelestialAngle(renderTick) * 360.0f - 90.0f)));
 						Vec3 sunVec = Vec3.createVectorHelper(ys * pc, ps, yc * pc);
 						Vec3 lookVec = viewer.getLook(renderTick);
 						double cos = lookVec.dotProduct(sunVec) / lookVec.lengthVector() * sunVec.lengthVector();
-						float cosThreshold = 0.95F;
-						float cQ = ((float) cos - cosThreshold) / (1.0F - cosThreshold);
-						cQ = Math.max(cQ, 0.0F);
+						float cosThreshold = 0.95f;
+						float cQ = ((float) cos - cosThreshold) / (1.0f - cosThreshold);
+						cQ = Math.max(cQ, 0.0f);
 						float brightness = world.getSunBrightness(renderTick);
-						float brightnessThreshold = 0.7F;
-						float bQ = (brightness - brightnessThreshold) / (1.0F - brightnessThreshold);
-						bQ = Math.max(bQ, 0.0F);
+						float brightnessThreshold = 0.7f;
+						float bQ = (brightness - brightnessThreshold) / (1.0f - brightnessThreshold);
+						bQ = Math.max(bQ, 0.0f);
 						float maxGlare = cQ * bQ;
-						if (maxGlare > 0.0F && lookingAtSky && !world.isRaining() && biomeHasSun) {
+						if (maxGlare > 0.0f && lookingAtSky && !world.isRaining() && biomeHasSun) {
 							if (sunGlare < maxGlare) {
-								sunGlare += 0.1F * maxGlare;
+								sunGlare += 0.1f * maxGlare;
 								sunGlare = Math.min(sunGlare, maxGlare);
 							} else if (sunGlare > maxGlare) {
-								sunGlare -= 0.02F;
+								sunGlare -= 0.02f;
 								sunGlare = Math.max(sunGlare, maxGlare);
 							}
 						} else {
-							if (sunGlare > 0.0F) {
-								sunGlare -= 0.02F;
+							if (sunGlare > 0.0f) {
+								sunGlare -= 0.02f;
 							}
-							sunGlare = Math.max(sunGlare, 0.0F);
+							sunGlare = Math.max(sunGlare, 0.0f);
 						}
 					} else {
-						prevSunGlare = sunGlare = 0.0F;
+						prevSunGlare = sunGlare = 0.0f;
 					}
 					prevRainFactor = rainFactor;
 					if (world.isRaining()) {
-						if (rainFactor < 1.0F) {
-							rainFactor += 0.008333334F;
-							rainFactor = Math.min(rainFactor, 1.0F);
+						if (rainFactor < 1.0f) {
+							rainFactor += 0.008333334f;
+							rainFactor = Math.min(rainFactor, 1.0f);
 						}
-					} else if (rainFactor > 0.0F) {
-						rainFactor -= 0.0016666667F;
-						rainFactor = Math.max(rainFactor, 0.0F);
+					} else if (rainFactor > 0.0f) {
+						rainFactor -= 0.0016666667f;
+						rainFactor = Math.max(rainFactor, 0.0f);
 					}
 					if (minecraft.gameSettings.particleSetting < 2) {
 						spawnEnvironmentFX(entityplayer, world);
@@ -707,12 +707,12 @@ public class GOTTickHandlerClient {
 					GOTClientProxy.customEffectRenderer.updateEffects();
 					if (minecraft.renderViewEntity.isPotionActive(Potion.confusion.id)) {
 						float drunkenness = minecraft.renderViewEntity.getActivePotionEffect(Potion.confusion).getDuration();
-						drunkenness /= 20.0F;
-						if (drunkenness > 100.0F) {
-							drunkenness = 100.0F;
+						drunkenness /= 20.0f;
+						if (drunkenness > 100.0f) {
+							drunkenness = 100.0f;
 						}
-						minecraft.renderViewEntity.rotationYaw += drunkennessDirection * drunkenness / 20.0F;
-						minecraft.renderViewEntity.rotationPitch += MathHelper.cos(minecraft.renderViewEntity.ticksExisted / 10.0F) * drunkenness / 20.0F;
+						minecraft.renderViewEntity.rotationYaw += drunkennessDirection * drunkenness / 20.0f;
+						minecraft.renderViewEntity.rotationPitch += MathHelper.cos(minecraft.renderViewEntity.ticksExisted / 10.0f) * drunkenness / 20.0f;
 						if (world.rand.nextInt(100) == 0) {
 							drunkennessDirection *= -1;
 						}
@@ -727,7 +727,7 @@ public class GOTTickHandlerClient {
 					}
 				}
 				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && playersInPortals.containsKey(entityplayer)) {
-					List<GOTEntityPortal> portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0D, 8.0D, 8.0D));
+					List<GOTEntityPortal> portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0, 8.0, 8.0));
 					boolean inPortal = false;
 					int i;
 					for (i = 0; i < portals.size(); i++) {
@@ -742,7 +742,7 @@ public class GOTTickHandlerClient {
 						i++;
 						playersInPortals.put(entityplayer, i);
 						if (i >= 100) {
-							minecraft.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("portal.trigger"), world.rand.nextFloat() * 0.4F + 0.8F));
+							minecraft.getSoundHandler().playSound(PositionedSoundRecord.func_147674_a(new ResourceLocation("portal.trigger"), world.rand.nextFloat() * 0.4f + 0.8f));
 							playersInPortals.remove(entityplayer);
 						}
 					} else {
@@ -812,7 +812,7 @@ public class GOTTickHandlerClient {
 		}
 		float usage = -1.0f;
 		if (entityplayer.isUsingItem()) {
-			float maxDrawTime = 0.0F;
+			float maxDrawTime = 0.0f;
 			if (item instanceof GOTItemBow) {
 				maxDrawTime = ((GOTItemBow) item).getMaxDrawTime();
 			} else if (item instanceof GOTItemCrossbow) {
@@ -822,21 +822,21 @@ public class GOTTickHandlerClient {
 			} else if (item instanceof GOTItemSarbacane) {
 				maxDrawTime = ((GOTItemSarbacane) item).getMaxDrawTime();
 			}
-			if (maxDrawTime > 0.0F) {
+			if (maxDrawTime > 0.0f) {
 				int i = entityplayer.getItemInUseDuration();
 				usage = i / maxDrawTime;
-				if (usage > 1.0F) {
-					usage = 1.0F;
+				if (usage > 1.0f) {
+					usage = 1.0f;
 				} else {
 					usage *= usage;
 				}
 			}
 		}
 		if (GOTItemCrossbow.isLoaded(itemstack)) {
-			usage = 1.0F;
+			usage = 1.0f;
 		}
-		if (usage >= 0.0F) {
-			fov *= 1.0F - usage * 0.15F;
+		if (usage >= 0.0f) {
+			fov *= 1.0f - usage * 0.15f;
 		}
 		event.newfov = fov;
 	}
@@ -889,12 +889,12 @@ public class GOTTickHandlerClient {
 				guiIngame.drawTexturedModalRect(barX, barY, 64, 64, barWidth, barHeight);
 				if (remainingWidth > 0) {
 					float[] rgb = watchedInvasion.getRGB();
-					GL11.glColor4f(rgb[0], rgb[1], rgb[2], 1.0F);
+					GL11.glColor4f(rgb[0], rgb[1], rgb[2], 1.0f);
 					guiIngame.drawTexturedModalRect(barX + 1, barY + 1, 65, 70, remainingWidth, barHeight - 2);
 				}
 				String s = watchedInvasion.getTitle();
 				fr.drawStringWithShadow(s, width / 2 - fr.getStringWidth(s) / 2, barY - 10, 16777215);
-				GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				mc.getTextureManager().bindTexture(Gui.icons);
 				GL11.glDisable(3042);
 			}
@@ -905,7 +905,7 @@ public class GOTTickHandlerClient {
 			if (event.type == RenderGameOverlayEvent.ElementType.TEXT && bannerRepossessDisplayTick > 0) {
 				String text = StatCollector.translateToLocalFormatted("item.got.banner.toggleRepossess", GameSettings.getKeyDisplayString(mc.gameSettings.keyBindSneak.getKeyCode()));
 				int fadeAtTick = 10;
-				int opacity = (int) (bannerRepossessDisplayTick * 255.0F / fadeAtTick);
+				int opacity = (int) (bannerRepossessDisplayTick * 255.0f / fadeAtTick);
 				opacity = Math.min(opacity, 255);
 				if (opacity > 0) {
 					ScaledResolution scaledresolution = event.resolution;
@@ -955,36 +955,36 @@ public class GOTTickHandlerClient {
 				mc.theWorld.theProfiler.endSection();
 			}
 			if (event.type == RenderGameOverlayEvent.ElementType.HELMET) {
-				if (sunGlare > 0.0F && mc.gameSettings.thirdPersonView == 0) {
+				if (sunGlare > 0.0f && mc.gameSettings.thirdPersonView == 0) {
 					float brightness = prevSunGlare + (sunGlare - prevSunGlare) * partialTicks;
-					brightness *= 1.0F;
+					brightness *= 1.0f;
 					renderOverlay(null, brightness, mc, null);
 				}
 				if (playersInPortals.containsKey(entityClientPlayerMP)) {
 					int i = playersInPortals.get(entityClientPlayerMP);
 					if (i > 0) {
-						renderOverlay(null, 0.1F + i / 100.0F * 0.6F, mc, portalOverlay);
+						renderOverlay(null, 0.1f + i / 100.0f * 0.6f, mc, portalOverlay);
 					}
 				}
 				float mistTickF = prevMistTick + (mistTick - prevMistTick) * partialTicks;
-				mistTickF /= 80.0F;
-				float mistFactorY = (float) entityClientPlayerMP.posY / 256.0F;
+				mistTickF /= 80.0f;
+				float mistFactorY = (float) entityClientPlayerMP.posY / 256.0f;
 				mistFactor = mistTickF * mistFactorY;
-				if (mistFactor > 0.0F) {
-					renderOverlay(null, mistFactor * 0.75F, mc, mistOverlay);
+				if (mistFactor > 0.0f) {
+					renderOverlay(null, mistFactor * 0.75f, mc, mistOverlay);
 				}
 				if (frostTick > 0) {
-					float frostAlpha = frostTick / 80.0F;
-					frostAlpha *= 0.9F;
+					float frostAlpha = frostTick / 80.0f;
+					frostAlpha *= 0.9f;
 					float frostAlphaEdge = (float) Math.sqrt(frostAlpha);
 					renderOverlayWithVerticalGradients(frostRGBEdge, frostRGBMiddle, frostAlphaEdge, frostAlpha, mc);
-					renderOverlay(null, frostAlpha * 0.6F, mc, frostOverlay);
+					renderOverlay(null, frostAlpha * 0.6f, mc, frostOverlay);
 				}
 				if (burnTick > 0) {
-					renderOverlay(null, burnTick / 40.0F * 0.6F, mc, burnOverlay);
+					renderOverlay(null, burnTick / 40.0f * 0.6f, mc, burnOverlay);
 				}
 				if (wightLookTick > 0) {
-					renderOverlay(null, wightLookTick / 100.0F * 0.95F, mc, wightOverlay);
+					renderOverlay(null, wightLookTick / 100.0f * 0.95f, mc, wightOverlay);
 				}
 			}
 			if (event.type == RenderGameOverlayEvent.ElementType.HOTBAR) {
@@ -995,7 +995,7 @@ public class GOTTickHandlerClient {
 					GOTEntitySpiderBase spider = (GOTEntitySpiderBase) entityClientPlayerMP.ridingEntity;
 					if (spider.shouldRenderClimbingMeter()) {
 						mc.getTextureManager().bindTexture(Gui.icons);
-						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 						GL11.glDisable(3042);
 						mc.mcProfiler.startSection("spiderClimb");
 						ScaledResolution resolution = event.resolution;
@@ -1003,7 +1003,7 @@ public class GOTTickHandlerClient {
 						int height = resolution.getScaledHeight();
 						float charge = spider.getClimbFractionRemaining();
 						int x = width / 2 - 91;
-						int filled = (int) (charge * 183.0F);
+						int filled = (int) (charge * 183.0f);
 						int top = height - 32 + 3;
 						guiIngame.drawTexturedModalRect(x, top, 0, 84, 182, 5);
 						if (filled > 0) {
@@ -1011,7 +1011,7 @@ public class GOTTickHandlerClient {
 						}
 						GL11.glEnable(3042);
 						mc.mcProfiler.endSection();
-						GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 					}
 				}
 			}
@@ -1091,24 +1091,24 @@ public class GOTTickHandlerClient {
 			float fogEnd = fogStartEnd[1];
 			if (gotbiome.getEnableRain() || gotbiome.getEnableSnow()) {
 				float rain = prevRainFactor + (rainFactor - prevRainFactor) * renderTick;
-				if (rain > 0.0F) {
-					float rainOpacityStart = 0.95F;
-					float rainOpacityEnd = 0.2F;
+				if (rain > 0.0f) {
+					float rainOpacityStart = 0.95f;
+					float rainOpacityEnd = 0.2f;
 					fogStart -= fogStart * rain * rainOpacityStart;
 					fogEnd -= fogEnd * rain * rainOpacityEnd;
 				}
 			}
-			if (mistFactor > 0.0F) {
-				float mistOpacityStart = 0.95F;
-				float mistOpacityEnd = 0.7F;
+			if (mistFactor > 0.0f) {
+				float mistOpacityStart = 0.95f;
+				float mistOpacityEnd = 0.7f;
 				fogStart -= fogStart * mistFactor * mistOpacityStart;
 				fogEnd -= fogEnd * mistFactor * mistOpacityEnd;
 			}
 			float wightFactor = prevWightNearTick + (wightNearTick - prevWightNearTick) * renderTick;
-			wightFactor /= 100.0F;
-			if (wightFactor > 0.0F) {
-				float wightOpacityStart = 0.97F;
-				float wightOpacityEnd = 0.75F;
+			wightFactor /= 100.0f;
+			if (wightFactor > 0.0f) {
+				float wightOpacityStart = 0.97f;
+				float wightOpacityEnd = 0.75f;
 				fogStart -= fogStart * wightFactor * wightOpacityStart;
 				fogEnd -= fogEnd * wightFactor * wightOpacityEnd;
 			}
@@ -1139,7 +1139,7 @@ public class GOTTickHandlerClient {
 					alignmentXPrev = alignmentXCurrent;
 					alignmentYPrev = alignmentYCurrent;
 					alignmentXCurrent = alignmentXBase;
-					int yMove = (int) ((alignmentYBase + 20) / 10.0F);
+					int yMove = (int) ((alignmentYBase + 20) / 10.0f);
 					boolean alignmentOnscreen = (minecraft.currentScreen == null || minecraft.currentScreen instanceof GOTGuiMessage) && !minecraft.gameSettings.keyBindPlayerList.getIsKeyPressed() && !minecraft.gameSettings.showDebugInfo;
 					if (alignmentOnscreen) {
 						alignmentYCurrent = Math.min(alignmentYCurrent + yMove, alignmentYBase);
@@ -1153,16 +1153,16 @@ public class GOTTickHandlerClient {
 						int i = resolution.getScaledWidth();
 						int compassX = i - 60;
 						int compassY = 40;
-						GL11.glTranslatef(compassX, compassY, 0.0F);
+						GL11.glTranslatef(compassX, compassY, 0.0f);
 						float rotation = entityplayer.prevRotationYaw + (entityplayer.rotationYaw - entityplayer.prevRotationYaw) * event.renderTickTime;
-						rotation = 180.0F - rotation;
-						GOTModelCompass.compassModel.render(1.0F, rotation);
+						rotation = 180.0f - rotation;
+						GOTModelCompass.compassModel.render(1.0f, rotation);
 						GL11.glPopMatrix();
 						if (GOTConfig.compassExtraInfo) {
 							GL11.glPushMatrix();
-							GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-							float scale = 0.5F;
-							float invScale = 1.0F / scale;
+							GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+							float scale = 0.5f;
+							float invScale = 1.0f / scale;
 							compassX = (int) (compassX * invScale);
 							compassY = (int) (compassY * invScale);
 							GL11.glScalef(scale, scale, scale);
@@ -1216,8 +1216,8 @@ public class GOTTickHandlerClient {
 					ScaledResolution resolution = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);
 					int i = resolution.getScaledWidth();
 					int j = resolution.getScaledHeight();
-					float scale = 1.5F;
-					float invScale = 1.0F / scale;
+					float scale = 1.5f;
+					float invScale = 1.0f / scale;
 					i = (int) (i * invScale);
 					j = (int) (j * invScale);
 					int x = (i - minecraft.fontRenderer.getStringWidth(date)) / 2;
@@ -1253,11 +1253,11 @@ public class GOTTickHandlerClient {
 					int border = 20;
 					int x;
 					int y = h - border - lines.size() * minecraft.fontRenderer.FONT_HEIGHT;
-					float alpha = 1.0F;
+					float alpha = 1.0f;
 					if (musicTrackTick >= 140) {
-						alpha = (200 - musicTrackTick) / 60.0F;
+						alpha = (200 - musicTrackTick) / 60.0f;
 					} else if (musicTrackTick <= 60) {
-						alpha = musicTrackTick / 60.0F;
+						alpha = musicTrackTick / 60.0f;
 					}
 					for (String line : lines) {
 						x = w - border - minecraft.fontRenderer.getStringWidth(line);
@@ -1336,7 +1336,7 @@ public class GOTTickHandlerClient {
 		if (rgb != null) {
 			GL11.glColor4f(rgb[0], rgb[1], rgb[2], alpha);
 		} else {
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, alpha);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
 		}
 		GL11.glDisable(3008);
 		if (texture != null) {
@@ -1346,10 +1346,10 @@ public class GOTTickHandlerClient {
 		}
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(0.0D, height, -90.0, 0.0D, 1.0D);
-		tessellator.addVertexWithUV(width, height, -90.0, 1.0D, 1.0D);
-		tessellator.addVertexWithUV(width, 0.0D, -90.0, 1.0D, 0.0D);
-		tessellator.addVertexWithUV(0.0D, 0.0D, -90.0, 0.0D, 0.0D);
+		tessellator.addVertexWithUV(0.0, height, -90.0, 0.0, 1.0);
+		tessellator.addVertexWithUV(width, height, -90.0, 1.0, 1.0);
+		tessellator.addVertexWithUV(width, 0.0, -90.0, 1.0, 0.0);
+		tessellator.addVertexWithUV(0.0, 0.0, -90.0, 0.0, 0.0);
 		tessellator.draw();
 		if (texture == null) {
 			GL11.glEnable(3553);
@@ -1357,7 +1357,7 @@ public class GOTTickHandlerClient {
 		GL11.glDepthMask(true);
 		GL11.glEnable(2929);
 		GL11.glEnable(3008);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 
 	public void renderOverlayWithVerticalGradients(float[] rgbEdge, float[] rgbCentre, float alphaEdge, float alphaCentre, Minecraft mc) {
@@ -1376,34 +1376,34 @@ public class GOTTickHandlerClient {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
-		tessellator.addVertex(0.0D, heightThird, -90.0);
+		tessellator.addVertex(0.0, heightThird, -90.0);
 		tessellator.addVertex(width, heightThird, -90.0);
 		tessellator.setColorRGBA_F(rgbEdge[0], rgbEdge[1], rgbEdge[2], alphaEdge);
-		tessellator.addVertex(width, 0.0D, -90.0);
-		tessellator.addVertex(0.0D, 0.0D, -90.0);
+		tessellator.addVertex(width, 0.0, -90.0);
+		tessellator.addVertex(0.0, 0.0, -90.0);
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
-		tessellator.addVertex(0.0D, heightTwoThirds, -90.0);
+		tessellator.addVertex(0.0, heightTwoThirds, -90.0);
 		tessellator.addVertex(width, heightTwoThirds, -90.0);
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
 		tessellator.addVertex(width, heightThird, -90.0);
-		tessellator.addVertex(0.0D, heightThird, -90.0);
+		tessellator.addVertex(0.0, heightThird, -90.0);
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setColorRGBA_F(rgbEdge[0], rgbEdge[1], rgbEdge[2], alphaEdge);
-		tessellator.addVertex(0.0D, height, -90.0);
+		tessellator.addVertex(0.0, height, -90.0);
 		tessellator.addVertex(width, height, -90.0);
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
 		tessellator.addVertex(width, heightTwoThirds, -90.0);
-		tessellator.addVertex(0.0D, heightTwoThirds, -90.0);
+		tessellator.addVertex(0.0, heightTwoThirds, -90.0);
 		tessellator.draw();
 		GL11.glShadeModel(7424);
 		GL11.glEnable(3553);
 		GL11.glDepthMask(true);
 		GL11.glEnable(2929);
 		GL11.glEnable(3008);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 
 	public void spawnEnvironmentFX(EntityPlayer entityplayer, World world) {
@@ -1421,13 +1421,13 @@ public class GOTTickHandlerClient {
 			if (block.getMaterial() == Material.water) {
 				BiomeGenBase biome = world.getBiomeGenForCoords(i1, k1);
 				if (biome instanceof GOTBiomeYeen && world.rand.nextInt(20) == 0) {
-					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
+					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
 				}
 				if (biome instanceof GOTBiomeShadowLand && world.rand.nextInt(40) == 0) {
-					GOT.proxy.spawnParticle("asshaiWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
+					GOT.proxy.spawnParticle("asshaiWater", i1 + world.rand.nextFloat(), j1 + 0.75, k1 + world.rand.nextFloat(), 0.0, 0.05, 0.0);
 				}
 				if (biome instanceof GOTBiomeMossovyMarshes && world.rand.nextInt(800) == 0) {
-					world.spawnEntityInWorld(new GOTEntityDeadMarshFace(world, i1 + world.rand.nextFloat(), j1 + 0.25D - world.rand.nextFloat(), k1 + world.rand.nextFloat()));
+					world.spawnEntityInWorld(new GOTEntityDeadMarshFace(world, i1 + world.rand.nextFloat(), j1 + 0.25 - world.rand.nextFloat(), k1 + world.rand.nextFloat()));
 				}
 			}
 			if (block.getMaterial() == Material.water && meta != 0) {
@@ -1439,10 +1439,10 @@ public class GOTTickHandlerClient {
 							int adjMeta = world.getBlockMetadata(i2, j1 - 1, k2);
 							if (adjBlock.getMaterial() == Material.water && adjMeta == 0 && world.isAirBlock(i2, j1, k2)) {
 								for (int l1 = 0; l1 < 2; l1++) {
-									double d = i1 + 0.5D + (i2 - i1) * world.rand.nextFloat();
-									double d1 = j1 + world.rand.nextFloat() * 0.2F;
-									double d2 = k1 + 0.5D + (k2 - k1) * world.rand.nextFloat();
-									world.spawnParticle("explode", d, d1, d2, 0.0D, 0.0D, 0.0D);
+									double d = i1 + 0.5 + (i2 - i1) * world.rand.nextFloat();
+									double d1 = j1 + world.rand.nextFloat() * 0.2f;
+									double d2 = k1 + 0.5 + (k2 - k1) * world.rand.nextFloat();
+									world.spawnParticle("explode", d, d1, d2, 0.0, 0.0, 0.0);
 								}
 							}
 						}

@@ -141,11 +141,11 @@ public enum GOTClimateType {
 							case NORMAL:
 							case NORMAL_AZ:
 							case WINTER:
-								biome.setTemperatureRainfall(0.0F, 2.0F);
+								biome.setTemperatureRainfall(0.0f, 2.0f);
 								break;
 							case SUMMER:
 							case SUMMER_AZ:
-								biome.setTemperatureRainfall(0.28F, 2.0F);
+								biome.setTemperatureRainfall(0.28f, 2.0f);
 								break;
 						}
 						break;
@@ -156,13 +156,13 @@ public enum GOTClimateType {
 							case NORMAL:
 							case NORMAL_AZ:
 							case SUMMER_AZ:
-								biome.setTemperatureRainfall(0.28F, 0.8F);
+								biome.setTemperatureRainfall(0.28f, 0.8f);
 								break;
 							case SUMMER:
-								biome.setTemperatureRainfall(0.8F, 0.8F);
+								biome.setTemperatureRainfall(0.8f, 0.8f);
 								break;
 							case WINTER:
-								biome.setTemperatureRainfall(0.0F, 2.0F);
+								biome.setTemperatureRainfall(0.0f, 2.0f);
 								break;
 						}
 						break;
@@ -172,16 +172,16 @@ public enum GOTClimateType {
 							case COLD_AZ:
 							case NORMAL_AZ:
 							case SUMMER_AZ:
-								biome.setTemperatureRainfall(0.28F, 0.8F);
+								biome.setTemperatureRainfall(0.28f, 0.8f);
 								break;
 							case NORMAL:
-								biome.setTemperatureRainfall(0.8F, 0.8F);
+								biome.setTemperatureRainfall(0.8f, 0.8f);
 								break;
 							case SUMMER:
-								biome.setTemperatureRainfall(1.2F, 0.4F);
+								biome.setTemperatureRainfall(1.2f, 0.4f);
 								break;
 							case WINTER:
-								biome.setTemperatureRainfall(0.0F, 2.0F);
+								biome.setTemperatureRainfall(0.0f, 2.0f);
 								break;
 						}
 						break;
@@ -191,16 +191,16 @@ public enum GOTClimateType {
 							case COLD_AZ:
 							case NORMAL:
 							case NORMAL_AZ:
-								biome.setTemperatureRainfall(0.28F, 2.0F);
+								biome.setTemperatureRainfall(0.28f, 2.0f);
 								break;
 							case SUMMER:
-								biome.setTemperatureRainfall(0.8F, 0.8F);
+								biome.setTemperatureRainfall(0.8f, 0.8f);
 								break;
 							case SUMMER_AZ:
-								biome.setTemperatureRainfall(0.28F, 0.8F);
+								biome.setTemperatureRainfall(0.28f, 0.8f);
 								break;
 							case WINTER:
-								biome.setTemperatureRainfall(0.0F, 2.0F);
+								biome.setTemperatureRainfall(0.0f, 2.0f);
 								break;
 						}
 						break;

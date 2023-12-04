@@ -75,8 +75,8 @@ public class GOTEntityLingeringEffect extends Entity implements IEntityAdditiona
 	@Override
 	public void entityInit() {
 		dataWatcher.addObject(TICKS_DATA_WATCHER, 0);
-		dataWatcher.addObject(WIDTH_DATA_WATCHER, 6.0F);
-		dataWatcher.addObject(HEIGHT_DATA_WATCHER, 0.5F);
+		dataWatcher.addObject(WIDTH_DATA_WATCHER, 6.0f);
+		dataWatcher.addObject(HEIGHT_DATA_WATCHER, 0.5f);
 	}
 
 	@Override
@@ -98,11 +98,11 @@ public class GOTEntityLingeringEffect extends Entity implements IEntityAdditiona
 			if (ticksExisted % 5 == 0) {
 				double radius = 3 * ((double) (MAX_TICKS - ticks) / MAX_TICKS);
 				int colour = stack.getItem().getColorFromItemStack(stack, 0);
-				float red = (colour >> 16 & 255) / 255.0F;
-				float green = (colour >> 8 & 255) / 255.0F;
-				float blue = (colour & 255) / 255.0F;
+				float red = (colour >> 16 & 255) / 255.0f;
+				float green = (colour >> 8 & 255) / 255.0f;
+				float blue = (colour & 255) / 255.0f;
 				for (int i = 0; i < 30; i++) {
-					float variation = 0.75F + rand.nextFloat() * 0.25F;
+					float variation = 0.75f + rand.nextFloat() * 0.25f;
 					worldObj.spawnParticle("mobSpell", posX - radius + rand.nextFloat() * radius * 2, posY, posZ - radius + rand.nextFloat() * radius * 2, red * variation, green * variation, blue * variation);
 				}
 			}
@@ -140,7 +140,7 @@ public class GOTEntityLingeringEffect extends Entity implements IEntityAdditiona
 			return;
 		}
 		double radius = 3 * ((double) (MAX_TICKS - ticks) / MAX_TICKS);
-		setSize((float) radius * 2, 0.5F);
+		setSize((float) radius * 2, 0.5f);
 	}
 
 	@Override

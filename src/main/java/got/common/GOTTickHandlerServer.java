@@ -68,21 +68,21 @@ public class GOTTickHandlerServer {
 					entityplayer.func_143004_u();
 				}
 				if (entityplayer.dimension == 0 && GOTLevelData.madePortal == 0) {
-					List<EntityItem> items = world.getEntitiesWithinAABB(EntityItem.class, entityplayer.boundingBox.expand(16.0D, 16.0D, 16.0D));
+					List<EntityItem> items = world.getEntitiesWithinAABB(EntityItem.class, entityplayer.boundingBox.expand(16.0, 16.0, 16.0));
 					for (EntityItem item : items) {
 						if (GOTLevelData.madePortal == 0 && item.getEntityItem() != null && item.getEntityItem().getItem() == Items.iron_sword && item.isBurning()) {
 							GOTLevelData.setMadePortal(1);
 							GOTLevelData.markOverworldPortalLocation(MathHelper.floor_double(item.posX), MathHelper.floor_double(item.posY), MathHelper.floor_double(item.posZ));
 							item.setDead();
-							world.createExplosion(entityplayer, item.posX, item.posY + 3.0D, item.posZ, 3.0F, true);
+							world.createExplosion(entityplayer, item.posX, item.posY + 3.0, item.posZ, 3.0f, true);
 							GOTEntityPortal portal = new GOTEntityPortal(world);
-							portal.setLocationAndAngles(item.posX, item.posY + 3.0D, item.posZ, 0.0F, 0.0F);
+							portal.setLocationAndAngles(item.posX, item.posY + 3.0, item.posZ, 0.0f, 0.0f);
 							world.spawnEntityInWorld(portal);
 						}
 					}
 				}
 				if ((entityplayer.dimension == 0 || entityplayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID) && playersInPortals.containsKey(entityplayer)) {
-					List<GOTEntityPortal> portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0D, 8.0D, 8.0D));
+					List<GOTEntityPortal> portals = world.getEntitiesWithinAABB(GOTEntityPortal.class, entityplayer.boundingBox.expand(8.0, 8.0, 8.0));
 					boolean inPortal = false;
 					int i;
 					for (i = 0; i < portals.size(); i++) {

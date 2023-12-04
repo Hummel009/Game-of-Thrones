@@ -24,9 +24,9 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 	}
 
 	public static void colour(int colour) {
-		float r = (colour >> 16 & 255) / 255.0F;
-		float g = (colour >> 8 & 255) / 255.0F;
-		float b = (colour & 255) / 255.0F;
+		float r = (colour >> 16 & 255) / 255.0f;
+		float g = (colour >> 8 & 255) / 255.0f;
+		float b = (colour & 255) / 255.0f;
 
 		colour(r, g, b);
 	}
@@ -88,7 +88,7 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 		pushMatrix();
 		translate(x, y, z);
 		enableRescaleNormal();
-		scale(0.5F, 0.5F, 0.5F);
+		scale(0.5f, 0.5f, 0.5f);
 		bindEntityTexture(entity);
 
 		for (int pass = 0; pass < passes; pass++) {
@@ -115,14 +115,14 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 		float minV = icon.getMinV();
 		float maxV = icon.getMaxV();
 
-		rotate(180.0F - renderManager.playerViewY, 0.0F, 1.0F, 0.0F);
-		rotate(-renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
+		rotate(180.0f - renderManager.playerViewY, 0.0f, 1.0f, 0.0f);
+		rotate(-renderManager.playerViewX, 1.0f, 0.0f, 0.0f);
 		tessellator.startDrawingQuads();
-		tessellator.setNormal(0.0F, 1.0F, 0.0F);
-		tessellator.addVertexWithUV(-0.5f, -0.25f, 0.0D, minU, maxV);
-		tessellator.addVertexWithUV(0.5F, -0.25f, 0.0D, maxU, maxV);
-		tessellator.addVertexWithUV(0.5F, 0.75F, 0.0D, maxU, minV);
-		tessellator.addVertexWithUV(-0.5f, 0.75F, 0.0D, minU, minV);
+		tessellator.setNormal(0.0f, 1.0f, 0.0f);
+		tessellator.addVertexWithUV(-0.5f, -0.25f, 0.0, minU, maxV);
+		tessellator.addVertexWithUV(0.5f, -0.25f, 0.0, maxU, maxV);
+		tessellator.addVertexWithUV(0.5f, 0.75f, 0.0, maxU, minV);
+		tessellator.addVertexWithUV(-0.5f, 0.75f, 0.0, minU, minV);
 		tessellator.draw();
 	}
 }

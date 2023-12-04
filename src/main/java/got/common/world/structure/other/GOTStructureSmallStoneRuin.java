@@ -620,9 +620,9 @@ public class GOTStructureSmallStoneRuin extends GOTStructureBase {
 								h = random.nextInt(3);
 							}
 							float factor = (float) k2 / length;
-							factor = 1.0F / (factor + 0.01F);
-							factor *= 0.5F + random.nextFloat() * 0.5F;
-							factor = Math.min(factor, 1.0F);
+							factor = 1.0f / (factor + 0.01f);
+							factor *= 0.5f + random.nextFloat() * 0.5f;
+							factor = Math.min(factor, 1.0f);
 							h = (int) (h * factor);
 							int top = j1 + h;
 							for (int j2 = j1 + 1; j2 <= top; j2++) {

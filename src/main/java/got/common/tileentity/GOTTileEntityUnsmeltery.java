@@ -40,7 +40,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	public float prevRocking;
 	public float rocking;
 	public float prevRockingPhase;
-	public float rockingPhase = unsmeltingRand.nextFloat() * 3.1415927F * 2.0F;
+	public float rockingPhase = unsmeltingRand.nextFloat() * 3.1415927f * 2.0f;
 	public boolean prevServerActive;
 	public boolean serverActive;
 	public boolean clientActive;
@@ -360,13 +360,13 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (worldObj.isRemote) {
 			prevRocking = rocking;
 			prevRockingPhase = rockingPhase;
-			rockingPhase += 0.1F;
+			rockingPhase += 0.1f;
 			if (clientActive) {
-				rocking += 0.05F;
+				rocking += 0.05f;
 			} else {
-				rocking -= 0.01F;
+				rocking -= 0.01f;
 			}
-			rocking = MathHelper.clamp_float(rocking, 0.0F, 1.0F);
+			rocking = MathHelper.clamp_float(rocking, 0.0f, 1.0f);
 		} else {
 			prevServerActive = serverActive;
 			serverActive = isSmelting();

@@ -14,7 +14,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.ImmuneToFrost {
-	public float heightOffset = 0.5F;
+	public float heightOffset = 0.5f;
 	public int heightOffsetUpdateTime;
 	public int firingState;
 
@@ -30,7 +30,7 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 			attackEntityAsMob(entity);
 		} else if (f < 30.0f) {
 			double d0 = entity.posX - posX;
-			double d1 = entity.boundingBox.minY + entity.height / 2.0F - (posY + height / 2.0F);
+			double d1 = entity.boundingBox.minY + entity.height / 2.0f - (posY + height / 2.0f);
 			double d2 = entity.posZ - posZ;
 			if (attackTime == 0) {
 				++firingState;
@@ -45,11 +45,11 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 					setInAttackMode(false);
 				}
 				if (firingState > 1) {
-					float f1 = MathHelper.sqrt_float(f) * 0.5F;
+					float f1 = MathHelper.sqrt_float(f) * 0.5f;
 					worldObj.playAuxSFXAtEntity(null, 1009, (int) posX, (int) posY, (int) posZ, 0);
 					for (int i = 0; i < 1; ++i) {
 						GOTEntitySnowball entitysmallfireball = new GOTEntitySnowball(worldObj, this, d0 + rand.nextGaussian() * f1, d1, d2 + rand.nextGaussian() * f1);
-						entitysmallfireball.posY = posY + height / 2.0F + 0.5D;
+						entitysmallfireball.posY = posY + height / 2.0f + 0.5;
 						worldObj.spawnEntityInWorld(entitysmallfireball);
 					}
 				}
@@ -82,13 +82,13 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 
 	@Override
 	public Entity findPlayerToAttack() {
-		EntityPlayer entityplayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
+		EntityPlayer entityplayer = worldObj.getClosestVulnerablePlayerToEntity(this, 16.0);
 		return entityplayer != null && canEntityBeSeen(entityplayer) ? entityplayer : null;
 	}
 
 	@Override
 	public float getBrightness(float f) {
-		return 1.0F;
+		return 1.0f;
 	}
 
 	@Override
@@ -134,17 +134,17 @@ public class GOTEntityBlizzard extends EntityCreature implements GOTBiome.Immune
 			--heightOffsetUpdateTime;
 			if (heightOffsetUpdateTime <= 0) {
 				heightOffsetUpdateTime = 100;
-				heightOffset = 0.5F + (float) rand.nextGaussian() * 3.0F;
+				heightOffset = 0.5f + (float) rand.nextGaussian() * 3.0f;
 			}
 			if (getEntityToAttack() != null && getEntityToAttack().posY + getEntityToAttack().getEyeHeight() > posY + getEyeHeight() + heightOffset) {
-				motionY += (0.30000001192092896D - motionY) * 0.30000001192092896D;
+				motionY += (0.30000001192092896 - motionY) * 0.30000001192092896;
 			}
 		}
-		if (!onGround && motionY < 0.0D) {
-			motionY *= 0.6D;
+		if (!onGround && motionY < 0.0) {
+			motionY *= 0.6;
 		}
 		for (int i = 0; i < 2; ++i) {
-			GOT.proxy.spawnParticle("chill", posX + (rand.nextDouble() - 0.5D) * width, posY + rand.nextDouble() * height, posZ + (rand.nextDouble() - 0.5D) * width, 0.0D, 0.0D, 0.0D);
+			GOT.proxy.spawnParticle("chill", posX + (rand.nextDouble() - 0.5) * width, posY + rand.nextDouble() * height, posZ + (rand.nextDouble() - 0.5) * width, 0.0, 0.0, 0.0);
 		}
 		super.onLivingUpdate();
 	}

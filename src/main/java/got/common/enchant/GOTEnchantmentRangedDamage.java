@@ -9,8 +9,8 @@ public class GOTEnchantmentRangedDamage extends GOTEnchantment {
 	public GOTEnchantmentRangedDamage(String s, float damage) {
 		super(s, GOTEnchantmentType.RANGED_LAUNCHER);
 		damageFactor = damage;
-		if (damageFactor > 1.0F) {
-			setValueModifier(damageFactor * 2.0F);
+		if (damageFactor > 1.0f) {
+			setValueModifier(damageFactor * 2.0f);
 		} else {
 			setValueModifier(damageFactor);
 		}
@@ -23,6 +23,6 @@ public class GOTEnchantmentRangedDamage extends GOTEnchantment {
 
 	@Override
 	public boolean isBeneficial() {
-		return damageFactor >= 1.0F;
+		return damageFactor >= 1.0f;
 	}
 }

@@ -13,9 +13,9 @@ public class GOTEnchantmentProtection extends GOTEnchantment {
 		super(s, type);
 		protectLevel = level;
 		if (protectLevel >= 0) {
-			setValueModifier((2.0F + protectLevel) / 2.0F);
+			setValueModifier((2.0f + protectLevel) / 2.0f);
 		} else {
-			setValueModifier((4.0F + protectLevel) / 4.0F);
+			setValueModifier((4.0f + protectLevel) / 4.0f);
 		}
 	}
 

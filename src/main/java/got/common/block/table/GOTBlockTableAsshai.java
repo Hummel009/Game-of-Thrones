@@ -36,12 +36,12 @@ public class GOTBlockTableAsshai extends GOTBlockCraftingTable {
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		if (random.nextInt(20) == 0) {
 			for (int l = 0; l < 16; l++) {
-				double d = i + 0.25D + random.nextFloat() * 0.5F;
-				double d1 = j + 1.0D;
-				double d2 = k + 0.25D + random.nextFloat() * 0.5F;
-				double d3 = -0.05 + random.nextFloat() * 0.1D;
-				double d4 = 0.1D + random.nextFloat() * 0.1D;
-				double d5 = -0.05 + random.nextFloat() * 0.1D;
+				double d = i + 0.25 + random.nextFloat() * 0.5f;
+				double d1 = j + 1.0;
+				double d2 = k + 0.25 + random.nextFloat() * 0.5f;
+				double d3 = -0.05 + random.nextFloat() * 0.1;
+				double d4 = 0.1 + random.nextFloat() * 0.1;
+				double d5 = -0.05 + random.nextFloat() * 0.1;
 				GOT.proxy.spawnParticle("asshaiTorch", d, d1, d2, d3, d4, d5);
 			}
 		}

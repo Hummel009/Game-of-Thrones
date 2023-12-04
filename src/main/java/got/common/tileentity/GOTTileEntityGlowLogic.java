@@ -25,13 +25,13 @@ public class GOTTileEntityGlowLogic {
 		float glow = (prevGlowTick + (glowTick - prevGlowTick) * tick) / maxGlowTick;
 		glow *= fullGlow;
 		float sun = world.getSunBrightness(tick);
-		float sunNorml = (sun - 0.2F) / 0.8F;
-		float night = 1.0F - sunNorml;
-		night -= 0.5F;
-		if (night < 0.0F) {
-			night = 0.0F;
+		float sunNorml = (sun - 0.2f) / 0.8f;
+		float night = 1.0f - sunNorml;
+		night -= 0.5f;
+		if (night < 0.0f) {
+			night = 0.0f;
 		}
-		night *= 2.0F;
+		night *= 2.0f;
 		float skylight = lightValueSqrts[world.getSkyBlockTypeBrightness(EnumSkyBlock.Sky, i, j, k)];
 		return glow * night * skylight;
 	}

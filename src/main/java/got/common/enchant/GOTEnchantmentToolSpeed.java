@@ -19,6 +19,6 @@ public class GOTEnchantmentToolSpeed extends GOTEnchantment {
 
 	@Override
 	public boolean isBeneficial() {
-		return speedFactor >= 1.0F;
+		return speedFactor >= 1.0f;
 	}
 }

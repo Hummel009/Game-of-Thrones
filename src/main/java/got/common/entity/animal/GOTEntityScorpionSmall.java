@@ -126,7 +126,7 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 	@Override
 	@SideOnly(Side.CLIENT)
 	public float getShadowSize() {
-		return 0.0F;
+		return 0.0f;
 	}
 
 	public int getStrikeTime() {

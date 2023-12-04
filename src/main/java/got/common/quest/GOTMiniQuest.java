@@ -594,7 +594,7 @@ public abstract class GOTMiniQuest {
 
 		public QuestFactoryBase<Q> setHiring() {
 			willHire = true;
-			hiringAlignment = 100.0F;
+			hiringAlignment = 100.0f;
 			return this;
 		}
 

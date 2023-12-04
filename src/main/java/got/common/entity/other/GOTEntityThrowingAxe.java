@@ -30,7 +30,7 @@ public class GOTEntityThrowingAxe extends GOTEntityProjectileBase {
 	@Override
 	public float getBaseImpactDamage(Entity entity, ItemStack itemstack) {
 		if (!isThrowingAxe()) {
-			return 0.0F;
+			return 0.0f;
 		}
 		float speed = MathHelper.sqrt_double(motionX * motionX + motionY * motionY + motionZ * motionZ);
 		float damage = ((GOTItemThrowingAxe) itemstack.getItem()).getRangedDamageMultiplier(itemstack, shootingEntity, entity);
@@ -50,7 +50,7 @@ public class GOTEntityThrowingAxe extends GOTEntityProjectileBase {
 			if (axeRotation > 9) {
 				axeRotation = 0;
 			}
-			rotationPitch = axeRotation / 9.0F * 360.0F;
+			rotationPitch = axeRotation / 9.0f * 360.0f;
 		}
 		if (!isThrowingAxe()) {
 			setDead();

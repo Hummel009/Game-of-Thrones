@@ -61,7 +61,7 @@ public class GOTCommandSpawnDamping extends CommandBase {
 					throw new WrongUsageException("got.command.spawnDamping.noType", type);
 				}
 				if ("set".equals(option) && args.length >= 3) {
-					float damping = (float) parseDoubleBounded(sender, args[2], 0.0D, 1.0D);
+					float damping = (float) parseDoubleBounded(sender, args[2], 0.0, 1.0);
 					GOTSpawnDamping.setSpawnDamping(type, damping);
 					func_152373_a(sender, this, "got.command.spawnDamping.set", damping);
 					return;

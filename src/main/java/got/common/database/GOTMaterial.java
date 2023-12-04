@@ -73,15 +73,15 @@ public class GOTMaterial {
 	public static ArmorMaterial YITI_FRONTIER = EnumHelper.addArmorMaterial("GOT_YITI_FRONTIER", 25, new int[]{2, 7, 6, 3}, 9);
 	public static ArmorMaterial YITI_SAMURAI = EnumHelper.addArmorMaterial("GOT_YITI_SAMURAI", 25, new int[]{2, 7, 6, 3}, 9);
 
-	public static ToolMaterial BRONZE_TOOL = EnumHelper.addToolMaterial("GOT_BRONZE_TOOL", 2, 250, 5.0F, 1.5F, 10);
-	public static ToolMaterial COBALT_TOOL = EnumHelper.addToolMaterial("GOT_COBALT_TOOL", 3, 1500, 8.0F, 3.0F, 10);
-	public static ToolMaterial FLINT_TOOL = EnumHelper.addToolMaterial("GOT_FLINT_TOOL", 1, 200, 4.0F, 1.0F, 5);
-	public static ToolMaterial HORN_TOOL = EnumHelper.addToolMaterial("GOT_HORN_TOOL", 1, 200, 4.0F, 1.0F, 5);
-	public static ToolMaterial ICE_TOOL = EnumHelper.addToolMaterial("GOT_ICE_TOOL", 2, 450, 6.0F, 2.0F, 14);
-	public static ToolMaterial OBSIDIAN_TOOL = EnumHelper.addToolMaterial("GOT_OBSIDIAN_TOOL", 2, 450, 6.0F, 2.0F, 14);
-	public static ToolMaterial SILVER_TOOL = EnumHelper.addToolMaterial("GOT_SILVER_TOOL", 2, 450, 6.0F, 2.0F, 14);
-	public static ToolMaterial VALYRIAN_TOOL = EnumHelper.addToolMaterial("GOT_VALYRIAN_TOOL", 4, 2500, 9.0F, 5.0F, 8);
-	public static ToolMaterial ASSHAI_TOOL = EnumHelper.addToolMaterial("GOT_ASSHAI_TOOL", 2, 450, 6.0F, 2.0F, 14);
+	public static ToolMaterial BRONZE_TOOL = EnumHelper.addToolMaterial("GOT_BRONZE_TOOL", 2, 250, 5.0f, 1.5f, 10);
+	public static ToolMaterial COBALT_TOOL = EnumHelper.addToolMaterial("GOT_COBALT_TOOL", 3, 1500, 8.0f, 3.0f, 10);
+	public static ToolMaterial FLINT_TOOL = EnumHelper.addToolMaterial("GOT_FLINT_TOOL", 1, 200, 4.0f, 1.0f, 5);
+	public static ToolMaterial HORN_TOOL = EnumHelper.addToolMaterial("GOT_HORN_TOOL", 1, 200, 4.0f, 1.0f, 5);
+	public static ToolMaterial ICE_TOOL = EnumHelper.addToolMaterial("GOT_ICE_TOOL", 2, 450, 6.0f, 2.0f, 14);
+	public static ToolMaterial OBSIDIAN_TOOL = EnumHelper.addToolMaterial("GOT_OBSIDIAN_TOOL", 2, 450, 6.0f, 2.0f, 14);
+	public static ToolMaterial SILVER_TOOL = EnumHelper.addToolMaterial("GOT_SILVER_TOOL", 2, 450, 6.0f, 2.0f, 14);
+	public static ToolMaterial VALYRIAN_TOOL = EnumHelper.addToolMaterial("GOT_VALYRIAN_TOOL", 4, 2500, 9.0f, 5.0f, 8);
+	public static ToolMaterial ASSHAI_TOOL = EnumHelper.addToolMaterial("GOT_ASSHAI_TOOL", 2, 450, 6.0f, 2.0f, 14);
 
 	public static Item.ToolMaterial getToolMaterialByName(String name) {
 		try {

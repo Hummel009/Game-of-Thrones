@@ -28,7 +28,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 
 	@Override
 	public void drawBackground(int recipe) {
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		GuiDraw.changeTexture(getGuiTexture());
 		GuiDraw.drawTexturedModalRect(0, 0, 5, 12, 166, 138);
 	}

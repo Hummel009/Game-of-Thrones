@@ -15,7 +15,7 @@ public class GOTRenderBlizzard extends RenderLiving {
 	public int f;
 
 	public GOTRenderBlizzard() {
-		super(new ModelBlaze(), 0.5F);
+		super(new ModelBlaze(), 0.5f);
 		f = ((ModelBlaze) mainModel).func_78104_a();
 	}
 

@@ -19,6 +19,6 @@ public class GOTEnchantmentDurability extends GOTEnchantment {
 
 	@Override
 	public boolean isBeneficial() {
-		return durabilityFactor >= 1.0F;
+		return durabilityFactor >= 1.0f;
 	}
 }

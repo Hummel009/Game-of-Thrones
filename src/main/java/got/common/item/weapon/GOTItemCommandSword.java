@@ -37,7 +37,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		if (hitTarget != null) {
 			Vec3 vec = hitTarget.hitVec;
 			AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(vec.xCoord, vec.yCoord, vec.zCoord, vec.xCoord, vec.yCoord, vec.zCoord);
-			aabb = aabb.expand(6.0D, 6.0D, 6.0D);
+			aabb = aabb.expand(6.0, 6.0, 6.0);
 			spreadTargets = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new IEntitySelector() {
 
 				@Override
@@ -47,7 +47,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 			});
 		}
 		boolean anyAttackCommanded = false;
-		List<GOTEntityNPC> nearbyHiredUnits = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(12.0D, 12.0D, 12.0D));
+		List<GOTEntityNPC> nearbyHiredUnits = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(12.0, 12.0, 12.0));
 		for (GOTEntityNPC npc : nearbyHiredUnits) {
 			if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer && npc.hiredNPCInfo.getObeyCommandSword() && GOTSquadrons.areSquadronsCompatible(npc, itemstack)) {
 				List<EntityLivingBase> validTargets = new ArrayList<>();

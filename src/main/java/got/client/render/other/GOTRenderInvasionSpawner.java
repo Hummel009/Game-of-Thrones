@@ -17,8 +17,8 @@ public class GOTRenderInvasionSpawner extends Render {
 		GL11.glEnable(32826);
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
 		float rotation = interpolateRotation(spawner.prevSpawnerSpin, spawner.spawnerSpin, f1);
-		float scale = 1.5F;
-		GL11.glRotatef(rotation, 0.0F, 1.0F, 0.0F);
+		float scale = 1.5f;
+		GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
 		GL11.glScalef(scale, scale, scale);
 		ItemStack item = spawner.getInvasionItem();
 		renderManager.itemRenderer.renderItem(renderManager.livingPlayer, item, 0, IItemRenderer.ItemRenderType.EQUIPPED);
@@ -34,11 +34,11 @@ public class GOTRenderInvasionSpawner extends Render {
 	@SuppressWarnings("all")
 	public float interpolateRotation(float prevRotation, float newRotation, float tick) {
 		float interval;
-		for (interval = newRotation - prevRotation; interval < -180.0F; interval += 360.0F) {
+		for (interval = newRotation - prevRotation; interval < -180.0f; interval += 360.0f) {
 
 		}
-		while (interval >= 180.0F) {
-			interval -= 360.0F;
+		while (interval >= 180.0f) {
+			interval -= 360.0f;
 		}
 		return prevRotation + tick * interval;
 	}

@@ -1098,8 +1098,8 @@ public class GOTTradeEntries {
 				tradeCost *= GOTEnchantmentHelper.calcTradeValueFactor(tradeItem);
 			}
 
-			tradeCost *= MathHelper.randomFloatClamp(random, 0.75F, 1.25F);
-			tradeCost = Math.max(tradeCost, 1.0F);
+			tradeCost *= MathHelper.randomFloatClamp(random, 0.75f, 1.25f);
+			tradeCost = Math.max(tradeCost, 1.0f);
 			tradeCostI = Math.round(tradeCost);
 			tradeCostI = Math.max(tradeCostI, 1);
 			trades[i] = new GOTTradeEntry(tradeItem, tradeCostI);

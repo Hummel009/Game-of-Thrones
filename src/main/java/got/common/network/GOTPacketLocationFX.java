@@ -53,7 +53,7 @@ public class GOTPacketLocationFX implements IMessage {
 			double y = packet.posY;
 			double z = packet.posZ;
 			if (packet.type == GOTPacketLocationFX.Type.SWORD_COMMAND) {
-				GOTEntitySwordCommandMarker marker = new GOTEntitySwordCommandMarker(world, x, y + 6.0D, z);
+				GOTEntitySwordCommandMarker marker = new GOTEntitySwordCommandMarker(world, x, y + 6.0, z);
 				world.spawnEntityInWorld(marker);
 			}
 			return null;

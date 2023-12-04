@@ -119,7 +119,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	public static int getAlphaInt(float alphaF) {
-		int alphaI = (int) (alphaF * 255.0F);
+		int alphaI = (int) (alphaF * 255.0f);
 		return MathHelper.clamp_int(alphaI, 4, 255);
 	}
 
@@ -131,23 +131,23 @@ public class GOTClientProxy extends GOTCommonProxy {
 		texturemanager.bindTexture(enchantmentTexture);
 		GL11.glEnable(3042);
 		GL11.glBlendFunc(768, 1);
-		float shade = 0.76F;
-		GL11.glColor4f(0.5F * shade, 0.25F * shade, 0.8F * shade, 1.0F);
+		float shade = 0.76f;
+		GL11.glColor4f(0.5f * shade, 0.25f * shade, 0.8f * shade, 1.0f);
 		GL11.glMatrixMode(5890);
 		GL11.glPushMatrix();
-		float scale = 0.125F;
+		float scale = 0.125f;
 		GL11.glScalef(scale, scale, scale);
-		float randomShift = Minecraft.getSystemTime() % 3000L / 3000.0F * 8.0F;
-		GL11.glTranslatef(randomShift, 0.0F, 0.0F);
-		GL11.glRotatef(-50.0f, 0.0F, 0.0F, 1.0F);
-		ItemRenderer.renderItemIn2D(tessellator, 0.0F, 0.0F, 1.0F, 1.0F, 256, 256, 0.0625F);
+		float randomShift = Minecraft.getSystemTime() % 3000L / 3000.0f * 8.0f;
+		GL11.glTranslatef(randomShift, 0.0f, 0.0f);
+		GL11.glRotatef(-50.0f, 0.0f, 0.0f, 1.0f);
+		ItemRenderer.renderItemIn2D(tessellator, 0.0f, 0.0f, 1.0f, 1.0f, 256, 256, 0.0625f);
 		GL11.glPopMatrix();
 		GL11.glPushMatrix();
 		GL11.glScalef(scale, scale, scale);
-		randomShift = Minecraft.getSystemTime() % 4873L / 4873.0F * 8.0F;
-		GL11.glTranslatef(-randomShift, 0.0F, 0.0F);
-		GL11.glRotatef(10.0F, 0.0F, 0.0F, 1.0F);
-		ItemRenderer.renderItemIn2D(tessellator, 0.0F, 0.0F, 1.0F, 1.0F, 256, 256, 0.0625F);
+		randomShift = Minecraft.getSystemTime() % 4873L / 4873.0f * 8.0f;
+		GL11.glTranslatef(-randomShift, 0.0f, 0.0f);
+		GL11.glRotatef(10.0f, 0.0f, 0.0f, 1.0f);
+		ItemRenderer.renderItemIn2D(tessellator, 0.0f, 0.0f, 1.0f, 1.0f, 256, 256, 0.0625f);
 		GL11.glPopMatrix();
 		GL11.glMatrixMode(5888);
 		GL11.glDisable(3042);
@@ -239,7 +239,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void fillMugFromCauldron(World world, int i, int j, int k, int side, ItemStack itemstack) {
 		if (world.isRemote) {
-			Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
+			Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0f, 0.0f, 0.0f));
 		} else {
 			super.fillMugFromCauldron(world, i, j, k, side, itemstack);
 		}
@@ -549,7 +549,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void placeFlowerInPot(World world, int i, int j, int k, int side, ItemStack itemstack) {
 		if (world.isRemote) {
-			Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
+			Minecraft.getMinecraft().thePlayer.sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0f, 0.0f, 0.0f));
 		} else {
 			super.placeFlowerInPot(world, i, j, k, side, itemstack);
 		}
@@ -753,7 +753,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
 		if (world.isRemote) {
-			((EntityClientPlayerMP) entityplayer).sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0F, 0.0F, 0.0F));
+			((EntityClientPlayerMP) entityplayer).sendQueue.addToSendQueue(new C08PacketPlayerBlockPlacement(i, j, k, side, itemstack, 0.0f, 0.0f, 0.0f));
 		} else {
 			super.usePouchOnChest(entityplayer, world, i, j, k, side, itemstack, pouchSlot);
 		}

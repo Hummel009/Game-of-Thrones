@@ -75,7 +75,7 @@ public class GOTEntityAIDragonDragonMate extends EntityAIBase {
 
 	@Override
 	public void updateTask() {
-		dragon.getLookHelper().setLookPositionWithEntity(dragonMate, 10.0F, dragon.getVerticalFaceSpeed());
+		dragon.getLookHelper().setLookPositionWithEntity(dragonMate, 10.0f, dragon.getVerticalFaceSpeed());
 		dragon.getNavigator().tryMoveToEntityLiving(dragonMate, speed);
 
 		++spawnBabyDelay;

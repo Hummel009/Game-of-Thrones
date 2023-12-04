@@ -23,80 +23,80 @@ public class GOTModelShadowcat extends ModelBase {
 
 		head = new ModelRenderer(this, 0, 0);
 		head.addBox(-3.0f, -4.0f, -7.0f, 6, 5, 4);
-		head.setRotationPoint(0.0F, 10.0F, -7.5f);
+		head.setRotationPoint(0.0f, 10.0f, -7.5f);
 		head.setTextureSize(64, 64);
 		head.mirror = true;
-		setRotation(head, 0.0F, 0.0F, 0.0F);
+		setRotation(head, 0.0f, 0.0f, 0.0f);
 		ModelRenderer snout = new ModelRenderer(this, 0, 9);
-		snout.addBox(-1.5f, 0.0F, -2.0f, 3, 3, 2);
-		snout.setRotationPoint(0.0F, 8.0F, -14.5f);
+		snout.addBox(-1.5f, 0.0f, -2.0f, 3, 3, 2);
+		snout.setRotationPoint(0.0f, 8.0f, -14.5f);
 		snout.setTextureSize(64, 64);
 		snout.mirror = true;
-		setRotation(snout, 0.0F, 0.0F, 0.0F);
+		setRotation(snout, 0.0f, 0.0f, 0.0f);
 		convertToChild(head, snout);
 		ModelRenderer neck = new ModelRenderer(this, 20, 0);
 		neck.addBox(-2.5f, -2.5f, -5.0f, 5, 5, 5);
-		neck.setRotationPoint(0.0F, 10.0F, -7.5f);
+		neck.setRotationPoint(0.0f, 10.0f, -7.5f);
 		neck.setTextureSize(64, 64);
 		neck.mirror = true;
-		setRotation(neck, -0.3141593f, 0.0F, 0.0F);
+		setRotation(neck, -0.3141593f, 0.0f, 0.0f);
 		convertToChild(head, neck);
 		body1 = new ModelRenderer(this, 20, 10);
-		body1.addBox(-3.5f, -4.0f, 0.0F, 7, 8, 8);
-		body1.setRotationPoint(0.0F, 10.0F, -8.5f);
+		body1.addBox(-3.5f, -4.0f, 0.0f, 7, 8, 8);
+		body1.setRotationPoint(0.0f, 10.0f, -8.5f);
 		body1.setTextureSize(64, 64);
 		body1.mirror = true;
-		setRotation(body1, -0.0349066f, 0.0F, 0.0F);
+		setRotation(body1, -0.0349066f, 0.0f, 0.0f);
 		body2 = new ModelRenderer(this, 20, 26);
-		body2.addBox(-3.0f, -3.0f, 0.0F, 6, 7, 10);
-		body2.setRotationPoint(0.0F, 10.5F, -1.5f);
+		body2.addBox(-3.0f, -3.0f, 0.0f, 6, 7, 10);
+		body2.setRotationPoint(0.0f, 10.5f, -1.5f);
 		body2.setTextureSize(64, 64);
 		body2.mirror = true;
-		setRotation(body2, 0.0349066F, 0.0F, 0.0F);
+		setRotation(body2, 0.0349066f, 0.0f, 0.0f);
 		ModelRenderer ear1 = new ModelRenderer(this, 11, 11);
-		ear1.addBox(-1.0f, -1.0f, 0.0F, 2, 1, 1);
-		ear1.setRotationPoint(-2.0f, 6.0F, -12.5f);
+		ear1.addBox(-1.0f, -1.0f, 0.0f, 2, 1, 1);
+		ear1.setRotationPoint(-2.0f, 6.0f, -12.5f);
 		ear1.setTextureSize(64, 64);
 		ear1.mirror = true;
-		setRotation(ear1, 0.0F, 0.0F, 0.0F);
+		setRotation(ear1, 0.0f, 0.0f, 0.0f);
 		convertToChild(head, ear1);
 		ModelRenderer ear2 = new ModelRenderer(this, 11, 11);
-		ear2.addBox(-1.0f, -1.0f, 0.0F, 2, 1, 1);
-		ear2.setRotationPoint(2.0F, 6.0F, -12.5f);
+		ear2.addBox(-1.0f, -1.0f, 0.0f, 2, 1, 1);
+		ear2.setRotationPoint(2.0f, 6.0f, -12.5f);
 		ear2.setTextureSize(64, 64);
 		ear2.mirror = true;
-		setRotation(ear2, 0.0F, 0.0F, 0.0F);
+		setRotation(ear2, 0.0f, 0.0f, 0.0f);
 		convertToChild(head, ear2);
 		leg1 = new ModelRenderer(this, 0, 14);
-		leg1.addBox(-1.0f, 0.0F, -1.5f, 2, 10, 3);
-		leg1.setRotationPoint(-1.9f, 14.0F, 6.0F);
+		leg1.addBox(-1.0f, 0.0f, -1.5f, 2, 10, 3);
+		leg1.setRotationPoint(-1.9f, 14.0f, 6.0f);
 		leg1.setTextureSize(64, 64);
 		leg1.mirror = true;
-		setRotation(leg1, 0.0F, 0.0F, 0.0F);
+		setRotation(leg1, 0.0f, 0.0f, 0.0f);
 		leg2 = new ModelRenderer(this, 0, 14);
-		leg2.addBox(-1.0f, 0.0F, -1.5f, 2, 10, 3);
-		leg2.setRotationPoint(1.9F, 14.0F, 6.0F);
+		leg2.addBox(-1.0f, 0.0f, -1.5f, 2, 10, 3);
+		leg2.setRotationPoint(1.9f, 14.0f, 6.0f);
 		leg2.setTextureSize(64, 64);
 		leg2.mirror = true;
-		setRotation(leg2, 0.0F, 0.0F, 0.0F);
+		setRotation(leg2, 0.0f, 0.0f, 0.0f);
 		leg3 = new ModelRenderer(this, 0, 14);
-		leg3.addBox(-1.0f, 0.0F, -1.5f, 2, 10, 3);
-		leg3.setRotationPoint(-2.0f, 14.0F, -6.0f);
+		leg3.addBox(-1.0f, 0.0f, -1.5f, 2, 10, 3);
+		leg3.setRotationPoint(-2.0f, 14.0f, -6.0f);
 		leg3.setTextureSize(64, 64);
 		leg3.mirror = true;
-		setRotation(leg3, 0.0F, 0.0F, 0.0F);
+		setRotation(leg3, 0.0f, 0.0f, 0.0f);
 		leg4 = new ModelRenderer(this, 0, 14);
-		leg4.addBox(-1.0f, 0.0F, -1.5f, 2, 10, 3);
-		leg4.setRotationPoint(2.0F, 14.0F, -6.0f);
+		leg4.addBox(-1.0f, 0.0f, -1.5f, 2, 10, 3);
+		leg4.setRotationPoint(2.0f, 14.0f, -6.0f);
 		leg4.setTextureSize(64, 64);
 		leg4.mirror = true;
-		setRotation(leg4, 0.0F, 0.0F, 0.0F);
+		setRotation(leg4, 0.0f, 0.0f, 0.0f);
 		tail = new ModelRenderer(this, 11, 14);
-		tail.addBox(-1.0f, 0.0F, -1.0f, 2, 12, 2);
-		tail.setRotationPoint(0.0F, 8.0F, 7.5F);
+		tail.addBox(-1.0f, 0.0f, -1.0f, 2, 12, 2);
+		tail.setRotationPoint(0.0f, 8.0f, 7.5f);
 		tail.setTextureSize(64, 64);
 		tail.mirror = true;
-		setRotation(tail, 0.4363323F, 0.0F, 0.0F);
+		setRotation(tail, 0.4363323f, 0.0f, 0.0f);
 	}
 
 	public static void convertToChild(ModelRenderer parent, ModelRenderer child) {
@@ -117,15 +117,15 @@ public class GOTModelShadowcat extends ModelBase {
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		if (isChild) {
-			float f6 = 2.0F;
+			float f6 = 2.0f;
 			GL11.glPushMatrix();
-			GL11.glScalef(1.3F / f6, 1.3F / f6, 1.3F / f6);
-			GL11.glTranslatef(0.0F, 17.0F * f5, 2.0F * f5);
+			GL11.glScalef(1.3f / f6, 1.3f / f6, 1.3f / f6);
+			GL11.glTranslatef(0.0f, 17.0f * f5, 2.0f * f5);
 			head.render(f5);
 			GL11.glPopMatrix();
 			GL11.glPushMatrix();
-			GL11.glScalef(1.0F / f6, 1.0F / f6, 1.0F / f6);
-			GL11.glTranslatef(0.0F, 24.0F * f5, 0.0F);
+			GL11.glScalef(1.0f / f6, 1.0f / f6, 1.0f / f6);
+			GL11.glTranslatef(0.0f, 24.0f * f5, 0.0f);
 			body1.render(f5);
 			body2.render(f5);
 			leg1.render(f5);
@@ -148,18 +148,18 @@ public class GOTModelShadowcat extends ModelBase {
 
 	@Override
 	public void setLivingAnimations(EntityLivingBase living, float f1, float f2, float f3) {
-		body1.rotationPointY = 13.0F;
-		body2.rotationPointY = 13.0F;
-		head.rotationPointY = 11.4F;
-		tail.rotationPointY = 10.0F;
-		leg1.rotationPointY = 14.0F;
-		leg2.rotationPointY = 14.0F;
-		leg3.rotationPointY = 14.0F;
-		leg4.rotationPointY = 14.0F;
-		leg1.rotateAngleX = MathHelper.cos(f1 * 0.6662F) * 1.4F * f2;
-		leg2.rotateAngleX = MathHelper.cos(f1 * 0.6662F + (float) Math.PI) * 1.4F * f2;
-		leg3.rotateAngleX = MathHelper.cos(f1 * 0.6662F + (float) Math.PI) * 1.4F * f2;
-		leg4.rotateAngleX = MathHelper.cos(f1 * 0.6662F) * 1.4F * f2;
+		body1.rotationPointY = 13.0f;
+		body2.rotationPointY = 13.0f;
+		head.rotationPointY = 11.4f;
+		tail.rotationPointY = 10.0f;
+		leg1.rotationPointY = 14.0f;
+		leg2.rotationPointY = 14.0f;
+		leg3.rotationPointY = 14.0f;
+		leg4.rotationPointY = 14.0f;
+		leg1.rotateAngleX = MathHelper.cos(f1 * 0.6662f) * 1.4f * f2;
+		leg2.rotateAngleX = MathHelper.cos(f1 * 0.6662f + (float) Math.PI) * 1.4f * f2;
+		leg3.rotateAngleX = MathHelper.cos(f1 * 0.6662f + (float) Math.PI) * 1.4f * f2;
+		leg4.rotateAngleX = MathHelper.cos(f1 * 0.6662f) * 1.4f * f2;
 	}
 
 	public void setRotation(ModelRenderer model, float x, float y, float z) {
@@ -174,6 +174,6 @@ public class GOTModelShadowcat extends ModelBase {
 		head.rotateAngleX = f4 / 57.295776f;
 		head.rotateAngleY = f3 / 114.59155f;
 		head.rotationPointZ = -7.2f;
-		tail.rotateAngleZ = MathHelper.cos(f * 0.666F) * 0.5F * f1;
+		tail.rotateAngleZ = MathHelper.cos(f * 0.666f) * 0.5f * f1;
 	}
 }

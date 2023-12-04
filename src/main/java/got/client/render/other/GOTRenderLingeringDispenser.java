@@ -17,12 +17,12 @@ public class GOTRenderLingeringDispenser implements IBehaviorDispenseItem {
 
 			@Override
 			public float func_82498_a() {
-				return super.func_82498_a() * 0.5F;
+				return super.func_82498_a() * 0.5f;
 			}
 
 			@Override
 			public float func_82500_b() {
-				return super.func_82500_b() * 1.25F;
+				return super.func_82500_b() * 1.25f;
 			}
 
 			@Override

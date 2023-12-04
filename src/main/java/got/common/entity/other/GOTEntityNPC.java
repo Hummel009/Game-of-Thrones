@@ -1009,7 +1009,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			if (spawnRidingHorse && (!(this instanceof GOTBannerBearer) || canBannerBearerSpawnRiding)) {
 				GOTNPCMount mount = createMountToRide();
 				EntityCreature livingMount = (EntityCreature) mount;
-				livingMount.setLocationAndAngles(posX, posY, posZ, rotationYaw, 0.0F);
+				livingMount.setLocationAndAngles(posX, posY, posZ, rotationYaw, 0.0f);
 				if (worldObj.func_147461_a(livingMount.boundingBox).isEmpty()) {
 					livingMount.onSpawnWithEgg(null);
 					worldObj.spawnEntityInWorld(livingMount);

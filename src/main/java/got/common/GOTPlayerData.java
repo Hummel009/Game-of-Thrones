@@ -268,7 +268,7 @@ public class GOTPlayerData {
 		float bonus = source.bonus;
 		GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
 		float prevMainAlignment = getAlignment(faction);
-		float conquestBonus = 0.0F;
+		float conquestBonus = 0.0f;
 		if (source.isKill) {
 			List<GOTFaction> killBonuses = faction.getBonusesForKilling();
 			for (GOTFaction bonusFaction : killBonuses) {
@@ -276,16 +276,16 @@ public class GOTPlayerData {
 					if (!source.killByHiredUnit) {
 						float mplier;
 						if (forcedBonusFactions != null && forcedBonusFactions.contains(bonusFaction)) {
-							mplier = 1.0F;
+							mplier = 1.0f;
 						} else {
 							mplier = bonusFaction.getControlZoneAlignmentMultiplier(entityplayer);
 						}
-						if (mplier > 0.0F) {
+						if (mplier > 0.0f) {
 							float alignment = getAlignment(bonusFaction);
 							float factionBonus = Math.abs(bonus);
 							factionBonus *= mplier;
 							if (alignment >= bonusFaction.getPledgeAlignment() && !isPledgedTo(bonusFaction)) {
-								factionBonus *= 0.5F;
+								factionBonus *= 0.5f;
 							}
 							factionBonus = checkBonusForPledgeEnemyLimit(bonusFaction, factionBonus);
 							alignment += factionBonus;
@@ -296,7 +296,7 @@ public class GOTPlayerData {
 					if (bonusFaction == pledgeFaction) {
 						float conq = bonus;
 						if (source.killByHiredUnit) {
-							conq *= 0.25F;
+							conq *= 0.25f;
 						}
 						conquestBonus = GOTConquestGrid.onConquestKill(entityplayer, bonusFaction, faction, conq);
 						getFactionData(bonusFaction).addConquest(Math.abs(conquestBonus));
@@ -308,11 +308,11 @@ public class GOTPlayerData {
 				if (penaltyFaction.isPlayableAlignmentFaction() && !source.killByHiredUnit) {
 					float mplier;
 					if (penaltyFaction == faction) {
-						mplier = 1.0F;
+						mplier = 1.0f;
 					} else {
 						mplier = penaltyFaction.getControlZoneAlignmentMultiplier(entityplayer);
 					}
-					if (mplier > 0.0F) {
+					if (mplier > 0.0f) {
 						float alignment = getAlignment(penaltyFaction);
 						float factionPenalty = -Math.abs(bonus);
 						factionPenalty *= mplier;
@@ -326,22 +326,22 @@ public class GOTPlayerData {
 		} else if (faction.isPlayableAlignmentFaction()) {
 			float alignment = getAlignment(faction);
 			float factionBonus = bonus;
-			if (factionBonus > 0.0F && alignment >= faction.getPledgeAlignment() && !isPledgedTo(faction)) {
-				factionBonus *= 0.5F;
+			if (factionBonus > 0.0f && alignment >= faction.getPledgeAlignment() && !isPledgedTo(faction)) {
+				factionBonus *= 0.5f;
 			}
 			factionBonus = checkBonusForPledgeEnemyLimit(faction, factionBonus);
 			alignment += factionBonus;
 			setAlignment(faction, alignment);
 			factionBonusMap.put(faction, factionBonus);
 		}
-		if (!factionBonusMap.isEmpty() || conquestBonus != 0.0F) {
+		if (!factionBonusMap.isEmpty() || conquestBonus != 0.0f) {
 			sendAlignmentBonusPacket(source, faction, prevMainAlignment, factionBonusMap, conquestBonus, posX, posY, posZ);
 		}
 		return factionBonusMap;
 	}
 
 	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Collection<GOTFaction> forcedBonusFactions, Entity entity) {
-		return addAlignment(entityplayer, source, faction, forcedBonusFactions, entity.posX, entity.boundingBox.minY + entity.height * 0.7D, entity.posZ);
+		return addAlignment(entityplayer, source, faction, forcedBonusFactions, entity.posX, entity.boundingBox.minY + entity.height * 0.7, entity.posZ);
 	}
 
 	public void addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, double posX, double posY, double posZ) {
@@ -612,7 +612,7 @@ public class GOTPlayerData {
 		if (entityplayer != null) {
 			World world = entityplayer.worldObj;
 			if (!entityplayer.capabilities.isCreativeMode) {
-				double range = 16.0D;
+				double range = 16.0;
 				List<EntityLiving> entities = world.getEntitiesWithinAABB(EntityLiving.class, entityplayer.boundingBox.expand(range, range, range));
 				for (EntityLiving entity : entities) {
 					if (entity.getAttackTarget() == entityplayer) {
@@ -790,8 +790,8 @@ public class GOTPlayerData {
 		entity.setDead();
 		EntityLiving entityLiving = (EntityLiving) EntityList.createEntityByName(entityID, world);
 		entityLiving.readFromNBT(nbt);
-		entityLiving.setLocationAndAngles(i + 0.5D, j, k + 0.5D, entityLiving.rotationYaw, entityLiving.rotationPitch);
-		entityLiving.fallDistance = 0.0F;
+		entityLiving.setLocationAndAngles(i + 0.5, j, k + 0.5, entityLiving.rotationYaw, entityLiving.rotationPitch);
+		entityLiving.fallDistance = 0.0f;
 		entityLiving.getNavigator().clearPathEntity();
 		entityLiving.setAttackTarget(null);
 		world.spawnEntityInWorld(entityLiving);
@@ -806,7 +806,7 @@ public class GOTPlayerData {
 			WorldServer world = (WorldServer) entityplayer.worldObj;
 			int startX = MathHelper.floor_double(entityplayer.posX);
 			int startZ = MathHelper.floor_double(entityplayer.posZ);
-			double range = 256.0D;
+			double range = 256.0;
 			List<EntityLiving> entities = world.getEntitiesWithinAABB(EntityLiving.class, entityplayer.boundingBox.expand(range, range, range));
 			Collection<EntityLiving> entitiesToTransport = new HashSet<>();
 			for (EntityLiving entity : entities) {
@@ -844,8 +844,8 @@ public class GOTPlayerData {
 			int j = waypoint.getYCoord(world, i, k);
 			Entity playerMount = entityplayer.ridingEntity;
 			entityplayer.mountEntity(null);
-			entityplayer.setPositionAndUpdate(i + 0.5D, j, k + 0.5D);
-			entityplayer.fallDistance = 0.0F;
+			entityplayer.setPositionAndUpdate(i + 0.5, j, k + 0.5);
+			entityplayer.fallDistance = 0.0f;
 			if (playerMount instanceof EntityLiving) {
 				playerMount = fastTravelEntity(world, (EntityLiving) playerMount, i, j, k);
 			}
@@ -914,7 +914,7 @@ public class GOTPlayerData {
 		if (alignment != null) {
 			return alignment;
 		}
-		return 0.0F;
+		return 0.0f;
 	}
 
 	public List<GOTAbstractWaypoint> getAllAvailableWaypoints() {
@@ -1300,7 +1300,7 @@ public class GOTPlayerData {
 	}
 
 	public float getPledgeEnemyAlignmentLimit(GOTFaction fac) {
-		return 0.0F;
+		return 0.0f;
 	}
 
 	public GOTFaction getPledgeFaction() {
@@ -1319,7 +1319,7 @@ public class GOTPlayerData {
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			if (fac != null) {
 				World world = entityplayer.worldObj;
-				world.playSoundAtEntity(entityplayer, "got:event.pledge", 1.0F, 1.0F);
+				world.playSoundAtEntity(entityplayer, "got:event.pledge", 1.0f, 1.0f);
 			}
 			IMessage packet = new GOTPacketPledge(fac);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
@@ -1427,11 +1427,11 @@ public class GOTPlayerData {
 		int baseMin = GOTLevelData.getWaypointCooldownMin();
 		int baseMax = GOTLevelData.getWaypointCooldownMax();
 		int useCount = getWPUseCount(wp);
-		double dist = entityplayer.getDistance(wp.getXCoord() + 0.5D, wp.getYCoordSaved(), wp.getZCoord() + 0.5D);
+		double dist = entityplayer.getDistance(wp.getXCoord() + 0.5, wp.getYCoordSaved(), wp.getZCoord() + 0.5);
 		double time = baseMin;
-		double added = (baseMax - baseMin) * Math.pow(0.9D, useCount);
+		double added = (baseMax - baseMin) * Math.pow(0.9, useCount);
 		time += added;
-		time *= Math.max(1.0D, dist * 1.2E-5D);
+		time *= Math.max(1.0, dist * 1.2E-5D);
 		int seconds = (int) Math.round(time);
 		seconds = Math.max(seconds, 0);
 		return seconds * 20;
@@ -1459,8 +1459,8 @@ public class GOTPlayerData {
 	public void givePureConquestBonus(EntityPlayer entityplayer, GOTFaction bonusFac, GOTFaction enemyFac, float conq, String title, double posX, double posY, double posZ) {
 		conq = GOTConquestGrid.onConquestKill(entityplayer, bonusFac, enemyFac, conq);
 		getFactionData(bonusFac).addConquest(Math.abs(conq));
-		if (conq != 0.0F) {
-			GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(0.0F, title);
+		if (conq != 0.0f) {
+			GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(0.0f, title);
 			IMessage packet = new GOTPacketAlignmentBonus(bonusFac, getAlignment(bonusFac), new GOTAlignmentBonusMap(), conq, posX, posY, posZ, source);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
@@ -2008,7 +2008,7 @@ public class GOTPlayerData {
 			if (uuidToMountTime > 0) {
 				uuidToMountTime--;
 			} else {
-				double range = 32.0D;
+				double range = 32.0;
 				List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, entityplayer.boundingBox.expand(range, range, range));
 				for (EntityLivingBase entity : entities) {
 					if (entity.getUniqueID().equals(uuidToMount)) {
@@ -2257,10 +2257,10 @@ public class GOTPlayerData {
 		float pledgeLvl = wasPledge.getPledgeAlignment();
 		float prevAlign = getAlignment(wasPledge);
 		float diff = prevAlign - pledgeLvl;
-		float cd = diff / 5000.0F;
-		cd = MathHelper.clamp_float(cd, 0.0F, 1.0F);
+		float cd = diff / 5000.0f;
+		cd = MathHelper.clamp_float(cd, 0.0f, 1.0f);
 		int cdTicks = 36000;
-		cdTicks += Math.round(cd * 150.0F * 60.0F * 20.0F);
+		cdTicks += Math.round(cd * 150.0f * 60.0f * 20.0f);
 		setPledgeFaction(null);
 		setBrokenPledgeFaction(wasPledge);
 		setPledgeBreakCooldown(cdTicks);
@@ -2270,22 +2270,22 @@ public class GOTPlayerData {
 			GOTFactionRank rankBelow = wasPledge.getRankBelow(rank);
 			GOTFactionRank rankBelow2 = wasPledge.getRankBelow(rankBelow);
 			float newAlign = rankBelow2.alignment;
-			newAlign = Math.max(newAlign, pledgeLvl / 2.0F);
+			newAlign = Math.max(newAlign, pledgeLvl / 2.0f);
 			float alignPenalty = newAlign - prevAlign;
-			if (alignPenalty < 0.0F) {
+			if (alignPenalty < 0.0f) {
 				GOTAlignmentValues.AlignmentBonus penalty = GOTAlignmentValues.createPledgePenalty(alignPenalty);
 				double alignX;
 				double alignY;
 				double alignZ;
-				double lookRange = 2.0D;
+				double lookRange = 2.0;
 				Vec3 posEye = Vec3.createVectorHelper(entityplayer.posX, entityplayer.boundingBox.minY + entityplayer.getEyeHeight(), entityplayer.posZ);
-				Vec3 look = entityplayer.getLook(1.0F);
+				Vec3 look = entityplayer.getLook(1.0f);
 				Vec3 posSight = posEye.addVector(look.xCoord * lookRange, look.yCoord * lookRange, look.zCoord * lookRange);
 				MovingObjectPosition mop = world.rayTraceBlocks(posEye, posSight);
 				if (mop != null && mop.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
-					alignX = mop.blockX + 0.5D;
-					alignY = mop.blockY + 0.5D;
-					alignZ = mop.blockZ + 0.5D;
+					alignX = mop.blockX + 0.5;
+					alignY = mop.blockY + 0.5;
+					alignZ = mop.blockZ + 0.5;
 				} else {
 					alignX = posSight.xCoord;
 					alignY = posSight.yCoord;
@@ -2293,7 +2293,7 @@ public class GOTPlayerData {
 				}
 				addAlignment(entityplayer, penalty, wasPledge, alignX, alignY, alignZ);
 			}
-			world.playSoundAtEntity(entityplayer, "got:event.unpledge", 1.0F, 1.0F);
+			world.playSoundAtEntity(entityplayer, "got:event.unpledge", 1.0f, 1.0f);
 			ChatComponentTranslation chatComponentTranslation;
 			if (intentional) {
 				chatComponentTranslation = new ChatComponentTranslation("got.chat.unpledge", wasPledge.factionName());
@@ -2347,7 +2347,7 @@ public class GOTPlayerData {
 		}
 		if (!hasAchievement(GOTAchievement.hundreds) && pdTick % 20 == 0) {
 			int hiredUnits = 0;
-			List<GOTEntityNPC> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(64.0D, 64.0D, 64.0D));
+			List<GOTEntityNPC> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityNPC.class, entityplayer.boundingBox.expand(64.0, 64.0, 64.0));
 			for (GOTEntityNPC npc : nearbyNPCs) {
 				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
 					hiredUnits++;
@@ -2359,7 +2359,7 @@ public class GOTPlayerData {
 		}
 		if (!hasAchievement(GOTAchievement.hireGoldenCompany) && pdTick % 20 == 0) {
 			int hiredUnits = 0;
-			List<GOTEntityGoldenMan> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityGoldenMan.class, entityplayer.boundingBox.expand(64.0D, 64.0D, 64.0D));
+			List<GOTEntityGoldenMan> nearbyNPCs = world.getEntitiesWithinAABB(GOTEntityGoldenMan.class, entityplayer.boundingBox.expand(64.0, 64.0, 64.0));
 			for (GOTEntityNPC npc : nearbyNPCs) {
 				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() == entityplayer) {
 					hiredUnits++;
@@ -3037,7 +3037,7 @@ public class GOTPlayerData {
 		if (!server.isSinglePlayer()) {
 			long currentOnlineTime = getCurrentOnlineTime();
 			int diff = (int) (currentOnlineTime - lastOnlineTime);
-			double offlineFactor = 0.1D;
+			double offlineFactor = 0.1;
 			int ftClockIncrease = (int) (diff * offlineFactor);
 			if (ftClockIncrease > 0) {
 				setTimeSinceFTWithUpdate(ftSinceTick + ftClockIncrease);

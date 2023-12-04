@@ -10,7 +10,7 @@ public class GOTEnchantmentKnockback extends GOTEnchantment {
 	public GOTEnchantmentKnockback(String s, int i) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE});
 		knockback = i;
-		setValueModifier((knockback + 2) / 2.0F);
+		setValueModifier((knockback + 2) / 2.0f);
 	}
 
 	@Override

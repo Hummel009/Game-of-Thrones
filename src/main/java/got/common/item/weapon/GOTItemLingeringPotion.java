@@ -95,12 +95,12 @@ public class GOTItemLingeringPotion extends ItemPotion {
 				if (attributemodifier2.getOperation() != 1 && attributemodifier2.getOperation() != 2) {
 					d1 = attributemodifier2.getAmount();
 				} else {
-					d1 = attributemodifier2.getAmount() * 100.0D;
+					d1 = attributemodifier2.getAmount() * 100.0;
 				}
 
-				if (d0 > 0.0D) {
+				if (d0 > 0.0) {
 					list.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("attribute.modifier.plus." + attributemodifier2.getOperation(), ItemStack.field_111284_a.format(d1), StatCollector.translateToLocal("attribute.name." + entry1.getKey())));
-				} else if (d0 < 0.0D) {
+				} else if (d0 < 0.0) {
 					d1 *= -1.0;
 					list.add(EnumChatFormatting.RED + StatCollector.translateToLocalFormatted("attribute.modifier.take." + attributemodifier2.getOperation(), ItemStack.field_111284_a.format(d1), StatCollector.translateToLocal("attribute.name." + entry1.getKey())));
 				}
@@ -215,7 +215,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 			stack.stackSize--;
 		}
 
-		world.playSoundAtEntity(player, "random.bow", 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+		world.playSoundAtEntity(player, "random.bow", 0.5f, 0.4f / (itemRand.nextFloat() * 0.4f + 0.8f));
 
 		if (!world.isRemote) {
 			world.spawnEntityInWorld(new GOTEntityLingeringPotion(world, player, stack));

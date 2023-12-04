@@ -54,18 +54,18 @@ public class GOTPacketWeaponFX implements IMessage {
 					case ASSHAI:
 						for (int i = 0; i < 360; i += 2) {
 							float angle = (float) Math.toRadians(i);
-							double dist = 1.5D;
+							double dist = 1.5;
 							double d = dist * MathHelper.sin(angle);
 							double d1 = dist * MathHelper.cos(angle);
-							world.spawnParticle("smoke", x + d, y + 0.1D, z + d1, d * 0.2D, 0.0D, d1 * 0.2D);
+							world.spawnParticle("smoke", x + d, y + 0.1, z + d1, d * 0.2, 0.0, d1 * 0.2);
 						}
 						break;
 					case CHILLING:
 						for (int i = 0; i < 40; i++) {
-							double d1 = y + entity.height * 0.7F;
-							float angleXZ = rand.nextFloat() * 3.1415927F * 2.0F;
-							float angleY = rand.nextFloat() * 3.1415927F * 2.0F;
-							float speed = MathHelper.randomFloatClamp(rand, 0.1F, 0.2F);
+							double d1 = y + entity.height * 0.7f;
+							float angleXZ = rand.nextFloat() * 3.1415927f * 2.0f;
+							float angleY = rand.nextFloat() * 3.1415927f * 2.0f;
+							float speed = MathHelper.randomFloatClamp(rand, 0.1f, 0.2f);
 							double d3 = MathHelper.cos(angleXZ) * MathHelper.cos(angleY) * speed;
 							double d4 = MathHelper.sin(angleY) * speed;
 							double d5 = MathHelper.sin(angleXZ) * MathHelper.cos(angleY) * speed;
@@ -78,14 +78,14 @@ public class GOTPacketWeaponFX implements IMessage {
 						break;
 					case INFERNAL:
 						for (int i = 0; i < 20; i++) {
-							double d1 = y + entity.height * 0.7F;
-							float angleXZ = rand.nextFloat() * 3.1415927F * 2.0F;
-							float angleY = rand.nextFloat() * 3.1415927F * 2.0F;
-							float speed = MathHelper.randomFloatClamp(rand, 0.1F, 0.15F);
+							double d1 = y + entity.height * 0.7f;
+							float angleXZ = rand.nextFloat() * 3.1415927f * 2.0f;
+							float angleY = rand.nextFloat() * 3.1415927f * 2.0f;
+							float speed = MathHelper.randomFloatClamp(rand, 0.1f, 0.15f);
 							double d3 = MathHelper.cos(angleXZ) * MathHelper.cos(angleY) * speed;
 							double d4 = MathHelper.sin(angleY) * speed;
 							double d5 = MathHelper.sin(angleXZ) * MathHelper.cos(angleY) * speed;
-							d4 += 0.15000000596046448D;
+							d4 += 0.15000000596046448;
 							d3 += entity.posX - entity.lastTickPosX;
 							d4 += entity.posY - entity.lastTickPosY;
 							d5 += entity.posZ - entity.lastTickPosZ;

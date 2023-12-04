@@ -98,14 +98,14 @@ public class GOTSpawnerAnimals {
 												j1 += 0;
 												k1 += world.rand.nextInt(range) - world.rand.nextInt(range);
 												if (world.blockExists(i1, j1, k1) && SpawnerAnimals.canCreatureTypeSpawnAtLocation(creatureType, world, i1, j1, k1)) {
-													float f = i1 + 0.5F;
-													float f2 = k1 + 0.5F;
-													if (world.getClosestPlayer(f, j1, f2, 24.0D) == null) {
+													float f = i1 + 0.5f;
+													float f2 = k1 + 0.5f;
+													if (world.getClosestPlayer(f, j1, f2, 24.0) == null) {
 														float f3 = f - spawnPoint.posX;
 														float f4 = (float) j1 - spawnPoint.posY;
 														float f5 = f2 - spawnPoint.posZ;
 														float distSq = f3 * f3 + f4 * f4 + f5 * f5;
-														if (distSq >= 576.0F) {
+														if (distSq >= 576.0f) {
 															EntityLiving entity;
 															if (spawnEntry == null) {
 																spawnEntry = world.spawnRandomCreature(creatureType, i1, j1, k1);
@@ -119,7 +119,7 @@ public class GOTSpawnerAnimals {
 																e.printStackTrace();
 																return totalSpawned;
 															}
-															entity.setLocationAndAngles(f, j1, f2, world.rand.nextFloat() * 360.0F, 0.0F);
+															entity.setLocationAndAngles(f, j1, f2, world.rand.nextFloat() * 360.0f, 0.0f);
 															Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, f, j1, f2);
 															if (canSpawn == Event.Result.ALLOW || canSpawn == Event.Result.DEFAULT && entity.getCanSpawnHere()) {
 																totalSpawned++;

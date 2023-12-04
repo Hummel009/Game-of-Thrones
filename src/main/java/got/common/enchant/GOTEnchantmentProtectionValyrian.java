@@ -13,7 +13,7 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSpecial {
 	public GOTEnchantmentProtectionValyrian(String s) {
 		super(s, 1);
-		setValueModifier(2.0F);
+		setValueModifier(2.0f);
 	}
 
 	@Override
@@ -46,7 +46,7 @@ public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSp
 				GOTEnchantmentHelper.clearEnchants(weaponBase);
 
 				float range = GOTWeaponStats.getMeleeReachFactor(weaponBase);
-				return range >= 1.3F;
+				return range >= 1.3f;
 			}
 		}
 		return false;

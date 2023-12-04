@@ -6,7 +6,7 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentSilkTouch extends GOTEnchantment {
 	public GOTEnchantmentSilkTouch(String s) {
 		super(s, GOTEnchantmentType.TOOL);
-		setValueModifier(3.0F);
+		setValueModifier(3.0f);
 	}
 
 	@Override

@@ -28,7 +28,7 @@ public class GOTEntityDirewolf extends EntityAnimal implements GOTBiome.ImmuneTo
 
 	public GOTEntityDirewolf(World world) {
 		super(world);
-		setSize(0.9F, 1.1F);
+		setSize(0.9f, 1.1f);
 		getNavigator().setAvoidsWater(true);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(2, panicAI);

@@ -19,7 +19,7 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 
 	public GOTEnchantmentWeaponSpecial(String s) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE, GOTEnchantmentType.RANGED_LAUNCHER});
-		setValueModifier(3.0F);
+		setValueModifier(3.0f);
 		setBypassAnvilLimit();
 	}
 
@@ -32,7 +32,7 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, duration * 20, 1));
 
 		IMessage packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.CHILLING, entity);
-		GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
+		GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0));
 	}
 
 	public static int getFireAmount() {

@@ -1800,12 +1800,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		setupMapClipping();
 		GOTAbstractWaypoint mouseOverWP = null;
 		double distanceMouseOverWP = Double.MAX_VALUE;
-		float wpZoomlerp = (zoomExp + 3.3F) / 2.2F;
-		wpZoomlerp = Math.min(wpZoomlerp, 1.0F);
+		float wpZoomlerp = (zoomExp + 3.3f) / 2.2f;
+		wpZoomlerp = Math.min(wpZoomlerp, 1.0f);
 		if (!enableZoomOutWPFading) {
-			wpZoomlerp = 1.0F;
+			wpZoomlerp = 1.0f;
 		}
-		if (wpZoomlerp > 0.0F) {
+		if (wpZoomlerp > 0.0f) {
 			for (GOTAbstractWaypoint waypoint : waypoints) {
 				boolean unlocked = mc.thePlayer != null && waypoint.hasPlayerUnlocked(mc.thePlayer);
 				boolean hidden = waypoint.isHidden();
@@ -1820,28 +1820,28 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							GL11.glBlendFunc(770, 771);
 							if (isOSRS()) {
 								GL11.glPushMatrix();
-								GL11.glScalef(0.33F, 0.33F, 1.0F);
+								GL11.glScalef(0.33f, 0.33f, 1.0f);
 								mc.getTextureManager().bindTexture(GOTTextures.osrsTexture);
-								GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-								drawTexturedModalRectFloat(x / 0.33F - 8.0F, y / 0.33F - 8.0F, 0, 0, 15.0F, 15.0F);
+								GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+								drawTexturedModalRectFloat(x / 0.33f - 8.0f, y / 0.33f - 8.0f, 0, 0, 15.0f, 15.0f);
 								GL11.glPopMatrix();
 							} else {
 								GOTAbstractWaypoint.WaypointLockState state = mc.thePlayer != null ? waypoint.getLockState(mc.thePlayer) : GOTAbstractWaypoint.WaypointLockState.STANDARD_UNLOCKED;
 								mc.getTextureManager().bindTexture(mapIconsTexture);
-								GL11.glColor4f(1.0F, 1.0F, 1.0F, wpZoomlerp);
-								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, state.getIconU(), state.getIconV(), 4.0F, 4.0F);
+								GL11.glColor4f(1.0f, 1.0f, 1.0f, wpZoomlerp);
+								drawTexturedModalRectFloat(x - 2.0f, y - 2.0f, state.getIconU(), state.getIconV(), 4.0f, 4.0f);
 							}
 							GL11.glDisable(3042);
 							if (labels) {
-								float zoomlerp = (zoomExp + 1.0F) / 4.0F;
-								zoomlerp = Math.min(zoomlerp, 1.0F);
-								if (zoomlerp > 0.0F) {
+								float zoomlerp = (zoomExp + 1.0f) / 4.0f;
+								zoomlerp = Math.min(zoomlerp, 1.0f);
+								if (zoomlerp > 0.0f) {
 									GL11.glPushMatrix();
-									GL11.glTranslatef(x, y, 0.0F);
+									GL11.glTranslatef(x, y, 0.0f);
 									GL11.glScalef(zoomlerp, zoomlerp, zoomlerp);
 									float alpha = zoomlerp;
-									alpha *= 0.8F;
-									int alphaI = (int) (alpha * 255.0F);
+									alpha *= 0.8f;
+									int alphaI = (int) (alpha * 255.0f);
 									alphaI = MathHelper.clamp_int(alphaI, 4, 255);
 									GL11.glEnable(3042);
 									GL11.glBlendFunc(770, 771);
@@ -1860,7 +1860,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								double dx = x - mouseX;
 								double dy = y - mouseY;
 								double distToWP = Math.sqrt(dx * dx + dy * dy);
-								if (distToWP <= 5.0D && distToWP <= distanceMouseOverWP) {
+								if (distToWP <= 5.0 && distToWP <= distanceMouseOverWP) {
 									mouseOverWP = waypoint;
 									distanceMouseOverWP = distToWP;
 								}

@@ -25,7 +25,7 @@ public class GOTPacketCargocartControl implements IMessage {
 		public IMessage onMessage(GOTPacketCargocartControl message, MessageContext ctx) {
 			EntityPlayerMP sender = ctx.getServerHandler().playerEntity;
 			if (sender.isRiding() && sender.ridingEntity instanceof EntityHorse) {
-				List<GOTEntityCart> result = sender.getServerForPlayer().getEntitiesWithinAABB(GOTEntityCart.class, sender.boundingBox.expand(3.0D, 3.0D, 3.0D));
+				List<GOTEntityCart> result = sender.getServerForPlayer().getEntitiesWithinAABB(GOTEntityCart.class, sender.boundingBox.expand(3.0, 3.0, 3.0));
 				if (!result.isEmpty()) {
 					GOTEntityCart closest = result.get(0);
 					for (GOTEntityCart cart : result) {

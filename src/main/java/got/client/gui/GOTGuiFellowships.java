@@ -279,7 +279,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			mouseOverFellowship = fs;
 		}
 		boolean isMouseOver = mouseOverFellowship == fs;
-		drawFellowshipIcon(fs, x, y, 0.5F);
+		drawFellowshipIcon(fs, x, y, 0.5f);
 		String fsName = fs.getName();
 		int maxLength = 110;
 		if (fontRendererObj.getStringWidth(fsName) > maxLength) {
@@ -306,7 +306,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				reject = mouseOverInviteReject;
 			}
 			mc.getTextureManager().bindTexture(iconsTextures);
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(iconAcceptX, y, 16, 16 + (accept ? 0 : iconWidth), iconWidth, iconWidth);
 			drawTexturedModalRect(iconRejectX, y, 8, 16 + (reject ? 0 : iconWidth), iconWidth, iconWidth);
 		} else {
@@ -327,9 +327,9 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			GL11.glEnable(32826);
 			GL11.glEnable(2896);
 			GL11.glEnable(2884);
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			GL11.glPushMatrix();
-			GL11.glScalef(scale, scale, 1.0F);
+			GL11.glScalef(scale, scale, 1.0f);
 			renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), fsIcon, Math.round(x / scale), Math.round(y / scale));
 			GL11.glPopMatrix();
 			GL11.glDisable(2896);
@@ -362,11 +362,11 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		boolean isAdmin = viewingFellowship.isAdmin(playerUuid);
 		if (isOwner) {
 			mc.getTextureManager().bindTexture(iconsTextures);
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x + titleOffset + fontRendererObj.getStringWidth(playerUsername + ' '), y, 0, 0, 8, 8);
 		} else if (isAdmin) {
 			mc.getTextureManager().bindTexture(iconsTextures);
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x + titleOffset + fontRendererObj.getStringWidth(playerUsername + ' '), y, 8, 0, 8, 8);
 		}
 		boolean owned = viewingFellowship.isOwned();
@@ -398,7 +398,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				}
 			}
 			mc.getTextureManager().bindTexture(iconsTextures);
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(iconRemoveX, y, 8, 16 + (remove ? 0 : iconWidth), iconWidth, iconWidth);
 			if (owned) {
 				if (isAdmin) {
@@ -485,7 +485,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		alignOptionButtons();
 		setupScrollBars(i, j);
 		drawDefaultBackground();
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		super.drawScreen(i, j, f);
 		StringBuilder s = new StringBuilder(StatCollector.translateToLocal("got.gui.fellowships.title"));
 		drawCenteredString(s.toString(), guiLeft + xSize / 2, guiTop - 30, 16777215);
@@ -550,7 +550,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			y += fontRendererObj.FONT_HEIGHT;
 			y += 5;
 			if (viewingFellowship.getIcon() != null) {
-				drawFellowshipIcon(viewingFellowship, guiLeft + xSize / 2 - 8, y, 1.0F);
+				drawFellowshipIcon(viewingFellowship, guiLeft + xSize / 2 - 8, y, 1.0f);
 			}
 			boolean preventPVP = viewingFellowship.getPreventPVP();
 			boolean preventHiredFF = viewingFellowship.getPreventHiredFriendlyFire();
@@ -561,7 +561,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 			int iconY = y;
 			int iconSize = 16;
 			mc.getTextureManager().bindTexture(iconsTextures);
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(iconPVPX, iconY, 64, preventPVP ? 80 : 48, iconSize, iconSize);
 			drawTexturedModalRect(iconHFFX, iconY, 80, preventHiredFF ? 80 : 48, iconSize, iconSize);
 			drawTexturedModalRect(iconMapX, iconY, 96, mapShow ? 48 : 80, iconSize, iconSize);
@@ -928,7 +928,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		List<String> desc = fontRendererObj.listFormattedStringToWidth(s, stringWidth);
 		func_146283_a(desc, x, y);
 		GL11.glDisable(2896);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		zLevel = z;
 	}
 

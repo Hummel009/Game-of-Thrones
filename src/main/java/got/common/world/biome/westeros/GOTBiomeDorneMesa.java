@@ -46,8 +46,8 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 		int l = k & 15;
 		Block block = Blocks.stained_hardened_clay;
 		Block block2 = fillerBlock;
-		int i1 = (int) (stoneNoise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
-		boolean flag1 = Math.cos(stoneNoise / 3.0D * Math.PI) > 0.0D;
+		int i1 = (int) (stoneNoise / 3.0 + 3.0 + random.nextDouble() * 0.25);
+		boolean flag1 = Math.cos(stoneNoise / 3.0 * Math.PI) > 0.0;
 		int j1 = -1;
 		boolean flag2 = false;
 		int k1 = blocks.length / 256;
@@ -187,7 +187,7 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 	}
 
 	public byte levelGenerator(int a, int b, int c) {
-		int l = (int) Math.round(noise3.func_151601_a(a * 1.0D / 512.0D, a * 1.0D / 512.0D) * 2.0D);
+		int l = (int) Math.round(noise3.func_151601_a(a * 1.0 / 512.0, a * 1.0 / 512.0) * 2.0);
 		return clayMeta[(b + l + 64) % 64];
 	}
 }

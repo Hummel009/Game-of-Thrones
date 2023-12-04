@@ -402,7 +402,7 @@ public class GOTEventHandler implements IFuelHandler {
 			}
 			if (block == Blocks.bookshelf && !entityplayer.isSneaking() && GOTBlockBookshelfStorage.canOpenBookshelf(world, i, j, k, entityplayer) && !world.isRemote) {
 				world.setBlock(i, j, k, GOTBlocks.bookshelfStorage, 0, 3);
-				boolean flag = GOTBlocks.bookshelfStorage.onBlockActivated(world, i, j, k, entityplayer, side, 0.5F, 0.5F, 0.5F);
+				boolean flag = GOTBlocks.bookshelfStorage.onBlockActivated(world, i, j, k, entityplayer, side, 0.5f, 0.5f, 0.5f);
 				if (!flag) {
 					world.setBlock(i, j, k, Blocks.bookshelf, 0, 3);
 				}
@@ -443,7 +443,7 @@ public class GOTEventHandler implements IFuelHandler {
 		ItemStack itemstack = entityplayer.getCurrentEquippedItem();
 		if (itemstack != null) {
 			float baseDigSpeed = itemstack.getItem().getDigSpeed(itemstack, block, meta);
-			if (baseDigSpeed > 1.0F) {
+			if (baseDigSpeed > 1.0f) {
 				speed *= GOTEnchantmentHelper.calcToolEfficiency(itemstack);
 			}
 		}
@@ -892,7 +892,7 @@ public class GOTEventHandler implements IFuelHandler {
 				if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.getHiringPlayer() != null) {
 					entityplayer = npc.hiredNPCInfo.getHiringPlayer();
 					creditHiredUnit = true;
-					double nearbyDist = 64.0D;
+					double nearbyDist = 64.0;
 					byNearbyUnit = npc.getDistanceSqToEntity(entityplayer) <= nearbyDist * nearbyDist;
 				}
 			}
@@ -905,7 +905,7 @@ public class GOTEventHandler implements IFuelHandler {
 					forcedBonusFactions = ((GOTEntityNPC) entity).killBonusFactions;
 				}
 				boolean wasSelfDefenceAgainstAlliedUnit = false;
-				if (!creditHiredUnit && prevAlignment > 0.0F && entity instanceof GOTEntityNPC) {
+				if (!creditHiredUnit && prevAlignment > 0.0f && entity instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
 					if (npc.hiredNPCInfo.isActive && npc.hiredNPCInfo.wasAttackCommanded) {
 						wasSelfDefenceAgainstAlliedUnit = true;
@@ -918,7 +918,7 @@ public class GOTEventHandler implements IFuelHandler {
 					alignmentBonus.needsTranslation = true;
 					alignmentBonus.isCivilianKill = npc.isCivilianNPC();
 				}
-				if (alignmentBonus != null && alignmentBonus.bonus != 0.0F && (!creditHiredUnit || byNearbyUnit)) {
+				if (alignmentBonus != null && alignmentBonus.bonus != 0.0f && (!creditHiredUnit || byNearbyUnit)) {
 					alignmentBonus.isKill = true;
 					if (creditHiredUnit) {
 						alignmentBonus.killByHiredUnit = true;
@@ -947,7 +947,7 @@ public class GOTEventHandler implements IFuelHandler {
 					if (!wasSelfDefenceAgainstAlliedUnit && !entityplayer.capabilities.isCreativeMode && entityFaction != GOTFaction.UNALIGNED) {
 						int sentSpeeches = 0;
 						int maxSpeeches = 5;
-						double range = 8.0D;
+						double range = 8.0;
 						@SuppressWarnings("all")
 						List<EntityLiving> nearbyAlliedNPCs = world.selectEntitiesWithinAABB(EntityLiving.class, entity.boundingBox.expand(range, range, range), new IEntitySelector() {
 							@Override
@@ -962,7 +962,7 @@ public class GOTEventHandler implements IFuelHandler {
 						for (EntityLiving npc : nearbyAlliedNPCs) {
 							if (npc instanceof GOTEntityNPC) {
 								GOTEntityNPC gotNPC = (GOTEntityNPC) npc;
-								if (gotNPC.hiredNPCInfo.isActive && newAlignment > 0.0F || gotNPC.hiredNPCInfo.isActive && gotNPC.hiredNPCInfo.getHiringPlayer() == entityplayer) {
+								if (gotNPC.hiredNPCInfo.isActive && newAlignment > 0.0f || gotNPC.hiredNPCInfo.isActive && gotNPC.hiredNPCInfo.getHiringPlayer() == entityplayer) {
 									continue;
 								}
 							}
@@ -997,7 +997,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (!world.isRemote && source.getEntity() instanceof EntityPlayer && source.getSourceOfDamage() != null && source.getSourceOfDamage().getClass() == GOTEntitySpear.class) {
 			EntityPlayer entityplayer = (EntityPlayer) source.getEntity();
-			if (entity != entityplayer && entityplayer.getDistanceSqToEntity(entity) >= 2500.0D) {
+			if (entity != entityplayer && entityplayer.getDistanceSqToEntity(entity) >= 2500.0) {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.useSpearFromFar);
 			}
 		}
@@ -1018,7 +1018,7 @@ public class GOTEventHandler implements IFuelHandler {
 				}
 			}
 			if (attackingPlayer != null) {
-				boolean isFoe = GOTLevelData.getData(attackingPlayer).getAlignment(GOT.getNPCFaction(entity)) < 0.0F;
+				boolean isFoe = GOTLevelData.getData(attackingPlayer).getAlignment(GOT.getNPCFaction(entity)) < 0.0f;
 				if (isFoe && attackingHiredUnit == null) {
 					if (attackingPlayer.isPotionActive(Potion.confusion.id)) {
 						GOTLevelData.getData(attackingPlayer).addAchievement(GOTAchievement.killWhileDrunk);
@@ -1043,7 +1043,7 @@ public class GOTEventHandler implements IFuelHandler {
 				NBTTagCompound profileData = new NBTTagCompound();
 				NBTUtil.func_152460_a(profileData, profile);
 				playerHead.setTagInfo("SkullOwner", profileData);
-				entityplayer.entityDropItem(playerHead, 0.0F);
+				entityplayer.entityDropItem(playerHead, 0.0f);
 			}
 		}
 	}
@@ -1117,9 +1117,9 @@ public class GOTEventHandler implements IFuelHandler {
 			if (wearingAllAsshai && !world.isRemote && weapon != null && weapon.isItemStackDamageable()) {
 				int damage = weapon.getItemDamage();
 				int maxDamage = weapon.getMaxDamage();
-				float durability = 1.0F - (float) damage / maxDamage;
-				durability *= 0.9F;
-				int newDamage = Math.round((1.0F - durability) * maxDamage);
+				float durability = 1.0f - (float) damage / maxDamage;
+				durability *= 0.9f;
+				int newDamage = Math.round((1.0f - durability) * maxDamage);
 				newDamage = Math.min(newDamage, maxDamage);
 				weapon.damageItem(newDamage - damage, attacker);
 			}
@@ -1144,7 +1144,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if (!world.isRemote) {
 			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.fire)) {
 				IMessage packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.INFERNAL, entity);
-				GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
+				GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0));
 			}
 			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.chill)) {
 				GOTEnchantmentWeaponSpecial.doChillAttack(entity);
@@ -1181,8 +1181,8 @@ public class GOTEventHandler implements IFuelHandler {
 				while (world.getBlock(i, j + 1, k).getMaterial().isLiquid() || world.getBlock(i, j + 1, k).getMaterial().isSolid()) {
 					j++;
 				}
-				if (j - entity.boundingBox.minY < 2.0D && world.getBlock(i, j, k).getMaterial() == Material.water && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeMossovyMarshes) {
-					List<GOTEntityMarshWraith> nearbyWraiths = world.getEntitiesWithinAABB(GOTEntityMarshWraith.class, entity.boundingBox.expand(15.0D, 15.0D, 15.0D));
+				if (j - entity.boundingBox.minY < 2.0 && world.getBlock(i, j, k).getMaterial() == Material.water && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeMossovyMarshes) {
+					List<GOTEntityMarshWraith> nearbyWraiths = world.getEntitiesWithinAABB(GOTEntityMarshWraith.class, entity.boundingBox.expand(15.0, 15.0, 15.0));
 					boolean anyNearbyWraiths = false;
 					for (GOTEntityMarshWraith wraith : nearbyWraiths) {
 						if (wraith.getAttackTarget() == entity && wraith.getDeathFadeTime() == 0) {
@@ -1195,43 +1195,43 @@ public class GOTEventHandler implements IFuelHandler {
 						int i1 = i + MathHelper.getRandomIntegerInRange(world.rand, -3, 3);
 						int k1 = k + MathHelper.getRandomIntegerInRange(world.rand, -3, 3);
 						int j1 = world.getTopSolidOrLiquidBlock(i1, k1);
-						wraith.setLocationAndAngles(i1 + 0.5D, j1, k1 + 0.5D, world.rand.nextFloat() * 360.0F, 0.0F);
-						if (wraith.getDistanceSqToEntity(entity) <= 144.0D) {
+						wraith.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, world.rand.nextFloat() * 360.0f, 0.0f);
+						if (wraith.getDistanceSqToEntity(entity) <= 144.0) {
 							world.spawnEntityInWorld(wraith);
 							wraith.setAttackTarget(entity);
 							wraith.attackTargetUUID = entity.getUniqueID();
-							world.playSoundAtEntity(wraith, "got:wraith.spawn", 1.0F, 0.7F + world.rand.nextFloat() * 0.6F);
+							world.playSoundAtEntity(wraith, "got:wraith.spawn", 1.0f, 0.7f + world.rand.nextFloat() * 0.6f);
 						}
 					}
 				}
 			}
 		}
 		if (!world.isRemote && GOT.canSpawnMobs(world) && entity.isEntityAlive() && world.isDaytime()) {
-			float f = 0.0F;
+			float f = 0.0f;
 			int bounders = 0;
 			if (GOTFaction.GHISCAR.isBadRelation(GOT.getNPCFaction(entity))) {
 				float health = entity.getMaxHealth() + entity.getTotalArmorValue();
-				f = health * 2.5F;
-				int i = (int) (health / 15.0F);
+				f = health * 2.5f;
+				int i = (int) (health / 15.0f);
 				bounders = 2 + world.rand.nextInt(i + 1);
 			} else if (entity instanceof EntityPlayer) {
 				EntityPlayer entityplayer = (EntityPlayer) entity;
 				float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.GHISCAR);
-				if (!entityplayer.capabilities.isCreativeMode && alignment < 0.0F) {
+				if (!entityplayer.capabilities.isCreativeMode && alignment < 0.0f) {
 					f = -alignment;
-					int i = (int) (f / 50.0F);
+					int i = (int) (f / 50.0f);
 					bounders = 2 + world.rand.nextInt(i + 1);
 				}
 			}
-			if (f > 0.0F) {
-				f = Math.min(f, 2000.0F);
-				int chance = (int) (2000000.0F / f);
+			if (f > 0.0f) {
+				f = Math.min(f, 2000.0f);
+				int chance = (int) (2000000.0f / f);
 				bounders = Math.min(bounders, 5);
 				int i = MathHelper.floor_double(entity.posX);
 				int k = MathHelper.floor_double(entity.posZ);
 				world.getTopSolidOrLiquidBlock(i, k);
 				if (world.rand.nextInt(chance) == 0 && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeGhiscarMeereen) {
-					List<GOTEntityGhiscarHarpy> nearbyHarpies = world.getEntitiesWithinAABB(GOTEntityGhiscarHarpy.class, entity.boundingBox.expand(12.0D, 6.0D, 12.0D));
+					List<GOTEntityGhiscarHarpy> nearbyHarpies = world.getEntitiesWithinAABB(GOTEntityGhiscarHarpy.class, entity.boundingBox.expand(12.0, 6.0, 12.0));
 					if (nearbyHarpies.isEmpty()) {
 						boolean sentMessage = false;
 						boolean playedHorn = false;
@@ -1242,8 +1242,8 @@ public class GOTEventHandler implements IFuelHandler {
 								int k1 = k - world.rand.nextInt(12) + world.rand.nextInt(12);
 								int j1 = world.getTopSolidOrLiquidBlock(i1, k1);
 								if (world.getBlock(i1, j1 - 1, k1).isSideSolid(world, i1, j1 - 1, k1, ForgeDirection.UP) && !world.getBlock(i1, j1, k1).isNormalCube() && !world.getBlock(i1, j1 + 1, k1).isNormalCube()) {
-									bounder.setLocationAndAngles(i1 + 0.5D, j1, k1 + 0.5D, 0.0F, 0.0F);
-									if (bounder.getCanSpawnHere() && entity.getDistanceToEntity(bounder) > 6.0D) {
+									bounder.setLocationAndAngles(i1 + 0.5, j1, k1 + 0.5, 0.0f, 0.0f);
+									if (bounder.getCanSpawnHere() && entity.getDistanceToEntity(bounder) > 6.0) {
 										bounder.onSpawnWithEgg(null);
 										world.spawnEntityInWorld(bounder);
 										bounder.setAttackTarget(entity);
@@ -1253,7 +1253,7 @@ public class GOTEventHandler implements IFuelHandler {
 											sentMessage = true;
 										}
 										if (!playedHorn) {
-											world.playSoundAtEntity(bounder, "got:item.horn", 2.0F, 2.0F);
+											world.playSoundAtEntity(bounder, "got:item.horn", 2.0f, 2.0f);
 											playedHorn = true;
 										}
 										break;
@@ -1295,7 +1295,7 @@ public class GOTEventHandler implements IFuelHandler {
 					flag = false;
 				} else {
 					float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.SOTHORYOS);
-					if (alignment > 50.0F) {
+					if (alignment > 50.0f) {
 						flag = false;
 					}
 				}
@@ -1392,7 +1392,7 @@ public class GOTEventHandler implements IFuelHandler {
 					burnChance += burnProtection;
 					burnChance = Math.max(burnChance, 1);
 					if (world.rand.nextInt(burnChance) == 0) {
-						boolean attacked = entity.attackEntityFrom(DamageSource.onFire, 1.0F);
+						boolean attacked = entity.attackEntityFrom(DamageSource.onFire, 1.0f);
 						if (attacked && entity instanceof EntityPlayerMP) {
 							GOTDamage.doBurnDamage((EntityPlayerMP) entity);
 						}
@@ -1506,12 +1506,12 @@ public class GOTEventHandler implements IFuelHandler {
 					boolean flag = deathPoint.getDistanceSquaredToChunkCoordinates(spawnLocation) > respawnThreshold * respawnThreshold;
 					if (flag) {
 						double randomDistance = MathHelper.getRandomIntegerInRange(worldserver.rand, GOTConfig.KWRMinRespawn, GOTConfig.KWRMaxRespawn);
-						float angle = worldserver.rand.nextFloat() * 3.1415927F * 2.0F;
+						float angle = worldserver.rand.nextFloat() * 3.1415927f * 2.0f;
 						int i = deathPoint.posX + (int) (randomDistance * MathHelper.sin(angle));
 						int k = deathPoint.posZ + (int) (randomDistance * MathHelper.cos(angle));
 						int j = GOT.getTrueTopBlock(worldserver, i, k);
-						entityplayermp.setLocationAndAngles(i + 0.5D, j, k + 0.5D, entityplayermp.rotationYaw, entityplayermp.rotationPitch);
-						entityplayermp.playerNetServerHandler.setPlayerLocation(i + 0.5D, j, k + 0.5D, entityplayermp.rotationYaw, entityplayermp.rotationPitch);
+						entityplayermp.setLocationAndAngles(i + 0.5, j, k + 0.5, entityplayermp.rotationYaw, entityplayermp.rotationPitch);
+						entityplayermp.playerNetServerHandler.setPlayerLocation(i + 0.5, j, k + 0.5, entityplayermp.rotationYaw, entityplayermp.rotationPitch);
 					}
 				}
 			}
@@ -1541,9 +1541,9 @@ public class GOTEventHandler implements IFuelHandler {
 			PotionEffect nausea = entityplayer.getActivePotionEffect(Potion.confusion);
 			if (nausea != null) {
 				int duration = nausea.getDuration();
-				float chance = duration / 4800.0F;
-				chance = Math.min(chance, 1.0F);
-				chance *= 0.4F;
+				float chance = duration / 4800.0f;
+				chance = Math.min(chance, 1.0f);
+				chance *= 0.4f;
 				String key = chatComponent.getKey();
 				Object[] formatArgs = chatComponent.getFormatArgs();
 				for (int a = 0; a < formatArgs.length; a++) {
@@ -1654,7 +1654,7 @@ public class GOTEventHandler implements IFuelHandler {
 			if (event.block instanceof GOTBlockSaplingBase) {
 				GOTBlockSaplingBase sapling = (GOTBlockSaplingBase) event.block;
 				int meta = world.getBlockMetadata(i, j, k);
-				if (rand.nextFloat() < 0.45D) {
+				if (rand.nextFloat() < 0.45) {
 					sapling.incrementGrowth(world, i, j, k, rand);
 				}
 				if (sapling == GOTBlocks.sapling4 && (meta & 0x7) == 1 && world.getBlock(i, j, k) == GOTBlocks.wood4 && world.getBlockMetadata(i, j, k) == 1) {
@@ -1715,7 +1715,7 @@ public class GOTEventHandler implements IFuelHandler {
 		GOTBlockGrapevine.hoeing = true;
 		if (world.getBlock(i, j + 1, k).isAir(world, i, j + 1, k) && (block == GOTBlocks.mudGrass || block == GOTBlocks.mud)) {
 			Block tilled = GOTBlocks.mudFarmland;
-			world.playSoundEffect(i + 0.5F, j + 0.5F, k + 0.5F, tilled.stepSound.getStepResourcePath(), (tilled.stepSound.getVolume() + 1.0F) / 2.0F, tilled.stepSound.getPitch() * 0.8F);
+			world.playSoundEffect(i + 0.5f, j + 0.5f, k + 0.5f, tilled.stepSound.getStepResourcePath(), (tilled.stepSound.getVolume() + 1.0f) / 2.0f, tilled.stepSound.getPitch() * 0.8f);
 			if (!world.isRemote) {
 				world.setBlock(i, j, k, tilled);
 			}

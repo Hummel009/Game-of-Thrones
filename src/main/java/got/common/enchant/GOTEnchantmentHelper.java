@@ -38,16 +38,16 @@ public class GOTEnchantmentHelper {
 		int enchants = 0;
 		float chance = random.nextFloat();
 		if (skilful) {
-			if (chance < 0.15F) {
+			if (chance < 0.15f) {
 				enchants = 2;
-			} else if (chance < 0.8F) {
+			} else if (chance < 0.8f) {
 				enchants = 1;
 
 			}
 
-		} else if (chance < 0.1F) {
+		} else if (chance < 0.1f) {
 			enchants = 2;
-		} else if (chance < 0.65F) {
+		} else if (chance < 0.65f) {
 			enchants = 1;
 		}
 
@@ -110,7 +110,7 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static float calcBaseMeleeDamageBoost(ItemStack itemstack) {
-		float damage = 0.0F;
+		float damage = 0.0f;
 
 		if (itemstack != null) {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
@@ -140,7 +140,7 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static float calcEntitySpecificDamage(ItemStack itemstack, EntityLivingBase entity) {
-		float damage = 0.0F;
+		float damage = 0.0f;
 
 		if (itemstack != null) {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
@@ -208,7 +208,7 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static float calcMeleeReachFactor(ItemStack itemstack) {
-		float reach = 1.0F;
+		float reach = 1.0f;
 
 		if (itemstack != null) {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
@@ -223,7 +223,7 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static float calcMeleeSpeedFactor(ItemStack itemstack) {
-		float speed = 1.0F;
+		float speed = 1.0f;
 
 		if (itemstack != null) {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
@@ -238,7 +238,7 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static float calcRangedDamageFactor(ItemStack itemstack) {
-		float damage = 1.0F;
+		float damage = 1.0f;
 
 		if (itemstack != null) {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
@@ -287,7 +287,7 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static float calcToolEfficiency(ItemStack itemstack) {
-		float speed = 1.0F;
+		float speed = 1.0f;
 
 		if (itemstack != null) {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
@@ -302,13 +302,13 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static float calcTradeValueFactor(ItemStack itemstack) {
-		float value = 1.0F;
+		float value = 1.0f;
 
 		List<GOTEnchantment> enchants = getEnchantList(itemstack);
 		for (GOTEnchantment ench : enchants) {
 			value *= ench.getValueModifier();
 			if (ench.isSkilful()) {
-				value *= 1.5F;
+				value *= 1.5f;
 			}
 		}
 
@@ -439,13 +439,13 @@ public class GOTEnchantmentHelper {
 		int weight = ench.getEnchantWeight();
 		double wd = weight;
 		if (ench.isBeneficial()) {
-			wd = Math.pow(wd, 0.3D);
+			wd = Math.pow(wd, 0.3);
 		}
 
-		wd *= 100.0D;
+		wd *= 100.0;
 
 		if (!ench.isBeneficial()) {
-			wd *= 0.15D;
+			wd *= 0.15;
 		}
 
 		weight = (int) Math.round(wd);
@@ -521,8 +521,8 @@ public class GOTEnchantmentHelper {
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentDurability) {
 					float durability = ((GOTEnchantmentDurability) ench).durabilityFactor;
-					if (durability > 1.0F) {
-						float inv = 1.0F / durability;
+					if (durability > 1.0f) {
+						float inv = 1.0f / durability;
 						if (random.nextFloat() > inv) {
 							return true;
 						}

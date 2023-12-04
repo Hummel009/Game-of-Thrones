@@ -30,6 +30,6 @@ public class GOTEnchantmentMeleeReach extends GOTEnchantment {
 
 	@Override
 	public boolean isBeneficial() {
-		return reachFactor >= 1.0F;
+		return reachFactor >= 1.0f;
 	}
 }

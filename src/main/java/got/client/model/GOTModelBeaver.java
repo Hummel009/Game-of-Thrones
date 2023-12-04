@@ -19,61 +19,61 @@ public class GOTModelBeaver extends ModelBase {
 		textureHeight = 64;
 
 		bober = new ModelRenderer(this);
-		bober.setRotationPoint(0.0F, 24.0F, 0.0F);
+		bober.setRotationPoint(0.0f, 24.0f, 0.0f);
 
 		ModelRenderer body = new ModelRenderer(this);
-		body.setRotationPoint(0.0F, -7.0f, -0.5f);
+		body.setRotationPoint(0.0f, -7.0f, -0.5f);
 		bober.addChild(body);
-		body.cubeList.add(new ModelBox(body, 0, 0, -4.0f, -4.0f, -5.5f, 8, 8, 11, 0.0F));
+		body.cubeList.add(new ModelBox(body, 0, 0, -4.0f, -4.0f, -5.5f, 8, 8, 11, 0.0f));
 
 		ModelRenderer tail = new ModelRenderer(this);
-		tail.setRotationPoint(0.0F, 2.0F, 5.5F);
+		tail.setRotationPoint(0.0f, 2.0f, 5.5f);
 		body.addChild(tail);
-		setRotationAngle(tail, -0.2618f, 0.0F, 0.0F);
+		setRotationAngle(tail, -0.2618f, 0.0f, 0.0f);
 		tail.cubeList.add(new ModelBox(tail, 0, 19, -4.0f, -1.0f, -0.5f, 8, 2, 11, -0.01f));
 
 		head = new ModelRenderer(this);
-		head.setRotationPoint(0.0F, -8.0f, -5.5f);
+		head.setRotationPoint(0.0f, -8.0f, -5.5f);
 		bober.addChild(head);
-		head.cubeList.add(new ModelBox(head, 27, 0, -3.0f, -2.0f, -5.0f, 6, 6, 5, 0.0F));
-		head.cubeList.add(new ModelBox(head, 27, 19, -2.0f, 1.0F, -6.0f, 4, 2, 1, 0.0F));
-		head.cubeList.add(new ModelBox(head, 0, 10, -1.0f, 3.0F, -6.0f, 2, 1, 0, 0.0F));
+		head.cubeList.add(new ModelBox(head, 27, 0, -3.0f, -2.0f, -5.0f, 6, 6, 5, 0.0f));
+		head.cubeList.add(new ModelBox(head, 27, 19, -2.0f, 1.0f, -6.0f, 4, 2, 1, 0.0f));
+		head.cubeList.add(new ModelBox(head, 0, 10, -1.0f, 3.0f, -6.0f, 2, 1, 0, 0.0f));
 
 		ModelRenderer ears = new ModelRenderer(this);
-		ears.setRotationPoint(0.0F, 0.0F, 0.0F);
+		ears.setRotationPoint(0.0f, 0.0f, 0.0f);
 		head.addChild(ears);
 
 		ModelRenderer ear1 = new ModelRenderer(this);
 		ear1.setRotationPoint(-2.0f, -2.0f, -3.0f);
 		ears.addChild(ear1);
-		setRotationAngle(ear1, -0.0873f, 0.2618F, 0.0F);
-		ear1.cubeList.add(new ModelBox(ear1, 6, 0, -2.0f, -1.0f, 0.0F, 2, 2, 0, 0.0F));
+		setRotationAngle(ear1, -0.0873f, 0.2618f, 0.0f);
+		ear1.cubeList.add(new ModelBox(ear1, 6, 0, -2.0f, -1.0f, 0.0f, 2, 2, 0, 0.0f));
 
 		ModelRenderer ear2 = new ModelRenderer(this);
-		ear2.setRotationPoint(2.0F, -2.0f, -3.0f);
+		ear2.setRotationPoint(2.0f, -2.0f, -3.0f);
 		ears.addChild(ear2);
-		setRotationAngle(ear2, -0.0873f, -0.2618f, 0.0F);
-		ear2.cubeList.add(new ModelBox(ear2, 6, 5, 0.0F, -1.0f, 0.0F, 2, 2, 0, 0.0F));
+		setRotationAngle(ear2, -0.0873f, -0.2618f, 0.0f);
+		ear2.cubeList.add(new ModelBox(ear2, 6, 5, 0.0f, -1.0f, 0.0f, 2, 2, 0, 0.0f));
 
 		leg1 = new ModelRenderer(this);
-		leg1.setRotationPoint(2.0F, -3.0f, 3.0F);
+		leg1.setRotationPoint(2.0f, -3.0f, 3.0f);
 		bober.addChild(leg1);
-		leg1.cubeList.add(new ModelBox(leg1, 0, 19, -1.0f, -1.0f, -1.0f, 2, 4, 2, 0.0F));
+		leg1.cubeList.add(new ModelBox(leg1, 0, 19, -1.0f, -1.0f, -1.0f, 2, 4, 2, 0.0f));
 
 		leg2 = new ModelRenderer(this);
-		leg2.setRotationPoint(-2.0f, -3.0f, 3.0F);
+		leg2.setRotationPoint(-2.0f, -3.0f, 3.0f);
 		bober.addChild(leg2);
-		leg2.cubeList.add(new ModelBox(leg2, 0, 19, -1.0f, -1.0f, -1.0f, 2, 4, 2, 0.0F));
+		leg2.cubeList.add(new ModelBox(leg2, 0, 19, -1.0f, -1.0f, -1.0f, 2, 4, 2, 0.0f));
 
 		leg3 = new ModelRenderer(this);
 		leg3.setRotationPoint(-2.0f, -3.0f, -4.0f);
 		bober.addChild(leg3);
-		leg3.cubeList.add(new ModelBox(leg3, 0, 19, -1.0f, -1.0f, -1.0f, 2, 4, 2, 0.0F));
+		leg3.cubeList.add(new ModelBox(leg3, 0, 19, -1.0f, -1.0f, -1.0f, 2, 4, 2, 0.0f));
 
 		leg4 = new ModelRenderer(this);
-		leg4.setRotationPoint(2.0F, -3.0f, -4.0f);
+		leg4.setRotationPoint(2.0f, -3.0f, -4.0f);
 		bober.addChild(leg4);
-		leg4.cubeList.add(new ModelBox(leg4, 0, 19, -1.0f, -1.0f, -1.0f, 2, 4, 2, 0.0F));
+		leg4.cubeList.add(new ModelBox(leg4, 0, 19, -1.0f, -1.0f, -1.0f, 2, 4, 2, 0.0f));
 	}
 
 	@Override

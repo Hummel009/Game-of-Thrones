@@ -55,10 +55,10 @@ public class GOTRenderBanner extends Render {
 		if (bannerFrustum.isBoundingBoxInFrustum(banner.boundingBox)) {
 			GL11.glPushMatrix();
 			GL11.glDisable(2884);
-			GL11.glTranslatef((float) d, (float) d1 + 1.5F, (float) d2);
-			GL11.glScalef(-1.0f, -1.0f, 1.0F);
-			GL11.glRotatef(180.0F - entity.rotationYaw, 0.0F, 1.0F, 0.0F);
-			GL11.glTranslatef(0.0F, 0.01F, 0.0F);
+			GL11.glTranslatef((float) d, (float) d1 + 1.5f, (float) d2);
+			GL11.glScalef(-1.0f, -1.0f, 1.0f);
+			GL11.glRotatef(180.0f - entity.rotationYaw, 0.0f, 1.0f, 0.0f);
+			GL11.glTranslatef(0.0f, 0.01f, 0.0f);
 			if (seeThroughWalls) {
 				GL11.glDisable(2929);
 				GL11.glDisable(3553);
@@ -67,13 +67,13 @@ public class GOTRenderBanner extends Render {
 				int lx = light % 65536;
 				int ly = light / 65536;
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx, ly);
-				GL11.glColor4f(0.0f, (protectColor >> 8 & 0xFF) / 255.0F, 0.0f, 1.0F);
+				GL11.glColor4f(0.0f, (protectColor >> 8 & 0xFF) / 255.0f, 0.0f, 1.0f);
 			}
 			bindTexture(getStandTexture(entity));
-			model.renderStand(0.0625F);
-			model.renderPost(0.0625F);
+			model.renderStand(0.0625f);
+			model.renderPost(0.0625f);
 			bindTexture(getBannerTexture(entity));
-			model.renderBanner(0.0625F);
+			model.renderBanner(0.0625f);
 			if (seeThroughWalls) {
 				GL11.glEnable(2929);
 				GL11.glEnable(3553);
@@ -92,12 +92,12 @@ public class GOTRenderBanner extends Render {
 			int lx = light % 65536;
 			int ly = light / 65536;
 			OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx, ly);
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			GL11.glDisable(2896);
 			AxisAlignedBB aabb = banner.createProtectionCube().offset(-RenderManager.renderPosX, -RenderManager.renderPosY, -RenderManager.renderPosZ);
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			RenderGlobal.drawOutlinedBoundingBox(aabb, protectColor);
-			GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			GL11.glEnable(2896);
 			GL11.glEnable(3553);
 			GL11.glEnable(2884);
