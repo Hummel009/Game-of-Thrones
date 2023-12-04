@@ -77,9 +77,9 @@ public class GOTEntityHummel009 extends GOTEntityNPC {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.crowbar));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 }

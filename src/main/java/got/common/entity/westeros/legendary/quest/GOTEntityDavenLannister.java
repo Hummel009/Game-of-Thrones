@@ -88,13 +88,13 @@ public class GOTEntityDavenLannister extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.westerlandsBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.westerlandsLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.westerlandsChestplate));
-		return data;
+		return data1;
 	}
 
 	@Override

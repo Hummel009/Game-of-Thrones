@@ -55,12 +55,12 @@ public class GOTEntityJogosShaman extends GOTEntityJogos implements GOTTradeable
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(1, null);
 		setCurrentItemOrArmor(2, null);
 		setCurrentItemOrArmor(3, null);
 		setCurrentItemOrArmor(4, null);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugMead));
-		return data;
+		return data1;
 	}
 }

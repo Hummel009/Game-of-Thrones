@@ -170,7 +170,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -204,6 +204,6 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.reachLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.reachChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.reachHelmet));
-		return data;
+		return data1;
 	}
 }

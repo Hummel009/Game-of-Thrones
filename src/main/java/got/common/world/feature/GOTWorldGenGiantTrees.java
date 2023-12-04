@@ -31,7 +31,9 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		if (restrictions && !world.getBlock(i, j - 1, k).canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
+		int i5 = i;
+		int k5 = k;
+		if (restrictions && !world.getBlock(i5, j - 1, k5).canSustainPlant(world, i5, j - 1, k5, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
 			return false;
 		}
 		float f = 1.0f;
@@ -51,8 +53,8 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 				return false;
 			}
 			boolean flag = true;
-			for (int i1 = i - 1; i1 <= i + 1; ++i1) {
-				for (int k1 = k - 1; k1 <= k + 1; ++k1) {
+			for (int i1 = i5 - 1; i1 <= i5 + 1; ++i1) {
+				for (int k1 = k5 - 1; k1 <= k5 + 1; ++k1) {
 					for (int j1 = j; j1 <= j + height; ++j1) {
 						for (int i2 = i1 - trunkRadiusMax; i2 <= i1 + trunkRadiusMax && flag; ++i2) {
 							for (int k2 = k1 - trunkRadiusMax; k2 <= k1 + trunkRadiusMax && flag; ++k2) {
@@ -71,10 +73,10 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 		}
 		for (int j1 = 0; j1 < height; ++j1) {
 			int width = trunkRadiusMax - (int) ((float) j1 / height * (trunkRadiusMax - trunkRadiusMin));
-			for (int i1 = i - width; i1 <= i + width; ++i1) {
-				for (int k1 = k - width; k1 <= k + width; ++k1) {
-					int i2 = i1 - i;
-					int k2 = k1 - k;
+			for (int i1 = i5 - width; i1 <= i5 + width; ++i1) {
+				for (int k1 = k5 - width; k1 <= k5 + width; ++k1) {
+					int i2 = i1 - i5;
+					int k2 = k1 - k5;
 					if (i2 * i2 + k2 * k2 >= width * width) {
 						continue;
 					}
@@ -94,16 +96,16 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 			}
 			if (j1 % xSlope == 0) {
 				if (xSlope > 0) {
-					++i;
+					++i5;
 				} else {
-					--i;
+					--i5;
 				}
 			}
 			if (j1 % zSlope == 0) {
 				if (zSlope > 0) {
-					++k;
+					++k5;
 				} else {
-					--k;
+					--k5;
 				}
 			}
 		}
@@ -117,8 +119,8 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 			int boughBaseHeight = j + MathHelper.floor_double(height * (0.9f + random.nextFloat() * 0.1f));
 			int boughHeight = 3 + random.nextInt(4);
 			for (int l = 0; l < boughLength; ++l) {
-				int i1 = i + Math.round(sin * l);
-				int k1 = k + Math.round(cos * l);
+				int i1 = i5 + Math.round(sin * l);
+				int k1 = k5 + Math.round(cos * l);
 				int j1 = boughBaseHeight + Math.round((float) l / boughLength * boughHeight);
 				int range = boughThickness - Math.round((float) l / boughLength * boughThickness * 0.5f);
 				for (int i2 = i1 - range; i2 <= i1 + range; ++i2) {
@@ -188,13 +190,14 @@ public class GOTWorldGenGiantTrees extends WorldGenAbstractTree {
 	}
 
 	public void growVines(World world, Random random, int i, int j, int k, int meta) {
-		setBlockAndNotifyAdequately(world, i, j, k, Blocks.vine, meta);
+		int j1 = j;
+		setBlockAndNotifyAdequately(world, i, j1, k, Blocks.vine, meta);
 		int length = 4 + random.nextInt(12);
-		--j;
-		while (world.isAirBlock(i, j, k) && length > 0) {
-			setBlockAndNotifyAdequately(world, i, j, k, Blocks.vine, meta);
+		--j1;
+		while (world.isAirBlock(i, j1, k) && length > 0) {
+			setBlockAndNotifyAdequately(world, i, j1, k, Blocks.vine, meta);
 			--length;
-			--j;
+			--j1;
 		}
 	}
 

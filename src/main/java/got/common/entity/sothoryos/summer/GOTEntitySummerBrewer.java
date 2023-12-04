@@ -24,9 +24,9 @@ public class GOTEntitySummerBrewer extends GOTEntitySummerTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		ItemStack drink = new ItemStack(GOTItems.mugAraq);
 		npcItemsInv.setIdleItem(drink);
-		return data;
+		return data1;
 	}
 }

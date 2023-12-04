@@ -15,10 +15,10 @@ public class GOTEntityGhiscarHarpy extends GOTEntityGhiscarLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosDaggerPoisoned));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.harpy));
-		return data;
+		return data1;
 	}
 }

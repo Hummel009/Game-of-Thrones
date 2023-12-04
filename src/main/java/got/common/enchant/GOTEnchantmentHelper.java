@@ -388,12 +388,13 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static String getFullEnchantedName(ItemStack itemstack, String name) {
+		String name1 = name;
 		List<GOTEnchantment> enchants = getEnchantList(itemstack);
 		enchants = Lists.reverse(enchants);
 		for (GOTEnchantment ench : enchants) {
-			name = StatCollector.translateToLocalFormatted("got.enchant.nameFormat", ench.getDisplayName(), name);
+			name1 = StatCollector.translateToLocalFormatted("got.enchant.nameFormat", ench.getDisplayName(), name1);
 		}
-		return name;
+		return name1;
 	}
 
 	public static NBTTagList getItemEnchantTags(ItemStack itemstack, boolean create) {
@@ -509,12 +510,13 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static boolean negateDamage(ItemStack itemstack, Random random) {
+		Random random1 = random;
 		if (itemstack != null) {
-			if (random == null) {
+			if (random1 == null) {
 				if (backupRand == null) {
 					backupRand = new Random();
 				}
-				random = backupRand;
+				random1 = backupRand;
 			}
 
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
@@ -523,7 +525,7 @@ public class GOTEnchantmentHelper {
 					float durability = ((GOTEnchantmentDurability) ench).durabilityFactor;
 					if (durability > 1.0f) {
 						float inv = 1.0f / durability;
-						if (random.nextFloat() > inv) {
+						if (random1.nextFloat() > inv) {
 							return true;
 						}
 					}

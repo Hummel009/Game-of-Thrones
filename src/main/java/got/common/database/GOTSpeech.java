@@ -34,16 +34,17 @@ public class GOTSpeech {
 	public static Random rand = new Random();
 
 	public static String formatSpeech(String speech, ICommandSender entityplayer, CharSequence location, CharSequence objective) {
+		String speech1 = speech;
 		if (entityplayer != null) {
-			speech = speech.replace("#", entityplayer.getCommandSenderName());
+			speech1 = speech1.replace("#", entityplayer.getCommandSenderName());
 		}
 		if (location != null) {
-			speech = speech.replace("@", location);
+			speech1 = speech1.replace("@", location);
 		}
 		if (objective != null) {
-			return speech.replace("$", objective);
+			return speech1.replace("$", objective);
 		}
-		return speech;
+		return speech1;
 	}
 
 	public static String getRandomSpeech(String bankName) {

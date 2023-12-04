@@ -131,18 +131,19 @@ public class GOTModelDragonAnimaton {
 	}
 
 	public static float interp(float x, float... knots) {
+		float x1 = x;
 		int nknots = knots.length;
 		int nspans = nknots - 3;
 		if (nspans < 1) {
 			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
 			return 0;
 		}
-		x = clamp(x, 0, 0.9999f) * nspans;
-		int span = (int) x;
+		x1 = clamp(x1, 0, 0.9999f) * nspans;
+		int span = (int) x1;
 		if (span >= nknots - 3) {
 			span = nknots - 3;
 		}
-		x -= span;
+		x1 -= span;
 		int knot = 0;
 		knot += span;
 		float knot0 = knots[knot];
@@ -154,22 +155,23 @@ public class GOTModelDragonAnimaton {
 		float c2 = CR10 * knot0 + CR11 * knot1 + CR12 * knot2 + CR13 * knot3;
 		float c1 = CR20 * knot0 + CR21 * knot1 + CR22 * knot2 + CR23 * knot3;
 		float c0 = CR30 * knot0 + CR31 * knot1 + CR32 * knot2 + CR33 * knot3;
-		return ((c3 * x + c2) * x + c1) * x + c0;
+		return ((c3 * x1 + c2) * x1 + c1) * x1 + c0;
 	}
 
 	public static void interp(float x, float[] result, float[]... knots) {
+		float x1 = x;
 		int nknots = knots.length;
 		int nspans = nknots - 3;
 		if (nspans < 1) {
 			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
 			return;
 		}
-		x = clamp(x, 0, 0.9999f) * nspans;
-		int span = (int) x;
+		x1 = clamp(x1, 0, 0.9999f) * nspans;
+		int span = (int) x1;
 		if (span >= nknots - 3) {
 			span = nknots - 3;
 		}
-		x -= span;
+		x1 -= span;
 		int knot = 0;
 		knot += span;
 		int dimension = result.length;
@@ -184,7 +186,7 @@ public class GOTModelDragonAnimaton {
 			float c1 = CR20 * knot0 + CR21 * knot1 + CR22 * knot2 + CR23 * knot3;
 			float c0 = CR30 * knot0 + CR31 * knot1 + CR32 * knot2 + CR33 * knot3;
 
-			result[i] = ((c3 * x + c2) * x + c1) * x + c0;
+			result[i] = ((c3 * x1 + c2) * x1 + c1) * x1 + c0;
 		}
 	}
 
@@ -227,47 +229,51 @@ public class GOTModelDragonAnimaton {
 	}
 
 	public static double normDeg(double a) {
-		a %= 360;
-		if (a >= 180) {
-			a -= 360;
+		double a1 = a;
+		a1 %= 360;
+		if (a1 >= 180) {
+			a1 -= 360;
 		}
-		if (a < -180) {
-			a += 360;
+		if (a1 < -180) {
+			a1 += 360;
 		}
-		return a;
+		return a1;
 	}
 
 	public static float normDeg(float a) {
-		a %= 360;
-		if (a >= 180) {
-			a -= 360;
+		float a1 = a;
+		a1 %= 360;
+		if (a1 >= 180) {
+			a1 -= 360;
 		}
-		if (a < -180) {
-			a += 360;
+		if (a1 < -180) {
+			a1 += 360;
 		}
-		return a;
+		return a1;
 	}
 
 	public static double normRad(double a) {
-		a %= PI_D * 2;
-		if (a >= PI_D) {
-			a -= PI_D * 2;
+		double a1 = a;
+		a1 %= PI_D * 2;
+		if (a1 >= PI_D) {
+			a1 -= PI_D * 2;
 		}
-		if (a < -PI_D) {
-			a += PI_D * 2;
+		if (a1 < -PI_D) {
+			a1 += PI_D * 2;
 		}
-		return a;
+		return a1;
 	}
 
 	public static float normRad(float a) {
-		a %= PI_F * 2;
-		if (a >= PI_F) {
-			a -= PI_F * 2;
+		float a1 = a;
+		a1 %= PI_F * 2;
+		if (a1 >= PI_F) {
+			a1 -= PI_F * 2;
 		}
-		if (a < -PI_F) {
-			a += PI_F * 2;
+		if (a1 < -PI_F) {
+			a1 += PI_F * 2;
 		}
-		return a;
+		return a1;
 	}
 
 	public static float sin(float a) {

@@ -26,7 +26,7 @@ public class GOTEntityYiTiLumberman extends GOTEntityYiTiMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_axe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		int robeColor = 8538153;
@@ -36,6 +36,6 @@ public class GOTEntityYiTiLumberman extends GOTEntityYiTiMarketTrader {
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);
 		setCurrentItemOrArmor(2, legs);
-		return data;
+		return data1;
 	}
 }

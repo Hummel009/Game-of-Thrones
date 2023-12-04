@@ -43,9 +43,9 @@ public class GOTEntityYiTiFrontierCrossbower extends GOTEntityYiTiFrontier {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironCrossbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return data1;
 	}
 }

@@ -61,12 +61,12 @@ public class GOTEntitySummerBlacksmith extends GOTEntitySummerMan implements GOT
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.blacksmithHammer));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		GOTItemRobes.setRobesColor(turban, 1643539);
 		setCurrentItemOrArmor(4, turban);
-		return data;
+		return data1;
 	}
 }

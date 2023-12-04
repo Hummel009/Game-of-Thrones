@@ -27,7 +27,7 @@ public class GOTEntityYiTiFrontier extends GOTEntityYiTiLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(8);
 		switch (i) {
 			case 0:
@@ -58,6 +58,6 @@ public class GOTEntityYiTiFrontier extends GOTEntityYiTiLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.yitiLeggingsFrontier));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.yitiChestplateFrontier));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.yitiHelmetFrontier));
-		return data;
+		return data1;
 	}
 }

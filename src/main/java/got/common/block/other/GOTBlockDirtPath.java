@@ -33,10 +33,11 @@ public class GOTBlockDirtPath extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= pathNames.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= pathNames.length) {
+			j1 = 0;
 		}
-		return pathIcons[j];
+		return pathIcons[j1];
 	}
 
 	@SideOnly(Side.CLIENT)

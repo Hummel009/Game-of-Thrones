@@ -20,7 +20,7 @@ public class GOTEntityDarkSkinScrapTrader extends GOTEntityLightSkinScrapTrader 
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weapons.length);
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		npcItemsInv.setIdleItem(null);
@@ -34,7 +34,7 @@ public class GOTEntityDarkSkinScrapTrader extends GOTEntityLightSkinScrapTrader 
 			}
 			setCurrentItemOrArmor(4, turban);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

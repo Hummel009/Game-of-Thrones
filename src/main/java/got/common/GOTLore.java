@@ -304,19 +304,20 @@ public class GOTLore {
 	}
 
 	public String formatRandom(String text, Random random) {
+		String text1 = text;
 		int lastIndexStart = -1;
 		do {
 			String formatted;
 			String unformatted;
 			block16:
 			{
-				int indexStart = text.indexOf('{', lastIndexStart + 1);
-				int indexEnd = text.indexOf('}');
+				int indexStart = text1.indexOf('{', lastIndexStart + 1);
+				int indexEnd = text1.indexOf('}');
 				lastIndexStart = indexStart;
 				if (indexStart < 0 || indexEnd <= indexStart) {
-					return text;
+					return text1;
 				}
-				unformatted = text.substring(indexStart, indexEnd + 1);
+				unformatted = text1.substring(indexStart, indexEnd + 1);
 				formatted = unformatted.substring(1, unformatted.length() - 1);
 				if (formatted.startsWith("num:")) {
 					try {
@@ -367,7 +368,7 @@ public class GOTLore {
 					}
 				}
 			}
-			text = Pattern.compile(unformatted, Pattern.LITERAL).matcher(text).replaceFirst(Matcher.quoteReplacement(formatted));
+			text1 = Pattern.compile(unformatted, Pattern.LITERAL).matcher(text1).replaceFirst(Matcher.quoteReplacement(formatted));
 		} while (true);
 	}
 

@@ -53,8 +53,8 @@ public abstract class GOTEntityLhazarTrader extends GOTEntityLhazarMan implement
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(4, createTraderTurban(rand));
-		return data;
+		return data1;
 	}
 }

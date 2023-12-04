@@ -429,19 +429,22 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 
 	@Override
 	public void setThrowableHeading(double d, double d1, double d2, float f, float f1) {
-		float f2 = MathHelper.sqrt_double(d * d + d1 * d1 + d2 * d2);
-		d /= f2;
-		d1 /= f2;
-		d2 /= f2;
-		d += rand.nextGaussian() * 0.0075 * f1;
-		d1 += rand.nextGaussian() * 0.0075 * f1;
-		d2 += rand.nextGaussian() * 0.0075 * f1;
-		motionX = d *= f;
-		motionY = d1 *= f;
-		motionZ = d2 *= f;
-		float f3 = MathHelper.sqrt_double(d * d + d2 * d2);
-		prevRotationYaw = rotationYaw = (float) (Math.atan2(d, d2) * 180.0 / 3.141592653589793);
-		prevRotationPitch = rotationPitch = (float) (Math.atan2(d1, f3) * 180.0 / 3.141592653589793);
+		double d3 = d;
+		double d11 = d1;
+		double d21 = d2;
+		float f2 = MathHelper.sqrt_double(d3 * d3 + d11 * d11 + d21 * d21);
+		d3 /= f2;
+		d11 /= f2;
+		d21 /= f2;
+		d3 += rand.nextGaussian() * 0.0075 * f1;
+		d11 += rand.nextGaussian() * 0.0075 * f1;
+		d21 += rand.nextGaussian() * 0.0075 * f1;
+		motionX = d3 *= f;
+		motionY = d11 *= f;
+		motionZ = d21 *= f;
+		float f3 = MathHelper.sqrt_double(d3 * d3 + d21 * d21);
+		prevRotationYaw = rotationYaw = (float) (Math.atan2(d3, d21) * 180.0 / 3.141592653589793);
+		prevRotationPitch = rotationPitch = (float) (Math.atan2(d11, f3) * 180.0 / 3.141592653589793);
 		ticksInGround = 0;
 	}
 

@@ -20,40 +20,44 @@ public class GOTItemDoubleTorch extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
-		Block block = world.getBlock(i, j, k);
+		int side1 = side;
+		int j1 = j;
+		int k1 = k;
+		int i1 = i;
+		Block block = world.getBlock(i1, j1, k1);
 		if (block == Blocks.snow_layer) {
-			side = 1;
-		} else if (!block.isReplaceable(world, i, j, k)) {
-			if (side == 0) {
-				--j;
+			side1 = 1;
+		} else if (!block.isReplaceable(world, i1, j1, k1)) {
+			if (side1 == 0) {
+				--j1;
 			}
-			if (side == 1) {
-				++j;
+			if (side1 == 1) {
+				++j1;
 			}
-			if (side == 2) {
-				--k;
+			if (side1 == 2) {
+				--k1;
 			}
-			if (side == 3) {
-				++k;
+			if (side1 == 3) {
+				++k1;
 			}
-			if (side == 4) {
-				--i;
+			if (side1 == 4) {
+				--i1;
 			}
-			if (side == 5) {
-				++i;
+			if (side1 == 5) {
+				++i1;
 			}
 		}
-		if (!entityplayer.canPlayerEdit(i, j, k, side, itemstack) || !entityplayer.canPlayerEdit(i, j + 1, k, side, itemstack) || !world.canPlaceEntityOnSide(block, i, j, k, false, side, null, itemstack) || !world.canPlaceEntityOnSide(block, i, j + 1, k, false, side, null, itemstack)) {
+		if (!entityplayer.canPlayerEdit(i1, j1, k1, side1, itemstack) || !entityplayer.canPlayerEdit(i1, j1 + 1, k1, side1, itemstack) || !world.canPlaceEntityOnSide(block, i1, j1, k1, false, side1, null, itemstack) || !world.canPlaceEntityOnSide(block, i1, j1 + 1, k1, false, side1, null, itemstack)) {
 			return false;
 		}
-		if (!GOTBlockDoubleTorch.canPlaceTorchOn(world, i, j - 1, k)) {
+		if (!GOTBlockDoubleTorch.canPlaceTorchOn(world, i1, j1 - 1, k1)) {
 			return false;
 		}
 		if (!world.isRemote) {
-			world.setBlock(i, j, k, torchBlock, 0, 2);
-			world.setBlock(i, j + 1, k, torchBlock, 1, 2);
+			world.setBlock(i1, j1, k1, torchBlock, 0, 2);
+			world.setBlock(i1, j1 + 1, k1, torchBlock, 1, 2);
 			Block.SoundType stepSound = torchBlock.stepSound;
-			world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, stepSound.func_150496_b(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);
+			world.playSoundEffect(i1 + 0.5, j1 + 0.5, k1 + 0.5, stepSound.func_150496_b(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);
 			--itemstack.stackSize;
 		}
 		return true;

@@ -25,9 +25,9 @@ public class GOTEntitySummerMason extends GOTEntitySummerTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzePickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(GOTBlocks.brick1, 1, 15));
-		return data;
+		return data1;
 	}
 }

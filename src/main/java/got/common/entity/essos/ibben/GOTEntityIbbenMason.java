@@ -25,9 +25,9 @@ public class GOTEntityIbbenMason extends GOTEntityIbbenMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(GOTBlocks.brick1, 1, 4));
-		return data;
+		return data1;
 	}
 }

@@ -58,9 +58,9 @@ public class GOTEntityHillmanWarlord extends GOTEntityHillmanWarrior implements 
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.furHelmet));
-		return data;
+		return data1;
 	}
 
 	@Override

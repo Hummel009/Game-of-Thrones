@@ -547,12 +547,12 @@ public class GOTPlayerData {
 	}
 
 	public boolean anyMatchingFellowshipNames(String name, boolean client) {
-		name = StringUtils.strip(name).toLowerCase(Locale.ROOT);
+		String name1 = StringUtils.strip(name).toLowerCase(Locale.ROOT);
 		if (client) {
 			for (GOTFellowshipClient fs : fellowshipsClient) {
 				String otherName = fs.getName();
 				otherName = StringUtils.strip(otherName).toLowerCase(Locale.ROOT);
-				if (name.equals(otherName)) {
+				if (name1.equals(otherName)) {
 					return true;
 				}
 			}
@@ -562,7 +562,7 @@ public class GOTPlayerData {
 				if (fs != null) {
 					String otherName = fs.getName();
 					otherName = StringUtils.strip(otherName).toLowerCase(Locale.ROOT);
-					if (name.equals(otherName)) {
+					if (name1.equals(otherName)) {
 						return true;
 					}
 				}
@@ -1253,8 +1253,8 @@ public class GOTPlayerData {
 	public void setPledgeBreakCooldown(int i) {
 		int preCD = pledgeBreakCooldown;
 		GOTFaction preBroken = brokenPledgeFaction;
-		i = Math.max(0, i);
-		pledgeBreakCooldown = i;
+		int i1 = Math.max(0, i);
+		pledgeBreakCooldown = i1;
 		boolean bigChange = (pledgeBreakCooldown == 0 || preCD == 0) && pledgeBreakCooldown != preCD;
 		if (pledgeBreakCooldown > pledgeBreakCooldownStart) {
 			setPledgeBreakCooldownStart(pledgeBreakCooldown);
@@ -1457,11 +1457,11 @@ public class GOTPlayerData {
 	}
 
 	public void givePureConquestBonus(EntityPlayer entityplayer, GOTFaction bonusFac, GOTFaction enemyFac, float conq, String title, double posX, double posY, double posZ) {
-		conq = GOTConquestGrid.onConquestKill(entityplayer, bonusFac, enemyFac, conq);
-		getFactionData(bonusFac).addConquest(Math.abs(conq));
-		if (conq != 0.0f) {
+		float conq1 = GOTConquestGrid.onConquestKill(entityplayer, bonusFac, enemyFac, conq);
+		getFactionData(bonusFac).addConquest(Math.abs(conq1));
+		if (conq1 != 0.0f) {
 			GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(0.0f, title);
-			IMessage packet = new GOTPacketAlignmentBonus(bonusFac, getAlignment(bonusFac), new GOTAlignmentBonusMap(), conq, posX, posY, posZ, source);
+			IMessage packet = new GOTPacketAlignmentBonus(bonusFac, getAlignment(bonusFac), new GOTAlignmentBonusMap(), conq1, posX, posY, posZ, source);
 			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
@@ -2883,8 +2883,8 @@ public class GOTPlayerData {
 
 	public void setTimeSinceFT(int i, boolean forceUpdate) {
 		int preTick = ftSinceTick;
-		i = Math.max(0, i);
-		ftSinceTick = i;
+		int i1 = Math.max(0, i);
+		ftSinceTick = i1;
 		boolean bigChange = (ftSinceTick == 0 || preTick == 0) && ftSinceTick != preTick || preTick < 0;
 		if (bigChange || isTimerAutosaveTick() || forceUpdate) {
 			markDirty();

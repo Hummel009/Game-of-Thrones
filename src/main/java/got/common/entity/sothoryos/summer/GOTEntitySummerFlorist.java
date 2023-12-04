@@ -24,8 +24,8 @@ public class GOTEntitySummerFlorist extends GOTEntitySummerTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.red_flower));
-		return data;
+		return data1;
 	}
 }

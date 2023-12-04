@@ -11,18 +11,21 @@ public class GOTVec3d {
 	public double zCoord;
 
 	public GOTVec3d(double x, double y, double z) {
-		if (x == -0.0) {
-			x = 0.0;
+		double x1 = x;
+		double y1 = y;
+		double z1 = z;
+		if (x1 == -0.0) {
+			x1 = 0.0;
 		}
-		if (y == -0.0) {
-			y = 0.0;
+		if (y1 == -0.0) {
+			y1 = 0.0;
 		}
-		if (z == -0.0) {
-			z = 0.0;
+		if (z1 == -0.0) {
+			z1 = 0.0;
 		}
-		xCoord = x;
-		yCoord = y;
-		zCoord = z;
+		xCoord = x1;
+		yCoord = y1;
+		zCoord = z1;
 	}
 
 	public static GOTVec3d fromPitchYaw(float p_189986_0_, float p_189986_1_) {

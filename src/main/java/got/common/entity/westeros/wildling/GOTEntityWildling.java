@@ -148,7 +148,7 @@ public class GOTEntityWildling extends GOTEntityHumanBase implements IPickpocket
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weapons.length);
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		if (rand.nextInt(8) == 0) {
@@ -161,7 +161,7 @@ public class GOTEntityWildling extends GOTEntityHumanBase implements IPickpocket
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.furChestplate));
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return data1;
 	}
 
 	@Override

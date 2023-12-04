@@ -75,10 +75,10 @@ public class GOTEntityYiTiFireThrower extends GOTEntityYiTiSoldier {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.yitiDagger));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.firePot));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return data1;
 	}
 }

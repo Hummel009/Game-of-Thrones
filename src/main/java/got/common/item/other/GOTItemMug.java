@@ -213,25 +213,28 @@ public class GOTItemMug extends Item {
 	}
 
 	public static boolean tryPlaceMug(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side) {
+		int i1 = i;
+		int j1 = j;
+		int k1 = k;
 		Vessel vessel = getVessel(itemstack);
 		if (vessel == null || !vessel.canPlace) {
 			return false;
 		}
 		Block mugBlock = vessel.getBlock();
-		Block block = world.getBlock(i += Facing.offsetsXForSide[side], j += Facing.offsetsYForSide[side], k += Facing.offsetsZForSide[side]);
-		if (block != null && !block.isReplaceable(world, i, j, k) || block != null && block.getMaterial() == Material.water) {
+		Block block = world.getBlock(i1 += Facing.offsetsXForSide[side], j1 += Facing.offsetsYForSide[side], k1 += Facing.offsetsZForSide[side]);
+		if (block != null && !block.isReplaceable(world, i1, j1, k1) || block != null && block.getMaterial() == Material.water) {
 			return false;
 		}
-		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack)) {
-			if (!mugBlock.canPlaceBlockAt(world, i, j, k)) {
+		if (entityplayer.canPlayerEdit(i1, j1, k1, side, itemstack)) {
+			if (!mugBlock.canPlaceBlockAt(world, i1, j1, k1)) {
 				return false;
 			}
 			int l = MathHelper.floor_double(entityplayer.rotationYaw * 4.0f / 360.0f + 0.5) & 3;
-			world.setBlock(i, j, k, mugBlock, l, 3);
+			world.setBlock(i1, j1, k1, mugBlock, l, 3);
 			ItemStack mugFill = itemstack.copy();
 			mugFill.stackSize = 1;
-			GOTBlockMug.setMugItem(world, i, j, k, mugFill, vessel);
-			world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, mugBlock.stepSound.func_150496_b(), (mugBlock.stepSound.getVolume() + 1.0f) / 2.0f, mugBlock.stepSound.getPitch() * 0.8f);
+			GOTBlockMug.setMugItem(world, i1, j1, k1, mugFill, vessel);
+			world.playSoundEffect(i1 + 0.5, j1 + 0.5, k1 + 0.5, mugBlock.stepSound.func_150496_b(), (mugBlock.stepSound.getVolume() + 1.0f) / 2.0f, mugBlock.stepSound.getPitch() * 0.8f);
 			--itemstack.stackSize;
 			return true;
 		}

@@ -34,10 +34,11 @@ public abstract class GOTBlockPlanksBase extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= plankTypes.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= plankTypes.length) {
+			j1 = 0;
 		}
-		return plankIcons[j];
+		return plankIcons[j1];
 	}
 
 	@SideOnly(Side.CLIENT)

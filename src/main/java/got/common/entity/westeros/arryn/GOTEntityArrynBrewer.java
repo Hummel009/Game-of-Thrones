@@ -24,8 +24,8 @@ public class GOTEntityArrynBrewer extends GOTEntityArrynMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mugAle));
-		return data;
+		return data1;
 	}
 }

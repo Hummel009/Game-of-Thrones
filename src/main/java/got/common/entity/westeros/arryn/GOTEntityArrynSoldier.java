@@ -45,7 +45,7 @@ public class GOTEntityArrynSoldier extends GOTEntityArrynLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -79,6 +79,6 @@ public class GOTEntityArrynSoldier extends GOTEntityArrynLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.arrynLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.arrynChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.arrynHelmet));
-		return data;
+		return data1;
 	}
 }

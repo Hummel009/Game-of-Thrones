@@ -33,10 +33,11 @@ public class GOTBlockThatch extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= thatchNames.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= thatchNames.length) {
+			j1 = 0;
 		}
-		return thatchIcons[j];
+		return thatchIcons[j1];
 	}
 
 	@SideOnly(Side.CLIENT)

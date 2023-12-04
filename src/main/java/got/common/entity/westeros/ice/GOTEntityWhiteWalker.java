@@ -210,7 +210,7 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weapons.length);
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -219,6 +219,6 @@ public class GOTEntityWhiteWalker extends GOTEntityNPC {
 			setCurrentItemOrArmor(2, new ItemStack(GOTItems.whiteWalkersLeggings));
 			setCurrentItemOrArmor(3, new ItemStack(GOTItems.whiteWalkersChestplate));
 		}
-		return data;
+		return data1;
 	}
 }

@@ -437,10 +437,11 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public void startInvasion(EntityPlayer announcePlayer, int size) {
-		if (size < 0) {
-			size = MathHelper.getRandomIntegerInRange(rand, 30, 70);
+		int size1 = size;
+		if (size1 < 0) {
+			size1 = MathHelper.getRandomIntegerInRange(rand, 30, 70);
 		}
-		invasionRemaining = invasionSize = size;
+		invasionRemaining = invasionSize = size1;
 		playHorn();
 		double announceRange = INVASION_FOLLOW_RANGE * 2.0;
 		List<EntityPlayer> nearbyPlayers = worldObj.getEntitiesWithinAABB(EntityPlayer.class, boundingBox.expand(announceRange, announceRange, announceRange));

@@ -18,13 +18,14 @@ public class GOTBiomeVariantList {
 	}
 
 	public GOTBiomeVariant get(float index) {
-		if (index < 0.0f) {
-			index = 0.0f;
+		float index1 = index;
+		if (index1 < 0.0f) {
+			index1 = 0.0f;
 		}
-		if (index >= 1.0f) {
-			index = 0.9999f;
+		if (index1 >= 1.0f) {
+			index1 = 0.9999f;
 		}
-		float f = index * totalWeight;
+		float f = index1 * totalWeight;
 		for (VariantBucket bucket : variantList) {
 			if (f < bucket.min || f >= bucket.max) {
 				continue;

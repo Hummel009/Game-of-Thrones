@@ -151,8 +151,9 @@ public class GOTChunkProvider implements IChunkProvider {
 	}
 
 	public double[] initializeHeightNoise(double[] noise, int i, int j, int k, int xSize, int ySize, int zSize, ChunkFlags chunkFlags) {
-		if (noise == null) {
-			noise = new double[xSize * ySize * zSize];
+		double[] noise4 = noise;
+		if (noise4 == null) {
+			noise4 = new double[xSize * ySize * zSize];
 		}
 		double xzNoiseScale = 400.0;
 		int noiseCentralIndex = (xSize - 1) / 2 + biomeSampleRadius + ((zSize - 1) / 2 + biomeSampleRadius) * (xSize + biomeSampleWidth);
@@ -296,12 +297,12 @@ public class GOTChunkProvider implements IChunkProvider {
 						double var40 = (j1 - (ySize - 4)) / 3.0f;
 						totalNoise = totalNoise * (1.0 - var40) + -10.0 * var40;
 					}
-					noise[noiseIndex] = totalNoise;
+					noise4[noiseIndex] = totalNoise;
 					++noiseIndex;
 				}
 			}
 		}
-		return noise;
+		return noise4;
 	}
 
 	@Override

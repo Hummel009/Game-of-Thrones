@@ -79,13 +79,13 @@ public class GOTEntityAreoHotah extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.areoHotahAxe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.dorneBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dorneLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.dorneChestplate));
-		return data;
+		return data1;
 	}
 
 	@Override

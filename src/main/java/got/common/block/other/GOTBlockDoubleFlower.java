@@ -98,16 +98,17 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon func_149888_a(boolean isTop, int i) {
+		int i1 = i;
 		if (isTop) {
-			if (i >= doublePlantTopIcons.length) {
-				i = 0;
+			if (i1 >= doublePlantTopIcons.length) {
+				i1 = 0;
 			}
-			return doublePlantTopIcons[i];
+			return doublePlantTopIcons[i1];
 		}
-		if (i >= doublePlantBottomIcons.length) {
-			i = 0;
+		if (i1 >= doublePlantBottomIcons.length) {
+			i1 = 0;
 		}
-		return doublePlantBottomIcons[i];
+		return doublePlantBottomIcons[i1];
 	}
 
 	@Override

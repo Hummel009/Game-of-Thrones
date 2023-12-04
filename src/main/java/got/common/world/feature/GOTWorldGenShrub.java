@@ -25,17 +25,18 @@ public class GOTWorldGenShrub extends WorldGenTrees {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		--j;
+		int j3 = j;
+		--j3;
 		Block block;
-		while (((block = world.getBlock(i, j, k)).isLeaves(world, i, j, k) || block.isAir(world, i, j, k)) && j > 0) {
-			--j;
+		while (((block = world.getBlock(i, j3, k)).isLeaves(world, i, j3, k) || block.isAir(world, i, j3, k)) && j3 > 0) {
+			--j3;
 		}
-		Block below = world.getBlock(i, j, k);
-		if (below.canSustainPlant(world, i, j, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
-			j++;
-			setBlockAndNotifyAdequately(world, i, j, k, woodBlock, woodMeta);
-			for (int j1 = j; j1 <= j + 2; ++j1) {
-				int j2 = j1 - j;
+		Block below = world.getBlock(i, j3, k);
+		if (below.canSustainPlant(world, i, j3, k, ForgeDirection.UP, (IPlantable) Blocks.sapling)) {
+			j3++;
+			setBlockAndNotifyAdequately(world, i, j3, k, woodBlock, woodMeta);
+			for (int j1 = j3; j1 <= j3 + 2; ++j1) {
+				int j2 = j1 - j3;
 				int range = 2 - j2;
 				for (int i1 = i - range; i1 <= i + range; ++i1) {
 					for (int k1 = k - range; k1 <= k + range; ++k1) {

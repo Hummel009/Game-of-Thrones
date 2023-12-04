@@ -52,7 +52,7 @@ public class GOTEntityWesterlandsSoldier extends GOTEntityWesterlandsLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -86,6 +86,6 @@ public class GOTEntityWesterlandsSoldier extends GOTEntityWesterlandsLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.westerlandsLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.westerlandsChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.westerlandsHelmet));
-		return data;
+		return data1;
 	}
 }

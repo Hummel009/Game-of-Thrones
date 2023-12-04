@@ -30,11 +30,11 @@ public class GOTEntityQarthWarlock extends GOTEntityQarthTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(4, null);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.skullStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

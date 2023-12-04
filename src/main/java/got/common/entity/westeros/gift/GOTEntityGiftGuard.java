@@ -68,7 +68,7 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(militiaWeapons.length);
 		npcItemsInv.setMeleeWeapon(militiaWeapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -78,7 +78,7 @@ public class GOTEntityGiftGuard extends GOTEntityGiftMan {
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.giftHelmet));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		npcItemsInv.setIdleItemMounted(npcItemsInv.getMeleeWeaponMounted());
-		return data;
+		return data1;
 	}
 
 	@Override

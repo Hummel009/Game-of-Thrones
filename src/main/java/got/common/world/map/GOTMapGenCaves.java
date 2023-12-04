@@ -107,57 +107,64 @@ public class GOTMapGenCaves extends MapGenBase {
 	}
 
 	public void generateCaveNode(long seed, int par3, int par4, Block[] blockArray, double par6, double par8, double par10, float par12, float angle, float par14, int par15, int par16, double par17, boolean cutSurface) {
+		int par161 = par16;
+		double par61 = par6;
+		double par81 = par8;
+		double par101 = par10;
+		float par141 = par14;
+		float angle1 = angle;
+		int par151 = par15;
 		Random caveRand = new Random(seed);
-		if (par16 <= 0) {
+		if (par161 <= 0) {
 			int var26 = range * 16 - 16;
-			par16 = var26 - caveRand.nextInt(var26 / 4);
+			par161 = var26 - caveRand.nextInt(var26 / 4);
 		}
 		boolean var54 = false;
-		if (par15 == -1) {
-			par15 = par16 / 2;
+		if (par151 == -1) {
+			par151 = par161 / 2;
 			var54 = true;
 		}
-		int var27 = caveRand.nextInt(par16 / 2) + par16 / 4;
+		int var27 = caveRand.nextInt(par161 / 2) + par161 / 4;
 		boolean var28 = caveRand.nextInt(6) == 0;
 		float var24 = 0.0f;
 		float var23 = 0.0f;
 		double var21 = par4 * 16 + 8;
 		double var19 = par3 * 16 + 8;
-		while (par15 < par16) {
-			double var29 = 1.5 + MathHelper.sin(par15 * 3.1415927f / par16) * par12 * 1.0f;
-			float var33 = MathHelper.cos(par14);
-			float var34 = MathHelper.sin(par14);
-			par6 += MathHelper.cos(angle) * var33;
-			par8 += var34;
-			par10 += MathHelper.sin(angle) * var33;
-			par14 *= var28 ? 0.92f : 0.7f;
-			par14 += var24 * 0.1f;
-			angle += var23 * 0.1f;
+		while (par151 < par161) {
+			double var29 = 1.5 + MathHelper.sin(par151 * 3.1415927f / par161) * par12 * 1.0f;
+			float var33 = MathHelper.cos(par141);
+			float var34 = MathHelper.sin(par141);
+			par61 += MathHelper.cos(angle1) * var33;
+			par81 += var34;
+			par101 += MathHelper.sin(angle1) * var33;
+			par141 *= var28 ? 0.92f : 0.7f;
+			par141 += var24 * 0.1f;
+			angle1 += var23 * 0.1f;
 			var24 *= 0.9f;
 			var23 *= 0.75f;
 			var24 += (caveRand.nextFloat() - caveRand.nextFloat()) * caveRand.nextFloat() * 2.0f;
 			var23 += (caveRand.nextFloat() - caveRand.nextFloat()) * caveRand.nextFloat() * 4.0f;
-			if (!var54 && par15 == var27 && par12 > 1.0f && par16 > 0) {
-				generateCaveNode(caveRand.nextLong(), par3, par4, blockArray, par6, par8, par10, caveRand.nextFloat() * 0.5f + 0.5f, angle - 1.5707964f, par14 / 3.0f, par15, par16, 1.0, cutSurface);
-				generateCaveNode(caveRand.nextLong(), par3, par4, blockArray, par6, par8, par10, caveRand.nextFloat() * 0.5f + 0.5f, angle + 1.5707964f, par14 / 3.0f, par15, par16, 1.0, cutSurface);
+			if (!var54 && par151 == var27 && par12 > 1.0f && par161 > 0) {
+				generateCaveNode(caveRand.nextLong(), par3, par4, blockArray, par61, par81, par101, caveRand.nextFloat() * 0.5f + 0.5f, angle1 - 1.5707964f, par141 / 3.0f, par151, par161, 1.0, cutSurface);
+				generateCaveNode(caveRand.nextLong(), par3, par4, blockArray, par61, par81, par101, caveRand.nextFloat() * 0.5f + 0.5f, angle1 + 1.5707964f, par141 / 3.0f, par151, par161, 1.0, cutSurface);
 				return;
 			}
 			if (var54 || caveRand.nextInt(4) != 0) {
-				double var35 = par6 - var19;
-				double var37 = par10 - var21;
-				double var39 = par16 - par15;
+				double var35 = par61 - var19;
+				double var37 = par101 - var21;
+				double var39 = par161 - par151;
 				double var41 = par12 + 2.0f + 16.0f;
 				if (var35 * var35 + var37 * var37 - var39 * var39 > var41 * var41) {
 					return;
 				}
-				if (par6 >= var19 - 16.0 - var29 * 2.0 && par10 >= var21 - 16.0 - var29 * 2.0 && par6 <= var19 + 16.0 + var29 * 2.0 && par10 <= var21 + 16.0 + var29 * 2.0) {
-					int var55 = MathHelper.floor_double(par6 - var29) - par3 * 16 - 1;
-					int var36 = MathHelper.floor_double(par6 + var29) - par3 * 16 + 1;
+				if (par61 >= var19 - 16.0 - var29 * 2.0 && par101 >= var21 - 16.0 - var29 * 2.0 && par61 <= var19 + 16.0 + var29 * 2.0 && par101 <= var21 + 16.0 + var29 * 2.0) {
+					int var55 = MathHelper.floor_double(par61 - var29) - par3 * 16 - 1;
+					int var36 = MathHelper.floor_double(par61 + var29) - par3 * 16 + 1;
 					double var31 = var29 * par17;
-					int var57 = MathHelper.floor_double(par8 - var31) - 1;
-					int var38 = MathHelper.floor_double(par8 + var31) + 1;
-					int var56 = MathHelper.floor_double(par10 - var29) - par4 * 16 - 1;
-					int var40 = MathHelper.floor_double(par10 + var29) - par4 * 16 + 1;
+					int var57 = MathHelper.floor_double(par81 - var31) - 1;
+					int var38 = MathHelper.floor_double(par81 + var31) + 1;
+					int var56 = MathHelper.floor_double(par101 - var29) - par4 * 16 - 1;
+					int var40 = MathHelper.floor_double(par101 + var29) - par4 * 16 + 1;
 					var55 = Math.max(var55, 0);
 					var36 = Math.min(var36, 16);
 					var57 = Math.max(var57, 1);
@@ -186,16 +193,16 @@ public class GOTMapGenCaves extends MapGenBase {
 					}
 					if (!anyWater) {
 						for (var42 = var55; var42 < var36; ++var42) {
-							double var59 = (var42 + par3 * 16 + 0.5 - par6) / var29;
+							double var59 = (var42 + par3 * 16 + 0.5 - par61) / var29;
 							for (var45 = var56; var45 < var40; ++var45) {
-								double var46 = (var45 + par4 * 16 + 0.5 - par10) / var29;
+								double var46 = (var45 + par4 * 16 + 0.5 - par101) / var29;
 								int xzIndex = var42 * 16 + var45;
 								int blockIndex = xzIndex * 256 + var57 + 1;
 								if (var59 * var59 + var46 * var46 >= 1.0) {
 									continue;
 								}
 								for (int var50 = var57; var50 <= var38 - 1; ++var50) {
-									double var51 = (var50 + 0.5 - par8) / var31;
+									double var51 = (var50 + 0.5 - par81) / var31;
 									if (var51 > -0.7 && var59 * var59 + var51 * var51 + var46 * var46 < 1.0) {
 										GOTBiome biome = (GOTBiome) worldObj.getBiomeGenForCoords(var42 + par3 * 16, var45 + par4 * 16);
 										digBlock(blockArray, blockIndex, xzIndex, var42, var50, var45, par3, par4, biome, cutSurface);
@@ -210,7 +217,7 @@ public class GOTMapGenCaves extends MapGenBase {
 					}
 				}
 			}
-			++par15;
+			++par151;
 		}
 	}
 

@@ -35,10 +35,11 @@ public class GOTTileEntityPlate extends TileEntity {
 	}
 
 	public void setFoodItem(ItemStack item) {
-		if (item != null && item.stackSize <= 0) {
-			item = null;
+		ItemStack item1 = item;
+		if (item1 != null && item1.stackSize <= 0) {
+			item1 = null;
 		}
-		foodItem = item;
+		foodItem = item1;
 		if (worldObj != null) {
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}

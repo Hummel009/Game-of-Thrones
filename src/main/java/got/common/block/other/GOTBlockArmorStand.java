@@ -102,12 +102,13 @@ public class GOTBlockArmorStand extends Block {
 
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
-		if (!hasTileEntity(world.getBlockMetadata(i, j, k))) {
-			--j;
+		int j1 = j;
+		if (!hasTileEntity(world.getBlockMetadata(i, j1, k))) {
+			--j1;
 		}
-		if (hasTileEntity(world.getBlockMetadata(i, j, k))) {
+		if (hasTileEntity(world.getBlockMetadata(i, j1, k))) {
 			if (!world.isRemote) {
-				entityplayer.openGui(GOT.instance, GOTGuiID.ARMOR_STAND.ordinal(), world, i, j, k);
+				entityplayer.openGui(GOT.instance, GOTGuiID.ARMOR_STAND.ordinal(), world, i, j1, k);
 			}
 			return true;
 		}

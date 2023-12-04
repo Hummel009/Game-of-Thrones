@@ -81,8 +81,9 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 	}
 
 	public static String validateCustomName(String name) {
-		if (!StringUtils.isBlank(name = StringUtils.trim(name))) {
-			return name;
+		String name1 = name;
+		if (!StringUtils.isBlank(name1 = StringUtils.trim(name1))) {
+			return name1;
 		}
 		return null;
 	}

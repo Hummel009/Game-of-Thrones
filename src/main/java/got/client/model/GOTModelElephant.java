@@ -297,15 +297,16 @@ public class GOTModelElephant extends ModelBase {
 	}
 
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, byte tusks, boolean sitting, boolean tail) {
+		float f31 = f3;
 		float RLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float LLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;
-		if (f3 > 20.0f) {
-			f3 = 20.0f;
+		if (f31 > 20.0f) {
+			f31 = 20.0f;
 		}
-		if (f3 < -20.0f) {
-			f3 = -20.0f;
+		if (f31 < -20.0f) {
+			f31 = -20.0f;
 		}
-		float HeadYRot = f3 / 57.29578f;
+		float HeadYRot = f31 / 57.29578f;
 		float f10 = 0.0f;
 		if (sitting) {
 			f10 = 8.0f;

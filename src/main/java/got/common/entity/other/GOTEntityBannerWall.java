@@ -163,11 +163,12 @@ public class GOTEntityBannerWall extends EntityHanging {
 
 	@Override
 	public void setDirection(int dir) {
-		if (dir < 0 || dir >= Direction.directions.length) {
-			dir = 0;
+		int dir1 = dir;
+		if (dir1 < 0 || dir1 >= Direction.directions.length) {
+			dir1 = 0;
 		}
-		hangingDirection = dir;
-		prevRotationYaw = rotationYaw = Direction.rotateOpposite[dir] * 90.0f;
+		hangingDirection = dir1;
+		prevRotationYaw = rotationYaw = Direction.rotateOpposite[dir1] * 90.0f;
 		float width = 1.0f;
 		float thickness = 0.0625f;
 		float edge;
@@ -176,7 +177,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 		float zEdge;
 		float xSize;
 		float zSize;
-		if (dir == 0 || dir == 2) {
+		if (dir1 == 0 || dir1 == 2) {
 			xSize = width;
 			zSize = thickness;
 			xEdge = thickness + edge;
@@ -191,7 +192,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 		float f1 = field_146064_c + 0.5f;
 		float f2 = field_146062_d + 0.5f;
 		float f3 = 0.5f + thickness / 2.0f;
-		setPosition(f += Direction.offsetX[dir] * f3, f1, f2 += Direction.offsetZ[dir] * f3);
+		setPosition(f += Direction.offsetX[dir1] * f3, f1, f2 += Direction.offsetZ[dir1] * f3);
 		prevPosX = posX;
 		prevPosY = posY;
 		prevPosZ = posZ;

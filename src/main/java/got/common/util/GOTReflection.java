@@ -279,9 +279,10 @@ public class GOTReflection {
 	}
 
 	public static <T, E> void setFinalField(Class<? super T> classToAccess, T instance, E value, String... fieldNames) throws Exception {
+		String[] fieldNames1 = fieldNames;
 		try {
-			fieldNames = ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), fieldNames);
-			Field f = ReflectionHelper.findField(classToAccess, fieldNames);
+			fieldNames1 = ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), fieldNames1);
+			Field f = ReflectionHelper.findField(classToAccess, fieldNames1);
 			setFinalField(classToAccess, instance, value, f);
 		} catch (Exception e) {
 			GOTLog.logger.log(Level.ERROR, "Unable to access static final field");

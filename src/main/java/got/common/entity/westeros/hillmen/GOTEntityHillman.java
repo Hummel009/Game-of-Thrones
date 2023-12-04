@@ -144,7 +144,7 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(9);
 		switch (i) {
 			case 0:
@@ -174,7 +174,7 @@ public class GOTEntityHillman extends GOTEntityHumanBase implements IPickpocketa
 				break;
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

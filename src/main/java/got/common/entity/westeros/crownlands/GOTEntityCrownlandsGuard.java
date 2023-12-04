@@ -28,7 +28,7 @@ public class GOTEntityCrownlandsGuard extends GOTEntityCrownlandsLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -36,6 +36,6 @@ public class GOTEntityCrownlandsGuard extends GOTEntityCrownlandsLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.crownlandsLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.crownlandsChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.crownlandsHelmet));
-		return data;
+		return data1;
 	}
 }

@@ -456,12 +456,12 @@ public class GOTEntityBanner extends Entity {
 	}
 
 	public void resizeWhitelist(int length) {
-		length = MathHelper.clamp_int(length, WHITELIST_MIN, WHITELIST_MAX);
-		if (length == allowedPlayers.length) {
+		int length1 = MathHelper.clamp_int(length, WHITELIST_MIN, WHITELIST_MAX);
+		if (length1 == allowedPlayers.length) {
 			return;
 		}
-		GOTBannerWhitelistEntry[] resized = new GOTBannerWhitelistEntry[length];
-		for (int i = 0; i < length; ++i) {
+		GOTBannerWhitelistEntry[] resized = new GOTBannerWhitelistEntry[length1];
+		for (int i = 0; i < length1; ++i) {
 			if (i >= allowedPlayers.length) {
 				continue;
 			}

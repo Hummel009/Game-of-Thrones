@@ -40,10 +40,11 @@ public abstract class GOTBlockOreStorageBase extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= oreStorageNames.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= oreStorageNames.length) {
+			j1 = 0;
 		}
-		return oreStorageIcons[j];
+		return oreStorageIcons[j1];
 	}
 
 	@SideOnly(Side.CLIENT)

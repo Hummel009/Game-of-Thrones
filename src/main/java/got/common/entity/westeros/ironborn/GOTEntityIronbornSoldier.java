@@ -49,7 +49,7 @@ public class GOTEntityIronbornSoldier extends GOTEntityIronbornLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -83,6 +83,6 @@ public class GOTEntityIronbornSoldier extends GOTEntityIronbornLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.ironbornLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.ironbornChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.ironbornHelmet));
-		return data;
+		return data1;
 	}
 }

@@ -240,16 +240,17 @@ public class GOTGuiAnvil extends GuiContainer {
 	}
 
 	public void renameItem(String rename) {
+		String rename1 = rename;
 		ItemStack itemstack = theAnvil.invInput.getStackInSlot(0);
 		if (itemstack != null && !itemstack.hasDisplayName()) {
 			String displayNameStripped = GOTContainerAnvil.stripFormattingCodes(itemstack.getDisplayName());
-			String renameStripped = GOTContainerAnvil.stripFormattingCodes(rename);
+			String renameStripped = GOTContainerAnvil.stripFormattingCodes(rename1);
 			if (renameStripped.equals(displayNameStripped)) {
-				rename = "";
+				rename1 = "";
 			}
 		}
-		theAnvil.updateItemName(rename);
-		IMessage packet = new GOTPacketAnvilRename(rename);
+		theAnvil.updateItemName(rename1);
+		IMessage packet = new GOTPacketAnvilRename(rename1);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 

@@ -151,7 +151,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase implements IPickpocketa
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weapons.length);
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		npcItemsInv.setIdleItem(null);
@@ -164,7 +164,7 @@ public class GOTEntityYiTiMan extends GOTEntityHumanBase implements IPickpocketa
 		if (familyInfo.isMale() && rand.nextInt(3000) == 0) {
 			familyInfo.setName("12121");
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

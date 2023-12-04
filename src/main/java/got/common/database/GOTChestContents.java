@@ -1197,12 +1197,13 @@ public class GOTChestContents {
 	}
 
 	public static void fillInventory(IInventory inventory, Random random, GOTChestContents itemPool, int amount, boolean isNPCDrop) {
-		if (amount == -1) {
-			amount = getRandomItemAmount(itemPool, random);
-		} else if (amount <= 0) {
-			throw new IllegalArgumentException("GOTChestContents tried to fill a chest with " + amount + " items");
+		int amount1 = amount;
+		if (amount1 == -1) {
+			amount1 = getRandomItemAmount(itemPool, random);
+		} else if (amount1 <= 0) {
+			throw new IllegalArgumentException("GOTChestContents tried to fill a chest with " + amount1 + " items");
 		}
-		for (int i = 0; i < amount; ++i) {
+		for (int i = 0; i < amount1; ++i) {
 			WeightedRandomChestContent wrcc = (WeightedRandomChestContent) WeightedRandom.getRandomItem(random, itemPool.items);
 			for (ItemStack itemstack : ChestGenHooks.generateStacks(random, wrcc.theItemId, wrcc.theMinimumChanceToGenerateItem, wrcc.theMaximumChanceToGenerateItem)) {
 				ItemStack itemstack1 = itemstack;

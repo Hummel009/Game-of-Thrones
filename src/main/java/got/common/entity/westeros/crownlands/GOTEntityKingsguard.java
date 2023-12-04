@@ -21,7 +21,7 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsGuard {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -29,6 +29,6 @@ public class GOTEntityKingsguard extends GOTEntityCrownlandsGuard {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.kingsguardLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.kingsguardChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.kingsguardHelmet));
-		return data;
+		return data1;
 	}
 }

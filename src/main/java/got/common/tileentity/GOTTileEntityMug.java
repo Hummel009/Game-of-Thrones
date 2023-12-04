@@ -40,10 +40,11 @@ public class GOTTileEntityMug extends TileEntity {
 	}
 
 	public void setMugItem(ItemStack itemstack) {
-		if (itemstack != null && itemstack.stackSize <= 0) {
-			itemstack = null;
+		ItemStack itemstack1 = itemstack;
+		if (itemstack1 != null && itemstack1.stackSize <= 0) {
+			itemstack1 = null;
 		}
-		mugItem = itemstack;
+		mugItem = itemstack1;
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
 	}

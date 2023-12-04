@@ -40,7 +40,7 @@ public class GOTEntityYiTiLevyman extends GOTEntityYiTiMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(levyWeapons.length);
 		npcItemsInv.setMeleeWeapon(levyWeapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -67,7 +67,7 @@ public class GOTEntityYiTiLevyman extends GOTEntityYiTiMan {
 				setCurrentItemOrArmor(2, kaftanLegs);
 			}
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -106,11 +106,11 @@ public class GOTEntityMonfordVelaryon extends GOTEntityHumanBase implements GOTU
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.cutwave));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.velaryonBrooch));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

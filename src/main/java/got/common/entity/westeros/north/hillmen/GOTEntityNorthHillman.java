@@ -154,7 +154,7 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements IPickpo
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weapons.length);
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		if (rand.nextInt(8) == 0) {
@@ -163,7 +163,7 @@ public class GOTEntityNorthHillman extends GOTEntityHumanBase implements IPickpo
 			npcItemsInv.setMeleeWeapon(spears[i].copy());
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -30,8 +30,8 @@ public class GOTEntityGorcrow extends GOTEntityBird {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setBirdType(GOTEntityBird.BirdType.CROW);
-		return data;
+		return data1;
 	}
 }

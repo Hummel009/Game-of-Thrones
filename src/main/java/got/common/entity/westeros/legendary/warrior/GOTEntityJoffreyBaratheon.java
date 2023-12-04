@@ -119,11 +119,11 @@ public class GOTEntityJoffreyBaratheon extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.hearteater));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.joffreyCrossbow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -54,10 +54,10 @@ public class GOTTextBody {
 	public float renderAndReturnScroll(FontRenderer fr, int x, int yTop, int yBottom, float scroll) {
 		int numLines = getTotalLines(fr);
 		int lineHeight = fr.FONT_HEIGHT;
-		scroll = Math.max(scroll, 0.0f);
+		float scroll2 = Math.max(scroll, 0.0f);
 		int ySize = yBottom - yTop;
-		scroll = Math.min(scroll, numLines - MathHelper.floor_double((float) ySize / lineHeight));
-		int d1 = Math.round(scroll);
+		float scroll1 = Math.min(scroll2, numLines - MathHelper.floor_double((float) ySize / lineHeight));
+		int d1 = Math.round(scroll1);
 		int y = yTop;
 		y += ySize / lineHeight * lineHeight;
 		y -= lineHeight;
@@ -90,7 +90,7 @@ public class GOTTextBody {
 				}
 			}
 		}
-		return scroll;
+		return scroll1;
 	}
 
 	public void set(int i, String s) {

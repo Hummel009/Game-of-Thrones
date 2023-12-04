@@ -62,13 +62,13 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 
 	@Override
 	public boolean itemInteractionForEntity(ItemStack itemstack, EntityPlayer entityplayer, EntityLivingBase entity) {
-		itemstack = entityplayer.getCurrentEquippedItem();
+		ItemStack itemstack1 = entityplayer.getCurrentEquippedItem();
 		World world = entityplayer.worldObj;
 		GOTBlockAnimalJar jarBlock = (GOTBlockAnimalJar) field_150939_a;
-		if (jarBlock.canCapture(entity) && getEntityData(itemstack) == null) {
+		if (jarBlock.canCapture(entity) && getEntityData(itemstack1) == null) {
 			NBTTagCompound nbt;
 			if (!world.isRemote && entity.writeToNBTOptional(nbt = new NBTTagCompound())) {
-				setEntityData(itemstack, nbt);
+				setEntityData(itemstack1, nbt);
 				entity.playSound("random.pop", 0.5f, 0.5f + world.rand.nextFloat() * 0.5f);
 				entity.setDead();
 				if (entity instanceof GOTEntityButterfly) {

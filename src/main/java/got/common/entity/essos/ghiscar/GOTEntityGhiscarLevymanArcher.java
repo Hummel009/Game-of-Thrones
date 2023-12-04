@@ -36,9 +36,9 @@ public class GOTEntityGhiscarLevymanArcher extends GOTEntityGhiscarLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.essosBow));
 		npcItemsInv.setIdleItem(npcItemsInv.getRangedWeapon());
-		return data;
+		return data1;
 	}
 }

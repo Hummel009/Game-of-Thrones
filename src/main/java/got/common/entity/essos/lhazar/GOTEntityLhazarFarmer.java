@@ -45,12 +45,12 @@ public class GOTEntityLhazarFarmer extends GOTEntityLhazarMan implements GOTTrad
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.bronzeHoe));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		ItemStack turban = new ItemStack(GOTItems.robesHelmet);
 		GOTItemLeatherHat.setHatColor(turban, 10390131);
 		setCurrentItemOrArmor(4, turban);
-		return data;
+		return data1;
 	}
 }

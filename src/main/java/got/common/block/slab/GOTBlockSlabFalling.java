@@ -29,20 +29,21 @@ public abstract class GOTBlockSlabFalling extends GOTBlockSlabBase {
 	}
 
 	public void tryBlockFall(World world, int i, int j, int k) {
-		if (BlockFalling.func_149831_e(world, i, j - 1, k) && j >= 0) {
+		int j1 = j;
+		if (BlockFalling.func_149831_e(world, i, j1 - 1, k) && j1 >= 0) {
 			int range = 32;
-			if (!BlockFalling.fallInstantly && world.checkChunksExist(i - range, j - range, k - range, i + range, j + range, k + range)) {
+			if (!BlockFalling.fallInstantly && world.checkChunksExist(i - range, j1 - range, k - range, i + range, j1 + range, k + range)) {
 				if (!world.isRemote) {
-					EntityFallingBlock fallingBlock = new EntityFallingBlock(world, i + 0.5f, j + 0.5f, k + 0.5f, this, world.getBlockMetadata(i, j, k) & 7);
+					EntityFallingBlock fallingBlock = new EntityFallingBlock(world, i + 0.5f, j1 + 0.5f, k + 0.5f, this, world.getBlockMetadata(i, j1, k) & 7);
 					world.spawnEntityInWorld(fallingBlock);
 				}
 			} else {
-				world.setBlockToAir(i, j, k);
-				while (BlockFalling.func_149831_e(world, i, j - 1, k) && j > 0) {
-					--j;
+				world.setBlockToAir(i, j1, k);
+				while (BlockFalling.func_149831_e(world, i, j1 - 1, k) && j1 > 0) {
+					--j1;
 				}
-				if (j > 0) {
-					world.setBlock(i, j, k, this);
+				if (j1 > 0) {
+					world.setBlock(i, j1, k, this);
 				}
 			}
 		}

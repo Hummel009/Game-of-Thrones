@@ -29,7 +29,7 @@ public class GOTEntityQarthGuard extends GOTEntityQarthLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -37,6 +37,6 @@ public class GOTEntityQarthGuard extends GOTEntityQarthLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.qarthLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.qarthChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.qarthHelmet));
-		return data;
+		return data1;
 	}
 }

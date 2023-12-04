@@ -237,12 +237,13 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
-		if (data == null) {
-			data = new BearGroupSpawnData();
-			((BearGroupSpawnData) data).numSpawned = 1;
-		} else if (data instanceof BearGroupSpawnData) {
-			BearGroupSpawnData bgsd = (BearGroupSpawnData) data;
+		IEntityLivingData data1 = data;
+		data1 = super.onSpawnWithEgg(data1);
+		if (data1 == null) {
+			data1 = new BearGroupSpawnData();
+			((BearGroupSpawnData) data1).numSpawned = 1;
+		} else if (data1 instanceof BearGroupSpawnData) {
+			BearGroupSpawnData bgsd = (BearGroupSpawnData) data1;
 			if (bgsd.numSpawned >= 1 && rand.nextBoolean()) {
 				setGrowingAge(-24000);
 			}
@@ -251,7 +252,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 		if (rand.nextInt(1000) == 0) {
 			setCustomNameTag("Vladimir Putin");
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -28,7 +28,7 @@ public class GOTEntityNorvosGuard extends GOTEntityNorvosLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -36,6 +36,6 @@ public class GOTEntityNorvosGuard extends GOTEntityNorvosLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.norvosLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.norvosChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.norvosHelmet));
-		return data;
+		return data1;
 	}
 }

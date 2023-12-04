@@ -52,13 +52,14 @@ public class GOTBlockRock extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
-		if (meta >= rockNames.length) {
-			meta = 0;
+		int meta1 = meta;
+		if (meta1 >= rockNames.length) {
+			meta1 = 0;
 		}
-		if (meta == 0 && side != 1 && side != 0) {
+		if (meta1 == 0 && side != 1 && side != 0) {
 			return iconBasaltSide;
 		}
-		return rockIcons[meta];
+		return rockIcons[meta1];
 	}
 
 	@Override

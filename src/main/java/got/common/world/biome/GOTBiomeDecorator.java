@@ -396,9 +396,10 @@ public class GOTBiomeDecorator {
 	}
 
 	public void genStandardOre(float ores, WorldGenerator oreGen, int minHeight, int maxHeight) {
-		while (ores > 0.0f) {
-			boolean generate = ores >= 1.0f || rand.nextFloat() < ores;
-			ores -= 1.0f;
+		float ores1 = ores;
+		while (ores1 > 0.0f) {
+			boolean generate = ores1 >= 1.0f || rand.nextFloat() < ores1;
+			ores1 -= 1.0f;
 			if (!generate) {
 				continue;
 			}

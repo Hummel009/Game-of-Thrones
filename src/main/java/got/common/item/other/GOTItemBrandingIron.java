@@ -89,12 +89,13 @@ public class GOTItemBrandingIron extends Item {
 	}
 
 	public static String trimAcceptableBrandName(String s) {
-		s = StringUtils.trim(s);
+		String s1 = s;
+		s1 = StringUtils.trim(s1);
 		int maxLength = 64;
-		if (s.length() > maxLength) {
-			s = s.substring(0, maxLength);
+		if (s1.length() > maxLength) {
+			s1 = s1.substring(0, maxLength);
 		}
-		return s;
+		return s1;
 	}
 
 	@Override

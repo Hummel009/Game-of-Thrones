@@ -216,15 +216,16 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
+		float f2 = f;
 		if (riddenByEntity != null && damagesource.getEntity() == riddenByEntity) {
 			return false;
 		}
 		if (nearbyBannerFactor > 0) {
 			int i = 12 - nearbyBannerFactor;
-			float f1 = f * i;
-			f = f1 / 12.0f;
+			float f1 = f2 * i;
+			f2 = f1 / 12.0f;
 		}
-		boolean flag = super.attackEntityFrom(damagesource, f);
+		boolean flag = super.attackEntityFrom(damagesource, f2);
 		if (flag && damagesource.getEntity() instanceof GOTEntityNPC) {
 			GOTEntityNPC attacker = (GOTEntityNPC) damagesource.getEntity();
 			if (attacker.hiredNPCInfo.isActive && attacker.hiredNPCInfo.getHiringPlayer() != null) {

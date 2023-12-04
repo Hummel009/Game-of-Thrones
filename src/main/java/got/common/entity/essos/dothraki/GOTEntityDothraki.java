@@ -185,7 +185,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		if (rand.nextInt(3) == 0) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.nomadBattleaxe));
 		} else {
@@ -206,7 +206,7 @@ public class GOTEntityDothraki extends GOTEntityHumanBase implements IPickpocket
 		} else {
 			setCurrentItemOrArmor(4, null);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

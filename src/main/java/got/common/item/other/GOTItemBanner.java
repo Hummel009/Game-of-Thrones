@@ -136,23 +136,25 @@ public class GOTItemBanner extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
+		int side1 = side;
+		int j1 = j;
 		BannerType bannerType = getBannerType(itemstack);
 		NBTTagCompound protectData = getProtectionData(itemstack);
-		if (world.getBlock(i, j, k).isReplaceable(world, i, j, k)) {
-			side = 1;
-		} else if (side == 1) {
-			++j;
+		if (world.getBlock(i, j1, k).isReplaceable(world, i, j1, k)) {
+			side1 = 1;
+		} else if (side1 == 1) {
+			++j1;
 		}
-		if (side == 0) {
+		if (side1 == 0) {
 			return false;
 		}
-		if (side == 1) {
-			if (!entityplayer.canPlayerEdit(i, j, k, 1, itemstack)) {
+		if (side1 == 1) {
+			if (!entityplayer.canPlayerEdit(i, j1, k, 1, itemstack)) {
 				return false;
 			}
-			Block block = world.getBlock(i, j - 1, k);
-			int meta = world.getBlockMetadata(i, j - 1, k);
-			if (block.isSideSolid(world, i, j - 1, k, ForgeDirection.UP)) {
+			Block block = world.getBlock(i, j1 - 1, k);
+			int meta = world.getBlockMetadata(i, j1 - 1, k);
+			if (block.isSideSolid(world, i, j1 - 1, k, ForgeDirection.UP)) {
 				int protectRange;
 				if (GOTConfig.allowBannerProtection && !entityplayer.capabilities.isCreativeMode && (protectRange = GOTBannerProtection.getProtectionRange(block, meta)) > 0) {
 					GOTFaction faction = bannerType.faction;
@@ -162,14 +164,14 @@ public class GOTItemBanner extends Item {
 						}
 						return false;
 					}
-					if (!world.isRemote && GOTBannerProtection.isProtected(world, i, j, k, GOTBannerProtection.forPlayer(entityplayer, GOTBannerProtection.Permission.FULL), false, protectRange)) {
+					if (!world.isRemote && GOTBannerProtection.isProtected(world, i, j1, k, GOTBannerProtection.forPlayer(entityplayer, GOTBannerProtection.Permission.FULL), false, protectRange)) {
 						entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.alreadyProtected"));
 						return false;
 					}
 				}
 				if (!world.isRemote) {
 					GOTEntityBanner banner = new GOTEntityBanner(world);
-					banner.setLocationAndAngles(i + 0.5, j, k + 0.5, 90.0f * (MathHelper.floor_double(entityplayer.rotationYaw * 4.0f / 360.0f + 0.5) & 3), 0.0f);
+					banner.setLocationAndAngles(i + 0.5, j1, k + 0.5, 90.0f * (MathHelper.floor_double(entityplayer.rotationYaw * 4.0f / 360.0f + 0.5) & 3), 0.0f);
 					if (world.checkNoEntityCollision(banner.boundingBox) && world.getCollidingBoundingBoxes(banner, banner.boundingBox).isEmpty() && !world.isAnyLiquid(banner.boundingBox) && world.getEntitiesWithinAABB(GOTEntityBanner.class, banner.boundingBox).isEmpty()) {
 						banner.setBannerType(bannerType);
 						if (protectData != null) {
@@ -190,12 +192,12 @@ public class GOTItemBanner extends Item {
 				}
 			}
 		} else {
-			if (!entityplayer.canPlayerEdit(i, j, k, side, itemstack)) {
+			if (!entityplayer.canPlayerEdit(i, j1, k, side1, itemstack)) {
 				return false;
 			}
 			if (!world.isRemote) {
-				int l = Direction.facingToDirection[side];
-				GOTEntityBannerWall banner = new GOTEntityBannerWall(world, i, j, k, l);
+				int l = Direction.facingToDirection[side1];
+				GOTEntityBannerWall banner = new GOTEntityBannerWall(world, i, j1, k, l);
 				if (banner.onValidSurface()) {
 					banner.setBannerType(bannerType);
 					if (protectData != null) {

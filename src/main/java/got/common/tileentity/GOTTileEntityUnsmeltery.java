@@ -180,6 +180,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	}
 
 	public int determineResourcesUsed(ItemStack itemstack, ItemStack material, List<IRecipe> recursiveCheckedRecipes) {
+		List<IRecipe> recursiveCheckedRecipes1 = recursiveCheckedRecipes;
 		if (itemstack == null) {
 			return 0;
 		}
@@ -198,21 +199,21 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 			}
 		}
 		allRecipeLists.add(GOTRecipe.unsmelt);
-		if (recursiveCheckedRecipes == null) {
-			recursiveCheckedRecipes = new ArrayList<>();
+		if (recursiveCheckedRecipes1 == null) {
+			recursiveCheckedRecipes1 = new ArrayList<>();
 		}
 		int count = 0;
 		label63:
 		for (List<IRecipe> recipes : allRecipeLists) {
 			for (IRecipe recipesObj : recipes) {
-				if (!recursiveCheckedRecipes.contains(recipesObj)) {
+				if (!recursiveCheckedRecipes1.contains(recipesObj)) {
 					ItemStack result = recipesObj.getRecipeOutput();
 					if (result != null && result.getItem() == itemstack.getItem() && (itemstack.isItemStackDamageable() || result.getItemDamage() == itemstack.getItemDamage())) {
-						recursiveCheckedRecipes.add(recipesObj);
+						recursiveCheckedRecipes1.add(recipesObj);
 						if (recipesObj instanceof ShapedRecipes) {
 							ShapedRecipes shaped = (ShapedRecipes) recipesObj;
 							ItemStack[] ingredients = shaped.recipeItems;
-							int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes);
+							int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes1);
 							i /= result.stackSize;
 							if (i > 0) {
 								count = i;
@@ -222,7 +223,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 						if (recipesObj instanceof ShapelessRecipes) {
 							ShapelessRecipes shapeless = (ShapelessRecipes) recipesObj;
 							List<?> ingredients = shapeless.recipeItems;
-							int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes);
+							int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes1);
 							i /= result.stackSize;
 							if (i > 0) {
 								count = i;
@@ -232,7 +233,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 						if (recipesObj instanceof ShapedOreRecipe) {
 							ShapedOreRecipe shaped = (ShapedOreRecipe) recipesObj;
 							Object[] ingredients = shaped.getInput();
-							int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes);
+							int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes1);
 							i /= result.stackSize;
 							if (i > 0) {
 								count = i;
@@ -242,7 +243,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 						if (recipesObj instanceof ShapelessOreRecipe) {
 							ShapelessOreRecipe shapeless = (ShapelessOreRecipe) recipesObj;
 							List<Object> ingredients = shapeless.getInput();
-							int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes);
+							int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes1);
 							i /= result.stackSize;
 							if (i > 0) {
 								count = i;

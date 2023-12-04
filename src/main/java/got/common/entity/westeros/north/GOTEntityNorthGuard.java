@@ -29,7 +29,7 @@ public class GOTEntityNorthGuard extends GOTEntityNorthLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -37,6 +37,6 @@ public class GOTEntityNorthGuard extends GOTEntityNorthLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.northguardLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.northguardChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.northguardHelmet));
-		return data;
+		return data1;
 	}
 }

@@ -23,6 +23,8 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
+		int i3 = i;
+		int k3 = k;
 		int height = 16 + random.nextInt(10);
 		int xSlope = 5 + random.nextInt(10);
 		if (random.nextBoolean()) {
@@ -40,10 +42,10 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 		int k1;
 		int k2;
 		if (j >= 1 && j + height + 5 <= 256) {
-			for (i1 = i - trunkCircleWidth - 1; i1 <= i + trunkCircleWidth + 1 && flag; ++i1) {
-				for (k1 = k - trunkCircleWidth - 1; k1 <= k + trunkCircleWidth + 1 && flag; ++k1) {
-					i2 = Math.abs(i1 - i);
-					k2 = Math.abs(k1 - k);
+			for (i1 = i3 - trunkCircleWidth - 1; i1 <= i3 + trunkCircleWidth + 1 && flag; ++i1) {
+				for (k1 = k3 - trunkCircleWidth - 1; k1 <= k3 + trunkCircleWidth + 1 && flag; ++k1) {
+					i2 = Math.abs(i1 - i3);
+					k2 = Math.abs(k1 - k3);
 					if (i2 * i2 + k2 * k2 > trunkCircleWidth * trunkCircleWidth) {
 						continue;
 					}
@@ -57,7 +59,7 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 						flag = false;
 					}
 					Block below = world.getBlock(i1, j - 1, k1);
-					boolean isSoil = below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling);
+					boolean isSoil = below.canSustainPlant(world, i3, j - 1, k3, ForgeDirection.UP, (IPlantable) Blocks.sapling);
 					if (isSoil) {
 						continue;
 					}
@@ -72,10 +74,10 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 		}
 		int j12;
 		for (j12 = 0; j12 < height; ++j12) {
-			for (int i12 = i - trunkCircleWidth - 1; i12 <= i + trunkCircleWidth + 1; ++i12) {
-				for (int k12 = k - trunkCircleWidth - 1; k12 <= k + trunkCircleWidth + 1; ++k12) {
-					int i22 = Math.abs(i12 - i);
-					int k22 = Math.abs(k12 - k);
+			for (int i12 = i3 - trunkCircleWidth - 1; i12 <= i3 + trunkCircleWidth + 1; ++i12) {
+				for (int k12 = k3 - trunkCircleWidth - 1; k12 <= k3 + trunkCircleWidth + 1; ++k12) {
+					int i22 = Math.abs(i12 - i3);
+					int k22 = Math.abs(k12 - k3);
 					if (i22 * i22 + k22 * k22 > trunkCircleWidth * trunkCircleWidth) {
 						continue;
 					}
@@ -87,16 +89,16 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 			}
 			if (j12 % xSlope == 0) {
 				if (xSlope > 0) {
-					++i;
+					++i3;
 				} else {
-					--i;
+					--i3;
 				}
 			}
 			if (j12 % zSlope == 0) {
 				if (zSlope > 0) {
-					++k;
+					++k3;
 				} else {
-					--k;
+					--k3;
 				}
 			}
 		}
@@ -104,11 +106,11 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 			int branches = 2 + random.nextInt(3);
 			for (int l = 0; l < branches; ++l) {
 				float angle = random.nextFloat() * 3.1415927f * 2.0f;
-				int i13 = i;
-				int k13 = k;
+				int i13 = i3;
+				int k13 = k3;
 				int j2 = j12;
 				int length = MathHelper.getRandomIntegerInRange(random, 4, 6);
-				for (int l1 = trunkCircleWidth; l1 < trunkCircleWidth + length && isReplaceable(world, i13 = i + (int) (1.5f + MathHelper.cos(angle) * l1), j2 = j12 - 3 + l1 / 2, k13 = k + (int) (1.5f + MathHelper.sin(angle) * l1)); ++l1) {
+				for (int l1 = trunkCircleWidth; l1 < trunkCircleWidth + length && isReplaceable(world, i13 = i3 + (int) (1.5f + MathHelper.cos(angle) * l1), j2 = j12 - 3 + l1 / 2, k13 = k3 + (int) (1.5f + MathHelper.sin(angle) * l1)); ++l1) {
 					setBlockAndNotifyAdequately(world, i13, j2, k13, woodBlock, woodMeta);
 				}
 				int leafMin = 1 + random.nextInt(2);
@@ -118,10 +120,10 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 				}
 			}
 		}
-		for (i1 = i - trunkCircleWidth - 1; i1 <= i + trunkCircleWidth + 1; ++i1) {
-			for (k1 = k - trunkCircleWidth - 1; k1 <= k + trunkCircleWidth + 1; ++k1) {
-				i2 = Math.abs(i1 - i);
-				k2 = Math.abs(k1 - k);
+		for (i1 = i3 - trunkCircleWidth - 1; i1 <= i3 + trunkCircleWidth + 1; ++i1) {
+			for (k1 = k3 - trunkCircleWidth - 1; k1 <= k3 + trunkCircleWidth + 1; ++k1) {
+				i2 = Math.abs(i1 - i3);
+				k2 = Math.abs(k1 - k3);
 				if (i2 * i2 + k2 * k2 > trunkCircleWidth * trunkCircleWidth || random.nextInt(5) != 0) {
 					continue;
 				}

@@ -102,13 +102,13 @@ public class GOTEntityGreyWorm extends GOTEntityHumanBase implements GOTMercenar
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.unsulliedBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.unsulliedLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.unsulliedChestplate));
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -126,14 +126,15 @@ public class GOTContainerAnvil extends Container {
 	}
 
 	public static String stripFormattingCodes(String name) {
+		String name1 = name;
 		for (EnumChatFormatting color : EnumChatFormatting.values()) {
 			String formatCode = color.toString();
-			if (!name.startsWith(formatCode)) {
+			if (!name1.startsWith(formatCode)) {
 				continue;
 			}
-			name = name.substring(formatCode.length());
+			name1 = name1.substring(formatCode.length());
 		}
-		return name;
+		return name1;
 	}
 
 	public boolean applyMischief(ItemStack itemstack) {
@@ -408,8 +409,8 @@ public class GOTContainerAnvil extends Container {
 
 	public void updateItemName(String name) {
 		List<EnumChatFormatting> colors = getAppliedFormattingCodes(name);
-		name = stripFormattingCodes(name);
-		repairedItemName = ChatAllowedCharacters.filerAllowedCharacters(name);
+		String name1 = stripFormattingCodes(name);
+		repairedItemName = ChatAllowedCharacters.filerAllowedCharacters(name1);
 		ItemStack itemstack = invOutput.getStackInSlot(0);
 		if (itemstack != null) {
 			if (StringUtils.isBlank(repairedItemName)) {

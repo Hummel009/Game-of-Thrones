@@ -27,7 +27,7 @@ public class GOTEntityYiTiFlorist extends GOTEntityYiTiMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_axe));
 		npcItemsInv.setIdleItem(new ItemStack(GOTBlocks.yitiFlower));
 		int robeColor = 8538153;
@@ -37,6 +37,6 @@ public class GOTEntityYiTiFlorist extends GOTEntityYiTiMarketTrader {
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);
 		setCurrentItemOrArmor(2, legs);
-		return data;
+		return data1;
 	}
 }

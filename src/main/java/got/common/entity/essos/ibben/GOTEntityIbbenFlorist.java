@@ -25,12 +25,12 @@ public class GOTEntityIbbenFlorist extends GOTEntityIbbenMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		if (rand.nextBoolean()) {
 			npcItemsInv.setIdleItem(new ItemStack(Items.apple));
 		} else {
 			npcItemsInv.setIdleItem(new ItemStack(GOTItems.appleGreen));
 		}
-		return data;
+		return data1;
 	}
 }

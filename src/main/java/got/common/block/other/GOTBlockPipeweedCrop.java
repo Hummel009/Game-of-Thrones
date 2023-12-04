@@ -31,11 +31,12 @@ public class GOTBlockPipeweedCrop extends BlockCrops {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j < 7) {
-			if (j == 6) {
-				j = 5;
+		int j1 = j;
+		if (j1 < 7) {
+			if (j1 == 6) {
+				j1 = 5;
 			}
-			return pipeweedIcons[j >> 1];
+			return pipeweedIcons[j1 >> 1];
 		}
 		return pipeweedIcons[3];
 	}

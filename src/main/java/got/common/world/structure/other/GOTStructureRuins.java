@@ -33,33 +33,36 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+			int rotation1 = rotation;
+			int k2 = k;
+			int i2 = i;
 			if (!restrictions && usingPlayer != null) {
-				rotation = usingPlayerRotation();
+				rotation1 = usingPlayerRotation();
 			}
-			switch (rotation) {
+			switch (rotation1) {
 				case 0:
-					k += 8;
+					k2 += 8;
 					break;
 				case 1:
-					i -= 8;
+					i2 -= 8;
 					break;
 				case 2:
-					k -= 8;
+					k2 -= 8;
 					break;
 				case 3:
-					i += 8;
+					i2 += 8;
 					break;
 				default:
 					break;
 			}
-			if (restrictions && world.getBlock(i, world.getTopSolidOrLiquidBlock(i, k) - 1, k) != Blocks.grass) {
+			if (restrictions && world.getBlock(i2, world.getTopSolidOrLiquidBlock(i2, k2) - 1, k2) != Blocks.grass) {
 				return false;
 			}
 			int i1;
 			int k1;
 			int j1;
-			for (i1 = i - 7; i1 <= i + 7; ++i1) {
-				for (k1 = k - 7; k1 <= k + 7; ++k1) {
+			for (i1 = i2 - 7; i1 <= i2 + 7; ++i1) {
+				for (k1 = k2 - 7; k1 <= k2 + 7; ++k1) {
 					j1 = world.getTopSolidOrLiquidBlock(i1, k1);
 					Block block = world.getBlock(i1, j1 - 1, k1);
 					if (!block.isOpaqueCube()) {
@@ -91,16 +94,16 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 					placeRandomBrick(world, random, i1, j1 + 1, k1);
 				}
 			}
-			for (i1 = i - 7; i1 <= i + 7; i1 += 7) {
+			for (i1 = i2 - 7; i1 <= i2 + 7; i1 += 7) {
 				block9:
-				for (k1 = k - 7; k1 <= k + 7; k1 += 7) {
+				for (k1 = k2 - 7; k1 <= k2 + 7; k1 += 7) {
 					j1 = world.getTopSolidOrLiquidBlock(i1, k1);
 					setGrassToDirt(world, i1, j1 - 1, k1);
 					int j2 = j1;
 					do {
 						placeRandomBrick(world, random, i1, j2, k1);
 						if (random.nextInt(4) == 0 || j2 > j1 + 4) {
-							if (i1 == i && k1 == k) {
+							if (i1 == i2 && k1 == k2) {
 								continue block9;
 							}
 							setBlockAndNotifyAdequately(world, i1, j2 + 1, k1, GOTBlocks.brick1, 5);
@@ -140,25 +143,29 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 
 		@Override
 		public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-			if (restrictions && world.getBlock(i, j - 1, k) != Blocks.grass) {
+			int j4 = j;
+			int rotation1 = rotation;
+			int k3 = k;
+			int i3 = i;
+			if (restrictions && world.getBlock(i3, j4 - 1, k3) != Blocks.grass) {
 				return false;
 			}
-			--j;
+			--j4;
 			int radius = 4 + random.nextInt(2);
 			if (!restrictions && usingPlayer != null) {
-				rotation = usingPlayerRotation();
-				switch (rotation) {
+				rotation1 = usingPlayerRotation();
+				switch (rotation1) {
 					case 0:
-						k += radius;
+						k3 += radius;
 						break;
 					case 1:
-						i -= radius;
+						i3 -= radius;
 						break;
 					case 2:
-						k -= radius;
+						k3 -= radius;
 						break;
 					case 3:
-						i += radius;
+						i3 += radius;
 						break;
 					default:
 						break;
@@ -172,25 +179,25 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 			wallThresholdMax *= wallThresholdMax;
 			int maxHeight = (sections - 1) * sectionHeight;
 			int i1;
-			for (i1 = i - radius; i1 <= i + radius; ++i1) {
-				for (int k12 = k - radius; k12 <= k + radius; ++k12) {
-					int i2 = i1 - i;
-					int k2 = k12 - k;
+			for (i1 = i3 - radius; i1 <= i3 + radius; ++i1) {
+				for (int k12 = k3 - radius; k12 <= k3 + radius; ++k12) {
+					int i2 = i1 - i3;
+					int k2 = k12 - k3;
 					int distSq = i2 * i2 + k2 * k2;
 					if (distSq >= wallThresholdMax) {
 						continue;
 					}
 					int j1;
 					if (distSq >= wallThresholdMin) {
-						for (j1 = j - 1; j1 >= 0; --j1) {
+						for (j1 = j4 - 1; j1 >= 0; --j1) {
 							Block block = world.getBlock(i1, j1, k12);
 							placeRandomBrick(world, i1, j1, k12);
 							if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.stone || !restrictions && block.isOpaqueCube()) {
 								break;
 							}
 						}
-						int j2 = j + maxHeight;
-						for (int j12 = j; j12 <= j2; ++j12) {
+						int j2 = j4 + maxHeight;
+						for (int j12 = j4; j12 <= j2; ++j12) {
 							if (random.nextInt(20) == 0) {
 								continue;
 							}
@@ -202,7 +209,7 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 						}
 						continue;
 					}
-					for (j1 = j + sectionHeight; j1 <= j + maxHeight; j1 += sectionHeight) {
+					for (j1 = j4 + sectionHeight; j1 <= j4 + maxHeight; j1 += sectionHeight) {
 						if (random.nextInt(6) == 0) {
 							continue;
 						}
@@ -211,51 +218,51 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 				}
 			}
 			int k1;
-			for (int j1 = j + sectionHeight; j1 < j + maxHeight; j1 += sectionHeight) {
+			for (int j1 = j4 + sectionHeight; j1 < j4 + maxHeight; j1 += sectionHeight) {
 				for (int j2 = j1 + 2; j2 <= j1 + 3; ++j2) {
-					for (int i12 = i - 1; i12 <= i + 1; ++i12) {
-						placeIronBars(world, random, i12, j2, k - radius);
-						placeIronBars(world, random, i12, j2, k + radius);
+					for (int i12 = i3 - 1; i12 <= i3 + 1; ++i12) {
+						placeIronBars(world, random, i12, j2, k3 - radius);
+						placeIronBars(world, random, i12, j2, k3 + radius);
 					}
-					for (k1 = k - 1; k1 <= k + 1; ++k1) {
-						placeIronBars(world, random, i - radius, j2, k1);
-						placeIronBars(world, random, i + radius, j2, k1);
+					for (k1 = k3 - 1; k1 <= k3 + 1; ++k1) {
+						placeIronBars(world, random, i3 - radius, j2, k1);
+						placeIronBars(world, random, i3 + radius, j2, k1);
 					}
 				}
 			}
-			setBlockAndNotifyAdequately(world, i, j + maxHeight, k, GOTBlocks.slabSingle1, 3);
-			setBlockAndNotifyAdequately(world, i, j + maxHeight + 1, k, GOTBlocks.chestStone, rotation + 2);
-			GOTChestContents.fillChest(world, random, i, j + maxHeight + 1, k, GOTChestContents.TREASURE);
-			switch (rotation) {
+			setBlockAndNotifyAdequately(world, i3, j4 + maxHeight, k3, GOTBlocks.slabSingle1, 3);
+			setBlockAndNotifyAdequately(world, i3, j4 + maxHeight + 1, k3, GOTBlocks.chestStone, rotation1 + 2);
+			GOTChestContents.fillChest(world, random, i3, j4 + maxHeight + 1, k3, GOTChestContents.TREASURE);
+			switch (rotation1) {
 				case 0:
-					for (i1 = i - 1; i1 <= i + 1; ++i1) {
-						int height = j + 1 + random.nextInt(3);
-						for (int j1 = j; j1 <= height; ++j1) {
-							setBlockAndNotifyAdequately(world, i1, j1, k - radius, Blocks.air, 0);
+					for (i1 = i3 - 1; i1 <= i3 + 1; ++i1) {
+						int height = j4 + 1 + random.nextInt(3);
+						for (int j1 = j4; j1 <= height; ++j1) {
+							setBlockAndNotifyAdequately(world, i1, j1, k3 - radius, Blocks.air, 0);
 						}
 					}
 					break;
 				case 1:
-					for (int k13 = k - 1; k13 <= k + 1; ++k13) {
-						int height = j + 1 + random.nextInt(3);
-						for (int j1 = j; j1 <= height; ++j1) {
-							setBlockAndNotifyAdequately(world, i + radius, j1, k13, Blocks.air, 0);
+					for (int k13 = k3 - 1; k13 <= k3 + 1; ++k13) {
+						int height = j4 + 1 + random.nextInt(3);
+						for (int j1 = j4; j1 <= height; ++j1) {
+							setBlockAndNotifyAdequately(world, i3 + radius, j1, k13, Blocks.air, 0);
 						}
 					}
 					break;
 				case 2:
-					for (i1 = i - 1; i1 <= i + 1; ++i1) {
-						int height = j + 1 + random.nextInt(3);
-						for (int j1 = j; j1 <= height; ++j1) {
-							setBlockAndNotifyAdequately(world, i1, j1, k + radius, Blocks.air, 0);
+					for (i1 = i3 - 1; i1 <= i3 + 1; ++i1) {
+						int height = j4 + 1 + random.nextInt(3);
+						for (int j1 = j4; j1 <= height; ++j1) {
+							setBlockAndNotifyAdequately(world, i1, j1, k3 + radius, Blocks.air, 0);
 						}
 					}
 					break;
 				case 3:
-					for (int k13 = k - 1; k13 <= k + 1; ++k13) {
-						int height = j + 1 + random.nextInt(3);
-						for (int j1 = j; j1 <= height; ++j1) {
-							setBlockAndNotifyAdequately(world, i - radius, j1, k13, Blocks.air, 0);
+					for (int k13 = k3 - 1; k13 <= k3 + 1; ++k13) {
+						int height = j4 + 1 + random.nextInt(3);
+						for (int j1 = j4; j1 <= height; ++j1) {
+							setBlockAndNotifyAdequately(world, i3 - radius, j1, k13, Blocks.air, 0);
 						}
 					}
 					break;
@@ -263,8 +270,8 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 					break;
 			}
 			for (int l = 0; l < 16; ++l) {
-				int i13 = i - random.nextInt(radius * 2) + random.nextInt(radius * 2);
-				k1 = k - random.nextInt(radius * 2) + random.nextInt(radius * 2);
+				int i13 = i3 - random.nextInt(radius * 2) + random.nextInt(radius * 2);
+				k1 = k3 - random.nextInt(radius * 2) + random.nextInt(radius * 2);
 				int j1 = world.getHeightValue(i13, k1);
 				if (world.getBlock(i13, j1 - 1, k1) != Blocks.grass) {
 					continue;

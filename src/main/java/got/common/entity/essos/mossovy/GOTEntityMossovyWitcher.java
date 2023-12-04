@@ -129,14 +129,14 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.mossovySword));
 		npcItemsInv.setRangedWeapon(new ItemStack(GOTItems.ironCrossbow));
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.mossovyBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.mossovyLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.mossovyChestplate));
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return data1;
 	}
 
 	@Override

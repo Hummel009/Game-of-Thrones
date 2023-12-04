@@ -26,7 +26,7 @@ public class GOTEntityYiTiBaker extends GOTEntityYiTiMarketTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.rollingPin));
 		npcItemsInv.setIdleItem(new ItemStack(Items.bread));
 		int robeColor = 13019251;
@@ -36,6 +36,6 @@ public class GOTEntityYiTiBaker extends GOTEntityYiTiMarketTrader {
 		GOTItemRobes.setRobesColor(legs, robeColor);
 		setCurrentItemOrArmor(3, body);
 		setCurrentItemOrArmor(2, legs);
-		return data;
+		return data1;
 	}
 }

@@ -135,7 +135,7 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
 		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
@@ -148,7 +148,7 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		} else {
 			setButterflyType(ButterflyType.COMMON);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

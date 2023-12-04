@@ -83,14 +83,14 @@ public class GOTEntityLorasTyrell extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosSword));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.reachguardBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.reachguardLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.reachguardChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.reachguardHelmet));
-		return data;
+		return data1;
 	}
 
 	@Override

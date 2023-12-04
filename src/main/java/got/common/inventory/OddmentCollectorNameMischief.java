@@ -7,21 +7,22 @@ public class OddmentCollectorNameMischief {
 	public static String CONSONANTS = "bcdfghjklmnopqrstvwxyz";
 
 	public static String garbleName(String name, Random rand) {
+		String name1 = name;
 		int deletes = rand.nextInt(3);
 		for (int l = 0; l < deletes; ++l) {
 			int x;
-			if (name.length() <= 3 || isFormattingCharacter(name, x = rand.nextInt(name.length()))) {
+			if (name1.length() <= 3 || isFormattingCharacter(name1, x = rand.nextInt(name1.length()))) {
 				continue;
 			}
-			name = name.substring(0, x) + name.substring(x + 1);
+			name1 = name1.substring(0, x) + name1.substring(x + 1);
 		}
 		int replaces = rand.nextInt(3);
 		for (int l = 0; l < replaces; ++l) {
-			int x = rand.nextInt(name.length());
-			if (isFormattingCharacter(name, x)) {
+			int x = rand.nextInt(name1.length());
+			if (isFormattingCharacter(name1, x)) {
 				continue;
 			}
-			char c = name.charAt(x);
+			char c = name1.charAt(x);
 			char cNew;
 			if (VOWELS.indexOf(Character.toLowerCase(c)) >= 0) {
 				cNew = VOWELS.charAt(rand.nextInt(VOWELS.length()));
@@ -36,18 +37,18 @@ public class OddmentCollectorNameMischief {
 				}
 				c = cNew;
 			}
-			name = name.substring(0, x) + c + name.substring(x + 1);
+			name1 = name1.substring(0, x) + c + name1.substring(x + 1);
 		}
 		int dupes = rand.nextInt(2);
 		for (int l = 0; l < dupes; ++l) {
 			char c;
-			int x = rand.nextInt(name.length());
-			if (isFormattingCharacter(name, x) || !Character.isAlphabetic(c = name.charAt(x))) {
+			int x = rand.nextInt(name1.length());
+			if (isFormattingCharacter(name1, x) || !Character.isAlphabetic(c = name1.charAt(x))) {
 				continue;
 			}
-			name = name.substring(0, x) + c + c + name.substring(x + 1);
+			name1 = name1.substring(0, x) + c + c + name1.substring(x + 1);
 		}
-		return name;
+		return name1;
 	}
 
 	public static boolean isFormattingCharacter(CharSequence s, int index) {

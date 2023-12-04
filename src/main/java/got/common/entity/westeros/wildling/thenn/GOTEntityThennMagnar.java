@@ -58,14 +58,14 @@ public class GOTEntityThennMagnar extends GOTEntityThenn implements GOTUnitTrade
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.skullStaff));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.furBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.furLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.furChestplate));
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return data1;
 	}
 
 	@Override

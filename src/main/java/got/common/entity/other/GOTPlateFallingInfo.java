@@ -37,8 +37,8 @@ public class GOTPlateFallingInfo implements IExtendedEntityProperties {
 	}
 
 	public float getOffsetY(int index, float f) {
-		index = MathHelper.clamp_int(index, 0, fallerPos.length - 1);
-		float pos = prevFallerPos[index] + (fallerPos[index] - prevFallerPos[index]) * f;
+		int index1 = MathHelper.clamp_int(index, 0, fallerPos.length - 1);
+		float pos = prevFallerPos[index1] + (fallerPos[index1] - prevFallerPos[index1]) * f;
 		float offset = pos - (float) (theEntity.prevPosY + (theEntity.posY - theEntity.prevPosY) * f);
 		return Math.max(offset, 0.0f);
 	}

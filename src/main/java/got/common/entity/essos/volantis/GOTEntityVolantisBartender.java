@@ -63,9 +63,9 @@ public class GOTEntityVolantisBartender extends GOTEntityVolantisMan implements 
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.gobletCopper));
-		return data;
+		return data1;
 	}
 
 	@Override

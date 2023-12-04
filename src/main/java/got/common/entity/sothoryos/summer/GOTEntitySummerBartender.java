@@ -55,8 +55,8 @@ public class GOTEntitySummerBartender extends GOTEntitySummerMan implements GOTT
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.gobletWood));
-		return data;
+		return data1;
 	}
 }

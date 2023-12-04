@@ -55,16 +55,17 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= cageTypes.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= cageTypes.length) {
+			j1 = 0;
 		}
 		if (i == 0 || i == 1) {
-			return topIcons[j];
+			return topIcons[j1];
 		}
 		if (i == -1) {
-			return baseIcons[j];
+			return baseIcons[j1];
 		}
-		return sideIcons[j];
+		return sideIcons[j1];
 	}
 
 	@Override

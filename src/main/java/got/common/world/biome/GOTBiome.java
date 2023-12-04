@@ -988,13 +988,14 @@ public abstract class GOTBiome extends BiomeGenBase {
 
 	@Override
 	public GOTBiome setColor(int color) {
-		color |= 0xFF000000;
-		Integer existingBiomeID = biomeDimension.colorsToBiomeIDs.get(color);
+		int color1 = color;
+		color1 |= 0xFF000000;
+		Integer existingBiomeID = biomeDimension.colorsToBiomeIDs.get(color1);
 		if (existingBiomeID != null) {
 			throw new RuntimeException("GOT biome (ID " + biomeID + ") is duplicating the color of another GOT biome (ID " + existingBiomeID + ')');
 		}
-		biomeDimension.colorsToBiomeIDs.put(color, biomeID);
-		return (GOTBiome) super.setColor(color);
+		biomeDimension.colorsToBiomeIDs.put(color1, biomeID);
+		return (GOTBiome) super.setColor(color1);
 	}
 
 	public void setDarkUnreliable() {
@@ -1002,9 +1003,10 @@ public abstract class GOTBiome extends BiomeGenBase {
 	}
 
 	public GOTBiome setMinMaxHeight(float f, float f1) {
-		heightBaseParameter = f;
-		f -= 2.0f;
-		rootHeight = f + 0.2f;
+		float f2 = f;
+		heightBaseParameter = f2;
+		f2 -= 2.0f;
+		rootHeight = f2 + 0.2f;
 		heightVariation = f1 / 2.0f;
 		return this;
 	}

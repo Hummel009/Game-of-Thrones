@@ -114,11 +114,11 @@ public class GOTEntityPetyrBaelish extends GOTEntityHumanBase implements GOTBart
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.baelishDagger));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.baelishBrooch));
 		npcItemsInv.setIdleItem(null);
-		return data;
+		return data1;
 	}
 
 	@Override

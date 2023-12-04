@@ -28,7 +28,7 @@ public class GOTEntityGhiscarGuard extends GOTEntityGhiscarLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.essosPolearm));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -36,6 +36,6 @@ public class GOTEntityGhiscarGuard extends GOTEntityGhiscarLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.gemsbokLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.gemsbokChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.gemsbokHelmet));
-		return data;
+		return data1;
 	}
 }

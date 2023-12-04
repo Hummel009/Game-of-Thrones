@@ -19,8 +19,9 @@ public class GOTBlockSlabGravel extends GOTBlockSlabFalling {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		j &= 7;
-		switch (j) {
+		int j1 = j;
+		j1 &= 7;
+		switch (j1) {
 			case 0:
 				return Blocks.gravel.getIcon(i, 0);
 			case 1:
@@ -30,7 +31,7 @@ public class GOTBlockSlabGravel extends GOTBlockSlabFalling {
 			default:
 				break;
 		}
-		return super.getIcon(i, j);
+		return super.getIcon(i, j1);
 	}
 
 	@SideOnly(Side.CLIENT)

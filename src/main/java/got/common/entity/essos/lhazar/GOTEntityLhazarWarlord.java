@@ -58,7 +58,7 @@ public class GOTEntityLhazarWarlord extends GOTEntityLhazarWarrior implements GO
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.lhazarBootsLion));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.lhazarLeggingsLion));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.lhazarChestplateLion));
@@ -66,7 +66,7 @@ public class GOTEntityLhazarWarlord extends GOTEntityLhazarWarrior implements GO
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lhazarClub));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return data1;
 	}
 
 	@Override

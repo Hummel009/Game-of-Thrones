@@ -40,8 +40,8 @@ public class GOTModelWight extends GOTModelBiped {
 
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
-		f1 = 0.0f;
-		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
+		float f11 = 0.0f;
+		super.setRotationAngles(f, f11, f2, f3, f4, f5, entity);
 		bipedLeftArm.rotateAngleX = bipedRightArm.rotateAngleX;
 		bipedLeftArm.rotateAngleY = -bipedRightArm.rotateAngleY;
 		bipedLeftArm.rotateAngleZ = -bipedRightArm.rotateAngleZ;

@@ -96,10 +96,10 @@ public class GOTEntityDoranMartell extends GOTEntityHumanBase {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.walkingStick));
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.walkingStick));
-		return data;
+		return data1;
 	}
 
 	@Override

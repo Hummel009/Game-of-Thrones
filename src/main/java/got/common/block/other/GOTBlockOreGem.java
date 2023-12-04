@@ -47,10 +47,11 @@ public class GOTBlockOreGem extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= oreNames.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= oreNames.length) {
+			j1 = 0;
 		}
-		return oreIcons[j];
+		return oreIcons[j1];
 	}
 
 	@Override

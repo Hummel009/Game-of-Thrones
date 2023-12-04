@@ -27,7 +27,7 @@ public class GOTEntityWesterlandsGuard extends GOTEntityWesterlandsSoldier {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		setCurrentItemOrArmor(0, new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.westerosPike));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -35,6 +35,6 @@ public class GOTEntityWesterlandsGuard extends GOTEntityWesterlandsSoldier {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.westerlandsguardLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.westerlandsguardChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.westerlandsguardHelmet));
-		return data;
+		return data1;
 	}
 }

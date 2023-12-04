@@ -49,10 +49,11 @@ public class GOTItemDye extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
-		if (i >= dyeIcons.length) {
-			i = 0;
+		int i1 = i;
+		if (i1 >= dyeIcons.length) {
+			i1 = 0;
 		}
-		return dyeIcons[i];
+		return dyeIcons[i1];
 	}
 
 	@SideOnly(Side.CLIENT)

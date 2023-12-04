@@ -261,11 +261,12 @@ public class GOTTitle {
 		}
 
 		public PlayerTitle(GOTTitle title, EnumChatFormatting color) {
+			EnumChatFormatting color1 = color;
 			theTitle = title;
-			if (color == null || !color.isColor()) {
-				color = EnumChatFormatting.WHITE;
+			if (color1 == null || !color1.isColor()) {
+				color1 = EnumChatFormatting.WHITE;
 			}
-			theColor = color;
+			theColor = color1;
 		}
 
 		public static EnumChatFormatting colorForID(int ID) {

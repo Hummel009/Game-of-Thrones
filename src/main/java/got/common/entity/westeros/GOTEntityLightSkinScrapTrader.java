@@ -107,7 +107,7 @@ public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int weapon = rand.nextInt(4);
 		if (weapon == 0 || weapon == 1 || weapon == 2) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.ironDagger));
@@ -133,7 +133,7 @@ public class GOTEntityLightSkinScrapTrader extends GOTEntityHumanBase implements
 		int featherColor = Color.HSBtoRGB(h, s, b) & 0xFFFFFF;
 		GOTItemLeatherHat.setFeatherColor(hat, featherColor);
 		setCurrentItemOrArmor(4, hat);
-		return data;
+		return data1;
 	}
 
 	@Override

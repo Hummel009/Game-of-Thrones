@@ -471,10 +471,12 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 	}
 
 	public void generateMaze(World world, Random random, int i, int j, int k, GOTMazeGenerator maze, int height, int scale, boolean traps) {
+		int i3 = i;
+		int k3 = k;
 		int xr = (maze.xSize - 1) / 2;
 		int zr = (maze.zSize - 1) / 2;
-		i -= xr;
-		k -= zr;
+		i3 -= xr;
+		k3 -= zr;
 		int scaleR = (scale - 1) / 2;
 		for (int pass = 0; pass <= 1; ++pass) {
 			for (int i1 = 0; i1 < maze.xSize; ++i1) {
@@ -483,7 +485,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 						for (int i2 = 0; i2 < scale; ++i2) {
 							for (int k2 = 0; k2 < scale; ++k2) {
 								for (int j1 = 0; j1 < height; ++j1) {
-									setAir(world, (i + i1) * scale - scaleR + i2, j + j1, (k + k1) * scale - scaleR + k2);
+									setAir(world, (i3 + i1) * scale - scaleR + i2, j + j1, (k3 + k1) * scale - scaleR + k2);
 								}
 							}
 						}
@@ -492,7 +494,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 						continue;
 					}
 					if (maze.isDeadEnd(i1, k1) && random.nextInt(3) == 0) {
-						setBlockAndMetadata(world, (i + i1) * scale - scaleR, j + 1, (k + k1) * scale - scaleR, Blocks.torch, 0);
+						setBlockAndMetadata(world, (i3 + i1) * scale - scaleR, j + 1, (k3 + k1) * scale - scaleR, Blocks.torch, 0);
 					}
 					if (!traps || maze.isPath(i1, k1) || random.nextInt(4) != 0) {
 						continue;
@@ -514,7 +516,7 @@ public class GOTStructureSothoryosPyramid extends GOTStructureBase {
 						continue;
 					}
 					ForgeDirection dir = validDirs.get(random.nextInt(validDirs.size()));
-					placeDartTrap(world, random, (i + i1) * scale + dir.offsetX * scaleR, j, (k + k1) * scale + dir.offsetZ * scaleR, dir.ordinal());
+					placeDartTrap(world, random, (i3 + i1) * scale + dir.offsetX * scaleR, j, (k3 + k1) * scale + dir.offsetZ * scaleR, dir.ordinal());
 				}
 			}
 		}

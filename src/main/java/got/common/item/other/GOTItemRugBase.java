@@ -35,10 +35,11 @@ public abstract class GOTItemRugBase extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
-		if (i >= rugIcons.length) {
-			i = 0;
+		int i1 = i;
+		if (i1 >= rugIcons.length) {
+			i1 = 0;
 		}
-		return rugIcons[i];
+		return rugIcons[i1];
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -52,35 +53,39 @@ public abstract class GOTItemRugBase extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l, float f, float f1, float f2) {
-		Block block = world.getBlock(i, j, k);
+		int l1 = l;
+		int j1 = j;
+		int k1 = k;
+		int i1 = i;
+		Block block = world.getBlock(i1, j1, k1);
 		if (block == Blocks.snow_layer) {
-			l = 1;
-		} else if (!block.isReplaceable(world, i, j, k)) {
-			if (l == 0) {
-				--j;
+			l1 = 1;
+		} else if (!block.isReplaceable(world, i1, j1, k1)) {
+			if (l1 == 0) {
+				--j1;
 			}
-			if (l == 1) {
-				++j;
+			if (l1 == 1) {
+				++j1;
 			}
-			if (l == 2) {
-				--k;
+			if (l1 == 2) {
+				--k1;
 			}
-			if (l == 3) {
-				++k;
+			if (l1 == 3) {
+				++k1;
 			}
-			if (l == 4) {
-				--i;
+			if (l1 == 4) {
+				--i1;
 			}
-			if (l == 5) {
-				++i;
+			if (l1 == 5) {
+				++i1;
 			}
 		}
-		if (!entityplayer.canPlayerEdit(i, j, k, l, itemstack)) {
+		if (!entityplayer.canPlayerEdit(i1, j1, k1, l1, itemstack)) {
 			return false;
 		}
-		if (world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP) && !world.isRemote) {
+		if (world.getBlock(i1, j1 - 1, k1).isSideSolid(world, i1, j1 - 1, k1, ForgeDirection.UP) && !world.isRemote) {
 			GOTEntityRugBase rug = createRug(world, itemstack);
-			rug.setLocationAndAngles(i + f, j, k + f2, 180.0f - entityplayer.rotationYaw % 360.0f, 0.0f);
+			rug.setLocationAndAngles(i1 + f, j1, k1 + f2, 180.0f - entityplayer.rotationYaw % 360.0f, 0.0f);
 			if (world.checkNoEntityCollision(rug.boundingBox) && world.getCollidingBoundingBoxes(rug, rug.boundingBox).isEmpty() && !world.isAnyLiquid(rug.boundingBox)) {
 				world.spawnEntityInWorld(rug);
 				world.playSoundAtEntity(rug, Blocks.wool.stepSound.func_150496_b(), (Blocks.wool.stepSound.getVolume() + 1.0f) / 2.0f, Blocks.wool.stepSound.getPitch() * 0.8f);

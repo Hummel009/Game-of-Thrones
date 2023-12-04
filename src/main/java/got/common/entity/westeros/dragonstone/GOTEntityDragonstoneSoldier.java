@@ -50,7 +50,7 @@ public class GOTEntityDragonstoneSoldier extends GOTEntityDragonstoneLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -84,6 +84,6 @@ public class GOTEntityDragonstoneSoldier extends GOTEntityDragonstoneLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.dragonstoneLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.dragonstoneChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.dragonstoneHelmet));
-		return data;
+		return data1;
 	}
 }

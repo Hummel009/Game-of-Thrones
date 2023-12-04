@@ -309,30 +309,31 @@ public class GOTFellowship {
 	}
 
 	public void sendFellowshipMessage(EntityPlayerMP sender, String message) {
+		String message1 = message;
 		if (sender.func_147096_v() == EntityPlayer.EnumChatVisibility.HIDDEN) {
 			ChatComponentTranslation msgCannotSend = new ChatComponentTranslation("chat.cannotSend");
 			msgCannotSend.getChatStyle().setColor(EnumChatFormatting.RED);
 			sender.playerNetServerHandler.sendPacket(new S02PacketChat(msgCannotSend));
 		} else {
 			sender.func_143004_u();
-			message = StringUtils.normalizeSpace(message);
-			if (StringUtils.isBlank(message)) {
+			message1 = StringUtils.normalizeSpace(message1);
+			if (StringUtils.isBlank(message1)) {
 				return;
 			}
-			for (int i = 0; i < message.length(); ++i) {
-				if (ChatAllowedCharacters.isAllowedCharacter(message.charAt(i))) {
+			for (int i = 0; i < message1.length(); ++i) {
+				if (ChatAllowedCharacters.isAllowedCharacter(message1.charAt(i))) {
 					continue;
 				}
 				sender.playerNetServerHandler.kickPlayerFromServer("Illegal characters in chat");
 				return;
 			}
 			ClickEvent fMsgClickEvent = new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/fmsg \"" + fellowshipName + "\" ");
-			IChatComponent msgComponent = ForgeHooks.newChatWithLinks(message);
+			IChatComponent msgComponent = ForgeHooks.newChatWithLinks(message1);
 			msgComponent.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 			IChatComponent senderComponent = sender.func_145748_c_();
 			senderComponent.getChatStyle().setChatClickEvent(fMsgClickEvent);
 			ChatComponentTranslation chatComponent = new ChatComponentTranslation("chat.type.text", senderComponent, "");
-			chatComponent = ForgeHooks.onServerChatEvent(sender.playerNetServerHandler, message, chatComponent);
+			chatComponent = ForgeHooks.onServerChatEvent(sender.playerNetServerHandler, message1, chatComponent);
 			if (chatComponent == null) {
 				return;
 			}

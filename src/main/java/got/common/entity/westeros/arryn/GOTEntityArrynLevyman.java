@@ -35,12 +35,12 @@ public class GOTEntityArrynLevyman extends GOTEntityArrynMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(militiaWeapons.length);
 		npcItemsInv.setMeleeWeapon(militiaWeapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		GOTEntityUtils.setLevymanArmor(this, rand);
-		return data;
+		return data1;
 	}
 
 	@Override

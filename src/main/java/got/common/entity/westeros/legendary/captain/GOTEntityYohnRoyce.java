@@ -109,14 +109,14 @@ public class GOTEntityYohnRoyce extends GOTEntityHumanBase implements GOTUnitTra
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.lamentation));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(1, new ItemStack(GOTItems.royceBoots));
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.royceLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.royceChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.royceHelmet));
-		return data;
+		return data1;
 	}
 
 	@Override

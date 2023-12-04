@@ -28,21 +28,22 @@ public class GOTBlockConcretePowder extends BlockFalling {
 	}
 
 	public void func_149830_m(World world, int i, int j, int k) {
-		if (BlockFalling.func_149831_e(world, i, j - 1, k) && j >= 0) {
+		int j1 = j;
+		if (BlockFalling.func_149831_e(world, i, j1 - 1, k) && j1 >= 0) {
 			int b0 = 32;
-			if (!fallInstantly && world.checkChunksExist(i - b0, j - b0, k - b0, i + b0, j + b0, k + b0)) {
+			if (!fallInstantly && world.checkChunksExist(i - b0, j1 - b0, k - b0, i + b0, j1 + b0, k + b0)) {
 				if (!world.isRemote) {
-					GOTEntityFallingConcrete entityfallingblock = new GOTEntityFallingConcrete(world, i + 0.5f, j + 0.5f, k + 0.5f, this, world.getBlockMetadata(i, j, k));
+					GOTEntityFallingConcrete entityfallingblock = new GOTEntityFallingConcrete(world, i + 0.5f, j1 + 0.5f, k + 0.5f, this, world.getBlockMetadata(i, j1, k));
 					func_149829_a(entityfallingblock);
 					world.spawnEntityInWorld(entityfallingblock);
 				}
 			} else {
-				world.setBlockToAir(i, j, k);
-				while (BlockFalling.func_149831_e(world, i, j - 1, k) && j > 0) {
-					--j;
+				world.setBlockToAir(i, j1, k);
+				while (BlockFalling.func_149831_e(world, i, j1 - 1, k) && j1 > 0) {
+					--j1;
 				}
-				if (j > 0) {
-					world.setBlock(i, j, k, this);
+				if (j1 > 0) {
+					world.setBlock(i, j1, k, this);
 				}
 			}
 		}

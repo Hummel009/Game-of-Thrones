@@ -63,9 +63,9 @@ public class GOTEntityCrownlandsBartender extends GOTEntityCrownlandsMan impleme
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mug));
-		return data;
+		return data1;
 	}
 
 	@Override

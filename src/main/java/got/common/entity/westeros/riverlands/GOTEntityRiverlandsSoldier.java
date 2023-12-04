@@ -50,7 +50,7 @@ public class GOTEntityRiverlandsSoldier extends GOTEntityRiverlandsLevyman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(10);
 		switch (i) {
 			case 0:
@@ -84,6 +84,6 @@ public class GOTEntityRiverlandsSoldier extends GOTEntityRiverlandsLevyman {
 		setCurrentItemOrArmor(2, new ItemStack(GOTItems.riverlandsLeggings));
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.riverlandsChestplate));
 		setCurrentItemOrArmor(4, new ItemStack(GOTItems.riverlandsHelmet));
-		return data;
+		return data1;
 	}
 }

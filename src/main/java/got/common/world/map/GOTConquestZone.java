@@ -157,15 +157,16 @@ public class GOTConquestZone {
 	}
 
 	public void setConquestStrengthRaw(GOTFaction fac, float str) {
+		float str1 = str;
 		if (!fac.isPlayableAlignmentFaction()) {
 			return;
 		}
-		if (str < 0.0f) {
-			str = 0.0f;
+		if (str1 < 0.0f) {
+			str1 = 0.0f;
 		}
 		int index = allPlayableFacs.indexOf(fac);
-		conquestStrengths[index] = str;
-		if (str == 0.0f) {
+		conquestStrengths[index] = str1;
+		if (str1 == 0.0f) {
 			isEmptyKey &= ~(1L << index);
 		} else {
 			isEmptyKey |= 1L << index;

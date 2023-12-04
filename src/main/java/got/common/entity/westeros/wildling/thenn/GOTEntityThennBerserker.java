@@ -34,7 +34,7 @@ public class GOTEntityThennBerserker extends GOTEntityThenn {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(4);
 		if (i == 0 || i == 1 || i == 2) {
 			npcItemsInv.setMeleeWeapon(new ItemStack(GOTItems.wildlingSword));
@@ -44,7 +44,7 @@ public class GOTEntityThennBerserker extends GOTEntityThenn {
 		setCurrentItemOrArmor(3, new ItemStack(GOTItems.boneChestplate));
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		setCurrentItemOrArmor(4, null);
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -55,8 +55,8 @@ public class GOTEntityYiTiBartender extends GOTEntityYiTiMan implements GOTTrade
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setIdleItem(new ItemStack(GOTItems.mug));
-		return data;
+		return data1;
 	}
 }

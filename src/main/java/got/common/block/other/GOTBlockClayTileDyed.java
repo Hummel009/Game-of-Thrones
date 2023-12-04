@@ -24,10 +24,11 @@ public class GOTBlockClayTileDyed extends GOTBlockClayTile {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= 16) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= 16) {
+			j1 = 0;
 		}
-		return clayIcons[j];
+		return clayIcons[j1];
 	}
 
 	@SideOnly(Side.CLIENT)

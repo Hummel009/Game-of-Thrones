@@ -566,13 +566,14 @@ public class GOTLevelData {
 	}
 
 	public static void setWaypointCooldown(int max, int min) {
-		max = Math.max(0, max);
-		min = Math.max(0, min);
-		if (min > max) {
-			min = max;
+		int min1 = min;
+		int max1 = Math.max(0, max);
+		min1 = Math.max(0, min1);
+		if (min1 > max1) {
+			min1 = max1;
 		}
-		waypointCooldownMax = max;
-		waypointCooldownMin = min;
+		waypointCooldownMax = max1;
+		waypointCooldownMin = min1;
 		markDirty();
 		if (!GOT.proxy.isClient()) {
 			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;

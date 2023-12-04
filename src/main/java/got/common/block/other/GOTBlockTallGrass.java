@@ -51,13 +51,14 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= grassNames.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= grassNames.length) {
+			j1 = 0;
 		}
 		if (i == -1) {
-			return overlayIcons[j];
+			return overlayIcons[j1];
 		}
-		return grassIcons[j];
+		return grassIcons[j1];
 	}
 
 	@SideOnly(Side.CLIENT)

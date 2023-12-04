@@ -40,7 +40,7 @@ public class GOTEntityPentosLevyman extends GOTEntityPentosMan {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weaponsIron.length);
 		npcItemsInv.setMeleeWeapon(weaponsIron[i].copy());
 		if (rand.nextInt(5) == 0) {
@@ -49,7 +49,7 @@ public class GOTEntityPentosLevyman extends GOTEntityPentosMan {
 		}
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
 		GOTEntityUtils.setLevymanArmor(this, rand, true);
-		return data;
+		return data1;
 	}
 
 	@Override

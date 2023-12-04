@@ -27,13 +27,14 @@ public class GOTPacketDragonControl implements IMessage {
 	}
 
 	public void fromInteger(int value) {
+		int value1 = value;
 		int index = 0;
-		while (value != 0) {
-			if (value % 2 != 0) {
+		while (value1 != 0) {
+			if (value1 % 2 != 0) {
 				bits.set(index);
 			}
 			index++;
-			value >>>= 1;
+			value1 >>>= 1;
 		}
 	}
 

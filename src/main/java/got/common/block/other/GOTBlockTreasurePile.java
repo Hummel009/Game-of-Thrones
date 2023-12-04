@@ -242,22 +242,23 @@ public class GOTBlockTreasurePile extends Block {
 	}
 
 	public boolean tryFall(World world, int i, int j, int k) {
-		int meta = world.getBlockMetadata(i, j, k);
-		if (canFallUpon(world, i, j - 1, k, this, meta) && j >= 0) {
+		int j1 = j;
+		int meta = world.getBlockMetadata(i, j1, k);
+		if (canFallUpon(world, i, j1 - 1, k, this, meta) && j1 >= 0) {
 			int range = 32;
-			if (!BlockFalling.fallInstantly && world.checkChunksExist(i - range, j - range, k - range, i + range, j + range, k + range)) {
+			if (!BlockFalling.fallInstantly && world.checkChunksExist(i - range, j1 - range, k - range, i + range, j1 + range, k + range)) {
 				if (!world.isRemote) {
-					GOTEntityFallingTreasure fallingBlock = new GOTEntityFallingTreasure(world, i + 0.5f, j + 0.5f, k + 0.5f, this, meta);
+					GOTEntityFallingTreasure fallingBlock = new GOTEntityFallingTreasure(world, i + 0.5f, j1 + 0.5f, k + 0.5f, this, meta);
 					world.spawnEntityInWorld(fallingBlock);
 					return true;
 				}
 			} else {
-				world.setBlockToAir(i, j, k);
-				while (canFallUpon(world, i, j - 1, k, this, meta) && j > 0) {
-					--j;
+				world.setBlockToAir(i, j1, k);
+				while (canFallUpon(world, i, j1 - 1, k, this, meta) && j1 > 0) {
+					--j1;
 				}
-				if (j > 0) {
-					world.setBlock(i, j, k, this, meta, 3);
+				if (j1 > 0) {
+					world.setBlock(i, j1, k, this, meta, 3);
 					return true;
 				}
 			}

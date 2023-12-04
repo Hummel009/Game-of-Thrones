@@ -33,7 +33,7 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(7);
 		switch (i) {
 			case 0:
@@ -75,7 +75,7 @@ public class GOTEntityHillmanWarrior extends GOTEntityHillman {
 		if (rand.nextInt(10) != 0) {
 			setCurrentItemOrArmor(4, new ItemStack(GOTItems.hillmenHelmet));
 		}
-		return data;
+		return data1;
 	}
 
 	@Override

@@ -25,9 +25,9 @@ public class GOTEntityVolantisMason extends GOTEntityVolantisTrader {
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		npcItemsInv.setMeleeWeapon(new ItemStack(Items.iron_pickaxe));
 		npcItemsInv.setIdleItem(new ItemStack(Blocks.stone));
-		return data;
+		return data1;
 	}
 }

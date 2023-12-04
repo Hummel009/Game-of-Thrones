@@ -47,6 +47,8 @@ public class GOTMountFunctions {
 	}
 
 	public static void move(GOTNPCMount mount, float strafe, float forward) {
+		float strafe1 = strafe;
+		float forward1 = forward;
 		EntityLiving entity = (EntityLiving) mount;
 		Entity rider = entity.riddenByEntity;
 		if (rider instanceof EntityPlayer && mount.isMountSaddled()) {
@@ -55,16 +57,16 @@ public class GOTMountFunctions {
 			entity.rotationYaw %= 360.0f;
 			entity.rotationPitch %= 360.0f;
 			entity.rotationYawHead = entity.renderYawOffset = entity.rotationYaw;
-			strafe = ((EntityLivingBase) rider).moveStrafing * 0.5f;
-			forward = ((EntityLivingBase) rider).moveForward;
-			if (forward <= 0.0f) {
-				forward *= 0.25f;
+			strafe1 = ((EntityLivingBase) rider).moveStrafing * 0.5f;
+			forward1 = ((EntityLivingBase) rider).moveForward;
+			if (forward1 <= 0.0f) {
+				forward1 *= 0.25f;
 			}
 			entity.stepHeight = 1.0f;
 			entity.jumpMovementFactor = entity.getAIMoveSpeed() * 0.1f;
 			if (GOTReplacedMethods.MountFunctions.canRiderControl_elseNoMotion(entity)) {
 				entity.setAIMoveSpeed((float) entity.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue());
-				mount.super_moveEntityWithHeading(strafe, forward);
+				mount.super_moveEntityWithHeading(strafe1, forward1);
 			}
 			entity.prevLimbSwingAmount = entity.limbSwingAmount;
 			double d0 = entity.posX - entity.prevPosX;
@@ -78,7 +80,7 @@ public class GOTMountFunctions {
 		} else {
 			entity.stepHeight = 0.5f;
 			entity.jumpMovementFactor = 0.02f;
-			mount.super_moveEntityWithHeading(strafe, forward);
+			mount.super_moveEntityWithHeading(strafe1, forward1);
 		}
 	}
 

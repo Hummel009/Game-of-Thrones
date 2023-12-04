@@ -150,7 +150,7 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 
 	@Override
 	public IEntityLivingData onSpawnWithEgg(IEntityLivingData data) {
-		data = super.onSpawnWithEgg(data);
+		IEntityLivingData data1 = super.onSpawnWithEgg(data);
 		int i = rand.nextInt(weapons.length);
 		npcItemsInv.setMeleeWeapon(weapons[i].copy());
 		npcItemsInv.setIdleItem(npcItemsInv.getMeleeWeapon());
@@ -160,7 +160,7 @@ public class GOTEntityLightSkinBandit extends GOTEntityHumanBase implements IBan
 			GOTItemLeatherHat.setFeatherColor(hat, 16777215);
 			setCurrentItemOrArmor(4, hat);
 		}
-		return data;
+		return data1;
 	}
 
 	@Override
