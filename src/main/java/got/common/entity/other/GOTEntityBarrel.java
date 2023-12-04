@@ -235,7 +235,8 @@ public class GOTEntityBarrel extends Entity {
 				double d11 = posZ + (boatZ - posZ) / boatPosRotationIncrements;
 				double d10 = MathHelper.wrapAngleTo180_double(boatYaw - rotationYaw);
 				rotationYaw = (float) (rotationYaw + d10 / boatPosRotationIncrements);
-				rotationPitch = (float) (rotationPitch + (boatPitch - rotationPitch) / boatPosRotationIncrements);--boatPosRotationIncrements;
+				rotationPitch = (float) (rotationPitch + (boatPitch - rotationPitch) / boatPosRotationIncrements);
+				--boatPosRotationIncrements;
 				setPosition(d4, d5, d11);
 				setRotation(rotationYaw, rotationPitch);
 			} else {
