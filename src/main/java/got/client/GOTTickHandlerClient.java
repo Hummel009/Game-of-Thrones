@@ -1217,8 +1217,8 @@ public class GOTTickHandlerClient {
 					int j = resolution.getScaledHeight();
 					float scale = 1.5f;
 					float invScale = 1.0f / scale;
-					i *= (int) invScale;
-					j *= (int) invScale;
+					i = (int) (i * invScale);
+					j = (int) (j * invScale);
 					int x = (i - minecraft.fontRenderer.getStringWidth(date)) / 2;
 					int y = (j - minecraft.fontRenderer.FONT_HEIGHT) * 2 / 5;
 					GL11.glScalef(scale, scale, scale);
