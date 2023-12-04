@@ -797,8 +797,10 @@ public class GOTClassTransformer implements IClassTransformer {
 		return writer.toByteArray();
 	}
 
-	@SuppressWarnings("all")
 	public byte[] patchEntityLivingBase(String name, byte[] bytes) {
+		ClassNode classNode = new ClassNode();
+		ClassReader classReader = new ClassReader(bytes);
+		classReader.accept(classNode, 0);
 		String targetMethodName = "getTotalArmorValue";
 		String targetMethodNameObf = "func_70658_aO";
 		String targetMethodSign = "()I";
@@ -806,9 +808,6 @@ public class GOTClassTransformer implements IClassTransformer {
 		String targetMethodNameObf2 = "func_70645_a";
 		String targetMethodSign2 = "(Lnet/minecraft/util/DamageSource;)V";
 		String targetMethodSignObf2 = "(Lro;)V";
-		ClassNode classNode = new ClassNode();
-		ClassReader classReader = new ClassReader(bytes);
-		classReader.accept(classNode, 0);
 		for (MethodNode method : classNode.methods) {
 			if ((method.name.equals(targetMethodName) || method.name.equals(targetMethodNameObf)) && method.desc.equals(targetMethodSign)) {
 				VarInsnNode nodeStore = findNodeInMethod(method, new VarInsnNode(ISTORE, 6));
@@ -829,7 +828,17 @@ public class GOTClassTransformer implements IClassTransformer {
 				AbstractInsnNode nodeIsInstance = null;
 				boolean[] newPrev = {false, true};
 				int newIns22 = newPrev.length;
-				for (int i = 0; i < newIns22 && (nodeIsInstance = findNodeInMethod(method, new TypeInsnNode(INSTANCEOF, newPrev[i] ? cls_EntityPlayer_obf : cls_EntityPlayer))) == null; ++i) {
+				for (boolean newPrevValue : newPrev) {
+					TypeInsnNode typeInsnNode;
+					if (newPrevValue) {
+						typeInsnNode = new TypeInsnNode(INSTANCEOF, cls_EntityPlayer_obf);
+					} else {
+						typeInsnNode = new TypeInsnNode(INSTANCEOF, cls_EntityPlayer);
+					}
+					nodeIsInstance = findNodeInMethod(method, typeInsnNode);
+					if (nodeIsInstance != null) {
+						break;
+					}
 				}
 				VarInsnNode nodeLoadEntity = (VarInsnNode) nodeIsInstance.getPrevious();
 				method.instructions.remove(nodeIsInstance);
@@ -1070,7 +1079,6 @@ public class GOTClassTransformer implements IClassTransformer {
 		return writer.toByteArray();
 	}
 
-	@SuppressWarnings("ConditionalCanBePushedInsideExpression")
 	public byte[] patchPathFinder(String name, byte[] bytes) {
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
@@ -1089,8 +1097,16 @@ public class GOTClassTransformer implements IClassTransformer {
 							String _blocks = blocksObf ? "ajn" : cls_Blocks;
 							String _door = doorObf ? "field_150466_ao" : "wooden_door";
 							FieldInsnNode nodeGetDoor = new FieldInsnNode(GETSTATIC, _blocks, _door, "Lnet/minecraft/block/Block;");
-							if (pass == 0 ? (nodeFound1 = findNodeInMethod(method, nodeGetDoor, 0)) != null : (nodeFound2 = findNodeInMethod(method, nodeGetDoor, 1)) != null) {
-								continue block1;
+							if (pass == 0) {
+								nodeFound1 = findNodeInMethod(method, nodeGetDoor, 0);
+								if (nodeFound1 != null) {
+									continue block1;
+								}
+							} else {
+								nodeFound2 = findNodeInMethod(method, nodeGetDoor, 1);
+								if (nodeFound2 != null) {
+									continue block1;
+								}
 							}
 						}
 					}

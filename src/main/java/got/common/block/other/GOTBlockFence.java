@@ -55,7 +55,7 @@ public class GOTBlockFence extends BlockFence {
 
 	@SideOnly(Side.CLIENT)
 	@Override
-	@SuppressWarnings("all")
+	@SuppressWarnings({"TypeMayBeWeakened", "rawtypes"})
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
 		List<ItemStack> plankTypes = new ArrayList<>();
 		plankBlock.getSubBlocks(Item.getItemFromBlock(plankBlock), plankBlock.getCreativeTabToDisplayOn(), plankTypes);

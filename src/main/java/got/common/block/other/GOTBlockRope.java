@@ -61,19 +61,18 @@ public class GOTBlockRope extends GOTBlockLadder {
 	}
 
 	@Override
-	@SuppressWarnings("all")
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		boolean lookingUpOrDown = entityplayer.rotationPitch <= 0.0f;
 		int lookDir = lookingUpOrDown ? 1 : -1;
 		ItemStack itemstack = entityplayer.getHeldItem();
 		if (itemstack != null && itemstack.getItem() == Item.getItemFromBlock(this)) {
-			int j1;
-			Block block;
-			for (j1 = j; j1 >= 0 && j1 < world.getHeight() && world.getBlock(i, j1, k) == this; j1 += lookDir) {
+			int j1 = j;
+			while (j1 >= 0 && j1 < world.getHeight() && world.getBlock(i, j1, k) == this) {
+				j1 += lookDir;
 			}
 			if (j1 >= 0 && j1 < world.getHeight()) {
 				int thisMeta;
-				block = world.getBlock(i, j1, k);
+				Block block = world.getBlock(i, j1, k);
 				if (canPlaceBlockOnSide(world, i, j1, k, side) && block.isReplaceable(world, i, j1, k) && !block.getMaterial().isLiquid() && canExtendRopeWithMetadata(world, i, j1, k, thisMeta = world.getBlockMetadata(i, j, k))) {
 					world.setBlock(i, j1, k, this, thisMeta, 3);
 					world.playSoundEffect(i + 0.5f, j1 + 0.5f, k + 0.5f, stepSound.func_150496_b(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);

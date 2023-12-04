@@ -135,7 +135,6 @@ public abstract class GOTEntityFireball extends Entity {
 	public abstract void onImpact(MovingObjectPosition p_70227_1_);
 
 	@Override
-	@SuppressWarnings("all")
 	public void onUpdate() {
 		if (!worldObj.isRemote && (shootingEntity != null && shootingEntity.isDead || !worldObj.blockExists((int) posX, (int) posY, (int) posZ))) {
 			setDead();
@@ -209,8 +208,9 @@ public abstract class GOTEntityFireball extends Entity {
 			float f1 = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
 			rotationYaw = (float) (Math.atan2(motionZ, motionX) * 180.0 / Math.PI) + 90.0f;
 
-			for (rotationPitch = (float) (Math.atan2(f1, motionY) * 180.0 / Math.PI) - 90.0f; rotationPitch - prevRotationPitch < -180.0f; prevRotationPitch -= 360.0f) {
-
+			float rotationPitch = (float) (Math.atan2(f1, motionY) * 180.0 / Math.PI) - 90.0f;
+			while (rotationPitch - prevRotationPitch < -180.0f) {
+				prevRotationPitch -= 360.0f;
 			}
 
 			while (rotationPitch - prevRotationPitch >= 180.0f) {

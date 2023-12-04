@@ -327,24 +327,18 @@ public class GOT {
 		return calendar.getMonth() == Month.AUGUST && calendar.getDayOfMonth() == 24;
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("Convert2Lambda")
 	public static IEntitySelector selectLivingExceptCreativePlayers() {
 		return new IEntitySelector() {
 
 			@Override
 			public boolean isEntityApplicable(Entity entity) {
-				if (entity instanceof EntityLivingBase && entity.isEntityAlive()) {
-					if (entity instanceof EntityPlayer) {
-						return !((EntityPlayer) entity).capabilities.isCreativeMode;
-					}
-					return true;
-				}
-				return false;
+				return entity instanceof EntityLivingBase && entity.isEntityAlive() && (!(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode);
 			}
 		};
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("Convert2Lambda")
 	public static IEntitySelector selectNonCreativePlayers() {
 		return new IEntitySelector() {
 

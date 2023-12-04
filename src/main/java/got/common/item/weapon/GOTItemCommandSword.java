@@ -30,7 +30,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		gotWeaponDamage = 1.0f;
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("Convert2Lambda")
 	public void command(EntityPlayer entityplayer, World world, ItemStack itemstack, MovingObjectPosition hitTarget) {
 		entityplayer.setRevengeTarget(null);
 		Collection<Entity> spreadTargets = new ArrayList<>();

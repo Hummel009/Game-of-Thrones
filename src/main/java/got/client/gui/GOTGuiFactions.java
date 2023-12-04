@@ -157,7 +157,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		return true;
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("TypeMayBeWeakened")
 	public void drawButtonHoveringText(List<String> list, int i, int j) {
 		func_146283_a(list, i, j);
 	}

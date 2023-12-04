@@ -184,9 +184,9 @@ public class GOTItemLingeringPotion extends ItemPotion {
 		return 0;
 	}
 
+	@SuppressWarnings({"TypeMayBeWeakened", "rawtypes"})
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings("all")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		List<ItemStack> potions = new ArrayList<>();
 		super.getSubItems(item, tab, potions);

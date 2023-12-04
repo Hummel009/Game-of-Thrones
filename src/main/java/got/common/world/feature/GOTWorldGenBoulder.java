@@ -24,7 +24,6 @@ public class GOTWorldGenBoulder extends WorldGenerator {
 	}
 
 	@Override
-	@SuppressWarnings("all")
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		world.getBiomeGenForCoords(i, k);
 		if (!GOTStructureBase.isSurfaceStatic(world, i, j - 1, k)) {
@@ -60,7 +59,6 @@ public class GOTWorldGenBoulder extends WorldGenerator {
 			for (int i1 = posX - sphereWidth; i1 <= posX + sphereWidth; ++i1) {
 				for (int j1 = posY - sphereWidth; j1 <= posY + sphereWidth; ++j1) {
 					for (int k1 = posZ - sphereWidth; k1 <= posZ + sphereWidth; ++k1) {
-						int j3;
 						int i2 = i1 - posX;
 						int j2 = j1 - posY;
 						int k2 = k1 - posZ;
@@ -68,7 +66,9 @@ public class GOTWorldGenBoulder extends WorldGenerator {
 						if (dist >= sphereWidth * sphereWidth && (dist >= (sphereWidth + 1) * (sphereWidth + 1) || random.nextInt(3) != 0)) {
 							continue;
 						}
-						for (j3 = j1; j3 >= 0 && !world.getBlock(i1, j3 - 1, k1).isOpaqueCube(); --j3) {
+						int j3 = j1;
+						while (j3 >= 0 && !world.getBlock(i1, j3 - 1, k1).isOpaqueCube()) {
+							--j3;
 						}
 						setBlockAndNotifyAdequately(world, i1, j3, k1, id, meta);
 						world.getBlock(i1, j3 - 1, k1).onPlantGrow(world, i1, j3 - 1, k1, i1, j3 - 1, k1);

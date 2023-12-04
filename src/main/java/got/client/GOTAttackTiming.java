@@ -24,7 +24,7 @@ public class GOTAttackTiming {
 	public static ItemStack attackItem;
 	public static int lastCheckTick = -1;
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("StatementWithEmptyBody")
 	public static void doAttackTiming() {
 		int currentTick = GOTTickHandlerClient.clientTick;
 		if (lastCheckTick == -1) {

@@ -31,11 +31,10 @@ public class GOTRenderInvasionSpawner extends Render {
 		return TextureMap.locationItemsTexture;
 	}
 
-	@SuppressWarnings("all")
 	public float interpolateRotation(float prevRotation, float newRotation, float tick) {
-		float interval;
-		for (interval = newRotation - prevRotation; interval < -180.0f; interval += 360.0f) {
-
+		float interval = newRotation - prevRotation;
+		while (interval < -180.0f) {
+			interval += 360.0f;
 		}
 		while (interval >= 180.0f) {
 			interval -= 360.0f;
