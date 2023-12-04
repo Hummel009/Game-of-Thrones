@@ -61,7 +61,7 @@ public class GOTItemCrossbow extends ItemBow {
 		float f = 1.0f;
 		if (itemstack != null) {
 			if (itemstack.getItem() instanceof GOTItemCrossbow) {
-				f *= (float) ((GOTItemCrossbow) itemstack.getItem()).boltDamageFactor;
+				f = (float) (f * ((GOTItemCrossbow) itemstack.getItem()).boltDamageFactor);
 			}
 			f *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
 		}

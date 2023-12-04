@@ -60,10 +60,10 @@ public class GOTRecipePouch implements IRecipe {
 				float r = (pouchColor >> 16 & 0xFF) / 255.0f;
 				float g = (pouchColor >> 8 & 0xFF) / 255.0f;
 				float b = (pouchColor & 0xFF) / 255.0f;
-				totalColor += (int) (Math.max(r, Math.max(g, b)) * 255.0f);
-				rgb[0] += (int) (r * 255.0f);
-				rgb[1] += (int) (g * 255.0f);
-				rgb[2] += (int) (b * 255.0f);
+				totalColor = (int) (totalColor + Math.max(r, Math.max(g, b)) * 255.0f);
+				rgb[0] = (int) (rgb[0] + r * 255.0f);
+				rgb[1] = (int) (rgb[1] + g * 255.0f);
+				rgb[2] = (int) (rgb[2] + b * 255.0f);
 				++coloredItems;
 				if (!GOTItemPouch.isPouchDyed(itemstack)) {
 					continue;
@@ -80,9 +80,9 @@ public class GOTRecipePouch implements IRecipe {
 			int g = (int) (dyeColors[1] * 255.0f);
 			int b = (int) (dyeColors[2] * 255.0f);
 			totalColor += Math.max(r, Math.max(g, b));
-			rgb[0] += r;
-			rgb[1] += g;
-			rgb[2] += b;
+			rgb[0] = rgb[0] + r;
+			rgb[1] = rgb[1] + g;
+			rgb[2] = rgb[2] + b;
 			++coloredItems;
 			anyDye = true;
 		}

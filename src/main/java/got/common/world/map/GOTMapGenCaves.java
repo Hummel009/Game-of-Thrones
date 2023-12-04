@@ -138,7 +138,7 @@ public class GOTMapGenCaves extends MapGenBase {
 			par61 += MathHelper.cos(angle1) * var33;
 			par81 += var34;
 			par101 += MathHelper.sin(angle1) * var33;
-			par141 *= var28 ? 0.92f : 0.7f;
+			par141 = par141 * (var28 ? 0.92f : 0.7f);
 			par141 += var24 * 0.1f;
 			angle1 += var23 * 0.1f;
 			var24 *= 0.9f;

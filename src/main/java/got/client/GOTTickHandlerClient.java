@@ -1163,8 +1163,8 @@ public class GOTTickHandlerClient {
 							GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 							float scale = 0.5f;
 							float invScale = 1.0f / scale;
-							compassX *= (int) invScale;
-							compassY *= (int) invScale;
+							compassX = (int) (compassX * invScale);
+							compassY = (int) (compassY * invScale);
 							GL11.glScalef(scale, scale, scale);
 							String coords = MathHelper.floor_double(entityplayer.posX) + ", " + MathHelper.floor_double(entityplayer.boundingBox.minY) + ", " + MathHelper.floor_double(entityplayer.posZ);
 							FontRenderer fontRenderer = minecraft.fontRenderer;

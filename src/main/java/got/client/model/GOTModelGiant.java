@@ -223,7 +223,7 @@ public class GOTModelGiant extends ModelBase {
 			f6 = 1.0f - f6;
 			float f7 = MathHelper.sin(f6 * 3.1415927f);
 			float f8 = MathHelper.sin(onGround * 3.1415927f) * -(head.rotateAngleX - 0.7f) * 0.75f;
-			rightArm.rotateAngleX -= (float) (f7 * 1.2 + f8);
+			rightArm.rotateAngleX = (float) (rightArm.rotateAngleX - (f7 * 1.2 + f8));
 			rightArm.rotateAngleZ = MathHelper.sin(onGround * 3.1415927f) * -0.4f;
 		}
 		rightLeg.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;

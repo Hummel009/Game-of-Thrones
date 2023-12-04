@@ -1643,15 +1643,15 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float[] pos = transformCoords(location.posX, location.posZ);
 				int questX = Math.round(pos[0]);
 				int questY = Math.round(pos[1]);
+				float scale = 0.5f;
 				IIcon icon = questBookIcon.getIconIndex();
 				int iconWidthHalf = icon.getIconWidth() / 2;
-				iconWidthHalf *= 0;
+				iconWidthHalf = (int) (iconWidthHalf * scale);
 				int iconBorder = iconWidthHalf + 1;
 				questX = Math.max(mapXMin + iconBorder, questX);
 				questX = Math.min(mapXMax - iconBorder - 1, questX);
 				questY = Math.max(mapYMin + iconBorder, questY);
 				questY = Math.min(mapYMax - iconBorder - 1, questY);
-				float scale = 0.5f;
 				float invScale = 1.0f / scale;
 				int iconX = Math.round(questX * invScale);
 				int iconY = Math.round(questY * invScale);

@@ -112,7 +112,7 @@ public class GOTWeaponStats {
 		if (itemstack != null && (weaponAttributes = itemstack.getAttributeModifiers().values()) != null) {
 			for (AttributeModifier mod : weaponAttributes) {
 				if (mod.getID() == GOTItemSword.accessWeaponDamageModifier()) {
-					damage += (float) mod.getAmount();
+					damage = (float) (damage + mod.getAmount());
 					damage += EnchantmentHelper.func_152377_a(itemstack, EnumCreatureAttribute.UNDEFINED);
 				}
 			}
@@ -158,7 +158,7 @@ public class GOTWeaponStats {
 				if (!launchSpeedOnly) {
 					int power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack);
 					if (power > 0) {
-						weaponFactor += (float) (power * 0.5 + 0.5);
+						weaponFactor = (float) (weaponFactor + (power * 0.5 + 0.5));
 					}
 					weaponFactor *= 2.0f;
 				}
@@ -170,7 +170,7 @@ public class GOTWeaponStats {
 				weaponFactor *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
 				int power;
 				if (!launchSpeedOnly && (power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack)) > 0) {
-					weaponFactor += (float) (power * 0.5 + 0.5);
+					weaponFactor = (float) (weaponFactor + (power * 0.5 + 0.5));
 				}
 			} else if (item instanceof GOTItemSarbacane) {
 				weaponFactor = baseArrowFactor;

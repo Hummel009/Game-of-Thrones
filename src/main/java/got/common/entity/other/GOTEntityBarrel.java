@@ -234,9 +234,8 @@ public class GOTEntityBarrel extends Entity {
 				d5 = posY + (boatY - posY) / boatPosRotationIncrements;
 				double d11 = posZ + (boatZ - posZ) / boatPosRotationIncrements;
 				double d10 = MathHelper.wrapAngleTo180_double(boatYaw - rotationYaw);
-				rotationYaw += (float) (d10 / boatPosRotationIncrements);
-				rotationPitch += (float) ((boatPitch - rotationPitch) / boatPosRotationIncrements);
-				--boatPosRotationIncrements;
+				rotationYaw = (float) (rotationYaw + d10 / boatPosRotationIncrements);
+				rotationPitch = (float) (rotationPitch + (boatPitch - rotationPitch) / boatPosRotationIncrements);--boatPosRotationIncrements;
 				setPosition(d4, d5, d11);
 				setRotation(rotationYaw, rotationPitch);
 			} else {
@@ -311,7 +310,7 @@ public class GOTEntityBarrel extends Entity {
 			if (d12 < -20.0) {
 				d12 = -20.0;
 			}
-			rotationYaw += (float) d12;
+			rotationYaw = (float) (rotationYaw + d12);
 			setRotation(rotationYaw, rotationPitch);
 			if (!worldObj.isRemote) {
 				List<? extends Entity> nearbyEntities = worldObj.getEntitiesWithinAABBExcludingEntity(this, boundingBox.expand(0.2, 0.0, 0.2));
