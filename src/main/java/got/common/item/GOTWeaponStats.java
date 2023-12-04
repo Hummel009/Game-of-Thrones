@@ -158,7 +158,7 @@ public class GOTWeaponStats {
 				if (!launchSpeedOnly) {
 					int power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack);
 					if (power > 0) {
-						weaponFactor += power * 0.5 + 0.5;
+						weaponFactor += (float) (power * 0.5 + 0.5);
 					}
 					weaponFactor *= 2.0f;
 				}
@@ -170,7 +170,7 @@ public class GOTWeaponStats {
 				weaponFactor *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
 				int power;
 				if (!launchSpeedOnly && (power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack)) > 0) {
-					weaponFactor += power * 0.5 + 0.5;
+					weaponFactor += (float) (power * 0.5 + 0.5);
 				}
 			} else if (item instanceof GOTItemSarbacane) {
 				weaponFactor = baseArrowFactor;
