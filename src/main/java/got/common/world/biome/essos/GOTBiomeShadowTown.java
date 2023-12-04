@@ -34,7 +34,6 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 
 	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
-		double d6;
 		Block topBlock_pre = topBlock;
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
@@ -44,7 +43,7 @@ public class GOTBiomeShadowTown extends GOTBiomeShadowLand {
 		double d3 = noiseGravel.func_151601_a(i * 0.09, k * 0.09);
 		double d4 = noiseGravel.func_151601_a(i * 0.6, k * 0.6);
 		double d5 = noiseStone.func_151601_a(i * 0.09, k * 0.09);
-		d6 = noiseStone.func_151601_a(i * 0.6, k * 0.6);
+		double d6 = noiseStone.func_151601_a(i * 0.6, k * 0.6);
 		if (d5 + d6 > 0.5) {
 			topBlock = GOTBlocks.rock;
 			topBlockMeta = 0;

@@ -36,12 +36,6 @@ public class GOTBlockGlass extends BlockGlass {
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess world, int i, int j, int k, int side) {
 		Block block = world.getBlock(i, j, k);
-		if (world.getBlockMetadata(i, j, k) != world.getBlockMetadata(i - Facing.offsetsXForSide[side], j - Facing.offsetsYForSide[side], k - Facing.offsetsZForSide[side])) {
-			return true;
-		}
-		if (block == this) {
-			return false;
-		}
-		return super.shouldSideBeRendered(world, i, j, k, side);
+		return world.getBlockMetadata(i, j, k) != world.getBlockMetadata(i - Facing.offsetsXForSide[side], j - Facing.offsetsYForSide[side], k - Facing.offsetsZForSide[side]) || block != this && super.shouldSideBeRendered(world, i, j, k, side);
 	}
 }

@@ -79,12 +79,11 @@ public class GOTWeaponStats {
 	}
 
 	public static int getBaseExtraKnockback(ItemStack itemstack) {
-		int kb = 0;
 		Integer extra = (Integer) getClassOrItemProperty(itemstack, meleeExtraKnockback);
 		if (extra != null) {
-			kb = extra;
+			return extra;
 		}
-		return kb;
+		return 0;
 	}
 
 	public static Object getClassOrItemProperty(ItemStack itemstack, Map<?, ?> propertyMap) {
@@ -129,7 +128,7 @@ public class GOTWeaponStats {
 		float reach = 3.0f;
 		reach *= getMeleeReachFactor(entityplayer.getHeldItem());
 		if (entityplayer.capabilities.isCreativeMode) {
-			reach = (float) (reach + 3.0);
+			return (float) (reach + 3.0);
 		}
 		return reach;
 	}

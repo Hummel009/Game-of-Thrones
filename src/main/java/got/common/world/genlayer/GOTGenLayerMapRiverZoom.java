@@ -25,10 +25,7 @@ public class GOTGenLayerMapRiverZoom extends GOTGenLayer {
 					for (int k4 = 0; k4 <= 1; ++k4) {
 						int int00 = rivers[i3 + 1 + (k3 + 1) * xSizeZoom];
 						int opp = int00 == 0 ? 2 : 0;
-						boolean replaceCorner = false;
-						if (i4 == 0 && k4 == 0) {
-							replaceCorner = rivers[i3 + k3 * xSizeZoom] == opp && rivers[i3 + 1 + k3 * xSizeZoom] == opp && rivers[i3 + (k3 + 1) * xSizeZoom] == opp;
-						}
+						boolean replaceCorner = i4 == 0 && k4 == 0 && rivers[i3 + k3 * xSizeZoom] == opp && rivers[i3 + 1 + k3 * xSizeZoom] == opp && rivers[i3 + (k3 + 1) * xSizeZoom] == opp;
 						if (i4 == 1 && k4 == 0) {
 							replaceCorner = rivers[i3 + 1 + k3 * xSizeZoom] == opp && rivers[i3 + 2 + k3 * xSizeZoom] == opp && rivers[i3 + 2 + (k3 + 1) * xSizeZoom] == opp;
 						}

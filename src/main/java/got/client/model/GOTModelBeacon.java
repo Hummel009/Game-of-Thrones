@@ -17,7 +17,7 @@ public class GOTModelBeacon extends ModelBase {
 			for (int j = 0; j < 4; ++j) {
 				logs[i][j] = new ModelRenderer(this, 30, 15);
 				logs[i][j].addBox(-1.5f, 0.0f, -7.0f, 3, 3, 14);
-				logs[i][j].setRotationPoint(i != 1 ? -6.0f + j * 4.0f : 0.0f, 17.0f - i * 3.0f, i == 1 ? -6.0f + j * 4.0f : 0.0f);
+				logs[i][j].setRotationPoint(i == 1 ? 0.0f : -6.0f + j * 4.0f, 17.0f - i * 3.0f, i == 1 ? -6.0f + j * 4.0f : 0.0f);
 				if (i == 1) {
 					logs[1][j].rotateAngleY = 1.5707964f;
 				}

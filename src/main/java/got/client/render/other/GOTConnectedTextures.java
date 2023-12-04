@@ -37,8 +37,7 @@ public class GOTConnectedTextures {
 				BufferedImage errored = new BufferedImage(iconWidth, iconHeight, 2);
 				for (int i = 0; i < errored.getWidth(); ++i) {
 					for (int j = 0; j < errored.getHeight(); ++j) {
-						int rgb;
-						rgb = (i + j) % 2 == 0 ? 16711680 : 0;
+						int rgb = (i + j) % 2 == 0 ? 16711680 : 0;
 						errored.setRGB(i, j, 0xFF000000 | rgb);
 					}
 				}
@@ -80,12 +79,11 @@ public class GOTConnectedTextures {
 	}
 
 	public static String getBaseIconName(String blockName) {
-		String s = blockName;
-		int pathIndex = s.indexOf(':');
+		int pathIndex = blockName.indexOf(':');
 		if (pathIndex >= 0) {
-			s = s.substring(pathIndex + 1);
+			return blockName.substring(pathIndex + 1);
 		}
-		return s;
+		return blockName;
 	}
 
 	public static IIcon getConnectedIcon(String blockName, boolean[][] flags, boolean noBase) {
@@ -315,7 +313,6 @@ public class GOTConnectedTextures {
 				boolean topRightInv = trueOrFalse[i >> 10 & 1];
 				boolean bottomLeftInv = trueOrFalse[i >> 11 & 1];
 				boolean bottomRightInv = trueOrFalse[i >> 12 & 1];
-				boolean addBottom;
 				Set<IconElement> set = EnumSet.noneOf(IconElement.class);
 				if (base) {
 					set.add(BASE);
@@ -323,7 +320,7 @@ public class GOTConnectedTextures {
 				boolean addLeft = left && (!top || topLeft) && (!bottom || bottomLeft);
 				boolean addRight = right && (!top || topRight) && (!bottom || bottomRight);
 				boolean addTop = top && (!left || topLeft) && (!right || topRight);
-				addBottom = bottom && (!left || bottomLeft) && (!right || bottomRight);
+				boolean addBottom = bottom && (!left || bottomLeft) && (!right || bottomRight);
 				if (addLeft) {
 					set.add(SIDE_LEFT);
 				}

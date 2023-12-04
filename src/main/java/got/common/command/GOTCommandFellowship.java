@@ -200,10 +200,7 @@ public class GOTCommandFellowship extends CommandBase {
 	@Override
 	public boolean isUsernameIndex(String[] args, int i) {
 		String option;
-		if (args.length >= 5 && "option".equals(args[0]) && ("invite".equals(option = args[3]) || "add".equals(option) || "remove".equals(option) || "transfer".equals(option))) {
-			return i == 4;
-		}
-		return false;
+		return args.length >= 5 && "option".equals(args[0]) && ("invite".equals(option = args[3]) || "add".equals(option) || "remove".equals(option) || "transfer".equals(option)) && i == 4;
 	}
 
 	@Override

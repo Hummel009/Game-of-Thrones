@@ -30,9 +30,8 @@ public class GOTGenLayerBiomeVariantsLake extends GOTGenLayer {
 		int[] ints = GOTIntCache.get(world).getIntArray(xSize * zSize);
 		for (int k1 = 0; k1 < zSize; ++k1) {
 			for (int i1 = 0; i1 < xSize; ++i1) {
-				int baseInt;
 				initChunkSeed(i + i1, k + k1);
-				baseInt = baseInts == null ? 0 : baseInts[i1 + k1 * xSize];
+				int baseInt = baseInts == null ? 0 : baseInts[i1 + k1 * xSize];
 				if (getFlag(lakeFlags, 1) && nextInt(30 * zoomScale * zoomScale * zoomScale) == 2) {
 					baseInt = setFlag(baseInt, 1);
 				}

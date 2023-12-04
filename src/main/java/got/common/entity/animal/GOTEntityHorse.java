@@ -45,7 +45,6 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		tasks.addTask(0, new GOTEntityAIHorseMoveToRiderTarget(this));
 		tasks.addTask(0, new GOTEntityAIHorseFollowHiringPlayer(this));
 		EntityAITasks.EntityAITaskEntry panic = GOTEntityUtils.removeAITask(this, EntityAIPanic.class);
-		assert panic != null;
 		tasks.addTask(panic.priority, panic.action);
 		panicAI = panic.action;
 		attackAI = createMountAttackAI();
@@ -56,10 +55,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 
 	@Override
 	public boolean allowLeashing() {
-		if (getBelongsToNPC()) {
-			return false;
-		}
-		return super.allowLeashing();
+		return !getBelongsToNPC() && super.allowLeashing();
 	}
 
 	@Override
@@ -185,9 +181,8 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	}
 
 	public double getChildAttribute(EntityAgeable parent, EntityAgeable otherParent, IAttribute stat, double variance) {
-		double val2;
 		double val1 = parent.getEntityAttribute(stat).getBaseValue();
-		val2 = otherParent.getEntityAttribute(stat).getBaseValue();
+		double val2 = otherParent.getEntityAttribute(stat).getBaseValue();
 		if (val1 <= val2) {
 			return MathHelper.getRandomDoubleInRange(rand, val1 - variance, val2 + variance);
 		}
@@ -352,7 +347,6 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	public void onDeath(DamageSource damagesource) {
 		if (getBelongsToNPC()) {
 			AnimalChest inv = GOTReflection.getHorseInv(this);
-			assert inv != null;
 			inv.setInventorySlotContents(0, null);
 			inv.setInventorySlotContents(1, null);
 		}
@@ -413,11 +407,9 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 				EntityAITasks.EntityAITaskEntry taskEntry;
 				if (isChild) {
 					taskEntry = GOTEntityUtils.removeAITask(this, attackAI.getClass());
-					assert taskEntry != null;
 					tasks.addTask(taskEntry.priority, panicAI);
 				} else {
 					taskEntry = GOTEntityUtils.removeAITask(this, panicAI.getClass());
-					assert taskEntry != null;
 					tasks.addTask(taskEntry.priority, attackAI);
 				}
 			}
@@ -454,7 +446,6 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	public void openGUI(EntityPlayer entityplayer) {
 		if (!worldObj.isRemote && (riddenByEntity == null || riddenByEntity == entityplayer) && isTame()) {
 			AnimalChest animalchest = GOTReflection.getHorseInv(this);
-			assert animalchest != null;
 			animalchest.func_110133_a(getCommandSenderName());
 			entityplayer.openGui(GOT.instance, GOTGuiID.MOUNT_INVENTORY.ordinal(), worldObj, getEntityId(), animalchest.getSizeInventory(), 0);
 		}
@@ -477,7 +468,6 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		}
 		AnimalChest inv = GOTReflection.getHorseInv(this);
 		if (nbt.hasKey("GOTMountArmorItem") && (armor = ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("GOTMountArmorItem"))) != null && isMountArmorValid(armor)) {
-			assert inv != null;
 			inv.setInventorySlotContents(1, armor);
 		}
 		if (pre35 && getEntityAttribute(GOTReflection.getHorseJumpStrength()).getAttributeValue() > 1.0) {
@@ -524,7 +514,6 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		nbt.setBoolean("BelongsNPC", getBelongsToNPC());
 		nbt.setBoolean("Mountable", getMountable());
 		AnimalChest inv = GOTReflection.getHorseInv(this);
-		assert inv != null;
 		if (inv.getStackInSlot(1) != null) {
 			nbt.setTag("GOTMountArmorItem", inv.getStackInSlot(1).writeToNBT(new NBTTagCompound()));
 		}

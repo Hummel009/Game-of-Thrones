@@ -102,7 +102,6 @@ public class GOTBezierGenerator {
 							metadata[pillarIndex] = (byte) bridgeEdge.getMeta();
 						}
 					} else {
-						int support;
 						blocks[index2] = bridgeEdge.getBlock();
 						metadata[index2] = (byte) bridgeEdge.getMeta();
 						int indexUpper = index2 + 1;
@@ -113,7 +112,7 @@ public class GOTBezierGenerator {
 							blocks[indexLower2] = bridgeEdge.getBlock();
 							metadata[indexLower2] = (byte) bridgeEdge.getMeta();
 						}
-						support = bridgeBase + 2;
+						int support = bridgeBase + 2;
 						if (roadTop - 1 > support) {
 							int indexSupport = xzIndex * ySize + support;
 							blocks[indexSupport] = bridgeFence.getBlock();
@@ -224,9 +223,6 @@ public class GOTBezierGenerator {
 	public static boolean isPillarAt(int i, int k) {
 		int pRange = 8;
 		int xmod = IntMath.mod(i, pRange);
-		if (IntMath.mod(xmod + IntMath.mod(k, pRange), pRange) == 0) {
-			return !isBridgeEdgePillar(i + 1, k - 1) && !isBridgeEdgePillar(i + 1, k + 1);
-		}
-		return false;
+		return IntMath.mod(xmod + IntMath.mod(k, pRange), pRange) == 0 && !isBridgeEdgePillar(i + 1, k - 1) && !isBridgeEdgePillar(i + 1, k + 1);
 	}
 }

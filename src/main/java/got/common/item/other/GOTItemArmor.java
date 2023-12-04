@@ -26,9 +26,8 @@ public class GOTItemArmor extends ItemArmor {
 	}
 
 	public String getArmorName() {
-		String suffix;
 		String prefix = getArmorMaterial().name().substring("got".length() + 1).toLowerCase(Locale.ROOT);
-		suffix = armorType == 2 ? "2" : "1";
+		String suffix = armorType == 2 ? "2" : "1";
 		if (!StringUtils.isNullOrEmpty(extraName)) {
 			suffix = extraName;
 		}

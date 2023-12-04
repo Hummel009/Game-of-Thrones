@@ -20,7 +20,7 @@ public class GOTModelHarpy extends GOTModelBiped {
 		hornLeft.setRotationPoint(f, -f, -f);
 		hornLeft.mirror = true;
 		hornLeft.addBox(4.0f, -12.0f, 0.5f, 3, 8, 0, 0.0f);
-		hornLeft.rotateAngleZ = -0.10471975511965978f;
+		hornLeft.rotateAngleZ = -0.10471976f;
 		bipedHead.addChild(hornRight);
 		bipedHead.addChild(hornLeft);
 		bipedHeadwear.cubeList.clear();

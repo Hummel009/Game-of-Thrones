@@ -32,7 +32,7 @@ public class GOTAlignmentValues {
 		setupDecimalFormat(dFormat);
 		String s = dFormat.format(alignment);
 		if (prefixPlus && (s.isEmpty() || s.charAt(0) != '-')) {
-			s = '+' + s;
+			return '+' + s;
 		}
 		return s;
 	}

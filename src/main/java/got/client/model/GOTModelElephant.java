@@ -190,8 +190,7 @@ public class GOTModelElephant extends ModelBase {
 	}
 
 	public void adjustAllRotationPoints(ModelRenderer target, ModelRenderer origin) {
-		float distanceY;
-		distanceY = target.rotationPointY > origin.rotationPointY ? target.rotationPointY - origin.rotationPointY : origin.rotationPointY - target.rotationPointY;
+		float distanceY = target.rotationPointY > origin.rotationPointY ? target.rotationPointY - origin.rotationPointY : origin.rotationPointY - target.rotationPointY;
 		target.rotationPointY = origin.rotationPointY + MathHelper.sin(origin.rotateAngleX) * distanceY;
 		target.rotationPointZ = origin.rotationPointZ - MathHelper.cos(origin.rotateAngleY) * (MathHelper.cos(origin.rotateAngleX) * distanceY);
 		target.rotationPointX = origin.rotationPointX - MathHelper.sin(origin.rotateAngleY) * (MathHelper.cos(origin.rotateAngleX) * distanceY);
@@ -247,8 +246,7 @@ public class GOTModelElephant extends ModelBase {
 	}
 
 	public void adjustYRotationPoints(ModelRenderer target, ModelRenderer origin) {
-		float distanceZ;
-		distanceZ = target.rotationPointZ > origin.rotationPointZ ? target.rotationPointZ - origin.rotationPointZ : origin.rotationPointZ - target.rotationPointZ;
+		float distanceZ = target.rotationPointZ > origin.rotationPointZ ? target.rotationPointZ - origin.rotationPointZ : origin.rotationPointZ - target.rotationPointZ;
 		target.rotationPointZ = origin.rotationPointZ - MathHelper.cos(origin.rotateAngleY) * distanceZ;
 		target.rotationPointX = origin.rotationPointX - MathHelper.sin(origin.rotateAngleY) * distanceZ;
 	}
@@ -301,7 +299,6 @@ public class GOTModelElephant extends ModelBase {
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, byte tusks, boolean sitting, boolean tail) {
 		float RLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float LLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;
-		float HeadXRot;
 		if (f3 > 20.0f) {
 			f3 = 20.0f;
 		}
@@ -314,9 +311,8 @@ public class GOTModelElephant extends ModelBase {
 			f10 = 8.0f;
 		}
 		AdjustY(f10);
-		float TrunkXRot;
-		HeadXRot = 0.0f;
-		TrunkXRot = 0.0f;
+		float HeadXRot = 0.0f;
+		float TrunkXRot = 0.0f;
 		if (sitting) {
 			HeadXRot = 0.0f;
 			TrunkXRot = 0.0f;

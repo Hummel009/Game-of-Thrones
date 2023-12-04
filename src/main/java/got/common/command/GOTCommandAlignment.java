@@ -24,8 +24,9 @@ public class GOTCommandAlignment extends CommandBase {
 				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 			case 4:
 				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+			default:
+				return Collections.emptyList();
 		}
-		return Collections.emptyList();
 	}
 
 	@Override
@@ -63,7 +64,7 @@ public class GOTCommandAlignment extends CommandBase {
 			}
 			if ("set".equals(args[0])) {
 				EntityPlayerMP entityplayer;
-				float alignment = (float) CommandBase.parseDoubleBounded(sender, args[2], -2147483647.0, 2147483647.0);
+				float alignment = (float) CommandBase.parseDoubleBounded(sender, args[2], -2.147483647E9, 2147483647.0);
 				if (args.length >= 4) {
 					entityplayer = CommandBase.getPlayer(sender, args[3]);
 				} else {
@@ -86,8 +87,8 @@ public class GOTCommandAlignment extends CommandBase {
 				}
 				for (GOTFaction f : factions) {
 					newAlignment = GOTLevelData.getData(entityplayer).getAlignment(f) + alignment;
-					if (newAlignment < -2147483647.0f) {
-						throw new WrongUsageException("got.command.alignment.tooLow", -2147483647.0f);
+					if (newAlignment < -2.14748365E9f) {
+						throw new WrongUsageException("got.command.alignment.tooLow", -2.14748365E9f);
 					}
 					if (newAlignment > 2147483647.0f) {
 						throw new WrongUsageException("got.command.alignment.tooHigh", 2147483647.0f);

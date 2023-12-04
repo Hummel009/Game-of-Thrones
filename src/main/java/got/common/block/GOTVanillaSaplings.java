@@ -32,7 +32,7 @@ public class GOTVanillaSaplings {
 				zOffset = partyTree[1];
 			}
 			if (treeGen == null) {
-				treeGen = random.nextInt(10) == 0 ? GOTTreeType.OAK_LARGE.create(true, random) : GOTTreeType.OAK.create(true, random);
+				treeGen = (random.nextInt(10) == 0 ? GOTTreeType.OAK_LARGE : GOTTreeType.OAK).create(true, random);
 				trunkPos = 0;
 				trunkNeg = 0;
 				xOffset = 0;
@@ -45,7 +45,7 @@ public class GOTVanillaSaplings {
 					if (!isSameSapling(world, i + i12, j, k + k1, 1) || !isSameSapling(world, i + i12 + 1, j, k + k1, 1) || !isSameSapling(world, i + i12, j, k + k1 + 1, 1) || !isSameSapling(world, i + i12 + 1, j, k + k1 + 1, 1)) {
 						continue;
 					}
-					treeGen = random.nextBoolean() ? GOTTreeType.SPRUCE_MEGA.create(true, random) : GOTTreeType.SPRUCE_MEGA_THIN.create(true, random);
+					treeGen = (random.nextBoolean() ? GOTTreeType.SPRUCE_MEGA : GOTTreeType.SPRUCE_MEGA_THIN).create(true, random);
 					trunkNeg = 0;
 					trunkPos = 1;
 					xOffset = i12;
@@ -74,7 +74,7 @@ public class GOTVanillaSaplings {
 				zOffset = partyTree[1];
 			}
 			if (treeGen == null) {
-				treeGen = random.nextInt(10) == 0 ? GOTTreeType.BIRCH_LARGE.create(true, random) : GOTTreeType.BIRCH.create(true, random);
+				treeGen = (random.nextInt(10) == 0 ? GOTTreeType.BIRCH_LARGE : GOTTreeType.BIRCH).create(true, random);
 				trunkPos = 0;
 				trunkNeg = 0;
 				xOffset = 0;

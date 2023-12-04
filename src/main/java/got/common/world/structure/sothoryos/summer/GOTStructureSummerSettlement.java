@@ -157,7 +157,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 
 		private void setupRuinedVillage(Random random) {
 			addStructure(new GOTStructureSummerTavernRuined(false), 3, -7, 0, true);
-			float frac = 1.0f / 8;
+			float frac = 0.125f;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
@@ -186,7 +186,6 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			for (int i = -61; i <= 61; ++i) {
 				for (int k = -61; k <= 61; ++k) {
 					int dSq;
-					GOTStructureSummerPalisade palisade;
 					int i1 = Math.abs(i);
 					if (i1 <= 4 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
 						continue;
@@ -194,7 +193,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 					if (random.nextBoolean()) {
 						continue;
 					}
-					palisade = new GOTStructureSummerPalisadeRuined(false);
+					GOTStructureSummerPalisade palisade = new GOTStructureSummerPalisadeRuined(false);
 					if (i1 == 5 && k < 0) {
 						palisade.setTall();
 					}
@@ -240,7 +239,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			} else {
 				addStructure(new GOTStructureSummerTavern(false), 3, -7, 0, true);
 			}
-			float frac = 1.0f / 8;
+			float frac = 0.125f;
 			float turn = 0.0f;
 			while (turn < 1.0f) {
 				float turnR = (float) Math.toRadians((turn += frac) * 360.0f);
@@ -263,7 +262,7 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 				}
 				addStructure(getRandomHouse(random), i, k, r);
 			}
-			int numFarms = 8 * 2;
+			int numFarms = 16;
 			frac = 1.0f / numFarms;
 			turn = 0.0f;
 			while (turn < 1.0f) {
@@ -302,12 +301,11 @@ public class GOTStructureSummerSettlement extends GOTStructureBaseSettlement {
 			for (int i = -61; i <= 61; ++i) {
 				for (int k = -61; k <= 61; ++k) {
 					int dSq;
-					GOTStructureSummerPalisade palisade;
 					int i1 = Math.abs(i);
 					if (i1 <= 4 && k < 0 || (dSq = i * i + k * k) < rSq || dSq >= rSqMax) {
 						continue;
 					}
-					palisade = new GOTStructureSummerPalisade(false);
+					GOTStructureSummerPalisade palisade = new GOTStructureSummerPalisade(false);
 					if (i1 == 5 && k < 0) {
 						palisade.setTall();
 					}

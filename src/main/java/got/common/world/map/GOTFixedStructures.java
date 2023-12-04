@@ -29,10 +29,9 @@ public enum GOTFixedStructures {
 			if (!structureNear) {
 				for (GOTWaypoint wp : GOTWaypoint.values()) {
 					double dz;
-					double range;
 					double dx = x - wp.getXCoord();
 					double distSq = dx * dx + (dz = z - wp.getZCoord()) * dz;
-					range = 256.0;
+					double range = 256.0;
 					if (distSq >= range * range) {
 						continue;
 					}
@@ -63,10 +62,7 @@ public enum GOTFixedStructures {
 	}
 
 	public static boolean hasMapFeatures(World world) {
-		if (!GOTConfig.generateMapFeatures) {
-			return false;
-		}
-		return world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
+		return GOTConfig.generateMapFeatures && world.getWorldInfo().getTerrainType() != GOT.worldTypeGOTClassic;
 	}
 
 	public static boolean structureNear(World world, int x, int z, int range) {

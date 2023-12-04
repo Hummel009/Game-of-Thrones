@@ -97,10 +97,7 @@ public class GOTEntityBanner extends Entity {
 
 	public boolean canPlayerEditBanner(EntityPlayer entityplayer) {
 		GameProfile owner = getPlacingPlayer();
-		if (owner != null && owner.getId() != null && entityplayer.getUniqueID().equals(owner.getId())) {
-			return true;
-		}
-		return !structureProtection && MinecraftServer.getServer().getConfigurationManager().func_152596_g(entityplayer.getGameProfile()) && entityplayer.capabilities.isCreativeMode;
+		return owner != null && owner.getId() != null && entityplayer.getUniqueID().equals(owner.getId()) || !structureProtection && MinecraftServer.getServer().getConfigurationManager().func_152596_g(entityplayer.getGameProfile()) && entityplayer.capabilities.isCreativeMode;
 	}
 
 	public boolean clientside_playerHasPermissionInSurvival() {
@@ -308,10 +305,7 @@ public class GOTEntityBanner extends Entity {
 	}
 
 	public boolean isSelfProtection() {
-		if (!GOTConfig.allowSelfProtectingBanners) {
-			return false;
-		}
-		return selfProtection;
+		return GOTConfig.allowSelfProtectingBanners && selfProtection;
 	}
 
 	public void setSelfProtection(boolean flag) {
@@ -339,7 +333,6 @@ public class GOTEntityBanner extends Entity {
 
 	@Override
 	public void onUpdate() {
-		boolean onSolidBlock;
 		super.onUpdate();
 		boolean protecting = isProtectingTerritory();
 		if (!worldObj.isRemote && protecting) {
@@ -359,7 +352,7 @@ public class GOTEntityBanner extends Entity {
 		int i = MathHelper.floor_double(posX);
 		int j = MathHelper.floor_double(boundingBox.minY);
 		int k = MathHelper.floor_double(posZ);
-		onSolidBlock = World.doesBlockHaveSolidTopSurface(worldObj, i, j - 1, k) && boundingBox.minY == MathHelper.ceiling_double_int(boundingBox.minY);
+		boolean onSolidBlock = World.doesBlockHaveSolidTopSurface(worldObj, i, j - 1, k) && boundingBox.minY == MathHelper.ceiling_double_int(boundingBox.minY);
 		if (!worldObj.isRemote && !onSolidBlock) {
 			dropAsItem(true);
 		}

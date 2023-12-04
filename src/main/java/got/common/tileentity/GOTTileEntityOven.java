@@ -72,10 +72,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack itemstack, int side) {
-		if (side == 0 && slot == fuelSlot) {
-			return itemstack.getItem() == Items.bucket;
-		}
-		return true;
+		return side != 0 || slot != fuelSlot || itemstack.getItem() == Items.bucket;
 	}
 
 	@Override
@@ -207,10 +204,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 		if (slot < 9) {
 			return itemstack != null && isCookResultAcceptable(FurnaceRecipes.smelting().getSmeltingResult(itemstack));
 		}
-		if (slot < 18) {
-			return false;
-		}
-		return TileEntityFurnace.isItemFuel(itemstack);
+		return slot >= 18 && TileEntityFurnace.isItemFuel(itemstack);
 	}
 
 	@Override

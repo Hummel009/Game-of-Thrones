@@ -138,10 +138,7 @@ public class GOTEntityTraderRespawn extends Entity {
 
 	@Override
 	public boolean hitByEntity(Entity entity) {
-		if (entity instanceof EntityPlayer) {
-			return attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) entity), 0.0f);
-		}
-		return false;
+		return entity instanceof EntityPlayer && attackEntityFrom(DamageSource.causePlayerDamage((EntityPlayer) entity), 0.0f);
 	}
 
 	public boolean isSpawnImminent() {
@@ -159,7 +156,7 @@ public class GOTEntityTraderRespawn extends Entity {
 		prevPosY = posY;
 		prevPosZ = posZ;
 		prevSpawnerSpin = spawnerSpin;
-		spawnerSpin = isSpawnImminent() ? spawnerSpin + 24.0f : spawnerSpin + 6.0f;
+		spawnerSpin = spawnerSpin + (isSpawnImminent() ? 24.0f : 6.0f);
 		prevSpawnerSpin = MathHelper.wrapAngleTo180_float(prevSpawnerSpin);
 		spawnerSpin = MathHelper.wrapAngleTo180_float(spawnerSpin);
 		if (getScale() < MAX_SCALE) {

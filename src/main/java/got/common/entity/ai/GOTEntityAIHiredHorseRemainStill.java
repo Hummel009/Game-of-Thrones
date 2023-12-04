@@ -26,10 +26,7 @@ public class GOTEntityAIHiredHorseRemainStill extends EntityAIBase {
 			return false;
 		}
 		GOTEntityNPC ridingNPC = (GOTEntityNPC) rider;
-		if (!ridingNPC.hiredNPCInfo.isActive || livingHorse.isInWater() || !livingHorse.onGround) {
-			return false;
-		}
-		return ridingNPC.hiredNPCInfo.isHalted() && (ridingNPC.getAttackTarget() == null || !ridingNPC.getAttackTarget().isEntityAlive());
+		return ridingNPC.hiredNPCInfo.isActive && !livingHorse.isInWater() && livingHorse.onGround && ridingNPC.hiredNPCInfo.isHalted() && (ridingNPC.getAttackTarget() == null || !ridingNPC.getAttackTarget().isEntityAlive());
 	}
 
 	@Override

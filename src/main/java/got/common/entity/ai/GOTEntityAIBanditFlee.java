@@ -27,10 +27,7 @@ public class GOTEntityAIBanditFlee extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		if (targetPlayer == null || !targetPlayer.isEntityAlive() || targetPlayer.capabilities.isCreativeMode) {
-			return false;
-		}
-		return theBanditAsNPC.getAttackTarget() == null && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < range * range;
+		return targetPlayer != null && targetPlayer.isEntityAlive() && !targetPlayer.capabilities.isCreativeMode && theBanditAsNPC.getAttackTarget() == null && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < range * range;
 	}
 
 	public EntityPlayer findNearestPlayer() {

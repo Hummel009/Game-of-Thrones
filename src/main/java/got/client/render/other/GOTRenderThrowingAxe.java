@@ -24,10 +24,10 @@ public class GOTRenderThrowingAxe extends Render {
 		}
 		GL11.glRotatef(axe.prevRotationYaw + (axe.rotationYaw - axe.prevRotationYaw) * f1 - 90.0F, 0.0F, 1.0F, 0.0F);
 		if (axe.inGround) {
-			GL11.glRotatef(-90.0F, 0.0F, 0.0F, 1.0F);
+			GL11.glRotatef(-90.0f, 0.0F, 0.0F, 1.0F);
 			GL11.glTranslatef(0.0F, 0.75F, 0.0F);
 		} else {
-			GL11.glRotatef(axe.rotationPitch + 45.0F * f1, 0.0F, 0.0F, -1.0F);
+			GL11.glRotatef(axe.rotationPitch + 45.0F * f1, 0.0F, 0.0F, -1.0f);
 		}
 		GL11.glEnable(32826);
 		float f2 = axe.shake - f1;
@@ -35,7 +35,7 @@ public class GOTRenderThrowingAxe extends Render {
 			float f3 = -MathHelper.sin(f2 * 3.0F) * f2;
 			GL11.glRotatef(f3, 0.0F, 0.0F, 1.0F);
 		}
-		GL11.glRotatef(-135.0F, 0.0F, 0.0F, 1.0F);
+		GL11.glRotatef(-135.0f, 0.0F, 0.0F, 1.0F);
 		ItemStack axeItem = axe.getProjectileItem();
 		IIcon icon = axeItem.getIconIndex();
 		if (icon == null) {

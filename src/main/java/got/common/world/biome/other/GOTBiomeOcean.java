@@ -42,13 +42,10 @@ public class GOTBiomeOcean extends GOTBiome {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int j1;
-		int i1;
-		int k1;
 		super.decorate(world, random, i, k);
-		i1 = i + random.nextInt(16) + 8;
-		k1 = k + random.nextInt(16) + 8;
-		j1 = world.getTopSolidOrLiquidBlock(i1, k1);
+		int i1 = i + random.nextInt(16) + 8;
+		int k1 = k + random.nextInt(16) + 8;
+		int j1 = world.getTopSolidOrLiquidBlock(i1, k1);
 		if (j1 <= 43) {
 			for (int l2 = 0; l2 < 50; ++l2) {
 				int i3 = i + random.nextInt(16) + 8;

@@ -85,21 +85,20 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		GL11.glScalef(mugScale, mugScale, mugScale);
 		float scale = 0.0625f;
 		switch (mug.getBlockMetadata()) {
-			case 0: {
+			case 0:
 				GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
 				break;
-			}
-			case 1: {
+			case 1:
 				GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 				break;
-			}
-			case 2: {
+			case 2:
 				GL11.glRotatef(270.0f, 0.0f, 1.0f, 0.0f);
 				break;
-			}
-			case 3: {
+			case 3:
 				GL11.glRotatef(0.0f, 0.0f, 1.0f, 0.0f);
-			}
+				break;
+			default:
+				break;
 		}
 		if (vessel == GOTItemMug.Vessel.SKULL || vessel == GOTItemMug.Vessel.HORN || vessel == GOTItemMug.Vessel.HORN_GOLD) {
 			GL11.glRotatef(-90.0f, 0.0f, 1.0f, 0.0f);

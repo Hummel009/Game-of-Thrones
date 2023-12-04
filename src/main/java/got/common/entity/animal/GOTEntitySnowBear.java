@@ -130,10 +130,7 @@ public class GOTEntitySnowBear extends EntityAnimal implements GOTBiome.ImmuneTo
 
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
-		if (isHostile()) {
-			return false;
-		}
-		return super.interact(entityplayer);
+		return !isHostile() && super.interact(entityplayer);
 	}
 
 	@Override

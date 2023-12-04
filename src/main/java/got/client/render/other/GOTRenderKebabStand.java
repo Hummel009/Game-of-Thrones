@@ -18,12 +18,11 @@ public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 	public static ResourceLocation cookedTexture = new ResourceLocation("got:textures/model/kebab/cooked.png");
 
 	public static ResourceLocation getStandTexture(GOTTileEntityKebabStand kebabStand) {
-		ResourceLocation r;
 		String s = kebabStand.getStandTextureName();
 		if (!StringUtils.isNullOrEmpty(s)) {
 			s = '_' + s;
 		}
-		r = standTextures.get(s = "stand" + s);
+		ResourceLocation r = standTextures.get(s = "stand" + s);
 		if (r == null) {
 			r = new ResourceLocation("got:textures/model/kebab/" + s + ".png");
 			standTextures.put(s, r);
@@ -41,21 +40,20 @@ public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 		GL11.glTranslatef((float) d + 0.5f, (float) d1 + 1.5f, (float) d2 + 0.5f);
 		int meta = kebabStand.getBlockMetadata();
 		switch (meta) {
-			case 2: {
+			case 2:
 				GL11.glRotatef(0.0f, 0.0f, 1.0f, 0.0f);
 				break;
-			}
-			case 5: {
+			case 5:
 				GL11.glRotatef(270.0f, 0.0f, 1.0f, 0.0f);
 				break;
-			}
-			case 3: {
+			case 3:
 				GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 				break;
-			}
-			case 4: {
+			case 4:
 				GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-			}
+				break;
+			default:
+				break;
 		}
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
 		float scale = 0.0625f;

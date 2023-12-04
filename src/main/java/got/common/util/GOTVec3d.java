@@ -65,10 +65,7 @@ public class GOTVec3d {
 			return false;
 		}
 		GOTVec3d gOTVec3d = (GOTVec3d) p_equals_1_;
-		if (Double.compare(gOTVec3d.xCoord, xCoord) != 0 || Double.compare(gOTVec3d.yCoord, yCoord) != 0) {
-			return false;
-		}
-		return Double.compare(gOTVec3d.zCoord, zCoord) == 0;
+		return Double.compare(gOTVec3d.xCoord, xCoord) == 0 && Double.compare(gOTVec3d.yCoord, yCoord) == 0 && Double.compare(gOTVec3d.zCoord, zCoord) == 0;
 	}
 
 	@Nullable

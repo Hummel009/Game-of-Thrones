@@ -25,13 +25,13 @@ public class GOTModelSandorHelmet extends GOTModelBiped {
 		ModelRenderer panelLeft = new ModelRenderer(this, 32, 0);
 		panelLeft.mirror = true;
 		panelLeft.addBox(5.0f + f, -8.0f, -3.0f, 0, 8, 8, 0.0f);
-		panelLeft.rotateAngleZ = -0.06981317007977318f;
+		panelLeft.rotateAngleZ = -0.06981317f;
 		ModelRenderer panelBack = new ModelRenderer(this, 44, 0);
 		panelBack.addBox(-4.0f, -8.0f, 4.8f + f, 8, 10, 0, 0.0f);
 		panelBack.rotateAngleX = 0.06981317007977318f;
 		ModelRenderer panelTop = new ModelRenderer(this, 52, 25);
 		panelTop.addBox(-2.5f, -16.0f - f, -2.0f, 5, 7, 0, 0.0f);
-		panelTop.rotateAngleX = -0.17453292519943295f;
+		panelTop.rotateAngleX = -0.17453292f;
 		bipedHead.addChild(panelRight);
 		bipedHead.addChild(panelLeft);
 		bipedHead.addChild(panelBack);

@@ -93,11 +93,8 @@ public class GOTDragonBreed {
 	}
 
 	public boolean isImmuneToDamage(DamageSource dmg) {
-		if (immunities.isEmpty()) {
-			return false;
-		}
+		return !immunities.isEmpty() && immunities.contains(dmg.damageType);
 
-		return immunities.contains(dmg.damageType);
 	}
 
 	@SuppressWarnings("all")

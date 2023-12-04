@@ -167,10 +167,7 @@ public abstract class GOTEntityScorpionBig extends GOTEntityNPC implements GOTBi
 
 	@Override
 	public boolean isPotionApplicable(PotionEffect effect) {
-		if (effect.getPotionID() == Potion.poison.id) {
-			return false;
-		}
-		return super.isPotionApplicable(effect);
+		return effect.getPotionID() != Potion.poison.id && super.isPotionApplicable(effect);
 	}
 
 	@Override

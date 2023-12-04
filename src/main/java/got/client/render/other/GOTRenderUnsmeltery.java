@@ -23,7 +23,6 @@ public class GOTRenderUnsmeltery extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
-		boolean useActiveTexture;
 		GOTTileEntityUnsmeltery unsmeltery = (GOTTileEntityUnsmeltery) tileentity;
 		GL11.glPushMatrix();
 		GL11.glEnable(32826);
@@ -34,26 +33,25 @@ public class GOTRenderUnsmeltery extends TileEntitySpecialRenderer {
 		float rocking = 0.0f;
 		if (unsmeltery != null) {
 			switch (unsmeltery.getBlockMetadata() & 7) {
-				case 2: {
+				case 2:
 					rotation = 180.0f;
 					break;
-				}
-				case 3: {
+				case 3:
 					rotation = 0.0f;
 					break;
-				}
-				case 4: {
+				case 4:
 					rotation = 90.0f;
 					break;
-				}
-				case 5: {
+				case 5:
 					rotation = 270.0f;
-				}
+					break;
+				default:
+					break;
 			}
 			rocking = unsmeltery.getRockingAmount(f);
 		}
 		GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
-		useActiveTexture = unsmeltery != null && GOTBlockForgeBase.isForgeActive(unsmeltery.getWorldObj(), unsmeltery.xCoord, unsmeltery.yCoord, unsmeltery.zCoord);
+		boolean useActiveTexture = unsmeltery != null && GOTBlockForgeBase.isForgeActive(unsmeltery.getWorldObj(), unsmeltery.xCoord, unsmeltery.yCoord, unsmeltery.zCoord);
 		if (useActiveTexture) {
 			bindTexture(activeTexture);
 		} else {

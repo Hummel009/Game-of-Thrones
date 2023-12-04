@@ -42,10 +42,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 
 		GOTEntityDragon dragonMate = (GOTEntityDragon) mate;
 
-		if (!dragonMate.isTamed() || !dragonMate.getReproductionHelper().canReproduce()) {
-			return false;
-		}
-		return dragon.isInLove() && dragonMate.isInLove();
+		return dragonMate.isTamed() && dragonMate.getReproductionHelper().canReproduce() && dragon.isInLove() && dragonMate.isInLove();
 	}
 
 	public boolean canReproduce() {

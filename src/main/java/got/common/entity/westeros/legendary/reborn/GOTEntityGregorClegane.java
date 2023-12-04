@@ -23,7 +23,7 @@ public class GOTEntityGregorClegane extends GOTEntityHumanBase {
 		canBeMarried = false;
 		addTargetTasks();
 		setIsLegendaryNPC();
-		setSize(0.6f * 1.3f, 1.8f * 1.3f);
+		setSize(0.78000003f, 2.34f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
 		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));

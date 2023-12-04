@@ -26,7 +26,7 @@ public class GOTContainerArmorStand extends Container {
 			addSlotToContainer(new Slot(inv, i, 8 + i * 18, 165));
 		}
 		for (i = 0; i < 4; ++i) {
-			addSlotToContainer(new GOTSlotArmorStand(inv, 36 + 3 - i, 8, 21 + i * 18, i, inv.player));
+			addSlotToContainer(new GOTSlotArmorStand(inv, 39 - i, 8, 21 + i * 18, i, inv.player));
 		}
 	}
 

@@ -112,10 +112,7 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 
 	@Override
 	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			return GOTAmbientSpawnChecks.canSpawn(this, 8, 4, 32, 4, Material.plants, Material.vine);
-		}
-		return false;
+		return super.getCanSpawnHere() && GOTAmbientSpawnChecks.canSpawn(this, 8, 4, 32, 4, Material.plants, Material.vine);
 	}
 
 	@Override

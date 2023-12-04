@@ -146,10 +146,9 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 							BufferedImage newImage = new BufferedImage(skinWidth, skinHeight, 2);
 							for (int i = 0; i < skinWidth; ++i) {
 								for (int j = 0; j < skinHeight; ++j) {
-									int opaqueTest;
 									int baseRGB = baseImage.getRGB(i, j);
 									int overlayRGB = overlayImage.getRGB(i, j);
-									opaqueTest = -16777216;
+									int opaqueTest = -16777216;
 									if ((overlayRGB & opaqueTest) == opaqueTest) {
 										newImage.setRGB(i, j, overlayRGB);
 									} else {

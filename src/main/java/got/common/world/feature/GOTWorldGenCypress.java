@@ -91,12 +91,11 @@ public class GOTWorldGenCypress extends WorldGenAbstractTree {
 					if (j1 >= height - 2 || j1 <= leafStop + leafStopHeight) {
 						for (i13 = -1; i13 <= 1 + extraTrunkWidth; ++i13) {
 							for (k13 = -1; k13 <= 1 + extraTrunkWidth; ++k13) {
-								int k2;
 								int i2 = i13;
 								if (i2 > 0) {
 									i2 -= extraTrunkWidth;
 								}
-								k2 = k13;
+								int k2 = k13;
 								if (k2 > 0) {
 									k2 -= extraTrunkWidth;
 								}

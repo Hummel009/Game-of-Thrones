@@ -29,7 +29,7 @@ public class GOTModelBear extends ModelBase {
 		ModelRenderer earRight = new ModelRenderer(this, 23, 17);
 		earRight.setRotationPoint(0.0f, 0.0f, 0.0f);
 		earRight.addBox(-4.0f, -8.0f, -6.0f, 3, 3, 1);
-		earRight.rotateAngleZ = -0.2617993877991494f;
+		earRight.rotateAngleZ = -0.2617994f;
 		head.addChild(earRight);
 		ModelRenderer earLeft = new ModelRenderer(this, 23, 17);
 		earLeft.mirror = true;

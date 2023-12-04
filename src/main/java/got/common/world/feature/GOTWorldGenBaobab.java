@@ -74,9 +74,8 @@ public class GOTWorldGenBaobab extends WorldGenAbstractTree {
 		for (j12 = 0; j12 < height; ++j12) {
 			for (int i12 = i - trunkCircleWidth - 1; i12 <= i + trunkCircleWidth + 1; ++i12) {
 				for (int k12 = k - trunkCircleWidth - 1; k12 <= k + trunkCircleWidth + 1; ++k12) {
-					int k22;
 					int i22 = Math.abs(i12 - i);
-					k22 = Math.abs(k12 - k);
+					int k22 = Math.abs(k12 - k);
 					if (i22 * i22 + k22 * k22 > trunkCircleWidth * trunkCircleWidth) {
 						continue;
 					}

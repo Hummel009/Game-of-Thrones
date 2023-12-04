@@ -197,8 +197,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 		if (!worldObj.isRemote && inGround && shake <= 0) {
 			ItemStack itemstack = createPickupDrop(entityplayer);
 			if (itemstack != null) {
-				boolean pickup;
-				pickup = canBePickedUp == 1 || canBePickedUp == 2 && entityplayer.capabilities.isCreativeMode;
+				boolean pickup = canBePickedUp == 1 || canBePickedUp == 2 && entityplayer.capabilities.isCreativeMode;
 				if (canBePickedUp == 1 && !entityplayer.inventory.addItemStackToInventory(itemstack.copy())) {
 					pickup = false;
 					EntityItem entityitem = new EntityItem(worldObj, posX, posY, posZ, itemstack);
@@ -229,14 +228,13 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 
 	@Override
 	public void onUpdate() {
-		Block block;
 		super.onUpdate();
 		if (prevRotationPitch == 0.0f && prevRotationYaw == 0.0f) {
 			float f = MathHelper.sqrt_double(motionX * motionX + motionZ * motionZ);
 			prevRotationYaw = rotationYaw = (float) (Math.atan2(motionX, motionZ) * 180.0 / 3.141592653589793);
 			prevRotationPitch = rotationPitch = (float) (Math.atan2(motionY, f) * 180.0 / 3.141592653589793);
 		}
-		block = worldObj.getBlock(xTile, yTile, zTile);
+		Block block = worldObj.getBlock(xTile, yTile, zTile);
 		if (block != Blocks.air) {
 			block.setBlockBoundsBasedOnState(worldObj, xTile, yTile, zTile);
 			AxisAlignedBB axisalignedbb = block.getCollisionBoundingBoxFromPool(worldObj, xTile, yTile, zTile);
@@ -303,7 +301,7 @@ public abstract class GOTEntityProjectileBase extends Entity implements IThrowab
 					ItemStack itemstack = getProjectileItem();
 					int damageInt = MathHelper.ceiling_double_int(getBaseImpactDamage(hitEntity, itemstack));
 					if (itemstack != null) {
-						knockbackStrength = shootingEntity instanceof EntityLivingBase && hitEntity instanceof EntityLivingBase ? knockbackStrength + EnchantmentHelper.getKnockbackModifier((EntityLivingBase) shootingEntity, (EntityLivingBase) hitEntity) : knockbackStrength + GOTWeaponStats.getTotalKnockback(itemstack);
+						knockbackStrength = knockbackStrength + (shootingEntity instanceof EntityLivingBase && hitEntity instanceof EntityLivingBase ? EnchantmentHelper.getKnockbackModifier((EntityLivingBase) shootingEntity, (EntityLivingBase) hitEntity) : GOTWeaponStats.getTotalKnockback(itemstack));
 					}
 					if (getIsCritical()) {
 						damageInt += rand.nextInt(damageInt / 2 + 2);

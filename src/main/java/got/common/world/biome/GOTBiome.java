@@ -875,22 +875,18 @@ public abstract class GOTBiome extends BiomeGenBase {
 		WorldGenDoublePlant doubleFlowerGen = new WorldGenDoublePlant();
 		int i = random.nextInt(3);
 		switch (i) {
-			case 0: {
+			case 0:
 				doubleFlowerGen.func_150548_a(1);
-				break;
-			}
-			case 1: {
+				return doubleFlowerGen;
+			case 1:
 				doubleFlowerGen.func_150548_a(4);
-				break;
-			}
-			case 2: {
+				return doubleFlowerGen;
+			case 2:
 				doubleFlowerGen.func_150548_a(5);
-				break;
-			}
+				return doubleFlowerGen;
 			default:
-				break;
+				return doubleFlowerGen;
 		}
-		return doubleFlowerGen;
 	}
 
 	public WorldGenerator getRandomWorldGenForDoubleGrass() {

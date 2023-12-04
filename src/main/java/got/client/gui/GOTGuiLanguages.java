@@ -25,9 +25,9 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			switch (button.id) {
-				case 1: {
+				case 1:
 					switch (Util.getOSType()) {
-						case OSX: {
+						case OSX:
 							try {
 								Runtime.getRuntime().exec(new String[]{"/usr/bin/open", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath()});
 								return;
@@ -35,8 +35,7 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 								var7.printStackTrace();
 								break;
 							}
-						}
-						case WINDOWS: {
+						case WINDOWS:
 							String var2 = String.format("cmd.exe /C start \"Open file\" \"%s\"", new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
 							try {
 								Runtime.getRuntime().exec(var2);
@@ -45,7 +44,6 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 								var6.printStackTrace();
 								break;
 							}
-						}
 						default:
 							mc.displayGuiScreen(new GOTGuiMenu());
 					}
@@ -64,10 +62,11 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 					System.out.println("Opening via system class!");
 					Sys.openURL("file://" + new File(Minecraft.getMinecraft().mcDataDir, "config").getAbsolutePath());
 					break;
-				}
-				case 2: {
+				case 2:
 					mc.displayGuiScreen(new GOTGuiMenu());
-				}
+					break;
+				default:
+					break;
 			}
 		}
 	}

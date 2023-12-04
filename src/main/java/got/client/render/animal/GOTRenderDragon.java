@@ -163,6 +163,8 @@ public class GOTRenderDragon extends RenderLiving {
 				glEnable(GL_LIGHTING);
 				glDisable(GL_BLEND);
 				break;
+			default:
+				break;
 		}
 		return -1;
 	}

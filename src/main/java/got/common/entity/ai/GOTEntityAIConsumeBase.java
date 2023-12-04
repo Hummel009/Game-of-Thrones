@@ -51,10 +51,7 @@ public abstract class GOTEntityAIConsumeBase extends EntityAIBase {
 
 	@Override
 	public boolean shouldExecute() {
-		if (theEntity.isChild() || theEntity.getAttackTarget() != null || theEntity.npcItemsInv.getIsEating()) {
-			return false;
-		}
-		return shouldConsume();
+		return !theEntity.isChild() && theEntity.getAttackTarget() == null && !theEntity.npcItemsInv.getIsEating() && shouldConsume();
 	}
 
 	@Override

@@ -101,7 +101,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 
 	@Override
 	public void setupNPCName() {
-		String name = null;
+		String name;
 		switch (rand.nextInt(10)) {
 			case 0:
 				name = GOTNames.getWildName(rand, familyInfo.isMale());
@@ -116,13 +116,10 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 				prostituteType = ProstituteType.BLACK;
 				break;
 			case 3:
-				switch (rand.nextInt(2)) {
-					case 0:
-						name = GOTNames.getDothrakiName(rand, familyInfo.isMale());
-						break;
-					case 1:
-						name = GOTNames.getLhazarName(rand, familyInfo.isMale());
-						break;
+				if (rand.nextBoolean()) {
+					name = GOTNames.getDothrakiName(rand, familyInfo.isMale());
+				} else {
+					name = GOTNames.getLhazarName(rand, familyInfo.isMale());
 				}
 				prostituteType = ProstituteType.NOMAD;
 				break;
@@ -142,7 +139,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 					case 1:
 						name = GOTNames.getEssosName(rand, familyInfo.isMale());
 						break;
-					case 2:
+					default:
 						name = GOTNames.getQarthName(rand, familyInfo.isMale());
 						break;
 				}
@@ -159,7 +156,7 @@ public class GOTEntityProstitute extends GOTEntityHumanBase {
 					case 3:
 						prostituteType = ProstituteType.LIGHT_4;
 						break;
-					case 4:
+					default:
 						prostituteType = ProstituteType.LIGHT_5;
 						break;
 				}

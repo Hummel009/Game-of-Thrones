@@ -56,17 +56,16 @@ public class GOTReflection {
 	}
 
 	public static float getDamageAmount(Item item) {
-		float f = 0.0f;
 		try {
 			Field privateField = getPotentiallyObfuscatedPrivateValue(ItemSword.class, "field_150934_a");
 			if (privateField != null) {
 				privateField.setAccessible(true);
-				f = (float) privateField.get(item);
+				return (float) privateField.get(item);
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
-		return f;
+		return 0.0f;
 	}
 
 	public static int getFishHookBobTime(EntityFishHook fishHook) {
@@ -115,31 +114,29 @@ public class GOTReflection {
 	}
 
 	public static Block getOreBlock(WorldGenMinable ore) {
-		Block b = null;
 		try {
 			Field privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "field_150519_a");
 			if (privateField != null) {
 				privateField.setAccessible(true);
-				b = (Block) privateField.get(ore);
+				return (Block) privateField.get(ore);
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
-		return b;
+		return null;
 	}
 
 	public static int getOreMeta(WorldGenMinable ore) {
-		int i = 0;
 		try {
 			Field privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "mineableBlockMeta");
 			if (privateField != null) {
 				privateField.setAccessible(true);
-				i = (int) privateField.get(ore);
+				return (int) privateField.get(ore);
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
-		return i;
+		return 0;
 	}
 
 	public static <T, E> T getPotentiallyObfuscatedPrivateValue(Class<? super E> classToAccess, String fieldName) {
@@ -177,17 +174,16 @@ public class GOTReflection {
 	}
 
 	public static ToolMaterial getToolMaterial(Item item) {
-		ToolMaterial tm = null;
 		try {
 			Field privateField = getPotentiallyObfuscatedPrivateValue(ItemSword.class, "field_150933_b");
 			if (privateField != null) {
 				privateField.setAccessible(true);
-				tm = (ToolMaterial) privateField.get(item);
+				return (ToolMaterial) privateField.get(item);
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
-		return tm;
+		return null;
 	}
 
 	public static boolean isBadEffect(Potion potion) {
@@ -258,13 +254,15 @@ public class GOTReflection {
 				}
 			}
 			commandMap.values().removeAll(mapremoves);
-			ArrayList<ICommand> setremoves = new ArrayList<>();
+			Collection<ICommand> setremoves = new ArrayList<>();
 			for (ICommand obj : commandSet) {
 				if (obj.getClass() == commandClass) {
 					setremoves.add(obj);
 				}
 			}
-			setremoves.forEach(commandSet::remove);
+			for (ICommand o : setremoves) {
+				commandSet.remove(o);
+			}
 		} catch (Exception e) {
 			logFailure(e);
 		}

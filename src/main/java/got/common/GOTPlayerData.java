@@ -630,10 +630,7 @@ public class GOTPlayerData {
 	}
 
 	public boolean canPledgeTo(GOTFaction fac) {
-		if (fac.isPlayableAlignmentFaction()) {
-			return hasPledgeAlignment(fac);
-		}
-		return false;
+		return fac.isPlayableAlignmentFaction() && hasPledgeAlignment(fac);
 	}
 
 	public void checkAlignmentAchievements(GOTFaction faction, float prevAlignment) {
@@ -646,13 +643,13 @@ public class GOTPlayerData {
 
 	public float checkBonusForPledgeEnemyLimit(GOTFaction fac, float bonus) {
 		if (isPledgeEnemyAlignmentLimited(fac)) {
-			float limit;
 			float alignment = getAlignment(fac);
-			limit = getPledgeEnemyAlignmentLimit(fac);
+			float limit = getPledgeEnemyAlignmentLimit(fac);
 			if (alignment > limit) {
-				bonus = 0.0f;
-			} else if (alignment + bonus > limit) {
-				bonus = limit - alignment;
+				return 0.0f;
+			}
+			if (alignment + bonus > limit) {
+				return limit - alignment;
 			}
 		}
 		return bonus;
@@ -2372,8 +2369,7 @@ public class GOTPlayerData {
 				addAchievement(GOTAchievement.hireGoldenCompany);
 			}
 		}
-		ArmorMaterial fullMaterial;
-		fullMaterial = getFullArmorMaterial(entityplayer);
+		ArmorMaterial fullMaterial = getFullArmorMaterial(entityplayer);
 		if (GOTAchievement.armorAchievements.containsKey(fullMaterial)) {
 			addAchievement(GOTAchievement.armorAchievements.get(fullMaterial));
 		}

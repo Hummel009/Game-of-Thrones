@@ -9,6 +9,7 @@ import got.GOT;
 import got.client.effect.GOTEntityDeadMarshFace;
 import got.client.gui.GOTGuiMap;
 import got.client.gui.GOTGuiMenu;
+import got.client.gui.GOTGuiMessage;
 import got.client.gui.GOTGuiMiniquestTracker;
 import got.client.gui.GOTGuiNotificationDisplay;
 import got.client.model.GOTModelCompass;
@@ -69,6 +70,7 @@ import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -416,7 +418,7 @@ public class GOTTickHandlerClient {
 			if (damage > 0.0F) {
 				int pcDamage = Math.round(damage * 100.0F);
 				tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.rangedDamage", pcDamage));
-				if (itemstack.getItem() instanceof net.minecraft.item.ItemBow || itemstack.getItem() instanceof GOTItemCrossbow) {
+				if (itemstack.getItem() instanceof ItemBow || itemstack.getItem() instanceof GOTItemCrossbow) {
 					float range = GOTWeaponStats.getRangedDamageFactor(itemstack, true);
 					int pcRange = Math.round(range * 100.0F);
 					tooltip.add(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.weaponstat.range", pcRange));
@@ -581,6 +583,8 @@ public class GOTTickHandlerClient {
 					case 2:
 						fancyGraphics = true;
 						break;
+					default:
+						break;
 				}
 				GOTBlockLeavesBase.setAllGraphicsLevels(fancyGraphics);
 			} else {
@@ -653,10 +657,7 @@ public class GOTTickHandlerClient {
 						prevSunGlare = sunGlare;
 						MovingObjectPosition look = viewer.rayTrace(10000.0D, renderTick);
 						boolean lookingAtSky = look == null || look.typeOfHit == MovingObjectPosition.MovingObjectType.MISS;
-						boolean biomeHasSun = true;
-						if (biome instanceof GOTBiome) {
-							biomeHasSun = ((GOTBiome) biome).hasSky();
-						}
+						boolean biomeHasSun = !(biome instanceof GOTBiome) || ((GOTBiome) biome).hasSky();
 						float sunYaw = 90.0F;
 						float yc = MathHelper.cos((float) Math.toRadians(-sunYaw - 180.0F));
 						float ys = MathHelper.sin((float) Math.toRadians(-sunYaw - 180.0F));
@@ -809,7 +810,7 @@ public class GOTTickHandlerClient {
 		} else {
 			item = null;
 		}
-		float usage = -1.0F;
+		float usage = -1.0f;
 		if (entityplayer.isUsingItem()) {
 			float maxDrawTime = 0.0F;
 			if (item instanceof GOTItemBow) {
@@ -1139,7 +1140,7 @@ public class GOTTickHandlerClient {
 					alignmentYPrev = alignmentYCurrent;
 					alignmentXCurrent = alignmentXBase;
 					int yMove = (int) ((alignmentYBase + 20) / 10.0F);
-					boolean alignmentOnscreen = (minecraft.currentScreen == null || minecraft.currentScreen instanceof got.client.gui.GOTGuiMessage) && !minecraft.gameSettings.keyBindPlayerList.getIsKeyPressed() && !minecraft.gameSettings.showDebugInfo;
+					boolean alignmentOnscreen = (minecraft.currentScreen == null || minecraft.currentScreen instanceof GOTGuiMessage) && !minecraft.gameSettings.keyBindPlayerList.getIsKeyPressed() && !minecraft.gameSettings.showDebugInfo;
 					if (alignmentOnscreen) {
 						alignmentYCurrent = Math.min(alignmentYCurrent + yMove, alignmentYBase);
 					} else {
@@ -1345,10 +1346,10 @@ public class GOTTickHandlerClient {
 		}
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(0.0D, height, -90.0D, 0.0D, 1.0D);
-		tessellator.addVertexWithUV(width, height, -90.0D, 1.0D, 1.0D);
-		tessellator.addVertexWithUV(width, 0.0D, -90.0D, 1.0D, 0.0D);
-		tessellator.addVertexWithUV(0.0D, 0.0D, -90.0D, 0.0D, 0.0D);
+		tessellator.addVertexWithUV(0.0D, height, -90.0, 0.0D, 1.0D);
+		tessellator.addVertexWithUV(width, height, -90.0, 1.0D, 1.0D);
+		tessellator.addVertexWithUV(width, 0.0D, -90.0, 1.0D, 0.0D);
+		tessellator.addVertexWithUV(0.0D, 0.0D, -90.0, 0.0D, 0.0D);
 		tessellator.draw();
 		if (texture == null) {
 			GL11.glEnable(3553);
@@ -1375,27 +1376,27 @@ public class GOTTickHandlerClient {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
-		tessellator.addVertex(0.0D, heightThird, -90.0D);
-		tessellator.addVertex(width, heightThird, -90.0D);
+		tessellator.addVertex(0.0D, heightThird, -90.0);
+		tessellator.addVertex(width, heightThird, -90.0);
 		tessellator.setColorRGBA_F(rgbEdge[0], rgbEdge[1], rgbEdge[2], alphaEdge);
-		tessellator.addVertex(width, 0.0D, -90.0D);
-		tessellator.addVertex(0.0D, 0.0D, -90.0D);
+		tessellator.addVertex(width, 0.0D, -90.0);
+		tessellator.addVertex(0.0D, 0.0D, -90.0);
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
-		tessellator.addVertex(0.0D, heightTwoThirds, -90.0D);
-		tessellator.addVertex(width, heightTwoThirds, -90.0D);
+		tessellator.addVertex(0.0D, heightTwoThirds, -90.0);
+		tessellator.addVertex(width, heightTwoThirds, -90.0);
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
-		tessellator.addVertex(width, heightThird, -90.0D);
-		tessellator.addVertex(0.0D, heightThird, -90.0D);
+		tessellator.addVertex(width, heightThird, -90.0);
+		tessellator.addVertex(0.0D, heightThird, -90.0);
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setColorRGBA_F(rgbEdge[0], rgbEdge[1], rgbEdge[2], alphaEdge);
-		tessellator.addVertex(0.0D, height, -90.0D);
-		tessellator.addVertex(width, height, -90.0D);
+		tessellator.addVertex(0.0D, height, -90.0);
+		tessellator.addVertex(width, height, -90.0);
 		tessellator.setColorRGBA_F(rgbCentre[0], rgbCentre[1], rgbCentre[2], alphaCentre);
-		tessellator.addVertex(width, heightTwoThirds, -90.0D);
-		tessellator.addVertex(0.0D, heightTwoThirds, -90.0D);
+		tessellator.addVertex(width, heightTwoThirds, -90.0);
+		tessellator.addVertex(0.0D, heightTwoThirds, -90.0);
 		tessellator.draw();
 		GL11.glShadeModel(7424);
 		GL11.glEnable(3553);

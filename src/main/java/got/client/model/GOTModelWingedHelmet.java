@@ -21,7 +21,7 @@ public class GOTModelWingedHelmet extends GOTModelBiped {
 		wingRight.mirror = true;
 		wingRight.setRotationPoint(4.0f + f, -8.0f - f, 0.0f);
 		wingRight.addBox(0.0f, -6.0f, 0.0f, 6, 16, 0, 0.0f);
-		wingRight.rotateAngleY = -0.4363323129985824f;
+		wingRight.rotateAngleY = -0.43633232f;
 		bipedHead.addChild(wingRight);
 		bipedHeadwear.cubeList.clear();
 		bipedBody.cubeList.clear();

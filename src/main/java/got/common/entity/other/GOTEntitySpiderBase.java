@@ -79,10 +79,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
-		if (damagesource == DamageSource.fall) {
-			return false;
-		}
-		return super.attackEntityFrom(damagesource, f);
+		return damagesource != DamageSource.fall && super.attackEntityFrom(damagesource, f);
 	}
 
 	@Override
@@ -286,10 +283,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 
 	@Override
 	public boolean isPotionApplicable(PotionEffect effect) {
-		if (getSpiderType() == VENOM_SLOWNESS && effect.getPotionID() == Potion.moveSlowdown.id || getSpiderType() == VENOM_POISON && effect.getPotionID() == Potion.poison.id) {
-			return false;
-		}
-		return super.isPotionApplicable(effect);
+		return (getSpiderType() != VENOM_SLOWNESS || effect.getPotionID() != Potion.moveSlowdown.id) && (getSpiderType() != VENOM_POISON || effect.getPotionID() != Potion.poison.id) && super.isPotionApplicable(effect);
 	}
 
 	public boolean isSpiderClimbing() {
@@ -298,7 +292,7 @@ public abstract class GOTEntitySpiderBase extends GOTEntityNPCRideable {
 
 	public void setSpiderClimbing(boolean flag) {
 		byte b = dataWatcher.getWatchableObjectByte(20);
-		b = flag ? (byte) (b | 1) : (byte) (b & 0xFFFFFFFE);
+		b = (byte) (flag ? b | 1 : b & 0xFFFFFFFE);
 		dataWatcher.updateObject(20, b);
 	}
 

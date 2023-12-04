@@ -59,14 +59,13 @@ public class GOTEntityBarrel extends Entity {
 			return false;
 		}
 		if (!worldObj.isRemote && !isDead) {
-			boolean isCreative;
 			setForwardDirection(-getForwardDirection());
 			setTimeSinceHit(10);
 			setDamageTaken(getDamageTaken() + f * 10.0f);
 			Block.SoundType stepSound = GOTBlocks.barrel.stepSound;
 			playSound(stepSound.getBreakSound(), (stepSound.getVolume() + 1.0f) / 2.0f, stepSound.getPitch() * 0.8f);
 			setBeenAttacked();
-			isCreative = damagesource.getEntity() instanceof EntityPlayer && ((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode;
+			boolean isCreative = damagesource.getEntity() instanceof EntityPlayer && ((EntityPlayer) damagesource.getEntity()).capabilities.isCreativeMode;
 			if (isCreative || getDamageTaken() > 40.0f) {
 				if (riddenByEntity != null) {
 					riddenByEntity.mountEntity(this);
@@ -255,7 +254,6 @@ public class GOTEntityBarrel extends Entity {
 				motionZ *= 0.99;
 			}
 		} else {
-			double d12;
 			double d11;
 			if (d0 < 1.0) {
 				d4 = d0 * 2.0 - 1.0;
@@ -306,7 +304,7 @@ public class GOTEntityBarrel extends Entity {
 			if (d11 * d11 + d10 * d10 > 0.001) {
 				d5 = (float) (Math.atan2(d10, d11) * 180.0 / 3.141592653589793);
 			}
-			d12 = MathHelper.wrapAngleTo180_double(d5 - rotationYaw);
+			double d12 = MathHelper.wrapAngleTo180_double(d5 - rotationYaw);
 			if (d12 > 20.0) {
 				d12 = 20.0;
 			}

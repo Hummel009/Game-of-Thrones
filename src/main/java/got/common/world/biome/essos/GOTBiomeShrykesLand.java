@@ -48,13 +48,12 @@ public class GOTBiomeShrykesLand extends GOTBiomeEssosPlains {
 
 	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
-		double d2;
 		Block topBlock_pre = topBlock;
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
 		int fillerBlockMeta_pre = fillerBlockMeta;
 		double d1 = biomeTerrainNoise.func_151601_a(i * 0.09, k * 0.09);
-		d2 = biomeTerrainNoise.func_151601_a(i * 0.4, k * 0.4);
+		double d2 = biomeTerrainNoise.func_151601_a(i * 0.4, k * 0.4);
 		if (d1 + d2 > 0.3) {
 			topBlock = Blocks.dirt;
 			topBlockMeta = 1;

@@ -73,13 +73,13 @@ public class GOTBlockOven extends BlockContainer {
 			return ovenIcons[1];
 		}
 		int meta = world.getBlockMetadata(i, j, k) & 7;
-		return side != meta ? ovenIcons[0] : isOvenActive(world, i, j, k) ? ovenIcons[3] : ovenIcons[2];
+		return ovenIcons[side == meta ? isOvenActive(world, i, j, k) ? 3 : 2 : 0];
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return i == 1 || i == 0 ? ovenIcons[1] : i == 3 ? ovenIcons[2] : ovenIcons[0];
+		return ovenIcons[i == 1 || i == 0 ? 1 : i == 3 ? 2 : 0];
 	}
 
 	@Override

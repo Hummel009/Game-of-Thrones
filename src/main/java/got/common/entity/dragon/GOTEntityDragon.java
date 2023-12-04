@@ -117,31 +117,22 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	public static boolean hasEquipped(EntityPlayer player, Item item) {
 		ItemStack itemStack = player.getCurrentEquippedItem();
 
-		if (itemStack == null) {
-			return false;
-		}
+		return itemStack != null && itemStack.getItem() == item;
 
-		return itemStack.getItem() == item;
 	}
 
 	public static boolean hasEquippedFood(EntityPlayer player) {
 		ItemStack itemStack = player.getCurrentEquippedItem();
 
-		if (itemStack == null) {
-			return false;
-		}
+		return itemStack != null && itemStack.getItem() instanceof ItemFood;
 
-		return itemStack.getItem() instanceof ItemFood;
 	}
 
 	public static boolean hasEquippedUsable(EntityPlayer player) {
 		ItemStack itemStack = player.getCurrentEquippedItem();
 
-		if (itemStack == null) {
-			return false;
-		}
+		return itemStack != null && itemStack.getItemUseAction() != EnumAction.none;
 
-		return itemStack.getItemUseAction() != EnumAction.none;
 	}
 
 	public void addHelper(GOTDragonHelper helper) {
@@ -486,13 +477,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
 	public boolean isInvulnerableTo(DamageSource src) {
 		Entity srcEnt = src.getEntity();
-		if (srcEnt != null && (srcEnt == this || srcEnt == riddenByEntity)) {
-			return true;
-		}
-		if ("drown".equals(src.damageType) && isEgg()) {
-			return true;
-		}
-		return getBreed().isImmuneToDamage(src);
+		return srcEnt != null && (srcEnt == this || srcEnt == riddenByEntity) || "drown".equals(src.damageType) && isEgg() || getBreed().isImmuneToDamage(src);
 	}
 
 	public boolean isJuvenile() {
@@ -600,7 +585,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	public void setBooleanData(int index, boolean value) {
-		dataWatcher.updateObject(index, value ? (byte) 1 : (byte) 0);
+		dataWatcher.updateObject(index, (byte) (value ? 1 : 0));
 	}
 
 	@Override

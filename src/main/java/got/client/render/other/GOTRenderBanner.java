@@ -56,7 +56,7 @@ public class GOTRenderBanner extends Render {
 			GL11.glPushMatrix();
 			GL11.glDisable(2884);
 			GL11.glTranslatef((float) d, (float) d1 + 1.5F, (float) d2);
-			GL11.glScalef(-1.0F, -1.0F, 1.0F);
+			GL11.glScalef(-1.0f, -1.0f, 1.0F);
 			GL11.glRotatef(180.0F - entity.rotationYaw, 0.0F, 1.0F, 0.0F);
 			GL11.glTranslatef(0.0F, 0.01F, 0.0F);
 			if (seeThroughWalls) {
@@ -67,7 +67,7 @@ public class GOTRenderBanner extends Render {
 				int lx = light % 65536;
 				int ly = light / 65536;
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx, ly);
-				GL11.glColor4f(0 / 255.0F, (protectColor >> 8 & 0xFF) / 255.0F, 0 / 255.0F, 1.0F);
+				GL11.glColor4f(0.0f, (protectColor >> 8 & 0xFF) / 255.0F, 0.0f, 1.0F);
 			}
 			bindTexture(getStandTexture(entity));
 			model.renderStand(0.0625F);

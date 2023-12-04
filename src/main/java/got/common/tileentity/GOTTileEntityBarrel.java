@@ -40,10 +40,7 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack extractItem, int side) {
-		if (ArrayUtils.contains(BUCKET_SLOTS, slot)) {
-			return !isItemValidForSlot(slot, extractItem);
-		}
-		return false;
+		return ArrayUtils.contains(BUCKET_SLOTS, slot) && !isItemValidForSlot(slot, extractItem);
 	}
 
 	@Override
@@ -235,13 +232,7 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack itemstack) {
-		if (ArrayUtils.contains(INGREDIENT_SLOTS, slot)) {
-			return true;
-		}
-		if (ArrayUtils.contains(BUCKET_SLOTS, slot)) {
-			return GOTRecipeBrewing.isWaterSource(itemstack);
-		}
-		return false;
+		return ArrayUtils.contains(INGREDIENT_SLOTS, slot) || ArrayUtils.contains(BUCKET_SLOTS, slot) && GOTRecipeBrewing.isWaterSource(itemstack);
 	}
 
 	@Override

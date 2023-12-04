@@ -66,10 +66,7 @@ public class GOTItemBrandingIron extends Item {
 	}
 
 	public static boolean isHeated(ItemStack itemstack) {
-		if (itemstack.hasTagCompound()) {
-			return itemstack.getTagCompound().getBoolean("HotIron");
-		}
-		return false;
+		return itemstack.hasTagCompound() && itemstack.getTagCompound().getBoolean("HotIron");
 	}
 
 	public static void setBrandingPlayer(Entity entity, UUID player) {
@@ -124,11 +121,9 @@ public class GOTItemBrandingIron extends Item {
 		String name = super.getItemStackDisplayName(itemstack);
 		if (hasBrandName(itemstack)) {
 			String brandName = getBrandName(itemstack);
-			name = StatCollector.translateToLocalFormatted("item.got.brandingIron.named", name, brandName);
-		} else {
-			name = StatCollector.translateToLocalFormatted("item.got.brandingIron.unnamed", name);
+			return StatCollector.translateToLocalFormatted("item.got.brandingIron.named", name, brandName);
 		}
-		return name;
+		return StatCollector.translateToLocalFormatted("item.got.brandingIron.unnamed", name);
 	}
 
 	@Override

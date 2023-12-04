@@ -40,7 +40,6 @@ public class GOTItemMountArmor extends Item {
 	}
 
 	public String getArmorTexture() {
-		String path;
 		if (templateItem != null) {
 			int index = 0;
 			if (templateItem == Items.iron_horse_armor) {
@@ -52,11 +51,9 @@ public class GOTItemMountArmor extends Item {
 			if (templateItem == Items.diamond_horse_armor) {
 				index = 3;
 			}
-			path = GOTReflection.getHorseArmorTextures()[index];
-		} else {
-			path = "got:textures/armor/mount/" + textureName + ".png";
+			return GOTReflection.getHorseArmorTextures()[index];
 		}
-		return path;
+		return "got:textures/armor/mount/" + textureName + ".png";
 	}
 
 	public int getDamageReduceAmount() {
@@ -105,10 +102,7 @@ public class GOTItemMountArmor extends Item {
 		if (mount instanceof GOTEntityRhino || mount instanceof GOTEntityWoolyRhino) {
 			return mountType == Mount.RHINO;
 		}
-		if (mount instanceof GOTEntityHorse) {
-			return mountType == Mount.HORSE;
-		}
-		return false;
+		return mount instanceof GOTEntityHorse && mountType == Mount.HORSE;
 	}
 
 	@SideOnly(Side.CLIENT)

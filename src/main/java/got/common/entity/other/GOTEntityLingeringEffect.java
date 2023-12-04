@@ -21,7 +21,7 @@ public class GOTEntityLingeringEffect extends Entity implements IEntityAdditiona
 	public static int HEIGHT_DATA_WATCHER = 12;
 	public EntityLivingBase thrower;
 	public ItemStack stack;
-	public int MAX_TICKS = 30 * 20;
+	public int MAX_TICKS = 600;
 
 	public GOTEntityLingeringEffect(World world) {
 		super(world);

@@ -28,10 +28,7 @@ public class GOTEntityAIHiringPlayerHurtByTarget extends EntityAITarget {
 		}
 		theTarget = entityplayer.getAITarget();
 		int i = entityplayer.func_142015_aE();
-		if (i == playerRevengeTimer) {
-			return false;
-		}
-		return GOT.canNPCAttackEntity(theNPC, theTarget, true) && isSuitableTarget(theTarget, false);
+		return i != playerRevengeTimer && GOT.canNPCAttackEntity(theNPC, theTarget, true) && isSuitableTarget(theTarget, false);
 	}
 
 	@Override

@@ -21,10 +21,7 @@ public class GOTItemTurban extends GOTItemRobes {
 	}
 
 	public static boolean hasOrnament(ItemStack itemstack) {
-		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("TurbanOrnament")) {
-			return itemstack.getTagCompound().getBoolean("TurbanOrnament");
-		}
-		return false;
+		return itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("TurbanOrnament") && itemstack.getTagCompound().getBoolean("TurbanOrnament");
 	}
 
 	public static void setHasOrnament(ItemStack itemstack, boolean flag) {

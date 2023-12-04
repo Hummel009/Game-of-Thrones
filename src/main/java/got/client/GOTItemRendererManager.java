@@ -39,10 +39,9 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 		largeItemRenderers.clear();
 		try {
 			for (Item item : GOTItems.CONTENT) {
-				boolean isLarge;
 				MinecraftForgeClient.registerItemRenderer(item, null);
 				GOTRenderLargeItem largeItemRenderer = GOTRenderLargeItem.getRendererIfLarge(item);
-				isLarge = largeItemRenderer != null;
+				boolean isLarge = largeItemRenderer != null;
 				if (item instanceof GOTItemCrossbow) {
 					MinecraftForgeClient.registerItemRenderer(item, new GOTRenderCrossbow());
 				} else if (item instanceof GOTItemBow) {

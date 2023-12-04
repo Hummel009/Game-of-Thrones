@@ -33,24 +33,20 @@ public class GOTEntityHillmanBartender extends GOTEntityHillman implements GOTTr
 			switch (l) {
 				case 0:
 				case 1:
-				case 2: {
+				case 2:
 					Item food = GOTFoods.WILD.getRandomFood(rand).getItem();
 					entityDropItem(new ItemStack(food), 0.0f);
 					continue;
-				}
-				case 3: {
+				case 3:
 					entityDropItem(new ItemStack(Items.gold_nugget, 2 + rand.nextInt(3)), 0.0f);
 					continue;
-				}
 				case 4:
-				case 5: {
+				case 5:
 					entityDropItem(new ItemStack(GOTItems.mug), 0.0f);
 					continue;
-				}
-				case 6: {
+				default:
 					Item drink = GOTFoods.WILD_DRINK.getRandomFood(rand).getItem();
 					entityDropItem(new ItemStack(drink, 1, 1 + rand.nextInt(3)), 0.0f);
-				}
 			}
 		}
 	}

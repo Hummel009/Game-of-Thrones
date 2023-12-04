@@ -76,11 +76,10 @@ public class GOTContainerTrade extends Container {
 		ItemStack itemstack = null;
 		Slot slot = (Slot) inventorySlots.get(i);
 		if (slot != null && slot.getHasStack()) {
-			boolean sellable;
 			ItemStack itemstack1 = slot.getStack();
 			itemstack = itemstack1.copy();
 			GOTTradeSellResult sellResult = GOTTradeEntries.getItemSellResult(itemstack1, theTraderNPC);
-			sellable = sellResult != null && sellResult.tradesMade > 0;
+			boolean sellable = sellResult != null && sellResult.tradesMade > 0;
 			if (i < 9) {
 				if (!mergeItemStack(itemstack1, 27, 63, true)) {
 					return null;

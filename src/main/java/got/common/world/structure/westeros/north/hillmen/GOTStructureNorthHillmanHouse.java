@@ -208,6 +208,8 @@ public class GOTStructureNorthHillmanHouse extends GOTStructureBase {
 					npc11.spawnRidingHorse = false;
 					spawnNPCAndSetHome(npc11, world, 0, 1, 0, 8);
 					break;
+				default:
+					break;
 			}
 		} else {
 			GOTEntityNorthHillman male = new GOTEntityNorthHillman(world);

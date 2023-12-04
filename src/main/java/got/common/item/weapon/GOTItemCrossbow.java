@@ -153,10 +153,7 @@ public class GOTItemCrossbow extends ItemBow {
 
 	@Override
 	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
-		if (GOTRecipe.checkItemEquals(crossbowMaterial.getRepairItemStack(), repairItem)) {
-			return true;
-		}
-		return super.getIsRepairable(itemstack, repairItem);
+		return GOTRecipe.checkItemEquals(crossbowMaterial.getRepairItemStack(), repairItem) || super.getIsRepairable(itemstack, repairItem);
 	}
 
 	@Override
@@ -168,7 +165,7 @@ public class GOTItemCrossbow extends ItemBow {
 	public String getItemStackDisplayName(ItemStack itemstack) {
 		String name = super.getItemStackDisplayName(itemstack);
 		if (isLoaded(itemstack)) {
-			name = StatCollector.translateToLocalFormatted("item.got.crossbow.loaded", name);
+			return StatCollector.translateToLocalFormatted("item.got.crossbow.loaded", name);
 		}
 		return name;
 	}

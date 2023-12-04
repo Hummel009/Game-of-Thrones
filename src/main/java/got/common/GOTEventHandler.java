@@ -616,7 +616,6 @@ public class GOTEventHandler implements IFuelHandler {
 			return;
 		}
 		if (entity instanceof GOTMercenary && ((GOTHireableBase) entity).canTradeWith(entityplayer)) {
-			assert entity instanceof GOTEntityNPC;
 			if (((GOTEntityNPC) entity).hiredNPCInfo.getHiringPlayerUUID() == null) {
 				entityplayer.openGui(GOT.instance, GOTGuiID.MERCENARY_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 				event.setCanceled(true);
@@ -846,7 +845,7 @@ public class GOTEventHandler implements IFuelHandler {
 		if (attacker instanceof EntityCreature && !GOT.canNPCAttackEntity((EntityCreature) attacker, entity, false)) {
 			cancelAttackEvent(event);
 		}
-		if (event.source instanceof net.minecraft.util.EntityDamageSourceIndirect) {
+		if (event.source instanceof EntityDamageSourceIndirect) {
 			Entity projectile = event.source.getSourceOfDamage();
 			if (projectile instanceof EntityArrow || projectile instanceof GOTEntityCrossbowBolt || projectile instanceof GOTEntityDart) {
 				boolean wearingAllRoyce = true;
@@ -1318,10 +1317,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (!world.isRemote && entity.isEntityAlive()) {
 			ItemStack weapon = entity.getHeldItem();
-			boolean lanceOnFoot = false;
-			if (weapon != null && weapon.getItem() instanceof GOTItemLance && entity.ridingEntity == null) {
-				lanceOnFoot = !(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode;
-			}
+			boolean lanceOnFoot = weapon != null && weapon.getItem() instanceof GOTItemLance && entity.ridingEntity == null && (!(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode);
 			IAttributeInstance speedAttribute = entity.getEntityAttribute(SharedMonsterAttributes.movementSpeed);
 			if (speedAttribute.getModifier(GOTItemLance.lanceSpeedBoost_id) != null) {
 				speedAttribute.removeModifier(GOTItemLance.lanceSpeedBoost);

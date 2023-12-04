@@ -305,10 +305,9 @@ public class GOTStructureYiTiGatehouse extends GOTStructureYiTiBaseTown {
 		}
 		int men = 2;
 		for (int l = 0; l < men; ++l) {
-			int k17;
 			i13 = 0;
 			int j111 = 8;
-			k17 = 0;
+			int k17 = 0;
 			GOTEntityYiTiSoldier guard = new GOTEntityYiTiSoldier(world);
 			guard.spawnRidingHorse = false;
 			spawnNPCAndSetHome(guard, world, i13, j111, k17, 8);

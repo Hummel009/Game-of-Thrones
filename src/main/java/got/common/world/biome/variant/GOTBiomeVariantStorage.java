@@ -42,7 +42,7 @@ public class GOTBiomeVariantStorage {
 
 	public static Map<ChunkCoordIntPair, byte[]> getDimensionChunkMap(World world) {
 		GOTDimension dim;
-		Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> sourcemap = !world.isRemote ? chunkVariantMap : chunkVariantMapClient;
+		Map<GOTDimension, Map<ChunkCoordIntPair, byte[]>> sourcemap = world.isRemote ? chunkVariantMapClient : chunkVariantMap;
 		Map<ChunkCoordIntPair, byte[]> map = sourcemap.get(dim = GOTDimension.getCurrentDimension(world));
 		if (map == null) {
 			map = new HashMap<>();

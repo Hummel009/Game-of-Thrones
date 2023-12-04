@@ -39,10 +39,10 @@ public class GOTModelGiraffeRug extends ModelBase {
 		giraffeModel.leg1.rotateAngleX = 0.5235987755982988f;
 		giraffeModel.leg1.rotateAngleZ = 1.5707963267948966f;
 		giraffeModel.leg2.rotateAngleX = 0.5235987755982988f;
-		giraffeModel.leg2.rotateAngleZ = -1.5707963267948966f;
-		giraffeModel.leg3.rotateAngleX = -0.3490658503988659f;
+		giraffeModel.leg2.rotateAngleZ = -1.5707964f;
+		giraffeModel.leg3.rotateAngleX = -0.34906584f;
 		giraffeModel.leg3.rotateAngleZ = 1.5707963267948966f;
-		giraffeModel.leg4.rotateAngleX = -0.3490658503988659f;
-		giraffeModel.leg4.rotateAngleZ = -1.5707963267948966f;
+		giraffeModel.leg4.rotateAngleX = -0.34906584f;
+		giraffeModel.leg4.rotateAngleZ = -1.5707964f;
 	}
 }

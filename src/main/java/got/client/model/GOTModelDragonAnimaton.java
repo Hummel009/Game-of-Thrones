@@ -363,7 +363,7 @@ public class GOTModelDragonAnimaton {
 
 		model.back.isHidden = entity.isSaddled();
 
-		cycleOfs = (cycleOfs * cycleOfs + cycleOfs * 2) * 0.05f;
+		cycleOfs = cycleOfs * (cycleOfs + 2) * 0.05f;
 
 		cycleOfs *= lerp(0.5f, 1, flutter);
 		cycleOfs *= lerp(1, 0.5f, ground);
@@ -453,7 +453,10 @@ public class GOTModelDragonAnimaton {
 		}
 
 		for (int i = 0; i < model.thighProxy.length; i++) {
-			GOTModelDragonPart thigh, crus, foot, toe;
+			GOTModelDragonPart thigh;
+			GOTModelDragonPart crus;
+			GOTModelDragonPart foot;
+			GOTModelDragonPart toe;
 
 			if (i % 2 == 0) {
 				thigh = model.forethigh;

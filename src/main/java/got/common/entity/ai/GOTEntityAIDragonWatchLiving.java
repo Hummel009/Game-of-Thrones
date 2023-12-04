@@ -23,10 +23,7 @@ public class GOTEntityAIDragonWatchLiving extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		if (!watchedEntity.isEntityAlive() || dragon.getDistanceSqToEntity(watchedEntity) > maxDist * maxDist) {
-			return false;
-		}
-		return watchTicks > 0;
+		return watchedEntity.isEntityAlive() && !(dragon.getDistanceSqToEntity(watchedEntity) > maxDist * maxDist) && watchTicks > 0;
 	}
 
 	@Override

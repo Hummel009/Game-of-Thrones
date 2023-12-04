@@ -29,11 +29,10 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 	}
 
 	public static int getFeatherColor(ItemStack itemstack) {
-		int i = -1;
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("FeatherColor")) {
-			i = itemstack.getTagCompound().getInteger("FeatherColor");
+			return itemstack.getTagCompound().getInteger("FeatherColor");
 		}
-		return i;
+		return -1;
 	}
 
 	public static int getHatColor(ItemStack itemstack) {

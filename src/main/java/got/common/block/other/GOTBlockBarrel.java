@@ -109,11 +109,10 @@ public class GOTBlockBarrel extends BlockContainer {
 
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
-		Item item;
 		GOTTileEntityBarrel barrel = (GOTTileEntityBarrel) world.getTileEntity(i, j, k);
 		ItemStack barrelDrink = barrel.getBrewedDrink();
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
-		item = itemstack == null ? null : itemstack.getItem();
+		Item item = itemstack == null ? null : itemstack.getItem();
 		if (side == world.getBlockMetadata(i, j, k)) {
 			if (barrelDrink != null && GOTItemMug.isItemEmptyDrink(itemstack)) {
 				ItemStack playerDrink = barrelDrink.copy();
@@ -150,7 +149,6 @@ public class GOTBlockBarrel extends BlockContainer {
 					barrel.barrelMode = 2;
 					if (!entityplayer.capabilities.isCreativeMode) {
 						GOTItemMug.Vessel v = GOTItemMug.getVessel(itemstack);
-						assert v != null;
 						ItemStack emptyMug = v.getEmptyVessel();
 						--itemstack.stackSize;
 						if (itemstack.stackSize <= 0) {

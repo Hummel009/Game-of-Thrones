@@ -42,7 +42,7 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 
 		GOTDragonBreed breed = registry.getBreedByName(breedName);
 		if (breed == null) {
-			breed = registry.getBreedByName(DEFAULT_BREED);
+			return registry.getBreedByName(DEFAULT_BREED);
 		}
 
 		return breed;

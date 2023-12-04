@@ -71,10 +71,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 			if (entity instanceof EntityPlayer) {
 				return isPlayerSuitableTarget((EntityPlayer) entity);
 			}
-			if (entity instanceof GOTEntityLightSkinBandit) {
-				return taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).hiredNPCInfo.isActive;
-			}
-			return true;
+			return !(entity instanceof GOTEntityLightSkinBandit) || taskOwner instanceof GOTEntityNPC && ((GOTEntityNPC) taskOwner).hiredNPCInfo.isActive;
 		}
 		return false;
 	}
@@ -120,9 +117,8 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 
 		@Override
 		public int compare(Entity e1, Entity e2) {
-			double d2;
 			double d1 = distanceMetricSq(e1);
-			d2 = distanceMetricSq(e2);
+			double d2 = distanceMetricSq(e2);
 			return Double.compare(d1, d2);
 		}
 

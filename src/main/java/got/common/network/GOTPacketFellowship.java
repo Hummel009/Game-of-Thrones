@@ -77,11 +77,10 @@ public class GOTPacketFellowship implements IMessage {
 		if (profile == null || StringUtils.isBlank(profile.getName())) {
 			String name = UsernameCache.getLastKnownUsername(player);
 			if (name != null) {
-				profile = new GameProfile(player, name);
-			} else {
-				profile = new GameProfile(player, "");
-				MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
+				return new GameProfile(player, name);
 			}
+			profile = new GameProfile(player, "");
+			MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
 		}
 		return profile;
 	}
@@ -125,7 +124,6 @@ public class GOTPacketFellowship implements IMessage {
 		isOwned = data.readBoolean();
 		isAdminned = data.readBoolean();
 		owner = readPlayerUuidAndUsername(data);
-		assert owner != null;
 		readTitleForPlayer(data, owner.getId());
 		int numMembers = data.readInt();
 		for (int i = 0; i < numMembers; ++i) {

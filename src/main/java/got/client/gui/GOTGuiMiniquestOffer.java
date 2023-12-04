@@ -269,11 +269,11 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 					case LOOKING:
 						float slow = actionSlow * 16.0f;
 						headYaw = MathHelper.sin(actionTick / slow) * 1.0471975511965976f;
-						headPitch = (MathHelper.sin(actionTick / slow * 2.0f) + 1.0f) / 2.0f * -0.2617993877991494f;
+						headPitch = (MathHelper.sin(actionTick / slow * 2.0f) + 1.0f) / 2.0f * -0.2617994f;
 						break;
 					case LOOKING_UP:
 						headYaw = 0.0f;
-						headPitch = -0.3490658503988659f;
+						headPitch = -0.34906584f;
 						break;
 					case SHAKING:
 						actionSlow += 0.01f;
@@ -286,7 +286,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 						}
 						float slow1 = actionSlow * 2.0f;
 						headYaw = MathHelper.sin(actionTick / slow1) * 0.17453292519943295f;
-						headPitch = (MathHelper.sin(actionTick / slow1 * 2.0f) + 1.0f) / 2.0f * -0.3490658503988659f;
+						headPitch = (MathHelper.sin(actionTick / slow1 * 2.0f) + 1.0f) / 2.0f * -0.34906584f;
 						break;
 				}
 			}
@@ -317,15 +317,13 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			}
 			float f = rand.nextFloat();
 			f *= totalWeight;
-			NPCAction chosen = null;
 			for (NPCAction action : values()) {
 				f -= action.weight;
 				if (f <= 0.0f) {
-					chosen = action;
-					break;
+					return action;
 				}
 			}
-			return chosen;
+			return null;
 		}
 	}
 

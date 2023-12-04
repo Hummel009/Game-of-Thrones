@@ -243,8 +243,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 		int[] j15 = {-1, 2};
 		j1 = j15.length;
 		for (j12 = 0; j12 < j1; ++j12) {
-			int k13;
-			k13 = j15[j12];
+			int k13 = j15[j12];
 			setBlockAndMetadata(world, -2, 5, k13, bedBlock, 11);
 			setBlockAndMetadata(world, -1, 5, k13, bedBlock, 3);
 			spawnItemFrame(world, -3, 7, k13, 1, getFramedItem(random));

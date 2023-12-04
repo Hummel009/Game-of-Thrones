@@ -101,7 +101,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 				if (d0 > 0.0D) {
 					list.add(EnumChatFormatting.BLUE + StatCollector.translateToLocalFormatted("attribute.modifier.plus." + attributemodifier2.getOperation(), ItemStack.field_111284_a.format(d1), StatCollector.translateToLocal("attribute.name." + entry1.getKey())));
 				} else if (d0 < 0.0D) {
-					d1 *= -1.0D;
+					d1 *= -1.0;
 					list.add(EnumChatFormatting.RED + StatCollector.translateToLocalFormatted("attribute.modifier.take." + attributemodifier2.getOperation(), ItemStack.field_111284_a.format(d1), StatCollector.translateToLocal("attribute.name." + entry1.getKey())));
 				}
 			}

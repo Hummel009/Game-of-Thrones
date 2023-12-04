@@ -327,14 +327,16 @@ public abstract class GOTStructureBaseSettlement {
 
 		public void addSettlementStructures(Random var1) {
 			filler.run();
-			spawnInfos.forEach((info) -> addStructure(new GOTStructureBase(false) {
-				@Override
-				public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
-					setOriginAndRotation(world, i, j, k, rotation, 0);
-					spawnLegendaryNPC(info.getNPC(), world, 0, 2, 0);
-					return true;
-				}
-			}, info.getI(), info.getK(), 0, true));
+			for (GOTFixer.SpawnInfo info : spawnInfos) {
+				addStructure(new GOTStructureBase(false) {
+					@Override
+					public boolean generate(World world, Random random, int i, int j, int k, int rotation) {
+						setOriginAndRotation(world, i, j, k, rotation, 0);
+						spawnLegendaryNPC(info.getNPC(), world, 0, 2, 0);
+						return true;
+					}
+				}, info.getI(), info.getK(), 0, true);
+			}
 			spawnInfos.clear();
 		}
 
@@ -357,25 +359,24 @@ public abstract class GOTStructureBaseSettlement {
 			int xRel = 0;
 			int zRel = 0;
 			switch (rotationMode) {
-				case 0: {
+				case 0:
 					xRel = centreX - xWorld;
 					zRel = centreZ - zWorld;
 					break;
-				}
-				case 1: {
+				case 1:
 					xRel = centreZ - zWorld;
 					zRel = xWorld - centreX;
 					break;
-				}
-				case 2: {
+				case 2:
 					xRel = xWorld - centreX;
 					zRel = zWorld - centreZ;
 					break;
-				}
-				case 3: {
+				case 3:
 					xRel = zWorld - centreZ;
 					zRel = centreX - xWorld;
-				}
+					break;
+				default:
+					break;
 			}
 			return new int[]{xRel, zRel};
 		}
@@ -388,25 +389,24 @@ public abstract class GOTStructureBaseSettlement {
 			int xWorld = centreX;
 			int zWorld = centreZ;
 			switch (rotationMode) {
-				case 0: {
+				case 0:
 					xWorld = centreX - xRel;
 					zWorld = centreZ - zRel;
 					break;
-				}
-				case 1: {
+				case 1:
 					xWorld = centreX + zRel;
 					zWorld = centreZ - xRel;
 					break;
-				}
-				case 2: {
+				case 2:
 					xWorld = centreX + xRel;
 					zWorld = centreZ + zRel;
 					break;
-				}
-				case 3: {
+				case 3:
 					xWorld = centreX - zRel;
 					zWorld = centreZ + xRel;
-				}
+					break;
+				default:
+					break;
 			}
 			return new int[]{xWorld, zWorld};
 		}

@@ -145,8 +145,7 @@ public class GOTStructureRuinedHouse extends GOTStructureBase {
 				setBlockAndMetadata(world, i, j, k, woodBlock, woodMeta | (northToSouth ? 8 : 4));
 				break;
 			case 3:
-				int upsideDown;
-				upsideDown = random.nextBoolean() ? 4 : 0;
+				int upsideDown = random.nextBoolean() ? 4 : 0;
 				if (northToSouth) {
 					setBlockAndMetadata(world, i, j, k, stairBlock, random.nextInt(2) | upsideDown);
 				} else {

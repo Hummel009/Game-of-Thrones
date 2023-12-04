@@ -152,21 +152,19 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 				case 0:
 				case 3:
 				case 6:
-
 				case 9:
 					return 25;
-
 				case 1:
 				case 4:
 				case 7:
 					return 43;
-
 				case 2:
 				case 5:
 				case 8:
 					return 61;
+				default:
+					break;
 			}
-
 			return 0;
 		}
 
@@ -176,18 +174,17 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 				case 1:
 				case 2:
 					return 6;
-
 				case 3:
 				case 4:
 				case 5:
 					return 24;
-
 				case 6:
 				case 7:
 				case 8:
-
 				case 9:
 					return 42;
+				default:
+					break;
 			}
 
 			return 0;

@@ -72,8 +72,7 @@ public class GOTConquestGrid {
 				if (player.getDistanceSqToEntity(originPlayer) > 40000.0 || getZoneByEntityCoords(player) != zone) {
 					continue;
 				}
-				boolean playerApplicable;
-				playerApplicable = isCleansing ? (pledgeFac = pd.getPledgeFaction()) != null && pledgeFac.isBadRelation(faction) : pd.isPledgedTo(faction);
+				boolean playerApplicable = isCleansing ? (pledgeFac = pd.getPledgeFaction()) != null && pledgeFac.isBadRelation(faction) : pd.isPledgedTo(faction);
 				if (!playerApplicable) {
 					continue;
 				}
@@ -151,12 +150,11 @@ public class GOTConquestGrid {
 	}
 
 	public static ConquestEffective getConquestEffectIn(World world, GOTConquestZone zone, GOTFaction theFaction) {
-		List<GOTFaction> cachedFacs;
 		GridCoordPair gridCoords;
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
 			new GOTGenLayerWorld();
 		}
-		cachedFacs = cachedZoneFactions.get(gridCoords = GridCoordPair.forZone(zone));
+		List<GOTFaction> cachedFacs = cachedZoneFactions.get(gridCoords = GridCoordPair.forZone(zone));
 		if (cachedFacs == null) {
 			GOTBiome biome;
 			cachedFacs = new ArrayList<>();

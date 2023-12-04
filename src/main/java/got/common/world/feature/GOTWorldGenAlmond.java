@@ -60,10 +60,9 @@ public class GOTWorldGenAlmond extends WorldGenAbstractTree {
 				below = world.getBlock(i, j - 1, k);
 				below.onPlantGrow(world, i, j - 1, k, i, j, k);
 				for (j1 = leafStart; j1 <= leafTop; ++j1) {
-					int leafRange;
 					int maxRange = 2;
 					int j2 = leafTop - j1;
-					leafRange = j2 == 0 ? 1 : j2 == 1 ? 2 : j2 == 2 ? 3 : 1;
+					int leafRange = j2 == 0 ? 1 : j2 == 1 ? 2 : j2 == 2 ? 3 : 1;
 					for (int i1 = i - maxRange; i1 <= i + maxRange; ++i1) {
 						for (int k1 = k - maxRange; k1 <= k + maxRange; ++k1) {
 							Block block;

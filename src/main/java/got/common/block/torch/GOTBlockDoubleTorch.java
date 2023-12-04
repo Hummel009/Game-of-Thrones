@@ -48,7 +48,7 @@ public class GOTBlockDoubleTorch extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return j == 1 ? torchIcons[1] : torchIcons[0];
+		return torchIcons[j == 1 ? 1 : 0];
 	}
 
 	@SideOnly(Side.CLIENT)

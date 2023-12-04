@@ -104,7 +104,7 @@ public class GOTItemSarbacane extends Item {
 			if (charge < 0.65f) {
 				return;
 			}
-			charge = (charge * charge + charge * 2.0f) / 3.0f;
+			charge = charge * (charge + 2.0f) / 3.0f;
 			charge = Math.min(charge, 1.0f);
 			itemstack.damageItem(1, entityplayer);
 			if (!entityplayer.capabilities.isCreativeMode && dartSlot >= 0) {

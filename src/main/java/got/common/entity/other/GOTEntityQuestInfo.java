@@ -69,10 +69,7 @@ public class GOTEntityQuestInfo {
 	}
 
 	public boolean canGenerateQuests() {
-		if (!GOTConfig.allowMiniquests || theNPC.isChild() || theNPC.isDrunkard()) {
-			return false;
-		}
-		return !theNPC.isTrader() && !theNPC.isTraderEscort && !theNPC.hiredNPCInfo.isActive;
+		return GOTConfig.allowMiniquests && !theNPC.isChild() && !theNPC.isDrunkard() && !theNPC.isTrader() && !theNPC.isTraderEscort && !theNPC.hiredNPCInfo.isActive;
 	}
 
 	public boolean canOfferQuestsTo(EntityPlayer entityplayer) {

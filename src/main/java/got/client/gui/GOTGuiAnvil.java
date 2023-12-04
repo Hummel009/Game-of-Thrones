@@ -130,7 +130,7 @@ public class GOTGuiAnvil extends GuiContainer {
 					color = 16736352;
 				}
 			} else if (theAnvil.materialCost > 0 && outputItem != null) {
-				costText = theAnvil.isTrader ? StatCollector.translateToLocalFormatted("got.container.smith.cost", theAnvil.materialCost) : StatCollector.translateToLocalFormatted("got.container.anvil.cost", theAnvil.materialCost);
+				costText = StatCollector.translateToLocalFormatted(theAnvil.isTrader ? "got.container.smith.cost" : "got.container.anvil.cost", theAnvil.materialCost);
 				if (!theAnvil.getSlotFromInventory(theAnvil.invOutput, 0).canTakeStack(mc.thePlayer)) {
 					color = 16736352;
 				}
@@ -255,12 +255,11 @@ public class GOTGuiAnvil extends GuiContainer {
 
 	@Override
 	public void updateScreen() {
-		ItemStack itemstack;
 		super.updateScreen();
 		if (theAnvil.clientReforgeTime > 0) {
 			--theAnvil.clientReforgeTime;
 		}
-		itemstack = theAnvil.invInput.getStackInSlot(0);
+		ItemStack itemstack = theAnvil.invInput.getStackInSlot(0);
 		if (itemstack != prevItemStack) {
 			prevItemStack = itemstack;
 			String textFieldText = itemstack == null ? "" : GOTContainerAnvil.stripFormattingCodes(itemstack.getDisplayName());

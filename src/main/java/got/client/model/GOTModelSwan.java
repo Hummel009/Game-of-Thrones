@@ -75,7 +75,7 @@ public class GOTModelSwan extends ModelBase {
 		float f6 = swan.prevFlapPhase + (swan.flapPhase - swan.prevFlapPhase) * tick;
 		float f7 = swan.prevFlapPower + (swan.flapPower - swan.prevFlapPower) * tick;
 		float flapping = (MathHelper.sin(f6) + 1.0f) * f7;
-		neck.rotateAngleX = -0.20943951023931956f;
+		neck.rotateAngleX = -0.20943952f;
 		neck.rotateAngleX += f4 / 57.295776f * 0.4f;
 		neck.rotateAngleX += swan.getPeckAngle(tick);
 		neck.rotateAngleY = f3 / 57.295776f;

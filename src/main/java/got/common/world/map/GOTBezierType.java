@@ -89,7 +89,7 @@ public abstract class GOTBezierType {
 			if (slab) {
 				blockTypes = new BezierBlock[]{new BezierBlock(GOTBlocks.slabSingleDirt, 0), new BezierBlock(GOTBlocks.slabSingleDirt, 1), new BezierBlock(GOTBlocks.slabSingleSand, 0), new BezierBlock(GOTBlocks.slabSingle4, 0), new BezierBlock(GOTBlocks.slabSingle7, 1), new BezierBlock(GOTBlocks.slabSingle4, 7)};
 			} else {
-				blockTypes = new BezierBlock[]{new BezierBlock(Blocks.dirt, 1), new BezierBlock(GOTBlocks.dirtPath, 0), top ? new BezierBlock(Blocks.sand, 0) : new BezierBlock(Blocks.sandstone, 0), new BezierBlock(GOTBlocks.brick1, 15), new BezierBlock(GOTBlocks.brick3, 11), new BezierBlock(GOTBlocks.pillar1, 5)};
+				blockTypes = new BezierBlock[]{new BezierBlock(Blocks.dirt, 1), new BezierBlock(GOTBlocks.dirtPath, 0), new BezierBlock(top ? Blocks.sand : Blocks.sandstone, 0), new BezierBlock(GOTBlocks.brick1, 15), new BezierBlock(GOTBlocks.brick3, 11), new BezierBlock(GOTBlocks.pillar1, 5)};
 			}
 			return blockTypes[rand.nextInt(blockTypes.length)];
 		}

@@ -138,7 +138,6 @@ public class GOTTraderNPCInfo {
 			for (i = 0; i < buyTradesTags.tagCount(); ++i) {
 				nbt = buyTradesTags.getCompoundTagAt(i);
 				trade = GOTTradeEntry.readFromNBT(nbt);
-				assert trade != null;
 				trade.setOwningTrader(this);
 				buyTrades[i] = trade;
 			}
@@ -149,7 +148,6 @@ public class GOTTraderNPCInfo {
 			for (i = 0; i < sellTradesTags.tagCount(); ++i) {
 				nbt = sellTradesTags.getCompoundTagAt(i);
 				trade = GOTTradeEntry.readFromNBT(nbt);
-				assert trade != null;
 				trade.setOwningTrader(this);
 				sellTrades[i] = trade;
 			}

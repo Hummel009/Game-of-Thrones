@@ -15,7 +15,7 @@ public class GOTModelWesterlandsHelmet extends GOTModelBiped {
 		ModelRenderer crest = new ModelRenderer(this, 32, 0);
 		crest.setRotationPoint(0.0f, -f, 0.0f);
 		crest.addBox(-7.0f, -20.0f, 0.0f, 14, 12, 0, 0.0f);
-		crest.rotateAngleX = -0.06981317007977318f;
+		crest.rotateAngleX = -0.06981317f;
 		ModelRenderer tusks1 = new ModelRenderer(this, 0, 16);
 		tusks1.setRotationPoint(-3.5f - f, 0.0f + f, -4.0f - f);
 		tusks1.addBox(0.0f, -6.0f, -5.0f, 0, 6, 6, 0.0f);
@@ -25,7 +25,7 @@ public class GOTModelWesterlandsHelmet extends GOTModelBiped {
 		tusks2.setRotationPoint(-3.5f - f, 0.0f + f, -4.0f - f);
 		tusks2.addBox(0.0f, -6.0f, -5.0f, 0, 6, 6, 0.0f);
 		tusks2.rotateAngleX = 0.3490658503988659f;
-		tusks2.rotateAngleY = -0.3490658503988659f;
+		tusks2.rotateAngleY = -0.34906584f;
 		ModelRenderer tusks3 = new ModelRenderer(this, 0, 16);
 		tusks3.setRotationPoint(3.5f + f, 0.0f + f, -4.0f - f);
 		tusks3.addBox(0.0f, -6.0f, -5.0f, 0, 6, 6, 0.0f);
@@ -35,7 +35,7 @@ public class GOTModelWesterlandsHelmet extends GOTModelBiped {
 		tusks4.setRotationPoint(3.5f + f, 0.0f + f, -4.0f - f);
 		tusks4.addBox(0.0f, -6.0f, -5.0f, 0, 6, 6, 0.0f);
 		tusks4.rotateAngleX = 0.3490658503988659f;
-		tusks4.rotateAngleY = -0.5235987755982988f;
+		tusks4.rotateAngleY = -0.5235988f;
 		bipedHead.addChild(crest);
 		bipedHead.addChild(tusks1);
 		bipedHead.addChild(tusks2);

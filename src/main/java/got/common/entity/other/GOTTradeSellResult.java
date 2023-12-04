@@ -15,7 +15,7 @@ public class GOTTradeSellResult {
 		tradeIndex = index;
 		tradeValue = trade.getCost();
 		tradeStackSize = tradeItem.stackSize;
-		tradesMade = !trade.isAvailable() ? 0 : sellItem.stackSize / tradeStackSize;
+		tradesMade = trade.isAvailable() ? sellItem.stackSize / tradeStackSize : 0;
 		itemsSold = tradesMade * tradeItem.stackSize;
 		totalSellValue = tradesMade * tradeValue;
 	}

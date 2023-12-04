@@ -22,10 +22,7 @@ public class GOTEntityAINearestAttackableTargetBandit extends GOTEntityAINearest
 
 	@Override
 	public boolean isPlayerSuitableTarget(EntityPlayer entityplayer) {
-		if (IBandit.Helper.canStealFromPlayerInv(taskOwnerAsBandit, entityplayer)) {
-			return false;
-		}
-		return super.isPlayerSuitableTarget(entityplayer);
+		return !IBandit.Helper.canStealFromPlayerInv(taskOwnerAsBandit, entityplayer) && super.isPlayerSuitableTarget(entityplayer);
 	}
 
 	@Override
@@ -35,9 +32,6 @@ public class GOTEntityAINearestAttackableTargetBandit extends GOTEntityAINearest
 
 	@Override
 	public boolean shouldExecute() {
-		if (!taskOwnerAsBandit.getBanditInventory().isEmpty()) {
-			return false;
-		}
-		return super.shouldExecute();
+		return taskOwnerAsBandit.getBanditInventory().isEmpty() && super.shouldExecute();
 	}
 }

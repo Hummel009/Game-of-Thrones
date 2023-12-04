@@ -121,7 +121,7 @@ public class GOTBlockRope extends GOTBlockLadder {
 	public int onBlockPlaced(World world, int i, int j, int k, int side, float hitX, float hitY, float hitZ, int meta) {
 		int placeMeta = super.onBlockPlaced(world, i, j, k, side, hitX, hitY, hitZ, meta);
 		if (placeMeta == 0 && world.getBlock(i, j + 1, k) == this) {
-			placeMeta = world.getBlockMetadata(i, j + 1, k);
+			return world.getBlockMetadata(i, j + 1, k);
 		}
 		return placeMeta;
 	}

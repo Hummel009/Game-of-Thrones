@@ -54,6 +54,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.EmptyChunk;
 import org.lwjgl.opengl.GL11;
 
 import java.util.List;
@@ -114,7 +115,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		int chunkX = i >> 4;
 		int chunkZ = k >> 4;
 		Chunk chunk = world.getChunkProvider().provideChunk(chunkX, chunkZ);
-		return !(chunk instanceof net.minecraft.world.chunk.EmptyChunk);
+		return !(chunk instanceof EmptyChunk);
 	}
 
 	public static int getAlphaInt(float alphaF) {
@@ -138,7 +139,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		GL11.glScalef(scale, scale, scale);
 		float randomShift = Minecraft.getSystemTime() % 3000L / 3000.0F * 8.0F;
 		GL11.glTranslatef(randomShift, 0.0F, 0.0F);
-		GL11.glRotatef(-50.0F, 0.0F, 0.0F, 1.0F);
+		GL11.glRotatef(-50.0f, 0.0F, 0.0F, 1.0F);
 		ItemRenderer.renderItemIn2D(tessellator, 0.0F, 0.0F, 1.0F, 1.0F, 256, 256, 0.0625F);
 		GL11.glPopMatrix();
 		GL11.glPushMatrix();

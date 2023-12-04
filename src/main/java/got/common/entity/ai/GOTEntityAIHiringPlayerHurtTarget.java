@@ -28,10 +28,7 @@ public class GOTEntityAIHiringPlayerHurtTarget extends EntityAITarget {
 		}
 		theTarget = entityplayer.getLastAttacker();
 		int i = entityplayer.getLastAttackerTime();
-		if (i == playerLastAttackerTime) {
-			return false;
-		}
-		return GOT.canNPCAttackEntity(theNPC, theTarget, true) && isSuitableTarget(theTarget, false);
+		return i != playerLastAttackerTime && GOT.canNPCAttackEntity(theNPC, theTarget, true) && isSuitableTarget(theTarget, false);
 	}
 
 	@Override

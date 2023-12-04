@@ -158,10 +158,7 @@ public class GOTBlockMug extends BlockContainer {
 				}
 				ItemStack equivalentDrink = GOTItemMug.getEquivalentDrink(mugItem);
 				Item eqItem = equivalentDrink.getItem();
-				boolean canDrink = false;
-				if (eqItem instanceof GOTItemMug) {
-					canDrink = ((GOTItemMug) eqItem).canPlayerDrink(entityplayer);
-				}
+				boolean canDrink = eqItem instanceof GOTItemMug && ((GOTItemMug) eqItem).canPlayerDrink(entityplayer);
 				if (canDrink) {
 					ItemStack mugItemResult = mugItem.onFoodEaten(world, entityplayer);
 					ForgeEventFactory.onItemUseFinish(entityplayer, mugItem, mugItem.getMaxItemUseDuration(), mugItemResult);

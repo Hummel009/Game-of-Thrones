@@ -74,8 +74,7 @@ public class GOTWorldGenOlive extends WorldGenAbstractTree {
 					}
 				}
 				for (j1 = leafStart; j1 <= leafTop; ++j1) {
-					int leafRange;
-					leafRange = j1 == leafTop ? 2 : j1 == leafStart ? 1 : 3;
+					int leafRange = j1 == leafTop ? 2 : j1 == leafStart ? 1 : 3;
 					for (int i13 = i - leafRange; i13 <= i + extraTrunk + leafRange; ++i13) {
 						for (int k13 = k - leafRange; k13 <= k + extraTrunk + leafRange; ++k13) {
 							Block block;

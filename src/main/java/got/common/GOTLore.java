@@ -316,7 +316,7 @@ public class GOTLore {
 				int indexEnd = text.indexOf('}');
 				lastIndexStart = indexStart;
 				if (indexStart < 0 || indexEnd <= indexStart) {
-					break;
+					return text;
 				}
 				unformatted = text.substring(indexStart, indexEnd + 1);
 				formatted = unformatted.substring(1, unformatted.length() - 1);
@@ -371,7 +371,6 @@ public class GOTLore {
 			}
 			text = Pattern.compile(unformatted, Pattern.LITERAL).matcher(text).replaceFirst(Matcher.quoteReplacement(formatted));
 		} while (true);
-		return text;
 	}
 
 	public enum LoreCategory {

@@ -23,11 +23,10 @@ public abstract class GOTEntityRugBase extends Entity implements GOTBannerProtec
 	@Override
 	public boolean attackEntityFrom(DamageSource damagesource, float f) {
 		if (!worldObj.isRemote && !isDead) {
-			boolean creative;
 			Block.SoundType blockSound = Blocks.wool.stepSound;
 			worldObj.playSoundAtEntity(this, blockSound.getBreakSound(), (blockSound.getVolume() + 1.0f) / 2.0f, blockSound.getPitch() * 0.8f);
 			Entity attacker = damagesource.getEntity();
-			creative = attacker instanceof EntityPlayer && ((EntityPlayer) attacker).capabilities.isCreativeMode;
+			boolean creative = attacker instanceof EntityPlayer && ((EntityPlayer) attacker).capabilities.isCreativeMode;
 			if (!creative) {
 				entityDropItem(getRugItem(), 0.0f);
 			}

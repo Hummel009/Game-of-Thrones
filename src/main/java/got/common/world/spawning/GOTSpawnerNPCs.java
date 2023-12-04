@@ -199,7 +199,6 @@ public class GOTSpawnerNPCs {
 							float f5;
 							float f3;
 							float f;
-							Event.Result canSpawn;
 							EntityLiving entity;
 							if (!world.blockExists(i1 += world.rand.nextInt(rangeP1) - world.rand.nextInt(rangeP1), j1 += world.rand.nextInt(yRangeP1) - world.rand.nextInt(yRangeP1), k1 += world.rand.nextInt(rangeP1) - world.rand.nextInt(rangeP1)) || !canNPCSpawnAtLocation(world, i1, j1, k1) || world.getClosestPlayer(f = i1 + 0.5f, f1 = j1, f2 = k1 + 0.5f, 24.0) != null || (f3 = f - spawnPoint.posX) * f3 + (f4 = f1 - spawnPoint.posY) * f4 + (f5 = f2 - spawnPoint.posZ) * f5 < 576.0f) {
 								continue;
@@ -215,7 +214,7 @@ public class GOTSpawnerNPCs {
 								GOTEntityNPC npc = (GOTEntityNPC) entity;
 								npc.setConquestSpawning(true);
 							}
-							canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, f, f1, f2);
+							Event.Result canSpawn = ForgeEventFactory.canEntitySpawn(entity, world, f, f1, f2);
 							if (canSpawn != Event.Result.ALLOW && (canSpawn != Event.Result.DEFAULT || !entity.getCanSpawnHere())) {
 								continue;
 							}

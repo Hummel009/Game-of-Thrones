@@ -25,7 +25,6 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 		int height = 6 + random.nextInt(5);
 		boolean flag = true;
 		if (j >= 1 && j + height + 1 <= 256) {
-			boolean canGrow;
 			for (int j1 = j; j1 <= j + 1 + height; ++j1) {
 				int range = 1;
 				if (j1 == j) {
@@ -47,7 +46,7 @@ public class GOTWorldGenMangrove extends WorldGenAbstractTree {
 				return false;
 			}
 			Block below = world.getBlock(i, j - 1, k);
-			canGrow = below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling) || below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, Blocks.deadbush);
+			boolean canGrow = below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.sapling) || below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, Blocks.deadbush);
 			if (canGrow) {
 				int j1;
 				world.getBlock(i, j - 1, k).onPlantGrow(world, i, j - 1, k, i, j, k);

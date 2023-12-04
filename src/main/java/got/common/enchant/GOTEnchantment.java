@@ -15,9 +15,9 @@ public abstract class GOTEnchantment {
 	public static GOTEnchantment strong2 = new GOTEnchantmentDamage("strong2", 1.0F).setEnchantWeight(5);
 	public static GOTEnchantment strong3 = new GOTEnchantmentDamage("strong3", 2.0F).setEnchantWeight(2).setSkilful();
 	public static GOTEnchantment strong4 = new GOTEnchantmentDamage("strong4", 3.0F).setEnchantWeight(1).setSkilful();
-	public static GOTEnchantment weak1 = new GOTEnchantmentDamage("weak1", -0.5F).setEnchantWeight(6);
-	public static GOTEnchantment weak2 = new GOTEnchantmentDamage("weak2", -1.0F).setEnchantWeight(4);
-	public static GOTEnchantment weak3 = new GOTEnchantmentDamage("weak3", -2.0F).setEnchantWeight(2);
+	public static GOTEnchantment weak1 = new GOTEnchantmentDamage("weak1", -0.5f).setEnchantWeight(6);
+	public static GOTEnchantment weak2 = new GOTEnchantmentDamage("weak2", -1.0f).setEnchantWeight(4);
+	public static GOTEnchantment weak3 = new GOTEnchantmentDamage("weak3", -2.0f).setEnchantWeight(2);
 
 	public static GOTEnchantment durable1 = new GOTEnchantmentDurability("durable1", 1.25F).setEnchantWeight(15);
 	public static GOTEnchantment durable2 = new GOTEnchantmentDurability("durable2", 1.5F).setEnchantWeight(8);
@@ -124,7 +124,7 @@ public abstract class GOTEnchantment {
 	public String formatAdditive(float f) {
 		String s = formatDecimalNumber(f);
 		if (f >= 0.0F) {
-			s = '+' + s;
+			return '+' + s;
 		}
 		return s;
 	}
@@ -132,7 +132,7 @@ public abstract class GOTEnchantment {
 	public String formatAdditiveInt(int i) {
 		String s = String.valueOf(i);
 		if (i >= 0) {
-			s = '+' + s;
+			return '+' + s;
 		}
 		return s;
 	}
@@ -166,11 +166,9 @@ public abstract class GOTEnchantment {
 	public String getNamedFormattedDescription(ItemStack itemstack) {
 		String s = StatCollector.translateToLocalFormatted("got.enchant.descFormat", getDisplayName(), getDescription(itemstack));
 		if (isBeneficial()) {
-			s = EnumChatFormatting.GRAY + s;
-		} else {
-			s = EnumChatFormatting.DARK_GRAY + s;
+			return EnumChatFormatting.GRAY + s;
 		}
-		return s;
+		return EnumChatFormatting.DARK_GRAY + s;
 	}
 
 	public float getValueModifier() {

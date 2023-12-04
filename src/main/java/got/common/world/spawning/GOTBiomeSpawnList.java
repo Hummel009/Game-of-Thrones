@@ -182,16 +182,14 @@ public class GOTBiomeSpawnList {
 				totalWeight += cont.weight;
 			}
 			if (totalWeight > 0) {
-				SpawnListContainer chosenList = null;
 				int w = rand.nextInt(totalWeight);
 				for (SpawnListContainer cont : spawnLists) {
 					if (!cont.canSpawnAtConquestLevel(conq) || (w -= cont.weight) >= 0) {
 						continue;
 					}
-					chosenList = cont;
-					break;
+					return cont;
 				}
-				return chosenList;
+				return null;
 			}
 			return null;
 		}

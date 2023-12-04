@@ -29,7 +29,7 @@ public class GOTModelScorpion extends GOTModelSpider {
 		clawLeft.addBox(9.0f, -2.0f, -16.0f, 4, 3, 5);
 		clawLeft.addBox(12.0f, -1.0f, -20.0f, 1, 1, 4);
 		clawLeft.addBox(9.0f, -1.0f, -20.0f, 1, 1, 4);
-		clawLeft.rotateAngleY = -0.8726646259971648f;
+		clawLeft.rotateAngleY = -0.87266463f;
 		armLeft.addChild(clawLeft);
 		tail = new ModelRenderer(this, 0, 12);
 		tail.addBox(-2.5f, -3.0f, 0.0f, 5, 5, 11);
@@ -63,8 +63,8 @@ public class GOTModelScorpion extends GOTModelSpider {
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
 		super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		armRight.rotateAngleY = -0.8726646259971648f + MathHelper.cos(f * 0.4f) * f1 * 0.4f;
-		armRight.rotateAngleY += f2 * -0.6981317007977318f;
+		armRight.rotateAngleY = -0.87266463f + MathHelper.cos(f * 0.4f) * f1 * 0.4f;
+		armRight.rotateAngleY += f2 * -0.6981317f;
 		armLeft.rotateAngleY = -armRight.rotateAngleY;
 		tail.rotateAngleX = 0.5235987755982988f + MathHelper.cos(f * 0.4f) * f1 * 0.15f;
 		tail.rotateAngleX += f2 * 1.5707963267948966f;

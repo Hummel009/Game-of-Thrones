@@ -90,7 +90,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 					return null;
 				}
 				int imn = 19 + random.nextInt(3);
-				if (dSq < imn * imn || k < 0 && k > -(19 + 12 + 16) && i1 <= 2 + random.nextInt(3)) {
+				if (dSq < imn * imn || k < 0 && k > -47 && i1 <= 2 + random.nextInt(3)) {
 					return GOTBezierType.PATH_DIRTY;
 				}
 			}
@@ -173,7 +173,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 					continue;
 				}
 				if (random.nextInt(3) != 0) {
-					l = 19 + 3;
+					l = 22;
 					if (random.nextInt(3) == 0) {
 						l += 12;
 					}
@@ -185,7 +185,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 				if (random.nextInt(4) != 0) {
 					continue;
 				}
-				l = 19 + 5;
+				l = 24;
 				if (random.nextInt(3) == 0) {
 					l += 12;
 				}
@@ -193,7 +193,7 @@ public class GOTStructureGiftSettlement extends GOTStructureBaseSettlement {
 				k = Math.round(l * sin);
 				addStructure(new GOTStructureHayBales(false), i, k, r);
 			}
-			int rPalisade = 19 + 12 + 16;
+			int rPalisade = 47;
 			int rSq = rPalisade * rPalisade;
 			int rMax = rPalisade + 1;
 			int rSqMax = rMax * rMax;

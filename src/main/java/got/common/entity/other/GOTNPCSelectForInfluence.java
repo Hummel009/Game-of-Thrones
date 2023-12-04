@@ -11,9 +11,6 @@ public class GOTNPCSelectForInfluence extends GOTNPCSelectByFaction {
 	@Override
 	public boolean isEntityApplicable(Entity entity) {
 		boolean flag = super.isEntityApplicable(entity);
-		if (flag && entity instanceof GOTEntityNPC && !((GOTEntityNPC) entity).generatesControlZone()) {
-			return false;
-		}
-		return flag;
+		return (!flag || !(entity instanceof GOTEntityNPC) || ((GOTEntityNPC) entity).generatesControlZone()) && flag;
 	}
 }

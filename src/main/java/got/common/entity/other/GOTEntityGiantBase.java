@@ -21,7 +21,7 @@ public class GOTEntityGiantBase extends GOTEntityNPC {
 	public GOTEntityGiantBase(World world) {
 		super(world);
 		canBeMarried = false;
-		setSize(1.6f * 1.6f, 3.2f * 1.6f);
+		setSize(2.5600002f, 5.1200004f);
 		getNavigator().setAvoidsWater(true);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(2, new GOTEntityAIHiredRemainStill(this));

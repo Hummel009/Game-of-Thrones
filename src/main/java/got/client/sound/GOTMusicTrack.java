@@ -34,7 +34,7 @@ public class GOTMusicTrack extends PositionedSound {
 	}
 
 	public GOTTrackRegionInfo createRegionInfo(GOTBiomeMusic reg) {
-		return regions.computeIfAbsent(reg, GOTTrackRegionInfo::new);
+		return regions.computeIfAbsent(reg, r -> new GOTTrackRegionInfo(r));
 	}
 
 	public Set<GOTBiomeMusic> getAllRegions() {
@@ -78,7 +78,6 @@ public class GOTMusicTrack extends PositionedSound {
 		soundEntry.setStreaming(true);
 		soundList.getSoundList().add(soundEntry);
 		SoundRegistry sndRegistry = GOTMusic.Reflect.getSoundRegistry();
-		assert sndRegistry != null;
 		if (sndRegistry.containsKey(resource) && !soundList.canReplaceExisting()) {
 			soundAccessorComp = (SoundEventAccessorComposite) sndRegistry.getObject(resource);
 		} else {

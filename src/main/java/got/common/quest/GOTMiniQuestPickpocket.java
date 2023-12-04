@@ -46,13 +46,12 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 
 	@Override
 	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		int coins;
 		GOTAchievement achievement;
 		completed = true;
 		dateCompleted = GOTDate.AegonCalendar.currentDay;
 		Random rand = npc.getRNG();
 		List<ItemStack> dropItems = new ArrayList<>();
-		coins = getCoinBonus();
+		int coins = getCoinBonus();
 		if (coins != 0) {
 			if (shouldRandomiseCoinReward()) {
 				coins = Math.round(coins * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
@@ -100,8 +99,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			}
 		}
 		if (!dropItems.isEmpty()) {
-			boolean givePouch;
-			givePouch = canRewardVariousExtraItems() && rand.nextInt(10) == 0;
+			boolean givePouch = canRewardVariousExtraItems() && rand.nextInt(10) == 0;
 			if (givePouch) {
 				ItemStack pouch = npc.createNPCPouchDrop();
 				npc.fillPouchFromListAndRetainUnfilled(pouch, dropItems);
@@ -165,10 +163,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		Vec3 targetEyes = Vec3.createVectorHelper(target.posX, target.boundingBox.minY + target.getEyeHeight(), target.posZ);
 		Vec3 disp = Vec3.createVectorHelper(targetEyes.xCoord - watcherEyes.xCoord, targetEyes.yCoord - watcherEyes.yCoord, targetEyes.zCoord - watcherEyes.zCoord);
 		double dot = disp.normalize().dotProduct(look.normalize());
-		if (dot >= MathHelper.cos(2.2689280275926285f / 2.0f)) {
-			return watcher.getEntitySenses().canSee(target);
-		}
-		return false;
+		return dot >= MathHelper.cos(1.134464f) && watcher.getEntitySenses().canSee(target);
 	}
 
 	@Override
@@ -182,7 +177,6 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			UUID id = npc.getPersistentID();
 			if (!pickpocketedEntityIDs.contains(id)) {
 				boolean noticed;
-				boolean success;
 				if (npc.getAttackTarget() != null) {
 					entityplayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + StatCollector.translateToLocalFormatted("got.chat.pickpocket.inCombat")));
 					return true;
@@ -192,8 +186,8 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 					return true;
 				}
 				Random rand = npc.getRNG();
-				success = rand.nextInt(3) == 0;
-				boolean anyoneNoticed = noticed = success ? rand.nextInt(3) == 0 : rand.nextInt(4) == 0;
+				boolean success = rand.nextInt(3) == 0;
+				boolean anyoneNoticed = noticed = rand.nextInt(success ? 3 : 4) == 0;
 				if (success) {
 					ItemStack picked = GOTChestContents.TREASURE.getOneItem(rand, true);
 					IPickpocketable.Helper.setPickpocketData(picked, npc.getNPCName(), entityNameFull, entityUUID);
@@ -223,19 +217,15 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 						@Override
 						public boolean isEntityApplicable(Entity entity) {
 							GOTEntityNPC otherNPC = (GOTEntityNPC) entity;
-							if (otherNPC.isEntityAlive() && otherNPC.getFaction().isGoodRelation(npc.getFaction())) {
-								return otherNPC.hiredNPCInfo.getHiringPlayer() != entityplayer;
-							}
-							return false;
+							return otherNPC.isEntityAlive() && otherNPC.getFaction().isGoodRelation(npc.getFaction()) && otherNPC.hiredNPCInfo.getHiringPlayer() != entityplayer;
 						}
 					});
 					for (GOTEntityNPC otherNPC : nearbyFriends) {
-						double maxRange;
 						if (otherNPC == npc) {
 							continue;
 						}
 						boolean civilian = otherNPC.isCivilianNPC();
-						maxRange = civilian ? 8.0 : 16.0;
+						double maxRange = civilian ? 8.0 : 16.0;
 						double dist = otherNPC.getDistanceToEntity(npc);
 						if (dist > maxRange || otherNPC.getAttackTarget() != null || !isEntityWatching(otherNPC, entityplayer)) {
 							continue;

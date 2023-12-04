@@ -26,7 +26,7 @@ public class GOTAlignmentTicker {
 	}
 
 	public static GOTAlignmentTicker forFaction(GOTFaction fac) {
-		return allFactionTickers.computeIfAbsent(fac, GOTAlignmentTicker::new);
+		return allFactionTickers.computeIfAbsent(fac, f -> new GOTAlignmentTicker(f));
 	}
 
 	public static void updateAll(EntityPlayer entityplayer, boolean forceInstant) {

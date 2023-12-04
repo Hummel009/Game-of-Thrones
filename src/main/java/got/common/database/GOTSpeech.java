@@ -41,7 +41,7 @@ public class GOTSpeech {
 			speech = speech.replace("@", location);
 		}
 		if (objective != null) {
-			speech = speech.replace("$", objective);
+			return speech.replace("$", objective);
 		}
 		return speech;
 	}

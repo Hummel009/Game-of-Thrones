@@ -59,7 +59,6 @@ public class GOTMusicTicker {
 			String sub = regionSub.subregion;
 			GOTTrackSorter.Filter filter = category != null ? GOTTrackSorter.forRegionAndCategory(region, category) : GOTTrackSorter.forAny();
 			GOTRegionTrackPool trackPool = GOTMusic.getTracksForRegion(region, sub);
-			assert trackPool != null;
 			return trackPool.getRandomTrack(rand, filter);
 		}
 		return null;
@@ -91,12 +90,7 @@ public class GOTMusicTicker {
 			}
 		}
 		if (!noMusic) {
-			boolean update;
-			if (menu) {
-				update = true;
-			} else {
-				update = GOTMusic.isGOTDimension() && !Minecraft.getMinecraft().isGamePaused();
-			}
+			boolean update = menu || GOTMusic.isGOTDimension() && !Minecraft.getMinecraft().isGamePaused();
 			if (update && currentTrack == null) {
 				--timing;
 				if (timing <= 0) {

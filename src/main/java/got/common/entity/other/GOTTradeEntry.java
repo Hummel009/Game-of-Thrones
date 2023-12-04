@@ -65,10 +65,7 @@ public class GOTTradeEntry {
 	}
 
 	public boolean isAvailable() {
-		if (theTrader != null && theTrader.shouldLockTrades()) {
-			return recentTradeValue < theTrader.getLockTradeAtValue() && lockedTicks <= 0;
-		}
-		return true;
+		return theTrader == null || !theTrader.shouldLockTrades() || recentTradeValue < theTrader.getLockTradeAtValue() && lockedTicks <= 0;
 	}
 
 	public boolean matches(ItemStack itemstack) {
@@ -104,10 +101,7 @@ public class GOTTradeEntry {
 		if (lockedTicks > 0) {
 			--lockedTicks;
 		}
-		if (isAvailable() != prevAvailable) {
-			return true;
-		}
-		return getLockedProgressForSlot() != prevLockProgress;
+		return isAvailable() != prevAvailable || getLockedProgressForSlot() != prevLockProgress;
 	}
 
 	public void writeToNBT(NBTTagCompound nbt) {

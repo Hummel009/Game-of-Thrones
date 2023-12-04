@@ -102,10 +102,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 	}
 
 	public boolean canDoHarvesting() {
-		if (theEntity.hiredNPCInfo.isActive) {
-			return getInventorySeeds() != null && hasSpaceForCrops() && getCropForSeed(getSeedsToPlant()) != null;
-		}
-		return false;
+		return theEntity.hiredNPCInfo.isActive && getInventorySeeds() != null && hasSpaceForCrops() && getCropForSeed(getSeedsToPlant()) != null;
 	}
 
 	public boolean canDoHoeing() {
@@ -344,14 +341,13 @@ public class GOTEntityAIFarm extends EntityAIBase {
 		TileEntity te;
 		Block block = theWorld.getBlock(i, j, k);
 		int meta = theWorld.getBlockMetadata(i, j, k);
-		TileEntityChest suitableChest = null;
 		if (block.hasTileEntity(meta) && (te = theWorld.getTileEntity(i, j, k)) instanceof TileEntityChest) {
 			TileEntityChest chest = (TileEntityChest) te;
 			if (chest.adjacentChestXPos != null && isFarmhandMarked(chest.adjacentChestXPos) || chest.adjacentChestZNeg != null && isFarmhandMarked(chest.adjacentChestZNeg) || chest.adjacentChestZPos != null && isFarmhandMarked(chest.adjacentChestZPos) || isFarmhandMarked(chest) || chest.adjacentChestXNeg != null && isFarmhandMarked(chest.adjacentChestXNeg)) {
-				suitableChest = chest;
+				return chest;
 			}
 		}
-		return suitableChest;
+		return null;
 	}
 
 	public boolean hasSpaceForCrops() {
@@ -525,19 +521,16 @@ public class GOTEntityAIFarm extends EntityAIBase {
 			if (below == Blocks.sand) {
 				return false;
 			}
-			boolean waterNearby = false;
 			int range = 4;
-			block0:
 			for (int i1 = i - range; i1 <= i + range; ++i1) {
 				for (int k1 = k - range; k1 <= k + range; ++k1) {
 					if (theWorld.getBlock(i1, j, k1).getMaterial() != Material.water) {
 						continue;
 					}
-					waterNearby = true;
-					break block0;
+					return true;
 				}
 			}
-			return waterNearby;
+			return false;
 		}
 		return false;
 	}
@@ -674,7 +667,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 											}
 											theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack);
 											chest.setInventorySlotContents(slot, chestItem);
-											assert itemstack != null;
 											if (itemstack.stackSize >= itemstack.getMaxStackSize()) {
 												break;
 											}
@@ -801,14 +793,13 @@ public class GOTEntityAIFarm extends EntityAIBase {
 						int hoeRange = 1;
 						for (int i1 = -hoeRange; i1 <= hoeRange; ++i1) {
 							for (int k1 = -hoeRange; k1 <= hoeRange; ++k1) {
-								boolean alreadyChecked;
 								if (Math.abs(i1) + Math.abs(k1) > hoeRange) {
 									continue;
 								}
 								int x = actionTarget.posX + i1;
 								int z = actionTarget.posZ + k1;
 								int y = actionTarget.posY;
-								alreadyChecked = i1 == 0 && k1 == 0;
+								boolean alreadyChecked = i1 == 0 && k1 == 0;
 								if (!alreadyChecked && !isSuitableForHoeing(x, y, z)) {
 									continue;
 								}

@@ -51,7 +51,7 @@ public class GOTRenderPlateFood extends TileEntitySpecialRenderer {
 				float rotation = rand.nextFloat() * 360.0F;
 				GL11.glRotatef(rotation, 0.0F, 1.0F, 0.0F);
 				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
-				GL11.glTranslatef(-0.25F, -0.25F, 0.0F);
+				GL11.glTranslatef(-0.25f, -0.25f, 0.0F);
 				GL11.glScalef(0.5625F, 0.5625F, 0.5625F);
 				ItemRenderer.renderItemIn2D(tessellator, f1, f22, f4, f3, icon.getIconWidth(), icon.getIconHeight(), 0.0625F);
 				GL11.glPopMatrix();

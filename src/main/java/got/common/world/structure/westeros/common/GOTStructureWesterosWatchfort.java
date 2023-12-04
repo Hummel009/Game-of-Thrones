@@ -472,8 +472,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 	}
 
 	public void placeRandomSlab(World world, Random random, int i, int j, int k, boolean inverted) {
-		int flag;
-		flag = inverted ? 8 : 0;
+		int flag = inverted ? 8 : 0;
 		if (random.nextInt(10) == 0) {
 			if (random.nextBoolean()) {
 				setBlockAndMetadata(world, i, j, k, brickMossySlabBlock, brickMossySlabMeta | flag);

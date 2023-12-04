@@ -6,7 +6,7 @@ public class GOTCoordConverter {
 	}
 
 	public static double toEssosTownGate(double value, boolean xAxis) {
-		return value + 34.0 / 128.0 * (xAxis ? 1 : -1);
+		return value + 0.265625 * (xAxis ? 1 : -1);
 	}
 
 	public static double toLhazar(double value) {

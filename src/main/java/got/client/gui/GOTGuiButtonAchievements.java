@@ -17,11 +17,10 @@ public class GOTGuiButtonAchievements extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
-			boolean highlighted;
 			mc.getTextureManager().bindTexture(GOTGuiAchievements.iconsTexture);
 			int texU = leftOrRight ? 0 : width * 3;
 			int texV = 124;
-			highlighted = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
+			boolean highlighted = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			if (!enabled) {
 				texU += width * 2;
 			} else if (highlighted) {

@@ -60,25 +60,20 @@ public class GOTEntityWyvern extends GOTEntityNPC implements GOTBiome.ImmuneToHe
 		for (int j = 0; j < count; ++j) {
 			int drop = rand.nextInt(5);
 			switch (drop) {
-				case 0: {
+				case 0:
 					dropItem(Items.bone, 1);
 					continue;
-				}
-				case 1: {
+				case 1:
 					dropItem(Items.fish, 1);
 					continue;
-				}
-				case 2: {
+				case 2:
 					dropItem(Items.leather, 1);
 					continue;
-				}
-				case 3: {
+				case 3:
 					dropItem(GOTItems.zebraRaw, 1);
 					continue;
-				}
-				case 4: {
+				default:
 					dropItem(GOTItems.gemsbokHide, 1);
-				}
 			}
 		}
 	}

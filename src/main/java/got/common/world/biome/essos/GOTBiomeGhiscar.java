@@ -59,7 +59,6 @@ public class GOTBiomeGhiscar extends GOTBiomeEssos {
 
 	@Override
 	public void generateBiomeTerrain(World world, Random random, Block[] blocks, byte[] meta, int i, int k, double stoneNoise, int height, GOTBiomeVariant variant) {
-		double d4;
 		Block topBlock_pre = topBlock;
 		int topBlockMeta_pre = topBlockMeta;
 		Block fillerBlock_pre = fillerBlock;
@@ -67,7 +66,7 @@ public class GOTBiomeGhiscar extends GOTBiomeEssos {
 		double d1 = noiseDirt.func_151601_a(i * 0.09, k * 0.09);
 		double d2 = noiseDirt.func_151601_a(i * 0.4, k * 0.4);
 		double d3 = noiseSand.func_151601_a(i * 0.09, k * 0.09);
-		d4 = noiseSand.func_151601_a(i * 0.4, k * 0.4);
+		double d4 = noiseSand.func_151601_a(i * 0.4, k * 0.4);
 		if (d3 + d4 > 0.6) {
 			topBlock = Blocks.sand;
 			topBlockMeta = 0;

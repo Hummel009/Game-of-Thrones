@@ -34,8 +34,6 @@ public class GOTBiomeThennLand extends GOTBiomeHauntedForest {
 
 	@Override
 	public void decorate(World world, Random random, int i, int k) {
-		int i1;
-		int k1;
 		int i12;
 		int j1;
 		int l;
@@ -49,8 +47,8 @@ public class GOTBiomeThennLand extends GOTBiomeHauntedForest {
 			lavaGen.generate(world, random, i12, j1, k13);
 		}
 		random.nextInt(1);
-		i1 = i + random.nextInt(16) + 8;
-		k1 = k + random.nextInt(16) + 8;
+		int i1 = i + random.nextInt(16) + 8;
+		int k1 = k + random.nextInt(16) + 8;
 		j1 = world.getHeightValue(i1, k1);
 		new GOTWorldGenVolcanoCrater().generate(world, random, i1, j1, k1);
 	}

@@ -39,17 +39,11 @@ public class GOTMountFunctions {
 	}
 
 	public static boolean isMountControllable(Entity mount) {
-		if (mount instanceof EntityHorse && ((EntityHorse) mount).isTame()) {
-			return true;
-		}
-		return mount instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) mount).isNPCTamed();
+		return mount instanceof EntityHorse && ((EntityHorse) mount).isTame() || mount instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) mount).isNPCTamed();
 	}
 
 	public static boolean isPlayerControlledMount(Entity mount) {
-		if (mount != null && mount.riddenByEntity instanceof EntityPlayer && isMountControllable(mount)) {
-			return canRiderControl(mount);
-		}
-		return false;
+		return mount != null && mount.riddenByEntity instanceof EntityPlayer && isMountControllable(mount) && canRiderControl(mount);
 	}
 
 	public static void move(GOTNPCMount mount, float strafe, float forward) {

@@ -93,10 +93,7 @@ public class GOTEntityNPCRespawner extends Entity {
 			return false;
 		}
 		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
-		if (entityplayer == null) {
-			return false;
-		}
-		return entityplayer.capabilities.isCreativeMode;
+		return entityplayer != null && entityplayer.capabilities.isCreativeMode;
 	}
 
 	public AxisAlignedBB createSpawnBlockRegion() {
@@ -153,10 +150,7 @@ public class GOTEntityNPCRespawner extends Entity {
 	public boolean isEnemySpawnBlocked(GOTFaction spawnFaction) {
 		GOTFaction faction1;
 		GOTFaction faction2;
-		if (spawnClass1 != null && (faction1 = ((GOTEntityNPC) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(spawnClass1), worldObj)).getFaction()) != null && faction1.isBadRelation(spawnFaction)) {
-			return true;
-		}
-		return spawnClass2 != null && (faction2 = ((GOTEntityNPC) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(spawnClass2), worldObj)).getFaction()) != null && faction2.isBadRelation(spawnFaction);
+		return spawnClass1 != null && (faction1 = ((GOTEntityNPC) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(spawnClass1), worldObj)).getFaction()) != null && faction1.isBadRelation(spawnFaction) || spawnClass2 != null && (faction2 = ((GOTEntityNPC) EntityList.createEntityByName(GOTEntityRegistry.getStringFromClass(spawnClass2), worldObj)).getFaction()) != null && faction2.isBadRelation(spawnFaction);
 	}
 
 	@Override

@@ -20,16 +20,10 @@ public class GOTPoisonedDrinks {
 
 	public static boolean canPlayerSeePoisoned(ItemStack itemstack, EntityPlayer entityplayer) {
 		UUID uuid = getPoisonerUUID(itemstack);
-		if (uuid == null) {
-			return true;
-		}
-		return entityplayer.getUniqueID().equals(uuid) || entityplayer.capabilities.isCreativeMode;
+		return uuid == null || entityplayer.getUniqueID().equals(uuid) || entityplayer.capabilities.isCreativeMode;
 	}
 
 	public static boolean canPoison(ItemStack itemstack) {
-		if (itemstack == null) {
-			return false;
-		}
 		return GOTItemMug.isItemFullDrink(itemstack);
 	}
 
@@ -42,10 +36,7 @@ public class GOTPoisonedDrinks {
 	}
 
 	public static boolean isDrinkPoisoned(ItemStack itemstack) {
-		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("PoisonDrink")) {
-			return itemstack.getTagCompound().getBoolean("PoisonDrink");
-		}
-		return false;
+		return itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("PoisonDrink") && itemstack.getTagCompound().getBoolean("PoisonDrink");
 	}
 
 	public static void preInit() {

@@ -40,11 +40,10 @@ public class GOTSpawnDamping {
 	}
 
 	public static int getSpawnCap(String type, int baseCap, int players) {
-		float stationaryPointValue;
 		float damp = getSpawnDamping(type);
 		float dampFraction = (players - 1) * damp;
 		dampFraction = MathHelper.clamp_float(dampFraction, 0.0f, 1.0f);
-		stationaryPointValue = 0.5f + damp / 2.0f;
+		float stationaryPointValue = 0.5f + damp / 2.0f;
 		if (dampFraction > stationaryPointValue) {
 			dampFraction = stationaryPointValue;
 		}
@@ -58,11 +57,10 @@ public class GOTSpawnDamping {
 	}
 
 	public static float getSpawnDamping(String type) {
-		float f = 0.0f;
 		if (spawnDamping.containsKey(type)) {
-			f = spawnDamping.get(type);
+			return spawnDamping.get(type);
 		}
-		return f;
+		return 0.0f;
 	}
 
 	public static void loadAll() {

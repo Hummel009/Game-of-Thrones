@@ -78,29 +78,26 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 			Item berry = null;
 			int berries = 1 + world.rand.nextInt(4);
 			switch (berryType) {
-				case 0: {
+				case 0:
 					berry = GOTItems.blueberry;
 					break;
-				}
-				case 1: {
+				case 1:
 					berry = GOTItems.blackberry;
 					break;
-				}
-				case 2: {
+				case 2:
 					berry = GOTItems.raspberry;
 					break;
-				}
-				case 3: {
+				case 3:
 					berry = GOTItems.cranberry;
 					break;
-				}
-				case 4: {
+				case 4:
 					berry = GOTItems.elderberry;
 					break;
-				}
-				case 5: {
+				case 5:
 					berry = GOTItems.wildberry;
-				}
+					break;
+				default:
+					break;
 			}
 			if (berry != null) {
 				for (int l = 0; l < berries; ++l) {

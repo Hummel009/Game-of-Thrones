@@ -72,10 +72,7 @@ public class GOTBlockRock extends Block {
 
 	@Override
 	public boolean isReplaceableOreGen(World world, int i, int j, int k, Block target) {
-		if (target == this) {
-			return world.getBlockMetadata(i, j, k) == 0;
-		}
-		return false;
+		return target == this && world.getBlockMetadata(i, j, k) == 0;
 	}
 
 	@Override

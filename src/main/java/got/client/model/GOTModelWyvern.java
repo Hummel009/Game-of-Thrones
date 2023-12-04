@@ -490,11 +490,10 @@ public class GOTModelWyvern extends ModelBase {
 	}
 
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5) {
-		float f10;
 		float RLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float LLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;
 		f3 = realAngle(f3);
-		f10 = 60.0f;
+		float f10 = 60.0f;
 		if (f3 > f10) {
 			f3 = f10;
 		}

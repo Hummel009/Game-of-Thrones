@@ -56,11 +56,10 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		boolean specialReward;
 		GOTPlayerData pd = getPlayerData();
 		pd.addCompletedBountyQuest();
 		int bComplete = pd.getCompletedBountyQuests();
-		specialReward = bComplete > 0 && bComplete % 5 == 0;
+		boolean specialReward = bComplete > 0 && bComplete % 5 == 0;
 		if (specialReward) {
 			ItemStack trophy = new ItemStack(GOTItems.bountyTrophy);
 			rewardItemTable.add(trophy);
@@ -205,9 +204,8 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			updateQuest();
 			GOTFaction highestFaction = getPledgeOrHighestAlignmentFaction(slainPlayer, 100.0f);
 			if (highestFaction != null) {
-				float alignmentLoss;
 				float curAlignment = slainPlayerData.getAlignment(highestFaction);
-				alignmentLoss = getKilledAlignmentPenalty();
+				float alignmentLoss = getKilledAlignmentPenalty();
 				if (curAlignment + alignmentLoss < 100.0f) {
 					alignmentLoss = -(curAlignment - 100.0f);
 				}
@@ -234,7 +232,6 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	@Override
 	public void onKilledByPlayer(EntityPlayer entityplayer, EntityPlayer killer) {
 		if (!killed && !isFailed() && killer.getUniqueID().equals(targetID)) {
-			float curAlignment;
 			GOTPlayerData pd;
 			GOTPlayerData killerData = GOTLevelData.getData(killer);
 			GOTFaction killerHighestFaction = getPledgeOrHighestAlignmentFaction(killer, 0.0f);
@@ -243,7 +240,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(killerBonus, "got.alignment.killedHunter");
 				killerData.addAlignment(killer, source, killerHighestFaction, entityplayer);
 			}
-			curAlignment = (pd = getPlayerData()).getAlignment(entityFaction);
+			float curAlignment = (pd = getPlayerData()).getAlignment(entityFaction);
 			if (curAlignment > 100.0f) {
 				float alignmentLoss = getKilledAlignmentPenalty();
 				if (curAlignment + alignmentLoss < 100.0f) {

@@ -39,7 +39,7 @@ public class GOTModelRhino extends ModelBase {
 		head.addChild(horn1);
 		horn2 = new ModelRenderer(this, 44, 0);
 		horn2.addBox(-1.0f, -3.0f, -17.0f, 2, 4, 2, f);
-		horn2.rotateAngleX = -0.17453292519943295f;
+		horn2.rotateAngleX = -0.17453292f;
 		head.addChild(horn2);
 		body = new ModelRenderer(this, 0, 26);
 		body.setRotationPoint(0.0f, 5.0f, 0.0f);

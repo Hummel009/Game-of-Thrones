@@ -19,7 +19,7 @@ public class GOTSquadrons {
 
 	public static String checkAcceptableLength(String squadron) {
 		if (squadron != null && squadron.length() > SQUADRON_LENGTH_MAX) {
-			squadron = squadron.substring(0, SQUADRON_LENGTH_MAX);
+			return squadron.substring(0, SQUADRON_LENGTH_MAX);
 		}
 		return squadron;
 	}

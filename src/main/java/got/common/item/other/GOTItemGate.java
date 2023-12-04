@@ -30,7 +30,7 @@ public class GOTItemGate extends ItemBlock {
 			meta = fullBlock ? entityplayer.rotationPitch > 0.0f ? 0 : 1 : f1 > 0.5f ? 0 : 1;
 		} else {
 			int dir = Direction.facingToDirection[side];
-			meta = fullBlock ? Direction.directionToFacing[Direction.rotateOpposite[dir]] : Direction.directionToFacing[Direction.rotateLeft[dir]];
+			meta = Direction.directionToFacing[fullBlock ? Direction.rotateOpposite[dir] : Direction.rotateLeft[dir]];
 		}
 		return super.placeBlockAt(itemstack, entityplayer, world, i, j, k, side, f, f1, f2, meta);
 	}

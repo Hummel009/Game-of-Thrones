@@ -47,6 +47,8 @@ public class GOTCommandEnchant extends CommandBase {
 					return CommandBase.getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
 				}
 				break;
+			default:
+				return Collections.emptyList();
 		}
 		return Collections.emptyList();
 	}

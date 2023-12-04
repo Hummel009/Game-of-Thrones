@@ -79,7 +79,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 
 	public void setCanFly(boolean canFly) {
 		L.trace("setCanFly({})", canFly);
-		dataWatcher.updateObject(INDEX_CAN_FLY, canFly ? (byte) 1 : (byte) 0);
+		dataWatcher.updateObject(INDEX_CAN_FLY, (byte) (canFly ? 1 : 0));
 	}
 
 	public boolean isClient() {
@@ -91,7 +91,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	}
 
 	public void setFlying(boolean flying) {
-		dataWatcher.updateObject(INDEX_FLYING, flying ? (byte) 1 : (byte) 0);
+		dataWatcher.updateObject(INDEX_FLYING, (byte) (flying ? 1 : 0));
 	}
 
 	public boolean isGroundAIEnabled() {
@@ -172,7 +172,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 			deltaY /= Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
 			deltaY = GOTModelDragonAnimaton.clamp(deltaY, -speedHoriz, speedHoriz) / 3;
 			double motionHypot = Math.hypot(motionX, motionZ) + 1;
-			double newYaw = Math.toDegrees(Math.PI * 2 - Math.atan2(deltaX, deltaZ));
+			double newYaw = Math.toDegrees(6.283185307179586 - Math.atan2(deltaX, deltaZ));
 			double yawDelta = GOTModelDragonAnimaton.normDeg(newYaw - rotationYaw);
 			yawDelta = GOTModelDragonAnimaton.clamp(yawDelta, -yawSpeed, yawSpeed);
 			yawAdd *= 0.8f;

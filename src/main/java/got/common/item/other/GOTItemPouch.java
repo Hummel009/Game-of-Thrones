@@ -136,7 +136,6 @@ public class GOTItemPouch extends Item {
 		if (itemstack != null && itemstack.stackSize > 0) {
 			IInventory pouchInv = new GOTInventoryPouch(pouch);
 			for (int i = 0; i < pouchInv.getSizeInventory() && itemstack.stackSize > 0; ++i) {
-				int difference;
 				ItemStack itemInSlot = pouchInv.getStackInSlot(i);
 				if (itemInSlot != null ? itemInSlot.stackSize >= itemInSlot.getMaxStackSize() || itemInSlot.getItem() != itemstack.getItem() || !itemInSlot.isStackable() || itemInSlot.getHasSubtypes() && itemInSlot.getItemDamage() != itemstack.getItemDamage() || !ItemStack.areItemStackTagsEqual(itemInSlot, itemstack) : requireMatchInPouch) {
 					continue;
@@ -149,7 +148,7 @@ public class GOTItemPouch extends Item {
 				if (pouchInv.getInventoryStackLimit() < maxStackSize) {
 					maxStackSize = pouchInv.getInventoryStackLimit();
 				}
-				difference = maxStackSize - itemInSlot.stackSize;
+				int difference = maxStackSize - itemInSlot.stackSize;
 				if (difference > itemstack.stackSize) {
 					difference = itemstack.stackSize;
 				}
@@ -197,13 +196,12 @@ public class GOTItemPouch extends Item {
 	@Override
 	public IIcon getIcon(ItemStack itemstack, int pass) {
 		Container container;
-		int meta;
 		boolean open = false;
 		EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 		if (entityplayer != null && ((container = entityplayer.openContainer) instanceof GOTContainerPouch || container instanceof GOTContainerChestWithPouch) && itemstack == entityplayer.getHeldItem()) {
 			open = true;
 		}
-		meta = itemstack.getItemDamage();
+		int meta = itemstack.getItemDamage();
 		if (meta >= pouchIcons.length) {
 			meta = 0;
 		}

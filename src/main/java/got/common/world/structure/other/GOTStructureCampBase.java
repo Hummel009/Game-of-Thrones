@@ -42,11 +42,9 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 		int groundRange = 12;
 		for (int i12 = -groundRange; i12 <= groundRange; ++i12) {
 			for (int k1 = -groundRange; k1 <= groundRange; ++k1) {
-				int j1;
-				int k2;
 				int i2 = Math.abs(i12);
-				k2 = Math.abs(k1);
-				j1 = getTopBlock(world, i12, k1);
+				int k2 = Math.abs(k1);
+				int j1 = getTopBlock(world, i12, k1);
 				if (i2 * i2 + k2 * k2 >= groundRange * groundRange || getBlock(world, i12, j1 - 1, k1) != Blocks.grass || random.nextInt(5) == 0) {
 					continue;
 				}
@@ -112,9 +110,8 @@ public abstract class GOTStructureCampBase extends GOTStructureBase {
 			int minFarmRange = 5;
 			block7:
 			for (int l2 = 0; l2 < 32; ++l2) {
-				int k1;
 				int i15 = MathHelper.getRandomIntegerInRange(random, -farmRange, farmRange);
-				k1 = MathHelper.getRandomIntegerInRange(random, -farmRange, farmRange);
+				int k1 = MathHelper.getRandomIntegerInRange(random, -farmRange, farmRange);
 				int dSq = i15 * i15 + k1 * k1;
 				if (dSq <= minFarmRange * minFarmRange) {
 					continue;

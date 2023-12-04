@@ -32,7 +32,7 @@ public class GOTBlockSapling4 extends GOTBlockSaplingBase {
 				zOffset = partyTree[1];
 			}
 			if (treeGen == null) {
-				treeGen = random.nextInt(10) == 0 ? GOTTreeType.CHESTNUT_LARGE.create(true, random) : GOTTreeType.CHESTNUT.create(true, random);
+				treeGen = (random.nextInt(10) == 0 ? GOTTreeType.CHESTNUT_LARGE : GOTTreeType.CHESTNUT).create(true, random);
 				trunkPos = 0;
 				trunkNeg = 0;
 				xOffset = 0;

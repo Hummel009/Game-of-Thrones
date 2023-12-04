@@ -133,7 +133,7 @@ public class GOTItemMug extends Item {
 	public static int getStrengthMeta(int damage) {
 		int i = damage % vesselMeta;
 		if (i < 0 || i >= strengths.length) {
-			i = 0;
+			return 0;
 		}
 		return i;
 	}
@@ -223,7 +223,6 @@ public class GOTItemMug extends Item {
 			return false;
 		}
 		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack)) {
-			assert mugBlock != null;
 			if (!mugBlock.canPlaceBlockAt(world, i, j, k)) {
 				return false;
 			}
@@ -247,9 +246,8 @@ public class GOTItemMug extends Item {
 			float strength = getStrength(itemstack);
 			list.add(getStrengthSubtitle(itemstack));
 			if (alcoholicity > 0.0f) {
-				EnumChatFormatting c;
 				float f = alcoholicity * strength * 10.0f;
-				c = f < 2.0f ? EnumChatFormatting.GREEN : f < 5.0f ? EnumChatFormatting.YELLOW : f < 10.0f ? EnumChatFormatting.GOLD : f < 20.0f ? EnumChatFormatting.RED : EnumChatFormatting.DARK_RED;
+				EnumChatFormatting c = f < 2.0f ? EnumChatFormatting.GREEN : f < 5.0f ? EnumChatFormatting.YELLOW : f < 10.0f ? EnumChatFormatting.GOLD : f < 20.0f ? EnumChatFormatting.RED : EnumChatFormatting.DARK_RED;
 				list.add(c + StatCollector.translateToLocal("item.got.drink.alcoholicity") + ": " + String.format("%.2f", f) + '%');
 			}
 			addPotionEffectsToTooltip(itemstack, entityplayer, list, flag, convertPotionEffectsForStrength(strength));
@@ -277,10 +275,7 @@ public class GOTItemMug extends Item {
 	}
 
 	public boolean canPlayerDrink(EntityPlayer entityplayer) {
-		if (!isFullMug) {
-			return false;
-		}
-		return !isFoodDrink || entityplayer.canEat(false);
+		return isFullMug && (!isFoodDrink || entityplayer.canEat(false));
 	}
 
 	public List<PotionEffect> convertPotionEffectsForStrength(float strength) {
@@ -413,7 +408,6 @@ public class GOTItemMug extends Item {
 			}
 		}
 		if (!entityplayer.capabilities.isCreativeMode) {
-			assert vessel != null;
 			return new ItemStack(vessel.getEmptyVesselItem());
 		}
 		return itemstack;

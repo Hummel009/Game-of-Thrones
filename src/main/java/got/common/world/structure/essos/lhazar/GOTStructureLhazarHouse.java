@@ -44,9 +44,8 @@ public class GOTStructureLhazarHouse extends GOTStructureLhazarBase {
 		}
 		for (int i1 = -8; i1 <= 8; ++i1) {
 			for (int k1 = -8; k1 <= 8; ++k1) {
-				int k2;
 				int i2 = Math.abs(i1);
-				k2 = Math.abs(k1);
+				int k2 = Math.abs(k1);
 				if (i2 * i2 + k2 * k2 >= 64) {
 					continue;
 				}

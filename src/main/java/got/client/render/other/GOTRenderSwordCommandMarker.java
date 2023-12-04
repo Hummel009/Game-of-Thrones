@@ -19,12 +19,12 @@ public class GOTRenderSwordCommandMarker extends Render {
 		GL11.glRotatef(rotation, 0.0F, 1.0F, 0.0F);
 		GL11.glRotatef(135.0F, 0.0F, 0.0F, 1.0F);
 		float scale = 1.2F;
-		GL11.glTranslatef(-0.75F * scale, 0.0F, 0.03125F * scale);
+		GL11.glTranslatef(-0.75f * scale, 0.0F, 0.03125F * scale);
 		GL11.glScalef(scale, scale, scale);
 		ItemStack item = new ItemStack(GOTItems.commandSword);
 		GL11.glTranslatef(0.9375F, 0.0625F, 0.0F);
-		GL11.glRotatef(-335.0F, 0.0F, 0.0F, 1.0F);
-		GL11.glRotatef(-50.0F, 0.0F, 1.0F, 0.0F);
+		GL11.glRotatef(-335.0f, 0.0F, 0.0F, 1.0F);
+		GL11.glRotatef(-50.0f, 0.0F, 1.0F, 0.0F);
 		renderManager.itemRenderer.renderItem(renderManager.livingPlayer, item, 0, IItemRenderer.ItemRenderType.EQUIPPED);
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();

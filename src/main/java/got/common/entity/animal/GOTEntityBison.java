@@ -36,7 +36,6 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 		bisonHeight = 1.7f;
 		setSize(bisonWidth, bisonHeight);
 		EntityAITasks.EntityAITaskEntry panic = GOTEntityUtils.removeAITask(this, EntityAIPanic.class);
-		assert panic != null;
 		tasks.addTask(panic.priority, panic.action);
 		panicAI = panic.action;
 		attackAI = createBisonAttackAI();
@@ -161,10 +160,7 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
-		if (isBisonEnraged()) {
-			return false;
-		}
-		return super.interact(entityplayer);
+		return !isBisonEnraged() && super.interact(entityplayer);
 	}
 
 	public boolean isBisonEnraged() {
@@ -185,11 +181,9 @@ public class GOTEntityBison extends EntityCow implements GOTRandomSkinEntity, GO
 				EntityAITasks.EntityAITaskEntry taskEntry;
 				if (isChild) {
 					taskEntry = GOTEntityUtils.removeAITask(this, attackAI.getClass());
-					assert taskEntry != null;
 					tasks.addTask(taskEntry.priority, panicAI);
 				} else {
 					taskEntry = GOTEntityUtils.removeAITask(this, panicAI.getClass());
-					assert taskEntry != null;
 					tasks.addTask(taskEntry.priority, attackAI);
 				}
 			}

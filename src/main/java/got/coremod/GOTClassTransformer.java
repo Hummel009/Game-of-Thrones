@@ -118,11 +118,9 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchArmorProperties(String name, byte[] bytes) {
-		String targetMethodName;
-		String targetMethodSign;
 		boolean isCauldron = GOTModChecker.isCauldronServer();
-		targetMethodName = "ApplyArmor";
-		targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;[Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;D)F";
+		String targetMethodName = "ApplyArmor";
+		String targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;[Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;D)F";
 		if (isCauldron) {
 			targetMethodName = "ApplyArmor";
 			targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;[Lnet/minecraft/item/ItemStack;Lnet/minecraft/util/DamageSource;DZ)F";
@@ -481,18 +479,16 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchBlockTrapdoor(String name, byte[] bytes) {
-		String targetMethodName2;
-		String targetMethodSign3;
 		String targetMethodName = "canPlaceBlockOnSide";
 		String targetMethodNameObf = "func_149707_d";
 		String targetMethodSign = "(Lnet/minecraft/world/World;IIII)Z";
 		String targetMethodSignObf = "(Lahb;IIII)Z";
-		targetMethodName2 = "func_150119_a";
+		String targetMethodName2 = "func_150119_a";
 		String targetMethodSign2 = "(Lnet/minecraft/block/Block;)Z";
 		String targetMethodSignObf2 = "(Laji;)Z";
 		String targetMethodName3 = "getRenderType";
 		String targetMethodNameObf3 = "func_149645_b";
-		targetMethodSign3 = "()I";
+		String targetMethodSign3 = "()I";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
 		classReader.accept(classNode, 0);
@@ -563,8 +559,7 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchDoorInteract(String name, byte[] bytes) {
-		String targetMethodName;
-		targetMethodName = "func_151503_a";
+		String targetMethodName = "func_151503_a";
 		String targetMethodSign = "(III)Lnet/minecraft/block/BlockDoor;";
 		String targetMethodSignObf = "(III)Lakn;";
 		ClassNode classNode = new ClassNode();
@@ -603,12 +598,11 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchEnchantmentHelper(String name, byte[] bytes) {
-		String targetMethodName2;
 		String targetMethodName = "getEnchantmentModifierLiving";
 		String targetMethodNameObf = "func_77512_a";
 		String targetMethodSign = "(Lnet/minecraft/entity/EntityLivingBase;Lnet/minecraft/entity/EntityLivingBase;)F";
 		String targetMethodSignObf = "(Lsv;Lsv;)F";
-		targetMethodName2 = "func_152377_a";
+		String targetMethodName2 = "func_152377_a";
 		String targetMethodSign2 = "(Lnet/minecraft/item/ItemStack;Lnet/minecraft/entity/EnumCreatureAttribute;)F";
 		String targetMethodSignObf2 = "(Ladd;Lsz;)F";
 		String targetMethodName3 = "getSilkTouchModifier";
@@ -739,8 +733,7 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchEntityClientPlayerMP(String name, byte[] bytes) {
-		String targetMethodName;
-		targetMethodName = "func_110318_g";
+		String targetMethodName = "func_110318_g";
 		String targetMethodSign = "()V";
 		ClassNode classNode = new ClassNode();
 		ClassReader classReader = new ClassReader(bytes);
@@ -877,8 +870,7 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchFMLNetworkHandler(String name, byte[] bytes) {
-		String targetMethodName;
-		targetMethodName = "getEntitySpawningPacket";
+		String targetMethodName = "getEntitySpawningPacket";
 		String targetMethodSign = "(Lnet/minecraft/entity/Entity;)Lnet/minecraft/network/Packet;";
 		String targetMethodSignObf = "(Lsa;)Lft;";
 		ClassNode classNode = new ClassNode();
@@ -1078,9 +1070,9 @@ public class GOTClassTransformer implements IClassTransformer {
 		return writer.toByteArray();
 	}
 
+	@SuppressWarnings("ConditionalCanBePushedInsideExpression")
 	public byte[] patchPathFinder(String name, byte[] bytes) {
-		String targetMethodName;
-		targetMethodName = "func_82565_a";
+		String targetMethodName = "func_82565_a";
 		String targetMethodSign = "(Lnet/minecraft/entity/Entity;IIILnet/minecraft/pathfinding/PathPoint;ZZZ)I";
 		String targetMethodSignObf = "(Lsa;IIILaye;ZZZ)I";
 		ClassNode classNode = new ClassNode();
@@ -1155,8 +1147,7 @@ public class GOTClassTransformer implements IClassTransformer {
 	}
 
 	public byte[] patchPotionDamage(String name, byte[] bytes) {
-		String targetMethodName;
-		targetMethodName = "func_111183_a";
+		String targetMethodName = "func_111183_a";
 		String targetMethodSign = "(ILnet/minecraft/entity/ai/attributes/AttributeModifier;)D";
 		String targetMethodSignObf = "(ILtj;)D";
 		ClassNode classNode = new ClassNode();

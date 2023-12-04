@@ -38,10 +38,7 @@ public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
 
 	@Override
 	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
-		if (GOTRecipe.checkItemEquals(axeMaterial.getRepairItemStack(), repairItem)) {
-			return true;
-		}
-		return super.getIsRepairable(itemstack, repairItem);
+		return GOTRecipe.checkItemEquals(axeMaterial.getRepairItemStack(), repairItem) || super.getIsRepairable(itemstack, repairItem);
 	}
 
 	@Override
@@ -51,7 +48,7 @@ public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
 
 	public float getRangedDamageMultiplier(ItemStack itemstack, Entity shooter, Entity hit) {
 		float damage = axeMaterial.getDamageVsEntity() + 4.0f;
-		damage = shooter instanceof EntityLivingBase && hit instanceof EntityLivingBase ? damage + EnchantmentHelper.getEnchantmentModifierLiving((EntityLivingBase) shooter, (EntityLivingBase) hit) : damage + EnchantmentHelper.func_152377_a(itemstack, EnumCreatureAttribute.UNDEFINED);
+		damage = damage + (shooter instanceof EntityLivingBase && hit instanceof EntityLivingBase ? EnchantmentHelper.getEnchantmentModifierLiving((EntityLivingBase) shooter, (EntityLivingBase) hit) : EnchantmentHelper.func_152377_a(itemstack, EnumCreatureAttribute.UNDEFINED));
 		return damage * 0.5f;
 	}
 

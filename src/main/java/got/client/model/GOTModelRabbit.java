@@ -21,12 +21,12 @@ public class GOTModelRabbit extends ModelBase {
 		ModelRenderer rightEar = new ModelRenderer(this, 16, 0);
 		rightEar.addBox(-1.2f, -4.5f, -0.5f, 2, 5, 1);
 		rightEar.setRotationPoint(-1.0f, -1.5f, 0.0f);
-		rightEar.rotateAngleX = -0.3490658503988659f;
+		rightEar.rotateAngleX = -0.34906584f;
 		ModelRenderer leftEar = new ModelRenderer(this, 16, 0);
 		leftEar.mirror = true;
 		leftEar.addBox(-0.8f, -4.5f, -0.5f, 2, 5, 1);
 		leftEar.setRotationPoint(1.0f, -1.5f, 0.0f);
-		leftEar.rotateAngleX = -0.3490658503988659f;
+		leftEar.rotateAngleX = -0.34906584f;
 		head.addChild(rightEar);
 		head.addChild(leftEar);
 		body = new ModelRenderer(this, 0, 19);
@@ -36,7 +36,7 @@ public class GOTModelRabbit extends ModelBase {
 		ModelRenderer tail = new ModelRenderer(this, 32, 30);
 		tail.addBox(-0.5f, -0.5f, -0.5f, 1, 1, 1);
 		tail.setRotationPoint(0.0f, 4.5f, 2.5f);
-		tail.rotateAngleX = -0.7853981633974483f;
+		tail.rotateAngleX = -0.7853982f;
 		body.addChild(head);
 		body.addChild(tail);
 		rightArm = new ModelRenderer(this, 32, 0);
@@ -54,7 +54,7 @@ public class GOTModelRabbit extends ModelBase {
 		ModelRenderer rightFoot = new ModelRenderer(this, 32, 16);
 		rightFoot.addBox(-1.0f, -0.5f, -2.5f, 2, 1, 3);
 		rightFoot.setRotationPoint(0.0f, 2.0f, -1.0f);
-		rightFoot.rotateAngleX = -0.2617993877991494f;
+		rightFoot.rotateAngleX = -0.2617994f;
 		rightLeg.addChild(rightFoot);
 		leftLeg = new ModelRenderer(this, 32, 8);
 		leftLeg.mirror = true;
@@ -64,7 +64,7 @@ public class GOTModelRabbit extends ModelBase {
 		leftFoot.mirror = true;
 		leftFoot.addBox(-1.0f, -0.5f, -2.5f, 2, 1, 3);
 		leftFoot.setRotationPoint(0.0f, 2.0f, -1.0f);
-		leftFoot.rotateAngleX = -0.2617993877991494f;
+		leftFoot.rotateAngleX = -0.2617994f;
 		leftLeg.addChild(leftFoot);
 	}
 
@@ -79,15 +79,13 @@ public class GOTModelRabbit extends ModelBase {
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
 		body.rotateAngleX = 0.7853981633974483f;
-		head.rotateAngleX = -0.7853981633974483f;
-		rightArm.rotateAngleX = -0.9599310885968813f;
-		leftArm.rotateAngleX = -0.9599310885968813f;
-		float f6;
-		f6 = f1;
-		body.rotateAngleX += f6;
-		head.rotateAngleX -= f6;
-		rightArm.rotateAngleX -= f6;
-		leftArm.rotateAngleX -= f6;
+		head.rotateAngleX = -0.7853982f;
+		rightArm.rotateAngleX = -0.9599311f;
+		leftArm.rotateAngleX = -0.9599311f;
+		body.rotateAngleX += f1;
+		head.rotateAngleX -= f1;
+		rightArm.rotateAngleX -= f1;
+		leftArm.rotateAngleX -= f1;
 		if (((GOTEntityRabbit) entity).isRabbitEating()) {
 			float f7 = 0.5235987755982988f;
 			body.rotateAngleX += f7;

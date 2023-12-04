@@ -78,7 +78,7 @@ public class GOTModelGemsbok extends ModelBase {
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
 		head.rotateAngleX = (float) Math.toRadians(f4) + 0.4014257f;
 		head.rotateAngleY = (float) Math.toRadians(f3);
-		neck.rotateAngleX = -1.064650843716541f;
+		neck.rotateAngleX = -1.0646509f;
 		neck.rotateAngleY = head.rotateAngleY * 0.7f;
 		rightHorn.rotateAngleX = head.rotateAngleX;
 		rightHorn.rotateAngleY = head.rotateAngleY;

@@ -90,17 +90,14 @@ public abstract class GOTRenderBiped extends RenderBiped {
 
 	@Override
 	public void renderEquippedItems(EntityLivingBase entity, float f) {
-		ItemStack heldItem;
 		float f1;
-		ItemStack heldItemLeft;
 		GL11.glColor3f(1.0f, 1.0f, 1.0f);
 		ItemStack headItem = entity.getEquipmentInSlot(4);
 		if (headItem != null) {
-			boolean is3D;
 			GL11.glPushMatrix();
 			modelBipedMain.bipedHead.postRender(0.0625f);
 			IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(headItem, IItemRenderer.ItemRenderType.EQUIPPED);
-			is3D = customRenderer != null && customRenderer.shouldUseRenderHelper(IItemRenderer.ItemRenderType.EQUIPPED, headItem, IItemRenderer.ItemRendererHelper.BLOCK_3D);
+			boolean is3D = customRenderer != null && customRenderer.shouldUseRenderHelper(IItemRenderer.ItemRenderType.EQUIPPED, headItem, IItemRenderer.ItemRendererHelper.BLOCK_3D);
 			if (headItem.getItem() instanceof ItemBlock) {
 				if (is3D || RenderBlocks.renderItemIn3d(Block.getBlockFromItem(headItem.getItem()).getRenderType())) {
 					f1 = 0.625f;
@@ -125,9 +122,8 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			}
 			GL11.glPopMatrix();
 		}
-		heldItem = entity.getHeldItem();
+		ItemStack heldItem = entity.getHeldItem();
 		if (heldItem != null) {
-			boolean is3D;
 			float f12;
 			GL11.glPushMatrix();
 			if (mainModel.isChild) {
@@ -139,7 +135,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			modelBipedMain.bipedRightArm.postRender(0.0625f);
 			GL11.glTranslatef(-0.0625f, 0.4375f, 0.0625f);
 			IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(heldItem, IItemRenderer.ItemRenderType.EQUIPPED);
-			is3D = customRenderer != null && customRenderer.shouldUseRenderHelper(IItemRenderer.ItemRenderType.EQUIPPED, heldItem, IItemRenderer.ItemRendererHelper.BLOCK_3D);
+			boolean is3D = customRenderer != null && customRenderer.shouldUseRenderHelper(IItemRenderer.ItemRenderType.EQUIPPED, heldItem, IItemRenderer.ItemRendererHelper.BLOCK_3D);
 			if (heldItem.getItem() instanceof ItemBlock && (is3D || RenderBlocks.renderItemIn3d(Block.getBlockFromItem(heldItem.getItem()).getRenderType()))) {
 				f12 = 0.5f;
 				GL11.glTranslatef(0.0f, getHeldItemYTranslation(), -0.3125f);
@@ -179,9 +175,8 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			}
 			GL11.glPopMatrix();
 		}
-		heldItemLeft = ((GOTEntityNPC) entity).getHeldItemLeft();
+		ItemStack heldItemLeft = ((GOTEntityNPC) entity).getHeldItemLeft();
 		if (heldItemLeft != null) {
-			boolean is3D;
 			float f14;
 			GL11.glPushMatrix();
 			if (mainModel.isChild) {
@@ -193,7 +188,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			modelBipedMain.bipedLeftArm.postRender(0.0625f);
 			GL11.glTranslatef(0.0625f, 0.4375f, 0.0625f);
 			IItemRenderer customRenderer = MinecraftForgeClient.getItemRenderer(heldItemLeft, IItemRenderer.ItemRenderType.EQUIPPED);
-			is3D = customRenderer != null && customRenderer.shouldUseRenderHelper(IItemRenderer.ItemRenderType.EQUIPPED, heldItemLeft, IItemRenderer.ItemRendererHelper.BLOCK_3D);
+			boolean is3D = customRenderer != null && customRenderer.shouldUseRenderHelper(IItemRenderer.ItemRenderType.EQUIPPED, heldItemLeft, IItemRenderer.ItemRendererHelper.BLOCK_3D);
 			if (heldItemLeft.getItem() instanceof ItemBlock && (is3D || RenderBlocks.renderItemIn3d(Block.getBlockFromItem(heldItemLeft.getItem()).getRenderType()))) {
 				f14 = 0.5f;
 				GL11.glTranslatef(0.0f, getHeldItemYTranslation(), -0.3125f);

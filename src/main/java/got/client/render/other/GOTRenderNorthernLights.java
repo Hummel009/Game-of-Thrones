@@ -100,10 +100,7 @@ public class GOTRenderNorthernLights {
 			return false;
 		}
 		BiomeGenBase biomegenbase = world.getBiomeGenForCoords(i, k);
-		if (biomegenbase.getEnableSnow()) {
-			return false;
-		}
-		return biomegenbase.getFloatTemperature(i, j, k) >= 0.15f && biomegenbase.canSpawnLightningBolt();
+		return !biomegenbase.getEnableSnow() && biomegenbase.getFloatTemperature(i, j, k) >= 0.15f && biomegenbase.canSpawnLightningBolt();
 	}
 
 	public static void render(Minecraft mc, WorldClient world, float tick) {

@@ -83,7 +83,6 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
-		boolean squadronPrompt;
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		guiTexture = new ResourceLocation("got:textures/gui/npc/unit_trade.png");
 		mc.getTextureManager().bindTexture(guiTexture);
@@ -96,7 +95,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 			}
 		}
 		drawMobOnGui(guiLeft + 32, guiTop + 109, guiLeft + 32 - screenXSize, guiTop + 109 - 50 - screenYSize);
-		squadronPrompt = StringUtils.isNullOrEmpty(squadronNameField.getText()) && !squadronNameField.isFocused();
+		boolean squadronPrompt = StringUtils.isNullOrEmpty(squadronNameField.getText()) && !squadronNameField.isFocused();
 		if (squadronPrompt) {
 			String squadronMessage = StatCollector.translateToLocal("got.container.unitTrade.squadronBox");
 			squadronNameField.setText(EnumChatFormatting.DARK_GRAY + squadronMessage);

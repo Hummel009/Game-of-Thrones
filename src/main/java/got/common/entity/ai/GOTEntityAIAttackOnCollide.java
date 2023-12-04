@@ -107,12 +107,11 @@ public class GOTEntityAIAttackOnCollide extends EntityAIBase {
 
 	@Override
 	public void updateTask() {
-		ItemStack weapon;
 		updateLookAndPathing();
 		if (attackTick > 0) {
 			--attackTick;
 		}
-		weapon = theOwner.getHeldItem();
+		ItemStack weapon = theOwner.getHeldItem();
 		if (weapon != null && weapon.getItem() instanceof GOTItemSpear && attackTick <= 0 && theOwner instanceof GOTEntityNPC) {
 			GOTEntityNPC theNPC = (GOTEntityNPC) theOwner;
 			ItemStack spearBackup = theNPC.npcItemsInv.getSpearBackup();

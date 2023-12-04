@@ -119,10 +119,10 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 		rotate(-renderManager.playerViewX, 1.0F, 0.0F, 0.0F);
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0F, 1.0F, 0.0F);
-		tessellator.addVertexWithUV(-0.5F, -0.25F, 0.0D, minU, maxV);
-		tessellator.addVertexWithUV(0.5F, -0.25F, 0.0D, maxU, maxV);
+		tessellator.addVertexWithUV(-0.5f, -0.25f, 0.0D, minU, maxV);
+		tessellator.addVertexWithUV(0.5F, -0.25f, 0.0D, maxU, maxV);
 		tessellator.addVertexWithUV(0.5F, 0.75F, 0.0D, maxU, minV);
-		tessellator.addVertexWithUV(-0.5F, 0.75F, 0.0D, minU, minV);
+		tessellator.addVertexWithUV(-0.5f, 0.75F, 0.0D, minU, minV);
 		tessellator.draw();
 	}
 }

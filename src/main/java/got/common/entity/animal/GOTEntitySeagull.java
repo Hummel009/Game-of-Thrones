@@ -55,10 +55,7 @@ public class GOTEntitySeagull extends GOTEntityBird {
 	@Override
 	public boolean isStealable(ItemStack itemstack) {
 		Item item = itemstack.getItem();
-		if (item == Items.fish || item == Items.cooked_fished) {
-			return true;
-		}
-		return super.isStealable(itemstack);
+		return item == Items.fish || item == Items.cooked_fished || super.isStealable(itemstack);
 	}
 
 	@Override

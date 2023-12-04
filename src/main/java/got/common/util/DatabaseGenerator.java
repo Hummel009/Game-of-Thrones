@@ -150,9 +150,8 @@ public class DatabaseGenerator {
 			searchForPagenamesFaction(BIOMES, FACTIONS);
 			Files.createDirectories(Paths.get("hummel"));
 			if ("tables".equals(display)) {
-				StringBuilder sb;
 
-				sb = new StringBuilder();
+				StringBuilder sb = new StringBuilder();
 				for (GOTAchievement ach : ACHIEVEMENTS) {
 					sb.append("\n| ").append(getAchievementTitle(ach)).append(" || ").append(getAchievementDesc(ach)).append("\n|-");
 				}

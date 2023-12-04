@@ -325,9 +325,8 @@ public class GOTStructureStormlandsSettlement extends GOTStructureBaseSettlement
 			houseX = 64;
 			int lampX = 59;
 			for (int k1 = -4; k1 <= 4; ++k1) {
-				boolean treepiece;
 				int houseZ = k1 * 12;
-				treepiece = IntMath.mod(k1, 2) == 1;
+				boolean treepiece = IntMath.mod(k1, 2) == 1;
 				if (treepiece) {
 					addStructure(new GOTStructureStormlandsVillageFarm.Tree(false), -houseX - 2, houseZ, 1, true);
 					addStructure(new GOTStructureStormlandsVillageFarm.Tree(false), houseX + 2, houseZ, 3, true);

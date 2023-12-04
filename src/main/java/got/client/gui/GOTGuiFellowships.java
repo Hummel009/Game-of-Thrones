@@ -1003,7 +1003,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 
 	public List<GameProfile> sortMembersForDisplay(GOTFellowshipClient fs) {
 		List<GameProfile> members = new ArrayList<>(fs.getMemberProfiles());
-		members.sort(Comparator.comparing(GOTGuiFellowships::isPlayerOnline).reversed().thenComparing(player -> fs.isAdmin(player.getId())).reversed().thenComparing(player -> player.getName().toLowerCase(Locale.ROOT)));
+		members.sort(Comparator.comparing((GameProfile player) -> isPlayerOnline(player)).reversed().thenComparing(player -> fs.isAdmin(player.getId())).reversed().thenComparing(player -> player.getName().toLowerCase(Locale.ROOT)));
 		return members;
 	}
 

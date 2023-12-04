@@ -40,10 +40,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 
 	@Override
 	public boolean canCommandSenderUseCommand(ICommandSender sender) {
-		if (sender instanceof EntityPlayer) {
-			return true;
-		}
-		return super.canCommandSenderUseCommand(sender);
+		return sender instanceof EntityPlayer || super.canCommandSenderUseCommand(sender);
 	}
 
 	@Override

@@ -65,19 +65,13 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		Block below = world.getBlock(i, j - 1, k);
 		int belowMeta = world.getBlockMetadata(i, j - 1, k);
-		if (below.getMaterial() == Material.water && belowMeta == 0) {
-			return true;
-		}
-		return below.isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
+		return below.getMaterial() == Material.water && belowMeta == 0 || below.isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
 	}
 
 	@Override
 	public boolean canPlaceBlockAt(World world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
-		if (block.getMaterial().isLiquid()) {
-			return false;
-		}
-		return canBlockStay(world, i, j, k);
+		return !block.getMaterial().isLiquid() && canBlockStay(world, i, j, k);
 	}
 
 	@SideOnly(Side.CLIENT)

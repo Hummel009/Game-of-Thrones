@@ -173,7 +173,6 @@ public class GOTChunkProvider implements IChunkProvider {
 		int noiseIndex = 0;
 		for (int i1 = 0; i1 < xSize; ++i1) {
 			for (int k1 = 0; k1 < zSize; ++k1) {
-				double heightNoise;
 				int xPos = i + i1 << 2;
 				int zPos = k + k1 << 2;
 				float totalBaseHeight = 0.0f;
@@ -233,7 +232,6 @@ public class GOTChunkProvider implements IChunkProvider {
 				float avgFlatBiomeHeight = totalFlatBiomeHeight / biomeCount;
 				float avgVariantHillFactor = totalVariantHillFactor / biomeCount;
 				if (GOTFixedStructures.hasMapFeatures(worldObj)) {
-					float mountain;
 					float roadNear = GOTBeziers.isBezierNear(xPos, zPos, 32, GOTBeziers.Type.ROAD);
 					if (roadNear >= 0.0f) {
 						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * roadNear;
@@ -249,7 +247,7 @@ public class GOTChunkProvider implements IChunkProvider {
 						avgBaseHeight = avgFlatBiomeHeight + (avgBaseHeight - avgFlatBiomeHeight) * linkerNear;
 						avgHeightVariation *= linkerNear;
 					}
-					mountain = GOTMountains.getTotalHeightBoost(xPos, zPos);
+					float mountain = GOTMountains.getTotalHeightBoost(xPos, zPos);
 					if (mountain > 0.005f) {
 						avgBaseHeight += mountain;
 						float mtnV = 0.2f;
@@ -261,7 +259,7 @@ public class GOTChunkProvider implements IChunkProvider {
 				if (avgHeightVariation == 0.0f) {
 					avgHeightVariation = 0.001f;
 				}
-				heightNoise = noise6[noiseIndexXZ] / 8000.0;
+				double heightNoise = noise6[noiseIndexXZ] / 8000.0;
 				if (heightNoise < 0.0) {
 					heightNoise = -heightNoise * 0.3;
 				}

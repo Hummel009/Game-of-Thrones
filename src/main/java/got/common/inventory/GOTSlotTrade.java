@@ -32,10 +32,7 @@ public class GOTSlotTrade extends GOTSlotProtected {
 				return false;
 			}
 		}
-		if (tradeType == GOTTradeEntries.TradeType.WE_CAN_SELL) {
-			return false;
-		}
-		return super.canTakeStack(entityplayer);
+		return tradeType != GOTTradeEntries.TradeType.WE_CAN_SELL && super.canTakeStack(entityplayer);
 	}
 
 	public int cost() {

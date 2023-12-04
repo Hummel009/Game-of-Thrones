@@ -214,10 +214,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 
 	@Override
 	public boolean getCanSpawnHere() {
-		if (super.getCanSpawnHere()) {
-			return canBirdSpawnHere();
-		}
-		return false;
+		return super.getCanSpawnHere() && canBirdSpawnHere();
 	}
 
 	@Override
@@ -330,10 +327,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		if (type == BirdType.CROW) {
 			return item instanceof ItemFood || GOT.isOreNameEqual(itemstack, "bone");
 		}
-		if (type == BirdType.MAGPIE) {
-			return GOTValuableItems.canMagpieSteal(itemstack);
-		}
-		return false;
+		return type == BirdType.MAGPIE && GOTValuableItems.canMagpieSteal(itemstack);
 	}
 
 	public boolean isValidFlightTarget(ChunkCoordinates coords) {
@@ -408,10 +402,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 
 	@Override
 	public void playLivingSound() {
-		boolean sound = true;
-		if (!worldObj.isDaytime()) {
-			sound = rand.nextInt(20) == 0;
-		}
+		boolean sound = worldObj.isDaytime() || rand.nextInt(20) == 0;
 		if (sound) {
 			super.playLivingSound();
 		}

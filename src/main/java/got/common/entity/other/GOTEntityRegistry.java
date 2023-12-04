@@ -22,13 +22,12 @@ public class GOTEntityRegistry {
 	public static Collection<Class<? extends Entity>> entitySet = new HashSet<>();
 
 	public static Entity createEntityByClass(Class<? extends Entity> entityClass, World world) {
-		Entity entity = null;
 		try {
-			entity = entityClass.getConstructor(World.class).newInstance(world);
+			return entityClass.getConstructor(World.class).newInstance(world);
 		} catch (Exception exception) {
 			exception.printStackTrace();
 		}
-		return entity;
+		return null;
 	}
 
 	public static Set<String> getAllEntityNames() {

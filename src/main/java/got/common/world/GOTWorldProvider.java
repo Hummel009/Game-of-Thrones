@@ -77,10 +77,7 @@ public class GOTWorldProvider extends WorldProvider {
 		}
 		boolean standardColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER;
 		boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() != null && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;
-		if (standardColdBiome || altitudeColdBiome) {
-			return worldObj.canBlockFreezeBody(i, j, k, isBlockUpdate);
-		}
-		return false;
+		return (standardColdBiome || altitudeColdBiome) && worldObj.canBlockFreezeBody(i, j, k, isBlockUpdate);
 	}
 
 	public boolean canFreezeIgnoreTemp(int i, int j, int k, boolean isBlockUpdate) {
@@ -112,17 +109,11 @@ public class GOTWorldProvider extends WorldProvider {
 		}
 		boolean standardColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() == GOTClimateType.WINTER;
 		boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() != null && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;
-		if (standardColdBiome || altitudeColdBiome) {
-			return worldObj.canSnowAtBody(i, j, k, checkLight);
-		}
-		return false;
+		return (standardColdBiome || altitudeColdBiome) && worldObj.canSnowAtBody(i, j, k, checkLight);
 	}
 
 	public boolean canSnowIgnoreTemp(int i, int j, int k, boolean checkLight) {
-		if (!checkLight) {
-			return true;
-		}
-		return j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && worldObj.getBlock(i, j, k).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
+		return !checkLight || j >= 0 && j < worldObj.getHeight() && worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k) < 10 && worldObj.getBlock(i, j, k).getMaterial() == Material.air && Blocks.snow_layer.canPlaceBlockAt(worldObj, i, j, k);
 	}
 
 	@Override
@@ -189,7 +180,7 @@ public class GOTWorldProvider extends WorldProvider {
 				chunk.getBiomeArray()[chunkZ << 4 | chunkX] = (byte) (biomeID & 0xFF);
 			}
 			GOTDimension dim = getGOTDimension();
-			return dim.biomeList[biomeID] == null ? dim.biomeList[0] : dim.biomeList[biomeID];
+			return dim.biomeList[dim.biomeList[biomeID] == null ? 0 : biomeID];
 		}
 		return worldChunkMgr.getBiomeGenAt(i, k);
 	}

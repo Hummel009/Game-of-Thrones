@@ -558,8 +558,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 
 	public void trackOrUntrack(GOTMiniQuest quest) {
 		GOTMiniQuest tracking = getPlayerData().getTrackingMiniQuest();
-		GOTMiniQuest newTracking;
-		newTracking = quest == tracking ? null : quest;
+		GOTMiniQuest newTracking = quest == tracking ? null : quest;
 		IMessage packet = new GOTPacketMiniquestTrack(newTracking);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 		getPlayerData().setTrackingMiniQuest(newTracking);

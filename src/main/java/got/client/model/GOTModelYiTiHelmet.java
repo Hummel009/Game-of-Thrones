@@ -58,9 +58,9 @@ public class GOTModelYiTiHelmet extends GOTModelBiped {
 			bisonHornLeft2.addBox(-1.0f, -0.5f, -0.5f, 4, 1, 1, 0.0f);
 			bisonHornRight.rotateAngleZ = 0.6981317007977318f;
 			bisonHornLeft.rotateAngleZ = -bisonHornRight.rotateAngleZ;
-			bisonHornRight1.rotateAngleZ = -0.5235987755982988f;
+			bisonHornRight1.rotateAngleZ = -0.5235988f;
 			bisonHornLeft1.rotateAngleZ = -bisonHornRight1.rotateAngleZ;
-			bisonHornRight2.rotateAngleZ = -0.5235987755982988f;
+			bisonHornRight2.rotateAngleZ = -0.5235988f;
 			bisonHornLeft2.rotateAngleZ = -bisonHornRight2.rotateAngleZ;
 			bipedHead.addChild(bisonHornRight);
 			bisonHornRight.addChild(bisonHornRight1);

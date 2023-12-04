@@ -107,7 +107,7 @@ public class GOTModelBison extends ModelBase {
 		hornLeft2.rotateAngleZ = 0.2617993877991494f;
 		hornRight1.rotateAngleZ = -hornLeft1.rotateAngleZ;
 		hornRight2.rotateAngleZ = -hornLeft2.rotateAngleZ;
-		hornLeft1.rotateAngleY = -0.4363323129985824f;
+		hornLeft1.rotateAngleY = -0.43633232f;
 		hornRight1.rotateAngleY = -hornLeft1.rotateAngleY;
 		hornRight1.rotateAngleX = hornLeft1.rotateAngleX = 0.6108652381980153f;
 		leg1.rotateAngleX = MathHelper.cos(f * 0.4f) * f1 * 0.8f;

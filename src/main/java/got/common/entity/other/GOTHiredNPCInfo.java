@@ -141,24 +141,15 @@ public class GOTHiredNPCInfo {
 	}
 
 	public boolean getObeyCommandSword() {
-		if (hiredTask != Task.WARRIOR) {
-			return false;
-		}
-		return !guardMode;
+		return hiredTask == Task.WARRIOR && !guardMode;
 	}
 
 	public boolean getObeyHornHaltReady() {
-		if (hiredTask != Task.WARRIOR) {
-			return false;
-		}
-		return !guardMode;
+		return hiredTask == Task.WARRIOR && !guardMode;
 	}
 
 	public boolean getObeyHornSummon() {
-		if (hiredTask != Task.WARRIOR) {
-			return false;
-		}
-		return !guardMode;
+		return hiredTask == Task.WARRIOR && !guardMode;
 	}
 
 	public float getProgressToNextLevel() {

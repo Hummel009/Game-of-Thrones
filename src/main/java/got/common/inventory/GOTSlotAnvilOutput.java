@@ -17,13 +17,7 @@ public class GOTSlotAnvilOutput extends Slot {
 
 	@Override
 	public boolean canTakeStack(EntityPlayer entityplayer) {
-		if (getHasStack()) {
-			if (theAnvil.materialCost > 0) {
-				return theAnvil.hasMaterialOrCoinAmount(theAnvil.materialCost);
-			}
-			return true;
-		}
-		return false;
+		return getHasStack() && (theAnvil.materialCost <= 0 || theAnvil.hasMaterialOrCoinAmount(theAnvil.materialCost));
 	}
 
 	@Override

@@ -40,9 +40,8 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 
 	public static void defendGrapevines(EntityPlayer entityplayer, World world, int i, int j, int k) {
 		if (!entityplayer.capabilities.isCreativeMode) {
-			GOTBiomeVariant variant;
 			BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
-			variant = world.provider instanceof GOTWorldProvider ? ((GOTWorldChunkManager) world.provider.worldChunkMgr).getBiomeVariantAt(i, k) : null;
+			GOTBiomeVariant variant = world.provider instanceof GOTWorldProvider ? ((GOTWorldChunkManager) world.provider.worldChunkMgr).getBiomeVariantAt(i, k) : null;
 			if (biome instanceof GOTBiomeReachArbor && variant == GOTBiomeVariant.VINEYARD) {
 				GOTEntityReachSoldier guard;
 				float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.REACH);

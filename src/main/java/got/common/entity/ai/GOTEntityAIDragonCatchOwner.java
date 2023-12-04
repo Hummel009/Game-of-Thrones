@@ -17,10 +17,7 @@ public class GOTEntityAIDragonCatchOwner extends EntityAIBase {
 	public boolean shouldExecute() {
 		owner = (EntityPlayer) dragon.getOwner();
 
-		if (owner == null || owner.capabilities.isCreativeMode || dragon.riddenByEntity != null) {
-			return false;
-		}
+		return owner != null && !owner.capabilities.isCreativeMode && dragon.riddenByEntity == null && owner.fallDistance > 4;
 
-		return owner.fallDistance > 4;
 	}
 }

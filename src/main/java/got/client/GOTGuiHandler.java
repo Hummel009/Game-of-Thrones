@@ -141,7 +141,6 @@ public class GOTGuiHandler {
 				GOTAchievement.Category category = GOTAchievement.categoryForName(categoryName);
 				int achievementID = Integer.parseInt(unformattedText.substring(splitIndex + 1));
 				GOTAchievement achievement = GOTAchievement.achievementForCategoryAndID(category, achievementID);
-				assert achievement != null;
 				IChatComponent name = new ChatComponentTranslation("got.gui.achievements.hover.name", achievement.getAchievementChatComponent(entityplayer));
 				IChatComponent subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
 				subtitle.getChatStyle().setItalic(true);
@@ -263,7 +262,7 @@ public class GOTGuiHandler {
 						GL11.glDisable(3008);
 						GL11.glShadeModel(7425);
 						GL11.glPushMatrix();
-						GL11.glTranslatef(0.0F, 0.0F, -500.0F);
+						GL11.glTranslatef(0.0F, 0.0F, -500.0f);
 						Tessellator tessellator = Tessellator.instance;
 						tessellator.startDrawingQuads();
 						tessellator.setColorRGBA_F(0.0F, 0.0F, 0.0F, a1);

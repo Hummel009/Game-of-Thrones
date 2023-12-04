@@ -305,10 +305,9 @@ public class GOTBiomeDecorator {
 			new WorldGenDeadBush(Blocks.deadbush).generate(worldObj, rand, i2, j10, k13);
 		}
 		for (l7 = 0; l7 < waterlilyPerChunk; ++l7) {
-			int j11;
 			i2 = chunkX + rand.nextInt(16) + 8;
 			int k14 = chunkZ + rand.nextInt(16) + 8;
-			j11 = rand.nextInt(128);
+			int j11 = rand.nextInt(128);
 			waterlilyGen.generate(worldObj, rand, i2, j11, k14);
 		}
 		for (l7 = 0; l7 < canePerChunk; ++l7) {
@@ -324,10 +323,9 @@ public class GOTBiomeDecorator {
 			caneGen.generate(worldObj, rand, i2, j2, k18);
 		}
 		for (l7 = 0; l7 < reedPerChunk; ++l7) {
-			int j13;
 			i2 = chunkX + rand.nextInt(16) + 8;
 			k5 = chunkZ + rand.nextInt(16) + 8;
-			j13 = rand.nextInt(128);
+			int j13 = rand.nextInt(128);
 			if (rand.nextFloat() < dryReedChance) {
 				dryReedGen.generate(worldObj, rand, i2, j13, k5);
 				continue;

@@ -20,10 +20,7 @@ public class GOTEntityAINPCFollowNPC extends EntityAIBase {
 	@Override
 	public boolean continueExecuting() {
 		double distanceSq = entityFollowing.getDistanceSqToEntity(entityToFollow);
-		if (!entityToFollow.isEntityAlive()) {
-			return false;
-		}
-		return distanceSq >= 9.0 && distanceSq <= 256.0;
+		return entityToFollow.isEntityAlive() && distanceSq >= 9.0 && distanceSq <= 256.0;
 	}
 
 	@Override

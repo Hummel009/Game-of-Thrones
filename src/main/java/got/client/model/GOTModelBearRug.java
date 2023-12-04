@@ -36,10 +36,10 @@ public class GOTModelBearRug extends ModelBase {
 		bearModel.leg1.rotateAngleX = 0.5235987755982988f;
 		bearModel.leg1.rotateAngleZ = 1.5707963267948966f;
 		bearModel.leg2.rotateAngleX = 0.5235987755982988f;
-		bearModel.leg2.rotateAngleZ = -1.5707963267948966f;
-		bearModel.leg3.rotateAngleX = -0.3490658503988659f;
+		bearModel.leg2.rotateAngleZ = -1.5707964f;
+		bearModel.leg3.rotateAngleX = -0.34906584f;
 		bearModel.leg3.rotateAngleZ = 1.5707963267948966f;
-		bearModel.leg4.rotateAngleX = -0.3490658503988659f;
-		bearModel.leg4.rotateAngleZ = -1.5707963267948966f;
+		bearModel.leg4.rotateAngleX = -0.34906584f;
+		bearModel.leg4.rotateAngleZ = -1.5707964f;
 	}
 }

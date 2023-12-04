@@ -110,10 +110,7 @@ public class GOTContainerAnvil extends Container {
 
 	public static boolean costsToRename(ItemStack itemstack) {
 		Item item = itemstack.getItem();
-		if (item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
-			return true;
-		}
-		return item instanceof ItemBow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
+		return item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0 || item instanceof ItemBow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
 	}
 
 	public static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
@@ -153,17 +150,14 @@ public class GOTContainerAnvil extends Container {
 		}
 		if (rand.nextFloat() < 0.2f) {
 			GOTEnchantmentHelper.applyRandomEnchantments(itemstack, rand, false, true);
-			changed = true;
+			return true;
 		}
 		return changed;
 	}
 
 	public boolean canEngraveNewOwner(ItemStack itemstack, ICommandSender entityplayer) {
 		String currentOwner = GOTItemOwnership.getCurrentOwner(itemstack);
-		if (currentOwner == null) {
-			return true;
-		}
-		return !currentOwner.equals(entityplayer.getCommandSenderName());
+		return currentOwner == null || !currentOwner.equals(entityplayer.getCommandSenderName());
 	}
 
 	@Override
@@ -237,7 +231,7 @@ public class GOTContainerAnvil extends Container {
 			}
 		}
 		if (materialPrice <= 0.0f && isRepairMaterial(inputItem, new ItemStack(GOTItems.valyrianIngot)) && theTrader instanceof GOTEntityQohorBlacksmith) {
-			materialPrice = 200.0f;
+			return 200.0f;
 		}
 		return materialPrice;
 	}
@@ -248,10 +242,7 @@ public class GOTContainerAnvil extends Container {
 		}
 		ItemStack inputItem = invInput.getStackInSlot(0);
 		ItemStack materialItem = invInput.getStackInSlot(2);
-		if (materialItem != null) {
-			return isRepairMaterial(inputItem, materialItem) && materialItem.stackSize >= cost;
-		}
-		return false;
+		return materialItem != null && isRepairMaterial(inputItem, materialItem) && materialItem.stackSize >= cost;
 	}
 
 	public boolean isRepairMaterial(ItemStack inputItem, ItemStack materialItem) {
@@ -277,10 +268,7 @@ public class GOTContainerAnvil extends Container {
 		if (material == Item.ToolMaterial.WOOD) {
 			return GOT.isOreNameEqual(materialItem, "plankWood");
 		}
-		if (item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.BONE) {
-			return GOT.isOreNameEqual(materialItem, "bone");
-		}
-		return false;
+		return item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.BONE && GOT.isOreNameEqual(materialItem, "bone");
 	}
 
 	@Override
@@ -469,7 +457,6 @@ public class GOTContainerAnvil extends Container {
 		} else {
 			int oneItemRepair;
 			GOTEnchantmentCombining.CombineRecipe scrollCombine;
-			boolean repairing;
 			ItemStack inputCopy = inputItem.copy();
 			ItemStack combinerItem = invInput.getStackInSlot(1);
 			ItemStack materialItem = isTrader ? null : invInput.getStackInSlot(2);
@@ -485,10 +472,9 @@ public class GOTContainerAnvil extends Container {
 			boolean alteringNameColor = false;
 			if (costsToRename(inputItem) && combinerItem != null) {
 				if (combinerItem.getItem() instanceof AnvilNameColorProvider) {
-					boolean isDifferentColor;
 					AnvilNameColorProvider nameColorProvider = (AnvilNameColorProvider) combinerItem.getItem();
 					EnumChatFormatting newColor = nameColorProvider.getAnvilNameColor();
-					isDifferentColor = !colorsToApply.contains(newColor);
+					boolean isDifferentColor = !colorsToApply.contains(newColor);
 					if (isDifferentColor) {
 						for (EnumChatFormatting ecf : EnumChatFormatting.values()) {
 							if (!ecf.isColor()) {
@@ -581,7 +567,6 @@ public class GOTContainerAnvil extends Container {
 				if (GOTConfig.enchantingVanilla) {
 					Map<Integer, Integer> combinerEnchants = EnchantmentHelper.getEnchantments(combinerItem);
 					for (Integer obj : combinerEnchants.keySet()) {
-						int combinerEnchLevel;
 						int combinerEnchID = obj;
 						Enchantment combinerEnch = Enchantment.enchantmentsList[combinerEnchID];
 						int inputEnchLevel = 0;
@@ -589,7 +574,7 @@ public class GOTContainerAnvil extends Container {
 							inputEnchLevel = outputEnchants.get(combinerEnchID);
 						}
 						int combinedEnchLevel;
-						combinerEnchLevel = combinerEnchants.get(combinerEnchID);
+						int combinerEnchLevel = combinerEnchants.get(combinerEnchID);
 						if (inputEnchLevel == combinerEnchLevel) {
 							++combinerEnchLevel;
 							combinedEnchLevel = combinerEnchLevel;
@@ -715,7 +700,6 @@ public class GOTContainerAnvil extends Container {
 				}
 				baseAnvilCost += Math.max(1, (int) mod.getValueModifier());
 			}
-			assert inputCopy != null;
 			if (inputCopy.isItemStackDamageable()) {
 				boolean canRepair;
 				int availableMaterials = 0;
@@ -746,7 +730,7 @@ public class GOTContainerAnvil extends Container {
 					}
 				}
 			}
-			repairing = repairCost > 0;
+			boolean repairing = repairCost > 0;
 			if (combining || repairing) {
 				materialCost = baseAnvilCost;
 				materialCost += combineCost + repairCost;

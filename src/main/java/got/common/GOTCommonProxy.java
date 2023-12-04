@@ -187,11 +187,10 @@ public class GOTCommonProxy implements IGuiHandler {
 				}
 				break;
 			case BOOKSHELF:
-				TileEntity bookshelf;
 				if (world.getBlock(i, j, k) == Blocks.bookshelf) {
 					world.setBlock(i, j, k, GOTBlocks.bookshelfStorage, 0, 3);
 				}
-				bookshelf = world.getTileEntity(i, j, k);
+				TileEntity bookshelf = world.getTileEntity(i, j, k);
 				if (bookshelf instanceof GOTTileEntityBookshelf) {
 					return new GOTGuiBookshelf(entityplayer.inventory, (GOTTileEntityBookshelf) bookshelf);
 				}

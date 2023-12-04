@@ -53,10 +53,7 @@ public class GOTEntityAIFollowHiringPlayer extends EntityAIBase {
 			return false;
 		}
 		theHiringPlayer = entityplayer;
-		if (!theNPC.hiredNPCInfo.shouldFollowPlayer()) {
-			return false;
-		}
-		return theNPC.getDistanceSqToEntity(entityplayer) >= minFollowDist * minFollowDist;
+		return theNPC.hiredNPCInfo.shouldFollowPlayer() && theNPC.getDistanceSqToEntity(entityplayer) >= minFollowDist * minFollowDist;
 	}
 
 	@Override

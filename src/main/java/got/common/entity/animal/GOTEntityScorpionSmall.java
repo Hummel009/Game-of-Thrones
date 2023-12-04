@@ -26,7 +26,7 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 	protected GOTEntityScorpionSmall(World world) {
 		super(world);
 		canBeMarried = false;
-		setSize(1.2f * 0.5f, 0.9f * 0.5f);
+		setSize(0.6f, 0.45f);
 		getNavigator().setAvoidsWater(true);
 		getNavigator().setBreakDoors(true);
 		getNavigator().setCanSwim(false);
@@ -154,10 +154,7 @@ public abstract class GOTEntityScorpionSmall extends GOTEntityNPC implements GOT
 
 	@Override
 	public boolean isPotionApplicable(PotionEffect effect) {
-		if (effect.getPotionID() == Potion.poison.id) {
-			return false;
-		}
-		return super.isPotionApplicable(effect);
+		return effect.getPotionID() != Potion.poison.id && super.isPotionApplicable(effect);
 	}
 
 	@Override

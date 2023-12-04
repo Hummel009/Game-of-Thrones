@@ -115,12 +115,11 @@ public class GOTWorldGenBigTrees extends WorldGenAbstractTree {
 	}
 
 	public void generateLeafNodeList() {
-		int i;
 		height = (int) (heightLimit * heightAttenuation);
 		if (height >= heightLimit) {
 			height = heightLimit - 1;
 		}
-		i = (int) (1.382 + Math.pow(leafDensity * heightLimit / 13.0, 2.0));
+		int i = (int) (1.382 + Math.pow(leafDensity * heightLimit / 13.0, 2.0));
 		if (i < 1) {
 			i = 1;
 		}

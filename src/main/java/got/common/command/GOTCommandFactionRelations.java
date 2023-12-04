@@ -20,12 +20,12 @@ public class GOTCommandFactionRelations extends CommandBase {
 				List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
 				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 			}
-			case 4: {
+			case 4:
 				List<String> list = GOTFactionRelations.Relation.listRelationNames();
 				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
-			}
+			default:
+				return Collections.emptyList();
 		}
-		return Collections.emptyList();
 	}
 
 	@Override

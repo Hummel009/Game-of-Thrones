@@ -34,7 +34,6 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 
 	public void marry() {
 		int maxChildren;
-		EntityPlayer ringPlayerSpouse;
 		theNPC.familyInfo.spouseUniqueID = theSpouse.getUniqueID();
 		theSpouse.familyInfo.spouseUniqueID = theNPC.getUniqueID();
 		theNPC.setCurrentItemOrArmor(0, null);
@@ -52,10 +51,9 @@ public class GOTEntityAINPCMarry extends EntityAIBase {
 			GOTLevelData.getData(ringPlayer).addAlignment(ringPlayer, GOTAlignmentValues.MARRIAGE_BONUS, theNPC.getFaction(), theNPC);
 
 		}
-		ringPlayerSpouse = theSpouse.familyInfo.getRingGivingPlayer();
+		EntityPlayer ringPlayerSpouse = theSpouse.familyInfo.getRingGivingPlayer();
 		if (ringPlayerSpouse != null) {
 			GOTLevelData.getData(ringPlayerSpouse).addAlignment(ringPlayerSpouse, GOTAlignmentValues.MARRIAGE_BONUS, theSpouse.getFaction(), theSpouse);
-			assert ringPlayer != null;
 			GOTLevelData.getData(ringPlayer).addAchievement(GOTAchievement.marry);
 		}
 		theWorld.spawnEntityInWorld(new EntityXPOrb(theWorld, theNPC.posX, theNPC.posY, theNPC.posZ, theNPC.getRNG().nextInt(8) + 2));

@@ -27,7 +27,6 @@ public class GOTGuiHiredDismiss extends GOTGuiNPCInteract {
 
 	@Override
 	public void drawScreen(int i, int j, float f) {
-		boolean hasRider;
 		super.drawScreen(i, j, f);
 		String s = StatCollector.translateToLocal("got.gui.dismiss.warning1");
 		int y = height / 5 * 3;
@@ -38,7 +37,7 @@ public class GOTGuiHiredDismiss extends GOTGuiNPCInteract {
 		Entity mount = theEntity.ridingEntity;
 		Entity rider = theEntity.riddenByEntity;
 		boolean hasMount = mount instanceof GOTEntityNPC && ((GOTEntityNPC) mount).hiredNPCInfo.getHiringPlayer() == mc.thePlayer;
-		hasRider = rider instanceof GOTEntityNPC && ((GOTEntityNPC) rider).hiredNPCInfo.getHiringPlayer() == mc.thePlayer;
+		boolean hasRider = rider instanceof GOTEntityNPC && ((GOTEntityNPC) rider).hiredNPCInfo.getHiringPlayer() == mc.thePlayer;
 		if (hasMount) {
 			s = StatCollector.translateToLocal("got.gui.dismiss.mount");
 			fontRendererObj.drawString(s, (width - fontRendererObj.getStringWidth(s)) / 2, y, 11184810);

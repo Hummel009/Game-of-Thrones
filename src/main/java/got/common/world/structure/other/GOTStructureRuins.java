@@ -40,22 +40,18 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 				rotation = usingPlayerRotation();
 			}
 			switch (rotation) {
-				case 0: {
+				case 0:
 					k += 8;
 					break;
-				}
-				case 1: {
+				case 1:
 					i -= 8;
 					break;
-				}
-				case 2: {
+				case 2:
 					k -= 8;
 					break;
-				}
-				case 3: {
+				case 3:
 					i += 8;
 					break;
-				}
 				default:
 					break;
 			}
@@ -154,22 +150,18 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 			if (!restrictions && usingPlayer != null) {
 				rotation = usingPlayerRotation();
 				switch (rotation) {
-					case 0: {
+					case 0:
 						k += radius;
 						break;
-					}
-					case 1: {
+					case 1:
 						i -= radius;
 						break;
-					}
-					case 2: {
+					case 2:
 						k -= radius;
 						break;
-					}
-					case 3: {
+					case 3:
 						i += radius;
 						break;
-					}
 					default:
 						break;
 				}
@@ -269,7 +261,7 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 					}
 					break;
 				}
-				case 3: {
+				case 3:
 					int j1;
 					int k13;
 					int height;
@@ -280,15 +272,13 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 						}
 					}
 					break;
-				}
 				default:
 					break;
 			}
 			for (int l = 0; l < 16; ++l) {
-				int j1;
 				int i13 = i - random.nextInt(radius * 2) + random.nextInt(radius * 2);
 				k1 = k - random.nextInt(radius * 2) + random.nextInt(radius * 2);
-				j1 = world.getHeightValue(i13, k1);
+				int j1 = world.getHeightValue(i13, k1);
 				if (world.getBlock(i13, j1 - 1, k1) != Blocks.grass) {
 					continue;
 				}
@@ -339,12 +329,12 @@ public class GOTStructureRuins extends GOTStructureBaseSettlement {
 		public void addSettlementStructures(Random random) {
 			super.addSettlementStructures(random);
 			addStructure(new GOTStructureRuinsPart(false), -8, 0, 0, true);
-			addStructure(new GOTStructureRuinsPart(false), +8, 0, 0, true);
+			addStructure(new GOTStructureRuinsPart(false), 8, 0, 0, true);
 			addStructure(new GOTStructureRuinsPart(false), -8, -8, 0, true);
-			addStructure(new GOTStructureRuinsPart(false), +8, -8, 0, true);
-			addStructure(new GOTStructureRuinsPart(false), -8, +8, 0, true);
-			addStructure(new GOTStructureRuinsPart(false), +8, +8, 0, true);
-			addStructure(new GOTStructureRuinsTower(false), 0, +6, 0, true);
+			addStructure(new GOTStructureRuinsPart(false), 8, -8, 0, true);
+			addStructure(new GOTStructureRuinsPart(false), -8, 8, 0, true);
+			addStructure(new GOTStructureRuinsPart(false), 8, 8, 0, true);
+			addStructure(new GOTStructureRuinsTower(false), 0, 6, 0, true);
 		}
 
 		@Override

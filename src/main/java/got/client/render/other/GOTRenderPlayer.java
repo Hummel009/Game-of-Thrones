@@ -39,7 +39,6 @@ public class GOTRenderPlayer {
 
 	@SubscribeEvent
 	public void postRender(RenderPlayerEvent.Post event) {
-		float yOffset;
 		EntityPlayer entityplayer = event.entityPlayer;
 		float tick = event.partialRenderTick;
 		double d0 = RenderManager.renderPosX;
@@ -51,14 +50,13 @@ public class GOTRenderPlayer {
 		float fr0 = f0 - (float) d0;
 		float fr1 = f1 - (float) d1;
 		float fr2 = f2 - (float) d2;
-		yOffset = entityplayer.isPlayerSleeping() ? -1.5f : 0.0f;
+		float yOffset = entityplayer.isPlayerSleeping() ? -1.5f : 0.0f;
 		if (shouldRenderAlignment(entityplayer) && (mc.theWorld.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment)) {
-			float range;
 			GOTPlayerData clientPD = GOTLevelData.getData(mc.thePlayer);
 			GOTPlayerData otherPD = GOTLevelData.getData(entityplayer);
 			float alignment = otherPD.getAlignment(clientPD.getViewingFaction());
 			double dist = entityplayer.getDistanceSqToEntity(renderManager.livingPlayer);
-			range = RendererLivingEntity.NAME_TAG_RANGE;
+			float range = RendererLivingEntity.NAME_TAG_RANGE;
 			if (dist < range * range) {
 				FontRenderer fr = Minecraft.getMinecraft().fontRenderer;
 				GL11.glPushMatrix();
@@ -213,9 +211,6 @@ public class GOTRenderPlayer {
 	}
 
 	public boolean shouldRenderPlayerHUD(EntityPlayer entityplayer) {
-		if (Minecraft.isGuiEnabled()) {
-			return entityplayer != renderManager.livingPlayer && !entityplayer.isSneaking() && !entityplayer.isInvisibleToPlayer(mc.thePlayer);
-		}
-		return false;
+		return Minecraft.isGuiEnabled() && entityplayer != renderManager.livingPlayer && !entityplayer.isSneaking() && !entityplayer.isInvisibleToPlayer(mc.thePlayer);
 	}
 }

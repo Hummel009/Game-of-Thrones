@@ -47,8 +47,7 @@ public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 		for (k1 = 1; k1 <= 11; ++k1) {
 			for (i1 = -4; i1 <= 4; ++i1) {
 				int j1;
-				boolean pillar;
-				pillar = Math.abs(i1) == 4 && (k1 == 1 || k1 == 11);
+				boolean pillar = Math.abs(i1) == 4 && (k1 == 1 || k1 == 11);
 				if (pillar) {
 					for (j1 = 4; (j1 >= 0 || !isOpaque(world, i1, j1, k1)) && getY(j1) >= 0; --j1) {
 						setBlockAndMetadata(world, i1, j1, k1, pillar2Block, pillar2Meta);

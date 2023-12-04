@@ -138,10 +138,7 @@ public class GOTEntityWalrus extends EntityAnimal implements GOTBiome.ImmuneToFr
 
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
-		if (isHostile()) {
-			return false;
-		}
-		return super.interact(entityplayer);
+		return !isHostile() && super.interact(entityplayer);
 	}
 
 	@Override

@@ -122,10 +122,7 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 
 	@Override
 	public boolean isItemValidForSlot(int slot, ItemStack itemstack) {
-		if (slot == 0) {
-			return itemstack != null && GOTRecipeMillstone.getMillingResult(itemstack) != null;
-		}
-		return false;
+		return slot == 0 && itemstack != null && GOTRecipeMillstone.getMillingResult(itemstack) != null;
 	}
 
 	public boolean isMilling() {
@@ -141,7 +138,6 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 		if (canMill()) {
 			ItemStack itemstack = inventory[0];
 			GOTRecipeMillstone.MillstoneResult result = GOTRecipeMillstone.getMillingResult(itemstack);
-			assert result != null;
 			ItemStack resultItem = result.resultItem;
 			float chance = result.chance;
 			if (worldObj.rand.nextFloat() < chance) {

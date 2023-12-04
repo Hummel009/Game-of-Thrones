@@ -42,11 +42,11 @@ public class GOTModelFish extends ModelBase {
 	@Override
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
 		finTop.rotateAngleX = 0.47123889803846897f;
-		finRight.rotateAngleX = -0.2617993877991494f;
-		finRight.rotateAngleY = -0.5235987755982988f;
+		finRight.rotateAngleX = -0.2617994f;
+		finRight.rotateAngleY = -0.5235988f;
 		finRight.rotateAngleY += MathHelper.cos(f2 * 0.5f + 3.1415927f) * 0.17453292519943295f;
 		finLeft.rotateAngleX = finRight.rotateAngleX;
 		finLeft.rotateAngleY = -finRight.rotateAngleY;
-		finBack.rotateAngleX = -0.7853981633974483f;
+		finBack.rotateAngleX = -0.7853982f;
 	}
 }

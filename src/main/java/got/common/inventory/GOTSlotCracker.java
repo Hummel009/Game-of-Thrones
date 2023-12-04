@@ -12,9 +12,6 @@ public class GOTSlotCracker extends Slot {
 
 	@Override
 	public boolean isItemValid(ItemStack itemstack) {
-		if (itemstack.getItem() instanceof GOTItemPouch) {
-			return false;
-		}
-		return super.isItemValid(itemstack);
+		return !(itemstack.getItem() instanceof GOTItemPouch) && super.isItemValid(itemstack);
 	}
 }

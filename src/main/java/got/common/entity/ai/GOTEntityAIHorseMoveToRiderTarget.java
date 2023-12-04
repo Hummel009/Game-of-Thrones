@@ -64,10 +64,9 @@ public class GOTEntityAIHorseMoveToRiderTarget extends EntityAIBase {
 
 	@Override
 	public void updateTask() {
-		boolean aimingBow;
 		GOTEntityNPC rider = (GOTEntityNPC) livingHorse.riddenByEntity;
 		EntityLivingBase riderTarget = rider.getAttackTarget();
-		aimingBow = rider.isAimingRanged() && livingHorse.getEntitySenses().canSee(riderTarget);
+		boolean aimingBow = rider.isAimingRanged() && livingHorse.getEntitySenses().canSee(riderTarget);
 		if (!aimingBow) {
 			livingHorse.getLookHelper().setLookPositionWithEntity(riderTarget, 30.0f, 30.0f);
 			rider.rotationYaw = livingHorse.rotationYaw;

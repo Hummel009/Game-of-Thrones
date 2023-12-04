@@ -55,7 +55,7 @@ public class GOTModelBird extends ModelBase {
 	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
 		GOTEntityBird bird = (GOTEntityBird) entity;
 		if (bird.isBirdStill()) {
-			body.rotateAngleX = -0.17453292519943295f;
+			body.rotateAngleX = -0.17453292f;
 			head.rotateAngleX = 0.3490658503988659f;
 			wingRight.rotateAngleZ = bird.flapTime > 0 ? 1.5707963267948966f + MathHelper.cos(f2 * 1.5f) * 0.5235987755982988f : 0.5235987755982988f;
 			wingLeft.rotateAngleZ = -wingRight.rotateAngleZ;

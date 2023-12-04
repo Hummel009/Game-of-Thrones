@@ -54,7 +54,7 @@ public class GOTItemConquestHorn extends Item {
 			invasionType = GOTInvasions.forName(s);
 		}
 		if (invasionType == null) {
-			invasionType = GOTInvasions.NORTH;
+			return GOTInvasions.NORTH;
 		}
 		return invasionType;
 	}

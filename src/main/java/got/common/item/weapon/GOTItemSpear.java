@@ -34,7 +34,7 @@ public class GOTItemSpear extends GOTItemSword {
 
 	public float getRangedDamageMultiplier(ItemStack itemstack, Entity shooter, Entity hit) {
 		float damage = getGOTWeaponDamage();
-		damage = shooter instanceof EntityLivingBase && hit instanceof EntityLivingBase ? damage + EnchantmentHelper.getEnchantmentModifierLiving((EntityLivingBase) shooter, (EntityLivingBase) hit) : damage + EnchantmentHelper.func_152377_a(itemstack, EnumCreatureAttribute.UNDEFINED);
+		damage = damage + (shooter instanceof EntityLivingBase && hit instanceof EntityLivingBase ? EnchantmentHelper.getEnchantmentModifierLiving((EntityLivingBase) shooter, (EntityLivingBase) hit) : EnchantmentHelper.func_152377_a(itemstack, EnumCreatureAttribute.UNDEFINED));
 		return damage * 0.7f;
 	}
 
@@ -48,7 +48,7 @@ public class GOTItemSpear extends GOTItemSword {
 		if (charge < 0.1f) {
 			return;
 		}
-		charge = (charge * charge + charge * 2.0f) / 3.0f;
+		charge = charge * (charge + 2.0f) / 3.0f;
 		charge = Math.min(charge, 1.0f);
 		GOTEntitySpear spear = new GOTEntitySpear(world, entityplayer, itemstack.copy(), charge * 2.0f);
 		if (charge >= 1.0f) {

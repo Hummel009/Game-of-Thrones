@@ -29,7 +29,7 @@ public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 			mapRenderer.prevMapX = mapRenderer.mapX = GOTWaypoint.KINGS_LANDING.getX();
 			mapRenderer.prevMapY = mapRenderer.mapY = GOTWaypoint.KINGS_LANDING.getY();
 			mapRenderer.zoomExp = -1.0f;
-			mapRenderer.zoomStable = (float) Math.pow(2.0, -1.00000001192092896);
+			mapRenderer.zoomStable = (float) Math.pow(2.0, -1.000000011920929);
 			int x0 = 0;
 			int x1 = width;
 			int y0 = 0;

@@ -193,13 +193,7 @@ public class GOTUnitTradeEntry {
 
 		public boolean canAcceptPlayer(EntityPlayer entityplayer, GOTFaction fac) {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			if (this == NONE) {
-				return true;
-			}
-			if (this == FACTION) {
-				return pd.isPledgedTo(fac);
-			}
-			return false;
+			return this == NONE || this == FACTION && pd.isPledgedTo(fac);
 		}
 
 		public String getCommandReqText(GOTFaction fac) {

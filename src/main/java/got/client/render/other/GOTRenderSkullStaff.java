@@ -17,7 +17,7 @@ public class GOTRenderSkullStaff implements IItemRenderer {
 			staff.addBox(-0.5f, 8.0f, -6.0f, 1, 1, 28, 0.0f);
 			staff.addBox(-2.5f, 6.0f, -11.0f, 5, 5, 5, 0.0f);
 			staff.rotateAngleY = 1.5707963267948966f;
-			staff.rotateAngleZ = -0.3490658503988659f;
+			staff.rotateAngleZ = -0.34906584f;
 		}
 
 		@Override

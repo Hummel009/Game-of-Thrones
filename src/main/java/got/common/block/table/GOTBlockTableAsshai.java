@@ -39,9 +39,9 @@ public class GOTBlockTableAsshai extends GOTBlockCraftingTable {
 				double d = i + 0.25D + random.nextFloat() * 0.5F;
 				double d1 = j + 1.0D;
 				double d2 = k + 0.25D + random.nextFloat() * 0.5F;
-				double d3 = -0.05D + random.nextFloat() * 0.1D;
+				double d3 = -0.05 + random.nextFloat() * 0.1D;
 				double d4 = 0.1D + random.nextFloat() * 0.1D;
-				double d5 = -0.05D + random.nextFloat() * 0.1D;
+				double d5 = -0.05 + random.nextFloat() * 0.1D;
 				GOT.proxy.spawnParticle("asshaiTorch", d, d1, d2, d3, d4, d5);
 			}
 		}

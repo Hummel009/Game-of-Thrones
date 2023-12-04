@@ -132,10 +132,7 @@ public class GOT {
 				return false;
 			}
 			if (!isPlayerDirected) {
-				if (target instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target).getAlignment(attackerFaction) >= 0.0f && attacker.getAttackTarget() != target) {
-					return false;
-				}
-				return !(target.riddenByEntity instanceof EntityPlayer) || GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) < 0.0f || attacker.getAttackTarget() == target || attacker.getAttackTarget() == target.riddenByEntity;
+				return (!(target instanceof EntityPlayer) || !(GOTLevelData.getData((EntityPlayer) target).getAlignment(attackerFaction) >= 0.0f) || attacker.getAttackTarget() == target) && (!(target.riddenByEntity instanceof EntityPlayer) || GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) < 0.0f || attacker.getAttackTarget() == target || attacker.getAttackTarget() == target.riddenByEntity);
 			}
 		}
 		return true;

@@ -16,19 +16,7 @@ public class GOTMapGenCaves extends MapGenBase {
 	private GOTChunkProvider.ChunkFlags chunkFlags;
 
 	public static boolean isTerrainBlock(Block block, BiomeGenBase biome) {
-		if (block == biome.topBlock || block == biome.fillerBlock) {
-			return true;
-		}
-		if (block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == GOTBlocks.whiteSand || block == Blocks.gravel || block == GOTBlocks.mudGrass || block == GOTBlocks.mud) {
-			return true;
-		}
-		if (block == GOTBlocks.dirtPath) {
-			return true;
-		}
-		if (block == Blocks.stone || block == GOTBlocks.rock || block == Blocks.sandstone || block == GOTBlocks.redSandstone || block == GOTBlocks.whiteSandstone) {
-			return true;
-		}
-		return block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
+		return block == biome.topBlock || block == biome.fillerBlock || block == Blocks.grass || block == Blocks.dirt || block == Blocks.sand || block == GOTBlocks.whiteSand || block == Blocks.gravel || block == GOTBlocks.mudGrass || block == GOTBlocks.mud || block == GOTBlocks.dirtPath || block == Blocks.stone || block == GOTBlocks.rock || block == Blocks.sandstone || block == GOTBlocks.redSandstone || block == GOTBlocks.whiteSandstone || block == GOTBlocks.asshaiDirt || block == GOTBlocks.basaltGravel;
 	}
 
 	public int caveRarity() {
@@ -37,7 +25,6 @@ public class GOTMapGenCaves extends MapGenBase {
 
 	public void digBlock(Block[] blockArray, int index, int xzIndex, int i, int j, int k, int chunkX, int chunkZ, GOTBiome biome, boolean cutSurface) {
 		int roadDepth;
-		boolean dig;
 		int j1;
 		Block block = blockArray[index];
 		boolean isTop = false;
@@ -65,7 +52,7 @@ public class GOTMapGenCaves extends MapGenBase {
 				break;
 			}
 		}
-		dig = isTerrainBlock(block, biome) || block.getMaterial().isLiquid();
+		boolean dig = isTerrainBlock(block, biome) || block.getMaterial().isLiquid();
 		if (belowSettlementOrRoad) {
 			dig = false;
 		}
@@ -120,7 +107,6 @@ public class GOTMapGenCaves extends MapGenBase {
 	}
 
 	public void generateCaveNode(long seed, int par3, int par4, Block[] blockArray, double par6, double par8, double par10, float par12, float angle, float par14, int par15, int par16, double par17, boolean cutSurface) {
-		boolean var28;
 		double var19 = par3 * 16 + 8;
 		double var21 = par4 * 16 + 8;
 		float var23 = 0.0f;
@@ -136,7 +122,7 @@ public class GOTMapGenCaves extends MapGenBase {
 			var54 = true;
 		}
 		int var27 = caveRand.nextInt(par16 / 2) + par16 / 4;
-		var28 = caveRand.nextInt(6) == 0;
+		boolean var28 = caveRand.nextInt(6) == 0;
 		while (par15 < par16) {
 			double var29 = 1.5 + MathHelper.sin(par15 * 3.1415927f / par16) * par12 * 1.0f;
 			double var31 = var29 * par17;
@@ -145,7 +131,7 @@ public class GOTMapGenCaves extends MapGenBase {
 			par6 += MathHelper.cos(angle) * var33;
 			par8 += var34;
 			par10 += MathHelper.sin(angle) * var33;
-			par14 = var28 ? par14 * 0.92f : par14 * 0.7f;
+			par14 = par14 * (var28 ? 0.92f : 0.7f);
 			par14 += var24 * 0.1f;
 			angle += var23 * 0.1f;
 			var24 *= 0.9f;

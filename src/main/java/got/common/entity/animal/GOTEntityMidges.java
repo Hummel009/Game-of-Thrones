@@ -79,10 +79,7 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 		int i = MathHelper.floor_double(posX);
 		int j = MathHelper.floor_double(posY);
 		int k = MathHelper.floor_double(posZ);
-		if (j < 62) {
-			return false;
-		}
-		return worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock && super.getCanSpawnHere();
+		return j >= 62 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock && super.getCanSpawnHere();
 	}
 
 	@Override
@@ -128,9 +125,8 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 			playSound("got:midges.swarm", getSoundVolume(), getSoundPitch());
 		}
 		if (!worldObj.isRemote && isEntityAlive()) {
-			int chance;
 			boolean inMidgewater = worldObj.getBiomeGenForCoords(MathHelper.floor_double(posX), MathHelper.floor_double(posZ)) instanceof GOTBiomeNeck;
-			chance = inMidgewater ? 100 : 500;
+			int chance = inMidgewater ? 100 : 500;
 			if (rand.nextInt(chance) == 0) {
 				double range = inMidgewater ? 16.0 : 24.0;
 				int threshold = inMidgewater ? 6 : 5;
@@ -165,14 +161,13 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 			if (closestPlayer != null && rand.nextInt(7) == 0) {
 				playerTarget = closestPlayer;
 			} else {
-				int height;
 				int i = (int) posX + rand.nextInt(7) - rand.nextInt(7);
 				int j = (int) posY + rand.nextInt(4) - rand.nextInt(3);
 				int k = (int) posZ + rand.nextInt(7) - rand.nextInt(7);
 				if (j < 1) {
 					j = 1;
 				}
-				height = worldObj.getTopSolidOrLiquidBlock(i, k);
+				int height = worldObj.getTopSolidOrLiquidBlock(i, k);
 				if (j > height + 8) {
 					j = height + 8;
 				}

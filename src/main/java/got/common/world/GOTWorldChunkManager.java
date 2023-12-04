@@ -125,7 +125,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 		}
 		if (useCache && xSize == 16 && zSize == 16 && (i & 0xF) == 0 && (k & 0xF) == 0) {
 			BiomeGenBase[] cachedBiomes = biomeCache.getCachedBiomes(i, k);
-			System.arraycopy(cachedBiomes, 0, biomes, 0, 16 * 16);
+			System.arraycopy(cachedBiomes, 0, biomes, 0, 256);
 			return biomes;
 		}
 		int[] ints = worldLayers[LAYER_BIOME].getInts(worldObj, i, k, xSize, zSize);
@@ -225,8 +225,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 						float variantChance = biome.getVariantChance();
 						if (variantChance > 0.0f) {
 							for (int pass = 0; pass <= 1; ++pass) {
-								GOTBiomeVariantList variantList;
-								variantList = pass == 0 ? biome.getBiomeVariantsLarge() : biome.getBiomeVariantsSmall();
+								GOTBiomeVariantList variantList = pass == 0 ? biome.getBiomeVariantsLarge() : biome.getBiomeVariantsSmall();
 								if (variantList.isEmpty()) {
 									continue;
 								}

@@ -46,7 +46,7 @@ public class GOTModelWeaponRack extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		if (onWall) {
-			base.rotateAngleX = -1.5707963267948966f;
+			base.rotateAngleX = -1.5707964f;
 			stand.isHidden = true;
 			holder.rotateAngleX = 0.0f;
 			holder.setRotationPoint(0.0f, -2.0f, 0.0f);

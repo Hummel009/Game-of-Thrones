@@ -27,8 +27,7 @@ public class GOTBiomeReachArbor extends GOTBiomeReach {
 		int chunkZ = k & 0xF;
 		int xzIndex = chunkX * 16 + chunkZ;
 		int ySize = blocks.length / 256;
-		boolean vineyard;
-		vineyard = variant == GOTBiomeVariant.VINEYARD;
+		boolean vineyard = variant == GOTBiomeVariant.VINEYARD;
 		boolean roadNear = GOTBeziers.isBezierAt(i, k, GOTBeziers.Type.ROAD);
 		if (vineyard && !roadNear) {
 			for (int j = 128; j >= 0; --j) {

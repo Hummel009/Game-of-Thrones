@@ -20,7 +20,7 @@ public class GOTEntityBrienneTarth extends GOTEntityHumanBase {
 		super(world);
 		canBeMarried = false;
 		setIsLegendaryNPC();
-		setSize(0.6f * 1.2f, 1.8f * 1.2f);
+		setSize(0.72f, 2.16f);
 		addTargetTasks(true, GOTEntityAINearestAttackableTargetPatriot.class);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));

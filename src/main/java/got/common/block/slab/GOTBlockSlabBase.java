@@ -92,7 +92,6 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public boolean shouldSideBeRendered(IBlockAccess world, int i, int j, int k, int l) {
-		boolean flag;
 		if (this == doubleSlab) {
 			return super.shouldSideBeRendered(world, i, j, k, l);
 		}
@@ -102,7 +101,7 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		int i1 = i + Facing.offsetsXForSide[Facing.oppositeSide[l]];
 		int j1 = j + Facing.offsetsYForSide[Facing.oppositeSide[l]];
 		int k1 = k + Facing.offsetsZForSide[Facing.oppositeSide[l]];
-		flag = (world.getBlockMetadata(i1, j1, k1) & 8) != 0;
+		boolean flag = (world.getBlockMetadata(i1, j1, k1) & 8) != 0;
 		return flag ? l == 0 || l == 1 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) == 0 : l == 1 || l == 0 && super.shouldSideBeRendered(world, i, j, k, l) || world.getBlock(i, j, k) != singleSlab || (world.getBlockMetadata(i, j, k) & 8) != 0;
 	}
 

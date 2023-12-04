@@ -34,10 +34,7 @@ public class GOTItemStackWrapper {
 			return false;
 		}
 		GOTItemStackWrapper other = (GOTItemStackWrapper) obj;
-		if (!Objects.equals(item, other.item) || damage != other.damage || isNBTSensitive != other.isNBTSensitive) {
-			return false;
-		}
-		return !isNBTSensitive || Objects.equals(compound, other.compound);
+		return Objects.equals(item, other.item) && damage == other.damage && isNBTSensitive == other.isNBTSensitive && (!isNBTSensitive || Objects.equals(compound, other.compound));
 	}
 
 	@Override

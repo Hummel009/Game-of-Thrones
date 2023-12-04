@@ -67,10 +67,7 @@ public interface MiniQuestSelector {
 
 		@Override
 		public boolean include(GOTMiniQuest quest) {
-			if (activeOnly) {
-				return quest.isActive();
-			}
-			return true;
+			return !activeOnly || quest.isActive();
 		}
 
 		public OptionalActive setActiveOnly() {

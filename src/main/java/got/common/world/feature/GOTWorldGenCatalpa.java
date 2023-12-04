@@ -124,14 +124,13 @@ public class GOTWorldGenCatalpa extends WorldGenAbstractTree {
 			int leafRangeSq = leafRange * leafRange;
 			for (int i1 = i - leafRange; i1 <= i + leafRange; ++i1) {
 				for (int k1 = k - leafRange; k1 <= k + leafRange; ++k1) {
-					boolean grow;
 					Block block;
 					int i2 = Math.abs(i1 - i);
 					int k2 = Math.abs(k1 - k);
 					int j2 = Math.abs(j1 - j);
 					int dSq = i2 * i2 + k2 * k2;
 					int dCh = i2 + j2 + k2;
-					grow = dSq < leafRangeSq && dCh <= 4;
+					boolean grow = dSq < leafRangeSq && dCh <= 4;
 					if (i2 == leafRange - 1 || k2 == leafRange - 1) {
 						grow = grow && random.nextInt(4) != 0;
 					}

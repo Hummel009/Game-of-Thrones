@@ -38,10 +38,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 
 	@Override
 	public boolean continueExecuting() {
-		if (targetPlayer == null || !targetPlayer.isEntityAlive() || targetPlayer.capabilities.isCreativeMode || !IBandit.Helper.canStealFromPlayerInv(theBandit, targetPlayer)) {
-			return false;
-		}
-		return chaseTimer > 0 && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < 256.0;
+		return targetPlayer != null && targetPlayer.isEntityAlive() && !targetPlayer.capabilities.isCreativeMode && IBandit.Helper.canStealFromPlayerInv(theBandit, targetPlayer) && chaseTimer > 0 && theBanditAsNPC.getDistanceSqToEntity(targetPlayer) < 256.0;
 	}
 
 	public int getRandomTheftAmount(ItemStack itemstack) {

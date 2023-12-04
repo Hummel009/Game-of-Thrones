@@ -50,7 +50,7 @@ public class GOTModelBiped extends ModelBiped {
 		bipedLeftLeg.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
 		if (entity instanceof GOTEntityNPC) {
 			bipedRightLeg.rotateAngleY = 0.08726646259971647f;
-			bipedLeftLeg.rotateAngleY = -0.08726646259971647f;
+			bipedLeftLeg.rotateAngleY = -0.08726646f;
 		}
 		if (isRiding) {
 			bipedRightArm.rotateAngleX -= 0.62831855f;

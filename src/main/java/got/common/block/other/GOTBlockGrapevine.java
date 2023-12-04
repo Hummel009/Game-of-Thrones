@@ -300,7 +300,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		postIcon = !hasGrapes ? iconregister.registerIcon(getTextureName()) : GOTBlocks.grapevine.getIcon(0, 0);
+		postIcon = hasGrapes ? GOTBlocks.grapevine.getIcon(0, 0) : iconregister.registerIcon(getTextureName());
 		if (hasGrapes) {
 			vineIcons = new IIcon[2];
 			vineIcons[0] = iconregister.registerIcon(getTextureName() + "_vine");

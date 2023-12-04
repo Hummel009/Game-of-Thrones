@@ -106,8 +106,7 @@ public class GOTMazeGenerator {
 			ArrayList<MazePos> positions = new ArrayList<>();
 			for (int x = 0; x < xSize; ++x) {
 				for (int z = 0; z < zSize; ++z) {
-					boolean outer;
-					outer = x == wx || x == xSize - 1 - wx || z == wz || z == zSize - 1 - wz;
+					boolean outer = x == wx || x == xSize - 1 - wx || z == wz || z == zSize - 1 - wz;
 					if (outer && isPath(x, z)) {
 						int xHalf = x / (xSize / 2);
 						int zHalf = z / (zSize / 2);

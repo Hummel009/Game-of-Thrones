@@ -31,7 +31,7 @@ public class GOTItemBottlePoison extends Item {
 		if (!world.isRemote) {
 			GOTPoisonedDrinks.addPoisonEffect(entityplayer, itemstack);
 		}
-		return !entityplayer.capabilities.isCreativeMode ? new ItemStack(Items.glass_bottle) : itemstack;
+		return entityplayer.capabilities.isCreativeMode ? itemstack : new ItemStack(Items.glass_bottle);
 	}
 
 	@Override

@@ -275,7 +275,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public void drawScreen(int i, int j, float f) {
 		String s;
 		int y;
-		boolean isSepia;
 		int x;
 		Tessellator tess = Tessellator.instance;
 		zLevel = 0.0f;
@@ -315,7 +314,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		prevPosY = posY;
 		posX += posXMove * f;
 		posY += posYMove * f;
-		isSepia = isConquestGrid || GOTConfig.enableSepiaMap;
+		boolean isSepia = isConquestGrid || GOTConfig.enableSepiaMap;
 		if (isConquestGrid) {
 			drawDefaultBackground();
 		}
@@ -621,7 +620,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					}
 				} else {
 					GOTWaypoint wp = (GOTWaypoint) selectedWaypoint;
-					notUnlocked = !wp.isCompatibleAlignment(mc.thePlayer) ? StatCollector.translateToLocal("got.gui.map.locked.enemy") : StatCollector.translateToLocal("got.gui.map.locked.region");
+					notUnlocked = wp.isCompatibleAlignment(mc.thePlayer) ? StatCollector.translateToLocal("got.gui.map.locked.region") : StatCollector.translateToLocal("got.gui.map.locked.enemy");
 				}
 				String conquestUnlock = pd.getPledgeFaction() == null ? "" : StatCollector.translateToLocalFormatted("got.gui.map.locked.conquerable", pd.getPledgeFaction().factionName());
 				String ftPrompt = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.prompt", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingFastTravel.getKeyCode()));
@@ -881,10 +880,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 				stringY += mc.fontRenderer.FONT_HEIGHT;
 				if (buttonOverlayFunction.visible) {
-					buttonOverlayFunction.enabled = true;
-					if (creatingWaypointNew || renamingWaypoint) {
-						buttonOverlayFunction.enabled = isValidWaypointName(nameWPTextField.getText());
-					}
+					buttonOverlayFunction.enabled = !creatingWaypointNew && !renamingWaypoint || isValidWaypointName(nameWPTextField.getText());
 					if (sharingWaypointNew) {
 						buttonOverlayFunction.enabled = isExistingUnsharedFellowshipName(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint);
 					}
@@ -1076,10 +1072,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public boolean isWaypointVisible(GOTAbstractWaypoint wp) {
 		if (wp instanceof GOTCustomWaypoint) {
 			GOTCustomWaypoint cwp = (GOTCustomWaypoint) wp;
-			if (cwp.isShared() && cwp.isSharedHidden() && !showHiddenSWP) {
-				return false;
-			}
-			return showCWP;
+			return (!cwp.isShared() || !cwp.isSharedHidden() || showHiddenSWP) && showCWP;
 		}
 		return showWP;
 	}

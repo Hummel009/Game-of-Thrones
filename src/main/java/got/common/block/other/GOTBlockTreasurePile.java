@@ -65,10 +65,7 @@ public class GOTBlockTreasurePile extends Block {
 	public static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock, int thisMeta) {
 		Block block = world.getBlock(i, j, k);
 		int meta = world.getBlockMetadata(i, j, k);
-		if (block == thisBlock && meta < 7) {
-			return true;
-		}
-		return BlockFalling.func_149831_e(world, i, j, k);
+		return block == thisBlock && meta < 7 || BlockFalling.func_149831_e(world, i, j, k);
 	}
 
 	public static void generateTreasureRecipes(Block block, Item ingot) {
@@ -134,10 +131,7 @@ public class GOTBlockTreasurePile extends Block {
 	@Override
 	public boolean isSideSolid(IBlockAccess world, int i, int j, int k, ForgeDirection side) {
 		int meta = world.getBlockMetadata(i, j, k);
-		if (meta == 7 && side == ForgeDirection.UP) {
-			return true;
-		}
-		return super.isSideSolid(world, i, j, k, side);
+		return meta == 7 && side == ForgeDirection.UP || super.isSideSolid(world, i, j, k, side);
 	}
 
 	@Override

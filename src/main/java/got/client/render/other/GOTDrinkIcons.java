@@ -26,14 +26,13 @@ public class GOTDrinkIcons {
 		TextureMap textureMap = (TextureMap) iconregister;
 		String baseIconName = itemName.substring("got:".length());
 		try {
-			BufferedImage liquidIcon;
 			BufferedImage vesselIcon = vesselIcons.get(vessel);
 			if (vesselIcon == null) {
 				ResourceLocation res = new ResourceLocation("got:textures/items/drink_" + vessel + ".png");
 				vesselIcon = ImageIO.read(resourceManager.getResource(res).getInputStream());
 				vesselIcons.put(vessel, vesselIcon);
 			}
-			liquidIcon = liquidIcons.get(item);
+			BufferedImage liquidIcon = liquidIcons.get(item);
 			if (liquidIcon == null) {
 				ResourceLocation res = new ResourceLocation("got:textures/items/" + baseIconName + "_liquid.png");
 				liquidIcon = ImageIO.read(resourceManager.getResource(res).getInputStream());

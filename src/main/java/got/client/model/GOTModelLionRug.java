@@ -41,10 +41,10 @@ public class GOTModelLionRug extends ModelBase {
 		lionModel.leg1.rotateAngleX = 0.5235987755982988f;
 		lionModel.leg1.rotateAngleZ = 1.5707963267948966f;
 		lionModel.leg2.rotateAngleX = 0.5235987755982988f;
-		lionModel.leg2.rotateAngleZ = -1.5707963267948966f;
-		lionModel.leg3.rotateAngleX = -0.3490658503988659f;
+		lionModel.leg2.rotateAngleZ = -1.5707964f;
+		lionModel.leg3.rotateAngleX = -0.34906584f;
 		lionModel.leg3.rotateAngleZ = 1.5707963267948966f;
-		lionModel.leg4.rotateAngleX = -0.3490658503988659f;
-		lionModel.leg4.rotateAngleZ = -1.5707963267948966f;
+		lionModel.leg4.rotateAngleX = -0.34906584f;
+		lionModel.leg4.rotateAngleZ = -1.5707964f;
 	}
 }

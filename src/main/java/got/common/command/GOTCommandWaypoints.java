@@ -29,8 +29,9 @@ public class GOTCommandWaypoints extends CommandBase {
 				return CommandBase.getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
 			case 3:
 				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+			default:
+				return Collections.emptyList();
 		}
-		return Collections.emptyList();
 	}
 
 	public GOTWaypoint.Region findRegionByName(String name) {

@@ -182,9 +182,8 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 
 	@Override
 	public String getLoreText(EntityPlayer entityplayer) {
-		boolean shared;
 		boolean ownShared = !isShared() && !sharedFellowshipIDs.isEmpty();
-		shared = isShared() && sharingPlayerName != null;
+		boolean shared = isShared() && sharingPlayerName != null;
 		if (ownShared || shared) {
 			int numShared = sharedFellowshipIDs.size();
 			int numShown = 0;
@@ -314,7 +313,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 				}
 			}
 			if (!foundSafe && (!blockSafe || !aboveSafe)) {
-				for (j1 = aboveSafe ? j + 1 : j + 2; j1 <= world.getHeight() - 1; ++j1) {
+				for (j1 = j + (aboveSafe ? 1 : 2); j1 <= world.getHeight() - 1; ++j1) {
 					if (!isSafeBlock(world, i, j1, k)) {
 						continue;
 					}
@@ -342,10 +341,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 
 	@Override
 	public boolean hasPlayerUnlocked(EntityPlayer entityplayer) {
-		if (isShared()) {
-			return sharedUnlocked;
-		}
-		return true;
+		return !isShared() || sharedUnlocked;
 	}
 
 	public boolean hasSharedFellowship(GOTFellowship fs) {
@@ -365,13 +361,7 @@ public class GOTCustomWaypoint implements GOTAbstractWaypoint {
 		Block below = world.getBlock(i, j - 1, k);
 		Block block = world.getBlock(i, j, k);
 		Block above = world.getBlock(i, j + 1, k);
-		if (below.getMaterial().blocksMovement() && !block.isNormalCube(world, i, j, k) && !above.isNormalCube(world, i, j + 1, k)) {
-			if (block.getMaterial().isLiquid() || block.getMaterial() == Material.fire) {
-				return false;
-			}
-			return !above.getMaterial().isLiquid() && above.getMaterial() != Material.fire;
-		}
-		return false;
+		return below.getMaterial().blocksMovement() && !block.isNormalCube(world, i, j, k) && !above.isNormalCube(world, i, j + 1, k) && !block.getMaterial().isLiquid() && block.getMaterial() != Material.fire && !above.getMaterial().isLiquid() && above.getMaterial() != Material.fire;
 	}
 
 	public boolean isShared() {

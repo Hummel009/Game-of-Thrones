@@ -3,6 +3,7 @@ package got.common.enchant;
 import com.google.common.collect.Lists;
 import got.common.GOTConfig;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -377,10 +378,10 @@ public class GOTEnchantmentHelper {
 		NBTTagCompound data = entity.getEntityData();
 		NBTTagList tags = null;
 		if (data != null && data.hasKey("GOTEnchEntity")) {
-			tags = data.getTagList("GOTEnchEntity", 8);
-		} else if (create) {
+			return data.getTagList("GOTEnchEntity", 8);
+		}
+		if (create) {
 			tags = new NBTTagList();
-			assert data != null;
 			data.setTag("GOTEnchEntity", tags);
 		}
 		return tags;
@@ -399,8 +400,9 @@ public class GOTEnchantmentHelper {
 		NBTTagCompound itemData = itemstack.getTagCompound();
 		NBTTagList tags = null;
 		if (itemData != null && itemData.hasKey("GOTEnch")) {
-			tags = itemData.getTagList("GOTEnch", 8);
-		} else if (create) {
+			return itemData.getTagList("GOTEnch", 8);
+		}
+		if (create) {
 			if (itemData == null) {
 				itemData = new NBTTagCompound();
 				itemstack.setTagCompound(itemData);
@@ -452,10 +454,7 @@ public class GOTEnchantmentHelper {
 
 	public static boolean hasAppliedRandomEnchants(ItemStack itemstack) {
 		NBTTagCompound nbt = itemstack.getTagCompound();
-		if (nbt != null && nbt.hasKey("GOTRandomEnch")) {
-			return nbt.getBoolean("GOTRandomEnch");
-		}
-		return false;
+		return nbt != null && nbt.hasKey("GOTRandomEnch") && nbt.getBoolean("GOTRandomEnch");
 	}
 
 	public static boolean hasEnchant(ItemStack itemstack, GOTEnchantment ench) {
@@ -539,7 +538,7 @@ public class GOTEnchantmentHelper {
 		Random rand = entity.getRNG();
 
 		if (GOTConfig.enchantingGOT) {
-			if (entity instanceof net.minecraft.entity.EntityLiving) {
+			if (entity instanceof EntityLiving) {
 				boolean init = entity.getEntityData().getBoolean("GOTEnchantInit");
 				if (!init) {
 					for (int i = 0; i < entity.getLastActiveItems().length; i++) {

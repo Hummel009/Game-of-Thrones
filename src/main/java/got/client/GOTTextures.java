@@ -353,7 +353,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		}
 		int ocean = GOTBiome.ocean.color;
 		if (sepia) {
-			ocean = getSepia(ocean);
+			return getSepia(ocean);
 		}
 		return ocean;
 	}

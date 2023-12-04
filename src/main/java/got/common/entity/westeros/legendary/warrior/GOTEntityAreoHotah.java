@@ -21,7 +21,7 @@ public class GOTEntityAreoHotah extends GOTEntityHumanBase {
 		canBeMarried = false;
 		addTargetTasks(true);
 		setIsLegendaryNPC();
-		setSize(0.6f * 1.2f, 1.8f * 1.2f);
+		setSize(0.72f, 2.16f);
 		tasks.addTask(0, new EntityAISwimming(this));
 		tasks.addTask(1, new GOTEntityAIHiredRemainStill(this));
 		tasks.addTask(2, new GOTEntityAIAttackOnCollide(this, 1.4, false));

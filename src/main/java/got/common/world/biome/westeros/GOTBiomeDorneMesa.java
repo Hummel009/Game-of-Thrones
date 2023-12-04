@@ -42,10 +42,8 @@ public class GOTBiomeDorneMesa extends GOTBiomeDorneDesert {
 			noise2 = new NoiseGeneratorPerlin(random1, 1);
 		}
 		seed = world.getSeed();
-		int g;
-		int l;
-		g = i & 15;
-		l = k & 15;
+		int g = i & 15;
+		int l = k & 15;
 		Block block = Blocks.stained_hardened_clay;
 		Block block2 = fillerBlock;
 		int i1 = (int) (stoneNoise / 3.0D + 3.0D + random.nextDouble() * 0.25D);
