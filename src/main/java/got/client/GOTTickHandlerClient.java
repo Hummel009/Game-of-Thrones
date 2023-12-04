@@ -480,8 +480,8 @@ public class GOTTickHandlerClient {
 				String beginList = EnumChatFormatting.ITALIC + StatCollector.translateToLocal("item.got.generic.previousOwnerList");
 				ownerLines.add(beginList);
 				for (String previousOwner : previousOwners) {
-					previousOwner = EnumChatFormatting.ITALIC + previousOwner;
-					ownerLines.addAll(fontRenderer.listFormattedStringToWidth(previousOwner, 150));
+					String previousOwner1 = EnumChatFormatting.ITALIC + previousOwner;
+					ownerLines.addAll(fontRenderer.listFormattedStringToWidth(previousOwner1, 150));
 				}
 			}
 			for (int i = 0; i < ownerLines.size(); i++) {

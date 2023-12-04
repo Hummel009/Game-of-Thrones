@@ -855,10 +855,10 @@ public class GOTPlayerData {
 			for (EntityLiving entity : entitiesToTransport) {
 				Entity mount = entity.ridingEntity;
 				entity.mountEntity(null);
-				entity = fastTravelEntity(world, entity, i, j, k);
+				EntityLiving entity1 = fastTravelEntity(world, entity, i, j, k);
 				if (mount instanceof EntityLiving) {
 					mount = fastTravelEntity(world, (EntityLiving) mount, i, j, k);
-					entity.mountEntity(mount);
+					entity1.mountEntity(mount);
 				}
 			}
 			sendFTPacket(entityplayer, waypoint, startX, startZ);

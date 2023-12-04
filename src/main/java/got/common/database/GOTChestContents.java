@@ -1205,11 +1205,12 @@ public class GOTChestContents {
 		for (int i = 0; i < amount; ++i) {
 			WeightedRandomChestContent wrcc = (WeightedRandomChestContent) WeightedRandom.getRandomItem(random, itemPool.items);
 			for (ItemStack itemstack : ChestGenHooks.generateStacks(random, wrcc.theItemId, wrcc.theMinimumChanceToGenerateItem, wrcc.theMaximumChanceToGenerateItem)) {
+				ItemStack itemstack1 = itemstack;
 				if (!isNPCDrop && itemPool.pouches) {
 					if (random.nextInt(50) == 0) {
-						itemstack = new ItemStack(GOTItems.pouch, 1, GOTItemPouch.getRandomPouchSize(random));
+						itemstack1 = new ItemStack(GOTItems.pouch, 1, GOTItemPouch.getRandomPouchSize(random));
 					} else if (random.nextInt(50) == 0) {
-						itemstack = GOTItemModifierTemplate.getRandomCommonTemplate(random);
+						itemstack1 = GOTItemModifierTemplate.getRandomCommonTemplate(random);
 					}
 				}
 				if (!itemPool.loreCategories.isEmpty()) {
@@ -1221,31 +1222,31 @@ public class GOTChestContents {
 					}
 					GOTLore lore;
 					if (random.nextInt(Math.max(loreChance, 1)) == 0 && (lore = GOTLore.getMultiRandomLore(itemPool.loreCategories, random, false)) != null) {
-						itemstack = lore.createLoreBook(random);
+						itemstack1 = lore.createLoreBook(random);
 					}
 				}
-				if (itemstack.isItemStackDamageable() && !itemstack.getHasSubtypes()) {
-					itemstack.setItemDamage(MathHelper.floor_double(itemstack.getMaxDamage() * MathHelper.randomFloatClamp(random, 0.0f, 0.75f)));
+				if (itemstack1.isItemStackDamageable() && !itemstack1.getHasSubtypes()) {
+					itemstack1.setItemDamage(MathHelper.floor_double(itemstack1.getMaxDamage() * MathHelper.randomFloatClamp(random, 0.0f, 0.75f)));
 				}
-				if (itemstack.stackSize > itemstack.getMaxStackSize()) {
-					itemstack.stackSize = itemstack.getMaxStackSize();
+				if (itemstack1.stackSize > itemstack1.getMaxStackSize()) {
+					itemstack1.stackSize = itemstack1.getMaxStackSize();
 				}
 				if (GOTConfig.enchantingGOT) {
 					boolean skilful = !isNPCDrop && random.nextInt(5) == 0;
-					GOTEnchantmentHelper.applyRandomEnchantments(itemstack, random, skilful, false);
+					GOTEnchantmentHelper.applyRandomEnchantments(itemstack1, random, skilful, false);
 				}
 				Item item;
-				if ((item = itemstack.getItem()) instanceof GOTItemMug) {
+				if ((item = itemstack1.getItem()) instanceof GOTItemMug) {
 					if (((GOTItemMug) item).isBrewable) {
-						GOTItemMug.setStrengthMeta(itemstack, 1 + random.nextInt(3));
+						GOTItemMug.setStrengthMeta(itemstack1, 1 + random.nextInt(3));
 					}
 					GOTItemMug.Vessel[] vessels;
-					if (GOTItemMug.isItemFullDrink(itemstack) && (vessels = itemPool.vesselTypes) != null) {
+					if (GOTItemMug.isItemFullDrink(itemstack1) && (vessels = itemPool.vesselTypes) != null) {
 						GOTItemMug.Vessel v = vessels[random.nextInt(vessels.length)];
-						GOTItemMug.setVessel(itemstack, v, true);
+						GOTItemMug.setVessel(itemstack1, v, true);
 					}
 				}
-				inventory.setInventorySlotContents(random.nextInt(inventory.getSizeInventory()), itemstack);
+				inventory.setInventorySlotContents(random.nextInt(inventory.getSizeInventory()), itemstack1);
 			}
 		}
 	}
