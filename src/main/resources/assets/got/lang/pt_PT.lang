@@ -1,8 +1,4 @@
 ﻿
-entity.got.Beaver.name≠Beaver
-item.got:beaver_raw.name≠Raw Beaver
-item.got:beaver_cooked.name≠Cooked Beaver
-item.got:beaver_tail.name≠Beaver Tail
 attribute.name.generic.movementSpeedAir=Velocidade (Ar)
 color.black=Preto
 color.blue=Azul
@@ -84,6 +80,7 @@ entity.got.BarristanSelmy.name=Barristan Selmy
 entity.got.BarrowWight.name=Espectro dos Túmulos
 entity.got.Bear.name=Urso
 entity.got.BearRug.name=Tapede de Urso
+entity.got.Beaver.name≠Beaver
 entity.got.BenedarBelmore.name≠Benedar Belmore
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayne
@@ -984,6 +981,8 @@ got.achievement.KILL_BALON_GREYJOY.desc=Mate Balon Greyjoy
 got.achievement.KILL_BALON_GREYJOY.title=Eu serei melhor rei, que você
 got.achievement.KILL_BARRISTAN_SELMY.desc=Mate Barristan Selmy
 got.achievement.KILL_BARRISTAN_SELMY.title=Ex-Lorde Comandante
+got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
+got.achievement.KILL_BEAVER.title=Kurwa bober
 got.achievement.KILL_BENJEN_STARK.desc=Mate Benjen Stark
 got.achievement.KILL_BENJEN_STARK.title=Mãos frias
 got.achievement.KILL_BERIC_DAYNE.desc=Mate Beric Dayne
@@ -2038,11 +2037,11 @@ got.date.month.april=Abril
 got.date.month.august=Agosto
 got.date.month.december=Dezembro
 got.date.month.february=Fevereiro
-got.date.month.may=May
 got.date.month.january=Janeiro
 got.date.month.july=Julho
 got.date.month.june=Junho
 got.date.month.march=Maio
+got.date.month.may=May
 got.date.month.midyearsday=Ano Novo
 got.date.month.november=Novemver
 got.date.month.october=Outubro
@@ -5166,6 +5165,9 @@ item.got:banner.yronwood.name=Banner de Yronwood
 item.got:banner.yunkai.name=Bandeira de Yunkai
 item.got:banner_tab.name=Créditos
 item.got:bear_rug.name=Tapete de Pele de Urso
+item.got:beaver_cooked.name≠Cooked Beaver
+item.got:beaver_raw.name≠Raw Beaver
+item.got:beaver_tail.name≠Beaver Tail
 item.got:beric_sword.name=Espada de Beric Dondarrion
 item.got:berry_pie.name=Torta de Frutos
 item.got:bittersteel_helmet.name≠Aegor Rivers Helmet

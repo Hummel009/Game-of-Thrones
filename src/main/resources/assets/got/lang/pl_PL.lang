@@ -1,8 +1,4 @@
 ﻿
-entity.got.Beaver.name=Bober
-item.got:beaver_raw.name≠Raw Beaver
-item.got:beaver_cooked.name≠Cooked Beaver
-item.got:beaver_tail.name≠Beaver Tail
 attribute.name.generic.movementSpeedAir=Prędkość (powietrze)
 color.black=Czarny
 color.blue=Niebieski
@@ -84,6 +80,7 @@ entity.got.BarristanSelmy.name=Barristan Selmy
 entity.got.BarrowWight.name=Upiór Kurhanu
 entity.got.Bear.name=Niedźwiedź
 entity.got.BearRug.name=Dywan z niedźwiedzia
+entity.got.Beaver.name=Bober
 entity.got.BenedarBelmore.name=Benedar Belmore
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayne
@@ -984,6 +981,8 @@ got.achievement.KILL_BALON_GREYJOY.desc=Zabij Balona Greyjoya
 got.achievement.KILL_BALON_GREYJOY.title=Będę lepszym królem niż ty
 got.achievement.KILL_BARRISTAN_SELMY.desc=Zabij Barristana Selmy'ego
 got.achievement.KILL_BARRISTAN_SELMY.title=Były lord dowódca
+got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
+got.achievement.KILL_BEAVER.title=Kurwa bober
 got.achievement.KILL_BENJEN_STARK.desc=Zabij Benjena Starka
 got.achievement.KILL_BENJEN_STARK.title=Zimne ręce
 got.achievement.KILL_BERIC_DAYNE.desc=Zabij Berica Dayne'a
@@ -2038,11 +2037,11 @@ got.date.month.april=Kwiecień
 got.date.month.august=Sierpień
 got.date.month.december=Grudzień
 got.date.month.february=Luty
-got.date.month.may=May
 got.date.month.january=Styczeń
 got.date.month.july=Lipiec
 got.date.month.june=Czerwiec
 got.date.month.march=Marzec
+got.date.month.may=May
 got.date.month.midyearsday=Nowy Rok
 got.date.month.november=Listopad
 got.date.month.october=Październik
@@ -5166,6 +5165,9 @@ item.got:banner.yronwood.name=Sztandar Yronwood
 item.got:banner.yunkai.name=Sztandar Yunkai
 item.got:banner_tab.name=Kredyty
 item.got:bear_rug.name=Dywan z niedźwiedziej skóry
+item.got:beaver_cooked.name≠Cooked Beaver
+item.got:beaver_raw.name≠Raw Beaver
+item.got:beaver_tail.name≠Beaver Tail
 item.got:beric_sword.name=Miecz Berica Dondarriona
 item.got:berry_pie.name=Placek jagodowy
 item.got:bittersteel_helmet.name≠Aegor Rivers Helmet

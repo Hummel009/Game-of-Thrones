@@ -1,8 +1,4 @@
 ﻿
-entity.got.Beaver.name≠Beaver
-item.got:beaver_raw.name≠Raw Beaver
-item.got:beaver_cooked.name≠Cooked Beaver
-item.got:beaver_tail.name≠Beaver Tail
 attribute.name.generic.movementSpeedAir=Geschwindigkeit (Luft)
 color.black=Schwarz
 color.blue=Blau
@@ -84,6 +80,7 @@ entity.got.BarristanSelmy.name=Barristan Selmy
 entity.got.BarrowWight.name=Grabunhold
 entity.got.Bear.name=Bär
 entity.got.BearRug.name=Bärenteppich
+entity.got.Beaver.name≠Beaver
 entity.got.BenedarBelmore.name≠Benedar Belmore
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayn
@@ -984,6 +981,8 @@ got.achievement.KILL_BALON_GREYJOY.desc=Töte Balon Graufreud
 got.achievement.KILL_BALON_GREYJOY.title=Mir gehört der Meersteinstuhl
 got.achievement.KILL_BARRISTAN_SELMY.desc=Töte Barristan Selmy
 got.achievement.KILL_BARRISTAN_SELMY.title=Ehemaliger Lord Kommandant der Königsgarde
+got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
+got.achievement.KILL_BEAVER.title=Kurwa bober
 got.achievement.KILL_BENJEN_STARK.desc=Töte Benjen Stark
 got.achievement.KILL_BENJEN_STARK.title=Kalthand
 got.achievement.KILL_BERIC_DAYNE.desc=Töte Beric Dayn
@@ -2038,11 +2037,11 @@ got.date.month.april=April
 got.date.month.august=August
 got.date.month.december=Dezember
 got.date.month.february=Februar
-got.date.month.may=Mai
 got.date.month.january=Januar
 got.date.month.july=Juli
 got.date.month.june=Juni
 got.date.month.march=März
+got.date.month.may=Mai
 got.date.month.midyearsday=Neujahr
 got.date.month.november=November
 got.date.month.october=Oktober
@@ -5166,6 +5165,9 @@ item.got:banner.yronwood.name=Eisenholz Banner
 item.got:banner.yunkai.name=Yunkai Banner
 item.got:banner_tab.name=Banner
 item.got:bear_rug.name=Bärenfellteppich
+item.got:beaver_cooked.name≠Cooked Beaver
+item.got:beaver_raw.name≠Raw Beaver
+item.got:beaver_tail.name≠Beaver Tail
 item.got:beric_sword.name=Beric Dondarrions Schwert
 item.got:berry_pie.name=Beerenkuchen
 item.got:bittersteel_helmet.name≠Aegor Rivers Helmet

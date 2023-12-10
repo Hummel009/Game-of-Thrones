@@ -1,8 +1,4 @@
 ﻿
-entity.got.Beaver.name≠Beaver
-item.got:beaver_raw.name≠Raw Beaver
-item.got:beaver_cooked.name≠Cooked Beaver
-item.got:beaver_tail.name≠Beaver Tail
 attribute.name.generic.movementSpeedAir=Velocità (aria)
 color.black=Nero
 color.blue=Blu
@@ -84,6 +80,7 @@ entity.got.BarristanSelmy.name=Barristan Selmy
 entity.got.BarrowWight.name=Spettro dei tumuli
 entity.got.Bear.name=Orso
 entity.got.BearRug.name=Tappeto di orso
+entity.got.Beaver.name≠Beaver
 entity.got.BenedarBelmore.name≠Benedar Belmore
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayne
@@ -984,6 +981,8 @@ got.achievement.KILL_BALON_GREYJOY.desc=Uccidi Balon Greyjoy
 got.achievement.KILL_BALON_GREYJOY.title=Sarò un re migliore, quello tu
 got.achievement.KILL_BARRISTAN_SELMY.desc=Uccidi Barristan Selmy
 got.achievement.KILL_BARRISTAN_SELMY.title=Ex Lord Comandante
+got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
+got.achievement.KILL_BEAVER.title=Kurwa bober
 got.achievement.KILL_BENJEN_STARK.desc=Uccidi Benjen Stark
 got.achievement.KILL_BENJEN_STARK.title=Uomoi fredde
 got.achievement.KILL_BERIC_DAYNE.desc=Uccidi Beric Dayne
@@ -2038,11 +2037,11 @@ got.date.month.april=Aprile
 got.date.month.august=Agosto
 got.date.month.december=Dicembre
 got.date.month.february=Febbraio
-got.date.month.may=May
 got.date.month.january=Gennaio
 got.date.month.july=Luglio
 got.date.month.june=Giugno
 got.date.month.march=Maggio
+got.date.month.may=May
 got.date.month.midyearsday=Capodanno
 got.date.month.november=Novemver
 got.date.month.october=Ottobre
@@ -5166,6 +5165,9 @@ item.got:banner.yronwood.name=Stendardo di Yronwood
 item.got:banner.yunkai.name=Stendardo di Yunkai
 item.got:banner_tab.name=Titoli di coda
 item.got:bear_rug.name=Tappeto di orso
+item.got:beaver_cooked.name≠Cooked Beaver
+item.got:beaver_raw.name≠Raw Beaver
+item.got:beaver_tail.name≠Beaver Tail
 item.got:beric_sword.name=La spada di Beric Dondarrion
 item.got:berry_pie.name=Torta di bacche
 item.got:bittersteel_helmet.name≠Aegor Rivers Helmet
