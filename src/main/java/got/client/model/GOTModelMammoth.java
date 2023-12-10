@@ -365,9 +365,6 @@ public class GOTModelMammoth extends ModelBase {
 		adjustAllRotationPoints(TrunkA, Head);
 		TrunkA.rotateAngleY = HeadYRot;
 		float TrunkARotX = 90.0f - TrunkXRot;
-		if (TrunkARotX < 85.0f) {
-			TrunkARotX = 85.0f;
-		}
 		TrunkA.rotateAngleX = TrunkARotX / radianF + HeadXRot;
 		TrunkB.rotationPointZ = -22.5f;
 		adjustAllRotationPoints(TrunkB, TrunkA);
