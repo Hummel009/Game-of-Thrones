@@ -1805,6 +1805,7 @@ got.chat.killedByBounty2=%s недовольны, и ваша репутация
 got.chat.killedByBounty=%s был убит своей целью, %s!
 got.chat.loseTitle=Фракция %s лишает вас титула
 got.chat.mountOwnedByNPC=Это животное имеет хозяина. Вы не можете взаимодействовать с ним
+got.chat.nolab=Не проходит
 got.chat.pickpocket.inCombat=За вами началась погоня
 got.chat.pickpocket.missed=Карман пуст
 got.chat.pickpocket.noticed=Вас заметили!

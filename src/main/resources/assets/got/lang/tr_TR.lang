@@ -1805,6 +1805,7 @@ got.chat.killedByBounty2=%s Memnun Olmadı, Ve Onlarla İlişkiniz Geriledi...
 got.chat.killedByBounty=%s, Düşmanı %s Tarafından Öldürüldü!
 got.chat.loseTitle=You are no longer able to bear the title of %s
 got.chat.mountOwnedByNPC=Bu Binek Bir Yapay Zekaya Ait, Onunla Etkileşim Kuramazsın!
+got.chat.nolab≠Sorry, goodbye!
 got.chat.pickpocket.inCombat=Savaşan Birine Yankesicilik Yapamazsın!
 got.chat.pickpocket.missed=Yankesicilik Yapmaya Çalıştın Ama, %s Adlı Kişinin Cebini Bulamadın...
 got.chat.pickpocket.noticed=%s Fark Etti!

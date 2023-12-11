@@ -1805,6 +1805,7 @@ got.chat.killedByBounty2=%s ist entäuscht, dein Ansehen bei der Fraktion ist ge
 got.chat.killedByBounty=%s wurde von seinem Kopfgeldziel (%s) getötet!
 got.chat.loseTitle=Du bist nicht länger in der Lage, den Titel %s zu tragen
 got.chat.mountOwnedByNPC=Dieses Reittier gehörte einem NPC - Du kannst es nicht reiten!
+got.chat.nolab≠Sorry, goodbye!
 got.chat.pickpocket.inCombat=Du wurdest gejagt
 got.chat.pickpocket.missed=Tasche leer
 got.chat.pickpocket.noticed=Du wurdest entdeckt!

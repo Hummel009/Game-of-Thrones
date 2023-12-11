@@ -18,7 +18,12 @@ public class GOTRenderBeaver extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:textures/entity/animal/beaver.png");
+		return new ResourceLocation("got:textures/entity/animal/" + (isHtf(entity) ? "htf" : "beaver") + ".png");
+	}
+
+	public static boolean isHtf(Entity entity) {
+		GOTEntityBeaver boar = (GOTEntityBeaver) entity;
+		return boar.hasCustomNameTag() && "умейка".equalsIgnoreCase(boar.getCustomNameTag());
 	}
 
 	@Override

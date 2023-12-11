@@ -1805,6 +1805,7 @@ got.chat.killedByBounty2=%ss极其愤怒，你在他们中的声望大幅下跌�
 got.chat.killedByBounty=%s被他的赏金目标，%s杀了！
 got.chat.loseTitle=你不再可承担%s的头衔
 got.chat.mountOwnedByNPC=此坐骑为NPC所有，你不能与之互动
+got.chat.nolab≠Sorry, goodbye!
 got.chat.pickpocket.inCombat=你被追杀了
 got.chat.pickpocket.missed=口袋空了
 got.chat.pickpocket.noticed=你被发现了!

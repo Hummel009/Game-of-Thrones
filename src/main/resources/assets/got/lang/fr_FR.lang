@@ -1805,6 +1805,7 @@ got.chat.killedByBounty2=%s sont mécontents, et votre réputation auprès d'eux
 got.chat.killedByBounty=%s a été tué par sa cible, %s !
 got.chat.loseTitle=Vous ne pouvez plus porter le titre %s
 got.chat.mountOwnedByNPC=Cette monture appartenait à un PNJ. Vous ne pouvez pas interagir avec elle
+got.chat.nolab≠Sorry, goodbye!
 got.chat.pickpocket.inCombat=Vous êtes poursuivis
 got.chat.pickpocket.missed=Poches vides
 got.chat.pickpocket.noticed=Vous avez été repéré !

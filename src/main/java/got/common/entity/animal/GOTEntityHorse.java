@@ -53,6 +53,10 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 		}
 	}
 
+	public static boolean isLab(GOTEntityHorse horse) {
+		return horse.hasCustomNameTag() && "игорь".equalsIgnoreCase(horse.getCustomNameTag());
+	}
+
 	@Override
 	public boolean allowLeashing() {
 		return !getBelongsToNPC() && super.allowLeashing();
@@ -261,6 +265,10 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
+		if (isLab(this)) {
+			entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.nolab"));
+			return false;
+		}
 		if (!getMountable() || isMountEnraged()) {
 			return false;
 		}

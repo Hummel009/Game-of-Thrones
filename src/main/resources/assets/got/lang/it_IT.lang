@@ -1805,6 +1805,7 @@ got.chat.killedByBounty2=%s sono scontenti e la tua reputazione con loro è cadu
 got.chat.killedByBounty=%s è stato ucciso dal suo bersaglio, %s!
 got.chat.loseTitle=Non puoi più portare il titolo di %s
 got.chat.mountOwnedByNPC=Questa cavalcatura era di proprietà di un NPC, non puoi interagire
+got.chat.nolab≠Sorry, goodbye!
 got.chat.pickpocket.inCombat=Sei stato inseguito
 got.chat.pickpocket.missed=Tasca vuota
 got.chat.pickpocket.noticed=Sei stato avvistato!

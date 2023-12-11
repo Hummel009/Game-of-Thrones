@@ -1805,6 +1805,7 @@ got.chat.killedByBounty2≠%s are displeased, and your reputation with them has 
 got.chat.killedByBounty≠Your target, %s, slew you, and you have failed your quest!
 got.chat.loseTitle=U bent niet langer in staat de titel %s te dragen
 got.chat.mountOwnedByNPC=Dit dier was van een NPC - je kan er niet op rijden
+got.chat.nolab≠Sorry, goodbye!
 got.chat.pickpocket.inCombat=U bent achtervolgd
 got.chat.pickpocket.missed=Zak leeg
 got.chat.pickpocket.noticed=Je bent gezien!

@@ -1805,6 +1805,7 @@ got.chat.killedByBounty2=%s jest niezadowolony, a twoje relacje z nim spadło ..
 got.chat.killedByBounty=%s został zabity przez cel nagród, %s!
 got.chat.loseTitle=Nie możesz już nosić tytułu %s
 got.chat.mountOwnedByNPC=Ten wierzchowiec był własnością NPC - nie możesz z nim wchodzić w interakcje
+got.chat.nolab≠Sorry, goodbye!
 got.chat.pickpocket.inCombat=Jesteś ścigany.
 got.chat.pickpocket.missed=Kieszonkowiec pusty
 got.chat.pickpocket.noticed=Zostałeś zauważony!
