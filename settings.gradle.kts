@@ -1,5 +1,8 @@
 pluginManagement {
 	repositories {
+		mavenLocal()
+		mavenCentral()
+		gradlePluginPortal()
 		maven {
 			name = "GTNH Maven"
 			url = uri("http://jenkins.usrv.eu:8081/nexus/content/groups/public/")
@@ -9,9 +12,24 @@ pluginManagement {
 				includeGroup("com.gtnewhorizons.retrofuturagradle")
 			}
 		}
-		gradlePluginPortal()
-		mavenCentral()
+	}
+}
+
+dependencyResolutionManagement {
+	repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+	repositories {
 		mavenLocal()
+		mavenCentral()
+		gradlePluginPortal()
+		maven {
+			name = "GTNH Maven"
+			url = uri("http://jenkins.usrv.eu:8081/nexus/content/groups/public/")
+			isAllowInsecureProtocol = true
+			mavenContent {
+				includeGroup("com.gtnewhorizons")
+				includeGroup("com.gtnewhorizons.retrofuturagradle")
+			}
+		}
 	}
 }
 
