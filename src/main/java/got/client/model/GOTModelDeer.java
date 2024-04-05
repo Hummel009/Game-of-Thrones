@@ -144,8 +144,8 @@ public class GOTModelDeer extends ModelBase {
 		head.rotateAngleY = 0.0f;
 		head.rotationPointY = rearAmount * -6.0f + antiRearAmount * head.rotationPointY;
 		head.rotationPointZ = rearAmount * -1.0f + antiRearAmount * head.rotationPointZ;
-		head.rotateAngleX = (float) (head.rotateAngleX + Math.toRadians(f4));
-		head.rotateAngleY = (float) (head.rotateAngleY + Math.toRadians(f3));
+		head.rotateAngleX += (float) Math.toRadians(f4);
+		head.rotateAngleY += (float) Math.toRadians(f3);
 		head.rotateAngleX = antiRearAmount * head.rotateAngleX;
 		head.rotateAngleY = antiRearAmount * head.rotateAngleY;
 		if (f1 > 0.2f) {

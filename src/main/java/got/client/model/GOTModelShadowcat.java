@@ -161,8 +161,8 @@ public class GOTModelShadowcat extends ModelBase {
 
 	private void setRotation(ModelRenderer model, float x) {
 		model.rotateAngleX = x;
-		model.rotateAngleY = (float) 0.0;
-		model.rotateAngleZ = (float) 0.0;
+		model.rotateAngleY = 0.0f;
+		model.rotateAngleZ = 0.0f;
 	}
 
 	@Override

@@ -282,7 +282,7 @@ public class GOTModelDragonAnimaton {
 
 		model.back.isHidden = entity.isSaddled();
 
-		cycleOfs = (cycleOfs * (cycleOfs + 2)) * 0.05f;
+		cycleOfs = cycleOfs * (cycleOfs + 2) * 0.05f;
 
 		cycleOfs *= lerp(0.5f, 1, flutter);
 		cycleOfs *= lerp(1, 0.5f, ground);
