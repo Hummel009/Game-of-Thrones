@@ -123,7 +123,7 @@ public class GOTFellowshipData {
 			Collection<GOTFellowship> clearing = new ArrayList<>();
 			for (GOTFellowship fs : fellowshipMap.values()) {
 				boolean foundMember = false;
-				for (EntityPlayer entityplayer : (List<EntityPlayerMP>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
+				for (EntityPlayer entityplayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 					if (!fs.containsPlayer(entityplayer.getUniqueID())) {
 						continue;
 					}
