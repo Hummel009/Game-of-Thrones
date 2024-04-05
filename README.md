@@ -27,7 +27,7 @@
 
 [License]: LICENSE
 [Curse]: https://www.curseforge.com/minecraft/mc-mods/gotminecraftmod
-[Logo]: src/main/resources/assets/got/logo.png
+[Logo]: src/main/resources/assets/got/textures/logo.png
 [Wiki]: https://gotminecraftmod.fandom.com/ru
 [Badge License]: https://img.shields.io/badge/License-GPL_3-0167a0.svg?style=for-the-badge&labelColor=blue
 [Button Curse]: https://img.shields.io/badge/Download-f16436.svg?style=for-the-badge&logoColor=white&logo=CurseForge
