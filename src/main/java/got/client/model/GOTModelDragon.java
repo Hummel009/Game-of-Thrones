@@ -473,144 +473,72 @@ public class GOTModelDragon extends ModelBase {
 		return head;
 	}
 
-	public void setHead(GOTModelDragonPart head) {
-		this.head = head;
-	}
-
 	public GOTModelDragonPart getNeck() {
 		return neck;
-	}
-
-	public void setNeck(GOTModelDragonPart neck) {
-		this.neck = neck;
 	}
 
 	public GOTModelDragonPart getNeckScale() {
 		return neckScale;
 	}
 
-	public void setNeckScale(GOTModelDragonPart neckScale) {
-		this.neckScale = neckScale;
-	}
-
 	public GOTModelDragonPart getTail() {
 		return tail;
-	}
-
-	public void setTail(GOTModelDragonPart tail) {
-		this.tail = tail;
 	}
 
 	public GOTModelDragonPart getTailHornLeft() {
 		return tailHornLeft;
 	}
 
-	public void setTailHornLeft(GOTModelDragonPart tailHornLeft) {
-		this.tailHornLeft = tailHornLeft;
-	}
-
 	public GOTModelDragonPart getTailHornRight() {
 		return tailHornRight;
-	}
-
-	public void setTailHornRight(GOTModelDragonPart tailHornRight) {
-		this.tailHornRight = tailHornRight;
 	}
 
 	public GOTModelDragonPart getJaw() {
 		return jaw;
 	}
 
-	public void setJaw(GOTModelDragonPart jaw) {
-		this.jaw = jaw;
-	}
-
 	public GOTModelDragonPart getBack() {
 		return back;
-	}
-
-	public void setBack(GOTModelDragonPart back) {
-		this.back = back;
 	}
 
 	public GOTModelDragonPart getForethigh() {
 		return forethigh;
 	}
 
-	public void setForethigh(GOTModelDragonPart forethigh) {
-		this.forethigh = forethigh;
-	}
-
 	public GOTModelDragonPart getForecrus() {
 		return forecrus;
-	}
-
-	public void setForecrus(GOTModelDragonPart forecrus) {
-		this.forecrus = forecrus;
 	}
 
 	public GOTModelDragonPart getForefoot() {
 		return forefoot;
 	}
 
-	public void setForefoot(GOTModelDragonPart forefoot) {
-		this.forefoot = forefoot;
-	}
-
 	public GOTModelDragonPart getForetoe() {
 		return foretoe;
-	}
-
-	public void setForetoe(GOTModelDragonPart foretoe) {
-		this.foretoe = foretoe;
 	}
 
 	public GOTModelDragonPart getHindthigh() {
 		return hindthigh;
 	}
 
-	public void setHindthigh(GOTModelDragonPart hindthigh) {
-		this.hindthigh = hindthigh;
-	}
-
 	public GOTModelDragonPart getHindcrus() {
 		return hindcrus;
-	}
-
-	public void setHindcrus(GOTModelDragonPart hindcrus) {
-		this.hindcrus = hindcrus;
 	}
 
 	public GOTModelDragonPart getHindfoot() {
 		return hindfoot;
 	}
 
-	public void setHindfoot(GOTModelDragonPart hindfoot) {
-		this.hindfoot = hindfoot;
-	}
-
 	public GOTModelDragonPart getHindtoe() {
 		return hindtoe;
-	}
-
-	public void setHindtoe(GOTModelDragonPart hindtoe) {
-		this.hindtoe = hindtoe;
 	}
 
 	public GOTModelDragonPart getWingArm() {
 		return wingArm;
 	}
 
-	public void setWingArm(GOTModelDragonPart wingArm) {
-		this.wingArm = wingArm;
-	}
-
 	public GOTModelDragonPart getWingForearm() {
 		return wingForearm;
-	}
-
-	public void setWingForearm(GOTModelDragonPart wingForearm) {
-		this.wingForearm = wingForearm;
 	}
 
 	public float getPitch() {
