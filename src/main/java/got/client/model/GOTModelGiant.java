@@ -9,18 +9,18 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelGiant extends ModelBase {
-	public ModelRenderer head;
-	public ModelRenderer headHurt;
-	public ModelRenderer body;
-	public ModelRenderer rightArm;
-	public ModelRenderer leftArm;
-	public ModelRenderer rightLeg;
-	public ModelRenderer leftLeg;
-	public ModelRenderer woodenClub;
-	public ModelRenderer woodenClubSpikes;
-	public ModelRenderer warhammer;
-	public ModelRenderer battleaxe;
-	public boolean isOutiftModel;
+	private ModelRenderer head;
+	private ModelRenderer headHurt;
+	private ModelRenderer body;
+	private ModelRenderer rightArm;
+	private ModelRenderer leftArm;
+	private ModelRenderer rightLeg;
+	private ModelRenderer leftLeg;
+	private ModelRenderer woodenClub;
+	private ModelRenderer woodenClubSpikes;
+	private ModelRenderer warhammer;
+	private ModelRenderer battleaxe;
+	private boolean isOutiftModel;
 
 	public GOTModelGiant() {
 		this(0.0f);
@@ -149,7 +149,7 @@ public class GOTModelGiant extends ModelBase {
 		leftLeg.render(f5);
 	}
 
-	public void renderBattleaxe(float f) {
+	private void renderBattleaxe(float f) {
 		battleaxe.rotationPointX = rightArm.rotationPointX;
 		battleaxe.rotationPointY = rightArm.rotationPointY;
 		battleaxe.rotationPointZ = rightArm.rotationPointZ;
@@ -159,7 +159,7 @@ public class GOTModelGiant extends ModelBase {
 		battleaxe.render(f);
 	}
 
-	public void renderWarhammer(float f) {
+	private void renderWarhammer(float f) {
 		warhammer.rotationPointX = rightArm.rotationPointX;
 		warhammer.rotationPointY = rightArm.rotationPointY;
 		warhammer.rotationPointZ = rightArm.rotationPointZ;
@@ -169,7 +169,7 @@ public class GOTModelGiant extends ModelBase {
 		warhammer.render(f);
 	}
 
-	public void renderWoodenClub(float f) {
+	private void renderWoodenClub(float f) {
 		woodenClub.rotationPointX = rightArm.rotationPointX;
 		woodenClub.rotationPointY = rightArm.rotationPointY;
 		woodenClub.rotationPointZ = rightArm.rotationPointZ;
@@ -269,5 +269,13 @@ public class GOTModelGiant extends ModelBase {
 		headHurt.rotateAngleX = head.rotateAngleX;
 		headHurt.rotateAngleY = head.rotateAngleY;
 		headHurt.rotateAngleZ = head.rotateAngleZ;
+	}
+
+	public ModelRenderer getRightArm() {
+		return rightArm;
+	}
+
+	public void setRightArm(ModelRenderer rightArm) {
+		this.rightArm = rightArm;
 	}
 }

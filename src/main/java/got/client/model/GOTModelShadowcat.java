@@ -8,14 +8,14 @@ import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelShadowcat extends ModelBase {
-	public ModelRenderer head;
-	public ModelRenderer body1;
-	public ModelRenderer body2;
-	public ModelRenderer leg1;
-	public ModelRenderer leg2;
-	public ModelRenderer leg3;
-	public ModelRenderer leg4;
-	public ModelRenderer tail;
+	private ModelRenderer head;
+	private ModelRenderer body1;
+	private ModelRenderer body2;
+	private ModelRenderer leg1;
+	private ModelRenderer leg2;
+	private ModelRenderer leg3;
+	private ModelRenderer leg4;
+	private ModelRenderer tail;
 
 	public GOTModelShadowcat() {
 		textureWidth = 64;
@@ -99,16 +99,13 @@ public class GOTModelShadowcat extends ModelBase {
 		setRotation(tail, 0.4363323F, 0.0F, 0.0F);
 	}
 
-	public static void convertToChild(ModelRenderer parent, ModelRenderer child) {
-		// move child rotation point to be relative to parent
+	private static void convertToChild(ModelRenderer parent, ModelRenderer child) {
 		child.rotationPointX -= parent.rotationPointX;
 		child.rotationPointY -= parent.rotationPointY;
 		child.rotationPointZ -= parent.rotationPointZ;
-		// make rotations relative to parent
 		child.rotateAngleX -= parent.rotateAngleX;
 		child.rotateAngleY -= parent.rotateAngleY;
 		child.rotateAngleZ -= parent.rotateAngleZ;
-		// create relationship
 		parent.addChild(child);
 	}
 
@@ -162,7 +159,7 @@ public class GOTModelShadowcat extends ModelBase {
 		leg4.rotateAngleX = MathHelper.cos(f1 * 0.6662F) * 1.4F * f2;
 	}
 
-	public void setRotation(ModelRenderer model, float x, float y, float z) {
+	private void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;

@@ -5,19 +5,19 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelWalrus extends ModelBase {
-	public ModelRenderer body;
-	public ModelRenderer neck;
-	public ModelRenderer head;
-	public ModelRenderer snout;
-	public ModelRenderer tusk1;
-	public ModelRenderer flipper1;
-	public ModelRenderer flipper2;
-	public ModelRenderer tail1;
-	public ModelRenderer tusk2;
-	public ModelRenderer tail2;
-	public ModelRenderer tail3;
-	public ModelRenderer flipper3;
-	public ModelRenderer flipper4;
+	private ModelRenderer body;
+	private ModelRenderer neck;
+	private ModelRenderer head;
+	private ModelRenderer snout;
+	private ModelRenderer tusk1;
+	private ModelRenderer flipper1;
+	private ModelRenderer flipper2;
+	private ModelRenderer tail1;
+	private ModelRenderer tusk2;
+	private ModelRenderer tail2;
+	private ModelRenderer tail3;
+	private ModelRenderer flipper3;
+	private ModelRenderer flipper4;
 
 	public GOTModelWalrus() {
 		textureWidth = 256;
@@ -121,7 +121,7 @@ public class GOTModelWalrus extends ModelBase {
 		flipper4.render(f5);
 	}
 
-	public void setRotation(ModelRenderer model, float x, float y, float z) {
+	private void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;

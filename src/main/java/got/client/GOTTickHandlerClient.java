@@ -1155,7 +1155,7 @@ public class GOTTickHandlerClient {
 						GL11.glTranslatef(compassX, compassY, 0.0F);
 						float rotation = entityplayer.prevRotationYaw + (entityplayer.rotationYaw - entityplayer.prevRotationYaw) * event.renderTickTime;
 						rotation = 180.0F - rotation;
-						GOTModelCompass.compassModel.render(1.0F, rotation);
+						GOTModelCompass.COMPASS_MODEL.render(1.0F, rotation);
 						GL11.glPopMatrix();
 						if (GOTConfig.compassExtraInfo) {
 							GL11.glPushMatrix();

@@ -35,7 +35,7 @@ public class GOTModelGiraffeRug extends ModelBase {
 		GL11.glPopMatrix();
 	}
 
-	public void setRotationAngles() {
+	private void setRotationAngles() {
 		giraffeModel.leg1.rotateAngleX = 0.5235987755982988f;
 		giraffeModel.leg1.rotateAngleZ = 1.5707963267948966f;
 		giraffeModel.leg2.rotateAngleX = 0.5235987755982988f;

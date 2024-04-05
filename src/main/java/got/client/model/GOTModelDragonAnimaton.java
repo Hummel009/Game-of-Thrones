@@ -198,11 +198,7 @@ public class GOTModelDragonAnimaton {
 
 	public static float[] interpEndsArray(float[] inputs, float... internalKnots) {
 		float[] knots = getLinearEndKnots(internalKnots);
-		float[] result = new float[inputs.length];
-		for (int i = 0; i < inputs.length; i++) {
-			result[i] = interp(inputs[i], knots);
-		}
-		return result;
+		return interpArray(inputs, knots);
 	}
 
 	public static float[] interpLinearEndsArray(float minInputValue, float maxInputValue, int n, float... internalKnots) {

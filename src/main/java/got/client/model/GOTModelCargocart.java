@@ -7,13 +7,13 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelCargocart extends ModelBase {
-	public ModelRenderer boardb = new ModelRenderer(this, 0, 0).setTextureSize(128, 128);
-	public ModelRenderer cargo;
-	public ModelRenderer cargo1;
-	public ModelRenderer cargo2;
-	public ModelRenderer cargo3;
-	public ModelRenderer leftWheel;
-	public ModelRenderer rightWheel;
+	private ModelRenderer boardb = new ModelRenderer(this, 0, 0).setTextureSize(128, 128);
+	private ModelRenderer cargo;
+	private ModelRenderer cargo1;
+	private ModelRenderer cargo2;
+	private ModelRenderer cargo3;
+	private ModelRenderer leftWheel;
+	private ModelRenderer rightWheel;
 
 	public GOTModelCargocart() {
 		ModelRenderer box;

@@ -3,7 +3,6 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelSandorHelmet extends GOTModelBiped {
-
 	public GOTModelSandorHelmet() {
 		this(0.0f);
 	}

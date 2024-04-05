@@ -6,16 +6,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelTermite extends ModelBase {
-	public ModelRenderer body = new ModelRenderer(this, 10, 5);
-	public ModelRenderer head;
-	public ModelRenderer leg1;
-	public ModelRenderer leg2;
-	public ModelRenderer leg3;
-	public ModelRenderer leg5;
-	public ModelRenderer leg4;
-	public ModelRenderer leg6;
-	public ModelRenderer rightfeeler;
-	public ModelRenderer leftfeeler;
+	private ModelRenderer body = new ModelRenderer(this, 10, 5);
+	private ModelRenderer head;
+	private ModelRenderer leg1;
+	private ModelRenderer leg2;
+	private ModelRenderer leg3;
+	private ModelRenderer leg5;
+	private ModelRenderer leg4;
+	private ModelRenderer leg6;
+	private ModelRenderer rightfeeler;
+	private ModelRenderer leftfeeler;
 
 	public GOTModelTermite() {
 		body.addBox(0.0f, 0.0f, 0.0f, 6, 6, 21);

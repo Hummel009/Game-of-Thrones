@@ -68,7 +68,7 @@ public class GOTRenderGiant extends RenderLiving {
 				}
 				heldRock.setWorld(giant.worldObj);
 				heldRock.setPosition(giant.posX, giant.posY, giant.posZ);
-				((GOTModelGiant) mainModel).rightArm.postRender(0.0625f);
+				((GOTModelGiant) mainModel).getRightArm().postRender(0.0625f);
 				GL11.glTranslatef(0.375f, 1.5f, 0.0f);
 				GL11.glRotatef(45.0f, 0.0f, 1.0f, 0.0f);
 				scalegiant(giant, true);

@@ -32,7 +32,7 @@ public class GOTModelBearRug extends ModelBase {
 		GL11.glPopMatrix();
 	}
 
-	public void setRotationAngles() {
+	private void setRotationAngles() {
 		bearModel.leg1.rotateAngleX = 0.5235987755982988f;
 		bearModel.leg1.rotateAngleZ = 1.5707963267948966f;
 		bearModel.leg2.rotateAngleX = 0.5235987755982988f;

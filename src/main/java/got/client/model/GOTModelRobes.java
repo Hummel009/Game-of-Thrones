@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelRobes extends GOTModelHuman {
-	public ItemStack robeItem;
+	protected ItemStack robeItem;
 
 	public GOTModelRobes() {
 		this(0.0f);
@@ -37,5 +37,9 @@ public class GOTModelRobes extends GOTModelHuman {
 
 	public void setRobeItem(ItemStack itemstack) {
 		robeItem = itemstack;
+	}
+
+	public ItemStack getRobeItem() {
+		return robeItem;
 	}
 }

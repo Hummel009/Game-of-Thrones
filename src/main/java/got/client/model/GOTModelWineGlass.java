@@ -5,8 +5,8 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelWineGlass extends ModelBase {
-	public ModelRenderer base = new ModelRenderer(this, 0, 0);
-	public ModelRenderer cup;
+	private ModelRenderer base = new ModelRenderer(this, 0, 0);
+	private ModelRenderer cup;
 
 	public GOTModelWineGlass() {
 		base.setRotationPoint(0.0f, -1.0f, 0.0f);

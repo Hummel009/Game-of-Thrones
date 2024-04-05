@@ -7,15 +7,15 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelCamel extends ModelBase {
-	public ModelRenderer body;
-	public ModelRenderer humps;
-	public ModelRenderer tail;
-	public ModelRenderer head;
-	public ModelRenderer leg1;
-	public ModelRenderer leg2;
-	public ModelRenderer leg3;
-	public ModelRenderer leg4;
-	public ModelRenderer chest;
+	private ModelRenderer body;
+	private ModelRenderer humps;
+	private ModelRenderer tail;
+	private ModelRenderer head;
+	private ModelRenderer leg1;
+	private ModelRenderer leg2;
+	private ModelRenderer leg3;
+	private ModelRenderer leg4;
+	private ModelRenderer chest;
 
 	public GOTModelCamel() {
 		this(0.0f);

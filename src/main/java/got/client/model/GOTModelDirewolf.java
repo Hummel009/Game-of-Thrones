@@ -9,43 +9,43 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class GOTModelDirewolf extends ModelBase {
-	public ModelRenderer Head;
-	public ModelRenderer MouthB;
-	public ModelRenderer Nose2;
-	public ModelRenderer Neck;
-	public ModelRenderer Neck2;
-	public ModelRenderer LSide;
-	public ModelRenderer RSide;
-	public ModelRenderer REar2;
-	public ModelRenderer Nose;
-	public ModelRenderer Mouth;
-	public ModelRenderer MouthOpen;
-	public ModelRenderer REar;
-	public ModelRenderer LEar2;
-	public ModelRenderer LEar;
+	private ModelRenderer Head;
+	private ModelRenderer MouthB;
+	private ModelRenderer Nose2;
+	private ModelRenderer Neck;
+	private ModelRenderer Neck2;
+	private ModelRenderer LSide;
+	private ModelRenderer RSide;
+	private ModelRenderer REar2;
+	private ModelRenderer Nose;
+	private ModelRenderer Mouth;
+	private ModelRenderer MouthOpen;
+	private ModelRenderer REar;
+	private ModelRenderer LEar2;
+	private ModelRenderer LEar;
 
-	public ModelRenderer Chest;
-	public ModelRenderer Body;
+	private ModelRenderer Chest;
+	private ModelRenderer Body;
 
-	public ModelRenderer TailA;
-	public ModelRenderer TailB;
-	public ModelRenderer TailC;
-	public ModelRenderer TailD;
+	private ModelRenderer TailA;
+	private ModelRenderer TailB;
+	private ModelRenderer TailC;
+	private ModelRenderer TailD;
 
-	public ModelRenderer Leg4A;
-	public ModelRenderer Leg4D;
-	public ModelRenderer Leg4B;
-	public ModelRenderer Leg4C;
-	public ModelRenderer Leg3B;
-	public ModelRenderer Leg2A;
-	public ModelRenderer Leg2B;
-	public ModelRenderer Leg2C;
-	public ModelRenderer Leg3D;
-	public ModelRenderer Leg3C;
-	public ModelRenderer Leg3A;
-	public ModelRenderer Leg1A;
-	public ModelRenderer Leg1B;
-	public ModelRenderer Leg1C;
+	private ModelRenderer Leg4A;
+	private ModelRenderer Leg4D;
+	private ModelRenderer Leg4B;
+	private ModelRenderer Leg4C;
+	private ModelRenderer Leg3B;
+	private ModelRenderer Leg2A;
+	private ModelRenderer Leg2B;
+	private ModelRenderer Leg2C;
+	private ModelRenderer Leg3D;
+	private ModelRenderer Leg3C;
+	private ModelRenderer Leg3A;
+	private ModelRenderer Leg1A;
+	private ModelRenderer Leg1B;
+	private ModelRenderer Leg1C;
 
 	public GOTModelDirewolf() {
 		textureWidth = 64;
@@ -242,13 +242,13 @@ public class GOTModelDirewolf extends ModelBase {
 
 	}
 
-	public void setRotation(ModelRenderer model, float x, float y, float z) {
+	private void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;
 	}
 
-	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, boolean tail) {
+	private void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, boolean tail) {
 
 		Head.rotateAngleX = f4 / 57.29578F;
 		Head.rotateAngleY = f3 / 57.29578F;

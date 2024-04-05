@@ -4,8 +4,8 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelBannerWall extends ModelBase {
-	public ModelRenderer post;
-	public ModelRenderer banner;
+	private ModelRenderer post;
+	private ModelRenderer banner;
 
 	public GOTModelBannerWall() {
 		textureWidth = 64;

@@ -9,43 +9,43 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class GOTModelElephant extends ModelBase {
-	public ModelRenderer head;
-	public ModelRenderer neck;
-	public ModelRenderer headBump;
-	public ModelRenderer chin;
-	public ModelRenderer lowerLip;
-	public ModelRenderer back;
-	public ModelRenderer leftSmallEar;
-	public ModelRenderer leftBigEar;
-	public ModelRenderer rightSmallEar;
-	public ModelRenderer rightBigEar;
-	public ModelRenderer hump;
-	public ModelRenderer body;
-	public ModelRenderer skirt;
-	public ModelRenderer rightTuskA;
-	public ModelRenderer rightTuskB;
-	public ModelRenderer rightTuskC;
-	public ModelRenderer rightTuskD;
-	public ModelRenderer leftTuskA;
-	public ModelRenderer leftTuskB;
-	public ModelRenderer leftTuskC;
-	public ModelRenderer leftTuskD;
-	public ModelRenderer trunkA;
-	public ModelRenderer trunkB;
-	public ModelRenderer trunkC;
-	public ModelRenderer trunkD;
-	public ModelRenderer trunkE;
-	public ModelRenderer frontRightUpperLeg;
-	public ModelRenderer frontRightLowerLeg;
-	public ModelRenderer frontLeftUpperLeg;
-	public ModelRenderer frontLeftLowerLeg;
-	public ModelRenderer backRightUpperLeg;
-	public ModelRenderer backRightLowerLeg;
-	public ModelRenderer backLeftUpperLeg;
-	public ModelRenderer backLeftLowerLeg;
-	public ModelRenderer tailRoot;
-	public ModelRenderer tail;
-	public ModelRenderer tailPlush;
+	private ModelRenderer head;
+	private ModelRenderer neck;
+	private ModelRenderer headBump;
+	private ModelRenderer chin;
+	private ModelRenderer lowerLip;
+	private ModelRenderer back;
+	private ModelRenderer leftSmallEar;
+	private ModelRenderer leftBigEar;
+	private ModelRenderer rightSmallEar;
+	private ModelRenderer rightBigEar;
+	private ModelRenderer hump;
+	private ModelRenderer body;
+	private ModelRenderer skirt;
+	private ModelRenderer rightTuskA;
+	private ModelRenderer rightTuskB;
+	private ModelRenderer rightTuskC;
+	private ModelRenderer rightTuskD;
+	private ModelRenderer leftTuskA;
+	private ModelRenderer leftTuskB;
+	private ModelRenderer leftTuskC;
+	private ModelRenderer leftTuskD;
+	private ModelRenderer trunkA;
+	private ModelRenderer trunkB;
+	private ModelRenderer trunkC;
+	private ModelRenderer trunkD;
+	private ModelRenderer trunkE;
+	private ModelRenderer frontRightUpperLeg;
+	private ModelRenderer frontRightLowerLeg;
+	private ModelRenderer frontLeftUpperLeg;
+	private ModelRenderer frontLeftLowerLeg;
+	private ModelRenderer backRightUpperLeg;
+	private ModelRenderer backRightLowerLeg;
+	private ModelRenderer backLeftUpperLeg;
+	private ModelRenderer backLeftLowerLeg;
+	private ModelRenderer tailRoot;
+	private ModelRenderer tail;
+	private ModelRenderer tailPlush;
 
 	public GOTModelElephant() {
 		textureWidth = 128;
@@ -189,7 +189,7 @@ public class GOTModelElephant extends ModelBase {
 		setRotation(tailPlush, 0.1134464f, 0.0f, 0.0f);
 	}
 
-	public void adjustAllRotationPoints(ModelRenderer target, ModelRenderer origin) {
+	private void adjustAllRotationPoints(ModelRenderer target, ModelRenderer origin) {
 		float distanceY;
 		distanceY = target.rotationPointY > origin.rotationPointY ? target.rotationPointY - origin.rotationPointY : origin.rotationPointY - target.rotationPointY;
 		target.rotationPointY = origin.rotationPointY + MathHelper.sin(origin.rotateAngleX) * distanceY;
@@ -197,7 +197,7 @@ public class GOTModelElephant extends ModelBase {
 		target.rotationPointX = origin.rotationPointX - MathHelper.sin(origin.rotateAngleY) * (MathHelper.cos(origin.rotateAngleX) * distanceY);
 	}
 
-	public void adjustXRotationPoints(ModelRenderer target, ModelRenderer origin) {
+	private void adjustXRotationPoints(ModelRenderer target, ModelRenderer origin) {
 		float distance = target.rotationPointY - origin.rotationPointY;
 		if (distance < 0.0f) {
 			distance *= -1.0f;
@@ -206,7 +206,7 @@ public class GOTModelElephant extends ModelBase {
 		target.rotationPointY = origin.rotationPointY + MathHelper.cos(origin.rotateAngleX) * distance;
 	}
 
-	public void AdjustY(float f) {
+	private void AdjustY(float f) {
 		head.rotationPointY = f - 10.0f;
 		neck.rotationPointY = f - 8.0f;
 		headBump.rotationPointY = f - 10.0f;
@@ -246,7 +246,7 @@ public class GOTModelElephant extends ModelBase {
 		tailPlush.rotationPointY = f - 8.0f;
 	}
 
-	public void adjustYRotationPoints(ModelRenderer target, ModelRenderer origin) {
+	private void adjustYRotationPoints(ModelRenderer target, ModelRenderer origin) {
 		float distanceZ;
 		distanceZ = target.rotationPointZ > origin.rotationPointZ ? target.rotationPointZ - origin.rotationPointZ : origin.rotationPointZ - target.rotationPointZ;
 		target.rotationPointZ = origin.rotationPointZ - MathHelper.cos(origin.rotateAngleY) * distanceZ;
@@ -292,13 +292,13 @@ public class GOTModelElephant extends ModelBase {
 		tailPlush.render(f5);
 	}
 
-	public void setRotation(ModelRenderer model, float x, float y, float z) {
+	private void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;
 	}
 
-	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, byte tusks, boolean sitting, boolean tail) {
+	private void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, byte tusks, boolean sitting, boolean tail) {
 		float RLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float LLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;
 		float HeadXRot;

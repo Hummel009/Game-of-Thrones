@@ -4,7 +4,6 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelTargaryenChestplate extends GOTModelBiped {
-
 	public GOTModelTargaryenChestplate() {
 		textureWidth = 64;
 		textureHeight = 64;
@@ -81,7 +80,7 @@ public class GOTModelTargaryenChestplate extends GOTModelBiped {
 		cube_r3.cubeList.add(new ModelBox(cube_r3, 49, 18, -3.5F, -3.5F, 0.5F, 3, 7, 0, 0.0F));
 	}
 
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	private void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

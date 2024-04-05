@@ -9,51 +9,51 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class GOTModelMossovyWerewolf extends ModelBase {
-	public boolean hunched;
-	public ModelRenderer Head;
-	public ModelRenderer Nose;
-	public ModelRenderer Snout;
-	public ModelRenderer TeethU;
-	public ModelRenderer TeethL;
-	public ModelRenderer Mouth;
-	public ModelRenderer LEar;
-	public ModelRenderer REar;
-	public ModelRenderer Neck;
-	public ModelRenderer Neck2;
-	public ModelRenderer SideburnL;
-	public ModelRenderer SideburnR;
-	public ModelRenderer Chest;
-	public ModelRenderer Abdomen;
-	public ModelRenderer TailA;
-	public ModelRenderer TailC;
-	public ModelRenderer TailB;
-	public ModelRenderer TailD;
-	public ModelRenderer RLegA;
-	public ModelRenderer RFoot;
-	public ModelRenderer RLegB;
-	public ModelRenderer RLegC;
-	public ModelRenderer LLegB;
-	public ModelRenderer LFoot;
-	public ModelRenderer LLegC;
-	public ModelRenderer LLegA;
-	public ModelRenderer RArmB;
-	public ModelRenderer RArmC;
-	public ModelRenderer LArmB;
-	public ModelRenderer RHand;
-	public ModelRenderer RArmA;
-	public ModelRenderer LArmA;
-	public ModelRenderer LArmC;
-	public ModelRenderer LHand;
-	public ModelRenderer RFinger1;
-	public ModelRenderer RFinger2;
-	public ModelRenderer RFinger3;
-	public ModelRenderer RFinger4;
-	public ModelRenderer RFinger5;
-	public ModelRenderer LFinger1;
-	public ModelRenderer LFinger2;
-	public ModelRenderer LFinger3;
-	public ModelRenderer LFinger4;
-	public ModelRenderer LFinger5;
+	private boolean hunched;
+	private ModelRenderer Head;
+	private ModelRenderer Nose;
+	private ModelRenderer Snout;
+	private ModelRenderer TeethU;
+	private ModelRenderer TeethL;
+	private ModelRenderer Mouth;
+	private ModelRenderer LEar;
+	private ModelRenderer REar;
+	private ModelRenderer Neck;
+	private ModelRenderer Neck2;
+	private ModelRenderer SideburnL;
+	private ModelRenderer SideburnR;
+	private ModelRenderer Chest;
+	private ModelRenderer Abdomen;
+	private ModelRenderer TailA;
+	private ModelRenderer TailC;
+	private ModelRenderer TailB;
+	private ModelRenderer TailD;
+	private ModelRenderer RLegA;
+	private ModelRenderer RFoot;
+	private ModelRenderer RLegB;
+	private ModelRenderer RLegC;
+	private ModelRenderer LLegB;
+	private ModelRenderer LFoot;
+	private ModelRenderer LLegC;
+	private ModelRenderer LLegA;
+	private ModelRenderer RArmB;
+	private ModelRenderer RArmC;
+	private ModelRenderer LArmB;
+	private ModelRenderer RHand;
+	private ModelRenderer RArmA;
+	private ModelRenderer LArmA;
+	private ModelRenderer LArmC;
+	private ModelRenderer LHand;
+	private ModelRenderer RFinger1;
+	private ModelRenderer RFinger2;
+	private ModelRenderer RFinger3;
+	private ModelRenderer RFinger4;
+	private ModelRenderer RFinger5;
+	private ModelRenderer LFinger1;
+	private ModelRenderer LFinger2;
+	private ModelRenderer LFinger3;
+	private ModelRenderer LFinger4;
+	private ModelRenderer LFinger5;
 
 	public GOTModelMossovyWerewolf() {
 		textureWidth = 64;
@@ -272,13 +272,13 @@ public class GOTModelMossovyWerewolf extends ModelBase {
 		LFinger5.render(f5);
 	}
 
-	public void setRotation(ModelRenderer model, float x, float y, float z) {
+	private void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;
 	}
 
-	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5) {
+	private void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5) {
 		float radianF = 57.29578f;
 		float RLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float LLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;

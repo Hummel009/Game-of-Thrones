@@ -6,17 +6,17 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelBiped extends ModelBiped {
-	public boolean setup;
-	public float base_bodyRotateX;
-	public float base_armX;
-	public float base_armY;
-	public float base_armZ;
-	public float base_legY;
-	public float base_legZ;
-	public float base_headY;
-	public float base_headZ;
-	public float base_bodyY;
-	public float base_bodyZ;
+	private boolean setup;
+	private float base_bodyRotateX;
+	private float base_armX;
+	private float base_armY;
+	private float base_armZ;
+	private float base_legY;
+	private float base_legZ;
+	private float base_headY;
+	private float base_headZ;
+	private float base_bodyY;
+	private float base_bodyZ;
 
 	public GOTModelBiped() {
 	}
@@ -154,7 +154,7 @@ public class GOTModelBiped extends ModelBiped {
 		bipedLeftArm.rotationPointZ = base_armZ;
 	}
 
-	public void setupModelBiped() {
+	private void setupModelBiped() {
 		base_bodyRotateX = bipedBody.rotateAngleX;
 		base_armX = Math.abs(bipedRightArm.rotationPointX);
 		base_armY = bipedRightArm.rotationPointY;

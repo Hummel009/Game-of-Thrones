@@ -4,7 +4,6 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelTargaryenHelmet extends GOTModelBiped {
-
 	public GOTModelTargaryenHelmet() {
 		textureWidth = 64;
 		textureHeight = 32;
@@ -21,7 +20,7 @@ public class GOTModelTargaryenHelmet extends GOTModelBiped {
 		crown.cubeList.add(new ModelBox(crown, 0, 0, -1.0F, -10.0F, -5.0F, 2, 2, 10, -0.01F));
 	}
 
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	private void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;

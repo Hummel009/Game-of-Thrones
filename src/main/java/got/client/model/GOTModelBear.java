@@ -6,13 +6,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelBear extends ModelBase {
-	public ModelRenderer head;
-	public ModelRenderer nose;
-	public ModelRenderer body;
-	public ModelRenderer leg1;
-	public ModelRenderer leg2;
-	public ModelRenderer leg3;
-	public ModelRenderer leg4;
+	ModelRenderer head;
+	ModelRenderer nose;
+	ModelRenderer body;
+	ModelRenderer leg1;
+	ModelRenderer leg2;
+	ModelRenderer leg3;
+	ModelRenderer leg4;
 
 	public GOTModelBear() {
 		textureWidth = 128;

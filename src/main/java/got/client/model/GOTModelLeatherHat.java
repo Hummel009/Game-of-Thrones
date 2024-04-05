@@ -11,14 +11,14 @@ import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelLeatherHat extends GOTModelBiped {
-	public static ItemStack feather = new ItemStack(Items.feather);
-	public ItemStack hatItem;
+	private static final ItemStack FEATHER = new ItemStack(Items.feather);
+	private ItemStack hatItem;
 
 	public GOTModelLeatherHat() {
 		this(0.0f);
 	}
 
-	public GOTModelLeatherHat(float f) {
+	private GOTModelLeatherHat(float f) {
 		super(f);
 		bipedHead = new ModelRenderer(this, 0, 0);
 		bipedHead.setRotationPoint(0.0f, 0.0f, 0.0f);
@@ -55,9 +55,9 @@ public class GOTModelLeatherHat extends GOTModelBiped {
 			b = (featherColor & 0xFF) / 255.0f;
 			GL11.glColor3f(r, g, b);
 			if (entity instanceof EntityLivingBase) {
-				RenderManager.instance.itemRenderer.renderItem((EntityLivingBase) entity, feather, 0);
+				RenderManager.instance.itemRenderer.renderItem((EntityLivingBase) entity, FEATHER, 0);
 			} else {
-				RenderManager.instance.itemRenderer.renderItem(Minecraft.getMinecraft().thePlayer, feather, 0);
+				RenderManager.instance.itemRenderer.renderItem(Minecraft.getMinecraft().thePlayer, FEATHER, 0);
 			}
 			GL11.glColor3f(1.0f, 1.0f, 1.0f);
 		}
@@ -66,5 +66,9 @@ public class GOTModelLeatherHat extends GOTModelBiped {
 
 	public void setHatItem(ItemStack itemstack) {
 		hatItem = itemstack;
+	}
+
+	public ItemStack getHatItem() {
+		return hatItem;
 	}
 }

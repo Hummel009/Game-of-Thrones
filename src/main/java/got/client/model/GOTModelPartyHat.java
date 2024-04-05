@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelPartyHat extends GOTModelBiped {
-	public ItemStack hatItem;
+	private ItemStack hatItem;
 
 	public GOTModelPartyHat() {
 		this(0.0f);
@@ -41,5 +41,9 @@ public class GOTModelPartyHat extends GOTModelBiped {
 
 	public void setHatItem(ItemStack itemstack) {
 		hatItem = itemstack;
+	}
+
+	public ItemStack getHatItem() {
+		return hatItem;
 	}
 }

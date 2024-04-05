@@ -7,14 +7,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelGiraffe extends ModelBase {
-	public ModelRenderer body = new ModelRenderer(this, 0, 0).setTextureSize(128, 64);
-	public ModelRenderer neck;
-	public ModelRenderer head;
-	public ModelRenderer tail;
-	public ModelRenderer leg1;
-	public ModelRenderer leg2;
-	public ModelRenderer leg3;
-	public ModelRenderer leg4;
+	ModelRenderer body = new ModelRenderer(this, 0, 0).setTextureSize(128, 64);
+	ModelRenderer neck;
+	ModelRenderer head;
+	ModelRenderer tail;
+	ModelRenderer leg1;
+	ModelRenderer leg2;
+	ModelRenderer leg3;
+	ModelRenderer leg4;
 
 	public GOTModelGiraffe(float f) {
 		body.addBox(-6.0f, -8.0f, -13.0f, 12, 16, 26, f);
@@ -68,7 +68,7 @@ public class GOTModelGiraffe extends ModelBase {
 		tail.render(f5);
 	}
 
-	public void setDefaultHeadNeckRotation(float f, float f1, float f2, float f3, float f4, float f5) {
+	private void setDefaultHeadNeckRotation(float f, float f1, float f2, float f3, float f4, float f5) {
 		head.setRotationPoint(0.0f, -14.0f, -7.0f);
 		neck.rotateAngleX = 0.17453294f + f4 / 57.29578f;
 		head.rotateAngleX = 0.17453294f + f4 / 57.29578f;

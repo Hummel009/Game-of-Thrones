@@ -9,12 +9,13 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelCompass extends ModelBase {
-	public static GOTModelCompass compassModel = new GOTModelCompass();
-	public static ResourceLocation compassTexture = new ResourceLocation("got:textures/misc/compass.png");
-	public ModelRenderer compass;
-	public ModelBase ringotel = new GOTModelPortal(0);
-	public ModelBase writingotelOuter = new GOTModelPortal(1);
-	public ModelBase writingotelInner = new GOTModelPortal(1);
+	public static final GOTModelCompass COMPASS_MODEL = new GOTModelCompass();
+	public static final ResourceLocation COMPASS_TEXTURE = new ResourceLocation("got:textures/misc/compass.png");
+
+	private ModelRenderer compass;
+	private ModelBase ringotel = new GOTModelPortal(0);
+	private ModelBase writingotelOuter = new GOTModelPortal(1);
+	private ModelBase writingotelInner = new GOTModelPortal(1);
 
 	public GOTModelCompass() {
 		textureWidth = 32;
@@ -34,7 +35,7 @@ public class GOTModelCompass extends ModelBase {
 		GL11.glScalef(1.0f, 1.0f, -1.0f);
 		GL11.glRotatef(40.0f, 1.0f, 0.0f, 0.0f);
 		GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
-		texturemanager.bindTexture(compassTexture);
+		texturemanager.bindTexture(COMPASS_TEXTURE);
 		compass.render(scale * 2.0f);
 		texturemanager.bindTexture(GOTRenderCompass.ringTexture);
 		ringotel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);

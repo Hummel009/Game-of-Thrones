@@ -10,56 +10,56 @@ import org.lwjgl.opengl.GL11;
 
 @SideOnly(Side.CLIENT)
 public class GOTModelWyvern extends ModelBase {
-	public float radianF = 57.29578f;
-	public ModelRenderer back1;
-	public ModelRenderer Tail;
-	public ModelRenderer tail1;
-	public ModelRenderer tail2;
-	public ModelRenderer tail3;
-	public ModelRenderer tail4;
-	public ModelRenderer tail5;
-	public ModelRenderer chest;
-	public ModelRenderer neckplate3;
-	public ModelRenderer neck3;
-	public ModelRenderer neck2;
-	public ModelRenderer neck1;
-	public ModelRenderer rightupleg;
-	public ModelRenderer rightmidleg;
-	public ModelRenderer rightlowleg;
-	public ModelRenderer rightfoot;
-	public ModelRenderer leftupleg;
-	public ModelRenderer leftmidleg;
-	public ModelRenderer leftlowleg;
-	public ModelRenderer torso;
-	public ModelRenderer rightshoulder;
-	public ModelRenderer leftshoulder;
-	public ModelRenderer leftfoot;
-	public ModelRenderer righttoe3;
-	public ModelRenderer righttoe2;
-	public ModelRenderer righttoe1;
-	public ModelRenderer lefttoe3;
-	public ModelRenderer lefttoe2;
-	public ModelRenderer lefttoe1;
-	public ModelRenderer head;
-	public ModelRenderer Jaw;
-	public ModelRenderer mouthrod;
-	public ModelRenderer helmetstrap1;
-	public ModelRenderer helmetstrap2;
-	public ModelRenderer leftearskin;
-	public ModelRenderer rightearskin;
-	public ModelRenderer rightfing1a;
-	public ModelRenderer rightfing2a;
-	public ModelRenderer rightfing3a;
-	public ModelRenderer leftfing3a;
-	public ModelRenderer leftfing2a;
-	public ModelRenderer leftfing1a;
-	public ModelRenderer leftlowarm;
-	public ModelRenderer rightlowarm;
-	public ModelRenderer rightuparm;
-	public ModelRenderer leftuparm;
-	public ModelRenderer LeftWing;
-	public ModelRenderer RightWing;
-	public ModelRenderer MainHead;
+	private float radianF = 57.29578f;
+	private ModelRenderer back1;
+	private ModelRenderer Tail;
+	private ModelRenderer tail1;
+	private ModelRenderer tail2;
+	private ModelRenderer tail3;
+	private ModelRenderer tail4;
+	private ModelRenderer tail5;
+	private ModelRenderer chest;
+	private ModelRenderer neckplate3;
+	private ModelRenderer neck3;
+	private ModelRenderer neck2;
+	private ModelRenderer neck1;
+	private ModelRenderer rightupleg;
+	private ModelRenderer rightmidleg;
+	private ModelRenderer rightlowleg;
+	private ModelRenderer rightfoot;
+	private ModelRenderer leftupleg;
+	private ModelRenderer leftmidleg;
+	private ModelRenderer leftlowleg;
+	private ModelRenderer torso;
+	private ModelRenderer rightshoulder;
+	private ModelRenderer leftshoulder;
+	private ModelRenderer leftfoot;
+	private ModelRenderer righttoe3;
+	private ModelRenderer righttoe2;
+	private ModelRenderer righttoe1;
+	private ModelRenderer lefttoe3;
+	private ModelRenderer lefttoe2;
+	private ModelRenderer lefttoe1;
+	private ModelRenderer head;
+	private ModelRenderer Jaw;
+	private ModelRenderer mouthrod;
+	private ModelRenderer helmetstrap1;
+	private ModelRenderer helmetstrap2;
+	private ModelRenderer leftearskin;
+	private ModelRenderer rightearskin;
+	private ModelRenderer rightfing1a;
+	private ModelRenderer rightfing2a;
+	private ModelRenderer rightfing3a;
+	private ModelRenderer leftfing3a;
+	private ModelRenderer leftfing2a;
+	private ModelRenderer leftfing1a;
+	private ModelRenderer leftlowarm;
+	private ModelRenderer rightlowarm;
+	private ModelRenderer rightuparm;
+	private ModelRenderer leftuparm;
+	private ModelRenderer LeftWing;
+	private ModelRenderer RightWing;
+	private ModelRenderer MainHead;
 
 	public GOTModelWyvern() {
 		textureWidth = 128;
@@ -455,7 +455,7 @@ public class GOTModelWyvern extends ModelBase {
 		stomachbelt.setRotationPoint(0.0f, 0.0f, 0.0f);
 	}
 
-	public static float realAngle(float origAngle) {
+	private static float realAngle(float origAngle) {
 		return origAngle % 360.0f;
 	}
 
@@ -483,13 +483,13 @@ public class GOTModelWyvern extends ModelBase {
 		GL11.glPopMatrix();
 	}
 
-	public void setRotation(ModelRenderer model, float x, float y, float z) {
+	private void setRotation(ModelRenderer model, float x, float y, float z) {
 		model.rotateAngleX = x;
 		model.rotateAngleY = y;
 		model.rotateAngleZ = z;
 	}
 
-	public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5) {
+	private void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5) {
 		float f10;
 		float RLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float LLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;

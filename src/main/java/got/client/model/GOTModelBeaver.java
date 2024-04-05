@@ -92,7 +92,7 @@ public class GOTModelBeaver extends ModelBase {
 		leg4.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
 	}
 
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	private void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
 		modelRenderer.rotateAngleZ = z;
