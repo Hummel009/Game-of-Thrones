@@ -45,7 +45,6 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 				if (knockback > 4.0f) {
 					knockback = 4.0f;
 				}
-				assert user instanceof EntityPlayer;
 				if (GOT.canPlayerAttackEntity((EntityPlayer) user, entity, false)) {
 					entity.addVelocity(-MathHelper.sin(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback, 0.2 + 0.12 * knockback, MathHelper.cos(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback);
 				}
@@ -76,7 +75,6 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 				if (knockback > 4.0f) {
 					knockback = 4.0f;
 				}
-				assert user instanceof EntityCreature;
 				if (GOT.canNPCAttackEntity((EntityCreature) user, entity, false)) {
 					entity.addVelocity(-MathHelper.sin(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback, 0.2 + 0.12 * knockback, MathHelper.cos(user.rotationYaw * 3.1415927f / 180.0f) * 0.7f * knockback);
 				}

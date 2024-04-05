@@ -14,17 +14,21 @@ import java.util.Random;
 
 public class GOTMusicTicker {
 	public static GOTMusicTrack currentTrack;
-	public static boolean wasPlayingMenu = true;
-	public static int firstTiming = 100;
-	public static int timing = 100;
-	public static int nullTrackResetTiming = 400;
 
-	public static GOTMusicCategory getCurrentCategory(Minecraft mc, Random rand) {
+	private static boolean wasPlayingMenu = true;
+	private static int timing = 100;
+
+	private GOTMusicTicker() {
+	}
+
+	private static GOTMusicCategory getCurrentCategory(Minecraft mc) {
 		WorldClient world = mc.theWorld;
 		EntityClientPlayerMP entityplayer = mc.thePlayer;
 		if (world != null && entityplayer != null) {
+			int k = MathHelper.floor_double(entityplayer.posZ);
+			int j = MathHelper.floor_double(entityplayer.boundingBox.minY);
 			int i = MathHelper.floor_double(entityplayer.posX);
-			if (GOTMusicCategory.isCave(world, i, MathHelper.floor_double(entityplayer.boundingBox.minY), MathHelper.floor_double(entityplayer.posZ))) {
+			if (GOTMusicCategory.isCave(world, i, j, k)) {
 				return GOTMusicCategory.CAVE;
 			}
 			if (GOTMusicCategory.isDay(world)) {
@@ -35,37 +39,40 @@ public class GOTMusicTicker {
 		return null;
 	}
 
-	public static GOTBiomeMusic.MusicRegion getCurrentRegion(Minecraft mc, Random rand) {
-		int k;
-		int i;
-		BiomeGenBase biome;
-		WorldClient world = mc.theWorld;
-		EntityClientPlayerMP entityplayer = mc.thePlayer;
+	private static GOTMusicRegion.Sub getCurrentRegion(Minecraft mc) {
+		WorldClient worldClient = mc.theWorld;
+		EntityClientPlayerMP entityClientPlayerMP = mc.thePlayer;
 		if (GOTMusic.isMenuMusic()) {
-			return GOTBiomeMusic.MENU.getWithoutSub();
+			return GOTMusicRegion.MENU.getWithoutSub();
 		}
-		if (GOTMusic.isGOTDimension() && GOTClientProxy.doesClientChunkExist(world, i = MathHelper.floor_double(entityplayer.posX), k = MathHelper.floor_double(entityplayer.posZ)) && (biome = world.getBiomeGenForCoords(i, k)) instanceof GOTBiome) {
-			GOTBiome gotbiome = (GOTBiome) biome;
-			return gotbiome.getBiomeMusic();
+		if (GOTMusic.isGOTDimension()) {
+			int i = MathHelper.floor_double(entityClientPlayerMP.posX);
+			int k = MathHelper.floor_double(entityClientPlayerMP.posZ);
+			if (GOTClientProxy.doesClientChunkExist(worldClient, i, k)) {
+				BiomeGenBase biome = worldClient.getBiomeGenForCoords(i, k);
+				if (biome instanceof GOTBiome) {
+					GOTBiome gotbiome = (GOTBiome) biome;
+					return gotbiome.getBiomeMusic();
+				}
+			}
 		}
 		return null;
 	}
 
-	public static GOTMusicTrack getNewTrack(Minecraft mc, Random rand) {
-		GOTBiomeMusic.MusicRegion regionSub = getCurrentRegion(mc, rand);
-		GOTMusicCategory category = getCurrentCategory(mc, rand);
+	private static GOTMusicTrack getNewTrack(Minecraft mc, Random rand) {
+		GOTMusicRegion.Sub regionSub = getCurrentRegion(mc);
+		GOTMusicCategory category = getCurrentCategory(mc);
 		if (regionSub != null) {
-			GOTBiomeMusic region = regionSub.region;
-			String sub = regionSub.subregion;
+			GOTMusicRegion region = regionSub.getRegion();
+			String sub = regionSub.getSubregion();
 			GOTTrackSorter.Filter filter = category != null ? GOTTrackSorter.forRegionAndCategory(region, category) : GOTTrackSorter.forAny();
 			GOTRegionTrackPool trackPool = GOTMusic.getTracksForRegion(region, sub);
-			assert trackPool != null;
 			return trackPool.getRandomTrack(rand, filter);
 		}
 		return null;
 	}
 
-	public static void resetTiming(Random rand) {
+	private static void resetTiming(Random rand) {
 		timing = GOTMusic.isMenuMusic() ? MathHelper.getRandomIntegerInRange(rand, GOTConfig.musicIntervalMenuMin * 20, GOTConfig.musicIntervalMenuMax * 20) : MathHelper.getRandomIntegerInRange(rand, GOTConfig.musicIntervalMin * 20, GOTConfig.musicIntervalMax * 20);
 	}
 
@@ -91,25 +98,18 @@ public class GOTMusicTicker {
 			}
 		}
 		if (!noMusic) {
-			boolean update;
-			if (menu) {
-				update = true;
-			} else {
-				update = GOTMusic.isGOTDimension() && !Minecraft.getMinecraft().isGamePaused();
-			}
-			if (update && currentTrack == null) {
-				--timing;
-				if (timing <= 0) {
-					currentTrack = getNewTrack(mc, rand);
-					if (currentTrack != null) {
-						wasPlayingMenu = menu;
-						mc.getSoundHandler().playSound(currentTrack);
-						timing = Integer.MAX_VALUE;
-					} else {
-						timing = 400;
-					}
+			boolean update = menu || GOTMusic.isGOTDimension() && !Minecraft.getMinecraft().isGamePaused();
+			if (update && currentTrack == null && --timing <= 0) {
+				currentTrack = getNewTrack(mc, rand);
+				if (currentTrack != null) {
+					wasPlayingMenu = menu;
+					mc.getSoundHandler().playSound(currentTrack);
+					timing = Integer.MAX_VALUE;
+				} else {
+					timing = 400;
 				}
 			}
 		}
 	}
 }
+

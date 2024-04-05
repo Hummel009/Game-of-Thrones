@@ -727,7 +727,7 @@ public class DatabaseGenerator {
 					if (biome.getBiomeMusic() == null) {
 						sb.append("N/A");
 					} else {
-						sb.append(biome.getBiomeMusic().subregion);
+						sb.append(biome.getBiomeMusic().getSubregion());
 					}
 				}
 				sb.append(END);

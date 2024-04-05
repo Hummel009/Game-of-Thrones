@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTTrackRegionInfo {
-	public static double defaultWeight = 1.0;
-	public GOTBiomeMusic region;
-	public List<String> subregions = new ArrayList<>();
-	public double weight;
-	public List<GOTMusicCategory> categories = new ArrayList<>();
+	private final GOTMusicRegion region;
+	private final List<String> subregions = new ArrayList<>();
+	private final List<GOTMusicCategory> categories = new ArrayList<>();
 
-	public GOTTrackRegionInfo(GOTBiomeMusic r) {
+	private double weight;
+
+	public GOTTrackRegionInfo(GOTMusicRegion r) {
 		region = r;
 		weight = 1.0;
 	}

@@ -7,12 +7,13 @@ import got.client.GOTTickHandlerClient;
 import got.client.render.other.GOTRenderWeather;
 import got.common.GOTConfig;
 import got.common.world.GOTWorldProvider;
-import got.common.world.biome.essos.GOTBiomeMossovyMarshes;
+import got.common.world.biome.essos.GOTBiomeMossovy;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
-import got.common.world.biome.essos.GOTBiomeValyria;
 import got.common.world.biome.other.GOTBiomeOcean;
 import got.common.world.biome.sothoryos.GOTBiomeYeen;
-import got.common.world.biome.westeros.GOTBiomeHauntedForest;
+import got.common.world.biome.ulthos.GOTBiomeUlthos;
+import got.common.world.biome.westeros.GOTBiomeFrostfangs;
+import got.common.world.biome.westeros.GOTBiomeNorthBarrows;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -34,9 +35,9 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class GOTAmbience {
-	public int ticksSinceWight;
-	public Collection<ISound> playingWindSounds = new ArrayList<>();
-	public Collection<ISound> playingSeaSounds = new ArrayList<>();
+	private final Collection<ISound> playingWindSounds = new ArrayList<>();
+	private final Collection<ISound> playingSeaSounds = new ArrayList<>();
+	private int ticksSinceWight;
 
 	public GOTAmbience() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -78,20 +79,21 @@ public class GOTAmbience {
 			if (enableAmbience) {
 				if (ticksSinceWight > 0) {
 					--ticksSinceWight;
-				} else if (GOTTickHandlerClient.anyWightsViewed && rand.nextInt(20) == 0) {
-					world.playSound(x, y, z, "got:wight.ambience", 1.0f, 0.8f + rand.nextFloat() * 0.4f, false);
-					ticksSinceWight = 300;
+				} else {
+					boolean wights = GOTTickHandlerClient.anyWightsViewed && rand.nextInt(20) == 0 || biome instanceof GOTBiomeNorthBarrows && rand.nextInt(3000) == 0;
+					if (wights) {
+						world.playSound(x, y, z, "got:wight.ambience", 1.0f, 0.8f + rand.nextFloat() * 0.4f, false);
+						ticksSinceWight = 300;
+					}
 				}
 				boolean spookyBiomeNoise = false;
 				float spookyPitch = 1.0f;
 				if (biome instanceof GOTBiomeYeen) {
 					spookyBiomeNoise = rand.nextInt(1000) == 0;
 					spookyPitch = 0.85f;
-				} else if (biome instanceof GOTBiomeMossovyMarshes) {
+				} else if (biome instanceof GOTBiomeMossovy) {
 					spookyBiomeNoise = rand.nextInt(2400) == 0;
-				} else if (biome instanceof GOTBiomeValyria) {
-					spookyBiomeNoise = rand.nextInt(3000) == 0;
-				} else if (biome instanceof GOTBiomeHauntedForest) {
+				} else if (biome instanceof GOTBiomeUlthos) {
 					spookyBiomeNoise = rand.nextInt(6000) == 0;
 				} else if (biome instanceof GOTBiomeShadowLand) {
 					spookyBiomeNoise = rand.nextInt(1000) == 0;
@@ -100,7 +102,7 @@ public class GOTAmbience {
 				if (spookyBiomeNoise) {
 					world.playSound(x, y, z, "got:wight.ambience", 1.0f, (0.8f + rand.nextFloat() * 0.4f) * spookyPitch, false);
 				}
-				if (biome instanceof GOTBiomeYeen && world.rand.nextInt(500) == 0) {
+				if (biome instanceof GOTBiomeFrostfangs && world.rand.nextInt(500) == 0) {
 					world.playSound(x, y, z, "ambient.cave.cave", 1.0f, 0.8f + rand.nextFloat() * 0.2f, false);
 				}
 			}
@@ -130,28 +132,30 @@ public class GOTAmbience {
 						int i1 = i + MathHelper.getRandomIntegerInRange(rand, -xzRange, xzRange);
 						int k1 = k + MathHelper.getRandomIntegerInRange(rand, -xzRange, xzRange);
 						int j1 = j + MathHelper.getRandomIntegerInRange(rand, -16, 16);
-						if (j1 >= minWindHeight && world.canBlockSeeTheSky(i1, j1, k1)) {
-							float windiness = (float) (j1 - minWindHeight) / (fullWindHeight - minWindHeight);
-							windiness = MathHelper.clamp_float(windiness, 0.0f, 1.0f);
-							if (windiness >= rand.nextFloat()) {
-								float x1 = i1 + 0.5f;
-								float y1 = j1 + 0.5f;
-								float z1 = k1 + 0.5f;
-								float vol = Math.max(0.25f, windiness);
-								float pitch = 0.8f + rand.nextFloat() * 0.4f;
-								AmbientSoundNoAttentuation wind = new AmbientSoundNoAttentuation(new ResourceLocation("got:ambient.weather.wind"), vol, pitch, x1, y1, z1).calcAmbientVolume(entityplayer, xzRange);
-								mc.getSoundHandler().playSound(wind);
-								playingWindSounds.add(wind);
-								break;
-							}
+						if (j1 < minWindHeight || !world.canBlockSeeTheSky(i1, j1, k1)) {
+							continue;
 						}
+						float windiness = (float) (j1 - minWindHeight) / (fullWindHeight - minWindHeight);
+						if ((windiness = MathHelper.clamp_float(windiness, 0.0f, 1.0f)) < rand.nextFloat()) {
+							continue;
+						}
+						float x1 = i1 + 0.5f;
+						float y1 = j1 + 0.5f;
+						float z1 = k1 + 0.5f;
+						float vol = Math.max(0.25f, windiness);
+						float pitch = 0.8f + rand.nextFloat() * 0.4f;
+						AmbientSoundNoAttentuation wind = new AmbientSoundNoAttentuation(new ResourceLocation("got:ambient.weather.wind"), vol, pitch, x1, y1, z1).calcAmbientVolume(entityplayer, xzRange);
+						mc.getSoundHandler().playSound(wind);
+						playingWindSounds.add(wind);
+						break;
 					}
 				} else {
 					Collection<ISound> removes = new HashSet<>();
 					for (ISound wind : playingWindSounds) {
-						if (!mc.getSoundHandler().isSoundPlaying(wind)) {
-							removes.add(wind);
+						if (mc.getSoundHandler().isSoundPlaying(wind)) {
+							continue;
 						}
+						removes.add(wind);
 					}
 					playingWindSounds.removeAll(removes);
 				}
@@ -159,59 +163,63 @@ public class GOTAmbience {
 			if (enableAmbience) {
 				if (playingSeaSounds.size() < 3) {
 					if (biome instanceof GOTBiomeOcean) {
+						float[] rangeChecks = new float[]{0.25f, 0.5f, 0.75f, 1.0f};
 						xzRange = 64;
-						for (float fr : new float[]{0.25f, 0.5f, 0.75f, 1.0f}) {
+						for (float fr : rangeChecks) {
 							int range = (int) (xzRange * fr);
 							for (int l = 0; l < 8; ++l) {
 								int i1 = i + MathHelper.getRandomIntegerInRange(rand, -range, range);
 								int k1 = k + MathHelper.getRandomIntegerInRange(rand, -range, range);
 								int j1 = j + MathHelper.getRandomIntegerInRange(rand, -16, 8);
 								Block block = world.getBlock(i1, j1, k1);
-								if (block.getMaterial() == Material.water && j1 >= world.getTopSolidOrLiquidBlock(i1, k1)) {
-									float x1 = i1 + 0.5f;
-									float y1 = j1 + 0.5f;
-									float z1 = k1 + 0.5f;
-									float vol = 1.0f;
-									float pitch = 0.8f + rand.nextFloat() * 0.4f;
-									AmbientSoundNoAttentuation sea = new AmbientSoundNoAttentuation(new ResourceLocation("got:ambient.terrain.sea"), vol, pitch, x1, y1, z1).calcAmbientVolume(entityplayer, xzRange);
-									mc.getSoundHandler().playSound(sea);
-									playingSeaSounds.add(sea);
-									int j2 = world.getHeightValue(i1, k1) - 1;
-									if (world.getBlock(i1, j2, k1).getMaterial() == Material.water) {
-										double dx = i1 + 0.5 - entityplayer.posX;
-										double dz = k1 + 0.5 - entityplayer.posZ;
-										float angle = (float) Math.atan2(dz, dx);
-										float cos = MathHelper.cos(angle);
-										float sin = MathHelper.sin(angle);
-										float angle90 = angle - 1.5707963267948966f;
-										float cos90 = MathHelper.cos(angle90);
-										float sin90 = MathHelper.sin(angle90);
-										float waveSpeed = MathHelper.randomFloatClamp(rand, 0.3f, 0.5f);
-										int waveR = 40 + rand.nextInt(100);
-										for (int w = -waveR; w <= waveR; ++w) {
-											float f = w / 8.0f;
-											double d0 = i1 + 0.5;
-											double d1 = j2 + 1.0 + MathHelper.randomFloatClamp(rand, 0.02f, 0.1f);
-											double d2 = k1 + 0.5;
-											if (world.getBlock(MathHelper.floor_double(d0 += f * cos90), MathHelper.floor_double(d1) - 1, MathHelper.floor_double(d2 += f * sin90)).getMaterial() == Material.water) {
-												double d3 = waveSpeed * -cos;
-												double d4 = 0.0;
-												double d5 = waveSpeed * -sin;
-												GOT.proxy.spawnParticle("wave", d0, d1, d2, d3, d4, d5);
-											}
-										}
-									}
-									break block42;
+								if (block.getMaterial() != Material.water || j1 < world.getTopSolidOrLiquidBlock(i1, k1)) {
+									continue;
 								}
+								float x1 = i1 + 0.5f;
+								float y1 = j1 + 0.5f;
+								float z1 = k1 + 0.5f;
+								float vol = 1.0f;
+								float pitch = 0.8f + rand.nextFloat() * 0.4f;
+								AmbientSoundNoAttentuation sea = new AmbientSoundNoAttentuation(new ResourceLocation("got:ambient.terrain.sea"), vol, pitch, x1, y1, z1).calcAmbientVolume(entityplayer, xzRange);
+								mc.getSoundHandler().playSound(sea);
+								playingSeaSounds.add(sea);
+								int j2 = world.getHeightValue(i1, k1) - 1;
+								if (world.getBlock(i1, j2, k1).getMaterial() == Material.water) {
+									double dx = i1 + 0.5 - entityplayer.posX;
+									double dz = k1 + 0.5 - entityplayer.posZ;
+									float angle = (float) Math.atan2(dz, dx);
+									float cos = MathHelper.cos(angle);
+									float sin = MathHelper.sin(angle);
+									float angle90 = angle + (float) Math.toRadians(-90.0);
+									float cos90 = MathHelper.cos(angle90);
+									float sin90 = MathHelper.sin(angle90);
+									float waveSpeed = MathHelper.randomFloatClamp(rand, 0.3f, 0.5f);
+									int waveR = 40 + rand.nextInt(100);
+									for (int w = -waveR; w <= waveR; ++w) {
+										float f = w / 8.0f;
+										double d0 = i1 + 0.5;
+										double d1 = j2 + 1.0 + MathHelper.randomFloatClamp(rand, 0.02f, 0.1f);
+										double d2 = k1 + 0.5;
+										if (world.getBlock(MathHelper.floor_double(d0 += f * cos90), MathHelper.floor_double(d1) - 1, MathHelper.floor_double(d2 += f * sin90)).getMaterial() != Material.water) {
+											continue;
+										}
+										double d3 = waveSpeed * -cos;
+										double d4 = 0.0;
+										double d5 = waveSpeed * -sin;
+										GOT.proxy.spawnParticle("wave", d0, d1, d2, d3, d4, d5);
+									}
+								}
+								break block42;
 							}
 						}
 					}
 				} else {
 					Collection<ISound> removes = new HashSet<>();
 					for (ISound sea : playingSeaSounds) {
-						if (!mc.getSoundHandler().isSoundPlaying(sea)) {
-							removes.add(sea);
+						if (mc.getSoundHandler().isSoundPlaying(sea)) {
+							continue;
 						}
+						removes.add(sea);
 					}
 					playingSeaSounds.removeAll(removes);
 				}
@@ -220,13 +228,13 @@ public class GOTAmbience {
 		world.theProfiler.endSection();
 	}
 
-	public static class AmbientSoundNoAttentuation extends PositionedSoundRecord {
-		public AmbientSoundNoAttentuation(ResourceLocation sound, float vol, float pitch, float x, float y, float z) {
+	private static class AmbientSoundNoAttentuation extends PositionedSoundRecord {
+		private AmbientSoundNoAttentuation(ResourceLocation sound, float vol, float pitch, float x, float y, float z) {
 			super(sound, vol, pitch, x, y, z);
 			field_147666_i = ISound.AttenuationType.NONE;
 		}
 
-		public AmbientSoundNoAttentuation calcAmbientVolume(EntityPlayer entityplayer, int maxRange) {
+		protected AmbientSoundNoAttentuation calcAmbientVolume(EntityPlayer entityplayer, int maxRange) {
 			float distFr = (float) entityplayer.getDistance(xPosF, yPosF, zPosF);
 			distFr /= maxRange;
 			distFr = Math.min(distFr, 1.0f);
@@ -237,5 +245,4 @@ public class GOTAmbience {
 			return this;
 		}
 	}
-
 }

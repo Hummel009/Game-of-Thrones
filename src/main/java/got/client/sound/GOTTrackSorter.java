@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTTrackSorter {
+	private GOTTrackSorter() {
+	}
+
 	public static Filter forAny() {
 		return track -> true;
 	}
 
-	public static Filter forRegionAndCategory(GOTBiomeMusic reg, GOTMusicCategory cat) {
+	public static Filter forRegionAndCategory(GOTMusicRegion reg, GOTMusicCategory cat) {
 		return track -> track.getRegionInfo(reg).getCategories().contains(cat);
 	}
 
@@ -25,5 +28,4 @@ public class GOTTrackSorter {
 	public interface Filter {
 		boolean accept(GOTMusicTrack var1);
 	}
-
 }

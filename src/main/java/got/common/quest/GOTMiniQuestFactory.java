@@ -682,7 +682,6 @@ public enum GOTMiniQuestFactory {
 				break;
 			}
 		}
-		assert chosenFactoryList != null;
 		QuestFactoryBase<? extends GOTMiniQuest> factory = chosenFactoryList.get(rand.nextInt(chosenFactoryList.size()));
 		GOTMiniQuest quest = factory.createQuest(npc, rand);
 		if (quest != null) {

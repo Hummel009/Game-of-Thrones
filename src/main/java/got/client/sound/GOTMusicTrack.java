@@ -3,14 +3,13 @@ package got.client.sound;
 import net.minecraft.client.audio.*;
 import net.minecraft.util.ResourceLocation;
 
-import java.io.InputStream;
 import java.util.*;
 
 public class GOTMusicTrack extends PositionedSound {
-	public String filename;
-	public String title;
-	public Map<GOTBiomeMusic, GOTTrackRegionInfo> regions = new EnumMap<>(GOTBiomeMusic.class);
-	public List<String> authors = new ArrayList<>();
+	private final String filename;
+	private final Map<GOTMusicRegion, GOTTrackRegionInfo> regions = new EnumMap<>(GOTMusicRegion.class);
+	private final List<String> authors = new ArrayList<>();
+	private String title;
 
 	public GOTMusicTrack(String s) {
 		super(getMusicResource(s));
@@ -25,19 +24,24 @@ public class GOTMusicTrack extends PositionedSound {
 		filename = s;
 	}
 
-	public static ResourceLocation getMusicResource(String s) {
-		return new ResourceLocation("gotmusic", s);
+	private static ResourceLocation getMusicResource(String s) {
+		return new ResourceLocation("musicpacks", s);
 	}
 
 	public void addAuthor(String s) {
 		authors.add(s);
 	}
 
-	public GOTTrackRegionInfo createRegionInfo(GOTBiomeMusic reg) {
-		return regions.computeIfAbsent(reg, GOTTrackRegionInfo::new);
+	public GOTTrackRegionInfo createRegionInfo(GOTMusicRegion reg) {
+		GOTTrackRegionInfo info = regions.get(reg);
+		if (info == null) {
+			info = new GOTTrackRegionInfo(reg);
+			regions.put(reg, info);
+		}
+		return info;
 	}
 
-	public Set<GOTBiomeMusic> getAllRegions() {
+	public Set<GOTMusicRegion> getAllRegions() {
 		return regions.keySet();
 	}
 
@@ -45,7 +49,7 @@ public class GOTMusicTrack extends PositionedSound {
 		return authors;
 	}
 
-	public GOTTrackRegionInfo getRegionInfo(GOTBiomeMusic reg) {
+	public GOTTrackRegionInfo getRegionInfo(GOTMusicRegion reg) {
 		if (regions.containsKey(reg)) {
 			return regions.get(reg);
 		}
@@ -63,7 +67,7 @@ public class GOTMusicTrack extends PositionedSound {
 		title = s;
 	}
 
-	public void loadSoundResource() {
+	private void loadSoundResource() {
 		SoundEventAccessorComposite soundAccessorComp;
 		ResourceLocation resource = getPositionedSoundLocation();
 		SoundList soundList = new SoundList();
@@ -78,7 +82,6 @@ public class GOTMusicTrack extends PositionedSound {
 		soundEntry.setStreaming(true);
 		soundList.getSoundList().add(soundEntry);
 		SoundRegistry sndRegistry = GOTMusic.Reflect.getSoundRegistry();
-		assert sndRegistry != null;
 		if (sndRegistry.containsKey(resource) && !soundList.canReplaceExisting()) {
 			soundAccessorComp = (SoundEventAccessorComposite) sndRegistry.getObject(resource);
 		} else {
@@ -90,16 +93,16 @@ public class GOTMusicTrack extends PositionedSound {
 		soundAccessorComp.addSoundToEventPool(soundAccessor);
 	}
 
-	public void loadTrack(InputStream in) {
+	public void loadTrack() {
 		loadSoundResource();
 		GOTMusic.addTrackToRegions(this);
 	}
 
-	public static class TrackSoundAccessor implements ISoundEventAccessor {
-		public SoundPoolEntry soundEntry;
-		public int weight;
+	private static class TrackSoundAccessor implements ISoundEventAccessor {
+		private final SoundPoolEntry soundEntry;
+		private final int weight;
 
-		public TrackSoundAccessor(SoundPoolEntry e, int i) {
+		private TrackSoundAccessor(SoundPoolEntry e, int i) {
 			soundEntry = e;
 			weight = i;
 		}
@@ -116,3 +119,4 @@ public class GOTMusicTrack extends PositionedSound {
 	}
 
 }
+

@@ -3,7 +3,7 @@ package got.common.world.biome;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
+import got.client.sound.GOTMusicRegion;
 import got.common.GOTDimension;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
@@ -761,7 +761,7 @@ public abstract class GOTBiome extends BiomeGenBase {
 		return biomeColors.grass != null ? biomeColors.grass.getRGB() : getBaseGrassColor(i, j, k);
 	}
 
-	public abstract MusicRegion getBiomeMusic();
+	public abstract GOTMusicRegion.Sub getBiomeMusic();
 
 	public BiomeTerrain getBiomeTerrain() {
 		return biomeTerrain;

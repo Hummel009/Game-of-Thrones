@@ -1,8 +1,8 @@
 package got.common.world.biome.other;
 
 import got.GOT;
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
+import got.client.sound.GOTMusicRegion;
+import got.client.sound.GOTMusicRegion.Sub;
 import got.common.database.GOTBlocks;
 import got.common.entity.animal.GOTEntitySeagull;
 import got.common.world.biome.GOTBiome;
@@ -73,8 +73,8 @@ public class GOTBiomeOcean extends GOTBiome {
 	}
 
 	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.OCEAN.getSubregion(biomeName);
+	public GOTMusicRegion.Sub getBiomeMusic() {
+		return GOTMusicRegion.OCEAN.getSubregion(biomeName);
 	}
 
 	@Override

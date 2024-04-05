@@ -222,7 +222,6 @@ public class GOTItemMug extends Item {
 			return false;
 		}
 		if (entityplayer.canPlayerEdit(i, j, k, side, itemstack)) {
-			assert mugBlock != null;
 			if (!mugBlock.canPlaceBlockAt(world, i, j, k)) {
 				return false;
 			}
@@ -412,7 +411,6 @@ public class GOTItemMug extends Item {
 			}
 		}
 		if (!entityplayer.capabilities.isCreativeMode) {
-			assert vessel != null;
 			return new ItemStack(vessel.getEmptyVesselItem());
 		}
 		return itemstack;

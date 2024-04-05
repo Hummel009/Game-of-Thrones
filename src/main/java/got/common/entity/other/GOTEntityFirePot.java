@@ -53,7 +53,6 @@ public class GOTEntityFirePot extends EntityThrowable {
 				if (entity == hitEntity) {
 					damage = 3.0f;
 				}
-				assert entity != null;
 				if (!entity.attackEntityFrom(DamageSource.causeThrownDamage(this, thrower), damage)) {
 					continue;
 				}

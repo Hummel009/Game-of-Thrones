@@ -1,7 +1,7 @@
 package got.common.world.biome.westeros;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
+import got.client.sound.GOTMusicRegion;
+import got.client.sound.GOTMusicRegion.Sub;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.feature.GOTTreeType;
@@ -53,8 +53,8 @@ public abstract class GOTBiomeWesteros extends GOTBiome {
 	}
 
 	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.WESTEROS.getSubregion(biomeName);
+	public GOTMusicRegion.Sub getBiomeMusic() {
+		return GOTMusicRegion.WESTEROS.getSubregion(biomeName);
 	}
 
 	@Override

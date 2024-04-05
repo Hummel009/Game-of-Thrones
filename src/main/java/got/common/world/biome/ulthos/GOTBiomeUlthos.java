@@ -1,7 +1,7 @@
 package got.common.world.biome.ulthos;
 
-import got.client.sound.GOTBiomeMusic;
-import got.client.sound.GOTBiomeMusic.MusicRegion;
+import got.client.sound.GOTMusicRegion;
+import got.client.sound.GOTMusicRegion.Sub;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
 import got.common.world.biome.GOTBiome;
@@ -93,8 +93,8 @@ public class GOTBiomeUlthos extends GOTBiome {
 	}
 
 	@Override
-	public MusicRegion getBiomeMusic() {
-		return GOTBiomeMusic.ULTHOS.getSubregion(biomeName);
+	public GOTMusicRegion.Sub getBiomeMusic() {
+		return GOTMusicRegion.ULTHOS.getSubregion(biomeName);
 	}
 
 	@Override

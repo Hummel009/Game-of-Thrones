@@ -125,7 +125,6 @@ public class GOTPacketFellowship implements IMessage {
 		isOwned = data.readBoolean();
 		isAdminned = data.readBoolean();
 		owner = readPlayerUuidAndUsername(data);
-		assert owner != null;
 		readTitleForPlayer(data, owner.getId());
 		int numMembers = data.readInt();
 		for (int i = 0; i < numMembers; ++i) {

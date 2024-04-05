@@ -715,7 +715,6 @@ public class GOTContainerAnvil extends Container {
 				}
 				baseAnvilCost += Math.max(1, (int) mod.getValueModifier());
 			}
-			assert inputCopy != null;
 			if (inputCopy.isItemStackDamageable()) {
 				boolean canRepair;
 				int availableMaterials = 0;

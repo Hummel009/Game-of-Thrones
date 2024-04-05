@@ -150,7 +150,6 @@ public class GOTBlockBarrel extends BlockContainer {
 					barrel.barrelMode = 2;
 					if (!entityplayer.capabilities.isCreativeMode) {
 						GOTItemMug.Vessel v = GOTItemMug.getVessel(itemstack);
-						assert v != null;
 						ItemStack emptyMug = v.getEmptyVessel();
 						--itemstack.stackSize;
 						if (itemstack.stackSize <= 0) {

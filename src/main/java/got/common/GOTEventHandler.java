@@ -616,7 +616,6 @@ public class GOTEventHandler implements IFuelHandler {
 			return;
 		}
 		if (entity instanceof GOTMercenary && ((GOTHireableBase) entity).canTradeWith(entityplayer)) {
-			assert entity instanceof GOTEntityNPC;
 			if (((GOTEntityNPC) entity).hiredNPCInfo.getHiringPlayerUUID() == null) {
 				entityplayer.openGui(GOT.instance, GOTGuiID.MERCENARY_INTERACT.ordinal(), world, entity.getEntityId(), 0, 0);
 				event.setCanceled(true);

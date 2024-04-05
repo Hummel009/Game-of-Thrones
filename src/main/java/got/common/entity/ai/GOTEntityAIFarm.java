@@ -674,7 +674,6 @@ public class GOTEntityAIFarm extends EntityAIBase {
 											}
 											theEntity.hiredNPCInfo.getHiredInventory().setInventorySlotContents(l, itemstack);
 											chest.setInventorySlotContents(slot, chestItem);
-											assert itemstack != null;
 											if (itemstack.stackSize >= itemstack.getMaxStackSize()) {
 												break;
 											}

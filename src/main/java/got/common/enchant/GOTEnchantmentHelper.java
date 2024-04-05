@@ -380,7 +380,6 @@ public class GOTEnchantmentHelper {
 			tags = data.getTagList("GOTEnchEntity", 8);
 		} else if (create) {
 			tags = new NBTTagList();
-			assert data != null;
 			data.setTag("GOTEnchEntity", tags);
 		}
 		return tags;

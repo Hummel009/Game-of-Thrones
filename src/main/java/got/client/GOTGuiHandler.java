@@ -141,7 +141,6 @@ public class GOTGuiHandler {
 				GOTAchievement.Category category = GOTAchievement.categoryForName(categoryName);
 				int achievementID = Integer.parseInt(unformattedText.substring(splitIndex + 1));
 				GOTAchievement achievement = GOTAchievement.achievementForCategoryAndID(category, achievementID);
-				assert achievement != null;
 				IChatComponent name = new ChatComponentTranslation("got.gui.achievements.hover.name", achievement.getAchievementChatComponent(entityplayer));
 				IChatComponent subtitle = new ChatComponentTranslation("got.gui.achievements.hover.subtitle", achievement.getDimension().getDimensionName(), category.getDisplayName());
 				subtitle.getChatStyle().setItalic(true);
