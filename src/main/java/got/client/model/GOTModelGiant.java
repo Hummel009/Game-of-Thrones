@@ -146,26 +146,6 @@ public class GOTModelGiant extends ModelBase {
 		leftLeg.render(f5);
 	}
 
-	private void renderBattleaxe(float f) {
-		battleaxe.rotationPointX = rightArm.rotationPointX;
-		battleaxe.rotationPointY = rightArm.rotationPointY;
-		battleaxe.rotationPointZ = rightArm.rotationPointZ;
-		battleaxe.rotateAngleX = rightArm.rotateAngleX - 1.5707964f;
-		battleaxe.rotateAngleY = rightArm.rotateAngleY;
-		battleaxe.rotateAngleZ = rightArm.rotateAngleZ;
-		battleaxe.render(f);
-	}
-
-	private void renderWarhammer(float f) {
-		warhammer.rotationPointX = rightArm.rotationPointX;
-		warhammer.rotationPointY = rightArm.rotationPointY;
-		warhammer.rotationPointZ = rightArm.rotationPointZ;
-		warhammer.rotateAngleX = rightArm.rotateAngleX - 1.5707964f;
-		warhammer.rotateAngleY = rightArm.rotateAngleY;
-		warhammer.rotateAngleZ = rightArm.rotateAngleZ;
-		warhammer.render(f);
-	}
-
 	private void renderWoodenClub(float f) {
 		woodenClub.rotationPointX = rightArm.rotationPointX;
 		woodenClub.rotationPointY = rightArm.rotationPointY;

@@ -359,7 +359,7 @@ public class GOTModelDragon extends ModelBase {
 
 		size = dragon.getScale();
 
-		renderModel(dragon, scale);
+		renderModel(scale);
 	}
 
 	public void renderBody(float scale) {
@@ -392,7 +392,7 @@ public class GOTModelDragon extends ModelBase {
 		glDisable(GL_CULL_FACE);
 	}
 
-	public void renderModel(GOTEntityDragon dragon, float scale) {
+	public void renderModel(float scale) {
 		glPushMatrix();
 		glTranslatef(offsetX, offsetY, offsetZ);
 		glRotatef(-pitch, 1, 0, 0);
@@ -447,7 +447,7 @@ public class GOTModelDragon extends ModelBase {
 		setLivingAnimations((GOTEntityDragon) entity, moveTime, moveSpeed, partialTicks);
 	}
 
-	public void setLivingAnimations(GOTEntityDragon dragon, float moveTime, float moveSpeed, float partialTicks) {
+	public void setLivingAnimations(GOTEntityDragon dragon, float partialTicks) {
 		GOTModelDragonAnimaton animator = dragon.getAnimator();
 		animator.setPartialTicks(partialTicks);
 	}

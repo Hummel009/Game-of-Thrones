@@ -76,4 +76,8 @@ public class GOTModelBird extends ModelBase {
 			legLeft.rotationPointY = 0.0f;
 		}
 	}
+
+	public ModelRenderer getHead() {
+		return head;
+	}
 }

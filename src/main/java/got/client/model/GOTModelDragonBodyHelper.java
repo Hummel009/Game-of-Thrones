@@ -4,10 +4,10 @@ import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.entity.EntityBodyHelper;
 
 public class GOTModelDragonBodyHelper extends EntityBodyHelper {
+	public static final int TURN_TICKS_LIMIT = 20;
 
 	public final GOTEntityDragon dragon;
 	public int turnTicks;
-	public final int turnTicksLimit = 20;
 	public float prevRotationYawHead;
 
 	public GOTModelDragonBodyHelper(GOTEntityDragon dragon) {
@@ -39,8 +39,8 @@ public class GOTModelDragonBodyHelper extends EntityBodyHelper {
 		} else {
 			turnTicks++;
 
-			if (turnTicks > turnTicksLimit) {
-				yawSpeed = Math.max(1 - (float) (turnTicks - turnTicksLimit) / turnTicksLimit, 0) * 75;
+			if (turnTicks > TURN_TICKS_LIMIT) {
+				yawSpeed = Math.max(1 - (float) (turnTicks - TURN_TICKS_LIMIT) / TURN_TICKS_LIMIT, 0) * 75;
 			}
 		}
 

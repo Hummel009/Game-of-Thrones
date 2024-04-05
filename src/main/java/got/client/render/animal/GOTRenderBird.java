@@ -68,7 +68,7 @@ public class GOTRenderBird extends RenderLiving {
 			ItemStack stolenItem = bird.getStolenItem();
 			if (stolenItem != null) {
 				GL11.glPushMatrix();
-				((GOTModelBird) mainModel).head.postRender(0.0625f);
+				((GOTModelBird) mainModel).getHead().postRender(0.0625f);
 				GL11.glTranslatef(0.05f, 1.4f, -0.1f);
 				float scale = 0.25f;
 				GL11.glScalef(scale, scale, scale);

@@ -7,14 +7,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelGiraffe extends ModelBase {
-	final ModelRenderer body = new ModelRenderer(this, 0, 0).setTextureSize(128, 64);
-	final ModelRenderer neck;
-	final ModelRenderer head;
-	final ModelRenderer tail;
-	final ModelRenderer leg1;
-	final ModelRenderer leg2;
-	final ModelRenderer leg3;
-	final ModelRenderer leg4;
+	private final ModelRenderer body = new ModelRenderer(this, 0, 0).setTextureSize(128, 64);
+	private final ModelRenderer neck;
+	private final ModelRenderer head;
+	private final ModelRenderer tail;
+	private final ModelRenderer leg1;
+	private final ModelRenderer leg2;
+	private final ModelRenderer leg3;
+	private final ModelRenderer leg4;
 
 	public GOTModelGiraffe(float f) {
 		body.addBox(-6.0f, -8.0f, -13.0f, 12, 16, 26, f);
@@ -54,9 +54,9 @@ public class GOTModelGiraffe extends ModelBase {
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		if (entity.riddenByEntity instanceof EntityPlayer) {
-			setRiddenHeadNeckRotation(f, f1, f2, f3, f4, f5);
+			setRiddenHeadNeckRotation();
 		} else {
-			setDefaultHeadNeckRotation(f, f1, f2, f3, f4, f5);
+			setDefaultHeadNeckRotation(f3, f4);
 		}
 		head.render(f5);
 		body.render(f5);
@@ -68,7 +68,7 @@ public class GOTModelGiraffe extends ModelBase {
 		tail.render(f5);
 	}
 
-	private void setDefaultHeadNeckRotation(float f, float f1, float f2, float f3, float f4, float f5) {
+	private void setDefaultHeadNeckRotation(float f3, float f4) {
 		head.setRotationPoint(0.0f, -14.0f, -7.0f);
 		neck.rotateAngleX = 0.17453294f + f4 / 57.29578f;
 		head.rotateAngleX = 0.17453294f + f4 / 57.29578f;
@@ -76,7 +76,7 @@ public class GOTModelGiraffe extends ModelBase {
 		head.rotateAngleY = f3 / 57.29578f;
 	}
 
-	public void setRiddenHeadNeckRotation(float f, float f1, float f2, float f3, float f4, float f5) {
+	public void setRiddenHeadNeckRotation() {
 		head.setRotationPoint(0.0f, 25.0f, -48.0f);
 		neck.rotateAngleX = 1.5707964f;
 		neck.rotateAngleY = 0.0f;
@@ -91,5 +91,37 @@ public class GOTModelGiraffe extends ModelBase {
 		leg3.rotateAngleX = 0.5f * MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
 		leg4.rotateAngleX = 0.5f * MathHelper.cos(f * 0.6662f) * 1.4f * f1;
 		tail.rotateAngleZ = 0.2f * MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.4f * f1;
+	}
+
+	public ModelRenderer getBody() {
+		return body;
+	}
+
+	public ModelRenderer getNeck() {
+		return neck;
+	}
+
+	public ModelRenderer getHead() {
+		return head;
+	}
+
+	public ModelRenderer getTail() {
+		return tail;
+	}
+
+	public ModelRenderer getLeg1() {
+		return leg1;
+	}
+
+	public ModelRenderer getLeg2() {
+		return leg2;
+	}
+
+	public ModelRenderer getLeg3() {
+		return leg3;
+	}
+
+	public ModelRenderer getLeg4() {
+		return leg4;
 	}
 }

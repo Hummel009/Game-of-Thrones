@@ -9,10 +9,6 @@ import org.lwjgl.opengl.GL11;
 public class GOTModelPartyHat extends GOTModelBiped {
 	private ItemStack hatItem;
 
-	public GOTModelPartyHat() {
-		this(0.0f);
-	}
-
 	public GOTModelPartyHat(float f) {
 		super(f);
 		bipedHead = new ModelRenderer(this, 0, 0);

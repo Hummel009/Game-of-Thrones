@@ -6,14 +6,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelLion extends ModelBase {
-	final ModelRenderer head;
-	final ModelRenderer mane;
-	final ModelRenderer body;
-	final ModelRenderer leg1;
-	final ModelRenderer leg2;
-	final ModelRenderer leg3;
-	final ModelRenderer leg4;
-	final ModelRenderer tail;
+	private final ModelRenderer head;
+	private final ModelRenderer mane;
+	private final ModelRenderer body;
+	private final ModelRenderer leg1;
+	private final ModelRenderer leg2;
+	private final ModelRenderer leg3;
+	private final ModelRenderer leg4;
+	private final ModelRenderer tail;
 
 	public GOTModelLion() {
 		textureWidth = 128;
@@ -82,5 +82,37 @@ public class GOTModelLion extends ModelBase {
 		leg4.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.0f * f1;
 		tail.rotateAngleX = -1.0471975511965976f;
 		tail.rotateAngleX += MathHelper.cos(f * 0.3f) * 0.5f * f1;
+	}
+
+	public ModelRenderer getHead() {
+		return head;
+	}
+
+	public ModelRenderer getMane() {
+		return mane;
+	}
+
+	public ModelRenderer getBody() {
+		return body;
+	}
+
+	public ModelRenderer getLeg1() {
+		return leg1;
+	}
+
+	public ModelRenderer getLeg2() {
+		return leg2;
+	}
+
+	public ModelRenderer getLeg3() {
+		return leg3;
+	}
+
+	public ModelRenderer getLeg4() {
+		return leg4;
+	}
+
+	public ModelRenderer getTail() {
+		return tail;
 	}
 }

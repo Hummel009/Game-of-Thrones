@@ -108,44 +108,6 @@ public class GOTModelDragonAnimaton {
 		return (float) Math.cos(a);
 	}
 
-	public static float[] getLinearEndKnots(float... internalKnots) {
-		float[] result = new float[internalKnots.length + 2];
-		float diff1 = internalKnots[1] - internalKnots[0];
-		float diff2 = internalKnots[internalKnots.length - 1] - internalKnots[internalKnots.length - 2];
-		result[0] = internalKnots[0] - diff1;
-		result[result.length - 1] = internalKnots[internalKnots.length - 1] + diff2;
-		System.arraycopy(internalKnots, 0, result, 1, result.length - 1 - 1);
-		return result;
-	}
-
-	public static float interp(float x, float... knots) {
-		float x1 = x;
-		int nknots = knots.length;
-		int nspans = nknots - 3;
-		int knot = 0;
-		if (nspans < 1) {
-			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
-			return 0;
-		}
-		x1 = clamp(x1, 0, 0.9999f) * nspans;
-		int span = (int) x1;
-		if (span >= nknots - 3) {
-			span = nknots - 3;
-		}
-		x1 -= span;
-		knot += span;
-		float knot0 = knots[knot];
-		float knot1 = knots[knot + 1];
-		float knot2 = knots[knot + 2];
-		float knot3 = knots[knot + 3];
-
-		float c3 = CR00 * knot0 + CR01 * knot1 + CR02 * knot2 + CR03 * knot3;
-		float c2 = CR10 * knot0 + CR11 * knot1 + CR12 * knot2 + CR13 * knot3;
-		float c1 = CR20 * knot0 + CR21 * knot1 + CR22 * knot2 + CR23 * knot3;
-		float c0 = CR30 * knot0 + CR31 * knot1 + CR32 * knot2 + CR33 * knot3;
-		return ((c3 * x1 + c2) * x1 + c1) * x1 + c0;
-	}
-
 	public static void interp(float x, float[] result, float[]... knots) {
 		float x1 = x;
 		int nknots = knots.length;
@@ -176,28 +138,6 @@ public class GOTModelDragonAnimaton {
 
 			result[i] = ((c3 * x1 + c2) * x1 + c1) * x1 + c0;
 		}
-	}
-
-	public static float[] interpArray(float[] inputs, float... knots) {
-		float[] result = new float[inputs.length];
-		for (int i = 0; i < inputs.length; i++) {
-			result[i] = interp(inputs[i], knots);
-		}
-		return result;
-	}
-
-	public static float[] interpEndsArray(float[] inputs, float... internalKnots) {
-		float[] knots = getLinearEndKnots(internalKnots);
-		return interpArray(inputs, knots);
-	}
-
-	public static float[] interpLinearEndsArray(float minInputValue, float maxInputValue, int n, float... internalKnots) {
-		float[] inputs = new float[n];
-		float stepLength = (maxInputValue - minInputValue) / (n - 1);
-		for (int i = 0; i < n; i++) {
-			inputs[i] = minInputValue + i * stepLength;
-		}
-		return interpEndsArray(inputs, internalKnots);
 	}
 
 	public static double lerp(double a, double b, double x) {
@@ -599,8 +539,16 @@ public class GOTModelDragonAnimaton {
 		this.partialTicks = partialTicks;
 	}
 
+	public float getPartialTicks() {
+		return partialTicks;
+	}
+
 	public void setTicksExisted(float ticksExisted) {
 		this.ticksExisted = ticksExisted;
+	}
+
+	public float getTicksExisted() {
+		return ticksExisted;
 	}
 
 	public void slerpArrays(float[] a, float[] b, float[] c, float x) {

@@ -257,16 +257,10 @@ public class GOTModelMammoth extends ModelBase {
 		harnessLowerBelt.rotationPointY = f - 2.0f;
 	}
 
-	private void adjustYRotationPoints(ModelRenderer target, ModelRenderer origin) {
-		float distanceZ = target.rotationPointZ > origin.rotationPointZ ? target.rotationPointZ - origin.rotationPointZ : origin.rotationPointZ - target.rotationPointZ;
-		target.rotationPointZ = origin.rotationPointZ - MathHelper.cos(origin.rotateAngleY) * distanceZ;
-		target.rotationPointX = origin.rotationPointX - MathHelper.sin(origin.rotateAngleY) * distanceZ;
-	}
-
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		byte tusks = 0;
-		setRotationAngles(f, f1, f2, f3, f4, f5, tusks);
+		setRotationAngles(f, f1, f2, f3);
 		leftTuskB.render(f5);
 		rightTuskB.render(f5);
 		leftTuskC.render(f5);
@@ -311,7 +305,7 @@ public class GOTModelMammoth extends ModelBase {
 		model.rotateAngleZ = z;
 	}
 
-	private void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, byte tusks) {
+	private void setRotationAngles(float f, float f1, float f2, float f3) {
 		float f31 = f3;
 		float rLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float lLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;

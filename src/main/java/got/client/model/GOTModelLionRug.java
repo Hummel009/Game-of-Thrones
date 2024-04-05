@@ -13,38 +13,38 @@ public class GOTModelLionRug extends ModelBase {
 		GL11.glTranslatef(0.0f, -0.4f, 0.0f);
 		GL11.glPushMatrix();
 		GL11.glScalef(1.5f, 0.4f, 1.0f);
-		lionModel.body.render(f5);
+		lionModel.getBody().render(f5);
 		GL11.glPopMatrix();
 		GL11.glPushMatrix();
 		GL11.glTranslatef(0.0f, 0.0f, 0.0f);
-		lionModel.tail.render(f5);
+		lionModel.getTail().render(f5);
 		GL11.glPopMatrix();
 		GL11.glPushMatrix();
 		GL11.glTranslatef(0.0f, -0.1f, 0.1f);
-		lionModel.head.render(f5);
-		lionModel.mane.render(f5);
+		lionModel.getHead().render(f5);
+		lionModel.getMane().render(f5);
 		GL11.glPopMatrix();
 		GL11.glTranslatef(0.0f, 0.15f, 0.0f);
 		GL11.glPushMatrix();
 		GL11.glTranslatef(-0.4f, 0.0f, 0.0f);
-		lionModel.leg1.render(f5);
-		lionModel.leg3.render(f5);
+		lionModel.getLeg1().render(f5);
+		lionModel.getLeg3().render(f5);
 		GL11.glPopMatrix();
 		GL11.glPushMatrix();
 		GL11.glTranslatef(0.4f, 0.0f, 0.0f);
-		lionModel.leg2.render(f5);
-		lionModel.leg4.render(f5);
+		lionModel.getLeg2().render(f5);
+		lionModel.getLeg4().render(f5);
 		GL11.glPopMatrix();
 	}
 
 	private void setRotationAngles() {
-		lionModel.leg1.rotateAngleX = 0.5235987755982988f;
-		lionModel.leg1.rotateAngleZ = 1.5707963267948966f;
-		lionModel.leg2.rotateAngleX = 0.5235987755982988f;
-		lionModel.leg2.rotateAngleZ = -1.5707963267948966f;
-		lionModel.leg3.rotateAngleX = -0.3490658503988659f;
-		lionModel.leg3.rotateAngleZ = 1.5707963267948966f;
-		lionModel.leg4.rotateAngleX = -0.3490658503988659f;
-		lionModel.leg4.rotateAngleZ = -1.5707963267948966f;
+		lionModel.getLeg1().rotateAngleX = 0.5235987755982988f;
+		lionModel.getLeg1().rotateAngleZ = 1.5707963267948966f;
+		lionModel.getLeg2().rotateAngleX = 0.5235987755982988f;
+		lionModel.getLeg2().rotateAngleZ = -1.5707963267948966f;
+		lionModel.getLeg3().rotateAngleX = -0.3490658503988659f;
+		lionModel.getLeg3().rotateAngleZ = 1.5707963267948966f;
+		lionModel.getLeg4().rotateAngleX = -0.3490658503988659f;
+		lionModel.getLeg4().rotateAngleZ = -1.5707963267948966f;
 	}
 }

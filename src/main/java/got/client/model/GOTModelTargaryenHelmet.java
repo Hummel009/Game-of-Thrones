@@ -19,10 +19,4 @@ public class GOTModelTargaryenHelmet extends GOTModelBiped {
 		crown.cubeList.add(new ModelBox(crown, 0, 16, -5.0F, -15.0F, -5.0F, 10, 6, 10, 0.0F));
 		crown.cubeList.add(new ModelBox(crown, 0, 0, -1.0F, -10.0F, -5.0F, 2, 2, 10, -0.01F));
 	}
-
-	private void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.rotateAngleX = x;
-		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
-	}
 }

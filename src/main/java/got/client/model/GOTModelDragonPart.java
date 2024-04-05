@@ -24,15 +24,6 @@ public class GOTModelDragonPart extends ModelRenderer {
 	public boolean compiled;
 	public int displayList;
 
-	public GOTModelDragonPart(ModelBase base) {
-		this(base, null);
-	}
-
-	public GOTModelDragonPart(ModelBase modelbase, int i, int j) {
-		super(modelbase, i, j);
-		base = modelbase;
-	}
-
 	public GOTModelDragonPart(ModelBase base, String name) {
 		super(base, name);
 		this.base = base;
