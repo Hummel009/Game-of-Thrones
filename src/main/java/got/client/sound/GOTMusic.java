@@ -142,7 +142,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			for (JsonElement e : rootArray) {
 				JsonObject trackData = e.getAsJsonObject();
 				String filename = trackData.get("file").getAsString();
-				ZipEntry trackEntry = zip.getEntry("assets/gotmusic/" + filename);
+				ZipEntry trackEntry = zip.getEntry("assets/musicpacks/" + filename);
 				if (trackEntry == null) {
 					GOTLog.logger.warn("Hummel009: Track {} in pack {} does not exist!", filename, zip.getName());
 					continue;
