@@ -82,11 +82,10 @@ public class GOTModelRabbit extends ModelBase {
 		head.rotateAngleX = -0.7853981633974483f;
 		rightArm.rotateAngleX = -0.9599310885968813f;
 		leftArm.rotateAngleX = -0.9599310885968813f;
-		float f6 = f1;
-		body.rotateAngleX += f6;
-		head.rotateAngleX -= f6;
-		rightArm.rotateAngleX -= f6;
-		leftArm.rotateAngleX -= f6;
+		body.rotateAngleX += f1;
+		head.rotateAngleX -= f1;
+		rightArm.rotateAngleX -= f1;
+		leftArm.rotateAngleX -= f1;
 		if (((GOTEntityRabbit) entity).isRabbitEating()) {
 			float f7 = 0.5235987755982988f;
 			body.rotateAngleX += f7;

@@ -8,6 +8,7 @@ CHANGELOG
 
 * Moved zero coords of the world closer to Winterfell
 
+* Improved sound and volume of a few animals
 * Improved fixed structures system (more clear, optimized and stable)
 * Improved road-to-settlemen's-gate system
 * Improved roads & walls code

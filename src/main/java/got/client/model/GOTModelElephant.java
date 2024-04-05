@@ -244,7 +244,6 @@ public class GOTModelElephant extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		byte tusks = 0;
 		setRotationAngles(f, f1, f2, f3);
 		leftTuskB.render(f5);
 		rightTuskB.render(f5);

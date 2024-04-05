@@ -9,9 +9,6 @@ import net.minecraft.client.renderer.Tessellator;
 import static org.lwjgl.opengl.GL11.*;
 
 public class GOTModelDragonPart extends ModelRenderer {
-
-	public static boolean renderAxes;
-
 	public float renderScaleX = 1;
 	public float renderScaleY = 1;
 	public float renderScaleZ = 1;

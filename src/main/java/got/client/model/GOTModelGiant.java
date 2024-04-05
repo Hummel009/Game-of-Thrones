@@ -12,14 +12,12 @@ public class GOTModelGiant extends ModelBase {
 	private final ModelRenderer head;
 	private final ModelRenderer headHurt;
 	private final ModelRenderer body;
-	private ModelRenderer rightArm;
 	private final ModelRenderer leftArm;
+	private final ModelRenderer rightArm;
 	private final ModelRenderer rightLeg;
 	private final ModelRenderer leftLeg;
 	private final ModelRenderer woodenClub;
 	private final ModelRenderer woodenClubSpikes;
-	private final ModelRenderer warhammer;
-	private final ModelRenderer battleaxe;
 	private boolean isOutiftModel;
 
 	public GOTModelGiant() {
@@ -78,15 +76,6 @@ public class GOTModelGiant extends ModelBase {
 		woodenClubSpikes.addBox(-6.5f, 20.0f, 18.0f, 1, 1, 12, f);
 		woodenClubSpikes.addBox(-6.5f, 15.0f, 18.0f, 1, 1, 12, f);
 		woodenClubSpikes.setRotationPoint(-12.0f, -23.0f, 0.0f);
-		warhammer = new ModelRenderer(this, 52, 29);
-		warhammer.setRotationPoint(-12.0f, -23.0f, 0.0f);
-		warhammer.addBox(-7.5f, 5.0f, 22.5f, 3, 20, 3, f);
-		warhammer.setTextureOffset(0, 32).addBox(-12.0f, 25.0f, 14.0f, 12, 12, 20, f);
-		battleaxe = new ModelRenderer(this, 64, 0);
-		battleaxe.setRotationPoint(-12.0f, -23.0f, 0.0f);
-		battleaxe.addBox(-7.0f, -40.0f, 22.5f, 2, 80, 2, f);
-		battleaxe.setTextureOffset(72, 0);
-		battleaxe.addBox(-6.0f, 20.0f, 24.0f, 0, 24, 16, f);
 	}
 
 	public GOTModelGiant(float f, int i) {
@@ -250,9 +239,5 @@ public class GOTModelGiant extends ModelBase {
 
 	public ModelRenderer getRightArm() {
 		return rightArm;
-	}
-
-	public void setRightArm(ModelRenderer rightArm) {
-		this.rightArm = rightArm;
 	}
 }
