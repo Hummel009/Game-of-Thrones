@@ -9,43 +9,43 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class GOTModelDirewolf extends ModelBase {
-	private ModelRenderer Head;
-	private ModelRenderer MouthB;
-	private ModelRenderer Nose2;
-	private ModelRenderer Neck;
-	private ModelRenderer Neck2;
-	private ModelRenderer LSide;
-	private ModelRenderer RSide;
+	private final ModelRenderer Head;
+	private final ModelRenderer MouthB;
+	private final ModelRenderer Nose2;
+	private final ModelRenderer Neck;
+	private final ModelRenderer Neck2;
+	private final ModelRenderer LSide;
+	private final ModelRenderer RSide;
 	private ModelRenderer REar2;
-	private ModelRenderer Nose;
-	private ModelRenderer Mouth;
-	private ModelRenderer MouthOpen;
-	private ModelRenderer REar;
+	private final ModelRenderer Nose;
+	private final ModelRenderer Mouth;
+	private final ModelRenderer MouthOpen;
+	private final ModelRenderer REar;
 	private ModelRenderer LEar2;
-	private ModelRenderer LEar;
+	private final ModelRenderer LEar;
 
-	private ModelRenderer Chest;
-	private ModelRenderer Body;
+	private final ModelRenderer Chest;
+	private final ModelRenderer Body;
 
-	private ModelRenderer TailA;
-	private ModelRenderer TailB;
-	private ModelRenderer TailC;
-	private ModelRenderer TailD;
+	private final ModelRenderer TailA;
+	private final ModelRenderer TailB;
+	private final ModelRenderer TailC;
+	private final ModelRenderer TailD;
 
-	private ModelRenderer Leg4A;
-	private ModelRenderer Leg4D;
-	private ModelRenderer Leg4B;
-	private ModelRenderer Leg4C;
-	private ModelRenderer Leg3B;
-	private ModelRenderer Leg2A;
-	private ModelRenderer Leg2B;
-	private ModelRenderer Leg2C;
-	private ModelRenderer Leg3D;
-	private ModelRenderer Leg3C;
-	private ModelRenderer Leg3A;
-	private ModelRenderer Leg1A;
-	private ModelRenderer Leg1B;
-	private ModelRenderer Leg1C;
+	private final ModelRenderer Leg4A;
+	private final ModelRenderer Leg4D;
+	private final ModelRenderer Leg4B;
+	private final ModelRenderer Leg4C;
+	private final ModelRenderer Leg3B;
+	private final ModelRenderer Leg2A;
+	private final ModelRenderer Leg2B;
+	private final ModelRenderer Leg2C;
+	private final ModelRenderer Leg3D;
+	private final ModelRenderer Leg3C;
+	private final ModelRenderer Leg3A;
+	private final ModelRenderer Leg1A;
+	private final ModelRenderer Leg1B;
+	private final ModelRenderer Leg1C;
 
 	public GOTModelDirewolf() {
 		textureWidth = 64;

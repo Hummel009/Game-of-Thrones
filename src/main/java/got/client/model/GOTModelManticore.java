@@ -5,9 +5,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelManticore extends GOTModelSpider {
-	private ModelRenderer armRight;
-	private ModelRenderer armLeft;
-	private ModelRenderer tail;
+	private final ModelRenderer armRight;
+	private final ModelRenderer armLeft;
+	private final ModelRenderer tail;
 
 	public GOTModelManticore() {
 		abdomen.cubeList.clear();

@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelTurban extends GOTModelRobes {
-	private ModelRenderer ornament;
+	private final ModelRenderer ornament;
 
 	public GOTModelTurban() {
 		this(0.0f);

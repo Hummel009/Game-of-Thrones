@@ -9,21 +9,21 @@ import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelDeer extends ModelBase {
-	private ModelRenderer body;
-	private ModelRenderer leg1;
-	private ModelRenderer leg2;
-	private ModelRenderer leg3;
-	private ModelRenderer leg4;
-	private ModelRenderer head;
-	private ModelRenderer nose;
-	private ModelRenderer antlersRight_1;
-	private ModelRenderer antlersRight_2;
-	private ModelRenderer antlersRight_3;
-	private ModelRenderer antlersRight_4;
-	private ModelRenderer antlersLeft_1;
-	private ModelRenderer antlersLeft_2;
-	private ModelRenderer antlersLeft_3;
-	private ModelRenderer antlersLeft_4;
+	private final ModelRenderer body;
+	private final ModelRenderer leg1;
+	private final ModelRenderer leg2;
+	private final ModelRenderer leg3;
+	private final ModelRenderer leg4;
+	private final ModelRenderer head;
+	private final ModelRenderer nose;
+	private final ModelRenderer antlersRight_1;
+	private final ModelRenderer antlersRight_2;
+	private final ModelRenderer antlersRight_3;
+	private final ModelRenderer antlersRight_4;
+	private final ModelRenderer antlersLeft_1;
+	private final ModelRenderer antlersLeft_2;
+	private final ModelRenderer antlersLeft_3;
+	private final ModelRenderer antlersLeft_4;
 
 	public GOTModelDeer() {
 		this(0.0f);

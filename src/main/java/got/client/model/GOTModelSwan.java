@@ -8,14 +8,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelSwan extends ModelBase {
-	private ModelRenderer body;
-	private ModelRenderer tail;
-	private ModelRenderer neck;
-	private ModelRenderer head;
-	private ModelRenderer wingRight;
-	private ModelRenderer wingLeft;
-	private ModelRenderer legRight;
-	private ModelRenderer legLeft;
+	private final ModelRenderer body;
+	private final ModelRenderer tail;
+	private final ModelRenderer neck;
+	private final ModelRenderer head;
+	private final ModelRenderer wingRight;
+	private final ModelRenderer wingLeft;
+	private final ModelRenderer legRight;
+	private final ModelRenderer legLeft;
 
 	public GOTModelSwan() {
 		textureWidth = 64;

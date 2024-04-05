@@ -7,12 +7,12 @@ import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelMarshWraith extends ModelBase {
-	private ModelRenderer head;
-	private ModelRenderer headwear;
-	private ModelRenderer body;
-	private ModelRenderer rightArm;
-	private ModelRenderer leftArm;
-	private ModelRenderer cape;
+	private final ModelRenderer head;
+	private final ModelRenderer headwear;
+	private final ModelRenderer body;
+	private final ModelRenderer rightArm;
+	private final ModelRenderer leftArm;
+	private final ModelRenderer cape;
 
 	public GOTModelMarshWraith() {
 		textureHeight = 64;

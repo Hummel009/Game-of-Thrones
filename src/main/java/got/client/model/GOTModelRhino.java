@@ -6,16 +6,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelRhino extends ModelBase {
-	private ModelRenderer head;
-	private ModelRenderer neck;
-	private ModelRenderer horn1;
-	private ModelRenderer horn2;
-	private ModelRenderer body;
-	private ModelRenderer tail;
-	private ModelRenderer leg1;
-	private ModelRenderer leg2;
-	private ModelRenderer leg3;
-	private ModelRenderer leg4;
+	private final ModelRenderer head;
+	private final ModelRenderer neck;
+	private final ModelRenderer horn1;
+	private final ModelRenderer horn2;
+	private final ModelRenderer body;
+	private final ModelRenderer tail;
+	private final ModelRenderer leg1;
+	private final ModelRenderer leg2;
+	private final ModelRenderer leg3;
+	private final ModelRenderer leg4;
 
 	public GOTModelRhino() {
 		this(0.0f);

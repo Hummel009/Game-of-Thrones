@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelBoar extends ModelPig {
-	private ModelRenderer tusks;
+	private final ModelRenderer tusks;
 
 	public GOTModelBoar() {
 		this(0.0f);
