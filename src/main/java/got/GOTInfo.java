@@ -20,6 +20,7 @@ public class GOTInfo {
 		AUTHORS.add("Danvintius Bookix");
 		AUTHORS.add("iliamakar");
 		AUTHORS.add("Tabula");
+		AUTHORS.add("ToCraft");
 		AUTHORS.add("beautifulrobloxgirl01");
 		AUTHORS.add("Agripas");
 		AUTHORS.add("Ness");
