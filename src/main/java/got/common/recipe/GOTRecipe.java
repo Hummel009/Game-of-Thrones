@@ -1430,6 +1430,8 @@ public class GOTRecipe {
 		}
 		for (i = 0; i <= 5; ++i) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(Blocks.fence, 3, i), "XYX", "XYX", 'X', new ItemStack(Blocks.planks, 1, i), 'Y', "stickWood"));
+		}
+		for (i = 0; i <= 6; ++i) {
 			GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(GOTBlocks.fence3, 3, i), "XYX", "XYX", 'X', new ItemStack(GOTBlocks.planks3, 1, i), 'Y', "stickWood"));
 		}
 		for (i = 0; i <= 7; ++i) {

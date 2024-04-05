@@ -1,6 +1,7 @@
 CHANGELOG
 
 >>BUILD 23.09.01
++ Added full German translation (by ToCraft).
 + Added beavers (with their spawn) and their drop (with its usage)
 + Added Janos Slynt's, Pycelle's and Melisandra's drop
 + Added new world type - Game of Thrones without fixed structures and characters, but with map.
@@ -14,6 +15,7 @@ CHANGELOG
 * Improved roads & walls code
 * Improved GUI opening code
 
+* Fixed bug with uncraftable weirwood fence
 * Fixed bug with month name
 * Fixed bug with drown Euron Greyjoy and its soldiers
 * Fixed wrong names of waypoints (example: Servin's C. -> Cerwyn's C.)
