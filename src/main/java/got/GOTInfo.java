@@ -27,7 +27,7 @@ public class GOTInfo {
 		AUTHORS.add("Axel Snow");
 		AUTHORS.add("Sword of the Morning");
 		AUTHORS.add("Valence");
-		AUTHORS.add("Alqualindё");
+		AUTHORS.add("Alqualindë");
 		AUTHORS.add("Jaehaerys");
 		AUTHORS.add("VVVIP2");
 		AUTHORS.add("TIGASA");
