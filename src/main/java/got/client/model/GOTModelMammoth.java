@@ -326,16 +326,9 @@ public class GOTModelMammoth extends ModelBase {
 		}
 		float HeadYRot = f31 / 57.29578f;
 		float f10 = 0.0f;
-		if (false) {
-			f10 = 8.0f;
-		}
 		AdjustY(f10);
 		float HeadXRot = 0.0f;
 		float TrunkXRot = 0.0f;
-		if (false) {
-			HeadXRot = 0.0f;
-			TrunkXRot = 0.0f;
-		}
 		float radianF = 57.29578f;
 		head.rotateAngleX = -10.0f / radianF + HeadXRot;
 		headBump.rotateAngleY = head.rotateAngleY = HeadYRot;
@@ -418,12 +411,7 @@ public class GOTModelMammoth extends ModelBase {
 		if (tailMov < 0.0f) {
 			tailMov = 0.0f;
 		}
-		if (false) {
-			tailRoot.rotateAngleY = MathHelper.cos(f2 * 0.4f) * 1.3f;
-			tailMov = 30.0f / radianF;
-		} else {
-			tailRoot.rotateAngleY = 0.0f;
-		}
+		tailRoot.rotateAngleY = 0.0f;
 		tailRoot.rotateAngleX = 17.0f / radianF + tailMov;
 		tailPlush.rotateAngleX = tail.rotateAngleX = 6.5f / radianF + tailMov;
 		tail.rotateAngleY = tailPlush.rotateAngleY = tailRoot.rotateAngleY;
