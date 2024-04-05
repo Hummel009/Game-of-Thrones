@@ -44,10 +44,10 @@ public class GOTModelDragon extends ModelBase {
 	private GOTModelDragonPart wingArm;
 	private GOTModelDragonPart wingForearm;
 
-	public final GOTModelDragonPart[] wingFinger = new GOTModelDragonPart[4];
-	public final GOTModelDragonPartProxy[] neckProxy = new GOTModelDragonPartProxy[VERTS_NECK];
-	public final GOTModelDragonPartProxy[] tailProxy = new GOTModelDragonPartProxy[VERTS_TAIL];
-	public final GOTModelDragonPartProxy[] thighProxy = new GOTModelDragonPartProxy[4];
+	private final GOTModelDragonPart[] wingFinger = new GOTModelDragonPart[4];
+	private final GOTModelDragonPartProxy[] neckProxy = new GOTModelDragonPartProxy[VERTS_NECK];
+	private final GOTModelDragonPartProxy[] tailProxy = new GOTModelDragonPartProxy[VERTS_TAIL];
+	private final GOTModelDragonPartProxy[] thighProxy = new GOTModelDragonPartProxy[4];
 
 	private int renderPass = -1;
 	private float offsetX;
@@ -579,5 +579,37 @@ public class GOTModelDragon extends ModelBase {
 
 	public void setRenderPass(int renderPass) {
 		this.renderPass = renderPass;
+	}
+
+	public GOTModelDragonPart getWingFingerItem(int i) {
+		return wingFinger[i];
+	}
+
+	public GOTModelDragonPartProxy getNeckProxyItem(int i) {
+		return neckProxy[i];
+	}
+
+	public GOTModelDragonPartProxy getTailProxyItem(int i) {
+		return tailProxy[i];
+	}
+
+	public GOTModelDragonPartProxy getThighProxyItem(int i) {
+		return thighProxy[i];
+	}
+
+	public int getThighProxyLength() {
+		return thighProxy.length;
+	}
+
+	public int getNeckProxyLength() {
+		return neckProxy.length;
+	}
+
+	public int getTailProxyLength() {
+		return tailProxy.length;
+	}
+
+	public int getWingFingerLength() {
+		return wingFinger.length;
 	}
 }
