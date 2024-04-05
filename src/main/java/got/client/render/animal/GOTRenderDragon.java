@@ -53,7 +53,7 @@ public class GOTRenderDragon extends RenderLiving {
 	}
 
 	public ResourceLocation getEntityTexture(GOTEntityDragon dragon) {
-		return model.bodyTexture;
+		return model.getBodyTexture();
 	}
 
 	public void initBreedModels() {
@@ -108,7 +108,7 @@ public class GOTRenderDragon extends RenderLiving {
 	}
 
 	public void renderModel(GOTEntityDragon dragon, float moveTime, float moveSpeed, float ticksExisted, float lookYaw, float lookPitch, float scale) {
-		model.renderPass = -1;
+		model.setRenderPass(-1);
 		if (dragon.getDeathTime() > 0) {
 			float alpha = dragon.getDeathTime() / (float) dragon.getMaxDeathTime();
 			glDepthFunc(GL_LEQUAL);
@@ -144,16 +144,16 @@ public class GOTRenderDragon extends RenderLiving {
 		if (pass == 0 && updateModel && dragon.ticksExisted % 20 == 0) {
 			initBreedModels();
 		}
-		model.renderPass = pass;
+		model.setRenderPass(pass);
 		switch (pass) {
 			case 0:
 				if (dragon.isSaddled()) {
-					bindTexture(model.saddleTexture);
+					bindTexture(model.getSaddleTexture());
 					return 1;
 				}
 				break;
 			case 1:
-				bindTexture(model.glowTexture);
+				bindTexture(model.getGlowTexture());
 				glEnable(GL_BLEND);
 				glBlendFunc(GL_ONE, GL_ONE);
 				glDisable(GL_LIGHTING);

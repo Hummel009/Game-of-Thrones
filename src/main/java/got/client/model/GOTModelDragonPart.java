@@ -9,17 +9,18 @@ import net.minecraft.client.renderer.Tessellator;
 import static org.lwjgl.opengl.GL11.*;
 
 public class GOTModelDragonPart extends ModelRenderer {
-	public float renderScaleX = 1;
-	public float renderScaleY = 1;
-	public float renderScaleZ = 1;
+	private float renderScaleX = 1;
+	private float renderScaleY = 1;
+	private float renderScaleZ = 1;
 
-	public float preRotateAngleX;
-	public float preRotateAngleY;
-	public float preRotateAngleZ;
+	private float preRotateAngleX;
+	private float preRotateAngleY;
+	private float preRotateAngleZ;
 
-	public final ModelBase base;
-	public boolean compiled;
-	public int displayList;
+	private final ModelBase base;
+
+	private boolean compiled;
+	private int displayList;
 
 	public GOTModelDragonPart(ModelBase base, String name) {
 		super(base, name);
@@ -35,7 +36,7 @@ public class GOTModelDragonPart extends ModelRenderer {
 		return part;
 	}
 
-	public void compileDisplayList(float scale) {
+	private void compDisplayList(float scale) {
 		displayList = GLAllocation.generateDisplayLists(1);
 		glNewList(displayList, GL_COMPILE);
 		for (Object obj : cubeList) {
@@ -47,7 +48,6 @@ public class GOTModelDragonPart extends ModelRenderer {
 
 	@Override
 	public void postRender(float scale) {
-
 		if (isHidden || !showModel) {
 			return;
 		}
@@ -86,13 +86,11 @@ public class GOTModelDragonPart extends ModelRenderer {
 
 	@Override
 	public void renderWithRotation(float scale) {
-
 		if (isHidden || !showModel) {
 			return;
 		}
-
 		if (!compiled) {
-			compileDisplayList(scale);
+			compDisplayList(scale);
 		}
 
 		glPushMatrix();
@@ -100,13 +98,11 @@ public class GOTModelDragonPart extends ModelRenderer {
 		postRender(scale);
 
 		glCallList(displayList);
-
 		if (childModels != null) {
 			for (Object obj : childModels) {
 				((ModelRenderer) obj).render(scale);
 			}
 		}
-
 		glPopMatrix();
 	}
 
@@ -122,10 +118,57 @@ public class GOTModelDragonPart extends ModelRenderer {
 		setRenderScale(scale, scale, scale);
 	}
 
-	public void setRenderScale(float scaleX, float scaleY, float scaleZ) {
+	private void setRenderScale(float scaleX, float scaleY, float scaleZ) {
 		renderScaleX = scaleX;
 		renderScaleY = scaleY;
 		renderScaleZ = scaleZ;
+	}
 
+	public float getRenderScaleX() {
+		return renderScaleX;
+	}
+
+	public void setRenderScaleX(float renderScaleX) {
+		this.renderScaleX = renderScaleX;
+	}
+
+	public float getRenderScaleY() {
+		return renderScaleY;
+	}
+
+	public void setRenderScaleY(float renderScaleY) {
+		this.renderScaleY = renderScaleY;
+	}
+
+	public float getRenderScaleZ() {
+		return renderScaleZ;
+	}
+
+	public void setRenderScaleZ(float renderScaleZ) {
+		this.renderScaleZ = renderScaleZ;
+	}
+
+	public float getPreRotateAngleX() {
+		return preRotateAngleX;
+	}
+
+	public void setPreRotateAngleX(float preRotateAngleX) {
+		this.preRotateAngleX = preRotateAngleX;
+	}
+
+	public float getPreRotateAngleY() {
+		return preRotateAngleY;
+	}
+
+	public void setPreRotateAngleY(float preRotateAngleY) {
+		this.preRotateAngleY = preRotateAngleY;
+	}
+
+	public float getPreRotateAngleZ() {
+		return preRotateAngleZ;
+	}
+
+	public void setPreRotateAngleZ(float preRotateAngleZ) {
+		this.preRotateAngleZ = preRotateAngleZ;
 	}
 }

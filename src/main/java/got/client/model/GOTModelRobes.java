@@ -9,7 +9,7 @@ import org.lwjgl.opengl.GL11;
 public class GOTModelRobes extends GOTModelHuman {
 	protected ItemStack robeItem;
 
-	public GOTModelRobes() {
+	protected GOTModelRobes() {
 		this(0.0f);
 	}
 

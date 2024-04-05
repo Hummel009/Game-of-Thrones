@@ -10,12 +10,12 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTModelCompass extends ModelBase {
 	public static final GOTModelCompass COMPASS_MODEL = new GOTModelCompass();
-	public static final ResourceLocation COMPASS_TEXTURE = new ResourceLocation("got:textures/misc/compass.png");
+	private static final ResourceLocation COMPASS_TEXTURE = new ResourceLocation("got:textures/misc/compass.png");
 
 	private final ModelRenderer compass;
 	private final ModelBase port = new GOTModelPortal(0);
 
-	public GOTModelCompass() {
+	private GOTModelCompass() {
 		textureWidth = 32;
 		textureHeight = 32;
 		compass = new ModelRenderer(this, 0, 0);

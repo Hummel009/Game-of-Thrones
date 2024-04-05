@@ -4,11 +4,11 @@ import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.entity.EntityBodyHelper;
 
 public class GOTModelDragonBodyHelper extends EntityBodyHelper {
-	public static final int TURN_TICKS_LIMIT = 20;
+	private static final int TURN_TICKS_LIMIT = 20;
 
-	public final GOTEntityDragon dragon;
-	public int turnTicks;
-	public float prevRotationYawHead;
+	private final GOTEntityDragon dragon;
+	private int turnTicks;
+	private float prevRotationYawHead;
 
 	public GOTModelDragonBodyHelper(GOTEntityDragon dragon) {
 		super(dragon);

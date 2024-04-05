@@ -25,7 +25,7 @@ public class GOTModelBiped extends ModelBiped {
 		super(f);
 	}
 
-	public GOTModelBiped(float f, float f1, int width, int height) {
+	protected GOTModelBiped(float f, float f1, int width, int height) {
 		super(f, f1, width, height);
 	}
 

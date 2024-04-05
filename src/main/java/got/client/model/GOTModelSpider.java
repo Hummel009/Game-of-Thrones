@@ -20,7 +20,7 @@ public class GOTModelSpider extends ModelBase implements GOTGlowingEyes.Model {
 
 	protected final ModelRenderer abdomen;
 
-	public GOTModelSpider() {
+	protected GOTModelSpider() {
 		this(0.0f);
 	}
 
