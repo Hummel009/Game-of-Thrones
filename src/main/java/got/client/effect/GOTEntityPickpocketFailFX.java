@@ -11,6 +11,6 @@ public class GOTEntityPickpocketFailFX extends GOTEntityPickpocketFX {
 	}
 
 	@Override
-	public void updatePickpocketIcon() {
+	protected void updatePickpocketIcon() {
 	}
 }

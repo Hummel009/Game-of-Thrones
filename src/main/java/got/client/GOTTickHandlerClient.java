@@ -1293,7 +1293,7 @@ public class GOTTickHandlerClient {
 	@SubscribeEvent
 	public void onWorldLoad(WorldEvent.Load event) {
 		if (event.world instanceof WorldClient) {
-			GOTClientProxy.customEffectRenderer.clearEffectsAndSetWorld(event.world);
+			GOTClientProxy.customEffectRenderer.clearEffectsAndSetWorld();
 		}
 	}
 

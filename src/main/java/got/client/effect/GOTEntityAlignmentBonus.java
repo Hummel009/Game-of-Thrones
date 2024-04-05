@@ -7,17 +7,16 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class GOTEntityAlignmentBonus extends Entity {
-	public int particleAge;
-	public int particleMaxAge;
-	public String name;
-	public GOTFaction mainFaction;
-	public float prevMainAlignment;
-	public GOTAlignmentBonusMap factionBonusMap;
-	public boolean isKill;
-	public boolean isHiredKill;
-	public float conquestBonus;
+	private final String name;
+	private final GOTFaction mainFaction;
+	private final float prevMainAlignment;
+	private final GOTAlignmentBonusMap factionBonusMap;
+	private final float conquestBonus;
 
-	public GOTEntityAlignmentBonus(World world, double d, double d1, double d2, String s, GOTFaction f, float pre, GOTAlignmentBonusMap fMap, boolean kill, boolean hiredKill, float conqBonus) {
+	private int particleAge;
+	private int particleMaxAge;
+
+	public GOTEntityAlignmentBonus(World world, double d, double d1, double d2, String s, GOTFaction f, float pre, GOTAlignmentBonusMap fMap, float conqBonus) {
 		super(world);
 		setSize(0.5f, 0.5f);
 		yOffset = height / 2.0f;
@@ -27,13 +26,11 @@ public class GOTEntityAlignmentBonus extends Entity {
 		mainFaction = f;
 		prevMainAlignment = pre;
 		factionBonusMap = fMap;
-		isKill = kill;
-		isHiredKill = hiredKill;
 		conquestBonus = conqBonus;
 		calcMaxAge();
 	}
 
-	public void calcMaxAge() {
+	private void calcMaxAge() {
 		float highestBonus = 0.0f;
 		for (GOTFaction fac : factionBonusMap.getChangedFactions()) {
 			float bonus = Math.abs(factionBonusMap.get(fac));
@@ -79,5 +76,29 @@ public class GOTEntityAlignmentBonus extends Entity {
 
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
+	}
+
+	public int getParticleAge() {
+		return particleAge;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public GOTFaction getMainFaction() {
+		return mainFaction;
+	}
+
+	public float getPrevMainAlignment() {
+		return prevMainAlignment;
+	}
+
+	public GOTAlignmentBonusMap getFactionBonusMap() {
+		return factionBonusMap;
+	}
+
+	public float getConquestBonus() {
+		return conquestBonus;
 	}
 }

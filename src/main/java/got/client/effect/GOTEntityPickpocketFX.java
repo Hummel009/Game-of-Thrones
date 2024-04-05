@@ -4,8 +4,9 @@ import net.minecraft.client.particle.EntityFX;
 import net.minecraft.world.World;
 
 public class GOTEntityPickpocketFX extends EntityFX {
-	public float bounciness;
-	public double motionBeforeGround;
+	protected float bounciness;
+
+	private double motionBeforeGround;
 
 	public GOTEntityPickpocketFX(World world, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 		super(world, x, y, z, 0.0, 0.0, 0.0);
@@ -29,7 +30,7 @@ public class GOTEntityPickpocketFX extends EntityFX {
 		}
 	}
 
-	public void updatePickpocketIcon() {
+	protected void updatePickpocketIcon() {
 		setParticleTextureIndex(160 + particleAge / 2 % 8);
 	}
 }

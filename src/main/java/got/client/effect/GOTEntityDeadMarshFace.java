@@ -5,7 +5,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTEntityDeadMarshFace extends EntityFX {
-	public float faceAlpha;
+	private float faceAlpha;
 
 	public GOTEntityDeadMarshFace(World world, double d, double d1, double d2) {
 		super(world, d, d1, d2, 0.0, 0.0, 0.0);
@@ -24,5 +24,9 @@ public class GOTEntityDeadMarshFace extends EntityFX {
 		if (particleAge > particleMaxAge) {
 			setDead();
 		}
+	}
+
+	public float getFaceAlpha() {
+		return faceAlpha;
 	}
 }

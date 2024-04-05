@@ -31,14 +31,14 @@ public class GOTRenderAlignmentBonus extends Render {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		GOTFaction viewingFaction = playerData.getViewingFaction();
 		GOTEntityAlignmentBonus alignmentBonus = (GOTEntityAlignmentBonus) entity;
-		GOTFaction mainFaction = alignmentBonus.mainFaction;
-		GOTAlignmentBonusMap factionBonusMap = alignmentBonus.factionBonusMap;
+		GOTFaction mainFaction = alignmentBonus.getMainFaction();
+		GOTAlignmentBonusMap factionBonusMap = alignmentBonus.getFactionBonusMap();
 		GOTFaction renderFaction = null;
 		boolean showConquest = false;
-		if (alignmentBonus.conquestBonus > 0.0f && playerData.isPledgedTo(viewingFaction)) {
+		if (alignmentBonus.getConquestBonus() > 0.0f && playerData.isPledgedTo(viewingFaction)) {
 			renderFaction = viewingFaction;
 			showConquest = true;
-		} else if (alignmentBonus.conquestBonus < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction))) {
+		} else if (alignmentBonus.getConquestBonus() < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction))) {
 			renderFaction = viewingFaction;
 			showConquest = true;
 		} else if (!factionBonusMap.isEmpty()) {
@@ -46,7 +46,7 @@ public class GOTRenderAlignmentBonus extends Render {
 				renderFaction = viewingFaction;
 			} else if (factionBonusMap.size() == 1 && mainFaction.isPlayableAlignmentFaction()) {
 				renderFaction = mainFaction;
-			} else if (mainFaction.isPlayableAlignmentFaction() && alignmentBonus.prevMainAlignment >= 0.0f && factionBonusMap.get(mainFaction) < 0.0f) {
+			} else if (mainFaction.isPlayableAlignmentFaction() && alignmentBonus.getPrevMainAlignment() >= 0.0f && factionBonusMap.get(mainFaction) < 0.0f) {
 				renderFaction = mainFaction;
 			} else {
 				float alignment;
@@ -89,7 +89,7 @@ public class GOTRenderAlignmentBonus extends Render {
 			GL11.glDisable(2929);
 			GL11.glEnable(3042);
 			GL11.glBlendFunc(770, 771);
-			int age = alignmentBonus.particleAge;
+			int age = alignmentBonus.getParticleAge();
 			float alpha = age < 60 ? 1.0f : (80 - age) / 20.0f;
 			renderBonusText(alignmentBonus, playerData, viewingFaction, renderFaction, !factionBonusMap.isEmpty(), renderBonus, showConquest, alpha);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -111,8 +111,8 @@ public class GOTRenderAlignmentBonus extends Render {
 		Minecraft mc = Minecraft.getMinecraft();
 		FontRenderer fr = mc.fontRenderer;
 		String strAlign = GOTAlignmentValues.formatAlignForDisplay(align);
-		String name = alignmentBonus.name;
-		float conq = alignmentBonus.conquestBonus;
+		String name = alignmentBonus.getName();
+		float conq = alignmentBonus.getConquestBonus();
 		GL11.glPushMatrix();
 		isViewingFaction = renderFaction == viewingFaction;
 		if (!isViewingFaction) {

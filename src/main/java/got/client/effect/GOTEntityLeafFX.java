@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.world.World;
 
 public class GOTEntityLeafFX extends EntityFX {
-	public int[] texIndices;
+	private final int[] texIndices;
 
 	public GOTEntityLeafFX(World world, double d, double d1, double d2, double d3, double d4, double d5, int[] tex) {
 		super(world, d, d1, d2, d3, d4, d5);

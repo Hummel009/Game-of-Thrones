@@ -446,7 +446,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		customEffectRenderer = new GOTEffectRenderer(Minecraft.getMinecraft());
 		GOTTextures.onInit();
 		GOTRender.onInit();
-		for (Entry<Class<? extends Entity>, Render> cl : GOTRender.renders.entrySet()) {
+		for (Entry<Class<? extends Entity>, Render> cl : GOTRender.RENDERS.entrySet()) {
 			RenderingRegistry.registerEntityRenderingHandler(cl.getKey(), cl.getValue());
 		}
 		beaconRenderID = RenderingRegistry.getNextAvailableRenderId();
@@ -661,7 +661,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	public void spawnAlignmentBonus(GOTFaction faction, float prevMainAlignment, GOTAlignmentBonusMap factionBonusMap, String name, boolean isKill, boolean isHiredKill, float conquestBonus, double posX, double posY, double posZ) {
 		World world = getClientWorld();
 		if (world != null) {
-			GOTEntityAlignmentBonus entity = new GOTEntityAlignmentBonus(world, posX, posY, posZ, name, faction, prevMainAlignment, factionBonusMap, isKill, isHiredKill, conquestBonus);
+			GOTEntityAlignmentBonus entity = new GOTEntityAlignmentBonus(world, posX, posY, posZ, name, faction, prevMainAlignment, factionBonusMap, conquestBonus);
 			world.spawnEntityInWorld(entity);
 		}
 	}

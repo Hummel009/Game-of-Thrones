@@ -6,15 +6,15 @@ import net.minecraft.client.particle.EntityFX;
 import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.Entity;
-import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GOTEffectRenderer {
-	public Minecraft mc;
-	public List<EntityFX>[] particleLayers = new List[0];
+	private final Minecraft mc;
+
+	private List<EntityFX>[] particleLayers = new List[0];
 
 	public GOTEffectRenderer(Minecraft minecraft) {
 		mc = minecraft;
@@ -36,7 +36,7 @@ public class GOTEffectRenderer {
 		layerList.add(entityfx);
 	}
 
-	public void clearEffectsAndSetWorld(World world) {
+	public void clearEffectsAndSetWorld() {
 		for (List<EntityFX> layer : particleLayers) {
 			layer.clear();
 		}

@@ -20,7 +20,7 @@ public class GOTRenderDeadMarshFace extends Render {
 		GL11.glEnable(32826);
 		GL11.glEnable(3042);
 		GL11.glBlendFunc(770, 771);
-		GL11.glColor4f(1.0f, 1.0f, 1.0f, face.faceAlpha);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, face.getFaceAlpha());
 		GL11.glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
 		GL11.glRotatef(face.rotationYaw, 0.0f, 0.0f, 1.0f);
 		GL11.glRotatef(face.rotationPitch, 0.0f, 1.0f, 0.0f);
