@@ -1,11 +1,4 @@
 ﻿
-entity.got.Beaver.name≠Beaver
-item.got:beaver_raw.name≠Raw Beaver
-item.got:beaver_cooked.name≠Cooked Beaver
-item.got:beaver_tail.name≠Beaver Tail
-got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
-got.achievement.KILL_BEAVER.title=Kurwa bober
-got.chat.nolab=Sorry, goodbye!
 attribute.name.generic.movementSpeedAir=Hız (Hava)
 color.black=Siyah
 color.blue=Mavi
@@ -87,6 +80,7 @@ entity.got.BarristanSelmy.name=Barristan selmy
 entity.got.BarrowWight.name=Höyüklü Kişi
 entity.got.Bear.name=Ayı
 entity.got.BearRug.name=Ayı Postu
+entity.got.Beaver.name≠Beaver
 entity.got.BenedarBelmore.name=Benedar Belmore
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayne
@@ -987,6 +981,8 @@ got.achievement.KILL_BALON_GREYJOY.desc=Balon Greyjoy'u öldür
 got.achievement.KILL_BALON_GREYJOY.title=Senden daha iyi kral olacağım
 got.achievement.KILL_BARRISTAN_SELMY.desc=Barristan Selmy'yi öldür
 got.achievement.KILL_BARRISTAN_SELMY.title=Eski Lord Kumandan
+got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
+got.achievement.KILL_BEAVER.title=Kurwa bober
 got.achievement.KILL_BENJEN_STARK.desc=Benjen Stark'ı öldür
 got.achievement.KILL_BENJEN_STARK.title=Soğuk eller
 got.achievement.KILL_BERIC_DAYNE.desc=Beric Dayne'i öldür
@@ -1809,6 +1805,7 @@ got.chat.killedByBounty2=%s Memnun Olmadı, Ve Onlarla İlişkiniz Geriledi...
 got.chat.killedByBounty=%s, Düşmanı %s Tarafından Öldürüldü!
 got.chat.loseTitle=You are no longer able to bear the title of %s
 got.chat.mountOwnedByNPC=Bu Binek Bir Yapay Zekaya Ait, Onunla Etkileşim Kuramazsın!
+got.chat.nolab=Sorry, goodbye!
 got.chat.pickpocket.inCombat=Savaşan Birine Yankesicilik Yapamazsın!
 got.chat.pickpocket.missed=Yankesicilik Yapmaya Çalıştın Ama, %s Adlı Kişinin Cebini Bulamadın...
 got.chat.pickpocket.noticed=%s Fark Etti!
@@ -2041,11 +2038,11 @@ got.date.month.april=Nisan
 got.date.month.august=Ağustos
 got.date.month.december=ARALIK AYI
 got.date.month.february=Şubat
-got.date.month.may=May
 got.date.month.january=Ocak ayı
 got.date.month.july=Temmuz
 got.date.month.june=Haziran
 got.date.month.march=Mayıs ayı
+got.date.month.may=May
 got.date.month.midyearsday=Yeni yıl
 got.date.month.november=Kasım
 got.date.month.october=Ekim
@@ -5169,6 +5166,9 @@ item.got:banner.yronwood.name=Yronwood Bayrağı
 item.got:banner.yunkai.name=Yunkai Bayrağı
 item.got:banner_tab.name=Kredi
 item.got:bear_rug.name=Ayı Postu
+item.got:beaver_cooked.name≠Cooked Beaver
+item.got:beaver_raw.name≠Raw Beaver
+item.got:beaver_tail.name≠Beaver Tail
 item.got:beric_sword.name=Beric Dondarrion Kılıcı
 item.got:berry_pie.name=Meyveli Turta
 item.got:bittersteel_helmet.name=Aegor Nehir Kask

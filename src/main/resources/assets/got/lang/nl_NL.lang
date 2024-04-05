@@ -1,11 +1,4 @@
 ﻿
-entity.got.Beaver.name≠Beaver
-item.got:beaver_raw.name≠Raw Beaver
-item.got:beaver_cooked.name≠Cooked Beaver
-item.got:beaver_tail.name≠Beaver Tail
-got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
-got.achievement.KILL_BEAVER.title=Kurwa bober
-got.chat.nolab=Sorry, goodbye!
 attribute.name.generic.movementSpeedAir=Snelheid (lucht)
 color.black=Zwart
 color.blue=Blauw
@@ -87,6 +80,7 @@ entity.got.BarristanSelmy.name=Barristan Selmy
 entity.got.BarrowWight.name=Schaduw
 entity.got.Bear.name=Beer
 entity.got.BearRug.name=Beren Huid
+entity.got.Beaver.name≠Beaver
 entity.got.BenedarBelmore.name≠Benedar Belmore
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayne
@@ -987,6 +981,8 @@ got.achievement.KILL_BALON_GREYJOY.desc=Dood Balon Greyjoy
 got.achievement.KILL_BALON_GREYJOY.title=Ik zal een betere koning zijn, dat jij
 got.achievement.KILL_BARRISTAN_SELMY.desc=Dood Barristan Selmy
 got.achievement.KILL_BARRISTAN_SELMY.title=Voormalig Lord Commander
+got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
+got.achievement.KILL_BEAVER.title=Kurwa bober
 got.achievement.KILL_BENJEN_STARK.desc=Dood Benjen Stark
 got.achievement.KILL_BENJEN_STARK.title=Koude handen
 got.achievement.KILL_BERIC_DAYNE.desc=Dood Beric Dayne
@@ -1809,6 +1805,7 @@ got.chat.killedByBounty2≠%s are displeased, and your reputation with them has 
 got.chat.killedByBounty≠Your target, %s, slew you, and you have failed your quest!
 got.chat.loseTitle=U bent niet langer in staat de titel %s te dragen
 got.chat.mountOwnedByNPC=Dit dier was van een NPC - je kan er niet op rijden
+got.chat.nolab=Sorry, goodbye!
 got.chat.pickpocket.inCombat=U bent achtervolgd
 got.chat.pickpocket.missed=Zak leeg
 got.chat.pickpocket.noticed=Je bent gezien!
@@ -2041,11 +2038,11 @@ got.date.month.april=April
 got.date.month.august=Augustus
 got.date.month.december=December
 got.date.month.february=Februari
-got.date.month.may=May-
 got.date.month.january=Januari-
 got.date.month.july=Juli-
 got.date.month.june=Juni-
 got.date.month.march=Mei
+got.date.month.may=May-
 got.date.month.midyearsday=Nieuwjaar
 got.date.month.november=Novemver
 got.date.month.october=Oktober
@@ -5169,6 +5166,9 @@ item.got:banner.yronwood.name=Vlag van Yronwood
 item.got:banner.yunkai.name=Vlag van Yunkai
 item.got:banner_tab.name=Credits
 item.got:bear_rug.name=Bearskin deken
+item.got:beaver_cooked.name≠Cooked Beaver
+item.got:beaver_raw.name≠Raw Beaver
+item.got:beaver_tail.name≠Beaver Tail
 item.got:beric_sword.name=Beric Dondarrion's Sword
 item.got:berry_pie.name=Bessentaart
 item.got:bittersteel_helmet.name≠Aegor Rivers Helmet

@@ -1,11 +1,4 @@
 ﻿
-entity.got.Beaver.name≠Beaver
-item.got:beaver_raw.name≠Raw Beaver
-item.got:beaver_cooked.name≠Cooked Beaver
-item.got:beaver_tail.name≠Beaver Tail
-got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
-got.achievement.KILL_BEAVER.title=Kurwa bober
-got.chat.nolab=Sorry, goodbye!
 attribute.name.generic.movementSpeedAir=Velocidad (aire)
 color.black=Negro
 color.blue=Azul
@@ -87,6 +80,7 @@ entity.got.BarristanSelmy.name=Barristan Selmy
 entity.got.BarrowWight.name=Tumulario
 entity.got.Bear.name=Oso
 entity.got.BearRug.name=Alfombra de Oso
+entity.got.Beaver.name≠Beaver
 entity.got.BenedarBelmore.name≠Benedar Belmore
 entity.got.BenjenStark.name=Benjen Stark
 entity.got.BericDayne.name=Beric Dayne
@@ -987,6 +981,8 @@ got.achievement.KILL_BALON_GREYJOY.desc=Mata a Balon Greyjoy
 got.achievement.KILL_BALON_GREYJOY.title=Sere mejor rey que tu
 got.achievement.KILL_BARRISTAN_SELMY.desc=Mata a Barristan Selmy
 got.achievement.KILL_BARRISTAN_SELMY.title=Antiguo Lord Comandante
+got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
+got.achievement.KILL_BEAVER.title=Kurwa bober
 got.achievement.KILL_BENJEN_STARK.desc=Mata a Benjen Stark
 got.achievement.KILL_BENJEN_STARK.title=Manos frías
 got.achievement.KILL_BERIC_DAYNE.desc=Mata a Beric Dayne
@@ -1809,6 +1805,7 @@ got.chat.killedByBounty2=%s se ha ofendido, tu reputación con ellos ha disminui
 got.chat.killedByBounty=¡%s fue asesinado por su objetivo de recompensa, %s!
 got.chat.loseTitle=Ya no puedes llevar el título de %s
 got.chat.mountOwnedByNPC=Esta montura fue poseída por una Unidad (No se puede interactuar con ella)
+got.chat.nolab=Sorry, goodbye!
 got.chat.pickpocket.inCombat=Te han perseguido
 got.chat.pickpocket.missed=Bolsillo vacío
 got.chat.pickpocket.noticed=¡Has sido descubierto!
@@ -2041,11 +2038,11 @@ got.date.month.april=Abril
 got.date.month.august=Agosto
 got.date.month.december=Diciembre
 got.date.month.february=Febrero
-got.date.month.may=May
 got.date.month.january=Enero
 got.date.month.july=Mes de julio
 got.date.month.june=Junio
 got.date.month.march=Mayo
+got.date.month.may=May
 got.date.month.midyearsday=Año Nuevo
 got.date.month.november=Noviembre
 got.date.month.october=Octubre
@@ -5169,6 +5166,9 @@ item.got:banner.yronwood.name=Estandarte de Yronwood
 item.got:banner.yunkai.name=Estandarte de Yunkai
 item.got:banner_tab.name=Créditos
 item.got:bear_rug.name=Alfombra de Piel de Oso
+item.got:beaver_cooked.name≠Cooked Beaver
+item.got:beaver_raw.name≠Raw Beaver
+item.got:beaver_tail.name≠Beaver Tail
 item.got:beric_sword.name=Espada de Beric Dondarrion
 item.got:berry_pie.name=Pastel de Bayas
 item.got:bittersteel_helmet.name≠Aegor Rivers Helmet
