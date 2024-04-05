@@ -1,5 +1,7 @@
 package got.common.entity.animal;
 
+import got.common.GOTLevelData;
+import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.world.biome.GOTBiome;
@@ -114,6 +116,10 @@ public class GOTEntityBeaver extends EntityAnimal implements GOTBiome.ImmuneToFr
 		return false;
 	}
 
+	public GOTAchievement getKillAchievement() {
+		return GOTAchievement.killBeaver;
+	}
+
 	@Override
 	public boolean interact(EntityPlayer entityplayer) {
 		if (isHostile()) {
@@ -138,6 +144,17 @@ public class GOTEntityBeaver extends EntityAnimal implements GOTBiome.ImmuneToFr
 
 	public void setHostile(boolean flag) {
 		dataWatcher.updateObject(20, flag ? (byte) 1 : 0);
+	}
+
+	@Override
+	public void onDeath(DamageSource damagesource) {
+		super.onDeath(damagesource);
+		if (!worldObj.isRemote && damagesource.getEntity() instanceof EntityPlayer) {
+			EntityPlayer entityplayer = (EntityPlayer) damagesource.getEntity();
+			if (getKillAchievement() != null) {
+				GOTLevelData.getData(entityplayer).addAchievement(getKillAchievement());
+			}
+		}
 	}
 
 	@Override

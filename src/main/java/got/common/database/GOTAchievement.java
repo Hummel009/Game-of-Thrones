@@ -177,6 +177,7 @@ public class GOTAchievement {
 	public static GOTAchievement killAsshaiArchmag;
 	public static GOTAchievement killBalonGreyjoy;
 	public static GOTAchievement killBarristanSelmy;
+	public static GOTAchievement killBeaver;
 	public static GOTAchievement killBenjenStark;
 	public static GOTAchievement killBericDayne;
 	public static GOTAchievement killBericDondarrion;
@@ -735,6 +736,7 @@ public class GOTAchievement {
 		useCrossbow = new GOTAchievement(Category.GENERAL, id++, GOTItems.ironCrossbow, "USE_CROSSBOW");
 		useSpearFromFar = new GOTAchievement(Category.GENERAL, id++, GOTItems.ironSpear, "USE_SPEAR_FROM_FAR");
 		useThrowingAxe = new GOTAchievement(Category.GENERAL, id++, GOTItems.ironThrowingAxe, "USE_THROWING_AXE");
+		killBeaver = new GOTAchievement(Category.KILL, id++, GOTItems.beaverTail, "KILL_BEAVER");
 	}
 
 	public static Comparator<GOTAchievement> sortForDisplay(EntityPlayer entityplayer) {

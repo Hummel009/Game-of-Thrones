@@ -3,6 +3,9 @@ entity.got.Beaver.name≠Beaver
 item.got:beaver_raw.name≠Raw Beaver
 item.got:beaver_cooked.name≠Cooked Beaver
 item.got:beaver_tail.name≠Beaver Tail
+got.achievement.KILL_BEAVER.desc=Ja pierdolę, jakie bydle
+got.achievement.KILL_BEAVER.title=Kurwa bober
+got.chat.nolab=Sorry, goodbye!
 attribute.name.generic.movementSpeedAir=Snelheid (lucht)
 color.black=Zwart
 color.blue=Blauw
