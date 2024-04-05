@@ -5,9 +5,9 @@ import net.minecraft.entity.EntityBodyHelper;
 
 public class GOTModelDragonBodyHelper extends EntityBodyHelper {
 
-	public GOTEntityDragon dragon;
+	public final GOTEntityDragon dragon;
 	public int turnTicks;
-	public int turnTicksLimit = 20;
+	public final int turnTicksLimit = 20;
 	public float prevRotationYawHead;
 
 	public GOTModelDragonBodyHelper(GOTEntityDragon dragon) {

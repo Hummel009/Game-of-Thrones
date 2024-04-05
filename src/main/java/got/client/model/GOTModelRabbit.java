@@ -7,12 +7,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelRabbit extends ModelBase {
-	private final ModelRenderer head = new ModelRenderer(this, 0, 0);
-	private final ModelRenderer body;
-	private final ModelRenderer rightArm;
-	private final ModelRenderer leftArm;
-	private final ModelRenderer rightLeg;
-	private final ModelRenderer leftLeg;
+	public final ModelRenderer head = new ModelRenderer(this, 0, 0);
+	public final ModelRenderer body;
+	public final ModelRenderer rightArm;
+	public final ModelRenderer leftArm;
+	public final ModelRenderer rightLeg;
+	public final ModelRenderer leftLeg;
 
 	public GOTModelRabbit() {
 		head.addBox(-2.0f, -2.0f, -2.0f, 4, 4, 4);

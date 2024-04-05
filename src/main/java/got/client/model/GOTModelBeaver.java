@@ -7,12 +7,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelBeaver extends ModelBase {
-	private final ModelRenderer bober;
-	private final ModelRenderer head;
-	private final ModelRenderer leg1;
-	private final ModelRenderer leg2;
-	private final ModelRenderer leg3;
-	private final ModelRenderer leg4;
+	public final ModelRenderer bober;
+	public final ModelRenderer head;
+	public final ModelRenderer leg1;
+	public final ModelRenderer leg2;
+	public final ModelRenderer leg3;
+	public final ModelRenderer leg4;
 
 	public GOTModelBeaver() {
 		textureWidth = 64;
@@ -29,7 +29,7 @@ public class GOTModelBeaver extends ModelBase {
 		ModelRenderer tail = new ModelRenderer(this);
 		tail.setRotationPoint(0.0F, 2.0F, 5.5F);
 		body.addChild(tail);
-		setRotationAngle(tail, -0.2618F, 0.0F, 0.0F);
+		setRotationAngle(tail, -0.2618F, 0.0F);
 		tail.cubeList.add(new ModelBox(tail, 0, 19, -4.0F, -1.0F, -0.5F, 8, 2, 11, -0.01F));
 
 		head = new ModelRenderer(this);
@@ -46,13 +46,13 @@ public class GOTModelBeaver extends ModelBase {
 		ModelRenderer ear1 = new ModelRenderer(this);
 		ear1.setRotationPoint(-2.0F, -2.0F, -3.0F);
 		ears.addChild(ear1);
-		setRotationAngle(ear1, -0.0873F, 0.2618F, 0.0F);
+		setRotationAngle(ear1, -0.0873F, 0.2618F);
 		ear1.cubeList.add(new ModelBox(ear1, 6, 0, -2.0F, -1.0F, 0.0F, 2, 2, 0, 0.0F));
 
 		ModelRenderer ear2 = new ModelRenderer(this);
 		ear2.setRotationPoint(2.0F, -2.0F, -3.0F);
 		ears.addChild(ear2);
-		setRotationAngle(ear2, -0.0873F, -0.2618F, 0.0F);
+		setRotationAngle(ear2, -0.0873F, -0.2618F);
 		ear2.cubeList.add(new ModelBox(ear2, 6, 5, 0.0F, -1.0F, 0.0F, 2, 2, 0, 0.0F));
 
 		leg1 = new ModelRenderer(this);
@@ -92,9 +92,9 @@ public class GOTModelBeaver extends ModelBase {
 		leg4.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.4f * f1;
 	}
 
-	private void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+	private void setRotationAngle(ModelRenderer modelRenderer, float x, float y) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = z;
+		modelRenderer.rotateAngleZ = (float) 0.0;
 	}
 }

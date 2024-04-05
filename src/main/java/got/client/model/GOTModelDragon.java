@@ -10,15 +10,15 @@ import net.minecraft.util.ResourceLocation;
 import static org.lwjgl.opengl.GL11.*;
 
 public class GOTModelDragon extends ModelBase {
-	public static int NECK_SIZE = 10;
-	public static int TAIL_SIZE = 10;
-	public static int VERTS_NECK = 7;
-	public static int VERTS_TAIL = 12;
-	public static int HEAD_OFS = -16;
-	public ResourceLocation bodyTexture;
-	public ResourceLocation glowTexture;
-	public ResourceLocation saddleTexture;
-	public ResourceLocation eggTexture;
+	public static final int NECK_SIZE = 10;
+	public static final int TAIL_SIZE = 10;
+	public static final int VERTS_NECK = 7;
+	public static final int VERTS_TAIL = 12;
+	public static final int HEAD_OFS = -16;
+	public final ResourceLocation bodyTexture;
+	public final ResourceLocation glowTexture;
+	public final ResourceLocation saddleTexture;
+	public final ResourceLocation eggTexture;
 	public GOTModelDragonPart head;
 	public GOTModelDragonPart neck;
 	public GOTModelDragonPart neckScale;
@@ -41,17 +41,17 @@ public class GOTModelDragon extends ModelBase {
 	public GOTModelDragonPart hindtoe;
 	public GOTModelDragonPart wingArm;
 	public GOTModelDragonPart wingForearm;
-	public GOTModelDragonPart[] wingFinger = new GOTModelDragonPart[4];
-	public GOTModelDragonPartProxy[] neckProxy = new GOTModelDragonPartProxy[VERTS_NECK];
-	public GOTModelDragonPartProxy[] tailProxy = new GOTModelDragonPartProxy[VERTS_TAIL];
-	public GOTModelDragonPartProxy[] thighProxy = new GOTModelDragonPartProxy[4];
+	public final GOTModelDragonPart[] wingFinger = new GOTModelDragonPart[4];
+	public final GOTModelDragonPartProxy[] neckProxy = new GOTModelDragonPartProxy[VERTS_NECK];
+	public final GOTModelDragonPartProxy[] tailProxy = new GOTModelDragonPartProxy[VERTS_TAIL];
+	public final GOTModelDragonPartProxy[] thighProxy = new GOTModelDragonPartProxy[4];
 	public int renderPass = -1;
 	public float offsetX;
 	public float offsetY;
 	public float offsetZ;
 	public float pitch;
 	public float size;
-	public GOTDragonBreed breed;
+	public final GOTDragonBreed breed;
 
 	public GOTModelDragon(GOTDragonBreed breed) {
 		textureWidth = 256;

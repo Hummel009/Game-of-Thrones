@@ -5,7 +5,7 @@ import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelBearRug extends ModelBase {
-	public GOTModelBear bearModel = new GOTModelBear();
+	public final GOTModelBear bearModel = new GOTModelBear();
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {

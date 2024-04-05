@@ -5,8 +5,8 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelGoblet extends ModelBase {
-	private final ModelRenderer base = new ModelRenderer(this, 0, 0);
-	private final ModelRenderer cup;
+	public final ModelRenderer base = new ModelRenderer(this, 0, 0);
+	public final ModelRenderer cup;
 
 	public GOTModelGoblet() {
 		base.setRotationPoint(0.0f, -1.0f, 0.0f);

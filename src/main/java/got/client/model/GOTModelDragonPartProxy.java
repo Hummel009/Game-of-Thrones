@@ -24,8 +24,8 @@ public class GOTModelDragonPartProxy {
 	public boolean hidden;
 	public boolean showModel;
 
-	public GOTModelDragonPart part;
-	public List<GOTModelDragonPartProxy> childs;
+	public final GOTModelDragonPart part;
+	public final List<GOTModelDragonPartProxy> childs;
 
 	public GOTModelDragonPartProxy(GOTModelDragonPart part) {
 		this.part = part;

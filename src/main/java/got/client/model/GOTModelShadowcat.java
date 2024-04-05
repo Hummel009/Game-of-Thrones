@@ -8,14 +8,14 @@ import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelShadowcat extends ModelBase {
-	private ModelRenderer head;
-	private ModelRenderer body1;
-	private ModelRenderer body2;
-	private ModelRenderer leg1;
-	private ModelRenderer leg2;
-	private ModelRenderer leg3;
-	private ModelRenderer leg4;
-	private ModelRenderer tail;
+	public final ModelRenderer head;
+	public final ModelRenderer body1;
+	public final ModelRenderer body2;
+	public final ModelRenderer leg1;
+	public final ModelRenderer leg2;
+	public final ModelRenderer leg3;
+	public final ModelRenderer leg4;
+	public final ModelRenderer tail;
 
 	public GOTModelShadowcat() {
 		textureWidth = 64;
@@ -26,77 +26,77 @@ public class GOTModelShadowcat extends ModelBase {
 		head.setRotationPoint(0.0F, 10.0F, -7.5F);
 		head.setTextureSize(64, 64);
 		head.mirror = true;
-		setRotation(head, 0.0F, 0.0F, 0.0F);
+		setRotation(head, 0.0F);
 		ModelRenderer snout = new ModelRenderer(this, 0, 9);
 		snout.addBox(-1.5F, 0.0F, -2.0F, 3, 3, 2);
 		snout.setRotationPoint(0.0F, 8.0F, -14.5F);
 		snout.setTextureSize(64, 64);
 		snout.mirror = true;
-		setRotation(snout, 0.0F, 0.0F, 0.0F);
+		setRotation(snout, 0.0F);
 		convertToChild(head, snout);
 		ModelRenderer neck = new ModelRenderer(this, 20, 0);
 		neck.addBox(-2.5F, -2.5F, -5.0F, 5, 5, 5);
 		neck.setRotationPoint(0.0F, 10.0F, -7.5F);
 		neck.setTextureSize(64, 64);
 		neck.mirror = true;
-		setRotation(neck, -0.3141593F, 0.0F, 0.0F);
+		setRotation(neck, -0.3141593F);
 		convertToChild(head, neck);
 		body1 = new ModelRenderer(this, 20, 10);
 		body1.addBox(-3.5F, -4.0F, 0.0F, 7, 8, 8);
 		body1.setRotationPoint(0.0F, 10.0F, -8.5F);
 		body1.setTextureSize(64, 64);
 		body1.mirror = true;
-		setRotation(body1, -0.0349066F, 0.0F, 0.0F);
+		setRotation(body1, -0.0349066F);
 		body2 = new ModelRenderer(this, 20, 26);
 		body2.addBox(-3.0F, -3.0F, 0.0F, 6, 7, 10);
 		body2.setRotationPoint(0.0F, 10.5F, -1.5F);
 		body2.setTextureSize(64, 64);
 		body2.mirror = true;
-		setRotation(body2, 0.0349066F, 0.0F, 0.0F);
+		setRotation(body2, 0.0349066F);
 		ModelRenderer ear1 = new ModelRenderer(this, 11, 11);
 		ear1.addBox(-1.0F, -1.0F, 0.0F, 2, 1, 1);
 		ear1.setRotationPoint(-2.0F, 6.0F, -12.5F);
 		ear1.setTextureSize(64, 64);
 		ear1.mirror = true;
-		setRotation(ear1, 0.0F, 0.0F, 0.0F);
+		setRotation(ear1, 0.0F);
 		convertToChild(head, ear1);
 		ModelRenderer ear2 = new ModelRenderer(this, 11, 11);
 		ear2.addBox(-1.0F, -1.0F, 0.0F, 2, 1, 1);
 		ear2.setRotationPoint(2.0F, 6.0F, -12.5F);
 		ear2.setTextureSize(64, 64);
 		ear2.mirror = true;
-		setRotation(ear2, 0.0F, 0.0F, 0.0F);
+		setRotation(ear2, 0.0F);
 		convertToChild(head, ear2);
 		leg1 = new ModelRenderer(this, 0, 14);
 		leg1.addBox(-1.0F, 0.0F, -1.5F, 2, 10, 3);
 		leg1.setRotationPoint(-1.9F, 14.0F, 6.0F);
 		leg1.setTextureSize(64, 64);
 		leg1.mirror = true;
-		setRotation(leg1, 0.0F, 0.0F, 0.0F);
+		setRotation(leg1, 0.0F);
 		leg2 = new ModelRenderer(this, 0, 14);
 		leg2.addBox(-1.0F, 0.0F, -1.5F, 2, 10, 3);
 		leg2.setRotationPoint(1.9F, 14.0F, 6.0F);
 		leg2.setTextureSize(64, 64);
 		leg2.mirror = true;
-		setRotation(leg2, 0.0F, 0.0F, 0.0F);
+		setRotation(leg2, 0.0F);
 		leg3 = new ModelRenderer(this, 0, 14);
 		leg3.addBox(-1.0F, 0.0F, -1.5F, 2, 10, 3);
 		leg3.setRotationPoint(-2.0F, 14.0F, -6.0F);
 		leg3.setTextureSize(64, 64);
 		leg3.mirror = true;
-		setRotation(leg3, 0.0F, 0.0F, 0.0F);
+		setRotation(leg3, 0.0F);
 		leg4 = new ModelRenderer(this, 0, 14);
 		leg4.addBox(-1.0F, 0.0F, -1.5F, 2, 10, 3);
 		leg4.setRotationPoint(2.0F, 14.0F, -6.0F);
 		leg4.setTextureSize(64, 64);
 		leg4.mirror = true;
-		setRotation(leg4, 0.0F, 0.0F, 0.0F);
+		setRotation(leg4, 0.0F);
 		tail = new ModelRenderer(this, 11, 14);
 		tail.addBox(-1.0F, 0.0F, -1.0F, 2, 12, 2);
 		tail.setRotationPoint(0.0F, 8.0F, 7.5F);
 		tail.setTextureSize(64, 64);
 		tail.mirror = true;
-		setRotation(tail, 0.4363323F, 0.0F, 0.0F);
+		setRotation(tail, 0.4363323F);
 	}
 
 	private static void convertToChild(ModelRenderer parent, ModelRenderer child) {
@@ -159,10 +159,10 @@ public class GOTModelShadowcat extends ModelBase {
 		leg4.rotateAngleX = MathHelper.cos(f1 * 0.6662F) * 1.4F * f2;
 	}
 
-	private void setRotation(ModelRenderer model, float x, float y, float z) {
+	private void setRotation(ModelRenderer model, float x) {
 		model.rotateAngleX = x;
-		model.rotateAngleY = y;
-		model.rotateAngleZ = z;
+		model.rotateAngleY = (float) 0.0;
+		model.rotateAngleZ = (float) 0.0;
 	}
 
 	@Override

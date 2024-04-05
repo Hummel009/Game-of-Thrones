@@ -5,9 +5,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelScorpion extends GOTModelSpider {
-	private ModelRenderer armRight;
-	private ModelRenderer armLeft;
-	private ModelRenderer tail;
+	public final ModelRenderer armRight;
+	public final ModelRenderer armLeft;
+	public final ModelRenderer tail;
 
 	public GOTModelScorpion() {
 		abdomen.cubeList.clear();

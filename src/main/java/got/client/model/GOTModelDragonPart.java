@@ -20,7 +20,7 @@ public class GOTModelDragonPart extends ModelRenderer {
 	public float preRotateAngleY;
 	public float preRotateAngleZ;
 
-	public ModelBase base;
+	public final ModelBase base;
 	public boolean compiled;
 	public int displayList;
 

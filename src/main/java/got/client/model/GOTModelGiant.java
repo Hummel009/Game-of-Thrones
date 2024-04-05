@@ -9,17 +9,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelGiant extends ModelBase {
-	private final ModelRenderer head;
-	private final ModelRenderer headHurt;
-	private final ModelRenderer body;
+	public final ModelRenderer head;
+	public final ModelRenderer headHurt;
+	public final ModelRenderer body;
 	private ModelRenderer rightArm;
-	private final ModelRenderer leftArm;
-	private final ModelRenderer rightLeg;
-	private final ModelRenderer leftLeg;
-	private final ModelRenderer woodenClub;
-	private final ModelRenderer woodenClubSpikes;
-	private final ModelRenderer warhammer;
-	private final ModelRenderer battleaxe;
+	public final ModelRenderer leftArm;
+	public final ModelRenderer rightLeg;
+	public final ModelRenderer leftLeg;
+	public final ModelRenderer woodenClub;
+	public final ModelRenderer woodenClubSpikes;
+	public final ModelRenderer warhammer;
+	public final ModelRenderer battleaxe;
 	private boolean isOutiftModel;
 
 	public GOTModelGiant() {

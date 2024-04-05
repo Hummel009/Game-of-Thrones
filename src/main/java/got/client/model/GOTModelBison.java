@@ -7,18 +7,18 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelBison extends ModelBase {
-	private ModelRenderer body;
-	private ModelRenderer leg1;
-	private ModelRenderer leg2;
-	private ModelRenderer leg3;
-	private ModelRenderer leg4;
-	private ModelRenderer tail;
-	private ModelRenderer head;
-	private ModelRenderer horns;
-	private ModelRenderer hornLeft1;
-	private ModelRenderer hornLeft2;
-	private ModelRenderer hornRight1;
-	private ModelRenderer hornRight2;
+	public final ModelRenderer body;
+	public final ModelRenderer leg1;
+	public final ModelRenderer leg2;
+	public final ModelRenderer leg3;
+	public final ModelRenderer leg4;
+	public final ModelRenderer tail;
+	public final ModelRenderer head;
+	public final ModelRenderer horns;
+	public final ModelRenderer hornLeft1;
+	public final ModelRenderer hornLeft2;
+	public final ModelRenderer hornRight1;
+	public final ModelRenderer hornRight2;
 
 	public GOTModelBison() {
 		textureWidth = 128;

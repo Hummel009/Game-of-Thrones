@@ -6,14 +6,14 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelLion extends ModelBase {
-	ModelRenderer head;
-	ModelRenderer mane;
-	ModelRenderer body;
-	ModelRenderer leg1;
-	ModelRenderer leg2;
-	ModelRenderer leg3;
-	ModelRenderer leg4;
-	ModelRenderer tail;
+	final ModelRenderer head;
+	final ModelRenderer mane;
+	final ModelRenderer body;
+	final ModelRenderer leg1;
+	final ModelRenderer leg2;
+	final ModelRenderer leg3;
+	final ModelRenderer leg4;
+	final ModelRenderer tail;
 
 	public GOTModelLion() {
 		textureWidth = 128;

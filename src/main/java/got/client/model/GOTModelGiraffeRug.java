@@ -5,7 +5,7 @@ import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelGiraffeRug extends ModelBase {
-	public GOTModelGiraffe giraffeModel = new GOTModelGiraffe(0.0f);
+	public final GOTModelGiraffe giraffeModel = new GOTModelGiraffe(0.0f);
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {

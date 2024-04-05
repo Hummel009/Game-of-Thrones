@@ -9,46 +9,46 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class GOTModelMammoth extends ModelBase {
-	private final ModelRenderer head;
-	private final ModelRenderer neck;
-	private final ModelRenderer headBump;
-	private final ModelRenderer chin;
-	private final ModelRenderer lowerLip;
-	private final ModelRenderer back;
-	private final ModelRenderer leftSmallEar;
-	private final ModelRenderer leftBigEar;
-	private final ModelRenderer rightSmallEar;
-	private final ModelRenderer rightBigEar;
-	private final ModelRenderer hump;
-	private final ModelRenderer body;
-	private final ModelRenderer skirt;
-	private final ModelRenderer rightTuskA;
-	private final ModelRenderer rightTuskB;
-	private final ModelRenderer rightTuskC;
-	private final ModelRenderer rightTuskD;
-	private final ModelRenderer leftTuskA;
-	private final ModelRenderer leftTuskB;
-	private final ModelRenderer leftTuskC;
-	private final ModelRenderer leftTuskD;
-	private final ModelRenderer trunkA;
-	private final ModelRenderer trunkB;
-	private final ModelRenderer trunkC;
-	private final ModelRenderer trunkD;
-	private final ModelRenderer trunkE;
-	private final ModelRenderer frontRightUpperLeg;
-	private final ModelRenderer frontRightLowerLeg;
-	private final ModelRenderer frontLeftUpperLeg;
-	private final ModelRenderer frontLeftLowerLeg;
-	private final ModelRenderer backRightUpperLeg;
-	private final ModelRenderer backRightLowerLeg;
-	private final ModelRenderer backLeftUpperLeg;
-	private final ModelRenderer backLeftLowerLeg;
-	private final ModelRenderer tailRoot;
-	private final ModelRenderer tail;
-	private final ModelRenderer tailPlush;
-	private final ModelRenderer harnessBlanket;
-	private final ModelRenderer harnessUpperBelt;
-	private final ModelRenderer harnessLowerBelt;
+	public final ModelRenderer head;
+	public final ModelRenderer neck;
+	public final ModelRenderer headBump;
+	public final ModelRenderer chin;
+	public final ModelRenderer lowerLip;
+	public final ModelRenderer back;
+	public final ModelRenderer leftSmallEar;
+	public final ModelRenderer leftBigEar;
+	public final ModelRenderer rightSmallEar;
+	public final ModelRenderer rightBigEar;
+	public final ModelRenderer hump;
+	public final ModelRenderer body;
+	public final ModelRenderer skirt;
+	public final ModelRenderer rightTuskA;
+	public final ModelRenderer rightTuskB;
+	public final ModelRenderer rightTuskC;
+	public final ModelRenderer rightTuskD;
+	public final ModelRenderer leftTuskA;
+	public final ModelRenderer leftTuskB;
+	public final ModelRenderer leftTuskC;
+	public final ModelRenderer leftTuskD;
+	public final ModelRenderer trunkA;
+	public final ModelRenderer trunkB;
+	public final ModelRenderer trunkC;
+	public final ModelRenderer trunkD;
+	public final ModelRenderer trunkE;
+	public final ModelRenderer frontRightUpperLeg;
+	public final ModelRenderer frontRightLowerLeg;
+	public final ModelRenderer frontLeftUpperLeg;
+	public final ModelRenderer frontLeftLowerLeg;
+	public final ModelRenderer backRightUpperLeg;
+	public final ModelRenderer backRightLowerLeg;
+	public final ModelRenderer backLeftUpperLeg;
+	public final ModelRenderer backLeftLowerLeg;
+	public final ModelRenderer tailRoot;
+	public final ModelRenderer tail;
+	public final ModelRenderer tailPlush;
+	public final ModelRenderer harnessBlanket;
+	public final ModelRenderer harnessUpperBelt;
+	public final ModelRenderer harnessLowerBelt;
 
 	public GOTModelMammoth() {
 		textureWidth = 128;
@@ -271,7 +271,7 @@ public class GOTModelMammoth extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		byte tusks = 0;
-		setRotationAngles(f, f1, f2, f3, f4, f5, tusks, false, false);
+		setRotationAngles(f, f1, f2, f3, f4, f5, tusks);
 		leftTuskB.render(f5);
 		rightTuskB.render(f5);
 		leftTuskC.render(f5);
@@ -316,7 +316,7 @@ public class GOTModelMammoth extends ModelBase {
 		model.rotateAngleZ = z;
 	}
 
-	private void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, byte tusks, boolean sitting, boolean tail) {
+	private void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, byte tusks) {
 		float RLegXRot = MathHelper.cos(f * 0.6662f + 3.141593f) * 0.8f * f1;
 		float LLegXRot = MathHelper.cos(f * 0.6662f) * 0.8f * f1;
 		float HeadXRot;
@@ -328,14 +328,14 @@ public class GOTModelMammoth extends ModelBase {
 		}
 		float HeadYRot = f3 / 57.29578f;
 		float f10 = 0.0f;
-		if (sitting) {
+		if (false) {
 			f10 = 8.0f;
 		}
 		AdjustY(f10);
 		float TrunkXRot;
 		HeadXRot = 0.0f;
 		TrunkXRot = 0.0f;
-		if (sitting) {
+		if (false) {
 			HeadXRot = 0.0f;
 			TrunkXRot = 0.0f;
 		}
@@ -368,9 +368,6 @@ public class GOTModelMammoth extends ModelBase {
 		adjustAllRotationPoints(trunkA, head);
 		trunkA.rotateAngleY = HeadYRot;
 		float TrunkARotX = 90.0f - TrunkXRot;
-		if (TrunkARotX < 85.0f) {
-			TrunkARotX = 85.0f;
-		}
 		trunkA.rotateAngleX = TrunkARotX / radianF + HeadXRot;
 		trunkB.rotationPointZ = -22.5f;
 		adjustAllRotationPoints(trunkB, trunkA);
@@ -424,7 +421,7 @@ public class GOTModelMammoth extends ModelBase {
 		if (tailMov < 0.0f) {
 			tailMov = 0.0f;
 		}
-		if (tail) {
+		if (false) {
 			tailRoot.rotateAngleY = MathHelper.cos(f2 * 0.4f) * 1.3f;
 			tailMov = 30.0f / radianF;
 		} else {

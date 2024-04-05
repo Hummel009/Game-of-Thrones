@@ -5,7 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelReachHelmet extends GOTModelBiped {
-	private ModelRenderer[] manes;
+	public final ModelRenderer[] manes;
 
 	public GOTModelReachHelmet() {
 		this(0.0f);

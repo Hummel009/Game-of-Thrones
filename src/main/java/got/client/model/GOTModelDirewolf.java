@@ -9,43 +9,43 @@ import net.minecraft.util.MathHelper;
 
 @SideOnly(Side.CLIENT)
 public class GOTModelDirewolf extends ModelBase {
-	private final ModelRenderer Head;
-	private final ModelRenderer MouthB;
-	private final ModelRenderer Nose2;
-	private final ModelRenderer Neck;
-	private final ModelRenderer Neck2;
-	private final ModelRenderer LSide;
-	private final ModelRenderer RSide;
+	public final ModelRenderer Head;
+	public final ModelRenderer MouthB;
+	public final ModelRenderer Nose2;
+	public final ModelRenderer Neck;
+	public final ModelRenderer Neck2;
+	public final ModelRenderer LSide;
+	public final ModelRenderer RSide;
 	private ModelRenderer REar2;
-	private final ModelRenderer Nose;
-	private final ModelRenderer Mouth;
-	private final ModelRenderer MouthOpen;
-	private final ModelRenderer REar;
+	public final ModelRenderer Nose;
+	public final ModelRenderer Mouth;
+	public final ModelRenderer MouthOpen;
+	public final ModelRenderer REar;
 	private ModelRenderer LEar2;
-	private final ModelRenderer LEar;
+	public final ModelRenderer LEar;
 
-	private final ModelRenderer Chest;
-	private final ModelRenderer Body;
+	public final ModelRenderer Chest;
+	public final ModelRenderer Body;
 
-	private final ModelRenderer TailA;
-	private final ModelRenderer TailB;
-	private final ModelRenderer TailC;
-	private final ModelRenderer TailD;
+	public final ModelRenderer TailA;
+	public final ModelRenderer TailB;
+	public final ModelRenderer TailC;
+	public final ModelRenderer TailD;
 
-	private final ModelRenderer Leg4A;
-	private final ModelRenderer Leg4D;
-	private final ModelRenderer Leg4B;
-	private final ModelRenderer Leg4C;
-	private final ModelRenderer Leg3B;
-	private final ModelRenderer Leg2A;
-	private final ModelRenderer Leg2B;
-	private final ModelRenderer Leg2C;
-	private final ModelRenderer Leg3D;
-	private final ModelRenderer Leg3C;
-	private final ModelRenderer Leg3A;
-	private final ModelRenderer Leg1A;
-	private final ModelRenderer Leg1B;
-	private final ModelRenderer Leg1C;
+	public final ModelRenderer Leg4A;
+	public final ModelRenderer Leg4D;
+	public final ModelRenderer Leg4B;
+	public final ModelRenderer Leg4C;
+	public final ModelRenderer Leg3B;
+	public final ModelRenderer Leg2A;
+	public final ModelRenderer Leg2B;
+	public final ModelRenderer Leg2C;
+	public final ModelRenderer Leg3D;
+	public final ModelRenderer Leg3C;
+	public final ModelRenderer Leg3A;
+	public final ModelRenderer Leg1A;
+	public final ModelRenderer Leg1B;
+	public final ModelRenderer Leg1C;
 
 	public GOTModelDirewolf() {
 		textureWidth = 64;
@@ -207,7 +207,7 @@ public class GOTModelDirewolf extends ModelBase {
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		setRotationAngles(f, f1, f2, f3, f4, f5, true);
+		setRotationAngles(f, f1, f2, f3, f4, f5);
 		Head.render(f5);
 		Nose2.render(f5);
 		Neck.render(f5);
@@ -248,7 +248,7 @@ public class GOTModelDirewolf extends ModelBase {
 		model.rotateAngleZ = z;
 	}
 
-	private void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, boolean tail) {
+	private void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5) {
 
 		Head.rotateAngleX = f4 / 57.29578F;
 		Head.rotateAngleY = f3 / 57.29578F;
@@ -296,7 +296,7 @@ public class GOTModelDirewolf extends ModelBase {
 
 		float tailMov = -1.3089F + f1 * 1.5F;
 
-		if (tail) {
+		if (true) {
 			TailA.rotateAngleY = 0.0F;
 			tailMov = 0;
 		} else {

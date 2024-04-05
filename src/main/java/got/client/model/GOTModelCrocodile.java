@@ -6,17 +6,17 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelCrocodile extends ModelBase {
-	private final ModelRenderer body = new ModelRenderer(this, 18, 83).setTextureSize(128, 128);
-	private final ModelRenderer tail1;
-	private final ModelRenderer tail2;
-	private final ModelRenderer tail3;
-	private final ModelRenderer jaw;
-	private final ModelRenderer head;
-	private final ModelRenderer legFrontLeft;
-	private final ModelRenderer legBackLeft;
-	private final ModelRenderer legFrontRight;
-	private final ModelRenderer legBackRight;
-	private final ModelRenderer spines;
+	public final ModelRenderer body = new ModelRenderer(this, 18, 83).setTextureSize(128, 128);
+	public final ModelRenderer tail1;
+	public final ModelRenderer tail2;
+	public final ModelRenderer tail3;
+	public final ModelRenderer jaw;
+	public final ModelRenderer head;
+	public final ModelRenderer legFrontLeft;
+	public final ModelRenderer legBackLeft;
+	public final ModelRenderer legFrontRight;
+	public final ModelRenderer legBackRight;
+	public final ModelRenderer spines;
 
 	public GOTModelCrocodile() {
 		body.addBox(-8.0f, -5.0f, 0.0f, 16, 9, 36);

@@ -6,13 +6,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelDikDik extends ModelBase {
-	private ModelRenderer head = new ModelRenderer(this, 42, 23);
+	public final ModelRenderer head = new ModelRenderer(this, 42, 23);
 	private ModelRenderer neck;
-	private ModelRenderer body;
-	private ModelRenderer leg1;
-	private ModelRenderer leg2;
-	private ModelRenderer leg3;
-	private ModelRenderer leg4;
+	public final ModelRenderer body;
+	public final ModelRenderer leg1;
+	public final ModelRenderer leg2;
+	public final ModelRenderer leg3;
+	public final ModelRenderer leg4;
 
 	public GOTModelDikDik() {
 		head.addBox(-2.0f, -9.0f, -3.0f, 4, 4, 5);

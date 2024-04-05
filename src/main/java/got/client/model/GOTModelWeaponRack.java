@@ -5,10 +5,10 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelWeaponRack extends ModelBase {
-	private ModelRenderer base = new ModelRenderer(this, 0, 0);
-	private ModelRenderer stand;
-	private ModelRenderer holder;
-	private ModelRenderer holderUpperParts;
+	public final ModelRenderer base = new ModelRenderer(this, 0, 0);
+	public final ModelRenderer stand;
+	public final ModelRenderer holder;
+	public final ModelRenderer holderUpperParts;
 	private boolean onWall;
 
 	public GOTModelWeaponRack() {

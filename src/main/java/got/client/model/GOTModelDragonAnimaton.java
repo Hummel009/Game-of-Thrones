@@ -7,29 +7,29 @@ import net.minecraft.util.MathHelper;
 
 public class GOTModelDragonAnimaton {
 
-	public static float CR00 = -0.5f;
-	public static float CR01 = 1.5f;
-	public static float CR02 = -1.5f;
-	public static float CR03 = 0.5f;
-	public static float CR10 = 1.0f;
-	public static float CR11 = -2.5f;
-	public static float CR12 = 2.0f;
-	public static float CR13 = -0.5f;
-	public static float CR20 = -0.5f;
+	public static final float CR00 = -0.5f;
+	public static final float CR01 = 1.5f;
+	public static final float CR02 = -1.5f;
+	public static final float CR03 = 0.5f;
+	public static final float CR10 = 1.0f;
+	public static final float CR11 = -2.5f;
+	public static final float CR12 = 2.0f;
+	public static final float CR13 = -0.5f;
+	public static final float CR20 = -0.5f;
 	public static float CR21;
-	public static float CR22 = 0.5f;
+	public static final float CR22 = 0.5f;
 	public static float CR23;
 	public static float CR30;
-	public static float CR31 = 1.0f;
+	public static final float CR31 = 1.0f;
 	public static float CR32;
 	public static float CR33;
 
-	public static double PI_D = Math.PI;
+	public static final double PI_D = Math.PI;
 
-	public static float PI_F = (float) Math.PI;
+	public static final float PI_F = (float) Math.PI;
 
-	public static boolean useLUT = true;
-	public GOTEntityDragon entity;
+	public static final boolean useLUT = true;
+	public final GOTEntityDragon entity;
 	public float partialTicks;
 
 	public float ticksExisted;
@@ -49,49 +49,49 @@ public class GOTModelDragonAnimaton {
 	public float sit;
 	public float jaw;
 	public float speed;
-	public GOTTickFloat animTimer = new GOTTickFloat();
-	public GOTTickFloat groundTimer = new GOTTickFloat(1).setLimit(0, 1);
+	public final GOTTickFloat animTimer = new GOTTickFloat();
+	public final GOTTickFloat groundTimer = new GOTTickFloat(1).setLimit(0, 1);
 
-	public GOTTickFloat flutterTimer = new GOTTickFloat().setLimit(0, 1);
-	public GOTTickFloat walkTimer = new GOTTickFloat().setLimit(0, 1);
-	public GOTTickFloat sitTimer = new GOTTickFloat().setLimit(0, 1);
-	public GOTTickFloat jawTimer = new GOTTickFloat().setLimit(0, 1);
-	public GOTTickFloat speedTimer = new GOTTickFloat(1).setLimit(0, 1);
+	public final GOTTickFloat flutterTimer = new GOTTickFloat().setLimit(0, 1);
+	public final GOTTickFloat walkTimer = new GOTTickFloat().setLimit(0, 1);
+	public final GOTTickFloat sitTimer = new GOTTickFloat().setLimit(0, 1);
+	public final GOTTickFloat jawTimer = new GOTTickFloat().setLimit(0, 1);
+	public final GOTTickFloat speedTimer = new GOTTickFloat(1).setLimit(0, 1);
 	public boolean initTrails = true;
-	public GOTCircularBuffer yTrail = new GOTCircularBuffer(8);
+	public final GOTCircularBuffer yTrail = new GOTCircularBuffer(8);
 
-	public GOTCircularBuffer yawTrail = new GOTCircularBuffer(16);
-	public GOTCircularBuffer pitchTrail = new GOTCircularBuffer(16);
+	public final GOTCircularBuffer yawTrail = new GOTCircularBuffer(16);
+	public final GOTCircularBuffer pitchTrail = new GOTCircularBuffer(16);
 	public boolean onGround;
 	public boolean openJaw;
 
 	public boolean wingsDown;
-	public float[] wingArm = new float[3];
-	public float[] wingForearm = new float[3];
+	public final float[] wingArm = new float[3];
+	public final float[] wingForearm = new float[3];
 
-	public float[] wingArmFlutter = new float[3];
-	public float[] wingForearmFlutter = new float[3];
-	public float[] wingArmGlide = new float[3];
-	public float[] wingForearmGlide = new float[3];
-	public float[] wingArmGround = new float[3];
-	public float[] wingForearmGround = new float[3];
-	public float[] xGround = {0, 0, 0, 0};
-	public float[][] xGroundStand = {{0.8f, -1.5f, 1.3f, 0}, {-0.3f, 1.5f, -0.2f, 0},};
+	public final float[] wingArmFlutter = new float[3];
+	public final float[] wingForearmFlutter = new float[3];
+	public final float[] wingArmGlide = new float[3];
+	public final float[] wingForearmGlide = new float[3];
+	public final float[] wingArmGround = new float[3];
+	public final float[] wingForearmGround = new float[3];
+	public final float[] xGround = {0, 0, 0, 0};
+	public final float[][] xGroundStand = {{0.8f, -1.5f, 1.3f, 0}, {-0.3f, 1.5f, -0.2f, 0},};
 
-	public float[][] xGroundSit = {{0.3f, -1.8f, 1.8f, 0}, {-0.8f, 1.8f, -0.9f, 0},};
+	public final float[][] xGroundSit = {{0.3f, -1.8f, 1.8f, 0}, {-0.8f, 1.8f, -0.9f, 0},};
 
-	public float[][][] xGroundWalk = {{{0.4f, -1.4f, 1.3f, 0}, {0.1f, 1.2f, -0.5f, 0}}, {{1.2f, -1.6f, 1.3f, 0}, {-0.3f, 2.1f, -0.9f, 0.6f}}, {{0.9f, -2.1f, 1.8f, 0.6f}, {-0.7f, 1.4f, -0.2f, 0}}};
-	public float[] xGroundWalk2 = {0, 0, 0, 0};
+	public final float[][][] xGroundWalk = {{{0.4f, -1.4f, 1.3f, 0}, {0.1f, 1.2f, -0.5f, 0}}, {{1.2f, -1.6f, 1.3f, 0}, {-0.3f, 2.1f, -0.9f, 0.6f}}, {{0.9f, -2.1f, 1.8f, 0.6f}, {-0.7f, 1.4f, -0.2f, 0}}};
+	public final float[] xGroundWalk2 = {0, 0, 0, 0};
 
-	public float[] yGroundStand = {-0.25f, 0.25f};
+	public final float[] yGroundStand = {-0.25f, 0.25f};
 
-	public float[] yGroundSit = {0.1f, 0.35f};
+	public final float[] yGroundSit = {0.1f, 0.35f};
 
-	public float[] yGroundWalk = {-0.1f, 0.1f};
+	public final float[] yGroundWalk = {-0.1f, 0.1f};
 	public float[] xAir;
-	public float[][] xAirAll = {{0, 0, 0, 0}, {0, 0, 0, 0}};
+	public final float[][] xAirAll = {{0, 0, 0, 0}, {0, 0, 0, 0}};
 
-	public float[] yAirAll = {-0.1f, 0.1f};
+	public final float[] yAirAll = {-0.1f, 0.1f};
 
 	public GOTModelDragonAnimaton(GOTEntityDragon dragon) {
 		entity = dragon;

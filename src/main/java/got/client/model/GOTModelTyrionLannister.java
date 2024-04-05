@@ -6,18 +6,18 @@ import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelTyrionLannister extends GOTModelBiped {
-	private ModelRenderer bipedChest;
+	public final ModelRenderer bipedChest;
 
 	public GOTModelTyrionLannister() {
 		this(0.0f);
 	}
 
 	public GOTModelTyrionLannister(float f) {
-		this(f, 64, f == 0.0f ? 64 : 32);
+		this(f, f == 0.0f ? 64 : 32);
 	}
 
-	private GOTModelTyrionLannister(float f, int width, int height) {
-		super(f, 0.0f, width, height);
+	private GOTModelTyrionLannister(float f, int height) {
+		super(f, 0.0f, 64, height);
 		boolean isArmor = height == 32;
 		bipedChest = new ModelRenderer(this, 24, 0);
 		bipedChest.addBox(-3.0f, 2.0f, -4.0f, 6, 3, 2, f);

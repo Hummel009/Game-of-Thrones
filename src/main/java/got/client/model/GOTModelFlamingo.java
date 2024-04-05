@@ -8,20 +8,20 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelFlamingo extends ModelBase {
-	private final ModelRenderer head = new ModelRenderer(this, 8, 24);
-	private final ModelRenderer body;
-	private final ModelRenderer tail;
-	private final ModelRenderer wingLeft;
-	private final ModelRenderer wingRight;
-	private final ModelRenderer legLeft;
-	private final ModelRenderer legRight;
-	private final ModelRenderer head_child;
-	private final ModelRenderer body_child;
-	private final ModelRenderer tail_child;
-	private final ModelRenderer wingLeft_child;
-	private final ModelRenderer wingRight_child;
-	private final ModelRenderer legLeft_child;
-	private final ModelRenderer legRight_child;
+	public final ModelRenderer head = new ModelRenderer(this, 8, 24);
+	public final ModelRenderer body;
+	public final ModelRenderer tail;
+	public final ModelRenderer wingLeft;
+	public final ModelRenderer wingRight;
+	public final ModelRenderer legLeft;
+	public final ModelRenderer legRight;
+	public final ModelRenderer head_child;
+	public final ModelRenderer body_child;
+	public final ModelRenderer tail_child;
+	public final ModelRenderer wingLeft_child;
+	public final ModelRenderer wingRight_child;
+	public final ModelRenderer legLeft_child;
+	public final ModelRenderer legRight_child;
 
 	public GOTModelFlamingo() {
 		head.addBox(-2.0f, -17.0f, -2.0f, 4, 4, 4);

@@ -5,17 +5,17 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelArmorStand extends ModelBase {
-	private final ModelRenderer base = new ModelRenderer(this, 0, 0);
-	private final ModelRenderer head;
-	private final ModelRenderer spine;
-	private final ModelRenderer rightArm;
-	private final ModelRenderer leftArm;
-	private final ModelRenderer rightHip;
-	private final ModelRenderer leftHip;
-	private final ModelRenderer rightLeg;
-	private final ModelRenderer leftLeg;
-	private final ModelRenderer rightFoot;
-	private final ModelRenderer leftFoot;
+	public final ModelRenderer base = new ModelRenderer(this, 0, 0);
+	public final ModelRenderer head;
+	public final ModelRenderer spine;
+	public final ModelRenderer rightArm;
+	public final ModelRenderer leftArm;
+	public final ModelRenderer rightHip;
+	public final ModelRenderer leftHip;
+	public final ModelRenderer rightLeg;
+	public final ModelRenderer leftLeg;
+	public final ModelRenderer rightFoot;
+	public final ModelRenderer leftFoot;
 
 	public GOTModelArmorStand() {
 		base.addBox(-8.0f, -8.0f, -8.0f, 16, 16, 2);

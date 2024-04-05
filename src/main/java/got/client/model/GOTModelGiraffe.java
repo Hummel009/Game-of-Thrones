@@ -7,14 +7,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelGiraffe extends ModelBase {
-	ModelRenderer body = new ModelRenderer(this, 0, 0).setTextureSize(128, 64);
-	ModelRenderer neck;
-	ModelRenderer head;
-	ModelRenderer tail;
-	ModelRenderer leg1;
-	ModelRenderer leg2;
-	ModelRenderer leg3;
-	ModelRenderer leg4;
+	final ModelRenderer body = new ModelRenderer(this, 0, 0).setTextureSize(128, 64);
+	final ModelRenderer neck;
+	final ModelRenderer head;
+	final ModelRenderer tail;
+	final ModelRenderer leg1;
+	final ModelRenderer leg2;
+	final ModelRenderer leg3;
+	final ModelRenderer leg4;
 
 	public GOTModelGiraffe(float f) {
 		body.addBox(-6.0f, -8.0f, -13.0f, 12, 16, 26, f);

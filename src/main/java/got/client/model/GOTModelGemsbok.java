@@ -6,18 +6,18 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelGemsbok extends ModelBase {
-	private final ModelRenderer head = new ModelRenderer(this, 28, 0).setTextureSize(128, 64);
-	private final ModelRenderer tail;
-	private final ModelRenderer earLeft;
-	private final ModelRenderer earRight;
-	private final ModelRenderer neck;
-	private final ModelRenderer body;
-	private final ModelRenderer leg1;
-	private final ModelRenderer leg2;
-	private final ModelRenderer leg3;
-	private final ModelRenderer leg4;
-	private final ModelRenderer leftHorn;
-	private final ModelRenderer rightHorn;
+	public final ModelRenderer head = new ModelRenderer(this, 28, 0).setTextureSize(128, 64);
+	public final ModelRenderer tail;
+	public final ModelRenderer earLeft;
+	public final ModelRenderer earRight;
+	public final ModelRenderer neck;
+	public final ModelRenderer body;
+	public final ModelRenderer leg1;
+	public final ModelRenderer leg2;
+	public final ModelRenderer leg3;
+	public final ModelRenderer leg4;
+	public final ModelRenderer leftHorn;
+	public final ModelRenderer rightHorn;
 
 	public GOTModelGemsbok() {
 		head.addBox(-3.0f, -10.0f, -6.0f, 6, 7, 12);
