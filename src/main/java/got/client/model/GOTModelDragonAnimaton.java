@@ -6,7 +6,6 @@ import got.common.util.GOTTickFloat;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelDragonAnimaton {
-
 	public static final float CR00 = -0.5f;
 	public static final float CR01 = 1.5f;
 	public static final float CR02 = -1.5f;
@@ -23,8 +22,6 @@ public class GOTModelDragonAnimaton {
 	public static final float CR31 = 1.0f;
 	public static float CR32;
 	public static float CR33;
-
-	public static final double PI_D = Math.PI;
 
 	public static final float PI_F = (float) Math.PI;
 
@@ -63,7 +60,6 @@ public class GOTModelDragonAnimaton {
 	public final GOTCircularBuffer yawTrail = new GOTCircularBuffer(16);
 	public final GOTCircularBuffer pitchTrail = new GOTCircularBuffer(16);
 	public boolean onGround;
-	public boolean openJaw;
 
 	public boolean wingsDown;
 	public final float[] wingArm = new float[3];
@@ -97,19 +93,11 @@ public class GOTModelDragonAnimaton {
 		entity = dragon;
 	}
 
-	public static float atg2(float y, float x) {
-		return (float) Math.atan2(y, x);
-	}
-
 	public static double clamp(double value, double min, double max) {
 		return value < min ? min : Math.min(value, max);
 	}
 
 	public static float clamp(float value, float min, float max) {
-		return value < min ? min : Math.min(value, max);
-	}
-
-	public static int clamp(int value, int min, int max) {
 		return value < min ? min : Math.min(value, max);
 	}
 
@@ -210,10 +198,6 @@ public class GOTModelDragonAnimaton {
 		return interpEndsArray(inputs, internalKnots);
 	}
 
-	public static float[] interpLinearEndsArray(int n, float... internalKnots) {
-		return interpLinearEndsArray(0.0f, 1.0f, n, internalKnots);
-	}
-
 	public static double lerp(double a, double b, double x) {
 		return a * (1 - x) + b * x;
 	}
@@ -244,44 +228,11 @@ public class GOTModelDragonAnimaton {
 		return a;
 	}
 
-	public static double normRad(double a) {
-		a %= PI_D * 2;
-		if (a >= PI_D) {
-			a -= PI_D * 2;
-		}
-		if (a < -PI_D) {
-			a += PI_D * 2;
-		}
-		return a;
-	}
-
-	public static float normRad(float a) {
-		a %= PI_F * 2;
-		if (a >= PI_F) {
-			a -= PI_F * 2;
-		}
-		if (a < -PI_F) {
-			a += PI_F * 2;
-		}
-		return a;
-	}
-
 	public static float sin(float a) {
 		if (useLUT) {
 			return MathHelper.sin(a);
 		}
 		return (float) Math.sin(a);
-	}
-
-	public static double slerp(double a, double b, double x) {
-		if (x <= 0) {
-			return a;
-		}
-		if (x >= 1) {
-			return b;
-		}
-
-		return lerp(a, b, x * x * (3 - 2 * x));
 	}
 
 	public static float slerp(float a, float b, float x) {
@@ -293,38 +244,6 @@ public class GOTModelDragonAnimaton {
 		}
 
 		return lerp(a, b, x * x * (3 - 2 * x));
-	}
-
-	public static float sqrtf(float f) {
-		return (float) Math.sqrt(f);
-	}
-
-	public static double terp(double a, double b, double x) {
-		if (x <= 0) {
-			return a;
-		}
-		if (x >= 1) {
-			return b;
-		}
-
-		double mu2 = (1 - Math.cos(x * PI_D)) / 2.0;
-		return a * (1 - mu2) + b * mu2;
-	}
-
-	public static float terp(float a, float b, float x) {
-		if (x <= 0) {
-			return a;
-		}
-		if (x >= 1) {
-			return b;
-		}
-
-		float mu2 = (1 - cos(x * PI_F)) / 2.0f;
-		return a * (1 - mu2) + b * mu2;
-	}
-
-	public static float tg(float a) {
-		return (float) Math.tan(a);
 	}
 
 	public static float toDegrees(float angrad) {
@@ -627,18 +546,6 @@ public class GOTModelDragonAnimaton {
 		}
 	}
 
-	public float getAnimTime() {
-		return anim;
-	}
-
-	public float getFlutterTime() {
-		return flutter;
-	}
-
-	public float getGroundTime() {
-		return ground;
-	}
-
 	public float getModelOffsetX() {
 		return 0;
 	}
@@ -662,24 +569,12 @@ public class GOTModelDragonAnimaton {
 		return slerp(pitchHover, pitchMoving, speed);
 	}
 
-	public float getWalkTime() {
-		return walk;
-	}
-
 	public boolean isOnGround() {
 		return onGround;
 	}
 
 	public void setOnGround(boolean onGround) {
 		this.onGround = onGround;
-	}
-
-	public boolean isOpenJaw() {
-		return openJaw;
-	}
-
-	public void setOpenJaw(boolean openJaw) {
-		this.openJaw = openJaw;
 	}
 
 	public void setLook(float lookYaw, float lookPitch) {

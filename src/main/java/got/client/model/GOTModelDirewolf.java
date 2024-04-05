@@ -1,244 +1,236 @@
 package got.client.model;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
-@SideOnly(Side.CLIENT)
 public class GOTModelDirewolf extends ModelBase {
-	public final ModelRenderer Head;
-	public final ModelRenderer MouthB;
-	public final ModelRenderer Nose2;
-	public final ModelRenderer Neck;
-	public final ModelRenderer Neck2;
-	public final ModelRenderer LSide;
-	public final ModelRenderer RSide;
-	private ModelRenderer REar2;
-	public final ModelRenderer Nose;
-	public final ModelRenderer Mouth;
-	public final ModelRenderer MouthOpen;
-	public final ModelRenderer REar;
-	private ModelRenderer LEar2;
-	public final ModelRenderer LEar;
-
-	public final ModelRenderer Chest;
-	public final ModelRenderer Body;
-
-	public final ModelRenderer TailA;
-	public final ModelRenderer TailB;
-	public final ModelRenderer TailC;
-	public final ModelRenderer TailD;
-
-	public final ModelRenderer Leg4A;
-	public final ModelRenderer Leg4D;
-	public final ModelRenderer Leg4B;
-	public final ModelRenderer Leg4C;
-	public final ModelRenderer Leg3B;
-	public final ModelRenderer Leg2A;
-	public final ModelRenderer Leg2B;
-	public final ModelRenderer Leg2C;
-	public final ModelRenderer Leg3D;
-	public final ModelRenderer Leg3C;
-	public final ModelRenderer Leg3A;
-	public final ModelRenderer Leg1A;
-	public final ModelRenderer Leg1B;
-	public final ModelRenderer Leg1C;
+	public final ModelRenderer head;
+	public final ModelRenderer mouthB;
+	public final ModelRenderer nose2;
+	public final ModelRenderer neck;
+	public final ModelRenderer neck2;
+	public final ModelRenderer lSide;
+	public final ModelRenderer rSide;
+	public final ModelRenderer nose;
+	public final ModelRenderer mouth;
+	public final ModelRenderer mouthOpen;
+	public final ModelRenderer rEar;
+	public final ModelRenderer lEar;
+	public final ModelRenderer chest;
+	public final ModelRenderer body;
+	public final ModelRenderer tailA;
+	public final ModelRenderer tailB;
+	public final ModelRenderer tailC;
+	public final ModelRenderer tailD;
+	public final ModelRenderer leg4A;
+	public final ModelRenderer leg4D;
+	public final ModelRenderer leg4B;
+	public final ModelRenderer leg4C;
+	public final ModelRenderer leg3B;
+	public final ModelRenderer leg2A;
+	public final ModelRenderer leg2B;
+	public final ModelRenderer leg2C;
+	public final ModelRenderer leg3D;
+	public final ModelRenderer leg3C;
+	public final ModelRenderer leg3A;
+	public final ModelRenderer leg1A;
+	public final ModelRenderer leg1B;
+	public final ModelRenderer leg1C;
 
 	public GOTModelDirewolf() {
 		textureWidth = 64;
 		textureHeight = 128;
 
-		Head = new ModelRenderer(this, 0, 0);
-		Head.addBox(-4.0F, -3.0F, -6.0F, 8, 8, 6);
-		Head.setRotationPoint(0.0F, 7.0F, -10.0F);
+		head = new ModelRenderer(this, 0, 0);
+		head.addBox(-4.0F, -3.0F, -6.0F, 8, 8, 6);
+		head.setRotationPoint(0.0F, 7.0F, -10.0F);
 
-		MouthB = new ModelRenderer(this, 16, 33);
-		MouthB.addBox(-2.0F, 4.0F, -7.0F, 4, 1, 2);
-		MouthB.setRotationPoint(0.0F, 7.0F, -10.0F);
+		mouthB = new ModelRenderer(this, 16, 33);
+		mouthB.addBox(-2.0F, 4.0F, -7.0F, 4, 1, 2);
+		mouthB.setRotationPoint(0.0F, 7.0F, -10.0F);
 
-		Nose2 = new ModelRenderer(this, 0, 25);
-		Nose2.addBox(-2.0F, 2.0F, -12.0F, 4, 2, 6);
-		Nose2.setRotationPoint(0.0F, 7.0F, -10.0F);
+		nose2 = new ModelRenderer(this, 0, 25);
+		nose2.addBox(-2.0F, 2.0F, -12.0F, 4, 2, 6);
+		nose2.setRotationPoint(0.0F, 7.0F, -10.0F);
 
-		Neck = new ModelRenderer(this, 28, 0);
-		Neck.addBox(-3.5F, -3.0F, -7.0F, 7, 8, 7);
-		Neck.setRotationPoint(0.0F, 10.0F, -6.0F);
-		setRotation(Neck, -0.4537856F, 0.0F, 0.0F);
+		neck = new ModelRenderer(this, 28, 0);
+		neck.addBox(-3.5F, -3.0F, -7.0F, 7, 8, 7);
+		neck.setRotationPoint(0.0F, 10.0F, -6.0F);
+		setRotation(neck, -0.4537856F, 0.0F, 0.0F);
 
-		Neck2 = new ModelRenderer(this, 0, 14);
-		Neck2.addBox(-1.5F, -2.0F, -5.0F, 3, 4, 7);
-		Neck2.setRotationPoint(0.0F, 14.0F, -10.0F);
-		setRotation(Neck2, -0.4537856F, 0.0F, 0.0F);
+		neck2 = new ModelRenderer(this, 0, 14);
+		neck2.addBox(-1.5F, -2.0F, -5.0F, 3, 4, 7);
+		neck2.setRotationPoint(0.0F, 14.0F, -10.0F);
+		setRotation(neck2, -0.4537856F, 0.0F, 0.0F);
 
-		LSide = new ModelRenderer(this, 28, 33);
-		LSide.addBox(3.0F, -0.5F, -2.0F, 2, 6, 6);
-		LSide.setRotationPoint(0.0F, 7.0F, -10.0F);
-		setRotation(LSide, -0.2094395F, 0.418879F, -0.0872665F);
+		lSide = new ModelRenderer(this, 28, 33);
+		lSide.addBox(3.0F, -0.5F, -2.0F, 2, 6, 6);
+		lSide.setRotationPoint(0.0F, 7.0F, -10.0F);
+		setRotation(lSide, -0.2094395F, 0.418879F, -0.0872665F);
 
-		RSide = new ModelRenderer(this, 28, 45);
-		RSide.addBox(-5.0F, -0.5F, -2.0F, 2, 6, 6);
-		RSide.setRotationPoint(0.0F, 7.0F, -10.0F);
-		setRotation(RSide, -0.2094395F, -0.418879F, 0.0872665F);
+		rSide = new ModelRenderer(this, 28, 45);
+		rSide.addBox(-5.0F, -0.5F, -2.0F, 2, 6, 6);
+		rSide.setRotationPoint(0.0F, 7.0F, -10.0F);
+		setRotation(rSide, -0.2094395F, -0.418879F, 0.0872665F);
 
-		Nose = new ModelRenderer(this, 44, 33);
-		Nose.addBox(-1.5F, -1.8F, -12.4F, 3, 2, 7);
-		Nose.setRotationPoint(0.0F, 7.0F, -10.0F);
-		setRotation(Nose, 0.2792527F, 0.0F, 0.0F);
+		nose = new ModelRenderer(this, 44, 33);
+		nose.addBox(-1.5F, -1.8F, -12.4F, 3, 2, 7);
+		nose.setRotationPoint(0.0F, 7.0F, -10.0F);
+		setRotation(nose, 0.2792527F, 0.0F, 0.0F);
 
-		Mouth = new ModelRenderer(this, 1, 34);
-		Mouth.addBox(-2.0F, 4.0F, -11.5F, 4, 1, 5);
-		Mouth.setRotationPoint(0.0F, 7.0F, -10.0F);
+		mouth = new ModelRenderer(this, 1, 34);
+		mouth.addBox(-2.0F, 4.0F, -11.5F, 4, 1, 5);
+		mouth.setRotationPoint(0.0F, 7.0F, -10.0F);
 
-		MouthOpen = new ModelRenderer(this, 1, 34);
-		MouthOpen.addBox(-2.0F, 0.0F, -12.5F, 4, 1, 5);
-		MouthOpen.setRotationPoint(0.0F, 7.0F, -10.0F);
-		setRotation(MouthOpen, 0.6108652F, 0.0F, 0.0F);
+		mouthOpen = new ModelRenderer(this, 1, 34);
+		mouthOpen.addBox(-2.0F, 0.0F, -12.5F, 4, 1, 5);
+		mouthOpen.setRotationPoint(0.0F, 7.0F, -10.0F);
+		setRotation(mouthOpen, 0.6108652F, 0.0F, 0.0F);
 
-		REar = new ModelRenderer(this, 22, 0);
-		REar.addBox(-3.5F, -7.0F, -1.5F, 3, 5, 1);
-		REar.setRotationPoint(0.0F, 7.0F, -10.0F);
-		setRotation(REar, 0.0F, 0.0F, -0.1745329F);
+		rEar = new ModelRenderer(this, 22, 0);
+		rEar.addBox(-3.5F, -7.0F, -1.5F, 3, 5, 1);
+		rEar.setRotationPoint(0.0F, 7.0F, -10.0F);
+		setRotation(rEar, 0.0F, 0.0F, -0.1745329F);
 
-		LEar = new ModelRenderer(this, 13, 14);
-		LEar.addBox(0.5F, -7.0F, -1.5F, 3, 5, 1);
-		LEar.setRotationPoint(0.0F, 7.0F, -10.0F);
-		setRotation(LEar, 0.0F, 0.0F, 0.1745329F);
+		lEar = new ModelRenderer(this, 13, 14);
+		lEar.addBox(0.5F, -7.0F, -1.5F, 3, 5, 1);
+		lEar.setRotationPoint(0.0F, 7.0F, -10.0F);
+		setRotation(lEar, 0.0F, 0.0F, 0.1745329F);
 
-		Chest = new ModelRenderer(this, 20, 15);
-		Chest.addBox(-4.0F, -11.0F, -12.0F, 8, 8, 10);
-		Chest.setRotationPoint(0.0F, 5.0F, 2.0F);
-		setRotation(Chest, 1.570796F, 0.0F, 0.0F);
+		chest = new ModelRenderer(this, 20, 15);
+		chest.addBox(-4.0F, -11.0F, -12.0F, 8, 8, 10);
+		chest.setRotationPoint(0.0F, 5.0F, 2.0F);
+		setRotation(chest, 1.570796F, 0.0F, 0.0F);
 
-		Body = new ModelRenderer(this, 0, 40);
-		Body.addBox(-3.0F, -8.0F, -9.0F, 6, 16, 8);
-		Body.setRotationPoint(0.0F, 6.5F, 2.0F);
-		setRotation(Body, 1.570796F, 0.0F, 0.0F);
+		body = new ModelRenderer(this, 0, 40);
+		body.addBox(-3.0F, -8.0F, -9.0F, 6, 16, 8);
+		body.setRotationPoint(0.0F, 6.5F, 2.0F);
+		setRotation(body, 1.570796F, 0.0F, 0.0F);
 
-		TailA = new ModelRenderer(this, 52, 42);
-		TailA.addBox(-1.5F, 0.0F, -1.5F, 3, 4, 3);
-		TailA.setRotationPoint(0.0F, 8.5F, 9.0F);
-		setRotation(TailA, 1.064651F, 0.0F, 0.0F);
+		tailA = new ModelRenderer(this, 52, 42);
+		tailA.addBox(-1.5F, 0.0F, -1.5F, 3, 4, 3);
+		tailA.setRotationPoint(0.0F, 8.5F, 9.0F);
+		setRotation(tailA, 1.064651F, 0.0F, 0.0F);
 
-		TailB = new ModelRenderer(this, 48, 49);
-		TailB.addBox(-2.0F, 3.0F, -1.0F, 4, 6, 4);
-		TailB.setRotationPoint(0.0F, 8.5F, 9.0F);
-		setRotation(TailB, 0.7504916F, 0.0F, 0.0F);
+		tailB = new ModelRenderer(this, 48, 49);
+		tailB.addBox(-2.0F, 3.0F, -1.0F, 4, 6, 4);
+		tailB.setRotationPoint(0.0F, 8.5F, 9.0F);
+		setRotation(tailB, 0.7504916F, 0.0F, 0.0F);
 
-		TailC = new ModelRenderer(this, 48, 59);
-		TailC.addBox(-2.0F, 7.8F, -4.1F, 4, 6, 4);
-		TailC.setRotationPoint(0.0F, 8.5F, 9.0F);
-		setRotation(TailC, 1.099557F, 0.0F, 0.0F);
+		tailC = new ModelRenderer(this, 48, 59);
+		tailC.addBox(-2.0F, 7.8F, -4.1F, 4, 6, 4);
+		tailC.setRotationPoint(0.0F, 8.5F, 9.0F);
+		setRotation(tailC, 1.099557F, 0.0F, 0.0F);
 
-		TailD = new ModelRenderer(this, 52, 69);
-		TailD.addBox(-1.5F, 9.8F, -3.6F, 3, 5, 3);
-		TailD.setRotationPoint(0.0F, 8.5F, 9.0F);
-		setRotation(TailD, 1.099557F, 0.0F, 0.0F);
+		tailD = new ModelRenderer(this, 52, 69);
+		tailD.addBox(-1.5F, 9.8F, -3.6F, 3, 5, 3);
+		tailD.setRotationPoint(0.0F, 8.5F, 9.0F);
+		setRotation(tailD, 1.099557F, 0.0F, 0.0F);
 
-		Leg1A = new ModelRenderer(this, 28, 57);
-		Leg1A.addBox(0.01F, -4.0F, -2.5F, 2, 8, 4);
-		Leg1A.setRotationPoint(4.0F, 12.5F, -5.5F);
-		setRotation(Leg1A, 0.2617994F, 0.0F, 0.0F);
+		leg1A = new ModelRenderer(this, 28, 57);
+		leg1A.addBox(0.01F, -4.0F, -2.5F, 2, 8, 4);
+		leg1A.setRotationPoint(4.0F, 12.5F, -5.5F);
+		setRotation(leg1A, 0.2617994F, 0.0F, 0.0F);
 
-		Leg1B = new ModelRenderer(this, 28, 69);
-		Leg1B.addBox(0.0F, 3.2F, 0.5F, 2, 8, 2);
-		Leg1B.setRotationPoint(4.0F, 12.5F, -5.5F);
-		setRotation(Leg1B, -0.1745329F, 0.0F, 0.0F);
+		leg1B = new ModelRenderer(this, 28, 69);
+		leg1B.addBox(0.0F, 3.2F, 0.5F, 2, 8, 2);
+		leg1B.setRotationPoint(4.0F, 12.5F, -5.5F);
+		setRotation(leg1B, -0.1745329F, 0.0F, 0.0F);
 
-		Leg1C = new ModelRenderer(this, 28, 79);
-		Leg1C.addBox(-0.5066667F, 9.5F, -2.5F, 3, 2, 3);
-		Leg1C.setRotationPoint(4.0F, 12.5F, -5.5F);
+		leg1C = new ModelRenderer(this, 28, 79);
+		leg1C.addBox(-0.5066667F, 9.5F, -2.5F, 3, 2, 3);
+		leg1C.setRotationPoint(4.0F, 12.5F, -5.5F);
 
-		Leg2A = new ModelRenderer(this, 28, 84);
-		Leg2A.addBox(-2.01F, -4.0F, -2.5F, 2, 8, 4);
-		Leg2A.setRotationPoint(-4.0F, 12.5F, -5.5F);
-		setRotation(Leg2A, 0.2617994F, 0.0F, 0.0F);
+		leg2A = new ModelRenderer(this, 28, 84);
+		leg2A.addBox(-2.01F, -4.0F, -2.5F, 2, 8, 4);
+		leg2A.setRotationPoint(-4.0F, 12.5F, -5.5F);
+		setRotation(leg2A, 0.2617994F, 0.0F, 0.0F);
 
-		Leg2B = new ModelRenderer(this, 28, 96);
-		Leg2B.addBox(-2.0F, 3.2F, 0.5F, 2, 8, 2);
-		Leg2B.setRotationPoint(-4.0F, 12.5F, -5.5F);
-		setRotation(Leg2B, -0.1745329F, 0.0F, 0.0F);
+		leg2B = new ModelRenderer(this, 28, 96);
+		leg2B.addBox(-2.0F, 3.2F, 0.5F, 2, 8, 2);
+		leg2B.setRotationPoint(-4.0F, 12.5F, -5.5F);
+		setRotation(leg2B, -0.1745329F, 0.0F, 0.0F);
 
-		Leg2C = new ModelRenderer(this, 28, 106);
-		Leg2C.addBox(-2.506667F, 9.5F, -2.5F, 3, 2, 3);
-		Leg2C.setRotationPoint(-4.0F, 12.5F, -5.5F);
+		leg2C = new ModelRenderer(this, 28, 106);
+		leg2C.addBox(-2.506667F, 9.5F, -2.5F, 3, 2, 3);
+		leg2C.setRotationPoint(-4.0F, 12.5F, -5.5F);
 
-		Leg3A = new ModelRenderer(this, 0, 64);
-		Leg3A.addBox(0.0F, -3.8F, -3.5F, 2, 7, 5);
-		Leg3A.setRotationPoint(3.0F, 12.5F, 7.0F);
-		setRotation(Leg3A, -0.3665191F, 0.0F, 0.0F);
+		leg3A = new ModelRenderer(this, 0, 64);
+		leg3A.addBox(0.0F, -3.8F, -3.5F, 2, 7, 5);
+		leg3A.setRotationPoint(3.0F, 12.5F, 7.0F);
+		setRotation(leg3A, -0.3665191F, 0.0F, 0.0F);
 
-		Leg3B = new ModelRenderer(this, 0, 76);
-		Leg3B.addBox(-0.1F, 1.9F, -1.8F, 2, 2, 5);
-		Leg3B.setRotationPoint(3.0F, 12.5F, 7.0F);
-		setRotation(Leg3B, -0.7330383F, 0.0F, 0.0F);
+		leg3B = new ModelRenderer(this, 0, 76);
+		leg3B.addBox(-0.1F, 1.9F, -1.8F, 2, 2, 5);
+		leg3B.setRotationPoint(3.0F, 12.5F, 7.0F);
+		setRotation(leg3B, -0.7330383F, 0.0F, 0.0F);
 
-		Leg3C = new ModelRenderer(this, 0, 83);
-		Leg3C.addBox(0.0F, 3.2F, 0.0F, 2, 8, 2);
-		Leg3C.setRotationPoint(3.0F, 12.5F, 7.0F);
-		setRotation(Leg3C, -0.1745329F, 0.0F, 0.0F);
+		leg3C = new ModelRenderer(this, 0, 83);
+		leg3C.addBox(0.0F, 3.2F, 0.0F, 2, 8, 2);
+		leg3C.setRotationPoint(3.0F, 12.5F, 7.0F);
+		setRotation(leg3C, -0.1745329F, 0.0F, 0.0F);
 
-		Leg3D = new ModelRenderer(this, 0, 93);
-		Leg3D.addBox(-0.5066667F, 9.5F, -3.0F, 3, 2, 3);
-		Leg3D.setRotationPoint(3.0F, 12.5F, 7.0F);
+		leg3D = new ModelRenderer(this, 0, 93);
+		leg3D.addBox(-0.5066667F, 9.5F, -3.0F, 3, 2, 3);
+		leg3D.setRotationPoint(3.0F, 12.5F, 7.0F);
 
-		Leg4A = new ModelRenderer(this, 14, 64);
-		Leg4A.addBox(-2.0F, -3.8F, -3.5F, 2, 7, 5);
-		Leg4A.setRotationPoint(-3.0F, 12.5F, 7.0F);
-		setRotation(Leg4A, -0.3665191F, 0.0F, 0.0F);
+		leg4A = new ModelRenderer(this, 14, 64);
+		leg4A.addBox(-2.0F, -3.8F, -3.5F, 2, 7, 5);
+		leg4A.setRotationPoint(-3.0F, 12.5F, 7.0F);
+		setRotation(leg4A, -0.3665191F, 0.0F, 0.0F);
 
-		Leg4B = new ModelRenderer(this, 14, 76);
-		Leg4B.addBox(-1.9F, 1.9F, -1.8F, 2, 2, 5);
-		Leg4B.setRotationPoint(-3.0F, 12.5F, 7.0F);
-		setRotation(Leg4B, -0.7330383F, 0.0F, 0.0F);
+		leg4B = new ModelRenderer(this, 14, 76);
+		leg4B.addBox(-1.9F, 1.9F, -1.8F, 2, 2, 5);
+		leg4B.setRotationPoint(-3.0F, 12.5F, 7.0F);
+		setRotation(leg4B, -0.7330383F, 0.0F, 0.0F);
 
-		Leg4C = new ModelRenderer(this, 14, 83);
-		Leg4C.addBox(-2.0F, 3.2F, 0.0F, 2, 8, 2);
-		Leg4C.setRotationPoint(-3.0F, 12.5F, 7.0F);
-		setRotation(Leg4C, -0.1745329F, 0.0F, 0.0F);
+		leg4C = new ModelRenderer(this, 14, 83);
+		leg4C.addBox(-2.0F, 3.2F, 0.0F, 2, 8, 2);
+		leg4C.setRotationPoint(-3.0F, 12.5F, 7.0F);
+		setRotation(leg4C, -0.1745329F, 0.0F, 0.0F);
 
-		Leg4D = new ModelRenderer(this, 14, 93);
-		Leg4D.addBox(-2.506667F, 9.5F, -3.0F, 3, 2, 3);
-		Leg4D.setRotationPoint(-3.0F, 12.5F, 7.0F);
+		leg4D = new ModelRenderer(this, 14, 93);
+		leg4D.addBox(-2.506667F, 9.5F, -3.0F, 3, 2, 3);
+		leg4D.setRotationPoint(-3.0F, 12.5F, 7.0F);
 
 	}
 
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-		setRotationAngles(f, f1, f2, f3, f4, f5);
-		Head.render(f5);
-		Nose2.render(f5);
-		Neck.render(f5);
-		Neck2.render(f5);
-		LSide.render(f5);
-		RSide.render(f5);
-		Nose.render(f5);
-		Mouth.render(f5);
-		MouthB.render(f5);
-		REar.render(f5);
-		LEar.render(f5);
-		Chest.render(f5);
-		Body.render(f5);
-		TailA.render(f5);
-		TailB.render(f5);
-		TailC.render(f5);
-		TailD.render(f5);
-		Leg4A.render(f5);
-		Leg4D.render(f5);
-		Leg4B.render(f5);
-		Leg4C.render(f5);
-		Leg3B.render(f5);
-		Leg2A.render(f5);
-		Leg2B.render(f5);
-		Leg2C.render(f5);
-		Leg3D.render(f5);
-		Leg3C.render(f5);
-		Leg3A.render(f5);
-		Leg1A.render(f5);
-		Leg1B.render(f5);
-		Leg1C.render(f5);
+		setRotationAngles(f, f1, f3, f4);
+		head.render(f5);
+		nose2.render(f5);
+		neck.render(f5);
+		neck2.render(f5);
+		lSide.render(f5);
+		rSide.render(f5);
+		nose.render(f5);
+		mouth.render(f5);
+		mouthB.render(f5);
+		rEar.render(f5);
+		lEar.render(f5);
+		chest.render(f5);
+		body.render(f5);
+		tailA.render(f5);
+		tailB.render(f5);
+		tailC.render(f5);
+		tailD.render(f5);
+		leg4A.render(f5);
+		leg4D.render(f5);
+		leg4B.render(f5);
+		leg4C.render(f5);
+		leg3B.render(f5);
+		leg2A.render(f5);
+		leg2B.render(f5);
+		leg2C.render(f5);
+		leg3D.render(f5);
+		leg3C.render(f5);
+		leg3A.render(f5);
+		leg1A.render(f5);
+		leg1B.render(f5);
+		leg1C.render(f5);
 
 	}
 
@@ -248,69 +240,61 @@ public class GOTModelDirewolf extends ModelBase {
 		model.rotateAngleZ = z;
 	}
 
-	private void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5) {
-
-		Head.rotateAngleX = f4 / 57.29578F;
-		Head.rotateAngleY = f3 / 57.29578F;
+	private void setRotationAngles(float f, float f1, float f3, float f4) {
+		head.rotateAngleX = f4 / 57.29578F;
+		head.rotateAngleY = f3 / 57.29578F;
 		float LLegX = MathHelper.cos(f * 0.6662F) * 1.4F * f1;
 		float RLegX = MathHelper.cos(f * 0.6662F + 3.141593F) * 1.4F * f1;
 
-		Mouth.rotateAngleX = Head.rotateAngleX;
-		Mouth.rotateAngleY = Head.rotateAngleY;
-		MouthB.rotateAngleX = Head.rotateAngleX;
-		MouthB.rotateAngleY = Head.rotateAngleY;
-		MouthOpen.rotateAngleX = 35 / 57.29578F + Head.rotateAngleX;
-		MouthOpen.rotateAngleY = Head.rotateAngleY;
-		Nose.rotateAngleX = 16 / 57.29578F + Head.rotateAngleX;
-		Nose.rotateAngleY = Head.rotateAngleY;
-		Nose2.rotateAngleX = Head.rotateAngleX;
-		Nose2.rotateAngleY = Head.rotateAngleY;
+		mouth.rotateAngleX = head.rotateAngleX;
+		mouth.rotateAngleY = head.rotateAngleY;
+		mouthB.rotateAngleX = head.rotateAngleX;
+		mouthB.rotateAngleY = head.rotateAngleY;
+		mouthOpen.rotateAngleX = 35 / 57.29578F + head.rotateAngleX;
+		mouthOpen.rotateAngleY = head.rotateAngleY;
+		nose.rotateAngleX = 16 / 57.29578F + head.rotateAngleX;
+		nose.rotateAngleY = head.rotateAngleY;
+		nose2.rotateAngleX = head.rotateAngleX;
+		nose2.rotateAngleY = head.rotateAngleY;
 
-		LSide.rotateAngleX = -12 / 57.29578F + Head.rotateAngleX;
-		LSide.rotateAngleY = 24 / 57.29578F + Head.rotateAngleY;
-		RSide.rotateAngleX = -12 / 57.29578F + Head.rotateAngleX;
-		RSide.rotateAngleY = -24 / 57.29578F + Head.rotateAngleY;
+		lSide.rotateAngleX = -12 / 57.29578F + head.rotateAngleX;
+		lSide.rotateAngleY = 24 / 57.29578F + head.rotateAngleY;
+		rSide.rotateAngleX = -12 / 57.29578F + head.rotateAngleX;
+		rSide.rotateAngleY = -24 / 57.29578F + head.rotateAngleY;
 
-		REar.rotateAngleX = Head.rotateAngleX;
-		REar.rotateAngleY = Head.rotateAngleY;
-		LEar.rotateAngleX = Head.rotateAngleX;
-		LEar.rotateAngleY = Head.rotateAngleY;
+		rEar.rotateAngleX = head.rotateAngleX;
+		rEar.rotateAngleY = head.rotateAngleY;
+		lEar.rotateAngleX = head.rotateAngleX;
+		lEar.rotateAngleY = head.rotateAngleY;
 
-		Leg1A.rotateAngleX = 15 / 57.29578F + LLegX;
-		Leg1B.rotateAngleX = -10 / 57.29578F + LLegX;
-		Leg1C.rotateAngleX = LLegX;
+		leg1A.rotateAngleX = 15 / 57.29578F + LLegX;
+		leg1B.rotateAngleX = -10 / 57.29578F + LLegX;
+		leg1C.rotateAngleX = LLegX;
 
-		Leg2A.rotateAngleX = 15 / 57.29578F + RLegX;
-		Leg2B.rotateAngleX = -10 / 57.29578F + RLegX;
-		Leg2C.rotateAngleX = RLegX;
+		leg2A.rotateAngleX = 15 / 57.29578F + RLegX;
+		leg2B.rotateAngleX = -10 / 57.29578F + RLegX;
+		leg2C.rotateAngleX = RLegX;
 
-		Leg3A.rotateAngleX = -21 / 57.29578F + RLegX;
-		Leg3B.rotateAngleX = -42 / 57.29578F + RLegX;
-		Leg3C.rotateAngleX = -10 / 57.29578F + RLegX;
-		Leg3D.rotateAngleX = RLegX;
+		leg3A.rotateAngleX = -21 / 57.29578F + RLegX;
+		leg3B.rotateAngleX = -42 / 57.29578F + RLegX;
+		leg3C.rotateAngleX = -10 / 57.29578F + RLegX;
+		leg3D.rotateAngleX = RLegX;
 
-		Leg4A.rotateAngleX = -21 / 57.29578F + LLegX;
-		Leg4B.rotateAngleX = -42 / 57.29578F + LLegX;
-		Leg4C.rotateAngleX = -10 / 57.29578F + LLegX;
-		Leg4D.rotateAngleX = LLegX;
+		leg4A.rotateAngleX = -21 / 57.29578F + LLegX;
+		leg4B.rotateAngleX = -42 / 57.29578F + LLegX;
+		leg4C.rotateAngleX = -10 / 57.29578F + LLegX;
+		leg4D.rotateAngleX = LLegX;
 
-		float tailMov = -1.3089F + f1 * 1.5F;
+		tailA.rotateAngleY = 0.0F;
 
-		if (true) {
-			TailA.rotateAngleY = 0.0F;
-			tailMov = 0;
-		} else {
-			TailA.rotateAngleY = 0.0F;
-		}
+		tailA.rotateAngleX = 61 / 57.29F;
+		tailB.rotateAngleX = 43 / 57.29F;
+		tailC.rotateAngleX = 63 / 57.29F;
+		tailD.rotateAngleX = 63 / 57.29F;
 
-		TailA.rotateAngleX = 61 / 57.29F - tailMov;// -1.3089F+(f1*1.5F);
-		TailB.rotateAngleX = 43 / 57.29F - tailMov;// -1.3089F+(f1*1.5F);
-		TailC.rotateAngleX = 63 / 57.29F - tailMov;// -1.5707F -tailMov;
-		TailD.rotateAngleX = 63 / 57.29F - tailMov;
-
-		TailB.rotateAngleY = TailA.rotateAngleY;
-		TailC.rotateAngleY = TailA.rotateAngleY;
-		TailD.rotateAngleY = TailA.rotateAngleY;
+		tailB.rotateAngleY = tailA.rotateAngleY;
+		tailC.rotateAngleY = tailA.rotateAngleY;
+		tailD.rotateAngleY = tailA.rotateAngleY;
 	}
 
 }

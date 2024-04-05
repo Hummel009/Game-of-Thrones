@@ -13,9 +13,7 @@ public class GOTModelCompass extends ModelBase {
 	public static final ResourceLocation COMPASS_TEXTURE = new ResourceLocation("got:textures/misc/compass.png");
 
 	public final ModelRenderer compass;
-	public final ModelBase ringotel = new GOTModelPortal(0);
-	public final ModelBase writingotelOuter = new GOTModelPortal(1);
-	public final ModelBase writingotelInner = new GOTModelPortal(1);
+	public final ModelBase port = new GOTModelPortal(0);
 
 	public GOTModelCompass() {
 		textureWidth = 32;
@@ -38,7 +36,7 @@ public class GOTModelCompass extends ModelBase {
 		texturemanager.bindTexture(COMPASS_TEXTURE);
 		compass.render(scale * 2.0f);
 		texturemanager.bindTexture(GOTRenderCompass.ringTexture);
-		ringotel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
+		port.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		GL11.glDisable(32826);
 		GL11.glEnable(2884);
 		GL11.glPopMatrix();

@@ -7,7 +7,6 @@ import net.minecraft.util.MathHelper;
 
 public class GOTModelDikDik extends ModelBase {
 	public final ModelRenderer head = new ModelRenderer(this, 42, 23);
-	private ModelRenderer neck;
 	public final ModelRenderer body;
 	public final ModelRenderer leg1;
 	public final ModelRenderer leg2;
