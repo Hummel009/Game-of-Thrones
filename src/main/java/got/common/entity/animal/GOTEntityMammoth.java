@@ -122,7 +122,7 @@ public class GOTEntityMammoth extends GOTEntityHorse implements GOTBiome.ImmuneT
 
 	@Override
 	public float getSoundVolume() {
-		return 2.0f;
+		return 3.0f;
 	}
 
 	@Override

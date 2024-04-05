@@ -444,7 +444,7 @@ public class GOTModelDragon extends ModelBase {
 
 	@Override
 	public void setLivingAnimations(EntityLivingBase entity, float moveTime, float moveSpeed, float partialTicks) {
-		setLivingAnimations((GOTEntityDragon) entity, moveTime, moveSpeed, partialTicks);
+		setLivingAnimations((GOTEntityDragon) entity, partialTicks);
 	}
 
 	public void setLivingAnimations(GOTEntityDragon dragon, float partialTicks) {

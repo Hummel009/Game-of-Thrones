@@ -97,4 +97,8 @@ public class GOTEntityMossovyWerewolf extends GOTEntityNPC {
 		return "got:direwolf.say";
 	}
 
+	@Override
+	public float getSoundVolume() {
+		return 0.5f;
+	}
 }

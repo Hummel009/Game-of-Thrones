@@ -114,7 +114,7 @@ public class GOTEntityElephant extends GOTEntityHorse {
 
 	@Override
 	public float getSoundVolume() {
-		return 1.8f;
+		return 2.8f;
 	}
 
 	@Override

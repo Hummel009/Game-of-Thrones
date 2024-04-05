@@ -301,7 +301,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
 	@Override
 	public String getDeathSound() {
-		return "mob.zombie.woodbreak";
+		return "mob.enderdragon.growl";
 	}
 
 	public int getDeathTime() {
@@ -330,7 +330,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		if (isEgg()) {
 			return "mob.zombie.wood";
 		}
-		return "mob.enderdragon.hit";
+		return "mob.enderdragon.growl";
 	}
 
 	public GOTDragonLifeStageHelper getLifeStageHelper() {
@@ -393,7 +393,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 
 	@Override
 	public float getSoundVolume() {
-		return 5.0F;
+		return 4.0f;
 	}
 
 	@Override

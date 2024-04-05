@@ -127,6 +127,11 @@ public class GOTEntityDirewolf extends EntityAnimal implements GOTBiome.ImmuneTo
 	}
 
 	@Override
+	public float getSoundVolume() {
+		return 0.5f;
+	}
+
+	@Override
 	public int getTalkInterval() {
 		return 200;
 	}
