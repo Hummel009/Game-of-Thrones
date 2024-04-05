@@ -331,7 +331,7 @@ public class GOT {
 		return calendar.getMonth() == Month.AUGUST && calendar.getDayOfMonth() == 24;
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("Convert2Lambda")
 	public static IEntitySelector selectLivingExceptCreativePlayers() {
 		return new IEntitySelector() {
 
@@ -348,7 +348,7 @@ public class GOT {
 		};
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("Convert2Lambda")
 	public static IEntitySelector selectNonCreativePlayers() {
 		return new IEntitySelector() {
 

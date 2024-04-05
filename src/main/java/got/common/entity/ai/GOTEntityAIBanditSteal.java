@@ -143,7 +143,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		return true;
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	public boolean tryStealItem(InventoryPlayer inv) {
 		return tryStealItem_do(inv, new BanditItemFilter() {
 
@@ -154,7 +154,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		});
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	public boolean tryStealItem(InventoryPlayer inv, Class<? extends Item> itemclass) {
 		return tryStealItem_do(inv, new BanditItemFilter() {
 
@@ -165,7 +165,7 @@ public class GOTEntityAIBanditSteal extends EntityAIBase {
 		});
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	public boolean tryStealItem(InventoryPlayer inv, Iterable<ItemStack> itemList) {
 		return tryStealItem_do(inv, new BanditItemFilter() {
 

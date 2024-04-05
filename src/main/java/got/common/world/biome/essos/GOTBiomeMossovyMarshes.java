@@ -33,7 +33,7 @@ public class GOTBiomeMossovyMarshes extends GOTBiomeMossovy {
 	}
 
 	@Override
-	@SuppressWarnings("all")
+	@SuppressWarnings("StatementWithEmptyBody")
 	public void decorate(World world, Random random, int i, int k) {
 		int k1;
 		int i1;

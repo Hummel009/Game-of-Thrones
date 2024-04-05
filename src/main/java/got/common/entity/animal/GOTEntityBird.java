@@ -432,7 +432,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 	}
 
 	@Override
-	@SuppressWarnings("all")
+	@SuppressWarnings("Convert2Lambda")
 	public void updateAITasks() {
 		super.updateAITasks();
 		if (getStolenItem() != null) {

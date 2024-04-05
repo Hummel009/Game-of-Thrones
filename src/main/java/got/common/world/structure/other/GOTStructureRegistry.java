@@ -50,7 +50,7 @@ public class GOTStructureRegistry {
 		classToNameMapping.put(strClass, cut);
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("rawtypes")
 	public static void register(int id, GOTStructureBaseSettlement settlement, String name, GOTFaction faction, ISettlementProperties properties) {
 		IStructureProvider strProvider = new IStructureProvider() {
 
@@ -71,25 +71,9 @@ public class GOTStructureRegistry {
 		registerStructure(id, strProvider, name, faction.eggColor, faction.eggColor, false);
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("rawtypes")
 	public static void register(int id, GOTStructureBaseSettlement settlement, String name, int color, ISettlementProperties properties) {
-		IStructureProvider strProvider = new IStructureProvider() {
-
-			@Override
-			public boolean generateStructure(World world, EntityPlayer entityplayer, int i, int j, int k) {
-				GOTStructureBaseSettlement.AbstractInstance<?> instance = settlement.createAndSetupSettlementInstance(world, i, k, world.rand, LocationInfo.SPAWNED_BY_PLAYER);
-				instance.setRotation((getRotationFromPlayer(entityplayer) + 2) % 4);
-				properties.apply(instance);
-				settlement.generateCompleteSettlementInstance(instance, world, i, k);
-				return true;
-			}
-
-			@Override
-			public boolean isSettlement() {
-				return true;
-			}
-		};
-		registerStructure(id, strProvider, name, color, color, false);
+		registerSettlement(id, settlement, name, color, color, properties);
 	}
 
 	public static void registerSettlement(int id, GOTStructureBaseSettlement settlement, String name, int colorBG, int colorFG, ISettlementProperties<GOTStructureBaseSettlement.AbstractInstance<?>> properties) {

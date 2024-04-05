@@ -90,7 +90,7 @@ public class GOTEventSpawner {
 		}
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("Convert2Lambda")
 	public static void spawnInvasions(World world, Iterable<ChunkCoordIntPair> spawnChunks) {
 		Random rand = world.rand;
 		block0:

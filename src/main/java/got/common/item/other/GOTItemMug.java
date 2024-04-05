@@ -77,7 +77,6 @@ public class GOTItemMug extends Item {
 		this(true, false, true, alc);
 	}
 
-	@SuppressWarnings("all")
 	public static void addPotionEffectsToTooltip(ItemStack itemstack, EntityPlayer entityplayer, Collection<String> list, boolean flag, Collection<PotionEffect> itemEffects) {
 		if (!itemEffects.isEmpty()) {
 			ItemStack potionEquivalent = new ItemStack(Items.potionitem);

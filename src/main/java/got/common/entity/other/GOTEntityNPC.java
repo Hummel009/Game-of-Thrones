@@ -1162,7 +1162,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		setAttackTarget(target, speak);
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	public void setAttackTarget(EntityLivingBase target, boolean speak) {
 		EntityLivingBase prevEntityTarget = getAttackTarget();
 		super.setAttackTarget(target);
@@ -1333,7 +1333,6 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		return false;
 	}
 
-	@SuppressWarnings("all")
 	public void updateCombat() {
 		EntityLivingBase entity;
 		if (!worldObj.isRemote && getAttackTarget() != null && (!(entity = getAttackTarget()).isEntityAlive() || entity instanceof EntityPlayer && ((EntityPlayer) entity).capabilities.isCreativeMode)) {
@@ -1398,7 +1397,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("Convert2Lambda")
 	public void updateNearbyBanners() {
 		if (getFaction() == GOTFaction.UNALIGNED) {
 			nearbyBannerFactor = 0;

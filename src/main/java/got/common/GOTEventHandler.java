@@ -868,6 +868,7 @@ public class GOTEventHandler implements IFuelHandler {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	public void onLivingDeath(LivingDeathEvent event) {
 		EntityLivingBase entity = event.entityLiving;
 		World world = entity.worldObj;
@@ -949,7 +950,6 @@ public class GOTEventHandler implements IFuelHandler {
 						int sentSpeeches = 0;
 						int maxSpeeches = 5;
 						double range = 8.0D;
-						@SuppressWarnings("all")
 						List<EntityLiving> nearbyAlliedNPCs = world.selectEntitiesWithinAABB(EntityLiving.class, entity.boundingBox.expand(range, range, range), new IEntitySelector() {
 							@Override
 							public boolean isEntityApplicable(Entity entitySelect) {

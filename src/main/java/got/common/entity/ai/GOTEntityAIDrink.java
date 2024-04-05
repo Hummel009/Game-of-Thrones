@@ -19,7 +19,7 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 	}
 
 	@Override
-	@SuppressWarnings("all")
+	@SuppressWarnings("Convert2Lambda")
 	public void consume() {
 		ItemStack itemstack = theEntity.getHeldItem();
 		Item item = itemstack.getItem();

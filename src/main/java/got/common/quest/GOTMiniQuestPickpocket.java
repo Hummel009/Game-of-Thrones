@@ -177,6 +177,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	}
 
 	@Override
+	@SuppressWarnings({"Convert2Lambda", "AnonymousInnerClassMayBeStatic"})
 	public boolean onInteractOther(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		if (entityplayer.isSneaking() && entityplayer.getHeldItem() == null && npc instanceof IPickpocketable) {
 			UUID id = npc.getPersistentID();
@@ -217,7 +218,6 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 					spawnAngryFX(npc);
 				}
 				if (!noticed || rand.nextFloat() < 0.5f) {
-					@SuppressWarnings("all")
 					List<GOTEntityNPC> nearbyFriends = npc.worldObj.selectEntitiesWithinAABB(GOTEntityNPC.class, npc.boundingBox.expand(16.0, 16.0, 16.0), new IEntitySelector() {
 
 						@Override

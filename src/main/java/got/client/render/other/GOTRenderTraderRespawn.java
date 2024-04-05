@@ -50,7 +50,7 @@ public class GOTRenderTraderRespawn extends Render {
 		return TextureMap.locationItemsTexture;
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("StatementWithEmptyBody")
 	public float interpolateRotation(float prevRotation, float newRotation, float tick) {
 		float interval;
 		for (interval = newRotation - prevRotation; interval < -180.0f; interval += 360.0f) {

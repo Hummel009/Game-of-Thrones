@@ -26,7 +26,7 @@ public class GOTEntityAINearestAttackableTargetBasic extends EntityAITarget {
 		this(entity, cls, chance, checkSight, false, null);
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("Convert2Lambda")
 	public GOTEntityAINearestAttackableTargetBasic(EntityCreature entity, Class<? extends Entity> cls, int chance, boolean checkSight, boolean nearby, IEntitySelector selector) {
 		super(entity, checkSight, nearby);
 		targetClass = cls;

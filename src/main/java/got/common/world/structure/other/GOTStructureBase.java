@@ -217,7 +217,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		str.generate(world, random, i, j, k, r);
 	}
 
-	@SuppressWarnings("all")
+	@SuppressWarnings("TypeMayBeWeakened")
 	public BiomeGenBase getBiome(World world, int i, int k) {
 		int i1 = i;
 		int k1 = k;
