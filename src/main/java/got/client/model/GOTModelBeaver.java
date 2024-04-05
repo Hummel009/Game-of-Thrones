@@ -7,12 +7,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelBeaver extends ModelBase {
-	public final ModelRenderer bober;
-	public final ModelRenderer head;
-	public final ModelRenderer leg1;
-	public final ModelRenderer leg2;
-	public final ModelRenderer leg3;
-	public final ModelRenderer leg4;
+	private final ModelRenderer bober;
+	private final ModelRenderer head;
+	private final ModelRenderer leg1;
+	private final ModelRenderer leg2;
+	private final ModelRenderer leg3;
+	private final ModelRenderer leg4;
 
 	public GOTModelBeaver() {
 		textureWidth = 64;
@@ -95,6 +95,6 @@ public class GOTModelBeaver extends ModelBase {
 	private void setRotationAngle(ModelRenderer modelRenderer, float x, float y) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;
-		modelRenderer.rotateAngleZ = (float) 0.0;
+		modelRenderer.rotateAngleZ = 0.0f;
 	}
 }

@@ -7,9 +7,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelButterfly extends ModelBase {
-	public final ModelRenderer body = new ModelRenderer(this, 0, 0);
-	public final ModelRenderer rightWing;
-	public final ModelRenderer leftWing;
+	private final ModelRenderer body = new ModelRenderer(this, 0, 0);
+	private final ModelRenderer rightWing;
+	private final ModelRenderer leftWing;
 
 	public GOTModelButterfly() {
 		body.addBox(-1.0f, -6.0f, -1.0f, 2, 12, 2);

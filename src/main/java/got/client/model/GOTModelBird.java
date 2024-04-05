@@ -7,13 +7,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelBird extends ModelBase {
-	public final ModelRenderer head;
+	private final ModelRenderer head;
 
-	public final ModelRenderer body = new ModelRenderer(this, 0, 7);
-	public final ModelRenderer wingRight;
-	public final ModelRenderer wingLeft;
-	public final ModelRenderer legRight;
-	public final ModelRenderer legLeft;
+	private final ModelRenderer body = new ModelRenderer(this, 0, 7);
+	private final ModelRenderer wingRight;
+	private final ModelRenderer wingLeft;
+	private final ModelRenderer legRight;
+	private final ModelRenderer legLeft;
 
 	public GOTModelBird() {
 		body.addBox(-1.5f, -2.0f, -2.0f, 3, 3, 5);

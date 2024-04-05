@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelTyrionLannister extends GOTModelBiped {
-	public final ModelRenderer bipedChest;
+	private final ModelRenderer bipedChest;
 
 	public GOTModelTyrionLannister() {
 		this(0.0f);

@@ -6,9 +6,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelMidge extends ModelBase {
-	public final ModelRenderer body = new ModelRenderer(this, 0, 0);
-	public final ModelRenderer rightWing;
-	public final ModelRenderer leftWing;
+	private final ModelRenderer body = new ModelRenderer(this, 0, 0);
+	private final ModelRenderer rightWing;
+	private final ModelRenderer leftWing;
 
 	public GOTModelMidge() {
 		body.addBox(-0.5f, -1.5f, -0.5f, 1, 5, 1);

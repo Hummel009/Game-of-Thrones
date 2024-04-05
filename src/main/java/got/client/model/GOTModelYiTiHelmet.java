@@ -3,10 +3,6 @@ package got.client.model;
 import net.minecraft.client.model.ModelRenderer;
 
 public class GOTModelYiTiHelmet extends GOTModelBiped {
-	public GOTModelYiTiHelmet() {
-		this(0.0f, false);
-	}
-
 	public GOTModelYiTiHelmet(float f, boolean bisonHorns) {
 		super(f);
 		if (bisonHorns) {

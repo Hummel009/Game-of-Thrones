@@ -7,16 +7,16 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelSpider extends ModelBase implements GOTGlowingEyes.Model {
-	public final ModelRenderer head = new ModelRenderer(this, 32, 0);
-	public final ModelRenderer thorax;
-	public final ModelRenderer leg1;
-	public final ModelRenderer leg2;
-	public final ModelRenderer leg3;
-	public final ModelRenderer leg4;
-	public final ModelRenderer leg5;
-	public final ModelRenderer leg6;
-	public final ModelRenderer leg7;
-	public final ModelRenderer leg8;
+	private final ModelRenderer head = new ModelRenderer(this, 32, 0);
+	private final ModelRenderer thorax;
+	private final ModelRenderer leg1;
+	private final ModelRenderer leg2;
+	private final ModelRenderer leg3;
+	private final ModelRenderer leg4;
+	private final ModelRenderer leg5;
+	private final ModelRenderer leg6;
+	private final ModelRenderer leg7;
+	private final ModelRenderer leg8;
 
 	protected final ModelRenderer abdomen;
 

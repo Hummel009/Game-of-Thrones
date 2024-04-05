@@ -71,23 +71,23 @@ public class GOTModelDragonAnimaton {
 	public final float[] wingForearmGlide = new float[3];
 	public final float[] wingArmGround = new float[3];
 	public final float[] wingForearmGround = new float[3];
-	public final float[] xGround = {0, 0, 0, 0};
-	public final float[][] xGroundStand = {{0.8f, -1.5f, 1.3f, 0}, {-0.3f, 1.5f, -0.2f, 0},};
+	public final float[] xGround = new float[]{0, 0, 0, 0};
+	public final float[][] xGroundStand = new float[][]{new float[]{0.8f, -1.5f, 1.3f, 0}, new float[]{-0.3f, 1.5f, -0.2f, 0},};
 
-	public final float[][] xGroundSit = {{0.3f, -1.8f, 1.8f, 0}, {-0.8f, 1.8f, -0.9f, 0},};
+	public final float[][] xGroundSit = new float[][]{new float[]{0.3f, -1.8f, 1.8f, 0}, new float[]{-0.8f, 1.8f, -0.9f, 0},};
 
-	public final float[][][] xGroundWalk = {{{0.4f, -1.4f, 1.3f, 0}, {0.1f, 1.2f, -0.5f, 0}}, {{1.2f, -1.6f, 1.3f, 0}, {-0.3f, 2.1f, -0.9f, 0.6f}}, {{0.9f, -2.1f, 1.8f, 0.6f}, {-0.7f, 1.4f, -0.2f, 0}}};
-	public final float[] xGroundWalk2 = {0, 0, 0, 0};
+	public final float[][][] xGroundWalk = new float[][][]{new float[][]{new float[]{0.4f, -1.4f, 1.3f, 0}, new float[]{0.1f, 1.2f, -0.5f, 0}}, new float[][]{new float[]{1.2f, -1.6f, 1.3f, 0}, new float[]{-0.3f, 2.1f, -0.9f, 0.6f}}, new float[][]{new float[]{0.9f, -2.1f, 1.8f, 0.6f}, new float[]{-0.7f, 1.4f, -0.2f, 0}}};
+	public final float[] xGroundWalk2 = new float[]{0, 0, 0, 0};
 
-	public final float[] yGroundStand = {-0.25f, 0.25f};
+	public final float[] yGroundStand = new float[]{-0.25f, 0.25f};
 
-	public final float[] yGroundSit = {0.1f, 0.35f};
+	public final float[] yGroundSit = new float[]{0.1f, 0.35f};
 
-	public final float[] yGroundWalk = {-0.1f, 0.1f};
+	public final float[] yGroundWalk = new float[]{-0.1f, 0.1f};
 	public float[] xAir;
-	public final float[][] xAirAll = {{0, 0, 0, 0}, {0, 0, 0, 0}};
+	public final float[][] xAirAll = new float[][]{new float[]{0, 0, 0, 0}, new float[]{0, 0, 0, 0}};
 
-	public final float[] yAirAll = {-0.1f, 0.1f};
+	public final float[] yAirAll = new float[]{-0.1f, 0.1f};
 
 	public GOTModelDragonAnimaton(GOTEntityDragon dragon) {
 		entity = dragon;
@@ -119,6 +119,7 @@ public class GOTModelDragonAnimaton {
 	}
 
 	public static float interp(float x, float... knots) {
+		float x1 = x;
 		int nknots = knots.length;
 		int nspans = nknots - 3;
 		int knot = 0;
@@ -126,12 +127,12 @@ public class GOTModelDragonAnimaton {
 			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
 			return 0;
 		}
-		x = clamp(x, 0, 0.9999f) * nspans;
-		int span = (int) x;
+		x1 = clamp(x1, 0, 0.9999f) * nspans;
+		int span = (int) x1;
 		if (span >= nknots - 3) {
 			span = nknots - 3;
 		}
-		x -= span;
+		x1 -= span;
 		knot += span;
 		float knot0 = knots[knot];
 		float knot1 = knots[knot + 1];
@@ -142,10 +143,11 @@ public class GOTModelDragonAnimaton {
 		float c2 = CR10 * knot0 + CR11 * knot1 + CR12 * knot2 + CR13 * knot3;
 		float c1 = CR20 * knot0 + CR21 * knot1 + CR22 * knot2 + CR23 * knot3;
 		float c0 = CR30 * knot0 + CR31 * knot1 + CR32 * knot2 + CR33 * knot3;
-		return ((c3 * x + c2) * x + c1) * x + c0;
+		return ((c3 * x1 + c2) * x1 + c1) * x1 + c0;
 	}
 
 	public static void interp(float x, float[] result, float[]... knots) {
+		float x1 = x;
 		int nknots = knots.length;
 		int nspans = nknots - 3;
 		int knot = 0;
@@ -153,12 +155,12 @@ public class GOTModelDragonAnimaton {
 			System.out.println(GOTModelDragonAnimaton.class.getName() + " Spline has too few knots");
 			return;
 		}
-		x = clamp(x, 0, 0.9999f) * nspans;
-		int span = (int) x;
+		x1 = clamp(x1, 0, 0.9999f) * nspans;
+		int span = (int) x1;
 		if (span >= nknots - 3) {
 			span = nknots - 3;
 		}
-		x -= span;
+		x1 -= span;
 		knot += span;
 		int dimension = result.length;
 		for (int i = 0; i < dimension; i++) {
@@ -172,7 +174,7 @@ public class GOTModelDragonAnimaton {
 			float c1 = CR20 * knot0 + CR21 * knot1 + CR22 * knot2 + CR23 * knot3;
 			float c0 = CR30 * knot0 + CR31 * knot1 + CR32 * knot2 + CR33 * knot3;
 
-			result[i] = ((c3 * x + c2) * x + c1) * x + c0;
+			result[i] = ((c3 * x1 + c2) * x1 + c1) * x1 + c0;
 		}
 	}
 
@@ -207,25 +209,27 @@ public class GOTModelDragonAnimaton {
 	}
 
 	public static double normDeg(double a) {
-		a %= 360;
-		if (a >= 180) {
-			a -= 360;
+		double a1 = a;
+		a1 %= 360;
+		if (a1 >= 180) {
+			a1 -= 360;
 		}
-		if (a < -180) {
-			a += 360;
+		if (a1 < -180) {
+			a1 += 360;
 		}
-		return a;
+		return a1;
 	}
 
 	public static float normDeg(float a) {
-		a %= 360;
-		if (a >= 180) {
-			a -= 360;
+		float a1 = a;
+		a1 %= 360;
+		if (a1 >= 180) {
+			a1 -= 360;
 		}
-		if (a < -180) {
-			a += 360;
+		if (a1 < -180) {
+			a1 += 360;
 		}
-		return a;
+		return a1;
 	}
 
 	public static float sin(float a) {
@@ -278,7 +282,7 @@ public class GOTModelDragonAnimaton {
 
 		model.back.isHidden = entity.isSaddled();
 
-		cycleOfs = (cycleOfs * cycleOfs + cycleOfs * 2) * 0.05f;
+		cycleOfs = (cycleOfs * (cycleOfs + 2)) * 0.05f;
 
 		cycleOfs *= lerp(0.5f, 1, flutter);
 		cycleOfs *= lerp(1, 0.5f, ground);
@@ -368,7 +372,10 @@ public class GOTModelDragonAnimaton {
 		}
 
 		for (int i = 0; i < model.thighProxy.length; i++) {
-			GOTModelDragonPart thigh, crus, foot, toe;
+			GOTModelDragonPart thigh;
+			GOTModelDragonPart crus;
+			GOTModelDragonPart foot;
+			GOTModelDragonPart toe;
 
 			if (i % 2 == 0) {
 				thigh = model.forethigh;
@@ -532,8 +539,8 @@ public class GOTModelDragonAnimaton {
 		model.wingForearm.rotateAngleY = wingForearm[1];
 		model.wingForearm.rotateAngleZ = wingForearm[2];
 
-		float[] yFold = {2.7f, 2.8f, 2.9f, 3.0f};
-		float[] yUnfold = {0.1f, 0.9f, 1.7f, 2.5f};
+		float[] yFold = new float[]{2.7f, 2.8f, 2.9f, 3.0f};
+		float[] yUnfold = new float[]{0.1f, 0.9f, 1.7f, 2.5f};
 
 		float rotX = 0;
 		float rotYOfs = sin(a1) * sin(a2) * 0.03f;

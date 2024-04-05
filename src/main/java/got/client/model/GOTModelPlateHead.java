@@ -19,8 +19,8 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelPlateHead extends GOTModelHuman {
-	public final RenderBlocks blockRenderer = new RenderBlocks();
-	public final GOTTileEntityPlate plateTE = new GOTTileEntityPlate();
+	private final RenderBlocks blockRenderer = new RenderBlocks();
+	private final GOTTileEntityPlate plateTE = new GOTTileEntityPlate();
 	private Block plateBlock;
 
 	@Override

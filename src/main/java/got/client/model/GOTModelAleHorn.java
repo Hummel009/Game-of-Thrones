@@ -5,11 +5,11 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelAleHorn extends ModelBase {
-	public final ModelRenderer horn = new ModelRenderer(this, 28, 16);
-	public final ModelRenderer horn1;
-	public final ModelRenderer horn2;
-	public final ModelRenderer horn3;
-	public final ModelRenderer stand;
+	private final ModelRenderer horn = new ModelRenderer(this, 28, 16);
+	private final ModelRenderer horn1;
+	private final ModelRenderer horn2;
+	private final ModelRenderer horn3;
+	private final ModelRenderer stand;
 
 	public GOTModelAleHorn() {
 		horn.setRotationPoint(-4.0f, -5.0f, 0.0f);

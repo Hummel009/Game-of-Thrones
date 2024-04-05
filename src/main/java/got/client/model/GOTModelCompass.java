@@ -12,8 +12,8 @@ public class GOTModelCompass extends ModelBase {
 	public static final GOTModelCompass COMPASS_MODEL = new GOTModelCompass();
 	public static final ResourceLocation COMPASS_TEXTURE = new ResourceLocation("got:textures/misc/compass.png");
 
-	public final ModelRenderer compass;
-	public final ModelBase port = new GOTModelPortal(0);
+	private final ModelRenderer compass;
+	private final ModelBase port = new GOTModelPortal(0);
 
 	public GOTModelCompass() {
 		textureWidth = 32;

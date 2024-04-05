@@ -7,12 +7,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelRabbit extends ModelBase {
-	public final ModelRenderer head = new ModelRenderer(this, 0, 0);
-	public final ModelRenderer body;
-	public final ModelRenderer rightArm;
-	public final ModelRenderer leftArm;
-	public final ModelRenderer rightLeg;
-	public final ModelRenderer leftLeg;
+	private final ModelRenderer head = new ModelRenderer(this, 0, 0);
+	private final ModelRenderer body;
+	private final ModelRenderer rightArm;
+	private final ModelRenderer leftArm;
+	private final ModelRenderer rightLeg;
+	private final ModelRenderer leftLeg;
 
 	public GOTModelRabbit() {
 		head.addBox(-2.0f, -2.0f, -2.0f, 4, 4, 4);
@@ -82,8 +82,7 @@ public class GOTModelRabbit extends ModelBase {
 		head.rotateAngleX = -0.7853981633974483f;
 		rightArm.rotateAngleX = -0.9599310885968813f;
 		leftArm.rotateAngleX = -0.9599310885968813f;
-		float f6;
-		f6 = f1;
+		float f6 = f1;
 		body.rotateAngleX += f6;
 		head.rotateAngleX -= f6;
 		rightArm.rotateAngleX -= f6;

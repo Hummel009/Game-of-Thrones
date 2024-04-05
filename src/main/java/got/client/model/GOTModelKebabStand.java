@@ -5,8 +5,8 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelKebabStand extends ModelBase {
-	public final ModelRenderer stand;
-	public final ModelRenderer[] kebab;
+	private final ModelRenderer stand;
+	private final ModelRenderer[] kebab;
 
 	public GOTModelKebabStand() {
 		textureWidth = 64;
@@ -47,10 +47,11 @@ public class GOTModelKebabStand extends ModelBase {
 	}
 
 	public void renderKebab(float scale, int size, float spin) {
-		if (size < 0 || size >= kebab.length) {
-			size = 0;
+		int size1 = size;
+		if (size1 < 0 || size1 >= kebab.length) {
+			size1 = 0;
 		}
-		kebab[size].rotateAngleY = (float) Math.toRadians(spin);
-		kebab[size].render(scale);
+		kebab[size1].rotateAngleY = (float) Math.toRadians(spin);
+		kebab[size1].render(scale);
 	}
 }

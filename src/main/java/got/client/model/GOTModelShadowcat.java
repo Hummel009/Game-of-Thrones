@@ -8,14 +8,14 @@ import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelShadowcat extends ModelBase {
-	public final ModelRenderer head;
-	public final ModelRenderer body1;
-	public final ModelRenderer body2;
-	public final ModelRenderer leg1;
-	public final ModelRenderer leg2;
-	public final ModelRenderer leg3;
-	public final ModelRenderer leg4;
-	public final ModelRenderer tail;
+	private final ModelRenderer head;
+	private final ModelRenderer body1;
+	private final ModelRenderer body2;
+	private final ModelRenderer leg1;
+	private final ModelRenderer leg2;
+	private final ModelRenderer leg3;
+	private final ModelRenderer leg4;
+	private final ModelRenderer tail;
 
 	public GOTModelShadowcat() {
 		textureWidth = 64;

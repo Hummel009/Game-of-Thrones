@@ -5,7 +5,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelPortal extends ModelBase {
-	public final ModelRenderer[] ringParts = new ModelRenderer[60];
+	private final ModelRenderer[] ringParts = new ModelRenderer[60];
 
 	public GOTModelPortal(int i) {
 		for (int j = 0; j < 60; ++j) {

@@ -6,13 +6,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelBear extends ModelBase {
-	final ModelRenderer head;
-	final ModelRenderer nose;
-	final ModelRenderer body;
-	final ModelRenderer leg1;
-	final ModelRenderer leg2;
-	final ModelRenderer leg3;
-	final ModelRenderer leg4;
+	private final ModelRenderer head;
+	private final ModelRenderer nose;
+	private final ModelRenderer body;
+	private final ModelRenderer leg1;
+	private final ModelRenderer leg2;
+	private final ModelRenderer leg3;
+	private final ModelRenderer leg4;
 
 	public GOTModelBear() {
 		textureWidth = 128;
@@ -83,5 +83,29 @@ public class GOTModelBear extends ModelBase {
 		leg3.rotateAngleX = MathHelper.cos(f * 0.6662f + 3.1415927f) * 1.0f * f1;
 		leg4.rotateAngleX = MathHelper.cos(f * 0.6662f) * 1.0f * f1;
 		nose.rotationPointZ = isChild ? 3.0f : 0.0f;
+	}
+
+	public ModelRenderer getBody() {
+		return body;
+	}
+
+	public ModelRenderer getLeg1() {
+		return leg1;
+	}
+
+	public ModelRenderer getLeg3() {
+		return leg3;
+	}
+
+	public ModelRenderer getLeg4() {
+		return leg4;
+	}
+
+	public ModelRenderer getLeg2() {
+		return leg2;
+	}
+
+	public ModelRenderer getHead() {
+		return head;
 	}
 }

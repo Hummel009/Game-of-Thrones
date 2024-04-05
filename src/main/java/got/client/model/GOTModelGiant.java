@@ -9,17 +9,17 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelGiant extends ModelBase {
-	public final ModelRenderer head;
-	public final ModelRenderer headHurt;
-	public final ModelRenderer body;
+	private final ModelRenderer head;
+	private final ModelRenderer headHurt;
+	private final ModelRenderer body;
 	private ModelRenderer rightArm;
-	public final ModelRenderer leftArm;
-	public final ModelRenderer rightLeg;
-	public final ModelRenderer leftLeg;
-	public final ModelRenderer woodenClub;
-	public final ModelRenderer woodenClubSpikes;
-	public final ModelRenderer warhammer;
-	public final ModelRenderer battleaxe;
+	private final ModelRenderer leftArm;
+	private final ModelRenderer rightLeg;
+	private final ModelRenderer leftLeg;
+	private final ModelRenderer woodenClub;
+	private final ModelRenderer woodenClubSpikes;
+	private final ModelRenderer warhammer;
+	private final ModelRenderer battleaxe;
 	private boolean isOutiftModel;
 
 	public GOTModelGiant() {
@@ -133,10 +133,7 @@ public class GOTModelGiant extends ModelBase {
 	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
-		boolean isHurt = false;
-		if (entity instanceof GOTEntityGiant) {
-			isHurt = !isOutiftModel;
-		}
+		boolean isHurt = entity instanceof GOTEntityGiant && !isOutiftModel;
 		if (isHurt) {
 			headHurt.render(f5);
 		} else {

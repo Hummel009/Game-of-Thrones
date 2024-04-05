@@ -5,19 +5,19 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelWalrus extends ModelBase {
-	public final ModelRenderer body;
-	public final ModelRenderer neck;
-	public final ModelRenderer head;
-	public final ModelRenderer snout;
-	public final ModelRenderer tusk1;
-	public final ModelRenderer flipper1;
-	public final ModelRenderer flipper2;
-	public final ModelRenderer tail1;
-	public final ModelRenderer tusk2;
-	public final ModelRenderer tail2;
-	public final ModelRenderer tail3;
-	public final ModelRenderer flipper3;
-	public final ModelRenderer flipper4;
+	private final ModelRenderer body;
+	private final ModelRenderer neck;
+	private final ModelRenderer head;
+	private final ModelRenderer snout;
+	private final ModelRenderer tusk1;
+	private final ModelRenderer flipper1;
+	private final ModelRenderer flipper2;
+	private final ModelRenderer tail1;
+	private final ModelRenderer tusk2;
+	private final ModelRenderer tail2;
+	private final ModelRenderer tail3;
+	private final ModelRenderer flipper3;
+	private final ModelRenderer flipper4;
 
 	public GOTModelWalrus() {
 		textureWidth = 256;

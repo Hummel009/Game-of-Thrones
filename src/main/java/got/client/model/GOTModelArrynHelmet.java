@@ -4,8 +4,8 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
 public class GOTModelArrynHelmet extends GOTModelBiped {
-	public final ModelRenderer wingRight;
-	public final ModelRenderer wingLeft;
+	private final ModelRenderer wingRight;
+	private final ModelRenderer wingLeft;
 
 	public GOTModelArrynHelmet(float f) {
 		super(f);
