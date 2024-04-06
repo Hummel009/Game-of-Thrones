@@ -1,7 +1,8 @@
-package got.common.database;
+package got.client.event;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.model.*;
+import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemBanner;
 import got.common.item.other.GOTItemSling;
@@ -26,9 +27,9 @@ import java.util.Map;
 
 public class GOTArmorModels {
 	public static GOTArmorModels INSTANCE;
-	public Map<ModelBiped, Map<Item, ModelBiped>> specialArmorModels = new HashMap<>();
+	private final Map<ModelBiped, Map<Item, ModelBiped>> specialArmorModels = new HashMap<>();
 
-	public GOTArmorModels() {
+	private GOTArmorModels() {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
@@ -45,7 +46,7 @@ public class GOTArmorModels {
 		target.rotateAngleZ = src.rotateAngleZ;
 	}
 
-	public void copyModelRotations(ModelBiped target, ModelBiped src) {
+	private void copyModelRotations(ModelBiped target, ModelBiped src) {
 		copyBoxRotations(target.bipedHead, src.bipedHead);
 		copyBoxRotations(target.bipedHeadwear, src.bipedHeadwear);
 		copyBoxRotations(target.bipedBody, src.bipedBody);
@@ -56,7 +57,7 @@ public class GOTArmorModels {
 	}
 
 	public int getEntityArmorModel(RendererLivingEntity renderer, ModelBiped mainModel, EntityLivingBase entity, ItemStack armor, int slot) {
-		ModelBiped armorModel = getSpecialArmorModel(armor, slot, entity, mainModel);
+		ModelBiped armorModel = getSpecialArmorModel(armor, slot, mainModel);
 		if (armorModel != null) {
 			int color;
 			Item armorItem;
@@ -102,7 +103,7 @@ public class GOTArmorModels {
 		}
 	}
 
-	public ModelBiped getSpecialArmorModel(ItemStack itemstack, int slot, EntityLivingBase entity, ModelBiped mainModel) {
+	public ModelBiped getSpecialArmorModel(ItemStack itemstack, int slot, ModelBiped mainModel) {
 		if (itemstack == null) {
 			return null;
 		}
@@ -128,7 +129,7 @@ public class GOTArmorModels {
 		return model;
 	}
 
-	public Map<Item, ModelBiped> getSpecialModels(ModelBiped key) {
+	private Map<Item, ModelBiped> getSpecialModels(ModelBiped key) {
 		Map<Item, ModelBiped> map = specialArmorModels.get(key);
 		if (map == null) {
 			map = new HashMap<>();
@@ -204,7 +205,7 @@ public class GOTArmorModels {
 		model.bipedLeftLeg.showModel = slot == 2 || slot == 3;
 	}
 
-	public void setupHeldItem(ModelBiped model, EntityLivingBase entity, ItemStack itemstack, boolean rightArm) {
+	private void setupHeldItem(ModelBiped model, EntityLivingBase entity, ItemStack itemstack, boolean rightArm) {
 		int value = 0;
 		boolean aimBow = false;
 		if (itemstack != null) {

@@ -1,42 +1,42 @@
-package got.common.entity.dragon;
+package got.client.event;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import got.client.event.GOTKeyHandler;
+import got.common.entity.dragon.GOTEntityDragon;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.GameSettings;
 
 public class GOTEntityDragon3DViewer {
+	private static final String[] ENTITYRENDERER_THIRDPERSONDISTANCE = {"thirdPersonDistance", "field_78490_B"};
 
-	public static String[] ENTITYRENDERER_THIRDPERSONDISTANCE = {"thirdPersonDistance", "field_78490_B"};
-	public Minecraft mc = Minecraft.getMinecraft();
-	public float defaultThirdPersonDistance;
-	public int noticeTicks;
-	public boolean ridingDragon;
-	public boolean ridingDragonPrev;
+	private final Minecraft mc = Minecraft.getMinecraft();
+	private final float defaultThirdPersonDistance;
+
+	private int noticeTicks;
+	private boolean ridingDragonPrev;
 
 	public GOTEntityDragon3DViewer() {
 		defaultThirdPersonDistance = getThirdPersonDistance();
 	}
 
-	public float getThirdPersonDistance() {
+	private float getThirdPersonDistance() {
 		return ReflectionHelper.getPrivateValue(EntityRenderer.class, mc.entityRenderer, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
-	public void setThirdPersonDistance(float thirdPersonDistance) {
+	private void setThirdPersonDistance(float thirdPersonDistance) {
 		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
 	@SubscribeEvent
-	public void onTick(ClientTickEvent evt) {
+	public void onTick(TickEvent.ClientTickEvent evt) {
 		if (evt.phase != TickEvent.Phase.START || mc.thePlayer == null) {
 			return;
 		}
-		ridingDragon = mc.thePlayer.ridingEntity instanceof GOTEntityDragon;
+
+		boolean ridingDragon = mc.thePlayer.ridingEntity instanceof GOTEntityDragon;
 
 		if (ridingDragon && !ridingDragonPrev) {
 			setThirdPersonDistance(6);

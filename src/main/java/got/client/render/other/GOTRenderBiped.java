@@ -2,7 +2,7 @@ package got.client.render.other;
 
 import com.mojang.authlib.GameProfile;
 import got.client.model.GOTModelBiped;
-import got.common.database.GOTArmorModels;
+import got.client.event.GOTArmorModels;
 import got.common.database.GOTCapes;
 import got.common.database.GOTShields;
 import got.common.entity.other.GOTEntityNPC;
