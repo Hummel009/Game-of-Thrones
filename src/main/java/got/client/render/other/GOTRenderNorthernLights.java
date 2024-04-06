@@ -51,6 +51,9 @@ public class GOTRenderNorthernLights {
 	public static Collection<AuroraCycle> glowOscillations = new ArrayList<>();
 	public static AuroraCycle glow0 = new AuroraCycle(20.0f, 0.02f, 0.6f);
 
+	private GOTRenderNorthernLights() {
+	}
+
 	public static Color[] generateColorSet() {
 		float h1 = MathHelper.randomFloatClamp(rand, 0.22f, 0.48f);
 		float h2 = MathHelper.randomFloatClamp(rand, 0.22f, 0.48f);

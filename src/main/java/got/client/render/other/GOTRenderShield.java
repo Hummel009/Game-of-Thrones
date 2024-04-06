@@ -18,6 +18,9 @@ public class GOTRenderShield {
 	public static int SHIELD_HEIGHT = 32;
 	public static float MODELSCALE = 0.0625f;
 
+	private GOTRenderShield() {
+	}
+
 	public static void doRenderShield(float f) {
 		int k;
 		float f8;

@@ -18,6 +18,9 @@ import java.util.*;
 public class GOTConnectedTextures {
 	public static Map<String, Map<Integer, IIcon>> blockIconsMap = new HashMap<>();
 
+	private GOTConnectedTextures() {
+	}
+
 	public static void createConnectedIcons(IIconRegister iconregister, GOTConnectedBlock block, int meta, boolean includeNoBase, Map<IconElement, BufferedImage> iconElementMap) {
 		String blockName = block.getConnectedName(meta);
 		blockIconsMap.remove(blockName);
@@ -287,11 +290,11 @@ public class GOTConnectedTextures {
 	public enum IconElement {
 		BASE("base", 0), SIDE_LEFT("left", 1), SIDE_RIGHT("right", 1), SIDE_TOP("top", 1), SIDE_BOTTOM("bottom", 1), CORNER_TOPLEFT("top_left", 2), CORNER_TOPRIGHT("top_right", 2), CORNER_BOTTOMLEFT("bottom_left", 2), CORNER_BOTTOMRIGHT("bottom_right", 2), INVCORNER_TOPLEFT("top_left_inv", 2), INVCORNER_TOPRIGHT("top_right_inv", 2), INVCORNER_BOTTOMLEFT("bottom_left_inv", 2), INVCORNER_BOTTOMRIGHT("bottom_right_inv", 2);
 
-		public static Set<IconElement> allSides;
-		public static Set<IconElement> allCorners;
-		public static Set<IconElement> allInvCorners;
-		public static Map<Integer, Set<IconElement>> allCombos;
-		public static Comparator<IconElement> comparator;
+		public static final Set<IconElement> allSides;
+		public static final Set<IconElement> allCorners;
+		public static final Set<IconElement> allInvCorners;
+		public static final Map<Integer, Set<IconElement>> allCombos;
+		public static final Comparator<IconElement> comparator;
 
 		static {
 			allSides = EnumSet.of(SIDE_LEFT, SIDE_RIGHT, SIDE_TOP, SIDE_BOTTOM);
@@ -374,9 +377,9 @@ public class GOTConnectedTextures {
 			};
 		}
 
-		public String iconName;
-		public int bitFlag;
-		public int priority;
+		public final String iconName;
+		public final int bitFlag;
+		public final int priority;
 
 		IconElement(String s, int i) {
 			iconName = s;

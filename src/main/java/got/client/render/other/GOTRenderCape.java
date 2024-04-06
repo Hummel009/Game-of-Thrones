@@ -9,6 +9,9 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTRenderCape {
 
+	private GOTRenderCape() {
+	}
+
 	public static void renderCape(GOTCapes cape, EntityLivingBase entity, ModelBiped model) {
 		Minecraft mc = Minecraft.getMinecraft();
 		ResourceLocation capeTexture = cape.capeTexture;

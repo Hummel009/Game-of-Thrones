@@ -36,6 +36,9 @@ import java.util.List;
 public class GOTNPCRendering {
 	public static RenderItem itemRenderer = new RenderItem();
 
+	private GOTNPCRendering() {
+	}
+
 	public static void renderAllNPCSpeeches(Minecraft mc, World world, float f) {
 		GL11.glPushMatrix();
 		RenderHelper.enableStandardItemLighting();

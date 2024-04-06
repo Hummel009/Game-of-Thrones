@@ -8,6 +8,9 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGlowingEyes {
+	private GOTGlowingEyes() {
+	}
+
 	public static void renderGlowingEyes(Entity entity, ResourceLocation eyesTexture, Model model, float f, float f1, float f2, float f3, float f4, float f5) {
 		GL11.glPushMatrix();
 		GL11.glEnable(3042);

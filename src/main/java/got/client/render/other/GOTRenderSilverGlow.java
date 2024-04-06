@@ -4,6 +4,9 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderSilverGlow {
+	private GOTRenderSilverGlow() {
+	}
+
 	public static void endGlow(float alphaFunc) {
 		GL11.glAlphaFunc(516, alphaFunc);
 		GL11.glDisable(3042);

@@ -20,6 +20,9 @@ public class GOTDrinkIcons {
 	public static Map<String, BufferedImage> vesselIcons = new HashMap<>();
 	public static Map<Item, BufferedImage> liquidIcons = new HashMap<>();
 
+	private GOTDrinkIcons() {
+	}
+
 	public static IIcon registerDrinkIcon(IIconRegister iconregister, Item item, String itemName, String vessel) {
 		Minecraft mc = Minecraft.getMinecraft();
 		IResourceManager resourceManager = mc.getResourceManager();
