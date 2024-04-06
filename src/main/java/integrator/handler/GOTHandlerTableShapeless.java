@@ -14,9 +14,9 @@ import java.awt.*;
 import java.util.List;
 
 public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
-	public List<IRecipe> recipeList;
-	public Class<? extends GuiContainer> guiClass;
-	public String recipeName;
+	private final List<IRecipe> recipeList;
+	private final Class<? extends GuiContainer> guiClass;
+	private final String recipeName;
 
 	public GOTHandlerTableShapeless(List<IRecipe> recipes, Class<? extends GuiContainer> gui, String name) {
 		recipeList = recipes;
@@ -41,8 +41,7 @@ public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
 
 	@Override
 	public void loadCraftingRecipes(ItemStack result) {
-		List<IRecipe> allrecipes = recipeList;
-		for (IRecipe irecipe : allrecipes) {
+		for (IRecipe irecipe : recipeList) {
 			if (NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
 				ShapelessRecipeHandler.CachedShapelessRecipe recipe = null;
 				if (irecipe instanceof ShapelessRecipes) {
@@ -60,8 +59,7 @@ public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
 	@Override
 	public void loadCraftingRecipes(String outputId, Object... results) {
 		if (outputId.equals(getOverlayIdentifier())) {
-			List<IRecipe> allrecipes = recipeList;
-			for (IRecipe irecipe : allrecipes) {
+			for (IRecipe irecipe : recipeList) {
 				ShapelessRecipeHandler.CachedShapelessRecipe recipe = null;
 				if (irecipe instanceof ShapelessRecipes) {
 					recipe = new ShapelessRecipeHandler.CachedShapelessRecipe();
@@ -84,8 +82,7 @@ public class GOTHandlerTableShapeless extends ShapelessRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		List<IRecipe> allrecipes = recipeList;
-		for (IRecipe irecipe : allrecipes) {
+		for (IRecipe irecipe : recipeList) {
 			ShapelessRecipeHandler.CachedShapelessRecipe recipe = null;
 			if (irecipe instanceof ShapelessRecipes) {
 				recipe = new ShapelessRecipeHandler.CachedShapelessRecipe();

@@ -14,9 +14,9 @@ import java.awt.*;
 import java.util.List;
 
 public class GOTHandlerTableShaped extends ShapedRecipeHandler {
-	public List<IRecipe> recipeList;
-	public Class<? extends GuiContainer> guiClass;
-	public String recipeName;
+	private final List<IRecipe> recipeList;
+	private final Class<? extends GuiContainer> guiClass;
+	private final String recipeName;
 
 	public GOTHandlerTableShaped(List<IRecipe> recipes, Class<? extends GuiContainer> gui, String name) {
 		recipeList = recipes;
@@ -41,8 +41,7 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 
 	@Override
 	public void loadCraftingRecipes(ItemStack result) {
-		List<IRecipe> allrecipes = recipeList;
-		for (IRecipe irecipe : allrecipes) {
+		for (IRecipe irecipe : recipeList) {
 			if (NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
 				ShapedRecipeHandler.CachedShapedRecipe recipe = null;
 				if (irecipe instanceof ShapedRecipes) {
@@ -60,8 +59,7 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 	@Override
 	public void loadCraftingRecipes(String outputId, Object... results) {
 		if (outputId.equals(getOverlayIdentifier())) {
-			List<IRecipe> allrecipes = recipeList;
-			for (IRecipe irecipe : allrecipes) {
+			for (IRecipe irecipe : recipeList) {
 				ShapedRecipeHandler.CachedShapedRecipe recipe = null;
 				if (irecipe instanceof ShapedRecipes) {
 					recipe = new ShapedRecipeHandler.CachedShapedRecipe((ShapedRecipes) irecipe);
@@ -84,8 +82,7 @@ public class GOTHandlerTableShaped extends ShapedRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		List<IRecipe> allrecipes = recipeList;
-		for (IRecipe irecipe : allrecipes) {
+		for (IRecipe irecipe : recipeList) {
 			ShapedRecipeHandler.CachedShapedRecipe recipe = null;
 			if (irecipe instanceof ShapedRecipes) {
 				recipe = new ShapedRecipeHandler.CachedShapedRecipe((ShapedRecipes) irecipe);

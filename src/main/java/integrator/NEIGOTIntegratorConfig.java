@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class NEIGOTIntegratorConfig implements IConfigureNEI {
-	public Collection<ItemStack> hiddenItems = new ArrayList<>();
+	private final Collection<ItemStack> hiddenItems = new ArrayList<>();
 
 	@Override
 	public String getName() {
@@ -23,15 +23,15 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		return GOT.VERSION;
 	}
 
-	public void hideItem(Block block) {
+	private void hideItem(Block block) {
 		hideItem(false, block);
 	}
 
-	public void hideItem(boolean all, Block block) {
+	private void hideItem(boolean all, Block block) {
 		hideItem(new ItemStack(block), all);
 	}
 
-	public void hideItem(ItemStack stack, boolean all) {
+	private void hideItem(ItemStack stack, boolean all) {
 		int i = all ? 0 : 8;
 		while (i < 16) {
 			ItemStack s = new ItemStack(stack.getItem(), 1, i);
@@ -144,5 +144,9 @@ public class NEIGOTIntegratorConfig implements IConfigureNEI {
 		hideItem(GOTBlocks.woodSlabSingle3);
 		hideItem(GOTBlocks.woodSlabSingle4);
 		hideItem(GOTBlocks.woodSlabSingle5);
+	}
+
+	public Collection<ItemStack> getHiddenItems() {
+		return hiddenItems;
 	}
 }

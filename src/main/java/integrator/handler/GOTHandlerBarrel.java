@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTHandlerBarrel extends ShapelessRecipeHandler {
-	public Collection<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();
-	public Random rand = new Random();
+	private final Collection<CachedBarrelRecipe> barrelRecipes = new ArrayList<>();
+	private final Random rand = new Random();
 
 	public GOTHandlerBarrel() {
 		for (ShapelessOreRecipe rec : GOTRecipeBrewing.recipes) {
@@ -31,7 +31,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 	public void drawExtras(int recipe) {
 	}
 
-	public CachedBarrelRecipe getBarrelRecipe(ShapelessOreRecipe recipe) {
+	private CachedBarrelRecipe getBarrelRecipe(ShapelessOreRecipe recipe) {
 		return new CachedBarrelRecipe(forgeShapelessRecipe(recipe));
 	}
 
@@ -60,7 +60,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 				rec.getResult().setPermutationToRender(0);
 			}
 			if (NEIServerUtils.areStacksSameType(rec.getResult().item, result)) {
-				rec.fixedResult = true;
+				rec.setFixedResult(true);
 				arecipes.add(rec);
 			}
 		}
@@ -81,7 +81,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			if (barrelRecipe.contains(ingreds = barrelRecipe.getIngredients(), ingredient)) {
 
 				barrelRecipe.setIngredientPermutation(ingreds, ingredient);
-				barrelRecipe.fixedResult = false;
+				barrelRecipe.setFixedResult(false);
 				barrelRecipe.getResult().setPermutationToRender(0);
 				arecipes.add(barrelRecipe);
 			}
@@ -105,16 +105,13 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 		return 2;
 	}
 
-	public class CachedBarrelRecipe extends TemplateRecipeHandler.CachedRecipe {
-		public List<PositionedStack> recipeIngreds;
-		public PositionedStack recipeResult;
-		public int lastCycleR;
-		public boolean fixedResult;
+	private class CachedBarrelRecipe extends TemplateRecipeHandler.CachedRecipe {
+		private final List<PositionedStack> recipeIngreds = new ArrayList<>();
+		private final PositionedStack recipeResult;
+		private int lastCycleR = cycleticks;
+		private boolean fixedResult;
 
-		public CachedBarrelRecipe(ShapelessRecipeHandler.CachedShapelessRecipe recipe) {
-			lastCycleR = cycleticks;
-			fixedResult = false;
-			recipeIngreds = new ArrayList<>();
+		private CachedBarrelRecipe(ShapelessRecipeHandler.CachedShapelessRecipe recipe) {
 			for (int i = 0; i < recipe.getIngredients().size(); ++i) {
 				PositionedStack tmp = new PositionedStack(recipe.ingredients.get(i).items, getX(i), getY(i));
 				tmp.item = recipe.ingredients.get(i).item;
@@ -127,7 +124,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			recipeResult = new PositionedStack(new ItemStack[]{new ItemStack(recipe.getResult().item.getItem(), 1, 0), new ItemStack(recipe.getResult().item.getItem(), 1, 1), new ItemStack(recipe.getResult().item.getItem(), 1, 2), new ItemStack(recipe.getResult().item.getItem(), 1, 3), new ItemStack(recipe.getResult().item.getItem(), 1, 4)}, 119, 24, true);
 		}
 
-		public PositionedStack getCycledResult(int cycle, PositionedStack result) {
+		private PositionedStack getCycledResult(int cycle, PositionedStack result) {
 			if (cycle != lastCycleR) {
 				lastCycleR = cycle;
 				if (!fixedResult) {
@@ -147,7 +144,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			return getCycledResult(cycleticks / 20, recipeResult);
 		}
 
-		public int getX(int i) {
+		private int getX(int i) {
 			switch (i) {
 				case 0:
 				case 3:
@@ -170,7 +167,7 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 			return 0;
 		}
 
-		public int getY(int i) {
+		private int getY(int i) {
 			switch (i) {
 				case 0:
 				case 1:
@@ -192,6 +189,13 @@ public class GOTHandlerBarrel extends ShapelessRecipeHandler {
 
 			return 0;
 		}
-	}
 
+		private boolean isFixedResult() {
+			return fixedResult;
+		}
+
+		private void setFixedResult(boolean fixedResult) {
+			this.fixedResult = fixedResult;
+		}
+	}
 }

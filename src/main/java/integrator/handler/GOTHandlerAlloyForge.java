@@ -24,7 +24,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
-	public GOTTileEntityAlloyForge alloyForgeDummy = new GOTTileEntityAlloyForge();
+	private static final GOTTileEntityAlloyForge INSTANCE = new GOTTileEntityAlloyForge();
 
 	@Override
 	public void drawBackground(int recipe) {
@@ -39,7 +39,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		drawProgressBar(75, 45, 176, 14, 24, 25, 48, 1);
 	}
 
-	public List<CachedForgeRecipe> getAlloySmeltingRecipes(ItemStack result) {
+	private List<CachedForgeRecipe> getAlloySmeltingRecipes(ItemStack result) {
 		List<CachedForgeRecipe> ret = new ArrayList<>();
 		if (NEIServerUtils.areStacksSameTypeCrafting(result, new ItemStack(GOTItems.bronzeIngot))) {
 			result.stackSize = 2;
@@ -75,7 +75,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		return ret;
 	}
 
-	public List<CachedForgeRecipe> getAlloySmeltingRecipesUsage(ItemStack ingredient) {
+	private List<CachedForgeRecipe> getAlloySmeltingRecipesUsage(ItemStack ingredient) {
 		List<CachedForgeRecipe> ret = new ArrayList<>();
 		if (NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTItems.copperIngot)) || NEIServerUtils.areStacksSameTypeCrafting(ingredient, new ItemStack(GOTBlocks.oreCopper))) {
 			CachedForgeRecipe rec1 = new CachedForgeRecipe(new ItemStack[]{ingredient}, new ItemStack[]{new ItemStack(GOTBlocks.oreTin), new ItemStack(GOTItems.tinIngot)}, new ItemStack(GOTItems.bronzeIngot, 2));
@@ -140,12 +140,12 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 
 	@Override
 	public String getRecipeName() {
-		return alloyForgeDummy.getForgeName();
+		return INSTANCE.getForgeName();
 	}
 
-	public void handlerCRStack(Item forgeItem, ItemStack result) {
+	private void handlerCRStack(Item forgeItem, ItemStack result) {
 		ItemStack stack = new ItemStack(forgeItem, 1);
-		if (NEIServerUtils.areStacksSameType(alloyForgeDummy.getSmeltingResult(stack), result)) {
+		if (NEIServerUtils.areStacksSameType(INSTANCE.getSmeltingResult(stack), result)) {
 			List<Object> list = new ArrayList<>();
 			ArrayList<ItemStack> newList = new ArrayList<>();
 			stack.getItem().getSubItems(forgeItem, null, list);
@@ -186,7 +186,7 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 
 	@Override
 	public void loadUsageRecipes(ItemStack ingredient) {
-		ItemStack tmp = alloyForgeDummy.getSmeltingResult(ingredient);
+		ItemStack tmp = INSTANCE.getSmeltingResult(ingredient);
 		if (tmp != null) {
 			arecipes.add(new CachedForgeRecipe(null, new ItemStack[]{ingredient}, tmp));
 		}
@@ -205,15 +205,11 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		return 1;
 	}
 
-	public class CachedForgeRecipe extends TemplateRecipeHandler.CachedRecipe {
-		public List<PositionedStack> ingredients;
-		public PositionedStack[] resultItem;
-		public int fuelX;
-		public int fuelY;
+	private class CachedForgeRecipe extends TemplateRecipeHandler.CachedRecipe {
+		private final List<PositionedStack> ingredients;
+		private final PositionedStack[] resultItem;
 
-		public CachedForgeRecipe(ItemStack[] alloyItems, ItemStack[] forgeItems, ItemStack resultItem) {
-			fuelX = 75;
-			fuelY = 117;
+		private CachedForgeRecipe(ItemStack[] alloyItems, ItemStack[] forgeItems, ItemStack resultItem) {
 			if (alloyItems != null) {
 				for (ItemStack tmpStackA : alloyItems) {
 					tmpStackA.stackSize = 1;
@@ -249,8 +245,8 @@ public class GOTHandlerAlloyForge extends TemplateRecipeHandler {
 		public List<PositionedStack> getOtherStacks() {
 			List<PositionedStack> tmp = new ArrayList<>();
 			PositionedStack tmpStack = FurnaceRecipeHandler.afuels.get(cycleticks / 48 % FurnaceRecipeHandler.afuels.size()).stack;
-			tmpStack.relx = fuelX;
-			tmpStack.rely = fuelY;
+			tmpStack.relx = 75;
+			tmpStack.rely = 117;
 			tmp.add(tmpStack);
 			tmp.add(resultItem[1]);
 			tmp.add(resultItem[2]);

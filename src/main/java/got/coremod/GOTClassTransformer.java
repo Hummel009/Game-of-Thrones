@@ -10,6 +10,7 @@ import java.util.ListIterator;
 
 import static org.objectweb.asm.Opcodes.*;
 
+@SuppressWarnings("all")
 public class GOTClassTransformer implements IClassTransformer {
 	public static String cls_AABB = "net/minecraft/util/AxisAlignedBB";
 	public static String cls_AABB_obf = "azt";

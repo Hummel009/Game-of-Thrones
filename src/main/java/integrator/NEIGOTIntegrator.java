@@ -12,12 +12,15 @@ import net.minecraft.item.crafting.IRecipe;
 import java.util.List;
 
 public class NEIGOTIntegrator {
-	public static void registerHandler(String unlocalizedName, Class<? extends GuiContainer> guiClass, List<IRecipe> recipes) {
+	private NEIGOTIntegrator() {
+	}
+
+	private static void registerHandler(String unlocalizedName, Class<? extends GuiContainer> guiClass, List<IRecipe> recipes) {
 		registerHandler(new GOTHandlerTableShaped(recipes, guiClass, unlocalizedName));
 		registerHandler(new GOTHandlerTableShapeless(recipes, guiClass, unlocalizedName));
 	}
 
-	public static void registerHandler(TemplateRecipeHandler handler) {
+	private static void registerHandler(TemplateRecipeHandler handler) {
 		GuiCraftingRecipe.craftinghandlers.add(handler);
 		GuiUsageRecipe.usagehandlers.add(handler);
 	}

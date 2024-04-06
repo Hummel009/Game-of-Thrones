@@ -501,7 +501,7 @@ public class GOTEventHandler implements IFuelHandler {
 			for (IConfigureNEI element : NEIModContainer.plugins) {
 				if (element.getClass() == NEIGOTIntegratorConfig.class) {
 					NEIGOTIntegratorConfig configNEI = (NEIGOTIntegratorConfig) element;
-					for (ItemStack element2 : configNEI.hiddenItems) {
+					for (ItemStack element2 : configNEI.getHiddenItems()) {
 						if (ItemInfo.hiddenItems.contains(element2)) {
 							ItemInfo.hiddenItems.remove(element2);
 						}

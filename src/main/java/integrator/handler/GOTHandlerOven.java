@@ -18,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTHandlerOven extends TemplateRecipeHandler {
-
 	@Override
 	public void drawBackground(int recipe) {
 		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
@@ -93,17 +92,11 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 		return 1;
 	}
 
-	public class CachedOvenRecipe extends TemplateRecipeHandler.CachedRecipe {
-		public List<PositionedStack> ingredients;
-		public List<PositionedStack> results;
-		public int fuelX;
-		public int fuelY;
+	private class CachedOvenRecipe extends TemplateRecipeHandler.CachedRecipe {
+		private final List<PositionedStack> ingredients = new ArrayList<>();
+		private final List<PositionedStack> results = new ArrayList<>();
 
-		public CachedOvenRecipe(ItemStack ingredient, ItemStack result) {
-			ingredients = new ArrayList<>();
-			results = new ArrayList<>();
-			fuelX = 75;
-			fuelY = 100;
+		private CachedOvenRecipe(ItemStack ingredient, ItemStack result) {
 			for (int i = 0; i < 9; i++) {
 				ingredients.add(new PositionedStack(ingredient, 18 * i + 3, 10));
 				results.add(new PositionedStack(result, 18 * i + 3, 56));
@@ -119,8 +112,8 @@ public class GOTHandlerOven extends TemplateRecipeHandler {
 		public List<PositionedStack> getOtherStacks() {
 			List<PositionedStack> tmp = new ArrayList<>();
 			PositionedStack tmpStack = FurnaceRecipeHandler.afuels.get(cycleticks / 48 % FurnaceRecipeHandler.afuels.size()).stack;
-			tmpStack.relx = fuelX;
-			tmpStack.rely = fuelY;
+			tmpStack.relx = 75;
+			tmpStack.rely = 100;
 			tmp.add(tmpStack);
 			tmp.addAll(1, results);
 			return tmp;
