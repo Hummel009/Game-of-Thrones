@@ -201,7 +201,7 @@ public class GOTConnectedTextures {
 		Map<IconElement, BufferedImage> iconElementMap = new EnumMap<>(IconElement.class);
 		try {
 			for (IconElement e : IconElement.values()) {
-				ResourceLocation res = new ResourceLocation(modID, "textures/blocks/" + baseIconName + '_' + e.iconName + ".png");
+				ResourceLocation res = new ResourceLocation(modID, "textures/blocks/" + baseIconName + '_' + e.getIconName() + ".png");
 				BufferedImage image = ImageIO.read(resourceManager.getResource(res).getInputStream());
 				iconElementMap.put(e, image);
 			}
@@ -394,6 +394,10 @@ public class GOTConnectedTextures {
 			List<IconElement> list = new ArrayList<>(set);
 			list.sort(comparator);
 			return list;
+		}
+
+		public String getIconName() {
+			return iconName;
 		}
 	}
 }

@@ -1,4 +1,4 @@
-package got.client;
+package got.client.event;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.render.other.*;
@@ -22,21 +22,20 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
-	public static GOTItemRendererManager INSTANCE;
-	public static Collection<GOTRenderLargeItem> largeItemRenderers = new ArrayList<>();
+	private static final Collection<GOTRenderLargeItem> LARGE_ITEM_RENDERERS = new ArrayList<>();
 
 	public static void preInit() {
 		Minecraft mc = Minecraft.getMinecraft();
 		IResourceManager resMgr = mc.getResourceManager();
-		INSTANCE = new GOTItemRendererManager();
-		INSTANCE.onResourceManagerReload(resMgr);
-		((IReloadableResourceManager) resMgr).registerReloadListener(INSTANCE);
-		MinecraftForge.EVENT_BUS.register(INSTANCE);
+		IResourceManagerReloadListener instance = new GOTItemRendererManager();
+		instance.onResourceManagerReload(resMgr);
+		((IReloadableResourceManager) resMgr).registerReloadListener(instance);
+		MinecraftForge.EVENT_BUS.register(instance);
 	}
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
-		largeItemRenderers.clear();
+		LARGE_ITEM_RENDERERS.clear();
 		try {
 			for (Item item : GOTItems.CONTENT) {
 				boolean isLarge;
@@ -53,7 +52,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 					MinecraftForgeClient.registerItemRenderer(item, largeItemRenderer);
 				}
 				if (largeItemRenderer != null) {
-					largeItemRenderers.add(largeItemRenderer);
+					LARGE_ITEM_RENDERERS.add(largeItemRenderer);
 				}
 			}
 		} catch (Exception e) {
@@ -76,7 +75,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public void preTextureStitch(TextureStitchEvent.Pre event) {
 		TextureMap map = event.map;
 		if (map.getTextureType() == 1) {
-			for (GOTRenderLargeItem largeRenderer : largeItemRenderers) {
+			for (GOTRenderLargeItem largeRenderer : LARGE_ITEM_RENDERERS) {
 				largeRenderer.registerIcons(map);
 			}
 		}

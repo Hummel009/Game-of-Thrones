@@ -1,4 +1,4 @@
-package got.client.sound;
+package got.client.event;
 
 import com.google.common.base.Charsets;
 import com.google.gson.JsonArray;
@@ -8,6 +8,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.stream.JsonReader;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import got.client.sound.*;
 import got.common.GOTDimension;
 import got.common.util.GOTLog;
 import got.common.util.GOTReflection;
@@ -23,7 +24,6 @@ import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.*;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.sound.PlaySoundEvent17;
-import net.minecraftforge.common.MinecraftForge;
 import org.apache.commons.io.input.BOMInputStream;
 
 import java.io.*;
@@ -40,11 +40,6 @@ public class GOTMusic implements IResourceManagerReloadListener {
 
 	private static File musicDir;
 	private static boolean initSubregions;
-
-	public GOTMusic() {
-		((IReloadableResourceManager) Minecraft.getMinecraft().getResourceManager()).registerReloadListener(this);
-		MinecraftForge.EVENT_BUS.register(this);
-	}
 
 	public static void addTrackToRegions(GOTMusicTrack track) {
 		ALL_TRACKS.add(track);

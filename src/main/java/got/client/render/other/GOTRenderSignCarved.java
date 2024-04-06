@@ -62,7 +62,7 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		return avgColor;
 	}
 
-	private int calculateContrast(IIcon icon, int color) {
+	private int calculateContrast(int color) {
 		Color c = new Color(color);
 		float[] hsb = Color.RGBtoHSB(c.getRed(), c.getGreen(), c.getBlue(), null);
 		float h = hsb[0];
@@ -78,7 +78,7 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 			return iconContrastColors.get(icon);
 		}
 		int color = averageIconColor(icon);
-		color = calculateContrast(icon, color);
+		color = calculateContrast(color);
 		iconContrastColors.put(icon, color);
 		return color;
 	}

@@ -1,6 +1,5 @@
-package got.client.render.other;
+package got.client.event;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.client.GOTAttackTiming;
@@ -12,7 +11,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
 import java.util.ArrayList;
@@ -23,11 +21,6 @@ import java.util.Map;
 public class GOTSwingHandler {
 	private static final Map<EntityLivingBase, SwingTime> ENTITY_SWINGS = new HashMap<>();
 	private static final float SWING_FACTOR = 0.8f;
-
-	public GOTSwingHandler() {
-		FMLCommonHandler.instance().bus().register(this);
-		MinecraftForge.EVENT_BUS.register(this);
-	}
 
 	@SubscribeEvent
 	public void onClientTick(TickEvent.ClientTickEvent event) {
@@ -116,27 +109,27 @@ public class GOTSwingHandler {
 		private int swing;
 		private int swingMax;
 
-		public int getSwingPrev() {
+		private int getSwingPrev() {
 			return swingPrev;
 		}
 
-		public void setSwingPrev(int swingPrev) {
+		private void setSwingPrev(int swingPrev) {
 			this.swingPrev = swingPrev;
 		}
 
-		public int getSwing() {
+		private int getSwing() {
 			return swing;
 		}
 
-		public void setSwing(int swing) {
+		private void setSwing(int swing) {
 			this.swing = swing;
 		}
 
-		public int getSwingMax() {
+		private int getSwingMax() {
 			return swingMax;
 		}
 
-		public void setSwingMax(int swingMax) {
+		private void setSwingMax(int swingMax) {
 			this.swingMax = swingMax;
 		}
 	}

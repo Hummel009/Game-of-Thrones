@@ -3,7 +3,6 @@ package got.client.render.other;
 import got.common.database.GOTCapes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBiped;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
@@ -11,7 +10,7 @@ public class GOTRenderCape {
 	private GOTRenderCape() {
 	}
 
-	public static void renderCape(GOTCapes cape, EntityLivingBase entity, ModelBiped model) {
+	public static void renderCape(GOTCapes cape, ModelBiped model) {
 		Minecraft mc = Minecraft.getMinecraft();
 		ResourceLocation capeTexture = cape.capeTexture;
 		GL11.glPushMatrix();

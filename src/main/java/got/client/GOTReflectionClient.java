@@ -11,14 +11,16 @@ import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.renderer.InventoryEffectRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.world.World;
 
 import java.lang.reflect.Method;
 
 public class GOTReflectionClient {
-	public static int[] colorCodes;
+	private static int[] colorCodes;
 
-	public static float getCameraRoll(EntityRenderer renderer) {
+	private GOTReflectionClient() {
+	}
+
+	private static float getCameraRoll(EntityRenderer renderer) {
 		try {
 			return ObfuscationReflectionHelper.getPrivateValue(EntityRenderer.class, renderer, "camRoll", "field_78495_O");
 		} catch (Exception e) {
@@ -27,7 +29,7 @@ public class GOTReflectionClient {
 		}
 	}
 
-	public static int[] getColorCodes(FontRenderer fontRenderer) {
+	private static int[] getColorCodes(FontRenderer fontRenderer) {
 		if (colorCodes == null) {
 			try {
 				colorCodes = ObfuscationReflectionHelper.getPrivateValue(FontRenderer.class, fontRenderer, "colorCode", "field_78285_g");
@@ -64,15 +66,6 @@ public class GOTReflectionClient {
 		} catch (Exception e) {
 			GOTReflection.logFailure(e);
 			return 0.0f;
-		}
-	}
-
-	public static int getGuiLeft(GuiContainer gui) {
-		try {
-			return ObfuscationReflectionHelper.getPrivateValue(GuiContainer.class, gui, "guiLeft", "field_147003_i");
-		} catch (Exception e) {
-			GOTReflection.logFailure(e);
-			return 0;
 		}
 	}
 
@@ -130,7 +123,7 @@ public class GOTReflectionClient {
 		}
 	}
 
-	public static void setCameraRoll(EntityRenderer renderer, float roll) {
+	private static void setCameraRoll(EntityRenderer renderer, float roll) {
 		try {
 			ObfuscationReflectionHelper.setPrivateValue(EntityRenderer.class, renderer, roll, "camRoll", "field_78495_O");
 		} catch (Exception e) {
@@ -154,7 +147,7 @@ public class GOTReflectionClient {
 		}
 	}
 
-	public static void testAll(World world, Minecraft mc) {
+	public static void testAll(Minecraft mc) {
 		setCameraRoll(mc.entityRenderer, getCameraRoll(mc.entityRenderer));
 		setHandFOV(mc.entityRenderer, getHandFOV(mc.entityRenderer));
 		getColorCodes(mc.fontRenderer);

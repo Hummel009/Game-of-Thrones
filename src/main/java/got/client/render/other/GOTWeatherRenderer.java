@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.client.GOTTickHandlerClient;
+import got.client.event.GOTTickHandlerClient;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeValyria;
 import net.minecraft.block.material.Material;

@@ -26,7 +26,7 @@ public class GOTRenderCargocart extends Render {
 	private void doRender(GOTEntityCart entity, double x, double y, double z, float entityYaw, float partialTicks) {
 		GL11.glPushMatrix();
 		setupTranslation(x, y, z);
-		setupRotation(entity, entityYaw);
+		setupRotation(entityYaw);
 		bindEntityTexture(entity);
 		MODEL.render(entity, partialTicks, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 		GL11.glPopMatrix();
@@ -37,7 +37,7 @@ public class GOTRenderCargocart extends Render {
 		return TEXTURE;
 	}
 
-	private void setupRotation(Entity entity, float entityYaw) {
+	private void setupRotation(float entityYaw) {
 		GL11.glRotatef(180.0f - entityYaw, 0.0f, 1.0f, 0.0f);
 	}
 

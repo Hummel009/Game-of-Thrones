@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import cpw.mods.fml.common.FMLLog;
-import got.client.GOTTextures;
+import got.client.event.GOTTextures;
 import got.common.entity.other.GOTRandomSkinEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IReloadableResourceManager;
@@ -19,7 +19,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 	private final String skinPath;
 	private List<ResourceLocation> skins;
 
-	private GOTRandomSkins(String path, boolean register, Object... args) {
+	private GOTRandomSkins(String path, boolean register) {
 		skinPath = path;
 		if (register) {
 			((IReloadableResourceManager) MC.getResourceManager()).registerReloadListener(this);
@@ -44,7 +44,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 
 	public ResourceLocation getRandomSkin(GOTRandomSkinEntity rsEntity) {
 		if (skins == null || skins.isEmpty()) {
-			return GOTTextures.missingTexture;
+			return GOTTextures.MISSING_TEXTURE;
 		}
 		Entity entity = (Entity) rsEntity;
 		long l = entity.getUniqueID().getLeastSignificantBits();

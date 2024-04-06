@@ -1,9 +1,8 @@
-package got.client.sound;
+package got.client.event;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.GOT;
-import got.client.GOTTickHandlerClient;
 import got.client.render.other.GOTWeatherRenderer;
 import got.common.GOTConfig;
 import got.common.world.GOTWorldProvider;

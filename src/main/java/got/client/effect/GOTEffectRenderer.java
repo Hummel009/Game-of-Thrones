@@ -55,9 +55,9 @@ public class GOTEffectRenderer {
 			List<EntityFX> layer = particleLayers[l];
 			if (!layer.isEmpty()) {
 				if (l == 0) {
-					mc.getTextureManager().bindTexture(GOTClientProxy.particlesTexture);
+					mc.getTextureManager().bindTexture(GOTClientProxy.PARTICLES_TEXTURE);
 				} else if (l == 1) {
-					mc.getTextureManager().bindTexture(GOTClientProxy.particles2Texture);
+					mc.getTextureManager().bindTexture(GOTClientProxy.PARTICLES_2_TEXTURE);
 				}
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				GL11.glDepthMask(false);

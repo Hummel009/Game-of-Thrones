@@ -1,6 +1,6 @@
 package got.client.gui;
 
-import got.client.GOTTickHandlerClient;
+import got.client.event.GOTTickHandlerClient;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.quest.GOTMiniQuest;

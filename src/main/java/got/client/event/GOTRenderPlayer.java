@@ -1,9 +1,9 @@
-package got.client.render.other;
+package got.client.event;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.GOTClientProxy;
-import got.client.GOTTickHandlerClient;
+import got.client.render.other.GOTNPCRendering;
+import got.client.render.other.GOTRenderShield;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -20,7 +20,6 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.opengl.GL11;
 
 import java.util.List;
@@ -29,11 +28,6 @@ import java.util.UUID;
 public class GOTRenderPlayer {
 	private static final Minecraft MC = Minecraft.getMinecraft();
 	private static final RenderManager RENDER_MANAGER = RenderManager.instance;
-
-	public GOTRenderPlayer() {
-		FMLCommonHandler.instance().bus().register(this);
-		MinecraftForge.EVENT_BUS.register(this);
-	}
 
 	@SubscribeEvent
 	public void postRender(RenderPlayerEvent.Post event) {
@@ -73,7 +67,7 @@ public class GOTRenderPlayer {
 				GL11.glBlendFunc(770, 771);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				String sAlign = GOTAlignmentValues.formatAlignForDisplay(alignment);
-				MC.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
+				MC.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
 				GOTTickHandlerClient.drawTexturedModalRect(-MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -19.0, 0, 36, 16, 16);
 				GOTTickHandlerClient.drawAlignmentText(fr, 18 - MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -12, sAlign, 1.0f);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
