@@ -58,8 +58,8 @@ public class GOTGuiSlider extends GuiButton {
 	}
 
 	public void setSliderValue(int value) {
-		value = MathHelper.clamp_int(value, minValue, maxValue);
-		sliderValue = (float) (value - minValue) / (maxValue - minValue);
+		int value1 = MathHelper.clamp_int(value, minValue, maxValue);
+		sliderValue = (float) (value1 - minValue) / (maxValue - minValue);
 	}
 
 	public float getSliderValue_F() {

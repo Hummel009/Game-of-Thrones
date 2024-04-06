@@ -34,14 +34,16 @@ public class GOTGuiButtonOptions extends GuiButton {
 	}
 
 	public void drawTooltip(Minecraft mc, int i, int j) {
+		int i1 = i;
+		int j1 = j;
 		if (enabled && func_146115_a()) {
 			String s = getDescription();
 			int border = 3;
 			int stringWidth = 200;
 			int stringHeight = mc.fontRenderer.listFormattedStringToWidth(s, stringWidth).size() * mc.fontRenderer.FONT_HEIGHT;
 			int offset = 10;
-			Gui.drawRect(i += offset, j += offset, i + stringWidth + border * 2, j + stringHeight + border * 2, -1073741824);
-			mc.fontRenderer.drawSplitString(s, i + border, j + border, stringWidth, 16777215);
+			Gui.drawRect(i1 += offset, j1 += offset, i1 + stringWidth + border * 2, j1 + stringHeight + border * 2, -1073741824);
+			mc.fontRenderer.drawSplitString(s, i1 + border, j1 + border, stringWidth, 16777215);
 		}
 	}
 

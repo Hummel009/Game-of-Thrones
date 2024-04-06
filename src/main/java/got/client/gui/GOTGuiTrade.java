@@ -132,16 +132,18 @@ public class GOTGuiTrade extends GuiContainer {
 	}
 
 	public void renderCost(String s, int x, int y) {
+		int x1 = x;
+		int y1 = y;
 		int l = fontRendererObj.getStringWidth(s);
 		boolean halfSize = l > 20;
 		if (halfSize) {
 			GL11.glPushMatrix();
 			GL11.glScalef(0.5f, 0.5f, 1.0f);
-			x *= 2;
-			y *= 2;
-			y += fontRendererObj.FONT_HEIGHT / 2;
+			x1 *= 2;
+			y1 *= 2;
+			y1 += fontRendererObj.FONT_HEIGHT / 2;
 		}
-		drawCenteredString(s, x, y, 4210752);
+		drawCenteredString(s, x1, y1, 4210752);
 		if (halfSize) {
 			GL11.glPopMatrix();
 		}

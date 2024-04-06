@@ -6,16 +6,20 @@ import org.lwjgl.opengl.GL11;
 
 public abstract class GOTGuiScreenBase extends GuiScreen {
 	public static void drawFloatRect(float x0, float y0, float x1, float y1, int color) {
+		float x01 = x0;
+		float x11 = x1;
+		float y01 = y0;
+		float y11 = y1;
 		float temp;
-		if (x0 < x1) {
-			temp = x0;
-			x0 = x1;
-			x1 = temp;
+		if (x01 < x11) {
+			temp = x01;
+			x01 = x11;
+			x11 = temp;
 		}
-		if (y0 < y1) {
-			temp = y0;
-			y0 = y1;
-			y1 = temp;
+		if (y01 < y11) {
+			temp = y01;
+			y01 = y11;
+			y11 = temp;
 		}
 		float alpha = (color >> 24 & 0xFF) / 255.0f;
 		float r = (color >> 16 & 0xFF) / 255.0f;
@@ -27,10 +31,10 @@ public abstract class GOTGuiScreenBase extends GuiScreen {
 		GL11.glBlendFunc(770, 771);
 		GL11.glColor4f(r, g, b, alpha);
 		tessellator.startDrawingQuads();
-		tessellator.addVertex(x0, y1, 0.0);
-		tessellator.addVertex(x1, y1, 0.0);
-		tessellator.addVertex(x1, y0, 0.0);
-		tessellator.addVertex(x0, y0, 0.0);
+		tessellator.addVertex(x01, y11, 0.0);
+		tessellator.addVertex(x11, y11, 0.0);
+		tessellator.addVertex(x11, y01, 0.0);
+		tessellator.addVertex(x01, y01, 0.0);
 		tessellator.draw();
 		GL11.glEnable(3553);
 		GL11.glDisable(3042);

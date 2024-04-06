@@ -56,6 +56,8 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 
 	@Override
 	public void drawScreen(int i, int j, float f) {
+		int i1 = i;
+		int j1 = j;
 		drawDefaultBackground();
 		String s = StatCollector.translateToLocal("got.gui.npcRespawner.title");
 		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop, 16777215);
@@ -90,7 +92,7 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 		int timesplitX = (sliderSpawnIntervalM.xPosition + sliderSpawnIntervalM.width + sliderSpawnIntervalS.xPosition) / 2 - fontRendererObj.getStringWidth(timesplit) / 2;
 		int timesplitY = sliderSpawnIntervalM.yPosition + sliderSpawnIntervalM.height / 2 - fontRendererObj.FONT_HEIGHT / 2;
 		fontRendererObj.drawString(timesplit, timesplitX, timesplitY, 16777215);
-		super.drawScreen(i, j, f);
+		super.drawScreen(i1, j1, f);
 		updateSliders();
 		if (sliderBlockEnemy.enabled && sliderBlockEnemy.func_146115_a() && !sliderBlockEnemy.dragging) {
 			String tooltip = StatCollector.translateToLocal("got.gui.npcRespawner.blockEnemy.tooltip");
@@ -98,8 +100,8 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 			int stringWidth = mc.fontRenderer.getStringWidth(tooltip);
 			int stringHeight = mc.fontRenderer.FONT_HEIGHT;
 			int offset = 10;
-			Gui.drawRect(i += offset, j += offset, i + stringWidth + border * 2, j + stringHeight + border * 2, -1073741824);
-			mc.fontRenderer.drawString(tooltip, i + border, j + border, 16777215);
+			Gui.drawRect(i1 += offset, j1 += offset, i1 + stringWidth + border * 2, j1 + stringHeight + border * 2, -1073741824);
+			mc.fontRenderer.drawString(tooltip, i1 + border, j1 + border, 16777215);
 		}
 	}
 

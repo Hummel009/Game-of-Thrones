@@ -1708,10 +1708,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		Tessellator tessellator = Tessellator.instance;
 		int iconWidthHalf = 4;
 		int iconBorder = iconWidthHalf + 1;
-		playerX = Math.max(mapXMin + iconBorder, playerX);
-		playerX = Math.min(mapXMax - iconBorder - 1, playerX);
-		playerY = Math.max(mapYMin + iconBorder, playerY);
-		playerY = Math.min(mapYMax - iconBorder - 1, playerY);
+		double playerX2 = Math.max(mapXMin + iconBorder, playerX);
+		double playerX1 = Math.min(mapXMax - iconBorder - 1, playerX2);
+		double playerY2 = Math.max(mapYMin + iconBorder, playerY);
+		double playerY1 = Math.min(mapYMax - iconBorder - 1, playerY2);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		ResourceLocation skin = AbstractClientPlayer.locationStevePng;
 		if (profile.getId().equals(mc.thePlayer.getUniqueID())) {
@@ -1728,8 +1728,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		double iconMaxU = 0.25;
 		double iconMinV = 0.25;
 		double iconMaxV = 0.5;
-		double playerX_d = playerX + 0.5;
-		double playerY_d = playerY + 0.5;
+		double playerX_d = playerX1 + 0.5;
+		double playerY_d = playerY1 + 0.5;
 		tessellator.startDrawingQuads();
 		tessellator.addVertexWithUV(playerX_d - iconWidthHalf, playerY_d + iconWidthHalf, zLevel, iconMinU, iconMaxV);
 		tessellator.addVertexWithUV(playerX_d + iconWidthHalf, playerY_d + iconWidthHalf, zLevel, iconMaxU, iconMaxV);
@@ -1744,8 +1744,8 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		tessellator.addVertexWithUV(playerX_d + iconWidthHalf + 0.5, playerY_d - iconWidthHalf - 0.5, zLevel, iconMaxU, iconMinV);
 		tessellator.addVertexWithUV(playerX_d - iconWidthHalf - 0.5, playerY_d - iconWidthHalf - 0.5, zLevel, iconMinU, iconMinV);
 		tessellator.draw();
-		double dx = playerX - mouseX;
-		double dy = playerY - mouseY;
+		double dx = playerX1 - mouseX;
+		double dy = playerY1 - mouseY;
 		return Math.sqrt(dx * dx + dy * dy);
 	}
 
@@ -2135,17 +2135,19 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public float[] transformCoords(float x, float z) {
-		x = x / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_X;
-		z = z / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_Z;
-		return transformMapCoords(x, z);
+		float x1 = x / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_X;
+		float z1 = z / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_Z;
+		return transformMapCoords(x1, z1);
 	}
 
 	public float[] transformMapCoords(float x, float z) {
-		x -= posX;
-		z -= posY;
-		x *= zoomScale;
-		z *= zoomScale;
-		return new float[]{x + (mapXMin + (float) mapWidth / 2), z + (mapYMin + (float) mapHeight / 2)};
+		float x1 = x;
+		float z1 = z;
+		x1 -= posX;
+		z1 -= posY;
+		x1 *= zoomScale;
+		z1 *= zoomScale;
+		return new float[]{x1 + (mapXMin + (float) mapWidth / 2), z1 + (mapYMin + (float) mapHeight / 2)};
 	}
 
 	public void updateCurrentDimensionAndFaction() {
