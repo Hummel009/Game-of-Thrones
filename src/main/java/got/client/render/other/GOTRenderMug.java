@@ -37,33 +37,37 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 	public static RenderBlocks renderBlocks = new RenderBlocks();
 
 	public void renderLiquid(IIcon icon, int uvMin, int uvMax, double yMin, double yMax, float scale) {
+		double yMin1 = yMin;
+		double yMax1 = yMax;
 		double edge = 0.001;
 		double xzMin = (double) uvMin * scale;
 		double xzMax = (double) uvMax * scale;
 		float dxz = 0.5f - (uvMin + uvMax) / 2.0f * scale;
-		yMin = 16.0 - yMin;
-		yMax = 16.0 - yMax;
-		yMin *= scale;
-		yMax *= scale;
+		yMin1 = 16.0 - yMin1;
+		yMax1 = 16.0 - yMax1;
+		yMin1 *= scale;
+		yMax1 *= scale;
 		GL11.glPushMatrix();
 		GL11.glTranslatef(dxz, -0.5f, dxz);
 		renderBlocks.setOverrideBlockTexture(icon);
-		GOTRenderBlocks.renderStandardInvBlock(renderBlocks, GOTBlocks.mug, xzMin += edge, yMax - edge, xzMin, xzMax -= edge, yMin + edge, xzMax);
+		GOTRenderBlocks.renderStandardInvBlock(renderBlocks, GOTBlocks.mug, xzMin += edge, yMax1 - edge, xzMin, xzMax -= edge, yMin1 + edge, xzMax);
 		renderBlocks.clearOverrideBlockTexture();
 		GL11.glPopMatrix();
 	}
 
 	public void renderMeniscus(IIcon icon, int uvMin, int uvMax, double width, double height, float scale) {
+		double width1 = width;
+		double height1 = height;
 		float minU = icon.getInterpolatedU(uvMin);
 		float maxU = icon.getInterpolatedU(uvMax);
 		float minV = icon.getInterpolatedV(uvMin);
 		float maxV = icon.getInterpolatedV(uvMax);
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(-(width *= scale), -(height *= scale), width, minU, maxV);
-		tessellator.addVertexWithUV(width, -height, width, maxU, maxV);
-		tessellator.addVertexWithUV(width, -height, -width, maxU, minV);
-		tessellator.addVertexWithUV(-width, -height, -width, minU, minV);
+		tessellator.addVertexWithUV(-(width1 *= scale), -(height1 *= scale), width1, minU, maxV);
+		tessellator.addVertexWithUV(width1, -height1, width1, maxU, maxV);
+		tessellator.addVertexWithUV(width1, -height1, -width1, maxU, minV);
+		tessellator.addVertexWithUV(-width1, -height1, -width1, minU, minV);
 		tessellator.draw();
 	}
 
