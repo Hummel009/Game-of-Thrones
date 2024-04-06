@@ -97,7 +97,6 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		mouseY = j;
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		String s;
 		GL11.glEnable(2903);
 		RenderHelper.enableStandardItemLighting();
 		GL11.glPushMatrix();
@@ -122,7 +121,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		int x = guiLeft + xSize / 2;
 		int y = guiTop + 145;
-		s = currentShield.getShieldName();
+		String s = currentShield.getShieldName();
 		drawCenteredString(s, x, y, 16777215);
 		y += fontRendererObj.FONT_HEIGHT * 2;
 		List<String> desc = fontRendererObj.listFormattedStringToWidth(currentShield.getShieldDesc(), 220);

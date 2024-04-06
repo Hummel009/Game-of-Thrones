@@ -17,7 +17,7 @@ public class GOTGuiTradeButton extends GuiButton {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 		int hoverState = getHoverState(field_146123_n);
-		Gui.func_146110_a(xPosition, yPosition, 176.0f, hoverState * 18, width, height, 512.0f, 512.0f);
+		func_146110_a(xPosition, yPosition, 176.0f, hoverState * 18, width, height, 512.0f, 512.0f);
 		mouseDragged(mc, i, j);
 		GL11.glEnable(2896);
 	}
