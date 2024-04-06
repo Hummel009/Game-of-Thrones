@@ -1,6 +1,6 @@
 package got.client.model;
 
-import got.client.event.GOTArmorModels;
+import got.common.database.GOTArmorModels;
 import got.common.item.other.GOTItemTurban;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;

@@ -1,39 +1,39 @@
-package got.client.event;
+package got.common.entity.animal;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
+import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import got.common.entity.animal.GOTEntityMammoth;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
 
 public class GOTEntityMammoth3DViewer {
-	private static final String[] ENTITYRENDERER_THIRDPERSONDISTANCE = {"thirdPersonDistance", "field_78490_B"};
 
-	private final Minecraft mc = Minecraft.getMinecraft();
-	private final float defaultThirdPersonDistance;
-
-	private int noticeTicks;
-	private boolean ridingDragonPrev;
+	public static String[] ENTITYRENDERER_THIRDPERSONDISTANCE = {"thirdPersonDistance", "field_78490_B"};
+	public Minecraft mc = Minecraft.getMinecraft();
+	public float defaultThirdPersonDistance;
+	public int noticeTicks;
+	public boolean ridingDragon;
+	public boolean ridingDragonPrev;
 
 	public GOTEntityMammoth3DViewer() {
 		defaultThirdPersonDistance = getThirdPersonDistance();
 	}
 
-	private float getThirdPersonDistance() {
+	public float getThirdPersonDistance() {
 		return ReflectionHelper.getPrivateValue(EntityRenderer.class, mc.entityRenderer, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
-	private void setThirdPersonDistance(float thirdPersonDistance) {
+	public void setThirdPersonDistance(float thirdPersonDistance) {
 		ReflectionHelper.setPrivateValue(EntityRenderer.class, mc.entityRenderer, thirdPersonDistance, ENTITYRENDERER_THIRDPERSONDISTANCE);
 	}
 
 	@SubscribeEvent
-	public void onTick(TickEvent.ClientTickEvent evt) {
+	public void onTick(ClientTickEvent evt) {
 		if (evt.phase != TickEvent.Phase.START || mc.thePlayer == null) {
 			return;
 		}
-		boolean ridingDragon = mc.thePlayer.ridingEntity instanceof GOTEntityMammoth;
+		ridingDragon = mc.thePlayer.ridingEntity instanceof GOTEntityMammoth;
 
 		if (ridingDragon && !ridingDragonPrev) {
 			setThirdPersonDistance(9);

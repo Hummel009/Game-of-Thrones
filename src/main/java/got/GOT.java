@@ -18,8 +18,6 @@ import got.common.entity.essos.gold.GOTEntityGoldenMan;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityPortal;
 import got.common.entity.other.GOTHiredNPCInfo;
-import got.common.event.GOTEventHandler;
-import got.common.event.GOTTickHandlerServer;
 import got.common.faction.GOTFaction;
 import got.common.fellowship.GOTFellowship;
 import got.common.item.other.GOTItemBanner.BannerType;

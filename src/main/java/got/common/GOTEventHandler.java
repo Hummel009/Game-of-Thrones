@@ -1,4 +1,4 @@
-package got.common.event;
+package got.common;
 
 import codechicken.nei.NEIModContainer;
 import codechicken.nei.api.IConfigureNEI;
@@ -14,7 +14,6 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import got.GOT;
-import got.common.*;
 import got.common.block.GOTVanillaSaplings;
 import got.common.block.other.*;
 import got.common.block.sapling.GOTBlockSaplingBase;

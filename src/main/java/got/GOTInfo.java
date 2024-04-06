@@ -39,15 +39,12 @@ public class GOTInfo {
 		AUTHORS.add("Arbeit");
 	}
 
-	public static final String[] DESCRIPTION = {"§b" + StatCollector.translateToLocal("got.gui.authors") + " " + String.join(", ", AUTHORS) + " " + StatCollector.translateToLocal("got.gui.authors.others")};
-
-	private GOTInfo() {
-	}
+	public static String[] description = {"§b" + StatCollector.translateToLocal("got.gui.authors") + " " + String.join(", ", AUTHORS) + " " + StatCollector.translateToLocal("got.gui.authors.others")};
 
 	public static String concatenateDescription(int startIndex) {
 		StringBuilder sb = new StringBuilder();
-		for (int i = startIndex; i < DESCRIPTION.length; ++i) {
-			sb.append(DESCRIPTION[i]).append("\n\n");
+		for (int i = startIndex; i < description.length; ++i) {
+			sb.append(description[i]).append("\n\n");
 		}
 		return sb.toString();
 	}

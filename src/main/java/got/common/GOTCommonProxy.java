@@ -11,7 +11,6 @@ import got.common.database.GOTBlocks;
 import got.common.database.GOTGuiID;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
-import got.common.event.GOTTickHandlerServer;
 import got.common.faction.GOTAlignmentBonusMap;
 import got.common.faction.GOTFaction;
 import got.common.inventory.*;

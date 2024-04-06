@@ -1,11 +1,10 @@
-package got.common.event;
+package got.common;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.GOT;
-import got.common.*;
 import got.common.entity.other.GOTEntityPortal;
 import got.common.faction.GOTFactionBounties;
 import got.common.faction.GOTFactionRelations;
