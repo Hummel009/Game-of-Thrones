@@ -5,21 +5,7 @@ public class GOTModChecker {
 	public static int isCauldron = -1;
 	public static int hasShaders = -1;
 	public static int hasLOTR = -1;
-	public static int hasGuiContainer = -1;
 	public static int hasWeather2 = -1;
-
-	public static boolean hasGuiContainer() {
-		if (hasGuiContainer == -1) {
-			try {
-				Class.forName("net.minecraft.client.gui.inventory.GuiContainer");
-				GOTLog.logger.info("Hummel009: I see GuiContainer here");
-				hasGuiContainer = 1;
-			} catch (ClassNotFoundException e) {
-				hasGuiContainer = 0;
-			}
-		}
-		return hasGuiContainer == 1;
-	}
 
 	public static boolean hasLOTR() {
 		if (hasLOTR == -1) {

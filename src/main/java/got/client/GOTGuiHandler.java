@@ -183,7 +183,7 @@ public class GOTGuiHandler {
 				if (dwheel != 0) {
 					int scroll = Integer.signum(dwheel);
 					descScrollIndex -= scroll;
-					descScrollIndex = MathHelper.clamp_int(descScrollIndex, 0, GOTInfo.description.length - 1);
+					descScrollIndex = MathHelper.clamp_int(descScrollIndex, 0, GOTInfo.DESCRIPTION.length - 1);
 					meta.description = GOTInfo.concatenateDescription(descScrollIndex);
 				}
 			}

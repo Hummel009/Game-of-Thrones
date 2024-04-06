@@ -1,6 +1,6 @@
 CHANGELOG
 
->>BUILD 23.09.01
+>>BUILD 24.07.10
 + Added full German translation (by ToCraft).
 + Added beavers (with their spawn) and their drop (with its usage)
 + Added Janos Slynt's, Pycelle's and Melisandra's drop
@@ -14,6 +14,7 @@ CHANGELOG
 * Improved road-to-settlemen's-gate system
 * Improved roads & walls code
 * Improved GUI opening code
+* Optimized lots of client-size things
 
 * Fixed bug with uncraftable weirwood fence
 * Fixed bug with month name
