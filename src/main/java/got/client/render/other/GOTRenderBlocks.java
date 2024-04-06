@@ -25,22 +25,23 @@ import org.lwjgl.opengl.GL11;
 import java.util.Random;
 
 public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
-	public static Random blockRand = new Random();
-	public boolean renderInvIn3D;
+	private static final Random BLOCK_RAND = new Random();
+
+	private final boolean renderInvIn3D;
 
 	public GOTRenderBlocks(boolean flag) {
 		renderInvIn3D = flag;
 	}
 
-	public static int getAO() {
+	private static int getAO() {
 		return Minecraft.getMinecraft().gameSettings.ambientOcclusion;
 	}
 
-	public static void setAO(int i) {
+	private static void setAO(int i) {
 		Minecraft.getMinecraft().gameSettings.ambientOcclusion = i;
 	}
 
-	public static void renderClover(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
+	private static void renderClover(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
 		double scale = 0.5;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
@@ -97,14 +98,14 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	public static void renderEntityPlate(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	public static void renderEntityPlate(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.0625, 0.8125);
 		renderStandardInvBlock(renderblocks, block, 0.125, 0.0625, 0.125, 0.875, 0.125, 0.875);
 		renderblocks.renderAllFaces = false;
 	}
 
-	public static void renderGrass(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, boolean randomTranslation) {
+	private static void renderGrass(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, boolean randomTranslation) {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
 		int meta = world.getBlockMetadata(i, j, k);
@@ -141,7 +142,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	public static void renderInvClover(Block block, RenderBlocks renderblocks, int petalCount) {
+	private static void renderInvClover(Block block, RenderBlocks renderblocks, int petalCount) {
 		GL11.glDisable(2896);
 		double scale = 1.0;
 		Tessellator tessellator = Tessellator.instance;
@@ -195,7 +196,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		GL11.glEnable(2896);
 	}
 
-	public static void renderInvPlantain(Block block, RenderBlocks renderblocks, int petalCount) {
+	private static void renderInvPlantain(Block block, RenderBlocks renderblocks, int petalCount) {
 		GL11.glDisable(2896);
 		double scale = 1.0;
 		Tessellator tessellator = Tessellator.instance;
@@ -249,7 +250,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		GL11.glEnable(2896);
 	}
 
-	public static void renderPlantain(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
+	private static void renderPlantain(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int petalCount, boolean randomTranslation) {
 		double scale = 0.5;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
@@ -310,7 +311,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderStandardInvBlock(renderblocks, block, d, d1, d2, d3, d4, d5, 0);
 	}
 
-	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, double d, double d1, double d2, double d3, double d4, double d5, int metadata) {
+	private static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, double d, double d1, double d2, double d3, double d4, double d5, int metadata) {
 		Tessellator tessellator = Tessellator.instance;
 		renderblocks.setRenderBounds(d, d1, d2, d3, d4, d5);
 		GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
@@ -341,7 +342,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		GL11.glTranslatef(0.5f, 0.5f, 0.5f);
 	}
 
-	public static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta) {
+	private static void renderStandardInvBlock(RenderBlocks renderblocks, Block block, int meta) {
 		block.setBlockBoundsForItemRender();
 		renderblocks.setRenderBoundsFromBlock(block);
 		double d = renderblocks.renderMinX;
@@ -358,7 +359,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		return 0;
 	}
 
-	public void renderBarrel(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderBarrel(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -413,13 +414,13 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	public void renderBeacon(IBlockAccess world, int i, int j, int k, RenderBlocks renderblocks) {
+	private void renderBeacon(IBlockAccess world, int i, int j, int k, RenderBlocks renderblocks) {
 		if (GOTBlockBeacon.isFullyLit(world, i, j, k)) {
 			renderblocks.renderBlockFire(Blocks.fire, i, j, k);
 		}
 	}
 
-	public void renderBeam(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderBeam(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int meta = world.getBlockMetadata(i, j, k);
 		int dir = meta & 0xC;
 		switch (dir) {
@@ -449,7 +450,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.uvRotateBottom = 0;
 	}
 
-	public void renderBirdCage(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderBirdCage(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -489,13 +490,13 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	public void renderBlockRandomRotated(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, boolean rotateSides) {
+	private void renderBlockRandomRotated(int i, int j, int k, Block block, RenderBlocks renderblocks, boolean rotateSides) {
 		int[] sides = new int[6];
 		for (int l = 0; l < sides.length; ++l) {
 			int hash = i * 234890405 ^ k * 37383934 ^ j;
-			blockRand.setSeed(hash + l * 285502);
-			blockRand.setSeed(blockRand.nextLong());
-			sides[l] = blockRand.nextInt(4);
+			BLOCK_RAND.setSeed(hash + l * 285502);
+			BLOCK_RAND.setSeed(BLOCK_RAND.nextLong());
+			sides[l] = BLOCK_RAND.nextInt(4);
 		}
 		if (rotateSides) {
 			renderblocks.uvRotateEast = sides[0];
@@ -516,7 +517,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.uvRotateBottom = 0;
 	}
 
-	public void renderBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderBomb(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -578,7 +579,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	public void renderButterflyJar(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderButterflyJar(int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -596,7 +597,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	public void renderCommandTable(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderCommandTable(int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -616,7 +617,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	public void renderCoral(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderCoral(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		renderblocks.renderStandardBlock(block, i, j, k);
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j + 1, k));
@@ -625,7 +626,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.drawCrossedSquares(icon, i, j + 1, k, 1.0f);
 	}
 
-	public boolean renderDoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private boolean renderDoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		Tessellator tessellator = Tessellator.instance;
 		int meta = world.getBlockMetadata(i, j, k);
 		boolean topDoor = (meta & 8) != 0;
@@ -670,7 +671,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		return true;
 	}
 
-	public void renderDoublePlant(IBlockAccess world, int i, int j, int k, BlockDoublePlant block, RenderBlocks renderblocks) {
+	private void renderDoublePlant(IBlockAccess world, int i, int j, int k, BlockDoublePlant block, RenderBlocks renderblocks) {
 		int plantType;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
@@ -707,13 +708,13 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.drawCrossedSquares(icon, d, j, d2, 1.0f);
 	}
 
-	public void renderDoubleTorch(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderDoubleTorch(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		block.setBlockBoundsBasedOnState(world, i, j, k);
 		renderblocks.setRenderBoundsFromBlock(block);
 		renderblocks.renderStandardBlock(block, i, j, k);
 	}
 
-	public void renderFallenLeaves(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks, int[] minMaxLeaves, int[] minMaxXSize, int[] minMaxZSize, float shade) {
+	private void renderFallenLeaves(IBlockAccess world, int i, int j, int k, Block block, int[] minMaxLeaves, int[] minMaxXSize, int[] minMaxZSize, float shade) {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
 		world.getBlockMetadata(i, j, k);
@@ -732,20 +733,20 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		tessellator.setColorOpaque_F(r, g, b);
 		long seed = i * 237690503L ^ k * 2689286L ^ j;
 		seed = seed * seed * 1732965593L + seed * 673L;
-		blockRand.setSeed(seed);
+		BLOCK_RAND.setSeed(seed);
 		IIcon icon = block.getIcon(world, i, j, k, 0);
-		int leaves = MathHelper.getRandomIntegerInRange(blockRand, minMaxLeaves[0], minMaxLeaves[1]);
+		int leaves = MathHelper.getRandomIntegerInRange(BLOCK_RAND, minMaxLeaves[0], minMaxLeaves[1]);
 		for (int l = 0; l < leaves; ++l) {
-			double posX = i + blockRand.nextFloat();
-			double posZ = k + blockRand.nextFloat();
+			double posX = i + BLOCK_RAND.nextFloat();
+			double posZ = k + BLOCK_RAND.nextFloat();
 			double posY = j + 0.01f + (float) l / leaves * 0.1f;
-			float rotation = blockRand.nextFloat() * 3.1415927f * 2.0f;
-			int xSize = MathHelper.getRandomIntegerInRange(blockRand, minMaxXSize[0], minMaxXSize[1]);
-			int zSize = MathHelper.getRandomIntegerInRange(blockRand, minMaxZSize[0], minMaxZSize[1]);
+			float rotation = BLOCK_RAND.nextFloat() * 3.1415927f * 2.0f;
+			int xSize = MathHelper.getRandomIntegerInRange(BLOCK_RAND, minMaxXSize[0], minMaxXSize[1]);
+			int zSize = MathHelper.getRandomIntegerInRange(BLOCK_RAND, minMaxZSize[0], minMaxZSize[1]);
 			double xSizeD = xSize / 16.0;
 			double zSizeD = zSize / 16.0;
-			int intMinU = MathHelper.getRandomIntegerInRange(blockRand, 0, 16 - xSize);
-			int intMinV = MathHelper.getRandomIntegerInRange(blockRand, 0, 16 - zSize);
+			int intMinU = MathHelper.getRandomIntegerInRange(BLOCK_RAND, 0, 16 - xSize);
+			int intMinV = MathHelper.getRandomIntegerInRange(BLOCK_RAND, 0, 16 - zSize);
 			double minU = icon.getInterpolatedU(intMinU);
 			double minV = icon.getInterpolatedV(intMinV);
 			double maxU = icon.getInterpolatedU(intMinU + xSize);
@@ -766,7 +767,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	public void renderFlowerBlock(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderFlowerBlock(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
 		int color = block.colorMultiplier(world, i, j, k);
@@ -788,7 +789,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.drawCrossedSquares(iicon, i + ((seed >> 16 & 0xFL) / 15.0f - 0.5) * 0.3, j, k + ((seed >> 24 & 0xFL) / 15.0f - 0.5) * 0.3, 1.0f);
 	}
 
-	public void renderFlowerPot(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderFlowerPot(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		float f4;
 		renderblocks.renderStandardBlock(block, i, j, k);
 		Tessellator tessellator = Tessellator.instance;
@@ -841,7 +842,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	public void renderGrapevine(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderGrapevine(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		block.setBlockBoundsForItemRender();
 		renderblocks.setRenderBoundsFromBlock(block);
 		renderblocks.renderStandardBlock(block, i, j, k);
@@ -856,7 +857,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.clearOverrideBlockTexture();
 	}
 
-	public void renderInvBarrel(Block block, RenderBlocks renderblocks) {
+	private void renderInvBarrel(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		renderStandardInvBlock(renderblocks, block, 0.15625, 0.0625, 0.15625, 0.84375, 0.75, 0.84375);
 		for (float f : new float[]{0.25f, 0.5f}) {
@@ -875,7 +876,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	public void renderInvBirdCage(Block block, RenderBlocks renderblocks, int meta) {
+	private void renderInvBirdCage(Block block, RenderBlocks renderblocks, int meta) {
 		renderblocks.renderAllFaces = true;
 		float d = 0.001f;
 		renderStandardInvBlock(renderblocks, block, 0.0, 0.0625, 0.0, 0.0f + d, 1.0, 1.0, meta);
@@ -891,7 +892,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	public void renderInvBomb(Block block, int meta, RenderBlocks renderblocks) {
+	private void renderInvBomb(Block block, int meta, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		renderStandardInvBlock(renderblocks, block, 0.125, 0.1875, 0.125, 0.875, 0.9375, 0.875, meta);
 		renderStandardInvBlock(renderblocks, block, 0.375, 0.9375, 0.375, 0.625, 1.0, 0.625, meta);
@@ -924,7 +925,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	public void renderInvButterflyJar(Block block, RenderBlocks renderblocks) {
+	private void renderInvButterflyJar(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.5625, 0.8125);
 		renderStandardInvBlock(renderblocks, block, 0.1875, 0.0, 0.1875, 0.8125, 0.0625, 0.8125);
@@ -935,7 +936,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	public void renderInvCommandTable(Block block, RenderBlocks renderblocks) {
+	private void renderInvCommandTable(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		renderStandardInvBlock(renderblocks, block, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
 		renderblocks.setOverrideBlockTexture(Blocks.planks.getIcon(0, 0));
@@ -981,7 +982,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			((GOTRenderUnsmeltery) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityUnsmeltery.class)).renderInvUnsmeltery();
 		}
 		if (id == GOT.proxy.getChestRenderID()) {
-			((GOTRenderChest) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityChest.class)).renderInvChest(block, meta);
+			((GOTRenderChest) TileEntityRendererDispatcher.instance.getSpecialRendererByClass(GOTTileEntityChest.class)).renderInvChest(block);
 		}
 		if (id == GOT.proxy.getWasteRenderID()) {
 			renderStandardInvBlock(renderblocks, block, meta);
@@ -1000,7 +1001,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			renderInvBirdCage(block, renderblocks, meta);
 		}
 		if (id == GOT.proxy.getWildFireJarRenderID()) {
-			renderInvWildFireJar(block, renderblocks, meta);
+			renderInvWildFireJar(block, renderblocks);
 		}
 		if (id == GOT.proxy.getCoralRenderID()) {
 			renderStandardInvBlock(renderblocks, block, meta);
@@ -1010,7 +1011,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	public void renderInvFence(Block block, int meta, RenderBlocks renderblocks) {
+	private void renderInvFence(Block block, int meta, RenderBlocks renderblocks) {
 		for (int k = 0; k < 4; ++k) {
 			float f = 0.125f;
 			float f1 = 0.0625f;
@@ -1057,7 +1058,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.setRenderBounds(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
 	}
 
-	public void renderInvStalactite(Block block, int metadata, RenderBlocks renderblocks) {
+	private void renderInvStalactite(Block block, int metadata, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		for (int l = 0; l < 16; ++l) {
 			if (metadata == 0) {
@@ -1069,7 +1070,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	public void renderInvWildFireJar(Block block, RenderBlocks renderblocks, int meta) {
+	private void renderInvWildFireJar(Block block, RenderBlocks renderblocks) {
 		renderblocks.renderAllFaces = true;
 		GOTBlockWildFireJar.renderingStage = 1;
 		renderStandardInvBlock(renderblocks, block, 0.125, 0.0, 0.125, 0.875, 0.5, 0.875);
@@ -1089,7 +1090,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.renderAllFaces = false;
 	}
 
-	public void renderPlate(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderPlate(int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -1101,7 +1102,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	public void renderReeds(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderReeds(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		block.setBlockBoundsBasedOnState(world, i, j, k);
 		renderblocks.setRenderBoundsFromBlock(block);
 		Tessellator tessellator = Tessellator.instance;
@@ -1141,7 +1142,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	public void renderRope(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderRope(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		double ropeWidth = 0.125;
 		double ropeMinX = 0.5 - ropeWidth / 2.0;
 		double ropeMaxX = 1.0 - ropeMinX;
@@ -1196,7 +1197,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	public void renderStalactite(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderStalactite(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -1214,7 +1215,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		setAO(ao);
 	}
 
-	public void renderTrapdoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderTrapdoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int meta = world.getBlockMetadata(i, j, k);
 		if (!BlockTrapDoor.func_150118_d(meta)) {
 			int dir = meta & 3;
@@ -1244,7 +1245,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		renderblocks.uvRotateTop = 0;
 	}
 
-	public void renderVanillaCauldron(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderVanillaCauldron(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		renderblocks.renderStandardBlock(block, i, j, k);
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.setBrightness(block.getMixedBrightnessForBlock(world, i, j, k));
@@ -1282,7 +1283,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 	}
 
-	public void renderWildFireJar(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
+	private void renderWildFireJar(int i, int j, int k, Block block, RenderBlocks renderblocks) {
 		int ao = getAO();
 		setAO(0);
 		renderblocks.renderAllFaces = true;
@@ -1334,7 +1335,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			return true;
 		}
 		if (id == GOT.proxy.getPlateRenderID()) {
-			renderPlate(world, i, j, k, block, renderblocks);
+			renderPlate(i, j, k, block, renderblocks);
 			return true;
 		}
 		if (id == GOT.proxy.getStalactiteRenderID()) {
@@ -1365,17 +1366,17 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		if (id == GOT.proxy.getFallenLeavesRenderID()) {
 			if (fancyGraphics) {
-				renderFallenLeaves(world, i, j, k, block, renderblocks, new int[]{6, 10}, new int[]{2, 6}, new int[]{2, 6}, 0.7f);
+				renderFallenLeaves(world, i, j, k, block, new int[]{6, 10}, new int[]{2, 6}, new int[]{2, 6}, 0.7f);
 				return true;
 			}
 			return renderblocks.renderStandardBlock(block, i, j, k);
 		}
 		if (id == GOT.proxy.getCommandTableRenderID()) {
-			renderCommandTable(world, i, j, k, block, renderblocks);
+			renderCommandTable(i, j, k, block, renderblocks);
 			return true;
 		}
 		if (id == GOT.proxy.getButterflyJarRenderID()) {
-			renderButterflyJar(world, i, j, k, block, renderblocks);
+			renderButterflyJar(i, j, k, block, renderblocks);
 			return true;
 		}
 		if (id == GOT.proxy.getUnsmelteryRenderID() || id == GOT.proxy.getChestRenderID()) {
@@ -1386,7 +1387,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			return true;
 		}
 		if (id == GOT.proxy.getWasteRenderID()) {
-			renderBlockRandomRotated(world, i, j, k, block, renderblocks, true);
+			renderBlockRandomRotated(i, j, k, block, renderblocks, true);
 			return true;
 		}
 		if (id == GOT.proxy.getBeamRenderID()) {
@@ -1403,13 +1404,13 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		}
 		if (id == GOT.proxy.getThatchFloorRenderID()) {
 			if (fancyGraphics) {
-				renderFallenLeaves(world, i, j, k, block, renderblocks, new int[]{10, 16}, new int[]{6, 12}, new int[]{1, 1}, 1.0f);
+				renderFallenLeaves(world, i, j, k, block, new int[]{10, 16}, new int[]{6, 12}, new int[]{1, 1}, 1.0f);
 				return true;
 			}
 			return renderblocks.renderStandardBlock(block, i, j, k);
 		}
 		if (id == GOT.proxy.getTreasureRenderID()) {
-			renderBlockRandomRotated(world, i, j, k, block, renderblocks, false);
+			renderBlockRandomRotated(i, j, k, block, renderblocks, false);
 			return true;
 		}
 		if (id == GOT.proxy.getFlowerRenderID()) {
@@ -1425,7 +1426,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 			return true;
 		}
 		if (id == GOT.proxy.getWildFireJarRenderID()) {
-			renderWildFireJar(world, i, j, k, block, renderblocks);
+			renderWildFireJar(i, j, k, block, renderblocks);
 			return true;
 		}
 		if (id == GOT.proxy.getCoralRenderID()) {

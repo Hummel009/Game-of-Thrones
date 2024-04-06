@@ -464,7 +464,7 @@ public class GOTItemMug extends Item {
 			for (int i = 0; i < Vessel.values().length; ++i) {
 				drinkIcons[i] = GOTDrinkIcons.registerDrinkIcon(iconregister, this, getIconString(), Vessel.values()[i].name);
 			}
-			liquidIcon = GOTDrinkIcons.registerLiquidIcon(iconregister, this, getIconString());
+			liquidIcon = GOTDrinkIcons.registerLiquidIcon(iconregister, getIconString());
 			barrelGui_emptyBucketSlotIcon = iconregister.registerIcon("got:barrel_empty_bucket_slot");
 			barrelGui_emptyMugSlotIcon = iconregister.registerIcon("got:barrel_empty_mug_slot");
 		} else {

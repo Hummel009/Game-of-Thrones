@@ -35,7 +35,7 @@ public class GOTModelCompass extends ModelBase {
 		GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
 		texturemanager.bindTexture(COMPASS_TEXTURE);
 		compass.render(scale * 2.0f);
-		texturemanager.bindTexture(GOTRenderCompass.ringTexture);
+		texturemanager.bindTexture(GOTRenderCompass.RING_TEXTURE);
 		port.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		GL11.glDisable(32826);
 		GL11.glEnable(2884);

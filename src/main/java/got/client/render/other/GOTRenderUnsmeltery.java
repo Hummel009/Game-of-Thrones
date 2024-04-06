@@ -10,9 +10,9 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderUnsmeltery extends TileEntitySpecialRenderer {
-	public ModelBase unsmelteryModel = new GOTModelUnsmeltery();
-	public ResourceLocation idleTexture = new ResourceLocation("got:textures/model/unsmeltery/idle.png");
-	public ResourceLocation activeTexture = new ResourceLocation("got:textures/model/unsmeltery/active.png");
+	private static final ModelBase UNSMELTERY_MODEL = new GOTModelUnsmeltery();
+	private static final ResourceLocation IDLE_TEXTURE = new ResourceLocation("got:textures/model/unsmeltery/idle.png");
+	private static final ResourceLocation ACTIVE_TEXTURE = new ResourceLocation("got:textures/model/unsmeltery/active.png");
 
 	public void renderInvUnsmeltery() {
 		GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
@@ -50,11 +50,11 @@ public class GOTRenderUnsmeltery extends TileEntitySpecialRenderer {
 		GL11.glRotatef(rotation, 0.0f, 1.0f, 0.0f);
 		boolean useActiveTexture = unsmeltery != null && GOTBlockForgeBase.isForgeActive(unsmeltery.getWorldObj(), unsmeltery.xCoord, unsmeltery.yCoord, unsmeltery.zCoord);
 		if (useActiveTexture) {
-			bindTexture(activeTexture);
+			bindTexture(ACTIVE_TEXTURE);
 		} else {
-			bindTexture(idleTexture);
+			bindTexture(IDLE_TEXTURE);
 		}
-		unsmelteryModel.render(null, rocking, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+		UNSMELTERY_MODEL.render(null, rocking, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 		GL11.glPopMatrix();
 	}
 }

@@ -17,26 +17,26 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderMug extends TileEntitySpecialRenderer {
-	public static ResourceLocation mugTexture = new ResourceLocation("got:textures/model/mug.png");
-	public static ResourceLocation mugClayTexture = new ResourceLocation("got:textures/model/mug_clay.png");
-	public static ResourceLocation gobletGoldTexture = new ResourceLocation("got:textures/model/goblet_gold.png");
-	public static ResourceLocation gobletSilverTexture = new ResourceLocation("got:textures/model/goblet_silver.png");
-	public static ResourceLocation gobletCopperTexture = new ResourceLocation("got:textures/model/goblet_copper.png");
-	public static ResourceLocation gobletWoodTexture = new ResourceLocation("got:textures/model/goblet_wood.png");
-	public static ResourceLocation skullTexture = new ResourceLocation("got:textures/model/skull_cup.png");
-	public static ResourceLocation glassTexture = new ResourceLocation("got:textures/model/wine_glass.png");
-	public static ResourceLocation bottleTexture = new ResourceLocation("got:textures/model/glass_bottle.png");
-	public static ResourceLocation hornTexture = new ResourceLocation("got:textures/model/ale_horn.png");
-	public static ResourceLocation hornGoldTexture = new ResourceLocation("got:textures/model/ale_horn_gold.png");
-	public static ModelBase mugotel = new GOTModelMug();
-	public static ModelBase gobletModel = new GOTModelGoblet();
-	public static ModelBase skullModel = new GOTModelSkullCup();
-	public static ModelBase glassModel = new GOTModelWineGlass();
-	public static ModelBase bottleModel = new GOTModelGlassBottle();
-	public static GOTModelAleHorn hornModel = new GOTModelAleHorn();
-	public static RenderBlocks renderBlocks = new RenderBlocks();
+	private static final ResourceLocation MUG_TEXTURE = new ResourceLocation("got:textures/model/mug.png");
+	private static final ResourceLocation MUG_CLAY_TEXTURE = new ResourceLocation("got:textures/model/mug_clay.png");
+	private static final ResourceLocation GOBLET_GOLD_TEXTURE = new ResourceLocation("got:textures/model/goblet_gold.png");
+	private static final ResourceLocation GOBLET_SILVER_TEXTURE = new ResourceLocation("got:textures/model/goblet_silver.png");
+	private static final ResourceLocation GOBLET_COPPER_TEXTURE = new ResourceLocation("got:textures/model/goblet_copper.png");
+	private static final ResourceLocation GOBLET_WOOD_TEXTURE = new ResourceLocation("got:textures/model/goblet_wood.png");
+	private static final ResourceLocation SKULL_TEXTURE = new ResourceLocation("got:textures/model/skull_cup.png");
+	private static final ResourceLocation GLASS_TEXTURE = new ResourceLocation("got:textures/model/wine_glass.png");
+	private static final ResourceLocation BOTTLE_TEXTURE = new ResourceLocation("got:textures/model/glass_bottle.png");
+	private static final ResourceLocation HORN_TEXTURE = new ResourceLocation("got:textures/model/ale_horn.png");
+	private static final ResourceLocation HORN_GOLD_TEXTURE = new ResourceLocation("got:textures/model/ale_horn_gold.png");
+	private static final ModelBase MUGOTEL = new GOTModelMug();
+	private static final ModelBase GOBLET_MODEL = new GOTModelGoblet();
+	private static final ModelBase SKULL_MODEL = new GOTModelSkullCup();
+	private static final ModelBase GLASS_MODEL = new GOTModelWineGlass();
+	private static final ModelBase BOTTLE_MODEL = new GOTModelGlassBottle();
+	private static final GOTModelAleHorn HORN_MODEL = new GOTModelAleHorn();
+	private static final RenderBlocks RENDER_BLOCKS = new RenderBlocks();
 
-	public void renderLiquid(IIcon icon, int uvMin, int uvMax, double yMin, double yMax, float scale) {
+	private void renderLiquid(IIcon icon, int uvMin, int uvMax, double yMin, double yMax, float scale) {
 		double yMin1 = yMin;
 		double yMax1 = yMax;
 		double edge = 0.001;
@@ -49,13 +49,13 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		yMax1 *= scale;
 		GL11.glPushMatrix();
 		GL11.glTranslatef(dxz, -0.5f, dxz);
-		renderBlocks.setOverrideBlockTexture(icon);
-		GOTRenderBlocks.renderStandardInvBlock(renderBlocks, GOTBlocks.mug, xzMin += edge, yMax1 - edge, xzMin, xzMax -= edge, yMin1 + edge, xzMax);
-		renderBlocks.clearOverrideBlockTexture();
+		RENDER_BLOCKS.setOverrideBlockTexture(icon);
+		GOTRenderBlocks.renderStandardInvBlock(RENDER_BLOCKS, GOTBlocks.mug, xzMin += edge, yMax1 - edge, xzMin, xzMax -= edge, yMin1 + edge, xzMax);
+		RENDER_BLOCKS.clearOverrideBlockTexture();
 		GL11.glPopMatrix();
 	}
 
-	public void renderMeniscus(IIcon icon, int uvMin, int uvMax, double width, double height, float scale) {
+	private void renderMeniscus(IIcon icon, int uvMin, int uvMax, double width, double height, float scale) {
 		double width1 = width;
 		double height1 = height;
 		float minU = icon.getInterpolatedU(uvMin);
@@ -120,7 +120,7 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 			} else if (vessel == GOTItemMug.Vessel.BOTTLE) {
 				renderLiquid(liquidIcon, 6, 10, 1.0, 5.0, scale);
 			} else if (vessel == GOTItemMug.Vessel.HORN || vessel == GOTItemMug.Vessel.HORN_GOLD) {
-				hornModel.prepareLiquid(scale);
+				HORN_MODEL.prepareLiquid(scale);
 				renderMeniscus(liquidIcon, 6, 9, -1.5, 5.0, scale);
 			}
 			GL11.glPopMatrix();
@@ -129,40 +129,40 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		GL11.glPushMatrix();
 		ModelBase model = null;
 		if (vessel == GOTItemMug.Vessel.MUG) {
-			bindTexture(mugTexture);
-			model = mugotel;
+			bindTexture(MUG_TEXTURE);
+			model = MUGOTEL;
 		} else if (vessel == GOTItemMug.Vessel.MUG_CLAY) {
-			bindTexture(mugClayTexture);
-			model = mugotel;
+			bindTexture(MUG_CLAY_TEXTURE);
+			model = MUGOTEL;
 		} else if (vessel == GOTItemMug.Vessel.GOBLET_GOLD) {
-			bindTexture(gobletGoldTexture);
-			model = gobletModel;
+			bindTexture(GOBLET_GOLD_TEXTURE);
+			model = GOBLET_MODEL;
 		} else if (vessel == GOTItemMug.Vessel.GOBLET_SILVER) {
-			bindTexture(gobletSilverTexture);
-			model = gobletModel;
+			bindTexture(GOBLET_SILVER_TEXTURE);
+			model = GOBLET_MODEL;
 		} else if (vessel == GOTItemMug.Vessel.GOBLET_COPPER) {
-			bindTexture(gobletCopperTexture);
-			model = gobletModel;
+			bindTexture(GOBLET_COPPER_TEXTURE);
+			model = GOBLET_MODEL;
 		} else if (vessel == GOTItemMug.Vessel.GOBLET_WOOD) {
-			bindTexture(gobletWoodTexture);
-			model = gobletModel;
+			bindTexture(GOBLET_WOOD_TEXTURE);
+			model = GOBLET_MODEL;
 		} else if (vessel == GOTItemMug.Vessel.SKULL) {
-			bindTexture(skullTexture);
-			model = skullModel;
+			bindTexture(SKULL_TEXTURE);
+			model = SKULL_MODEL;
 		} else if (vessel == GOTItemMug.Vessel.GLASS) {
-			bindTexture(glassTexture);
-			model = glassModel;
+			bindTexture(GLASS_TEXTURE);
+			model = GLASS_MODEL;
 			GL11.glEnable(2884);
 		} else if (vessel == GOTItemMug.Vessel.BOTTLE) {
-			bindTexture(bottleTexture);
-			model = bottleModel;
+			bindTexture(BOTTLE_TEXTURE);
+			model = BOTTLE_MODEL;
 			GL11.glEnable(2884);
 		} else if (vessel == GOTItemMug.Vessel.HORN) {
-			bindTexture(hornTexture);
-			model = hornModel;
+			bindTexture(HORN_TEXTURE);
+			model = HORN_MODEL;
 		} else if (vessel == GOTItemMug.Vessel.HORN_GOLD) {
-			bindTexture(hornGoldTexture);
-			model = hornModel;
+			bindTexture(HORN_GOLD_TEXTURE);
+			model = HORN_MODEL;
 		}
 		if (model != null) {
 			model.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
@@ -172,6 +172,5 @@ public class GOTRenderMug extends TileEntitySpecialRenderer {
 		GL11.glDisable(3042);
 		GL11.glEnable(2884);
 		GL11.glDisable(32826);
-
 	}
 }

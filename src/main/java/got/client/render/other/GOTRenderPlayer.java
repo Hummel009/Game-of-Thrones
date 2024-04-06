@@ -14,7 +14,6 @@ import got.common.fellowship.GOTFellowshipClient;
 import got.common.world.GOTWorldProvider;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.entity.RendererLivingEntity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -28,9 +27,8 @@ import java.util.List;
 import java.util.UUID;
 
 public class GOTRenderPlayer {
-	public Minecraft mc = Minecraft.getMinecraft();
-	public RenderManager renderManager = RenderManager.instance;
-	public ModelBiped playerModel = new ModelBiped(0.0f);
+	private static final Minecraft MC = Minecraft.getMinecraft();
+	private static final RenderManager RENDER_MANAGER = RenderManager.instance;
 
 	public GOTRenderPlayer() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -51,11 +49,11 @@ public class GOTRenderPlayer {
 		float fr1 = f1 - (float) d1;
 		float fr2 = f2 - (float) d2;
 		float yOffset = entityplayer.isPlayerSleeping() ? -1.5f : 0.0f;
-		if (shouldRenderAlignment(entityplayer) && (mc.theWorld.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment)) {
-			GOTPlayerData clientPD = GOTLevelData.getData(mc.thePlayer);
+		if (shouldRenderAlignment(entityplayer) && (MC.theWorld.provider instanceof GOTWorldProvider || GOTConfig.alwaysShowAlignment)) {
+			GOTPlayerData clientPD = GOTLevelData.getData(MC.thePlayer);
 			GOTPlayerData otherPD = GOTLevelData.getData(entityplayer);
 			float alignment = otherPD.getAlignment(clientPD.getViewingFaction());
-			double dist = entityplayer.getDistanceSqToEntity(renderManager.livingPlayer);
+			double dist = entityplayer.getDistanceSqToEntity(RENDER_MANAGER.livingPlayer);
 			float range = RendererLivingEntity.NAME_TAG_RANGE;
 			if (dist < range * range) {
 				FontRenderer fr = Minecraft.getMinecraft().fontRenderer;
@@ -63,8 +61,8 @@ public class GOTRenderPlayer {
 				GL11.glTranslatef(fr0, fr1, fr2);
 				GL11.glTranslatef(0.0f, entityplayer.height + 0.6f + yOffset, 0.0f);
 				GL11.glNormal3f(0.0f, 1.0f, 0.0f);
-				GL11.glRotatef(-renderManager.playerViewY, 0.0f, 1.0f, 0.0f);
-				GL11.glRotatef(renderManager.playerViewX, 1.0f, 0.0f, 0.0f);
+				GL11.glRotatef(-RENDER_MANAGER.playerViewY, 0.0f, 1.0f, 0.0f);
+				GL11.glRotatef(RENDER_MANAGER.playerViewX, 1.0f, 0.0f, 0.0f);
 				GL11.glScalef(-1.0f, -1.0f, 1.0f);
 				float scale = 0.025f;
 				GL11.glScalef(scale, scale, scale);
@@ -75,7 +73,7 @@ public class GOTRenderPlayer {
 				GL11.glBlendFunc(770, 771);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				String sAlign = GOTAlignmentValues.formatAlignForDisplay(alignment);
-				mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
+				MC.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
 				GOTTickHandlerClient.drawTexturedModalRect(-MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -19.0, 0, 36, 16, 16);
 				GOTTickHandlerClient.drawAlignmentText(fr, 18 - MathHelper.floor_double((fr.getStringWidth(sAlign) + 18) / 2.0), -12, sAlign, 1.0f);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -124,7 +122,7 @@ public class GOTRenderPlayer {
 		if (shield != null) {
 			if (!entityplayer.isInvisible()) {
 				GOTRenderShield.renderShield(shield, entityplayer, event.renderer.modelBipedMain);
-			} else if (!entityplayer.isInvisibleToPlayer(mc.thePlayer)) {
+			} else if (!entityplayer.isInvisibleToPlayer(MC.thePlayer)) {
 				GL11.glPushMatrix();
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.15f);
 				GL11.glDepthMask(false);
@@ -152,7 +150,7 @@ public class GOTRenderPlayer {
 				mc.getTextureManager().bindTexture(capeTexture);
 				event.renderer.modelBipedMain.renderCloak(0.0625f);
 				GL11.glPopMatrix();
-			} else if (!entityplayer.isInvisibleToPlayer(mc.thePlayer)) {
+			} else if (!entityplayer.isInvisibleToPlayer(MC.thePlayer)) {
 				GL11.glPushMatrix();
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.15f);
 				GL11.glDepthMask(false);
@@ -181,11 +179,11 @@ public class GOTRenderPlayer {
 		}
 	}
 
-	public boolean shouldRenderAlignment(EntityPlayer entityplayer) {
+	private boolean shouldRenderAlignment(EntityPlayer entityplayer) {
 		if (GOTConfig.displayAlignmentAboveHead && shouldRenderPlayerHUD(entityplayer)) {
 			if (GOTLevelData.getData(entityplayer).getHideAlignment()) {
 				UUID playerUuid = entityplayer.getUniqueID();
-				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
+				List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MC.thePlayer).getClientFellowships();
 				for (GOTFellowshipClient fs : fellowships) {
 					if (fs.containsPlayer(playerUuid)) {
 						return true;
@@ -198,9 +196,9 @@ public class GOTRenderPlayer {
 		return false;
 	}
 
-	public boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
+	private boolean shouldRenderFellowPlayerHealth(EntityPlayer entityplayer) {
 		if (GOTConfig.fellowPlayerHealthBars && shouldRenderPlayerHUD(entityplayer)) {
-			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(mc.thePlayer).getClientFellowships();
+			List<GOTFellowshipClient> fellowships = GOTLevelData.getData(MC.thePlayer).getClientFellowships();
 			for (GOTFellowshipClient fs : fellowships) {
 				if (fs.containsPlayer(entityplayer.getUniqueID())) {
 					return true;
@@ -210,7 +208,7 @@ public class GOTRenderPlayer {
 		return false;
 	}
 
-	public boolean shouldRenderPlayerHUD(EntityPlayer entityplayer) {
-		return Minecraft.isGuiEnabled() && entityplayer != renderManager.livingPlayer && !entityplayer.isSneaking() && !entityplayer.isInvisibleToPlayer(mc.thePlayer);
+	private boolean shouldRenderPlayerHUD(EntityPlayer entityplayer) {
+		return Minecraft.isGuiEnabled() && entityplayer != RENDER_MANAGER.livingPlayer && !entityplayer.isSneaking() && !entityplayer.isInvisibleToPlayer(MC.thePlayer);
 	}
 }

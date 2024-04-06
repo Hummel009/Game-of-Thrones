@@ -18,14 +18,14 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.Random;
 
-public class GOTRenderWeather extends IRenderHandler {
-	public static ResourceLocation rainTexture = new ResourceLocation("got:textures/weather/rain.png");
-	public static ResourceLocation snowTexture = new ResourceLocation("got:textures/weather/snow.png");
-	public static ResourceLocation ashTexture = new ResourceLocation("got:textures/weather/ash.png");
-	public static ResourceLocation sandstormTexture = new ResourceLocation("got:textures/weather/sandstorm.png");
-	public Random rand = new Random();
-	public float[] rainXCoords;
-	public float[] rainYCoords;
+public class GOTWeatherRenderer extends IRenderHandler {
+	private static final ResourceLocation rainTexture = new ResourceLocation("got:textures/weather/rain.png");
+	private static final ResourceLocation snowTexture = new ResourceLocation("got:textures/weather/snow.png");
+	private static final ResourceLocation ashTexture = new ResourceLocation("got:textures/weather/ash.png");
+	private static final ResourceLocation sandstormTexture = new ResourceLocation("got:textures/weather/sandstorm.png");
+	private final Random rand = new Random();
+	private float[] rainXCoords;
+	private float[] rainYCoords;
 
 	public static boolean isSandstormBiome(BiomeGenBase biome) {
 		return biome instanceof GOTBiome.Desert || biome.topBlock.getMaterial() == Material.sand;

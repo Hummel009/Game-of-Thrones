@@ -14,7 +14,7 @@ import org.lwjgl.opengl.GL11;
 import java.util.Random;
 
 public class GOTRenderPlateFood extends TileEntitySpecialRenderer {
-	public Random rand = new Random();
+	private static final Random RAND = new Random();
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
@@ -47,8 +47,8 @@ public class GOTRenderPlateFood extends TileEntitySpecialRenderer {
 				offset = Math.max(offset, lowerOffset);
 				GL11.glTranslatef(0.0F, offset, 0.0F);
 				lowerOffset = offset + 0.03125F;
-				rand.setSeed(plate.xCoord * 3129871L ^ plate.zCoord * 116129781L ^ plate.yCoord + l * 5930563L);
-				float rotation = rand.nextFloat() * 360.0F;
+				RAND.setSeed(plate.xCoord * 3129871L ^ plate.zCoord * 116129781L ^ plate.yCoord + l * 5930563L);
+				float rotation = RAND.nextFloat() * 360.0F;
 				GL11.glRotatef(rotation, 0.0F, 1.0F, 0.0F);
 				GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
 				GL11.glTranslatef(-0.25F, -0.25F, 0.0F);

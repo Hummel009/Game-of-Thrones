@@ -16,9 +16,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTDrinkIcons {
-	public static int maskColor = 16711935;
-	public static Map<String, BufferedImage> vesselIcons = new HashMap<>();
-	public static Map<Item, BufferedImage> liquidIcons = new HashMap<>();
+	private static final Map<String, BufferedImage> vesselIcons = new HashMap<>();
+	private static final Map<Item, BufferedImage> liquidIcons = new HashMap<>();
 
 	private GOTDrinkIcons() {
 	}
@@ -48,6 +47,7 @@ public class GOTDrinkIcons {
 			for (int i = 0; i < iconImage.getWidth(); ++i) {
 				for (int j = 0; j < iconImage.getHeight(); ++j) {
 					int rgb = vesselIcon.getRGB(i, j);
+					int maskColor = 16711935;
 					if ((rgb & 0xFFFFFF) == maskColor) {
 						rgb = liquidIcon.getRGB(i, j);
 					}
@@ -66,7 +66,7 @@ public class GOTDrinkIcons {
 		}
 	}
 
-	public static IIcon registerLiquidIcon(IIconRegister iconregister, Item item, String itemName) {
+	public static IIcon registerLiquidIcon(IIconRegister iconregister, String itemName) {
 		return iconregister.registerIcon(itemName + "_liquid");
 	}
 }

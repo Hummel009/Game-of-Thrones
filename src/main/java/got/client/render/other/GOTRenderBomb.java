@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBomb extends Render {
-	public RenderBlocks blockRenderer = new RenderBlocks();
+	private static final RenderBlocks BLOCK_RENDERER = new RenderBlocks();
 
 	public GOTRenderBomb() {
 		shadowSize = 0.5f;
@@ -27,7 +27,7 @@ public class GOTRenderBomb extends Render {
 		return TextureMap.locationBlocksTexture;
 	}
 
-	public void renderBomb(Entity entity, double d, double d1, double d2, float ticks, int fuse, int strengthLevel, float bombScale, float brightness) {
+	private void renderBomb(Entity entity, double d, double d1, double d2, float ticks, int fuse, int strengthLevel, float bombScale, float brightness) {
 		float f2;
 		GL11.glPushMatrix();
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
@@ -47,14 +47,14 @@ public class GOTRenderBomb extends Render {
 		}
 		f2 = (1.0f - (fuse - ticks + 1.0f) / 100.0f) * 0.8f;
 		bindEntityTexture(entity);
-		blockRenderer.renderBlockAsItem(GOTBlocks.bomb, strengthLevel, brightness);
+		BLOCK_RENDERER.renderBlockAsItem(GOTBlocks.bomb, strengthLevel, brightness);
 		if (fuse / 5 % 2 == 0) {
 			GL11.glDisable(3553);
 			GL11.glDisable(2896);
 			GL11.glEnable(3042);
 			GL11.glBlendFunc(770, 772);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, f2);
-			blockRenderer.renderBlockAsItem(GOTBlocks.bomb, strengthLevel, 1.0f);
+			BLOCK_RENDERER.renderBlockAsItem(GOTBlocks.bomb, strengthLevel, 1.0f);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			GL11.glDisable(3042);
 			GL11.glEnable(2896);

@@ -11,10 +11,9 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderCompass extends Render {
-	public static ResourceLocation ringTexture = new ResourceLocation("got:textures/misc/portal.png");
-	public static ModelBase ringotel = new GOTModelPortal(0);
-	public static ModelBase writingotelOuter = new GOTModelPortal(1);
-	public static ModelBase writingotelInner = new GOTModelPortal(1);
+	public static final ResourceLocation RING_TEXTURE = new ResourceLocation("got:textures/misc/portal.png");
+
+	private static final ModelBase RINGOTEL = new GOTModelPortal(0);
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -34,7 +33,7 @@ public class GOTRenderCompass extends Render {
 		GL11.glRotatef(10.0f, 1.0f, 0.0f, 0.0f);
 		bindTexture(getEntityTexture(portal));
 		float scale = 0.0625f;
-		ringotel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
+		RINGOTEL.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		GL11.glDisable(2896);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		Tessellator.instance.setBrightness(GOTClientProxy.TESSELLATOR_MAX_BRIGHTNESS);
@@ -46,6 +45,6 @@ public class GOTRenderCompass extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return ringTexture;
+		return RING_TEXTURE;
 	}
 }

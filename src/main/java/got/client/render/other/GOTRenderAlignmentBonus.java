@@ -85,7 +85,7 @@ public class GOTRenderAlignmentBonus extends Render {
 			GL11.glBlendFunc(770, 771);
 			int age = alignmentBonus.getParticleAge();
 			float alpha = age < 60 ? 1.0f : (80 - age) / 20.0f;
-			renderBonusText(alignmentBonus, playerData, viewingFaction, renderFaction, !factionBonusMap.isEmpty(), renderBonus, showConquest, alpha);
+			renderBonusText(alignmentBonus, viewingFaction, renderFaction, !factionBonusMap.isEmpty(), renderBonus, showConquest, alpha);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			GL11.glDisable(3042);
 			GL11.glEnable(2929);
@@ -100,7 +100,7 @@ public class GOTRenderAlignmentBonus extends Render {
 		return GOTClientProxy.alignmentTexture;
 	}
 
-	public void renderBonusText(GOTEntityAlignmentBonus alignmentBonus, GOTPlayerData playerData, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {
+	private void renderBonusText(GOTEntityAlignmentBonus alignmentBonus, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {
 		Minecraft mc = Minecraft.getMinecraft();
 		FontRenderer fr = mc.fontRenderer;
 		String strAlign = GOTAlignmentValues.formatAlignForDisplay(align);

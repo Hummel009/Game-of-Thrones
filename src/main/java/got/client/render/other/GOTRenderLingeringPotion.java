@@ -1,7 +1,5 @@
 package got.client.render.other;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityLingeringPotion;
 import net.minecraft.client.renderer.Tessellator;
@@ -12,18 +10,16 @@ import net.minecraft.util.IIcon;
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-@SideOnly(Side.CLIENT)
 public class GOTRenderLingeringPotion extends RenderSnowball {
-
 	public GOTRenderLingeringPotion() {
 		super(GOTItems.lingeringPotion);
 	}
 
-	public static void colour(float r, float g, float b) {
+	private static void colour(float r, float g, float b) {
 		GL11.glColor3f(r, g, b);
 	}
 
-	public static void colour(int colour) {
+	private static void colour(int colour) {
 		float r = (colour >> 16 & 255) / 255.0F;
 		float g = (colour >> 8 & 255) / 255.0F;
 		float b = (colour & 255) / 255.0F;
@@ -31,39 +27,39 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 		colour(r, g, b);
 	}
 
-	public static void disable(int cap) {
+	private static void disable(int cap) {
 		GL11.glDisable(cap);
 	}
 
-	public static void disableRescaleNormal() {
+	private static void disableRescaleNormal() {
 		disable(GL12.GL_RESCALE_NORMAL);
 	}
 
-	public static void enable(int cap) {
+	private static void enable(int cap) {
 		GL11.glEnable(cap);
 	}
 
-	public static void enableRescaleNormal() {
+	private static void enableRescaleNormal() {
 		enable(GL12.GL_RESCALE_NORMAL);
 	}
 
-	public static void popMatrix() {
+	private static void popMatrix() {
 		GL11.glPopMatrix();
 	}
 
-	public static void pushMatrix() {
+	private static void pushMatrix() {
 		GL11.glPushMatrix();
 	}
 
-	public static void rotate(float angle, float x, float y, float z) {
+	private static void rotate(float angle, float x, float y, float z) {
 		GL11.glRotatef(angle, x, y, z);
 	}
 
-	public static void scale(double x, double y, double z) {
+	private static void scale(double x, double y, double z) {
 		GL11.glScaled(x, y, z);
 	}
 
-	public static void translate(double x, double y, double z) {
+	private static void translate(double x, double y, double z) {
 		GL11.glTranslated(x, y, z);
 	}
 
@@ -107,7 +103,7 @@ public class GOTRenderLingeringPotion extends RenderSnowball {
 		popMatrix();
 	}
 
-	public void renderIcon(IIcon icon) {
+	private void renderIcon(IIcon icon) {
 		Tessellator tessellator = Tessellator.instance;
 
 		float minU = icon.getMinU();

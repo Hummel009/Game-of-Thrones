@@ -14,12 +14,10 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBlade implements IItemRenderer {
-	public double distance;
-	public GOTRenderLargeItem largeItemRenderer;
-	public GOTRenderLargeItem.ExtraLargeIconToken tokenGlowing;
+	private final GOTRenderLargeItem largeItemRenderer;
+	private GOTExtraLargeIconToken tokenGlowing;
 
-	public GOTRenderBlade(double d, GOTRenderLargeItem large) {
-		distance = d;
+	public GOTRenderBlade(GOTRenderLargeItem large) {
 		largeItemRenderer = large;
 		if (largeItemRenderer != null) {
 			tokenGlowing = largeItemRenderer.extraIcon("glowing");

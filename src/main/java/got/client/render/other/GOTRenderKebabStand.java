@@ -12,20 +12,20 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
-	public static GOTModelKebabStand standModel = new GOTModelKebabStand();
-	public static Map<String, ResourceLocation> standTextures = new HashMap<>();
-	public static ResourceLocation rawTexture = new ResourceLocation("got:textures/model/kebab/raw.png");
-	public static ResourceLocation cookedTexture = new ResourceLocation("got:textures/model/kebab/cooked.png");
+	private static final GOTModelKebabStand STAND_MODEL = new GOTModelKebabStand();
+	private static final Map<String, ResourceLocation> STAND_TEXTURES = new HashMap<>();
+	private static final ResourceLocation RAW_TEXTURE = new ResourceLocation("got:textures/model/kebab/raw.png");
+	private static final ResourceLocation COOKED_TEXTURE = new ResourceLocation("got:textures/model/kebab/cooked.png");
 
-	public static ResourceLocation getStandTexture(GOTTileEntityKebabStand kebabStand) {
+	private static ResourceLocation getStandTexture(GOTTileEntityKebabStand kebabStand) {
 		String s = kebabStand.getStandTextureName();
 		if (!StringUtils.isNullOrEmpty(s)) {
 			s = '_' + s;
 		}
-		ResourceLocation r = standTextures.get(s = "stand" + s);
+		ResourceLocation r = STAND_TEXTURES.get(s = "stand" + s);
 		if (r == null) {
 			r = new ResourceLocation("got:textures/model/kebab/" + s + ".png");
-			standTextures.put(s, r);
+			STAND_TEXTURES.put(s, r);
 		}
 		return r;
 	}
@@ -55,17 +55,17 @@ public class GOTRenderKebabStand extends TileEntitySpecialRenderer {
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
 		float scale = 0.0625f;
 		bindTexture(getStandTexture(kebabStand));
-		standModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
+		STAND_MODEL.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		int meatAmount = kebabStand.getMeatAmount();
 		if (meatAmount > 0) {
 			boolean cooked = kebabStand.isCooked();
 			if (cooked) {
-				bindTexture(cookedTexture);
+				bindTexture(COOKED_TEXTURE);
 			} else {
-				bindTexture(rawTexture);
+				bindTexture(RAW_TEXTURE);
 			}
 			float spin = kebabStand.getKebabSpin(f);
-			standModel.renderKebab(scale, meatAmount, spin);
+			STAND_MODEL.renderKebab(scale, meatAmount, spin);
 		}
 		GL11.glEnable(2884);
 		GL11.glDisable(32826);

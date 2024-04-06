@@ -4,7 +4,7 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.GOT;
 import got.client.GOTTickHandlerClient;
-import got.client.render.other.GOTRenderWeather;
+import got.client.render.other.GOTWeatherRenderer;
 import got.common.GOTConfig;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.essos.GOTBiomeMossovy;
@@ -123,7 +123,7 @@ public class GOTAmbience {
 						if (rand.nextInt(20) == 0) {
 							minWindHeight -= 20;
 						}
-						if (GOTRenderWeather.isSandstormBiome(biome)) {
+						if (GOTWeatherRenderer.isSandstormBiome(biome)) {
 							minWindHeight = 60;
 							fullWindHeight = 80;
 						}

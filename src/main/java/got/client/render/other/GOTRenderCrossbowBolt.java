@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderCrossbowBolt extends Render {
-	public static ResourceLocation boltTexture = new ResourceLocation("got:textures/model/crossbow_bolt.png");
+	private static final ResourceLocation BOLT_TEXTURE = new ResourceLocation("got:textures/model/crossbow_bolt.png");
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -75,6 +75,6 @@ public class GOTRenderCrossbowBolt extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return boltTexture;
+		return BOLT_TEXTURE;
 	}
 }

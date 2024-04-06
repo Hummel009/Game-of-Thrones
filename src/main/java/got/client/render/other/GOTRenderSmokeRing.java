@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderSmokeRing extends Render {
-	public ModelBase magicShipModel = new GOTModelSmokeShip();
+	private static final ModelBase MAGIC_SHIP_MODEL = new GOTModelSmokeShip();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -35,7 +35,7 @@ public class GOTRenderSmokeRing extends Render {
 			GL11.glRotatef(entity.prevRotationYaw + (entity.rotationYaw - entity.prevRotationYaw) * f1 - 90.0f, 0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(entity.prevRotationPitch + (entity.rotationPitch - entity.prevRotationPitch) * f1, 0.0f, 0.0f, -1.0f);
 			GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-			magicShipModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+			MAGIC_SHIP_MODEL.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 			GL11.glEnable(2884);
 			GL11.glEnable(3553);
 		} else {
@@ -52,7 +52,7 @@ public class GOTRenderSmokeRing extends Render {
 		GL11.glPopMatrix();
 	}
 
-	public void drawSprite(Tessellator tessellator, int index) {
+	private void drawSprite(Tessellator tessellator, int index) {
 		float var3 = index % 16 * 16 / 128.0f;
 		float var4 = (index % 16 * 16 + 16) / 128.0f;
 		float var5 = (float) index / 16 * 16 / 128.0f;

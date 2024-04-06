@@ -72,7 +72,7 @@ public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
 			GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 			GL11.glRotatef(-10.0f, 1.0f, 0.0f, 0.0f);
 			bindTexture(new ResourceLocation("got:textures/entity/legendary/" + name + "_cape.png"));
-			capeModel.renderCloak(0.0625f);
+			CAPE_MODEL.renderCloak(0.0625f);
 			GL11.glPopMatrix();
 		}
 	}

@@ -21,8 +21,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTSwingHandler {
-	public static Map<EntityLivingBase, SwingTime> entitySwings = new HashMap<>();
-	public static float swingFactor = 0.8f;
+	private static final Map<EntityLivingBase, SwingTime> ENTITY_SWINGS = new HashMap<>();
+	private static final float SWING_FACTOR = 0.8f;
 
 	public GOTSwingHandler() {
 		FMLCommonHandler.instance().bus().register(this);
@@ -34,20 +34,20 @@ public class GOTSwingHandler {
 		if (event.phase == TickEvent.Phase.START) {
 			Minecraft mc = Minecraft.getMinecraft();
 			if (mc.theWorld == null) {
-				entitySwings.clear();
+				ENTITY_SWINGS.clear();
 			} else if (!mc.isGamePaused()) {
 				Collection<EntityLivingBase> removes = new ArrayList<>();
-				for (Map.Entry<EntityLivingBase, SwingTime> e : entitySwings.entrySet()) {
+				for (Map.Entry<EntityLivingBase, SwingTime> e : ENTITY_SWINGS.entrySet()) {
 					EntityLivingBase entity = e.getKey();
 					SwingTime swt = e.getValue();
-					swt.swingPrev = swt.swing;
-					swt.swing++;
-					if (swt.swing > swt.swingMax) {
+					swt.setSwingPrev(swt.getSwing());
+					swt.setSwing(swt.getSwing() + 1);
+					if (swt.getSwing() > swt.getSwingMax()) {
 						removes.add(entity);
 					}
 				}
 				for (EntityLivingBase entity : removes) {
-					entitySwings.remove(entity);
+					ENTITY_SWINGS.remove(entity);
 				}
 			}
 		}
@@ -59,15 +59,15 @@ public class GOTSwingHandler {
 		SwingTime swt;
 		EntityLivingBase entity = event.entityLiving;
 		World world = entity.worldObj;
-		if (world.isRemote && entitySwings.get(entity) == null && entity.isSwingInProgress && entity.swingProgressInt == 0 && GOTWeaponStats.isMeleeWeapon(item = entity.getHeldItem())) {
+		if (world.isRemote && ENTITY_SWINGS.get(entity) == null && entity.isSwingInProgress && entity.swingProgressInt == 0 && GOTWeaponStats.isMeleeWeapon(item = entity.getHeldItem())) {
 			int time;
 			time = GOTWeaponStats.getAttackTimePlayer(item);
-			time = Math.round(time * swingFactor);
+			time = Math.round(time * SWING_FACTOR);
 			swt = new SwingTime();
-			swt.swing = 1;
-			swt.swingPrev = 0;
-			swt.swingMax = time;
-			entitySwings.put(entity, swt);
+			swt.setSwing(1);
+			swt.setSwingPrev(0);
+			swt.setSwingMax(time);
+			ENTITY_SWINGS.put(entity, swt);
 		}
 	}
 
@@ -89,33 +89,55 @@ public class GOTSwingHandler {
 		tryUpdateSwing(event.entityPlayer);
 	}
 
-	public void tryUpdateSwing(EntityLivingBase entity) {
+	private void tryUpdateSwing(EntityLivingBase entity) {
 		if (entity == Minecraft.getMinecraft().thePlayer) {
 			if (GOTAttackTiming.fullAttackTime > 0) {
 				float max = GOTAttackTiming.fullAttackTime;
 				float swing = (max - GOTAttackTiming.attackTime) / max;
 				float pre = (max - GOTAttackTiming.prevAttackTime) / max;
-				swing /= swingFactor;
-				pre /= swingFactor;
+				swing /= SWING_FACTOR;
+				pre /= SWING_FACTOR;
 				if (swing <= 1.0f) {
 					entity.swingProgress = swing;
 					entity.prevSwingProgress = pre;
 				}
 			}
 		} else {
-			SwingTime swt = entitySwings.get(entity);
+			SwingTime swt = ENTITY_SWINGS.get(entity);
 			if (swt != null) {
-				entity.swingProgress = (float) swt.swing / swt.swingMax;
-				entity.prevSwingProgress = (float) swt.swingPrev / swt.swingMax;
+				entity.swingProgress = (float) swt.getSwing() / swt.getSwingMax();
+				entity.prevSwingProgress = (float) swt.getSwingPrev() / swt.getSwingMax();
 			}
 		}
 	}
 
-	public static class SwingTime {
-		public int swingPrev;
-		public int swing;
-		public int swingMax;
+	private static class SwingTime {
+		private int swingPrev;
+		private int swing;
+		private int swingMax;
 
+		public int getSwingPrev() {
+			return swingPrev;
+		}
+
+		public void setSwingPrev(int swingPrev) {
+			this.swingPrev = swingPrev;
+		}
+
+		public int getSwing() {
+			return swing;
+		}
+
+		public void setSwing(int swing) {
+			this.swing = swing;
+		}
+
+		public int getSwingMax() {
+			return swingMax;
+		}
+
+		public void setSwingMax(int swingMax) {
+			this.swingMax = swingMax;
+		}
 	}
-
 }

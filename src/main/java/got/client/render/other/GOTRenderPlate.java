@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderPlate extends Render {
-	public RenderBlocks blockRenderer = new RenderBlocks();
+	private static final RenderBlocks BLOCK_RENDERER = new RenderBlocks();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -26,7 +26,7 @@ public class GOTRenderPlate extends Render {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		bindEntityTexture(entity);
-		GOTRenderBlocks.renderEntityPlate(entity.worldObj, 0, 0, 0, plate.getPlateBlock(), blockRenderer);
+		GOTRenderBlocks.renderEntityPlate(plate.getPlateBlock(), BLOCK_RENDERER);
 		GL11.glPopMatrix();
 		GL11.glDisable(32826);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);

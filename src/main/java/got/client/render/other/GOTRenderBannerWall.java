@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBannerWall extends Render {
-	public static GOTModelBannerWall model = new GOTModelBannerWall();
+	private static final GOTModelBannerWall MODEL = new GOTModelBannerWall();
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -21,10 +21,10 @@ public class GOTRenderBannerWall extends Render {
 		GL11.glTranslatef((float) d, (float) d1, (float) d2);
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
 		GL11.glRotatef(f, 0.0f, 1.0f, 0.0f);
-		bindTexture(GOTRenderBanner.getStandTexture(banner.getBannerType()));
-		model.renderPost(0.0625f);
+		bindTexture(GOTRenderBanner.STAND_TEXTURE);
+		MODEL.renderPost(0.0625f);
 		bindTexture(GOTRenderBanner.getBannerTexture(banner.getBannerType()));
-		model.renderBanner(0.0625f);
+		MODEL.renderBanner(0.0625f);
 		GL11.glEnable(2884);
 		GL11.glPopMatrix();
 		if (RenderManager.debugBoundingBox) {
@@ -49,7 +49,6 @@ public class GOTRenderBannerWall extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		GOTEntityBannerWall banner = (GOTEntityBannerWall) entity;
-		return GOTRenderBanner.getStandTexture(banner.getBannerType());
+		return GOTRenderBanner.STAND_TEXTURE;
 	}
 }

@@ -28,27 +28,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderLargeItem implements IItemRenderer {
-	public static Map<String, Float> sizeFolders = new HashMap<>();
+	private static final Map<String, Float> SIZE_FOLDERS = new HashMap<>();
 
 	static {
-		sizeFolders.put("large-2x", 2.0f);
-		sizeFolders.put("large-3x", 3.0f);
+		SIZE_FOLDERS.put("large-2x", 2.0f);
+		SIZE_FOLDERS.put("large-3x", 3.0f);
 	}
 
-	public Item theItem;
-	public String folderName;
-	public float largeIconScale;
-	public IIcon largeIcon;
+	private final Item theItem;
+	private final String folderName;
+	private final float largeIconScale;
+	private IIcon largeIcon;
 
-	public Collection<ExtraLargeIconToken> extraTokens = new ArrayList<>();
+	private final Collection<GOTExtraLargeIconToken> extraTokens = new ArrayList<>();
 
-	public GOTRenderLargeItem(Item item, String dir, float f) {
+	private GOTRenderLargeItem(Item item, String dir, float f) {
 		theItem = item;
 		folderName = dir;
 		largeIconScale = f;
 	}
 
-	public static ResourceLocation getLargeTexturePath(Item item, String folder) {
+	private static ResourceLocation getLargeTexturePath(Item item, String folder) {
 		String prefix = "got:";
 		String itemName = item.getUnlocalizedName();
 		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
@@ -57,7 +57,7 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	}
 
 	public static GOTRenderLargeItem getRendererIfLarge(Item item) {
-		for (Map.Entry<String, Float> entry : sizeFolders.entrySet()) {
+		for (Map.Entry<String, Float> entry : SIZE_FOLDERS.entrySet()) {
 			String folder = entry.getKey();
 			float iconScale = entry.getValue();
 			try {
@@ -72,13 +72,13 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		return null;
 	}
 
-	public void doTransformations() {
+	private void doTransformations() {
 		GL11.glTranslatef(-(largeIconScale - 1.0f) / 2.0f, -(largeIconScale - 1.0f) / 2.0f, 0.0f);
 		GL11.glScalef(largeIconScale, largeIconScale, 1.0f);
 	}
 
-	public ExtraLargeIconToken extraIcon(String name) {
-		ExtraLargeIconToken token = new ExtraLargeIconToken(name);
+	public GOTExtraLargeIconToken extraIcon(String name) {
+		GOTExtraLargeIconToken token = new GOTExtraLargeIconToken(name);
 		extraTokens.add(token);
 		return token;
 	}
@@ -90,12 +90,12 @@ public class GOTRenderLargeItem implements IItemRenderer {
 
 	public void registerIcons(IIconRegister register) {
 		largeIcon = registerLargeIcon(register, null);
-		for (ExtraLargeIconToken token : extraTokens) {
-			token.icon = registerLargeIcon(register, token.name);
+		for (GOTExtraLargeIconToken token : extraTokens) {
+			token.setIcon(registerLargeIcon(register, token.getName()));
 		}
 	}
 
-	public IIcon registerLargeIcon(IIconRegister register, String extra) {
+	private IIcon registerLargeIcon(IIconRegister register, String extra) {
 		String prefix = "got:";
 		String itemName = theItem.getUnlocalizedName();
 		itemName = itemName.substring(itemName.indexOf(prefix) + prefix.length());
@@ -152,11 +152,11 @@ public class GOTRenderLargeItem implements IItemRenderer {
 		renderLargeItem(largeIcon);
 	}
 
-	public void renderLargeItem(ExtraLargeIconToken token) {
-		renderLargeItem(token.icon);
+	public void renderLargeItem(GOTExtraLargeIconToken token) {
+		renderLargeItem(token.getIcon());
 	}
 
-	public void renderLargeItem(IIcon icon) {
+	private void renderLargeItem(IIcon icon) {
 		doTransformations();
 		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationItemsTexture);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -168,14 +168,4 @@ public class GOTRenderLargeItem implements IItemRenderer {
 	public boolean shouldUseRenderHelper(IItemRenderer.ItemRenderType type, ItemStack itemstack, IItemRenderer.ItemRendererHelper helper) {
 		return false;
 	}
-
-	public static class ExtraLargeIconToken {
-		public String name;
-		public IIcon icon;
-
-		public ExtraLargeIconToken(String s) {
-			name = s;
-		}
-	}
-
 }

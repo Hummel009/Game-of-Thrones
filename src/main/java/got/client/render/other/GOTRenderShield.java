@@ -14,14 +14,12 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderShield {
-	public static int SHIELD_WIDTH = 32;
-	public static int SHIELD_HEIGHT = 32;
-	public static float MODELSCALE = 0.0625f;
+	private static final float MODELSCALE = 0.0625f;
 
 	private GOTRenderShield() {
 	}
 
-	public static void doRenderShield(float f) {
+	private static void doRenderShield(float f) {
 		int k;
 		float f8;
 		float f9;
@@ -30,8 +28,6 @@ public class GOTRenderShield {
 		float maxU = 0.5f + f;
 		float minV = 0.0f;
 		float maxV = 1.0f;
-		int width = SHIELD_WIDTH;
-		int height = SHIELD_HEIGHT;
 		double depth1 = MODELSCALE * 0.5f * f;
 		double depth2 = MODELSCALE * 0.5f * (0.5f + f);
 		Tessellator tessellator = Tessellator.instance;
@@ -49,12 +45,12 @@ public class GOTRenderShield {
 		tessellator.addVertexWithUV(1.0, 0.0, depth2, minU, maxV);
 		tessellator.addVertexWithUV(0.0, 0.0, depth2, maxU, maxV);
 		tessellator.draw();
-		float f5 = 0.5f * (maxU - minU) / width;
-		float f6 = 0.5f * (maxV - minV) / height;
+		float f5 = 0.5f * (maxU - minU) / 32;
+		float f6 = 0.5f * (maxV - minV) / 32;
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(-1.0f, 0.0f, 0.0f);
-		for (k = 0; k < width; ++k) {
-			f7 = (float) k / width;
+		for (k = 0; k < 32; ++k) {
+			f7 = (float) k / 32;
 			f8 = maxU + (minU - maxU) * f7 - f5;
 			tessellator.addVertexWithUV(f7, 0.0, depth2, f8, maxV);
 			tessellator.addVertexWithUV(f7, 0.0, depth1, f8, maxV);
@@ -64,10 +60,10 @@ public class GOTRenderShield {
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(1.0f, 0.0f, 0.0f);
-		for (k = 0; k < width; ++k) {
-			f7 = (float) k / width;
+		for (k = 0; k < 32; ++k) {
+			f7 = (float) k / 32;
 			f8 = maxU + (minU - maxU) * f7 - f5;
-			f9 = f7 + 1.0f / width;
+			f9 = f7 + 1.0f / 32;
 			tessellator.addVertexWithUV(f9, 1.0, depth2, f8, minV);
 			tessellator.addVertexWithUV(f9, 1.0, depth1, f8, minV);
 			tessellator.addVertexWithUV(f9, 0.0, depth1, f8, maxV);
@@ -76,10 +72,10 @@ public class GOTRenderShield {
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0f, 1.0f, 0.0f);
-		for (k = 0; k < height; ++k) {
-			f7 = (float) k / height;
+		for (k = 0; k < 32; ++k) {
+			f7 = (float) k / 32;
 			f8 = maxV + (minV - maxV) * f7 - f6;
-			f9 = f7 + 1.0f / height;
+			f9 = f7 + 1.0f / 32;
 			tessellator.addVertexWithUV(0.0, f9, depth1, maxU, f8);
 			tessellator.addVertexWithUV(1.0, f9, depth1, minU, f8);
 			tessellator.addVertexWithUV(1.0, f9, depth2, minU, f8);
@@ -88,8 +84,8 @@ public class GOTRenderShield {
 		tessellator.draw();
 		tessellator.startDrawingQuads();
 		tessellator.setNormal(0.0f, -1.0f, 0.0f);
-		for (k = 0; k < height; ++k) {
-			f7 = (float) k / height;
+		for (k = 0; k < 32; ++k) {
+			f7 = (float) k / 32;
 			f8 = maxV + (minV - maxV) * f7 - f6;
 			tessellator.addVertexWithUV(1.0, f7, depth1, minU, f8);
 			tessellator.addVertexWithUV(0.0, f7, depth1, maxU, f8);

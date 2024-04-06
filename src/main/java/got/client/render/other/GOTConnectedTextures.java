@@ -16,14 +16,14 @@ import java.io.IOException;
 import java.util.*;
 
 public class GOTConnectedTextures {
-	public static Map<String, Map<Integer, IIcon>> blockIconsMap = new HashMap<>();
+	private static final Map<String, Map<Integer, IIcon>> BLOCK_ICONS_MAP = new HashMap<>();
 
 	private GOTConnectedTextures() {
 	}
 
-	public static void createConnectedIcons(IIconRegister iconregister, GOTConnectedBlock block, int meta, boolean includeNoBase, Map<IconElement, BufferedImage> iconElementMap) {
+	private static void createConnectedIcons(IIconRegister iconregister, GOTConnectedBlock block, int meta, boolean includeNoBase, Map<IconElement, BufferedImage> iconElementMap) {
 		String blockName = block.getConnectedName(meta);
-		blockIconsMap.remove(blockName);
+		BLOCK_ICONS_MAP.remove(blockName);
 		Minecraft mc = Minecraft.getMinecraft();
 		mc.getResourceManager();
 		TextureMap textureMap = (TextureMap) iconregister;
@@ -78,10 +78,10 @@ public class GOTConnectedTextures {
 				}
 			}
 		}
-		blockIconsMap.put(blockName, iconsMap);
+		BLOCK_ICONS_MAP.put(blockName, iconsMap);
 	}
 
-	public static String getBaseIconName(String blockName) {
+	private static String getBaseIconName(String blockName) {
 		int pathIndex = blockName.indexOf(':');
 		if (pathIndex >= 0) {
 			return blockName.substring(pathIndex + 1);
@@ -89,8 +89,8 @@ public class GOTConnectedTextures {
 		return blockName;
 	}
 
-	public static IIcon getConnectedIcon(String blockName, boolean[][] flags, boolean noBase) {
-		if (!blockIconsMap.containsKey(blockName) || blockIconsMap.get(blockName).isEmpty()) {
+	private static IIcon getConnectedIcon(String blockName, boolean[][] flags, boolean noBase) {
+		if (!BLOCK_ICONS_MAP.containsKey(blockName) || BLOCK_ICONS_MAP.get(blockName).isEmpty()) {
 			return Minecraft.getMinecraft().getTextureMapBlocks().getAtlasSprite("");
 		}
 		Set<IconElement> set = EnumSet.noneOf(IconElement.class);
@@ -144,7 +144,7 @@ public class GOTConnectedTextures {
 			}
 		}
 		int key = IconElement.getIconSetKey(set);
-		return blockIconsMap.get(blockName).get(key);
+		return BLOCK_ICONS_MAP.get(blockName).get(key);
 	}
 
 	public static IIcon getConnectedIconBlock(GOTConnectedBlock block, IBlockAccess world, int i, int j, int k, int side, boolean noBase) {
@@ -193,7 +193,7 @@ public class GOTConnectedTextures {
 		return getConnectedIcon(blockName, flags, noBase);
 	}
 
-	public static Map<IconElement, BufferedImage> getConnectedIconElements(String iconName) {
+	private static Map<IconElement, BufferedImage> getConnectedIconElements(String iconName) {
 		Minecraft mc = Minecraft.getMinecraft();
 		IResourceManager resourceManager = mc.getResourceManager();
 		String baseIconName = getBaseIconName(iconName);
@@ -223,7 +223,7 @@ public class GOTConnectedTextures {
 		return getConnectedIcon(blockName, adjacentFlags, false);
 	}
 
-	public static String getModID(String blockName) {
+	private static String getModID(String blockName) {
 		int pathIndex = blockName.indexOf(':');
 		if (pathIndex >= 0) {
 			return blockName.substring(0, pathIndex);
@@ -231,7 +231,7 @@ public class GOTConnectedTextures {
 		return "";
 	}
 
-	public static BufferedImage getSubImageIcon(BufferedImage base, int x, int y, int width, int height) {
+	private static BufferedImage getSubImageIcon(BufferedImage base, int x, int y, int width, int height) {
 		BufferedImage subpart = base.getSubimage(x, y, width, height);
 		BufferedImage img = new BufferedImage(base.getWidth(), base.getHeight(), 2);
 		for (int subX = 0; subX < width; ++subX) {
@@ -252,7 +252,7 @@ public class GOTConnectedTextures {
 		registerNonConnectedGateIcons(iconregister, block, meta, block.getConnectedName(meta));
 	}
 
-	public static void registerNonConnectedGateIcons(IIconRegister iconregister, GOTConnectedBlock block, int meta, String iconName) {
+	private static void registerNonConnectedGateIcons(IIconRegister iconregister, GOTConnectedBlock block, int meta, String iconName) {
 		Minecraft mc = Minecraft.getMinecraft();
 		IResourceManager resourceManager = mc.getResourceManager();
 		String baseIconName = getBaseIconName(iconName);
@@ -286,19 +286,13 @@ public class GOTConnectedTextures {
 		createConnectedIcons(iconregister, block, meta, false, iconElementMap);
 	}
 
-	public enum IconElement {
+	private enum IconElement {
 		BASE("base", 0), SIDE_LEFT("left", 1), SIDE_RIGHT("right", 1), SIDE_TOP("top", 1), SIDE_BOTTOM("bottom", 1), CORNER_TOPLEFT("top_left", 2), CORNER_TOPRIGHT("top_right", 2), CORNER_BOTTOMLEFT("bottom_left", 2), CORNER_BOTTOMRIGHT("bottom_right", 2), INVCORNER_TOPLEFT("top_left_inv", 2), INVCORNER_TOPRIGHT("top_right_inv", 2), INVCORNER_BOTTOMLEFT("bottom_left_inv", 2), INVCORNER_BOTTOMRIGHT("bottom_right_inv", 2);
 
-		public static final Set<IconElement> allSides;
-		public static final Set<IconElement> allCorners;
-		public static final Set<IconElement> allInvCorners;
-		public static final Map<Integer, Set<IconElement>> allCombos;
-		public static final Comparator<IconElement> comparator;
+		private static final Map<Integer, Set<IconElement>> allCombos;
+		private static final Comparator<IconElement> comparator;
 
 		static {
-			allSides = EnumSet.of(SIDE_LEFT, SIDE_RIGHT, SIDE_TOP, SIDE_BOTTOM);
-			allCorners = EnumSet.of(CORNER_TOPLEFT, CORNER_TOPRIGHT, CORNER_BOTTOMLEFT, CORNER_BOTTOMRIGHT);
-			allInvCorners = EnumSet.of(INVCORNER_TOPLEFT, INVCORNER_TOPRIGHT, INVCORNER_BOTTOMLEFT, INVCORNER_BOTTOMRIGHT);
 			allCombos = new HashMap<>();
 			Collection<Set<IconElement>> permutations = new ArrayList<>();
 			boolean[] trueOrFalse = {false, true};
@@ -376,9 +370,9 @@ public class GOTConnectedTextures {
 			};
 		}
 
-		public final String iconName;
-		public final int bitFlag;
-		public final int priority;
+		private final String iconName;
+		private final int bitFlag;
+		private final int priority;
 
 		IconElement(String s, int i) {
 			iconName = s;
@@ -386,7 +380,7 @@ public class GOTConnectedTextures {
 			priority = i;
 		}
 
-		public static int getIconSetKey(Collection<IconElement> set) {
+		private static int getIconSetKey(Collection<IconElement> set) {
 			int i = 0;
 			for (IconElement e : values()) {
 				if (set.contains(e)) {
@@ -396,12 +390,10 @@ public class GOTConnectedTextures {
 			return i;
 		}
 
-		public static List<IconElement> sortIconSet(Set<IconElement> set) {
+		private static List<IconElement> sortIconSet(Set<IconElement> set) {
 			List<IconElement> list = new ArrayList<>(set);
 			list.sort(comparator);
 			return list;
 		}
-
 	}
-
 }

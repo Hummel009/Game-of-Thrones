@@ -23,52 +23,51 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class GOTRenderNorthernLights {
-	public static int nlTick;
-	public static int currentNightNum;
-	public static float brightnessTonight;
-	public static float maxNorthTonight;
-	public static float minNorthTonight;
-	public static int rainingTick;
-	public static int rainingTickPrev;
-	public static int rainingChangeTime = 80;
-	public static boolean atNightKing;
-	public static int nightKingChange;
-	public static int nightKingChangeTime = 200;
-	public static Random rand = new Random();
-	public static Random dateRand = new Random();
-	public static float[] colorTopCurrent;
-	public static float[] colorMidCurrent;
-	public static float[] colorBottomCurrent;
-	public static float[] colorTopNext;
-	public static float[] colorMidNext;
-	public static float[] colorBottomNext;
-	public static int colorChangeTime;
-	public static int colorChangeTick;
-	public static int timeUntilColorChange;
-	public static int nightKingCheckTime;
-	public static AuroraCycle wave0 = new AuroraCycle(4.0f, 0.01f, 0.9f);
-	public static Collection<AuroraCycle> waveOscillations = new ArrayList<>();
-	public static Collection<AuroraCycle> glowOscillations = new ArrayList<>();
-	public static AuroraCycle glow0 = new AuroraCycle(20.0f, 0.02f, 0.6f);
+	private static final Random RAND = new Random();
+	private static final Random DATE_RAND = new Random();
+	private static final AuroraCycle WAVE_0 = new AuroraCycle(4.0f, 0.01f, 0.9f);
+	private static final AuroraCycle GLOW_0 = new AuroraCycle(20.0f, 0.02f, 0.6f);
+	private static final Collection<AuroraCycle> WAVE_OSCILLATIONS = new ArrayList<>();
+	private static final Collection<AuroraCycle> GLOW_OSCILLATIONS = new ArrayList<>();
+
+	private static int nlTick;
+	private static int currentNightNum;
+	private static float brightnessTonight;
+	private static float maxNorthTonight;
+	private static float minNorthTonight;
+	private static int rainingTick;
+	private static int rainingTickPrev;
+	private static boolean atNightKing;
+	private static int nightKingChange;
+	private static float[] colorTopCurrent;
+	private static float[] colorMidCurrent;
+	private static float[] colorBottomCurrent;
+	private static float[] colorTopNext;
+	private static float[] colorMidNext;
+	private static float[] colorBottomNext;
+	private static int colorChangeTime;
+	private static int colorChangeTick;
+	private static int timeUntilColorChange;
+	private static int nightKingCheckTime;
 
 	private GOTRenderNorthernLights() {
 	}
 
-	public static Color[] generateColorSet() {
-		float h1 = MathHelper.randomFloatClamp(rand, 0.22f, 0.48f);
-		float h2 = MathHelper.randomFloatClamp(rand, 0.22f, 0.48f);
-		float h3 = MathHelper.randomFloatClamp(rand, 0.22f, 0.48f);
-		if (rand.nextInt(3) == 0) {
-			h1 = MathHelper.randomFloatClamp(rand, 0.78f, 1.08f);
+	private static Color[] generateColorSet() {
+		float h1 = MathHelper.randomFloatClamp(RAND, 0.22f, 0.48f);
+		float h2 = MathHelper.randomFloatClamp(RAND, 0.22f, 0.48f);
+		float h3 = MathHelper.randomFloatClamp(RAND, 0.22f, 0.48f);
+		if (RAND.nextInt(3) == 0) {
+			h1 = MathHelper.randomFloatClamp(RAND, 0.78f, 1.08f);
 		}
-		if (rand.nextInt(5) == 0) {
-			h1 = MathHelper.randomFloatClamp(rand, 0.78f, 1.08f);
-			h2 = MathHelper.randomFloatClamp(rand, 0.85f, 1.08f);
+		if (RAND.nextInt(5) == 0) {
+			h1 = MathHelper.randomFloatClamp(RAND, 0.78f, 1.08f);
+			h2 = MathHelper.randomFloatClamp(RAND, 0.85f, 1.08f);
 		}
-		if (rand.nextInt(50) == 0) {
-			h1 = MathHelper.randomFloatClamp(rand, 0.7f, 1.08f);
-			h2 = MathHelper.randomFloatClamp(rand, 0.54f, 0.77f);
-			h3 = MathHelper.randomFloatClamp(rand, 0.48f, 0.7f);
+		if (RAND.nextInt(50) == 0) {
+			h1 = MathHelper.randomFloatClamp(RAND, 0.7f, 1.08f);
+			h2 = MathHelper.randomFloatClamp(RAND, 0.54f, 0.77f);
+			h3 = MathHelper.randomFloatClamp(RAND, 0.48f, 0.7f);
 		}
 		Color topColor = new Color(Color.HSBtoRGB(h1, 1.0f, 1.0f));
 		Color midColor = new Color(Color.HSBtoRGB(h2, 1.0f, 1.0f));
@@ -76,25 +75,25 @@ public class GOTRenderNorthernLights {
 		return new Color[]{topColor, midColor, bottomColor};
 	}
 
-	public static float getNorthernness(EntityLivingBase entity) {
+	private static float getNorthernness(EntityLivingBase entity) {
 		float minNorth = minNorthTonight;
 		float maxNorth = maxNorthTonight;
 		float northernness = ((float) entity.posZ - minNorth) / (maxNorth - minNorth);
 		return MathHelper.clamp_float(northernness, 0.0f, 1.0f);
 	}
 
-	public static float glowEquation(Minecraft mc, float t, float tick, float renderTick) {
+	private static float glowEquation(Minecraft mc, float t, float tick) {
 		float f = 0.0f;
-		f += glow0.calc(t, tick);
+		f += GLOW_0.calc(t, tick);
 		if (mc.gameSettings.fancyGraphics) {
-			for (AuroraCycle c : glowOscillations) {
+			for (AuroraCycle c : GLOW_OSCILLATIONS) {
 				f += c.calc(t, tick);
 			}
 		}
 		return f;
 	}
 
-	public static boolean isRainLayerAt(EntityLivingBase entity) {
+	private static boolean isRainLayerAt(EntityLivingBase entity) {
 		World world = entity.worldObj;
 		int i = MathHelper.floor_double(entity.posX);
 		int j = MathHelper.floor_double(entity.boundingBox.minY);
@@ -175,7 +174,7 @@ public class GOTRenderNorthernLights {
 		world.theProfiler.endSection();
 	}
 
-	public static void renderSheet(Minecraft mc, World world, float nlDistance, float nlBrightness, double halfWidth, double halfHeight, float tickExtra, float tick) {
+	private static void renderSheet(Minecraft mc, World world, float nlDistance, float nlBrightness, double halfWidth, double halfHeight, float tickExtra, float tick) {
 		float r1 = colorTopCurrent[0];
 		float g1 = colorTopCurrent[1];
 		float b1 = colorTopCurrent[2];
@@ -227,7 +226,7 @@ public class GOTRenderNorthernLights {
 				a2_here *= fade;
 				a3_here *= fade;
 			}
-			float randomFade = 0.5f + glowEquation(mc, t, fullTick, tick) * 0.5f;
+			float randomFade = 0.5f + glowEquation(mc, t, fullTick) * 0.5f;
 			double x0 = -halfWidth + halfWidth * 2.0 * t;
 			double x1 = x0 + halfWidth * 2.0 / strips;
 			double yMin = -halfHeight;
@@ -236,8 +235,8 @@ public class GOTRenderNorthernLights {
 			double z1 = nlDistance;
 			double extra = halfHeight * 0.15;
 			tess.setColorRGBA_F(r3, g3, b3, 0.0f);
-			tess.addVertex(x0, yMin - extra, z0 += waveEquation(mc, t, fullTick, tick) * (halfWidth * 0.15));
-			tess.addVertex(x1, yMin - extra, z1 += waveEquation(mc, t1, fullTick, tick) * (halfWidth * 0.15));
+			tess.addVertex(x0, yMin - extra, z0 += waveEquation(t, fullTick) * (halfWidth * 0.15));
+			tess.addVertex(x1, yMin - extra, z1 += waveEquation(t1, fullTick) * (halfWidth * 0.15));
 			tess.setColorRGBA_F(r3, g3, b3, a3_here *= randomFade);
 			tess.addVertex(x1, yMin, z1);
 			tess.addVertex(x0, yMin, z0);
@@ -273,10 +272,10 @@ public class GOTRenderNorthernLights {
 		}
 		if (effectiveDay != currentNightNum) {
 			currentNightNum = effectiveDay;
-			dateRand.setSeed(currentNightNum * 35920558925051L + currentNightNum + 83025820626792L);
+			DATE_RAND.setSeed(currentNightNum * 35920558925051L + currentNightNum + 83025820626792L);
 			maxNorthTonight = -35000.0f;
-			minNorthTonight = MathHelper.randomFloatClamp(dateRand, -20000.0f, -15000.0f);
-			float goSouth = dateRand.nextFloat();
+			minNorthTonight = MathHelper.randomFloatClamp(DATE_RAND, -20000.0f, -15000.0f);
+			float goSouth = DATE_RAND.nextFloat();
 			if (GOT.isNewYear() || goSouth < 0.01f) {
 				minNorthTonight += 15000.0f;
 			} else if (goSouth < 0.1f) {
@@ -288,7 +287,7 @@ public class GOTRenderNorthernLights {
 				minNorthTonight = 1000000.0f;
 			}
 			float appearChance = 0.5f;
-			brightnessTonight = GOT.isNewYear() || dateRand.nextFloat() < appearChance ? MathHelper.randomFloatClamp(dateRand, 0.4f, 1.0f) : 0.0f;
+			brightnessTonight = GOT.isNewYear() || DATE_RAND.nextFloat() < appearChance ? MathHelper.randomFloatClamp(DATE_RAND, 0.4f, 1.0f) : 0.0f;
 		}
 		rainingTickPrev = rainingTick;
 		boolean raining = isRainLayerAt(viewer);
@@ -307,12 +306,12 @@ public class GOTRenderNorthernLights {
 		}
 		if (timeUntilColorChange > 0) {
 			--timeUntilColorChange;
-		} else if (rand.nextInt(1200) == 0) {
+		} else if (RAND.nextInt(1200) == 0) {
 			Color[] cs = generateColorSet();
 			colorTopNext = cs[0].getColorComponents(null);
 			colorMidNext = cs[1].getColorComponents(null);
 			colorBottomNext = cs[2].getColorComponents(null);
-			colorChangeTick = colorChangeTime = MathHelper.getRandomIntegerInRange(rand, 100, 200);
+			colorChangeTick = colorChangeTime = MathHelper.getRandomIntegerInRange(RAND, 100, 200);
 			nightKingCheckTime = 0;
 		}
 		if (colorChangeTick > 0) {
@@ -325,7 +324,7 @@ public class GOTRenderNorthernLights {
 				colorTopNext = null;
 				colorMidNext = null;
 				colorBottomNext = null;
-				timeUntilColorChange = MathHelper.getRandomIntegerInRange(rand, 1200, 2400);
+				timeUntilColorChange = MathHelper.getRandomIntegerInRange(RAND, 1200, 2400);
 			}
 		}
 		if (nightKingCheckTime > 0) {
@@ -338,7 +337,7 @@ public class GOTRenderNorthernLights {
 				colorTopNext = new float[]{1.0f, 0.4f, 0.0f};
 				colorMidNext = new float[]{1.0f, 0.0f, 0.0f};
 				colorBottomNext = new float[]{1.0f, 0.0f, 0.3f};
-				colorChangeTick = colorChangeTime = MathHelper.getRandomIntegerInRange(rand, 100, 200);
+				colorChangeTick = colorChangeTime = MathHelper.getRandomIntegerInRange(RAND, 100, 200);
 			} else {
 				atNightKing = false;
 			}
@@ -351,86 +350,107 @@ public class GOTRenderNorthernLights {
 		} else if (nightKingChange > 0) {
 			--nightKingChange;
 		}
-		if (rand.nextInt(50) == 0) {
-			float freq = MathHelper.randomFloatClamp(rand, 8.0f, 100.0f);
+		if (RAND.nextInt(50) == 0) {
+			float freq = MathHelper.randomFloatClamp(RAND, 8.0f, 100.0f);
 			speed = freq * 5.0E-4f;
-			amp = MathHelper.randomFloatClamp(rand, 0.05f, 0.3f);
+			amp = MathHelper.randomFloatClamp(RAND, 0.05f, 0.3f);
 			cycle = new AuroraCycle(freq, speed, amp);
-			cycle.age = cycle.maxAge = MathHelper.getRandomIntegerInRange(rand, 100, 400);
-			waveOscillations.add(cycle);
+			int rand = MathHelper.getRandomIntegerInRange(RAND, 100, 400);
+			cycle.setAge(rand);
+			cycle.setMaxAge(rand);
+			WAVE_OSCILLATIONS.add(cycle);
 		}
-		if (!waveOscillations.isEmpty()) {
+		if (!WAVE_OSCILLATIONS.isEmpty()) {
 			Collection<AuroraCycle> removes = new HashSet<>();
-			for (AuroraCycle c : waveOscillations) {
+			for (AuroraCycle c : WAVE_OSCILLATIONS) {
 				c.update();
-				if (c.age <= 0) {
+				if (c.getAge() <= 0) {
 					removes.add(c);
 				}
 			}
-			waveOscillations.removeAll(removes);
+			WAVE_OSCILLATIONS.removeAll(removes);
 		}
-		if (rand.nextInt(120) == 0) {
-			float freq = MathHelper.randomFloatClamp(rand, 30.0f, 150.0f);
+		if (RAND.nextInt(120) == 0) {
+			float freq = MathHelper.randomFloatClamp(RAND, 30.0f, 150.0f);
 			speed = freq * 0.002f;
-			amp = MathHelper.randomFloatClamp(rand, 0.05f, 0.5f);
+			amp = MathHelper.randomFloatClamp(RAND, 0.05f, 0.5f);
 			cycle = new AuroraCycle(freq, speed, amp);
-			cycle.age = cycle.maxAge = MathHelper.getRandomIntegerInRange(rand, 100, 400);
-			glowOscillations.add(cycle);
+			int rand = MathHelper.getRandomIntegerInRange(RAND, 100, 400);
+			cycle.setAge(rand);
+			cycle.setMaxAge(rand);
+			GLOW_OSCILLATIONS.add(cycle);
 		}
-		if (rand.nextInt(300) == 0) {
-			float freq = MathHelper.randomFloatClamp(rand, 400.0f, 500.0f);
+		if (RAND.nextInt(300) == 0) {
+			float freq = MathHelper.randomFloatClamp(RAND, 400.0f, 500.0f);
 			speed = freq * 0.004f;
-			amp = MathHelper.randomFloatClamp(rand, 0.1f, 0.2f);
+			amp = MathHelper.randomFloatClamp(RAND, 0.1f, 0.2f);
 			cycle = new AuroraCycle(freq, speed, amp);
-			cycle.age = cycle.maxAge = MathHelper.getRandomIntegerInRange(rand, 100, 200);
-			glowOscillations.add(cycle);
+			int rand = MathHelper.getRandomIntegerInRange(RAND, 100, 200);
+			cycle.setAge(rand);
+			cycle.setMaxAge(rand);
+			GLOW_OSCILLATIONS.add(cycle);
 		}
-		if (!glowOscillations.isEmpty()) {
+		if (!GLOW_OSCILLATIONS.isEmpty()) {
 			Collection<AuroraCycle> removes = new HashSet<>();
-			for (AuroraCycle c : glowOscillations) {
+			for (AuroraCycle c : GLOW_OSCILLATIONS) {
 				c.update();
-				if (c.age <= 0) {
+				if (c.getAge() <= 0) {
 					removes.add(c);
 				}
 			}
-			glowOscillations.removeAll(removes);
+			GLOW_OSCILLATIONS.removeAll(removes);
 		}
 	}
 
-	public static float waveEquation(Minecraft mc, float t, float tick, float renderTick) {
+	private static float waveEquation(float t, float tick) {
 		float f = 0.0f;
-		f += wave0.calc(t, tick);
-		for (AuroraCycle c : waveOscillations) {
+		f += WAVE_0.calc(t, tick);
+		for (AuroraCycle c : WAVE_OSCILLATIONS) {
 			f += c.calc(t, tick);
 		}
 		return f;
 	}
 
-	public static class AuroraCycle {
-		public float freq;
-		public float tickMultiplier;
-		public float amp;
-		public int age;
-		public int maxAge = -1;
-		public float ampModifier = 1.0f;
+	private static class AuroraCycle {
+		private final float freq;
+		private final float tickMultiplier;
+		private final float amp;
+		private int age;
+		private int maxAge = -1;
+		private float ampModifier = 1.0f;
 
-		public AuroraCycle(float f, float t, float a) {
+		private AuroraCycle(float f, float t, float a) {
 			freq = f;
 			tickMultiplier = t;
 			amp = a;
 		}
 
-		public float calc(float t, float tick) {
+		private float calc(float t, float tick) {
 			return MathHelper.cos(t * freq + tick * tickMultiplier) * amp * ampModifier;
 		}
 
-		public void update() {
+		private void update() {
 			if (age >= 0) {
 				--age;
 				float a = (float) (maxAge - age) / maxAge;
 				ampModifier = Math.min(a, 1.0f - a);
 			}
 		}
-	}
 
+		public int getAge() {
+			return age;
+		}
+
+		public void setAge(int age) {
+			this.age = age;
+		}
+
+		public int getMaxAge() {
+			return maxAge;
+		}
+
+		public void setMaxAge(int maxAge) {
+			this.maxAge = maxAge;
+		}
+	}
 }

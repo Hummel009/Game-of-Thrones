@@ -16,8 +16,8 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
-	public static ResourceLocation rackTexture = new ResourceLocation("got:textures/model/weapon_rack.png");
-	public static GOTModelWeaponRack rackModel = new GOTModelWeaponRack();
+	private static final ResourceLocation RACK_TEXTURE = new ResourceLocation("got:textures/model/weapon_rack.png");
+	private static final GOTModelWeaponRack RACK_MODEL = new GOTModelWeaponRack();
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
@@ -48,9 +48,9 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 		}
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
 		float scale = 0.0625f;
-		bindTexture(rackTexture);
-		rackModel.setOnWall(wall);
-		rackModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
+		bindTexture(RACK_TEXTURE);
+		RACK_MODEL.setOnWall(wall);
+		RACK_MODEL.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
 		ItemStack weaponItem = weaponRack.getWeaponItem();
 		if (weaponItem != null) {
 			float weaponScale = 0.625f;
@@ -88,7 +88,7 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 		renderWeaponName(weaponRack, d + 0.5, d1 + 0.75, d2 + 0.5);
 	}
 
-	public void renderWeaponName(GOTTileEntityWeaponRack rack, double d, double d1, double d2) {
+	private void renderWeaponName(GOTTileEntityWeaponRack rack, double d, double d1, double d2) {
 		MovingObjectPosition mop = Minecraft.getMinecraft().objectMouseOver;
 		if (mop != null && mop.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK && mop.blockX == rack.xCoord && mop.blockY == rack.yCoord && mop.blockZ == rack.zCoord) {
 			ItemStack weaponItem = rack.getWeaponItem();

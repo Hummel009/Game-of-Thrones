@@ -19,8 +19,10 @@ import java.util.Map;
 
 public class GOTRenderBow implements IItemRenderer {
 	public static boolean renderingWeaponRack;
-	public GOTRenderLargeItem largeItemRenderer;
-	public Map<GOTItemBow.BowState, GOTRenderLargeItem.ExtraLargeIconToken> tokensPullStates;
+
+	private final GOTRenderLargeItem largeItemRenderer;
+
+	private Map<GOTItemBow.BowState, GOTExtraLargeIconToken> tokensPullStates;
 
 	public GOTRenderBow(GOTRenderLargeItem large) {
 		largeItemRenderer = large;
@@ -28,7 +30,7 @@ public class GOTRenderBow implements IItemRenderer {
 			tokensPullStates = new EnumMap<>(GOTItemBow.BowState.class);
 			for (GOTItemBow.BowState state : GOTItemBow.BowState.values()) {
 				if (state != GOTItemBow.BowState.HELD) {
-					GOTRenderLargeItem.ExtraLargeIconToken token = largeItemRenderer.extraIcon(state.iconName);
+					GOTExtraLargeIconToken token = largeItemRenderer.extraIcon(state.iconName);
 					tokensPullStates.put(state, token);
 				}
 			}

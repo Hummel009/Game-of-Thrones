@@ -17,13 +17,11 @@ import net.minecraftforge.client.ForgeHooksClient;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
-	public static ResourceLocation standTexture = new ResourceLocation("got:textures/model/armor_stand.png");
-	public static ModelBase standModel = new GOTModelArmorStand();
-	public static ModelBiped modelBipedMain = new ModelBiped(0.0f);
-	public static ModelBiped modelBiped1 = new ModelBiped(1.0f);
-	public static ModelBiped modelBiped2 = new ModelBiped(0.5f);
-	public static float BIPED_ARM_ROTATION = -7.07353f;
-	public static float BIPED_TICKS_EXISTED = 46.88954f;
+	private static final ResourceLocation STAND_TEXTURE = new ResourceLocation("got:textures/model/armor_stand.png");
+	private static final ModelBase STAND_MODEL = new GOTModelArmorStand();
+	private static final ModelBiped MODEL_BIPED_MAIN = new ModelBiped(0.0f);
+	private static final ModelBiped MODEL_BIPED_1 = new ModelBiped(1.0f);
+	private static final ModelBiped MODEL_BIPED_2 = new ModelBiped(0.5f);
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
@@ -48,9 +46,9 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 		}
 		GL11.glScalef(-1.0f, -1.0f, 1.0f);
 		float scale = 0.0625f;
-		bindTexture(standTexture);
-		standModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
-		GOTArmorModels.INSTANCE.setupModelForRender(modelBipedMain, null, null);
+		bindTexture(STAND_TEXTURE);
+		STAND_MODEL.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, scale);
+		GOTArmorModels.INSTANCE.setupModelForRender(MODEL_BIPED_MAIN, null, null);
 		GL11.glTranslatef(0.0f, -0.1875f, 0.0f);
 		for (int slot = 0; slot < 4; ++slot) {
 			float f4;
@@ -61,10 +59,10 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 					bindTexture(RenderBiped.getArmorResource(null, itemstack, slot, null));
 				}
 				try {
-					ModelBiped armorModel = slot == 2 ? modelBiped2 : modelBiped1;
+					ModelBiped armorModel = slot == 2 ? MODEL_BIPED_2 : MODEL_BIPED_1;
 					GOTArmorModels.INSTANCE.setupArmorForSlot(armorModel, slot);
 					armorModel = ForgeHooksClient.getArmorModel(null, itemstack, slot, armorModel);
-					ModelBiped specialModel = GOTArmorModels.INSTANCE.getSpecialArmorModel(itemstack, slot, null, modelBipedMain);
+					ModelBiped specialModel = GOTArmorModels.INSTANCE.getSpecialArmorModel(itemstack, slot, null, MODEL_BIPED_MAIN);
 					if (specialModel != null) {
 						armorModel = specialModel;
 					}
@@ -85,6 +83,8 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 					} else {
 						GL11.glColor3f(f1, f1, f1);
 					}
+					float BIPED_TICKS_EXISTED = 46.88954f;
+					float BIPED_ARM_ROTATION = -7.07353f;
 					armorModel.render(null, BIPED_ARM_ROTATION, 0.0f, BIPED_TICKS_EXISTED, 0.0f, 0.0f, scale);
 					if (isColoredArmor) {
 						bindTexture(RenderBiped.getArmorResource(null, itemstack, slot, "overlay"));

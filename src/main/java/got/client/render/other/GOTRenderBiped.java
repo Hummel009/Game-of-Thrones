@@ -29,10 +29,10 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import org.lwjgl.opengl.GL11;
 
 public abstract class GOTRenderBiped extends RenderBiped {
-	public static float PLAYER_SCALE = 0.9375f;
-	public GOTModelBiped capeModel = new GOTModelBiped();
-	public ModelBiped npcRenderPassModel;
-	public Minecraft mc;
+	protected static final GOTModelBiped CAPE_MODEL = new GOTModelBiped();
+
+	private ModelBiped npcRenderPassModel;
+	private Minecraft mc;
 
 	protected GOTRenderBiped(ModelBiped model, float f) {
 		super(model, f);
@@ -222,14 +222,14 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		renderNPCCape((GOTEntityNPC) entity);
 	}
 
-	public void renderNPCCape(GOTEntityNPC entity) {
+	private void renderNPCCape(GOTEntityNPC entity) {
 		GOTCapes cape = entity.npcCape;
 		if (cape != null) {
-			GOTRenderCape.renderCape(cape, entity, capeModel);
+			GOTRenderCape.renderCape(cape, entity, CAPE_MODEL);
 		}
 	}
 
-	public void renderNPCShield(GOTEntityNPC entity) {
+	private void renderNPCShield(GOTEntityNPC entity) {
 		GOTShields shield = entity.npcShield;
 		if (shield != null) {
 			GOTRenderShield.renderShield(shield, entity, modelBipedMain);
@@ -252,5 +252,17 @@ public abstract class GOTRenderBiped extends RenderBiped {
 			return specialArmorResult;
 		}
 		return super.shouldRenderPass(entity, pass, f);
+	}
+
+	public ModelBiped getNpcRenderPassModel() {
+		return npcRenderPassModel;
+	}
+
+	public Minecraft getMc() {
+		return mc;
+	}
+
+	public void setMc(Minecraft mc) {
+		this.mc = mc;
 	}
 }

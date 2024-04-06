@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBarrel extends Render {
-	public ItemStack barrelItem = new ItemStack(GOTBlocks.barrel);
+	private static final ItemStack BARREL_ITEM = new ItemStack(GOTBlocks.barrel);
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
@@ -29,7 +29,7 @@ public class GOTRenderBarrel extends Render {
 		}
 		bindEntityTexture(barrel);
 		GL11.glScalef(1.5f, 1.5f, 1.5f);
-		renderManager.itemRenderer.renderItem(renderManager.livingPlayer, barrelItem, 0);
+		renderManager.itemRenderer.renderItem(renderManager.livingPlayer, BARREL_ITEM, 0);
 		GL11.glPopMatrix();
 	}
 

@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderFallingCoinPile extends Render {
-	public static RenderBlocks blockRenderer = new RenderBlocks();
+	private static final RenderBlocks BLOCK_RENDERER = new RenderBlocks();
 
 	public GOTRenderFallingCoinPile() {
 		shadowSize = 0.5f;
@@ -34,8 +34,8 @@ public class GOTRenderFallingCoinPile extends Render {
 			bindEntityTexture(fallingCoin);
 			GL11.glDisable(2896);
 			GOTBlockTreasurePile.setTreasureBlockBounds(block, meta);
-			blockRenderer.setRenderBoundsFromBlock(block);
-			blockRenderer.renderBlockSandFalling(block, world, i, j, k, meta);
+			BLOCK_RENDERER.setRenderBoundsFromBlock(block);
+			BLOCK_RENDERER.renderBlockSandFalling(block, world, i, j, k, meta);
 			GL11.glEnable(2896);
 			GL11.glPopMatrix();
 		}

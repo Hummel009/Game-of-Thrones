@@ -20,26 +20,23 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class GOTRenderBanner extends Render {
-	public static Map<GOTItemBanner.BannerType, ResourceLocation> bannerTextures = new EnumMap<>(GOTItemBanner.BannerType.class);
-	public static ResourceLocation standTexture = new ResourceLocation("got:textures/banner/stand.png");
-	public static GOTModelBanner model = new GOTModelBanner();
-	public static ICamera bannerFrustum = new Frustrum();
+	public static final ResourceLocation STAND_TEXTURE = new ResourceLocation("got:textures/banner/stand.png");
+
+	private static final Map<GOTItemBanner.BannerType, ResourceLocation> BANNER_TEXTURES = new EnumMap<>(GOTItemBanner.BannerType.class);
+	private static final GOTModelBanner MODEL = new GOTModelBanner();
+	private static final ICamera BANNER_FRUSTUM = new Frustrum();
 
 	public static ResourceLocation getBannerTexture(GOTItemBanner.BannerType type) {
-		ResourceLocation r = bannerTextures.get(type);
+		ResourceLocation r = BANNER_TEXTURES.get(type);
 		if (r == null) {
 			if (GOT.isAprilFools()) {
 				r = new ResourceLocation("got:textures/banner/null.png");
 			} else {
 				r = new ResourceLocation("got:textures/banner/" + type.bannerName + ".png");
 			}
-			bannerTextures.put(type, r);
+			BANNER_TEXTURES.put(type, r);
 		}
 		return r;
-	}
-
-	public static ResourceLocation getStandTexture(GOTItemBanner.BannerType type) {
-		return standTexture;
 	}
 
 	@Override
@@ -51,8 +48,8 @@ public class GOTRenderBanner extends Render {
 		boolean renderBox = debug && protecting;
 		boolean seeThroughWalls = renderBox && (mc.thePlayer.capabilities.isCreativeMode || banner.clientside_playerHasPermissionInSurvival());
 		int protectColor = 65280;
-		bannerFrustum.setPosition(d + RenderManager.renderPosX, d1 + RenderManager.renderPosY, d2 + RenderManager.renderPosZ);
-		if (bannerFrustum.isBoundingBoxInFrustum(banner.boundingBox)) {
+		BANNER_FRUSTUM.setPosition(d + RenderManager.renderPosX, d1 + RenderManager.renderPosY, d2 + RenderManager.renderPosZ);
+		if (BANNER_FRUSTUM.isBoundingBoxInFrustum(banner.boundingBox)) {
 			GL11.glPushMatrix();
 			GL11.glDisable(2884);
 			GL11.glTranslatef((float) d, (float) d1 + 1.5F, (float) d2);
@@ -69,11 +66,11 @@ public class GOTRenderBanner extends Render {
 				OpenGlHelper.setLightmapTextureCoords(OpenGlHelper.lightmapTexUnit, lx, ly);
 				GL11.glColor4f(0 / 255.0F, (protectColor >> 8 & 0xFF) / 255.0F, 0 / 255.0F, 1.0F);
 			}
-			bindTexture(getStandTexture(entity));
-			model.renderStand(0.0625F);
-			model.renderPost(0.0625F);
+			bindTexture(STAND_TEXTURE);
+			MODEL.renderStand(0.0625F);
+			MODEL.renderPost(0.0625F);
 			bindTexture(getBannerTexture(entity));
-			model.renderBanner(0.0625F);
+			MODEL.renderBanner(0.0625F);
 			if (seeThroughWalls) {
 				GL11.glEnable(2929);
 				GL11.glEnable(3553);
@@ -107,18 +104,13 @@ public class GOTRenderBanner extends Render {
 		}
 	}
 
-	public ResourceLocation getBannerTexture(Entity entity) {
+	private ResourceLocation getBannerTexture(Entity entity) {
 		GOTEntityBanner banner = (GOTEntityBanner) entity;
 		return getBannerTexture(banner.getBannerType());
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return getStandTexture(entity);
-	}
-
-	public ResourceLocation getStandTexture(Entity entity) {
-		GOTEntityBanner banner = (GOTEntityBanner) entity;
-		return getStandTexture(banner.getBannerType());
+		return STAND_TEXTURE;
 	}
 }

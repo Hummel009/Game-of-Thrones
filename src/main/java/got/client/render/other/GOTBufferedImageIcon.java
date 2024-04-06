@@ -12,21 +12,19 @@ import java.util.Collection;
 import java.util.HashSet;
 
 public class GOTBufferedImageIcon extends TextureAtlasSprite {
-	public static Collection<String> loadedResources = new HashSet<>();
-	public String iconName;
-	public BufferedImage imageRGB;
+	private static final Collection<String> loadedResources = new HashSet<>();
+	private final BufferedImage imageRGB;
 
-	public GOTBufferedImageIcon(String s, BufferedImage rgb) {
-		super(s);
-		iconName = s;
+	public GOTBufferedImageIcon(String iconName, BufferedImage rgb) {
+		super(iconName);
 		imageRGB = rgb;
-		if (!loadedResources.contains(s)) {
+		if (!loadedResources.contains(iconName)) {
 			TextureManager texManager = Minecraft.getMinecraft().getTextureManager();
 			ResourceLocation r = new ResourceLocation(iconName);
 			ResourceLocation r1 = new ResourceLocation(r.getResourceDomain(), String.format("%s%s", r.getResourcePath(), ".png"));
 			texManager.deleteTexture(r1);
 			texManager.loadTexture(r1, new DynamicTexture(imageRGB));
-			loadedResources.add(s);
+			loadedResources.add(iconName);
 		}
 	}
 

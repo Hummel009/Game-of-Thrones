@@ -14,20 +14,18 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.IRenderHandler;
 import org.lwjgl.opengl.GL11;
 
-public class GOTRenderSky extends IRenderHandler {
-	public static ResourceLocation moonTexture = new ResourceLocation("got:textures/sky/moon.png");
-	public static ResourceLocation sunTexture = new ResourceLocation("got:textures/sky/sun.png");
-	public static ResourceLocation earendilTexture = new ResourceLocation("got:textures/sky/earendil.png");
-	public GOTWorldProvider worldProvider;
-	public GOTRandomSkins skyTextures;
-	public ResourceLocation currentSkyTexture;
-	public int glSkyList;
-	public int glSkyList2;
+public class GOTSkyRenderer extends IRenderHandler {
+	private static final ResourceLocation MOON_TEXTURE = new ResourceLocation("got:textures/sky/moon.png");
+	private static final ResourceLocation SUN_TEXTURE = new ResourceLocation("got:textures/sky/sun.png");
+	private static final ResourceLocation BIG_STAR_TEXTURE = new ResourceLocation("got:textures/sky/bigstar.png");
+	private final GOTRandomSkins skyTextures;
+	private ResourceLocation currentSkyTexture;
+	private final int glSkyList;
+	private final int glSkyList2;
 
-	public GOTRenderSky(GOTWorldProvider provider) {
+	public GOTSkyRenderer() {
 		int k;
 		int j;
-		worldProvider = provider;
 		skyTextures = GOTRandomSkins.loadSkinsList("got:textures/sky/night");
 		Tessellator tessellator = Tessellator.instance;
 		glSkyList = GLAllocation.generateDisplayLists(3);
@@ -175,7 +173,7 @@ public class GOTRenderSky extends IRenderHandler {
 			}
 			GL11.glRotatef(world.getCelestialAngle(partialTicks) * 360.0f, 1.0f, 0.0f, 0.0f);
 			GL11.glBlendFunc(770, 771);
-			mc.renderEngine.bindTexture(sunTexture);
+			mc.renderEngine.bindTexture(SUN_TEXTURE);
 			float rSun = 10.0f;
 			for (int pass = 0; pass <= 1; ++pass) {
 				if (pass == 0) {
@@ -199,7 +197,7 @@ public class GOTRenderSky extends IRenderHandler {
 			if (lunarEclipse) {
 				GL11.glColor3f(1.0f, 0.6f, 0.4f);
 			}
-			mc.renderEngine.bindTexture(moonTexture);
+			mc.renderEngine.bindTexture(MOON_TEXTURE);
 			float rMoon = 10.0f;
 			float f14 = (float) moonPhase / phases;
 			float f15 = 0.0f;
@@ -227,7 +225,7 @@ public class GOTRenderSky extends IRenderHandler {
 				GL11.glRotatef(eAngle, 1.0f, 0.0f, 0.0f);
 				GL11.glBlendFunc(770, 1);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, eBright * rainBrightness);
-				mc.renderEngine.bindTexture(earendilTexture);
+				mc.renderEngine.bindTexture(BIG_STAR_TEXTURE);
 				float rEarendil = 1.5f;
 				tessellator.startDrawingQuads();
 				tessellator.addVertexWithUV(-rEarendil, 100.0, -rEarendil, 0.0, 0.0);
@@ -293,7 +291,7 @@ public class GOTRenderSky extends IRenderHandler {
 		world.theProfiler.endSection();
 	}
 
-	public void renderSkyboxSide(Tessellator tessellator, int side) {
+	private void renderSkyboxSide(Tessellator tessellator, int side) {
 		double u = side % 3 / 3.0;
 		double v = (double) side / 3 / 2.0;
 		tessellator.startDrawingQuads();

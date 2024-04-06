@@ -21,11 +21,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IResourceManagerReloadListener {
-	public BufferedImage cachedBlockAtlasImage;
-	public Map<IIcon, Integer> iconAverageColors = new HashMap<>();
-	public Map<IIcon, Integer> iconContrastColors = new HashMap<>();
+	private BufferedImage cachedBlockAtlasImage;
+	private final Map<IIcon, Integer> iconAverageColors = new HashMap<>();
+	private final Map<IIcon, Integer> iconContrastColors = new HashMap<>();
 
-	public int averageIconColor(IIcon icon) {
+	private int averageIconColor(IIcon icon) {
 		if (iconAverageColors.containsKey(icon)) {
 			return iconAverageColors.get(icon);
 		}
@@ -62,7 +62,7 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		return avgColor;
 	}
 
-	public int calculateContrast(IIcon icon, int color) {
+	private int calculateContrast(IIcon icon, int color) {
 		Color c = new Color(color);
 		float[] hsb = Color.RGBtoHSB(c.getRed(), c.getGreen(), c.getBlue(), null);
 		float h = hsb[0];
@@ -73,7 +73,7 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		return Color.HSBtoRGB(h, s * 0.5f, b);
 	}
 
-	public int getContrastingColor(IIcon icon) {
+	private int getContrastingColor(IIcon icon) {
 		if (iconContrastColors.containsKey(icon)) {
 			return iconContrastColors.get(icon);
 		}
@@ -83,11 +83,11 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		return color;
 	}
 
-	public int getTextColor(GOTTileEntitySignCarved sign, float f) {
+	protected int getTextColor(GOTTileEntitySignCarved sign, float f) {
 		return getContrastingColor(sign.getOnBlockIcon());
 	}
 
-	public BufferedImage loadAndCacheBlockTextureAtlas() {
+	private BufferedImage loadAndCacheBlockTextureAtlas() {
 		Minecraft mc = Minecraft.getMinecraft();
 		mc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
 		int mipmapLvl = 0;

@@ -16,30 +16,30 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderChest extends TileEntitySpecialRenderer {
-	public static Map<String, ResourceLocation> chestTextures = new HashMap<>();
-	public static ModelChest chestModel = new ModelChest();
-	public GOTTileEntityChest itemEntity = new GOTTileEntityChest();
+	private static final Map<String, ResourceLocation> CHEST_TEXTURES = new HashMap<>();
+	private static final ModelChest CHEST_MODEL = new ModelChest();
+	private static final GOTTileEntityChest ITEM_ENTITY = new GOTTileEntityChest();
 
-	public static ResourceLocation getChestTexture(String s) {
-		ResourceLocation r = chestTextures.get(s);
+	private static ResourceLocation getChestTexture(String s) {
+		ResourceLocation r = CHEST_TEXTURES.get(s);
 		if (r == null) {
 			r = new ResourceLocation("got:textures/model/chest/" + s + ".png");
-			chestTextures.put(s, r);
+			CHEST_TEXTURES.put(s, r);
 		}
 		return r;
 	}
 
-	public void renderInvChest(Block block, int meta) {
+	public void renderInvChest(Block block) {
 		Block c;
 		GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
 		GL11.glTranslatef(-0.5f, -0.5f, -0.5f);
-		itemEntity.textureName = "";
+		ITEM_ENTITY.textureName = "";
 		if (block instanceof GOTBlockChest) {
-			itemEntity.textureName = ((GOTBlockChest) block).getChestTextureName();
+			ITEM_ENTITY.textureName = ((GOTBlockChest) block).getChestTextureName();
 		} else if (block instanceof GOTBlockSpawnerChest && (c = ((GOTBlockSpawnerChest) block).chestModel) instanceof GOTBlockChest) {
-			itemEntity.textureName = ((GOTBlockChest) c).getChestTextureName();
+			ITEM_ENTITY.textureName = ((GOTBlockChest) c).getChestTextureName();
 		}
-		renderTileEntityAt(itemEntity, 0.0, 0.0, 0.0, 0.0f);
+		renderTileEntityAt(ITEM_ENTITY, 0.0, 0.0, 0.0, 0.0f);
 		GL11.glEnable(32826);
 	}
 
@@ -85,9 +85,9 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 		float lid = chest.prevLidAngle + (chest.lidAngle - chest.prevLidAngle) * f;
 		lid = 1.0f - lid;
 		lid = 1.0f - lid * lid * lid;
-		chestModel.chestLid.rotateAngleX = -(lid * 3.1415927f / 2.0f);
+		CHEST_MODEL.chestLid.rotateAngleX = -(lid * 3.1415927f / 2.0f);
 		bindTexture(getChestTexture(chest.textureName));
-		chestModel.renderAll();
+		CHEST_MODEL.renderAll();
 		GL11.glDisable(32826);
 		GL11.glPopMatrix();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);

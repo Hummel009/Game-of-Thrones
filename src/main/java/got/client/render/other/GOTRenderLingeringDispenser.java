@@ -10,7 +10,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTRenderLingeringDispenser implements IBehaviorDispenseItem {
-
 	@Override
 	public ItemStack dispense(IBlockSource block, ItemStack stack) {
 		return new MyBehaviorProjectileDispense(stack).dispense(block, stack);

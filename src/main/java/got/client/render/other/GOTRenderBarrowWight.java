@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBarrowWight extends GOTRenderBiped {
-	public static GOTRandomSkins wightSkins;
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/westeros/shadow.png");
 
 	public GOTRenderBarrowWight() {
 		super(new GOTModelWight(), 0.0f);
@@ -34,7 +34,7 @@ public class GOTRenderBarrowWight extends GOTRenderBiped {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:textures/entity/westeros/shadow.png");
+		return TEXTURE;
 	}
 
 	@Override

@@ -10,8 +10,8 @@ import net.minecraftforge.client.IItemRenderer;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderSkullStaff implements IItemRenderer {
-	public static ModelBase staffModel = new ModelBase() {
-		public final ModelRenderer staff = new ModelRenderer(this, 0, 0);
+	private static final ModelBase STAFF_MODEL = new ModelBase() {
+		private final ModelRenderer staff = new ModelRenderer(this, 0, 0);
 
 		{
 			staff.addBox(-0.5f, 8.0f, -6.0f, 1, 1, 28, 0.0f);
@@ -25,7 +25,7 @@ public class GOTRenderSkullStaff implements IItemRenderer {
 			staff.render(f5);
 		}
 	};
-	public static ResourceLocation staffTexture = new ResourceLocation("got:textures/model/skull_staff.png");
+	private static final ResourceLocation staffTexture = new ResourceLocation("got:textures/model/skull_staff.png");
 
 	@Override
 	public boolean handleRenderType(ItemStack itemstack, IItemRenderer.ItemRenderType type) {
@@ -39,12 +39,11 @@ public class GOTRenderSkullStaff implements IItemRenderer {
 			GL11.glRotatef(-70.0f, 0.0f, 0.0f, 1.0f);
 			GL11.glTranslatef(-0.5f, 0.0f, -0.5f);
 		}
-		staffModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+		STAFF_MODEL.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 	}
 
 	@Override
 	public boolean shouldUseRenderHelper(IItemRenderer.ItemRenderType type, ItemStack itemstack, IItemRenderer.ItemRendererHelper helper) {
 		return false;
 	}
-
 }

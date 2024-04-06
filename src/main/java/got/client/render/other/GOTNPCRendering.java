@@ -34,7 +34,7 @@ import java.awt.*;
 import java.util.List;
 
 public class GOTNPCRendering {
-	public static RenderItem itemRenderer = new RenderItem();
+	private static final RenderItem RENDER_ITEM = new RenderItem();
 
 	private GOTNPCRendering() {
 	}
@@ -226,7 +226,7 @@ public class GOTNPCRendering {
 				float itemScale = 0.03f;
 				GL11.glScalef(itemScale, itemScale, itemScale);
 				textureManager.bindTexture(TextureMap.locationItemsTexture);
-				itemRenderer.renderIcon(-8, -8, hiredIcon.getIconIndex(), 16, 16);
+				RENDER_ITEM.renderIcon(-8, -8, hiredIcon.getIconIndex(), 16, 16);
 			}
 			GL11.glDisable(3042);
 			GL11.glEnable(2929);
@@ -306,7 +306,7 @@ public class GOTNPCRendering {
 				float itemScale = 0.0625f;
 				GL11.glScalef(itemScale, itemScale, itemScale);
 				textureManager.bindTexture(TextureMap.locationItemsTexture);
-				itemRenderer.renderIcon(-8, -8, icon, 16, 16);
+				RENDER_ITEM.renderIcon(-8, -8, icon, 16, 16);
 				GL11.glDisable(3042);
 				GL11.glEnable(2929);
 				GL11.glDepthMask(true);
@@ -355,7 +355,7 @@ public class GOTNPCRendering {
 				GL11.glScalef(itemScale, itemScale, itemScale);
 				textureManager.bindTexture(TextureMap.locationItemsTexture);
 				GL11.glColor4f(questRGB[0], questRGB[1], questRGB[2], alpha);
-				itemRenderer.renderIcon(-8, -8, icon, 16, 16);
+				RENDER_ITEM.renderIcon(-8, -8, icon, 16, 16);
 				GL11.glDisable(3042);
 				GL11.glEnable(2896);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -365,7 +365,7 @@ public class GOTNPCRendering {
 		world.theProfiler.endSection();
 	}
 
-	public static void renderSpeech(EntityLivingBase entity, String speech, float speechAge, double d, double d1, double d2) {
+	private static void renderSpeech(EntityLivingBase entity, String speech, float speechAge, double d, double d1, double d2) {
 		Minecraft mc = Minecraft.getMinecraft();
 		WorldClient world = mc.theWorld;
 		world.theProfiler.startSection("renderNPCSpeech");

@@ -19,29 +19,29 @@ import org.lwjgl.util.glu.Project;
 import java.util.Random;
 
 public class GOTCloudRenderer extends IRenderHandler {
-	public static ResourceLocation cloudTexture = new ResourceLocation("got:textures/sky/clouds.png");
-	public static int cloudRange;
-	public static Random cloudRand = new Random();
-	public static CloudProperty cloudOpacity = new CloudProperty(233591206262L, 0.1f, 1.0f, 0.001f);
-	public static CloudProperty cloudSpeed = new CloudProperty(6283905602629L, 0.0f, 0.5f, 0.001f);
-	public static CloudProperty cloudAngle = new CloudProperty(360360635650636L, 0.0f, 6.2831855f, 0.01f);
-	public static double cloudPosXPre;
-	public static double cloudPosX;
-	public static double cloudPosZPre;
-	public static double cloudPosZ;
+	private static final ResourceLocation CLOUD_TEXTURE = new ResourceLocation("got:textures/sky/clouds.png");
+	private static final CloudProperty CLOUD_OPACITY = new CloudProperty(233591206262L, 0.1f, 1.0f, 0.001f);
+	private static final CloudProperty CLOUD_SPEED = new CloudProperty(6283905602629L, 0.0f, 0.5f, 0.001f);
+	private static final CloudProperty CLOUD_ANGLE = new CloudProperty(360360635650636L, 0.0f, 6.2831855f, 0.01f);
+	private static final Random CLOUD_RAND = new Random();
+
+	private static double cloudPosXPre;
+	private static double cloudPosX;
+	private static double cloudPosZPre;
+	private static double cloudPosZ;
 
 	public static void resetClouds() {
-		cloudOpacity.reset();
-		cloudSpeed.reset();
-		cloudAngle.reset();
+		CLOUD_OPACITY.reset();
+		CLOUD_SPEED.reset();
+		CLOUD_ANGLE.reset();
 	}
 
 	public static void updateClouds(WorldClient world) {
-		cloudOpacity.update(world);
-		cloudSpeed.update(world);
-		cloudAngle.update(world);
-		float angle = cloudAngle.getValue(1.0f);
-		float speed = cloudSpeed.getValue(1.0f);
+		CLOUD_OPACITY.update(world);
+		CLOUD_SPEED.update(world);
+		CLOUD_ANGLE.update(world);
+		float angle = CLOUD_ANGLE.getValue(1.0f);
+		float speed = CLOUD_SPEED.getValue(1.0f);
 		cloudPosXPre = cloudPosX;
 		cloudPosX += MathHelper.cos(angle) * speed;
 		cloudPosZPre = cloudPosZ;
@@ -52,7 +52,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 	public void render(float partialTicks, WorldClient world, Minecraft mc) {
 		if (world.provider.isSurfaceWorld()) {
 			world.theProfiler.startSection("gotClouds");
-			cloudRange = GOTConfig.cloudRange;
+			int cloudRange = GOTConfig.cloudRange;
 			GL11.glMatrixMode(5889);
 			GL11.glPushMatrix();
 			GL11.glLoadIdentity();
@@ -74,7 +74,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 				GL11.glFogi(34138, 34139);
 			}
 			Tessellator tessellator = Tessellator.instance;
-			mc.renderEngine.bindTexture(cloudTexture);
+			mc.renderEngine.bindTexture(CLOUD_TEXTURE);
 			Vec3 cloudColor = world.getCloudColour(partialTicks);
 			float r = (float) cloudColor.xCoord;
 			float g = (float) cloudColor.yCoord;
@@ -102,12 +102,11 @@ public class GOTCloudRenderer extends IRenderHandler {
 				double cloudZ = posZ - z * scale;
 				double cloudY = world.provider.getCloudHeight() - posY + 0.33000001311302185 + pass * 50.0f;
 				tessellator.startDrawingQuads();
-				tessellator.setColorRGBA_F(r, g, b, (0.8f - pass * 0.5f) * cloudOpacity.getValue(partialTicks));
-				int interval = cloudRange;
-				for (int i = -cloudRange; i < cloudRange; i += interval) {
-					for (int k = -cloudRange; k < cloudRange; k += interval) {
-						int xMax = i + interval;
-						int zMax = k + interval;
+				tessellator.setColorRGBA_F(r, g, b, (0.8f - pass * 0.5f) * CLOUD_OPACITY.getValue(partialTicks));
+				for (int i = -cloudRange; i < cloudRange; i += cloudRange) {
+					for (int k = -cloudRange; k < cloudRange; k += cloudRange) {
+						int xMax = i + cloudRange;
+						int zMax = k + cloudRange;
 						double uMin = (i + cloudX) * invScaleD;
 						double uMax = (xMax + cloudX) * invScaleD;
 						double vMin = (k + cloudZ) * invScaleD;
@@ -133,16 +132,16 @@ public class GOTCloudRenderer extends IRenderHandler {
 		}
 	}
 
-	public static class CloudProperty {
-		public long baseSeed;
-		public float currentDayValue;
-		public float value;
-		public float prevValue;
-		public float minValue;
-		public float maxValue;
-		public float interval;
+	private static class CloudProperty {
+		protected long baseSeed;
+		protected float currentDayValue;
+		protected float value;
+		protected float prevValue;
+		protected float minValue;
+		protected float maxValue;
+		protected float interval;
 
-		public CloudProperty(long l, float min, float max, float i) {
+		protected CloudProperty(long l, float min, float max, float i) {
 			baseSeed = l;
 			value = -1.0f;
 			minValue = min;
@@ -150,22 +149,22 @@ public class GOTCloudRenderer extends IRenderHandler {
 			interval = i;
 		}
 
-		public float getCurrentDayValue(WorldClient world) {
+		protected float getCurrentDayValue(WorldClient world) {
 			int day = GOTDate.AegonCalendar.currentDay;
 			long seed = day * baseSeed + day + 83025820626792L;
-			cloudRand.setSeed(seed);
-			return MathHelper.randomFloatClamp(cloudRand, minValue, maxValue);
+			CLOUD_RAND.setSeed(seed);
+			return MathHelper.randomFloatClamp(CLOUD_RAND, minValue, maxValue);
 		}
 
-		public float getValue(float f) {
+		protected float getValue(float f) {
 			return prevValue + (value - prevValue) * f;
 		}
 
-		public void reset() {
+		protected void reset() {
 			value = -1.0f;
 		}
 
-		public void update(WorldClient world) {
+		protected void update(WorldClient world) {
 			currentDayValue = getCurrentDayValue(world);
 			if (value == -1.0f) {
 				prevValue = value = currentDayValue;

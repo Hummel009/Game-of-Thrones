@@ -48,8 +48,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 				} else if (item instanceof GOTItemBow) {
 					MinecraftForgeClient.registerItemRenderer(item, new GOTRenderBow(largeItemRenderer));
 				} else if (item instanceof GOTItemSword && ((GOTItemSword) item).isGlowing()) {
-					double d = 24.0;
-					MinecraftForgeClient.registerItemRenderer(item, new GOTRenderBlade(d, largeItemRenderer));
+					MinecraftForgeClient.registerItemRenderer(item, new GOTRenderBlade(largeItemRenderer));
 				} else if (isLarge) {
 					MinecraftForgeClient.registerItemRenderer(item, largeItemRenderer);
 				}

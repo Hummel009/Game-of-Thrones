@@ -188,7 +188,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				ModelRenderer part;
 				int shouldRenderPass = npcRenderer.shouldRenderPass(theNPC, pass, 1.0f);
 				if (shouldRenderPass > 0) {
-					model = npcRenderer.npcRenderPassModel;
+					model = npcRenderer.getNpcRenderPassModel();
 					model.isChild = theNPC.isChild();
 					List<ModelRenderer> modelParts = model.boxList;
 					boolean[] prevShowModels = new boolean[modelParts.size()];

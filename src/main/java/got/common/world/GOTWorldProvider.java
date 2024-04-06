@@ -5,8 +5,8 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.client.render.other.GOTCloudRenderer;
-import got.client.render.other.GOTRenderSky;
-import got.client.render.other.GOTRenderWeather;
+import got.client.render.other.GOTSkyRenderer;
+import got.client.render.other.GOTWeatherRenderer;
 import got.common.*;
 import got.common.util.GOTModChecker;
 import got.common.world.biome.GOTBiome;
@@ -277,7 +277,7 @@ public class GOTWorldProvider extends WorldProvider {
 	public IRenderHandler getSkyRenderer() {
 		if (!GOTModChecker.hasShaders() && GOTConfig.enableGOTSky) {
 			if (gotSkyRenderer == null) {
-				gotSkyRenderer = new GOTRenderSky(this);
+				gotSkyRenderer = new GOTSkyRenderer();
 			}
 			return gotSkyRenderer;
 		}
@@ -293,7 +293,7 @@ public class GOTWorldProvider extends WorldProvider {
 	@SideOnly(Side.CLIENT)
 	public IRenderHandler getWeatherRenderer() {
 		if (gotWeatherRenderer == null) {
-			gotWeatherRenderer = new GOTRenderWeather();
+			gotWeatherRenderer = new GOTWeatherRenderer();
 		}
 		return gotWeatherRenderer;
 	}
