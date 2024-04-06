@@ -154,6 +154,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	public GuiButton buttonConquestRegions;
 
+	@SuppressWarnings("ResultOfObjectAllocationIgnored")
 	public GOTGuiMap() {
 		if (!GOTGenLayerWorld.loadedBiomeImage()) {
 			new GOTGenLayerWorld();

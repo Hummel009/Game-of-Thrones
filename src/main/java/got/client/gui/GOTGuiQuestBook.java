@@ -194,8 +194,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				}
 				if (failed) {
 					for (int l = 0; l < pageText.size(); ++l) {
-						String line = pageText.getText(l);
-						line = EnumChatFormatting.STRIKETHROUGH + line;
+						String line = EnumChatFormatting.STRIKETHROUGH + pageText.getText(l);
 						pageText.set(l, line);
 					}
 					String failureText = quest.getQuestFailure();

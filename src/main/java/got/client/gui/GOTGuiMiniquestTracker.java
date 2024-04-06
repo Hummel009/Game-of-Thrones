@@ -30,7 +30,7 @@ public class GOTGuiMiniquestTracker extends Gui {
 	public int iconWidth = 20;
 	public int iconHeight = 20;
 	public int gap = 4;
-	public GOTMiniQuest trackedQuest;
+	private GOTMiniQuest trackedQuest;
 	public boolean holdingComplete;
 	public int completeTime;
 
@@ -111,5 +111,9 @@ public class GOTGuiMiniquestTracker extends Gui {
 				holdingComplete = false;
 			}
 		}
+	}
+
+	public GOTMiniQuest getTrackedQuest() {
+		return trackedQuest;
 	}
 }

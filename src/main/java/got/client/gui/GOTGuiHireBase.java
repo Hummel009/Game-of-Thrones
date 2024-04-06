@@ -36,7 +36,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 	public static ResourceLocation guiTexture;
 	public GOTHireableBase theUnitTrader;
 	public GOTFaction traderFaction;
-	public GOTUnitTradeEntries trades;
+	private GOTUnitTradeEntries trades;
 	public int currentTradeEntryIndex;
 	public GOTEntityNPC currentDisplayedMob;
 	public EntityLiving currentDisplayedMount;
@@ -294,5 +294,9 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 	public void updateScreen() {
 		super.updateScreen();
 		squadronNameField.updateCursorCounter();
+	}
+
+	public GOTUnitTradeEntries getTrades() {
+		return trades;
 	}
 }

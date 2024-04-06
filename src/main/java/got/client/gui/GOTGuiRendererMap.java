@@ -17,7 +17,7 @@ public class GOTGuiRendererMap {
 	public double mapY;
 	public float zoomExp;
 	public float zoomStable;
-	public boolean sepia;
+	private boolean sepia;
 
 	public void renderMap(GuiScreen gui, GOTGuiMap mapGui, float f) {
 		renderMap(gui, mapGui, f, 0, 0, gui.width, gui.height);
@@ -83,5 +83,9 @@ public class GOTGuiRendererMap {
 	public void updateTick() {
 		prevMapX = mapX;
 		prevMapY = mapY;
+	}
+
+	public boolean isSepia() {
+		return sepia;
 	}
 }

@@ -9,7 +9,7 @@ public class GOTGuiMapWidget {
 	public String name;
 	public int texUBase;
 	public int texVBase;
-	public int texVIndex;
+	private int texVIndex;
 	public boolean visible = true;
 
 	public GOTGuiMapWidget(int x, int y, int w, String s, int u, int v) {
@@ -47,5 +47,9 @@ public class GOTGuiMapWidget {
 
 	public void setTexVIndex(int i) {
 		texVIndex = i;
+	}
+
+	public int getTexVIndex() {
+		return texVIndex;
 	}
 }

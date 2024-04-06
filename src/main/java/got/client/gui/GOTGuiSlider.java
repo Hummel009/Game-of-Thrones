@@ -7,11 +7,11 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTGuiSlider extends GuiButton {
 	public String baseDisplayString;
-	public String overrideStateString;
+	private String overrideStateString;
 	public boolean isTime;
 	public boolean isFloat;
 	public boolean valueOnly;
-	public int numberDigits;
+	private int numberDigits;
 	public int minValue;
 	public int maxValue;
 	public float minValueF;
@@ -120,5 +120,13 @@ public class GOTGuiSlider extends GuiButton {
 
 	public void setValueOnly() {
 		valueOnly = true;
+	}
+
+	public String getOverrideStateString() {
+		return overrideStateString;
+	}
+
+	public int getNumberDigits() {
+		return numberDigits;
 	}
 }
