@@ -300,9 +300,9 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 	public enum NPCAction {
 		TALKING(1.0f), SHAKING(0.1f), LOOKING(0.3f), LOOKING_UP(0.4f);
 
-		public static float totalWeight = -1.0f;
+		private static float totalWeight = -1.0f;
 
-		public float weight;
+		private final float weight;
 
 		NPCAction(float f) {
 			weight = f;
@@ -326,6 +326,10 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 				}
 			}
 			return chosen;
+		}
+
+		public float getWeight() {
+			return weight;
 		}
 	}
 
