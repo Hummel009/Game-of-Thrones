@@ -35,18 +35,13 @@ public class GOTRenderAlignmentBonus extends Render {
 		GOTAlignmentBonusMap factionBonusMap = alignmentBonus.getFactionBonusMap();
 		GOTFaction renderFaction = null;
 		boolean showConquest = false;
-		if (alignmentBonus.getConquestBonus() > 0.0f && playerData.isPledgedTo(viewingFaction)) {
-			renderFaction = viewingFaction;
-			showConquest = true;
-		} else if (alignmentBonus.getConquestBonus() < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction))) {
+		if (alignmentBonus.getConquestBonus() > 0.0f && playerData.isPledgedTo(viewingFaction) || alignmentBonus.getConquestBonus() < 0.0f && (viewingFaction == mainFaction || playerData.isPledgedTo(viewingFaction))) {
 			renderFaction = viewingFaction;
 			showConquest = true;
 		} else if (!factionBonusMap.isEmpty()) {
 			if (factionBonusMap.containsKey(viewingFaction)) {
 				renderFaction = viewingFaction;
-			} else if (factionBonusMap.size() == 1 && mainFaction.isPlayableAlignmentFaction()) {
-				renderFaction = mainFaction;
-			} else if (mainFaction.isPlayableAlignmentFaction() && alignmentBonus.getPrevMainAlignment() >= 0.0f && factionBonusMap.get(mainFaction) < 0.0f) {
+			} else if (factionBonusMap.size() == 1 && mainFaction.isPlayableAlignmentFaction() || mainFaction.isPlayableAlignmentFaction() && alignmentBonus.getPrevMainAlignment() >= 0.0f && factionBonusMap.get(mainFaction) < 0.0f) {
 				renderFaction = mainFaction;
 			} else {
 				float alignment;

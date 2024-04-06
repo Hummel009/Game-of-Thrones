@@ -630,7 +630,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		Tessellator tessellator = Tessellator.instance;
 		int meta = world.getBlockMetadata(i, j, k);
 		topDoor = (meta & 8) != 0;
-		if (topDoor ? world.getBlock(i, j - 1, k) != block : world.getBlock(i, j + 1, k) != block) {
+		if (world.getBlock(i, topDoor ? j - 1 : j + 1, k) != block) {
 			return false;
 		}
 		float f = 0.5f;

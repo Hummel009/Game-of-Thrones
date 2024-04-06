@@ -368,7 +368,7 @@ public class GOTConnectedTextures {
 					allCombos.put(key, iconSet);
 				}
 			}
-			comparator = (IconElement e1, IconElement e2) -> {
+			comparator = (e1, e2) -> {
 				if (e1.priority == e2.priority) {
 					return e1.compareTo(e2);
 				}
