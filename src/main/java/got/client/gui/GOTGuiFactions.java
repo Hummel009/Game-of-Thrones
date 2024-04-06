@@ -14,7 +14,6 @@ import got.common.network.GOTPacketClientMQEvent;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketPledgeSet;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.MathHelper;

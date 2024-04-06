@@ -10,7 +10,6 @@ import got.common.fellowship.GOTFellowshipProfile;
 import got.common.network.GOTPacketBannerRequestInvalidName;
 import got.common.network.GOTPacketEditBanner;
 import got.common.network.GOTPacketHandler;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.util.MathHelper;

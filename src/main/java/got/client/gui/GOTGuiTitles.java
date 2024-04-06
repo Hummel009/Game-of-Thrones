@@ -6,7 +6,6 @@ import got.common.GOTLevelData;
 import got.common.database.GOTTitle;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketSelectTitle;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;

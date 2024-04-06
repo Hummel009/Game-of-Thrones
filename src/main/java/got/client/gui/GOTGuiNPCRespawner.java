@@ -4,7 +4,6 @@ import got.common.entity.other.GOTEntityNPCRespawner;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.network.GOTPacketEditNPCRespawner;
 import got.common.network.GOTPacketHandler;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.util.StatCollector;

@@ -1,7 +1,6 @@
 package got.client.gui;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import org.lwjgl.opengl.GL11;
 

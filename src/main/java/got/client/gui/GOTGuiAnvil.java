@@ -8,7 +8,6 @@ import got.common.network.GOTPacketAnvilEngraveOwner;
 import got.common.network.GOTPacketAnvilReforge;
 import got.common.network.GOTPacketAnvilRename;
 import got.common.network.GOTPacketHandler;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -130,7 +129,7 @@ public class GOTGuiAnvil extends GuiContainer {
 					color = 16736352;
 				}
 			} else if (theAnvil.materialCost > 0 && outputItem != null) {
-				costText = theAnvil.isTrader ? StatCollector.translateToLocalFormatted("got.container.smith.cost", theAnvil.materialCost) : StatCollector.translateToLocalFormatted("got.container.anvil.cost", theAnvil.materialCost);
+				costText = StatCollector.translateToLocalFormatted(theAnvil.isTrader ? "got.container.smith.cost" : "got.container.anvil.cost", theAnvil.materialCost);
 				if (!theAnvil.getSlotFromInventory(theAnvil.invOutput, 0).canTakeStack(mc.thePlayer)) {
 					color = 16736352;
 				}

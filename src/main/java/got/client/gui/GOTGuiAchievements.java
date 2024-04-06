@@ -4,7 +4,6 @@ import com.google.common.math.IntMath;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.database.GOTAchievement;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.RenderHelper;
 import net.minecraft.util.ResourceLocation;

@@ -25,7 +25,6 @@ import got.common.world.genlayer.GOTGenLayerWorld;
 import got.common.world.map.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.AbstractClientPlayer;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.ScaledResolution;
@@ -620,7 +619,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					}
 				} else {
 					GOTWaypoint wp = (GOTWaypoint) selectedWaypoint;
-					notUnlocked = !wp.isCompatibleAlignment(mc.thePlayer) ? StatCollector.translateToLocal("got.gui.map.locked.enemy") : StatCollector.translateToLocal("got.gui.map.locked.region");
+					notUnlocked = wp.isCompatibleAlignment(mc.thePlayer) ? StatCollector.translateToLocal("got.gui.map.locked.region") : StatCollector.translateToLocal("got.gui.map.locked.enemy");
 				}
 				String conquestUnlock = pd.getPledgeFaction() == null ? "" : StatCollector.translateToLocalFormatted("got.gui.map.locked.conquerable", pd.getPledgeFaction().factionName());
 				String ftPrompt = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.prompt", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingFastTravel.getKeyCode()));

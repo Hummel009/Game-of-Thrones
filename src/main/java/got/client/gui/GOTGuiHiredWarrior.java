@@ -6,7 +6,6 @@ import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTHiredNPCInfo;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketNPCSquadron;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.util.EnumChatFormatting;
@@ -123,8 +122,8 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 		buttonRight = new GOTGuiButtonLeftRight(1001, false, guiLeft + xSize + 10, guiTop + 50, "");
 		buttonList.add(buttonLeft);
 		buttonList.add(buttonRight);
-		buttonLeft.displayString = page == 0 ? pageTitles[pageTitles.length - 1] : pageTitles[page - 1];
-		buttonRight.displayString = page == pageTitles.length - 1 ? pageTitles[0] : pageTitles[page + 1];
+		buttonLeft.displayString = pageTitles[(page == 0 ? pageTitles.length : page) - 1];
+		buttonRight.displayString = pageTitles[page == pageTitles.length - 1 ? 0 : page + 1];
 		buttonLeft.displayString = StatCollector.translateToLocal("got.gui.warrior." + buttonLeft.displayString);
 		buttonRight.displayString = StatCollector.translateToLocal("got.gui.warrior." + buttonRight.displayString);
 	}

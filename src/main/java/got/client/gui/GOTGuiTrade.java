@@ -10,7 +10,6 @@ import got.common.inventory.GOTContainerTrade;
 import got.common.inventory.GOTSlotTrade;
 import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketSell;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;

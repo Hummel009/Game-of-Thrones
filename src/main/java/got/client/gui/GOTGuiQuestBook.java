@@ -478,10 +478,9 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			if (fontRendererObj.getStringWidth(objective) >= maxObjLength) {
 				String ellipsis = "...";
 				while (fontRendererObj.getStringWidth(objective + ellipsis) >= maxObjLength) {
-					objective = objective.substring(0, objective.length() - 1);
-					while (Character.isWhitespace(objective.charAt(objective.length() - 1))) {
+					do {
 						objective = objective.substring(0, objective.length() - 1);
-					}
+					} while (Character.isWhitespace(objective.charAt(objective.length() - 1)));
 				}
 				objective = objective + ellipsis;
 			}
