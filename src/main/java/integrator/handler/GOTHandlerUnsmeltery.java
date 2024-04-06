@@ -103,11 +103,11 @@ public class GOTHandlerUnsmeltery extends FurnaceRecipeHandler {
 		private PositionedStack lastIngredient;
 		private int lastCycle = cycleticks / 48;
 
-		protected UnsmeltingPair(ItemStack ingred, ItemStack result) {
+		private UnsmeltingPair(ItemStack ingred, ItemStack result) {
 			super(ingred, result);
 		}
 
-		protected PositionedStack getCycledResult(int cycle, PositionedStack result) {
+		private PositionedStack getCycledResult(int cycle, PositionedStack result) {
 			if (cycle != lastCycle) {
 				lastCycle = cycle;
 				ItemStack stack = INSTANCE.getRandomUnsmeltingResult(null);
