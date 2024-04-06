@@ -23,6 +23,7 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class GOTGuiFellowships extends GOTGuiMenuBase {
 	public static ResourceLocation iconsTextures = new ResourceLocation("got:textures/gui/fellowships.png");
@@ -840,7 +841,8 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 		if (page == Page.LIST) {
 			super.keyTyped(c, i);
 		} else if (i == 1 || i == mc.gameSettings.keyBindInventory.getKeyCode()) {
-			if (page == Page.INVITE || page == Page.DISBAND || page == Page.LEAVE || page == Page.REMOVE || page == Page.OP || page == Page.DEOP || page == Page.TRANSFER || page == Page.RENAME) {
+			//noinspection StreamToLoop
+			if (Stream.of(Page.INVITE, Page.DISBAND, Page.LEAVE, Page.REMOVE, Page.OP, Page.DEOP, Page.TRANSFER, Page.RENAME).anyMatch(v -> page == v)) {
 				page = Page.FELLOWSHIP;
 			} else if (page == Page.ACCEPT_INVITE_RESULT) {
 				if (acceptInviteResult != null) {

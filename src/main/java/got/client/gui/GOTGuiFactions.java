@@ -23,6 +23,7 @@ import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	public static ResourceLocation factionsTexture = new ResourceLocation("got:textures/gui/factions.png");
@@ -589,7 +590,8 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			currentFactionIndex = Math.round(currentScroll * (currentFactionList.size() - 1));
 			scrollPaneAlliesEnemies.resetScroll();
 		}
-		if (currentPage == Page.ALLIES || currentPage == Page.ENEMIES || currentPage == Page.RANKS) {
+		//noinspection StreamToLoop
+		if (Stream.of(Page.ALLIES, Page.ENEMIES, Page.RANKS).anyMatch(page -> currentPage == page)) {
 			switch (currentPage) {
 				case ALLIES:
 					List<GOTFaction> friends;
