@@ -78,7 +78,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 		return super.getEntityTexture(entity);
 	}
 
-	public float getHeldItemYTranslation() {
+	protected float getHeldItemYTranslation() {
 		return 0.1875f;
 	}
 
@@ -225,7 +225,7 @@ public abstract class GOTRenderBiped extends RenderBiped {
 	private void renderNPCCape(GOTEntityNPC entity) {
 		GOTCapes cape = entity.npcCape;
 		if (cape != null) {
-			GOTRenderCape.renderCape(cape, entity, CAPE_MODEL);
+			GOTRenderCape.renderCape(cape, CAPE_MODEL);
 		}
 	}
 

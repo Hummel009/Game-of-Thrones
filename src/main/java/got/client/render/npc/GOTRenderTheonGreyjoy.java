@@ -9,11 +9,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
-public class GOTRenderTheonGreyjoy extends GOTRenderBiped {
+public abstract class GOTRenderTheonGreyjoy extends GOTRenderBiped {
 	private static final ResourceLocation TEXTURE_NORMAL = new ResourceLocation("got:textures/entity/legendary/theon_greyjoy_1.png");
 	private static final ResourceLocation TEXTURE_TORMENTED = new ResourceLocation("got:textures/entity/legendary/theon_greyjoy_2.png");
 
-	public GOTRenderTheonGreyjoy() {
+	protected GOTRenderTheonGreyjoy() {
 		super(new GOTModelHuman(), 0.5f);
 	}
 

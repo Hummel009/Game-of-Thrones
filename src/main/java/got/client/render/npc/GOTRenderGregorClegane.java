@@ -12,14 +12,14 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-public class GOTRenderGregorClegane extends GOTRenderBiped {
+public abstract class GOTRenderGregorClegane extends GOTRenderBiped {
 	private static final ResourceLocation ARMOR = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_3.png");
 	private static final ResourceLocation TEXTURE_ALIVE = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_1.png");
 	private static final ResourceLocation TEXTURE_DEAD = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_2.png");
 
 	private final ModelBiped model = new GOTModelHuman(0.6f, false);
 
-	public GOTRenderGregorClegane() {
+	protected GOTRenderGregorClegane() {
 		super(new GOTModelHuman(), 0.5f);
 	}
 

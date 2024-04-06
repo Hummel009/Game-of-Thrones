@@ -19,7 +19,7 @@ public class GOTRandomSkins implements IResourceManagerReloadListener {
 	private final String skinPath;
 	private List<ResourceLocation> skins;
 
-	private GOTRandomSkins(String path, boolean register, Object... args) {
+	private GOTRandomSkins(String path, boolean register) {
 		skinPath = path;
 		if (register) {
 			((IReloadableResourceManager) MC.getResourceManager()).registerReloadListener(this);

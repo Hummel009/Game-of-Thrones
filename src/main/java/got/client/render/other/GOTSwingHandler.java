@@ -116,27 +116,27 @@ public class GOTSwingHandler {
 		private int swing;
 		private int swingMax;
 
-		public int getSwingPrev() {
+		private int getSwingPrev() {
 			return swingPrev;
 		}
 
-		public void setSwingPrev(int swingPrev) {
+		private void setSwingPrev(int swingPrev) {
 			this.swingPrev = swingPrev;
 		}
 
-		public int getSwing() {
+		private int getSwing() {
 			return swing;
 		}
 
-		public void setSwing(int swing) {
+		private void setSwing(int swing) {
 			this.swing = swing;
 		}
 
-		public int getSwingMax() {
+		private int getSwingMax() {
 			return swingMax;
 		}
 
-		public void setSwingMax(int swingMax) {
+		private void setSwingMax(int swingMax) {
 			this.swingMax = swingMax;
 		}
 	}

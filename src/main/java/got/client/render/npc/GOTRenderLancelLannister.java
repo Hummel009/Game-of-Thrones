@@ -9,11 +9,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
-public class GOTRenderLancelLannister extends GOTRenderBiped {
+public abstract class GOTRenderLancelLannister extends GOTRenderBiped {
 	private static final ResourceLocation TEXTURE_NORMAL = new ResourceLocation("got:textures/entity/legendary/lancel_lannister_1.png");
 	private static final ResourceLocation TEXTURE_RELIGIOUS = new ResourceLocation("got:textures/entity/legendary/lancel_lannister_2.png");
 
-	public GOTRenderLancelLannister() {
+	protected GOTRenderLancelLannister() {
 		super(new GOTModelHuman(), 0.5f);
 	}
 

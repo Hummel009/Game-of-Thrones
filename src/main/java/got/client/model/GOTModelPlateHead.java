@@ -1,6 +1,5 @@
 package got.client.model;
 
-import got.GOT;
 import got.client.GOTTickHandlerClient;
 import got.client.render.other.GOTRenderBlocks;
 import got.common.database.GOTBlocks;
@@ -15,7 +14,6 @@ import net.minecraft.client.renderer.tileentity.TileEntityRendererDispatcher;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class GOTModelPlateHead extends GOTModelHuman {
@@ -37,7 +35,6 @@ public class GOTModelPlateHead extends GOTModelHuman {
 		GL11.glTranslatef(0.0f, 1.0f - bipedHead.rotationPointY / 16.0f, 0.0f);
 		GL11.glTranslatef(0.0f, fallOffset * 0.5f, 0.0f);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-		World world = entity == null ? GOT.proxy.getClientWorld() : entity.worldObj;
 		GOTRenderBlocks.renderEntityPlate(plateBlock, blockRenderer);
 		if (entity instanceof EntityLivingBase && (heldItem = ((EntityLivingBase) entity).getHeldItem()) != null && GOTTileEntityPlate.isValidFoodItem(heldItem)) {
 			ItemStack heldItemMinusOne = heldItem.copy();
