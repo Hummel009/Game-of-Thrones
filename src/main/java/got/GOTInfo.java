@@ -39,7 +39,7 @@ public class GOTInfo {
 		AUTHORS.add("Arbeit");
 	}
 
-	public static final String[] DESCRIPTION = {"§b" + StatCollector.translateToLocal("got.gui.authors") + " " + String.join(", ", AUTHORS) + " " + StatCollector.translateToLocal("got.gui.authors.others")};
+	public static final String[] DESCRIPTION = {"§b" + StatCollector.translateToLocal("got.gui.authors") + ' ' + String.join(", ", AUTHORS) + ' ' + StatCollector.translateToLocal("got.gui.authors.others")};
 
 	private GOTInfo() {
 	}
