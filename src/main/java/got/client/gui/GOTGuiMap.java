@@ -314,7 +314,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			drawDefaultBackground();
 		}
 		if (fullscreen || isConquestGrid) {
-			mc.getTextureManager().bindTexture(GOTTextures.overlayTexture);
+			mc.getTextureManager().bindTexture(GOTTextures.OVERLAY_TEXTURE);
 			if (conquestViewingFaction != null) {
 				float[] cqColors = conquestViewingFaction.getFactionRGB();
 				GL11.glColor4f(cqColors[0], cqColors[1], cqColors[2], 1.0f);
@@ -507,7 +507,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						rectY = Math.min(rectY, mapYMax - mapBorder2 - rectHeight);
 						GL11.glTranslatef(0.0f, 0.0f, 300.0f);
 						drawFancyRect(rectX, rectY, rectX + rectWidth, rectY + rectHeight);
-						mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
+						mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 						drawTexturedModalRect(rectX + border, rectY + border, 0, 228, iconSize, iconSize);
 						mc.fontRenderer.drawString(tooltip, rectX + iconSize + border * 2, rectY + border + (iconSize - strHeight) / 2, 16777215);
@@ -549,7 +549,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				drawRect(mapXMin, mapYMin, mapXMax, mapYMax, -1429949539);
 				GL11.glEnable(3042);
 				GL11.glBlendFunc(770, 771);
-				mc.getTextureManager().bindTexture(GOTTextures.overlayTexture);
+				mc.getTextureManager().bindTexture(GOTTextures.OVERLAY_TEXTURE);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
 				tess.startDrawingQuads();
 				tess.addVertexWithUV(mapXMin, mapYMax, 0.0, 0.0, 1.0);
@@ -618,7 +618,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					notUnlocked = wp.isCompatibleAlignment(mc.thePlayer) ? StatCollector.translateToLocal("got.gui.map.locked.region") : StatCollector.translateToLocal("got.gui.map.locked.enemy");
 				}
 				String conquestUnlock = pd.getPledgeFaction() == null ? "" : StatCollector.translateToLocalFormatted("got.gui.map.locked.conquerable", pd.getPledgeFaction().factionName());
-				String ftPrompt = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.prompt", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingFastTravel.getKeyCode()));
+				String ftPrompt = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.prompt", GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_FAST_TRAVEL.getKeyCode()));
 				String ftMoreTime = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.moreTime", GOTLevelData.getHMSTime_Ticks(timeRemaining));
 				String ftWaitTime = StatCollector.translateToLocalFormatted("got.gui.map.fastTravel.waitTime", GOTLevelData.getHMSTime_Ticks(wpTimeThreshold));
 				if (fullscreen || isConquestGrid) {
@@ -673,7 +673,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				mouseZCoord = Math.round((biomePosZ - GOTGenLayerWorld.ORIGIN_Z) * GOTGenLayerWorld.scale);
 				String biomeName = biome.getBiomeDisplayName();
 				String coords = StatCollector.translateToLocalFormatted("got.gui.map.coords", mouseXCoord, mouseZCoord);
-				String teleport = StatCollector.translateToLocalFormatted("got.gui.map.tp", GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingMapTeleport.getKeyCode()));
+				String teleport = StatCollector.translateToLocalFormatted("got.gui.map.tp", GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_MAP_TELEPORT.getKeyCode()));
 				int stringHeight = fontRendererObj.FONT_HEIGHT;
 				if (fullscreen || isConquestGrid) {
 					renderFullscreenSubtitles(biomeName, coords);
@@ -722,7 +722,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				float guiScale = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight).getScaleFactor();
 				float labelScale = guiScale <= 2.0f ? guiScale : guiScale - 1.0f;
 				float labelScaleRel = labelScale / guiScale;
-				mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
+				mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				drawTexturedModalRect(mapXMax - keyBorder - iconSize, mapYMax - keyBorder - iconSize, 0, 228, iconSize, iconSize);
 				for (int pass = 0; pass <= 1; ++pass) {
@@ -1095,13 +1095,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		} else {
 			if (!loadingConquestGrid) {
 				GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
-				if (i == GOTKeyHandler.keyBindingFastTravel.getKeyCode() && isGameOfThrones() && selectedWaypoint != null && selectedWaypoint.hasPlayerUnlocked(mc.thePlayer) && pd.getTimeSinceFT() >= pd.getWaypointFTTime(selectedWaypoint, mc.thePlayer)) {
+				if (i == GOTKeyHandler.KEY_BINDING_FAST_TRAVEL.getKeyCode() && isGameOfThrones() && selectedWaypoint != null && selectedWaypoint.hasPlayerUnlocked(mc.thePlayer) && pd.getTimeSinceFT() >= pd.getWaypointFTTime(selectedWaypoint, mc.thePlayer)) {
 					IMessage packet = new GOTPacketFastTravel(selectedWaypoint);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					mc.thePlayer.closeScreen();
 					return;
 				}
-				if (selectedWaypoint == null && i == GOTKeyHandler.keyBindingMapTeleport.getKeyCode() && isMouseWithinMap && canTeleport()) {
+				if (selectedWaypoint == null && i == GOTKeyHandler.KEY_BINDING_MAP_TELEPORT.getKeyCode() && isMouseWithinMap && canTeleport()) {
 					IMessage packet = new GOTPacketMapTp(mouseXCoord, mouseZCoord);
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 					mc.thePlayer.closeScreen();
@@ -1577,9 +1577,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				mapYMin_W = mapYMax_W;
 			}
 		}
-		GOTTextures.drawMap(mc.thePlayer, sepia, mapXMin_W, mapXMax_W, mapYMin_W, mapYMax_W, zLevel, minU, maxU, minV, maxV, alpha);
+		GOTTextures.drawMap(sepia, mapXMin_W, mapXMax_W, mapYMin_W, mapYMax_W, zLevel, minU, maxU, minV, maxV, alpha);
 		if (overlay && !isOSRS()) {
-			GOTTextures.drawMapOverlay(mc.thePlayer, mapXMin, mapXMax, mapYMin, mapYMax, zLevel, minU, maxU, minV, maxV);
+			GOTTextures.drawMapOverlay(mapXMin, mapXMax, mapYMin, mapYMax, zLevel);
 		}
 	}
 
@@ -1819,7 +1819,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 							if (isOSRS()) {
 								GL11.glPushMatrix();
 								GL11.glScalef(0.33F, 0.33F, 1.0F);
-								mc.getTextureManager().bindTexture(GOTTextures.osrsTexture);
+								mc.getTextureManager().bindTexture(GOTTextures.OSRS_TEXTURE);
 								GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 								drawTexturedModalRectFloat(x / 0.33F - 8.0F, y / 0.33F - 8.0F, 0, 0, 15.0F, 15.0F);
 								GL11.glPopMatrix();

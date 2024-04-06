@@ -4,12 +4,10 @@ import com.google.common.math.IntMath;
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.InputEvent;
-import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import cpw.mods.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import got.GOT;
 import got.common.GOTDimension;
-import got.common.GOTDimension.DimensionRegion;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.database.GOTGuiID;
@@ -25,35 +23,35 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTKeyHandler {
-	public static KeyBinding keyBindingMenu = new KeyBinding("Menu", 38, "Game of Thrones");
-	public static KeyBinding keyBindingMapTeleport = new KeyBinding("Map Teleport", 50, "Game of Thrones");
-	public static KeyBinding keyBindingFastTravel = new KeyBinding("Fast Travel", 33, "Game of Thrones");
-	public static KeyBinding keyBindingAlignmentCycleLeft = new KeyBinding("Alignment Cycle Left", 203, "Game of Thrones");
-	public static KeyBinding keyBindingAlignmentCycleRight = new KeyBinding("Alignment Cycle Right", 205, "Game of Thrones");
-	public static KeyBinding keyBindingAlignmentGroupPrev = new KeyBinding("Alignment Group Prev", 200, "Game of Thrones");
-	public static KeyBinding keyBindingAlignmentGroupNext = new KeyBinding("Alignment Group Next", 208, "Game of Thrones");
-	public static KeyBinding keyBindingDragonUp = new KeyBinding("Dragon: Fly Up", Keyboard.KEY_G, "Game of Thrones");
-	public static KeyBinding keyBindingDragonDown = new KeyBinding("Dragon: Fly Down", Keyboard.KEY_H, "Game of Thrones");
-	public static KeyBinding keyBindingCargoCart = new KeyBinding("Enable cargocart", 19, "Game of Thrones");
-	public static KeyBinding keyBindingReturn = new KeyBinding("Clear", Keyboard.KEY_RETURN, "Game of Thrones");
-	public static Minecraft mc = Minecraft.getMinecraft();
-	public static int alignmentChangeTick;
-	public static int alignmentChangeTime = 2;
-	public GOTPacketDragonControl dcm = new GOTPacketDragonControl();
-	public SimpleNetworkWrapper network;
+	public static final KeyBinding KEY_BINDING_MENU = new KeyBinding("Menu", 38, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_MAP_TELEPORT = new KeyBinding("Map Teleport", 50, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_FAST_TRAVEL = new KeyBinding("Fast Travel", 33, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_ALIGNMENT_CYCLE_LEFT = new KeyBinding("Alignment Cycle Left", 203, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_ALIGNMENT_CYCLE_RIGHT = new KeyBinding("Alignment Cycle Right", 205, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_ALIGNMENT_GROUP_PREV = new KeyBinding("Alignment Group Prev", 200, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_ALIGNMENT_GROUP_NEXT = new KeyBinding("Alignment Group Next", 208, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_DRAGON_UP = new KeyBinding("Dragon: Fly Up", Keyboard.KEY_G, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_DRAGON_DOWN = new KeyBinding("Dragon: Fly Down", Keyboard.KEY_H, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_RETURN = new KeyBinding("Clear", Keyboard.KEY_RETURN, "Game of Thrones");
+	public static final KeyBinding KEY_BINDING_CARGO_CART = new KeyBinding("Enable cargocart", 19, "Game of Thrones");
 
-	public GOTKeyHandler(SimpleNetworkWrapper network) {
-		this.network = network;
-		ClientRegistry.registerKeyBinding(keyBindingMenu);
-		ClientRegistry.registerKeyBinding(keyBindingMapTeleport);
-		ClientRegistry.registerKeyBinding(keyBindingFastTravel);
-		ClientRegistry.registerKeyBinding(keyBindingAlignmentCycleLeft);
-		ClientRegistry.registerKeyBinding(keyBindingAlignmentCycleRight);
-		ClientRegistry.registerKeyBinding(keyBindingAlignmentGroupPrev);
-		ClientRegistry.registerKeyBinding(keyBindingAlignmentGroupNext);
-		ClientRegistry.registerKeyBinding(keyBindingDragonUp);
-		ClientRegistry.registerKeyBinding(keyBindingDragonDown);
-		ClientRegistry.registerKeyBinding(keyBindingCargoCart);
+	private static final Minecraft mc = Minecraft.getMinecraft();
+
+	private static int alignmentChangeTick;
+
+	private final GOTPacketDragonControl dcm = new GOTPacketDragonControl();
+
+	public GOTKeyHandler() {
+		ClientRegistry.registerKeyBinding(KEY_BINDING_MENU);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_MAP_TELEPORT);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_FAST_TRAVEL);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_ALIGNMENT_CYCLE_LEFT);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_ALIGNMENT_CYCLE_RIGHT);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_ALIGNMENT_GROUP_PREV);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_ALIGNMENT_GROUP_NEXT);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_DRAGON_UP);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_DRAGON_DOWN);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_CARGO_CART);
 	}
 
 	public static void update() {
@@ -65,13 +63,13 @@ public class GOTKeyHandler {
 	@SubscribeEvent
 	public void KeyInputEvent(InputEvent.KeyInputEvent event) {
 		GOTAttackTiming.doAttackTiming();
-		if (keyBindingMenu.getIsKeyPressed() && mc.currentScreen == null) {
+		if (KEY_BINDING_MENU.getIsKeyPressed() && mc.currentScreen == null) {
 			mc.thePlayer.openGui(GOT.instance, GOTGuiID.MENU.ordinal(), mc.theWorld, 0, 0, 0);
 		}
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 		boolean usedAlignmentKeys = false;
 		boolean skippedHelp = false;
-		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(DimensionRegion.class);
+		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
 		GOTDimension currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		GOTFaction currentFaction = pd.getViewingFaction();
 		GOTDimension.DimensionRegion currentRegion = currentFaction.factionRegion;
@@ -79,17 +77,17 @@ public class GOTKeyHandler {
 		List<GOTFaction> factionList = currentRegion.factionList;
 		if (mc.currentScreen == null && alignmentChangeTick <= 0) {
 			int i;
-			if (keyBindingReturn.getIsKeyPressed()) {
+			if (KEY_BINDING_RETURN.getIsKeyPressed()) {
 				skippedHelp = true;
 			}
-			if (keyBindingAlignmentCycleLeft.getIsKeyPressed()) {
+			if (KEY_BINDING_ALIGNMENT_CYCLE_LEFT.getIsKeyPressed()) {
 				i = factionList.indexOf(currentFaction);
 				--i;
 				i = IntMath.mod(i, factionList.size());
 				currentFaction = factionList.get(i);
 				usedAlignmentKeys = true;
 			}
-			if (keyBindingAlignmentCycleRight.getIsKeyPressed()) {
+			if (KEY_BINDING_ALIGNMENT_CYCLE_RIGHT.getIsKeyPressed()) {
 				i = factionList.indexOf(currentFaction);
 				++i;
 				i = IntMath.mod(i, factionList.size());
@@ -97,7 +95,7 @@ public class GOTKeyHandler {
 				usedAlignmentKeys = true;
 			}
 			if (regionList != null) {
-				if (keyBindingAlignmentGroupPrev.getIsKeyPressed()) {
+				if (KEY_BINDING_ALIGNMENT_GROUP_PREV.getIsKeyPressed()) {
 					pd.setRegionLastViewedFaction(currentRegion, currentFaction);
 					lastViewedRegions.put(currentRegion, currentFaction);
 					i = regionList.indexOf(currentRegion);
@@ -107,7 +105,7 @@ public class GOTKeyHandler {
 					currentFaction = pd.getRegionLastViewedFaction(currentRegion);
 					usedAlignmentKeys = true;
 				}
-				if (keyBindingAlignmentGroupNext.getIsKeyPressed()) {
+				if (KEY_BINDING_ALIGNMENT_GROUP_NEXT.getIsKeyPressed()) {
 					pd.setRegionLastViewedFaction(currentRegion, currentFaction);
 					lastViewedRegions.put(currentRegion, currentFaction);
 					i = regionList.indexOf(currentRegion);
@@ -128,7 +126,7 @@ public class GOTKeyHandler {
 			GOTClientProxy.sendClientInfoPacket(currentFaction, lastViewedRegions);
 			alignmentChangeTick = 2;
 		}
-		if (keyBindingCargoCart != null && keyBindingCargoCart.isPressed()) {
+		if (KEY_BINDING_CARGO_CART.isPressed()) {
 			GOTPacketHandler.networkWrapper.sendToServer(new GOTPacketCargocartControl());
 		}
 	}
@@ -139,12 +137,12 @@ public class GOTKeyHandler {
 	}
 
 	@SubscribeEvent
-	public void onTick(ClientTickEvent evt) {
+	public void onTick(TickEvent.ClientTickEvent evt) {
 		BitSet flags = dcm.getFlags();
-		flags.set(0, keyBindingDragonUp.getIsKeyPressed());
-		flags.set(1, keyBindingDragonDown.getIsKeyPressed());
+		flags.set(0, KEY_BINDING_DRAGON_UP.getIsKeyPressed());
+		flags.set(1, KEY_BINDING_DRAGON_DOWN.getIsKeyPressed());
 		if (dcm.hasChanged()) {
-			network.sendToServer(dcm);
+			GOTPacketHandler.networkWrapper.sendToServer(dcm);
 		}
 	}
 }

@@ -22,27 +22,25 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTItemRendererManager implements IResourceManagerReloadListener {
-	public static GOTItemRendererManager INSTANCE;
-	public static Collection<GOTRenderLargeItem> largeItemRenderers = new ArrayList<>();
+	private static final Collection<GOTRenderLargeItem> LARGE_ITEM_RENDERERS = new ArrayList<>();
 
 	public static void preInit() {
 		Minecraft mc = Minecraft.getMinecraft();
 		IResourceManager resMgr = mc.getResourceManager();
-		INSTANCE = new GOTItemRendererManager();
-		INSTANCE.onResourceManagerReload(resMgr);
-		((IReloadableResourceManager) resMgr).registerReloadListener(INSTANCE);
-		MinecraftForge.EVENT_BUS.register(INSTANCE);
+		IResourceManagerReloadListener reloadListener = new GOTItemRendererManager();
+		reloadListener.onResourceManagerReload(resMgr);
+		((IReloadableResourceManager) resMgr).registerReloadListener(reloadListener);
+		MinecraftForge.EVENT_BUS.register(reloadListener);
 	}
 
 	@Override
 	public void onResourceManagerReload(IResourceManager resourceManager) {
-		largeItemRenderers.clear();
+		LARGE_ITEM_RENDERERS.clear();
 		try {
 			for (Item item : GOTItems.CONTENT) {
-				boolean isLarge;
 				MinecraftForgeClient.registerItemRenderer(item, null);
 				GOTRenderLargeItem largeItemRenderer = GOTRenderLargeItem.getRendererIfLarge(item);
-				isLarge = largeItemRenderer != null;
+				boolean isLarge = largeItemRenderer != null;
 				if (item instanceof GOTItemCrossbow) {
 					MinecraftForgeClient.registerItemRenderer(item, new GOTRenderCrossbow());
 				} else if (item instanceof GOTItemBow) {
@@ -53,7 +51,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 					MinecraftForgeClient.registerItemRenderer(item, largeItemRenderer);
 				}
 				if (largeItemRenderer != null) {
-					largeItemRenderers.add(largeItemRenderer);
+					LARGE_ITEM_RENDERERS.add(largeItemRenderer);
 				}
 			}
 		} catch (Exception e) {
@@ -76,7 +74,7 @@ public class GOTItemRendererManager implements IResourceManagerReloadListener {
 	public void preTextureStitch(TextureStitchEvent.Pre event) {
 		TextureMap map = event.map;
 		if (map.getTextureType() == 1) {
-			for (GOTRenderLargeItem largeRenderer : largeItemRenderers) {
+			for (GOTRenderLargeItem largeRenderer : LARGE_ITEM_RENDERERS) {
 				largeRenderer.registerIcons(map);
 			}
 		}

@@ -19,7 +19,6 @@ import net.minecraft.client.renderer.texture.*;
 import net.minecraft.client.resources.IReloadableResourceManager;
 import net.minecraft.client.resources.IResourceManager;
 import net.minecraft.client.resources.IResourceManagerReloadListener;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.TextureStitchEvent;
@@ -34,40 +33,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTTextures implements IResourceManagerReloadListener {
-	public static Minecraft mc = Minecraft.getMinecraft();
-	public static ResourceLocation missingTexture = mc.getTextureManager().getDynamicTextureLocation("got.missingSkin", TextureUtil.missingTexture);
+	private static final Minecraft MC = Minecraft.getMinecraft();
+	public static final ResourceLocation MISSING_TEXTURE = MC.getTextureManager().getDynamicTextureLocation("got.missingSkin", TextureUtil.missingTexture);
+	public static final ResourceLocation OVERLAY_TEXTURE = new ResourceLocation("got:textures/map/mapOverlay.png");
+	public static final ResourceLocation OSRS_TEXTURE = new ResourceLocation("got:textures/map/osrs.png");
+
+	private static final ResourceLocation PARTICLE_TEXTURES = new ResourceLocation("textures/particle/particles.png");
+	private static final ResourceLocation NEW_WATER_PARTICLES = new ResourceLocation("got:textures/misc/waterParticles.png");
+	private static final Map<ResourceLocation, ResourceLocation> EYES_TEXTURES = new HashMap<>();
+	private static final Map<ResourceLocation, Integer> AVERAGED_PAGE_COLORS = new HashMap<>();
+
+	private static final int NEW_WATER_U = 0;
+	private static final int NEW_WATER_V = 8;
+	private static final int NEW_WATER_WIDTH = 64;
+	private static final int NEW_WATER_HEIGHT = 8;
+
 	public static ResourceLocation mapTexture;
 	public static ResourceLocation sepiaMapTexture;
-	public static ResourceLocation overlayTexture = new ResourceLocation("got:textures/map/mapOverlay.png");
-	public static ResourceLocation mapTerrain = new ResourceLocation("got:textures/map/terrain.png");
-	public static ResourceLocation osrsTexture = new ResourceLocation("got:textures/map/osrs.png");
-	public static int OSRS_WATER = 6453158;
-	public static int OSRS_GRASS = 5468426;
-	public static int OSRS_BEACH = 9279778;
-	public static int OSRS_HILL = 6575407;
-	public static int OSRS_MOUNTAIN = 14736861;
-	public static int OSRS_MOUNTAIN_EDGE = 9005125;
-	public static int OSRS_SNOW = 14215139;
-	public static int OSRS_TUNDRA = 9470587;
-	public static int OSRS_SAND = 13548147;
-	public static int OSRS_TREE = 2775058;
-	public static int OSRS_WILD = 3290677;
-	public static int OSRS_PATH = 6575407;
-	public static int OSRS_KINGDOM_COLOR = 16755200;
-	public static ResourceLocation particleTextures = new ResourceLocation("textures/particle/particles.png");
-	public static ResourceLocation newWaterParticles = new ResourceLocation("got:textures/misc/waterParticles.png");
-	public static int newWaterU;
-	public static int newWaterV = 8;
-	public static int newWaterWidth = 64;
-	public static int newWaterHeight = 8;
-	public static Map<ResourceLocation, ResourceLocation> eyesTextures = new HashMap<>();
-	public static Map<ResourceLocation, Integer> averagedPageColors = new HashMap<>();
 
 	public static int computeAverageFactionPageColor(ResourceLocation texture, int u0, int v0, int u1, int v1) {
-		if (!averagedPageColors.containsKey(texture)) {
+		if (!AVERAGED_PAGE_COLORS.containsKey(texture)) {
 			int avgColor;
 			try {
-				BufferedImage pageImage = ImageIO.read(mc.getResourceManager().getResource(texture).getInputStream());
+				BufferedImage pageImage = ImageIO.read(MC.getResourceManager().getResource(texture).getInputStream());
 				long totalR = 0L;
 				long totalG = 0L;
 				long totalB = 0L;
@@ -94,10 +82,10 @@ public class GOTTextures implements IResourceManagerReloadListener {
 				e.printStackTrace();
 				avgColor = 0;
 			}
-			averagedPageColors.put(texture, avgColor);
+			AVERAGED_PAGE_COLORS.put(texture, avgColor);
 			return avgColor;
 		}
-		return averagedPageColors.get(texture);
+		return AVERAGED_PAGE_COLORS.get(texture);
 	}
 
 	public static ResourceLocation convertToSepia(BufferedImage srcImage, ResourceLocation resourceLocation) {
@@ -201,13 +189,13 @@ public class GOTTextures implements IResourceManagerReloadListener {
 				}
 			}
 		}
-		mc.renderEngine.loadTexture(resourceLocation, new DynamicTexture(newMapImage));
+		MC.renderEngine.loadTexture(resourceLocation, new DynamicTexture(newMapImage));
 		return resourceLocation;
 	}
 
-	public static void drawMap(EntityPlayer entityplayer, boolean sepia, double x0, double x1, double y0, double y1, double z, double minU, double maxU, double minV, double maxV, float alpha) {
+	public static void drawMap(boolean sepia, double x0, double x1, double y0, double y1, double z, double minU, double maxU, double minV, double maxV, float alpha) {
 		Tessellator tessellator = Tessellator.instance;
-		mc.getTextureManager().bindTexture(getMapTexture(entityplayer, sepia));
+		MC.getTextureManager().bindTexture(getMapTexture(sepia));
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, alpha);
 		tessellator.startDrawingQuads();
 		tessellator.addVertexWithUV(x0, y1, z, minU, maxV);
@@ -248,7 +236,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 
 	public static void drawMapCompassBottomLeft(double x, double y, double z, double scale) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(GOTGuiMap.MAP_ICONS_TEXTURE);
+		MC.getTextureManager().bindTexture(GOTGuiMap.MAP_ICONS_TEXTURE);
 		int width = 32;
 		int height = 32;
 		double x1 = x + width * scale;
@@ -268,9 +256,9 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		tessellator.draw();
 	}
 
-	public static void drawMapOverlay(EntityPlayer entityplayer, double x0, double x1, double y0, double y1, double z, double minU, double maxU, double minV, double maxV) {
+	public static void drawMapOverlay(double x0, double x1, double y0, double y1, double z) {
 		Tessellator tessellator = Tessellator.instance;
-		mc.getTextureManager().bindTexture(overlayTexture);
+		MC.getTextureManager().bindTexture(OVERLAY_TEXTURE);
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 0.2f);
@@ -302,7 +290,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		return Color.HSBtoRGB(hsbText[0], hsbText[1], bText);
 	}
 
-	public static IIcon generateIconEmpty(TextureMap textureMap) {
+	private static IIcon generateIconEmpty(TextureMap textureMap) {
 		String iconName = "textures/blocks/GOT_EMPTY_ICON";
 		int size = 16;
 		BufferedImage iconImage = new BufferedImage(size, size, 2);
@@ -319,10 +307,10 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	public static ResourceLocation getEyesTexture(ResourceLocation skin, int[][] eyesCoords, int eyeWidth, int eyeHeight) {
-		ResourceLocation eyes = eyesTextures.get(skin);
+		ResourceLocation eyes = EYES_TEXTURES.get(skin);
 		if (eyes == null) {
 			try {
-				BufferedImage skinImage = ImageIO.read(mc.getResourceManager().getResource(skin).getInputStream());
+				BufferedImage skinImage = ImageIO.read(MC.getResourceManager().getResource(skin).getInputStream());
 				int skinWidth = skinImage.getWidth();
 				int skinHeight = skinImage.getHeight();
 				BufferedImage eyesImage = new BufferedImage(skinWidth, skinHeight, 2);
@@ -336,13 +324,13 @@ public class GOTTextures implements IResourceManagerReloadListener {
 						}
 					}
 				}
-				eyes = mc.renderEngine.getDynamicTextureLocation(skin.toString() + "_eyes_" + eyeWidth + '_' + eyeHeight, new DynamicTexture(eyesImage));
+				eyes = MC.renderEngine.getDynamicTextureLocation(skin.toString() + "_eyes_" + eyeWidth + '_' + eyeHeight, new DynamicTexture(eyesImage));
 			} catch (IOException e) {
 				GOTLog.logger.error("Failed to generate eyes skin");
 				e.printStackTrace();
-				eyes = missingTexture;
+				eyes = MISSING_TEXTURE;
 			}
-			eyesTextures.put(skin, eyes);
+			EYES_TEXTURES.put(skin, eyes);
 		}
 		return eyes;
 	}
@@ -353,19 +341,19 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		}
 		int ocean = GOTBiome.ocean.color;
 		if (sepia) {
-			ocean = getSepia(ocean);
+			return getSepia(ocean);
 		}
 		return ocean;
 	}
 
-	public static ResourceLocation getMapTexture(EntityPlayer entityplayer, boolean sepia) {
+	private static ResourceLocation getMapTexture(boolean sepia) {
 		if (GOTConfig.osrsMap || sepia) {
 			return sepiaMapTexture;
 		}
 		return mapTexture;
 	}
 
-	public static int getSepia(int rgb) {
+	private static int getSepia(int rgb) {
 		Color color = new Color(rgb);
 		int alpha = rgb >> 24 & 0xFF;
 		float[] colors = color.getColorComponents(null);
@@ -382,10 +370,10 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		return sepia | alpha << 24;
 	}
 
-	public static void loadMapTextures() {
+	private static void loadMapTextures() {
 		mapTexture = new ResourceLocation("got:textures/map/map.png");
 		try {
-			BufferedImage mapImage = ImageIO.read(mc.getResourceManager().getResource(mapTexture).getInputStream());
+			BufferedImage mapImage = ImageIO.read(MC.getResourceManager().getResource(mapTexture).getInputStream());
 			sepiaMapTexture = convertToSepia(mapImage, new ResourceLocation("got:textures/map_sepia"));
 		} catch (IOException e) {
 			FMLLog.severe("Failed to generate GOT sepia map");
@@ -395,8 +383,8 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	}
 
 	public static void onInit() {
-		IResourceManager resMgr = mc.getResourceManager();
-		TextureManager texMgr = mc.getTextureManager();
+		IResourceManager resMgr = MC.getResourceManager();
+		TextureManager texMgr = MC.getTextureManager();
 		GOTTextures textures = new GOTTextures();
 		textures.onResourceManagerReload(resMgr);
 		((IReloadableResourceManager) resMgr).registerReloadListener(textures);
@@ -407,15 +395,15 @@ public class GOTTextures implements IResourceManagerReloadListener {
 		textures.preTextureStitch(new TextureStitchEvent.Pre(texMapItems));
 	}
 
-	public static void replaceWaterParticles() {
+	private static void replaceWaterParticles() {
 		try {
-			BufferedImage particles = ImageIO.read(mc.getResourcePackRepository().rprDefaultResourcePack.getInputStream(particleTextures));
-			BufferedImage waterParticles = ImageIO.read(mc.getResourceManager().getResource(newWaterParticles).getInputStream());
+			BufferedImage particles = ImageIO.read(MC.getResourcePackRepository().rprDefaultResourcePack.getInputStream(PARTICLE_TEXTURES));
+			BufferedImage waterParticles = ImageIO.read(MC.getResourceManager().getResource(NEW_WATER_PARTICLES).getInputStream());
 			int[] rgb = waterParticles.getRGB(0, 0, waterParticles.getWidth(), waterParticles.getHeight(), null, 0, waterParticles.getWidth());
-			particles.setRGB(newWaterU, newWaterV, newWaterWidth, newWaterHeight, rgb, 0, newWaterWidth);
-			TextureManager textureManager = mc.getTextureManager();
-			textureManager.bindTexture(particleTextures);
-			ITextureObject texture = textureManager.getTexture(particleTextures);
+			particles.setRGB(NEW_WATER_U, NEW_WATER_V, NEW_WATER_WIDTH, NEW_WATER_HEIGHT, rgb, 0, NEW_WATER_WIDTH);
+			TextureManager textureManager = MC.getTextureManager();
+			textureManager.bindTexture(PARTICLE_TEXTURES);
+			ITextureObject texture = textureManager.getTexture(PARTICLE_TEXTURES);
 			TextureUtil.uploadTextureImageAllocate(texture.getGlTextureId(), particles, false, false);
 		} catch (IOException e) {
 			FMLLog.severe("Failed to replace rain particles");
@@ -427,8 +415,8 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	public void onResourceManagerReload(IResourceManager resourceManager) {
 		loadMapTextures();
 		replaceWaterParticles();
-		eyesTextures.clear();
-		averagedPageColors.clear();
+		EYES_TEXTURES.clear();
+		AVERAGED_PAGE_COLORS.clear();
 	}
 
 	@SubscribeEvent

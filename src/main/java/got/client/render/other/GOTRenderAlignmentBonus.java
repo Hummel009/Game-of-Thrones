@@ -97,7 +97,7 @@ public class GOTRenderAlignmentBonus extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return GOTClientProxy.alignmentTexture;
+		return GOTClientProxy.ALIGNMENT_TEXTURE;
 	}
 
 	private void renderBonusText(GOTEntityAlignmentBonus alignmentBonus, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {

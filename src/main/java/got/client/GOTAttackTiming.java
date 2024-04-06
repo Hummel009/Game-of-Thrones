@@ -15,14 +15,19 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTAttackTiming {
-	public static Minecraft mc = Minecraft.getMinecraft();
-	public static ResourceLocation meterTexture = new ResourceLocation("got:textures/gui/attackMeter.png");
-	public static RenderItem itemRenderer = new RenderItem();
+	private static final Minecraft MC = Minecraft.getMinecraft();
+	private static final ResourceLocation METER_TEXTURE = new ResourceLocation("got:textures/gui/attackMeter.png");
+	private static final RenderItem ITEM_RENDERER = new RenderItem();
+
+	private static ItemStack attackItem;
+	private static int lastCheckTick = -1;
+
 	public static int attackTime;
 	public static int prevAttackTime;
 	public static int fullAttackTime;
-	public static ItemStack attackItem;
-	public static int lastCheckTick = -1;
+
+	private GOTAttackTiming() {
+	}
 
 	@SuppressWarnings("StatementWithEmptyBody")
 	public static void doAttackTiming() {
@@ -32,20 +37,20 @@ public class GOTAttackTiming {
 		} else if (lastCheckTick == currentTick) {
 			return;
 		}
-		if (mc.thePlayer == null) {
+		if (MC.thePlayer == null) {
 			reset();
 		} else {
-			KeyBinding attackKey = mc.gameSettings.keyBindAttack;
+			KeyBinding attackKey = MC.gameSettings.keyBindAttack;
 			boolean pressed = attackKey.isPressed();
 			if (pressed) {
 				KeyBinding.onTick(attackKey.getKeyCode());
 			}
-			if (pressed && mc.objectMouseOver != null && mc.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && mc.objectMouseOver.entityHit instanceof EntityLivingBase) {
+			if (pressed && MC.objectMouseOver != null && MC.objectMouseOver.typeOfHit == MovingObjectPosition.MovingObjectType.ENTITY && MC.objectMouseOver.entityHit instanceof EntityLivingBase) {
 				if (attackTime > 0) {
 					while (attackKey.isPressed()) {
 					}
 				} else {
-					ItemStack itemstack = mc.thePlayer.getHeldItem();
+					ItemStack itemstack = MC.thePlayer.getHeldItem();
 					attackTime = fullAttackTime = GOTWeaponStats.getAttackTimePlayer(itemstack);
 					attackItem = itemstack;
 				}
@@ -65,7 +70,7 @@ public class GOTAttackTiming {
 			int minY = maxY - 10;
 			double lerpX = minX + (maxX - minX) * meterAmount;
 			Tessellator tessellator = Tessellator.instance;
-			mc.getTextureManager().bindTexture(meterTexture);
+			MC.getTextureManager().bindTexture(METER_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			double minU = 0.0;
 			double maxU = 1.0;
@@ -98,7 +103,7 @@ public class GOTAttackTiming {
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				int iconX = (minX + maxX) / 2 - 8;
 				int iconY = (minY + maxY) / 2 - 8;
-				itemRenderer.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), attackItem, iconX, iconY);
+				ITEM_RENDERER.renderItemAndEffectIntoGUI(MC.fontRenderer, MC.getTextureManager(), attackItem, iconX, iconY);
 				RenderHelper.disableStandardItemLighting();
 			}
 		}

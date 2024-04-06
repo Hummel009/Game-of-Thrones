@@ -53,8 +53,8 @@ public class GOTRenderCommandTable extends TileEntitySpecialRenderer {
 		double maxV = (double) (posY + viewportWidth / 2) / GOTGenLayerWorld.imageHeight;
 		GL11.glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		GOTTextures.drawMap(Minecraft.getMinecraft().thePlayer, true, -radius, radius, -radius, radius, 0.0, minU, maxU, minV, maxV, 1.0f);
-		GOTTextures.drawMapOverlay(Minecraft.getMinecraft().thePlayer, -radius, radius, -radius, radius, 0.0, minU, maxU, minV, maxV);
+		GOTTextures.drawMap(true, -radius, radius, -radius, radius, 0.0, minU, maxU, minV, maxV, 1.0f);
+		GOTTextures.drawMapOverlay(-radius, radius, -radius, radius, 0.0);
 		double compassInset = radius * 0.05;
 		GOTTextures.drawMapCompassBottomLeft(-radius + compassInset, radius - compassInset, -0.01, 0.15 * radius * 0.0625);
 		GL11.glDisable(3553);
