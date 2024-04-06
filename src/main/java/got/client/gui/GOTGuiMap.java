@@ -171,7 +171,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public static int[] setFakeStaticProperties(int w, int h, int xmin, int xmax, int ymin, int ymax) {
-		int[] ret = new int[]{mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
+		int[] ret = {mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
 		mapWidth = w;
 		mapHeight = h;
 		mapXMin = xmin;
@@ -2218,15 +2218,15 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			posZ = z;
 		}
 
-		public double getPosX() {
+		private double getPosX() {
 			return posX;
 		}
 
-		public double getPosZ() {
+		private double getPosZ() {
 			return posZ;
 		}
 
-		public GameProfile getProfile() {
+		private GameProfile getProfile() {
 			return profile;
 		}
 	}

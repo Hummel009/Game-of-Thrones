@@ -10,8 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderFactionNPCMonofolder extends GOTRenderBiped {
-	public String path;
-	public float size;
+	private final String path;
+	private final float size;
 
 	public GOTRenderFactionNPCMonofolder(String texture) {
 		super(new GOTModelHuman(), 0.5f);

@@ -13,23 +13,14 @@ import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderFactionNPC extends GOTRenderBiped {
-	public String path;
-	public float size;
-	public GOTGlowingEyes.Model eyesModel = new GOTModelHuman();
+	private final String path;
+	private final GOTGlowingEyes.Model eyesModel = new GOTModelHuman();
 
 	public GOTRenderFactionNPC(String texture) {
 		super(new GOTModelHuman(), 0.5f);
 		path = texture;
-		size = 1.0f;
-	}
-
-	public GOTRenderFactionNPC(String texture, float height) {
-		super(new GOTModelHuman(), 0.5f);
-		path = texture;
-		size = height;
 	}
 
 	@Override
@@ -46,12 +37,6 @@ public class GOTRenderFactionNPC extends GOTRenderBiped {
 			return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/femalechild").getRandomSkin(mob);
 		}
 		return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/female").getRandomSkin(mob);
-	}
-
-	@Override
-	public void preRenderCallback(EntityLivingBase entity, float f) {
-		super.preRenderCallback(entity, f);
-		GL11.glScalef(size, size, size);
 	}
 
 	@Override

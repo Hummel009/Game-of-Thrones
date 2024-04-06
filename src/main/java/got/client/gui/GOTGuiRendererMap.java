@@ -22,10 +22,10 @@ public class GOTGuiRendererMap {
 	private float zoomStable;
 
 	public void renderMap(GuiScreen gui, GOTGuiMap mapGui, float f) {
-		renderMap(gui, mapGui, f, 0, 0, gui.width, gui.height);
+		renderMap(mapGui, f, 0, 0, gui.width, gui.height);
 	}
 
-	public void renderMap(GuiScreen gui, GOTGuiMap mapGui, float f, int x0, int y0, int x1, int y1) {
+	public void renderMap(GOTGuiMap mapGui, float f, int x0, int y0, int x1, int y1) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		int oceanColor = GOTTextures.getMapOceanColor(sepia);
 		Gui.drawRect(x0, y0, x1, y1, oceanColor);

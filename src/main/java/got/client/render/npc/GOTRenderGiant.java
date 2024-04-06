@@ -16,12 +16,13 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderGiant extends RenderLiving {
-	public ResourceLocation weaponsTexture = new ResourceLocation("got:textures/entity/westeros/giant/weapons.png");
-	public GOTModelGiant shirtModel = new GOTModelGiant(1.0f, 0);
-	public GOTModelGiant trousersModel = new GOTModelGiant(0.75f, 1);
-	public GOTEntityThrownRock heldRock;
+	private static final ResourceLocation WEAPONS_TEXTURE = new ResourceLocation("got:textures/entity/westeros/giant/weapons.png");
+	private static final GOTModelGiant SHIRT_MODEL = new GOTModelGiant(1.0f, 0);
+	private static final GOTModelGiant TROUSERS_MODEL = new GOTModelGiant(0.75f, 1);
 
-	public String type;
+	private final String type;
+
+	private GOTEntityThrownRock heldRock;
 
 	public GOTRenderGiant(String texture) {
 		super(new GOTModelGiant(), 0.5f);
@@ -45,8 +46,7 @@ public class GOTRenderGiant extends RenderLiving {
 
 	@Override
 	public void preRenderCallback(EntityLivingBase entity, float f) {
-		GOTEntityGiant giant = (GOTEntityGiant) entity;
-		scalegiant(giant, false);
+		scaleGiant(false);
 	}
 
 	@Override
@@ -54,12 +54,12 @@ public class GOTRenderGiant extends RenderLiving {
 		GL11.glColor3f(1.0f, 1.0f, 1.0f);
 		super.renderEquippedItems(entity, f);
 		GL11.glPushMatrix();
-		bindTexture(weaponsTexture);
+		bindTexture(WEAPONS_TEXTURE);
 		rendergiantWeapon(entity, f);
 		GL11.glPopMatrix();
 	}
 
-	public void rendergiantWeapon(EntityLivingBase entity, float f) {
+	private void rendergiantWeapon(EntityLivingBase entity, float f) {
 		GOTEntityGiant giant = (GOTEntityGiant) entity;
 		if (giant.isThrowingRocks()) {
 			if (mainModel.onGround <= 0.0f) {
@@ -71,7 +71,7 @@ public class GOTRenderGiant extends RenderLiving {
 				((GOTModelGiant) mainModel).getRightArm().postRender(0.0625f);
 				GL11.glTranslatef(0.375f, 1.5f, 0.0f);
 				GL11.glRotatef(45.0f, 0.0f, 1.0f, 0.0f);
-				scalegiant(giant, true);
+				scaleGiant(true);
 				renderManager.renderEntityWithPosYaw(heldRock, 0.0, 0.0, 0.0, 0.0f, f);
 			}
 		} else {
@@ -79,13 +79,7 @@ public class GOTRenderGiant extends RenderLiving {
 		}
 	}
 
-	@Override
-	public void rotateCorpse(EntityLivingBase entity, float f, float f1, float f2) {
-
-		super.rotateCorpse(entity, f, f1, f2);
-	}
-
-	public void scalegiant(GOTEntityGiant giant, boolean inverse) {
+	private void scaleGiant(boolean inverse) {
 		float scale = 1.6f;
 		if (inverse) {
 			scale = 1.0f / scale;
@@ -96,12 +90,12 @@ public class GOTRenderGiant extends RenderLiving {
 	@Override
 	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
 		if (pass == 0) {
-			shirtModel.onGround = mainModel.onGround;
-			setRenderPassModel(shirtModel);
+			SHIRT_MODEL.onGround = mainModel.onGround;
+			setRenderPassModel(SHIRT_MODEL);
 			return 1;
 		}
 		if (pass == 1) {
-			setRenderPassModel(trousersModel);
+			setRenderPassModel(TROUSERS_MODEL);
 			return 1;
 		}
 		return super.shouldRenderPass(entity, pass, f);

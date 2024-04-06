@@ -14,7 +14,7 @@ import net.minecraft.util.StringUtils;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
-	private static final String[] PAGE_TITLES = new String[]{"overview", "options"};
+	private static final String[] PAGE_TITLES = {"overview", "options"};
 
 	private GuiButton buttonLeft;
 	private GuiButton buttonRight;

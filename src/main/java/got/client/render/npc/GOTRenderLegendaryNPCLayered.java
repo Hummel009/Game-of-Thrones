@@ -13,10 +13,10 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
-	public String name;
-	public Boolean enableCape;
-	public float height;
-	public ModelBiped model = new GOTModelHuman(0.6f, false);
+	private final String name;
+	private final boolean enableCape;
+	private final float height;
+	private final ModelBiped model = new GOTModelHuman(0.6f, false);
 
 	public GOTRenderLegendaryNPCLayered(String texture) {
 		super(new GOTModelHuman(), 0.5f);
@@ -25,7 +25,7 @@ public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
 		height = 1.0f;
 	}
 
-	public GOTRenderLegendaryNPCLayered(String texture, Boolean hasCape) {
+	public GOTRenderLegendaryNPCLayered(String texture, boolean hasCape) {
 		super(new GOTModelHuman(), 0.5f);
 		name = texture;
 		enableCape = hasCape;
@@ -53,7 +53,7 @@ public class GOTRenderLegendaryNPCLayered extends GOTRenderBiped {
 		return new ResourceLocation("got:textures/entity/legendary/" + name + "_1.png");
 	}
 
-	public ResourceLocation getSecondLayerTexture() {
+	private ResourceLocation getSecondLayerTexture() {
 		return new ResourceLocation("got:textures/entity/legendary/" + name + "_2.png");
 	}
 

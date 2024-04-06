@@ -12,8 +12,8 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderLegendaryNPC extends GOTRenderBiped {
-	public String name;
-	public float height;
+	private final String name;
+	private final float height;
 
 	public GOTRenderLegendaryNPC(String texture) {
 		super(new GOTModelHuman(), 0.5f);

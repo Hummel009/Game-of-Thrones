@@ -7,34 +7,22 @@ import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
-import org.lwjgl.opengl.GL11;
 
 public class GOTRenderFactionNPCLayered extends GOTRenderBiped {
-	public String path;
-	public String outfit;
-	public float size;
-	public ModelBiped model = new GOTModelHuman(0.6f, false);
+	private final String path;
+	private final String outfit;
+	private final ModelBiped model = new GOTModelHuman(0.6f, false);
 
 	public GOTRenderFactionNPCLayered(String texture) {
 		super(new GOTModelHuman(), 0.5f);
 		path = texture;
-		size = 1.0f;
 		outfit = "outfit";
-	}
-
-	public GOTRenderFactionNPCLayered(String texture, float height, String layer) {
-		super(new GOTModelHuman(), 0.5f);
-		path = texture;
-		size = height;
-		outfit = layer;
 	}
 
 	public GOTRenderFactionNPCLayered(String texture, String layer) {
 		super(new GOTModelHuman(), 0.5f);
 		path = texture;
-		size = 1.0f;
 		outfit = layer;
 	}
 
@@ -53,14 +41,8 @@ public class GOTRenderFactionNPCLayered extends GOTRenderBiped {
 		return GOTRandomSkins.loadSkinsList("got:textures/entity/" + path + "/female").getRandomSkin(mob);
 	}
 
-	public ResourceLocation getSecondLayerTexture() {
+	private ResourceLocation getSecondLayerTexture() {
 		return new ResourceLocation("got:textures/entity/" + path + '/' + outfit + ".png");
-	}
-
-	@Override
-	public void preRenderCallback(EntityLivingBase entity, float f) {
-		super.preRenderCallback(entity, f);
-		GL11.glScalef(size, size, size);
 	}
 
 	@Override

@@ -43,11 +43,11 @@ public abstract class GOTGuiMenuBase extends GOTGuiMenuWBBase {
 		super.keyTyped(c, i);
 	}
 
-	public int getSizeX() {
+	protected int getSizeX() {
 		return xSize;
 	}
 
-	public void setSizeX(int xSize) {
+	protected void setSizeX(int xSize) {
 		this.xSize = xSize;
 	}
 }

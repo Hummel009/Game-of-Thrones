@@ -10,6 +10,9 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderLancelLannister extends GOTRenderBiped {
+	private static final ResourceLocation SKIN_NORMAL = new ResourceLocation("got:textures/entity/legendary/lancel_lannister_1.png");
+	private static final ResourceLocation SKIN_RELIGIOUS = new ResourceLocation("got:textures/entity/legendary/lancel_lannister_2.png");
+
 	public GOTRenderLancelLannister() {
 		super(new GOTModelHuman(), 0.5f);
 	}
@@ -27,7 +30,7 @@ public class GOTRenderLancelLannister extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return new ResourceLocation("got:textures/entity/legendary/lancel_lannister_1.png");
+			return SKIN_NORMAL;
 		}
 	}
 
@@ -35,7 +38,7 @@ public class GOTRenderLancelLannister extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return new ResourceLocation("got:textures/entity/legendary/lancel_lannister_2.png");
+			return SKIN_RELIGIOUS;
 		}
 	}
 }

@@ -14,7 +14,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public abstract class GOTRenderSpiderBase extends RenderLiving {
-	public GOTGlowingEyes.Model eyesModel = new GOTModelSpider(0.55f);
+	private final GOTGlowingEyes.Model eyesModel = new GOTModelSpider(0.55f);
 
 	protected GOTRenderSpiderBase() {
 		super(new GOTModelSpider(0.5f), 1.0f);

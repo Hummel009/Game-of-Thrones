@@ -46,10 +46,10 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	private GuiButton buttonRemoveSlot;
 	private GOTGuiButtonBanner buttonDefaultPermissions;
 	private GuiTextField alignmentField;
-	private GuiTextField[] allowedPlayers = new GuiTextField[]{};
-	private boolean[] invalidUsernames = new boolean[]{};
-	private boolean[] validatedUsernames = new boolean[]{};
-	private boolean[] checkUsernames = new boolean[]{};
+	private GuiTextField[] allowedPlayers = {};
+	private boolean[] invalidUsernames = {};
+	private boolean[] validatedUsernames = {};
+	private boolean[] checkUsernames = {};
 	private float currentScroll;
 	private boolean isScrolling;
 	private boolean wasMouseDown;
@@ -236,7 +236,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			windowY = guiTop + Y_SIZE - PERM_WINDOW_HEIGHT;
 			String boxTitle = StatCollector.translateToLocal("got.gui.bannerEdit.perms.default");
 			String boxSubtitle = StatCollector.translateToLocalFormatted("got.gui.bannerEdit.perms.allPlayers");
-			Function<GOTBannerProtection.Permission, Boolean> getEnabled = p -> theBanner.hasDefaultPermission(p);
+			Function<GOTBannerProtection.Permission, Boolean> getEnabled = theBanner::hasDefaultPermission;
 			drawPermissionsWindow(i, j, windowX, windowY, boxTitle, boxSubtitle, getEnabled, false);
 		}
 		super.drawScreen(i, j, f);

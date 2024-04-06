@@ -10,18 +10,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderProstitute extends GOTRenderBiped {
-	public static Map<String, ResourceLocation> prostituteSkins = new HashMap<>();
+	private static final Map<String, ResourceLocation> PROSTITUTE_SKINS = new HashMap<>();
 
 	public GOTRenderProstitute() {
 		super(new GOTModelHuman(), 0.5f);
 	}
 
-	public static ResourceLocation getProstituteSkin(GOTEntityProstitute.ProstituteType type) {
+	private static ResourceLocation getProstituteSkin(GOTEntityProstitute.ProstituteType type) {
 		String s = type.textureName();
-		ResourceLocation skin = prostituteSkins.get(s);
+		ResourceLocation skin = PROSTITUTE_SKINS.get(s);
 		if (skin == null) {
 			skin = new ResourceLocation("got:textures/entity/prostitute/" + s + ".png");
-			prostituteSkins.put(s, skin);
+			PROSTITUTE_SKINS.put(s, skin);
 		}
 		return skin;
 	}
