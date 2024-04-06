@@ -1,6 +1,6 @@
 package got.client.gui;
 
-import got.client.event.GOTTickHandlerClient;
+import got.client.GOTTickHandlerClient;
 import got.common.GOTDimension;
 import got.common.network.GOTPacketCheckMenuPrompt;
 import got.common.network.GOTPacketHandler;

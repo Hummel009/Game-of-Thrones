@@ -14,7 +14,8 @@ import net.minecraft.util.Vec3;
 import java.util.List;
 
 public class GOTEntityRenderer extends EntityRenderer {
-	private final Minecraft theMC;
+	public Minecraft theMC;
+	public Entity thePointedEntity;
 
 	public GOTEntityRenderer(Minecraft mc, IResourceManager irm) {
 		super(mc, irm);
@@ -26,7 +27,7 @@ public class GOTEntityRenderer extends EntityRenderer {
 		if (theMC.renderViewEntity != null && theMC.theWorld != null) {
 			double reach;
 			theMC.pointedEntity = null;
-			Entity thePointedEntity = null;
+			thePointedEntity = null;
 			double blockReach = theMC.playerController.getBlockReachDistance();
 			float meleeReachFactor = GOTWeaponStats.getMeleeReachFactor(theMC.thePlayer.getHeldItem());
 			theMC.objectMouseOver = theMC.renderViewEntity.rayTrace(blockReach * meleeReachFactor, partialTick);
@@ -89,7 +90,7 @@ public class GOTEntityRenderer extends EntityRenderer {
 	public void updateRenderer() {
 		super.updateRenderer();
 		if (Minecraft.isGuiEnabled()) {
-			float wight = GOTClientProxy.TICK_HANDLER.getWightLookFactor();
+			float wight = GOTClientProxy.tickHandler.getWightLookFactor();
 			float hand = GOTReflectionClient.getHandFOV(this);
 			GOTReflectionClient.setHandFOV(this, hand + wight * 0.3f);
 		}

@@ -9,23 +9,24 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class GOTAlignmentTicker {
-	private static final Map<GOTFaction, GOTAlignmentTicker> ALL_FACTION_TICKERS = new EnumMap<>(GOTFaction.class);
+	public static Map<GOTFaction, GOTAlignmentTicker> allFactionTickers = new EnumMap<>(GOTFaction.class);
+	public static int moveTime = 20;
+	public static int flashTime = 30;
+	public static int numericalTime = 200;
+	public GOTFaction theFac;
+	public float oldAlign;
+	public float newAlign;
+	public int moveTick;
+	public int prevMoveTick;
+	public int flashTick;
+	public int numericalTick;
 
-	private final GOTFaction theFac;
-
-	private float oldAlign;
-	private float newAlign;
-	private int moveTick;
-	private int prevMoveTick;
-	private int flashTick;
-	private int numericalTick;
-
-	private GOTAlignmentTicker(GOTFaction f) {
+	public GOTAlignmentTicker(GOTFaction f) {
 		theFac = f;
 	}
 
 	public static GOTAlignmentTicker forFaction(GOTFaction fac) {
-		return ALL_FACTION_TICKERS.computeIfAbsent(fac, GOTAlignmentTicker::new);
+		return allFactionTickers.computeIfAbsent(fac, GOTAlignmentTicker::new);
 	}
 
 	public static void updateAll(EntityPlayer entityplayer, boolean forceInstant) {
@@ -76,13 +77,5 @@ public class GOTAlignmentTicker {
 				--numericalTick;
 			}
 		}
-	}
-
-	public int getFlashTick() {
-		return flashTick;
-	}
-
-	public int getNumericalTick() {
-		return numericalTick;
 	}
 }

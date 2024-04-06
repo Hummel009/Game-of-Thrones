@@ -1,7 +1,7 @@
 package got.client.gui;
 
 import got.client.GOTClientProxy;
-import got.client.event.GOTTickHandlerClient;
+import got.client.GOTTickHandlerClient;
 import got.common.database.GOTAchievement;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
@@ -178,7 +178,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 
 		@Override
 		public void renderIcon(int x, int y) {
-			mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+			mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x, y, isCleansing ? 16 : 0, 228, 16, 16);
 		}

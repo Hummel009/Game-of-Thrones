@@ -6,7 +6,7 @@ import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import got.client.event.GOTTextures;
+import got.client.GOTTextures;
 import got.common.GOTDimension;
 import got.common.GOTDimension.DimensionRegion;
 import got.common.GOTLore;

@@ -1,6 +1,6 @@
 package got.client.gui;
 
-import got.client.event.GOTKeyHandler;
+import got.client.GOTKeyHandler;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.util.StatCollector;
@@ -36,7 +36,7 @@ public abstract class GOTGuiMenuBase extends GOTGuiMenuWBBase {
 
 	@Override
 	public void keyTyped(char c, int i) {
-		if (i == GOTKeyHandler.KEY_BINDING_MENU.getKeyCode()) {
+		if (i == GOTKeyHandler.keyBindingMenu.getKeyCode()) {
 			mc.displayGuiScreen(new GOTGuiMenu());
 			return;
 		}

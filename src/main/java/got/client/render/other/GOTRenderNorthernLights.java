@@ -437,19 +437,19 @@ public class GOTRenderNorthernLights {
 			}
 		}
 
-		private int getAge() {
+		public int getAge() {
 			return age;
 		}
 
-		private void setAge(int age) {
+		public void setAge(int age) {
 			this.age = age;
 		}
 
-		private int getMaxAge() {
+		public int getMaxAge() {
 			return maxAge;
 		}
 
-		private void setMaxAge(int maxAge) {
+		public void setMaxAge(int maxAge) {
 			this.maxAge = maxAge;
 		}
 	}

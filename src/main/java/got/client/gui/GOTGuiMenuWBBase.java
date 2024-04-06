@@ -1,6 +1,6 @@
 package got.client.gui;
 
-import got.client.event.GOTKeyHandler;
+import got.client.GOTKeyHandler;
 import net.minecraft.client.gui.GuiButton;
 
 public abstract class GOTGuiMenuWBBase extends GOTGuiScreenBase {
@@ -24,7 +24,7 @@ public abstract class GOTGuiMenuWBBase extends GOTGuiScreenBase {
 
 	@Override
 	public void keyTyped(char c, int i) {
-		if (i == GOTKeyHandler.KEY_BINDING_MENU.getKeyCode()) {
+		if (i == GOTKeyHandler.keyBindingMenu.getKeyCode()) {
 			mc.displayGuiScreen(new GOTGuiMenu());
 			return;
 		}

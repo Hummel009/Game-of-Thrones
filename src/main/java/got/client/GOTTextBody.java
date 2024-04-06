@@ -7,12 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTTextBody {
-	private static final String LINEBREAK = "<BR>";
-
-	private final List<TextColor> list = new ArrayList<>();
-	private final int defaultColor;
-
-	private int textWidth;
+	public static String LINEBREAK = "<BR>";
+	public List<TextColor> list = new ArrayList<>();
+	public int defaultColor;
+	public int textWidth;
 
 	public GOTTextBody(int c) {
 		defaultColor = c;
@@ -31,15 +29,15 @@ public class GOTTextBody {
 		add(LINEBREAK);
 	}
 
-	private int getColor(int i) {
-		return list.get(i).getColor();
+	public int getColor(int i) {
+		return list.get(i).color;
 	}
 
 	public String getText(int i) {
-		return list.get(i).getText();
+		return list.get(i).text;
 	}
 
-	private int getTotalLines(FontRenderer fr) {
+	public int getTotalLines(FontRenderer fr) {
 		int lines = 0;
 		for (int i = 0; i < size(); ++i) {
 			String part = getText(i);
@@ -57,9 +55,9 @@ public class GOTTextBody {
 		int ySize = yBottom - yTop;
 		int numLines = getTotalLines(fr);
 		int lineHeight = fr.FONT_HEIGHT;
-		float scroll2 = Math.max(scroll, 0.0f);
-		float scroll1 = Math.min(scroll2, numLines - MathHelper.floor_double((float) ySize / lineHeight));
-		int d1 = Math.round(scroll1);
+		scroll = Math.max(scroll, 0.0f);
+		scroll = Math.min(scroll, numLines - MathHelper.floor_double((float) ySize / lineHeight));
+		int d1 = Math.round(scroll);
 		int y = yTop;
 		y += ySize / lineHeight * lineHeight;
 		y -= lineHeight;
@@ -67,6 +65,7 @@ public class GOTTextBody {
 		if (numLines < maxLines) {
 			y -= (maxLines - numLines) * lineHeight;
 		}
+		block0:
 		for (int i = size() - 1; i >= 0; --i) {
 			String part = getText(i);
 			int color = getColor(i);
@@ -77,7 +76,7 @@ public class GOTTextBody {
 					--d1;
 				} else {
 					if (y < yTop) {
-						return scroll1;
+						break block0;
 					}
 					if (line.toString().equals(LINEBREAK)) {
 						line = new StringBuilder();
@@ -91,16 +90,16 @@ public class GOTTextBody {
 				}
 			}
 		}
-		return scroll1;
+		return scroll;
 	}
 
 	public void set(int i, String s) {
-		list.get(i).setText(s);
+		list.get(i).text = s;
 	}
 
 	public void set(int i, String s, int c) {
-		list.get(i).setText(s);
-		list.get(i).setColor(c);
+		list.get(i).text = s;
+		list.get(i).color = c;
 	}
 
 	public void setTextWidth(int w) {
@@ -111,33 +110,14 @@ public class GOTTextBody {
 		return list.size();
 	}
 
-	public int getTextWidth() {
-		return textWidth;
-	}
+	public static class TextColor {
+		public String text;
+		public int color;
 
-	private static class TextColor {
-		private String text;
-		private int color;
-
-		private TextColor(String s, int c) {
+		public TextColor(String s, int c) {
 			text = s;
 			color = c;
 		}
-
-		public String getText() {
-			return text;
-		}
-
-		public void setText(String text) {
-			this.text = text;
-		}
-
-		public int getColor() {
-			return color;
-		}
-
-		public void setColor(int color) {
-			this.color = color;
-		}
 	}
+
 }

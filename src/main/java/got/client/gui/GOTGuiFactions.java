@@ -3,8 +3,8 @@ package got.client.gui;
 import com.google.common.math.IntMath;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.client.GOTClientProxy;
-import got.client.event.GOTTextures;
-import got.client.event.GOTTickHandlerClient;
+import got.client.GOTTextures;
+import got.client.GOTTickHandlerClient;
 import got.common.GOTConfig;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
@@ -243,7 +243,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			float alignment = isOtherPlayer && playerAlignmentMap != null ? playerAlignmentMap.get(currentFaction) : clientPD.getAlignment(currentFaction);
 			int x = guiLeft + xSize / 2;
 			int y = guiTop;
-			GOTTickHandlerClient.renderAlignmentBar(alignment, currentFaction, x, y, true, false, true, true);
+			GOTTickHandlerClient.renderAlignmentBar(alignment, isOtherPlayer, currentFaction, x, y, true, false, true, true);
 			String s = currentFaction.factionSubtitle();
 			drawCenteredString(s, x, y + fontRendererObj.FONT_HEIGHT + 22, 16777215);
 			if (!useFullPageTexture()) {

@@ -1,6 +1,5 @@
 package got.client.sound;
 
-import got.client.event.GOTMusic;
 import net.minecraft.client.audio.*;
 import net.minecraft.util.ResourceLocation;
 

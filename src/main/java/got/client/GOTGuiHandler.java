@@ -1,14 +1,14 @@
-package got.client.event;
+package got.client;
 
 import com.google.common.collect.Lists;
 import cpw.mods.fml.client.GuiModList;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.ModContainer;
 import cpw.mods.fml.common.ModMetadata;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.GOTInfo;
-import got.client.GOTReflectionClient;
 import got.client.gui.GOTGuiAchievementHoverEvent;
 import got.client.gui.GOTGuiButtonLock;
 import got.client.gui.GOTGuiDownloadTerrain;
@@ -50,34 +50,37 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.WorldProvider;
 import net.minecraftforge.client.event.GuiOpenEvent;
 import net.minecraftforge.client.event.GuiScreenEvent;
+import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.input.Mouse;
 import org.lwjgl.opengl.GL11;
 
 import java.util.*;
 
-@SuppressWarnings("MismatchedQueryAndUpdateOfCollection")
 public class GOTGuiHandler {
-	private static final RenderItem itemRenderer = new RenderItem();
-	private static final Collection<Class<? extends Container>> COIN_COUNT_EXCLUDED_CONTAINERS = new HashSet<>();
-	private static final Collection<Class<? extends GuiContainer>> COIN_COUNT_EXCLUDED_GU_IS = new HashSet<>();
-	private static final Collection<Class<? extends IInventory>> COIN_COUNT_EXCLUDED_INV_TYPES = new HashSet<>();
-	private static final Collection<String> COIN_COUNT_EXCLUDED_CONTAINERS_CLS_NAMES = new HashSet<>();
-	private static final Collection<String> COIN_COUNT_EXCLUDED_GU_IS_CLS_NAMES = new HashSet<>();
-	private static final Collection<String> COIN_COUNT_EXCLUDED_INV_TYPES_CLS_NAMES = new HashSet<>();
+	public static RenderItem itemRenderer = new RenderItem();
+	public static Collection<Class<? extends Container>> coinCount_excludedContainers = new HashSet<>();
+	public static Collection<Class<? extends GuiContainer>> coinCount_excludedGUIs = new HashSet<>();
+	public static Collection<Class<? extends IInventory>> coinCount_excludedInvTypes = new HashSet<>();
+	public static Collection<String> coinCount_excludedContainers_clsNames = new HashSet<>();
+	public static Collection<String> coinCount_excludedGUIs_clsNames = new HashSet<>();
+	public static Collection<String> coinCount_excludedInvTypes_clsNames = new HashSet<>();
+	public static boolean coinCountLeftSide;
 
 	static {
-		COIN_COUNT_EXCLUDED_GU_IS.add(GuiContainerCreative.class);
-		COIN_COUNT_EXCLUDED_INV_TYPES.add(GOTContainerCoinExchange.InventoryCoinExchangeSlot.class);
-		COIN_COUNT_EXCLUDED_INV_TYPES.add(InventoryCraftResult.class);
+		coinCount_excludedGUIs.add(GuiContainerCreative.class);
+		coinCount_excludedInvTypes.add(GOTContainerCoinExchange.InventoryCoinExchangeSlot.class);
+		coinCount_excludedInvTypes.add(InventoryCraftResult.class);
 	}
 
-	private int descScrollIndex;
+	public int descScrollIndex;
 
 	public GOTGuiHandler() {
 		descScrollIndex = -1;
+		FMLCommonHandler.instance().bus().register(this);
+		MinecraftForge.EVENT_BUS.register(this);
 	}
 
-	private GuiButton getDifficultyButton(Iterable<GuiButton> buttons) {
+	public GuiButton getDifficultyButton(GuiOptions gui, Iterable<GuiButton> buttons) {
 		for (GuiButton obj : buttons) {
 			GuiOptionButton button;
 			if (obj instanceof GuiOptionButton && (button = (GuiOptionButton) obj).returnEnumOptions() == GameSettings.Options.DIFFICULTY) {
@@ -112,7 +115,7 @@ public class GOTGuiHandler {
 			GOTLevelData.setSavedDifficulty(mc.gameSettings.difficulty);
 			GOTLevelData.setDifficultyLocked(true);
 			button.enabled = false;
-			GuiButton buttonDifficulty = getDifficultyButton(buttons);
+			GuiButton buttonDifficulty = getDifficultyButton((GuiOptions) gui, buttons);
 			if (buttonDifficulty != null) {
 				buttonDifficulty.enabled = false;
 			}
@@ -156,7 +159,7 @@ public class GOTGuiHandler {
 		GuiButton buttonDifficulty;
 		GuiScreen gui = event.gui;
 		List<GuiButton> buttons = event.buttonList;
-		if (gui instanceof GuiOptions && (buttonDifficulty = getDifficultyButton(buttons)) != null) {
+		if (gui instanceof GuiOptions && (buttonDifficulty = getDifficultyButton((GuiOptions) gui, buttons)) != null) {
 			GOTGuiButtonLock lock = new GOTGuiButtonLock(1000000, buttonDifficulty.xPosition + buttonDifficulty.width + 4, buttonDifficulty.yPosition);
 			lock.enabled = !GOTLevelData.isDifficultyLocked();
 			buttons.add(lock);
@@ -191,8 +194,8 @@ public class GOTGuiHandler {
 			Container container = guiContainer.inventorySlots;
 			Class<? extends Container> containerCls = container.getClass();
 			Class<? extends GuiContainer> guiCls = guiContainer.getClass();
-			boolean excludeContainer = COIN_COUNT_EXCLUDED_CONTAINERS.contains(containerCls) || COIN_COUNT_EXCLUDED_CONTAINERS_CLS_NAMES.contains(containerCls.getName());
-			boolean excludeGui = COIN_COUNT_EXCLUDED_GU_IS.contains(guiCls) || COIN_COUNT_EXCLUDED_GU_IS_CLS_NAMES.contains(guiCls.getName());
+			boolean excludeContainer = coinCount_excludedContainers.contains(containerCls) || coinCount_excludedContainers_clsNames.contains(containerCls.getName());
+			boolean excludeGui = coinCount_excludedGUIs.contains(guiCls) || coinCount_excludedGUIs_clsNames.contains(guiCls.getName());
 			if (guiContainer instanceof GuiContainerCreative) {
 				int creativeTabIndex = GOTReflectionClient.getCreativeTabIndex((GuiContainerCreative) guiContainer);
 				if (creativeTabIndex != CreativeTabs.tabInventory.getTabIndex()) {
@@ -210,7 +213,7 @@ public class GOTGuiHandler {
 					IInventory inv = slot.inventory;
 					if (inv != null) {
 						Class<? extends IInventory> invClass = inv.getClass();
-						boolean excludeInv = COIN_COUNT_EXCLUDED_INV_TYPES.contains(invClass) || COIN_COUNT_EXCLUDED_INV_TYPES_CLS_NAMES.contains(invClass.getName());
+						boolean excludeInv = coinCount_excludedInvTypes.contains(invClass) || coinCount_excludedInvTypes_clsNames.contains(invClass.getName());
 						if (!excludeInv) {
 							if (!differentInvs.contains(inv)) {
 								differentInvs.add(inv);
@@ -244,6 +247,10 @@ public class GOTGuiHandler {
 						}
 						int guiGap = 8;
 						int x = guiLeft + guiXSize + guiGap;
+						if (coinCountLeftSide) {
+							x = guiLeft - guiGap;
+							x -= rectWidth;
+						}
 						int y = invHighestY.get(inv) + guiTop;
 						int rectX0 = x - border;
 						int rectX1 = x + rectWidth + border;

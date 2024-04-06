@@ -36,10 +36,10 @@ public class GOTCloudRenderer extends IRenderHandler {
 		CLOUD_ANGLE.reset();
 	}
 
-	public static void updateClouds() {
-		CLOUD_OPACITY.update();
-		CLOUD_SPEED.update();
-		CLOUD_ANGLE.update();
+	public static void updateClouds(WorldClient world) {
+		CLOUD_OPACITY.update(world);
+		CLOUD_SPEED.update(world);
+		CLOUD_ANGLE.update(world);
 		float angle = CLOUD_ANGLE.getValue(1.0f);
 		float speed = CLOUD_SPEED.getValue(1.0f);
 		cloudPosXPre = cloudPosX;
@@ -149,7 +149,7 @@ public class GOTCloudRenderer extends IRenderHandler {
 			interval = i;
 		}
 
-		protected float getCurrentDayValue() {
+		protected float getCurrentDayValue(WorldClient world) {
 			int day = GOTDate.AegonCalendar.currentDay;
 			long seed = day * baseSeed + day + 83025820626792L;
 			CLOUD_RAND.setSeed(seed);
@@ -164,8 +164,8 @@ public class GOTCloudRenderer extends IRenderHandler {
 			value = -1.0f;
 		}
 
-		protected void update() {
-			currentDayValue = getCurrentDayValue();
+		protected void update(WorldClient world) {
+			currentDayValue = getCurrentDayValue(world);
 			if (value == -1.0f) {
 				prevValue = value = currentDayValue;
 			} else {

@@ -127,14 +127,14 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		int cost = curTrade.getCost(mc.thePlayer, theUnitTrader);
 		fontRendererObj.drawString(String.valueOf(cost), reqXText, reqY + reqYTextBelow, 4210752);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+		mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
 		drawTexturedModalRect(reqX, reqY += reqGap, 0, 36, 16, 16);
 		float alignment = curTrade.alignmentRequired;
 		String alignS = GOTAlignmentValues.formatAlignForDisplay(alignment);
 		fontRendererObj.drawString(alignS, reqXText, reqY + reqYTextBelow, 4210752);
 		if (curTrade.getPledgeType() != GOTUnitTradeEntry.PledgeType.NONE) {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			mc.getTextureManager().bindTexture(GOTClientProxy.ALIGNMENT_TEXTURE);
+			mc.getTextureManager().bindTexture(GOTClientProxy.alignmentTexture);
 			drawTexturedModalRect(reqX, reqY += reqGap, 0, 212, 16, 16);
 			String pledge = StatCollector.translateToLocal("got.container.unitTrade.pledge");
 			fontRendererObj.drawString(pledge, reqXText, reqY + reqYTextBelow, 4210752);

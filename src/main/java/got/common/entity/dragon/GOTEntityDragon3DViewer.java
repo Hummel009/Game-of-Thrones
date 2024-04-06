@@ -4,7 +4,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import cpw.mods.fml.common.gameevent.TickEvent.ClientTickEvent;
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import got.client.event.GOTKeyHandler;
+import got.client.GOTKeyHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.resources.I18n;
@@ -50,8 +50,8 @@ public class GOTEntityDragon3DViewer {
 			}
 
 			if (noticeTicks == 1) {
-				String keyUpName = GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_DRAGON_UP.getKeyCode());
-				String keyDownName = GameSettings.getKeyDisplayString(GOTKeyHandler.KEY_BINDING_DRAGON_DOWN.getKeyCode());
+				String keyUpName = GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingDragonUp.getKeyCode());
+				String keyDownName = GameSettings.getKeyDisplayString(GOTKeyHandler.keyBindingDragonDown.getKeyCode());
 				mc.ingameGUI.func_110326_a(I18n.format("dragon.mountNotice", keyUpName, keyDownName), false);
 			}
 		}

@@ -8,12 +8,8 @@ import java.util.Map;
 import java.util.UUID;
 
 public class GOTSpeechClient {
-	private static final int DISPLAY_TIME = 200;
-
-	private static Map<UUID, TimedSpeech> npcSpeeches = new HashMap<>();
-
-	private GOTSpeechClient() {
-	}
+	public static Map<UUID, TimedSpeech> npcSpeeches = new HashMap<>();
+	public static int DISPLAY_TIME = 200;
 
 	public static void clearAll() {
 		npcSpeeches.clear();
@@ -44,8 +40,8 @@ public class GOTSpeechClient {
 		for (Map.Entry<UUID, TimedSpeech> e : npcSpeeches.entrySet()) {
 			UUID key = e.getKey();
 			TimedSpeech speech = e.getValue();
-			speech.setTime(speech.getTime() - 1);
-			if (speech.getTime() > 0) {
+			speech.time--;
+			if (speech.time > 0) {
 				newMap.put(key, speech);
 			}
 		}
@@ -53,8 +49,8 @@ public class GOTSpeechClient {
 	}
 
 	public static class TimedSpeech {
-		private final String speech;
-		private int time;
+		public String speech;
+		public int time;
 
 		public TimedSpeech(String s, int i) {
 			speech = s;
@@ -68,13 +64,6 @@ public class GOTSpeechClient {
 		public String getSpeech() {
 			return speech;
 		}
-
-		public int getTime() {
-			return time;
-		}
-
-		public void setTime(int time) {
-			this.time = time;
-		}
 	}
+
 }

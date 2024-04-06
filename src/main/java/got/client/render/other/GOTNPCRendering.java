@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.client.GOTSpeechClient;
-import got.client.event.GOTTickHandlerClient;
+import got.client.GOTTickHandlerClient;
 import got.common.GOTConfig;
 import got.common.GOTLevelData;
 import got.common.database.GOTItems;

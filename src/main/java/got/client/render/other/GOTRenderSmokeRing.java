@@ -73,6 +73,6 @@ public class GOTRenderSmokeRing extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return GOTClientProxy.PARTICLES_TEXTURE;
+		return GOTClientProxy.particlesTexture;
 	}
 }

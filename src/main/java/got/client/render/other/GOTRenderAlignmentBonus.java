@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.client.GOTClientProxy;
-import got.client.event.GOTTickHandlerClient;
+import got.client.GOTTickHandlerClient;
 import got.client.effect.GOTEntityAlignmentBonus;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -97,7 +97,7 @@ public class GOTRenderAlignmentBonus extends Render {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return GOTClientProxy.ALIGNMENT_TEXTURE;
+		return GOTClientProxy.alignmentTexture;
 	}
 
 	private void renderBonusText(GOTEntityAlignmentBonus alignmentBonus, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {

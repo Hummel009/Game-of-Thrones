@@ -1,7 +1,6 @@
 package got.client.sound;
 
 import got.client.GOTClientProxy;
-import got.client.event.GOTMusic;
 import got.common.GOTConfig;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.client.Minecraft;

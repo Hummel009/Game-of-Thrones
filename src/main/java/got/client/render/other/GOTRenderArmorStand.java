@@ -93,7 +93,7 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 					}
 					if (itemstack.isItemEnchanted()) {
 						float f2 = armorStand.ticksExisted + f;
-						bindTexture(GOTClientProxy.ENCHANTMENT_TEXTURE);
+						bindTexture(GOTClientProxy.enchantmentTexture);
 						GL11.glEnable(3042);
 						float f3 = 0.5f;
 						GL11.glColor4f(f3, f3, f3, 1.0f);

@@ -1,6 +1,6 @@
 package got.client.model;
 
-import got.client.event.GOTTickHandlerClient;
+import got.client.GOTTickHandlerClient;
 import got.common.entity.animal.GOTEntityFlamingo;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;

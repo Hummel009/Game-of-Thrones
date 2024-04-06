@@ -1,6 +1,6 @@
 package got.client.gui;
 
-import got.client.event.GOTTextures;
+import got.client.GOTTextures;
 import got.common.world.map.GOTWaypoint;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiScreen;
