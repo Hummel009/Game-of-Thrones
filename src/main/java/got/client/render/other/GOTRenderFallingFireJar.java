@@ -31,7 +31,7 @@ public class GOTRenderFallingFireJar extends RenderFallingBlock {
 				renderBlocks.blockAccess = world;
 				Tessellator tessellator = Tessellator.instance;
 				tessellator.startDrawingQuads();
-				tessellator.setTranslation((-i) - 0.5f, (-j) - 0.5f, (-k) - 0.5f);
+				tessellator.setTranslation(-i - 0.5f, -j - 0.5f, -k - 0.5f);
 				renderBlocks.renderBlockByRenderType(block, i, j, k);
 				tessellator.setTranslation(0.0, 0.0, 0.0);
 				tessellator.draw();

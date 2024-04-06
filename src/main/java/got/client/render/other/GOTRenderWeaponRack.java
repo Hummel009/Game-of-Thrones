@@ -31,21 +31,17 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 		int dir = meta & 3;
 		boolean wall = (meta & 4) != 0;
 		switch (dir) {
-			case 0: {
+			case 0:
 				GL11.glRotatef(0.0f, 0.0f, 1.0f, 0.0f);
 				break;
-			}
-			case 1: {
+			case 1:
 				GL11.glRotatef(270.0f, 0.0f, 1.0f, 0.0f);
 				break;
-			}
-			case 2: {
+			case 2:
 				GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 				break;
-			}
-			case 3: {
+			case 3:
 				GL11.glRotatef(90.0f, 0.0f, 1.0f, 0.0f);
-			}
 		}
 		if (wall) {
 			GL11.glTranslatef(0.0f, 0.375f, -0.5f);
@@ -97,13 +93,12 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 		if (mop != null && mop.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK && mop.blockX == rack.xCoord && mop.blockY == rack.yCoord && mop.blockZ == rack.zCoord) {
 			ItemStack weaponItem = rack.getWeaponItem();
 			if (Minecraft.isGuiEnabled() && weaponItem != null && weaponItem.hasDisplayName()) {
-				float f2;
 				RenderManager renderManager = RenderManager.instance;
 				FontRenderer fontRenderer = func_147498_b();
 				float f = 1.6f;
 				float f1 = 0.016666668f * f;
 				double dSq = renderManager.livingPlayer.getDistanceSq(rack.xCoord + 0.5, rack.yCoord + 0.5, rack.zCoord);
-				f2 = 64.0f;
+				float f2 = 64.0f;
 				if (dSq < f2 * f2) {
 					String name = weaponItem.getDisplayName();
 					GL11.glPushMatrix();

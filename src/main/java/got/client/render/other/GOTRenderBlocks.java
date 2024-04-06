@@ -626,10 +626,9 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public boolean renderDoor(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		boolean topDoor;
 		Tessellator tessellator = Tessellator.instance;
 		int meta = world.getBlockMetadata(i, j, k);
-		topDoor = (meta & 8) != 0;
+		boolean topDoor = (meta & 8) != 0;
 		if (world.getBlock(i, topDoor ? j - 1 : j + 1, k) != block) {
 			return false;
 		}
@@ -1143,7 +1142,6 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	}
 
 	public void renderRope(IBlockAccess world, int i, int j, int k, Block block, RenderBlocks renderblocks) {
-		double ropeTop;
 		double ropeWidth = 0.125;
 		double ropeMinX = 0.5 - ropeWidth / 2.0;
 		double ropeMaxX = 1.0 - ropeMinX;
@@ -1155,7 +1153,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 		double knotWidth = 0.25;
 		double knotMinX = 0.5 - knotWidth / 2.0;
 		double knotMaxX = 1.0 - knotMinX;
-		ropeTop = top ? 1.0 - knotHeight : 1.0;
+		double ropeTop = top ? 1.0 - knotHeight : 1.0;
 		if (meta == 5) {
 			renderblocks.setRenderBounds(0.0, 0.0, ropeMinX, ropeOffset, ropeTop, ropeMaxX);
 			renderblocks.renderStandardBlock(block, i, j, k);

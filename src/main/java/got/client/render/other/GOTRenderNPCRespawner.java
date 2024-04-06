@@ -18,7 +18,6 @@ public class GOTRenderNPCRespawner extends Render {
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
-		IIcon icon;
 		if (!Minecraft.getMinecraft().thePlayer.capabilities.isCreativeMode) {
 			return;
 		}
@@ -34,7 +33,7 @@ public class GOTRenderNPCRespawner extends Render {
 		if (renderIcon == null) {
 			renderIcon = new ItemStack(GOTItems.npcRespawner);
 		}
-		icon = renderIcon.getIconIndex();
+		IIcon icon = renderIcon.getIconIndex();
 		if (icon == null) {
 			icon = ((TextureMap) Minecraft.getMinecraft().getTextureManager().getTexture(TextureMap.locationItemsTexture)).getAtlasSprite("missingno");
 		}

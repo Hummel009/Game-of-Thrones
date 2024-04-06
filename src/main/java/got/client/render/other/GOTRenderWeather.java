@@ -28,10 +28,7 @@ public class GOTRenderWeather extends IRenderHandler {
 	public float[] rainYCoords;
 
 	public static boolean isSandstormBiome(BiomeGenBase biome) {
-		if (biome instanceof GOTBiome.Desert) {
-			return true;
-		}
-		return biome.topBlock.getMaterial() == Material.sand;
+		return biome instanceof GOTBiome.Desert || biome.topBlock.getMaterial() == Material.sand;
 	}
 
 	@Override

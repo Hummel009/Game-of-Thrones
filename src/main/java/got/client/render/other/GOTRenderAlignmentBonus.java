@@ -26,7 +26,6 @@ public class GOTRenderAlignmentBonus extends Render {
 
 	@Override
 	public void doRender(Entity entity, double d, double d1, double d2, float f, float f1) {
-		float renderBonus;
 		EntityClientPlayerMP entityplayer = Minecraft.getMinecraft().thePlayer;
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		GOTFaction viewingFaction = playerData.getViewingFaction();
@@ -71,7 +70,7 @@ public class GOTRenderAlignmentBonus extends Render {
 				}
 			}
 		}
-		renderBonus = factionBonusMap.getOrDefault(renderFaction, 0.0f);
+		float renderBonus = factionBonusMap.getOrDefault(renderFaction, 0.0f);
 		if (renderFaction != null && (renderBonus != 0.0f || showConquest)) {
 			GL11.glPushMatrix();
 			GL11.glTranslatef((float) d, (float) d1, (float) d2);
@@ -102,14 +101,13 @@ public class GOTRenderAlignmentBonus extends Render {
 	}
 
 	public void renderBonusText(GOTEntityAlignmentBonus alignmentBonus, GOTPlayerData playerData, GOTFaction viewingFaction, GOTFaction renderFaction, boolean showAlign, float align, boolean showConquest, float alpha) {
-		boolean isViewingFaction;
 		Minecraft mc = Minecraft.getMinecraft();
 		FontRenderer fr = mc.fontRenderer;
 		String strAlign = GOTAlignmentValues.formatAlignForDisplay(align);
 		String name = alignmentBonus.getName();
 		float conq = alignmentBonus.getConquestBonus();
 		GL11.glPushMatrix();
-		isViewingFaction = renderFaction == viewingFaction;
+		boolean isViewingFaction = renderFaction == viewingFaction;
 		if (!isViewingFaction) {
 			float scale = 0.5f;
 			GL11.glScalef(scale, scale, 1.0f);
