@@ -1,6 +1,6 @@
 package got.common.quest;
 
-import got.client.event.fml.GOTKeyHandler;
+import got.client.event.GOTKeyHandler;
 import got.common.GOTJaqenHgharTracker;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;

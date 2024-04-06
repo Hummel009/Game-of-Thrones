@@ -1,7 +1,7 @@
 package got.client.gui;
 
 import got.client.GOTClientProxy;
-import got.client.event.both.GOTTickHandlerClient;
+import got.client.event.GOTTickHandlerClient;
 import got.common.database.GOTAchievement;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
@@ -22,11 +22,15 @@ import java.util.HashSet;
 public class GOTGuiNotificationDisplay extends Gui {
 	private static final RenderItem RENDER_ITEM = new RenderItem();
 
-	private final Minecraft mc = Minecraft.getMinecraft();
+	private final Minecraft mc;
 	private final Collection<Notification> notifications = new ArrayList<>();
 	private final Collection<Notification> notificationsToRemove = new HashSet<>();
 
 	private int windowWidth;
+
+	public GOTGuiNotificationDisplay() {
+		mc = Minecraft.getMinecraft();
+	}
 
 	public void queueAchievement(GOTAchievement achievement) {
 		notifications.add(new NotificationAchievement(achievement));

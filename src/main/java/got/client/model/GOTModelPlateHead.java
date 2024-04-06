@@ -1,6 +1,6 @@
 package got.client.model;
 
-import got.client.event.both.GOTTickHandlerClient;
+import got.client.event.GOTTickHandlerClient;
 import got.client.render.other.GOTRenderBlocks;
 import got.common.database.GOTBlocks;
 import got.common.entity.other.GOTPlateFallingInfo;

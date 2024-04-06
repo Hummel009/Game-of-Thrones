@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.client.event.both.GOTTickHandlerClient;
+import got.client.event.GOTTickHandlerClient;
 import got.client.model.GOTModelWight;
 import got.common.entity.other.GOTEntityBarrowWight;
 import net.minecraft.client.Minecraft;

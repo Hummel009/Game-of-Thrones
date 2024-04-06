@@ -7,21 +7,20 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.relauncher.Side;
 import got.client.effect.*;
-import got.client.event.GOTEventHandlerFactory;
-import got.client.event.both.GOTTextures;
-import got.client.event.both.GOTTickHandlerClient;
-import got.client.event.forge.GOTArmorModels;
-import got.client.event.forge.GOTItemRendererManager;
-import got.client.event.forge.GOTMusic;
+import got.client.event.*;
 import got.client.gui.*;
 import got.client.render.GOTRender;
 import got.client.render.other.*;
 import got.common.GOTCommonProxy;
 import got.common.GOTDimension;
 import got.common.GOTGuiMessageTypes;
-import got.common.database.GOTAchievement;
-import got.common.entity.other.*;
 import got.common.event.GOTTickHandlerServer;
+import got.common.database.GOTAchievement;
+import got.client.event.GOTArmorModels;
+import got.client.event.GOTEntityElephant3DViewer;
+import got.client.event.GOTEntityMammoth3DViewer;
+import got.client.event.GOTEntityDragon3DViewer;
+import got.common.entity.other.*;
 import got.common.faction.GOTAlignmentBonusMap;
 import got.common.faction.GOTFaction;
 import got.common.network.GOTPacketClientInfo;
@@ -448,14 +447,11 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void onInit() {
 		customEffectRenderer = new GOTEffectRenderer(Minecraft.getMinecraft());
-
 		GOTTextures.onInit();
 		GOTRender.onInit();
-
 		for (Map.Entry<Class<? extends Entity>, Render> cl : GOTRender.RENDERS.entrySet()) {
 			RenderingRegistry.registerEntityRenderingHandler(cl.getKey(), cl.getValue());
 		}
-
 		beaconRenderID = RenderingRegistry.getNextAvailableRenderId();
 		barrelRenderID = RenderingRegistry.getNextAvailableRenderId();
 		bombRenderID = RenderingRegistry.getNextAvailableRenderId();
@@ -489,7 +485,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 		trapdoorRenderID = RenderingRegistry.getNextAvailableRenderId();
 		plantainRenderID = RenderingRegistry.getNextAvailableRenderId();
 		leavesRenderID = RenderingRegistry.getNextAvailableRenderId();
-
 		RenderingRegistry.registerBlockHandler(plantainRenderID, new GOTRenderBlocks(true));
 		RenderingRegistry.registerBlockHandler(leavesRenderID, new GOTRenderBlocks(true));
 		RenderingRegistry.registerBlockHandler(beaconRenderID, new GOTRenderBlocks(true));
@@ -523,7 +518,6 @@ public class GOTClientProxy extends GOTCommonProxy {
 		RenderingRegistry.registerBlockHandler(ropeRenderID, new GOTRenderBlocks(false));
 		RenderingRegistry.registerBlockHandler(chainRenderID, new GOTRenderBlocks(false));
 		RenderingRegistry.registerBlockHandler(trapdoorRenderID, new GOTRenderBlocks(true));
-
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityBeacon.class, new GOTRenderBeacon());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntityPlate.class, new GOTRenderPlateFood());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySpawnerChest.class, new GOTRenderSpawnerChest());
@@ -539,7 +533,23 @@ public class GOTClientProxy extends GOTCommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySignCarved.class, new GOTRenderSignCarved());
 		ClientRegistry.bindTileEntitySpecialRenderer(GOTTileEntitySignCarvedValyrian.class, new GOTRenderSignCarvedValyrian());
 
-		GOTEventHandlerFactory.onInit();
+		FMLCommonHandler.instance().bus().register(new GOTEntityDragon3DViewer());
+		FMLCommonHandler.instance().bus().register(new GOTEntityMammoth3DViewer());
+		FMLCommonHandler.instance().bus().register(new GOTEntityElephant3DViewer());
+
+		FMLCommonHandler.instance().bus().register(new GOTKeyHandler());
+
+		GOTRenderPlayer renderPlayer = new GOTRenderPlayer();
+		FMLCommonHandler.instance().bus().register(renderPlayer);
+		MinecraftForge.EVENT_BUS.register(renderPlayer);
+
+		GOTSwingHandler swingHandler = new GOTSwingHandler();
+		FMLCommonHandler.instance().bus().register(swingHandler);
+		MinecraftForge.EVENT_BUS.register(swingHandler);
+
+		GOTGuiHandler guiHandler = new GOTGuiHandler();
+		FMLCommonHandler.instance().bus().register(guiHandler);
+		MinecraftForge.EVENT_BUS.register(guiHandler);
 	}
 
 	@Override

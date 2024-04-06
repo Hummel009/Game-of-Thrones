@@ -1,6 +1,6 @@
 package got.client.gui;
 
-import got.client.event.fml.GOTKeyHandler;
+import got.client.event.GOTKeyHandler;
 import net.minecraft.client.gui.GuiButton;
 
 public abstract class GOTGuiMenuWBBase extends GOTGuiScreenBase {

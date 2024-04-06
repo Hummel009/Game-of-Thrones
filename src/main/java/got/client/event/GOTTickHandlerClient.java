@@ -1,4 +1,4 @@
-package got.client.event.both;
+package got.client.event;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.FMLCommonHandler;
@@ -8,8 +8,6 @@ import cpw.mods.fml.common.gameevent.TickEvent;
 import got.GOT;
 import got.client.*;
 import got.client.effect.GOTEntityDeadMarshFace;
-import got.client.event.fml.GOTKeyHandler;
-import got.client.event.forge.GOTAmbience;
 import got.client.gui.*;
 import got.client.model.GOTModelCompass;
 import got.client.render.other.GOTCloudRenderer;
@@ -94,8 +92,8 @@ public class GOTTickHandlerClient {
 	public static int clientTick;
 	public static float renderTick;
 	public static GOTInvasionStatus watchedInvasion = new GOTInvasionStatus();
-	public static GOTGuiNotificationDisplay notificationDisplay = new GOTGuiNotificationDisplay();
-	public static GOTGuiMiniquestTracker miniquestTracker = new GOTGuiMiniquestTracker();
+	public static GOTGuiNotificationDisplay notificationDisplay;
+	public static GOTGuiMiniquestTracker miniquestTracker;
 	public static boolean anyWightsViewed;
 	public static boolean renderMenuPrompt;
 
@@ -145,10 +143,9 @@ public class GOTTickHandlerClient {
 	public GOTTickHandlerClient() {
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);
-
 		ambienceTicker = new GOTAmbience();
-		FMLCommonHandler.instance().bus().register(ambienceTicker);
-		MinecraftForge.EVENT_BUS.register(ambienceTicker);
+		notificationDisplay = new GOTGuiNotificationDisplay();
+		miniquestTracker = new GOTGuiMiniquestTracker();
 	}
 
 	public static void drawAlignmentText(FontRenderer f, int x, int y, String s, float alphaF) {

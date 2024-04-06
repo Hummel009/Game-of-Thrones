@@ -1,6 +1,6 @@
 package got.client.gui;
 
-import got.client.event.fml.GOTKeyHandler;
+import got.client.event.GOTKeyHandler;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.util.StatCollector;

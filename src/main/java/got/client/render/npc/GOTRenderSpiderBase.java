@@ -1,6 +1,6 @@
 package got.client.render.npc;
 
-import got.client.event.both.GOTTextures;
+import got.client.event.GOTTextures;
 import got.client.model.GOTModelSpider;
 import got.client.render.other.GOTGlowingEyes;
 import got.client.render.other.GOTNPCRendering;

@@ -1,4 +1,4 @@
-package got.client.event.forge;
+package got.client.event;
 
 import com.google.common.collect.Lists;
 import cpw.mods.fml.client.GuiModList;

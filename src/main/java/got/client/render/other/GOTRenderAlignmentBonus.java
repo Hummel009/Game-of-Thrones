@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.client.GOTClientProxy;
-import got.client.event.both.GOTTickHandlerClient;
+import got.client.event.GOTTickHandlerClient;
 import got.client.effect.GOTEntityAlignmentBonus;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
