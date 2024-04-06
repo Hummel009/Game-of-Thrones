@@ -100,7 +100,6 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		mouseY = j;
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		String s;
 		GL11.glEnable(2903);
 		RenderHelper.enableStandardItemLighting();
 		GL11.glPushMatrix();
@@ -129,7 +128,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		int x = guiLeft + xSize / 2;
 		int y = guiTop + 145;
-		s = currentCape.getCapeName();
+		String s = currentCape.getCapeName();
 		drawCenteredString(s, x, y, 16777215);
 		y += fontRendererObj.FONT_HEIGHT * 2;
 		List<String> desc = fontRendererObj.listFormattedStringToWidth(currentCape.getCapeDesc(), 220);
@@ -212,12 +211,11 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 
 	@Override
 	public void updateScreen() {
-		boolean mouseWithinModel;
 		super.updateScreen();
 		modelRotationPrev = modelRotation;
 		modelRotationPrev = MathHelper.wrapAngleTo180_float(modelRotationPrev);
 		modelRotation = MathHelper.wrapAngleTo180_float(modelRotation);
-		mouseWithinModel = Math.abs(mouseX - modelX) <= 60 && Math.abs(mouseY - modelY) <= 80;
+		boolean mouseWithinModel = Math.abs(mouseX - modelX) <= 60 && Math.abs(mouseY - modelY) <= 80;
 		if (Mouse.isButtonDown(0)) {
 			if (isMouseDown == 0 || isMouseDown == 1) {
 				if (isMouseDown == 0) {

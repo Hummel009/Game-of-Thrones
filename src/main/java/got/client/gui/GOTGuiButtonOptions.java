@@ -23,11 +23,11 @@ public class GOTGuiButtonOptions extends GuiButton {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int k = getHoverState(field_146123_n);
-			Gui.func_146110_a(xPosition, yPosition, 170.0f, 256 + k * 20, width, height, 512.0f, 512.0f);
+			func_146110_a(xPosition, yPosition, 170.0f, 256 + k * 20, width, height, 512.0f, 512.0f);
 			GL11.glEnable(3042);
 			GL11.glBlendFunc(770, 771);
-			Gui.func_146110_a(xPosition, yPosition, 170.0f, 316.0f, width / 2, height, 512.0f, 512.0f);
-			Gui.func_146110_a(xPosition + width / 2, yPosition, 370 - (float) width / 2, 316.0f, width / 2, height, 512.0f, 512.0f);
+			func_146110_a(xPosition, yPosition, 170.0f, 316.0f, width / 2, height, 512.0f, 512.0f);
+			func_146110_a(xPosition + width / 2, yPosition, 370 - (float) width / 2, 316.0f, width / 2, height, 512.0f, 512.0f);
 			mouseDragged(mc, i, j);
 			fontrenderer.drawString(displayString, xPosition + width / 2 - fontrenderer.getStringWidth(displayString) / 2, yPosition + (height - 8) / 2, 0x5E1C15);
 		}
@@ -42,7 +42,7 @@ public class GOTGuiButtonOptions extends GuiButton {
 			int stringWidth = 200;
 			int stringHeight = mc.fontRenderer.listFormattedStringToWidth(s, stringWidth).size() * mc.fontRenderer.FONT_HEIGHT;
 			int offset = 10;
-			Gui.drawRect(i1 += offset, j1 += offset, i1 + stringWidth + border * 2, j1 + stringHeight + border * 2, -1073741824);
+			drawRect(i1 += offset, j1 += offset, i1 + stringWidth + border * 2, j1 + stringHeight + border * 2, -1073741824);
 			mc.fontRenderer.drawSplitString(s, i1 + border, j1 + border, stringWidth, 16777215);
 		}
 	}

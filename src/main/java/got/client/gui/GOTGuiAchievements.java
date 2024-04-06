@@ -89,7 +89,7 @@ public class GOTGuiAchievements extends GOTGuiMenuBase {
 			if (!hasAchievement) {
 				GL11.glPushMatrix();
 				GL11.glTranslatef(0.0f, 0.0f, 300.0f);
-				Gui.drawRect(iconLeft, iconTop, iconLeft + 16, iconTop + 16, -2013265920);
+				drawRect(iconLeft, iconTop, iconLeft + 16, iconTop + 16, -2013265920);
 				GL11.glPopMatrix();
 			}
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);

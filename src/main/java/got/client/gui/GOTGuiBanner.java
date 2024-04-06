@@ -36,10 +36,10 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	public GuiButton buttonRemoveSlot;
 	public GOTGuiButtonBanner buttonDefaultPermissions;
 	public GuiTextField alignmentField;
-	public GuiTextField[] allowedPlayers = {};
-	public boolean[] invalidUsernames = {};
-	public boolean[] validatedUsernames = {};
-	public boolean[] checkUsernames = {};
+	public GuiTextField[] allowedPlayers = new GuiTextField[]{};
+	public boolean[] invalidUsernames = new boolean[]{};
+	public boolean[] validatedUsernames = new boolean[]{};
+	public boolean[] checkUsernames = new boolean[]{};
 	public float currentScroll;
 	public boolean isScrolling;
 	public boolean wasMouseDown;
@@ -108,7 +108,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	}
 
 	public void drawPermissionsWindow(int i, int j, int windowX, int windowY, String boxTitle, String boxSubtitle, Function<GOTBannerProtection.Permission, Boolean> getEnabled, boolean includeFull) {
-		Gui.drawRect(windowX, windowY, windowX + permWindowWidth, windowY + permWindowHeight, -1442840576);
+		drawRect(windowX, windowY, windowX + permWindowWidth, windowY + permWindowHeight, -1442840576);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		fontRendererObj.drawString(boxTitle, windowX + 4, windowY + 4, 16777215);
 		fontRendererObj.drawString(boxSubtitle, windowX + 4, windowY + 14, 11184810);

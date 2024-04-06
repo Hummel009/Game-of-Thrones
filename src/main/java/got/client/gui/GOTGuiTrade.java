@@ -52,7 +52,7 @@ public class GOTGuiTrade extends GuiContainer {
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(guiTexture);
-		Gui.func_146110_a(guiLeft, guiTop, 0.0f, 0.0f, xSize, ySize, 512.0f, 512.0f);
+		func_146110_a(guiLeft, guiTop, 0.0f, 0.0f, xSize, ySize, 512.0f, 512.0f);
 	}
 
 	@Override
@@ -81,7 +81,7 @@ public class GOTGuiTrade extends GuiContainer {
 					GL11.glTranslatef(0.0f, 0.0f, 200.0f);
 					x = slotBuy.xDisplayPosition;
 					y = slotBuy.yDisplayPosition;
-					Gui.drawRect(x, y, x + 16, y + 16, lockedTradeColor);
+					drawRect(x, y, x + 16, y + 16, lockedTradeColor);
 					GL11.glTranslatef(0.0f, 0.0f, -200.0f);
 					drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotBuy.xDisplayPosition + 8, slotBuy.yDisplayPosition + 22, 4210752);
 				}
@@ -102,7 +102,7 @@ public class GOTGuiTrade extends GuiContainer {
 					GL11.glTranslatef(0.0f, 0.0f, 200.0f);
 					x = slotSell.xDisplayPosition;
 					y = slotSell.yDisplayPosition;
-					Gui.drawRect(x, y, x + 16, y + 16, lockedTradeColor);
+					drawRect(x, y, x + 16, y + 16, lockedTradeColor);
 					GL11.glTranslatef(0.0f, 0.0f, -200.0f);
 					drawCenteredString(StatCollector.translateToLocal("got.container.trade.locked"), slotSell.xDisplayPosition + 8, slotSell.yDisplayPosition + 22, 4210752);
 				}

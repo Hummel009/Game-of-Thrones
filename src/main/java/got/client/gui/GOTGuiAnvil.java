@@ -141,8 +141,8 @@ public class GOTGuiAnvil extends GuiContainer {
 			int x = xSize - 8 - fontRendererObj.getStringWidth(costText);
 			int y = 94;
 			if (fontRendererObj.getUnicodeFlag()) {
-				Gui.drawRect(x - 3, y - 2, xSize - 7, y + 10, -16777216);
-				Gui.drawRect(x - 2, y - 1, xSize - 8, y + 9, -12895429);
+				drawRect(x - 3, y - 2, xSize - 7, y + 10, -16777216);
+				drawRect(x - 2, y - 1, xSize - 8, y + 9, -12895429);
 			} else {
 				fontRendererObj.drawString(costText, x, y + 1, colorF);
 				fontRendererObj.drawString(costText, x + 1, y, colorF);
@@ -157,7 +157,7 @@ public class GOTGuiAnvil extends GuiContainer {
 			alpha = MathHelper.clamp_int(alpha, 0, 255);
 			int overlayColor = 0xFFFFFF | alpha << 24;
 			Slot slot = theAnvil.getSlotFromInventory(theAnvil.invInput, 0);
-			Gui.drawRect(slot.xDisplayPosition, slot.yDisplayPosition, slot.xDisplayPosition + 16, slot.yDisplayPosition + 16, overlayColor);
+			drawRect(slot.xDisplayPosition, slot.yDisplayPosition, slot.xDisplayPosition + 16, slot.yDisplayPosition + 16, overlayColor);
 		}
 	}
 
@@ -256,12 +256,11 @@ public class GOTGuiAnvil extends GuiContainer {
 
 	@Override
 	public void updateScreen() {
-		ItemStack itemstack;
 		super.updateScreen();
 		if (theAnvil.clientReforgeTime > 0) {
 			--theAnvil.clientReforgeTime;
 		}
-		itemstack = theAnvil.invInput.getStackInSlot(0);
+		ItemStack itemstack = theAnvil.invInput.getStackInSlot(0);
 		if (itemstack != prevItemStack) {
 			prevItemStack = itemstack;
 			String textFieldText = itemstack == null ? "" : GOTContainerAnvil.stripFormattingCodes(itemstack.getDisplayName());

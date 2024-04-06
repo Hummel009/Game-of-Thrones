@@ -15,7 +15,7 @@ import net.minecraft.util.StringUtils;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
-	public static String[] pageTitles = {"overview", "options"};
+	public static String[] pageTitles = new String[]{"overview", "options"};
 	public static int XP_COLOR = 16733440;
 	public GuiButton buttonLeft;
 	public GuiButton buttonRight;
@@ -73,9 +73,9 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 			String nextLevel = EnumChatFormatting.BOLD + String.valueOf(theNPC.hiredNPCInfo.xpLevel + 1);
 			String xpCurLevel = String.valueOf(theNPC.hiredNPCInfo.totalXPForLevel(theNPC.hiredNPCInfo.xpLevel));
 			String xpNextLevel = String.valueOf(theNPC.hiredNPCInfo.totalXPForLevel(theNPC.hiredNPCInfo.xpLevel + 1));
-			Gui.drawRect(midX - 36, guiTop + 96, midX + 36, guiTop + 102, -16777216);
-			Gui.drawRect(midX - 35, guiTop + 97, midX + 35, guiTop + 101, -10658467);
-			Gui.drawRect(midX - 35, guiTop + 97, midX - 35 + (int) (lvlProgress * 70.0f), guiTop + 101, -43776);
+			drawRect(midX - 36, guiTop + 96, midX + 36, guiTop + 102, -16777216);
+			drawRect(midX - 35, guiTop + 97, midX + 35, guiTop + 101, -10658467);
+			drawRect(midX - 35, guiTop + 97, midX - 35 + (int) (lvlProgress * 70.0f), guiTop + 101, -43776);
 			GL11.glPushMatrix();
 			float scale = 0.67f;
 			GL11.glScalef(scale, scale, 1.0f);

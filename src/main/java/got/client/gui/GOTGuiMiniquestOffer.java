@@ -317,15 +317,13 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			}
 			float f = rand.nextFloat();
 			f *= totalWeight;
-			NPCAction chosen = null;
 			for (NPCAction action : values()) {
 				f -= action.weight;
 				if (f <= 0.0f) {
-					chosen = action;
-					break;
+					return action;
 				}
 			}
-			return chosen;
+			return null;
 		}
 
 		public float getWeight() {

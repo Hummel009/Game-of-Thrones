@@ -256,7 +256,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 					int yMin = guiTop + pageY + pageMapY;
 					int yMax = yMin + pageMapSize;
 					int mapBorder = 1;
-					Gui.drawRect(xMin - mapBorder, yMin - mapBorder, xMax + mapBorder, yMax + mapBorder, -16777216);
+					drawRect(xMin - mapBorder, yMin - mapBorder, xMax + mapBorder, yMax + mapBorder, -16777216);
 					float zoom = (float) pageMapSize / (mapR * 2);
 					float zoomExp = (float) Math.log(zoom) / (float) Math.log(2.0);
 					mapDrawGui.setFakeMapProperties(mapX, mapY, zoom, zoomExp, zoom);
@@ -669,7 +669,6 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 	}
 
 	public void updateCurrentDimensionAndFaction() {
-		boolean changes;
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
 		if (currentFactionIndex != prevFactionIndex) {
@@ -690,7 +689,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		prevDimension = currentDimension;
 		prevRegion = currentRegion;
 		GOTFaction prevFaction = pd.getViewingFaction();
-		changes = currentFaction != prevFaction;
+		boolean changes = currentFaction != prevFaction;
 		if (changes) {
 			pd.setViewingFaction(currentFaction);
 			GOTClientProxy.sendClientInfoPacket(currentFaction, lastViewedRegions);

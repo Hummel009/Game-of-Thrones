@@ -176,7 +176,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public static int[] setFakeStaticProperties(int w, int h, int xmin, int xmax, int ymin, int ymax) {
-		int[] ret = {mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
+		int[] ret = new int[]{mapWidth, mapHeight, mapXMin, mapXMax, mapYMin, mapYMax};
 		mapWidth = w;
 		mapHeight = h;
 		mapXMin = xmin;
@@ -264,7 +264,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public void drawFancyRect(int x1, int y1, int x2, int y2) {
-		Gui.drawRect(x1, y1, x2, y2, -1073741824);
+		drawRect(x1, y1, x2, y2, -1073741824);
 		drawHorizontalLine(x1 - 1, x2, y1 - 1, -6156032);
 		drawHorizontalLine(x1 - 1, x2, y2, -6156032);
 		drawVerticalLine(x1 - 1, y1 - 1, y2, -6156032);
@@ -275,7 +275,6 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public void drawScreen(int i, int j, float f) {
 		String s;
 		int y;
-		boolean isSepia;
 		int x;
 		Tessellator tess = Tessellator.instance;
 		zLevel = 0.0f;
@@ -315,7 +314,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		prevPosY = posY;
 		posX += posXMove * f;
 		posY += posYMove * f;
-		isSepia = isConquestGrid || GOTConfig.enableSepiaMap;
+		boolean isSepia = isConquestGrid || GOTConfig.enableSepiaMap;
 		if (isConquestGrid) {
 			drawDefaultBackground();
 		}
@@ -353,7 +352,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		setupScrollBars(i, j);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		int oceanColor = GOTTextures.getMapOceanColor(isSepia);
-		Gui.drawRect(mapXMin, mapYMin, mapXMax, mapYMax, oceanColor);
+		drawRect(mapXMin, mapYMin, mapXMax, mapYMax, oceanColor);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		if (!isConquestGrid) {
 			String title = StatCollector.translateToLocal("got.gui.map.title");
@@ -441,7 +440,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 										GOTConquestGrid.ConquestEffective effect = GOTConquestGrid.getConquestEffectIn(mc.theWorld, zone, conquestViewingFaction);
 										int zoneColor = 0xBB0000 | Math.round(strAlpha * 255.0f) << 24;
 										if (effect == GOTConquestGrid.ConquestEffective.EFFECTIVE) {
-											GOTGuiScreenBase.drawFloatRect(minX, minY, maxX, maxY, zoneColor);
+											drawFloatRect(minX, minY, maxX, maxY, zoneColor);
 										} else {
 											int zoneColor2 = 0x1E1E1E | Math.round(strAlpha * 255.0f) << 24;
 											if (effect == GOTConquestGrid.ConquestEffective.ALLY_BOOST) {
@@ -449,10 +448,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 												int strips = 8;
 												for (int l = 0; l < strips; ++l) {
 													float stripYSize = zoneYSize / strips;
-													GOTGuiScreenBase.drawFloatRect(minX, minY + stripYSize * l, maxX, minY + stripYSize * (l + 1), l % 2 == 0 ? zoneColor : zoneColor2);
+													drawFloatRect(minX, minY + stripYSize * l, maxX, minY + stripYSize * (l + 1), l % 2 == 0 ? zoneColor : zoneColor2);
 												}
 											} else if (effect == GOTConquestGrid.ConquestEffective.NO_EFFECT) {
-												GOTGuiScreenBase.drawFloatRect(minX, minY, maxX, maxY, zoneColor2);
+												drawFloatRect(minX, minY, maxX, maxY, zoneColor2);
 											}
 										}
 										if (i < minX || i >= maxX || j < minY || j >= maxY) {
@@ -476,14 +475,14 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						float maxX = maxF[0];
 						float minY = minF[1];
 						float maxY = maxF[1];
-						GOTGuiScreenBase.drawFloatRect(minX - 1.0f, minY - 1.0f, maxX + 1.0f, minY, -16777216);
-						GOTGuiScreenBase.drawFloatRect(minX - 1.0f, maxY, maxX + 1.0f, maxY + 1.0f, -16777216);
-						GOTGuiScreenBase.drawFloatRect(minX - 1.0f, minY, minX, maxY, -16777216);
-						GOTGuiScreenBase.drawFloatRect(maxX, minY, maxX + 1.0f, maxY, -16777216);
-						GOTGuiScreenBase.drawFloatRect(minX - 2.0f, minY - 2.0f, maxX + 2.0f, minY - 1.0f, -4521984);
-						GOTGuiScreenBase.drawFloatRect(minX - 2.0f, maxY + 1.0f, maxX + 2.0f, maxY + 2.0f, -4521984);
-						GOTGuiScreenBase.drawFloatRect(minX - 2.0f, minY - 1.0f, minX - 1.0f, maxY + 1.0f, -4521984);
-						GOTGuiScreenBase.drawFloatRect(maxX + 1.0f, minY - 1.0f, maxX + 2.0f, maxY + 1.0f, -4521984);
+						drawFloatRect(minX - 1.0f, minY - 1.0f, maxX + 1.0f, minY, -16777216);
+						drawFloatRect(minX - 1.0f, maxY, maxX + 1.0f, maxY + 1.0f, -16777216);
+						drawFloatRect(minX - 1.0f, minY, minX, maxY, -16777216);
+						drawFloatRect(maxX, minY, maxX + 1.0f, maxY, -16777216);
+						drawFloatRect(minX - 2.0f, minY - 2.0f, maxX + 2.0f, minY - 1.0f, -4521984);
+						drawFloatRect(minX - 2.0f, maxY + 1.0f, maxX + 2.0f, maxY + 2.0f, -4521984);
+						drawFloatRect(minX - 2.0f, minY - 1.0f, minX - 1.0f, maxY + 1.0f, -4521984);
+						drawFloatRect(maxX + 1.0f, minY - 1.0f, maxX + 2.0f, maxY + 1.0f, -4521984);
 						String tooltip = GOTAlignmentValues.formatConqForDisplay(mouseOverStr, false);
 						String subtip = null;
 						if (mouseOverEffect == GOTConquestGrid.ConquestEffective.ALLY_BOOST) {
@@ -552,7 +551,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		if (isConquestGrid) {
 			if (loadingConquestGrid) {
-				Gui.drawRect(mapXMin, mapYMin, mapXMax, mapYMax, -1429949539);
+				drawRect(mapXMin, mapYMin, mapXMax, mapYMax, -1429949539);
 				GL11.glEnable(3042);
 				GL11.glBlendFunc(770, 771);
 				mc.getTextureManager().bindTexture(GOTTextures.overlayTexture);
@@ -741,7 +740,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						int y0 = y1 - keyHeight;
 						if (pass == 0) {
 							int color = 0xBB0000 | Math.round(frac * 255.0f) << 24;
-							Gui.drawRect(x0, y0, x1, y1, color);
+							drawRect(x0, y0, x1, y1, color);
 						} else if (l % 2 == 0) {
 							String keyLabel = GOTAlignmentValues.formatConqForDisplay(strFrac, false);
 							int strX = (int) ((x0 + keyWidth / 2) / labelScaleRel);
@@ -881,10 +880,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 				stringY += mc.fontRenderer.FONT_HEIGHT;
 				if (buttonOverlayFunction.visible) {
-					buttonOverlayFunction.enabled = true;
-					if (creatingWaypointNew || renamingWaypoint) {
-						buttonOverlayFunction.enabled = isValidWaypointName(nameWPTextField.getText());
-					}
+					buttonOverlayFunction.enabled = !creatingWaypointNew && !renamingWaypoint || isValidWaypointName(nameWPTextField.getText());
 					if (sharingWaypointNew) {
 						buttonOverlayFunction.enabled = isExistingUnsharedFellowshipName(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint);
 					}
@@ -1076,10 +1072,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public boolean isWaypointVisible(GOTAbstractWaypoint wp) {
 		if (wp instanceof GOTCustomWaypoint) {
 			GOTCustomWaypoint cwp = (GOTCustomWaypoint) wp;
-			if (cwp.isShared() && cwp.isSharedHidden() && !showHiddenSWP) {
-				return false;
-			}
-			return showCWP;
+			return (!cwp.isShared() || !cwp.isSharedHidden() || showHiddenSWP) && showCWP;
 		}
 		return showWP;
 	}
@@ -1485,7 +1478,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			float g = rgb1[1] + (rgb2[1] - rgb1[1]) * f;
 			float b = rgb1[2] + (rgb2[2] - rgb1[2]) * f;
 			int color = new Color(r, g, b).getRGB() - 16777216;
-			Gui.drawRect(x1 - l, y1 - l, x2 + l, y2 + l, color);
+			drawRect(x1 - l, y1 - l, x2 + l, y2 + l, color);
 		}
 	}
 

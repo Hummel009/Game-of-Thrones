@@ -100,7 +100,7 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 			int stringWidth = mc.fontRenderer.getStringWidth(tooltip);
 			int stringHeight = mc.fontRenderer.FONT_HEIGHT;
 			int offset = 10;
-			Gui.drawRect(i1 += offset, j1 += offset, i1 + stringWidth + border * 2, j1 + stringHeight + border * 2, -1073741824);
+			drawRect(i1 += offset, j1 += offset, i1 + stringWidth + border * 2, j1 + stringHeight + border * 2, -1073741824);
 			mc.fontRenderer.drawString(tooltip, i1 + border, j1 + border, 16777215);
 		}
 	}

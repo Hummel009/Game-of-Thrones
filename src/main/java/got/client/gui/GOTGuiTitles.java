@@ -136,7 +136,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 			int y1 = guiTop + scrollBarY + scroll;
 			int x2 = x1 + scrollWidgetWidth;
 			int y2 = y1 + scrollWidgetHeight;
-			Gui.drawRect(x1, y1, x2, y2, -1426063361);
+			drawRect(x1, y1, x2, y2, -1426063361);
 		}
 		selectButton.enabled = selectedTitle != null;
 		removeButton.enabled = currentTitle != null;
