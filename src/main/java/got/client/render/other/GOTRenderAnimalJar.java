@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.client.event.GOTTickHandlerClient;
+import got.client.event.both.GOTTickHandlerClient;
 import got.client.render.animal.GOTRenderBird;
 import got.common.item.other.GOTItemAnimalJar;
 import got.common.tileentity.GOTTileEntityAnimalJar;

@@ -1,6 +1,6 @@
 package got.client.render.other;
 
-import got.client.event.GOTTextures;
+import got.client.event.both.GOTTextures;
 import got.common.tileentity.GOTTileEntityCommandTable;
 import got.common.world.genlayer.GOTGenLayerWorld;
 import net.minecraft.client.Minecraft;

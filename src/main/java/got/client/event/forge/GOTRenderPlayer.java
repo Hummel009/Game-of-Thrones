@@ -1,7 +1,8 @@
-package got.client.event;
+package got.client.event.forge;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.GOTClientProxy;
+import got.client.event.both.GOTTickHandlerClient;
 import got.client.render.other.GOTNPCRendering;
 import got.client.render.other.GOTRenderShield;
 import got.common.GOTConfig;

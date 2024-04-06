@@ -1,4 +1,4 @@
-package got.client.event;
+package got.client.event.forge;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.client.model.*;

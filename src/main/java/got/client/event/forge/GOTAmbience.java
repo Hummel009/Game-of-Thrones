@@ -1,8 +1,8 @@
-package got.client.event;
+package got.client.event.forge;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import got.GOT;
+import got.client.event.both.GOTTickHandlerClient;
 import got.client.render.other.GOTWeatherRenderer;
 import got.common.GOTConfig;
 import got.common.world.GOTWorldProvider;
@@ -26,7 +26,6 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.client.event.sound.PlaySoundEvent17;
-import net.minecraftforge.common.MinecraftForge;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -37,11 +36,6 @@ public class GOTAmbience {
 	private final Collection<ISound> playingWindSounds = new ArrayList<>();
 	private final Collection<ISound> playingSeaSounds = new ArrayList<>();
 	private int ticksSinceWight;
-
-	public GOTAmbience() {
-		FMLCommonHandler.instance().bus().register(this);
-		MinecraftForge.EVENT_BUS.register(this);
-	}
 
 	@SubscribeEvent
 	public void onPlaySound(PlaySoundEvent17 event) {

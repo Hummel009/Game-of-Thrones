@@ -1,4 +1,4 @@
-package got.client.event;
+package got.client.event.forge;
 
 import com.google.common.base.Charsets;
 import com.google.gson.JsonArray;

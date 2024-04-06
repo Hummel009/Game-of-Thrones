@@ -1,4 +1,4 @@
-package got.client.event;
+package got.client.event.both;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

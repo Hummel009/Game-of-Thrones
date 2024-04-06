@@ -1,4 +1,4 @@
-package got.client.event;
+package got.client.event.both;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;

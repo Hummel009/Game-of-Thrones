@@ -1,6 +1,6 @@
 package got.client;
 
-import got.client.event.GOTTickHandlerClient;
+import got.client.event.both.GOTTickHandlerClient;
 import got.common.item.GOTWeaponStats;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;

@@ -1,7 +1,7 @@
 package got.client.render.other;
 
 import got.client.GOTClientProxy;
-import got.client.event.GOTArmorModels;
+import got.client.event.forge.GOTArmorModels;
 import got.client.model.GOTModelArmorStand;
 import got.common.item.other.GOTItemPlate;
 import got.common.tileentity.GOTTileEntityArmorStand;

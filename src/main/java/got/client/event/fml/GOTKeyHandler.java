@@ -1,4 +1,4 @@
-package got.client.event;
+package got.client.event.fml;
 
 import com.google.common.math.IntMath;
 import cpw.mods.fml.client.registry.ClientRegistry;
@@ -9,6 +9,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import got.GOT;
 import got.client.GOTAttackTiming;
 import got.client.GOTClientProxy;
+import got.client.event.both.GOTTickHandlerClient;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
@@ -36,7 +37,7 @@ public class GOTKeyHandler {
 	public static final KeyBinding KEY_BINDING_DRAGON_DOWN = new KeyBinding("Dragon: Fly Down", Keyboard.KEY_H, "Game of Thrones");
 	public static final KeyBinding KEY_BINDING_RETURN = new KeyBinding("Clear", Keyboard.KEY_RETURN, "Game of Thrones");
 
-	private static final KeyBinding keyBindingCargoCart = new KeyBinding("Enable cargocart", 19, "Game of Thrones");
+	private static final KeyBinding KEY_BINDING_CARGO_CART = new KeyBinding("Enable cargocart", 19, "Game of Thrones");
 
 	private static final GOTPacketDragonControl DRAGON_CONTROL = new GOTPacketDragonControl();
 	private static final Minecraft MC = Minecraft.getMinecraft();
@@ -53,7 +54,7 @@ public class GOTKeyHandler {
 		ClientRegistry.registerKeyBinding(KEY_BINDING_ALIGNMENT_GROUP_NEXT);
 		ClientRegistry.registerKeyBinding(KEY_BINDING_DRAGON_UP);
 		ClientRegistry.registerKeyBinding(KEY_BINDING_DRAGON_DOWN);
-		ClientRegistry.registerKeyBinding(keyBindingCargoCart);
+		ClientRegistry.registerKeyBinding(KEY_BINDING_CARGO_CART);
 	}
 
 	public static void update() {
@@ -128,7 +129,7 @@ public class GOTKeyHandler {
 			GOTClientProxy.sendClientInfoPacket(currentFaction, lastViewedRegions);
 			alignmentChangeTick = 2;
 		}
-		if (keyBindingCargoCart.isPressed()) {
+		if (KEY_BINDING_CARGO_CART.isPressed()) {
 			GOTPacketHandler.networkWrapper.sendToServer(new GOTPacketCargocartControl());
 		}
 	}
