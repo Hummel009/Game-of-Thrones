@@ -10,9 +10,10 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
-	public GOTGuiMap mapGui = new GOTGuiMap();
-	public GOTGuiRendererMap mapRenderer = new GOTGuiRendererMap();
-	public int tickCounter;
+	private final GOTGuiMap mapGui = new GOTGuiMap();
+	private final GOTGuiRendererMap mapRenderer = new GOTGuiRendererMap();
+
+	private int tickCounter;
 
 	public GOTGuiDownloadTerrain(NetHandlerPlayClient handler) {
 		super(handler);
@@ -26,10 +27,14 @@ public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 			GL11.glEnable(3008);
 			GL11.glEnable(3042);
 			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-			mapRenderer.prevMapX = mapRenderer.mapX = GOTWaypoint.KINGS_LANDING.getX();
-			mapRenderer.prevMapY = mapRenderer.mapY = GOTWaypoint.KINGS_LANDING.getY();
-			mapRenderer.zoomExp = -1.0f;
-			mapRenderer.zoomStable = (float) Math.pow(2.0, -1.00000001192092896);
+			double x = GOTWaypoint.KINGS_LANDING.getX();
+			double y = GOTWaypoint.KINGS_LANDING.getY();
+			mapRenderer.setMapX(x);
+			mapRenderer.setMapY(y);
+			mapRenderer.setPrevMapX(x);
+			mapRenderer.setPrevMapY(y);
+			mapRenderer.setZoomExp(-1.0f);
+			mapRenderer.setZoomStable((float) Math.pow(2.0, -1.00000001192092896));
 			int x0 = 0;
 			int x1 = width;
 			int y0 = 0;

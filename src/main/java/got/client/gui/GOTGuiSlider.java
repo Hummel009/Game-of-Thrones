@@ -6,18 +6,16 @@ import net.minecraft.util.MathHelper;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiSlider extends GuiButton {
-	public String baseDisplayString;
+	private final String baseDisplayString;
+
 	private String overrideStateString;
-	public boolean isTime;
-	public boolean isFloat;
-	public boolean valueOnly;
+	private boolean valueOnly;
 	private int numberDigits;
-	public int minValue;
-	public int maxValue;
-	public float minValueF;
-	public float maxValueF;
-	public float sliderValue = 1.0f;
-	public boolean dragging;
+	private int minValue;
+	private int maxValue;
+	private float sliderValue = 1.0f;
+
+	private boolean dragging;
 
 	public GOTGuiSlider(int id, int x, int y, int width, int height, String s) {
 		super(id, x, y, width, height, s);
@@ -28,13 +26,6 @@ public class GOTGuiSlider extends GuiButton {
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (overrideStateString != null) {
 			displayString = overrideStateString;
-		} else if (isTime) {
-			int value = getSliderValue();
-			int seconds = value % 60;
-			int minutes = value / 60;
-			displayString = String.format("%d:%02d", minutes, seconds);
-		} else if (isFloat) {
-			displayString = String.format("%.2f", getSliderValue_F());
 		} else {
 			int value = getSliderValue();
 			displayString = String.valueOf(value);
@@ -60,10 +51,6 @@ public class GOTGuiSlider extends GuiButton {
 	public void setSliderValue(int value) {
 		int value1 = MathHelper.clamp_int(value, minValue, maxValue);
 		sliderValue = (float) (value1 - minValue) / (maxValue - minValue);
-	}
-
-	public float getSliderValue_F() {
-		return minValueF + sliderValue * (maxValueF - minValueF);
 	}
 
 	@Override
@@ -128,5 +115,9 @@ public class GOTGuiSlider extends GuiButton {
 
 	public int getNumberDigits() {
 		return numberDigits;
+	}
+
+	public boolean isDragging() {
+		return dragging;
 	}
 }

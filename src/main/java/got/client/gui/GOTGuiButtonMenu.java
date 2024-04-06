@@ -7,13 +7,11 @@ import net.minecraft.client.multiplayer.WorldClient;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonMenu extends GuiButton {
-	public GOTGuiMenu parentGUI;
-	public Class<? extends GOTGuiMenuWBBase> menuScreenClass;
-	public int menuKeyCode;
+	private final Class<? extends GOTGuiMenuWBBase> menuScreenClass;
+	private final int menuKeyCode;
 
-	public GOTGuiButtonMenu(GOTGuiMenu gui, int i, int x, int y, Class<? extends GOTGuiMenuWBBase> cls, String s, int key) {
+	public GOTGuiButtonMenu(int i, int x, int y, Class<? extends GOTGuiMenuWBBase> cls, String s, int key) {
 		super(i, x, y, 32, 32, s);
-		parentGUI = gui;
 		menuScreenClass = cls;
 		menuKeyCode = key;
 	}
@@ -29,7 +27,7 @@ public class GOTGuiButtonMenu extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
-			mc.getTextureManager().bindTexture(GOTGuiMenu.menuIconsTexture);
+			mc.getTextureManager().bindTexture(GOTGuiMenu.MENU_ICONS_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			drawTexturedModalRect(xPosition, yPosition, (enabled ? 0 : width * 2) + (field_146123_n ? width : 0), id * height, width, height);
@@ -44,5 +42,9 @@ public class GOTGuiButtonMenu extends GuiButton {
 			e.printStackTrace();
 			return null;
 		}
+	}
+
+	public int getMenuKeyCode() {
+		return menuKeyCode;
 	}
 }

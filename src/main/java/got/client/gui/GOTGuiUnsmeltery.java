@@ -9,8 +9,9 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiUnsmeltery extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/unsmelter.png");
-	public GOTTileEntityUnsmeltery theUnsmeltery;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/unsmelter.png");
+
+	private final GOTTileEntityUnsmeltery theUnsmeltery;
 
 	public GOTGuiUnsmeltery(InventoryPlayer inv, GOTTileEntityUnsmeltery unsmeltery) {
 		super(new GOTContainerUnsmeltery(inv, unsmeltery));
@@ -21,7 +22,7 @@ public class GOTGuiUnsmeltery extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (theUnsmeltery.isSmelting()) {
 			int k = theUnsmeltery.getSmeltTimeRemainingScaled(13);

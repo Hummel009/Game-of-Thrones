@@ -8,19 +8,21 @@ import org.lwjgl.opengl.GL11;
 import java.util.Collection;
 
 public class GOTGuiScrollPane {
-	public int scrollWidgetWidth;
-	public int scrollWidgetHeight;
-	public int barColor;
-	public int widgetColor;
-	public int scrollBarX0;
-	public int paneX0;
-	public int paneY0;
-	public int paneY1;
-	public boolean hasScrollBar;
-	public float currentScroll;
-	public boolean isScrolling;
-	public boolean mouseOver;
-	public boolean wasMouseDown;
+	private final int scrollWidgetWidth;
+	private final int scrollWidgetHeight;
+
+	private int barColor;
+	private int widgetColor;
+	private float currentScroll;
+	private boolean isScrolling;
+	private boolean wasMouseDown;
+
+	private int scrollBarX0;
+	private int paneX0;
+	private int paneY0;
+	private int paneY1;
+	private boolean hasScrollBar;
+	private boolean mouseOver;
 
 	public GOTGuiScrollPane(int ww, int wh) {
 		scrollWidgetWidth = ww;
@@ -100,5 +102,53 @@ public class GOTGuiScrollPane {
 		barColor = c11;
 		widgetColor = c21;
 		return this;
+	}
+
+	public int getScrollBarX0() {
+		return scrollBarX0;
+	}
+
+	public void setScrollBarX0(int scrollBarX0) {
+		this.scrollBarX0 = scrollBarX0;
+	}
+
+	public int getPaneX0() {
+		return paneX0;
+	}
+
+	public void setPaneX0(int paneX0) {
+		this.paneX0 = paneX0;
+	}
+
+	public int getPaneY0() {
+		return paneY0;
+	}
+
+	public void setPaneY0(int paneY0) {
+		this.paneY0 = paneY0;
+	}
+
+	public int getPaneY1() {
+		return paneY1;
+	}
+
+	public void setPaneY1(int paneY1) {
+		this.paneY1 = paneY1;
+	}
+
+	public boolean isHasScrollBar() {
+		return hasScrollBar;
+	}
+
+	public void setHasScrollBar(boolean hasScrollBar) {
+		this.hasScrollBar = hasScrollBar;
+	}
+
+	public boolean isMouseOver() {
+		return mouseOver;
+	}
+
+	public void setMouseOver(boolean mouseOver) {
+		this.mouseOver = mouseOver;
 	}
 }

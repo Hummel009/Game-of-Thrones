@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonBannerWhitelistSlots extends GuiButton {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/banner_edit.png");
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/banner_edit.png");
 
 	public GOTGuiButtonBannerWhitelistSlots(int i, int j, int k) {
 		super(i, j, k, 7, 7, "");
@@ -15,7 +15,7 @@ public class GOTGuiButtonBannerWhitelistSlots extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
-			mc.getTextureManager().bindTexture(guiTexture);
+			mc.getTextureManager().bindTexture(GUI_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			boolean over = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int k = 226 + id * width;

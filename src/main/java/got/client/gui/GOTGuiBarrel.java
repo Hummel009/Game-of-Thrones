@@ -18,12 +18,13 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiBarrel extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/barrel/barrel.png");
-	public static ResourceLocation brewingTexture = new ResourceLocation("got:textures/gui/barrel/brewing.png");
-	public GOTTileEntityBarrel theBarrel;
-	public GuiButton brewingButton;
-	public float prevBrewAnim = -1.0f;
-	public float brewAnim = -1.0f;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/barrel/barrel.png");
+	private static final ResourceLocation BREWING_TEXTURE = new ResourceLocation("got:textures/gui/barrel/brewing.png");
+
+	private final GOTTileEntityBarrel theBarrel;
+
+	private GuiButton brewingButton;
+	private float brewAnim = -1.0f;
 
 	public GOTGuiBarrel(InventoryPlayer inv, GOTTileEntityBarrel barrel) {
 		super(new GOTContainerBarrel(inv, barrel));
@@ -43,14 +44,14 @@ public class GOTGuiBarrel extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		int brewMode = theBarrel.barrelMode;
 		int fullAmount = theBarrel.getBarrelFullAmountScaled(96);
 		if (brewMode == 1) {
 			fullAmount = theBarrel.getBrewProgressScaled(96);
 		}
-		prevBrewAnim = brewAnim;
+		float prevBrewAnim = brewAnim;
 		brewAnim = theBarrel.getBrewAnimationProgressScaledF(97, f);
 		float brewAnimF = prevBrewAnim + (brewAnim - prevBrewAnim) * f;
 		float brewAnimPc = theBarrel.getBrewAnimationProgressScaledF(1, f);
@@ -80,7 +81,7 @@ public class GOTGuiBarrel extends GuiContainer {
 				drawGradientRect(x0, yFull, x1, y1, 0, 0xFF000000 | fullColor);
 			}
 			if (brewMode == 1) {
-				mc.getTextureManager().bindTexture(brewingTexture);
+				mc.getTextureManager().bindTexture(BREWING_TEXTURE);
 				GL11.glEnable(3042);
 				OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 				GL11.glDisable(3008);
@@ -90,7 +91,7 @@ public class GOTGuiBarrel extends GuiContainer {
 				GL11.glEnable(3008);
 				GL11.glDisable(3042);
 			}
-			mc.getTextureManager().bindTexture(brewingTexture);
+			mc.getTextureManager().bindTexture(BREWING_TEXTURE);
 			drawTexturedModalRect(x0, y0, 1, 0, x1 - x0, y1 - y0);
 		}
 	}

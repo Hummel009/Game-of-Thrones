@@ -6,12 +6,12 @@ import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.util.StatCollector;
 
 public abstract class GOTGuiMenuBase extends GOTGuiMenuWBBase {
-	public static RenderItem renderItem = new RenderItem();
-	public int xSize = 200;
-	public int ySize = 256;
-	public int guiLeft;
-	public int guiTop;
-	public GuiButton buttonMenuReturn;
+	protected static final RenderItem RENDER_ITEM = new RenderItem();
+	protected int xSize = 200;
+	protected int ySize = 256;
+	protected int guiLeft;
+	protected int guiTop;
+	protected GuiButton buttonMenuReturn;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -41,5 +41,13 @@ public abstract class GOTGuiMenuBase extends GOTGuiMenuWBBase {
 			return;
 		}
 		super.keyTyped(c, i);
+	}
+
+	public int getSizeX() {
+		return xSize;
+	}
+
+	public void setSizeX(int xSize) {
+		this.xSize = xSize;
 	}
 }

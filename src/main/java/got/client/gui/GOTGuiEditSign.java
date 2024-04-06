@@ -18,11 +18,13 @@ import org.lwjgl.input.Keyboard;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiEditSign extends GuiScreen {
-	public static RenderItem itemRenderer = new RenderItem();
-	public GOTTileEntitySign tileSign;
-	public int updateCounter;
-	public int editLine;
-	public GuiButton buttonDone;
+	private static final RenderItem ITEM_RENDERER = new RenderItem();
+
+	private final GOTTileEntitySign tileSign;
+
+	private int updateCounter;
+	private int editLine;
+	private GuiButton buttonDone;
 
 	public GOTGuiEditSign(GOTTileEntitySign sign) {
 		tileSign = sign;
@@ -55,7 +57,7 @@ public class GOTGuiEditSign extends GuiScreen {
 		GL11.glScalef(-iconScale, -iconScale, iconScale);
 		GL11.glTranslatef(0.0f, 0.5f, 0.0f);
 		mc.getTextureManager().bindTexture(TextureMap.locationBlocksTexture);
-		itemRenderer.renderIcon(-1, -1, onIcon, 2, 2);
+		ITEM_RENDERER.renderIcon(-1, -1, onIcon, 2, 2);
 		GL11.glPopMatrix();
 		GL11.glEnable(2929);
 		if (updateCounter / 6 % 2 == 0) {

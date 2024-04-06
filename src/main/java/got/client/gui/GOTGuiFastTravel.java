@@ -16,44 +16,36 @@ import org.lwjgl.opengl.GL11;
 import java.util.List;
 
 public class GOTGuiFastTravel extends GOTGuiScreenBase {
-	public static ResourceLocation ftSound = new ResourceLocation("got:event.fastTravel");
-	public static float zoomInAmount = 0.5f;
-	public static float zoomInIncr = 0.008333334f;
-	public static float mapSpeedMax = 2.0f;
-	public static float mapSpeedIncr = 0.01f;
-	public static float mapAccel = 0.2f;
-	public static float wpReachedDistance = 1.0f;
-	public float zoomBase;
-	public double mapScaleFactor;
-	public GOTGuiMap mapGui;
-	public GOTGuiRendererMap mapRenderer;
-	public int tickCounter;
-	public GOTAbstractWaypoint theWaypoint;
-	public int startX;
-	public int startZ;
-	public String message;
-	public boolean chunkLoaded;
-	public boolean playedSound;
-	public float currentZoom;
-	public float prevZoom;
-	public boolean finishedZoomIn;
-	public double mapSpeed;
-	public double mapVelX;
-	public double mapVelY;
-	public boolean reachedWP;
+	private static final ResourceLocation FT_SOUND = new ResourceLocation("got:event.fastTravel");
+
+	private final float zoomBase;
+	private final double mapScaleFactor;
+	private final GOTGuiMap mapGui;
+	private final GOTGuiRendererMap mapRenderer;
+	private final GOTAbstractWaypoint theWaypoint;
+	private final String message;
+
+	private int tickCounter;
+	private boolean chunkLoaded;
+	private boolean playedSound;
+	private float currentZoom;
+	private float prevZoom;
+	private boolean finishedZoomIn;
+	private double mapSpeed;
+	private double mapVelX;
+	private double mapVelY;
+	private boolean reachedWP;
 
 	public GOTGuiFastTravel(GOTAbstractWaypoint waypoint, int x, int z) {
 		theWaypoint = waypoint;
-		startX = x;
-		startZ = z;
 		message = GOTSpeech.getRandomSpeech("standard/special/fast_travel");
 		mapGui = new GOTGuiMap();
 		mapRenderer = new GOTGuiRendererMap();
 		mapRenderer.setSepia(true);
-		mapRenderer.mapX = GOTWaypoint.worldToMapX(startX);
-		mapRenderer.mapY = GOTWaypoint.worldToMapZ(startZ);
-		double dx = theWaypoint.getX() - mapRenderer.mapX;
-		double dy = theWaypoint.getY() - mapRenderer.mapY;
+		mapRenderer.setMapX(GOTWaypoint.worldToMapX(x));
+		mapRenderer.setMapY(GOTWaypoint.worldToMapZ(z));
+		double dx = theWaypoint.getX() - mapRenderer.getMapX();
+		double dy = theWaypoint.getY() - mapRenderer.getMapY();
 		double distSq = dx * dx + dy * dy;
 		double dist = Math.sqrt(distSq);
 		mapScaleFactor = dist / 100.0;
@@ -66,8 +58,8 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 		GL11.glEnable(3008);
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		mapRenderer.zoomExp = prevZoom + (currentZoom - prevZoom) * f;
-		mapRenderer.zoomStable = (float) Math.pow(2.0, zoomBase);
+		mapRenderer.setZoomExp(prevZoom + (currentZoom - prevZoom) * f);
+		mapRenderer.setZoomStable((float) Math.pow(2.0, zoomBase));
 		mapRenderer.renderMap(this, mapGui, f);
 		mapRenderer.renderVignettes(this, zLevel, 4);
 		GL11.glEnable(3042);
@@ -121,7 +113,7 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 			chunkLoaded = true;
 		}
 		if (!playedSound) {
-			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147673_a(ftSound));
+			mc.getSoundHandler().playSound(PositionedSoundRecord.func_147673_a(FT_SOUND));
 			playedSound = true;
 		}
 		mapRenderer.updateTick();
@@ -135,8 +127,8 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 			}
 		} else {
 			double dy;
-			double dx = theWaypoint.getX() - mapRenderer.mapX;
-			double distSq = dx * dx + (dy = theWaypoint.getY() - mapRenderer.mapY) * dy;
+			double dx = theWaypoint.getX() - mapRenderer.getMapX();
+			double distSq = dx * dx + (dy = theWaypoint.getY() - mapRenderer.getMapY()) * dy;
 			double dist = Math.sqrt(distSq);
 			if (dist <= mapScaleFactor) {
 				reachedWP = true;
@@ -152,8 +144,8 @@ public class GOTGuiFastTravel extends GOTGuiScreenBase {
 				mapVelX += (vXNew - mapVelX) * a;
 				mapVelY += (vYNew - mapVelY) * a;
 			}
-			mapRenderer.mapX += mapVelX * mapScaleFactor;
-			mapRenderer.mapY += mapVelY * mapScaleFactor;
+			mapRenderer.setMapX(mapRenderer.getMapX() + mapVelX * mapScaleFactor);
+			mapRenderer.setMapY(mapRenderer.getMapY() + mapVelY * mapScaleFactor);
 			currentZoom -= 0.008333334f;
 			currentZoom = Math.max(currentZoom, zoomBase);
 		}

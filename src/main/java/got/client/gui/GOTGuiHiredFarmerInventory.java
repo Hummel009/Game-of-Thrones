@@ -11,8 +11,9 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiHiredFarmerInventory extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/hiredFarmer.png");
-	public GOTEntityNPC theNPC;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/npc/hiredFarmer.png");
+
+	private final GOTEntityNPC theNPC;
 
 	public GOTGuiHiredFarmerInventory(InventoryPlayer inv, GOTEntityNPC entity) {
 		super(new GOTContainerHiredFarmerInventory(inv, entity));
@@ -23,7 +24,7 @@ public class GOTGuiHiredFarmerInventory extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		ItemStack seeds = inventorySlots.getSlot(0).getStack();
 		if (seeds == null) {

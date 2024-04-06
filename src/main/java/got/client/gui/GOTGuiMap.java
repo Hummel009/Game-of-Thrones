@@ -47,112 +47,107 @@ import java.util.*;
 import java.util.regex.Pattern;
 
 public class GOTGuiMap extends GOTGuiMenuBase {
-	public static Map<UUID, PlayerLocationInfo> playerLocations = new HashMap<>();
-	public static ResourceLocation mapIconsTexture = new ResourceLocation("got:textures/map/mapScreen.png");
-	public static ResourceLocation conquestTexture = new ResourceLocation("got:textures/map/conquest.png");
-	public static ItemStack questBookIcon = new ItemStack(GOTItems.questBook);
-	public static int BLACK = -16777216;
-	public static int BORDER_COLOR = -6156032;
-	public static boolean fullscreen = true;
-	public static int mapWidth;
-	public static int mapHeight;
-	public static int mapXMin;
-	public static int mapXMax;
-	public static int mapYMin;
-	public static int mapYMax;
-	public static int mapXMin_W;
-	public static int mapXMax_W;
-	public static int mapYMin_W;
-	public static int mapYMax_W;
-	public static Collection<GOTGuiMapWidget> mapWidgets = new ArrayList<>();
-	public static int zoomPower;
-	public static int zoomTicksMax = 6;
+	public static final ResourceLocation MAP_ICONS_TEXTURE = new ResourceLocation("got:textures/map/mapScreen.png");
+
 	public static boolean showWP = true;
 	public static boolean showCWP = true;
 	public static boolean showHiddenSWP;
-	public static int maxDisplayedWPShares;
-	public static int CONQUEST_COLOR = 12255232;
-	public static GOTDimension.DimensionRegion currentRegion;
-	public static GOTDimension.DimensionRegion prevRegion;
-	public static List<GOTFaction> currentFactionList;
-	public static Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
-	public GOTGuiMapWidget widgetAddCWP;
-	public GOTGuiMapWidget widgetDelCWP;
-	public GOTGuiMapWidget widgetRenameCWP;
-	public GOTGuiMapWidget widgetToggleWPs;
-	public GOTGuiMapWidget widgetToggleCWPs;
-	public GOTGuiMapWidget widgetToggleHiddenSWPs;
-	public GOTGuiMapWidget widgetZoomIn;
-	public GOTGuiMapWidget widgetZoomOut;
-	public GOTGuiMapWidget widgetFullScreen;
-	public GOTGuiMapWidget widgetSepia;
-	public GOTGuiMapWidget widgetLabels;
-	public GOTGuiMapWidget widgetShareCWP;
-	public GOTGuiMapWidget widgetHideSWP;
-	public GOTGuiMapWidget widgetUnhideSWP;
-	public float posX;
-	public float posY;
-	public int isMouseButtonDown;
-	public int prevMouseX;
-	public int prevMouseY;
-	public boolean isMouseWithinMap;
-	public int mouseXCoord;
-	public int mouseZCoord;
-	public float posXMove;
-	public float posYMove;
-	public float prevPosX;
-	public float prevPosY;
-	public int prevZoomPower = zoomPower;
-	public float zoomScale;
-	public float zoomScaleStable;
-	public float zoomExp;
-	public int zoomTicks;
-	public boolean enableZoomOutWPFading = true;
-	public GOTAbstractWaypoint selectedWaypoint;
-	public boolean hasOverlay;
-	public String[] overlayLines;
-	public GuiButton buttonOverlayFunction;
-	public GuiTextField nameWPTextField;
-	public boolean creatingWaypoint;
-	public boolean creatingWaypointNew;
-	public boolean deletingWaypoint;
-	public boolean renamingWaypoint;
-	public boolean sharingWaypoint;
-	public boolean sharingWaypointNew;
-	public GOTGuiFellowships fellowshipDrawGUI;
-	public GOTFellowshipClient mouseOverRemoveSharedFellowship;
-	public GOTGuiScrollPane scrollPaneWPShares = new GOTGuiScrollPane(9, 8);
-	public List<UUID> displayedWPShareList;
-	public int displayedWPShares;
-	public boolean isPlayerOp;
-	public int tickCounter;
-	public boolean hasControlZones;
-	public GOTFaction controlZoneFaction;
-	public boolean mouseControlZone;
-	public boolean mouseControlZoneReduced;
-	public boolean isConquestGrid;
-	public boolean loadingConquestGrid;
-	public Map<GOTFaction, List<GOTConquestZone>> facConquestGrids = new EnumMap<>(GOTFaction.class);
-	public Set<GOTFaction> requestedFacGrids = EnumSet.noneOf(GOTFaction.class);
-	public Set<GOTFaction> receivedFacGrids = EnumSet.noneOf(GOTFaction.class);
-	public int ticksUntilRequestFac = 40;
-	public float highestViewedConqStr;
-	public int currentFactionIndex;
-	public int prevFactionIndex;
-	public GOTFaction conquestViewingFaction;
-	public float currentFacScroll;
-	public boolean isFacScrolling;
-	public boolean wasMouseDown;
-	public boolean mouseInFacScroll;
-	public int facScrollWidth = 240;
-	public int facScrollHeight = 14;
-	public int facScrollX;
-	public int facScrollY;
-	public int facScrollBorder = 1;
-	public int facScrollWidgetWidth = 17;
-	public int facScrollWidgetHeight = 12;
 
-	public GuiButton buttonConquestRegions;
+	private static final ResourceLocation CONQUEST_TEXTURE = new ResourceLocation("got:textures/map/conquest.png");
+	private static final ItemStack QUEST_BOOK_ICON = new ItemStack(GOTItems.questBook);
+	private static final Map<GOTDimension.DimensionRegion, GOTFaction> LAST_VIEWED_REGIONS = new EnumMap<>(GOTDimension.DimensionRegion.class);
+	private static final Map<UUID, PlayerLocationInfo> PLAYER_LOCATIONS = new HashMap<>();
+	private static final Collection<GOTGuiMapWidget> MAP_WIDGETS = new ArrayList<>();
+	private static final int FAC_SCROLL_WIDTH = 240;
+	private static final int FAC_SCROLL_HEIGHT = 14;
+	private static final int FAC_SCROLL_WIDGET_WIDTH = 17;
+	private static final int ZOOM_TICKS_MAX = 6;
+
+	private static boolean fullscreen = true;
+	private static int mapWidth;
+	private static int mapHeight;
+	private static int mapXMin;
+	private static int mapXMax;
+	private static int mapYMin;
+	private static int mapYMax;
+	private static int zoomPower;
+	private static GOTDimension.DimensionRegion currentRegion;
+	private static GOTDimension.DimensionRegion prevRegion;
+	private static List<GOTFaction> currentFactionList;
+
+	private final Map<GOTFaction, List<GOTConquestZone>> facConquestGrids = new EnumMap<>(GOTFaction.class);
+	private final Set<GOTFaction> requestedFacGrids = EnumSet.noneOf(GOTFaction.class);
+	private final Set<GOTFaction> receivedFacGrids = EnumSet.noneOf(GOTFaction.class);
+	private final GOTGuiScrollPane scrollPaneWPShares = new GOTGuiScrollPane(9, 8);
+
+	private GOTGuiMapWidget widgetAddCWP;
+	private GOTGuiMapWidget widgetDelCWP;
+	private GOTGuiMapWidget widgetRenameCWP;
+	private GOTGuiMapWidget widgetToggleWPs;
+	private GOTGuiMapWidget widgetToggleCWPs;
+	private GOTGuiMapWidget widgetToggleHiddenSWPs;
+	private GOTGuiMapWidget widgetZoomIn;
+	private GOTGuiMapWidget widgetZoomOut;
+	private GOTGuiMapWidget widgetFullScreen;
+	private GOTGuiMapWidget widgetSepia;
+	private GOTGuiMapWidget widgetLabels;
+	private GOTGuiMapWidget widgetShareCWP;
+	private GOTGuiMapWidget widgetHideSWP;
+	private GOTGuiMapWidget widgetUnhideSWP;
+	private float posX;
+	private float posY;
+	private int isMouseButtonDown;
+	private int prevMouseX;
+	private int prevMouseY;
+	private boolean isMouseWithinMap;
+	private int mouseXCoord;
+	private int mouseZCoord;
+	private float posXMove;
+	private float posYMove;
+	private float prevPosX;
+	private float prevPosY;
+	private int prevZoomPower = zoomPower;
+	private float zoomScale;
+	private float zoomScaleStable;
+	private float zoomExp;
+	private int zoomTicks;
+	private GOTAbstractWaypoint selectedWaypoint;
+	private boolean hasOverlay;
+	private String[] overlayLines;
+	private GuiButton buttonOverlayFunction;
+	private GuiTextField nameWPTextField;
+	private boolean creatingWaypoint;
+	private boolean creatingWaypointNew;
+	private boolean deletingWaypoint;
+	private boolean renamingWaypoint;
+	private boolean sharingWaypoint;
+	private boolean sharingWaypointNew;
+	private GOTGuiFellowships fellowshipDrawGUI;
+	private GOTFellowshipClient mouseOverRemoveSharedFellowship;
+	private List<UUID> displayedWPShareList;
+	private int displayedWPShares;
+	private int tickCounter;
+	private boolean hasControlZones;
+	private GOTFaction controlZoneFaction;
+	private boolean mouseControlZone;
+	private boolean mouseControlZoneReduced;
+	private boolean isConquestGrid;
+	private boolean loadingConquestGrid;
+	private int ticksUntilRequestFac = 40;
+	private float highestViewedConqStr;
+	private int currentFactionIndex;
+	private int prevFactionIndex;
+	private GOTFaction conquestViewingFaction;
+	private float currentFacScroll;
+	private boolean isFacScrolling;
+	private boolean wasMouseDown;
+	private boolean mouseInFacScroll;
+	private int facScrollX;
+	private int facScrollY;
+	private GuiButton buttonConquestRegions;
+
+	private boolean isPlayerOp;
+	private boolean enableZoomOutWPFading = true;
 
 	@SuppressWarnings("ResultOfObjectAllocationIgnored")
 	public GOTGuiMap() {
@@ -163,15 +158,15 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	public static void addPlayerLocationInfo(GameProfile player, double x, double z) {
 		if (player.isComplete()) {
-			playerLocations.put(player.getId(), new PlayerLocationInfo(player, x, z));
+			PLAYER_LOCATIONS.put(player.getId(), new PlayerLocationInfo(player, x, z));
 		}
 	}
 
 	public static void clearPlayerLocations() {
-		playerLocations.clear();
+		PLAYER_LOCATIONS.clear();
 	}
 
-	public static boolean isOSRS() {
+	private static boolean isOSRS() {
 		return GOTConfig.osrsMap;
 	}
 
@@ -231,12 +226,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public boolean canCreateWaypointAtPosition() {
+	private boolean canCreateWaypointAtPosition() {
 		int minY = GOTConfig.getCustomWaypointMinY(mc.theWorld);
 		return minY < 0 || mc.thePlayer.boundingBox.minY >= minY;
 	}
 
-	public boolean canTeleport() {
+	private boolean canTeleport() {
 		if (!isGameOfThrones() || loadingConquestGrid) {
 			return false;
 		}
@@ -249,7 +244,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		return isPlayerOp;
 	}
 
-	public void closeOverlay() {
+	private void closeOverlay() {
 		hasOverlay = false;
 		overlayLines = null;
 		creatingWaypoint = false;
@@ -263,7 +258,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		nameWPTextField.setText("");
 	}
 
-	public void drawFancyRect(int x1, int y1, int x2, int y2) {
+	private void drawFancyRect(int x1, int y1, int x2, int y2) {
 		drawRect(x1, y1, x2, y2, -1073741824);
 		drawHorizontalLine(x1 - 1, x2, y1 - 1, -6156032);
 		drawHorizontalLine(x1 - 1, x2, y2, -6156032);
@@ -544,7 +539,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		renderWaypoints(1, i, j);
 		if (!loadingConquestGrid && selectedWaypoint != null && isWaypointVisible(selectedWaypoint)) {
 			if (!hasOverlay) {
-				renderWaypointTooltip(selectedWaypoint, true, i, j);
+				renderWaypointTooltip(selectedWaypoint, true);
 			}
 		} else {
 			selectedWaypoint = null;
@@ -598,7 +593,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 				GL11.glDisable(3042);
 			}
-			mc.getTextureManager().bindTexture(conquestTexture);
+			mc.getTextureManager().bindTexture(CONQUEST_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(mapXMin - 8, mapYMin - 22, 0, 0, mapWidth + 16, mapHeight + 22 + 54, 512);
 		}
@@ -754,10 +749,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				}
 			}
 			if (hasConquestScrollBar()) {
-				mc.getTextureManager().bindTexture(GOTGuiFactions.factionsTexture);
+				mc.getTextureManager().bindTexture(GOTGuiFactions.FACTIONS_TEXTURE);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				drawTexturedModalRect(facScrollX, facScrollY, 0, 128, facScrollWidth, facScrollHeight);
+				drawTexturedModalRect(facScrollX, facScrollY, 0, 128, FAC_SCROLL_WIDTH, FAC_SCROLL_HEIGHT);
 				int factions = currentFactionList.size();
+				int facScrollBorder = 1;
 				for (int index = 0; index < factions; ++index) {
 					GOTFaction faction = currentFactionList.get(index);
 					float[] factionColors = faction.getFactionRGB();
@@ -765,14 +761,14 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					GL11.glColor4f(factionColors[0] * shade, factionColors[1] * shade, factionColors[2] * shade, 1.0f);
 					float xMin = (float) index / factions;
 					float xMax = (float) (index + 1) / factions;
-					xMin = facScrollX + facScrollBorder + xMin * (facScrollWidth - facScrollBorder * 2);
-					xMax = facScrollX + facScrollBorder + xMax * (facScrollWidth - facScrollBorder * 2);
+					xMin = facScrollX + facScrollBorder + xMin * (FAC_SCROLL_WIDTH - facScrollBorder * 2);
+					xMax = facScrollX + facScrollBorder + xMax * (FAC_SCROLL_WIDTH - facScrollBorder * 2);
 					float yMin = facScrollY + facScrollBorder;
-					float yMax = facScrollY + facScrollHeight - facScrollBorder;
+					float yMax = facScrollY + FAC_SCROLL_HEIGHT - facScrollBorder;
 					float minU = facScrollBorder / 256.0f;
-					float maxU = (facScrollWidth - facScrollBorder) / 256.0f;
+					float maxU = (FAC_SCROLL_WIDTH - facScrollBorder) / 256.0f;
 					float minV = (128 + facScrollBorder) / 256.0f;
-					float maxV = (128 + facScrollHeight - facScrollBorder) / 256.0f;
+					float maxV = (128 + FAC_SCROLL_HEIGHT - facScrollBorder) / 256.0f;
 					tess.startDrawingQuads();
 					tess.addVertexWithUV(xMin, yMax, zLevel, minU, maxV);
 					tess.addVertexWithUV(xMax, yMax, zLevel, maxU, maxV);
@@ -780,10 +776,11 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					tess.addVertexWithUV(xMin, yMin, zLevel, minU, minV);
 					tess.draw();
 				}
-				mc.getTextureManager().bindTexture(GOTGuiFactions.factionsTexture);
+				mc.getTextureManager().bindTexture(GOTGuiFactions.FACTIONS_TEXTURE);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				int scroll = (int) (currentFacScroll * (facScrollWidth - facScrollBorder * 2 - facScrollWidgetWidth));
-				drawTexturedModalRect(facScrollX + facScrollBorder + scroll, facScrollY + facScrollBorder, 0, 142, facScrollWidgetWidth, facScrollWidgetHeight);
+				int scroll = (int) (currentFacScroll * (FAC_SCROLL_WIDTH - facScrollBorder * 2 - FAC_SCROLL_WIDGET_WIDTH));
+				int facScrollWidgetHeight = 12;
+				drawTexturedModalRect(facScrollX + facScrollBorder + scroll, facScrollY + facScrollBorder, 0, 142, FAC_SCROLL_WIDGET_WIDTH, facScrollWidgetHeight);
 			}
 		}
 		if (!hasOverlay && hasControlZones) {
@@ -830,13 +827,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					mouseOverRemoveSharedFellowship = null;
 					int iconWidth = 8;
 					int iconGap = 8;
-					int fullWidth = fellowshipDrawGUI.xSize + iconGap + iconWidth;
+					int fullWidth = fellowshipDrawGUI.getSizeX() + iconGap + iconWidth;
 					int fsX = mapXMin + mapWidth / 2 - fullWidth / 2;
 					int fsY = stringY;
-					scrollPaneWPShares.paneX0 = fsX;
-					scrollPaneWPShares.scrollBarX0 = fsX + fullWidth + 2 + 2;
-					scrollPaneWPShares.paneY0 = fsY;
-					scrollPaneWPShares.paneY1 = fsY + (mc.fontRenderer.FONT_HEIGHT + 5) * displayedWPShares;
+					scrollPaneWPShares.setPaneX0(fsX);
+					scrollPaneWPShares.setScrollBarX0(fsX + fullWidth + 2 + 2);
+					scrollPaneWPShares.setPaneY0(fsY);
+					scrollPaneWPShares.setPaneY1(fsY + (mc.fontRenderer.FONT_HEIGHT + 5) * displayedWPShares);
 					scrollPaneWPShares.mouseDragScroll(i, j);
 					int[] sharesMinMax = scrollPaneWPShares.getMinMaxIndices(displayedWPShareList, displayedWPShares);
 					for (int index = sharesMinMax[0]; index <= sharesMinMax[1]; ++index) {
@@ -844,7 +841,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 						GOTFellowshipClient fs = GOTLevelData.getData(mc.thePlayer).getClientFellowshipByID(fsID);
 						if (fs != null) {
 							fellowshipDrawGUI.drawFellowshipEntry(fs, fsX, fsY, i, j, false, fullWidth);
-							int iconRemoveX = fsX + fellowshipDrawGUI.xSize + iconGap;
+							int iconRemoveX = fsX + fellowshipDrawGUI.getSizeX() + iconGap;
 							int iconRemoveY = fsY;
 							boolean mouseOverRemove = false;
 							if (fs == fellowshipDrawGUI.getMouseOverFellowship()) {
@@ -853,13 +850,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 									mouseOverRemoveSharedFellowship = fs;
 								}
 							}
-							mc.getTextureManager().bindTexture(GOTGuiFellowships.iconsTextures);
+							mc.getTextureManager().bindTexture(GOTGuiFellowships.ICONS_TEXTURES);
 							GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 							drawTexturedModalRect(iconRemoveX, iconRemoveY, 8, 16 + (mouseOverRemove ? 0 : iconWidth), iconWidth, iconWidth);
 							fsY = stringY += mc.fontRenderer.FONT_HEIGHT + 5;
 						}
 					}
-					if (scrollPaneWPShares.hasScrollBar) {
+					if (scrollPaneWPShares.isHasScrollBar()) {
 						scrollPaneWPShares.drawScrollBar();
 					}
 				}
@@ -896,16 +893,16 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void endMapClipping() {
+	private void endMapClipping() {
 		GL11.glDisable(3089);
 	}
 
-	public GOTFellowshipClient getFellowshipByName(String name) {
+	private GOTFellowshipClient getFellowshipByName(String name) {
 		String fsName = StringUtils.strip(name);
 		return GOTLevelData.getData(mc.thePlayer).getClientFellowshipByName(fsName);
 	}
 
-	public void handleMapKeyboardMovement() {
+	private void handleMapKeyboardMovement() {
 		prevPosX += posXMove;
 		prevPosY += posYMove;
 		posXMove = 0.0f;
@@ -955,18 +952,18 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		if (hasOverlay && k != 0) {
 			k = Integer.signum(k);
-			if (scrollPaneWPShares.hasScrollBar && scrollPaneWPShares.mouseOver) {
+			if (scrollPaneWPShares.isHasScrollBar() && scrollPaneWPShares.isMouseOver()) {
 				int l = displayedWPShareList.size() - displayedWPShares;
 				scrollPaneWPShares.mouseWheelScroll(k, l);
 			}
 		}
 	}
 
-	public boolean hasConquestScrollBar() {
+	private boolean hasConquestScrollBar() {
 		return isConquestGrid && currentFactionList.size() > 1;
 	}
 
-	public boolean hasMapLabels() {
+	private boolean hasMapLabels() {
 		if (isConquestGrid) {
 			return GOTConfig.mapLabelsConquest;
 		}
@@ -975,7 +972,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 
 	@Override
 	public void initGui() {
-		xSize = 256;
+		setSizeX(256);
 		ySize = 256;
 		super.initGui();
 		if (fullscreen) {
@@ -998,7 +995,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			prevRegion = currentRegion = conquestViewingFaction.factionRegion;
 			currentFactionList = currentRegion.factionList;
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(conquestViewingFaction);
-			lastViewedRegions.put(currentRegion, conquestViewingFaction);
+			LAST_VIEWED_REGIONS.put(currentRegion, conquestViewingFaction);
 			facScrollX = mapXMin;
 			facScrollY = mapYMax + 8;
 			setCurrentScrollFromFaction();
@@ -1043,33 +1040,33 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public boolean isExistingFellowshipName(String name) {
+	private boolean isExistingFellowshipName(String name) {
 		GOTFellowshipClient fs = getFellowshipByName(name);
 		return fs != null;
 	}
 
-	public boolean isExistingUnsharedFellowshipName(String name, GOTCustomWaypoint waypoint) {
+	private boolean isExistingUnsharedFellowshipName(String name, GOTCustomWaypoint waypoint) {
 		GOTFellowshipClient fs = getFellowshipByName(name);
 		return fs != null && !waypoint.hasSharedFellowship(fs.getFellowshipID());
 	}
 
-	public boolean isFellowshipAlreadyShared(String name, GOTCustomWaypoint waypoint) {
+	private boolean isFellowshipAlreadyShared(String name, GOTCustomWaypoint waypoint) {
 		return isExistingFellowshipName(name) && !isExistingUnsharedFellowshipName(name, waypoint);
 	}
 
-	public boolean isGameOfThrones() {
+	private boolean isGameOfThrones() {
 		return mc.thePlayer.dimension == GOTDimension.GAME_OF_THRONES.dimensionID;
 	}
 
-	public boolean isKeyDownAndNotMouse(KeyBinding keybinding) {
+	private boolean isKeyDownAndNotMouse(KeyBinding keybinding) {
 		return keybinding.getKeyCode() >= 0 && GameSettings.isKeyDown(keybinding);
 	}
 
-	public boolean isValidWaypointName(CharSequence name) {
+	private boolean isValidWaypointName(CharSequence name) {
 		return !StringUtils.isBlank(name);
 	}
 
-	public boolean isWaypointVisible(GOTAbstractWaypoint wp) {
+	private boolean isWaypointVisible(GOTAbstractWaypoint wp) {
 		if (wp instanceof GOTCustomWaypoint) {
 			GOTCustomWaypoint cwp = (GOTCustomWaypoint) wp;
 			return (!cwp.isShared() || !cwp.isSharedHidden() || showHiddenSWP) && showCWP;
@@ -1123,7 +1120,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	public void mouseClicked(int i, int j, int k) {
 		IMessage packet;
 		GOTGuiMapWidget mouseWidget = null;
-		for (GOTGuiMapWidget widget : mapWidgets) {
+		for (GOTGuiMapWidget widget : MAP_WIDGETS) {
 			if (widget.isMouseOver(i - mapXMin, j - mapYMin, mapWidth, mapHeight)) {
 				mouseWidget = widget;
 				break;
@@ -1232,7 +1229,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		super.mouseClicked(i, j, k);
 	}
 
-	public void openOverlayCreate() {
+	private void openOverlayCreate() {
 		closeOverlay();
 		hasOverlay = true;
 		creatingWaypoint = true;
@@ -1248,7 +1245,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void openOverlayCreateNew() {
+	private void openOverlayCreateNew() {
 		closeOverlay();
 		hasOverlay = true;
 		creatingWaypointNew = true;
@@ -1257,7 +1254,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.createNew.button");
 	}
 
-	public void openOverlayDelete() {
+	private void openOverlayDelete() {
 		closeOverlay();
 		hasOverlay = true;
 		deletingWaypoint = true;
@@ -1266,7 +1263,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.delete.button");
 	}
 
-	public void openOverlayRename() {
+	private void openOverlayRename() {
 		closeOverlay();
 		hasOverlay = true;
 		renamingWaypoint = true;
@@ -1275,7 +1272,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.rename.button");
 	}
 
-	public void openOverlayShare() {
+	private void openOverlayShare() {
 		closeOverlay();
 		hasOverlay = true;
 		sharingWaypoint = true;
@@ -1284,7 +1281,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		buttonOverlayFunction.displayString = StatCollector.translateToLocal("got.gui.map.customWaypoint.share.button");
 	}
 
-	public void openOverlayShareNew() {
+	private void openOverlayShareNew() {
 		closeOverlay();
 		hasOverlay = true;
 		sharingWaypointNew = true;
@@ -1300,7 +1297,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void renderBeziers() {
+	private void renderBeziers() {
 		if (!showWP && !showCWP || !GOTFixedStructures.hasMapFeatures(mc.theWorld)) {
 			return;
 		}
@@ -1364,6 +1361,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								double dSq = dx * dx + (dy = y - endPos[1]) * dy;
 								if (dSq < dMaxSq) {
 									endNear = true;
+									break;
 								}
 							}
 							if (!endNear && zoomlerp > 0.0f) {
@@ -1398,7 +1396,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void renderControlZone(int mouseX, int mouseY) {
+	private void renderControlZone(int mouseX, int mouseY) {
 		List<GOTControlZone> controlZones;
 		mouseControlZone = false;
 		mouseControlZoneReduced = false;
@@ -1453,7 +1451,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void renderFullscreenSubtitles(String... lines) {
+	private void renderFullscreenSubtitles(String... lines) {
 		int strX = mapXMin + mapWidth / 2;
 		int strY = mapYMax + 7;
 		if (isConquestGrid) {
@@ -1469,7 +1467,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void renderGraduatedRects(int x1, int y1, int x2, int y2, int c1, int c2, int w) {
+	private void renderGraduatedRects(int x1, int y1, int x2, int y2, int c1, int c2, int w) {
 		float[] rgb1 = new Color(c1).getColorComponents(null);
 		float[] rgb2 = new Color(c2).getColorComponents(null);
 		for (int l = w - 1; l >= 0; --l) {
@@ -1482,7 +1480,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void renderLabels() {
+	private void renderLabels() {
 		if (!hasMapLabels()) {
 			return;
 		}
@@ -1537,10 +1535,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	}
 
 	public void renderMapAndOverlay(boolean sepia, float alpha, boolean overlay) {
-		mapXMin_W = mapXMin;
-		mapXMax_W = mapXMax;
-		mapYMin_W = mapYMin;
-		mapYMax_W = mapYMax;
+		int mapXMin_W = mapXMin;
+		int mapXMax_W = mapXMax;
+		int mapYMin_W = mapYMin;
+		int mapYMax_W = mapYMax;
 		float mapScaleX = mapWidth / zoomScale;
 		float mapScaleY = mapHeight / zoomScale;
 		double minU = (double) (posX - mapScaleX / 2.0f) / GOTGenLayerWorld.imageWidth;
@@ -1585,33 +1583,33 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void renderMapWidgets(int mouseX, int mouseY) {
-		widgetAddCWP.visible = !hasOverlay && isGameOfThrones();
+	private void renderMapWidgets(int mouseX, int mouseY) {
+		widgetAddCWP.setVisible(!hasOverlay && isGameOfThrones());
 		widgetAddCWP.setTexVIndex(canCreateWaypointAtPosition() ? 0 : 1);
-		widgetDelCWP.visible = !hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared();
-		widgetRenameCWP.visible = !hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared();
-		widgetToggleWPs.visible = !hasOverlay;
+		widgetDelCWP.setVisible(!hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared());
+		widgetRenameCWP.setVisible(!hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared());
+		widgetToggleWPs.setVisible(!hasOverlay);
 		widgetToggleWPs.setTexVIndex(showWP ? 0 : 1);
-		widgetToggleCWPs.visible = !hasOverlay;
+		widgetToggleCWPs.setVisible(!hasOverlay);
 		widgetToggleCWPs.setTexVIndex(showCWP ? 0 : 1);
-		widgetToggleHiddenSWPs.visible = !hasOverlay;
+		widgetToggleHiddenSWPs.setVisible(!hasOverlay);
 		widgetToggleHiddenSWPs.setTexVIndex(showHiddenSWP ? 1 : 0);
-		widgetZoomIn.visible = !hasOverlay;
+		widgetZoomIn.setVisible(!hasOverlay);
 		widgetZoomIn.setTexVIndex(zoomPower < 4 ? 0 : 1);
-		widgetZoomOut.visible = !hasOverlay;
+		widgetZoomOut.setVisible(!hasOverlay);
 		widgetZoomOut.setTexVIndex(zoomPower > -3 ? 0 : 1);
-		widgetFullScreen.visible = !hasOverlay;
-		widgetSepia.visible = !hasOverlay;
-		widgetLabels.visible = !hasOverlay;
-		widgetShareCWP.visible = !hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared();
-		widgetHideSWP.visible = !hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) selectedWaypoint).isShared() && !((GOTCustomWaypoint) selectedWaypoint).isSharedHidden();
-		widgetUnhideSWP.visible = !hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) selectedWaypoint).isShared() && ((GOTCustomWaypoint) selectedWaypoint).isSharedHidden();
+		widgetFullScreen.setVisible(!hasOverlay);
+		widgetSepia.setVisible(!hasOverlay);
+		widgetLabels.setVisible(!hasOverlay);
+		widgetShareCWP.setVisible(!hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && !((GOTCustomWaypoint) selectedWaypoint).isShared());
+		widgetHideSWP.setVisible(!hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) selectedWaypoint).isShared() && !((GOTCustomWaypoint) selectedWaypoint).isSharedHidden());
+		widgetUnhideSWP.setVisible(!hasOverlay && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint && ((GOTCustomWaypoint) selectedWaypoint).isShared() && ((GOTCustomWaypoint) selectedWaypoint).isSharedHidden());
 		GOTGuiMapWidget mouseOverWidget = null;
-		for (GOTGuiMapWidget widget : mapWidgets) {
-			if (widget.visible) {
-				mc.getTextureManager().bindTexture(mapIconsTexture);
+		for (GOTGuiMapWidget widget : MAP_WIDGETS) {
+			if (widget.isVisible()) {
+				mc.getTextureManager().bindTexture(MAP_ICONS_TEXTURE);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				drawTexturedModalRect(mapXMin + widget.getMapXPos(mapWidth), mapYMin + widget.getMapYPos(mapHeight), widget.getTexU(), widget.getTexV(), widget.width, widget.width);
+				drawTexturedModalRect(mapXMin + widget.getMapXPos(mapWidth), mapYMin + widget.getMapYPos(mapHeight), widget.getTexU(), widget.getTexV(), widget.getWidth(), widget.getWidth());
 				if (widget.isMouseOver(mouseX - mapXMin, mouseY - mapYMin, mapWidth, mapHeight)) {
 					mouseOverWidget = widget;
 				}
@@ -1628,7 +1626,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void renderMiniQuests(EntityPlayer entityplayer, int mouseX, int mouseY) {
+	private void renderMiniQuests(EntityPlayer entityplayer, int mouseX, int mouseY) {
 		if (hasOverlay) {
 			return;
 		}
@@ -1645,7 +1643,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				int questY = Math.round(pos[1]);
 				float scale = 0.5f;
 				float invScale = 1.0f / scale;
-				IIcon icon = questBookIcon.getIconIndex();
+				IIcon icon = QUEST_BOOK_ICON.getIconIndex();
 				int iconWidthHalf = icon.getIconWidth() / 2;
 				iconWidthHalf = (int) (iconWidthHalf * scale);
 				int iconBorder = iconWidthHalf + 1;
@@ -1659,7 +1657,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				GL11.glEnable(2896);
 				GL11.glEnable(2884);
-				renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), questBookIcon, iconX - iconWidthHalf, iconY - iconWidthHalf);
+				RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), QUEST_BOOK_ICON, iconX - iconWidthHalf, iconY - iconWidthHalf);
 				GL11.glDisable(2896);
 				GL11.glEnable(3008);
 				GL11.glScalef(invScale, invScale, invScale);
@@ -1697,7 +1695,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public double renderPlayerIcon(GameProfile profile, String playerName, double playerX, double playerY, int mouseX, int mouseY) {
+	private double renderPlayerIcon(GameProfile profile, double playerX, double playerY, int mouseX, int mouseY) {
 		Tessellator tessellator = Tessellator.instance;
 		int iconWidthHalf = 4;
 		int iconBorder = iconWidthHalf + 1;
@@ -1742,13 +1740,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		return Math.sqrt(dx * dx + dy * dy);
 	}
 
-	public void renderPlayers(int mouseX, int mouseY) {
+	private void renderPlayers(int mouseX, int mouseY) {
 		String mouseOverPlayerName = null;
 		double mouseOverPlayerX = 0.0;
 		double mouseOverPlayerY = 0.0;
 		double distanceMouseOverPlayer = Double.MAX_VALUE;
 		int iconWidthHalf = 4;
-		Map<UUID, PlayerLocationInfo> playersToRender = new HashMap<>(playerLocations);
+		Map<UUID, PlayerLocationInfo> playersToRender = new HashMap<>(PLAYER_LOCATIONS);
 		if (isGameOfThrones()) {
 			playersToRender.put(mc.thePlayer.getUniqueID(), new PlayerLocationInfo(mc.thePlayer.getGameProfile(), mc.thePlayer.posX, mc.thePlayer.posZ));
 		}
@@ -1757,9 +1755,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			float[] pos;
 			int playerX;
 			PlayerLocationInfo info = entry.getValue();
-			GameProfile profile = info.profile;
+			GameProfile profile = info.getProfile();
 			String playerName = profile.getName();
-			double distToPlayer = renderPlayerIcon(profile, playerName, playerX = Math.round((pos = transformCoords(info.posX, info.posZ))[0]), playerY = Math.round(pos[1]), mouseX, mouseY);
+			double distToPlayer = renderPlayerIcon(profile, playerX = Math.round((pos = transformCoords(info.getPosX(), info.getPosZ()))[0]), playerY = Math.round(pos[1]), mouseX, mouseY);
 			if (distToPlayer <= iconWidthHalf + 3 && distToPlayer <= distanceMouseOverPlayer) {
 				mouseOverPlayerName = playerName;
 				mouseOverPlayerX = playerX;
@@ -1789,7 +1787,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void renderWaypoints(int pass, int mouseX, int mouseY) {
+	private void renderWaypoints(int pass, int mouseX, int mouseY) {
 		if (!showWP && !showCWP && !showHiddenSWP || !GOTFixedStructures.hasMapFeatures(mc.theWorld)) {
 			return;
 		}
@@ -1827,7 +1825,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 								GL11.glPopMatrix();
 							} else {
 								GOTAbstractWaypoint.WaypointLockState state = mc.thePlayer != null ? waypoint.getLockState(mc.thePlayer) : GOTAbstractWaypoint.WaypointLockState.STANDARD_UNLOCKED;
-								mc.getTextureManager().bindTexture(mapIconsTexture);
+								mc.getTextureManager().bindTexture(MAP_ICONS_TEXTURE);
 								GL11.glColor4f(1.0F, 1.0F, 1.0F, wpZoomlerp);
 								drawTexturedModalRectFloat(x - 2.0F, y - 2.0F, state.getIconU(), state.getIconV(), 4.0F, 4.0F);
 							}
@@ -1871,12 +1869,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			}
 		}
 		if (pass == 1 && mouseOverWP != null && !hasOverlay && !loadingConquestGrid) {
-			renderWaypointTooltip(mouseOverWP, false, mouseX, mouseY);
+			renderWaypointTooltip(mouseOverWP, false);
 		}
 		endMapClipping();
 	}
 
-	public void renderWaypointTooltip(GOTAbstractWaypoint waypoint, boolean selected, int mouseX, int mouseY) {
+	private void renderWaypointTooltip(GOTAbstractWaypoint waypoint, boolean selected) {
 		String name = waypoint.getDisplayName();
 		int wpX = waypoint.getXCoord();
 		int wpZ = waypoint.getZCoord();
@@ -1944,7 +1942,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		GL11.glTranslatef(0.0f, 0.0f, -300.0f);
 	}
 
-	public void requestConquestGridIfNeed(GOTFaction conqFac) {
+	private void requestConquestGridIfNeed(GOTFaction conqFac) {
 		if (!requestedFacGrids.contains(conqFac) && ticksUntilRequestFac <= 0) {
 			requestedFacGrids.add(conqFac);
 			IMessage packet = new GOTPacketConquestGridRequest(conqFac);
@@ -1952,7 +1950,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void requestIsOp() {
+	private void requestIsOp() {
 		if (mc.isSingleplayer()) {
 			IntegratedServer server = mc.getIntegratedServer();
 			isPlayerOp = server.worldServers[0].getWorldInfo().areCommandsAllowed() && server.getServerOwner().equalsIgnoreCase(mc.thePlayer.getGameProfile().getName());
@@ -1972,7 +1970,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		controlZoneFaction = f;
 	}
 
-	public void setCurrentScrollFromFaction() {
+	private void setCurrentScrollFromFaction() {
 		currentFacScroll = (float) currentFactionIndex / (currentFactionList.size() - 1);
 	}
 
@@ -1994,12 +1992,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		zoomScaleStable = scaleStable;
 	}
 
-	public void setupConquestScrollBar(int i, int j) {
+	private void setupConquestScrollBar(int i, int j) {
 		boolean isMouseDown = Mouse.isButtonDown(0);
 		int i1 = facScrollX;
 		int j1 = facScrollY;
-		int i2 = i1 + facScrollWidth;
-		int j2 = j1 + facScrollHeight;
+		int i2 = i1 + FAC_SCROLL_WIDTH;
+		int j2 = j1 + FAC_SCROLL_HEIGHT;
 		mouseInFacScroll = i >= i1 && j >= j1 && i < i2 && j < j2;
 		if (!wasMouseDown && isMouseDown && mouseInFacScroll) {
 			isFacScrolling = true;
@@ -2009,20 +2007,20 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 		wasMouseDown = isMouseDown;
 		if (isFacScrolling) {
-			currentFacScroll = (i - i1 - facScrollWidgetWidth / 2.0f) / ((float) (i2 - i1) - facScrollWidgetWidth);
+			currentFacScroll = (i - i1 - FAC_SCROLL_WIDGET_WIDTH / 2.0f) / ((float) (i2 - i1) - FAC_SCROLL_WIDGET_WIDTH);
 			currentFacScroll = MathHelper.clamp_float(currentFacScroll, 0.0f, 1.0f);
 			currentFactionIndex = Math.round(currentFacScroll * (currentFactionList.size() - 1));
 		}
 	}
 
-	public void setupMapClipping() {
+	private void setupMapClipping() {
 		ScaledResolution sr = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 		int scale = sr.getScaleFactor();
 		GL11.glEnable(3089);
 		GL11.glScissor(mapXMin * scale, (height - mapYMax) * scale, mapWidth * scale, mapHeight * scale);
 	}
 
-	public void setupMapDimensions() {
+	private void setupMapDimensions() {
 		if (isConquestGrid) {
 			int windowWidth = 400;
 			int windowHeight = 240;
@@ -2046,76 +2044,76 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		mapHeight = mapYMax - mapYMin;
 	}
 
-	public void setupMapWidgets() {
-		mapWidgets.clear();
+	private void setupMapWidgets() {
+		MAP_WIDGETS.clear();
 		widgetAddCWP = new GOTGuiMapWidget(-16, 6, 10, "addCWP", 0, 0);
-		mapWidgets.add(widgetAddCWP);
+		MAP_WIDGETS.add(widgetAddCWP);
 		widgetDelCWP = new GOTGuiMapWidget(-16, 20, 10, "delCWP", 10, 0);
-		mapWidgets.add(widgetDelCWP);
+		MAP_WIDGETS.add(widgetDelCWP);
 		widgetRenameCWP = new GOTGuiMapWidget(-16, 34, 10, "renameCWP", 0, 10);
-		mapWidgets.add(widgetRenameCWP);
+		MAP_WIDGETS.add(widgetRenameCWP);
 		widgetToggleWPs = new GOTGuiMapWidget(-58, 6, 10, "toggleWPs", 80, 0);
-		mapWidgets.add(widgetToggleWPs);
+		MAP_WIDGETS.add(widgetToggleWPs);
 		widgetToggleCWPs = new GOTGuiMapWidget(-44, 6, 10, "toggleCWPs", 90, 0);
-		mapWidgets.add(widgetToggleCWPs);
+		MAP_WIDGETS.add(widgetToggleCWPs);
 		widgetToggleHiddenSWPs = new GOTGuiMapWidget(-30, 6, 10, "toggleHiddenSWPs", 100, 0);
-		mapWidgets.add(widgetToggleHiddenSWPs);
+		MAP_WIDGETS.add(widgetToggleHiddenSWPs);
 		widgetZoomIn = new GOTGuiMapWidget(6, 6, 10, "zoomIn", 30, 0);
-		mapWidgets.add(widgetZoomIn);
+		MAP_WIDGETS.add(widgetZoomIn);
 		widgetZoomOut = new GOTGuiMapWidget(6, 20, 10, "zoomOut", 40, 0);
-		mapWidgets.add(widgetZoomOut);
+		MAP_WIDGETS.add(widgetZoomOut);
 		widgetFullScreen = new GOTGuiMapWidget(20, 6, 10, "fullScreen", 50, 0);
-		mapWidgets.add(widgetFullScreen);
+		MAP_WIDGETS.add(widgetFullScreen);
 		widgetSepia = new GOTGuiMapWidget(34, 6, 10, "sepia", 60, 0);
-		mapWidgets.add(widgetSepia);
+		MAP_WIDGETS.add(widgetSepia);
 		widgetLabels = new GOTGuiMapWidget(-72, 6, 10, "labels", 70, 0);
-		mapWidgets.add(widgetLabels);
+		MAP_WIDGETS.add(widgetLabels);
 		widgetShareCWP = new GOTGuiMapWidget(-16, 48, 10, "shareCWP", 10, 10);
-		mapWidgets.add(widgetShareCWP);
+		MAP_WIDGETS.add(widgetShareCWP);
 		widgetHideSWP = new GOTGuiMapWidget(-16, 20, 10, "hideSWP", 20, 0);
-		mapWidgets.add(widgetHideSWP);
+		MAP_WIDGETS.add(widgetHideSWP);
 		widgetUnhideSWP = new GOTGuiMapWidget(-16, 20, 10, "unhideSWP", 20, 10);
-		mapWidgets.add(widgetUnhideSWP);
+		MAP_WIDGETS.add(widgetUnhideSWP);
 		if (isConquestGrid) {
-			mapWidgets.clear();
-			mapWidgets.add(widgetToggleWPs);
-			mapWidgets.add(widgetToggleCWPs);
-			mapWidgets.add(widgetToggleHiddenSWPs);
-			mapWidgets.add(widgetZoomIn);
-			mapWidgets.add(widgetZoomOut);
-			mapWidgets.add(widgetLabels);
+			MAP_WIDGETS.clear();
+			MAP_WIDGETS.add(widgetToggleWPs);
+			MAP_WIDGETS.add(widgetToggleCWPs);
+			MAP_WIDGETS.add(widgetToggleHiddenSWPs);
+			MAP_WIDGETS.add(widgetZoomIn);
+			MAP_WIDGETS.add(widgetZoomOut);
+			MAP_WIDGETS.add(widgetLabels);
 		}
 	}
 
-	public void setupScrollBars(int i, int j) {
-		maxDisplayedWPShares = fullscreen ? 8 : 5;
+	private void setupScrollBars(int i, int j) {
+		int maxDisplayedWPShares = fullscreen ? 8 : 5;
 		if (selectedWaypoint != null && hasOverlay && sharingWaypoint) {
 			displayedWPShareList = ((GOTCustomWaypoint) selectedWaypoint).getSharedFellowshipIDs();
 			displayedWPShares = displayedWPShareList.size();
-			scrollPaneWPShares.hasScrollBar = false;
+			scrollPaneWPShares.setHasScrollBar(false);
 			if (displayedWPShares > maxDisplayedWPShares) {
 				displayedWPShares = maxDisplayedWPShares;
-				scrollPaneWPShares.hasScrollBar = true;
+				scrollPaneWPShares.setHasScrollBar(true);
 			}
 		} else {
 			displayedWPShareList = null;
 			displayedWPShares = 0;
-			scrollPaneWPShares.hasScrollBar = false;
+			scrollPaneWPShares.setHasScrollBar(false);
 			scrollPaneWPShares.mouseDragScroll(i, j);
 		}
 	}
 
-	public void setupZoomVariables(float f) {
+	private void setupZoomVariables(float f) {
 		zoomExp = zoomPower;
 		if (zoomTicks > 0) {
-			float progress = (zoomTicksMax - (zoomTicks - f)) / zoomTicksMax;
+			float progress = (ZOOM_TICKS_MAX - (zoomTicks - f)) / ZOOM_TICKS_MAX;
 			zoomExp = prevZoomPower + (zoomPower - prevZoomPower) * progress;
 		}
 		zoomScale = (float) Math.pow(2.0, zoomExp);
 		zoomScaleStable = (float) Math.pow(2.0, zoomTicks == 0 ? zoomPower : Math.min(zoomPower, prevZoomPower));
 	}
 
-	public void toggleMapLabels() {
+	private void toggleMapLabels() {
 		if (isConquestGrid) {
 			GOTConfig.toggleMapLabelsConquest();
 		} else {
@@ -2123,17 +2121,17 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public float[] transformCoords(double x, double z) {
+	private float[] transformCoords(double x, double z) {
 		return transformCoords((float) x, (float) z);
 	}
 
-	public float[] transformCoords(float x, float z) {
+	private float[] transformCoords(float x, float z) {
 		float x1 = x / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_X;
 		float z1 = z / GOTGenLayerWorld.scale + GOTGenLayerWorld.ORIGIN_Z;
 		return transformMapCoords(x1, z1);
 	}
 
-	public float[] transformMapCoords(float x, float z) {
+	private float[] transformMapCoords(float x, float z) {
 		float x1 = x;
 		float z1 = z;
 		x1 -= posX;
@@ -2143,16 +2141,16 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		return new float[]{x1 + (mapXMin + (float) mapWidth / 2), z1 + (mapYMin + (float) mapHeight / 2)};
 	}
 
-	public void updateCurrentDimensionAndFaction() {
+	private void updateCurrentDimensionAndFaction() {
 		if (currentFactionIndex != prevFactionIndex) {
 			conquestViewingFaction = currentFactionList.get(currentFactionIndex);
 			ticksUntilRequestFac = 40;
 		}
 		prevFactionIndex = currentFactionIndex;
 		if (currentRegion != prevRegion) {
-			lastViewedRegions.put(prevRegion, conquestViewingFaction);
+			LAST_VIEWED_REGIONS.put(prevRegion, conquestViewingFaction);
 			currentFactionList = currentRegion.factionList;
-			conquestViewingFaction = lastViewedRegions.containsKey(currentRegion) ? lastViewedRegions.get(currentRegion) : currentRegion.factionList.get(0);
+			conquestViewingFaction = LAST_VIEWED_REGIONS.containsKey(currentRegion) ? LAST_VIEWED_REGIONS.get(currentRegion) : currentRegion.factionList.get(0);
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(conquestViewingFaction);
 			ticksUntilRequestFac = 40;
 		}
@@ -2178,31 +2176,58 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		}
 	}
 
-	public void zoom(int boost) {
+	private void zoom(int boost) {
 		prevZoomPower = zoomPower;
 		zoomPower += boost;
-		zoomTicks = zoomTicksMax;
+		zoomTicks = ZOOM_TICKS_MAX;
 		selectedWaypoint = null;
 	}
 
-	public void zoomIn() {
+	private void zoomIn() {
 		zoom(1);
 	}
 
-	public void zoomOut() {
+	private void zoomOut() {
 		zoom(-1);
 	}
 
-	public static class PlayerLocationInfo {
-		public GameProfile profile;
-		public double posX;
-		public double posZ;
+	public boolean isPlayerOp() {
+		return isPlayerOp;
+	}
 
-		public PlayerLocationInfo(GameProfile p, double x, double z) {
+	public void setPlayerOp(boolean playerOp) {
+		isPlayerOp = playerOp;
+	}
+
+	public boolean isEnableZoomOutWPFading() {
+		return enableZoomOutWPFading;
+	}
+
+	public void setEnableZoomOutWPFading(boolean enableZoomOutWPFading) {
+		this.enableZoomOutWPFading = enableZoomOutWPFading;
+	}
+
+	private static class PlayerLocationInfo {
+		private final GameProfile profile;
+		private final double posX;
+		private final double posZ;
+
+		private PlayerLocationInfo(GameProfile p, double x, double z) {
 			profile = p;
 			posX = x;
 			posZ = z;
 		}
-	}
 
+		public double getPosX() {
+			return posX;
+		}
+
+		public double getPosZ() {
+			return posZ;
+		}
+
+		public GameProfile getProfile() {
+			return profile;
+		}
+	}
 }

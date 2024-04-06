@@ -20,14 +20,13 @@ import java.util.Collection;
 import java.util.HashSet;
 
 public class GOTGuiNotificationDisplay extends Gui {
-	public static int guiXSize = 190;
-	public static int guiYSize = 32;
-	public static RenderItem itemRenderer = new RenderItem();
-	public Minecraft mc;
-	public int windowWidth;
-	public int windowHeight;
-	public Collection<Notification> notifications = new ArrayList<>();
-	public Collection<Notification> notificationsToRemove = new HashSet<>();
+	private static final RenderItem RENDER_ITEM = new RenderItem();
+
+	private final Minecraft mc;
+	private final Collection<Notification> notifications = new ArrayList<>();
+	private final Collection<Notification> notificationsToRemove = new HashSet<>();
+
+	private int windowWidth;
 
 	public GOTGuiNotificationDisplay() {
 		mc = Minecraft.getMinecraft();
@@ -70,12 +69,14 @@ public class GOTGuiNotificationDisplay extends Gui {
 						}
 						d1 *= d1;
 						d1 *= d1;
+						int guiXSize = 190;
 						int i = windowWidth - guiXSize;
 						int j = -(int) (d1 * 36.0);
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 						GL11.glEnable(3553);
-						mc.getTextureManager().bindTexture(GOTGuiAchievements.iconsTexture);
+						mc.getTextureManager().bindTexture(GOTGuiAchievements.ICONS_TEXTURE);
 						GL11.glDisable(2896);
+						int guiYSize = 32;
 						drawTexturedModalRect(i, j += index * (guiYSize + 8), 0, 200, guiXSize, guiYSize);
 						notif.renderText(i + 30, j + 7);
 						GL11.glEnable(3008);
@@ -90,17 +91,16 @@ public class GOTGuiNotificationDisplay extends Gui {
 		}
 	}
 
-	public void updateWindowScale() {
+	private void updateWindowScale() {
 		GL11.glViewport(0, 0, mc.displayWidth, mc.displayHeight);
 		GL11.glMatrixMode(5889);
 		GL11.glLoadIdentity();
 		GL11.glMatrixMode(5888);
 		GL11.glLoadIdentity();
 		windowWidth = mc.displayWidth;
-		windowHeight = mc.displayHeight;
 		ScaledResolution scaledresolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
 		windowWidth = scaledresolution.getScaledWidth();
-		windowHeight = scaledresolution.getScaledHeight();
+		int windowHeight = scaledresolution.getScaledHeight();
 		GL11.glClear(256);
 		GL11.glMatrixMode(5889);
 		GL11.glLoadIdentity();
@@ -110,27 +110,24 @@ public class GOTGuiNotificationDisplay extends Gui {
 		GL11.glTranslatef(0.0f, 0.0f, -2000.0f);
 	}
 
-	public abstract static class Notification {
-		public Long notificationTime = Minecraft.getSystemTime();
+	private abstract static class Notification {
+		protected Long notificationTime = Minecraft.getSystemTime();
 
-		protected Notification() {
-		}
+		protected abstract int getDurationMs();
 
-		public abstract int getDurationMs();
-
-		public Long getNotificationTime() {
+		protected Long getNotificationTime() {
 			return notificationTime;
 		}
 
-		public abstract void renderIcon(int var1, int var2);
+		protected abstract void renderIcon(int var1, int var2);
 
-		public abstract void renderText(int var1, int var2);
+		protected abstract void renderText(int var1, int var2);
 	}
 
-	public class NotificationAchievement extends Notification {
-		public GOTAchievement achievement;
+	private class NotificationAchievement extends Notification {
+		protected GOTAchievement achievement;
 
-		public NotificationAchievement(GOTAchievement ach) {
+		protected NotificationAchievement(GOTAchievement ach) {
 			achievement = ach;
 		}
 
@@ -146,12 +143,12 @@ public class GOTGuiNotificationDisplay extends Gui {
 			GL11.glEnable(32826);
 			GL11.glEnable(2903);
 			GL11.glEnable(2896);
-			itemRenderer.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.icon, x, y);
+			RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), achievement.icon, x, y);
 			GL11.glDisable(2896);
 			GL11.glDepthMask(true);
 			GL11.glEnable(2929);
 			GL11.glEnable(3008);
-			mc.getTextureManager().bindTexture(GOTGuiAchievements.iconsTexture);
+			mc.getTextureManager().bindTexture(GOTGuiAchievements.ICONS_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x + 162, y + 1, 190, 17, 16, 16);
 		}
@@ -163,12 +160,12 @@ public class GOTGuiNotificationDisplay extends Gui {
 		}
 	}
 
-	public class NotificationConquest extends Notification {
-		public GOTFaction conqFac;
-		public float conqValue;
-		public boolean isCleansing;
+	private class NotificationConquest extends Notification {
+		protected GOTFaction conqFac;
+		protected float conqValue;
+		protected boolean isCleansing;
 
-		public NotificationConquest(GOTFaction fac, float conq, boolean clean) {
+		protected NotificationConquest(GOTFaction fac, float conq, boolean clean) {
 			conqFac = fac;
 			conqValue = conq;
 			isCleansing = clean;
@@ -195,10 +192,10 @@ public class GOTGuiNotificationDisplay extends Gui {
 		}
 	}
 
-	public class NotificationFellowship extends Notification {
-		public IChatComponent message;
+	private class NotificationFellowship extends Notification {
+		protected IChatComponent message;
 
-		public NotificationFellowship(IChatComponent msg) {
+		protected NotificationFellowship(IChatComponent msg) {
 			message = msg;
 		}
 
@@ -209,7 +206,7 @@ public class GOTGuiNotificationDisplay extends Gui {
 
 		@Override
 		public void renderIcon(int x, int y) {
-			mc.getTextureManager().bindTexture(GOTGuiFellowships.iconsTextures);
+			mc.getTextureManager().bindTexture(GOTGuiFellowships.ICONS_TEXTURES);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(x, y, 80, 0, 16, 16);
 		}

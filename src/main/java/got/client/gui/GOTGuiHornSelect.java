@@ -14,12 +14,13 @@ import org.lwjgl.opengl.GL11;
 import java.util.List;
 
 public class GOTGuiHornSelect extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/horn_select.png");
-	public static RenderItem itemRenderer = new RenderItem();
-	public int xSize = 176;
-	public int ySize = 256;
-	public int guiLeft;
-	public int guiTop;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/horn_select.png");
+	private static final RenderItem ITEM_RENDERER = new RenderItem();
+	private static final int X_SIZE = 176;
+	private static final int Y_SIZE = 256;
+
+	private int guiLeft;
+	private int guiTop;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -34,20 +35,20 @@ public class GOTGuiHornSelect extends GOTGuiScreenBase {
 	public void drawScreen(int i, int j, float f) {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, X_SIZE, Y_SIZE);
 		String s = StatCollector.translateToLocal("got.gui.hornSelect.title");
-		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 4210752);
+		fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 4210752);
 		super.drawScreen(i, j, f);
 		for (GuiButton element : (List<GuiButton>) buttonList) {
-			itemRenderer.renderItemIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTItems.commandHorn, 1, element.id), element.xPosition - 22, element.yPosition + 2);
+			ITEM_RENDERER.renderItemIntoGUI(fontRendererObj, mc.getTextureManager(), new ItemStack(GOTItems.commandHorn, 1, element.id), element.xPosition - 22, element.yPosition + 2);
 		}
 	}
 
 	@Override
 	public void initGui() {
-		guiLeft = (width - xSize) / 2;
-		guiTop = (height - ySize) / 2;
+		guiLeft = (width - X_SIZE) / 2;
+		guiTop = (height - Y_SIZE) / 2;
 		buttonList.add(new GOTGuiButton(1, guiLeft + 40, guiTop + 40, 120, 20, StatCollector.translateToLocal("got.gui.hornSelect.haltReady")));
 		buttonList.add(new GOTGuiButton(3, guiLeft + 40, guiTop + 75, 120, 20, StatCollector.translateToLocal("got.gui.hornSelect.summon")));
 	}

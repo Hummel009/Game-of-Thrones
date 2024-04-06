@@ -6,7 +6,7 @@ import net.minecraft.client.gui.GuiButton;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonFactionsPage extends GuiButton {
-	public boolean leftOrRight;
+	private final boolean leftOrRight;
 
 	public GOTGuiButtonFactionsPage(int i, int x, int y, boolean flag) {
 		super(i, x, y, 16, 16, "");
@@ -16,7 +16,7 @@ public class GOTGuiButtonFactionsPage extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
-			mc.getTextureManager().bindTexture(GOTGuiFactions.factionsTexture);
+			mc.getTextureManager().bindTexture(GOTGuiFactions.FACTIONS_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int k = getHoverState(field_146123_n);

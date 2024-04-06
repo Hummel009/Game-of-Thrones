@@ -12,10 +12,12 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiPouch extends GuiContainer {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/pouch.png");
-	public GOTContainerPouch thePouch;
-	public int pouchRows;
-	public GuiTextField theGuiTextField;
+	public static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/gui/pouch.png");
+
+	private final GOTContainerPouch thePouch;
+	private final int pouchRows;
+
+	private GuiTextField theGuiTextField;
 
 	public GOTGuiPouch(EntityPlayer entityplayer, int slot) {
 		super(new GOTContainerPouch(entityplayer, slot));
@@ -27,7 +29,7 @@ public class GOTGuiPouch extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(texture);
+		mc.getTextureManager().bindTexture(TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		for (int l = 0; l < pouchRows; ++l) {
 			drawTexturedModalRect(guiLeft + 7, guiTop + 29 + l * 18, 0, 180, 162, 18);
@@ -64,7 +66,7 @@ public class GOTGuiPouch extends GuiContainer {
 		theGuiTextField.mouseClicked(i, j, k);
 	}
 
-	public void renamePouch() {
+	private void renamePouch() {
 		String name = theGuiTextField.getText();
 		thePouch.renamePouch(name);
 		IMessage packet = new GOTPacketRenamePouch(name);

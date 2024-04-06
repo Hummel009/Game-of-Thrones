@@ -14,10 +14,12 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiCoinExchange extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/coin_exchange.png");
-	public GOTContainerCoinExchange theContainer;
-	public GuiButton buttonLeft;
-	public GuiButton buttonRight;
+	public static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/coin_exchange.png");
+
+	private final GOTContainerCoinExchange theContainer;
+
+	private GuiButton buttonLeft;
+	private GuiButton buttonRight;
 
 	public GOTGuiCoinExchange(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		super(new GOTContainerCoinExchange(entityplayer, npc));
@@ -37,14 +39,14 @@ public class GOTGuiCoinExchange extends GuiContainer {
 		}
 	}
 
-	public void drawCenteredString(String s, int i, int j, int k) {
+	private void drawCenteredString(String s, int i, int j, int k) {
 		fontRendererObj.drawString(s, i - fontRendererObj.getStringWidth(s) / 2, j, k);
 	}
 
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (theContainer.exchanged) {
 			for (int l = 0; l < theContainer.exchangeInv.getSizeInventory(); ++l) {

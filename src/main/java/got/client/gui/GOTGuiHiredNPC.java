@@ -15,13 +15,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/hired.png");
-	public int xSize = 200;
-	public int ySize = 220;
-	public int guiLeft;
-	public int guiTop;
-	public GOTEntityNPC theNPC;
-	public int page;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/npc/hired.png");
+
+	private static final int Y_SIZE = 220;
+
+	protected int xSize = 200;
+	protected int guiLeft;
+	protected int guiTop;
+	protected GOTEntityNPC theNPC;
+	protected int page;
 
 	protected GOTGuiHiredNPC(GOTEntityNPC npc) {
 		theNPC = npc;
@@ -31,8 +33,8 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 	public void drawScreen(int i, int j, float f) {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, Y_SIZE);
 		String s = theNPC.getNPCName();
 		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 3618615);
 		s = theNPC.getEntityClassName();
@@ -65,7 +67,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 	@Override
 	public void initGui() {
 		guiLeft = (width - xSize) / 2;
-		guiTop = (height - ySize) / 2;
+		guiTop = (height - Y_SIZE) / 2;
 	}
 
 	@Override
@@ -74,11 +76,11 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 		sendActionPacket(-1);
 	}
 
-	public void sendActionPacket(int action) {
+	protected void sendActionPacket(int action) {
 		sendActionPacket(action, 0);
 	}
 
-	public void sendActionPacket(int action, int value) {
+	protected void sendActionPacket(int action, int value) {
 		IMessage packet = new GOTPacketHiredUnitCommand(theNPC.getEntityId(), page, action, value);
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}

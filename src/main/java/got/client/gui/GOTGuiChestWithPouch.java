@@ -9,11 +9,12 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiChestWithPouch extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/pouch_with_chest.png");
-	public IInventory pouchInv;
-	public IInventory chestInv;
-	public int chestRows;
-	public int pouchRows;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/pouch_with_chest.png");
+
+	private final IInventory pouchInv;
+	private final IInventory chestInv;
+	private final int chestRows;
+	private final int pouchRows;
 
 	public GOTGuiChestWithPouch(EntityPlayer entityplayer, int slot, IInventory chest) {
 		super(new GOTContainerChestWithPouch(entityplayer, slot, chest));
@@ -29,14 +30,14 @@ public class GOTGuiChestWithPouch extends GuiContainer {
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		int l;
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, 17 + chestRows * 18);
 		drawTexturedModalRect(guiLeft, guiTop + 17 + chestRows * 18, 0, 125, xSize, 13);
 		for (l = 0; l < 3; ++l) {
 			drawTexturedModalRect(guiLeft, guiTop + 17 + chestRows * 18 + 13 + l * 18, 0, 138, xSize, 18);
 		}
 		drawTexturedModalRect(guiLeft, guiTop + 17 + chestRows * 18 + 67, 0, 156, xSize, 96);
-		mc.getTextureManager().bindTexture(GOTGuiPouch.texture);
+		mc.getTextureManager().bindTexture(GOTGuiPouch.TEXTURE);
 		for (l = 0; l < pouchRows; ++l) {
 			drawTexturedModalRect(guiLeft + 7, guiTop + 17 + chestRows * 18 + 13 + l * 18, 0, 180, 162, 18);
 		}

@@ -14,13 +14,6 @@ import java.net.URI;
 import java.util.List;
 
 public class GOTGuiLanguages extends GOTGuiMenuWBBase {
-	public GOTGuiButtonOptions buttonFriendlyFire;
-	public GOTGuiButtonOptions buttonHiredDeathMessages;
-	public GOTGuiButtonOptions buttonAlignment;
-	public GOTGuiButtonOptions buttonMapLocation;
-	public GOTGuiButtonOptions buttonConquest;
-	public GOTGuiButton openFolder;
-
 	@Override
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
@@ -97,7 +90,7 @@ public class GOTGuiLanguages extends GOTGuiMenuWBBase {
 		int buttonX = guiLeft + xSize / 2 - 100;
 		int buttonY = guiTop + 40;
 
-		openFolder = new GOTGuiButton(1, buttonX, buttonY + 100, 200, 20, StatCollector.translateToLocal("got.gui.openFolder"));
+		GOTGuiButton openFolder = new GOTGuiButton(1, buttonX, buttonY + 100, 200, 20, StatCollector.translateToLocal("got.gui.openFolder"));
 		buttonList.add(openFolder);
 
 		goBack = new GOTGuiButton(2, buttonX, buttonY + 140, 200, 20, StatCollector.translateToLocal("got.gui.menuButton"));

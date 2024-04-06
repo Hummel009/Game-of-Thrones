@@ -23,44 +23,42 @@ import java.util.Arrays;
 import java.util.function.Function;
 
 public class GOTGuiBanner extends GOTGuiScreenBase {
-	public static ResourceLocation bannerTexture = new ResourceLocation("got:textures/gui/banner_edit.png");
-	public GOTEntityBanner theBanner;
-	public int xSize = 200;
-	public int ySize = 250;
-	public int guiLeft;
-	public int guiTop;
-	public GuiButton buttonMode;
-	public GOTGuiButtonBanner buttonSelfProtection;
-	public GuiButton buttonAddSlot;
-	public GuiButton buttonRemoveSlot;
-	public GOTGuiButtonBanner buttonDefaultPermissions;
-	public GuiTextField alignmentField;
-	public GuiTextField[] allowedPlayers = new GuiTextField[]{};
-	public boolean[] invalidUsernames = new boolean[]{};
-	public boolean[] validatedUsernames = new boolean[]{};
-	public boolean[] checkUsernames = new boolean[]{};
-	public float currentScroll;
-	public boolean isScrolling;
-	public boolean wasMouseDown;
-	public int scrollBarWidth = 12;
-	public int scrollBarHeight = 132;
-	public int scrollBarX = 181;
-	public int scrollBarY = 68;
-	public int scrollBarBorder = 1;
-	public int scrollWidgetWidth = 10;
-	public int scrollWidgetHeight = 17;
-	public int permIconX = 3;
-	public int permIconY;
-	public int permIconWidth = 10;
-	public int permissionsMouseoverIndex = -1;
-	public int permissionsMouseoverY = -1;
-	public int permWindowBorder = 4;
-	public int permWindowWidth = 150;
-	public int permWindowHeight = 70;
-	public int permissionsOpenIndex = -1;
-	public int permissionsOpenY = -1;
-	public GOTBannerProtection.Permission mouseOverPermission;
-	public boolean defaultPermissionsOpen;
+	public static final ResourceLocation BANNER_TEXTURE = new ResourceLocation("got:textures/gui/banner_edit.png");
+
+	private static final int X_SIZE = 200;
+	private static final int Y_SIZE = 250;
+	private static final int SCROLL_BAR_WIDTH = 12;
+	private static final int SCROLL_BAR_HEIGHT = 132;
+	private static final int SCROLL_BAR_X = 181;
+	private static final int SCROLL_BAR_Y = 68;
+	private static final int SCROLL_WIDGET_HEIGHT = 17;
+	private static final int PERM_WINDOW_BORDER = 4;
+	private static final int PERM_WINDOW_WIDTH = 150;
+	private static final int PERM_WINDOW_HEIGHT = 70;
+
+	private final GOTEntityBanner theBanner;
+
+	private int guiLeft;
+	private int guiTop;
+	private GuiButton buttonMode;
+	private GOTGuiButtonBanner buttonSelfProtection;
+	private GuiButton buttonAddSlot;
+	private GuiButton buttonRemoveSlot;
+	private GOTGuiButtonBanner buttonDefaultPermissions;
+	private GuiTextField alignmentField;
+	private GuiTextField[] allowedPlayers = new GuiTextField[]{};
+	private boolean[] invalidUsernames = new boolean[]{};
+	private boolean[] validatedUsernames = new boolean[]{};
+	private boolean[] checkUsernames = new boolean[]{};
+	private float currentScroll;
+	private boolean isScrolling;
+	private boolean wasMouseDown;
+	private int permissionsMouseoverIndex = -1;
+	private int permissionsMouseoverY = -1;
+	private int permissionsOpenIndex = -1;
+	private int permissionsOpenY = -1;
+	private GOTBannerProtection.Permission mouseOverPermission;
+	private boolean defaultPermissionsOpen;
 
 	public GOTGuiBanner(GOTEntityBanner banner) {
 		theBanner = banner;
@@ -89,15 +87,15 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		}
 	}
 
-	public void buttonSound() {
+	private void buttonSound() {
 		buttonMode.func_146113_a(mc.getSoundHandler());
 	}
 
-	public boolean canScroll() {
+	private boolean canScroll() {
 		return true;
 	}
 
-	public void checkUsernameValid(int index) {
+	private void checkUsernameValid(int index) {
 		GuiTextField textBox = allowedPlayers[index];
 		String username = textBox.getText();
 		if (!StringUtils.isBlank(username) && !invalidUsernames[index]) {
@@ -106,12 +104,12 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		}
 	}
 
-	public void drawPermissionsWindow(int i, int j, int windowX, int windowY, String boxTitle, String boxSubtitle, Function<GOTBannerProtection.Permission, Boolean> getEnabled, boolean includeFull) {
-		drawRect(windowX, windowY, windowX + permWindowWidth, windowY + permWindowHeight, -1442840576);
+	private void drawPermissionsWindow(int i, int j, int windowX, int windowY, String boxTitle, String boxSubtitle, Function<GOTBannerProtection.Permission, Boolean> getEnabled, boolean includeFull) {
+		drawRect(windowX, windowY, windowX + PERM_WINDOW_WIDTH, windowY + PERM_WINDOW_HEIGHT, -1442840576);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		fontRendererObj.drawString(boxTitle, windowX + 4, windowY + 4, 16777215);
 		fontRendererObj.drawString(boxSubtitle, windowX + 4, windowY + 14, 11184810);
-		mc.getTextureManager().bindTexture(bannerTexture);
+		mc.getTextureManager().bindTexture(BANNER_TEXTURE);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		int x = windowX + 4;
 		int y = windowY + 32;
@@ -130,7 +128,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		}
 		if (mouseOverPermission != null) {
 			String permName = StatCollector.translateToLocal("got.gui.bannerEdit.perm." + mouseOverPermission.codeName);
-			fontRendererObj.drawSplitString(permName, windowX + 4, windowY + 47, permWindowWidth - permWindowBorder * 2, 16777215);
+			fontRendererObj.drawSplitString(permName, windowX + 4, windowY + 47, PERM_WINDOW_WIDTH - PERM_WINDOW_BORDER * 2, 16777215);
 		}
 	}
 
@@ -149,19 +147,19 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			textBox.setEnabled(false);
 		}
 		drawDefaultBackground();
-		mc.getTextureManager().bindTexture(bannerTexture);
+		mc.getTextureManager().bindTexture(BANNER_TEXTURE);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, X_SIZE, Y_SIZE);
 		String title = StatCollector.translateToLocal("got.gui.bannerEdit.title");
-		fontRendererObj.drawString(title, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(title) / 2, guiTop + 6, 4210752);
+		fontRendererObj.drawString(title, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(title) / 2, guiTop + 6, 4210752);
 		if (theBanner.isPlayerSpecificProtection()) {
 			buttonMode.displayString = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.playerSpecific");
 			s = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.playerSpecific.desc.1");
-			fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46, 4210752);
+			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46, 4210752);
 			s = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.playerSpecific.desc.2");
-			fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46 + fontRendererObj.FONT_HEIGHT, 4210752);
+			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46 + fontRendererObj.FONT_HEIGHT, 4210752);
 			s = GOTFellowshipProfile.getFellowshipCodeHint();
-			fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 206, 4210752);
+			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 206, 4210752);
 			int start = Math.round(currentScroll * (allowedPlayers.length - 6));
 			int end = start + 6 - 1;
 			start = Math.max(start, 0);
@@ -171,16 +169,20 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 				GuiTextField textBox = allowedPlayers[index];
 				textBox.setVisible(true);
 				textBox.setEnabled(index != 0);
-				textBox.xPosition = guiLeft + xSize / 2 - 70;
+				textBox.xPosition = guiLeft + X_SIZE / 2 - 70;
 				textBox.yPosition = guiTop + 70 + displayIndex * (textBox.height + 4);
 				textBox.drawTextBox();
 				String number = index + 1 + ".";
 				fontRendererObj.drawString(number, guiLeft + 24 - fontRendererObj.getStringWidth(number), textBox.yPosition + 6, 4210752);
 				if (index > 0 && validatedUsernames[index]) {
-					mc.getTextureManager().bindTexture(bannerTexture);
+					mc.getTextureManager().bindTexture(BANNER_TEXTURE);
 					GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
+					int permIconX = 3;
+					int permIconY = 0;
+
 					int permX = textBox.xPosition + textBox.width + permIconX;
 					int permY = textBox.yPosition + permIconY;
+					int permIconWidth = 10;
 					boolean mouseOver = i >= permX && i < permX + permIconWidth && j >= permY && j < permY + permIconWidth;
 					drawTexturedModalRect(permX, permY, 200 + (mouseOver ? permIconWidth : 0), 150, permIconWidth, permIconWidth);
 					if (mouseOver) {
@@ -190,12 +192,14 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 				}
 			}
 			if (hasScrollBar()) {
-				mc.getTextureManager().bindTexture(bannerTexture);
+				mc.getTextureManager().bindTexture(BANNER_TEXTURE);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				drawTexturedModalRect(guiLeft + scrollBarX, guiTop + scrollBarY, 200, 0, scrollBarWidth, scrollBarHeight);
+				drawTexturedModalRect(guiLeft + SCROLL_BAR_X, guiTop + SCROLL_BAR_Y, 200, 0, SCROLL_BAR_WIDTH, SCROLL_BAR_HEIGHT);
 				if (canScroll()) {
-					int scroll = (int) (currentScroll * (scrollBarHeight - scrollBarBorder * 2 - scrollWidgetHeight));
-					drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder, guiTop + scrollBarY + scrollBarBorder + scroll, 212, 0, scrollWidgetWidth, scrollWidgetHeight);
+					int scrollBarBorder = 1;
+					int scroll = (int) (currentScroll * (SCROLL_BAR_HEIGHT - scrollBarBorder * 2 - SCROLL_WIDGET_HEIGHT));
+					int scrollWidgetWidth = 10;
+					drawTexturedModalRect(guiLeft + SCROLL_BAR_X + scrollBarBorder, guiTop + SCROLL_BAR_Y + scrollBarBorder + scroll, 212, 0, scrollWidgetWidth, SCROLL_WIDGET_HEIGHT);
 				}
 			}
 		} else {
@@ -203,11 +207,11 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			permissionsOpenIndex = -1;
 			buttonMode.displayString = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.faction");
 			s = StatCollector.translateToLocalFormatted("got.gui.bannerEdit.protectionMode.faction.desc.1");
-			fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46, 4210752);
+			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46, 4210752);
 			s = StatCollector.translateToLocalFormatted("got.gui.bannerEdit.protectionMode.faction.desc.2", theBanner.getAlignmentProtection(), theBanner.getBannerType().faction.factionName());
-			fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46 + fontRendererObj.FONT_HEIGHT, 4210752);
+			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46 + fontRendererObj.FONT_HEIGHT, 4210752);
 			s = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.faction.desc.3");
-			fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46 + fontRendererObj.FONT_HEIGHT * 2, 4210752);
+			fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 46 + fontRendererObj.FONT_HEIGHT * 2, 4210752);
 			s = StatCollector.translateToLocal("got.gui.bannerEdit.protectionMode.faction.alignment");
 			fontRendererObj.drawString(s, alignmentField.xPosition, alignmentField.yPosition - fontRendererObj.FONT_HEIGHT - 3, 4210752);
 			alignmentField.setVisible(true);
@@ -215,7 +219,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			alignmentField.drawTextBox();
 		}
 		if (permissionsOpenIndex >= 0) {
-			int windowX = guiLeft + xSize + permWindowBorder;
+			int windowX = guiLeft + X_SIZE + PERM_WINDOW_BORDER;
 			windowY = permissionsOpenY;
 			String username = allowedPlayers[permissionsOpenIndex].getText();
 			boolean isFellowship = GOTFellowshipProfile.hasFellowshipCode(username);
@@ -228,8 +232,8 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			drawPermissionsWindow(i, j, windowX, windowY, boxTitle, boxSubtitle, getEnabled, true);
 		}
 		if (defaultPermissionsOpen) {
-			int windowX = guiLeft + xSize + permWindowBorder;
-			windowY = guiTop + ySize - permWindowHeight;
+			int windowX = guiLeft + X_SIZE + PERM_WINDOW_BORDER;
+			windowY = guiTop + Y_SIZE - PERM_WINDOW_HEIGHT;
 			String boxTitle = StatCollector.translateToLocal("got.gui.bannerEdit.perms.default");
 			String boxSubtitle = StatCollector.translateToLocalFormatted("got.gui.bannerEdit.perms.allPlayers");
 			Function<GOTBannerProtection.Permission, Boolean> getEnabled = p -> theBanner.hasDefaultPermission(p);
@@ -238,7 +242,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		super.drawScreen(i, j, f);
 		if (buttonSelfProtection.func_146115_a()) {
 			float z = zLevel;
-			String tooltip = StatCollector.translateToLocal("got.gui.bannerEdit.selfProtection." + (buttonSelfProtection.activated ? "on" : "off"));
+			String tooltip = StatCollector.translateToLocal("got.gui.bannerEdit.selfProtection." + (buttonSelfProtection.isActivated() ? "on" : "off"));
 			drawCreativeTabHoveringText(tooltip, i, j);
 			GL11.glDisable(2896);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
@@ -286,26 +290,26 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		}
 	}
 
-	public boolean hasScrollBar() {
+	private boolean hasScrollBar() {
 		return theBanner.isPlayerSpecificProtection();
 	}
 
 	@Override
 	public void initGui() {
-		guiLeft = (width - xSize) / 2;
-		guiTop = (height - ySize) / 2;
-		buttonMode = new GOTGuiButton(0, guiLeft + xSize / 2 - 80, guiTop + 20, 160, 20, "");
+		guiLeft = (width - X_SIZE) / 2;
+		guiTop = (height - Y_SIZE) / 2;
+		buttonMode = new GOTGuiButton(0, guiLeft + X_SIZE / 2 - 80, guiTop + 20, 160, 20, "");
 		buttonList.add(buttonMode);
-		buttonSelfProtection = new GOTGuiButtonBanner(1, guiLeft + xSize / 2 - 24, guiTop + 224, 212, 100);
+		buttonSelfProtection = new GOTGuiButtonBanner(1, guiLeft + X_SIZE / 2 - 24, guiTop + 224, 212, 100);
 		buttonList.add(buttonSelfProtection);
 		buttonAddSlot = new GOTGuiButtonBannerWhitelistSlots(0, guiLeft + 179, guiTop + 202);
 		buttonList.add(buttonAddSlot);
 		buttonRemoveSlot = new GOTGuiButtonBannerWhitelistSlots(1, guiLeft + 187, guiTop + 202);
 		buttonList.add(buttonRemoveSlot);
-		buttonDefaultPermissions = new GOTGuiButtonBanner(2, guiLeft + xSize / 2 + 8, guiTop + 224, 200, 134);
+		buttonDefaultPermissions = new GOTGuiButtonBanner(2, guiLeft + X_SIZE / 2 + 8, guiTop + 224, 200, 134);
 		buttonList.add(buttonDefaultPermissions);
-		buttonDefaultPermissions.activated = true;
-		alignmentField = new GuiTextField(fontRendererObj, guiLeft + xSize / 2 - 70, guiTop + 100, 130, 18);
+		buttonDefaultPermissions.setActivated(true);
+		alignmentField = new GuiTextField(fontRendererObj, guiLeft + X_SIZE / 2 - 70, guiTop + 100, 130, 18);
 		alignmentField.setText(String.valueOf(theBanner.getAlignmentProtection()));
 		alignmentField.setEnabled(false);
 		refreshWhitelist();
@@ -384,9 +388,9 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			return;
 		}
 		if (permissionsOpenIndex >= 0) {
-			dx = i - (guiLeft + xSize + permWindowBorder);
+			dx = i - (guiLeft + X_SIZE + PERM_WINDOW_BORDER);
 			int dy = j - permissionsOpenY;
-			if (dx < 0 || dx >= permWindowWidth || dy < 0 || dy >= permWindowHeight) {
+			if (dx < 0 || dx >= PERM_WINDOW_WIDTH || dy < 0 || dy >= PERM_WINDOW_HEIGHT) {
 				permissionsOpenY = -1;
 				permissionsOpenIndex = -1;
 				return;
@@ -413,9 +417,9 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 			}
 		}
 		if (defaultPermissionsOpen) {
-			dx = i - (guiLeft + xSize + permWindowBorder);
-			int dy = j - (guiTop + ySize - permWindowHeight);
-			if ((dx < 0 || dx >= permWindowWidth || dy < 0 || dy >= permWindowHeight) && !buttonDefaultPermissions.mousePressed(mc, i, j)) {
+			dx = i - (guiLeft + X_SIZE + PERM_WINDOW_BORDER);
+			int dy = j - (guiTop + Y_SIZE - PERM_WINDOW_HEIGHT);
+			if ((dx < 0 || dx >= PERM_WINDOW_WIDTH || dy < 0 || dy >= PERM_WINDOW_HEIGHT) && !buttonDefaultPermissions.mousePressed(mc, i, j)) {
 				defaultPermissionsOpen = false;
 				return;
 			}
@@ -437,7 +441,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		sendBannerData(true);
 	}
 
-	public void refreshWhitelist() {
+	private void refreshWhitelist() {
 		int length = theBanner.getWhitelistLength();
 		GuiTextField[] allowedPlayers_new = new GuiTextField[length];
 		boolean[] invalidUsernames_new = new boolean[length];
@@ -461,7 +465,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		checkUsernames = checkUsernames_new;
 	}
 
-	public void sendBannerData(boolean sendWhitelist) {
+	private void sendBannerData(boolean sendWhitelist) {
 		GOTPacketEditBanner packet = new GOTPacketEditBanner(theBanner);
 		packet.playerSpecificProtection = theBanner.isPlayerSpecificProtection();
 		packet.selfProtection = theBanner.isSelfProtection();
@@ -498,12 +502,12 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}
 
-	public void setupScrollBar(int i, int j) {
+	private void setupScrollBar(int i, int j) {
 		boolean isMouseDown = Mouse.isButtonDown(0);
-		int i1 = guiLeft + scrollBarX;
-		int j1 = guiTop + scrollBarY;
-		int i2 = i1 + scrollBarWidth;
-		int j2 = j1 + scrollBarHeight;
+		int i1 = guiLeft + SCROLL_BAR_X;
+		int j1 = guiTop + SCROLL_BAR_Y;
+		int i2 = i1 + SCROLL_BAR_WIDTH;
+		int j2 = j1 + SCROLL_BAR_HEIGHT;
 		if (!wasMouseDown && isMouseDown && i >= i1 && j >= j1 && i < i2 && j < j2) {
 			isScrolling = canScroll();
 		}
@@ -512,7 +516,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		}
 		wasMouseDown = isMouseDown;
 		if (isScrolling) {
-			currentScroll = (j - j1 - scrollWidgetHeight / 2.0f) / ((float) (j2 - j1) - scrollWidgetHeight);
+			currentScroll = (j - j1 - SCROLL_WIDGET_HEIGHT / 2.0f) / ((float) (j2 - j1) - SCROLL_WIDGET_HEIGHT);
 			if (currentScroll < 0.0f) {
 				currentScroll = 0.0f;
 			}
@@ -525,7 +529,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
-		buttonSelfProtection.activated = theBanner.isSelfProtection();
+		buttonSelfProtection.setActivated(theBanner.isSelfProtection());
 		buttonAddSlot.visible = buttonRemoveSlot.visible = theBanner.isPlayerSpecificProtection();
 		buttonAddSlot.enabled = theBanner.getWhitelistLength() < GOTEntityBanner.WHITELIST_MAX;
 		buttonRemoveSlot.enabled = theBanner.getWhitelistLength() > GOTEntityBanner.WHITELIST_MIN;
@@ -547,7 +551,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		}
 	}
 
-	public void updateWhitelistedPlayer(int index, String username) {
+	private void updateWhitelistedPlayer(int index, String username) {
 		GOTBannerWhitelistEntry prevEntry = theBanner.getWhitelistEntry(index);
 		int prevPerms = -1;
 		if (prevEntry != null) {
@@ -591,4 +595,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 		}
 	}
 
+	public GOTEntityBanner getTheBanner() {
+		return theBanner;
+	}
 }

@@ -24,8 +24,9 @@ import org.lwjgl.opengl.GL11;
 import java.util.List;
 
 public class GOTGuiAnvil extends GuiContainer {
-	public static ResourceLocation anvilTexture = new ResourceLocation("got:textures/gui/anvil.png");
-	public static int[] colorCodes = new int[16];
+	public static final ResourceLocation ANVIL_TEXTURE = new ResourceLocation("got:textures/gui/anvil.png");
+
+	private static final int[] COLOR_CODES = new int[16];
 
 	static {
 		for (int i = 0; i < 16; ++i) {
@@ -36,16 +37,16 @@ public class GOTGuiAnvil extends GuiContainer {
 			if (i == 6) {
 				r += 85;
 			}
-			colorCodes[i] = (r & 0xFF) << 16 | (g & 0xFF) << 8 | b & 0xFF;
+			COLOR_CODES[i] = (r & 0xFF) << 16 | (g & 0xFF) << 8 | b & 0xFF;
 		}
 	}
 
-	public GOTContainerAnvil theAnvil;
-	public ItemStack prevItemStack;
-	public GuiButton buttonReforge;
-	public GuiButton buttonEngraveOwner;
+	private final GOTContainerAnvil theAnvil;
+	private ItemStack prevItemStack;
+	private GuiButton buttonReforge;
+	private GuiButton buttonEngraveOwner;
 
-	public GuiTextField textFieldRename;
+	private GuiTextField textFieldRename;
 
 	public GOTGuiAnvil(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		super(new GOTContainerAnvil(entityplayer, npc));
@@ -80,7 +81,7 @@ public class GOTGuiAnvil extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(anvilTexture);
+		mc.getTextureManager().bindTexture(ANVIL_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (theAnvil.isTrader) {
 			drawTexturedModalRect(guiLeft + 75, guiTop + 69, 176, 21, 18, 18);
@@ -192,8 +193,8 @@ public class GOTGuiAnvil extends GuiContainer {
 		List<EnumChatFormatting> itemNameFormatting = theAnvil.getActiveItemNameFormatting();
 		for (EnumChatFormatting formatting : itemNameFormatting) {
 			int formattingID = formatting.ordinal();
-			if (formatting.isColor() && formattingID < colorCodes.length) {
-				int color = colorCodes[formattingID];
+			if (formatting.isColor() && formattingID < COLOR_CODES.length) {
+				int color = COLOR_CODES[formattingID];
 				textFieldRename.setTextColor(color);
 			}
 		}
@@ -238,7 +239,7 @@ public class GOTGuiAnvil extends GuiContainer {
 		Keyboard.enableRepeatEvents(false);
 	}
 
-	public void renameItem(String rename) {
+	private void renameItem(String rename) {
 		String rename1 = rename;
 		ItemStack itemstack = theAnvil.invInput.getStackInSlot(0);
 		if (itemstack != null && !itemstack.hasDisplayName()) {

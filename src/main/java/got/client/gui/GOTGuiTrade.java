@@ -21,12 +21,12 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiTrade extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/trade.png");
-	public static int lockedTradeColor = -1610612736;
-	public GOTEntityNPC theEntity;
-	public GOTContainerTrade containerTrade;
+	public static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/npc/trade.png");
 
-	public GuiButton buttonSell;
+	private final GOTEntityNPC theEntity;
+	private final GOTContainerTrade containerTrade;
+
+	private GuiButton buttonSell;
 
 	public GOTGuiTrade(InventoryPlayer inv, GOTTradeable trader, World world) {
 		super(new GOTContainerTrade(inv, trader, world));
@@ -43,14 +43,14 @@ public class GOTGuiTrade extends GuiContainer {
 		}
 	}
 
-	public void drawCenteredString(String s, int i, int j, int k) {
+	private void drawCenteredString(String s, int i, int j, int k) {
 		fontRendererObj.drawString(s, i - fontRendererObj.getStringWidth(s) / 2, j, k);
 	}
 
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		func_146110_a(guiLeft, guiTop, 0.0f, 0.0f, xSize, ySize, 512.0f, 512.0f);
 	}
 
@@ -66,6 +66,7 @@ public class GOTGuiTrade extends GuiContainer {
 		fontRendererObj.drawString(StatCollector.translateToLocal("got.container.trade.sell"), 8, 79, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("got.container.trade.sellOffer"), 8, 129, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, 176, 4210752);
+		int lockedTradeColor = -1610612736;
 		for (l = 0; l < containerTrade.tradeInvBuy.getSizeInventory(); ++l) {
 			GOTSlotTrade slotBuy = (GOTSlotTrade) containerTrade.getSlotFromInventory(containerTrade.tradeInvBuy, l);
 			trade = slotBuy.getTrade();
@@ -130,7 +131,7 @@ public class GOTGuiTrade extends GuiContainer {
 		buttonList.add(buttonSell);
 	}
 
-	public void renderCost(String s, int x, int y) {
+	private void renderCost(String s, int x, int y) {
 		int x1 = x;
 		int y1 = y;
 		int l = fontRendererObj.getStringWidth(s);

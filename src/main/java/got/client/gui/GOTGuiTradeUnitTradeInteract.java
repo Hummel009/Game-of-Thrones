@@ -8,7 +8,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 
 public class GOTGuiTradeUnitTradeInteract extends GOTGuiTradeInteract {
-	public GuiButton buttonHire;
+	private GuiButton buttonHire;
 
 	public GOTGuiTradeUnitTradeInteract(GOTEntityNPC entity) {
 		super(entity);

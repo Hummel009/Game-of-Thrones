@@ -10,28 +10,29 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.util.StringUtils;
 
 public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
-	public int xSize = 256;
-	public int ySize = 280;
-	public int guiLeft;
-	public int guiTop;
-	public GOTEntityNPCRespawner theSpawner;
-	public GuiTextField textSpawnClass1;
-	public GuiTextField textSpawnClass2;
-	public GOTGuiSlider sliderCheckHorizontal;
-	public GOTGuiSlider sliderCheckVerticalMin;
-	public GOTGuiSlider sliderCheckVerticalMax;
-	public GOTGuiSlider sliderSpawnCap;
-	public GOTGuiSlider sliderBlockEnemy;
-	public GOTGuiSlider sliderSpawnHorizontal;
-	public GOTGuiSlider sliderSpawnVerticalMin;
-	public GOTGuiSlider sliderSpawnVerticalMax;
-	public GOTGuiSlider sliderHomeRange;
-	public GOTGuiButtonOptions buttonMounts;
-	public GOTGuiSlider sliderSpawnIntervalM;
-	public GOTGuiSlider sliderSpawnIntervalS;
-	public GOTGuiSlider sliderNoPlayerRange;
-	public GuiButton buttonDestroy;
-	public boolean destroySpawner;
+	private static final int X_SIZE = 256;
+
+	private final GOTEntityNPCRespawner theSpawner;
+
+	private int guiLeft;
+	private int guiTop;
+	private GuiTextField textSpawnClass1;
+	private GuiTextField textSpawnClass2;
+	private GOTGuiSlider sliderCheckHorizontal;
+	private GOTGuiSlider sliderCheckVerticalMin;
+	private GOTGuiSlider sliderCheckVerticalMax;
+	private GOTGuiSlider sliderSpawnCap;
+	private GOTGuiSlider sliderBlockEnemy;
+	private GOTGuiSlider sliderSpawnHorizontal;
+	private GOTGuiSlider sliderSpawnVerticalMin;
+	private GOTGuiSlider sliderSpawnVerticalMax;
+	private GOTGuiSlider sliderHomeRange;
+	private GOTGuiButtonOptions buttonMounts;
+	private GOTGuiSlider sliderSpawnIntervalM;
+	private GOTGuiSlider sliderSpawnIntervalS;
+	private GOTGuiSlider sliderNoPlayerRange;
+	private GuiButton buttonDestroy;
+	private boolean destroySpawner;
 
 	public GOTGuiNPCRespawner(GOTEntityNPCRespawner entity) {
 		theSpawner = entity;
@@ -59,7 +60,7 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 		int j1 = j;
 		drawDefaultBackground();
 		String s = StatCollector.translateToLocal("got.gui.npcRespawner.title");
-		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop, 16777215);
+		fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop, 16777215);
 		textSpawnClass1.drawTextBox();
 		textSpawnClass2.drawTextBox();
 		s = StatCollector.translateToLocal("got.gui.npcRespawner.spawnClass1");
@@ -93,7 +94,7 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 		fontRendererObj.drawString(timesplit, timesplitX, timesplitY, 16777215);
 		super.drawScreen(i1, j1, f);
 		updateSliders();
-		if (sliderBlockEnemy.enabled && sliderBlockEnemy.func_146115_a() && !sliderBlockEnemy.dragging) {
+		if (sliderBlockEnemy.enabled && sliderBlockEnemy.func_146115_a() && !sliderBlockEnemy.isDragging()) {
 			String tooltip = StatCollector.translateToLocal("got.gui.npcRespawner.blockEnemy.tooltip");
 			int border = 3;
 			int stringWidth = mc.fontRenderer.getStringWidth(tooltip);
@@ -106,70 +107,71 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 
 	@Override
 	public void initGui() {
-		guiLeft = (width - xSize) / 2;
+		guiLeft = (width - X_SIZE) / 2;
+		int ySize = 280;
 		guiTop = (height - ySize) / 2;
-		textSpawnClass1 = new GuiTextField(fontRendererObj, guiLeft + xSize / 2 - 190, guiTop + 35, 180, 20);
+		textSpawnClass1 = new GuiTextField(fontRendererObj, guiLeft + X_SIZE / 2 - 190, guiTop + 35, 180, 20);
 		if (theSpawner.spawnClass1 != null) {
 			textSpawnClass1.setText(GOTEntityRegistry.getStringFromClass(theSpawner.spawnClass1));
 		}
-		textSpawnClass2 = new GuiTextField(fontRendererObj, guiLeft + xSize / 2 + 10, guiTop + 35, 180, 20);
+		textSpawnClass2 = new GuiTextField(fontRendererObj, guiLeft + X_SIZE / 2 + 10, guiTop + 35, 180, 20);
 		if (theSpawner.spawnClass2 != null) {
 			textSpawnClass2.setText(GOTEntityRegistry.getStringFromClass(theSpawner.spawnClass2));
 		}
-		sliderCheckHorizontal = new GOTGuiSlider(0, guiLeft + xSize / 2 - 180, guiTop + 70, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.checkHorizontal"));
+		sliderCheckHorizontal = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 - 180, guiTop + 70, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.checkHorizontal"));
 		buttonList.add(sliderCheckHorizontal);
 		sliderCheckHorizontal.setMinMaxValues(0, 64);
 		sliderCheckHorizontal.setSliderValue(theSpawner.checkHorizontalRange);
-		sliderCheckVerticalMin = new GOTGuiSlider(0, guiLeft + xSize / 2 - 180, guiTop + 95, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.checkVerticalMin"));
+		sliderCheckVerticalMin = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 - 180, guiTop + 95, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.checkVerticalMin"));
 		buttonList.add(sliderCheckVerticalMin);
 		sliderCheckVerticalMin.setMinMaxValues(-64, 64);
 		sliderCheckVerticalMin.setSliderValue(theSpawner.checkVerticalMin);
-		sliderCheckVerticalMax = new GOTGuiSlider(0, guiLeft + xSize / 2 - 180, guiTop + 120, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.checkVerticalMax"));
+		sliderCheckVerticalMax = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 - 180, guiTop + 120, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.checkVerticalMax"));
 		buttonList.add(sliderCheckVerticalMax);
 		sliderCheckVerticalMax.setMinMaxValues(-64, 64);
 		sliderCheckVerticalMax.setSliderValue(theSpawner.checkVerticalMax);
-		sliderSpawnCap = new GOTGuiSlider(0, guiLeft + xSize / 2 - 180, guiTop + 145, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnCap"));
+		sliderSpawnCap = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 - 180, guiTop + 145, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnCap"));
 		buttonList.add(sliderSpawnCap);
 		sliderSpawnCap.setMinMaxValues(0, 64);
 		sliderSpawnCap.setSliderValue(theSpawner.spawnCap);
-		sliderBlockEnemy = new GOTGuiSlider(0, guiLeft + xSize / 2 - 180, guiTop + 170, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.blockEnemy"));
+		sliderBlockEnemy = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 - 180, guiTop + 170, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.blockEnemy"));
 		buttonList.add(sliderBlockEnemy);
 		sliderBlockEnemy.setMinMaxValues(0, 64);
 		sliderBlockEnemy.setSliderValue(theSpawner.blockEnemySpawns);
-		sliderSpawnHorizontal = new GOTGuiSlider(0, guiLeft + xSize / 2 + 20, guiTop + 70, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnHorizontal"));
+		sliderSpawnHorizontal = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 + 20, guiTop + 70, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnHorizontal"));
 		buttonList.add(sliderSpawnHorizontal);
 		sliderSpawnHorizontal.setMinMaxValues(0, 64);
 		sliderSpawnHorizontal.setSliderValue(theSpawner.spawnHorizontalRange);
-		sliderSpawnVerticalMin = new GOTGuiSlider(0, guiLeft + xSize / 2 + 20, guiTop + 95, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnVerticalMin"));
+		sliderSpawnVerticalMin = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 + 20, guiTop + 95, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnVerticalMin"));
 		buttonList.add(sliderSpawnVerticalMin);
 		sliderSpawnVerticalMin.setMinMaxValues(-64, 64);
 		sliderSpawnVerticalMin.setSliderValue(theSpawner.spawnVerticalMin);
-		sliderSpawnVerticalMax = new GOTGuiSlider(0, guiLeft + xSize / 2 + 20, guiTop + 120, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnVerticalMax"));
+		sliderSpawnVerticalMax = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 + 20, guiTop + 120, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnVerticalMax"));
 		buttonList.add(sliderSpawnVerticalMax);
 		sliderSpawnVerticalMax.setMinMaxValues(-64, 64);
 		sliderSpawnVerticalMax.setSliderValue(theSpawner.spawnVerticalMax);
-		sliderHomeRange = new GOTGuiSlider(0, guiLeft + xSize / 2 + 20, guiTop + 145, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.homeRange"));
+		sliderHomeRange = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 + 20, guiTop + 145, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.homeRange"));
 		buttonList.add(sliderHomeRange);
 		sliderHomeRange.setMinMaxValues(-1, 64);
 		sliderHomeRange.setSliderValue(theSpawner.homeRange);
-		buttonMounts = new GOTGuiButtonOptions(0, guiLeft + xSize / 2 + 20, guiTop + 170, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.mounts"));
+		buttonMounts = new GOTGuiButtonOptions(0, guiLeft + X_SIZE / 2 + 20, guiTop + 170, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.mounts"));
 		buttonList.add(buttonMounts);
-		sliderSpawnIntervalM = new GOTGuiSlider(0, guiLeft + xSize / 2 - 100 - 5, guiTop + 195, 100, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnIntervalM"));
+		sliderSpawnIntervalM = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 - 100 - 5, guiTop + 195, 100, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnIntervalM"));
 		buttonList.add(sliderSpawnIntervalM);
 		sliderSpawnIntervalM.setMinMaxValues(0, 60);
 		sliderSpawnIntervalM.setValueOnly();
 		sliderSpawnIntervalM.setSliderValue(theSpawner.spawnInterval / 20 / 60);
-		sliderSpawnIntervalS = new GOTGuiSlider(0, guiLeft + xSize / 2 + 5, guiTop + 195, 100, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnIntervalS"));
+		sliderSpawnIntervalS = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 + 5, guiTop + 195, 100, 20, StatCollector.translateToLocal("got.gui.npcRespawner.spawnIntervalS"));
 		buttonList.add(sliderSpawnIntervalS);
 		sliderSpawnIntervalS.setMinMaxValues(0, 59);
 		sliderSpawnIntervalS.setValueOnly();
 		sliderSpawnIntervalS.setNumberDigits(2);
 		sliderSpawnIntervalS.setSliderValue(theSpawner.spawnInterval / 20 % 60);
-		sliderNoPlayerRange = new GOTGuiSlider(0, guiLeft + xSize / 2 - 80, guiTop + 220, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.noPlayerRange"));
+		sliderNoPlayerRange = new GOTGuiSlider(0, guiLeft + X_SIZE / 2 - 80, guiTop + 220, 160, 20, StatCollector.translateToLocal("got.gui.npcRespawner.noPlayerRange"));
 		buttonList.add(sliderNoPlayerRange);
 		sliderNoPlayerRange.setMinMaxValues(0, 64);
 		sliderNoPlayerRange.setSliderValue(theSpawner.noPlayerRange);
-		buttonDestroy = new GOTGuiButton(0, guiLeft + xSize / 2 - 50, guiTop + 255, 100, 20, StatCollector.translateToLocal("got.gui.npcRespawner.destroy"));
+		buttonDestroy = new GOTGuiButton(0, guiLeft + X_SIZE / 2 - 50, guiTop + 255, 100, 20, StatCollector.translateToLocal("got.gui.npcRespawner.destroy"));
 		buttonList.add(buttonDestroy);
 	}
 
@@ -194,7 +196,7 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 		sendSpawnerData();
 	}
 
-	public void sendSpawnerData() {
+	private void sendSpawnerData() {
 		String s1 = textSpawnClass1.getText();
 		String s2 = textSpawnClass2.getText();
 		if (!StringUtils.isNullOrEmpty(s1)) {
@@ -215,51 +217,51 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 		textSpawnClass2.updateCursorCounter();
 	}
 
-	public void updateSliders() {
-		if (sliderCheckHorizontal.dragging) {
+	private void updateSliders() {
+		if (sliderCheckHorizontal.isDragging()) {
 			theSpawner.checkHorizontalRange = sliderCheckHorizontal.getSliderValue();
 		}
-		if (sliderCheckVerticalMin.dragging) {
+		if (sliderCheckVerticalMin.isDragging()) {
 			theSpawner.checkVerticalMin = sliderCheckVerticalMin.getSliderValue();
 			if (theSpawner.checkVerticalMax < theSpawner.checkVerticalMin) {
 				theSpawner.checkVerticalMax = theSpawner.checkVerticalMin;
 				sliderCheckVerticalMax.setSliderValue(theSpawner.checkVerticalMax);
 			}
 		}
-		if (sliderCheckVerticalMax.dragging) {
+		if (sliderCheckVerticalMax.isDragging()) {
 			theSpawner.checkVerticalMax = sliderCheckVerticalMax.getSliderValue();
 			if (theSpawner.checkVerticalMin > theSpawner.checkVerticalMax) {
 				theSpawner.checkVerticalMin = theSpawner.checkVerticalMax;
 				sliderCheckVerticalMin.setSliderValue(theSpawner.checkVerticalMin);
 			}
 		}
-		if (sliderSpawnCap.dragging) {
+		if (sliderSpawnCap.isDragging()) {
 			theSpawner.spawnCap = sliderSpawnCap.getSliderValue();
 		}
-		if (sliderBlockEnemy.dragging) {
+		if (sliderBlockEnemy.isDragging()) {
 			theSpawner.blockEnemySpawns = sliderBlockEnemy.getSliderValue();
 		}
-		if (sliderSpawnHorizontal.dragging) {
+		if (sliderSpawnHorizontal.isDragging()) {
 			theSpawner.spawnHorizontalRange = sliderSpawnHorizontal.getSliderValue();
 		}
-		if (sliderSpawnVerticalMin.dragging) {
+		if (sliderSpawnVerticalMin.isDragging()) {
 			theSpawner.spawnVerticalMin = sliderSpawnVerticalMin.getSliderValue();
 			if (theSpawner.spawnVerticalMax < theSpawner.spawnVerticalMin) {
 				theSpawner.spawnVerticalMax = theSpawner.spawnVerticalMin;
 				sliderSpawnVerticalMax.setSliderValue(theSpawner.spawnVerticalMax);
 			}
 		}
-		if (sliderSpawnVerticalMax.dragging) {
+		if (sliderSpawnVerticalMax.isDragging()) {
 			theSpawner.spawnVerticalMax = sliderSpawnVerticalMax.getSliderValue();
 			if (theSpawner.spawnVerticalMin > theSpawner.spawnVerticalMax) {
 				theSpawner.spawnVerticalMin = theSpawner.spawnVerticalMax;
 				sliderSpawnVerticalMin.setSliderValue(theSpawner.spawnVerticalMin);
 			}
 		}
-		if (sliderHomeRange.dragging) {
+		if (sliderHomeRange.isDragging()) {
 			theSpawner.homeRange = sliderHomeRange.getSliderValue();
 		}
-		if (sliderSpawnIntervalM.dragging || sliderSpawnIntervalS.dragging) {
+		if (sliderSpawnIntervalM.isDragging() || sliderSpawnIntervalS.isDragging()) {
 			if (sliderSpawnIntervalM.getSliderValue() == 0) {
 				int s = sliderSpawnIntervalS.getSliderValue();
 				s = Math.max(s, 1);
@@ -267,7 +269,7 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 			}
 			theSpawner.spawnInterval = (sliderSpawnIntervalM.getSliderValue() * 60 + sliderSpawnIntervalS.getSliderValue()) * 20;
 		}
-		if (sliderNoPlayerRange.dragging) {
+		if (sliderNoPlayerRange.isDragging()) {
 			theSpawner.noPlayerRange = sliderNoPlayerRange.getSliderValue();
 		}
 	}

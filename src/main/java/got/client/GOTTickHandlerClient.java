@@ -591,7 +591,7 @@ public class GOTTickHandlerClient {
 					GOTVersionChecker.checkForUpdates();
 				}
 				if (!isGamePaused(minecraft)) {
-					miniquestTracker.update(minecraft, entityplayer);
+					miniquestTracker.update(entityplayer);
 					GOTAlignmentTicker.updateAll(entityplayer, false);
 					watchedInvasion.tick();
 					if (GOTItemBanner.hasChoiceToKeepOriginalOwner(entityplayer)) {

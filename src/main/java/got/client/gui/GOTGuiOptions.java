@@ -12,12 +12,12 @@ import org.lwjgl.opengl.GL11;
 import java.util.List;
 
 public class GOTGuiOptions extends GOTGuiMenuWBBase {
-	public GOTGuiButtonOptions buttonFriendlyFire;
-	public GOTGuiButtonOptions buttonHiredDeathMessages;
-	public GOTGuiButtonOptions buttonAlignment;
-	public GOTGuiButtonOptions buttonMapLocation;
-	public GOTGuiButtonOptions buttonConquest;
-	public GOTGuiButtonOptions buttonFeminineRank;
+	private GOTGuiButtonOptions buttonFriendlyFire;
+	private GOTGuiButtonOptions buttonHiredDeathMessages;
+	private GOTGuiButtonOptions buttonAlignment;
+	private GOTGuiButtonOptions buttonMapLocation;
+	private GOTGuiButtonOptions buttonConquest;
+	private GOTGuiButtonOptions buttonFeminineRank;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

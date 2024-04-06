@@ -19,25 +19,25 @@ import java.util.List;
 import java.util.*;
 
 public class GOTGuiTitles extends GOTGuiMenuWBBase {
-	public GOTTitle.PlayerTitle currentTitle;
-	public List<GOTTitle> displayedTitles = new ArrayList<>();
-	public Map<GOTTitle, Pair<Boolean, Pair<Integer, Integer>>> displayedTitleInfo = new HashMap<>();
-	public GOTTitle selectedTitle;
-	public EnumChatFormatting selectedColor = EnumChatFormatting.WHITE;
-	public int colorBoxWidth = 8;
-	public int colorBoxGap = 4;
-	public Map<EnumChatFormatting, Pair<Integer, Integer>> displayedColorBoxes = new EnumMap<>(EnumChatFormatting.class);
-	public GuiButton selectButton;
-	public GuiButton removeButton;
-	public float currentScroll;
-	public boolean isScrolling;
-	public boolean wasMouseDown;
-	public int scrollBarWidth = 11;
-	public int scrollBarHeight = 144;
-	public int scrollBarX = 197 - (scrollBarWidth - 1) / 2;
-	public int scrollBarY = 30;
-	public int scrollWidgetWidth = 11;
-	public int scrollWidgetHeight = 8;
+	private static final int COLOR_BOX_WIDTH = 8;
+	private static final int SCROLL_BAR_WIDTH = 11;
+	private static final int SCROLL_BAR_HEIGHT = 144;
+	private static final int SCROLL_BAR_X = 197 - (SCROLL_BAR_WIDTH - 1) / 2;
+	private static final int SCROLL_BAR_Y = 30;
+	private static final int SCROLL_WIDGET_HEIGHT = 8;
+
+	private final List<GOTTitle> displayedTitles = new ArrayList<>();
+	private final Map<GOTTitle, Pair<Boolean, Pair<Integer, Integer>>> displayedTitleInfo = new HashMap<>();
+	private final Map<EnumChatFormatting, Pair<Integer, Integer>> displayedColorBoxes = new EnumMap<>(EnumChatFormatting.class);
+
+	private GOTTitle.PlayerTitle currentTitle;
+	private GOTTitle selectedTitle;
+	private EnumChatFormatting selectedColor = EnumChatFormatting.WHITE;
+	private GuiButton selectButton;
+	private GuiButton removeButton;
+	private float currentScroll;
+	private boolean isScrolling;
+	private boolean wasMouseDown;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -112,28 +112,30 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 					colorCodes.add(ecf);
 				}
 			}
-			int colorX = guiLeft + xSize / 2 - (colorBoxWidth * colorCodes.size() + colorBoxGap * (colorCodes.size() - 1)) / 2;
+			int colorBoxGap = 4;
+			int colorX = guiLeft + xSize / 2 - (COLOR_BOX_WIDTH * colorCodes.size() + colorBoxGap * (colorCodes.size() - 1)) / 2;
 			int colorY = guiTop + 200;
 			for (EnumChatFormatting code : colorCodes) {
 				int color = GOTReflectionClient.getFormattingColor(code);
 				float[] rgb = new Color(color).getColorComponents(null);
 				GL11.glColor4f(rgb[0], rgb[1], rgb[2], 1.0f);
-				boolean mouseOver = i >= colorX && i < colorX + colorBoxWidth && j >= colorY && j < colorY + colorBoxWidth;
+				boolean mouseOver = i >= colorX && i < colorX + COLOR_BOX_WIDTH && j >= colorY && j < colorY + COLOR_BOX_WIDTH;
 				GL11.glDisable(3553);
-				drawTexturedModalRect(colorX, colorY + (mouseOver ? -1 : 0), 0, 0, colorBoxWidth, colorBoxWidth);
+				drawTexturedModalRect(colorX, colorY + (mouseOver ? -1 : 0), 0, 0, COLOR_BOX_WIDTH, COLOR_BOX_WIDTH);
 				GL11.glEnable(3553);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				displayedColorBoxes.put(code, Pair.of(colorX, colorY));
-				colorX += colorBoxWidth + colorBoxGap;
+				colorX += COLOR_BOX_WIDTH + colorBoxGap;
 			}
 		}
 		if (displayedTitles.size() > 12) {
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			int scroll = (int) (currentScroll * (scrollBarHeight - scrollWidgetHeight));
-			int x1 = guiLeft + scrollBarX;
-			int y1 = guiTop + scrollBarY + scroll;
+			int scroll = (int) (currentScroll * (SCROLL_BAR_HEIGHT - SCROLL_WIDGET_HEIGHT));
+			int x1 = guiLeft + SCROLL_BAR_X;
+			int y1 = guiTop + SCROLL_BAR_Y + scroll;
+			int scrollWidgetWidth = 11;
 			int x2 = x1 + scrollWidgetWidth;
-			int y2 = y1 + scrollWidgetHeight;
+			int y2 = y1 + SCROLL_WIDGET_HEIGHT;
 			drawRect(x1, y1, x2, y2, -1426063361);
 		}
 		selectButton.enabled = selectedTitle != null;
@@ -201,7 +203,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 					EnumChatFormatting color = entry.getKey();
 					int colorX = entry.getValue().getLeft();
 					int colorY = entry.getValue().getRight();
-					if (i >= colorX && i < colorX + colorBoxWidth && j >= colorY && j < colorY + colorBoxWidth) {
+					if (i >= colorX && i < colorX + COLOR_BOX_WIDTH && j >= colorY && j < colorY + COLOR_BOX_WIDTH) {
 						selectedColor = color;
 						break;
 					}
@@ -211,12 +213,12 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		super.mouseClicked(i, j, mouse);
 	}
 
-	public void setupScrollBar(int i, int j) {
+	private void setupScrollBar(int i, int j) {
 		boolean isMouseDown = Mouse.isButtonDown(0);
-		int i1 = guiLeft + scrollBarX;
-		int j1 = guiTop + scrollBarY;
-		int i2 = i1 + scrollBarWidth;
-		int j2 = j1 + scrollBarHeight;
+		int i1 = guiLeft + SCROLL_BAR_X;
+		int j1 = guiTop + SCROLL_BAR_Y;
+		int i2 = i1 + SCROLL_BAR_WIDTH;
+		int j2 = j1 + SCROLL_BAR_HEIGHT;
 		if (!wasMouseDown && isMouseDown && i >= i1 && j >= j1 && i < i2 && j < j2) {
 			isScrolling = true;
 		}
@@ -225,7 +227,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		}
 		wasMouseDown = isMouseDown;
 		if (isScrolling) {
-			currentScroll = (j - j1 - scrollWidgetHeight / 2.0f) / ((float) (j2 - j1) - scrollWidgetHeight);
+			currentScroll = (j - j1 - SCROLL_WIDGET_HEIGHT / 2.0f) / ((float) (j2 - j1) - SCROLL_WIDGET_HEIGHT);
 			currentScroll = MathHelper.clamp_float(currentScroll, 0.0f, 1.0f);
 		}
 	}

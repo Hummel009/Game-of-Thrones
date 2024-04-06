@@ -22,33 +22,30 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/miniquest.png");
-	public static RenderItem renderItem = new RenderItem();
-	public GOTMiniQuest theMiniQuest;
-	public GOTEntityNPC theNPC;
-	public String description;
-	public Random rand;
-	public int openTick;
-	public int xSize = 256;
-	public int ySize = 200;
-	public int guiLeft;
-	public int guiTop;
-	public int descriptionX = 85;
-	public int descriptionY = 30;
-	public int descriptionWidth = 160;
-	public int npcX = 46;
-	public int npcY = 90;
-	public GuiButton buttonAccept;
-	public GuiButton buttonDecline;
-	public boolean sentClosePacket;
-	public NPCAction npcAction;
-	public int actionTick;
-	public int actionTime;
-	public float actionSlow;
-	public float headYaw;
-	public float prevHeadYaw;
-	public float headPitch;
-	public float prevHeadPitch;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/quest/miniquest.png");
+	private static final RenderItem RENDER_ITEM = new RenderItem();
+	private static final int X_SIZE = 256;
+	private static final int Y_SIZE = 200;
+
+	private final GOTMiniQuest theMiniQuest;
+	private final GOTEntityNPC theNPC;
+	private final Random rand;
+
+	private String description;
+	private int openTick;
+	private int guiLeft;
+	private int guiTop;
+	private GuiButton buttonAccept;
+	private GuiButton buttonDecline;
+	private boolean sentClosePacket;
+	private NPCAction npcAction;
+	private int actionTick;
+	private int actionTime;
+	private float actionSlow;
+	private float headYaw;
+	private float prevHeadYaw;
+	private float headPitch;
+	private float prevHeadPitch;
 
 	public GOTGuiMiniquestOffer(GOTMiniQuest quest, GOTEntityNPC npc) {
 		theMiniQuest = quest;
@@ -81,17 +78,22 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			description = GOTSpeech.formatSpeech(theMiniQuest.quoteStart, mc.thePlayer, null, theMiniQuest.getObjectiveInSpeech());
 		}
 		drawDefaultBackground();
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, X_SIZE, Y_SIZE);
 		String name = theNPC.getNPCName();
-		drawCenteredString(name, guiLeft + xSize / 2, guiTop + 8, 8019267);
+		drawCenteredString(name, guiLeft + X_SIZE / 2, guiTop + 8, 8019267);
+		int npcY = 90;
+		int npcX = 46;
 		renderNPC(guiLeft + npcX, guiTop + npcY, guiLeft + npcX - i, guiTop + npcY - j, f);
+		int descriptionWidth = 160;
+		int descriptionY = 30;
+		int descriptionX = 85;
 		fontRendererObj.drawSplitString(description, guiLeft + descriptionX, guiTop + descriptionY, descriptionWidth, 8019267);
 		String objective = theMiniQuest.getQuestObjective();
 		int objWidth = fontRendererObj.getStringWidth(objective);
-		int objY = guiTop + ySize - 50;
-		drawCenteredString(objective, guiLeft + xSize / 2, objY, 8019267);
+		int objY = guiTop + Y_SIZE - 50;
+		drawCenteredString(objective, guiLeft + X_SIZE / 2, objY, 8019267);
 		RenderHelper.enableGUIStandardItemLighting();
 		GL11.glDisable(2896);
 		GL11.glEnable(32826);
@@ -101,8 +103,8 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		int iconW = 16;
 		int iconB = 6;
 		int iconY = objY + fontRendererObj.FONT_HEIGHT / 2 - iconW / 2;
-		renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), theMiniQuest.getQuestIcon(), guiLeft + xSize / 2 - objWidth / 2 - iconW - iconB, iconY);
-		renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), theMiniQuest.getQuestIcon(), guiLeft + xSize / 2 + objWidth / 2 + iconB, iconY);
+		RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), theMiniQuest.getQuestIcon(), guiLeft + X_SIZE / 2 - objWidth / 2 - iconW - iconB, iconY);
+		RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), theMiniQuest.getQuestIcon(), guiLeft + X_SIZE / 2 + objWidth / 2 + iconB, iconY);
 		GL11.glDisable(2896);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		super.drawScreen(i, j, f);
@@ -110,11 +112,11 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 
 	@Override
 	public void initGui() {
-		guiLeft = (width - xSize) / 2;
-		guiTop = (height - ySize) / 2;
-		buttonAccept = new GOTGuiButton(0, guiLeft + xSize / 2 - 20 - 80, guiTop + ySize - 30, 80, 20, StatCollector.translateToLocal("got.gui.miniquestOffer.accept"));
+		guiLeft = (width - X_SIZE) / 2;
+		guiTop = (height - Y_SIZE) / 2;
+		buttonAccept = new GOTGuiButton(0, guiLeft + X_SIZE / 2 - 20 - 80, guiTop + Y_SIZE - 30, 80, 20, StatCollector.translateToLocal("got.gui.miniquestOffer.accept"));
 		buttonList.add(buttonAccept);
-		buttonDecline = new GOTGuiButton(1, guiLeft + xSize / 2 + 20, guiTop + ySize - 30, 80, 20, StatCollector.translateToLocal("got.gui.miniquestOffer.decline"));
+		buttonDecline = new GOTGuiButton(1, guiLeft + X_SIZE / 2 + 20, guiTop + Y_SIZE - 30, 80, 20, StatCollector.translateToLocal("got.gui.miniquestOffer.decline"));
 		buttonList.add(buttonDecline);
 	}
 
@@ -127,7 +129,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		}
 	}
 
-	public boolean recursiveCheckForModel(ModelRenderer base, ModelRenderer match) {
+	private boolean recursiveCheckForModel(ModelRenderer base, ModelRenderer match) {
 		if (base == match) {
 			return true;
 		}
@@ -142,7 +144,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		return false;
 	}
 
-	public void renderNPC(int i, int j, float dx, float dy, float f) {
+	private void renderNPC(int i, int j, float dx, float dy, float f) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		float scale = 70.0f;
 		GL11.glEnable(2903);
@@ -297,7 +299,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 		++openTick;
 	}
 
-	public enum NPCAction {
+	private enum NPCAction {
 		TALKING(1.0f), SHAKING(0.1f), LOOKING(0.3f), LOOKING_UP(0.4f);
 
 		private static float totalWeight = -1.0f;
@@ -308,7 +310,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 			weight = f;
 		}
 
-		public static NPCAction getRandomAction(Random rand) {
+		private static NPCAction getRandomAction(Random rand) {
 			if (totalWeight <= 0.0f) {
 				totalWeight = 0.0f;
 				for (NPCAction action : values()) {

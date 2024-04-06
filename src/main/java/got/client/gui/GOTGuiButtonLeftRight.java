@@ -7,8 +7,9 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonLeftRight extends GuiButton {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/widgets.png");
-	public boolean leftOrRight;
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/gui/widgets.png");
+
+	private final boolean leftOrRight;
 
 	public GOTGuiButtonLeftRight(int i, boolean flag, int j, int k, String s) {
 		super(i, j, k, 120, 20, s);
@@ -19,7 +20,7 @@ public class GOTGuiButtonLeftRight extends GuiButton {
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
 			FontRenderer fontrenderer = mc.fontRenderer;
-			mc.getTextureManager().bindTexture(texture);
+			mc.getTextureManager().bindTexture(TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int k = getHoverState(field_146123_n);

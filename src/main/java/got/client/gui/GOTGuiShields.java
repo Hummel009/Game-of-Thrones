@@ -18,31 +18,31 @@ import org.lwjgl.opengl.GL11;
 import java.util.List;
 
 public class GOTGuiShields extends GOTGuiMenuWBBase {
-	public static ModelBiped playerModel = new ModelBiped();
-	public static int currentShieldTypeID;
-	public static int currentShieldID;
+	private static final ModelBiped PLAYER_MODEL = new ModelBiped();
+
+	private static int currentShieldTypeID;
+	private static int currentShieldID;
 
 	static {
-		playerModel.isChild = false;
+		PLAYER_MODEL.isChild = false;
 	}
 
-	public int modelX;
-	public int modelY;
-	public float modelRotation = -140.0f;
-	public float modelRotationPrev = -140.0f;
-	public int isMouseDown;
-	public int mouseX;
-	public int mouseY;
-	public int prevMouseX;
-	public GOTShields.ShieldType currentShieldType;
-	public GOTShields currentShield;
-	public GuiButton shieldLeft;
-	public GuiButton shieldRight;
-	public GuiButton shieldSelect;
-	public GuiButton shieldRemove;
-	public GuiButton goToCape;
-
-	public GuiButton changeCategory;
+	private int modelX;
+	private int modelY;
+	private float modelRotation = -140.0f;
+	private float modelRotationPrev = -140.0f;
+	private int isMouseDown;
+	private int mouseX;
+	private int mouseY;
+	private int prevMouseX;
+	private GOTShields.ShieldType currentShieldType;
+	private GOTShields currentShield;
+	private GuiButton shieldLeft;
+	private GuiButton shieldRight;
+	private GuiButton shieldSelect;
+	private GuiButton shieldRemove;
+	private GuiButton goToCape;
+	private GuiButton changeCategory;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -71,7 +71,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		}
 	}
 
-	public boolean canGoLeft() {
+	private boolean canGoLeft() {
 		for (int i = 0; i <= currentShieldID - 1; ++i) {
 			GOTShields shield = currentShieldType.list.get(i);
 			if (shield.canDisplay(mc.thePlayer)) {
@@ -81,7 +81,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		return false;
 	}
 
-	public boolean canGoRight() {
+	private boolean canGoRight() {
 		for (int i = currentShieldID + 1; i <= currentShieldType.list.size() - 1; ++i) {
 			GOTShields shield = currentShieldType.list.get(i);
 			if (shield.canDisplay(mc.thePlayer)) {
@@ -109,8 +109,8 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		GL11.glRotatef(-30.0f, 1.0f, 0.0f, 0.0f);
 		GL11.glRotatef(modelRotationPrev + (modelRotation - modelRotationPrev) * f, 0.0f, 1.0f, 0.0f);
 		mc.getTextureManager().bindTexture(mc.thePlayer.getLocationSkin());
-		playerModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
-		GOTRenderShield.renderShield(currentShield, null, playerModel);
+		PLAYER_MODEL.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+		GOTRenderShield.renderShield(currentShield, null, PLAYER_MODEL);
 		GL11.glDisable(32826);
 		GL11.glEnable(2884);
 		GL11.glPopMatrix();
@@ -139,7 +139,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		super.drawScreen(i, j, f);
 	}
 
-	public GOTShields getPlayerEquippedShield() {
+	private GOTShields getPlayerEquippedShield() {
 		return GOTLevelData.getData(mc.thePlayer).getShield();
 	}
 
@@ -172,7 +172,7 @@ public class GOTGuiShields extends GOTGuiMenuWBBase {
 		updateCurrentShield(0, 0);
 	}
 
-	public void updateCurrentShield(int shield, int type) {
+	private void updateCurrentShield(int shield, int type) {
 		if (shield != 0) {
 			currentShieldID += shield;
 			currentShieldID = Math.max(currentShieldID, 0);

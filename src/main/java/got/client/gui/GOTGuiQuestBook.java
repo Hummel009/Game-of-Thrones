@@ -30,61 +30,52 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTGuiQuestBook extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/questBook.png");
-	public static ResourceLocation guiTexture_miniquests = new ResourceLocation("got:textures/gui/quest/questBook_miniquests.png");
-	public static RenderItem renderItem = new RenderItem();
-	public static boolean viewCompleted;
-	public static int trackTicksMax = 40;
-	public static int textColor = 8019267;
-	public static int textColorDark = 5521198;
-	public static int textColorFaded = 9666921;
-	public static int textColorRed = 16711680;
-	public static Page page;
-	public int xSize = 420;
-	public int ySize = 256;
-	public int guiLeft;
-	public int guiTop;
-	public int pageWidth = 186;
-	public int pageTop = 18;
-	public int pageBorder = 10;
-	public boolean wasMouseDown;
-	public int lastMouseX;
-	public int lastMouseY;
-	public int scrollBarWidth = 12;
-	public int scrollBarHeight = 216;
-	public int scrollBarX = xSize / 2 + pageWidth;
-	public int scrollBarY = 18;
-	public int scrollBarBorder = 1;
-	public int scrollWidgetWidth = 10;
-	public int scrollWidgetHeight = 17;
-	public boolean mouseInScrollBar;
-	public boolean isScrolling;
-	public float currentScroll;
-	public Map<GOTMiniQuest, Pair<Integer, Integer>> displayedMiniQuests = new HashMap<>();
-	public int maxDisplayedMiniQuests = 4;
-	public int qPanelWidth = 170;
-	public int qPanelHeight = 45;
-	public int qPanelBorder = 4;
-	public int qDelX = 158;
-	public int qDelY = 4;
-	public int qTrackX = 148;
-	public int qTrackY = 4;
-	public int qWidgetSize = 8;
-	public int diaryWidth = 170;
-	public int diaryHeight = 218;
-	public int diaryX = xSize / 2 - pageBorder - pageWidth / 2 - diaryWidth / 2;
-	public int diaryY = ySize / 2 - diaryHeight / 2 - 1;
-	public int diaryBorder = 6;
-	public boolean mouseInDiary;
-	public boolean isDiaryScrolling;
-	public float diaryScroll;
-	public GOTMiniQuest selectedMiniquest;
-	public GOTMiniQuest deletingMiniquest;
-	public int trackTicks;
-	public GuiButton buttonViewActive;
-	public GuiButton buttonViewCompleted;
-	public GuiButton buttonQuestDelete;
-	public GuiButton buttonQuestDeleteCancel;
+	public static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/quest/questBook.png");
+
+	private static final ResourceLocation GUI_TEXTURE_MINIQUESTS = new ResourceLocation("got:textures/gui/quest/questBook_miniquests.png");
+	private static final RenderItem RENDER_ITEM = new RenderItem();
+	private static final int X_SIZE = 420;
+	private static final int Y_SIZE = 256;
+	private static final int PAGE_WIDTH = 186;
+	private static final int PAGE_BORDER = 10;
+	private static final int SCROLL_BAR_WIDTH = 12;
+	private static final int SCROLL_BAR_HEIGHT = 216;
+	private static final int SCROLL_BAR_X = X_SIZE / 2 + PAGE_WIDTH;
+	private static final int SCROLL_BAR_Y = 18;
+	private static final int SCROLL_WIDGET_HEIGHT = 17;
+	private static final int MAX_DISPLAYED_MINI_QUESTS = 4;
+	private static final int Q_PANEL_WIDTH = 170;
+	private static final int Q_PANEL_HEIGHT = 45;
+	private static final int Q_DEL_X = 158;
+	private static final int Q_DEL_Y = 4;
+	private static final int Q_TRACK_X = 148;
+	private static final int Q_TRACK_Y = 4;
+	private static final int Q_WIDGET_SIZE = 8;
+	private static final int DIARY_WIDTH = 170;
+	private static final int DIARY_HEIGHT = 218;
+	private static final int DIARY_X = X_SIZE / 2 - PAGE_BORDER - PAGE_WIDTH / 2 - DIARY_WIDTH / 2;
+	private static final int DIARY_Y = Y_SIZE / 2 - DIARY_HEIGHT / 2 - 1;
+
+	private static boolean viewCompleted;
+	private static Page page;
+
+	private int guiLeft;
+	private int guiTop;
+	private boolean wasMouseDown;
+	private int lastMouseY;
+	private boolean isScrolling;
+	private float currentScroll;
+	private final Map<GOTMiniQuest, Pair<Integer, Integer>> displayedMiniQuests = new HashMap<>();
+	private boolean mouseInDiary;
+	private boolean isDiaryScrolling;
+	private float diaryScroll;
+	private GOTMiniQuest selectedMiniquest;
+	private GOTMiniQuest deletingMiniquest;
+	private int trackTicks;
+	private GuiButton buttonViewActive;
+	private GuiButton buttonViewCompleted;
+	private GuiButton buttonQuestDelete;
+	private GuiButton buttonQuestDeleteCancel;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -108,8 +99,8 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		}
 	}
 
-	public boolean canScroll() {
-		return hasScrollBar() && getMiniQuests().size() > maxDisplayedMiniQuests;
+	private boolean canScroll() {
+		return hasScrollBar() && getMiniQuests().size() > MAX_DISPLAYED_MINI_QUESTS;
 	}
 
 	@Override
@@ -117,10 +108,10 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		displayedMiniQuests.clear();
 		setupScrollBar(i, j);
 		drawDefaultBackground();
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize, 512);
-		int x = guiLeft + xSize / 2 - pageBorder - pageWidth / 2;
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, X_SIZE, Y_SIZE, 512);
+		int x = guiLeft + X_SIZE / 2 - PAGE_BORDER - PAGE_WIDTH / 2;
 		int y = guiTop + 30;
 		if (page == Page.MINIQUESTS && selectedMiniquest == null) {
 			float scale = 2.0f;
@@ -130,7 +121,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			GL11.glScalef(scale, scale, scale);
 			drawCenteredString(page.getTitle(), x, y, 8019267);
 			GL11.glScalef(invScale, invScale, invScale);
-			x = guiLeft + xSize / 2 - pageBorder - pageWidth / 2;
+			x = guiLeft + X_SIZE / 2 - PAGE_BORDER - PAGE_WIDTH / 2;
 			y = guiTop + 50;
 			if (viewCompleted) {
 				drawCenteredString(StatCollector.translateToLocal("got.gui.redBook.mq.viewComplete"), x, y, 8019267);
@@ -140,20 +131,21 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		}
 		if (page == Page.MINIQUESTS) {
 			if (selectedMiniquest == null) {
-				drawCenteredString(GOTDate.AegonCalendar.getDate().getDateName(false), guiLeft + xSize / 2 - pageBorder - pageWidth / 2, guiTop + ySize - 30, 8019267);
+				drawCenteredString(GOTDate.AegonCalendar.getDate().getDateName(false), guiLeft + X_SIZE / 2 - PAGE_BORDER - PAGE_WIDTH / 2, guiTop + Y_SIZE - 30, 8019267);
 				drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.redBook.mq.numActive", getPlayerData().getActiveMiniQuests().size()), x, guiTop + 120, 8019267);
 				drawCenteredString(StatCollector.translateToLocalFormatted("got.gui.redBook.mq.numComplete", getPlayerData().getCompletedMiniQuestsTotal()), x, guiTop + 140, 8019267);
 			} else {
 				GOTMiniQuest quest = selectedMiniquest;
-				mc.getTextureManager().bindTexture(guiTexture);
+				mc.getTextureManager().bindTexture(GUI_TEXTURE);
 				float[] questRGB = quest.getQuestColorComponents();
 				GL11.glColor4f(questRGB[0], questRGB[1], questRGB[2], 1.0f);
-				x = guiLeft + diaryX;
-				y = guiTop + diaryY;
-				drawTexturedModalRect(x, y, 0, 256, diaryWidth, diaryHeight, 512);
+				x = guiLeft + DIARY_X;
+				y = guiTop + DIARY_Y;
+				drawTexturedModalRect(x, y, 0, 256, DIARY_WIDTH, DIARY_HEIGHT, 512);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				int textW = diaryWidth - diaryBorder * 2;
-				int textBottom = y + diaryHeight - diaryBorder;
+				int diaryBorder = 6;
+				int textW = DIARY_WIDTH - diaryBorder * 2;
+				int textBottom = y + DIARY_HEIGHT - diaryBorder;
 				x += diaryBorder;
 				y += diaryBorder;
 				boolean completed = quest.isCompleted();
@@ -242,6 +234,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 				}
 				diaryScroll = pageText.renderAndReturnScroll(fontRendererObj, x, y, textBottom, diaryScroll);
 			}
+			int pageTop = 18;
 			if (deletingMiniquest == null) {
 				List<GOTMiniQuest> miniquests = getMiniQuests();
 				if (!(miniquests = new ArrayList<>(miniquests)).isEmpty()) {
@@ -251,42 +244,44 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 						miniquests.sort(new GOTMiniQuest.SorterAlphabetical());
 					}
 					int size = miniquests.size();
-					int min = Math.round(currentScroll * (size - maxDisplayedMiniQuests));
-					int max = maxDisplayedMiniQuests - 1 + Math.round(currentScroll * (size - maxDisplayedMiniQuests));
+					int min = Math.round(currentScroll * (size - MAX_DISPLAYED_MINI_QUESTS));
+					int max = MAX_DISPLAYED_MINI_QUESTS - 1 + Math.round(currentScroll * (size - MAX_DISPLAYED_MINI_QUESTS));
 					min = Math.max(min, 0);
 					max = Math.min(max, size - 1);
 					for (int index = min; index <= max; ++index) {
 						GOTMiniQuest quest = miniquests.get(index);
 						int displayIndex = index - min;
-						int questX = guiLeft + xSize / 2 + pageBorder;
-						int questY = guiTop + pageTop + displayIndex * (4 + qPanelHeight);
+						int questX = guiLeft + X_SIZE / 2 + PAGE_BORDER;
+						int questY = guiTop + pageTop + displayIndex * (4 + Q_PANEL_HEIGHT);
 						renderMiniQuestPanel(quest, questX, questY, i, j);
 						displayedMiniQuests.put(quest, Pair.of(questX, questY));
 					}
 				}
 			} else {
 				String deleteText = viewCompleted ? StatCollector.translateToLocal("got.gui.redBook.mq.deleteCmp") : StatCollector.translateToLocal("got.gui.redBook.mq.delete");
-				List<String> deleteTextLines = fontRendererObj.listFormattedStringToWidth(deleteText, pageWidth);
-				int lineX = guiLeft + xSize / 2 + pageBorder + pageWidth / 2;
+				List<String> deleteTextLines = fontRendererObj.listFormattedStringToWidth(deleteText, PAGE_WIDTH);
+				int lineX = guiLeft + X_SIZE / 2 + PAGE_BORDER + PAGE_WIDTH / 2;
 				int lineY = guiTop + 50;
 				for (String obj : deleteTextLines) {
 					drawCenteredString(obj, lineX, lineY, 8019267);
 					lineY += fontRendererObj.FONT_HEIGHT;
 				}
-				int questX = guiLeft + xSize / 2 + pageBorder + pageWidth / 2 - qPanelWidth / 2;
+				int questX = guiLeft + X_SIZE / 2 + PAGE_BORDER + PAGE_WIDTH / 2 - Q_PANEL_WIDTH / 2;
 				int questY = guiTop + pageTop + 80;
 				renderMiniQuestPanel(deletingMiniquest, questX, questY, i, j);
 			}
 		}
 		if (hasScrollBar()) {
-			mc.getTextureManager().bindTexture(guiTexture_miniquests);
+			mc.getTextureManager().bindTexture(GUI_TEXTURE_MINIQUESTS);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			drawTexturedModalRect(guiLeft + scrollBarX, guiTop + scrollBarY, 244, 0, scrollBarWidth, scrollBarHeight);
+			drawTexturedModalRect(guiLeft + SCROLL_BAR_X, guiTop + SCROLL_BAR_Y, 244, 0, SCROLL_BAR_WIDTH, SCROLL_BAR_HEIGHT);
+			int scrollWidgetWidth = 10;
+			int scrollBarBorder = 1;
 			if (canScroll()) {
-				int scroll = (int) (currentScroll * (scrollBarHeight - scrollBarBorder * 2 - scrollWidgetHeight));
-				drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder, guiTop + scrollBarY + scrollBarBorder + scroll, 224, 0, scrollWidgetWidth, scrollWidgetHeight);
+				int scroll = (int) (currentScroll * (SCROLL_BAR_HEIGHT - scrollBarBorder * 2 - SCROLL_WIDGET_HEIGHT));
+				drawTexturedModalRect(guiLeft + SCROLL_BAR_X + scrollBarBorder, guiTop + SCROLL_BAR_Y + scrollBarBorder + scroll, 224, 0, scrollWidgetWidth, SCROLL_WIDGET_HEIGHT);
 			} else {
-				drawTexturedModalRect(guiLeft + scrollBarX + scrollBarBorder, guiTop + scrollBarY + scrollBarBorder, 234, 0, scrollWidgetWidth, scrollWidgetHeight);
+				drawTexturedModalRect(guiLeft + SCROLL_BAR_X + scrollBarBorder, guiTop + SCROLL_BAR_Y + scrollBarBorder, 234, 0, scrollWidgetWidth, SCROLL_WIDGET_HEIGHT);
 			}
 		}
 		boolean hasQuestViewButtons = page == Page.MINIQUESTS && selectedMiniquest == null;
@@ -307,14 +302,14 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		super.drawScreen(i, j, f);
 	}
 
-	public List<GOTMiniQuest> getMiniQuests() {
+	private List<GOTMiniQuest> getMiniQuests() {
 		if (viewCompleted) {
 			return getPlayerData().getMiniQuestsCompleted();
 		}
 		return getPlayerData().getMiniQuests();
 	}
 
-	public GOTPlayerData getPlayerData() {
+	private GOTPlayerData getPlayerData() {
 		return GOTLevelData.getData(mc.thePlayer);
 	}
 
@@ -332,7 +327,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			if (mouseInDiary) {
 				diaryScroll += i;
 			} else {
-				int j = getMiniQuests().size() - maxDisplayedMiniQuests;
+				int j = getMiniQuests().size() - MAX_DISPLAYED_MINI_QUESTS;
 				currentScroll -= (float) i / j;
 				currentScroll = Math.max(currentScroll, 0.0f);
 				currentScroll = Math.min(currentScroll, 1.0f);
@@ -340,7 +335,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		}
 	}
 
-	public boolean hasScrollBar() {
+	private boolean hasScrollBar() {
 		return page == Page.MINIQUESTS && deletingMiniquest == null;
 	}
 
@@ -349,16 +344,16 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		if (page == null) {
 			page = Page.values()[0];
 		}
-		guiLeft = (width - xSize) / 2;
-		guiTop = (height - ySize) / 2;
-		int buttonX = guiLeft + xSize / 2 - pageBorder - pageWidth / 2;
+		guiLeft = (width - X_SIZE) / 2;
+		guiTop = (height - Y_SIZE) / 2;
+		int buttonX = guiLeft + X_SIZE / 2 - PAGE_BORDER - PAGE_WIDTH / 2;
 		int buttonY = guiTop + 80;
 		buttonViewActive = new GOTGuiButton(2, buttonX - 10 - 60, buttonY, 60, 20, StatCollector.translateToLocal("got.gui.redBook.mq.viewActive"));
 		buttonList.add(buttonViewActive);
 		buttonViewCompleted = new GOTGuiButton(3, buttonX + 10, buttonY, 60, 20, StatCollector.translateToLocal("got.gui.redBook.mq.viewComplete"));
 		buttonList.add(buttonViewCompleted);
-		buttonX = guiLeft + xSize / 2 + pageBorder + pageWidth / 2;
-		buttonY = guiTop + ySize - 60;
+		buttonX = guiLeft + X_SIZE / 2 + PAGE_BORDER + PAGE_WIDTH / 2;
+		buttonY = guiTop + Y_SIZE - 60;
 		buttonQuestDelete = new GOTGuiButton(2, buttonX - 10 - 60, buttonY, 60, 20, "");
 		buttonList.add(buttonQuestDelete);
 		buttonQuestDeleteCancel = new GOTGuiButton(3, buttonX + 10, buttonY, 60, 20, "");
@@ -395,20 +390,20 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 					quest = entry.getKey();
 					questX = entry.getValue().getLeft();
 					questY = entry.getValue().getRight();
-					i1 = questX + qDelX;
-					j1 = questY + qDelY;
-					i2 = i1 + qWidgetSize;
-					j2 = j1 + qWidgetSize;
+					i1 = questX + Q_DEL_X;
+					j1 = questY + Q_DEL_Y;
+					i2 = i1 + Q_WIDGET_SIZE;
+					j2 = j1 + Q_WIDGET_SIZE;
 					if (i >= i1 && j >= j1 && i < i2 && j < j2) {
 						selectedMiniquest = deletingMiniquest = quest;
 						diaryScroll = 0.0f;
 						return;
 					}
 					if (!viewCompleted) {
-						i1 = questX + qTrackX;
-						j1 = questY + qTrackY;
-						i2 = i1 + qWidgetSize;
-						j2 = j1 + qWidgetSize;
+						i1 = questX + Q_TRACK_X;
+						j1 = questY + Q_TRACK_Y;
+						i2 = i1 + Q_WIDGET_SIZE;
+						j2 = j1 + Q_WIDGET_SIZE;
 						if (i >= i1 && j >= j1 && i < i2 && j < j2) {
 							trackOrUntrack(quest);
 							return;
@@ -423,8 +418,8 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 					questY = entry.getValue().getRight();
 					i1 = questX;
 					j1 = questY;
-					i2 = i1 + qPanelWidth;
-					j2 = j1 + qPanelHeight;
+					i2 = i1 + Q_PANEL_WIDTH;
+					j2 = j1 + Q_PANEL_HEIGHT;
 					if (i >= i1 && j >= j1 && i < i2 && j < j2) {
 						selectedMiniquest = quest;
 						diaryScroll = 0.0f;
@@ -440,23 +435,23 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		super.mouseClicked(i, j, mouse);
 	}
 
-	public void renderMiniQuestPanel(GOTMiniQuest quest, int questX, int questY, int mouseX, int mouseY) {
+	private void renderMiniQuestPanel(GOTMiniQuest quest, int questX, int questY, int mouseX, int mouseY) {
 		GL11.glPushMatrix();
-		boolean mouseInPanel = mouseX >= questX && mouseX < questX + qPanelWidth && mouseY >= questY && mouseY < questY + qPanelHeight;
-		boolean mouseInDelete = mouseX >= questX + qDelX && mouseX < questX + qDelX + qWidgetSize && mouseY >= questY + qDelY && mouseY < questY + qDelY + qWidgetSize;
-		boolean mouseInTrack = mouseX >= questX + qTrackX && mouseX < questX + qTrackX + qWidgetSize && mouseY >= questY + qTrackY && mouseY < questY + qTrackY + qWidgetSize;
+		boolean mouseInPanel = mouseX >= questX && mouseX < questX + Q_PANEL_WIDTH && mouseY >= questY && mouseY < questY + Q_PANEL_HEIGHT;
+		boolean mouseInDelete = mouseX >= questX + Q_DEL_X && mouseX < questX + Q_DEL_X + Q_WIDGET_SIZE && mouseY >= questY + Q_DEL_Y && mouseY < questY + Q_DEL_Y + Q_WIDGET_SIZE;
+		boolean mouseInTrack = mouseX >= questX + Q_TRACK_X && mouseX < questX + Q_TRACK_X + Q_WIDGET_SIZE && mouseY >= questY + Q_TRACK_Y && mouseY < questY + Q_TRACK_Y + Q_WIDGET_SIZE;
 		boolean isTracking = quest == getPlayerData().getTrackingMiniQuest();
-		mc.getTextureManager().bindTexture(guiTexture_miniquests);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE_MINIQUESTS);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		if (mouseInPanel || quest == selectedMiniquest) {
-			drawTexturedModalRect(questX, questY, 0, qPanelHeight, qPanelWidth, qPanelHeight);
+			drawTexturedModalRect(questX, questY, 0, Q_PANEL_HEIGHT, Q_PANEL_WIDTH, Q_PANEL_HEIGHT);
 		} else {
-			drawTexturedModalRect(questX, questY, 0, 0, qPanelWidth, qPanelHeight);
+			drawTexturedModalRect(questX, questY, 0, 0, Q_PANEL_WIDTH, Q_PANEL_HEIGHT);
 		}
 		float[] questRGB = quest.getQuestColorComponents();
 		GL11.glColor4f(questRGB[0], questRGB[1], questRGB[2], 1.0f);
 		GL11.glEnable(3008);
-		drawTexturedModalRect(questX, questY, 0, qPanelHeight * 2, qPanelWidth, qPanelHeight);
+		drawTexturedModalRect(questX, questY, 0, Q_PANEL_HEIGHT * 2, Q_PANEL_WIDTH, Q_PANEL_HEIGHT);
 		GL11.glDisable(3008);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		String questName = quest.entityName;
@@ -465,6 +460,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			questName = EnumChatFormatting.STRIKETHROUGH + questName;
 			factionName = EnumChatFormatting.STRIKETHROUGH + factionName;
 		}
+		int qPanelBorder = 4;
 		fontRendererObj.drawString(questName, questX + qPanelBorder, questY + qPanelBorder, 8019267);
 		fontRendererObj.drawString(factionName, questX + qPanelBorder, questY + qPanelBorder + fontRendererObj.FONT_HEIGHT, 8019267);
 		if (quest.isFailed()) {
@@ -473,7 +469,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			fontRendererObj.drawString(StatCollector.translateToLocal("got.gui.redBook.mq.tracking"), questX + qPanelBorder, questY + 25, 8019267);
 		} else {
 			String objective = quest.getQuestObjective();
-			int maxObjLength = qPanelWidth - qPanelBorder * 2 - 18;
+			int maxObjLength = Q_PANEL_WIDTH - qPanelBorder * 2 - 18;
 			if (fontRendererObj.getStringWidth(objective) >= maxObjLength) {
 				String ellipsis = "...";
 				while (fontRendererObj.getStringWidth(objective + ellipsis) >= maxObjLength) {
@@ -491,24 +487,23 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			fontRendererObj.drawString(progress, questX + qPanelBorder, questY + 25 + fontRendererObj.FONT_HEIGHT, 8019267);
 		}
 		if (deletingMiniquest == null) {
-			mc.getTextureManager().bindTexture(guiTexture_miniquests);
+			mc.getTextureManager().bindTexture(GUI_TEXTURE_MINIQUESTS);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			int delU = qPanelWidth;
 			int delV = 0;
 			if (mouseInDelete) {
-				delV += qWidgetSize;
+				delV += Q_WIDGET_SIZE;
 			}
-			drawTexturedModalRect(questX + qDelX, questY + qDelY, delU, delV, qWidgetSize, qWidgetSize);
+			drawTexturedModalRect(questX + Q_DEL_X, questY + Q_DEL_Y, Q_PANEL_WIDTH, delV, Q_WIDGET_SIZE, Q_WIDGET_SIZE);
 			if (!viewCompleted) {
-				int trackU = qPanelWidth + qWidgetSize;
+				int trackU = Q_PANEL_WIDTH + Q_WIDGET_SIZE;
 				int trackV = 0;
 				if (mouseInTrack) {
-					trackV += qWidgetSize;
+					trackV += Q_WIDGET_SIZE;
 				}
 				if (isTracking) {
-					trackU += qWidgetSize;
+					trackU += Q_WIDGET_SIZE;
 				}
-				drawTexturedModalRect(questX + qTrackX, questY + qTrackY, trackU, trackV, qWidgetSize, qWidgetSize);
+				drawTexturedModalRect(questX + Q_TRACK_X, questY + Q_TRACK_Y, trackU, trackV, Q_WIDGET_SIZE, Q_WIDGET_SIZE);
 			}
 		}
 		RenderHelper.enableGUIStandardItemLighting();
@@ -517,19 +512,19 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		GL11.glEnable(2896);
 		GL11.glEnable(2884);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), quest.getQuestIcon(), questX + 149, questY + 24);
+		RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), quest.getQuestIcon(), questX + 149, questY + 24);
 		GL11.glDisable(2896);
 		GL11.glEnable(3008);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		GL11.glPopMatrix();
 	}
 
-	public void setupScrollBar(int i, int j) {
+	private void setupScrollBar(int i, int j) {
 		boolean isMouseDown = Mouse.isButtonDown(0);
 		int i1 = i - guiLeft;
 		int j1 = j - guiTop;
-		mouseInDiary = selectedMiniquest != null && i1 >= diaryX && i1 < diaryX + diaryWidth && j1 >= diaryY && j1 < diaryY + diaryHeight;
-		mouseInScrollBar = i1 >= scrollBarX && i1 < scrollBarX + scrollBarWidth && j1 >= scrollBarY && j1 < scrollBarY + scrollBarHeight;
+		mouseInDiary = selectedMiniquest != null && i1 >= DIARY_X && i1 < DIARY_X + DIARY_WIDTH && j1 >= DIARY_Y && j1 < DIARY_Y + DIARY_HEIGHT;
+		boolean mouseInScrollBar = i1 >= SCROLL_BAR_X && i1 < SCROLL_BAR_X + SCROLL_BAR_WIDTH && j1 >= SCROLL_BAR_Y && j1 < SCROLL_BAR_Y + SCROLL_BAR_HEIGHT;
 		if (!wasMouseDown && isMouseDown) {
 			if (mouseInScrollBar) {
 				isScrolling = canScroll();
@@ -543,18 +538,17 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		}
 		wasMouseDown = isMouseDown;
 		if (isScrolling) {
-			currentScroll = (j - (guiTop + scrollBarY) - scrollWidgetHeight / 2.0f) / ((float) scrollBarHeight - scrollWidgetHeight);
+			currentScroll = (j - (guiTop + SCROLL_BAR_Y) - SCROLL_WIDGET_HEIGHT / 2.0f) / ((float) SCROLL_BAR_HEIGHT - SCROLL_WIDGET_HEIGHT);
 			currentScroll = Math.max(currentScroll, 0.0f);
 			currentScroll = Math.min(currentScroll, 1.0f);
 		} else if (isDiaryScrolling) {
 			float d = (float) (lastMouseY - j) / fontRendererObj.FONT_HEIGHT;
 			diaryScroll -= d;
 		}
-		lastMouseX = i;
 		lastMouseY = j;
 	}
 
-	public void trackOrUntrack(GOTMiniQuest quest) {
+	private void trackOrUntrack(GOTMiniQuest quest) {
 		GOTMiniQuest tracking = getPlayerData().getTrackingMiniQuest();
 		GOTMiniQuest newTracking = quest == tracking ? null : quest;
 		IMessage packet = new GOTPacketMiniquestTrack(newTracking);
@@ -571,7 +565,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		}
 	}
 
-	public enum Page {
+	private enum Page {
 		MINIQUESTS("miniquests");
 
 		private final String name;
@@ -580,7 +574,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			name = s;
 		}
 
-		public String getTitle() {
+		private String getTitle() {
 			return StatCollector.translateToLocal("got.gui.redBook.page." + name);
 		}
 

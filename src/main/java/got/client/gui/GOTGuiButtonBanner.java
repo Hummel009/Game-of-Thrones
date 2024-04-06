@@ -5,9 +5,10 @@ import net.minecraft.client.gui.GuiButton;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiButtonBanner extends GuiButton {
-	public boolean activated;
-	public int iconU;
-	public int iconV;
+	private final int iconU;
+	private final int iconV;
+
+	private boolean activated;
 
 	public GOTGuiButtonBanner(int i, int x, int y, int u, int v) {
 		super(i, x, y, 16, 16, "");
@@ -18,7 +19,7 @@ public class GOTGuiButtonBanner extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
-			mc.getTextureManager().bindTexture(GOTGuiBanner.bannerTexture);
+			mc.getTextureManager().bindTexture(GOTGuiBanner.BANNER_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			field_146123_n = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int state = getHoverState(field_146123_n);
@@ -30,5 +31,13 @@ public class GOTGuiButtonBanner extends GuiButton {
 	@Override
 	public int getHoverState(boolean mouseover) {
 		return (activated ? 0 : 2) + (mouseover ? 1 : 0);
+	}
+
+	public boolean isActivated() {
+		return activated;
+	}
+
+	public void setActivated(boolean activated) {
+		this.activated = activated;
 	}
 }

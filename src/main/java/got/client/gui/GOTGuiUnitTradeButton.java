@@ -6,7 +6,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiUnitTradeButton extends GuiButton {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/npc/unit_trade_buttons.png");
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/npc/unit_trade_buttons.png");
 
 	public GOTGuiUnitTradeButton(int i, int j, int k, int width, int height) {
 		super(i, j, k, width, height, "");
@@ -15,7 +15,7 @@ public class GOTGuiUnitTradeButton extends GuiButton {
 	@Override
 	public void drawButton(Minecraft mc, int i, int j) {
 		if (visible) {
-			mc.getTextureManager().bindTexture(guiTexture);
+			mc.getTextureManager().bindTexture(GUI_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			boolean flag = i >= xPosition && j >= yPosition && i < xPosition + width && j < yPosition + height;
 			int k = id * 19;

@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.Tessellator;
 import org.lwjgl.opengl.GL11;
 
 public abstract class GOTGuiScreenBase extends GuiScreen {
-	public static void drawFloatRect(float x0, float y0, float x1, float y1, int color) {
+	protected static void drawFloatRect(float x0, float y0, float x1, float y1, int color) {
 		float x01 = x0;
 		float x11 = x1;
 		float y01 = y0;
@@ -57,7 +57,7 @@ public abstract class GOTGuiScreenBase extends GuiScreen {
 		return false;
 	}
 
-	public void drawCenteredString(String s, int x, int y, int c) {
+	protected void drawCenteredString(String s, int x, int y, int c) {
 		fontRendererObj.drawString(s, x - fontRendererObj.getStringWidth(s) / 2, y, c);
 	}
 
@@ -66,15 +66,15 @@ public abstract class GOTGuiScreenBase extends GuiScreen {
 		drawTexturedModalRect(x, y, u, v, width, height, 256);
 	}
 
-	public void drawTexturedModalRect(int x, int y, int u, int v, int width, int height, int imageWidth) {
+	protected void drawTexturedModalRect(int x, int y, int u, int v, int width, int height, int imageWidth) {
 		drawTexturedModalRectFloat(x, y, u, v, width, height, imageWidth, zLevel);
 	}
 
-	public void drawTexturedModalRectFloat(float x, float y, int u, int v, float width, float height) {
+	protected void drawTexturedModalRectFloat(float x, float y, int u, int v, float width, float height) {
 		drawTexturedModalRectFloat(x, y, u, v, width, height, 256);
 	}
 
-	public void drawTexturedModalRectFloat(float x, float y, int u, int v, float width, float height, int imageWidth) {
+	private void drawTexturedModalRectFloat(float x, float y, int u, int v, float width, float height, int imageWidth) {
 		drawTexturedModalRectFloat(x, y, u, v, width, height, imageWidth, zLevel);
 	}
 

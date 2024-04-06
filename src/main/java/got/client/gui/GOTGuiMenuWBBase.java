@@ -2,15 +2,13 @@ package got.client.gui;
 
 import got.client.GOTKeyHandler;
 import net.minecraft.client.gui.GuiButton;
-import net.minecraft.client.renderer.entity.RenderItem;
 
 public abstract class GOTGuiMenuWBBase extends GOTGuiScreenBase {
-	public static RenderItem renderItem = new RenderItem();
-	public int xSize = 200;
-	public int ySize = 256;
-	public int guiLeft;
-	public int guiTop;
-	public GuiButton goBack;
+	protected int xSize = 200;
+	protected int ySize = 256;
+	protected int guiLeft;
+	protected int guiTop;
+	protected GuiButton goBack;
 
 	@Override
 	public void actionPerformed(GuiButton button) {

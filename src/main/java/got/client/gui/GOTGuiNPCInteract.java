@@ -3,7 +3,7 @@ package got.client.gui;
 import got.common.entity.other.GOTEntityNPC;
 
 public abstract class GOTGuiNPCInteract extends GOTGuiScreenBase {
-	public GOTEntityNPC theEntity;
+	protected GOTEntityNPC theEntity;
 
 	protected GOTGuiNPCInteract(GOTEntityNPC entity) {
 		theEntity = entity;

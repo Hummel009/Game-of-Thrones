@@ -16,10 +16,12 @@ import net.minecraft.world.World;
 import org.lwjgl.opengl.GL11;
 
 public abstract class GOTGuiCraftingTable extends GuiContainer {
-	public static ResourceLocation craftingTexture = new ResourceLocation("textures/gui/container/crafting_table.png");
-	public String unlocalizedName;
-	public GOTContainerCraftingTable container;
-	public GuiButton tableSwitcher;
+	private static final ResourceLocation CRAFTING_TEXTURE = new ResourceLocation("textures/gui/container/crafting_table.png");
+
+	private final String unlocalizedName;
+	private final GOTContainerCraftingTable container;
+
+	private GuiButton tableSwitcher;
 
 	protected GOTGuiCraftingTable(GOTContainerCraftingTable container, String s) {
 		super(container);
@@ -44,7 +46,7 @@ public abstract class GOTGuiCraftingTable extends GuiContainer {
 		Minecraft mc = Minecraft.getMinecraft();
 		tableSwitcher.drawButton(mc, i, j);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		this.mc.getTextureManager().bindTexture(craftingTexture);
+		this.mc.getTextureManager().bindTexture(CRAFTING_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 	}
 

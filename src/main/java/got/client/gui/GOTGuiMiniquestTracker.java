@@ -17,27 +17,16 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiMiniquestTracker extends Gui {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/quest/tracker.png");
-	public static RenderItem renderItem = new RenderItem();
-	public static int completeTimeMax = 200;
-	public int width;
-	public int height;
-	public int barX = 16;
-	public int barY = 10;
-	public int barWidth = 90;
-	public int barHeight = 15;
-	public int barEdge = 2;
-	public int iconWidth = 20;
-	public int iconHeight = 20;
-	public int gap = 4;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/quest/tracker.png");
+	private static final RenderItem RENDER_ITEM = new RenderItem();
+
 	private GOTMiniQuest trackedQuest;
-	public boolean holdingComplete;
-	public int completeTime;
+	private boolean holdingComplete;
+	private int completeTime;
 
 	public void drawTracker(Minecraft mc, EntityPlayer entityplayer) {
 		ScaledResolution resolution = new ScaledResolution(mc, mc.displayWidth, mc.displayHeight);
-		width = resolution.getScaledWidth();
-		height = resolution.getScaledHeight();
+		int width = resolution.getScaledWidth();
 		FontRenderer fr = mc.fontRenderer;
 		boolean flip = GOTConfig.trackingQuestRight;
 		if (entityplayer != null && trackedQuest != null) {
@@ -53,29 +42,35 @@ public class GOTGuiMiniquestTracker extends Gui {
 			} else if (complete) {
 				objective = StatCollector.translateToLocal("got.gui.redBook.mq.diary.complete");
 			}
+			int barX = 16;
 			int x = barX;
-			int y = barY;
+			int iconWidth = 20;
 			if (flip) {
 				x = width - barX - iconWidth;
 			}
 			GL11.glEnable(3008);
 			GL11.glEnable(3042);
 			GL11.glBlendFunc(770, 771);
-			mc.getTextureManager().bindTexture(guiTexture);
+			mc.getTextureManager().bindTexture(GUI_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			drawTexturedModalRect(x, y, 0, 0, iconWidth, iconHeight);
+			int iconHeight = 20;
+			drawTexturedModalRect(x, 10, 0, 0, iconWidth, iconHeight);
 			int iconX = x + (iconWidth - 16) / 2;
-			int iconY = y + (iconHeight - 16) / 2;
+			int iconY = 10 + (iconHeight - 16) / 2;
+			int gap = 4;
+			int barWidth = 90;
 			x = flip ? x - (barWidth + gap) : x + iconWidth + gap;
+			int barEdge = 2;
 			int meterWidth = barWidth - barEdge * 2;
 			meterWidth = Math.round(meterWidth * completion);
-			mc.getTextureManager().bindTexture(guiTexture);
+			mc.getTextureManager().bindTexture(GUI_TEXTURE);
 			GL11.glColor4f(questRGB[0], questRGB[1], questRGB[2], 1.0f);
-			drawTexturedModalRect(x + barEdge, y, iconWidth + barEdge, barHeight, meterWidth, barHeight);
+			int barHeight = 15;
+			drawTexturedModalRect(x + barEdge, 10, iconWidth + barEdge, barHeight, meterWidth, barHeight);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-			drawTexturedModalRect(x, y, iconWidth, 0, barWidth, barHeight);
-			GOTTickHandlerClient.drawAlignmentText(fr, x + barWidth / 2 - fr.getStringWidth(progress) / 2, y + barHeight - barHeight / 2 - fr.FONT_HEIGHT / 2, progress, 1.0f);
-			fr.drawSplitString(objective, x, y + barHeight + gap, barWidth, 16777215);
+			drawTexturedModalRect(x, 10, iconWidth, 0, barWidth, barHeight);
+			GOTTickHandlerClient.drawAlignmentText(fr, x + barWidth / 2 - fr.getStringWidth(progress) / 2, 10 + barHeight - barHeight / 2 - fr.FONT_HEIGHT / 2, progress, 1.0f);
+			fr.drawSplitString(objective, x, 10 + barHeight + gap, barWidth, 16777215);
 			GL11.glDisable(3042);
 			GL11.glDisable(3008);
 			if (itemstack != null) {
@@ -85,17 +80,13 @@ public class GOTGuiMiniquestTracker extends Gui {
 				GL11.glEnable(2896);
 				GL11.glEnable(2884);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				renderItem.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), itemstack, iconX, iconY);
+				RENDER_ITEM.renderItemAndEffectIntoGUI(mc.fontRenderer, mc.getTextureManager(), itemstack, iconX, iconY);
 				GL11.glDisable(2896);
 			}
 		}
 	}
 
-	public void setTrackedQuest(GOTMiniQuest quest) {
-		trackedQuest = quest;
-	}
-
-	public void update(Minecraft mc, EntityPlayer entityplayer) {
+	public void update(EntityPlayer entityplayer) {
 		if (entityplayer == null) {
 			trackedQuest = null;
 		} else {
@@ -111,6 +102,10 @@ public class GOTGuiMiniquestTracker extends Gui {
 				holdingComplete = false;
 			}
 		}
+	}
+
+	public void setTrackedQuest(GOTMiniQuest quest) {
+		trackedQuest = quest;
 	}
 
 	public GOTMiniQuest getTrackedQuest() {

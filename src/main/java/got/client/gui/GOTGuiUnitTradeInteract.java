@@ -8,9 +8,6 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 
 public class GOTGuiUnitTradeInteract extends GOTGuiNPCInteract {
-	public GuiButton buttonTalk;
-	public GuiButton buttonHire;
-
 	public GOTGuiUnitTradeInteract(GOTEntityNPC entity) {
 		super(entity);
 	}
@@ -25,8 +22,8 @@ public class GOTGuiUnitTradeInteract extends GOTGuiNPCInteract {
 
 	@Override
 	public void initGui() {
-		buttonTalk = new GOTGuiButton(0, width / 2 - 65, height / 5 * 3, 60, 20, StatCollector.translateToLocal("got.gui.npc.talk"));
-		buttonHire = new GOTGuiButton(1, width / 2 + 5, height / 5 * 3, 60, 20, StatCollector.translateToLocal("got.gui.npc.hire"));
+		GuiButton buttonTalk = new GOTGuiButton(0, width / 2 - 65, height / 5 * 3, 60, 20, StatCollector.translateToLocal("got.gui.npc.talk"));
+		GuiButton buttonHire = new GOTGuiButton(1, width / 2 + 5, height / 5 * 3, 60, 20, StatCollector.translateToLocal("got.gui.npc.hire"));
 		buttonList.add(buttonTalk);
 		buttonList.add(buttonHire);
 	}

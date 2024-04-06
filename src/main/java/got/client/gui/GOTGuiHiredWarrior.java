@@ -14,17 +14,16 @@ import net.minecraft.util.StringUtils;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
-	public static String[] pageTitles = new String[]{"overview", "options"};
-	public static int XP_COLOR = 16733440;
-	public GuiButton buttonLeft;
-	public GuiButton buttonRight;
-	public GOTGuiButtonOptions buttonOpenInv;
-	public GOTGuiButtonOptions buttonTeleport;
-	public GOTGuiButtonOptions buttonGuardMode;
-	public GOTGuiSlider sliderGuardRange;
-	public GuiTextField squadronNameField;
-	public boolean updatePage;
-	public boolean sendSquadronUpdate;
+	private static final String[] PAGE_TITLES = new String[]{"overview", "options"};
+
+	private GuiButton buttonLeft;
+	private GuiButton buttonRight;
+	private GOTGuiButtonOptions buttonTeleport;
+	private GOTGuiButtonOptions buttonGuardMode;
+	private GOTGuiSlider sliderGuardRange;
+	private GuiTextField squadronNameField;
+	private boolean updatePage;
+	private boolean sendSquadronUpdate;
 
 	public GOTGuiHiredWarrior(GOTEntityNPC npc) {
 		super(npc);
@@ -40,11 +39,11 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 				if (button == buttonLeft) {
 					--page;
 					if (page < 0) {
-						page = pageTitles.length - 1;
+						page = PAGE_TITLES.length - 1;
 					}
 				} else if (button == buttonRight) {
 					++page;
-					if (page >= pageTitles.length) {
+					if (page >= PAGE_TITLES.length) {
 						page = 0;
 					}
 				}
@@ -100,7 +99,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 		super.initGui();
 		int midX = guiLeft + xSize / 2;
 		if (page == 0) {
-			buttonOpenInv = new GOTGuiButtonOptions(0, midX - 80, guiTop + 142, 160, 20, StatCollector.translateToLocal("got.gui.warrior.openInv"));
+			GOTGuiButtonOptions buttonOpenInv = new GOTGuiButtonOptions(0, midX - 80, guiTop + 142, 160, 20, StatCollector.translateToLocal("got.gui.warrior.openInv"));
 			buttonList.add(buttonOpenInv);
 		} else if (page == 1) {
 			buttonTeleport = new GOTGuiButtonOptions(0, midX - 80, guiTop + 180, 160, 20, StatCollector.translateToLocal("got.gui.warrior.teleport"));
@@ -122,8 +121,8 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 		buttonRight = new GOTGuiButtonLeftRight(1001, false, guiLeft + xSize + 10, guiTop + 50, "");
 		buttonList.add(buttonLeft);
 		buttonList.add(buttonRight);
-		buttonLeft.displayString = pageTitles[(page == 0 ? pageTitles.length : page) - 1];
-		buttonRight.displayString = pageTitles[page == pageTitles.length - 1 ? 0 : page + 1];
+		buttonLeft.displayString = PAGE_TITLES[(page == 0 ? PAGE_TITLES.length : page) - 1];
+		buttonRight.displayString = PAGE_TITLES[page == PAGE_TITLES.length - 1 ? 0 : page + 1];
 		buttonLeft.displayString = StatCollector.translateToLocal("got.gui.warrior." + buttonLeft.displayString);
 		buttonRight.displayString = StatCollector.translateToLocal("got.gui.warrior." + buttonRight.displayString);
 	}
@@ -168,7 +167,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 			buttonTeleport.enabled = !theNPC.hiredNPCInfo.isGuardMode();
 			buttonGuardMode.setState(theNPC.hiredNPCInfo.isGuardMode());
 			sliderGuardRange.visible = theNPC.hiredNPCInfo.isGuardMode();
-			if (sliderGuardRange.dragging) {
+			if (sliderGuardRange.isDragging()) {
 				int i = sliderGuardRange.getSliderValue();
 				theNPC.hiredNPCInfo.setGuardRange(i);
 				sendActionPacket(sliderGuardRange.id, i);

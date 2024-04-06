@@ -33,20 +33,22 @@ import org.lwjgl.opengl.GL11;
 import java.util.List;
 
 public abstract class GOTGuiHireBase extends GuiContainer {
-	public static ResourceLocation guiTexture;
-	public GOTHireableBase theUnitTrader;
-	public GOTFaction traderFaction;
-	private GOTUnitTradeEntries trades;
-	public int currentTradeEntryIndex;
-	public GOTEntityNPC currentDisplayedMob;
-	public EntityLiving currentDisplayedMount;
-	public float screenXSize;
-	public float screenYSize;
-	public GOTGuiUnitTradeButton buttonHire;
-	public GOTGuiUnitTradeButton buttonLeftUnit;
-	public GOTGuiUnitTradeButton buttonRightUnit;
+	private static ResourceLocation guiTexture;
 
-	public GuiTextField squadronNameField;
+	private final GOTHireableBase theUnitTrader;
+	private final GOTFaction traderFaction;
+
+	private GOTUnitTradeEntries trades;
+	private int currentTradeEntryIndex;
+	private GOTEntityNPC currentDisplayedMob;
+	private EntityLiving currentDisplayedMount;
+	private float screenXSize;
+	private float screenYSize;
+	private GOTGuiUnitTradeButton buttonHire;
+	private GOTGuiUnitTradeButton buttonLeftUnit;
+	private GOTGuiUnitTradeButton buttonRightUnit;
+
+	private GuiTextField squadronNameField;
 
 	protected GOTGuiHireBase(EntityPlayer entityplayer, GOTHireableBase trader, World world) {
 		super(new GOTContainerUnitTrade(entityplayer, trader, world));
@@ -73,11 +75,11 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		}
 	}
 
-	public GOTUnitTradeEntry currentTrade() {
+	private GOTUnitTradeEntry currentTrade() {
 		return trades.tradeEntries[currentTradeEntryIndex];
 	}
 
-	public void drawCenteredString(String s, int i, int j, int k) {
+	private void drawCenteredString(String s, int i, int j, int k) {
 		fontRendererObj.drawString(s, i - fontRendererObj.getStringWidth(s) / 2, j, k);
 	}
 
@@ -180,7 +182,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		}
 	}
 
-	public void drawMobOnGui(int i, int j, float f, float f1) {
+	private void drawMobOnGui(int i, int j, float f, float f1) {
 		Class<? extends Entity> entityClass = currentTrade().entityClass;
 		Class<? extends Entity> mountClass = currentTrade().mountClass;
 		if (currentDisplayedMob == null || currentDisplayedMob.getClass() != entityClass || mountClass == null && currentDisplayedMount != null || mountClass != null && (currentDisplayedMount == null || currentDisplayedMount.getClass() != mountClass)) {
@@ -286,7 +288,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		squadronNameField.mouseClicked(i, j, k);
 	}
 
-	public void setTrades(GOTUnitTradeEntries t) {
+	protected void setTrades(GOTUnitTradeEntries t) {
 		trades = t;
 	}
 

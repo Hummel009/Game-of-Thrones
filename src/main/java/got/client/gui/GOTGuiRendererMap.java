@@ -10,14 +10,16 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiRendererMap {
-	public static ResourceLocation vignetteTexture = new ResourceLocation("textures/misc/vignette.png");
-	public double prevMapX;
-	public double mapX;
-	public double prevMapY;
-	public double mapY;
-	public float zoomExp;
-	public float zoomStable;
+	private static final ResourceLocation VIGNETTE_TEXTURE = new ResourceLocation("textures/misc/vignette.png");
+
 	private boolean sepia;
+
+	private double prevMapX;
+	private double mapX;
+	private double prevMapY;
+	private double mapY;
+	private float zoomExp;
+	private float zoomStable;
 
 	public void renderMap(GuiScreen gui, GOTGuiMap mapGui, float f) {
 		renderMap(gui, mapGui, f, 0, 0, gui.width, gui.height);
@@ -32,23 +34,23 @@ public class GOTGuiRendererMap {
 		double mapPosY = prevMapY + (mapY - prevMapY) * f;
 		mapGui.setFakeMapProperties((float) mapPosX, (float) mapPosY, zoom, zoomExp, zoomStable);
 		int[] statics = GOTGuiMap.setFakeStaticProperties(x1 - x0, y1 - y0, x0, x1, y0, y1);
-		mapGui.enableZoomOutWPFading = false;
+		mapGui.setEnableZoomOutWPFading(false);
 		mapGui.renderMapAndOverlay(sepia, 1.0f, true);
 		mapGui.renderBeziers(false);
 		mapGui.renderWaypoints(GOTWaypoint.listAllWaypoints(), 0, 0, 0, false, true);
 		GOTGuiMap.setFakeStaticProperties(statics[0], statics[1], statics[2], statics[3], statics[4], statics[5]);
 	}
 
-	public void renderVignette(GuiScreen gui, double zLevel) {
+	private void renderVignette(GuiScreen gui, double zLevel) {
 		renderVignette(gui, zLevel, 0, 0, gui.width, gui.height);
 	}
 
-	public void renderVignette(GuiScreen gui, double zLevel, int x0, int y0, int x1, int y1) {
+	private void renderVignette(GuiScreen gui, double zLevel, int x0, int y0, int x1, int y1) {
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(771, 769, 1, 0);
 		float alpha = 1.0f;
 		GL11.glColor4f(alpha, alpha, alpha, 1.0f);
-		gui.mc.getTextureManager().bindTexture(vignetteTexture);
+		gui.mc.getTextureManager().bindTexture(VIGNETTE_TEXTURE);
 		double u0 = (double) x0 / gui.width;
 		double u1 = (double) x1 / gui.width;
 		double v0 = (double) y0 / gui.height;
@@ -87,5 +89,53 @@ public class GOTGuiRendererMap {
 
 	public boolean isSepia() {
 		return sepia;
+	}
+
+	public double getPrevMapX() {
+		return prevMapX;
+	}
+
+	public void setPrevMapX(double prevMapX) {
+		this.prevMapX = prevMapX;
+	}
+
+	public double getMapX() {
+		return mapX;
+	}
+
+	public void setMapX(double mapX) {
+		this.mapX = mapX;
+	}
+
+	public double getPrevMapY() {
+		return prevMapY;
+	}
+
+	public void setPrevMapY(double prevMapY) {
+		this.prevMapY = prevMapY;
+	}
+
+	public double getMapY() {
+		return mapY;
+	}
+
+	public void setMapY(double mapY) {
+		this.mapY = mapY;
+	}
+
+	public float getZoomExp() {
+		return zoomExp;
+	}
+
+	public void setZoomExp(float zoomExp) {
+		this.zoomExp = zoomExp;
+	}
+
+	public float getZoomStable() {
+		return zoomStable;
+	}
+
+	public void setZoomStable(float zoomStable) {
+		this.zoomStable = zoomStable;
 	}
 }

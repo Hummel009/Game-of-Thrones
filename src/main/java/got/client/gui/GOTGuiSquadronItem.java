@@ -6,7 +6,6 @@ import got.common.network.GOTPacketHandler;
 import got.common.network.GOTPacketItemSquadron;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiTextField;
-import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.ResourceLocation;
@@ -15,16 +14,15 @@ import net.minecraft.util.StringUtils;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiSquadronItem extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/squadronItem.png");
-	public static RenderItem itemRenderer = new RenderItem();
-	public int xSize = 200;
-	public int ySize = 120;
-	public int guiLeft;
-	public int guiTop;
-	public GuiButton buttonDone;
-	public GuiTextField squadronNameField;
-	public ItemStack theItem;
-	public boolean sendSquadronUpdate;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/squadronItem.png");
+	private static final int X_SIZE = 200;
+	private static final int Y_SIZE = 120;
+
+	private int guiLeft;
+	private int guiTop;
+	private GuiButton buttonDone;
+	private GuiTextField squadronNameField;
+	private ItemStack theItem;
 
 	@Override
 	public void actionPerformed(GuiButton button) {
@@ -37,10 +35,10 @@ public class GOTGuiSquadronItem extends GOTGuiScreenBase {
 	public void drawScreen(int i, int j, float f) {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, X_SIZE, Y_SIZE);
 		String s = theItem.getDisplayName();
-		fontRendererObj.drawString(s, guiLeft + xSize / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 4210752);
+		fontRendererObj.drawString(s, guiLeft + X_SIZE / 2 - fontRendererObj.getStringWidth(s) / 2, guiTop + 11, 4210752);
 		s = StatCollector.translateToLocal("got.gui.squadronItem.squadron");
 		fontRendererObj.drawString(s, squadronNameField.xPosition, squadronNameField.yPosition - fontRendererObj.FONT_HEIGHT - 3, 4210752);
 		boolean noSquadron = StringUtils.isNullOrEmpty(squadronNameField.getText()) && !squadronNameField.isFocused();
@@ -57,14 +55,14 @@ public class GOTGuiSquadronItem extends GOTGuiScreenBase {
 
 	@Override
 	public void initGui() {
-		guiLeft = (width - xSize) / 2;
-		guiTop = (height - ySize) / 2;
-		buttonDone = new GOTGuiButton(1, guiLeft + xSize / 2 - 40, guiTop + 85, 80, 20, StatCollector.translateToLocal("got.gui.squadronItem.done"));
+		guiLeft = (width - X_SIZE) / 2;
+		guiTop = (height - Y_SIZE) / 2;
+		buttonDone = new GOTGuiButton(1, guiLeft + X_SIZE / 2 - 40, guiTop + 85, 80, 20, StatCollector.translateToLocal("got.gui.squadronItem.done"));
 		buttonList.add(buttonDone);
 		ItemStack itemstack = mc.thePlayer.inventory.getCurrentItem();
 		if (itemstack != null && itemstack.getItem() instanceof GOTSquadrons.SquadronItem) {
 			theItem = itemstack;
-			squadronNameField = new GuiTextField(fontRendererObj, guiLeft + xSize / 2 - 80, guiTop + 50, 160, 20);
+			squadronNameField = new GuiTextField(fontRendererObj, guiLeft + X_SIZE / 2 - 80, guiTop + 50, 160, 20);
 			squadronNameField.setMaxStringLength(GOTSquadrons.SQUADRON_LENGTH_MAX);
 			String squadron = GOTSquadrons.getSquadron(theItem);
 			if (!StringUtils.isNullOrEmpty(squadron)) {

@@ -9,8 +9,9 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GOTGuiButtonPledge extends GuiButton {
-	public GOTGuiFactions parentGUI;
-	public boolean isBroken;
+	private final GOTGuiFactions parentGUI;
+
+	private boolean isBroken;
 	private List<String> displayLines;
 
 	public GOTGuiButtonPledge(GOTGuiFactions gui, int i, int x, int y, String s) {
@@ -54,5 +55,13 @@ public class GOTGuiButtonPledge extends GuiButton {
 
 	public List<String> getDisplayLines() {
 		return displayLines;
+	}
+
+	public boolean isBroken() {
+		return isBroken;
+	}
+
+	public void setBroken(boolean broken) {
+		isBroken = broken;
 	}
 }

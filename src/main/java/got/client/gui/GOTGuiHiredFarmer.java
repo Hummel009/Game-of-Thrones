@@ -6,8 +6,8 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.util.StatCollector;
 
 public class GOTGuiHiredFarmer extends GOTGuiHiredNPC {
-	public GOTGuiButtonOptions buttonGuardMode;
-	public GOTGuiSlider sliderGuardRange;
+	private GOTGuiButtonOptions buttonGuardMode;
+	private GOTGuiSlider sliderGuardRange;
 
 	public GOTGuiHiredFarmer(GOTEntityNPC npc) {
 		super(npc);
@@ -49,7 +49,7 @@ public class GOTGuiHiredFarmer extends GOTGuiHiredNPC {
 		super.updateScreen();
 		buttonGuardMode.setState(theNPC.hiredNPCInfo.isGuardMode());
 		sliderGuardRange.visible = theNPC.hiredNPCInfo.isGuardMode();
-		if (sliderGuardRange.dragging) {
+		if (sliderGuardRange.isDragging()) {
 			int i = sliderGuardRange.getSliderValue();
 			theNPC.hiredNPCInfo.setGuardRange(i);
 			sendActionPacket(sliderGuardRange.id, i);

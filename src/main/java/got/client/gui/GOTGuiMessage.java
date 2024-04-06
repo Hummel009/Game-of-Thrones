@@ -11,15 +11,16 @@ import java.util.Collection;
 import java.util.regex.Pattern;
 
 public class GOTGuiMessage extends GOTGuiScreenBase {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/message.png");
-	public GOTGuiMessageTypes type;
-	public int xSize = 240;
-	public int ySize = 160;
-	public int border = 10;
-	public int guiLeft;
-	public int guiTop;
-	public GuiButton buttonDismiss;
-	public int buttonTimer = 60;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/message.png");
+	private static final int X_SIZE = 240;
+	private static final int Y_SIZE = 160;
+
+	private final GOTGuiMessageTypes type;
+
+	private int guiLeft;
+	private int guiTop;
+	private GuiButton buttonDismiss;
+	private int buttonTimer = 60;
 
 	public GOTGuiMessage(GOTGuiMessageTypes t) {
 		type = t;
@@ -35,11 +36,12 @@ public class GOTGuiMessage extends GOTGuiScreenBase {
 	@Override
 	public void drawScreen(int i, int j, float f) {
 		drawDefaultBackground();
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+		drawTexturedModalRect(guiLeft, guiTop, 0, 0, X_SIZE, Y_SIZE);
 		String msg = type.getMessage();
-		int pageWidth = xSize - border * 2;
+		int border = 10;
+		int pageWidth = X_SIZE - border * 2;
 		String[] splitNewline = msg.split(Pattern.quote("\\n"));
 		Collection<String> msgLines = new ArrayList<>();
 		for (String line : splitNewline) {
@@ -52,7 +54,7 @@ public class GOTGuiMessage extends GOTGuiScreenBase {
 			y += fontRendererObj.FONT_HEIGHT;
 		}
 		String s = StatCollector.translateToLocal("got.gui.message.notDisplayedAgain");
-		drawCenteredString(s, guiLeft + xSize / 2, guiTop + ySize - border / 2 - fontRendererObj.FONT_HEIGHT, 9666921);
+		drawCenteredString(s, guiLeft + X_SIZE / 2, guiTop + Y_SIZE - border / 2 - fontRendererObj.FONT_HEIGHT, 9666921);
 
 		if (buttonTimer > 0) {
 			--buttonTimer;
@@ -63,9 +65,9 @@ public class GOTGuiMessage extends GOTGuiScreenBase {
 
 	@Override
 	public void initGui() {
-		guiLeft = (width - xSize) / 2;
-		guiTop = (height - ySize) / 2;
-		buttonDismiss = new GOTGuiButton(0, guiLeft + xSize / 2 - 40, guiTop + ySize + 20, 80, 20, StatCollector.translateToLocal("got.gui.message.dismiss"));
+		guiLeft = (width - X_SIZE) / 2;
+		guiTop = (height - Y_SIZE) / 2;
+		buttonDismiss = new GOTGuiButton(0, guiLeft + X_SIZE / 2 - 40, guiTop + Y_SIZE + 20, 80, 20, StatCollector.translateToLocal("got.gui.message.dismiss"));
 		buttonList.add(buttonDismiss);
 	}
 

@@ -18,60 +18,61 @@ import org.lwjgl.opengl.GL11;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class GOTGuiMainMenu extends GuiMainMenu {
-	public static ResourceLocation titleTexture = new ResourceLocation("textures/gui/title/minecraft.png");
-	public static ResourceLocation menuOverlay = new ResourceLocation("got:textures/gui/menu_overlay.png");
-	public static GOTGuiRendererMap mapRenderer;
-	public static int tickCounter;
-	public static Random rand = new Random();
-	public static boolean isFirstMenu = true;
-	public static List<GOTWaypoint> waypointRoute = new ArrayList<>();
-	public static int currentWPIndex;
-	public static boolean randomWPStart;
-	public static float mapSpeed;
-	public static float mapVelX;
-	public static float mapVelY;
-	public GOTGuiMap mapGui;
-	public boolean fadeIn = isFirstMenu;
-	public long firstRenderTime;
+	private static final ResourceLocation TITLE_TEXTURE = new ResourceLocation("textures/gui/title/minecraft.png");
+	private static final ResourceLocation MENU_OVERLAY = new ResourceLocation("got:textures/gui/menu_overlay.png");
+	private static final List<GOTWaypoint> WAYPOINT_ROUTE = new ArrayList<>();
+	private static final boolean FADE_IN = true;
+
+	private static GOTGuiRendererMap mapRenderer;
+	private static int currentWPIndex;
+	private static float mapSpeed;
+	private static float mapVelX;
+	private static float mapVelY;
+
+	private final GOTGuiMap mapGui;
+
+	private long firstRenderTime;
 
 	public GOTGuiMainMenu() {
-		isFirstMenu = false;
 		mapGui = new GOTGuiMap();
 		mapRenderer = new GOTGuiRendererMap();
 		mapRenderer.setSepia(false);
-		if (waypointRoute.isEmpty()) {
+		if (WAYPOINT_ROUTE.isEmpty()) {
 			setupWaypoints();
-			currentWPIndex = randomWPStart ? rand.nextInt(waypointRoute.size()) : 0;
+			currentWPIndex = 0;
 		}
-		GOTWaypoint wp = waypointRoute.get(currentWPIndex);
-		mapRenderer.prevMapX = mapRenderer.mapX = wp.getX();
-		mapRenderer.prevMapY = mapRenderer.mapY = wp.getY();
+		GOTWaypoint wp = WAYPOINT_ROUTE.get(currentWPIndex);
+		double x = wp.getX();
+		double y = wp.getY();
+		mapRenderer.setMapX(x);
+		mapRenderer.setMapY(y);
+		mapRenderer.setPrevMapX(x);
+		mapRenderer.setPrevMapY(y);
 	}
 
-	public static void setupWaypoints() {
-		waypointRoute.clear();
-		waypointRoute.add(GOTWaypoint.CASTLE_BLACK);
-		waypointRoute.add(GOTWaypoint.WINTERFELL);
-		waypointRoute.add(GOTWaypoint.RIVERRUN);
-		waypointRoute.add(GOTWaypoint.CASTERLY_ROCK);
-		waypointRoute.add(GOTWaypoint.KINGS_LANDING);
-		waypointRoute.add(GOTWaypoint.STORMS_END);
-		waypointRoute.add(GOTWaypoint.HIGHGARDEN);
-		waypointRoute.add(GOTWaypoint.SUNSPEAR);
-		waypointRoute.add(GOTWaypoint.PENTOS);
-		waypointRoute.add(GOTWaypoint.OLD_GHIS);
-		waypointRoute.add(GOTWaypoint.TIQUI);
-		waypointRoute.add(GOTWaypoint.ASSHAI);
-		waypointRoute.add(GOTWaypoint.EAST_COAST);
-		waypointRoute.add(GOTWaypoint.EAST_BAY);
-		waypointRoute.add(GOTWaypoint.SOUTH_ULTHOS);
-		waypointRoute.add(GOTWaypoint.RED_FORESTS);
-		waypointRoute.add(GOTWaypoint.ZAMETTAR);
-		waypointRoute.add(GOTWaypoint.FOURTEEN_FLAMES);
-		waypointRoute.add(GOTWaypoint.KINGS_LANDING);
+	private static void setupWaypoints() {
+		WAYPOINT_ROUTE.clear();
+		WAYPOINT_ROUTE.add(GOTWaypoint.CASTLE_BLACK);
+		WAYPOINT_ROUTE.add(GOTWaypoint.WINTERFELL);
+		WAYPOINT_ROUTE.add(GOTWaypoint.RIVERRUN);
+		WAYPOINT_ROUTE.add(GOTWaypoint.CASTERLY_ROCK);
+		WAYPOINT_ROUTE.add(GOTWaypoint.KINGS_LANDING);
+		WAYPOINT_ROUTE.add(GOTWaypoint.STORMS_END);
+		WAYPOINT_ROUTE.add(GOTWaypoint.HIGHGARDEN);
+		WAYPOINT_ROUTE.add(GOTWaypoint.SUNSPEAR);
+		WAYPOINT_ROUTE.add(GOTWaypoint.PENTOS);
+		WAYPOINT_ROUTE.add(GOTWaypoint.OLD_GHIS);
+		WAYPOINT_ROUTE.add(GOTWaypoint.TIQUI);
+		WAYPOINT_ROUTE.add(GOTWaypoint.ASSHAI);
+		WAYPOINT_ROUTE.add(GOTWaypoint.EAST_COAST);
+		WAYPOINT_ROUTE.add(GOTWaypoint.EAST_BAY);
+		WAYPOINT_ROUTE.add(GOTWaypoint.SOUTH_ULTHOS);
+		WAYPOINT_ROUTE.add(GOTWaypoint.RED_FORESTS);
+		WAYPOINT_ROUTE.add(GOTWaypoint.ZAMETTAR);
+		WAYPOINT_ROUTE.add(GOTWaypoint.FOURTEEN_FLAMES);
+		WAYPOINT_ROUTE.add(GOTWaypoint.KINGS_LANDING);
 	}
 
 	@Override
@@ -79,31 +80,31 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		GL11.glEnable(3008);
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		if (firstRenderTime == 0L && fadeIn) {
+		if (firstRenderTime == 0L && FADE_IN) {
 			firstRenderTime = System.currentTimeMillis();
 		}
-		float fade = fadeIn ? (System.currentTimeMillis() - firstRenderTime) / 1000.0f : 1.0f;
-		float fadeAlpha = fadeIn ? MathHelper.clamp_float(fade - 1.0f, 0.0f, 1.0f) : 1.0f;
-		mapRenderer.zoomExp = -0.3f;
-		if (fadeIn) {
+		float fade = FADE_IN ? (System.currentTimeMillis() - firstRenderTime) / 1000.0f : 1.0f;
+		float fadeAlpha = FADE_IN ? MathHelper.clamp_float(fade - 1.0f, 0.0f, 1.0f) : 1.0f;
+		mapRenderer.setZoomExp(-0.3f);
+		if (FADE_IN) {
 			float slowerFade = fade * 0.5f;
 			float fadeInZoom = MathHelper.clamp_float(1.0f - slowerFade, 0.0f, 1.0f) * -1.5f;
-			mapRenderer.zoomExp += fadeInZoom;
+			mapRenderer.setZoomExp(mapRenderer.getZoomExp() + fadeInZoom);
 		}
-		mapRenderer.zoomStable = (float) Math.pow(2.0, -0.10000000149011612);
+		mapRenderer.setZoomStable((float) Math.pow(2.0, -0.10000000149011612));
 		mapRenderer.renderMap(this, mapGui, f);
 		mapRenderer.renderVignettes(this, zLevel, 2);
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		GL11.glColor4f(1.0f, 1.0f, 1.0f, fadeIn ? MathHelper.clamp_float(1.0f - fade, 0.0f, 1.0f) : 0.0f);
-		mc.getTextureManager().bindTexture(menuOverlay);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, FADE_IN ? MathHelper.clamp_float(1.0f - fade, 0.0f, 1.0f) : 0.0f);
+		mc.getTextureManager().bindTexture(MENU_OVERLAY);
 		func_152125_a(0, 0, 0.0f, 0.0f, 16, 128, width, height, 16.0f, 128.0f);
 		int fadeAlphaI = MathHelper.ceiling_float_int(fadeAlpha * 255.0f) << 24;
 		if ((fadeAlphaI & 0xFC000000) != 0) {
 			int short1 = 274;
 			int k = width / 2 - short1 / 2;
 			int b0 = 30;
-			mc.getTextureManager().bindTexture(titleTexture);
+			mc.getTextureManager().bindTexture(TITLE_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, fadeAlpha);
 			drawTexturedModalRect(k, b0, 0, 0, 155, 44);
 			drawTexturedModalRect(k + 155, b0, 0, 45, 155, 44);
@@ -173,16 +174,15 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
-		++tickCounter;
 		mapRenderer.updateTick();
-		GOTWaypoint wp = waypointRoute.get(currentWPIndex);
-		double dx = wp.getX() - mapRenderer.mapX;
-		double dy = wp.getY() - mapRenderer.mapY;
+		GOTWaypoint wp = WAYPOINT_ROUTE.get(currentWPIndex);
+		double dx = wp.getX() - mapRenderer.getMapX();
+		double dy = wp.getY() - mapRenderer.getMapY();
 		double distSq = dx * dx + dy * dy;
 		double dist = Math.sqrt(distSq);
 		if (dist <= 12.0f) {
 			++currentWPIndex;
-			if (currentWPIndex >= waypointRoute.size()) {
+			if (currentWPIndex >= WAYPOINT_ROUTE.size()) {
 				currentWPIndex = 0;
 			}
 		} else {
@@ -194,7 +194,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 			mapVelX = (float) (mapVelX + (vXNew - mapVelX) * a);
 			mapVelY = (float) (mapVelY + (vYNew - mapVelY) * a);
 		}
-		mapRenderer.mapX += mapVelX;
-		mapRenderer.mapY += mapVelY;
+		mapRenderer.setMapX(mapRenderer.getMapX() + mapVelX);
+		mapRenderer.setMapY(mapRenderer.getMapY() + mapVelY);
 	}
 }

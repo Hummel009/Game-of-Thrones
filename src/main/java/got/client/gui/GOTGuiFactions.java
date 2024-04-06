@@ -26,57 +26,58 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class GOTGuiFactions extends GOTGuiMenuWBBase {
-	public static ResourceLocation factionsTexture = new ResourceLocation("got:textures/gui/factions.png");
-	public static ResourceLocation factionsTextureFull = new ResourceLocation("got:textures/gui/factions_full.png");
-	public static GOTDimension currentDimension;
-	public static GOTDimension prevDimension;
-	public static GOTDimension.DimensionRegion currentRegion;
-	public static GOTDimension.DimensionRegion prevRegion;
-	public static List<GOTFaction> currentFactionList;
-	public static int maxAlignmentsDisplayed = 1;
-	public static Page currentPage = Page.FRONT;
-	public static int maxDisplayedAlliesEnemies = 10;
-	public int currentFactionIndex;
-	public int prevFactionIndex;
-	public GOTFaction currentFaction;
-	public int pageY = 46;
-	public int pageWidth = 256;
-	public int pageHeight = 128;
-	public int pageBorderLeft = 16;
-	public int pageBorderTop = 12;
-	public int pageMapX = 159;
-	public int pageMapY = 22;
-	public int pageMapSize = 80;
-	public GOTGuiMap mapDrawGui;
-	public GuiButton buttonRegions;
-	public GuiButton buttonPagePrev;
-	public GuiButton buttonPageNext;
-	public GuiButton buttonFactionMap;
-	public GOTGuiButtonPledge buttonPledge;
-	public GOTGuiButtonPledge buttonPledgeConfirm;
-	public GOTGuiButtonPledge buttonPledgeRevoke;
-	public float currentScroll;
-	public boolean isScrolling;
-	public boolean wasMouseDown;
-	public int scrollBarWidth;
-	public int scrollBarHeight;
-	public int scrollBarX;
-	public int scrollBarY;
-	public int scrollBarBorder;
-	public int scrollWidgetWidth;
-	public int scrollWidgetHeight;
-	public GOTGuiScrollPane scrollPaneAlliesEnemies;
-	public int scrollAlliesEnemiesX;
-	public int numDisplayedAlliesEnemies;
-	public List<Object> currentAlliesEnemies;
-	public boolean isOtherPlayer;
-	public String otherPlayerName;
-	public Map<GOTFaction, Float> playerAlignmentMap;
-	public boolean isPledging;
-	public boolean isUnpledging;
+	public static final ResourceLocation FACTIONS_TEXTURE = new ResourceLocation("got:textures/gui/factions.png");
+
+	private static final ResourceLocation FACTIONS_TEXTURE_FULL = new ResourceLocation("got:textures/gui/factions_full.png");
+	private static final int PAGE_Y = 46;
+	private static final int PAGE_WIDTH = 256;
+	private static final int PAGE_HEIGHT = 128;
+	private static final int PAGE_BORDER_TOP = 12;
+	private static final int PAGE_MAP_X = 159;
+	private static final int PAGE_MAP_Y = 22;
+	private static final int PAGE_MAP_SIZE = 80;
+
+	private static GOTDimension currentDimension;
+	private static GOTDimension prevDimension;
+	private static GOTDimension.DimensionRegion currentRegion;
+	private static GOTDimension.DimensionRegion prevRegion;
+	private static List<GOTFaction> currentFactionList;
+	private static Page currentPage = Page.FRONT;
+
+	private final GOTGuiMap mapDrawGui;
+	private final int scrollBarWidth;
+	private final int scrollBarHeight;
+	private final int scrollBarX;
+	private final int scrollBarY;
+	private final int scrollBarBorder;
+	private final int scrollWidgetWidth;
+	private final int scrollWidgetHeight;
+	private final GOTGuiScrollPane scrollPaneAlliesEnemies;
+	private final int scrollAlliesEnemiesX;
+
+	private int currentFactionIndex;
+	private int prevFactionIndex;
+	private GOTFaction currentFaction;
+	private GuiButton buttonRegions;
+	private GuiButton buttonPagePrev;
+	private GuiButton buttonPageNext;
+	private GuiButton buttonFactionMap;
+	private GOTGuiButtonPledge buttonPledge;
+	private GOTGuiButtonPledge buttonPledgeConfirm;
+	private GOTGuiButtonPledge buttonPledgeRevoke;
+	private float currentScroll;
+	private boolean isScrolling;
+	private boolean wasMouseDown;
+	private int numDisplayedAlliesEnemies;
+	private List<Object> currentAlliesEnemies;
+	private boolean isOtherPlayer;
+	private String otherPlayerName;
+	private Map<GOTFaction, Float> playerAlignmentMap;
+	private boolean isPledging;
+	private boolean isUnpledging;
 
 	public GOTGuiFactions() {
-		xSize = pageWidth;
+		xSize = PAGE_WIDTH;
 		currentScroll = 0.0f;
 		isScrolling = false;
 		scrollBarWidth = 240;
@@ -153,7 +154,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 	}
 
-	public boolean canScroll() {
+	private boolean canScroll() {
 		return true;
 	}
 
@@ -178,12 +179,12 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			}
 			if (!isOtherPlayer && currentPage == Page.FRONT) {
 				if (clientPD.isPledgedTo(currentFaction)) {
-					buttonPledge.isBroken = buttonPledge.func_146115_a();
+					buttonPledge.setBroken(buttonPledge.func_146115_a());
 					buttonPledge.enabled = true;
 					buttonPledge.visible = true;
 					buttonPledge.setDisplayLines(StatCollector.translateToLocal("got.gui.factions.unpledge"));
 				} else {
-					buttonPledge.isBroken = false;
+					buttonPledge.setBroken(false);
 					buttonPledge.visible = clientPD.getPledgeFaction() == null && currentFaction.isPlayableAlignmentFaction() && clientPD.getAlignment(currentFaction) >= 0.0f;
 					buttonPledge.enabled = buttonPledge.visible && clientPD.hasPledgeAlignment(currentFaction);
 					String desc1 = StatCollector.translateToLocal("got.gui.factions.pledge");
@@ -223,12 +224,12 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		if (useFullPageTexture()) {
-			mc.getTextureManager().bindTexture(factionsTextureFull);
+			mc.getTextureManager().bindTexture(FACTIONS_TEXTURE_FULL);
 		} else {
-			mc.getTextureManager().bindTexture(factionsTexture);
+			mc.getTextureManager().bindTexture(FACTIONS_TEXTURE);
 		}
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		drawTexturedModalRect(guiLeft, guiTop + pageY, 0, 0, pageWidth, pageHeight);
+		drawTexturedModalRect(guiLeft, guiTop + PAGE_Y, 0, 0, PAGE_WIDTH, PAGE_HEIGHT);
 		if (currentRegion != null && currentDimension.dimensionRegions.size() > 1) {
 			buttonRegions.displayString = currentRegion.getRegionName();
 			buttonRegions.enabled = true;
@@ -251,25 +252,25 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 					int mapX = mapInfo.mapX;
 					int mapY = mapInfo.mapY;
 					int mapR = mapInfo.radius;
-					int xMin = guiLeft + pageMapX;
-					int xMax = xMin + pageMapSize;
-					int yMin = guiTop + pageY + pageMapY;
-					int yMax = yMin + pageMapSize;
+					int xMin = guiLeft + PAGE_MAP_X;
+					int xMax = xMin + PAGE_MAP_SIZE;
+					int yMin = guiTop + PAGE_Y + PAGE_MAP_Y;
+					int yMax = yMin + PAGE_MAP_SIZE;
 					int mapBorder = 1;
 					drawRect(xMin - mapBorder, yMin - mapBorder, xMax + mapBorder, yMax + mapBorder, -16777216);
-					float zoom = (float) pageMapSize / (mapR * 2);
+					float zoom = (float) PAGE_MAP_SIZE / (mapR * 2);
 					float zoomExp = (float) Math.log(zoom) / (float) Math.log(2.0);
 					mapDrawGui.setFakeMapProperties(mapX, mapY, zoom, zoomExp, zoom);
-					int[] statics = GOTGuiMap.setFakeStaticProperties(pageMapSize, pageMapSize, xMin, xMax, yMin, yMax);
-					mapDrawGui.enableZoomOutWPFading = false;
+					int[] statics = GOTGuiMap.setFakeStaticProperties(PAGE_MAP_SIZE, PAGE_MAP_SIZE, xMin, xMax, yMin, yMax);
+					mapDrawGui.setEnableZoomOutWPFading(false);
 					boolean sepia = GOTConfig.enableSepiaMap;
 					mapDrawGui.renderMapAndOverlay(sepia, 1.0f, true);
 					GOTGuiMap.setFakeStaticProperties(statics[0], statics[1], statics[2], statics[3], statics[4], statics[5]);
 				}
-				int wcX = guiLeft + pageMapX + 3;
-				int wcY = guiTop + pageY + pageMapY + pageMapSize + 5;
+				int wcX = guiLeft + PAGE_MAP_X + 3;
+				int wcY = guiTop + PAGE_Y + PAGE_MAP_Y + PAGE_MAP_SIZE + 5;
 				int wcWidth = 8;
-				mc.getTextureManager().bindTexture(factionsTexture);
+				mc.getTextureManager().bindTexture(FACTIONS_TEXTURE);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				if (currentFaction.approvesWarCrimes) {
 					drawTexturedModalRect(wcX, wcY, 33, 142, wcWidth, wcWidth);
@@ -280,14 +281,15 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 					mouseOverWarCrimes = true;
 				}
 			}
+			int pageBorderLeft = 16;
 			x = guiLeft + pageBorderLeft;
-			y = guiTop + pageY + pageBorderTop;
+			y = guiTop + PAGE_Y + PAGE_BORDER_TOP;
 			if (!isPledging && !isUnpledging) {
 				int index;
 				switch (currentPage) {
 					case ALLIES:
 					case ENEMIES:
-						int avgBgColor = GOTTextures.computeAverageFactionPageColor(factionsTexture, 20, 20, 120, 80);
+						int avgBgColor = GOTTextures.computeAverageFactionPageColor(FACTIONS_TEXTURE, 20, 20, 120, 80);
 						int[] minMax = scrollPaneAlliesEnemies.getMinMaxIndices(currentAlliesEnemies, numDisplayedAlliesEnemies);
 						for (index = minMax[0]; index <= minMax[1]; ++index) {
 							Object listObj = currentAlliesEnemies.get(index);
@@ -381,11 +383,11 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 						}
 						break;
 				}
-				if (scrollPaneAlliesEnemies.hasScrollBar) {
+				if (scrollPaneAlliesEnemies.isHasScrollBar()) {
 					scrollPaneAlliesEnemies.drawScrollBar();
 				}
 			} else {
-				int stringWidth2 = pageWidth - pageBorderLeft * 2;
+				int stringWidth2 = PAGE_WIDTH - pageBorderLeft * 2;
 				Collection<String> displayLines = new ArrayList<>();
 				if (isPledging) {
 					if (clientPD.canMakeNewPledge()) {
@@ -403,10 +405,10 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 						displayLines.addAll(fontRendererObj.listFormattedStringToWidth(desc3, stringWidth2));
 						displayLines.add("");
 						GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-						mc.getTextureManager().bindTexture(factionsTexture);
-						drawTexturedModalRect(guiLeft + pageWidth / 2 - 97, guiTop + pageY + 56, 0, 240, 194, 16);
+						mc.getTextureManager().bindTexture(FACTIONS_TEXTURE);
+						drawTexturedModalRect(guiLeft + PAGE_WIDTH / 2 - 97, guiTop + PAGE_Y + 56, 0, 240, 194, 16);
 						float cdFrac = (float) clientPD.getPledgeBreakCooldown() / clientPD.getPledgeBreakCooldownStart();
-						drawTexturedModalRect(guiLeft + pageWidth / 2 - 75, guiTop + pageY + 60, 22, 232, MathHelper.ceiling_float_int(cdFrac * 150.0f), 8);
+						drawTexturedModalRect(guiLeft + PAGE_WIDTH / 2 - 75, guiTop + PAGE_Y + 60, 22, 232, MathHelper.ceiling_float_int(cdFrac * 150.0f), 8);
 					}
 				} else {
 					String desc5 = StatCollector.translateToLocalFormatted("got.gui.factions.unpledgeDesc1", currentFaction.factionName());
@@ -422,7 +424,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			}
 		}
 		if (hasScrollBar()) {
-			mc.getTextureManager().bindTexture(factionsTexture);
+			mc.getTextureManager().bindTexture(FACTIONS_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			drawTexturedModalRect(guiLeft + scrollBarX, guiTop + scrollBarY, 0, 128, scrollBarWidth, scrollBarHeight);
 			int factions = currentFactionList.size();
@@ -449,7 +451,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				tessellator.addVertexWithUV(xMin, yMin, zLevel, minU, minV);
 				tessellator.draw();
 			}
-			mc.getTextureManager().bindTexture(factionsTexture);
+			mc.getTextureManager().bindTexture(FACTIONS_TEXTURE);
 			GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			if (canScroll()) {
 				int scroll = (int) (currentScroll * (scrollBarWidth - scrollBarBorder * 2 - scrollWidgetWidth));
@@ -486,7 +488,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		int k = Mouse.getEventDWheel();
 		if (k != 0) {
 			k = Integer.signum(k);
-			if (scrollPaneAlliesEnemies.hasScrollBar && scrollPaneAlliesEnemies.mouseOver) {
+			if (scrollPaneAlliesEnemies.isHasScrollBar() && scrollPaneAlliesEnemies.isMouseOver()) {
 				int l = currentAlliesEnemies.size() - numDisplayedAlliesEnemies;
 				scrollPaneAlliesEnemies.mouseWheelScroll(k, l);
 			} else {
@@ -504,7 +506,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 	}
 
-	public boolean hasScrollBar() {
+	private boolean hasScrollBar() {
 		return currentFactionList.size() > 1;
 	}
 
@@ -517,19 +519,19 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		buttonList.add(buttonRegions);
 		goBack = new GOTGuiButton(0, guiLeft + xSize / 2 - 125, guiTop + 200, 120, 20, StatCollector.translateToLocal("got.gui.menuButton"));
 		buttonList.add(goBack);
-		buttonPagePrev = new GOTGuiButtonFactionsPage(1, guiLeft + 8, guiTop + pageY + 104, false);
+		buttonPagePrev = new GOTGuiButtonFactionsPage(1, guiLeft + 8, guiTop + PAGE_Y + 104, false);
 		buttonList.add(buttonPagePrev);
-		buttonPageNext = new GOTGuiButtonFactionsPage(2, guiLeft + 232, guiTop + pageY + 104, true);
+		buttonPageNext = new GOTGuiButtonFactionsPage(2, guiLeft + 232, guiTop + PAGE_Y + 104, true);
 		buttonList.add(buttonPageNext);
-		buttonFactionMap = new GOTGuiButtonFactionsMap(3, guiLeft + pageMapX + pageMapSize - 3 - 8, guiTop + pageY + pageMapY + 3);
+		buttonFactionMap = new GOTGuiButtonFactionsMap(3, guiLeft + PAGE_MAP_X + PAGE_MAP_SIZE - 3 - 8, guiTop + PAGE_Y + PAGE_MAP_Y + 3);
 		buttonList.add(buttonFactionMap);
-		buttonPledge = new GOTGuiButtonPledge(this, 4, guiLeft + 14, guiTop + pageY + pageHeight - 42, "");
+		buttonPledge = new GOTGuiButtonPledge(this, 4, guiLeft + 14, guiTop + PAGE_Y + PAGE_HEIGHT - 42, "");
 		buttonList.add(buttonPledge);
-		buttonPledgeConfirm = new GOTGuiButtonPledge(this, 5, guiLeft + pageWidth / 2 - 16, guiTop + pageY + pageHeight - 50, "");
+		buttonPledgeConfirm = new GOTGuiButtonPledge(this, 5, guiLeft + PAGE_WIDTH / 2 - 16, guiTop + PAGE_Y + PAGE_HEIGHT - 50, "");
 		buttonList.add(buttonPledgeConfirm);
-		buttonPledgeRevoke = new GOTGuiButtonPledge(this, 6, guiLeft + pageWidth / 2 - 16, guiTop + pageY + pageHeight - 50, "");
+		buttonPledgeRevoke = new GOTGuiButtonPledge(this, 6, guiLeft + PAGE_WIDTH / 2 - 16, guiTop + PAGE_Y + PAGE_HEIGHT - 50, "");
 		buttonList.add(buttonPledgeRevoke);
-		buttonPledgeRevoke.isBroken = true;
+		buttonPledgeRevoke.setBroken(true);
 		prevDimension = currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		currentFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 		prevRegion = currentRegion = currentFaction.factionRegion;
@@ -561,7 +563,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		super.keyTyped(c, i);
 	}
 
-	public void setCurrentScrollFromFaction() {
+	private void setCurrentScrollFromFaction() {
 		currentScroll = (float) currentFactionIndex / (currentFactionList.size() - 1);
 	}
 
@@ -571,7 +573,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		playerAlignmentMap = alignments;
 	}
 
-	public void setupScrollBar(int i, int j) {
+	private void setupScrollBar(int i, int j) {
 		boolean isMouseDown = Mouse.isButtonDown(0);
 		int i1 = guiLeft + scrollBarX;
 		int j1 = guiTop + scrollBarY;
@@ -644,21 +646,21 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				default:
 					break;
 			}
-			scrollPaneAlliesEnemies.hasScrollBar = false;
+			scrollPaneAlliesEnemies.setHasScrollBar(false);
 			numDisplayedAlliesEnemies = currentAlliesEnemies.size();
 			if (numDisplayedAlliesEnemies > 10) {
 				numDisplayedAlliesEnemies = 10;
-				scrollPaneAlliesEnemies.hasScrollBar = true;
+				scrollPaneAlliesEnemies.setHasScrollBar(true);
 			}
-			scrollPaneAlliesEnemies.paneX0 = guiLeft;
-			scrollPaneAlliesEnemies.scrollBarX0 = guiLeft + scrollAlliesEnemiesX;
+			scrollPaneAlliesEnemies.setPaneX0(guiLeft);
+			scrollPaneAlliesEnemies.setScrollBarX0(guiLeft + scrollAlliesEnemiesX);
 			if (currentPage == Page.RANKS) {
-				scrollPaneAlliesEnemies.scrollBarX0 += 50;
+				scrollPaneAlliesEnemies.setScrollBarX0(scrollPaneAlliesEnemies.getScrollBarX0() + 50);
 			}
-			scrollPaneAlliesEnemies.paneY0 = guiTop + pageY + pageBorderTop;
-			scrollPaneAlliesEnemies.paneY1 = scrollPaneAlliesEnemies.paneY0 + fontRendererObj.FONT_HEIGHT * numDisplayedAlliesEnemies;
+			scrollPaneAlliesEnemies.setPaneY0(guiTop + PAGE_Y + PAGE_BORDER_TOP);
+			scrollPaneAlliesEnemies.setPaneY1(scrollPaneAlliesEnemies.getPaneY0() + fontRendererObj.FONT_HEIGHT * numDisplayedAlliesEnemies);
 		} else {
-			scrollPaneAlliesEnemies.hasScrollBar = false;
+			scrollPaneAlliesEnemies.setHasScrollBar(false);
 		}
 		scrollPaneAlliesEnemies.mouseDragScroll(i, j);
 	}
@@ -669,7 +671,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		mapDrawGui.setWorldAndResolution(mc, i, j);
 	}
 
-	public void updateCurrentDimensionAndFaction() {
+	private void updateCurrentDimensionAndFaction() {
 		GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
 		if (currentFactionIndex != prevFactionIndex) {
@@ -712,14 +714,14 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 	}
 
-	public boolean useFullPageTexture() {
+	private boolean useFullPageTexture() {
 		return isPledging || isUnpledging || currentPage == Page.RANKS;
 	}
 
-	public enum Page {
+	private enum Page {
 		FRONT, RANKS, ALLIES, ENEMIES;
 
-		public Page next() {
+		private Page next() {
 			int i = ordinal();
 			if (i == values().length - 1) {
 				return null;
@@ -728,7 +730,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			return values()[i];
 		}
 
-		public Page prev() {
+		private Page prev() {
 			int i = ordinal();
 			if (i == 0) {
 				return null;
@@ -737,5 +739,4 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			return values()[i];
 		}
 	}
-
 }

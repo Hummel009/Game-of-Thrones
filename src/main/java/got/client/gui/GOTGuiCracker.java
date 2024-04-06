@@ -9,9 +9,11 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiCracker extends GuiContainer {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/gui/cracker.png");
-	public GOTContainerCracker theCracker;
-	public GuiButton buttonSeal;
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/gui/cracker.png");
+
+	private final GOTContainerCracker theCracker;
+
+	private GuiButton buttonSeal;
 
 	public GOTGuiCracker(EntityPlayer entityplayer) {
 		super(new GOTContainerCracker(entityplayer));
@@ -34,7 +36,7 @@ public class GOTGuiCracker extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(texture);
+		mc.getTextureManager().bindTexture(TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 	}
 

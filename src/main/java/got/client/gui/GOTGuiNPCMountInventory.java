@@ -10,12 +10,13 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiNPCMountInventory extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("textures/gui/container/horse.png");
-	public IInventory thePlayerInv;
-	public IInventory theMountInv;
-	public GOTEntityNPCRideable theMount;
-	public float mouseX;
-	public float mouseY;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("textures/gui/container/horse.png");
+
+	private final IInventory thePlayerInv;
+	private final IInventory theMountInv;
+	private final GOTEntityNPCRideable theMount;
+	private float mouseX;
+	private float mouseY;
 
 	public GOTGuiNPCMountInventory(IInventory playerInv, IInventory mountInv, GOTEntityNPCRideable mount) {
 		super(new GOTContainerNPCMountInventory(playerInv, mountInv, mount));
@@ -28,7 +29,7 @@ public class GOTGuiNPCMountInventory extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		int k = (width - xSize) / 2;
 		int l = (height - ySize) / 2;
 		drawTexturedModalRect(k, l, 0, 0, xSize, ySize);

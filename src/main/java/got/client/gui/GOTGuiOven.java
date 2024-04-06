@@ -9,8 +9,9 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiOven extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/oven.png");
-	public GOTTileEntityOven theOven;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/oven.png");
+
+	private final GOTTileEntityOven theOven;
 
 	public GOTGuiOven(InventoryPlayer inv, GOTTileEntityOven oven) {
 		super(new GOTContainerOven(inv, oven));
@@ -21,7 +22,7 @@ public class GOTGuiOven extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (theOven.isCooking()) {
 			int k = theOven.getCookTimeRemainingScaled(12);

@@ -9,8 +9,8 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiArmorStand extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/armor_stand.png");
-	public GOTTileEntityArmorStand theArmorStand;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/armor_stand.png");
+	private final GOTTileEntityArmorStand theArmorStand;
 
 	public GOTGuiArmorStand(InventoryPlayer inv, GOTTileEntityArmorStand armorStand) {
 		super(new GOTContainerArmorStand(inv, armorStand));
@@ -21,7 +21,7 @@ public class GOTGuiArmorStand extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 	}
 

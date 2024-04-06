@@ -9,8 +9,8 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiAlloyForge extends GuiContainer {
-	public static ResourceLocation guiTexture = new ResourceLocation("got:textures/gui/forge.png");
-	public GOTTileEntityAlloyForge theForge;
+	private static final ResourceLocation GUI_TEXTURE = new ResourceLocation("got:textures/gui/forge.png");
+	private final GOTTileEntityAlloyForge theForge;
 
 	public GOTGuiAlloyForge(InventoryPlayer inv, GOTTileEntityAlloyForge forge) {
 		super(new GOTContainerAlloyForge(inv, forge));
@@ -21,7 +21,7 @@ public class GOTGuiAlloyForge extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(guiTexture);
+		mc.getTextureManager().bindTexture(GUI_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		if (theForge.isSmelting()) {
 			int k = theForge.getSmeltTimeRemainingScaled(12);

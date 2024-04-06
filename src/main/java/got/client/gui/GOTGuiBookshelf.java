@@ -9,10 +9,11 @@ import net.minecraft.util.StatCollector;
 import org.lwjgl.opengl.GL11;
 
 public class GOTGuiBookshelf extends GuiContainer {
-	public static ResourceLocation chestTexture = new ResourceLocation("textures/gui/container/generic_54.png");
-	public IInventory playerInv;
-	public IInventory shelfInv;
-	public int inventoryRows;
+	private static final ResourceLocation CHEST_TEXTURE = new ResourceLocation("textures/gui/container/generic_54.png");
+
+	private final IInventory playerInv;
+	private final IInventory shelfInv;
+	private final int inventoryRows;
 
 	public GOTGuiBookshelf(IInventory player, GOTTileEntityBookshelf shelf) {
 		super(new GOTContainerBookshelf(player, shelf));
@@ -28,7 +29,7 @@ public class GOTGuiBookshelf extends GuiContainer {
 	@Override
 	public void drawGuiContainerBackgroundLayer(float f, int i, int j) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(chestTexture);
+		mc.getTextureManager().bindTexture(CHEST_TEXTURE);
 		int k = (width - xSize) / 2;
 		int l = (height - ySize) / 2;
 		drawTexturedModalRect(k, l, 0, 0, xSize, inventoryRows * 18 + 17);

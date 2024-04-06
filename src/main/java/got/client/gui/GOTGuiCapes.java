@@ -17,31 +17,32 @@ import org.lwjgl.opengl.GL11;
 import java.util.List;
 
 public class GOTGuiCapes extends GOTGuiMenuWBBase {
-	public static ModelBiped playerModel = new ModelBiped();
-	public static int currentCapeTypeID;
-	public static int currentCapeID;
+	private static final ModelBiped PLAYER_MODEL = new ModelBiped();
+
+	private static int currentCapeTypeID;
+	private static int currentCapeID;
 
 	static {
-		playerModel.isChild = false;
+		PLAYER_MODEL.isChild = false;
 	}
 
-	public int modelX;
-	public int modelY;
-	public float modelRotation;
-	public float modelRotationPrev;
-	public int isMouseDown;
-	public int mouseX;
-	public int mouseY;
-	public int prevMouseX;
-	public GOTCapes.CapeType currentCapeType;
-	public GOTCapes currentCape;
-	public GuiButton capeLeft;
-	public GuiButton capeRight;
-	public GuiButton capeSelect;
-	public GuiButton capeRemove;
-	public GuiButton goToShield;
+	private int modelX;
+	private int modelY;
+	private float modelRotation;
+	private float modelRotationPrev;
+	private int isMouseDown;
+	private int mouseX;
+	private int mouseY;
+	private int prevMouseX;
+	private GOTCapes.CapeType currentCapeType;
+	private GOTCapes currentCape;
+	private GuiButton capeLeft;
+	private GuiButton capeRight;
+	private GuiButton capeSelect;
+	private GuiButton capeRemove;
+	private GuiButton goToShield;
 
-	public GuiButton changeCategory;
+	private GuiButton changeCategory;
 
 	public GOTGuiCapes() {
 		modelRotationPrev = modelRotation = -140.0f;
@@ -74,7 +75,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		}
 	}
 
-	public boolean canGoLeft() {
+	private boolean canGoLeft() {
 		for (int i = 0; i <= currentCapeID - 1; ++i) {
 			GOTCapes cape = currentCapeType.list.get(i);
 			if (cape.canDisplay(mc.thePlayer)) {
@@ -84,7 +85,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		return false;
 	}
 
-	public boolean canGoRight() {
+	private boolean canGoRight() {
 		for (int i = currentCapeID + 1; i <= currentCapeType.list.size() - 1; ++i) {
 			GOTCapes cape = currentCapeType.list.get(i);
 			if (cape.canDisplay(mc.thePlayer)) {
@@ -112,12 +113,12 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		GL11.glRotatef(-30.0f, 1.0f, 0.0f, 0.0f);
 		GL11.glRotatef(90 + modelRotationPrev + (modelRotation - modelRotationPrev) * f, 0.0f, 1.0f, 0.0f);
 		mc.getTextureManager().bindTexture(mc.thePlayer.getLocationSkin());
-		playerModel.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
+		PLAYER_MODEL.render(null, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0625f);
 		mc.getTextureManager().bindTexture(currentCape.capeTexture);
 		GL11.glTranslatef(0.0f, 0.0f, 0.125f);
 		GL11.glRotatef(180.0f, 0.0f, 1.0f, 0.0f);
 		GL11.glRotatef(-10.0f, 1.0f, 0.0f, 0.0f);
-		playerModel.renderCloak(0.0625f);
+		PLAYER_MODEL.renderCloak(0.0625f);
 		GL11.glDisable(32826);
 		GL11.glEnable(2884);
 		GL11.glPopMatrix();
@@ -146,7 +147,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		super.drawScreen(i, j, f);
 	}
 
-	public GOTCapes getPlayerEquippedCape() {
+	private GOTCapes getPlayerEquippedCape() {
 		return GOTLevelData.getData(mc.thePlayer).getCape();
 	}
 
@@ -180,7 +181,7 @@ public class GOTGuiCapes extends GOTGuiMenuWBBase {
 		updateCurrentCape(0, 0);
 	}
 
-	public void updateCurrentCape(int cape, int type) {
+	private void updateCurrentCape(int cape, int type) {
 		if (cape != 0) {
 			currentCapeID += cape;
 			currentCapeID = Math.max(currentCapeID, 0);

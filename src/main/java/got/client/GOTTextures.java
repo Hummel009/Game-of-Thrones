@@ -248,7 +248,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 
 	public static void drawMapCompassBottomLeft(double x, double y, double z, double scale) {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-		mc.getTextureManager().bindTexture(GOTGuiMap.mapIconsTexture);
+		mc.getTextureManager().bindTexture(GOTGuiMap.MAP_ICONS_TEXTURE);
 		int width = 32;
 		int height = 32;
 		double x1 = x + width * scale;
