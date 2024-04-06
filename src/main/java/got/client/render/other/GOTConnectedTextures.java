@@ -82,12 +82,11 @@ public class GOTConnectedTextures {
 	}
 
 	public static String getBaseIconName(String blockName) {
-		String s = blockName;
-		int pathIndex = s.indexOf(':');
+		int pathIndex = blockName.indexOf(':');
 		if (pathIndex >= 0) {
-			return s.substring(pathIndex + 1);
+			return blockName.substring(pathIndex + 1);
 		}
-		return s;
+		return blockName;
 	}
 
 	public static IIcon getConnectedIcon(String blockName, boolean[][] flags, boolean noBase) {
