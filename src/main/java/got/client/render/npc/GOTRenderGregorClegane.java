@@ -14,8 +14,8 @@ import org.lwjgl.opengl.GL11;
 
 public class GOTRenderGregorClegane extends GOTRenderBiped {
 	private static final ResourceLocation ARMOR = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_3.png");
-	private static final ResourceLocation SKIN_ALIVE = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_1.png");
-	private static final ResourceLocation SKIN_DEAD = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_2.png");
+	private static final ResourceLocation TEXTURE_ALIVE = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_1.png");
+	private static final ResourceLocation TEXTURE_DEAD = new ResourceLocation("got:textures/entity/legendary/gregor_clegane_2.png");
 
 	private final ModelBiped model = new GOTModelHuman(0.6f, false);
 
@@ -54,7 +54,7 @@ public class GOTRenderGregorClegane extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return SKIN_ALIVE;
+			return TEXTURE_ALIVE;
 		}
 	}
 
@@ -62,7 +62,7 @@ public class GOTRenderGregorClegane extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return SKIN_DEAD;
+			return TEXTURE_DEAD;
 		}
 	}
 }

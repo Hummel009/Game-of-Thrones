@@ -10,8 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderScorpion extends RenderLiving {
-	public static ResourceLocation jungleTexture = new ResourceLocation("got:textures/entity/animal/scorpion/jungle.png");
-	public static ResourceLocation desertTexture = new ResourceLocation("got:textures/entity/animal/scorpion/desert.png");
+	private static final ResourceLocation JUNGLE_TEXTURE = new ResourceLocation("got:textures/entity/animal/scorpion/jungle.png");
+	private static final ResourceLocation DESERT_TEXTURE = new ResourceLocation("got:textures/entity/animal/scorpion/desert.png");
 
 	public GOTRenderScorpion() {
 		super(new GOTModelScorpion(), 1.0f);
@@ -26,9 +26,9 @@ public class GOTRenderScorpion extends RenderLiving {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		if (entity instanceof GOTEntityDesertScorpion) {
-			return desertTexture;
+			return DESERT_TEXTURE;
 		}
-		return jungleTexture;
+		return JUNGLE_TEXTURE;
 	}
 
 	@Override

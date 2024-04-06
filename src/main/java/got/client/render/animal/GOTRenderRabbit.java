@@ -10,17 +10,16 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderRabbit extends RenderLiving {
-	public static GOTRandomSkins rabbitSkins;
+	private static final GOTRandomSkins TEXTURES = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/rabbit");
 
 	public GOTRenderRabbit() {
 		super(new GOTModelRabbit(), 0.3f);
-		rabbitSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/rabbit");
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTRandomSkinEntity rabbit = (GOTRandomSkinEntity) entity;
-		return rabbitSkins.getRandomSkin(rabbit);
+		return TEXTURES.getRandomSkin(rabbit);
 	}
 
 	@Override

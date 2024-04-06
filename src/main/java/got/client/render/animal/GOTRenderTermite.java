@@ -8,7 +8,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderTermite extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/termite.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/termite.png");
 
 	public GOTRenderTermite() {
 		super(new GOTModelTermite(), 0.2f);
@@ -16,7 +16,7 @@ public class GOTRenderTermite extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return texture;
+		return TEXTURE;
 	}
 
 	@Override

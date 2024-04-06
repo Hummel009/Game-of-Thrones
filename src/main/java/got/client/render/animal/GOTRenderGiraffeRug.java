@@ -11,6 +11,10 @@ public class GOTRenderGiraffeRug extends GOTRenderRugBase {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return GOTRenderGiraffe.texture;
+		return GOTRenderGiraffe.TEXTURE;
+	}
+
+	@Override
+	public void preRenderCallback() {
 	}
 }

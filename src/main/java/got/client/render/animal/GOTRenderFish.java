@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderFish extends RenderLiving {
-	public static Map<String, GOTRandomSkins> fishTypeSkins = new HashMap<>();
+	private static final Map<String, GOTRandomSkins> FISH_TEXTURES = new HashMap<>();
 
 	public GOTRenderFish() {
 		super(new GOTModelFish(), 0.0f);
@@ -27,11 +27,11 @@ public class GOTRenderFish extends RenderLiving {
 		return skins.getRandomSkin(fish);
 	}
 
-	public GOTRandomSkins getFishSkins(String s) {
-		GOTRandomSkins skins = fishTypeSkins.get(s);
+	private GOTRandomSkins getFishSkins(String s) {
+		GOTRandomSkins skins = FISH_TEXTURES.get(s);
 		if (skins == null) {
 			skins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/fish/" + s);
-			fishTypeSkins.put(s, skins);
+			FISH_TEXTURES.put(s, skins);
 		}
 		return skins;
 	}

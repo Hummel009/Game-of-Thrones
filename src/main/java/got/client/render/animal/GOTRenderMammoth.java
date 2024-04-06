@@ -1,7 +1,5 @@
 package got.client.render.animal;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import got.client.model.GOTModelMammoth;
 import got.common.entity.animal.GOTEntityMammoth;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -10,8 +8,8 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-@SideOnly(Side.CLIENT)
 public class GOTRenderMammoth extends RenderLiving {
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/mammoth.png");
 
 	public GOTRenderMammoth() {
 		super(new GOTModelMammoth(), 0.5f);
@@ -19,7 +17,7 @@ public class GOTRenderMammoth extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:textures/entity/animal/mammoth.png");
+		return TEXTURE;
 	}
 
 	@Override

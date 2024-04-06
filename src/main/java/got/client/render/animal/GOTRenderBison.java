@@ -11,17 +11,16 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBison extends RenderLiving {
-	public static GOTRandomSkins bisonSkins;
+	private static final GOTRandomSkins TEXTURES = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/bison");
 
 	public GOTRenderBison() {
 		super(new GOTModelBison(), 0.5f);
-		bisonSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/bison");
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTRandomSkinEntity bison = (GOTRandomSkinEntity) entity;
-		return bisonSkins.getRandomSkin(bison);
+		return TEXTURES.getRandomSkin(bison);
 	}
 
 	@Override

@@ -2,7 +2,6 @@ package got.client.render.animal;
 
 import got.client.model.GOTModelMidge;
 import got.common.entity.animal.GOTEntityMidges;
-import got.common.entity.animal.GOTEntityMidges.Midge;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,8 +9,9 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderMidges extends RenderLiving {
-	public static ResourceLocation midgeTexture = new ResourceLocation("got:textures/entity/animal/midge.png");
-	public float renderTick;
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/midge.png");
+
+	private float renderTick;
 
 	public GOTRenderMidges() {
 		super(new GOTModelMidge(), 0.0f);
@@ -25,7 +25,7 @@ public class GOTRenderMidges extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return midgeTexture;
+		return TEXTURE;
 	}
 
 	@Override
@@ -33,7 +33,7 @@ public class GOTRenderMidges extends RenderLiving {
 		bindEntityTexture(entity);
 		mainModel.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		GOTEntityMidges midges = (GOTEntityMidges) entity;
-		for (Midge midge : midges.midges) {
+		for (GOTEntityMidges.Midge midge : midges.midges) {
 			GL11.glPushMatrix();
 			GL11.glTranslatef(midge.midge_prevPosX + (midge.midge_posX - midge.midge_prevPosX) * renderTick, midge.midge_prevPosY + (midge.midge_posY - midge.midge_prevPosY) * renderTick, midge.midge_prevPosZ + (midge.midge_posZ - midge.midge_prevPosZ) * renderTick);
 			GL11.glRotatef(midge.midge_rotation, 0.0f, 1.0f, 0.0f);

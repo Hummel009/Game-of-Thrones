@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderHorse extends RenderHorse {
-	public static Map<String, ResourceLocation> layeredMountTextures = new HashMap<>();
+	private static final Map<String, ResourceLocation> LAYERED_MOUNT_TEXTURES = new HashMap<>();
 
 	public GOTRenderHorse() {
 		super(new ModelHorse(), 0.75f);
@@ -30,7 +30,7 @@ public class GOTRenderHorse extends RenderHorse {
 		}
 		Minecraft mc = Minecraft.getMinecraft();
 		String path = "got_" + skinPath + '_' + armorPath;
-		ResourceLocation texture = layeredMountTextures.get(path);
+		ResourceLocation texture = LAYERED_MOUNT_TEXTURES.get(path);
 		if (texture == null) {
 			texture = new ResourceLocation(path);
 			ArrayList<String> layers = new ArrayList<>();
@@ -43,7 +43,7 @@ public class GOTRenderHorse extends RenderHorse {
 			}
 			layers.add(armorPath);
 			mc.getTextureManager().loadTexture(texture, new LayeredTexture(layers.toArray(new String[0])));
-			layeredMountTextures.put(path, texture);
+			LAYERED_MOUNT_TEXTURES.put(path, texture);
 		}
 		return texture;
 	}

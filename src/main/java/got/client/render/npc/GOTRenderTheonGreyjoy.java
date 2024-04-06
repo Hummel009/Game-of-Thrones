@@ -10,8 +10,8 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderTheonGreyjoy extends GOTRenderBiped {
-	private static final ResourceLocation SKIN_NORMAL = new ResourceLocation("got:textures/entity/legendary/theon_greyjoy_1.png");
-	private static final ResourceLocation SKIN_TORMENTED = new ResourceLocation("got:textures/entity/legendary/theon_greyjoy_2.png");
+	private static final ResourceLocation TEXTURE_NORMAL = new ResourceLocation("got:textures/entity/legendary/theon_greyjoy_1.png");
+	private static final ResourceLocation TEXTURE_TORMENTED = new ResourceLocation("got:textures/entity/legendary/theon_greyjoy_2.png");
 
 	public GOTRenderTheonGreyjoy() {
 		super(new GOTModelHuman(), 0.5f);
@@ -30,7 +30,7 @@ public class GOTRenderTheonGreyjoy extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return SKIN_NORMAL;
+			return TEXTURE_NORMAL;
 		}
 	}
 
@@ -38,7 +38,7 @@ public class GOTRenderTheonGreyjoy extends GOTRenderBiped {
 
 		@Override
 		public ResourceLocation getEntityTexture(Entity entity) {
-			return SKIN_TORMENTED;
+			return TEXTURE_TORMENTED;
 		}
 	}
 }

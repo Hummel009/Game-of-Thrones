@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderMarshWraith extends RenderLiving {
-	private static final ResourceLocation SKIN = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/essos/mossovy/wraith/marshWraith.png");
 
 	public GOTRenderMarshWraith() {
 		super(new GOTModelMarshWraith(), 0.5f);
@@ -22,7 +22,7 @@ public class GOTRenderMarshWraith extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return SKIN;
+		return TEXTURE;
 	}
 
 	@Override

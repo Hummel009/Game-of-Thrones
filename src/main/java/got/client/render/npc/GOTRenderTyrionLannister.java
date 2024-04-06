@@ -12,7 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderTyrionLannister extends GOTRenderBiped {
-	private static final ResourceLocation SKIN = new ResourceLocation("got:textures/entity/legendary/tyrion_lannister.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/legendary/tyrion_lannister.png");
 
 	public GOTRenderTyrionLannister() {
 		super(new GOTModelTyrionLannister(), 0.5f);
@@ -35,7 +35,7 @@ public class GOTRenderTyrionLannister extends GOTRenderBiped {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return SKIN;
+		return TEXTURE;
 	}
 
 	@Override

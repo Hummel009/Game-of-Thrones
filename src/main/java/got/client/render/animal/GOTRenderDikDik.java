@@ -8,16 +8,15 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderDikDik extends RenderLiving {
-	public static GOTRandomSkins skins;
+	private static final GOTRandomSkins TEXTURES = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/dikdik");
 
 	public GOTRenderDikDik() {
 		super(new GOTModelDikDik(), 0.8f);
-		skins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/dikdik");
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTRandomSkinEntity dikdik = (GOTRandomSkinEntity) entity;
-		return skins.getRandomSkin(dikdik);
+		return TEXTURES.getRandomSkin(dikdik);
 	}
 }

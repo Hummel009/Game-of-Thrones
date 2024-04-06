@@ -10,8 +10,9 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderGiraffe extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/giraffe/giraffe.png");
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/giraffe/saddle.png");
+	public static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/giraffe/giraffe.png");
+
+	private static final ResourceLocation SADDLE_TEXTURE = new ResourceLocation("got:textures/entity/animal/giraffe/saddle.png");
 
 	public GOTRenderGiraffe() {
 		super(new GOTModelGiraffe(0.0f), 0.5f);
@@ -20,7 +21,7 @@ public class GOTRenderGiraffe extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return texture;
+		return TEXTURE;
 	}
 
 	@Override
@@ -37,7 +38,7 @@ public class GOTRenderGiraffe extends RenderLiving {
 	@Override
 	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
 		if (pass == 0 && ((GOTNPCMount) entity).isMountSaddled()) {
-			bindTexture(saddleTexture);
+			bindTexture(SADDLE_TEXTURE);
 			return 1;
 		}
 		return super.shouldRenderPass(entity, pass, f);

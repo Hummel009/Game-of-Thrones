@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderProstitute extends GOTRenderBiped {
-	private static final Map<String, ResourceLocation> PROSTITUTE_SKINS = new HashMap<>();
+	private static final Map<String, ResourceLocation> PROSTITUTE_TEXTURES = new HashMap<>();
 
 	public GOTRenderProstitute() {
 		super(new GOTModelHuman(), 0.5f);
@@ -18,10 +18,10 @@ public class GOTRenderProstitute extends GOTRenderBiped {
 
 	private static ResourceLocation getProstituteSkin(GOTEntityProstitute.ProstituteType type) {
 		String s = type.textureName();
-		ResourceLocation skin = PROSTITUTE_SKINS.get(s);
+		ResourceLocation skin = PROSTITUTE_TEXTURES.get(s);
 		if (skin == null) {
 			skin = new ResourceLocation("got:textures/entity/prostitute/" + s + ".png");
-			PROSTITUTE_SKINS.put(s, skin);
+			PROSTITUTE_TEXTURES.put(s, skin);
 		}
 		return skin;
 	}

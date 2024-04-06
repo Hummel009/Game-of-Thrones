@@ -6,7 +6,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderMossovyWerewolf extends RenderLiving {
-	private static final ResourceLocation SKIN = new ResourceLocation("got:textures/entity/animal/werewolf.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/werewolf.png");
 
 	public GOTRenderMossovyWerewolf() {
 		super(new GOTModelMossovyWerewolf(), 0.5f);
@@ -14,6 +14,6 @@ public class GOTRenderMossovyWerewolf extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return SKIN;
+		return TEXTURE;
 	}
 }

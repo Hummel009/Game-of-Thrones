@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderGemsbok extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/gemsbok.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/gemsbok.png");
 
 	public GOTRenderGemsbok() {
 		super(new GOTModelGemsbok(), 0.5f);
@@ -17,7 +17,7 @@ public class GOTRenderGemsbok extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return texture;
+		return TEXTURE;
 	}
 
 	@Override

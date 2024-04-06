@@ -10,26 +10,25 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderDeer extends RenderLiving {
-	public static GOTRandomSkins elkSkins;
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/elk/saddle.png");
+	private static final GOTRandomSkins ELK_TEXTURES = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/elk/elk");
+	private static final ResourceLocation SADDLE_TEXTURE = new ResourceLocation("got:textures/entity/animal/elk/saddle.png");
 
 	public GOTRenderDeer() {
 		super(new GOTModelDeer(), 0.5f);
 		setRenderPassModel(new GOTModelDeer(0.5f));
-		elkSkins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/elk/elk");
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityDeer elk = (GOTEntityDeer) entity;
-		ResourceLocation elkSkin = elkSkins.getRandomSkin(elk);
+		ResourceLocation elkSkin = ELK_TEXTURES.getRandomSkin(elk);
 		return GOTRenderHorse.getLayeredMountTexture(elk, elkSkin);
 	}
 
 	@Override
 	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
 		if (pass == 0 && ((GOTNPCMount) entity).isMountSaddled()) {
-			bindTexture(saddleTexture);
+			bindTexture(SADDLE_TEXTURE);
 			return 1;
 		}
 		return super.shouldRenderPass(entity, pass, f);

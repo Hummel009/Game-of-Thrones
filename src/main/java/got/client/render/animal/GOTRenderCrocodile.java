@@ -8,7 +8,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderCrocodile extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/crocodile.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/crocodile.png");
 
 	public GOTRenderCrocodile() {
 		super(new GOTModelCrocodile(), 0.75f);
@@ -16,7 +16,7 @@ public class GOTRenderCrocodile extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return texture;
+		return TEXTURE;
 	}
 
 	@Override

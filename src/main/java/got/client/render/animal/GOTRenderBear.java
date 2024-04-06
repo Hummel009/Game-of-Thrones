@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderBear extends RenderLiving {
-	public static Map<String, ResourceLocation> bearSkins = new HashMap<>();
+	private static final Map<String, ResourceLocation> BEAR_TEXTURES = new HashMap<>();
 
 	public GOTRenderBear() {
 		super(new GOTModelBear(), 0.5f);
@@ -20,10 +20,10 @@ public class GOTRenderBear extends RenderLiving {
 
 	public static ResourceLocation getBearSkin(GOTEntityBear.BearType type) {
 		String s = type.textureName();
-		ResourceLocation skin = bearSkins.get(s);
+		ResourceLocation skin = BEAR_TEXTURES.get(s);
 		if (skin == null) {
 			skin = new ResourceLocation("got:textures/entity/animal/bear/" + s + ".png");
-			bearSkins.put(s, skin);
+			BEAR_TEXTURES.put(s, skin);
 		}
 		return skin;
 	}

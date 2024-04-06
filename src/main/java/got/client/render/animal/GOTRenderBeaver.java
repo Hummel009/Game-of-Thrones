@@ -1,7 +1,5 @@
 package got.client.render.animal;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import got.client.model.GOTModelBeaver;
 import got.common.entity.animal.GOTEntityBeaver;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -10,15 +8,16 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-@SideOnly(Side.CLIENT)
 public class GOTRenderBeaver extends RenderLiving {
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/beaver.png");
+
 	public GOTRenderBeaver() {
 		super(new GOTModelBeaver(), 0.5f);
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:textures/entity/animal/beaver.png");
+		return TEXTURE;
 	}
 
 	@Override

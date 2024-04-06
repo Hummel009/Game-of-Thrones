@@ -1,7 +1,5 @@
 package got.client.render.animal;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import got.client.model.GOTModelWalrus;
 import got.common.entity.animal.GOTEntityWalrus;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -10,15 +8,16 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
-@SideOnly(Side.CLIENT)
 public class GOTRenderWalrus extends RenderLiving {
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/walrus.png");
+
 	public GOTRenderWalrus() {
 		super(new GOTModelWalrus(), 0.5f);
 	}
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("got:textures/entity/animal/walrus.png");
+		return TEXTURE;
 	}
 
 	@Override

@@ -16,18 +16,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderBird extends RenderLiving {
-	public static Map<String, GOTRandomSkins> birdTypeSkins = new HashMap<>();
+	private static final Map<String, GOTRandomSkins> BIRD_TEXTURES = new HashMap<>();
+
 	public static boolean renderStolenItem = true;
 
 	public GOTRenderBird() {
 		super(new GOTModelBird(), 0.2f);
 	}
 
-	public GOTRandomSkins getBirdSkins(String s) {
-		GOTRandomSkins skins = birdTypeSkins.get(s);
+	private GOTRandomSkins getBirdSkins(String s) {
+		GOTRandomSkins skins = BIRD_TEXTURES.get(s);
 		if (skins == null) {
 			skins = GOTRandomSkins.loadSkinsList("got:textures/entity/animal/bird/" + s);
-			birdTypeSkins.put(s, skins);
+			BIRD_TEXTURES.put(s, skins);
 		}
 		return skins;
 	}

@@ -9,8 +9,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 
 public class GOTRenderFlamingo extends RenderLiving {
-	public static ResourceLocation texture = new ResourceLocation("got:textures/entity/animal/flamingo/flamingo.png");
-	public static ResourceLocation textureChick = new ResourceLocation("got:textures/entity/animal/flamingo/chick.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation("got:textures/entity/animal/flamingo/flamingo.png");
+	private static final ResourceLocation TEXTURE_CHICK = new ResourceLocation("got:textures/entity/animal/flamingo/chick.png");
 
 	public GOTRenderFlamingo() {
 		super(new GOTModelFlamingo(), 0.5f);
@@ -18,7 +18,7 @@ public class GOTRenderFlamingo extends RenderLiving {
 
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
-		return ((EntityLivingBase) entity).isChild() ? textureChick : texture;
+		return ((EntityLivingBase) entity).isChild() ? TEXTURE_CHICK : TEXTURE;
 	}
 
 	@Override

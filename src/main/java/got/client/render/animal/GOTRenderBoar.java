@@ -12,15 +12,15 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderBoar extends RenderLiving {
-	public static ResourceLocation boarSkin = new ResourceLocation("got:textures/entity/animal/boar/boar.png");
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/boar/saddle.png");
+	private static final ResourceLocation BOAR_TEXTURE = new ResourceLocation("got:textures/entity/animal/boar/boar.png");
+	private static final ResourceLocation SADDLE_TEXTURE = new ResourceLocation("got:textures/entity/animal/boar/saddle.png");
 
 	public GOTRenderBoar() {
 		super(new GOTModelBoar(), 0.7f);
 		setRenderPassModel(new GOTModelBoar(0.5f));
 	}
 
-	public static boolean isRobert(GOTEntityBoar boar) {
+	private static boolean isRobert(GOTEntityBoar boar) {
 		return boar.hasCustomNameTag() && "robert".equalsIgnoreCase(boar.getCustomNameTag());
 	}
 
@@ -36,7 +36,7 @@ public class GOTRenderBoar extends RenderLiving {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTNPCMount boar = (GOTNPCMount) entity;
-		return GOTRenderHorse.getLayeredMountTexture(boar, boarSkin);
+		return GOTRenderHorse.getLayeredMountTexture(boar, BOAR_TEXTURE);
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class GOTRenderBoar extends RenderLiving {
 	@Override
 	public int shouldRenderPass(EntityLivingBase entity, int pass, float f) {
 		if (pass == 0 && ((GOTNPCMount) entity).isMountSaddled()) {
-			bindTexture(saddleTexture);
+			bindTexture(SADDLE_TEXTURE);
 			return 1;
 		}
 		return super.shouldRenderPass(entity, pass, f);

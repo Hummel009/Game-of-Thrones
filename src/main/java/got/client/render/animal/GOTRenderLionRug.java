@@ -16,11 +16,15 @@ public class GOTRenderLionRug extends GOTRenderRugBase {
 		GOTEntityLionRug rug = (GOTEntityLionRug) entity;
 		GOTItemLionRug.LionRugType type = rug.getRugType();
 		if (type == GOTItemLionRug.LionRugType.LION) {
-			return GOTRenderLion.textureLion;
+			return GOTRenderLion.TEXTURE_LION;
 		}
 		if (type == GOTItemLionRug.LionRugType.LIONESS) {
-			return GOTRenderLion.textureLioness;
+			return GOTRenderLion.TEXTURE_LIONESS;
 		}
 		return new ResourceLocation("");
+	}
+
+	@Override
+	public void preRenderCallback() {
 	}
 }

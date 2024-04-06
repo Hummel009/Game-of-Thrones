@@ -10,8 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import org.lwjgl.opengl.GL11;
 
 public class GOTRenderLion extends RenderLiving {
-	public static ResourceLocation textureLion = new ResourceLocation("got:textures/entity/animal/lion/lion.png");
-	public static ResourceLocation textureLioness = new ResourceLocation("got:textures/entity/animal/lion/lioness.png");
+	public static final ResourceLocation TEXTURE_LION = new ResourceLocation("got:textures/entity/animal/lion/lion.png");
+	public static final ResourceLocation TEXTURE_LIONESS = new ResourceLocation("got:textures/entity/animal/lion/lioness.png");
 
 	public GOTRenderLion() {
 		super(new GOTModelLion(), 0.5f);
@@ -20,7 +20,7 @@ public class GOTRenderLion extends RenderLiving {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityLionBase lion = (GOTEntityLionBase) entity;
-		return lion instanceof GOTEntityLioness ? textureLioness : textureLion;
+		return lion instanceof GOTEntityLioness ? TEXTURE_LIONESS : TEXTURE_LION;
 	}
 
 	@Override

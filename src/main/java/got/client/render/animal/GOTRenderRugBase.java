@@ -7,7 +7,7 @@ import net.minecraft.entity.Entity;
 import org.lwjgl.opengl.GL11;
 
 public abstract class GOTRenderRugBase extends Render {
-	public ModelBase rugotel;
+	private final ModelBase rugotel;
 
 	protected GOTRenderRugBase(ModelBase m) {
 		rugotel = m;
@@ -28,6 +28,5 @@ public abstract class GOTRenderRugBase extends Render {
 		GL11.glPopMatrix();
 	}
 
-	public void preRenderCallback() {
-	}
+	protected abstract void preRenderCallback();
 }

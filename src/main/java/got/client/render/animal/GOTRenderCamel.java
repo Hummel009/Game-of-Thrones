@@ -19,28 +19,29 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTRenderCamel extends RenderLiving {
-	public static ResourceLocation camelSkin = new ResourceLocation("got:textures/entity/animal/camel/camel.png");
-	public static ResourceLocation saddleTexture = new ResourceLocation("got:textures/entity/animal/camel/saddle.png");
-	public static ResourceLocation carpetBase = new ResourceLocation("got:textures/entity/animal/camel/carpet_base.png");
-	public static ResourceLocation carpetOverlay = new ResourceLocation("got:textures/entity/animal/camel/carpet_overlay.png");
-	public static Map<String, ResourceLocation> coloredCarpetTextures = new HashMap<>();
-	public GOTModelCamel modelSaddle = new GOTModelCamel(0.5f);
-	public GOTModelCamel modelCarpet = new GOTModelCamel(0.55f);
+	private static final ResourceLocation CAMEL_TEXTURE = new ResourceLocation("got:textures/entity/animal/camel/camel.png");
+	private static final ResourceLocation SADDLE_TEXTURE = new ResourceLocation("got:textures/entity/animal/camel/saddle.png");
+	private static final ResourceLocation CARPET_BASE = new ResourceLocation("got:textures/entity/animal/camel/carpet_base.png");
+	private static final ResourceLocation CARPET_OVERLAY = new ResourceLocation("got:textures/entity/animal/camel/carpet_overlay.png");
+	private static final Map<String, ResourceLocation> COLORED_CARPET_TEXTURES = new HashMap<>();
+
+	private final GOTModelCamel modelSaddle = new GOTModelCamel(0.5f);
+	private final GOTModelCamel modelCarpet = new GOTModelCamel(0.55f);
 
 	public GOTRenderCamel() {
 		super(new GOTModelCamel(), 0.5f);
 		setRenderPassModel(modelSaddle);
 	}
 
-	public static ResourceLocation getColoredCarpetTexture(int carpetRGB) {
+	private static ResourceLocation getColoredCarpetTexture(int carpetRGB) {
 		String path = "got:camel_carpet_0x" + Integer.toHexString(carpetRGB);
-		ResourceLocation res = coloredCarpetTextures.get(path);
+		ResourceLocation res = COLORED_CARPET_TEXTURES.get(path);
 		if (res == null) {
 			try {
 				Minecraft mc = Minecraft.getMinecraft();
-				InputStream isBase = mc.getResourceManager().getResource(carpetBase).getInputStream();
+				InputStream isBase = mc.getResourceManager().getResource(CARPET_BASE).getInputStream();
 				BufferedImage imgBase = ImageIO.read(isBase);
-				InputStream isOverlay = mc.getResourceManager().getResource(carpetOverlay).getInputStream();
+				InputStream isOverlay = mc.getResourceManager().getResource(CARPET_OVERLAY).getInputStream();
 				BufferedImage imgOverlay = ImageIO.read(isOverlay);
 				BufferedImage imgDyed = new BufferedImage(imgBase.getWidth(), imgBase.getHeight(), 2);
 				int carpetR = carpetRGB >> 16 & 0xFF;
@@ -68,11 +69,11 @@ public class GOTRenderCamel extends RenderLiving {
 				}
 				res = mc.renderEngine.getDynamicTextureLocation(path, new DynamicTexture(imgDyed));
 			} catch (IOException e) {
-				System.out.println("Hummel009: Error generating coloured camel carpet texture");
+				System.out.println("Hummel009: Error generating colored camel carpet texture.");
 				e.printStackTrace();
-				res = carpetBase;
+				res = CARPET_BASE;
 			}
-			coloredCarpetTextures.put(path, res);
+			COLORED_CARPET_TEXTURES.put(path, res);
 		}
 		return res;
 	}
@@ -80,7 +81,7 @@ public class GOTRenderCamel extends RenderLiving {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTNPCMount camel = (GOTNPCMount) entity;
-		return GOTRenderHorse.getLayeredMountTexture(camel, camelSkin);
+		return GOTRenderHorse.getLayeredMountTexture(camel, CAMEL_TEXTURE);
 	}
 
 	@Override
@@ -99,7 +100,7 @@ public class GOTRenderCamel extends RenderLiving {
 		GOTEntityCamel camel = (GOTEntityCamel) entity;
 		if (pass == 0 && camel.isMountSaddled()) {
 			setRenderPassModel(modelSaddle);
-			bindTexture(saddleTexture);
+			bindTexture(SADDLE_TEXTURE);
 			return 1;
 		}
 		if (pass == 1 && camel.isCamelWearingCarpet()) {

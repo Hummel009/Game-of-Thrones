@@ -14,12 +14,12 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class GOTRenderButterfly extends RenderLiving {
-	public static Map<GOTEntityButterfly.ButterflyType, GOTRandomSkins> textures = new EnumMap<>(GOTEntityButterfly.ButterflyType.class);
+	private static final Map<GOTEntityButterfly.ButterflyType, GOTRandomSkins> BUTTERFLY_TEXTURES = new EnumMap<>(GOTEntityButterfly.ButterflyType.class);
 
 	public GOTRenderButterfly() {
 		super(new GOTModelButterfly(), 0.2f);
 		for (GOTEntityButterfly.ButterflyType t : GOTEntityButterfly.ButterflyType.values()) {
-			textures.put(t, GOTRandomSkins.loadSkinsList("got:textures/entity/animal/butterfly/" + t.textureDir));
+			BUTTERFLY_TEXTURES.put(t, GOTRandomSkins.loadSkinsList("got:textures/entity/animal/butterfly/" + t.textureDir));
 		}
 	}
 
@@ -39,7 +39,7 @@ public class GOTRenderButterfly extends RenderLiving {
 	@Override
 	public ResourceLocation getEntityTexture(Entity entity) {
 		GOTEntityButterfly butterfly = (GOTEntityButterfly) entity;
-		GOTRandomSkins skins = textures.get(butterfly.getButterflyType());
+		GOTRandomSkins skins = BUTTERFLY_TEXTURES.get(butterfly.getButterflyType());
 		return skins.getRandomSkin(butterfly);
 	}
 
