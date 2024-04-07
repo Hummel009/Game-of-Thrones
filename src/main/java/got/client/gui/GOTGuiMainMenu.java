@@ -23,7 +23,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 	private static final ResourceLocation TITLE_TEXTURE = new ResourceLocation("textures/gui/title/minecraft.png");
 	private static final ResourceLocation MENU_OVERLAY = new ResourceLocation("got:textures/gui/menu_overlay.png");
 	private static final List<GOTWaypoint> WAYPOINT_ROUTE = new ArrayList<>();
-	private static final boolean FADE_IN = true;
+	private boolean fadeIn = true;
 
 	private static GOTGuiRendererMap mapRenderer;
 	private static int currentWPIndex;
@@ -80,13 +80,13 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		GL11.glEnable(3008);
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		if (firstRenderTime == 0L && FADE_IN) {
+		if (firstRenderTime == 0L && fadeIn) {
 			firstRenderTime = System.currentTimeMillis();
 		}
-		float fade = FADE_IN ? (System.currentTimeMillis() - firstRenderTime) / 1000.0f : 1.0f;
-		float fadeAlpha = FADE_IN ? MathHelper.clamp_float(fade - 1.0f, 0.0f, 1.0f) : 1.0f;
+		float fade = fadeIn ? (System.currentTimeMillis() - firstRenderTime) / 1000.0f : 1.0f;
+		float fadeAlpha = fadeIn ? MathHelper.clamp_float(fade - 1.0f, 0.0f, 1.0f) : 1.0f;
 		mapRenderer.setZoomExp(-0.3f);
-		if (FADE_IN) {
+		if (fadeIn) {
 			float slowerFade = fade * 0.5f;
 			float fadeInZoom = MathHelper.clamp_float(1.0f - slowerFade, 0.0f, 1.0f) * -1.5f;
 			mapRenderer.setZoomExp(mapRenderer.getZoomExp() + fadeInZoom);
@@ -96,7 +96,7 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 		mapRenderer.renderVignettes(this, zLevel, 2);
 		GL11.glEnable(3042);
 		OpenGlHelper.glBlendFunc(770, 771, 1, 0);
-		GL11.glColor4f(1.0f, 1.0f, 1.0f, FADE_IN ? MathHelper.clamp_float(1.0f - fade, 0.0f, 1.0f) : 0.0f);
+		GL11.glColor4f(1.0f, 1.0f, 1.0f, fadeIn ? MathHelper.clamp_float(1.0f - fade, 0.0f, 1.0f) : 0.0f);
 		mc.getTextureManager().bindTexture(MENU_OVERLAY);
 		func_152125_a(0, 0, 0.0f, 0.0f, 16, 128, width, height, 16.0f, 128.0f);
 		int fadeAlphaI = MathHelper.ceiling_float_int(fadeAlpha * 255.0f) << 24;
