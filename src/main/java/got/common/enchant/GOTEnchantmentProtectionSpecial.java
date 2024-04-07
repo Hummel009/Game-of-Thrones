@@ -15,7 +15,7 @@ public abstract class GOTEnchantmentProtectionSpecial extends GOTEnchantment {
 		this(s, GOTEnchantmentType.ARMOR, level);
 	}
 
-	public abstract int calcIntProtection();
+	protected abstract int calcIntProtection();
 
 	public int calcSpecialProtection(DamageSource source) {
 		if (source.canHarmInCreative()) {
@@ -37,9 +37,9 @@ public abstract class GOTEnchantmentProtectionSpecial extends GOTEnchantment {
 		return super.isCompatibleWith(other) && (!(other instanceof GOTEnchantmentProtectionSpecial) || isCompatibleWithOtherProtection() || ((GOTEnchantmentProtectionSpecial) other).isCompatibleWithOtherProtection());
 	}
 
-	public boolean isCompatibleWithOtherProtection() {
+	protected boolean isCompatibleWithOtherProtection() {
 		return false;
 	}
 
-	public abstract boolean protectsAgainst(DamageSource paramDamageSource);
+	protected abstract boolean protectsAgainst(DamageSource paramDamageSource);
 }

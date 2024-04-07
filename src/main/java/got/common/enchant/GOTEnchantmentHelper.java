@@ -13,15 +13,16 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.WeightedRandom;
 
 import java.util.*;
 
 public class GOTEnchantmentHelper {
-	public static Map<UUID, ItemStack[]> lastKnownPlayerInventories = new HashMap<>();
+	private static final Map<UUID, ItemStack[]> lastKnownPlayerInventories = new HashMap<>();
 
-	public static Random backupRand;
+	private static Random backupRand;
 
 	private GOTEnchantmentHelper() {
 	}
@@ -55,7 +56,7 @@ public class GOTEnchantmentHelper {
 		}
 
 		Collection<WeightedRandomEnchant> applicable = new ArrayList<>();
-		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
+		for (GOTEnchantment ench : GOTEnchantment.ALL_ENCHANTMENTS) {
 			if (ench.canApply(itemstack, true) && (!ench.isSkilful() || skilful)) {
 				int weight = ench.getEnchantWeight();
 				if (weight > 0) {
@@ -178,7 +179,7 @@ public class GOTEnchantmentHelper {
 		if (itemstack != null) {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
-				if (ench == GOTEnchantment.fire) {
+				if (ench == GOTEnchantment.FIRE) {
 					fire += GOTEnchantmentWeaponSpecial.getFireAmount();
 				}
 			}
@@ -318,8 +319,8 @@ public class GOTEnchantmentHelper {
 		return value;
 	}
 
-	public static boolean canApplyAnyEnchant(ItemStack itemstack) {
-		for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
+	private static boolean canApplyAnyEnchant(ItemStack itemstack) {
+		for (GOTEnchantment ench : GOTEnchantment.ALL_ENCHANTMENTS) {
 			if (ench.canApply(itemstack, true)) {
 				return true;
 			}
@@ -377,7 +378,7 @@ public class GOTEnchantmentHelper {
 		return enchants;
 	}
 
-	public static NBTTagList getEntityEnchantTags(Entity entity, boolean create) {
+	private static NBTTagList getEntityEnchantTags(Entity entity, boolean create) {
 		NBTTagCompound data = entity.getEntityData();
 		NBTTagList tags = null;
 		if (data != null && data.hasKey("GOTEnchEntity")) {
@@ -395,12 +396,12 @@ public class GOTEnchantmentHelper {
 		List<GOTEnchantment> enchants = getEnchantList(itemstack);
 		enchants = Lists.reverse(enchants);
 		for (GOTEnchantment ench : enchants) {
-			name1 = StatCollector.translateToLocalFormatted("got.enchant.nameFormat", ench.getDisplayName(), name1);
+			name1 = StatCollector.translateToLocalFormatted("got.enchant.nameFormat", name1, EnumChatFormatting.GOLD + ('[' + ench.getDisplayName() + ']'));
 		}
 		return name1;
 	}
 
-	public static NBTTagList getItemEnchantTags(ItemStack itemstack, boolean create) {
+	private static NBTTagList getItemEnchantTags(ItemStack itemstack, boolean create) {
 		NBTTagCompound itemData = itemstack.getTagCompound();
 		NBTTagList tags = null;
 		if (itemData != null && itemData.hasKey("GOTEnch")) {
@@ -456,7 +457,7 @@ public class GOTEnchantmentHelper {
 		return Math.max(weight, 1);
 	}
 
-	public static boolean hasAppliedRandomEnchants(ItemStack itemstack) {
+	private static boolean hasAppliedRandomEnchants(ItemStack itemstack) {
 		NBTTagCompound nbt = itemstack.getTagCompound();
 		return nbt != null && nbt.hasKey("GOTRandomEnch") && nbt.getBoolean("GOTRandomEnch");
 	}
@@ -491,7 +492,7 @@ public class GOTEnchantmentHelper {
 		return sourceEntity != null && hasProjectileEnchantment(sourceEntity, ench);
 	}
 
-	public static boolean hasProjectileEnchantment(Entity entity, GOTEnchantment ench) {
+	private static boolean hasProjectileEnchantment(Entity entity, GOTEnchantment ench) {
 		NBTTagList tags = getEntityEnchantTags(entity, false);
 		if (tags != null) {
 			for (int i = 0; i < tags.tagCount(); i++) {
@@ -509,7 +510,7 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static boolean isSilkTouch(ItemStack itemstack) {
-		return itemstack != null && hasEnchant(itemstack, GOTEnchantment.toolSilk);
+		return itemstack != null && hasEnchant(itemstack, GOTEnchantment.TOOL_SILK);
 	}
 
 	public static boolean negateDamage(ItemStack itemstack, Random random) {
@@ -609,7 +610,7 @@ public class GOTEnchantmentHelper {
 		itemstack.getTagCompound().setInteger("GOTRepairCost", cost);
 	}
 
-	public static void setAppliedRandomEnchants(ItemStack itemstack) {
+	private static void setAppliedRandomEnchants(ItemStack itemstack) {
 		if (!itemstack.hasTagCompound()) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
@@ -643,7 +644,7 @@ public class GOTEnchantmentHelper {
 		}
 	}
 
-	public static boolean tryApplyRandomEnchantsForEntity(ItemStack itemstack, Random rand) {
+	private static boolean tryApplyRandomEnchantsForEntity(ItemStack itemstack, Random rand) {
 		if (itemstack != null && !hasAppliedRandomEnchants(itemstack) && canApplyAnyEnchant(itemstack)) {
 			applyRandomEnchantments(itemstack, rand, false, false);
 			return true;

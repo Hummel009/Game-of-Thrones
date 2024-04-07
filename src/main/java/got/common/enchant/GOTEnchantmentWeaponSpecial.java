@@ -15,7 +15,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
-	public boolean compatibleOtherSpecial;
+	private boolean compatibleOtherSpecial;
 
 	public GOTEnchantmentWeaponSpecial(String s) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE, GOTEnchantmentType.RANGED_LAUNCHER});
@@ -43,7 +43,7 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		if (super.canApply(itemstack, considering)) {
 			Item item = itemstack.getItem();
-			return !(item instanceof GOTItemLegendaryWhip) || this != fire && this != chill;
+			return !(item instanceof GOTItemLegendaryWhip) || this != FIRE && this != CHILL;
 		}
 		return false;
 	}

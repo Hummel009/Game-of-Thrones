@@ -792,7 +792,7 @@ public class GOTItems {
 		boneHelmet = new GOTItemArmor(GOTMaterial.BONE, 0);
 		boneLeggings = new GOTItemArmor(GOTMaterial.BONE, 2);
 		bottlePoison = new GOTItemBottlePoison();
-		bountyTrophy = new GOTItemEnchantment(GOTEnchantment.headhunting);
+		bountyTrophy = new GOTItemEnchantment(GOTEnchantment.HEADHUNTING);
 		braavosBoots = new GOTItemArmor(GOTMaterial.BRAAVOS, 3);
 		braavosChestplate = new GOTItemArmor(GOTMaterial.BRAAVOS, 1);
 		braavosHelmet = new GOTItemArmor(GOTMaterial.BRAAVOS, 0, "helmet");
@@ -1297,7 +1297,7 @@ public class GOTItems {
 		unsulliedLeggings = new GOTItemArmor(GOTMaterial.UNSULLIED, 2);
 		valyrianAxe = new GOTItemAxe(GOTMaterial.VALYRIAN_TOOL);
 		valyrianBattleaxe = new GOTItemBattleaxe(GOTMaterial.VALYRIAN_TOOL);
-		valyrianBook = new GOTItemEnchantment(GOTEnchantment.protectValyrian);
+		valyrianBook = new GOTItemEnchantment(GOTEnchantment.PROTECT_VALYRIAN);
 		valyrianBoots = new GOTItemArmor(GOTMaterial.VALYRIAN, 3);
 		valyrianChainmailBoots = new GOTItemArmor(GOTMaterial.VALYRIAN_CHAINMAIL, 3);
 		valyrianChainmailChestplate = new GOTItemArmor(GOTMaterial.VALYRIAN_CHAINMAIL, 1);

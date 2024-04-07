@@ -17,7 +17,7 @@ public class GOTEnchantmentProtectionValyrian extends GOTEnchantmentProtectionSp
 	}
 
 	@Override
-	public int calcIntProtection() {
+	protected int calcIntProtection() {
 		return 4;
 	}
 

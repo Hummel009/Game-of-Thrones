@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTEnchantmentCombining {
-	public static Collection<CombineRecipe> allCombineRecipes = new ArrayList<>();
+	private static final Collection<CombineRecipe> allCombineRecipes = new ArrayList<>();
 
 	private GOTEnchantmentCombining() {
 	}
 
-	public static void combine(GOTEnchantment in, GOTEnchantment out, int cost) {
+	private static void combine(GOTEnchantment in, GOTEnchantment out, int cost) {
 		if (!in.hasTemplateItem() || !out.hasTemplateItem()) {
 			throw new IllegalArgumentException("Cannot create a modifier combining recipe for modifiers which lack scroll items!");
 		}
@@ -39,45 +39,45 @@ public class GOTEnchantmentCombining {
 	}
 
 	public static void onInit() {
-		combine(GOTEnchantment.strong1, GOTEnchantment.strong2, 200);
-		combine(GOTEnchantment.strong2, GOTEnchantment.strong3, 800);
-		combine(GOTEnchantment.strong3, GOTEnchantment.strong4, 1600);
+		combine(GOTEnchantment.STRONG_1, GOTEnchantment.STRONG_2, 200);
+		combine(GOTEnchantment.STRONG_2, GOTEnchantment.STRONG_3, 800);
+		combine(GOTEnchantment.STRONG_3, GOTEnchantment.STRONG_4, 1600);
 
-		combine(GOTEnchantment.durable1, GOTEnchantment.durable2, 300);
-		combine(GOTEnchantment.durable2, GOTEnchantment.durable3, 1500);
+		combine(GOTEnchantment.DURABLE_1, GOTEnchantment.DURABLE_2, 300);
+		combine(GOTEnchantment.DURABLE_2, GOTEnchantment.DURABLE_3, 1500);
 
-		combine(GOTEnchantment.knockback1, GOTEnchantment.knockback2, 2500);
+		combine(GOTEnchantment.KNOCKBACK_1, GOTEnchantment.KNOCKBACK_2, 2500);
 
-		combine(GOTEnchantment.toolSpeed1, GOTEnchantment.toolSpeed2, 200);
-		combine(GOTEnchantment.toolSpeed2, GOTEnchantment.toolSpeed3, 800);
-		combine(GOTEnchantment.toolSpeed3, GOTEnchantment.toolSpeed4, 1500);
+		combine(GOTEnchantment.TOOL_SPEED_1, GOTEnchantment.TOOL_SPEED_2, 200);
+		combine(GOTEnchantment.TOOL_SPEED_2, GOTEnchantment.TOOL_SPEED_3, 800);
+		combine(GOTEnchantment.TOOL_SPEED_3, GOTEnchantment.TOOL_SPEED_4, 1500);
 
-		combine(GOTEnchantment.looting1, GOTEnchantment.looting2, 400);
-		combine(GOTEnchantment.looting2, GOTEnchantment.looting3, 1500);
+		combine(GOTEnchantment.LOOTING_1, GOTEnchantment.LOOTING_2, 400);
+		combine(GOTEnchantment.LOOTING_2, GOTEnchantment.LOOTING_3, 1500);
 
-		combine(GOTEnchantment.protect1, GOTEnchantment.protect2, 2000);
+		combine(GOTEnchantment.PROTECT_1, GOTEnchantment.PROTECT_2, 2000);
 
-		combine(GOTEnchantment.protectFire1, GOTEnchantment.protectFire2, 400);
-		combine(GOTEnchantment.protectFire2, GOTEnchantment.protectFire3, 1500);
+		combine(GOTEnchantment.PROTECT_FIRE_1, GOTEnchantment.PROTECT_FIRE_2, 400);
+		combine(GOTEnchantment.PROTECT_FIRE_2, GOTEnchantment.PROTECT_FIRE_3, 1500);
 
-		combine(GOTEnchantment.protectFall1, GOTEnchantment.protectFall2, 400);
-		combine(GOTEnchantment.protectFall2, GOTEnchantment.protectFall3, 1500);
+		combine(GOTEnchantment.PROTECT_FALL_1, GOTEnchantment.PROTECT_FALL_2, 400);
+		combine(GOTEnchantment.PROTECT_FALL_2, GOTEnchantment.PROTECT_FALL_3, 1500);
 
-		combine(GOTEnchantment.protectRanged1, GOTEnchantment.protectRanged2, 400);
-		combine(GOTEnchantment.protectRanged2, GOTEnchantment.protectRanged3, 1500);
+		combine(GOTEnchantment.PROTECT_RANGED_1, GOTEnchantment.PROTECT_RANGED_2, 400);
+		combine(GOTEnchantment.PROTECT_RANGED_2, GOTEnchantment.PROTECT_RANGED_3, 1500);
 
-		combine(GOTEnchantment.rangedStrong1, GOTEnchantment.rangedStrong2, 400);
-		combine(GOTEnchantment.rangedStrong2, GOTEnchantment.rangedStrong3, 1500);
+		combine(GOTEnchantment.RANGED_STRONG_1, GOTEnchantment.RANGED_STRONG_2, 400);
+		combine(GOTEnchantment.RANGED_STRONG_2, GOTEnchantment.RANGED_STRONG_3, 1500);
 
-		combine(GOTEnchantment.rangedKnockback1, GOTEnchantment.rangedKnockback2, 2500);
+		combine(GOTEnchantment.RANGED_KNOCKBACK_1, GOTEnchantment.RANGED_KNOCKBACK_2, 2500);
 	}
 
 	public static class CombineRecipe {
-		public GOTEnchantment inputMod;
-		public GOTEnchantment outputMod;
+		protected GOTEnchantment inputMod;
+		protected GOTEnchantment outputMod;
 		public int cost;
 
-		public CombineRecipe(GOTEnchantment in, GOTEnchantment out, int c) {
+		protected CombineRecipe(GOTEnchantment in, GOTEnchantment out, int c) {
 			inputMod = in;
 			outputMod = out;
 			cost = c;

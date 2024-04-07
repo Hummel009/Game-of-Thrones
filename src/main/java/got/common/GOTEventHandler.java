@@ -1037,7 +1037,7 @@ public class GOTEventHandler implements IFuelHandler {
 		}
 		if (!world.isRemote && entity instanceof EntityPlayer) {
 			EntityPlayer entityplayer = (EntityPlayer) entity;
-			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(source, GOTEnchantment.headhunting)) {
+			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(source, GOTEnchantment.HEADHUNTING)) {
 				ItemStack playerHead = new ItemStack(Items.skull, 1, 3);
 				GameProfile profile = entityplayer.getGameProfile();
 				NBTTagCompound profileData = new NBTTagCompound();
@@ -1142,11 +1142,11 @@ public class GOTEventHandler implements IFuelHandler {
 			GOTItemSword.applyStandardFire(entity);
 		}
 		if (!world.isRemote) {
-			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.fire)) {
+			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.FIRE)) {
 				IMessage packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.INFERNAL, entity);
 				GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
 			}
-			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.chill)) {
+			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.CHILL)) {
 				GOTEnchantmentWeaponSpecial.doChillAttack(entity);
 			}
 		}

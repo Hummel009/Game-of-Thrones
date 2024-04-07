@@ -9,7 +9,7 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentProtection extends GOTEnchantment {
 	public int protectLevel;
 
-	public GOTEnchantmentProtection(String s, GOTEnchantmentType type, int level) {
+	private GOTEnchantmentProtection(String s, GOTEnchantmentType type, int level) {
 		super(s, type);
 		protectLevel = level;
 		if (protectLevel >= 0) {
