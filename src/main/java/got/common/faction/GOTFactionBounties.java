@@ -319,11 +319,11 @@ public class GOTFactionBounties {
 				nbt.setInteger("Time", timeElapsed);
 			}
 
-			public int getTimeElapsed() {
+			private int getTimeElapsed() {
 				return timeElapsed;
 			}
 
-			public void setTimeElapsed(int timeElapsed) {
+			private void setTimeElapsed(int timeElapsed) {
 				this.timeElapsed = timeElapsed;
 			}
 		}

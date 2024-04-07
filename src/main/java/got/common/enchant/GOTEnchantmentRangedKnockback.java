@@ -4,7 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentRangedKnockback extends GOTEnchantment {
-	private int knockback;
+	private final int knockback;
 
 	public GOTEnchantmentRangedKnockback(String s, int i) {
 		super(s, GOTEnchantmentType.RANGED_LAUNCHER);
@@ -24,9 +24,5 @@ public class GOTEnchantmentRangedKnockback extends GOTEnchantment {
 
 	public int getKnockback() {
 		return knockback;
-	}
-
-	public void setKnockback(int knockback) {
-		this.knockback = knockback;
 	}
 }

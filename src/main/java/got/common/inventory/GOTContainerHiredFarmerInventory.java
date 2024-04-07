@@ -18,7 +18,7 @@ public class GOTContainerHiredFarmerInventory extends Container {
 		for (i = 0; i < 2; ++i) {
 			addSlotToContainer(new GOTSlotProtected(theNPC.hiredNPCInfo.getHiredInventory(), i + 1, 71 + i * 18, 47));
 		}
-		addSlotToContainer(new GOTSlotBonemeal(theNPC.hiredNPCInfo.getHiredInventory(), 3, 123, 34, theNPC.worldObj));
+		addSlotToContainer(new GOTSlotBonemeal(theNPC.hiredNPCInfo.getHiredInventory(), 3, 123, 34));
 		for (i = 0; i < 3; ++i) {
 			for (int j = 0; j < 9; ++j) {
 				addSlotToContainer(new Slot(inv, j + i * 9 + 9, 8 + j * 18, 79 + i * 18));

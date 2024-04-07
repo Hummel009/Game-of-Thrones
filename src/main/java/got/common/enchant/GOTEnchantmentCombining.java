@@ -75,7 +75,7 @@ public class GOTEnchantmentCombining {
 	public static class CombineRecipe {
 		private final GOTEnchantment inputMod;
 		private final GOTEnchantment outputMod;
-		private int cost;
+		private final int cost;
 
 		protected CombineRecipe(GOTEnchantment in, GOTEnchantment out, int c) {
 			inputMod = in;
@@ -93,11 +93,7 @@ public class GOTEnchantmentCombining {
 			return cost;
 		}
 
-		public void setCost(int cost) {
-			this.cost = cost;
-		}
-
-		public GOTEnchantment getInputMod() {
+		protected GOTEnchantment getInputMod() {
 			return inputMod;
 		}
 	}

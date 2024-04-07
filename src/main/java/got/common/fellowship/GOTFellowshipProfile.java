@@ -3,7 +3,6 @@ package got.common.fellowship;
 import com.mojang.authlib.GameProfile;
 import got.GOT;
 import got.common.GOTLevelData;
-import got.common.entity.other.GOTEntityBanner;
 import net.minecraft.util.StatCollector;
 
 import java.util.Locale;
@@ -14,7 +13,7 @@ public class GOTFellowshipProfile extends GameProfile {
 
 	private final String fellowshipName;
 
-	public GOTFellowshipProfile(GOTEntityBanner banner, UUID fsID, String fsName) {
+	public GOTFellowshipProfile(UUID fsID, String fsName) {
 		super(fsID, fsName);
 		fellowshipName = fsName;
 	}

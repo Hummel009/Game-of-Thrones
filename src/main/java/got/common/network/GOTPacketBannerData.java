@@ -113,7 +113,7 @@ public class GOTPacketBannerData implements IMessage {
 						banner.whitelistPlayer(index, null);
 					} else if (GOTFellowshipProfile.hasFellowshipCode(username)) {
 						String fsName = GOTFellowshipProfile.stripFellowshipCode(username);
-						GOTFellowshipProfile profile = new GOTFellowshipProfile(banner, null, fsName);
+						GOTFellowshipProfile profile = new GOTFellowshipProfile(null, fsName);
 						banner.whitelistPlayer(index, profile);
 					} else {
 						GameProfile profile = new GameProfile(null, username);

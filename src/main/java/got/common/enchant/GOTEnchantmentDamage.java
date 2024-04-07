@@ -42,7 +42,7 @@ public class GOTEnchantmentDamage extends GOTEnchantment {
 		return StatCollector.translateToLocalFormatted("got.enchant.damage.desc", formatAdditive(baseDamageBoost));
 	}
 
-	public float getEntitySpecificDamage(EntityLivingBase entity) {
+	public float getEntitySpecificDamage() {
 		return 0.0F;
 	}
 

@@ -84,8 +84,9 @@ public class GOTAlignmentValues {
 	}
 
 	public static class AlignmentBonus {
-		private float bonus;
-		private String name;
+		private final float bonus;
+		private final String name;
+
 		private boolean needsTranslation = true;
 		private boolean isKill;
 		private boolean killByHiredUnit;
@@ -110,16 +111,8 @@ public class GOTAlignmentValues {
 			return bonus;
 		}
 
-		public void setBonus(float bonus) {
-			this.bonus = bonus;
-		}
-
 		public String getName() {
 			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
 		}
 
 		public boolean isNeedsTranslation() {

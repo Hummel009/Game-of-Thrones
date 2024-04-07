@@ -565,7 +565,7 @@ public class GOTGuiBanner extends GOTGuiScreenBase {
 				if (StringUtils.isBlank(fsName)) {
 					theBanner.whitelistPlayer(index, null);
 				} else {
-					theBanner.whitelistPlayer(index, new GOTFellowshipProfile(theBanner, null, fsName));
+					theBanner.whitelistPlayer(index, new GOTFellowshipProfile(null, fsName));
 				}
 			} else {
 				theBanner.whitelistPlayer(index, new GameProfile(null, username));

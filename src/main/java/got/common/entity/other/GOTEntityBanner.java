@@ -410,7 +410,7 @@ public class GOTEntityBanner extends Entity {
 				if (playerData.hasKey("FellowshipID")) {
 					String fellowshipIDString = playerData.getString("FellowshipID");
 					fsID = UUID.fromString(fellowshipIDString);
-					GOTFellowshipProfile fellowshipProfile = new GOTFellowshipProfile(this, fsID, "");
+					GOTFellowshipProfile fellowshipProfile = new GOTFellowshipProfile( fsID, "");
 					if (fellowshipProfile.getFellowship() != null) {
 						profile = fellowshipProfile;
 					}
@@ -589,7 +589,7 @@ public class GOTEntityBanner extends Entity {
 
 	public void whitelistFellowship(int index, GOTFellowship fs, Iterable<Permission> perms) {
 		if (isValidFellowship(fs)) {
-			whitelistPlayer(index, new GOTFellowshipProfile(this, fs.getFellowshipID(), ""), perms);
+			whitelistPlayer(index, new GOTFellowshipProfile(fs.getFellowshipID(), ""), perms);
 		}
 	}
 

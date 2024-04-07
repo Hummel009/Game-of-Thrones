@@ -26,7 +26,7 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 	private final EntityPlayer entityplayer;
 	private final List<IRecipe> recipeList;
 
-	private GOTBlockCraftingTable tableBlock;
+	private final GOTBlockCraftingTable tableBlock;
 
 	protected GOTContainerCraftingTable(InventoryPlayer inv, World world, int i, int j, int k, List<IRecipe> list, Block block) {
 		super(inv, world, i, j, k);
@@ -61,10 +61,6 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 
 	public GOTBlockCraftingTable getTableBlock() {
 		return tableBlock;
-	}
-
-	public void setTableBlock(GOTBlockCraftingTable tableBlock) {
-		this.tableBlock = tableBlock;
 	}
 
 	public List<IRecipe> getRecipeList() {

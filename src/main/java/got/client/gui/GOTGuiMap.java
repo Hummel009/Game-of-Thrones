@@ -1431,13 +1431,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					int sides = 100;
 					for (int l = sides - 1; l >= 0; --l) {
 						float angle = (float) l / sides * 2.0f * 3.1415927f;
-						double x = zone.getxCoord();
-						double z = zone.getzCoord();
+						double x = zone.getCoordX();
+						double z = zone.getCoordZ();
 						float[] trans2 = transformCoords(x + MathHelper.cos(angle) * radiusWorld, z + MathHelper.sin(angle) * radiusWorld);
 						tessellator.addVertex(trans2[0], trans2[1], zLevel);
 					}
 					tessellator.draw();
-					if ((!mouseControlZone || !mouseControlZoneReduced) && (dx = mouseX - (trans = transformCoords(zone.getxCoord(), zone.getzCoord()))[0]) * dx + (dy = mouseY - trans[1]) * dy <= (rScaled = radius * zoomScale) * rScaled) {
+					if ((!mouseControlZone || !mouseControlZoneReduced) && (dx = mouseX - (trans = transformCoords(zone.getCoordX(), zone.getCoordZ()))[0]) * dx + (dy = mouseY - trans[1]) * dy <= (rScaled = radius * zoomScale) * rScaled) {
 						if (pass >= 1) {
 							mouseControlZone = true;
 						} else {

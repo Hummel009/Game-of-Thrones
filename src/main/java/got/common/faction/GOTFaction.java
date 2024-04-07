@@ -342,10 +342,10 @@ public enum GOTFaction {
 		int zMax = 0;
 		boolean first = true;
 		for (GOTControlZone zone : controlZones) {
-			int cxMin = zone.getxCoord() - zone.getRadiusCoord();
-			int cxMax = zone.getxCoord() + zone.getRadiusCoord();
-			int czMin = zone.getzCoord() - zone.getRadiusCoord();
-			int czMax = zone.getzCoord() + zone.getRadiusCoord();
+			int cxMin = zone.getCoordX() - zone.getRadiusCoord();
+			int cxMax = zone.getCoordX() + zone.getRadiusCoord();
+			int czMin = zone.getCoordZ() - zone.getRadiusCoord();
+			int czMax = zone.getCoordZ() + zone.getRadiusCoord();
 			if (first) {
 				xMin = cxMin;
 				xMax = cxMax;
@@ -382,8 +382,8 @@ public enum GOTFaction {
 		if (isFactionDimension(world)) {
 			int coordRange = GOTWaypoint.mapToWorldR(mapRange);
 			for (GOTControlZone zone : controlZones) {
-				double dx = x - zone.getxCoord();
-				double dz = z - zone.getzCoord();
+				double dx = x - zone.getCoordX();
+				double dz = z - zone.getCoordZ();
 				double dSq = dx * dx + dz * dz;
 				double dToEdge = Math.sqrt(dSq) - zone.getRadiusCoord();
 				if (dToEdge > coordRange || closestDist >= 0.0 && dToEdge >= closestDist) {

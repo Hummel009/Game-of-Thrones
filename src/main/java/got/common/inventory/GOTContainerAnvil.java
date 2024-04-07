@@ -42,8 +42,8 @@ public class GOTContainerAnvil extends Container {
 	private final World theWorld;
 	private final IInventory invOutput;
 	private final IInventory invInput;
+	private final boolean isTrader;
 
-	private boolean isTrader;
 	private GOTEntityNPC theNPC;
 	private int materialCost;
 	private int reforgeCost;
@@ -829,16 +829,8 @@ public class GOTContainerAnvil extends Container {
 		return isTrader;
 	}
 
-	public void setTrader(boolean trader) {
-		isTrader = trader;
-	}
-
 	public GOTEntityNPC getTheNPC() {
 		return theNPC;
-	}
-
-	public void setTheNPC(GOTEntityNPC theNPC) {
-		this.theNPC = theNPC;
 	}
 
 	public int getMaterialCost() {
@@ -853,16 +845,8 @@ public class GOTContainerAnvil extends Container {
 		return reforgeCost;
 	}
 
-	public void setReforgeCost(int reforgeCost) {
-		this.reforgeCost = reforgeCost;
-	}
-
 	public int getEngraveOwnerCost() {
 		return engraveOwnerCost;
-	}
-
-	public void setEngraveOwnerCost(int engraveOwnerCost) {
-		this.engraveOwnerCost = engraveOwnerCost;
 	}
 
 	public int getClientReforgeTime() {

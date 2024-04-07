@@ -7,9 +7,9 @@ public class GOTControlZone {
 	private final long radiusCoordSq;
 	private final int radiusCoord;
 
-	private int radius;
-	private int xCoord;
-	private int zCoord;
+	private final int radius;
+	private final int xCoord;
+	private final int zCoord;
 
 	public GOTControlZone(double x, double y, int r) {
 		radius = r;
@@ -39,24 +39,12 @@ public class GOTControlZone {
 		return radius;
 	}
 
-	public void setRadius(int radius) {
-		this.radius = radius;
-	}
-
-	public int getxCoord() {
+	public int getCoordX() {
 		return xCoord;
 	}
 
-	public void setxCoord(int xCoord) {
-		this.xCoord = xCoord;
-	}
-
-	public int getzCoord() {
+	public int getCoordZ() {
 		return zCoord;
-	}
-
-	public void setzCoord(int zCoord) {
-		this.zCoord = zCoord;
 	}
 
 	public int getRadiusCoord() {

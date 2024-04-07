@@ -143,14 +143,14 @@ public class GOTEnchantmentHelper {
 		return protection;
 	}
 
-	public static float calcEntitySpecificDamage(ItemStack itemstack, EntityLivingBase entity) {
+	public static float calcEntitySpecificDamage(ItemStack itemstack) {
 		float damage = 0.0F;
 
 		if (itemstack != null) {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentDamage) {
-					damage += ((GOTEnchantmentDamage) ench).getEntitySpecificDamage(entity);
+					damage += ((GOTEnchantmentDamage) ench).getEntitySpecificDamage();
 				}
 			}
 		}

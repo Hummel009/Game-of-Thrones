@@ -14,7 +14,6 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.*;
@@ -26,8 +25,9 @@ import java.util.*;
 public class GOTAchievement {
 	public static final Set<GOTAchievement> CONTENT = new HashSet<>();
 
+	public static final Map<ItemArmor.ArmorMaterial, GOTAchievement> ARMOR_ACHIEVEMENTS = new EnumMap<>(ItemArmor.ArmorMaterial.class);
+
 	public static int id = 1;
-	public static Map<ItemArmor.ArmorMaterial, GOTAchievement> armorAchievements = new EnumMap<>(ArmorMaterial.class);
 	public static GOTAchievement bannerProtect;
 	public static GOTAchievement brewDrinkInBarrel;
 	public static GOTAchievement catchButterfly;
@@ -67,7 +67,6 @@ public class GOTAchievement {
 	public static GOTAchievement enterDorneDesert;
 	public static GOTAchievement enterDorneMesa;
 	public static GOTAchievement enterDorneMountains;
-	public static GOTAchievement enterDoshKhalin;
 	public static GOTAchievement enterDothrakiSea;
 	public static GOTAchievement enterDragonstone;
 	public static GOTAchievement enterEssosMountains;
@@ -98,7 +97,6 @@ public class GOTAchievement {
 	public static GOTAchievement enterMossovyMarshes;
 	public static GOTAchievement enterMossovyMountains;
 	public static GOTAchievement enterMyr;
-	public static GOTAchievement enterNaath;
 	public static GOTAchievement enterNeck;
 	public static GOTAchievement enterNorth;
 	public static GOTAchievement enterNorthBarrows;
@@ -119,7 +117,6 @@ public class GOTAchievement {
 	public static GOTAchievement enterShadowMountains;
 	public static GOTAchievement enterShrykesLand;
 	public static GOTAchievement enterSkagos;
-	public static GOTAchievement enterSkirlingPass;
 	public static GOTAchievement enterSnowyWasteland;
 	public static GOTAchievement enterSothoryosBushland;
 	public static GOTAchievement enterSothoryosDesert;
@@ -156,7 +153,6 @@ public class GOTAchievement {
 	public static GOTAchievement enterWesterlands;
 	public static GOTAchievement enterWesterlandsHills;
 	public static GOTAchievement enterWesterlandsTown;
-	public static GOTAchievement enterWhisperingWood;
 	public static GOTAchievement enterYeen;
 	public static GOTAchievement enterYiTi;
 	public static GOTAchievement enterYiTiWasteland;
@@ -341,6 +337,7 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullYiti;
 	public static GOTAchievement wearFullYitiFrontier;
 	public static GOTAchievement wearFullYitiSamurai;
+
 	public Category category;
 	public int ID;
 	public ItemStack icon;
@@ -399,7 +396,7 @@ public class GOTAchievement {
 
 	public static GOTAchievement createArmorAchievement(GOTAchievement.Category category, int id, Item item, String name) {
 		GOTAchievement achievement = new GOTAchievement(category, id, item, name);
-		armorAchievements.put(((ItemArmor) item).getArmorMaterial(), achievement);
+		ARMOR_ACHIEVEMENTS.put(((ItemArmor) item).getArmorMaterial(), achievement);
 		return achievement;
 	}
 
@@ -555,7 +552,7 @@ public class GOTAchievement {
 		enterDorneDesert = new GOTAchievement(Category.VISIT, id++, Blocks.sand, "VISIT_DORNE_DESERT");
 		enterDorneMesa = new GOTAchievement(Category.VISIT, id++, Blocks.clay, "VISIT_DORNE_MESA");
 		enterDorneMountains = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.rock, 1, 4), "VISIT_DORNE_MOUNTAINS");
-		enterDoshKhalin = new GOTAchievement(Category.VISIT, id++, Blocks.stone, "VISIT_DOSH_KHALIN");
+		id++;
 		enterDothrakiSea = new GOTAchievement(Category.VISIT, id++, GOTItems.nomadSword, "VISIT_DOTHRAKI_SEA");
 		enterDragonstone = new GOTAchievement(Category.VISIT, id++, GOTItems.obsidianShard, "VISIT_DRAGONSTONE");
 		enterEssosMountains = new GOTAchievement(Category.VISIT, id++, Blocks.stone, "VISIT_ESSOS_MOUNTAINS");
@@ -585,7 +582,7 @@ public class GOTAchievement {
 		enterMossovyMarshes = new GOTAchievement(Category.VISIT, id++, GOTBlocks.reeds, "VISIT_MOSSOVY_MARSHES");
 		enterMossovyMountains = new GOTAchievement(Category.VISIT, id++, Blocks.stone, "VISIT_MOSSOVY_SOPKAS");
 		enterMyr = new GOTAchievement(Category.VISIT, id++, GOTItems.myrHelmet, "VISIT_MYR");
-		enterNaath = new GOTAchievement(Category.VISIT, id++, GOTItems.summerHelmet, "VISIT_NAATH");
+		id++;
 		enterNeck = new GOTAchievement(Category.VISIT, id++, GOTBlocks.quagmire, "VISIT_NECK");
 		enterNorth = new GOTAchievement(Category.VISIT, id++, GOTItems.northHelmet, "VISIT_NORTH");
 		enterNorthBarrows = new GOTAchievement(Category.VISIT, id++, GOTItems.coin, "VISIT_NORTH_BARROWS");
@@ -605,7 +602,7 @@ public class GOTAchievement {
 		enterShadowLand = new GOTAchievement(Category.VISIT, id++, GOTBlocks.asshaiFlower, "VISIT_SHADOW_LAND");
 		enterShadowMountains = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.rock, 1, 0), "VISIT_SHADOW_MOUNTAINS");
 		enterSkagos = new GOTAchievement(Category.VISIT, id++, GOTItems.trident, "VISIT_SKAGOS");
-		enterSkirlingPass = new GOTAchievement(Category.VISIT, id++, GOTItems.club, "VISIT_SKIRLING_PASS");
+		id++;
 		enterSothoryosBushland = new GOTAchievement(Category.VISIT, id++, GOTItems.termite, "VISIT_SOTHORYOS_BUSHLAND");
 		enterSothoryosDesert = new GOTAchievement(Category.VISIT, id++, Blocks.sand, "VISIT_SOTHORYOS_DESERT");
 		enterSothoryosFrost = new GOTAchievement(Category.VISIT, id++, Blocks.packed_ice, "VISIT_SOTHORYOS_FROST");
@@ -635,7 +632,7 @@ public class GOTAchievement {
 		enterWesterlands = new GOTAchievement(Category.VISIT, id++, GOTItems.westerlandsHelmet, "VISIT_WESTERLANDS");
 		enterWesterlandsHills = new GOTAchievement(Category.VISIT, id++, Blocks.gold_ore, "VISIT_WESTERLANDS_HILLS");
 		enterWesterlandsTown = new GOTAchievement(Category.VISIT, id++, GOTItems.westerlandsguardHelmet, "VISIT_WESTERLANDS_TOWN");
-		enterWhisperingWood = new GOTAchievement(Category.VISIT, id++, GOTItems.westerosPike, "VISIT_WHISPERING_WOOD");
+		id++;
 		enterYeen = new GOTAchievement(Category.VISIT, id++, Blocks.obsidian, "VISIT_YEEN");
 		enterYiTi = new GOTAchievement(Category.VISIT, id++, GOTItems.yitiHelmet, "VISIT_YI_TI");
 		enterYiTiWasteland = new GOTAchievement(Category.VISIT, id++, GOTItems.yitiHelmetSamurai, "VISIT_YI_TI_WASTELAND");
