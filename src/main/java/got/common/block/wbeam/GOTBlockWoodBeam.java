@@ -37,10 +37,11 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getSideIcon(int i) {
-		if (i < 0 || i >= woodNames.length) {
-			i = 0;
+		int i1 = i;
+		if (i1 < 0 || i1 >= woodNames.length) {
+			i1 = 0;
 		}
-		return sideIcons[i];
+		return sideIcons[i1];
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -55,10 +56,11 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getTopIcon(int i) {
-		if (i < 0 || i >= woodNames.length) {
-			i = 0;
+		int i1 = i;
+		if (i1 < 0 || i1 >= woodNames.length) {
+			i1 = 0;
 		}
-		return topIcons[i];
+		return topIcons[i1];
 	}
 
 	@SideOnly(Side.CLIENT)

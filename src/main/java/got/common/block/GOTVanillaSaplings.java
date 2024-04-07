@@ -11,6 +11,9 @@ import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 import java.util.Random;
 
 public class GOTVanillaSaplings {
+	private GOTVanillaSaplings() {
+	}
+
 	public static void growTree(World world, int i, int j, int k, Random random) {
 		int[] partyTree;
 		int i1;

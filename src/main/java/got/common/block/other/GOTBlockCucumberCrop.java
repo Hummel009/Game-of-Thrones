@@ -28,13 +28,14 @@ public class GOTBlockCucumberCrop extends BlockCrops {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j < 7) {
-			if (j == 6) {
-				j = 5;
+		int j1 = j;
+		if (j1 < 7) {
+			if (j1 == 6) {
+				j1 = 5;
 			}
-			return cucumberIcons[j >> 1];
+			return cucumberIcons[j1 >> 1];
 		}
-		return GOTBlocks.cucumberPlant.getIcon(i, j);
+		return GOTBlocks.cucumberPlant.getIcon(i, j1);
 	}
 
 	@Override

@@ -100,11 +100,12 @@ public abstract class GOTBlockAnimalJar extends BlockContainer {
 
 	@Override
 	public void onBlockHarvested(World world, int i, int j, int k, int meta, EntityPlayer entityplayer) {
+		int meta1 = meta;
 		if (entityplayer.capabilities.isCreativeMode) {
-			world.setBlockMetadataWithNotify(i, j, k, meta |= 8, 4);
+			world.setBlockMetadataWithNotify(i, j, k, meta1 |= 8, 4);
 		}
-		dropBlockAsItem(world, i, j, k, meta, 0);
-		super.onBlockHarvested(world, i, j, k, meta, entityplayer);
+		dropBlockAsItem(world, i, j, k, meta1, 0);
+		super.onBlockHarvested(world, i, j, k, meta1, entityplayer);
 	}
 
 	@Override

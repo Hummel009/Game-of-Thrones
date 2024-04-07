@@ -15,13 +15,14 @@ public abstract class GOTBlockSmoothStoneBase extends GOTBlockBrickBase {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= brickNames.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= brickNames.length) {
+			j1 = 0;
 		}
 		if (i == 0 || i == 1) {
-			return topIcons[j];
+			return topIcons[j1];
 		}
-		return sideIcons[j];
+		return sideIcons[j1];
 	}
 
 	@SideOnly(Side.CLIENT)

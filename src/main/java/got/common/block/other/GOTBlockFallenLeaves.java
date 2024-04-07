@@ -43,14 +43,15 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 	}
 
 	public static Object[] fallenBlockMetaFromLeafBlockMeta(Block block, int meta) {
-		meta &= 3;
+		int meta1 = meta;
+		meta1 &= 3;
 		for (GOTBlockFallenLeaves fallenLeaves : allFallenLeaves) {
 			for (int i = 0; i < fallenLeaves.leafBlocks.length; ++i) {
 				Block leafBlock = fallenLeaves.leafBlocks[i];
 				if (leafBlock != block) {
 					continue;
 				}
-				return new Object[]{fallenLeaves, i * 4 + meta};
+				return new Object[]{fallenLeaves, i * 4 + meta1};
 			}
 		}
 		return null;

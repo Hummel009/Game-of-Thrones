@@ -34,10 +34,11 @@ public abstract class GOTBlockBrickBase extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= brickNames.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= brickNames.length) {
+			j1 = 0;
 		}
-		return brickIcons[j];
+		return brickIcons[j1];
 	}
 
 	@SideOnly(Side.CLIENT)

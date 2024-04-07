@@ -146,10 +146,11 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int p_149691_1_, int p_149691_2_) {
-		if (p_149691_2_ < 0 || p_149691_2_ > 7) {
-			p_149691_2_ = 7;
+		int p_149691_2_1 = p_149691_2_;
+		if (p_149691_2_1 < 0 || p_149691_2_1 > 7) {
+			p_149691_2_1 = 7;
 		}
-		return field_149867_a[p_149691_2_];
+		return field_149867_a[p_149691_2_1];
 	}
 
 	@Override

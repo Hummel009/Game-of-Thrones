@@ -66,10 +66,11 @@ public class GOTBlockChandelier extends Block {
 
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= chandelierNames.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= chandelierNames.length) {
+			j1 = 0;
 		}
-		return chandelierIcons[j];
+		return chandelierIcons[j1];
 	}
 
 	@Override

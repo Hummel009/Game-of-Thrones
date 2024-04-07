@@ -132,10 +132,11 @@ public class GOTBlockBomb extends Block {
 
 	@Override
 	public void onBlockDestroyedByPlayer(World world, int i, int j, int k, int meta) {
-		if (!world.isRemote && meta == -1) {
-			meta = world.getBlockMetadata(i, j, k);
+		int meta1 = meta;
+		if (!world.isRemote && meta1 == -1) {
+			meta1 = world.getBlockMetadata(i, j, k);
 			GOTEntityBomb bomb = new GOTEntityBomb(world, i + 0.5f, j + 0.5f, k + 0.5f, null);
-			bomb.setBombStrengthLevel(meta);
+			bomb.setBombStrengthLevel(meta1);
 			bomb.droppedByPlayer = true;
 			world.spawnEntityInWorld(bomb);
 			world.playSoundAtEntity(bomb, "game.tnt.primed", 1.0f, 1.0f);

@@ -33,9 +33,11 @@ public class GOTBlockMug extends BlockContainer {
 
 	public GOTBlockMug(float f, float f1) {
 		super(Material.circuits);
-		f /= 16.0f;
-		f1 /= 16.0f;
-		setBlockBounds(0.5f - (f *= 0.75f), 0.0f, 0.5f - f, 0.5f + f, f1 * 0.75f, 0.5f + f);
+		float f11 = f1;
+		float f2 = f;
+		f2 /= 16.0f;
+		f11 /= 16.0f;
+		setBlockBounds(0.5f - (f2 *= 0.75f), 0.0f, 0.5f - f2, 0.5f + f2, f11 * 0.75f, 0.5f + f2);
 		setHardness(0.0f);
 		setStepSound(Block.soundTypeWood);
 	}
@@ -177,11 +179,12 @@ public class GOTBlockMug extends BlockContainer {
 
 	@Override
 	public void onBlockHarvested(World world, int i, int j, int k, int meta, EntityPlayer entityplayer) {
+		int meta1 = meta;
 		if (entityplayer.capabilities.isCreativeMode) {
-			world.setBlockMetadataWithNotify(i, j, k, meta |= 4, 4);
+			world.setBlockMetadataWithNotify(i, j, k, meta1 |= 4, 4);
 		}
-		dropBlockAsItem(world, i, j, k, meta, 0);
-		super.onBlockHarvested(world, i, j, k, meta, entityplayer);
+		dropBlockAsItem(world, i, j, k, meta1, 0);
+		super.onBlockHarvested(world, i, j, k, meta1, entityplayer);
 	}
 
 	@Override

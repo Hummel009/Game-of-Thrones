@@ -71,13 +71,14 @@ public abstract class GOTBlockPillarBase extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= pillarNames.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= pillarNames.length) {
+			j1 = 0;
 		}
 		if (i == 0 || i == 1) {
-			return pillarFaceIcons[j];
+			return pillarFaceIcons[j1];
 		}
-		return pillarSideIcons[j];
+		return pillarSideIcons[j1];
 	}
 
 	@SideOnly(Side.CLIENT)

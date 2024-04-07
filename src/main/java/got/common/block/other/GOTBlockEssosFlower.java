@@ -23,10 +23,11 @@ public class GOTBlockEssosFlower extends GOTBlockFlower {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		if (j >= flowerNames.length) {
-			j = 0;
+		int j1 = j;
+		if (j1 >= flowerNames.length) {
+			j1 = 0;
 		}
-		return flowerIcons[j];
+		return flowerIcons[j1];
 	}
 
 	@SideOnly(Side.CLIENT)

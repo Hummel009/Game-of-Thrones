@@ -27,15 +27,16 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		int j1 = j & 0xC;
-		j &= 3;
-		if (j >= woodNames.length) {
-			j = 0;
+		int j2 = j;
+		int j1 = j2 & 0xC;
+		j2 &= 3;
+		if (j2 >= woodNames.length) {
+			j2 = 0;
 		}
 		if (j1 == 0 && (i == 0 || i == 1) || j1 == 4 && (i == 4 || i == 5) || j1 == 8 && (i == 2 || i == 3)) {
-			return woodIcons[j][0];
+			return woodIcons[j2][0];
 		}
-		return woodIcons[j][1];
+		return woodIcons[j2][1];
 	}
 
 	@SideOnly(Side.CLIENT)

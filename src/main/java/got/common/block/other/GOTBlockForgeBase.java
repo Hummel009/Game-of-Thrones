@@ -37,6 +37,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		return (meta & 8) != 0;
 	}
 
+	@SuppressWarnings("JavaExistingMethodCanBeUsed")
 	public static void toggleForgeActive(World world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		world.setBlockMetadataWithNotify(i, j, k, meta ^ 8, 2);
