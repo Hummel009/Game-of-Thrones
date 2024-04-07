@@ -5,6 +5,8 @@ import got.common.GOTPlayerData;
 import got.common.database.GOTTitle;
 import net.minecraft.util.StatCollector;
 
+import java.util.Objects;
+
 public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	public static final GOTFactionRank RANK_NEUTRAL = new Dummy("got.rank.neutral");
 	public static final GOTFactionRank RANK_ENEMY = new Dummy("got.rank.enemy");
@@ -135,6 +137,11 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	@Override
 	public boolean equals(Object o) {
 		return o instanceof GOTFactionRank && compareTo((GOTFactionRank) o) == 0;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(fac, alignment, name, rankAchievement, rankTitle, rankTitleMasc, rankTitleFem, addFacName);
 	}
 
 	public static final class Dummy extends GOTFactionRank {
