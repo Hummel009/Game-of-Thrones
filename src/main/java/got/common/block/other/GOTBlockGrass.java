@@ -29,10 +29,7 @@ public class GOTBlockGrass extends BlockBush implements IShearable {
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
 		Block below = world.getBlock(i, j - 1, k);
-		if (isSandy && below.getMaterial() == Material.sand && below.isSideSolid(world, i, j - 1, k, ForgeDirection.UP)) {
-			return true;
-		}
-		return below.canSustainPlant(world, i, j, k, ForgeDirection.UP, this);
+		return isSandy && below.getMaterial() == Material.sand && below.isSideSolid(world, i, j - 1, k, ForgeDirection.UP) || below.canSustainPlant(world, i, j, k, ForgeDirection.UP, this);
 	}
 
 	@Override

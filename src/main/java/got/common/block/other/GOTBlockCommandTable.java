@@ -8,7 +8,6 @@ import got.common.database.GOTCreativeTabs;
 import got.common.database.GOTGuiID;
 import got.common.tileentity.GOTTileEntityCommandTable;
 import got.common.world.map.GOTConquestGrid;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;

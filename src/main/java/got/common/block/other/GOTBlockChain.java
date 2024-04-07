@@ -45,16 +45,7 @@ public class GOTBlockChain extends Block {
 	public boolean canPlaceBlockAt(World world, int i, int j, int k) {
 		Block block = world.getBlock(i, j + 1, k);
 		int meta = world.getBlockMetadata(i, j + 1, k);
-		if (block instanceof GOTBlockChain || block instanceof BlockFence || block instanceof BlockWall) {
-			return true;
-		}
-		if (block instanceof BlockSlab && !block.isOpaqueCube() && (meta & 8) == 0) {
-			return true;
-		}
-		if (block instanceof BlockStairs && (meta & 4) == 0) {
-			return true;
-		}
-		return world.getBlock(i, j + 1, k).isSideSolid(world, i, j + 1, k, ForgeDirection.DOWN);
+		return block instanceof GOTBlockChain || block instanceof BlockFence || block instanceof BlockWall || block instanceof BlockSlab && !block.isOpaqueCube() && (meta & 8) == 0 || block instanceof BlockStairs && (meta & 4) == 0 || world.getBlock(i, j + 1, k).isSideSolid(world, i, j + 1, k, ForgeDirection.DOWN);
 	}
 
 	@Override

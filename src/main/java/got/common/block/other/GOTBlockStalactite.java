@@ -40,10 +40,7 @@ public class GOTBlockStalactite extends Block {
 		if (metadata == 0) {
 			return world.getBlock(i, j + 1, k).isSideSolid(world, i, j + 1, k, ForgeDirection.DOWN);
 		}
-		if (metadata == 1) {
-			return world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
-		}
-		return false;
+		return metadata == 1 && world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
 	}
 
 	@Override
@@ -52,10 +49,7 @@ public class GOTBlockStalactite extends Block {
 		if (metadata == 0) {
 			return world.getBlock(i, j + 1, k).isSideSolid(world, i, j + 1, k, ForgeDirection.DOWN);
 		}
-		if (metadata == 1) {
-			return world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
-		}
-		return false;
+		return metadata == 1 && world.getBlock(i, j - 1, k).isSideSolid(world, i, j - 1, k, ForgeDirection.UP);
 	}
 
 	@Override

@@ -3,7 +3,6 @@ package got.common.block.other;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
@@ -26,10 +25,7 @@ public class GOTBlockAsshaiGrass extends BlockBush implements IShearable {
 
 	@Override
 	public boolean canBlockStay(World world, int i, int j, int k) {
-		if (j >= 0 && j < 256) {
-			return GOTBiomeShadowLand.isBlackSurface(world, i, j - 1, k);
-		}
-		return false;
+		return j >= 0 && j < 256 && GOTBiomeShadowLand.isBlackSurface(world, i, j - 1, k);
 	}
 
 	@Override

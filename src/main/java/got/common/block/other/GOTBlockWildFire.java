@@ -21,10 +21,7 @@ public class GOTBlockWildFire extends BlockFire {
 	}
 
 	public boolean canCatchFireNotBannered(World world, int i, int j, int k, ForgeDirection face) {
-		if (isBannered(world, i, j, k)) {
-			return false;
-		}
-		return canCatchFire(world, i, j, k, face);
+		return !isBannered(world, i, j, k) && canCatchFire(world, i, j, k, face);
 	}
 
 	public boolean canNeighborBurn(World world, int i, int j, int k) {

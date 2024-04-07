@@ -3,7 +3,6 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.common.database.GOTCreativeTabs;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockVine;
 import net.minecraft.world.IBlockAccess;
 

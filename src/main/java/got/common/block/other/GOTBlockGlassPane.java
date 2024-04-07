@@ -1,7 +1,6 @@
 package got.common.block.other;
 
 import got.common.database.GOTCreativeTabs;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.IBlockAccess;
 import net.minecraftforge.common.util.ForgeDirection;

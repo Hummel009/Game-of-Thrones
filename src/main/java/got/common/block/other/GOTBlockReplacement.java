@@ -31,6 +31,9 @@ import java.util.Map;
 public class GOTBlockReplacement {
 	public static boolean initForgeHooks;
 
+	private GOTBlockReplacement() {
+	}
+
 	public static void injectReplacementItem(ItemStack itemstack, Item newItem) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		itemstack.writeToNBT(nbt);
@@ -168,6 +171,9 @@ public class GOTBlockReplacement {
 	}
 
 	public static class Reflect {
+		private Reflect() {
+		}
+
 		public static String getBlockName(Block block) {
 			try {
 				return ObfuscationReflectionHelper.getPrivateValue(Block.class, block, "unlocalizedName", "field_149770_b");

@@ -43,10 +43,7 @@ public class GOTBlockReed extends Block implements IPlantable {
 	public boolean canPlaceBlockAt(World world, int i, int j, int k) {
 		Block below = world.getBlock(i, j - 1, k);
 		int belowMeta = world.getBlockMetadata(i, j - 1, k);
-		if (below == this) {
-			return true;
-		}
-		return below.getMaterial() == Material.water && belowMeta == 0;
+		return below == this || below.getMaterial() == Material.water && belowMeta == 0;
 	}
 
 	public boolean canReedGrow(World world, int i, int j, int k) {

@@ -6,7 +6,6 @@ import got.GOT;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTGuiID;
 import got.common.faction.GOTFaction;
-import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
