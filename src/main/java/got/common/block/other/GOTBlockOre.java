@@ -88,7 +88,7 @@ public class GOTBlockOre extends Block {
 			factor = Math.max(factor, 0);
 			int drops = quantityDropped(random) * (factor + 1);
 			if (this == GOTBlocks.oreGlowstone) {
-				drops = Math.min(drops, 8);
+				return Math.min(drops, 8);
 			}
 			return drops;
 		}

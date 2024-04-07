@@ -72,7 +72,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		if (fortune > 0) {
 			chance -= 2 << fortune;
 			chance = Math.max(chance, baseChance / 2);
-			chance = Math.max(chance, 1);
+			return Math.max(chance, 1);
 		}
 		return chance;
 	}

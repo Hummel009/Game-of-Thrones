@@ -51,7 +51,7 @@ public class GOTBlockSignCarved extends BlockSign {
 		Block onBlock = world.getBlock(onX, onY, onZ);
 		IIcon icon = onBlock.getIcon(world, onX, onY, onZ, side);
 		if (icon == null) {
-			icon = Blocks.stone.getIcon(0, 0);
+			return Blocks.stone.getIcon(0, 0);
 		}
 		return icon;
 	}
