@@ -124,7 +124,7 @@ public class GOT {
 				}
 			}
 		}
-		if (attackerFaction.allowEntityRegistry) {
+		if (attackerFaction.isAllowEntityRegistry()) {
 			if (attackerFaction.isGoodRelation(getNPCFaction(target)) && attacker.getAttackTarget() != target) {
 				return false;
 			}

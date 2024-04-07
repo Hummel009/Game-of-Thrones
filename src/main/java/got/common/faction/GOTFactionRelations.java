@@ -18,17 +18,19 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTFactionRelations {
-	public static Map<FactionPair, Relation> defaultMap = new HashMap<>();
-	public static Map<FactionPair, Relation> overrideMap = new HashMap<>();
-	public static boolean needsLoad = true;
-	public static boolean needsSave;
+	private static final Map<FactionPair, Relation> OVERRIDE_MAP = new HashMap<>();
+
+	public static final Map<FactionPair, Relation> DEFAULT_MAP = new HashMap<>();
+
+	private static boolean needsLoad = true;
+	private static boolean needsSave;
 
 	private GOTFactionRelations() {
 	}
 
-	public static Relation getFromDefaultMap(FactionPair key) {
-		if (defaultMap.containsKey(key)) {
-			return defaultMap.get(key);
+	private static Relation getFromDefaultMap(FactionPair key) {
+		if (DEFAULT_MAP.containsKey(key)) {
+			return DEFAULT_MAP.get(key);
 		}
 		return Relation.NEUTRAL;
 	}
@@ -44,20 +46,20 @@ public class GOTFactionRelations {
 			return Relation.ALLY;
 		}
 		FactionPair key = new FactionPair(f1, f2);
-		if (overrideMap.containsKey(key)) {
-			return overrideMap.get(key);
+		if (OVERRIDE_MAP.containsKey(key)) {
+			return OVERRIDE_MAP.get(key);
 		}
 		return getFromDefaultMap(key);
 	}
 
-	public static File getRelationsFile() {
+	private static File getRelationsFile() {
 		return new File(GOTLevelData.getOrCreateGOTDir(), "faction_relations.dat");
 	}
 
 	public static void load() {
 		try {
 			NBTTagCompound facData = GOTLevelData.loadNBTFromFile(getRelationsFile());
-			overrideMap.clear();
+			OVERRIDE_MAP.clear();
 			NBTTagList relationTags = facData.getTagList("Overrides", 10);
 			for (int i = 0; i < relationTags.tagCount(); ++i) {
 				NBTTagCompound nbt = relationTags.getCompoundTagAt(i);
@@ -66,7 +68,7 @@ public class GOTFactionRelations {
 				if (pair == null || rel == null) {
 					continue;
 				}
-				overrideMap.put(pair, rel);
+				OVERRIDE_MAP.put(pair, rel);
 			}
 			needsLoad = false;
 			save();
@@ -76,7 +78,7 @@ public class GOTFactionRelations {
 		}
 	}
 
-	public static void markDirty() {
+	private static void markDirty() {
 		needsSave = true;
 	}
 
@@ -89,8 +91,8 @@ public class GOTFactionRelations {
 	}
 
 	public static void resetAllRelations() {
-		boolean wasEmpty = overrideMap.isEmpty();
-		overrideMap.clear();
+		boolean wasEmpty = OVERRIDE_MAP.isEmpty();
+		OVERRIDE_MAP.clear();
 		if (!wasEmpty) {
 			markDirty();
 			GOTPacketFactionRelations pkt = GOTPacketFactionRelations.reset();
@@ -106,7 +108,7 @@ public class GOTFactionRelations {
 			}
 			NBTTagCompound facData = new NBTTagCompound();
 			NBTTagList relationTags = new NBTTagList();
-			for (Map.Entry<FactionPair, Relation> e : overrideMap.entrySet()) {
+			for (Map.Entry<FactionPair, Relation> e : OVERRIDE_MAP.entrySet()) {
 				FactionPair pair = e.getKey();
 				Relation rel = e.getValue();
 				NBTTagCompound nbt = new NBTTagCompound();
@@ -124,11 +126,11 @@ public class GOTFactionRelations {
 	}
 
 	public static void sendAllRelationsTo(EntityPlayerMP entityplayer) {
-		GOTPacketFactionRelations pkt = GOTPacketFactionRelations.fullMap(overrideMap);
+		GOTPacketFactionRelations pkt = GOTPacketFactionRelations.fullMap(OVERRIDE_MAP);
 		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
 	}
 
-	public static void sendPacketToAll(IMessage packet) {
+	private static void sendPacketToAll(IMessage packet) {
 		MinecraftServer srv = MinecraftServer.getServer();
 		if (srv != null) {
 			for (EntityPlayerMP entityplayer : (List<EntityPlayerMP>) srv.getConfigurationManager().playerEntityList) {
@@ -141,7 +143,7 @@ public class GOTFactionRelations {
 		setRelations(f1, f2, relation, true);
 	}
 
-	public static void setRelations(GOTFaction f1, GOTFaction f2, Relation relation, boolean isDefault) {
+	private static void setRelations(GOTFaction f1, GOTFaction f2, Relation relation, boolean isDefault) {
 		if (f1 == GOTFaction.UNALIGNED || f2 == GOTFaction.UNALIGNED) {
 			throw new IllegalArgumentException("Cannot alter UNALIGNED!");
 		}
@@ -154,21 +156,29 @@ public class GOTFactionRelations {
 		FactionPair key = new FactionPair(f1, f2);
 		if (isDefault) {
 			if (relation == Relation.NEUTRAL) {
-				defaultMap.remove(key);
+				DEFAULT_MAP.remove(key);
 			} else {
-				defaultMap.put(key, relation);
+				DEFAULT_MAP.put(key, relation);
 			}
 		} else {
 			Relation defaultRelation = getFromDefaultMap(key);
 			if (relation == defaultRelation) {
-				overrideMap.remove(key);
+				OVERRIDE_MAP.remove(key);
 			} else {
-				overrideMap.put(key, relation);
+				OVERRIDE_MAP.put(key, relation);
 			}
 			markDirty();
 			GOTPacketFactionRelations pkt = GOTPacketFactionRelations.oneEntry(key, relation);
 			sendPacketToAll(pkt);
 		}
+	}
+
+	public static boolean isNeedsLoad() {
+		return needsLoad;
+	}
+
+	public static void setNeedsLoad(boolean needsLoad) {
+		GOTFactionRelations.needsLoad = needsLoad;
 	}
 
 	public enum Relation {
@@ -202,7 +212,7 @@ public class GOTFactionRelations {
 			return names;
 		}
 
-		public String codeName() {
+		private String codeName() {
 			return name();
 		}
 
@@ -212,15 +222,15 @@ public class GOTFactionRelations {
 	}
 
 	public static class FactionPair {
-		public GOTFaction fac1;
-		public GOTFaction fac2;
+		protected GOTFaction fac1;
+		protected GOTFaction fac2;
 
 		public FactionPair(GOTFaction f1, GOTFaction f2) {
 			fac1 = f1;
 			fac2 = f2;
 		}
 
-		public static FactionPair readFromNBT(NBTTagCompound nbt) {
+		protected static FactionPair readFromNBT(NBTTagCompound nbt) {
 			GOTFaction f1 = GOTFaction.forName(nbt.getString("FacPair1"));
 			GOTFaction f2 = GOTFaction.forName(nbt.getString("FacPair2"));
 			if (f1 != null && f2 != null) {
@@ -258,10 +268,9 @@ public class GOTFactionRelations {
 			return upper << 16 | lower;
 		}
 
-		public void writeToNBT(NBTTagCompound nbt) {
+		protected void writeToNBT(NBTTagCompound nbt) {
 			nbt.setString("FacPair1", fac1.codeName());
 			nbt.setString("FacPair2", fac2.codeName());
 		}
 	}
-
 }

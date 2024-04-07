@@ -391,7 +391,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		if (GOTFaction.controlZonesEnabled(worldObj)) {
 			GOTFaction invasionFaction = getInvasionType().invasionFaction;
 			for (GOTFaction faction : invasionFaction.getBonusesForKilling()) {
-				if (faction.isolationist || !faction.inDefinedControlZone(worldObj, posX, posY, posZ, 50)) {
+				if (!faction.inDefinedControlZone(worldObj, posX, posZ, 50)) {
 					continue;
 				}
 				bonusFactions.add(faction);
@@ -402,7 +402,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 				double nearestDist = Double.MAX_VALUE;
 				for (GOTFaction faction : invasionFaction.getBonusesForKilling()) {
 					double dist;
-					if (faction.isolationist || (dist = faction.distanceToNearestControlZoneInRange(worldObj, posX, posY, posZ, nearestRange)) < 0.0 || nearest != null && dist >= nearestDist) {
+					if ((dist = faction.distanceToNearestControlZoneInRange(worldObj, posX, posZ, nearestRange)) < 0.0 || nearest != null && dist >= nearestDist) {
 						continue;
 					}
 					nearest = faction;

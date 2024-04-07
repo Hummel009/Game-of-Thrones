@@ -364,16 +364,16 @@ public class GOTAPI {
 	 * @apiNote Moves faction from one region category to the another.
 	 */
 	public static void changeDimensionRegion(GOTFaction faction, DimensionRegion newRegion) {
-		faction.factionRegion.factionList.remove(faction);
+		faction.getFactionRegion().factionList.remove(faction);
 		newRegion.factionList.add(faction);
-		faction.factionRegion = newRegion;
+		faction.setFactionRegion(newRegion);
 	}
 
 	/**
 	 * @apiNote Changes all the faction relations between factions to neutral.
 	 */
 	public static void clearAllRelations() {
-		GOTFactionRelations.defaultMap.clear();
+		GOTFactionRelations.DEFAULT_MAP.clear();
 	}
 
 	/**
@@ -536,18 +536,17 @@ public class GOTAPI {
 	}
 
 	private static void removeFaction(GOTFaction faction) {
-		faction.allowPlayer = false;
-		faction.hasFixedAlignment = true;
-		faction.fixedAlignment = 0;
-		if (faction.factionDimension != null) {
-			faction.factionDimension.factionList.remove(faction);
+		faction.setAllowPlayer(false);
+		faction.setFixedAlignment(0);
+		if (faction.getFactionDimension() != null) {
+			faction.getFactionDimension().factionList.remove(faction);
 		}
-		if (faction.factionRegion != null) {
-			faction.factionRegion.factionList.remove(faction);
+		if (faction.getFactionRegion() != null) {
+			faction.getFactionRegion().factionList.remove(faction);
 		}
-		faction.factionDimension = null;
-		faction.factionRegion = null;
-		faction.controlZones.clear();
+		faction.setFactionDimension(null);
+		faction.setFactionRegion(null);
+		faction.clearControlZones();
 	}
 
 	/**

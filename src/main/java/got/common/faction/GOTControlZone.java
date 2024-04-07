@@ -4,20 +4,17 @@ import got.common.world.map.GOTAbstractWaypoint;
 import got.common.world.map.GOTWaypoint;
 
 public class GOTControlZone {
-	public double mapX;
-	public double mapY;
-	public int radius;
-	public int xCoord;
-	public int zCoord;
-	public int radiusCoord;
-	public long radiusCoordSq;
+	private final long radiusCoordSq;
+	private final int radiusCoord;
+
+	private int radius;
+	private int xCoord;
+	private int zCoord;
 
 	public GOTControlZone(double x, double y, int r) {
-		mapX = x;
-		mapY = y;
 		radius = r;
-		xCoord = GOTWaypoint.mapToWorldX(mapX);
-		zCoord = GOTWaypoint.mapToWorldZ(mapY);
+		xCoord = GOTWaypoint.mapToWorldX(x);
+		zCoord = GOTWaypoint.mapToWorldZ(y);
 		radiusCoord = GOTWaypoint.mapToWorldR(radius);
 		radiusCoordSq = (long) radiusCoord * radiusCoord;
 	}
@@ -26,16 +23,7 @@ public class GOTControlZone {
 		this(wp.getX(), wp.getY(), r);
 	}
 
-	public boolean intersectsWith(GOTControlZone other, int extraMapRadius) {
-		double dx = other.xCoord - xCoord;
-		double dz = other.zCoord - zCoord;
-		double distSq = dx * dx + dz * dz;
-		double r12 = radiusCoord + other.radiusCoord + GOTWaypoint.mapToWorldR(extraMapRadius * 2);
-		double r12Sq = r12 * r12;
-		return distSq <= r12Sq;
-	}
-
-	public boolean inZone(double x, double y, double z, int extraMapRange) {
+	public boolean inZone(double x, double z, int extraMapRange) {
 		double dx = x - xCoord;
 		double dz = z - zCoord;
 		double distSq = dx * dx + dz * dz;
@@ -45,5 +33,33 @@ public class GOTControlZone {
 		int checkRadius = GOTWaypoint.mapToWorldR(radius + extraMapRange);
 		long checkRadiusSq = (long) checkRadius * checkRadius;
 		return distSq <= checkRadiusSq;
+	}
+
+	public int getRadius() {
+		return radius;
+	}
+
+	public void setRadius(int radius) {
+		this.radius = radius;
+	}
+
+	public int getxCoord() {
+		return xCoord;
+	}
+
+	public void setxCoord(int xCoord) {
+		this.xCoord = xCoord;
+	}
+
+	public int getzCoord() {
+		return zCoord;
+	}
+
+	public void setzCoord(int zCoord) {
+		this.zCoord = zCoord;
+	}
+
+	public int getRadiusCoord() {
+		return radiusCoord;
 	}
 }

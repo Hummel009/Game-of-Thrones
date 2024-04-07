@@ -212,7 +212,7 @@ public class GOTTickHandlerClient {
 			float firstRankAlign;
 			GOTFactionRank firstRank = faction.getFirstRank();
 			if (firstRank != null && !firstRank.isDummyRank()) {
-				firstRankAlign = firstRank.alignment;
+				firstRankAlign = firstRank.getAlignment();
 			} else {
 				firstRankAlign = 10.0F;
 			}
@@ -243,14 +243,14 @@ public class GOTTickHandlerClient {
 				}
 			}
 		} else {
-			alignMin = rank.alignment;
+			alignMin = rank.getAlignment();
 			rankMin = rank;
 			GOTFactionRank nextRank = faction.getRankAbove(rank);
 			if (nextRank != null && !nextRank.isDummyRank() && nextRank != rank) {
-				alignMax = nextRank.alignment;
+				alignMax = nextRank.getAlignment();
 				rankMax = nextRank;
 			} else {
-				alignMax = rank.alignment * 10.0F;
+				alignMax = rank.getAlignment() * 10.0F;
 				rankMax = rank;
 				while (alignment >= alignMax) {
 					alignMin = alignMax;
@@ -772,8 +772,8 @@ public class GOTTickHandlerClient {
 					GOTLevelData.needsLoad = true;
 					GOTTime.needsLoad = true;
 					GOTFellowshipData.needsLoad = true;
-					GOTFactionBounties.needsLoad = true;
-					GOTFactionRelations.needsLoad = true;
+					GOTFactionBounties.setNeedsLoad(true);
+					GOTFactionRelations.setNeedsLoad(true);
 					GOTDate.resetWorldTimeInMenu();
 					GOTConquestGrid.needsLoad = true;
 					GOTSpeechClient.clearAll();

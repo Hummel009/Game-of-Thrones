@@ -65,7 +65,7 @@ public class GOTEntityRegistry {
 	public static void register(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
 		registerHidden(entityClass, id, 80, 3, true);
 		entitySet.add(entityClass);
-		spawnEggs.put(id, new SpawnEggInfo(id, faction.eggColor, faction.eggColor));
+		spawnEggs.put(id, new SpawnEggInfo(id, faction.getEggColor(), faction.getEggColor()));
 		classToFactionMapping.put(entityClass, faction);
 	}
 
@@ -93,7 +93,7 @@ public class GOTEntityRegistry {
 	public static void registerLegendaryNPC(Class<? extends Entity> entityClass, int id, GOTFaction faction) {
 		registerHidden(entityClass, id, 80, 3, true);
 		entitySet.add(entityClass);
-		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.eggColor));
+		spawnEggs.put(id, new SpawnEggInfo(id, 9605778, faction.getEggColor()));
 		classToFactionMapping.put(entityClass, faction);
 	}
 

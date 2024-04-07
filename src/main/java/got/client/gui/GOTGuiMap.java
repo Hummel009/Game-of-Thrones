@@ -571,7 +571,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 					GOTFaction pledgeFac = pd.getPledgeFaction();
 					GOTFactionRank needRank = query.getNeedRank();
-					String needAlign = GOTAlignmentValues.formatAlignForDisplay(needRank.alignment);
+					String needAlign = GOTAlignmentValues.formatAlignForDisplay(needRank.getAlignment());
 					String format = "";
 					if (query.getResult() == GOTConquestGrid.ConquestViewable.NEED_RANK) {
 						format = "got.gui.map.conquest.needRank";
@@ -992,7 +992,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			if (conquestViewingFaction == null) {
 				conquestViewingFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
 			}
-			prevRegion = currentRegion = conquestViewingFaction.factionRegion;
+			prevRegion = currentRegion = conquestViewingFaction.getFactionRegion();
 			currentFactionList = currentRegion.factionList;
 			prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(conquestViewingFaction);
 			LAST_VIEWED_REGIONS.put(currentRegion, conquestViewingFaction);
@@ -1401,7 +1401,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		mouseControlZone = false;
 		mouseControlZoneReduced = false;
 		GOTFaction faction = controlZoneFaction;
-		if (faction.factionDimension == GOTDimension.GAME_OF_THRONES && !(controlZones = faction.getControlZones()).isEmpty()) {
+		if (faction.getFactionDimension() == GOTDimension.GAME_OF_THRONES && !(controlZones = faction.getControlZones()).isEmpty()) {
 			Tessellator tessellator = Tessellator.instance;
 			setupMapClipping();
 			GL11.glDisable(3553);
@@ -1418,12 +1418,12 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					float[] trans;
 					float dy;
 					float rScaled;
-					float radius = zone.radius;
+					float radius = zone.getRadius();
 					if (pass == 2) {
 						radius -= 1.0f;
 					}
 					if (pass == 0) {
-						radius = zone.radius + controlZoneFaction.getControlZoneReducedRange();
+						radius = zone.getRadius() + controlZoneFaction.getControlZoneReducedRange();
 					}
 					float radiusWorld = GOTWaypoint.mapToWorldR(radius);
 					tessellator.startDrawing(9);
@@ -1431,13 +1431,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 					int sides = 100;
 					for (int l = sides - 1; l >= 0; --l) {
 						float angle = (float) l / sides * 2.0f * 3.1415927f;
-						double x = zone.xCoord;
-						double z = zone.zCoord;
+						double x = zone.getxCoord();
+						double z = zone.getzCoord();
 						float[] trans2 = transformCoords(x + MathHelper.cos(angle) * radiusWorld, z + MathHelper.sin(angle) * radiusWorld);
 						tessellator.addVertex(trans2[0], trans2[1], zLevel);
 					}
 					tessellator.draw();
-					if ((!mouseControlZone || !mouseControlZoneReduced) && (dx = mouseX - (trans = transformCoords(zone.xCoord, zone.zCoord))[0]) * dx + (dy = mouseY - trans[1]) * dy <= (rScaled = radius * zoomScale) * rScaled) {
+					if ((!mouseControlZone || !mouseControlZoneReduced) && (dx = mouseX - (trans = transformCoords(zone.getxCoord(), zone.getzCoord()))[0]) * dx + (dy = mouseY - trans[1]) * dy <= (rScaled = radius * zoomScale) * rScaled) {
 						if (pass >= 1) {
 							mouseControlZone = true;
 						} else {

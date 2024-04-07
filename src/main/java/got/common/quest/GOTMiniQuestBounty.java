@@ -12,7 +12,6 @@ import got.common.faction.GOTFactionBounties;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -365,7 +364,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			alignment = MathHelper.clamp_int(alignment, 1, 50);
 			int coins = (int) (targetData.getNumKills() * 10.0f * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
 			coins = MathHelper.clamp_int(coins, 1, 1000);
-			quest.targetID = targetData.playerID;
+			quest.targetID = targetData.getPlayerID();
 			String username = targetData.findUsername();
 			if (StringUtils.isBlank(username)) {
 				username = quest.targetID.toString();

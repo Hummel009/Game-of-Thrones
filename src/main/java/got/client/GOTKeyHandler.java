@@ -72,7 +72,7 @@ public class GOTKeyHandler {
 		Map<GOTDimension.DimensionRegion, GOTFaction> lastViewedRegions = new EnumMap<>(GOTDimension.DimensionRegion.class);
 		GOTDimension currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		GOTFaction currentFaction = pd.getViewingFaction();
-		GOTDimension.DimensionRegion currentRegion = currentFaction.factionRegion;
+		GOTDimension.DimensionRegion currentRegion = currentFaction.getFactionRegion();
 		List<GOTDimension.DimensionRegion> regionList = currentDimension.dimensionRegions;
 		List<GOTFaction> factionList = currentRegion.factionList;
 		if (mc.currentScreen == null && alignmentChangeTick <= 0) {

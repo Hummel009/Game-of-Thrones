@@ -265,15 +265,15 @@ public class GOTPlayerData {
 	}
 
 	public GOTAlignmentBonusMap addAlignment(EntityPlayer entityplayer, GOTAlignmentValues.AlignmentBonus source, GOTFaction faction, Collection<GOTFaction> forcedBonusFactions, double posX, double posY, double posZ) {
-		float bonus = source.bonus;
+		float bonus = source.getBonus();
 		GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
 		float prevMainAlignment = getAlignment(faction);
 		float conquestBonus = 0.0F;
-		if (source.isKill) {
+		if (source.isKill()) {
 			List<GOTFaction> killBonuses = faction.getBonusesForKilling();
 			for (GOTFaction bonusFaction : killBonuses) {
-				if (bonusFaction.isPlayableAlignmentFaction() && (bonusFaction.approvesWarCrimes || !source.isCivilianKill)) {
-					if (!source.killByHiredUnit) {
+				if (bonusFaction.isPlayableAlignmentFaction() && (bonusFaction.isApprovesWarCrimes() || !source.isCivilianKill())) {
+					if (!source.isKillByHiredUnit()) {
 						float mplier;
 						if (forcedBonusFactions != null && forcedBonusFactions.contains(bonusFaction)) {
 							mplier = 1.0F;
@@ -295,7 +295,7 @@ public class GOTPlayerData {
 					}
 					if (bonusFaction == pledgeFaction) {
 						float conq = bonus;
-						if (source.killByHiredUnit) {
+						if (source.isKillByHiredUnit()) {
 							conq *= 0.25F;
 						}
 						conquestBonus = GOTConquestGrid.onConquestKill(entityplayer, bonusFaction, faction, conq);
@@ -305,7 +305,7 @@ public class GOTPlayerData {
 			}
 			List<GOTFaction> killPenalties = faction.getPenaltiesForKilling();
 			for (GOTFaction penaltyFaction : killPenalties) {
-				if (penaltyFaction.isPlayableAlignmentFaction() && !source.killByHiredUnit) {
+				if (penaltyFaction.isPlayableAlignmentFaction() && !source.isKillByHiredUnit()) {
 					float mplier;
 					if (penaltyFaction == faction) {
 						mplier = 1.0F;
@@ -640,7 +640,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 			float alignment = getAlignment(faction);
-			faction.checkAlignmentAchievements(entityplayer, alignment);
+			faction.checkAlignmentAchievements(entityplayer);
 		}
 	}
 
@@ -910,8 +910,8 @@ public class GOTPlayerData {
 	}
 
 	public float getAlignment(GOTFaction faction) {
-		if (faction.hasFixedAlignment) {
-			return faction.fixedAlignment;
+		if (faction.isHasFixedAlignment()) {
+			return faction.getFixedAlignment();
 		}
 		Float alignment = alignments.get(faction);
 		if (alignment != null) {
@@ -1942,7 +1942,7 @@ public class GOTPlayerData {
 
 	public void onUpdate(EntityPlayerMP entityplayer, WorldServer world) {
 		pdTick++;
-		GOTDimension.DimensionRegion currentRegion = viewingFaction.factionRegion;
+		GOTDimension.DimensionRegion currentRegion = viewingFaction.getFactionRegion();
 		GOTDimension currentDim = GOTDimension.getCurrentDimensionWithFallback(world);
 		if (currentRegion.getDimension() != currentDim) {
 			currentRegion = currentDim.dimensionRegions.get(0);
@@ -2272,7 +2272,7 @@ public class GOTPlayerData {
 			GOTFactionRank rank = wasPledge.getRank(prevAlign);
 			GOTFactionRank rankBelow = wasPledge.getRankBelow(rank);
 			GOTFactionRank rankBelow2 = wasPledge.getRankBelow(rankBelow);
-			float newAlign = rankBelow2.alignment;
+			float newAlign = rankBelow2.getAlignment();
 			newAlign = Math.max(newAlign, pledgeLvl / 2.0F);
 			float alignPenalty = newAlign - prevAlign;
 			if (alignPenalty < 0.0F) {

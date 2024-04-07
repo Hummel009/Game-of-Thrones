@@ -878,12 +878,12 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
-					if (fac.ranksSortedDescending.isEmpty()) {
+					if (fac.getRanksSortedDescending().isEmpty()) {
 						sb.append(Lang.FACTION_NO_RANKS);
 					} else {
 						sb.append(Lang.FACTION_HAS_RANKS);
-						for (GOTFactionRank rank : fac.ranksSortedDescending) {
-							sb.append("\n* ").append(rank.getDisplayFullName()).append('/').append(rank.getDisplayFullNameFem()).append(" (+").append(rank.alignment).append(");");
+						for (GOTFactionRank rank : fac.getRanksSortedDescending()) {
+							sb.append("\n* ").append(rank.getDisplayFullName()).append('/').append(rank.getDisplayFullNameFem()).append(" (+").append(rank.getAlignment()).append(");");
 						}
 					}
 				}
@@ -893,11 +893,11 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
-					if (fac.factionBanners.isEmpty()) {
+					if (fac.getFactionBanners().isEmpty()) {
 						sb.append(Lang.FACTION_NO_BANNERS);
 					} else {
 						sb.append(Lang.FACTION_HAS_BANNERS);
-						for (BannerType banner : fac.factionBanners) {
+						for (BannerType banner : fac.getFactionBanners()) {
 							sb.append("\n* ").append(getBannerName(banner)).append(';');
 						}
 					}
@@ -1044,7 +1044,7 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				sb.append("\n| #default = ").append(Lang.FACTION_NO_WAR_CRIMES);
 				for (GOTFaction fac : FACTIONS) {
-					if (fac.approvesWarCrimes) {
+					if (fac.isApprovesWarCrimes()) {
 						sb.append("\n| ").append(getFactionPagename(fac)).append(" = ").append(Lang.FACTION_HAS_WAR_CRIMES);
 					}
 				}
@@ -1068,10 +1068,10 @@ public class DatabaseGenerator {
 				sb.append(BEGIN);
 				for (GOTFaction fac : FACTIONS) {
 					sb.append("\n| ").append(getFactionPagename(fac)).append(" = ");
-					if (fac.factionRegion == null) {
+					if (fac.getFactionRegion() == null) {
 						sb.append("N/A");
 					} else {
-						sb.append(fac.factionRegion.getRegionName());
+						sb.append(fac.getFactionRegion().getRegionName());
 					}
 				}
 				sb.append(END);

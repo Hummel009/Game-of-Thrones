@@ -916,18 +916,18 @@ public class GOTEventHandler implements IFuelHandler {
 				if (!wasSelfDefenceAgainstAlliedUnit && entity instanceof GOTEntityNPC) {
 					GOTEntityNPC npc = (GOTEntityNPC) entity;
 					alignmentBonus = new GOTAlignmentValues.AlignmentBonus(npc.getAlignmentBonus(), npc.getEntityClassName());
-					alignmentBonus.needsTranslation = true;
-					alignmentBonus.isCivilianKill = npc.isCivilianNPC();
+					alignmentBonus.setNeedsTranslation(true);
+					alignmentBonus.setCivilianKill(npc.isCivilianNPC());
 				}
-				if (alignmentBonus != null && alignmentBonus.bonus != 0.0F && (!creditHiredUnit || byNearbyUnit)) {
-					alignmentBonus.isKill = true;
+				if (alignmentBonus != null && alignmentBonus.getBonus() != 0.0F && (!creditHiredUnit || byNearbyUnit)) {
+					alignmentBonus.setKill(true);
 					if (creditHiredUnit) {
-						alignmentBonus.killByHiredUnit = true;
+						alignmentBonus.setKillByHiredUnit(true);
 					}
 					playerData.addAlignment(entityplayer, alignmentBonus, entityFaction, forcedBonusFactions, entity);
 				}
 				if (!creditHiredUnit) {
-					if (entityFaction.allowPlayer) {
+					if (entityFaction.isAllowPlayer()) {
 						playerData.getFactionData(entityFaction).addNPCKill();
 						List<GOTFaction> killBonuses = entityFaction.getBonusesForKilling();
 						for (GOTFaction enemy : killBonuses) {

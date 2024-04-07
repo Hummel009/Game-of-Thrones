@@ -38,7 +38,7 @@ public class GOTStructureRegistry {
 	public static void register(int id, Class<? extends WorldGenerator> strClass, GOTFaction faction) {
 		String name = strClass.getSimpleName();
 		String cut = name.replace("GOTStructure", "");
-		registerStructure(id, strClass, cut, faction.eggColor, faction.eggColor, false);
+		registerStructure(id, strClass, cut, faction.getEggColor(), faction.getEggColor(), false);
 		classToNameMapping.put(strClass, cut);
 		classToFactionMapping.put(strClass, faction);
 	}
@@ -68,7 +68,7 @@ public class GOTStructureRegistry {
 				return true;
 			}
 		};
-		registerStructure(id, strProvider, name, faction.eggColor, faction.eggColor, false);
+		registerStructure(id, strProvider, name, faction.getEggColor(), faction.getEggColor(), false);
 	}
 
 	@SuppressWarnings("rawtypes")

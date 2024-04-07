@@ -128,10 +128,10 @@ public class GOTTickHandlerServer {
 			if (GOTFellowshipData.needsLoad) {
 				GOTFellowshipData.loadAll();
 			}
-			if (GOTFactionBounties.needsLoad) {
+			if (GOTFactionBounties.isNeedsLoad()) {
 				GOTFactionBounties.loadAll();
 			}
-			if (GOTFactionRelations.needsLoad) {
+			if (GOTFactionRelations.isNeedsLoad()) {
 				GOTFactionRelations.load();
 			}
 			if (GOTConquestGrid.needsLoad) {

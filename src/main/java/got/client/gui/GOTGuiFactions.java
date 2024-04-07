@@ -171,7 +171,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		if (!isPledging && !isUnpledging) {
 			buttonPagePrev.enabled = currentPage.prev() != null;
 			buttonPageNext.enabled = currentPage.next() != null;
-			buttonFactionMap.enabled = currentPage != Page.RANKS && currentFaction.isPlayableAlignmentFaction() && GOTDimension.getCurrentDimension(mc.theWorld) == currentFaction.factionDimension;
+			buttonFactionMap.enabled = currentPage != Page.RANKS && currentFaction.isPlayableAlignmentFaction() && GOTDimension.getCurrentDimension(mc.theWorld) == currentFaction.getFactionDimension();
 			buttonFactionMap.visible = buttonFactionMap.enabled;
 			if (!GOTFaction.controlZonesEnabled(mc.theWorld)) {
 				buttonFactionMap.enabled = false;
@@ -247,11 +247,11 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 			String s = currentFaction.factionSubtitle();
 			drawCenteredString(s, x, y + fontRendererObj.FONT_HEIGHT + 22, 16777215);
 			if (!useFullPageTexture()) {
-				if (currentFaction.factionMapInfo != null) {
-					GOTMapRegion mapInfo = currentFaction.factionMapInfo;
-					int mapX = mapInfo.mapX;
-					int mapY = mapInfo.mapY;
-					int mapR = mapInfo.radius;
+				if (currentFaction.getFactionMapInfo() != null) {
+					GOTMapRegion mapInfo = currentFaction.getFactionMapInfo();
+					int mapX = mapInfo.getMapX();
+					int mapY = mapInfo.getMapY();
+					int mapR = mapInfo.getRadius();
 					int xMin = guiLeft + PAGE_MAP_X;
 					int xMax = xMin + PAGE_MAP_SIZE;
 					int yMin = guiTop + PAGE_Y + PAGE_MAP_Y;
@@ -272,7 +272,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				int wcWidth = 8;
 				mc.getTextureManager().bindTexture(FACTIONS_TEXTURE);
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
-				if (currentFaction.approvesWarCrimes) {
+				if (currentFaction.isApprovesWarCrimes()) {
 					drawTexturedModalRect(wcX, wcY, 33, 142, wcWidth, wcWidth);
 				} else {
 					drawTexturedModalRect(wcX, wcY, 41, 142, wcWidth, wcWidth);
@@ -364,11 +364,11 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 							} else if (listObj instanceof GOTFactionRank) {
 								GOTFactionRank rank = (GOTFactionRank) listObj;
 								String rankName1 = rank.getShortNameWithGender(clientPD);
-								String rankAlign = GOTAlignmentValues.formatAlignForDisplay(rank.alignment);
+								String rankAlign = GOTAlignmentValues.formatAlignForDisplay(rank.getAlignment());
 								if (rank == GOTFactionRank.RANK_ENEMY) {
 									rankAlign = "-";
 								}
-								boolean hiddenRankName = !clientPD.isPledgedTo(currentFaction) && rank.alignment > currentFaction.getPledgeAlignment() && rank.alignment > currentFaction.getRankAbove(curRank1).alignment;
+								boolean hiddenRankName = !clientPD.isPledgedTo(currentFaction) && rank.getAlignment() > currentFaction.getPledgeAlignment() && rank.getAlignment() > currentFaction.getRankAbove(curRank1).getAlignment();
 								if (hiddenRankName) {
 									rankName1 = StatCollector.translateToLocal("got.gui.factions.rank?");
 								}
@@ -471,7 +471,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		}
 		if (mouseOverWarCrimes) {
 			float z = zLevel;
-			String warCrimes = currentFaction.approvesWarCrimes ? "got.gui.factions.warCrimesYes" : "got.gui.factions.warCrimesNo";
+			String warCrimes = currentFaction.isApprovesWarCrimes() ? "got.gui.factions.warCrimesYes" : "got.gui.factions.warCrimesNo";
 			warCrimes = StatCollector.translateToLocal(warCrimes);
 			stringWidth = 200;
 			desc = fontRendererObj.listFormattedStringToWidth(warCrimes, stringWidth);
@@ -534,7 +534,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		buttonPledgeRevoke.setBroken(true);
 		prevDimension = currentDimension = GOTDimension.getCurrentDimension(mc.theWorld);
 		currentFaction = GOTLevelData.getData(mc.thePlayer).getViewingFaction();
-		prevRegion = currentRegion = currentFaction.factionRegion;
+		prevRegion = currentRegion = currentFaction.getFactionRegion();
 		currentFactionList = currentRegion.factionList;
 		prevFactionIndex = currentFactionIndex = currentFactionList.indexOf(currentFaction);
 		setCurrentScrollFromFaction();

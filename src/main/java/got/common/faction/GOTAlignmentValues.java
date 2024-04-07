@@ -9,12 +9,13 @@ import java.text.DecimalFormatSymbols;
 import java.text.ParseException;
 
 public class GOTAlignmentValues {
-	public static AlignmentBonus MARRIAGE_BONUS = new AlignmentBonus(5.0f, "got.alignment.marriage");
-	public static AlignmentBonus VINEYARD_STEAL_PENALTY = new AlignmentBonus(-1.0f, "got.alignment.vineyardSteal");
-	public static AlignmentBonus PICKPOCKET_PENALTY = new AlignmentBonus(-1.0f, "got.alignment.pickpocket");
-	public static DecimalFormat alignFormat = new DecimalFormat(",##0.0");
-	public static DecimalFormat conqFormat = new DecimalFormat(",##0.00");
-	public static DecimalFormatSymbols alignFormatSymbols = new DecimalFormatSymbols();
+	public static final AlignmentBonus MARRIAGE_BONUS = new AlignmentBonus(5.0f, "got.alignment.marriage");
+	public static final AlignmentBonus VINEYARD_STEAL_PENALTY = new AlignmentBonus(-1.0f, "got.alignment.vineyardSteal");
+	public static final AlignmentBonus PICKPOCKET_PENALTY = new AlignmentBonus(-1.0f, "got.alignment.pickpocket");
+
+	private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat(",##0.0");
+	private static final DecimalFormat CONQ_FORMAT = new DecimalFormat(",##0.00");
+	private static final DecimalFormatSymbols ALIGN_FORMAT_SYMBOLS = new DecimalFormatSymbols();
 
 	private GOTAlignmentValues() {
 	}
@@ -28,10 +29,10 @@ public class GOTAlignmentValues {
 	}
 
 	public static String formatAlignForDisplay(float alignment) {
-		return formatAlignForDisplay(alignment, alignFormat, true);
+		return formatAlignForDisplay(alignment, DECIMAL_FORMAT, true);
 	}
 
-	public static String formatAlignForDisplay(float alignment, DecimalFormat dFormat, boolean prefixPlus) {
+	private static String formatAlignForDisplay(float alignment, DecimalFormat dFormat, boolean prefixPlus) {
 		setupDecimalFormat(dFormat);
 		String s = dFormat.format(alignment);
 		if (prefixPlus && (s.isEmpty() || s.charAt(0) != '-')) {
@@ -41,7 +42,7 @@ public class GOTAlignmentValues {
 	}
 
 	public static String formatConqForDisplay(float conq, boolean prefixPlus) {
-		return formatAlignForDisplay(conq, conqFormat, prefixPlus);
+		return formatAlignForDisplay(conq, CONQ_FORMAT, prefixPlus);
 	}
 
 	public static void notifyAlignmentNotHighEnough(ICommandSender entityplayer, float alignmentRequired, GOTFaction faction) {
@@ -52,7 +53,7 @@ public class GOTAlignmentValues {
 
 	public static float parseDisplayedAlign(String alignmentText) {
 		String alignmentText1 = alignmentText;
-		DecimalFormat dFormat = alignFormat;
+		DecimalFormat dFormat = DECIMAL_FORMAT;
 		setupDecimalFormat(dFormat);
 		if (!alignmentText1.isEmpty() && alignmentText1.charAt(0) == '+') {
 			alignmentText1 = alignmentText1.substring("+".length());
@@ -66,7 +67,7 @@ public class GOTAlignmentValues {
 		}
 	}
 
-	public static void setupDecimalFormat(DecimalFormat dFormat) {
+	private static void setupDecimalFormat(DecimalFormat dFormat) {
 		String groupSeparator;
 		char decimalSeparatorChar = '.';
 		char groupSeparatorChar = ',';
@@ -77,18 +78,18 @@ public class GOTAlignmentValues {
 		if ((groupSeparator = StatCollector.translateToLocal("got.alignment.group_separator_char")).length() == 1) {
 			groupSeparatorChar = groupSeparator.charAt(0);
 		}
-		alignFormatSymbols.setDecimalSeparator(decimalSeparatorChar);
-		alignFormatSymbols.setGroupingSeparator(groupSeparatorChar);
-		dFormat.setDecimalFormatSymbols(alignFormatSymbols);
+		ALIGN_FORMAT_SYMBOLS.setDecimalSeparator(decimalSeparatorChar);
+		ALIGN_FORMAT_SYMBOLS.setGroupingSeparator(groupSeparatorChar);
+		dFormat.setDecimalFormatSymbols(ALIGN_FORMAT_SYMBOLS);
 	}
 
 	public static class AlignmentBonus {
-		public float bonus;
-		public String name;
-		public boolean needsTranslation = true;
-		public boolean isKill;
-		public boolean killByHiredUnit;
-		public boolean isCivilianKill;
+		private float bonus;
+		private String name;
+		private boolean needsTranslation = true;
+		private boolean isKill;
+		private boolean killByHiredUnit;
+		private boolean isCivilianKill;
 
 		public AlignmentBonus(float f, String s) {
 			bonus = f;
@@ -104,6 +105,53 @@ public class GOTAlignmentValues {
 			}
 			return penalty1;
 		}
-	}
 
+		public float getBonus() {
+			return bonus;
+		}
+
+		public void setBonus(float bonus) {
+			this.bonus = bonus;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public boolean isNeedsTranslation() {
+			return needsTranslation;
+		}
+
+		public void setNeedsTranslation(boolean needsTranslation) {
+			this.needsTranslation = needsTranslation;
+		}
+
+		public boolean isKill() {
+			return isKill;
+		}
+
+		public void setKill(boolean kill) {
+			isKill = kill;
+		}
+
+		public boolean isKillByHiredUnit() {
+			return killByHiredUnit;
+		}
+
+		public void setKillByHiredUnit(boolean killByHiredUnit) {
+			this.killByHiredUnit = killByHiredUnit;
+		}
+
+		public boolean isCivilianKill() {
+			return isCivilianKill;
+		}
+
+		public void setCivilianKill(boolean civilianKill) {
+			isCivilianKill = civilianKill;
+		}
+	}
 }

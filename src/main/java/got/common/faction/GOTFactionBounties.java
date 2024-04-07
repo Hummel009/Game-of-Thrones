@@ -15,15 +15,16 @@ import java.io.File;
 import java.util.*;
 
 public class GOTFactionBounties {
-	public static Map<GOTFaction, GOTFactionBounties> factionBountyMap = new EnumMap<>(GOTFaction.class);
-	public static boolean needsLoad = true;
-	public static int KILL_RECORD_TIME = 3456000;
-	public static int BOUNTY_KILLED_TIME = 864000;
-	public GOTFaction theFaction;
-	public Map<UUID, PlayerData> playerList = new HashMap<>();
-	public boolean needsSave;
+	private static final Map<GOTFaction, GOTFactionBounties> factionBountyMap = new EnumMap<>(GOTFaction.class);
 
-	public GOTFactionBounties(GOTFaction f) {
+	private static boolean needsLoad = true;
+
+	private final GOTFaction theFaction;
+	private final Map<UUID, PlayerData> playerList = new HashMap<>();
+
+	private boolean needsSave;
+
+	private GOTFactionBounties(GOTFaction f) {
 		theFaction = f;
 	}
 
@@ -49,7 +50,7 @@ public class GOTFactionBounties {
 		return bounties;
 	}
 
-	public static File getBountiesDir() {
+	private static File getBountiesDir() {
 		File dir = new File(GOTLevelData.getOrCreateGOTDir(), "factionbounties");
 		if (!dir.exists()) {
 			boolean created = dir.mkdirs();
@@ -60,17 +61,13 @@ public class GOTFactionBounties {
 		return dir;
 	}
 
-	public static File getFactionFile(GOTFaction f, boolean findLegacy) {
+	private static File getFactionFile(GOTFaction f, boolean findLegacy) {
 		File defaultFile = new File(getBountiesDir(), f.codeName() + ".dat");
-		if (!findLegacy || defaultFile.exists()) {
-			return defaultFile;
-		}
-		for (String alias : f.listAliases()) {
-			File aliasFile = new File(getBountiesDir(), alias + ".dat");
-			if (!aliasFile.exists()) {
-				continue;
+		if (findLegacy) {
+			boolean created = defaultFile.exists();
+			if (created) {
+				GOTLog.logger.info("GOTFactionBounties: file already exists");
 			}
-			return aliasFile;
 		}
 		return defaultFile;
 	}
@@ -86,7 +83,7 @@ public class GOTFactionBounties {
 		}
 	}
 
-	public static GOTFactionBounties loadFaction(GOTFaction fac) {
+	private static GOTFactionBounties loadFaction(GOTFaction fac) {
 		File file = getFactionFile(fac, true);
 		try {
 			NBTTagCompound nbt = GOTLevelData.loadNBTFromFile(file);
@@ -118,7 +115,7 @@ public class GOTFactionBounties {
 		}
 	}
 
-	public static void saveFaction(GOTFactionBounties fb) {
+	private static void saveFaction(GOTFactionBounties fb) {
 		try {
 			NBTTagCompound nbt = new NBTTagCompound();
 			fb.writeToNBT(nbt);
@@ -133,6 +130,14 @@ public class GOTFactionBounties {
 		for (GOTFactionBounties fb : factionBountyMap.values()) {
 			fb.update();
 		}
+	}
+
+	public static boolean isNeedsLoad() {
+		return needsLoad;
+	}
+
+	public static void setNeedsLoad(boolean needsLoad) {
+		GOTFactionBounties.needsLoad = needsLoad;
 	}
 
 	public List<PlayerData> findBountyTargets(int killAmount) {
@@ -154,11 +159,12 @@ public class GOTFactionBounties {
 		return playerList.computeIfAbsent(id, k -> new PlayerData(this, id));
 	}
 
-	public void markDirty() {
+	@SuppressWarnings("MethodOnlyUsedFromInnerClass")
+	private void markDirty() {
 		needsSave = true;
 	}
 
-	public void readFromNBT(NBTTagCompound nbt) {
+	private void readFromNBT(NBTTagCompound nbt) {
 		playerList.clear();
 		if (nbt.hasKey("PlayerList")) {
 			NBTTagList playerTags = nbt.getTagList("PlayerList", 10);
@@ -172,13 +178,13 @@ public class GOTFactionBounties {
 		}
 	}
 
-	public void update() {
+	private void update() {
 		for (PlayerData pd : playerList.values()) {
 			pd.update();
 		}
 	}
 
-	public void writeToNBT(NBTTagCompound nbt) {
+	private void writeToNBT(NBTTagCompound nbt) {
 		NBTTagList playerTags = new NBTTagList();
 		for (Map.Entry<UUID, PlayerData> e : playerList.entrySet()) {
 			UUID id = e.getKey();
@@ -195,13 +201,14 @@ public class GOTFactionBounties {
 	}
 
 	public static class PlayerData {
-		public GOTFactionBounties bountyList;
-		public UUID playerID;
-		public String username;
-		public Collection<KillRecord> killRecords = new ArrayList<>();
-		public int recentBountyKilled;
+		private final UUID playerID;
 
-		public PlayerData(GOTFactionBounties b, UUID id) {
+		protected GOTFactionBounties bountyList;
+		protected String username;
+		protected Collection<KillRecord> killRecords = new ArrayList<>();
+		protected int recentBountyKilled;
+
+		protected PlayerData(GOTFactionBounties b, UUID id) {
 			bountyList = b;
 			playerID = id;
 		}
@@ -228,11 +235,11 @@ public class GOTFactionBounties {
 			return killRecords.size();
 		}
 
-		public void markDirty() {
+		protected void markDirty() {
 			bountyList.markDirty();
 		}
 
-		public void readFromNBT(NBTTagCompound nbt) {
+		protected void readFromNBT(NBTTagCompound nbt) {
 			killRecords.clear();
 			if (nbt.hasKey("KillRecords")) {
 				NBTTagList recordTags = nbt.getTagList("KillRecords", 10);
@@ -260,11 +267,11 @@ public class GOTFactionBounties {
 			markDirty();
 		}
 
-		public boolean shouldSave() {
+		protected boolean shouldSave() {
 			return !killRecords.isEmpty() || recentBountyKilled > 0;
 		}
 
-		public void update() {
+		protected void update() {
 			boolean minorChanges = false;
 			if (recentBountyKilled > 0) {
 				--recentBountyKilled;
@@ -272,8 +279,8 @@ public class GOTFactionBounties {
 			}
 			Collection<KillRecord> toRemove = new ArrayList<>();
 			for (KillRecord kr : killRecords) {
-				kr.timeElapsed--;
-				if (kr.timeElapsed <= 0) {
+				kr.setTimeElapsed(kr.getTimeElapsed() - 1);
+				if (kr.getTimeElapsed() <= 0) {
 					toRemove.add(kr);
 				}
 				minorChanges = true;
@@ -286,7 +293,7 @@ public class GOTFactionBounties {
 			}
 		}
 
-		public void writeToNBT(NBTTagCompound nbt) {
+		protected void writeToNBT(NBTTagCompound nbt) {
 			NBTTagList recordTags = new NBTTagList();
 			for (KillRecord kr : killRecords) {
 				NBTTagCompound killData = new NBTTagCompound();
@@ -297,18 +304,28 @@ public class GOTFactionBounties {
 			nbt.setInteger("RecentBountyKilled", recentBountyKilled);
 		}
 
-		public static class KillRecord {
-			public int timeElapsed = 3456000;
+		public UUID getPlayerID() {
+			return playerID;
+		}
 
-			public void readFromNBT(NBTTagCompound nbt) {
+		private static class KillRecord {
+			private int timeElapsed = 3456000;
+
+			private void readFromNBT(NBTTagCompound nbt) {
 				timeElapsed = nbt.getInteger("Time");
 			}
 
-			public void writeToNBT(NBTTagCompound nbt) {
+			private void writeToNBT(NBTTagCompound nbt) {
 				nbt.setInteger("Time", timeElapsed);
 			}
+
+			public int getTimeElapsed() {
+				return timeElapsed;
+			}
+
+			public void setTimeElapsed(int timeElapsed) {
+				this.timeElapsed = timeElapsed;
+			}
 		}
-
 	}
-
 }

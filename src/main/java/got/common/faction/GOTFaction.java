@@ -5,7 +5,6 @@ import got.common.GOTAchievementRank;
 import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
-import got.common.database.GOTAchievement;
 import got.common.entity.other.GOTNPCSelectForInfluence;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.GOTWorldProvider;
@@ -24,26 +23,23 @@ import java.util.*;
 public enum GOTFaction {
 	WHITE_WALKER(0x8ddaf8, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(550, 550, 500)), WILDLING(0x749987, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(615, 520, 200)), NIGHT_WATCH(0x2A2A2A, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(750, 670, 150)), NORTH(0xD4CFB7, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(670, 930, 400)), IRONBORN(0x4b483a, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(349, 1323, 129)), WESTERLANDS(0x7c0a02, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(485, 1540, 200)), RIVERLANDS(0x146f69, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(675, 1437, 215)), HILL_TRIBES(0x573C2F, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), ARRYN(0x2D3257, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), DRAGONSTONE(0x6A6A6A, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(923, 1549, 40)), CROWNLANDS(0xDBAB25, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(876, 1566, 168)), STORMLANDS(0x014634, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(820, 1865, 218)), REACH(0x617646, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(500, 1820, 293)), DORNE(0xF57820, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(717, 2011, 300)), BRAAVOS(0x4A0C0C, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1221, 1351, 137)), VOLANTIS(0x4C3A5F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1553, 1928, 210)), PENTOS(0x13425F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1234, 1566, 172)), NORVOS(0x2D4D2F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1437, 1468, 201)), LORATH(0xE5E5E5, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1379, 1354, 119)), MYR(0x3F3F3F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1325, 1797, 223)), LYS(0x3D3023, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1204, 2053, 65)), QOHOR(0x053246, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1590, 1594, 214)), TYROSH(0x2E2E2E, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1110, 1876, 52)), GHISCAR(0xAB7731, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2115, 2180, 347)), QARTH(0x701010, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2750, 2277, 221)), LHAZAR(0x9E4B1E, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2510, 1910, 175)), DOTHRAKI(0x77551F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2270, 1670, 600)), IBBEN(0x4E3A26, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(2761, 1052, 252)), JOGOS(0x985916, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(3369, 1651, 460)), MOSSOVY(0x4B5C42, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(4056, 1480, 400)), YI_TI(0xC29033, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(3350, 2200, 350)), ASSHAI(0x3C353F, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(4098, 2331, 644)), SOTHORYOS(0x5E6A18, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(2375, 3540, 1084)), SUMMER_ISLANDS(0x911A17, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(1228, 2716, 310)), ULTHOS(0x343A2C, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(4100, 3517, 1109)), HOSTILE(true, -1), UNALIGNED(false, 0);
 
-	public static Random factionRand = new Random();
-	public static int CONTROL_ZONE_EXTRA_RANGE = 50;
-	public GOTDimension factionDimension;
-	public GOTDimension.DimensionRegion factionRegion;
-	public Color factionColor;
-	public Map<Float, float[]> facRGBCache = new HashMap<>();
-	public Collection<GOTItemBanner.BannerType> factionBanners = new ArrayList<>();
-	public boolean allowPlayer;
-	public boolean allowEntityRegistry;
-	public boolean hasFixedAlignment;
-	public int fixedAlignment;
-	public List<GOTFactionRank> ranksSortedDescending = new ArrayList<>();
-	public GOTFactionRank pledgeRank;
-	public GOTAchievement.Category achieveCategory;
-	public GOTMapRegion factionMapInfo;
-	public List<GOTControlZone> controlZones = new ArrayList<>();
-	public boolean isolationist;
-	public int eggColor;
-	public boolean approvesWarCrimes;
-	public List<String> legacyAliases = new ArrayList<>();
+	private GOTDimension.DimensionRegion factionRegion;
+	private GOTDimension factionDimension;
+	private boolean allowPlayer;
+
+	private final Collection<GOTItemBanner.BannerType> factionBanners = new ArrayList<>();
+	private final List<GOTFactionRank> ranksSortedDescending = new ArrayList<>();
+	private final List<GOTControlZone> controlZones = new ArrayList<>();
+	private final Map<Float, float[]> facRGBCache = new HashMap<>();
+	private final Color factionColor;
+	private final boolean allowEntityRegistry;
+	private final int eggColor;
+
+	private GOTMapRegion factionMapInfo;
+	private GOTFactionRank pledgeRank;
+	private boolean hasFixedAlignment;
+	private boolean approvesWarCrimes;
+	private int fixedAlignment;
 
 	GOTFaction(boolean registry, int alignment) {
 		this(0, null, null, false, registry, alignment, null);
@@ -96,7 +92,7 @@ public enum GOTFaction {
 
 	public static GOTFaction forName(String name) {
 		for (GOTFaction f : values()) {
-			if (f.matchesNameOrAlias(name)) {
+			if (f.matchesName(name)) {
 				return f;
 			}
 		}
@@ -321,18 +317,18 @@ public enum GOTFaction {
 		WHITE_WALKER.addSpecialRank(1000.0f, "king").setPledgeRank().makeTitle().makeAchievement();
 	}
 
-	public void addControlZone(GOTControlZone zone) {
+	private void addControlZone(GOTControlZone zone) {
 		controlZones.add(zone);
 	}
 
-	public GOTFactionRank addRank(float alignment, String name) {
+	private GOTFactionRank addRank(float alignment, String name) {
 		GOTFactionRank rank = new GOTFactionRank(this, alignment, name);
 		ranksSortedDescending.add(rank);
 		Collections.sort(ranksSortedDescending);
 		return rank;
 	}
 
-	public GOTFactionRank addSpecialRank(float alignment, String name) {
+	private GOTFactionRank addSpecialRank(float alignment, String name) {
 		GOTFactionRank rank = new GOTFactionRank(this, alignment, name, false);
 		ranksSortedDescending.add(rank);
 		Collections.sort(ranksSortedDescending);
@@ -346,10 +342,10 @@ public enum GOTFaction {
 		int zMax = 0;
 		boolean first = true;
 		for (GOTControlZone zone : controlZones) {
-			int cxMin = zone.xCoord - zone.radiusCoord;
-			int cxMax = zone.xCoord + zone.radiusCoord;
-			int czMin = zone.zCoord - zone.radiusCoord;
-			int czMax = zone.zCoord + zone.radiusCoord;
+			int cxMin = zone.getxCoord() - zone.getRadiusCoord();
+			int cxMax = zone.getxCoord() + zone.getRadiusCoord();
+			int czMin = zone.getzCoord() - zone.getRadiusCoord();
+			int czMax = zone.getzCoord() + zone.getRadiusCoord();
 			if (first) {
 				xMin = cxMin;
 				xMax = cxMax;
@@ -366,7 +362,7 @@ public enum GOTFaction {
 		return new int[]{xMin, xMax, zMin, zMax};
 	}
 
-	public void checkAlignmentAchievements(EntityPlayer entityplayer, float alignment) {
+	public void checkAlignmentAchievements(EntityPlayer entityplayer) {
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 		for (GOTFactionRank rank : ranksSortedDescending) {
 			GOTAchievementRank rankAch = rank.getRankAchievement();
@@ -381,15 +377,15 @@ public enum GOTFaction {
 		return name();
 	}
 
-	public double distanceToNearestControlZoneInRange(World world, double d, double d1, double d2, int mapRange) {
+	public double distanceToNearestControlZoneInRange(World world, double x, double z, int mapRange) {
 		double closestDist = -1.0;
 		if (isFactionDimension(world)) {
 			int coordRange = GOTWaypoint.mapToWorldR(mapRange);
 			for (GOTControlZone zone : controlZones) {
-				double dx = d - zone.xCoord;
-				double dz = d2 - zone.zCoord;
+				double dx = x - zone.getxCoord();
+				double dz = z - zone.getzCoord();
 				double dSq = dx * dx + dz * dz;
-				double dToEdge = Math.sqrt(dSq) - zone.radiusCoord;
+				double dToEdge = Math.sqrt(dSq) - zone.getRadiusCoord();
 				if (dToEdge > coordRange || closestDist >= 0.0 && dToEdge >= closestDist) {
 					continue;
 				}
@@ -439,7 +435,7 @@ public enum GOTFaction {
 		if (inControlZone(entityplayer)) {
 			return 1.0f;
 		}
-		if (isFactionDimension(entityplayer.worldObj) && (dist = distanceToNearestControlZoneInRange(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, reducedRange = getControlZoneReducedRange())) >= 0.0) {
+		if (isFactionDimension(entityplayer.worldObj) && (dist = distanceToNearestControlZoneInRange(entityplayer.worldObj, entityplayer.posX, entityplayer.posZ, reducedRange = getControlZoneReducedRange())) >= 0.0) {
 			double mapDist = GOTWaypoint.worldToMapR(dist);
 			float frac = (float) mapDist / reducedRange;
 			float mplier = 1.0f - frac;
@@ -449,14 +445,15 @@ public enum GOTFaction {
 	}
 
 	public int getControlZoneReducedRange() {
-		if (isolationist) {
-			return 0;
-		}
 		return 50;
 	}
 
 	public List<GOTControlZone> getControlZones() {
-		return controlZones;
+		return new ArrayList<>(controlZones);
+	}
+
+	public void clearControlZones() {
+		controlZones.clear();
 	}
 
 	public int getFactionColor() {
@@ -511,7 +508,7 @@ public enum GOTFaction {
 
 	public float getPledgeAlignment() {
 		if (pledgeRank != null) {
-			return pledgeRank.alignment;
+			return pledgeRank.getAlignment();
 		}
 		return 0.0f;
 	}
@@ -521,7 +518,7 @@ public enum GOTFaction {
 	}
 
 	public void setPledgeRank(GOTFactionRank rank) {
-		if (rank.fac != this) {
+		if (rank.getFaction() != this) {
 			throw new IllegalArgumentException("Incompatible faction!");
 		}
 		if (pledgeRank != null) {
@@ -532,7 +529,7 @@ public enum GOTFaction {
 
 	public GOTFactionRank getRank(float alignment) {
 		for (GOTFactionRank rank : ranksSortedDescending) {
-			if (rank.isDummyRank() || alignment < rank.alignment) {
+			if (rank.isDummyRank() || alignment < rank.getAlignment()) {
 				continue;
 			}
 			return rank;
@@ -583,12 +580,12 @@ public enum GOTFaction {
 		return inControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ);
 	}
 
-	public boolean inControlZone(World world, double d, double d1, double d2) {
-		if (inDefinedControlZone(world, d, d1, d2)) {
+	private boolean inControlZone(World world, double x, double y, double z) {
+		if (inDefinedControlZone(world, x, z)) {
 			return true;
 		}
 		double nearbyRange = 24.0;
-		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(d, d1, d2, d, d1, d2).expand(nearbyRange, nearbyRange, nearbyRange);
+		AxisAlignedBB aabb = AxisAlignedBB.getBoundingBox(x, y, z, x, y, z).expand(nearbyRange, nearbyRange, nearbyRange);
 		List<EntityLivingBase> nearbyNPCs = world.selectEntitiesWithinAABB(EntityLivingBase.class, aabb, new GOTNPCSelectForInfluence(this));
 		return !nearbyNPCs.isEmpty();
 	}
@@ -598,20 +595,20 @@ public enum GOTFaction {
 	}
 
 	public boolean inDefinedControlZone(EntityPlayer entityplayer, int extraMapRange) {
-		return inDefinedControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.boundingBox.minY, entityplayer.posZ, extraMapRange);
+		return inDefinedControlZone(entityplayer.worldObj, entityplayer.posX, entityplayer.posZ, extraMapRange);
 	}
 
-	public boolean inDefinedControlZone(World world, double d, double d1, double d2) {
-		return inDefinedControlZone(world, d, d1, d2, 0);
+	private boolean inDefinedControlZone(World world, double x, double z) {
+		return inDefinedControlZone(world, x, z, 0);
 	}
 
-	public boolean inDefinedControlZone(World world, double d, double d1, double d2, int extraMapRange) {
+	public boolean inDefinedControlZone(World world, double x, double z, int extraMapRange) {
 		if (isFactionDimension(world)) {
 			if (!controlZonesEnabled(world)) {
 				return true;
 			}
 			for (GOTControlZone zone : controlZones) {
-				if (!zone.inZone(d, d1, d2, extraMapRange)) {
+				if (!zone.inZone(x, z, extraMapRange)) {
 					continue;
 				}
 				return true;
@@ -630,7 +627,7 @@ public enum GOTFaction {
 		return rel == GOTFactionRelations.Relation.ENEMY || rel == GOTFactionRelations.Relation.MORTAL_ENEMY;
 	}
 
-	public boolean isFactionDimension(World world) {
+	private boolean isFactionDimension(World world) {
 		return world.provider instanceof GOTWorldProvider && ((GOTWorldProvider) world.provider).getGOTDimension() == factionDimension;
 	}
 
@@ -652,24 +649,8 @@ public enum GOTFaction {
 		return allowPlayer && !hasFixedAlignment;
 	}
 
-	public List<String> listAliases() {
-		return new ArrayList<>(legacyAliases);
-	}
-
-	public boolean matchesNameOrAlias(String name) {
-		if (codeName().equals(name)) {
-			return true;
-		}
-		for (String alias : legacyAliases) {
-			if (alias.equals(name)) {
-				return true;
-			}
-		}
-		return false;
-	}
-
-	public void setAchieveCategory(GOTAchievement.Category cat) {
-		achieveCategory = cat;
+	private boolean matchesName(String name) {
+		return codeName().equals(name);
 	}
 
 	public void setFixedAlignment(int alignment) {
@@ -677,24 +658,67 @@ public enum GOTFaction {
 		fixedAlignment = alignment;
 	}
 
-	public boolean sharesControlZoneWith(GOTFaction other) {
-		return sharesControlZoneWith(other, 0);
-	}
-
-	public boolean sharesControlZoneWith(GOTFaction other, int extraMapRadius) {
-		if (other.factionDimension == factionDimension) {
-			for (GOTControlZone zone : controlZones) {
-				for (GOTControlZone otherZone : other.controlZones) {
-					if (zone.intersectsWith(otherZone, extraMapRadius)) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
-
-	public String untranslatedFactionName() {
+	private String untranslatedFactionName() {
 		return "got.faction." + codeName() + ".name";
+	}
+
+	public int getFixedAlignment() {
+		return fixedAlignment;
+	}
+
+	public GOTDimension getFactionDimension() {
+		return factionDimension;
+	}
+
+	public void setFactionDimension(GOTDimension factionDimension) {
+		this.factionDimension = factionDimension;
+	}
+
+	public GOTDimension.DimensionRegion getFactionRegion() {
+		return factionRegion;
+	}
+
+	public void setFactionRegion(GOTDimension.DimensionRegion factionRegion) {
+		this.factionRegion = factionRegion;
+	}
+
+	public boolean isAllowPlayer() {
+		return allowPlayer;
+	}
+
+	public void setAllowPlayer(boolean allowPlayer) {
+		this.allowPlayer = allowPlayer;
+	}
+
+	public boolean isApprovesWarCrimes() {
+		return approvesWarCrimes;
+	}
+
+	public GOTMapRegion getFactionMapInfo() {
+		return factionMapInfo;
+	}
+
+	public boolean isHasFixedAlignment() {
+		return hasFixedAlignment;
+	}
+
+	public int getEggColor() {
+		return eggColor;
+	}
+
+	public boolean isAllowEntityRegistry() {
+		return allowEntityRegistry;
+	}
+
+	public List<GOTFactionRank> getRanksSortedDescending() {
+		return new ArrayList<>(ranksSortedDescending);
+	}
+
+	public void addFactionBanner(GOTItemBanner.BannerType bannerType) {
+		factionBanners.add(bannerType);
+	}
+
+	public Collection<GOTItemBanner.BannerType> getFactionBanners() {
+		return new ArrayList<>(factionBanners);
 	}
 }

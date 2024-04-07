@@ -10,23 +10,26 @@ import java.util.Objects;
 public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	public static final GOTFactionRank RANK_NEUTRAL = new Dummy("got.rank.neutral");
 	public static final GOTFactionRank RANK_ENEMY = new Dummy("got.rank.enemy");
-	public final GOTFaction fac;
-	public final float alignment;
-	public final String name;
-	public GOTAchievementRank rankAchievement;
-	public GOTTitle rankTitle;
-	public GOTTitle rankTitleMasc;
-	public GOTTitle rankTitleFem;
-	public boolean addFacName = true;
+
+	private final GOTFaction faction;
+	private final float alignment;
+
+	protected final String name;
+
+	private GOTAchievementRank rankAchievement;
+	private GOTTitle rankTitleMasc;
+	private GOTTitle rankTitleFem;
+
+	private boolean addFacName = true;
 
 	public GOTFactionRank(GOTFaction f, float al, String s) {
-		fac = f;
+		faction = f;
 		alignment = al;
 		name = s;
 	}
 
 	public GOTFactionRank(GOTFaction f, float al, String s, Boolean add) {
-		fac = f;
+		faction = f;
 		alignment = al;
 		name = s;
 		addFacName = add;
@@ -34,7 +37,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 
 	@Override
 	public int compareTo(GOTFactionRank other) {
-		if (fac != other.fac) {
+		if (faction != other.faction) {
 			throw new IllegalArgumentException("Cannot compare two ranks from different factions!");
 		}
 		float al1 = alignment;
@@ -46,8 +49,8 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	}
 
 	public String getAffiliationCodeName() {
-		if (fac != null) {
-			return "got.rank." + fac.codeName();
+		if (faction != null) {
+			return "got.rank." + faction.codeName();
 		}
 		return "";
 	}
@@ -108,7 +111,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	}
 
 	public boolean isAbovePledgeRank() {
-		return alignment > fac.getPledgeAlignment();
+		return alignment > faction.getPledgeAlignment();
 	}
 
 	public boolean isDummyRank() {
@@ -116,7 +119,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	}
 
 	public boolean isPledgeRank() {
-		return this == fac.getPledgeRank();
+		return this == faction.getPledgeRank();
 	}
 
 	public void makeAchievement() {
@@ -130,7 +133,7 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	}
 
 	public GOTFactionRank setPledgeRank() {
-		fac.setPledgeRank(this);
+		faction.setPledgeRank(this);
 		return this;
 	}
 
@@ -141,11 +144,23 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(fac, alignment, name, rankAchievement, rankTitle, rankTitleMasc, rankTitleFem, addFacName);
+		return Objects.hash(faction, alignment, name, rankAchievement, rankTitleMasc, rankTitleFem, addFacName);
+	}
+
+	public boolean isAddFacName() {
+		return addFacName;
+	}
+
+	public float getAlignment() {
+		return alignment;
+	}
+
+	public GOTFaction getFaction() {
+		return faction;
 	}
 
 	public static final class Dummy extends GOTFactionRank {
-		public Dummy(String s) {
+		private Dummy(String s) {
 			super(null, 0.0f, s);
 		}
 
@@ -169,5 +184,4 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 			return true;
 		}
 	}
-
 }

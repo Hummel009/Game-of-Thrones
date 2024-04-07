@@ -118,9 +118,9 @@ public class GOTTitle {
 			}
 			case RANK: {
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-				GOTFaction fac = titleRank.fac;
+				GOTFaction fac = titleRank.getFaction();
 				float align = pd.getAlignment(fac);
-				if (align >= titleRank.alignment) {
+				if (align >= titleRank.getAlignment()) {
 					boolean requirePledge;
 					requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
 					return !requirePledge || pd.isPledgedTo(fac);
@@ -169,12 +169,12 @@ public class GOTTitle {
 			}
 			case RANK: {
 				boolean requirePledge;
-				String alignS = GOTAlignmentValues.formatAlignForDisplay(titleRank.alignment);
+				String alignS = GOTAlignmentValues.formatAlignForDisplay(titleRank.getAlignment());
 				requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
 				if (requirePledge) {
-					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", titleRank.fac.factionName(), alignS);
+					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", titleRank.getFaction().factionName(), alignS);
 				}
-				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", titleRank.fac.factionName(), alignS);
+				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", titleRank.getFaction().factionName(), alignS);
 			}
 		}
 		return "If you can read this, something has gone hideously wrong";
@@ -321,7 +321,7 @@ public class GOTTitle {
 
 		public IChatComponent getFullTitleComponent(EntityPlayer entityplayer) {
 			IChatComponent component;
-			if (theTitle.titleType != null && theTitle.titleType == TitleType.RANK && theTitle.titleRank.addFacName) {
+			if (theTitle.titleType != null && theTitle.titleType == TitleType.RANK && theTitle.titleRank.isAddFacName()) {
 				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText(" ").appendSibling(new ChatComponentTranslation(theTitle.titleRank.getAffiliationCodeName())).appendText("]").appendText(" ");
 			} else {
 				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText("]").appendText(" ");

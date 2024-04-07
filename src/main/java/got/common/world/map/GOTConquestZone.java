@@ -38,10 +38,9 @@ public class GOTConquestZone {
 		zone.lastChangeTime = time;
 		block0:
 		for (GOTFaction fac : allPlayableFacs) {
-			Collection<String> nameAndAliases = new ArrayList<>();
-			nameAndAliases.add(fac.codeName());
-			nameAndAliases.addAll(fac.listAliases());
-			for (String alias : nameAndAliases) {
+			Collection<String> names = new ArrayList<>();
+			names.add(fac.codeName());
+			for (String alias : names) {
 				String facKey = alias + "_str";
 				if (!nbt.hasKey(facKey)) {
 					continue;

@@ -14,9 +14,9 @@ public class GOTAchievementRank extends GOTAchievement {
 	public GOTFaction theFac;
 
 	public GOTAchievementRank(GOTFactionRank rank) {
-		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTItems.gregorCleganeSword, "alignment_" + rank.fac.codeName() + '_' + rank.alignment);
+		super(GOTAchievement.Category.TITLES, GOTAchievement.Category.TITLES.getNextRankAchID(), GOTItems.gregorCleganeSword, "alignment_" + rank.getFaction().codeName() + '_' + rank.getAlignment());
 		theRank = rank;
-		theFac = theRank.fac;
+		theFac = theRank.getFaction();
 		setRequiresAlly(theFac);
 		setSpecial();
 	}
@@ -42,7 +42,7 @@ public class GOTAchievementRank extends GOTAchievement {
 
 	@Override
 	public String getDescription(EntityPlayer entityplayer) {
-		return StatCollector.translateToLocalFormatted("got.faction.achieveRank", GOTAlignmentValues.formatAlignForDisplay(theRank.alignment));
+		return StatCollector.translateToLocalFormatted("got.faction.achieveRank", GOTAlignmentValues.formatAlignForDisplay(theRank.getAlignment()));
 	}
 
 	@Override
@@ -58,7 +58,7 @@ public class GOTAchievementRank extends GOTAchievement {
 	public boolean isPlayerRequiredRank(EntityPlayer entityplayer) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		float align = pd.getAlignment(theFac);
-		float rankAlign = theRank.alignment;
+		float rankAlign = theRank.getAlignment();
 		if (requiresPledge() && !pd.isPledgedTo(theFac)) {
 			return false;
 		}
