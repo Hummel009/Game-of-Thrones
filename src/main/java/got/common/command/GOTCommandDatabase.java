@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTCommandDatabase extends CommandBase {
-	public Random rand = new Random();
+	private final Random rand = new Random();
 
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {

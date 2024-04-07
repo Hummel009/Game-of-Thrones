@@ -23,7 +23,7 @@ public class GOTCommandDragon extends CommandBase {
 		return Collections.emptyList();
 	}
 
-	public void appyModifier(ICommandSender sender, EntityModifier modifier, boolean global) {
+	private void appyModifier(ICommandSender sender, EntityModifier modifier, boolean global) {
 		if (!global && sender instanceof EntityPlayerMP) {
 			EntityPlayerMP player = getCommandSenderAsPlayer(sender);
 			double range = 64;
@@ -118,13 +118,13 @@ public class GOTCommandDragon extends CommandBase {
 		}
 	}
 
-	public interface EntityModifier {
+	private interface EntityModifier {
 		void modify(GOTEntityDragon dragon);
 	}
 
 	public static class LifeStageModifier implements EntityModifier {
 
-		public GOTDragonLifeStage lifeStage;
+		protected GOTDragonLifeStage lifeStage;
 
 		LifeStageModifier(GOTDragonLifeStage lifeStage) {
 			this.lifeStage = lifeStage;
@@ -142,7 +142,7 @@ public class GOTCommandDragon extends CommandBase {
 
 	public static class TameModifier implements EntityModifier {
 
-		public EntityPlayerMP player;
+		protected EntityPlayerMP player;
 
 		TameModifier(EntityPlayerMP player) {
 			this.player = player;

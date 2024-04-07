@@ -15,20 +15,22 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.*;
 
 public class GOTCommandStrScan extends CommandBase {
-	public boolean scanning;
-	public int originX;
-	public int originY;
-	public int originZ;
-	public int minX;
-	public int minY;
-	public int minZ;
-	public int maxX;
-	public int maxY;
-	public int maxZ;
-	public Collection<String> aliasOrder = new ArrayList<>();
-	public Map<Block, String> blockAliases = new HashMap<>();
-	public Map<Pair<Block, Integer>, String> blockMetaAliases = new HashMap<>();
-	public Collection<String> aliasesToInclude = new HashSet<>();
+	private final Collection<String> aliasOrder = new ArrayList<>();
+	private final Map<Block, String> blockAliases = new HashMap<>();
+	private final Map<Pair<Block, Integer>, String> blockMetaAliases = new HashMap<>();
+	private final Collection<String> aliasesToInclude = new HashSet<>();
+
+	private boolean scanning;
+
+	private int originX;
+	private int originY;
+	private int originZ;
+	private int minX;
+	private int minY;
+	private int minZ;
+	private int maxX;
+	private int maxY;
+	private int maxZ;
 
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {

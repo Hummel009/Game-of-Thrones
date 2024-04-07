@@ -9,8 +9,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class GOTCommandWaypointCooldown extends CommandBase {
-	public static int MAX_COOLDOWN = 86400;
-
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
@@ -38,6 +36,7 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 	public void processCommand(ICommandSender sender, String[] args) {
 		String function = null;
 		int cooldown = -1;
+		int MAX_COOLDOWN = 86400;
 		if (args.length == 1) {
 			function = "max";
 			cooldown = parseIntBounded(sender, args[0], 0, MAX_COOLDOWN);

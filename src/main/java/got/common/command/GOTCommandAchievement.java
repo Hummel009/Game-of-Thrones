@@ -36,7 +36,7 @@ public class GOTCommandAchievement extends CommandBase {
 		return Collections.emptyList();
 	}
 
-	public GOTAchievement findAchievementByName(String name) {
+	private GOTAchievement findAchievementByName(String name) {
 		GOTAchievement ach = GOTAchievement.findByName(name);
 		if (ach == null) {
 			throw new CommandException("got.command.got_achievement.unknown", name);
