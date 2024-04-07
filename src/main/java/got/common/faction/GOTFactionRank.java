@@ -132,6 +132,11 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		return this;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		return o instanceof GOTFactionRank && compareTo((GOTFactionRank) o) == 0;
+	}
+
 	public static final class Dummy extends GOTFactionRank {
 		public Dummy(String s) {
 			super(null, 0.0f, s);
