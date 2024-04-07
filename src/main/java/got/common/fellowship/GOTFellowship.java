@@ -25,21 +25,23 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 
 public class GOTFellowship {
-	public boolean needsSave;
-	public UUID fellowshipUUID;
-	public String fellowshipName;
-	public boolean disbanded;
-	public ItemStack fellowshipIcon;
-	public UUID ownerUUID;
-	public List<UUID> memberUUIDs = new ArrayList<>();
-	public Collection<UUID> adminUUIDs = new HashSet<>();
-	public boolean preventPVP = true;
-	public boolean preventHiredFF = true;
-	public boolean showMapLocations = true;
-	public Set<UUID> waypointSharerUUIDs = new HashSet<>();
-	public boolean doneRetroactiveWaypointSharerCheck = true;
+	private final List<UUID> memberUUIDs = new ArrayList<>();
+	private final Collection<UUID> adminUUIDs = new HashSet<>();
+	private final Set<UUID> waypointSharerUUIDs = new HashSet<>();
 
-	public GOTFellowship() {
+	private UUID ownerUUID;
+	private UUID fellowshipUUID;
+	private String fellowshipName;
+	private ItemStack fellowshipIcon;
+
+	private boolean needsSave;
+	private boolean disbanded;
+	private boolean preventPVP = true;
+	private boolean preventHiredFF = true;
+	private boolean showMapLocations = true;
+	private boolean doneRetroactiveWaypointSharerCheck = true;
+
+	private GOTFellowship() {
 		fellowshipUUID = UUID.randomUUID();
 	}
 
@@ -242,7 +244,7 @@ public class GOTFellowship {
 		doneRetroactiveWaypointSharerCheck = fsData.getBoolean("DoneRetroactiveWaypointSharerCheck");
 	}
 
-	public void markDirty() {
+	private void markDirty() {
 		needsSave = true;
 	}
 
@@ -391,7 +393,7 @@ public class GOTFellowship {
 		}
 	}
 
-	public void validate() {
+	private void validate() {
 		if (fellowshipUUID == null) {
 			fellowshipUUID = UUID.randomUUID();
 		}

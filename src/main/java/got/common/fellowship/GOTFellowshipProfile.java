@@ -10,8 +10,9 @@ import java.util.Locale;
 import java.util.UUID;
 
 public class GOTFellowshipProfile extends GameProfile {
-	public static String fellowshipPrefix = "f/";
-	public String fellowshipName;
+	private static final String FELLOWSHIP_PREFIX = "f/";
+
+	private final String fellowshipName;
 
 	public GOTFellowshipProfile(GOTEntityBanner banner, UUID fsID, String fsName) {
 		super(fsID, fsName);
@@ -19,19 +20,19 @@ public class GOTFellowshipProfile extends GameProfile {
 	}
 
 	public static String addFellowshipCode(String s) {
-		return fellowshipPrefix + s;
+		return FELLOWSHIP_PREFIX + s;
 	}
 
 	public static String getFellowshipCodeHint() {
-		return StatCollector.translateToLocalFormatted("got.gui.bannerEdit.fellowshipHint", fellowshipPrefix);
+		return StatCollector.translateToLocalFormatted("got.gui.bannerEdit.fellowshipHint", FELLOWSHIP_PREFIX);
 	}
 
 	public static boolean hasFellowshipCode(String s) {
-		return s.toLowerCase(Locale.ROOT).startsWith(fellowshipPrefix.toLowerCase(Locale.ROOT));
+		return s.toLowerCase(Locale.ROOT).startsWith(FELLOWSHIP_PREFIX.toLowerCase(Locale.ROOT));
 	}
 
 	public static String stripFellowshipCode(String s) {
-		return s.substring(fellowshipPrefix.length());
+		return s.substring(FELLOWSHIP_PREFIX.length());
 	}
 
 	public GOTFellowship getFellowship() {

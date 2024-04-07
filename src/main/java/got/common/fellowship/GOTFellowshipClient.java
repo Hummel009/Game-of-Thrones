@@ -7,19 +7,22 @@ import net.minecraft.item.ItemStack;
 import java.util.*;
 
 public class GOTFellowshipClient {
-	public UUID fellowshipID;
-	public String fellowshipName;
-	public ItemStack fellowshipIcon;
-	public boolean isOwned;
-	public boolean isAdminned;
-	public UUID ownerUUID;
-	public List<UUID> memberUUIDs = new ArrayList<>();
-	public Map<UUID, String> usernameMap = new HashMap<>();
-	public Map<UUID, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
-	public Set<UUID> adminUUIDs = new HashSet<>();
-	public boolean preventPVP;
-	public boolean preventHiredFF;
-	public boolean showMapLocations;
+	private final UUID fellowshipID;
+
+	private List<UUID> memberUUIDs = new ArrayList<>();
+	private Map<UUID, String> usernameMap = new HashMap<>();
+	private Map<UUID, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
+	private Set<UUID> adminUUIDs = new HashSet<>();
+
+	private UUID ownerUUID;
+	private String fellowshipName;
+	private ItemStack fellowshipIcon;
+
+	private boolean isOwned;
+	private boolean isAdminned;
+	private boolean preventPVP;
+	private boolean preventHiredFF;
+	private boolean showMapLocations;
 
 	public GOTFellowshipClient(UUID id, String name, boolean owned, boolean admin, GameProfile owner, Iterable<GameProfile> members) {
 		fellowshipID = id;
@@ -118,11 +121,11 @@ public class GOTFellowshipClient {
 		preventPVP = flag;
 	}
 
-	public GameProfile getProfileFor(UUID playerUuid) {
+	private GameProfile getProfileFor(UUID playerUuid) {
 		return new GameProfile(playerUuid, getUsernameFor(playerUuid));
 	}
 
-	public List<GameProfile> getProfilesFor(Iterable<UUID> playerUuids) {
+	private List<GameProfile> getProfilesFor(Iterable<UUID> playerUuids) {
 		List<GameProfile> list = new ArrayList<>();
 		for (UUID playerUuid : playerUuids) {
 			list.add(getProfileFor(playerUuid));

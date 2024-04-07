@@ -17,7 +17,7 @@ public interface FellowshipUpdateType {
 	List<UUID> getPlayersToCheckSharedWaypointsFrom(GOTFellowship var1);
 
 	class AddMember implements FellowshipUpdateType {
-		public UUID memberID;
+		protected UUID memberID;
 
 		public AddMember(UUID member) {
 			memberID = member;
@@ -59,7 +59,7 @@ public interface FellowshipUpdateType {
 	}
 
 	class RemoveAdmin implements FellowshipUpdateType {
-		public UUID adminID;
+		protected UUID adminID;
 
 		public RemoveAdmin(UUID admin) {
 			adminID = admin;
@@ -77,7 +77,7 @@ public interface FellowshipUpdateType {
 	}
 
 	class RemoveMember implements FellowshipUpdateType {
-		public UUID memberID;
+		protected UUID memberID;
 
 		public RemoveMember(UUID member) {
 			memberID = member;
@@ -107,7 +107,7 @@ public interface FellowshipUpdateType {
 	}
 
 	class SetAdmin implements FellowshipUpdateType {
-		public UUID adminID;
+		protected UUID adminID;
 
 		public SetAdmin(UUID admin) {
 			adminID = admin;
@@ -125,7 +125,7 @@ public interface FellowshipUpdateType {
 	}
 
 	class SetOwner implements FellowshipUpdateType {
-		public UUID ownerID;
+		protected UUID ownerID;
 
 		public SetOwner(UUID owner) {
 			ownerID = owner;
@@ -179,8 +179,8 @@ public interface FellowshipUpdateType {
 	}
 
 	class UpdatePlayerTitle implements FellowshipUpdateType {
-		public UUID playerID;
-		public GOTTitle.PlayerTitle playerTitle;
+		protected UUID playerID;
+		protected GOTTitle.PlayerTitle playerTitle;
 
 		public UpdatePlayerTitle(UUID player, GOTTitle.PlayerTitle title) {
 			playerID = player;
@@ -197,5 +197,4 @@ public interface FellowshipUpdateType {
 			return Collections.emptyList();
 		}
 	}
-
 }

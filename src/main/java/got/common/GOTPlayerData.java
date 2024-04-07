@@ -183,7 +183,7 @@ public class GOTPlayerData {
 		UUID fsID = fs.getFellowshipID();
 		GOTFellowshipInvite existingInvite = null;
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
-			if (invite.fellowshipID.equals(fsID)) {
+			if (invite.getFellowshipID().equals(fsID)) {
 				existingInvite = invite;
 				break;
 			}
@@ -212,7 +212,7 @@ public class GOTPlayerData {
 					if (entityplayer != null && !entityplayer.worldObj.isRemote) {
 						IMessage resultPacket = new GOTPacketFellowshipAcceptInviteResult(fs, GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.JOINED);
 						GOTPacketHandler.networkWrapper.sendTo(resultPacket, (EntityPlayerMP) entityplayer);
-						UUID inviterID = existingInvite.inviterID;
+						UUID inviterID = existingInvite.getInviterID();
 						if (inviterID == null) {
 							inviterID = fs.getOwner();
 						}
@@ -402,7 +402,7 @@ public class GOTPlayerData {
 		UUID fsID = fs.getFellowshipID();
 		boolean hasInviteAlready = false;
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
-			if (invite.fellowshipID.equals(fsID)) {
+			if (invite.getFellowshipID().equals(fsID)) {
 				hasInviteAlready = true;
 				break;
 			}
@@ -2067,7 +2067,7 @@ public class GOTPlayerData {
 		UUID fsID = fs.getFellowshipID();
 		GOTFellowshipInvite existingInvite = null;
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
-			if (invite.fellowshipID.equals(fsID)) {
+			if (invite.getFellowshipID().equals(fsID)) {
 				existingInvite = invite;
 				break;
 			}
@@ -2596,9 +2596,9 @@ public class GOTPlayerData {
 		NBTTagList fellowshipInviteTags = new NBTTagList();
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
 			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setString("ID", invite.fellowshipID.toString());
-			if (invite.inviterID != null) {
-				nbt.setString("InviterID", invite.inviterID.toString());
+			nbt.setString("ID", invite.getFellowshipID().toString());
+			if (invite.getInviterID() != null) {
+				nbt.setString("InviterID", invite.getInviterID().toString());
 			}
 			fellowshipInviteTags.appendTag(nbt);
 		}
@@ -2755,7 +2755,7 @@ public class GOTPlayerData {
 		}
 		Collection<GOTFellowshipInvite> staleFellowshipInvites = new HashSet<>();
 		for (GOTFellowshipInvite invite : fellowshipInvites) {
-			GOTFellowship fs = GOTFellowshipData.getFellowship(invite.fellowshipID);
+			GOTFellowship fs = GOTFellowshipData.getFellowship(invite.getFellowshipID());
 			if (fs != null) {
 				sendFellowshipInvitePacket(fs);
 				continue;

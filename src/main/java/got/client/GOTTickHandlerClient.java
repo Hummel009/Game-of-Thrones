@@ -771,7 +771,7 @@ public class GOTTickHandlerClient {
 				if (guiscreen instanceof GuiMainMenu && !(lastGuiOpen instanceof GuiMainMenu)) {
 					GOTLevelData.needsLoad = true;
 					GOTTime.needsLoad = true;
-					GOTFellowshipData.needsLoad = true;
+					GOTFellowshipData.setNeedsLoad(true);
 					GOTFactionBounties.setNeedsLoad(true);
 					GOTFactionRelations.setNeedsLoad(true);
 					GOTDate.resetWorldTimeInMenu();

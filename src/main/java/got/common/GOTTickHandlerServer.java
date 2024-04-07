@@ -125,7 +125,7 @@ public class GOTTickHandlerServer {
 			if (GOTTime.needsLoad) {
 				GOTTime.load();
 			}
-			if (GOTFellowshipData.needsLoad) {
+			if (GOTFellowshipData.isNeedsLoad()) {
 				GOTFellowshipData.loadAll();
 			}
 			if (GOTFactionBounties.isNeedsLoad()) {
@@ -172,7 +172,6 @@ public class GOTTickHandlerServer {
 				if (world.getTotalWorldTime() % 600L == 0L) {
 					GOTLevelData.save();
 					GOTFellowshipData.saveAll();
-					GOTFellowshipData.saveAndClearUnusedFellowships();
 					GOTFactionBounties.saveAll();
 					GOTFactionRelations.save();
 				}
