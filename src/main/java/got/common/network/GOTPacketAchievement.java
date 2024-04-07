@@ -32,8 +32,8 @@ public class GOTPacketAchievement implements IMessage {
 
 	@Override
 	public void toBytes(ByteBuf data) {
-		data.writeByte(achievement.category.ordinal());
-		data.writeShort(achievement.ID);
+		data.writeByte(achievement.getCategory().ordinal());
+		data.writeShort(achievement.getId());
 		data.writeBoolean(display);
 	}
 

@@ -2,8 +2,6 @@ package got.common.database;
 
 import got.common.GOTChatEvents;
 import got.common.GOTDimension;
-import got.common.GOTLevelData;
-import got.common.GOTPlayerData;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuestPickpocket;
 import got.common.util.GOTEnumDyeColor;
@@ -22,12 +20,12 @@ import java.awt.*;
 import java.util.List;
 import java.util.*;
 
+@SuppressWarnings({"PublicField", "WeakerAccess"})
 public class GOTAchievement {
 	public static final Set<GOTAchievement> CONTENT = new HashSet<>();
 
 	public static final Map<ItemArmor.ArmorMaterial, GOTAchievement> ARMOR_ACHIEVEMENTS = new EnumMap<>(ItemArmor.ArmorMaterial.class);
 
-	public static int id = 1;
 	public static GOTAchievement bannerProtect;
 	public static GOTAchievement brewDrinkInBarrel;
 	public static GOTAchievement catchButterfly;
@@ -234,6 +232,7 @@ public class GOTAchievement {
 	public static GOTAchievement killTheKing;
 	public static GOTAchievement killThePolice;
 	public static GOTAchievement killThennBerserker;
+	public static GOTAchievement killTheonGreyjoy;
 	public static GOTAchievement killThievingBandit;
 	public static GOTAchievement killThoros;
 	public static GOTAchievement killTormund;
@@ -270,7 +269,6 @@ public class GOTAchievement {
 	public static GOTAchievement speakToDrunkard;
 	public static GOTAchievement steal;
 	public static GOTAchievement stealArborGrapes;
-	public static GOTAchievement tormentTheonGreyjoy;
 	public static GOTAchievement trade;
 	public static GOTAchievement travel10;
 	public static GOTAchievement travel20;
@@ -338,17 +336,15 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullYitiFrontier;
 	public static GOTAchievement wearFullYitiSamurai;
 
-	public Category category;
-	public int ID;
-	public ItemStack icon;
-	public String name;
-	public boolean isBiomeAchievement;
-	public boolean isSpecial;
-	public GOTTitle achievementTitle;
-	public Collection<GOTFaction> enemyFactions = new ArrayList<>();
-	public Collection<GOTFaction> allyFactions = new ArrayList<>();
+	private Category category;
+	private int id;
+	private ItemStack icon;
+	private String name;
+	private boolean isBiomeAchievement;
+	private boolean isSpecial;
+	private GOTTitle achievementTitle;
 
-	public GOTAchievement(Category c, int i, Block block, String s) {
+	private GOTAchievement(Category c, int i, Block block, String s) {
 		this(c, i, new ItemStack(block), s);
 	}
 
@@ -356,18 +352,18 @@ public class GOTAchievement {
 		this(c, i, new ItemStack(item), s);
 	}
 
-	public GOTAchievement(Category c, int i, ItemStack itemstack, String s) {
+	private GOTAchievement(Category c, int i, ItemStack itemstack, String s) {
 		category = c;
-		ID = i;
+		id = i;
 		icon = itemstack;
 		name = s;
-		for (GOTAchievement achievement : category.list) {
-			if (achievement.ID != ID) {
+		for (GOTAchievement achievement : category.getList()) {
+			if (achievement.id != id) {
 				continue;
 			}
-			throw new IllegalArgumentException("Duplicate ID " + ID + " for GOT achievement category " + category.name());
+			throw new IllegalArgumentException("Duplicate ID " + id + " for GOT achievement category " + category.name());
 		}
-		category.list.add(this);
+		category.addAchievement(this);
 		getDimension().allAchievements.add(this);
 		CONTENT.add(this);
 	}
@@ -376,8 +372,8 @@ public class GOTAchievement {
 		if (category == null) {
 			return null;
 		}
-		for (GOTAchievement achievement : category.list) {
-			if (achievement.ID != ID) {
+		for (GOTAchievement achievement : category.getList()) {
+			if (achievement.id != ID) {
 				continue;
 			}
 			return achievement;
@@ -394,7 +390,7 @@ public class GOTAchievement {
 		return null;
 	}
 
-	public static GOTAchievement createArmorAchievement(GOTAchievement.Category category, int id, Item item, String name) {
+	private static GOTAchievement createArmorAchievement(GOTAchievement.Category category, int id, Item item, String name) {
 		GOTAchievement achievement = new GOTAchievement(category, id, item, name);
 		ARMOR_ACHIEVEMENTS.put(((ItemArmor) item).getArmorMaterial(), achievement);
 		return achievement;
@@ -402,7 +398,7 @@ public class GOTAchievement {
 
 	public static GOTAchievement findByName(String name) {
 		for (Category category : Category.values()) {
-			for (GOTAchievement achievement : category.list) {
+			for (GOTAchievement achievement : category.getList()) {
 				if (achievement.name.equalsIgnoreCase(name)) {
 					return achievement;
 				}
@@ -414,326 +410,332 @@ public class GOTAchievement {
 	public static List<GOTAchievement> getAllAchievements() {
 		List<GOTAchievement> list = new ArrayList<>();
 		for (Category category : Category.values()) {
-			list.addAll(category.list);
+			list.addAll(category.getList());
 		}
 		return list;
 	}
 
 	public static void onInit() {
-		killThePolice = new GOTAchievement(Category.KILL, id++, GOTItems.westerosDagger, "BANDIT");
-		bannerProtect = new GOTAchievement(Category.GENERAL, id++, GOTItems.banner, "BANNER_PROTECT");
-		brewDrinkInBarrel = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.barrel, "BREW_DRINK_IN_BARREL");
-		craftBomb = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.bomb, "CRAFT_BOMB");
-		craftWildFire = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.wildFireJar, "CRAFT_WILD_FIRE");
-		defeatInvasion = new GOTAchievement(Category.GENERAL, id++, GOTItems.gregorCleganeSword, "DEFEAT_INVASION");
-		doLegendaryQuest = new GOTAchievement(Category.GENERAL, id++, Blocks.dragon_egg, "DO_LEGENDARY_QUEST");
-		doQuest = new GOTAchievement(Category.GENERAL, id++, GOTItems.questBook, "DO_QUEST");
-		drinkFire = new GOTAchievement(Category.GENERAL, id++, GOTItems.mugWildFire, "DRINK_FIRE");
-		drinkTermite = new GOTAchievement(Category.GENERAL, id++, GOTItems.mugTermiteTequila, "DRINK_TERMITE");
-		earnManyCoins = new GOTAchievement(Category.GENERAL, id++, GOTItems.coin, "EARN_MANY_COINS");
-		enterKnownWorld = new GOTAchievement(Category.GENERAL, id++, GOTItems.gregorCleganeSword, "ENTER_GOT");
-		factionConquest = new GOTAchievement(Category.GENERAL, id++, GOTItems.gregorCleganeSword, "FACTION_CONQUEST");
-		findFourLeafClover = new GOTAchievement(Category.GENERAL, id++, new ItemStack(GOTBlocks.clover, 1, 1), "FIND_FOUR_LEAF_CLOVER");
-		freeman = new GOTAchievement(Category.GENERAL, id++, GOTItems.crowbar, "FREEMAN");
-		gainHighAlcoholTolerance = new GOTAchievement(Category.GENERAL, id++, GOTItems.mugAle, "GAIN_HIGH_ALCOHOL_TOLERANCE");
-		craftBronze = new GOTAchievement(Category.GENERAL, id++, GOTItems.bronzeIngot, "GET_BRONZE");
-		getConcrete = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.concretePowder.get(GOTEnumDyeColor.LIME), "GET_CONCRETE");
-		craftCopper = new GOTAchievement(Category.GENERAL, id++, GOTItems.copperIngot, "GET_COPPER");
-		getPouch = new GOTAchievement(Category.GENERAL, id++, GOTItems.pouch, "GET_POUCH");
-		hundreds = new GOTAchievement(Category.GENERAL, id++, GOTItems.gregorCleganeSword, "HUNDREDS");
-		hireGoldenCompany = new GOTAchievement(Category.GENERAL, id++, GOTItems.goldHelmet, "HIRE_GOLDEN_COMPANY");
-		killer = new GOTAchievement(Category.KILL, id++, Items.iron_axe, "KILLER");
-		killAlliserThorne = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.westerosSword, "KILL_ALLISER_THORNE").createTitle();
-		killAsshaiArchmag = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.archmagStaff, "KILL_ASSHAI_ARCHMAG").createTitle();
-		killBalonGreyjoy = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.euronDagger, "KILL_BALON_GREYJOY");
-		killBericDayne = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.dawn, "KILL_BERIC_DAYNE");
-		killBericDondarrion = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.bericSword, "KILL_BERIC_DONDARRION").createTitle();
-		killBuGai = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.yitiSword, "KILL_BU_GAI").createTitle();
-		killCerseiLannister = new GOTAchievement(Category.LEGENDARY, id++, GOTBlocks.wildFireJar, "KILL_CERSEI_LANNISTER");
-		killCraster = new GOTAchievement(Category.LEGENDARY, id++, Items.iron_axe, "KILL_CRASTER").createTitle();
-		killDaenerysTargaryen = new GOTAchievement(Category.LEGENDARY, id++, Blocks.dragon_egg, "KILL_DAENERYS_TARGARYEN").createTitle();
-		killDavosSeaworth = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.leek, "KILL_DAVOS_SEAWORTH");
-		killEuronGreyjoy = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.euronDagger, "KILL_EURON_GREYJOY");
-		killGeroldDayne = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.darkstar, "KILL_GEROLD_DAYNE");
-		killGiant = new GOTAchievement(Category.KILL, id++, GOTItems.club, "KILL_GIANT");
-		killGladiator = new GOTAchievement(Category.KILL, id++, GOTItems.essosSword, "KILL_GLADIATOR");
-		killGregorClegane = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.gregorCleganeSword, "KILL_GREGOR_CLEGANE").createTitle();
-		killHodor = new GOTAchievement(Category.LEGENDARY, id++, Items.stick, "KILL_HODOR");
-		killHowlandReed = new GOTAchievement(Category.LEGENDARY, id++, GOTBlocks.reeds, "KILL_HOWLAND_REED");
-		killIbben = new GOTAchievement(Category.KILL, id++, GOTItems.flintSpear, "KILL_IBBEN");
-		killIceSpider = new GOTAchievement(Category.KILL, id++, GOTItems.valyrianSword, "KILL_ICE_SPIDER");
-		killJaimeLannister = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.jaimeSword, "KILL_JAIME_LANNISTER");
-		killJaqenHghar = new GOTAchievement(Category.LEGENDARY, id++, new ItemStack(GOTItems.coin, 1, 1), "KILL_JAQEN_HGHAR").createTitle();
-		killJeorMormont = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.longclaw, "KILL_JEOR_MORMONT").createTitle();
-		killJonSnow = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.longclaw, "KILL_JON_SNOW").createTitle();
-		killJorahMormont = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.harpy, "KILL_JORAH_MORMONT");
-		killKevanLannister = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.handGold, "KILL_KEVAN_LANNISTER");
-		killKhal = new GOTAchievement(Category.KILL, id++, GOTItems.lhazarSword, "KILL_KHAL");
-		killTugarKhan = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.nomadSword, "KILL_TUGAR_KHAN").createTitle();
-		killLancelLannister = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.gregorCleganeSword, "KILL_LANCEL_LANNISTER");
-		killLorasTyrell = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.gregorCleganeSword, "KILL_LORAS_TYRELL");
-		killMaester = new GOTAchievement(Category.KILL, id++, Items.book, "KILL_MAESTER");
-		killMammoth = new GOTAchievement(Category.KILL, id++, GOTItems.stoneSpear, "KILL_MAMMOTH");
-		killShryke = new GOTAchievement(Category.KILL, id++, GOTItems.bottlePoison, "KILL_SHRYKE");
-		killMelisandra = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.lightbringer, "KILL_MELISANDRA");
-		killNightKing = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.nightKingSword, "KILL_NIGHT_KING").createTitle();
-		killNightWatchGuard = new GOTAchievement(Category.KILL, id++, GOTItems.westerosSword, "KILL_NIGHT_WATCH_GUARD");
-		killOberynMartell = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.sunspear, "KILL_OBERYN_MARTELL").createTitle();
-		killPetyrBaelish = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.baelishDagger, "KILL_PETYR_BAELISH");
-		killRamsayBolton = new GOTAchievement(Category.LEGENDARY, id++, Items.bone, "KILL_RAMSAY_BOLTON");
-		killRobbStark = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.robbSword, "KILL_ROBB_STARK");
-		killRooseBolton = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.boltonDagger, "KILL_ROOSE_BOLTON");
-		killSamurai = new GOTAchievement(Category.KILL, id++, GOTItems.katana, "KILL_SAMURAI");
-		killSandorClegane = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.sandorCleganeSword, "KILL_SANDOR_CLEGANE").createTitle();
-		killThennBerserker = new GOTAchievement(Category.KILL, id++, GOTItems.wildlingSword, "KILL_THENN_BERSERKER");
-		killTheKing = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.aegonHelmet, "KILL_THE_KING").createTitle();
-		killTyrion = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.mugRedWine, "KILL_TYRION");
-		killTywin = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.westkingHelmet, "KILL_TYWIN").createTitle();
-		killUlthos = new GOTAchievement(Category.KILL, id++, GOTItems.mysteryWeb, "KILL_ULTHOS");
-		killUnsullied = new GOTAchievement(Category.KILL, id++, GOTItems.essosPike, "KILL_UNSULLIED");
-		killVarys = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.westerosSword, "KILL_VARYS");
-		killVassal = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.westerosSword, "KILL_VASSAL");
-		killVictarionGreyjoy = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.victarionAxe, "KILL_VICTARION_GREYJOY");
-		killWerewolf = new GOTAchievement(Category.KILL, id++, GOTItems.mossovySword, "KILL_WEREWOLF");
-		killWhiteWalker = new GOTAchievement(Category.KILL, id++, GOTItems.valyrianSword, "KILL_WHITE_WALKER");
-		killProstitute = new GOTAchievement(Category.KILL, id++, GOTItems.ironCrossbow, "KILL_PROSTITUTE");
-		killWight = new GOTAchievement(Category.KILL, id++, GOTItems.bericSword, "KILL_WIGHT");
-		killWightGiant = new GOTAchievement(Category.KILL, id++, GOTItems.bericSword, "KILL_WIGHT_GIANT");
-		killWitcher = new GOTAchievement(Category.KILL, id++, GOTItems.mossovySword, "KILL_WITCHER");
-		killYaraGreyjoy = new GOTAchievement(Category.LEGENDARY, id++, Items.iron_axe, "KILL_YARA_GREYJOY");
-		killThoros = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.westerosSword, "KILL_THOROS");
-		killBarristanSelmy = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.westerosSword, "KILL_BARRISTAN_SELMY");
-		killXaroXhoanDaxos = new GOTAchievement(Category.LEGENDARY, id++, Items.gold_ingot, "KILL_XARO_XHOAN_DAXOS");
-		killGendryBaratheon = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.gendryHammer, "KILL_GENDRY_BARATHEON");
-		killDoranMartell = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.tyeneDagger, "KILL_DORAN_MARTELL");
-		killIllyrioMopatis = new GOTAchievement(Category.LEGENDARY, id++, Items.gold_ingot, "KILL_ILLYRIO_MOPATIS");
-		killBenjenStark = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.valyrianSword, "KILL_BENJEN_STARK");
-		killBrienneTarth = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.sapphire, "KILL_BRIENNE_TARTH");
-		killSansaStark = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.justMaid, "KILL_SANSA_STARK");
-		killTormund = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.tormundSword, "KILL_TORMUND");
-		killYgritte = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.wildlingDagger, "KILL_YGRITTE");
-		killManceRayder = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.wildlingSword, "KILL_MANCE_RAYDER");
-		killMaceTyrell = new GOTAchievement(Category.LEGENDARY, id++, GOTBlocks.wildFire, "KILL_MACE_TYRELL");
-		killMargaeryTyrell = new GOTAchievement(Category.LEGENDARY, id++, Blocks.red_flower, "KILL_MARGAERY_TYRELL");
-		killEllaryaSand = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.bottlePoison, "KILL_ELLARYA_SAND").createTitle();
-		killBryndenTully = new GOTAchievement(Category.LEGENDARY, id++, Items.fish, "KILL_BRYNDEN_TULLY").createTitle();
-		killEdmureTully = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.arrowFire, "KILL_EDMURE_TULLY");
-		killArdrianCeltigar = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.celtigarAxe, "KILL_ARDRIAN_CELTIGAR").createTitle();
-		killKraznysMoNakloz = new GOTAchievement(Category.LEGENDARY, id++, Blocks.dragon_egg, "KILL_KRAZNYS_MO_NAKLOZ");
-		killPriest = new GOTAchievement(Category.LEGENDARY, id++, Blocks.fire, "KILL_PRIEST");
-		mineValyrian = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.oreValyrian, "MINE_VALYRIAN");
-		obama = new GOTAchievement(Category.GENERAL, id++, GOTItems.banana, "OBAMA");
-		pledgeService = new GOTAchievement(Category.GENERAL, id++, GOTItems.gregorCleganeSword, "PLEDGE_SERVICE");
-		reforge = new GOTAchievement(Category.GENERAL, id++, Blocks.anvil, "REFORGE");
-		shootDownMidges = new GOTAchievement(Category.GENERAL, id++, GOTItems.ironCrossbow, "SHOOT_DOWN_MIDGES");
-		stealArborGrapes = new GOTAchievement(Category.GENERAL, id++, GOTItems.grapeRed, "STEAL_ARBOR_GRAPES");
-		tormentTheonGreyjoy = new GOTAchievement(Category.LEGENDARY, id++, GOTItems.boltonDagger, "TORMENT_THEON_GREYJOY");
-		trade = new GOTAchievement(Category.GENERAL, id++, GOTItems.coin, "TRADE");
-		travel10 = new GOTAchievement(Category.GENERAL, id++, Items.map, "TRAVEL10");
-		travel20 = new GOTAchievement(Category.GENERAL, id++, Items.map, "TRAVEL20");
-		travel30 = new GOTAchievement(Category.GENERAL, id++, Items.map, "TRAVEL30");
-		travel40 = new GOTAchievement(Category.GENERAL, id++, Items.map, "TRAVEL40");
-		travel50 = new GOTAchievement(Category.GENERAL, id++, Items.map, "TRAVEL50");
-		unsmelt = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.unsmeltery, "UNSMELT");
-		engraveOwnership = new GOTAchievement(Category.GENERAL, id++, Blocks.anvil, "ENGRAVE");
-		steal = new GOTAchievement(Category.GENERAL, id++, GOTItems.coin, "STEAL");
-		enterAlwaysWinter = new GOTAchievement(Category.VISIT, id++, Blocks.ice, "VISIT_ALWAYS_WINTER");
-		enterArbor = new GOTAchievement(Category.VISIT, id++, GOTItems.grapeRed, "VISIT_ARBOR");
-		enterArrynVale = new GOTAchievement(Category.VISIT, id++, GOTItems.arrynHelmet, "VISIT_ARRYN");
-		enterMoonMountains = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.rock, 1, 1), "VISIT_ARRYN_MOUNTAINS");
-		enterArrynTown = new GOTAchievement(Category.VISIT, id++, GOTItems.arrynguardHelmet, "VISIT_ARRYN_TOWN");
-		enterAsshai = new GOTAchievement(Category.VISIT, id++, GOTItems.asshaiStaff, "VISIT_ASSHAI");
-		enterBoneMountains = new GOTAchievement(Category.VISIT, id++, GOTBlocks.boneBlock, "VISIT_BONE_MOUNTAINS");
-		enterBraavos = new GOTAchievement(Category.VISIT, id++, GOTItems.braavosHelmet, "VISIT_BRAAVOS");
-		enterCannibalSands = new GOTAchievement(Category.VISIT, id++, GOTBlocks.quicksand, "VISIT_CANNIBAL_SANDS");
-		enterColdCoast = new GOTAchievement(Category.VISIT, id++, GOTItems.wildlingPolearm, "VISIT_COLD_COAST");
-		enterKingswood = new GOTAchievement(Category.VISIT, id++, GOTItems.mugRedWine, "VISIT_CROWNLANDS_FOREST");
-		enterDorne = new GOTAchievement(Category.VISIT, id++, GOTItems.dorneHelmet, "VISIT_DORNE");
-		enterDorneDesert = new GOTAchievement(Category.VISIT, id++, Blocks.sand, "VISIT_DORNE_DESERT");
-		enterDorneMesa = new GOTAchievement(Category.VISIT, id++, Blocks.clay, "VISIT_DORNE_MESA");
-		enterDorneMountains = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.rock, 1, 4), "VISIT_DORNE_MOUNTAINS");
-		id++;
-		enterDothrakiSea = new GOTAchievement(Category.VISIT, id++, GOTItems.nomadSword, "VISIT_DOTHRAKI_SEA");
-		enterDragonstone = new GOTAchievement(Category.VISIT, id++, GOTItems.obsidianShard, "VISIT_DRAGONSTONE");
-		enterEssosMountains = new GOTAchievement(Category.VISIT, id++, Blocks.stone, "VISIT_ESSOS_MOUNTAINS");
-		enterIsleOfFaces = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.leaves9, 1, 2), "VISIT_FACES");
-		enterSnowyWasteland = new GOTAchievement(Category.VISIT, id++, Blocks.snow, "VISIT_FAR_NORTH");
-		enterFireField = new GOTAchievement(Category.VISIT, id++, Blocks.red_flower, "VISIT_FIRE_FIELD");
-		enterFrostfangs = new GOTAchievement(Category.VISIT, id++, Blocks.packed_ice, "VISIT_FROSTFANGS");
-		enterGhiscar = new GOTAchievement(Category.VISIT, id++, GOTItems.harpy, "VISIT_GHISCAR");
-		enterGhiscarColony = new GOTAchievement(Category.VISIT, id++, GOTItems.ghiscarHelmet, "VISIT_GHISCAR_COLONY");
-		enterGiftNew = new GOTAchievement(Category.VISIT, id++, Blocks.snow, "VISIT_GIFT_NEW");
-		enterGiftOld = new GOTAchievement(Category.VISIT, id++, GOTBlocks.brickIce, "VISIT_GIFT_OLD");
-		enterHauntedForest = new GOTAchievement(Category.VISIT, id++, GOTItems.club, "VISIT_HAUNTED_FOREST");
-		enterMoonMountainsFoothills = new GOTAchievement(Category.VISIT, id++, GOTItems.trident, "VISIT_HILL_TRIBES");
-		enterIbben = new GOTAchievement(Category.VISIT, id++, GOTItems.flintDagger, "VISIT_IBBEN");
-		enterIfekevronForest = new GOTAchievement(Category.VISIT, id++, GOTItems.flintSpear, "VISIT_IFEKEVRON");
-		enterIronIslands = new GOTAchievement(Category.VISIT, id++, GOTItems.ironbornHelmet, "VISIT_IRONBORN");
-		enterIrontreeForest = new GOTAchievement(Category.VISIT, id++, Items.iron_axe, "VISIT_IRONTREE");
-		enterJogosNhai = new GOTAchievement(Category.VISIT, id++, GOTItems.nomadBow, "VISIT_JOGOS");
-		enterJogosNhaiDesert = new GOTAchievement(Category.VISIT, id++, GOTBlocks.quicksand, "VISIT_JOGOS_DESERT");
-		enterKingsLanding = new GOTAchievement(Category.VISIT, id++, GOTItems.crownlandsHelmet, "VISIT_KINGS_LANDING");
-		enterLhazar = new GOTAchievement(Category.VISIT, id++, GOTItems.lhazarHelmet, "VISIT_LHAZAR");
-		enterLongSummer = new GOTAchievement(Category.VISIT, id++, Blocks.fire, "VISIT_LONG_SUMMER");
-		enterLorath = new GOTAchievement(Category.VISIT, id++, GOTItems.lorathHelmet, "VISIT_LORATH");
-		enterLys = new GOTAchievement(Category.VISIT, id++, GOTItems.lysHelmet, "VISIT_LYS");
-		enterDisputedLands = new GOTAchievement(Category.VISIT, id++, GOTItems.goldHelmet, "VISIT_MERCENARY");
-		enterMossovy = new GOTAchievement(Category.VISIT, id++, GOTItems.mossovySword, "VISIT_MOSSOVY");
-		enterMossovyMarshes = new GOTAchievement(Category.VISIT, id++, GOTBlocks.reeds, "VISIT_MOSSOVY_MARSHES");
-		enterMossovyMountains = new GOTAchievement(Category.VISIT, id++, Blocks.stone, "VISIT_MOSSOVY_SOPKAS");
-		enterMyr = new GOTAchievement(Category.VISIT, id++, GOTItems.myrHelmet, "VISIT_MYR");
-		id++;
-		enterNeck = new GOTAchievement(Category.VISIT, id++, GOTBlocks.quagmire, "VISIT_NECK");
-		enterNorth = new GOTAchievement(Category.VISIT, id++, GOTItems.northHelmet, "VISIT_NORTH");
-		enterNorthBarrows = new GOTAchievement(Category.VISIT, id++, GOTItems.coin, "VISIT_NORTH_BARROWS");
-		enterNorthMountains = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.rock, 1, 1), "VISIT_NORTH_MOUNTAINS");
-		enterNorthTown = new GOTAchievement(Category.VISIT, id++, GOTItems.northguardHelmet, "VISIT_NORTH_TOWN");
-		enterNorthWild = new GOTAchievement(Category.VISIT, id++, GOTItems.trident, "VISIT_NORTH_WILD");
-		enterNorvos = new GOTAchievement(Category.VISIT, id++, GOTItems.norvosHelmet, "VISIT_NORVOS");
-		enterPentos = new GOTAchievement(Category.VISIT, id++, GOTItems.pentosHelmet, "VISIT_PENTOS");
-		enterQarth = new GOTAchievement(Category.VISIT, id++, GOTItems.qarthHelmet, "VISIT_QARTH");
-		enterQarthDesert = new GOTAchievement(Category.VISIT, id++, GOTBlocks.redSandstone, "VISIT_DORNE_DESERT");
-		enterQohor = new GOTAchievement(Category.VISIT, id++, GOTItems.qohorHelmet, "VISIT_QOHOR");
-		enterQohorForest = new GOTAchievement(Category.VISIT, id++, GOTItems.qohorHelmet, "VISIT_QOHOR_FOREST");
-		enterReach = new GOTAchievement(Category.VISIT, id++, GOTItems.reachHelmet, "VISIT_REACH");
-		enterReachTown = new GOTAchievement(Category.VISIT, id++, GOTItems.reachguardHelmet, "VISIT_REACH_TOWN");
-		enterBleedingSea = new GOTAchievement(Category.VISIT, id++, GOTItems.bronzeSword, "VISIT_RED_SEA");
-		enterRiverlands = new GOTAchievement(Category.VISIT, id++, GOTItems.riverlandsHelmet, "VISIT_RIVERLANDS");
-		enterShadowLand = new GOTAchievement(Category.VISIT, id++, GOTBlocks.asshaiFlower, "VISIT_SHADOW_LAND");
-		enterShadowMountains = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.rock, 1, 0), "VISIT_SHADOW_MOUNTAINS");
-		enterSkagos = new GOTAchievement(Category.VISIT, id++, GOTItems.trident, "VISIT_SKAGOS");
-		id++;
-		enterSothoryosBushland = new GOTAchievement(Category.VISIT, id++, GOTItems.termite, "VISIT_SOTHORYOS_BUSHLAND");
-		enterSothoryosDesert = new GOTAchievement(Category.VISIT, id++, Blocks.sand, "VISIT_SOTHORYOS_DESERT");
-		enterSothoryosFrost = new GOTAchievement(Category.VISIT, id++, Blocks.packed_ice, "VISIT_SOTHORYOS_FROST");
-		enterSothoryosHell = new GOTAchievement(Category.VISIT, id++, GOTItems.sothoryosAmulet, "VISIT_SOTHORYOS_HELL");
-		enterSothoryosJungle = new GOTAchievement(Category.VISIT, id++, GOTItems.sothoryosHelmet, "VISIT_SOTHORYOS_JUNGLE");
-		enterSothoryosForest = new GOTAchievement(Category.VISIT, id++, GOTItems.sothoryosHelmetGold, "VISIT_SOTHORYOS_KANUKA");
-		enterSothoryosMangrove = new GOTAchievement(Category.VISIT, id++, Blocks.water, "VISIT_SOTHORYOS_MANGROVE");
-		enterSothoryosMountains = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.rock, 1, 6), "VISIT_SOTHORYOS_MOUNTAINS");
-		enterSothoryosSavannah = new GOTAchievement(Category.VISIT, id++, Blocks.grass, "VISIT_SOTHORYOS_SAVANNAH");
-		enterSothoryosTaiga = new GOTAchievement(Category.VISIT, id++, GOTItems.club, "VISIT_SOTHORYOS_TAIGA");
-		enterStepstones = new GOTAchievement(Category.VISIT, id++, GOTItems.essosBow, "VISIT_STEPSTONES");
-		enterStoneCoast = new GOTAchievement(Category.VISIT, id++, GOTItems.westerosDaggerPoisoned, "VISIT_STONE_COAST");
-		enterStormlands = new GOTAchievement(Category.VISIT, id++, GOTItems.stormlandsHelmet, "VISIT_STORMLANDS");
-		enterSummerIslands = new GOTAchievement(Category.VISIT, id++, GOTItems.summerHelmet, "VISIT_SUMMER_ISLANDS");
-		enterTarth = new GOTAchievement(Category.VISIT, id++, GOTBlocks.whiteSandstone, "VISIT_TARTH");
-		enterThennLand = new GOTAchievement(Category.VISIT, id++, GOTItems.wildlingBattleaxe, "VISIT_THENN");
-		enterTropicalForest = new GOTAchievement(Category.VISIT, id++, GOTItems.yitiHelmetShogune, "VISIT_TROPICAL_FOREST");
-		enterTyrosh = new GOTAchievement(Category.VISIT, id++, GOTItems.tyroshHelmet, "VISIT_TYROSH");
-		enterUlthos = new GOTAchievement(Category.VISIT, id++, Blocks.web, "VISIT_ULTHOS");
-		enterUlthosDesert = new GOTAchievement(Category.VISIT, id++, Blocks.sand, "VISIT_ULTHOS_DESERT");
-		enterUlthosMountains = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.rock, 1, 3), "VISIT_ULTHOS_MOUNTAINS");
-		enterValyria = new GOTAchievement(Category.VISIT, id++, Blocks.vine, "VISIT_VALYRIA");
-		enterShrykesLand = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.deadMarshPlant), "VISIT_SHRYKES_LAND");
-		enterValyriaVolcano = new GOTAchievement(Category.VISIT, id++, Blocks.lava, "VISIT_VALYRIA_VOLCANO");
-		enterVolantis = new GOTAchievement(Category.VISIT, id++, GOTItems.volantisHelmet, "VISIT_VOLANTIS");
-		enterVolantisOrangeForest = new GOTAchievement(Category.VISIT, id++, GOTItems.orange, "VISIT_VOLANTIS_FOREST");
-		enterWesterlands = new GOTAchievement(Category.VISIT, id++, GOTItems.westerlandsHelmet, "VISIT_WESTERLANDS");
-		enterWesterlandsHills = new GOTAchievement(Category.VISIT, id++, Blocks.gold_ore, "VISIT_WESTERLANDS_HILLS");
-		enterWesterlandsTown = new GOTAchievement(Category.VISIT, id++, GOTItems.westerlandsguardHelmet, "VISIT_WESTERLANDS_TOWN");
-		id++;
-		enterYeen = new GOTAchievement(Category.VISIT, id++, Blocks.obsidian, "VISIT_YEEN");
-		enterYiTi = new GOTAchievement(Category.VISIT, id++, GOTItems.yitiHelmet, "VISIT_YI_TI");
-		enterYiTiWasteland = new GOTAchievement(Category.VISIT, id++, GOTItems.yitiHelmetSamurai, "VISIT_YI_TI_WASTELAND");
-		enterCrownlands = new GOTAchievement(Category.VISIT, id++, GOTItems.crownlandsHelmet, "VISIT_CROWNLANDS");
-		enterQarthColony = new GOTAchievement(Category.VISIT, id++, GOTItems.qarthHelmet, "VISIT_QARTH_COLONY");
-		enterUlthosDesertCold = new GOTAchievement(Category.VISIT, id++, new ItemStack(Blocks.sand), "VISIT_ULTHOS_DESERT_COLD");
-		enterUlthosForest = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.wood1, 1, 2), "VISIT_ULTHOS_FOREST");
-		enterUlthosFrost = new GOTAchievement(Category.VISIT, id++, new ItemStack(Blocks.snow), "VISIT_ULTHOS_FROST");
-		enterUlthosTaiga = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.wood1, 1, 0), "VISIT_ULTHOS_TAIGA");
-		enterSummerColony = new GOTAchievement(Category.VISIT, id++, GOTItems.summerHelmet, "VISIT_SUMMER_COLONY");
-		enterUlthosMarshes = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.deadMarshPlant), "VISIT_ULTHOS_MARSHES");
-		enterUlthosRedForest = new GOTAchievement(Category.VISIT, id++, new ItemStack(GOTBlocks.wood1), "VISIT_ULTHOS_RED_FOREST");
-		wearFullArryn = createArmorAchievement(Category.WEAR, id++, GOTItems.arrynChestplate, "WEAR_FULL_ARRYN");
-		wearFullArrynguard = createArmorAchievement(Category.WEAR, id++, GOTItems.arrynguardChestplate, "WEAR_FULL_ARRYNGUARD");
-		wearFullAsshai = createArmorAchievement(Category.WEAR, id++, GOTItems.asshaiChestplate, "WEAR_FULL_ASSHAI");
-		wearFullBlackfyre = createArmorAchievement(Category.WEAR, id++, GOTItems.blackfyreChestplate, "WEAR_FULL_BLACKFYRE");
-		wearFullBone = createArmorAchievement(Category.WEAR, id++, GOTItems.boneChestplate, "WEAR_FULL_BONE");
-		wearFullBraavos = createArmorAchievement(Category.WEAR, id++, GOTItems.braavosChestplate, "WEAR_FULL_BRAAVOS");
-		wearFullBronze = createArmorAchievement(Category.WEAR, id++, GOTItems.bronzeChestplate, "WEAR_FULL_BRONZE");
-		wearFullCrownlands = createArmorAchievement(Category.WEAR, id++, GOTItems.crownlandsChestplate, "WEAR_FULL_CROWNLANDS");
-		wearFullDorne = createArmorAchievement(Category.WEAR, id++, GOTItems.dorneChestplate, "WEAR_FULL_DORNE");
-		wearFullDragonstone = createArmorAchievement(Category.WEAR, id++, GOTItems.dragonstoneChestplate, "WEAR_FULL_DRAGONSTONE");
-		wearFullFur = createArmorAchievement(Category.WEAR, id++, GOTItems.furChestplate, "WEAR_FULL_FUR");
-		wearFullGemsbok = createArmorAchievement(Category.WEAR, id++, GOTItems.gemsbokChestplate, "WEAR_FULL_GEMSBOK");
-		wearFullGhiscar = createArmorAchievement(Category.WEAR, id++, GOTItems.ghiscarChestplate, "WEAR_FULL_GHISCAR");
-		wearFullGift = createArmorAchievement(Category.WEAR, id++, GOTItems.giftChestplate, "WEAR_FULL_GIFT");
-		wearFullGoldencompany = createArmorAchievement(Category.WEAR, id++, GOTItems.goldChestplate, "WEAR_FULL_GOLDENCOMPANY");
-		wearFullHand = createArmorAchievement(Category.WEAR, id++, GOTItems.handGold, "WEAR_FULL_HAND");
-		wearFullHelmet = createArmorAchievement(Category.WEAR, id++, GOTItems.robertHelmet, "WEAR_FULL_HELMET");
-		wearFullHillmen = createArmorAchievement(Category.WEAR, id++, GOTItems.hillmenChestplate, "WEAR_FULL_HILLMEN");
-		wearFullIronborn = createArmorAchievement(Category.WEAR, id++, GOTItems.ironbornChestplate, "WEAR_FULL_IRONBORN");
-		wearFullKingsguard = createArmorAchievement(Category.WEAR, id++, GOTItems.kingsguardChestplate, "WEAR_FULL_KINGSGUARD");
-		wearFullLhazar = createArmorAchievement(Category.WEAR, id++, GOTItems.lhazarChestplate, "WEAR_FULL_LHAZAR");
-		wearFullLhazarLion = createArmorAchievement(Category.WEAR, id++, GOTItems.lhazarChestplateLion, "WEAR_FULL_LHAZAR_LION");
-		wearFullLorath = createArmorAchievement(Category.WEAR, id++, GOTItems.lorathChestplate, "WEAR_FULL_LORATH");
-		wearFullLys = createArmorAchievement(Category.WEAR, id++, GOTItems.lysChestplate, "WEAR_FULL_LYS");
-		wearFullMossovy = createArmorAchievement(Category.WEAR, id++, GOTItems.mossovyChestplate, "WEAR_FULL_MOSSOVY");
-		wearFullMyr = createArmorAchievement(Category.WEAR, id++, GOTItems.myrChestplate, "WEAR_FULL_MYR");
-		wearFullNorth = createArmorAchievement(Category.WEAR, id++, GOTItems.northChestplate, "WEAR_FULL_NORTH");
-		wearFullNorthguard = createArmorAchievement(Category.WEAR, id++, GOTItems.northguardChestplate, "WEAR_FULL_NORTHGUARD");
-		wearFullNorvos = createArmorAchievement(Category.WEAR, id++, GOTItems.norvosChestplate, "WEAR_FULL_NORVOS");
-		wearFullPentos = createArmorAchievement(Category.WEAR, id++, GOTItems.pentosChestplate, "WEAR_FULL_PENTOS");
-		wearFullQarth = createArmorAchievement(Category.WEAR, id++, GOTItems.qarthChestplate, "WEAR_FULL_QARTH");
-		wearFullQohor = createArmorAchievement(Category.WEAR, id++, GOTItems.qohorChestplate, "WEAR_FULL_QOHOR");
-		wearFullReach = createArmorAchievement(Category.WEAR, id++, GOTItems.reachChestplate, "WEAR_FULL_REACH");
-		wearFullReachguard = createArmorAchievement(Category.WEAR, id++, GOTItems.reachguardChestplate, "WEAR_FULL_REACHGUARD");
-		wearFullRedking = createArmorAchievement(Category.WEAR, id++, GOTItems.redkingChestplate, "WEAR_FULL_REDKING");
-		wearFullRiverlands = createArmorAchievement(Category.WEAR, id++, GOTItems.riverlandsChestplate, "WEAR_FULL_RIVERLANDS");
-		wearFullRobes = createArmorAchievement(Category.WEAR, id++, GOTItems.robesChestplate, "WEAR_FULL_ROBES");
-		wearFullRoyce = createArmorAchievement(Category.WEAR, id++, GOTItems.royceChestplate, "WEAR_FULL_ROYCE");
-		wearFullSothoryos = createArmorAchievement(Category.WEAR, id++, GOTItems.sothoryosChestplate, "WEAR_FULL_SOTHORYOS");
-		wearFullSothoryosGold = createArmorAchievement(Category.WEAR, id++, GOTItems.sothoryosChestplateGold, "WEAR_FULL_SOTHORYOS_GOLD");
-		wearFullStormlands = createArmorAchievement(Category.WEAR, id++, GOTItems.stormlandsChestplate, "WEAR_FULL_STORMLANDS");
-		wearFullSummer = createArmorAchievement(Category.WEAR, id++, GOTItems.summerChestplate, "WEAR_FULL_SUMMER");
-		wearFullTargaryen = createArmorAchievement(Category.WEAR, id++, GOTItems.targaryenChestplate, "WEAR_FULL_TARGARYEN");
-		wearFullTyrosh = createArmorAchievement(Category.WEAR, id++, GOTItems.tyroshChestplate, "WEAR_FULL_TYROSH");
-		wearFullUnsullied = createArmorAchievement(Category.WEAR, id++, GOTItems.unsulliedChestplate, "WEAR_FULL_UNSULLIED");
-		wearFullValyrian = createArmorAchievement(Category.WEAR, id++, GOTItems.valyrianChestplate, "WEAR_FULL_VALYRIAN");
-		wearFullVolantis = createArmorAchievement(Category.WEAR, id++, GOTItems.volantisChestplate, "WEAR_FULL_VOLANTIS");
-		wearFullWesterlands = createArmorAchievement(Category.WEAR, id++, GOTItems.westerlandsChestplate, "WEAR_FULL_WESTERLANDS");
-		wearFullWesterlandsguard = createArmorAchievement(Category.WEAR, id++, GOTItems.westerlandsguardChestplate, "WEAR_FULL_WESTERLANDSGUARD");
-		wearFullWestking = createArmorAchievement(Category.WEAR, id++, GOTItems.westkingChestplate, "WEAR_FULL_WESTKING");
-		wearFullWhitewalkers = createArmorAchievement(Category.WEAR, id++, GOTItems.whiteWalkersChestplate, "WEAR_FULL_WHITEWALKERS");
-		wearFullYiti = createArmorAchievement(Category.WEAR, id++, GOTItems.yitiChestplate, "WEAR_FULL_YITI");
-		wearFullYitiSamurai = createArmorAchievement(Category.WEAR, id++, GOTItems.yitiChestplateSamurai, "WEAR_FULL_YITI_SAMURAI");
-		wearFullYitiFrontier = createArmorAchievement(Category.WEAR, id++, GOTItems.yitiChestplateFrontier, "WEAR_FULL_YITI_FRONTIER");
-		wearFullDothraki = createArmorAchievement(Category.WEAR, id++, GOTItems.dothrakiChestplate, "WEAR_FULL_DOTHRAKI");
-		wearFullJogos = createArmorAchievement(Category.WEAR, id++, GOTItems.jogosChestplate, "WEAR_FULL_JOGOS");
+		int genId = 1;
+		enterKnownWorld = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "ENTER_GOT");
+		freeman = new GOTAchievement(Category.GENERAL, genId++, GOTItems.crowbar, "FREEMAN");
 
-		catchButterfly = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.butterflyJar, "CATCH_BUTTERFLY");
-		collectCraftingTables = new GOTAchievement(Category.GENERAL, id++, Blocks.crafting_table, "COLLECT_CRAFTING_TABLES");
-		collectCrossbowBolts = new GOTAchievement(Category.GENERAL, id++, GOTItems.crossbowBolt, "COLLECT_CROSSBOW_BOLTS");
-		combineSmithScrolls = new GOTAchievement(Category.GENERAL, id++, GOTItems.smithScroll, "COMBINE_SMITH_SCROLLS");
-		cookKebab = new GOTAchievement(Category.GENERAL, id++, GOTItems.kebab, "COOK_KEBAB");
-		craftSaddle = new GOTAchievement(Category.GENERAL, id++, Items.saddle, "CRAFT_SADDLE");
-		doMiniquestHunter = new GOTAchievement(Category.GENERAL, id++, GOTItems.questBook, "DO_MINIQUEST_HUNTER");
-		doMiniquestHunter5 = new GOTAchievement(Category.GENERAL, id++, GOTItems.bountyTrophy, "DO_MINIQUEST_HUNTER5");
-		drinkPlantainBrew = new GOTAchievement(Category.GENERAL, id++, GOTItems.mugPlantainBrew, "DRINK_PLANTAIN_BREW");
-		drinkSkull = new GOTAchievement(Category.GENERAL, id++, GOTItems.skullCup, "DRINK_SKULL");
-		findPlantain = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.plantain, "FIND_PLANTAIN");
-		fishRing = new GOTAchievement(Category.GENERAL, id++, Items.fishing_rod, "FISH_RING");
-		getDrunk = new GOTAchievement(Category.GENERAL, id++, GOTItems.mugAle, "GET_DRUNK");
-		growBaobab = new GOTAchievement(Category.GENERAL, id++, new ItemStack(GOTBlocks.sapling4, 1, 1), "GROW_BAOBAB");
-		killBombardier = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.bomb, "KILL_BOMBARDIER");
-		killButterfly = new GOTAchievement(Category.GENERAL, id++, Items.iron_sword, "KILL_BUTTERFLY");
-		killHuntingPlayer = new GOTAchievement(Category.GENERAL, id++, Items.iron_sword, "KILL_HUNTING_PLAYER");
-		killLargeMobWithSlingshot = new GOTAchievement(Category.GENERAL, id++, GOTItems.sling, "KILL_LARGE_MOB_WITH_SLINGSHOT");
-		killThievingBandit = new GOTAchievement(Category.GENERAL, id++, GOTItems.leatherHat, "KILL_THIEVING_BANDIT");
-		killUsingOnlyPlates = new GOTAchievement(Category.GENERAL, id++, GOTItems.plate, "KILL_USING_ONLY_PLATES");
-		killWhileDrunk = new GOTAchievement(Category.GENERAL, id++, GOTItems.mugAle, "KILL_WHILE_DRUNK");
-		lightBeacon = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.beacon, "LIGHT_BEACON");
-		marry = new GOTAchievement(Category.GENERAL, id++, GOTItems.goldRing, "MARRY");
-		mineGlowstone = new GOTAchievement(Category.GENERAL, id++, GOTBlocks.oreGlowstone, "MINE_GLOWSTONE");
-		pickpocket = new GOTAchievement(Category.GENERAL, id++, GOTMiniQuestPickpocket.createPickpocketIcon(), "PICKPOCKET");
-		rideCamel = new GOTAchievement(Category.GENERAL, id++, Items.saddle, "RIDE_CAMEL");
-		smeltObsidianShard = new GOTAchievement(Category.GENERAL, id++, GOTItems.obsidianShard, "SMELT_OBSIDIAN_SHARD");
-		speakToDrunkard = new GOTAchievement(Category.GENERAL, id++, GOTItems.mugAle, "SPEAK_TO_DRUNKARD");
-		useCrossbow = new GOTAchievement(Category.GENERAL, id++, GOTItems.ironCrossbow, "USE_CROSSBOW");
-		useSpearFromFar = new GOTAchievement(Category.GENERAL, id++, GOTItems.ironSpear, "USE_SPEAR_FROM_FAR");
-		useThrowingAxe = new GOTAchievement(Category.GENERAL, id++, GOTItems.ironThrowingAxe, "USE_THROWING_AXE");
-		killBeaver = new GOTAchievement(Category.KILL, id++, GOTItems.beaverTail, "KILL_BEAVER");
+		bannerProtect = new GOTAchievement(Category.GENERAL, genId++, GOTItems.banner, "BANNER_PROTECT");
+		brewDrinkInBarrel = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.barrel, "BREW_DRINK_IN_BARREL");
+		catchButterfly = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.butterflyJar, "CATCH_BUTTERFLY");
+		collectCraftingTables = new GOTAchievement(Category.GENERAL, genId++, Blocks.crafting_table, "COLLECT_CRAFTING_TABLES");
+		collectCrossbowBolts = new GOTAchievement(Category.GENERAL, genId++, GOTItems.crossbowBolt, "COLLECT_CROSSBOW_BOLTS");
+		combineSmithScrolls = new GOTAchievement(Category.GENERAL, genId++, GOTItems.smithScroll, "COMBINE_SMITH_SCROLLS");
+		cookKebab = new GOTAchievement(Category.GENERAL, genId++, GOTItems.kebab, "COOK_KEBAB");
+		craftBomb = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.bomb, "CRAFT_BOMB");
+		craftBronze = new GOTAchievement(Category.GENERAL, genId++, GOTItems.bronzeIngot, "GET_BRONZE");
+		craftCopper = new GOTAchievement(Category.GENERAL, genId++, GOTItems.copperIngot, "GET_COPPER");
+		craftSaddle = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "CRAFT_SADDLE");
+		craftWildFire = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.wildFireJar, "CRAFT_WILD_FIRE");
+		defeatInvasion = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "DEFEAT_INVASION");
+		doLegendaryQuest = new GOTAchievement(Category.GENERAL, genId++, Blocks.dragon_egg, "DO_LEGENDARY_QUEST");
+		doMiniquestHunter = new GOTAchievement(Category.GENERAL, genId++, GOTItems.questBook, "DO_MINIQUEST_HUNTER");
+		doMiniquestHunter5 = new GOTAchievement(Category.GENERAL, genId++, GOTItems.bountyTrophy, "DO_MINIQUEST_HUNTER5");
+		doQuest = new GOTAchievement(Category.GENERAL, genId++, GOTItems.questBook, "DO_QUEST");
+		drinkFire = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugWildFire, "DRINK_FIRE");
+		drinkPlantainBrew = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugPlantainBrew, "DRINK_PLANTAIN_BREW");
+		drinkSkull = new GOTAchievement(Category.GENERAL, genId++, GOTItems.skullCup, "DRINK_SKULL");
+		drinkTermite = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugTermiteTequila, "DRINK_TERMITE");
+		earnManyCoins = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "EARN_MANY_COINS");
+		engraveOwnership = new GOTAchievement(Category.GENERAL, genId++, Blocks.anvil, "ENGRAVE");
+		factionConquest = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "FACTION_CONQUEST");
+		findFourLeafClover = new GOTAchievement(Category.GENERAL, genId++, new ItemStack(GOTBlocks.clover, 1, 1), "FIND_FOUR_LEAF_CLOVER");
+		findPlantain = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.plantain, "FIND_PLANTAIN");
+		fishRing = new GOTAchievement(Category.GENERAL, genId++, Items.fishing_rod, "FISH_RING");
+		gainHighAlcoholTolerance = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "GAIN_HIGH_ALCOHOL_TOLERANCE");
+		getConcrete = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.concretePowder.get(GOTEnumDyeColor.LIME), "GET_CONCRETE");
+		getDrunk = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "GET_DRUNK");
+		getPouch = new GOTAchievement(Category.GENERAL, genId++, GOTItems.pouch, "GET_POUCH");
+		growBaobab = new GOTAchievement(Category.GENERAL, genId++, new ItemStack(GOTBlocks.sapling4, 1, 1), "GROW_BAOBAB");
+		hireGoldenCompany = new GOTAchievement(Category.GENERAL, genId++, GOTItems.goldHelmet, "HIRE_GOLDEN_COMPANY");
+		hundreds = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "HUNDREDS");
+		lightBeacon = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.beacon, "LIGHT_BEACON");
+		marry = new GOTAchievement(Category.GENERAL, genId++, GOTItems.goldRing, "MARRY");
+		mineGlowstone = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.oreGlowstone, "MINE_GLOWSTONE");
+		mineValyrian = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.oreValyrian, "MINE_VALYRIAN");
+		obama = new GOTAchievement(Category.GENERAL, genId++, GOTItems.banana, "OBAMA");
+		pickpocket = new GOTAchievement(Category.GENERAL, genId++, GOTMiniQuestPickpocket.createPickpocketIcon(), "PICKPOCKET");
+		pledgeService = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "PLEDGE_SERVICE");
+		reforge = new GOTAchievement(Category.GENERAL, genId++, Blocks.anvil, "REFORGE");
+		rideCamel = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_CAMEL");
+		shootDownMidges = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironCrossbow, "SHOOT_DOWN_MIDGES");
+		smeltObsidianShard = new GOTAchievement(Category.GENERAL, genId++, GOTItems.obsidianShard, "SMELT_OBSIDIAN_SHARD");
+		speakToDrunkard = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "SPEAK_TO_DRUNKARD");
+		steal = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "STEAL");
+		stealArborGrapes = new GOTAchievement(Category.GENERAL, genId++, GOTItems.grapeRed, "STEAL_ARBOR_GRAPES");
+		trade = new GOTAchievement(Category.GENERAL, genId++, GOTItems.coin, "TRADE");
+		travel10 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL10");
+		travel20 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL20");
+		travel30 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL30");
+		travel40 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL40");
+		travel50 = new GOTAchievement(Category.GENERAL, genId++, Items.map, "TRAVEL50");
+		unsmelt = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.unsmeltery, "UNSMELT");
+		useCrossbow = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironCrossbow, "USE_CROSSBOW");
+		useSpearFromFar = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironSpear, "USE_SPEAR_FROM_FAR");
+		useThrowingAxe = new GOTAchievement(Category.GENERAL, genId++, GOTItems.ironThrowingAxe, "USE_THROWING_AXE");
+
+		int killId = 1;
+		killer = new GOTAchievement(Category.KILL, killId++, Items.iron_axe, "KILLER");
+
+		killBeaver = new GOTAchievement(Category.KILL, genId++, GOTItems.beaverTail, "KILL_BEAVER");
+		killBombardier = new GOTAchievement(Category.KILL, killId++, GOTBlocks.bomb, "KILL_BOMBARDIER");
+		killButterfly = new GOTAchievement(Category.KILL, killId++, Items.iron_sword, "KILL_BUTTERFLY");
+		killGiant = new GOTAchievement(Category.KILL, killId++, GOTItems.club, "KILL_GIANT");
+		killGladiator = new GOTAchievement(Category.KILL, killId++, GOTItems.essosSword, "KILL_GLADIATOR");
+		killHuntingPlayer = new GOTAchievement(Category.KILL, killId++, Items.iron_sword, "KILL_HUNTING_PLAYER");
+		killIbben = new GOTAchievement(Category.KILL, killId++, GOTItems.flintSpear, "KILL_IBBEN");
+		killIceSpider = new GOTAchievement(Category.KILL, killId++, GOTItems.valyrianSword, "KILL_ICE_SPIDER");
+		killKhal = new GOTAchievement(Category.KILL, killId++, GOTItems.lhazarSword, "KILL_KHAL");
+		killLargeMobWithSlingshot = new GOTAchievement(Category.KILL, killId++, GOTItems.sling, "KILL_LARGE_MOB_WITH_SLINGSHOT");
+		killMaester = new GOTAchievement(Category.KILL, killId++, Items.book, "KILL_MAESTER");
+		killMammoth = new GOTAchievement(Category.KILL, killId++, GOTItems.stoneSpear, "KILL_MAMMOTH");
+		killPriest = new GOTAchievement(Category.KILL, killId++, Blocks.fire, "KILL_PRIEST");
+		killProstitute = new GOTAchievement(Category.KILL, killId++, GOTItems.ironCrossbow, "KILL_PROSTITUTE");
+		killSamurai = new GOTAchievement(Category.KILL, killId++, GOTItems.katana, "KILL_SAMURAI");
+		killShryke = new GOTAchievement(Category.KILL, killId++, GOTItems.bottlePoison, "KILL_SHRYKE");
+		killThePolice = new GOTAchievement(Category.KILL, killId++, GOTItems.westerosDagger, "BANDIT");
+		killThievingBandit = new GOTAchievement(Category.KILL, killId++, GOTItems.leatherHat, "KILL_THIEVING_BANDIT");
+		killUlthos = new GOTAchievement(Category.KILL, killId++, GOTItems.mysteryWeb, "KILL_ULTHOS");
+		killUnsullied = new GOTAchievement(Category.KILL, killId++, GOTItems.essosPike, "KILL_UNSULLIED");
+		killUsingOnlyPlates = new GOTAchievement(Category.KILL, killId++, GOTItems.plate, "KILL_USING_ONLY_PLATES");
+		killWerewolf = new GOTAchievement(Category.KILL, killId++, GOTItems.mossovySword, "KILL_WEREWOLF");
+		killWhileDrunk = new GOTAchievement(Category.KILL, killId++, GOTItems.mugAle, "KILL_WHILE_DRUNK");
+		killWhiteWalker = new GOTAchievement(Category.KILL, killId++, GOTItems.valyrianSword, "KILL_WHITE_WALKER");
+		killWight = new GOTAchievement(Category.KILL, killId++, GOTItems.bericSword, "KILL_WIGHT");
+		killWightGiant = new GOTAchievement(Category.KILL, killId++, GOTItems.bericSword, "KILL_WIGHT_GIANT");
+		killWitcher = new GOTAchievement(Category.KILL, killId++, GOTItems.mossovySword, "KILL_WITCHER");
+
+		int legId = 1;
+		killAlliserThorne = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.westerosSword, "KILL_ALLISER_THORNE").createTitle();
+		killArdrianCeltigar = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.celtigarAxe, "KILL_ARDRIAN_CELTIGAR").createTitle();
+		killAsshaiArchmag = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.archmagStaff, "KILL_ASSHAI_ARCHMAG").createTitle();
+		killBalonGreyjoy = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.euronDagger, "KILL_BALON_GREYJOY");
+		killBarristanSelmy = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.westerosSword, "KILL_BARRISTAN_SELMY");
+		killBenjenStark = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.valyrianSword, "KILL_BENJEN_STARK");
+		killBericDayne = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.dawn, "KILL_BERIC_DAYNE");
+		killBericDondarrion = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.bericSword, "KILL_BERIC_DONDARRION").createTitle();
+		killBrienneTarth = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.sapphire, "KILL_BRIENNE_TARTH");
+		killBryndenTully = new GOTAchievement(Category.LEGENDARY, legId++, Items.fish, "KILL_BRYNDEN_TULLY").createTitle();
+		killBuGai = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.yitiSword, "KILL_BU_GAI").createTitle();
+		killCerseiLannister = new GOTAchievement(Category.LEGENDARY, legId++, GOTBlocks.wildFireJar, "KILL_CERSEI_LANNISTER");
+		killCraster = new GOTAchievement(Category.LEGENDARY, legId++, Items.iron_axe, "KILL_CRASTER").createTitle();
+		killDaenerysTargaryen = new GOTAchievement(Category.LEGENDARY, legId++, Blocks.dragon_egg, "KILL_DAENERYS_TARGARYEN").createTitle();
+		killDavosSeaworth = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.leek, "KILL_DAVOS_SEAWORTH");
+		killDoranMartell = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.tyeneDagger, "KILL_DORAN_MARTELL");
+		killEdmureTully = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.arrowFire, "KILL_EDMURE_TULLY");
+		killEllaryaSand = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.bottlePoison, "KILL_ELLARYA_SAND").createTitle();
+		killEuronGreyjoy = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.euronDagger, "KILL_EURON_GREYJOY");
+		killGendryBaratheon = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.gendryHammer, "KILL_GENDRY_BARATHEON");
+		killGeroldDayne = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.darkstar, "KILL_GEROLD_DAYNE");
+		killGregorClegane = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.gregorCleganeSword, "KILL_GREGOR_CLEGANE").createTitle();
+		killHodor = new GOTAchievement(Category.LEGENDARY, legId++, Items.stick, "KILL_HODOR");
+		killHowlandReed = new GOTAchievement(Category.LEGENDARY, legId++, GOTBlocks.reeds, "KILL_HOWLAND_REED");
+		killIllyrioMopatis = new GOTAchievement(Category.LEGENDARY, legId++, Items.gold_ingot, "KILL_ILLYRIO_MOPATIS");
+		killJaimeLannister = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.jaimeSword, "KILL_JAIME_LANNISTER");
+		killJaqenHghar = new GOTAchievement(Category.LEGENDARY, legId++, new ItemStack(GOTItems.coin, 1, 1), "KILL_JAQEN_HGHAR").createTitle();
+		killJeorMormont = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.longclaw, "KILL_JEOR_MORMONT").createTitle();
+		killJonSnow = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.longclaw, "KILL_JON_SNOW").createTitle();
+		killJorahMormont = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.harpy, "KILL_JORAH_MORMONT");
+		killKevanLannister = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.handGold, "KILL_KEVAN_LANNISTER");
+		killKraznysMoNakloz = new GOTAchievement(Category.LEGENDARY, legId++, Blocks.dragon_egg, "KILL_KRAZNYS_MO_NAKLOZ");
+		killLancelLannister = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.gregorCleganeSword, "KILL_LANCEL_LANNISTER");
+		killLorasTyrell = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.gregorCleganeSword, "KILL_LORAS_TYRELL");
+		killMaceTyrell = new GOTAchievement(Category.LEGENDARY, legId++, GOTBlocks.wildFire, "KILL_MACE_TYRELL");
+		killManceRayder = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.wildlingSword, "KILL_MANCE_RAYDER");
+		killMargaeryTyrell = new GOTAchievement(Category.LEGENDARY, legId++, Blocks.red_flower, "KILL_MARGAERY_TYRELL");
+		killMelisandra = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.lightbringer, "KILL_MELISANDRA");
+		killNightKing = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.nightKingSword, "KILL_NIGHT_KING").createTitle();
+		killNightWatchGuard = new GOTAchievement(Category.KILL, legId++, GOTItems.westerosSword, "KILL_NIGHT_WATCH_GUARD");
+		killOberynMartell = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.sunspear, "KILL_OBERYN_MARTELL").createTitle();
+		killPetyrBaelish = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.baelishDagger, "KILL_PETYR_BAELISH");
+		killRamsayBolton = new GOTAchievement(Category.LEGENDARY, legId++, Items.bone, "KILL_RAMSAY_BOLTON");
+		killRobbStark = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.robbSword, "KILL_ROBB_STARK");
+		killRooseBolton = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.boltonDagger, "KILL_ROOSE_BOLTON");
+		killSandorClegane = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.sandorCleganeSword, "KILL_SANDOR_CLEGANE").createTitle();
+		killSansaStark = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.justMaid, "KILL_SANSA_STARK");
+		killTheKing = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.aegonHelmet, "KILL_THE_KING").createTitle();
+		killThennBerserker = new GOTAchievement(Category.KILL, legId++, GOTItems.wildlingSword, "KILL_THENN_BERSERKER");
+		killTheonGreyjoy = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.boltonDagger, "KILL_THEON_GREYJOY");
+		killThoros = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.westerosSword, "KILL_THOROS");
+		killTormund = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.tormundSword, "KILL_TORMUND");
+		killTugarKhan = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.nomadSword, "KILL_TUGAR_KHAN").createTitle();
+		killTyrion = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.mugRedWine, "KILL_TYRION");
+		killTywin = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.westkingHelmet, "KILL_TYWIN").createTitle();
+		killVarys = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.westerosSword, "KILL_VARYS");
+		killVassal = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.westerosSword, "KILL_VASSAL");
+		killVictarionGreyjoy = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.victarionAxe, "KILL_VICTARION_GREYJOY");
+		killXaroXhoanDaxos = new GOTAchievement(Category.LEGENDARY, legId++, Items.gold_ingot, "KILL_XARO_XHOAN_DAXOS");
+		killYaraGreyjoy = new GOTAchievement(Category.LEGENDARY, legId++, Items.iron_axe, "KILL_YARA_GREYJOY");
+		killYgritte = new GOTAchievement(Category.LEGENDARY, legId++, GOTItems.wildlingDagger, "KILL_YGRITTE");
+
+		int visId = 1;
+		enterAlwaysWinter = new GOTAchievement(Category.VISIT, visId++, Blocks.ice, "VISIT_ALWAYS_WINTER").setBiomeAchievement();
+		enterArbor = new GOTAchievement(Category.VISIT, visId++, GOTItems.grapeRed, "VISIT_ARBOR").setBiomeAchievement();
+		enterArrynTown = new GOTAchievement(Category.VISIT, visId++, GOTItems.arrynguardHelmet, "VISIT_ARRYN_TOWN").setBiomeAchievement();
+		enterArrynVale = new GOTAchievement(Category.VISIT, visId++, GOTItems.arrynHelmet, "VISIT_ARRYN").setBiomeAchievement();
+		enterAsshai = new GOTAchievement(Category.VISIT, visId++, GOTItems.asshaiStaff, "VISIT_ASSHAI").setBiomeAchievement();
+		enterBleedingSea = new GOTAchievement(Category.VISIT, visId++, GOTItems.bronzeSword, "VISIT_RED_SEA").setBiomeAchievement();
+		enterBoneMountains = new GOTAchievement(Category.VISIT, visId++, GOTBlocks.boneBlock, "VISIT_BONE_MOUNTAINS").setBiomeAchievement();
+		enterBraavos = new GOTAchievement(Category.VISIT, visId++, GOTItems.braavosHelmet, "VISIT_BRAAVOS").setBiomeAchievement();
+		enterCannibalSands = new GOTAchievement(Category.VISIT, visId++, GOTBlocks.quicksand, "VISIT_CANNIBAL_SANDS").setBiomeAchievement();
+		enterColdCoast = new GOTAchievement(Category.VISIT, visId++, GOTItems.wildlingPolearm, "VISIT_COLD_COAST").setBiomeAchievement();
+		enterCrownlands = new GOTAchievement(Category.VISIT, visId++, GOTItems.crownlandsHelmet, "VISIT_CROWNLANDS").setBiomeAchievement();
+		enterDisputedLands = new GOTAchievement(Category.VISIT, visId++, GOTItems.goldHelmet, "VISIT_MERCENARY").setBiomeAchievement();
+		enterDorne = new GOTAchievement(Category.VISIT, visId++, GOTItems.dorneHelmet, "VISIT_DORNE").setBiomeAchievement();
+		enterDorneDesert = new GOTAchievement(Category.VISIT, visId++, Blocks.sand, "VISIT_DORNE_DESERT").setBiomeAchievement();
+		enterDorneMesa = new GOTAchievement(Category.VISIT, visId++, Blocks.clay, "VISIT_DORNE_MESA").setBiomeAchievement();
+		enterDorneMountains = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.rock, 1, 4), "VISIT_DORNE_MOUNTAINS").setBiomeAchievement();
+		enterDothrakiSea = new GOTAchievement(Category.VISIT, visId++, GOTItems.nomadSword, "VISIT_DOTHRAKI_SEA").setBiomeAchievement();
+		enterDragonstone = new GOTAchievement(Category.VISIT, visId++, GOTItems.obsidianShard, "VISIT_DRAGONSTONE").setBiomeAchievement();
+		enterEssosMountains = new GOTAchievement(Category.VISIT, visId++, Blocks.stone, "VISIT_ESSOS_MOUNTAINS").setBiomeAchievement();
+		enterFireField = new GOTAchievement(Category.VISIT, visId++, Blocks.red_flower, "VISIT_FIRE_FIELD").setBiomeAchievement();
+		enterFrostfangs = new GOTAchievement(Category.VISIT, visId++, Blocks.packed_ice, "VISIT_FROSTFANGS").setBiomeAchievement();
+		enterGhiscar = new GOTAchievement(Category.VISIT, visId++, GOTItems.harpy, "VISIT_GHISCAR").setBiomeAchievement();
+		enterGhiscarColony = new GOTAchievement(Category.VISIT, visId++, GOTItems.ghiscarHelmet, "VISIT_GHISCAR_COLONY").setBiomeAchievement();
+		enterGiftNew = new GOTAchievement(Category.VISIT, visId++, Blocks.snow, "VISIT_GIFT_NEW").setBiomeAchievement();
+		enterGiftOld = new GOTAchievement(Category.VISIT, visId++, GOTBlocks.brickIce, "VISIT_GIFT_OLD").setBiomeAchievement();
+		enterHauntedForest = new GOTAchievement(Category.VISIT, visId++, GOTItems.club, "VISIT_HAUNTED_FOREST").setBiomeAchievement();
+		enterIbben = new GOTAchievement(Category.VISIT, visId++, GOTItems.flintDagger, "VISIT_IBBEN").setBiomeAchievement();
+		enterIfekevronForest = new GOTAchievement(Category.VISIT, visId++, GOTItems.flintSpear, "VISIT_IFEKEVRON").setBiomeAchievement();
+		enterIronIslands = new GOTAchievement(Category.VISIT, visId++, GOTItems.ironbornHelmet, "VISIT_IRONBORN").setBiomeAchievement();
+		enterIrontreeForest = new GOTAchievement(Category.VISIT, visId++, Items.iron_axe, "VISIT_IRONTREE").setBiomeAchievement();
+		enterIsleOfFaces = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.leaves9, 1, 2), "VISIT_FACES").setBiomeAchievement();
+		enterJogosNhai = new GOTAchievement(Category.VISIT, visId++, GOTItems.nomadBow, "VISIT_JOGOS").setBiomeAchievement();
+		enterJogosNhaiDesert = new GOTAchievement(Category.VISIT, visId++, GOTBlocks.quicksand, "VISIT_JOGOS_DESERT").setBiomeAchievement();
+		enterKingsLanding = new GOTAchievement(Category.VISIT, visId++, GOTItems.crownlandsHelmet, "VISIT_KINGS_LANDING").setBiomeAchievement();
+		enterKingswood = new GOTAchievement(Category.VISIT, visId++, GOTItems.mugRedWine, "VISIT_CROWNLANDS_FOREST").setBiomeAchievement();
+		enterLhazar = new GOTAchievement(Category.VISIT, visId++, GOTItems.lhazarHelmet, "VISIT_LHAZAR").setBiomeAchievement();
+		enterLongSummer = new GOTAchievement(Category.VISIT, visId++, Blocks.fire, "VISIT_LONG_SUMMER").setBiomeAchievement();
+		enterLorath = new GOTAchievement(Category.VISIT, visId++, GOTItems.lorathHelmet, "VISIT_LORATH").setBiomeAchievement();
+		enterLys = new GOTAchievement(Category.VISIT, visId++, GOTItems.lysHelmet, "VISIT_LYS").setBiomeAchievement();
+		enterMoonMountains = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.rock, 1, 1), "VISIT_ARRYN_MOUNTAINS").setBiomeAchievement();
+		enterMoonMountainsFoothills = new GOTAchievement(Category.VISIT, visId++, GOTItems.trident, "VISIT_HILL_TRIBES").setBiomeAchievement();
+		enterMossovy = new GOTAchievement(Category.VISIT, visId++, GOTItems.mossovySword, "VISIT_MOSSOVY").setBiomeAchievement();
+		enterMossovyMarshes = new GOTAchievement(Category.VISIT, visId++, GOTBlocks.reeds, "VISIT_MOSSOVY_MARSHES").setBiomeAchievement();
+		enterMossovyMountains = new GOTAchievement(Category.VISIT, visId++, Blocks.stone, "VISIT_MOSSOVY_SOPKAS").setBiomeAchievement();
+		enterMyr = new GOTAchievement(Category.VISIT, visId++, GOTItems.myrHelmet, "VISIT_MYR").setBiomeAchievement();
+		enterNeck = new GOTAchievement(Category.VISIT, visId++, GOTBlocks.quagmire, "VISIT_NECK").setBiomeAchievement();
+		enterNorth = new GOTAchievement(Category.VISIT, visId++, GOTItems.northHelmet, "VISIT_NORTH").setBiomeAchievement();
+		enterNorthBarrows = new GOTAchievement(Category.VISIT, visId++, GOTItems.coin, "VISIT_NORTH_BARROWS").setBiomeAchievement();
+		enterNorthMountains = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.rock, 1, 1), "VISIT_NORTH_MOUNTAINS").setBiomeAchievement();
+		enterNorthTown = new GOTAchievement(Category.VISIT, visId++, GOTItems.northguardHelmet, "VISIT_NORTH_TOWN").setBiomeAchievement();
+		enterNorthWild = new GOTAchievement(Category.VISIT, visId++, GOTItems.trident, "VISIT_NORTH_WILD").setBiomeAchievement();
+		enterNorvos = new GOTAchievement(Category.VISIT, visId++, GOTItems.norvosHelmet, "VISIT_NORVOS").setBiomeAchievement();
+		enterPentos = new GOTAchievement(Category.VISIT, visId++, GOTItems.pentosHelmet, "VISIT_PENTOS").setBiomeAchievement();
+		enterQarth = new GOTAchievement(Category.VISIT, visId++, GOTItems.qarthHelmet, "VISIT_QARTH").setBiomeAchievement();
+		enterQarthColony = new GOTAchievement(Category.VISIT, visId++, GOTItems.qarthHelmet, "VISIT_QARTH_COLONY").setBiomeAchievement();
+		enterQarthDesert = new GOTAchievement(Category.VISIT, visId++, GOTBlocks.redSandstone, "VISIT_DORNE_DESERT").setBiomeAchievement();
+		enterQohor = new GOTAchievement(Category.VISIT, visId++, GOTItems.qohorHelmet, "VISIT_QOHOR").setBiomeAchievement();
+		enterQohorForest = new GOTAchievement(Category.VISIT, visId++, GOTItems.qohorHelmet, "VISIT_QOHOR_FOREST").setBiomeAchievement();
+		enterReach = new GOTAchievement(Category.VISIT, visId++, GOTItems.reachHelmet, "VISIT_REACH").setBiomeAchievement();
+		enterReachTown = new GOTAchievement(Category.VISIT, visId++, GOTItems.reachguardHelmet, "VISIT_REACH_TOWN").setBiomeAchievement();
+		enterRiverlands = new GOTAchievement(Category.VISIT, visId++, GOTItems.riverlandsHelmet, "VISIT_RIVERLANDS").setBiomeAchievement();
+		enterShadowLand = new GOTAchievement(Category.VISIT, visId++, GOTBlocks.asshaiFlower, "VISIT_SHADOW_LAND").setBiomeAchievement();
+		enterShadowMountains = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.rock, 1, 0), "VISIT_SHADOW_MOUNTAINS").setBiomeAchievement();
+		enterShrykesLand = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.deadMarshPlant), "VISIT_SHRYKES_LAND").setBiomeAchievement();
+		enterSkagos = new GOTAchievement(Category.VISIT, visId++, GOTItems.trident, "VISIT_SKAGOS").setBiomeAchievement();
+		enterSnowyWasteland = new GOTAchievement(Category.VISIT, visId++, Blocks.snow, "VISIT_FAR_NORTH").setBiomeAchievement();
+		enterSothoryosBushland = new GOTAchievement(Category.VISIT, visId++, GOTItems.termite, "VISIT_SOTHORYOS_BUSHLAND").setBiomeAchievement();
+		enterSothoryosDesert = new GOTAchievement(Category.VISIT, visId++, Blocks.sand, "VISIT_SOTHORYOS_DESERT").setBiomeAchievement();
+		enterSothoryosForest = new GOTAchievement(Category.VISIT, visId++, GOTItems.sothoryosHelmetGold, "VISIT_SOTHORYOS_KANUKA").setBiomeAchievement();
+		enterSothoryosFrost = new GOTAchievement(Category.VISIT, visId++, Blocks.packed_ice, "VISIT_SOTHORYOS_FROST").setBiomeAchievement();
+		enterSothoryosHell = new GOTAchievement(Category.VISIT, visId++, GOTItems.sothoryosAmulet, "VISIT_SOTHORYOS_HELL").setBiomeAchievement();
+		enterSothoryosJungle = new GOTAchievement(Category.VISIT, visId++, GOTItems.sothoryosHelmet, "VISIT_SOTHORYOS_JUNGLE").setBiomeAchievement();
+		enterSothoryosMangrove = new GOTAchievement(Category.VISIT, visId++, Blocks.water, "VISIT_SOTHORYOS_MANGROVE").setBiomeAchievement();
+		enterSothoryosMountains = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.rock, 1, 6), "VISIT_SOTHORYOS_MOUNTAINS").setBiomeAchievement();
+		enterSothoryosSavannah = new GOTAchievement(Category.VISIT, visId++, Blocks.grass, "VISIT_SOTHORYOS_SAVANNAH").setBiomeAchievement();
+		enterSothoryosTaiga = new GOTAchievement(Category.VISIT, visId++, GOTItems.club, "VISIT_SOTHORYOS_TAIGA").setBiomeAchievement();
+		enterStepstones = new GOTAchievement(Category.VISIT, visId++, GOTItems.essosBow, "VISIT_STEPSTONES").setBiomeAchievement();
+		enterStoneCoast = new GOTAchievement(Category.VISIT, visId++, GOTItems.westerosDaggerPoisoned, "VISIT_STONE_COAST").setBiomeAchievement();
+		enterStormlands = new GOTAchievement(Category.VISIT, visId++, GOTItems.stormlandsHelmet, "VISIT_STORMLANDS").setBiomeAchievement();
+		enterSummerColony = new GOTAchievement(Category.VISIT, visId++, GOTItems.summerHelmet, "VISIT_SUMMER_COLONY").setBiomeAchievement();
+		enterSummerIslands = new GOTAchievement(Category.VISIT, visId++, GOTItems.summerHelmet, "VISIT_SUMMER_ISLANDS").setBiomeAchievement();
+		enterTarth = new GOTAchievement(Category.VISIT, visId++, GOTBlocks.whiteSandstone, "VISIT_TARTH").setBiomeAchievement();
+		enterThennLand = new GOTAchievement(Category.VISIT, visId++, GOTItems.wildlingBattleaxe, "VISIT_THENN").setBiomeAchievement();
+		enterTropicalForest = new GOTAchievement(Category.VISIT, visId++, GOTItems.yitiHelmetShogune, "VISIT_TROPICAL_FOREST").setBiomeAchievement();
+		enterTyrosh = new GOTAchievement(Category.VISIT, visId++, GOTItems.tyroshHelmet, "VISIT_TYROSH").setBiomeAchievement();
+		enterUlthos = new GOTAchievement(Category.VISIT, visId++, Blocks.web, "VISIT_ULTHOS").setBiomeAchievement();
+		enterUlthosDesert = new GOTAchievement(Category.VISIT, visId++, Blocks.sand, "VISIT_ULTHOS_DESERT").setBiomeAchievement();
+		enterUlthosDesertCold = new GOTAchievement(Category.VISIT, visId++, new ItemStack(Blocks.sand), "VISIT_ULTHOS_DESERT_COLD").setBiomeAchievement();
+		enterUlthosForest = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.wood1, 1, 2), "VISIT_ULTHOS_FOREST").setBiomeAchievement();
+		enterUlthosFrost = new GOTAchievement(Category.VISIT, visId++, new ItemStack(Blocks.snow), "VISIT_ULTHOS_FROST").setBiomeAchievement();
+		enterUlthosMarshes = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.deadMarshPlant), "VISIT_ULTHOS_MARSHES").setBiomeAchievement();
+		enterUlthosMountains = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.rock, 1, 3), "VISIT_ULTHOS_MOUNTAINS").setBiomeAchievement();
+		enterUlthosRedForest = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.wood1), "VISIT_ULTHOS_RED_FOREST").setBiomeAchievement();
+		enterUlthosTaiga = new GOTAchievement(Category.VISIT, visId++, new ItemStack(GOTBlocks.wood1, 1, 0), "VISIT_ULTHOS_TAIGA").setBiomeAchievement();
+		enterValyria = new GOTAchievement(Category.VISIT, visId++, Blocks.vine, "VISIT_VALYRIA").setBiomeAchievement();
+		enterValyriaVolcano = new GOTAchievement(Category.VISIT, visId++, Blocks.lava, "VISIT_VALYRIA_VOLCANO").setBiomeAchievement();
+		enterVolantis = new GOTAchievement(Category.VISIT, visId++, GOTItems.volantisHelmet, "VISIT_VOLANTIS").setBiomeAchievement();
+		enterVolantisOrangeForest = new GOTAchievement(Category.VISIT, visId++, GOTItems.orange, "VISIT_VOLANTIS_FOREST").setBiomeAchievement();
+		enterWesterlands = new GOTAchievement(Category.VISIT, visId++, GOTItems.westerlandsHelmet, "VISIT_WESTERLANDS").setBiomeAchievement();
+		enterWesterlandsHills = new GOTAchievement(Category.VISIT, visId++, Blocks.gold_ore, "VISIT_WESTERLANDS_HILLS").setBiomeAchievement();
+		enterWesterlandsTown = new GOTAchievement(Category.VISIT, visId++, GOTItems.westerlandsguardHelmet, "VISIT_WESTERLANDS_TOWN").setBiomeAchievement();
+		enterYeen = new GOTAchievement(Category.VISIT, visId++, Blocks.obsidian, "VISIT_YEEN").setBiomeAchievement();
+		enterYiTi = new GOTAchievement(Category.VISIT, visId++, GOTItems.yitiHelmet, "VISIT_YI_TI").setBiomeAchievement();
+		enterYiTiWasteland = new GOTAchievement(Category.VISIT, visId++, GOTItems.yitiHelmetSamurai, "VISIT_YI_TI_WASTELAND").setBiomeAchievement();
+
+		int wearId = 1;
+		wearFullArrynguard = createArmorAchievement(Category.WEAR, wearId++, GOTItems.arrynguardChestplate, "WEAR_FULL_ARRYNGUARD");
+		wearFullAsshai = createArmorAchievement(Category.WEAR, wearId++, GOTItems.asshaiChestplate, "WEAR_FULL_ASSHAI");
+		wearFullBlackfyre = createArmorAchievement(Category.WEAR, wearId++, GOTItems.blackfyreChestplate, "WEAR_FULL_BLACKFYRE");
+		wearFullBone = createArmorAchievement(Category.WEAR, wearId++, GOTItems.boneChestplate, "WEAR_FULL_BONE");
+		wearFullBraavos = createArmorAchievement(Category.WEAR, wearId++, GOTItems.braavosChestplate, "WEAR_FULL_BRAAVOS");
+		wearFullBronze = createArmorAchievement(Category.WEAR, wearId++, GOTItems.bronzeChestplate, "WEAR_FULL_BRONZE");
+		wearFullCrownlands = createArmorAchievement(Category.WEAR, wearId++, GOTItems.crownlandsChestplate, "WEAR_FULL_CROWNLANDS");
+		wearFullDorne = createArmorAchievement(Category.WEAR, wearId++, GOTItems.dorneChestplate, "WEAR_FULL_DORNE");
+		wearFullDothraki = createArmorAchievement(Category.WEAR, wearId++, GOTItems.dothrakiChestplate, "WEAR_FULL_DOTHRAKI");
+		wearFullDragonstone = createArmorAchievement(Category.WEAR, wearId++, GOTItems.dragonstoneChestplate, "WEAR_FULL_DRAGONSTONE");
+		wearFullFur = createArmorAchievement(Category.WEAR, wearId++, GOTItems.furChestplate, "WEAR_FULL_FUR");
+		wearFullGemsbok = createArmorAchievement(Category.WEAR, wearId++, GOTItems.gemsbokChestplate, "WEAR_FULL_GEMSBOK");
+		wearFullGhiscar = createArmorAchievement(Category.WEAR, wearId++, GOTItems.ghiscarChestplate, "WEAR_FULL_GHISCAR");
+		wearFullGift = createArmorAchievement(Category.WEAR, wearId++, GOTItems.giftChestplate, "WEAR_FULL_GIFT");
+		wearFullGoldencompany = createArmorAchievement(Category.WEAR, wearId++, GOTItems.goldChestplate, "WEAR_FULL_GOLDENCOMPANY");
+		wearFullHand = createArmorAchievement(Category.WEAR, wearId++, GOTItems.handGold, "WEAR_FULL_HAND");
+		wearFullHelmet = createArmorAchievement(Category.WEAR, wearId++, GOTItems.robertHelmet, "WEAR_FULL_HELMET");
+		wearFullHillmen = createArmorAchievement(Category.WEAR, wearId++, GOTItems.hillmenChestplate, "WEAR_FULL_HILLMEN");
+		wearFullIronborn = createArmorAchievement(Category.WEAR, wearId++, GOTItems.ironbornChestplate, "WEAR_FULL_IRONBORN");
+		wearFullJogos = createArmorAchievement(Category.WEAR, wearId++, GOTItems.jogosChestplate, "WEAR_FULL_JOGOS");
+		wearFullKingsguard = createArmorAchievement(Category.WEAR, wearId++, GOTItems.kingsguardChestplate, "WEAR_FULL_KINGSGUARD");
+		wearFullLhazar = createArmorAchievement(Category.WEAR, wearId++, GOTItems.lhazarChestplate, "WEAR_FULL_LHAZAR");
+		wearFullLhazarLion = createArmorAchievement(Category.WEAR, wearId++, GOTItems.lhazarChestplateLion, "WEAR_FULL_LHAZAR_LION");
+		wearFullLorath = createArmorAchievement(Category.WEAR, wearId++, GOTItems.lorathChestplate, "WEAR_FULL_LORATH");
+		wearFullLys = createArmorAchievement(Category.WEAR, wearId++, GOTItems.lysChestplate, "WEAR_FULL_LYS");
+		wearFullMossovy = createArmorAchievement(Category.WEAR, wearId++, GOTItems.mossovyChestplate, "WEAR_FULL_MOSSOVY");
+		wearFullMyr = createArmorAchievement(Category.WEAR, wearId++, GOTItems.myrChestplate, "WEAR_FULL_MYR");
+		wearFullNorth = createArmorAchievement(Category.WEAR, wearId++, GOTItems.northChestplate, "WEAR_FULL_NORTH");
+		wearFullNorthguard = createArmorAchievement(Category.WEAR, wearId++, GOTItems.northguardChestplate, "WEAR_FULL_NORTHGUARD");
+		wearFullNorvos = createArmorAchievement(Category.WEAR, wearId++, GOTItems.norvosChestplate, "WEAR_FULL_NORVOS");
+		wearFullPentos = createArmorAchievement(Category.WEAR, wearId++, GOTItems.pentosChestplate, "WEAR_FULL_PENTOS");
+		wearFullQarth = createArmorAchievement(Category.WEAR, wearId++, GOTItems.qarthChestplate, "WEAR_FULL_QARTH");
+		wearFullQohor = createArmorAchievement(Category.WEAR, wearId++, GOTItems.qohorChestplate, "WEAR_FULL_QOHOR");
+		wearFullReach = createArmorAchievement(Category.WEAR, wearId++, GOTItems.reachChestplate, "WEAR_FULL_REACH");
+		wearFullReachguard = createArmorAchievement(Category.WEAR, wearId++, GOTItems.reachguardChestplate, "WEAR_FULL_REACHGUARD");
+		wearFullRedking = createArmorAchievement(Category.WEAR, wearId++, GOTItems.redkingChestplate, "WEAR_FULL_REDKING");
+		wearFullRiverlands = createArmorAchievement(Category.WEAR, wearId++, GOTItems.riverlandsChestplate, "WEAR_FULL_RIVERLANDS");
+		wearFullRobes = createArmorAchievement(Category.WEAR, wearId++, GOTItems.robesChestplate, "WEAR_FULL_ROBES");
+		wearFullRoyce = createArmorAchievement(Category.WEAR, wearId++, GOTItems.royceChestplate, "WEAR_FULL_ROYCE");
+		wearFullSothoryos = createArmorAchievement(Category.WEAR, wearId++, GOTItems.sothoryosChestplate, "WEAR_FULL_SOTHORYOS");
+		wearFullSothoryosGold = createArmorAchievement(Category.WEAR, wearId++, GOTItems.sothoryosChestplateGold, "WEAR_FULL_SOTHORYOS_GOLD");
+		wearFullStormlands = createArmorAchievement(Category.WEAR, wearId++, GOTItems.stormlandsChestplate, "WEAR_FULL_STORMLANDS");
+		wearFullSummer = createArmorAchievement(Category.WEAR, wearId++, GOTItems.summerChestplate, "WEAR_FULL_SUMMER");
+		wearFullTargaryen = createArmorAchievement(Category.WEAR, wearId++, GOTItems.targaryenChestplate, "WEAR_FULL_TARGARYEN");
+		wearFullTyrosh = createArmorAchievement(Category.WEAR, wearId++, GOTItems.tyroshChestplate, "WEAR_FULL_TYROSH");
+		wearFullUnsullied = createArmorAchievement(Category.WEAR, wearId++, GOTItems.unsulliedChestplate, "WEAR_FULL_UNSULLIED");
+		wearFullValyrian = createArmorAchievement(Category.WEAR, wearId++, GOTItems.valyrianChestplate, "WEAR_FULL_VALYRIAN");
+		wearFullVolantis = createArmorAchievement(Category.WEAR, wearId++, GOTItems.volantisChestplate, "WEAR_FULL_VOLANTIS");
+		wearFullWesterlands = createArmorAchievement(Category.WEAR, wearId++, GOTItems.westerlandsChestplate, "WEAR_FULL_WESTERLANDS");
+		wearFullWesterlandsguard = createArmorAchievement(Category.WEAR, wearId++, GOTItems.westerlandsguardChestplate, "WEAR_FULL_WESTERLANDSGUARD");
+		wearFullWestking = createArmorAchievement(Category.WEAR, wearId++, GOTItems.westkingChestplate, "WEAR_FULL_WESTKING");
+		wearFullWhitewalkers = createArmorAchievement(Category.WEAR, wearId++, GOTItems.whiteWalkersChestplate, "WEAR_FULL_WHITEWALKERS");
+		wearFullYiti = createArmorAchievement(Category.WEAR, wearId++, GOTItems.yitiChestplate, "WEAR_FULL_YITI");
+		wearFullYitiFrontier = createArmorAchievement(Category.WEAR, wearId++, GOTItems.yitiChestplateFrontier, "WEAR_FULL_YITI_FRONTIER");
+		wearFullYitiSamurai = createArmorAchievement(Category.WEAR, wearId++, GOTItems.yitiChestplateSamurai, "WEAR_FULL_YITI_SAMURAI");
+		wearFullArryn = createArmorAchievement(Category.WEAR, wearId++, GOTItems.arrynChestplate, "WEAR_FULL_ARRYN");
 	}
 
 	public static Comparator<GOTAchievement> sortForDisplay(EntityPlayer entityplayer) {
@@ -742,7 +744,7 @@ public class GOTAchievement {
 				if (!ach2.isSpecial) {
 					return -1;
 				}
-				return Integer.compare(ach1.ID, ach2.ID);
+				return Integer.compare(ach1.id, ach2.id);
 			}
 			if (ach2.isSpecial) {
 				return 1;
@@ -767,40 +769,14 @@ public class GOTAchievement {
 	}
 
 	public boolean canPlayerEarn(EntityPlayer entityplayer) {
-		float alignment;
-		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-		if (!enemyFactions.isEmpty()) {
-			boolean anyEnemies = false;
-			for (GOTFaction f : enemyFactions) {
-				alignment = playerData.getAlignment(f);
-				if (alignment > 0.0f) {
-					continue;
-				}
-				anyEnemies = true;
-			}
-			if (!anyEnemies) {
-				return false;
-			}
-		}
-		if (!allyFactions.isEmpty()) {
-			boolean anyAllies = false;
-			for (GOTFaction f : allyFactions) {
-				alignment = playerData.getAlignment(f);
-				if (alignment < 0.0f) {
-					continue;
-				}
-				anyAllies = true;
-			}
-			return anyAllies;
-		}
 		return true;
 	}
 
-	public GOTAchievement createTitle() {
+	private GOTAchievement createTitle() {
 		return createTitle(null);
 	}
 
-	public GOTAchievement createTitle(String s) {
+	private GOTAchievement createTitle(String s) {
 		if (achievementTitle != null) {
 			throw new IllegalArgumentException("GOT achievement " + name + " already has an associated title!");
 		}
@@ -811,11 +787,11 @@ public class GOTAchievement {
 	public IChatComponent getAchievementChatComponent(EntityPlayer entityplayer) {
 		ChatComponentTranslation component = new ChatComponentTranslation(getUntranslatedTitle(entityplayer)).createCopy();
 		component.getChatStyle().setColor(EnumChatFormatting.YELLOW);
-		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + '$' + ID)));
+		component.getChatStyle().setChatHoverEvent(new HoverEvent(GOTChatEvents.SHOW_GOT_ACHIEVEMENT, new ChatComponentText(category.name() + '$' + id)));
 		return component;
 	}
 
-	public IChatComponent getChatComponentForEarn(EntityPlayer entityplayer) {
+	private IChatComponent getChatComponentForEarn(EntityPlayer entityplayer) {
 		IChatComponent base = getAchievementChatComponent(entityplayer);
 		IChatComponent component = new ChatComponentText("[").appendSibling(base).appendText("]");
 		component.setChatStyle(base.getChatStyle());
@@ -831,7 +807,7 @@ public class GOTAchievement {
 	}
 
 	public GOTDimension getDimension() {
-		return category.dimension;
+		return category.getDimension();
 	}
 
 	public String getTitle(EntityPlayer entityplayer) {
@@ -842,31 +818,77 @@ public class GOTAchievement {
 		return "got.achievement." + name + ".title";
 	}
 
-	public void setRequiresAlly(GOTFaction... f) {
-		allyFactions.addAll(Arrays.asList(f));
+
+	protected void setSpecial() {
+		isSpecial = true;
 	}
 
-	public GOTAchievement setRequiresAnyEnemy(List<GOTFaction> f) {
-		return setRequiresEnemy(f.toArray(new GOTFaction[0]));
+	public Category getCategory() {
+		return category;
 	}
 
-	public GOTAchievement setRequiresEnemy(GOTFaction... f) {
-		enemyFactions.addAll(Arrays.asList(f));
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public ItemStack getIcon() {
+		return icon;
+	}
+
+	public void setIcon(ItemStack icon) {
+		this.icon = icon;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public boolean isBiomeAchievement() {
+		return isBiomeAchievement;
+	}
+
+	public GOTAchievement setBiomeAchievement() {
+		isBiomeAchievement = true;
 		return this;
 	}
 
-	public void setSpecial() {
-		isSpecial = true;
+	public boolean isSpecial() {
+		return isSpecial;
+	}
+
+	public void setSpecial(boolean special) {
+		isSpecial = special;
+	}
+
+	public GOTTitle getAchievementTitle() {
+		return achievementTitle;
+	}
+
+	public void setAchievementTitle(GOTTitle achievementTitle) {
+		this.achievementTitle = achievementTitle;
 	}
 
 	public enum Category {
 		TITLES(GOTFaction.NIGHT_WATCH), GENERAL(GOTFaction.SOTHORYOS), KILL(GOTFaction.WESTERLANDS), WEAR(GOTFaction.ARRYN), VISIT(GOTFaction.WHITE_WALKER), LEGENDARY(GOTFaction.YI_TI);
 
-		public String codeName;
-		public float[] categoryColors;
-		public GOTDimension dimension;
-		public Collection<GOTAchievement> list = new ArrayList<>();
-		public int nextRankAchID = 1000;
+		private final Collection<GOTAchievement> list = new ArrayList<>();
+		private final String codeName;
+		private final float[] categoryColors;
+		private final GOTDimension dimension;
+
+		private int nextRankAchID = 1000;
 
 		Category(GOTDimension dim, int color) {
 			codeName = name();
@@ -883,7 +905,7 @@ public class GOTAchievement {
 			this(GOTDimension.GAME_OF_THRONES, color);
 		}
 
-		public String codeName() {
+		private String codeName() {
 			return codeName;
 		}
 
@@ -899,6 +921,17 @@ public class GOTAchievement {
 			++nextRankAchID;
 			return nextRankAchID;
 		}
-	}
 
+		public void addAchievement(GOTAchievement achievement) {
+			list.add(achievement);
+		}
+
+		public Collection<GOTAchievement> getList() {
+			return new ArrayList<>(list);
+		}
+
+		public GOTDimension getDimension() {
+			return dimension;
+		}
+	}
 }
