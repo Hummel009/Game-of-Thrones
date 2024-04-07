@@ -11,8 +11,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.world.World;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class GOTCommandConquest extends CommandBase {
 	@Override
@@ -20,7 +22,8 @@ public class GOTCommandConquest extends CommandBase {
 		if (args.length == 1) {
 			return getListOfStringsMatchingLastWord(args, "set", "add", "radial", "clear", "rate");
 		}
-		if (args.length == 2 && ("set".equals(args[0]) || "add".equals(args[0]) || "radial".equals(args[0]))) {
+		//noinspection StreamToLoop
+		if (args.length == 2 && Stream.of("set", "add", "radial").anyMatch(s -> s.equals(args[0]))) {
 			List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
 			return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		}
@@ -84,7 +87,7 @@ public class GOTCommandConquest extends CommandBase {
 				sender.addChatMessage(new ChatComponentTranslation("got.command.conquest.rateGet", currentRate));
 				return;
 			}
-			if (args.length >= 3 && ("set".equals(function) || "add".equals(function) || "radial".equals(function))) {
+			if (args.length >= 3 && Arrays.asList("set", "add", "radial").contains(function)) {
 				GOTFaction fac = GOTFaction.forName(args[1]);
 				if (fac == null) {
 					throw new WrongUsageException("got.command.conquest.noFaction", args[1]);
