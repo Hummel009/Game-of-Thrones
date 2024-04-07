@@ -19,7 +19,8 @@ import java.util.Random;
 public class GOTBlockDoubleTorch extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] torchIcons;
-	public Item torchItem;
+
+	private Item torchItem;
 
 	public GOTBlockDoubleTorch() {
 		super(Material.circuits);
@@ -155,5 +156,13 @@ public class GOTBlockDoubleTorch extends Block {
 		} else if (meta == 1) {
 			setBlockBounds(0.4375f, 0.0f, 0.4375f, 0.5625f, 0.5f, 0.5625f);
 		}
+	}
+
+	public Item getTorchItem() {
+		return torchItem;
+	}
+
+	public void setTorchItem(Item torchItem) {
+		this.torchItem = torchItem;
 	}
 }

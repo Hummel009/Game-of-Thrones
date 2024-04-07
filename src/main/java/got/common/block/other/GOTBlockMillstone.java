@@ -26,10 +26,13 @@ import java.util.Random;
 public class GOTBlockMillstone extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconSide;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconSideActive;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTopActive;
 

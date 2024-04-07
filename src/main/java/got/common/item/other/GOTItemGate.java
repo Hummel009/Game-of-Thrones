@@ -23,14 +23,13 @@ public class GOTItemGate extends ItemBlock {
 		float horizontalAngle = 40.0f;
 		boolean lookingUp = entityplayer.rotationPitch < -horizontalAngle;
 		boolean lookingDown = entityplayer.rotationPitch > horizontalAngle;
-		boolean fullBlock = gateBlock.fullBlockGate;
 		if (side == 0 || side == 1) {
 			meta = Direction.directionToFacing[yaw];
 		} else if (lookingUp || lookingDown) {
-			meta = fullBlock ? entityplayer.rotationPitch > 0.0f ? 0 : 1 : f1 > 0.5f ? 0 : 1;
+			meta = f1 > 0.5f ? 0 : 1;
 		} else {
 			int dir = Direction.facingToDirection[side];
-			meta = fullBlock ? Direction.directionToFacing[Direction.rotateOpposite[dir]] : Direction.directionToFacing[Direction.rotateLeft[dir]];
+			meta = Direction.directionToFacing[Direction.rotateLeft[dir]];
 		}
 		return super.placeBlockAt(itemstack, entityplayer, world, i, j, k, side, f, f1, f2, meta);
 	}

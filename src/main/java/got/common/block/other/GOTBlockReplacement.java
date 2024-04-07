@@ -34,7 +34,7 @@ public class GOTBlockReplacement {
 	private GOTBlockReplacement() {
 	}
 
-	private static void injectReplacementItem(ItemStack itemstack, Item newItem) {
+	private static void injectReplacementItem(ItemStack itemstack) {
 		NBTTagCompound nbt = new NBTTagCompound();
 		itemstack.writeToNBT(nbt);
 		itemstack.readFromNBT(nbt);
@@ -61,25 +61,25 @@ public class GOTBlockReplacement {
 			if (obj instanceof ShapedRecipes) {
 				ItemStack output = obj.getRecipeOutput();
 				if (output != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
-					injectReplacementItem(output, newItem);
+					injectReplacementItem(output);
 				}
 			}
 			if (obj instanceof ShapelessRecipes) {
 				ItemStack output = obj.getRecipeOutput();
 				if (output != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
-					injectReplacementItem(output, newItem);
+					injectReplacementItem(output);
 				}
 			}
 			if (obj instanceof ShapedOreRecipe) {
 				ItemStack output = obj.getRecipeOutput();
 				if (output != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
-					injectReplacementItem(output, newItem);
+					injectReplacementItem(output);
 				}
 			}
 			if (obj instanceof ShapelessOreRecipe) {
 				ItemStack output = obj.getRecipeOutput();
 				if (output != null && output.getItem() != null && output.getItem().getUnlocalizedName().equals(newItemName)) {
-					injectReplacementItem(output, newItem);
+					injectReplacementItem(output);
 				}
 			}
 		}
@@ -87,7 +87,7 @@ public class GOTBlockReplacement {
 			Achievement a = (Achievement) obj;
 			ItemStack icon = a.theItemStack;
 			if (icon.getItem().getUnlocalizedName().equals(newItem.getUnlocalizedName())) {
-				injectReplacementItem(icon, newItem);
+				injectReplacementItem(icon);
 			}
 		}
 	}

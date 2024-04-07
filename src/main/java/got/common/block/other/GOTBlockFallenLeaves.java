@@ -24,13 +24,13 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockFallenLeaves extends Block implements IShearable {
-	public static Collection<GOTBlockFallenLeaves> allFallenLeaves = new ArrayList<>();
-	public static Random leafRand = new Random();
+	public static final Collection<GOTBlockFallenLeaves> ALL_FALLEN_LEAVES = new ArrayList<>();
+
 	private Block[] leafBlocks;
 
 	public GOTBlockFallenLeaves() {
 		super(Material.vine);
-		allFallenLeaves.add(this);
+		ALL_FALLEN_LEAVES.add(this);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		setHardness(0.2f);
 		setStepSound(soundTypeGrass);
@@ -45,7 +45,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 	public static Object[] fallenBlockMetaFromLeafBlockMeta(Block block, int meta) {
 		int meta1 = meta;
 		meta1 &= 3;
-		for (GOTBlockFallenLeaves fallenLeaves : allFallenLeaves) {
+		for (GOTBlockFallenLeaves fallenLeaves : ALL_FALLEN_LEAVES) {
 			for (int i = 0; i < fallenLeaves.leafBlocks.length; ++i) {
 				Block leafBlock = fallenLeaves.leafBlocks[i];
 				if (leafBlock != block) {

@@ -19,6 +19,7 @@ import java.util.Random;
 public class GOTBlockReed extends Block implements IPlantable {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconUpper;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconLower;
 

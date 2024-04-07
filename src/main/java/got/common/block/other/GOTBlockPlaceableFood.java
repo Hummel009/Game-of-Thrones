@@ -19,19 +19,26 @@ import java.util.Random;
 
 public class GOTBlockPlaceableFood extends Block {
 	private static final int MAX_EATS = 6;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconBottom;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconSide;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconEaten;
-	public Item foodItem;
+
 	private final float foodHalfWidth;
 	private final float foodHeight;
+
 	private int healAmount;
 	private float saturationAmount;
+
+	private Item foodItem;
 
 	public GOTBlockPlaceableFood() {
 		this(0.4375f, 0.5f);
@@ -186,5 +193,13 @@ public class GOTBlockPlaceableFood extends Block {
 		healAmount = i;
 		saturationAmount = f;
 		return this;
+	}
+
+	public Item getFoodItem() {
+		return foodItem;
+	}
+
+	public void setFoodItem(Item foodItem) {
+		this.foodItem = foodItem;
 	}
 }

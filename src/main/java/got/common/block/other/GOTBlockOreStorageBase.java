@@ -17,6 +17,7 @@ import java.util.List;
 public abstract class GOTBlockOreStorageBase extends Block {
 	@SideOnly(Side.CLIENT)
 	protected IIcon[] oreStorageIcons;
+
 	protected String[] oreStorageNames;
 
 	protected GOTBlockOreStorageBase() {
@@ -72,5 +73,9 @@ public abstract class GOTBlockOreStorageBase extends Block {
 
 	protected void setOreStorageNames(String... names) {
 		oreStorageNames = names;
+	}
+
+	public String[] getOreStorageNames() {
+		return oreStorageNames;
 	}
 }

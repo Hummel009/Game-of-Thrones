@@ -14,7 +14,8 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockThatch extends Block {
-	private static final String[] thatchNames = {"thatch", "reed"};
+	private static final String[] THATCH_NAMES = {"thatch", "reed"};
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] thatchIcons;
 
@@ -34,7 +35,7 @@ public class GOTBlockThatch extends Block {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		int j1 = j;
-		if (j1 >= thatchNames.length) {
+		if (j1 >= THATCH_NAMES.length) {
 			j1 = 0;
 		}
 		return thatchIcons[j1];
@@ -44,7 +45,7 @@ public class GOTBlockThatch extends Block {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for (int i = 0; i < thatchNames.length; ++i) {
+		for (int i = 0; i < THATCH_NAMES.length; ++i) {
 			list.add(new ItemStack(item, 1, i));
 		}
 	}
@@ -52,9 +53,9 @@ public class GOTBlockThatch extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		thatchIcons = new IIcon[thatchNames.length];
-		for (int i = 0; i < thatchNames.length; ++i) {
-			thatchIcons[i] = iconregister.registerIcon(getTextureName() + '_' + thatchNames[i]);
+		thatchIcons = new IIcon[THATCH_NAMES.length];
+		for (int i = 0; i < THATCH_NAMES.length; ++i) {
+			thatchIcons[i] = iconregister.registerIcon(getTextureName() + '_' + THATCH_NAMES[i]);
 		}
 	}
 }

@@ -12,8 +12,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class GOTBlockGlass extends BlockGlass {
-	public boolean thirdParam;
-
 	public GOTBlockGlass() {
 		super(Material.glass, false);
 		setHardness(0.3f);

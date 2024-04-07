@@ -25,8 +25,6 @@ import net.minecraftforge.event.ForgeEventFactory;
 import java.util.ArrayList;
 
 public class GOTBlockMug extends BlockContainer {
-	public static float MUG_SCALE = 0.75f;
-
 	public GOTBlockMug() {
 		this(3.0f, 8.0f);
 	}

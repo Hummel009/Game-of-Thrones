@@ -11,7 +11,8 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockYiTiFlower extends GOTBlockFlower {
-	private static final String[] flowerNames = {"chrys_blue", "chrys_orange", "chrys_pink", "chrys_yellow", "chrys_white"};
+	private static final String[] FLOWER_NAMES = {"chrys_blue", "chrys_orange", "chrys_pink", "chrys_yellow", "chrys_white"};
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] flowerIcons;
 
@@ -24,7 +25,7 @@ public class GOTBlockYiTiFlower extends GOTBlockFlower {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		int j1 = j;
-		if (j1 >= flowerNames.length) {
+		if (j1 >= FLOWER_NAMES.length) {
 			j1 = 0;
 		}
 		return flowerIcons[j1];
@@ -34,7 +35,7 @@ public class GOTBlockYiTiFlower extends GOTBlockFlower {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for (int i = 0; i < flowerNames.length; ++i) {
+		for (int i = 0; i < FLOWER_NAMES.length; ++i) {
 			list.add(new ItemStack(item, 1, i));
 		}
 	}
@@ -42,9 +43,9 @@ public class GOTBlockYiTiFlower extends GOTBlockFlower {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		flowerIcons = new IIcon[flowerNames.length];
-		for (int i = 0; i < flowerNames.length; ++i) {
-			flowerIcons[i] = iconregister.registerIcon(getTextureName() + '_' + flowerNames[i]);
+		flowerIcons = new IIcon[FLOWER_NAMES.length];
+		for (int i = 0; i < FLOWER_NAMES.length; ++i) {
+			flowerIcons[i] = iconregister.registerIcon(getTextureName() + '_' + FLOWER_NAMES[i]);
 		}
 	}
 }

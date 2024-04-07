@@ -16,6 +16,7 @@ CHANGELOG
 * Improved GUI opening code
 * Optimized lots of client-size things
 
+* Fixed bug with one stone wall
 * Fixed bug with uncraftable weirwood fence
 * Fixed bug with month name
 * Fixed bug with drown Euron Greyjoy and its soldiers

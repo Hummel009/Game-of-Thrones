@@ -54,10 +54,10 @@ public class GOTPacketMoneyGive extends GOTPacketMoney {
 		public IMessage onMessage(GOTPacketMoneyGive packet, MessageContext context) {
 			ItemStack item = packet.item;
 			UUID hummel = packet.hummel;
-			if (GOTBlockIronBank.buy.containsKey(item)) {
+			if (GOTBlockIronBank.BUY.containsKey(item)) {
 				EntityPlayerMP player = context.getServerHandler().playerEntity;
 				GOTPlayerData pd = GOTLevelData.getData(player);
-				int cost = GOTBlockIronBank.buy.get(item);
+				int cost = GOTBlockIronBank.BUY.get(item);
 				if (hummel.equals(player.getUniqueID())) {
 					player.inventory.addItemStackToInventory(item);
 				} else if (pd.getBalance() >= cost && player.inventory.addItemStackToInventory(item)) {

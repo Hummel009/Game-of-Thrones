@@ -9,6 +9,7 @@ import net.minecraft.util.IIcon;
 public abstract class GOTBlockSmoothStoneBase extends GOTBlockBrickBase {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] topIcons;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] sideIcons;
 

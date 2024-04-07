@@ -20,10 +20,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class GOTBlockChain extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconMiddle;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconBottom;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconSingle;
 

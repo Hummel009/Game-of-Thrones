@@ -20,8 +20,9 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockCoralReef extends Block {
-	private static final String[] plantNames = {"purple", "yellow", "blue", "red", "green"};
-	private static final Random iconRand = new Random();
+	private static final String[] PLANT_NAMES = {"purple", "yellow", "blue", "red", "green"};
+	private static final Random ICON_RAND = new Random();
+
 	private IIcon[] plantIcons;
 
 	public GOTBlockCoralReef() {
@@ -53,9 +54,9 @@ public class GOTBlockCoralReef extends Block {
 
 	public IIcon getRandomPlantIcon(int i, int j, int k) {
 		int hash = i * 25799626 ^ k * 6879038 ^ j;
-		iconRand.setSeed(hash);
-		iconRand.setSeed(iconRand.nextLong());
-		return plantIcons[iconRand.nextInt(plantIcons.length)];
+		ICON_RAND.setSeed(hash);
+		ICON_RAND.setSeed(ICON_RAND.nextLong());
+		return plantIcons[ICON_RAND.nextInt(plantIcons.length)];
 	}
 
 	@Override
@@ -90,9 +91,9 @@ public class GOTBlockCoralReef extends Block {
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
 		super.registerBlockIcons(iconregister);
-		plantIcons = new IIcon[plantNames.length];
-		for (int i = 0; i < plantNames.length; ++i) {
-			plantIcons[i] = iconregister.registerIcon(getTextureName() + '_' + plantNames[i]);
+		plantIcons = new IIcon[PLANT_NAMES.length];
+		for (int i = 0; i < PLANT_NAMES.length; ++i) {
+			plantIcons[i] = iconregister.registerIcon(getTextureName() + '_' + PLANT_NAMES[i]);
 		}
 	}
 }

@@ -94,18 +94,22 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 	@Override
 	public void onBlockPlacedBy(World world, int i, int j, int k, EntityLivingBase entity, ItemStack itemstack) {
 		int rotation = MathHelper.floor_double(entity.rotationYaw * 4.0f / 360.0f + 0.5) & 3;
-		if (rotation == 0) {
-			world.setBlockMetadataWithNotify(i, j, k, 2, 2);
+
+		switch (rotation) {
+			case 0:
+				world.setBlockMetadataWithNotify(i, j, k, 2, 2);
+				break;
+			case 1:
+				world.setBlockMetadataWithNotify(i, j, k, 5, 2);
+				break;
+			case 2:
+				world.setBlockMetadataWithNotify(i, j, k, 3, 2);
+				break;
+			case 3:
+				world.setBlockMetadataWithNotify(i, j, k, 4, 2);
+				break;
 		}
-		if (rotation == 1) {
-			world.setBlockMetadataWithNotify(i, j, k, 5, 2);
-		}
-		if (rotation == 2) {
-			world.setBlockMetadataWithNotify(i, j, k, 3, 2);
-		}
-		if (rotation == 3) {
-			world.setBlockMetadataWithNotify(i, j, k, 4, 2);
-		}
+
 		if (itemstack.hasDisplayName()) {
 			((GOTTileEntityAlloyForge) world.getTileEntity(i, j, k)).setSpecialForgeName(itemstack.getDisplayName());
 		}

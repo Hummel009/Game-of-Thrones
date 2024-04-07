@@ -696,7 +696,7 @@ public class GOTBlocks {
 		buttonLabradorite = new GOTBlockButton(false, "got:rock_labradorite").setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		buttonRhyolite = new GOTBlockButton(false, "got:rock_rhyolite").setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		ceramicMug = new GOTBlockClayMug();
-		ceramicPlate = new GOTBlockPlate().setStepSound(GOTBlockPlate.soundTypePlate);
+		ceramicPlate = new GOTBlockPlate().setStepSound(GOTBlockPlate.SOUND_TYPE_PLATE);
 		chain = new GOTBlockChain();
 		chandelier = new GOTBlockChandelier();
 		cherryPie = new GOTBlockPlaceableFood();
@@ -894,7 +894,7 @@ public class GOTBlocks {
 		pipeweedCrop = new GOTBlockPipeweedCrop();
 		pipeweedPlant = new GOTBlockPipeweedPlant();
 		plantain = new GOTBlockPlantain();
-		plate = new GOTBlockPlate().setStepSound(GOTBlockPlate.soundTypePlate);
+		plate = new GOTBlockPlate().setStepSound(GOTBlockPlate.SOUND_TYPE_PLATE);
 		pressurePlateAndesite = new GOTBlockPressurePlate("got:rock_andesite", Material.rock, BlockPressurePlate.Sensitivity.mobs).setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		pressurePlateBasalt = new GOTBlockPressurePlate("got:rock_basalt", Material.rock, BlockPressurePlate.Sensitivity.mobs).setHardness(0.5f).setStepSound(Block.soundTypeStone);
 		pressurePlateChalk = new GOTBlockPressurePlate("got:rock_chalk", Material.rock, BlockPressurePlate.Sensitivity.mobs).setHardness(0.5f).setStepSound(Block.soundTypeStone);

@@ -52,9 +52,8 @@ public class GOTBlockWall1 extends GOTBlockWallBase {
 			case 15:
 				return GOTBlocks.brick1.getIcon(i, 15);
 			default:
-				break;
+				return super.getIcon(i, j);
 		}
-		return super.getIcon(i, j);
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -739,7 +739,7 @@ public class GOTEntityAIFarm extends EntityAIBase {
 									continue;
 								}
 								int meta2 = theWorld.getBlockMetadata(x, y, z);
-								drops.addAll(((GOTBlockCorn) block).getCornDrops(theWorld, x, y, z, meta2));
+								drops.addAll(((GOTBlockCorn) block).getCornDrops(theWorld, meta2));
 								GOTBlockCorn.setHasCorn(theWorld, x, y, z, false);
 							}
 						} else if (block instanceof GOTBlockGrapevine) {

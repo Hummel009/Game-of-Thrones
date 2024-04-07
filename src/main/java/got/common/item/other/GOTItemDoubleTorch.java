@@ -15,7 +15,7 @@ public class GOTItemDoubleTorch extends Item {
 	public GOTItemDoubleTorch(Block block) {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		torchBlock = block;
-		((GOTBlockDoubleTorch) torchBlock).torchItem = this;
+		((GOTBlockDoubleTorch) torchBlock).setTorchItem(this);
 	}
 
 	@Override

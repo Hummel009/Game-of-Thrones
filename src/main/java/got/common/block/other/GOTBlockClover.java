@@ -17,9 +17,10 @@ import java.util.List;
 
 public class GOTBlockClover extends GOTBlockFlower {
 	@SideOnly(Side.CLIENT)
-	public static IIcon stemIcon;
+	private static IIcon stemIcon;
+
 	@SideOnly(Side.CLIENT)
-	public static IIcon petalIcon;
+	private static IIcon petalIcon;
 
 	public GOTBlockClover() {
 		setBlockBounds(0.2f, 0.0f, 0.2f, 0.8f, 0.4f, 0.8f);
@@ -89,5 +90,15 @@ public class GOTBlockClover extends GOTBlockFlower {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		stemIcon = iconregister.registerIcon(getTextureName() + "_stem");
 		petalIcon = iconregister.registerIcon(getTextureName() + "_petal");
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static IIcon getStemIcon() {
+		return stemIcon;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static IIcon getPetalIcon() {
+		return petalIcon;
 	}
 }

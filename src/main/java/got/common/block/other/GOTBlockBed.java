@@ -15,13 +15,16 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockBed extends BlockBed {
-	public Item bedItem;
+	private Item bedItem;
 	private final Block bedBottomBlock;
 	private final int bedBottomMetadata;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] bedIconsEnd;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] bedIconsSide;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] bedIconsTop;
 
@@ -66,5 +69,13 @@ public class GOTBlockBed extends BlockBed {
 		bedIconsTop = new IIcon[]{iconregister.registerIcon(getTextureName() + "_feet_top"), iconregister.registerIcon(getTextureName() + "_head_top")};
 		bedIconsEnd = new IIcon[]{iconregister.registerIcon(getTextureName() + "_feet_end"), iconregister.registerIcon(getTextureName() + "_head_end")};
 		bedIconsSide = new IIcon[]{iconregister.registerIcon(getTextureName() + "_feet_side"), iconregister.registerIcon(getTextureName() + "_head_side")};
+	}
+
+	public Item getBedItem() {
+		return bedItem;
+	}
+
+	public void setBedItem(Item bedItem) {
+		this.bedItem = bedItem;
 	}
 }

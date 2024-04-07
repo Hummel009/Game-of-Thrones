@@ -17,7 +17,8 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTBlockWaste extends Block {
-	private static final Random wasteRand = new Random();
+	private static final Random WASTE_RAND = new Random();
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] randomIcons;
 
@@ -38,9 +39,9 @@ public class GOTBlockWaste extends Block {
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
 		int hash = i * 25799626 ^ k * 6879038 ^ j;
-		wasteRand.setSeed(hash + side);
-		wasteRand.setSeed(wasteRand.nextLong());
-		return randomIcons[wasteRand.nextInt(randomIcons.length)];
+		WASTE_RAND.setSeed(hash + side);
+		WASTE_RAND.setSeed(WASTE_RAND.nextLong());
+		return randomIcons[WASTE_RAND.nextInt(randomIcons.length)];
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -48,9 +49,9 @@ public class GOTBlockWaste extends Block {
 	public IIcon getIcon(int i, int j) {
 		int hash = i * 334224425 ^ i;
 		hash = hash * hash * 245256 + hash * 113549945;
-		wasteRand.setSeed(hash);
-		wasteRand.setSeed(wasteRand.nextLong());
-		return randomIcons[wasteRand.nextInt(randomIcons.length)];
+		WASTE_RAND.setSeed(hash);
+		WASTE_RAND.setSeed(WASTE_RAND.nextLong());
+		return randomIcons[WASTE_RAND.nextInt(randomIcons.length)];
 	}
 
 	@Override

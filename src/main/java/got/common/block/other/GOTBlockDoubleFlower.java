@@ -21,9 +21,11 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockDoubleFlower extends BlockDoublePlant {
-	private static final String[] flowerNames = {"black_iris", "yellow_iris", "pink", "red"};
+	private static final String[] FLOWER_NAMES = {"black_iris", "yellow_iris", "pink", "red"};
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] doublePlantBottomIcons;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] doublePlantTopIcons;
 
@@ -177,11 +179,11 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		doublePlantBottomIcons = new IIcon[flowerNames.length];
-		doublePlantTopIcons = new IIcon[flowerNames.length];
+		doublePlantBottomIcons = new IIcon[FLOWER_NAMES.length];
+		doublePlantTopIcons = new IIcon[FLOWER_NAMES.length];
 		for (int i = 0; i < doublePlantBottomIcons.length; ++i) {
-			doublePlantBottomIcons[i] = iconregister.registerIcon(getTextureName() + '_' + flowerNames[i] + "_bottom");
-			doublePlantTopIcons[i] = iconregister.registerIcon(getTextureName() + '_' + flowerNames[i] + "_top");
+			doublePlantBottomIcons[i] = iconregister.registerIcon(getTextureName() + '_' + FLOWER_NAMES[i] + "_bottom");
+			doublePlantTopIcons[i] = iconregister.registerIcon(getTextureName() + '_' + FLOWER_NAMES[i] + "_top");
 		}
 	}
 

@@ -22,7 +22,8 @@ import java.util.Random;
 
 public class GOTBlockSpawnerChest extends BlockChest {
 	private static boolean dropChestItems = true;
-	public Block chestModel;
+
+	private final Block chestModel;
 
 	public GOTBlockSpawnerChest(Block block) {
 		super(0);
@@ -123,5 +124,9 @@ public class GOTBlockSpawnerChest extends BlockChest {
 				world.addWeatherEffect(new EntityLightningBolt(world, entityliving.posX, entityliving.posY, entityliving.posZ));
 			}
 		}
+	}
+
+	public Block getChestModel() {
+		return chestModel;
 	}
 }

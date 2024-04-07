@@ -36,7 +36,7 @@ public class GOTRenderChest extends TileEntitySpecialRenderer {
 		ITEM_ENTITY.textureName = "";
 		if (block instanceof GOTBlockChest) {
 			ITEM_ENTITY.textureName = ((GOTBlockChest) block).getChestTextureName();
-		} else if (block instanceof GOTBlockSpawnerChest && (c = ((GOTBlockSpawnerChest) block).chestModel) instanceof GOTBlockChest) {
+		} else if (block instanceof GOTBlockSpawnerChest && (c = ((GOTBlockSpawnerChest) block).getChestModel()) instanceof GOTBlockChest) {
 			ITEM_ENTITY.textureName = ((GOTBlockChest) c).getChestTextureName();
 		}
 		renderTileEntityAt(ITEM_ENTITY, 0.0, 0.0, 0.0, 0.0f);

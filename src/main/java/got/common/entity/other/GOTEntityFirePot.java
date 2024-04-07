@@ -65,7 +65,7 @@ public class GOTEntityFirePot extends EntityThrowable {
 			if (m.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK && (block = worldObj.getBlock(m.blockX, m.blockY, m.blockZ)) instanceof GOTBlockWildFireJar) {
 				((GOTBlockWildFireJar) block).explode(worldObj, m.blockX, m.blockY, m.blockZ);
 			}
-			worldObj.playSoundAtEntity(this, GOTBlockPlate.soundTypePlate.getBreakSound(), 1.0f, (rand.nextFloat() - rand.nextFloat()) * 0.2f + 1.0f);
+			worldObj.playSoundAtEntity(this, GOTBlockPlate.SOUND_TYPE_PLATE.getBreakSound(), 1.0f, (rand.nextFloat() - rand.nextFloat()) * 0.2f + 1.0f);
 			setDead();
 		}
 		for (int i = 0; i < 8; ++i) {

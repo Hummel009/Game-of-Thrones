@@ -52,7 +52,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 	public ArrayList<ItemStack> getDrops(World world, int i, int j, int k, int meta, int fortune) {
 		ArrayList<ItemStack> drops = new ArrayList<>();
 		if ((meta & 8) == 0) {
-			ItemStack itemstack = getKebabStandDrop(world, i, j, k, meta);
+			ItemStack itemstack = getKebabStandDrop(world, i, j, k);
 			GOTTileEntityKebabStand kebabStand = (GOTTileEntityKebabStand) world.getTileEntity(i, j, k);
 			if (kebabStand != null) {
 				drops.add(itemstack);
@@ -73,7 +73,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 		return getTextureName();
 	}
 
-	private ItemStack getKebabStandDrop(World world, int i, int j, int k, int metadata) {
+	private ItemStack getKebabStandDrop(World world, int i, int j, int k) {
 		ItemStack itemstack = new ItemStack(Item.getItemFromBlock(this));
 		GOTTileEntityKebabStand kebabStand = (GOTTileEntityKebabStand) world.getTileEntity(i, j, k);
 		if (kebabStand != null) {
@@ -86,7 +86,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 	@SuppressWarnings("deprecation")
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int i, int j, int k) {
 		world.markBlockForUpdate(i, j, k);
-		return getKebabStandDrop(world, i, j, k, world.getBlockMetadata(i, j, k));
+		return getKebabStandDrop(world, i, j, k);
 	}
 
 	@Override

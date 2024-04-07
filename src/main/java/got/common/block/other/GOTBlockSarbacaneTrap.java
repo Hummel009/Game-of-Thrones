@@ -25,6 +25,7 @@ import net.minecraft.world.World;
 public class GOTBlockSarbacaneTrap extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private IIcon trapIcon;
+
 	private final Block modelBlock;
 	private final int modelBlockMeta;
 

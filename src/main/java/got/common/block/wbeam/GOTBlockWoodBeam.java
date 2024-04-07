@@ -19,6 +19,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 	private IIcon[] sideIcons;
 	@SideOnly(Side.CLIENT)
 	private IIcon[] topIcons;
+
 	private String[] woodNames;
 
 	protected GOTBlockWoodBeam() {
@@ -75,5 +76,9 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 
 	protected void setWoodNames(String... s) {
 		woodNames = s;
+	}
+
+	protected String[] getWoodNames() {
+		return woodNames;
 	}
 }

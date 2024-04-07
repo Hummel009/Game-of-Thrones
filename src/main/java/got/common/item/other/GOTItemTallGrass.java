@@ -33,7 +33,7 @@ public class GOTItemTallGrass extends GOTItemBlockMetadata {
 
 	@Override
 	public int getRenderPasses(int meta) {
-		return GOTBlockTallGrass.grassOverlay[meta] ? 2 : 1;
+		return GOTBlockTallGrass.GRASS_OVERLAY[meta] ? 2 : 1;
 	}
 
 	@Override

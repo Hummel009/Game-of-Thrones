@@ -20,6 +20,7 @@ import net.minecraft.world.World;
 public class GOTBlockCommandTable extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private IIcon topIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon sideIcon;
 

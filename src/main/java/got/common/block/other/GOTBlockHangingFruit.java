@@ -15,6 +15,7 @@ import java.util.Random;
 public abstract class GOTBlockHangingFruit extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] fruitIcons;
+
 	private final String[] fruitSides = {"top", "side", "bottom"};
 
 	protected GOTBlockHangingFruit() {

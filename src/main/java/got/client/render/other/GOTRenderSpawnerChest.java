@@ -15,7 +15,7 @@ public class GOTRenderSpawnerChest extends TileEntitySpecialRenderer {
 		Block block = chest.getBlockType();
 		if (block instanceof GOTBlockSpawnerChest) {
 			GOTBlockSpawnerChest scBlock = (GOTBlockSpawnerChest) block;
-			Block model = scBlock.chestModel;
+			Block model = scBlock.getChestModel();
 			if (model instanceof ITileEntityProvider) {
 				ITileEntityProvider itep = (ITileEntityProvider) model;
 				TileEntity modelTE = itep.createNewTileEntity(chest.getWorldObj(), 0);

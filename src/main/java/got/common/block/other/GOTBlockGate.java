@@ -25,9 +25,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class GOTBlockGate extends Block implements GOTConnectedBlock {
-	public static int MAX_GATE_RANGE = 16;
 	private final boolean hasConnectedTextures;
-	public boolean fullBlockGate;
 
 	private GOTBlockGate(Material material, boolean ct) {
 		super(material);
@@ -289,29 +287,25 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	}
 
 	private void setBlockBoundsForDirection(int dir) {
-		if (fullBlockGate) {
-			setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
-		} else {
-			float width = 0.25f;
-			float halfWidth = width / 2.0f;
-			switch (dir) {
-				case 0:
-					setBlockBounds(0.0f, 1.0f - width, 0.0f, 1.0f, 1.0f, 1.0f);
-					break;
-				case 1:
-					setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, width, 1.0f);
-					break;
-				case 2:
-				case 3:
-					setBlockBounds(0.0f, 0.0f, 0.5f - halfWidth, 1.0f, 1.0f, 0.5f + halfWidth);
-					break;
-				case 4:
-				case 5:
-					setBlockBounds(0.5f - halfWidth, 0.0f, 0.0f, 0.5f + halfWidth, 1.0f, 1.0f);
-					break;
-				default:
-					break;
-			}
+		float width = 0.25f;
+		float halfWidth = width / 2.0f;
+		switch (dir) {
+			case 0:
+				setBlockBounds(0.0f, 1.0f - width, 0.0f, 1.0f, 1.0f, 1.0f);
+				break;
+			case 1:
+				setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, width, 1.0f);
+				break;
+			case 2:
+			case 3:
+				setBlockBounds(0.0f, 0.0f, 0.5f - halfWidth, 1.0f, 1.0f, 0.5f + halfWidth);
+				break;
+			case 4:
+			case 5:
+				setBlockBounds(0.5f - halfWidth, 0.0f, 0.0f, 0.5f + halfWidth, 1.0f, 1.0f);
+				break;
+			default:
+				break;
 		}
 	}
 
@@ -334,11 +328,9 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 			boolean openThis = isGateOpen(metaThis);
 			int dirOther = getGateDirection(metaOther);
 			boolean openOther = isGateOpen(metaOther);
-			if (!fullBlockGate || openThis) {
-				boolean connect = !directionsMatch(dirThis, side);
-				if (connect) {
-					return openThis != openOther || !directionsMatch(dirThis, dirOther) || !((GOTBlockGate) otherBlock).directionsMatch(dirThis, dirOther);
-				}
+			boolean connect = !directionsMatch(dirThis, side);
+			if (connect) {
+				return openThis != openOther || !directionsMatch(dirThis, dirOther) || !((GOTBlockGate) otherBlock).directionsMatch(dirThis, dirOther);
 			}
 		}
 		return super.shouldSideBeRendered(world, i, j, k, side);

@@ -24,42 +24,49 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockWildFireJar extends BlockFalling {
-	public static int renderingStage;
-	public static int renderBase = 1;
-	public static int renderNeck = 2;
-	public static int renderLid = 3;
-	public static int renderCap = 4;
-	public static int renderCrown = 5;
-	public static int renderHandle = 6;
-	public static boolean explodeOnAdded = true;
-	private static final Material materialFireJar = new MaterialLogic(MapColor.stoneColor);
+	private static int renderingStage;
+	private static boolean explodeOnAdded = true;
+
+	private static final Material MATERIAL_FIRE_JAR = new MaterialLogic(MapColor.stoneColor);
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconBaseSide;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconBaseTop;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconBaseBottom;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconNeckSide;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconLidSide;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconLidTop;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconLidBottom;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconCapSide;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconCapTop;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconCapBottom;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconCrownSide;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconHandleSide;
 
 	public GOTBlockWildFireJar() {
-		super(materialFireJar);
+		super(MATERIAL_FIRE_JAR);
 		setTickRandomly(true);
 		setCreativeTab(GOTCreativeTabs.tabCombat);
 		setBlockBounds(0.125f, 0.0f, 0.125f, 0.875f, 1.0f, 0.875f);
@@ -107,9 +114,8 @@ public class GOTBlockWildFireJar extends BlockFalling {
 			case 6:
 				return iconHandleSide;
 			default:
-				break;
+				return GOTBlocks.brick5.getIcon(i, 11);
 		}
-		return GOTBlocks.brick5.getIcon(i, 11);
 	}
 
 	@Override
@@ -216,5 +222,21 @@ public class GOTBlockWildFireJar extends BlockFalling {
 			func_149829_a(falling);
 			world.spawnEntityInWorld(falling);
 		}
+	}
+
+	public static boolean isExplodeOnAdded() {
+		return explodeOnAdded;
+	}
+
+	public static void setExplodeOnAdded(boolean explodeOnAdded) {
+		GOTBlockWildFireJar.explodeOnAdded = explodeOnAdded;
+	}
+
+	public static int getRenderingStage() {
+		return renderingStage;
+	}
+
+	public static void setRenderingStage(int renderingStage) {
+		GOTBlockWildFireJar.renderingStage = renderingStage;
 	}
 }

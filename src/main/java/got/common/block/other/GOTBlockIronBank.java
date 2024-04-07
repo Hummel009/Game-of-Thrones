@@ -2,6 +2,7 @@ package got.common.block.other;
 
 import got.common.GOTCommonProxy;
 import got.common.database.GOTItems;
+import got.common.item.other.GOTItemCoin;
 import got.common.util.GOTItemStackMapImpl;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -12,15 +13,13 @@ import net.minecraft.world.World;
 import java.util.Map;
 
 public class GOTBlockIronBank extends GOTBlockForgeBase {
-	public static Map<ItemStack, Integer> buy = new GOTItemStackMapImpl<>();
-	public static Map<ItemStack, Integer> sell = new GOTItemStackMapImpl<>();
+	public static final Map<ItemStack, Integer> BUY = new GOTItemStackMapImpl<>();
+	public static final Map<ItemStack, Integer> SELL = new GOTItemStackMapImpl<>();
 
 	public static void preInit() {
-		int k = 1;
-		for (int i = 0; i < 8; ++i) {
-			buy.put(new ItemStack(GOTItems.coin, 1, i), k);
-			sell.put(new ItemStack(GOTItems.coin, 1, i), k);
-			k *= 4;
+		for (int i = 0; i < GOTItemCoin.values.length; ++i) {
+			BUY.put(new ItemStack(GOTItems.coin, 1, i), GOTItemCoin.values[i]);
+			SELL.put(new ItemStack(GOTItems.coin, 1, i), GOTItemCoin.values[i]);
 		}
 	}
 

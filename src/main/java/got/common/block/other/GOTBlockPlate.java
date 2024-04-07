@@ -21,7 +21,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.Random;
 
 public class GOTBlockPlate extends BlockContainer {
-	public static Block.SoundType soundTypePlate = new Block.SoundType("got:plate", 1.0f, 1.0f) {
+	public static final Block.SoundType SOUND_TYPE_PLATE = new Block.SoundType("got:plate", 1.0f, 1.0f) {
 		@Override
 		public String func_150496_b() {
 			return soundTypeStone.func_150496_b();
@@ -37,8 +37,10 @@ public class GOTBlockPlate extends BlockContainer {
 			return soundTypeStone.getStepResourcePath();
 		}
 	};
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] plateIcons;
+
 	private Item plateItem;
 
 	public GOTBlockPlate() {
@@ -190,4 +192,7 @@ public class GOTBlockPlate extends BlockContainer {
 		plateItem = item;
 	}
 
+	public Item getPlateItem() {
+		return plateItem;
+	}
 }

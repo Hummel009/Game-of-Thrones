@@ -24,7 +24,8 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
-	public static int MAX_GROW_HEIGHT = 3;
+	public static final int MAX_GROW_HEIGHT = 3;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon cornIcon;
 
@@ -122,7 +123,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return null;
 	}
 
-	public Collection<ItemStack> getCornDrops(World world, int i, int j, int k, int meta) {
+	public Collection<ItemStack> getCornDrops(World world, int meta) {
 		Collection<ItemStack> drops = new ArrayList<>();
 		if (metaHasCorn(meta)) {
 			int corns = 1;
@@ -139,7 +140,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 	@Override
 	public ArrayList<ItemStack> getDrops(World world, int i, int j, int k, int meta, int fortune) {
 		ArrayList<ItemStack> drops = new ArrayList<>(super.getDrops(world, i, j, k, meta, fortune));
-		drops.addAll(getCornDrops(world, i, j, k, meta));
+		drops.addAll(getCornDrops(world, meta));
 		return drops;
 	}
 
@@ -205,7 +206,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 				int preMeta = world.getBlockMetadata(i, j, k);
 				setHasCorn(world, i, j, k, false);
 				if (!world.isRemote) {
-					Iterable<ItemStack> cornDrops = getCornDrops(world, i, j, k, preMeta);
+					Iterable<ItemStack> cornDrops = getCornDrops(world, preMeta);
 					for (ItemStack corn : cornDrops) {
 						dropBlockAsItem(world, i, j, k, corn);
 					}

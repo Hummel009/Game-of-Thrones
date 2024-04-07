@@ -30,8 +30,7 @@ public class GOTBlockWall4 extends GOTBlockWallBase {
 			case 4:
 				return GOTBlocks.brick4.getIcon(i, 4);
 			case 5:
-			case 15:
-				return GOTBlocks.brick6.getIcon(i, 4);
+				return GOTBlocks.brick4.getIcon(i, 5);
 			case 6:
 				return GOTBlocks.brick6.getIcon(i, 6);
 			case 7:
@@ -50,10 +49,11 @@ public class GOTBlockWall4 extends GOTBlockWallBase {
 				return GOTBlocks.brick6.getIcon(i, 1);
 			case 14:
 				return GOTBlocks.brick6.getIcon(i, 3);
+			case 15:
+				return GOTBlocks.brick6.getIcon(i, 4);
 			default:
-				break;
+				return super.getIcon(i, j);
 		}
-		return super.getIcon(i, j);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -65,7 +65,6 @@ public class GOTBlockWall4 extends GOTBlockWallBase {
 		list.add(new ItemStack(item, 1, 2));
 		list.add(new ItemStack(item, 1, 3));
 		list.add(new ItemStack(item, 1, 4));
-		list.add(new ItemStack(item, 1, 5));
 		list.add(new ItemStack(item, 1, 6));
 		list.add(new ItemStack(item, 1, 7));
 		list.add(new ItemStack(item, 1, 8));
@@ -73,5 +72,6 @@ public class GOTBlockWall4 extends GOTBlockWallBase {
 		list.add(new ItemStack(item, 1, 11));
 		list.add(new ItemStack(item, 1, 12));
 		list.add(new ItemStack(item, 1, 13));
+		list.add(new ItemStack(item, 1, 15));
 	}
 }

@@ -11,6 +11,7 @@ import net.minecraft.util.IIcon;
 public class GOTBlockSandstone extends Block {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon iconBottom;
 

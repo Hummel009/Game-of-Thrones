@@ -29,12 +29,13 @@ import java.util.Collection;
 import java.util.Random;
 
 public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
-	public static int MAX_GROWTH = 7;
-	public static int MAX_HEIGHT = 3;
-	public static boolean hoeing;
+	private static boolean hoeing;
+
 	private final boolean hasGrapes;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon postIcon;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] vineIcons;
 
@@ -141,7 +142,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	public ArrayList<ItemStack> getDrops(World world, int i, int j, int k, int meta, int fortune) {
 		ArrayList<ItemStack> drops = new ArrayList<>();
 		if (hasGrapes) {
-			drops.addAll(getVineDrops(world, i, j, k, meta, fortune));
+			drops.addAll(getVineDrops(world, meta, fortune));
 		} else {
 			drops.add(new ItemStack(this));
 		}
@@ -241,7 +242,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		return 0;
 	}
 
-	private Collection<ItemStack> getVineDrops(World world, int i, int j, int k, int meta, int fortune) {
+	private Collection<ItemStack> getVineDrops(World world, int meta, int fortune) {
 		Collection<ItemStack> drops = new ArrayList<>();
 		int seeds = 3 + fortune;
 		for (int l = 0; l < seeds; ++l) {
@@ -281,7 +282,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		int meta;
 		if (hasGrapes && (meta = world.getBlockMetadata(i, j, k)) >= 7) {
 			if (!world.isRemote) {
-				Iterable<ItemStack> drops = getVineDrops(world, i, j, k, meta, 0);
+				Iterable<ItemStack> drops = getVineDrops(world, meta, 0);
 				for (ItemStack itemstack : drops) {
 					dropBlockAsItem(world, i, j, k, itemstack);
 				}
@@ -369,5 +370,13 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 			meta++;
 			world.setBlockMetadataWithNotify(i, j, k, meta, 2);
 		}
+	}
+
+	public static boolean isHoeing() {
+		return hoeing;
+	}
+
+	public static void setHoeing(boolean hoeing) {
+		GOTBlockGrapevine.hoeing = hoeing;
 	}
 }

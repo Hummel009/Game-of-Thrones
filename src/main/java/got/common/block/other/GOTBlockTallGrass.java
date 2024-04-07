@@ -19,10 +19,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTBlockTallGrass extends GOTBlockGrass {
-	private static final String[] grassNames = {"short", "flower", "wheat", "thistle", "nettle", "fernsprout"};
-	public static boolean[] grassOverlay = {false, true, true, true, false, false};
+	public static final boolean[] GRASS_OVERLAY = {false, true, true, true, false, false};
+
+	private static final String[] GRASS_NAMES = {"short", "flower", "wheat", "thistle", "nettle", "fernsprout"};
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] grassIcons;
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] overlayIcons;
 
@@ -52,7 +55,7 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 	@Override
 	public IIcon getIcon(int i, int j) {
 		int j1 = j;
-		if (j1 >= grassNames.length) {
+		if (j1 >= GRASS_NAMES.length) {
 			j1 = 0;
 		}
 		if (i == -1) {
@@ -71,7 +74,7 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void getSubBlocks(Item item, CreativeTabs tab, List list) {
-		for (int j = 0; j < grassNames.length; ++j) {
+		for (int j = 0; j < GRASS_NAMES.length; ++j) {
 			list.add(new ItemStack(item, 1, j));
 		}
 	}
@@ -91,14 +94,14 @@ public class GOTBlockTallGrass extends GOTBlockGrass {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerBlockIcons(IIconRegister iconregister) {
-		grassIcons = new IIcon[grassNames.length];
-		overlayIcons = new IIcon[grassNames.length];
-		for (int i = 0; i < grassNames.length; ++i) {
-			grassIcons[i] = iconregister.registerIcon(getTextureName() + '_' + grassNames[i]);
-			if (!grassOverlay[i]) {
+		grassIcons = new IIcon[GRASS_NAMES.length];
+		overlayIcons = new IIcon[GRASS_NAMES.length];
+		for (int i = 0; i < GRASS_NAMES.length; ++i) {
+			grassIcons[i] = iconregister.registerIcon(getTextureName() + '_' + GRASS_NAMES[i]);
+			if (!GRASS_OVERLAY[i]) {
 				continue;
 			}
-			overlayIcons[i] = iconregister.registerIcon(getTextureName() + '_' + grassNames[i] + "_overlay");
+			overlayIcons[i] = iconregister.registerIcon(getTextureName() + '_' + GRASS_NAMES[i] + "_overlay");
 		}
 	}
 }
