@@ -53,7 +53,7 @@ public class GOTBlockBarrel extends BlockContainer {
 			}
 			barrel.setInventorySlotContents(9, brewing);
 			if (!world.isRemote && (meta & 8) == 0) {
-				dropBlockAsItem(world, i, j, k, getBarrelDrop(world, i, j, k, meta));
+				dropBlockAsItem(world, i, j, k, getBarrelDrop(world, i, j, k));
 			}
 		}
 		super.breakBlock(world, i, j, k, block, meta);
@@ -64,7 +64,7 @@ public class GOTBlockBarrel extends BlockContainer {
 		return new GOTTileEntityBarrel();
 	}
 
-	private ItemStack getBarrelDrop(World world, int i, int j, int k, int metadata) {
+	private ItemStack getBarrelDrop(World world, int i, int j, int k) {
 		ItemStack itemstack = new ItemStack(Item.getItemFromBlock(this));
 		GOTTileEntityBarrel barrel = (GOTTileEntityBarrel) world.getTileEntity(i, j, k);
 		if (barrel != null && barrel.barrelMode != 0) {
@@ -94,7 +94,7 @@ public class GOTBlockBarrel extends BlockContainer {
 	@SuppressWarnings("deprecation")
 	public ItemStack getPickBlock(MovingObjectPosition target, World world, int i, int j, int k) {
 		world.markBlockForUpdate(i, j, k);
-		return getBarrelDrop(world, i, j, k, world.getBlockMetadata(i, j, k));
+		return getBarrelDrop(world, i, j, k);
 	}
 
 	@Override

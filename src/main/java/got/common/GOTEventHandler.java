@@ -400,7 +400,7 @@ public class GOTEventHandler implements IFuelHandler {
 			if (!world.isRemote && GOTBlockGrapevine.isFullGrownGrapes(block, meta)) {
 				GOTEntityReachSoldier.defendGrapevines(entityplayer, world, i, j, k);
 			}
-			if (block == Blocks.bookshelf && !entityplayer.isSneaking() && GOTBlockBookshelfStorage.canOpenBookshelf(world, i, j, k, entityplayer) && !world.isRemote) {
+			if (block == Blocks.bookshelf && !entityplayer.isSneaking() && GOTBlockBookshelfStorage.canOpenBookshelf(entityplayer) && !world.isRemote) {
 				world.setBlock(i, j, k, GOTBlocks.bookshelfStorage, 0, 3);
 				boolean flag = GOTBlocks.bookshelfStorage.onBlockActivated(world, i, j, k, entityplayer, side, 0.5F, 0.5F, 0.5F);
 				if (!flag) {

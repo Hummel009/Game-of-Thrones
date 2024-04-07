@@ -16,7 +16,7 @@ public class GOTBlockLeavesFruit extends GOTBlockLeavesBase {
 	}
 
 	@Override
-	public void addSpecialLeafDrops(List<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
+	public void addSpecialLeafDrops(List<ItemStack> drops, World world, int meta, int fortune) {
 		if ((meta & 3) == 0 && world.rand.nextInt(calcFortuneModifiedDropChance(16, fortune)) == 0) {
 			if (world.rand.nextBoolean()) {
 				drops.add(new ItemStack(Items.apple));

@@ -45,7 +45,7 @@ public class GOTBlockReed extends Block implements IPlantable {
 		return below == this || below.getMaterial() == Material.water && belowMeta == 0;
 	}
 
-	protected boolean canReedGrow(World world, int i, int j, int k) {
+	protected boolean canReedGrow() {
 		return true;
 	}
 
@@ -141,7 +141,7 @@ public class GOTBlockReed extends Block implements IPlantable {
 
 	@Override
 	public void updateTick(World world, int i, int j, int k, Random random) {
-		if (checkCanStay(world, i, j, k) && canReedGrow(world, i, j, k) && world.isAirBlock(i, j + 1, k)) {
+		if (checkCanStay(world, i, j, k) && canReedGrow() && world.isAirBlock(i, j + 1, k)) {
 			int belowReeds = 1;
 			while (world.getBlock(i, j - belowReeds, k) == this) {
 				++belowReeds;

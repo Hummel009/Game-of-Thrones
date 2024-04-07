@@ -62,7 +62,7 @@ public class GOTBlockTreasurePile extends Block {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 
-	private static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock, int thisMeta) {
+	private static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock) {
 		Block block = world.getBlock(i, j, k);
 		int meta = world.getBlockMetadata(i, j, k);
 		return block == thisBlock && meta < 7 || BlockFalling.func_149831_e(world, i, j, k);
@@ -244,7 +244,7 @@ public class GOTBlockTreasurePile extends Block {
 	private boolean tryFall(World world, int i, int j, int k) {
 		int j1 = j;
 		int meta = world.getBlockMetadata(i, j1, k);
-		if (canFallUpon(world, i, j1 - 1, k, this, meta) && j1 >= 0) {
+		if (canFallUpon(world, i, j1 - 1, k, this) && j1 >= 0) {
 			int range = 32;
 			if (!BlockFalling.fallInstantly && world.checkChunksExist(i - range, j1 - range, k - range, i + range, j1 + range, k + range)) {
 				if (!world.isRemote) {
@@ -254,7 +254,7 @@ public class GOTBlockTreasurePile extends Block {
 				}
 			} else {
 				world.setBlockToAir(i, j1, k);
-				while (canFallUpon(world, i, j1 - 1, k, this, meta) && j1 > 0) {
+				while (canFallUpon(world, i, j1 - 1, k, this) && j1 > 0) {
 					--j1;
 				}
 				if (j1 > 0) {

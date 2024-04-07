@@ -29,7 +29,7 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 		setCreativeTab(null);
 	}
 
-	public static boolean canOpenBookshelf(World world, int i, int j, int k, EntityPlayer entityplayer) {
+	public static boolean canOpenBookshelf(EntityPlayer entityplayer) {
 		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
 		return itemstack == null || itemstack.getItem() != Item.getItemFromBlock(Blocks.bookshelf);
 	}
@@ -82,7 +82,7 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
-		if (!canOpenBookshelf(world, i, j, k, entityplayer)) {
+		if (!canOpenBookshelf(entityplayer)) {
 			return false;
 		}
 		if (!world.isRemote) {

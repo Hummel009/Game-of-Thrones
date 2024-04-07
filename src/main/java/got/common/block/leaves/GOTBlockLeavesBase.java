@@ -65,7 +65,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		}
 	}
 
-	protected void addSpecialLeafDrops(List<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
+	protected void addSpecialLeafDrops(List<ItemStack> drops, World world, int meta, int fortune) {
 	}
 
 	protected int calcFortuneModifiedDropChance(int baseChance, int fortune) {
@@ -101,7 +101,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		if (world.rand.nextInt(saplingChance) == 0) {
 			drops.add(new ItemStack(getItemDropped(meta, world.rand, fortune), 1, damageDropped(meta)));
 		}
-		addSpecialLeafDrops(drops, world, i, j, k, meta, fortune);
+		addSpecialLeafDrops(drops, world, meta, fortune);
 		return drops;
 	}
 
