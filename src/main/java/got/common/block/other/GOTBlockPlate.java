@@ -93,7 +93,7 @@ public class GOTBlockPlate extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return i == 1 ? plateIcons[0] : plateIcons[1];
+		return plateIcons[i == 1 ? 0 : 1];
 	}
 
 	@Override

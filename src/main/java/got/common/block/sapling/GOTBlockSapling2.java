@@ -36,7 +36,7 @@ public class GOTBlockSapling2 extends GOTBlockSaplingBase {
 					zOffset = partyTree[1];
 				}
 				if (treeGen == null) {
-					treeGen = random.nextInt(10) == 0 ? GOTTreeType.BEECH_LARGE.create(true, random) : GOTTreeType.BEECH.create(true, random);
+					treeGen = (random.nextInt(10) == 0 ? GOTTreeType.BEECH_LARGE : GOTTreeType.BEECH).create(true, random);
 					trunkPos = 0;
 					trunkNeg = 0;
 					xOffset = 0;

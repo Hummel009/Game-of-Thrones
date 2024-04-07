@@ -72,9 +72,9 @@ public class GOTBlockBomb extends Block {
 			return bombIcons[2];
 		}
 		if (i == 1) {
-			return isFire ? bombIcons[4] : bombIcons[1];
+			return bombIcons[isFire ? 4 : 1];
 		}
-		return isFire ? bombIcons[3] : bombIcons[0];
+		return bombIcons[isFire ? 3 : 0];
 	}
 
 	@SideOnly(Side.CLIENT)

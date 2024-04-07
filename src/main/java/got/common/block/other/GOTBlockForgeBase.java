@@ -66,13 +66,13 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 			return forgeIcons[1];
 		}
 		int meta = world.getBlockMetadata(i, j, k) & 7;
-		return side != meta ? forgeIcons[0] : isForgeActive(world, i, j, k) ? forgeIcons[3] : forgeIcons[2];
+		return side != meta ? forgeIcons[0] : forgeIcons[isForgeActive(world, i, j, k) ? 3 : 2];
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		return i == 1 || i == 0 ? forgeIcons[1] : i == 3 ? forgeIcons[2] : forgeIcons[0];
+		return i == 1 || i == 0 ? forgeIcons[1] : forgeIcons[i == 3 ? 2 : 0];
 	}
 
 	@Override
