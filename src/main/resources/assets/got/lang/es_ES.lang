@@ -1173,8 +1173,8 @@ got.achievement.STEAL.desc=Robar un objeto para un compañero ladrón
 got.achievement.STEAL.title=Misión cumplida
 got.achievement.STEAL_ARBOR_GRAPES.desc=Robar uvas en Arbor
 got.achievement.STEAL_ARBOR_GRAPES.title=¡Es mio!
-got.achievement.KILL_THEON_GREYJOY.desc=Tormento Theon Greyjoy
-got.achievement.KILL_THEON_GREYJOY.title=Es solo una salchicha
+got.achievement.TORMENT_THEON_GREYJOY.desc=Tormento Theon Greyjoy
+got.achievement.TORMENT_THEON_GREYJOY.title=Es solo una salchicha
 got.achievement.TRADE.desc=Comercia con alguien
 got.achievement.TRADE.title=Iniciar un negocio
 got.achievement.TRAVEL10.desc≠Visit 10 biomes

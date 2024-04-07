@@ -234,29 +234,32 @@ public class GOTPlayerData {
 		markDirty();
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null && !entityplayer.worldObj.isRemote) {
-			sendAchievementPacket((EntityPlayerMP) entityplayer, achievement, true);
-			achievement.broadcastEarning(entityplayer);
-			List<GOTAchievement> earnedAchievements = getEarnedAchievements(GOTDimension.GAME_OF_THRONES);
-			int biomes = 0;
-			for (GOTAchievement earnedAchievement : earnedAchievements) {
-				if (earnedAchievement.isBiomeAchievement()) {
-					biomes++;
+			boolean canEarn = achievement.canPlayerEarn(entityplayer);
+			sendAchievementPacket((EntityPlayerMP) entityplayer, achievement, canEarn);
+			if (canEarn) {
+				achievement.broadcastEarning(entityplayer);
+				List<GOTAchievement> earnedAchievements = getEarnedAchievements(GOTDimension.GAME_OF_THRONES);
+				int biomes = 0;
+				for (GOTAchievement earnedAchievement : earnedAchievements) {
+					if (earnedAchievement.isBiomeAchievement) {
+						biomes++;
+					}
 				}
-			}
-			if (biomes >= 10) {
-				addAchievement(GOTAchievement.travel10);
-			}
-			if (biomes >= 20) {
-				addAchievement(GOTAchievement.travel20);
-			}
-			if (biomes >= 30) {
-				addAchievement(GOTAchievement.travel30);
-			}
-			if (biomes >= 40) {
-				addAchievement(GOTAchievement.travel40);
-			}
-			if (biomes >= 50) {
-				addAchievement(GOTAchievement.travel50);
+				if (biomes >= 10) {
+					addAchievement(GOTAchievement.travel10);
+				}
+				if (biomes >= 20) {
+					addAchievement(GOTAchievement.travel20);
+				}
+				if (biomes >= 30) {
+					addAchievement(GOTAchievement.travel30);
+				}
+				if (biomes >= 40) {
+					addAchievement(GOTAchievement.travel40);
+				}
+				if (biomes >= 50) {
+					addAchievement(GOTAchievement.travel50);
+				}
 			}
 		}
 	}
@@ -1031,7 +1034,7 @@ public class GOTPlayerData {
 		EntityPlayer entityplayer = getPlayer();
 		if (entityplayer != null) {
 			for (GOTAchievement achievement : achievements) {
-				if (achievement.getDimension() == dimension) {
+				if (achievement.getDimension() == dimension && achievement.canPlayerEarn(entityplayer)) {
 					earnedAchievements.add(achievement);
 				}
 			}
@@ -1468,7 +1471,7 @@ public class GOTPlayerData {
 
 	public boolean hasAchievement(GOTAchievement achievement) {
 		for (GOTAchievement a : achievements) {
-			if (a.getCategory() == achievement.getCategory() && a.getId() == achievement.getId()) {
+			if (a.category == achievement.category && a.ID == achievement.ID) {
 				return true;
 			}
 		}
@@ -2450,8 +2453,8 @@ public class GOTPlayerData {
 		NBTTagList achievementTags = new NBTTagList();
 		for (GOTAchievement achievement : achievements) {
 			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setString("Category", achievement.getCategory().name());
-			nbt.setInteger("ID", achievement.getId());
+			nbt.setString("Category", achievement.category.name());
+			nbt.setInteger("ID", achievement.ID);
 			achievementTags.appendTag(nbt);
 		}
 		playerData.setTag("Achievements", achievementTags);

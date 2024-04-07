@@ -629,7 +629,7 @@ public class GOTAPI {
 
 	private static void removeTitle(GOTTitle title) {
 		if (title.titleType == GOTTitle.TitleType.ACHIEVEMENT) {
-			title.titleAchievement.setAchievementTitle(null);
+			title.titleAchievement.achievementTitle = null;
 			title.titleAchievement = null;
 		}
 		title.isHidden = true;
