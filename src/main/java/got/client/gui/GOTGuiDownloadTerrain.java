@@ -29,10 +29,10 @@ public class GOTGuiDownloadTerrain extends GuiDownloadTerrain {
 			OpenGlHelper.glBlendFunc(770, 771, 1, 0);
 			double x = GOTWaypoint.KINGS_LANDING.getX();
 			double y = GOTWaypoint.KINGS_LANDING.getY();
-			mapRenderer.setMapX(x);
-			mapRenderer.setMapY(y);
 			mapRenderer.setPrevMapX(x);
+			mapRenderer.setMapX(x);
 			mapRenderer.setPrevMapY(y);
+			mapRenderer.setMapY(y);
 			mapRenderer.setZoomExp(-1.0f);
 			mapRenderer.setZoomStable((float) Math.pow(2.0, -1.00000001192092896));
 			int x0 = 0;
