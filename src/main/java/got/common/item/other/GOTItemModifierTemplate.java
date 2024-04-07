@@ -45,14 +45,14 @@ public class GOTItemModifierTemplate extends Item {
 			applicable.add(wre);
 		}
 		GOTEnchantmentHelper.WeightedRandomEnchant chosenWre = (GOTEnchantmentHelper.WeightedRandomEnchant) WeightedRandom.getRandomItem(random, applicable);
-		GOTEnchantment chosenEnch = chosenWre.theEnchant;
+		GOTEnchantment chosenEnch = chosenWre.getTheEnchant();
 		ItemStack itemstack = new ItemStack(GOTItems.smithScroll);
 		setModifier(itemstack, chosenEnch);
 		return itemstack;
 	}
 
 	public static void setModifier(ItemStack itemstack, GOTEnchantment ench) {
-		String s = ench.enchantName;
+		String s = ench.getEnchantName();
 		itemstack.setTagInfo("ScrollModifier", new NBTTagString(s));
 	}
 

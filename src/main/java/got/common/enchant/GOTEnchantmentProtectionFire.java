@@ -11,7 +11,7 @@ public class GOTEnchantmentProtectionFire extends GOTEnchantmentProtectionSpecia
 
 	@Override
 	protected int calcIntProtection() {
-		return 1 + protectLevel;
+		return 1 + getProtectLevel();
 	}
 
 	@Override

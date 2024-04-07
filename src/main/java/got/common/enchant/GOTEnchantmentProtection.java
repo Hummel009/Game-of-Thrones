@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtection extends GOTEnchantment {
-	public int protectLevel;
+	private final int protectLevel;
 
 	private GOTEnchantmentProtection(String s, GOTEnchantmentType type, int level) {
 		super(s, type);
@@ -52,5 +52,9 @@ public class GOTEnchantmentProtection extends GOTEnchantment {
 	@Override
 	public boolean isBeneficial() {
 		return protectLevel >= 0;
+	}
+
+	public int getProtectLevel() {
+		return protectLevel;
 	}
 }

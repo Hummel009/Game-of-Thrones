@@ -12,7 +12,7 @@ public class GOTEnchantmentProtectionFall extends GOTEnchantmentProtectionSpecia
 
 	@Override
 	protected int calcIntProtection() {
-		float f = protectLevel * (protectLevel + 1) / 2.0F;
+		float f = getProtectLevel() * (getProtectLevel() + 1) / 2.0F;
 		return 3 + MathHelper.floor_float(f);
 	}
 

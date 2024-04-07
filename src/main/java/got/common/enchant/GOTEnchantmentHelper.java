@@ -66,7 +66,7 @@ public class GOTEnchantmentHelper {
 						weight *= 100;
 					}
 
-					if (weight > 0 && itemstack.getItem() instanceof ItemTool && !ench.itemTypes.contains(GOTEnchantmentType.TOOL) && !ench.itemTypes.contains(GOTEnchantmentType.BREAKABLE)) {
+					if (weight > 0 && itemstack.getItem() instanceof ItemTool && !ench.getItemTypes().contains(GOTEnchantmentType.TOOL) && !ench.getItemTypes().contains(GOTEnchantmentType.BREAKABLE)) {
 						weight /= 3;
 						weight = Math.max(weight, 1);
 					}
@@ -86,14 +86,14 @@ public class GOTEnchantmentHelper {
 				}
 
 				WeightedRandomEnchant chosenWre = (WeightedRandomEnchant) WeightedRandom.getRandomItem(random, applicable);
-				GOTEnchantment chosenEnch = chosenWre.theEnchant;
+				GOTEnchantment chosenEnch = chosenWre.getTheEnchant();
 				chosenEnchants.add(chosenEnch);
 
 				applicable.remove(chosenWre);
 
 				Collection<WeightedRandomEnchant> nowIncompatibles = new ArrayList<>();
 				for (WeightedRandomEnchant wre : applicable) {
-					GOTEnchantment otherEnch = wre.theEnchant;
+					GOTEnchantment otherEnch = wre.getTheEnchant();
 					if (!otherEnch.isCompatibleWith(chosenEnch)) {
 						nowIncompatibles.add(wre);
 					}
@@ -135,7 +135,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentProtection) {
-					protection += ((GOTEnchantmentProtection) ench).protectLevel;
+					protection += ((GOTEnchantmentProtection) ench).getProtectLevel();
 				}
 			}
 		}
@@ -165,7 +165,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentKnockback) {
-					kb += ((GOTEnchantmentKnockback) ench).knockback;
+					kb += ((GOTEnchantmentKnockback) ench).getKnockback();
 				}
 			}
 		}
@@ -203,7 +203,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentLooting) {
-					looting += ((GOTEnchantmentLooting) ench).lootLevel;
+					looting += ((GOTEnchantmentLooting) ench).getLootLevel();
 				}
 			}
 		}
@@ -218,7 +218,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentMeleeReach) {
-					reach *= ((GOTEnchantmentMeleeReach) ench).reachFactor;
+					reach *= ((GOTEnchantmentMeleeReach) ench).getReachFactor();
 				}
 			}
 		}
@@ -233,7 +233,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentMeleeSpeed) {
-					speed *= ((GOTEnchantmentMeleeSpeed) ench).speedFactor;
+					speed *= ((GOTEnchantmentMeleeSpeed) ench).getSpeedFactor();
 				}
 			}
 		}
@@ -248,7 +248,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentRangedDamage) {
-					damage *= ((GOTEnchantmentRangedDamage) ench).damageFactor;
+					damage *= ((GOTEnchantmentRangedDamage) ench).getDamageFactor();
 				}
 			}
 		}
@@ -263,7 +263,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentRangedKnockback) {
-					kb += ((GOTEnchantmentRangedKnockback) ench).knockback;
+					kb += ((GOTEnchantmentRangedKnockback) ench).getKnockback();
 				}
 			}
 		}
@@ -297,7 +297,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentToolSpeed) {
-					speed *= ((GOTEnchantmentToolSpeed) ench).speedFactor;
+					speed *= ((GOTEnchantmentToolSpeed) ench).getSpeedFactor();
 				}
 			}
 		}
@@ -427,7 +427,7 @@ public class GOTEnchantmentHelper {
 					List<GOTEnchantment> enchants = getEnchantList(itemstack);
 					for (GOTEnchantment ench : enchants) {
 						if (ench instanceof GOTEnchantmentProtectionFire) {
-							int protection = ((GOTEnchantmentProtectionSpecial) ench).protectLevel;
+							int protection = ((GOTEnchantmentProtectionSpecial) ench).getProtectLevel();
 							if (protection > max) {
 								max = protection;
 							}
@@ -467,7 +467,7 @@ public class GOTEnchantmentHelper {
 		if (tags != null) {
 			for (int i = 0; i < tags.tagCount(); i++) {
 				String s = tags.getStringTagAt(i);
-				if (s.equals(ench.enchantName)) {
+				if (s.equals(ench.getEnchantName())) {
 					return true;
 				}
 			}
@@ -497,7 +497,7 @@ public class GOTEnchantmentHelper {
 		if (tags != null) {
 			for (int i = 0; i < tags.tagCount(); i++) {
 				String s = tags.getStringTagAt(i);
-				if (s.equals(ench.enchantName)) {
+				if (s.equals(ench.getEnchantName())) {
 					return true;
 				}
 			}
@@ -526,7 +526,7 @@ public class GOTEnchantmentHelper {
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
 			for (GOTEnchantment ench : enchants) {
 				if (ench instanceof GOTEnchantmentDurability) {
-					float durability = ((GOTEnchantmentDurability) ench).durabilityFactor;
+					float durability = ((GOTEnchantmentDurability) ench).getDurabilityFactor();
 					if (durability > 1.0F) {
 						float inv = 1.0F / durability;
 						if (random1.nextFloat() > inv) {
@@ -592,7 +592,7 @@ public class GOTEnchantmentHelper {
 	public static void removeEnchant(ItemStack itemstack, GOTEnchantment ench) {
 		NBTTagList tags = getItemEnchantTags(itemstack, true);
 		if (tags != null) {
-			String enchName = ench.enchantName;
+			String enchName = ench.getEnchantName();
 			for (int i = 0; i < tags.tagCount(); i++) {
 				String s = tags.getStringTagAt(i);
 				if (s.equals(enchName)) {
@@ -628,7 +628,7 @@ public class GOTEnchantmentHelper {
 		if (!hasEnchant(itemstack, ench)) {
 			NBTTagList tags = getItemEnchantTags(itemstack, true);
 			if (tags != null) {
-				String enchName = ench.enchantName;
+				String enchName = ench.getEnchantName();
 				tags.appendTag(new NBTTagString(enchName));
 			}
 		}
@@ -638,7 +638,7 @@ public class GOTEnchantmentHelper {
 		if (!hasProjectileEnchantment(entity, ench)) {
 			NBTTagList tags = getEntityEnchantTags(entity, true);
 			if (tags != null) {
-				String enchName = ench.enchantName;
+				String enchName = ench.getEnchantName();
 				tags.appendTag(new NBTTagString(enchName));
 			}
 		}
@@ -653,11 +653,15 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static class WeightedRandomEnchant extends WeightedRandom.Item {
-		public GOTEnchantment theEnchant;
+		private final GOTEnchantment theEnchant;
 
 		public WeightedRandomEnchant(GOTEnchantment e, int weight) {
 			super(weight);
 			theEnchant = e;
+		}
+
+		public GOTEnchantment getTheEnchant() {
+			return theEnchant;
 		}
 	}
 }

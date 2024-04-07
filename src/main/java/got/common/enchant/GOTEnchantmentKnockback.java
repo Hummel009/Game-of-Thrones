@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentKnockback extends GOTEnchantment {
-	public int knockback;
+	private int knockback;
 
 	public GOTEnchantmentKnockback(String s, int i) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.MELEE, GOTEnchantmentType.THROWING_AXE});
@@ -26,5 +26,13 @@ public class GOTEnchantmentKnockback extends GOTEnchantment {
 	@Override
 	public boolean isBeneficial() {
 		return knockback >= 0;
+	}
+
+	public int getKnockback() {
+		return knockback;
+	}
+
+	public void setKnockback(int knockback) {
+		this.knockback = knockback;
 	}
 }

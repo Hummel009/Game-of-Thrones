@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentMeleeSpeed extends GOTEnchantment {
-	public float speedFactor;
+	private final float speedFactor;
 
 	public GOTEnchantmentMeleeSpeed(String s, float speed) {
 		super(s, GOTEnchantmentType.MELEE);
@@ -31,5 +31,9 @@ public class GOTEnchantmentMeleeSpeed extends GOTEnchantment {
 	@Override
 	public boolean isBeneficial() {
 		return speedFactor >= 1.0F;
+	}
+
+	public float getSpeedFactor() {
+		return speedFactor;
 	}
 }

@@ -4,7 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentRangedDamage extends GOTEnchantment {
-	public float damageFactor;
+	private final float damageFactor;
 
 	public GOTEnchantmentRangedDamage(String s, float damage) {
 		super(s, GOTEnchantmentType.RANGED_LAUNCHER);
@@ -24,5 +24,9 @@ public class GOTEnchantmentRangedDamage extends GOTEnchantment {
 	@Override
 	public boolean isBeneficial() {
 		return damageFactor >= 1.0F;
+	}
+
+	public float getDamageFactor() {
+		return damageFactor;
 	}
 }

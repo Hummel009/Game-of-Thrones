@@ -11,7 +11,7 @@ public class GOTEnchantmentSilkTouch extends GOTEnchantment {
 
 	@Override
 	public String getDescription(ItemStack itemstack) {
-		return StatCollector.translateToLocalFormatted("got.enchant." + enchantName + ".desc");
+		return StatCollector.translateToLocalFormatted("got.enchant." + getEnchantName() + ".desc");
 	}
 
 	@Override

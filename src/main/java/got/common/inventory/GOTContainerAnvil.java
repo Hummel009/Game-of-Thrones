@@ -536,7 +536,7 @@ public class GOTContainerAnvil extends Container {
 			}
 			if (isTrader && (scrollCombine = GOTEnchantmentCombining.getCombinationResult(inputItem, combinerItem)) != null) {
 				invOutput.setInventorySlotContents(0, scrollCombine.createOutputItem());
-				materialCost = scrollCombine.cost;
+				materialCost = scrollCombine.getCost();
 				reforgeCost = 0;
 				engraveOwnerCost = 0;
 				isSmithScrollCombine = true;

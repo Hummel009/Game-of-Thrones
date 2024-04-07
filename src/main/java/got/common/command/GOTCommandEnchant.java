@@ -32,7 +32,7 @@ public class GOTCommandEnchant extends CommandBase {
 							if (GOTEnchantmentHelper.hasEnchant(itemstack2, ench) || !ench.canApply(itemstack2, false) || !GOTEnchantmentHelper.checkEnchantCompatible(itemstack2, ench)) {
 								continue;
 							}
-							enchNames.add(ench.enchantName);
+							enchNames.add(ench.getEnchantName());
 						}
 						return getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
 					}
@@ -42,7 +42,7 @@ public class GOTCommandEnchant extends CommandBase {
 						if (!GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
 							continue;
 						}
-						enchNames.add(ench.enchantName);
+						enchNames.add(ench.getEnchantName());
 					}
 					return getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
 				}

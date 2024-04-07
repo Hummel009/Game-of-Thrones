@@ -51,10 +51,10 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 	@Override
 	public String getDescription(ItemStack itemstack) {
 		if (GOTWeaponStats.isMeleeWeapon(itemstack)) {
-			return StatCollector.translateToLocalFormatted("got.enchant." + enchantName + ".desc.melee");
+			return StatCollector.translateToLocalFormatted("got.enchant." + getEnchantName() + ".desc.melee");
 		}
 
-		return StatCollector.translateToLocalFormatted("got.enchant." + enchantName + ".desc.ranged");
+		return StatCollector.translateToLocalFormatted("got.enchant." + getEnchantName() + ".desc.ranged");
 	}
 
 	@Override

@@ -4,7 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentLooting extends GOTEnchantment {
-	public int lootLevel;
+	private final int lootLevel;
 
 	public GOTEnchantmentLooting(String s, int level) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.TOOL, GOTEnchantmentType.MELEE});
@@ -25,5 +25,9 @@ public class GOTEnchantmentLooting extends GOTEnchantment {
 	@Override
 	public boolean isCompatibleWith(GOTEnchantment other) {
 		return super.isCompatibleWith(other) && !(other instanceof GOTEnchantmentSilkTouch);
+	}
+
+	public int getLootLevel() {
+		return lootLevel;
 	}
 }

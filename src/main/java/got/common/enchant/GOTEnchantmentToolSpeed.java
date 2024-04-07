@@ -4,7 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentToolSpeed extends GOTEnchantment {
-	public float speedFactor;
+	private final float speedFactor;
 
 	public GOTEnchantmentToolSpeed(String s, float speed) {
 		super(s, new GOTEnchantmentType[]{GOTEnchantmentType.TOOL, GOTEnchantmentType.SHEARS});
@@ -20,5 +20,9 @@ public class GOTEnchantmentToolSpeed extends GOTEnchantment {
 	@Override
 	public boolean isBeneficial() {
 		return speedFactor >= 1.0F;
+	}
+
+	public float getSpeedFactor() {
+		return speedFactor;
 	}
 }

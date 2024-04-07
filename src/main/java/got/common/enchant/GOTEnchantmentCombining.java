@@ -29,7 +29,7 @@ public class GOTEnchantmentCombining {
 			GOTEnchantment mod2 = GOTItemModifierTemplate.getModifier(item2);
 			if (mod1 == mod2) {
 				for (CombineRecipe recipe : allCombineRecipes) {
-					if (recipe.inputMod == mod1) {
+					if (recipe.getInputMod() == mod1) {
 						return recipe;
 					}
 				}
@@ -73,9 +73,9 @@ public class GOTEnchantmentCombining {
 	}
 
 	public static class CombineRecipe {
-		protected GOTEnchantment inputMod;
-		protected GOTEnchantment outputMod;
-		public int cost;
+		private final GOTEnchantment inputMod;
+		private final GOTEnchantment outputMod;
+		private int cost;
 
 		protected CombineRecipe(GOTEnchantment in, GOTEnchantment out, int c) {
 			inputMod = in;
@@ -87,6 +87,18 @@ public class GOTEnchantmentCombining {
 			ItemStack item = new ItemStack(GOTItems.smithScroll);
 			GOTItemModifierTemplate.setModifier(item, outputMod);
 			return item;
+		}
+
+		public int getCost() {
+			return cost;
+		}
+
+		public void setCost(int cost) {
+			this.cost = cost;
+		}
+
+		public GOTEnchantment getInputMod() {
+			return inputMod;
 		}
 	}
 }

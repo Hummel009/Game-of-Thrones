@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentMeleeReach extends GOTEnchantment {
-	public float reachFactor;
+	private final float reachFactor;
 
 	public GOTEnchantmentMeleeReach(String s, float reach) {
 		super(s, GOTEnchantmentType.MELEE);
@@ -31,5 +31,9 @@ public class GOTEnchantmentMeleeReach extends GOTEnchantment {
 	@Override
 	public boolean isBeneficial() {
 		return reachFactor >= 1.0F;
+	}
+
+	public float getReachFactor() {
+		return reachFactor;
 	}
 }

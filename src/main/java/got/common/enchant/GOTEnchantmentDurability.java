@@ -4,7 +4,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentDurability extends GOTEnchantment {
-	public float durabilityFactor;
+	private final float durabilityFactor;
 
 	public GOTEnchantmentDurability(String s, float f) {
 		super(s, GOTEnchantmentType.BREAKABLE);
@@ -20,5 +20,9 @@ public class GOTEnchantmentDurability extends GOTEnchantment {
 	@Override
 	public boolean isBeneficial() {
 		return durabilityFactor >= 1.0F;
+	}
+
+	public float getDurabilityFactor() {
+		return durabilityFactor;
 	}
 }

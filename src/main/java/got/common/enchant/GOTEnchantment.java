@@ -7,9 +7,11 @@ import net.minecraft.util.StatCollector;
 import java.text.DecimalFormat;
 import java.util.*;
 
+@SuppressWarnings("unused")
 public abstract class GOTEnchantment {
+	private static final Map<String, GOTEnchantment> ENCHANTS_BY_NAME = new HashMap<>();
+
 	public static final Collection<GOTEnchantment> ALL_ENCHANTMENTS = new ArrayList<>();
-	public static final Map<String, GOTEnchantment> ENCHANTS_BY_NAME = new HashMap<>();
 
 	public static final GOTEnchantment STRONG_1 = new GOTEnchantmentDamage("strong1", 0.5F).setEnchantWeight(10);
 	public static final GOTEnchantment STRONG_2 = new GOTEnchantmentDamage("strong2", 1.0F).setEnchantWeight(5);
@@ -78,14 +80,12 @@ public abstract class GOTEnchantment {
 	public static final GOTEnchantment CHILL = new GOTEnchantmentWeaponSpecial("chill").setEnchantWeight(0).setApplyToProjectile();
 	public static final GOTEnchantment HEADHUNTING = new GOTEnchantmentWeaponSpecial("headhunting").setCompatibleOtherSpecial().setEnchantWeight(0).setApplyToProjectile();
 
-	public String enchantName;
+	private String enchantName;
+	private List<GOTEnchantmentType> itemTypes;
 
-	public List<GOTEnchantmentType> itemTypes;
 	private int enchantWeight;
 	private float valueModifier = 1.0F;
-
 	private boolean skilful;
-
 	private boolean bypassAnvilLimit;
 	private boolean applyToProjectile;
 
@@ -209,5 +209,21 @@ public abstract class GOTEnchantment {
 	private GOTEnchantment setSkilful() {
 		skilful = true;
 		return this;
+	}
+
+	public String getEnchantName() {
+		return enchantName;
+	}
+
+	public void setEnchantName(String enchantName) {
+		this.enchantName = enchantName;
+	}
+
+	public List<GOTEnchantmentType> getItemTypes() {
+		return itemTypes;
+	}
+
+	public void setItemTypes(List<GOTEnchantmentType> itemTypes) {
+		this.itemTypes = itemTypes;
 	}
 }

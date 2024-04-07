@@ -38,6 +38,5 @@ public enum GOTEnchantmentType {
 		}
 
 		return this == MELEE && GOTWeaponStats.isMeleeWeapon(itemstack) && !(item instanceof GOTItemCommandSword) || this == TOOL && !item.getToolClasses(itemstack).isEmpty() || this == SHEARS && item instanceof ItemShears || this == RANGED && GOTWeaponStats.isRangedWeapon(itemstack) || this == RANGED_LAUNCHER && (item instanceof ItemBow || item instanceof GOTItemSarbacane) || this == THROWING_AXE && item instanceof GOTItemThrowingAxe || this == FISHING && item instanceof ItemFishingRod;
-
 	}
 }
