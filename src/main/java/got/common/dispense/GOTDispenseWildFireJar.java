@@ -11,7 +11,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.world.World;
 
 public class GOTDispenseWildFireJar extends BehaviorDefaultDispenseItem {
-	public IBehaviorDispenseItem dispenseDefault = new BehaviorDefaultDispenseItem();
+	private static final IBehaviorDispenseItem DISPENSE_DEFAULT = new BehaviorDefaultDispenseItem();
 
 	@Override
 	public ItemStack dispenseStack(IBlockSource dispense, ItemStack itemstack) {
@@ -27,6 +27,6 @@ public class GOTDispenseWildFireJar extends BehaviorDefaultDispenseItem {
 			--itemstack.stackSize;
 			return itemstack;
 		}
-		return dispenseDefault.dispense(dispense, itemstack);
+		return DISPENSE_DEFAULT.dispense(dispense, itemstack);
 	}
 }

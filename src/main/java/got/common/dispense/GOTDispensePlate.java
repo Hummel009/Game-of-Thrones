@@ -8,7 +8,7 @@ import net.minecraft.entity.IProjectile;
 import net.minecraft.world.World;
 
 public class GOTDispensePlate extends BehaviorProjectileDispense {
-	public Block plateBlock;
+	private final Block plateBlock;
 
 	public GOTDispensePlate(Block block) {
 		plateBlock = block;
