@@ -19,12 +19,12 @@ import java.util.Random;
 
 public class GOTBlockRock extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] rockIcons;
+	private IIcon[] rockIcons;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconBasaltSide;
+	private IIcon iconBasaltSide;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconBasaltMoss;
-	public String[] rockNames = {"basalt", "andesite", "rhyolite", "diorite", "granite", "chalk", "labradorite"};
+	private IIcon iconBasaltMoss;
+	private final String[] rockNames = {"basalt", "andesite", "rhyolite", "diorite", "granite", "chalk", "labradorite"};
 
 	public GOTBlockRock() {
 		super(Material.rock);

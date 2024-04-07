@@ -11,9 +11,9 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockYiTiFlower extends GOTBlockFlower {
-	public static String[] flowerNames = {"chrys_blue", "chrys_orange", "chrys_pink", "chrys_yellow", "chrys_white"};
+	private static final String[] flowerNames = {"chrys_blue", "chrys_orange", "chrys_pink", "chrys_yellow", "chrys_white"};
 	@SideOnly(Side.CLIENT)
-	public IIcon[] flowerIcons;
+	private IIcon[] flowerIcons;
 
 	@Override
 	public int damageDropped(int i) {

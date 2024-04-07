@@ -20,11 +20,11 @@ public class GOTBlockWildFire extends BlockFire {
 		setLightLevel(1.0f);
 	}
 
-	public boolean canCatchFireNotBannered(World world, int i, int j, int k, ForgeDirection face) {
+	private boolean canCatchFireNotBannered(World world, int i, int j, int k, ForgeDirection face) {
 		return !isBannered(world, i, j, k) && canCatchFire(world, i, j, k, face);
 	}
 
-	public boolean canNeighborBurn(World world, int i, int j, int k) {
+	private boolean canNeighborBurn(World world, int i, int j, int k) {
 		for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 			if (!canCatchFireNotBannered(world, i + dir.offsetX, j + dir.offsetY, k + dir.offsetZ, dir)) {
 				continue;
@@ -34,7 +34,7 @@ public class GOTBlockWildFire extends BlockFire {
 		return false;
 	}
 
-	public int getChanceOfNeighborsEncouragingFire(IBlockAccess world, int i, int j, int k) {
+	private int getChanceOfNeighborsEncouragingFire(IBlockAccess world, int i, int j, int k) {
 		if (!world.isAirBlock(i, j, k)) {
 			return 0;
 		}
@@ -51,7 +51,7 @@ public class GOTBlockWildFire extends BlockFire {
 		return (int) (chance * 1.25f);
 	}
 
-	public boolean isBannered(World world, int i, int j, int k) {
+	private boolean isBannered(World world, int i, int j, int k) {
 		return GOTBannerProtection.isProtected(world, i, j, k, GOTBannerProtection.anyBanner(), false);
 	}
 
@@ -60,7 +60,7 @@ public class GOTBlockWildFire extends BlockFire {
 		return true;
 	}
 
-	public void runBaseFireUpdate(World world, int i, int j, int k, Random random) {
+	private void runBaseFireUpdate(World world, int i, int j, int k, Random random) {
 		if (GOT.doFireTick(world)) {
 			boolean isFireplace = world.getBlock(i, j - 1, k).isFireSource(world, i, j - 1, k, ForgeDirection.UP);
 			if (!canPlaceBlockAt(world, i, j, k)) {
@@ -133,7 +133,7 @@ public class GOTBlockWildFire extends BlockFire {
 		return 2;
 	}
 
-	public void tryCatchFire(World world, int i, int j, int k, int chance, Random random, int meta, ForgeDirection face) {
+	private void tryCatchFire(World world, int i, int j, int k, int chance, Random random, int meta, ForgeDirection face) {
 		if (isBannered(world, i, j, k)) {
 			return;
 		}

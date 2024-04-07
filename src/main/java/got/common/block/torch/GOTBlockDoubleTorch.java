@@ -18,7 +18,7 @@ import java.util.Random;
 
 public class GOTBlockDoubleTorch extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] torchIcons;
+	private IIcon[] torchIcons;
 	public Item torchItem;
 
 	public GOTBlockDoubleTorch() {

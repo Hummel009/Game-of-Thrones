@@ -11,7 +11,7 @@ public class GOTBlockFlower extends BlockBush {
 		this(Material.plants);
 	}
 
-	public GOTBlockFlower(Material material) {
+	private GOTBlockFlower(Material material) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		setHardness(0.0f);

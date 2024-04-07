@@ -26,10 +26,10 @@ import java.util.List;
 
 public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	public static int MAX_GATE_RANGE = 16;
-	public boolean hasConnectedTextures;
+	private final boolean hasConnectedTextures;
 	public boolean fullBlockGate;
 
-	public GOTBlockGate(Material material, boolean ct) {
+	private GOTBlockGate(Material material, boolean ct) {
 		super(material);
 		hasConnectedTextures = ct;
 		setCreativeTab(GOTCreativeTabs.tabUtil);
@@ -51,32 +51,32 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		return block;
 	}
 
-	public static int getGateDirection(IBlockAccess world, int i, int j, int k) {
+	private static int getGateDirection(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		return getGateDirection(meta);
 	}
 
-	public static int getGateDirection(int meta) {
+	private static int getGateDirection(int meta) {
 		return meta & 7;
 	}
 
-	public static boolean isGateOpen(IBlockAccess world, int i, int j, int k) {
+	private static boolean isGateOpen(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		return isGateOpen(meta);
 	}
 
-	public static boolean isGateOpen(int meta) {
+	private static boolean isGateOpen(int meta) {
 		return (meta & 8) != 0;
 	}
 
 	@SuppressWarnings("JavaExistingMethodCanBeUsed")
-	public static void setGateOpen(World world, int i, int j, int k, boolean flag) {
+	private static void setGateOpen(World world, int i, int j, int k, boolean flag) {
 		int meta = world.getBlockMetadata(i, j, k);
 		meta = flag ? meta | 8 : meta & 7;
 		world.setBlockMetadataWithNotify(i, j, k, meta, 3);
 	}
 
-	public void activateGate(World world, int i, int j, int k) {
+	private void activateGate(World world, int i, int j, int k) {
 		boolean wasOpen = isGateOpen(world, i, j, k);
 		boolean isOpen = !wasOpen;
 		List<ChunkCoordinates> gates = getConnectedGates(world, i, j, k);
@@ -113,7 +113,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		return connected && directionsMatch(dir, otherDir) && ((GOTBlockGate) otherBlock).directionsMatch(dir, otherDir) && open == otherOpen;
 	}
 
-	public boolean directionsMatch(int dir1, int dir2) {
+	private boolean directionsMatch(int dir1, int dir2) {
 		switch (dir1) {
 			case 0:
 			case 1:
@@ -130,7 +130,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		return false;
 	}
 
-	public void gatherAdjacentGate(IBlockAccess world, int i, int j, int k, int dir, boolean open, Collection<ChunkCoordinates> allCoords, Collection<ChunkCoordinates> currentDepthCoords) {
+	private void gatherAdjacentGate(IBlockAccess world, int i, int j, int k, int dir, boolean open, Collection<ChunkCoordinates> allCoords, Collection<ChunkCoordinates> currentDepthCoords) {
 		ChunkCoordinates coords = new ChunkCoordinates(i, j, k);
 		if (allCoords.contains(coords)) {
 			return;
@@ -146,7 +146,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		}
 	}
 
-	public void gatherAdjacentGates(IBlockAccess world, int i, int j, int k, int dir, boolean open, Collection<ChunkCoordinates> allCoords, Collection<ChunkCoordinates> currentDepthCoords) {
+	private void gatherAdjacentGates(IBlockAccess world, int i, int j, int k, int dir, boolean open, Collection<ChunkCoordinates> allCoords, Collection<ChunkCoordinates> currentDepthCoords) {
 		if (dir != 0 && dir != 1) {
 			gatherAdjacentGate(world, i, j - 1, k, dir, open, allCoords, currentDepthCoords);
 			gatherAdjacentGate(world, i, j + 1, k, dir, open, allCoords, currentDepthCoords);
@@ -175,7 +175,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		return super.getCollisionBoundingBoxFromPool(world, i, j, k);
 	}
 
-	public List<ChunkCoordinates> getConnectedGates(IBlockAccess world, int i, int j, int k) {
+	private List<ChunkCoordinates> getConnectedGates(IBlockAccess world, int i, int j, int k) {
 		boolean open = isGateOpen(world, i, j, k);
 		int dir = getGateDirection(world, i, j, k);
 		HashSet<ChunkCoordinates> allCoords = new HashSet<>();
@@ -288,7 +288,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		setBlockBoundsForDirection(dir);
 	}
 
-	public void setBlockBoundsForDirection(int dir) {
+	private void setBlockBoundsForDirection(int dir) {
 		if (fullBlockGate) {
 			setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
 		} else {

@@ -16,14 +16,14 @@ import java.util.Random;
 
 public class GOTBlockBed extends BlockBed {
 	public Item bedItem;
-	public Block bedBottomBlock;
-	public int bedBottomMetadata;
+	private final Block bedBottomBlock;
+	private final int bedBottomMetadata;
 	@SideOnly(Side.CLIENT)
-	public IIcon[] bedIconsEnd;
+	private IIcon[] bedIconsEnd;
 	@SideOnly(Side.CLIENT)
-	public IIcon[] bedIconsSide;
+	private IIcon[] bedIconsSide;
 	@SideOnly(Side.CLIENT)
-	public IIcon[] bedIconsTop;
+	private IIcon[] bedIconsTop;
 
 	public GOTBlockBed(Block block, int k) {
 		bedBottomBlock = block;

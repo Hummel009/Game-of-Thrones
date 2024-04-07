@@ -19,28 +19,29 @@ import java.util.Collection;
 import java.util.List;
 
 public class GOTBlockLeavesBase extends BlockLeaves {
-	public static Collection<Block> allLeafBlocks = new ArrayList<>();
-	@SideOnly(Side.CLIENT)
-	public IIcon[][] leafIcons;
-	public String[] leafNames;
-	public boolean[] seasonal;
-	public String vanillaTextureName;
+	private static final Collection<Block> ALL_LEAF_BLOCKS = new ArrayList<>();
 
-	public GOTBlockLeavesBase() {
+	@SideOnly(Side.CLIENT)
+	private IIcon[][] leafIcons;
+
+	private String[] leafNames;
+	private String vanillaTextureName;
+
+	protected GOTBlockLeavesBase() {
 		this(false, null);
 	}
 
-	public GOTBlockLeavesBase(boolean vanilla, String vname) {
+	protected GOTBlockLeavesBase(boolean vanilla, String vname) {
 		if (vanilla) {
 			setCreativeTab(CreativeTabs.tabDecorations);
 			vanillaTextureName = vname;
 		} else {
 			setCreativeTab(GOTCreativeTabs.tabDeco);
 		}
-		allLeafBlocks.add(this);
+		ALL_LEAF_BLOCKS.add(this);
 	}
 
-	public static int getBiomeLeafColor(IBlockAccess world, int i, int j, int k) {
+	protected static int getBiomeLeafColor(IBlockAccess world, int i, int j, int k) {
 		int r = 0;
 		int g = 0;
 		int b = 0;
@@ -59,15 +60,15 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 	}
 
 	public static void setAllGraphicsLevels(boolean flag) {
-		for (Object allLeafBlock : allLeafBlocks) {
+		for (Object allLeafBlock : ALL_LEAF_BLOCKS) {
 			((BlockLeaves) allLeafBlock).setGraphicsLevel(flag);
 		}
 	}
 
-	public void addSpecialLeafDrops(List<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
+	protected void addSpecialLeafDrops(List<ItemStack> drops, World world, int i, int j, int k, int meta, int fortune) {
 	}
 
-	public int calcFortuneModifiedDropChance(int baseChance, int fortune) {
+	protected int calcFortuneModifiedDropChance(int baseChance, int fortune) {
 		int chance = baseChance;
 		if (fortune > 0) {
 			chance -= 2 << fortune;
@@ -125,7 +126,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		return GOT.proxy.getLeavesRenderID();
 	}
 
-	public int getSaplingChance(int meta) {
+	protected int getSaplingChance(int meta) {
 		return 20;
 	}
 
@@ -158,16 +159,18 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		}
 	}
 
-	public void setLeafNames(String... s) {
+	protected void setLeafNames(String... s) {
 		leafNames = s;
 		setSeasonal(new boolean[s.length]);
 	}
 
-	public void setSeasonal(boolean... b) {
+	public String[] getLeafNames() {
+		return leafNames;
+	}
+
+	protected void setSeasonal(boolean... b) {
 		if (b.length != leafNames.length) {
 			throw new IllegalArgumentException("Leaf seasons length must match number of types");
 		}
-		seasonal = b;
 	}
-
 }

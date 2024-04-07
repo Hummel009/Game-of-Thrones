@@ -8,7 +8,7 @@ import got.client.gui.*;
 import got.common.block.other.GOTBlockFlowerPot;
 import got.common.database.GOTAchievement;
 import got.common.database.GOTBlocks;
-import got.common.database.GOTGuiID;
+import got.common.database.GOTGuiId;
 import got.common.entity.animal.GOTEntityHorse;
 import got.common.entity.other.*;
 import got.common.faction.GOTAlignmentBonusMap;
@@ -144,21 +144,21 @@ public class GOTCommonProxy implements IGuiHandler {
 	public Object getClientGuiElement(int ID, EntityPlayer entityplayer, World world, int i, int j, int k) {
 		GOTEntityNPC npc;
 		Entity entity;
-		if (testForSlotPackedGuiID(ID, GOTGuiID.POUCH_CHEST.ordinal())) {
+		if (testForSlotPackedGuiID(ID, GOTGuiId.POUCH_CHEST.ordinal())) {
 			int slot = unpackSlot(ID);
 			IInventory chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k);
 			if (chest2 != null) {
 				return new GOTGuiChestWithPouch(entityplayer, slot, chest2);
 			}
 		}
-		if (testForSlotPackedGuiID(ID, GOTGuiID.POUCH_MINECART.ordinal())) {
+		if (testForSlotPackedGuiID(ID, GOTGuiId.POUCH_MINECART.ordinal())) {
 			int slot = unpackSlot(ID);
 			Entity minecart = world.getEntityByID(i);
 			if (minecart instanceof EntityMinecartContainer) {
 				return new GOTGuiChestWithPouch(entityplayer, slot, (IInventory) minecart);
 			}
 		}
-		GOTGuiID id = GOTGuiID.values()[ID];
+		GOTGuiId id = GOTGuiId.values()[ID];
 		switch (id) {
 			case ALLOY_FORGE:
 				TileEntity forge = world.getTileEntity(i, j, k);
@@ -508,14 +508,14 @@ public class GOTCommonProxy implements IGuiHandler {
 		Entity entity;
 		IInventory chest2;
 		int slot = unpackSlot(ID);
-		if (testForSlotPackedGuiID(ID, GOTGuiID.POUCH_CHEST.ordinal()) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && (chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k)) != null) {
+		if (testForSlotPackedGuiID(ID, GOTGuiId.POUCH_CHEST.ordinal()) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && (chest2 = GOTItemPouch.getChestInvAt(entityplayer, world, i, j, k)) != null) {
 			return new GOTContainerChestWithPouch(entityplayer, slot, chest2);
 		}
 		Entity minecart = world.getEntityByID(i);
-		if (testForSlotPackedGuiID(ID, GOTGuiID.POUCH_MINECART.ordinal()) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && minecart instanceof EntityMinecartContainer) {
+		if (testForSlotPackedGuiID(ID, GOTGuiId.POUCH_MINECART.ordinal()) && GOTItemPouch.isHoldingPouch(entityplayer, slot) && minecart instanceof EntityMinecartContainer) {
 			return new GOTContainerChestWithPouch(entityplayer, slot, (IInventory) minecart);
 		}
-		GOTGuiID id = GOTGuiID.values()[ID];
+		GOTGuiId id = GOTGuiId.values()[ID];
 		switch (id) {
 			case ALLOY_FORGE:
 				TileEntity forge = world.getTileEntity(i, j, k);
@@ -829,7 +829,7 @@ public class GOTCommonProxy implements IGuiHandler {
 	}
 
 	public void usePouchOnChest(EntityPlayer entityplayer, World world, int i, int j, int k, int side, ItemStack itemstack, int pouchSlot) {
-		entityplayer.openGui(GOT.instance, packGuiIDWithSlot(GOTGuiID.POUCH_CHEST.ordinal(), pouchSlot), world, i, j, k);
+		entityplayer.openGui(GOT.instance, packGuiIDWithSlot(GOTGuiId.POUCH_CHEST.ordinal(), pouchSlot), world, i, j, k);
 	}
 
 	public void validateBannerUsername(GOTEntityBanner banner, int slot, String prevText, boolean valid) {

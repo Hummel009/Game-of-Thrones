@@ -38,8 +38,8 @@ public class GOTBlockPlate extends BlockContainer {
 		}
 	};
 	@SideOnly(Side.CLIENT)
-	public IIcon[] plateIcons;
-	public Item plateItem;
+	private IIcon[] plateIcons;
+	private Item plateItem;
 
 	public GOTBlockPlate() {
 		super(Material.circuits);
@@ -86,7 +86,7 @@ public class GOTBlockPlate extends BlockContainer {
 		dropPlateItem(plate, item);
 	}
 
-	public void dropPlateItem(GOTTileEntityPlate plate, ItemStack itemstack) {
+	private void dropPlateItem(GOTTileEntityPlate plate, ItemStack itemstack) {
 		dropBlockAsItem(plate.getWorldObj(), plate.xCoord, plate.yCoord, plate.zCoord, itemstack);
 	}
 

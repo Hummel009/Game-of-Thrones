@@ -20,8 +20,8 @@ import java.util.Random;
 
 public class GOTBlockChandelier extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] chandelierIcons;
-	public String[] chandelierNames = {"bronze", "iron", "silver", "gold", "valyrian", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "asshai", "bronze", "bronze", "bronze"};
+	private IIcon[] chandelierIcons;
+	private final String[] chandelierNames = {"bronze", "iron", "silver", "gold", "valyrian", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "asshai", "bronze", "bronze", "bronze"};
 
 	public GOTBlockChandelier() {
 		super(Material.circuits);
@@ -121,7 +121,7 @@ public class GOTBlockChandelier extends Block {
 		return false;
 	}
 
-	public void spawnChandelierParticles(World world, double d, double d1, double d2, Random random, int meta) {
+	private void spawnChandelierParticles(World world, double d, double d1, double d2, Random random, int meta) {
 		if (meta == 12) {
 			double d3 = -0.05 + random.nextFloat() * 0.1;
 			double d4 = 0.1 + random.nextFloat() * 0.1;

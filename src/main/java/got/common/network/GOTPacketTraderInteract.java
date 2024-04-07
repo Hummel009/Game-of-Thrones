@@ -4,7 +4,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.GOT;
-import got.common.database.GOTGuiID;
+import got.common.database.GOTGuiId;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTTradeable;
 import io.netty.buffer.ByteBuf;
@@ -51,11 +51,11 @@ public class GOTPacketTraderInteract implements IMessage {
 					livingTrader.npcTalkTick = livingTrader.getNPCTalkInterval();
 					closeScreen = livingTrader.interactFirst(entityplayer);
 				} else if (action == 1 && tradeableTrader.canTradeWith(entityplayer)) {
-					entityplayer.openGui(GOT.instance, GOTGuiID.TRADE.ordinal(), world, livingTrader.getEntityId(), 0, 0);
+					entityplayer.openGui(GOT.instance, GOTGuiId.TRADE.ordinal(), world, livingTrader.getEntityId(), 0, 0);
 				} else if (action == 2 && tradeableTrader.canTradeWith(entityplayer)) {
-					entityplayer.openGui(GOT.instance, GOTGuiID.COIN_EXCHANGE.ordinal(), world, livingTrader.getEntityId(), 0, 0);
+					entityplayer.openGui(GOT.instance, GOTGuiId.COIN_EXCHANGE.ordinal(), world, livingTrader.getEntityId(), 0, 0);
 				} else if (action == 3 && tradeableTrader.canTradeWith(entityplayer) && tradeableTrader instanceof GOTTradeable.Smith) {
-					entityplayer.openGui(GOT.instance, GOTGuiID.ANVIL_NPC.ordinal(), world, livingTrader.getEntityId(), 0, 0);
+					entityplayer.openGui(GOT.instance, GOTGuiId.ANVIL_NPC.ordinal(), world, livingTrader.getEntityId(), 0, 0);
 				}
 				if (closeScreen) {
 					entityplayer.closeScreen();

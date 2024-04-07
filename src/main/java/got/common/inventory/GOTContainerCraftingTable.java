@@ -36,7 +36,7 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 		entityplayer = inv.player;
 		tableBlock = (GOTBlockCraftingTable) block;
 		recipeList = new ArrayList<>(list);
-		recipeList.add(new GOTRecipePouch(tableBlock.tableFaction));
+		recipeList.add(new GOTRecipePouch(tableBlock.getFaction()));
 	}
 
 	@Override

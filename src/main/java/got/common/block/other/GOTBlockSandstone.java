@@ -10,9 +10,9 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockSandstone extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon iconTop;
+	private IIcon iconTop;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconBottom;
+	private IIcon iconBottom;
 
 	public GOTBlockSandstone() {
 		super(Material.rock);

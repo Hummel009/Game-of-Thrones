@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockConcretePowder extends BlockFalling {
-	public GOTEnumDyeColor color;
+	private final GOTEnumDyeColor color;
 
 	public GOTBlockConcretePowder(GOTEnumDyeColor color) {
 		this.color = color;
@@ -23,11 +23,11 @@ public class GOTBlockConcretePowder extends BlockFalling {
 		setBlockTextureName("got:concrete_powder_" + this.color.getName());
 	}
 
-	public static GOTBlockConcrete getConcreteFromColor(GOTEnumDyeColor dye) {
+	private static GOTBlockConcrete getConcreteFromColor(GOTEnumDyeColor dye) {
 		return GOTBlocks.concrete.get(dye);
 	}
 
-	public void func_149830_m(World world, int i, int j, int k) {
+	private void func_149830_m(World world, int i, int j, int k) {
 		int j1 = j;
 		if (func_149831_e(world, i, j1 - 1, k) && j1 >= 0) {
 			int b0 = 32;

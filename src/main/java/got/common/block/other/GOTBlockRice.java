@@ -41,7 +41,7 @@ import java.util.Random;
 
 public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] field_149867_a;
+	private IIcon[] field_149867_a;
 
 	public GOTBlockRice() {
 		setTickRandomly(true);
@@ -74,7 +74,7 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 		func_149863_m(p_149853_1_, p_149853_3_, p_149853_4_, p_149853_5_);
 	}
 
-	public void func_149863_m(World p_149863_1_, int p_149863_2_, int p_149863_3_, int p_149863_4_) {
+	private void func_149863_m(World p_149863_1_, int p_149863_2_, int p_149863_3_, int p_149863_4_) {
 		int l = p_149863_1_.getBlockMetadata(p_149863_2_, p_149863_3_, p_149863_4_) + MathHelper.getRandomIntegerInRange(p_149863_1_.rand, 2, 5);
 		if (l > 7) {
 			l = 7;
@@ -82,7 +82,7 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 		p_149863_1_.setBlockMetadataWithNotify(p_149863_2_, p_149863_3_, p_149863_4_, l, 2);
 	}
 
-	public float func_149864_n(World p_149864_1_, int p_149864_2_, int p_149864_3_, int p_149864_4_) {
+	private float func_149864_n(World p_149864_1_, int p_149864_2_, int p_149864_3_, int p_149864_4_) {
 		float f = 1.0f;
 		Block block = p_149864_1_.getBlock(p_149864_2_, p_149864_3_, p_149864_4_ - 1);
 		Block block1 = p_149864_1_.getBlock(p_149864_2_, p_149864_3_, p_149864_4_ + 1);
@@ -116,11 +116,11 @@ public class GOTBlockRice extends BlockLilyPad implements IGrowable {
 		return f;
 	}
 
-	public Item func_149865_P() {
+	private Item func_149865_P() {
 		return GOTItems.rice;
 	}
 
-	public Item func_149866_i() {
+	private Item func_149866_i() {
 		return GOTItems.rice;
 	}
 

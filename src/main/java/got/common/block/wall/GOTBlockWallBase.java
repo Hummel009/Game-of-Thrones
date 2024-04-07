@@ -13,7 +13,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public abstract class GOTBlockWallBase extends BlockWall {
-	public int subtypes;
+	private final int subtypes;
 
 	protected GOTBlockWallBase(Block block, int i) {
 		super(block);

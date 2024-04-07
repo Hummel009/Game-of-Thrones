@@ -21,21 +21,21 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockDoubleFlower extends BlockDoublePlant {
-	public static String[] flowerNames = {"black_iris", "yellow_iris", "pink", "red"};
+	private static final String[] flowerNames = {"black_iris", "yellow_iris", "pink", "red"};
 	@SideOnly(Side.CLIENT)
-	public IIcon[] doublePlantBottomIcons;
+	private IIcon[] doublePlantBottomIcons;
 	@SideOnly(Side.CLIENT)
-	public IIcon[] doublePlantTopIcons;
+	private IIcon[] doublePlantTopIcons;
 
 	public GOTBlockDoubleFlower() {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 
-	public static int getFlowerMeta(int i) {
+	private static int getFlowerMeta(int i) {
 		return i & 7;
 	}
 
-	public static boolean isTop(int i) {
+	private static boolean isTop(int i) {
 		return (i & 8) != 0;
 	}
 

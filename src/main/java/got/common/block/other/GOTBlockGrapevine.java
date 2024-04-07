@@ -32,11 +32,11 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 	public static int MAX_GROWTH = 7;
 	public static int MAX_HEIGHT = 3;
 	public static boolean hoeing;
-	public boolean hasGrapes;
+	private final boolean hasGrapes;
 	@SideOnly(Side.CLIENT)
-	public IIcon postIcon;
+	private IIcon postIcon;
 	@SideOnly(Side.CLIENT)
-	public IIcon[] vineIcons;
+	private IIcon[] vineIcons;
 
 	public GOTBlockGrapevine(boolean grapes) {
 		super(Material.plants);
@@ -89,7 +89,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		return below.isSideSolid(world, i, j - 1, k, ForgeDirection.UP) || below.canSustainPlant(world, i, j, k, ForgeDirection.UP, this) || below instanceof GOTBlockGrapevine;
 	}
 
-	public boolean checkCanStay(World world, int i, int j, int k) {
+	private boolean checkCanStay(World world, int i, int j, int k) {
 		if (!canBlockStay(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k);
 			dropBlockAsItem(world, i, j, k, meta, 0);
@@ -152,11 +152,11 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		return null;
 	}
 
-	public Item getGrapeSeedsItem() {
+	protected Item getGrapeSeedsItem() {
 		return null;
 	}
 
-	public float getGrowthFactor(World world, int i, int j, int k) {
+	private float getGrowthFactor(World world, int i, int j, int k) {
 		if (!canPlantGrapesAt(world, i, j, k, this)) {
 			return 0.0f;
 		}
@@ -241,7 +241,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 		return 0;
 	}
 
-	public Collection<ItemStack> getVineDrops(World world, int i, int j, int k, int meta, int fortune) {
+	private Collection<ItemStack> getVineDrops(World world, int i, int j, int k, int meta, int fortune) {
 		Collection<ItemStack> drops = new ArrayList<>();
 		int seeds = 3 + fortune;
 		for (int l = 0; l < seeds; ++l) {

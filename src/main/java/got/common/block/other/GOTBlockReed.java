@@ -17,12 +17,10 @@ import net.minecraftforge.common.IPlantable;
 import java.util.Random;
 
 public class GOTBlockReed extends Block implements IPlantable {
-	public static int MAX_GROW_HEIGHT = 3;
-	public static int META_GROW_END = 15;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconUpper;
+	private IIcon iconUpper;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconLower;
+	private IIcon iconLower;
 
 	public GOTBlockReed() {
 		super(Material.plants);
@@ -46,11 +44,11 @@ public class GOTBlockReed extends Block implements IPlantable {
 		return below == this || below.getMaterial() == Material.water && belowMeta == 0;
 	}
 
-	public boolean canReedGrow(World world, int i, int j, int k) {
+	protected boolean canReedGrow(World world, int i, int j, int k) {
 		return true;
 	}
 
-	public boolean checkCanStay(World world, int i, int j, int k) {
+	private boolean checkCanStay(World world, int i, int j, int k) {
 		if (!canBlockStay(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k);
 			dropBlockAsItem(world, i, j, k, meta, 0);
@@ -147,8 +145,10 @@ public class GOTBlockReed extends Block implements IPlantable {
 			while (world.getBlock(i, j - belowReeds, k) == this) {
 				++belowReeds;
 			}
+			int MAX_GROW_HEIGHT = 3;
 			if (belowReeds < MAX_GROW_HEIGHT) {
 				int meta = world.getBlockMetadata(i, j, k);
+				int META_GROW_END = 15;
 				if (meta == META_GROW_END) {
 					world.setBlock(i, j + 1, k, this, 0, 3);
 					world.setBlockMetadataWithNotify(i, j, k, 0, 4);

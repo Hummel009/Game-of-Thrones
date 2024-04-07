@@ -19,8 +19,8 @@ import java.util.Random;
 
 public class GOTBlockOreGem extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] oreIcons;
-	public String[] oreNames = {"topaz", "amethyst", "sapphire", "ruby", "amber", "diamond", "opal", "emerald"};
+	private IIcon[] oreIcons;
+	private final String[] oreNames = {"topaz", "amethyst", "sapphire", "ruby", "amber", "diamond", "opal", "emerald"};
 
 	public GOTBlockOreGem() {
 		super(Material.rock);

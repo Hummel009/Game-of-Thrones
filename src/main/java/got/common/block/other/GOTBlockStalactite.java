@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockStalactite extends Block {
-	public Block modelBlock;
-	public int modelMeta;
+	private final Block modelBlock;
+	private final int modelMeta;
 
 	public GOTBlockStalactite(Block block, int meta) {
 		super(block.getMaterial());

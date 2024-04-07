@@ -11,9 +11,9 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockButterflyJar extends GOTBlockAnimalJar {
 	@SideOnly(Side.CLIENT)
-	public IIcon glassIcon;
+	private IIcon glassIcon;
 	@SideOnly(Side.CLIENT)
-	public IIcon lidIcon;
+	private IIcon lidIcon;
 
 	public GOTBlockButterflyJar() {
 		super(Material.glass);

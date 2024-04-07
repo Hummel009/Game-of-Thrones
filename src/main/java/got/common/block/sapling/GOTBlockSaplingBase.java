@@ -19,8 +19,9 @@ import java.util.Random;
 
 public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] saplingIcons;
-	public String[] saplingNames;
+	private IIcon[] saplingIcons;
+
+	private String[] saplingNames;
 
 	protected GOTBlockSaplingBase() {
 		float f = 0.4f;
@@ -32,7 +33,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		return findSaplingSquare(world, i, j, k, block, meta, -1, 1, -2, 2);
 	}
 
-	public static int[] findSaplingSquare(IBlockAccess world, int i, int j, int k, Block block, int meta, int squareMin, int squareMax, int searchMin, int searchMax) {
+	protected static int[] findSaplingSquare(IBlockAccess world, int i, int j, int k, Block block, int meta, int squareMin, int squareMax, int searchMin, int searchMax) {
 		for (int i1 = searchMin; i1 <= searchMax; ++i1) {
 			for (int k1 = searchMin; k1 <= searchMax; ++k1) {
 				boolean canGenerate = true;
@@ -95,7 +96,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		}
 	}
 
-	public abstract void growTree(World var1, int var2, int var3, int var4, Random var5);
+	protected abstract void growTree(World var1, int var2, int var3, int var4, Random var5);
 
 	public void incrementGrowth(World world, int i, int j, int k, Random random) {
 		int meta = world.getBlockMetadata(i, j, k);
@@ -109,7 +110,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		}
 	}
 
-	public boolean isSameSapling(IBlockAccess world, int i, int j, int k, int meta) {
+	protected boolean isSameSapling(IBlockAccess world, int i, int j, int k, int meta) {
 		return isSameSapling(world, i, j, k, this, meta);
 	}
 
@@ -122,8 +123,12 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		}
 	}
 
-	public void setSaplingNames(String... s) {
+	protected void setSaplingNames(String... s) {
 		saplingNames = s;
+	}
+
+	protected String[] getSaplingNames() {
+		return saplingNames;
 	}
 
 	@Override

@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
+import got.common.database.GOTGuiId;
 import got.common.tileentity.GOTTileEntityMillstone;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -25,13 +25,13 @@ import java.util.Random;
 
 public class GOTBlockMillstone extends BlockContainer {
 	@SideOnly(Side.CLIENT)
-	public IIcon iconSide;
+	private IIcon iconSide;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconTop;
+	private IIcon iconTop;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconSideActive;
+	private IIcon iconSideActive;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconTopActive;
+	private IIcon iconTopActive;
 
 	public GOTBlockMillstone() {
 		super(Material.rock);
@@ -41,7 +41,7 @@ public class GOTBlockMillstone extends BlockContainer {
 	}
 
 	@SuppressWarnings("JavaExistingMethodCanBeUsed")
-	public static boolean isMillstoneActive(IBlockAccess world, int i, int j, int k) {
+	private static boolean isMillstoneActive(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		return (meta & 8) != 0;
 	}
@@ -95,7 +95,7 @@ public class GOTBlockMillstone extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.MILLSTONE.ordinal(), world, i, j, k);
+			entityplayer.openGui(GOT.instance, GOTGuiId.MILLSTONE.ordinal(), world, i, j, k);
 		}
 		return true;
 	}

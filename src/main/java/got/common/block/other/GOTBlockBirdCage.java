@@ -19,12 +19,12 @@ import java.util.List;
 
 public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] sideIcons;
+	private IIcon[] sideIcons;
 	@SideOnly(Side.CLIENT)
-	public IIcon[] topIcons;
+	private IIcon[] topIcons;
 	@SideOnly(Side.CLIENT)
-	public IIcon[] baseIcons;
-	public String[] cageTypes;
+	private IIcon[] baseIcons;
+	private String[] cageTypes;
 
 	public GOTBlockBirdCage() {
 		super(Material.glass);
@@ -100,7 +100,7 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		}
 	}
 
-	public void setCageTypes(String... s) {
+	protected void setCageTypes(String... s) {
 		cageTypes = s;
 	}
 }

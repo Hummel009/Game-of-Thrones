@@ -15,8 +15,8 @@ import java.util.List;
 
 public class GOTBlockDirtPath extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] pathIcons;
-	public String[] pathNames = {"dirt", "mud", "brus"};
+	private IIcon[] pathIcons;
+	private final String[] pathNames = {"dirt", "mud", "brus"};
 
 	public GOTBlockDirtPath() {
 		super(Material.ground);

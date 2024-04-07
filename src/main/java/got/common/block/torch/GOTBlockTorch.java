@@ -14,7 +14,7 @@ public abstract class GOTBlockTorch extends BlockTorch {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 
-	public abstract TorchParticle createTorchParticle(Random var1);
+	protected abstract TorchParticle createTorchParticle(Random var1);
 
 	@SideOnly(Side.CLIENT)
 	@Override
@@ -48,15 +48,15 @@ public abstract class GOTBlockTorch extends BlockTorch {
 	}
 
 	public static class TorchParticle {
-		public String name;
-		public double posX;
-		public double posY;
-		public double posZ;
-		public double motionX;
-		public double motionY;
-		public double motionZ;
+		protected String name;
+		protected double posX;
+		protected double posY;
+		protected double posZ;
+		protected double motionX;
+		protected double motionY;
+		protected double motionZ;
 
-		public TorchParticle(String s, double x, double y, double z, double mx, double my, double mz) {
+		protected TorchParticle(String s, double x, double y, double z, double mx, double my, double mz) {
 			name = s;
 			posX = x;
 			posY = y;
@@ -66,7 +66,7 @@ public abstract class GOTBlockTorch extends BlockTorch {
 			motionZ = mz;
 		}
 
-		public void spawn(double x, double y, double z) {
+		protected void spawn(double x, double y, double z) {
 			GOT.proxy.spawnParticle(name, x + posX, y + posY, z + posZ, motionX, motionY, motionZ);
 		}
 	}

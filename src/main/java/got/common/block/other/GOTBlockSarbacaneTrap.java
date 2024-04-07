@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
+import got.common.database.GOTGuiId;
 import got.common.tileentity.GOTTileEntitySarbacaneTrap;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -24,9 +24,9 @@ import net.minecraft.world.World;
 
 public class GOTBlockSarbacaneTrap extends BlockContainer {
 	@SideOnly(Side.CLIENT)
-	public IIcon trapIcon;
-	public Block modelBlock;
-	public int modelBlockMeta;
+	private IIcon trapIcon;
+	private final Block modelBlock;
+	private final int modelBlockMeta;
 
 	public GOTBlockSarbacaneTrap(Block block, int meta) {
 		super(Material.rock);
@@ -84,7 +84,7 @@ public class GOTBlockSarbacaneTrap extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.DISPENSER.ordinal(), world, i, j, k);
+			entityplayer.openGui(GOT.instance, GOTGuiId.DISPENSER.ordinal(), world, i, j, k);
 		}
 		return true;
 	}
@@ -121,7 +121,7 @@ public class GOTBlockSarbacaneTrap extends BlockContainer {
 		trapIcon = iconregister.registerIcon(getTextureName() + "_face");
 	}
 
-	public void setDefaultDirection(World world, int i, int j, int k) {
+	private void setDefaultDirection(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			Block i1 = world.getBlock(i, j, k - 1);
 			Block j1 = world.getBlock(i, j, k + 1);

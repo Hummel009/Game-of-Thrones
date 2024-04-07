@@ -16,9 +16,9 @@ public class GOTWorldGenBerryBush extends WorldGenerator {
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		Block bush = GOTBlocks.berryBush;
 		GOTBlockBerryBush.BushType bushType = GOTBlockBerryBush.BushType.randomType(random);
-		int bushMeta = bushType.bushMeta;
+		int bushMeta = bushType.getBushMeta();
 		bushMeta = GOTBlockBerryBush.setHasBerries(bushMeta, true);
-		if (bushType.poisonous && random.nextInt(2) != 0) {
+		if (bushType.isPoisonous() && random.nextInt(2) != 0) {
 			return false;
 		}
 		for (int l = 0; l < 12; ++l) {

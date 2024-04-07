@@ -15,7 +15,7 @@ import java.util.Random;
 
 public class GOTBlockHearth extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] blockIcons;
+	private IIcon[] blockIcons;
 
 	public GOTBlockHearth() {
 		super(Material.rock);

@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
+import got.common.database.GOTGuiId;
 import got.common.tileentity.GOTTileEntityChest;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -22,9 +22,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockChest extends BlockContainer {
-	public Block baseBlock;
-	public int baseMeta;
-	public String chestTextureName;
+	private final Block baseBlock;
+	private final int baseMeta;
+	private final String chestTextureName;
 
 	public GOTBlockChest(Material m, Block b, int i, String s) {
 		super(m);
@@ -93,7 +93,7 @@ public class GOTBlockChest extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote && getModChestAt(world, i, j, k) != null) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.CHEST.ordinal(), world, i, j, k);
+			entityplayer.openGui(GOT.instance, GOTGuiId.CHEST.ordinal(), world, i, j, k);
 		}
 		return true;
 	}
@@ -136,7 +136,7 @@ public class GOTBlockChest extends BlockContainer {
 		return false;
 	}
 
-	public void setDefaultDirection(World world, int i, int j, int k) {
+	private void setDefaultDirection(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			Block i1 = world.getBlock(i, j, k - 1);
 			Block j1 = world.getBlock(i, j, k + 1);

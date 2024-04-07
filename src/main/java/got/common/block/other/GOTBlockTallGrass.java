@@ -19,12 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTBlockTallGrass extends GOTBlockGrass {
-	public static String[] grassNames = {"short", "flower", "wheat", "thistle", "nettle", "fernsprout"};
+	private static final String[] grassNames = {"short", "flower", "wheat", "thistle", "nettle", "fernsprout"};
 	public static boolean[] grassOverlay = {false, true, true, true, false, false};
 	@SideOnly(Side.CLIENT)
-	public IIcon[] grassIcons;
+	private IIcon[] grassIcons;
 	@SideOnly(Side.CLIENT)
-	public IIcon[] overlayIcons;
+	private IIcon[] overlayIcons;
 
 	@SideOnly(Side.CLIENT)
 	@Override

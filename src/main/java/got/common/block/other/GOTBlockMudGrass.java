@@ -21,7 +21,7 @@ import java.util.Random;
 
 public class GOTBlockMudGrass extends Block implements IGrowable {
 	@SideOnly(Side.CLIENT)
-	public IIcon iconTop;
+	private IIcon iconTop;
 
 	public GOTBlockMudGrass() {
 		super(Material.grass);

@@ -16,10 +16,10 @@ import java.util.List;
 
 public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] sideIcons;
+	private IIcon[] sideIcons;
 	@SideOnly(Side.CLIENT)
-	public IIcon[] topIcons;
-	public String[] woodNames;
+	private IIcon[] topIcons;
+	private String[] woodNames;
 
 	protected GOTBlockWoodBeam() {
 		super(Material.wood);
@@ -73,7 +73,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 		}
 	}
 
-	public void setWoodNames(String... s) {
+	protected void setWoodNames(String... s) {
 		woodNames = s;
 	}
 }

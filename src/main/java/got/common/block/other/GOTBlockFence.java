@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTBlockFence extends BlockFence {
-	public Block plankBlock;
+	private final Block plankBlock;
 
 	public GOTBlockFence(Block planks) {
 		super("", Material.wood);

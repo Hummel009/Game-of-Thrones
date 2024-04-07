@@ -13,7 +13,7 @@ import net.minecraftforge.common.EnumPlantType;
 
 public class GOTBlockFlaxCrop extends BlockCrops {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] flaxIcons;
+	private IIcon[] flaxIcons;
 
 	@Override
 	public Item func_149865_P() {

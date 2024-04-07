@@ -34,9 +34,8 @@ public class GOTBlockSlabV extends GOTBlockSlabBase {
 			case 5:
 				return Blocks.stone.getIcon(i, 0);
 			default:
-				break;
+				return super.getIcon(i, j1);
 		}
-		return super.getIcon(i, j1);
 	}
 
 	@SideOnly(Side.CLIENT)

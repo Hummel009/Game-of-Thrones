@@ -5,7 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTChestContents;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
+import got.common.database.GOTGuiId;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -205,7 +205,7 @@ public class GOTItemCracker extends Item {
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (isEmpty(itemstack)) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.CRACKER.ordinal(), world, 0, 0, 0);
+			entityplayer.openGui(GOT.instance, GOTGuiId.CRACKER.ordinal(), world, 0, 0, 0);
 		} else {
 			entityplayer.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
 		}

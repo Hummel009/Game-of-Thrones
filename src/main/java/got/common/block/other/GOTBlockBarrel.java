@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
+import got.common.database.GOTGuiId;
 import got.common.item.other.GOTItemBarrel;
 import got.common.item.other.GOTItemBottlePoison;
 import got.common.item.other.GOTItemMug;
@@ -30,7 +30,7 @@ import java.util.Random;
 
 public class GOTBlockBarrel extends BlockContainer {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] barrelIcons;
+	private IIcon[] barrelIcons;
 
 	public GOTBlockBarrel() {
 		super(Material.wood);
@@ -64,7 +64,7 @@ public class GOTBlockBarrel extends BlockContainer {
 		return new GOTTileEntityBarrel();
 	}
 
-	public ItemStack getBarrelDrop(World world, int i, int j, int k, int metadata) {
+	private ItemStack getBarrelDrop(World world, int i, int j, int k, int metadata) {
 		ItemStack itemstack = new ItemStack(Item.getItemFromBlock(this));
 		GOTTileEntityBarrel barrel = (GOTTileEntityBarrel) world.getTileEntity(i, j, k);
 		if (barrel != null && barrel.barrelMode != 0) {
@@ -175,7 +175,7 @@ public class GOTBlockBarrel extends BlockContainer {
 			return true;
 		}
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.BARREL.ordinal(), world, i, j, k);
+			entityplayer.openGui(GOT.instance, GOTGuiId.BARREL.ordinal(), world, i, j, k);
 		}
 		return true;
 	}

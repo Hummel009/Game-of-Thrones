@@ -40,9 +40,8 @@ public class GOTBlockSlab1 extends GOTBlockSlabBase {
 			case 7:
 				return GOTBlocks.brick1.getIcon(i, 6);
 			default:
-				break;
+				return super.getIcon(i, j1);
 		}
-		return super.getIcon(i, j1);
 	}
 
 	@SideOnly(Side.CLIENT)

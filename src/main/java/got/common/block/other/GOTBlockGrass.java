@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GOTBlockGrass extends BlockBush implements IShearable {
-	public boolean isSandy;
+	private boolean isSandy;
 
 	public GOTBlockGrass() {
 		super(Material.vine);

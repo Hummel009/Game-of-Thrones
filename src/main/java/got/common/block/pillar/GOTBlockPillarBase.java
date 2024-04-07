@@ -16,16 +16,21 @@ import java.util.List;
 
 public abstract class GOTBlockPillarBase extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] pillarFaceIcons;
+	private IIcon[] pillarFaceIcons;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] pillarSideIcons;
+	private IIcon[] pillarSideIcons;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] pillarSideTopIcons;
+	private IIcon[] pillarSideTopIcons;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] pillarSideMiddleIcons;
+	private IIcon[] pillarSideMiddleIcons;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] pillarSideBottomIcons;
-	public String[] pillarNames;
+	private IIcon[] pillarSideBottomIcons;
+
+	private String[] pillarNames;
 
 	protected GOTBlockPillarBase() {
 		this(Material.rock);
@@ -34,7 +39,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		setStepSound(soundTypeStone);
 	}
 
-	protected GOTBlockPillarBase(Material material) {
+	private GOTBlockPillarBase(Material material) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 	}
@@ -90,7 +95,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		}
 	}
 
-	public boolean isPillarAt(IBlockAccess world, int i, int j, int k) {
+	private boolean isPillarAt(IBlockAccess world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
 		return block instanceof GOTBlockPillarBase;
 	}
@@ -113,7 +118,11 @@ public abstract class GOTBlockPillarBase extends Block {
 		}
 	}
 
-	public void setPillarNames(String... names) {
+	protected void setPillarNames(String... names) {
 		pillarNames = names;
+	}
+
+	protected String[] getPillarNames() {
+		return pillarNames;
 	}
 }

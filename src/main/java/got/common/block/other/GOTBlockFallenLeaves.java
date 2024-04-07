@@ -26,7 +26,7 @@ import java.util.Random;
 public class GOTBlockFallenLeaves extends Block implements IShearable {
 	public static Collection<GOTBlockFallenLeaves> allFallenLeaves = new ArrayList<>();
 	public static Random leafRand = new Random();
-	public Block[] leafBlocks;
+	private Block[] leafBlocks;
 
 	public GOTBlockFallenLeaves() {
 		super(Material.vine);

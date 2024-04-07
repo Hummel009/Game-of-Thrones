@@ -28,7 +28,7 @@ public abstract class GOTBlockSlabFalling extends GOTBlockSlabBase {
 		return 2;
 	}
 
-	public void tryBlockFall(World world, int i, int j, int k) {
+	private void tryBlockFall(World world, int i, int j, int k) {
 		int j1 = j;
 		if (BlockFalling.func_149831_e(world, i, j1 - 1, k) && j1 >= 0) {
 			int range = 32;

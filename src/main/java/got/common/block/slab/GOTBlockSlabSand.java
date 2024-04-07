@@ -28,9 +28,8 @@ public class GOTBlockSlabSand extends GOTBlockSlabFalling {
 			case 2:
 				return GOTBlocks.whiteSand.getIcon(i, 0);
 			default:
-				break;
+				return super.getIcon(i, j1);
 		}
-		return super.getIcon(i, j1);
 	}
 
 	@SideOnly(Side.CLIENT)

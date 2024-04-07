@@ -15,8 +15,8 @@ import java.util.List;
 
 public abstract class GOTBlockBrickBase extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] brickIcons;
-	public String[] brickNames;
+	protected IIcon[] brickIcons;
+	protected String[] brickNames;
 
 	protected GOTBlockBrickBase() {
 		super(Material.rock);
@@ -59,7 +59,11 @@ public abstract class GOTBlockBrickBase extends Block {
 		}
 	}
 
-	public void setBrickNames(String... names) {
+	protected void setBrickNames(String... names) {
 		brickNames = names;
+	}
+
+	protected String[] getBrickNames() {
+		return brickNames;
 	}
 }

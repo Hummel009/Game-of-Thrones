@@ -7,7 +7,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
 public class GOTItemPlantableBlock extends ItemBlock implements IPlantable {
-	public IPlantable plantableBlock;
+	private final IPlantable plantableBlock;
 
 	public GOTItemPlantableBlock(Block block) {
 		super(block);

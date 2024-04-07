@@ -28,8 +28,8 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockTreasurePile extends Block {
-	public static Block.SoundType soundTypeTreasure = new Block.SoundType("got:treasure", 1.0f, 1.0f) {
-		public final Random rand = new Random();
+	private static final Block.SoundType SOUND_TYPE_TREASURE = new Block.SoundType("got:treasure", 1.0f, 1.0f) {
+		private final Random rand = new Random();
 
 		@Override
 		public String func_150496_b() {
@@ -51,18 +51,18 @@ public class GOTBlockTreasurePile extends Block {
 			return "got:block.treasure.step";
 		}
 	};
-	public static int MAX_META = 7;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon sideIcon;
+	private IIcon sideIcon;
 
 	public GOTBlockTreasurePile() {
 		super(Material.circuits);
 		setHardness(0.0f);
-		setStepSound(soundTypeTreasure);
+		setStepSound(SOUND_TYPE_TREASURE);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 
-	public static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock, int thisMeta) {
+	private static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock, int thisMeta) {
 		Block block = world.getBlock(i, j, k);
 		int meta = world.getBlockMetadata(i, j, k);
 		return block == thisBlock && meta < 7 || BlockFalling.func_149831_e(world, i, j, k);
@@ -231,7 +231,7 @@ public class GOTBlockTreasurePile extends Block {
 		setBlockBoundsMeta(0);
 	}
 
-	public void setBlockBoundsMeta(int meta) {
+	private void setBlockBoundsMeta(int meta) {
 		float f = (meta + 1) / 8.0f;
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, f, 1.0f);
 	}
@@ -241,7 +241,7 @@ public class GOTBlockTreasurePile extends Block {
 		return 2;
 	}
 
-	public boolean tryFall(World world, int i, int j, int k) {
+	private boolean tryFall(World world, int i, int j, int k) {
 		int j1 = j;
 		int meta = world.getBlockMetadata(i, j1, k);
 		if (canFallUpon(world, i, j1 - 1, k, this, meta) && j1 >= 0) {

@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockSpawnerChest extends BlockChest {
-	public static boolean dropChestItems = true;
+	private static boolean dropChestItems = true;
 	public Block chestModel;
 
 	public GOTBlockSpawnerChest(Block block) {
@@ -100,7 +100,7 @@ public class GOTBlockSpawnerChest extends BlockChest {
 		return true;
 	}
 
-	public void spawnEntity(World world, int i, int j, int k) {
+	private void spawnEntity(World world, int i, int j, int k) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (!(tileentity instanceof GOTTileEntitySpawnerChest)) {
 			return;

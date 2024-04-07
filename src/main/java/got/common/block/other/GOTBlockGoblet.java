@@ -7,7 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 
 public class GOTBlockGoblet extends GOTBlockMug {
-	public GOTBlockGoblet() {
+	protected GOTBlockGoblet() {
 		super(2.5f, 9.0f);
 		setStepSound(soundTypeMetal);
 	}

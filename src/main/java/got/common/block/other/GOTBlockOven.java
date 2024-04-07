@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
+import got.common.database.GOTGuiId;
 import got.common.tileentity.GOTTileEntityOven;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
@@ -26,7 +26,7 @@ import java.util.Random;
 
 public class GOTBlockOven extends BlockContainer {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] ovenIcons;
+	private IIcon[] ovenIcons;
 
 	public GOTBlockOven() {
 		super(Material.rock);
@@ -35,7 +35,7 @@ public class GOTBlockOven extends BlockContainer {
 		setStepSound(soundTypeStone);
 	}
 
-	public static boolean isOvenActive(IBlockAccess world, int i, int j, int k) {
+	private static boolean isOvenActive(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k);
 		return meta > 7;
 	}
@@ -95,7 +95,7 @@ public class GOTBlockOven extends BlockContainer {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, GOTGuiID.OVEN.ordinal(), world, i, j, k);
+			entityplayer.openGui(GOT.instance, GOTGuiId.OVEN.ordinal(), world, i, j, k);
 		}
 		return true;
 	}
@@ -169,7 +169,7 @@ public class GOTBlockOven extends BlockContainer {
 		ovenIcons[3] = iconregister.registerIcon(getTextureName() + "_active");
 	}
 
-	public void setDefaultDirection(World world, int i, int j, int k) {
+	private void setDefaultDirection(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			Block i1 = world.getBlock(i, j, k - 1);
 			Block j1 = world.getBlock(i, j, k + 1);

@@ -20,9 +20,9 @@ import java.util.List;
 import java.util.Random;
 
 public abstract class GOTBlockSlabBase extends BlockSlab {
-	public Block singleSlab;
-	public Block doubleSlab;
-	public int subtypes;
+	private Block singleSlab;
+	private Block doubleSlab;
+	private final int subtypes;
 
 	protected GOTBlockSlabBase(boolean flag, Material material, int n) {
 		super(flag, material);

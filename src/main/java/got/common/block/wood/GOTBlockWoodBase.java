@@ -14,8 +14,8 @@ import java.util.List;
 
 public abstract class GOTBlockWoodBase extends BlockLog {
 	@SideOnly(Side.CLIENT)
-	public IIcon[][] woodIcons;
-	public String[] woodNames;
+	private IIcon[][] woodIcons;
+	private String[] woodNames;
 
 	protected GOTBlockWoodBase() {
 		setHardness(2.0f);
@@ -57,7 +57,7 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 		}
 	}
 
-	public void setWoodNames(String... s) {
+	protected void setWoodNames(String... s) {
 		woodNames = s;
 	}
 }

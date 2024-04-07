@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
-import got.common.database.GOTGuiID;
+import got.common.database.GOTGuiId;
 import got.common.faction.GOTFaction;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -18,19 +18,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTBlockCraftingTable extends Block {
-	public static Collection<GOTBlockCraftingTable> allCraftingTables = new ArrayList<>();
-	public GOTFaction tableFaction;
-	public GOTGuiID tableGUIID;
-	@SideOnly(Side.CLIENT)
-	public IIcon[] tableIcons;
+	public static final Collection<GOTBlockCraftingTable> ALL_CRAFTING_TABLES = new ArrayList<>();
 
-	public GOTBlockCraftingTable(Material material, GOTFaction faction, GOTGuiID guiID) {
+	private final GOTFaction faction;
+	private final GOTGuiId guiId;
+
+	@SideOnly(Side.CLIENT)
+	protected IIcon[] tableIcons;
+
+	protected GOTBlockCraftingTable(Material material, GOTFaction faction, GOTGuiId guiId) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		setHardness(2.5f);
-		tableFaction = faction;
-		tableGUIID = guiID;
-		allCraftingTables.add(this);
+		this.faction = faction;
+		this.guiId = guiId;
+		ALL_CRAFTING_TABLES.add(this);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -48,7 +50,7 @@ public class GOTBlockCraftingTable extends Block {
 	@Override
 	public boolean onBlockActivated(World world, int i, int j, int k, EntityPlayer entityplayer, int side, float f, float f1, float f2) {
 		if (!world.isRemote) {
-			entityplayer.openGui(GOT.instance, tableGUIID.ordinal(), world, i, j, k);
+			entityplayer.openGui(GOT.instance, guiId.ordinal(), world, i, j, k);
 		}
 		return true;
 	}
@@ -59,5 +61,13 @@ public class GOTBlockCraftingTable extends Block {
 		tableIcons = new IIcon[2];
 		tableIcons[0] = iconregister.registerIcon(getTextureName() + "_side");
 		tableIcons[1] = iconregister.registerIcon(getTextureName() + "_top");
+	}
+
+	public GOTGuiId getGuiId() {
+		return guiId;
+	}
+
+	public GOTFaction getFaction() {
+		return faction;
 	}
 }

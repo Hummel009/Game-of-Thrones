@@ -23,7 +23,7 @@ import java.util.Random;
 
 public abstract class GOTBlockForgeBase extends BlockContainer {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] forgeIcons;
+	private IIcon[] forgeIcons;
 
 	protected GOTBlockForgeBase() {
 		super(Material.rock);
@@ -168,7 +168,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		forgeIcons[3] = iconregister.registerIcon(getTextureName() + "_active");
 	}
 
-	public void setDefaultDirection(World world, int i, int j, int k) {
+	private void setDefaultDirection(World world, int i, int j, int k) {
 		if (!world.isRemote) {
 			Block i1 = world.getBlock(i, j, k - 1);
 			Block j1 = world.getBlock(i, j, k + 1);
@@ -188,5 +188,5 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		}
 	}
 
-	public abstract boolean useLargeSmoke();
+	protected abstract boolean useLargeSmoke();
 }

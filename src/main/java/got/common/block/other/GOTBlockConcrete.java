@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
 public class GOTBlockConcrete extends Block {
-	public GOTEnumDyeColor color;
+	private final GOTEnumDyeColor color;
 
 	public GOTBlockConcrete(GOTEnumDyeColor color) {
 		super(Material.rock);

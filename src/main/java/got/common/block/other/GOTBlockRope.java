@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockRope extends GOTBlockLadder {
-	public boolean canRetract;
+	private final boolean canRetract;
 
 	public GOTBlockRope(boolean flag) {
 		setHardness(0.4f);
@@ -25,7 +25,7 @@ public class GOTBlockRope extends GOTBlockLadder {
 		return canPlaceBlockAt(world, i, j, k);
 	}
 
-	public boolean canExtendRopeWithMetadata(World world, int i, int j, int k, int meta) {
+	private boolean canExtendRopeWithMetadata(World world, int i, int j, int k, int meta) {
 		if (world.getBlock(i, j + 1, k) == this) {
 			return true;
 		}

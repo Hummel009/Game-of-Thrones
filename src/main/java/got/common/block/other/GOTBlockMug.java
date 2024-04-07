@@ -31,7 +31,7 @@ public class GOTBlockMug extends BlockContainer {
 		this(3.0f, 8.0f);
 	}
 
-	public GOTBlockMug(float f, float f1) {
+	protected GOTBlockMug(float f, float f1) {
 		super(Material.circuits);
 		float f11 = f1;
 		float f2 = f;
@@ -42,7 +42,7 @@ public class GOTBlockMug extends BlockContainer {
 		setStepSound(soundTypeWood);
 	}
 
-	public static ItemStack getMugItem(IBlockAccess world, int i, int j, int k) {
+	private static ItemStack getMugItem(IBlockAccess world, int i, int j, int k) {
 		TileEntity tileentity = world.getTileEntity(i, j, k);
 		if (tileentity instanceof GOTTileEntityMug) {
 			GOTTileEntityMug mug = (GOTTileEntityMug) tileentity;

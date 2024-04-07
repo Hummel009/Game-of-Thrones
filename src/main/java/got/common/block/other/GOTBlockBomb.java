@@ -22,7 +22,7 @@ import java.util.List;
 
 public class GOTBlockBomb extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] bombIcons;
+	private IIcon[] bombIcons;
 
 	public GOTBlockBomb() {
 		super(Material.iron);

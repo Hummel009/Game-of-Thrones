@@ -14,9 +14,9 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockThatch extends Block {
-	public static String[] thatchNames = {"thatch", "reed"};
+	private static final String[] thatchNames = {"thatch", "reed"};
 	@SideOnly(Side.CLIENT)
-	public IIcon[] thatchIcons;
+	private IIcon[] thatchIcons;
 
 	public GOTBlockThatch() {
 		super(Material.grass);

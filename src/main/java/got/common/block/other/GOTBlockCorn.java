@@ -25,9 +25,8 @@ import java.util.Random;
 
 public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 	public static int MAX_GROW_HEIGHT = 3;
-	public static int META_GROW_END = 7;
 	@SideOnly(Side.CLIENT)
-	public IIcon cornIcon;
+	private IIcon cornIcon;
 
 	public GOTBlockCorn() {
 		super(Material.plants);
@@ -44,7 +43,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return metaHasCorn(meta);
 	}
 
-	public static boolean metaHasCorn(int l) {
+	private static boolean metaHasCorn(int l) {
 		return (l & 8) != 0;
 	}
 
@@ -59,7 +58,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return canPlaceBlockAt(world, i, j, k);
 	}
 
-	public boolean canGrowCorn(IBlockAccess world, int i, int j, int k) {
+	private boolean canGrowCorn(IBlockAccess world, int i, int j, int k) {
 		return world.getBlock(i, j - 1, k) == this;
 	}
 
@@ -89,7 +88,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, this) || below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, beachTest);
 	}
 
-	public boolean checkCanStay(World world, int i, int j, int k) {
+	private boolean checkCanStay(World world, int i, int j, int k) {
 		if (!canBlockStay(world, i, j, k)) {
 			int meta = world.getBlockMetadata(i, j, k);
 			dropBlockAsItem(world, i, j, k, meta, 0);
@@ -144,7 +143,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		return drops;
 	}
 
-	public float getGrowthFactor(World world, int i, int j, int k) {
+	private float getGrowthFactor(World world, int i, int j, int k) {
 		float growth = 1.0f;
 		Block below = world.getBlock(i, j - 1, k);
 		if (below.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (IPlantable) Blocks.wheat)) {
@@ -246,6 +245,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 				int meta = world.getBlockMetadata(i, j, k);
 				int corn = meta & 8;
 				int grow = meta & 7;
+				int META_GROW_END = 7;
 				if (grow == META_GROW_END) {
 					world.setBlock(i, j + 1, k, this, 0, 3);
 					grow = 0;

@@ -18,20 +18,20 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GOTBlockPlaceableFood extends Block {
-	public static int MAX_EATS = 6;
+	private static final int MAX_EATS = 6;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconBottom;
+	private IIcon iconBottom;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconTop;
+	private IIcon iconTop;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconSide;
+	private IIcon iconSide;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconEaten;
+	private IIcon iconEaten;
 	public Item foodItem;
-	public float foodHalfWidth;
-	public float foodHeight;
-	public int healAmount;
-	public float saturationAmount;
+	private final float foodHalfWidth;
+	private final float foodHeight;
+	private int healAmount;
+	private float saturationAmount;
 
 	public GOTBlockPlaceableFood() {
 		this(0.4375f, 0.5f);
@@ -57,7 +57,7 @@ public class GOTBlockPlaceableFood extends Block {
 		return super.canPlaceBlockAt(world, i, j, k) && canBlockStay(world, i, j, k);
 	}
 
-	public void eatCake(World world, int i, int j, int k, EntityPlayer entityplayer) {
+	private void eatCake(World world, int i, int j, int k, EntityPlayer entityplayer) {
 		if (!world.isRemote && entityplayer.canEat(false)) {
 			entityplayer.getFoodStats().addStats(healAmount, saturationAmount);
 			entityplayer.playSound("random.burp", 0.5f, world.rand.nextFloat() * 0.1f + 0.9f);

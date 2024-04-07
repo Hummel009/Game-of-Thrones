@@ -4,7 +4,7 @@ import got.common.database.GOTCreativeTabs;
 import net.minecraft.block.BlockLadder;
 
 public class GOTBlockLadder extends BlockLadder {
-	public GOTBlockLadder() {
+	protected GOTBlockLadder() {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 }

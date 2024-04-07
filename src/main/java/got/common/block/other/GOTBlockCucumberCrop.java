@@ -13,7 +13,7 @@ import net.minecraftforge.common.EnumPlantType;
 
 public class GOTBlockCucumberCrop extends BlockCrops {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] cucumberIcons;
+	private IIcon[] cucumberIcons;
 
 	@Override
 	public Item func_149865_P() {

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class GOTBlockClayTileDyed extends GOTBlockClayTile {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] clayIcons;
+	private IIcon[] clayIcons;
 
 	@Override
 	public int damageDropped(int i) {

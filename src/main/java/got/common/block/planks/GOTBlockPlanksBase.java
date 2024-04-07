@@ -15,8 +15,9 @@ import java.util.List;
 
 public abstract class GOTBlockPlanksBase extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] plankIcons;
-	public String[] plankTypes;
+	private IIcon[] plankIcons;
+
+	private String[] plankTypes;
 
 	protected GOTBlockPlanksBase() {
 		super(Material.wood);
@@ -59,7 +60,11 @@ public abstract class GOTBlockPlanksBase extends Block {
 		}
 	}
 
-	public void setPlankTypes(String... types) {
+	protected void setPlankTypes(String... types) {
 		plankTypes = types;
+	}
+
+	protected String[] getPlankTypes() {
+		return plankTypes;
 	}
 }

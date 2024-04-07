@@ -18,7 +18,7 @@ public class GOTBlockDoor extends BlockDoor {
 		setHardness(3.0f);
 	}
 
-	public GOTBlockDoor(Material material) {
+	private GOTBlockDoor(Material material) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 	}

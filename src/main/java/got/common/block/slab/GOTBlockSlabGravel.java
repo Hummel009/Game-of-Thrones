@@ -28,9 +28,8 @@ public class GOTBlockSlabGravel extends GOTBlockSlabFalling {
 			case 2:
 				return GOTBlocks.obsidianGravel.getIcon(i, 0);
 			default:
-				break;
+				return super.getIcon(i, j1);
 		}
-		return super.getIcon(i, j1);
 	}
 
 	@SideOnly(Side.CLIENT)

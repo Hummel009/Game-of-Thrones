@@ -16,7 +16,7 @@ import java.util.Random;
 
 public class GOTBlockPipeweedCrop extends BlockCrops {
 	@SideOnly(Side.CLIENT)
-	public IIcon[] pipeweedIcons;
+	private IIcon[] pipeweedIcons;
 
 	@Override
 	public Item func_149865_P() {

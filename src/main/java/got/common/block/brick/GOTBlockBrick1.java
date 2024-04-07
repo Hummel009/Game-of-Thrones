@@ -11,7 +11,7 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockBrick1 extends GOTBlockBrickBase {
-	public IIcon iconIbbenSide;
+	private IIcon iconIbbenSide;
 
 	public GOTBlockBrick1() {
 		setBrickNames("basalt", "andesite", "andesite_mossy", "andesite_cracked", "rhyolite", "andesite_carved", "basalt", "basalt_cracked", "basalt", "basalt", "basalt", "basalt", "basalt", "basalt", "diorite", "sandstone");

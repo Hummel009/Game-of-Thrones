@@ -34,9 +34,8 @@ public class GOTBlockSlabDirt extends GOTBlockSlabBase {
 			case 5:
 				return GOTBlocks.dirtPath.getIcon(i, 2);
 			default:
-				break;
+				return super.getIcon(i, j1);
 		}
-		return super.getIcon(i, j1);
 	}
 
 	@SideOnly(Side.CLIENT)

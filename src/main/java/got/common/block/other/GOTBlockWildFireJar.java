@@ -32,31 +32,31 @@ public class GOTBlockWildFireJar extends BlockFalling {
 	public static int renderCrown = 5;
 	public static int renderHandle = 6;
 	public static boolean explodeOnAdded = true;
-	public static Material materialFireJar = new MaterialLogic(MapColor.stoneColor);
+	private static final Material materialFireJar = new MaterialLogic(MapColor.stoneColor);
 	@SideOnly(Side.CLIENT)
-	public IIcon iconBaseSide;
+	private IIcon iconBaseSide;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconBaseTop;
+	private IIcon iconBaseTop;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconBaseBottom;
+	private IIcon iconBaseBottom;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconNeckSide;
+	private IIcon iconNeckSide;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconLidSide;
+	private IIcon iconLidSide;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconLidTop;
+	private IIcon iconLidTop;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconLidBottom;
+	private IIcon iconLidBottom;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconCapSide;
+	private IIcon iconCapSide;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconCapTop;
+	private IIcon iconCapTop;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconCapBottom;
+	private IIcon iconCapBottom;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconCrownSide;
+	private IIcon iconCrownSide;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconHandleSide;
+	private IIcon iconHandleSide;
 
 	public GOTBlockWildFireJar() {
 		super(materialFireJar);

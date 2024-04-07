@@ -11,9 +11,9 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockEssosFlower extends GOTBlockFlower {
-	public static String[] flowerNames = {"red", "yellow", "daisy", "pink"};
+	private static final String[] flowerNames = {"red", "yellow", "daisy", "pink"};
 	@SideOnly(Side.CLIENT)
-	public IIcon[] flowerIcons;
+	private IIcon[] flowerIcons;
 
 	@Override
 	public int damageDropped(int i) {

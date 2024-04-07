@@ -11,7 +11,7 @@ public class GOTBlockTrapdoor extends BlockTrapDoor {
 		setHardness(3.0f);
 	}
 
-	public GOTBlockTrapdoor(Material material) {
+	private GOTBlockTrapdoor(Material material) {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 	}

@@ -20,9 +20,9 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockCoralReef extends Block {
-	public static String[] plantNames = {"purple", "yellow", "blue", "red", "green"};
-	public static Random iconRand = new Random();
-	public IIcon[] plantIcons;
+	private static final String[] plantNames = {"purple", "yellow", "blue", "red", "green"};
+	private static final Random iconRand = new Random();
+	private IIcon[] plantIcons;
 
 	public GOTBlockCoralReef() {
 		super(Material.rock);

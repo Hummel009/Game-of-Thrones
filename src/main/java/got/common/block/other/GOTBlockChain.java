@@ -19,13 +19,13 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTBlockChain extends Block {
 	@SideOnly(Side.CLIENT)
-	public IIcon iconMiddle;
+	private IIcon iconMiddle;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconTop;
+	private IIcon iconTop;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconBottom;
+	private IIcon iconBottom;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconSingle;
+	private IIcon iconSingle;
 
 	public GOTBlockChain() {
 		super(Material.circuits);
