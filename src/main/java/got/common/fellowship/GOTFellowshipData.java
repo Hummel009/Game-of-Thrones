@@ -4,7 +4,6 @@ import cpw.mods.fml.common.FMLLog;
 import got.common.GOTLevelData;
 import got.common.util.GOTLog;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 
@@ -15,6 +14,9 @@ public class GOTFellowshipData {
 	public static Map<UUID, GOTFellowship> fellowshipMap = new HashMap<>();
 	public static boolean needsLoad = true;
 	public static boolean doFullClearing;
+
+	private GOTFellowshipData() {
+	}
 
 	public static void addFellowship(GOTFellowship fs) {
 		if (!fellowshipMap.containsKey(fs.getFellowshipID())) {
