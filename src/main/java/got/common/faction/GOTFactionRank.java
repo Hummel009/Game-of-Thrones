@@ -5,8 +5,9 @@ import got.common.GOTPlayerData;
 import got.common.database.GOTTitle;
 import net.minecraft.util.StatCollector;
 
-import java.util.Objects;
-
+/**
+ * Note: this class has a natural ordering that is inconsistent with equals.
+ */
 public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	public static final GOTFactionRank RANK_NEUTRAL = new Dummy("got.rank.neutral");
 	public static final GOTFactionRank RANK_ENEMY = new Dummy("got.rank.enemy");
@@ -17,8 +18,6 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	protected final String name;
 
 	private GOTAchievementRank rankAchievement;
-	private GOTTitle rankTitleMasc;
-	private GOTTitle rankTitleFem;
 
 	private boolean addFacName = true;
 
@@ -126,25 +125,16 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 		rankAchievement = new GOTAchievementRank(this);
 	}
 
+	@SuppressWarnings("ResultOfObjectAllocationIgnored")
 	public GOTFactionRank makeTitle() {
-		rankTitleMasc = new GOTTitle(this, false);
-		rankTitleFem = new GOTTitle(this, true);
+		new GOTTitle(this, false);
+		new GOTTitle(this, true);
 		return this;
 	}
 
 	public GOTFactionRank setPledgeRank() {
 		faction.setPledgeRank(this);
 		return this;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-		return o instanceof GOTFactionRank && compareTo((GOTFactionRank) o) == 0;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(faction, alignment, name, rankAchievement, rankTitleMasc, rankTitleFem, addFacName);
 	}
 
 	public boolean isAddFacName() {

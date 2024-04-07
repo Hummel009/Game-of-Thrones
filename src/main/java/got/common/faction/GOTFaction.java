@@ -307,11 +307,11 @@ public enum GOTFaction {
 		YI_TI.addControlZone(new GOTControlZone(3809, 1955, 1005));
 		for (GOTFaction fac : values()) {
 			if (fac != WHITE_WALKER && fac != UNALIGNED && fac != HOSTILE) {
-				fac.addRank(10.0f, "guest").makeTitle().makeAchievement(); // �����
-				fac.addRank(50.0f, "friend").makeTitle().makeAchievement(); // ����
-				fac.addRank(100.0f, "defender").setPledgeRank().makeTitle().makeAchievement(); // ��������
-				fac.addRank(500.0f, "hero").makeTitle().makeAchievement(); // �����
-				fac.addRank(1000.0f, "leader").makeTitle().makeAchievement(); // �����
+				fac.addRank(10.0f, "guest").makeTitle().makeAchievement();
+				fac.addRank(50.0f, "friend").makeTitle().makeAchievement();
+				fac.addRank(100.0f, "defender").setPledgeRank().makeTitle().makeAchievement();
+				fac.addRank(500.0f, "hero").makeTitle().makeAchievement();
+				fac.addRank(1000.0f, "leader").makeTitle().makeAchievement();
 			}
 		}
 		WHITE_WALKER.addSpecialRank(1000.0f, "king").setPledgeRank().makeTitle().makeAchievement();
