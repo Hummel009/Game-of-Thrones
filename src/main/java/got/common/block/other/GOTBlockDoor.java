@@ -15,7 +15,7 @@ import java.util.Random;
 public class GOTBlockDoor extends BlockDoor {
 	public GOTBlockDoor() {
 		this(Material.wood);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 		setHardness(3.0f);
 	}
 

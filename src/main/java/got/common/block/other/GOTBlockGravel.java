@@ -8,6 +8,6 @@ public class GOTBlockGravel extends BlockGravel {
 	public GOTBlockGravel() {
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(0.6f);
-		setStepSound(Block.soundTypeGravel);
+		setStepSound(soundTypeGravel);
 	}
 }

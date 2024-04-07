@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTrapdoor extends BlockTrapDoor {
 	public GOTBlockTrapdoor() {
 		this(Material.wood);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 		setHardness(3.0f);
 	}
 

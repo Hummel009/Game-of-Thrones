@@ -9,7 +9,7 @@ import net.minecraft.util.IIcon;
 public class GOTBlockGlassBottle extends GOTBlockMug {
 	public GOTBlockGlassBottle() {
 		super(3.0f, 10.0f);
-		setStepSound(Block.soundTypeGlass);
+		setStepSound(soundTypeGlass);
 	}
 
 	@SideOnly(Side.CLIENT)

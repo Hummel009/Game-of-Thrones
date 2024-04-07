@@ -32,7 +32,7 @@ public class GOTBlockOven extends BlockContainer {
 		super(Material.rock);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		setHardness(3.5f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	public static boolean isOvenActive(IBlockAccess world, int i, int j, int k) {

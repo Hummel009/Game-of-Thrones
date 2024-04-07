@@ -19,7 +19,7 @@ import java.util.Random;
 public class GOTBlockMudFarmland extends BlockFarmland {
 	public GOTBlockMudFarmland() {
 		setHardness(0.6f);
-		setStepSound(Block.soundTypeGravel);
+		setStepSound(soundTypeGravel);
 	}
 
 	@Override

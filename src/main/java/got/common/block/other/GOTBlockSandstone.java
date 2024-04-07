@@ -17,7 +17,7 @@ public class GOTBlockSandstone extends Block {
 	public GOTBlockSandstone() {
 		super(Material.rock);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 		setHardness(0.8f);
 	}
 

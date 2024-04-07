@@ -8,7 +8,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTBlockClayMug extends GOTBlockMug {
 	public GOTBlockClayMug() {
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	@SideOnly(Side.CLIENT)

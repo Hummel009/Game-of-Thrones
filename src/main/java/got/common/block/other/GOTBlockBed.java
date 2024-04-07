@@ -30,7 +30,7 @@ public class GOTBlockBed extends BlockBed {
 		bedBottomBlock = block;
 		bedBottomMetadata = k;
 		setHardness(0.2f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -39,9 +39,9 @@ public class GOTBlockBed extends BlockBed {
 		if (i == 0) {
 			return bedBottomBlock.getIcon(0, bedBottomMetadata);
 		}
-		int k = BlockDirectional.getDirection(j);
+		int k = getDirection(j);
 		int l = Direction.bedDirection[k][i];
-		int i1 = BlockBed.isBlockHeadOfBed(j) ? 1 : 0;
+		int i1 = isBlockHeadOfBed(j) ? 1 : 0;
 		return (i1 != 1 || l != 2) && (i1 != 0 || l != 3) ? l != 5 && l != 4 ? bedIconsTop[i1] : bedIconsSide[i1] : bedIconsEnd[i1];
 	}
 
@@ -53,7 +53,7 @@ public class GOTBlockBed extends BlockBed {
 
 	@Override
 	public Item getItemDropped(int i, Random random, int j) {
-		return BlockBed.isBlockHeadOfBed(i) ? null : bedItem;
+		return isBlockHeadOfBed(i) ? null : bedItem;
 	}
 
 	@Override

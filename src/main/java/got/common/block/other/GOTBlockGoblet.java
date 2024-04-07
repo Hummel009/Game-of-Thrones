@@ -10,7 +10,7 @@ import net.minecraft.util.IIcon;
 public class GOTBlockGoblet extends GOTBlockMug {
 	public GOTBlockGoblet() {
 		super(2.5f, 9.0f);
-		setStepSound(Block.soundTypeMetal);
+		setStepSound(soundTypeMetal);
 	}
 
 	public static class Copper extends GOTBlockGoblet {
@@ -39,7 +39,7 @@ public class GOTBlockGoblet extends GOTBlockMug {
 
 	public static class Wood extends GOTBlockGoblet {
 		public Wood() {
-			setStepSound(Block.soundTypeWood);
+			setStepSound(soundTypeWood);
 		}
 
 		@SideOnly(Side.CLIENT)

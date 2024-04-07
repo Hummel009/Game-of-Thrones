@@ -30,7 +30,7 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		super(Material.glass);
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
 		setHardness(0.5f);
-		setStepSound(Block.soundTypeMetal);
+		setStepSound(soundTypeMetal);
 		setCageTypes("bronze", "iron", "silver", "gold");
 	}
 

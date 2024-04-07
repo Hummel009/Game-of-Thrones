@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableIronborn extends GOTBlockCraftingTable {
 	public GOTBlockTableIronborn() {
 		super(Material.wood, GOTFaction.IRONBORN, GOTGuiID.TABLE_IRONBORN);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

@@ -27,7 +27,7 @@ public class GOTBlockSapling2 extends GOTBlockSaplingBase {
 				treeGen = GOTTreeType.ARAMANT.create(true, random);
 				break;
 			case 1:
-				int[] partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, meta);
+				int[] partyTree = findPartyTree(world, i, j, k, this, meta);
 				if (partyTree != null) {
 					treeGen = GOTTreeType.BEECH_PARTY.create(true, random);
 					trunkPos = 1;

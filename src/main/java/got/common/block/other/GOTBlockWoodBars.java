@@ -12,7 +12,7 @@ public class GOTBlockWoodBars extends GOTBlockPane {
 		super("", "", Material.wood, true);
 		setHardness(2.0f);
 		setResistance(5.0f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 
 	@SideOnly(Side.CLIENT)

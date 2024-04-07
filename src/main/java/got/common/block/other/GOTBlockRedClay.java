@@ -12,7 +12,7 @@ public class GOTBlockRedClay extends Block {
 	public GOTBlockRedClay() {
 		super(Material.clay);
 		setHardness(0.6f);
-		setStepSound(Block.soundTypeGravel);
+		setStepSound(soundTypeGravel);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 	}
 

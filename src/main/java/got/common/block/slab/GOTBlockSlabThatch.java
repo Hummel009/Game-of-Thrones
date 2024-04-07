@@ -12,7 +12,7 @@ public class GOTBlockSlabThatch extends GOTBlockSlabBase {
 	public GOTBlockSlabThatch(boolean flag) {
 		super(flag, Material.grass, 2);
 		setHardness(0.5f);
-		setStepSound(Block.soundTypeGrass);
+		setStepSound(soundTypeGrass);
 	}
 
 	@SideOnly(Side.CLIENT)

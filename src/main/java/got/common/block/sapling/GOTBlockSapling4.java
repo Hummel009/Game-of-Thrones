@@ -23,7 +23,7 @@ public class GOTBlockSapling4 extends GOTBlockSaplingBase {
 		int xOffset = 0;
 		int zOffset = 0;
 		if (meta == 0) {
-			int[] partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 0);
+			int[] partyTree = findPartyTree(world, i, j, k, this, 0);
 			if (partyTree != null) {
 				treeGen = GOTTreeType.CHESTNUT_PARTY.create(true, random);
 				trunkPos = 1;

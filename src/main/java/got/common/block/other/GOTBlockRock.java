@@ -31,7 +31,7 @@ public class GOTBlockRock extends Block {
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(1.5f);
 		setResistance(10.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	@Override

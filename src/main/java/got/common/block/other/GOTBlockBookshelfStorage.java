@@ -25,7 +25,7 @@ public class GOTBlockBookshelfStorage extends BlockContainer {
 	public GOTBlockBookshelfStorage() {
 		super(Material.wood);
 		setHardness(1.5f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 		setCreativeTab(null);
 	}
 

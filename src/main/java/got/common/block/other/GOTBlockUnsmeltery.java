@@ -54,7 +54,7 @@ public class GOTBlockUnsmeltery extends GOTBlockForgeBase {
 	@Override
 	public void randomDisplayTick(World world, int i, int j, int k, Random random) {
 		super.randomDisplayTick(world, i, j, k, random);
-		if (GOTBlockForgeBase.isForgeActive(world, i, j, k)) {
+		if (isForgeActive(world, i, j, k)) {
 			for (int l = 0; l < 3; ++l) {
 				float f = i + 0.25f + random.nextFloat() * 0.5f;
 				float f1 = j + 0.5f + random.nextFloat() * 0.5f;

@@ -13,7 +13,7 @@ public class GOTBlockSlabGravel extends GOTBlockSlabFalling {
 	public GOTBlockSlabGravel(boolean flag) {
 		super(flag, Material.sand, 3);
 		setHardness(0.6f);
-		setStepSound(Block.soundTypeGravel);
+		setStepSound(soundTypeGravel);
 	}
 
 	@SideOnly(Side.CLIENT)

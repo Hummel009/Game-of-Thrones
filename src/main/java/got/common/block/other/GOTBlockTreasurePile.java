@@ -195,7 +195,7 @@ public class GOTBlockTreasurePile extends Block {
 			double d3 = MathHelper.randomFloatClamp(world.rand, -0.15f, 0.15f);
 			double d4 = MathHelper.randomFloatClamp(world.rand, 0.1f, 0.4f);
 			double d5 = MathHelper.randomFloatClamp(world.rand, -0.15f, 0.15f);
-			world.spawnParticle("blockdust_" + Block.getIdFromBlock(this) + "_0", d, d1, d2, d3, d4, d5);
+			world.spawnParticle("blockdust_" + getIdFromBlock(this) + "_0", d, d1, d2, d3, d4, d5);
 		}
 	}
 

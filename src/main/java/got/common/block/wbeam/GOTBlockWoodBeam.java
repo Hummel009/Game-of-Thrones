@@ -26,7 +26,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 		super(Material.wood);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(2.0f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 
 	@Override

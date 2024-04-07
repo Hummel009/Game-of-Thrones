@@ -24,7 +24,7 @@ public class GOTBlockDoubleTorch extends Block {
 	public GOTBlockDoubleTorch() {
 		super(Material.circuits);
 		setHardness(0.0f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 
 	public static boolean canPlaceTorchOn(World world, int i, int j, int k) {

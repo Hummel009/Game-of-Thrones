@@ -24,7 +24,7 @@ public class GOTBlockWaste extends Block {
 	public GOTBlockWaste() {
 		super(Material.ground);
 		setHardness(0.5f);
-		setStepSound(Block.soundTypeSand);
+		setStepSound(soundTypeSand);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 	}
 

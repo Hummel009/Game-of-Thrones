@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableLhazar extends GOTBlockCraftingTable {
 	public GOTBlockTableLhazar() {
 		super(Material.wood, GOTFaction.LHAZAR, GOTGuiID.TABLE_LHAZAR);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableMossovy extends GOTBlockCraftingTable {
 	public GOTBlockTableMossovy() {
 		super(Material.wood, GOTFaction.MOSSOVY, GOTGuiID.TABLE_MOSSOVY);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

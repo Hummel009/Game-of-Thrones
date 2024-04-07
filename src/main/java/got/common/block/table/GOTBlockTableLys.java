@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableLys extends GOTBlockCraftingTable {
 	public GOTBlockTableLys() {
 		super(Material.wood, GOTFaction.LYS, GOTGuiID.TABLE_LYS);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

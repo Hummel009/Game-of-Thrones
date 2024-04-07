@@ -20,7 +20,7 @@ public class GOTBlockButterflyJar extends GOTBlockAnimalJar {
 		super(Material.glass);
 		setBlockBounds(0.1875f, 0.0f, 0.1875f, 0.8125f, 0.75f, 0.8125f);
 		setHardness(0.0f);
-		setStepSound(Block.soundTypeGlass);
+		setStepSound(soundTypeGlass);
 	}
 
 	@Override

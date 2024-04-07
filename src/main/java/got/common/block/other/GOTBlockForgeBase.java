@@ -29,7 +29,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 		super(Material.rock);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		setHardness(4.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	public static boolean isForgeActive(IBlockAccess world, int i, int j, int k) {

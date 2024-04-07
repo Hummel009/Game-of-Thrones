@@ -30,7 +30,7 @@ public class GOTBlockChain extends Block {
 	public GOTBlockChain() {
 		super(Material.circuits);
 		setHardness(1.0f);
-		setStepSound(Block.soundTypeMetal);
+		setStepSound(soundTypeMetal);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		float f = 0.2f;
 		setBlockBounds(0.5f - f, 0.0f, 0.5f - f, 0.5f + f, 1.0f, 0.5f + f);

@@ -37,7 +37,7 @@ public class GOTBlockMillstone extends BlockContainer {
 		super(Material.rock);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 		setHardness(4.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	@SuppressWarnings("JavaExistingMethodCanBeUsed")

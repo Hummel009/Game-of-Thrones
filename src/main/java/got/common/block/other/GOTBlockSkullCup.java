@@ -9,7 +9,7 @@ import net.minecraft.util.IIcon;
 public class GOTBlockSkullCup extends GOTBlockMug {
 	public GOTBlockSkullCup() {
 		super(4.0f, 10.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	@SideOnly(Side.CLIENT)

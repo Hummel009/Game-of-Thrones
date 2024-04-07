@@ -11,7 +11,7 @@ public class GOTBlockReedBars extends GOTBlockPane {
 	public GOTBlockReedBars() {
 		super("", "", Material.grass, true);
 		setHardness(0.5f);
-		setStepSound(Block.soundTypeGrass);
+		setStepSound(soundTypeGrass);
 	}
 
 	@SideOnly(Side.CLIENT)

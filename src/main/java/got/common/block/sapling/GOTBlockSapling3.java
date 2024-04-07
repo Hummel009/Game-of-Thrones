@@ -24,7 +24,7 @@ public class GOTBlockSapling3 extends GOTBlockSaplingBase {
 		int zOffset = 0;
 		switch (meta) {
 			case 0:
-				int[] partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, meta);
+				int[] partyTree = findPartyTree(world, i, j, k, this, meta);
 				if (partyTree != null) {
 					treeGen = GOTTreeType.MAPLE_PARTY.create(true, random);
 					trunkPos = 1;

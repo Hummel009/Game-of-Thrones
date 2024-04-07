@@ -9,6 +9,6 @@ public class GOTBlockKebab extends Block {
 		super(Material.sand);
 		setCreativeTab(GOTCreativeTabs.tabFood);
 		setHardness(0.5f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

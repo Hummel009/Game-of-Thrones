@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableIbben extends GOTBlockCraftingTable {
 	public GOTBlockTableIbben() {
 		super(Material.wood, GOTFaction.ARRYN, GOTGuiID.TABLE_IBBEN);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

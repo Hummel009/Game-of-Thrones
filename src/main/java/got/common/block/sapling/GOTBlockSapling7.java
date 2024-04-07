@@ -46,7 +46,7 @@ public class GOTBlockSapling7 extends GOTBlockSaplingBase {
 			}
 		}
 		if (meta == 1) {
-			int[] partyTree = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 1);
+			int[] partyTree = findPartyTree(world, i, j, k, this, 1);
 			if (partyTree != null) {
 				treeGen = GOTTreeType.ULTHOS_GREEN_OAK_LARGE.create(true, random);
 				trunkPos = 1;

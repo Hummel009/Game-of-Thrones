@@ -31,7 +31,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		this(Material.rock);
 		setHardness(1.5f);
 		setResistance(10.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	protected GOTBlockPillarBase(Material material) {

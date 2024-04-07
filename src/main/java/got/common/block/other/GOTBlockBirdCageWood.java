@@ -4,7 +4,7 @@ import net.minecraft.block.Block;
 
 public class GOTBlockBirdCageWood extends GOTBlockBirdCage {
 	public GOTBlockBirdCageWood() {
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 		setCageTypes("wood");
 	}
 }

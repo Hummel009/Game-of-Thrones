@@ -9,7 +9,7 @@ import net.minecraft.util.IIcon;
 public class GOTBlockAleHorn extends GOTBlockMug {
 	public GOTBlockAleHorn() {
 		super(5.0f, 12.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	@SideOnly(Side.CLIENT)

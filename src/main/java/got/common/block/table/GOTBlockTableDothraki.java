@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableDothraki extends GOTBlockCraftingTable {
 	public GOTBlockTableDothraki() {
 		super(Material.wood, GOTFaction.DOTHRAKI, GOTGuiID.TABLE_DOTHRAKI);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

@@ -19,7 +19,7 @@ public class GOTBlockLeavesVanilla2 extends GOTBlockLeavesBase {
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
 		int meta = world.getBlockMetadata(i, j, k) & 3;
 		if (meta == 0 || meta == 1) {
-			return GOTBlockLeavesBase.getBiomeLeafColor(world, i, j, k);
+			return getBiomeLeafColor(world, i, j, k);
 		}
 		return super.colorMultiplier(world, i, j, k);
 	}

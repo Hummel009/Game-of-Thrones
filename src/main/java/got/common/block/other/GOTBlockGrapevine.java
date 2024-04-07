@@ -47,10 +47,10 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 			setCreativeTab(GOTCreativeTabs.tabDeco);
 		}
 		if (hasGrapes) {
-			setStepSound(Block.soundTypeGrass);
+			setStepSound(soundTypeGrass);
 			setHardness(0.0f);
 		} else {
-			setStepSound(Block.soundTypeWood);
+			setStepSound(soundTypeWood);
 			setHardness(2.0f);
 			setResistance(5.0f);
 		}

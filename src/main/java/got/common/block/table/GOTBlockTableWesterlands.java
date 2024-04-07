@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableWesterlands extends GOTBlockCraftingTable {
 	public GOTBlockTableWesterlands() {
 		super(Material.wood, GOTFaction.WESTERLANDS, GOTGuiID.TABLE_WESTERLANDS);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

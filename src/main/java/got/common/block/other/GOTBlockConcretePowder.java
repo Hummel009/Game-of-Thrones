@@ -29,7 +29,7 @@ public class GOTBlockConcretePowder extends BlockFalling {
 
 	public void func_149830_m(World world, int i, int j, int k) {
 		int j1 = j;
-		if (BlockFalling.func_149831_e(world, i, j1 - 1, k) && j1 >= 0) {
+		if (func_149831_e(world, i, j1 - 1, k) && j1 >= 0) {
 			int b0 = 32;
 			if (!fallInstantly && world.checkChunksExist(i - b0, j1 - b0, k - b0, i + b0, j1 + b0, k + b0)) {
 				if (!world.isRemote) {
@@ -39,7 +39,7 @@ public class GOTBlockConcretePowder extends BlockFalling {
 				}
 			} else {
 				world.setBlockToAir(i, j1, k);
-				while (BlockFalling.func_149831_e(world, i, j1 - 1, k) && j1 > 0) {
+				while (func_149831_e(world, i, j1 - 1, k) && j1 > 0) {
 					--j1;
 				}
 				if (j1 > 0) {

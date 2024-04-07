@@ -15,7 +15,7 @@ public class GOTBlockSlabClayTileDyed extends GOTBlockSlabBase {
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(1.25f);
 		setResistance(7.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	@SideOnly(Side.CLIENT)

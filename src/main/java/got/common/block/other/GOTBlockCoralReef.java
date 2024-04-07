@@ -29,7 +29,7 @@ public class GOTBlockCoralReef extends Block {
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(1.0f);
 		setResistance(5.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 		setLightLevel(1.0f);
 	}
 

@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableBraavos extends GOTBlockCraftingTable {
 	public GOTBlockTableBraavos() {
 		super(Material.wood, GOTFaction.BRAAVOS, GOTGuiID.TABLE_BRAAVOS);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

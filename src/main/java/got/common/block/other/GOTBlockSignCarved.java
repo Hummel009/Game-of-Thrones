@@ -20,7 +20,7 @@ import java.util.Random;
 public class GOTBlockSignCarved extends BlockSign {
 	public GOTBlockSignCarved(Class<? extends GOTTileEntitySign> cls) {
 		super(cls, false);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 		setHardness(0.5f);
 	}
 

@@ -24,7 +24,7 @@ public abstract class GOTBlockOreStorageBase extends Block {
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(5.0f);
 		setResistance(10.0f);
-		setStepSound(Block.soundTypeMetal);
+		setStepSound(soundTypeMetal);
 	}
 
 	@Override

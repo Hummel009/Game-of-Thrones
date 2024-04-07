@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableCrownlands extends GOTBlockCraftingTable {
 	public GOTBlockTableCrownlands() {
 		super(Material.wood, GOTFaction.CROWNLANDS, GOTGuiID.TABLE_CROWNLANDS);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

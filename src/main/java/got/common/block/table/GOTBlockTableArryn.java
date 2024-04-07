@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableArryn extends GOTBlockCraftingTable {
 	public GOTBlockTableArryn() {
 		super(Material.wood, GOTFaction.ARRYN, GOTGuiID.TABLE_ARRYN);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

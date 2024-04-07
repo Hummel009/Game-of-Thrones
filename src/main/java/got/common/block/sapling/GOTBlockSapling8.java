@@ -28,7 +28,7 @@ public class GOTBlockSapling8 extends GOTBlockSaplingBase {
 			int[] tree2x2;
 			int[] tree4x4;
 			int[] tree3x3;
-			int[] tree5x5 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, 1, -2, 2, -4, 4);
+			int[] tree5x5 = findSaplingSquare(world, i, j, k, this, 1, -2, 2, -4, 4);
 			if (tree5x5 != null) {
 				treeGen = GOTTreeType.REDWOOD_5.create(true, random);
 				trunkNeg = 2;
@@ -36,21 +36,21 @@ public class GOTBlockSapling8 extends GOTBlockSaplingBase {
 				xOffset = tree5x5[0];
 				zOffset = tree5x5[1];
 			}
-			if (treeGen == null && (tree4x4 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, 1, -1, 2, -2, 1)) != null) {
+			if (treeGen == null && (tree4x4 = findSaplingSquare(world, i, j, k, this, 1, -1, 2, -2, 1)) != null) {
 				treeGen = GOTTreeType.REDWOOD_4.create(true, random);
 				trunkNeg = 1;
 				trunkPos = 2;
 				xOffset = tree4x4[0];
 				zOffset = tree4x4[1];
 			}
-			if (treeGen == null && (tree3x3 = GOTBlockSaplingBase.findPartyTree(world, i, j, k, this, 1)) != null) {
+			if (treeGen == null && (tree3x3 = findPartyTree(world, i, j, k, this, 1)) != null) {
 				treeGen = GOTTreeType.REDWOOD_3.create(true, random);
 				trunkNeg = 1;
 				trunkPos = 1;
 				xOffset = tree3x3[0];
 				zOffset = tree3x3[1];
 			}
-			if (treeGen == null && (tree2x2 = GOTBlockSaplingBase.findSaplingSquare(world, i, j, k, this, 1, 0, 1, -1, 0)) != null) {
+			if (treeGen == null && (tree2x2 = findSaplingSquare(world, i, j, k, this, 1, 0, 1, -1, 0)) != null) {
 				treeGen = GOTTreeType.REDWOOD_2.create(true, random);
 				trunkNeg = 0;
 				trunkPos = 1;

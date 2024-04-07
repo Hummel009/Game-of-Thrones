@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableSummer extends GOTBlockCraftingTable {
 	public GOTBlockTableSummer() {
 		super(Material.wood, GOTFaction.SUMMER_ISLANDS, GOTGuiID.TABLE_SUMMER);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

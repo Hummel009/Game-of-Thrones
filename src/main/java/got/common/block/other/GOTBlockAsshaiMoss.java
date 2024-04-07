@@ -19,7 +19,7 @@ public class GOTBlockAsshaiMoss extends Block implements IShearable {
 		setTickRandomly(true);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		setHardness(0.2f);
-		setStepSound(Block.soundTypeGrass);
+		setStepSound(soundTypeGrass);
 	}
 
 	@Override

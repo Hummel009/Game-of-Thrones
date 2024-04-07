@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableLorath extends GOTBlockCraftingTable {
 	public GOTBlockTableLorath() {
 		super(Material.wood, GOTFaction.LORATH, GOTGuiID.TABLE_LORATH);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

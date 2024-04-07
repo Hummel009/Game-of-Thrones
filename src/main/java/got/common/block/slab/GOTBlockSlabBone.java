@@ -15,7 +15,7 @@ public class GOTBlockSlabBone extends GOTBlockSlabBase {
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(1.0f);
 		setResistance(5.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	@SideOnly(Side.CLIENT)

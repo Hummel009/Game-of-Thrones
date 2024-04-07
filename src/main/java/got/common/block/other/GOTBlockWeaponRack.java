@@ -23,7 +23,7 @@ public class GOTBlockWeaponRack extends BlockContainer {
 		super(Material.circuits);
 		setHardness(0.5f);
 		setResistance(1.0f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 	}
 

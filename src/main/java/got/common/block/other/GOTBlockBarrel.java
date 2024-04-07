@@ -38,7 +38,7 @@ public class GOTBlockBarrel extends BlockContainer {
 		setBlockBounds(0.125f, 0.0f, 0.125f, 0.875f, 0.8125f, 0.875f);
 		setHardness(3.0f);
 		setResistance(5.0f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 
 	@Override

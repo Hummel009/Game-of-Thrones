@@ -24,7 +24,7 @@ public class GOTBlockPlate extends BlockContainer {
 	public static Block.SoundType soundTypePlate = new Block.SoundType("got:plate", 1.0f, 1.0f) {
 		@Override
 		public String func_150496_b() {
-			return Block.soundTypeStone.func_150496_b();
+			return soundTypeStone.func_150496_b();
 		}
 
 		@Override
@@ -34,7 +34,7 @@ public class GOTBlockPlate extends BlockContainer {
 
 		@Override
 		public String getStepResourcePath() {
-			return Block.soundTypeStone.getStepResourcePath();
+			return soundTypeStone.getStepResourcePath();
 		}
 	};
 	@SideOnly(Side.CLIENT)

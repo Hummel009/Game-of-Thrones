@@ -39,7 +39,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		GOTBlockGate block = new GOTBlockGate(Material.iron, ct);
 		block.setHardness(4.0f);
 		block.setResistance(10.0f);
-		block.setStepSound(Block.soundTypeMetal);
+		block.setStepSound(soundTypeMetal);
 		return block;
 	}
 
@@ -47,7 +47,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		GOTBlockGate block = new GOTBlockGate(Material.wood, ct);
 		block.setHardness(4.0f);
 		block.setResistance(5.0f);
-		block.setStepSound(Block.soundTypeWood);
+		block.setStepSound(soundTypeWood);
 		return block;
 	}
 
@@ -234,7 +234,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 		ItemStack itemstack = entityplayer.getHeldItem();
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
-			if (Block.getBlockFromItem(item) instanceof GOTBlockGate || GOTWeaponStats.isRangedWeapon(itemstack)) {
+			if (getBlockFromItem(item) instanceof GOTBlockGate || GOTWeaponStats.isRangedWeapon(itemstack)) {
 				return false;
 			}
 		}

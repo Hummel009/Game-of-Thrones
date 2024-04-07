@@ -21,7 +21,7 @@ public class GOTBlockDirtPath extends Block {
 	public GOTBlockDirtPath() {
 		super(Material.ground);
 		setHardness(0.5f);
-		setStepSound(Block.soundTypeGravel);
+		setStepSound(soundTypeGravel);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 	}
 

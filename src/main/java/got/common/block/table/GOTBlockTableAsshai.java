@@ -16,7 +16,7 @@ import java.util.Random;
 public class GOTBlockTableAsshai extends GOTBlockCraftingTable {
 	public GOTBlockTableAsshai() {
 		super(Material.wood, GOTFaction.ASSHAI, GOTGuiID.TABLE_ASSHAI);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 
 	@SideOnly(Side.CLIENT)

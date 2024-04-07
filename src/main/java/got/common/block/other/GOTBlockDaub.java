@@ -16,7 +16,7 @@ public class GOTBlockDaub extends Block implements GOTConnectedBlock {
 		super(Material.grass);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(1.0f);
-		setStepSound(Block.soundTypeGrass);
+		setStepSound(soundTypeGrass);
 	}
 
 	@Override

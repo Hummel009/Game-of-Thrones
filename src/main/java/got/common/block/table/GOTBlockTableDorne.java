@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableDorne extends GOTBlockCraftingTable {
 	public GOTBlockTableDorne() {
 		super(Material.wood, GOTFaction.DORNE, GOTGuiID.TABLE_DORNE);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

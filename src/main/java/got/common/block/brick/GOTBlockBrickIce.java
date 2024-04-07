@@ -11,6 +11,6 @@ public class GOTBlockBrickIce extends Block {
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 		setHardness(15.0f);
 		setResistance(60.0f);
-		setStepSound(Block.soundTypeGlass);
+		setStepSound(soundTypeGlass);
 	}
 }

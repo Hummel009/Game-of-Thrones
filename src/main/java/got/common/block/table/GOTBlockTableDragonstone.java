@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableDragonstone extends GOTBlockCraftingTable {
 	public GOTBlockTableDragonstone() {
 		super(Material.wood, GOTFaction.DRAGONSTONE, GOTGuiID.TABLE_DRAGONSTONE);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

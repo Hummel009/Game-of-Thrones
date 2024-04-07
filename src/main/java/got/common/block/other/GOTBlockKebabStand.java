@@ -34,7 +34,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
 		setHardness(0.0f);
 		setResistance(1.0f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 		setCreativeTab(GOTCreativeTabs.tabUtil);
 	}
 

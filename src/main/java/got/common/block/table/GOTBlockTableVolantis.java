@@ -8,6 +8,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockTableVolantis extends GOTBlockCraftingTable {
 	public GOTBlockTableVolantis() {
 		super(Material.wood, GOTFaction.VOLANTIS, GOTGuiID.TABLE_VOLANTIS);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 }

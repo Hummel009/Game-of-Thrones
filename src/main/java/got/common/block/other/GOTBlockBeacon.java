@@ -34,7 +34,7 @@ public class GOTBlockBeacon extends BlockContainer {
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.8125f, 1.0f);
 		setHardness(0.0f);
 		setResistance(5.0f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 
 	public static boolean isFullyLit(IBlockAccess world, int i, int j, int k) {

@@ -11,7 +11,7 @@ public class GOTBlockVine extends BlockVine {
 	public GOTBlockVine() {
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		setHardness(0.2f);
-		setStepSound(Block.soundTypeGrass);
+		setStepSound(soundTypeGrass);
 	}
 
 	@SideOnly(Side.CLIENT)

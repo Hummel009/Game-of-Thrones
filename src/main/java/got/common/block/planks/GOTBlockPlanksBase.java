@@ -22,7 +22,7 @@ public abstract class GOTBlockPlanksBase extends Block {
 		super(Material.wood);
 		setHardness(2.0f);
 		setResistance(5.0f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 	}
 

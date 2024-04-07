@@ -29,7 +29,7 @@ public class GOTBlockBomb extends Block {
 		setCreativeTab(GOTCreativeTabs.tabCombat);
 		setHardness(3.0f);
 		setResistance(0.0f);
-		setStepSound(Block.soundTypeMetal);
+		setStepSound(soundTypeMetal);
 	}
 
 	public static int getBombStrengthLevel(int meta) {

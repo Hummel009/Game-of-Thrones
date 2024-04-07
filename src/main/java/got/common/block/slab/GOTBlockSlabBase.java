@@ -32,7 +32,7 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 		if (material == Material.wood) {
 			setHardness(2.0f);
 			setResistance(5.0f);
-			setStepSound(Block.soundTypeWood);
+			setStepSound(soundTypeWood);
 		}
 		if (flag) {
 			setCreativeTab(null);

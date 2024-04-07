@@ -42,7 +42,7 @@ public class GOTBlockPlaceableFood extends Block {
 		foodHalfWidth = f;
 		foodHeight = f1;
 		setHardness(0.5f);
-		setStepSound(Block.soundTypeCloth);
+		setStepSound(soundTypeCloth);
 		setTickRandomly(true);
 		setFoodStats(2, 0.1f);
 	}

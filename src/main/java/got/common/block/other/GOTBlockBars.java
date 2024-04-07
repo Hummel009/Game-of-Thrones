@@ -12,7 +12,7 @@ public class GOTBlockBars extends GOTBlockPane {
 		super("", "", Material.iron, true);
 		setHardness(5.0f);
 		setResistance(10.0f);
-		setStepSound(Block.soundTypeMetal);
+		setStepSound(soundTypeMetal);
 	}
 
 	@SideOnly(Side.CLIENT)

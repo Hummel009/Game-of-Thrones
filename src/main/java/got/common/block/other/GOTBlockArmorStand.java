@@ -26,7 +26,7 @@ public class GOTBlockArmorStand extends Block {
 		super(Material.circuits);
 		setHardness(0.5f);
 		setResistance(1.0f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	@Override

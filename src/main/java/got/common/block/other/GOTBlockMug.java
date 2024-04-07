@@ -39,7 +39,7 @@ public class GOTBlockMug extends BlockContainer {
 		f11 /= 16.0f;
 		setBlockBounds(0.5f - (f2 *= 0.75f), 0.0f, 0.5f - f2, 0.5f + f2, f11 * 0.75f, 0.5f + f2);
 		setHardness(0.0f);
-		setStepSound(Block.soundTypeWood);
+		setStepSound(soundTypeWood);
 	}
 
 	public static ItemStack getMugItem(IBlockAccess world, int i, int j, int k) {

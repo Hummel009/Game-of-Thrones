@@ -16,7 +16,7 @@ public class GOTBlockRope extends GOTBlockLadder {
 
 	public GOTBlockRope(boolean flag) {
 		setHardness(0.4f);
-		setStepSound(Block.soundTypeCloth);
+		setStepSound(soundTypeCloth);
 		canRetract = flag;
 	}
 

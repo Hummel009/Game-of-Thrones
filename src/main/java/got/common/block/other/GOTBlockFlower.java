@@ -15,7 +15,7 @@ public class GOTBlockFlower extends BlockBush {
 		super(material);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		setHardness(0.0f);
-		setStepSound(Block.soundTypeGrass);
+		setStepSound(soundTypeGrass);
 	}
 
 	@Override

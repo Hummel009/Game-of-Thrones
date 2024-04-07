@@ -12,7 +12,7 @@ public class GOTBlockThatchFloor extends Block {
 	public GOTBlockThatchFloor() {
 		super(Material.carpet);
 		setHardness(0.2f);
-		setStepSound(Block.soundTypeGrass);
+		setStepSound(soundTypeGrass);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.0625f, 1.0f);
 	}

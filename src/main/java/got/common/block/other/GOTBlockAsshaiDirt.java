@@ -8,7 +8,7 @@ public class GOTBlockAsshaiDirt extends Block {
 	public GOTBlockAsshaiDirt() {
 		super(Material.ground);
 		setHardness(0.5f);
-		setStepSound(Block.soundTypeGravel);
+		setStepSound(soundTypeGravel);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 	}
 }

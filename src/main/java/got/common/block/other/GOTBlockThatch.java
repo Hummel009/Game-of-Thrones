@@ -21,7 +21,7 @@ public class GOTBlockThatch extends Block {
 	public GOTBlockThatch() {
 		super(Material.grass);
 		setHardness(0.5f);
-		setStepSound(Block.soundTypeGrass);
+		setStepSound(soundTypeGrass);
 		setCreativeTab(GOTCreativeTabs.tabBlock);
 	}
 

@@ -64,7 +64,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 		setCreativeTab(GOTCreativeTabs.tabCombat);
 		setBlockBounds(0.125f, 0.0f, 0.125f, 0.875f, 1.0f, 0.875f);
 		setHardness(0.5f);
-		setStepSound(Block.soundTypeStone);
+		setStepSound(soundTypeStone);
 	}
 
 	public void explode(World world, int i, int j, int k) {
@@ -211,7 +211,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 				explode(world, i, j, k);
 			}
 		}
-		if (world.getBlock(i, j, k) == this && !world.isRemote && BlockFalling.func_149831_e(world, i, j - 1, k) && j >= 0 && world.checkChunksExist(i - (b0 = 32), j - b0, k - b0, i + b0, j + b0, k + b0)) {
+		if (world.getBlock(i, j, k) == this && !world.isRemote && func_149831_e(world, i, j - 1, k) && j >= 0 && world.checkChunksExist(i - (b0 = 32), j - b0, k - b0, i + b0, j + b0, k + b0)) {
 			GOTEntityFallingFireJar falling = new GOTEntityFallingFireJar(world, i + 0.5, j + 0.5, k + 0.5, this, world.getBlockMetadata(i, j, k));
 			func_149829_a(falling);
 			world.spawnEntityInWorld(falling);

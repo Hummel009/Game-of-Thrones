@@ -33,7 +33,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 		allFallenLeaves.add(this);
 		setCreativeTab(GOTCreativeTabs.tabDeco);
 		setHardness(0.2f);
-		setStepSound(Block.soundTypeGrass);
+		setStepSound(soundTypeGrass);
 		useNeighborBrightness = true;
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.125f, 1.0f);
 	}
