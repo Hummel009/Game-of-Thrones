@@ -382,7 +382,8 @@ public class GOTEnchantmentHelper {
 		NBTTagList tags = null;
 		if (data != null && data.hasKey("GOTEnchEntity")) {
 			return data.getTagList("GOTEnchEntity", 8);
-		} else if (create) {
+		}
+		if (create) {
 			tags = new NBTTagList();
 			data.setTag("GOTEnchEntity", tags);
 		}
@@ -404,7 +405,8 @@ public class GOTEnchantmentHelper {
 		NBTTagList tags = null;
 		if (itemData != null && itemData.hasKey("GOTEnch")) {
 			return itemData.getTagList("GOTEnch", 8);
-		} else if (create) {
+		}
+		if (create) {
 			if (itemData == null) {
 				itemData = new NBTTagCompound();
 				itemstack.setTagCompound(itemData);
@@ -456,10 +458,7 @@ public class GOTEnchantmentHelper {
 
 	public static boolean hasAppliedRandomEnchants(ItemStack itemstack) {
 		NBTTagCompound nbt = itemstack.getTagCompound();
-		if (nbt != null && nbt.hasKey("GOTRandomEnch")) {
-			return nbt.getBoolean("GOTRandomEnch");
-		}
-		return false;
+		return nbt != null && nbt.hasKey("GOTRandomEnch") && nbt.getBoolean("GOTRandomEnch");
 	}
 
 	public static boolean hasEnchant(ItemStack itemstack, GOTEnchantment ench) {

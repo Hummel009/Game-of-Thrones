@@ -167,9 +167,8 @@ public abstract class GOTEnchantment {
 		String s = StatCollector.translateToLocalFormatted("got.enchant.descFormat", getDisplayName(), getDescription(itemstack));
 		if (isBeneficial()) {
 			return EnumChatFormatting.GRAY + s;
-		} else {
-			return EnumChatFormatting.DARK_GRAY + s;
 		}
+		return EnumChatFormatting.DARK_GRAY + s;
 	}
 
 	public float getValueModifier() {

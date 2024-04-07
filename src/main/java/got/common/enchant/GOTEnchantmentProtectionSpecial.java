@@ -34,13 +34,7 @@ public abstract class GOTEnchantmentProtectionSpecial extends GOTEnchantment {
 
 	@Override
 	public boolean isCompatibleWith(GOTEnchantment other) {
-		if (super.isCompatibleWith(other)) {
-			if (other instanceof GOTEnchantmentProtectionSpecial) {
-				return isCompatibleWithOtherProtection() || ((GOTEnchantmentProtectionSpecial) other).isCompatibleWithOtherProtection();
-			}
-			return true;
-		}
-		return false;
+		return super.isCompatibleWith(other) && (!(other instanceof GOTEnchantmentProtectionSpecial) || isCompatibleWithOtherProtection() || ((GOTEnchantmentProtectionSpecial) other).isCompatibleWithOtherProtection());
 	}
 
 	public boolean isCompatibleWithOtherProtection() {
