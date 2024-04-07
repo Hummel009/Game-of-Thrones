@@ -23,7 +23,8 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 	private static final ResourceLocation TITLE_TEXTURE = new ResourceLocation("textures/gui/title/minecraft.png");
 	private static final ResourceLocation MENU_OVERLAY = new ResourceLocation("got:textures/gui/menu_overlay.png");
 	private static final List<GOTWaypoint> WAYPOINT_ROUTE = new ArrayList<>();
-	private boolean fadeIn = true;
+
+	private static boolean isFirstMenu = true;
 
 	private static GOTGuiRendererMap mapRenderer;
 	private static int currentWPIndex;
@@ -33,10 +34,13 @@ public class GOTGuiMainMenu extends GuiMainMenu {
 
 	private final GOTGuiMap mapGui;
 
+	@SuppressWarnings("FieldMayBeFinal")
+	private boolean fadeIn = isFirstMenu;
 	private long firstRenderTime;
 
 	public GOTGuiMainMenu() {
 		mapGui = new GOTGuiMap();
+		isFirstMenu = false;
 		mapRenderer = new GOTGuiRendererMap();
 		mapRenderer.setSepia(false);
 		if (WAYPOINT_ROUTE.isEmpty()) {
