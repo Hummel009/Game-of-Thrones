@@ -36,13 +36,12 @@ public class GOTBlockBed extends BlockBed {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(int i, int j) {
-		int i1;
 		if (i == 0) {
 			return bedBottomBlock.getIcon(0, bedBottomMetadata);
 		}
 		int k = BlockDirectional.getDirection(j);
 		int l = Direction.bedDirection[k][i];
-		i1 = BlockBed.isBlockHeadOfBed(j) ? 1 : 0;
+		int i1 = BlockBed.isBlockHeadOfBed(j) ? 1 : 0;
 		return (i1 != 1 || l != 2) && (i1 != 0 || l != 3) ? l != 5 && l != 4 ? bedIconsTop[i1] : bedIconsSide[i1] : bedIconsEnd[i1];
 	}
 

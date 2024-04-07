@@ -77,16 +77,14 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	}
 
 	public void activateGate(World world, int i, int j, int k) {
-		boolean stone;
 		boolean wasOpen = isGateOpen(world, i, j, k);
 		boolean isOpen = !wasOpen;
 		List<ChunkCoordinates> gates = getConnectedGates(world, i, j, k);
 		for (ChunkCoordinates coords : gates) {
 			setGateOpen(world, coords.posX, coords.posY, coords.posZ, isOpen);
 		}
-		String soundEffect;
-		stone = getMaterial() == Material.rock;
-		soundEffect = stone ? isOpen ? "got:block.gate.stone_open" : "got:block.gate.stone_close" : isOpen ? "got:block.gate.open" : "got:block.gate.close";
+		boolean stone = getMaterial() == Material.rock;
+		String soundEffect = stone ? isOpen ? "got:block.gate.stone_open" : "got:block.gate.stone_close" : isOpen ? "got:block.gate.open" : "got:block.gate.close";
 		world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, soundEffect, 1.0f, 0.8f + world.rand.nextFloat() * 0.4f);
 	}
 
@@ -337,8 +335,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 			int dirOther = getGateDirection(metaOther);
 			boolean openOther = isGateOpen(metaOther);
 			if (!fullBlockGate || openThis) {
-				boolean connect;
-				connect = !directionsMatch(dirThis, side);
+				boolean connect = !directionsMatch(dirThis, side);
 				if (connect) {
 					return openThis != openOther || !directionsMatch(dirThis, dirOther) || !((GOTBlockGate) otherBlock).directionsMatch(dirThis, dirOther);
 				}

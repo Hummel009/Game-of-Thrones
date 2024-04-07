@@ -33,13 +33,12 @@ public class GOTBlockAsshaiFlower extends GOTBlockFlower {
 			return false;
 		}
 		if (entity instanceof EntityPlayer) {
-			float max;
 			EntityPlayer entityplayer = (EntityPlayer) entity;
 			if (entityplayer.capabilities.isCreativeMode) {
 				return false;
 			}
 			float alignment = GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.ASSHAI);
-			max = 100.0f;
+			float max = 100.0f;
 			if (alignment >= max) {
 				return false;
 			}

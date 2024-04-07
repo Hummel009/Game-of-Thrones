@@ -37,10 +37,9 @@ public class GOTBlockLeaves4 extends GOTBlockLeavesBase {
 	public void updateTick(World world, int i, int j, int k, Random random) {
 		super.updateTick(world, i, j, k, random);
 		if (!world.isRemote && world.getBlock(i, j, k) == this) {
-			boolean playerPlaced;
 			int meta = world.getBlockMetadata(i, j, k);
 			int leafType = meta & 3;
-			playerPlaced = (meta & 4) != 0;
+			boolean playerPlaced = (meta & 4) != 0;
 			if (leafType == 0 && !playerPlaced && world.isAirBlock(i, j - 1, k) && random.nextInt(300) == 0) {
 				double d = i + random.nextDouble();
 				double d1 = j - 0.2;

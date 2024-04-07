@@ -100,7 +100,6 @@ public class GOTBlockWildFire extends BlockFire {
 					for (int i1 = i - xzRange; i1 <= i + xzRange; ++i1) {
 						for (int k1 = k - xzRange; k1 <= k + xzRange; ++k1) {
 							for (int j1 = j + yMin; j1 <= j + yMax; ++j1) {
-								int encourage;
 								if (i1 == i && j1 == j && k1 == k || isBannered(world, i1, j1, k1)) {
 									continue;
 								}
@@ -108,7 +107,7 @@ public class GOTBlockWildFire extends BlockFire {
 								if (j1 > j + 1) {
 									totalChance += (j1 - (j + 1)) * 100;
 								}
-								encourage = getChanceOfNeighborsEncouragingFire(world, i1, j1, k1);
+								int encourage = getChanceOfNeighborsEncouragingFire(world, i1, j1, k1);
 								if (encourage <= 0) {
 									continue;
 								}
@@ -143,8 +142,7 @@ public class GOTBlockWildFire extends BlockFire {
 		}
 		int flamm = world.getBlock(i, j, k).getFlammability(world, i, j, k, face);
 		if (random.nextInt(chance) < flamm) {
-			boolean isTNT;
-			isTNT = world.getBlock(i, j, k) == Blocks.tnt;
+			boolean isTNT = world.getBlock(i, j, k) == Blocks.tnt;
 			if (random.nextInt(meta + 10) < 5 && !world.canLightningStrikeAt(i, j, k)) {
 				int newMeta = meta + random.nextInt(5) / 4;
 				if (newMeta > 15) {
@@ -166,9 +164,8 @@ public class GOTBlockWildFire extends BlockFire {
 			if (isBannered(world, i, j, k)) {
 				world.setBlockToAir(i, j, k);
 			} else {
-				boolean canBurnStone;
 				Map<Block, Pair<Integer, Integer>> infos = new HashMap<>();
-				canBurnStone = random.nextFloat() < 0.9f;
+				boolean canBurnStone = random.nextFloat() < 0.9f;
 				if (canBurnStone) {
 					for (ForgeDirection dir : ForgeDirection.VALID_DIRECTIONS) {
 						Block block = world.getBlock(i + dir.offsetX, j + dir.offsetY, k + dir.offsetZ);

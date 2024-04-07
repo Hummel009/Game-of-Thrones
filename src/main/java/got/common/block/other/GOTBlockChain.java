@@ -66,11 +66,10 @@ public class GOTBlockChain extends Block {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIcon(IBlockAccess world, int i, int j, int k, int side) {
-		boolean chainBelow;
 		Block above = world.getBlock(i, j + 1, k);
 		Block below = world.getBlock(i, j - 1, k);
 		boolean chainAbove = above instanceof GOTBlockChain;
-		chainBelow = below instanceof GOTBlockChain || below instanceof GOTBlockChandelier;
+		boolean chainBelow = below instanceof GOTBlockChain || below instanceof GOTBlockChandelier;
 		if (chainAbove && chainBelow) {
 			return iconMiddle;
 		}
