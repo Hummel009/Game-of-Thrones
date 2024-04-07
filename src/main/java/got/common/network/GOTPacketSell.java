@@ -36,8 +36,8 @@ public class GOTPacketSell implements IMessage {
 			Container container = entityplayer.openContainer;
 			if (container instanceof GOTContainerTrade) {
 				GOTContainerTrade tradeContainer = (GOTContainerTrade) container;
-				GOTEntityNPC trader = tradeContainer.theTraderNPC;
-				IInventory invSellOffer = tradeContainer.tradeInvSellOffer;
+				GOTEntityNPC trader = tradeContainer.getTheTraderNPC();
+				IInventory invSellOffer = tradeContainer.getTradeInvSellOffer();
 				Map<GOTTradeEntry, Integer> tradesUsed = new HashMap<>();
 				int totalCoins = 0;
 				for (int i = 0; i < invSellOffer.getSizeInventory(); ++i) {

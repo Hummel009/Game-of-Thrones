@@ -15,17 +15,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTContainerUnitTrade extends Container {
-	public GOTHireableBase theUnitTrader;
-	public GOTEntityNPC theLivingTrader;
-	public GOTFaction traderFaction;
-	public IInventory alignmentRewardInv;
-	public int alignmentRewardSlots;
+	private final GOTHireableBase theUnitTrader;
+	private final GOTEntityNPC theLivingTrader;
+	private final int alignmentRewardSlots;
 
 	public GOTContainerUnitTrade(EntityPlayer entityplayer, GOTHireableBase trader, World world) {
 		int i;
 		theUnitTrader = trader;
 		theLivingTrader = (GOTEntityNPC) theUnitTrader;
-		traderFaction = theLivingTrader.getFaction();
+		GOTFaction traderFaction = theLivingTrader.getFaction();
 		ItemStack reward = null;
 		if (theUnitTrader instanceof GOTUnitTradeable) {
 			GOTInvasions conquestType = ((GOTUnitTradeable) theUnitTrader).getWarhorn();
@@ -33,7 +31,7 @@ public class GOTContainerUnitTrade extends Container {
 		}
 		boolean hasReward = reward != null;
 		alignmentRewardSlots = hasReward ? 1 : 0;
-		alignmentRewardInv = new InventoryBasic("specialItem", false, alignmentRewardSlots);
+		IInventory alignmentRewardInv = new InventoryBasic("specialItem", false, alignmentRewardSlots);
 		if (hasReward) {
 			addSlotToContainer(new GOTSlotAlignmentReward(this, alignmentRewardInv, 0, 174, 78, theUnitTrader, reward.copy()));
 			if (!world.isRemote && GOTLevelData.getData(entityplayer).getAlignment(traderFaction) >= 1500.0f) {
@@ -76,5 +74,17 @@ public class GOTContainerUnitTrade extends Container {
 			slot.onPickupFromSlot(entityplayer, itemstack1);
 		}
 		return itemstack;
+	}
+
+	public GOTHireableBase getTheUnitTrader() {
+		return theUnitTrader;
+	}
+
+	public GOTEntityNPC getTheLivingTrader() {
+		return theLivingTrader;
+	}
+
+	public int getAlignmentRewardSlots() {
+		return alignmentRewardSlots;
 	}
 }

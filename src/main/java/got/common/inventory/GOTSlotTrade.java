@@ -10,9 +10,9 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 
 public class GOTSlotTrade extends GOTSlotProtected {
-	public GOTContainerTrade theContainer;
-	public GOTEntityNPC theEntity;
-	public GOTTradeEntries.TradeType tradeType;
+	private final GOTContainerTrade theContainer;
+	private final GOTEntityNPC theEntity;
+	private final GOTTradeEntries.TradeType tradeType;
 
 	public GOTSlotTrade(GOTContainerTrade container, IInventory inv, int i, int j, int k, GOTEntityNPC entity, GOTTradeEntries.TradeType type) {
 		super(inv, i, j, k);

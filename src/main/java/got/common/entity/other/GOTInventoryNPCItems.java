@@ -74,7 +74,7 @@ public class GOTInventoryNPCItems extends GOTInventoryNPC {
 
 	public void setIsEating(boolean flag) {
 		isEating = flag;
-		theNPC.sendIsEatingToWatchers();
+		getTheNPC().sendIsEatingToWatchers();
 	}
 
 	public ItemStack getMeleeWeapon() {
@@ -145,7 +145,7 @@ public class GOTInventoryNPCItems extends GOTInventoryNPC {
 		super.readFromNBT(nbt);
 		isEating = nbt.getBoolean("NPCEating");
 		if (isEating) {
-			theNPC.setCurrentItemOrArmor(0, getEatingBackup());
+			getTheNPC().setCurrentItemOrArmor(0, getEatingBackup());
 			setEatingBackup(null);
 			setIsEating(false);
 		}

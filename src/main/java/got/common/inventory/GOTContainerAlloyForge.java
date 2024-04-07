@@ -13,10 +13,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class GOTContainerAlloyForge extends Container {
-	public GOTTileEntityAlloyForge theForge;
-	public int currentSmeltTime;
-	public int forgeSmeltTime;
-	public int currentItemFuelValue;
+	private final GOTTileEntityAlloyForge theForge;
+
+	private int currentSmeltTime;
+	private int forgeSmeltTime;
+	private int currentItemFuelValue;
 
 	public GOTContainerAlloyForge(InventoryPlayer inv, GOTTileEntityAlloyForge forge) {
 		int i;

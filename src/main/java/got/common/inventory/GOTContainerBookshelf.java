@@ -10,8 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTContainerBookshelf extends Container {
-	public GOTTileEntityBookshelf shelfInv;
-	public int numRows;
+	private final GOTTileEntityBookshelf shelfInv;
+	private final int numRows;
 
 	public GOTContainerBookshelf(IInventory player, GOTTileEntityBookshelf shelf) {
 		int j;
@@ -93,4 +93,7 @@ public class GOTContainerBookshelf extends Container {
 		return itemstack;
 	}
 
+	public GOTTileEntityBookshelf getShelfInv() {
+		return shelfInv;
+	}
 }

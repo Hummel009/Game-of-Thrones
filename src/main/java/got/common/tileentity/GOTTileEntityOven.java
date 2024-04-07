@@ -143,7 +143,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 			int[] temp = new int[inputSlots.length];
 			for (int i = 0; i < temp.length; ++i) {
 				GOTSlotStackSize obj = list.get(i);
-				temp[i] = obj.slot;
+				temp[i] = obj.getSlot();
 			}
 			return temp;
 		}

@@ -13,9 +13,10 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerBarrel extends Container {
-	public GOTTileEntityBarrel theBarrel;
-	public int barrelMode;
-	public int brewingTime;
+	private final GOTTileEntityBarrel theBarrel;
+
+	private int barrelMode;
+	private int brewingTime;
 
 	public GOTContainerBarrel(InventoryPlayer inv, GOTTileEntityBarrel barrel) {
 		int i;
@@ -124,5 +125,9 @@ public class GOTContainerBarrel extends Container {
 		if (i == 1) {
 			theBarrel.brewingTime = j;
 		}
+	}
+
+	public GOTTileEntityBarrel getTheBarrel() {
+		return theBarrel;
 	}
 }

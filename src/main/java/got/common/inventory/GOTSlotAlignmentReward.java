@@ -11,11 +11,12 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 
 public class GOTSlotAlignmentReward extends GOTSlotProtected {
-	public static int REWARD_COST = 2000;
-	public GOTContainerUnitTrade theContainer;
-	public GOTHireableBase theTrader;
-	public GOTEntityNPC theLivingTrader;
-	public ItemStack alignmentReward;
+	public static final int REWARD_COST = 2000;
+
+	private final GOTContainerUnitTrade theContainer;
+	private final GOTHireableBase theTrader;
+	private final GOTEntityNPC theLivingTrader;
+	private final ItemStack alignmentReward;
 
 	public GOTSlotAlignmentReward(GOTContainerUnitTrade container, IInventory inv, int i, int j, int k, GOTHireableBase entity, ItemStack item) {
 		super(inv, i, j, k);

@@ -3,9 +3,6 @@ package got.common.inventory;
 import java.util.Random;
 
 public class OddmentCollectorNameMischief {
-	public static String VOWELS = "aeiou";
-	public static String CONSONANTS = "bcdfghjklmnopqrstvwxyz";
-
 	private OddmentCollectorNameMischief() {
 	}
 
@@ -27,6 +24,8 @@ public class OddmentCollectorNameMischief {
 				continue;
 			}
 			char c = name1.charAt(x);
+			String CONSONANTS = "bcdfghjklmnopqrstvwxyz";
+			String VOWELS = "aeiou";
 			if (VOWELS.indexOf(Character.toLowerCase(c)) >= 0) {
 				cNew = VOWELS.charAt(rand.nextInt(VOWELS.length()));
 				if (Character.isUpperCase(c)) {
@@ -54,7 +53,7 @@ public class OddmentCollectorNameMischief {
 		return name1;
 	}
 
-	public static boolean isFormattingCharacter(CharSequence s, int index) {
+	private static boolean isFormattingCharacter(CharSequence s, int index) {
 		char charAt = s.charAt(index);
 		return charAt == '§' || index >= 1 && s.charAt(index - 1) == '§';
 	}

@@ -152,7 +152,7 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 			float range = 16.0f;
 			List<EntityPlayer> players = worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(xCoord - range, yCoord - range, zCoord - range, xCoord + 1 + range, yCoord + 1 + range, zCoord + 1 + range));
 			for (EntityPlayer entityplayer : players) {
-				if (!(entityplayer.openContainer instanceof GOTContainerBookshelf) || ((GOTContainerBookshelf) entityplayer.openContainer).shelfInv != this) {
+				if (!(entityplayer.openContainer instanceof GOTContainerBookshelf) || ((GOTContainerBookshelf) entityplayer.openContainer).getShelfInv() != this) {
 					continue;
 				}
 				++numPlayersUsing;

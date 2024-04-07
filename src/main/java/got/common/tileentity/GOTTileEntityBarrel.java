@@ -111,7 +111,7 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 			int[] sortedSlots = new int[INGREDIENT_SLOTS.length];
 			for (int i = 0; i < sortedSlots.length; ++i) {
 				GOTSlotStackSize slotAndStack = slotsWithStackSize.get(i);
-				sortedSlots[i] = slotAndStack.slot;
+				sortedSlots[i] = slotAndStack.getSlot();
 			}
 			return sortedSlots;
 		}

@@ -105,7 +105,7 @@ public class GOTTraderNPCInfo {
 				List<EntityPlayer> players = theEntity.worldObj.playerEntities;
 				for (EntityPlayer entityplayer : players) {
 					Container container = entityplayer.openContainer;
-					if (!(container instanceof GOTContainerTrade) || ((GOTContainerTrade) container).theTraderNPC != theEntity) {
+					if (!(container instanceof GOTContainerTrade) || ((GOTContainerTrade) container).getTheTraderNPC() != theEntity) {
 						continue;
 					}
 					sendClientPacket(entityplayer);
@@ -188,7 +188,7 @@ public class GOTTraderNPCInfo {
 		List<EntityPlayer> players = theEntity.worldObj.playerEntities;
 		for (EntityPlayer entityplayer : players) {
 			Container container = entityplayer.openContainer;
-			if (!(container instanceof GOTContainerTrade) || ((GOTContainerTrade) container).theTraderNPC != theEntity) {
+			if (!(container instanceof GOTContainerTrade) || ((GOTContainerTrade) container).getTheTraderNPC() != theEntity) {
 				continue;
 			}
 			((GOTContainerTrade) container).updateAllTradeSlots();

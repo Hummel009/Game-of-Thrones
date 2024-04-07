@@ -8,7 +8,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class GOTSlotAnvilOutput extends Slot {
-	public GOTContainerAnvil theAnvil;
+	private final GOTContainerAnvil theAnvil;
 
 	public GOTSlotAnvilOutput(GOTContainerAnvil container, IInventory inv, int id, int i, int j) {
 		super(inv, id, i, j);
@@ -17,7 +17,7 @@ public class GOTSlotAnvilOutput extends Slot {
 
 	@Override
 	public boolean canTakeStack(EntityPlayer entityplayer) {
-		return getHasStack() && (theAnvil.materialCost <= 0 || theAnvil.hasMaterialOrCoinAmount(theAnvil.materialCost));
+		return getHasStack() && (theAnvil.getMaterialCost() <= 0 || theAnvil.hasMaterialOrCoinAmount(theAnvil.getMaterialCost()));
 	}
 
 	@Override
@@ -27,16 +27,16 @@ public class GOTSlotAnvilOutput extends Slot {
 
 	@Override
 	public void onPickupFromSlot(EntityPlayer entityplayer, ItemStack itemstack) {
-		int materials = theAnvil.materialCost;
-		theAnvil.invInput.setInventorySlotContents(0, null);
-		boolean wasSmithCombine = theAnvil.isSmithScrollCombine;
-		ItemStack combinerItem = theAnvil.invInput.getStackInSlot(1);
+		int materials = theAnvil.getMaterialCost();
+		theAnvil.getInvInput().setInventorySlotContents(0, null);
+		boolean wasSmithCombine = theAnvil.isSmithScrollCombine();
+		ItemStack combinerItem = theAnvil.getInvInput().getStackInSlot(1);
 		if (combinerItem != null) {
 			--combinerItem.stackSize;
 			if (combinerItem.stackSize <= 0) {
-				theAnvil.invInput.setInventorySlotContents(1, null);
+				theAnvil.getInvInput().setInventorySlotContents(1, null);
 			} else {
-				theAnvil.invInput.setInventorySlotContents(1, combinerItem);
+				theAnvil.getInvInput().setInventorySlotContents(1, combinerItem);
 			}
 		}
 		if (materials > 0) {
@@ -45,8 +45,8 @@ public class GOTSlotAnvilOutput extends Slot {
 		if (!entityplayer.worldObj.isRemote && wasSmithCombine) {
 			GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.combineSmithScrolls);
 		}
-		theAnvil.materialCost = 0;
-		theAnvil.isSmithScrollCombine = false;
+		theAnvil.setMaterialCost(0);
+		theAnvil.setSmithScrollCombine(false);
 		theAnvil.playAnvilSound();
 	}
 }

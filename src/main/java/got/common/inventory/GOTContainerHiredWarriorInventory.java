@@ -13,16 +13,15 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerHiredWarriorInventory extends Container {
-	public GOTEntityNPC theNPC;
-	public GOTInventoryHiredReplacedItems npcInv;
-	public IInventory proxyInv;
-	public int npcFullInvSize;
-	public int npcActiveSlotCount;
+	private final GOTEntityNPC theNPC;
+	private final IInventory proxyInv;
+	private final int npcFullInvSize;
+	private int npcActiveSlotCount;
 
 	public GOTContainerHiredWarriorInventory(InventoryPlayer inv, GOTEntityNPC entity) {
 		int i;
 		theNPC = entity;
-		npcInv = theNPC.hiredReplacedInv;
+		GOTInventoryHiredReplacedItems npcInv = theNPC.hiredReplacedInv;
 		npcFullInvSize = npcInv.getSizeInventory();
 		proxyInv = new InventoryBasic("npcTemp", false, npcFullInvSize);
 		for (int i2 = 0; i2 < 4; ++i2) {
@@ -104,5 +103,9 @@ public class GOTContainerHiredWarriorInventory extends Container {
 			slot.onPickupFromSlot(entityplayer, itemstack1);
 		}
 		return itemstack;
+	}
+
+	public IInventory getProxyInv() {
+		return proxyInv;
 	}
 }

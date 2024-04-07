@@ -4,8 +4,9 @@ package got.common.inventory;
  * Note: this class has a natural ordering that is inconsistent with equals.
  */
 public class GOTSlotStackSize implements Comparable<Object> {
-	public int slot;
-	public int stackSize;
+	private final int stackSize;
+
+	private int slot;
 
 	public GOTSlotStackSize(int i, int j) {
 		slot = i;
@@ -30,5 +31,13 @@ public class GOTSlotStackSize implements Comparable<Object> {
 			}
 		}
 		return 0;
+	}
+
+	public int getSlot() {
+		return slot;
+	}
+
+	public void setSlot(int slot) {
+		this.slot = slot;
 	}
 }

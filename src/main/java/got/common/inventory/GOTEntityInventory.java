@@ -7,8 +7,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
 public class GOTEntityInventory extends InventoryBasic {
-	public EntityLivingBase theEntity;
-	public String nbtName;
+	private final EntityLivingBase theEntity;
+	private final String nbtName;
 
 	public GOTEntityInventory(String s, EntityLivingBase npc, int i) {
 		super(s, true, i);
@@ -54,7 +54,7 @@ public class GOTEntityInventory extends InventoryBasic {
 		}
 	}
 
-	public void dropItem(ItemStack itemstack) {
+	protected void dropItem(ItemStack itemstack) {
 		theEntity.entityDropItem(itemstack, 0.0f);
 	}
 

@@ -11,10 +11,11 @@ import net.minecraft.inventory.*;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerCoinExchange extends Container {
-	public IInventory coinInputInv = new InventoryCoinExchangeSlot(1);
-	public IInventory exchangeInv = new InventoryCoinExchangeSlot(2);
-	public GOTEntityNPC theTraderNPC;
-	public boolean exchanged;
+	private final IInventory coinInputInv = new InventoryCoinExchangeSlot(1);
+	private final IInventory exchangeInv = new InventoryCoinExchangeSlot(2);
+	private final GOTEntityNPC theTraderNPC;
+
+	private boolean exchanged;
 
 	public GOTContainerCoinExchange(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		theTraderNPC = npc;
@@ -38,7 +39,7 @@ public class GOTContainerCoinExchange extends Container {
 		onCraftMatrixChanged(coinInputInv);
 	}
 
-	public static boolean isValidCoin(ItemStack item) {
+	private static boolean isValidCoin(ItemStack item) {
 		return item.getItem() == GOTItems.coin && !IPickpocketable.Helper.isPickpocketed(item);
 	}
 
@@ -156,7 +157,7 @@ public class GOTContainerCoinExchange extends Container {
 	public void retrySlotClick(int i, int j, boolean flag, EntityPlayer entityplayer) {
 	}
 
-	public void sendClientExchangedData(ICrafting crafting) {
+	private void sendClientExchangedData(ICrafting crafting) {
 		crafting.sendProgressBarUpdate(this, 0, exchanged ? 1 : 0);
 	}
 
@@ -205,8 +206,20 @@ public class GOTContainerCoinExchange extends Container {
 		}
 	}
 
+	public IInventory getExchangeInv() {
+		return exchangeInv;
+	}
+
+	public GOTEntityNPC getTheTraderNPC() {
+		return theTraderNPC;
+	}
+
+	public boolean isExchanged() {
+		return exchanged;
+	}
+
 	public class InventoryCoinExchangeSlot extends InventoryBasic {
-		public InventoryCoinExchangeSlot(int i) {
+		protected InventoryCoinExchangeSlot(int i) {
 			super("coinExchange", true, i);
 		}
 
@@ -217,7 +230,7 @@ public class GOTContainerCoinExchange extends Container {
 		}
 	}
 
-	public class SlotCoinResult extends Slot {
+	private class SlotCoinResult extends Slot {
 		SlotCoinResult(IInventory inv, int i, int j, int k) {
 			super(inv, i, j, k);
 		}
@@ -232,5 +245,4 @@ public class GOTContainerCoinExchange extends Container {
 			return false;
 		}
 	}
-
 }

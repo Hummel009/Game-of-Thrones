@@ -9,7 +9,7 @@ import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerArmorStand extends Container {
-	public GOTTileEntityArmorStand theArmorStand;
+	private final GOTTileEntityArmorStand theArmorStand;
 
 	public GOTContainerArmorStand(InventoryPlayer inv, GOTTileEntityArmorStand armorStand) {
 		int i;

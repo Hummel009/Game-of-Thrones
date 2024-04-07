@@ -19,13 +19,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
-	public World theWorld;
-	public int tablePosX;
-	public int tablePosY;
-	public int tablePosZ;
-	public List<IRecipe> recipeList;
-	public GOTBlockCraftingTable tableBlock;
-	public EntityPlayer entityplayer;
+	private final World theWorld;
+	private final int tablePosX;
+	private final int tablePosY;
+	private final int tablePosZ;
+	private final EntityPlayer entityplayer;
+	private final List<IRecipe> recipeList;
+
+	private GOTBlockCraftingTable tableBlock;
 
 	protected GOTContainerCraftingTable(InventoryPlayer inv, World world, int i, int j, int k, List<IRecipe> list, Block block) {
 		super(inv, world, i, j, k);
@@ -56,6 +57,18 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 		} else {
 			craftResult.setInventorySlotContents(0, GOTRecipe.findMatchingRecipe(recipeList, craftMatrix, theWorld));
 		}
+	}
+
+	public GOTBlockCraftingTable getTableBlock() {
+		return tableBlock;
+	}
+
+	public void setTableBlock(GOTBlockCraftingTable tableBlock) {
+		this.tableBlock = tableBlock;
+	}
+
+	public List<IRecipe> getRecipeList() {
+		return recipeList;
 	}
 
 	public static class Arryn extends GOTContainerCraftingTable {

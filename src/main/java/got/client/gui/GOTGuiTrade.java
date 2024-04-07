@@ -67,8 +67,8 @@ public class GOTGuiTrade extends GuiContainer {
 		fontRendererObj.drawString(StatCollector.translateToLocal("got.container.trade.sellOffer"), 8, 129, 4210752);
 		fontRendererObj.drawString(StatCollector.translateToLocal("container.inventory"), 8, 176, 4210752);
 		int lockedTradeColor = -1610612736;
-		for (l = 0; l < containerTrade.tradeInvBuy.getSizeInventory(); ++l) {
-			GOTSlotTrade slotBuy = (GOTSlotTrade) containerTrade.getSlotFromInventory(containerTrade.tradeInvBuy, l);
+		for (l = 0; l < containerTrade.getTradeInvBuy().getSizeInventory(); ++l) {
+			GOTSlotTrade slotBuy = (GOTSlotTrade) containerTrade.getSlotFromInventory(containerTrade.getTradeInvBuy(), l);
 			trade = slotBuy.getTrade();
 			if (trade != null) {
 				if (trade.isAvailable()) {
@@ -88,8 +88,8 @@ public class GOTGuiTrade extends GuiContainer {
 			}
 
 		}
-		for (l = 0; l < containerTrade.tradeInvSell.getSizeInventory(); ++l) {
-			GOTSlotTrade slotSell = (GOTSlotTrade) containerTrade.getSlotFromInventory(containerTrade.tradeInvSell, l);
+		for (l = 0; l < containerTrade.getTradeInvSell().getSizeInventory(); ++l) {
+			GOTSlotTrade slotSell = (GOTSlotTrade) containerTrade.getSlotFromInventory(containerTrade.getTradeInvSell(), l);
 			trade = slotSell.getTrade();
 			if (trade != null) {
 				if (trade.isAvailable()) {
@@ -109,9 +109,9 @@ public class GOTGuiTrade extends GuiContainer {
 			}
 		}
 		int totalSellPrice = 0;
-		for (int l2 = 0; l2 < containerTrade.tradeInvSellOffer.getSizeInventory(); ++l2) {
+		for (int l2 = 0; l2 < containerTrade.getTradeInvSellOffer().getSizeInventory(); ++l2) {
 			GOTTradeSellResult sellResult;
-			Slot slotSell = containerTrade.getSlotFromInventory(containerTrade.tradeInvSellOffer, l2);
+			Slot slotSell = containerTrade.getSlotFromInventory(containerTrade.getTradeInvSellOffer(), l2);
 			ItemStack item = slotSell.getStack();
 			if (item != null && (sellResult = GOTTradeEntries.getItemSellResult(item, theEntity)) != null) {
 				totalSellPrice += sellResult.totalSellValue;

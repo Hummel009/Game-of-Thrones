@@ -944,15 +944,15 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 				List<EntityPlayer> players = worldObj.playerEntities;
 				for (EntityPlayer entityplayer : players) {
 					Container container = entityplayer.openContainer;
-					if (container instanceof GOTContainerTrade && ((GOTContainerTrade) container).theTraderNPC == this || container instanceof GOTContainerUnitTrade && ((GOTContainerUnitTrade) container).theLivingTrader == this) {
+					if (container instanceof GOTContainerTrade && ((GOTContainerTrade) container).getTheTraderNPC() == this || container instanceof GOTContainerUnitTrade && ((GOTContainerUnitTrade) container).getTheLivingTrader() == this) {
 						guiOpen = true;
 						break;
 					}
-					if (container instanceof GOTContainerCoinExchange && ((GOTContainerCoinExchange) container).theTraderNPC == this) {
+					if (container instanceof GOTContainerCoinExchange && ((GOTContainerCoinExchange) container).getTheTraderNPC() == this) {
 						guiOpen = true;
 						break;
 					}
-					if (!(container instanceof GOTContainerAnvil) || ((GOTContainerAnvil) container).theNPC != this) {
+					if (!(container instanceof GOTContainerAnvil) || ((GOTContainerAnvil) container).getTheNPC() != this) {
 						continue;
 					}
 					guiOpen = true;

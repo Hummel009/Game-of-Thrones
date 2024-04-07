@@ -38,27 +38,28 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 
 public class GOTContainerAnvil extends Container {
-	public static int maxReforgeTime = 40;
-	public IInventory invOutput;
-	public IInventory invInput;
-	public EntityPlayer thePlayer;
-	public World theWorld;
-	public boolean isTrader;
-	public int xCoord;
-	public int yCoord;
-	public int zCoord;
-	public GOTEntityNPC theNPC;
-	public GOTTradeable theTrader;
-	public int materialCost;
-	public int reforgeCost;
-	public int engraveOwnerCost;
-	public String repairedItemName;
-	public long lastReforgeTime = -1L;
-	public int clientReforgeTime;
-	public boolean doneMischief;
-	public boolean isSmithScrollCombine;
+	private final EntityPlayer thePlayer;
+	private final World theWorld;
+	private final IInventory invOutput;
+	private final IInventory invInput;
 
-	public GOTContainerAnvil(EntityPlayer entityplayer, boolean trader) {
+	private boolean isTrader;
+	private GOTEntityNPC theNPC;
+	private int materialCost;
+	private int reforgeCost;
+	private int engraveOwnerCost;
+	private int clientReforgeTime;
+	private boolean isSmithScrollCombine;
+
+	private int xCoord;
+	private int yCoord;
+	private int zCoord;
+	private GOTTradeable theTrader;
+	private String repairedItemName;
+	private long lastReforgeTime = -1L;
+	private boolean doneMischief;
+
+	private GOTContainerAnvil(EntityPlayer entityplayer, boolean trader) {
 		thePlayer = entityplayer;
 		theWorld = entityplayer.worldObj;
 		isTrader = trader;
@@ -100,7 +101,7 @@ public class GOTContainerAnvil extends Container {
 		zCoord = k;
 	}
 
-	public static String applyFormattingCodes(String name, Iterable<EnumChatFormatting> colors) {
+	private static String applyFormattingCodes(String name, Iterable<EnumChatFormatting> colors) {
 		StringBuilder nameBuilder = new StringBuilder(name);
 		for (EnumChatFormatting color : colors) {
 			nameBuilder.insert(0, color);
@@ -108,12 +109,12 @@ public class GOTContainerAnvil extends Container {
 		return nameBuilder.toString();
 	}
 
-	public static boolean costsToRename(ItemStack itemstack) {
+	private static boolean costsToRename(ItemStack itemstack) {
 		Item item = itemstack.getItem();
 		return item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0 || item instanceof ItemBow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
 	}
 
-	public static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
+	private static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
 		List<EnumChatFormatting> colors = new ArrayList<>();
 		for (EnumChatFormatting color : EnumChatFormatting.values()) {
 			String formatCode = color.toString();
@@ -137,7 +138,7 @@ public class GOTContainerAnvil extends Container {
 		return name1;
 	}
 
-	public boolean applyMischief(ItemStack itemstack) {
+	private boolean applyMischief(ItemStack itemstack) {
 		boolean changed = false;
 		Random rand = theWorld.rand;
 		if (rand.nextFloat() < 0.8f) {
@@ -207,7 +208,7 @@ public class GOTContainerAnvil extends Container {
 		return new ArrayList<>();
 	}
 
-	public float getTraderMaterialPrice(ItemStack inputItem) {
+	private float getTraderMaterialPrice(ItemStack inputItem) {
 		float materialPrice = 0.0f;
 		GOTTradeEntry[] sellTrades = theNPC.traderNPCInfo.getSellTrades();
 		if (sellTrades != null) {
@@ -246,7 +247,7 @@ public class GOTContainerAnvil extends Container {
 		return materialItem != null && isRepairMaterial(inputItem, materialItem) && materialItem.stackSize >= cost;
 	}
 
-	public boolean isRepairMaterial(ItemStack inputItem, ItemStack materialItem) {
+	private boolean isRepairMaterial(ItemStack inputItem, ItemStack materialItem) {
 		if (inputItem.getItem().getIsRepairable(inputItem, materialItem)) {
 			return true;
 		}
@@ -442,7 +443,7 @@ public class GOTContainerAnvil extends Container {
 		}
 	}
 
-	public void updateRepairOutput() {
+	private void updateRepairOutput() {
 		ItemStack inputItem = invInput.getStackInSlot(0);
 		materialCost = 0;
 		reforgeCost = 0;
@@ -816,4 +817,67 @@ public class GOTContainerAnvil extends Container {
 		}
 	}
 
+	public IInventory getInvOutput() {
+		return invOutput;
+	}
+
+	public IInventory getInvInput() {
+		return invInput;
+	}
+
+	public boolean isTrader() {
+		return isTrader;
+	}
+
+	public void setTrader(boolean trader) {
+		isTrader = trader;
+	}
+
+	public GOTEntityNPC getTheNPC() {
+		return theNPC;
+	}
+
+	public void setTheNPC(GOTEntityNPC theNPC) {
+		this.theNPC = theNPC;
+	}
+
+	public int getMaterialCost() {
+		return materialCost;
+	}
+
+	public void setMaterialCost(int materialCost) {
+		this.materialCost = materialCost;
+	}
+
+	public int getReforgeCost() {
+		return reforgeCost;
+	}
+
+	public void setReforgeCost(int reforgeCost) {
+		this.reforgeCost = reforgeCost;
+	}
+
+	public int getEngraveOwnerCost() {
+		return engraveOwnerCost;
+	}
+
+	public void setEngraveOwnerCost(int engraveOwnerCost) {
+		this.engraveOwnerCost = engraveOwnerCost;
+	}
+
+	public int getClientReforgeTime() {
+		return clientReforgeTime;
+	}
+
+	public void setClientReforgeTime(int clientReforgeTime) {
+		this.clientReforgeTime = clientReforgeTime;
+	}
+
+	public boolean isSmithScrollCombine() {
+		return isSmithScrollCombine;
+	}
+
+	public void setSmithScrollCombine(boolean smithScrollCombine) {
+		isSmithScrollCombine = smithScrollCombine;
+	}
 }

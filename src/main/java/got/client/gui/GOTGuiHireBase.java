@@ -89,7 +89,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		guiTexture = new ResourceLocation("got:textures/gui/npc/unit_trade.png");
 		mc.getTextureManager().bindTexture(guiTexture);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		if (((GOTContainerUnitTrade) inventorySlots).alignmentRewardSlots > 0) {
+		if (((GOTContainerUnitTrade) inventorySlots).getAlignmentRewardSlots() > 0) {
 			Slot slot = inventorySlots.getSlot(0);
 			drawTexturedModalRect(guiLeft + slot.xDisplayPosition - 3, guiTop + slot.yDisplayPosition - 3, xSize, 16, 22, 22);
 			if (!slot.getHasStack() && GOTLevelData.getData(mc.thePlayer).getAlignment(traderFaction) < 1500.0f) {
@@ -147,7 +147,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 			}
 		}
-		if (((GOTContainerUnitTrade) inventorySlots).alignmentRewardSlots > 0) {
+		if (((GOTContainerUnitTrade) inventorySlots).getAlignmentRewardSlots() > 0) {
 			Slot slot = inventorySlots.getSlot(0);
 			boolean hasRewardCost = slot.getHasStack();
 			if (hasRewardCost) {

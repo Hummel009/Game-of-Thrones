@@ -157,7 +157,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 			int[] sortedSlots = new int[inputSlots.length];
 			for (i = 0; i < sortedSlots.length; ++i) {
 				GOTSlotStackSize slotAndStack = slotsWithStackSize.get(i);
-				sortedSlots[i] = slotAndStack.slot;
+				sortedSlots[i] = slotAndStack.getSlot();
 			}
 			return sortedSlots;
 		}

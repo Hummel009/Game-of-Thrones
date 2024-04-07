@@ -9,7 +9,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerHiredFarmerInventory extends Container {
-	public GOTEntityNPC theNPC;
+	private final GOTEntityNPC theNPC;
 
 	public GOTContainerHiredFarmerInventory(InventoryPlayer inv, GOTEntityNPC entity) {
 		int i;

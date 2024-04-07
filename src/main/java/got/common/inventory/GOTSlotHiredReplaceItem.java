@@ -9,9 +9,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class GOTSlotHiredReplaceItem extends Slot {
-	public GOTEntityNPC theNPC;
-	public GOTInventoryHiredReplacedItems npcInv;
-	public Slot parentSlot;
+	private final GOTEntityNPC theNPC;
+	private final GOTInventoryHiredReplacedItems npcInv;
+	private final Slot parentSlot;
 
 	public GOTSlotHiredReplaceItem(Slot slot, GOTEntityNPC npc) {
 		super(slot.inventory, slot.getSlotIndex(), slot.xDisplayPosition, slot.yDisplayPosition);

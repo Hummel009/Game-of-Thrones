@@ -12,12 +12,12 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTContainerTrade extends Container {
-	public IInventory tradeInvBuy = new InventoryBasic("trade", false, 9);
-	public IInventory tradeInvSell = new InventoryBasic("trade", false, 9);
-	public IInventory tradeInvSellOffer = new InventoryBasic("trade", false, 9);
-	public GOTTradeable theTrader;
-	public GOTEntityNPC theTraderNPC;
-	public World theWorld;
+	private final IInventory tradeInvBuy = new InventoryBasic("trade", false, 9);
+	private final IInventory tradeInvSell = new InventoryBasic("trade", false, 9);
+	private final IInventory tradeInvSellOffer = new InventoryBasic("trade", false, 9);
+	private final GOTTradeable theTrader;
+	private final World theWorld;
+	private final GOTEntityNPC theTraderNPC;
 
 	public GOTContainerTrade(InventoryPlayer inv, GOTTradeable trader, World world) {
 		int i;
@@ -131,5 +131,21 @@ public class GOTContainerTrade extends Container {
 				tradeInvSell.setInventorySlotContents(i, null);
 			}
 		}
+	}
+
+	public GOTEntityNPC getTheTraderNPC() {
+		return theTraderNPC;
+	}
+
+	public IInventory getTradeInvBuy() {
+		return tradeInvBuy;
+	}
+
+	public IInventory getTradeInvSell() {
+		return tradeInvSell;
+	}
+
+	public IInventory getTradeInvSellOffer() {
+		return tradeInvSellOffer;
 	}
 }

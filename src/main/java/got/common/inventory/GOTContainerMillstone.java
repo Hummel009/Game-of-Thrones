@@ -12,9 +12,10 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerMillstone extends Container {
-	public GOTTileEntityMillstone theMillstone;
-	public int currentMillTime;
-	public boolean isMilling;
+	private final GOTTileEntityMillstone theMillstone;
+
+	private int currentMillTime;
+	private boolean isMilling;
 
 	public GOTContainerMillstone(InventoryPlayer inv, GOTTileEntityMillstone millstone) {
 		int i;

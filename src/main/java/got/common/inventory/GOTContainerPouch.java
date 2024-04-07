@@ -7,10 +7,11 @@ import net.minecraft.item.ItemStack;
 import org.apache.commons.lang3.StringUtils;
 
 public class GOTContainerPouch extends Container {
-	public int thePouchSlot;
-	public ItemStack thePouchItem;
-	public GOTInventoryPouch pouchInventory;
-	public int capacity;
+	private final int thePouchSlot;
+	private final GOTInventoryPouch pouchInventory;
+	private final int capacity;
+
+	private ItemStack thePouchItem;
 
 	public GOTContainerPouch(EntityPlayer entityplayer, int slot) {
 		int i;
@@ -95,5 +96,13 @@ public class GOTContainerPouch extends Container {
 			slot.onPickupFromSlot(entityplayer, itemstack1);
 		}
 		return itemstack;
+	}
+
+	public GOTInventoryPouch getPouchInventory() {
+		return pouchInventory;
+	}
+
+	public int getCapacity() {
+		return capacity;
 	}
 }

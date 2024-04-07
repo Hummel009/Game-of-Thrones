@@ -66,12 +66,12 @@ public class GOTGuiAnvil extends GuiContainer {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			if (button == buttonReforge) {
-				ItemStack inputItem2 = theAnvil.invInput.getStackInSlot(0);
-				if (inputItem2 != null && theAnvil.reforgeCost > 0 && theAnvil.hasMaterialOrCoinAmount(theAnvil.reforgeCost)) {
+				ItemStack inputItem2 = theAnvil.getInvInput().getStackInSlot(0);
+				if (inputItem2 != null && theAnvil.getReforgeCost() > 0 && theAnvil.hasMaterialOrCoinAmount(theAnvil.getReforgeCost())) {
 					IMessage packet = new GOTPacketAnvilReforge();
 					GOTPacketHandler.networkWrapper.sendToServer(packet);
 				}
-			} else if (button == buttonEngraveOwner && theAnvil.invInput.getStackInSlot(0) != null && theAnvil.engraveOwnerCost > 0 && theAnvil.hasMaterialOrCoinAmount(theAnvil.engraveOwnerCost)) {
+			} else if (button == buttonEngraveOwner && theAnvil.getInvInput().getStackInSlot(0) != null && theAnvil.getEngraveOwnerCost() > 0 && theAnvil.hasMaterialOrCoinAmount(theAnvil.getEngraveOwnerCost())) {
 				IMessage packet = new GOTPacketAnvilEngraveOwner();
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
 			}
@@ -83,14 +83,14 @@ public class GOTGuiAnvil extends GuiContainer {
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 		mc.getTextureManager().bindTexture(ANVIL_TEXTURE);
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
-		if (theAnvil.isTrader) {
+		if (theAnvil.isTrader()) {
 			drawTexturedModalRect(guiLeft + 75, guiTop + 69, 176, 21, 18, 18);
 		}
-		drawTexturedModalRect(guiLeft + 59, guiTop + 20, 0, ySize + (theAnvil.invInput.getStackInSlot(0) != null ? 0 : 16), 110, 16);
-		if (theAnvil.invOutput.getStackInSlot(0) == null) {
+		drawTexturedModalRect(guiLeft + 59, guiTop + 20, 0, ySize + (theAnvil.getInvInput().getStackInSlot(0) != null ? 0 : 16), 110, 16);
+		if (theAnvil.getInvOutput().getStackInSlot(0) == null) {
 			boolean flag = false;
-			for (int l = 0; l < theAnvil.invInput.getSizeInventory(); ++l) {
-				if (theAnvil.invInput.getStackInSlot(l) != null) {
+			for (int l = 0; l < theAnvil.getInvInput().getSizeInventory(); ++l) {
+				if (theAnvil.getInvInput().getStackInSlot(l) != null) {
 					flag = true;
 					break;
 				}
@@ -110,28 +110,28 @@ public class GOTGuiAnvil extends GuiContainer {
 	public void drawGuiContainerForegroundLayer(int i, int j) {
 		GL11.glDisable(2896);
 		GL11.glDisable(3042);
-		String s = theAnvil.isTrader ? StatCollector.translateToLocal("got.container.smith") : StatCollector.translateToLocal("got.container.anvil");
+		String s = theAnvil.isTrader() ? StatCollector.translateToLocal("got.container.smith") : StatCollector.translateToLocal("got.container.anvil");
 		fontRendererObj.drawString(s, 60, 6, 4210752);
 		boolean reforge = buttonReforge.enabled && buttonReforge.func_146115_a();
 		boolean engraveOwner = buttonEngraveOwner.enabled && buttonEngraveOwner.func_146115_a();
 		String costText = null;
 		int color = 8453920;
-		ItemStack inputItem = theAnvil.invInput.getStackInSlot(0);
-		ItemStack outputItem = theAnvil.invOutput.getStackInSlot(0);
+		ItemStack inputItem = theAnvil.getInvInput().getStackInSlot(0);
+		ItemStack outputItem = theAnvil.getInvOutput().getStackInSlot(0);
 		if (inputItem != null) {
-			if (reforge && theAnvil.reforgeCost > 0) {
-				costText = StatCollector.translateToLocalFormatted("got.container.anvil.reforgeCost", theAnvil.reforgeCost);
-				if (!theAnvil.hasMaterialOrCoinAmount(theAnvil.reforgeCost)) {
+			if (reforge && theAnvil.getReforgeCost() > 0) {
+				costText = StatCollector.translateToLocalFormatted("got.container.anvil.reforgeCost", theAnvil.getReforgeCost());
+				if (!theAnvil.hasMaterialOrCoinAmount(theAnvil.getReforgeCost())) {
 					color = 16736352;
 				}
-			} else if (engraveOwner && theAnvil.engraveOwnerCost > 0) {
-				costText = StatCollector.translateToLocalFormatted("got.container.anvil.engraveOwnerCost", theAnvil.engraveOwnerCost);
-				if (!theAnvil.hasMaterialOrCoinAmount(theAnvil.engraveOwnerCost)) {
+			} else if (engraveOwner && theAnvil.getEngraveOwnerCost() > 0) {
+				costText = StatCollector.translateToLocalFormatted("got.container.anvil.engraveOwnerCost", theAnvil.getEngraveOwnerCost());
+				if (!theAnvil.hasMaterialOrCoinAmount(theAnvil.getEngraveOwnerCost())) {
 					color = 16736352;
 				}
-			} else if (theAnvil.materialCost > 0 && outputItem != null) {
-				costText = StatCollector.translateToLocalFormatted(theAnvil.isTrader ? "got.container.smith.cost" : "got.container.anvil.cost", theAnvil.materialCost);
-				if (!theAnvil.getSlotFromInventory(theAnvil.invOutput, 0).canTakeStack(mc.thePlayer)) {
+			} else if (theAnvil.getMaterialCost() > 0 && outputItem != null) {
+				costText = StatCollector.translateToLocalFormatted(theAnvil.isTrader() ? "got.container.smith.cost" : "got.container.anvil.cost", theAnvil.getMaterialCost());
+				if (!theAnvil.getSlotFromInventory(theAnvil.getInvOutput(), 0).canTakeStack(mc.thePlayer)) {
 					color = 16736352;
 				}
 			}
@@ -151,12 +151,12 @@ public class GOTGuiAnvil extends GuiContainer {
 			fontRendererObj.drawString(costText, x, y, color);
 		}
 		GL11.glEnable(2896);
-		if (theAnvil.clientReforgeTime > 0) {
-			float f = theAnvil.clientReforgeTime / 40.0f;
+		if (theAnvil.getClientReforgeTime() > 0) {
+			float f = theAnvil.getClientReforgeTime() / 40.0f;
 			int alpha = (int) (f * 255.0f);
 			alpha = MathHelper.clamp_int(alpha, 0, 255);
 			int overlayColor = 0xFFFFFF | alpha << 24;
-			Slot slot = theAnvil.getSlotFromInventory(theAnvil.invInput, 0);
+			Slot slot = theAnvil.getSlotFromInventory(theAnvil.getInvInput(), 0);
 			drawRect(slot.xDisplayPosition, slot.yDisplayPosition, slot.xDisplayPosition + 16, slot.yDisplayPosition + 16, overlayColor);
 		}
 	}
@@ -165,9 +165,9 @@ public class GOTGuiAnvil extends GuiContainer {
 	public void drawScreen(int i, int j, float f) {
 		float z;
 		String tooltip;
-		ItemStack inputItem = theAnvil.invInput.getStackInSlot(0);
-		boolean canReforge = inputItem != null && GOTEnchantmentHelper.isReforgeable(inputItem) && theAnvil.reforgeCost > 0;
-		boolean canEngrave = inputItem != null && GOTEnchantmentHelper.isReforgeable(inputItem) && theAnvil.engraveOwnerCost > 0;
+		ItemStack inputItem = theAnvil.getInvInput().getStackInSlot(0);
+		boolean canReforge = inputItem != null && GOTEnchantmentHelper.isReforgeable(inputItem) && theAnvil.getReforgeCost() > 0;
+		boolean canEngrave = inputItem != null && GOTEnchantmentHelper.isReforgeable(inputItem) && theAnvil.getEngraveOwnerCost() > 0;
 		buttonReforge.visible = buttonReforge.enabled = canReforge;
 		buttonEngraveOwner.enabled = canEngrave && theAnvil.canEngraveNewOwner(inputItem, mc.thePlayer);
 		buttonEngraveOwner.visible = buttonEngraveOwner.enabled;
@@ -241,7 +241,7 @@ public class GOTGuiAnvil extends GuiContainer {
 
 	private void renameItem(String rename) {
 		String rename1 = rename;
-		ItemStack itemstack = theAnvil.invInput.getStackInSlot(0);
+		ItemStack itemstack = theAnvil.getInvInput().getStackInSlot(0);
 		if (itemstack != null && !itemstack.hasDisplayName()) {
 			String displayNameStripped = GOTContainerAnvil.stripFormattingCodes(itemstack.getDisplayName());
 			String renameStripped = GOTContainerAnvil.stripFormattingCodes(rename1);
@@ -257,10 +257,10 @@ public class GOTGuiAnvil extends GuiContainer {
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
-		if (theAnvil.clientReforgeTime > 0) {
-			--theAnvil.clientReforgeTime;
+		if (theAnvil.getClientReforgeTime() > 0) {
+			theAnvil.setClientReforgeTime(theAnvil.getClientReforgeTime() - 1);
 		}
-		ItemStack itemstack = theAnvil.invInput.getStackInSlot(0);
+		ItemStack itemstack = theAnvil.getInvInput().getStackInSlot(0);
 		if (itemstack != prevItemStack) {
 			prevItemStack = itemstack;
 			String textFieldText = itemstack == null ? "" : GOTContainerAnvil.stripFormattingCodes(itemstack.getDisplayName());

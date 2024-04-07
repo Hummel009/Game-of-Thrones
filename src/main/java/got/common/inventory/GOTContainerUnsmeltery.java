@@ -12,10 +12,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class GOTContainerUnsmeltery extends Container {
-	public GOTTileEntityUnsmeltery theUnsmeltery;
-	public int currentSmeltTime;
-	public int forgeSmeltTime;
-	public int currentItemFuelValue;
+	private final GOTTileEntityUnsmeltery theUnsmeltery;
+
+	private int currentSmeltTime;
+	private int forgeSmeltTime;
+	private int currentItemFuelValue;
 
 	public GOTContainerUnsmeltery(InventoryPlayer inv, GOTTileEntityUnsmeltery unsmeltery) {
 		int i;

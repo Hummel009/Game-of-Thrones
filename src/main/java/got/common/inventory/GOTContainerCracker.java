@@ -13,9 +13,9 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 
 public class GOTContainerCracker extends Container {
-	public ItemStack theCrackerItem;
-	public IInventory crackerInventory;
-	public int capacity;
+	private final ItemStack theCrackerItem;
+	private final IInventory crackerInventory;
+	private final int capacity;
 
 	public GOTContainerCracker(EntityPlayer entityplayer) {
 		int i;
@@ -78,7 +78,7 @@ public class GOTContainerCracker extends Container {
 		}
 	}
 
-	public void sendSealingPacket(EntityPlayer entityplayer) {
+	public void sendSealingPacket() {
 		IMessage packet = new GOTPacketSealCracker();
 		GOTPacketHandler.networkWrapper.sendToServer(packet);
 	}

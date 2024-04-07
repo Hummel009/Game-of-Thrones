@@ -54,7 +54,7 @@ public class GOTPacketBuyUnit implements IMessage {
 			Container container = entityplayer.openContainer;
 			if (container instanceof GOTContainerUnitTrade) {
 				GOTContainerUnitTrade tradeContainer = (GOTContainerUnitTrade) container;
-				GOTHireableBase unitTrader = tradeContainer.theUnitTrader;
+				GOTHireableBase unitTrader = tradeContainer.getTheUnitTrader();
 				int tradeIndex = packet.tradeIndex;
 				GOTUnitTradeEntry trade = null;
 				if (unitTrader instanceof GOTUnitTradeable) {
