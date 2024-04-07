@@ -129,14 +129,15 @@ public class GOTContainerAnvil extends Container {
 	}
 
 	public static String stripFormattingCodes(String name) {
+		String name1 = name;
 		for (EnumChatFormatting color : EnumChatFormatting.values()) {
 			String formatCode = color.toString();
-			if (!name.startsWith(formatCode)) {
+			if (!name1.startsWith(formatCode)) {
 				continue;
 			}
-			name = name.substring(formatCode.length());
+			name1 = name1.substring(formatCode.length());
 		}
-		return name;
+		return name1;
 	}
 
 	public boolean applyMischief(ItemStack itemstack) {
@@ -153,7 +154,7 @@ public class GOTContainerAnvil extends Container {
 		}
 		if (rand.nextFloat() < 0.2f) {
 			GOTEnchantmentHelper.applyRandomEnchantments(itemstack, rand, false, true);
-			changed = true;
+			return true;
 		}
 		return changed;
 	}
@@ -237,7 +238,7 @@ public class GOTContainerAnvil extends Container {
 			}
 		}
 		if (materialPrice <= 0.0f && isRepairMaterial(inputItem, new ItemStack(GOTItems.valyrianIngot)) && theTrader instanceof GOTEntityQohorBlacksmith) {
-			materialPrice = 200.0f;
+			return 200.0f;
 		}
 		return materialPrice;
 	}
@@ -420,8 +421,8 @@ public class GOTContainerAnvil extends Container {
 
 	public void updateItemName(String name) {
 		List<EnumChatFormatting> colors = getAppliedFormattingCodes(name);
-		name = stripFormattingCodes(name);
-		repairedItemName = ChatAllowedCharacters.filerAllowedCharacters(name);
+		String name1 = stripFormattingCodes(name);
+		repairedItemName = ChatAllowedCharacters.filerAllowedCharacters(name1);
 		ItemStack itemstack = invOutput.getStackInSlot(0);
 		if (itemstack != null) {
 			if (StringUtils.isBlank(repairedItemName)) {
@@ -469,7 +470,6 @@ public class GOTContainerAnvil extends Container {
 		} else {
 			int oneItemRepair;
 			GOTEnchantmentCombining.CombineRecipe scrollCombine;
-			boolean repairing;
 			ItemStack inputCopy = inputItem.copy();
 			ItemStack combinerItem = invInput.getStackInSlot(1);
 			ItemStack materialItem = isTrader ? null : invInput.getStackInSlot(2);
@@ -485,10 +485,9 @@ public class GOTContainerAnvil extends Container {
 			boolean alteringNameColor = false;
 			if (costsToRename(inputItem) && combinerItem != null) {
 				if (combinerItem.getItem() instanceof AnvilNameColorProvider) {
-					boolean isDifferentColor;
 					AnvilNameColorProvider nameColorProvider = (AnvilNameColorProvider) combinerItem.getItem();
 					EnumChatFormatting newColor = nameColorProvider.getAnvilNameColor();
-					isDifferentColor = !colorsToApply.contains(newColor);
+					boolean isDifferentColor = !colorsToApply.contains(newColor);
 					if (isDifferentColor) {
 						for (EnumChatFormatting ecf : EnumChatFormatting.values()) {
 							if (!ecf.isColor()) {
@@ -581,7 +580,6 @@ public class GOTContainerAnvil extends Container {
 				if (GOTConfig.enchantingVanilla) {
 					Map<Integer, Integer> combinerEnchants = EnchantmentHelper.getEnchantments(combinerItem);
 					for (Integer obj : combinerEnchants.keySet()) {
-						int combinerEnchLevel;
 						int combinerEnchID = obj;
 						Enchantment combinerEnch = Enchantment.enchantmentsList[combinerEnchID];
 						int inputEnchLevel = 0;
@@ -589,7 +587,7 @@ public class GOTContainerAnvil extends Container {
 							inputEnchLevel = outputEnchants.get(combinerEnchID);
 						}
 						int combinedEnchLevel;
-						combinerEnchLevel = combinerEnchants.get(combinerEnchID);
+						int combinerEnchLevel = combinerEnchants.get(combinerEnchID);
 						if (inputEnchLevel == combinerEnchLevel) {
 							++combinerEnchLevel;
 							combinedEnchLevel = combinerEnchLevel;
@@ -745,7 +743,7 @@ public class GOTContainerAnvil extends Container {
 					}
 				}
 			}
-			repairing = repairCost > 0;
+			boolean repairing = repairCost > 0;
 			if (combining || repairing) {
 				materialCost = baseAnvilCost;
 				materialCost += combineCost + repairCost;

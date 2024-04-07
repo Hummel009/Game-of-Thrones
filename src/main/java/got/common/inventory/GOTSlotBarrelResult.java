@@ -22,13 +22,11 @@ public class GOTSlotBarrelResult extends Slot {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getBackgroundIconIndex() {
-		IIcon iIcon;
 		if (getSlotIndex() > 5) {
-			iIcon = GOTItemMug.barrelGui_emptyMugSlotIcon;
+			return GOTItemMug.barrelGui_emptyMugSlotIcon;
 		} else {
-			iIcon = null;
+			return null;
 		}
-		return iIcon;
 	}
 
 	@Override
