@@ -17,20 +17,8 @@ public class GOTContainerNPCMountInventory extends Container {
 		theMountInv = mountInv;
 		theMount = mount;
 		mountInv.openInventory();
-		addSlotToContainer(new Slot(mountInv, 0, 8, 18) {
-
-			@Override
-			public boolean isItemValid(ItemStack itemstack) {
-				return super.isItemValid(itemstack) && itemstack.getItem() == Items.saddle && !getHasStack();
-			}
-		});
-		addSlotToContainer(new Slot(mountInv, 1, 8, 36) {
-
-			@Override
-			public boolean isItemValid(ItemStack itemstack) {
-				return super.isItemValid(itemstack) && mount.isMountArmorValid(itemstack);
-			}
-		});
+		addSlotToContainer(new MySlot1(mountInv));
+		addSlotToContainer(new MySlot2(mountInv, mount));
 		int chestRows = 3;
 		int yOffset = (chestRows - 4) * 18;
 		for (j = 0; j < 3; ++j) {
@@ -73,4 +61,28 @@ public class GOTContainerNPCMountInventory extends Container {
 		return itemstack;
 	}
 
+	private static class MySlot1 extends Slot {
+		private MySlot1(IInventory mountInv) {
+			super(mountInv, 0, 8, 18);
+		}
+
+		@Override
+		public boolean isItemValid(ItemStack itemstack) {
+			return super.isItemValid(itemstack) && itemstack.getItem() == Items.saddle && !getHasStack();
+		}
+	}
+
+	private static class MySlot2 extends Slot {
+		private final GOTEntityNPCRideable mount;
+
+		private MySlot2(IInventory mountInv, GOTEntityNPCRideable mount) {
+			super(mountInv, 1, 8, 36);
+			this.mount = mount;
+		}
+
+		@Override
+		public boolean isItemValid(ItemStack itemstack) {
+			return super.isItemValid(itemstack) && mount.isMountArmorValid(itemstack);
+		}
+	}
 }

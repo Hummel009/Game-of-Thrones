@@ -31,10 +31,7 @@ public class GOTSlotAlignmentReward extends GOTSlotProtected {
 			return false;
 		}
 		int coins = GOTItemCoin.getInventoryValue(entityplayer, false);
-		if (coins < REWARD_COST) {
-			return false;
-		}
-		return super.canTakeStack(entityplayer);
+		return coins >= REWARD_COST && super.canTakeStack(entityplayer);
 	}
 
 	@Override

@@ -110,10 +110,7 @@ public class GOTContainerAnvil extends Container {
 
 	public static boolean costsToRename(ItemStack itemstack) {
 		Item item = itemstack.getItem();
-		if (item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0) {
-			return true;
-		}
-		return item instanceof ItemBow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
+		return item instanceof ItemSword || item instanceof ItemTool || item instanceof ItemArmor && ((ItemArmor) item).damageReduceAmount > 0 || item instanceof ItemBow || item instanceof GOTItemThrowingAxe || item instanceof GOTItemSarbacane;
 	}
 
 	public static List<EnumChatFormatting> getAppliedFormattingCodes(String name) {
@@ -161,10 +158,7 @@ public class GOTContainerAnvil extends Container {
 
 	public boolean canEngraveNewOwner(ItemStack itemstack, ICommandSender entityplayer) {
 		String currentOwner = GOTItemOwnership.getCurrentOwner(itemstack);
-		if (currentOwner == null) {
-			return true;
-		}
-		return !currentOwner.equals(entityplayer.getCommandSenderName());
+		return currentOwner == null || !currentOwner.equals(entityplayer.getCommandSenderName());
 	}
 
 	@Override
@@ -249,10 +243,7 @@ public class GOTContainerAnvil extends Container {
 		}
 		ItemStack inputItem = invInput.getStackInSlot(0);
 		ItemStack materialItem = invInput.getStackInSlot(2);
-		if (materialItem != null) {
-			return isRepairMaterial(inputItem, materialItem) && materialItem.stackSize >= cost;
-		}
-		return false;
+		return materialItem != null && isRepairMaterial(inputItem, materialItem) && materialItem.stackSize >= cost;
 	}
 
 	public boolean isRepairMaterial(ItemStack inputItem, ItemStack materialItem) {
@@ -278,10 +269,7 @@ public class GOTContainerAnvil extends Container {
 		if (material == Item.ToolMaterial.WOOD) {
 			return GOT.isOreNameEqual(materialItem, "plankWood");
 		}
-		if (item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.BONE) {
-			return GOT.isOreNameEqual(materialItem, "bone");
-		}
-		return false;
+		return item instanceof ItemArmor && ((ItemArmor) item).getArmorMaterial() == GOTMaterial.BONE && GOT.isOreNameEqual(materialItem, "bone");
 	}
 
 	@Override

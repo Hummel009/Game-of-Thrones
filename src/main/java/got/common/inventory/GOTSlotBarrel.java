@@ -23,20 +23,13 @@ public class GOTSlotBarrel extends Slot {
 	public IIcon getBackgroundIconIndex() {
 		if (getSlotIndex() > 5) {
 			return GOTItemMug.barrelGui_emptyBucketSlotIcon;
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 	@Override
 	public boolean isItemValid(ItemStack itemstack) {
-		if (theBarrel.barrelMode == 0) {
-			if (isWater) {
-				return GOTRecipeBrewing.isWaterSource(itemstack);
-			}
-			return true;
-		}
-		return false;
+		return theBarrel.barrelMode == 0 && (!isWater || GOTRecipeBrewing.isWaterSource(itemstack));
 	}
 
 	public void setWaterSource() {

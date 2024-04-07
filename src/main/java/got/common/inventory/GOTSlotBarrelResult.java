@@ -24,9 +24,8 @@ public class GOTSlotBarrelResult extends Slot {
 	public IIcon getBackgroundIconIndex() {
 		if (getSlotIndex() > 5) {
 			return GOTItemMug.barrelGui_emptyMugSlotIcon;
-		} else {
-			return null;
 		}
+		return null;
 	}
 
 	@Override
