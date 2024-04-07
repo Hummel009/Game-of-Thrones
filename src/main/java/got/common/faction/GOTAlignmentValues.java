@@ -16,6 +16,9 @@ public class GOTAlignmentValues {
 	public static DecimalFormat conqFormat = new DecimalFormat(",##0.00");
 	public static DecimalFormatSymbols alignFormatSymbols = new DecimalFormatSymbols();
 
+	private GOTAlignmentValues() {
+	}
+
 	public static AlignmentBonus createMiniquestBonus(float alignment) {
 		return new AlignmentBonus(alignment, "got.alignment.miniQuest");
 	}
@@ -32,7 +35,7 @@ public class GOTAlignmentValues {
 		setupDecimalFormat(dFormat);
 		String s = dFormat.format(alignment);
 		if (prefixPlus && (s.isEmpty() || s.charAt(0) != '-')) {
-			s = '+' + s;
+			return '+' + s;
 		}
 		return s;
 	}
@@ -48,15 +51,16 @@ public class GOTAlignmentValues {
 	}
 
 	public static float parseDisplayedAlign(String alignmentText) {
+		String alignmentText1 = alignmentText;
 		DecimalFormat dFormat = alignFormat;
 		setupDecimalFormat(dFormat);
-		if (!alignmentText.isEmpty() && alignmentText.charAt(0) == '+') {
-			alignmentText = alignmentText.substring("+".length());
+		if (!alignmentText1.isEmpty() && alignmentText1.charAt(0) == '+') {
+			alignmentText1 = alignmentText1.substring("+".length());
 		}
 		try {
-			return dFormat.parse(alignmentText).floatValue();
+			return dFormat.parse(alignmentText1).floatValue();
 		} catch (ParseException e) {
-			GOTLog.logger.error("Could not parse alignment value from display string {}", alignmentText);
+			GOTLog.logger.error("Could not parse alignment value from display string {}", alignmentText1);
 			e.printStackTrace();
 			return 0.0f;
 		}
@@ -92,12 +96,13 @@ public class GOTAlignmentValues {
 		}
 
 		public static float scalePenalty(float penalty, float alignment) {
-			if (alignment > 0.0f && penalty < 0.0f) {
+			float penalty1 = penalty;
+			if (alignment > 0.0f && penalty1 < 0.0f) {
 				float factor = alignment / 50.0f;
 				factor = MathHelper.clamp_float(factor, 1.0f, 20.0f);
-				penalty *= factor;
+				penalty1 *= factor;
 			}
-			return penalty;
+			return penalty1;
 		}
 	}
 

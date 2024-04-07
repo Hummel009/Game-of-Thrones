@@ -23,6 +23,9 @@ public class GOTFactionRelations {
 	public static boolean needsLoad = true;
 	public static boolean needsSave;
 
+	private GOTFactionRelations() {
+	}
+
 	public static Relation getFromDefaultMap(FactionPair key) {
 		if (defaultMap.containsKey(key)) {
 			return defaultMap.get(key);

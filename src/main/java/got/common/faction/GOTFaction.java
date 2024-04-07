@@ -3,12 +3,10 @@ package got.common.faction;
 import got.GOT;
 import got.common.GOTAchievementRank;
 import got.common.GOTDimension;
-import got.common.GOTDimension.DimensionRegion;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.database.GOTAchievement;
 import got.common.entity.other.GOTNPCSelectForInfluence;
-import got.common.faction.GOTFactionRelations.Relation;
 import got.common.item.other.GOTItemBanner;
 import got.common.world.GOTWorldProvider;
 import got.common.world.map.GOTWaypoint;
@@ -24,7 +22,7 @@ import java.util.List;
 import java.util.*;
 
 public enum GOTFaction {
-	WHITE_WALKER(0x8ddaf8, DimensionRegion.WESTEROS, new GOTMapRegion(550, 550, 500)), WILDLING(0x749987, DimensionRegion.WESTEROS, new GOTMapRegion(615, 520, 200)), NIGHT_WATCH(0x2A2A2A, DimensionRegion.WESTEROS, new GOTMapRegion(750, 670, 150)), NORTH(0xD4CFB7, DimensionRegion.WESTEROS, new GOTMapRegion(670, 930, 400)), IRONBORN(0x4b483a, DimensionRegion.WESTEROS, new GOTMapRegion(349, 1323, 129)), WESTERLANDS(0x7c0a02, DimensionRegion.WESTEROS, new GOTMapRegion(485, 1540, 200)), RIVERLANDS(0x146f69, DimensionRegion.WESTEROS, new GOTMapRegion(675, 1437, 215)), HILL_TRIBES(0x573C2F, DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), ARRYN(0x2D3257, DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), DRAGONSTONE(0x6A6A6A, DimensionRegion.WESTEROS, new GOTMapRegion(923, 1549, 40)), CROWNLANDS(0xDBAB25, DimensionRegion.WESTEROS, new GOTMapRegion(876, 1566, 168)), STORMLANDS(0x014634, DimensionRegion.WESTEROS, new GOTMapRegion(820, 1865, 218)), REACH(0x617646, DimensionRegion.WESTEROS, new GOTMapRegion(500, 1820, 293)), DORNE(0xF57820, DimensionRegion.WESTEROS, new GOTMapRegion(717, 2011, 300)), BRAAVOS(0x4A0C0C, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1221, 1351, 137)), VOLANTIS(0x4C3A5F, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1553, 1928, 210)), PENTOS(0x13425F, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1234, 1566, 172)), NORVOS(0x2D4D2F, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1437, 1468, 201)), LORATH(0xE5E5E5, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1379, 1354, 119)), MYR(0x3F3F3F, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1325, 1797, 223)), LYS(0x3D3023, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1204, 2053, 65)), QOHOR(0x053246, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1590, 1594, 214)), TYROSH(0x2E2E2E, DimensionRegion.WEST_ESSOS, new GOTMapRegion(1110, 1876, 52)), GHISCAR(0xAB7731, DimensionRegion.WEST_ESSOS, new GOTMapRegion(2115, 2180, 347)), QARTH(0x701010, DimensionRegion.WEST_ESSOS, new GOTMapRegion(2750, 2277, 221)), LHAZAR(0x9E4B1E, DimensionRegion.WEST_ESSOS, new GOTMapRegion(2510, 1910, 175)), DOTHRAKI(0x77551F, DimensionRegion.WEST_ESSOS, new GOTMapRegion(2270, 1670, 600)), IBBEN(0x4E3A26, DimensionRegion.EAST_ESSOS, new GOTMapRegion(2761, 1052, 252)), JOGOS(0x985916, DimensionRegion.EAST_ESSOS, new GOTMapRegion(3369, 1651, 460)), MOSSOVY(0x4B5C42, DimensionRegion.EAST_ESSOS, new GOTMapRegion(4056, 1480, 400)), YI_TI(0xC29033, DimensionRegion.EAST_ESSOS, new GOTMapRegion(3350, 2200, 350)), ASSHAI(0x3C353F, DimensionRegion.EAST_ESSOS, new GOTMapRegion(4098, 2331, 644)), SOTHORYOS(0x5E6A18, DimensionRegion.OTHER, new GOTMapRegion(2375, 3540, 1084)), SUMMER_ISLANDS(0x911A17, DimensionRegion.OTHER, new GOTMapRegion(1228, 2716, 310)), ULTHOS(0x343A2C, DimensionRegion.OTHER, new GOTMapRegion(4100, 3517, 1109)), HOSTILE(true, -1), UNALIGNED(false, 0);
+	WHITE_WALKER(0x8ddaf8, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(550, 550, 500)), WILDLING(0x749987, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(615, 520, 200)), NIGHT_WATCH(0x2A2A2A, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(750, 670, 150)), NORTH(0xD4CFB7, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(670, 930, 400)), IRONBORN(0x4b483a, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(349, 1323, 129)), WESTERLANDS(0x7c0a02, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(485, 1540, 200)), RIVERLANDS(0x146f69, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(675, 1437, 215)), HILL_TRIBES(0x573C2F, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), ARRYN(0x2D3257, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(842, 1329, 176)), DRAGONSTONE(0x6A6A6A, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(923, 1549, 40)), CROWNLANDS(0xDBAB25, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(876, 1566, 168)), STORMLANDS(0x014634, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(820, 1865, 218)), REACH(0x617646, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(500, 1820, 293)), DORNE(0xF57820, GOTDimension.DimensionRegion.WESTEROS, new GOTMapRegion(717, 2011, 300)), BRAAVOS(0x4A0C0C, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1221, 1351, 137)), VOLANTIS(0x4C3A5F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1553, 1928, 210)), PENTOS(0x13425F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1234, 1566, 172)), NORVOS(0x2D4D2F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1437, 1468, 201)), LORATH(0xE5E5E5, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1379, 1354, 119)), MYR(0x3F3F3F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1325, 1797, 223)), LYS(0x3D3023, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1204, 2053, 65)), QOHOR(0x053246, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1590, 1594, 214)), TYROSH(0x2E2E2E, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(1110, 1876, 52)), GHISCAR(0xAB7731, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2115, 2180, 347)), QARTH(0x701010, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2750, 2277, 221)), LHAZAR(0x9E4B1E, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2510, 1910, 175)), DOTHRAKI(0x77551F, GOTDimension.DimensionRegion.WEST_ESSOS, new GOTMapRegion(2270, 1670, 600)), IBBEN(0x4E3A26, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(2761, 1052, 252)), JOGOS(0x985916, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(3369, 1651, 460)), MOSSOVY(0x4B5C42, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(4056, 1480, 400)), YI_TI(0xC29033, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(3350, 2200, 350)), ASSHAI(0x3C353F, GOTDimension.DimensionRegion.EAST_ESSOS, new GOTMapRegion(4098, 2331, 644)), SOTHORYOS(0x5E6A18, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(2375, 3540, 1084)), SUMMER_ISLANDS(0x911A17, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(1228, 2716, 310)), ULTHOS(0x343A2C, GOTDimension.DimensionRegion.OTHER, new GOTMapRegion(4100, 3517, 1109)), HOSTILE(true, -1), UNALIGNED(false, 0);
 
 	public static Random factionRand = new Random();
 	public static int CONTROL_ZONE_EXTRA_RANGE = 50;
@@ -127,94 +125,94 @@ public enum GOTFaction {
 	public static void onInit() {
 		for (GOTFaction f : values()) {
 			if (f.allowPlayer && f != WHITE_WALKER) {
-				GOTFactionRelations.setRelations(f, WHITE_WALKER, Relation.MORTAL_ENEMY);
+				GOTFactionRelations.setRelations(f, WHITE_WALKER, GOTFactionRelations.Relation.MORTAL_ENEMY);
 			}
 		}
-		GOTFactionRelations.setRelations(ARRYN, CROWNLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(ARRYN, HILL_TRIBES, Relation.ENEMY);
-		GOTFactionRelations.setRelations(ARRYN, NORTH, Relation.FRIEND);
-		GOTFactionRelations.setRelations(ARRYN, RIVERLANDS, Relation.FRIEND);
-		GOTFactionRelations.setRelations(ARRYN, WESTERLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(ASSHAI, JOGOS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(ASSHAI, MOSSOVY, Relation.ENEMY);
-		GOTFactionRelations.setRelations(ASSHAI, QARTH, Relation.FRIEND);
-		GOTFactionRelations.setRelations(ASSHAI, ULTHOS, Relation.FRIEND);
-		GOTFactionRelations.setRelations(ASSHAI, YI_TI, Relation.FRIEND);
-		GOTFactionRelations.setRelations(BRAAVOS, LORATH, Relation.FRIEND);
-		GOTFactionRelations.setRelations(BRAAVOS, LYS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(BRAAVOS, MYR, Relation.ENEMY);
-		GOTFactionRelations.setRelations(BRAAVOS, NORVOS, Relation.FRIEND);
-		GOTFactionRelations.setRelations(BRAAVOS, PENTOS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(BRAAVOS, QOHOR, Relation.FRIEND);
-		GOTFactionRelations.setRelations(BRAAVOS, TYROSH, Relation.ENEMY);
-		GOTFactionRelations.setRelations(BRAAVOS, VOLANTIS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(CROWNLANDS, DORNE, Relation.ENEMY);
-		GOTFactionRelations.setRelations(CROWNLANDS, DRAGONSTONE, Relation.ENEMY);
-		GOTFactionRelations.setRelations(CROWNLANDS, HILL_TRIBES, Relation.FRIEND);
-		GOTFactionRelations.setRelations(CROWNLANDS, NORTH, Relation.ENEMY);
-		GOTFactionRelations.setRelations(CROWNLANDS, RIVERLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(CROWNLANDS, STORMLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(CROWNLANDS, WESTERLANDS, Relation.ALLY);
-		GOTFactionRelations.setRelations(DORNE, WESTERLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(DRAGONSTONE, REACH, Relation.ENEMY);
-		GOTFactionRelations.setRelations(DRAGONSTONE, STORMLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(DRAGONSTONE, WESTERLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(GHISCAR, QARTH, Relation.FRIEND);
-		GOTFactionRelations.setRelations(GHISCAR, SOTHORYOS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(GHISCAR, SUMMER_ISLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(GHISCAR, VOLANTIS, Relation.FRIEND);
-		GOTFactionRelations.setRelations(IBBEN, DOTHRAKI, Relation.ENEMY);
-		GOTFactionRelations.setRelations(IBBEN, JOGOS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(IBBEN, LORATH, Relation.ENEMY);
-		GOTFactionRelations.setRelations(IBBEN, MOSSOVY, Relation.FRIEND);
-		GOTFactionRelations.setRelations(IBBEN, NORVOS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(IRONBORN, NORTH, Relation.ENEMY);
-		GOTFactionRelations.setRelations(IRONBORN, RIVERLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(IRONBORN, WESTERLANDS, Relation.FRIEND);
-		GOTFactionRelations.setRelations(JOGOS, DOTHRAKI, Relation.FRIEND);
-		GOTFactionRelations.setRelations(JOGOS, MOSSOVY, Relation.ENEMY);
-		GOTFactionRelations.setRelations(JOGOS, YI_TI, Relation.ENEMY);
-		GOTFactionRelations.setRelations(LHAZAR, DOTHRAKI, Relation.ENEMY);
-		GOTFactionRelations.setRelations(LHAZAR, GHISCAR, Relation.FRIEND);
-		GOTFactionRelations.setRelations(LORATH, NORVOS, Relation.FRIEND);
-		GOTFactionRelations.setRelations(LORATH, QOHOR, Relation.FRIEND);
-		GOTFactionRelations.setRelations(LYS, MYR, Relation.ENEMY);
-		GOTFactionRelations.setRelations(LYS, TYROSH, Relation.ENEMY);
-		GOTFactionRelations.setRelations(LYS, VOLANTIS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(MOSSOVY, YI_TI, Relation.ENEMY);
-		GOTFactionRelations.setRelations(MYR, TYROSH, Relation.ENEMY);
-		GOTFactionRelations.setRelations(MYR, VOLANTIS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(NIGHT_WATCH, DRAGONSTONE, Relation.FRIEND);
-		GOTFactionRelations.setRelations(NIGHT_WATCH, NORTH, Relation.ALLY);
-		GOTFactionRelations.setRelations(NIGHT_WATCH, WILDLING, Relation.ENEMY);
-		GOTFactionRelations.setRelations(NORTH, RIVERLANDS, Relation.FRIEND);
-		GOTFactionRelations.setRelations(NORTH, WESTERLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(NORTH, WILDLING, Relation.ENEMY);
-		GOTFactionRelations.setRelations(NORVOS, QOHOR, Relation.FRIEND);
-		GOTFactionRelations.setRelations(NORVOS, VOLANTIS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(PENTOS, MYR, Relation.FRIEND);
-		GOTFactionRelations.setRelations(PENTOS, VOLANTIS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(QARTH, SOTHORYOS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(QARTH, YI_TI, Relation.FRIEND);
-		GOTFactionRelations.setRelations(QOHOR, DOTHRAKI, Relation.ENEMY);
-		GOTFactionRelations.setRelations(QOHOR, VOLANTIS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(REACH, STORMLANDS, Relation.FRIEND);
-		GOTFactionRelations.setRelations(RIVERLANDS, HILL_TRIBES, Relation.ENEMY);
-		GOTFactionRelations.setRelations(RIVERLANDS, WESTERLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(SOTHORYOS, SUMMER_ISLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(SOTHORYOS, ULTHOS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(STORMLANDS, WESTERLANDS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(SUMMER_ISLANDS, DORNE, Relation.FRIEND);
-		GOTFactionRelations.setRelations(SUMMER_ISLANDS, LYS, Relation.FRIEND);
-		GOTFactionRelations.setRelations(SUMMER_ISLANDS, TYROSH, Relation.FRIEND);
-		GOTFactionRelations.setRelations(SUMMER_ISLANDS, VOLANTIS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(TYROSH, VOLANTIS, Relation.ENEMY);
-		GOTFactionRelations.setRelations(ULTHOS, ASSHAI, Relation.FRIEND);
-		GOTFactionRelations.setRelations(VOLANTIS, DOTHRAKI, Relation.ENEMY);
-		GOTFactionRelations.setRelations(VOLANTIS, TYROSH, Relation.ENEMY);
-		GOTFactionRelations.setRelations(WESTERLANDS, HILL_TRIBES, Relation.FRIEND);
-		GOTFactionRelations.setRelations(WILDLING, DRAGONSTONE, Relation.ENEMY);
-		GOTFactionRelations.setRelations(WILDLING, IBBEN, Relation.FRIEND);
+		GOTFactionRelations.setRelations(ARRYN, CROWNLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(ARRYN, HILL_TRIBES, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(ARRYN, NORTH, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(ARRYN, RIVERLANDS, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(ARRYN, WESTERLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(ASSHAI, JOGOS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(ASSHAI, MOSSOVY, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(ASSHAI, QARTH, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(ASSHAI, ULTHOS, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(ASSHAI, YI_TI, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(BRAAVOS, LORATH, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(BRAAVOS, LYS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(BRAAVOS, MYR, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(BRAAVOS, NORVOS, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(BRAAVOS, PENTOS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(BRAAVOS, QOHOR, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(BRAAVOS, TYROSH, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(BRAAVOS, VOLANTIS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(CROWNLANDS, DORNE, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(CROWNLANDS, DRAGONSTONE, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(CROWNLANDS, HILL_TRIBES, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(CROWNLANDS, NORTH, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(CROWNLANDS, RIVERLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(CROWNLANDS, STORMLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(CROWNLANDS, WESTERLANDS, GOTFactionRelations.Relation.ALLY);
+		GOTFactionRelations.setRelations(DORNE, WESTERLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(DRAGONSTONE, REACH, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(DRAGONSTONE, STORMLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(DRAGONSTONE, WESTERLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(GHISCAR, QARTH, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(GHISCAR, SOTHORYOS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(GHISCAR, SUMMER_ISLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(GHISCAR, VOLANTIS, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(IBBEN, DOTHRAKI, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(IBBEN, JOGOS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(IBBEN, LORATH, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(IBBEN, MOSSOVY, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(IBBEN, NORVOS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(IRONBORN, NORTH, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(IRONBORN, RIVERLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(IRONBORN, WESTERLANDS, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(JOGOS, DOTHRAKI, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(JOGOS, MOSSOVY, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(JOGOS, YI_TI, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(LHAZAR, DOTHRAKI, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(LHAZAR, GHISCAR, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(LORATH, NORVOS, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(LORATH, QOHOR, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(LYS, MYR, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(LYS, TYROSH, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(LYS, VOLANTIS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(MOSSOVY, YI_TI, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(MYR, TYROSH, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(MYR, VOLANTIS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(NIGHT_WATCH, DRAGONSTONE, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(NIGHT_WATCH, NORTH, GOTFactionRelations.Relation.ALLY);
+		GOTFactionRelations.setRelations(NIGHT_WATCH, WILDLING, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(NORTH, RIVERLANDS, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(NORTH, WESTERLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(NORTH, WILDLING, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(NORVOS, QOHOR, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(NORVOS, VOLANTIS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(PENTOS, MYR, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(PENTOS, VOLANTIS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(QARTH, SOTHORYOS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(QARTH, YI_TI, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(QOHOR, DOTHRAKI, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(QOHOR, VOLANTIS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(REACH, STORMLANDS, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(RIVERLANDS, HILL_TRIBES, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(RIVERLANDS, WESTERLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(SOTHORYOS, SUMMER_ISLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(SOTHORYOS, ULTHOS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(STORMLANDS, WESTERLANDS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(SUMMER_ISLANDS, DORNE, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(SUMMER_ISLANDS, LYS, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(SUMMER_ISLANDS, TYROSH, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(SUMMER_ISLANDS, VOLANTIS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(TYROSH, VOLANTIS, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(ULTHOS, ASSHAI, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(VOLANTIS, DOTHRAKI, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(VOLANTIS, TYROSH, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(WESTERLANDS, HILL_TRIBES, GOTFactionRelations.Relation.FRIEND);
+		GOTFactionRelations.setRelations(WILDLING, DRAGONSTONE, GOTFactionRelations.Relation.ENEMY);
+		GOTFactionRelations.setRelations(WILDLING, IBBEN, GOTFactionRelations.Relation.FRIEND);
 
 		ARRYN.addControlZone(new GOTControlZone(851, 1335, 191));
 		ASSHAI.addControlZone(new GOTControlZone(3914, 2135, 765));
@@ -427,7 +425,7 @@ public enum GOTFaction {
 	public List<GOTFaction> getConquestBoostRelations() {
 		List<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : values()) {
-			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != Relation.ALLY) {
+			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != GOTFactionRelations.Relation.ALLY) {
 				continue;
 			}
 			list.add(f);
@@ -488,7 +486,7 @@ public enum GOTFaction {
 		return ranksSortedDescending.get(ranksSortedDescending.size() - 1);
 	}
 
-	public List<GOTFaction> getOthersOfRelation(Relation rel) {
+	public List<GOTFaction> getOthersOfRelation(GOTFactionRelations.Relation rel) {
 		List<GOTFaction> list = new ArrayList<>();
 		for (GOTFaction f : values()) {
 			if (f == this || !f.isPlayableAlignmentFaction() || GOTFactionRelations.getRelations(this, f) != rel) {
@@ -623,13 +621,13 @@ public enum GOTFaction {
 	}
 
 	public boolean isAlly(GOTFaction other) {
-		Relation rel = GOTFactionRelations.getRelations(this, other);
-		return rel == Relation.ALLY;
+		GOTFactionRelations.Relation rel = GOTFactionRelations.getRelations(this, other);
+		return rel == GOTFactionRelations.Relation.ALLY;
 	}
 
 	public boolean isBadRelation(GOTFaction other) {
-		Relation rel = GOTFactionRelations.getRelations(this, other);
-		return rel == Relation.ENEMY || rel == Relation.MORTAL_ENEMY;
+		GOTFactionRelations.Relation rel = GOTFactionRelations.getRelations(this, other);
+		return rel == GOTFactionRelations.Relation.ENEMY || rel == GOTFactionRelations.Relation.MORTAL_ENEMY;
 	}
 
 	public boolean isFactionDimension(World world) {
@@ -637,17 +635,17 @@ public enum GOTFaction {
 	}
 
 	public boolean isGoodRelation(GOTFaction other) {
-		Relation rel = GOTFactionRelations.getRelations(this, other);
-		return rel == Relation.ALLY || rel == Relation.FRIEND;
+		GOTFactionRelations.Relation rel = GOTFactionRelations.getRelations(this, other);
+		return rel == GOTFactionRelations.Relation.ALLY || rel == GOTFactionRelations.Relation.FRIEND;
 	}
 
 	public boolean isMortalEnemy(GOTFaction other) {
-		Relation rel = GOTFactionRelations.getRelations(this, other);
-		return rel == Relation.MORTAL_ENEMY;
+		GOTFactionRelations.Relation rel = GOTFactionRelations.getRelations(this, other);
+		return rel == GOTFactionRelations.Relation.MORTAL_ENEMY;
 	}
 
 	public boolean isNeutral(GOTFaction other) {
-		return GOTFactionRelations.getRelations(this, other) == Relation.NEUTRAL;
+		return GOTFactionRelations.getRelations(this, other) == GOTFactionRelations.Relation.NEUTRAL;
 	}
 
 	public boolean isPlayableAlignmentFaction() {
