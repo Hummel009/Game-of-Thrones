@@ -3,6 +3,7 @@ package got.common.enchant;
 import com.google.common.collect.Lists;
 import got.common.GOTConfig;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -21,6 +22,9 @@ public class GOTEnchantmentHelper {
 	public static Map<UUID, ItemStack[]> lastKnownPlayerInventories = new HashMap<>();
 
 	public static Random backupRand;
+
+	private GOTEnchantmentHelper() {
+	}
 
 	public static void applyRandomEnchantments(ItemStack itemstack, Random random, boolean skilful, boolean keepBanes) {
 		if (keepBanes) {
@@ -377,7 +381,7 @@ public class GOTEnchantmentHelper {
 		NBTTagCompound data = entity.getEntityData();
 		NBTTagList tags = null;
 		if (data != null && data.hasKey("GOTEnchEntity")) {
-			tags = data.getTagList("GOTEnchEntity", 8);
+			return data.getTagList("GOTEnchEntity", 8);
 		} else if (create) {
 			tags = new NBTTagList();
 			data.setTag("GOTEnchEntity", tags);
@@ -386,19 +390,20 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static String getFullEnchantedName(ItemStack itemstack, String name) {
+		String name1 = name;
 		List<GOTEnchantment> enchants = getEnchantList(itemstack);
 		enchants = Lists.reverse(enchants);
 		for (GOTEnchantment ench : enchants) {
-			name = StatCollector.translateToLocalFormatted("got.enchant.nameFormat", ench.getDisplayName(), name);
+			name1 = StatCollector.translateToLocalFormatted("got.enchant.nameFormat", ench.getDisplayName(), name1);
 		}
-		return name;
+		return name1;
 	}
 
 	public static NBTTagList getItemEnchantTags(ItemStack itemstack, boolean create) {
 		NBTTagCompound itemData = itemstack.getTagCompound();
 		NBTTagList tags = null;
 		if (itemData != null && itemData.hasKey("GOTEnch")) {
-			tags = itemData.getTagList("GOTEnch", 8);
+			return itemData.getTagList("GOTEnch", 8);
 		} else if (create) {
 			if (itemData == null) {
 				itemData = new NBTTagCompound();
@@ -509,12 +514,13 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static boolean negateDamage(ItemStack itemstack, Random random) {
+		Random random1 = random;
 		if (itemstack != null) {
-			if (random == null) {
+			if (random1 == null) {
 				if (backupRand == null) {
 					backupRand = new Random();
 				}
-				random = backupRand;
+				random1 = backupRand;
 			}
 
 			List<GOTEnchantment> enchants = getEnchantList(itemstack);
@@ -523,7 +529,7 @@ public class GOTEnchantmentHelper {
 					float durability = ((GOTEnchantmentDurability) ench).durabilityFactor;
 					if (durability > 1.0F) {
 						float inv = 1.0F / durability;
-						if (random.nextFloat() > inv) {
+						if (random1.nextFloat() > inv) {
 							return true;
 						}
 					}
@@ -538,7 +544,7 @@ public class GOTEnchantmentHelper {
 		Random rand = entity.getRNG();
 
 		if (GOTConfig.enchantingGOT) {
-			if (entity instanceof net.minecraft.entity.EntityLiving) {
+			if (entity instanceof EntityLiving) {
 				boolean init = entity.getEntityData().getBoolean("GOTEnchantInit");
 				if (!init) {
 					for (int i = 0; i < entity.getLastActiveItems().length; i++) {

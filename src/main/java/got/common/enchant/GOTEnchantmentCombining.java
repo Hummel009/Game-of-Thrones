@@ -10,6 +10,9 @@ import java.util.Collection;
 public class GOTEnchantmentCombining {
 	public static Collection<CombineRecipe> allCombineRecipes = new ArrayList<>();
 
+	private GOTEnchantmentCombining() {
+	}
+
 	public static void combine(GOTEnchantment in, GOTEnchantment out, int cost) {
 		if (!in.hasTemplateItem() || !out.hasTemplateItem()) {
 			throw new IllegalArgumentException("Cannot create a modifier combining recipe for modifiers which lack scroll items!");

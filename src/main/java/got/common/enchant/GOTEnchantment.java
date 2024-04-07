@@ -124,7 +124,7 @@ public abstract class GOTEnchantment {
 	public String formatAdditive(float f) {
 		String s = formatDecimalNumber(f);
 		if (f >= 0.0F) {
-			s = '+' + s;
+			return '+' + s;
 		}
 		return s;
 	}
@@ -132,7 +132,7 @@ public abstract class GOTEnchantment {
 	public String formatAdditiveInt(int i) {
 		String s = String.valueOf(i);
 		if (i >= 0) {
-			s = '+' + s;
+			return '+' + s;
 		}
 		return s;
 	}
@@ -166,11 +166,10 @@ public abstract class GOTEnchantment {
 	public String getNamedFormattedDescription(ItemStack itemstack) {
 		String s = StatCollector.translateToLocalFormatted("got.enchant.descFormat", getDisplayName(), getDescription(itemstack));
 		if (isBeneficial()) {
-			s = EnumChatFormatting.GRAY + s;
+			return EnumChatFormatting.GRAY + s;
 		} else {
-			s = EnumChatFormatting.DARK_GRAY + s;
+			return EnumChatFormatting.DARK_GRAY + s;
 		}
-		return s;
 	}
 
 	public float getValueModifier() {
