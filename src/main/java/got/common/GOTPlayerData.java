@@ -241,7 +241,7 @@ public class GOTPlayerData {
 				List<GOTAchievement> earnedAchievements = getEarnedAchievements(GOTDimension.GAME_OF_THRONES);
 				int biomes = 0;
 				for (GOTAchievement earnedAchievement : earnedAchievements) {
-					if (earnedAchievement.isBiomeAchievement) {
+					if (earnedAchievement.isBiomeAchievement()) {
 						biomes++;
 					}
 				}
@@ -1471,7 +1471,7 @@ public class GOTPlayerData {
 
 	public boolean hasAchievement(GOTAchievement achievement) {
 		for (GOTAchievement a : achievements) {
-			if (a.category == achievement.category && a.ID == achievement.ID) {
+			if (a.getCategory() == achievement.getCategory() && a.getId() == achievement.getId()) {
 				return true;
 			}
 		}
@@ -2453,8 +2453,8 @@ public class GOTPlayerData {
 		NBTTagList achievementTags = new NBTTagList();
 		for (GOTAchievement achievement : achievements) {
 			NBTTagCompound nbt = new NBTTagCompound();
-			nbt.setString("Category", achievement.category.name());
-			nbt.setInteger("ID", achievement.ID);
+			nbt.setString("Category", achievement.getCategory().name());
+			nbt.setInteger("ID", achievement.getId());
 			achievementTags.appendTag(nbt);
 		}
 		playerData.setTag("Achievements", achievementTags);
