@@ -92,7 +92,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	@Override
 	public int func_149885_e(IBlockAccess world, int i, int j, int k) {
 		int l = world.getBlockMetadata(i, j, k);
-		return (!isTop(l) ? l : world.getBlockMetadata(i, j - 1, k)) & 7;
+		return (isTop(l) ? world.getBlockMetadata(i, j - 1, k) : l) & 7;
 	}
 
 	@SideOnly(Side.CLIENT)
