@@ -15,7 +15,6 @@ import got.common.block.slab.*;
 import got.common.block.table.*;
 import got.common.block.torch.GOTBlockAsshaiTorch;
 import got.common.block.torch.GOTBlockDoubleTorch;
-import got.common.block.torch.GOTBlockUlthosTorch;
 import got.common.block.wall.*;
 import got.common.block.wbeam.*;
 import got.common.block.wood.*;
@@ -38,11 +37,12 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+@SuppressWarnings({"PublicField", "WeakerAccess"})
 public class GOTBlocks {
 	public static final Set<Block> CONTENT = new HashSet<>();
 
-	public static Map<GOTEnumDyeColor, GOTBlockConcretePowder> concretePowder = new EnumMap<>(GOTEnumDyeColor.class);
-	public static Map<GOTEnumDyeColor, GOTBlockConcrete> concrete = new EnumMap<>(GOTEnumDyeColor.class);
+	public static final Map<GOTEnumDyeColor, GOTBlockConcretePowder> CONCRETE_POWDER = new EnumMap<>(GOTEnumDyeColor.class);
+	public static final Map<GOTEnumDyeColor, GOTBlockConcrete> CONCRETE = new EnumMap<>(GOTEnumDyeColor.class);
 
 	public static Block aleHorn;
 	public static Block aleHornGold;
@@ -98,7 +98,7 @@ public class GOTBlocks {
 	public static Block chandelier;
 	public static Block cherryPie;
 	public static Block chestBasket;
-	public static Block chestEssos;
+	public static Block chestSandstone;
 	public static Block chestStone;
 	public static Block clayTile;
 	public static Block clayTileDyed;
@@ -269,7 +269,6 @@ public class GOTBlocks {
 	public static Block marzipanBlock;
 	public static Block millstone;
 	public static Block mirkVines;
-	public static Block mobSpawner;
 	public static Block mud;
 	public static Block mudFarmland;
 	public static Block mudGrass;
@@ -582,8 +581,6 @@ public class GOTBlocks {
 	public static Block treasureGold;
 	public static Block treasureSilver;
 	public static Block turnipCrop;
-	public static Block ulthosBars;
-	public static Block ulthosTorch;
 	public static Block unsmeltery;
 	public static Block valyrianBars;
 	public static Block wallBone;
@@ -639,7 +636,10 @@ public class GOTBlocks {
 	public static Block yamCrop;
 	public static Block yitiFlower;
 
-	public static void assignContent() {
+	private GOTBlocks() {
+	}
+
+	private static void assignContent() {
 		planks1 = new GOTBlockPlanks1();
 		planks2 = new GOTBlockPlanks2();
 		planks3 = new GOTBlockPlanks3();
@@ -701,7 +701,7 @@ public class GOTBlocks {
 		chandelier = new GOTBlockChandelier();
 		cherryPie = new GOTBlockPlaceableFood();
 		chestBasket = new GOTBlockChest(Material.cloth, thatch, 1, "basket").setHardness(0.5f).setStepSound(Block.soundTypeCloth);
-		chestEssos = new GOTBlockChest(Material.rock, brick1, 15, "essos").setHardness(3.0f).setStepSound(Block.soundTypeStone);
+		chestSandstone = new GOTBlockChest(Material.rock, brick1, 15, "essos").setHardness(3.0f).setStepSound(Block.soundTypeStone);
 		chestStone = new GOTBlockChest(Material.rock, Blocks.cobblestone, 0, "stone").setHardness(3.0f).setStepSound(Block.soundTypeStone);
 		clayTile = new GOTBlockClayTile();
 		clayTileDyed = new GOTBlockClayTileDyed();
@@ -981,7 +981,7 @@ public class GOTBlocks {
 		smoothStoneV = new GOTBlockSmoothStoneV();
 		sothoryosDoubleTorch = new GOTBlockDoubleTorch();
 		spawnerChest = new GOTBlockSpawnerChest(Blocks.chest);
-		spawnerChestAncientEssos = new GOTBlockSpawnerChest(chestEssos);
+		spawnerChestAncientEssos = new GOTBlockSpawnerChest(chestSandstone);
 		spawnerChestStone = new GOTBlockSpawnerChest(chestStone);
 		stainedGlass = new GOTBlockStainedGlass();
 		stainedGlassPane = new GOTBlockStainedGlassPane();
@@ -1179,8 +1179,6 @@ public class GOTBlocks {
 		treasureGold = new GOTBlockTreasurePile();
 		treasureSilver = new GOTBlockTreasurePile();
 		turnipCrop = new GOTBlockTurnipCrop();
-		ulthosBars = new GOTBlockWoodBars();
-		ulthosTorch = new GOTBlockUlthosTorch().setHardness(0.0f).setStepSound(Block.soundTypeWood).setLightLevel(0.9375f);
 		unsmeltery = new GOTBlockUnsmeltery();
 		valyrianBars = new GOTBlockBars();
 		wallBone = new GOTBlockWallBone();
@@ -1274,7 +1272,7 @@ public class GOTBlocks {
 			if (block instanceof GOTBlockWoodBase) {
 				Blocks.fire.setFireInfo(block, 5, 5);
 			}
-			if (block instanceof GOTBlockPlanksBase || block instanceof GOTBlockFence || block instanceof GOTBlockWoodBars || block instanceof GOTBlockWoodBeam || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.wood) {
+			if (block instanceof GOTBlockPlanksBase || block instanceof GOTBlockFence || block instanceof GOTBlockWoodBeam || (block instanceof GOTBlockSlabBase || block instanceof GOTBlockStairs) && block.getMaterial() == Material.wood) {
 				Blocks.fire.setFireInfo(block, 5, 20);
 			}
 			if (block instanceof GOTBlockVine) {
@@ -1357,7 +1355,7 @@ public class GOTBlocks {
 		CONTENT.add(block);
 	}
 
-	public static void registerContent() {
+	private static void registerContent() {
 		register(rock, "rock", GOTItemBlockMetadata.class);
 		register(oreCopper, "oreCopper");
 		register(oreTin, "oreTin");
@@ -1418,7 +1416,6 @@ public class GOTBlocks {
 		register(slabDouble2, "slabDouble2", GOTBlockSlabBase.SlabItems.Slab2Double.class);
 		register(stairsUlthos, "stairsUlthos");
 		register(tableNorth, "tableNorth");
-		register(ulthosTorch, "ulthosTorch");
 		register(marshLights, "marshLights");
 		register(pressurePlateRhyolite, "pressurePlateRhyolite");
 		register(deadMarshPlant, "deadMarshPlant");
@@ -1531,7 +1528,6 @@ public class GOTBlocks {
 		register(goldBars, "goldBars");
 		register(silverBars, "silverBars");
 		register(valyrianBars, "valyrianBars");
-		register(ulthosBars, "ulthosBars");
 		register(planksRotten, "planksRotten", GOTItemBlockMetadata.class);
 		register(stairsRotten, "stairsRotten");
 		register(rottenSlabSingle, "rottenSlabSingle", GOTBlockSlabBase.SlabItems.RottenSlabSingle.class);
@@ -1860,7 +1856,7 @@ public class GOTBlocks {
 		register(slabBoneDouble, "slabBoneDouble", GOTBlockSlabBase.SlabItems.BoneDouble.class);
 		register(stairsBone, "stairsBone");
 		register(wallBone, "wallBone", GOTItemBlockMetadata.class);
-		register(chestEssos, "chestEssos");
+		register(chestSandstone, "chestSandstone");
 		register(spawnerChestAncientEssos, "spawnerChestAncientEssos");
 		register(redClay, "redClay");
 		register(chain, "chain");
@@ -1946,10 +1942,10 @@ public class GOTBlocks {
 		register(stairsLabradoriteBrickMossy, "stairsLabradoriteBrickMossy");
 		register(pressurePlateLabradorite, "pressurePlateLabradorite");
 		for (GOTEnumDyeColor color : GOTEnumDyeColor.values()) {
-			concretePowder.put(color, new GOTBlockConcretePowder(color));
-			concrete.put(color, new GOTBlockConcrete(color));
-			register(concretePowder.get(color), "concrete_powder_" + color.getUnlocalizedName(), GOTItemBlockConcrete.class);
-			register(concrete.get(color), "concrete_" + color.getUnlocalizedName(), GOTItemBlockConcrete.class);
+			CONCRETE_POWDER.put(color, new GOTBlockConcretePowder(color));
+			CONCRETE.put(color, new GOTBlockConcrete(color));
+			register(CONCRETE_POWDER.get(color), "concrete_powder_" + color.getUnlocalizedName(), GOTItemBlockConcrete.class);
+			register(CONCRETE.get(color), "concrete_" + color.getUnlocalizedName(), GOTItemBlockConcrete.class);
 		}
 		register(tableDothraki, "tableDothraki");
 		register(tableJogos, "tableJogos");

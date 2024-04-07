@@ -119,8 +119,8 @@ public class GOTStructureWesterosSmithy extends GOTStructureWesterosBase {
 		for (k1 = 2; k1 <= 6; k1 += 2) {
 			setBlockAndMetadata(world, 3, 1, k1, Blocks.anvil, 0);
 		}
-		placeChest(world, random, 3, 1, 8, Blocks.chest, 5, getChestContents());
-		placeChest(world, random, 3, 1, 9, Blocks.chest, 5, getChestContents());
+		placeChest(world, random, 3, 1, 8, getChest(), 5, getChestContents());
+		placeChest(world, random, 3, 1, 9, getChest(), 5, getChestContents());
 		setBlockAndMetadata(world, -1, 2, 2, Blocks.torch, 3);
 		setBlockAndMetadata(world, 1, 2, 2, Blocks.torch, 3);
 		setBlockAndMetadata(world, -3, 2, 6, Blocks.torch, 2);

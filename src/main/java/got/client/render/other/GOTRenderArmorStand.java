@@ -62,7 +62,7 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 					ModelBiped armorModel = slot == 2 ? MODEL_BIPED_2 : MODEL_BIPED_1;
 					GOTArmorModels.INSTANCE.setupArmorForSlot(armorModel, slot);
 					armorModel = ForgeHooksClient.getArmorModel(null, itemstack, slot, armorModel);
-					ModelBiped specialModel = GOTArmorModels.INSTANCE.getSpecialArmorModel(itemstack, slot, null, MODEL_BIPED_MAIN);
+					ModelBiped specialModel = GOTArmorModels.INSTANCE.getSpecialArmorModel(itemstack, slot, MODEL_BIPED_MAIN);
 					if (specialModel != null) {
 						armorModel = specialModel;
 					}

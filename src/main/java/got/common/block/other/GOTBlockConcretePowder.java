@@ -24,7 +24,7 @@ public class GOTBlockConcretePowder extends BlockFalling {
 	}
 
 	private static GOTBlockConcrete getConcreteFromColor(GOTEnumDyeColor dye) {
-		return GOTBlocks.concrete.get(dye);
+		return GOTBlocks.CONCRETE.get(dye);
 	}
 
 	private void func_149830_m(World world, int i, int j, int k) {

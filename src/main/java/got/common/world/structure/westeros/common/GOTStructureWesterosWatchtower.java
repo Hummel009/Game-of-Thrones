@@ -123,7 +123,7 @@ public class GOTStructureWesterosWatchtower extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, -2, 3, 0, Blocks.torch, 2);
 		setBlockAndMetadata(world, 2, 3, 0, Blocks.torch, 1);
 		setBlockAndMetadata(world, 0, 5, 0, GOTBlocks.chandelier, 1);
-		placeChest(world, random, -2, 7, -2, GOTBlocks.chestStone, 4, getChestContents());
+		placeChest(world, random, -2, 7, -2, getChest(), 4, getChestContents());
 		setBlockAndMetadata(world, -2, 7, 0, GOTBlocks.armorStand, 3);
 		setBlockAndMetadata(world, -2, 8, 0, GOTBlocks.armorStand, 7);
 		setBlockAndMetadata(world, -2, 7, 2, Blocks.anvil, 0);

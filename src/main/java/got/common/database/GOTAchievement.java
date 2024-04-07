@@ -452,7 +452,7 @@ public class GOTAchievement {
 		findPlantain = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.plantain, "FIND_PLANTAIN");
 		fishRing = new GOTAchievement(Category.GENERAL, genId++, Items.fishing_rod, "FISH_RING");
 		gainHighAlcoholTolerance = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "GAIN_HIGH_ALCOHOL_TOLERANCE");
-		getConcrete = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.concretePowder.get(GOTEnumDyeColor.LIME), "GET_CONCRETE");
+		getConcrete = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.CONCRETE_POWDER.get(GOTEnumDyeColor.LIME), "GET_CONCRETE");
 		getDrunk = new GOTAchievement(Category.GENERAL, genId++, GOTItems.mugAle, "GET_DRUNK");
 		getPouch = new GOTAchievement(Category.GENERAL, genId++, GOTItems.pouch, "GET_POUCH");
 		growBaobab = new GOTAchievement(Category.GENERAL, genId++, new ItemStack(GOTBlocks.sapling4, 1, 1), "GROW_BAOBAB");

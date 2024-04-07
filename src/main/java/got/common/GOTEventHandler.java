@@ -530,7 +530,7 @@ public class GOTEventHandler implements IFuelHandler {
 				GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.craftWildFire);
 			}
 			for (GOTEnumDyeColor color : GOTEnumDyeColor.values()) {
-				if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.concretePowder.get(color))) {
+				if (itemstack.getItem() == Item.getItemFromBlock(GOTBlocks.CONCRETE_POWDER.get(color))) {
 					GOTLevelData.getData(entityplayer).addAchievement(GOTAchievement.getConcrete);
 				}
 			}

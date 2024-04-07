@@ -272,10 +272,10 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				placeArmorStand(world, i12, 1, -7, 0, null);
 				placeArmorStand(world, i12, 1, 7, 2, null);
 			}
-			placeChest(world, random, i11, 1, -6, GOTBlocks.chestStone, 2, getChestContents(), 1);
+			placeChest(world, random, i11, 1, -6, getChest(), 2, getChestContents(), 1);
 			setAir(world, i11, 2, -6);
 			spawnItemFrame(world, i11, 3, -6, 2, getFramedItem(random));
-			placeChest(world, random, i11, 1, 6, GOTBlocks.chestStone, 3, getChestContents(), 1);
+			placeChest(world, random, i11, 1, 6, getChest(), 3, getChestContents(), 1);
 			setAir(world, i11, 2, 6);
 			spawnItemFrame(world, i11, 3, 6, 0, getFramedItem(random));
 		}
@@ -284,10 +284,10 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				placeArmorStand(world, -7, 1, k2, 1, null);
 				placeArmorStand(world, 7, 1, k2, 3, null);
 			}
-			placeChest(world, random, -6, 1, i11, GOTBlocks.chestStone, 5, getChestContents(), 1);
+			placeChest(world, random, -6, 1, i11, getChest(), 5, getChestContents(), 1);
 			setAir(world, -6, 2, i11);
 			spawnItemFrame(world, -6, 3, i11, 3, getFramedItem(random));
-			placeChest(world, random, 6, 1, i11, GOTBlocks.chestStone, 4, getChestContents(), 1);
+			placeChest(world, random, 6, 1, i11, getChest(), 4, getChestContents(), 1);
 			setAir(world, 6, 2, i11);
 			spawnItemFrame(world, 6, 3, i11, 1, getFramedItem(random));
 		}
@@ -433,7 +433,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 		setBlockAndMetadata(world, 8, 1, -1, GOTBlocks.alloyForge, 5);
 		setBlockAndMetadata(world, 8, 2, -1, Blocks.furnace, 5);
 		setBlockAndMetadata(world, 8, 1, 1, tableBlock, 0);
-		placeChest(world, random, 8, 1, 2, GOTBlocks.chestStone, 5, getChestContents());
+		placeChest(world, random, 8, 1, 2, getChest(), 5, getChestContents());
 		setBlockAndMetadata(world, 8, 1, 3, Blocks.crafting_table, 0);
 		spawnItemFrame(world, 9, 2, 1, 3, getFramedItem(random));
 		spawnItemFrame(world, 9, 2, 2, 3, getFramedItem(random));
@@ -471,7 +471,7 @@ public class GOTStructureWesterosFortress extends GOTStructureWesterosBase {
 				setBlockAndMetadata(world, i1, 1, 7, bedBlock, 0);
 				setBlockAndMetadata(world, i1, 1, 8, bedBlock, 8);
 			} else {
-				placeChest(world, random, i1, 1, 8, GOTBlocks.chestStone, 2, getChestContents());
+				placeChest(world, random, i1, 1, 8, getChest(), 2, getChestContents());
 			}
 		}
 		placeWallBanner(world, -2, 3, 9, bannerType, 2);

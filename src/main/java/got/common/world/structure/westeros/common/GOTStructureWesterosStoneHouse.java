@@ -170,7 +170,7 @@ public class GOTStructureWesterosStoneHouse extends GOTStructureWesterosBase {
 			}
 		}
 		if (random.nextInt(4) == 0) {
-			placeChest(world, random, 0, 0, 1, GOTBlocks.chestStone, 2, GOTChestContents.TREASURE);
+			placeChest(world, random, 0, 0, 1, getChest(), 2, GOTChestContents.TREASURE);
 		}
 		setBlockAndMetadata(world, 3, 2, 4, Blocks.torch, 1);
 		setBlockAndMetadata(world, 0, 3, 1, GOTBlocks.chandelier, 2);

@@ -6,6 +6,7 @@ CHANGELOG
 + Added Janos Slynt's, Pycelle's and Melisandra's drop
 + Added new world type - Game of Thrones without fixed structures and characters, but with map.
 + Added one forgotten dirtPath:2 recipe
++ Added crafts for stone chest, sandstone chest and replaced the craft of reeds chest with new one.
 
 * Moved zero coords of the world closer to Winterfell
 
@@ -15,6 +16,8 @@ CHANGELOG
 * Improved roads & walls code
 * Improved GUI opening code
 * Optimized lots of client-size things
+
+* Returned sandstone chests, ice & obsidian stalactites to natural spawn
 
 * Fixed bug with one stone wall
 * Fixed bug with uncraftable weirwood fence

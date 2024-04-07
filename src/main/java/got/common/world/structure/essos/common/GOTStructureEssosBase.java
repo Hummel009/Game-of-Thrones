@@ -16,7 +16,6 @@ import got.common.entity.essos.tyrosh.*;
 import got.common.entity.essos.volantis.*;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemBanner;
-import got.common.item.other.GOTItemBanner.BannerType;
 import got.common.util.GOTReflection;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.structure.other.GOTStructureBase;
@@ -30,7 +29,7 @@ import net.minecraft.world.World;
 import java.util.*;
 
 public abstract class GOTStructureEssosBase extends GOTStructureBase {
-	public static final Map<City, BannerType> BANNERS = new EnumMap<>(City.class);
+	public static final Map<City, GOTItemBanner.BannerType> BANNERS = new EnumMap<>(City.class);
 	public static final Map<City, Block> TABLES = new EnumMap<>(City.class);
 	public static final Map<City, Class<? extends Entity>> ARCHERS = new EnumMap<>(City.class);
 	public static final Map<City, Class<? extends Entity>> BARTENDERS = new EnumMap<>(City.class);
@@ -40,7 +39,8 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public static final Map<City, Class<? extends Entity>> MEN = new EnumMap<>(City.class);
 	public static final Map<City, Class<? extends Entity>> SMITHS = new EnumMap<>(City.class);
 	public static final Map<City, Class<? extends Entity>> SOLDIERS = new EnumMap<>(City.class);
-	public static final Map<City, GOTChestContents> CHESTS = new EnumMap<>(City.class);
+	public static final Map<City, GOTChestContents> CHEST_CONTENTS = new EnumMap<>(City.class);
+	public static final Map<City, Block> CHESTS = new EnumMap<>(City.class);
 	public static final Set<City> NORTHERN_TREE_CITIES = EnumSet.of(City.BRAAVOS, City.LORATH, City.NORVOS, City.QOHOR);
 	public static final Set<City> SANDSTONE_CITIES = EnumSet.of(City.GHISCAR, City.QARTH, City.PENTOS);
 
@@ -89,17 +89,28 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		CAPTAINS.put(City.QOHOR, GOTEntityQohorGuardCaptain.class);
 		CAPTAINS.put(City.TYROSH, GOTEntityTyroshGeneral.class);
 		CAPTAINS.put(City.VOLANTIS, GOTEntityVolantisGeneral.class);
-		CHESTS.put(City.BRAAVOS, GOTChestContents.BRAAVOS);
-		CHESTS.put(City.GHISCAR, GOTChestContents.GHISCAR);
-		CHESTS.put(City.LORATH, GOTChestContents.LORATH);
-		CHESTS.put(City.LYS, GOTChestContents.LYS);
-		CHESTS.put(City.MYR, GOTChestContents.MYR);
-		CHESTS.put(City.NORVOS, GOTChestContents.NORVOS);
-		CHESTS.put(City.PENTOS, GOTChestContents.PENTOS);
-		CHESTS.put(City.QARTH, GOTChestContents.QARTH);
-		CHESTS.put(City.QOHOR, GOTChestContents.QOHOR);
-		CHESTS.put(City.TYROSH, GOTChestContents.TYROSH);
-		CHESTS.put(City.VOLANTIS, GOTChestContents.VOLANTIS);
+		CHESTS.put(City.BRAAVOS, GOTBlocks.chestStone);
+		CHESTS.put(City.GHISCAR, GOTBlocks.chestSandstone);
+		CHESTS.put(City.LORATH, GOTBlocks.chestStone);
+		CHESTS.put(City.LYS, GOTBlocks.chestStone);
+		CHESTS.put(City.MYR, GOTBlocks.chestStone);
+		CHESTS.put(City.NORVOS, GOTBlocks.chestStone);
+		CHESTS.put(City.PENTOS, GOTBlocks.chestSandstone);
+		CHESTS.put(City.QARTH, GOTBlocks.chestSandstone);
+		CHESTS.put(City.QOHOR, GOTBlocks.chestStone);
+		CHESTS.put(City.TYROSH, GOTBlocks.chestStone);
+		CHESTS.put(City.VOLANTIS, GOTBlocks.chestStone);
+		CHEST_CONTENTS.put(City.BRAAVOS, GOTChestContents.BRAAVOS);
+		CHEST_CONTENTS.put(City.GHISCAR, GOTChestContents.GHISCAR);
+		CHEST_CONTENTS.put(City.LORATH, GOTChestContents.LORATH);
+		CHEST_CONTENTS.put(City.LYS, GOTChestContents.LYS);
+		CHEST_CONTENTS.put(City.MYR, GOTChestContents.MYR);
+		CHEST_CONTENTS.put(City.NORVOS, GOTChestContents.NORVOS);
+		CHEST_CONTENTS.put(City.PENTOS, GOTChestContents.PENTOS);
+		CHEST_CONTENTS.put(City.QARTH, GOTChestContents.QARTH);
+		CHEST_CONTENTS.put(City.QOHOR, GOTChestContents.QOHOR);
+		CHEST_CONTENTS.put(City.TYROSH, GOTChestContents.TYROSH);
+		CHEST_CONTENTS.put(City.VOLANTIS, GOTChestContents.VOLANTIS);
 		FARMERS.put(City.BRAAVOS, GOTEntityBraavosFarmer.class);
 		FARMERS.put(City.GHISCAR, GOTEntityGhiscarSlaver.class);
 		FARMERS.put(City.LORATH, GOTEntityLorathFarmer.class);
@@ -219,7 +230,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	public Block cropBlock;
 	public Block trapdoorBlock;
 	public Block barsBlock;
-	public BannerType bannerType;
+	public GOTItemBanner.BannerType bannerType;
 	public City city;
 
 	protected GOTStructureEssosBase(boolean flag) {
@@ -266,7 +277,7 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 		return treeList.get(random.nextInt(treeList.size()));
 	}
 
-	public BannerType getBannerType() {
+	public GOTItemBanner.BannerType getBannerType() {
 		return BANNERS.get(city);
 	}
 
@@ -279,6 +290,10 @@ public abstract class GOTStructureEssosBase extends GOTStructureBase {
 	}
 
 	public GOTChestContents getChestContents() {
+		return CHEST_CONTENTS.get(city);
+	}
+
+	public Block getChest() {
 		return CHESTS.get(city);
 	}
 

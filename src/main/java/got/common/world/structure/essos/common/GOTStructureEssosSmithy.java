@@ -82,8 +82,8 @@ public class GOTStructureEssosSmithy extends GOTStructureEssosBase {
 		setBlockAndMetadata(world, -2, 5, -2, bedBlock, 2);
 		setBlockAndMetadata(world, -1, 5, -3, bedBlock, 10);
 		setBlockAndMetadata(world, -2, 5, -3, bedBlock, 10);
-		placeChest(world, random, 3, 1, 6, GOTBlocks.chestBasket, 5, getChestContents());
-		placeChest(world, random, 2, 5, -3, GOTBlocks.chestBasket, 5, getChestContents());
+		placeChest(world, random, 3, 1, 6, getChest(), 5, getChestContents());
+		placeChest(world, random, 2, 5, -3, getChest(), 5, getChestContents());
 		placePlateWithCertainty(world, random, -1, 6, 3, GOTBlocks.ceramicPlate, GOTFoods.ESSOS);
 		placeMug(world, random, -2, 6, 3, 0, GOTFoods.ESSOS_DRINK);
 		placeWeaponRack(world, -3, 1, 8, 1, getRandomWeapon(random));

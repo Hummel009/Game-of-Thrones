@@ -279,7 +279,7 @@ public class GOTStructureWesterosBrewery extends GOTStructureWesterosBase {
 			if (Math.abs(i13) < 1) {
 				continue;
 			}
-			setBlockAndMetadata(world, i13, 1, 17, Blocks.chest, 2);
+			setBlockAndMetadata(world, i13, 1, 17, getChest(), 2);
 			TileEntity tileentity = getTileEntity(world, i13, 1, 17);
 			if (!(tileentity instanceof TileEntityChest)) {
 				continue;

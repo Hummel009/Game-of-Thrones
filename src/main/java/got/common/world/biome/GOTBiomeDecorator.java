@@ -3,7 +3,9 @@ package got.common.world.biome;
 import got.GOT;
 import got.common.database.GOTBlocks;
 import got.common.world.GOTWorldChunkManager;
+import got.common.world.biome.sothoryos.GOTBiomeYeen;
 import got.common.world.biome.variant.GOTBiomeVariant;
+import got.common.world.biome.westeros.GOTBiomeAlwaysWinter;
 import got.common.world.feature.*;
 import got.common.world.map.GOTBeziers;
 import got.common.world.map.GOTFixer;
@@ -42,7 +44,7 @@ public class GOTBiomeDecorator {
 	public WorldGenerator dryReedGen = new GOTWorldGenReeds(GOTBlocks.driedReeds);
 	public WorldGenerator cornGen = new GOTWorldGenCorn();
 	public WorldGenerator waterlilyGen = new WorldGenWaterlily();
-	public WorldGenerator stalactiteGen = new GOTWorldGenStalactites();
+	public WorldGenerator stalactiteGen = new GOTWorldGenStalactites(GOTBlocks.stalactite);
 	public WorldGenerator cactusGen = new WorldGenCactus();
 	public int sandPerChunk = 4;
 	public int clayPerChunk = 3;
@@ -179,6 +181,11 @@ public class GOTBiomeDecorator {
 		GOTBiomeVariant biomeVariant = ((GOTWorldChunkManager) worldObj.getWorldChunkManager()).getBiomeVariantAt(chunkX + 8, chunkZ + 8);
 		generateOres();
 		biomeVariant.decorateVariant(worldObj, rand, chunkX, chunkZ, biome);
+		if (biome instanceof GOTBiomeAlwaysWinter) {
+			stalactiteGen = new GOTWorldGenStalactites(GOTBlocks.stalactiteIce);
+		} else if (biome instanceof GOTBiomeYeen) {
+			stalactiteGen = new GOTWorldGenStalactites(GOTBlocks.stalactiteObsidian);
+		}
 		for (l2 = 0; l2 < 3; ++l2) {
 			i = chunkX + rand.nextInt(16) + 8;
 			j4 = rand.nextInt(60);

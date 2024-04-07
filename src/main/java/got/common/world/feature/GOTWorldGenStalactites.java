@@ -11,10 +11,6 @@ import java.util.Random;
 public class GOTWorldGenStalactites extends WorldGenerator {
 	public Block stalactiteBlock;
 
-	public GOTWorldGenStalactites() {
-		this(GOTBlocks.stalactite);
-	}
-
 	public GOTWorldGenStalactites(Block block) {
 		stalactiteBlock = block;
 	}

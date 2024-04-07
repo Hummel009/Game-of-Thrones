@@ -62,15 +62,15 @@ public class GOTStructureEssosBarracks extends GOTStructureEssosBase {
 		generateStrScan(world, random, 0, 0, 0);
 		for (k1 = -4; k1 <= 4; k1 += 2) {
 			if (random.nextBoolean()) {
-				placeChest(world, random, -4, 1, k1, GOTBlocks.chestBasket, 4, getChestContents(), 1 + random.nextInt(2));
+				placeChest(world, random, -4, 1, k1, getChest(), 4, getChestContents(), 1 + random.nextInt(2));
 			} else {
-				setBlockAndMetadata(world, -4, 1, k1, GOTBlocks.chestBasket, 4);
+				setBlockAndMetadata(world, -4, 1, k1, getChest(), 4);
 			}
 			if (random.nextBoolean()) {
-				placeChest(world, random, 3, 1, k1, GOTBlocks.chestBasket, 5, getChestContents(), 1 + random.nextInt(2));
+				placeChest(world, random, 3, 1, k1, getChest(), 5, getChestContents(), 1 + random.nextInt(2));
 				continue;
 			}
-			setBlockAndMetadata(world, 3, 1, k1, GOTBlocks.chestBasket, 5);
+			setBlockAndMetadata(world, 3, 1, k1, getChest(), 5);
 		}
 		for (k1 = -5; k1 <= 5; k1 += 2) {
 			for (int j1 = 1; j1 <= 2; ++j1) {

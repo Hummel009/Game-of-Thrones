@@ -93,7 +93,7 @@ public class GOTStructureEssosStables extends GOTStructureEssosBase {
 		associateBlockMetaAlias("BEAM|4", woodBeamBlock, woodBeamMeta4);
 		associateBlockMetaAlias("BEAM|8", woodBeamBlock, woodBeamMeta8);
 		generateStrScan(world, random, 0, 1, 0);
-		placeChest(world, random, -3, 1, 6, GOTBlocks.chestBasket, 2, getChestContents());
+		placeChest(world, random, -3, 1, 6, getChest(), 2, getChestContents());
 		int numnpc = 1 + random.nextInt(2);
 		for (int l = 0; l < numnpc; ++l) {
 			GOTEntityNPC npc = getMan(world);

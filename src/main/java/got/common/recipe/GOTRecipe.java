@@ -754,7 +754,9 @@ public class GOTRecipe {
 		GameRegistry.addRecipe(new ItemStack(GOTItems.bronzeHelmet), "XXX", "X X", 'X', GOTItems.bronzeIngot);
 		GameRegistry.addRecipe(new ItemStack(GOTItems.bronzeLeggings), "XXX", "X X", "X X", 'X', GOTItems.bronzeIngot);
 		GameRegistry.addRecipe(new ItemStack(GOTItems.cherryPie), "AAA", "BCB", "DDD", 'A', Items.milk_bucket, 'B', GOTItems.cherry, 'C', Items.sugar, 'D', Items.wheat);
-		GameRegistry.addRecipe(new ItemStack(GOTBlocks.chestBasket), "XXX", "X X", "XXX", 'X', GOTBlocks.driedReeds);
+		GameRegistry.addRecipe(new ItemStack(GOTBlocks.chestBasket), "XXX", "XYX", "XXX", 'X', GOTBlocks.driedReeds, 'Y', Blocks.chest);
+		GameRegistry.addRecipe(new ItemStack(GOTBlocks.chestStone), "XXX", "XYX", "XXX", 'X', Blocks.cobblestone, 'Y', Blocks.chest);
+		GameRegistry.addRecipe(new ItemStack(GOTBlocks.chestSandstone), "XXX", "XYX", "XXX", 'X', Blocks.sandstone, 'Y', Blocks.chest);
 		GameRegistry.addRecipe(new ItemStack(GOTBlocks.clayTile, 4, 0), "XX", "XX", 'X', new ItemStack(Blocks.hardened_clay, 1, 0));
 		GameRegistry.addRecipe(new ItemStack(GOTItems.copperIngot), "XXX", "XXX", "XXX", 'X', GOTItems.copperNugget);
 		GameRegistry.addRecipe(new ItemStack(GOTItems.bronzeIngot), "XXX", "XXX", "XXX", 'X', GOTItems.bronzeNugget);
@@ -1737,7 +1739,7 @@ public class GOTRecipe {
 	}
 
 	public static GOTBlockConcretePowder getPowderFromDye(GOTEnumDyeColor dye) {
-		return GOTBlocks.concretePowder.get(dye);
+		return GOTBlocks.CONCRETE_POWDER.get(dye);
 	}
 
 	public static void modifyStandardRecipes() {

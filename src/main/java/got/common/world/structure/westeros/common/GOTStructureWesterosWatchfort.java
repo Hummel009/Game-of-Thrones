@@ -296,12 +296,12 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 		placeBarrel(world, random, -4, 3, -4, 4, GOTFoods.WESTEROS_DRINK);
 		placeRandomSlab(world, random, -4, 2, -3, true);
 		placeBarrel(world, random, -4, 3, -3, 4, GOTFoods.WESTEROS_DRINK);
-		placeChest(world, random, -4, 2, -2, GOTBlocks.chestStone, 4, getChestContents());
+		placeChest(world, random, -4, 2, -2, getChest(), 4, getChestContents());
 		placeRandomSlab(world, random, 4, 2, -4, true);
 		placeBarrel(world, random, 4, 3, -4, 5, GOTFoods.WESTEROS_DRINK);
 		placeRandomSlab(world, random, 4, 2, -3, true);
 		placeBarrel(world, random, 4, 3, -3, 5, GOTFoods.WESTEROS_DRINK);
-		placeChest(world, random, 4, 2, -2, GOTBlocks.chestStone, 5, getChestContents());
+		placeChest(world, random, 4, 2, -2, getChest(), 5, getChestContents());
 		setBlockAndMetadata(world, -4, 2, 4, Blocks.crafting_table, 0);
 		setBlockAndMetadata(world, 4, 2, 4, tableBlock, 0);
 		for (i1 = -1; i1 <= 1; ++i1) {
@@ -316,7 +316,7 @@ public class GOTStructureWesterosWatchfort extends GOTStructureWesterosBase {
 			}
 			placeRandomStairs(world, random, i1, 6, 3, 2);
 		}
-		placeChest(world, random, 0, 2, 2, GOTBlocks.chestStone, 3, getChestContents());
+		placeChest(world, random, 0, 2, 2, getChest(), 3, getChestContents());
 		setAir(world, 0, 3, 2);
 		setBlockAndMetadata(world, 0, 7, -4, GOTBlocks.commandTable, 0);
 		int[] i111 = {-3, 3};

@@ -115,7 +115,7 @@ public class GOTStructureEssosTavern extends GOTStructureEssosBase {
 		placeFoodOrDrink(world, random, -2, 2, 7);
 		placeFoodOrDrink(world, random, -1, 2, 7);
 		placeKebabStand(world, random, -4, 2, 9, GOTBlocks.kebabStand, 4);
-		placeChest(world, random, 3, 1, 14, GOTBlocks.chestBasket, 2, getChestContents());
+		placeChest(world, random, 3, 1, 14, getChest(), 2, getChestContents());
 		placeBarrel(world, random, 4, 2, 11, 5, GOTFoods.ESSOS_DRINK);
 		placeBarrel(world, random, 4, 2, 12, 5, GOTFoods.ESSOS_DRINK);
 		setBlockAndMetadata(world, -3, 8, -13, bedBlock, 2);

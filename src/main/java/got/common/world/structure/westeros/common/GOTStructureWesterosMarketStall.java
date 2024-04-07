@@ -64,7 +64,7 @@ public abstract class GOTStructureWesterosMarketStall extends GOTStructureWester
 		}
 		setBlockAndMetadata(world, -2, 1, 0, fenceGateBlock, 1);
 		setBlockAndMetadata(world, -1, 1, -1, tableBlock, 0);
-		setBlockAndMetadata(world, 1, 1, -1, Blocks.chest, 3);
+		setBlockAndMetadata(world, 1, 1, -1, getChest(), 3);
 		GOTEntityNPC trader = createTrader(world);
 		spawnNPCAndSetHome(trader, world, 0, 1, 0, 4);
 		return true;

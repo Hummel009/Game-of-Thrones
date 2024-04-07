@@ -52,7 +52,8 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 	public static final Map<Kingdom, Class<? extends Entity>> SMITHS = new EnumMap<>(Kingdom.class);
 	public static final Map<Kingdom, Class<? extends Entity>> SOLDIERS = new EnumMap<>(Kingdom.class);
 	public static final Map<Kingdom, Class<? extends WorldGenerator>> TOWERS = new EnumMap<>(Kingdom.class);
-	public static final Map<Kingdom, GOTChestContents> CHESTS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, Block> CHESTS = new EnumMap<>(Kingdom.class);
+	public static final Map<Kingdom, GOTChestContents> CHEST_CONTENTS = new EnumMap<>(Kingdom.class);
 	public static final Set<Kingdom> KINGDOMS_WITH_MAESTERS = EnumSet.of(Kingdom.ARRYN, Kingdom.CROWNLANDS, Kingdom.REACH, Kingdom.RIVERLANDS, Kingdom.STORMLANDS, Kingdom.WESTERLANDS, Kingdom.NORTH);
 	public static final Set<Kingdom> KINGDOMS_WITH_SEPTONS = EnumSet.of(Kingdom.ARRYN, Kingdom.CROWNLANDS, Kingdom.RIVERLANDS, Kingdom.STORMLANDS, Kingdom.WESTERLANDS);
 
@@ -101,17 +102,28 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		CAPTAINS.put(Kingdom.RIVERLANDS, GOTEntityRiverlandsCaptain.class);
 		CAPTAINS.put(Kingdom.STORMLANDS, GOTEntityStormlandsCaptain.class);
 		CAPTAINS.put(Kingdom.WESTERLANDS, GOTEntityWesterlandsCaptain.class);
-		CHESTS.put(Kingdom.ARRYN, GOTChestContents.ARRYN);
-		CHESTS.put(Kingdom.CROWNLANDS, GOTChestContents.CROWNLANDS);
-		CHESTS.put(Kingdom.CROWNLANDS_RED, GOTChestContents.CROWNLANDS);
-		CHESTS.put(Kingdom.DORNE, GOTChestContents.DORNE);
-		CHESTS.put(Kingdom.DRAGONSTONE, GOTChestContents.DRAGONSTONE);
-		CHESTS.put(Kingdom.IRONBORN, GOTChestContents.IRONBORN);
-		CHESTS.put(Kingdom.NORTH, GOTChestContents.NORTH);
-		CHESTS.put(Kingdom.REACH, GOTChestContents.REACH);
-		CHESTS.put(Kingdom.RIVERLANDS, GOTChestContents.RIVERLANDS);
-		CHESTS.put(Kingdom.STORMLANDS, GOTChestContents.STORMLANDS);
-		CHESTS.put(Kingdom.WESTERLANDS, GOTChestContents.WESTERLANDS);
+		CHESTS.put(Kingdom.ARRYN, GOTBlocks.chestStone);
+		CHESTS.put(Kingdom.CROWNLANDS, GOTBlocks.chestStone);
+		CHESTS.put(Kingdom.CROWNLANDS_RED, GOTBlocks.chestStone);
+		CHESTS.put(Kingdom.DORNE, GOTBlocks.chestSandstone);
+		CHESTS.put(Kingdom.DRAGONSTONE, GOTBlocks.chestStone);
+		CHESTS.put(Kingdom.IRONBORN, GOTBlocks.chestStone);
+		CHESTS.put(Kingdom.NORTH, GOTBlocks.chestStone);
+		CHESTS.put(Kingdom.REACH, GOTBlocks.chestStone);
+		CHESTS.put(Kingdom.RIVERLANDS, GOTBlocks.chestStone);
+		CHESTS.put(Kingdom.STORMLANDS, GOTBlocks.chestStone);
+		CHESTS.put(Kingdom.WESTERLANDS, GOTBlocks.chestStone);
+		CHEST_CONTENTS.put(Kingdom.ARRYN, GOTChestContents.ARRYN);
+		CHEST_CONTENTS.put(Kingdom.CROWNLANDS, GOTChestContents.CROWNLANDS);
+		CHEST_CONTENTS.put(Kingdom.CROWNLANDS_RED, GOTChestContents.CROWNLANDS);
+		CHEST_CONTENTS.put(Kingdom.DORNE, GOTChestContents.DORNE);
+		CHEST_CONTENTS.put(Kingdom.DRAGONSTONE, GOTChestContents.DRAGONSTONE);
+		CHEST_CONTENTS.put(Kingdom.IRONBORN, GOTChestContents.IRONBORN);
+		CHEST_CONTENTS.put(Kingdom.NORTH, GOTChestContents.NORTH);
+		CHEST_CONTENTS.put(Kingdom.REACH, GOTChestContents.REACH);
+		CHEST_CONTENTS.put(Kingdom.RIVERLANDS, GOTChestContents.RIVERLANDS);
+		CHEST_CONTENTS.put(Kingdom.STORMLANDS, GOTChestContents.STORMLANDS);
+		CHEST_CONTENTS.put(Kingdom.WESTERLANDS, GOTChestContents.WESTERLANDS);
 		FARMERS.put(Kingdom.ARRYN, GOTEntityArrynFarmer.class);
 		FARMERS.put(Kingdom.CROWNLANDS, GOTEntityCrownlandsFarmer.class);
 		FARMERS.put(Kingdom.CROWNLANDS_RED, GOTEntityCrownlandsFarmer.class);
@@ -339,8 +351,12 @@ public abstract class GOTStructureWesterosBase extends GOTStructureBase {
 		return (GOTEntityNPC) GOTReflection.newEntity(CAPTAINS.get(kingdom), world);
 	}
 
-	public GOTChestContents getChestContents() {
+	public Block getChest() {
 		return CHESTS.get(kingdom);
+	}
+
+	public GOTChestContents getChestContents() {
+		return CHEST_CONTENTS.get(kingdom);
 	}
 
 	public GOTEntityNPC getFarmer(World world) {
