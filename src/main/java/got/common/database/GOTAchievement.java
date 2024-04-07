@@ -2,6 +2,8 @@ package got.common.database;
 
 import got.common.GOTChatEvents;
 import got.common.GOTDimension;
+import got.common.GOTLevelData;
+import got.common.GOTPlayerData;
 import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuestPickpocket;
 import got.common.util.GOTEnumDyeColor;
@@ -335,6 +337,8 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullYiti;
 	public static GOTAchievement wearFullYitiFrontier;
 	public static GOTAchievement wearFullYitiSamurai;
+
+	private Collection<GOTFaction> allyFactions = new ArrayList<>();
 
 	private Category category;
 	private int id;
@@ -769,6 +773,19 @@ public class GOTAchievement {
 	}
 
 	public boolean canPlayerEarn(EntityPlayer entityplayer) {
+		float alignment;
+		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
+		if (!allyFactions.isEmpty()) {
+			boolean anyAllies = false;
+			for (GOTFaction f : allyFactions) {
+				alignment = playerData.getAlignment(f);
+				if (alignment < 0.0f) {
+					continue;
+				}
+				anyAllies = true;
+			}
+			return anyAllies;
+		}
 		return true;
 	}
 
@@ -818,6 +835,9 @@ public class GOTAchievement {
 		return "got.achievement." + name + ".title";
 	}
 
+	public void setRequiresAlly(GOTFaction... f) {
+		allyFactions.addAll(Arrays.asList(f));
+	}
 
 	protected void setSpecial() {
 		isSpecial = true;
