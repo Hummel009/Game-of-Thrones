@@ -17,13 +17,13 @@ public class GOTCommandAlignment extends CommandBase {
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
 			case 1:
-				return CommandBase.getListOfStringsMatchingLastWord(args, "set", "add");
+				return getListOfStringsMatchingLastWord(args, "set", "add");
 			case 2:
 				List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
 				list.add("all");
-				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+				return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 			case 4:
-				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+				return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
 		return Collections.emptyList();
 	}
@@ -63,26 +63,26 @@ public class GOTCommandAlignment extends CommandBase {
 			}
 			if ("set".equals(args[0])) {
 				EntityPlayerMP entityplayer;
-				float alignment = (float) CommandBase.parseDoubleBounded(sender, args[2], -2147483647.0, 2147483647.0);
+				float alignment = (float) parseDoubleBounded(sender, args[2], -2147483647.0, 2147483647.0);
 				if (args.length >= 4) {
-					entityplayer = CommandBase.getPlayer(sender, args[3]);
+					entityplayer = getPlayer(sender, args[3]);
 				} else {
-					entityplayer = CommandBase.getCommandSenderAsPlayer(sender);
+					entityplayer = getCommandSenderAsPlayer(sender);
 				}
 				for (GOTFaction f : factions) {
 					GOTLevelData.getData(entityplayer).setAlignmentFromCommand(f, alignment);
-					CommandBase.func_152373_a(sender, this, "got.command.alignment.set", entityplayer.getCommandSenderName(), f.factionName(), alignment);
+					func_152373_a(sender, this, "got.command.alignment.set", entityplayer.getCommandSenderName(), f.factionName(), alignment);
 				}
 				return;
 			}
 			if ("add".equals(args[0])) {
 				EntityPlayerMP entityplayer;
 				float newAlignment;
-				float alignment = (float) CommandBase.parseDouble(sender, args[2]);
+				float alignment = (float) parseDouble(sender, args[2]);
 				if (args.length >= 4) {
-					entityplayer = CommandBase.getPlayer(sender, args[3]);
+					entityplayer = getPlayer(sender, args[3]);
 				} else {
-					entityplayer = CommandBase.getCommandSenderAsPlayer(sender);
+					entityplayer = getCommandSenderAsPlayer(sender);
 				}
 				for (GOTFaction f : factions) {
 					newAlignment = GOTLevelData.getData(entityplayer).getAlignment(f) + alignment;
@@ -95,7 +95,7 @@ public class GOTCommandAlignment extends CommandBase {
 				}
 				for (GOTFaction f : factions) {
 					GOTLevelData.getData(entityplayer).addAlignmentFromCommand(f, alignment);
-					CommandBase.func_152373_a(sender, this, "got.command.alignment.add", alignment, entityplayer.getCommandSenderName(), f.factionName());
+					func_152373_a(sender, this, "got.command.alignment.add", alignment, entityplayer.getCommandSenderName(), f.factionName());
 				}
 				return;
 			}

@@ -60,7 +60,7 @@ public class GOTCommandStrScan extends CommandBase {
 					aliasOrder.clear();
 					blockAliases.clear();
 					blockMetaAliases.clear();
-					CommandBase.func_152373_a(sender, this, "Begun scanning");
+					func_152373_a(sender, this, "Begun scanning");
 					return;
 				}
 				throw new WrongUsageException("Already begun scanning");
@@ -77,7 +77,7 @@ public class GOTCommandStrScan extends CommandBase {
 					if (!blockAliases.containsValue(alias)) {
 						blockAliases.put(block, alias);
 						aliasOrder.add(alias);
-						CommandBase.func_152373_a(sender, this, "Associated block %s to alias %s", blockID, alias);
+						func_152373_a(sender, this, "Associated block %s to alias %s", blockID, alias);
 						return;
 					}
 					throw new WrongUsageException("Alias %s already used", alias);
@@ -92,13 +92,13 @@ public class GOTCommandStrScan extends CommandBase {
 					block = Block.getBlockById(intID);
 				}
 				if (block != null) {
-					int meta = CommandBase.parseInt(sender, args[2]);
+					int meta = parseInt(sender, args[2]);
 					if (meta >= 0 && meta <= 15) {
 						String alias = args[3];
 						if (!blockMetaAliases.containsValue(alias)) {
 							blockMetaAliases.put(Pair.of(block, meta), alias);
 							aliasOrder.add(alias);
-							CommandBase.func_152373_a(sender, this, "Associated block %s and metadata %s to alias %s", blockID, meta, alias);
+							func_152373_a(sender, this, "Associated block %s and metadata %s to alias %s", blockID, meta, alias);
 							return;
 						}
 						throw new WrongUsageException("Alias %s already used", alias);
@@ -112,16 +112,16 @@ public class GOTCommandStrScan extends CommandBase {
 				int i = coords.posX;
 				int j = coords.posY;
 				int k = coords.posZ;
-				i = MathHelper.floor_double(CommandBase.func_110666_a(sender, i, args[1]));
-				j = MathHelper.floor_double(CommandBase.func_110666_a(sender, j, args[2]));
-				k = MathHelper.floor_double(CommandBase.func_110666_a(sender, k, args[3]));
+				i = MathHelper.floor_double(func_110666_a(sender, i, args[1]));
+				j = MathHelper.floor_double(func_110666_a(sender, j, args[2]));
+				k = MathHelper.floor_double(func_110666_a(sender, k, args[3]));
 				maxX = originX = i;
 				minX = originX;
 				maxY = originY = j;
 				minY = originY;
 				maxZ = originZ = k;
 				minZ = originZ;
-				CommandBase.func_152373_a(sender, this, "Set scan origin to %s %s %s", originX, originY, originZ);
+				func_152373_a(sender, this, "Set scan origin to %s %s %s", originX, originY, originZ);
 				return;
 			}
 			if ("expand".equals(option) && args.length >= 4 && scanning) {
@@ -129,16 +129,16 @@ public class GOTCommandStrScan extends CommandBase {
 				int i = coords.posX;
 				int j = coords.posY;
 				int k = coords.posZ;
-				i = MathHelper.floor_double(CommandBase.func_110666_a(sender, i, args[1]));
-				j = MathHelper.floor_double(CommandBase.func_110666_a(sender, j, args[2]));
-				k = MathHelper.floor_double(CommandBase.func_110666_a(sender, k, args[3]));
+				i = MathHelper.floor_double(func_110666_a(sender, i, args[1]));
+				j = MathHelper.floor_double(func_110666_a(sender, j, args[2]));
+				k = MathHelper.floor_double(func_110666_a(sender, k, args[3]));
 				minX = Math.min(i, minX);
 				minY = Math.min(j, minY);
 				minZ = Math.min(k, minZ);
 				maxX = Math.max(i, maxX);
 				maxY = Math.max(j, maxY);
 				maxZ = Math.max(k, maxZ);
-				CommandBase.func_152373_a(sender, this, "Expanded scan region to include %s %s %s", i, j, k);
+				func_152373_a(sender, this, "Expanded scan region to include %s %s %s", i, j, k);
 				return;
 			}
 			if ("scan".equals(option) && args.length >= 2 && scanning) {
@@ -199,7 +199,7 @@ public class GOTCommandStrScan extends CommandBase {
 				}
 				if (GOTStructureScan.writeScanToFile(scan)) {
 					scanning = false;
-					CommandBase.func_152373_a(sender, this, "Scanned structure as %s", scanName);
+					func_152373_a(sender, this, "Scanned structure as %s", scanName);
 					return;
 				}
 				throw new WrongUsageException("Error scanning structure as %s", scanName);

@@ -12,7 +12,7 @@ public class GOTCommandEnableAlignmentZones extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, "enable", "disable");
+			return getListOfStringsMatchingLastWord(args, "enable", "disable");
 		}
 		return Collections.emptyList();
 	}
@@ -38,12 +38,12 @@ public class GOTCommandEnableAlignmentZones extends CommandBase {
 			String flag = args[0];
 			if ("enable".equals(flag)) {
 				GOTLevelData.setEnableAlignmentZones(true);
-				CommandBase.func_152373_a(sender, this, "got.command.alignmentZones.enable");
+				func_152373_a(sender, this, "got.command.alignmentZones.enable");
 				return;
 			}
 			if ("disable".equals(flag)) {
 				GOTLevelData.setEnableAlignmentZones(false);
-				CommandBase.func_152373_a(sender, this, "got.command.alignmentZones.disable");
+				func_152373_a(sender, this, "got.command.alignmentZones.disable");
 				return;
 			}
 		}

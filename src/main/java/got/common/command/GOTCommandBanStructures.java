@@ -15,7 +15,7 @@ public class GOTCommandBanStructures extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+			return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
 		return Collections.emptyList();
 	}
@@ -42,11 +42,11 @@ public class GOTCommandBanStructures extends CommandBase {
 				throw new WrongUsageException("got.command.banStructures.alreadyBanned");
 			}
 			GOTLevelData.setStructuresBanned(true);
-			CommandBase.func_152373_a(sender, this, "got.command.banStructures.ban");
+			func_152373_a(sender, this, "got.command.banStructures.ban");
 		} else {
 			GOTLevelData.setPlayerBannedForStructures(args[0], true);
-			CommandBase.func_152373_a(sender, this, "got.command.banStructures.banPlayer", args[0]);
-			EntityPlayerMP entityplayer = CommandBase.getPlayer(sender, args[0]);
+			func_152373_a(sender, this, "got.command.banStructures.banPlayer", args[0]);
+			EntityPlayerMP entityplayer = getPlayer(sender, args[0]);
 			entityplayer.addChatMessage(new ChatComponentTranslation("got.chat.banStructures"));
 		}
 	}

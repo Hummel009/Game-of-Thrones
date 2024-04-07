@@ -20,7 +20,7 @@ public class GOTCommandAlignmentSee extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+			return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
 		return Collections.emptyList();
 	}
@@ -49,9 +49,8 @@ public class GOTCommandAlignmentSee extends CommandBase {
 	public void processCommand(ICommandSender sender, String[] args) {
 		if (args.length >= 1) {
 			String username = args[0];
-			GameProfile profile;
 			EntityPlayerMP entityplayer = MinecraftServer.getServer().getConfigurationManager().func_152612_a(username);
-			profile = entityplayer != null ? entityplayer.getGameProfile() : MinecraftServer.getServer().func_152358_ax().func_152655_a(username);
+			GameProfile profile = entityplayer != null ? entityplayer.getGameProfile() : MinecraftServer.getServer().func_152358_ax().func_152655_a(username);
 			if (profile == null || profile.getId() == null) {
 				throw new PlayerNotFoundException("got.command.alignmentsee.noPlayer", username);
 			}

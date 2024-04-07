@@ -19,7 +19,7 @@ public class GOTCommandAchievement extends CommandBase {
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
 			case 1:
-				return CommandBase.getListOfStringsMatchingLastWord(args, "give", "remove");
+				return getListOfStringsMatchingLastWord(args, "give", "remove");
 			case 2:
 				List<GOTAchievement> achievements = GOTAchievement.getAllAchievements();
 				ArrayList<String> names = new ArrayList<>();
@@ -29,9 +29,9 @@ public class GOTCommandAchievement extends CommandBase {
 				if ("remove".equals(args[0])) {
 					names.add("all");
 				}
-				return CommandBase.getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
+				return getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
 			case 3:
-				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+				return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
 		return Collections.emptyList();
 	}
@@ -68,7 +68,7 @@ public class GOTCommandAchievement extends CommandBase {
 	public void processCommand(ICommandSender sender, String[] args) {
 		if (args.length >= 2) {
 			String achName = args[1];
-			EntityPlayerMP entityplayer = args.length >= 3 ? CommandBase.getPlayer(sender, args[2]) : CommandBase.getCommandSenderAsPlayer(sender);
+			EntityPlayerMP entityplayer = args.length >= 3 ? getPlayer(sender, args[2]) : getCommandSenderAsPlayer(sender);
 			GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 			if ("give".equalsIgnoreCase(args[0])) {
 				GOTAchievement ach = findAchievementByName(achName);
@@ -76,7 +76,7 @@ public class GOTCommandAchievement extends CommandBase {
 					throw new WrongUsageException("got.command.got_achievement.give.fail", entityplayer.getCommandSenderName(), ach.getTitle(entityplayer));
 				}
 				playerData.addAchievement(ach);
-				CommandBase.func_152373_a(sender, this, "got.command.got_achievement.give", entityplayer.getCommandSenderName(), ach.getTitle(entityplayer));
+				func_152373_a(sender, this, "got.command.got_achievement.give", entityplayer.getCommandSenderName(), ach.getTitle(entityplayer));
 				return;
 			}
 			if ("remove".equalsIgnoreCase(args[0])) {
@@ -85,7 +85,7 @@ public class GOTCommandAchievement extends CommandBase {
 					for (GOTAchievement ach : allAchievements) {
 						playerData.removeAchievement(ach);
 					}
-					CommandBase.func_152373_a(sender, this, "got.command.got_achievement.removeAll", entityplayer.getCommandSenderName());
+					func_152373_a(sender, this, "got.command.got_achievement.removeAll", entityplayer.getCommandSenderName());
 					return;
 				}
 				GOTAchievement ach = findAchievementByName(achName);
@@ -93,7 +93,7 @@ public class GOTCommandAchievement extends CommandBase {
 					throw new WrongUsageException("got.command.got_achievement.remove.fail", entityplayer.getCommandSenderName(), ach.getTitle(entityplayer));
 				}
 				playerData.removeAchievement(ach);
-				CommandBase.func_152373_a(sender, this, "got.command.got_achievement.remove", entityplayer.getCommandSenderName(), ach.getTitle(entityplayer));
+				func_152373_a(sender, this, "got.command.got_achievement.remove", entityplayer.getCommandSenderName(), ach.getTitle(entityplayer));
 				return;
 			}
 		}

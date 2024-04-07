@@ -18,13 +18,13 @@ public class GOTCommandEnchant extends CommandBase {
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
 			case 1:
-				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+				return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 			case 2:
-				return CommandBase.getListOfStringsMatchingLastWord(args, "add", "remove", "clear");
+				return getListOfStringsMatchingLastWord(args, "add", "remove", "clear");
 			case 3:
 				ItemStack itemstack;
 				if ("add".equals(args[1])) {
-					EntityPlayerMP entityplayer2 = CommandBase.getPlayer(sender, args[0]);
+					EntityPlayerMP entityplayer2 = getPlayer(sender, args[0]);
 					ItemStack itemstack2 = entityplayer2.getHeldItem();
 					if (itemstack2 != null) {
 						ArrayList<String> enchNames = new ArrayList<>();
@@ -34,9 +34,9 @@ public class GOTCommandEnchant extends CommandBase {
 							}
 							enchNames.add(ench.enchantName);
 						}
-						return CommandBase.getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
+						return getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
 					}
-				} else if ("remove".equals(args[1]) && (itemstack = CommandBase.getPlayer(sender, args[0]).getHeldItem()) != null) {
+				} else if ("remove".equals(args[1]) && (itemstack = getPlayer(sender, args[0]).getHeldItem()) != null) {
 					ArrayList<String> enchNames = new ArrayList<>();
 					for (GOTEnchantment ench : GOTEnchantment.allEnchantments) {
 						if (!GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
@@ -44,7 +44,7 @@ public class GOTCommandEnchant extends CommandBase {
 						}
 						enchNames.add(ench.enchantName);
 					}
-					return CommandBase.getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
+					return getListOfStringsMatchingLastWord(args, enchNames.toArray(new String[0]));
 				}
 				break;
 		}
@@ -74,7 +74,7 @@ public class GOTCommandEnchant extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		if (args.length >= 2) {
-			EntityPlayerMP entityplayer = CommandBase.getPlayer(sender, args[0]);
+			EntityPlayerMP entityplayer = getPlayer(sender, args[0]);
 			ItemStack itemstack = entityplayer.getHeldItem();
 			if (itemstack == null) {
 				throw new WrongUsageException("got.command.got_enchant.noItem");
@@ -86,7 +86,7 @@ public class GOTCommandEnchant extends CommandBase {
 				if (ench != null) {
 					if (!GOTEnchantmentHelper.hasEnchant(itemstack, ench) && ench.canApply(itemstack, false) && GOTEnchantmentHelper.checkEnchantCompatible(itemstack, ench)) {
 						GOTEnchantmentHelper.setHasEnchant(itemstack, ench);
-						CommandBase.func_152373_a(sender, this, "got.command.got_enchant.add", enchName, entityplayer.getCommandSenderName(), itemstack.getDisplayName());
+						func_152373_a(sender, this, "got.command.got_enchant.add", enchName, entityplayer.getCommandSenderName(), itemstack.getDisplayName());
 						return;
 					}
 					throw new WrongUsageException("got.command.got_enchant.cannotAdd", enchName, itemstack.getDisplayName());
@@ -99,7 +99,7 @@ public class GOTCommandEnchant extends CommandBase {
 				if (ench != null) {
 					if (GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
 						GOTEnchantmentHelper.removeEnchant(itemstack, ench);
-						CommandBase.func_152373_a(sender, this, "got.command.got_enchant.remove", enchName, entityplayer.getCommandSenderName(), itemstack.getDisplayName());
+						func_152373_a(sender, this, "got.command.got_enchant.remove", enchName, entityplayer.getCommandSenderName(), itemstack.getDisplayName());
 						return;
 					}
 					throw new WrongUsageException("got.command.got_enchant.cannotRemove", enchName, itemstack.getDisplayName());
@@ -108,7 +108,7 @@ public class GOTCommandEnchant extends CommandBase {
 			}
 			if ("clear".equals(option)) {
 				GOTEnchantmentHelper.clearEnchantsAndProgress(itemstack);
-				CommandBase.func_152373_a(sender, this, "got.command.got_enchant.clear", entityplayer.getCommandSenderName(), itemstack.getDisplayName());
+				func_152373_a(sender, this, "got.command.got_enchant.clear", entityplayer.getCommandSenderName(), itemstack.getDisplayName());
 				return;
 			}
 		}

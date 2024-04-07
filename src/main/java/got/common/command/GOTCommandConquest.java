@@ -18,11 +18,11 @@ public class GOTCommandConquest extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, "set", "add", "radial", "clear", "rate");
+			return getListOfStringsMatchingLastWord(args, "set", "add", "radial", "clear", "rate");
 		}
 		if (args.length == 2 && ("set".equals(args[0]) || "add".equals(args[0]) || "radial".equals(args[0]))) {
 			List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
-			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+			return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		}
 		return Collections.emptyList();
 	}
@@ -46,8 +46,8 @@ public class GOTCommandConquest extends CommandBase {
 		int posX = sender.getPlayerCoordinates().posX;
 		int posZ = sender.getPlayerCoordinates().posZ;
 		if (args.length >= specifyIndex + 2) {
-			posX = CommandBase.parseInt(sender, args[specifyIndex]);
-			posZ = CommandBase.parseInt(sender, args[specifyIndex + 1]);
+			posX = parseInt(sender, args[specifyIndex]);
+			posZ = parseInt(sender, args[specifyIndex + 1]);
 		}
 		GOTConquestZone zone = GOTConquestGrid.getZoneByWorldCoords(posX, posZ);
 		if (zone.isDummyZone()) {
@@ -70,14 +70,14 @@ public class GOTCommandConquest extends CommandBase {
 				int posZ = (Integer) obj[1];
 				GOTConquestZone zone = (GOTConquestZone) obj[2];
 				zone.clearAllFactions(world);
-				CommandBase.func_152373_a(sender, this, "got.command.conquest.clear", posX, posZ);
+				func_152373_a(sender, this, "got.command.conquest.clear", posX, posZ);
 				return;
 			}
 			if ("rate".equals(function)) {
 				if (args.length >= 2) {
-					double rate = CommandBase.parseDoubleBounded(sender, args[1], 0.0, 100.0);
+					double rate = parseDoubleBounded(sender, args[1], 0.0, 100.0);
 					GOTLevelData.setConquestRate((float) rate);
-					CommandBase.func_152373_a(sender, this, "got.command.conquest.rateSet", rate);
+					func_152373_a(sender, this, "got.command.conquest.rateSet", rate);
 					return;
 				}
 				float currentRate = GOTLevelData.getConquestRate();
@@ -89,7 +89,7 @@ public class GOTCommandConquest extends CommandBase {
 				if (fac == null) {
 					throw new WrongUsageException("got.command.conquest.noFaction", args[1]);
 				}
-				float amount = (float) CommandBase.parseDouble(sender, args[2]);
+				float amount = (float) parseDouble(sender, args[2]);
 				Object[] obj = parseCoordsAndZone(sender, args, 3);
 				int posX = (Integer) obj[0];
 				int posZ = (Integer) obj[1];
@@ -102,7 +102,7 @@ public class GOTCommandConquest extends CommandBase {
 						throw new WrongUsageException("got.command.conquest.tooHigh", 2147483647.0f);
 					}
 					zone.setConquestStrength(fac, amount, world);
-					CommandBase.func_152373_a(sender, this, "got.command.conquest.set", fac.factionName(), amount, posX, posZ);
+					func_152373_a(sender, this, "got.command.conquest.set", fac.factionName(), amount, posX, posZ);
 					return;
 				}
 				if ("add".equals(function)) {
@@ -115,21 +115,20 @@ public class GOTCommandConquest extends CommandBase {
 						throw new WrongUsageException("got.command.conquest.tooHigh", 2147483647.0f);
 					}
 					zone.addConquestStrength(fac, amount, world);
-					CommandBase.func_152373_a(sender, this, "got.command.conquest.add", fac.factionName(), amount, posX, posZ);
+					func_152373_a(sender, this, "got.command.conquest.add", fac.factionName(), amount, posX, posZ);
 					return;
 				}
-				EntityPlayerMP senderIfPlayer;
 				float centralStr = zone.getConquestStrength(fac, world);
 				if (centralStr + amount > 2147483647.0f) {
 					throw new WrongUsageException("got.command.conquest.tooHigh", 2147483647.0f);
 				}
-				senderIfPlayer = sender instanceof EntityPlayerMP ? (EntityPlayerMP) sender : null;
+				EntityPlayerMP senderIfPlayer = sender instanceof EntityPlayerMP ? (EntityPlayerMP) sender : null;
 				if (amount < 0.0f) {
 					GOTConquestGrid.doRadialConquest(world, zone, senderIfPlayer, null, fac, -amount, -amount);
 				} else {
 					GOTConquestGrid.doRadialConquest(world, zone, senderIfPlayer, fac, null, amount, amount);
 				}
-				CommandBase.func_152373_a(sender, this, "got.command.conquest.radial", fac.factionName(), amount, posX, posZ);
+				func_152373_a(sender, this, "got.command.conquest.radial", fac.factionName(), amount, posX, posZ);
 				return;
 			}
 		}

@@ -18,7 +18,7 @@ public class GOTCommandDragon extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, "stage adult", "tame");
+			return getListOfStringsMatchingLastWord(args, "stage adult", "tame");
 		}
 		return Collections.emptyList();
 	}

@@ -20,19 +20,20 @@ import java.util.List;
 public class GOTCommandFellowshipMessage extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
-		GOTPlayerData playerData = GOTLevelData.getData(CommandBase.getCommandSenderAsPlayer(sender));
-		String[] argsOriginal = Arrays.copyOf(args, args.length);
-		if (args.length >= 2 && "bind".equals(args[0])) {
-			args = GOTCommandFellowship.fixArgsForFellowship(args, 1, true);
-			return GOTCommandFellowship.listFellowshipsMatchingLastWord(args, argsOriginal, 1, playerData, false);
+		String[] args1 = args;
+		GOTPlayerData playerData = GOTLevelData.getData(getCommandSenderAsPlayer(sender));
+		String[] argsOriginal = Arrays.copyOf(args1, args1.length);
+		if (args1.length >= 2 && "bind".equals(args1[0])) {
+			args1 = GOTCommandFellowship.fixArgsForFellowship(args1, 1, true);
+			return GOTCommandFellowship.listFellowshipsMatchingLastWord(args1, argsOriginal, 1, playerData, false);
 		}
-		if (args.length >= 1) {
-			args = GOTCommandFellowship.fixArgsForFellowship(args, 0, true);
+		if (args1.length >= 1) {
+			args1 = GOTCommandFellowship.fixArgsForFellowship(args1, 0, true);
 			List<String> matches = new ArrayList<>();
-			if (args.length == 1 && (argsOriginal[0].isEmpty() || argsOriginal[0].charAt(0) != '\"')) {
-				matches.addAll(CommandBase.getListOfStringsMatchingLastWord(args, "bind", "unbind"));
+			if (args1.length == 1 && (argsOriginal[0].isEmpty() || argsOriginal[0].charAt(0) != '\"')) {
+				matches.addAll(getListOfStringsMatchingLastWord(args1, "bind", "unbind"));
 			}
-			matches.addAll(GOTCommandFellowship.listFellowshipsMatchingLastWord(args, argsOriginal, 0, playerData, false));
+			matches.addAll(GOTCommandFellowship.listFellowshipsMatchingLastWord(args1, argsOriginal, 0, playerData, false));
 			return matches;
 		}
 		return Collections.emptyList();
@@ -68,11 +69,12 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
-		EntityPlayerMP entityplayer = CommandBase.getCommandSenderAsPlayer(sender);
+		String[] args1 = args;
+		EntityPlayerMP entityplayer = getCommandSenderAsPlayer(sender);
 		GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
-		if (args.length >= 1) {
-			if ("bind".equals(args[0]) && args.length >= 2) {
-				String fsName = GOTCommandFellowship.fixArgsForFellowship(args, 1, false)[1];
+		if (args1.length >= 1) {
+			if ("bind".equals(args1[0]) && args1.length >= 2) {
+				String fsName = GOTCommandFellowship.fixArgsForFellowship(args1, 1, false)[1];
 				GOTFellowship fellowship = playerData.getFellowshipByName(fsName);
 				if (fellowship != null && !fellowship.isDisbanded() && fellowship.containsPlayer(entityplayer.getUniqueID())) {
 					playerData.setChatBoundFellowship(fellowship);
@@ -84,7 +86,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 				}
 				throw new WrongUsageException("got.command.fmsg.notFound", fsName);
 			}
-			if ("unbind".equals(args[0])) {
+			if ("unbind".equals(args1[0])) {
 				GOTFellowship preBoundFellowship = playerData.getChatBoundFellowship();
 				playerData.setChatBoundFellowshipID(null);
 				IChatComponent notif = new ChatComponentTranslation("got.command.fmsg.unbind", preBoundFellowship.getName());
@@ -95,8 +97,8 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 			}
 			GOTFellowship fellowship = null;
 			int msgStartIndex = 0;
-			if (!args[0].isEmpty() && args[0].charAt(0) == '\"') {
-				String fsName = (args = GOTCommandFellowship.fixArgsForFellowship(args, 0, false))[0];
+			if (!args1[0].isEmpty() && args1[0].charAt(0) == '\"') {
+				String fsName = (args1 = GOTCommandFellowship.fixArgsForFellowship(args1, 0, false))[0];
 				fellowship = playerData.getFellowshipByName(fsName);
 				if (fellowship == null) {
 					throw new WrongUsageException("got.command.fmsg.notFound", fsName);
@@ -112,7 +114,7 @@ public class GOTCommandFellowshipMessage extends CommandBase {
 					throw new WrongUsageException("got.command.fmsg.boundNotMember", fellowship.getName());
 				}
 			}
-			IChatComponent message = CommandBase.func_147176_a(sender, args, msgStartIndex, false);
+			IChatComponent message = func_147176_a(sender, args1, msgStartIndex, false);
 			fellowship.sendFellowshipMessage(entityplayer, message.getUnformattedText());
 			return;
 		}

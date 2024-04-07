@@ -14,16 +14,15 @@ public class GOTCommandFactionRelations extends CommandBase {
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
 			case 1:
-				return CommandBase.getListOfStringsMatchingLastWord(args, "set", "reset");
+				return getListOfStringsMatchingLastWord(args, "set", "reset");
 			case 2:
 			case 3: {
 				List<String> list = GOTFaction.getPlayableAlignmentFactionNames();
-				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+				return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 			}
-			case 4: {
+			case 4:
 				List<String> list = GOTFactionRelations.Relation.listRelationNames();
-				return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
-			}
+				return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		}
 		return Collections.emptyList();
 	}
@@ -63,7 +62,7 @@ public class GOTCommandFactionRelations extends CommandBase {
 					}
 					try {
 						GOTFactionRelations.overrideRelations(fac1, fac2, relation);
-						CommandBase.func_152373_a(sender, this, "got.command.facRelations.set", fac1.factionName(), fac2.factionName(), relation.getDisplayName());
+						func_152373_a(sender, this, "got.command.facRelations.set", fac1.factionName(), fac2.factionName(), relation.getDisplayName());
 						return;
 					} catch (IllegalArgumentException e) {
 						throw new WrongUsageException("got.command.facRelations.error", e.getMessage());
@@ -71,7 +70,7 @@ public class GOTCommandFactionRelations extends CommandBase {
 				}
 			} else if ("reset".equals(function)) {
 				GOTFactionRelations.resetAllRelations();
-				CommandBase.func_152373_a(sender, this, "got.command.facRelations.reset");
+				func_152373_a(sender, this, "got.command.facRelations.reset");
 				return;
 			}
 		}

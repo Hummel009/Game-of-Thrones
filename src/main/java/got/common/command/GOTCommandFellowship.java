@@ -80,38 +80,39 @@ public class GOTCommandFellowship extends CommandBase {
 			}
 			autocompletes.add(autocompFsName);
 		}
-		return CommandBase.getListOfStringsMatchingLastWord(argsOriginal, autocompletes.toArray(new String[0]));
+		return getListOfStringsMatchingLastWord(argsOriginal, autocompletes.toArray(new String[0]));
 	}
 
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
-		if (args.length == 1) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, "create", "option");
+		String[] args1 = args;
+		if (args1.length == 1) {
+			return getListOfStringsMatchingLastWord(args1, "create", "option");
 		}
-		if (args.length == 2) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+		if (args1.length == 2) {
+			return getListOfStringsMatchingLastWord(args1, MinecraftServer.getServer().getAllUsernames());
 		}
-		if (args.length > 2) {
-			String function = args[0];
+		if (args1.length > 2) {
+			String function = args1[0];
 			if ("create".equals(function)) {
 				return Collections.emptyList();
 			}
 			if ("option".equals(function)) {
-				String[] argsOriginal = Arrays.copyOf(args, args.length);
-				String ownerName = (args = fixArgsForFellowship(args, 2, true))[1];
+				String[] argsOriginal = Arrays.copyOf(args1, args1.length);
+				String ownerName = (args1 = fixArgsForFellowship(args1, 2, true))[1];
 				UUID ownerID = getPlayerIDByName(sender, ownerName);
 				if (ownerID != null) {
 					GOTFellowship fellowship;
 					GOTPlayerData playerData = GOTLevelData.getData(ownerID);
-					String fsName = args[2];
-					if (args.length == 3) {
-						return listFellowshipsMatchingLastWord(args, argsOriginal, 2, playerData, true);
+					String fsName = args1[2];
+					if (args1.length == 3) {
+						return listFellowshipsMatchingLastWord(args1, argsOriginal, 2, playerData, true);
 					}
 					if (fsName != null && (fellowship = playerData.getFellowshipByName(fsName)) != null) {
-						if (args.length == 4) {
-							return CommandBase.getListOfStringsMatchingLastWord(args, "invite", "add", "remove", "transfer", "op", "deop", "disband", "rename", "icon", "pvp", "hired-ff", "map-show");
+						if (args1.length == 4) {
+							return getListOfStringsMatchingLastWord(args1, "invite", "add", "remove", "transfer", "op", "deop", "disband", "rename", "icon", "pvp", "hired-ff", "map-show");
 						}
-						String option = args[3];
+						String option = args1[3];
 						if ("invite".equals(option) || "add".equals(option)) {
 							ArrayList<String> notInFellowshipNames = new ArrayList<>();
 							for (GameProfile playerProfile : MinecraftServer.getServer().getConfigurationManager().func_152600_g()) {
@@ -121,7 +122,7 @@ public class GOTCommandFellowship extends CommandBase {
 								}
 								notInFellowshipNames.add(playerProfile.getName());
 							}
-							return CommandBase.getListOfStringsMatchingLastWord(args, notInFellowshipNames.toArray(new String[0]));
+							return getListOfStringsMatchingLastWord(args1, notInFellowshipNames.toArray(new String[0]));
 						}
 						if ("remove".equals(option) || "transfer".equals(option)) {
 							ArrayList<String> memberNames = new ArrayList<>();
@@ -132,7 +133,7 @@ public class GOTCommandFellowship extends CommandBase {
 								}
 								memberNames.add(playerProfile.getName());
 							}
-							return CommandBase.getListOfStringsMatchingLastWord(args, memberNames.toArray(new String[0]));
+							return getListOfStringsMatchingLastWord(args1, memberNames.toArray(new String[0]));
 						}
 						if ("op".equals(option)) {
 							ArrayList<String> notAdminNames = new ArrayList<>();
@@ -143,7 +144,7 @@ public class GOTCommandFellowship extends CommandBase {
 								}
 								notAdminNames.add(playerProfile.getName());
 							}
-							return CommandBase.getListOfStringsMatchingLastWord(args, notAdminNames.toArray(new String[0]));
+							return getListOfStringsMatchingLastWord(args1, notAdminNames.toArray(new String[0]));
 						}
 						if ("deop".equals(option)) {
 							ArrayList<String> adminNames = new ArrayList<>();
@@ -154,13 +155,13 @@ public class GOTCommandFellowship extends CommandBase {
 								}
 								adminNames.add(playerProfile.getName());
 							}
-							return CommandBase.getListOfStringsMatchingLastWord(args, adminNames.toArray(new String[0]));
+							return getListOfStringsMatchingLastWord(args1, adminNames.toArray(new String[0]));
 						}
 						if ("pvp".equals(option) || "hired-ff".equals(option)) {
-							return CommandBase.getListOfStringsMatchingLastWord(args, "prevent", "allow");
+							return getListOfStringsMatchingLastWord(args1, "prevent", "allow");
 						}
 						if ("map-show".equals(option)) {
-							return CommandBase.getListOfStringsMatchingLastWord(args, "on", "off");
+							return getListOfStringsMatchingLastWord(args1, "on", "off");
 						}
 					}
 				}
@@ -181,7 +182,7 @@ public class GOTCommandFellowship extends CommandBase {
 
 	public UUID getPlayerIDByName(ICommandSender sender, String username) {
 		try {
-			EntityPlayerMP entityplayer = CommandBase.getPlayer(sender, username);
+			EntityPlayerMP entityplayer = getPlayer(sender, username);
 			return entityplayer.getUniqueID();
 		} catch (PlayerNotFoundException ignored) {
 		}
@@ -208,10 +209,11 @@ public class GOTCommandFellowship extends CommandBase {
 
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
-		if (args.length >= 3 && "create".equals(args[0])) {
-			args = fixArgsForFellowship(args, 2, false);
-			String playerName = args[1];
-			String fsName = args[2];
+		String[] args1 = args;
+		if (args1.length >= 3 && "create".equals(args1[0])) {
+			args1 = fixArgsForFellowship(args1, 2, false);
+			String playerName = args1[1];
+			String fsName = args1[2];
 			if (fsName == null) {
 				throw new WrongUsageException("got.command.fellowship.edit.notFound", playerName, null);
 			}
@@ -228,17 +230,17 @@ public class GOTCommandFellowship extends CommandBase {
 			}
 			throw new PlayerNotFoundException();
 		}
-		if ("option".equals(args[0])) {
-			args = fixArgsForFellowship(args, 2, false);
-			if (args.length < 4) {
+		if ("option".equals(args1[0])) {
+			args1 = fixArgsForFellowship(args1, 2, false);
+			if (args1.length < 4) {
 				throw new PlayerNotFoundException();
 			}
-			String ownerName = args[1];
-			String fsName = args[2];
+			String ownerName = args1[1];
+			String fsName = args1[2];
 			if (fsName == null) {
 				throw new WrongUsageException("got.command.fellowship.edit.notFound", ownerName, null);
 			}
-			String option = args[3];
+			String option = args1[3];
 			UUID ownerID = getPlayerIDByName(sender, ownerName);
 			if (ownerID != null) {
 				GOTPlayerData ownerData = GOTLevelData.getData(ownerID);
@@ -254,11 +256,11 @@ public class GOTCommandFellowship extends CommandBase {
 				if ("rename".equals(option)) {
 					StringBuilder newName = new StringBuilder();
 					int startIndex = 4;
-					if (!args[startIndex].isEmpty() && args[startIndex].charAt(0) == '\"') {
+					if (!args1[startIndex].isEmpty() && args1[startIndex].charAt(0) == '\"') {
 						int endIndex = startIndex;
-						while (args[endIndex].isEmpty() || args[endIndex].charAt(args[endIndex].length() - 1) != '\"') {
+						while (args1[endIndex].isEmpty() || args1[endIndex].charAt(args1[endIndex].length() - 1) != '\"') {
 							endIndex++;
-							if (endIndex >= args.length) {
+							if (endIndex >= args1.length) {
 								throw new WrongUsageException("got.command.fellowship.rename.error");
 							}
 						}
@@ -266,7 +268,7 @@ public class GOTCommandFellowship extends CommandBase {
 							if (i > startIndex) {
 								newName.append(' ');
 							}
-							newName.append(args[i]);
+							newName.append(args1[i]);
 						}
 						newName = new StringBuilder(newName.toString().replace("\"", ""));
 					}
@@ -278,7 +280,7 @@ public class GOTCommandFellowship extends CommandBase {
 					throw new WrongUsageException("got.command.fellowship.rename.error");
 				}
 				if ("icon".equals(option)) {
-					String iconData = func_147178_a(sender, args, 4).getUnformattedText();
+					String iconData = func_147178_a(sender, args1, 4).getUnformattedText();
 					if ("clear".equals(iconData)) {
 						ownerData.setFellowshipIcon(fellowship, null);
 						func_152373_a(sender, this, "got.command.fellowship.icon", ownerName, fsName, "[none]");
@@ -307,7 +309,7 @@ public class GOTCommandFellowship extends CommandBase {
 				}
 				if ("pvp".equals(option) || "hired-ff".equals(option)) {
 					boolean prevent;
-					String setting = args[4];
+					String setting = args1[4];
 					if ("prevent".equals(setting)) {
 						prevent = true;
 					} else if ("allow".equals(setting)) {
@@ -334,7 +336,7 @@ public class GOTCommandFellowship extends CommandBase {
 				}
 				if ("map-show".equals(option)) {
 					boolean show;
-					String setting = args[4];
+					String setting = args1[4];
 					if ("on".equals(setting)) {
 						show = true;
 					} else if ("off".equals(setting)) {
@@ -350,7 +352,7 @@ public class GOTCommandFellowship extends CommandBase {
 					}
 					return;
 				}
-				String playerName = args[4];
+				String playerName = args1[4];
 				UUID playerID = getPlayerIDByName(sender, playerName);
 				if (playerID == null) {
 					throw new PlayerNotFoundException();

@@ -14,7 +14,7 @@ public class GOTCommandDate extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, "get", "set", "add");
+			return getListOfStringsMatchingLastWord(args, "get", "set", "add");
 		}
 		return Collections.emptyList();
 	}
@@ -46,9 +46,9 @@ public class GOTCommandDate extends CommandBase {
 		if (args.length >= 2) {
 			int newDate = GOTDate.AegonCalendar.currentDay;
 			if ("set".equals(args[0])) {
-				newDate = CommandBase.parseInt(sender, args[1]);
+				newDate = parseInt(sender, args[1]);
 			} else if ("add".equals(args[0])) {
-				int date = CommandBase.parseInt(sender, args[1]);
+				int date = parseInt(sender, args[1]);
 				newDate += date;
 			}
 			if (Math.abs(newDate) > 1000000) {
@@ -56,7 +56,7 @@ public class GOTCommandDate extends CommandBase {
 			}
 			GOTDate.setDate(newDate);
 			String dateName = GOTDate.AegonCalendar.getDate().getDateName(false);
-			CommandBase.func_152373_a(sender, this, "got.command.date.set", newDate, dateName);
+			func_152373_a(sender, this, "got.command.date.set", newDate, dateName);
 			return;
 		}
 		throw new WrongUsageException(getCommandUsage(sender));

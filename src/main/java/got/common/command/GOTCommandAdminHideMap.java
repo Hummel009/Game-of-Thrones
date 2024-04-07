@@ -43,7 +43,7 @@ public class GOTCommandAdminHideMap extends CommandBase {
 			if (MinecraftServer.getServer().getConfigurationManager().func_152596_g(player.getGameProfile())) {
 				if (player.capabilities.isCreativeMode) {
 					GOTLevelData.getData(player).setAdminHideMap(true);
-					CommandBase.func_152373_a(sender, this, "got.command.opHideMap.hiding");
+					func_152373_a(sender, this, "got.command.opHideMap.hiding");
 					return;
 				}
 				throw new WrongUsageException("got.command.opHideMap.notCreative");

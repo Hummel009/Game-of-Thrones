@@ -18,7 +18,7 @@ public class GOTCommandSpawnDamping extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, "set", "calc", "reset");
+			return getListOfStringsMatchingLastWord(args, "set", "calc", "reset");
 		}
 		if (args.length == 2 && ("set".equals(args[0]) || "calc".equals(args[0]))) {
 			ArrayList<String> types = new ArrayList<>();
@@ -26,7 +26,7 @@ public class GOTCommandSpawnDamping extends CommandBase {
 				types.add(type.name());
 			}
 			types.add(GOTSpawnDamping.TYPE_NPC);
-			return CommandBase.getListOfStringsMatchingLastWord(args, types.toArray(new String[0]));
+			return getListOfStringsMatchingLastWord(args, types.toArray(new String[0]));
 		}
 		return Collections.emptyList();
 	}

@@ -19,16 +19,16 @@ public class GOTCommandWaypoints extends CommandBase {
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		switch (args.length) {
 			case 1:
-				return CommandBase.getListOfStringsMatchingLastWord(args, "unlock", "lock");
+				return getListOfStringsMatchingLastWord(args, "unlock", "lock");
 			case 2:
 				ArrayList<String> names = new ArrayList<>();
 				for (GOTWaypoint.Region r : GOTWaypoint.Region.values()) {
 					names.add(r.name());
 				}
 				names.add("all");
-				return CommandBase.getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
+				return getListOfStringsMatchingLastWord(args, names.toArray(new String[0]));
 			case 3:
-				return CommandBase.getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
+				return getListOfStringsMatchingLastWord(args, MinecraftServer.getServer().getAllUsernames());
 		}
 		return Collections.emptyList();
 	}
@@ -65,14 +65,14 @@ public class GOTCommandWaypoints extends CommandBase {
 	public void processCommand(ICommandSender sender, String[] args) {
 		if (args.length >= 2) {
 			String regionName = args[1];
-			EntityPlayerMP entityplayer = args.length >= 3 ? CommandBase.getPlayer(sender, args[2]) : CommandBase.getCommandSenderAsPlayer(sender);
+			EntityPlayerMP entityplayer = args.length >= 3 ? getPlayer(sender, args[2]) : getCommandSenderAsPlayer(sender);
 			GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 			if ("unlock".equalsIgnoreCase(args[0])) {
 				if ("all".equalsIgnoreCase(regionName)) {
 					for (GOTWaypoint.Region region : GOTWaypoint.Region.values()) {
 						playerData.unlockFTRegion(region);
 					}
-					CommandBase.func_152373_a(sender, this, "got.command.waypoints.unlockAll", entityplayer.getCommandSenderName());
+					func_152373_a(sender, this, "got.command.waypoints.unlockAll", entityplayer.getCommandSenderName());
 					return;
 				}
 				GOTWaypoint.Region region = findRegionByName(regionName);
@@ -80,7 +80,7 @@ public class GOTCommandWaypoints extends CommandBase {
 					throw new WrongUsageException("got.command.waypoints.unlock.fail", entityplayer.getCommandSenderName(), region.name());
 				}
 				playerData.unlockFTRegion(region);
-				CommandBase.func_152373_a(sender, this, "got.command.waypoints.unlock", entityplayer.getCommandSenderName(), region.name());
+				func_152373_a(sender, this, "got.command.waypoints.unlock", entityplayer.getCommandSenderName(), region.name());
 				return;
 			}
 			if ("lock".equalsIgnoreCase(args[0])) {
@@ -88,7 +88,7 @@ public class GOTCommandWaypoints extends CommandBase {
 					for (GOTWaypoint.Region region : GOTWaypoint.Region.values()) {
 						playerData.lockFTRegion(region);
 					}
-					CommandBase.func_152373_a(sender, this, "got.command.waypoints.lockAll", entityplayer.getCommandSenderName());
+					func_152373_a(sender, this, "got.command.waypoints.lockAll", entityplayer.getCommandSenderName());
 					return;
 				}
 				GOTWaypoint.Region region = findRegionByName(regionName);
@@ -96,7 +96,7 @@ public class GOTCommandWaypoints extends CommandBase {
 					throw new WrongUsageException("got.command.waypoints.lock.fail", entityplayer.getCommandSenderName(), region.name());
 				}
 				playerData.lockFTRegion(region);
-				CommandBase.func_152373_a(sender, this, "got.command.waypoints.lock", entityplayer.getCommandSenderName(), region.name());
+				func_152373_a(sender, this, "got.command.waypoints.lock", entityplayer.getCommandSenderName(), region.name());
 				return;
 			}
 		}

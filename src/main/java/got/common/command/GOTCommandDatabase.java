@@ -1,7 +1,6 @@
 package got.common.command;
 
 import got.common.util.DatabaseGenerator;
-import got.common.util.DatabaseGenerator.Database;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,8 +16,8 @@ public class GOTCommandDatabase extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			List<String> list = Database.getNames();
-			return CommandBase.getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
+			List<String> list = DatabaseGenerator.Database.getNames();
+			return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		}
 		return Collections.emptyList();
 	}
@@ -36,12 +35,12 @@ public class GOTCommandDatabase extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		World world = sender.getEntityWorld();
-		Database db = Database.forName(args[0]);
+		DatabaseGenerator.Database db = DatabaseGenerator.Database.forName(args[0]);
 		if (db == null) {
-			CommandBase.func_152373_a(sender, this, "Database \"" + args[0] + "\" does not exist.");
+			func_152373_a(sender, this, "Database \"" + args[0] + "\" does not exist.");
 		} else {
 			DatabaseGenerator.setDisplay(args[0]);
-			CommandBase.func_152373_a(sender, this, "Database \"" + args[0] + "\" is prepared.");
+			func_152373_a(sender, this, "Database \"" + args[0] + "\" is prepared.");
 			DatabaseGenerator.generate(world, (EntityPlayer) sender, rand);
 		}
 	}

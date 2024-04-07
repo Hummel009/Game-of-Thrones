@@ -14,7 +14,7 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			return CommandBase.getListOfStringsMatchingLastWord(args, "max", "min");
+			return getListOfStringsMatchingLastWord(args, "max", "min");
 		}
 		return Collections.emptyList();
 	}
@@ -40,10 +40,10 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 		int cooldown = -1;
 		if (args.length == 1) {
 			function = "max";
-			cooldown = CommandBase.parseIntBounded(sender, args[0], 0, MAX_COOLDOWN);
+			cooldown = parseIntBounded(sender, args[0], 0, MAX_COOLDOWN);
 		} else if (args.length >= 2) {
 			function = args[0];
-			cooldown = CommandBase.parseIntBounded(sender, args[1], 0, MAX_COOLDOWN);
+			cooldown = parseIntBounded(sender, args[1], 0, MAX_COOLDOWN);
 		}
 		if (function != null && cooldown >= 0) {
 			int max = GOTLevelData.getWaypointCooldownMax();
@@ -56,9 +56,9 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 					updatedMin = true;
 				}
 				GOTLevelData.setWaypointCooldown(max, min);
-				CommandBase.func_152373_a(sender, this, "got.command.wpCooldown.setMax", max, GOTLevelData.getHMSTime_Seconds(max));
+				func_152373_a(sender, this, "got.command.wpCooldown.setMax", max, GOTLevelData.getHMSTime_Seconds(max));
 				if (updatedMin) {
-					CommandBase.func_152373_a(sender, this, "got.command.wpCooldown.updateMin", min);
+					func_152373_a(sender, this, "got.command.wpCooldown.updateMin", min);
 				}
 				return;
 			}
@@ -70,9 +70,9 @@ public class GOTCommandWaypointCooldown extends CommandBase {
 					updatedMax = true;
 				}
 				GOTLevelData.setWaypointCooldown(max, min);
-				CommandBase.func_152373_a(sender, this, "got.command.wpCooldown.setMin", min, GOTLevelData.getHMSTime_Seconds(min));
+				func_152373_a(sender, this, "got.command.wpCooldown.setMin", min, GOTLevelData.getHMSTime_Seconds(min));
 				if (updatedMax) {
-					CommandBase.func_152373_a(sender, this, "got.command.wpCooldown.updateMax", max);
+					func_152373_a(sender, this, "got.command.wpCooldown.updateMax", max);
 				}
 				return;
 			}
