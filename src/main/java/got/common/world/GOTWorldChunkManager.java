@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.GOTDimension;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.sothoryos.GOTBiomeSothoryosJungle;
 import got.common.world.biome.sothoryos.GOTBiomeSothoryosMangrove;
@@ -186,7 +187,7 @@ public class GOTWorldChunkManager extends WorldChunkManager {
 			for (int k1 = 0; k1 < zSize; ++k1) {
 				for (int i1 = 0; i1 < xSize; ++i1) {
 					int index = i1 + k1 * xSize;
-					biomes[index] = worldObj.getBiomeGenForCoords(i + i1, k + k1);
+					biomes[index] = GOTCrashHandler.getBiomeGenForCoords(worldObj, i + i1, k + k1);
 				}
 			}
 		}

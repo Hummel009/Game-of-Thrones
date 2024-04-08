@@ -1,5 +1,6 @@
 package got.client.render.other;
 
+import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.client.Minecraft;
@@ -66,7 +67,7 @@ public class GOTSkyRenderer extends IRenderHandler {
 		boolean renderSkyFeatures = world.provider.isSurfaceWorld();
 		int i = MathHelper.floor_double(mc.renderViewEntity.posX);
 		int k = MathHelper.floor_double(mc.renderViewEntity.posZ);
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (biome instanceof GOTBiome && renderSkyFeatures) {
 			renderSkyFeatures = ((GOTBiome) biome).hasSky();
 		}

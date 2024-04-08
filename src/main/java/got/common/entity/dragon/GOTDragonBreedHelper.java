@@ -1,5 +1,6 @@
 package got.common.entity.dragon;
 
+import got.common.util.GOTCrashHandler;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
@@ -111,7 +112,7 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 						}
 					}
 				}
-				BiomeGenBase biome = dragon.worldObj.getBiomeGenForCoords(bx, bz);
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(dragon.worldObj, bx, bz);
 				for (Entry<GOTDragonBreed, AtomicInteger> breed : breedPoints.entrySet()) {
 					if (breed.getKey().isHabitatBiome(biome)) {
 						breed.getValue().incrementAndGet();

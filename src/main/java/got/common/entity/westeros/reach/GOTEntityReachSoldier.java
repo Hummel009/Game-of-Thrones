@@ -9,6 +9,7 @@ import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
+import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -41,7 +42,7 @@ public class GOTEntityReachSoldier extends GOTEntityReachLevyman {
 	public static void defendGrapevines(EntityPlayer entityplayer, World world, int i, int j, int k) {
 		if (!entityplayer.capabilities.isCreativeMode) {
 			GOTBiomeVariant variant;
-			BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+			BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 			variant = world.provider instanceof GOTWorldProvider ? ((GOTWorldChunkManager) world.provider.worldChunkMgr).getBiomeVariantAt(i, k) : null;
 			if (biome instanceof GOTBiomeReachArbor && variant == GOTBiomeVariant.VINEYARD) {
 				GOTEntityReachSoldier guard;

@@ -10,6 +10,7 @@ import got.common.item.other.GOTItemLeatherHat;
 import got.common.item.other.GOTItemMug;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
@@ -82,7 +83,7 @@ public class GOTEntityLightSkinThief extends GOTEntityHumanBase implements GOTBi
 	@Override
 	public float getBlockPathWeight(int i, int j, int k) {
 		float f = 0.0f;
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiome) {
 			f += 20.0f;
 		}

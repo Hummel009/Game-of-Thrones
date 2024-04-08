@@ -2,6 +2,7 @@ package got.common.entity.animal;
 
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
+import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
@@ -57,7 +58,7 @@ public class GOTEntityGemsbok extends EntityAnimal {
 			int i = MathHelper.floor_double(posX);
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock;
+			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
 		}
 		return false;
 	}

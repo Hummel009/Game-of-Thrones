@@ -1,6 +1,5 @@
 package got.common.world.feature;
 
-import got.common.database.GOTBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;

@@ -1,6 +1,7 @@
 package got.common.world.map;
 
 import got.common.database.GOTBlocks;
+import got.common.util.GOTCrashHandler;
 import got.common.world.GOTChunkProvider;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
@@ -211,7 +212,7 @@ public class GOTMapGenCaves extends MapGenBase {
 								for (int var50 = var57; var50 <= var38 - 1; ++var50) {
 									double var51 = (var50 + 0.5 - par8) / var31;
 									if (var51 > -0.7 && var59 * var59 + var51 * var51 + var46 * var46 < 1.0) {
-										GOTBiome biome = (GOTBiome) worldObj.getBiomeGenForCoords(var42 + par3 * 16, var45 + par4 * 16);
+										GOTBiome biome = (GOTBiome) GOTCrashHandler.getBiomeGenForCoords(worldObj, var42 + par3 * 16, var45 + par4 * 16);
 										digBlock(blockArray, blockIndex, xzIndex, var42, var50, var45, par3, par4, biome, cutSurface);
 									}
 									++blockIndex;

@@ -5,6 +5,7 @@ import got.common.database.GOTAchievement;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityRegistry;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.westeros.GOTBiomeNeck;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -82,7 +83,7 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 		if (j < 62) {
 			return false;
 		}
-		return worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock && super.getCanSpawnHere();
+		return worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock && super.getCanSpawnHere();
 	}
 
 	@Override
@@ -129,7 +130,7 @@ public class GOTEntityMidges extends EntityLiving implements GOTAmbientCreature 
 		}
 		if (!worldObj.isRemote && isEntityAlive()) {
 			int chance;
-			boolean inMidgewater = worldObj.getBiomeGenForCoords(MathHelper.floor_double(posX), MathHelper.floor_double(posZ)) instanceof GOTBiomeNeck;
+			boolean inMidgewater = GOTCrashHandler.getBiomeGenForCoords(worldObj, MathHelper.floor_double(posX), MathHelper.floor_double(posZ)) instanceof GOTBiomeNeck;
 			chance = inMidgewater ? 100 : 500;
 			if (rand.nextInt(chance) == 0) {
 				double range = inMidgewater ? 16.0 : 24.0;

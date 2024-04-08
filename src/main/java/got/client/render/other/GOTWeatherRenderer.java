@@ -1,6 +1,7 @@
 package got.client.render.other;
 
 import got.client.GOTTickHandlerClient;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeValyria;
 import net.minecraft.block.material.Material;
@@ -84,7 +85,7 @@ public class GOTWeatherRenderer extends IRenderHandler {
 					int j1 = (l - i3 + 16) * 32 + i1 - k2 + 16;
 					float f6 = rainXCoords[j1] * 0.5f;
 					float f7 = rainYCoords[j1] * 0.5f;
-					BiomeGenBase biomegenbase = world.getBiomeGenForCoords(i1, l);
+					BiomeGenBase biomegenbase = GOTCrashHandler.getBiomeGenForCoords(world, i1, l);
 					boolean rainy = biomegenbase.canSpawnLightningBolt();
 					boolean snowy = biomegenbase.getEnableSnow();
 					boolean ashy = biomegenbase instanceof GOTBiomeValyria;

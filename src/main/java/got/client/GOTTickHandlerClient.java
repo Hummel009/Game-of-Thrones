@@ -38,10 +38,7 @@ import got.common.item.weapon.GOTItemCrossbow;
 import got.common.item.weapon.GOTItemSarbacane;
 import got.common.item.weapon.GOTItemSpear;
 import got.common.quest.IPickpocketable;
-import got.common.util.GOTFunctions;
-import got.common.util.GOTLog;
-import got.common.util.GOTModChecker;
-import got.common.util.GOTVersionChecker;
+import got.common.util.*;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
@@ -619,7 +616,7 @@ public class GOTTickHandlerClient {
 					int i = MathHelper.floor_double(viewer.posX);
 					int j = MathHelper.floor_double(viewer.boundingBox.minY);
 					int k = MathHelper.floor_double(viewer.posZ);
-					BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+					BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 					GOTBiome.updateWaterColor(i);
 					GOTCloudRenderer.updateClouds();
 					GOTRenderNorthernLights.update(viewer);
@@ -1070,7 +1067,7 @@ public class GOTTickHandlerClient {
 			GOTWorldChunkManager chunkManager = (GOTWorldChunkManager) mc.theWorld.getWorldChunkManager();
 			int i = MathHelper.floor_double(mc.thePlayer.posX);
 			int k = MathHelper.floor_double(mc.thePlayer.posZ);
-			GOTBiome biome = (GOTBiome) mc.theWorld.getBiomeGenForCoords(i, k);
+			GOTBiome biome = (GOTBiome) GOTCrashHandler.getBiomeGenForCoords(mc.theWorld, i, k);
 			GOTBiomeVariant variant = chunkManager.getBiomeVariantAt(i, k);
 			event.left.add(null);
 			biome.addBiomeF3Info(event.left, mc.theWorld, variant);
@@ -1086,7 +1083,7 @@ public class GOTTickHandlerClient {
 		WorldProvider provider = worldClient.provider;
 		int i = MathHelper.floor_double(viewer.posX);
 		int k = MathHelper.floor_double(viewer.posZ);
-		BiomeGenBase biome = worldClient.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldClient, i, k);
 		float farPlane = event.farPlaneDistance;
 		int fogMode = event.fogMode;
 		if (provider instanceof GOTWorldProvider) {
@@ -1177,7 +1174,7 @@ public class GOTTickHandlerClient {
 							int playerX = MathHelper.floor_double(entityplayer.posX);
 							int playerZ = MathHelper.floor_double(entityplayer.posZ);
 							if (GOTClientProxy.doesClientChunkExist(worldClient, playerX, playerZ)) {
-								BiomeGenBase biome = worldClient.getBiomeGenForCoords(playerX, playerZ);
+								BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldClient, playerX, playerZ);
 								if (biome instanceof GOTBiome) {
 									String biomeName = ((GOTBiome) biome).getBiomeDisplayName();
 									fontRenderer.drawString(biomeName, compassX - fontRenderer.getStringWidth(biomeName) / 2, compassY - 70, 16777215);
@@ -1424,7 +1421,7 @@ public class GOTTickHandlerClient {
 			Block block = world.getBlock(i1, j1, k1);
 			int meta = world.getBlockMetadata(i1, j1, k1);
 			if (block.getMaterial() == Material.water) {
-				BiomeGenBase biome = world.getBiomeGenForCoords(i1, k1);
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i1, k1);
 				if (biome instanceof GOTBiomeYeen && world.rand.nextInt(20) == 0) {
 					GOT.proxy.spawnParticle("ulthosWater", i1 + world.rand.nextFloat(), j1 + 0.75D, k1 + world.rand.nextFloat(), 0.0D, 0.05D, 0.0D);
 				}

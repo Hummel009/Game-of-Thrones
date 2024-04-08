@@ -1,5 +1,6 @@
 package got.common.world.feature;
 
+import got.common.util.GOTCrashHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.world.World;
@@ -41,7 +42,7 @@ public class GOTWorldGenSand extends WorldGenerator {
 		if (!mid || !adj) {
 			return false;
 		}
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		int r = random.nextInt(radius - 2) + 2;
 		int hr = heightRadius;
 		for (int i1 = i - r; i1 <= i + r; ++i1) {

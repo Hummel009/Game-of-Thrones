@@ -10,6 +10,7 @@ import got.common.entity.other.GOTEntityInvasionSpawner;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.westeros.GOTEntityLightSkinBandit;
+import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
@@ -54,7 +55,7 @@ public class GOTEventSpawner {
 			int k;
 			int range;
 			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
-			if (chunkposition == null || !((biome = world.getBiomeGenForCoords(i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
+			if (chunkposition == null || !((biome = GOTCrashHandler.getBiomeGenForCoords(world, i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
 				continue;
 			}
 			GOTBiome gotbiome = (GOTBiome) biome;
@@ -99,7 +100,7 @@ public class GOTEventSpawner {
 			BiomeGenBase biome;
 			int k;
 			ChunkPosition chunkposition = GOTSpawnerNPCs.getRandomSpawningPointInChunk(world, chunkCoords);
-			if (chunkposition == null || !((biome = world.getBiomeGenForCoords(i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
+			if (chunkposition == null || !((biome = GOTCrashHandler.getBiomeGenForCoords(world, i = chunkposition.chunkPosX, k = chunkposition.chunkPosZ)) instanceof GOTBiome)) {
 				continue;
 			}
 			GOTBiomeInvasionSpawns invasionSpawns = ((GOTBiome) biome).getInvasionSpawns();

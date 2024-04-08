@@ -12,6 +12,7 @@ import got.common.entity.other.GOTEntityUtils;
 import got.common.entity.other.GOTNPCMount;
 import got.common.item.other.GOTItemMountArmor;
 import got.common.util.GOTReflection;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.essos.GOTBiomeDothrakiSea;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIBase;
@@ -182,7 +183,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 			int i = MathHelper.floor_double(posX);
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock;
+			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
 		}
 		return false;
 	}
@@ -368,7 +369,7 @@ public class GOTEntityHorse extends EntityHorse implements GOTNPCMount {
 	public void onGOTHorseSpawn() {
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (getClass() == GOTEntityHorse.class) {
 			float healthBoost = 0.0f;
 			float speedBoost = 0.0f;

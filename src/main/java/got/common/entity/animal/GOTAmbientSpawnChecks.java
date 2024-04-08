@@ -1,5 +1,6 @@
 package got.common.entity.animal;
 
+import got.common.util.GOTCrashHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.EntityLiving;
@@ -19,7 +20,7 @@ public class GOTAmbientSpawnChecks {
 		int i = MathHelper.floor_double(entity.posX);
 		Block below = world.getBlock(i, (j = MathHelper.floor_double(entity.posY)) - 1, k = MathHelper.floor_double(entity.posZ));
 		try {
-			if (below == world.getBiomeGenForCoords(i, k).topBlock) {
+			if (below == GOTCrashHandler.getBiomeGenForCoords(world, i, k).topBlock) {
 				int light = world.getBlockLightValue(i, j, k);
 				if (j >= 62 && light >= rand.nextInt(8) || light >= 8) {
 					List<Material> validMaterials = Arrays.asList(materials);

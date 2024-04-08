@@ -21,6 +21,7 @@ import got.common.quest.GOTMiniQuestEvent;
 import got.common.quest.GOTMiniQuestWelcome;
 import got.common.quest.MiniQuestSelector;
 import got.common.util.GOTLog;
+import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
 import got.common.world.map.*;
@@ -2030,7 +2031,7 @@ public class GOTPlayerData {
 		if (pdTick % 100 == 0 && world.provider instanceof GOTWorldProvider) {
 			int i = MathHelper.floor_double(entityplayer.posX);
 			int k = MathHelper.floor_double(entityplayer.posZ);
-			GOTBiome biome = (GOTBiome) world.provider.getBiomeGenForCoords(i, k);
+			GOTBiome biome = (GOTBiome) GOTCrashHandler.getBiomeGenForCoords(world.provider, i, k);
 			if (biome.getBiomeDimension() == GOTDimension.GAME_OF_THRONES) {
 				GOTBiome prevLastBiome = lastBiome;
 				lastBiome = biome;
@@ -2311,7 +2312,7 @@ public class GOTPlayerData {
 	public void runAchievementChecks(EntityPlayer entityplayer, World world) {
 		int i = MathHelper.floor_double(entityplayer.posX);
 		int k = MathHelper.floor_double(entityplayer.posZ);
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (biome instanceof GOTBiome) {
 			GOTBiome gotbiome = (GOTBiome) biome;
 			GOTAchievement ach = gotbiome.getBiomeAchievement();

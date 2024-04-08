@@ -3,6 +3,7 @@ package got.common.entity.animal;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityRegistry;
+import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -140,7 +141,7 @@ public class GOTEntityBear extends EntityAnimal implements GOTAnimalSpawnConditi
 			int i = MathHelper.floor_double(posX);
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
-			GOTBiome biome = (GOTBiome) worldObj.getBiomeGenForCoords(i, k);
+			GOTBiome biome = (GOTBiome) GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 			GOTBiomeVariant variant = ((GOTWorldChunkManager) worldChunkMgr).getBiomeVariantAt(i, k);
 			return super.getCanSpawnHere() && canWorldGenSpawnAt(i, j, k, biome, variant);
 		}

@@ -6,6 +6,7 @@ import got.GOT;
 import got.common.database.GOTItems;
 import got.common.entity.ai.GOTEntityAIAttackOnCollide;
 import got.common.entity.other.GOTEntityRegistry;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome.ImmuneToFrost;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.entity.Entity;
@@ -106,7 +107,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 
 	@Override
 	public float getBlockPathWeight(int i, int j, int k) {
-		return worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock ? 10.0f : worldObj.getLightBrightness(i, j, k) - 0.5f;
+		return worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock ? 10.0f : worldObj.getLightBrightness(i, j, k) - 0.5f;
 	}
 
 	@Override
@@ -115,7 +116,7 @@ public class GOTEntitySwan extends EntityCreature implements GOTAmbientCreature,
 			int i = MathHelper.floor_double(posX);
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock;
+			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
 		}
 		return false;
 	}

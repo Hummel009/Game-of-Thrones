@@ -1,5 +1,6 @@
 package got.common.world.feature;
 
+import got.common.util.GOTCrashHandler;
 import got.common.world.structure.other.GOTStructureBase;
 import net.minecraft.block.Block;
 import net.minecraft.util.MathHelper;
@@ -26,7 +27,7 @@ public class GOTWorldGenBoulder extends WorldGenerator {
 	@Override
 	@SuppressWarnings("StatementWithEmptyBody")
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		world.getBiomeGenForCoords(i, k);
+		GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (!GOTStructureBase.isSurfaceStatic(world, i, j - 1, k)) {
 			return false;
 		}

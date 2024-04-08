@@ -10,6 +10,7 @@ import got.common.item.other.GOTItemMug;
 import got.common.recipe.GOTRecipeBrewing;
 import got.common.tileentity.*;
 import got.common.util.GOTLog;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.*;
 import net.minecraft.block.material.Material;
@@ -67,7 +68,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 
 	public static boolean isSurfaceStatic(World world, int i, int j, int k) {
 		Block block = world.getBlock(i, j, k);
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (block instanceof BlockSlab && !block.isOpaqueCube()) {
 			return isSurfaceStatic(world, i, j - 1, k);
 		}
@@ -226,7 +227,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		if (!isInSBB(i, 0, k)) {
 			return null;
 		}
-		return world.getBiomeGenForCoords(i, k);
+		return GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 	}
 
 	public Block getBlock(IBlockAccess world, int i, int j, int k) {

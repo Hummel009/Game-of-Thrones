@@ -28,6 +28,7 @@ import got.common.network.GOTPacketNPCFX;
 import got.common.network.GOTPacketNPCIsEating;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.command.IEntitySelector;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -473,7 +474,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		}
 		if (!isConquestSpawning || !conquestSpawnIgnoresDarkness()) {
 			BiomeGenBase biome;
-			if (spawnsInDarkness && (biome = worldObj.getBiomeGenForCoords(i, k)) instanceof GOTBiome && ((GOTBiome) biome).canSpawnHostilesInDay()) {
+			if (spawnsInDarkness && (biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k)) instanceof GOTBiome && ((GOTBiome) biome).canSpawnHostilesInDay()) {
 				return 1.0f;
 			}
 			if (spawnsInDarkness) {
@@ -660,7 +661,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			return 0;
 		}
 		int multiplier = 1;
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(MathHelper.floor_double(posX), MathHelper.floor_double(posZ));
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, MathHelper.floor_double(posX), MathHelper.floor_double(posZ));
 		if (biome instanceof GOTBiome) {
 			multiplier = ((GOTBiome) biome).spawnCountMultiplier();
 		}
@@ -758,7 +759,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 		int i = MathHelper.floor_double(posX);
 		int j = MathHelper.floor_double(boundingBox.minY);
 		int k = MathHelper.floor_double(posZ);
-		if (spawnsInDarkness && (biome = worldObj.getBiomeGenForCoords(i, k)) instanceof GOTBiome && ((GOTBiome) biome).canSpawnHostilesInDay()) {
+		if (spawnsInDarkness && (biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k)) instanceof GOTBiome && ((GOTBiome) biome).canSpawnHostilesInDay()) {
 			return true;
 		}
 		if (worldObj.getSavedLightValue(EnumSkyBlock.Sky, i, j, k) > rand.nextInt(32)) {

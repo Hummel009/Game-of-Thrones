@@ -9,6 +9,7 @@ import got.client.render.other.GOTSkyRenderer;
 import got.client.render.other.GOTWeatherRenderer;
 import got.common.*;
 import got.common.util.GOTModChecker;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.GOTClimateType;
 import got.common.world.biome.other.GOTBiomeOcean;
@@ -71,7 +72,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public boolean canBlockFreeze(int i, int j, int k, boolean isBlockUpdate) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiomeOcean) {
 			return GOTBiomeOcean.isFrozen(i, k) && canFreezeIgnoreTemp(i, j, k, isBlockUpdate);
 		}
@@ -106,7 +107,7 @@ public class GOTWorldProvider extends WorldProvider {
 
 	@Override
 	public boolean canSnowAt(int i, int j, int k, boolean checkLight) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiomeOcean) {
 			return GOTBiomeOcean.isFrozen(i, k) && canSnowIgnoreTemp(i, j, k, checkLight);
 		}
@@ -133,7 +134,7 @@ public class GOTWorldProvider extends WorldProvider {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public boolean doesXZShowFog(int i, int k) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiome) {
 			return ((GOTBiome) biome).hasFog();
 		}
@@ -160,7 +161,7 @@ public class GOTWorldProvider extends WorldProvider {
 		for (int i1 = -distance; i1 <= distance; ++i1) {
 			for (int k1 = -distance; k1 <= distance; ++k1) {
 				Vec3 tempClouds = Vec3.createVectorHelper(clouds.xCoord, clouds.yCoord, clouds.zCoord);
-				BiomeGenBase biome = worldObj.getBiomeGenForCoords(i + i1, k + k1);
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i + i1, k + k1);
 				if (biome instanceof GOTBiome) {
 					((GOTBiome) biome).getCloudColor(tempClouds);
 				}
@@ -242,7 +243,7 @@ public class GOTWorldProvider extends WorldProvider {
 		for (int i1 = -distance; i1 <= distance; ++i1) {
 			for (int k1 = -distance; k1 <= distance; ++k1) {
 				Vec3 tempFog = Vec3.createVectorHelper(fog.xCoord, fog.yCoord, fog.zCoord);
-				BiomeGenBase biome = worldObj.getBiomeGenForCoords(i + i1, k + k1);
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i + i1, k + k1);
 				if (biome instanceof GOTBiome) {
 					((GOTBiome) biome).getFogColor(tempFog);
 				}

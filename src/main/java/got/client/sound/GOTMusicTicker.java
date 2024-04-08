@@ -2,6 +2,7 @@ package got.client.sound;
 
 import got.client.GOTClientProxy;
 import got.common.GOTConfig;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.SoundCategory;
@@ -49,7 +50,7 @@ public class GOTMusicTicker {
 			int i = MathHelper.floor_double(entityClientPlayerMP.posX);
 			int k = MathHelper.floor_double(entityClientPlayerMP.posZ);
 			if (GOTClientProxy.doesClientChunkExist(worldClient, i, k)) {
-				BiomeGenBase biome = worldClient.getBiomeGenForCoords(i, k);
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldClient, i, k);
 				if (biome instanceof GOTBiome) {
 					GOTBiome gotbiome = (GOTBiome) biome;
 					return gotbiome.getBiomeMusic();

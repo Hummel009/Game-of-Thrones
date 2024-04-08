@@ -9,6 +9,7 @@ import got.common.entity.other.GOTRandomSkinEntity;
 import got.common.entity.other.GOTScarecrows;
 import got.common.inventory.GOTEntityInventory;
 import got.common.item.GOTValuableItems;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.sothoryos.GOTBiomeSothoryosJungle;
 import net.minecraft.block.Block;
@@ -365,7 +366,7 @@ public class GOTEntityBird extends EntityLiving implements GOTAmbientCreature, G
 		data = super.onSpawnWithEgg(data);
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiomeSothoryosJungle) {
 			if (rand.nextInt(8) == 0) {
 				setBirdType(BirdType.CROW);

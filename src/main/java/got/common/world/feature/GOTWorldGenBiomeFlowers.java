@@ -1,5 +1,6 @@
 package got.common.world.feature;
 
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -11,7 +12,7 @@ import java.util.Random;
 public class GOTWorldGenBiomeFlowers extends WorldGenerator {
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
-		BiomeGenBase.FlowerEntry flower = ((GOTBiome) world.getBiomeGenForCoords(i, k)).getRandomFlower(random);
+		BiomeGenBase.FlowerEntry flower = ((GOTBiome) GOTCrashHandler.getBiomeGenForCoords(world, i, k)).getRandomFlower(random);
 		Block block = flower.block;
 		int meta = flower.metadata;
 		for (int l = 0; l < 64; ++l) {

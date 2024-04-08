@@ -4,6 +4,7 @@ import cpw.mods.fml.common.eventhandler.Event;
 import got.common.GOTConfig;
 import got.common.GOTSpawnDamping;
 import got.common.entity.other.GOTEntityNPC;
+import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.GOTBiome;
@@ -75,7 +76,7 @@ public class GOTSpawnerNPCs {
 
 	public static GOTSpawnEntry.Instance getRandomSpawnListEntry(World world, int i, int j, int k) {
 		GOTBiomeSpawnList spawnlist = null;
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (biome instanceof GOTBiome && world.provider instanceof GOTWorldProvider) {
 			GOTBiome gotbiome = (GOTBiome) biome;
 			GOTWorldChunkManager worldChunkMgr = (GOTWorldChunkManager) world.provider.worldChunkMgr;

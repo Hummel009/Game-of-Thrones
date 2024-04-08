@@ -3,6 +3,7 @@ package got.common.entity.animal;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.essos.GOTBiomeQohorForest;
 import got.common.world.biome.essos.GOTBiomeVolantisOrangeForest;
@@ -141,7 +142,7 @@ public class GOTEntityButterfly extends EntityLiving implements GOTAmbientCreatu
 		data = super.onSpawnWithEgg(data);
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiomeUlthosForest) {
 			setButterflyType(ButterflyType.ULTHOS);
 		} else if (biome instanceof GOTBiomeQohorForest || biome instanceof GOTBiomeVolantisOrangeForest) {

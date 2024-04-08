@@ -4,6 +4,7 @@ import got.GOT;
 import got.client.GOTReflectionClient;
 import got.common.GOTDate;
 import got.common.GOTTime;
+import got.common.util.GOTCrashHandler;
 import got.common.world.map.GOTFixedStructures;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
@@ -101,7 +102,7 @@ public class GOTRenderNorthernLights {
 		if (!world.isRaining()) {
 			return false;
 		}
-		BiomeGenBase biomegenbase = world.getBiomeGenForCoords(i, k);
+		BiomeGenBase biomegenbase = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		return !biomegenbase.getEnableSnow() && biomegenbase.getFloatTemperature(i, j, k) >= 0.15f && biomegenbase.canSpawnLightningBolt();
 	}
 

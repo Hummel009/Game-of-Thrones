@@ -3,6 +3,7 @@ package got.common.world.structure.other;
 import got.GOT;
 import got.common.GOTConfig;
 import got.common.util.CentredSquareArray;
+import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
@@ -101,7 +102,7 @@ public abstract class GOTStructureBaseSettlement {
 	public void generateInstanceInChunk(AbstractInstance<?> instance, World world, int i, int k) {
 		for (int i1 = i; i1 <= i + 15; ++i1) {
 			for (int k1 = k; k1 <= k + 15; ++k1) {
-				BiomeGenBase biome = world.getBiomeGenForCoords(i1, k1);
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i1, k1);
 				Object[] pathData = getHeight_getPath_isSlab(instance, world, i1, k1, biome);
 				GOTBezierType pathType = (GOTBezierType) pathData[1];
 				if (pathType != null) {

@@ -3,6 +3,7 @@ package got.common.entity.other;
 import got.GOT;
 import got.common.database.GOTGuiId;
 import got.common.item.other.GOTItemMountArmor;
+import got.common.util.GOTCrashHandler;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -50,7 +51,7 @@ public abstract class GOTEntityNPCRideable extends GOTEntityNPC implements GOTNP
 			int i = MathHelper.floor_double(posX);
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock;
+			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
 		}
 		return false;
 	}

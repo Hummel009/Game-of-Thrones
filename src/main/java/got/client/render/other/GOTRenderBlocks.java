@@ -8,6 +8,7 @@ import got.common.tileentity.GOTTileEntityBeacon;
 import got.common.tileentity.GOTTileEntityChest;
 import got.common.tileentity.GOTTileEntityCommandTable;
 import got.common.tileentity.GOTTileEntityUnsmeltery;
+import got.common.util.GOTCrashHandler;
 import net.minecraft.block.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.EntityRenderer;
@@ -1317,7 +1318,7 @@ public class GOTRenderBlocks implements ISimpleBlockRenderingHandler {
 	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int i, int j, int k, Block block, int id, RenderBlocks renderblocks) {
 		boolean fancyGraphics = Minecraft.getMinecraft().gameSettings.fancyGraphics;
-		world.getBiomeGenForCoords(i, k);
+		GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (id == GOT.proxy.getBeaconRenderID()) {
 			renderBeacon(world, i, j, k, renderblocks);
 			return true;

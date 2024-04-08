@@ -50,6 +50,7 @@ import got.common.quest.GOTMiniQuest;
 import got.common.tileentity.GOTTileEntityPlate;
 import got.common.util.GOTEnumDyeColor;
 import got.common.util.GOTModChecker;
+import got.common.util.GOTCrashHandler;
 import got.common.world.GOTTeleporter;
 import got.common.world.GOTWorldProvider;
 import got.common.world.GOTWorldType;
@@ -1181,7 +1182,7 @@ public class GOTEventHandler implements IFuelHandler {
 				while (world.getBlock(i, j + 1, k).getMaterial().isLiquid() || world.getBlock(i, j + 1, k).getMaterial().isSolid()) {
 					j++;
 				}
-				if (j - entity.boundingBox.minY < 2.0D && world.getBlock(i, j, k).getMaterial() == Material.water && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeMossovyMarshes) {
+				if (j - entity.boundingBox.minY < 2.0D && world.getBlock(i, j, k).getMaterial() == Material.water && GOTCrashHandler.getBiomeGenForCoords(world, i, k) instanceof GOTBiomeMossovyMarshes) {
 					List<GOTEntityMarshWraith> nearbyWraiths = world.getEntitiesWithinAABB(GOTEntityMarshWraith.class, entity.boundingBox.expand(15.0D, 15.0D, 15.0D));
 					boolean anyNearbyWraiths = false;
 					for (GOTEntityMarshWraith wraith : nearbyWraiths) {
@@ -1230,7 +1231,7 @@ public class GOTEventHandler implements IFuelHandler {
 				int i = MathHelper.floor_double(entity.posX);
 				int k = MathHelper.floor_double(entity.posZ);
 				world.getTopSolidOrLiquidBlock(i, k);
-				if (world.rand.nextInt(chance) == 0 && world.getBiomeGenForCoords(i, k) instanceof GOTBiomeGhiscarMeereen) {
+				if (world.rand.nextInt(chance) == 0 && GOTCrashHandler.getBiomeGenForCoords(world, i, k) instanceof GOTBiomeGhiscarMeereen) {
 					List<GOTEntityGhiscarHarpy> nearbyHarpies = world.getEntitiesWithinAABB(GOTEntityGhiscarHarpy.class, entity.boundingBox.expand(12.0D, 6.0D, 12.0D));
 					if (nearbyHarpies.isEmpty()) {
 						boolean sentMessage = false;
@@ -1276,7 +1277,7 @@ public class GOTEventHandler implements IFuelHandler {
 			if (flag) {
 				int i = MathHelper.floor_double(entity.posX);
 				int k = MathHelper.floor_double(entity.posZ);
-				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 				if (biome instanceof GOTBiomeShadowLand || biome instanceof GOTBiomeYeen) {
 					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.weakness.id, 600));
@@ -1306,7 +1307,7 @@ public class GOTEventHandler implements IFuelHandler {
 			if (flag) {
 				int i = MathHelper.floor_double(entity.posX);
 				int k = MathHelper.floor_double(entity.posZ);
-				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 				if (biome instanceof GOTBiomeSothoryosHell || biome instanceof GOTBiomeYeen) {
 					entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, 600, 1));
 					entity.addPotionEffect(new PotionEffect(Potion.digSlowdown.id, 600, 1));
@@ -1338,7 +1339,7 @@ public class GOTEventHandler implements IFuelHandler {
 				int i = MathHelper.floor_double(entity.posX);
 				int j = MathHelper.floor_double(entity.boundingBox.minY);
 				int k = MathHelper.floor_double(entity.posZ);
-				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 				boolean standardColdBiome = biome instanceof GOTBiome && biome.temperature == 0.0f;
 				boolean altitudeColdBiome = biome instanceof GOTBiome && ((GOTBiome) biome).getClimateType() != null && ((GOTBiome) biome).getClimateType().isAltitudeZone() && k >= 140;
 				boolean isOpenAir = world.canBlockSeeTheSky(i, j, k);
@@ -1378,7 +1379,7 @@ public class GOTEventHandler implements IFuelHandler {
 				int i = MathHelper.floor_double(entity.posX);
 				int j = MathHelper.floor_double(entity.boundingBox.minY);
 				int k = MathHelper.floor_double(entity.posZ);
-				BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+				BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 				boolean isOpenAir = world.canBlockSeeTheSky(i, j, k);
 				if (biome instanceof GOTBiome.Desert && !inWater && isOpenAir && world.isDaytime()) {
 					int burnChance = 20;
@@ -1667,7 +1668,7 @@ public class GOTEventHandler implements IFuelHandler {
 				return;
 			}
 			if (event.block.canSustainPlant(world, i, j, k, ForgeDirection.UP, Blocks.tallgrass) && event.block instanceof IGrowable) {
-				BiomeGenBase biomegenbase = world.getBiomeGenForCoords(i, k);
+				BiomeGenBase biomegenbase = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 				if (biomegenbase instanceof GOTBiome) {
 					GOTBiome biome = (GOTBiome) biomegenbase;
 					int attempts = 0;

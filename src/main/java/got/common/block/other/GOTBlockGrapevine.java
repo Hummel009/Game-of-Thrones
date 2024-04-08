@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTBlocks;
 import got.common.database.GOTCreativeTabs;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.westeros.GOTBiomeReachArbor;
 import net.minecraft.block.Block;
 import net.minecraft.block.IGrowable;
@@ -191,7 +192,7 @@ public class GOTBlockGrapevine extends Block implements IPlantable, IGrowable {
 				growth += f;
 			}
 		}
-		BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 		if (biome instanceof GOTBiomeReachArbor) {
 			growth *= 1.6f;
 		}

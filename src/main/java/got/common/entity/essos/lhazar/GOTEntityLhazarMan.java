@@ -11,6 +11,7 @@ import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.quest.IPickpocketable;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.essos.GOTBiomeLhazar;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
@@ -87,7 +88,7 @@ public class GOTEntityLhazarMan extends GOTEntityHumanBase implements IPickpocke
 	@Override
 	public float getBlockPathWeight(int i, int j, int k) {
 		float f = 0.0f;
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiomeLhazar) {
 			f += 20.0f;
 		}

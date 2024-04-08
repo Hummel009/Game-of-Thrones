@@ -4,6 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
 import got.common.database.GOTCreativeTabs;
+import got.common.util.GOTCrashHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -49,7 +50,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		int range = 1;
 		for (int i1 = -range; i1 <= range; ++i1) {
 			for (int k1 = -range; k1 <= range; ++k1) {
-				int biomeColor = world.getBiomeGenForCoords(i + i1, k + k1).getBiomeFoliageColor(i + i1, j, k + k1);
+				int biomeColor = GOTCrashHandler.getBiomeGenForCoords(world, i + i1, k + k1).getBiomeFoliageColor(i + i1, j, k + k1);
 				r += (biomeColor & 0xFF0000) >> 16;
 				g += (biomeColor & 0xFF00) >> 8;
 				b += biomeColor & 0xFF;

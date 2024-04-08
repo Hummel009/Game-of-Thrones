@@ -3,6 +3,7 @@ package got.common.block.other;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.GOT;
+import got.common.util.GOTCrashHandler;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -29,7 +30,7 @@ public class GOTBlockClover extends GOTBlockFlower {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
-		return world.getBiomeGenForCoords(i, k).getBiomeGrassColor(i, j, k);
+		return GOTCrashHandler.getBiomeGenForCoords(world, i, k).getBiomeGrassColor(i, j, k);
 	}
 
 	@Override

@@ -6,6 +6,7 @@ import got.GOT;
 import got.client.GOTTickHandlerClient;
 import got.client.render.other.GOTWeatherRenderer;
 import got.common.GOTConfig;
+import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldProvider;
 import got.common.world.biome.essos.GOTBiomeMossovy;
 import got.common.world.biome.essos.GOTBiomeShadowLand;
@@ -74,7 +75,7 @@ public class GOTAmbience {
 			int i = MathHelper.floor_double(x);
 			int j = MathHelper.floor_double(y);
 			int k = MathHelper.floor_double(z);
-			BiomeGenBase biome = world.getBiomeGenForCoords(i, k);
+			BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(world, i, k);
 			Random rand = world.rand;
 			if (enableAmbience) {
 				if (ticksSinceWight > 0) {

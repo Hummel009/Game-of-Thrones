@@ -1,5 +1,6 @@
 package got.common.world;
 
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import got.common.world.biome.variant.GOTBiomeVariant;
 import got.common.world.biome.variant.GOTBiomeVariantStorage;
@@ -146,7 +147,7 @@ public class GOTChunkProvider implements IChunkProvider {
 
 	@Override
 	public List<BiomeGenBase.SpawnListEntry> getPossibleCreatures(EnumCreatureType creatureType, int i, int j, int k) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		return biome == null ? null : biome.getSpawnableList(creatureType);
 	}
 
@@ -325,7 +326,7 @@ public class GOTChunkProvider implements IChunkProvider {
 		BlockFalling.fallInstantly = true;
 		int k = i * 16;
 		int l = j * 16;
-		GOTBiome biome = (GOTBiome) worldObj.getBiomeGenForCoords(k + 16, l + 16);
+		GOTBiome biome = (GOTBiome) GOTCrashHandler.getBiomeGenForCoords(worldObj, k + 16, l + 16);
 		GOTBiomeVariant variant = ((GOTWorldChunkManager) worldObj.getWorldChunkManager()).getBiomeVariantAt(k + 16, l + 16);
 		rand.setSeed(worldObj.getSeed());
 		long l1 = rand.nextLong() / 2L * 2L + 1L;

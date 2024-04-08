@@ -17,6 +17,7 @@ import got.common.faction.GOTAlignmentValues;
 import got.common.faction.GOTFaction;
 import got.common.item.other.GOTItemCoin;
 import got.common.item.other.GOTItemModifierTemplate;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -447,7 +448,7 @@ public abstract class GOTMiniQuest {
 		dateGiven = GOTDate.AegonCalendar.currentDay;
 		int i = MathHelper.floor_double(entityplayer.posX);
 		int k = MathHelper.floor_double(entityplayer.posZ);
-		BiomeGenBase biome = entityplayer.worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(entityplayer.worldObj, i, k);
 		if (biome instanceof GOTBiome) {
 			biomeGiven = (GOTBiome) biome;
 		}

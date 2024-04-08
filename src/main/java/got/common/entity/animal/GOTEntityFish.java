@@ -3,6 +3,7 @@ package got.common.entity.animal;
 import got.common.database.GOTItems;
 import got.common.entity.other.GOTEntityRegistry;
 import got.common.entity.other.GOTRandomSkinEntity;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.GOTBiome.ImmuneToFrost;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.IEntityLivingData;
@@ -121,7 +122,7 @@ public class GOTEntityFish extends EntityWaterMob implements GOTRandomSkinEntity
 		data = super.onSpawnWithEgg(data);
 		int i = MathHelper.floor_double(posX);
 		int k = MathHelper.floor_double(posZ);
-		worldObj.getBiomeGenForCoords(i, k);
+		GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (rand.nextInt(30) == 0) {
 			setFishType(FishType.CLOWNFISH);
 		} else if (rand.nextInt(8) == 0) {

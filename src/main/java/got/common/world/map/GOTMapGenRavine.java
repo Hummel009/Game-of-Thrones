@@ -1,5 +1,6 @@
 package got.common.world.map;
 
+import got.common.util.GOTCrashHandler;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
@@ -14,7 +15,7 @@ public class GOTMapGenRavine extends MapGenRavine {
 
 	@Override
 	public void digBlock(Block[] data, int index, int i, int j, int k, int chunkX, int chunkZ, boolean topBlock) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i + chunkX * 16, k + chunkZ * 16);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i + chunkX * 16, k + chunkZ * 16);
 		Block top = biome.topBlock;
 		Block filler = biome.fillerBlock;
 		Block block = data[index];
@@ -32,7 +33,7 @@ public class GOTMapGenRavine extends MapGenRavine {
 
 	@Override
 	public void func_151538_a(World world, int i, int k, int chunkX, int chunkZ, Block[] blocks) {
-		worldObj.getBiomeGenForCoords(chunkX * 16, chunkZ * 16);
+		GOTCrashHandler.getBiomeGenForCoords(worldObj, chunkX * 16, chunkZ * 16);
 		if (rand.nextBoolean()) {
 			super.func_151538_a(world, i, k, chunkX, chunkZ, blocks);
 		}
@@ -154,7 +155,7 @@ public class GOTMapGenRavine extends MapGenRavine {
 	}
 
 	public boolean isTopBlock(Block[] data, int index, int i, int j, int k, int chunkX, int chunkZ) {
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i + chunkX * 16, k + chunkZ * 16);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i + chunkX * 16, k + chunkZ * 16);
 		return data[index] == biome.topBlock;
 	}
 }

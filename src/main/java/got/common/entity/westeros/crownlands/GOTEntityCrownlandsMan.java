@@ -13,6 +13,7 @@ import got.common.faction.GOTFaction;
 import got.common.quest.GOTMiniQuest;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.quest.IPickpocketable;
+import got.common.util.GOTCrashHandler;
 import got.common.world.biome.westeros.GOTBiomeCrownlands;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IEntityLivingData;
@@ -96,7 +97,7 @@ public class GOTEntityCrownlandsMan extends GOTEntityHumanBase implements IPickp
 	@Override
 	public float getBlockPathWeight(int i, int j, int k) {
 		float f = 0.0f;
-		BiomeGenBase biome = worldObj.getBiomeGenForCoords(i, k);
+		BiomeGenBase biome = GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k);
 		if (biome instanceof GOTBiomeCrownlands) {
 			f += 20.0f;
 		}
@@ -117,7 +118,7 @@ public class GOTEntityCrownlandsMan extends GOTEntityHumanBase implements IPickp
 			int i = MathHelper.floor_double(posX);
 			int j = MathHelper.floor_double(boundingBox.minY);
 			int k = MathHelper.floor_double(posZ);
-			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == worldObj.getBiomeGenForCoords(i, k).topBlock;
+			return j > 62 && j < 140 && worldObj.getBlock(i, j - 1, k) == GOTCrashHandler.getBiomeGenForCoords(worldObj, i, k).topBlock;
 		}
 		return false;
 	}
