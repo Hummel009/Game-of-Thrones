@@ -1,8 +1,4 @@
-> [!CAUTION]
-> С 10.07.2024 разработка проекта завершена. Инструментарий будет поддерживаться в актуальном и рабочем состоянии, но
-> правки в основной код вноситься не будут.
-
-<div align = center>
+<div style = "text-align: center">
 
 <br>
 
@@ -26,9 +22,15 @@
 <!----------------------------------------------------------------------------->
 
 [License]: LICENSE
+
 [Curse]: https://www.curseforge.com/minecraft/mc-mods/gotminecraftmod
+
 [Logo]: src/main/resources/assets/got/textures/logo.png
+
 [Wiki]: https://gotminecraftmod.fandom.com/ru
+
 [Badge License]: https://img.shields.io/badge/License-GPL_3-0167a0.svg?style=for-the-badge&labelColor=blue
+
 [Button Curse]: https://img.shields.io/badge/Download-f16436.svg?style=for-the-badge&logoColor=white&logo=CurseForge
+
 [Button Wiki]: https://img.shields.io/badge/Wiki-FA005A.svg?style=for-the-badge&logoColor=white&logo=Fandom
