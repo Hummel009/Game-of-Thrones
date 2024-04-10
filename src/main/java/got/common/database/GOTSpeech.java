@@ -25,29 +25,32 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
-import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class GOTSpeech {
-	public static Map<String, SpeechBank> allSpeechBanks = new HashMap<>();
-	public static Random rand = new Random();
+	private static final Map<String, SpeechBank> ALL_SPEECH_BANKS = new HashMap<>();
+	private static final Random RANDOM = new Random();
+
+	private GOTSpeech() {
+	}
 
 	public static String formatSpeech(String speech, ICommandSender entityplayer, CharSequence location, CharSequence objective) {
+		String s = speech;
 		if (entityplayer != null) {
-			speech = speech.replace("#", entityplayer.getCommandSenderName());
+			s = s.replace("#", entityplayer.getCommandSenderName());
 		}
 		if (location != null) {
-			speech = speech.replace("@", location);
+			s = s.replace("@", location);
 		}
 		if (objective != null) {
-			speech = speech.replace("$", objective);
+			return s.replace("$", objective);
 		}
-		return speech;
+		return s;
 	}
 
 	public static String getRandomSpeech(String bankName) {
-		return getSpeechBank(bankName).getRandomSpeech(rand);
+		return getSpeechBank(bankName).getRandomSpeech();
 	}
 
 	public static String getRandomSpeechForPlayer(GOTEntityNPC entity, String speechBankName, ICommandSender entityplayer) {
@@ -69,25 +72,11 @@ public class GOTSpeech {
 	}
 
 	public static SpeechBank getSpeechBank(String name) {
-		SpeechBank bank = allSpeechBanks.get(name);
+		SpeechBank bank = ALL_SPEECH_BANKS.get(name);
 		if (bank != null) {
 			return bank;
 		}
 		return new SpeechBank("dummy_" + name, true, Collections.singletonList("Speech bank " + name + " could not be found!"));
-	}
-
-	public static String getSpeechLineForPlayer(GOTEntityNPC entity, String speechBankName, int i, ICommandSender entityplayer) {
-		return getSpeechLineForPlayer(entity, speechBankName, i, entityplayer, null, null);
-	}
-
-	public static String getSpeechLineForPlayer(GOTEntityNPC entity, String speechBankName, int i, ICommandSender entityplayer, CharSequence location, CharSequence objective) {
-		String s = getSpeechAtLine(speechBankName, i);
-		s = formatSpeech(s, entityplayer, location, objective);
-		if (entity.isDrunkard()) {
-			float f = entity.getDrunkenSpeechFactor();
-			s = GOTDrunkenSpeech.getDrunkenSpeech(s, f);
-		}
-		return s;
 	}
 
 	public static void onInit() {
@@ -141,7 +130,7 @@ public class GOTSpeech {
 			FMLLog.severe("Failed to onInit GOT speech banks");
 			e.printStackTrace();
 		}
-		for (Entry<String, BufferedReader> speechBankName : speechBankNamesAndReaders.entrySet()) {
+		for (Map.Entry<String, BufferedReader> speechBankName : speechBankNamesAndReaders.entrySet()) {
 			BufferedReader reader = speechBankName.getValue();
 			try {
 				String line;
@@ -167,7 +156,7 @@ public class GOTSpeech {
 				} else {
 					bank = new SpeechBank(speechBankName.getKey(), false, allLines);
 				}
-				allSpeechBanks.put(speechBankName.getKey(), bank);
+				ALL_SPEECH_BANKS.put(speechBankName.getKey(), bank);
 			} catch (Exception e) {
 				FMLLog.severe("Failed to onInit GOT speech bank " + speechBankName.getKey());
 				e.printStackTrace();
@@ -186,7 +175,7 @@ public class GOTSpeech {
 		sendSpeech(entityplayer, entity, speech, false);
 	}
 
-	public static void sendSpeech(EntityPlayer entityplayer, GOTEntityNPC entity, String speech, boolean forceChatMsg) {
+	private static void sendSpeech(EntityPlayer entityplayer, GOTEntityNPC entity, String speech, boolean forceChatMsg) {
 		IMessage packet = new GOTPacketNPCSpeech(entity.getEntityId(), speech, forceChatMsg);
 		GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
 	}
@@ -201,9 +190,10 @@ public class GOTSpeech {
 	}
 
 	public static class SpeechBank {
-		public String name;
-		public boolean isRandom;
-		public List<String> speeches;
+		private final List<String> speeches;
+
+		private String name;
+		private boolean isRandom;
 
 		public SpeechBank(String s, boolean r, List<String> spc) {
 			name = s;
@@ -211,11 +201,11 @@ public class GOTSpeech {
 			speeches = spc;
 		}
 
-		public String getRandomSpeech(Random random) {
+		public String getRandomSpeech() {
 			if (!isRandom) {
 				return "ERROR: Tried to retrieve random speech from non-random speech bank " + name;
 			}
-			String s = speeches.get(rand.nextInt(speeches.size()));
+			String s = speeches.get(RANDOM.nextInt(speeches.size()));
 			return internalFormatSpeech(s);
 		}
 
@@ -234,6 +224,21 @@ public class GOTSpeech {
 		public String internalFormatSpeech(String s) {
 			return s;
 		}
-	}
 
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public boolean isRandom() {
+			return isRandom;
+		}
+
+		public void setRandom(boolean random) {
+			isRandom = random;
+		}
+	}
 }
