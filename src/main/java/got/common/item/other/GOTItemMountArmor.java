@@ -52,9 +52,8 @@ public class GOTItemMountArmor extends Item {
 				index = 3;
 			}
 			return GOTReflection.getHorseArmorTextures()[index];
-		} else {
-			return "got:textures/armor/mount/" + textureName + ".png";
 		}
+		return "got:textures/armor/mount/" + textureName + ".png";
 	}
 
 	public int getDamageReduceAmount() {

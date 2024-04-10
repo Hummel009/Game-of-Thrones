@@ -123,9 +123,8 @@ public class GOTItemBrandingIron extends Item {
 		if (hasBrandName(itemstack)) {
 			String brandName = getBrandName(itemstack);
 			return StatCollector.translateToLocalFormatted("item.got.brandingIron.named", name, brandName);
-		} else {
-			return StatCollector.translateToLocalFormatted("item.got.brandingIron.unnamed", name);
 		}
+		return StatCollector.translateToLocalFormatted("item.got.brandingIron.unnamed", name);
 	}
 
 	@Override
