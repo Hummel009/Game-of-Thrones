@@ -8,7 +8,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class GOTItemBlockMetadata extends ItemBlock {
-	protected GOTItemBlockMetadata(Block block) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTItemBlockMetadata(Block block) {
 		super(block);
 		setMaxDamage(0);
 		setHasSubtypes(true);

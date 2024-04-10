@@ -1043,7 +1043,8 @@ public class GOTTradeEntries {
 
 	private GOTItemMug.Vessel[] drinkVessels;
 
-	private GOTTradeEntries(GOTTradeEntries.TradeType t, List<GOTTradeEntry> list) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTTradeEntries(GOTTradeEntries.TradeType t, List<GOTTradeEntry> list) {
 		GOTTradeEntry[] arr = new GOTTradeEntry[list.size()];
 		arr = list.toArray(arr);
 		tradeType = t;

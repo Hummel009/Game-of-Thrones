@@ -350,11 +350,13 @@ public class GOTAchievement {
 		this(c, i, new ItemStack(item), s);
 	}
 
-	private GOTAchievement(Category c, int i, Block block, String s) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTAchievement(Category c, int i, Block block, String s) {
 		this(c, i, new ItemStack(block), s);
 	}
 
-	private GOTAchievement(Category c, int i, ItemStack itemstack, String s) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTAchievement(Category c, int i, ItemStack itemstack, String s) {
 		category = c;
 		id = i;
 		icon = itemstack;

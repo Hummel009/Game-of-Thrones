@@ -28,7 +28,8 @@ public class GOTFoods {
 	private GOTItemMug.Vessel[] drinkVessels;
 	private GOTItemMug.Vessel[] drinkVesselsPlaceable;
 
-	private GOTFoods(ItemStack[] items) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTFoods(ItemStack[] items) {
 		foodList = items;
 	}
 

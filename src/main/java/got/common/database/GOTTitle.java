@@ -47,7 +47,8 @@ public class GOTTitle {
 		isFeminineRank = fem;
 	}
 
-	private GOTTitle(String s) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTTitle(String s) {
 		titleID = nextTitleID;
 		nextTitleID++;
 		name = s;

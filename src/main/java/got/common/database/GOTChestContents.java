@@ -1170,7 +1170,8 @@ public class GOTChestContents {
 	private List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
 	private int loreChance = 10;
 
-	private GOTChestContents(int i, int j, List<WeightedRandomChestContent> list) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTChestContents(int i, int j, List<WeightedRandomChestContent> list) {
 		WeightedRandomChestContent[] w = new WeightedRandomChestContent[list.size()];
 		w = list.toArray(w);
 		minItems = i;

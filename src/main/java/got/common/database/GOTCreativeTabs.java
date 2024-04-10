@@ -22,7 +22,8 @@ public class GOTCreativeTabs extends CreativeTabs {
 
 	private ItemStack theIcon;
 
-	private GOTCreativeTabs(String label) {
+	@SuppressWarnings("WeakerAccess")
+	public GOTCreativeTabs(String label) {
 		super(label);
 	}
 
