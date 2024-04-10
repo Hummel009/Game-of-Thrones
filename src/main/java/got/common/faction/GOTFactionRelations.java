@@ -18,9 +18,9 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTFactionRelations {
-	private static final Map<FactionPair, Relation> OVERRIDE_MAP = new HashMap<>();
-
 	public static final Map<FactionPair, Relation> DEFAULT_MAP = new HashMap<>();
+
+	private static final Map<FactionPair, Relation> OVERRIDE_MAP = new HashMap<>();
 
 	private static boolean needsLoad = true;
 	private static boolean needsSave;

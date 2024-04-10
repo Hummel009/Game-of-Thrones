@@ -12,13 +12,12 @@ public class GOTFactionRank implements Comparable<GOTFactionRank> {
 	public static final GOTFactionRank RANK_NEUTRAL = new Dummy("got.rank.neutral");
 	public static final GOTFactionRank RANK_ENEMY = new Dummy("got.rank.enemy");
 
+	protected final String name;
+
 	private final GOTFaction faction;
 	private final float alignment;
 
-	protected final String name;
-
 	private GOTAchievementRank rankAchievement;
-
 	private boolean addFacName = true;
 
 	public GOTFactionRank(GOTFaction f, float al, String s) {

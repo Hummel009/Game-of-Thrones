@@ -15,31 +15,6 @@ import net.minecraft.util.MathHelper;
 import java.util.*;
 
 public class GOTTradeEntries {
-	private static final int VALYRIAN_INGOT_SELL = 512;
-	private static final int GOLD_INGOT_SELL = 128;
-	private static final int SILVER_INGOT_SELL = 32;
-	private static final int VALYRIAN_INGOT_BUY = 768;
-	private static final int GOLD_INGOT_BUY = 192;
-	private static final int SILVER_INGOT_BUY = 48;
-	private static final int AMBER_SELL = 30;
-	private static final int AMETHYST_SELL = 20;
-	private static final int DIAMOND_SELL = 60;
-	private static final int EMERALD_SELL = 40;
-	private static final int OPAL_SELL = 30;
-	private static final int PEARL_SELL = 30;
-	private static final int RUBY_SELL = 30;
-	private static final int SAPPHIRE_SELL = 30;
-	private static final int TOPAZ_SELL = 20;
-	private static final int AMBER_BUY = 45;
-	private static final int AMETHYST_BUY = 30;
-	private static final int DIAMOND_BUY = 90;
-	private static final int EMERALD_BUY = 60;
-	private static final int OPAL_BUY = 45;
-	private static final int PEARL_BUY = 45;
-	private static final int RUBY_BUY = 45;
-	private static final int SAPPHIRE_BUY = 45;
-	private static final int TOPAZ_BUY = 30;
-
 	public static final GOTTradeEntries BAELISH_BUY;
 	public static final GOTTradeEntries C_ALCHEMIST_BUY;
 	public static final GOTTradeEntries C_BAKER_BUY;
@@ -84,6 +59,31 @@ public class GOTTradeEntries {
 	public static final GOTTradeEntries NORD_MASON_BUY;
 	public static final GOTTradeEntries YITI_BLACKSMITH_BUY;
 	public static final GOTTradeEntries YITI_MASON_BUY;
+
+	private static final int VALYRIAN_INGOT_SELL = 512;
+	private static final int GOLD_INGOT_SELL = 128;
+	private static final int SILVER_INGOT_SELL = 32;
+	private static final int VALYRIAN_INGOT_BUY = 768;
+	private static final int GOLD_INGOT_BUY = 192;
+	private static final int SILVER_INGOT_BUY = 48;
+	private static final int AMBER_SELL = 30;
+	private static final int AMETHYST_SELL = 20;
+	private static final int DIAMOND_SELL = 60;
+	private static final int EMERALD_SELL = 40;
+	private static final int OPAL_SELL = 30;
+	private static final int PEARL_SELL = 30;
+	private static final int RUBY_SELL = 30;
+	private static final int SAPPHIRE_SELL = 30;
+	private static final int TOPAZ_SELL = 20;
+	private static final int AMBER_BUY = 45;
+	private static final int AMETHYST_BUY = 30;
+	private static final int DIAMOND_BUY = 90;
+	private static final int EMERALD_BUY = 60;
+	private static final int OPAL_BUY = 45;
+	private static final int PEARL_BUY = 45;
+	private static final int RUBY_BUY = 45;
+	private static final int SAPPHIRE_BUY = 45;
+	private static final int TOPAZ_BUY = 30;
 
 	private static final List<GOTTradeEntry> BAELISH_B_L = new ArrayList<>();
 	private static final List<GOTTradeEntry> C_ALCHEMIST_B_L = new ArrayList<>();
