@@ -2,7 +2,6 @@ package got.common.enchant;
 
 import got.common.item.GOTWeaponStats;
 import got.common.item.weapon.GOTItemThrowingAxe;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 

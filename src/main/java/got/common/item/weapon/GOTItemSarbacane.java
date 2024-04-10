@@ -31,7 +31,7 @@ public class GOTItemSarbacane extends Item {
 		if (EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, itemstack) + GOTEnchantmentHelper.calcFireAspect(itemstack) > 0) {
 			dart.setFire(100);
 		}
-		for (GOTEnchantment ench : GOTEnchantment.ALL_ENCHANTMENTS) {
+		for (GOTEnchantment ench : GOTEnchantment.CONTENT) {
 			if (!ench.applyToProjectile() || !GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
 				continue;
 			}

@@ -20,7 +20,7 @@ import net.minecraft.util.WeightedRandom;
 import java.util.*;
 
 public class GOTEnchantmentHelper {
-	private static final Map<UUID, ItemStack[]> lastKnownPlayerInventories = new HashMap<>();
+	private static final Map<UUID, ItemStack[]> LAST_KNOWN_PLAYER_INVENTORIES = new HashMap<>();
 
 	private static Random backupRand;
 
@@ -56,7 +56,7 @@ public class GOTEnchantmentHelper {
 		}
 
 		Collection<WeightedRandomEnchant> applicable = new ArrayList<>();
-		for (GOTEnchantment ench : GOTEnchantment.ALL_ENCHANTMENTS) {
+		for (GOTEnchantment ench : GOTEnchantment.CONTENT) {
 			if (ench.canApply(itemstack, true) && (!ench.isSkilful() || skilful)) {
 				int weight = ench.getEnchantWeight();
 				if (weight > 0) {
@@ -320,7 +320,7 @@ public class GOTEnchantmentHelper {
 	}
 
 	private static boolean canApplyAnyEnchant(ItemStack itemstack) {
-		for (GOTEnchantment ench : GOTEnchantment.ALL_ENCHANTMENTS) {
+		for (GOTEnchantment ench : GOTEnchantment.CONTENT) {
 			if (ench.canApply(itemstack, true)) {
 				return true;
 			}
@@ -561,7 +561,7 @@ public class GOTEnchantmentHelper {
 				UUID playerID = entityplayer.getUniqueID();
 				InventoryPlayer inv = entityplayer.inventory;
 
-				ItemStack[] lastKnownInv = lastKnownPlayerInventories.get(playerID);
+				ItemStack[] lastKnownInv = LAST_KNOWN_PLAYER_INVENTORIES.get(playerID);
 				if (lastKnownInv == null) {
 					lastKnownInv = new ItemStack[inv.getSizeInventory()];
 				}
@@ -581,9 +581,9 @@ public class GOTEnchantmentHelper {
 					entityplayer.updateHeldItem();
 				}
 
-				lastKnownPlayerInventories.put(playerID, lastKnownInv);
-				if (lastKnownPlayerInventories.size() > 200) {
-					lastKnownPlayerInventories.clear();
+				LAST_KNOWN_PLAYER_INVENTORIES.put(playerID, lastKnownInv);
+				if (LAST_KNOWN_PLAYER_INVENTORIES.size() > 200) {
+					LAST_KNOWN_PLAYER_INVENTORIES.clear();
 				}
 			}
 		}

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTEnchantmentCombining {
-	private static final Collection<CombineRecipe> allCombineRecipes = new ArrayList<>();
+	private static final Collection<CombineRecipe> ALL_COMBINE_RECIPES = new ArrayList<>();
 
 	private GOTEnchantmentCombining() {
 	}
@@ -20,7 +20,7 @@ public class GOTEnchantmentCombining {
 		if (cost < 0) {
 			throw new IllegalArgumentException("Cost must not be negative!");
 		}
-		allCombineRecipes.add(new CombineRecipe(in, out, cost));
+		ALL_COMBINE_RECIPES.add(new CombineRecipe(in, out, cost));
 	}
 
 	public static CombineRecipe getCombinationResult(ItemStack item1, ItemStack item2) {
@@ -28,7 +28,7 @@ public class GOTEnchantmentCombining {
 			GOTEnchantment mod1 = GOTItemModifierTemplate.getModifier(item1);
 			GOTEnchantment mod2 = GOTItemModifierTemplate.getModifier(item2);
 			if (mod1 == mod2) {
-				for (CombineRecipe recipe : allCombineRecipes) {
+				for (CombineRecipe recipe : ALL_COMBINE_RECIPES) {
 					if (recipe.getInputMod() == mod1) {
 						return recipe;
 					}

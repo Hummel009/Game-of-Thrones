@@ -36,7 +36,7 @@ public class GOTItemModifierTemplate extends Item {
 
 	public static ItemStack getRandomCommonTemplate(Random random) {
 		Collection<GOTEnchantmentHelper.WeightedRandomEnchant> applicable = new ArrayList<>();
-		for (GOTEnchantment ench : GOTEnchantment.ALL_ENCHANTMENTS) {
+		for (GOTEnchantment ench : GOTEnchantment.CONTENT) {
 			if (!ench.hasTemplateItem()) {
 				continue;
 			}
@@ -82,7 +82,7 @@ public class GOTItemModifierTemplate extends Item {
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (GOTEnchantment ench : GOTEnchantment.ALL_ENCHANTMENTS) {
+		for (GOTEnchantment ench : GOTEnchantment.CONTENT) {
 			if (!ench.hasTemplateItem()) {
 				continue;
 			}

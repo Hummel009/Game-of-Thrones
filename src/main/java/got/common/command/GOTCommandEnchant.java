@@ -28,7 +28,7 @@ public class GOTCommandEnchant extends CommandBase {
 					ItemStack itemstack2 = entityplayer2.getHeldItem();
 					if (itemstack2 != null) {
 						ArrayList<String> enchNames = new ArrayList<>();
-						for (GOTEnchantment ench : GOTEnchantment.ALL_ENCHANTMENTS) {
+						for (GOTEnchantment ench : GOTEnchantment.CONTENT) {
 							if (GOTEnchantmentHelper.hasEnchant(itemstack2, ench) || !ench.canApply(itemstack2, false) || !GOTEnchantmentHelper.checkEnchantCompatible(itemstack2, ench)) {
 								continue;
 							}
@@ -38,7 +38,7 @@ public class GOTCommandEnchant extends CommandBase {
 					}
 				} else if ("remove".equals(args[1]) && (itemstack = getPlayer(sender, args[0]).getHeldItem()) != null) {
 					ArrayList<String> enchNames = new ArrayList<>();
-					for (GOTEnchantment ench : GOTEnchantment.ALL_ENCHANTMENTS) {
+					for (GOTEnchantment ench : GOTEnchantment.CONTENT) {
 						if (!GOTEnchantmentHelper.hasEnchant(itemstack, ench)) {
 							continue;
 						}
