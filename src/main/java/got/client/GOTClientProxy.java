@@ -52,6 +52,7 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.EmptyChunk;
+import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.opengl.GL11;
 
 import java.util.List;
@@ -565,8 +566,11 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void preInit() {
 		System.setProperty("fml.skipFirstTextureLoad", "false");
+
 		GOTItemRendererManager.preInit();
-		GOTArmorModels.preInit();
+
+		GOTArmorModels instance = GOTArmorModels.INSTANCE;
+		MinecraftForge.EVENT_BUS.register(instance);
 	}
 
 	@Override

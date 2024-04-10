@@ -338,7 +338,7 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullYitiFrontier;
 	public static GOTAchievement wearFullYitiSamurai;
 
-	private Collection<GOTFaction> allyFactions = new ArrayList<>();
+	private final Collection<GOTFaction> allyFactions = new ArrayList<>();
 
 	private Category category;
 	private int id;

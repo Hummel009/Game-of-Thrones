@@ -931,7 +931,7 @@ public class DatabaseGenerator {
 					Collection<GOTCapes> facCapes = new ArrayList<>();
 					Collection<GOTShields> facShields = new ArrayList<>();
 					for (GOTCapes cape : CAPES) {
-						if (cape.alignmentFaction == fac) {
+						if (cape.getAlignmentFaction() == fac) {
 							facCapes.add(cape);
 						}
 					}

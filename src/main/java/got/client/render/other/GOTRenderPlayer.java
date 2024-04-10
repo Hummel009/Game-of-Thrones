@@ -139,7 +139,7 @@ public class GOTRenderPlayer {
 		if (cape != null) {
 			if (!entityplayer.isInvisible()) {
 				Minecraft mc = Minecraft.getMinecraft();
-				ResourceLocation capeTexture = cape.capeTexture;
+				ResourceLocation capeTexture = cape.getCapeTexture();
 				GL11.glPushMatrix();
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				GL11.glTranslatef(0.0f, 0.0f, 0.125f);
@@ -159,7 +159,7 @@ public class GOTRenderPlayer {
 				GL11.glAlphaFunc(516, 0.003921569f);
 
 				Minecraft mc = Minecraft.getMinecraft();
-				ResourceLocation capeTexture = cape.capeTexture;
+				ResourceLocation capeTexture = cape.getCapeTexture();
 				GL11.glPushMatrix();
 				GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);
 				GL11.glTranslatef(0.0f, 0.0f, 0.125f);

@@ -8,7 +8,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import got.client.GOTTextures;
 import got.common.GOTDimension;
-import got.common.GOTDimension.DimensionRegion;
 import got.common.GOTLore;
 import got.common.database.*;
 import got.common.faction.GOTFaction;
@@ -20,7 +19,6 @@ import got.common.world.biome.GOTBiome;
 import got.common.world.feature.GOTTreeType;
 import got.common.world.genlayer.GOTGenLayerWorld;
 import got.common.world.map.GOTBeziers;
-import got.common.world.map.GOTBeziers.BezierPointDatabase;
 import got.common.world.map.GOTMapLabels;
 import got.common.world.map.GOTMountains;
 import got.common.world.map.GOTWaypoint;
@@ -42,7 +40,11 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.*;
 
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class GOTAPI {
+	private GOTAPI() {
+	}
+
 	/**
 	 * @param enumName - name of the new achievement category in enum.
 	 * @param biome    - biome name turns into the category name.
@@ -132,10 +134,10 @@ public class GOTAPI {
 	 * @param regionName - name of the region, should be translated.
 	 * @apiNote Creates new dimension region.
 	 */
-	public static DimensionRegion addDimensionRegion(String enumName, String regionName) {
+	public static GOTDimension.DimensionRegion addDimensionRegion(String enumName, String regionName) {
 		Class<String>[] classArr = new Class[]{String.class};
 		Object[] args = {regionName};
-		return EnumHelper.addEnum(DimensionRegion.class, enumName, classArr, args);
+		return EnumHelper.addEnum(GOTDimension.DimensionRegion.class, enumName, classArr, args);
 	}
 
 	/**
@@ -145,8 +147,8 @@ public class GOTAPI {
 	 * @param mapInfo  - square of the map displayed on the faction page.
 	 * @apiNote Creates new faction
 	 */
-	public static GOTFaction addFaction(String enumName, int color, DimensionRegion region, GOTMapRegion mapInfo) {
-		Class<?>[] classArr = {Integer.TYPE, GOTDimension.class, DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
+	public static GOTFaction addFaction(String enumName, int color, GOTDimension.DimensionRegion region, GOTMapRegion mapInfo) {
+		Class<?>[] classArr = {Integer.TYPE, GOTDimension.class, GOTDimension.DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
 		Object[] args = {color, GOTDimension.GAME_OF_THRONES, region, true, true, Integer.MIN_VALUE, mapInfo};
 		return EnumHelper.addEnum(GOTFaction.class, enumName, classArr, args);
 	}
@@ -164,8 +166,8 @@ public class GOTAPI {
 	 * @deprecated Complex way, only for advanced developers.
 	 */
 	@Deprecated
-	public static GOTFaction addFaction(String enumName, int color, GOTDimension dim, DimensionRegion region, boolean player, boolean registry, int alignment, GOTMapRegion mapInfo) {
-		Class<?>[] classArr = {Integer.TYPE, GOTDimension.class, DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
+	public static GOTFaction addFaction(String enumName, int color, GOTDimension dim, GOTDimension.DimensionRegion region, boolean player, boolean registry, int alignment, GOTMapRegion mapInfo) {
+		Class<?>[] classArr = {Integer.TYPE, GOTDimension.class, GOTDimension.DimensionRegion.class, Boolean.TYPE, Boolean.TYPE, Integer.TYPE, GOTMapRegion.class};
 		Object[] args = {color, dim, region, player, registry, alignment, mapInfo};
 		return EnumHelper.addEnum(GOTFaction.class, enumName, classArr, args);
 	}
@@ -363,7 +365,7 @@ public class GOTAPI {
 	 * @param newRegion - new dimension region.
 	 * @apiNote Moves faction from one region category to the another.
 	 */
-	public static void changeDimensionRegion(GOTFaction faction, DimensionRegion newRegion) {
+	public static void changeDimensionRegion(GOTFaction faction, GOTDimension.DimensionRegion newRegion) {
 		faction.getFactionRegion().factionList.remove(faction);
 		newRegion.factionList.add(faction);
 		faction.setFactionRegion(newRegion);
@@ -382,9 +384,9 @@ public class GOTAPI {
 	 */
 	public static void clearBezierDataBase() {
 		GOTBeziers.allBeziers.clear();
-		GOTBeziers.roadPointDatabase = new BezierPointDatabase();
-		GOTBeziers.wallPointDatabase = new BezierPointDatabase();
-		GOTBeziers.linkerPointDatabase = new BezierPointDatabase();
+		GOTBeziers.roadPointDatabase = new GOTBeziers.BezierPointDatabase();
+		GOTBeziers.wallPointDatabase = new GOTBeziers.BezierPointDatabase();
+		GOTBeziers.linkerPointDatabase = new GOTBeziers.BezierPointDatabase();
 	}
 
 	/**
@@ -516,7 +518,7 @@ public class GOTAPI {
 	 */
 	public static void removeCapes(GOTCapes... content) {
 		for (GOTCapes removal : content) {
-			removal.isHidden = true;
+			removal.setHidden(true);
 		}
 	}
 
@@ -528,7 +530,7 @@ public class GOTAPI {
 		for (GOTCapes removal : GOTCapes.values()) {
 			for (GOTCapes excluded : content) {
 				if (excluded != removal) {
-					removal.isHidden = true;
+					removal.setHidden(true);
 					break;
 				}
 			}
@@ -725,7 +727,7 @@ public class GOTAPI {
 	 * @deprecated No sense: only GAME_OF_THRONES dimension is available.
 	 */
 	@Deprecated
-	public static void setDimensionForRegion(DimensionRegion region, GOTDimension dimension) {
+	public static void setDimensionForRegion(GOTDimension.DimensionRegion region, GOTDimension dimension) {
 		region.setDimension(dimension);
 		dimension.dimensionRegions.add(region);
 	}

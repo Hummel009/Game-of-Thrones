@@ -18,24 +18,15 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.*;
 import net.minecraftforge.client.event.RenderLivingEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
-import net.minecraftforge.common.MinecraftForge;
 import org.lwjgl.opengl.GL11;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class GOTArmorModels {
-	public static GOTArmorModels INSTANCE;
+	public static final GOTArmorModels INSTANCE = new GOTArmorModels();
 
 	private final Map<ModelBiped, Map<Item, ModelBiped>> specialArmorModels = new HashMap<>();
-
-	private GOTArmorModels() {
-		MinecraftForge.EVENT_BUS.register(this);
-	}
-
-	public static void preInit() {
-		INSTANCE = new GOTArmorModels();
-	}
 
 	public void copyBoxRotations(ModelRenderer target, ModelRenderer src) {
 		target.rotationPointX = src.rotationPointX;
