@@ -73,7 +73,7 @@ public class GOTItemModifierTemplate extends Item {
 		String s = super.getItemStackDisplayName(itemstack);
 		GOTEnchantment mod = getModifier(itemstack);
 		if (mod != null) {
-			s = String.format(s, mod.getDisplayName());
+			return String.format(s, mod.getDisplayName());
 		}
 		return s;
 	}

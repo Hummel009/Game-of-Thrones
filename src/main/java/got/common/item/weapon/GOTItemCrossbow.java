@@ -165,7 +165,7 @@ public class GOTItemCrossbow extends ItemBow {
 	public String getItemStackDisplayName(ItemStack itemstack) {
 		String name = super.getItemStackDisplayName(itemstack);
 		if (isLoaded(itemstack)) {
-			name = StatCollector.translateToLocalFormatted("item.got.crossbow.loaded", name);
+			return StatCollector.translateToLocalFormatted("item.got.crossbow.loaded", name);
 		}
 		return name;
 	}

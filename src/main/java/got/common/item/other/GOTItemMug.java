@@ -132,7 +132,7 @@ public class GOTItemMug extends Item {
 	public static int getStrengthMeta(int damage) {
 		int i = damage % vesselMeta;
 		if (i < 0 || i >= strengths.length) {
-			i = 0;
+			return 0;
 		}
 		return i;
 	}

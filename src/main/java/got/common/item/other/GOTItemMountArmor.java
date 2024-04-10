@@ -40,7 +40,6 @@ public class GOTItemMountArmor extends Item {
 	}
 
 	public String getArmorTexture() {
-		String path;
 		if (templateItem != null) {
 			int index = 0;
 			if (templateItem == Items.iron_horse_armor) {
@@ -52,11 +51,10 @@ public class GOTItemMountArmor extends Item {
 			if (templateItem == Items.diamond_horse_armor) {
 				index = 3;
 			}
-			path = GOTReflection.getHorseArmorTextures()[index];
+			return GOTReflection.getHorseArmorTextures()[index];
 		} else {
-			path = "got:textures/armor/mount/" + textureName + ".png";
+			return "got:textures/armor/mount/" + textureName + ".png";
 		}
-		return path;
 	}
 
 	public int getDamageReduceAmount() {
