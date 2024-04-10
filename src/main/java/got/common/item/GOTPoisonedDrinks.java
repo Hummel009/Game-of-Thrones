@@ -27,7 +27,7 @@ public class GOTPoisonedDrinks {
 	}
 
 	public static boolean canPoison(ItemStack itemstack) {
-		return itemstack != null && GOTItemMug.isItemFullDrink(itemstack);
+		return GOTItemMug.isItemFullDrink(itemstack);
 	}
 
 	public static UUID getPoisonerUUID(ItemStack itemstack) {
