@@ -27,9 +27,10 @@ import java.util.List;
 
 public class GOTItemConquestHorn extends Item {
 	@SideOnly(Side.CLIENT)
-	public IIcon baseIcon;
+	private IIcon baseIcon;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon overlayIcon;
+	private IIcon overlayIcon;
 
 	public GOTItemConquestHorn() {
 		setMaxStackSize(1);
@@ -42,7 +43,7 @@ public class GOTItemConquestHorn extends Item {
 		return itemstack;
 	}
 
-	public static GOTInvasions getInvasionType(ItemStack itemstack) {
+	private static GOTInvasions getInvasionType(ItemStack itemstack) {
 		String s;
 		GOTInvasions invasionType = null;
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("InvasionType")) {
@@ -66,7 +67,7 @@ public class GOTItemConquestHorn extends Item {
 		itemstack.getTagCompound().setString("InvasionType", type.codeName());
 	}
 
-	public boolean canUseHorn(ItemStack itemstack, World world, EntityPlayer entityplayer, boolean sendMessage) {
+	private boolean canUseHorn(ItemStack itemstack, World world, EntityPlayer entityplayer, boolean sendMessage) {
 		GOTInvasions invasionType = getInvasionType(itemstack);
 		GOTFaction invasionFaction = invasionType.getInvasionFaction();
 		float alignmentRequired = 1000.0f;

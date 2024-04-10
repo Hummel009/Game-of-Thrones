@@ -1,6 +1,5 @@
 package got.common.item.other;
 
-import got.common.block.other.GOTBlockGate;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemBlock;
@@ -10,11 +9,8 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class GOTItemGate extends ItemBlock {
-	public GOTBlockGate gateBlock;
-
 	public GOTItemGate(Block block) {
 		super(block);
-		gateBlock = (GOTBlockGate) block;
 	}
 
 	@Override

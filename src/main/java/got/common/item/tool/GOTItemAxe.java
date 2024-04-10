@@ -5,7 +5,7 @@ import got.common.item.GOTMaterialFinder;
 import net.minecraft.item.ItemAxe;
 
 public class GOTItemAxe extends ItemAxe implements GOTMaterialFinder {
-	public ToolMaterial gotMaterial;
+	private final ToolMaterial gotMaterial;
 
 	public GOTItemAxe(ToolMaterial material) {
 		super(material);

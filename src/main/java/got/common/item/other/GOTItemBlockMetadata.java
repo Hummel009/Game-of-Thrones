@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class GOTItemBlockMetadata extends ItemBlock {
-	public GOTItemBlockMetadata(Block block) {
+	protected GOTItemBlockMetadata(Block block) {
 		super(block);
 		setMaxDamage(0);
 		setHasSubtypes(true);

@@ -93,7 +93,7 @@ public class GOTMusic implements IResourceManagerReloadListener {
 			}
 			if ("#CATEGORIES#".equals(line)) {
 				for (GOTMusicCategory category : GOTMusicCategory.values()) {
-					String catString = category.categoryName;
+					String catString = category.getCategoryName();
 					writer.println(catString);
 				}
 				continue;

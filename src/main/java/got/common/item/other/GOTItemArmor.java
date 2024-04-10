@@ -9,23 +9,19 @@ import net.minecraft.util.StringUtils;
 import java.util.Locale;
 
 public class GOTItemArmor extends ItemArmor {
-	public String extraName;
-	public String path;
-	public int slot;
+	private final String extraName;
 
 	public GOTItemArmor(ArmorMaterial material, int slotType) {
 		this(material, slotType, "");
-		slot = slotType;
 	}
 
 	public GOTItemArmor(ArmorMaterial material, int slotType, String s) {
 		super(material, 0, slotType);
 		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		extraName = s;
-		slot = slotType;
 	}
 
-	public String getArmorName() {
+	private String getArmorName() {
 		String prefix = getArmorMaterial().name().substring("got".length() + 1).toLowerCase(Locale.ROOT);
 		String suffix = armorType == 2 ? "2" : "1";
 		if (!StringUtils.isNullOrEmpty(extraName)) {
@@ -36,7 +32,7 @@ public class GOTItemArmor extends ItemArmor {
 
 	@Override
 	public String getArmorTexture(ItemStack itemstack, Entity entity, int slot, String type) {
-		path = "got:textures/armor/";
+		String path = "got:textures/armor/";
 		String armorName = getArmorName();
 		StringBuilder texture = new StringBuilder(path).append(armorName);
 		if (type != null) {

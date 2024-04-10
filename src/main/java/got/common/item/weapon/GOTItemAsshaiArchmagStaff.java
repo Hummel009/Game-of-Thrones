@@ -25,7 +25,7 @@ public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 		gotWeaponDamage = 8.0f;
 	}
 
-	public static ItemStack useStaff(ItemStack itemstack, World world, EntityLivingBase user) {
+	private static ItemStack useStaff(ItemStack itemstack, World world, EntityLivingBase user) {
 		user.swingItem();
 		if (!world.isRemote) {
 			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(64, 64, 64));
@@ -41,7 +41,7 @@ public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 		return itemstack;
 	}
 
-	public static void wizardUseStaff(ItemStack itemstack, World world, EntityLivingBase user) {
+	public static void wizardUseStaff(World world, EntityLivingBase user) {
 		user.swingItem();
 		if (!world.isRemote) {
 			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, user.boundingBox.expand(64, 64, 64));

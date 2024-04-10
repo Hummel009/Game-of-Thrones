@@ -19,8 +19,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
-	public ToolMaterial gotMaterial;
-	public Item.ToolMaterial axeMaterial;
+	private final Item.ToolMaterial gotMaterial;
+	private final Item.ToolMaterial axeMaterial;
 
 	public GOTItemThrowingAxe(Item.ToolMaterial material) {
 		axeMaterial = material;
@@ -42,7 +42,7 @@ public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
 	}
 
 	@Override
-	public ToolMaterial getMaterial() {
+	public Item.ToolMaterial getMaterial() {
 		return gotMaterial;
 	}
 

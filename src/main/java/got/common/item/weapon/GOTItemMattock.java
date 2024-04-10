@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import java.util.stream.Stream;
 
 public class GOTItemMattock extends GOTItemPickaxe {
-	public float efficiencyOnProperMaterial;
+	private final float efficiencyOnProperMaterial;
 
 	public GOTItemMattock(Item.ToolMaterial material) {
 		super(material);

@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTItemDart extends Item {
-	public boolean isPoisoned;
+	private boolean isPoisoned;
 
 	public GOTItemDart() {
 		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
@@ -32,5 +32,9 @@ public class GOTItemDart extends Item {
 	public GOTItemDart setPoisoned() {
 		isPoisoned = true;
 		return this;
+	}
+
+	public boolean isPoisoned() {
+		return isPoisoned;
 	}
 }

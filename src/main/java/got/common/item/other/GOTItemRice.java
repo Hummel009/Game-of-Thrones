@@ -14,17 +14,17 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
 public class GOTItemRice extends ItemFood implements IPlantable {
-	public Block field_150908_b;
+	private final Block block;
 
-	public GOTItemRice(int p_i45351_1_, float p_i45351_2_, Block p_i45351_3_, Block p_i45351_4_) {
+	public GOTItemRice(int p_i45351_1_, float p_i45351_2_, Block block) {
 		super(p_i45351_1_, p_i45351_2_, false);
-		field_150908_b = p_i45351_3_;
+		this.block = block;
 		setCreativeTab(CreativeTabs.tabMaterials);
 	}
 
 	@Override
 	public Block getPlant(IBlockAccess world, int x, int y, int z) {
-		return field_150908_b;
+		return block;
 	}
 
 	@Override
@@ -38,22 +38,22 @@ public class GOTItemRice extends ItemFood implements IPlantable {
 	}
 
 	@Override
-	public boolean onItemUse(ItemStack p_77648_1_, EntityPlayer p_77648_2_, World p_77648_3_, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
-		MovingObjectPosition movingobjectposition = getMovingObjectPositionFromPlayer(p_77648_3_, p_77648_2_, true);
+	public boolean onItemUse(ItemStack itemStack, EntityPlayer entityPlayer, World world, int p_77648_4_, int p_77648_5_, int p_77648_6_, int p_77648_7_, float p_77648_8_, float p_77648_9_, float p_77648_10_) {
+		MovingObjectPosition movingobjectposition = getMovingObjectPositionFromPlayer(world, entityPlayer, true);
 		if (movingobjectposition == null) {
 			return false;
 		}
 		if (movingobjectposition.typeOfHit == MovingObjectPosition.MovingObjectType.BLOCK) {
-			int i = movingobjectposition.blockX;
-			int j = movingobjectposition.blockY;
-			int k = movingobjectposition.blockZ;
+			int i1 = movingobjectposition.blockX;
+			int j1 = movingobjectposition.blockY;
+			int k1 = movingobjectposition.blockZ;
 			if (p_77648_7_ != 1) {
 				return false;
 			}
-			if (p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, p_77648_1_) && p_77648_2_.canPlayerEdit(p_77648_4_, p_77648_5_ + 1, p_77648_6_, p_77648_7_, p_77648_1_)) {
-				if (p_77648_3_.getBlock(i, j, k).getMaterial() == Material.water && p_77648_3_.getBlockMetadata(i, j, k) == 0 && p_77648_3_.isAirBlock(i, j + 1, k)) {
-					p_77648_3_.setBlock(i, j + 1, k, GOTBlocks.ricePlant);
-					--p_77648_1_.stackSize;
+			if (entityPlayer.canPlayerEdit(p_77648_4_, p_77648_5_, p_77648_6_, p_77648_7_, itemStack) && entityPlayer.canPlayerEdit(p_77648_4_, p_77648_5_ + 1, p_77648_6_, p_77648_7_, itemStack)) {
+				if (world.getBlock(i1, j1, k1).getMaterial() == Material.water && world.getBlockMetadata(i1, j1, k1) == 0 && world.isAirBlock(i1, j1 + 1, k1)) {
+					world.setBlock(i1, j1 + 1, k1, GOTBlocks.ricePlant);
+					--itemStack.stackSize;
 					return true;
 				}
 			}

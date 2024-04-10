@@ -22,7 +22,7 @@ public class GOTSlotBarrel extends Slot {
 	@Override
 	public IIcon getBackgroundIconIndex() {
 		if (getSlotIndex() > 5) {
-			return GOTItemMug.barrelGui_emptyBucketSlotIcon;
+			return GOTItemMug.getBarrelGuiEmptyBucketSlotIcon();
 		}
 		return null;
 	}

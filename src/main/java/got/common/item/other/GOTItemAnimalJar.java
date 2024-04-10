@@ -23,7 +23,7 @@ public class GOTItemAnimalJar extends GOTItemBlockMetadata {
 		setMaxStackSize(1);
 	}
 
-	public static NBTTagCompound getEntityData(ItemStack itemstack) {
+	private static NBTTagCompound getEntityData(ItemStack itemstack) {
 		if (itemstack.hasTagCompound()) {
 			NBTTagCompound nbt;
 			if (itemstack.getTagCompound().hasKey("GOTButterfly")) {

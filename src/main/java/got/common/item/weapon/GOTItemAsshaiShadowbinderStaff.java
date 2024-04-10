@@ -23,7 +23,7 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 		gotWeaponDamage = 8.0f;
 	}
 
-	public static ItemStack useStaff(ItemStack itemstack, World world, EntityLivingBase user) {
+	private static ItemStack useStaff(ItemStack itemstack, World world, EntityLivingBase user) {
 		user.swingItem();
 		world.playSoundAtEntity(user, "mob.ghast.fireball", 2.0f, (itemRand.nextFloat() - itemRand.nextFloat()) * 0.2f + 1.0f);
 		if (!world.isRemote) {
@@ -53,7 +53,7 @@ public class GOTItemAsshaiShadowbinderStaff extends GOTItemSword {
 		return itemstack;
 	}
 
-	public static void wizardUseStaff(ItemStack itemstack, World world, EntityLivingBase user) {
+	public static void wizardUseStaff(World world, EntityLivingBase user) {
 		user.swingItem();
 		world.playSoundAtEntity(user, "mob.ghast.fireball", 2.0f, (itemRand.nextFloat() - itemRand.nextFloat()) * 0.2f + 1.0f);
 		if (!world.isRemote) {

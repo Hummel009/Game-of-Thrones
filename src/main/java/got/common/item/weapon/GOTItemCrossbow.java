@@ -23,10 +23,11 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTItemCrossbow extends ItemBow {
-	public double boltDamageFactor;
-	public Item.ToolMaterial crossbowMaterial;
+	private final Item.ToolMaterial crossbowMaterial;
+	private final double boltDamageFactor;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] crossbowPullIcons;
+	private IIcon[] crossbowPullIcons;
 
 	public GOTItemCrossbow(Item.ToolMaterial material) {
 		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
@@ -68,7 +69,7 @@ public class GOTItemCrossbow extends ItemBow {
 		return f;
 	}
 
-	public static ItemStack getLoaded(ItemStack itemstack) {
+	private static ItemStack getLoaded(ItemStack itemstack) {
 		if (itemstack != null && itemstack.getItem() instanceof GOTItemCrossbow) {
 			NBTTagCompound nbt = itemstack.getTagCompound();
 			if (nbt == null) {
@@ -140,7 +141,7 @@ public class GOTItemCrossbow extends ItemBow {
 		return itemIcon;
 	}
 
-	public int getInvBoltSlot(EntityPlayer entityplayer) {
+	private int getInvBoltSlot(EntityPlayer entityplayer) {
 		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
 			ItemStack invItem = entityplayer.inventory.mainInventory[slot];
 			if (invItem == null || !(invItem.getItem() instanceof GOTItemCrossbowBolt)) {
@@ -246,12 +247,12 @@ public class GOTItemCrossbow extends ItemBow {
 	public void registerIcons(IIconRegister iconregister) {
 		itemIcon = iconregister.registerIcon(getIconString());
 		crossbowPullIcons = new IIcon[3];
-		crossbowPullIcons[0] = iconregister.registerIcon(getIconString() + '_' + GOTItemBow.BowState.PULL_0.iconName);
-		crossbowPullIcons[1] = iconregister.registerIcon(getIconString() + '_' + GOTItemBow.BowState.PULL_1.iconName);
-		crossbowPullIcons[2] = iconregister.registerIcon(getIconString() + '_' + GOTItemBow.BowState.PULL_2.iconName);
+		crossbowPullIcons[0] = iconregister.registerIcon(getIconString() + '_' + GOTItemBow.BowState.PULL_0.getIconName());
+		crossbowPullIcons[1] = iconregister.registerIcon(getIconString() + '_' + GOTItemBow.BowState.PULL_1.getIconName());
+		crossbowPullIcons[2] = iconregister.registerIcon(getIconString() + '_' + GOTItemBow.BowState.PULL_2.getIconName());
 	}
 
-	public void setLoaded(ItemStack itemstack, ItemStack ammo) {
+	private void setLoaded(ItemStack itemstack, ItemStack ammo) {
 		if (itemstack != null && itemstack.getItem() instanceof GOTItemCrossbow) {
 			NBTTagCompound nbt = itemstack.getTagCompound();
 			if (nbt == null) {
@@ -271,7 +272,11 @@ public class GOTItemCrossbow extends ItemBow {
 		}
 	}
 
-	public boolean shouldConsumeBolt(ItemStack itemstack, EntityPlayer entityplayer) {
+	private boolean shouldConsumeBolt(ItemStack itemstack, EntityPlayer entityplayer) {
 		return !entityplayer.capabilities.isCreativeMode && EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, itemstack) == 0;
+	}
+
+	public double getBoltDamageFactor() {
+		return boltDamageFactor;
 	}
 }

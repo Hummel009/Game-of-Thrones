@@ -31,11 +31,11 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.UUID;
 
 public class GOTItemBrandingIron extends Item {
-	public static int HEAT_USES = 5;
 	@SideOnly(Side.CLIENT)
-	public IIcon iconCool;
+	private IIcon iconCool;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon iconHot;
+	private IIcon iconHot;
 
 	public GOTItemBrandingIron() {
 		setCreativeTab(GOTCreativeTabs.TAB_TOOLS);
@@ -53,7 +53,7 @@ public class GOTItemBrandingIron extends Item {
 		return null;
 	}
 
-	public static String getBrandName(ItemStack itemstack) {
+	private static String getBrandName(ItemStack itemstack) {
 		String s;
 		if (itemstack.hasTagCompound() && !StringUtils.isBlank(s = itemstack.getTagCompound().getString("BrandName"))) {
 			return s;
@@ -65,11 +65,11 @@ public class GOTItemBrandingIron extends Item {
 		return getBrandName(itemstack) != null;
 	}
 
-	public static boolean isHeated(ItemStack itemstack) {
+	private static boolean isHeated(ItemStack itemstack) {
 		return itemstack.hasTagCompound() && itemstack.getTagCompound().getBoolean("HotIron");
 	}
 
-	public static void setBrandingPlayer(Entity entity, UUID player) {
+	private static void setBrandingPlayer(Entity entity, UUID player) {
 		String s = player.toString();
 		entity.getEntityData().setString("GOTBrander", s);
 	}
@@ -81,7 +81,7 @@ public class GOTItemBrandingIron extends Item {
 		itemstack.getTagCompound().setString("BrandName", s);
 	}
 
-	public static void setHeated(ItemStack itemstack, boolean flag) {
+	private static void setHeated(ItemStack itemstack, boolean flag) {
 		if (!itemstack.hasTagCompound()) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}

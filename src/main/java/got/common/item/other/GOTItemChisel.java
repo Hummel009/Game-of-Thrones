@@ -12,7 +12,7 @@ import net.minecraft.util.Facing;
 import net.minecraft.world.World;
 
 public class GOTItemChisel extends Item {
-	public Block signBlock;
+	private final Block signBlock;
 
 	public GOTItemChisel(Block block) {
 		signBlock = block;

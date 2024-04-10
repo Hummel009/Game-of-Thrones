@@ -127,7 +127,7 @@ public class GOTContainerCoinExchange extends Container {
 					} else {
 						exchangeInv.setInventorySlotContents(0, null);
 					}
-					if (coinType < GOTItemCoin.values.length - 1 && coins >= 4) {
+					if (coinType < GOTItemCoin.VALUES.length - 1 && coins >= 4) {
 						exchangeInv.setInventorySlotContents(1, new ItemStack(GOTItems.coin, coins / 4, coinType + 1));
 					} else {
 						exchangeInv.setInventorySlotContents(1, null);

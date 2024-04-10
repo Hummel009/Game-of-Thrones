@@ -32,16 +32,19 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTItemPouch extends Item {
-	public static int POUCH_COLOR = 10841676;
-	public static String[] pouchTypes = {"small", "medium", "large"};
+	private static final String[] POUCH_TYPES = {"small", "medium", "large"};
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] pouchIcons;
+	private IIcon[] pouchIcons;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] pouchIconsOpen;
+	private IIcon[] pouchIconsOpen;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] overlayIcons;
+	private IIcon[] overlayIcons;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] overlayIconsOpen;
+	private IIcon[] overlayIconsOpen;
 
 	public GOTItemPouch() {
 		setHasSubtypes(true);
@@ -82,7 +85,7 @@ public class GOTItemPouch extends Item {
 	}
 
 	public static int getMaxPouchCapacity() {
-		return getCapacityForMeta(pouchTypes.length - 1);
+		return getCapacityForMeta(POUCH_TYPES.length - 1);
 	}
 
 	public static int getPouchColor(ItemStack itemstack) {
@@ -90,7 +93,7 @@ public class GOTItemPouch extends Item {
 		if (dye != -1) {
 			return dye;
 		}
-		return POUCH_COLOR;
+		return 10841676;
 	}
 
 	public static int getRandomPouchSize(Random random) {
@@ -104,7 +107,7 @@ public class GOTItemPouch extends Item {
 		return 2;
 	}
 
-	public static int getSavedDyeColor(ItemStack itemstack) {
+	private static int getSavedDyeColor(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("PouchColor")) {
 			return itemstack.getTagCompound().getInteger("PouchColor");
 		}
@@ -220,7 +223,7 @@ public class GOTItemPouch extends Item {
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (int i = 0; i < pouchTypes.length; ++i) {
+		for (int i = 0; i < POUCH_TYPES.length; ++i) {
 			list.add(new ItemStack(item, 1, i));
 		}
 	}
@@ -251,15 +254,15 @@ public class GOTItemPouch extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconregister) {
-		pouchIcons = new IIcon[pouchTypes.length];
-		pouchIconsOpen = new IIcon[pouchTypes.length];
-		overlayIcons = new IIcon[pouchTypes.length];
-		overlayIconsOpen = new IIcon[pouchTypes.length];
-		for (int i = 0; i < pouchTypes.length; ++i) {
-			pouchIcons[i] = iconregister.registerIcon(getIconString() + '_' + pouchTypes[i]);
-			pouchIconsOpen[i] = iconregister.registerIcon(getIconString() + '_' + pouchTypes[i] + "_open");
-			overlayIcons[i] = iconregister.registerIcon(getIconString() + '_' + pouchTypes[i] + "_overlay");
-			overlayIconsOpen[i] = iconregister.registerIcon(getIconString() + '_' + pouchTypes[i] + "_open_overlay");
+		pouchIcons = new IIcon[POUCH_TYPES.length];
+		pouchIconsOpen = new IIcon[POUCH_TYPES.length];
+		overlayIcons = new IIcon[POUCH_TYPES.length];
+		overlayIconsOpen = new IIcon[POUCH_TYPES.length];
+		for (int i = 0; i < POUCH_TYPES.length; ++i) {
+			pouchIcons[i] = iconregister.registerIcon(getIconString() + '_' + POUCH_TYPES[i]);
+			pouchIconsOpen[i] = iconregister.registerIcon(getIconString() + '_' + POUCH_TYPES[i] + "_open");
+			overlayIcons[i] = iconregister.registerIcon(getIconString() + '_' + POUCH_TYPES[i] + "_overlay");
+			overlayIconsOpen[i] = iconregister.registerIcon(getIconString() + '_' + POUCH_TYPES[i] + "_open_overlay");
 		}
 	}
 

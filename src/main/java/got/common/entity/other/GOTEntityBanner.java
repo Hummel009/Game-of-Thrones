@@ -139,7 +139,7 @@ public class GOTEntityBanner extends Entity {
 	}
 
 	public ItemStack getBannerItem() {
-		ItemStack item = new ItemStack(GOTItems.banner, 1, getBannerType().bannerID);
+		ItemStack item = new ItemStack(GOTItems.banner, 1, getBannerType().getBannerID());
 		if (wasEverProtecting && protectData == null) {
 			protectData = new NBTTagCompound();
 		}
@@ -157,7 +157,7 @@ public class GOTEntityBanner extends Entity {
 	}
 
 	public void setBannerType(GOTItemBanner.BannerType type) {
-		setBannerTypeID(type.bannerID);
+		setBannerTypeID(type.getBannerID());
 	}
 
 	public int getBannerTypeID() {
@@ -241,7 +241,7 @@ public class GOTEntityBanner extends Entity {
 			if (hasDefaultPermission(perm)) {
 				return true;
 			}
-			float alignment = GOTLevelData.getData(entityplayer).getAlignment(getBannerType().faction);
+			float alignment = GOTLevelData.getData(entityplayer).getAlignment(getBannerType().getFaction());
 			return alignment >= alignmentProtection;
 		}
 		return false;

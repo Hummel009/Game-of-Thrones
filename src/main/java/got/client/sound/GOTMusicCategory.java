@@ -5,7 +5,7 @@ import net.minecraft.world.World;
 public enum GOTMusicCategory {
 	DAY("day"), NIGHT("night"), CAVE("cave");
 
-	public final String categoryName;
+	private final String categoryName;
 
 	GOTMusicCategory(String s) {
 		categoryName = s;
@@ -27,5 +27,9 @@ public enum GOTMusicCategory {
 
 	public static boolean isDay(World world) {
 		return world.calculateSkylightSubtracted(1.0f) < 5;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
 	}
 }

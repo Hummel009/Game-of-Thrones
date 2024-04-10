@@ -6,7 +6,7 @@ import net.minecraft.block.BlockDispenser;
 import net.minecraft.item.Item;
 
 public class GOTItemCrossbowBolt extends Item {
-	public boolean isPoisoned;
+	private boolean isPoisoned;
 
 	public GOTItemCrossbowBolt() {
 		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
@@ -16,5 +16,9 @@ public class GOTItemCrossbowBolt extends Item {
 	public GOTItemCrossbowBolt setPoisoned() {
 		isPoisoned = true;
 		return this;
+	}
+
+	public boolean isPoisoned() {
+		return isPoisoned;
 	}
 }

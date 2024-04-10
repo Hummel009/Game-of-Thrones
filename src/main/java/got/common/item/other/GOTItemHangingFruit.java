@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTItemHangingFruit extends GOTItemFood {
-	public Block fruitBlock;
+	private final Block fruitBlock;
 
 	public GOTItemHangingFruit(int i, float f, boolean flag, Block block) {
 		super(i, f, flag);

@@ -1081,7 +1081,7 @@ public class GOTTradeEntries {
 			ItemStack tradeItem = tempTrades[i].createTradeItem();
 			float tradeCost = tempTrades[i].getCost();
 			int tradeCostI;
-			if (tradeItem.getItem() instanceof GOTItemMug && ((GOTItemMug) tradeItem.getItem()).isBrewable && tradeItem.getItemDamage() == 9999) {
+			if (tradeItem.getItem() instanceof GOTItemMug && ((GOTItemMug) tradeItem.getItem()).isBrewable() && tradeItem.getItemDamage() == 9999) {
 				tradeCostI = 1 + random.nextInt(3);
 				tradeItem.setItemDamage(tradeCostI);
 				tradeCost *= GOTItemMug.getFoodStrength(tradeItem);
@@ -1090,7 +1090,7 @@ public class GOTTradeEntries {
 			if (drinkVessels != null && GOTItemMug.isItemFullDrink(tradeItem)) {
 				GOTItemMug.Vessel v = drinkVessels[random.nextInt(drinkVessels.length)];
 				GOTItemMug.setVessel(tradeItem, v, true);
-				tradeCost += v.extraPrice;
+				tradeCost += v.getExtraPrice();
 			}
 
 			if (GOTConfig.enchantingGOT && tradeType == GOTTradeEntries.TradeType.WE_CAN_BUY) {

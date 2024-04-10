@@ -18,9 +18,10 @@ import net.minecraftforge.common.util.ForgeDirection;
 import java.util.List;
 
 public abstract class GOTItemRugBase extends Item {
+	private final String[] rugNames;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] rugIcons;
-	public String[] rugNames;
+	private IIcon[] rugIcons;
 
 	protected GOTItemRugBase(String... names) {
 		rugNames = names;
@@ -30,7 +31,7 @@ public abstract class GOTItemRugBase extends Item {
 		setHasSubtypes(true);
 	}
 
-	public abstract GOTEntityRugBase createRug(World var1, ItemStack var2);
+	protected abstract GOTEntityRugBase createRug(World var1, ItemStack var2);
 
 	@SideOnly(Side.CLIENT)
 	@Override

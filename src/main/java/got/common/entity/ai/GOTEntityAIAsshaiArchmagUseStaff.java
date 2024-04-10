@@ -73,7 +73,7 @@ public class GOTEntityAIAsshaiArchmagUseStaff extends EntityAIBase {
 		attackTick = Math.max(attackTick - 1, 0);
 		if (attackTick == 0) {
 			attackTick = 40;
-			GOTItemAsshaiArchmagStaff.wizardUseStaff(wizard.getEquipmentInSlot(0), theWorld, wizard);
+			GOTItemAsshaiArchmagStaff.wizardUseStaff(theWorld, wizard);
 			wizard.setIsUsingStaff(false);
 		}
 	}

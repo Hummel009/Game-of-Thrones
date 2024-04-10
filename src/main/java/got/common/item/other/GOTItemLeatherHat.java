@@ -15,13 +15,8 @@ import net.minecraft.util.StatCollector;
 import java.util.List;
 
 public class GOTItemLeatherHat extends GOTItemArmor {
-	public static int HAT_LEATHER = 6834742;
-	public static int HAT_SHIRRIFF_CHIEF = 2301981;
-	public static int FEATHER_WHITE = 16777215;
-	public static int FEATHER_SHIRRIFF_CHIEF = 3381529;
-	public static int HAT_BLACK;
 	@SideOnly(Side.CLIENT)
-	public IIcon featherIcon;
+	private IIcon featherIcon;
 
 	public GOTItemLeatherHat() {
 		super(GOTMaterial.ROBES, 0);
@@ -43,8 +38,7 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 		return 6834742;
 	}
 
-	@SuppressWarnings("JavaExistingMethodCanBeUsed")
-	public static int getSavedDyeColor(ItemStack itemstack) {
+	private static int getSavedDyeColor(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("HatColor")) {
 			return itemstack.getTagCompound().getInteger("HatColor");
 		}

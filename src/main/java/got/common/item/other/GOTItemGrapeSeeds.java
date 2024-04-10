@@ -13,7 +13,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
 public class GOTItemGrapeSeeds extends Item implements IPlantable {
-	public Block grapevineBlock;
+	private final Block grapevineBlock;
 
 	public GOTItemGrapeSeeds(Block block) {
 		grapevineBlock = block;

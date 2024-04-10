@@ -328,7 +328,7 @@ public class GOTNPCRendering {
 			if (distance <= 16.0 && GOTLevelData.getData(entityplayer).getMiniQuestsForEntity(npc, true).isEmpty()) {
 				TextureManager textureManager = mc.getTextureManager();
 				RenderManager renderManager = RenderManager.instance;
-				IIcon icon = GOTItemQuestBook.questOfferIcon;
+				IIcon icon = GOTItemQuestBook.getQuestOfferIcon();
 				icon.getMinU();
 				icon.getMaxU();
 				icon.getMinV();

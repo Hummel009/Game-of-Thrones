@@ -566,7 +566,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 	public ItemStack getHeldItemLeft() {
 		if (this instanceof GOTBannerBearer) {
 			GOTBannerBearer bannerBearer = (GOTBannerBearer) this;
-			return new ItemStack(GOTItems.banner, 1, bannerBearer.getBannerType().bannerID);
+			return new ItemStack(GOTItems.banner, 1, bannerBearer.getBannerType().getBannerID());
 		}
 		if (isTrader() && !isLegendaryNPC && !(this instanceof GOTMercenary)) {
 			boolean showCoin = npcShield == null || !clientCombatStance && hiredNPCInfo.getHiringPlayerUUID() == null;

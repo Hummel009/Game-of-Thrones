@@ -20,11 +20,16 @@ import java.util.List;
 
 public class GOTItemQuestBook extends Item {
 	@SideOnly(Side.CLIENT)
-	public static IIcon questOfferIcon;
+	private static IIcon questOfferIcon;
 
 	public GOTItemQuestBook() {
 		setMaxStackSize(1);
 		setCreativeTab(GOTCreativeTabs.TAB_MISC);
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static IIcon getQuestOfferIcon() {
+		return questOfferIcon;
 	}
 
 	@SideOnly(Side.CLIENT)

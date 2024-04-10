@@ -9,14 +9,14 @@ import net.minecraft.potion.PotionEffect;
 
 import java.util.UUID;
 
+@SuppressWarnings("PublicField")
 public class GOTPoisonedDrinks {
-	public static int POISON_DURATION = 3000;
 	public static Potion killingPoison;
 
 	private GOTPoisonedDrinks() {
 	}
 
-	public static void addPoisonEffect(EntityPlayer entityplayer, ItemStack itemstack) {
+	public static void addPoisonEffect(EntityPlayer entityplayer) {
 		int duration = 300;
 		entityplayer.addPotionEffect(new PotionEffect(killingPoison.id, duration));
 	}
@@ -30,7 +30,7 @@ public class GOTPoisonedDrinks {
 		return GOTItemMug.isItemFullDrink(itemstack);
 	}
 
-	public static UUID getPoisonerUUID(ItemStack itemstack) {
+	private static UUID getPoisonerUUID(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("PoisonerUUID")) {
 			String s = itemstack.getTagCompound().getString("PoisonerUUID");
 			return UUID.fromString(s);
@@ -57,7 +57,7 @@ public class GOTPoisonedDrinks {
 		setPoisonerUUID(itemstack, entityplayer.getUniqueID());
 	}
 
-	public static void setPoisonerUUID(ItemStack itemstack, UUID uuid) {
+	private static void setPoisonerUUID(ItemStack itemstack, UUID uuid) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}

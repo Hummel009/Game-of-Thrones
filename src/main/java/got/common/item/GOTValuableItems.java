@@ -6,13 +6,7 @@ import got.common.item.other.GOTItemRing;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class GOTValuableItems {
-	public static List<ItemStack> toolMaterials = new ArrayList<>();
-	public static boolean initTools;
-
 	private GOTValuableItems() {
 	}
 

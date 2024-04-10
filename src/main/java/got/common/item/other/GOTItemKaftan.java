@@ -9,7 +9,7 @@ import net.minecraft.util.IIcon;
 
 public class GOTItemKaftan extends GOTItemRobes {
 	@SideOnly(Side.CLIENT)
-	public IIcon overlayIcon;
+	private IIcon overlayIcon;
 
 	public GOTItemKaftan(int slot) {
 		super(GOTMaterial.KAFTAN, slot);

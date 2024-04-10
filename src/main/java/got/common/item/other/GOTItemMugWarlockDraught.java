@@ -15,7 +15,7 @@ public class GOTItemMugWarlockDraught extends GOTItemMug {
 
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (!shouldApplyPotionEffects(itemstack, entityplayer)) {
+		if (!shouldApplyPotionEffects(entityplayer)) {
 			ItemStack result = super.onEaten(itemstack, world, entityplayer);
 			if (!world.isRemote) {
 				entityplayer.addPotionEffect(new PotionEffect(Potion.poison.id, 100));
@@ -26,7 +26,7 @@ public class GOTItemMugWarlockDraught extends GOTItemMug {
 	}
 
 	@Override
-	public boolean shouldApplyPotionEffects(ItemStack itemstack, EntityPlayer entityplayer) {
+	protected boolean shouldApplyPotionEffects(EntityPlayer entityplayer) {
 		return GOTLevelData.getData(entityplayer).getAlignment(GOTFaction.QARTH) > 0.0f;
 	}
 }

@@ -32,7 +32,7 @@ public class GOTRenderBanner extends Render {
 			if (GOT.isAprilFools()) {
 				r = new ResourceLocation("got:textures/banner/null.png");
 			} else {
-				r = new ResourceLocation("got:textures/banner/" + type.bannerName + ".png");
+				r = new ResourceLocation("got:textures/banner/" + type.getBannerName() + ".png");
 			}
 			BANNER_TEXTURES.put(type, r);
 		}

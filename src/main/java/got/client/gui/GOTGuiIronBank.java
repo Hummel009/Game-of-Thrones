@@ -59,7 +59,7 @@ public class GOTGuiIronBank extends GuiScreen {
 		String transfer = StatCollector.translateToLocal("got.gui.money.transfer");
 		drawCenteredString(fontRendererObj, transfer, xOrigin + 65 + 64, yOrigin + 105, 16777215);
 		int x = xOrigin + 10;
-		for (int i = 0; i < GOTItemCoin.values.length; i++) {
+		for (int i = 0; i < GOTItemCoin.VALUES.length; i++) {
 			RenderHelper.enableGUIStandardItemLighting();
 			mc.renderEngine.bindTexture(new ResourceLocation("got:textures/gui/bank.png"));
 			drawTexturedModalRect(x, yOrigin + 50, 0, 188, 27, 27);

@@ -12,9 +12,7 @@ import net.minecraft.util.StatCollector;
 import java.util.List;
 
 public class GOTItemRobes extends GOTItemArmor {
-	public static int ROBES_WHITE = 16777215;
-
-	public GOTItemRobes(ArmorMaterial material, int slot) {
+	protected GOTItemRobes(ArmorMaterial material, int slot) {
 		super(material, slot);
 		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
@@ -32,10 +30,10 @@ public class GOTItemRobes extends GOTItemArmor {
 		if (dye != -1) {
 			return dye;
 		}
-		return ROBES_WHITE;
+		return 16777215;
 	}
 
-	public static int getSavedDyeColor(ItemStack itemstack) {
+	private static int getSavedDyeColor(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("RobesColor")) {
 			return itemstack.getTagCompound().getInteger("RobesColor");
 		}

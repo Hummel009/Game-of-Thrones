@@ -23,12 +23,16 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
+	private final ToolMaterial gotMaterial;
+
+	protected HitEffect effect;
+	protected float gotWeaponDamage;
+
+	private boolean isGlowing;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon glowingIcon;
-	public boolean isGlowing;
-	public float gotWeaponDamage;
-	public ToolMaterial gotMaterial;
-	public HitEffect effect;
+	private IIcon glowingIcon;
+
 
 	public GOTItemSword(Item.ToolMaterial material) {
 		super(material);
@@ -37,7 +41,7 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 		gotMaterial = material;
 	}
 
-	public GOTItemSword(Item.ToolMaterial material, HitEffect e) {
+	protected GOTItemSword(Item.ToolMaterial material, HitEffect e) {
 		this(material);
 		effect = e;
 	}
@@ -66,7 +70,7 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 		entity.addPotionEffect(poison);
 	}
 
-	public float getGOTWeaponDamage() {
+	protected float getGOTWeaponDamage() {
 		return gotWeaponDamage;
 	}
 
@@ -126,6 +130,11 @@ public class GOTItemSword extends ItemSword implements GOTMaterialFinder {
 	public GOTItemSword setIsGlowing() {
 		isGlowing = true;
 		return this;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public IIcon getGlowingIcon() {
+		return glowingIcon;
 	}
 
 	public enum HitEffect {

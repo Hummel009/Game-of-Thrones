@@ -32,33 +32,39 @@ import java.util.Collection;
 import java.util.List;
 
 public class GOTItemMug extends Item {
-	public static String[] strengthNames = {"weak", "light", "moderate", "strong", "potent"};
-	public static float[] strengths = {0.25f, 0.5f, 1.0f, 2.0f, 3.0f};
-	public static float[] foodStrengths = {0.5f, 0.75f, 1.0f, 1.25f, 1.5f};
-	public static int vesselMeta = 100;
+	private static final String[] STRENGTH_NAMES = {"weak", "light", "moderate", "strong", "potent"};
+	private static final float[] STRENGTHS = {0.25f, 0.5f, 1.0f, 2.0f, 3.0f};
+	private static final float[] FOOD_STRENGTHS = {0.5f, 0.75f, 1.0f, 1.25f, 1.5f};
+	private static final int VESSEL_META = 100;
+
 	@SideOnly(Side.CLIENT)
-	public static IIcon barrelGui_emptyBucketSlotIcon;
+	private static IIcon barrelGuiEmptyBucketSlotIcon;
+
 	@SideOnly(Side.CLIENT)
-	public static IIcon barrelGui_emptyMugSlotIcon;
+	private static IIcon barrelGuiEmptyMugSlotIcon;
+
+	private final boolean isFoodDrink;
+	private final boolean isFullMug;
+	private final boolean isBrewable;
+	private final float alcoholicity;
+	private final Collection<PotionEffect> potionEffects = new ArrayList<>();
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] drinkIcons;
+	private IIcon[] drinkIcons;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon liquidIcon;
-	public boolean isFullMug;
-	public boolean isFoodDrink;
-	public boolean isBrewable;
-	public float alcoholicity;
-	public int foodHealAmount;
-	public float foodSaturationAmount;
-	public Collection<PotionEffect> potionEffects = new ArrayList<>();
-	public int damageAmount;
-	public boolean curesEffects;
+	private IIcon liquidIcon;
+
+	private boolean curesEffects;
+	private float foodSaturationAmount;
+	private int foodHealAmount;
+	private int damageAmount;
 
 	public GOTItemMug(boolean full, boolean food) {
 		this(full, food, false, 0.0f);
 	}
 
-	public GOTItemMug(boolean full, boolean food, boolean brew, float alc) {
+	private GOTItemMug(boolean full, boolean food, boolean brew, float alc) {
 		if (full) {
 			setMaxStackSize(1);
 			setHasSubtypes(true);
@@ -77,7 +83,7 @@ public class GOTItemMug extends Item {
 		this(true, false, true, alc);
 	}
 
-	public static void addPotionEffectsToTooltip(ItemStack itemstack, EntityPlayer entityplayer, Collection<String> list, boolean flag, Collection<PotionEffect> itemEffects) {
+	private static void addPotionEffectsToTooltip(EntityPlayer entityplayer, Collection<String> list, boolean flag, Collection<PotionEffect> itemEffects) {
 		if (!itemEffects.isEmpty()) {
 			ItemStack potionEquivalent = new ItemStack(Items.potionitem);
 			potionEquivalent.setItemDamage(69);
@@ -115,7 +121,7 @@ public class GOTItemMug extends Item {
 		Item item = itemstack.getItem();
 		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
 			int i = getStrengthMeta(itemstack);
-			return foodStrengths[i];
+			return FOOD_STRENGTHS[i];
 		}
 		return 1.0f;
 	}
@@ -124,20 +130,20 @@ public class GOTItemMug extends Item {
 		Item item = itemstack.getItem();
 		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
 			int i = getStrengthMeta(itemstack);
-			return strengths[i];
+			return STRENGTHS[i];
 		}
 		return 1.0f;
 	}
 
-	public static int getStrengthMeta(int damage) {
-		int i = damage % vesselMeta;
-		if (i < 0 || i >= strengths.length) {
+	private static int getStrengthMeta(int damage) {
+		int i = damage % VESSEL_META;
+		if (i < 0 || i >= STRENGTHS.length) {
 			return 0;
 		}
 		return i;
 	}
 
-	public static int getStrengthMeta(ItemStack itemstack) {
+	private static int getStrengthMeta(ItemStack itemstack) {
 		return getStrengthMeta(itemstack.getItemDamage());
 	}
 
@@ -145,13 +151,13 @@ public class GOTItemMug extends Item {
 		Item item;
 		if (itemstack != null && (item = itemstack.getItem()) instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
 			int i = getStrengthMeta(itemstack);
-			return StatCollector.translateToLocal("item.got.drink." + strengthNames[i]);
+			return StatCollector.translateToLocal("item.got.drink." + STRENGTH_NAMES[i]);
 		}
 		return null;
 	}
 
-	public static Vessel getVessel(int damage) {
-		int i = damage / vesselMeta;
+	private static Vessel getVessel(int damage) {
+		int i = damage / VESSEL_META;
 		return Vessel.forMeta(i);
 	}
 
@@ -204,7 +210,7 @@ public class GOTItemMug extends Item {
 			itemstack.setItemDamage(0);
 		}
 		int i = itemstack.getItemDamage();
-		itemstack.setItemDamage(v.id * vesselMeta + i % vesselMeta);
+		itemstack.setItemDamage(v.getId() * VESSEL_META + i % VESSEL_META);
 		if (correctItem && itemstack.getItem() == GOTItems.mugWater && v == Vessel.BOTTLE) {
 			itemstack.func_150996_a(Items.potionitem);
 			itemstack.setItemDamage(0);
@@ -216,7 +222,7 @@ public class GOTItemMug extends Item {
 		int j1 = j;
 		int k1 = k;
 		Vessel vessel = getVessel(itemstack);
-		if (vessel == null || !vessel.canPlace) {
+		if (vessel == null || !vessel.isCanPlace()) {
 			return false;
 		}
 		Block mugBlock = vessel.getBlock();
@@ -241,6 +247,16 @@ public class GOTItemMug extends Item {
 	}
 
 	@SideOnly(Side.CLIENT)
+	public static IIcon getBarrelGuiEmptyMugSlotIcon() {
+		return barrelGuiEmptyMugSlotIcon;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static IIcon getBarrelGuiEmptyBucketSlotIcon() {
+		return barrelGuiEmptyBucketSlotIcon;
+	}
+
+	@SideOnly(Side.CLIENT)
 	@Override
 	@SuppressWarnings("rawtypes")
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
@@ -252,7 +268,7 @@ public class GOTItemMug extends Item {
 				EnumChatFormatting c = f < 2.0f ? EnumChatFormatting.GREEN : f < 5.0f ? EnumChatFormatting.YELLOW : f < 10.0f ? EnumChatFormatting.GOLD : f < 20.0f ? EnumChatFormatting.RED : EnumChatFormatting.DARK_RED;
 				list.add(c + StatCollector.translateToLocal("item.got.drink.alcoholicity") + ": " + String.format("%.2f", f) + '%');
 			}
-			addPotionEffectsToTooltip(itemstack, entityplayer, list, flag, convertPotionEffectsForStrength(strength));
+			addPotionEffectsToTooltip(entityplayer, list, flag, convertPotionEffectsForStrength(strength));
 		}
 	}
 
@@ -280,7 +296,7 @@ public class GOTItemMug extends Item {
 		return isFullMug && (!isFoodDrink || entityplayer.canEat(false));
 	}
 
-	public List<PotionEffect> convertPotionEffectsForStrength(float strength) {
+	private List<PotionEffect> convertPotionEffectsForStrength(float strength) {
 		List<PotionEffect> list = new ArrayList<>();
 		for (PotionEffect base : potionEffects) {
 			PotionEffect modified = new PotionEffect(base.getPotionID(), (int) (base.getDuration() * strength));
@@ -289,7 +305,7 @@ public class GOTItemMug extends Item {
 		return list;
 	}
 
-	public Vessel getEmptyVesselType() {
+	private Vessel getEmptyVesselType() {
 		for (Vessel v : Vessel.values()) {
 			if (v.getEmptyVesselItem() != this) {
 				continue;
@@ -305,7 +321,7 @@ public class GOTItemMug extends Item {
 			if (i == -1) {
 				return liquidIcon;
 			}
-			int vessel = getVessel(i).id;
+			int vessel = getVessel(i).getId();
 			return drinkIcons[vessel];
 		}
 		return super.getIconFromDamage(i);
@@ -338,7 +354,7 @@ public class GOTItemMug extends Item {
 			}
 			for (Vessel v : vesselTypes) {
 				if (isBrewable) {
-					for (int str = 0; str < strengths.length; ++str) {
+					for (int str = 0; str < STRENGTHS.length; ++str) {
 						ItemStack drink = new ItemStack(item);
 						setStrengthMeta(drink, str);
 						setVessel(drink, v, true);
@@ -385,7 +401,7 @@ public class GOTItemMug extends Item {
 				GOTLevelData.getData(entityplayer).setAlcoholTolerance(tolerance + toleranceAdd);
 			}
 		}
-		if (!world.isRemote && shouldApplyPotionEffects(itemstack, entityplayer)) {
+		if (!world.isRemote && shouldApplyPotionEffects(entityplayer)) {
 			List<PotionEffect> effects = convertPotionEffectsForStrength(strength);
 			for (PotionEffect effect : effects) {
 				entityplayer.addPotionEffect(effect);
@@ -461,11 +477,11 @@ public class GOTItemMug extends Item {
 		if (isFullMug) {
 			drinkIcons = new IIcon[Vessel.values().length];
 			for (int i = 0; i < Vessel.values().length; ++i) {
-				drinkIcons[i] = GOTDrinkIcons.registerDrinkIcon(iconregister, this, getIconString(), Vessel.values()[i].name);
+				drinkIcons[i] = GOTDrinkIcons.registerDrinkIcon(iconregister, this, getIconString(), Vessel.values()[i].getName());
 			}
 			liquidIcon = GOTDrinkIcons.registerLiquidIcon(iconregister, getIconString());
-			barrelGui_emptyBucketSlotIcon = iconregister.registerIcon("got:barrel_empty_bucket_slot");
-			barrelGui_emptyMugSlotIcon = iconregister.registerIcon("got:barrel_empty_mug_slot");
+			barrelGuiEmptyBucketSlotIcon = iconregister.registerIcon("got:barrel_empty_bucket_slot");
+			barrelGuiEmptyMugSlotIcon = iconregister.registerIcon("got:barrel_empty_mug_slot");
 		} else {
 			super.registerIcons(iconregister);
 		}
@@ -474,6 +490,10 @@ public class GOTItemMug extends Item {
 	public GOTItemMug setCuresEffects() {
 		curesEffects = true;
 		return this;
+	}
+
+	public int getDamageAmount() {
+		return damageAmount;
 	}
 
 	public GOTItemMug setDamageAmount(int i) {
@@ -487,17 +507,29 @@ public class GOTItemMug extends Item {
 		return this;
 	}
 
-	public boolean shouldApplyPotionEffects(ItemStack itemstack, EntityPlayer entityplayer) {
+	protected boolean shouldApplyPotionEffects(EntityPlayer entityplayer) {
 		return true;
+	}
+
+	public float getAlcoholicity() {
+		return alcoholicity;
+	}
+
+	public boolean isBrewable() {
+		return isBrewable;
+	}
+
+	public boolean isFullMug() {
+		return isFullMug;
 	}
 
 	public enum Vessel {
 		MUG(0, "mug", true, 0), MUG_CLAY(1, "clay", true, 1), GOBLET_GOLD(2, "goblet_gold", true, 10), GOBLET_SILVER(3, "goblet_silver", true, 8), GOBLET_COPPER(4, "goblet_copper", true, 5), GOBLET_WOOD(5, "goblet_wood", true, 0), SKULL(6, "skull", true, 3), GLASS(7, "glass", true, 3), BOTTLE(8, "bottle", true, 2), SKIN(9, "skin", false, 0), HORN(10, "horn", true, 5), HORN_GOLD(11, "horn_gold", true, 8);
 
-		public String name;
-		public int id;
-		public boolean canPlace;
-		public int extraPrice;
+		private final int id;
+		private final int extraPrice;
+		private final boolean canPlace;
+		private final String name;
 
 		Vessel(int i, String s, boolean flag, int p) {
 			id = i;
@@ -517,43 +549,32 @@ public class GOTItemMug extends Item {
 		}
 
 		public Block getBlock() {
-			if (this == MUG) {
-				return GOTBlocks.mug;
+			switch (this) {
+				case MUG_CLAY:
+					return GOTBlocks.ceramicMug;
+				case GOBLET_GOLD:
+					return GOTBlocks.gobletGold;
+				case GOBLET_SILVER:
+					return GOTBlocks.gobletSilver;
+				case GOBLET_COPPER:
+					return GOTBlocks.gobletCopper;
+				case GOBLET_WOOD:
+					return GOTBlocks.gobletWood;
+				case SKULL:
+					return GOTBlocks.skullCup;
+				case GLASS:
+					return GOTBlocks.wineGlass;
+				case BOTTLE:
+					return GOTBlocks.glassBottle;
+				case HORN:
+					return GOTBlocks.aleHorn;
+				case HORN_GOLD:
+					return GOTBlocks.aleHornGold;
+				case SKIN:
+					return null;
+				default:
+					return GOTBlocks.mug;
 			}
-			if (this == MUG_CLAY) {
-				return GOTBlocks.ceramicMug;
-			}
-			if (this == GOBLET_GOLD) {
-				return GOTBlocks.gobletGold;
-			}
-			if (this == GOBLET_SILVER) {
-				return GOTBlocks.gobletSilver;
-			}
-			if (this == GOBLET_COPPER) {
-				return GOTBlocks.gobletCopper;
-			}
-			if (this == GOBLET_WOOD) {
-				return GOTBlocks.gobletWood;
-			}
-			if (this == SKULL) {
-				return GOTBlocks.skullCup;
-			}
-			if (this == GLASS) {
-				return GOTBlocks.wineGlass;
-			}
-			if (this == BOTTLE) {
-				return GOTBlocks.glassBottle;
-			}
-			if (this == SKIN) {
-				return null;
-			}
-			if (this == HORN) {
-				return GOTBlocks.aleHorn;
-			}
-			if (this == HORN_GOLD) {
-				return GOTBlocks.aleHornGold;
-			}
-			return GOTBlocks.mug;
 		}
 
 		public ItemStack getEmptyVessel() {
@@ -561,44 +582,48 @@ public class GOTItemMug extends Item {
 		}
 
 		public Item getEmptyVesselItem() {
-			if (this == MUG) {
-				return GOTItems.mug;
+			switch (this) {
+				case MUG_CLAY:
+					return GOTItems.ceramicMug;
+				case GOBLET_GOLD:
+					return GOTItems.gobletGold;
+				case GOBLET_SILVER:
+					return GOTItems.gobletSilver;
+				case GOBLET_COPPER:
+					return GOTItems.gobletCopper;
+				case GOBLET_WOOD:
+					return GOTItems.gobletWood;
+				case SKULL:
+					return GOTItems.skullCup;
+				case GLASS:
+					return GOTItems.wineGlass;
+				case BOTTLE:
+					return Items.glass_bottle;
+				case SKIN:
+					return GOTItems.waterskin;
+				case HORN:
+					return GOTItems.aleHorn;
+				case HORN_GOLD:
+					return GOTItems.aleHornGold;
+				default:
+					return GOTItems.mug;
 			}
-			if (this == MUG_CLAY) {
-				return GOTItems.ceramicMug;
-			}
-			if (this == GOBLET_GOLD) {
-				return GOTItems.gobletGold;
-			}
-			if (this == GOBLET_SILVER) {
-				return GOTItems.gobletSilver;
-			}
-			if (this == GOBLET_COPPER) {
-				return GOTItems.gobletCopper;
-			}
-			if (this == GOBLET_WOOD) {
-				return GOTItems.gobletWood;
-			}
-			if (this == SKULL) {
-				return GOTItems.skullCup;
-			}
-			if (this == GLASS) {
-				return GOTItems.wineGlass;
-			}
-			if (this == BOTTLE) {
-				return Items.glass_bottle;
-			}
-			if (this == SKIN) {
-				return GOTItems.waterskin;
-			}
-			if (this == HORN) {
-				return GOTItems.aleHorn;
-			}
-			if (this == HORN_GOLD) {
-				return GOTItems.aleHornGold;
-			}
-			return GOTItems.mug;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public boolean isCanPlace() {
+			return canPlace;
+		}
+
+		public int getExtraPrice() {
+			return extraPrice;
+		}
+
+		private String getName() {
+			return name;
 		}
 	}
-
 }

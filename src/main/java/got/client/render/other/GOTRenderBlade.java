@@ -38,7 +38,7 @@ public class GOTRenderBlade implements IItemRenderer {
 		if (largeItemRenderer != null) {
 			largeItemRenderer.renderLargeItem(tokenGlowing);
 		} else {
-			IIcon icon = ((GOTItemSword) item).glowingIcon;
+			IIcon icon = ((GOTItemSword) item).getGlowingIcon();
 			icon = RenderBlocks.getInstance().getIconSafe(icon);
 			float minU = icon.getMinU();
 			float maxU = icon.getMaxU();

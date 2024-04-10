@@ -5,7 +5,7 @@ import got.common.item.GOTMaterialFinder;
 import net.minecraft.item.ItemPickaxe;
 
 public class GOTItemPickaxe extends ItemPickaxe implements GOTMaterialFinder {
-	public ToolMaterial gotMaterial;
+	private final ToolMaterial gotMaterial;
 
 	public GOTItemPickaxe(ToolMaterial material) {
 		super(material);

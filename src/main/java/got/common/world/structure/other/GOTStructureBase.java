@@ -557,7 +557,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 			}
 			drink = drink.copy();
 			drink.stackSize = 1;
-			if (drink.getItem() instanceof GOTItemMug && ((GOTItemMug) drink.getItem()).isBrewable) {
+			if (drink.getItem() instanceof GOTItemMug && ((GOTItemMug) drink.getItem()).isBrewable()) {
 				GOTItemMug.setStrengthMeta(drink, MathHelper.getRandomIntegerInRange(random, 1, 3));
 			}
 			GOTItemMug.setVessel(drink, vessel, true);

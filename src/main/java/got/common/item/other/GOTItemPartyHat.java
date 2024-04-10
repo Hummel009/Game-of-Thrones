@@ -13,8 +13,6 @@ import net.minecraft.util.StatCollector;
 import java.util.List;
 
 public class GOTItemPartyHat extends GOTItemArmor {
-	public static int HAT_WHITE = 16777215;
-
 	public GOTItemPartyHat() {
 		super(GOTMaterial.ROBES, 0);
 		setCreativeTab(GOTCreativeTabs.TAB_MISC);
@@ -28,7 +26,7 @@ public class GOTItemPartyHat extends GOTItemArmor {
 		return 16777215;
 	}
 
-	public static int getSavedDyeColor(ItemStack itemstack) {
+	private static int getSavedDyeColor(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("HatColor")) {
 			return itemstack.getTagCompound().getInteger("HatColor");
 		}

@@ -50,7 +50,7 @@ public class GOTEntityDart extends GOTEntityProjectileBase {
 	public void onCollideWithTarget(Entity entity) {
 		Item item;
 		ItemStack itemstack;
-		if (!worldObj.isRemote && entity instanceof EntityLivingBase && (itemstack = getProjectileItem()) != null && (item = itemstack.getItem()) instanceof GOTItemDart && ((GOTItemDart) item).isPoisoned) {
+		if (!worldObj.isRemote && entity instanceof EntityLivingBase && (itemstack = getProjectileItem()) != null && (item = itemstack.getItem()) instanceof GOTItemDart && ((GOTItemDart) item).isPoisoned()) {
 			GOTItemSword.applyStandardPoison((EntityLivingBase) entity);
 		}
 		super.onCollideWithTarget(entity);

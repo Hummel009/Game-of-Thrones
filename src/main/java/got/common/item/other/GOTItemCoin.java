@@ -20,9 +20,10 @@ import net.minecraft.util.StatCollector;
 import java.util.List;
 
 public class GOTItemCoin extends Item {
-	public static int[] values = {1, 4, 16, 64, 256, 1024, 4096, 16384};
+	public static final int[] VALUES = {1, 4, 16, 64, 256, 1024, 4096, 16384};
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] coinIcons;
+	private IIcon[] coinIcons;
 
 	public GOTItemCoin() {
 		setHasSubtypes(true);
@@ -50,21 +51,21 @@ public class GOTItemCoin extends Item {
 		return coins + getStackValue(entityplayer.inventory.getItemStack(), allowStolen);
 	}
 
-	public static int getSingleItemValue(ItemStack itemstack, boolean allowStolen) {
+	private static int getSingleItemValue(ItemStack itemstack, boolean allowStolen) {
 		if (itemstack != null && itemstack.getItem() instanceof GOTItemCoin) {
 			if (!allowStolen && IPickpocketable.Helper.isPickpocketed(itemstack)) {
 				return 0;
 			}
 			int i = itemstack.getItemDamage();
-			if (i >= values.length) {
+			if (i >= VALUES.length) {
 				i = 0;
 			}
-			return values[i];
+			return VALUES[i];
 		}
 		return 0;
 	}
 
-	public static int getStackValue(ItemStack itemstack, boolean allowStolen) {
+	private static int getStackValue(ItemStack itemstack, boolean allowStolen) {
 		if (itemstack == null) {
 			return 0;
 		}
@@ -80,16 +81,16 @@ public class GOTItemCoin extends Item {
 		if (coins1 <= 0) {
 			FMLLog.warning("Attempted to give a non-positive value of coins " + coins1 + " to player " + entityplayer.getCommandSenderName());
 		}
-		for (i = values.length - 1; i >= 0; --i) {
-			value = values[i];
+		for (i = VALUES.length - 1; i >= 0; --i) {
+			value = VALUES[i];
 			coin = new ItemStack(GOTItems.coin, 1, i);
 			while (coins1 >= value && inv.addItemStackToInventory(coin.copy())) {
 				coins1 -= value;
 			}
 		}
 		if (coins1 > 0) {
-			for (i = values.length - 1; i >= 0; --i) {
-				value = values[i];
+			for (i = VALUES.length - 1; i >= 0; --i) {
+				value = VALUES[i];
 				coin = new ItemStack(GOTItems.coin, 1, i);
 				while (coins1 >= value) {
 					entityplayer.dropPlayerItemWithRandomChoice(coin.copy(), false);
@@ -114,8 +115,8 @@ public class GOTItemCoin extends Item {
 		}
 		int initCoins = coins1;
 		block0:
-		for (i = values.length - 1; i >= 0; --i) {
-			value = values[i];
+		for (i = VALUES.length - 1; i >= 0; --i) {
+			value = VALUES[i];
 			if (value > initCoins) {
 				continue;
 			}
@@ -142,11 +143,11 @@ public class GOTItemCoin extends Item {
 			}
 		}
 		if (coins1 > 0) {
-			for (i = 0; i < values.length; ++i) {
+			for (i = 0; i < VALUES.length; ++i) {
 				if (i == 0) {
 					continue;
 				}
-				value = values[i];
+				value = VALUES[i];
 				coin = new ItemStack(GOTItems.coin, 1, i);
 				block4:
 				for (slot = -1; slot < inv.mainInventory.length; ++slot) {
@@ -185,10 +186,10 @@ public class GOTItemCoin extends Item {
 	public void addInformation(ItemStack itemstack, EntityPlayer entityplayer, List list, boolean flag) {
 		super.addInformation(itemstack, entityplayer, list, flag);
 		int i = itemstack.getItemDamage();
-		if (i >= values.length) {
+		if (i >= VALUES.length) {
 			i = 0;
 		}
-		list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("item.got:coin.nominal.name") + ": " + values[i]);
+		list.add(EnumChatFormatting.DARK_GRAY + StatCollector.translateToLocal("item.got:coin.nominal.name") + ": " + VALUES[i]);
 	}
 
 	@Override
@@ -205,7 +206,7 @@ public class GOTItemCoin extends Item {
 	@SideOnly(Side.CLIENT)
 	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for (int j = 0; j < values.length; ++j) {
+		for (int j = 0; j < VALUES.length; ++j) {
 			list.add(new ItemStack(item, 1, j));
 		}
 	}
@@ -213,18 +214,18 @@ public class GOTItemCoin extends Item {
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
 		int i = itemstack.getItemDamage();
-		if (i >= values.length) {
+		if (i >= VALUES.length) {
 			i = 0;
 		}
-		return getUnlocalizedName() + '.' + values[i];
+		return getUnlocalizedName() + '.' + VALUES[i];
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister iconregister) {
-		coinIcons = new IIcon[values.length];
-		for (int i = 0; i < values.length; ++i) {
-			coinIcons[i] = iconregister.registerIcon(getIconString() + '_' + values[i]);
+		coinIcons = new IIcon[VALUES.length];
+		for (int i = 0; i < VALUES.length; ++i) {
+			coinIcons[i] = iconregister.registerIcon(getIconString() + '_' + VALUES[i]);
 		}
 	}
 }

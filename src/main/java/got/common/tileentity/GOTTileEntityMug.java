@@ -58,7 +58,7 @@ public class GOTTileEntityMug extends TileEntity {
 	public GOTItemMug.Vessel getVessel() {
 		if (mugVessel == null) {
 			for (GOTItemMug.Vessel v : GOTItemMug.Vessel.values()) {
-				if (!v.canPlace || v.getBlock() != getBlockType()) {
+				if (!v.isCanPlace() || v.getBlock() != getBlockType()) {
 					continue;
 				}
 				return v;
@@ -132,7 +132,7 @@ public class GOTTileEntityMug extends TileEntity {
 			nbt.setTag("MugItem", mugItem.writeToNBT(new NBTTagCompound()));
 		}
 		if (mugVessel != null) {
-			nbt.setByte("Vessel", (byte) mugVessel.id);
+			nbt.setByte("Vessel", (byte) mugVessel.getId());
 		}
 	}
 }

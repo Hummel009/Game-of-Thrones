@@ -17,8 +17,6 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTItemPipe extends Item {
-	public static int MAGIC_COLOR = 16;
-
 	public GOTItemPipe() {
 		setMaxDamage(300);
 		setMaxStackSize(1);

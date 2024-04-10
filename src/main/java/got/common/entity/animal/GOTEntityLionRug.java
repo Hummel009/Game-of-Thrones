@@ -21,7 +21,7 @@ public class GOTEntityLionRug extends GOTEntityRugBase {
 
 	@Override
 	public ItemStack getRugItem() {
-		return new ItemStack(GOTItems.lionRug, 1, getRugType().lionID);
+		return new ItemStack(GOTItems.lionRug, 1, getRugType().getLionID());
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class GOTEntityLionRug extends GOTEntityRugBase {
 	}
 
 	public void setRugType(GOTItemLionRug.LionRugType t) {
-		dataWatcher.updateObject(18, (byte) t.lionID);
+		dataWatcher.updateObject(18, (byte) t.getLionID());
 	}
 
 	@Override
@@ -47,6 +47,6 @@ public class GOTEntityLionRug extends GOTEntityRugBase {
 	@Override
 	public void writeEntityToNBT(NBTTagCompound nbt) {
 		super.writeEntityToNBT(nbt);
-		nbt.setByte("RugType", (byte) getRugType().lionID);
+		nbt.setByte("RugType", (byte) getRugType().getLionID());
 	}
 }

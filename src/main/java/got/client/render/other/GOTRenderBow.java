@@ -30,7 +30,7 @@ public class GOTRenderBow implements IItemRenderer {
 			tokensPullStates = new EnumMap<>(GOTItemBow.BowState.class);
 			for (GOTItemBow.BowState state : GOTItemBow.BowState.values()) {
 				if (state != GOTItemBow.BowState.HELD) {
-					GOTExtraLargeIconToken token = largeItemRenderer.extraIcon(state.iconName);
+					GOTExtraLargeIconToken token = largeItemRenderer.extraIcon(state.getIconName());
 					tokensPullStates.put(state, token);
 				}
 			}

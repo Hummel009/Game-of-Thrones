@@ -53,7 +53,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 	}
 
 	public ItemStack getBannerItem() {
-		ItemStack item = new ItemStack(GOTItems.banner, 1, getBannerType().bannerID);
+		ItemStack item = new ItemStack(GOTItems.banner, 1, getBannerType().getBannerID());
 		if (protectData != null) {
 			GOTItemBanner.setProtectionData(item, protectData);
 		}
@@ -65,7 +65,7 @@ public class GOTEntityBannerWall extends EntityHanging {
 	}
 
 	public void setBannerType(GOTItemBanner.BannerType type) {
-		setBannerTypeID(type.bannerID);
+		setBannerTypeID(type.getBannerID());
 	}
 
 	public int getBannerTypeID() {

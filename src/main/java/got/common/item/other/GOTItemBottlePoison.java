@@ -29,7 +29,7 @@ public class GOTItemBottlePoison extends Item {
 	@Override
 	public ItemStack onEaten(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (!world.isRemote) {
-			GOTPoisonedDrinks.addPoisonEffect(entityplayer, itemstack);
+			GOTPoisonedDrinks.addPoisonEffect(entityplayer);
 		}
 		return entityplayer.capabilities.isCreativeMode ? itemstack : new ItemStack(Items.glass_bottle);
 	}

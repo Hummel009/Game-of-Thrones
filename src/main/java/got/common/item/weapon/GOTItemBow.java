@@ -30,12 +30,13 @@ import net.minecraftforge.event.entity.player.ArrowNockEvent;
 import java.util.Arrays;
 
 public class GOTItemBow extends ItemBow {
-	public static float MIN_BOW_DRAW_AMOUNT = 0.65f;
-	public Item.ToolMaterial bowMaterial;
-	public double arrowDamageFactor;
-	public int bowPullTime;
+	private final Item.ToolMaterial bowMaterial;
+	private final double arrowDamageFactor;
+
+	private int bowPullTime;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] bowPullIcons;
+	private IIcon[] bowPullIcons;
 
 	public GOTItemBow(Item.ToolMaterial material) {
 		this(material, 1.0);
@@ -114,7 +115,7 @@ public class GOTItemBow extends ItemBow {
 		return itemIcon;
 	}
 
-	public int getInvArrowSlot(EntityPlayer entityplayer) {
+	private int getInvArrowSlot(EntityPlayer entityplayer) {
 		for (int slot = 0; slot < entityplayer.inventory.mainInventory.length; ++slot) {
 			ItemStack invItem = entityplayer.inventory.mainInventory[slot];
 			if (invItem == null || invItem.getItem() != Items.arrow && invItem.getItem() != GOTItems.arrowPoisoned && invItem.getItem() != GOTItems.arrowFire) {
@@ -210,9 +211,9 @@ public class GOTItemBow extends ItemBow {
 		if (bowRenderer instanceof GOTRenderBow && ((GOTRenderBow) bowRenderer).isLargeBow()) {
 			Arrays.fill(bowPullIcons, itemIcon);
 		} else {
-			bowPullIcons[0] = iconregister.registerIcon(getIconString() + '_' + BowState.PULL_0.iconName);
-			bowPullIcons[1] = iconregister.registerIcon(getIconString() + '_' + BowState.PULL_1.iconName);
-			bowPullIcons[2] = iconregister.registerIcon(getIconString() + '_' + BowState.PULL_2.iconName);
+			bowPullIcons[0] = iconregister.registerIcon(getIconString() + '_' + BowState.PULL_0.getIconName());
+			bowPullIcons[1] = iconregister.registerIcon(getIconString() + '_' + BowState.PULL_1.getIconName());
+			bowPullIcons[2] = iconregister.registerIcon(getIconString() + '_' + BowState.PULL_2.getIconName());
 		}
 	}
 
@@ -221,18 +222,25 @@ public class GOTItemBow extends ItemBow {
 		return this;
 	}
 
-	public boolean shouldConsumeArrow(ItemStack itemstack, EntityPlayer entityplayer) {
+	private boolean shouldConsumeArrow(ItemStack itemstack, EntityPlayer entityplayer) {
 		return !entityplayer.capabilities.isCreativeMode && EnchantmentHelper.getEnchantmentLevel(Enchantment.infinity.effectId, itemstack) == 0;
+	}
+
+	public double getArrowDamageFactor() {
+		return arrowDamageFactor;
 	}
 
 	public enum BowState {
 		HELD(""), PULL_0("pull_0"), PULL_1("pull_1"), PULL_2("pull_2");
 
-		public String iconName;
+		private final String iconName;
 
 		BowState(String s) {
 			iconName = s;
 		}
-	}
 
+		public String getIconName() {
+			return iconName;
+		}
+	}
 }

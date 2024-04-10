@@ -14,11 +14,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 public class GOTItemMountArmor extends Item {
-	public ItemArmor.ArmorMaterial armorMaterial;
-	public Mount mountType;
-	public int damageReduceAmount;
-	public Item templateItem;
-	public String textureName;
+	private final ItemArmor.ArmorMaterial armorMaterial;
+	private final Mount mountType;
+	private final int damageReduceAmount;
+	private final String textureName;
+	private Item templateItem;
 
 	public GOTItemMountArmor(ItemArmor.ArmorMaterial material, Mount mount, String string) {
 		armorMaterial = material;
@@ -29,7 +29,7 @@ public class GOTItemMountArmor extends Item {
 		textureName = string;
 	}
 
-	public ItemStack createTemplateItemStack(ItemStack source) {
+	private ItemStack createTemplateItemStack(ItemStack source) {
 		ItemStack template = new ItemStack(templateItem);
 		template.stackSize = source.stackSize;
 		template.setItemDamage(source.getItemDamage());
@@ -118,14 +118,11 @@ public class GOTItemMountArmor extends Item {
 		return this;
 	}
 
-	public enum Mount {
-		HORSE("horse"), RHINO("rhino");
-
-		public String textureName;
-
-		Mount(String s) {
-			textureName = s;
-		}
+	public Item getTemplateItem() {
+		return templateItem;
 	}
 
+	public enum Mount {
+		HORSE, RHINO
+	}
 }

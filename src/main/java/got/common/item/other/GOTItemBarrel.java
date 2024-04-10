@@ -22,14 +22,14 @@ public class GOTItemBarrel extends ItemBlock {
 		super(block);
 	}
 
-	public static NBTTagCompound getBarrelData(ItemStack itemstack) {
+	private static NBTTagCompound getBarrelData(ItemStack itemstack) {
 		if (itemstack.hasTagCompound() && itemstack.getTagCompound().hasKey("GOTBarrelData")) {
 			return itemstack.getTagCompound().getCompoundTag("GOTBarrelData");
 		}
 		return null;
 	}
 
-	public static void loadBarrelDataToTE(ItemStack itemstack, GOTTileEntityBarrel barrel) {
+	private static void loadBarrelDataToTE(ItemStack itemstack, GOTTileEntityBarrel barrel) {
 		NBTTagCompound nbt = getBarrelData(itemstack);
 		if (nbt != null) {
 			barrel.readBarrelFromNBT(nbt);

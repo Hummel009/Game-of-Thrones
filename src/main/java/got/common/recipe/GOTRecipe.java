@@ -138,7 +138,7 @@ public class GOTRecipe {
 		arryn.add(new ShapedOreRecipe(new ItemStack(GOTItems.arrynChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		arryn.add(new ShapedOreRecipe(new ItemStack(GOTItems.arrynLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		arryn.add(new ShapedOreRecipe(new ItemStack(GOTItems.arrynBoots), "X X", "X X", 'X', "ingotIron"));
-		arryn.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.ARRYN.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		arryn.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.ARRYN.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		arryn.addAll(commonWesteros);
 		arryn.addAll(tinyBasalt);
 	}
@@ -175,7 +175,7 @@ public class GOTRecipe {
 		asshai.add(new ShapedOreRecipe(new ItemStack(GOTItems.asshaiStaff), "  Y", " Y ", "Y  ", 'Y', "stickWood"));
 		asshai.add(new ShapedOreRecipe(new ItemStack(GOTItems.asshaiMask), "XXX", "X X", 'X', "plankWood"));
 		asshai.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.asshaiBars, 16), "XXX", "XXX", 'X', "ingotIron"));
-		asshai.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.ASSHAI.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		asshai.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.ASSHAI.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 	}
 
 	public static void createBraavosRecipes() {
@@ -184,7 +184,7 @@ public class GOTRecipe {
 		braavos.add(new ShapedOreRecipe(new ItemStack(GOTItems.braavosChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		braavos.add(new ShapedOreRecipe(new ItemStack(GOTItems.braavosLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		braavos.add(new ShapedOreRecipe(new ItemStack(GOTItems.braavosBoots), "X X", "X X", 'X', "ingotIron"));
-		braavos.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.BRAAVOS.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		braavos.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.BRAAVOS.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		braavos.addAll(commonEssos);
 		braavos.addAll(tinyBasalt);
 	}
@@ -227,7 +227,7 @@ public class GOTRecipe {
 		crownlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.crownlandsChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		crownlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.crownlandsLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		crownlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.crownlandsBoots), "X X", "X X", 'X', "ingotIron"));
-		crownlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.ROBERT.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		crownlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.ROBERT.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		crownlands.addAll(commonWesteros);
 		crownlands.addAll(tinyBasalt);
 	}
@@ -238,7 +238,7 @@ public class GOTRecipe {
 		dorne.add(new ShapedOreRecipe(new ItemStack(GOTItems.dorneChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		dorne.add(new ShapedOreRecipe(new ItemStack(GOTItems.dorneLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		dorne.add(new ShapedOreRecipe(new ItemStack(GOTItems.dorneBoots), "X X", "X X", 'X', "ingotIron"));
-		dorne.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.MARTELL.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		dorne.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.MARTELL.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		dorne.addAll(commonWesteros);
 		dorne.addAll(tinyBasalt);
 	}
@@ -261,7 +261,7 @@ public class GOTRecipe {
 		dragonstone.add(new ShapedOreRecipe(new ItemStack(GOTItems.dragonstoneChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		dragonstone.add(new ShapedOreRecipe(new ItemStack(GOTItems.dragonstoneLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		dragonstone.add(new ShapedOreRecipe(new ItemStack(GOTItems.dragonstoneBoots), "X X", "X X", 'X', "ingotIron"));
-		dragonstone.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.STANNIS.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		dragonstone.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.STANNIS.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		dragonstone.addAll(commonWesteros);
 		dragonstone.addAll(tinyBasalt);
 	}
@@ -276,7 +276,7 @@ public class GOTRecipe {
 		ghiscar.add(new ShapedOreRecipe(new ItemStack(GOTItems.ghiscarChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		ghiscar.add(new ShapedOreRecipe(new ItemStack(GOTItems.ghiscarLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		ghiscar.add(new ShapedOreRecipe(new ItemStack(GOTItems.ghiscarBoots), "X X", "X X", 'X', "ingotIron"));
-		ghiscar.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.GHISCAR.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		ghiscar.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.GHISCAR.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		ghiscar.add(new ShapedOreRecipe(new ItemStack(GOTItems.harpy), "XXX", "X X", 'X', Items.gold_ingot));
 		ghiscar.addAll(commonEssos);
 	}
@@ -287,7 +287,7 @@ public class GOTRecipe {
 		gift.add(new ShapedOreRecipe(new ItemStack(GOTItems.giftChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		gift.add(new ShapedOreRecipe(new ItemStack(GOTItems.giftLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		gift.add(new ShapedOreRecipe(new ItemStack(GOTItems.giftBoots), "X X", "X X", 'X', "ingotIron"));
-		gift.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.NIGHT.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		gift.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.NIGHT.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		gift.addAll(commonWesteros);
 	}
 
@@ -297,7 +297,7 @@ public class GOTRecipe {
 		hillmen.add(new ShapedOreRecipe(new ItemStack(GOTItems.hillmenChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		hillmen.add(new ShapedOreRecipe(new ItemStack(GOTItems.hillmenLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		hillmen.add(new ShapedOreRecipe(new ItemStack(GOTItems.hillmenBoots), "X X", "X X", 'X', "ingotIron"));
-		hillmen.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.HILLMEN.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		hillmen.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.HILLMEN.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 	}
 
 	public static void createIbbenRecipes() {
@@ -315,7 +315,7 @@ public class GOTRecipe {
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsRhyoliteBrick, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick1, 1, 4)));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone1, 6, 8), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.rock, 1, 2)));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.wallStone1, 6, 6), "XXX", "XXX", 'X', new ItemStack(GOTBlocks.brick1, 1, 4)));
-		ibben.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.IBBEN.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		ibben.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.IBBEN.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.pillar1, 3, 8), "X", "X", "X", 'X', new ItemStack(GOTBlocks.rock, 1, 2)));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle5, 6, 2), "XXX", 'X', new ItemStack(GOTBlocks.pillar1, 1, 8)));
 		ibben.add(new ShapedOreRecipe(new ItemStack(GOTItems.nomadBow), " XY", "X Y", " XY", 'X', "stickWood", 'Y', Items.string));
@@ -332,13 +332,13 @@ public class GOTRecipe {
 		ironborn.add(new ShapedOreRecipe(new ItemStack(GOTItems.ironbornChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		ironborn.add(new ShapedOreRecipe(new ItemStack(GOTItems.ironbornLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		ironborn.add(new ShapedOreRecipe(new ItemStack(GOTItems.ironbornBoots), "X X", "X X", 'X', "ingotIron"));
-		ironborn.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.GREYJOY.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		ironborn.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.GREYJOY.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		ironborn.addAll(commonWesteros);
 		ironborn.addAll(tinyBasalt);
 	}
 
 	public static void createJogosRecipes() {
-		jogos.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.JOGOS.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		jogos.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.JOGOS.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		jogos.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosHelmet), "XXX", "X X", 'X', "ingotIron"));
 		jogos.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		jogos.add(new ShapedOreRecipe(new ItemStack(GOTItems.jogosLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
@@ -351,7 +351,7 @@ public class GOTRecipe {
 
 	public static void createLhazarRecipes() {
 		lhazar.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.tableLhazar), "XX", "XX", 'X', "plankWood"));
-		lhazar.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.LHAZAR.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		lhazar.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.LHAZAR.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		lhazar.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarHelmet), "XXX", "X X", 'X', GOTItems.gemsbokHide));
 		lhazar.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarChestplate), "X X", "XXX", "XXX", 'X', GOTItems.gemsbokHide));
 		lhazar.add(new ShapedOreRecipe(new ItemStack(GOTItems.lhazarLeggings), "XXX", "X X", "X X", 'X', GOTItems.gemsbokHide));
@@ -377,7 +377,7 @@ public class GOTRecipe {
 		lorath.add(new ShapedOreRecipe(new ItemStack(GOTItems.lorathChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		lorath.add(new ShapedOreRecipe(new ItemStack(GOTItems.lorathLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		lorath.add(new ShapedOreRecipe(new ItemStack(GOTItems.lorathBoots), "X X", "X X", 'X', "ingotIron"));
-		lorath.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.LORATH.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		lorath.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.LORATH.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		lorath.addAll(commonEssos);
 		lorath.addAll(tinyBasalt);
 	}
@@ -388,7 +388,7 @@ public class GOTRecipe {
 		lys.add(new ShapedOreRecipe(new ItemStack(GOTItems.lysChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		lys.add(new ShapedOreRecipe(new ItemStack(GOTItems.lysLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		lys.add(new ShapedOreRecipe(new ItemStack(GOTItems.lysBoots), "X X", "X X", 'X', "ingotIron"));
-		lys.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.LYS.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		lys.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.LYS.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		lys.addAll(commonEssos);
 		lys.addAll(tinyBasalt);
 	}
@@ -400,7 +400,7 @@ public class GOTRecipe {
 		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTItems.mossovyBoots), "X X", "X X", 'X', "ingotIron"));
 		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTItems.mossovySword), "X", "X", "Y", 'X', GOTItems.silverIngot, 'Y', "stickWood"));
 		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTItems.mossovyDagger), "X", "Y", 'X', GOTItems.silverIngot, 'Y', "stickWood"));
-		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.MOSSOVY.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		mossovy.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.MOSSOVY.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 	}
 
 	public static void createMyrRecipes() {
@@ -409,7 +409,7 @@ public class GOTRecipe {
 		myr.add(new ShapedOreRecipe(new ItemStack(GOTItems.myrChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		myr.add(new ShapedOreRecipe(new ItemStack(GOTItems.myrLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		myr.add(new ShapedOreRecipe(new ItemStack(GOTItems.myrBoots), "X X", "X X", 'X', "ingotIron"));
-		myr.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.MYR.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		myr.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.MYR.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		myr.addAll(commonEssos);
 		myr.addAll(tinyBasalt);
 	}
@@ -424,7 +424,7 @@ public class GOTRecipe {
 		north.add(new ShapedOreRecipe(new ItemStack(GOTItems.northChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		north.add(new ShapedOreRecipe(new ItemStack(GOTItems.northLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		north.add(new ShapedOreRecipe(new ItemStack(GOTItems.northBoots), "X X", "X X", 'X', "ingotIron"));
-		north.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.ROBB.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		north.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.ROBB.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		north.addAll(commonWesteros);
 		north.addAll(tinyBasalt);
 	}
@@ -435,7 +435,7 @@ public class GOTRecipe {
 		norvos.add(new ShapedOreRecipe(new ItemStack(GOTItems.norvosChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		norvos.add(new ShapedOreRecipe(new ItemStack(GOTItems.norvosLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		norvos.add(new ShapedOreRecipe(new ItemStack(GOTItems.norvosBoots), "X X", "X X", 'X', "ingotIron"));
-		norvos.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.NORVOS.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		norvos.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.NORVOS.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		norvos.addAll(commonEssos);
 		norvos.addAll(tinyBasalt);
 	}
@@ -446,7 +446,7 @@ public class GOTRecipe {
 		pentos.add(new ShapedOreRecipe(new ItemStack(GOTItems.pentosChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		pentos.add(new ShapedOreRecipe(new ItemStack(GOTItems.pentosLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		pentos.add(new ShapedOreRecipe(new ItemStack(GOTItems.pentosBoots), "X X", "X X", 'X', "ingotIron"));
-		pentos.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.PENTOS.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		pentos.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.PENTOS.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		pentos.addAll(commonEssos);
 	}
 
@@ -456,7 +456,7 @@ public class GOTRecipe {
 		qarth.add(new ShapedOreRecipe(new ItemStack(GOTItems.qarthChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		qarth.add(new ShapedOreRecipe(new ItemStack(GOTItems.qarthLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		qarth.add(new ShapedOreRecipe(new ItemStack(GOTItems.qarthBoots), "X X", "X X", 'X', "ingotIron"));
-		qarth.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.QARTH.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		qarth.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.QARTH.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		qarth.addAll(commonEssos);
 		qarth.addAll(tinyBasalt);
 	}
@@ -471,7 +471,7 @@ public class GOTRecipe {
 		qohor.add(new ShapedOreRecipe(new ItemStack(GOTItems.qohorChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		qohor.add(new ShapedOreRecipe(new ItemStack(GOTItems.qohorLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		qohor.add(new ShapedOreRecipe(new ItemStack(GOTItems.qohorBoots), "X X", "X X", 'X', "ingotIron"));
-		qohor.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.QOHOR.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		qohor.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.QOHOR.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		qohor.addAll(commonEssos);
 		qohor.addAll(tinyBasalt);
 	}
@@ -486,7 +486,7 @@ public class GOTRecipe {
 		reach.add(new ShapedOreRecipe(new ItemStack(GOTItems.reachChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		reach.add(new ShapedOreRecipe(new ItemStack(GOTItems.reachLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		reach.add(new ShapedOreRecipe(new ItemStack(GOTItems.reachBoots), "X X", "X X", 'X', "ingotIron"));
-		reach.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.TYRELL.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		reach.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.TYRELL.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		reach.addAll(commonWesteros);
 		reach.addAll(tinyBasalt);
 	}
@@ -497,7 +497,7 @@ public class GOTRecipe {
 		riverlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.riverlandsChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		riverlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.riverlandsLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		riverlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.riverlandsBoots), "X X", "X X", 'X', "ingotIron"));
-		riverlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.TULLY.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		riverlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.TULLY.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		riverlands.addAll(commonWesteros);
 		riverlands.addAll(tinyBasalt);
 	}
@@ -552,7 +552,7 @@ public class GOTRecipe {
 
 	public static void createSothoryosRecipes() {
 		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.tableSothoryos), "XX", "XX", 'X', "plankWood"));
-		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.SOTHORYOS.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.SOTHORYOS.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick4, 4, 0), "XX", "XX", 'X', Blocks.stone));
 		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.slabSingle8, 6, 0), "XXX", 'X', new ItemStack(GOTBlocks.brick4, 4, 0)));
 		sothoryos.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.stairsSothoryosBrick, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(GOTBlocks.brick4, 4, 0)));
@@ -1480,7 +1480,7 @@ public class GOTRecipe {
 		stormlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.stormlandsChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		stormlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.stormlandsLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		stormlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.stormlandsBoots), "X X", "X X", 'X', "ingotIron"));
-		stormlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.RENLY.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		stormlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.RENLY.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		stormlands.addAll(commonWesteros);
 		stormlands.addAll(tinyBasalt);
 	}
@@ -1491,7 +1491,7 @@ public class GOTRecipe {
 		summer.add(new ShapedOreRecipe(new ItemStack(GOTItems.summerChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		summer.add(new ShapedOreRecipe(new ItemStack(GOTItems.summerLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		summer.add(new ShapedOreRecipe(new ItemStack(GOTItems.summerBoots), "X X", "X X", 'X', "ingotIron"));
-		summer.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.SUMMER.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		summer.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.SUMMER.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		summer.add(new ShapedOreRecipe(new ItemStack(GOTItems.summerSword), "X", "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
 		summer.add(new ShapedOreRecipe(new ItemStack(GOTItems.summerDagger), "X", "Y", 'X', "ingotIron", 'Y', "stickWood"));
 		summer.add(new ShapedOreRecipe(new ItemStack(GOTItems.summerSpear), "  X", " Y ", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
@@ -1515,7 +1515,7 @@ public class GOTRecipe {
 		tyrosh.add(new ShapedOreRecipe(new ItemStack(GOTItems.tyroshChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		tyrosh.add(new ShapedOreRecipe(new ItemStack(GOTItems.tyroshLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		tyrosh.add(new ShapedOreRecipe(new ItemStack(GOTItems.tyroshBoots), "X X", "X X", 'X', "ingotIron"));
-		tyrosh.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.TYROSH.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		tyrosh.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.TYROSH.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		tyrosh.addAll(commonEssos);
 		tyrosh.addAll(tinyBasalt);
 	}
@@ -1599,7 +1599,7 @@ public class GOTRecipe {
 		volantis.add(new ShapedOreRecipe(new ItemStack(GOTItems.volantisChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		volantis.add(new ShapedOreRecipe(new ItemStack(GOTItems.volantisLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		volantis.add(new ShapedOreRecipe(new ItemStack(GOTItems.volantisBoots), "X X", "X X", 'X', "ingotIron"));
-		volantis.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.VOLANTIS.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		volantis.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.VOLANTIS.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		volantis.addAll(commonEssos);
 		volantis.addAll(tinyBasalt);
 	}
@@ -1614,7 +1614,7 @@ public class GOTRecipe {
 		westerlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.westerlandsChestplate), "X X", "XXX", "XXX", 'X', "ingotIron"));
 		westerlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.westerlandsLeggings), "XXX", "X X", "X X", 'X', "ingotIron"));
 		westerlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.westerlandsBoots), "X X", "X X", 'X', "ingotIron"));
-		westerlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.LANNISTER.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		westerlands.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.LANNISTER.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		westerlands.addAll(commonWesteros);
 		westerlands.addAll(tinyBasalt);
 	}
@@ -1627,9 +1627,9 @@ public class GOTRecipe {
 		wildling.add(new ShapedOreRecipe(new ItemStack(GOTItems.wildlingSpear), "  X", " Y ", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
 		wildling.add(new ShapedOreRecipe(new ItemStack(GOTItems.wildlingAxe), "XX", "XY", " Y", 'X', "ingotIron", 'Y', "stickWood"));
 		wildling.add(new ShapedOreRecipe(new ItemStack(GOTItems.wildlingHammer), "XYX", "XYX", " Y ", 'X', "ingotIron", 'Y', "stickWood"));
-		wildling.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.WILDLING.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		wildling.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.WILDLING.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		wildling.add(new ShapedOreRecipe(new ItemStack(GOTItems.wildlingPolearm), " XX", " YX", "Y  ", 'X', "ingotIron", 'Y', "stickWood"));
-		wildling.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.THENN.bannerID), "XA", "Y ", "Z ", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood", 'A', "stickWood"));
+		wildling.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.THENN.getBannerID()), "XA", "Y ", "Z ", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood", 'A', "stickWood"));
 	}
 
 	public static void createWoodenSlabRecipes() {
@@ -1676,7 +1676,7 @@ public class GOTRecipe {
 
 	public static void createYiTiRecipes() {
 		yiti.add(new GOTRecipeRobesDye(GOTMaterial.KAFTAN));
-		yiti.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.YITI.bannerID), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
+		yiti.add(new ShapedOreRecipe(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.YITI.getBannerID()), "X", "Y", "Z", 'X', Blocks.wool, 'Y', "stickWood", 'Z', "plankWood"));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick5, 1, 12), "XX", "XX", 'X', new ItemStack(GOTBlocks.brick5, 1, 11)));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick5, 4, 11), "XX", "XX", 'X', new ItemStack(Blocks.stone, 1, 0)));
 		yiti.add(new ShapedOreRecipe(new ItemStack(GOTBlocks.brick6, 1, 0), " X ", "XYX", " X ", 'X', "nuggetGold", 'Y', new ItemStack(GOTBlocks.brick5, 1, 11)));

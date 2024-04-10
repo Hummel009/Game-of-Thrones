@@ -13,7 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTItemPlate extends ItemReed {
-	public Block plateBlock;
+	private final Block plateBlock;
 
 	public GOTItemPlate(Block block) {
 		super(block);
@@ -39,5 +39,9 @@ public class GOTItemPlate extends ItemReed {
 			--itemstack.stackSize;
 		}
 		return itemstack;
+	}
+
+	public Block getPlateBlock() {
+		return plateBlock;
 	}
 }

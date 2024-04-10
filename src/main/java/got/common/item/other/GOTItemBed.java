@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
 public class GOTItemBed extends Item {
-	public GOTBlockBed theBedBlock;
+	private final GOTBlockBed theBedBlock;
 
 	public GOTItemBed(Block block) {
 		setMaxStackSize(1);

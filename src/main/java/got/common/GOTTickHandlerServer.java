@@ -1,6 +1,5 @@
 package got.common;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -176,8 +175,8 @@ public class GOTTickHandlerServer {
 				if (world.getTotalWorldTime() % playerDataClearingInterval == 0L) {
 					GOTLevelData.saveAndClearUnusedPlayerData();
 				}
-				if (GOTItemStructureSpawner.lastStructureSpawnTick > 0) {
-					GOTItemStructureSpawner.lastStructureSpawnTick--;
+				if (GOTItemStructureSpawner.getLastStructureSpawnTick() > 0) {
+					GOTItemStructureSpawner.setLastStructureSpawnTick(GOTItemStructureSpawner.getLastStructureSpawnTick() - 1);
 				}
 				GOTTime.update();
 				GOTJaqenHgharTracker.updateCooldowns();

@@ -129,7 +129,7 @@ public class GOTBlockBarrel extends BlockContainer {
 				world.playSoundEffect(i + 0.5, j + 0.5, k + 0.5, "got:item.mug_fill", 0.5f, 0.8f + world.rand.nextFloat() * 0.4f);
 				return true;
 			}
-			if (itemstack != null && item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
+			if (itemstack != null && item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable()) {
 				boolean match = false;
 				if (barrel.barrelMode == 0) {
 					match = true;

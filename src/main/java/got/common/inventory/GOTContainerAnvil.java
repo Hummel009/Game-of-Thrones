@@ -540,7 +540,7 @@ public class GOTContainerAnvil extends Container {
 				}
 				GOTEnchantment combinerItemEnchant = null;
 				if (combinerItem.getItem() instanceof GOTItemEnchantment) {
-					combinerItemEnchant = ((GOTItemEnchantment) combinerItem.getItem()).theEnchant;
+					combinerItemEnchant = ((GOTItemEnchantment) combinerItem.getItem()).getTheEnchant();
 				} else if (combinerItem.getItem() instanceof GOTItemModifierTemplate) {
 					combinerItemEnchant = GOTItemModifierTemplate.getModifier(combinerItem);
 				}

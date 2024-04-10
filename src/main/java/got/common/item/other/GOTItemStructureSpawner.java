@@ -19,19 +19,31 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTItemStructureSpawner extends Item {
-	public static int lastStructureSpawnTick;
+	private static int lastStructureSpawnTick;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon iconBase;
+	private IIcon iconBase;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon iconOverlay;
+	private IIcon iconOverlay;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon iconSettlementBase;
+	private IIcon iconSettlementBase;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon iconSettlementOverlay;
+	private IIcon iconSettlementOverlay;
 
 	public GOTItemStructureSpawner() {
 		setHasSubtypes(true);
 		setCreativeTab(GOTCreativeTabs.TAB_SPAWN);
+	}
+
+	public static int getLastStructureSpawnTick() {
+		return lastStructureSpawnTick;
+	}
+
+	public static void setLastStructureSpawnTick(int lastStructureSpawnTick) {
+		GOTItemStructureSpawner.lastStructureSpawnTick = lastStructureSpawnTick;
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -126,7 +138,7 @@ public class GOTItemStructureSpawner extends Item {
 		return true;
 	}
 
-	public boolean spawnStructure(EntityPlayer entityplayer, World world, int id, int i, int j, int k) {
+	private boolean spawnStructure(EntityPlayer entityplayer, World world, int id, int i, int j, int k) {
 		if (!GOTStructureRegistry.structureItemSpawners.containsKey(id)) {
 			return false;
 		}

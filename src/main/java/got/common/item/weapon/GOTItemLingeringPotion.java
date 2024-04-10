@@ -30,9 +30,8 @@ import java.util.List;
 import java.util.Map;
 
 public class GOTItemLingeringPotion extends ItemPotion {
-
 	@SideOnly(Side.CLIENT)
-	public IIcon bottle;
+	private IIcon bottle;
 
 	public GOTItemLingeringPotion() {
 		setCreativeTab(CreativeTabs.tabBrewing);

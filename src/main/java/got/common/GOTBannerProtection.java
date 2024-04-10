@@ -64,7 +64,7 @@ public class GOTBannerProtection {
 				if (banner.isStructureProtection()) {
 					return ProtectType.STRUCTURE;
 				}
-				if (banner.getBannerType().faction.isBadRelation(theFaction)) {
+				if (banner.getBannerType().getFaction().isBadRelation(theFaction)) {
 					return ProtectType.FACTION;
 				}
 				return ProtectType.NONE;
@@ -88,7 +88,7 @@ public class GOTBannerProtection {
 				if (banner.isStructureProtection()) {
 					return ProtectType.STRUCTURE;
 				}
-				if (banner.getBannerType().faction.isBadRelation(GOT.getNPCFaction(entity))) {
+				if (banner.getBannerType().getFaction().isBadRelation(GOT.getNPCFaction(entity))) {
 					return ProtectType.FACTION;
 				}
 				return ProtectType.NONE;
@@ -234,7 +234,7 @@ public class GOTBannerProtection {
 				if (banner.isProtectingTerritory() && protectionCube.intersectsWith(searchCube) && protectionCube.intersectsWith(originCube) && (result = protectFilter.protects(banner)) != ProtectType.NONE) {
 
 					if (result == ProtectType.FACTION) {
-						protectorName = banner.getBannerType().faction.factionName();
+						protectorName = banner.getBannerType().getFaction().factionName();
 						break;
 					}
 					if (result == ProtectType.PLAYER_SPECIFIC) {

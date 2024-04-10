@@ -62,8 +62,8 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			}
 			coinsRewarded = coins = Math.max(coins, 1);
 			int coinsRemain = coins;
-			for (int l = GOTItemCoin.values.length - 1; l >= 0; --l) {
-				int coinValue = GOTItemCoin.values[l];
+			for (int l = GOTItemCoin.VALUES.length - 1; l >= 0; --l) {
+				int coinValue = GOTItemCoin.VALUES[l];
 				if (coinsRemain < coinValue) {
 					continue;
 				}

@@ -28,9 +28,10 @@ import java.util.*;
 
 public class GOTItemBanner extends Item {
 	@SideOnly(Side.CLIENT)
-	public IIcon iconBase;
+	private IIcon iconBase;
+
 	@SideOnly(Side.CLIENT)
-	public IIcon iconOverlay;
+	private IIcon iconOverlay;
 
 	public GOTItemBanner() {
 		setCreativeTab(GOTCreativeTabs.TAB_BANNER);
@@ -40,7 +41,7 @@ public class GOTItemBanner extends Item {
 		setFull3D();
 	}
 
-	public static BannerType getBannerType(int i) {
+	private static BannerType getBannerType(int i) {
 		return BannerType.forID(i);
 	}
 
@@ -84,7 +85,7 @@ public class GOTItemBanner extends Item {
 		}
 	}
 
-	public static boolean shouldKeepOriginalOwnerOnPlacement(EntityPlayer entityplayer, ItemStack bannerItem) {
+	private static boolean shouldKeepOriginalOwnerOnPlacement(EntityPlayer entityplayer) {
 		return hasChoiceToKeepOriginalOwner(entityplayer) && entityplayer.isSneaking();
 	}
 
@@ -108,7 +109,7 @@ public class GOTItemBanner extends Item {
 		if (itemstack == entityplayer.getHeldItem()) {
 			return 0xffffff;
 		}
-		return getBannerType(itemstack.getItemDamage()).faction.getEggColor();
+		return getBannerType(itemstack.getItemDamage()).getFaction().getEggColor();
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -125,13 +126,13 @@ public class GOTItemBanner extends Item {
 	@SuppressWarnings("rawtypes")
 	public void getSubItems(Item item, CreativeTabs tab, List list) {
 		for (BannerType type : BannerType.bannerTypes) {
-			list.add(new ItemStack(item, 1, type.bannerID));
+			list.add(new ItemStack(item, 1, type.getBannerID()));
 		}
 	}
 
 	@Override
 	public String getUnlocalizedName(ItemStack itemstack) {
-		return getUnlocalizedName() + '.' + getBannerType(itemstack).bannerName;
+		return getUnlocalizedName() + '.' + getBannerType(itemstack).getBannerName();
 	}
 
 	@Override
@@ -157,7 +158,7 @@ public class GOTItemBanner extends Item {
 			if (block.isSideSolid(world, i, j1 - 1, k, ForgeDirection.UP)) {
 				int protectRange;
 				if (GOTConfig.allowBannerProtection && !entityplayer.capabilities.isCreativeMode && (protectRange = GOTBannerProtection.getProtectionRange(block, meta)) > 0) {
-					GOTFaction faction = bannerType.faction;
+					GOTFaction faction = bannerType.getFaction();
 					if (GOTLevelData.getData(entityplayer).getAlignment(faction) < 1.0f) {
 						if (!world.isRemote) {
 							GOTAlignmentValues.notifyAlignmentNotHighEnough(entityplayer, 1.0f, faction);
@@ -177,7 +178,7 @@ public class GOTItemBanner extends Item {
 						if (protectData != null) {
 							banner.readProtectionFromNBT(protectData);
 						}
-						if (banner.getPlacingPlayer() == null || !shouldKeepOriginalOwnerOnPlacement(entityplayer, itemstack)) {
+						if (banner.getPlacingPlayer() == null || !shouldKeepOriginalOwnerOnPlacement(entityplayer)) {
 							banner.setPlacingPlayer(entityplayer);
 						}
 						world.spawnEntityInWorld(banner);
@@ -242,10 +243,10 @@ public class GOTItemBanner extends Item {
 			}
 		}
 
-		public final int bannerID;
-		public final String bannerName;
+		private final int bannerID;
+		private final String bannerName;
 
-		public final GOTFaction faction;
+		private final GOTFaction faction;
 
 		BannerType(int i, String s, GOTFaction f) {
 			bannerID = i;
@@ -260,6 +261,17 @@ public class GOTItemBanner extends Item {
 			}
 			return bannerForID.get(ID);
 		}
-	}
 
+		public GOTFaction getFaction() {
+			return faction;
+		}
+
+		public int getBannerID() {
+			return bannerID;
+		}
+
+		public String getBannerName() {
+			return bannerName;
+		}
+	}
 }

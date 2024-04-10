@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 import java.util.stream.Stream;
 
 public class GOTItemBattleaxe extends GOTItemSword {
-	public float efficiencyOnProperMaterial;
+	private final float efficiencyOnProperMaterial;
 
 	public GOTItemBattleaxe(ToolMaterial material) {
 		super(material);

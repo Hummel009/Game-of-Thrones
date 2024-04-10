@@ -5,7 +5,7 @@ import got.common.item.GOTMaterialFinder;
 import net.minecraft.item.ItemSpade;
 
 public class GOTItemShovel extends ItemSpade implements GOTMaterialFinder {
-	public ToolMaterial gotMaterial;
+	private final ToolMaterial gotMaterial;
 
 	public GOTItemShovel(ToolMaterial material) {
 		super(material);

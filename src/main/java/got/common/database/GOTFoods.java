@@ -40,7 +40,7 @@ public class GOTFoods {
 		drinkVessels = vessels;
 		ArrayList<GOTItemMug.Vessel> placeable = new ArrayList<>();
 		for (GOTItemMug.Vessel v : drinkVessels) {
-			if (!v.canPlace) {
+			if (!v.isCanPlace()) {
 				continue;
 			}
 			placeable.add(v);
@@ -61,7 +61,7 @@ public class GOTFoods {
 		ArrayList<ItemStack> alcohols = new ArrayList<>();
 		for (ItemStack itemstack : foodList) {
 			Item item = itemstack.getItem();
-			if (!(item instanceof GOTItemMug) || !((GOTItemMug) item).isBrewable) {
+			if (!(item instanceof GOTItemMug) || !((GOTItemMug) item).isBrewable()) {
 				continue;
 			}
 			alcohols.add(itemstack.copy());
@@ -105,7 +105,7 @@ public class GOTFoods {
 
 	private void setDrinkVessel(ItemStack itemstack, Random random, boolean requirePlaceable) {
 		Item item = itemstack.getItem();
-		if (item instanceof GOTItemMug && ((GOTItemMug) item).isFullMug) {
+		if (item instanceof GOTItemMug && ((GOTItemMug) item).isFullMug()) {
 			GOTItemMug.Vessel v;
 			if (requirePlaceable) {
 				v = getRandomPlaceableVessel(random);

@@ -23,11 +23,12 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTItemCracker extends Item {
-	public static int emptyMeta = 4096;
-	public static int CUSTOM_CAPACITY = 3;
+	private static final int EMPTY_META = 4096;
+
+	private final String[] crackerNames = {"red", "blue", "green", "silver", "gold"};
+
 	@SideOnly(Side.CLIENT)
-	public IIcon[] crackerIcons;
-	public String[] crackerNames = {"red", "blue", "green", "silver", "gold"};
+	private IIcon[] crackerIcons;
 
 	public GOTItemCracker() {
 		setMaxStackSize(1);
@@ -36,22 +37,22 @@ public class GOTItemCracker extends Item {
 		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
-	public static int getBaseCrackerMetadata(int i) {
-		return i & ~emptyMeta;
+	private static int getBaseCrackerMetadata(int i) {
+		return i & ~EMPTY_META;
 	}
 
-	public static String getSealingPlayerName(ItemStack itemstack) {
+	private static String getSealingPlayerName(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("SealingPlayer")) {
 			return itemstack.getTagCompound().getString("SealingPlayer");
 		}
 		return null;
 	}
 
-	public static boolean isEmpty(ItemStack itemstack) {
-		return (itemstack.getItemDamage() & emptyMeta) == emptyMeta;
+	private static boolean isEmpty(ItemStack itemstack) {
+		return (itemstack.getItemDamage() & EMPTY_META) == EMPTY_META;
 	}
 
-	public static IInventory loadCustomCrackerContents(ItemStack itemstack) {
+	private static IInventory loadCustomCrackerContents(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("CustomCracker")) {
 			NBTTagCompound invData = itemstack.getTagCompound().getCompoundTag("CustomCracker");
 			int size = invData.getInteger("Size");
@@ -98,7 +99,7 @@ public class GOTItemCracker extends Item {
 
 	public static ItemStack setEmpty(ItemStack itemstack, boolean flag) {
 		int i = itemstack.getItemDamage();
-		i = flag ? i | emptyMeta : i & ~emptyMeta;
+		i = flag ? i | EMPTY_META : i & ~EMPTY_META;
 		itemstack.setItemDamage(i);
 		return itemstack;
 	}

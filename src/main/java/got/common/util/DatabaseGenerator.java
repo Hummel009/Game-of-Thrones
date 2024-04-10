@@ -1514,7 +1514,7 @@ public class DatabaseGenerator {
 	}
 
 	public static String getBannerName(BannerType banner) {
-		return StatCollector.translateToLocal("item.got:banner." + banner.bannerName + ".name");
+		return StatCollector.translateToLocal("item.got:banner." + banner.getBannerName() + ".name");
 	}
 
 	public static String getBiomeLink(GOTBiome biome) {

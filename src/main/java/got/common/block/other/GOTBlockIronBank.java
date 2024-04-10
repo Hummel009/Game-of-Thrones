@@ -17,9 +17,9 @@ public class GOTBlockIronBank extends GOTBlockForgeBase {
 	public static final Map<ItemStack, Integer> SELL = new GOTItemStackMapImpl<>();
 
 	public static void preInit() {
-		for (int i = 0; i < GOTItemCoin.values.length; ++i) {
-			BUY.put(new ItemStack(GOTItems.coin, 1, i), GOTItemCoin.values[i]);
-			SELL.put(new ItemStack(GOTItems.coin, 1, i), GOTItemCoin.values[i]);
+		for (int i = 0; i < GOTItemCoin.VALUES.length; ++i) {
+			BUY.put(new ItemStack(GOTItems.coin, 1, i), GOTItemCoin.VALUES[i]);
+			SELL.put(new ItemStack(GOTItems.coin, 1, i), GOTItemCoin.VALUES[i]);
 		}
 	}
 

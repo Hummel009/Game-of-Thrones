@@ -15,12 +15,11 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 public class GOTItemTrident extends GOTItemPolearm {
-
 	public GOTItemTrident(Item.ToolMaterial material) {
 		super(material);
 	}
 
-	public boolean canFishAt(World world, int i, int j, int k) {
+	private boolean canFishAt(World world, int i, int j, int k) {
 		double d = i + 0.5;
 		double d1 = j + 0.5;
 		double d2 = k + 0.5;

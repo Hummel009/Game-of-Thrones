@@ -26,7 +26,7 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 		if (item instanceof GOTItemMug) {
 			GOTItemMug drink = (GOTItemMug) item;
 			drink.applyToNPC(theEntity, itemstack);
-			if (drink.alcoholicity > 0.0f && theEntity.canGetDrunk() && !theEntity.isDrunkard() && rand.nextInt(3) == 0) {
+			if (drink.getAlcoholicity() > 0.0f && theEntity.canGetDrunk() && !theEntity.isDrunkard() && rand.nextInt(3) == 0) {
 				double range = 12.0;
 				IEntitySelector selectNonEnemyBartenders = new IEntitySelector() {
 
@@ -48,7 +48,7 @@ public class GOTEntityAIDrink extends GOTEntityAIConsumeBase {
 	public ItemStack createConsumable() {
 		ItemStack drink = foodPool.getRandomFood(rand);
 		Item item = drink.getItem();
-		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable) {
+		if (item instanceof GOTItemMug && ((GOTItemMug) item).isBrewable()) {
 			GOTItemMug.setStrengthMeta(drink, 1 + rand.nextInt(3));
 		}
 		return drink;

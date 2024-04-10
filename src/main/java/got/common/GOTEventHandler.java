@@ -6,12 +6,10 @@ import codechicken.nei.api.ItemInfo;
 import com.mojang.authlib.GameProfile;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.IFuelHandler;
 import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.PlayerEvent.*;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
-import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import got.GOT;
 import got.common.block.GOTVanillaSaplings;
@@ -91,7 +89,6 @@ import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.DimensionManager;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.UsernameCache;
 import net.minecraftforge.common.util.ForgeDirection;
 import net.minecraftforge.event.AnvilUpdateEvent;
@@ -779,7 +776,7 @@ public class GOTEventHandler {
 		World world = entityplayer.worldObj;
 		ItemStack itemstack = event.item;
 		if (!world.isRemote && GOTPoisonedDrinks.isDrinkPoisoned(itemstack)) {
-			GOTPoisonedDrinks.addPoisonEffect(entityplayer, itemstack);
+			GOTPoisonedDrinks.addPoisonEffect(entityplayer);
 		}
 	}
 
@@ -1304,11 +1301,11 @@ public class GOTEventHandler {
 				lanceOnFoot = !(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode;
 			}
 			IAttributeInstance speedAttribute = entity.getEntityAttribute(SharedMonsterAttributes.movementSpeed);
-			if (speedAttribute.getModifier(GOTItemLance.lanceSpeedBoost_id) != null) {
-				speedAttribute.removeModifier(GOTItemLance.lanceSpeedBoost);
+			if (speedAttribute.getModifier(GOTItemLance.LANCE_SPEED_BOOST_ID) != null) {
+				speedAttribute.removeModifier(GOTItemLance.LANCE_SPEED_BOOST);
 			}
 			if (lanceOnFoot) {
-				speedAttribute.applyModifier(GOTItemLance.lanceSpeedBoost);
+				speedAttribute.applyModifier(GOTItemLance.LANCE_SPEED_BOOST);
 			}
 		}
 		if (!world.isRemote && entity.isEntityAlive() && entity.ticksExisted % 20 == 0) {

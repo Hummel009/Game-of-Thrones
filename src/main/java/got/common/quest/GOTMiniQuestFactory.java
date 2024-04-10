@@ -521,7 +521,7 @@ public enum GOTMiniQuestFactory {
 		SOTHORYOS.addQuest(new QFBounty<>());
 		SOTHORYOS.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.banana), 4, 6).setRewardFactor(4.0f));
 		SOTHORYOS.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.bananaBread), 5, 8).setRewardFactor(2.0f));
-		SOTHORYOS.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.SOTHORYOS.bannerID), 5, 15).setRewardFactor(1.5f));
+		SOTHORYOS.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.banner, 1, GOTItemBanner.BannerType.SOTHORYOS.getBannerID()), 5, 15).setRewardFactor(1.5f));
 		SOTHORYOS.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.corn), 6, 12).setRewardFactor(1.5f));
 		SOTHORYOS.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.cornBread), 5, 8).setRewardFactor(2.0f));
 		SOTHORYOS.addQuest(new QFCollect<>().setCollectItem(new ItemStack(GOTItems.cornCooked), 5, 10).setRewardFactor(2.0f));

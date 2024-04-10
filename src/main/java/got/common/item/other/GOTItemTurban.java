@@ -14,7 +14,7 @@ import java.util.List;
 
 public class GOTItemTurban extends GOTItemRobes {
 	@SideOnly(Side.CLIENT)
-	public IIcon ornamentIcon;
+	private IIcon ornamentIcon;
 
 	public GOTItemTurban() {
 		super(0);

@@ -44,7 +44,7 @@ public class GOTEntityCrossbowBolt extends GOTEntityProjectileBase {
 	public void onCollideWithTarget(Entity entity) {
 		Item item;
 		ItemStack itemstack;
-		if (!worldObj.isRemote && entity instanceof EntityLivingBase && (itemstack = getProjectileItem()) != null && (item = itemstack.getItem()) instanceof GOTItemCrossbowBolt && ((GOTItemCrossbowBolt) item).isPoisoned) {
+		if (!worldObj.isRemote && entity instanceof EntityLivingBase && (itemstack = getProjectileItem()) != null && (item = itemstack.getItem()) instanceof GOTItemCrossbowBolt && ((GOTItemCrossbowBolt) item).isPoisoned()) {
 			GOTItemSword.applyStandardPoison((EntityLivingBase) entity);
 		}
 		super.onCollideWithTarget(entity);

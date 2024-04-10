@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class GOTItemDoubleTorch extends Item {
-	public Block torchBlock;
+	private final Block torchBlock;
 
 	public GOTItemDoubleTorch(Block block) {
 		setCreativeTab(GOTCreativeTabs.TAB_DECO);

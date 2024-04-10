@@ -1239,7 +1239,7 @@ public class GOTChestContents {
 				}
 				if ((item = itemstack.getItem()) instanceof GOTItemMug) {
 					GOTItemMug.Vessel[] vessels;
-					if (((GOTItemMug) item).isBrewable) {
+					if (((GOTItemMug) item).isBrewable()) {
 						GOTItemMug.setStrengthMeta(itemstack, 1 + random.nextInt(3));
 					}
 					if (GOTItemMug.isItemFullDrink(itemstack) && (vessels = itemPool.vesselTypes) != null) {

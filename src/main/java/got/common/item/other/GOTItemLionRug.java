@@ -22,7 +22,7 @@ public class GOTItemLionRug extends GOTItemRugBase {
 	public enum LionRugType {
 		LION(0), LIONESS(1);
 
-		public int lionID;
+		private final int lionID;
 
 		LionRugType(int i) {
 			lionID = i;
@@ -38,7 +38,7 @@ public class GOTItemLionRug extends GOTItemRugBase {
 			return LION;
 		}
 
-		public static String[] lionRugNames() {
+		private static String[] lionRugNames() {
 			String[] names = new String[values().length];
 			for (int i = 0; i < names.length; ++i) {
 				names[i] = values()[i].textureName();
@@ -46,9 +46,12 @@ public class GOTItemLionRug extends GOTItemRugBase {
 			return names;
 		}
 
-		public String textureName() {
+		private String textureName() {
 			return name().toLowerCase(Locale.ROOT);
 		}
-	}
 
+		public int getLionID() {
+			return lionID;
+		}
+	}
 }

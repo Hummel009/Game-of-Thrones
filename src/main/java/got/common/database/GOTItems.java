@@ -1192,7 +1192,7 @@ public class GOTItems {
 		rhinoCooked = new GOTItemFood(7, 0.4f, true);
 		rhinoHorn = new Item().setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		rhinoRaw = new GOTItemFood(2, 0.1f, true);
-		rice = new GOTItemRice(2, 0.2f, GOTBlocks.ricePlant, Blocks.water).setUnlocalizedName("rice").setTextureName("complexcrops:rice");
+		rice = new GOTItemRice(2, 0.2f, GOTBlocks.ricePlant).setUnlocalizedName("rice").setTextureName("complexcrops:rice");
 		riverlandsBoots = new GOTItemArmor(GOTMaterial.RIVERLANDS, 3);
 		riverlandsChestplate = new GOTItemArmor(GOTMaterial.RIVERLANDS, 1);
 		riverlandsHelmet = new GOTItemArmor(GOTMaterial.RIVERLANDS, 0);

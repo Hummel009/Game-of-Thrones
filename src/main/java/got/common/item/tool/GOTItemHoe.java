@@ -5,7 +5,7 @@ import got.common.item.GOTMaterialFinder;
 import net.minecraft.item.ItemHoe;
 
 public class GOTItemHoe extends ItemHoe implements GOTMaterialFinder {
-	public ToolMaterial gotMaterial;
+	private final ToolMaterial gotMaterial;
 
 	public GOTItemHoe(ToolMaterial material) {
 		super(material);

@@ -24,7 +24,7 @@ public class GOTRenderCrossbowBolt extends Render {
 		GL11.glRotatef(bolt.prevRotationPitch + (bolt.rotationPitch - bolt.prevRotationPitch) * f1, 0.0f, 0.0f, 1.0f);
 		Tessellator tessellator = Tessellator.instance;
 		int yOffset = 0;
-		if (boltItem != null && boltItem.getItem() instanceof GOTItemCrossbowBolt && ((GOTItemCrossbowBolt) boltItem.getItem()).isPoisoned) {
+		if (boltItem != null && boltItem.getItem() instanceof GOTItemCrossbowBolt && ((GOTItemCrossbowBolt) boltItem.getItem()).isPoisoned()) {
 			yOffset = 1;
 		}
 		float f2 = 0.0f;

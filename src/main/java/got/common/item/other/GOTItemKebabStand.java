@@ -17,7 +17,7 @@ public class GOTItemKebabStand extends ItemBlock {
 		super(block);
 	}
 
-	public static NBTTagCompound getKebabData(ItemStack itemstack) {
+	private static NBTTagCompound getKebabData(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("GOTKebabData")) {
 			return itemstack.getTagCompound().getCompoundTag("GOTKebabData");
 		}
@@ -39,7 +39,7 @@ public class GOTItemKebabStand extends ItemBlock {
 		}
 	}
 
-	public static void setKebabData(ItemStack itemstack, NBTTagCompound kebabData) {
+	private static void setKebabData(ItemStack itemstack, NBTTagCompound kebabData) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}

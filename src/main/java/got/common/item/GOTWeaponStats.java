@@ -19,14 +19,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTWeaponStats {
-	public static int basePlayerMeleeTime = 15;
-	public static int baseMobMeleeTime = 20;
-	public static Map<Object, Float> meleeSpeed = new HashMap<>();
-	public static Map<Object, Float> meleeReach = new HashMap<>();
-	public static Map<Object, Integer> meleeExtraKnockback = new HashMap<>();
-	public static float MAX_MODIFIABLE_REACH = 2.0f;
-	public static float MAX_MODIFIABLE_SPEED = 1.6f;
-	public static int MAX_MODIFIABLE_KNOCKBACK = 2;
+	public static final float MAX_MODIFIABLE_REACH = 2.0f;
+	public static final float MAX_MODIFIABLE_SPEED = 1.6f;
+	public static final int MAX_MODIFIABLE_KNOCKBACK = 2;
+
+	private static final int BASE_PLAYER_MELEE_TIME = 15;
+
+	private static final Map<Object, Float> MELEE_SPEED = new HashMap<>();
+	private static final Map<Object, Float> MELEE_REACH = new HashMap<>();
+	private static final Map<Object, Integer> MELEE_EXTRA_KNOCKBACK = new HashMap<>();
 
 	static {
 		registerMeleeSpeed(GOTItemGreatsword.class, 0.667f);
@@ -63,16 +64,17 @@ public class GOTWeaponStats {
 	}
 
 	public static int getAttackTimeMob(ItemStack itemstack) {
+		int baseMobMeleeTime = 20;
 		return getAttackTimeWithBase(itemstack, baseMobMeleeTime);
 	}
 
 	public static int getAttackTimePlayer(ItemStack itemstack) {
-		return getAttackTimeWithBase(itemstack, basePlayerMeleeTime);
+		return getAttackTimeWithBase(itemstack, BASE_PLAYER_MELEE_TIME);
 	}
 
 	public static int getAttackTimeWithBase(ItemStack itemstack, int baseTime) {
 		float time = baseTime;
-		Float factor = (Float) getClassOrItemProperty(itemstack, meleeSpeed);
+		Float factor = (Float) getClassOrItemProperty(itemstack, MELEE_SPEED);
 		if (factor != null) {
 			time /= factor;
 		}
@@ -82,14 +84,14 @@ public class GOTWeaponStats {
 	}
 
 	public static int getBaseExtraKnockback(ItemStack itemstack) {
-		Integer extra = (Integer) getClassOrItemProperty(itemstack, meleeExtraKnockback);
+		Integer extra = (Integer) getClassOrItemProperty(itemstack, MELEE_EXTRA_KNOCKBACK);
 		if (extra != null) {
 			return extra;
 		}
 		return 0;
 	}
 
-	public static Object getClassOrItemProperty(ItemStack itemstack, Map<?, ?> propertyMap) {
+	private static Object getClassOrItemProperty(ItemStack itemstack, Map<?, ?> propertyMap) {
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
 			if (propertyMap.containsKey(item)) {
@@ -138,7 +140,7 @@ public class GOTWeaponStats {
 
 	public static float getMeleeReachFactor(ItemStack itemstack) {
 		float reach = 1.0f;
-		Float factor = (Float) getClassOrItemProperty(itemstack, meleeReach);
+		Float factor = (Float) getClassOrItemProperty(itemstack, MELEE_REACH);
 		if (factor != null) {
 			reach *= factor;
 		}
@@ -146,7 +148,7 @@ public class GOTWeaponStats {
 	}
 
 	public static float getMeleeSpeed(ItemStack itemstack) {
-		int base = basePlayerMeleeTime;
+		int base = BASE_PLAYER_MELEE_TIME;
 		return 1.0f / ((float) getAttackTimeWithBase(itemstack, base) / base);
 	}
 
@@ -156,7 +158,7 @@ public class GOTWeaponStats {
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
 			if (item instanceof GOTItemCrossbow) {
-				weaponFactor = baseArrowFactor * (float) ((GOTItemCrossbow) item).boltDamageFactor;
+				weaponFactor = baseArrowFactor * (float) ((GOTItemCrossbow) item).getBoltDamageFactor();
 				weaponFactor *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
 				if (!launchSpeedOnly) {
 					int power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack);
@@ -169,7 +171,7 @@ public class GOTWeaponStats {
 				int power;
 				weaponFactor = baseArrowFactor;
 				if (item instanceof GOTItemBow) {
-					weaponFactor *= (float) ((GOTItemBow) item).arrowDamageFactor;
+					weaponFactor *= (float) ((GOTItemBow) item).getArrowDamageFactor();
 				}
 				weaponFactor *= GOTEnchantmentHelper.calcRangedDamageFactor(itemstack);
 				if (!launchSpeedOnly && (power = EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, itemstack)) > 0) {
@@ -274,15 +276,15 @@ public class GOTWeaponStats {
 		return false;
 	}
 
-	public static void registerMeleeExtraKnockback(Object obj, int i) {
-		meleeExtraKnockback.put(obj, i);
+	private static void registerMeleeExtraKnockback(Object obj, int i) {
+		MELEE_EXTRA_KNOCKBACK.put(obj, i);
 	}
 
-	public static void registerMeleeReach(Object obj, float f) {
-		meleeReach.put(obj, f);
+	private static void registerMeleeReach(Object obj, float f) {
+		MELEE_REACH.put(obj, f);
 	}
 
-	public static void registerMeleeSpeed(Object obj, float f) {
-		meleeSpeed.put(obj, f);
+	private static void registerMeleeSpeed(Object obj, float f) {
+		MELEE_SPEED.put(obj, f);
 	}
 }
