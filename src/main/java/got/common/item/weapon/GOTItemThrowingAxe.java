@@ -38,10 +38,7 @@ public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
 
 	@Override
 	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
-		if (GOTRecipe.checkItemEquals(axeMaterial.getRepairItemStack(), repairItem)) {
-			return true;
-		}
-		return super.getIsRepairable(itemstack, repairItem);
+		return GOTRecipe.checkItemEquals(axeMaterial.getRepairItemStack(), repairItem) || super.getIsRepairable(itemstack, repairItem);
 	}
 
 	@Override

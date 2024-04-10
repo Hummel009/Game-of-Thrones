@@ -105,10 +105,7 @@ public class GOTItemMountArmor extends Item {
 		if (mount instanceof GOTEntityRhino || mount instanceof GOTEntityWoolyRhino) {
 			return mountType == Mount.RHINO;
 		}
-		if (mount instanceof GOTEntityHorse) {
-			return mountType == Mount.HORSE;
-		}
-		return false;
+		return mount instanceof GOTEntityHorse && mountType == Mount.HORSE;
 	}
 
 	@SideOnly(Side.CLIENT)

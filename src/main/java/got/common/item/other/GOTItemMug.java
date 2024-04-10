@@ -277,10 +277,7 @@ public class GOTItemMug extends Item {
 	}
 
 	public boolean canPlayerDrink(EntityPlayer entityplayer) {
-		if (!isFullMug) {
-			return false;
-		}
-		return !isFoodDrink || entityplayer.canEat(false);
+		return isFullMug && (!isFoodDrink || entityplayer.canEat(false));
 	}
 
 	public List<PotionEffect> convertPotionEffectsForStrength(float strength) {

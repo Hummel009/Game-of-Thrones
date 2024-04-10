@@ -66,10 +66,7 @@ public class GOTItemBrandingIron extends Item {
 	}
 
 	public static boolean isHeated(ItemStack itemstack) {
-		if (itemstack.hasTagCompound()) {
-			return itemstack.getTagCompound().getBoolean("HotIron");
-		}
-		return false;
+		return itemstack.hasTagCompound() && itemstack.getTagCompound().getBoolean("HotIron");
 	}
 
 	public static void setBrandingPlayer(Entity entity, UUID player) {
