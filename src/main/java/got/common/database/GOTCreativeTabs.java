@@ -22,7 +22,7 @@ public class GOTCreativeTabs extends CreativeTabs {
 
 	private ItemStack theIcon;
 
-	public GOTCreativeTabs(String label) {
+	private GOTCreativeTabs(String label) {
 		super(label);
 	}
 

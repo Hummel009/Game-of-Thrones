@@ -41,7 +41,7 @@ public class GOTAchievementRank extends GOTAchievement {
 	}
 
 	@Override
-	public String getDescription(EntityPlayer entityplayer) {
+	public String getDescription() {
 		return StatCollector.translateToLocalFormatted("got.faction.achieveRank", GOTAlignmentValues.formatAlignForDisplay(theRank.getAlignment()));
 	}
 

@@ -70,25 +70,28 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@SuppressWarnings({"WeakerAccess", "unused"})
 public class GOTUnitTradeEntries {
 	public static final Set<GOTUnitTradeEntries> CONTENT = new HashSet<>();
 
-	private static final int LEVYMAN = 5;
-	private static final int LEVYMANA = 10;
-	private static final int SOLDIER = 10;
-	private static final int SOLDIERA = 15;
-	private static final int SOLDIERH = 15;
-	private static final int SOLDIERHA = 20;
+	public static final int LEVYMAN = 5;
+	public static final int LEVYMANA = 10;
+	public static final int SOLDIER = 10;
+	public static final int SOLDIERA = 15;
+	public static final int SOLDIERH = 15;
+	public static final int SOLDIERHA = 20;
+	public static final int SOLDIERE = 50;
+	public static final int SOLDIEREA = 55;
 
-	private static final float LEVYMAN_F = 5.0f;
-	private static final float LEVYMANA_F = 5.0f;
-	private static final float SOLDIER_F = 10.0f;
-	private static final float SOLDIERA_F = 10.0f;
-	private static final float SOLDIERH_F = 15.0f;
-	private static final float SOLDIERHA_F = 15.0f;
+	public static final float LEVYMAN_F = 5.0f;
+	public static final float LEVYMANA_F = 5.0f;
+	public static final float SOLDIER_F = 10.0f;
+	public static final float SOLDIERA_F = 10.0f;
+	public static final float SOLDIERH_F = 15.0f;
+	public static final float SOLDIERHA_F = 15.0f;
 
-	private static final int SLAVE = 10;
-	private static final float SLAVE_F = 0.0f;
+	public static final int SLAVE = 10;
+	public static final float SLAVE_F = 0.0f;
 
 	public static final GOTUnitTradeEntries ARRYN;
 	public static final GOTUnitTradeEntries BRAAVOS;

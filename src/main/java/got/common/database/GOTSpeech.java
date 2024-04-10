@@ -71,7 +71,7 @@ public class GOTSpeech {
 		return getSpeechBank(bankName).getSpeechAtLine(i);
 	}
 
-	public static SpeechBank getSpeechBank(String name) {
+	private static SpeechBank getSpeechBank(String name) {
 		SpeechBank bank = ALL_SPEECH_BANKS.get(name);
 		if (bank != null) {
 			return bank;
@@ -189,19 +189,18 @@ public class GOTSpeech {
 		sendSpeech(entityplayer, entity, speech);
 	}
 
-	public static class SpeechBank {
+	private static class SpeechBank {
 		private final List<String> speeches;
+		private final String name;
+		private final boolean isRandom;
 
-		private String name;
-		private boolean isRandom;
-
-		public SpeechBank(String s, boolean r, List<String> spc) {
+		private SpeechBank(String s, boolean r, List<String> spc) {
 			name = s;
 			isRandom = r;
 			speeches = spc;
 		}
 
-		public String getRandomSpeech() {
+		private String getRandomSpeech() {
 			if (!isRandom) {
 				return "ERROR: Tried to retrieve random speech from non-random speech bank " + name;
 			}
@@ -209,7 +208,7 @@ public class GOTSpeech {
 			return internalFormatSpeech(s);
 		}
 
-		public String getSpeechAtLine(int line) {
+		private String getSpeechAtLine(int line) {
 			if (isRandom) {
 				return "ERROR: Tried to retrieve indexed speech from random speech bank " + name;
 			}
@@ -221,24 +220,8 @@ public class GOTSpeech {
 			return "ERROR: Speech line " + line + " is out of range!";
 		}
 
-		public String internalFormatSpeech(String s) {
+		private String internalFormatSpeech(String s) {
 			return s;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public boolean isRandom() {
-			return isRandom;
-		}
-
-		public void setRandom(boolean random) {
-			isRandom = random;
 		}
 	}
 }

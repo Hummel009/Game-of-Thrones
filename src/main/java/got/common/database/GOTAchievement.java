@@ -5,7 +5,6 @@ import got.common.GOTDimension;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.faction.GOTFaction;
-import got.common.quest.GOTMiniQuestPickpocket;
 import got.common.util.GOTEnumDyeColor;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -262,7 +261,6 @@ public class GOTAchievement {
 	public static GOTAchievement mineGlowstone;
 	public static GOTAchievement mineValyrian;
 	public static GOTAchievement obama;
-	public static GOTAchievement pickpocket;
 	public static GOTAchievement pledgeService;
 	public static GOTAchievement reforge;
 	public static GOTAchievement rideCamel;
@@ -339,13 +337,13 @@ public class GOTAchievement {
 	public static GOTAchievement wearFullYitiSamurai;
 
 	private final Collection<GOTFaction> allyFactions = new ArrayList<>();
+	private final Category category;
+	private final ItemStack icon;
+	private final String name;
+	private final int id;
 
-	private Category category;
-	private int id;
-	private ItemStack icon;
-	private String name;
-	private boolean isBiomeAchievement;
 	private boolean isSpecial;
+	private boolean isBiomeAchievement;
 	private GOTTitle achievementTitle;
 
 	public GOTAchievement(Category c, int i, Item item, String s) {
@@ -463,7 +461,6 @@ public class GOTAchievement {
 		mineGlowstone = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.oreGlowstone, "MINE_GLOWSTONE");
 		mineValyrian = new GOTAchievement(Category.GENERAL, genId++, GOTBlocks.oreValyrian, "MINE_VALYRIAN");
 		obama = new GOTAchievement(Category.GENERAL, genId++, GOTItems.banana, "OBAMA");
-		pickpocket = new GOTAchievement(Category.GENERAL, genId++, GOTMiniQuestPickpocket.createPickpocketIcon(), "PICKPOCKET");
 		pledgeService = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "PLEDGE_SERVICE");
 		reforge = new GOTAchievement(Category.GENERAL, genId++, Blocks.anvil, "REFORGE");
 		rideCamel = new GOTAchievement(Category.GENERAL, genId++, Items.saddle, "RIDE_CAMEL");
@@ -486,7 +483,7 @@ public class GOTAchievement {
 		int killId = 1;
 		killer = new GOTAchievement(Category.KILL, killId++, Items.iron_axe, "KILLER");
 
-		killBeaver = new GOTAchievement(Category.KILL, genId++, GOTItems.beaverTail, "KILL_BEAVER");
+		killBeaver = new GOTAchievement(Category.KILL, killId++, GOTItems.beaverTail, "KILL_BEAVER");
 		killBombardier = new GOTAchievement(Category.KILL, killId++, GOTBlocks.bomb, "KILL_BOMBARDIER");
 		killButterfly = new GOTAchievement(Category.KILL, killId++, Items.iron_sword, "KILL_BUTTERFLY");
 		killGiant = new GOTAchievement(Category.KILL, killId++, GOTItems.club, "KILL_GIANT");
@@ -819,7 +816,7 @@ public class GOTAchievement {
 		return name;
 	}
 
-	public String getDescription(EntityPlayer entityplayer) {
+	public String getDescription() {
 		return StatCollector.translateToLocal("got.achievement." + name + ".desc");
 	}
 
@@ -847,32 +844,16 @@ public class GOTAchievement {
 		return category;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
-	}
-
 	public int getId() {
 		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public ItemStack getIcon() {
 		return icon;
 	}
 
-	public void setIcon(ItemStack icon) {
-		this.icon = icon;
-	}
-
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public boolean isBiomeAchievement() {
@@ -886,10 +867,6 @@ public class GOTAchievement {
 
 	public boolean isSpecial() {
 		return isSpecial;
-	}
-
-	public void setSpecial(boolean special) {
-		isSpecial = special;
 	}
 
 	public GOTTitle getAchievementTitle() {

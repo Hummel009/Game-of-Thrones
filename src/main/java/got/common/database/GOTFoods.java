@@ -28,7 +28,7 @@ public class GOTFoods {
 	private GOTItemMug.Vessel[] drinkVessels;
 	private GOTItemMug.Vessel[] drinkVesselsPlaceable;
 
-	public GOTFoods(ItemStack[] items) {
+	private GOTFoods(ItemStack[] items) {
 		foodList = items;
 	}
 

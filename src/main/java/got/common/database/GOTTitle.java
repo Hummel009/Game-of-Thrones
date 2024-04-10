@@ -18,7 +18,6 @@ public class GOTTitle {
 
 	private static int nextTitleID;
 
-	private final List<GOTFaction> alignmentFactions = new ArrayList<>();
 	private final String name;
 	private final int titleID;
 
@@ -27,7 +26,6 @@ public class GOTTitle {
 	private GOTAchievement titleAchievement;
 
 	private boolean useAchievementName;
-	private float alignmentRequired;
 	private UUID[] uuids;
 	private GOTFactionRank titleRank;
 
@@ -103,17 +101,6 @@ public class GOTTitle {
 					return true;
 				}
 				return false;
-			case ALIGNMENT: {
-				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-				boolean requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
-				for (GOTFaction f : alignmentFactions) {
-					if (pd.getAlignment(f) < alignmentRequired || requirePledge && !pd.isPledgedTo(f)) {
-						continue;
-					}
-					return true;
-				}
-				return false;
-			}
 			case RANK:
 				GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 				GOTFaction fac = titleRank.getFaction();
@@ -134,28 +121,7 @@ public class GOTTitle {
 			case PLAYER_EXCLUSIVE:
 				return StatCollector.translateToLocal("got.titles.unlock.exclusive");
 			case ACHIEVEMENT:
-				return titleAchievement.getDescription(entityplayer);
-			case ALIGNMENT: {
-				String alignLevel = GOTAlignmentValues.formatAlignForDisplay(alignmentRequired);
-				StringBuilder s = new StringBuilder();
-				if (alignmentFactions.size() > 1) {
-					for (int i = 0; i < alignmentFactions.size(); ++i) {
-						GOTFaction f = alignmentFactions.get(i);
-						if (i > 0) {
-							s.append(" / ");
-						}
-						s.append(f.factionName());
-					}
-				} else {
-					GOTFaction f = alignmentFactions.get(0);
-					s = new StringBuilder(f.factionName());
-				}
-				boolean requirePledge = isAlignmentGreaterThanOrEqualToAllFactionPledges() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
-				if (requirePledge) {
-					return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment.pledge", s.toString(), alignLevel);
-				}
-				return StatCollector.translateToLocalFormatted("got.titles.unlock.alignment", s.toString(), alignLevel);
-			}
+				return titleAchievement.getDescription();
 			case RANK:
 				String alignS = GOTAlignmentValues.formatAlignForDisplay(titleRank.getAlignment());
 				boolean requirePledge = titleRank.isAbovePledgeRank() || titleRank.isPledgeRank() && GOTConfig.areStrictFactionTitleRequirementsEnabled(entityplayer.worldObj);
@@ -194,40 +160,8 @@ public class GOTTitle {
 		return "got.title." + name;
 	}
 
-	private boolean isAlignmentGreaterThanOrEqualToAllFactionPledges() {
-		if (titleType == TitleType.ALIGNMENT) {
-			for (GOTFaction fac : alignmentFactions) {
-				if (alignmentRequired >= fac.getPledgeAlignment()) {
-					continue;
-				}
-				return false;
-			}
-			return true;
-		}
-		return false;
-	}
-
 	public boolean isFeminineRank() {
 		return titleType == TitleType.RANK && isFeminineRank;
-	}
-
-	public GOTTitle setAlignment(GOTFaction faction) {
-		return setAlignment(faction, faction.getPledgeAlignment());
-	}
-
-	private GOTTitle setAlignment(GOTFaction faction, float alignment) {
-		return setMultiAlignment(alignment, faction);
-	}
-
-	private GOTTitle setMultiAlignment(float alignment, Collection<GOTFaction> factions) {
-		titleType = TitleType.ALIGNMENT;
-		alignmentFactions.addAll(factions);
-		alignmentRequired = alignment;
-		return this;
-	}
-
-	private GOTTitle setMultiAlignment(float alignment, GOTFaction... factions) {
-		return setMultiAlignment(alignment, Arrays.asList(factions));
 	}
 
 	private GOTTitle setPlayerExclusive(List<String> devs) {
@@ -270,17 +204,13 @@ public class GOTTitle {
 	}
 
 	public enum TitleType {
-		STARTER, PLAYER_EXCLUSIVE, ALIGNMENT, ACHIEVEMENT, RANK
+		STARTER, PLAYER_EXCLUSIVE, ACHIEVEMENT, RANK
 
 	}
 
 	public static class PlayerTitle {
 		protected GOTTitle theTitle;
 		protected EnumChatFormatting theColor;
-
-		public PlayerTitle(GOTTitle title) {
-			this(title, null);
-		}
 
 		public PlayerTitle(GOTTitle title, EnumChatFormatting color) {
 			EnumChatFormatting color1 = color;

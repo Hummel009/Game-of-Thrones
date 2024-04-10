@@ -93,7 +93,7 @@ public class GOTEntityMossovyWitcher extends GOTEntityMossovyMan implements GOTM
 
 	@Override
 	public int getMercBaseCost() {
-		return GOTUnitTradeEntries.SOLDIER + 50;
+		return GOTUnitTradeEntries.SOLDIERE;
 	}
 
 	@Override
