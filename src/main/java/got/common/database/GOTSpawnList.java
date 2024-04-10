@@ -496,7 +496,8 @@ public class GOTSpawnList {
 		YITI_MILITARY = new GOTSpawnList(YITI_MILITARY_L);
 	}
 
-	public List<GOTSpawnEntry> spawnList;
+	private final List<GOTSpawnEntry> spawnList;
+
 	private GOTFaction discoveredFaction;
 
 	private GOTSpawnList(List<GOTSpawnEntry> entries) {
@@ -538,5 +539,9 @@ public class GOTSpawnList {
 
 	public GOTSpawnEntry getRandomSpawnEntry(Random rand) {
 		return (GOTSpawnEntry) WeightedRandom.getRandomItem(rand, spawnList);
+	}
+
+	public List<GOTSpawnEntry> getSpawnList() {
+		return new ArrayList<>(spawnList);
 	}
 }

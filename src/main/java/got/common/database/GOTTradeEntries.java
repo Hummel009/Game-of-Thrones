@@ -15,120 +15,120 @@ import net.minecraft.util.MathHelper;
 import java.util.*;
 
 public class GOTTradeEntries {
-	public static int VALYRIAN_INGOT_SELL = 512;
-	public static int GOLD_INGOT_SELL = 128;
-	public static int SILVER_INGOT_SELL = 32;
-	public static int VALYRIAN_INGOT_BUY = 768;
-	public static int GOLD_INGOT_BUY = 192;
-	public static int SILVER_INGOT_BUY = 48;
-	public static int AMBER_SELL = 30;
-	public static int AMETHYST_SELL = 20;
-	public static int DIAMOND_SELL = 60;
-	public static int EMERALD_SELL = 40;
-	public static int OPAL_SELL = 30;
-	public static int PEARL_SELL = 30;
-	public static int RUBY_SELL = 30;
-	public static int SAPPHIRE_SELL = 30;
-	public static int TOPAZ_SELL = 20;
-	public static int AMBER_BUY = 45;
-	public static int AMETHYST_BUY = 30;
-	public static int DIAMOND_BUY = 90;
-	public static int EMERALD_BUY = 60;
-	public static int OPAL_BUY = 45;
-	public static int PEARL_BUY = 45;
-	public static int RUBY_BUY = 45;
-	public static int SAPPHIRE_BUY = 45;
-	public static int TOPAZ_BUY = 30;
+	private static final int VALYRIAN_INGOT_SELL = 512;
+	private static final int GOLD_INGOT_SELL = 128;
+	private static final int SILVER_INGOT_SELL = 32;
+	private static final int VALYRIAN_INGOT_BUY = 768;
+	private static final int GOLD_INGOT_BUY = 192;
+	private static final int SILVER_INGOT_BUY = 48;
+	private static final int AMBER_SELL = 30;
+	private static final int AMETHYST_SELL = 20;
+	private static final int DIAMOND_SELL = 60;
+	private static final int EMERALD_SELL = 40;
+	private static final int OPAL_SELL = 30;
+	private static final int PEARL_SELL = 30;
+	private static final int RUBY_SELL = 30;
+	private static final int SAPPHIRE_SELL = 30;
+	private static final int TOPAZ_SELL = 20;
+	private static final int AMBER_BUY = 45;
+	private static final int AMETHYST_BUY = 30;
+	private static final int DIAMOND_BUY = 90;
+	private static final int EMERALD_BUY = 60;
+	private static final int OPAL_BUY = 45;
+	private static final int PEARL_BUY = 45;
+	private static final int RUBY_BUY = 45;
+	private static final int SAPPHIRE_BUY = 45;
+	private static final int TOPAZ_BUY = 30;
 
-	public static GOTTradeEntries BAELISH_BUY;
-	public static GOTTradeEntries C_ALCHEMIST_BUY;
-	public static GOTTradeEntries C_BAKER_BUY;
-	public static GOTTradeEntries C_BAKER_SELL;
-	public static GOTTradeEntries C_BARTENDER_BUY;
-	public static GOTTradeEntries C_BARTENDER_SELL;
-	public static GOTTradeEntries C_BLACKSMITH_SELL;
-	public static GOTTradeEntries C_BOMZH_BUY;
-	public static GOTTradeEntries C_BOMZH_SELL;
-	public static GOTTradeEntries C_BREWER_BUY;
-	public static GOTTradeEntries C_BREWER_SELL;
-	public static GOTTradeEntries C_BUTCHER_BUY;
-	public static GOTTradeEntries C_BUTCHER_SELL;
-	public static GOTTradeEntries C_FARMER_BUY;
-	public static GOTTradeEntries C_FARMER_SELL;
-	public static GOTTradeEntries C_FISHMONGER_BUY;
-	public static GOTTradeEntries C_FISHMONGER_SELL;
-	public static GOTTradeEntries C_FLORIST_BUY;
-	public static GOTTradeEntries C_GOLDSMITH_BUY;
-	public static GOTTradeEntries C_GOLDSMITH_SELL;
-	public static GOTTradeEntries C_LUMBERMAN_BUY;
-	public static GOTTradeEntries C_LUMBERMAN_SELL;
-	public static GOTTradeEntries C_MAESTER_BUY;
-	public static GOTTradeEntries C_MAESTER_SELL;
-	public static GOTTradeEntries C_MINER_BUY;
-	public static GOTTradeEntries C_MINER_SELL;
-	public static GOTTradeEntries C_SHAMAN_BUY;
-	public static GOTTradeEntries C_SHAMAN_SELL;
-	public static GOTTradeEntries CROWNLANDS_ALCHEMIST_BUY;
-	public static GOTTradeEntries DAVOS_BUY;
-	public static GOTTradeEntries ESSOS_BLACKSMITH_BUY;
-	public static GOTTradeEntries SUD_MASON_BUY;
-	public static GOTTradeEntries IBBEN_BLACKSMITH_BUY;
-	public static GOTTradeEntries IBBEN_MASON_BUY;
-	public static GOTTradeEntries LHAZAR_BLACKSMITH_BUY;
-	public static GOTTradeEntries MOSSOVY_BLACKSMITH_BUY;
-	public static GOTTradeEntries QOHOR_BLACKSMITH_BUY;
-	public static GOTTradeEntries SOTHORYOS_BLACKSMITH_BUY;
-	public static GOTTradeEntries SUMMER_BLACKSMITH_BUY;
-	public static GOTTradeEntries THENN_BLACKSMITH_BUY;
-	public static GOTTradeEntries WESTEROS_BLACKSMITH_BUY;
-	public static GOTTradeEntries NORD_MASON_BUY;
-	public static GOTTradeEntries YITI_BLACKSMITH_BUY;
-	public static GOTTradeEntries YITI_MASON_BUY;
+	public static final GOTTradeEntries BAELISH_BUY;
+	public static final GOTTradeEntries C_ALCHEMIST_BUY;
+	public static final GOTTradeEntries C_BAKER_BUY;
+	public static final GOTTradeEntries C_BAKER_SELL;
+	public static final GOTTradeEntries C_BARTENDER_BUY;
+	public static final GOTTradeEntries C_BARTENDER_SELL;
+	public static final GOTTradeEntries C_BLACKSMITH_SELL;
+	public static final GOTTradeEntries C_BOMZH_BUY;
+	public static final GOTTradeEntries C_BOMZH_SELL;
+	public static final GOTTradeEntries C_BREWER_BUY;
+	public static final GOTTradeEntries C_BREWER_SELL;
+	public static final GOTTradeEntries C_BUTCHER_BUY;
+	public static final GOTTradeEntries C_BUTCHER_SELL;
+	public static final GOTTradeEntries C_FARMER_BUY;
+	public static final GOTTradeEntries C_FARMER_SELL;
+	public static final GOTTradeEntries C_FISHMONGER_BUY;
+	public static final GOTTradeEntries C_FISHMONGER_SELL;
+	public static final GOTTradeEntries C_FLORIST_BUY;
+	public static final GOTTradeEntries C_GOLDSMITH_BUY;
+	public static final GOTTradeEntries C_GOLDSMITH_SELL;
+	public static final GOTTradeEntries C_LUMBERMAN_BUY;
+	public static final GOTTradeEntries C_LUMBERMAN_SELL;
+	public static final GOTTradeEntries C_MAESTER_BUY;
+	public static final GOTTradeEntries C_MAESTER_SELL;
+	public static final GOTTradeEntries C_MINER_BUY;
+	public static final GOTTradeEntries C_MINER_SELL;
+	public static final GOTTradeEntries C_SHAMAN_BUY;
+	public static final GOTTradeEntries C_SHAMAN_SELL;
+	public static final GOTTradeEntries CROWNLANDS_ALCHEMIST_BUY;
+	public static final GOTTradeEntries DAVOS_BUY;
+	public static final GOTTradeEntries ESSOS_BLACKSMITH_BUY;
+	public static final GOTTradeEntries SUD_MASON_BUY;
+	public static final GOTTradeEntries IBBEN_BLACKSMITH_BUY;
+	public static final GOTTradeEntries IBBEN_MASON_BUY;
+	public static final GOTTradeEntries LHAZAR_BLACKSMITH_BUY;
+	public static final GOTTradeEntries MOSSOVY_BLACKSMITH_BUY;
+	public static final GOTTradeEntries QOHOR_BLACKSMITH_BUY;
+	public static final GOTTradeEntries SOTHORYOS_BLACKSMITH_BUY;
+	public static final GOTTradeEntries SUMMER_BLACKSMITH_BUY;
+	public static final GOTTradeEntries THENN_BLACKSMITH_BUY;
+	public static final GOTTradeEntries WESTEROS_BLACKSMITH_BUY;
+	public static final GOTTradeEntries NORD_MASON_BUY;
+	public static final GOTTradeEntries YITI_BLACKSMITH_BUY;
+	public static final GOTTradeEntries YITI_MASON_BUY;
 
-	public static List<GOTTradeEntry> BAELISH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_ALCHEMIST_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BAKER_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BAKER_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BARTENDER_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BARTENDER_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BLACKSMITH_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BOMZH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BOMZH_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BREWER_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BREWER_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BUTCHER_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_BUTCHER_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_FARMER_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_FARMER_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_FISHMONGER_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_FISHMONGER_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_FLORIST_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_GOLDSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_GOLDSMITH_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_MAESTER_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_MAESTER_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_MINER_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_MINER_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_SHAMAN_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_SHAMAN_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_LUMBERMAN_S_L = new ArrayList<>();
-	public static List<GOTTradeEntry> C_LUMBERMAN_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> IBBEN_MASON_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> YITI_MASON_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> SUD_MASON_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> NORD_MASON_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> ESSOS_BLACKSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> IBBEN_BLACKSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> LHAZAR_BLACKSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> MOSSOVY_BLACKSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> QOHOR_BLACKSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> SOTHORYOS_BLACKSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> SUMMER_BLACKSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> THENN_BLACKSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> WESTEROS_BLACKSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> YITI_BLACKSMITH_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> CROWNLANDS_ALCHEMIST_B_L = new ArrayList<>();
-	public static List<GOTTradeEntry> DAVOS_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> BAELISH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_ALCHEMIST_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BAKER_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BAKER_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BARTENDER_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BARTENDER_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BLACKSMITH_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BOMZH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BOMZH_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BREWER_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BREWER_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BUTCHER_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_BUTCHER_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_FARMER_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_FARMER_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_FISHMONGER_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_FISHMONGER_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_FLORIST_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_GOLDSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_GOLDSMITH_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_MAESTER_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_MAESTER_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_MINER_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_MINER_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_SHAMAN_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_SHAMAN_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_LUMBERMAN_S_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> C_LUMBERMAN_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> IBBEN_MASON_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> YITI_MASON_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> SUD_MASON_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> NORD_MASON_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> ESSOS_BLACKSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> IBBEN_BLACKSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> LHAZAR_BLACKSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> MOSSOVY_BLACKSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> QOHOR_BLACKSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> SOTHORYOS_BLACKSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> SUMMER_BLACKSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> THENN_BLACKSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> WESTEROS_BLACKSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> YITI_BLACKSMITH_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> CROWNLANDS_ALCHEMIST_B_L = new ArrayList<>();
+	private static final List<GOTTradeEntry> DAVOS_B_L = new ArrayList<>();
 
 	static {
 		BAELISH_B_L.add(new GOTTradeEntry(new ItemStack(GOTItems.baelishDagger), 5000));
@@ -1038,11 +1038,12 @@ public class GOTTradeEntries {
 		YITI_MASON_BUY = new GOTTradeEntries(GOTTradeEntries.TradeType.WE_CAN_BUY, YITI_MASON_B_L);
 	}
 
-	public GOTTradeEntries.TradeType tradeType;
-	public GOTTradeEntry[] tradeEntries;
-	public GOTItemMug.Vessel[] drinkVessels;
+	private final GOTTradeEntries.TradeType tradeType;
+	private final GOTTradeEntry[] tradeEntries;
 
-	public GOTTradeEntries(GOTTradeEntries.TradeType t, List<GOTTradeEntry> list) {
+	private GOTItemMug.Vessel[] drinkVessels;
+
+	private GOTTradeEntries(GOTTradeEntries.TradeType t, List<GOTTradeEntry> list) {
 		GOTTradeEntry[] arr = new GOTTradeEntry[list.size()];
 		arr = list.toArray(arr);
 		tradeType = t;
@@ -1108,16 +1109,20 @@ public class GOTTradeEntries {
 		return trades;
 	}
 
-	public GOTTradeEntries setVessels(GOTFoods foods) {
+	private GOTTradeEntries setVessels(GOTFoods foods) {
 		return setVessels(foods.getDrinkVessels());
 	}
 
-	public GOTTradeEntries setVessels(GOTItemMug.Vessel... v) {
+	private GOTTradeEntries setVessels(GOTItemMug.Vessel... v) {
 		if (tradeType != GOTTradeEntries.TradeType.WE_CAN_BUY) {
 			throw new IllegalArgumentException("Cannot set the vessel types for a sell list");
 		}
 		drinkVessels = v;
 		return this;
+	}
+
+	public GOTTradeEntry[] getTradeEntries() {
+		return tradeEntries;
 	}
 
 	public enum TradeType {

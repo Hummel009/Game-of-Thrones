@@ -630,12 +630,12 @@ public class GOTAPI {
 	}
 
 	private static void removeTitle(GOTTitle title) {
-		if (title.titleType == GOTTitle.TitleType.ACHIEVEMENT) {
-			title.titleAchievement.setAchievementTitle(null);
-			title.titleAchievement = null;
+		if (title.getTitleType() == GOTTitle.TitleType.ACHIEVEMENT) {
+			title.getTitleAchievement().setAchievementTitle(null);
+			title.setTitleAchievement(null);
 		}
-		title.isHidden = true;
-		GOTTitle.allTitles.remove(title);
+		title.setHidden(true);
+		GOTTitle.CONTENT.remove(title);
 	}
 
 	/**

@@ -15,6 +15,8 @@ CHANGELOG
 * Improved road-to-settlemen's-gate system
 * Improved roads & walls code
 * Improved GUI opening code
+* Improved unit costs
+
 * Optimized lots of client-size things
 
 * Returned sandstone chests, ice & obsidian stalactites to natural spawn

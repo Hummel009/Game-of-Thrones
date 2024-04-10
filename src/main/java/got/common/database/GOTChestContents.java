@@ -1164,6 +1164,7 @@ public class GOTChestContents {
 	private final WeightedRandomChestContent[] items;
 	private final int minItems;
 	private final int maxItems;
+
 	private boolean pouches;
 	private GOTItemMug.Vessel[] vesselTypes;
 	private List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();

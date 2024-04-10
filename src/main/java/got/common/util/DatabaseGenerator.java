@@ -178,7 +178,7 @@ public class DatabaseGenerator {
 
 				sb = new StringBuilder();
 				for (GOTUnitTradeEntries unitTradeEntries : UNITS) {
-					for (GOTUnitTradeEntry entry : unitTradeEntries.tradeEntries) {
+					for (GOTUnitTradeEntry entry : unitTradeEntries.getTradeEntries()) {
 						if (entry != null) {
 							sb.append("\n| ").append(getEntityLink(entry.entityClass));
 							if (entry.getPledgeType() == PledgeType.NONE) {
@@ -447,7 +447,7 @@ public class DatabaseGenerator {
 							sb.append(Lang.BIOME_HAS_SPAWN);
 							for (FactionContainer facContainer : spawnContainers) {
 								for (SpawnListContainer container : facContainer.spawnLists) {
-									for (GOTSpawnEntry entry : container.spawnList.spawnList) {
+									for (GOTSpawnEntry entry : container.spawnList.getSpawnList()) {
 										sb.append("\n* ").append(getEntityLink(entry.entityClass)).append("; ");
 									}
 								}
@@ -479,7 +479,7 @@ public class DatabaseGenerator {
 							for (FactionContainer facContainer : conqestContainers) {
 								next:
 								for (SpawnListContainer container : facContainer.spawnLists) {
-									for (GOTSpawnEntry entry : container.spawnList.spawnList) {
+									for (GOTSpawnEntry entry : container.spawnList.getSpawnList()) {
 										Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
 										if (entity instanceof GOTEntityNPC) {
 											GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
@@ -807,7 +807,7 @@ public class DatabaseGenerator {
 							if (!spawnContainers.isEmpty()) {
 								for (FactionContainer facContainer : spawnContainers) {
 									for (SpawnListContainer container : facContainer.spawnLists) {
-										for (GOTSpawnEntry entry : container.spawnList.spawnList) {
+										for (GOTSpawnEntry entry : container.spawnList.getSpawnList()) {
 											Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
 											if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac) {
 												spawnBiomes.add(biome);
@@ -849,7 +849,7 @@ public class DatabaseGenerator {
 							if (!conquestContainers.isEmpty()) {
 								for (FactionContainer facContainer : conquestContainers) {
 									for (SpawnListContainer container : facContainer.spawnLists) {
-										for (GOTSpawnEntry entry : container.spawnList.spawnList) {
+										for (GOTSpawnEntry entry : container.spawnList.getSpawnList()) {
 											Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
 											if (entity instanceof GOTEntityNPC && ((GOTEntityNPC) entity).getFaction() == fac) {
 												conquestBiomes.add(biome);
@@ -1118,11 +1118,11 @@ public class DatabaseGenerator {
 						for (FactionContainer facContainer : biome.getNPCSpawnList().factionContainers) {
 							if (facContainer.baseWeight > 0) {
 								for (SpawnListContainer container : facContainer.spawnLists) {
-									spawnEntries.addAll(container.spawnList.spawnList);
+									spawnEntries.addAll(container.spawnList.getSpawnList());
 								}
 							} else {
 								for (SpawnListContainer container : facContainer.spawnLists) {
-									conquestEntries.addAll(container.spawnList.spawnList);
+									conquestEntries.addAll(container.spawnList.getSpawnList());
 								}
 							}
 						}
@@ -1186,7 +1186,7 @@ public class DatabaseGenerator {
 						if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
 							GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
 							if (!((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
-								for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+								for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 									if (entry.entityClass == entityClass) {
 										owners.put(entityClass, ownerEntry.getKey());
 										break loop;
@@ -1201,7 +1201,7 @@ public class DatabaseGenerator {
 							if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
 								GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
 								if (((GOTEntityNPC) ownerEntry.getValue()).isLegendaryNPC()) {
-									for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+									for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 										if (entry.entityClass == entityClass) {
 											owners.put(entityClass, ownerEntry.getKey());
 											break loop;
@@ -1303,7 +1303,7 @@ public class DatabaseGenerator {
 					if (entityEntry.getValue() instanceof GOTTradeable) {
 						GOTTradeEntries entries = ((GOTTradeable) entityEntry.getValue()).getSellPool();
 						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = ");
-						for (GOTTradeEntry entry : entries.tradeEntries) {
+						for (GOTTradeEntry entry : entries.getTradeEntries()) {
 							sb.append("\n* ").append(entry.tradeItem.getDisplayName()).append(": {{Coins|").append(entry.getCost()).append("}};");
 						}
 					}
@@ -1316,7 +1316,7 @@ public class DatabaseGenerator {
 					if (entityEntry.getValue() instanceof GOTTradeable) {
 						GOTTradeEntries entries = ((GOTTradeable) entityEntry.getValue()).getBuyPool();
 						sb.append("\n| ").append(getEntityPagename(entityEntry.getKey())).append(" = ");
-						for (GOTTradeEntry entry : entries.tradeEntries) {
+						for (GOTTradeEntry entry : entries.getTradeEntries()) {
 							sb.append("\n* ").append(entry.tradeItem.getDisplayName()).append(": {{Coins|").append(entry.getCost()).append("}};");
 						}
 					}
@@ -1373,7 +1373,7 @@ public class DatabaseGenerator {
 				next:
 				for (Class<? extends Entity> entityClass : HIREABLE) {
 					for (GOTUnitTradeEntries entries : UNITS) {
-						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+						for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 							if (entry.entityClass == entityClass) {
 								sb.append("\n| ").append(getEntityPagename(entityClass)).append(" = ");
 								if (entry.getPledgeType() == PledgeType.NONE || entry.alignmentRequired >= 101.0f) {
@@ -1435,7 +1435,7 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Mob-Price");
 				sb.append(BEGIN);
 				for (GOTUnitTradeEntries entries : UNITS) {
-					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+					for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 						sb.append("\n| ").append(getEntityPagename(entry.entityClass)).append(" = ");
 						if (entry.getPledgeType() == PledgeType.NONE) {
 							sb.append("{{Coins|").append(entry.initialCost * 2).append("}}");
@@ -1449,7 +1449,7 @@ public class DatabaseGenerator {
 				sb.append(TITLE).append("Template:DB Mob-PricePledge");
 				sb.append(BEGIN);
 				for (GOTUnitTradeEntries entries : UNITS) {
-					for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+					for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 						sb.append("\n| ").append(getEntityPagename(entry.entityClass)).append(" = {{Coins|").append(entry.initialCost).append("}}");
 					}
 				}
@@ -1461,7 +1461,7 @@ public class DatabaseGenerator {
 					if (ownerEntry.getValue() instanceof GOTUnitTradeable) {
 						GOTUnitTradeEntries entries = ((GOTUnitTradeable) ownerEntry.getValue()).getUnits();
 						sb.append("\n| ").append(getEntityPagename(ownerEntry.getKey())).append(" = ");
-						for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+						for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 							if (entry.mountClass == null) {
 								sb.append("\n* ").append(getEntityLink(entry.entityClass));
 								if (entry.getPledgeType() == PledgeType.NONE) {
@@ -1616,7 +1616,7 @@ public class DatabaseGenerator {
 
 	public static void searchForHireable(Collection<Class<? extends Entity>> hireable, Iterable<GOTUnitTradeEntries> units) {
 		for (GOTUnitTradeEntries entries : units) {
-			for (GOTUnitTradeEntry entry : entries.tradeEntries) {
+			for (GOTUnitTradeEntry entry : entries.getTradeEntries()) {
 				hireable.add(entry.entityClass);
 			}
 		}

@@ -69,14 +69,14 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 				String squadron = squadronNameField.getText();
 				IMessage packet = new GOTPacketBuyUnit(currentTradeEntryIndex, squadron);
 				GOTPacketHandler.networkWrapper.sendToServer(packet);
-			} else if (button == buttonRightUnit && currentTradeEntryIndex < trades.tradeEntries.length - 1) {
+			} else if (button == buttonRightUnit && currentTradeEntryIndex < trades.getTradeEntries().length - 1) {
 				++currentTradeEntryIndex;
 			}
 		}
 	}
 
 	private GOTUnitTradeEntry currentTrade() {
-		return trades.tradeEntries[currentTradeEntryIndex];
+		return trades.getTradeEntries()[currentTradeEntryIndex];
 	}
 
 	private void drawCenteredString(String s, int i, int j, int k) {
@@ -254,7 +254,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 	public void drawScreen(int i, int j, float f) {
 		buttonLeftUnit.enabled = currentTradeEntryIndex > 0;
 		buttonHire.enabled = currentTrade().hasRequiredCostAndAlignment(mc.thePlayer, theUnitTrader);
-		buttonRightUnit.enabled = currentTradeEntryIndex < trades.tradeEntries.length - 1;
+		buttonRightUnit.enabled = currentTradeEntryIndex < trades.getTradeEntries().length - 1;
 		super.drawScreen(i, j, f);
 		screenXSize = i;
 		screenYSize = j;

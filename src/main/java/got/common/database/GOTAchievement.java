@@ -348,12 +348,12 @@ public class GOTAchievement {
 	private boolean isSpecial;
 	private GOTTitle achievementTitle;
 
-	private GOTAchievement(Category c, int i, Block block, String s) {
-		this(c, i, new ItemStack(block), s);
-	}
-
 	public GOTAchievement(Category c, int i, Item item, String s) {
 		this(c, i, new ItemStack(item), s);
+	}
+
+	private GOTAchievement(Category c, int i, Block block, String s) {
+		this(c, i, new ItemStack(block), s);
 	}
 
 	private GOTAchievement(Category c, int i, ItemStack itemstack, String s) {
