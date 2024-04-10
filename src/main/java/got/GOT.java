@@ -178,9 +178,10 @@ public class GOT {
 	@Mod.EventHandler
 	public void onServerStarting(FMLServerStartingEvent event) {
 		WorldServer world = DimensionManager.getWorld(0);
-		proxy.testReflection(world);
+
 		GOTReflection.removeCommand(CommandTime.class);
 		GOTReflection.removeCommand(CommandMessage.class);
+
 		Collection<CommandBase> command = new ArrayList<>();
 		command.add(new GOTCommandTimeVanilla());
 		command.add(new GOTCommandMessageFixed());
@@ -205,14 +206,18 @@ public class GOT {
 		command.add(new GOTCommandInvasion());
 		command.add(new GOTCommandAchievement());
 		command.add(new GOTCommandDatabase());
+
 		if (event.getServer().isDedicatedServer()) {
 			command.add(new GOTCommandBanStructures());
 			command.add(new GOTCommandAllowStructures());
 			command.add(new GOTCommandAdminHideMap());
 		}
+
 		for (CommandBase element : command) {
 			event.registerServerCommand(element);
 		}
+
+		proxy.testReflection(world);
 	}
 
 	private static Map<String, Integer> getModContentInfo() {
