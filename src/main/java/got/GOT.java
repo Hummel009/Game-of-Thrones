@@ -42,16 +42,13 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.*;
-import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 
-import java.awt.*;
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
 import java.util.*;
 
 @SuppressWarnings({"PublicField", "WeakerAccess"})
