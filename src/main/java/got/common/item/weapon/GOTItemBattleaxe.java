@@ -7,6 +7,8 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
+import java.util.stream.Stream;
+
 public class GOTItemBattleaxe extends GOTItemSword {
 	public float efficiencyOnProperMaterial;
 
@@ -18,9 +20,10 @@ public class GOTItemBattleaxe extends GOTItemSword {
 	}
 
 	@Override
+	@SuppressWarnings("StreamToLoop")
 	public float func_150893_a(ItemStack itemstack, Block block) {
 		float f = super.func_150893_a(itemstack, block);
-		if (f == 1.0f && block != null && (block.getMaterial() == Material.wood || block.getMaterial() == Material.plants || block.getMaterial() == Material.vine)) {
+		if (f == 1.0f && block != null && Stream.of(Material.wood, Material.plants, Material.vine).anyMatch(material -> block.getMaterial() == material)) {
 			return efficiencyOnProperMaterial;
 		}
 		return f;
