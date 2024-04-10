@@ -288,10 +288,6 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 		squadronNameField.mouseClicked(i, j, k);
 	}
 
-	protected void setTrades(GOTUnitTradeEntries t) {
-		trades = t;
-	}
-
 	@Override
 	public void updateScreen() {
 		super.updateScreen();
@@ -300,5 +296,9 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 
 	public GOTUnitTradeEntries getTrades() {
 		return trades;
+	}
+
+	protected void setTrades(GOTUnitTradeEntries t) {
+		trades = t;
 	}
 }

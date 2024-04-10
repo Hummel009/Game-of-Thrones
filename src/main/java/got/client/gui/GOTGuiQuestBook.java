@@ -34,6 +34,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 
 	private static final ResourceLocation GUI_TEXTURE_MINIQUESTS = new ResourceLocation("got:textures/gui/quest/questBook_miniquests.png");
 	private static final RenderItem RENDER_ITEM = new RenderItem();
+
 	private static final int X_SIZE = 420;
 	private static final int Y_SIZE = 256;
 	private static final int PAGE_WIDTH = 186;
@@ -59,13 +60,14 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 	private static boolean viewCompleted;
 	private static Page page;
 
+	private final Map<GOTMiniQuest, Pair<Integer, Integer>> displayedMiniQuests = new HashMap<>();
+
 	private int guiLeft;
 	private int guiTop;
 	private boolean wasMouseDown;
 	private int lastMouseY;
 	private boolean isScrolling;
 	private float currentScroll;
-	private final Map<GOTMiniQuest, Pair<Integer, Integer>> displayedMiniQuests = new HashMap<>();
 	private boolean mouseInDiary;
 	private boolean isDiaryScrolling;
 	private float diaryScroll;

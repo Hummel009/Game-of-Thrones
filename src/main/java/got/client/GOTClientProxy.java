@@ -61,8 +61,6 @@ import java.util.Random;
 import java.util.UUID;
 
 public class GOTClientProxy extends GOTCommonProxy {
-	private static final ResourceLocation CUSTOM_POTIONS_TEXTURE = new ResourceLocation("got:textures/gui/effects.png");
-
 	public static final ResourceLocation ENCHANTMENT_TEXTURE = new ResourceLocation("textures/misc/enchanted_item_glint.png");
 	public static final ResourceLocation ALIGNMENT_TEXTURE = new ResourceLocation("got:textures/gui/alignment.png");
 	public static final ResourceLocation PARTICLES_TEXTURE = new ResourceLocation("got:textures/misc/particles.png");
@@ -70,17 +68,22 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	public static final int TESSELLATOR_MAX_BRIGHTNESS = 15728880;
 
-	public static GOTMusic musicHandler;
-	public static GOTEffectRenderer customEffectRenderer;
-
 	@SuppressWarnings("unused")
 	public static final GOTRenderPlayer SPECIAL_PLAYER_RENDERER = new GOTRenderPlayer();
+
 	@SuppressWarnings("unused")
 	public static final GOTSwingHandler SWING_HANDLER = new GOTSwingHandler();
+
 	@SuppressWarnings("unused")
 	public static final GOTTickHandlerClient TICK_HANDLER = new GOTTickHandlerClient();
+
 	@SuppressWarnings("unused")
 	public static final GOTGuiHandler GUI_HANDLER = new GOTGuiHandler();
+
+	private static final ResourceLocation CUSTOM_POTIONS_TEXTURE = new ResourceLocation("got:textures/gui/effects.png");
+
+	public static GOTMusic musicHandler;
+	public static GOTEffectRenderer customEffectRenderer;
 
 	private int beaconRenderID;
 	private int barrelRenderID;

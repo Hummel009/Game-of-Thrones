@@ -19,12 +19,12 @@ public class GOTAttackTiming {
 	private static final ResourceLocation METER_TEXTURE = new ResourceLocation("got:textures/gui/attackMeter.png");
 	private static final RenderItem ITEM_RENDERER = new RenderItem();
 
-	private static ItemStack attackItem;
-	private static int lastCheckTick = -1;
-
 	public static int attackTime;
 	public static int prevAttackTime;
 	public static int fullAttackTime;
+
+	private static ItemStack attackItem;
+	private static int lastCheckTick = -1;
 
 	private GOTAttackTiming() {
 	}

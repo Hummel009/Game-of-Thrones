@@ -104,11 +104,11 @@ public class GOTGuiMiniquestTracker extends Gui {
 		}
 	}
 
-	public void setTrackedQuest(GOTMiniQuest quest) {
-		trackedQuest = quest;
-	}
-
 	public GOTMiniQuest getTrackedQuest() {
 		return trackedQuest;
+	}
+
+	public void setTrackedQuest(GOTMiniQuest quest) {
+		trackedQuest = quest;
 	}
 }

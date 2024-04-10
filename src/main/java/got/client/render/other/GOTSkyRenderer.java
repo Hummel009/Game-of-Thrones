@@ -19,10 +19,12 @@ public class GOTSkyRenderer extends IRenderHandler {
 	private static final ResourceLocation MOON_TEXTURE = new ResourceLocation("got:textures/sky/moon.png");
 	private static final ResourceLocation SUN_TEXTURE = new ResourceLocation("got:textures/sky/sun.png");
 	private static final ResourceLocation BIG_STAR_TEXTURE = new ResourceLocation("got:textures/sky/bigstar.png");
+
 	private final GOTRandomSkins skyTextures;
-	private ResourceLocation currentSkyTexture;
 	private final int glSkyList;
 	private final int glSkyList2;
+
+	private ResourceLocation currentSkyTexture;
 
 	public GOTSkyRenderer() {
 		int k;

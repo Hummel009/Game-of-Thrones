@@ -70,12 +70,12 @@ public class GOTSpeechClient {
 			return speech;
 		}
 
-		private void setTime(int time) {
-			this.time = time;
-		}
-
 		private int getTime() {
 			return time;
+		}
+
+		private void setTime(int time) {
+			this.time = time;
 		}
 	}
 }

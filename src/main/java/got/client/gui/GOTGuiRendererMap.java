@@ -78,10 +78,6 @@ public class GOTGuiRendererMap {
 		}
 	}
 
-	public void setSepia(boolean flag) {
-		sepia = flag;
-	}
-
 	public void updateTick() {
 		prevMapX = mapX;
 		prevMapY = mapY;
@@ -89,6 +85,10 @@ public class GOTGuiRendererMap {
 
 	public boolean isSepia() {
 		return sepia;
+	}
+
+	public void setSepia(boolean flag) {
+		sepia = flag;
 	}
 
 	public double getPrevMapX() {

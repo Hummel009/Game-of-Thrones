@@ -26,44 +26,18 @@ public class GOTModelDragonAnimaton {
 	private static final float PI_F = (float) Math.PI;
 
 	private static final boolean useLUT = true;
+
 	private final GOTEntityDragon entity;
-	private float partialTicks;
-
-	private float ticksExisted;
-	private float moveTime;
-	private float moveSpeed;
-	private float lookYaw;
-	private float lookPitch;
-	private float animBase;
-	private float cycleOfs;
-
-	private float ground;
-	private float flutter;
-	private float walk;
-	private float sit;
-	private float jaw;
-	private float speed;
-
-	private double prevRenderYawOffset;
-	private double yawAbs;
-
 	private final GOTTickFloat animTimer = new GOTTickFloat();
 	private final GOTTickFloat groundTimer = new GOTTickFloat(1).setLimit(0, 1);
-
 	private final GOTTickFloat flutterTimer = new GOTTickFloat().setLimit(0, 1);
 	private final GOTTickFloat walkTimer = new GOTTickFloat().setLimit(0, 1);
 	private final GOTTickFloat sitTimer = new GOTTickFloat().setLimit(0, 1);
 	private final GOTTickFloat jawTimer = new GOTTickFloat().setLimit(0, 1);
 	private final GOTTickFloat speedTimer = new GOTTickFloat(1).setLimit(0, 1);
-
-	private boolean initTrails = true;
-
 	private final GOTCircularBuffer yTrail = new GOTCircularBuffer(8);
 	private final GOTCircularBuffer yawTrail = new GOTCircularBuffer(16);
 	private final GOTCircularBuffer pitchTrail = new GOTCircularBuffer(16);
-
-	private boolean onGround;
-	private boolean wingsDown;
 
 	private final float[] wingArm = new float[3];
 	private final float[] wingForearm = new float[3];
@@ -73,19 +47,37 @@ public class GOTModelDragonAnimaton {
 	private final float[] wingForearmGlide = new float[3];
 	private final float[] wingArmGround = new float[3];
 	private final float[] wingForearmGround = new float[3];
-
 	private final float[] xGround = {0, 0, 0, 0};
 	private final float[][] xGroundStand = {new float[]{0.8f, -1.5f, 1.3f, 0}, new float[]{-0.3f, 1.5f, -0.2f, 0},};
 	private final float[][] xGroundSit = {new float[]{0.3f, -1.8f, 1.8f, 0}, new float[]{-0.8f, 1.8f, -0.9f, 0},};
 	private final float[][][] xGroundWalk = {new float[][]{new float[]{0.4f, -1.4f, 1.3f, 0}, new float[]{0.1f, 1.2f, -0.5f, 0}}, new float[][]{new float[]{1.2f, -1.6f, 1.3f, 0}, new float[]{-0.3f, 2.1f, -0.9f, 0.6f}}, new float[][]{new float[]{0.9f, -2.1f, 1.8f, 0.6f}, new float[]{-0.7f, 1.4f, -0.2f, 0}}};
 	private final float[] xGroundWalk2 = {0, 0, 0, 0};
-
 	private final float[] yGroundStand = {-0.25f, 0.25f};
 	private final float[] yGroundSit = {0.1f, 0.35f};
 	private final float[] yGroundWalk = {-0.1f, 0.1f};
-
 	private final float[][] xAirAll = {new float[]{0, 0, 0, 0}, new float[]{0, 0, 0, 0}};
 	private final float[] yAirAll = {-0.1f, 0.1f};
+
+	private float partialTicks;
+	private float ticksExisted;
+	private float moveTime;
+	private float moveSpeed;
+	private float lookYaw;
+	private float lookPitch;
+	private float animBase;
+	private float cycleOfs;
+	private float ground;
+	private float flutter;
+	private float walk;
+	private float sit;
+	private float jaw;
+	private float speed;
+
+	private double prevRenderYawOffset;
+	private double yawAbs;
+	private boolean initTrails = true;
+	private boolean onGround;
+	private boolean wingsDown;
 
 	public GOTModelDragonAnimaton(GOTEntityDragon dragon) {
 		entity = dragon;
@@ -535,20 +527,20 @@ public class GOTModelDragonAnimaton {
 		this.moveSpeed = moveSpeed;
 	}
 
-	public void setPartialTicks(float partialTicks) {
-		this.partialTicks = partialTicks;
-	}
-
 	public float getPartialTicks() {
 		return partialTicks;
 	}
 
-	public void setTicksExisted(float ticksExisted) {
-		this.ticksExisted = ticksExisted;
+	public void setPartialTicks(float partialTicks) {
+		this.partialTicks = partialTicks;
 	}
 
 	public float getTicksExisted() {
 		return ticksExisted;
+	}
+
+	public void setTicksExisted(float ticksExisted) {
+		this.ticksExisted = ticksExisted;
 	}
 
 	private void slerpArrays(float[] a, float[] b, float[] c, float x) {

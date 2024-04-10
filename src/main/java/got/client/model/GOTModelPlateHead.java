@@ -51,11 +51,11 @@ public class GOTModelPlateHead extends GOTModelHuman {
 		GL11.glDisable(32826);
 	}
 
-	public void setPlateItem(ItemStack itemstack) {
-		plateBlock = itemstack.getItem() instanceof GOTItemPlate ? ((GOTItemPlate) itemstack.getItem()).plateBlock : GOTBlocks.plate;
-	}
-
 	public Block getPlateItem() {
 		return plateBlock;
+	}
+
+	public void setPlateItem(ItemStack itemstack) {
+		plateBlock = itemstack.getItem() instanceof GOTItemPlate ? ((GOTItemPlate) itemstack.getItem()).plateBlock : GOTBlocks.plate;
 	}
 }

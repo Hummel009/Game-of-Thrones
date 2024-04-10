@@ -35,11 +35,11 @@ public class GOTModelRobes extends GOTModelHuman {
 		GL11.glColor3f(1.0f, 1.0f, 1.0f);
 	}
 
-	public void setRobeItem(ItemStack itemstack) {
-		robeItem = itemstack;
-	}
-
 	public ItemStack getRobeItem() {
 		return robeItem;
+	}
+
+	public void setRobeItem(ItemStack itemstack) {
+		robeItem = itemstack;
 	}
 }

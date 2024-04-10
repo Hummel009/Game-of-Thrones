@@ -113,10 +113,6 @@ public class GOTRenderDragon extends RenderLiving {
 		glRotatef(180 - par3, 0, 1, 0);
 	}
 
-	private void setModel(GOTDragonBreed breed) {
-		mainModel = renderPassModel = model = STAGES.get(breed);
-	}
-
 	@Override
 	public int shouldRenderPass(EntityLivingBase entity, int pass, float scale) {
 		GOTEntityDragon dragon = (GOTEntityDragon) entity;
@@ -145,5 +141,9 @@ public class GOTRenderDragon extends RenderLiving {
 
 	public GOTModelDragon getModel() {
 		return model;
+	}
+
+	private void setModel(GOTDragonBreed breed) {
+		mainModel = renderPassModel = model = STAGES.get(breed);
 	}
 }

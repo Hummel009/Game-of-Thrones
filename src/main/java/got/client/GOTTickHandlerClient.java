@@ -7,11 +7,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 import got.GOT;
 import got.client.effect.GOTEntityDeadMarshFace;
-import got.client.gui.GOTGuiMap;
-import got.client.gui.GOTGuiMenu;
-import got.client.gui.GOTGuiMessage;
-import got.client.gui.GOTGuiMiniquestTracker;
-import got.client.gui.GOTGuiNotificationDisplay;
+import got.client.gui.*;
 import got.client.model.GOTModelCompass;
 import got.client.render.other.GOTCloudRenderer;
 import got.client.render.other.GOTNPCRendering;
@@ -89,14 +85,14 @@ import org.lwjgl.opengl.GL11;
 import java.util.*;
 
 public class GOTTickHandlerClient {
+	public static final Map<EntityPlayer, Integer> PLAYERS_IN_PORTALS = new HashMap<>();
+	public static final GOTInvasionStatus WATCHED_INVASION = new GOTInvasionStatus();
+
 	private static final ResourceLocation PORTAL_OVERLAY = new ResourceLocation("got:textures/misc/frost_overlay.png");
 	private static final ResourceLocation MIST_OVERLAY = new ResourceLocation("got:textures/misc/mist_overlay.png");
 	private static final ResourceLocation FROST_OVERLAY = new ResourceLocation("got:textures/misc/frost_overlay.png");
 	private static final ResourceLocation BURN_OVERLAY = new ResourceLocation("got:textures/misc/burn_overlay.png");
 	private static final ResourceLocation WIGHT_OVERLAY = new ResourceLocation("got:textures/misc/wight.png");
-
-	public static final Map<EntityPlayer, Integer> PLAYERS_IN_PORTALS = new HashMap<>();
-	public static final GOTInvasionStatus WATCHED_INVASION = new GOTInvasionStatus();
 
 	private static final float[] FROST_RGB_MIDDLE = {0.4F, 0.46F, 0.74F};
 	private static final float[] FROST_RGB_EDGE = {1.0F, 1.0F, 1.0F};

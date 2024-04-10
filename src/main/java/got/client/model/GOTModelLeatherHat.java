@@ -64,11 +64,11 @@ public class GOTModelLeatherHat extends GOTModelBiped {
 		GL11.glPopMatrix();
 	}
 
-	public void setHatItem(ItemStack itemstack) {
-		hatItem = itemstack;
-	}
-
 	public ItemStack getHatItem() {
 		return hatItem;
+	}
+
+	public void setHatItem(ItemStack itemstack) {
+		hatItem = itemstack;
 	}
 }

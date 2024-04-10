@@ -4,27 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTModelDragonPartProxy {
+	private final GOTModelDragonPart part;
+	private final List<GOTModelDragonPartProxy> childs;
+
 	private float renderScaleX = 1;
 	private float renderScaleY = 1;
 	private float renderScaleZ = 1;
-
 	private float rotationPointX;
 	private float rotationPointY;
 	private float rotationPointZ;
-
 	private float preRotateAngleX;
 	private float preRotateAngleY;
 	private float preRotateAngleZ;
-
 	private float rotateAngleX;
 	private float rotateAngleY;
 	private float rotateAngleZ;
 
 	private boolean hidden;
 	private boolean showModel;
-
-	private final GOTModelDragonPart part;
-	private final List<GOTModelDragonPartProxy> childs;
 
 	public GOTModelDragonPartProxy(GOTModelDragonPart part) {
 		this.part = part;

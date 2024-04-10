@@ -101,12 +101,12 @@ public class GOTTextBody {
 		list.get(i).setColor(c);
 	}
 
-	public void setTextWidth(int w) {
-		textWidth = w;
-	}
-
 	public int getTextWidth() {
 		return textWidth;
+	}
+
+	public void setTextWidth(int w) {
+		textWidth = w;
 	}
 
 	public int size() {

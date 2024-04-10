@@ -49,10 +49,6 @@ import java.util.regex.Pattern;
 public class GOTGuiMap extends GOTGuiMenuBase {
 	public static final ResourceLocation MAP_ICONS_TEXTURE = new ResourceLocation("got:textures/map/mapScreen.png");
 
-	public static boolean showWP = true;
-	public static boolean showCWP = true;
-	public static boolean showHiddenSWP;
-
 	private static final ResourceLocation CONQUEST_TEXTURE = new ResourceLocation("got:textures/map/conquest.png");
 	private static final ItemStack QUEST_BOOK_ICON = new ItemStack(GOTItems.questBook);
 	private static final Map<GOTDimension.DimensionRegion, GOTFaction> LAST_VIEWED_REGIONS = new EnumMap<>(GOTDimension.DimensionRegion.class);
@@ -62,6 +58,10 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	private static final int FAC_SCROLL_HEIGHT = 14;
 	private static final int FAC_SCROLL_WIDGET_WIDTH = 17;
 	private static final int ZOOM_TICKS_MAX = 6;
+
+	public static boolean showWP = true;
+	public static boolean showCWP = true;
+	public static boolean showHiddenSWP;
 
 	private static boolean fullscreen = true;
 	private static int mapWidth;

@@ -33,10 +33,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTTextures implements IResourceManagerReloadListener {
-	private static final Minecraft MC = Minecraft.getMinecraft();
-	public static final ResourceLocation MISSING_TEXTURE = MC.getTextureManager().getDynamicTextureLocation("got.missingSkin", TextureUtil.missingTexture);
 	public static final ResourceLocation OVERLAY_TEXTURE = new ResourceLocation("got:textures/map/mapOverlay.png");
 	public static final ResourceLocation OSRS_TEXTURE = new ResourceLocation("got:textures/map/osrs.png");
+
+	private static final Minecraft MC = Minecraft.getMinecraft();
+
+	public static final ResourceLocation MISSING_TEXTURE = MC.getTextureManager().getDynamicTextureLocation("got.missingSkin", TextureUtil.missingTexture);
 
 	private static final ResourceLocation PARTICLE_TEXTURES = new ResourceLocation("textures/particle/particles.png");
 	private static final ResourceLocation NEW_WATER_PARTICLES = new ResourceLocation("got:textures/misc/waterParticles.png");

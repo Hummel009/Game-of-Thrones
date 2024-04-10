@@ -22,9 +22,13 @@ public class GOTModelDragon extends ModelBase {
 	private final ResourceLocation bodyTexture;
 	private final ResourceLocation glowTexture;
 	private final ResourceLocation saddleTexture;
+	private final GOTModelDragonPart[] wingFinger = new GOTModelDragonPart[4];
+	private final GOTModelDragonPartProxy[] neckProxy = new GOTModelDragonPartProxy[VERTS_NECK];
+	private final GOTModelDragonPartProxy[] tailProxy = new GOTModelDragonPartProxy[VERTS_TAIL];
+	private final GOTModelDragonPartProxy[] thighProxy = new GOTModelDragonPartProxy[4];
+	private final GOTDragonBreed breed;
 
 	private GOTModelDragonPart body;
-
 	private GOTModelDragonPart head;
 	private GOTModelDragonPart neck;
 	private GOTModelDragonPart neckScale;
@@ -44,19 +48,12 @@ public class GOTModelDragon extends ModelBase {
 	private GOTModelDragonPart wingArm;
 	private GOTModelDragonPart wingForearm;
 
-	private final GOTModelDragonPart[] wingFinger = new GOTModelDragonPart[4];
-	private final GOTModelDragonPartProxy[] neckProxy = new GOTModelDragonPartProxy[VERTS_NECK];
-	private final GOTModelDragonPartProxy[] tailProxy = new GOTModelDragonPartProxy[VERTS_TAIL];
-	private final GOTModelDragonPartProxy[] thighProxy = new GOTModelDragonPartProxy[4];
-
 	private int renderPass = -1;
 	private float offsetX;
 	private float offsetY;
 	private float offsetZ;
 	private float pitch;
-
 	private float size;
-	private final GOTDragonBreed breed;
 
 	public GOTModelDragon(GOTDragonBreed breed) {
 		textureWidth = 256;

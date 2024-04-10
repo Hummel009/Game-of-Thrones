@@ -97,14 +97,6 @@ public class GOTGuiSlider extends GuiButton {
 		maxValue = max;
 	}
 
-	public void setNumberDigits(int i) {
-		numberDigits = i;
-	}
-
-	public void setOverrideStateString(String s) {
-		overrideStateString = s;
-	}
-
 	public void setValueOnly() {
 		valueOnly = true;
 	}
@@ -113,8 +105,16 @@ public class GOTGuiSlider extends GuiButton {
 		return overrideStateString;
 	}
 
+	public void setOverrideStateString(String s) {
+		overrideStateString = s;
+	}
+
 	public int getNumberDigits() {
 		return numberDigits;
+	}
+
+	public void setNumberDigits(int i) {
+		numberDigits = i;
 	}
 
 	public boolean isDragging() {

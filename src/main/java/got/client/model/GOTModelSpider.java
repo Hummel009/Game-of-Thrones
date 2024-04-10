@@ -7,6 +7,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 
 public class GOTModelSpider extends ModelBase implements GOTGlowingEyes.Model {
+	protected final ModelRenderer abdomen;
+
 	private final ModelRenderer head = new ModelRenderer(this, 32, 0);
 	private final ModelRenderer thorax;
 	private final ModelRenderer leg1;
@@ -17,8 +19,6 @@ public class GOTModelSpider extends ModelBase implements GOTGlowingEyes.Model {
 	private final ModelRenderer leg6;
 	private final ModelRenderer leg7;
 	private final ModelRenderer leg8;
-
-	protected final ModelRenderer abdomen;
 
 	protected GOTModelSpider() {
 		this(0.0f);

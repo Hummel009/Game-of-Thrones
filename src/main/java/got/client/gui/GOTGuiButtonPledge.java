@@ -49,12 +49,12 @@ public class GOTGuiButtonPledge extends GuiButton {
 		return flag ? 2 : 1;
 	}
 
-	public void setDisplayLines(String... s) {
-		displayLines = s == null ? null : Arrays.asList(s);
-	}
-
 	public List<String> getDisplayLines() {
 		return displayLines;
+	}
+
+	public void setDisplayLines(String... s) {
+		displayLines = s == null ? null : Arrays.asList(s);
 	}
 
 	public boolean isBroken() {
