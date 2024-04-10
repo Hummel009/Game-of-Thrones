@@ -485,5 +485,4 @@ public class GOTReplacedMethods {
 			return Fence.canConnectFenceTo(world, i, j, k);
 		}
 	}
-
 }
