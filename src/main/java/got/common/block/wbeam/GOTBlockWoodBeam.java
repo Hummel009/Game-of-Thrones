@@ -24,7 +24,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 
 	protected GOTBlockWoodBeam() {
 		super(Material.wood);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(2.0f);
 		setStepSound(soundTypeWood);
 	}

@@ -12,7 +12,7 @@ public class GOTBlockConcrete extends Block {
 		super(Material.rock);
 		this.color = color;
 		setBlockName("concrete_" + this.color);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(1.5f);
 		setHarvestLevel("pickaxe", 0);
 		setResistance(10.0f);

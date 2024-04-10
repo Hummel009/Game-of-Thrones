@@ -869,7 +869,7 @@ public class GOTBlocks {
 		lionBed = new GOTBlockBed(Blocks.planks, 0);
 		marigold = new GOTBlockFlower();
 		marshLights = new GOTBlockMarshLights();
-		marzipanBlock = new GOTBlockPlaceableFood(0.4375f, 0.375f).setFoodStats(3, 0.3f).setCreativeTab(GOTCreativeTabs.tabFood);
+		marzipanBlock = new GOTBlockPlaceableFood(0.4375f, 0.375f).setFoodStats(3, 0.3f).setCreativeTab(GOTCreativeTabs.TAB_FOOD);
 		millstone = new GOTBlockMillstone();
 		mirkVines = new GOTBlockVine();
 		mud = new GOTBlockMud();
@@ -1292,7 +1292,7 @@ public class GOTBlocks {
 			}
 		}
 
-		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.tabStory);
+		Blocks.dragon_egg.setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		Blocks.fire.setFireInfo(Blocks.acacia_stairs, 5, 20);
 		Blocks.fire.setFireInfo(Blocks.dark_oak_stairs, 5, 20);
 		Blocks.fire.setFireInfo(Blocks.leaves, 30, 60);

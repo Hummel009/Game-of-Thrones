@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class GOTBlockQuagmire extends Block {
 	public GOTBlockQuagmire() {
 		super(Material.ground);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 
 	@Override

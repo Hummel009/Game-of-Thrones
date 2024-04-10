@@ -9,7 +9,7 @@ public class GOTItemHoe extends ItemHoe implements GOTMaterialFinder {
 
 	public GOTItemHoe(ToolMaterial material) {
 		super(material);
-		setCreativeTab(GOTCreativeTabs.tabTools);
+		setCreativeTab(GOTCreativeTabs.TAB_TOOLS);
 		gotMaterial = material;
 	}
 

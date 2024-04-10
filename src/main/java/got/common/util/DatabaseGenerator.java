@@ -596,8 +596,8 @@ public class DatabaseGenerator {
 						EnumSet<GOTFaction> invasionFactions = EnumSet.noneOf(GOTFaction.class);
 						next:
 						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
-							for (InvasionSpawnEntry entry : invasion.invasionMobs) {
-								Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
+							for (InvasionSpawnEntry entry : invasion.getInvasionMobs()) {
+								Entity entity = CLASS_TO_OBJ.get(entry.getEntityClass());
 								if (entity instanceof GOTEntityNPC) {
 									GOTFaction fac = ((GOTEntityNPC) entity).getFaction();
 									invasionFactions.add(fac);
@@ -769,8 +769,8 @@ public class DatabaseGenerator {
 					next:
 					for (GOTBiome biome : BIOMES) {
 						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
-							for (InvasionSpawnEntry entry : invasion.invasionMobs) {
-								Entity entity = CLASS_TO_OBJ.get(entry.entityClass);
+							for (InvasionSpawnEntry entry : invasion.getInvasionMobs()) {
+								Entity entity = CLASS_TO_OBJ.get(entry.getEntityClass());
 								if (entity instanceof GOTEntityNPC && fac == ((GOTEntityNPC) entity).getFaction()) {
 									invasionBiomes.add(biome);
 									continue next;
@@ -1127,7 +1127,7 @@ public class DatabaseGenerator {
 							}
 						}
 						for (GOTInvasions invasion : biome.getInvasionSpawns().registeredInvasions) {
-							invasionEntries.addAll(invasion.invasionMobs);
+							invasionEntries.addAll(invasion.getInvasionMobs());
 						}
 						for (SpawnListEntry entry : spawnEntries) {
 							if (entry.entityClass == entityClass) {
@@ -1143,7 +1143,7 @@ public class DatabaseGenerator {
 							}
 						}
 						for (InvasionSpawnEntry entry : invasionEntries) {
-							if (entry.entityClass == entityClass) {
+							if (entry.getEntityClass() == entityClass) {
 								invasionBiomes.add(biome);
 								unnaturalBiomes.add(biome);
 								break;

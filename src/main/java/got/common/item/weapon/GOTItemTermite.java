@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class GOTItemTermite extends Item {
 	public GOTItemTermite() {
 		setMaxStackSize(16);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseTermite());
 	}
 

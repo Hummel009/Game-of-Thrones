@@ -15,7 +15,7 @@ public class GOTBlockKelp extends Block {
 		setBlockBounds(0.5f - f, 0.0f, 0.5f - f, 0.5f + f, 1.0f, 0.5f + f);
 		setHardness(0.0f);
 		setStepSound(soundTypeGrass);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	@Override

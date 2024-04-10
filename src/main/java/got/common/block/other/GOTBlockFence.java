@@ -25,7 +25,7 @@ public class GOTBlockFence extends BlockFence {
 		setHardness(2.0f);
 		setResistance(5.0f);
 		setStepSound(soundTypeWood);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		plankBlock = planks;
 	}
 

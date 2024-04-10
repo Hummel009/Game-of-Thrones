@@ -11,7 +11,7 @@ public class GOTItemStew extends ItemFood {
 	public GOTItemStew(int j, float f, boolean flag) {
 		super(j, f, flag);
 		setMaxStackSize(1);
-		setCreativeTab(GOTCreativeTabs.tabFood);
+		setCreativeTab(GOTCreativeTabs.TAB_FOOD);
 		setContainerItem(Items.bowl);
 	}
 

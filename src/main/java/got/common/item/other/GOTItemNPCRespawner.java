@@ -17,7 +17,7 @@ import java.util.List;
 public class GOTItemNPCRespawner extends Item {
 	public GOTItemNPCRespawner() {
 		setMaxStackSize(1);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
 	@Override

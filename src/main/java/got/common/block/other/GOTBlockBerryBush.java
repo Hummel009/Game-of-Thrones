@@ -29,7 +29,7 @@ public class GOTBlockBerryBush extends Block implements IPlantable, IGrowable {
 	public GOTBlockBerryBush() {
 		super(Material.plants);
 		setTickRandomly(true);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setHardness(0.4f);
 		setStepSound(soundTypeGrass);
 	}

@@ -12,6 +12,6 @@ public class GOTItemLegendaryDagger extends GOTItemDagger {
 		super(material, e);
 		setMaxDamage(1500);
 		gotWeaponDamage = 6.0f;
-		setCreativeTab(GOTCreativeTabs.tabStory);
+		setCreativeTab(GOTCreativeTabs.TAB_STORY);
 	}
 }

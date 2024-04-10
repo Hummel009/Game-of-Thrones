@@ -27,7 +27,7 @@ public class GOTItemThrowingAxe extends Item implements GOTMaterialFinder {
 		setMaxStackSize(1);
 		setMaxDamage(material.getMaxUses());
 		setFull3D();
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseThrowingAxe());
 		gotMaterial = material;
 	}

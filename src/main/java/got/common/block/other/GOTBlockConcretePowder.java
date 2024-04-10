@@ -18,7 +18,7 @@ public class GOTBlockConcretePowder extends BlockFalling {
 		this.color = color;
 		setBlockName("concrete_powder_" + this.color);
 		setStepSound(soundTypeSand);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(0.5f);
 		setBlockTextureName("got:concrete_powder_" + this.color.getName());
 	}

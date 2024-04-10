@@ -45,6 +45,7 @@ public class GOTEntityTywinLannister extends GOTEntityHumanBase {
 
 	@Override
 	public void dropFewItems(boolean flag, int i) {
+		dropItem(GOTItems.lannisterBrooch, 1);
 		dropItem(GOTItems.widowWail, 1);
 		dropItem(GOTItems.oathkeeper, 1);
 		dropItem(GOTItems.westkingBoots, 1);

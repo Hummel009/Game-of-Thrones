@@ -20,7 +20,7 @@ import java.util.List;
 public class GOTItemAsshaiArchmagStaff extends GOTItemSword {
 	public GOTItemAsshaiArchmagStaff() {
 		super(ToolMaterial.WOOD);
-		setCreativeTab(GOTCreativeTabs.tabStory);
+		setCreativeTab(GOTCreativeTabs.TAB_STORY);
 		setMaxDamage(1500);
 		gotWeaponDamage = 8.0f;
 	}

@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class GOTItemBottlePoison extends Item {
 	public GOTItemBottlePoison() {
 		setMaxStackSize(1);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 		setContainerItem(Items.glass_bottle);
 	}
 

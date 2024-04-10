@@ -24,7 +24,7 @@ public class GOTBlockWeaponRack extends BlockContainer {
 		setHardness(0.5f);
 		setResistance(1.0f);
 		setStepSound(soundTypeWood);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	@Override

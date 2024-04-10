@@ -31,7 +31,7 @@ public class GOTBlockChest extends BlockContainer {
 		baseBlock = b;
 		baseMeta = i;
 		setStepSound(b.stepSound);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setBlockBounds(0.0625f, 0.0f, 0.0625f, 0.9375f, 0.875f, 0.9375f);
 		chestTextureName = s;
 	}

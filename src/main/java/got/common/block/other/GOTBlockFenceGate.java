@@ -14,7 +14,7 @@ public class GOTBlockFenceGate extends BlockFenceGate {
 	public GOTBlockFenceGate(Block block, int meta) {
 		plankBlock = block;
 		plankMeta = meta;
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setHardness(2.0f);
 		setResistance(5.0f);
 		setStepSound(soundTypeWood);

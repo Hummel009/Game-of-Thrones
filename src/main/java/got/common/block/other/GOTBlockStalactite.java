@@ -30,7 +30,7 @@ public class GOTBlockStalactite extends Block {
 		modelBlock = block;
 		modelMeta = meta;
 		setStepSound(modelBlock.stepSound);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setBlockBounds(0.25f, 0.0f, 0.25f, 0.75f, 1.0f, 0.75f);
 	}
 

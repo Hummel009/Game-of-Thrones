@@ -55,6 +55,7 @@ public class GOTEntityTyrionLannister extends GOTEntityHumanBase {
 	public void dropFewItems(boolean flag, int i) {
 		dropItem(GOTItems.tyrionAxe, 1);
 		dropItem(GOTItems.handGold, 1);
+		dropItem(GOTItems.handSilver, 1);
 	}
 
 	@Override

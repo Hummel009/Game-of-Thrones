@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class GOTItemSalt extends Item {
 	public GOTItemSalt() {
-		setCreativeTab(GOTCreativeTabs.tabFood);
+		setCreativeTab(GOTCreativeTabs.TAB_FOOD);
 	}
 
 	@Override

@@ -11,7 +11,7 @@ import net.minecraft.util.IIcon;
 public class GOTBlockSlabBone extends GOTBlockSlabBase {
 	public GOTBlockSlabBone(boolean flag) {
 		super(flag, Material.rock, 1);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(1.0f);
 		setResistance(5.0f);
 		setStepSound(soundTypeStone);

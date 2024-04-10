@@ -143,12 +143,8 @@ public class GOT {
 					newName = mapping.name.replace("Carnotite", "Labradorite");
 				} else if (mapping.name.contains("carnotite")) {
 					newName = mapping.name.replace("carnotite", "labradorite");
-				} else if (mapping.name.contains("ulthos_bars")) {
-					newName = mapping.name.replace("ulthos_bars", "bronze_bars");
 				} else if (mapping.name.contains("chest_essos")) {
 					newName = mapping.name.replace("chest_essos", "chest_sandstone");
-				} else if (mapping.name.contains("ulthos_torch")) {
-					newName = mapping.name.replace("ulthos_torch", "asshai_torch");
 				} else {
 					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
 				}

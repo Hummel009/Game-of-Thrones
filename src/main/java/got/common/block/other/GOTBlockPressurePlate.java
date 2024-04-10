@@ -7,6 +7,6 @@ import net.minecraft.block.material.Material;
 public class GOTBlockPressurePlate extends BlockPressurePlate {
 	public GOTBlockPressurePlate(String iconPath, Material material, BlockPressurePlate.Sensitivity triggerType) {
 		super(iconPath, material, triggerType);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 }

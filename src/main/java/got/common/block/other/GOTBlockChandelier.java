@@ -26,7 +26,7 @@ public class GOTBlockChandelier extends Block {
 
 	public GOTBlockChandelier() {
 		super(Material.circuits);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setHardness(0.0f);
 		setResistance(2.0f);
 		setStepSound(soundTypeMetal);

@@ -28,7 +28,7 @@ import java.util.List;
 public class GOTItemSpawnEgg extends Item {
 	public GOTItemSpawnEgg() {
 		setHasSubtypes(true);
-		setCreativeTab(GOTCreativeTabs.tabSpawn);
+		setCreativeTab(GOTCreativeTabs.TAB_SPAWN);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseSpawnEgg());
 	}
 

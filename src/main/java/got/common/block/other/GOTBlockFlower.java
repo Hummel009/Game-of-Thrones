@@ -13,7 +13,7 @@ public class GOTBlockFlower extends BlockBush {
 
 	private GOTBlockFlower(Material material) {
 		super(material);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setHardness(0.0f);
 		setStepSound(soundTypeGrass);
 	}

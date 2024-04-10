@@ -5,6 +5,6 @@ import net.minecraft.block.BlockLadder;
 
 public class GOTBlockLadder extends BlockLadder {
 	protected GOTBlockLadder() {
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 }

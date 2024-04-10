@@ -66,7 +66,7 @@ public class GOTItemMug extends Item {
 		} else {
 			setMaxStackSize(64);
 		}
-		setCreativeTab(GOTCreativeTabs.tabFood);
+		setCreativeTab(GOTCreativeTabs.TAB_FOOD);
 		isFullMug = full;
 		isFoodDrink = food;
 		isBrewable = brew;

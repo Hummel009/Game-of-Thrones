@@ -34,7 +34,7 @@ public class GOTBlockChain extends Block {
 		super(Material.circuits);
 		setHardness(1.0f);
 		setStepSound(soundTypeMetal);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		float f = 0.2f;
 		setBlockBounds(0.5f - f, 0.0f, 0.5f - f, 0.5f + f, 1.0f, 0.5f + f);
 	}

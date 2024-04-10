@@ -37,7 +37,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 			setCreativeTab(CreativeTabs.tabDecorations);
 			vanillaTextureName = vname;
 		} else {
-			setCreativeTab(GOTCreativeTabs.tabDeco);
+			setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		}
 		ALL_LEAF_BLOCKS.add(this);
 	}

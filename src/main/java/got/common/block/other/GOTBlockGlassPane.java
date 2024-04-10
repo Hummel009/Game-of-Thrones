@@ -10,7 +10,7 @@ public class GOTBlockGlassPane extends GOTBlockPane {
 		super("got:glass", "got:glass_pane_top", Material.glass, false);
 		setHardness(0.3f);
 		setStepSound(soundTypeGlass);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	@Override

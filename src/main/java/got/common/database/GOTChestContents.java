@@ -23,80 +23,80 @@ import net.minecraftforge.common.ChestGenHooks;
 import java.util.*;
 
 public class GOTChestContents {
-	public static GOTChestContents ARRYN;
-	public static GOTChestContents ASSHAI;
-	public static GOTChestContents BEYOND_WALL;
-	public static GOTChestContents BRAAVOS;
-	public static GOTChestContents CROWNLANDS;
-	public static GOTChestContents DORNE;
-	public static GOTChestContents DOTHRAKI;
-	public static GOTChestContents DRAGONSTONE;
-	public static GOTChestContents GHISCAR;
-	public static GOTChestContents GIFT;
-	public static GOTChestContents GOLDEN;
-	public static GOTChestContents HILLMEN;
-	public static GOTChestContents IBBEN;
-	public static GOTChestContents IRONBORN;
-	public static GOTChestContents JOGOS;
-	public static GOTChestContents LHAZAR;
-	public static GOTChestContents LORATH;
-	public static GOTChestContents LYS;
-	public static GOTChestContents MOSSOVY;
-	public static GOTChestContents MYR;
-	public static GOTChestContents NORTH;
-	public static GOTChestContents NORVOS;
-	public static GOTChestContents PENTOS;
-	public static GOTChestContents QARTH;
-	public static GOTChestContents QOHOR;
-	public static GOTChestContents REACH;
-	public static GOTChestContents RIVERLANDS;
-	public static GOTChestContents SOTHORYOS;
-	public static GOTChestContents STORMLANDS;
-	public static GOTChestContents SUMMER;
-	public static GOTChestContents TREASURE;
-	public static GOTChestContents TYROSH;
-	public static GOTChestContents VOLANTIS;
-	public static GOTChestContents WESTERLANDS;
-	public static GOTChestContents YI_TI;
+	public static final GOTChestContents ARRYN;
+	public static final GOTChestContents ASSHAI;
+	public static final GOTChestContents BEYOND_WALL;
+	public static final GOTChestContents BRAAVOS;
+	public static final GOTChestContents CROWNLANDS;
+	public static final GOTChestContents DORNE;
+	public static final GOTChestContents DOTHRAKI;
+	public static final GOTChestContents DRAGONSTONE;
+	public static final GOTChestContents GHISCAR;
+	public static final GOTChestContents GIFT;
+	public static final GOTChestContents GOLDEN;
+	public static final GOTChestContents HILLMEN;
+	public static final GOTChestContents IBBEN;
+	public static final GOTChestContents IRONBORN;
+	public static final GOTChestContents JOGOS;
+	public static final GOTChestContents LHAZAR;
+	public static final GOTChestContents LORATH;
+	public static final GOTChestContents LYS;
+	public static final GOTChestContents MOSSOVY;
+	public static final GOTChestContents MYR;
+	public static final GOTChestContents NORTH;
+	public static final GOTChestContents NORVOS;
+	public static final GOTChestContents PENTOS;
+	public static final GOTChestContents QARTH;
+	public static final GOTChestContents QOHOR;
+	public static final GOTChestContents REACH;
+	public static final GOTChestContents RIVERLANDS;
+	public static final GOTChestContents SOTHORYOS;
+	public static final GOTChestContents STORMLANDS;
+	public static final GOTChestContents SUMMER;
+	public static final GOTChestContents TREASURE;
+	public static final GOTChestContents TYROSH;
+	public static final GOTChestContents VOLANTIS;
+	public static final GOTChestContents WESTERLANDS;
+	public static final GOTChestContents YI_TI;
 
-	public static Collection<WeightedRandomChestContent> NORD_L = new ArrayList<>();
-	public static Collection<WeightedRandomChestContent> SUD_L = new ArrayList<>();
-	public static Collection<WeightedRandomChestContent> NOMAD_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> SOTHORYOS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> YI_TI_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> MOSSOVY_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> GIFT_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> TREASURE_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> ASSHAI_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> BEYOND_WALL_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> IBBEN_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> HILLMEN_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> SUMMER_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> LHAZAR_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> ARRYN_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> BRAAVOS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> CROWNLANDS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> DORNE_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> DRAGONSTONE_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> GHISCAR_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> GOLDEN_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> IRONBORN_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> LORATH_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> LYS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> MYR_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> NORTH_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> NORVOS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> PENTOS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> QARTH_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> QOHOR_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> REACH_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> RIVERLANDS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> STORMLANDS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> TYROSH_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> VOLANTIS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> WESTERLANDS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> JOGOS_L = new ArrayList<>();
-	public static List<WeightedRandomChestContent> DOTHRAKI_L = new ArrayList<>();
+	private static final Collection<WeightedRandomChestContent> NORD_L = new ArrayList<>();
+	private static final Collection<WeightedRandomChestContent> SUD_L = new ArrayList<>();
+	private static final Collection<WeightedRandomChestContent> NOMAD_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> SOTHORYOS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> YI_TI_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> MOSSOVY_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> GIFT_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> TREASURE_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> ASSHAI_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> BEYOND_WALL_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> IBBEN_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> HILLMEN_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> SUMMER_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> LHAZAR_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> ARRYN_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> BRAAVOS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> CROWNLANDS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> DORNE_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> DRAGONSTONE_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> GHISCAR_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> GOLDEN_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> IRONBORN_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> LORATH_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> LYS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> MYR_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> NORTH_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> NORVOS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> PENTOS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> QARTH_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> QOHOR_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> REACH_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> RIVERLANDS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> STORMLANDS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> TYROSH_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> VOLANTIS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> WESTERLANDS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> JOGOS_L = new ArrayList<>();
+	private static final List<WeightedRandomChestContent> DOTHRAKI_L = new ArrayList<>();
 
 	static {
 		NORD_L.add(new WeightedRandomChestContent(new ItemStack(GOTItems.ironCrossbow), 1, 1, 10));
@@ -1161,15 +1161,15 @@ public class GOTChestContents {
 		YI_TI = new GOTChestContents(4, 6, YI_TI_L).enablePouches().setDrinkVessels(GOTFoods.RICH_DRINK).setLore(20, GOTLore.LoreCategory.YITI);
 	}
 
-	public WeightedRandomChestContent[] items;
-	public int minItems;
-	public int maxItems;
-	public boolean pouches;
-	public GOTItemMug.Vessel[] vesselTypes;
-	public List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
-	public int loreChance = 10;
+	private final WeightedRandomChestContent[] items;
+	private final int minItems;
+	private final int maxItems;
+	private boolean pouches;
+	private GOTItemMug.Vessel[] vesselTypes;
+	private List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
+	private int loreChance = 10;
 
-	public GOTChestContents(int i, int j, List<WeightedRandomChestContent> list) {
+	private GOTChestContents(int i, int j, List<WeightedRandomChestContent> list) {
 		WeightedRandomChestContent[] w = new WeightedRandomChestContent[list.size()];
 		w = list.toArray(w);
 		minItems = i;
@@ -1197,12 +1197,13 @@ public class GOTChestContents {
 	}
 
 	public static void fillInventory(IInventory inventory, Random random, GOTChestContents itemPool, int amount, boolean isNPCDrop) {
-		if (amount == -1) {
-			amount = getRandomItemAmount(itemPool, random);
-		} else if (amount <= 0) {
-			throw new IllegalArgumentException("GOTChestContents tried to fill a chest with " + amount + " items");
+		int amount1 = amount;
+		if (amount1 == -1) {
+			amount1 = getRandomItemAmount(itemPool, random);
+		} else if (amount1 <= 0) {
+			throw new IllegalArgumentException("GOTChestContents tried to fill a chest with " + amount1 + " items");
 		}
-		for (int i = 0; i < amount; ++i) {
+		for (int i = 0; i < amount1; ++i) {
 			WeightedRandomChestContent wrcc = (WeightedRandomChestContent) WeightedRandom.getRandomItem(random, itemPool.items);
 			for (ItemStack itemstack : ChestGenHooks.generateStacks(random, wrcc.theItemId, wrcc.theMinimumChanceToGenerateItem, wrcc.theMaximumChanceToGenerateItem)) {
 				Item item;
@@ -1250,11 +1251,11 @@ public class GOTChestContents {
 		}
 	}
 
-	public static int getRandomItemAmount(GOTChestContents itemPool, Random random) {
+	private static int getRandomItemAmount(GOTChestContents itemPool, Random random) {
 		return MathHelper.getRandomIntegerInRange(random, itemPool.minItems, itemPool.maxItems);
 	}
 
-	public GOTChestContents enablePouches() {
+	private GOTChestContents enablePouches() {
 		pouches = true;
 		return this;
 	}
@@ -1267,16 +1268,16 @@ public class GOTChestContents {
 		return item;
 	}
 
-	public GOTChestContents setDrinkVessels(GOTFoods foods) {
+	private GOTChestContents setDrinkVessels(GOTFoods foods) {
 		return setDrinkVessels(foods.getDrinkVessels());
 	}
 
-	public GOTChestContents setDrinkVessels(GOTItemMug.Vessel... v) {
+	private GOTChestContents setDrinkVessels(GOTItemMug.Vessel... v) {
 		vesselTypes = v;
 		return this;
 	}
 
-	public GOTChestContents setLore(int chance, GOTLore.LoreCategory... categories) {
+	private GOTChestContents setLore(int chance, GOTLore.LoreCategory... categories) {
 		loreCategories = Arrays.asList(categories);
 		loreChance = chance;
 		return this;

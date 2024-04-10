@@ -19,7 +19,7 @@ public class GOTItemPlate extends ItemReed {
 		super(block);
 		plateBlock = block;
 		((GOTBlockPlate) plateBlock).setPlateItem(this);
-		setCreativeTab(GOTCreativeTabs.tabFood);
+		setCreativeTab(GOTCreativeTabs.TAB_FOOD);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispensePlate(plateBlock));
 	}
 

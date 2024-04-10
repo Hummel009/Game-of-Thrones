@@ -17,7 +17,7 @@ public class GOTBlockAsshaiMoss extends Block implements IShearable {
 		super(Material.plants);
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.0625f, 1.0f);
 		setTickRandomly(true);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setHardness(0.2f);
 		setStepSound(soundTypeGrass);
 	}

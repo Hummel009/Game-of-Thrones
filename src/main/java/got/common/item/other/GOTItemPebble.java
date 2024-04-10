@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class GOTItemPebble extends Item {
 	public GOTItemPebble() {
 		setMaxStackSize(64);
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispensePebble());
 	}
 

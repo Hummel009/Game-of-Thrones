@@ -17,7 +17,7 @@ public abstract class GOTBlockWallBase extends BlockWall {
 
 	protected GOTBlockWallBase(Block block, int i) {
 		super(block);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		subtypes = i;
 	}
 

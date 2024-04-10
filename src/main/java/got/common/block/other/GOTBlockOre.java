@@ -18,7 +18,7 @@ import java.util.Random;
 public class GOTBlockOre extends Block {
 	public GOTBlockOre() {
 		super(Material.rock);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(3.0f);
 		setResistance(5.0f);
 		setStepSound(soundTypeStone);

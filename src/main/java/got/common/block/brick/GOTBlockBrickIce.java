@@ -8,7 +8,7 @@ public class GOTBlockBrickIce extends Block {
 	public GOTBlockBrickIce() {
 		super(Material.packedIce);
 		slipperiness = 0.98F;
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(15.0f);
 		setResistance(60.0f);
 		setStepSound(soundTypeGlass);

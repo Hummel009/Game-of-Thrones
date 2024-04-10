@@ -68,7 +68,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 	public GOTBlockWildFireJar() {
 		super(MATERIAL_FIRE_JAR);
 		setTickRandomly(true);
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		setBlockBounds(0.125f, 0.0f, 0.125f, 0.875f, 1.0f, 0.875f);
 		setHardness(0.5f);
 		setStepSound(soundTypeStone);

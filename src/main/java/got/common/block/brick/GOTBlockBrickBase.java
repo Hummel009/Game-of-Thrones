@@ -20,7 +20,7 @@ public abstract class GOTBlockBrickBase extends Block {
 
 	protected GOTBlockBrickBase() {
 		super(Material.rock);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(1.5f);
 		setResistance(10.0f);
 		setStepSound(soundTypeStone);

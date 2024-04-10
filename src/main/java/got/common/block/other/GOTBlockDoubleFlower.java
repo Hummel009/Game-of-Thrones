@@ -30,7 +30,7 @@ public class GOTBlockDoubleFlower extends BlockDoublePlant {
 	private IIcon[] doublePlantTopIcons;
 
 	public GOTBlockDoubleFlower() {
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	private static int getFlowerMeta(int i) {

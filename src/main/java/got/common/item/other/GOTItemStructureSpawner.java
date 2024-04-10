@@ -31,7 +31,7 @@ public class GOTItemStructureSpawner extends Item {
 
 	public GOTItemStructureSpawner() {
 		setHasSubtypes(true);
-		setCreativeTab(GOTCreativeTabs.tabSpawn);
+		setCreativeTab(GOTCreativeTabs.TAB_SPAWN);
 	}
 
 	@SideOnly(Side.CLIENT)

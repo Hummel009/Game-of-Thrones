@@ -18,7 +18,7 @@ public class GOTBlockAsshaiGrass extends BlockBush implements IShearable {
 	public GOTBlockAsshaiGrass() {
 		super(Material.vine);
 		setBlockBounds(0.1f, 0.0f, 0.1f, 0.9f, 0.8f, 0.9f);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setHardness(0.0f);
 		setStepSound(soundTypeGrass);
 	}

@@ -22,7 +22,7 @@ public class GOTItemPipe extends Item {
 	public GOTItemPipe() {
 		setMaxDamage(300);
 		setMaxStackSize(1);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
 	public static int getSmokeColor(ItemStack itemstack) {

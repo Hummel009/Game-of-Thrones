@@ -19,7 +19,7 @@ public class GOTBlockHearth extends Block {
 
 	public GOTBlockHearth() {
 		super(Material.rock);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 
 	@SideOnly(Side.CLIENT)

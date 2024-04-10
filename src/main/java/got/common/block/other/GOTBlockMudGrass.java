@@ -27,7 +27,7 @@ public class GOTBlockMudGrass extends Block implements IGrowable {
 		super(Material.grass);
 		setHardness(0.6f);
 		setStepSound(soundTypeGrass);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setTickRandomly(true);
 	}
 

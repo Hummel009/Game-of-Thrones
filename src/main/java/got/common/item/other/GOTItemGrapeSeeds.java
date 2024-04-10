@@ -17,7 +17,7 @@ public class GOTItemGrapeSeeds extends Item implements IPlantable {
 
 	public GOTItemGrapeSeeds(Block block) {
 		grapevineBlock = block;
-		setCreativeTab(GOTCreativeTabs.tabMaterials);
+		setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 	}
 
 	@Override

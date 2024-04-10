@@ -13,7 +13,7 @@ public class GOTBlockRedClay extends Block {
 		super(Material.clay);
 		setHardness(0.6f);
 		setStepSound(soundTypeGravel);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 
 	@Override

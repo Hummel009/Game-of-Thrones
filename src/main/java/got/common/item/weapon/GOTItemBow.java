@@ -44,7 +44,7 @@ public class GOTItemBow extends ItemBow {
 	public GOTItemBow(Item.ToolMaterial material, double d) {
 		bowMaterial = material;
 		setMaxDamage((int) (material.getMaxUses() * 1.5f));
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		arrowDamageFactor = d;
 		bowPullTime = 20;
 	}

@@ -13,7 +13,7 @@ public class GOTItemDoor extends ItemBlock {
 	public GOTItemDoor(Block block) {
 		super(block);
 		maxStackSize = 1;
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	@Override

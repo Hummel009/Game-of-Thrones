@@ -31,7 +31,7 @@ public class GOTBlockSarbacaneTrap extends BlockContainer {
 
 	public GOTBlockSarbacaneTrap(Block block, int meta) {
 		super(Material.rock);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setHardness(4.0f);
 		setStepSound(soundTypeStone);
 		modelBlock = block;

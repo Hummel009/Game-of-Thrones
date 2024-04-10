@@ -25,7 +25,7 @@ public class GOTItemMountArmor extends Item {
 		damageReduceAmount = material.getDamageReductionAmount(1) + material.getDamageReductionAmount(2);
 		mountType = mount;
 		setMaxStackSize(1);
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		textureName = string;
 	}
 

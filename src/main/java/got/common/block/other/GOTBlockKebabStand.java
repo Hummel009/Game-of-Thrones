@@ -35,7 +35,7 @@ public class GOTBlockKebabStand extends BlockContainer {
 		setHardness(0.0f);
 		setResistance(1.0f);
 		setStepSound(soundTypeWood);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 	}
 
 	@Override

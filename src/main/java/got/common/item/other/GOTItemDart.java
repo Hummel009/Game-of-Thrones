@@ -13,7 +13,7 @@ public class GOTItemDart extends Item {
 	public boolean isPoisoned;
 
 	public GOTItemDart() {
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseDart(this));
 	}
 

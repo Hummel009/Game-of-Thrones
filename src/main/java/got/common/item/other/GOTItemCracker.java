@@ -33,7 +33,7 @@ public class GOTItemCracker extends Item {
 		setMaxStackSize(1);
 		setHasSubtypes(true);
 		setMaxDamage(0);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
 	public static int getBaseCrackerMetadata(int i) {

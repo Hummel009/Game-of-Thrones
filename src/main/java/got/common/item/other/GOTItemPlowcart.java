@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class GOTItemPlowcart extends Item {
 	public GOTItemPlowcart() {
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
 	@Override

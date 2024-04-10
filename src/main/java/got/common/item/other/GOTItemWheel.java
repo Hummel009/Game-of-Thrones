@@ -5,6 +5,6 @@ import net.minecraft.item.Item;
 
 public class GOTItemWheel extends Item {
 	public GOTItemWheel() {
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 }

@@ -20,7 +20,7 @@ public class GOTItemArmor extends ItemArmor {
 
 	public GOTItemArmor(ArmorMaterial material, int slotType, String s) {
 		super(material, 0, slotType);
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		extraName = s;
 		slot = slotType;
 	}

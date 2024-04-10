@@ -18,6 +18,7 @@ CHANGELOG
 * Optimized lots of client-size things
 
 * Returned sandstone chests, ice & obsidian stalactites to natural spawn
+* Returned targaryen items, lannicter brooch and silver hand brooch to natural drop
 
 * Fixed bug with one stone wall
 * Fixed bug with uncraftable weirwood fence

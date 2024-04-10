@@ -16,7 +16,7 @@ public class GOTBlockGlass extends BlockGlass {
 		super(Material.glass, false);
 		setHardness(0.3f);
 		setStepSound(soundTypeGlass);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 
 	@Override

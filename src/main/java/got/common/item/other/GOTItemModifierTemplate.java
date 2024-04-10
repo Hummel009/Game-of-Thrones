@@ -22,7 +22,7 @@ import java.util.Random;
 public class GOTItemModifierTemplate extends Item {
 	public GOTItemModifierTemplate() {
 		setMaxStackSize(1);
-		setCreativeTab(GOTCreativeTabs.tabTools);
+		setCreativeTab(GOTCreativeTabs.TAB_TOOLS);
 	}
 
 	public static GOTEnchantment getModifier(ItemStack itemstack) {

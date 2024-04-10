@@ -26,7 +26,7 @@ public class GOTBlockBomb extends Block {
 
 	public GOTBlockBomb() {
 		super(Material.iron);
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		setHardness(3.0f);
 		setResistance(0.0f);
 		setStepSound(soundTypeMetal);

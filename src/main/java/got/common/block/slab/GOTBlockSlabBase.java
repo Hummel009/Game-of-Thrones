@@ -27,7 +27,7 @@ public abstract class GOTBlockSlabBase extends BlockSlab {
 	protected GOTBlockSlabBase(boolean flag, Material material, int n) {
 		super(flag, material);
 		subtypes = n;
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		useNeighborBrightness = true;
 		if (material == Material.wood) {
 			setHardness(2.0f);

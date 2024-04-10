@@ -15,7 +15,7 @@ public class GOTItemBed extends Item {
 
 	public GOTItemBed(Block block) {
 		setMaxStackSize(1);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		theBedBlock = (GOTBlockBed) block;
 		theBedBlock.setBedItem(this);
 	}

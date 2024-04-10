@@ -22,7 +22,7 @@ import java.util.Random;
 public abstract class GOTBlockAnimalJar extends BlockContainer {
 	protected GOTBlockAnimalJar(Material material) {
 		super(material);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	@Override

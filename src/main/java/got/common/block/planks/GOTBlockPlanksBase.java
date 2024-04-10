@@ -24,7 +24,7 @@ public abstract class GOTBlockPlanksBase extends Block {
 		setHardness(2.0f);
 		setResistance(5.0f);
 		setStepSound(soundTypeWood);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 
 	@Override

@@ -30,7 +30,7 @@ import java.util.Random;
 public class GOTBlockBeacon extends BlockContainer {
 	public GOTBlockBeacon() {
 		super(Material.wood);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setBlockBounds(0.0f, 0.0f, 0.0f, 1.0f, 0.8125f, 1.0f);
 		setHardness(0.0f);
 		setResistance(5.0f);

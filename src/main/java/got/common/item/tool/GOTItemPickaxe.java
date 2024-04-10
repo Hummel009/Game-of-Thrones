@@ -9,7 +9,7 @@ public class GOTItemPickaxe extends ItemPickaxe implements GOTMaterialFinder {
 
 	public GOTItemPickaxe(ToolMaterial material) {
 		super(material);
-		setCreativeTab(GOTCreativeTabs.tabTools);
+		setCreativeTab(GOTCreativeTabs.TAB_TOOLS);
 		gotMaterial = material;
 	}
 

@@ -9,7 +9,7 @@ public class GOTItemShovel extends ItemSpade implements GOTMaterialFinder {
 
 	public GOTItemShovel(ToolMaterial material) {
 		super(material);
-		setCreativeTab(GOTCreativeTabs.tabTools);
+		setCreativeTab(GOTCreativeTabs.TAB_TOOLS);
 		gotMaterial = material;
 	}
 

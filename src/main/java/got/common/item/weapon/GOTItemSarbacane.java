@@ -19,7 +19,7 @@ public class GOTItemSarbacane extends Item {
 	public GOTItemSarbacane(Item.ToolMaterial material) {
 		setMaxStackSize(1);
 		setMaxDamage(material.getMaxUses());
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		setFull3D();
 	}
 

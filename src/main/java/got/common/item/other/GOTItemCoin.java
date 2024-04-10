@@ -27,7 +27,7 @@ public class GOTItemCoin extends Item {
 	public GOTItemCoin() {
 		setHasSubtypes(true);
 		setMaxDamage(0);
-		setCreativeTab(GOTCreativeTabs.tabMaterials);
+		setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 	}
 
 	public static int getContainerValue(IInventory inv, boolean allowStolen) {

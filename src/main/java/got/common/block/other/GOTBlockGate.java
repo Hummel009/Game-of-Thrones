@@ -30,7 +30,7 @@ public class GOTBlockGate extends Block implements GOTConnectedBlock {
 	private GOTBlockGate(Material material, boolean ct) {
 		super(material);
 		hasConnectedTextures = ct;
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 	}
 
 	public static GOTBlockGate createMetal(boolean ct) {

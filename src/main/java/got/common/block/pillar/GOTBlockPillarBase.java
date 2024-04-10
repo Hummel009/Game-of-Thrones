@@ -41,7 +41,7 @@ public abstract class GOTBlockPillarBase extends Block {
 
 	private GOTBlockPillarBase(Material material) {
 		super(material);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 
 	@Override

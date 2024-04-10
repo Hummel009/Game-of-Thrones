@@ -27,7 +27,7 @@ public abstract class GOTBlockForgeBase extends BlockContainer {
 
 	protected GOTBlockForgeBase() {
 		super(Material.rock);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setHardness(4.0f);
 		setStepSound(soundTypeStone);
 	}

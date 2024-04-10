@@ -14,7 +14,7 @@ import net.minecraft.world.IBlockAccess;
 public class GOTBlockDaub extends Block implements GOTConnectedBlock {
 	public GOTBlockDaub() {
 		super(Material.grass);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(1.0f);
 		setStepSound(soundTypeGrass);
 	}

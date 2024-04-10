@@ -16,7 +16,7 @@ public class GOTItemRobes extends GOTItemArmor {
 
 	public GOTItemRobes(ArmorMaterial material, int slot) {
 		super(material, slot);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
 	public GOTItemRobes(int slot) {

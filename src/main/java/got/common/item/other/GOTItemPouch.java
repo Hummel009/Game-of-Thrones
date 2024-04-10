@@ -47,7 +47,7 @@ public class GOTItemPouch extends Item {
 		setHasSubtypes(true);
 		setMaxDamage(0);
 		setMaxStackSize(1);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
 	public static int getCapacity(ItemStack itemstack) {

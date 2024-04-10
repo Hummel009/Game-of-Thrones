@@ -23,7 +23,7 @@ public class GOTBlockThatch extends Block {
 		super(Material.grass);
 		setHardness(0.5f);
 		setStepSound(soundTypeGrass);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 
 	@Override

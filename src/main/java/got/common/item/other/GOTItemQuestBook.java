@@ -24,7 +24,7 @@ public class GOTItemQuestBook extends Item {
 
 	public GOTItemQuestBook() {
 		setMaxStackSize(1);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
 	@SideOnly(Side.CLIENT)

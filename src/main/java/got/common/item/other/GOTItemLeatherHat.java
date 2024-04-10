@@ -25,7 +25,7 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 
 	public GOTItemLeatherHat() {
 		super(GOTMaterial.ROBES, 0);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
 	public static int getFeatherColor(ItemStack itemstack) {

@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 public class GOTItemArrowPoisoned extends Item {
 	public GOTItemArrowPoisoned() {
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseArrowPoisoned());
 	}
 }

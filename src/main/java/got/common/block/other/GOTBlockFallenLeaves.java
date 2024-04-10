@@ -31,7 +31,7 @@ public class GOTBlockFallenLeaves extends Block implements IShearable {
 	public GOTBlockFallenLeaves() {
 		super(Material.vine);
 		ALL_FALLEN_LEAVES.add(this);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setHardness(0.2f);
 		setStepSound(soundTypeGrass);
 		useNeighborBrightness = true;

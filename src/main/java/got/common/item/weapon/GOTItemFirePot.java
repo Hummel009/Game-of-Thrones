@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class GOTItemFirePot extends Item {
 	public GOTItemFirePot() {
 		setMaxStackSize(4);
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseFirePot());
 	}
 

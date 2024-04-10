@@ -77,7 +77,7 @@ public class GOTBannerProtection {
 	}
 
 	public static IFilter forInvasionSpawner(GOTEntityInvasionSpawner spawner) {
-		return forFaction(spawner.getInvasionType().invasionFaction);
+		return forFaction(spawner.getInvasionType().getInvasionFaction());
 	}
 
 	public static IFilter forNPC(EntityLiving entity) {

@@ -8,7 +8,7 @@ import net.minecraft.world.IBlockAccess;
 
 public class GOTBlockVine extends BlockVine {
 	public GOTBlockVine() {
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setHardness(0.2f);
 		setStepSound(soundTypeGrass);
 	}

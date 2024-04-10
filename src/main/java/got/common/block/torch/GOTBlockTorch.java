@@ -11,7 +11,7 @@ import java.util.Random;
 
 public abstract class GOTBlockTorch extends BlockTorch {
 	protected GOTBlockTorch() {
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	protected abstract TorchParticle createTorchParticle(Random var1);

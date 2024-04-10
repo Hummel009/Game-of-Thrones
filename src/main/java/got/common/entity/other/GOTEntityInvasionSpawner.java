@@ -132,7 +132,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 	}
 
 	public boolean canInvasionSpawnHere() {
-		if (GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forInvasionSpawner(this), false) || GOTEntityNPCRespawner.isSpawnBlocked(this, getInvasionType().invasionFaction)) {
+		if (GOTBannerProtection.isProtected(worldObj, this, GOTBannerProtection.forInvasionSpawner(this), false) || GOTEntityNPCRespawner.isSpawnBlocked(this, getInvasionType().getInvasionFaction())) {
 			return false;
 		}
 		return worldObj.checkNoEntityCollision(boundingBox) && worldObj.getCollidingBoundingBoxes(this, boundingBox).isEmpty() && !worldObj.isAnyLiquid(boundingBox);
@@ -140,7 +140,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 
 	public void endInvasion(boolean completed) {
 		if (completed) {
-			GOTFaction invasionFac = getInvasionType().invasionFaction;
+			GOTFaction invasionFac = getInvasionType().getInvasionFaction();
 			Collection<EntityPlayer> achievementPlayers = new HashSet<>();
 			Collection<EntityPlayer> conqRewardPlayers = new HashSet<>();
 			for (UUID player : recentPlayerContributors.keySet()) {
@@ -171,7 +171,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 				float boostPerPlayer = 50.0f / conqRewardPlayers.size();
 				for (EntityPlayer entityplayer : conqRewardPlayers) {
 					GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-					pd.givePureConquestBonus(entityplayer, pd.getPledgeFaction(), getInvasionType().invasionFaction, boostPerPlayer, "got.alignment.invasionDefeat", posX, posY, posZ);
+					pd.givePureConquestBonus(entityplayer, pd.getPledgeFaction(), getInvasionType().getInvasionFaction(), boostPerPlayer, "got.alignment.invasionDefeat", posX, posY, posZ);
 				}
 			}
 		}
@@ -301,7 +301,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 				spawnAttempts = Math.min(spawnAttempts, invasionRemaining);
 				boolean spawnedAnyMobs = false;
 				for (int l = 0; l < spawnAttempts; ++l) {
-					GOTInvasions.InvasionSpawnEntry entry = (GOTInvasions.InvasionSpawnEntry) WeightedRandom.getRandomItem(rand, invasionType.invasionMobs);
+					GOTInvasions.InvasionSpawnEntry entry = (GOTInvasions.InvasionSpawnEntry) WeightedRandom.getRandomItem(rand, invasionType.getInvasionMobs());
 					Class<? extends GOTEntityNPC> entityClass = entry.getEntityClass();
 					String entityName = GOTEntityRegistry.getStringFromClass(entityClass);
 					GOTEntityNPC npc = (GOTEntityNPC) EntityList.createEntityByName(entityName, worldObj);
@@ -338,7 +338,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 			String factionName = nbt.getString("Faction");
 			type = GOTInvasions.forName(factionName);
 		}
-		if (type == null || type.invasionMobs.isEmpty()) {
+		if (type == null || type.getInvasionMobs().isEmpty()) {
 			setDead();
 		} else {
 			int i;
@@ -389,7 +389,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 
 	public void selectAppropriateBonusFactions() {
 		if (GOTFaction.controlZonesEnabled(worldObj)) {
-			GOTFaction invasionFaction = getInvasionType().invasionFaction;
+			GOTFaction invasionFaction = getInvasionType().getInvasionFaction();
 			for (GOTFaction faction : invasionFaction.getBonusesForKilling()) {
 				if (!faction.inDefinedControlZone(worldObj, posX, posZ, 50)) {
 					continue;
@@ -456,7 +456,7 @@ public class GOTEntityInvasionSpawner extends Entity {
 		}
 		for (EntityPlayer entityplayer : nearbyPlayers) {
 			boolean announce;
-			announce = GOTLevelData.getData(entityplayer).getAlignment(getInvasionType().invasionFaction) < 0.0f;
+			announce = GOTLevelData.getData(entityplayer).getAlignment(getInvasionType().getInvasionFaction()) < 0.0f;
 			if (entityplayer == announcePlayer) {
 				announce = true;
 			}

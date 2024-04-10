@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 public class GOTItemMatch extends Item {
 	public GOTItemMatch() {
 		setFull3D();
-		setCreativeTab(GOTCreativeTabs.tabTools);
+		setCreativeTab(GOTCreativeTabs.TAB_TOOLS);
 	}
 
 	@Override

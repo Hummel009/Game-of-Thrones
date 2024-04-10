@@ -22,7 +22,7 @@ public abstract class GOTBlockOreStorageBase extends Block {
 
 	protected GOTBlockOreStorageBase() {
 		super(Material.iron);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(5.0f);
 		setResistance(10.0f);
 		setStepSound(soundTypeMetal);

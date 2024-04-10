@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 
 public class GOTItemArrowFire extends Item {
 	public GOTItemArrowFire() {
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseArrowFire());
 	}
 }

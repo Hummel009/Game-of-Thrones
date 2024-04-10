@@ -12,7 +12,7 @@ public class GOTBlockButton extends BlockButton {
 	public GOTBlockButton(boolean flag, String s) {
 		super(flag);
 		iconPath = s;
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
 	@SideOnly(Side.CLIENT)

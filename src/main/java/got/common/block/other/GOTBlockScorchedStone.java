@@ -10,6 +10,6 @@ public class GOTBlockScorchedStone extends Block {
 		setHardness(2.0f);
 		setResistance(10.0f);
 		setStepSound(soundTypeStone);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 }

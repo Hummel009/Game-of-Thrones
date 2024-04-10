@@ -18,7 +18,7 @@ import java.util.Random;
 public class GOTBlockTermite extends Block {
 	public GOTBlockTermite() {
 		super(Material.ground);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(0.5f);
 		setResistance(3.0f);
 	}

@@ -27,7 +27,7 @@ public class GOTBlockCoralReef extends Block {
 
 	public GOTBlockCoralReef() {
 		super(Material.rock);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(1.0f);
 		setResistance(5.0f);
 		setStepSound(soundTypeStone);

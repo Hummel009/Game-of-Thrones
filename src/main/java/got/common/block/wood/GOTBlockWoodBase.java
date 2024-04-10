@@ -21,7 +21,7 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 	protected GOTBlockWoodBase() {
 		setHardness(2.0f);
 		setStepSound(soundTypeWood);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 
 	@SideOnly(Side.CLIENT)

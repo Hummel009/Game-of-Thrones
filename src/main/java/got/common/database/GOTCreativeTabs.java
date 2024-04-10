@@ -8,35 +8,36 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StatCollector;
 
 public class GOTCreativeTabs extends CreativeTabs {
-	public static GOTCreativeTabs tabBlock = new GOTCreativeTabs("blocks");
-	public static GOTCreativeTabs tabUtil = new GOTCreativeTabs("util");
-	public static GOTCreativeTabs tabDeco = new GOTCreativeTabs("decorations");
-	public static GOTCreativeTabs tabFood = new GOTCreativeTabs("food");
-	public static GOTCreativeTabs tabMaterials = new GOTCreativeTabs("materials");
-	public static GOTCreativeTabs tabMisc = new GOTCreativeTabs("misc");
-	public static GOTCreativeTabs tabTools = new GOTCreativeTabs("tools");
-	public static GOTCreativeTabs tabCombat = new GOTCreativeTabs("combat");
-	public static GOTCreativeTabs tabStory = new GOTCreativeTabs("story");
-	public static GOTCreativeTabs tabSpawn = new GOTCreativeTabs("spawning");
-	public static GOTCreativeTabs tabBanner = new GOTCreativeTabs("banner");
-	public ItemStack theIcon;
+	public static final GOTCreativeTabs TAB_BLOCK = new GOTCreativeTabs("blocks");
+	public static final GOTCreativeTabs TAB_UTIL = new GOTCreativeTabs("util");
+	public static final GOTCreativeTabs TAB_DECO = new GOTCreativeTabs("decorations");
+	public static final GOTCreativeTabs TAB_FOOD = new GOTCreativeTabs("food");
+	public static final GOTCreativeTabs TAB_MATERIALS = new GOTCreativeTabs("materials");
+	public static final GOTCreativeTabs TAB_MISC = new GOTCreativeTabs("misc");
+	public static final GOTCreativeTabs TAB_TOOLS = new GOTCreativeTabs("tools");
+	public static final GOTCreativeTabs TAB_COMBAT = new GOTCreativeTabs("combat");
+	public static final GOTCreativeTabs TAB_STORY = new GOTCreativeTabs("story");
+	public static final GOTCreativeTabs TAB_SPAWN = new GOTCreativeTabs("spawning");
+	public static final GOTCreativeTabs TAB_BANNER = new GOTCreativeTabs("banner");
+
+	private ItemStack theIcon;
 
 	public GOTCreativeTabs(String label) {
 		super(label);
 	}
 
 	public static void onInit() {
-		tabBlock.theIcon = new ItemStack(GOTBlocks.brick1, 1, 1);
-		tabUtil.theIcon = new ItemStack(GOTBlocks.unsmeltery);
-		tabDeco.theIcon = new ItemStack(GOTBlocks.chandelier, 1, 3);
-		tabFood.theIcon = new ItemStack(GOTItems.mugVodka);
-		tabMaterials.theIcon = new ItemStack(GOTItems.valyrianIngot);
-		tabMisc.theIcon = new ItemStack(GOTItems.coin, 1, 6);
-		tabTools.theIcon = new ItemStack(GOTItems.wildlingAxe);
-		tabCombat.theIcon = new ItemStack(GOTItems.ironbornHelmet);
-		tabStory.theIcon = new ItemStack(GOTItems.bane);
-		tabSpawn.theIcon = new ItemStack(GOTItems.spawnEgg, 1, 248);
-		tabBanner.theIcon = new ItemStack(GOTItems.bannerTab);
+		TAB_BLOCK.theIcon = new ItemStack(GOTBlocks.brick1, 1, 1);
+		TAB_UTIL.theIcon = new ItemStack(GOTBlocks.unsmeltery);
+		TAB_DECO.theIcon = new ItemStack(GOTBlocks.chandelier, 1, 3);
+		TAB_FOOD.theIcon = new ItemStack(GOTItems.mugVodka);
+		TAB_MATERIALS.theIcon = new ItemStack(GOTItems.valyrianIngot);
+		TAB_MISC.theIcon = new ItemStack(GOTItems.coin, 1, 6);
+		TAB_TOOLS.theIcon = new ItemStack(GOTItems.wildlingAxe);
+		TAB_COMBAT.theIcon = new ItemStack(GOTItems.ironbornHelmet);
+		TAB_STORY.theIcon = new ItemStack(GOTItems.bane);
+		TAB_SPAWN.theIcon = new ItemStack(GOTItems.spawnEgg, 1, 248);
+		TAB_BANNER.theIcon = new ItemStack(GOTItems.bannerTab);
 	}
 
 	@Override

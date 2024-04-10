@@ -7,6 +7,6 @@ import net.minecraft.item.ItemSeeds;
 public class GOTItemSeeds extends ItemSeeds {
 	public GOTItemSeeds(Block crop, Block soil) {
 		super(crop, soil);
-		setCreativeTab(GOTCreativeTabs.tabMaterials);
+		setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 	}
 }

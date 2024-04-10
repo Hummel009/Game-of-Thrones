@@ -15,7 +15,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class GOTBlockQuicksand extends Block {
 	public GOTBlockQuicksand() {
 		super(Material.ground);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 	}
 
 	@Override

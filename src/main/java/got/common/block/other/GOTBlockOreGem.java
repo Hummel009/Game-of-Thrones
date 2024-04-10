@@ -25,7 +25,7 @@ public class GOTBlockOreGem extends Block {
 
 	public GOTBlockOreGem() {
 		super(Material.rock);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(3.0f);
 		setResistance(5.0f);
 		setStepSound(soundTypeStone);

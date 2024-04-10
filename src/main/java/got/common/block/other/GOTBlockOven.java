@@ -30,7 +30,7 @@ public class GOTBlockOven extends BlockContainer {
 
 	public GOTBlockOven() {
 		super(Material.rock);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setHardness(3.5f);
 		setStepSound(soundTypeStone);
 	}

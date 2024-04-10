@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 
 public class GOTItemMysteryWeb extends Item {
 	public GOTItemMysteryWeb() {
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseMysteryWeb());
 	}
 

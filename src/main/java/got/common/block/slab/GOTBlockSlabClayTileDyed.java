@@ -11,7 +11,7 @@ import net.minecraft.util.IIcon;
 public class GOTBlockSlabClayTileDyed extends GOTBlockSlabBase {
 	public GOTBlockSlabClayTileDyed(boolean flag) {
 		super(flag, Material.rock, 8);
-		setCreativeTab(GOTCreativeTabs.tabBlock);
+		setCreativeTab(GOTCreativeTabs.TAB_BLOCK);
 		setHardness(1.25f);
 		setResistance(7.0f);
 		setStepSound(soundTypeStone);

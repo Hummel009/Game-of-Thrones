@@ -29,7 +29,7 @@ public class GOTItemCrossbow extends ItemBow {
 	public IIcon[] crossbowPullIcons;
 
 	public GOTItemCrossbow(Item.ToolMaterial material) {
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 		crossbowMaterial = material;
 		setMaxDamage((int) (crossbowMaterial.getMaxUses() * 1.25f));
 		setMaxStackSize(1);

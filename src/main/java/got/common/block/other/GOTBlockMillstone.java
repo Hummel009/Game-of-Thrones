@@ -38,7 +38,7 @@ public class GOTBlockMillstone extends BlockContainer {
 
 	public GOTBlockMillstone() {
 		super(Material.rock);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setHardness(4.0f);
 		setStepSound(soundTypeStone);
 	}

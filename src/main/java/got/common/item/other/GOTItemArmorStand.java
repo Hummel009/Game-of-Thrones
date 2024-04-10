@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 
 public class GOTItemArmorStand extends Item {
 	public GOTItemArmorStand() {
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setMaxStackSize(1);
 	}
 

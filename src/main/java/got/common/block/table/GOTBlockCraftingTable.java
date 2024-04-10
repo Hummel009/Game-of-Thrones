@@ -28,7 +28,7 @@ public class GOTBlockCraftingTable extends Block {
 
 	protected GOTBlockCraftingTable(Material material, GOTFaction faction, GOTGuiId guiId) {
 		super(material);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setHardness(2.5f);
 		this.faction = faction;
 		this.guiId = guiId;

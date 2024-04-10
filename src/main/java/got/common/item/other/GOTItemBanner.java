@@ -33,7 +33,7 @@ public class GOTItemBanner extends Item {
 	public IIcon iconOverlay;
 
 	public GOTItemBanner() {
-		setCreativeTab(GOTCreativeTabs.tabBanner);
+		setCreativeTab(GOTCreativeTabs.TAB_BANNER);
 		setMaxStackSize(64);
 		setMaxDamage(0);
 		setHasSubtypes(true);

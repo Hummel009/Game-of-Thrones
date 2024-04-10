@@ -38,7 +38,7 @@ public class GOTItemBrandingIron extends Item {
 	public IIcon iconHot;
 
 	public GOTItemBrandingIron() {
-		setCreativeTab(GOTCreativeTabs.tabTools);
+		setCreativeTab(GOTCreativeTabs.TAB_TOOLS);
 		setMaxStackSize(1);
 		setMaxDamage(100);
 		setFull3D();

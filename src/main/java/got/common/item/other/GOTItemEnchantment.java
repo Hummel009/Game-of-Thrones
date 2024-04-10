@@ -8,7 +8,7 @@ public class GOTItemEnchantment extends Item {
 	public GOTEnchantment theEnchant;
 
 	public GOTItemEnchantment(GOTEnchantment ench) {
-		setCreativeTab(GOTCreativeTabs.tabMaterials);
+		setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 		theEnchant = ench;
 	}
 }

@@ -13,7 +13,7 @@ public class GOTItemSling extends Item {
 	public GOTItemSling() {
 		setMaxStackSize(1);
 		setMaxDamage(250);
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 	}
 
 	@Override

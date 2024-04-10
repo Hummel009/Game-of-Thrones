@@ -17,7 +17,7 @@ public class GOTItemPartyHat extends GOTItemArmor {
 
 	public GOTItemPartyHat() {
 		super(GOTMaterial.ROBES, 0);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 	}
 
 	public static int getHatColor(ItemStack itemstack) {

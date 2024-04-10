@@ -26,7 +26,7 @@ public class GOTItemDye extends Item {
 	public GOTItemDye() {
 		setHasSubtypes(true);
 		setMaxDamage(0);
-		setCreativeTab(GOTCreativeTabs.tabMaterials);
+		setCreativeTab(GOTCreativeTabs.TAB_MATERIALS);
 	}
 
 	public static int isItemDye(ItemStack itemstack) {

@@ -24,7 +24,7 @@ public abstract class GOTItemRugBase extends Item {
 
 	protected GOTItemRugBase(String... names) {
 		rugNames = names;
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 		setMaxStackSize(1);
 		setMaxDamage(0);
 		setHasSubtypes(true);

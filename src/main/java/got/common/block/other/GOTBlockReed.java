@@ -30,7 +30,7 @@ public class GOTBlockReed extends Block implements IPlantable {
 		setTickRandomly(true);
 		setHardness(0.0f);
 		setStepSound(soundTypeGrass);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	@Override

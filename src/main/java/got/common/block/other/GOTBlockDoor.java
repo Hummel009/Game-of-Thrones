@@ -20,7 +20,7 @@ public class GOTBlockDoor extends BlockDoor {
 
 	private GOTBlockDoor(Material material) {
 		super(material);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 	}
 
 	@SideOnly(Side.CLIENT)

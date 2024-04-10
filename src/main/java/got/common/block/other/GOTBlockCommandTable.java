@@ -26,7 +26,7 @@ public class GOTBlockCommandTable extends BlockContainer {
 
 	public GOTBlockCommandTable() {
 		super(Material.iron);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 		setHardness(2.5f);
 		setStepSound(soundTypeMetal);
 	}

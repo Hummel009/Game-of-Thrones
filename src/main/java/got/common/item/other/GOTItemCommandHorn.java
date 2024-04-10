@@ -22,7 +22,7 @@ public class GOTItemCommandHorn extends Item implements GOTSquadrons.SquadronIte
 		setHasSubtypes(true);
 		setMaxDamage(0);
 		setMaxStackSize(1);
-		setCreativeTab(GOTCreativeTabs.tabCombat);
+		setCreativeTab(GOTCreativeTabs.TAB_COMBAT);
 	}
 
 	@Override

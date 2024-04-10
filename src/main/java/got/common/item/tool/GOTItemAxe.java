@@ -9,7 +9,7 @@ public class GOTItemAxe extends ItemAxe implements GOTMaterialFinder {
 
 	public GOTItemAxe(ToolMaterial material) {
 		super(material);
-		setCreativeTab(GOTCreativeTabs.tabTools);
+		setCreativeTab(GOTCreativeTabs.TAB_TOOLS);
 		setHarvestLevel("axe", material.getHarvestLevel());
 		gotMaterial = material;
 	}

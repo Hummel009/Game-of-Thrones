@@ -13,6 +13,6 @@ public class GOTBlockTrapdoor extends BlockTrapDoor {
 
 	private GOTBlockTrapdoor(Material material) {
 		super(material);
-		setCreativeTab(GOTCreativeTabs.tabUtil);
+		setCreativeTab(GOTCreativeTabs.TAB_UTIL);
 	}
 }

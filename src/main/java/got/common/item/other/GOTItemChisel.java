@@ -16,7 +16,7 @@ public class GOTItemChisel extends Item {
 
 	public GOTItemChisel(Block block) {
 		signBlock = block;
-		setCreativeTab(GOTCreativeTabs.tabTools);
+		setCreativeTab(GOTCreativeTabs.TAB_TOOLS);
 		setMaxStackSize(1);
 		setMaxDamage(100);
 		setFull3D();

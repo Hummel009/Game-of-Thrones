@@ -59,7 +59,7 @@ public class GOTBlockTreasurePile extends Block {
 		super(Material.circuits);
 		setHardness(0.0f);
 		setStepSound(SOUND_TYPE_TREASURE);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	private static boolean canFallUpon(World world, int i, int j, int k, Block thisBlock) {

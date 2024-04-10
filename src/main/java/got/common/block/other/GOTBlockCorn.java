@@ -36,7 +36,7 @@ public class GOTBlockCorn extends Block implements IPlantable, IGrowable {
 		setTickRandomly(true);
 		setHardness(0.0f);
 		setStepSound(soundTypeGrass);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	public static boolean hasCorn(IBlockAccess world, int i, int j, int k) {

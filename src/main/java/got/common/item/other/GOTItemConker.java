@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class GOTItemConker extends Item {
 	public GOTItemConker() {
 		setMaxStackSize(16);
-		setCreativeTab(GOTCreativeTabs.tabMisc);
+		setCreativeTab(GOTCreativeTabs.TAB_MISC);
 		BlockDispenser.dispenseBehaviorRegistry.putObject(this, new GOTDispenseConker());
 	}
 

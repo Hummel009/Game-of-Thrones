@@ -26,7 +26,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 	protected GOTBlockSaplingBase() {
 		float f = 0.4f;
 		setBlockBounds(0.5f - f, 0.0f, 0.5f - f, 0.5f + f, f * 2.0f, 0.5f + f);
-		setCreativeTab(GOTCreativeTabs.tabDeco);
+		setCreativeTab(GOTCreativeTabs.TAB_DECO);
 	}
 
 	public static int[] findPartyTree(IBlockAccess world, int i, int j, int k, Block block, int meta) {
