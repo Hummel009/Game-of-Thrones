@@ -109,16 +109,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.*;
 
-public class GOTEventHandler implements IFuelHandler {
+public class GOTEventHandler {
 	public GOTItemBow proxyBowItemServer;
 	public GOTItemBow proxyBowItemClient;
-
-	public GOTEventHandler() {
-		FMLCommonHandler.instance().bus().register(this);
-		MinecraftForge.EVENT_BUS.register(this);
-		MinecraftForge.TERRAIN_GEN_BUS.register(this);
-		GameRegistry.registerFuelHandler(this);
-	}
 
 	public static void dechant(ItemStack itemstack, EntityPlayer entityplayer) {
 		if (!entityplayer.capabilities.isCreativeMode && itemstack != null && itemstack.isItemEnchanted()) {
@@ -166,18 +159,6 @@ public class GOTEventHandler implements IFuelHandler {
 				event.drops.add(silkDrop);
 			}
 		}
-	}
-
-	@Override
-	public int getBurnTime(ItemStack itemstack) {
-		Item item = itemstack.getItem();
-		if (item instanceof ItemBlock && ((ItemBlock) item).field_150939_a instanceof GOTBlockSaplingBase) {
-			return 100;
-		}
-		if (item == Items.reeds || item == Item.getItemFromBlock(GOTBlocks.reeds) || item == Item.getItemFromBlock(GOTBlocks.driedReeds) || item == Item.getItemFromBlock(GOTBlocks.cornStalk)) {
-			return 100;
-		}
-		return 0;
 	}
 
 	@SubscribeEvent

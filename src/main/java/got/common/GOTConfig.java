@@ -144,7 +144,7 @@ public class GOTConfig {
 	}
 
 	public static void load() {
-		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.langsName + '.');
+		languageCode = config.getString("languageCode", CATEGORY_LANGUAGE, languageCode, "Choose:" + GOT.LANGUAGES + '.');
 		gridScale = config.get(CATEGORY_GAMEPLAY, "Grid of the world for generating villages", 12, "Smaller integer = greater chance of spawn, but the chance of intersection is growing too.").getInt();
 		enableFellowshipCreation = config.get(CATEGORY_GAMEPLAY, "Enable Fellowship creation", true, "If disabled, admins can still create Fellowships using the command").getBoolean();
 		lgbt = config.get(CATEGORY_GAMEPLAY, "Enable LGBT marriages between NPC", false, "RENLY BARATHEON TRIGGERED").getBoolean();

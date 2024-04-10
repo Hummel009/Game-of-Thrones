@@ -1,10 +1,7 @@
 package got;
 
 import com.google.common.base.CaseFormat;
-import cpw.mods.fml.common.FMLCommonHandler;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.ModContainer;
-import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -20,7 +17,7 @@ import got.common.entity.other.GOTEntityPortal;
 import got.common.entity.other.GOTHiredNPCInfo;
 import got.common.faction.GOTFaction;
 import got.common.fellowship.GOTFellowship;
-import got.common.item.other.GOTItemBanner.BannerType;
+import got.common.item.other.GOTItemBanner;
 import got.common.network.GOTPacketHandler;
 import got.common.util.GOTLog;
 import got.common.util.GOTReflection;
@@ -48,6 +45,7 @@ import net.minecraft.world.*;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 
 import java.awt.*;
@@ -56,37 +54,198 @@ import java.time.Month;
 import java.util.List;
 import java.util.*;
 
+@SuppressWarnings({"PublicField", "WeakerAccess"})
 @Mod(modid = "got", useMetadata = true)
 public class GOT {
 	@SidedProxy(clientSide = "got.client.GOTClientProxy", serverSide = "got.common.GOTCommonProxy")
 	public static GOTCommonProxy proxy;
+
 	@Mod.Instance("got")
 	public static GOT instance;
-	public static String VERSION = "24.07.10";
-	public static List<String> devs = new ArrayList<>();
-	public static GOTEventHandler eventHandler;
-	public static GOTPacketHandler packetHandler;
-	public static GOTTickHandlerServer tickHandler;
+
 	public static WorldType worldTypeGOT;
 	public static WorldType worldTypeGOTEmpty;
 	public static WorldType worldTypeGOTClassic;
-	public static String langsName = "Русский (ru), Українська (uk), English (en), Français (fr), Deutsch (de), Polska (pl), Türkçe (tr), 中文 (zh)";
+
+	public static final String VERSION = "24.07.10";
+
+	public static final String LANGUAGES = "Русский (ru), Українська (uk), English (en), Français (fr), Deutsch (de), Polska (pl), Türkçe (tr), 中文 (zh)";
+	public static final List<String> DEVS = new ArrayList<>();
 
 	static {
-		devs.add("76ae4f2f-e70a-4680-b7cd-3100fa8b567b");
-		devs.add("40cd453d-4c71-4afe-9ae3-a2b8cb2b6f00");
-		devs.add("ce6eec82-0678-4be3-933d-05acb902d558");
-		devs.add("ce924ff6-8450-41ad-865e-89c5897837c4");
-		devs.add("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
-		devs.add("694406b3-10e4-407d-99bb-17218696627a");
-		devs.add("1f63e38e-4059-4a4f-b7c4-0fac4a48e744");
-		devs.add("72fd4cfd-064e-4cf1-874d-74000c152f48");
-		devs.add("a05ba4aa-2cd0-43b1-957c-7971c9af53d4");
-		devs.add("22be67c2-ba43-48db-b2ba-32857e78ddad");
-		devs.add("c52f6daa-1479-4304-b8de-30b7b1903b23");
-		devs.add("56c71aab-8a68-465d-b386-5f721dd68df6");
-		devs.add("188e4e9c-8c67-443d-9b6c-a351076a43e3");
-		devs.add("f8cc9b45-509a-4034-8740-0b84ce7e4492");
+		DEVS.add("76ae4f2f-e70a-4680-b7cd-3100fa8b567b");
+		DEVS.add("40cd453d-4c71-4afe-9ae3-a2b8cb2b6f00");
+		DEVS.add("ce6eec82-0678-4be3-933d-05acb902d558");
+		DEVS.add("ce924ff6-8450-41ad-865e-89c5897837c4");
+		DEVS.add("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
+		DEVS.add("694406b3-10e4-407d-99bb-17218696627a");
+		DEVS.add("1f63e38e-4059-4a4f-b7c4-0fac4a48e744");
+		DEVS.add("72fd4cfd-064e-4cf1-874d-74000c152f48");
+		DEVS.add("a05ba4aa-2cd0-43b1-957c-7971c9af53d4");
+		DEVS.add("22be67c2-ba43-48db-b2ba-32857e78ddad");
+		DEVS.add("c52f6daa-1479-4304-b8de-30b7b1903b23");
+		DEVS.add("56c71aab-8a68-465d-b386-5f721dd68df6");
+		DEVS.add("188e4e9c-8c67-443d-9b6c-a351076a43e3");
+		DEVS.add("f8cc9b45-509a-4034-8740-0b84ce7e4492");
+	}
+
+	@Mod.EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
+		GOTLog.findLogger();
+
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
+
+		GOTTickHandlerServer tickHandler = new GOTTickHandlerServer();
+		FMLCommonHandler.instance().bus().register(tickHandler);
+
+		GOTEventHandler eventHandler = new GOTEventHandler();
+		FMLCommonHandler.instance().bus().register(eventHandler);
+		MinecraftForge.EVENT_BUS.register(eventHandler);
+		MinecraftForge.TERRAIN_GEN_BUS.register(eventHandler);
+
+		IFuelHandler fuelHandler = new GOTFuelHandler();
+		GameRegistry.registerFuelHandler(fuelHandler);
+
+		worldTypeGOT = new GOTWorldType("got");
+		worldTypeGOTEmpty = new GOTWorldType("gotEmpty");
+		worldTypeGOTClassic = new GOTWorldType("gotClassic");
+
+		GOTLoader.preInit();
+
+		proxy.preInit();
+	}
+
+	@Mod.EventHandler
+	public void onInit(FMLInitializationEvent event) {
+		GOTLoader.onInit();
+
+		proxy.onInit();
+	}
+
+	@Mod.EventHandler
+	public void postInit(FMLPostInitializationEvent event) {
+		Color baseWater = new Color(4876527);
+		int baseR = baseWater.getRed();
+		int baseG = baseWater.getGreen();
+		int baseB = baseWater.getBlue();
+		for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
+			if (biome == null) {
+				continue;
+			}
+			Color water = new Color(biome.waterColorMultiplier);
+			float[] rgb = water.getColorComponents(null);
+			int r = (int) (baseR * rgb[0]);
+			int g = (int) (baseG * rgb[1]);
+			int b = (int) (baseB * rgb[2]);
+			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
+		}
+
+		Map<String, Integer> info = getModContentInfo();
+
+		for (Map.Entry<String, Integer> entry : info.entrySet()) {
+			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
+		}
+
+		proxy.postInit();
+	}
+
+	@Mod.EventHandler
+	public void onMissingMappings(FMLMissingMappingsEvent event) {
+		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
+			Item item;
+			Block block;
+			String newName;
+			if (mapping.type == GameRegistry.Type.BLOCK) {
+				if (mapping.name.contains("Carnotite")) {
+					newName = mapping.name.replace("Carnotite", "Labradorite");
+				} else if (mapping.name.contains("carnotite")) {
+					newName = mapping.name.replace("carnotite", "labradorite");
+				} else if (mapping.name.contains("ulthos_bars")) {
+					newName = mapping.name.replace("ulthos_bars", "bronze_bars");
+				} else if (mapping.name.contains("chest_essos")) {
+					newName = mapping.name.replace("chest_essos", "chest_sandstone");
+				} else if (mapping.name.contains("ulthos_torch")) {
+					newName = mapping.name.replace("ulthos_torch", "asshai_torch");
+				} else {
+					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
+				}
+				block = (Block) Block.blockRegistry.getObject(newName);
+				if (block != null) {
+					mapping.remap(block);
+				}
+			}
+			if (mapping.type == GameRegistry.Type.ITEM) {
+				if (mapping.name.contains("Carnotite")) {
+					newName = mapping.name.replace("Carnotite", "Labradorite");
+				} else if (mapping.name.contains("ignot")) {
+					newName = mapping.name.replace("ignot", "ingot");
+				} else if (mapping.name.contains("carnotite")) {
+					newName = mapping.name.replace("carnotite", "labradorite");
+				} else {
+					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
+				}
+				item = (Item) Item.itemRegistry.getObject(newName);
+				if (item != null) {
+					mapping.remap(item);
+				}
+			}
+		}
+	}
+
+	@Mod.EventHandler
+	public void onServerStarting(FMLServerStartingEvent event) {
+		WorldServer world = DimensionManager.getWorld(0);
+		proxy.testReflection(world);
+		GOTReflection.removeCommand(CommandTime.class);
+		GOTReflection.removeCommand(CommandMessage.class);
+		Collection<CommandBase> command = new ArrayList<>();
+		command.add(new GOTCommandTimeVanilla());
+		command.add(new GOTCommandMessageFixed());
+		command.add(new GOTCommandTime());
+		command.add(new GOTCommandAlignment());
+		command.add(new GOTCommandSummon());
+		command.add(new GOTCommandFastTravelClock());
+		command.add(new GOTCommandWaypointCooldown());
+		command.add(new GOTCommandDate());
+		command.add(new GOTCommandWaypoints());
+		command.add(new GOTCommandAlignmentSee());
+		command.add(new GOTCommandFellowship());
+		command.add(new GOTCommandFellowshipMessage());
+		command.add(new GOTCommandEnableAlignmentZones());
+		command.add(new GOTCommandEnchant());
+		command.add(new GOTCommandSpawnDamping());
+		command.add(new GOTCommandFactionRelations());
+		command.add(new GOTCommandPledgeCooldown());
+		command.add(new GOTCommandConquest());
+		command.add(new GOTCommandStrScan());
+		command.add(new GOTCommandDragon());
+		command.add(new GOTCommandInvasion());
+		command.add(new GOTCommandAchievement());
+		command.add(new GOTCommandDatabase());
+		if (event.getServer().isDedicatedServer()) {
+			command.add(new GOTCommandBanStructures());
+			command.add(new GOTCommandAllowStructures());
+			command.add(new GOTCommandAdminHideMap());
+		}
+		for (CommandBase element : command) {
+			event.registerServerCommand(element);
+		}
+	}
+
+	private static Map<String, Integer> getModContentInfo() {
+		Map<String, Integer> map = new HashMap<>();
+		map.put("achievements", GOTAchievement.CONTENT.size());
+		map.put("packets", GOTPacketHandler.id);
+		map.put("banners", GOTItemBanner.BannerType.values().length);
+		map.put("mobs", GOTEntity.id);
+		map.put("structures", GOTStructure.id);
+		map.put("biomes", GOTBiome.CONTENT.size());
+		map.put("beziers", GOTBeziers.id);
+		map.put("waypoints", GOTWaypoint.values().length);
+		map.put("factions", GOTFaction.values().length);
+		map.put("items", GOTItems.CONTENT.size());
+		map.put("blocks", GOTBlocks.CONTENT.size());
+		return map;
 	}
 
 	public static boolean canDropLoot(World world) {
@@ -132,10 +291,7 @@ public class GOT {
 				return false;
 			}
 			if (!isPlayerDirected) {
-				if (target instanceof EntityPlayer && GOTLevelData.getData((EntityPlayer) target).getAlignment(attackerFaction) >= 0.0f && attacker.getAttackTarget() != target) {
-					return false;
-				}
-				return !(target.riddenByEntity instanceof EntityPlayer) || GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) < 0.0f || attacker.getAttackTarget() == target || attacker.getAttackTarget() == target.riddenByEntity;
+				return (!(target instanceof EntityPlayer) || !(GOTLevelData.getData((EntityPlayer) target).getAlignment(attackerFaction) >= 0.0f) || attacker.getAttackTarget() == target) && (!(target.riddenByEntity instanceof EntityPlayer) || GOTLevelData.getData((EntityPlayer) target.riddenByEntity).getAlignment(attackerFaction) < 0.0f || attacker.getAttackTarget() == target || attacker.getAttackTarget() == target.riddenByEntity);
 			}
 		}
 		return true;
@@ -257,22 +413,6 @@ public class GOT {
 		return FMLCommonHandler.instance().findContainerFor(instance);
 	}
 
-	public static Map<String, Integer> getModContentInfo() {
-		Map<String, Integer> map = new HashMap<>();
-		map.put("achievements", GOTAchievement.CONTENT.size());
-		map.put("packets", GOTPacketHandler.id);
-		map.put("banners", BannerType.values().length);
-		map.put("mobs", GOTEntity.id);
-		map.put("structures", GOTStructure.id);
-		map.put("biomes", GOTBiome.CONTENT.size());
-		map.put("beziers", GOTBeziers.id);
-		map.put("waypoints", GOTWaypoint.values().length);
-		map.put("factions", GOTFaction.values().length);
-		map.put("items", GOTItems.CONTENT.size());
-		map.put("blocks", GOTBlocks.CONTENT.size());
-		return map;
-	}
-
 	public static GOTFaction getNPCFaction(Entity entity) {
 		if (entity == null) {
 			return GOTFaction.UNALIGNED;
@@ -337,13 +477,7 @@ public class GOT {
 
 			@Override
 			public boolean isEntityApplicable(Entity entity) {
-				if (entity instanceof EntityLivingBase && entity.isEntityAlive()) {
-					if (entity instanceof EntityPlayer) {
-						return !((EntityPlayer) entity).capabilities.isCreativeMode;
-					}
-					return true;
-				}
-				return false;
+				return entity instanceof EntityLivingBase && entity.isEntityAlive() && (!(entity instanceof EntityPlayer) || !((EntityPlayer) entity).capabilities.isCreativeMode);
 			}
 		};
 	}
@@ -384,133 +518,5 @@ public class GOT {
 				newEntity.timeUntilPortal = newEntity.getPortalCooldown();
 			}
 		}
-	}
-
-	@Mod.EventHandler
-	public void onInit(FMLInitializationEvent event) {
-		proxy.onInit();
-		GOTLoader.onInit();
-	}
-
-	@Mod.EventHandler
-	public void onMissingMappings(FMLMissingMappingsEvent event) {
-		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
-			Item item;
-			Block block;
-			String newName;
-			if (mapping.type == GameRegistry.Type.BLOCK) {
-				if (mapping.name.contains("Carnotite")) {
-					newName = mapping.name.replace("Carnotite", "Labradorite");
-				} else if (mapping.name.contains("carnotite")) {
-					newName = mapping.name.replace("carnotite", "labradorite");
-				} else if (mapping.name.contains("ulthos_bars")) {
-					newName = mapping.name.replace("ulthos_bars", "bronze_bars");
-				} else if (mapping.name.contains("chest_essos")) {
-					newName = mapping.name.replace("chest_essos", "chest_sandstone");
-				} else if (mapping.name.contains("ulthos_torch")) {
-					newName = mapping.name.replace("ulthos_torch", "asshai_torch");
-				} else {
-					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
-				}
-				block = (Block) Block.blockRegistry.getObject(newName);
-				if (block != null) {
-					mapping.remap(block);
-				}
-			}
-			if (mapping.type == GameRegistry.Type.ITEM) {
-				if (mapping.name.contains("Carnotite")) {
-					newName = mapping.name.replace("Carnotite", "Labradorite");
-				} else if (mapping.name.contains("ignot")) {
-					newName = mapping.name.replace("ignot", "ingot");
-				} else if (mapping.name.contains("carnotite")) {
-					newName = mapping.name.replace("carnotite", "labradorite");
-				} else {
-					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
-				}
-				item = (Item) Item.itemRegistry.getObject(newName);
-				if (item != null) {
-					mapping.remap(item);
-				}
-			}
-		}
-	}
-
-	@Mod.EventHandler
-	public void onServerStarting(FMLServerStartingEvent event) {
-		WorldServer world = DimensionManager.getWorld(0);
-		proxy.testReflection(world);
-		GOTReflection.removeCommand(CommandTime.class);
-		GOTReflection.removeCommand(CommandMessage.class);
-		Collection<CommandBase> command = new ArrayList<>();
-		command.add(new GOTCommandTimeVanilla());
-		command.add(new GOTCommandMessageFixed());
-		command.add(new GOTCommandTime());
-		command.add(new GOTCommandAlignment());
-		command.add(new GOTCommandSummon());
-		command.add(new GOTCommandFastTravelClock());
-		command.add(new GOTCommandWaypointCooldown());
-		command.add(new GOTCommandDate());
-		command.add(new GOTCommandWaypoints());
-		command.add(new GOTCommandAlignmentSee());
-		command.add(new GOTCommandFellowship());
-		command.add(new GOTCommandFellowshipMessage());
-		command.add(new GOTCommandEnableAlignmentZones());
-		command.add(new GOTCommandEnchant());
-		command.add(new GOTCommandSpawnDamping());
-		command.add(new GOTCommandFactionRelations());
-		command.add(new GOTCommandPledgeCooldown());
-		command.add(new GOTCommandConquest());
-		command.add(new GOTCommandStrScan());
-		command.add(new GOTCommandDragon());
-		command.add(new GOTCommandInvasion());
-		command.add(new GOTCommandAchievement());
-		command.add(new GOTCommandDatabase());
-		if (event.getServer().isDedicatedServer()) {
-			command.add(new GOTCommandBanStructures());
-			command.add(new GOTCommandAllowStructures());
-			command.add(new GOTCommandAdminHideMap());
-		}
-		for (CommandBase element : command) {
-			event.registerServerCommand(element);
-		}
-	}
-
-	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		proxy.postInit();
-		Color baseWater = new Color(4876527);
-		int baseR = baseWater.getRed();
-		int baseG = baseWater.getGreen();
-		int baseB = baseWater.getBlue();
-		for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
-			if (biome == null) {
-				continue;
-			}
-			Color water = new Color(biome.waterColorMultiplier);
-			float[] rgb = water.getColorComponents(null);
-			int r = (int) (baseR * rgb[0]);
-			int g = (int) (baseG * rgb[1]);
-			int b = (int) (baseB * rgb[2]);
-			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
-		}
-		Map<String, Integer> info = getModContentInfo();
-
-		for (Map.Entry<String, Integer> entry : info.entrySet()) {
-			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
-		}
-	}
-
-	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		GOTLog.findLogger();
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
-		tickHandler = new GOTTickHandlerServer();
-		eventHandler = new GOTEventHandler();
-		packetHandler = new GOTPacketHandler();
-		worldTypeGOT = new GOTWorldType("got");
-		worldTypeGOTEmpty = new GOTWorldType("gotEmpty");
-		worldTypeGOTClassic = new GOTWorldType("gotClassic");
-		GOTLoader.preInit();
-		proxy.preInit();
 	}
 }

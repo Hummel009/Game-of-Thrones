@@ -8,9 +8,11 @@ import net.minecraft.entity.Entity;
 public class GOTPacketHandler {
 	public static SimpleNetworkWrapper networkWrapper = NetworkRegistry.INSTANCE.newSimpleChannel("got_");
 	public static int id;
-	public static boolean dedicatedServer;
 
-	public GOTPacketHandler() {
+	private GOTPacketHandler() {
+	}
+
+	public static void preInit() {
 		networkWrapper.registerMessage(GOTPacketEnableAlignmentZones.Handler.class, GOTPacketEnableAlignmentZones.class, id++, Side.CLIENT);
 		networkWrapper.registerMessage(GOTPacketFellowshipInvitePlayer.Handler.class, GOTPacketFellowshipInvitePlayer.class, id++, Side.SERVER);
 		networkWrapper.registerMessage(GOTPacketFellowshipAcceptInviteResult.Handler.class, GOTPacketFellowshipAcceptInviteResult.class, id++, Side.CLIENT);

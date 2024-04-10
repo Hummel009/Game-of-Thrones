@@ -41,10 +41,6 @@ import java.util.Map;
 public class GOTTickHandlerServer {
 	public static Map<EntityPlayer, Integer> playersInPortals = new HashMap<>();
 
-	public GOTTickHandlerServer() {
-		FMLCommonHandler.instance().bus().register(this);
-	}
-
 	@SubscribeEvent
 	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
 		EntityPlayer player = event.player;

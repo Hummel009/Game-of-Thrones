@@ -80,8 +80,8 @@ public class GOTTitle {
 	}
 
 	public static void onInit() {
-		targaryenF = new GOTTitle("targaryenF").setPlayerExclusive(GOT.devs);
-		targaryenM = new GOTTitle("targaryenM").setPlayerExclusive(GOT.devs);
+		targaryenF = new GOTTitle("targaryenF").setPlayerExclusive(GOT.DEVS);
+		targaryenM = new GOTTitle("targaryenM").setPlayerExclusive(GOT.DEVS);
 	}
 
 	public boolean canDisplay(EntityPlayer entityplayer) {

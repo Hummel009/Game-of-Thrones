@@ -7,6 +7,7 @@ import got.common.enchant.GOTEnchantmentCombining;
 import got.common.entity.GOTEntity;
 import got.common.faction.GOTFaction;
 import got.common.item.GOTPoisonedDrinks;
+import got.common.network.GOTPacketHandler;
 import got.common.quest.GOTMiniQuestFactory;
 import got.common.recipe.GOTRecipe;
 import got.common.recipe.GOTRecipeBrewing;
@@ -53,6 +54,7 @@ public class GOTLoader {
 
 	public static void preInit() {
 		GOTConfig.preInit();
+		GOTPacketHandler.preInit();
 		GOTBlocks.preInit();
 		GOTItems.preInit();
 		GOTEntity.preInit();
