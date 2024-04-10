@@ -34,7 +34,7 @@ public class GOTItemSpear extends GOTItemSword {
 
 	public float getRangedDamageMultiplier(ItemStack itemstack, Entity shooter, Entity hit) {
 		float damage = getGOTWeaponDamage();
-		damage = shooter instanceof EntityLivingBase && hit instanceof EntityLivingBase ? damage + EnchantmentHelper.getEnchantmentModifierLiving((EntityLivingBase) shooter, (EntityLivingBase) hit) : damage + EnchantmentHelper.func_152377_a(itemstack, EnumCreatureAttribute.UNDEFINED);
+		damage = damage + (shooter instanceof EntityLivingBase && hit instanceof EntityLivingBase ? EnchantmentHelper.getEnchantmentModifierLiving((EntityLivingBase) shooter, (EntityLivingBase) hit) : EnchantmentHelper.func_152377_a(itemstack, EnumCreatureAttribute.UNDEFINED));
 		return damage * 0.7f;
 	}
 
