@@ -54,6 +54,11 @@ import java.util.*;
 @SuppressWarnings({"PublicField", "WeakerAccess"})
 @Mod(modid = "got", useMetadata = true)
 public class GOT {
+	public static final String VERSION = "24.07.10";
+	public static final String LANGUAGES = "Русский (ru), Українська (uk), English (en), Français (fr), Deutsch (de), Polska (pl), Türkçe (tr), 中文 (zh)";
+
+	public static final List<String> DEVS = new ArrayList<>();
+
 	@SidedProxy(clientSide = "got.client.GOTClientProxy", serverSide = "got.common.GOTCommonProxy")
 	public static GOTCommonProxy proxy;
 
@@ -63,11 +68,6 @@ public class GOT {
 	public static WorldType worldTypeGOT;
 	public static WorldType worldTypeGOTEmpty;
 	public static WorldType worldTypeGOTClassic;
-
-	public static final String VERSION = "24.07.10";
-
-	public static final String LANGUAGES = "Русский (ru), Українська (uk), English (en), Français (fr), Deutsch (de), Polska (pl), Türkçe (tr), 中文 (zh)";
-	public static final List<String> DEVS = new ArrayList<>();
 
 	static {
 		DEVS.add("76ae4f2f-e70a-4680-b7cd-3100fa8b567b");
@@ -84,136 +84,6 @@ public class GOT {
 		DEVS.add("56c71aab-8a68-465d-b386-5f721dd68df6");
 		DEVS.add("188e4e9c-8c67-443d-9b6c-a351076a43e3");
 		DEVS.add("f8cc9b45-509a-4034-8740-0b84ce7e4492");
-	}
-
-	@Mod.EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		GOTLog.findLogger();
-
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
-
-		GOTTickHandlerServer tickHandler = new GOTTickHandlerServer();
-		FMLCommonHandler.instance().bus().register(tickHandler);
-
-		GOTEventHandler eventHandler = new GOTEventHandler();
-		FMLCommonHandler.instance().bus().register(eventHandler);
-		MinecraftForge.EVENT_BUS.register(eventHandler);
-		MinecraftForge.TERRAIN_GEN_BUS.register(eventHandler);
-
-		IFuelHandler fuelHandler = new GOTFuelHandler();
-		GameRegistry.registerFuelHandler(fuelHandler);
-
-		worldTypeGOT = new GOTWorldType("got");
-		worldTypeGOTEmpty = new GOTWorldType("gotEmpty");
-		worldTypeGOTClassic = new GOTWorldType("gotClassic");
-
-		GOTLoader.preInit();
-
-		proxy.preInit();
-	}
-
-	@Mod.EventHandler
-	public void onInit(FMLInitializationEvent event) {
-		GOTLoader.onInit();
-
-		proxy.onInit();
-	}
-
-	@Mod.EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-		GOTLoader.postInit();
-
-		Map<String, Integer> info = getModContentInfo();
-
-		for (Map.Entry<String, Integer> entry : info.entrySet()) {
-			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
-		}
-
-		proxy.postInit();
-	}
-
-	@Mod.EventHandler
-	public void onMissingMappings(FMLMissingMappingsEvent event) {
-		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
-			Item item;
-			Block block;
-			String newName;
-			if (mapping.type == GameRegistry.Type.BLOCK) {
-				if (mapping.name.contains("Carnotite")) {
-					newName = mapping.name.replace("Carnotite", "Labradorite");
-				} else if (mapping.name.contains("carnotite")) {
-					newName = mapping.name.replace("carnotite", "labradorite");
-				} else if (mapping.name.contains("chest_essos")) {
-					newName = mapping.name.replace("chest_essos", "chest_sandstone");
-				} else {
-					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
-				}
-				block = (Block) Block.blockRegistry.getObject(newName);
-				if (block != null) {
-					mapping.remap(block);
-				}
-			}
-			if (mapping.type == GameRegistry.Type.ITEM) {
-				if (mapping.name.contains("Carnotite")) {
-					newName = mapping.name.replace("Carnotite", "Labradorite");
-				} else if (mapping.name.contains("ignot")) {
-					newName = mapping.name.replace("ignot", "ingot");
-				} else if (mapping.name.contains("carnotite")) {
-					newName = mapping.name.replace("carnotite", "labradorite");
-				} else {
-					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
-				}
-				item = (Item) Item.itemRegistry.getObject(newName);
-				if (item != null) {
-					mapping.remap(item);
-				}
-			}
-		}
-	}
-
-	@Mod.EventHandler
-	public void onServerStarting(FMLServerStartingEvent event) {
-		WorldServer world = DimensionManager.getWorld(0);
-
-		GOTReflection.removeCommand(CommandTime.class);
-		GOTReflection.removeCommand(CommandMessage.class);
-
-		Collection<CommandBase> command = new ArrayList<>();
-		command.add(new GOTCommandTimeVanilla());
-		command.add(new GOTCommandMessageFixed());
-		command.add(new GOTCommandTime());
-		command.add(new GOTCommandAlignment());
-		command.add(new GOTCommandSummon());
-		command.add(new GOTCommandFastTravelClock());
-		command.add(new GOTCommandWaypointCooldown());
-		command.add(new GOTCommandDate());
-		command.add(new GOTCommandWaypoints());
-		command.add(new GOTCommandAlignmentSee());
-		command.add(new GOTCommandFellowship());
-		command.add(new GOTCommandFellowshipMessage());
-		command.add(new GOTCommandEnableAlignmentZones());
-		command.add(new GOTCommandEnchant());
-		command.add(new GOTCommandSpawnDamping());
-		command.add(new GOTCommandFactionRelations());
-		command.add(new GOTCommandPledgeCooldown());
-		command.add(new GOTCommandConquest());
-		command.add(new GOTCommandStrScan());
-		command.add(new GOTCommandDragon());
-		command.add(new GOTCommandInvasion());
-		command.add(new GOTCommandAchievement());
-		command.add(new GOTCommandDatabase());
-
-		if (event.getServer().isDedicatedServer()) {
-			command.add(new GOTCommandBanStructures());
-			command.add(new GOTCommandAllowStructures());
-			command.add(new GOTCommandAdminHideMap());
-		}
-
-		for (CommandBase element : command) {
-			event.registerServerCommand(element);
-		}
-
-		proxy.testReflection(world);
 	}
 
 	private static Map<String, Integer> getModContentInfo() {
@@ -502,5 +372,135 @@ public class GOT {
 				newEntity.timeUntilPortal = newEntity.getPortalCooldown();
 			}
 		}
+	}
+
+	@Mod.EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
+		GOTLog.findLogger();
+
+		NetworkRegistry.INSTANCE.registerGuiHandler(this, proxy);
+
+		GOTTickHandlerServer tickHandler = new GOTTickHandlerServer();
+		FMLCommonHandler.instance().bus().register(tickHandler);
+
+		GOTEventHandler eventHandler = new GOTEventHandler();
+		FMLCommonHandler.instance().bus().register(eventHandler);
+		MinecraftForge.EVENT_BUS.register(eventHandler);
+		MinecraftForge.TERRAIN_GEN_BUS.register(eventHandler);
+
+		IFuelHandler fuelHandler = new GOTFuelHandler();
+		GameRegistry.registerFuelHandler(fuelHandler);
+
+		worldTypeGOT = new GOTWorldType("got");
+		worldTypeGOTEmpty = new GOTWorldType("gotEmpty");
+		worldTypeGOTClassic = new GOTWorldType("gotClassic");
+
+		GOTLoader.preInit();
+
+		proxy.preInit();
+	}
+
+	@Mod.EventHandler
+	public void onInit(FMLInitializationEvent event) {
+		GOTLoader.onInit();
+
+		proxy.onInit();
+	}
+
+	@Mod.EventHandler
+	public void postInit(FMLPostInitializationEvent event) {
+		GOTLoader.postInit();
+
+		Map<String, Integer> info = getModContentInfo();
+
+		for (Map.Entry<String, Integer> entry : info.entrySet()) {
+			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
+		}
+
+		proxy.postInit();
+	}
+
+	@Mod.EventHandler
+	public void onMissingMappings(FMLMissingMappingsEvent event) {
+		for (FMLMissingMappingsEvent.MissingMapping mapping : event.get()) {
+			Item item;
+			Block block;
+			String newName;
+			if (mapping.type == GameRegistry.Type.BLOCK) {
+				if (mapping.name.contains("Carnotite")) {
+					newName = mapping.name.replace("Carnotite", "Labradorite");
+				} else if (mapping.name.contains("carnotite")) {
+					newName = mapping.name.replace("carnotite", "labradorite");
+				} else if (mapping.name.contains("chest_essos")) {
+					newName = mapping.name.replace("chest_essos", "chest_sandstone");
+				} else {
+					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
+				}
+				block = (Block) Block.blockRegistry.getObject(newName);
+				if (block != null) {
+					mapping.remap(block);
+				}
+			}
+			if (mapping.type == GameRegistry.Type.ITEM) {
+				if (mapping.name.contains("Carnotite")) {
+					newName = mapping.name.replace("Carnotite", "Labradorite");
+				} else if (mapping.name.contains("ignot")) {
+					newName = mapping.name.replace("ignot", "ingot");
+				} else if (mapping.name.contains("carnotite")) {
+					newName = mapping.name.replace("carnotite", "labradorite");
+				} else {
+					newName = CaseFormat.LOWER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, mapping.name);
+				}
+				item = (Item) Item.itemRegistry.getObject(newName);
+				if (item != null) {
+					mapping.remap(item);
+				}
+			}
+		}
+	}
+
+	@Mod.EventHandler
+	public void onServerStarting(FMLServerStartingEvent event) {
+		WorldServer world = DimensionManager.getWorld(0);
+
+		GOTReflection.removeCommand(CommandTime.class);
+		GOTReflection.removeCommand(CommandMessage.class);
+
+		Collection<CommandBase> command = new ArrayList<>();
+		command.add(new GOTCommandTimeVanilla());
+		command.add(new GOTCommandMessageFixed());
+		command.add(new GOTCommandTime());
+		command.add(new GOTCommandAlignment());
+		command.add(new GOTCommandSummon());
+		command.add(new GOTCommandFastTravelClock());
+		command.add(new GOTCommandWaypointCooldown());
+		command.add(new GOTCommandDate());
+		command.add(new GOTCommandWaypoints());
+		command.add(new GOTCommandAlignmentSee());
+		command.add(new GOTCommandFellowship());
+		command.add(new GOTCommandFellowshipMessage());
+		command.add(new GOTCommandEnableAlignmentZones());
+		command.add(new GOTCommandEnchant());
+		command.add(new GOTCommandSpawnDamping());
+		command.add(new GOTCommandFactionRelations());
+		command.add(new GOTCommandPledgeCooldown());
+		command.add(new GOTCommandConquest());
+		command.add(new GOTCommandStrScan());
+		command.add(new GOTCommandDragon());
+		command.add(new GOTCommandInvasion());
+		command.add(new GOTCommandAchievement());
+		command.add(new GOTCommandDatabase());
+
+		if (event.getServer().isDedicatedServer()) {
+			command.add(new GOTCommandBanStructures());
+			command.add(new GOTCommandAllowStructures());
+			command.add(new GOTCommandAdminHideMap());
+		}
+
+		for (CommandBase element : command) {
+			event.registerServerCommand(element);
+		}
+
+		proxy.testReflection(world);
 	}
 }
