@@ -13,12 +13,14 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.*;
-import java.util.Map.Entry;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
 public class GOTNames {
-	public static Map<String, String[]> allNameBanks = new HashMap<>();
+	private static final Map<String, String[]> ALL_NAME_BANKS = new HashMap<>();
+
+	private GOTNames() {
+	}
 
 	public static String getAsshaiName(Random rand, boolean male) {
 		return getRandomName(male ? "asshai_male" : "asshai_female", rand);
@@ -57,17 +59,13 @@ public class GOTNames {
 		return getRandomName(male ? "mossovy_male" : "mossovy_female", rand);
 	}
 
-	public static String[] getNameBank(String nameBankName) {
-		return allNameBanks.get(nameBankName);
-	}
-
 	public static String getQarthName(Random rand, boolean male) {
 		return getRandomName(male ? "qarth_male" : "qarth_female", rand);
 	}
 
 	public static String getRandomName(String nameBankName, Random rand) {
-		if (allNameBanks.containsKey(nameBankName)) {
-			String[] nameBank = getNameBank(nameBankName);
+		if (ALL_NAME_BANKS.containsKey(nameBankName)) {
+			String[] nameBank = ALL_NAME_BANKS.get(nameBankName);
 			return nameBank[rand.nextInt(nameBank.length)];
 		}
 		return "Impostor";
@@ -96,7 +94,7 @@ public class GOTNames {
 	}
 
 	public static boolean nameBankExists(String nameBankName) {
-		return getNameBank(nameBankName) != null;
+		return ALL_NAME_BANKS.get(nameBankName) != null;
 	}
 
 	public static void onInit() {
@@ -148,7 +146,7 @@ public class GOTNames {
 			FMLLog.severe("Failed to onInit GOT name banks");
 			e.printStackTrace();
 		}
-		for (Entry<String, BufferedReader> nameBankName : nameBankNamesAndReaders.entrySet()) {
+		for (Map.Entry<String, BufferedReader> nameBankName : nameBankNamesAndReaders.entrySet()) {
 			BufferedReader reader = nameBankName.getValue();
 			try {
 				String line;
@@ -162,7 +160,7 @@ public class GOTNames {
 					continue;
 				}
 				String[] nameBank = nameList.toArray(new String[0]);
-				allNameBanks.put(nameBankName.getKey(), nameBank);
+				ALL_NAME_BANKS.put(nameBankName.getKey(), nameBank);
 			} catch (Exception e) {
 				FMLLog.severe("Failed to onInit GOT name bank " + nameBankName.getKey());
 				e.printStackTrace();

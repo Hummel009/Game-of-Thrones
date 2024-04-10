@@ -35,10 +35,10 @@ public class GOTPacketShield implements IMessage {
 				FMLLog.severe("Failed to update GOT shield on client side: There is no shieldtype with ID " + shieldTypeID);
 			} else {
 				GOTShields.ShieldType shieldType = GOTShields.ShieldType.values()[shieldTypeID];
-				if (shieldID < 0 || shieldID >= shieldType.list.size()) {
+				if (shieldID < 0 || shieldID >= shieldType.getShields().size()) {
 					FMLLog.severe("Failed to update GOT shield on client side: There is no shield with ID " + shieldID + " for shieldtype " + shieldTypeID);
 				} else {
-					shield = shieldType.list.get(shieldID);
+					shield = shieldType.getShields().get(shieldID);
 				}
 			}
 		} else {
@@ -53,8 +53,8 @@ public class GOTPacketShield implements IMessage {
 		boolean hasShield = shield != null;
 		data.writeBoolean(hasShield);
 		if (hasShield) {
-			data.writeByte(shield.shieldID);
-			data.writeByte(shield.shieldType.ordinal());
+			data.writeByte(shield.getShieldID());
+			data.writeByte(shield.getShieldType().ordinal());
 		}
 	}
 

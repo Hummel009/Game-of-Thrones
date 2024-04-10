@@ -936,7 +936,7 @@ public class DatabaseGenerator {
 						}
 					}
 					for (GOTShields shield : SHIELDS) {
-						if (shield.alignmentFaction == fac) {
+						if (shield.getAlignmentFaction() == fac) {
 							facShields.add(shield);
 						}
 					}

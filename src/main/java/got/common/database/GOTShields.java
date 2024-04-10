@@ -16,12 +16,13 @@ import java.util.UUID;
 public enum GOTShields {
 	NORTH(GOTFaction.NORTH), NORTHGUARD(GOTFaction.NORTH), RIVERLANDS(GOTFaction.RIVERLANDS), ARRYN(GOTFaction.ARRYN), ARRYNGUARD(GOTFaction.ARRYN), HILLMEN(GOTFaction.HILL_TRIBES), IRONBORN(GOTFaction.IRONBORN), WESTERLANDS(GOTFaction.WESTERLANDS), WESTERLANDSGUARD(GOTFaction.WESTERLANDS), DRAGONSTONE(GOTFaction.DRAGONSTONE), CROWNLANDS(GOTFaction.CROWNLANDS), STORMLANDS(GOTFaction.STORMLANDS), REACH(GOTFaction.REACH), REACHGUARD(GOTFaction.REACH), DORNE(GOTFaction.DORNE), VOLANTIS(GOTFaction.VOLANTIS), PENTOS(GOTFaction.PENTOS), NORVOS(GOTFaction.NORVOS), BRAAVOS(GOTFaction.BRAAVOS), TYROSH(GOTFaction.TYROSH), LORATH(GOTFaction.LORATH), QOHOR(GOTFaction.QOHOR), LYS(GOTFaction.LYS), MYR(GOTFaction.MYR), QARTH(GOTFaction.QARTH), GHISCAR(GOTFaction.GHISCAR), UNSULLIED(GOTFaction.GHISCAR), YITI(GOTFaction.YI_TI), YITI_FRONTIER(GOTFaction.YI_TI), YITI_SAMURAI(GOTFaction.YI_TI), ASSHAI(GOTFaction.ASSHAI), SUMMER(GOTFaction.SUMMER_ISLANDS), SOTHORYOS(GOTFaction.SOTHORYOS), GOLDENCOMPANY, ALCOHOLIC, ACHIEVEMENT_BRONZE, ACHIEVEMENT_SILVER, ACHIEVEMENT_GOLD, ACHIEVEMENT_VALYRIAN, TARGARYEN(false, GOT.DEVS);
 
-	public ShieldType shieldType;
-	public int shieldID;
-	public UUID[] exclusiveUUIDs;
-	public GOTFaction alignmentFaction;
-	public ResourceLocation shieldTexture;
-	public boolean isHidden;
+	private final int shieldID;
+	private final ShieldType shieldType;
+	private final ResourceLocation shieldTexture;
+	private final UUID[] exclusiveUUIDs;
+
+	private GOTFaction alignmentFaction;
+	private boolean isHidden;
 
 	GOTShields() {
 		this(ShieldType.ACHIEVABLE, false, new ArrayList<>());
@@ -38,8 +39,8 @@ public enum GOTShields {
 
 	GOTShields(ShieldType type, boolean hidden, List<String> players) {
 		shieldType = type;
-		shieldID = shieldType.list.size();
-		shieldType.list.add(this);
+		shieldID = shieldType.getShields().size();
+		shieldType.getShields().add(this);
 		shieldTexture = new ResourceLocation("got:textures/shield/" + name().toLowerCase(Locale.ROOT) + ".png");
 		exclusiveUUIDs = new UUID[players.size()];
 		for (int i = 0; i < players.size(); ++i) {
@@ -110,14 +111,41 @@ public enum GOTShields {
 		return StatCollector.translateToLocal("got.shields." + name() + ".name");
 	}
 
+	public boolean isHidden() {
+		return isHidden;
+	}
+
+	public void setHidden(boolean hidden) {
+		isHidden = hidden;
+	}
+
+	public GOTFaction getAlignmentFaction() {
+		return alignmentFaction;
+	}
+
+	public ShieldType getShieldType() {
+		return shieldType;
+	}
+
+	public ResourceLocation getShieldTexture() {
+		return shieldTexture;
+	}
+
+	public int getShieldID() {
+		return shieldID;
+	}
+
 	public enum ShieldType {
 		ALIGNMENT, ACHIEVABLE, EXCLUSIVE;
 
-		public List<GOTShields> list = new ArrayList<>();
+		private final List<GOTShields> shields = new ArrayList<>();
 
 		public String getDisplayName() {
 			return StatCollector.translateToLocal("got.shields.category." + name());
 		}
-	}
 
+		public List<GOTShields> getShields() {
+			return shields;
+		}
+	}
 }

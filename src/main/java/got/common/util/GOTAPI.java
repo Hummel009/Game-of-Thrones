@@ -610,7 +610,7 @@ public class GOTAPI {
 	 */
 	public static void removeShields(GOTShields... content) {
 		for (GOTShields removal : content) {
-			removal.isHidden = true;
+			removal.setHidden(true);
 		}
 	}
 
@@ -622,7 +622,7 @@ public class GOTAPI {
 		for (GOTShields removal : GOTShields.values()) {
 			for (GOTShields excluded : content) {
 				if (excluded != removal) {
-					removal.isHidden = true;
+					removal.setHidden(true);
 					break;
 				}
 			}
