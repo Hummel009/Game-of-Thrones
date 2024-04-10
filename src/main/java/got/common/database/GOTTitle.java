@@ -209,12 +209,12 @@ public class GOTTitle {
 	}
 
 	public static class PlayerTitle {
-		protected GOTTitle theTitle;
+		protected GOTTitle title;
 		protected EnumChatFormatting theColor;
 
 		public PlayerTitle(GOTTitle title, EnumChatFormatting color) {
 			EnumChatFormatting color1 = color;
-			theTitle = title;
+			this.title = title;
 			if (color1 == null || !color1.isColor()) {
 				color1 = EnumChatFormatting.WHITE;
 			}
@@ -246,7 +246,7 @@ public class GOTTitle {
 
 		public static void writeNullableTitle(ByteBuf data, PlayerTitle title) {
 			if (title != null) {
-				data.writeShort(title.theTitle.titleID);
+				data.writeShort(title.title.titleID);
 				data.writeByte(title.theColor.getFormattingCode());
 			} else {
 				data.writeShort(-1);
@@ -263,17 +263,17 @@ public class GOTTitle {
 
 		public IChatComponent getFullTitleComponent(EntityPlayer entityplayer) {
 			IChatComponent component;
-			if (theTitle.titleType != null && theTitle.titleType == TitleType.RANK && theTitle.titleRank.isAddFacName()) {
-				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText(" ").appendSibling(new ChatComponentTranslation(theTitle.titleRank.getAffiliationCodeName())).appendText("]").appendText(" ");
+			if (title.titleType != null && title.titleType == TitleType.RANK && title.titleRank.isAddFacName()) {
+				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(title.getUntranslatedName(entityplayer))).appendText(" ").appendSibling(new ChatComponentTranslation(title.titleRank.getAffiliationCodeName())).appendText("]").appendText(" ");
 			} else {
-				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(theTitle.getUntranslatedName(entityplayer))).appendText("]").appendText(" ");
+				component = new ChatComponentText("[").appendSibling(new ChatComponentTranslation(title.getUntranslatedName(entityplayer))).appendText("]").appendText(" ");
 			}
 			component.getChatStyle().setColor(theColor);
 			return component;
 		}
 
 		public GOTTitle getTitle() {
-			return theTitle;
+			return title;
 		}
 	}
 }
