@@ -124,21 +124,7 @@ public class GOT {
 
 	@Mod.EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
-		Color baseWater = new Color(4876527);
-		int baseR = baseWater.getRed();
-		int baseG = baseWater.getGreen();
-		int baseB = baseWater.getBlue();
-		for (BiomeGenBase biome : BiomeGenBase.getBiomeGenArray()) {
-			if (biome == null) {
-				continue;
-			}
-			Color water = new Color(biome.waterColorMultiplier);
-			float[] rgb = water.getColorComponents(null);
-			int r = (int) (baseR * rgb[0]);
-			int g = (int) (baseG * rgb[1]);
-			int b = (int) (baseB * rgb[2]);
-			biome.waterColorMultiplier = new Color(r, g, b).getRGB();
-		}
+		GOTLoader.postInit();
 
 		Map<String, Integer> info = getModContentInfo();
 

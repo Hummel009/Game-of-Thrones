@@ -26,6 +26,24 @@ public class GOTLoader {
 	private GOTLoader() {
 	}
 
+	public static void preInit() {
+		GOTConfig.preInit();
+		GOTPacketHandler.preInit();
+		GOTBlocks.preInit();
+		GOTItems.preInit();
+		GOTEntity.preInit();
+		GOTInvasions.preInit();
+		GOTBiome.preInit();
+		GOTShields.preInit();
+		GOTCapes.preInit();
+		GOTPoisonedDrinks.preInit();
+		GOTPotionChanges.preInit();
+		if (GOTModChecker.hasNEI() && GOT.proxy.isClient()) {
+			NEIGOTIntegrator.registerRecipes();
+		}
+		GOTBlockIronBank.preInit();
+	}
+
 	public static void onInit() {
 		GOTBlocks.onInit();
 		GOTItems.onInit();
@@ -52,21 +70,7 @@ public class GOTLoader {
 		GOTPatcher.onInit();
 	}
 
-	public static void preInit() {
-		GOTConfig.preInit();
-		GOTPacketHandler.preInit();
-		GOTBlocks.preInit();
-		GOTItems.preInit();
-		GOTEntity.preInit();
-		GOTInvasions.preInit();
-		GOTBiome.preInit();
-		GOTShields.preInit();
-		GOTCapes.preInit();
-		GOTPoisonedDrinks.preInit();
-		GOTPotionChanges.preInit();
-		if (GOTModChecker.hasNEI() && GOT.proxy.isClient()) {
-			NEIGOTIntegrator.registerRecipes();
-		}
-		GOTBlockIronBank.preInit();
+	public static void postInit() {
+		GOTBiome.postInit();
 	}
 }
