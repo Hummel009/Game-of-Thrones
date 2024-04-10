@@ -49,6 +49,9 @@ public class GOTWeaponStats {
 		registerMeleeExtraKnockback(GOTItemLance.class, 1);
 	}
 
+	private GOTWeaponStats() {
+	}
+
 	public static int getArmorProtection(ItemStack itemstack) {
 		Item item;
 		if (itemstack != null && (item = itemstack.getItem()) instanceof ItemArmor) {
@@ -223,6 +226,7 @@ public class GOTWeaponStats {
 		return 0.0f;
 	}
 
+	@SuppressWarnings("InstanceofIncompatibleInterface")
 	public static int getTotalArmorValue(EntityPlayer entityplayer) {
 		int protection = 0;
 		for (int i = 0; i < entityplayer.inventory.armorInventory.length; ++i) {

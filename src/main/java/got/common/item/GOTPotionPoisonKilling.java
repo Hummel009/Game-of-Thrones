@@ -11,9 +11,9 @@ import net.minecraft.potion.PotionEffect;
 
 public class GOTPotionPoisonKilling extends Potion {
 	public GOTPotionPoisonKilling() {
-		super(30, true, Potion.poison.getLiquidColor());
+		super(30, true, poison.getLiquidColor());
 		setPotionName("got.potion.drinkPoison");
-		setEffectiveness(Potion.poison.getEffectiveness());
+		setEffectiveness(poison.getEffectiveness());
 		setIconIndex(0, 0);
 	}
 

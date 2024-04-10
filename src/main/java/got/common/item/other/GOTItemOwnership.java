@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GOTItemOwnership {
+	private GOTItemOwnership() {
+	}
+
 	public static void addPreviousOwner(ItemStack itemstack, String name) {
 		if (!itemstack.hasTagCompound()) {
 			itemstack.setTagCompound(new NBTTagCompound());
@@ -60,11 +63,10 @@ public class GOTItemOwnership {
 	}
 
 	public static void setCurrentOwner(ItemStack itemstack, String name) {
-		String previousCurrentOwner;
 		if (!itemstack.hasTagCompound()) {
 			itemstack.setTagCompound(new NBTTagCompound());
 		}
-		previousCurrentOwner = getCurrentOwner(itemstack);
+		String previousCurrentOwner = getCurrentOwner(itemstack);
 		if (previousCurrentOwner != null) {
 			addPreviousOwner(itemstack, previousCurrentOwner);
 		}

@@ -1,7 +1,7 @@
 package got.common.item;
 
-import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.Item;
 
 public interface GOTMaterialFinder {
-	ToolMaterial getMaterial();
+	Item.ToolMaterial getMaterial();
 }

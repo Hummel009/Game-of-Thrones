@@ -72,33 +72,35 @@ public class GOTItemCoin extends Item {
 	}
 
 	public static void giveCoins(int coins, EntityPlayer entityplayer) {
+		int coins1 = coins;
 		int i;
 		int value;
 		ItemStack coin;
 		InventoryPlayer inv = entityplayer.inventory;
-		if (coins <= 0) {
-			FMLLog.warning("Attempted to give a non-positive value of coins " + coins + " to player " + entityplayer.getCommandSenderName());
+		if (coins1 <= 0) {
+			FMLLog.warning("Attempted to give a non-positive value of coins " + coins1 + " to player " + entityplayer.getCommandSenderName());
 		}
 		for (i = values.length - 1; i >= 0; --i) {
 			value = values[i];
 			coin = new ItemStack(GOTItems.coin, 1, i);
-			while (coins >= value && inv.addItemStackToInventory(coin.copy())) {
-				coins -= value;
+			while (coins1 >= value && inv.addItemStackToInventory(coin.copy())) {
+				coins1 -= value;
 			}
 		}
-		if (coins > 0) {
+		if (coins1 > 0) {
 			for (i = values.length - 1; i >= 0; --i) {
 				value = values[i];
 				coin = new ItemStack(GOTItems.coin, 1, i);
-				while (coins >= value) {
+				while (coins1 >= value) {
 					entityplayer.dropPlayerItemWithRandomChoice(coin.copy(), false);
-					coins -= value;
+					coins1 -= value;
 				}
 			}
 		}
 	}
 
 	public static void takeCoins(int coins, EntityPlayer entityplayer) {
+		int coins1 = coins;
 		int slot;
 		int i;
 		ItemStack coin;
@@ -107,10 +109,10 @@ public class GOTItemCoin extends Item {
 		int value;
 		InventoryPlayer inv = entityplayer.inventory;
 		int invValue = getInventoryValue(entityplayer, false);
-		if (invValue < coins) {
-			FMLLog.warning("Attempted to take " + coins + " coins from player " + entityplayer.getCommandSenderName() + " who has only " + invValue);
+		if (invValue < coins1) {
+			FMLLog.warning("Attempted to take " + coins1 + " coins from player " + entityplayer.getCommandSenderName() + " who has only " + invValue);
 		}
-		int initCoins = coins;
+		int initCoins = coins1;
 		block0:
 		for (i = values.length - 1; i >= 0; --i) {
 			value = values[i];
@@ -131,15 +133,15 @@ public class GOTItemCoin extends Item {
 					} else {
 						inv.decrStackSize(slot, 1);
 					}
-					coins -= value;
-					if (coins >= value) {
+					coins1 -= value;
+					if (coins1 >= value) {
 						continue;
 					}
 					continue block0;
 				}
 			}
 		}
-		if (coins > 0) {
+		if (coins1 > 0) {
 			for (i = 0; i < values.length; ++i) {
 				if (i == 0) {
 					continue;
@@ -160,20 +162,20 @@ public class GOTItemCoin extends Item {
 						} else {
 							inv.decrStackSize(slot, 1);
 						}
-						coins -= value;
-						if (coins >= 0) {
+						coins1 -= value;
+						if (coins1 >= 0) {
 							continue;
 						}
 						break block4;
 					}
 				}
-				if (coins < 0) {
+				if (coins1 < 0) {
 					break;
 				}
 			}
 		}
-		if (coins < 0) {
-			giveCoins(-coins, entityplayer);
+		if (coins1 < 0) {
+			giveCoins(-coins1, entityplayer);
 		}
 	}
 
@@ -192,10 +194,11 @@ public class GOTItemCoin extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIconFromDamage(int i) {
-		if (i >= coinIcons.length) {
-			i = 0;
+		int i1 = i;
+		if (i1 >= coinIcons.length) {
+			i1 = 0;
 		}
-		return coinIcons[i];
+		return coinIcons[i1];
 	}
 
 	@Override

@@ -17,7 +17,7 @@ public class GOTItemKaftan extends GOTItemRobes {
 
 	@Override
 	public int getColor(ItemStack itemstack) {
-		return GOTItemRobes.getRobesColor(itemstack);
+		return getRobesColor(itemstack);
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -24,19 +24,22 @@ public class GOTItemChisel extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float f, float f1, float f2) {
+		int i1 = i;
+		int j1 = j;
+		int k1 = k;
 		if (side == 0 || side == 1) {
 			return false;
 		}
-		Block block = world.getBlock(i, j, k);
+		Block block = world.getBlock(i1, j1, k1);
 		Material mt = block.getMaterial();
 		if (block.isOpaqueCube() && (mt == Material.rock || mt == Material.wood || mt == Material.iron)) {
-			if (!entityplayer.canPlayerEdit(i += Facing.offsetsXForSide[side], j += Facing.offsetsYForSide[side], k += Facing.offsetsZForSide[side], side, itemstack) || !signBlock.canPlaceBlockAt(world, i, j, k)) {
+			if (!entityplayer.canPlayerEdit(i1 += Facing.offsetsXForSide[side], j1 += Facing.offsetsYForSide[side], k1 += Facing.offsetsZForSide[side], side, itemstack) || !signBlock.canPlaceBlockAt(world, i1, j1, k1)) {
 				return false;
 			}
 			if (!world.isRemote) {
-				world.setBlock(i, j, k, signBlock, side, 3);
+				world.setBlock(i1, j1, k1, signBlock, side, 3);
 				itemstack.damageItem(1, entityplayer);
-				GOTTileEntitySign sign = (GOTTileEntitySign) world.getTileEntity(i, j, k);
+				GOTTileEntitySign sign = (GOTTileEntitySign) world.getTileEntity(i1, j1, k1);
 				if (sign != null) {
 					sign.openEditGUI((EntityPlayerMP) entityplayer);
 				}

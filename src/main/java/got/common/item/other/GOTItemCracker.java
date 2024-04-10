@@ -130,11 +130,12 @@ public class GOTItemCracker extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int i) {
-		i = getBaseCrackerMetadata(i);
-		if (i >= crackerIcons.length) {
-			i = 0;
+		int i1 = i;
+		i1 = getBaseCrackerMetadata(i1);
+		if (i1 >= crackerIcons.length) {
+			i1 = 0;
 		}
-		return crackerIcons[i];
+		return crackerIcons[i1];
 	}
 
 	@Override

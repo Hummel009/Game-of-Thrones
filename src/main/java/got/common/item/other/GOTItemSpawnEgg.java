@@ -84,19 +84,21 @@ public class GOTItemSpawnEgg extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l, float f, float f1, float f2) {
-		Entity entity;
+		int i1 = i;
+		int j1 = j;
+		int k1 = k;
 		if (world.isRemote) {
 			return true;
 		}
-		Block block = world.getBlock(i, j, k);
-		i += Facing.offsetsXForSide[l];
-		j += Facing.offsetsYForSide[l];
-		k += Facing.offsetsZForSide[l];
+		Block block = world.getBlock(i1, j1, k1);
+		i1 += Facing.offsetsXForSide[l];
+		j1 += Facing.offsetsYForSide[l];
+		k1 += Facing.offsetsZForSide[l];
 		double d = 0.0;
 		if (l == 1 && block != null && block.getRenderType() == 11) {
 			d = 0.5;
 		}
-		entity = spawnCreature(world, itemstack.getItemDamage(), i + 0.5, j + d, k + 0.5);
+		Entity entity = spawnCreature(world, itemstack.getItemDamage(), i1 + 0.5, j1 + d, k1 + 0.5);
 		if (entity != null) {
 			if (entity instanceof EntityLiving && itemstack.hasDisplayName()) {
 				((EntityLiving) entity).setCustomNameTag(itemstack.getDisplayName());

@@ -28,7 +28,6 @@ import net.minecraft.world.World;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 public class GOTItemLingeringPotion extends ItemPotion {
 
@@ -42,7 +41,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 
 	@Override
 	@SideOnly(Side.CLIENT)
-	@SuppressWarnings("rawtypes")
+	@SuppressWarnings({"rawtypes", "NonConstantStringShouldBeStringBuffer"})
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean isComplex) {
 		if (stack.getItemDamage() == 0) {
 			return;
@@ -61,7 +60,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 				Map<IAttribute, AttributeModifier> map = potion.func_111186_k();
 
 				if (map != null && !map.isEmpty()) {
-					for (Entry<IAttribute, AttributeModifier> entry : map.entrySet()) {
+					for (Map.Entry<IAttribute, AttributeModifier> entry : map.entrySet()) {
 						AttributeModifier attributemodifier = entry.getValue();
 						AttributeModifier attributemodifier1 = new AttributeModifier(attributemodifier.getName(), potion.func_111183_a(potioneffect.getAmplifier(), attributemodifier), attributemodifier.getOperation());
 						attributes.put(entry.getKey().getAttributeUnlocalizedName(), attributemodifier1);
@@ -87,7 +86,7 @@ public class GOTItemLingeringPotion extends ItemPotion {
 			list.add("");
 			list.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal("potion.effects.whenDrank"));
 
-			for (Entry<String, AttributeModifier> entry1 : attributes.entries()) {
+			for (Map.Entry<String, AttributeModifier> entry1 : attributes.entries()) {
 				AttributeModifier attributemodifier2 = entry1.getValue();
 				double d0 = attributemodifier2.getAmount();
 				double d1;

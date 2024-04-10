@@ -16,25 +16,27 @@ public class GOTItemHangingFruit extends GOTItemFood {
 
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int side, float hitX, float hitY, float hitZ) {
-		if (world.getBlock(i, j, k).isWood(world, i, j, k)) {
+		int k1 = k;
+		int i1 = i;
+		if (world.getBlock(i1, j, k1).isWood(world, i1, j, k1)) {
 			if (side == 0 || side == 1) {
 				return false;
 			}
 			if (side == 2) {
-				--k;
+				--k1;
 			}
 			if (side == 3) {
-				++k;
+				++k1;
 			}
 			if (side == 4) {
-				--i;
+				--i1;
 			}
 			if (side == 5) {
-				++i;
+				++i1;
 			}
-			if (world.isAirBlock(i, j, k)) {
+			if (world.isAirBlock(i1, j, k1)) {
 				int meta = ForgeDirection.getOrientation(side - 2).getOpposite().ordinal();
-				world.setBlock(i, j, k, fruitBlock, meta, 3);
+				world.setBlock(i1, j, k1, fruitBlock, meta, 3);
 				if (!entityplayer.capabilities.isCreativeMode) {
 					--itemstack.stackSize;
 				}

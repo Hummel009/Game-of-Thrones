@@ -44,6 +44,7 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 		return 6834742;
 	}
 
+	@SuppressWarnings("JavaExistingMethodCanBeUsed")
 	public static int getSavedDyeColor(ItemStack itemstack) {
 		if (itemstack.getTagCompound() != null && itemstack.getTagCompound().hasKey("HatColor")) {
 			return itemstack.getTagCompound().getInteger("HatColor");
@@ -79,6 +80,7 @@ public class GOTItemLeatherHat extends GOTItemArmor {
 		itemstack.getTagCompound().setInteger("FeatherColor", i);
 	}
 
+	@SuppressWarnings("JavaExistingMethodCanBeUsed")
 	public static void setHatColor(ItemStack itemstack, int i) {
 		if (itemstack.getTagCompound() == null) {
 			itemstack.setTagCompound(new NBTTagCompound());

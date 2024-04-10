@@ -49,7 +49,7 @@ public class GOTItemSarbacane extends Item {
 
 	@Override
 	public boolean getIsRepairable(ItemStack itemstack, ItemStack repairItem) {
-		return repairItem.getItem() == Item.getItemFromBlock(GOTBlocks.reeds);
+		return repairItem.getItem() == getItemFromBlock(GOTBlocks.reeds);
 	}
 
 	@Override
