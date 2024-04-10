@@ -71,11 +71,11 @@ public abstract class GOTBlockOreStorageBase extends Block {
 		}
 	}
 
-	protected void setOreStorageNames(String... names) {
-		oreStorageNames = names;
-	}
-
 	public String[] getOreStorageNames() {
 		return oreStorageNames;
+	}
+
+	protected void setOreStorageNames(String... names) {
+		oreStorageNames = names;
 	}
 }

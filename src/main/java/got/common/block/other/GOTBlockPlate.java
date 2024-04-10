@@ -188,11 +188,11 @@ public class GOTBlockPlate extends BlockContainer {
 		return false;
 	}
 
-	public void setPlateItem(Item item) {
-		plateItem = item;
-	}
-
 	public Item getPlateItem() {
 		return plateItem;
+	}
+
+	public void setPlateItem(Item item) {
+		plateItem = item;
 	}
 }

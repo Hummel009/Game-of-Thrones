@@ -118,11 +118,11 @@ public abstract class GOTBlockPillarBase extends Block {
 		}
 	}
 
-	protected void setPillarNames(String... names) {
-		pillarNames = names;
-	}
-
 	protected String[] getPillarNames() {
 		return pillarNames;
+	}
+
+	protected void setPillarNames(String... names) {
+		pillarNames = names;
 	}
 }

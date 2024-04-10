@@ -60,11 +60,11 @@ public abstract class GOTBlockPlanksBase extends Block {
 		}
 	}
 
-	protected void setPlankTypes(String... types) {
-		plankTypes = types;
-	}
-
 	protected String[] getPlankTypes() {
 		return plankTypes;
+	}
+
+	protected void setPlankTypes(String... types) {
+		plankTypes = types;
 	}
 }

@@ -14,10 +14,10 @@ import net.minecraft.util.IIcon;
 import java.util.List;
 
 public class GOTBlockDirtPath extends Block {
+	private final String[] pathNames = {"dirt", "mud", "brus"};
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] pathIcons;
-
-	private final String[] pathNames = {"dirt", "mud", "brus"};
 
 	public GOTBlockDirtPath() {
 		super(Material.ground);

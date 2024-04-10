@@ -24,10 +24,10 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockWildFireJar extends BlockFalling {
+	private static final Material MATERIAL_FIRE_JAR = new MaterialLogic(MapColor.stoneColor);
+
 	private static int renderingStage;
 	private static boolean explodeOnAdded = true;
-
-	private static final Material MATERIAL_FIRE_JAR = new MaterialLogic(MapColor.stoneColor);
 
 	@SideOnly(Side.CLIENT)
 	private IIcon iconBaseSide;
@@ -72,6 +72,22 @@ public class GOTBlockWildFireJar extends BlockFalling {
 		setBlockBounds(0.125f, 0.0f, 0.125f, 0.875f, 1.0f, 0.875f);
 		setHardness(0.5f);
 		setStepSound(soundTypeStone);
+	}
+
+	public static boolean isExplodeOnAdded() {
+		return explodeOnAdded;
+	}
+
+	public static void setExplodeOnAdded(boolean explodeOnAdded) {
+		GOTBlockWildFireJar.explodeOnAdded = explodeOnAdded;
+	}
+
+	public static int getRenderingStage() {
+		return renderingStage;
+	}
+
+	public static void setRenderingStage(int renderingStage) {
+		GOTBlockWildFireJar.renderingStage = renderingStage;
 	}
 
 	public void explode(World world, int i, int j, int k) {
@@ -222,21 +238,5 @@ public class GOTBlockWildFireJar extends BlockFalling {
 			func_149829_a(falling);
 			world.spawnEntityInWorld(falling);
 		}
-	}
-
-	public static boolean isExplodeOnAdded() {
-		return explodeOnAdded;
-	}
-
-	public static void setExplodeOnAdded(boolean explodeOnAdded) {
-		GOTBlockWildFireJar.explodeOnAdded = explodeOnAdded;
-	}
-
-	public static int getRenderingStage() {
-		return renderingStage;
-	}
-
-	public static void setRenderingStage(int renderingStage) {
-		GOTBlockWildFireJar.renderingStage = renderingStage;
 	}
 }

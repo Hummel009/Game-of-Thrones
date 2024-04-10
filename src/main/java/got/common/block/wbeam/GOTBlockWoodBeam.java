@@ -74,11 +74,11 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 		}
 	}
 
-	protected void setWoodNames(String... s) {
-		woodNames = s;
-	}
-
 	protected String[] getWoodNames() {
 		return woodNames;
+	}
+
+	protected void setWoodNames(String... s) {
+		woodNames = s;
 	}
 }

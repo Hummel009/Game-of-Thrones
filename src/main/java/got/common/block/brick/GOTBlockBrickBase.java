@@ -59,11 +59,11 @@ public abstract class GOTBlockBrickBase extends Block {
 		}
 	}
 
-	protected void setBrickNames(String... names) {
-		brickNames = names;
-	}
-
 	protected String[] getBrickNames() {
 		return brickNames;
+	}
+
+	protected void setBrickNames(String... names) {
+		brickNames = names;
 	}
 }

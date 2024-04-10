@@ -15,9 +15,10 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTBlockBed extends BlockBed {
-	private Item bedItem;
 	private final Block bedBottomBlock;
 	private final int bedBottomMetadata;
+
+	private Item bedItem;
 
 	@SideOnly(Side.CLIENT)
 	private IIcon[] bedIconsEnd;

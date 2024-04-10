@@ -58,11 +58,11 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 		}
 	}
 
-	protected void setWoodNames(String... s) {
-		woodNames = s;
-	}
-
 	protected String[] getWoodNames() {
 		return woodNames;
+	}
+
+	protected void setWoodNames(String... s) {
+		woodNames = s;
 	}
 }

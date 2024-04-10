@@ -160,13 +160,13 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		}
 	}
 
+	public String[] getLeafNames() {
+		return leafNames;
+	}
+
 	protected void setLeafNames(String... s) {
 		leafNames = s;
 		setSeasonal(new boolean[s.length]);
-	}
-
-	public String[] getLeafNames() {
-		return leafNames;
 	}
 
 	protected void setSeasonal(boolean... b) {

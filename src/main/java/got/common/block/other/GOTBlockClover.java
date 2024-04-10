@@ -28,6 +28,16 @@ public class GOTBlockClover extends GOTBlockFlower {
 	}
 
 	@SideOnly(Side.CLIENT)
+	public static IIcon getStemIcon() {
+		return stemIcon;
+	}
+
+	@SideOnly(Side.CLIENT)
+	public static IIcon getPetalIcon() {
+		return petalIcon;
+	}
+
+	@SideOnly(Side.CLIENT)
 	@Override
 	public int colorMultiplier(IBlockAccess world, int i, int j, int k) {
 		return GOTCrashHandler.getBiomeGenForCoords(world, i, k).getBiomeGrassColor(i, j, k);
@@ -91,15 +101,5 @@ public class GOTBlockClover extends GOTBlockFlower {
 	public void registerBlockIcons(IIconRegister iconregister) {
 		stemIcon = iconregister.registerIcon(getTextureName() + "_stem");
 		petalIcon = iconregister.registerIcon(getTextureName() + "_petal");
-	}
-
-	@SideOnly(Side.CLIENT)
-	public static IIcon getStemIcon() {
-		return stemIcon;
-	}
-
-	@SideOnly(Side.CLIENT)
-	public static IIcon getPetalIcon() {
-		return petalIcon;
 	}
 }

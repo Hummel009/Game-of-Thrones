@@ -123,12 +123,12 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		}
 	}
 
-	protected void setSaplingNames(String... s) {
-		saplingNames = s;
-	}
-
 	protected String[] getSaplingNames() {
 		return saplingNames;
+	}
+
+	protected void setSaplingNames(String... s) {
+		saplingNames = s;
 	}
 
 	@Override

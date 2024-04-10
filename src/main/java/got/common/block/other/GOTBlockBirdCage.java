@@ -103,11 +103,11 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		}
 	}
 
-	protected void setCageTypes(String... s) {
-		cageTypes = s;
-	}
-
 	protected String[] getCageTypes() {
 		return cageTypes;
+	}
+
+	protected void setCageTypes(String... s) {
+		cageTypes = s;
 	}
 }

@@ -23,11 +23,11 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class GOTBlockSarbacaneTrap extends BlockContainer {
-	@SideOnly(Side.CLIENT)
-	private IIcon trapIcon;
-
 	private final Block modelBlock;
 	private final int modelBlockMeta;
+
+	@SideOnly(Side.CLIENT)
+	private IIcon trapIcon;
 
 	public GOTBlockSarbacaneTrap(Block block, int meta) {
 		super(Material.rock);

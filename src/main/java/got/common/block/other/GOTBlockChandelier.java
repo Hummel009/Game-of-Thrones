@@ -19,10 +19,10 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTBlockChandelier extends Block {
+	private final String[] chandelierNames = {"bronze", "iron", "silver", "gold", "valyrian", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "asshai", "bronze", "bronze", "bronze"};
+
 	@SideOnly(Side.CLIENT)
 	private IIcon[] chandelierIcons;
-
-	private final String[] chandelierNames = {"bronze", "iron", "silver", "gold", "valyrian", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "bronze", "asshai", "bronze", "bronze", "bronze"};
 
 	public GOTBlockChandelier() {
 		super(Material.circuits);
