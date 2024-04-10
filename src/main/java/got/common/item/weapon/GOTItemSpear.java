@@ -48,7 +48,7 @@ public class GOTItemSpear extends GOTItemSword {
 		if (charge < 0.1f) {
 			return;
 		}
-		charge = (charge * (charge + 2.0f)) / 3.0f;
+		charge = charge * (charge + 2.0f) / 3.0f;
 		charge = Math.min(charge, 1.0f);
 		GOTEntitySpear spear = new GOTEntitySpear(world, entityplayer, itemstack.copy(), charge * 2.0f);
 		if (charge >= 1.0f) {

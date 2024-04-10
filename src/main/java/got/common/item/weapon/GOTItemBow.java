@@ -175,7 +175,7 @@ public class GOTItemBow extends ItemBow {
 			if (charge < 0.65f) {
 				return;
 			}
-			charge = (charge * (charge + 2.0f)) / 3.0f;
+			charge = charge * (charge + 2.0f) / 3.0f;
 			charge = Math.min(charge, 1.0f);
 			EntityArrow arrow = arrowItem.getItem() == GOTItems.arrowFire ? new GOTEntityArrowFire(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack)) : arrowItem.getItem() == GOTItems.arrowPoisoned ? new GOTEntityArrowPoisoned(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack)) : new EntityArrow(world, entityplayer, charge * 2.0f * getLaunchSpeedFactor(itemstack));
 			if (arrow.getDamage() < 1.0) {
