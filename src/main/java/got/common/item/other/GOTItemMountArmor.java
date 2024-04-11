@@ -113,13 +113,13 @@ public class GOTItemMountArmor extends Item {
 		}
 	}
 
+	public Item getTemplateItem() {
+		return templateItem;
+	}
+
 	public GOTItemMountArmor setTemplateItem(Item item) {
 		templateItem = item;
 		return this;
-	}
-
-	public Item getTemplateItem() {
-		return templateItem;
 	}
 
 	public enum Mount {
