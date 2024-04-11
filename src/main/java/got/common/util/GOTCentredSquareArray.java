@@ -2,12 +2,12 @@ package got.common.util;
 
 import java.util.Arrays;
 
-public class CentredSquareArray<T> {
+public class GOTCentredSquareArray<T> {
 	private final Object[] array;
 	private final int radius;
 	private final int width;
 
-	public CentredSquareArray(int r) {
+	public GOTCentredSquareArray(int r) {
 		radius = r;
 		width = radius * 2 + 1;
 		array = new Object[width * width];

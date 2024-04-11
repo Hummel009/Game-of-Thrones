@@ -3,6 +3,7 @@ package got.common.util;
 import got.common.GOTDate;
 import got.common.block.other.GOTBlockOreGem;
 import got.common.block.other.GOTBlockRock;
+import got.common.command.GOTCommandWikiGen;
 import got.common.database.*;
 import got.common.entity.other.*;
 import got.common.entity.westeros.legendary.captain.*;
@@ -61,7 +62,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class DatabaseGenerator {
+public class GOTWikiGen {
 	private static final Map<Class<? extends Entity>, Entity> CLASS_TO_OBJ = new HashMap<>();
 	private static final Map<Class<? extends Entity>, GOTWaypoint> CLASS_TO_WP = new HashMap<>();
 	private static final Map<String, String> FAC_TO_PAGE = new HashMap<>();
@@ -81,7 +82,6 @@ public class DatabaseGenerator {
 	private static final String BEGIN = "\n</title><ns>10</ns><revision><text>&lt;includeonly&gt;{{#switch: {{{1}}}";
 	private static final String END = "\n}}&lt;/includeonly&gt;&lt;noinclude&gt;[[" + Lang.CATEGORY + "]]&lt;/noinclude&gt;</text></revision></page>";
 	private static final String TITLE = "<page><title>";
-	private static String display = "null";
 
 	static {
 		BIOMES.remove(GOTBiome.ocean1);
@@ -129,16 +129,7 @@ public class DatabaseGenerator {
 		CLASS_TO_WP.put(GOTEntityMullin.class, GOTWaypoint.SHADOW_TOWER);
 	}
 
-	private DatabaseGenerator() {
-	}
-
-	@SuppressWarnings("unused")
-	public static String getDisplay() {
-		return display;
-	}
-
-	public static void setDisplay(String display) {
-		DatabaseGenerator.display = display;
+	private GOTWikiGen() {
 	}
 
 	@SuppressWarnings("deprecation")
@@ -153,7 +144,7 @@ public class DatabaseGenerator {
 			searchForPagenamesBiome(BIOMES, FACTIONS);
 			searchForPagenamesFaction(BIOMES, FACTIONS);
 			Files.createDirectories(Paths.get("hummel"));
-			if ("tables".equals(display)) {
+			if ("tables".equals(GOTCommandWikiGen.getType())) {
 
 				StringBuilder sb = new StringBuilder();
 				for (GOTAchievement ach : ACHIEVEMENTS) {
@@ -265,7 +256,7 @@ public class DatabaseGenerator {
 				fFood.write(sb.toString());
 				fFood.close();
 
-			} else if ("xml".equals(display)) {
+			} else if ("xml".equals(GOTCommandWikiGen.getType())) {
 				StringBuilder sb = new StringBuilder();
 
 				sb.append("\n<mediawiki xmlns=\"http://www.mediawiki.org/xml/export-0.11/\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.mediawiki.org/xml/export-0.11/ http://www.mediawiki.org/xml/export-0.11.xsd\" version=\"0.11\" xml:lang=\"ru\">");

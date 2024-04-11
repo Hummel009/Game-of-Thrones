@@ -487,7 +487,7 @@ public class GOT {
 		command.add(new GOTCommandDragon());
 		command.add(new GOTCommandInvasion());
 		command.add(new GOTCommandAchievement());
-		command.add(new GOTCommandDatabase());
+		command.add(new GOTCommandWikiGen());
 
 		if (event.getServer().isDedicatedServer()) {
 			command.add(new GOTCommandBanStructures());

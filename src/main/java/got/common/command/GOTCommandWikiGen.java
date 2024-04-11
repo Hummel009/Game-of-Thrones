@@ -1,6 +1,6 @@
 package got.common.command;
 
-import got.common.util.DatabaseGenerator;
+import got.common.util.GOTWikiGen;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,11 +9,13 @@ import net.minecraft.world.World;
 import java.util.Collections;
 import java.util.List;
 
-public class GOTCommandDatabase extends CommandBase {
+public class GOTCommandWikiGen extends CommandBase {
+	private static String type = "null";
+
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
-			List<String> list = DatabaseGenerator.Database.getNames();
+			List<String> list = GOTWikiGen.Database.getNames();
 			return getListOfStringsMatchingLastWord(args, list.toArray(new String[0]));
 		}
 		return Collections.emptyList();
@@ -32,13 +34,17 @@ public class GOTCommandDatabase extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender sender, String[] args) {
 		World world = sender.getEntityWorld();
-		DatabaseGenerator.Database db = DatabaseGenerator.Database.forName(args[0]);
+		GOTWikiGen.Database db = GOTWikiGen.Database.forName(args[0]);
 		if (db == null) {
 			func_152373_a(sender, this, "Database \"" + args[0] + "\" does not exist.");
 		} else {
-			DatabaseGenerator.setDisplay(args[0]);
+			type = args[0];
 			func_152373_a(sender, this, "Database \"" + args[0] + "\" is prepared.");
-			DatabaseGenerator.generate(world, (EntityPlayer) sender);
+			GOTWikiGen.generate(world, (EntityPlayer) sender);
 		}
+	}
+
+	public static String getType() {
+		return type;
 	}
 }

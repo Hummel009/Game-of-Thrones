@@ -2,7 +2,7 @@ package got.common.world.structure.other;
 
 import got.GOT;
 import got.common.GOTConfig;
-import got.common.util.CentredSquareArray;
+import got.common.util.GOTCentredSquareArray;
 import got.common.util.GOTCrashHandler;
 import got.common.world.GOTWorldChunkManager;
 import got.common.world.biome.GOTBiome;
@@ -151,7 +151,7 @@ public abstract class GOTStructureBaseSettlement {
 		if (bezier != null && j1 > 0 && GOTStructureBase.isSurfaceStatic(world, i, j1, k)) {
 			isPath = true;
 			int slabRange = 1;
-			CentredSquareArray<Integer> slabArray = new CentredSquareArray<>(slabRange);
+			GOTCentredSquareArray<Integer> slabArray = new GOTCentredSquareArray<>(slabRange);
 			slabArray.fill(j1);
 			for (int i2 = -slabRange; i2 <= slabRange; ++i2) {
 				for (int k2 = -slabRange; k2 <= slabRange; ++k2) {
