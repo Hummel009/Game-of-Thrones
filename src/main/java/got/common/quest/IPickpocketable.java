@@ -8,6 +8,9 @@ import java.util.UUID;
 
 public interface IPickpocketable {
 	class Helper {
+		private Helper() {
+		}
+
 		public static String getOwner(ItemStack itemstack) {
 			if (itemstack.hasTagCompound()) {
 				return itemstack.getTagCompound().getCompoundTag("GOTPickpocket").getString("Owner");

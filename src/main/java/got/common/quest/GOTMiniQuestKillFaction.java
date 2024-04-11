@@ -47,7 +47,7 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 		nbt.setString("KillFaction", killFaction.codeName());
 	}
 
-	public static class QFKillFaction extends QFKill<GOTMiniQuestKillFaction> {
+	public static class QFKillFaction extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillFaction> {
 		public GOTFaction killFaction;
 
 		public QFKillFaction() {

@@ -134,7 +134,6 @@ public abstract class GOTMiniQuest {
 	}
 
 	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
-		int coins;
 		GOTAchievement achievement;
 		completed = true;
 		dateCompleted = GOTDate.AegonCalendar.currentDay;
@@ -151,7 +150,7 @@ public abstract class GOTMiniQuest {
 				alignmentRewarded = alignmentMap.get(rewardFaction);
 			}
 		}
-		coins = getCoinBonus();
+		int coins = getCoinBonus();
 		if (coins != 0) {
 			if (shouldRandomiseCoinReward()) {
 				coins = Math.round(coins * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
@@ -199,8 +198,7 @@ public abstract class GOTMiniQuest {
 			}
 		}
 		if (!dropItems.isEmpty()) {
-			boolean givePouch;
-			givePouch = canRewardVariousExtraItems() && rand.nextInt(10) == 0;
+			boolean givePouch = canRewardVariousExtraItems() && rand.nextInt(10) == 0;
 			if (givePouch) {
 				ItemStack pouch = npc.createNPCPouchDrop();
 				npc.fillPouchFromListAndRetainUnfilled(pouch, dropItems);
@@ -468,12 +466,7 @@ public abstract class GOTMiniQuest {
 			prevCoords = lastLocation.getLeft();
 		}
 		lastLocation = Pair.of(coords, dim);
-		boolean sendUpdate;
-		if (prevCoords == null) {
-			sendUpdate = true;
-		} else {
-			sendUpdate = coords.getDistanceSquaredToChunkCoordinates(prevCoords) > 256.0;
-		}
+		boolean sendUpdate = prevCoords == null || coords.getDistanceSquaredToChunkCoordinates(prevCoords) > 256.0;
 		if (sendUpdate) {
 			updateQuest();
 		}

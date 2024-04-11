@@ -64,11 +64,11 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 				GOTMiniQuestWelcome qw = (GOTMiniQuestWelcome) quest;
 				if (qw.stage == 5) {
 					flags[0] = true;
-					break;
+					return flags;
 				}
 				if (qw.stage == 11) {
 					flags[1] = true;
-					break;
+					return flags;
 				}
 			}
 		}
