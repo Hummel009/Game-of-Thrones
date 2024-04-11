@@ -18,7 +18,6 @@ import got.common.entity.other.GOTHiredNPCInfo;
 import got.common.faction.GOTFaction;
 import got.common.fellowship.GOTFellowship;
 import got.common.item.other.GOTItemBanner;
-import got.common.network.GOTPacketHandler;
 import got.common.util.GOTLog;
 import got.common.util.GOTReflection;
 import got.common.world.GOTWorldType;
