@@ -274,7 +274,6 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public void onPlayerTick(EntityPlayer entityplayer) {
-		super.onPlayerTick(entityplayer);
 		if (isActive() && !killed && !bountyClaimedByOther && GOTFactionBounties.forFaction(entityFaction).forPlayer(targetID).recentlyBountyKilled()) {
 			bountyClaimedByOther = true;
 			updateQuest();
