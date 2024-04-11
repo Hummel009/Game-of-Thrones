@@ -10,6 +10,7 @@ import got.common.entity.essos.legendary.quest.GOTEntityJaqenHghar;
 import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.client.settings.KeyBinding;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -324,6 +325,14 @@ public class GOTMiniQuestWelcome extends GOTMiniQuest {
 			default:
 				break;
 		}
+	}
+
+	@Override
+	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
+	}
+
+	@Override
+	public void onKilledByPlayer(EntityPlayer entityplayer, EntityPlayer killer) {
 	}
 
 	@Override

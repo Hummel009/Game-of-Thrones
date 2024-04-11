@@ -42,5 +42,4 @@ public interface IPickpocketable {
 			itemstack.setTagInfo("GOTPickpocket", data);
 		}
 	}
-
 }

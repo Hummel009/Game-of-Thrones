@@ -175,6 +175,10 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	}
 
 	@Override
+	public void handleEvent(GOTMiniQuestEvent event) {
+	}
+
+	@Override
 	public boolean isFailed() {
 		return super.isFailed() || bountyClaimedByOther || killedByBounty;
 	}

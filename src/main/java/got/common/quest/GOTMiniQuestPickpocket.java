@@ -157,6 +157,10 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		return StatCollector.translateToLocalFormatted("got.miniquest.pickpocket.progress", amountGiven, collectTarget);
 	}
 
+	@Override
+	public void handleEvent(GOTMiniQuestEvent event) {
+	}
+
 	public boolean isEntityWatching(EntityLiving watcher, EntityLivingBase target) {
 		Vec3 look = watcher.getLookVec();
 		Vec3 watcherEyes = Vec3.createVectorHelper(watcher.posX, watcher.boundingBox.minY + watcher.getEyeHeight(), watcher.posZ);
@@ -252,6 +256,18 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 			}
 		}
 		return false;
+	}
+
+	@Override
+	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
+	}
+
+	@Override
+	public void onKilledByPlayer(EntityPlayer entityplayer, EntityPlayer killer) {
+	}
+
+	@Override
+	public void onPlayerTick(EntityPlayer entityplayer) {
 	}
 
 	@Override

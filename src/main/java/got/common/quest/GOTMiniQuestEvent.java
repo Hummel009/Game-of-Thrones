@@ -1,7 +1,6 @@
 package got.common.quest;
 
 public interface GOTMiniQuestEvent {
-
 	class CycleAlignment implements GOTMiniQuestEvent {
 	}
 
@@ -16,5 +15,4 @@ public interface GOTMiniQuestEvent {
 
 	class ViewMap implements GOTMiniQuestEvent {
 	}
-
 }

@@ -18,6 +18,10 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	}
 
 	@Override
+	public void handleEvent(GOTMiniQuestEvent event) {
+	}
+
+	@Override
 	public String getKillTargetName() {
 		return killFaction.factionEntityName();
 	}
@@ -33,6 +37,14 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 			++killCount;
 			updateQuest();
 		}
+	}
+
+	@Override
+	public void onKilledByPlayer(EntityPlayer entityplayer, EntityPlayer killer) {
+	}
+
+	@Override
+	public void onPlayerTick(EntityPlayer entityplayer) {
 	}
 
 	@Override

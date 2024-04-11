@@ -3,6 +3,8 @@ package got.common.quest;
 import got.common.GOTPlayerData;
 import got.common.entity.other.GOTEntityNPC;
 import got.common.item.other.GOTItemMug;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
@@ -38,6 +40,10 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 	}
 
 	@Override
+	public void handleEvent(GOTMiniQuestEvent event) {
+	}
+
+	@Override
 	public boolean isQuestItem(ItemStack itemstack) {
 		if (IPickpocketable.Helper.isPickpocketed(itemstack)) {
 			return false;
@@ -53,6 +59,18 @@ public class GOTMiniQuestCollect extends GOTMiniQuestCollectBase {
 	@Override
 	public boolean isValidQuest() {
 		return super.isValidQuest() && collectItem != null;
+	}
+
+	@Override
+	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
+	}
+
+	@Override
+	public void onKilledByPlayer(EntityPlayer entityplayer, EntityPlayer killer) {
+	}
+
+	@Override
+	public void onPlayerTick(EntityPlayer entityplayer) {
 	}
 
 	@Override

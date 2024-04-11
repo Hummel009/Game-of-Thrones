@@ -286,8 +286,7 @@ public abstract class GOTMiniQuest {
 
 	public abstract String getQuestProgressShorthand();
 
-	public void handleEvent(GOTMiniQuestEvent event) {
-	}
+	public abstract void handleEvent(GOTMiniQuestEvent event);
 
 	public boolean isActive() {
 		return !completed && !isFailed();
@@ -305,21 +304,17 @@ public abstract class GOTMiniQuest {
 		return entityUUID != null && entityFaction != null;
 	}
 
-	public void onInteract(EntityPlayer entityplayer, GOTEntityNPC npc) {
-	}
+	public abstract void onInteract(EntityPlayer entityplayer, GOTEntityNPC npc);
 
 	public boolean onInteractOther(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		return false;
 	}
 
-	public void onKill(EntityPlayer entityplayer, EntityLivingBase entity) {
-	}
+	public abstract void onKill(EntityPlayer entityplayer, EntityLivingBase entity);
 
-	public void onKilledByPlayer(EntityPlayer entityplayer, EntityPlayer killer) {
-	}
+	public abstract void onKilledByPlayer(EntityPlayer entityplayer, EntityPlayer killer);
 
-	public void onPlayerTick(EntityPlayer entityplayer) {
-	}
+	public abstract void onPlayerTick(EntityPlayer entityplayer);
 
 	public void readFromNBT(NBTTagCompound nbt) {
 		NBTTagCompound itemData;

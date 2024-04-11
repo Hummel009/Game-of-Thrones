@@ -19,6 +19,10 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 	}
 
 	@Override
+	public void handleEvent(GOTMiniQuestEvent event) {
+	}
+
+	@Override
 	public String getKillTargetName() {
 		String entityName = GOTEntityRegistry.getStringFromClass(entityType);
 		return StatCollector.translateToLocal("entity." + entityName + ".name");
@@ -35,6 +39,14 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 			++killCount;
 			updateQuest();
 		}
+	}
+
+	@Override
+	public void onKilledByPlayer(EntityPlayer entityplayer, EntityPlayer killer) {
+	}
+
+	@Override
+	public void onPlayerTick(EntityPlayer entityplayer) {
 	}
 
 	@Override

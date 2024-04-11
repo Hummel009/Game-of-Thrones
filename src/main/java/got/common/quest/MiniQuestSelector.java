@@ -75,5 +75,4 @@ public interface MiniQuestSelector {
 			return this;
 		}
 	}
-
 }
