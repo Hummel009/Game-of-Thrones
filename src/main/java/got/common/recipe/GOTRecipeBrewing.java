@@ -15,6 +15,9 @@ public class GOTRecipeBrewing {
 	public static Collection<ShapelessOreRecipe> recipes = new ArrayList<>();
 	public static int BARREL_CAPACITY = 16;
 
+	private GOTRecipeBrewing() {
+	}
+
 	public static void addBrewingRecipe(ItemStack result, Object... ingredients) {
 		if (ingredients.length != 6) {
 			throw new IllegalArgumentException("Brewing recipes must contain exactly 6 items");

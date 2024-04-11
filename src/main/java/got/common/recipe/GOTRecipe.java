@@ -82,6 +82,9 @@ public class GOTRecipe {
 	public static String[] dyeOreNames = {"dyeBlack", "dyeRed", "dyeGreen", "dyeBrown", "dyeBlue", "dyePurple", "dyeCyan", "dyeLightGray", "dyeGray", "dyePink", "dyeLime", "dyeYellow", "dyeLightBlue", "dyeMagenta", "dyeOrange", "dyeWhite"};
 	public static List<IRecipe> mossovy = new ArrayList<>();
 
+	private GOTRecipe() {
+	}
+
 	public static void addDyeableWoolRobeRecipes(Collection<IRecipe> recipeList, ItemStack result, Object... params) {
 		for (int i = 0; i <= 15; ++i) {
 			Object[] paramsDyed = Arrays.copyOf(params, params.length);

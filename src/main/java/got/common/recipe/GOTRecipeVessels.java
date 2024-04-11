@@ -13,6 +13,9 @@ import java.util.Collection;
 import java.util.List;
 
 public class GOTRecipeVessels {
+	private GOTRecipeVessels() {
+	}
+
 	public static void addRecipes(ItemStack result, Item drinkBase, Object[] ingredients) {
 		List<IRecipe> recipes = generateRecipes(result, drinkBase, ingredients);
 		for (IRecipe r : recipes) {

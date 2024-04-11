@@ -15,6 +15,9 @@ import java.util.Map;
 public class GOTRecipeMillstone {
 	public static Map<ItemStack, MillstoneResult> recipeList = new HashMap<>();
 
+	private GOTRecipeMillstone() {
+	}
+
 	public static void addCrackedBricks(ItemStack itemstack, ItemStack result) {
 		addRecipe(itemstack, result, 1.0f);
 		GameRegistry.addSmelting(itemstack, result, 0.1f);
