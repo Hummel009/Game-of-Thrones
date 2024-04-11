@@ -11,11 +11,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketBannerValidate implements IMessage {
-	public int entityID;
-	public int slot;
-	public String prevText;
-	public boolean valid;
+	private int entityID;
+	private int slot;
+	private String prevText;
+	private boolean valid;
 
+	@SuppressWarnings("unused")
 	public GOTPacketBannerValidate() {
 	}
 
@@ -58,5 +59,4 @@ public class GOTPacketBannerValidate implements IMessage {
 			return null;
 		}
 	}
-
 }

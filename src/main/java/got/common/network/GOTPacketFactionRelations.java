@@ -12,10 +12,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class GOTPacketFactionRelations implements IMessage {
-	public Type packetType;
-	public Map<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> fullMap;
-	public GOTFactionRelations.FactionPair singleKey;
-	public GOTFactionRelations.Relation singleRelation;
+	private Type packetType;
+	private Map<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> fullMap;
+	private GOTFactionRelations.FactionPair singleKey;
+	private GOTFactionRelations.Relation singleRelation;
 
 	public static GOTPacketFactionRelations fullMap(Map<GOTFactionRelations.FactionPair, GOTFactionRelations.Relation> map) {
 		GOTPacketFactionRelations pkt = new GOTPacketFactionRelations();
@@ -87,7 +87,7 @@ public class GOTPacketFactionRelations implements IMessage {
 	public enum Type {
 		FULL_MAP, RESET, ONE_ENTRY;
 
-		public static Type forID(int id) {
+		private static Type forID(int id) {
 			for (Type t : values()) {
 				if (t.ordinal() != id) {
 					continue;
@@ -121,5 +121,4 @@ public class GOTPacketFactionRelations implements IMessage {
 			return null;
 		}
 	}
-
 }

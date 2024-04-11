@@ -19,9 +19,11 @@ import java.io.IOException;
 import java.util.UUID;
 
 public class GOTPacketMoneyGive extends GOTPacketMoney {
-	public UUID hummel = UUID.fromString("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
-	public ItemStack item;
+	private static final UUID HUMMEL_UUID = UUID.fromString("9aee5b32-8e19-4d4b-a2d6-1318af62733d");
 
+	private ItemStack item;
+
+	@SuppressWarnings("unused")
 	public GOTPacketMoneyGive() {
 	}
 
@@ -53,18 +55,17 @@ public class GOTPacketMoneyGive extends GOTPacketMoney {
 		@Override
 		public IMessage onMessage(GOTPacketMoneyGive packet, MessageContext context) {
 			ItemStack item = packet.item;
-			UUID hummel = packet.hummel;
 			if (GOTBlockIronBank.BUY.containsKey(item)) {
 				EntityPlayerMP player = context.getServerHandler().playerEntity;
 				GOTPlayerData pd = GOTLevelData.getData(player);
 				int cost = GOTBlockIronBank.BUY.get(item);
-				if (hummel.equals(player.getUniqueID())) {
+				if (HUMMEL_UUID.equals(player.getUniqueID())) {
 					player.inventory.addItemStackToInventory(item);
 				} else if (pd.getBalance() >= cost && player.inventory.addItemStackToInventory(item)) {
 					int money = pd.getBalance();
 					money -= cost;
 					pd.setBalance(money);
-					GOTPacketHandler.networkWrapper.sendTo(packet, player);
+					GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, player);
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.gui.money.give", item.getDisplayName())));
 				} else {
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + StatCollector.translateToLocalFormatted("got.gui.money.notGive", item.getDisplayName())));

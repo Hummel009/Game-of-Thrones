@@ -20,15 +20,17 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTPacketEditBanner implements IMessage {
-	public int bannerID;
-	public boolean playerSpecificProtection;
-	public boolean selfProtection;
-	public float alignmentProtection;
-	public int whitelistLength;
-	public String[] whitelistSlots;
-	public int[] whitelistPerms;
-	public int defaultPerms;
+	private boolean playerSpecificProtection;
+	private boolean selfProtection;
+	private float alignmentProtection;
+	private int whitelistLength;
+	private int defaultPerms;
+	private int bannerID;
 
+	private int[] whitelistPerms;
+	private String[] whitelistSlots;
+
+	@SuppressWarnings("unused")
 	public GOTPacketEditBanner() {
 	}
 
@@ -90,6 +92,69 @@ public class GOTPacketEditBanner implements IMessage {
 		data.writeShort(defaultPerms);
 	}
 
+	@SuppressWarnings("unused")
+	public int getDefaultPerms() {
+		return defaultPerms;
+	}
+
+	public void setDefaultPerms(int defaultPerms) {
+		this.defaultPerms = defaultPerms;
+	}
+
+	@SuppressWarnings("unused")
+	public int[] getWhitelistPerms() {
+		return whitelistPerms;
+	}
+
+	public void setWhitelistPerms(int[] whitelistPerms) {
+		this.whitelistPerms = whitelistPerms;
+	}
+
+	@SuppressWarnings("unused")
+	public String[] getWhitelistSlots() {
+		return whitelistSlots;
+	}
+
+	public void setWhitelistSlots(String[] whitelistSlots) {
+		this.whitelistSlots = whitelistSlots;
+	}
+
+	@SuppressWarnings("unused")
+	public int getWhitelistLength() {
+		return whitelistLength;
+	}
+
+	public void setWhitelistLength(int whitelistLength) {
+		this.whitelistLength = whitelistLength;
+	}
+
+	@SuppressWarnings("unused")
+	public float getAlignmentProtection() {
+		return alignmentProtection;
+	}
+
+	public void setAlignmentProtection(float alignmentProtection) {
+		this.alignmentProtection = alignmentProtection;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isSelfProtection() {
+		return selfProtection;
+	}
+
+	public void setSelfProtection(boolean selfProtection) {
+		this.selfProtection = selfProtection;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isPlayerSpecificProtection() {
+		return playerSpecificProtection;
+	}
+
+	public void setPlayerSpecificProtection(boolean playerSpecificProtection) {
+		this.playerSpecificProtection = playerSpecificProtection;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketEditBanner, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketEditBanner packet, MessageContext context) {
@@ -136,5 +201,4 @@ public class GOTPacketEditBanner implements IMessage {
 			return null;
 		}
 	}
-
 }

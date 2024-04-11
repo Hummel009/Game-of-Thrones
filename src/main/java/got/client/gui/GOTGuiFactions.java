@@ -141,11 +141,11 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 				}
 			} else if (button == buttonPledgeConfirm) {
 				IMessage packet = new GOTPacketPledgeSet(currentFaction);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				isPledging = false;
 			} else if (button == buttonPledgeRevoke) {
 				IMessage packet = new GOTPacketPledgeSet(null);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				isUnpledging = false;
 				mc.displayGuiScreen(null);
 			} else {
@@ -540,7 +540,7 @@ public class GOTGuiFactions extends GOTGuiMenuWBBase {
 		setCurrentScrollFromFaction();
 		if (mc.currentScreen == this) {
 			IMessage packet = new GOTPacketClientMQEvent(GOTPacketClientMQEvent.ClientMQEvent.FACTIONS);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
 	}
 

@@ -78,7 +78,7 @@ public class GOTConquestGrid {
 					continue;
 				}
 				IMessage pkt = new GOTPacketConquestNotification(faction, newConq, isCleansing);
-				GOTPacketHandler.networkWrapper.sendTo(pkt, (EntityPlayerMP) player);
+				GOTPacketHandler.NETWORK_WRAPPER.sendTo(pkt, (EntityPlayerMP) player);
 			}
 		}
 	}
@@ -353,7 +353,7 @@ public class GOTConquestGrid {
 
 	public static void sendConquestGridTo(EntityPlayerMP entityplayer, GOTFaction fac) {
 		IMessage pkt = new GOTPacketConquestGrid(fac, zoneMap.values(), entityplayer.worldObj);
-		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(pkt, entityplayer);
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		if (fac == pd.getPledgeFaction()) {
 			pd.addAchievement(GOTAchievement.factionConquest);

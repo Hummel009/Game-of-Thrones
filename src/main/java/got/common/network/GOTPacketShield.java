@@ -12,9 +12,10 @@ import io.netty.buffer.ByteBuf;
 import java.util.UUID;
 
 public class GOTPacketShield implements IMessage {
-	public UUID player;
-	public GOTShields shield;
+	private UUID player;
+	private GOTShields shield;
 
+	@SuppressWarnings("unused")
 	public GOTPacketShield() {
 	}
 
@@ -66,5 +67,4 @@ public class GOTPacketShield implements IMessage {
 			return null;
 		}
 	}
-
 }

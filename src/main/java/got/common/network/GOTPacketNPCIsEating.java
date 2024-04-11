@@ -10,9 +10,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCIsEating implements IMessage {
-	public int entityID;
-	public boolean isEating;
+	private int entityID;
+	private boolean isEating;
 
+	@SuppressWarnings("unused")
 	public GOTPacketNPCIsEating() {
 	}
 
@@ -44,5 +45,4 @@ public class GOTPacketNPCIsEating implements IMessage {
 			return null;
 		}
 	}
-
 }

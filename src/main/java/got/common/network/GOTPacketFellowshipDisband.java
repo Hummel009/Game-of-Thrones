@@ -10,6 +10,7 @@ import got.common.fellowship.GOTFellowshipClient;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipDisband extends GOTPacketFellowshipDo {
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipDisband() {
 	}
 
@@ -29,5 +30,4 @@ public class GOTPacketFellowshipDisband extends GOTPacketFellowshipDo {
 			return null;
 		}
 	}
-
 }

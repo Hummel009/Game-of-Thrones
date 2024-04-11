@@ -11,8 +11,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.util.EnumChatFormatting;
 
 public class GOTPacketSelectTitle implements IMessage {
-	public GOTTitle.PlayerTitle playerTitle;
+	private GOTTitle.PlayerTitle playerTitle;
 
+	@SuppressWarnings("unused")
 	public GOTPacketSelectTitle() {
 	}
 
@@ -56,5 +57,4 @@ public class GOTPacketSelectTitle implements IMessage {
 			return null;
 		}
 	}
-
 }

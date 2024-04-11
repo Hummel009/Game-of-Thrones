@@ -13,9 +13,10 @@ import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCSquadron implements IMessage {
-	public int npcID;
-	public String squadron;
+	private int npcID;
+	private String squadron;
 
+	@SuppressWarnings("unused")
 	public GOTPacketNPCSquadron() {
 	}
 
@@ -66,5 +67,4 @@ public class GOTPacketNPCSquadron implements IMessage {
 			return null;
 		}
 	}
-
 }

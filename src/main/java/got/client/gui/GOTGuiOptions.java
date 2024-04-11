@@ -24,7 +24,7 @@ public class GOTGuiOptions extends GOTGuiMenuWBBase {
 		if (button.enabled) {
 			if (button instanceof GOTGuiButtonOptions) {
 				IMessage packet = new GOTPacketSetOption(button.id);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			} else if (button == goBack) {
 				mc.displayGuiScreen(new GOTGuiMenu());
 			} else {

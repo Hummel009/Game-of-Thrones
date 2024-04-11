@@ -44,10 +44,10 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 		if (button.enabled) {
 			if (button == selectButton && (currentTitle == null || selectedTitle != currentTitle.getTitle() || selectedColor != currentTitle.getColor())) {
 				IMessage packet = new GOTPacketSelectTitle(new GOTTitle.PlayerTitle(selectedTitle, selectedColor));
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			} else if (button == removeButton) {
 				IMessage packet = new GOTPacketSelectTitle(null);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			} else if (button.enabled && button == goBack) {
 				mc.displayGuiScreen(new GOTGuiMenu());
 			} else {

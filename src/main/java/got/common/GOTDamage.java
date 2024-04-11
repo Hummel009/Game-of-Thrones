@@ -13,11 +13,11 @@ public class GOTDamage {
 
 	public static void doBurnDamage(EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketEnvironmentOverlay(GOTPacketEnvironmentOverlay.Overlay.BURN);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
 	public static void doFrostDamage(EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketEnvironmentOverlay(GOTPacketEnvironmentOverlay.Overlay.FROST);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 }

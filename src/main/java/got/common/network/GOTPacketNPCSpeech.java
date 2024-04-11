@@ -15,10 +15,11 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCSpeech implements IMessage {
-	public int entityID;
-	public String speech;
-	public boolean forceChatMsg;
+	private int entityID;
+	private String speech;
+	private boolean forceChatMsg;
 
+	@SuppressWarnings("unused")
 	public GOTPacketNPCSpeech() {
 	}
 
@@ -65,5 +66,4 @@ public class GOTPacketNPCSpeech implements IMessage {
 			return null;
 		}
 	}
-
 }

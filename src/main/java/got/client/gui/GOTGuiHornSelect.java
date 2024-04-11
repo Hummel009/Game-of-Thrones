@@ -26,7 +26,7 @@ public class GOTGuiHornSelect extends GOTGuiScreenBase {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled) {
 			IMessage packet = new GOTPacketHornSelect(button.id);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			mc.thePlayer.closeScreen();
 		}
 	}

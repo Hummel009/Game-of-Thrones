@@ -16,8 +16,9 @@ import java.io.IOException;
 import java.util.*;
 
 public class GOTPacketUpdatePlayerLocations implements IMessage {
-	public static Map<UUID, byte[]> cachedProfileBytes = new HashMap<>();
-	public Collection<PlayerLocationInfo> playerLocations = new ArrayList<>();
+	private static final Map<UUID, byte[]> CACHED_PROFILE_BYTES = new HashMap<>();
+
+	private final Collection<PlayerLocationInfo> playerLocations = new ArrayList<>();
 
 	public void addPlayerLocation(GameProfile profile, double x, double z) {
 		if (profile.isComplete()) {
@@ -58,11 +59,11 @@ public class GOTPacketUpdatePlayerLocations implements IMessage {
 		int players = playerLocations.size();
 		data.writeShort(players);
 		for (PlayerLocationInfo player : playerLocations) {
-			GameProfile profile = player.playerProfile;
+			GameProfile profile = player.getPlayerProfile();
 			UUID playerID = profile.getId();
 			byte[] profileBytes = null;
-			if (cachedProfileBytes.containsKey(playerID)) {
-				profileBytes = cachedProfileBytes.get(playerID);
+			if (CACHED_PROFILE_BYTES.containsKey(playerID)) {
+				profileBytes = CACHED_PROFILE_BYTES.get(playerID);
 			} else {
 				ByteBuf tempBuf = Unpooled.buffer();
 				try {
@@ -71,7 +72,7 @@ public class GOTPacketUpdatePlayerLocations implements IMessage {
 					new PacketBuffer(tempBuf).writeNBTTagCompoundToBuffer(profileData);
 					byte[] tempBytes = tempBuf.array();
 					profileBytes = Arrays.copyOf(tempBytes, tempBytes.length);
-					cachedProfileBytes.put(playerID, profileBytes);
+					CACHED_PROFILE_BYTES.put(playerID, profileBytes);
 				} catch (IOException e) {
 					FMLLog.severe("Error writing player profile data");
 					e.printStackTrace();
@@ -84,8 +85,8 @@ public class GOTPacketUpdatePlayerLocations implements IMessage {
 			byte[] copied = Arrays.copyOf(profileBytes, profileBytes.length);
 			data.writeShort(copied.length);
 			data.writeBytes(copied);
-			data.writeDouble(player.posX);
-			data.writeDouble(player.posZ);
+			data.writeDouble(player.getPosX());
+			data.writeDouble(player.getPosZ());
 		}
 	}
 
@@ -94,22 +95,33 @@ public class GOTPacketUpdatePlayerLocations implements IMessage {
 		public IMessage onMessage(GOTPacketUpdatePlayerLocations packet, MessageContext context) {
 			GOT.proxy.clearMapPlayerLocations();
 			for (PlayerLocationInfo info : packet.playerLocations) {
-				GOT.proxy.addMapPlayerLocation(info.playerProfile, info.posX, info.posZ);
+				GOT.proxy.addMapPlayerLocation(info.getPlayerProfile(), info.getPosX(), info.getPosZ());
 			}
 			return null;
 		}
 	}
 
-	public static class PlayerLocationInfo {
-		public GameProfile playerProfile;
-		public double posX;
-		public double posZ;
+	private static class PlayerLocationInfo {
+		private final GameProfile playerProfile;
+		private final double posX;
+		private final double posZ;
 
-		public PlayerLocationInfo(GameProfile profile, double x, double z) {
+		private PlayerLocationInfo(GameProfile profile, double x, double z) {
 			playerProfile = profile;
 			posX = x;
 			posZ = z;
 		}
-	}
 
+		private double getPosZ() {
+			return posZ;
+		}
+
+		private double getPosX() {
+			return posX;
+		}
+
+		private GameProfile getPlayerProfile() {
+			return playerProfile;
+		}
+	}
 }

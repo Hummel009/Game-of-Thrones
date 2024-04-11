@@ -13,9 +13,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.UUID;
 
 public class GOTPacketDeleteCWPClient implements IMessage {
-	public int cwpID;
-	public UUID sharingPlayer;
+	private int cwpID;
+	private UUID sharingPlayer;
 
+	@SuppressWarnings("unused")
 	public GOTPacketDeleteCWPClient() {
 	}
 
@@ -32,11 +33,6 @@ public class GOTPacketDeleteCWPClient implements IMessage {
 		}
 	}
 
-	public GOTPacketDeleteCWPClient setSharingPlayer(UUID player) {
-		sharingPlayer = player;
-		return this;
-	}
-
 	@Override
 	public void toBytes(ByteBuf data) {
 		data.writeInt(cwpID);
@@ -46,6 +42,16 @@ public class GOTPacketDeleteCWPClient implements IMessage {
 			data.writeLong(sharingPlayer.getMostSignificantBits());
 			data.writeLong(sharingPlayer.getLeastSignificantBits());
 		}
+	}
+
+	@SuppressWarnings("unused")
+	public UUID getSharingPlayer() {
+		return sharingPlayer;
+	}
+
+	public GOTPacketDeleteCWPClient setSharingPlayer(UUID player) {
+		sharingPlayer = player;
+		return this;
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketDeleteCWPClient, IMessage> {
@@ -65,5 +71,4 @@ public class GOTPacketDeleteCWPClient implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -7,8 +7,9 @@ import got.GOT;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketIsOpResponse implements IMessage {
-	public boolean isOp;
+	private boolean isOp;
 
+	@SuppressWarnings("unused")
 	public GOTPacketIsOpResponse() {
 	}
 
@@ -33,5 +34,4 @@ public class GOTPacketIsOpResponse implements IMessage {
 			return null;
 		}
 	}
-
 }

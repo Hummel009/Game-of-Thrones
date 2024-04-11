@@ -14,10 +14,12 @@ import java.util.Map;
 import java.util.UUID;
 
 public class GOTPacketAlignment implements IMessage {
-	public UUID player;
-	public Map<GOTFaction, Float> alignmentMap = new EnumMap<>(GOTFaction.class);
-	public boolean hideAlignment;
+	private final Map<GOTFaction, Float> alignmentMap = new EnumMap<>(GOTFaction.class);
 
+	private UUID player;
+	private boolean hideAlignment;
+
+	@SuppressWarnings("unused")
 	public GOTPacketAlignment() {
 	}
 
@@ -72,5 +74,4 @@ public class GOTPacketAlignment implements IMessage {
 			return null;
 		}
 	}
-
 }

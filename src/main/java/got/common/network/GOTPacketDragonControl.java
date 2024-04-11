@@ -5,17 +5,15 @@ import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import cpw.mods.fml.relauncher.Side;
 import got.common.entity.dragon.GOTEntityDragon;
+import got.common.util.GOTLog;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.BitSet;
 
 public class GOTPacketDragonControl implements IMessage {
-	public static Logger L = LogManager.getLogger();
-	public BitSet bits;
-	public int previous;
+	private final BitSet bits;
+	private int previous;
 
 	public GOTPacketDragonControl() {
 		bits = new BitSet(Byte.SIZE);
@@ -26,7 +24,7 @@ public class GOTPacketDragonControl implements IMessage {
 		fromInteger(buf.readUnsignedByte());
 	}
 
-	public void fromInteger(int i) {
+	private void fromInteger(int i) {
 		int value = i;
 		int index = 0;
 		while (value != 0) {
@@ -54,7 +52,7 @@ public class GOTPacketDragonControl implements IMessage {
 		buf.writeByte(toInteger());
 	}
 
-	public int toInteger() {
+	private int toInteger() {
 		int value = 0;
 		for (int i = 0; i < bits.length(); i++) {
 			value += bits.get(i) ? 1 << i : 0;
@@ -67,7 +65,7 @@ public class GOTPacketDragonControl implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketDragonControl message, MessageContext ctx) {
 			if (ctx.side == Side.CLIENT) {
-				L.warn("Recieved unexpected control message from server!");
+				GOTLog.logger.warn("Recieved unexpected control message from server!");
 				return null;
 			}
 

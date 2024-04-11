@@ -15,9 +15,10 @@ import net.minecraft.inventory.Container;
 import net.minecraft.util.StringUtils;
 
 public class GOTPacketBuyUnit implements IMessage {
-	public int tradeIndex;
-	public String squadron;
+	private int tradeIndex;
+	private String squadron;
 
+	@SuppressWarnings("unused")
 	public GOTPacketBuyUnit() {
 	}
 
@@ -79,5 +80,4 @@ public class GOTPacketBuyUnit implements IMessage {
 			return null;
 		}
 	}
-
 }

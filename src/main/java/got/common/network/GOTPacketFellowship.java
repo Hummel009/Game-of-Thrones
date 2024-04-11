@@ -25,20 +25,23 @@ import java.io.IOException;
 import java.util.*;
 
 public class GOTPacketFellowship implements IMessage {
-	public UUID fellowshipID;
-	public boolean isInvite;
-	public String fellowshipName;
-	public ItemStack fellowshipIcon;
-	public boolean isOwned;
-	public boolean isAdminned;
-	public GameProfile owner;
-	public List<GameProfile> members = new ArrayList<>();
-	public Map<UUID, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
-	public Set<UUID> adminUuids = new HashSet<>();
-	public boolean preventPVP;
-	public boolean preventHiredFF;
-	public boolean showMapLocations;
+	private final List<GameProfile> members = new ArrayList<>();
+	private final Map<UUID, GOTTitle.PlayerTitle> titleMap = new HashMap<>();
+	private final Set<UUID> adminUuids = new HashSet<>();
 
+	private UUID fellowshipID;
+	private String fellowshipName;
+	private ItemStack fellowshipIcon;
+	private GameProfile owner;
+
+	private boolean isInvite;
+	private boolean isOwned;
+	private boolean isAdminned;
+	private boolean preventPVP;
+	private boolean preventHiredFF;
+	private boolean showMapLocations;
+
+	@SuppressWarnings("unused")
 	public GOTPacketFellowship() {
 	}
 
@@ -145,7 +148,7 @@ public class GOTPacketFellowship implements IMessage {
 		showMapLocations = data.readBoolean();
 	}
 
-	public void readTitleForPlayer(ByteBuf data, UUID playerUuid) {
+	private void readTitleForPlayer(ByteBuf data, UUID playerUuid) {
 		GOTTitle.PlayerTitle playerTitle = GOTTitle.PlayerTitle.readNullableTitle(data);
 		if (playerTitle != null) {
 			titleMap.put(playerUuid, playerTitle);
@@ -207,5 +210,4 @@ public class GOTPacketFellowship implements IMessage {
 			return null;
 		}
 	}
-
 }

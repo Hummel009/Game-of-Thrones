@@ -9,22 +9,22 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.world.EnumDifficulty;
 
 public class GOTPacketLogin implements IMessage {
-	public int swordPortalX;
-	public int swordPortalY;
-	public int swordPortalZ;
-	public int ftCooldownMax;
-	public int ftCooldownMin;
-	public EnumDifficulty difficulty;
-	public boolean difficultyLocked;
-	public boolean alignmentZones;
-	public boolean feastMode;
-	public boolean fellowshipCreation;
-	public int fellowshipMaxSize;
-	public boolean enchanting;
-	public boolean enchantingGOT;
-	public boolean strictFactionTitleRequirements;
-	public boolean conquestDecay;
-	public int customWaypointMinY;
+	private EnumDifficulty difficulty;
+	private boolean difficultyLocked;
+	private boolean alignmentZones;
+	private boolean feastMode;
+	private boolean fellowshipCreation;
+	private boolean enchanting;
+	private boolean enchantingGOT;
+	private boolean strictFactionTitleRequirements;
+	private boolean conquestDecay;
+	private int swordPortalX;
+	private int swordPortalY;
+	private int swordPortalZ;
+	private int ftCooldownMax;
+	private int ftCooldownMin;
+	private int fellowshipMaxSize;
+	private int customWaypointMinY;
 
 	@Override
 	public void fromBytes(ByteBuf data) {
@@ -68,6 +68,141 @@ public class GOTPacketLogin implements IMessage {
 		data.writeInt(customWaypointMinY);
 	}
 
+	@SuppressWarnings("unused")
+	public int getSwordPortalX() {
+		return swordPortalX;
+	}
+
+	public void setSwordPortalX(int swordPortalX) {
+		this.swordPortalX = swordPortalX;
+	}
+
+	@SuppressWarnings("unused")
+	public int getSwordPortalY() {
+		return swordPortalY;
+	}
+
+	public void setSwordPortalY(int swordPortalY) {
+		this.swordPortalY = swordPortalY;
+	}
+
+	@SuppressWarnings("unused")
+	public int getSwordPortalZ() {
+		return swordPortalZ;
+	}
+
+	public void setSwordPortalZ(int swordPortalZ) {
+		this.swordPortalZ = swordPortalZ;
+	}
+
+	@SuppressWarnings("unused")
+	public int getFtCooldownMax() {
+		return ftCooldownMax;
+	}
+
+	public void setFtCooldownMax(int ftCooldownMax) {
+		this.ftCooldownMax = ftCooldownMax;
+	}
+
+	@SuppressWarnings("unused")
+	public int getFtCooldownMin() {
+		return ftCooldownMin;
+	}
+
+	public void setFtCooldownMin(int ftCooldownMin) {
+		this.ftCooldownMin = ftCooldownMin;
+	}
+
+	@SuppressWarnings("unused")
+	public EnumDifficulty getDifficulty() {
+		return difficulty;
+	}
+
+	public void setDifficulty(EnumDifficulty difficulty) {
+		this.difficulty = difficulty;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isDifficultyLocked() {
+		return difficultyLocked;
+	}
+
+	public void setDifficultyLocked(boolean difficultyLocked) {
+		this.difficultyLocked = difficultyLocked;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isAlignmentZones() {
+		return alignmentZones;
+	}
+
+	public void setAlignmentZones(boolean alignmentZones) {
+		this.alignmentZones = alignmentZones;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isFeastMode() {
+		return feastMode;
+	}
+
+	public void setFeastMode(boolean feastMode) {
+		this.feastMode = feastMode;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isFellowshipCreation() {
+		return fellowshipCreation;
+	}
+
+	public void setFellowshipCreation(boolean fellowshipCreation) {
+		this.fellowshipCreation = fellowshipCreation;
+	}
+
+	@SuppressWarnings("unused")
+	public int getFellowshipMaxSize() {
+		return fellowshipMaxSize;
+	}
+
+	public void setFellowshipMaxSize(int fellowshipMaxSize) {
+		this.fellowshipMaxSize = fellowshipMaxSize;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isEnchanting() {
+		return enchanting;
+	}
+
+	public void setEnchanting(boolean enchanting) {
+		this.enchanting = enchanting;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isEnchantingGOT() {
+		return enchantingGOT;
+	}
+
+	public void setEnchantingGOT(boolean enchantingGOT) {
+		this.enchantingGOT = enchantingGOT;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isStrictFactionTitleRequirements() {
+		return strictFactionTitleRequirements;
+	}
+
+	public void setStrictFactionTitleRequirements(boolean strictFactionTitleRequirements) {
+		this.strictFactionTitleRequirements = strictFactionTitleRequirements;
+	}
+
+	@SuppressWarnings("unused")
+	public int getCustomWaypointMinY() {
+		return customWaypointMinY;
+	}
+
+	public void setCustomWaypointMinY(int customWaypointMinY) {
+		this.customWaypointMinY = customWaypointMinY;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketLogin, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketLogin packet, MessageContext context) {
@@ -97,5 +232,4 @@ public class GOTPacketLogin implements IMessage {
 			return null;
 		}
 	}
-
 }

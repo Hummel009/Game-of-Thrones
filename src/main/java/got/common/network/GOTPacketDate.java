@@ -13,9 +13,10 @@ import net.minecraft.network.PacketBuffer;
 import java.io.IOException;
 
 public class GOTPacketDate implements IMessage {
-	public NBTTagCompound dateData;
-	public boolean doUpdate;
+	private NBTTagCompound dateData;
+	private boolean doUpdate;
 
+	@SuppressWarnings("unused")
 	public GOTPacketDate() {
 	}
 
@@ -56,5 +57,4 @@ public class GOTPacketDate implements IMessage {
 			return null;
 		}
 	}
-
 }

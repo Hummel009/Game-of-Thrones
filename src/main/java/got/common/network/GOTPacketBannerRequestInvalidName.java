@@ -15,10 +15,11 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
 public class GOTPacketBannerRequestInvalidName implements IMessage {
-	public int bannerID;
-	public int slot;
-	public String username;
+	private int bannerID;
+	private int slot;
+	private String username;
 
+	@SuppressWarnings("unused")
 	public GOTPacketBannerRequestInvalidName() {
 	}
 
@@ -68,10 +69,9 @@ public class GOTPacketBannerRequestInvalidName implements IMessage {
 					}
 				}
 				IMessage packetResponse = new GOTPacketBannerValidate(banner.getEntityId(), packet.slot, packet.username, valid);
-				GOTPacketHandler.networkWrapper.sendTo(packetResponse, entityplayer);
+				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packetResponse, entityplayer);
 			}
 			return null;
 		}
 	}
-
 }

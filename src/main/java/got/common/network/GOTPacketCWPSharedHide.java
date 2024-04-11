@@ -12,10 +12,11 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import java.util.UUID;
 
 public class GOTPacketCWPSharedHide implements IMessage {
-	public int cwpID;
-	public UUID sharingPlayer;
-	public boolean hideCWP;
+	private int cwpID;
+	private UUID sharingPlayer;
+	private boolean hideCWP;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCWPSharedHide() {
 	}
 
@@ -52,5 +53,4 @@ public class GOTPacketCWPSharedHide implements IMessage {
 			return null;
 		}
 	}
-
 }

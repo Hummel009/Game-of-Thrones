@@ -17,9 +17,10 @@ import net.minecraft.network.PacketBuffer;
 import java.io.IOException;
 
 public class GOTPacketFactionData implements IMessage {
-	public GOTFaction faction;
-	public NBTTagCompound factionNBT;
+	private GOTFaction faction;
+	private NBTTagCompound factionNBT;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFactionData() {
 	}
 
@@ -66,5 +67,4 @@ public class GOTPacketFactionData implements IMessage {
 			return null;
 		}
 	}
-
 }

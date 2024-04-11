@@ -1116,12 +1116,12 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 
 	public void sendCombatStance(EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketNPCCombatStance(getEntityId(), combatStance);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
 	public void sendIsEatingPacket(EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketNPCIsEating(getEntityId(), npcItemsInv.getIsEating());
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
 	public void sendIsEatingToWatchers() {
@@ -1290,7 +1290,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			}
 		} else {
 			IMessage packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.EATING);
-			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
+			GOTPacketHandler.NETWORK_WRAPPER.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		}
 	}
 
@@ -1304,7 +1304,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			}
 		} else {
 			IMessage packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.HEARTS);
-			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
+			GOTPacketHandler.NETWORK_WRAPPER.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		}
 	}
 
@@ -1318,7 +1318,7 @@ public abstract class GOTEntityNPC extends EntityCreature implements IRangedAtta
 			}
 		} else {
 			IMessage packet = new GOTPacketNPCFX(getEntityId(), GOTPacketNPCFX.FXType.SMOKE);
-			GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
+			GOTPacketHandler.NETWORK_WRAPPER.sendToAllAround(packet, GOTPacketHandler.nearEntity(this, 32.0));
 		}
 	}
 

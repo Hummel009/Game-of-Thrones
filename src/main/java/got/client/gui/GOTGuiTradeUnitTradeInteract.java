@@ -19,7 +19,7 @@ public class GOTGuiTradeUnitTradeInteract extends GOTGuiTradeInteract {
 		if (button.enabled) {
 			if (button == buttonHire) {
 				IMessage packet = new GOTPacketUnitTraderInteract(theEntity.getEntityId(), 1);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			} else {
 				super.actionPerformed(button);
 			}

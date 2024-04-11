@@ -11,8 +11,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
-	public ToggleFunction function;
+	private ToggleFunction function;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipToggle() {
 	}
 
@@ -59,5 +60,4 @@ public class GOTPacketFellowshipToggle extends GOTPacketFellowshipDo {
 			return null;
 		}
 	}
-
 }

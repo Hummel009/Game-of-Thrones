@@ -1,12 +1,11 @@
 package got.common.entity.dragon;
 
 import got.common.util.GOTCrashHandler;
+import got.common.util.GOTLog;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.biome.BiomeGenBase;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,8 +13,6 @@ import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class GOTDragonBreedHelper extends GOTDragonHelper {
-
-	public static Logger L = LogManager.getLogger();
 	public static int BLOCK_RANGE = 2;
 	public static String NBT_BREED = "Breed";
 	public static String NBT_BREED_POINTS = "breedPoints";
@@ -50,7 +47,7 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 	}
 
 	public void setBreed(GOTDragonBreed newBreed) {
-		L.trace("setBreed({})", newBreed);
+		GOTLog.logger.trace("setBreed({})", newBreed);
 
 		if (newBreed == null) {
 			throw new NullPointerException();
@@ -145,7 +142,7 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 		String breedName = nbt.getString(NBT_BREED);
 		GOTDragonBreed newBreed = registry.getBreedByName(breedName);
 		if (newBreed == null) {
-			L.warn("Dragon {} loaded with invalid breed type {}, using {} instead", dragon.getEntityId(), breedName, DEFAULT_BREED);
+			GOTLog.logger.warn("Dragon {} loaded with invalid breed type {}, using {} instead", dragon.getEntityId(), breedName, DEFAULT_BREED);
 			newBreed = registry.getBreedByName(DEFAULT_BREED);
 		}
 

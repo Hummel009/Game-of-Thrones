@@ -14,18 +14,20 @@ import net.minecraft.util.StatCollector;
 import java.util.Map;
 
 public class GOTPacketAlignmentBonus implements IMessage {
-	public GOTFaction mainFaction;
-	public float prevMainAlignment;
-	public GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
-	public float conquestBonus;
-	public double posX;
-	public double posY;
-	public double posZ;
-	public String name;
-	public boolean needsTranslation;
-	public boolean isKill;
-	public boolean isHiredKill;
+	private GOTAlignmentBonusMap factionBonusMap = new GOTAlignmentBonusMap();
+	private GOTFaction mainFaction;
+	private String name;
 
+	private float prevMainAlignment;
+	private float conquestBonus;
+	private double posX;
+	private double posY;
+	private double posZ;
+	private boolean needsTranslation;
+	private boolean isKill;
+	private boolean isHiredKill;
+
+	@SuppressWarnings("unused")
 	public GOTPacketAlignmentBonus() {
 	}
 
@@ -100,5 +102,4 @@ public class GOTPacketAlignmentBonus implements IMessage {
 			return null;
 		}
 	}
-
 }

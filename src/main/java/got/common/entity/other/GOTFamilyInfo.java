@@ -231,10 +231,10 @@ public class GOTFamilyInfo {
 	}
 
 	public void receiveData(GOTPacketFamilyInfo packet) {
-		setAge(packet.age);
-		setMale(packet.isMale);
-		setName(packet.name);
-		if (packet.isDrunk) {
+		setAge(packet.getAge());
+		setMale(packet.isMale());
+		setName(packet.getName());
+		if (packet.isDrunk()) {
 			setDrunkTime(100000);
 		} else {
 			setDrunkTime(0);
@@ -243,7 +243,7 @@ public class GOTFamilyInfo {
 
 	public void sendData(EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketFamilyInfo(theEntity.getEntityId(), age, male, name, isDrunk());
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
 	public void sendDataToAllWatchers() {

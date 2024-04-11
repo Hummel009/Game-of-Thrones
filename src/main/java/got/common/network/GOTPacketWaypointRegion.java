@@ -11,9 +11,10 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketWaypointRegion implements IMessage {
-	public GOTWaypoint.Region region;
-	public boolean unlocking;
+	private GOTWaypoint.Region region;
+	private boolean unlocking;
 
+	@SuppressWarnings("unused")
 	public GOTPacketWaypointRegion() {
 	}
 
@@ -50,5 +51,4 @@ public class GOTPacketWaypointRegion implements IMessage {
 			return null;
 		}
 	}
-
 }

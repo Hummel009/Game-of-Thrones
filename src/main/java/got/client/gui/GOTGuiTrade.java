@@ -39,7 +39,7 @@ public class GOTGuiTrade extends GuiContainer {
 	public void actionPerformed(GuiButton button) {
 		if (button.enabled && button == buttonSell) {
 			IMessage packet = new GOTPacketSell();
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
 	}
 

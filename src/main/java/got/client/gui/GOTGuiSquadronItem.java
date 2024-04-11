@@ -93,7 +93,7 @@ public class GOTGuiSquadronItem extends GOTGuiScreenBase {
 		super.onGuiClosed();
 		String squadron = squadronNameField.getText();
 		IMessage packet = new GOTPacketItemSquadron(squadron);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
 
 	@Override

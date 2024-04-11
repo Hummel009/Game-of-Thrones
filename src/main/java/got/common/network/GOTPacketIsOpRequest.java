@@ -22,7 +22,7 @@ public class GOTPacketIsOpRequest implements IMessage {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			boolean isOp = MinecraftServer.getServer().getConfigurationManager().func_152596_g(entityplayer.getGameProfile());
 			IMessage packetResponse = new GOTPacketIsOpResponse(isOp);
-			GOTPacketHandler.networkWrapper.sendTo(packetResponse, entityplayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packetResponse, entityplayer);
 			return null;
 		}
 	}

@@ -168,7 +168,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 		boolean showCWP = GOTGuiMap.showCWP;
 		boolean showHiddenSWP = GOTGuiMap.showHiddenSWP;
 		IMessage packet = new GOTPacketClientInfo(viewingFaction, changedRegionMap, showWP, showCWP, showHiddenSWP);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
 
 	@Override

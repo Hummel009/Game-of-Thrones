@@ -11,6 +11,7 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipLeave extends GOTPacketFellowshipDo {
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipLeave() {
 	}
 
@@ -40,5 +41,4 @@ public class GOTPacketFellowshipLeave extends GOTPacketFellowshipDo {
 			return null;
 		}
 	}
-
 }

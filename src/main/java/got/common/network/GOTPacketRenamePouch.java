@@ -10,8 +10,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
 
 public class GOTPacketRenamePouch implements IMessage {
-	public String name;
+	private String name;
 
+	@SuppressWarnings("unused")
 	public GOTPacketRenamePouch() {
 	}
 
@@ -44,5 +45,4 @@ public class GOTPacketRenamePouch implements IMessage {
 			return null;
 		}
 	}
-
 }

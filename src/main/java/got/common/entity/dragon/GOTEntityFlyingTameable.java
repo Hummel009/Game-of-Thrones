@@ -2,6 +2,7 @@ package got.common.entity.dragon;
 
 import cpw.mods.fml.relauncher.ReflectionHelper;
 import got.client.model.GOTModelDragonAnimaton;
+import got.common.util.GOTLog;
 import got.common.world.biome.GOTBiome;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.EntityAITasks;
@@ -11,13 +12,10 @@ import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 
 public abstract class GOTEntityFlyingTameable extends EntityTameable implements GOTBiome.ImmuneToFrost {
-	public static Logger L = LogManager.getLogger();
 	public static int IN_AIR_THRESH = 10;
 	public static IAttribute MOVE_SPEED_AIR = new RangedAttribute("generic.movementSpeedAir", 1.5, 0.0, Double.MAX_VALUE).setDescription("Movement Speed Air").setShouldWatch(true);
 	public static int INDEX_FLYING = 18;
@@ -78,7 +76,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	}
 
 	public void setCanFly(boolean canFly) {
-		L.trace("setCanFly({})", canFly);
+		GOTLog.logger.trace("setCanFly({})", canFly);
 		dataWatcher.updateObject(INDEX_CAN_FLY, canFly ? (byte) 1 : (byte) 0);
 	}
 
@@ -103,7 +101,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	}
 
 	public void liftOff() {
-		L.trace("liftOff");
+		GOTLog.logger.trace("liftOff");
 		if (isCanFly()) {
 			jump();
 			motionY += 0.5;
@@ -229,12 +227,12 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	}
 
 	public void setMoveSpeedAirHoriz(double airSpeedHorizonal) {
-		L.trace("setMoveSpeedAirHoriz({})", airSpeedHorizonal);
+		GOTLog.logger.trace("setMoveSpeedAirHoriz({})", airSpeedHorizonal);
 		this.airSpeedHorizonal = airSpeedHorizonal;
 	}
 
 	public void setMoveSpeedAirVert(double airSpeedVertical) {
-		L.trace("setMoveSpeedAirVert({})", airSpeedVertical);
+		GOTLog.logger.trace("setMoveSpeedAirVert({})", airSpeedVertical);
 		this.airSpeedVertical = airSpeedVertical;
 	}
 

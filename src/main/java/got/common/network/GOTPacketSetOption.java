@@ -9,8 +9,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketSetOption implements IMessage {
-	public int option;
+	private int option;
 
+	@SuppressWarnings("unused")
 	public GOTPacketSetOption() {
 	}
 
@@ -70,5 +71,4 @@ public class GOTPacketSetOption implements IMessage {
 			return null;
 		}
 	}
-
 }

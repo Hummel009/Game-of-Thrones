@@ -43,7 +43,7 @@ public class GOTDate {
 		NBTTagCompound nbt = new NBTTagCompound();
 		saveDates(nbt);
 		IMessage packet = new GOTPacketDate(nbt, update);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
 	public static void setDate(int date) {

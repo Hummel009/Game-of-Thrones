@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 
 public class GOTPacketFellowshipSetIcon extends GOTPacketFellowshipDo {
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipSetIcon() {
 	}
 
@@ -48,5 +49,4 @@ public class GOTPacketFellowshipSetIcon extends GOTPacketFellowshipDo {
 			return null;
 		}
 	}
-
 }

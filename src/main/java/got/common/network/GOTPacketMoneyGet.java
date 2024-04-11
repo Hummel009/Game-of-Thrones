@@ -18,8 +18,9 @@ import net.minecraft.util.StatCollector;
 import java.io.IOException;
 
 public class GOTPacketMoneyGet extends GOTPacketMoney {
-	public ItemStack item;
+	private ItemStack item;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMoneyGet() {
 	}
 
@@ -71,7 +72,7 @@ public class GOTPacketMoneyGet extends GOTPacketMoney {
 					int money = pd.getBalance();
 					money += cost;
 					pd.setBalance(money);
-					GOTPacketHandler.networkWrapper.sendTo(packet, player);
+					GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, player);
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.gui.money.get", item.getDisplayName())));
 				} else {
 					player.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_RED + StatCollector.translateToLocalFormatted("got.gui.money.notGet", item.getDisplayName())));

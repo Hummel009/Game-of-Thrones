@@ -12,9 +12,10 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class GOTPacketEntityUUID implements IMessage {
-	public int entityID;
-	public UUID entityUUID;
+	private int entityID;
+	private UUID entityUUID;
 
+	@SuppressWarnings("unused")
 	public GOTPacketEntityUUID() {
 	}
 
@@ -48,5 +49,4 @@ public class GOTPacketEntityUUID implements IMessage {
 			return null;
 		}
 	}
-
 }

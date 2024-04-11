@@ -58,7 +58,7 @@ public abstract class GOTTileEntitySign extends TileEntity {
 	public void openEditGUI(EntityPlayerMP entityplayer) {
 		editingPlayer = entityplayer;
 		IMessage packet = new GOTPacketOpenSignEditor(this);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
 	@Override

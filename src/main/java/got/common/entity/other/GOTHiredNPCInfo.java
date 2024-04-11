@@ -438,28 +438,28 @@ public class GOTHiredNPCInfo {
 	}
 
 	public void receiveBasicData(GOTPacketHiredInfo packet) {
-		hiringPlayerUUID = packet.hiringPlayer;
-		setTask(packet.task);
-		setSquadron(packet.squadron);
-		xpLevel = packet.xpLvl;
+		hiringPlayerUUID = packet.getHiringPlayer();
+		setTask(packet.getTask());
+		setSquadron(packet.getSquadron());
+		xpLevel = packet.getXpLvl();
 	}
 
 	public void receiveClientPacket(GOTPacketHiredGui packet) {
-		isActive = packet.isActive;
-		canMove = packet.canMove;
-		teleportAutomatically = packet.teleportAutomatically;
-		mobKills = packet.mobKills;
-		xp = packet.xp;
-		alignmentRequiredToCommand = packet.alignmentRequired;
-		pledgeType = packet.pledgeType;
-		inCombat = packet.inCombat;
-		guardMode = packet.guardMode;
-		guardRange = packet.guardRange;
+		isActive = packet.isActive();
+		canMove = packet.isCanMove();
+		teleportAutomatically = packet.isTeleportAutomatically();
+		mobKills = packet.getMobKills();
+		xp = packet.getXp();
+		alignmentRequiredToCommand = packet.getAlignmentRequired();
+		pledgeType = packet.getPledgeType();
+		inCombat = packet.isInCombat();
+		guardMode = packet.isGuardMode();
+		guardRange = packet.getGuardRange();
 	}
 
 	public void sendBasicData(EntityPlayerMP entityplayer) {
 		IMessage packet = new GOTPacketHiredInfo(theEntity.getEntityId(), hiringPlayerUUID, hiredTask, hiredSquadron, xpLevel);
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
 	public void sendBasicDataToAllWatchers() {
@@ -479,17 +479,17 @@ public class GOTHiredNPCInfo {
 			return;
 		}
 		GOTPacketHiredGui packet = new GOTPacketHiredGui(theEntity.getEntityId(), shouldOpenGui);
-		packet.isActive = isActive;
-		packet.canMove = canMove;
-		packet.teleportAutomatically = teleportAutomatically;
-		packet.mobKills = mobKills;
-		packet.xp = xp;
-		packet.alignmentRequired = alignmentRequiredToCommand;
-		packet.pledgeType = pledgeType;
-		packet.inCombat = inCombat;
-		packet.guardMode = guardMode;
-		packet.guardRange = guardRange;
-		GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) getHiringPlayer());
+		packet.setActive(isActive);
+		packet.setCanMove(canMove);
+		packet.setTeleportAutomatically(teleportAutomatically);
+		packet.setMobKills(mobKills);
+		packet.setXp(xp);
+		packet.setAlignmentRequired(alignmentRequiredToCommand);
+		packet.setPledgeType(pledgeType);
+		packet.setInCombat(inCombat);
+		packet.setGuardMode(guardMode);
+		packet.setGuardRange(guardRange);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) getHiringPlayer());
 		if (shouldOpenGui) {
 			isGuiOpen = true;
 		}

@@ -10,8 +10,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketAchievementRemove implements IMessage {
-	public GOTAchievement achievement;
+	private GOTAchievement achievement;
 
+	@SuppressWarnings("unused")
 	public GOTPacketAchievementRemove() {
 	}
 
@@ -44,5 +45,4 @@ public class GOTPacketAchievementRemove implements IMessage {
 			return null;
 		}
 	}
-
 }

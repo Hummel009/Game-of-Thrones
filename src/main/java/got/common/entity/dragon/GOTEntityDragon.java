@@ -6,6 +6,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import got.client.model.GOTModelDragonAnimaton;
 import got.client.model.GOTModelDragonBodyHelper;
 import got.common.entity.ai.*;
+import got.common.util.GOTLog;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
@@ -25,15 +26,12 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
 
 public class GOTEntityDragon extends GOTEntityFlyingTameable {
-	public static Logger L = LogManager.getLogger();
 	public static double BASE_SPEED_GROUND = 0.3;
 	public static double BASE_SPEED_AIR = 1.5;
 	public static double BASE_DAMAGE = 8;
@@ -60,7 +58,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		try {
 			ReflectionHelper.setPrivateValue(EntityLiving.class, this, new GOTModelDragonBodyHelper(this), ENTITYLIVING_BODYHELPER);
 		} catch (Exception ex) {
-			L.warn("Can't override EntityBodyHelper", ex);
+			GOTLog.logger.warn("Can't override EntityBodyHelper", ex);
 		}
 		setSize(BASE_WIDTH, BASE_HEIGHT);
 		stepHeight = 1;
@@ -145,7 +143,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	public void addHelper(GOTDragonHelper helper) {
-		L.trace("addHelper({})", helper.getClass().getName());
+		GOTLog.logger.trace("addHelper({})", helper.getClass().getName());
 		if (helpers == null) {
 			helpers = new HashMap<>();
 		}
@@ -375,7 +373,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	public void setRidingPlayer(EntityPlayer player) {
-		L.trace("setRidingPlayer({})", player.getCommandSenderName());
+		GOTLog.logger.trace("setRidingPlayer({})", player.getCommandSenderName());
 		player.rotationYaw = rotationYaw;
 		player.rotationPitch = rotationPitch;
 		player.mountEntity(this);
@@ -509,7 +507,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	public void setSaddled(boolean saddled) {
-		L.trace("setSaddled({})", saddled);
+		GOTLog.logger.trace("setSaddled({})", saddled);
 		setBooleanData(INDEX_SADDLED, saddled);
 	}
 
@@ -588,7 +586,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	public void setAttackDamage(double damage) {
-		L.trace("setAttackDamage({})", damage);
+		GOTLog.logger.trace("setAttackDamage({})", damage);
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(damage);
 	}
 

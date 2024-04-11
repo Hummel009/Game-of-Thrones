@@ -16,19 +16,20 @@ import java.util.List;
 import java.util.UUID;
 
 public class GOTPacketCreateCWPClient implements IMessage {
-	public int mapX;
-	public int mapY;
-	public int xCoord;
-	public int yCoord;
-	public int zCoord;
-	public int cwpID;
-	public String name;
-	public List<UUID> sharedFellowshipIDs;
-	public UUID sharingPlayer;
-	public String sharingPlayerName;
-	public boolean sharedUnlocked;
-	public boolean sharedHidden;
+	private int mapX;
+	private int mapY;
+	private int xCoord;
+	private int yCoord;
+	private int zCoord;
+	private int cwpID;
+	private String name;
+	private List<UUID> sharedFellowshipIDs;
+	private UUID sharingPlayer;
+	private String sharingPlayerName;
+	private boolean sharedUnlocked;
+	private boolean sharedHidden;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCreateCWPClient() {
 	}
 
@@ -137,5 +138,4 @@ public class GOTPacketCreateCWPClient implements IMessage {
 			return null;
 		}
 	}
-
 }

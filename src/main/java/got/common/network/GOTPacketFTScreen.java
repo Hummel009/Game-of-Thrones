@@ -15,12 +15,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.UUID;
 
 public class GOTPacketFTScreen implements IMessage {
-	public boolean isCustom;
-	public int wpID;
-	public UUID sharingPlayer;
-	public int startX;
-	public int startZ;
+	private boolean isCustom;
+	private int wpID;
+	private UUID sharingPlayer;
+	private int startX;
+	private int startZ;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFTScreen() {
 	}
 
@@ -80,5 +81,4 @@ public class GOTPacketFTScreen implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -301,7 +301,7 @@ public class GOTGuiHandler {
 		if ((gui instanceof GuiInventory || gui instanceof GuiContainerCreative) && entityplayer != null && world != null && entityplayer.ridingEntity instanceof GOTEntityNPCRideable && ((GOTEntityNPCRideable) entityplayer.ridingEntity).getMountInventory() != null) {
 			entityplayer.closeScreen();
 			IMessage packet = new GOTPacketMountOpenInv();
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			event.setCanceled(true);
 		}
 	}

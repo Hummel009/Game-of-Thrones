@@ -10,9 +10,10 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketAchievement implements IMessage {
-	public GOTAchievement achievement;
-	public boolean display;
+	private GOTAchievement achievement;
+	private boolean display;
 
+	@SuppressWarnings("unused")
 	public GOTPacketAchievement() {
 	}
 
@@ -53,5 +54,4 @@ public class GOTPacketAchievement implements IMessage {
 			return null;
 		}
 	}
-
 }

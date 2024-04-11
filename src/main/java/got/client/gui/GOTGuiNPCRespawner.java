@@ -206,8 +206,8 @@ public class GOTGuiNPCRespawner extends GOTGuiScreenBase {
 			theSpawner.spawnClass2 = GOTEntityRegistry.getClassFromString(s2);
 		}
 		GOTPacketEditNPCRespawner packet = new GOTPacketEditNPCRespawner(theSpawner);
-		packet.destroy = destroySpawner;
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		packet.setDestroy(destroySpawner);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
 
 	@Override

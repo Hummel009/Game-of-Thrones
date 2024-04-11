@@ -15,8 +15,9 @@ import net.minecraft.network.PacketBuffer;
 import java.io.IOException;
 
 public class GOTPacketLoginPlayerData implements IMessage {
-	public NBTTagCompound playerData;
+	private NBTTagCompound playerData;
 
+	@SuppressWarnings("unused")
 	public GOTPacketLoginPlayerData() {
 	}
 
@@ -57,5 +58,4 @@ public class GOTPacketLoginPlayerData implements IMessage {
 			return null;
 		}
 	}
-
 }

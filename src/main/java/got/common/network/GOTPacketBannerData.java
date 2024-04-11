@@ -18,19 +18,21 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTPacketBannerData implements IMessage {
-	public int entityID;
-	public boolean openGui;
-	public boolean playerSpecificProtection;
-	public boolean selfProtection;
-	public boolean structureProtection;
-	public int customRange;
-	public float alignmentProtection;
-	public int whitelistLength;
-	public String[] whitelistSlots;
-	public int[] whitelistPerms;
-	public int defaultPerms;
-	public boolean thisPlayerHasPermission;
+	private boolean playerSpecificProtection;
+	private boolean selfProtection;
+	private boolean structureProtection;
+	private boolean thisPlayerHasPermission;
+	private boolean openGui;
+	private float alignmentProtection;
+	private int customRange;
+	private int whitelistLength;
+	private int defaultPerms;
+	private int entityID;
 
+	private int[] whitelistPerms;
+	private String[] whitelistSlots;
+
+	@SuppressWarnings("unused")
 	public GOTPacketBannerData() {
 	}
 
@@ -94,6 +96,96 @@ public class GOTPacketBannerData implements IMessage {
 		data.writeBoolean(thisPlayerHasPermission);
 	}
 
+	@SuppressWarnings("unused")
+	public boolean isPlayerSpecificProtection() {
+		return playerSpecificProtection;
+	}
+
+	public void setPlayerSpecificProtection(boolean playerSpecificProtection) {
+		this.playerSpecificProtection = playerSpecificProtection;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isSelfProtection() {
+		return selfProtection;
+	}
+
+	public void setSelfProtection(boolean selfProtection) {
+		this.selfProtection = selfProtection;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isStructureProtection() {
+		return structureProtection;
+	}
+
+	public void setStructureProtection(boolean structureProtection) {
+		this.structureProtection = structureProtection;
+	}
+
+	@SuppressWarnings("unused")
+	public int getCustomRange() {
+		return customRange;
+	}
+
+	public void setCustomRange(int customRange) {
+		this.customRange = customRange;
+	}
+
+	@SuppressWarnings("unused")
+	public float getAlignmentProtection() {
+		return alignmentProtection;
+	}
+
+	public void setAlignmentProtection(float alignmentProtection) {
+		this.alignmentProtection = alignmentProtection;
+	}
+
+	@SuppressWarnings("unused")
+	public int getWhitelistLength() {
+		return whitelistLength;
+	}
+
+	public void setWhitelistLength(int whitelistLength) {
+		this.whitelistLength = whitelistLength;
+	}
+
+	@SuppressWarnings("unused")
+	public String[] getWhitelistSlots() {
+		return whitelistSlots;
+	}
+
+	public void setWhitelistSlots(String[] whitelistSlots) {
+		this.whitelistSlots = whitelistSlots;
+	}
+
+	@SuppressWarnings("unused")
+	public int[] getWhitelistPerms() {
+		return whitelistPerms;
+	}
+
+	public void setWhitelistPerms(int[] whitelistPerms) {
+		this.whitelistPerms = whitelistPerms;
+	}
+
+	@SuppressWarnings("unused")
+	public int getDefaultPerms() {
+		return defaultPerms;
+	}
+
+	public void setDefaultPerms(int defaultPerms) {
+		this.defaultPerms = defaultPerms;
+	}
+
+	@SuppressWarnings("unused")
+	public boolean isThisPlayerHasPermission() {
+		return thisPlayerHasPermission;
+	}
+
+	public void setThisPlayerHasPermission(boolean thisPlayerHasPermission) {
+		this.thisPlayerHasPermission = thisPlayerHasPermission;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketBannerData, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketBannerData packet, MessageContext context) {
@@ -135,5 +227,4 @@ public class GOTPacketBannerData implements IMessage {
 			return null;
 		}
 	}
-
 }

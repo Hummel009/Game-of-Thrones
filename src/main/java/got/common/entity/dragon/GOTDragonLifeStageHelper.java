@@ -1,18 +1,14 @@
 package got.common.entity.dragon;
 
+import got.common.util.GOTLog;
 import net.minecraft.block.Block;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 public class GOTDragonLifeStageHelper extends GOTDragonHelper {
-
-	public static Logger L = LogManager.getLogger();
-
 	public GOTDragonLifeStage lifeStagePrev;
 	public GOTDragonScaleModifier scaleModifier = new GOTDragonScaleModifier();
 	public int eggWiggleX;
@@ -52,7 +48,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 	}
 
 	public void setLifeStage(GOTDragonLifeStage lifeStage) {
-		L.trace("setLifeStage({})", lifeStage);
+		GOTLog.logger.trace("setLifeStage({})", lifeStage);
 		dragon.setGrowingAge(lifeStage.ageLimit);
 		updateLifeStage();
 	}
@@ -97,7 +93,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 	}
 
 	public void onNewLifeStage(GOTDragonLifeStage lifeStage, GOTDragonLifeStage prevLifeStage) {
-		L.trace("onNewLifeStage({},{})", prevLifeStage, lifeStage);
+		GOTLog.logger.trace("onNewLifeStage({},{})", prevLifeStage, lifeStage);
 
 		if (dragon.isClient()) {
 			if (prevLifeStage == GOTDragonLifeStage.EGG && lifeStage == GOTDragonLifeStage.HATCHLING) {
@@ -142,7 +138,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 			return;
 		}
 
-		L.debug("transforming to egg");
+		GOTLog.logger.debug("transforming to egg");
 		float volume = 1;
 		float pitch = 0.5f + (0.5f - rand.nextFloat()) * 0.1f;
 		dragon.worldObj.playSoundAtEntity(dragon, "mob.endermen.portal", volume, pitch);

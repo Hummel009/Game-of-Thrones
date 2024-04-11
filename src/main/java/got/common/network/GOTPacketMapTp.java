@@ -10,9 +10,10 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
 
 public class GOTPacketMapTp implements IMessage {
-	public int xCoord;
-	public int zCoord;
+	private int xCoord;
+	private int zCoord;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMapTp() {
 	}
 
@@ -49,5 +50,4 @@ public class GOTPacketMapTp implements IMessage {
 			return null;
 		}
 	}
-
 }

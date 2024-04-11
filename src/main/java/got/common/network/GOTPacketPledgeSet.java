@@ -10,8 +10,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketPledgeSet implements IMessage {
-	public GOTFaction pledgeFac;
+	private GOTFaction pledgeFac;
 
+	@SuppressWarnings("unused")
 	public GOTPacketPledgeSet() {
 	}
 
@@ -45,5 +46,4 @@ public class GOTPacketPledgeSet implements IMessage {
 			return null;
 		}
 	}
-
 }

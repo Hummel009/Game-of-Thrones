@@ -15,13 +15,15 @@ import net.minecraft.world.World;
 import java.util.UUID;
 
 public class GOTPacketHiredInfo implements IMessage {
-	public int entityID;
-	public boolean isHired;
-	public UUID hiringPlayer;
-	public GOTHiredNPCInfo.Task task;
-	public String squadron;
-	public int xpLvl;
+	private GOTHiredNPCInfo.Task task;
+	private String squadron;
+	private UUID hiringPlayer;
 
+	private boolean isHired;
+	private int xpLvl;
+	private int entityID;
+
+	@SuppressWarnings("unused")
 	public GOTPacketHiredInfo() {
 	}
 
@@ -64,6 +66,22 @@ public class GOTPacketHiredInfo implements IMessage {
 			data.writeBytes(sqBytes);
 		}
 		data.writeShort(xpLvl);
+	}
+
+	public UUID getHiringPlayer() {
+		return hiringPlayer;
+	}
+
+	public GOTHiredNPCInfo.Task getTask() {
+		return task;
+	}
+
+	public String getSquadron() {
+		return squadron;
+	}
+
+	public int getXpLvl() {
+		return xpLvl;
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketHiredInfo, IMessage> {

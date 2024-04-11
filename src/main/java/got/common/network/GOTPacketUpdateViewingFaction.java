@@ -11,8 +11,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketUpdateViewingFaction implements IMessage {
-	public GOTFaction viewingFaction;
+	private GOTFaction viewingFaction;
 
+	@SuppressWarnings("unused")
 	public GOTPacketUpdateViewingFaction() {
 	}
 
@@ -41,5 +42,4 @@ public class GOTPacketUpdateViewingFaction implements IMessage {
 			return null;
 		}
 	}
-
 }

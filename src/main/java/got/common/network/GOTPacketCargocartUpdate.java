@@ -9,9 +9,10 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.passive.EntityHorse;
 
 public class GOTPacketCargocartUpdate implements IMessage {
-	public int pullingId;
-	public int cartId;
+	private int pullingId;
+	private int cartId;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCargocartUpdate() {
 	}
 
@@ -44,5 +45,4 @@ public class GOTPacketCargocartUpdate implements IMessage {
 			return null;
 		}
 	}
-
 }

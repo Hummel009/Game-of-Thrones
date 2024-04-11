@@ -12,10 +12,11 @@ import io.netty.buffer.ByteBuf;
 import java.util.UUID;
 
 public class GOTPacketCWPSharedHideClient implements IMessage {
-	public int cwpID;
-	public UUID sharingPlayer;
-	public boolean hideCWP;
+	private int cwpID;
+	private UUID sharingPlayer;
+	private boolean hideCWP;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCWPSharedHideClient() {
 	}
 
@@ -51,5 +52,4 @@ public class GOTPacketCWPSharedHideClient implements IMessage {
 			return null;
 		}
 	}
-
 }

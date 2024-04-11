@@ -9,8 +9,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketConquestGridRequest implements IMessage {
-	public GOTFaction conqFac;
+	private GOTFaction conqFac;
 
+	@SuppressWarnings("unused")
 	public GOTPacketConquestGridRequest() {
 	}
 
@@ -44,5 +45,4 @@ public class GOTPacketConquestGridRequest implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -10,8 +10,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketClientMQEvent implements IMessage {
-	public ClientMQEvent type;
+	private ClientMQEvent type;
 
+	@SuppressWarnings("unused")
 	public GOTPacketClientMQEvent() {
 	}
 
@@ -34,7 +35,6 @@ public class GOTPacketClientMQEvent implements IMessage {
 
 	public enum ClientMQEvent {
 		MAP, FACTIONS
-
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketClientMQEvent, IMessage> {
@@ -50,5 +50,4 @@ public class GOTPacketClientMQEvent implements IMessage {
 			return null;
 		}
 	}
-
 }

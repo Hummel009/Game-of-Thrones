@@ -15,10 +15,11 @@ import net.minecraft.world.World;
 import java.io.IOException;
 
 public class GOTPacketEditNPCRespawner implements IMessage {
-	public int spawnerID;
-	public NBTTagCompound spawnerData;
-	public boolean destroy;
+	private boolean destroy;
+	private int spawnerID;
+	private NBTTagCompound spawnerData;
 
+	@SuppressWarnings("unused")
 	public GOTPacketEditNPCRespawner() {
 	}
 
@@ -52,6 +53,15 @@ public class GOTPacketEditNPCRespawner implements IMessage {
 		data.writeBoolean(destroy);
 	}
 
+	@SuppressWarnings("unused")
+	public boolean isDestroy() {
+		return destroy;
+	}
+
+	public void setDestroy(boolean destroy) {
+		this.destroy = destroy;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketEditNPCRespawner, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketEditNPCRespawner packet, MessageContext context) {
@@ -70,5 +80,4 @@ public class GOTPacketEditNPCRespawner implements IMessage {
 			return null;
 		}
 	}
-
 }

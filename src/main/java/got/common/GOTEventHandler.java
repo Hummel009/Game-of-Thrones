@@ -1081,7 +1081,7 @@ public class GOTEventHandler {
 					if (GOTWeaponStats.isRangedWeapon(usingItem)) {
 						entityplayer.clearItemInUse();
 						IMessage packet = new GOTPacketStopItemUse();
-						GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+						GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 					}
 				}
 			}
@@ -1123,7 +1123,7 @@ public class GOTEventHandler {
 		if (!world.isRemote) {
 			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.FIRE)) {
 				IMessage packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.INFERNAL, entity);
-				GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
+				GOTPacketHandler.NETWORK_WRAPPER.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
 			}
 			if (GOTEnchantmentHelper.hasMeleeOrRangedEnchant(event.source, GOTEnchantment.CHILL)) {
 				GOTEnchantmentWeaponSpecial.doChillAttack(entity);
@@ -1597,12 +1597,12 @@ public class GOTEventHandler {
 		if (event.target instanceof GOTEntityCart) {
 			GOTEntityCart target = (GOTEntityCart) event.target;
 			if (target.getPulling() != null) {
-				GOTPacketHandler.networkWrapper.sendTo(new GOTPacketCargocartUpdate(target.getPulling().getEntityId(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
+				GOTPacketHandler.NETWORK_WRAPPER.sendTo(new GOTPacketCargocartUpdate(target.getPulling().getEntityId(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
 			}
 		}
 		if (event.target instanceof GOTEntityCargocart) {
 			GOTEntityCargocart target = (GOTEntityCargocart) event.target;
-			GOTPacketHandler.networkWrapper.sendTo(new GOTPacketCargocart(target.getLoad(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(new GOTPacketCargocart(target.getLoad(), target.getEntityId()), (EntityPlayerMP) event.entityPlayer);
 		}
 	}
 
@@ -1617,7 +1617,7 @@ public class GOTEventHandler {
 		}
 		if (!entity.worldObj.isRemote && entity instanceof GOTRandomSkinEntity) {
 			IMessage packet = new GOTPacketEntityUUID(entity.getEntityId(), entity.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 		if (!entity.worldObj.isRemote && entity instanceof GOTEntityBanner) {
 			((GOTEntityBanner) entity).sendBannerToPlayer(entityplayer, false, false);

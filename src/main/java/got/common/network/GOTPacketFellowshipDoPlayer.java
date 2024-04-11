@@ -13,9 +13,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import java.util.UUID;
 
 public class GOTPacketFellowshipDoPlayer extends GOTPacketFellowshipDo {
-	public UUID subjectUuid;
-	public PlayerFunction function;
+	private UUID subjectUuid;
+	private PlayerFunction function;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipDoPlayer() {
 	}
 

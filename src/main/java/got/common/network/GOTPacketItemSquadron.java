@@ -11,8 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.StringUtils;
 
 public class GOTPacketItemSquadron implements IMessage {
-	public String squadron;
+	private String squadron;
 
+	@SuppressWarnings("unused")
 	public GOTPacketItemSquadron() {
 	}
 
@@ -56,5 +57,4 @@ public class GOTPacketItemSquadron implements IMessage {
 			return null;
 		}
 	}
-
 }

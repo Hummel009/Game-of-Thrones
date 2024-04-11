@@ -11,8 +11,9 @@ import net.minecraft.inventory.Container;
 import org.apache.commons.lang3.StringUtils;
 
 public class GOTPacketAnvilRename implements IMessage {
-	public String rename;
+	private String rename;
 
+	@SuppressWarnings("unused")
 	public GOTPacketAnvilRename() {
 	}
 
@@ -53,5 +54,4 @@ public class GOTPacketAnvilRename implements IMessage {
 			return null;
 		}
 	}
-
 }

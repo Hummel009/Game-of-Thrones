@@ -8,9 +8,10 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 
 public class GOTPacketCargocart implements IMessage {
-	public int load;
-	public int cartId;
+	private int load;
+	private int cartId;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCargocart() {
 	}
 
@@ -39,5 +40,4 @@ public class GOTPacketCargocart implements IMessage {
 			return null;
 		}
 	}
-
 }

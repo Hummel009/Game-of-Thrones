@@ -10,8 +10,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipCreate implements IMessage {
-	public String fellowshipName;
+	private String fellowshipName;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipCreate() {
 	}
 
@@ -42,5 +43,4 @@ public class GOTPacketFellowshipCreate implements IMessage {
 			return null;
 		}
 	}
-
 }

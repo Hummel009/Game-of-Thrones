@@ -7,8 +7,9 @@ import got.GOT;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketEnvironmentOverlay implements IMessage {
-	public Overlay overlay;
+	private Overlay overlay;
 
+	@SuppressWarnings("unused")
 	public GOTPacketEnvironmentOverlay() {
 	}
 
@@ -29,7 +30,6 @@ public class GOTPacketEnvironmentOverlay implements IMessage {
 
 	public enum Overlay {
 		FROST, BURN
-
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketEnvironmentOverlay, IMessage> {
@@ -43,5 +43,4 @@ public class GOTPacketEnvironmentOverlay implements IMessage {
 			return null;
 		}
 	}
-
 }

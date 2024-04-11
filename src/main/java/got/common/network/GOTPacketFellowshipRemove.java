@@ -12,9 +12,10 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.UUID;
 
 public class GOTPacketFellowshipRemove implements IMessage {
-	public UUID fellowshipID;
-	public boolean isInvite;
+	private UUID fellowshipID;
+	private boolean isInvite;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipRemove() {
 	}
 
@@ -48,5 +49,4 @@ public class GOTPacketFellowshipRemove implements IMessage {
 			return null;
 		}
 	}
-
 }

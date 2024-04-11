@@ -7,8 +7,9 @@ import got.common.GOTLevelData;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketEnableAlignmentZones implements IMessage {
-	public boolean enable;
+	private boolean enable;
 
+	@SuppressWarnings("unused")
 	public GOTPacketEnableAlignmentZones() {
 	}
 
@@ -33,5 +34,4 @@ public class GOTPacketEnableAlignmentZones implements IMessage {
 			return null;
 		}
 	}
-
 }

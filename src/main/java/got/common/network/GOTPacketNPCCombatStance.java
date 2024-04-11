@@ -10,9 +10,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCCombatStance implements IMessage {
-	public int entityID;
-	public boolean combatStance;
+	private int entityID;
+	private boolean combatStance;
 
+	@SuppressWarnings("unused")
 	public GOTPacketNPCCombatStance() {
 	}
 
@@ -44,5 +45,4 @@ public class GOTPacketNPCCombatStance implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -16,10 +16,11 @@ import net.minecraft.util.ChatComponentTranslation;
 import java.util.UUID;
 
 public class GOTPacketFastTravel implements IMessage {
-	public boolean isCustom;
-	public int wpID;
-	public UUID sharingPlayer;
+	private boolean isCustom;
+	private int wpID;
+	private UUID sharingPlayer;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFastTravel() {
 	}
 
@@ -91,5 +92,4 @@ public class GOTPacketFastTravel implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -1,16 +1,13 @@
 package got.common.entity.dragon;
 
+import got.common.util.GOTLog;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.nbt.NBTTagCompound;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import java.util.Locale;
 
 public class GOTDragonReproductionHelper extends GOTDragonHelper {
-
-	public static Logger L = LogManager.getLogger();
 	public static String NBT_BREEDER = "HatchedBy";
 	public static String NBT_REPRODUCED = "HasReproduced";
 	public static String NBT_REPRO_COUNT = "ReproductionCount";
@@ -109,7 +106,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		String nameNew = new String(chars);
 
 		if (!nameOld.equals(nameNew)) {
-			L.debug("Fixed child name {} -> {}");
+			GOTLog.logger.debug("Fixed child name {} -> {}");
 		}
 
 		return nameNew;
@@ -120,7 +117,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 	}
 
 	public void setBreederName(String breederName) {
-		L.trace("setBreederName({})", breederName);
+		GOTLog.logger.trace("setBreederName({})", breederName);
 		dataWatcher.updateObject(dataIndexBreeder, breederName);
 	}
 
@@ -129,7 +126,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 	}
 
 	public void setReproCount(int reproCount) {
-		L.trace("setReproCount({})", reproCount);
+		GOTLog.logger.trace("setReproCount({})", reproCount);
 		dataWatcher.updateObject(dataIndexReproduced, reproCount);
 	}
 

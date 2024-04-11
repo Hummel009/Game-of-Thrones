@@ -11,8 +11,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketDeleteCWP implements IMessage {
-	public int wpID;
+	private int wpID;
 
+	@SuppressWarnings("unused")
 	public GOTPacketDeleteCWP() {
 	}
 
@@ -42,5 +43,4 @@ public class GOTPacketDeleteCWP implements IMessage {
 			return null;
 		}
 	}
-
 }

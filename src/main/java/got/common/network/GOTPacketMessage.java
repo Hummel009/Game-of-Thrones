@@ -9,8 +9,9 @@ import got.common.GOTGuiMessageTypes;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketMessage implements IMessage {
-	public GOTGuiMessageTypes message;
+	private GOTGuiMessageTypes message;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMessage() {
 	}
 
@@ -43,5 +44,4 @@ public class GOTPacketMessage implements IMessage {
 			return null;
 		}
 	}
-
 }

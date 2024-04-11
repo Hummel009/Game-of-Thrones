@@ -8,10 +8,11 @@ import got.common.faction.GOTFaction;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketConquestNotification implements IMessage {
-	public GOTFaction conqFac;
-	public float conqVal;
-	public boolean isCleansing;
+	private GOTFaction conqFac;
+	private float conqVal;
+	private boolean isCleansing;
 
+	@SuppressWarnings("unused")
 	public GOTPacketConquestNotification() {
 	}
 
@@ -45,5 +46,4 @@ public class GOTPacketConquestNotification implements IMessage {
 			return null;
 		}
 	}
-
 }

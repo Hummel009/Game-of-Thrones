@@ -29,5 +29,4 @@ public class GOTPacketSealCracker implements IMessage {
 			return null;
 		}
 	}
-
 }

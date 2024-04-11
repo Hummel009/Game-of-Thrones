@@ -10,9 +10,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketMiniquestOfferClose implements IMessage {
-	public int npcID;
-	public boolean accept;
+	private int npcID;
+	private boolean accept;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMiniquestOfferClose() {
 	}
 
@@ -46,5 +47,4 @@ public class GOTPacketMiniquestOfferClose implements IMessage {
 			return null;
 		}
 	}
-
 }

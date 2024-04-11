@@ -24,5 +24,4 @@ public class GOTPacketStopItemUse implements IMessage {
 			return null;
 		}
 	}
-
 }

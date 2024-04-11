@@ -13,10 +13,11 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketShareCWP implements IMessage {
-	public int wpID;
-	public String fsName;
-	public boolean adding;
+	private int wpID;
+	private String fsName;
+	private boolean adding;
 
+	@SuppressWarnings("unused")
 	public GOTPacketShareCWP() {
 	}
 
@@ -60,5 +61,4 @@ public class GOTPacketShareCWP implements IMessage {
 			return null;
 		}
 	}
-
 }

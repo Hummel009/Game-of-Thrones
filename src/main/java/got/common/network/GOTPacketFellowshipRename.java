@@ -12,8 +12,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipRename extends GOTPacketFellowshipDo {
-	public String newName;
+	private String newName;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipRename() {
 	}
 
@@ -50,5 +51,4 @@ public class GOTPacketFellowshipRename extends GOTPacketFellowshipDo {
 			return null;
 		}
 	}
-
 }

@@ -10,12 +10,13 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.NetHandlerPlayServer;
 
 public class GOTPacketMountControl implements IMessage {
-	public double posX;
-	public double posY;
-	public double posZ;
-	public float rotationYaw;
-	public float rotationPitch;
+	private double posX;
+	private double posY;
+	private double posZ;
+	private float rotationYaw;
+	private float rotationPitch;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMountControl() {
 	}
 
@@ -45,6 +46,26 @@ public class GOTPacketMountControl implements IMessage {
 		data.writeFloat(rotationPitch);
 	}
 
+	public double getPosX() {
+		return posX;
+	}
+
+	public double getPosY() {
+		return posY;
+	}
+
+	public double getPosZ() {
+		return posZ;
+	}
+
+	public float getRotationYaw() {
+		return rotationYaw;
+	}
+
+	public float getRotationPitch() {
+		return rotationPitch;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketMountControl, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketMountControl packet, MessageContext context) {
@@ -56,5 +77,4 @@ public class GOTPacketMountControl implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -9,8 +9,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketFTTimer implements IMessage {
-	public int timer;
+	private int timer;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFTTimer() {
 	}
 
@@ -36,5 +37,4 @@ public class GOTPacketFTTimer implements IMessage {
 			return null;
 		}
 	}
-
 }

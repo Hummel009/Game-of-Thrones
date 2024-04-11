@@ -9,8 +9,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.util.IChatComponent;
 
 public class GOTPacketFellowshipNotification implements IMessage {
-	public IChatComponent message;
+	private IChatComponent message;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipNotification() {
 	}
 
@@ -41,5 +42,4 @@ public class GOTPacketFellowshipNotification implements IMessage {
 			return null;
 		}
 	}
-
 }

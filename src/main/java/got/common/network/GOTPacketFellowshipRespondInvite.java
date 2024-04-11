@@ -11,8 +11,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketFellowshipRespondInvite extends GOTPacketFellowshipDo {
-	public boolean accept;
+	private boolean accept;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipRespondInvite() {
 	}
 
@@ -47,10 +48,9 @@ public class GOTPacketFellowshipRespondInvite extends GOTPacketFellowshipDo {
 				}
 			} else {
 				IMessage resultPacket = new GOTPacketFellowshipAcceptInviteResult(GOTPacketFellowshipAcceptInviteResult.AcceptInviteResult.NONEXISTENT);
-				GOTPacketHandler.networkWrapper.sendTo(resultPacket, entityplayer);
+				GOTPacketHandler.NETWORK_WRAPPER.sendTo(resultPacket, entityplayer);
 			}
 			return null;
 		}
 	}
-
 }

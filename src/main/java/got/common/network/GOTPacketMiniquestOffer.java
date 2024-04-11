@@ -19,9 +19,10 @@ import net.minecraft.world.World;
 import java.io.IOException;
 
 public class GOTPacketMiniquestOffer implements IMessage {
-	public int entityID;
-	public NBTTagCompound miniquestData;
+	private int entityID;
+	private NBTTagCompound miniquestData;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMiniquestOffer() {
 	}
 
@@ -36,7 +37,7 @@ public class GOTPacketMiniquestOffer implements IMessage {
 			return;
 		}
 		IMessage packet = new GOTPacketMiniquestOfferClose(npc.getEntityId(), accept);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
 
 	@Override
@@ -80,5 +81,4 @@ public class GOTPacketMiniquestOffer implements IMessage {
 			return null;
 		}
 	}
-
 }

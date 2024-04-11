@@ -10,9 +10,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCFX implements IMessage {
-	public int entityID;
-	public FXType type;
+	private int entityID;
+	private FXType type;
 
+	@SuppressWarnings("unused")
 	public GOTPacketNPCFX() {
 	}
 
@@ -61,5 +62,4 @@ public class GOTPacketNPCFX implements IMessage {
 			return null;
 		}
 	}
-
 }

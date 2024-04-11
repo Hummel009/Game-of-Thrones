@@ -120,14 +120,14 @@ public class GOTKeyHandler {
 		if (skippedHelp && GOTTickHandlerClient.renderMenuPrompt) {
 			GOTTickHandlerClient.renderMenuPrompt = false;
 			IMessage packet = new GOTPacketCheckMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
 		if (usedAlignmentKeys) {
 			GOTClientProxy.sendClientInfoPacket(currentFaction, lastViewedRegions);
 			alignmentChangeTick = 2;
 		}
 		if (KEY_BINDING_CARGO_CART.isPressed()) {
-			GOTPacketHandler.networkWrapper.sendToServer(new GOTPacketCargocartControl());
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(new GOTPacketCargocartControl());
 		}
 	}
 
@@ -142,7 +142,7 @@ public class GOTKeyHandler {
 		flags.set(0, KEY_BINDING_DRAGON_UP.getIsKeyPressed());
 		flags.set(1, KEY_BINDING_DRAGON_DOWN.getIsKeyPressed());
 		if (dcm.hasChanged()) {
-			GOTPacketHandler.networkWrapper.sendToServer(dcm);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(dcm);
 		}
 	}
 }

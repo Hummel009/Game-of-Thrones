@@ -26,5 +26,4 @@ public class GOTPacketMountOpenInv implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -68,7 +68,7 @@ public abstract class GOTGuiHireBase extends GuiContainer {
 			} else if (button == buttonHire) {
 				String squadron = squadronNameField.getText();
 				IMessage packet = new GOTPacketBuyUnit(currentTradeEntryIndex, squadron);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			} else if (button == buttonRightUnit && currentTradeEntryIndex < trades.getTradeEntries().length - 1) {
 				++currentTradeEntryIndex;
 			}

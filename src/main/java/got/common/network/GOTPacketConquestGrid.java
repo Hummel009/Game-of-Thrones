@@ -14,10 +14,11 @@ import java.util.Collection;
 import java.util.List;
 
 public class GOTPacketConquestGrid implements IMessage {
-	public GOTFaction conqFac;
-	public List<GOTConquestZone> allZones;
-	public long worldTime;
+	private GOTFaction conqFac;
+	private List<GOTConquestZone> allZones;
+	private long worldTime;
 
+	@SuppressWarnings("unused")
 	public GOTPacketConquestGrid() {
 	}
 
@@ -72,5 +73,4 @@ public class GOTPacketConquestGrid implements IMessage {
 			return null;
 		}
 	}
-
 }

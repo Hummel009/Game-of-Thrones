@@ -11,9 +11,10 @@ import net.minecraft.world.ChunkCoordIntPair;
 import net.minecraft.world.World;
 
 public class GOTPacketBiomeVariantsUnwatch implements IMessage {
-	public int chunkX;
-	public int chunkZ;
+	private int chunkX;
+	private int chunkZ;
 
+	@SuppressWarnings("unused")
 	public GOTPacketBiomeVariantsUnwatch() {
 	}
 
@@ -48,5 +49,4 @@ public class GOTPacketBiomeVariantsUnwatch implements IMessage {
 			return null;
 		}
 	}
-
 }

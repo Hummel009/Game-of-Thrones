@@ -12,9 +12,10 @@ import io.netty.buffer.ByteBuf;
 import java.util.UUID;
 
 public class GOTPacketCape implements IMessage {
-	public UUID player;
-	public GOTCapes cape;
+	private UUID player;
+	private GOTCapes cape;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCape() {
 	}
 
@@ -66,5 +67,4 @@ public class GOTPacketCape implements IMessage {
 			return null;
 		}
 	}
-
 }

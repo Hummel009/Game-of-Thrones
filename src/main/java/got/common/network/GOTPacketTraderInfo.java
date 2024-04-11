@@ -15,8 +15,9 @@ import net.minecraft.network.PacketBuffer;
 import java.io.IOException;
 
 public class GOTPacketTraderInfo implements IMessage {
-	public NBTTagCompound traderData;
+	private NBTTagCompound traderData;
 
+	@SuppressWarnings("unused")
 	public GOTPacketTraderInfo() {
 	}
 
@@ -44,6 +45,10 @@ public class GOTPacketTraderInfo implements IMessage {
 		}
 	}
 
+	public NBTTagCompound getTraderData() {
+		return traderData;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketTraderInfo, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketTraderInfo packet, MessageContext context) {
@@ -56,5 +61,4 @@ public class GOTPacketTraderInfo implements IMessage {
 			return null;
 		}
 	}
-
 }

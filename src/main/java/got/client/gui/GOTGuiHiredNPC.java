@@ -82,7 +82,7 @@ public abstract class GOTGuiHiredNPC extends GOTGuiScreenBase {
 
 	protected void sendActionPacket(int action, int value) {
 		IMessage packet = new GOTPacketHiredUnitCommand(theNPC.getEntityId(), page, action, value);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
 
 	@Override

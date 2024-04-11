@@ -74,7 +74,7 @@ public class GOTItemCommandSword extends GOTItemSword implements GOTSquadrons.Sq
 		if (anyAttackCommanded) {
 			Vec3 vec = hitTarget.hitVec;
 			IMessage lOTRPacketLocationFX = new GOTPacketLocationFX(GOTPacketLocationFX.Type.SWORD_COMMAND, vec.xCoord, vec.yCoord, vec.zCoord);
-			GOTPacketHandler.networkWrapper.sendTo(lOTRPacketLocationFX, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(lOTRPacketLocationFX, (EntityPlayerMP) entityplayer);
 		}
 	}
 

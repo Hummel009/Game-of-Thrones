@@ -151,7 +151,7 @@ public class GOTGuiHiredWarrior extends GOTGuiHiredNPC {
 		if (sendSquadronUpdate) {
 			String squadron = theNPC.hiredNPCInfo.getSquadron();
 			IMessage packet = new GOTPacketNPCSquadron(theNPC, squadron);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
 	}
 

@@ -18,8 +18,9 @@ import net.minecraft.server.MinecraftServer;
 import java.util.UUID;
 
 public class GOTPacketFellowshipInvitePlayer extends GOTPacketFellowshipDo {
-	public String invitedUsername;
+	private String invitedUsername;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipInvitePlayer() {
 	}
 
@@ -45,7 +46,7 @@ public class GOTPacketFellowshipInvitePlayer extends GOTPacketFellowshipDo {
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipInvitePlayer, IMessage> {
-		public UUID findInvitedPlayerUUID(String invitedUsername) {
+		protected UUID findInvitedPlayerUUID(String invitedUsername) {
 			GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152655_a(invitedUsername);
 			if (profile != null && profile.getId() != null) {
 				return profile.getId();
@@ -74,5 +75,4 @@ public class GOTPacketFellowshipInvitePlayer extends GOTPacketFellowshipDo {
 			return null;
 		}
 	}
-
 }

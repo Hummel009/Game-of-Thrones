@@ -12,12 +12,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTPacketOpenSignEditor implements IMessage {
-	public int posX;
-	public int posY;
-	public int posZ;
-	public Block blockType;
-	public int blockMeta;
+	private int posX;
+	private int posY;
+	private int posZ;
+	private Block blockType;
+	private int blockMeta;
 
+	@SuppressWarnings("unused")
 	public GOTPacketOpenSignEditor() {
 	}
 
@@ -57,5 +58,4 @@ public class GOTPacketOpenSignEditor implements IMessage {
 			return null;
 		}
 	}
-
 }

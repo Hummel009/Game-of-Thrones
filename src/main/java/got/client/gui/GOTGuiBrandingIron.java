@@ -88,7 +88,7 @@ public class GOTGuiBrandingIron extends GOTGuiScreenBase {
 		String brandName = brandNameField.getText();
 		if (!StringUtils.isBlank(brandName)) {
 			IMessage packet = new GOTPacketBrandingIron(brandName);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
 	}
 

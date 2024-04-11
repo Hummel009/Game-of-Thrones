@@ -14,10 +14,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.UUID;
 
 public class GOTPacketMiniquestRemove implements IMessage {
-	public UUID questUUID;
-	public boolean wasCompleted;
-	public boolean addToCompleted;
+	private UUID questUUID;
+	private boolean wasCompleted;
+	private boolean addToCompleted;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMiniquestRemove() {
 	}
 
@@ -62,5 +63,4 @@ public class GOTPacketMiniquestRemove implements IMessage {
 			return null;
 		}
 	}
-
 }

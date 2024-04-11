@@ -9,8 +9,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 
 public class GOTPacketHornSelect implements IMessage {
-	public int hornType;
+	private int hornType;
 
+	@SuppressWarnings("unused")
 	public GOTPacketHornSelect() {
 	}
 
@@ -39,5 +40,4 @@ public class GOTPacketHornSelect implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -10,10 +10,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketNPCIsOfferingQuest implements IMessage {
-	public int entityID;
-	public boolean offering;
-	public int offerColor;
+	private boolean offering;
+	private int offerColor;
+	private int entityID;
 
+	@SuppressWarnings("unused")
 	public GOTPacketNPCIsOfferingQuest() {
 	}
 
@@ -37,6 +38,14 @@ public class GOTPacketNPCIsOfferingQuest implements IMessage {
 		data.writeInt(offerColor);
 	}
 
+	public int getOfferColor() {
+		return offerColor;
+	}
+
+	public boolean isOffering() {
+		return offering;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketNPCIsOfferingQuest, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketNPCIsOfferingQuest packet, MessageContext context) {
@@ -48,5 +57,4 @@ public class GOTPacketNPCIsOfferingQuest implements IMessage {
 			return null;
 		}
 	}
-
 }

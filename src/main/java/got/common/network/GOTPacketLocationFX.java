@@ -9,11 +9,12 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.world.World;
 
 public class GOTPacketLocationFX implements IMessage {
-	public Type type;
-	public double posX;
-	public double posY;
-	public double posZ;
+	private Type type;
+	private double posX;
+	private double posY;
+	private double posZ;
 
+	@SuppressWarnings("unused")
 	public GOTPacketLocationFX() {
 	}
 

@@ -13,9 +13,11 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class GOTPacketAlignmentSee implements IMessage {
-	public String username;
-	public Map<GOTFaction, Float> alignmentMap = new EnumMap<>(GOTFaction.class);
+	private final Map<GOTFaction, Float> alignmentMap = new EnumMap<>(GOTFaction.class);
 
+	private String username;
+
+	@SuppressWarnings("unused")
 	public GOTPacketAlignmentSee() {
 	}
 
@@ -61,5 +63,4 @@ public class GOTPacketAlignmentSee implements IMessage {
 			return null;
 		}
 	}
-
 }

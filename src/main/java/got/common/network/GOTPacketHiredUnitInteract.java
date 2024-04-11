@@ -10,9 +10,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketHiredUnitInteract implements IMessage {
-	public int entityID;
-	public int entityAction;
+	private int entityID;
+	private int entityAction;
 
+	@SuppressWarnings("unused")
 	public GOTPacketHiredUnitInteract() {
 	}
 
@@ -58,5 +59,4 @@ public class GOTPacketHiredUnitInteract implements IMessage {
 			return null;
 		}
 	}
-
 }

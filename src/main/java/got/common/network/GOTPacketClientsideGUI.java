@@ -8,11 +8,12 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketClientsideGUI implements IMessage {
-	public int guiID;
-	public int guiX;
-	public int guiY;
-	public int guiZ;
+	private int guiID;
+	private int guiX;
+	private int guiY;
+	private int guiZ;
 
+	@SuppressWarnings("unused")
 	public GOTPacketClientsideGUI() {
 	}
 
@@ -47,5 +48,4 @@ public class GOTPacketClientsideGUI implements IMessage {
 			return null;
 		}
 	}
-
 }

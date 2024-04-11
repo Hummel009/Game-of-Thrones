@@ -13,9 +13,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketTraderInteract implements IMessage {
-	public int traderID;
-	public int traderAction;
+	private int traderID;
+	private int traderAction;
 
+	@SuppressWarnings("unused")
 	public GOTPacketTraderInteract() {
 	}
 
@@ -65,5 +66,4 @@ public class GOTPacketTraderInteract implements IMessage {
 			return null;
 		}
 	}
-
 }

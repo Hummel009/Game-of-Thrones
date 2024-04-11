@@ -22,5 +22,4 @@ public class GOTPacketCancelItemHighlight implements IMessage {
 			return null;
 		}
 	}
-
 }

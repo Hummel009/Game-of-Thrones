@@ -11,10 +11,11 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketBrokenPledge implements IMessage {
-	public int cooldown;
-	public int cooldownStart;
-	public GOTFaction brokenFac;
+	private int cooldown;
+	private int cooldownStart;
+	private GOTFaction brokenFac;
 
+	@SuppressWarnings("unused")
 	public GOTPacketBrokenPledge() {
 	}
 
@@ -56,5 +57,4 @@ public class GOTPacketBrokenPledge implements IMessage {
 			return null;
 		}
 	}
-
 }

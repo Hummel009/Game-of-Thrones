@@ -12,9 +12,10 @@ import io.netty.buffer.ByteBuf;
 import java.util.UUID;
 
 public class GOTPacketCWPSharedUnlockClient implements IMessage {
-	public int cwpID;
-	public UUID sharingPlayer;
+	private int cwpID;
+	private UUID sharingPlayer;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCWPSharedUnlockClient() {
 	}
 
@@ -47,5 +48,4 @@ public class GOTPacketCWPSharedUnlockClient implements IMessage {
 			return null;
 		}
 	}
-
 }

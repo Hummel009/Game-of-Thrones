@@ -12,9 +12,10 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketRenameCWP implements IMessage {
-	public int wpID;
-	public String name;
+	private int wpID;
+	private String name;
 
+	@SuppressWarnings("unused")
 	public GOTPacketRenameCWP() {
 	}
 
@@ -51,5 +52,4 @@ public class GOTPacketRenameCWP implements IMessage {
 			return null;
 		}
 	}
-
 }

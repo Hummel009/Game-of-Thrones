@@ -13,11 +13,12 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketHiredUnitCommand implements IMessage {
-	public int entityID;
-	public int page;
-	public int action;
-	public int value;
+	private int entityID;
+	private int page;
+	private int action;
+	private int value;
 
+	@SuppressWarnings("unused")
 	public GOTPacketHiredUnitCommand() {
 	}
 
@@ -100,5 +101,4 @@ public class GOTPacketHiredUnitCommand implements IMessage {
 			return null;
 		}
 	}
-
 }

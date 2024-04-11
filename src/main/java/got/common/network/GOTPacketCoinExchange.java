@@ -9,8 +9,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.Container;
 
 public class GOTPacketCoinExchange implements IMessage {
-	public int button;
+	private int button;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCoinExchange() {
 	}
 
@@ -40,5 +41,4 @@ public class GOTPacketCoinExchange implements IMessage {
 			return null;
 		}
 	}
-
 }

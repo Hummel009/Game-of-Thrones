@@ -10,8 +10,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketSelectCape implements IMessage {
-	public GOTCapes cape;
+	private GOTCapes cape;
 
+	@SuppressWarnings("unused")
 	public GOTPacketSelectCape() {
 	}
 
@@ -63,5 +64,4 @@ public class GOTPacketSelectCape implements IMessage {
 			return null;
 		}
 	}
-
 }

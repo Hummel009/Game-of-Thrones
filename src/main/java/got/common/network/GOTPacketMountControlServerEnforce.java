@@ -10,12 +10,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketMountControlServerEnforce implements IMessage {
-	public double posX;
-	public double posY;
-	public double posZ;
-	public float rotationYaw;
-	public float rotationPitch;
+	private double posX;
+	private double posY;
+	private double posZ;
+	private float rotationYaw;
+	private float rotationPitch;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMountControlServerEnforce() {
 	}
 
@@ -45,6 +46,26 @@ public class GOTPacketMountControlServerEnforce implements IMessage {
 		data.writeFloat(rotationPitch);
 	}
 
+	public float getRotationPitch() {
+		return rotationPitch;
+	}
+
+	public float getRotationYaw() {
+		return rotationYaw;
+	}
+
+	public double getPosZ() {
+		return posZ;
+	}
+
+	public double getPosY() {
+		return posY;
+	}
+
+	public double getPosX() {
+		return posX;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketMountControlServerEnforce, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketMountControlServerEnforce packet, MessageContext context) {
@@ -53,5 +74,4 @@ public class GOTPacketMountControlServerEnforce implements IMessage {
 			return null;
 		}
 	}
-
 }

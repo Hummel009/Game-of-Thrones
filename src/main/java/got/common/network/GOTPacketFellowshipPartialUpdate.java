@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
-	public UUID fellowshipID;
+	private UUID fellowshipID;
 
 	protected GOTPacketFellowshipPartialUpdate() {
 	}
@@ -43,11 +43,16 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 		data.writeLong(fellowshipID.getLeastSignificantBits());
 	}
 
-	public abstract void updateClient(GOTFellowshipClient var1);
+	protected abstract void updateClient(GOTFellowshipClient var1);
+
+	protected UUID getFellowshipID() {
+		return fellowshipID;
+	}
 
 	public static class AddMember extends OnePlayerUpdate {
-		public GOTTitle.PlayerTitle playerTitle;
+		protected GOTTitle.PlayerTitle playerTitle;
 
+		@SuppressWarnings("unused")
 		public AddMember() {
 		}
 
@@ -79,8 +84,9 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class ChangeIcon extends GOTPacketFellowshipPartialUpdate {
-		public ItemStack fellowshipIcon;
+		protected ItemStack fellowshipIcon;
 
+		@SuppressWarnings("unused")
 		public ChangeIcon() {
 		}
 
@@ -127,23 +133,23 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 	}
 
-	public abstract static class Handler<P extends GOTPacketFellowshipPartialUpdate> implements IMessageHandler<P, IMessage> {
+	private abstract static class Handler<P extends GOTPacketFellowshipPartialUpdate> implements IMessageHandler<P, IMessage> {
 		@Override
 		public IMessage onMessage(P packet, MessageContext context) {
 			EntityPlayer entityplayer = GOT.proxy.getClientPlayer();
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
-			GOTFellowshipClient fellowship = pd.getClientFellowshipByID(packet.fellowshipID);
+			GOTFellowshipClient fellowship = pd.getClientFellowshipByID(packet.getFellowshipID());
 			if (fellowship != null) {
 				packet.updateClient(fellowship);
 			} else {
-				GOTLog.logger.warn("Client couldn't find fellowship for ID {}", packet.fellowshipID);
+				GOTLog.logger.warn("Client couldn't find fellowship for ID {}", packet.getFellowshipID());
 			}
 			return null;
 		}
 	}
 
 	public abstract static class OnePlayerUpdate extends GOTPacketFellowshipPartialUpdate {
-		public GameProfile playerProfile;
+		protected GameProfile playerProfile;
 
 		protected OnePlayerUpdate() {
 		}
@@ -167,8 +173,9 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class RemoveAdmin extends OnePlayerUpdate {
-		public boolean isAdminned;
+		protected boolean isAdminned;
 
+		@SuppressWarnings("unused")
 		public RemoveAdmin() {
 		}
 
@@ -200,6 +207,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class RemoveMember extends OnePlayerUpdate {
+		@SuppressWarnings("unused")
 		public RemoveMember() {
 		}
 
@@ -218,7 +226,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class Rename extends GOTPacketFellowshipPartialUpdate {
-		public String fellowshipName;
+		protected String fellowshipName;
 
 		public Rename() {
 		}
@@ -255,8 +263,9 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class SetAdmin extends OnePlayerUpdate {
-		public boolean isAdminned;
+		protected boolean isAdminned;
 
+		@SuppressWarnings("unused")
 		public SetAdmin() {
 		}
 
@@ -288,8 +297,9 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class SetOwner extends OnePlayerUpdate {
-		public boolean isOwned;
+		protected boolean isOwned;
 
+		@SuppressWarnings("unused")
 		public SetOwner() {
 		}
 
@@ -321,8 +331,9 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class ToggleHiredFriendlyFire extends GOTPacketFellowshipPartialUpdate {
-		public boolean preventHiredFF;
+		protected boolean preventHiredFF;
 
+		@SuppressWarnings("unused")
 		public ToggleHiredFriendlyFire() {
 		}
 
@@ -354,8 +365,9 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class TogglePvp extends GOTPacketFellowshipPartialUpdate {
-		public boolean preventPVP;
+		protected boolean preventPVP;
 
+		@SuppressWarnings("unused")
 		public TogglePvp() {
 		}
 
@@ -387,8 +399,9 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class ToggleShowMap extends GOTPacketFellowshipPartialUpdate {
-		public boolean showMapLocations;
+		protected boolean showMapLocations;
 
+		@SuppressWarnings("unused")
 		public ToggleShowMap() {
 		}
 
@@ -420,8 +433,9 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 	}
 
 	public static class UpdatePlayerTitle extends OnePlayerUpdate {
-		public GOTTitle.PlayerTitle playerTitle;
+		protected GOTTitle.PlayerTitle playerTitle;
 
+		@SuppressWarnings("unused")
 		public UpdatePlayerTitle() {
 		}
 
@@ -449,7 +463,5 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 
 		public static class Handler extends GOTPacketFellowshipPartialUpdate.Handler<UpdatePlayerTitle> {
 		}
-
 	}
-
 }

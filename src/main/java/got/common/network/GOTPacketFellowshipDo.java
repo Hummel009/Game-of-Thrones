@@ -9,7 +9,7 @@ import io.netty.buffer.ByteBuf;
 import java.util.UUID;
 
 public abstract class GOTPacketFellowshipDo implements IMessage {
-	public UUID fellowshipID;
+	private UUID fellowshipID;
 
 	protected GOTPacketFellowshipDo() {
 	}
@@ -23,11 +23,11 @@ public abstract class GOTPacketFellowshipDo implements IMessage {
 		fellowshipID = new UUID(data.readLong(), data.readLong());
 	}
 
-	public GOTFellowship getActiveFellowship() {
+	protected GOTFellowship getActiveFellowship() {
 		return GOTFellowshipData.getActiveFellowship(fellowshipID);
 	}
 
-	public GOTFellowship getActiveOrDisbandedFellowship() {
+	protected GOTFellowship getActiveOrDisbandedFellowship() {
 		return GOTFellowshipData.getFellowship(fellowshipID);
 	}
 

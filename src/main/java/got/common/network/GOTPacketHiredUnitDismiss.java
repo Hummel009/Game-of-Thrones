@@ -10,9 +10,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketHiredUnitDismiss implements IMessage {
-	public int entityID;
-	public int action;
+	private int entityID;
+	private int action;
 
+	@SuppressWarnings("unused")
 	public GOTPacketHiredUnitDismiss() {
 	}
 
@@ -70,5 +71,4 @@ public class GOTPacketHiredUnitDismiss implements IMessage {
 			return null;
 		}
 	}
-
 }

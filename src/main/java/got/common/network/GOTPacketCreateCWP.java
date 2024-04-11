@@ -14,8 +14,9 @@ import net.minecraft.util.IChatComponent;
 import net.minecraft.world.World;
 
 public class GOTPacketCreateCWP implements IMessage {
-	public String name;
+	private String name;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCreateCWP() {
 	}
 
@@ -49,7 +50,7 @@ public class GOTPacketCreateCWP implements IMessage {
 				if (protection) {
 					IChatComponent clientMessage = protectionMessage[0];
 					IMessage packetMessage = new GOTPacketCWPProtectionMessage(clientMessage);
-					GOTPacketHandler.networkWrapper.sendTo(packetMessage, entityplayer);
+					GOTPacketHandler.NETWORK_WRAPPER.sendTo(packetMessage, entityplayer);
 				} else {
 					String wpName = GOTCustomWaypoint.validateCustomName(packet.name);
 					if (wpName != null) {
@@ -60,5 +61,4 @@ public class GOTPacketCreateCWP implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -9,9 +9,10 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketOptions implements IMessage {
-	public int option;
-	public boolean enable;
+	private int option;
+	private boolean enable;
 
+	@SuppressWarnings("unused")
 	public GOTPacketOptions() {
 	}
 
@@ -65,5 +66,4 @@ public class GOTPacketOptions implements IMessage {
 			return null;
 		}
 	}
-
 }

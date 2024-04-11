@@ -12,8 +12,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.UUID;
 
 public class GOTPacketMiniquestTrackClient implements IMessage {
-	public UUID questID;
+	private UUID questID;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMiniquestTrackClient() {
 	}
 
@@ -48,5 +49,4 @@ public class GOTPacketMiniquestTrackClient implements IMessage {
 			return null;
 		}
 	}
-
 }

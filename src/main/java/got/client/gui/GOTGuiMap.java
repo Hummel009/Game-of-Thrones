@@ -190,24 +190,24 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				} else if (creatingWaypointNew && isValidWaypointName(nameWPTextField.getText())) {
 					String waypointName = nameWPTextField.getText();
 					IMessage packet = new GOTPacketCreateCWP(waypointName);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 					closeOverlay();
 				} else if (deletingWaypoint) {
 					IMessage packet = new GOTPacketDeleteCWP(selectedWaypoint);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 					closeOverlay();
 					selectedWaypoint = null;
 				} else if (renamingWaypoint && isValidWaypointName(nameWPTextField.getText())) {
 					String newName = nameWPTextField.getText();
 					IMessage packet = new GOTPacketRenameCWP(selectedWaypoint, newName);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 					closeOverlay();
 				} else if (sharingWaypoint) {
 					openOverlayShareNew();
 				} else if (sharingWaypointNew && isExistingUnsharedFellowshipName(nameWPTextField.getText(), (GOTCustomWaypoint) selectedWaypoint)) {
 					String fsName = nameWPTextField.getText();
 					IMessage packet = new GOTPacketShareCWP(selectedWaypoint, fsName, true);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 					openOverlayShare();
 				}
 			} else if (button == buttonConquestRegions) {
@@ -1036,7 +1036,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		fellowshipDrawGUI.setWorldAndResolution(mc, width, height);
 		if (mc.currentScreen == this) {
 			IMessage packet = new GOTPacketClientMQEvent(GOTPacketClientMQEvent.ClientMQEvent.MAP);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
 	}
 
@@ -1097,13 +1097,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 				GOTPlayerData pd = GOTLevelData.getData(mc.thePlayer);
 				if (i == GOTKeyHandler.KEY_BINDING_FAST_TRAVEL.getKeyCode() && isGameOfThrones() && selectedWaypoint != null && selectedWaypoint.hasPlayerUnlocked(mc.thePlayer) && pd.getTimeSinceFT() >= pd.getWaypointFTTime(selectedWaypoint, mc.thePlayer)) {
 					IMessage packet = new GOTPacketFastTravel(selectedWaypoint);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 					mc.thePlayer.closeScreen();
 					return;
 				}
 				if (selectedWaypoint == null && i == GOTKeyHandler.KEY_BINDING_MAP_TELEPORT.getKeyCode() && isMouseWithinMap && canTeleport()) {
 					IMessage packet = new GOTPacketMapTp(mouseXCoord, mouseZCoord);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 					mc.thePlayer.closeScreen();
 					return;
 				}
@@ -1132,7 +1132,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (hasOverlay && k == 0 && sharingWaypoint && mouseOverRemoveSharedFellowship != null) {
 			String fsName = mouseOverRemoveSharedFellowship.getName();
 			packet = new GOTPacketShareCWP(selectedWaypoint, fsName, false);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			return;
 		}
 		if (!hasOverlay && k == 0 && isGameOfThrones() && selectedWaypoint instanceof GOTCustomWaypoint) {
@@ -1140,13 +1140,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			if (cwp.isShared()) {
 				if (mouseWidget == widgetHideSWP) {
 					packet = new GOTPacketCWPSharedHide(cwp, true);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 					selectedWaypoint = null;
 					return;
 				}
 				if (mouseWidget == widgetUnhideSWP) {
 					packet = new GOTPacketCWPSharedHide(cwp, false);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 					return;
 				}
 			} else {
@@ -1946,7 +1946,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		if (!requestedFacGrids.contains(conqFac) && ticksUntilRequestFac <= 0) {
 			requestedFacGrids.add(conqFac);
 			IMessage packet = new GOTPacketConquestGridRequest(conqFac);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
 	}
 
@@ -1956,7 +1956,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			isPlayerOp = server.worldServers[0].getWorldInfo().areCommandsAllowed() && server.getServerOwner().equalsIgnoreCase(mc.thePlayer.getGameProfile().getName());
 		} else {
 			IMessage packet = new GOTPacketIsOpRequest();
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
 	}
 

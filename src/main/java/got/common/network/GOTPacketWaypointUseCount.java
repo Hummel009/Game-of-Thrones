@@ -15,11 +15,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import java.util.UUID;
 
 public class GOTPacketWaypointUseCount implements IMessage {
-	public boolean isCustom;
-	public int wpID;
-	public int useCount;
-	public UUID sharingPlayer;
+	private boolean isCustom;
+	private int wpID;
+	private int useCount;
+	private UUID sharingPlayer;
 
+	@SuppressWarnings("unused")
 	public GOTPacketWaypointUseCount() {
 	}
 
@@ -76,5 +77,4 @@ public class GOTPacketWaypointUseCount implements IMessage {
 			return null;
 		}
 	}
-
 }

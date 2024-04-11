@@ -299,7 +299,7 @@ public class GOTLevelData {
 
 	public static void markGameOfThronesPortalLocation(int i, int j, int k) {
 		IMessage packet = new GOTPacketPortalPos(i, j, k);
-		GOTPacketHandler.networkWrapper.sendToAll(packet);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToAll(packet);
 		markDirty();
 	}
 
@@ -408,7 +408,7 @@ public class GOTLevelData {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
 			IMessage packet = new GOTPacketAlignment(entityplayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 
@@ -416,7 +416,7 @@ public class GOTLevelData {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
 			IMessage packet = new GOTPacketAlignment(worldPlayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -424,8 +424,8 @@ public class GOTLevelData {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
 			IMessage packet = new GOTPacketCape(worldPlayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -433,7 +433,7 @@ public class GOTLevelData {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
 			IMessage packet = new GOTPacketShield(worldPlayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
@@ -441,29 +441,29 @@ public class GOTLevelData {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
 			IMessage packet = new GOTPacketCape(entityplayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 		}
 	}
 
 	public static void sendLoginPacket(EntityPlayerMP entityplayer) {
 		GOTPacketLogin packet = new GOTPacketLogin();
-		packet.swordPortalX = gameOfThronesPortalX;
-		packet.swordPortalY = gameOfThronesPortalY;
-		packet.swordPortalZ = gameOfThronesPortalZ;
-		packet.ftCooldownMax = waypointCooldownMax;
-		packet.ftCooldownMin = waypointCooldownMin;
-		packet.difficulty = difficulty;
-		packet.difficultyLocked = difficultyLock;
-		packet.alignmentZones = enableAlignmentZones;
-		packet.feastMode = GOTConfig.canAlwaysEat;
-		packet.fellowshipCreation = GOTConfig.enableFellowshipCreation;
-		packet.fellowshipMaxSize = GOTConfig.fellowshipMaxSize;
-		packet.enchanting = GOTConfig.enchantingVanilla;
-		packet.enchantingGOT = GOTConfig.enchantingGOT;
-		packet.strictFactionTitleRequirements = GOTConfig.strictFactionTitleRequirements;
-		packet.customWaypointMinY = GOTConfig.customWaypointMinY;
-		GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+		packet.setSwordPortalX(gameOfThronesPortalX);
+		packet.setSwordPortalY(gameOfThronesPortalY);
+		packet.setSwordPortalZ(gameOfThronesPortalZ);
+		packet.setFtCooldownMax(waypointCooldownMax);
+		packet.setFtCooldownMin(waypointCooldownMin);
+		packet.setDifficulty(difficulty);
+		packet.setDifficultyLocked(difficultyLock);
+		packet.setAlignmentZones(enableAlignmentZones);
+		packet.setFeastMode(GOTConfig.canAlwaysEat);
+		packet.setFellowshipCreation(GOTConfig.enableFellowshipCreation);
+		packet.setFellowshipMaxSize(GOTConfig.fellowshipMaxSize);
+		packet.setEnchanting(GOTConfig.enchantingVanilla);
+		packet.setEnchantingGOT(GOTConfig.enchantingGOT);
+		packet.setStrictFactionTitleRequirements(GOTConfig.strictFactionTitleRequirements);
+		packet.setCustomWaypointMinY(GOTConfig.customWaypointMinY);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 	}
 
 	public static void sendPlayerData(EntityPlayerMP entityplayer) {
@@ -514,14 +514,14 @@ public class GOTLevelData {
 				}
 			}
 		}
-		GOTPacketHandler.networkWrapper.sendTo(packetLocations, (EntityPlayerMP) sendPlayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packetLocations, (EntityPlayerMP) sendPlayer);
 	}
 
 	public static void sendShieldToAllPlayersInWorld(Entity entityplayer, World world) {
 		List<EntityPlayer> players = world.playerEntities;
 		for (EntityPlayer worldPlayer : players) {
 			IMessage packet = new GOTPacketShield(entityplayer.getUniqueID());
-			GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) worldPlayer);
+			GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) worldPlayer);
 		}
 	}
 
@@ -532,7 +532,7 @@ public class GOTLevelData {
 			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 			for (EntityPlayerMP entityplayer : players) {
 				IMessage packet = new GOTPacketEnableAlignmentZones(enableAlignmentZones);
-				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 			}
 		}
 	}
@@ -579,7 +579,7 @@ public class GOTLevelData {
 			List<EntityPlayerMP> players = MinecraftServer.getServer().getConfigurationManager().playerEntityList;
 			for (EntityPlayerMP entityplayer : players) {
 				IMessage packet = new GOTPacketFTCooldown(waypointCooldownMax, waypointCooldownMin);
-				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 			}
 		}
 	}

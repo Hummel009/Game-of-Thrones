@@ -8,9 +8,10 @@ import got.common.entity.other.GOTEntityInvasionSpawner;
 import io.netty.buffer.ByteBuf;
 
 public class GOTPacketInvasionWatch implements IMessage {
-	public int invasionEntityID;
-	public boolean overrideAlreadyWatched;
+	private int invasionEntityID;
+	private boolean overrideAlreadyWatched;
 
+	@SuppressWarnings("unused")
 	public GOTPacketInvasionWatch() {
 	}
 
@@ -38,5 +39,4 @@ public class GOTPacketInvasionWatch implements IMessage {
 			return null;
 		}
 	}
-
 }

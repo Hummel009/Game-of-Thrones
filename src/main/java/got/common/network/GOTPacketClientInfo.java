@@ -15,12 +15,13 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class GOTPacketClientInfo implements IMessage {
-	public GOTFaction viewingFaction;
-	public Map<GOTDimension.DimensionRegion, GOTFaction> changedRegionMap;
-	public boolean showWP;
-	public boolean showCWP;
-	public boolean showHiddenSWP;
+	private GOTFaction viewingFaction;
+	private Map<GOTDimension.DimensionRegion, GOTFaction> changedRegionMap;
+	private boolean showWP;
+	private boolean showCWP;
+	private boolean showHiddenSWP;
 
+	@SuppressWarnings("unused")
 	public GOTPacketClientInfo() {
 	}
 
@@ -103,5 +104,4 @@ public class GOTPacketClientInfo implements IMessage {
 			return null;
 		}
 	}
-
 }

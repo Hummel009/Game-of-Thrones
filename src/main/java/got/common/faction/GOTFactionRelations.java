@@ -127,14 +127,14 @@ public class GOTFactionRelations {
 
 	public static void sendAllRelationsTo(EntityPlayerMP entityplayer) {
 		GOTPacketFactionRelations pkt = GOTPacketFactionRelations.fullMap(OVERRIDE_MAP);
-		GOTPacketHandler.networkWrapper.sendTo(pkt, entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(pkt, entityplayer);
 	}
 
 	private static void sendPacketToAll(IMessage packet) {
 		MinecraftServer srv = MinecraftServer.getServer();
 		if (srv != null) {
 			for (EntityPlayerMP entityplayer : (List<EntityPlayerMP>) srv.getConfigurationManager().playerEntityList) {
-				GOTPacketHandler.networkWrapper.sendTo(packet, entityplayer);
+				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, entityplayer);
 			}
 		}
 	}

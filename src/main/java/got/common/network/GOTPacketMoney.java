@@ -9,7 +9,7 @@ import net.minecraft.network.PacketBuffer;
 import java.io.IOException;
 
 public class GOTPacketMoney implements IMessage {
-	public ItemStack item;
+	private ItemStack item;
 
 	@Override
 	public void fromBytes(ByteBuf data) {

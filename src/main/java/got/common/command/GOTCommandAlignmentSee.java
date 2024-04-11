@@ -57,7 +57,7 @@ public class GOTCommandAlignmentSee extends CommandBase {
 			if (sender instanceof EntityPlayerMP) {
 				GOTPlayerData playerData = GOTLevelData.getData(profile.getId());
 				IMessage packet = new GOTPacketAlignmentSee(username, playerData);
-				GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) sender);
+				GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) sender);
 				return;
 			}
 		}

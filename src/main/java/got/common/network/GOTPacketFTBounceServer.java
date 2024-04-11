@@ -24,5 +24,4 @@ public class GOTPacketFTBounceServer implements IMessage {
 			return null;
 		}
 	}
-
 }

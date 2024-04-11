@@ -12,9 +12,10 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class GOTPacketWeaponFX implements IMessage {
-	public Type type;
-	public int entityID;
+	private Type type;
+	private int entityID;
 
+	@SuppressWarnings("unused")
 	public GOTPacketWeaponFX() {
 	}
 
@@ -97,5 +98,4 @@ public class GOTPacketWeaponFX implements IMessage {
 			return null;
 		}
 	}
-
 }

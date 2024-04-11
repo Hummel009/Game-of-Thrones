@@ -90,7 +90,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			}
 			if (button == buttonQuestDelete && deletingMiniquest != null) {
 				IMessage packet = new GOTPacketDeleteMiniquest(deletingMiniquest);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				deletingMiniquest = null;
 				selectedMiniquest = null;
 				diaryScroll = 0.0f;
@@ -554,7 +554,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 		GOTMiniQuest tracking = getPlayerData().getTrackingMiniQuest();
 		GOTMiniQuest newTracking = quest == tracking ? null : quest;
 		IMessage packet = new GOTPacketMiniquestTrack(newTracking);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		getPlayerData().setTrackingMiniQuest(newTracking);
 		trackTicks = 40;
 	}

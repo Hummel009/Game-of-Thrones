@@ -11,10 +11,11 @@ import io.netty.buffer.ByteBuf;
 import java.util.UUID;
 
 public class GOTPacketFellowshipAcceptInviteResult implements IMessage {
-	public UUID fellowshipID;
-	public String fellowshipName;
-	public AcceptInviteResult result;
+	private UUID fellowshipID;
+	private String fellowshipName;
+	private AcceptInviteResult result;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFellowshipAcceptInviteResult() {
 	}
 
@@ -58,7 +59,6 @@ public class GOTPacketFellowshipAcceptInviteResult implements IMessage {
 
 	public enum AcceptInviteResult {
 		JOINED, DISBANDED, TOO_LARGE, NONEXISTENT
-
 	}
 
 	public static class Handler implements IMessageHandler<GOTPacketFellowshipAcceptInviteResult, IMessage> {
@@ -68,5 +68,4 @@ public class GOTPacketFellowshipAcceptInviteResult implements IMessage {
 			return null;
 		}
 	}
-
 }

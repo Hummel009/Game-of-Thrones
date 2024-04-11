@@ -80,5 +80,4 @@ public class GOTPacketSell implements IMessage {
 			return null;
 		}
 	}
-
 }

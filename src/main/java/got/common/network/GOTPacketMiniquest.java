@@ -16,9 +16,10 @@ import net.minecraft.network.PacketBuffer;
 import java.io.IOException;
 
 public class GOTPacketMiniquest implements IMessage {
-	public NBTTagCompound miniquestData;
-	public boolean completed;
+	private NBTTagCompound miniquestData;
+	private boolean completed;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMiniquest() {
 	}
 
@@ -72,5 +73,4 @@ public class GOTPacketMiniquest implements IMessage {
 			return null;
 		}
 	}
-
 }

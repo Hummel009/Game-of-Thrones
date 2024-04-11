@@ -9,8 +9,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketCheckMenuPrompt implements IMessage {
-	public GOTPacketMenuPrompt.Type type;
+	private GOTPacketMenuPrompt.Type type;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCheckMenuPrompt() {
 	}
 

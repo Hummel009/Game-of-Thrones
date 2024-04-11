@@ -10,8 +10,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 
 public class GOTPacketSelectShield implements IMessage {
-	public GOTShields shield;
+	private GOTShields shield;
 
+	@SuppressWarnings("unused")
 	public GOTPacketSelectShield() {
 	}
 
@@ -63,5 +64,4 @@ public class GOTPacketSelectShield implements IMessage {
 			return null;
 		}
 	}
-
 }

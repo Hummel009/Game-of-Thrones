@@ -22,7 +22,7 @@ public class GOTGuiHiredInteractNoFunc extends GOTGuiNPCInteract {
 				return;
 			}
 			IMessage packet = new GOTPacketHiredUnitInteract(theEntity.getEntityId(), button.id);
-			GOTPacketHandler.networkWrapper.sendToServer(packet);
+			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}
 	}
 

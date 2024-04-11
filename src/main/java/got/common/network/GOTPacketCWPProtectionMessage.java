@@ -9,8 +9,9 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.util.IChatComponent;
 
 public class GOTPacketCWPProtectionMessage implements IMessage {
-	public IChatComponent message;
+	private IChatComponent message;
 
+	@SuppressWarnings("unused")
 	public GOTPacketCWPProtectionMessage() {
 	}
 
@@ -41,5 +42,4 @@ public class GOTPacketCWPProtectionMessage implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -12,8 +12,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import java.util.UUID;
 
 public class GOTPacketMiniquestTrack implements IMessage {
-	public UUID questID;
+	private UUID questID;
 
+	@SuppressWarnings("unused")
 	public GOTPacketMiniquestTrack() {
 	}
 
@@ -50,5 +51,4 @@ public class GOTPacketMiniquestTrack implements IMessage {
 			return null;
 		}
 	}
-
 }

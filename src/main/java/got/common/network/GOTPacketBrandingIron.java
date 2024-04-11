@@ -11,8 +11,9 @@ import net.minecraft.item.ItemStack;
 import org.apache.commons.lang3.StringUtils;
 
 public class GOTPacketBrandingIron implements IMessage {
-	public String brandName;
+	private String brandName;
 
+	@SuppressWarnings("unused")
 	public GOTPacketBrandingIron() {
 	}
 
@@ -53,5 +54,4 @@ public class GOTPacketBrandingIron implements IMessage {
 			return null;
 		}
 	}
-
 }

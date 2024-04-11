@@ -17,9 +17,10 @@ import net.minecraft.world.World;
 import java.io.IOException;
 
 public class GOTPacketNPCRespawner implements IMessage {
-	public int spawnerID;
-	public NBTTagCompound spawnerData;
+	private int spawnerID;
+	private NBTTagCompound spawnerData;
 
+	@SuppressWarnings("unused")
 	public GOTPacketNPCRespawner() {
 	}
 
@@ -65,5 +66,4 @@ public class GOTPacketNPCRespawner implements IMessage {
 			return null;
 		}
 	}
-
 }

@@ -14,9 +14,10 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
 
 public class GOTPacketUnitTraderInteract implements IMessage {
-	public int traderID;
-	public int traderAction;
+	private int traderID;
+	private int traderAction;
 
+	@SuppressWarnings("unused")
 	public GOTPacketUnitTraderInteract() {
 	}
 
@@ -31,7 +32,7 @@ public class GOTPacketUnitTraderInteract implements IMessage {
 		traderAction = data.readByte();
 	}
 
-	public void openTradeGUI(EntityPlayer entityplayer, GOTEntityNPC trader) {
+	protected void openTradeGUI(EntityPlayer entityplayer, GOTEntityNPC trader) {
 		entityplayer.openGui(GOT.instance, GOTGuiId.UNIT_TRADE.ordinal(), entityplayer.worldObj, trader.getEntityId(), 0, 0);
 	}
 
@@ -66,5 +67,4 @@ public class GOTPacketUnitTraderInteract implements IMessage {
 			return null;
 		}
 	}
-
 }

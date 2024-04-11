@@ -99,7 +99,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 
 	private void acceptInvitation(GOTFellowshipClient invite) {
 		IMessage packet = new GOTPacketFellowshipRespondInvite(invite, true);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
 
 	@Override
@@ -112,7 +112,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				if (checkValidFellowshipName(name) == null) {
 					name = StringUtils.trim(name);
 					IMessage packet = new GOTPacketFellowshipCreate(name);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				}
 				page = Page.LIST;
 			} else if (button == buttonInvitePlayer) {
@@ -122,39 +122,39 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				if (checkValidPlayerName(name) == null) {
 					name = StringUtils.trim(name);
 					IMessage packet = new GOTPacketFellowshipInvitePlayer(viewingFellowship, name);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				}
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonDisband) {
 				page = Page.DISBAND;
 			} else if (button == buttonDisbandThis) {
 				IMessage packet = new GOTPacketFellowshipDisband(viewingFellowship);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				page = Page.LIST;
 			} else if (button == buttonLeave) {
 				page = Page.LEAVE;
 			} else if (button == buttonLeaveThis) {
 				IMessage packet = new GOTPacketFellowshipLeave(viewingFellowship);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				page = Page.LIST;
 			} else if (button == buttonSetIcon) {
 				IMessage packet = new GOTPacketFellowshipSetIcon(viewingFellowship);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			} else if (button == buttonRemove) {
 				IMessage packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, removingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.REMOVE);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonOp) {
 				IMessage packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, oppingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.OP);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonDeop) {
 				IMessage packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, deoppingPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.DEOP);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonTransfer) {
 				IMessage packet = new GOTPacketFellowshipDoPlayer(viewingFellowship, transferringPlayer, GOTPacketFellowshipDoPlayer.PlayerFunction.TRANSFER);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonRename) {
 				page = Page.RENAME;
@@ -163,7 +163,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				if (checkValidFellowshipName(name) == null) {
 					name = StringUtils.trim(name);
 					IMessage packet = new GOTPacketFellowshipRename(viewingFellowship, name);
-					GOTPacketHandler.networkWrapper.sendToServer(packet);
+					GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 				}
 				page = Page.FELLOWSHIP;
 			} else if (button == buttonBack) {
@@ -172,13 +172,13 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 				page = Page.INVITATIONS;
 			} else if (button == buttonPVP) {
 				IMessage packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.PVP);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			} else if (button == buttonHiredFF) {
 				IMessage packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.HIRED_FF);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			} else if (button == buttonMapShow) {
 				IMessage packet = new GOTPacketFellowshipToggle(viewingFellowship, GOTPacketFellowshipToggle.ToggleFunction.MAP_SHOW);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			} else {
 				super.actionPerformed(button);
 			}
@@ -921,7 +921,7 @@ public class GOTGuiFellowships extends GOTGuiMenuBase {
 
 	private void rejectInvitation(GOTFellowshipClient invite) {
 		IMessage packet = new GOTPacketFellowshipRespondInvite(invite, false);
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
 
 	private void renderIconTooltip(int x, int y, String s) {

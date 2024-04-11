@@ -29,5 +29,4 @@ public class GOTPacketAnvilReforge implements IMessage {
 			return null;
 		}
 	}
-
 }

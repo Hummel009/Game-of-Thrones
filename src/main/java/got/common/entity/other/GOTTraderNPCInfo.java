@@ -175,7 +175,7 @@ public class GOTTraderNPCInfo {
 	}
 
 	public void receiveClientPacket(GOTPacketTraderInfo packet) {
-		NBTTagCompound nbt = packet.traderData;
+		NBTTagCompound nbt = packet.getTraderData();
 		readFromNBT(nbt);
 	}
 
@@ -199,7 +199,7 @@ public class GOTTraderNPCInfo {
 		NBTTagCompound nbt = new NBTTagCompound();
 		writeToNBT(nbt);
 		IMessage packet = new GOTPacketTraderInfo(nbt);
-		GOTPacketHandler.networkWrapper.sendTo(packet, (EntityPlayerMP) entityplayer);
+		GOTPacketHandler.NETWORK_WRAPPER.sendTo(packet, (EntityPlayerMP) entityplayer);
 	}
 
 	public void setAllTradesDelayed() {

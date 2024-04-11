@@ -9,6 +9,7 @@ import got.common.entity.other.GOTEntityNPC;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class GOTPacketMercenaryInteract extends GOTPacketUnitTraderInteract {
+	@SuppressWarnings("unused")
 	public GOTPacketMercenaryInteract() {
 	}
 
@@ -27,5 +28,4 @@ public class GOTPacketMercenaryInteract extends GOTPacketUnitTraderInteract {
 			return new GOTPacketUnitTraderInteract.Handler().onMessage(message, ctx);
 		}
 	}
-
 }

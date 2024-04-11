@@ -12,19 +12,20 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 
 public class GOTPacketHiredGui implements IMessage {
-	public int entityID;
-	public boolean openGui;
-	public boolean isActive;
-	public boolean canMove;
-	public boolean teleportAutomatically;
-	public int mobKills;
-	public int xp;
-	public float alignmentRequired;
-	public GOTUnitTradeEntry.PledgeType pledgeType;
-	public boolean inCombat;
-	public boolean guardMode;
-	public int guardRange;
+	private GOTUnitTradeEntry.PledgeType pledgeType;
+	private boolean teleportAutomatically;
+	private boolean isActive;
+	private boolean canMove;
+	private boolean openGui;
+	private boolean inCombat;
+	private boolean guardMode;
+	private float alignmentRequired;
+	private int guardRange;
+	private int entityID;
+	private int mobKills;
+	private int xp;
 
+	@SuppressWarnings("unused")
 	public GOTPacketHiredGui() {
 	}
 
@@ -65,6 +66,86 @@ public class GOTPacketHiredGui implements IMessage {
 		data.writeInt(guardRange);
 	}
 
+	public boolean isActive() {
+		return isActive;
+	}
+
+	public void setActive(boolean active) {
+		isActive = active;
+	}
+
+	public boolean isCanMove() {
+		return canMove;
+	}
+
+	public void setCanMove(boolean canMove) {
+		this.canMove = canMove;
+	}
+
+	public boolean isTeleportAutomatically() {
+		return teleportAutomatically;
+	}
+
+	public void setTeleportAutomatically(boolean teleportAutomatically) {
+		this.teleportAutomatically = teleportAutomatically;
+	}
+
+	public int getMobKills() {
+		return mobKills;
+	}
+
+	public void setMobKills(int mobKills) {
+		this.mobKills = mobKills;
+	}
+
+	public int getXp() {
+		return xp;
+	}
+
+	public void setXp(int xp) {
+		this.xp = xp;
+	}
+
+	public float getAlignmentRequired() {
+		return alignmentRequired;
+	}
+
+	public void setAlignmentRequired(float alignmentRequired) {
+		this.alignmentRequired = alignmentRequired;
+	}
+
+	public GOTUnitTradeEntry.PledgeType getPledgeType() {
+		return pledgeType;
+	}
+
+	public void setPledgeType(GOTUnitTradeEntry.PledgeType pledgeType) {
+		this.pledgeType = pledgeType;
+	}
+
+	public boolean isInCombat() {
+		return inCombat;
+	}
+
+	public void setInCombat(boolean inCombat) {
+		this.inCombat = inCombat;
+	}
+
+	public boolean isGuardMode() {
+		return guardMode;
+	}
+
+	public void setGuardMode(boolean guardMode) {
+		this.guardMode = guardMode;
+	}
+
+	public int getGuardRange() {
+		return guardRange;
+	}
+
+	public void setGuardRange(int guardRange) {
+		this.guardRange = guardRange;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketHiredGui, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketHiredGui packet, MessageContext context) {
@@ -83,5 +164,4 @@ public class GOTPacketHiredGui implements IMessage {
 			return null;
 		}
 	}
-
 }

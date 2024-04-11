@@ -80,7 +80,7 @@ public class GOTContainerCracker extends Container {
 
 	public void sendSealingPacket() {
 		IMessage packet = new GOTPacketSealCracker();
-		GOTPacketHandler.networkWrapper.sendToServer(packet);
+		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 	}
 
 	@Override

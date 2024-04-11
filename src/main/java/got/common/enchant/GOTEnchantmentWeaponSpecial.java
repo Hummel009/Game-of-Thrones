@@ -32,7 +32,7 @@ public class GOTEnchantmentWeaponSpecial extends GOTEnchantment {
 		entity.addPotionEffect(new PotionEffect(Potion.moveSlowdown.id, duration * 20, 1));
 
 		IMessage packet = new GOTPacketWeaponFX(GOTPacketWeaponFX.Type.CHILLING, entity);
-		GOTPacketHandler.networkWrapper.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
+		GOTPacketHandler.NETWORK_WRAPPER.sendToAllAround(packet, GOTPacketHandler.nearEntity(entity, 64.0D));
 	}
 
 	public static int getFireAmount() {

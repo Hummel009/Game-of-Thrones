@@ -13,10 +13,11 @@ import io.netty.buffer.ByteBuf;
 import java.util.UUID;
 
 public class GOTPacketShareCWPClient implements IMessage {
-	public int cwpID;
-	public UUID fellowshipID;
-	public boolean adding;
+	private int cwpID;
+	private UUID fellowshipID;
+	private boolean adding;
 
+	@SuppressWarnings("unused")
 	public GOTPacketShareCWPClient() {
 	}
 
@@ -59,5 +60,4 @@ public class GOTPacketShareCWPClient implements IMessage {
 			return null;
 		}
 	}
-
 }

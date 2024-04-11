@@ -11,12 +11,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.world.World;
 
 public class GOTPacketFamilyInfo implements IMessage {
-	public int entityID;
-	public int age;
-	public boolean isMale;
-	public String name;
-	public boolean isDrunk;
+	private int age;
+	private boolean isMale;
+	private String name;
+	private boolean isDrunk;
+	private int entityID;
 
+	@SuppressWarnings("unused")
 	public GOTPacketFamilyInfo() {
 	}
 
@@ -55,6 +56,22 @@ public class GOTPacketFamilyInfo implements IMessage {
 		data.writeBoolean(isDrunk);
 	}
 
+	public boolean isDrunk() {
+		return isDrunk;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public boolean isMale() {
+		return isMale;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
 	public static class Handler implements IMessageHandler<GOTPacketFamilyInfo, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketFamilyInfo packet, MessageContext context) {
@@ -66,5 +83,4 @@ public class GOTPacketFamilyInfo implements IMessage {
 			return null;
 		}
 	}
-
 }

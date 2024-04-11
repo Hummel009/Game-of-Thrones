@@ -32,7 +32,7 @@ public class GOTGuiCoinExchange extends GuiContainer {
 		if (button.enabled) {
 			if (button == buttonLeft || button == buttonRight) {
 				IMessage packet = new GOTPacketCoinExchange(button.id);
-				GOTPacketHandler.networkWrapper.sendToServer(packet);
+				GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 			} else {
 				super.actionPerformed(button);
 			}
