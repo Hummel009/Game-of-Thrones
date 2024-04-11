@@ -118,8 +118,8 @@ public class GOTKeyHandler {
 				}
 			}
 		}
-		if (skippedHelp && GOTTickHandlerClient.renderMenuPrompt) {
-			GOTTickHandlerClient.renderMenuPrompt = false;
+		if (skippedHelp && GOTTickHandlerClient.isRenderMenuPrompt()) {
+			GOTTickHandlerClient.setRenderMenuPrompt(false);
 			IMessage packet = new GOTPacketCheckMenuPrompt(GOTPacketMenuPrompt.Type.MENU);
 			GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
 		}

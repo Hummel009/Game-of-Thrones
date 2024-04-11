@@ -266,7 +266,7 @@ public class GOTNPCRendering {
 			float minV = icon.getMinV();
 			float maxV = icon.getMaxV();
 			if (aboveHead) {
-				float age = npc.ticksExisted + GOTTickHandlerClient.renderTick;
+				float age = npc.ticksExisted + GOTTickHandlerClient.getRenderTick();
 				float rotation = age % 360.0f;
 				GL11.glPushMatrix();
 				GL11.glEnable(32826);

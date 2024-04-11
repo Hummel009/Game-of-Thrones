@@ -18,8 +18,7 @@ import java.util.EnumMap;
 import java.util.Map;
 
 public class GOTRenderBow implements IItemRenderer {
-	@SuppressWarnings("PublicField")
-	public static boolean renderingWeaponRack;
+	private static boolean renderingWeaponRack;
 
 	private final GOTRenderLargeItem largeItemRenderer;
 
@@ -36,6 +35,14 @@ public class GOTRenderBow implements IItemRenderer {
 				}
 			}
 		}
+	}
+
+	public static boolean isRenderingWeaponRack() {
+		return renderingWeaponRack;
+	}
+
+	public static void setRenderingWeaponRack(boolean renderingWeaponRack) {
+		GOTRenderBow.renderingWeaponRack = renderingWeaponRack;
 	}
 
 	@Override

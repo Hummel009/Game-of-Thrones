@@ -14,8 +14,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import java.util.Random;
 
 public class GOTMusicTicker {
-	@SuppressWarnings("PublicField")
-	public static GOTMusicTrack currentTrack;
+	private static GOTMusicTrack currentTrack;
 
 	private static boolean wasPlayingMenu = true;
 	private static int timing = 100;
@@ -113,5 +112,8 @@ public class GOTMusicTicker {
 			}
 		}
 	}
-}
 
+	public static GOTMusicTrack getCurrentTrack() {
+		return currentTrack;
+	}
+}

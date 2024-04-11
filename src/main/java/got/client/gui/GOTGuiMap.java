@@ -59,14 +59,9 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	private static final int FAC_SCROLL_WIDGET_WIDTH = 17;
 	private static final int ZOOM_TICKS_MAX = 6;
 
-	@SuppressWarnings("PublicField")
-	public static boolean showWP = true;
-
-	@SuppressWarnings("PublicField")
-	public static boolean showCWP = true;
-
-	@SuppressWarnings("PublicField")
-	public static boolean showHiddenSWP;
+	private static boolean showWP = true;
+	private static boolean showCWP = true;
+	private static boolean showHiddenSWP;
 
 	private static boolean fullscreen = true;
 	private static int mapWidth;
@@ -184,6 +179,30 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		mapYMin = ymin;
 		mapYMax = ymax;
 		return ret;
+	}
+
+	public static boolean isShowWP() {
+		return showWP;
+	}
+
+	public static void setShowWP(boolean showWP) {
+		GOTGuiMap.showWP = showWP;
+	}
+
+	public static boolean isShowCWP() {
+		return showCWP;
+	}
+
+	public static void setShowCWP(boolean showCWP) {
+		GOTGuiMap.showCWP = showCWP;
+	}
+
+	public static boolean isShowHiddenSWP() {
+		return showHiddenSWP;
+	}
+
+	public static void setShowHiddenSWP(boolean showHiddenSWP) {
+		GOTGuiMap.showHiddenSWP = showHiddenSWP;
 	}
 
 	@Override

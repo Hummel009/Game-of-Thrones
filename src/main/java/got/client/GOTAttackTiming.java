@@ -19,14 +19,9 @@ public class GOTAttackTiming {
 	private static final ResourceLocation METER_TEXTURE = new ResourceLocation("got:textures/gui/attackMeter.png");
 	private static final RenderItem ITEM_RENDERER = new RenderItem();
 
-	@SuppressWarnings("PublicField")
-	public static int attackTime;
-
-	@SuppressWarnings("PublicField")
-	public static int prevAttackTime;
-
-	@SuppressWarnings("PublicField")
-	public static int fullAttackTime;
+	private static int attackTime;
+	private static int prevAttackTime;
+	private static int fullAttackTime;
 
 	private static ItemStack attackItem;
 	private static int lastCheckTick = -1;
@@ -36,7 +31,7 @@ public class GOTAttackTiming {
 
 	@SuppressWarnings("StatementWithEmptyBody")
 	public static void doAttackTiming() {
-		int currentTick = GOTTickHandlerClient.clientTick;
+		int currentTick = GOTTickHandlerClient.getClientTick();
 		if (lastCheckTick == -1) {
 			lastCheckTick = currentTick;
 		} else if (lastCheckTick == currentTick) {
@@ -128,5 +123,17 @@ public class GOTAttackTiming {
 		} else {
 			reset();
 		}
+	}
+
+	public static int getAttackTime() {
+		return attackTime;
+	}
+
+	public static int getPrevAttackTime() {
+		return prevAttackTime;
+	}
+
+	public static int getFullAttackTime() {
+		return fullAttackTime;
 	}
 }

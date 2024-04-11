@@ -97,23 +97,13 @@ public class GOTTickHandlerClient {
 	private static final float[] FROST_RGB_MIDDLE = {0.4F, 0.46F, 0.74F};
 	private static final float[] FROST_RGB_EDGE = {1.0F, 1.0F, 1.0F};
 
-	@SuppressWarnings("PublicField")
-	public static int clientTick;
+	private static int clientTick;
+	private static float renderTick;
+	private static boolean anyWightsViewed;
+	private static boolean renderMenuPrompt;
 
-	@SuppressWarnings("PublicField")
-	public static float renderTick;
-
-	@SuppressWarnings("PublicField")
-	public static boolean anyWightsViewed;
-
-	@SuppressWarnings("PublicField")
-	public static boolean renderMenuPrompt;
-
-	@SuppressWarnings("PublicField")
-	public static GOTGuiMiniquestTracker miniquestTracker;
-
-	@SuppressWarnings("PublicField")
-	public static GOTGuiNotificationDisplay notificationDisplay;
+	private static GOTGuiMiniquestTracker miniquestTracker;
+	private static GOTGuiNotificationDisplay notificationDisplay;
 
 	private final GOTAmbience ambienceTicker;
 
@@ -358,6 +348,38 @@ public class GOTTickHandlerClient {
 			drawAlignmentText(fr, textX - fr.getStringWidth(alignS) / 2, textY + fr.FONT_HEIGHT + 3, alignS, alignAlpha);
 			GL11.glDisable(3042);
 		}
+	}
+
+	public static int getClientTick() {
+		return clientTick;
+	}
+
+	public static float getRenderTick() {
+		return renderTick;
+	}
+
+	public static boolean isAnyWightsViewed() {
+		return anyWightsViewed;
+	}
+
+	public static void setAnyWightsViewed(boolean anyWightsViewed) {
+		GOTTickHandlerClient.anyWightsViewed = anyWightsViewed;
+	}
+
+	public static boolean isRenderMenuPrompt() {
+		return renderMenuPrompt;
+	}
+
+	public static void setRenderMenuPrompt(boolean renderMenuPrompt) {
+		GOTTickHandlerClient.renderMenuPrompt = renderMenuPrompt;
+	}
+
+	public static GOTGuiMiniquestTracker getMiniquestTracker() {
+		return miniquestTracker;
+	}
+
+	public static GOTGuiNotificationDisplay getNotificationDisplay() {
+		return notificationDisplay;
 	}
 
 	@SubscribeEvent
@@ -714,7 +736,7 @@ public class GOTTickHandlerClient {
 					if (minecraft.gameSettings.particleSetting < 2) {
 						spawnEnvironmentFX(entityplayer, world);
 					}
-					GOTClientProxy.customEffectRenderer.updateEffects();
+					GOTClientProxy.getCustomEffectRenderer().updateEffects();
 					if (minecraft.renderViewEntity.isPotionActive(Potion.confusion.id)) {
 						float drunkenness = minecraft.renderViewEntity.getActivePotionEffect(Potion.confusion).getDuration();
 						drunkenness /= 20.0F;
@@ -760,9 +782,9 @@ public class GOTTickHandlerClient {
 					}
 				}
 			}
-			GOTClientProxy.musicHandler.update();
+			GOTClientProxy.getMusicHandler().update();
 			if (GOTConfig.displayMusicTrack) {
-				GOTMusicTrack nowPlaying = GOTMusicTicker.currentTrack;
+				GOTMusicTrack nowPlaying = GOTMusicTicker.getCurrentTrack();
 				if (nowPlaying != lastTrack) {
 					lastTrack = nowPlaying;
 					musicTrackTick = 200;
@@ -1292,7 +1314,7 @@ public class GOTTickHandlerClient {
 		}
 		mc.entityRenderer.enableLightmap(f);
 		RenderHelper.disableStandardItemLighting();
-		GOTClientProxy.customEffectRenderer.renderParticles(mc.renderViewEntity, f);
+		GOTClientProxy.getCustomEffectRenderer().renderParticles(mc.renderViewEntity, f);
 		mc.entityRenderer.disableLightmap(f);
 		if (Minecraft.isGuiEnabled() && mc.entityRenderer.debugViewDirection == 0) {
 			mc.mcProfiler.startSection("gotSpeech");
@@ -1304,7 +1326,7 @@ public class GOTTickHandlerClient {
 	@SubscribeEvent
 	public void onWorldLoad(WorldEvent.Load event) {
 		if (event.world instanceof WorldClient) {
-			GOTClientProxy.customEffectRenderer.clearEffectsAndSetWorld();
+			GOTClientProxy.getCustomEffectRenderer().clearEffectsAndSetWorld();
 		}
 	}
 

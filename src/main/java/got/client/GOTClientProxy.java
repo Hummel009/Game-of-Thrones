@@ -82,11 +82,8 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	private static final ResourceLocation CUSTOM_POTIONS_TEXTURE = new ResourceLocation("got:textures/gui/effects.png");
 
-	@SuppressWarnings("PublicField")
-	public static GOTMusic musicHandler;
-
-	@SuppressWarnings("PublicField")
-	public static GOTEffectRenderer customEffectRenderer;
+	private static GOTMusic musicHandler;
+	private static GOTEffectRenderer customEffectRenderer;
 
 	private int beaconRenderID;
 	private int barrelRenderID;
@@ -167,11 +164,19 @@ public class GOTClientProxy extends GOTCommonProxy {
 	}
 
 	public static void sendClientInfoPacket(GOTFaction viewingFaction, Map<GOTDimension.DimensionRegion, GOTFaction> changedRegionMap) {
-		boolean showWP = GOTGuiMap.showWP;
-		boolean showCWP = GOTGuiMap.showCWP;
-		boolean showHiddenSWP = GOTGuiMap.showHiddenSWP;
+		boolean showWP = GOTGuiMap.isShowWP();
+		boolean showCWP = GOTGuiMap.isShowCWP();
+		boolean showHiddenSWP = GOTGuiMap.isShowHiddenSWP();
 		IMessage packet = new GOTPacketClientInfo(viewingFaction, changedRegionMap, showWP, showCWP, showHiddenSWP);
 		GOTPacketHandler.NETWORK_WRAPPER.sendToServer(packet);
+	}
+
+	public static GOTMusic getMusicHandler() {
+		return musicHandler;
+	}
+
+	public static GOTEffectRenderer getCustomEffectRenderer() {
+		return customEffectRenderer;
 	}
 
 	@Override
@@ -227,7 +232,7 @@ public class GOTClientProxy extends GOTCommonProxy {
 	@Override
 	public void displayMenuPrompt(GOTPacketMenuPrompt.Type type) {
 		if (type == GOTPacketMenuPrompt.Type.MENU) {
-			GOTTickHandlerClient.renderMenuPrompt = true;
+			GOTTickHandlerClient.setRenderMenuPrompt(true);
 		}
 	}
 
@@ -581,17 +586,17 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void queueAchievement(GOTAchievement achievement) {
-		GOTTickHandlerClient.notificationDisplay.queueAchievement(achievement);
+		GOTTickHandlerClient.getNotificationDisplay().queueAchievement(achievement);
 	}
 
 	@Override
 	public void queueConquestNotification(GOTFaction fac, float conq, boolean isCleansing) {
-		GOTTickHandlerClient.notificationDisplay.queueConquest(fac, conq, isCleansing);
+		GOTTickHandlerClient.getNotificationDisplay().queueConquest(fac, conq, isCleansing);
 	}
 
 	@Override
 	public void queueFellowshipNotification(IChatComponent message) {
-		GOTTickHandlerClient.notificationDisplay.queueFellowshipNotification(message);
+		GOTTickHandlerClient.getNotificationDisplay().queueFellowshipNotification(message);
 	}
 
 	@Override
@@ -650,14 +655,14 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	@Override
 	public void setTrackedQuest(GOTMiniQuest quest) {
-		GOTTickHandlerClient.miniquestTracker.setTrackedQuest(quest);
+		GOTTickHandlerClient.getMiniquestTracker().setTrackedQuest(quest);
 	}
 
 	@Override
 	public void setWaypointModes(boolean showWP, boolean showCWP, boolean showHiddenSWP) {
-		GOTGuiMap.showWP = showWP;
-		GOTGuiMap.showCWP = showCWP;
-		GOTGuiMap.showHiddenSWP = showHiddenSWP;
+		GOTGuiMap.setShowWP(showWP);
+		GOTGuiMap.setShowCWP(showCWP);
+		GOTGuiMap.setShowHiddenSWP(showHiddenSWP);
 	}
 
 	@Override

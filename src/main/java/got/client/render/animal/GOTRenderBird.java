@@ -18,11 +18,19 @@ import java.util.Map;
 public class GOTRenderBird extends RenderLiving {
 	private static final Map<String, GOTRandomSkins> BIRD_TEXTURES = new HashMap<>();
 
-	@SuppressWarnings("PublicField")
-	public static boolean renderStolenItem = true;
+	private static boolean renderStolenItem = true;
 
 	public GOTRenderBird() {
 		super(new GOTModelBird(), 0.2f);
+	}
+
+	@SuppressWarnings("unused")
+	public static boolean isRenderStolenItem() {
+		return renderStolenItem;
+	}
+
+	public static void setRenderStolenItem(boolean renderStolenItem) {
+		GOTRenderBird.renderStolenItem = renderStolenItem;
 	}
 
 	private GOTRandomSkins getBirdSkins(String s) {

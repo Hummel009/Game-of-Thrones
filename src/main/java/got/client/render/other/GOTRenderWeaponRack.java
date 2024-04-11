@@ -71,7 +71,7 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 			if (weaponItem.getItem().requiresMultipleRenderPasses()) {
 				passes = weaponItem.getItem().getRenderPasses(weaponItem.getItemDamage());
 			}
-			GOTRenderBow.renderingWeaponRack = true;
+			GOTRenderBow.setRenderingWeaponRack(true);
 			for (int pass = 0; pass < passes; ++pass) {
 				int color = weaponItem.getItem().getColorFromItemStack(weaponItem, pass);
 				float r = (color >> 16 & 0xFF) / 255.0f;
@@ -80,7 +80,7 @@ public class GOTRenderWeaponRack extends TileEntitySpecialRenderer {
 				GL11.glColor4f(r, g, b, 1.0f);
 				renderManager.itemRenderer.renderItem(weaponRack.getEntityForRender(), weaponItem, 0, IItemRenderer.ItemRenderType.EQUIPPED);
 			}
-			GOTRenderBow.renderingWeaponRack = false;
+			GOTRenderBow.setRenderingWeaponRack(false);
 		}
 		GL11.glEnable(2884);
 		GL11.glDisable(32826);

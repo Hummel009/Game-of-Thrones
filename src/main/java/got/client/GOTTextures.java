@@ -50,11 +50,8 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	private static final int NEW_WATER_WIDTH = 64;
 	private static final int NEW_WATER_HEIGHT = 8;
 
-	@SuppressWarnings("PublicField")
-	public static ResourceLocation mapTexture;
-
-	@SuppressWarnings("PublicField")
-	public static ResourceLocation sepiaMapTexture;
+	private static ResourceLocation mapTexture;
+	private static ResourceLocation sepiaMapTexture;
 
 	public static int computeAverageFactionPageColor(ResourceLocation texture, int u0, int v0, int u1, int v1) {
 		if (!AVERAGED_PAGE_COLORS.containsKey(texture)) {
@@ -414,6 +411,24 @@ public class GOTTextures implements IResourceManagerReloadListener {
 			FMLLog.severe("Failed to replace rain particles");
 			e.printStackTrace();
 		}
+	}
+
+	@SuppressWarnings("unused")
+	public static ResourceLocation getMapTexture() {
+		return mapTexture;
+	}
+
+	public static void setMapTexture(ResourceLocation mapTexture) {
+		GOTTextures.mapTexture = mapTexture;
+	}
+
+	@SuppressWarnings("unused")
+	public static ResourceLocation getSepiaMapTexture() {
+		return sepiaMapTexture;
+	}
+
+	public static void setSepiaMapTexture(ResourceLocation sepiaMapTexture) {
+		GOTTextures.sepiaMapTexture = sepiaMapTexture;
 	}
 
 	@Override
