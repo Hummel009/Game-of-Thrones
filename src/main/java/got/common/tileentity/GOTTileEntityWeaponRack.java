@@ -45,10 +45,11 @@ public class GOTTileEntityWeaponRack extends TileEntity {
 	}
 
 	public void setWeaponItem(ItemStack item) {
-		if (item != null && item.stackSize <= 0) {
-			item = null;
+		ItemStack item1 = item;
+		if (item1 != null && item1.stackSize <= 0) {
+			item1 = null;
 		}
-		weaponItem = item;
+		weaponItem = item1;
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
 	}

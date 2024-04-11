@@ -20,13 +20,7 @@ public class GOTTileEntityPlate extends TileEntity {
 
 	public static boolean isValidFoodItem(ItemStack itemstack) {
 		Item item;
-		if (itemstack != null && (item = itemstack.getItem()) instanceof ItemFood) {
-			if (item instanceof ItemSoup) {
-				return false;
-			}
-			return !item.hasContainerItem(itemstack);
-		}
-		return false;
+		return itemstack != null && (item = itemstack.getItem()) instanceof ItemFood && !(item instanceof ItemSoup) && !item.hasContainerItem(itemstack);
 	}
 
 	@Override
@@ -41,10 +35,11 @@ public class GOTTileEntityPlate extends TileEntity {
 	}
 
 	public void setFoodItem(ItemStack item) {
-		if (item != null && item.stackSize <= 0) {
-			item = null;
+		ItemStack item1 = item;
+		if (item1 != null && item1.stackSize <= 0) {
+			item1 = null;
 		}
-		foodItem = item;
+		foodItem = item1;
 		if (worldObj != null) {
 			worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		}
@@ -56,7 +51,7 @@ public class GOTTileEntityPlate extends TileEntity {
 	public AxisAlignedBB getRenderBoundingBox() {
 		AxisAlignedBB bb = super.getRenderBoundingBox();
 		if (foodItem != null) {
-			bb = bb.addCoord(0.0, foodItem.stackSize * 0.03125f, 0.0);
+			return bb.addCoord(0.0, foodItem.stackSize * 0.03125f, 0.0);
 		}
 		return bb;
 	}

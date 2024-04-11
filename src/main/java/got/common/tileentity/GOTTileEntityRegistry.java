@@ -4,6 +4,9 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class GOTTileEntityRegistry {
 
+	private GOTTileEntityRegistry() {
+	}
+
 	public static void onInit() {
 		GameRegistry.registerTileEntity(GOTTileEntityBeacon.class, "GOTBeacon");
 		GameRegistry.registerTileEntity(GOTTileEntityOven.class, "GOTOven");

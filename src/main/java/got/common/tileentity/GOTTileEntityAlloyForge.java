@@ -54,10 +54,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack itemstack, int side) {
-		if (side == 0 && slot == fuelSlot) {
-			return itemstack.getItem() == Items.bucket;
-		}
-		return true;
+		return side != 0 || slot != fuelSlot || itemstack.getItem() == Items.bucket;
 	}
 
 	@Override
@@ -75,7 +72,6 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 
 	public boolean canSmelt(int i) {
 		ItemStack alloyResult;
-		ItemStack result;
 		int resultSize;
 		if (inventory[i] == null) {
 			return false;
@@ -89,7 +85,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 				return true;
 			}
 		}
-		result = getSmeltingResult(inventory[i]);
+		ItemStack result = getSmeltingResult(inventory[i]);
 		if (result == null) {
 			return false;
 		}
@@ -285,10 +281,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		if (ArrayUtils.contains(inputSlots, slot)) {
 			return canMachineInsertInput(itemstack);
 		}
-		if (slot == fuelSlot) {
-			return canMachineInsertFuel(itemstack);
-		}
-		return false;
+		return slot == fuelSlot && canMachineInsertFuel(itemstack);
 	}
 
 	public boolean isOathkeeper(ItemStack itemstack) {

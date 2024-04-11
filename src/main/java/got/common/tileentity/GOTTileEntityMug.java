@@ -18,10 +18,7 @@ public class GOTTileEntityMug extends TileEntity {
 
 	public boolean canPoisonMug() {
 		ItemStack itemstack = getMugItem();
-		if (itemstack != null) {
-			return GOTPoisonedDrinks.canPoison(itemstack) && !GOTPoisonedDrinks.isDrinkPoisoned(itemstack);
-		}
-		return false;
+		return GOTPoisonedDrinks.canPoison(itemstack) && !GOTPoisonedDrinks.isDrinkPoisoned(itemstack);
 	}
 
 	@Override
@@ -43,10 +40,11 @@ public class GOTTileEntityMug extends TileEntity {
 	}
 
 	public void setMugItem(ItemStack itemstack) {
-		if (itemstack != null && itemstack.stackSize <= 0) {
-			itemstack = null;
+		ItemStack itemstack1 = itemstack;
+		if (itemstack1 != null && itemstack1.stackSize <= 0) {
+			itemstack1 = null;
 		}
-		mugItem = itemstack;
+		mugItem = itemstack1;
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
 	}
@@ -102,7 +100,7 @@ public class GOTTileEntityMug extends TileEntity {
 			}
 		} else {
 			boolean hasItem = nbt.getBoolean("HasMugItem");
-			mugItem = !hasItem ? null : ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("MugItem"));
+			mugItem = hasItem ? ItemStack.loadItemStackFromNBT(nbt.getCompoundTag("MugItem")) : null;
 		}
 		if (nbt.hasKey("Vessel")) {
 			mugVessel = GOTItemMug.Vessel.forMeta(nbt.getByte("Vessel"));

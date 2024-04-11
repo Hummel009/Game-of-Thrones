@@ -116,9 +116,8 @@ public class GOTTileEntityBeacon extends TileEntity {
 				}
 			}
 			if (ticksExisted % 10 == 0) {
-				boolean spreadUnlit;
 				boolean spreadLit = isLit && litCounter >= 100;
-				spreadUnlit = !isLit && unlitCounter >= 100;
+				boolean spreadUnlit = !isLit && unlitCounter >= 100;
 				if (spreadLit || spreadUnlit) {
 					Collection<GOTTileEntityBeacon> nearbyTiles = new ArrayList<>();
 					int range = 88;

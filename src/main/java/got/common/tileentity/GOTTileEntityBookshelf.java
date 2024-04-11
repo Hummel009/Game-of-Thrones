@@ -24,13 +24,7 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 	public static boolean isBookItem(ItemStack itemstack) {
 		if (itemstack != null) {
 			Item item = itemstack.getItem();
-			if (item instanceof ItemBook || item instanceof ItemWritableBook || item instanceof ItemEditableBook) {
-				return true;
-			}
-			if (item instanceof GOTItemQuestBook || item == GOTItems.valyrianBook || item instanceof ItemEnchantedBook || item instanceof ItemMapBase) {
-				return true;
-			}
-			return item == Items.paper || item instanceof GOTItemModifierTemplate;
+			return item instanceof ItemBook || item instanceof ItemWritableBook || item instanceof ItemEditableBook || item instanceof GOTItemQuestBook || item == GOTItems.valyrianBook || item instanceof ItemEnchantedBook || item instanceof ItemMapBase || item == Items.paper || item instanceof GOTItemModifierTemplate;
 		}
 		return false;
 	}

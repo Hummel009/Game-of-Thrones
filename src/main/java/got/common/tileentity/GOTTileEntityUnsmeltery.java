@@ -107,13 +107,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 			return false;
 		}
 		ItemStack material = getEquipmentMaterial(itemstack);
-		if (material != null) {
-			if (TileEntityFurnace.getItemBurnTime(material) != 0 || itemstack.getItem() instanceof net.minecraft.item.ItemBlock && Block.getBlockFromItem(itemstack.getItem()).getMaterial().getCanBurn()) {
-				return false;
-			}
-			return determineResourcesUsed(itemstack, material) > 0;
-		}
-		return false;
+		return material != null && TileEntityFurnace.getItemBurnTime(material) == 0 && (!(itemstack.getItem() instanceof ItemBlock) || !Block.getBlockFromItem(itemstack.getItem()).getMaterial().getCanBurn()) && determineResourcesUsed(itemstack, material) > 0;
 	}
 
 	@Override
@@ -186,6 +180,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	}
 
 	public int determineResourcesUsed(ItemStack itemstack, ItemStack material, List<IRecipe> recursiveCheckedRecipes) {
+		List<IRecipe> recursiveCheckedRecipes1 = recursiveCheckedRecipes;
 		if (itemstack == null) {
 			return 0;
 		}
@@ -205,20 +200,20 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 			}
 		}
 		allRecipeLists.add(GOTRecipe.UNSMELT);
-		if (recursiveCheckedRecipes == null) {
-			recursiveCheckedRecipes = new ArrayList<>();
+		if (recursiveCheckedRecipes1 == null) {
+			recursiveCheckedRecipes1 = new ArrayList<>();
 		}
 		label63:
 		for (List<IRecipe> recipes : allRecipeLists) {
 			for (IRecipe recipesObj : recipes) {
-				if (!recursiveCheckedRecipes.contains(recipesObj)) {
+				if (!recursiveCheckedRecipes1.contains(recipesObj)) {
 					ItemStack result = recipesObj.getRecipeOutput();
 					if (result != null && result.getItem() == itemstack.getItem() && (itemstack.isItemStackDamageable() || result.getItemDamage() == itemstack.getItemDamage())) {
-						recursiveCheckedRecipes.add(recipesObj);
+						recursiveCheckedRecipes1.add(recipesObj);
 						if (recipesObj instanceof ShapedRecipes) {
 							ShapedRecipes shaped = (ShapedRecipes) recipesObj;
 							ItemStack[] ingredients = shaped.recipeItems;
-							int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes);
+							int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes1);
 							i /= result.stackSize;
 							if (i > 0) {
 								count = i;
@@ -228,7 +223,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 						if (recipesObj instanceof ShapelessRecipes) {
 							ShapelessRecipes shapeless = (ShapelessRecipes) recipesObj;
 							List<?> ingredients = shapeless.recipeItems;
-							int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes);
+							int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes1);
 							i /= result.stackSize;
 							if (i > 0) {
 								count = i;
@@ -238,7 +233,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 						if (recipesObj instanceof ShapedOreRecipe) {
 							ShapedOreRecipe shaped = (ShapedOreRecipe) recipesObj;
 							Object[] ingredients = shaped.getInput();
-							int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes);
+							int i = countMatchingIngredients(material, Arrays.asList(ingredients), recursiveCheckedRecipes1);
 							i /= result.stackSize;
 							if (i > 0) {
 								count = i;
@@ -248,7 +243,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 						if (recipesObj instanceof ShapelessOreRecipe) {
 							ShapelessOreRecipe shapeless = (ShapelessOreRecipe) recipesObj;
 							List<Object> ingredients = shapeless.getInput();
-							int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes);
+							int i = countMatchingIngredients(material, ingredients, recursiveCheckedRecipes1);
 							i /= result.stackSize;
 							if (i > 0) {
 								count = i;
@@ -320,7 +315,6 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	}
 
 	public ItemStack getRandomUnsmeltingResult(ItemStack itemstack) {
-		int items_int;
 		ItemStack result = getLargestUnsmeltingResult(itemstack);
 		if (result == null) {
 			return null;
@@ -330,7 +324,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (itemstack.isItemStackDamageable()) {
 			items *= (float) (itemstack.getMaxDamage() - itemstack.getItemDamage()) / itemstack.getMaxDamage();
 		}
-		items_int = Math.round(items * MathHelper.randomFloatClamp(unsmeltingRand, 0.7f, 1.0f));
+		int items_int = Math.round(items * MathHelper.randomFloatClamp(unsmeltingRand, 0.7f, 1.0f));
 		if (items_int <= 0) {
 			return null;
 		}
