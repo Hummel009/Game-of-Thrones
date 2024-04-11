@@ -28,15 +28,17 @@ import java.util.*;
 public enum GOTMiniQuestFactory {
 	CRIMINAL(true), IBBEN(true), SUMMER(true), SOTHORYOS(true), ASSHAI(true), WILDLING(true), MOSSOVY(true), HOWLAND, BALON, DAENERYS, VARYS, OBERYN, STANNIS, JONSNOW, RENLY, KITRA, BUGAI, TYRION, CERSEI, RAMSAY, SANDOR, MELISANDRA, DORAN, MARGAERY, ELLARYA, ARYA, OLENNA, SAMWELL, LYSA, CATELYN, DAVEN, ARIANNE, MELLARIO, NORTH(true), RIVERLANDS(true), DORNE(true), REACH(true), STORMLANDS(true), IRONBORN(true), WESTERLANDS(true), ARRYN(true), CROWNLANDS(true), DRAGONSTONE(true), GIFT(true), HILLMEN(true), BRAAVOS(true), LORATH(true), NORVOS(true), QOHOR(true), PENTOS(true), LYS(true), MYR(true), TYROSH(true), VOLANTIS(true), GHISCAR(true), QARTH(true), LHAZAR(true), YI_TI(true), DOTHRAKI(true), JOGOS(true);
 
-	public static Random rand = new Random();
-	public static Map<Class<? extends GOTMiniQuest>, Integer> questClassWeights = new HashMap<>();
-	public Map<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest>>> questFactories = new HashMap<>();
-	public List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
-	public boolean noAlignRewardForEnemy;
-	public String baseName;
-	public GOTMiniQuestFactory baseSpeechGroup;
-	public GOTAchievement questAchievement;
-	public GOTFaction alignmentRewardOverride;
+	private static final Map<Class<? extends GOTMiniQuest>, Integer> QUEST_CLASS_WEIGHTS = new HashMap<>();
+	private static final Random RANDOM = new Random();
+
+	private final Map<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest>>> questFactories = new HashMap<>();
+	private final List<GOTLore.LoreCategory> loreCategories = new ArrayList<>();
+	private final String baseName;
+
+	private boolean noAlignRewardForEnemy;
+	private GOTMiniQuestFactory baseSpeechGroup;
+	private GOTAchievement questAchievement;
+	private GOTFaction alignmentRewardOverride;
 
 	GOTMiniQuestFactory() {
 		this(false);
@@ -61,25 +63,25 @@ public enum GOTMiniQuestFactory {
 		return null;
 	}
 
-	public static int getQuestClassWeight(Class<? extends GOTMiniQuest> questClass) {
-		Integer i = questClassWeights.get(questClass);
+	private static int getQuestClassWeight(Class<? extends GOTMiniQuest> questClass) {
+		Integer i = QUEST_CLASS_WEIGHTS.get(questClass);
 		if (i == null) {
 			throw new RuntimeException("Encountered a registered quest class " + questClass.toString() + " which is not assigned a weight");
 		}
 		return i;
 	}
 
-	public static GOTFaction getRandomEnemy(GOTFaction owner) {
+	private static GOTFaction getRandomEnemy(GOTFaction owner) {
 		ArrayList<GOTFaction> enemies = new ArrayList<>();
 		for (GOTFaction fac : GOTFaction.values()) {
 			if (owner.isBadRelation(fac) && fac != GOTFaction.WHITE_WALKER && fac != GOTFaction.HOSTILE && fac != GOTFaction.UNALIGNED) {
 				enemies.add(fac);
 			}
 		}
-		return enemies.get(rand.nextInt(enemies.size()));
+		return enemies.get(RANDOM.nextInt(enemies.size()));
 	}
 
-	public static int getTotalQuestClassWeight(GOTMiniQuestFactory factory) {
+	private static int getTotalQuestClassWeight(GOTMiniQuestFactory factory) {
 		Collection<Class<? extends GOTMiniQuest>> registeredQuestTypes = new HashSet<>();
 		for (Map.Entry<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest>>> entry : factory.questFactories.entrySet()) {
 			Class<? extends GOTMiniQuest> questType = entry.getKey();
@@ -626,21 +628,21 @@ public enum GOTMiniQuestFactory {
 		YI_TI.addQuest(new GOTMiniQuestKillFaction.QFKillFaction().setKillFaction(getRandomEnemy(GOTFaction.YI_TI), 70, 100));
 	}
 
-	public static void registerQuestClass(Class<? extends GOTMiniQuest> questClass, int weight) {
-		questClassWeights.put(questClass, weight);
+	private static void registerQuestClass(Class<? extends GOTMiniQuest> questClass, int weight) {
+		QUEST_CLASS_WEIGHTS.put(questClass, weight);
 	}
 
-	public void addQuest(GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest> factory) {
+	private void addQuest(GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest> factory) {
 		Class<?> questClass = factory.getQuestClass();
 		Class<? extends GOTMiniQuest> registryClass = null;
-		for (Class<? extends GOTMiniQuest> c : questClassWeights.keySet()) {
+		for (Class<? extends GOTMiniQuest> c : QUEST_CLASS_WEIGHTS.keySet()) {
 			if (questClass == c) {
 				registryClass = c;
 				break;
 			}
 		}
 		if (registryClass == null) {
-			for (Class<? extends GOTMiniQuest> c : questClassWeights.keySet()) {
+			for (Class<? extends GOTMiniQuest> c : QUEST_CLASS_WEIGHTS.keySet()) {
 				if (c.isAssignableFrom(questClass)) {
 					registryClass = c;
 					break;
@@ -667,7 +669,7 @@ public enum GOTMiniQuestFactory {
 			FMLLog.warning("Hummel009: No quests registered for %s!", baseName);
 			return null;
 		}
-		int i = rand.nextInt(totalWeight);
+		int i = RANDOM.nextInt(totalWeight);
 		List<GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest>> chosenFactoryList = null;
 		for (Map.Entry<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest>>> next : questFactories.entrySet()) {
 			chosenFactoryList = next.getValue();
@@ -676,10 +678,10 @@ public enum GOTMiniQuestFactory {
 				break;
 			}
 		}
-		GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest> factory = chosenFactoryList.get(rand.nextInt(chosenFactoryList.size()));
-		GOTMiniQuest quest = factory.createQuest(npc, rand);
+		GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest> factory = chosenFactoryList.get(RANDOM.nextInt(chosenFactoryList.size()));
+		GOTMiniQuest quest = factory.createQuest(npc, RANDOM);
 		if (quest != null) {
-			quest.questGroup = this;
+			quest.setQuestGroup(this);
 		}
 		return quest;
 	}
@@ -688,7 +690,7 @@ public enum GOTMiniQuestFactory {
 		return questAchievement;
 	}
 
-	public void setAchievement(GOTAchievement a) {
+	private void setAchievement(GOTAchievement a) {
 		if (questAchievement != null) {
 			throw new IllegalArgumentException("Miniquest achievement is already registered");
 		}
@@ -706,11 +708,41 @@ public enum GOTMiniQuestFactory {
 		return this;
 	}
 
+	public void setBaseSpeechGroup(GOTMiniQuestFactory baseSpeechGroup) {
+		this.baseSpeechGroup = baseSpeechGroup;
+	}
+
 	public List<GOTLore.LoreCategory> getLoreCategories() {
 		return loreCategories;
 	}
 
 	public boolean isNoAlignRewardForEnemy() {
 		return noAlignRewardForEnemy;
+	}
+
+	public void setNoAlignRewardForEnemy(boolean noAlignRewardForEnemy) {
+		this.noAlignRewardForEnemy = noAlignRewardForEnemy;
+	}
+
+	public Map<Class<? extends GOTMiniQuest>, List<GOTMiniQuest.QuestFactoryBase<? extends GOTMiniQuest>>> getQuestFactories() {
+		return questFactories;
+	}
+
+	@SuppressWarnings("unused")
+	public GOTAchievement getQuestAchievement() {
+		return questAchievement;
+	}
+
+	public void setQuestAchievement(GOTAchievement questAchievement) {
+		this.questAchievement = questAchievement;
+	}
+
+	@SuppressWarnings("unused")
+	public GOTFaction getAlignmentRewardOverride() {
+		return alignmentRewardOverride;
+	}
+
+	public void setAlignmentRewardOverride(GOTFaction alignmentRewardOverride) {
+		this.alignmentRewardOverride = alignmentRewardOverride;
 	}
 }

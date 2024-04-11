@@ -12,8 +12,8 @@ import net.minecraft.util.StatCollector;
 import java.util.Random;
 
 public abstract class GOTMiniQuestKill extends GOTMiniQuest {
-	public int killTarget;
-	public int killCount;
+	protected int killTarget;
+	protected int killCount;
 
 	protected GOTMiniQuestKill(GOTPlayerData pd) {
 		super(pd);
@@ -34,7 +34,7 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 		return (float) killCount / killTarget;
 	}
 
-	public abstract String getKillTargetName();
+	protected abstract String getKillTargetName();
 
 	@Override
 	public String getObjectiveInSpeech() {
@@ -95,8 +95,8 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 	}
 
 	public abstract static class QFKill<Q extends GOTMiniQuestKill> extends GOTMiniQuest.QuestFactoryBase<Q> {
-		public int minTarget;
-		public int maxTarget;
+		protected int minTarget;
+		protected int maxTarget;
 
 		protected QFKill(String name) {
 			super(name);
@@ -114,5 +114,4 @@ public abstract class GOTMiniQuestKill extends GOTMiniQuest {
 			maxTarget = max;
 		}
 	}
-
 }

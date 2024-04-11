@@ -21,7 +21,7 @@ public class GOTPacketDeleteMiniquest implements IMessage {
 	}
 
 	public GOTPacketDeleteMiniquest(GOTMiniQuest quest) {
-		questUUID = quest.questUUID;
+		questUUID = quest.getQuestUUID();
 		completed = quest.isCompleted();
 	}
 

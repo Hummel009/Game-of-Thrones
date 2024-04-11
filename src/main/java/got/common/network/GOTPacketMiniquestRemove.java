@@ -23,7 +23,7 @@ public class GOTPacketMiniquestRemove implements IMessage {
 	}
 
 	public GOTPacketMiniquestRemove(GOTMiniQuest quest, boolean wc, boolean atc) {
-		questUUID = quest.questUUID;
+		questUUID = quest.getQuestUUID();
 		wasCompleted = wc;
 		addToCompleted = atc;
 	}

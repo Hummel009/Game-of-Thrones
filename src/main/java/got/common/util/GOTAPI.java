@@ -394,12 +394,12 @@ public class GOTAPI {
 	 * @apiNote Clears miniquest factory.
 	 */
 	public static void clearMiniQuestFactory(GOTMiniQuestFactory factory) {
-		factory.baseSpeechGroup = null;
-		factory.questAchievement = null;
-		factory.loreCategories.clear();
-		factory.alignmentRewardOverride = null;
-		factory.noAlignRewardForEnemy = false;
-		factory.questFactories.clear();
+		factory.setBaseSpeechGroup(null);
+		factory.setQuestAchievement(null);
+		factory.getLoreCategories().clear();
+		factory.setAlignmentRewardOverride(null);
+		factory.setNoAlignRewardForEnemy(false);
+		factory.getQuestFactories().clear();
 	}
 
 	/**

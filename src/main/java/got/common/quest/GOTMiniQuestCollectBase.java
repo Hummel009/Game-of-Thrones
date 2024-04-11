@@ -11,15 +11,16 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
-	public int collectTarget;
-	public int amountGiven;
+	protected int amountGiven;
+
+	private int collectTarget;
 
 	protected GOTMiniQuestCollectBase(GOTPlayerData pd) {
 		super(pd);
 	}
 
 	@Override
-	public float getAlignmentBonus() {
+	protected float getAlignmentBonus() {
 		float f = collectTarget;
 		return Math.max(f * rewardFactor, 1.0f);
 	}
@@ -44,7 +45,7 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 		return StatCollector.translateToLocalFormatted("got.miniquest.progressShort", amountGiven, collectTarget);
 	}
 
-	public abstract boolean isQuestItem(ItemStack var1);
+	protected abstract boolean isQuestItem(ItemStack var1);
 
 	@Override
 	public boolean isValidQuest() {
@@ -104,5 +105,13 @@ public abstract class GOTMiniQuestCollectBase extends GOTMiniQuest {
 		super.writeToNBT(nbt);
 		nbt.setInteger("Target", collectTarget);
 		nbt.setInteger("Given", amountGiven);
+	}
+
+	protected int getCollectTarget() {
+		return collectTarget;
+	}
+
+	protected void setCollectTarget(int collectTarget) {
+		this.collectTarget = collectTarget;
 	}
 }

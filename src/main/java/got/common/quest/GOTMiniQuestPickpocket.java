@@ -31,13 +31,13 @@ import net.minecraft.util.*;
 import java.util.*;
 
 public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
-	public Collection<UUID> pickpocketedEntityIDs = new HashSet<>();
+	private final Collection<UUID> pickpocketedEntityIDs = new HashSet<>();
 
 	public GOTMiniQuestPickpocket(GOTPlayerData pd) {
 		super(pd);
 	}
 
-	public static ItemStack createPickpocketIcon() {
+	private static ItemStack createPickpocketIcon() {
 		ItemStack hat = new ItemStack(GOTItems.leatherHat);
 		GOTItemLeatherHat.setHatColor(hat, 0);
 		GOTItemLeatherHat.setFeatherColor(hat, 16777215);
@@ -48,7 +48,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		GOTAchievement achievement;
 		completed = true;
-		dateCompleted = GOTDate.AegonCalendar.currentDay;
+		setDateCompleted(GOTDate.AegonCalendar.currentDay);
 		Random rand = npc.getRNG();
 		List<ItemStack> dropItems = new ArrayList<>();
 		int coins = getCoinBonus();
@@ -59,7 +59,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 					coins *= MathHelper.getRandomIntegerInRange(rand, 2, 5);
 				}
 			}
-			coinsRewarded = coins = Math.max(coins, 1);
+			setCoinsRewarded(coins = Math.max(coins, 1));
 			int coinsRemain = coins;
 			for (int l = GOTItemCoin.VALUES.length - 1; l >= 0; --l) {
 				int coinValue = GOTItemCoin.VALUES[l];
@@ -78,24 +78,24 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		if (!rewardItemTable.isEmpty()) {
 			ItemStack item = rewardItemTable.get(rand.nextInt(rewardItemTable.size()));
 			dropItems.add(item.copy());
-			itemsRewarded.add(item.copy());
+			getItemsRewarded().add(item.copy());
 		}
 		if (canRewardVariousExtraItems()) {
 			GOTLore lore;
-			if (rand.nextInt(10) == 0 && questGroup != null && !questGroup.getLoreCategories().isEmpty() && (lore = GOTLore.getMultiRandomLore(questGroup.getLoreCategories(), rand, true)) != null) {
+			if (rand.nextInt(10) == 0 && getQuestGroup() != null && !getQuestGroup().getLoreCategories().isEmpty() && (lore = GOTLore.getMultiRandomLore(getQuestGroup().getLoreCategories(), rand, true)) != null) {
 				ItemStack loreBook = lore.createLoreBook(rand);
 				dropItems.add(loreBook.copy());
-				itemsRewarded.add(loreBook.copy());
+				getItemsRewarded().add(loreBook.copy());
 			}
 			if (rand.nextInt(15) == 0) {
 				ItemStack modItem = GOTItemModifierTemplate.getRandomCommonTemplate(rand);
 				dropItems.add(modItem.copy());
-				itemsRewarded.add(modItem.copy());
+				getItemsRewarded().add(modItem.copy());
 			}
 			if (npc instanceof GOTEntityQohorBlacksmith && rand.nextInt(10) == 0) {
 				ItemStack mithrilBook = new ItemStack(GOTItems.valyrianBook);
 				dropItems.add(mithrilBook.copy());
-				itemsRewarded.add(mithrilBook.copy());
+				getItemsRewarded().add(mithrilBook.copy());
 			}
 		}
 		if (!dropItems.isEmpty()) {
@@ -106,15 +106,15 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 				npc.entityDropItem(pouch, 0.0f);
 				ItemStack pouchCopy = pouch.copy();
 				pouchCopy.setTagCompound(null);
-				itemsRewarded.add(pouchCopy);
+				getItemsRewarded().add(pouchCopy);
 			}
 			npc.dropItemList(dropItems);
 		}
-		if (willHire) {
+		if (isWillHire()) {
 			GOTUnitTradeEntry tradeEntry = new GOTUnitTradeEntry(npc.getClass(), 0, hiringAlignment);
 			tradeEntry.setTask(GOTHiredNPCInfo.Task.WARRIOR);
-			npc.hiredNPCInfo.hireUnit(entityplayer, false, entityFaction, tradeEntry, null, npc.ridingEntity);
-			wasHired = true;
+			npc.hiredNPCInfo.hireUnit(entityplayer, false, getEntityFaction(), tradeEntry, null, npc.ridingEntity);
+			setWasHired(true);
 		}
 		if (isLegendary) {
 			npc.hiredNPCInfo.isActive = true;
@@ -122,7 +122,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		updateQuest();
 		playerData.completeMiniQuest(this);
 		sendCompletedSpeech(entityplayer, npc);
-		if (questGroup != null && (achievement = questGroup.getAchievement()) != null) {
+		if (getQuestGroup() != null && (achievement = getQuestGroup().getAchievement()) != null) {
 			playerData.addAchievement(achievement);
 		}
 	}
@@ -134,12 +134,12 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 
 	@Override
 	public String getObjectiveInSpeech() {
-		return collectTarget + " ";
+		return getCollectTarget() + " ";
 	}
 
 	@Override
 	public String getProgressedObjectiveInSpeech() {
-		return collectTarget - amountGiven + " ";
+		return getCollectTarget() - amountGiven + " ";
 	}
 
 	@Override
@@ -149,19 +149,19 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 
 	@Override
 	public String getQuestObjective() {
-		return StatCollector.translateToLocalFormatted("got.miniquest.pickpocket", collectTarget);
+		return StatCollector.translateToLocalFormatted("got.miniquest.pickpocket", getCollectTarget());
 	}
 
 	@Override
 	public String getQuestProgress() {
-		return StatCollector.translateToLocalFormatted("got.miniquest.pickpocket.progress", amountGiven, collectTarget);
+		return StatCollector.translateToLocalFormatted("got.miniquest.pickpocket.progress", amountGiven, getCollectTarget());
 	}
 
 	@Override
 	public void handleEvent(GOTMiniQuestEvent event) {
 	}
 
-	public boolean isEntityWatching(EntityLiving watcher, EntityLivingBase target) {
+	private boolean isEntityWatching(EntityLiving watcher, EntityLivingBase target) {
 		Vec3 look = watcher.getLookVec();
 		Vec3 watcherEyes = Vec3.createVectorHelper(watcher.posX, watcher.boundingBox.minY + watcher.getEyeHeight(), watcher.posZ);
 		Vec3 targetEyes = Vec3.createVectorHelper(target.posX, target.boundingBox.minY + target.getEyeHeight(), target.posZ);
@@ -172,7 +172,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 
 	@Override
 	public boolean isQuestItem(ItemStack itemstack) {
-		return IPickpocketable.Helper.isPickpocketed(itemstack) && entityUUID.equals(IPickpocketable.Helper.getWanterID(itemstack));
+		return IPickpocketable.Helper.isPickpocketed(itemstack) && getEntityUUID().equals(IPickpocketable.Helper.getWanterID(itemstack));
 	}
 
 	@Override
@@ -195,7 +195,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 				boolean anyoneNoticed = noticed = rand.nextInt(success ? 3 : 4) == 0;
 				if (success) {
 					ItemStack picked = GOTChestContents.TREASURE.getOneItem(rand, true);
-					IPickpocketable.Helper.setPickpocketData(picked, npc.getNPCName(), entityNameFull, entityUUID);
+					IPickpocketable.Helper.setPickpocketData(picked, npc.getNPCName(), entityNameFull, getEntityUUID());
 					entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, picked);
 					entityplayer.addChatMessage(new ChatComponentText(EnumChatFormatting.DARK_GREEN + StatCollector.translateToLocalFormatted("got.chat.pickpocket.success", picked.stackSize, picked.getDisplayName(), npc.getNPCName())));
 					npc.playSound("got:event.trade", 0.5f, 1.0f + (rand.nextFloat() - rand.nextFloat()) * 0.1f);
@@ -267,7 +267,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	}
 
 	@Override
-	public void onPlayerTick(EntityPlayer entityplayer) {
+	public void onPlayerTick() {
 	}
 
 	@Override
@@ -281,11 +281,11 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		}
 	}
 
-	public void spawnAngryFX(EntityLivingBase npc) {
+	private void spawnAngryFX(EntityLivingBase npc) {
 		GOT.proxy.spawnParticle("angry", npc.posX, npc.boundingBox.minY + npc.height * 2.0f, npc.posZ, npc.motionX, Math.max(0.0, npc.motionY), npc.motionZ);
 	}
 
-	public void spawnPickingFX(String particle, double upSpeed, EntityLivingBase npc) {
+	private void spawnPickingFX(String particle, double upSpeed, EntityLivingBase npc) {
 		Random rand = npc.getRNG();
 		int particles = 3 + rand.nextInt(8);
 		for (int p = 0; p < particles; ++p) {
@@ -313,8 +313,8 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 	}
 
 	public static class QFPickpocket<Q extends GOTMiniQuestPickpocket> extends GOTMiniQuest.QuestFactoryBase<Q> {
-		public int minTarget;
-		public int maxTarget;
+		protected int minTarget;
+		protected int maxTarget;
 
 		public QFPickpocket(String name) {
 			super(name);
@@ -323,7 +323,7 @@ public class GOTMiniQuestPickpocket extends GOTMiniQuestCollectBase {
 		@Override
 		public Q createQuest(GOTEntityNPC npc, Random rand) {
 			Q quest = super.createQuest(npc, rand);
-			quest.collectTarget = MathHelper.getRandomIntegerInRange(rand, minTarget, maxTarget);
+			quest.setCollectTarget(MathHelper.getRandomIntegerInRange(rand, minTarget, maxTarget));
 			return quest;
 		}
 

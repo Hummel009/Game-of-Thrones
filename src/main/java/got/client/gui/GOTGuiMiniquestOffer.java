@@ -75,7 +75,7 @@ public class GOTGuiMiniquestOffer extends GOTGuiScreenBase {
 	@Override
 	public void drawScreen(int i, int j, float f) {
 		if (description == null) {
-			description = GOTSpeech.formatSpeech(theMiniQuest.quoteStart, mc.thePlayer, null, theMiniQuest.getObjectiveInSpeech());
+			description = GOTSpeech.formatSpeech(theMiniQuest.getQuoteStart(), mc.thePlayer, null, theMiniQuest.getObjectiveInSpeech());
 		}
 		drawDefaultBackground();
 		mc.getTextureManager().bindTexture(GUI_TEXTURE);

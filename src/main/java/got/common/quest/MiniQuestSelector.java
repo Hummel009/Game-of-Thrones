@@ -9,7 +9,7 @@ public interface MiniQuestSelector {
 	boolean include(GOTMiniQuest var1);
 
 	class BountyActiveAnyFaction extends OptionalActive {
-		public BountyActiveAnyFaction() {
+		protected BountyActiveAnyFaction() {
 			setActiveOnly();
 		}
 
@@ -17,14 +17,14 @@ public interface MiniQuestSelector {
 		public boolean include(GOTMiniQuest quest) {
 			if (super.include(quest) && quest instanceof GOTMiniQuestBounty) {
 				GOTMiniQuestBounty bQuest = (GOTMiniQuestBounty) quest;
-				return !bQuest.killed;
+				return !bQuest.isKilled();
 			}
 			return false;
 		}
 	}
 
 	class BountyActiveFaction extends BountyActiveAnyFaction {
-		public Supplier<GOTFaction> factionGet;
+		protected Supplier<GOTFaction> factionGet;
 
 		public BountyActiveFaction(Supplier<GOTFaction> sup) {
 			factionGet = sup;
@@ -32,12 +32,12 @@ public interface MiniQuestSelector {
 
 		@Override
 		public boolean include(GOTMiniQuest quest) {
-			return super.include(quest) && quest.entityFaction == factionGet.get();
+			return super.include(quest) && quest.getEntityFaction() == factionGet.get();
 		}
 	}
 
 	class EntityId extends OptionalActive {
-		public UUID entityID;
+		protected UUID entityID;
 
 		public EntityId(UUID id) {
 			entityID = id;
@@ -45,12 +45,12 @@ public interface MiniQuestSelector {
 
 		@Override
 		public boolean include(GOTMiniQuest quest) {
-			return super.include(quest) && quest.entityUUID.equals(entityID);
+			return super.include(quest) && quest.getEntityUUID().equals(entityID);
 		}
 	}
 
 	class Faction extends OptionalActive {
-		public Supplier<GOTFaction> factionGet;
+		protected Supplier<GOTFaction> factionGet;
 
 		public Faction(Supplier<GOTFaction> sup) {
 			factionGet = sup;
@@ -58,12 +58,12 @@ public interface MiniQuestSelector {
 
 		@Override
 		public boolean include(GOTMiniQuest quest) {
-			return super.include(quest) && quest.entityFaction == factionGet.get();
+			return super.include(quest) && quest.getEntityFaction() == factionGet.get();
 		}
 	}
 
 	class OptionalActive implements MiniQuestSelector {
-		public boolean activeOnly;
+		protected boolean activeOnly;
 
 		@Override
 		public boolean include(GOTMiniQuest quest) {

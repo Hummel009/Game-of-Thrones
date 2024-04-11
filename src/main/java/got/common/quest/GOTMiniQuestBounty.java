@@ -25,13 +25,13 @@ import java.util.Random;
 import java.util.UUID;
 
 public class GOTMiniQuestBounty extends GOTMiniQuest {
-	public UUID targetID;
-	public String targetName;
-	public boolean killed;
-	public float alignmentBonus;
-	public int coinBonus;
-	public boolean bountyClaimedByOther;
-	public boolean killedByBounty;
+	private UUID targetID;
+	private String targetName;
+	private boolean killed;
+	private float alignmentBonus;
+	private int coinBonus;
+	private boolean bountyClaimedByOther;
+	private boolean killedByBounty;
 
 	public GOTMiniQuestBounty(GOTPlayerData pd) {
 		super(pd);
@@ -39,7 +39,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 
 	@Override
 	public boolean canPlayerAccept(EntityPlayer entityplayer) {
-		if (super.canPlayerAccept(entityplayer) && !targetID.equals(entityplayer.getUniqueID()) && GOTLevelData.getData(entityplayer).getAlignment(entityFaction) >= 100.0f) {
+		if (super.canPlayerAccept(entityplayer) && !targetID.equals(entityplayer.getUniqueID()) && GOTLevelData.getData(entityplayer).getAlignment(getEntityFaction()) >= 100.0f) {
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			List<GOTMiniQuest> active = pd.getActiveMiniQuests();
 			for (GOTMiniQuest quest : active) {
@@ -54,7 +54,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	}
 
 	@Override
-	public void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
+	protected void complete(EntityPlayer entityplayer, GOTEntityNPC npc) {
 		GOTPlayerData pd = getPlayerData();
 		pd.addCompletedBountyQuest();
 		int bComplete = pd.getCompletedBountyQuests();
@@ -75,9 +75,17 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		return alignmentBonus;
 	}
 
+	protected void setAlignmentBonus(float alignmentBonus) {
+		this.alignmentBonus = alignmentBonus;
+	}
+
 	@Override
 	public int getCoinBonus() {
 		return coinBonus;
+	}
+
+	protected void setCoinBonus(int coinBonus) {
+		this.coinBonus = coinBonus;
 	}
 
 	@Override
@@ -85,7 +93,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		return killed ? 1.0f : 0.0f;
 	}
 
-	public float getKilledAlignmentPenalty() {
+	private float getKilledAlignmentPenalty() {
 		return -alignmentBonus * 2.0f;
 	}
 
@@ -94,7 +102,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		return targetName;
 	}
 
-	public GOTFaction getPledgeOrHighestAlignmentFaction(EntityPlayer entityplayer, float min) {
+	private GOTFaction getPledgeOrHighestAlignmentFaction(EntityPlayer entityplayer, float min) {
 		GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 		if (pd.getPledgeFaction() != null) {
 			return pd.getPledgeFaction();
@@ -203,7 +211,7 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			EntityPlayer slainPlayer = (EntityPlayer) entity;
 			GOTPlayerData slainPlayerData = GOTLevelData.getData(slainPlayer);
 			killed = true;
-			GOTFactionBounties.forFaction(entityFaction).forPlayer(slainPlayer).recordBountyKilled();
+			GOTFactionBounties.forFaction(getEntityFaction()).forPlayer(slainPlayer).recordBountyKilled();
 			updateQuest();
 			GOTFaction highestFaction = getPledgeOrHighestAlignmentFaction(slainPlayer, 100.0f);
 			if (highestFaction != null) {
@@ -214,14 +222,14 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				}
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(alignmentLoss, "got.alignment.bountyKill");
 				slainPlayerData.addAlignment(slainPlayer, source, highestFaction, entityplayer);
-				IChatComponent slainMsg1 = new ChatComponentTranslation("got.chat.bountyKilled1", entityplayer.getCommandSenderName(), entityFaction.factionName());
+				IChatComponent slainMsg1 = new ChatComponentTranslation("got.chat.bountyKilled1", entityplayer.getCommandSenderName(), getEntityFaction().factionName());
 				IChatComponent slainMsg2 = new ChatComponentTranslation("got.chat.bountyKilled2", highestFaction.factionName());
 				slainMsg1.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				slainMsg2.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				slainPlayer.addChatMessage(slainMsg1);
 				slainPlayer.addChatMessage(slainMsg2);
 			}
-			IChatComponent announceMsg = new ChatComponentTranslation("got.chat.bountyKill", entityplayer.getCommandSenderName(), slainPlayer.getCommandSenderName(), entityFaction.factionName());
+			IChatComponent announceMsg = new ChatComponentTranslation("got.chat.bountyKill", entityplayer.getCommandSenderName(), slainPlayer.getCommandSenderName(), getEntityFaction().factionName());
 			announceMsg.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 			for (ICommandSender otherPlayer : (List<EntityPlayer>) MinecraftServer.getServer().getConfigurationManager().playerEntityList) {
 				if (otherPlayer == slainPlayer) {
@@ -243,16 +251,16 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(killerBonus, "got.alignment.killedHunter");
 				killerData.addAlignment(killer, source, killerHighestFaction, entityplayer);
 			}
-			float curAlignment = (pd = getPlayerData()).getAlignment(entityFaction);
+			float curAlignment = (pd = getPlayerData()).getAlignment(getEntityFaction());
 			if (curAlignment > 100.0f) {
 				float alignmentLoss = getKilledAlignmentPenalty();
 				if (curAlignment + alignmentLoss < 100.0f) {
 					alignmentLoss = -(curAlignment - 100.0f);
 				}
 				GOTAlignmentValues.AlignmentBonus source = new GOTAlignmentValues.AlignmentBonus(alignmentLoss, "got.alignment.killedByBounty");
-				pd.addAlignment(entityplayer, source, entityFaction, killer);
+				pd.addAlignment(entityplayer, source, getEntityFaction(), killer);
 				IChatComponent slainMsg1 = new ChatComponentTranslation("got.chat.killedByBounty1", killer.getCommandSenderName());
-				IChatComponent slainMsg2 = new ChatComponentTranslation("got.chat.killedByBounty2", entityFaction.factionName());
+				IChatComponent slainMsg2 = new ChatComponentTranslation("got.chat.killedByBounty2", getEntityFaction().factionName());
 				slainMsg1.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				slainMsg2.getChatStyle().setColor(EnumChatFormatting.YELLOW);
 				entityplayer.addChatMessage(slainMsg1);
@@ -273,8 +281,8 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 	}
 
 	@Override
-	public void onPlayerTick(EntityPlayer entityplayer) {
-		if (isActive() && !killed && !bountyClaimedByOther && GOTFactionBounties.forFaction(entityFaction).forPlayer(targetID).recentlyBountyKilled()) {
+	public void onPlayerTick() {
+		if (isActive() && !killed && !bountyClaimedByOther && GOTFactionBounties.forFaction(getEntityFaction()).forPlayer(targetID).recentlyBountyKilled()) {
 			bountyClaimedByOther = true;
 			updateQuest();
 		}
@@ -324,10 +332,30 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		nbt.setBoolean("KilledBy", killedByBounty);
 	}
 
+	public UUID getTargetID() {
+		return targetID;
+	}
+
+	protected void setTargetID(UUID targetID) {
+		this.targetID = targetID;
+	}
+
+	public String getTargetName() {
+		return targetName;
+	}
+
+	protected void setTargetName(String targetName) {
+		this.targetName = targetName;
+	}
+
+	public boolean isKilled() {
+		return killed;
+	}
+
 	public enum BountyHelp {
 		BIOME("biome"), WAYPOINT("wp");
 
-		public String speechName;
+		private final String speechName;
 
 		BountyHelp(String s) {
 			speechName = s;
@@ -336,15 +364,15 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 		public static BountyHelp getRandomHelpType(Random random) {
 			return values()[random.nextInt(values().length)];
 		}
+
+		public String getSpeechName() {
+			return speechName;
+		}
 	}
 
 	public static class QFBounty<Q extends GOTMiniQuestBounty> extends GOTMiniQuest.QuestFactoryBase<Q> {
 		public QFBounty() {
 			super("bounty");
-		}
-
-		public QFBounty(String name) {
-			super(name);
 		}
 
 		@Override
@@ -364,14 +392,14 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			alignment = MathHelper.clamp_int(alignment, 1, 50);
 			int coins = (int) (targetData.getNumKills() * 10.0f * MathHelper.randomFloatClamp(rand, 0.75f, 1.25f));
 			coins = MathHelper.clamp_int(coins, 1, 1000);
-			quest.targetID = targetData.getPlayerID();
+			quest.setTargetID(targetData.getPlayerID());
 			String username = targetData.findUsername();
 			if (StringUtils.isBlank(username)) {
-				username = quest.targetID.toString();
+				username = quest.getTargetID().toString();
 			}
-			quest.targetName = username;
-			quest.alignmentBonus = alignment;
-			quest.coinBonus = coins;
+			quest.setTargetName(username);
+			quest.setAlignmentBonus(alignment);
+			quest.setCoinBonus(coins);
 			return quest;
 		}
 
@@ -380,5 +408,4 @@ public class GOTMiniQuestBounty extends GOTMiniQuest {
 			return (Class<Q>) GOTMiniQuestBounty.class;
 		}
 	}
-
 }

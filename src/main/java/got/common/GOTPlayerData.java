@@ -692,7 +692,7 @@ public class GOTPlayerData {
 		if (miniQuests.remove(quest)) {
 			addMiniQuestCompleted(quest);
 			completedMiniquestCount++;
-			getFactionData(quest.entityFaction).completeMiniQuest();
+			getFactionData(quest.getEntityFaction()).completeMiniQuest();
 			markDirty();
 			GOT.proxy.setTrackedQuest(quest);
 			EntityPlayer entityplayer = getPlayer();
@@ -1161,7 +1161,7 @@ public class GOTPlayerData {
 			threadSafe = new ArrayList<>(miniQuests);
 		}
 		for (GOTMiniQuest quest : threadSafe) {
-			if (quest.questUUID.equals(id)) {
+			if (quest.getQuestUUID().equals(id)) {
 				return quest;
 			}
 		}
@@ -1407,7 +1407,7 @@ public class GOTPlayerData {
 		if (quest == null) {
 			setTrackingMiniQuestID(null);
 		} else {
-			setTrackingMiniQuestID(quest.questUUID);
+			setTrackingMiniQuestID(quest.getQuestUUID());
 		}
 	}
 
@@ -1976,7 +1976,7 @@ public class GOTPlayerData {
 		}
 		List<GOTMiniQuest> activeMiniquests = getActiveMiniQuests();
 		for (GOTMiniQuest quest : activeMiniquests) {
-			quest.onPlayerTick(entityplayer);
+			quest.onPlayerTick();
 		}
 		if (!bountiesPlaced.isEmpty()) {
 			for (GOTFaction fac : bountiesPlaced) {

@@ -11,7 +11,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import java.util.Random;
 
 public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
-	public GOTFaction killFaction;
+	private GOTFaction killFaction;
 
 	public GOTMiniQuestKillFaction(GOTPlayerData pd) {
 		super(pd);
@@ -44,7 +44,7 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	}
 
 	@Override
-	public void onPlayerTick(EntityPlayer entityplayer) {
+	public void onPlayerTick() {
 	}
 
 	@Override
@@ -60,14 +60,10 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 	}
 
 	public static class QFKillFaction extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillFaction> {
-		public GOTFaction killFaction;
+		protected GOTFaction killFaction;
 
 		public QFKillFaction() {
 			super("kill");
-		}
-
-		public QFKillFaction(String name) {
-			super(name);
 		}
 
 		@Override
@@ -88,5 +84,4 @@ public class GOTMiniQuestKillFaction extends GOTMiniQuestKill {
 			return this;
 		}
 	}
-
 }

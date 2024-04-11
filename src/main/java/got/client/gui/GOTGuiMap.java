@@ -1697,7 +1697,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 			}
 		}
 		if (mouseOverQuest != null && !hasOverlay) {
-			String name = mouseOverQuest.entityName;
+			String name = mouseOverQuest.getEntityName();
 			int stringWidth = mc.fontRenderer.getStringWidth(name);
 			int stringHeight = mc.fontRenderer.FONT_HEIGHT;
 			int x = mouseOverQuestX;

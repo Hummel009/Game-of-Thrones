@@ -19,7 +19,7 @@ public class GOTPacketMiniquestTrack implements IMessage {
 	}
 
 	public GOTPacketMiniquestTrack(GOTMiniQuest quest) {
-		questID = quest == null ? null : quest.questUUID;
+		questID = quest == null ? null : quest.getQuestUUID();
 	}
 
 	@Override

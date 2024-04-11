@@ -12,7 +12,7 @@ import net.minecraft.util.StatCollector;
 import java.util.Random;
 
 public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
-	public Class<? extends Entity> entityType;
+	private Class<? extends Entity> entityType;
 
 	public GOTMiniQuestKillEntity(GOTPlayerData pd) {
 		super(pd);
@@ -46,7 +46,7 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 	}
 
 	@Override
-	public void onPlayerTick(EntityPlayer entityplayer) {
+	public void onPlayerTick() {
 	}
 
 	@Override
@@ -62,7 +62,7 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 	}
 
 	public static class QFKillEntity extends GOTMiniQuestKill.QFKill<GOTMiniQuestKillEntity> {
-		public Class<? extends Entity> entityType;
+		protected Class<? extends Entity> entityType;
 
 		public QFKillEntity(String name) {
 			super(name);
@@ -86,5 +86,4 @@ public class GOTMiniQuestKillEntity extends GOTMiniQuestKill {
 			return this;
 		}
 	}
-
 }
