@@ -130,15 +130,15 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 		GL11.glDepthMask(false);
 		FontRenderer fontrenderer = func_147498_b();
 		int color = getTextColor(sign, f);
-		int signLines = sign.signText.length;
+		int signLines = sign.getSignText().length;
 		int lineHeight = fontrenderer.FONT_HEIGHT + 1;
 		int lineBase = -signLines * 5;
 		if (signLines > 4) {
 			lineBase = -((signLines - 1) * lineHeight) / 2;
 		}
 		for (int l = 0; l < signLines; ++l) {
-			String s = sign.signText[l];
-			if (l == sign.lineBeingEdited) {
+			String s = sign.getSignText()[l];
+			if (l == sign.getLineBeingEdited()) {
 				s = "> " + s + " <";
 			}
 			int lineX = -fontrenderer.getStringWidth(s) / 2;

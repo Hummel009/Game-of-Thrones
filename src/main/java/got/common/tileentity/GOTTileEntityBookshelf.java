@@ -17,9 +17,9 @@ import net.minecraft.util.AxisAlignedBB;
 import java.util.List;
 
 public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
-	public ItemStack[] chestContents = new ItemStack[getSizeInventory()];
-	public int numPlayersUsing;
-	public int ticksSinceSync;
+	private ItemStack[] chestContents = new ItemStack[getSizeInventory()];
+	private int numPlayersUsing;
+	private int ticksSinceSync;
 
 	public static boolean isBookItem(ItemStack itemstack) {
 		if (itemstack != null) {
@@ -168,5 +168,9 @@ public class GOTTileEntityBookshelf extends TileEntity implements IInventory {
 			itemTags.appendTag(slotData);
 		}
 		nbt.setTag("Items", itemTags);
+	}
+
+	public int getNumPlayersUsing() {
+		return numPlayersUsing;
 	}
 }

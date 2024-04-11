@@ -22,21 +22,17 @@ import java.util.Collections;
 import java.util.List;
 
 public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
-	public static int EMPTY;
-	public static int BREWING = 1;
-	public static int FULL = 2;
-	public static int brewTime = 12000;
-	public static int brewAnimTime = 32;
-	public static int[] INGREDIENT_SLOTS = {0, 1, 2, 3, 4, 5};
-	public static int[] BUCKET_SLOTS = {6, 7, 8};
-	public static int BARREL_SLOT = 9;
-	public ItemStack[] inventory = new ItemStack[10];
-	public int barrelMode;
-	public int brewingTime;
-	public int brewingAnim;
-	public int brewingAnimPrev;
-	public String specialBarrelName;
-	public List<EntityPlayerMP> players = new ArrayList<>();
+	private static final int[] INGREDIENT_SLOTS = {0, 1, 2, 3, 4, 5};
+	private static final int[] BUCKET_SLOTS = {6, 7, 8};
+
+	private final List<EntityPlayerMP> players = new ArrayList<>();
+
+	private ItemStack[] inventory = new ItemStack[10];
+	private String specialBarrelName;
+	private int barrelMode;
+	private int brewingTime;
+	private int brewingAnim;
+	private int brewingAnimPrev;
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack extractItem, int side) {
@@ -295,7 +291,7 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 		}
 	}
 
-	public void updateBrewingRecipe() {
+	private void updateBrewingRecipe() {
 		if (barrelMode == 0) {
 			inventory[9] = GOTRecipeBrewing.findMatchingRecipe(this);
 		}
@@ -365,5 +361,25 @@ public class GOTTileEntityBarrel extends TileEntity implements ISidedInventory {
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		writeBarrelToNBT(nbt);
+	}
+
+	public int getBarrelMode() {
+		return barrelMode;
+	}
+
+	public void setBarrelMode(int barrelMode) {
+		this.barrelMode = barrelMode;
+	}
+
+	public int getBrewingTime() {
+		return brewingTime;
+	}
+
+	public void setBrewingTime(int brewingTime) {
+		this.brewingTime = brewingTime;
+	}
+
+	public List<EntityPlayerMP> getPlayers() {
+		return players;
 	}
 }

@@ -41,9 +41,9 @@ public class GOTModelPlateHead extends GOTModelHuman {
 			--heldItemMinusOne.stackSize;
 			if (heldItemMinusOne.stackSize > 0) {
 				plateTE.setFoodItem(heldItemMinusOne);
-				plateTE.plateFallInfo = fallingInfo;
+				plateTE.setPlateFallInfo(fallingInfo);
 				TileEntityRendererDispatcher.instance.renderTileEntityAt(plateTE, -0.5, -0.5, -0.5, tick);
-				plateTE.plateFallInfo = null;
+				plateTE.setPlateFallInfo(null);
 				GL11.glDisable(2884);
 			}
 		}

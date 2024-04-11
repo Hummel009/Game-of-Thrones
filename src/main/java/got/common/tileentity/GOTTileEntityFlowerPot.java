@@ -9,8 +9,8 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class GOTTileEntityFlowerPot extends TileEntity {
-	public Item item;
-	public int meta;
+	private Item item;
+	private int meta;
 
 	@Override
 	public Packet getDescriptionPacket() {
@@ -41,5 +41,21 @@ public class GOTTileEntityFlowerPot extends TileEntity {
 		super.writeToNBT(nbt);
 		nbt.setInteger("PlantID", Item.getIdFromItem(item));
 		nbt.setInteger("PlantMeta", meta);
+	}
+
+	public Item getItem() {
+		return item;
+	}
+
+	public void setItem(Item item) {
+		this.item = item;
+	}
+
+	public int getMeta() {
+		return meta;
+	}
+
+	public void setMeta(int meta) {
+		this.meta = meta;
 	}
 }

@@ -45,9 +45,9 @@ public class GOTContainerAlloyForge extends Container {
 	@Override
 	public void addCraftingToCrafters(ICrafting crafting) {
 		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 0, theForge.currentSmeltTime);
-		crafting.sendProgressBarUpdate(this, 1, theForge.forgeSmeltTime);
-		crafting.sendProgressBarUpdate(this, 2, theForge.currentItemFuelValue);
+		crafting.sendProgressBarUpdate(this, 0, theForge.getCurrentSmeltTime());
+		crafting.sendProgressBarUpdate(this, 1, theForge.getForgeSmeltTime());
+		crafting.sendProgressBarUpdate(this, 2, theForge.getCurrentItemFuelValue());
 	}
 
 	@Override
@@ -60,20 +60,20 @@ public class GOTContainerAlloyForge extends Container {
 		super.detectAndSendChanges();
 		for (Object element : crafters) {
 			ICrafting crafting = (ICrafting) element;
-			if (currentSmeltTime != theForge.currentSmeltTime) {
-				crafting.sendProgressBarUpdate(this, 0, theForge.currentSmeltTime);
+			if (currentSmeltTime != theForge.getCurrentSmeltTime()) {
+				crafting.sendProgressBarUpdate(this, 0, theForge.getCurrentSmeltTime());
 			}
-			if (forgeSmeltTime != theForge.forgeSmeltTime) {
-				crafting.sendProgressBarUpdate(this, 1, theForge.forgeSmeltTime);
+			if (forgeSmeltTime != theForge.getForgeSmeltTime()) {
+				crafting.sendProgressBarUpdate(this, 1, theForge.getForgeSmeltTime());
 			}
-			if (currentItemFuelValue == theForge.currentItemFuelValue) {
+			if (currentItemFuelValue == theForge.getCurrentItemFuelValue()) {
 				continue;
 			}
-			crafting.sendProgressBarUpdate(this, 2, theForge.currentItemFuelValue);
+			crafting.sendProgressBarUpdate(this, 2, theForge.getCurrentItemFuelValue());
 		}
-		currentSmeltTime = theForge.currentSmeltTime;
-		forgeSmeltTime = theForge.forgeSmeltTime;
-		currentItemFuelValue = theForge.currentItemFuelValue;
+		currentSmeltTime = theForge.getCurrentSmeltTime();
+		forgeSmeltTime = theForge.getForgeSmeltTime();
+		currentItemFuelValue = theForge.getCurrentItemFuelValue();
 	}
 
 	@Override
@@ -108,13 +108,13 @@ public class GOTContainerAlloyForge extends Container {
 	@Override
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
-			theForge.currentSmeltTime = j;
+			theForge.setCurrentSmeltTime(j);
 		}
 		if (i == 1) {
-			theForge.forgeSmeltTime = j;
+			theForge.setForgeSmeltTime(j);
 		}
 		if (i == 2) {
-			theForge.currentItemFuelValue = j;
+			theForge.setCurrentItemFuelValue(j);
 		}
 	}
 }

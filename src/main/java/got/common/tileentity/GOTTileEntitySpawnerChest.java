@@ -7,7 +7,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntityChest;
 
 public class GOTTileEntitySpawnerChest extends TileEntityChest {
-	public String entityClassName = "";
+	private String entityClassName = "";
 
 	public Entity createMob() {
 		return EntityList.createEntityByName(entityClassName, worldObj);

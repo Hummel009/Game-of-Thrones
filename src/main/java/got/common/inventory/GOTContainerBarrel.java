@@ -41,15 +41,15 @@ public class GOTContainerBarrel extends Container {
 			addSlotToContainer(new Slot(inv, i, 25 + i * 18, 197));
 		}
 		if (!barrel.getWorldObj().isRemote && inv.player instanceof EntityPlayerMP) {
-			barrel.players.add((EntityPlayerMP) inv.player);
+			barrel.getPlayers().add((EntityPlayerMP) inv.player);
 		}
 	}
 
 	@Override
 	public void addCraftingToCrafters(ICrafting crafting) {
 		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 0, theBarrel.barrelMode);
-		crafting.sendProgressBarUpdate(this, 1, theBarrel.brewingTime);
+		crafting.sendProgressBarUpdate(this, 0, theBarrel.getBarrelMode());
+		crafting.sendProgressBarUpdate(this, 1, theBarrel.getBrewingTime());
 	}
 
 	@Override
@@ -62,23 +62,23 @@ public class GOTContainerBarrel extends Container {
 		super.detectAndSendChanges();
 		for (Object crafter : crafters) {
 			ICrafting crafting = (ICrafting) crafter;
-			if (barrelMode != theBarrel.barrelMode) {
-				crafting.sendProgressBarUpdate(this, 0, theBarrel.barrelMode);
+			if (barrelMode != theBarrel.getBarrelMode()) {
+				crafting.sendProgressBarUpdate(this, 0, theBarrel.getBarrelMode());
 			}
-			if (brewingTime == theBarrel.brewingTime) {
+			if (brewingTime == theBarrel.getBrewingTime()) {
 				continue;
 			}
-			crafting.sendProgressBarUpdate(this, 1, theBarrel.brewingTime);
+			crafting.sendProgressBarUpdate(this, 1, theBarrel.getBrewingTime());
 		}
-		barrelMode = theBarrel.barrelMode;
-		brewingTime = theBarrel.brewingTime;
+		barrelMode = theBarrel.getBarrelMode();
+		brewingTime = theBarrel.getBrewingTime();
 	}
 
 	@Override
 	public void onContainerClosed(EntityPlayer entityplayer) {
 		super.onContainerClosed(entityplayer);
 		if (!theBarrel.getWorldObj().isRemote && entityplayer instanceof EntityPlayerMP) {
-			theBarrel.players.remove(entityplayer);
+			theBarrel.getPlayers().remove(entityplayer);
 		}
 	}
 
@@ -120,10 +120,10 @@ public class GOTContainerBarrel extends Container {
 	@SideOnly(Side.CLIENT)
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
-			theBarrel.barrelMode = j;
+			theBarrel.setBarrelMode(j);
 		}
 		if (i == 1) {
-			theBarrel.brewingTime = j;
+			theBarrel.setBrewingTime(j);
 		}
 	}
 

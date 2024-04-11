@@ -4,13 +4,13 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class GOTTileEntitySignCarvedValyrian extends GOTTileEntitySignCarved {
-	public GOTTileEntityGlowLogic glowLogic = new GOTTileEntityGlowLogic().setPlayerRange(8);
+	private static final GOTTileEntityGlowLogic GLOW_LOGIC = new GOTTileEntityGlowLogic().setPlayerRange(8);
 
 	public float getGlowBrightness(float f) {
-		if (isFakeGuiSign) {
+		if (isFakeGuiSign()) {
 			return 1.0f;
 		}
-		return glowLogic.getGlowBrightness(worldObj, xCoord, yCoord, zCoord, f);
+		return GLOW_LOGIC.getGlowBrightness(worldObj, xCoord, yCoord, zCoord, f);
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -22,6 +22,6 @@ public class GOTTileEntitySignCarvedValyrian extends GOTTileEntitySignCarved {
 	@Override
 	public void updateEntity() {
 		super.updateEntity();
-		glowLogic.update(worldObj, xCoord, yCoord, zCoord);
+		GLOW_LOGIC.update(worldObj, xCoord, yCoord, zCoord);
 	}
 }

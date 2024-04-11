@@ -16,8 +16,8 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 public class GOTTileEntityArmorStand extends TileEntity implements IInventory {
-	public ItemStack[] inventory = new ItemStack[4];
-	public int ticksExisted;
+	private ItemStack[] inventory = new ItemStack[4];
+	private int ticksExisted;
 
 	@Override
 	public void closeInventory() {
@@ -115,7 +115,7 @@ public class GOTTileEntityArmorStand extends TileEntity implements IInventory {
 	public void openInventory() {
 	}
 
-	public void readArmorStandFromNBT(NBTTagCompound nbt) {
+	private void readArmorStandFromNBT(NBTTagCompound nbt) {
 		NBTTagList items = nbt.getTagList("Items", 10);
 		inventory = new ItemStack[getSizeInventory()];
 		for (int i = 0; i < items.tagCount(); ++i) {
@@ -154,7 +154,7 @@ public class GOTTileEntityArmorStand extends TileEntity implements IInventory {
 		++ticksExisted;
 	}
 
-	public void writeArmorStandToNBT(NBTTagCompound nbt) {
+	private void writeArmorStandToNBT(NBTTagCompound nbt) {
 		NBTTagList items = new NBTTagList();
 		for (int i = 0; i < inventory.length; ++i) {
 			if (inventory[i] == null) {
@@ -172,5 +172,9 @@ public class GOTTileEntityArmorStand extends TileEntity implements IInventory {
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		writeArmorStandToNBT(nbt);
+	}
+
+	public int getTicksExisted() {
+		return ticksExisted;
 	}
 }

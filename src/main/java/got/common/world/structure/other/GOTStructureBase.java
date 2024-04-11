@@ -464,7 +464,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 		TileEntity tileentity = getTileEntity(world, i, j, k);
 		if (tileentity instanceof GOTTileEntityBarrel) {
 			GOTTileEntityBarrel barrel = (GOTTileEntityBarrel) tileentity;
-			barrel.barrelMode = 2;
+			barrel.setBarrelMode(2);
 			drink = drink.copy();
 			GOTItemMug.setStrengthMeta(drink, MathHelper.getRandomIntegerInRange(random, 1, 3));
 			GOTItemMug.setVessel(drink, GOTItemMug.Vessel.MUG, true);

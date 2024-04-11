@@ -14,8 +14,8 @@ import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 
 public class GOTTileEntityWeaponRack extends TileEntity {
-	public ItemStack weaponItem;
-	public EntityLivingBase rackEntity;
+	private ItemStack weaponItem;
+	private EntityLivingBase rackEntity;
 
 	public boolean canAcceptItem(ItemStack itemstack) {
 		if (itemstack != null) {

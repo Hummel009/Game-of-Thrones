@@ -29,20 +29,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInventory {
-	public ItemStack[] inventory = new ItemStack[getForgeInvSize()];
-	public String specialForgeName;
-	public int forgeSmeltTime;
-	public int currentItemFuelValue;
-	public int currentSmeltTime;
-	public int[] inputSlots;
-	public int[] outputSlots;
-	public int fuelSlot;
+	protected ItemStack[] inventory = new ItemStack[getForgeInvSize()];
+	protected int[] inputSlots;
+	protected int[] outputSlots;
+	protected int fuelSlot;
+
+	private int forgeSmeltTime;
+	private int currentItemFuelValue;
+	private int currentSmeltTime;
+	private String specialForgeName;
 
 	public GOTTileEntityAlloyForge() {
 		setupForgeSlots();
 	}
 
-	public boolean canDoSmelting() {
+	protected boolean canDoSmelting() {
 		for (int i = 4; i < 8; ++i) {
 			if (!canSmelt(i)) {
 				continue;
@@ -62,15 +63,15 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return isItemValidForSlot(slot, itemstack);
 	}
 
-	public boolean canMachineInsertFuel(ItemStack itemstack) {
+	private boolean canMachineInsertFuel(ItemStack itemstack) {
 		return TileEntityFurnace.isItemFuel(itemstack);
 	}
 
-	public boolean canMachineInsertInput(ItemStack itemstack) {
+	protected boolean canMachineInsertInput(ItemStack itemstack) {
 		return itemstack != null && getSmeltingResult(itemstack) != null;
 	}
 
-	public boolean canSmelt(int i) {
+	private boolean canSmelt(int i) {
 		ItemStack alloyResult;
 		int resultSize;
 		if (inventory[i] == null) {
@@ -120,7 +121,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return null;
 	}
 
-	public void doSmelt() {
+	protected void doSmelt() {
 		for (int i = 4; i < 8; ++i) {
 			smeltItemInSlot(i);
 		}
@@ -160,7 +161,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return new int[]{fuelSlot};
 	}
 
-	public ItemStack getAlloySmeltingResult(ItemStack itemstack, ItemStack alloyItem) {
+	private ItemStack getAlloySmeltingResult(ItemStack itemstack, ItemStack alloyItem) {
 		if (isCopper(itemstack) && isTin(alloyItem) || isTin(itemstack) && isCopper(alloyItem)) {
 			return new ItemStack(GOTItems.bronzeIngot, 2);
 		}
@@ -179,7 +180,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return null;
 	}
 
-	public int getForgeInvSize() {
+	protected int getForgeInvSize() {
 		return 13;
 	}
 
@@ -202,7 +203,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return inventory.length;
 	}
 
-	public int getSmeltingDuration() {
+	protected int getSmeltingDuration() {
 		return 200;
 	}
 
@@ -260,19 +261,19 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return specialForgeName != null && !specialForgeName.isEmpty();
 	}
 
-	public boolean isCobalt(ItemStack itemstack) {
+	private boolean isCobalt(ItemStack itemstack) {
 		return itemstack.getItem() == GOTItems.cobaltIngot;
 	}
 
-	public boolean isCopper(ItemStack itemstack) {
+	private boolean isCopper(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreCopper") || GOT.isOreNameEqual(itemstack, "ingotCopper");
 	}
 
-	public boolean isGoldNugget(ItemStack itemstack) {
+	private boolean isGoldNugget(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "nuggetGold");
 	}
 
-	public boolean isIron(ItemStack itemstack) {
+	private boolean isIron(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreIron") || GOT.isOreNameEqual(itemstack, "ingotIron");
 	}
 
@@ -284,11 +285,11 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return slot == fuelSlot && canMachineInsertFuel(itemstack);
 	}
 
-	public boolean isOathkeeper(ItemStack itemstack) {
+	private boolean isOathkeeper(ItemStack itemstack) {
 		return itemstack.getItem() == GOTItems.oathkeeper;
 	}
 
-	public boolean isSilver(ItemStack itemstack) {
+	private boolean isSilver(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreSilver") || GOT.isOreNameEqual(itemstack, "ingotSilver");
 	}
 
@@ -296,7 +297,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return forgeSmeltTime > 0;
 	}
 
-	public boolean isTin(ItemStack itemstack) {
+	private boolean isTin(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "oreTin") || GOT.isOreNameEqual(itemstack, "ingotTin");
 	}
 
@@ -305,15 +306,15 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64.0;
 	}
 
-	public boolean isValyrianNugget(ItemStack itemstack) {
+	private boolean isValyrianNugget(ItemStack itemstack) {
 		return itemstack.getItem() == GOTItems.valyrianNugget;
 	}
 
-	public boolean isWidowWail(ItemStack itemstack) {
+	private boolean isWidowWail(ItemStack itemstack) {
 		return itemstack.getItem() == GOTItems.widowWail;
 	}
 
-	public boolean isWood(ItemStack itemstack) {
+	private boolean isWood(ItemStack itemstack) {
 		return GOT.isOreNameEqual(itemstack, "logWood");
 	}
 
@@ -357,17 +358,13 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		}
 	}
 
-	public void setSpecialForgeName(String s) {
-		specialForgeName = s;
-	}
-
-	public void setupForgeSlots() {
+	protected void setupForgeSlots() {
 		inputSlots = new int[]{4, 5, 6, 7};
 		outputSlots = new int[]{8, 9, 10, 11};
 		fuelSlot = 12;
 	}
 
-	public void smeltItemInSlot(int i) {
+	private void smeltItemInSlot(int i) {
 		if (canSmelt(i)) {
 			ItemStack alloyResult;
 			boolean smeltedAlloyItem = false;
@@ -402,7 +399,7 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		}
 	}
 
-	public void toggleForgeActive() {
+	private void toggleForgeActive() {
 		GOTBlockForgeBase.toggleForgeActive(worldObj, xCoord, yCoord, zCoord);
 	}
 
@@ -465,5 +462,38 @@ public class GOTTileEntityAlloyForge extends TileEntity implements ISidedInvento
 		if (hasCustomInventoryName()) {
 			nbt.setString("CustomName", specialForgeName);
 		}
+	}
+
+	public int getForgeSmeltTime() {
+		return forgeSmeltTime;
+	}
+
+	public void setForgeSmeltTime(int forgeSmeltTime) {
+		this.forgeSmeltTime = forgeSmeltTime;
+	}
+
+	public int getCurrentItemFuelValue() {
+		return currentItemFuelValue;
+	}
+
+	public void setCurrentItemFuelValue(int currentItemFuelValue) {
+		this.currentItemFuelValue = currentItemFuelValue;
+	}
+
+	public int getCurrentSmeltTime() {
+		return currentSmeltTime;
+	}
+
+	public void setCurrentSmeltTime(int currentSmeltTime) {
+		this.currentSmeltTime = currentSmeltTime;
+	}
+
+	@SuppressWarnings("unused")
+	public String getSpecialForgeName() {
+		return specialForgeName;
+	}
+
+	public void setSpecialForgeName(String s) {
+		specialForgeName = s;
 	}
 }

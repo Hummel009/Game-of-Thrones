@@ -29,7 +29,7 @@ public class GOTSlotBarrel extends Slot {
 
 	@Override
 	public boolean isItemValid(ItemStack itemstack) {
-		return theBarrel.barrelMode == 0 && (!isWater || GOTRecipeBrewing.isWaterSource(itemstack));
+		return theBarrel.getBarrelMode() == 0 && (!isWater || GOTRecipeBrewing.isWaterSource(itemstack));
 	}
 
 	public void setWaterSource() {

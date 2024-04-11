@@ -15,8 +15,8 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 
 public class GOTTileEntityPlate extends TileEntity {
-	public ItemStack foodItem;
-	public GOTPlateFallingInfo plateFallInfo;
+	private GOTPlateFallingInfo plateFallInfo;
+	private ItemStack foodItem;
 
 	public static boolean isValidFoodItem(ItemStack itemstack) {
 		Item item;
@@ -84,5 +84,13 @@ public class GOTTileEntityPlate extends TileEntity {
 		if (foodItem != null) {
 			nbt.setTag("FoodItem", foodItem.writeToNBT(new NBTTagCompound()));
 		}
+	}
+
+	public GOTPlateFallingInfo getPlateFallInfo() {
+		return plateFallInfo;
+	}
+
+	public void setPlateFallInfo(GOTPlateFallingInfo plateFallInfo) {
+		this.plateFallInfo = plateFallInfo;
 	}
 }

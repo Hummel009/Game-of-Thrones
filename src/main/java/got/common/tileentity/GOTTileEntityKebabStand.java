@@ -18,18 +18,17 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
-	public static int MEAT_SLOTS = 8;
-	public ItemStack[] inventory = new ItemStack[8];
-	public boolean[] cooked = new boolean[8];
-	public int cookTime;
-	public int fuelTime;
-	public boolean cookedClient;
-	public boolean cookingClient;
-	public int meatAmountClient;
-	public float kebabSpin;
-	public float prevKebabSpin;
+	private ItemStack[] inventory = new ItemStack[8];
+	private boolean[] cooked = new boolean[8];
+	private boolean cookedClient;
+	private boolean cookingClient;
+	private float kebabSpin;
+	private float prevKebabSpin;
+	private int cookTime;
+	private int fuelTime;
+	private int meatAmountClient;
 
-	public void addFuel(int i) {
+	private void addFuel(int i) {
 		fuelTime += i;
 	}
 
@@ -52,7 +51,7 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		return added;
 	}
 
-	public boolean canCook() {
+	private boolean canCook() {
 		return !isFullyCooked() && getMeatAmount() > 0;
 	}
 
@@ -60,7 +59,7 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 	public void closeInventory() {
 	}
 
-	public void cookFirstMeat() {
+	private void cookFirstMeat() {
 		cookTime = 0;
 		fuelTime -= 200;
 		for (int i = getSizeInventory() - 1; i >= 0; --i) {
@@ -193,14 +192,14 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		return false;
 	}
 
-	public boolean isCooking() {
+	private boolean isCooking() {
 		if (worldObj != null && worldObj.isRemote) {
 			return cookingClient;
 		}
 		return fuelTime > 0;
 	}
 
-	public boolean isFullyCooked() {
+	private boolean isFullyCooked() {
 		for (int i = 0; i < getSizeInventory(); ++i) {
 			ItemStack itemstack = getStackInSlot(i);
 			if (itemstack == null || cooked[i]) {
@@ -320,17 +319,17 @@ public class GOTTileEntityKebabStand extends TileEntity implements IInventory {
 		return getMeatAmount() > 0;
 	}
 
-	public void startCooking(int i) {
+	private void startCooking(int i) {
 		cookTime = 0;
 		fuelTime = i;
 	}
 
-	public void stopCooking() {
+	private void stopCooking() {
 		cookTime = 0;
 		fuelTime = 0;
 	}
 
-	public int takeFuelFromBelow() {
+	private int takeFuelFromBelow() {
 		TileEntity belowTE = worldObj.getTileEntity(xCoord, yCoord - 1, zCoord);
 		if (belowTE instanceof IInventory) {
 			IInventory inv = (IInventory) belowTE;

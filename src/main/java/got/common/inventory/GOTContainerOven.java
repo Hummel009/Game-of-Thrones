@@ -43,9 +43,9 @@ public class GOTContainerOven extends Container {
 	@Override
 	public void addCraftingToCrafters(ICrafting crafting) {
 		super.addCraftingToCrafters(crafting);
-		crafting.sendProgressBarUpdate(this, 0, theOven.currentCookTime);
-		crafting.sendProgressBarUpdate(this, 1, theOven.ovenCookTime);
-		crafting.sendProgressBarUpdate(this, 2, theOven.currentItemFuelValue);
+		crafting.sendProgressBarUpdate(this, 0, theOven.getCurrentCookTime());
+		crafting.sendProgressBarUpdate(this, 1, theOven.getOvenCookTime());
+		crafting.sendProgressBarUpdate(this, 2, theOven.getCurrentItemFuelValue());
 	}
 
 	@Override
@@ -58,20 +58,20 @@ public class GOTContainerOven extends Container {
 		super.detectAndSendChanges();
 		for (Object element : crafters) {
 			ICrafting crafting = (ICrafting) element;
-			if (currentCookTime != theOven.currentCookTime) {
-				crafting.sendProgressBarUpdate(this, 0, theOven.currentCookTime);
+			if (currentCookTime != theOven.getCurrentCookTime()) {
+				crafting.sendProgressBarUpdate(this, 0, theOven.getCurrentCookTime());
 			}
-			if (ovenCookTime != theOven.ovenCookTime) {
-				crafting.sendProgressBarUpdate(this, 1, theOven.ovenCookTime);
+			if (ovenCookTime != theOven.getOvenCookTime()) {
+				crafting.sendProgressBarUpdate(this, 1, theOven.getOvenCookTime());
 			}
-			if (currentItemFuelValue == theOven.currentItemFuelValue) {
+			if (currentItemFuelValue == theOven.getCurrentItemFuelValue()) {
 				continue;
 			}
-			crafting.sendProgressBarUpdate(this, 2, theOven.currentItemFuelValue);
+			crafting.sendProgressBarUpdate(this, 2, theOven.getCurrentItemFuelValue());
 		}
-		currentCookTime = theOven.currentCookTime;
-		ovenCookTime = theOven.ovenCookTime;
-		currentItemFuelValue = theOven.currentItemFuelValue;
+		currentCookTime = theOven.getCurrentCookTime();
+		ovenCookTime = theOven.getOvenCookTime();
+		currentItemFuelValue = theOven.getCurrentItemFuelValue();
 	}
 
 	@Override
@@ -106,13 +106,13 @@ public class GOTContainerOven extends Container {
 	@Override
 	public void updateProgressBar(int i, int j) {
 		if (i == 0) {
-			theOven.currentCookTime = j;
+			theOven.setCurrentCookTime(j);
 		}
 		if (i == 1) {
-			theOven.ovenCookTime = j;
+			theOven.setOvenCookTime(j);
 		}
 		if (i == 2) {
-			theOven.currentItemFuelValue = j;
+			theOven.setCurrentItemFuelValue(j);
 		}
 	}
 }

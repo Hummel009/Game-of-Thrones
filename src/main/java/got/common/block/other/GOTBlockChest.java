@@ -49,7 +49,7 @@ public class GOTBlockChest extends BlockContainer {
 	@Override
 	public TileEntity createNewTileEntity(World world, int i) {
 		GOTTileEntityChest chest = new GOTTileEntityChest();
-		chest.textureName = chestTextureName;
+		chest.setTextureName(chestTextureName);
 		return chest;
 	}
 

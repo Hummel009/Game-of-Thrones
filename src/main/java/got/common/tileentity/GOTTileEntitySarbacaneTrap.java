@@ -16,7 +16,7 @@ import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 
 public class GOTTileEntitySarbacaneTrap extends TileEntityDispenser {
-	public int fireCooldown;
+	private int fireCooldown;
 
 	@Override
 	public String getInventoryName() {

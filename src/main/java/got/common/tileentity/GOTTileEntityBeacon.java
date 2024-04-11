@@ -22,14 +22,15 @@ import java.util.HashSet;
 import java.util.UUID;
 
 public class GOTTileEntityBeacon extends TileEntity {
-	public int ticksExisted;
-	public boolean isLit;
-	public int litCounter;
-	public int unlitCounter;
-	public long stateChangeTime = -1L;
-	public String beaconName;
-	public UUID beaconFellowshipID;
-	public Collection<EntityPlayer> editingPlayers = new ArrayList<>();
+	private final Collection<EntityPlayer> editingPlayers = new ArrayList<>();
+
+	private boolean isLit;
+	private int ticksExisted;
+	private int litCounter;
+	private int unlitCounter;
+	private long stateChangeTime = -1L;
+	private String beaconName;
+	private UUID beaconFellowshipID;
 
 	@Override
 	public Packet getDescriptionPacket() {
@@ -79,7 +80,7 @@ public class GOTTileEntityBeacon extends TileEntity {
 		beaconFellowshipID = nbt.hasKey("BeaconFellowship") ? UUID.fromString(nbt.getString("BeaconFellowship")) : null;
 	}
 
-	public void sendFellowshipMessage(boolean lit) {
+	private void sendFellowshipMessage(boolean lit) {
 		GOTFellowship fs;
 		if (beaconFellowshipID != null && (fs = GOTFellowshipData.getFellowship(beaconFellowshipID)) != null && !fs.isDisbanded()) {
 			String beaconMessageName = beaconName;
@@ -175,7 +176,7 @@ public class GOTTileEntityBeacon extends TileEntity {
 		editingPlayers.removeAll(removePlayers);
 	}
 
-	public void updateLight() {
+	private void updateLight() {
 		worldObj.updateLightByType(EnumSkyBlock.Block, xCoord, yCoord, zCoord);
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();

@@ -5,24 +5,22 @@ import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
 public class GOTTileEntityGlowLogic {
-	public static float[] lightValueSqrts = new float[16];
+	private static final float[] LIGHT_VALUE_SQRTS = new float[16];
+	private static final int MAX_GLOW_TICK = 120;
 
 	static {
 		for (int i = 0; i <= 15; ++i) {
-			lightValueSqrts[i] = MathHelper.sqrt_float(i / 15.0f);
+			LIGHT_VALUE_SQRTS[i] = MathHelper.sqrt_float(i / 15.0f);
 		}
 	}
 
-	public boolean playersNearby;
-	public int glowTick;
-	public int prevGlowTick;
-	public int maxGlowTick = 120;
-	public int playerRange = 8;
-
-	public float fullGlow = 0.7f;
+	private int glowTick;
+	private int prevGlowTick;
+	private int playerRange = 8;
 
 	public float getGlowBrightness(World world, int i, int j, int k, float tick) {
-		float glow = (prevGlowTick + (glowTick - prevGlowTick) * tick) / maxGlowTick;
+		float glow = (prevGlowTick + (glowTick - prevGlowTick) * tick) / MAX_GLOW_TICK;
+		float fullGlow = 0.7f;
 		glow *= fullGlow;
 		float sun = world.getSunBrightness(tick);
 		float sunNorml = (sun - 0.2F) / 0.8F;
@@ -32,24 +30,29 @@ public class GOTTileEntityGlowLogic {
 			night = 0.0F;
 		}
 		night *= 2.0F;
-		float skylight = lightValueSqrts[world.getSkyBlockTypeBrightness(EnumSkyBlock.Sky, i, j, k)];
+		float skylight = LIGHT_VALUE_SQRTS[world.getSkyBlockTypeBrightness(EnumSkyBlock.Sky, i, j, k)];
 		return glow * night * skylight;
-	}
-
-	public GOTTileEntityGlowLogic setPlayerRange(int i) {
-		playerRange = i;
-		return this;
 	}
 
 	public void update(World world, int i, int j, int k) {
 		prevGlowTick = glowTick;
 		if (world.isRemote) {
-			playersNearby = world.getClosestPlayer(i + 0.5, j + 0.5, k + 0.5, playerRange) != null;
-			if (playersNearby && glowTick < maxGlowTick) {
+			boolean playersNearby = world.getClosestPlayer(i + 0.5, j + 0.5, k + 0.5, playerRange) != null;
+			if (playersNearby && glowTick < MAX_GLOW_TICK) {
 				++glowTick;
 			} else if (!playersNearby && glowTick > 0) {
 				--glowTick;
 			}
 		}
+	}
+
+	@SuppressWarnings("unused")
+	public int getPlayerRange() {
+		return playerRange;
+	}
+
+	public GOTTileEntityGlowLogic setPlayerRange(int i) {
+		playerRange = i;
+		return this;
 	}
 }

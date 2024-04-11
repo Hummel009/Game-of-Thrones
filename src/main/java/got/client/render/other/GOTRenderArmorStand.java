@@ -92,7 +92,7 @@ public class GOTRenderArmorStand extends TileEntitySpecialRenderer {
 						armorModel.render(null, BIPED_ARM_ROTATION, 0.0f, BIPED_TICKS_EXISTED, 0.0f, 0.0f, scale);
 					}
 					if (itemstack.isItemEnchanted()) {
-						float f2 = armorStand.ticksExisted + f;
+						float f2 = armorStand.getTicksExisted() + f;
 						bindTexture(GOTClientProxy.ENCHANTMENT_TEXTURE);
 						GL11.glEnable(3042);
 						float f3 = 0.5f;

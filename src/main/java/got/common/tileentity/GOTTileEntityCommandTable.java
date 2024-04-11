@@ -11,7 +11,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.MathHelper;
 
 public class GOTTileEntityCommandTable extends TileEntity {
-	public int zoomExp;
+	private int zoomExp;
 
 	@Override
 	public Packet getDescriptionPacket() {
@@ -30,7 +30,7 @@ public class GOTTileEntityCommandTable extends TileEntity {
 		return zoomExp;
 	}
 
-	public void setZoomExp(int i) {
+	private void setZoomExp(int i) {
 		zoomExp = MathHelper.clamp_int(i, -2, 2);
 		worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 		markDirty();
@@ -48,7 +48,7 @@ public class GOTTileEntityCommandTable extends TileEntity {
 		readTableFromNBT(nbt);
 	}
 
-	public void readTableFromNBT(NBTTagCompound nbt) {
+	private void readTableFromNBT(NBTTagCompound nbt) {
 		zoomExp = nbt.getByte("Zoom");
 	}
 
@@ -62,7 +62,7 @@ public class GOTTileEntityCommandTable extends TileEntity {
 		setZoomExp(z);
 	}
 
-	public void writeTableToNBT(NBTTagCompound nbt) {
+	private void writeTableToNBT(NBTTagCompound nbt) {
 		nbt.setByte("Zoom", (byte) zoomExp);
 	}
 

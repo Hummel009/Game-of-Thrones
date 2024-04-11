@@ -231,7 +231,7 @@ public class GOTCommonProxy implements IGuiHandler {
 				fake.xCoord = i;
 				fake.yCoord = j;
 				fake.zCoord = k;
-				fake.isFakeGuiSign = true;
+				fake.setFakeGuiSign(true);
 				return new GOTGuiEditSign(fake);
 			case HIRED_FARMER_INVENTORY:
 				entity = world.getEntityByID(i);

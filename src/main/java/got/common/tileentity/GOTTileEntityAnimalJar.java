@@ -24,11 +24,11 @@ import java.util.List;
 import java.util.Random;
 
 public class GOTTileEntityAnimalJar extends TileEntity {
-	public NBTTagCompound jarEntityData;
-	public Entity jarEntity;
-	public int ticksExisted = -1;
-	public float targetYaw;
-	public boolean hasTargetYaw;
+	private NBTTagCompound jarEntityData;
+	private Entity jarEntity;
+	private int ticksExisted = -1;
+	private float targetYaw;
+	private boolean hasTargetYaw;
 
 	@Override
 	public Packet getDescriptionPacket() {
@@ -49,7 +49,7 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 		markDirty();
 	}
 
-	public float getEntityHeight() {
+	private float getEntityHeight() {
 		Block block = getBlockType();
 		if (block instanceof GOTBlockAnimalJar) {
 			return ((GOTBlockAnimalJar) block).getJarEntityHeight();
@@ -57,11 +57,11 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 		return 0.5f;
 	}
 
-	public float[] getInitialEntityCoords(Entity entity) {
+	private float[] getInitialEntityCoords(Entity entity) {
 		return new float[]{xCoord + 0.5f, yCoord + getEntityHeight() - entity.height / 2.0f, zCoord + 0.5f};
 	}
 
-	public Packet getJarPacket(int type) {
+	private Packet getJarPacket(int type) {
 		getOrCreateJarEntity();
 		NBTTagCompound data = new NBTTagCompound();
 		data.setByte("JarPacketType", (byte) type);
@@ -130,7 +130,7 @@ public class GOTTileEntityAnimalJar extends TileEntity {
 		}
 	}
 
-	public void sendJarPacket(int type) {
+	private void sendJarPacket(int type) {
 		Packet packet = getJarPacket(type);
 		int i = MathHelper.floor_double(xCoord) >> 4;
 		int k = MathHelper.floor_double(zCoord) >> 4;

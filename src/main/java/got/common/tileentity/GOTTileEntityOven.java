@@ -25,14 +25,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
-	public ItemStack[] inventory = new ItemStack[19];
-	public int ovenCookTime;
-	public int currentItemFuelValue;
-	public int currentCookTime;
-	public String specialOvenName;
-	public int[] inputSlots = {0, 1, 2, 3, 4, 5, 6, 7, 8};
-	public int[] outputSlots = {9, 10, 11, 12, 13, 14, 15, 16, 17};
-	public int fuelSlot = 18;
+	private static final int FUEL_SLOT = 18;
+	private static final int[] INPUT_SLOTS = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+	private static final int[] OUTPUT_SLOTS = {9, 10, 11, 12, 13, 14, 15, 16, 17};
+
+	private ItemStack[] inventory = new ItemStack[19];
+	private String specialOvenName;
+	private int ovenCookTime;
+	private int currentItemFuelValue;
+	private int currentCookTime;
 
 	public static boolean isCookResultAcceptable(ItemStack result) {
 		if (result == null) {
@@ -42,7 +43,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 		return item instanceof ItemFood || item == GOTItems.pipeweed || item == Item.getItemFromBlock(GOTBlocks.driedReeds);
 	}
 
-	public boolean canCook(int i) {
+	private boolean canCook(int i) {
 		if (inventory[i] == null) {
 			return false;
 		}
@@ -60,7 +61,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 		return resultSize <= getInventoryStackLimit() && resultSize <= result.getMaxStackSize();
 	}
 
-	public boolean canCookAnyItem() {
+	private boolean canCookAnyItem() {
 		for (int i = 0; i < 9; ++i) {
 			if (!canCook(i)) {
 				continue;
@@ -72,7 +73,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack itemstack, int side) {
-		return side != 0 || slot != fuelSlot || itemstack.getItem() == Items.bucket;
+		return side != 0 || slot != FUEL_SLOT || itemstack.getItem() == Items.bucket;
 	}
 
 	@Override
@@ -84,7 +85,7 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 	public void closeInventory() {
 	}
 
-	public void cookItem(int i) {
+	private void cookItem(int i) {
 		if (canCook(i)) {
 			ItemStack itemstack = FurnaceRecipes.smelting().getSmeltingResult(inventory[i]);
 			if (inventory[i + 9] == null) {
@@ -120,10 +121,10 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 	public int[] getAccessibleSlotsFromSide(int side) {
 		if (side == 0) {
 			ArrayList<Integer> list = new ArrayList<>();
-			for (int i : outputSlots) {
+			for (int i : OUTPUT_SLOTS) {
 				list.add(i);
 			}
-			list.add(fuelSlot);
+			list.add(FUEL_SLOT);
 			int[] temp = new int[list.size()];
 			for (int i = 0; i < temp.length; ++i) {
 				temp[i] = list.get(i);
@@ -132,19 +133,19 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 		}
 		if (side == 1) {
 			ArrayList<GOTSlotStackSize> list = new ArrayList<>();
-			for (int slot : inputSlots) {
+			for (int slot : INPUT_SLOTS) {
 				int size = getStackInSlot(slot) == null ? 0 : getStackInSlot(slot).stackSize;
 				list.add(new GOTSlotStackSize(slot, size));
 			}
 			Collections.sort(list);
-			int[] temp = new int[inputSlots.length];
+			int[] temp = new int[INPUT_SLOTS.length];
 			for (int i = 0; i < temp.length; ++i) {
 				GOTSlotStackSize obj = list.get(i);
 				temp[i] = obj.getSlot();
 			}
 			return temp;
 		}
-		return new int[]{fuelSlot};
+		return new int[]{FUEL_SLOT};
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -317,5 +318,29 @@ public class GOTTileEntityOven extends TileEntity implements ISidedInventory {
 		if (hasCustomInventoryName()) {
 			nbt.setString("CustomName", specialOvenName);
 		}
+	}
+
+	public int getOvenCookTime() {
+		return ovenCookTime;
+	}
+
+	public void setOvenCookTime(int ovenCookTime) {
+		this.ovenCookTime = ovenCookTime;
+	}
+
+	public int getCurrentItemFuelValue() {
+		return currentItemFuelValue;
+	}
+
+	public void setCurrentItemFuelValue(int currentItemFuelValue) {
+		this.currentItemFuelValue = currentItemFuelValue;
+	}
+
+	public int getCurrentCookTime() {
+		return currentCookTime;
+	}
+
+	public void setCurrentCookTime(int currentCookTime) {
+		this.currentCookTime = currentCookTime;
 	}
 }

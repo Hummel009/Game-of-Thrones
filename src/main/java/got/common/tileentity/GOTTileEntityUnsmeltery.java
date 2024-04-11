@@ -35,15 +35,15 @@ import org.apache.commons.lang3.tuple.Pair;
 import java.util.*;
 
 public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
-	public static Random unsmeltingRand = new Random();
-	public static Map<Pair<Item, Integer>, Integer> unsmeltableCraftingCounts = new HashMap<>();
-	public float prevRocking;
-	public float rocking;
-	public float prevRockingPhase;
-	public float rockingPhase = unsmeltingRand.nextFloat() * 3.1415927F * 2.0F;
-	public boolean prevServerActive;
-	public boolean serverActive;
-	public boolean clientActive;
+	private static final Random UNSMELTING_RAND = new Random();
+	private static final Map<Pair<Item, Integer>, Integer> UNSMELTABLE_CRAFTING_COUNTS = new HashMap<>();
+
+	private float prevRocking;
+	private float rocking;
+	private float prevRockingPhase;
+	private float rockingPhase = UNSMELTING_RAND.nextFloat() * 3.1415927F * 2.0F;
+	private boolean serverActive;
+	private boolean clientActive;
 
 	public static ItemStack getEquipmentMaterial(ItemStack itemstack) {
 		if (itemstack == null) {
@@ -111,7 +111,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 	}
 
 	@Override
-	public boolean canDoSmelting() {
+	protected boolean canDoSmelting() {
 		ItemStack input = inventory[inputSlots[0]];
 		if (input == null) {
 			return false;
@@ -136,7 +136,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		return itemstack != null && getLargestUnsmeltingResult(itemstack) != null;
 	}
 
-	public int countMatchingIngredients(ItemStack material, Iterable<?> ingredientList, List<IRecipe> recursiveCheckedRecipes) {
+	private int countMatchingIngredients(ItemStack material, Iterable<?> ingredientList, List<IRecipe> recursiveCheckedRecipes) {
 		int i = 0;
 		for (Object obj : ingredientList) {
 			if (obj instanceof ItemStack) {
@@ -175,18 +175,18 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		return i;
 	}
 
-	public int determineResourcesUsed(ItemStack itemstack, ItemStack material) {
+	private int determineResourcesUsed(ItemStack itemstack, ItemStack material) {
 		return determineResourcesUsed(itemstack, material, null);
 	}
 
-	public int determineResourcesUsed(ItemStack itemstack, ItemStack material, List<IRecipe> recursiveCheckedRecipes) {
+	private int determineResourcesUsed(ItemStack itemstack, ItemStack material, List<IRecipe> recursiveCheckedRecipes) {
 		List<IRecipe> recursiveCheckedRecipes1 = recursiveCheckedRecipes;
 		if (itemstack == null) {
 			return 0;
 		}
 		Pair<Item, Integer> key = Pair.of(itemstack.getItem(), itemstack.getItemDamage());
-		if (unsmeltableCraftingCounts.containsKey(key)) {
-			return unsmeltableCraftingCounts.get(key);
+		if (UNSMELTABLE_CRAFTING_COUNTS.containsKey(key)) {
+			return UNSMELTABLE_CRAFTING_COUNTS.get(key);
 		}
 		int count = 0;
 		Collection<List<IRecipe>> allRecipeLists = new ArrayList<>();
@@ -254,7 +254,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				}
 			}
 		}
-		unsmeltableCraftingCounts.put(key, count);
+		UNSMELTABLE_CRAFTING_COUNTS.put(key, count);
 		return count;
 	}
 
@@ -294,7 +294,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		return StatCollector.translateToLocal("got.container.unsmeltery");
 	}
 
-	public ItemStack getLargestUnsmeltingResult(ItemStack itemstack) {
+	private ItemStack getLargestUnsmeltingResult(ItemStack itemstack) {
 		if (itemstack == null || !canBeUnsmelted(itemstack)) {
 			return null;
 		}
@@ -307,7 +307,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		return new ItemStack(material.getItem(), items, meta);
 	}
 
-	public EntityPlayer getProxyPlayer() {
+	private EntityPlayer getProxyPlayer() {
 		if (!worldObj.isRemote) {
 			return FakePlayerFactory.get((WorldServer) worldObj, new GameProfile(null, "GOTUnsmeltery"));
 		}
@@ -324,7 +324,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 		if (itemstack.isItemStackDamageable()) {
 			items *= (float) (itemstack.getMaxDamage() - itemstack.getItemDamage()) / itemstack.getMaxDamage();
 		}
-		int items_int = Math.round(items * MathHelper.randomFloatClamp(unsmeltingRand, 0.7f, 1.0f));
+		int items_int = Math.round(items * MathHelper.randomFloatClamp(UNSMELTING_RAND, 0.7f, 1.0f));
 		if (items_int <= 0) {
 			return null;
 		}
@@ -369,7 +369,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 			}
 			rocking = MathHelper.clamp_float(rocking, 0.0F, 1.0F);
 		} else {
-			prevServerActive = serverActive;
+			boolean prevServerActive = serverActive;
 			serverActive = isSmelting();
 			if (serverActive != prevServerActive) {
 				worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);

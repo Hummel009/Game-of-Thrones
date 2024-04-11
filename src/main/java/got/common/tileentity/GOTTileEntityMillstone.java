@@ -15,10 +15,10 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 
 public class GOTTileEntityMillstone extends TileEntity implements ISidedInventory {
-	public ItemStack[] inventory = new ItemStack[2];
-	public String specialMillstoneName;
-	public boolean isMilling;
-	public int currentMillTime;
+	private ItemStack[] inventory = new ItemStack[2];
+	private String specialMillstoneName;
+	private boolean isMilling;
+	private int currentMillTime;
 
 	@Override
 	public boolean canExtractItem(int slot, ItemStack itemstack, int side) {
@@ -30,7 +30,7 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 		return isItemValidForSlot(slot, itemstack);
 	}
 
-	public boolean canMill() {
+	private boolean canMill() {
 		ItemStack itemstack = inventory[0];
 		if (itemstack == null) {
 			return false;
@@ -129,12 +129,16 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 		return isMilling;
 	}
 
+	public void setMilling(boolean milling) {
+		isMilling = milling;
+	}
+
 	@Override
 	public boolean isUseableByPlayer(EntityPlayer entityplayer) {
 		return worldObj.getTileEntity(xCoord, yCoord, zCoord) == this && entityplayer.getDistanceSq(xCoord + 0.5, yCoord + 0.5, zCoord + 0.5) <= 64.0;
 	}
 
-	public void millItem() {
+	private void millItem() {
 		if (canMill()) {
 			ItemStack itemstack = inventory[0];
 			GOTRecipeMillstone.MillstoneResult result = GOTRecipeMillstone.getMillingResult(itemstack);
@@ -195,11 +199,7 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 		}
 	}
 
-	public void setSpecialMillstoneName(String s) {
-		specialMillstoneName = s;
-	}
-
-	public void toggleMillstoneActive() {
+	private void toggleMillstoneActive() {
 		GOTBlockMillstone.toggleMillstoneActive(worldObj, xCoord, yCoord, zCoord);
 	}
 
@@ -255,5 +255,22 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 		if (hasCustomInventoryName()) {
 			nbt.setString("CustomName", specialMillstoneName);
 		}
+	}
+
+	public int getCurrentMillTime() {
+		return currentMillTime;
+	}
+
+	public void setCurrentMillTime(int currentMillTime) {
+		this.currentMillTime = currentMillTime;
+	}
+
+	@SuppressWarnings("unused")
+	public String getSpecialMillstoneName() {
+		return specialMillstoneName;
+	}
+
+	public void setSpecialMillstoneName(String s) {
+		specialMillstoneName = s;
 	}
 }

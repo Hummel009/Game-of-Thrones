@@ -15,13 +15,13 @@ import net.minecraft.util.AxisAlignedBB;
 import java.util.List;
 
 public class GOTTileEntityChest extends TileEntity implements IInventory {
-	public ItemStack[] chestContents = new ItemStack[getSizeInventory()];
-	public float lidAngle;
-	public float prevLidAngle;
-	public String textureName;
-	public int numPlayersUsing;
-	public int ticksSinceSync;
-	public String customName;
+	private ItemStack[] chestContents = new ItemStack[getSizeInventory()];
+	private String textureName;
+	private String customName;
+	private float lidAngle;
+	private float prevLidAngle;
+	private int numPlayersUsing;
+	private int ticksSinceSync;
 
 	@Override
 	public void closeInventory() {
@@ -208,5 +208,26 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 		if (hasCustomInventoryName()) {
 			nbt.setString("CustomName", customName);
 		}
+	}
+
+	public float getLidAngle() {
+		return lidAngle;
+	}
+
+	public float getPrevLidAngle() {
+		return prevLidAngle;
+	}
+
+	public String getTextureName() {
+		return textureName;
+	}
+
+	public void setTextureName(String textureName) {
+		this.textureName = textureName;
+	}
+
+	@SuppressWarnings("unused")
+	public String getCustomName() {
+		return customName;
 	}
 }

@@ -14,12 +14,13 @@ import net.minecraft.tileentity.TileEntity;
 import java.util.Arrays;
 
 public abstract class GOTTileEntitySign extends TileEntity {
-	public static int MAX_LINE_LENGTH = 15;
-	public String[] signText = new String[getNumLines()];
-	public int lineBeingEdited = -1;
-	public boolean editable = true;
-	public EntityPlayer editingPlayer;
-	public boolean isFakeGuiSign;
+	private final String[] signText = new String[getNumLines()];
+
+	private EntityPlayer editingPlayer;
+
+	private int lineBeingEdited = -1;
+	private boolean isFakeGuiSign;
+	private boolean editable = true;
 
 	protected GOTTileEntitySign() {
 		Arrays.fill(signText, "");
@@ -68,7 +69,7 @@ public abstract class GOTTileEntitySign extends TileEntity {
 		readSignText(nbt);
 	}
 
-	public void readSignText(NBTTagCompound nbt) {
+	private void readSignText(NBTTagCompound nbt) {
 		for (int i = 0; i < signText.length; ++i) {
 			signText[i] = nbt.getString("Text" + (i + 1));
 			if (signText[i].length() <= 15) {
@@ -78,7 +79,7 @@ public abstract class GOTTileEntitySign extends TileEntity {
 		}
 	}
 
-	public void writeSignText(NBTTagCompound nbt) {
+	private void writeSignText(NBTTagCompound nbt) {
 		for (int i = 0; i < signText.length; ++i) {
 			nbt.setString("Text" + (i + 1), signText[i]);
 		}
@@ -88,5 +89,25 @@ public abstract class GOTTileEntitySign extends TileEntity {
 	public void writeToNBT(NBTTagCompound nbt) {
 		super.writeToNBT(nbt);
 		writeSignText(nbt);
+	}
+
+	public String[] getSignText() {
+		return signText;
+	}
+
+	public int getLineBeingEdited() {
+		return lineBeingEdited;
+	}
+
+	public void setLineBeingEdited(int lineBeingEdited) {
+		this.lineBeingEdited = lineBeingEdited;
+	}
+
+	protected boolean isFakeGuiSign() {
+		return isFakeGuiSign;
+	}
+
+	public void setFakeGuiSign(boolean fakeGuiSign) {
+		isFakeGuiSign = fakeGuiSign;
 	}
 }
