@@ -89,7 +89,6 @@ public class GOT {
 	private static Map<String, Integer> getModContentInfo() {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("achievements", GOTAchievement.CONTENT.size());
-		map.put("packets", GOTPacketHandler.id);
 		map.put("banners", GOTItemBanner.BannerType.values().length);
 		map.put("mobs", GOTEntity.id);
 		map.put("structures", GOTStructure.id);
