@@ -276,7 +276,7 @@ public class DatabaseGenerator {
 				if (!file.exists()) {
 					boolean created = file.createNewFile();
 					if (!created) {
-						GOTLog.logger.info("DatabaseGenerator: file wasn't created");
+						GOTLog.getLogger().info("DatabaseGenerator: file wasn't created");
 					}
 				}
 				Set<String> sitemap;

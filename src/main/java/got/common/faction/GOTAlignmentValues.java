@@ -61,7 +61,7 @@ public class GOTAlignmentValues {
 		try {
 			return dFormat.parse(alignmentText1).floatValue();
 		} catch (ParseException e) {
-			GOTLog.logger.error("Could not parse alignment value from display string {}", alignmentText1);
+			GOTLog.getLogger().error("Could not parse alignment value from display string {}", alignmentText1);
 			e.printStackTrace();
 			return 0.0f;
 		}

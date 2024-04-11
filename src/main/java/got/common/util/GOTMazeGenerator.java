@@ -162,11 +162,11 @@ public class GOTMazeGenerator {
 			zDir = z;
 		}
 
-		public int getDirX() {
+		private int getDirX() {
 			return xDir;
 		}
 
-		public int getDirZ() {
+		private int getDirZ() {
 			return zDir;
 		}
 	}
@@ -180,11 +180,11 @@ public class GOTMazeGenerator {
 			zPos = z;
 		}
 
-		public int getPosX() {
+		private int getPosX() {
 			return xPos;
 		}
 
-		public int getPosZ() {
+		private int getPosZ() {
 			return zPos;
 		}
 	}

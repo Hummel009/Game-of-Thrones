@@ -86,7 +86,7 @@ public class GOTFellowship {
 					}
 					waypointSharerUUIDs.add(player);
 				}
-				GOTLog.logger.info("Fellowship {} did retroactive waypoint sharer check and found {} out of {} players", fellowshipName, waypointSharerUUIDs.size(), allPlayersSafe.size());
+				GOTLog.getLogger().info("Fellowship {} did retroactive waypoint sharer check and found {} out of {} players", fellowshipName, waypointSharerUUIDs.size(), allPlayersSafe.size());
 			}
 			doneRetroactiveWaypointSharerCheck = true;
 			markDirty();

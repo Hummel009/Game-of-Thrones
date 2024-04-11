@@ -144,7 +144,7 @@ public class GOTConquestGrid {
 		if (!dir.exists()) {
 			boolean created = dir.mkdirs();
 			if (!created) {
-				GOTLog.logger.info("GOTConquestGrid: file wasn't created");
+				GOTLog.getLogger().info("GOTConquestGrid: file wasn't created");
 			}
 		}
 		return dir;
@@ -338,7 +338,7 @@ public class GOTConquestGrid {
 			if (zone.isEmpty()) {
 				boolean deleted = zoneDat.delete();
 				if (!deleted) {
-					GOTLog.logger.info("GOTConquestGrid: file wasn't deleted");
+					GOTLog.getLogger().info("GOTConquestGrid: file wasn't deleted");
 				}
 			} else {
 				NBTTagCompound nbt = new NBTTagCompound();

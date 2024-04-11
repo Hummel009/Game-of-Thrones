@@ -587,7 +587,7 @@ public class GOTTickHandlerClient {
 					renderDistance = 16;
 					gs.renderDistanceChunks = renderDistance;
 					gs.saveOptions();
-					GOTLog.logger.info("Hummel009: Render distance was above 16 - set to 16 to prevent a vanilla crash");
+					GOTLog.getLogger().info("Hummel009: Render distance was above 16 - set to 16 to prevent a vanilla crash");
 				}
 			}
 			if (!GOTModChecker.hasWeather2() && !GOTModChecker.hasLOTR() && minecraft.entityRenderer != null && !(minecraft.entityRenderer instanceof GOTEntityRenderer)) {

@@ -157,10 +157,10 @@ public class GOTReflection {
 		try {
 			return ReflectionHelper.findMethod(classToAccess, instance, remapMethodNames(classToAccess.getName(), methodNames), methodClasses);
 		} catch (ReflectionHelper.UnableToFindFieldException e) {
-			GOTLog.logger.log(Level.ERROR, "Unable to locate any method %s on type %s", Arrays.toString(methodNames), classToAccess.getName());
+			GOTLog.getLogger().log(Level.ERROR, "Unable to locate any method %s on type %s", Arrays.toString(methodNames), classToAccess.getName());
 			throw e;
 		} catch (ReflectionHelper.UnableToAccessFieldException e) {
-			GOTLog.logger.log(Level.ERROR, "Unable to access any method %s on type %s", Arrays.toString(methodNames), classToAccess.getName());
+			GOTLog.getLogger().log(Level.ERROR, "Unable to access any method %s on type %s", Arrays.toString(methodNames), classToAccess.getName());
 			throw e;
 		}
 	}
@@ -206,7 +206,7 @@ public class GOTReflection {
 	}
 
 	public static void logFailure(Exception e) {
-		GOTLog.logger.log(Level.ERROR, "GOTReflection failed");
+		GOTLog.getLogger().log(Level.ERROR, "GOTReflection failed");
 		throw new RuntimeException(e);
 	}
 
@@ -274,7 +274,7 @@ public class GOTReflection {
 			unlockFinalField(f);
 			f.set(instance, value);
 		} catch (Exception e) {
-			GOTLog.logger.log(Level.ERROR, "Unable to access static field");
+			GOTLog.getLogger().log(Level.ERROR, "Unable to access static field");
 			throw e;
 		}
 	}

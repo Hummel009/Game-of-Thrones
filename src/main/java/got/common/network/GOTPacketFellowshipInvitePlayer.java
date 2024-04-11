@@ -61,14 +61,14 @@ public class GOTPacketFellowshipInvitePlayer extends GOTPacketFellowshipDo {
 			if (fellowship != null) {
 				int limit = GOTConfig.getFellowshipMaxSize(entityplayer.worldObj);
 				if (limit >= 0 && fellowship.getPlayerCount() >= limit) {
-					GOTLog.logger.warn(String.format("Player %s tried to invite a player with username %s to fellowship %s, but fellowship size %d is already >= the maximum of %d", entityplayer.getCommandSenderName(), packet.invitedUsername, fellowship.getName(), fellowship.getPlayerCount(), limit));
+					GOTLog.getLogger().warn(String.format("Player %s tried to invite a player with username %s to fellowship %s, but fellowship size %d is already >= the maximum of %d", entityplayer.getCommandSenderName(), packet.invitedUsername, fellowship.getName(), fellowship.getPlayerCount(), limit));
 				} else {
 					UUID invitedPlayer = findInvitedPlayerUUID(packet.invitedUsername);
 					if (invitedPlayer != null) {
 						GOTPlayerData playerData = GOTLevelData.getData(entityplayer);
 						playerData.invitePlayerToFellowship(fellowship, invitedPlayer, entityplayer.getCommandSenderName());
 					} else {
-						GOTLog.logger.warn(String.format("Player %s tried to invite a player with username %s to fellowship %s, but couldn't find the invited player's UUID", entityplayer.getCommandSenderName(), packet.invitedUsername, fellowship.getName()));
+						GOTLog.getLogger().warn(String.format("Player %s tried to invite a player with username %s to fellowship %s, but couldn't find the invited player's UUID", entityplayer.getCommandSenderName(), packet.invitedUsername, fellowship.getName()));
 					}
 				}
 			}

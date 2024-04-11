@@ -30,12 +30,4 @@ public class CentredSquareArray<T> {
 		int index = getIndex(x, y);
 		array[index] = val;
 	}
-
-	public int getWidth() {
-		return width;
-	}
-
-	public int getRadius() {
-		return radius;
-	}
 }

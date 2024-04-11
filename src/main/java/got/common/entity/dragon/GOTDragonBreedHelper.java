@@ -47,7 +47,7 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 	}
 
 	public void setBreed(GOTDragonBreed newBreed) {
-		GOTLog.logger.trace("setBreed({})", newBreed);
+		GOTLog.getLogger().trace("setBreed({})", newBreed);
 
 		if (newBreed == null) {
 			throw new NullPointerException();
@@ -142,7 +142,7 @@ public class GOTDragonBreedHelper extends GOTDragonHelper {
 		String breedName = nbt.getString(NBT_BREED);
 		GOTDragonBreed newBreed = registry.getBreedByName(breedName);
 		if (newBreed == null) {
-			GOTLog.logger.warn("Dragon {} loaded with invalid breed type {}, using {} instead", dragon.getEntityId(), breedName, DEFAULT_BREED);
+			GOTLog.getLogger().warn("Dragon {} loaded with invalid breed type {}, using {} instead", dragon.getEntityId(), breedName, DEFAULT_BREED);
 			newBreed = registry.getBreedByName(DEFAULT_BREED);
 		}
 

@@ -65,7 +65,7 @@ public class GOTPacketDragonControl implements IMessage {
 		@Override
 		public IMessage onMessage(GOTPacketDragonControl message, MessageContext ctx) {
 			if (ctx.side == Side.CLIENT) {
-				GOTLog.logger.warn("Recieved unexpected control message from server!");
+				GOTLog.getLogger().warn("Recieved unexpected control message from server!");
 				return null;
 			}
 

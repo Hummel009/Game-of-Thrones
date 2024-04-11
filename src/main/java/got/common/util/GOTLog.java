@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import java.lang.reflect.Field;
 
 public class GOTLog {
-	public static Logger logger;
+	private static Logger logger;
 
 	private GOTLog() {
 	}
@@ -29,7 +29,7 @@ public class GOTLog {
 		}
 	}
 
-	public static void info(String s) {
-		logger.info(s);
+	public static Logger getLogger() {
+		return logger;
 	}
 }

@@ -131,7 +131,7 @@ public class GOTLevelData {
 		if (!playerDir.exists()) {
 			boolean created = playerDir.mkdirs();
 			if (!created) {
-				GOTLog.logger.info("GOTLevelData: directory wasn't created");
+				GOTLog.getLogger().info("GOTLevelData: directory wasn't created");
 			}
 		}
 		return new File(playerDir, player.toString() + ".dat");
@@ -162,7 +162,7 @@ public class GOTLevelData {
 		if (!file.exists()) {
 			boolean created = file.mkdirs();
 			if (!created) {
-				GOTLog.logger.info("GOTLevelData: directory wasn't created");
+				GOTLog.getLogger().info("GOTLevelData: directory wasn't created");
 			}
 		}
 		return file;
@@ -213,7 +213,7 @@ public class GOTLevelData {
 				levelData = loadNBTFromFile(oldGOTDat);
 				boolean created = oldGOTDat.delete();
 				if (!created) {
-					GOTLog.logger.info("GOTLevelData: file wasn't deleted");
+					GOTLog.getLogger().info("GOTLevelData: file wasn't deleted");
 				}
 				if (levelData.hasKey("PlayerData")) {
 					NBTTagList playerDataTags = levelData.getTagList("PlayerData", 10);

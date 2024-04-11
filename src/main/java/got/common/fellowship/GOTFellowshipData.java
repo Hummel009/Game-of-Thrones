@@ -63,7 +63,7 @@ public class GOTFellowshipData {
 		if (!fsDir.exists()) {
 			boolean created = fsDir.mkdirs();
 			if (!created) {
-				GOTLog.logger.info("GOTFellowshipData: directory wasn't created");
+				GOTLog.getLogger().info("GOTFellowshipData: directory wasn't created");
 			}
 		}
 		return fsDir;

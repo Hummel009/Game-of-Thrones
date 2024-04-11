@@ -517,7 +517,7 @@ public class GOTEntityBanner extends Entity {
 				if (StringUtils.isNullOrEmpty(username = profile.getName())) {
 					whitelistSlots[index] = null;
 					if (index == 0) {
-						GOTLog.logger.info("Hummel009: Banner needs to be replaced at {} {} {} dim_{}", MathHelper.floor_double(posX), MathHelper.floor_double(posY), MathHelper.floor_double(posZ), dimension);
+						GOTLog.getLogger().info("Hummel009: Banner needs to be replaced at {} {} {} dim_{}", MathHelper.floor_double(posX), MathHelper.floor_double(posY), MathHelper.floor_double(posZ), dimension);
 					}
 				} else {
 					whitelistSlots[index] = username;

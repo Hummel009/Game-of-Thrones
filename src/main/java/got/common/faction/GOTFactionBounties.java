@@ -55,7 +55,7 @@ public class GOTFactionBounties {
 		if (!dir.exists()) {
 			boolean created = dir.mkdirs();
 			if (!created) {
-				GOTLog.logger.info("GOTFactionBounties: directory wasn't created");
+				GOTLog.getLogger().info("GOTFactionBounties: directory wasn't created");
 			}
 		}
 		return dir;
@@ -66,7 +66,7 @@ public class GOTFactionBounties {
 		if (findLegacy) {
 			boolean created = defaultFile.exists();
 			if (created) {
-				GOTLog.logger.info("GOTFactionBounties: file already exists");
+				GOTLog.getLogger().info("GOTFactionBounties: file already exists");
 			}
 		}
 		return defaultFile;

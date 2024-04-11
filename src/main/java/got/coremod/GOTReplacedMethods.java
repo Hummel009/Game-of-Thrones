@@ -214,9 +214,9 @@ public class GOTReplacedMethods {
 			try {
 				new FMLRuntimeCodec().encodeInto(null, msg, data);
 			} catch (Exception e) {
-				GOTLog.logger.error("**********************************************");
-				GOTLog.logger.error("Hummel009: ERROR sending mob spawn packet to client!");
-				GOTLog.logger.error("**********************************************");
+				GOTLog.getLogger().error("**********************************************");
+				GOTLog.getLogger().error("Hummel009: ERROR sending mob spawn packet to client!");
+				GOTLog.getLogger().error("**********************************************");
 			}
 			return new FMLProxyPacket(data, "FML");
 		}

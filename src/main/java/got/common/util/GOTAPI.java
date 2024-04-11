@@ -415,7 +415,7 @@ public class GOTAPI {
 		try {
 			method.invoke(instance, args);
 		} catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
-			GOTLog.logger.error("Error when getting method {} from class {}", methodNames[0], clazz.getSimpleName());
+			GOTLog.getLogger().error("Error when getting method {} from class {}", methodNames[0], clazz.getSimpleName());
 			e.printStackTrace();
 		}
 	}
@@ -432,13 +432,13 @@ public class GOTAPI {
 		try {
 			return ImageIO.read(in);
 		} catch (IOException e) {
-			GOTLog.logger.error("Failed to convert a input stream into a buffered image.");
+			GOTLog.getLogger().error("Failed to convert a input stream into a buffered image.");
 			e.printStackTrace();
 		} finally {
 			try {
 				in.close();
 			} catch (IOException e) {
-				GOTLog.logger.error("Failed to convert a input stream into a buffered image.");
+				GOTLog.getLogger().error("Failed to convert a input stream into a buffered image.");
 			}
 		}
 		return null;
@@ -480,7 +480,7 @@ public class GOTAPI {
 				list.add(fieldObj);
 			}
 		} catch (IllegalAccessException | IllegalArgumentException e) {
-			GOTLog.logger.error("Errored when getting all field from: {} of type: {}", clazz.getName(), type.getName());
+			GOTLog.getLogger().error("Errored when getting all field from: {} of type: {}", clazz.getName(), type.getName());
 		}
 		return (Set<T>) list;
 	}
@@ -761,7 +761,7 @@ public class GOTAPI {
 					GOTGenLayerWorld.biomeImageData[i] = (byte) biomeID.intValue();
 					continue;
 				}
-				GOTLog.logger.error("Found unknown biome on map: {} at location: {}, {}", Integer.toHexString(color), i % GOTGenLayerWorld.imageWidth, i / GOTGenLayerWorld.imageWidth);
+				GOTLog.getLogger().error("Found unknown biome on map: {} at location: {}, {}", Integer.toHexString(color), i % GOTGenLayerWorld.imageWidth, i / GOTGenLayerWorld.imageWidth);
 				GOTGenLayerWorld.biomeImageData[i] = (byte) GOTBiome.ocean.biomeID;
 			}
 		}

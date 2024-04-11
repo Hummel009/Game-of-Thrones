@@ -48,7 +48,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 	}
 
 	public void setLifeStage(GOTDragonLifeStage lifeStage) {
-		GOTLog.logger.trace("setLifeStage({})", lifeStage);
+		GOTLog.getLogger().trace("setLifeStage({})", lifeStage);
 		dragon.setGrowingAge(lifeStage.ageLimit);
 		updateLifeStage();
 	}
@@ -93,7 +93,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 	}
 
 	public void onNewLifeStage(GOTDragonLifeStage lifeStage, GOTDragonLifeStage prevLifeStage) {
-		GOTLog.logger.trace("onNewLifeStage({},{})", prevLifeStage, lifeStage);
+		GOTLog.getLogger().trace("onNewLifeStage({},{})", prevLifeStage, lifeStage);
 
 		if (dragon.isClient()) {
 			if (prevLifeStage == GOTDragonLifeStage.EGG && lifeStage == GOTDragonLifeStage.HATCHLING) {
@@ -138,7 +138,7 @@ public class GOTDragonLifeStageHelper extends GOTDragonHelper {
 			return;
 		}
 
-		GOTLog.logger.debug("transforming to egg");
+		GOTLog.getLogger().debug("transforming to egg");
 		float volume = 1;
 		float pitch = 0.5f + (0.5f - rand.nextFloat()) * 0.1f;
 		dragon.worldObj.playSoundAtEntity(dragon, "mob.endermen.portal", volume, pitch);

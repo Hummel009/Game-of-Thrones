@@ -207,7 +207,7 @@ public class GOTStructureScan {
 		if (!dir.exists()) {
 			boolean created = dir.mkdirs();
 			if (!created) {
-				GOTLog.logger.info("GOTStructureScan: directory wasn't created");
+				GOTLog.getLogger().info("GOTStructureScan: directory wasn't created");
 			}
 		}
 		File scanFile = new File(dir, scan.scanName + strscanFormat);
@@ -215,7 +215,7 @@ public class GOTStructureScan {
 			if (!scanFile.exists()) {
 				boolean created = scanFile.createNewFile();
 				if (!created) {
-					GOTLog.logger.info("GOTStructureScan: file wasn't created");
+					GOTLog.getLogger().info("GOTStructureScan: file wasn't created");
 				}
 			}
 			PrintStream writer = new PrintStream(Files.newOutputStream(scanFile.toPath()), false, StandardCharsets.UTF_8.name());
@@ -271,7 +271,7 @@ public class GOTStructureScan {
 			writer.close();
 			return true;
 		} catch (Exception e) {
-			GOTLog.logger.error("Error saving strscan file {}", scan.scanName);
+			GOTLog.getLogger().error("Error saving strscan file {}", scan.scanName);
 			e.printStackTrace();
 			return false;
 		}

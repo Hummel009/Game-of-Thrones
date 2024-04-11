@@ -85,7 +85,7 @@ public class GOTLore {
 							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(zip.getInputStream(entry)), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
-							GOTLog.logger.error("Failed to onInit GOT lore {}from zip file", s);
+							GOTLog.getLogger().error("Failed to onInit GOT lore {}from zip file", s);
 							e.printStackTrace();
 						}
 					}
@@ -96,21 +96,21 @@ public class GOTLore {
 					String s = file.getName();
 					int i = s.indexOf(".txt");
 					if (i < 0) {
-						GOTLog.logger.error("Failed to onInit GOT lore {} from MCP folder; name bank files must be in .txt format", s);
+						GOTLog.getLogger().error("Failed to onInit GOT lore {} from MCP folder; name bank files must be in .txt format", s);
 					} else {
 						try {
 							s = s.substring(0, i);
 							BufferedReader reader = new BufferedReader(new InputStreamReader(new BOMInputStream(Files.newInputStream(file.toPath())), StandardCharsets.UTF_8));
 							loreReaders.put(s, reader);
 						} catch (Exception e) {
-							GOTLog.logger.error("Failed to onInit GOT lore {} from MCP folder", s);
+							GOTLog.getLogger().error("Failed to onInit GOT lore {} from MCP folder", s);
 							e.printStackTrace();
 						}
 					}
 				}
 			}
 		} catch (Exception e) {
-			GOTLog.logger.error("Failed to onInit GOT lore");
+			GOTLog.getLogger().error("Failed to onInit GOT lore");
 			e.printStackTrace();
 		}
 		for (Entry<String, BufferedReader> entry : loreReaders.entrySet()) {
@@ -163,7 +163,7 @@ public class GOTLore {
 									categories.add(category);
 									continue;
 								}
-								GOTLog.logger.warn("Hummel009: Loading lore {}, no category exists for name {}", loreName, categoryName);
+								GOTLog.getLogger().warn("Hummel009: Loading lore {}, no category exists for name {}", loreName, categoryName);
 							}
 							continue;
 						}
@@ -182,7 +182,7 @@ public class GOTLore {
 					category.addLore(lore);
 				}
 			} catch (Exception e) {
-				GOTLog.logger.error("Failed to onInit GOT lore: {}", loreName);
+				GOTLog.getLogger().error("Failed to onInit GOT lore: {}", loreName);
 				e.printStackTrace();
 			}
 		}
@@ -194,7 +194,7 @@ public class GOTLore {
 					++numReward;
 				}
 			}
-			GOTLog.logger.info("Hummel009: Category {} has loaded {} lore texts, of which {} rewardable", category.categoryName, num, numReward);
+			GOTLog.getLogger().info("Hummel009: Category {} has loaded {} lore texts, of which {} rewardable", category.categoryName, num, numReward);
 		}
 		if (zip != null) {
 			try {
@@ -331,19 +331,19 @@ public class GOTLore {
 						int number = MathHelper.getRandomIntegerInRange(random, min, max);
 						formatted = String.valueOf(number);
 					} catch (Exception e) {
-						GOTLog.logger.error("Hummel009: Error formatting number {} in text: {}", unformatted, loreName);
+						GOTLog.getLogger().error("Hummel009: Error formatting number {} in text: {}", unformatted, loreName);
 						e.printStackTrace();
 					}
 				} else if (formatted.startsWith("name:")) {
 					try {
 						String namebank = formatted.substring("name:".length());
 						if (!GOTNames.nameBankExists(namebank)) {
-							GOTLog.logger.error("Hummel009: No namebank exists for {}!", namebank);
+							GOTLog.getLogger().error("Hummel009: No namebank exists for {}!", namebank);
 							break block16;
 						}
 						formatted = GOTNames.getRandomName(namebank, random);
 					} catch (Exception e) {
-						GOTLog.logger.error("Hummel009: Error formatting name {} in text: {}", unformatted, loreName);
+						GOTLog.getLogger().error("Hummel009: Error formatting name {} in text: {}", unformatted, loreName);
 						e.printStackTrace();
 					}
 				} else if (formatted.startsWith("choose:")) {
@@ -364,7 +364,7 @@ public class GOTLore {
 						}
 						formatted = words.get(random.nextInt(words.size()));
 					} catch (Exception e) {
-						GOTLog.logger.error("Hummel009: Error formatting choice {} in text: {}", unformatted, loreName);
+						GOTLog.getLogger().error("Hummel009: Error formatting choice {} in text: {}", unformatted, loreName);
 						e.printStackTrace();
 					}
 				}

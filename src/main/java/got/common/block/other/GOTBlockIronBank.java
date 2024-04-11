@@ -3,7 +3,7 @@ package got.common.block.other;
 import got.common.GOTCommonProxy;
 import got.common.database.GOTItems;
 import got.common.item.other.GOTItemCoin;
-import got.common.util.GOTItemStackMapImpl;
+import got.common.util.GOTItemStackMap;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
@@ -13,8 +13,8 @@ import net.minecraft.world.World;
 import java.util.Map;
 
 public class GOTBlockIronBank extends GOTBlockForgeBase {
-	public static final Map<ItemStack, Integer> BUY = new GOTItemStackMapImpl<>();
-	public static final Map<ItemStack, Integer> SELL = new GOTItemStackMapImpl<>();
+	public static final Map<ItemStack, Integer> BUY = new GOTItemStackMap<>();
+	public static final Map<ItemStack, Integer> SELL = new GOTItemStackMap<>();
 
 	public static void preInit() {
 		for (int i = 0; i < GOTItemCoin.VALUES.length; ++i) {

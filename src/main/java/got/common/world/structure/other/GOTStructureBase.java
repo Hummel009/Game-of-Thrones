@@ -380,7 +380,7 @@ public abstract class GOTStructureBase extends WorldGenerator {
 	public void loadStrScan(String name) {
 		currentStrScan = GOTStructureScan.getScanByName(name);
 		if (currentStrScan == null) {
-			GOTLog.logger.error("Hummel009: Structure Scan for name {} does not exist!!!", name);
+			GOTLog.getLogger().error("Hummel009: Structure Scan for name {} does not exist!!!", name);
 		}
 		scanAliases.clear();
 	}

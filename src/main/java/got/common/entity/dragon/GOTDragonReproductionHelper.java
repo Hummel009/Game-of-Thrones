@@ -106,7 +106,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 		String nameNew = new String(chars);
 
 		if (!nameOld.equals(nameNew)) {
-			GOTLog.logger.debug("Fixed child name {} -> {}");
+			GOTLog.getLogger().debug("Fixed child name {} -> {}");
 		}
 
 		return nameNew;
@@ -117,7 +117,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 	}
 
 	public void setBreederName(String breederName) {
-		GOTLog.logger.trace("setBreederName({})", breederName);
+		GOTLog.getLogger().trace("setBreederName({})", breederName);
 		dataWatcher.updateObject(dataIndexBreeder, breederName);
 	}
 
@@ -126,7 +126,7 @@ public class GOTDragonReproductionHelper extends GOTDragonHelper {
 	}
 
 	public void setReproCount(int reproCount) {
-		GOTLog.logger.trace("setReproCount({})", reproCount);
+		GOTLog.getLogger().trace("setReproCount({})", reproCount);
 		dataWatcher.updateObject(dataIndexReproduced, reproCount);
 	}
 

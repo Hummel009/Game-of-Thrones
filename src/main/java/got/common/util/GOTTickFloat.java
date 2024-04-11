@@ -33,22 +33,6 @@ public class GOTTickFloat {
 		return GOTModelDragonAnimaton.lerp(previous, current, x);
 	}
 
-	public float getMax() {
-		return max;
-	}
-
-	public void setMax(float max) {
-		this.max = max;
-	}
-
-	public float getMin() {
-		return min;
-	}
-
-	public void setMin(float min) {
-		this.min = min;
-	}
-
 	public void set(float value) {
 		sync();
 		if (clamp) {

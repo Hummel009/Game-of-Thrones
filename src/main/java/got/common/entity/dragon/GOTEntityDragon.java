@@ -58,7 +58,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 		try {
 			ReflectionHelper.setPrivateValue(EntityLiving.class, this, new GOTModelDragonBodyHelper(this), ENTITYLIVING_BODYHELPER);
 		} catch (Exception ex) {
-			GOTLog.logger.warn("Can't override EntityBodyHelper", ex);
+			GOTLog.getLogger().warn("Can't override EntityBodyHelper", ex);
 		}
 		setSize(BASE_WIDTH, BASE_HEIGHT);
 		stepHeight = 1;
@@ -143,7 +143,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	public void addHelper(GOTDragonHelper helper) {
-		GOTLog.logger.trace("addHelper({})", helper.getClass().getName());
+		GOTLog.getLogger().trace("addHelper({})", helper.getClass().getName());
 		if (helpers == null) {
 			helpers = new HashMap<>();
 		}
@@ -373,7 +373,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	public void setRidingPlayer(EntityPlayer player) {
-		GOTLog.logger.trace("setRidingPlayer({})", player.getCommandSenderName());
+		GOTLog.getLogger().trace("setRidingPlayer({})", player.getCommandSenderName());
 		player.rotationYaw = rotationYaw;
 		player.rotationPitch = rotationPitch;
 		player.mountEntity(this);
@@ -507,7 +507,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	public void setSaddled(boolean saddled) {
-		GOTLog.logger.trace("setSaddled({})", saddled);
+		GOTLog.getLogger().trace("setSaddled({})", saddled);
 		setBooleanData(INDEX_SADDLED, saddled);
 	}
 
@@ -586,7 +586,7 @@ public class GOTEntityDragon extends GOTEntityFlyingTameable {
 	}
 
 	public void setAttackDamage(double damage) {
-		GOTLog.logger.trace("setAttackDamage({})", damage);
+		GOTLog.getLogger().trace("setAttackDamage({})", damage);
 		getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(damage);
 	}
 

@@ -328,7 +328,7 @@ public class GOTTextures implements IResourceManagerReloadListener {
 				}
 				eyes = MC.renderEngine.getDynamicTextureLocation(skin.toString() + "_eyes_" + eyeWidth + '_' + eyeHeight, new DynamicTexture(eyesImage));
 			} catch (IOException e) {
-				GOTLog.logger.error("Failed to generate eyes skin");
+				GOTLog.getLogger().error("Failed to generate eyes skin");
 				e.printStackTrace();
 				eyes = MISSING_TEXTURE;
 			}

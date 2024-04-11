@@ -142,7 +142,7 @@ public abstract class GOTPacketFellowshipPartialUpdate implements IMessage {
 			if (fellowship != null) {
 				packet.updateClient(fellowship);
 			} else {
-				GOTLog.logger.warn("Client couldn't find fellowship for ID {}", packet.getFellowshipID());
+				GOTLog.getLogger().warn("Client couldn't find fellowship for ID {}", packet.getFellowshipID());
 			}
 			return null;
 		}

@@ -412,7 +412,7 @@ public class GOT {
 		Map<String, Integer> info = getModContentInfo();
 
 		for (Map.Entry<String, Integer> entry : info.entrySet()) {
-			GOTLog.logger.info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
+			GOTLog.getLogger().info("Hummel009: Registered {} {}", entry.getValue(), entry.getKey());
 		}
 
 		proxy.postInit();

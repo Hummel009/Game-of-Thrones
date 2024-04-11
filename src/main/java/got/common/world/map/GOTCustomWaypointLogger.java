@@ -49,7 +49,7 @@ public class GOTCustomWaypointLogger {
 			if (!(dupeLogDir = new File(DimensionManager.getCurrentSaveRootDirectory(), "got_cwp_logs")).exists()) {
 				boolean created = dupeLogDir.mkdirs();
 				if (!created) {
-					GOTLog.logger.info("GOTCustomWaypointLogger: directory wasn't created");
+					GOTLog.getLogger().info("GOTCustomWaypointLogger: directory wasn't created");
 				}
 			}
 			if (!(logFile = new File(dupeLogDir, DATE_FORMAT.format(date) + ".csv")).exists()) {

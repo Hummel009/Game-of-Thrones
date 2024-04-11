@@ -27,10 +27,6 @@ public class GOTVertex {
 		this.z = z1;
 	}
 
-	public GOTVertex add(GOTVertex vec) {
-		return new GOTVertex(x + vec.x, y + vec.y, z + vec.z);
-	}
-
 	public double distanceTo(GOTVertex vec) {
 		double d0 = vec.x - x;
 		double d1 = vec.y - y;
@@ -63,10 +59,6 @@ public class GOTVertex {
 		return new GOTVertex(d0, y, d2);
 	}
 
-	public GOTVertex scale(double p_186678_1_) {
-		return new GOTVertex(x * p_186678_1_, y * p_186678_1_, z * p_186678_1_);
-	}
-
 	@Override
 	public String toString() {
 		return "(" + x + ", " + y + ", " + z + ')';
@@ -76,6 +68,7 @@ public class GOTVertex {
 		return x;
 	}
 
+	@SuppressWarnings("unused")
 	public double getY() {
 		return y;
 	}

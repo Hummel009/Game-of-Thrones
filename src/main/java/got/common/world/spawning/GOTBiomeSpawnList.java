@@ -90,7 +90,7 @@ public class GOTBiomeSpawnList {
 				if (spawnList == null || spawnList.spawnList == null) {
 					System.out.println("WARNING NPE in " + biomeIdentifier + ", " + chosenFacContainer.theFaction.codeName());
 					FMLLog.severe("WARNING NPE in " + biomeIdentifier + ", " + chosenFacContainer.theFaction.codeName());
-					GOTLog.logger.warn("WARNING NPE in {}, {}", biomeIdentifier, chosenFacContainer.theFaction.codeName());
+					GOTLog.getLogger().warn("WARNING NPE in {}, {}", biomeIdentifier, chosenFacContainer.theFaction.codeName());
 				}
 				if (spawnList != null) {
 					GOTSpawnEntry entry = spawnList.spawnList.getRandomSpawnEntry(rand);

@@ -76,7 +76,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	}
 
 	public void setCanFly(boolean canFly) {
-		GOTLog.logger.trace("setCanFly({})", canFly);
+		GOTLog.getLogger().trace("setCanFly({})", canFly);
 		dataWatcher.updateObject(INDEX_CAN_FLY, canFly ? (byte) 1 : (byte) 0);
 	}
 
@@ -101,7 +101,7 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	}
 
 	public void liftOff() {
-		GOTLog.logger.trace("liftOff");
+		GOTLog.getLogger().trace("liftOff");
 		if (isCanFly()) {
 			jump();
 			motionY += 0.5;
@@ -227,12 +227,12 @@ public abstract class GOTEntityFlyingTameable extends EntityTameable implements 
 	}
 
 	public void setMoveSpeedAirHoriz(double airSpeedHorizonal) {
-		GOTLog.logger.trace("setMoveSpeedAirHoriz({})", airSpeedHorizonal);
+		GOTLog.getLogger().trace("setMoveSpeedAirHoriz({})", airSpeedHorizonal);
 		this.airSpeedHorizonal = airSpeedHorizonal;
 	}
 
 	public void setMoveSpeedAirVert(double airSpeedVertical) {
-		GOTLog.logger.trace("setMoveSpeedAirVert({})", airSpeedVertical);
+		GOTLog.getLogger().trace("setMoveSpeedAirVert({})", airSpeedVertical);
 		this.airSpeedVertical = airSpeedVertical;
 	}
 
