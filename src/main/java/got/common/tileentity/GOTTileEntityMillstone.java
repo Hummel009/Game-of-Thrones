@@ -39,7 +39,7 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 		if (result == null) {
 			return false;
 		}
-		ItemStack resultItem = result.resultItem;
+		ItemStack resultItem = result.getResultItem();
 		ItemStack inResultSlot = inventory[1];
 		if (inResultSlot == null) {
 			return true;
@@ -141,8 +141,8 @@ public class GOTTileEntityMillstone extends TileEntity implements ISidedInventor
 		if (canMill()) {
 			ItemStack itemstack = inventory[0];
 			GOTRecipeMillstone.MillstoneResult result = GOTRecipeMillstone.getMillingResult(itemstack);
-			ItemStack resultItem = result.resultItem;
-			float chance = result.chance;
+			ItemStack resultItem = result.getResultItem();
+			float chance = result.getChance();
 			if (worldObj.rand.nextFloat() < chance) {
 				ItemStack inResultSlot = inventory[1];
 				if (inResultSlot == null) {

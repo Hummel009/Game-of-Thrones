@@ -204,7 +204,7 @@ public class GOTTileEntityUnsmeltery extends GOTTileEntityAlloyForge {
 				allRecipeLists.add(containerTable.getRecipeList());
 			}
 		}
-		allRecipeLists.add(GOTRecipe.unsmelt);
+		allRecipeLists.add(GOTRecipe.UNSMELT);
 		if (recursiveCheckedRecipes == null) {
 			recursiveCheckedRecipes = new ArrayList<>();
 		}

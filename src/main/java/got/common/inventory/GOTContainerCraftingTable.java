@@ -69,199 +69,199 @@ public abstract class GOTContainerCraftingTable extends ContainerWorkbench {
 
 	public static class Arryn extends GOTContainerCraftingTable {
 		public Arryn(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.arryn, GOTBlocks.tableArryn);
+			super(inv, world, i, j, k, GOTRecipe.ARRYN, GOTBlocks.tableArryn);
 		}
 	}
 
 	public static class Asshai extends GOTContainerCraftingTable {
 		public Asshai(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.asshai, GOTBlocks.tableAsshai);
+			super(inv, world, i, j, k, GOTRecipe.ASSHAI, GOTBlocks.tableAsshai);
 		}
 	}
 
 	public static class Braavos extends GOTContainerCraftingTable {
 		public Braavos(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.braavos, GOTBlocks.tableBraavos);
+			super(inv, world, i, j, k, GOTRecipe.BRAAVOS, GOTBlocks.tableBraavos);
 		}
 	}
 
 	public static class Crownlands extends GOTContainerCraftingTable {
 		public Crownlands(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.crownlands, GOTBlocks.tableCrownlands);
+			super(inv, world, i, j, k, GOTRecipe.CROWNLANDS, GOTBlocks.tableCrownlands);
 		}
 	}
 
 	public static class Dorne extends GOTContainerCraftingTable {
 		public Dorne(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.dorne, GOTBlocks.tableDorne);
+			super(inv, world, i, j, k, GOTRecipe.DORNE, GOTBlocks.tableDorne);
 		}
 	}
 
 	public static class Dothraki extends GOTContainerCraftingTable {
 		public Dothraki(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.dothraki, GOTBlocks.tableDothraki);
+			super(inv, world, i, j, k, GOTRecipe.DOTHRAKI, GOTBlocks.tableDothraki);
 		}
 	}
 
 	public static class Dragonstone extends GOTContainerCraftingTable {
 		public Dragonstone(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.dragonstone, GOTBlocks.tableDragonstone);
+			super(inv, world, i, j, k, GOTRecipe.DRAGONSTONE, GOTBlocks.tableDragonstone);
 		}
 	}
 
 	public static class Ghiscar extends GOTContainerCraftingTable {
 		public Ghiscar(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.ghiscar, GOTBlocks.tableGhiscar);
+			super(inv, world, i, j, k, GOTRecipe.GHISCAR, GOTBlocks.tableGhiscar);
 		}
 	}
 
 	public static class Gift extends GOTContainerCraftingTable {
 		public Gift(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.gift, GOTBlocks.tableGift);
+			super(inv, world, i, j, k, GOTRecipe.GIFT, GOTBlocks.tableGift);
 		}
 	}
 
 	public static class Hillmen extends GOTContainerCraftingTable {
 		public Hillmen(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.hillmen, GOTBlocks.tableHillTribes);
+			super(inv, world, i, j, k, GOTRecipe.HILLMEN, GOTBlocks.tableHillTribes);
 		}
 	}
 
 	public static class Ibben extends GOTContainerCraftingTable {
 		public Ibben(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.ibben, GOTBlocks.tableIbben);
+			super(inv, world, i, j, k, GOTRecipe.IBBEN, GOTBlocks.tableIbben);
 		}
 	}
 
 	public static class Ironborn extends GOTContainerCraftingTable {
 		public Ironborn(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.ironborn, GOTBlocks.tableIronborn);
+			super(inv, world, i, j, k, GOTRecipe.IRONBORN, GOTBlocks.tableIronborn);
 		}
 	}
 
 	public static class Jogos extends GOTContainerCraftingTable {
 		public Jogos(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.jogos, GOTBlocks.tableJogos);
+			super(inv, world, i, j, k, GOTRecipe.JOGOS, GOTBlocks.tableJogos);
 		}
 	}
 
 	public static class Lhazar extends GOTContainerCraftingTable {
 		public Lhazar(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.lhazar, GOTBlocks.tableLhazar);
+			super(inv, world, i, j, k, GOTRecipe.LHAZAR, GOTBlocks.tableLhazar);
 		}
 	}
 
 	public static class Lorath extends GOTContainerCraftingTable {
 		public Lorath(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.lorath, GOTBlocks.tableLorath);
+			super(inv, world, i, j, k, GOTRecipe.LORATH, GOTBlocks.tableLorath);
 		}
 	}
 
 	public static class Lys extends GOTContainerCraftingTable {
 		public Lys(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.lys, GOTBlocks.tableLys);
+			super(inv, world, i, j, k, GOTRecipe.LYS, GOTBlocks.tableLys);
 		}
 	}
 
 	public static class Mossovy extends GOTContainerCraftingTable {
 		public Mossovy(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.mossovy, GOTBlocks.tableMossovy);
+			super(inv, world, i, j, k, GOTRecipe.MOSSOVY, GOTBlocks.tableMossovy);
 		}
 	}
 
 	public static class Myr extends GOTContainerCraftingTable {
 		public Myr(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.myr, GOTBlocks.tableMyr);
+			super(inv, world, i, j, k, GOTRecipe.MYR, GOTBlocks.tableMyr);
 		}
 	}
 
 	public static class North extends GOTContainerCraftingTable {
 		public North(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.north, GOTBlocks.tableNorth);
+			super(inv, world, i, j, k, GOTRecipe.NORTH, GOTBlocks.tableNorth);
 		}
 	}
 
 	public static class Norvos extends GOTContainerCraftingTable {
 		public Norvos(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.norvos, GOTBlocks.tableNorvos);
+			super(inv, world, i, j, k, GOTRecipe.NORVOS, GOTBlocks.tableNorvos);
 		}
 	}
 
 	public static class Pentos extends GOTContainerCraftingTable {
 		public Pentos(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.pentos, GOTBlocks.tablePentos);
+			super(inv, world, i, j, k, GOTRecipe.PENTOS, GOTBlocks.tablePentos);
 		}
 	}
 
 	public static class Qarth extends GOTContainerCraftingTable {
 		public Qarth(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.qarth, GOTBlocks.tableQarth);
+			super(inv, world, i, j, k, GOTRecipe.QARTH, GOTBlocks.tableQarth);
 		}
 	}
 
 	public static class Qohor extends GOTContainerCraftingTable {
 		public Qohor(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.qohor, GOTBlocks.tableQohor);
+			super(inv, world, i, j, k, GOTRecipe.QOHOR, GOTBlocks.tableQohor);
 		}
 	}
 
 	public static class Reach extends GOTContainerCraftingTable {
 		public Reach(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.reach, GOTBlocks.tableReach);
+			super(inv, world, i, j, k, GOTRecipe.REACH, GOTBlocks.tableReach);
 		}
 	}
 
 	public static class Riverlands extends GOTContainerCraftingTable {
 		public Riverlands(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.riverlands, GOTBlocks.tableRiverlands);
+			super(inv, world, i, j, k, GOTRecipe.RIVERLANDS, GOTBlocks.tableRiverlands);
 		}
 	}
 
 	public static class Sothoryos extends GOTContainerCraftingTable {
 		public Sothoryos(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.sothoryos, GOTBlocks.tableSothoryos);
+			super(inv, world, i, j, k, GOTRecipe.SOTHORYOS, GOTBlocks.tableSothoryos);
 		}
 	}
 
 	public static class Stormlands extends GOTContainerCraftingTable {
 		public Stormlands(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.stormlands, GOTBlocks.tableStormlands);
+			super(inv, world, i, j, k, GOTRecipe.STORMLANDS, GOTBlocks.tableStormlands);
 		}
 	}
 
 	public static class Summer extends GOTContainerCraftingTable {
 		public Summer(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.summer, GOTBlocks.tableSummer);
+			super(inv, world, i, j, k, GOTRecipe.SUMMER, GOTBlocks.tableSummer);
 		}
 	}
 
 	public static class Tyrosh extends GOTContainerCraftingTable {
 		public Tyrosh(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.tyrosh, GOTBlocks.tableTyrosh);
+			super(inv, world, i, j, k, GOTRecipe.TYROSH, GOTBlocks.tableTyrosh);
 		}
 	}
 
 	public static class Volantis extends GOTContainerCraftingTable {
 		public Volantis(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.volantis, GOTBlocks.tableVolantis);
+			super(inv, world, i, j, k, GOTRecipe.VOLANTIS, GOTBlocks.tableVolantis);
 		}
 	}
 
 	public static class Westerlands extends GOTContainerCraftingTable {
 		public Westerlands(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.westerlands, GOTBlocks.tableWesterlands);
+			super(inv, world, i, j, k, GOTRecipe.WESTERLANDS, GOTBlocks.tableWesterlands);
 		}
 	}
 
 	public static class Wildling extends GOTContainerCraftingTable {
 		public Wildling(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.wildling, GOTBlocks.tableWildling);
+			super(inv, world, i, j, k, GOTRecipe.WILDLING, GOTBlocks.tableWildling);
 		}
 	}
 
 	public static class YiTi extends GOTContainerCraftingTable {
 		public YiTi(InventoryPlayer inv, World world, int i, int j, int k) {
-			super(inv, world, i, j, k, GOTRecipe.yiti, GOTBlocks.tableYiTi);
+			super(inv, world, i, j, k, GOTRecipe.YITI, GOTBlocks.tableYiTi);
 		}
 	}
 

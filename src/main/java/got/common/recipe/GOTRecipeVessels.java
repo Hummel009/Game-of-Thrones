@@ -27,7 +27,7 @@ public class GOTRecipeVessels {
 		addRecipes(result, null, ingredients);
 	}
 
-	public static List<IRecipe> generateRecipes(ItemStack result, Item drinkBase, Object[] ingredients) {
+	private static List<IRecipe> generateRecipes(ItemStack result, Item drinkBase, Object[] ingredients) {
 		List<IRecipe> recipes = new ArrayList<>();
 		for (GOTItemMug.Vessel v : GOTItemMug.Vessel.values()) {
 			Collection<Object> vIngredients = new ArrayList<>();
@@ -45,5 +45,4 @@ public class GOTRecipeVessels {
 		}
 		return recipes;
 	}
-
 }

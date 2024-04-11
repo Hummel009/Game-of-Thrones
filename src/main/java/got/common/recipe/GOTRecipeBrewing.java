@@ -12,17 +12,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTRecipeBrewing {
-	public static Collection<ShapelessOreRecipe> recipes = new ArrayList<>();
-	public static int BARREL_CAPACITY = 16;
+	public static final Collection<ShapelessOreRecipe> RECIPES = new ArrayList<>();
+	public static final int BARREL_CAPACITY = 16;
 
 	private GOTRecipeBrewing() {
 	}
 
-	public static void addBrewingRecipe(ItemStack result, Object... ingredients) {
+	private static void addBrewingRecipe(ItemStack result, Object... ingredients) {
 		if (ingredients.length != 6) {
 			throw new IllegalArgumentException("Brewing recipes must contain exactly 6 items");
 		}
-		recipes.add(new ShapelessOreRecipe(result, ingredients));
+		RECIPES.add(new ShapelessOreRecipe(result, ingredients));
 	}
 
 	public static ItemStack findMatchingRecipe(IInventory barrel) {
@@ -34,7 +34,7 @@ public class GOTRecipeBrewing {
 			return null;
 		}
 		block1:
-		for (ShapelessOreRecipe recipe : recipes) {
+		for (ShapelessOreRecipe recipe : RECIPES) {
 			Collection<Object> ingredients = new ArrayList<>(recipe.getInput());
 			for (int i = 0; i < 6; ++i) {
 				ItemStack itemstack = barrel.getStackInSlot(i);

@@ -1,6 +1,5 @@
 package got.common.recipe;
 
-import got.common.database.GOTMaterial;
 import got.common.item.other.GOTItemDye;
 import got.common.item.other.GOTItemRobes;
 import net.minecraft.block.BlockColored;
@@ -15,11 +14,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class GOTRecipeRobesDye implements IRecipe {
-	public ItemArmor.ArmorMaterial robeMaterial;
-
-	public GOTRecipeRobesDye() {
-		this(GOTMaterial.ROBES);
-	}
+	private final ItemArmor.ArmorMaterial robeMaterial;
 
 	public GOTRecipeRobesDye(ItemArmor.ArmorMaterial material) {
 		robeMaterial = material;

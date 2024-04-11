@@ -18,8 +18,8 @@ import java.util.Collection;
 import java.util.List;
 
 public class GOTRecipePouch implements IRecipe {
-	public int overrideColor;
-	public boolean hasOverrideColor;
+	private final int overrideColor;
+	private final boolean hasOverrideColor;
 
 	public GOTRecipePouch() {
 		this(-1, false);
@@ -29,12 +29,12 @@ public class GOTRecipePouch implements IRecipe {
 		this(f.getFactionColor(), true);
 	}
 
-	public GOTRecipePouch(int color, boolean flag) {
+	private GOTRecipePouch(int color, boolean flag) {
 		overrideColor = color;
 		hasOverrideColor = flag;
 	}
 
-	public int getCombinedMeta(Iterable<ItemStack> pouches) {
+	private int getCombinedMeta(Iterable<ItemStack> pouches) {
 		int size = 0;
 		for (ItemStack pouch : pouches) {
 			size += pouch.getItemDamage() + 1;
