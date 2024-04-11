@@ -3,9 +3,9 @@ package got.common.util;
 import got.client.model.GOTModelDragonAnimaton;
 
 public class GOTTickFloat {
+	private boolean clamp;
 	private float min;
 	private float max;
-	private boolean clamp;
 	private float current;
 	private float previous;
 
@@ -47,10 +47,6 @@ public class GOTTickFloat {
 
 	public void setMin(float min) {
 		this.min = min;
-	}
-
-	public float getPrevious() {
-		return previous;
 	}
 
 	public void set(float value) {

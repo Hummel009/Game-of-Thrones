@@ -51,7 +51,7 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		int maze2R = 25;
 		int maze2W = maze2R * 2 + 1;
 		GOTMazeGenerator maze2 = new GOTMazeGenerator(maze2W, maze2W);
-		maze2.setStart(maze1End[0] + maze2.xSize - maze1.xSize, maze1End[1] + maze2.zSize - maze1.zSize);
+		maze2.setStart(maze1End[0] + maze2.getSizeX() - maze1.getSizeX(), maze1End[1] + maze2.getSizeZ() - maze1.getSizeZ());
 		maze2.generate(random);
 		maze2.selectOuterEndpoint(random);
 		int maze3R = 13;
@@ -174,12 +174,12 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		}
 		setAir(world, stepX, stepY + 3, stepZ);
 		for (int j16 = topHeight - 18 + 2; j16 < topHeight - 13; ++j16) {
-			setAir(world, maze1End[0] - (maze1.xSize - 1) / 2, j16, maze1End[1] - (maze1.zSize - 1) / 2);
+			setAir(world, maze1End[0] - (maze1.getSizeX() - 1) / 2, j16, maze1End[1] - (maze1.getSizeZ() - 1) / 2);
 		}
 		generateMaze(world, random, 0, topHeight - 18, 0, maze2, 2, 1);
 		int[] maze2End = maze2.getEnd();
 		for (int j17 = topHeight - 22; j17 < topHeight - 18; ++j17) {
-			setAir(world, maze2End[0] - (maze2.xSize - 1) / 2, j17, maze2End[1] - (maze2.zSize - 1) / 2);
+			setAir(world, maze2End[0] - (maze2.getSizeX() - 1) / 2, j17, maze2End[1] - (maze2.getSizeZ() - 1) / 2);
 		}
 		int chamberRMin = 22;
 		int chamberRMax = 26;
@@ -217,8 +217,8 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 		}
 		generateMaze(world, random, 0, topHeight - 35, 0, maze3, 4, 3);
 		int[] maze3End = maze3.getEnd();
-		int maze3EndX = maze3End[0] - (maze3.xSize - 1) / 2;
-		int maze3EndZ = maze3End[1] - (maze3.zSize - 1) / 2;
+		int maze3EndX = maze3End[0] - (maze3.getSizeX() - 1) / 2;
+		int maze3EndZ = maze3End[1] - (maze3.getSizeZ() - 1) / 2;
 		maze3EndX *= 3;
 		maze3EndZ *= 3;
 		for (int step = 0; step <= 9; ++step) {
@@ -437,14 +437,14 @@ public class GOTStructureGhiscarPyramid extends GOTStructureBase {
 	}
 
 	public void generateMaze(World world, Random random, int i, int j, int k, GOTMazeGenerator maze, int height, int scale) {
-		int xr = (maze.xSize - 1) / 2;
-		int zr = (maze.zSize - 1) / 2;
+		int xr = (maze.getSizeX() - 1) / 2;
+		int zr = (maze.getSizeZ() - 1) / 2;
 		i -= xr;
 		k -= zr;
 		int scaleR = (scale - 1) / 2;
 		for (int pass = 0; pass <= 1; ++pass) {
-			for (int i1 = 0; i1 < maze.xSize; ++i1) {
-				for (int k1 = 0; k1 < maze.zSize; ++k1) {
+			for (int i1 = 0; i1 < maze.getSizeX(); ++i1) {
+				for (int k1 = 0; k1 < maze.getSizeZ(); ++k1) {
 					if (pass == 0 && maze.isPath(i1, k1)) {
 						for (int i2 = 0; i2 < scale; ++i2) {
 							for (int k2 = 0; k2 < scale; ++k2) {

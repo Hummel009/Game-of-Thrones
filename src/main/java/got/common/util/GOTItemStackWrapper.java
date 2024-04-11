@@ -13,10 +13,6 @@ public class GOTItemStackWrapper {
 	private final int damage;
 	private final NBTTagCompound compound;
 
-	public GOTItemStackWrapper(ItemStack stack) {
-		this(stack, false);
-	}
-
 	public GOTItemStackWrapper(ItemStack stack, boolean isNBTSensitive) {
 		this.isNBTSensitive = isNBTSensitive;
 		item = stack.getItem();

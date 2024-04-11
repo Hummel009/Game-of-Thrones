@@ -13,8 +13,9 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class GOTVersionChecker {
-	private static final String versionURL = "https://raw.githubusercontent.com/Hummel009/Game-of-Thrones/master/version.txt";
-	public static boolean checkedUpdate;
+	private static final String VERSION_URL = "https://raw.githubusercontent.com/Hummel009/Game-of-Thrones/master/version.txt";
+
+	private static boolean checkedUpdate;
 
 	private GOTVersionChecker() {
 	}
@@ -27,7 +28,7 @@ public class GOTVersionChecker {
 				public void run() {
 					try {
 						String line;
-						URL url = new URL(versionURL);
+						URL url = new URL(VERSION_URL);
 						BufferedReader updateReader = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8));
 						StringBuilder updateVersion = new StringBuilder();
 						while ((line = updateReader.readLine()) != null) {
@@ -54,5 +55,14 @@ public class GOTVersionChecker {
 			checkThread.setDaemon(true);
 			checkThread.start();
 		}
+	}
+
+	@SuppressWarnings("unused")
+	public static boolean isCheckedUpdate() {
+		return checkedUpdate;
+	}
+
+	public static void setCheckedUpdate(boolean checkedUpdate) {
+		GOTVersionChecker.checkedUpdate = checkedUpdate;
 	}
 }

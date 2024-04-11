@@ -407,7 +407,7 @@ public class GOTAPI {
 	 * @apiNote Should be used at the FMLPostInitializationEvent or later.
 	 */
 	public static void disableGOTUpdateChecker() {
-		GOTVersionChecker.checkedUpdate = true;
+		GOTVersionChecker.setCheckedUpdate(true);
 	}
 
 	private static <T, E> void findAndInvokeMethod(Object[] args, Class<? super E> clazz, E instance, String[] methodNames, Class<?>... methodTypes) {

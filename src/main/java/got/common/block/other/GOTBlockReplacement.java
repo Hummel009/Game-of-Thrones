@@ -227,7 +227,7 @@ public class GOTBlockReplacement {
 						break;
 					}
 				}
-				GOTReflection.setFinalField(Blocks.class, null, newBlock, field);
+				GOTReflection.setFinalField(null, newBlock, field);
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 			}
@@ -244,7 +244,7 @@ public class GOTBlockReplacement {
 						break;
 					}
 				}
-				GOTReflection.setFinalField(Items.class, null, newItem, field);
+				GOTReflection.setFinalField(null, newItem, field);
 			} catch (Exception e) {
 				GOTReflection.logFailure(e);
 			}

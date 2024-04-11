@@ -6,12 +6,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GOTMazeGenerator {
-	public static short FLAG_PATH = 1;
-	public static short FLAG_EXCLUDE = 2;
-	public static short FLAG_DEADEND = 4;
-	public int xSize;
-	public int zSize;
+	private final int xSize;
+	private final int zSize;
+
 	private short[][] mazeFlags;
+
 	private int startX = -1;
 	private int startZ = -1;
 	private int endX = -1;
@@ -45,8 +44,8 @@ public class GOTMazeGenerator {
 			block1:
 			for (Dir dir : Dir.values()) {
 				for (int l = 1; l <= 2; ++l) {
-					int x = pos.xPos + dir.xDir * l;
-					int z = pos.zPos + dir.zDir * l;
+					int x = pos.getPosX() + dir.getDirX() * l;
+					int z = pos.getPosZ() + dir.getDirZ() * l;
 					if (x < 0 || x >= xSize || z < 0 || z >= zSize || isPath(x, z) || getFlag(x, z, (short) 2)) {
 						continue block1;
 					}
@@ -64,13 +63,13 @@ public class GOTMazeGenerator {
 				} else {
 					dir = validDirs.get(random.nextInt(validDirs.size()));
 				}
-				int x = pos.xPos;
-				int z = pos.zPos;
+				int x = pos.getPosX();
+				int z = pos.getPosZ();
 				if (getFlag(x, z, (short) 4)) {
 					setFlag(x, z, (short) 4, false);
 				}
 				for (int l = 0; l < 2; ++l) {
-					clear(x += dir.xDir, z += dir.zDir);
+					clear(x += dir.getDirX(), z += dir.getDirZ());
 				}
 				if (!getFlag(x, z, (short) 4)) {
 					setFlag(x, z, (short) 4, true);
@@ -120,18 +119,17 @@ public class GOTMazeGenerator {
 				continue;
 			}
 			MazePos pos = positions.get(random.nextInt(positions.size()));
-			endX = pos.xPos;
-			endZ = pos.zPos;
+			endX = pos.getPosX();
+			endZ = pos.getPosZ();
 			return;
 		} while (++wx <= xSize / 2 + 1 && ++wz <= zSize / 2 + 1);
 	}
 
 	private void setFlag(int x, int z, short flag, boolean val) {
+		short[] arrs = mazeFlags[x];
 		if (val) {
-			short[] arrs = mazeFlags[x];
 			arrs[z] = (short) (arrs[z] | flag);
 		} else {
-			short[] arrs = mazeFlags[x];
 			arrs[z] = (short) (arrs[z] & ~flag);
 		}
 	}
@@ -145,26 +143,49 @@ public class GOTMazeGenerator {
 		mazeFlags = new short[xSize][zSize];
 	}
 
+	public int getSizeZ() {
+		return zSize;
+	}
+
+	public int getSizeX() {
+		return xSize;
+	}
+
 	public enum Dir {
 		XNEG(-1, 0), XPOS(1, 0), ZNEG(0, -1), ZPOS(0, 1);
 
-		protected final int xDir;
-		protected final int zDir;
+		private final int xDir;
+		private final int zDir;
 
 		Dir(int x, int z) {
 			xDir = x;
 			zDir = z;
 		}
-	}
 
-	protected static class MazePos {
-		protected int xPos;
-		protected int zPos;
+		public int getDirX() {
+			return xDir;
+		}
 
-		protected MazePos(int x, int z) {
-			xPos = x;
-			zPos = z;
+		public int getDirZ() {
+			return zDir;
 		}
 	}
 
+	private static class MazePos {
+		private final int xPos;
+		private final int zPos;
+
+		private MazePos(int x, int z) {
+			xPos = x;
+			zPos = z;
+		}
+
+		public int getPosX() {
+			return xPos;
+		}
+
+		public int getPosZ() {
+			return zPos;
+		}
+	}
 }
