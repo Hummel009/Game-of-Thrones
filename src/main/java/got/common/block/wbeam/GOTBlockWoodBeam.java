@@ -74,6 +74,7 @@ public abstract class GOTBlockWoodBeam extends BlockRotatedPillar {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	protected String[] getWoodNames() {
 		return woodNames;
 	}

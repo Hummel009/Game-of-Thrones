@@ -60,6 +60,7 @@ public abstract class GOTBlockPlanksBase extends Block {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	protected String[] getPlankTypes() {
 		return plankTypes;
 	}

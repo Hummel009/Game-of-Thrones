@@ -6,6 +6,7 @@ import net.minecraft.util.StatCollector;
 public class GOTEnchantmentRangedKnockback extends GOTEnchantment {
 	private final int knockback;
 
+	@SuppressWarnings("unused")
 	public GOTEnchantmentRangedKnockback(String s, int i) {
 		super(s, GOTEnchantmentType.RANGED_LAUNCHER);
 		knockback = i;

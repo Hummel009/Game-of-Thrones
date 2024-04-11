@@ -50,6 +50,7 @@ public enum GOTShields {
 		isHidden = hidden;
 	}
 
+	@SuppressWarnings("EmptyMethod")
 	public static void preInit() {
 	}
 
@@ -111,6 +112,7 @@ public enum GOTShields {
 		return StatCollector.translateToLocal("got.shields." + name() + ".name");
 	}
 
+	@SuppressWarnings("unused")
 	public boolean isHidden() {
 		return isHidden;
 	}

@@ -189,7 +189,7 @@ public class GOTEnchantmentHelper {
 	}
 
 	public static int calcFireAspectForMelee(ItemStack itemstack) {
-		if (itemstack != null && GOTEnchantmentType.MELEE.canApply(itemstack, false)) {
+		if (itemstack != null && GOTEnchantmentType.MELEE.canApply(itemstack)) {
 			return calcFireAspect(itemstack);
 		}
 
@@ -483,7 +483,7 @@ public class GOTEnchantmentHelper {
 			EntityLivingBase attackerLiving = (EntityLivingBase) attacker;
 			if (attackerLiving == sourceEntity) {
 				ItemStack weapon = attackerLiving.getHeldItem();
-				if (weapon != null && GOTEnchantmentType.MELEE.canApply(weapon, false) && hasEnchant(weapon, ench)) {
+				if (weapon != null && GOTEnchantmentType.MELEE.canApply(weapon) && hasEnchant(weapon, ench)) {
 					return true;
 				}
 			}

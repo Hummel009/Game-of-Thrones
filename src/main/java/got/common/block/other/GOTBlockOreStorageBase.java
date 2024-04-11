@@ -71,6 +71,7 @@ public abstract class GOTBlockOreStorageBase extends Block {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public String[] getOreStorageNames() {
 		return oreStorageNames;
 	}

@@ -123,6 +123,7 @@ public abstract class GOTBlockSaplingBase extends GOTBlockFlower {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	protected String[] getSaplingNames() {
 		return saplingNames;
 	}

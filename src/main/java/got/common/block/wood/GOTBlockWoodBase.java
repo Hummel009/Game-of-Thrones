@@ -58,6 +58,7 @@ public abstract class GOTBlockWoodBase extends BlockLog {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	protected String[] getWoodNames() {
 		return woodNames;
 	}

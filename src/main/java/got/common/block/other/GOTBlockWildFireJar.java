@@ -74,6 +74,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 		setStepSound(soundTypeStone);
 	}
 
+	@SuppressWarnings("unused")
 	public static boolean isExplodeOnAdded() {
 		return explodeOnAdded;
 	}
@@ -82,6 +83,7 @@ public class GOTBlockWildFireJar extends BlockFalling {
 		GOTBlockWildFireJar.explodeOnAdded = explodeOnAdded;
 	}
 
+	@SuppressWarnings("unused")
 	public static int getRenderingStage() {
 		return renderingStage;
 	}

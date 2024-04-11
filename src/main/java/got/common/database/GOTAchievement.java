@@ -21,7 +21,7 @@ import java.awt.*;
 import java.util.List;
 import java.util.*;
 
-@SuppressWarnings({"PublicField", "WeakerAccess"})
+@SuppressWarnings({"PublicField", "WeakerAccess", "unused"})
 public class GOTAchievement {
 	public static final Set<GOTAchievement> CONTENT = new HashSet<>();
 
@@ -419,6 +419,7 @@ public class GOTAchievement {
 		return list;
 	}
 
+	@SuppressWarnings("UnusedAssignment")
 	public static void onInit() {
 		int genId = 1;
 		enterKnownWorld = new GOTAchievement(Category.GENERAL, genId++, GOTItems.gregorCleganeSword, "ENTER_GOT");
@@ -854,6 +855,7 @@ public class GOTAchievement {
 		return icon;
 	}
 
+	@SuppressWarnings("unused")
 	public String getName() {
 		return name;
 	}
@@ -867,10 +869,12 @@ public class GOTAchievement {
 		return this;
 	}
 
+	@SuppressWarnings("unused")
 	public boolean isSpecial() {
 		return isSpecial;
 	}
 
+	@SuppressWarnings("unused")
 	public GOTTitle getAchievementTitle() {
 		return achievementTitle;
 	}

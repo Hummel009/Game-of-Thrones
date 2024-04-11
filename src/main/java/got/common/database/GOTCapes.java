@@ -45,6 +45,7 @@ public enum GOTCapes {
 		alignmentFaction = faction;
 	}
 
+	@SuppressWarnings("EmptyMethod")
 	public static void preInit() {
 	}
 
@@ -88,6 +89,7 @@ public enum GOTCapes {
 		return StatCollector.translateToLocal("got.capes." + name() + ".name");
 	}
 
+	@SuppressWarnings("unused")
 	public boolean isHidden() {
 		return isHidden;
 	}

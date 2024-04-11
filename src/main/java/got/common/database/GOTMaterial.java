@@ -82,8 +82,7 @@ public class GOTMaterial {
 	public static final Item.ToolMaterial VALYRIAN_TOOL = EnumHelper.addToolMaterial("GOT_VALYRIAN_TOOL", 4, 2500, 9.0F, 5.0F, 8);
 	public static final Item.ToolMaterial ASSHAI_TOOL = EnumHelper.addToolMaterial("GOT_ASSHAI_TOOL", 2, 450, 6.0F, 2.0F, 14);
 
-	@SuppressWarnings("WeakerAccess")
-	public GOTMaterial() {
+	private GOTMaterial() {
 	}
 
 	public static Item.ToolMaterial getToolMaterialByName(String name) {

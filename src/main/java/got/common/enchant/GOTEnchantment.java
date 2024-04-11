@@ -96,7 +96,7 @@ public abstract class GOTEnchantment {
 
 	public boolean canApply(ItemStack itemstack, boolean considering) {
 		for (GOTEnchantmentType type : itemTypes) {
-			if (type.canApply(itemstack, considering)) {
+			if (type.canApply(itemstack)) {
 				return true;
 			}
 		}

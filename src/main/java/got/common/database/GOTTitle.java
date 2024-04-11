@@ -184,6 +184,7 @@ public class GOTTitle {
 		return titleID;
 	}
 
+	@SuppressWarnings("unused")
 	public boolean isHidden() {
 		return isHidden;
 	}

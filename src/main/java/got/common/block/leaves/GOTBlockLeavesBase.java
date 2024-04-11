@@ -160,6 +160,7 @@ public class GOTBlockLeavesBase extends BlockLeaves {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public String[] getLeafNames() {
 		return leafNames;
 	}

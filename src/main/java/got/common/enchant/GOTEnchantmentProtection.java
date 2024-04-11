@@ -19,6 +19,7 @@ public class GOTEnchantmentProtection extends GOTEnchantment {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public GOTEnchantmentProtection(String s, int level) {
 		this(s, GOTEnchantmentType.ARMOR, level);
 	}

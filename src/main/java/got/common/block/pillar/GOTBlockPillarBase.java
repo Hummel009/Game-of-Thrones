@@ -118,6 +118,7 @@ public abstract class GOTBlockPillarBase extends Block {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	protected String[] getPillarNames() {
 		return pillarNames;
 	}

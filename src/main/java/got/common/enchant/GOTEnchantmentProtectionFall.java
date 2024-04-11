@@ -6,6 +6,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtectionFall extends GOTEnchantmentProtectionSpecial {
+	@SuppressWarnings("unused")
 	public GOTEnchantmentProtectionFall(String s, int level) {
 		super(s, GOTEnchantmentType.ARMOR_FEET, level);
 	}
@@ -17,16 +18,19 @@ public class GOTEnchantmentProtectionFall extends GOTEnchantmentProtectionSpecia
 	}
 
 	@Override
+	@SuppressWarnings("unused")
 	public String getDescription(ItemStack itemstack) {
 		return StatCollector.translateToLocalFormatted("got.enchant.protectFall.desc", formatAdditiveInt(calcIntProtection()));
 	}
 
 	@Override
+	@SuppressWarnings("unused")
 	public boolean isCompatibleWithOtherProtection() {
 		return true;
 	}
 
 	@Override
+	@SuppressWarnings("unused")
 	public boolean protectsAgainst(DamageSource source) {
 		return source == DamageSource.fall;
 	}

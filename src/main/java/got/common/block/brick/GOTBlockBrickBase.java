@@ -59,6 +59,7 @@ public abstract class GOTBlockBrickBase extends Block {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	protected String[] getBrickNames() {
 		return brickNames;
 	}

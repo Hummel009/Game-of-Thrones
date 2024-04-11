@@ -5,6 +5,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 
 public class GOTEnchantmentProtectionFire extends GOTEnchantmentProtectionSpecial {
+	@SuppressWarnings("unused")
 	public GOTEnchantmentProtectionFire(String s, int level) {
 		super(s, level);
 	}

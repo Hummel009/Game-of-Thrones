@@ -103,6 +103,7 @@ public class GOTBlockBirdCage extends GOTBlockAnimalJar {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	protected String[] getCageTypes() {
 		return cageTypes;
 	}

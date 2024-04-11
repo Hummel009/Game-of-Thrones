@@ -195,6 +195,7 @@ public class GOTBlockPlaceableFood extends Block {
 		return this;
 	}
 
+	@SuppressWarnings("unused")
 	public Item getFoodItem() {
 		return foodItem;
 	}

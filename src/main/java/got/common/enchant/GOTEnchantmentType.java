@@ -9,7 +9,7 @@ import net.minecraft.item.*;
 public enum GOTEnchantmentType {
 	BREAKABLE, ARMOR, ARMOR_FEET, ARMOR_LEGS, ARMOR_BODY, ARMOR_HEAD, MELEE, TOOL, SHEARS, RANGED, RANGED_LAUNCHER, THROWING_AXE, FISHING;
 
-	public boolean canApply(ItemStack itemstack, boolean considering) {
+	public boolean canApply(ItemStack itemstack) {
 		Item item = itemstack.getItem();
 
 		if (this == BREAKABLE && item.isDamageable()) {
