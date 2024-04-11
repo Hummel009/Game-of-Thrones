@@ -146,10 +146,6 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 		return super.receiveClientEvent(i, j);
 	}
 
-	public void setCustomName(String s) {
-		customName = s;
-	}
-
 	@Override
 	public void setInventorySlotContents(int i, ItemStack itemstack) {
 		chestContents[i] = itemstack;
@@ -229,5 +225,9 @@ public class GOTTileEntityChest extends TileEntity implements IInventory {
 	@SuppressWarnings("unused")
 	public String getCustomName() {
 		return customName;
+	}
+
+	public void setCustomName(String s) {
+		customName = s;
 	}
 }

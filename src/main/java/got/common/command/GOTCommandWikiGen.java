@@ -12,6 +12,10 @@ import java.util.List;
 public class GOTCommandWikiGen extends CommandBase {
 	private static String type = "null";
 
+	public static String getType() {
+		return type;
+	}
+
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
@@ -42,9 +46,5 @@ public class GOTCommandWikiGen extends CommandBase {
 			func_152373_a(sender, this, "Database \"" + args[0] + "\" is prepared.");
 			GOTWikiGen.generate(world, (EntityPlayer) sender);
 		}
-	}
-
-	public static String getType() {
-		return type;
 	}
 }

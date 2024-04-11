@@ -16,7 +16,6 @@ import got.common.database.GOTItems;
 import got.common.database.GOTMaterial;
 import got.common.item.other.GOTItemBanner;
 import got.common.item.other.GOTItemBerry;
-import got.common.item.other.GOTItemBone;
 import got.common.item.other.GOTItemRobes;
 import got.common.util.GOTEnumDyeColor;
 import net.minecraft.block.Block;
@@ -1866,7 +1865,7 @@ public class GOTRecipe {
 		OreDictionary.registerOre("stickWood", GOTItems.blackrootStick);
 		for (Object obj : Item.itemRegistry) {
 			Item item = (Item) obj;
-			if (item == Items.bone || item instanceof GOTItemBone) {
+			if (item == Items.bone) {
 				OreDictionary.registerOre("bone", item);
 			}
 			if (!(item instanceof GOTItemBerry)) {
