@@ -5,6 +5,7 @@ import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.util.StatCollector;
 
+@SuppressWarnings("WeakerAccess")
 public abstract class GOTGuiMenuBase extends GOTGuiMenuWBBase {
 	protected static final RenderItem RENDER_ITEM = new RenderItem();
 	protected int xSize = 200;

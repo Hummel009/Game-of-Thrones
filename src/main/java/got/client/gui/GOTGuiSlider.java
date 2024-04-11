@@ -101,6 +101,7 @@ public class GOTGuiSlider extends GuiButton {
 		valueOnly = true;
 	}
 
+	@SuppressWarnings("unused")
 	public String getOverrideStateString() {
 		return overrideStateString;
 	}
@@ -109,6 +110,7 @@ public class GOTGuiSlider extends GuiButton {
 		overrideStateString = s;
 	}
 
+	@SuppressWarnings("unused")
 	public int getNumberDigits() {
 		return numberDigits;
 	}

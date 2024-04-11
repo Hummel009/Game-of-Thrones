@@ -104,6 +104,7 @@ public class GOTGuiMiniquestTracker extends Gui {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public GOTMiniQuest getTrackedQuest() {
 		return trackedQuest;
 	}

@@ -74,6 +74,7 @@ public class GOTGuiHandler {
 
 	private int descScrollIndex;
 
+	@SuppressWarnings("unused")
 	public GOTGuiHandler() {
 		descScrollIndex = -1;
 		FMLCommonHandler.instance().bus().register(this);
@@ -183,7 +184,7 @@ public class GOTGuiHandler {
 				if (dwheel != 0) {
 					int scroll = Integer.signum(dwheel);
 					descScrollIndex -= scroll;
-					descScrollIndex = MathHelper.clamp_int(descScrollIndex, 0, GOTInfo.DESCRIPTION.length - 1);
+					descScrollIndex = MathHelper.clamp_int(descScrollIndex, 0, 0);
 					meta.description = GOTInfo.concatenateDescription(descScrollIndex);
 				}
 			}

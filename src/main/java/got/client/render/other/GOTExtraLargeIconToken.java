@@ -3,7 +3,7 @@ package got.client.render.other;
 import net.minecraft.util.IIcon;
 
 class GOTExtraLargeIconToken {
-	private String name;
+	private final String name;
 	private IIcon icon;
 
 	GOTExtraLargeIconToken(String s) {
@@ -12,10 +12,6 @@ class GOTExtraLargeIconToken {
 
 	public String getName() {
 		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public IIcon getIcon() {

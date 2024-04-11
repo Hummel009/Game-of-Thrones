@@ -139,6 +139,7 @@ public class GOTRenderDragon extends RenderLiving {
 		return -1;
 	}
 
+	@SuppressWarnings("unused")
 	public GOTModelDragon getModel() {
 		return model;
 	}

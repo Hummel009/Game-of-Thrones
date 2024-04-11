@@ -35,6 +35,7 @@ public class GOTModelPartyHat extends GOTModelBiped {
 		GL11.glPopMatrix();
 	}
 
+	@SuppressWarnings("unused")
 	public ItemStack getHatItem() {
 		return hatItem;
 	}

@@ -57,6 +57,7 @@ public class GOTGuiTitles extends GOTGuiMenuWBBase {
 	}
 
 	@Override
+	@SuppressWarnings("NonConstantStringShouldBeStringBuffer")
 	public void drawScreen(int i, int j, float f) {
 		drawDefaultBackground();
 		GL11.glColor4f(1.0f, 1.0f, 1.0f, 1.0f);

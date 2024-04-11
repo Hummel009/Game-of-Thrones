@@ -50,7 +50,10 @@ public class GOTTextures implements IResourceManagerReloadListener {
 	private static final int NEW_WATER_WIDTH = 64;
 	private static final int NEW_WATER_HEIGHT = 8;
 
+	@SuppressWarnings("PublicField")
 	public static ResourceLocation mapTexture;
+
+	@SuppressWarnings("PublicField")
 	public static ResourceLocation sepiaMapTexture;
 
 	public static int computeAverageFactionPageColor(ResourceLocation texture, int u0, int v0, int u1, int v1) {

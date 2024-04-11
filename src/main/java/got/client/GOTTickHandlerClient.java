@@ -97,12 +97,22 @@ public class GOTTickHandlerClient {
 	private static final float[] FROST_RGB_MIDDLE = {0.4F, 0.46F, 0.74F};
 	private static final float[] FROST_RGB_EDGE = {1.0F, 1.0F, 1.0F};
 
+	@SuppressWarnings("PublicField")
 	public static int clientTick;
+
+	@SuppressWarnings("PublicField")
 	public static float renderTick;
+
+	@SuppressWarnings("PublicField")
 	public static boolean anyWightsViewed;
+
+	@SuppressWarnings("PublicField")
 	public static boolean renderMenuPrompt;
 
+	@SuppressWarnings("PublicField")
 	public static GOTGuiMiniquestTracker miniquestTracker;
+
+	@SuppressWarnings("PublicField")
 	public static GOTGuiNotificationDisplay notificationDisplay;
 
 	private final GOTAmbience ambienceTicker;
@@ -140,6 +150,7 @@ public class GOTTickHandlerClient {
 
 	private boolean cancelItemHighlight;
 
+	@SuppressWarnings("unused")
 	public GOTTickHandlerClient() {
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -350,6 +361,7 @@ public class GOTTickHandlerClient {
 	}
 
 	@SubscribeEvent
+	@SuppressWarnings("NonConstantStringShouldBeStringBuffer")
 	public void getItemTooltip(ItemTooltipEvent event) {
 		ItemStack itemstack = event.itemStack;
 		List<String> tooltip = event.toolTip;
@@ -1455,6 +1467,7 @@ public class GOTTickHandlerClient {
 		newDate = 200;
 	}
 
+	@SuppressWarnings("unused")
 	public boolean isCancelItemHighlight() {
 		return cancelItemHighlight;
 	}

@@ -83,6 +83,7 @@ public class GOTGuiRendererMap {
 		prevMapY = mapY;
 	}
 
+	@SuppressWarnings("unused")
 	public boolean isSepia() {
 		return sepia;
 	}
@@ -91,6 +92,7 @@ public class GOTGuiRendererMap {
 		sepia = flag;
 	}
 
+	@SuppressWarnings("unused")
 	public double getPrevMapX() {
 		return prevMapX;
 	}
@@ -107,6 +109,7 @@ public class GOTGuiRendererMap {
 		this.mapX = mapX;
 	}
 
+	@SuppressWarnings("unused")
 	public double getPrevMapY() {
 		return prevMapY;
 	}
@@ -131,6 +134,7 @@ public class GOTGuiRendererMap {
 		this.zoomExp = zoomExp;
 	}
 
+	@SuppressWarnings("unused")
 	public float getZoomStable() {
 		return zoomStable;
 	}

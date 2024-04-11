@@ -538,6 +538,7 @@ public class GOTModelDragon extends ModelBase {
 		return wingForearm;
 	}
 
+	@SuppressWarnings("unused")
 	public float getPitch() {
 		return pitch;
 	}
@@ -546,6 +547,7 @@ public class GOTModelDragon extends ModelBase {
 		this.pitch = pitch;
 	}
 
+	@SuppressWarnings("unused")
 	public float getOffsetZ() {
 		return offsetZ;
 	}
@@ -554,6 +556,7 @@ public class GOTModelDragon extends ModelBase {
 		this.offsetZ = offsetZ;
 	}
 
+	@SuppressWarnings("unused")
 	public float getOffsetY() {
 		return offsetY;
 	}
@@ -562,6 +565,7 @@ public class GOTModelDragon extends ModelBase {
 		this.offsetY = offsetY;
 	}
 
+	@SuppressWarnings("unused")
 	public float getOffsetX() {
 		return offsetX;
 	}
@@ -570,6 +574,7 @@ public class GOTModelDragon extends ModelBase {
 		this.offsetX = offsetX;
 	}
 
+	@SuppressWarnings("unused")
 	public int getRenderPass() {
 		return renderPass;
 	}

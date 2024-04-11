@@ -51,6 +51,7 @@ public class GOTModelPlateHead extends GOTModelHuman {
 		GL11.glDisable(32826);
 	}
 
+	@SuppressWarnings("unused")
 	public Block getPlateItem() {
 		return plateBlock;
 	}

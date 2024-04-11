@@ -34,6 +34,7 @@ public class GOTGuiButtonAchievements extends GuiButton {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	public GOTAchievement.Category getButtonCategory() {
 		return buttonCategory;
 	}

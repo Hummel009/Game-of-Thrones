@@ -35,6 +35,7 @@ public class GOTModelRobes extends GOTModelHuman {
 		GL11.glColor3f(1.0f, 1.0f, 1.0f);
 	}
 
+	@SuppressWarnings("unused")
 	public ItemStack getRobeItem() {
 		return robeItem;
 	}

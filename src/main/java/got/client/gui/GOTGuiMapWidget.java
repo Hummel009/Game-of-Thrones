@@ -3,15 +3,15 @@ package got.client.gui;
 import net.minecraft.util.StatCollector;
 
 public class GOTGuiMapWidget {
+	private final String name;
 	private final int xPos;
 	private final int yPos;
-	private final String name;
 	private final int texUBase;
 	private final int texVBase;
+	private final int width;
 
 	private int texVIndex;
 
-	private int width;
 	private boolean visible = true;
 
 	public GOTGuiMapWidget(int x, int y, int w, String s, int u, int v) {
@@ -47,6 +47,7 @@ public class GOTGuiMapWidget {
 		return visible && mouseX >= getMapXPos(mapWidth) && mouseX < getMapXPos(mapWidth) + width && mouseY >= getMapYPos(mapHeight) && mouseY < getMapYPos(mapHeight) + width;
 	}
 
+	@SuppressWarnings("unused")
 	public int getTexVIndex() {
 		return texVIndex;
 	}
@@ -57,10 +58,6 @@ public class GOTGuiMapWidget {
 
 	public int getWidth() {
 		return width;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
 	}
 
 	public boolean isVisible() {

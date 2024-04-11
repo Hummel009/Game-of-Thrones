@@ -64,6 +64,7 @@ public class GOTModelLeatherHat extends GOTModelBiped {
 		GL11.glPopMatrix();
 	}
 
+	@SuppressWarnings("unused")
 	public ItemStack getHatItem() {
 		return hatItem;
 	}

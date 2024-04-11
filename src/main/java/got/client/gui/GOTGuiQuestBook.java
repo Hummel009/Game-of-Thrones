@@ -580,6 +580,7 @@ public class GOTGuiQuestBook extends GOTGuiScreenBase {
 			return StatCollector.translateToLocal("got.gui.redBook.page." + name);
 		}
 
+		@SuppressWarnings("unused")
 		public String getName() {
 			return name;
 		}

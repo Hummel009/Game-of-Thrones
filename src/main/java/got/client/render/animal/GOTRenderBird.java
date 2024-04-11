@@ -18,6 +18,7 @@ import java.util.Map;
 public class GOTRenderBird extends RenderLiving {
 	private static final Map<String, GOTRandomSkins> BIRD_TEXTURES = new HashMap<>();
 
+	@SuppressWarnings("PublicField")
 	public static boolean renderStolenItem = true;
 
 	public GOTRenderBird() {

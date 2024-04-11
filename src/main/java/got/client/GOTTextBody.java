@@ -47,10 +47,6 @@ public class GOTTextBody {
 		return lines;
 	}
 
-	public void render(FontRenderer fr, int x, int y) {
-		renderAndReturnScroll(fr, x, y, Integer.MAX_VALUE, Float.MAX_VALUE);
-	}
-
 	public float renderAndReturnScroll(FontRenderer fr, int x, int yTop, int yBottom, float scroll) {
 		int ySize = yBottom - yTop;
 		int numLines = getTotalLines(fr);
@@ -96,11 +92,7 @@ public class GOTTextBody {
 		list.get(i).setText(s);
 	}
 
-	public void set(int i, String s, int c) {
-		list.get(i).setText(s);
-		list.get(i).setColor(c);
-	}
-
+	@SuppressWarnings("unused")
 	public int getTextWidth() {
 		return textWidth;
 	}
@@ -114,8 +106,9 @@ public class GOTTextBody {
 	}
 
 	private static class TextColor {
+		private final int color;
+
 		private String text;
-		private int color;
 
 		private TextColor(String s, int c) {
 			text = s;
@@ -124,10 +117,6 @@ public class GOTTextBody {
 
 		private int getColor() {
 			return color;
-		}
-
-		private void setColor(int color) {
-			this.color = color;
 		}
 
 		private String getText() {

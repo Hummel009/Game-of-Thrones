@@ -22,6 +22,7 @@ import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("WeakerAccess")
 public class GOTKeyHandler {
 	public static final KeyBinding KEY_BINDING_MENU = new KeyBinding("Menu", 38, "Game of Thrones");
 	public static final KeyBinding KEY_BINDING_MAP_TELEPORT = new KeyBinding("Map Teleport", 50, "Game of Thrones");

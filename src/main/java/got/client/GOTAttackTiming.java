@@ -19,8 +19,13 @@ public class GOTAttackTiming {
 	private static final ResourceLocation METER_TEXTURE = new ResourceLocation("got:textures/gui/attackMeter.png");
 	private static final RenderItem ITEM_RENDERER = new RenderItem();
 
+	@SuppressWarnings("PublicField")
 	public static int attackTime;
+
+	@SuppressWarnings("PublicField")
 	public static int prevAttackTime;
+
+	@SuppressWarnings("PublicField")
 	public static int fullAttackTime;
 
 	private static ItemStack attackItem;

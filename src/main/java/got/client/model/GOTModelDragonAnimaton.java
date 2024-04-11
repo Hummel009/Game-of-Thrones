@@ -508,6 +508,7 @@ public class GOTModelDragonAnimaton {
 		return slerp(pitchHover, pitchMoving, speed);
 	}
 
+	@SuppressWarnings("unused")
 	public boolean isOnGround() {
 		return onGround;
 	}
@@ -527,6 +528,7 @@ public class GOTModelDragonAnimaton {
 		this.moveSpeed = moveSpeed;
 	}
 
+	@SuppressWarnings("unused")
 	public float getPartialTicks() {
 		return partialTicks;
 	}
@@ -535,6 +537,7 @@ public class GOTModelDragonAnimaton {
 		this.partialTicks = partialTicks;
 	}
 
+	@SuppressWarnings("unused")
 	public float getTicksExisted() {
 		return ticksExisted;
 	}

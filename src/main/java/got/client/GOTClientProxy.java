@@ -82,7 +82,10 @@ public class GOTClientProxy extends GOTCommonProxy {
 
 	private static final ResourceLocation CUSTOM_POTIONS_TEXTURE = new ResourceLocation("got:textures/gui/effects.png");
 
+	@SuppressWarnings("PublicField")
 	public static GOTMusic musicHandler;
+
+	@SuppressWarnings("PublicField")
 	public static GOTEffectRenderer customEffectRenderer;
 
 	private int beaconRenderID;

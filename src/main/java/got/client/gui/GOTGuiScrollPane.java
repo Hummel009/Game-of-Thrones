@@ -112,6 +112,7 @@ public class GOTGuiScrollPane {
 		this.scrollBarX0 = scrollBarX0;
 	}
 
+	@SuppressWarnings("unused")
 	public int getPaneX0() {
 		return paneX0;
 	}
@@ -146,9 +147,5 @@ public class GOTGuiScrollPane {
 
 	public boolean isMouseOver() {
 		return mouseOver;
-	}
-
-	public void setMouseOver(boolean mouseOver) {
-		this.mouseOver = mouseOver;
 	}
 }

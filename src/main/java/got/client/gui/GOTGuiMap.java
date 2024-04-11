@@ -59,8 +59,13 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 	private static final int FAC_SCROLL_WIDGET_WIDTH = 17;
 	private static final int ZOOM_TICKS_MAX = 6;
 
+	@SuppressWarnings("PublicField")
 	public static boolean showWP = true;
+
+	@SuppressWarnings("PublicField")
 	public static boolean showCWP = true;
+
+	@SuppressWarnings("PublicField")
 	public static boolean showHiddenSWP;
 
 	private static boolean fullscreen = true;
@@ -2191,6 +2196,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		zoom(-1);
 	}
 
+	@SuppressWarnings("unused")
 	public boolean isPlayerOp() {
 		return isPlayerOp;
 	}
@@ -2199,6 +2205,7 @@ public class GOTGuiMap extends GOTGuiMenuBase {
 		isPlayerOp = playerOp;
 	}
 
+	@SuppressWarnings("unused")
 	public boolean isEnableZoomOutWPFading() {
 		return enableZoomOutWPFading;
 	}

@@ -112,6 +112,7 @@ public class GOTRenderSignCarved extends TileEntitySpecialRenderer implements IR
 	}
 
 	@Override
+	@SuppressWarnings("NonConstantStringShouldBeStringBuffer")
 	public void renderTileEntityAt(TileEntity tileentity, double d, double d1, double d2, float f) {
 		GOTTileEntitySignCarved sign = (GOTTileEntitySignCarved) tileentity;
 		int meta = tileentity.getBlockMetadata();

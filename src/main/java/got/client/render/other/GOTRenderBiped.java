@@ -32,7 +32,6 @@ public abstract class GOTRenderBiped extends RenderBiped {
 	protected static final GOTModelBiped CAPE_MODEL = new GOTModelBiped();
 
 	private ModelBiped npcRenderPassModel;
-	private Minecraft mc;
 
 	protected GOTRenderBiped(ModelBiped model, float f) {
 		super(model, f);
@@ -256,13 +255,5 @@ public abstract class GOTRenderBiped extends RenderBiped {
 
 	public ModelBiped getNpcRenderPassModel() {
 		return npcRenderPassModel;
-	}
-
-	public Minecraft getMc() {
-		return mc;
-	}
-
-	public void setMc(Minecraft mc) {
-		this.mc = mc;
 	}
 }

@@ -24,6 +24,7 @@ public class GOTSwingHandler {
 	private static final Map<EntityLivingBase, SwingTime> ENTITY_SWINGS = new HashMap<>();
 	private static final float SWING_FACTOR = 0.8f;
 
+	@SuppressWarnings("unused")
 	public GOTSwingHandler() {
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);

@@ -30,6 +30,7 @@ public class GOTRenderPlayer {
 	private static final Minecraft MC = Minecraft.getMinecraft();
 	private static final RenderManager RENDER_MANAGER = RenderManager.instance;
 
+	@SuppressWarnings("unused")
 	public GOTRenderPlayer() {
 		FMLCommonHandler.instance().bus().register(this);
 		MinecraftForge.EVENT_BUS.register(this);
