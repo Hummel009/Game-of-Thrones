@@ -18,6 +18,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class GOTItemBarrel extends ItemBlock {
+	@SuppressWarnings("unused")
 	public GOTItemBarrel(Block block) {
 		super(block);
 	}

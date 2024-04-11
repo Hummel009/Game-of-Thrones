@@ -213,7 +213,6 @@ public class GOTFactionBounties {
 			playerID = id;
 		}
 
-		@SuppressWarnings("JavaExistingMethodCanBeUsed")
 		public String findUsername() {
 			if (username == null) {
 				GameProfile profile = MinecraftServer.getServer().func_152358_ax().func_152652_a(playerID);

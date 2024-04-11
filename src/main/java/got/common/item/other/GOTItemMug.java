@@ -492,6 +492,7 @@ public class GOTItemMug extends Item {
 		return this;
 	}
 
+	@SuppressWarnings("unused")
 	public int getDamageAmount() {
 		return damageAmount;
 	}
