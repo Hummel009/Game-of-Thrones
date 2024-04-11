@@ -5,8 +5,8 @@ import net.minecraft.item.ItemStack;
 import java.util.*;
 
 public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
-	public boolean isNBTSensitive;
-	public Map<GOTItemStackWrapper, V> innerMap = new HashMap<>();
+	private final boolean isNBTSensitive;
+	private final Map<GOTItemStackWrapper, V> innerMap = new HashMap<>();
 
 	public GOTItemStackMapImpl() {
 		this(false);
@@ -34,7 +34,11 @@ public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
 	@Override
 	public Set<Map.Entry<ItemStack, V>> entrySet() {
 		Set<Map.Entry<ItemStack, V>> entrySet = new HashSet<>();
-		innerMap.forEach((key, value) -> entrySet.add(new AbstractMap.SimpleEntry<>(key.toItemStack(), value)));
+		for (Entry<GOTItemStackWrapper, V> entry : innerMap.entrySet()) {
+			GOTItemStackWrapper key = entry.getKey();
+			V value = entry.getValue();
+			entrySet.add(new AbstractMap.SimpleEntry<>(key.toItemStack(), value));
+		}
 		return entrySet;
 	}
 
@@ -70,7 +74,11 @@ public class GOTItemStackMapImpl<V> implements GOTItemStackMap<V> {
 
 	@Override
 	public void putAll(Map<? extends ItemStack, ? extends V> map) {
-		map.forEach(this::put);
+		for (Entry<? extends ItemStack, ? extends V> entry : map.entrySet()) {
+			ItemStack key = entry.getKey();
+			V value = entry.getValue();
+			put(key, value);
+		}
 	}
 
 	@Override

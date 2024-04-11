@@ -4,7 +4,7 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.entity.other.GOTEntityCart;
-import got.common.util.GOTVec3d;
+import got.common.util.GOTVertex;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -34,7 +34,7 @@ public class GOTPacketCargocartControl implements IMessage {
 							sender.getServerForPlayer().getEntityTracker().func_151247_a(cart, GOTPacketHandler.NETWORK_WRAPPER.getPacketFrom(new GOTPacketCargocartUpdate(-1, cart.getEntityId())));
 							return null;
 						}
-						if (new GOTVec3d(cart.posX, cart.posY, cart.posZ).distanceTo(new GOTVec3d(sender.posX, sender.posY, sender.posZ)) < new GOTVec3d(closest.posX, closest.posY, closest.posZ).distanceTo(new GOTVec3d(sender.posX, sender.posY, sender.posZ))) {
+						if (new GOTVertex(cart.posX, cart.posY, cart.posZ).distanceTo(new GOTVertex(sender.posX, sender.posY, sender.posZ)) < new GOTVertex(closest.posX, closest.posY, closest.posZ).distanceTo(new GOTVertex(sender.posX, sender.posY, sender.posZ))) {
 							closest = cart;
 						}
 					}

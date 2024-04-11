@@ -11,13 +11,11 @@ public class GOTMazeGenerator {
 	public static short FLAG_DEADEND = 4;
 	public int xSize;
 	public int zSize;
-	public short[][] mazeFlags;
-	public int startX = -1;
-	public int startZ = -1;
-	public int endX = -1;
-	public int endZ = -1;
-	public float windyness = 0.3f;
-	public float branchingness = 0.2f;
+	private short[][] mazeFlags;
+	private int startX = -1;
+	private int startZ = -1;
+	private int endX = -1;
+	private int endZ = -1;
 
 	public GOTMazeGenerator(int x, int z) {
 		xSize = x;
@@ -40,6 +38,7 @@ public class GOTMazeGenerator {
 		positions.add(new MazePos(startX, startZ));
 		while (!positions.isEmpty()) {
 			int maxIndex = positions.size() - 1;
+			float branchingness = 0.2f;
 			int randPosIndex = MathHelper.getRandomIntegerInRange(random, (int) (maxIndex * (1.0f - branchingness)), maxIndex);
 			MazePos pos = positions.get(randPosIndex);
 			ArrayList<Dir> validDirs = new ArrayList<>();
@@ -59,6 +58,7 @@ public class GOTMazeGenerator {
 				lastDir = null;
 			} else {
 				Dir dir;
+				float windyness = 0.3f;
 				if (lastDir != null && validDirs.contains(lastDir) && random.nextFloat() >= windyness) {
 					dir = lastDir;
 				} else {
@@ -85,7 +85,7 @@ public class GOTMazeGenerator {
 		return new int[]{endX, endZ};
 	}
 
-	public boolean getFlag(int x, int z, short flag) {
+	private boolean getFlag(int x, int z, short flag) {
 		return (mazeFlags[x][z] & flag) == flag;
 	}
 
@@ -106,8 +106,7 @@ public class GOTMazeGenerator {
 			ArrayList<MazePos> positions = new ArrayList<>();
 			for (int x = 0; x < xSize; ++x) {
 				for (int z = 0; z < zSize; ++z) {
-					boolean outer;
-					outer = x == wx || x == xSize - 1 - wx || z == wz || z == zSize - 1 - wz;
+					boolean outer = x == wx || x == xSize - 1 - wx || z == wz || z == zSize - 1 - wz;
 					if (outer && isPath(x, z)) {
 						int xHalf = x / (xSize / 2);
 						int zHalf = z / (zSize / 2);
@@ -127,7 +126,7 @@ public class GOTMazeGenerator {
 		} while (++wx <= xSize / 2 + 1 && ++wz <= zSize / 2 + 1);
 	}
 
-	public void setFlag(int x, int z, short flag, boolean val) {
+	private void setFlag(int x, int z, short flag, boolean val) {
 		if (val) {
 			short[] arrs = mazeFlags[x];
 			arrs[z] = (short) (arrs[z] | flag);
@@ -142,15 +141,15 @@ public class GOTMazeGenerator {
 		startZ = z;
 	}
 
-	public void setupMaze() {
+	private void setupMaze() {
 		mazeFlags = new short[xSize][zSize];
 	}
 
 	public enum Dir {
 		XNEG(-1, 0), XPOS(1, 0), ZNEG(0, -1), ZPOS(0, 1);
 
-		public int xDir;
-		public int zDir;
+		protected final int xDir;
+		protected final int zDir;
 
 		Dir(int x, int z) {
 			xDir = x;
@@ -158,11 +157,11 @@ public class GOTMazeGenerator {
 		}
 	}
 
-	public static class MazePos {
-		public int xPos;
-		public int zPos;
+	protected static class MazePos {
+		protected int xPos;
+		protected int zPos;
 
-		public MazePos(int x, int z) {
+		protected MazePos(int x, int z) {
 			xPos = x;
 			zPos = z;
 		}

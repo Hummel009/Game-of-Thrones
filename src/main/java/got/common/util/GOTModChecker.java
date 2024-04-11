@@ -1,11 +1,14 @@
 package got.common.util;
 
 public class GOTModChecker {
-	public static int hasNEI = -1;
-	public static int isCauldron = -1;
-	public static int hasShaders = -1;
-	public static int hasLOTR = -1;
-	public static int hasWeather2 = -1;
+	private static int hasNEI = -1;
+	private static int isCauldron = -1;
+	private static int hasShaders = -1;
+	private static int hasLOTR = -1;
+	private static int hasWeather2 = -1;
+
+	private GOTModChecker() {
+	}
 
 	public static boolean hasLOTR() {
 		if (hasLOTR == -1) {

@@ -3,6 +3,9 @@ package got.common.util;
 import net.minecraft.util.MathHelper;
 
 public class GOTFunctions {
+	private GOTFunctions() {
+	}
+
 	public static int[] intRange(int min, int max) {
 		int[] indices = new int[max - min + 1];
 		for (int i = 0; i < indices.length; ++i) {

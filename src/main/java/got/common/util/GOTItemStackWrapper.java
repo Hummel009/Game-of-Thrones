@@ -7,11 +7,11 @@ import net.minecraft.nbt.NBTTagCompound;
 import java.util.Objects;
 
 public class GOTItemStackWrapper {
-	public boolean isNBTSensitive;
-	public ItemStack stack;
-	public Item item;
-	public int damage;
-	public NBTTagCompound compound;
+	private final boolean isNBTSensitive;
+	private final ItemStack stack;
+	private final Item item;
+	private final int damage;
+	private final NBTTagCompound compound;
 
 	public GOTItemStackWrapper(ItemStack stack) {
 		this(stack, false);
@@ -34,10 +34,7 @@ public class GOTItemStackWrapper {
 			return false;
 		}
 		GOTItemStackWrapper other = (GOTItemStackWrapper) obj;
-		if (!Objects.equals(item, other.item) || damage != other.damage || isNBTSensitive != other.isNBTSensitive) {
-			return false;
-		}
-		return !isNBTSensitive || Objects.equals(compound, other.compound);
+		return Objects.equals(item, other.item) && damage == other.damage && isNBTSensitive == other.isNBTSensitive && (!isNBTSensitive || Objects.equals(compound, other.compound));
 	}
 
 	@Override

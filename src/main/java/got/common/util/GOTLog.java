@@ -9,6 +9,9 @@ import java.lang.reflect.Field;
 public class GOTLog {
 	public static Logger logger;
 
+	private GOTLog() {
+	}
+
 	public static void findLogger() {
 		try {
 			for (Field f : MinecraftServer.class.getDeclaredFields()) {

@@ -13,8 +13,11 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class GOTVersionChecker {
-	public static String versionURL = "https://raw.githubusercontent.com/Hummel009/Game-of-Thrones/master/version.txt";
+	private static final String versionURL = "https://raw.githubusercontent.com/Hummel009/Game-of-Thrones/master/version.txt";
 	public static boolean checkedUpdate;
+
+	private GOTVersionChecker() {
+	}
 
 	public static void checkForUpdates() {
 		if (!checkedUpdate) {

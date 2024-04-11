@@ -3,9 +3,9 @@ package got.common.util;
 import java.util.Arrays;
 
 public class CentredSquareArray<T> {
-	public int radius;
-	public int width;
-	public Object[] array;
+	private final Object[] array;
+	private final int radius;
+	private final int width;
 
 	public CentredSquareArray(int r) {
 		radius = r;
@@ -22,12 +22,20 @@ public class CentredSquareArray<T> {
 		return (T) array[index];
 	}
 
-	public int getIndex(int x, int y) {
+	private int getIndex(int x, int y) {
 		return (y + radius) * width + x + radius;
 	}
 
 	public void set(int x, int y, T val) {
 		int index = getIndex(x, y);
 		array[index] = val;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getRadius() {
+		return radius;
 	}
 }

@@ -8,11 +8,8 @@ import net.minecraft.world.World;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 public class GOTCommandDatabase extends CommandBase {
-	private final Random rand = new Random();
-
 	@Override
 	public List<String> addTabCompletionOptions(ICommandSender sender, String[] args) {
 		if (args.length == 1) {
@@ -41,7 +38,7 @@ public class GOTCommandDatabase extends CommandBase {
 		} else {
 			DatabaseGenerator.setDisplay(args[0]);
 			func_152373_a(sender, this, "Database \"" + args[0] + "\" is prepared.");
-			DatabaseGenerator.generate(world, (EntityPlayer) sender, rand);
+			DatabaseGenerator.generate(world, (EntityPlayer) sender);
 		}
 	}
 }

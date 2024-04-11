@@ -3,8 +3,6 @@ package got.common.util;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.common.asm.transformers.deobf.FMLDeobfuscatingRemapper;
 import cpw.mods.fml.relauncher.ReflectionHelper;
-import cpw.mods.fml.relauncher.ReflectionHelper.UnableToAccessFieldException;
-import cpw.mods.fml.relauncher.ReflectionHelper.UnableToFindFieldException;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockPistonBase;
@@ -15,11 +13,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.projectile.EntityFishHook;
-import net.minecraft.event.HoverEvent.Action;
+import net.minecraft.event.HoverEvent;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.AnimalChest;
 import net.minecraft.item.Item;
-import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemSword;
 import net.minecraft.potion.Potion;
 import net.minecraft.server.MinecraftServer;
@@ -35,6 +32,9 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 public class GOTReflection {
+	private GOTReflection() {
+	}
+
 	public static boolean canPistonPushBlock(Block block, World world, int i, int j, int k, boolean flag) {
 		try {
 			Method method = getPrivateMethod(BlockPistonBase.class, null, new Class[]{Block.class, World.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Boolean.TYPE}, "canPushBlock", "func_150080_a");
@@ -56,17 +56,16 @@ public class GOTReflection {
 	}
 
 	public static float getDamageAmount(Item item) {
-		float f = 0.0f;
 		try {
 			Field privateField = getPotentiallyObfuscatedPrivateValue(ItemSword.class, "field_150934_a");
 			if (privateField != null) {
 				privateField.setAccessible(true);
-				f = (float) privateField.get(item);
+				return (float) privateField.get(item);
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
-		return f;
+		return 0.0f;
 	}
 
 	public static int getFishHookBobTime(EntityFishHook fishHook) {
@@ -105,9 +104,9 @@ public class GOTReflection {
 		}
 	}
 
-	public static Map<String, Action> getHoverEventMappings() {
+	public static Map<String, HoverEvent.Action> getHoverEventMappings() {
 		try {
-			return ObfuscationReflectionHelper.getPrivateValue(Action.class, null, "nameMapping", "field_150690_d");
+			return ObfuscationReflectionHelper.getPrivateValue(HoverEvent.Action.class, null, "nameMapping", "field_150690_d");
 		} catch (Exception e) {
 			logFailure(e);
 			return Collections.emptyMap();
@@ -115,37 +114,36 @@ public class GOTReflection {
 	}
 
 	public static Block getOreBlock(WorldGenMinable ore) {
-		Block b = null;
 		try {
 			Field privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "field_150519_a");
 			if (privateField != null) {
 				privateField.setAccessible(true);
-				b = (Block) privateField.get(ore);
+				return (Block) privateField.get(ore);
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
-		return b;
+		return null;
 	}
 
 	public static int getOreMeta(WorldGenMinable ore) {
-		int i = 0;
 		try {
 			Field privateField = getPotentiallyObfuscatedPrivateValue(WorldGenMinable.class, "mineableBlockMeta");
 			if (privateField != null) {
 				privateField.setAccessible(true);
-				i = (int) privateField.get(ore);
+				return (int) privateField.get(ore);
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
-		return i;
+		return 0;
 	}
 
-	public static <T, E> T getPotentiallyObfuscatedPrivateValue(Class<? super E> classToAccess, String fieldName) {
+	private static <T, E> T getPotentiallyObfuscatedPrivateValue(Class<? super E> classToAccess, String fieldName) {
 		try {
 			return ReflectionHelper.getPrivateValue(classToAccess, null, ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), fieldName));
-		} catch (UnableToFindFieldException | UnableToAccessFieldException | NullPointerException e) {
+		} catch (ReflectionHelper.UnableToFindFieldException | ReflectionHelper.UnableToAccessFieldException |
+		         NullPointerException e) {
 			try {
 				return (T) classToAccess.getDeclaredField(fieldName);
 			} catch (NoSuchFieldException | SecurityException e1) {
@@ -176,18 +174,17 @@ public class GOTReflection {
 		}
 	}
 
-	public static ToolMaterial getToolMaterial(Item item) {
-		ToolMaterial tm = null;
+	public static Item.ToolMaterial getToolMaterial(Item item) {
 		try {
 			Field privateField = getPotentiallyObfuscatedPrivateValue(ItemSword.class, "field_150933_b");
 			if (privateField != null) {
 				privateField.setAccessible(true);
-				tm = (ToolMaterial) privateField.get(item);
+				return (Item.ToolMaterial) privateField.get(item);
 			}
 		} catch (SecurityException | IllegalArgumentException | IllegalAccessException e2) {
 			e2.printStackTrace();
 		}
-		return tm;
+		return null;
 	}
 
 	public static boolean isBadEffect(Potion potion) {
@@ -235,7 +232,7 @@ public class GOTReflection {
 		return null;
 	}
 
-	public static String[] remapMethodNames(String className, String... methodNames) {
+	private static String[] remapMethodNames(String className, String... methodNames) {
 		String internalClassName = FMLDeobfuscatingRemapper.INSTANCE.unmap(className.replace('.', '/'));
 		String[] mappedNames = new String[methodNames.length];
 		int i = 0;
@@ -258,13 +255,15 @@ public class GOTReflection {
 				}
 			}
 			commandMap.values().removeAll(mapremoves);
-			ArrayList<ICommand> setremoves = new ArrayList<>();
+			Collection<ICommand> setremoves = new ArrayList<>();
 			for (ICommand obj : commandSet) {
 				if (obj.getClass() == commandClass) {
 					setremoves.add(obj);
 				}
 			}
-			setremoves.forEach(commandSet::remove);
+			for (ICommand setremove : setremoves) {
+				commandSet.remove(setremove);
+			}
 		} catch (Exception e) {
 			logFailure(e);
 		}
@@ -281,9 +280,10 @@ public class GOTReflection {
 	}
 
 	public static <T, E> void setFinalField(Class<? super T> classToAccess, T instance, E value, String... fieldNames) throws Exception {
+		String[] fieldNames1 = fieldNames;
 		try {
-			fieldNames = ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), fieldNames);
-			Field f = ReflectionHelper.findField(classToAccess, fieldNames);
+			fieldNames1 = ObfuscationReflectionHelper.remapFieldNames(classToAccess.getName(), fieldNames1);
+			Field f = ReflectionHelper.findField(classToAccess, fieldNames1);
 			setFinalField(classToAccess, instance, value, f);
 		} catch (Exception e) {
 			GOTLog.logger.log(Level.ERROR, "Unable to access static final field");

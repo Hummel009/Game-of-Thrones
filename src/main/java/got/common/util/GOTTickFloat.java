@@ -3,11 +3,11 @@ package got.common.util;
 import got.client.model.GOTModelDragonAnimaton;
 
 public class GOTTickFloat {
-	public float min;
-	public float max;
-	public boolean clamp;
-	public float current;
-	public float previous;
+	private float min;
+	private float max;
+	private boolean clamp;
+	private float current;
+	private float previous;
 
 	public GOTTickFloat() {
 		current = previous = 0;
