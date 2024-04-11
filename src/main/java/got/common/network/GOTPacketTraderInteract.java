@@ -38,6 +38,7 @@ public class GOTPacketTraderInteract implements IMessage {
 
 	public static class Handler implements IMessageHandler<GOTPacketTraderInteract, IMessage> {
 		@Override
+		@SuppressWarnings("CastConflictsWithInstanceof")
 		public IMessage onMessage(GOTPacketTraderInteract packet, MessageContext context) {
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			World world = entityplayer.worldObj;

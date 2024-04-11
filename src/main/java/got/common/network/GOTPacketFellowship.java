@@ -77,11 +77,10 @@ public class GOTPacketFellowship implements IMessage {
 		if (profile == null || StringUtils.isBlank(profile.getName())) {
 			String name = UsernameCache.getLastKnownUsername(player);
 			if (name != null) {
-				profile = new GameProfile(player, name);
-			} else {
-				profile = new GameProfile(player, "");
-				MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
+				return new GameProfile(player, name);
 			}
+			profile = new GameProfile(player, "");
+			MinecraftServer.getServer().func_147130_as().fillProfileProperties(profile, true);
 		}
 		return profile;
 	}

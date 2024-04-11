@@ -4,7 +4,6 @@ import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
 import cpw.mods.fml.common.network.simpleimpl.MessageContext;
 import got.common.GOTDimension;
-import got.common.GOTDimension.DimensionRegion;
 import got.common.GOTLevelData;
 import got.common.GOTPlayerData;
 import got.common.faction.GOTFaction;
@@ -35,12 +34,11 @@ public class GOTPacketClientInfo implements IMessage {
 
 	@Override
 	public void fromBytes(ByteBuf data) {
-		int changedRegionsSize;
 		byte factionID = data.readByte();
 		if (factionID >= 0) {
 			viewingFaction = GOTFaction.forID(factionID);
 		}
-		changedRegionsSize = data.readByte();
+		int changedRegionsSize = data.readByte();
 		if (changedRegionsSize > 0) {
 			changedRegionMap = new EnumMap<>(GOTDimension.DimensionRegion.class);
 			for (int l = 0; l < changedRegionsSize; ++l) {
@@ -79,7 +77,6 @@ public class GOTPacketClientInfo implements IMessage {
 	public static class Handler implements IMessageHandler<GOTPacketClientInfo, IMessage> {
 		@Override
 		public IMessage onMessage(GOTPacketClientInfo packet, MessageContext context) {
-			Map<DimensionRegion, GOTFaction> changedRegionMap;
 			EntityPlayerMP entityplayer = context.getServerHandler().playerEntity;
 			GOTPlayerData pd = GOTLevelData.getData(entityplayer);
 			if (packet.viewingFaction != null) {
@@ -93,9 +90,9 @@ public class GOTPacketClientInfo implements IMessage {
 					pd.distributeMQEvent(new GOTMiniQuestEvent.CycleAlignmentRegion());
 				}
 			}
-			changedRegionMap = packet.changedRegionMap;
+			Map<GOTDimension.DimensionRegion, GOTFaction> changedRegionMap = packet.changedRegionMap;
 			if (changedRegionMap != null) {
-				for (Map.Entry<DimensionRegion, GOTFaction> entry : changedRegionMap.entrySet()) {
+				for (Map.Entry<GOTDimension.DimensionRegion, GOTFaction> entry : changedRegionMap.entrySet()) {
 					GOTFaction fac = entry.getValue();
 					pd.setRegionLastViewedFaction(entry.getKey(), fac);
 				}

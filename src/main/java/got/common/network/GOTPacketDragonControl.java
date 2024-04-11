@@ -26,7 +26,8 @@ public class GOTPacketDragonControl implements IMessage {
 		fromInteger(buf.readUnsignedByte());
 	}
 
-	public void fromInteger(int value) {
+	public void fromInteger(int i) {
+		int value = i;
 		int index = 0;
 		while (value != 0) {
 			if (value % 2 != 0) {
